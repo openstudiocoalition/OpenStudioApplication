@@ -35,6 +35,7 @@
 #include "OSDocument.hpp"
 #include "OSAppBase.hpp"
 #include "MainRightColumnController.hpp"
+#include "ModelObjectItem.hpp"
 
 #include <openstudio/utilities/core/Assert.hpp>
 #include <openstudio/utilities/core/Compare.hpp>
@@ -49,6 +50,9 @@
 #include <QApplication>
 #include <QMenu>
 #include <QMessageBox>
+#include <QDrag>
+#include <QPixmap>
+#include <QDebug>
 
 #include <openstudio/model/HVACComponent.hpp>
 #include <openstudio/model/HVACComponent_Impl.hpp>
@@ -123,6 +127,8 @@
 #include <iterator>
 #include <utility>
 
+static constexpr bool EXTRA_DEBUG = false;
+
 using namespace openstudio::model;
 
 namespace openstudio {
@@ -140,14 +146,32 @@ bool hasSPM(model::Node& node) {
   return !(spms.empty());
 }
 
-// Begin move these
+bool isNotSplitterMixerNodesPred(const model::HVACComponent& modelObject) {
+  auto iddObjectType = modelObject.iddObjectType();
+
+  return !((iddObjectType == openstudio::IddObjectType::OS_Node)  //
+           || (iddObjectType == openstudio::IddObjectType::OS_AirLoopHVAC_ZoneSplitter)
+           || (iddObjectType == openstudio::IddObjectType::OS_AirLoopHVAC_ZoneMixer)
+           || (iddObjectType == openstudio::IddObjectType::OS_AirLoopHVAC_SupplyPlenum)
+           || (iddObjectType == openstudio::IddObjectType::OS_AirLoopHVAC_ReturnPlenum)
+           || (iddObjectType == openstudio::IddObjectType::OS_Connector_Mixer)
+           || (iddObjectType == openstudio::IddObjectType::OS_Connector_Splitter));
+}
 
 ModelObjectGraphicsItem::ModelObjectGraphicsItem(QGraphicsItem* parent)
-  : QGraphicsObject(parent), m_deleteAble(false), m_highlight(false), m_removeButtonItem(nullptr), m_enableHighlight(true) {
+  : QGraphicsObject(parent),
+    m_deleteAble(false),
+    m_highlight(false),
+    m_removeButtonItem(nullptr),
+    m_enableHighlight(true),
+    m_draggable(false),
+    m_mouseDown(false) {
   setAcceptHoverEvents(true);
   setAcceptDrops(false);
   setFlag(QGraphicsItem::ItemIsFocusable);
   setFlag(QGraphicsItem::ItemIsSelectable, false);
+  setFlag(QGraphicsItem::ItemIsMovable, false);
+
   if (QGraphicsScene* _scene = scene()) {
     auto* gridScene = static_cast<GridScene*>(_scene);
 
@@ -185,6 +209,14 @@ void ModelObjectGraphicsItem::setDeletable(bool deletable) {
   }
 }
 
+bool ModelObjectGraphicsItem::draggable() const {
+  return m_draggable;
+}
+
+void ModelObjectGraphicsItem::setDraggable(bool draggable) {
+  m_draggable = draggable;
+}
+
 void ModelObjectGraphicsItem::onRemoveButtonClicked() {
   if (m_modelObject) {
     emit removeModelObjectClicked(m_modelObject.get());
@@ -193,12 +225,18 @@ void ModelObjectGraphicsItem::onRemoveButtonClicked() {
 
 void ModelObjectGraphicsItem::hoverEnterEvent(QGraphicsSceneHoverEvent* event) {
   event->accept();
+  if constexpr (EXTRA_DEBUG) {
+    qDebug() << "hoverEnterEvent: scenePos=(" << event->scenePos() << "), widget =" << event->widget();
+  }
   m_highlight = true;
   update();
 }
 
 void ModelObjectGraphicsItem::hoverLeaveEvent(QGraphicsSceneHoverEvent* event) {
   event->accept();
+  if constexpr (EXTRA_DEBUG) {
+    qDebug() << "hoverLeaveEvent: scenePos=(" << event->scenePos() << "), widget =" << event->widget();
+  }
   m_highlight = false;
   update();
 }
@@ -228,6 +266,9 @@ void ModelObjectGraphicsItem::setModelObject(model::OptionalModelObject modelObj
   if (auto comp_ = m_modelObject->optionalCast<model::HVACComponent>()) {
     setAcceptDrops(true);
     setDeletable(comp_->isRemovable());
+    if (isNotSplitterMixerNodesPred(comp_.get())) {
+      setDraggable(true);
+    }
   }
 
   m_modelObject->getImpl<detail::IdfObject_Impl>()
@@ -250,12 +291,26 @@ model::OptionalModelObject ModelObjectGraphicsItem::modelObject() {
   return m_modelObject;
 }
 
-void ModelObjectGraphicsItem::dragEnterEvent(QGraphicsSceneDragDropEvent* /*event*/) {
-  m_highlight = true;
-  update();
+void ModelObjectGraphicsItem::dragEnterEvent(QGraphicsSceneDragDropEvent* event) {
+  if (event->mimeData()->hasFormat("text/plain")) {
+    event->acceptProposedAction();
+    if constexpr (EXTRA_DEBUG) {
+      const OSItemId osItemId(event->mimeData());
+      qDebug() << "dragEnterEvent: buttons=" << event->buttons() << ", dropAction=" << event->dropAction()
+               << ", proposedAction=" << event->proposedAction() << ", scenePos=(" << event->scenePos() << "), itemId=" << osItemId.itemId();
+    }
+    m_highlight = true;
+    update();
+  }
 }
 
-void ModelObjectGraphicsItem::dragLeaveEvent(QGraphicsSceneDragDropEvent* /*event*/) {
+void ModelObjectGraphicsItem::dragLeaveEvent([[maybe_unused]] QGraphicsSceneDragDropEvent* event) {
+  // Note: overridng this one is pretty pointless
+  if constexpr (EXTRA_DEBUG) {
+    const OSItemId osItemId(event->mimeData());
+    qDebug() << "dragLeaveEvent: buttons=" << event->buttons() << ", dropAction=" << event->dropAction()
+             << ", proposedAction=" << event->proposedAction() << ", scenePos=(" << event->scenePos() << "), itemId=" << osItemId.itemId();
+  }
   m_highlight = false;
   update();
 }
@@ -264,15 +319,21 @@ void ModelObjectGraphicsItem::dropEvent(QGraphicsSceneDragDropEvent* event) {
   event->accept();
 
   if (event->proposedAction() == Qt::CopyAction) {
+    const OSItemId osItemId(event->mimeData());
+    if constexpr (EXTRA_DEBUG) {
+      qDebug() << "dropEvent: buttons=" << event->buttons() << ", dropAction=" << event->dropAction()
+               << ", proposedAction=" << event->proposedAction() << ", scenePos=(" << event->scenePos() << "), itemId=" << osItemId.itemId()
+               << ", source=" << event->source();
+    }
     if (!m_modelObject) {
-      emit hvacComponentDropped(OSItemId{event->mimeData()});
+      emit hvacComponentDropped(osItemId);
     } else {
       try {
         Node node = m_modelObject->cast<Node>();
 
         event->setDropAction(Qt::CopyAction);
 
-        emit hvacComponentDropped(OSItemId{event->mimeData()}, node);
+        emit hvacComponentDropped(osItemId, node);
       } catch (std::bad_cast&) {
         return;
       }
@@ -280,7 +341,110 @@ void ModelObjectGraphicsItem::dropEvent(QGraphicsSceneDragDropEvent* event) {
   }
 }
 
-// End move these to
+void ModelObjectGraphicsItem::mouseReleaseEvent(QGraphicsSceneMouseEvent* event) {
+  //  if constexpr (EXTRA_DEBUG) {
+  //    qDebug() << "mouseReleaseEvent: button=" << event->button() << ", scenePos=(" << event->scenePos() << ")";
+  //    if (m_modelObject) {
+  //      qDebug() << QString::fromStdString(m_modelObject->nameString());
+  //    }
+  //  }
+  //
+  //  if (event->button() == Qt::LeftButton) {
+  //    if (m_mouseDown) {
+  //      event->accept();  // Don't pass this to other handlers
+  //      m_mouseDown = false;
+  //      QGraphicsItem* item = scene()->itemAt(mapToScene(event->pos()), QTransform());
+  //      if (item) {
+  //        if (auto* targetMOGraphicsItem = qgraphicsitem_cast<ModelObjectGraphicsItem*>(item)) {
+  //          if (targetMOGraphicsItem->m_modelObject) {
+  //            if constexpr (EXTRA_DEBUG) {
+  //              qDebug() << "targetMOGraphicsItem=" << QString::fromStdString(targetMOGraphicsItem->m_modelObject->nameString());
+  //            }
+  //            if (auto node_ = targetMOGraphicsItem->m_modelObject->optionalCast<Node>()) {
+  //              const OSItemId osItemId = modelObjectToItemId(m_modelObject.get(), false);
+  //              emit hvacComponentDropped(osItemId, node_.get());
+  //            }
+  //          }
+  //        }
+  //      }
+  //    } else {
+  //      QGraphicsObject::mouseReleaseEvent(event);
+  //    }
+  //  }
+  QGraphicsObject::mouseReleaseEvent(event);
+}
+
+void ModelObjectGraphicsItem::mousePressEvent(QGraphicsSceneMouseEvent* event) {
+  // event->accept();
+
+  if constexpr (EXTRA_DEBUG) {
+    qDebug() << "mousePressEvent: button=" << event->button() << ", pos=" << event->pos() << ", scenePos=" << event->scenePos();
+    if (m_modelObject) {
+      qDebug() << QString::fromStdString(m_modelObject->nameString());
+    }
+  }
+
+  if (event->button() == Qt::LeftButton) {
+    m_mouseDown = true;
+    m_dragStartPosition = event->pos();
+  }
+
+  QGraphicsObject::mousePressEvent(event);
+}
+
+void ModelObjectGraphicsItem::mouseMoveEvent(QGraphicsSceneMouseEvent* event) {
+
+  if constexpr (EXTRA_DEBUG) {
+    qDebug() << "mouseMoveEvent: button=" << event->button() << ", pos=" << event->pos() << ", scenePos=" << event->scenePos();
+    if (m_modelObject) {
+      qDebug() << QString::fromStdString(m_modelObject->nameString());
+    }
+  }
+
+  if (!m_draggable) {
+    return;
+  }
+
+  if (!m_mouseDown) {
+    return;
+  }
+
+  if (!(event->buttons() & Qt::LeftButton)) {
+    return;
+  }
+
+  if ((event->pos() - m_dragStartPosition).manhattanLength() < QApplication::startDragDistance()) {
+    return;
+  }
+
+  // start a drag
+  m_mouseDown = false;
+
+  const OSItemId itemId = modelObjectToItemId(m_modelObject.get(), false);
+  const QString mimeDataText = itemId.mimeDataText();
+
+  auto* mimeData = new QMimeData;
+  mimeData->setText(mimeDataText);
+
+  // auto* parent = this->parent();
+  // OS_ASSERT(parent);
+
+  // parent the QDrag on this parent instead of this, in case this item is deleted during drag
+  auto* drag = new QDrag(event->widget());
+  drag->setMimeData(mimeData);
+
+  QPixmap _pixmap(this->boundingRect().size().toSize());
+  _pixmap.fill(Qt::transparent);
+
+  //render(&_pixmap, QPoint(), QRegion(), RenderFlags(DrawChildren));
+
+  QPainter painter(&_pixmap);
+  paint(&painter, nullptr, nullptr);
+  drag->setPixmap(_pixmap);
+  drag->setHotSpot(event->pos().toPoint());
+
+  drag->exec(Qt::CopyAction);
+}
 
 GridItem::GridItem(QGraphicsItem* parent) : ModelObjectGraphicsItem(parent), m_hLength(1), m_vLength(1) {}
 
@@ -837,15 +1001,6 @@ std::vector<model::HVACComponent> centerHVACComponents(model::Splitter& splitter
   std::vector<model::HVACComponent> result;
 
   auto loop = splitter.loop();
-
-  auto isNotSplitterMixerNodesPred = [](const model::HVACComponent& modelObject) {
-    auto iddObjectType = modelObject.iddObjectType();
-
-    return !((iddObjectType == openstudio::IddObjectType::OS_AirLoopHVAC_ZoneSplitter)
-             || (iddObjectType == openstudio::IddObjectType::OS_AirLoopHVAC_ZoneMixer)
-             || (iddObjectType == openstudio::IddObjectType::OS_AirLoopHVAC_SupplyPlenum)
-             || (iddObjectType == openstudio::IddObjectType::OS_AirLoopHVAC_ReturnPlenum) || (iddObjectType == openstudio::IddObjectType::OS_Node));
-  };
 
   if (loop) {
     auto outletObjects = subsetCastVector<model::HVACComponent>(splitter.outletModelObjects());
@@ -2408,7 +2563,7 @@ OASystemItem::OASystemItem(model::AirLoopHVACOutdoorAirSystem& oaSystem, QGraphi
     m_oaNodeItem(new OAEndNodeItem(this)),
     m_reliefNodeItem(new OAEndNodeItem(this)) {
   m_oaMixerItem->setModelObject(oaSystem);
-
+  m_oaMixerItem->setDraggable(false);
   std::vector<model::ModelObject> oaComponents = oaSystem.oaComponents();
   std::vector<model::ModelObject> oaBranchComponents(oaComponents.begin() + 1, oaComponents.end());
 
