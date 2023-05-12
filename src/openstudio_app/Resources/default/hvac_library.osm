@@ -1,7 +1,7 @@
 
 OS:Version,
-  {b5b4d45f-bd82-4fc4-9aa3-983b08006f2b}, !- Handle
-  3.5.1;                                  !- Version Identifier
+  {b82e581f-adbc-4fe0-8b3d-a9500f610dab}, !- Handle
+  3.6.0;                                  !- Version Identifier
 
 ! Always OnOff Discrete Schedule Type Limits
 OS:ScheduleTypeLimits,
@@ -4359,11 +4359,18 @@ OS:GroundHeatExchanger:HorizontalTrench,
   2405,                                   !- Pipe Specific Heat {J/kg-K}
   30,                                     !- Soil Moisture Content Percent {percent}
   50,                                     !- Soil Moisture Content Percent at Saturation {percent}
-  KusudaAchenbach,                        !- Ground Temperature Model
-  15.5,                                   !- Kusuda-Achenbach Average Surface Temperature {C}
-  12.8,                                   !- Kusuda-Achenbach Average Amplitude of Surface Temperature {deltaC}
-  17.3,                                   !- Kusuda-Achenbach Phase Shift of Minimum Surface Temperature {days}
+  {23f697fa-8913-4915-afb4-c9c1987af373}, !- Undisturbed Ground Temperature Model
   0.408;                                  !- Evapotranspiration Ground Cover Parameter
+
+OS:Site:GroundTemperature:Undisturbed:KusudaAchenbach,
+  {23f697fa-8913-4915-afb4-c9c1987af373}, !- Handle
+  Site Ground Temperature Undisturbed Kusuda Achenbach 1, !- Name
+  1.08,                                   !- Soil Thermal Conductivity {W/m-K}
+  962,                                    !- Soil Density {kg/m3}
+  2576,                                   !- Soil Specific Heat {J/kg-K}
+  15.5,                                   !- Average Soil Surface Temperature {C}
+  12.8,                                   !- Average Amplitude of Surface Temperature {deltaC}
+  17.3;                                   !- Phase Shift of Minimum Surface Temperature {days}
 
 OS:Coil:Cooling:CooledBeam,
   {9409bb35-2087-4798-897c-a6703b5a7669}, !- Handle
