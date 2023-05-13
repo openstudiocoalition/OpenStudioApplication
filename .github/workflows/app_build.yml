@@ -480,6 +480,7 @@ jobs:
         echo "Using vcvarsall to initialize the development environment"
         call vcvarsall.bat x64
         dir
+        set CCACHE_DISABLE=1
         cmake -G Ninja -DQT_INSTALL_DIR:PATH=${{ env.QT_INSTALL_DIR }} -DCMAKE_BUILD_TYPE:STRING=${{ env.BUILD_TYPE }} ^
          -DBUILD_DOCUMENTATION:BOOL=${{ env.BUILD_DOCUMENTATION }} -DBUILD_TESTING:BOOL=${{ env.BUILD_TESTING }} -DBUILD_BENCHMARK:BOOL=${{ env.BUILD_BENCHMARK}} ^
          -DBUILD_PACKAGE:BOOL=${{ env.BUILD_PACKAGE }} -DCPACK_BINARY_DEB:BOOL=${{ env.CPACK_BINARY_DEB }} -DCPACK_BINARY_IFW:BOOL=${{ env.CPACK_BINARY_IFW }} ^
@@ -490,7 +491,6 @@ jobs:
          -DCPACK_SOURCE_TZ:BOOL=${{ env.CPACK_SOURCE_TZ }} -DCPACK_SOURCE_ZIP:BOOL=${{ env.CPACK_SOURCE_ZIP }} ^
          -DANALYTICS_API_SECRET:STRING=${{secrets.ANALYTICS_API_SECRET }} -DANALYTICS_MEASUREMENT_ID:STRING=${{secrets.ANALYTICS_MEASUREMENT_ID }} ^
          ../
-        set CCACHE_DISABLE=1
         ninja
         ninja package
 
