@@ -46,7 +46,9 @@ qt6_wrap_cpp(${target_name}_moc_src ${${target_name}_moc})
 CONFIGURE_FILE_WITH_CHECKSUM(AboutBox.hpp.in "${CMAKE_CURRENT_BINARY_DIR}/AboutBox.hpp")
 
 set(OPENSTUDIOAPPLICATION_ICON_FOLDER "${PROJECT_SOURCE_DIR}/icons")
+message("Creating OpenStudioApp.rc")
 if(WIN32)
+  message("Removing bigobj")
   remove_definitions(/bigobj)
   CONFIGURE_FILE_WITH_CHECKSUM(OpenStudioApp.rc.in "${CMAKE_CURRENT_BINARY_DIR}/OpenStudioApp.rc")
   set(ICON_SRC "${CMAKE_CURRENT_BINARY_DIR}/OpenStudioApp.rc")
@@ -117,6 +119,13 @@ elseif(UNIX)
     #)
   #endforeach()
 
+endif()
+
+message("ICON_SRC = ${ICON_SRC}")
+if(EXISTS "${ICON_SRC}")
+   message("ICON_SRC exists")
+else()
+   message("ICON_SRC does not exists")
 endif()
 
 add_executable(${target_name}
