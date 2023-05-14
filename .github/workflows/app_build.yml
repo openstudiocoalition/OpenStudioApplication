@@ -223,8 +223,6 @@ jobs:
 
           echo "Using chocolatey to install ninja"
           choco install ninja
-          choco uninstall ccache
-          choco list --localonly
           # C:\Program Files (x86)\Microsoft Visual Studio\2019\Enterprise
           MSVC_DIR=$(vswhere -products '*' -requires Microsoft.Component.MSBuild -property installationPath -latest)
           echo "Latest is: $MSVC_DIR"
@@ -482,7 +480,10 @@ jobs:
         echo "Using vcvarsall to initialize the development environment"
         call vcvarsall.bat x64
         dir
+        set
         set CCACHE_DISABLE=1
+        where ccache
+        set
         cmake -G Ninja -DQT_INSTALL_DIR:PATH=${{ env.QT_INSTALL_DIR }} -DCMAKE_BUILD_TYPE:STRING=${{ env.BUILD_TYPE }} ^
          -DBUILD_DOCUMENTATION:BOOL=${{ env.BUILD_DOCUMENTATION }} -DBUILD_TESTING:BOOL=${{ env.BUILD_TESTING }} -DBUILD_BENCHMARK:BOOL=${{ env.BUILD_BENCHMARK}} ^
          -DBUILD_PACKAGE:BOOL=${{ env.BUILD_PACKAGE }} -DCPACK_BINARY_DEB:BOOL=${{ env.CPACK_BINARY_DEB }} -DCPACK_BINARY_IFW:BOOL=${{ env.CPACK_BINARY_IFW }} ^
@@ -493,6 +494,7 @@ jobs:
          -DCPACK_SOURCE_TZ:BOOL=${{ env.CPACK_SOURCE_TZ }} -DCPACK_SOURCE_ZIP:BOOL=${{ env.CPACK_SOURCE_ZIP }} ^
          -DANALYTICS_API_SECRET:STRING=${{secrets.ANALYTICS_API_SECRET }} -DANALYTICS_MEASUREMENT_ID:STRING=${{secrets.ANALYTICS_MEASUREMENT_ID }} ^
          ../
+        set
         ninja
         ninja package
 

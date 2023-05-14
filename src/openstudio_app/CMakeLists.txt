@@ -144,6 +144,8 @@ endif()
 if(WIN32)
   # increase stack size
   target_link_options(${target_name} PRIVATE /STACK:8388608)
+  # ccache doesn't work with .rc files on windows
+  set_target_properties(${target_name} PROPERTIES CXX_COMPILER_LAUNCHER "")
 endif()
 
 # This is because Apple has app bundles for .apps.
