@@ -224,8 +224,14 @@ jobs:
           echo "Using chocolatey to install ninja"
           choco install ninja
           choco list -lo --debug -v
+          which ccache
+          ls -alsh /c/
+          ls -alsh /c/ProgramData/chocolatey/bin/
           where ccache
-          rm -f C:/ProgramData/chocolatey/bin/ccache.exe
+          dir "C:/"
+          dir "C:/ProgramData/chocolatey/bin/"
+          ls -alsh /c/ProgramData/chocolatey/bin
+          rm -f "C:/ProgramData/chocolatey/bin/ccache.exe"
           where ccache
 
           # C:\Program Files (x86)\Microsoft Visual Studio\2019\Enterprise
