@@ -225,14 +225,10 @@ jobs:
           choco install ninja
           choco list -lo --debug -v
           which ccache
-          ls -alsh /c/
           ls -alsh /c/ProgramData/chocolatey/bin/
-          where ccache
-          dir "C:/"
-          dir "C:/ProgramData/chocolatey/bin/"
-          ls -alsh /c/ProgramData/chocolatey/bin
-          rm -f "C:/ProgramData/chocolatey/bin/ccache.exe"
-          where ccache
+          rm -f "/c/ProgramData/Chocolatey/bin/ccache"
+          ls -alsh /c/ProgramData/chocolatey/bin/
+          which ccache
 
           # C:\Program Files (x86)\Microsoft Visual Studio\2019\Enterprise
           MSVC_DIR=$(vswhere -products '*' -requires Microsoft.Component.MSBuild -property installationPath -latest)
