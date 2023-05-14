@@ -42,9 +42,50 @@ jobs:
       # fail-fast: Default is true, switch to false to allow one platform to fail and still run others
       fail-fast: false
       matrix:
-        #os: [ubuntu-20.04, ubuntu-22.04, windows-2019, windows-2022, macos-12, macos-arm64]
-        os: [windows-2022]
+        os: [ubuntu-20.04, ubuntu-22.04, windows-2019, windows-2022, macos-12, macos-arm64]
         include:
+        - os: ubuntu-20.04
+          allow_failure: true
+          SELF_HOSTED: false
+          PLATFORM_NAME: Linux
+          CPACK_BINARY_DEB: ON
+          CPACK_BINARY_IFW: OFF
+          CPACK_BINARY_TGZ: ON
+          CPACK_BINARY_ZIP: OFF
+          BINARY_EXT: deb
+          COMPRESSED_EXT: tar.gz
+          BINARY_PKG_PATH: _CPack_Packages/Linux/DEB
+          COMPRESSED_PKG_PATH: _CPack_Packages/Linux/TGZ
+          QT_OS_NAME: linux
+          QT_ARCH: gcc_64
+        - os: ubuntu-22.04
+          allow_failure: true
+          SELF_HOSTED: false
+          PLATFORM_NAME: Linux
+          CPACK_BINARY_DEB: ON
+          CPACK_BINARY_IFW: OFF
+          CPACK_BINARY_TGZ: ON
+          CPACK_BINARY_ZIP: OFF
+          BINARY_EXT: deb
+          COMPRESSED_EXT: tar.gz
+          BINARY_PKG_PATH: _CPack_Packages/Linux/DEB
+          COMPRESSED_PKG_PATH: _CPack_Packages/Linux/TGZ
+          QT_OS_NAME: linux
+          QT_ARCH: gcc_64
+        - os: windows-2019
+          allow_failure: false
+          SELF_HOSTED: false
+          PLATFORM_NAME: Windows
+          CPACK_BINARY_DEB: OFF
+          CPACK_BINARY_IFW: ON
+          CPACK_BINARY_TGZ: OFF
+          CPACK_BINARY_ZIP: ON
+          BINARY_EXT: exe
+          COMPRESSED_EXT: zip
+          BINARY_PKG_PATH: _CPack_Packages/win64/IFW
+          COMPRESSED_PKG_PATH: _CPack_Packages/win64/ZIP
+          QT_OS_NAME: windows
+          QT_ARCH: win64_msvc2019_64
         - os: windows-2022
           allow_failure: false
           SELF_HOSTED: false
@@ -59,6 +100,38 @@ jobs:
           COMPRESSED_PKG_PATH: _CPack_Packages/win64/ZIP
           QT_OS_NAME: windows
           QT_ARCH: win64_msvc2019_64
+        - os: macos-12
+          allow_failure: false
+          SELF_HOSTED: false
+          PLATFORM_NAME: Darwin
+          CPACK_BINARY_DEB: OFF
+          CPACK_BINARY_IFW: ON
+          CPACK_BINARY_TGZ: ON
+          CPACK_BINARY_ZIP: OFF
+          BINARY_EXT: dmg
+          COMPRESSED_EXT: tar.gz
+          BINARY_PKG_PATH: _CPack_Packages/Darwin/IFW
+          COMPRESSED_PKG_PATH: _CPack_Packages/Darwin/TGZ
+          MACOSX_DEPLOYMENT_TARGET: 10.15
+          SDKROOT: /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX.sdk
+          QT_OS_NAME: mac
+          QT_ARCH: clang_64
+        - os: macos-arm64
+          allow_failure: false
+          SELF_HOSTED: true
+          PLATFORM_NAME: Darwin
+          CPACK_BINARY_DEB: OFF
+          CPACK_BINARY_IFW: ON
+          CPACK_BINARY_TGZ: ON
+          CPACK_BINARY_ZIP: OFF
+          BINARY_EXT: dmg
+          COMPRESSED_EXT: tar.gz
+          BINARY_PKG_PATH: _CPack_Packages/Darwin/IFW
+          COMPRESSED_PKG_PATH: _CPack_Packages/Darwin/TGZ
+          MACOSX_DEPLOYMENT_TARGET: 12.1
+          SDKROOT: /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX.sdk
+          QT_OS_NAME: mac
+          QT_ARCH: arm_64
 
     steps:
     - uses: actions/checkout@v3
@@ -224,6 +297,9 @@ jobs:
           echo "Using chocolatey to install ninja"
           choco install ninja
 
+          # using ccache fails to build .rc files on Windows
+          # ccache is installed under chocolatey but `choco uninstall ccache` fails
+          # setting CCACHE_DISABLE=1 did not work, just remove ccache
           echo "Remove ccache if it exists"
           rm -f "/c/ProgramData/Chocolatey/bin/ccache" || true
 
@@ -484,10 +560,6 @@ jobs:
         echo "Using vcvarsall to initialize the development environment"
         call vcvarsall.bat x64
         dir
-        set
-        set CCACHE_DISABLE=1
-        where ccache
-        set
         cmake -G Ninja -DQT_INSTALL_DIR:PATH=${{ env.QT_INSTALL_DIR }} -DCMAKE_BUILD_TYPE:STRING=${{ env.BUILD_TYPE }} ^
          -DBUILD_DOCUMENTATION:BOOL=${{ env.BUILD_DOCUMENTATION }} -DBUILD_TESTING:BOOL=${{ env.BUILD_TESTING }} -DBUILD_BENCHMARK:BOOL=${{ env.BUILD_BENCHMARK}} ^
          -DBUILD_PACKAGE:BOOL=${{ env.BUILD_PACKAGE }} -DCPACK_BINARY_DEB:BOOL=${{ env.CPACK_BINARY_DEB }} -DCPACK_BINARY_IFW:BOOL=${{ env.CPACK_BINARY_IFW }} ^
@@ -498,7 +570,6 @@ jobs:
          -DCPACK_SOURCE_TZ:BOOL=${{ env.CPACK_SOURCE_TZ }} -DCPACK_SOURCE_ZIP:BOOL=${{ env.CPACK_SOURCE_ZIP }} ^
          -DANALYTICS_API_SECRET:STRING=${{secrets.ANALYTICS_API_SECRET }} -DANALYTICS_MEASUREMENT_ID:STRING=${{secrets.ANALYTICS_MEASUREMENT_ID }} ^
          ../
-        set
         ninja
         ninja package
 

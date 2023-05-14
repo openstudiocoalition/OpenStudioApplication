@@ -46,9 +46,7 @@ qt6_wrap_cpp(${target_name}_moc_src ${${target_name}_moc})
 CONFIGURE_FILE_WITH_CHECKSUM(AboutBox.hpp.in "${CMAKE_CURRENT_BINARY_DIR}/AboutBox.hpp")
 
 set(OPENSTUDIOAPPLICATION_ICON_FOLDER "${PROJECT_SOURCE_DIR}/icons")
-message("Creating OpenStudioApp.rc")
 if(WIN32)
-  message("Removing bigobj")
   remove_definitions(/bigobj)
   CONFIGURE_FILE_WITH_CHECKSUM(OpenStudioApp.rc.in "${CMAKE_CURRENT_BINARY_DIR}/OpenStudioApp.rc")
   set(ICON_SRC "${CMAKE_CURRENT_BINARY_DIR}/OpenStudioApp.rc")
@@ -121,13 +119,6 @@ elseif(UNIX)
 
 endif()
 
-message("ICON_SRC = ${ICON_SRC}")
-if(EXISTS "${ICON_SRC}")
-   message("ICON_SRC exists")
-else()
-   message("ICON_SRC does not exists")
-endif()
-
 add_executable(${target_name}
   WIN32
   MACOSX_BUNDLE
@@ -144,8 +135,6 @@ endif()
 if(WIN32)
   # increase stack size
   target_link_options(${target_name} PRIVATE /STACK:8388608)
-  # ccache doesn't work with .rc files on windows
-  set_target_properties(${target_name} PROPERTIES CXX_COMPILER_LAUNCHER "")
 endif()
 
 # This is because Apple has app bundles for .apps.
