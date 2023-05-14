@@ -225,7 +225,7 @@ jobs:
           choco install ninja
           choco list -lo --debug -v
           where ccache
-          del /F C:\ProgramData\chocolatey\bin\ccache.exe
+          rm -f C:/ProgramData/chocolatey/bin/ccache.exe
           where ccache
 
           # C:\Program Files (x86)\Microsoft Visual Studio\2019\Enterprise
