@@ -223,12 +223,9 @@ jobs:
 
           echo "Using chocolatey to install ninja"
           choco install ninja
-          choco list -lo --debug -v
-          which ccache
-          ls -alsh /c/ProgramData/chocolatey/bin/
-          rm -f "/c/ProgramData/Chocolatey/bin/ccache"
-          ls -alsh /c/ProgramData/chocolatey/bin/
-          which ccache
+
+          echo "Remove ccache if it exists"
+          rm -f "/c/ProgramData/Chocolatey/bin/ccache" || true
 
           # C:\Program Files (x86)\Microsoft Visual Studio\2019\Enterprise
           MSVC_DIR=$(vswhere -products '*' -requires Microsoft.Component.MSBuild -property installationPath -latest)
