@@ -795,12 +795,12 @@ Si voleu que OpeStudioApplication estigui a la vostra llengua, esperem la vostra
 <context>
     <name>openstudio::MainWindow</name>
     <message>
-        <location filename="../src/openstudio_lib/MainWindow.cpp" line="337"/>
+        <location filename="../src/openstudio_lib/MainWindow.cpp" line="390"/>
         <source>Allow Analytics</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/MainWindow.cpp" line="338"/>
+        <location filename="../src/openstudio_lib/MainWindow.cpp" line="391"/>
         <source>Allow OpenStudio Coalition to collect anonymous usage statistics to help improve the OpenStudio Application? See the &lt;a href=&quot;https://openstudiocoalition.org/about/privacy_policy/&quot;&gt;privacy policy&lt;/a&gt; for more information.</source>
         <translation type="unfinished"></translation>
     </message>
@@ -809,7 +809,7 @@ Si voleu que OpeStudioApplication estigui a la vostra llengua, esperem la vostra
     <name>openstudio::MeasureManager</name>
     <message>
         <location filename="../src/shared_gui_components/MeasureManager.cpp" line="949"/>
-        <location filename="../src/shared_gui_components/MeasureManager.cpp" line="960"/>
+        <location filename="../src/shared_gui_components/MeasureManager.cpp" line="968"/>
         <source>Measures Updated</source>
         <translation type="unfinished"></translation>
     </message>
@@ -833,45 +833,45 @@ Si voleu que OpeStudioApplication estigui a la vostra llengua, esperem la vostra
 <context>
     <name>openstudio::OSDocument</name>
     <message>
-        <location filename="../src/openstudio_lib/OSDocument.cpp" line="1216"/>
+        <location filename="../src/openstudio_lib/OSDocument.cpp" line="1217"/>
         <source>Export Idf</source>
         <translation>Exportar idf</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/OSDocument.cpp" line="1216"/>
+        <location filename="../src/openstudio_lib/OSDocument.cpp" line="1217"/>
         <source>(*.idf)</source>
         <translation>(*.idf)</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/OSDocument.cpp" line="1251"/>
+        <location filename="../src/openstudio_lib/OSDocument.cpp" line="1252"/>
         <source>(*.xml)</source>
         <translation>(*.xml)</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/OSDocument.cpp" line="1390"/>
-        <location filename="../src/openstudio_lib/OSDocument.cpp" line="1465"/>
+        <location filename="../src/openstudio_lib/OSDocument.cpp" line="1391"/>
+        <location filename="../src/openstudio_lib/OSDocument.cpp" line="1466"/>
         <source>Failed to save model</source>
         <translation>Error al desar el model</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/OSDocument.cpp" line="1391"/>
-        <location filename="../src/openstudio_lib/OSDocument.cpp" line="1466"/>
+        <location filename="../src/openstudio_lib/OSDocument.cpp" line="1392"/>
+        <location filename="../src/openstudio_lib/OSDocument.cpp" line="1467"/>
         <source>Failed to save model, make sure that you do not have the location open and that you have correct write access.</source>
         <translation>Error al desar el model, comprova que no tinguis el fitxer obert i que tens privilegis d&apos;accés d&apos;escriptura.</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/OSDocument.cpp" line="1434"/>
+        <location filename="../src/openstudio_lib/OSDocument.cpp" line="1435"/>
         <source>Save</source>
         <translation>Desar</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/OSDocument.cpp" line="1434"/>
+        <location filename="../src/openstudio_lib/OSDocument.cpp" line="1435"/>
         <source>(*.osm)</source>
         <translation></translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/OSDocument.cpp" line="1628"/>
-        <location filename="../src/openstudio_lib/OSDocument.cpp" line="1630"/>
+        <location filename="../src/openstudio_lib/OSDocument.cpp" line="1629"/>
+        <location filename="../src/openstudio_lib/OSDocument.cpp" line="1631"/>
         <source>Select My Measures Directory</source>
         <translation>Seleccionar la Carpeta &quot;My Measures&quot;</translation>
     </message>
@@ -909,7 +909,7 @@ Si voleu que OpeStudioApplication estigui a la vostra llengua, esperem la vostra
     </message>
     <message>
         <location filename="../src/openstudio_app/OpenStudioApp.cpp" line="415"/>
-        <location filename="../src/openstudio_app/OpenStudioApp.cpp" line="1134"/>
+        <location filename="../src/openstudio_app/OpenStudioApp.cpp" line="1133"/>
         <source> to </source>
         <translation> a </translation>
     </message>
@@ -919,68 +919,68 @@ Si voleu que OpeStudioApplication estigui a la vostra llengua, esperem la vostra
         <translation>Versió inicial desconeguda</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_app/OpenStudioApp.cpp" line="493"/>
+        <location filename="../src/openstudio_app/OpenStudioApp.cpp" line="492"/>
         <source>Import Idf</source>
         <translation>Importar Idf</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_app/OpenStudioApp.cpp" line="493"/>
+        <location filename="../src/openstudio_app/OpenStudioApp.cpp" line="492"/>
         <source>(*.idf)</source>
         <translation>(*.idf)</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_app/OpenStudioApp.cpp" line="524"/>
+        <location filename="../src/openstudio_app/OpenStudioApp.cpp" line="523"/>
         <source>&apos; while OpenStudio uses a &lt;strong&gt;newer&lt;/strong&gt; EnergyPlus &apos;</source>
         <translation>&apos; mentre OpenStudio utilitza un EnergyPlus &lt;strong&gt;més recent&lt;/strong&gt; &apos;</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_app/OpenStudioApp.cpp" line="525"/>
+        <location filename="../src/openstudio_app/OpenStudioApp.cpp" line="524"/>
         <source>&apos;. Consider using the EnergyPlus Auxiliary program IDFVersionUpdater to update your IDF file.</source>
         <translation>&apos;. Considera utilitzar el programa auxiliar d&apos;EnergyPlus IDFVersionUpdate per tal d&apos;actualitzar el fitxer IDF.</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_app/OpenStudioApp.cpp" line="527"/>
+        <location filename="../src/openstudio_app/OpenStudioApp.cpp" line="526"/>
         <source>&apos; while OpenStudio uses an &lt;strong&gt;older&lt;/strong&gt; EnergyPlus &apos;</source>
         <translation>&apos; mentre OpenStudio utilitza un Energylus &lt;strong&gt;més vell&lt;/strong&gt; &apos;</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_app/OpenStudioApp.cpp" line="527"/>
+        <location filename="../src/openstudio_app/OpenStudioApp.cpp" line="526"/>
         <source>&apos;.</source>
         <translation>&apos;.</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_app/OpenStudioApp.cpp" line="529"/>
+        <location filename="../src/openstudio_app/OpenStudioApp.cpp" line="528"/>
         <source>&apos; which is the &lt;strong&gt;same&lt;/strong&gt; version of EnergyPlus that OpenStudio uses (</source>
         <translation>&apos; que és la &lt;strong&gt;mateixa&lt;/strong&gt; versió d&apos;EnergyPlus que utilitza OpenStudio (</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_app/OpenStudioApp.cpp" line="533"/>
+        <location filename="../src/openstudio_app/OpenStudioApp.cpp" line="532"/>
         <source>&lt;strong&gt;The IDF does not have a VersionObject&lt;/strong&gt;. Check that it is of correct version (</source>
         <translation>&lt;strong&gt;L&apos;IDF no té un VersionObject&lt;/strong&gt;. Verifiqueu que és la versió correcta (</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_app/OpenStudioApp.cpp" line="534"/>
+        <location filename="../src/openstudio_app/OpenStudioApp.cpp" line="533"/>
         <source>) and that all fields are valid against Energy+.idd. </source>
         <translation>) i que tots els camps són vàlids segons Energy+.idd. </translation>
     </message>
     <message>
-        <location filename="../src/openstudio_app/OpenStudioApp.cpp" line="537"/>
+        <location filename="../src/openstudio_app/OpenStudioApp.cpp" line="536"/>
         <source>&lt;br/&gt;&lt;br/&gt;The ValidityReport follows.</source>
         <translation>&lt;br/&gt;&lt;br/&gt;A continuació hi ha el report de validació.</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_app/OpenStudioApp.cpp" line="539"/>
+        <location filename="../src/openstudio_app/OpenStudioApp.cpp" line="538"/>
         <source>&lt;strong&gt;File is not valid to draft strictness&lt;/strong&gt;. Check that all fields are valid against Energy+.idd.</source>
         <translatorcomment>I don&apos;t know what &quot;drat strictness&quot; is.</translatorcomment>
         <translation>&lt;strong&gt;El fitxer  no és vàlid&lt;/strong&gt;. Verifiqueu que tots els camps són vàlids segns el fitxer Energy+.idd.</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_app/OpenStudioApp.cpp" line="545"/>
+        <location filename="../src/openstudio_app/OpenStudioApp.cpp" line="544"/>
         <source> IDF Import Failed</source>
         <translation> Error a l&apos;Importar l&apos;IDF</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_app/OpenStudioApp.cpp" line="620"/>
+        <location filename="../src/openstudio_app/OpenStudioApp.cpp" line="619"/>
         <source>=============== Errors ===============
 
 </source>
@@ -989,7 +989,7 @@ Si voleu que OpeStudioApplication estigui a la vostra llengua, esperem la vostra
 </translation>
     </message>
     <message>
-        <location filename="../src/openstudio_app/OpenStudioApp.cpp" line="628"/>
+        <location filename="../src/openstudio_app/OpenStudioApp.cpp" line="627"/>
         <source>============== Warnings ==============
 
 </source>
@@ -998,7 +998,7 @@ Si voleu que OpeStudioApplication estigui a la vostra llengua, esperem la vostra
 </translation>
     </message>
     <message>
-        <location filename="../src/openstudio_app/OpenStudioApp.cpp" line="636"/>
+        <location filename="../src/openstudio_app/OpenStudioApp.cpp" line="635"/>
         <source>==== The following idf objects were not imported ====
 
 </source>
@@ -1007,113 +1007,113 @@ Si voleu que OpeStudioApplication estigui a la vostra llengua, esperem la vostra
 </translation>
     </message>
     <message>
-        <location filename="../src/openstudio_app/OpenStudioApp.cpp" line="641"/>
+        <location filename="../src/openstudio_app/OpenStudioApp.cpp" line="640"/>
         <source> named </source>
         <translation> anomenat </translation>
     </message>
     <message>
-        <location filename="../src/openstudio_app/OpenStudioApp.cpp" line="643"/>
+        <location filename="../src/openstudio_app/OpenStudioApp.cpp" line="642"/>
         <source>Unnamed </source>
         <translation>Sense nom </translation>
     </message>
     <message>
-        <location filename="../src/openstudio_app/OpenStudioApp.cpp" line="649"/>
+        <location filename="../src/openstudio_app/OpenStudioApp.cpp" line="648"/>
         <source>&lt;strong&gt;Some portions of the IDF file were not imported.&lt;/strong&gt;</source>
         <translation>&lt;strong&gt;Algunes parts de l&apos;IDF no s&apos;han importat.&lt;/strong&gt;</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_app/OpenStudioApp.cpp" line="655"/>
+        <location filename="../src/openstudio_app/OpenStudioApp.cpp" line="654"/>
         <source>IDF Import</source>
         <translation>Importar IDF</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_app/OpenStudioApp.cpp" line="658"/>
+        <location filename="../src/openstudio_app/OpenStudioApp.cpp" line="657"/>
         <source>Only geometry, constructions, loads, thermal zones, and schedules are supported by the OpenStudio IDF import feature.</source>
         <translation>OpenStudio només importa de l&apos;IDF la geometria, les solucions constructives, les càrregues internes, les zones tèrmiques i els horaris.</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_app/OpenStudioApp.cpp" line="721"/>
+        <location filename="../src/openstudio_app/OpenStudioApp.cpp" line="720"/>
         <source>Import </source>
         <translation>Importar </translation>
     </message>
     <message>
-        <location filename="../src/openstudio_app/OpenStudioApp.cpp" line="728"/>
+        <location filename="../src/openstudio_app/OpenStudioApp.cpp" line="727"/>
         <source>(*.xml)</source>
         <translation>(*.xml)</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_app/OpenStudioApp.cpp" line="793"/>
+        <location filename="../src/openstudio_app/OpenStudioApp.cpp" line="792"/>
         <source>Errors or warnings occurred on import of </source>
         <translation>Errors o avisos de la importació de </translation>
     </message>
     <message>
-        <location filename="../src/openstudio_app/OpenStudioApp.cpp" line="803"/>
+        <location filename="../src/openstudio_app/OpenStudioApp.cpp" line="802"/>
         <source>Could not import SDD file.</source>
         <translation>No s&apos;ha pogut importar el fitxer SDD.</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_app/OpenStudioApp.cpp" line="805"/>
+        <location filename="../src/openstudio_app/OpenStudioApp.cpp" line="804"/>
         <source>Could not import </source>
         <translation>No s&apos;ha pogut importar </translation>
     </message>
     <message>
-        <location filename="../src/openstudio_app/OpenStudioApp.cpp" line="805"/>
+        <location filename="../src/openstudio_app/OpenStudioApp.cpp" line="804"/>
         <source> file at </source>
         <translation> el fitxer que es troba a </translation>
     </message>
     <message>
-        <location filename="../src/openstudio_app/OpenStudioApp.cpp" line="834"/>
+        <location filename="../src/openstudio_app/OpenStudioApp.cpp" line="833"/>
         <source>Save Changes?</source>
         <translation>Desar els canvis?</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_app/OpenStudioApp.cpp" line="835"/>
+        <location filename="../src/openstudio_app/OpenStudioApp.cpp" line="834"/>
         <source>The document has been modified.</source>
         <translation>S&apos;ha modificat el document.</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_app/OpenStudioApp.cpp" line="836"/>
+        <location filename="../src/openstudio_app/OpenStudioApp.cpp" line="835"/>
         <source>Do you want to save your changes?</source>
         <translation>Vols desar els canvis?</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_app/OpenStudioApp.cpp" line="903"/>
+        <location filename="../src/openstudio_app/OpenStudioApp.cpp" line="902"/>
         <source>Open</source>
         <translation>Obrir</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_app/OpenStudioApp.cpp" line="903"/>
-        <location filename="../src/openstudio_app/OpenStudioApp.cpp" line="1473"/>
+        <location filename="../src/openstudio_app/OpenStudioApp.cpp" line="902"/>
+        <location filename="../src/openstudio_app/OpenStudioApp.cpp" line="1472"/>
         <source>(*.osm)</source>
         <translation>(*.osm)</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_app/OpenStudioApp.cpp" line="962"/>
+        <location filename="../src/openstudio_app/OpenStudioApp.cpp" line="961"/>
         <source>A new version is available at &lt;a href=&quot;</source>
         <translation>Hi ha una nova versió disponible a &lt;a href=&quot;</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_app/OpenStudioApp.cpp" line="967"/>
+        <location filename="../src/openstudio_app/OpenStudioApp.cpp" line="966"/>
         <source>Currently using the most recent version</source>
         <translation>S&apos;està utilitzant la versió més recent</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_app/OpenStudioApp.cpp" line="975"/>
+        <location filename="../src/openstudio_app/OpenStudioApp.cpp" line="974"/>
         <source>Check for Updates</source>
         <translation>Cercar Actualitzacions</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_app/OpenStudioApp.cpp" line="989"/>
+        <location filename="../src/openstudio_app/OpenStudioApp.cpp" line="988"/>
         <source>Measure Manager Server: </source>
         <translation>Servidor per la gestió de mesures: </translation>
     </message>
     <message>
-        <location filename="../src/openstudio_app/OpenStudioApp.cpp" line="990"/>
+        <location filename="../src/openstudio_app/OpenStudioApp.cpp" line="989"/>
         <source>Chrome Debugger: http://localhost:</source>
         <translation>Chrome Debugger: http://localhost:</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_app/OpenStudioApp.cpp" line="991"/>
+        <location filename="../src/openstudio_app/OpenStudioApp.cpp" line="990"/>
         <source>Temp Directory: </source>
         <translation>Carpeta temporal: </translation>
     </message>
@@ -1122,75 +1122,75 @@ Si voleu que OpeStudioApplication estigui a la vostra llengua, esperem la vostra
         <translation type="vanished">Sobre </translation>
     </message>
     <message>
-        <location filename="../src/openstudio_app/OpenStudioApp.cpp" line="1030"/>
+        <location filename="../src/openstudio_app/OpenStudioApp.cpp" line="1029"/>
         <source>Failed to load model</source>
         <translation>Error al carregar el model</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_app/OpenStudioApp.cpp" line="1132"/>
+        <location filename="../src/openstudio_app/OpenStudioApp.cpp" line="1131"/>
         <source>Opening future version </source>
         <translation>Obrint una versió futura </translation>
     </message>
     <message>
-        <location filename="../src/openstudio_app/OpenStudioApp.cpp" line="1132"/>
+        <location filename="../src/openstudio_app/OpenStudioApp.cpp" line="1131"/>
         <source> using </source>
         <translation> utilitzant </translation>
     </message>
     <message>
-        <location filename="../src/openstudio_app/OpenStudioApp.cpp" line="1134"/>
+        <location filename="../src/openstudio_app/OpenStudioApp.cpp" line="1133"/>
         <source>Model updated from </source>
         <translation>Model acutalitzat des de </translation>
     </message>
     <message>
-        <location filename="../src/openstudio_app/OpenStudioApp.cpp" line="1143"/>
+        <location filename="../src/openstudio_app/OpenStudioApp.cpp" line="1142"/>
         <source>Existing Ruby scripts have been removed.
 Ruby scripts are no longer supported and have been replaced by measures.</source>
         <translation>S&apos;han esborrat els scripts de Ruby existents.
 Els scripts de Ruby ja no són compatibles i &apos;shan substituït per Mesures.</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_app/OpenStudioApp.cpp" line="1150"/>
+        <location filename="../src/openstudio_app/OpenStudioApp.cpp" line="1149"/>
         <source>Failed to open file at </source>
         <translation>Error a l&apos;intentar obrir el fitxer a </translation>
     </message>
     <message>
-        <location filename="../src/openstudio_app/OpenStudioApp.cpp" line="1173"/>
-        <location filename="../src/openstudio_app/OpenStudioApp.cpp" line="1327"/>
+        <location filename="../src/openstudio_app/OpenStudioApp.cpp" line="1172"/>
+        <location filename="../src/openstudio_app/OpenStudioApp.cpp" line="1326"/>
         <source>Settings file not writable</source>
         <translation>No es pot escriure el fitxer de configuració</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_app/OpenStudioApp.cpp" line="1174"/>
-        <location filename="../src/openstudio_app/OpenStudioApp.cpp" line="1328"/>
+        <location filename="../src/openstudio_app/OpenStudioApp.cpp" line="1173"/>
+        <location filename="../src/openstudio_app/OpenStudioApp.cpp" line="1327"/>
         <source>Your settings file &apos;</source>
         <translation>El vostre fitxer de configuració &apos;</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_app/OpenStudioApp.cpp" line="1174"/>
-        <location filename="../src/openstudio_app/OpenStudioApp.cpp" line="1328"/>
+        <location filename="../src/openstudio_app/OpenStudioApp.cpp" line="1173"/>
+        <location filename="../src/openstudio_app/OpenStudioApp.cpp" line="1327"/>
         <source>&apos; is not writable. Adjust the file permissions</source>
         <translation>&apos; no es pot escriure. Canvieu els permisos</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_app/OpenStudioApp.cpp" line="1195"/>
-        <location filename="../src/openstudio_app/OpenStudioApp.cpp" line="1207"/>
+        <location filename="../src/openstudio_app/OpenStudioApp.cpp" line="1194"/>
+        <location filename="../src/openstudio_app/OpenStudioApp.cpp" line="1206"/>
         <source>Revert to Saved</source>
         <translation>Recuperar l&apos;úlitima versió que s&apos;ha desat</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_app/OpenStudioApp.cpp" line="1195"/>
+        <location filename="../src/openstudio_app/OpenStudioApp.cpp" line="1194"/>
         <source>This model has never been saved.
 Do you want to create a new model?</source>
         <translation>Aquest model no s&apos;ha desat mai.
 Vols crear-ne un de nou¿</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_app/OpenStudioApp.cpp" line="1207"/>
+        <location filename="../src/openstudio_app/OpenStudioApp.cpp" line="1206"/>
         <source>Are you sure you want to revert to the last saved version?</source>
         <translation>Estàs seguir que vols recuperar l&apos;última versió que s&apos;ha desat?</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_app/OpenStudioApp.cpp" line="1271"/>
+        <location filename="../src/openstudio_app/OpenStudioApp.cpp" line="1270"/>
         <source>Measure Manager has crashed, attempting to restart
 
 </source>
@@ -1199,29 +1199,29 @@ Vols crear-ne un de nou¿</translation>
 </translation>
     </message>
     <message>
-        <location filename="../src/openstudio_app/OpenStudioApp.cpp" line="1275"/>
+        <location filename="../src/openstudio_app/OpenStudioApp.cpp" line="1274"/>
         <source>Measure Manager has crashed</source>
         <translation>El Gestor de Mesures s&apos;ha bloquejat</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_app/OpenStudioApp.cpp" line="1400"/>
+        <location filename="../src/openstudio_app/OpenStudioApp.cpp" line="1399"/>
         <source>Restart required</source>
         <translation>S&apos;ha de reiniciar</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_app/OpenStudioApp.cpp" line="1401"/>
+        <location filename="../src/openstudio_app/OpenStudioApp.cpp" line="1400"/>
         <source>A restart of the OpenStudio Application is required for language changes to be fully functionnal.
 Would you like to restart now?</source>
         <translation>Per tal que els canvis de llengua es facin efectius, s&apos;ha de reiniciar l&apos;Aplicació d&apos;OpenStudio.
 Vols reiniciar ara?</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_app/OpenStudioApp.cpp" line="1473"/>
+        <location filename="../src/openstudio_app/OpenStudioApp.cpp" line="1472"/>
         <source>Select Library</source>
         <translation>Seleccionar llibreria</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_app/OpenStudioApp.cpp" line="1548"/>
+        <location filename="../src/openstudio_app/OpenStudioApp.cpp" line="1547"/>
         <source>Failed to load the following libraries...
 
 </source>
@@ -1230,7 +1230,7 @@ Vols reiniciar ara?</translation>
 </translation>
     </message>
     <message>
-        <location filename="../src/openstudio_app/OpenStudioApp.cpp" line="1556"/>
+        <location filename="../src/openstudio_app/OpenStudioApp.cpp" line="1555"/>
         <source>
 
 Would you like to Restore library paths to default values or Open the library settings to change them manually?</source>
