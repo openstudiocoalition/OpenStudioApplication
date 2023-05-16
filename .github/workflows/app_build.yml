@@ -623,19 +623,19 @@ jobs:
         echo "Building with $N threads"
         cmake --build . --target package -j $N --config $BUILD_TYPE
 
-    - name: Test bed Sign inner portable executable files and exe package (Windows)
+    - name: Test bed Sign inner portable executable files and exe package (Windows 2022)
       working-directory: ./build
-      if: (runner.os == 'Windows')
+      if: (matrix.os == 'windows-2022')
       shell: powershell
       run: |
         $installer_exe = Get-ChildItem -Filter "${{ matrix.BINARY_PKG_PATH }}/*.${{ env.BINARY_EXT }}" -File | Select-Object -First 1 | % { $_.FullName}
         echo $installer_exe
         echo "$installer_exe"
 
-    - name: Sign inner portable executable files and exe package (Windows)
+    - name: Sign inner portable executable files and exe package (Windows 2022)
       working-directory: ./build
       # if: (runner.os == 'Windows')
-      if: contains(github.ref, 'refs/tags') && (runner.os == 'Windows')
+      if: contains(github.ref, 'refs/tags') && (matrix.os == 'windows-2022')
       shell: powershell
       run: |
         # Install signpath
