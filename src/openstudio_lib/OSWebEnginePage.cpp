@@ -38,21 +38,20 @@
 #include <QWebEngineProfile>
 #include <QWebEngineSettings>
 
+#include <fmt/core.h>
+
 namespace openstudio {
 
-OSUrlRequestInterceptor::OSUrlRequestInterceptor(QObject* parent) : QWebEngineUrlRequestInterceptor(parent) {}
+OSUrlRequestInterceptor::OSUrlRequestInterceptor(QObject* parent)
+  : QWebEngineUrlRequestInterceptor(parent),
+    m_userAgent(
+      QByteArray::fromStdString(fmt::format("OpenStudioApp/{}.{}", OpenStudioApplicationVersionMajor(), OpenStudioApplicationVersionMinor()))) {}
+
 OSUrlRequestInterceptor::~OSUrlRequestInterceptor() = default;
 
 void OSUrlRequestInterceptor::interceptRequest(QWebEngineUrlRequestInfo& info) {
-  static QByteArray userAgent;
-  if (userAgent.isEmpty()) {
-    userAgent.append("OpenStudioApp/");
-    userAgent.append(OpenStudioApplicationVersionMajor());
-    userAgent.append(".");
-    userAgent.append(OpenStudioApplicationVersionMinor());
-  }
   info.setHttpHeader("Accept-Language", "en-US,en;q=0.9,es;q=0.8,de;q=0.7");
-  info.setHttpHeader("User-Agent", userAgent);
+  info.setHttpHeader("User-Agent", m_userAgent);
 }
 
 OSWebEnginePage::OSWebEnginePage(QObject* parent) : QWebEnginePage(parent) {

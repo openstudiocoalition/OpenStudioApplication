@@ -30,6 +30,7 @@
 #ifndef OPENSTUDIO_OSWEBENGINEPAGE_HPP
 #define OPENSTUDIO_OSWEBENGINEPAGE_HPP
 
+#include <QByteArray>
 #include <QWebEnginePage>
 #include <QWebEngineUrlRequestInfo>
 #include <QWebEngineUrlRequestInterceptor>
@@ -44,6 +45,8 @@ class OSUrlRequestInterceptor : public QWebEngineUrlRequestInterceptor
   explicit OSUrlRequestInterceptor(QObject* parent = 0);
   virtual ~OSUrlRequestInterceptor();
   void interceptRequest(QWebEngineUrlRequestInfo& info) final;
+ private:
+  QByteArray m_userAgent;
 };
 
 class OSWebEnginePage : public QWebEnginePage
