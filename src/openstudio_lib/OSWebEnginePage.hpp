@@ -45,6 +45,7 @@ class OSUrlRequestInterceptor : public QWebEngineUrlRequestInterceptor
   explicit OSUrlRequestInterceptor(QObject* parent = 0);
   virtual ~OSUrlRequestInterceptor();
   void interceptRequest(QWebEngineUrlRequestInfo& info) final;
+
  private:
   QByteArray m_userAgent;
 };
