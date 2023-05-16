@@ -34,6 +34,7 @@
 #include "LoopLibraryDialog.hpp"
 #include "MainMenu.hpp"
 #include "MainTabView.hpp"
+#include "OSDocument.hpp"
 #include "VerticalTabWidget.hpp"
 
 #include "../shared_gui_components/NetworkProxyDialog.hpp"
@@ -322,7 +323,59 @@ bool MainWindow::verboseOutput() const {
 
 void MainWindow::onVerticalTabSelected(int verticalTabId) {
   if (allowAnalytics()) {
-    emit sendAnalytics(m_analyticsId, verticalTabId);
+    static const std::string contentType("OSAppTab");
+    std::string contentId = std::to_string(verticalTabId);
+    switch (verticalTabId) {
+      case OSDocument::SITE:
+        contentId = "Location";
+        break;
+      case OSDocument::SCHEDULES:
+        contentId = "Schedules";
+        break;
+      case OSDocument::CONSTRUCTIONS:
+        contentId = "Constructions";
+        break;
+      case OSDocument::GEOMETRY:
+        contentId = "Geometry";
+        break;
+      case OSDocument::LOADS:
+        contentId = "Loads";
+        break;
+      case OSDocument::SPACE_TYPES:
+        contentId = "SpaceTypes";
+        break;
+      case OSDocument::FACILITY:
+        contentId = "Facility";
+        break;
+      case OSDocument::SPACES:
+        contentId = "Spaces";
+        break;
+      case OSDocument::THERMAL_ZONES:
+        contentId = "Thermal Zones";
+        break;
+      case OSDocument::HVAC_SYSTEMS:
+        contentId = "HVAC Systems";
+        break;
+      case OSDocument::OUTPUT_VARIABLES:
+        contentId = "Variables";
+        break;
+      case OSDocument::SIMULATION_SETTINGS:
+        contentId = "Sim Settings";
+        break;
+      case OSDocument::RUBY_SCRIPTS:
+        contentId = "Scripts";
+        break;
+      case OSDocument::RUN_SIMULATION:
+        contentId = "Run";
+        break;
+      case OSDocument::RESULTS_SUMMARY:
+        contentId = "Results";
+        break;
+      default:
+        break;
+    }
+
+    emit sendAnalytics(m_analyticsId, contentType, contentId);
   }
 }
 

@@ -56,7 +56,7 @@ AnalyticsHelper::~AnalyticsHelper() {
   delete m_networkAccessManager;
 }
 
-void AnalyticsHelper::sendAnalytics(const QString& analyticsId, int verticalTabIndex) {
+void AnalyticsHelper::sendAnalytics(const QString& analyticsId, const std::string& contentType, const std::string& contentId) {
 
   // https://developers.google.com/analytics/devguides/collection/protocol/ga4/sending-events
   QUrlQuery query(QString::fromUtf8("https://www.google-analytics.com/mp/collect?"));
@@ -66,11 +66,9 @@ void AnalyticsHelper::sendAnalytics(const QString& analyticsId, int verticalTabI
   QNetworkRequest request(query.query());
   request.setRawHeader("Content-Type", "application/json");
 
-  QString tab = QString("Tab-%1").arg(verticalTabIndex);
-
   QJsonObject selectContentParams;
-  selectContentParams["content_type"] = "OSAppTab";
-  selectContentParams["content_id"] = tab;
+  selectContentParams["content_type"] = QString::fromStdString(contentType);
+  selectContentParams["content_id"] = QString::fromStdString(contentId);
 
   QJsonObject selectContentEvent;
   selectContentEvent["name"] = "select_content";

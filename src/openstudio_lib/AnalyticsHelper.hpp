@@ -47,7 +47,7 @@ class AnalyticsHelper : public QObject
 
  public slots:
 
-  void sendAnalytics(const QString& analyticsId, int verticalTabIndex);
+  void sendAnalytics(const QString& analyticsId, const std::string& contentType, const std::string& contentId);
 
  private:
   QNetworkAccessManager* m_networkAccessManager;
