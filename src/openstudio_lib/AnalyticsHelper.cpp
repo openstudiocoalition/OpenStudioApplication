@@ -66,8 +66,6 @@ void AnalyticsHelper::sendAnalytics(const QString& analyticsId, const std::strin
   QNetworkRequest request(query.query());
   request.setRawHeader("Content-Type", "application/json");
 
-  //QString tab = QString("Tab-%1").arg(verticalTabIndex);
-
   QJsonObject selectContentParams;
   selectContentParams["content_type"] = QString::fromStdString(contentType);
   selectContentParams["content_id"] = QString::fromStdString(contentId);
