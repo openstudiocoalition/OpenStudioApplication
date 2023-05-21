@@ -1380,7 +1380,7 @@ boost::optional<BCLMeasure> OSDocument::getLocalMeasure(const std::string& uid) 
   if (m_haveLocalBCL) {
     try {
       result = LocalBCL::instance().getMeasure(uid);
-    }catch(const std::exception& e) {
+    } catch (const std::exception& e) {
       LOG(Error, "Cannot access local BCL: " << e.what());
       m_haveLocalBCL = false;
     }
