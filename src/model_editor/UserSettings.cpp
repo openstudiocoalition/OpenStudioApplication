@@ -29,6 +29,9 @@
 
 #include "UserSettings.hpp"
 
+#include "../openstudio_lib/OSAppBase.hpp"
+#include "../openstudio_lib/OSDocument.hpp"
+
 #include <openstudio/utilities/bcl/LocalBCL.hpp>
 #include <openstudio/utilities/bcl/BCLMeasure.hpp>
 #include <openstudio/utilities/core/Path.hpp>
@@ -41,7 +44,7 @@
 #include <QSettings>
 
 std::vector<openstudio::BCLMeasure> localBCLMeasures() {
-  return openstudio::LocalBCL::instance().measures();
+  return openstudio::OSAppBase::instance()->currentDocument()->getLocalMeasures();
 }
 
 std::vector<openstudio::BCLMeasure> userMeasures() {

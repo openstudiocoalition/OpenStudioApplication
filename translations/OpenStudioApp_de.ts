@@ -856,30 +856,30 @@ Wenn Sie möchten, dass die OpenStudio-Applikation in die Sprache Ihrer Wahl üb
         <translation>(*.xml)</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/OSDocument.cpp" line="1391"/>
-        <location filename="../src/openstudio_lib/OSDocument.cpp" line="1466"/>
+        <location filename="../src/openstudio_lib/OSDocument.cpp" line="1440"/>
+        <location filename="../src/openstudio_lib/OSDocument.cpp" line="1515"/>
         <source>Failed to save model</source>
         <translation>Modell konnte nicht gespeichert werden</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/OSDocument.cpp" line="1392"/>
-        <location filename="../src/openstudio_lib/OSDocument.cpp" line="1467"/>
+        <location filename="../src/openstudio_lib/OSDocument.cpp" line="1441"/>
+        <location filename="../src/openstudio_lib/OSDocument.cpp" line="1516"/>
         <source>Failed to save model, make sure that you do not have the location open and that you have correct write access.</source>
         <translation>Modell konnte nicht gespeichert werden. Vergewissern Sie sich, dass der Speicherort nicht geöffnet ist und dass Sie korrekte Schreibrechte haben.</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/OSDocument.cpp" line="1435"/>
+        <location filename="../src/openstudio_lib/OSDocument.cpp" line="1484"/>
         <source>Save</source>
         <translation>Speichern</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/OSDocument.cpp" line="1435"/>
+        <location filename="../src/openstudio_lib/OSDocument.cpp" line="1484"/>
         <source>(*.osm)</source>
         <translation>(*.osm)</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/OSDocument.cpp" line="1629"/>
-        <location filename="../src/openstudio_lib/OSDocument.cpp" line="1631"/>
+        <location filename="../src/openstudio_lib/OSDocument.cpp" line="1678"/>
+        <location filename="../src/openstudio_lib/OSDocument.cpp" line="1680"/>
         <source>Select My Measures Directory</source>
         <translation>Verzeichnis für Meine Measures auswählen</translation>
     </message>

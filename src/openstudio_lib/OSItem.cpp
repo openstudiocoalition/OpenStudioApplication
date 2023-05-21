@@ -166,7 +166,7 @@ OSItem* OSItem::makeItem(const OSItemId& itemId, OSItemType osItemType) {
   OSAppBase* app = OSAppBase::instance();
 
   if (itemId.sourceId() == OSItemId::BCL_SOURCE_ID) {
-    boost::optional<BCLComponent> comp = LocalBCL::instance().getComponent(itemId.itemId().toStdString());
+    boost::optional<BCLComponent> comp = OSAppBase::instance()->currentDocument()->getLocalComponent(itemId.itemId().toStdString());
     if (comp) {
       result = new BCLComponentItem(comp.get(), osItemType);
     }

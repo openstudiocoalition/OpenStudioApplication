@@ -1349,14 +1349,89 @@ void OSDocument::addStandardMeasures() {
   enable();
 }
 
-boost::optional<BCLMeasure> OSDocument::standardReportMeasure() {
-  std::string uid("a25386cd-60e4-46bc-8b11-c755f379d916");
-  boost::optional<BCLMeasure> result = LocalBCL::instance().getMeasure(uid);
-  if (result) {
-    return result;
+boost::optional<BCLComponent> OSDocument::getLocalComponent(const std::string& uid) const {
+  boost::optional<BCLComponent> result;
+  if (m_haveLocalBCL) {
+    try {
+      result = LocalBCL::instance().getComponent(uid);
+    } catch (const std::exception& e) {
+      LOG(Error, "Cannot access local BCL: " << e.what());
+      m_haveLocalBCL = false;
+    }
   }
+  return result;
+}
 
-  if (RemoteBCL::isOnline()) {
+boost::optional<BCLComponent> OSDocument::getLocalComponent(const std::string& uid, const std::string& versionId) const {
+  boost::optional<BCLComponent> result;
+  if (m_haveLocalBCL) {
+    try {
+      result = LocalBCL::instance().getComponent(uid, versionId);
+    } catch (const std::exception& e) {
+      LOG(Error, "Cannot access local BCL: " << e.what());
+      m_haveLocalBCL = false;
+    }
+  }
+  return result;
+}
+
+boost::optional<BCLMeasure> OSDocument::getLocalMeasure(const std::string& uid) const {
+  boost::optional<BCLMeasure> result;
+  if (m_haveLocalBCL) {
+    try {
+      result = LocalBCL::instance().getMeasure(uid);
+    }catch(const std::exception& e) {
+      LOG(Error, "Cannot access local BCL: " << e.what());
+      m_haveLocalBCL = false;
+    }
+  }
+  return result;
+}
+
+boost::optional<BCLMeasure> OSDocument::getLocalMeasure(const std::string& uid, const std::string& versionId) const {
+  boost::optional<BCLMeasure> result;
+  if (m_haveLocalBCL) {
+    try {
+      result = LocalBCL::instance().getMeasure(uid, versionId);
+    } catch (const std::exception& e) {
+      LOG(Error, "Cannot access local BCL: " << e.what());
+      m_haveLocalBCL = false;
+    }
+  }
+  return result;
+}
+
+std::vector<BCLMeasure> OSDocument::getLocalMeasures() const {
+  std::vector<BCLMeasure> result;
+  if (m_haveLocalBCL) {
+    try {
+      result = LocalBCL::instance().measures();
+    } catch (const std::exception& e) {
+      LOG(Error, "Cannot access local BCL: " << e.what());
+      m_haveLocalBCL = false;
+    }
+  }
+  return result;
+}
+
+std::vector<BCLComponent> OSDocument::componentAttributeSearch(const std::vector<std::pair<std::string, std::string>>& pairs) const {
+  std::vector<BCLComponent> result;
+  if (m_haveLocalBCL) {
+    try {
+      result = LocalBCL::instance().componentAttributeSearch(pairs);
+    } catch (const std::exception& e) {
+      LOG(Error, "Cannot access local BCL: " << e.what());
+      m_haveLocalBCL = false;
+    }
+  }
+  return result;
+}
+
+boost::optional<BCLMeasure> OSDocument::standardReportMeasure() {
+  const std::string uid("a25386cd-60e4-46bc-8b11-c755f379d916");
+  boost::optional<BCLMeasure> result = getLocalMeasure(uid);
+
+  if (m_haveLocalBCL && RemoteBCL::isOnline()) {
     RemoteBCL remoteBCL;
     result = remoteBCL.getMeasure(uid);
   }
@@ -1495,7 +1570,7 @@ bool OSDocument::fromBCL(const OSItemId& itemId) const {
 
 boost::optional<IddObjectType> OSDocument::getIddObjectType(const OSItemId& itemId) const {
   if (fromBCL(itemId)) {
-    boost::optional<BCLComponent> component = LocalBCL::instance().getComponent(itemId.itemId().toStdString());
+    boost::optional<BCLComponent> component = getLocalComponent(itemId.itemId().toStdString());
     if (component) {
       for (const Attribute& attribute : component->attributes()) {
         if (istringEqual("OpenStudio Type", attribute.name())) {
@@ -1540,7 +1615,7 @@ boost::optional<model::Component> OSDocument::getComponent(const OSItemId& itemI
   if (itemId.sourceId() == OSItemId::BCL_SOURCE_ID) {
     boost::optional<BCLComponent> component;
 
-    component = LocalBCL::instance().getComponent(itemId.itemId().toStdString());
+    component = getLocalComponent(itemId.itemId().toStdString());
 
     if (component) {
 
@@ -1673,6 +1748,15 @@ void OSDocument::updateSubTabSelected(int id) {
 }
 
 void OSDocument::openBclDlg() {
+  if (!m_haveLocalBCL) {
+    QMessageBox::information(this->mainWindow(), "Cannot access LocalBCL",
+                             QString("Cannot access LocalBCL. Check that the directory '")
+                               .append(toQString(openstudio::LocalBCL::instance().libraryPath()))
+                               .append("' exists and has proper permissions. Renaming or deleting the directory may resolve the issue."),
+                             QMessageBox::Ok);
+    return;
+  }
+
   if (!RemoteBCL::isOnline()) {
     QMessageBox::information(this->mainWindow(), "Offline", "You appear to be offline, please connect to the internet to access the BCL.",
                              QMessageBox::Ok);
@@ -1714,6 +1798,15 @@ std::shared_ptr<MainRightColumnController> OSDocument::mainRightColumnController
 }
 
 void OSDocument::openMeasuresBclDlg() {
+  if (!m_haveLocalBCL) {
+    QMessageBox::information(this->mainWindow(), "Cannot access LocalBCL",
+                             QString("Cannot access LocalBCL. Check that the directory '")
+                               .append(toQString(openstudio::LocalBCL::instance().libraryPath()))
+                               .append("' exists and has proper permissions. Renaming or deleting the directory may resolve the issue."),
+                             QMessageBox::Ok);
+    return;
+  }
+
   if (!RemoteBCL::isOnline()) {
     QMessageBox::information(this->mainWindow(), "Offline", "You appear to be offline, please connect to the internet to access the BCL.",
                              QMessageBox::Ok);

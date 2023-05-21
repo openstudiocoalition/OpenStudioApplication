@@ -493,12 +493,6 @@ QWidget* LibraryItemDelegate::view(QSharedPointer<OSListItem> dataSource) {
   if (QSharedPointer<LibraryItem> libraryItem = dataSource.objectCast<LibraryItem>()) {
     MeasureType measureType = libraryItem->m_bclMeasure.measureType();
 
-    // NOTE: replaces needed to trim unwanted curly braces
-    // TODO: Why was it there (and unused)?
-    // QString measureUUID = toQString(libraryItem->m_bclMeasure.uuid()).replace("{", "").replace("}", "");
-
-    // std::vector<std::string> localUUIDs = (LocalBCL::instance().measureUids());
-
     auto* widget = new LibraryItemView();
 
     if (measureType == MeasureType::ModelMeasure) {
