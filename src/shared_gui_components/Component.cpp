@@ -30,6 +30,8 @@
 #include "Component.hpp"
 
 #include "../model_editor/Utilities.hpp"
+#include "../openstudio_lib/OSAppBase.hpp"
+#include "../openstudio_lib/OSDocument.hpp"
 
 #include <openstudio/utilities/bcl/BCLMeasure.hpp>
 #include <openstudio/utilities/bcl/LocalBCL.hpp>
@@ -118,14 +120,14 @@ Component::Component(const BCLSearchResult& bclSearchResult, bool showAbridgedVi
 
   if (bclSearchResult.componentType() == "component") {
     // This component has already been downloaded
-    if (LocalBCL::instance().getComponent(this->uid(), this->versionId())) {
+    if (OSAppBase::instance()->currentDocument()->getLocalComponent(this->uid(), this->versionId())) {
       if (m_checkBox) {
         m_checkBox->setChecked(true);
         setCheckBoxEnabled(false);
         m_updateAvailable = false;
       }
       // This component has an update
-    } else if (LocalBCL::instance().getComponent(this->uid())) {
+    } else if (OSAppBase::instance()->currentDocument()->getLocalComponent(this->uid())) {
       if (m_checkBox) {
         m_checkBox->setChecked(false);
         setCheckBoxUpdateAvailable(true);
@@ -157,14 +159,14 @@ Component::Component(const BCLSearchResult& bclSearchResult, bool showAbridgedVi
       }
     } else {
       // This measure has already been downloaded
-      if (LocalBCL::instance().getMeasure(this->uid(), this->versionId())) {
+      if (OSAppBase::instance()->currentDocument()->getLocalMeasure(this->uid(), this->versionId())) {
         if (m_checkBox) {
           m_checkBox->setChecked(true);
           setCheckBoxEnabled(false);
           m_updateAvailable = false;
         }
         // This measure has an update
-      } else if (LocalBCL::instance().getMeasure(this->uid())) {
+      } else if (OSAppBase::instance()->currentDocument()->getLocalMeasure(this->uid())) {
         if (m_checkBox) {
           m_checkBox->setChecked(false);
           setCheckBoxUpdateAvailable(true);

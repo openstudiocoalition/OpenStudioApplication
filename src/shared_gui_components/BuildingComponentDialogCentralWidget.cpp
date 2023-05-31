@@ -46,6 +46,8 @@
 #include <openstudio/utilities/core/Assert.hpp>
 
 #include "../model_editor/Application.hpp"
+#include "../openstudio_lib/OSAppBase.hpp"
+#include "../openstudio_lib/OSDocument.hpp"
 
 #include <QApplication>
 #include <QBoxLayout>
@@ -286,7 +288,7 @@ void BuildingComponentDialogCentralWidget::componentDownloadComplete(const std::
   if (component) {
     // good
     // remove old component
-    boost::optional<BCLComponent> oldComponent = LocalBCL::instance().getComponent(component->uid());
+    boost::optional<BCLComponent> oldComponent = OSAppBase::instance()->currentDocument()->getLocalComponent(component->uid());
     if (oldComponent && oldComponent->versionId() != component->versionId()) {
       LocalBCL::instance().removeComponent(*oldComponent);
     }
@@ -305,7 +307,7 @@ void BuildingComponentDialogCentralWidget::measureDownloadComplete(const std::st
     // good
 
     // remove old measure
-    boost::optional<BCLMeasure> oldMeasure = LocalBCL::instance().getMeasure(measure->uid());
+    boost::optional<BCLMeasure> oldMeasure = OSAppBase::instance()->currentDocument()->getLocalMeasure(measure->uid());
     if (oldMeasure && oldMeasure->versionId() != measure->versionId()) {
       LocalBCL::instance().removeMeasure(*oldMeasure);
     }

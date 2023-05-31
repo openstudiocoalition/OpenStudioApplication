@@ -30,6 +30,7 @@
 #include "ModelObjectListView.hpp"
 #include "ModelObjectItem.hpp"
 #include "OSAppBase.hpp"
+#include "OSDocument.hpp"
 #include "BCLComponentItem.hpp"
 
 #include <openstudio/model/Model_Impl.hpp>
@@ -97,7 +98,7 @@ std::vector<OSItemId> ModelObjectListController::makeVector() {
     pairs.push_back(std::make_pair<std::string, std::string>("OpenStudio Type", m_iddObjectType.valueDescription()));
 
     // get BCL results
-    std::vector<BCLComponent> bclresults = LocalBCL::instance().componentAttributeSearch(pairs);
+    std::vector<BCLComponent> bclresults = OSAppBase::instance()->currentDocument()->componentAttributeSearch(pairs);
 
     // sort by name
     std::sort(bclresults.begin(), bclresults.end(), BCLComponentNameGreater());
