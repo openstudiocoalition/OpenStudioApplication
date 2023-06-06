@@ -429,6 +429,11 @@ void UtilityBillsInspectorView::attach(const openstudio::model::UtilityBill& uti
 void UtilityBillsInspectorView::detach() {
   this->stackedWidget()->setCurrentIndex(m_hiddenWidgetIndex);
 
+  if (boost::optional<model::YearDescription> yd_ = m_model.yearDescription()) {
+    yd_->getImpl<model::detail::YearDescription_Impl>()
+      ->onChange.disconnect<UtilityBillsInspectorView, &UtilityBillsInspectorView::updateRunPeriodDates>(this);
+  }
+
   m_name->unbind();
   m_consumptionUnits->unbind();
   m_peakDemandUnits->unbind();

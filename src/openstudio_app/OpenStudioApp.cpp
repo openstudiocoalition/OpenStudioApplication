@@ -405,7 +405,7 @@ std::vector<std::string> OpenStudioApp::buildCompLibraries() {
 
   m_compLibrary = model::Model();
 
-  std::string thisVersion = openStudioVersion();
+  const std::string thisVersion = openStudioVersion();
 
   for (const auto& libPath : libraryPaths()) {
     try {
@@ -422,8 +422,7 @@ std::vector<std::string> OpenStudioApp::buildCompLibraries() {
 
         osversion::VersionTranslator versionTranslator;
         versionTranslator.setAllowNewerVersions(false);
-        boost::optional<Model> temp = versionTranslator.loadModel(libPath);
-        if (temp) {
+        if (boost::optional<Model> temp = versionTranslator.loadModel(libPath)) {
           m_compLibrary.insertObjects(temp->objects());
         } else {
           LOG_FREE(Error, "OpenStudioApp", "Failed to load library");

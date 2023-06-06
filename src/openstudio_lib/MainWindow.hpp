@@ -173,7 +173,7 @@ class MainWindow : public QMainWindow
 
   void enableAnalytics(bool enable);
 
-  void sendAnalytics(const QString& analyticsId, int verticalTabId);
+  void sendAnalytics(const QString& analyticsId, const std::string& contentType, const std::string& contentId);
 
  public slots:
 

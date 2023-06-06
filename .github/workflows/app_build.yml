@@ -42,7 +42,7 @@ jobs:
       # fail-fast: Default is true, switch to false to allow one platform to fail and still run others
       fail-fast: false
       matrix:
-        os: [ubuntu-20.04, windows-2019, macos-12, macos-arm64]
+        os: [ubuntu-20.04, ubuntu-22.04, windows-2022, macos-12, macos-arm64]
         include:
         - os: ubuntu-20.04
           allow_failure: true
@@ -58,7 +58,21 @@ jobs:
           COMPRESSED_PKG_PATH: _CPack_Packages/Linux/TGZ
           QT_OS_NAME: linux
           QT_ARCH: gcc_64
-        - os: windows-2019
+        - os: ubuntu-22.04
+          allow_failure: true
+          SELF_HOSTED: false
+          PLATFORM_NAME: Linux
+          CPACK_BINARY_DEB: ON
+          CPACK_BINARY_IFW: OFF
+          CPACK_BINARY_TGZ: ON
+          CPACK_BINARY_ZIP: OFF
+          BINARY_EXT: deb
+          COMPRESSED_EXT: tar.gz
+          BINARY_PKG_PATH: _CPack_Packages/Linux/DEB
+          COMPRESSED_PKG_PATH: _CPack_Packages/Linux/TGZ
+          QT_OS_NAME: linux
+          QT_ARCH: gcc_64
+        - os: windows-2022
           allow_failure: false
           SELF_HOSTED: false
           PLATFORM_NAME: Windows
@@ -253,7 +267,7 @@ jobs:
         if [ "$RUNNER_OS" == "Linux" ]; then
           echo "Install needed system dependencies for OPENGL (due to Qt) for Linux"
           sudo apt update
-          sudo apt install -y mesa-common-dev libglu1-mesa-dev patchelf ninja-build libxkbcommon-x11-dev libgl1-mesa-dev
+          sudo apt install -y mesa-common-dev libglu1-mesa-dev patchelf ninja-build libxkbcommon-x11-dev libgl1-mesa-dev chrpath
 
           # Weirdly enough, ninja makes ubuntu unresponsive...
           echo CMAKE_GENERATOR='Ninja' >> $GITHUB_ENV
@@ -268,8 +282,15 @@ jobs:
 
           echo "Using chocolatey to install ninja"
           choco install ninja
+
+          # using ccache fails to build .rc files on Windows
+          # ccache is installed under chocolatey but `choco uninstall ccache` fails
+          # setting CCACHE_DISABLE=1 did not work, just remove ccache
+          echo "Remove ccache if it exists"
+          rm -f "/c/ProgramData/Chocolatey/bin/ccache" || true
+
           # C:\Program Files (x86)\Microsoft Visual Studio\2019\Enterprise
-          MSVC_DIR=$(cmd.exe /c "vswhere -products * -requires Microsoft.Component.MSBuild -property installationPath -latest")
+          MSVC_DIR=$(vswhere -products '*' -requires Microsoft.Component.MSBuild -property installationPath -latest)
           echo "Latest is: $MSVC_DIR"
           echo "MSVC_DIR=$MSVC_DIR" >> $GITHUB_ENV
           # add folder containing vcvarsall.bat
@@ -317,11 +338,9 @@ jobs:
         echo CONAN_INSTALL_MD5=$CONAN_INSTALL_MD5 >> $GITHUB_ENV
         cmake --version
 
-    # TODO: cache the QtIFW folder too
-
     - name: Cache entire build directory
       id: cachebuild
-      if: ${{!matrix.SELF_HOSTED}}
+      if: ${{ !matrix.SELF_HOSTED }}
       uses: actions/cache@v3
       with:
         path: build/
@@ -443,7 +462,7 @@ jobs:
 
         if [ "$RUNNER_OS" == "Windows" ]; then
           # QT_INSTALL_DIR="$(pwd)/build/Qt-install/$QT_VERSION/msvc2019_64"
-          QT_INSTALL_DIR="$(cmd.exe /c 'cd')\build\Qt-install\${{ env.QT_VERSION }}\msvc2019_64"
+          QT_INSTALL_DIR="$(cmd.exe //c cd)\build\Qt-install\${{ env.QT_VERSION }}\msvc2019_64"
         elif [ "$RUNNER_OS" == "macOS" ]; then
           QT_INSTALL_DIR="$(pwd)/build/Qt-install/$QT_VERSION/macos"
         else
@@ -526,7 +545,17 @@ jobs:
       run: |
         echo "Using vcvarsall to initialize the development environment"
         call vcvarsall.bat x64
-        cmake -G Ninja -DQT_INSTALL_DIR=${{ env.QT_INSTALL_DIR }} -DCMAKE_BUILD_TYPE=${{ env.BUILD_TYPE }} -DBUILD_DOCUMENTATION=${{ env.BUILD_DOCUMENTATION }} -DBUILD_TESTING=${{ env.BUILD_TESTING }} -DBUILD_BENCHMARK=${{ env.BUILD_BENCHMARK}} -DBUILD_PACKAGE=${{ env.BUILD_PACKAGE }} -DCPACK_BINARY_DEB=${{ env.CPACK_BINARY_DEB }} -DCPACK_BINARY_IFW=${{ env.CPACK_BINARY_IFW }} -DCPACK_BINARY_NSIS=${{ env.CPACK_BINARY_NSIS }} -DCPACK_BINARY_RPM=${{ env.CPACK_BINARY_RPM }} -DCPACK_BINARY_STGZ=${{ env.CPACK_BINARY_STGZ }} -DCPACK_BINARY_TBZ2=${{ env.CPACK_BINARY_TBZ2 }} -DCPACK_BINARY_TGZ=${{ env.CPACK_BINARY_TGZ }} -DCPACK_BINARY_ZIP=${{ env.CPACK_BINARY_ZIP }} -DCPACK_BINARY_TXZ=${{ env.CPACK_BINARY_TXZ }} -DCPACK_BINARY_TZ=${{ env.CPACK_BINARY_TZ }} -DCPACK_SOURCE_RPM=${{ env.CPACK_SOURCE_RPM }} -DCPACK_SOURCE_TBZ2=${{ env.CPACK_SOURCE_TBZ2 }} -DCPACK_SOURCE_TGZ=${{ env.CPACK_SOURCE_TGZ }} -DCPACK_SOURCE_TXZ=${{ env.CPACK_SOURCE_TXZ }} -DCPACK_SOURCE_TZ=${{ env.CPACK_SOURCE_TZ }} -DCPACK_SOURCE_ZIP=${{ env.CPACK_SOURCE_ZIP }} ../
+        dir
+        cmake -G Ninja -DQT_INSTALL_DIR:PATH=${{ env.QT_INSTALL_DIR }} -DCMAKE_BUILD_TYPE:STRING=${{ env.BUILD_TYPE }} ^
+         -DBUILD_DOCUMENTATION:BOOL=${{ env.BUILD_DOCUMENTATION }} -DBUILD_TESTING:BOOL=${{ env.BUILD_TESTING }} -DBUILD_BENCHMARK:BOOL=${{ env.BUILD_BENCHMARK}} ^
+         -DBUILD_PACKAGE:BOOL=${{ env.BUILD_PACKAGE }} -DCPACK_BINARY_DEB:BOOL=${{ env.CPACK_BINARY_DEB }} -DCPACK_BINARY_IFW:BOOL=${{ env.CPACK_BINARY_IFW }} ^
+         -DCPACK_BINARY_NSIS:BOOL=${{ env.CPACK_BINARY_NSIS }} -DCPACK_BINARY_RPM:BOOL=${{ env.CPACK_BINARY_RPM }} -DCPACK_BINARY_STGZ:BOOL=${{ env.CPACK_BINARY_STGZ }} ^
+         -DCPACK_BINARY_TBZ2:BOOL=${{ env.CPACK_BINARY_TBZ2 }} -DCPACK_BINARY_TGZ:BOOL=${{ env.CPACK_BINARY_TGZ }} -DCPACK_BINARY_ZIP:BOOL=${{ env.CPACK_BINARY_ZIP }} ^
+         -DCPACK_BINARY_TXZ:BOOL=${{ env.CPACK_BINARY_TXZ }} -DCPACK_BINARY_TZ:BOOL=${{ env.CPACK_BINARY_TZ }} -DCPACK_SOURCE_RPM:BOOL=${{ env.CPACK_SOURCE_RPM }} ^
+         -DCPACK_SOURCE_TBZ2:BOOL=${{ env.CPACK_SOURCE_TBZ2 }} -DCPACK_SOURCE_TGZ:BOOL=${{ env.CPACK_SOURCE_TGZ }} -DCPACK_SOURCE_TXZ:BOOL=${{ env.CPACK_SOURCE_TXZ }} ^
+         -DCPACK_SOURCE_TZ:BOOL=${{ env.CPACK_SOURCE_TZ }} -DCPACK_SOURCE_ZIP:BOOL=${{ env.CPACK_SOURCE_ZIP }} ^
+         -DANALYTICS_API_SECRET:STRING=${{secrets.ANALYTICS_API_SECRET }} -DANALYTICS_MEASUREMENT_ID:STRING=${{secrets.ANALYTICS_MEASUREMENT_ID }} ^
+         ../
         ninja
         ninja package
 
@@ -543,7 +572,16 @@ jobs:
       # NOTE: If you re-enable 'Download the OpenStudio installer' step, then pass `openstudio_DIR=$openstudio_DIR cmake [etc]`
       run: |
         set -x
-        cmake -DQT_INSTALL_DIR=$QT_INSTALL_DIR -DCMAKE_BUILD_TYPE=$BUILD_TYPE -DBUILD_DOCUMENTATION=$DBUILD_DOCUMENTATION -DBUILD_TESTING=$BUILD_TESTING -DBUILD_BENCHMARK=$BUILD_BENCHMARK -DBUILD_PACKAGE=$BUILD_PACKAGE -DCPACK_BINARY_DEB=$CPACK_BINARY_DEB -DCPACK_BINARY_IFW=$CPACK_BINARY_IFW -DCPACK_BINARY_NSIS=$CPACK_BINARY_NSIS -DCPACK_BINARY_RPM=$CPACK_BINARY_RPM -DCPACK_BINARY_STGZ=$CPACK_BINARY_STGZ -DCPACK_BINARY_TBZ2=$CPACK_BINARY_TBZ2 -DCPACK_BINARY_TGZ=$CPACK_BINARY_TGZ -DCPACK_BINARY_ZIP=$CPACK_BINARY_ZIP -DCPACK_BINARY_TXZ=$CPACK_BINARY_TXZ -DCPACK_BINARY_TZ=$CPACK_BINARY_TZ -DCPACK_SOURCE_RPM=$CPACK_SOURCE_RPM -DCPACK_SOURCE_TBZ2=$CPACK_SOURCE_TBZ2 -DCPACK_SOURCE_TGZ=$CPACK_SOURCE_TGZ -DCPACK_SOURCE_TXZ=$CPACK_SOURCE_TXZ -DCPACK_SOURCE_TZ=$CPACK_SOURCE_TZ -DCPACK_SOURCE_ZIP=$CPACK_SOURCE_ZIP ../
+        cmake -DQT_INSTALL_DIR:PATH=$QT_INSTALL_DIR -DCMAKE_BUILD_TYPE:STRING=$BUILD_TYPE \
+         -DBUILD_DOCUMENTATION:BOOL=$DBUILD_DOCUMENTATION -DBUILD_TESTING:BOOL=$BUILD_TESTING -DBUILD_BENCHMARK:BOOL=$BUILD_BENCHMARK \
+         -DBUILD_PACKAGE:BOOL=$BUILD_PACKAGE -DCPACK_BINARY_DEB:BOOL=$CPACK_BINARY_DEB -DCPACK_BINARY_IFW:BOOL=$CPACK_BINARY_IFW \
+         -DCPACK_BINARY_NSIS:BOOL=$CPACK_BINARY_NSIS -DCPACK_BINARY_RPM:BOOL=$CPACK_BINARY_RPM -DCPACK_BINARY_STGZ:BOOL=$CPACK_BINARY_STGZ \
+         -DCPACK_BINARY_TBZ2:BOOL=$CPACK_BINARY_TBZ2 -DCPACK_BINARY_TGZ:BOOL=$CPACK_BINARY_TGZ -DCPACK_BINARY_ZIP:BOOL=$CPACK_BINARY_ZIP \
+         -DCPACK_BINARY_TXZ:BOOL=$CPACK_BINARY_TXZ -DCPACK_BINARY_TZ:BOOL=$CPACK_BINARY_TZ -DCPACK_SOURCE_RPM:BOOL=$CPACK_SOURCE_RPM \
+         -DCPACK_SOURCE_TBZ2:BOOL=$CPACK_SOURCE_TBZ2 -DCPACK_SOURCE_TGZ:BOOL=$CPACK_SOURCE_TGZ -DCPACK_SOURCE_TXZ:BOOL=$CPACK_SOURCE_TXZ \
+         -DCPACK_SOURCE_TZ:BOOL=$CPACK_SOURCE_TZ -DCPACK_SOURCE_ZIP:BOOL=$CPACK_SOURCE_ZIP \
+         -DANALYTICS_API_SECRET:STRING=${{secrets.ANALYTICS_API_SECRET }} -DANALYTICS_MEASUREMENT_ID:STRING=${{secrets.ANALYTICS_MEASUREMENT_ID }} \
+         ../
 
     # Note: JM 2020-07-22 This is an example of how to get a config log for a failed conan dependency build (no binary available)
     # This WILL be handy some day, so leave it here
@@ -571,19 +609,19 @@ jobs:
         echo "Building with $N threads"
         cmake --build . --target package -j $N --config $BUILD_TYPE
 
-    - name: Test bed Sign inner portable executable files and exe package (Windows)
+    - name: Test bed Sign inner portable executable files and exe package (Windows 2022)
       working-directory: ./build
-      if: (runner.os == 'Windows')
+      if: (matrix.os == 'windows-2022')
       shell: powershell
       run: |
         $installer_exe = Get-ChildItem -Filter "${{ matrix.BINARY_PKG_PATH }}/*.${{ env.BINARY_EXT }}" -File | Select-Object -First 1 | % { $_.FullName}
         echo $installer_exe
         echo "$installer_exe"
 
-    - name: Sign inner portable executable files and exe package (Windows)
+    - name: Sign inner portable executable files and exe package (Windows 2022)
       working-directory: ./build
       # if: (runner.os == 'Windows')
-      if: contains(github.ref, 'refs/tags') && (runner.os == 'Windows')
+      if: contains(github.ref, 'refs/tags') && (matrix.os == 'windows-2022')
       shell: powershell
       run: |
         # Install signpath

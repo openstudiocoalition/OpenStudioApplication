@@ -1,12 +1,12 @@
 set(OPENSTUDIO_VERSION_MAJOR 3)
-set(OPENSTUDIO_VERSION_MINOR 5)
+set(OPENSTUDIO_VERSION_MINOR 6)
 set(OPENSTUDIO_VERSION_PATCH 1)
 set(OPENSTUDIO_VERSION "${OPENSTUDIO_VERSION_MAJOR}.${OPENSTUDIO_VERSION_MINOR}.${OPENSTUDIO_VERSION_PATCH}")
 
 #If this is an official release, leave this "", otherwise put for eg '-rc1'
 set(OPENSTUDIO_VERSION_PRERELEASE "")
 # Enter SHA, always, eg "+79857912c4"
-set(OPENSTUDIO_VERSION_SHA "+22e1db7be5")
+set(OPENSTUDIO_VERSION_SHA "+bb9481519e")
 
 # Paths where the cmake-downloaded archives will be put
 set(OPENSTUDIO_ARCHIVE_DIR "${PROJECT_BINARY_DIR}/OpenStudio-${OPENSTUDIO_VERSION}")
@@ -15,25 +15,29 @@ set(OPENSTUDIO_EXT "tar.gz")
 
 # If downloaded, we need the SHA to match. This block is here since we need "OPENSTUDIO_PLATFORM" anyways
 if(APPLE)
+  set(OPENSTUDIO_PLATFORM "Darwin-${ARCH}")
   if(ARCH MATCHES "arm64")
-    set(OPENSTUDIO_EXPECTED_HASH 6122d16d70d25f51db28dd3697678c29)
-    set(OPENSTUDIO_PLATFORM "Darwin-arm64")
+    set(OPENSTUDIO_EXPECTED_HASH b7401ca882ba6a162a41ba884555171b)
   else()
-    set(OPENSTUDIO_EXPECTED_HASH f21b03a44aa9ac3e52a4bdfa20009171)
-    set(OPENSTUDIO_PLATFORM "Darwin-x86_64")
+    set(OPENSTUDIO_EXPECTED_HASH ba881908f683ec695c209399f261b299)
   endif()
 
 elseif(UNIX)
-  if(LSB_RELEASE_VERSION_SHORT MATCHES "20.04")
-    set(OPENSTUDIO_EXPECTED_HASH 6e5c93002f0cfb445dcdcdb1270261a4)
-    set(OPENSTUDIO_PLATFORM "Ubuntu-20.04")
-  else() # Assumes 18.04
-    set(OPENSTUDIO_EXPECTED_HASH 3c8bba6aa14fa8de9927c928576702a3)
-    set(OPENSTUDIO_PLATFORM "Ubuntu-18.04")
+  set(OPENSTUDIO_PLATFORM "${LSB_RELEASE_ID_SHORT}-${LSB_RELEASE_VERSION_SHORT}-${ARCH}")
+  if(LSB_RELEASE_VERSION_SHORT MATCHES "22.04")
+    if (ARCH MATCHES "arm64")
+      set(OPENSTUDIO_EXPECTED_HASH 0124e7176d4577bf2152321d1b2770a5)
+    else()
+      set(OPENSTUDIO_EXPECTED_HASH 5c45d729f3cadc04a93368e43947dc2d)
+    endif()
+  elseif(LSB_RELEASE_VERSION_SHORT MATCHES "20.04")
+    set(OPENSTUDIO_EXPECTED_HASH 5e67958249d99f96149b4d5576c3d0ef)
+  else()
+    message(FATAL_ERROR "OpenStudio SDK no longer provides packages for Ubuntu 18.04")
   endif()
 
 elseif(WIN32)
-  set(OPENSTUDIO_EXPECTED_HASH bc83efcb140d20f8f9758559a58c4347)
+  set(OPENSTUDIO_EXPECTED_HASH 802f8cffeac24f011e636baf1e6ffd40)
   set(OPENSTUDIO_PLATFORM "Windows")
 endif()
 
@@ -69,10 +73,10 @@ else()
   # Note: this should be set to ""http://openstudio-ci-builds.s3-website-us-west-2.amazonaws.com/develop" for nightly builds
   # Occasionally we can point to a specific PR by using something like ""http://openstudio-ci-builds.s3-website-us-west-2.amazonaws.com/PR-4080"
   set(OPENSTUDIO_BASELINK_CI
-    # "http://openstudio-ci-builds.s3-website-us-west-2.amazonaws.com/develop"
+    "http://openstudio-ci-builds.s3-website-us-west-2.amazonaws.com/develop"
     # TODO: TEMPORARY point to a specific subfolder / PR
     # "http://openstudio-ci-builds.s3-website-us-west-2.amazonaws.com/PR-4712"
-    "http://openstudio-ci-builds.s3-website-us-west-2.amazonaws.com/${OPENSTUDIO_VERSION}${OPENSTUDIO_VERSION_PRERELEASE}${WIN_SUBFOLDER}"
+    # "http://openstudio-ci-builds.s3-website-us-west-2.amazonaws.com/${OPENSTUDIO_VERSION}${OPENSTUDIO_VERSION_PRERELEASE}${WIN_SUBFOLDER}"
 
     CACHE STRING "Base link to where the openstudio develop archives are hosted" FORCE)
 
@@ -187,17 +191,9 @@ else()
 endif()
 
 get_filename_component(openstudio_ROOT_DIR "${openstudio_DIR}/../../../" ABSOLUTE)
-set(openstudio_ROOT_DIR "${openstudio_ROOT_DIR}" CACHE STRING "This is the path to the root of SDK, under which you'll find bin/, lib/, etc" FORCE)
+set(openstudio_ROOT_DIR "${openstudio_ROOT_DIR}" CACHE PATH "This is the path to the root of SDK, under which you'll find bin/, lib/, etc" FORCE)
 
-# Do an extra check?
-find_program(openstudio_EXECUTABLE
-  NAMES openstudio
-  PATHS "${openstudio_ROOT_DIR}/bin/"
-  NO_CMAKE_PATH
-  NO_CMAKE_ENVIRONMENT_PATH
-  NO_SYSTEM_ENVIRONMENT_PATH
-  NO_CMAKE_SYSTEM_PATH
-)
+get_target_property(openstudio_EXECUTABLE openstudio::openstudio LOCATION)
 
 if (NOT EXISTS "${openstudio_EXECUTABLE}")
   message(AUTHOR_WARNING "Could not find the CLI at ${openstudio_EXECUTABLE}")

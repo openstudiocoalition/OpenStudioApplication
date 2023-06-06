@@ -14,7 +14,7 @@ if(CCACHE_PROGRAM)
   set_property(GLOBAL PROPERTY RULE_LAUNCH_COMPILE "${CCACHE_PROGRAM}")
 endif()
 
-project(OpenStudioApplication VERSION 1.5.0)
+project(OpenStudioApplication VERSION 1.6.0)
 
 # Check system info globally so we can use it everywhere after: Has to be done before FindOpenStudioSDK.cmake
 if(APPLE)
@@ -43,6 +43,15 @@ elseif(UNIX)
 
   # -is outputs "Ubuntu" or "Fedora"
   execute_process(COMMAND ${LSB_RELEASE} -is OUTPUT_VARIABLE LSB_RELEASE_ID_SHORT OUTPUT_STRIP_TRAILING_WHITESPACE)
+
+  find_program(UNAME uname)
+  execute_process(COMMAND ${UNAME} -m
+    OUTPUT_VARIABLE ARCH
+    OUTPUT_STRIP_TRAILING_WHITESPACE
+  )
+  if (ARCH STREQUAL "aarch64")
+    set(ARCH "arm64")
+  endif()
 
 endif()
 

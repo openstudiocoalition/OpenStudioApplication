@@ -121,6 +121,21 @@ class OPENSTUDIO_API OSDocument : public OSQObjectController
   // Returns true if OSItemId's source is the BCL
   bool fromBCL(const OSItemId& itemId) const;
 
+  // returns false if the LocalBCL cannot be accessed
+  bool haveLocalBCL() const;
+
+  boost::optional<BCLComponent> getLocalComponent(const std::string& uid) const;
+  boost::optional<BCLComponent> getLocalComponent(const std::string& uid, const std::string& versionId) const;
+
+  boost::optional<BCLMeasure> getLocalMeasure(const std::string& uid) const;
+  boost::optional<BCLMeasure> getLocalMeasure(const std::string& uid, const std::string& versionId) const;
+
+  std::vector<BCLMeasure> getLocalMeasures() const;
+
+  std::vector<BCLComponent> componentAttributeSearch(const std::vector<std::pair<std::string, std::string>>& pairs) const;
+
+  boost::optional<BCLMeasure> standardReportMeasure();
+
   // Returns IddObjectType from either model, componentLibrary, or BCL
   boost::optional<IddObjectType> getIddObjectType(const OSItemId& itemId) const;
 
@@ -300,8 +315,6 @@ class OPENSTUDIO_API OSDocument : public OSQObjectController
 
   void exportFile(fileType type);
 
-  boost::optional<BCLMeasure> standardReportMeasure();
-
   friend class OpenStudioApp;
 
   REGISTER_LOGGER("openstudio.OSDocument");
@@ -345,6 +358,7 @@ class OPENSTUDIO_API OSDocument : public OSQObjectController
   int m_mainTabId = 0;
   int m_subTabId = 0;
   bool m_isPlugin;
+  mutable bool m_haveLocalBCL = true;
 
   int m_verticalId;
   std::vector<int> m_subTabIds;
