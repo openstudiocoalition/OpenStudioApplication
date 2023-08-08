@@ -1433,7 +1433,10 @@ boost::optional<BCLMeasure> OSDocument::standardReportMeasure() {
 
   if (m_haveLocalBCL && RemoteBCL::isOnline()) {
     RemoteBCL remoteBCL;
-    result = remoteBCL.getMeasure(uid);
+    boost::optional<BCLMeasure> onlineResult = remoteBCL.getMeasure(uid);
+    if (onlineResult) {
+      result = onlineResult;
+    }
   }
 
   return result;
