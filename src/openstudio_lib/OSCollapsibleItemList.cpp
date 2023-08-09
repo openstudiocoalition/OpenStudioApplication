@@ -178,7 +178,7 @@ void OSCollapsibleItemList::onCollapsableItemSelected(OSCollapsibleItem* selecte
     collapsibleItem = qobject_cast<OSCollapsibleItem*>(widget);
     if (collapsibleItem) {
       if (collapsibleItem == selectedItem) {
-  
+
         if (m_selectedCollapsibleItem != collapsibleItem) {
           // no need to select collapsibleItem since it is already selected
           // expand collapsable item and select first item inside
@@ -249,7 +249,7 @@ void OSCollapsibleItemList::onSearchTextEdited(const QString& text) {
     if (collapsibleItem) {
       std::vector<OSItem*> items = collapsibleItem->itemList()->items();
       unsigned numVisible = 0;
-      for (const auto& item: items ) {
+      for (const auto& item : items) {
         if (m_searchActive) {
           if (item->text().contains(text, Qt::CaseInsensitive)) {
             item->setVisible(true);
@@ -258,7 +258,7 @@ void OSCollapsibleItemList::onSearchTextEdited(const QString& text) {
               collapsibleItem->itemList()->selectItem(newSelectedItem);
             }
             ++numVisible;
-          }else{
+          } else {
             item->setVisible(false);
           }
         } else {
@@ -269,11 +269,10 @@ void OSCollapsibleItemList::onSearchTextEdited(const QString& text) {
 
       if (!m_searchActive) {
         collapsibleItem->setExpanded(collapsibleItem->isSelected());
-      }else{
+      } else {
         collapsibleItem->setExpanded(numVisible > 0);
-      }      
+      }
     }
-
   }
 }
 
