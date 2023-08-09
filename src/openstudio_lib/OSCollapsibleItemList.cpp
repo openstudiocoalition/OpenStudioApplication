@@ -36,6 +36,7 @@
 #include <openstudio/utilities/core/Assert.hpp>
 
 #include <QHBoxLayout>
+#include <QLineEdit>
 #include <QPainter>
 #include <QPushButton>
 #include <QResizeEvent>
@@ -50,6 +51,7 @@ OSCollapsibleItemList::OSCollapsibleItemList(bool addScrollArea, QWidget* parent
     m_vLayout(nullptr),
     m_contentLayout(nullptr),
     m_selectedCollapsibleItem(nullptr),
+    m_searchActive(false),
     m_itemsDraggable(false),
     m_itemsRemoveable(false),
     m_itemsType(OSItemType::ListItem) {
@@ -58,6 +60,10 @@ OSCollapsibleItemList::OSCollapsibleItemList(bool addScrollArea, QWidget* parent
   auto* outerVLayout = new QVBoxLayout();
   outerVLayout->setContentsMargins(0, 0, 0, 0);
   this->setLayout(outerVLayout);
+
+  m_searchBox = new QLineEdit();
+  outerVLayout->addWidget(m_searchBox);
+  connect(m_searchBox, &QLineEdit::textEdited, this, &OSCollapsibleItemList::onSearchTextEdited);
 
   auto* outerWidget = new QWidget();
 
@@ -158,18 +164,11 @@ void OSCollapsibleItemList::addCollapsibleItem(OSCollapsibleItem* collapsibleIte
   connect(collapsibleItem, &OSCollapsibleItem::selectionCleared, this, &OSCollapsibleItemList::selectionCleared);
 
   connect(collapsibleItem, &OSCollapsibleItem::openLibDlgClicked, this, &OSCollapsibleItemList::openLibDlgClicked);
-
-  if (!selectedItem()) {
-    collapsibleItem->itemList()->selectItem(collapsibleItem->itemList()->firstItem());
-  }
-
-  collapsibleItem->setSelected(true);
 }
 
 void OSCollapsibleItemList::onCollapsableItemSelected(OSCollapsibleItem* selectedItem) {
   QLayoutItem* layoutItem = nullptr;
   OSCollapsibleItem* collapsibleItem = nullptr;
-  OSItem* newSelectedItem = nullptr;
 
   for (int i = 0; i < m_vLayout->count(); ++i) {
 
@@ -179,20 +178,23 @@ void OSCollapsibleItemList::onCollapsableItemSelected(OSCollapsibleItem* selecte
     collapsibleItem = qobject_cast<OSCollapsibleItem*>(widget);
     if (collapsibleItem) {
       if (collapsibleItem == selectedItem) {
-
+  
         if (m_selectedCollapsibleItem != collapsibleItem) {
-          // select new item
+          // no need to select collapsibleItem since it is already selected
+          // expand collapsable item and select first item inside
           m_selectedCollapsibleItem = collapsibleItem;
           m_selectedCollapsibleItem->setExpanded(true);
-          newSelectedItem = m_selectedCollapsibleItem->itemList()->firstItem();
+          OSItem* newSelectedItem = m_selectedCollapsibleItem->itemList()->firstItem();
           m_selectedCollapsibleItem->itemList()->selectItem(newSelectedItem);
         }
 
       } else {
-        // deselect
+        // deselect other collapsable items
         collapsibleItem->setSelected(false);
-        collapsibleItem->setExpanded(false);
-        collapsibleItem->itemList()->clearSelection();
+        if (!m_searchActive) {
+          collapsibleItem->setExpanded(false);
+        }
+        //collapsibleItem->itemList()->clearSelection();
       }
     }
   }
@@ -212,16 +214,66 @@ void OSCollapsibleItemList::onItemSelected(OSItem* item) {
       std::vector<OSItem*> items = collapsibleItem->itemList()->items();
       if (std::find(items.begin(), items.end(), item) != items.end()) {
 
-        // select item
-        m_selectedCollapsibleItem = collapsibleItem;
-        m_selectedCollapsibleItem->setSelected(true);
+        if (m_selectedCollapsibleItem != collapsibleItem) {
+          // no need to select item since it is already selected
+          // expand collapsable item and select first item inside
+          m_selectedCollapsibleItem = collapsibleItem;
+          m_selectedCollapsibleItem->setSelected(true);
+          m_selectedCollapsibleItem->setExpanded(true);
+        }
 
       } else {
-        // deselect
+        // deselect other collapsable items
         collapsibleItem->setSelected(false);
-        collapsibleItem->itemList()->clearSelection();
+        if (!m_searchActive) {
+          collapsibleItem->setExpanded(false);
+        }
+        //collapsibleItem->itemList()->clearSelection();
       }
     }
+  }
+}
+
+void OSCollapsibleItemList::onSearchTextEdited(const QString& text) {
+  QLayoutItem* layoutItem = nullptr;
+  OSCollapsibleItem* collapsibleItem = nullptr;
+  OSItem* newSelectedItem = nullptr;
+  m_searchActive = !text.isEmpty();
+
+  for (int i = 0; i < m_vLayout->count(); ++i) {
+
+    layoutItem = m_vLayout->itemAt(i);
+    QWidget* widget = layoutItem->widget();
+
+    collapsibleItem = qobject_cast<OSCollapsibleItem*>(widget);
+    if (collapsibleItem) {
+      std::vector<OSItem*> items = collapsibleItem->itemList()->items();
+      unsigned numVisible = 0;
+      for (const auto& item: items ) {
+        if (m_searchActive) {
+          if (item->text().contains(text, Qt::CaseInsensitive)) {
+            item->setVisible(true);
+            if (!newSelectedItem) {
+              newSelectedItem = item;
+              collapsibleItem->itemList()->selectItem(newSelectedItem);
+            }
+            ++numVisible;
+          }else{
+            item->setVisible(false);
+          }
+        } else {
+          item->setVisible(true);
+          ++numVisible;
+        }
+      }
+
+      if (!m_searchActive) {
+        collapsibleItem->setExpanded(collapsibleItem->isSelected());
+      }else{
+        collapsibleItem->setExpanded(numVisible > 0);
+      }      
+    }
+
   }
 }
 
