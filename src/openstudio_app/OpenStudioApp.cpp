@@ -1158,7 +1158,8 @@ void OpenStudioApp::readSettings() {
   setLastPath(settings.value("lastPath", QDir::homePath()).toString());
   setDviewPath(openstudio::toPath(settings.value("dviewPath", "").toString()));
   m_currLang = settings.value("language", "en").toString();
-  LOG_FREE(Debug, "OpenStudioApp", "\n\n\nm_currLang=[" << m_currLang.toStdString() << "]\n\n\n");
+  m_useLabsCLI = settings.value("useLabsCLI", false).toBool();
+  LOG_FREE(Debug, "OpenStudioApp", "\n\n\nm_currLang=[" << m_currLang.toStdString() << "], m_useLabsCLI=" << m_useLabsCLI << "\n\n\n");
   if (m_currLang.isEmpty()) {
     m_currLang = "en";
   }
@@ -1304,14 +1305,18 @@ void OpenStudioApp::startMeasureManagerProcess() {
   test = (connect(m_measureManagerProcess, &QProcess::stateChanged, this, &OpenStudioApp::measureManagerProcessStateChanged) != nullptr);
   OS_ASSERT(test);
 
-  QString program = toQString(openstudioCLIPath());
+  const QString program = toQString(openstudioCLIPath());
   QStringList arguments;
+
+  if (m_useLabsCLI) {
+    arguments << "labs";
+  }
   arguments << "measure";
   arguments << "-s";
   arguments << portString;
 
   LOG(Debug, "Starting measure manager server at " << url.toString().toStdString());
-  LOG(Debug, "Command: " << toString(openstudioCLIPath()) << " measure -s " << toString(portString));
+  LOG(Debug, "Command: " << toString(program) << " " << toString(arguments.join(' ')));
 
   m_measureManagerProcess->start(program, arguments);
 }

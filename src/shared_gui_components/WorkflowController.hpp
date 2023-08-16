@@ -137,6 +137,7 @@ class MeasureStepController : public WorkflowStepController
   int count() override;
 
   MeasureType measureType() const;
+  MeasureLanguage measureLanguage() const;
 
   std::vector<MeasureStep> measureSteps() const;
 
@@ -154,6 +155,8 @@ class MeasureStepController : public WorkflowStepController
   void addItem(QSharedPointer<OSListItem> item);
 
   MeasureType m_measureType;
+  MeasureLanguage m_measureLanguage;
+
   BaseApp* m_app;
 
   std::vector<QSharedPointer<MeasureStepItem>> m_measureStepItems;
@@ -185,6 +188,8 @@ class MeasureStepItem : public OSListItem
   //QString displayName() const;
 
   MeasureType measureType() const;
+
+  MeasureLanguage measureLanguage() const;
 
   MeasureStep measureStep() const;
 
@@ -233,6 +238,7 @@ class MeasureStepItem : public OSListItem
 
  private:
   MeasureType m_measureType;
+  MeasureLanguage m_measureLanguage;
   MeasureStep m_step;
   BaseApp* m_app;
 };

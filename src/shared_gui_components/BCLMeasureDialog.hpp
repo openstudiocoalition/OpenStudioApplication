@@ -78,6 +78,7 @@ class BCLMeasureDialog : public OSDialog
   QTextEdit* m_descriptionTextEdit;
   QTextEdit* m_modelerDescriptionTextEdit;
   QComboBox* m_measureTypeComboBox;
+  QComboBox* m_measureLanguageComboBox;
   QComboBox* m_taxonomyFirstLevelComboBox;
   QComboBox* m_taxonomySecondLevelComboBox;
   QListWidget* m_intendedSoftwareToolListWidget;

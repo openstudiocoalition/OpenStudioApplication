@@ -109,7 +109,7 @@ MainWindow::MainWindow(bool isPlugin, QWidget* parent)
   m_analyticsHelper = new AnalyticsHelper(this);
   connect(this, &MainWindow::sendAnalytics, m_analyticsHelper, &AnalyticsHelper::sendAnalytics);
 
-  auto* mainMenu = new MainMenu(m_displayIP, m_isPlugin, m_currLang, allowAnalytics());
+  auto* mainMenu = new MainMenu(m_displayIP, m_isPlugin, m_currLang, allowAnalytics(), m_useLabsCLI);
   connect(mainMenu, &MainMenu::toggleUnitsClicked, this, &MainWindow::toggleUnits);
   connect(mainMenu, &MainMenu::changeLanguageClicked, this, &MainWindow::changeLanguage);
   connect(mainMenu, &MainMenu::downloadComponentsClicked, this, &MainWindow::downloadComponentsClicked);
@@ -139,6 +139,7 @@ MainWindow::MainWindow(bool isPlugin, QWidget* parent)
   connect(mainMenu, &MainMenu::checkForUpdateClicked, this, &MainWindow::checkForUpdateClicked);
   connect(mainMenu, &MainMenu::aboutClicked, this, &MainWindow::aboutClicked);
   connect(mainMenu, &MainMenu::allowAnalyticsClicked, this, &MainWindow::toggleAnalytics);
+  connect(mainMenu, &MainMenu::useLabsCLIClicked, this, &MainWindow::toggleUseLabsCLI);
   connect(mainMenu, &MainMenu::scanForToolsClicked, this, &MainWindow::scanForToolsClicked);
   connect(mainMenu, &MainMenu::showRunManagerPreferencesClicked, this, &MainWindow::showRunManagerPreferencesClicked);
   connect(mainMenu, &MainMenu::showRubyConsoleClicked, this, &MainWindow::showRubyConsoleClicked);
@@ -153,6 +154,7 @@ MainWindow::MainWindow(bool isPlugin, QWidget* parent)
   connect(this, &MainWindow::enablePreferences, mainMenu, &MainMenu::enablePreferencesActions);
   connect(this, &MainWindow::enableComponentsMeasures, mainMenu, &MainMenu::enableComponentsMeasuresActions);
   connect(this, &MainWindow::enableAnalytics, mainMenu, &MainMenu::enableAnalytics);
+  connect(this, &MainWindow::enableUseLabsCLI, mainMenu, &MainMenu::enableUseLabsCLI);
 }
 
 MainWindow::~MainWindow() = default;
@@ -280,6 +282,7 @@ void MainWindow::readSettings() {
   m_displayIP = settings.value("displayIP").toBool();
   m_verboseOutput = settings.value("verboseOutput").toBool();
   m_geometryDiagnostics = settings.value("geometryDiagnostics").toBool();
+  m_useLabsCLI = settings.value("useLabsCLI").toBool();
   m_currLang = settings.value("language", "en").toString();
   LOG_FREE(Debug, "MainWindow", "\n\n\nm_currLang=[" << m_currLang.toStdString() << "]\n\n\n");
   if (m_currLang.isEmpty()) {
@@ -299,6 +302,7 @@ void MainWindow::writeSettings() {
   settings.setValue("displayIP", m_displayIP);
   settings.setValue("verboseOutput", m_verboseOutput);
   settings.setValue("geometryDiagnostics", m_geometryDiagnostics);
+  settings.setValue("useLabsCLI", m_useLabsCLI);
   settings.setValue("language", m_currLang);
   settings.setValue("analyticsId", m_analyticsId);
 }
@@ -321,6 +325,18 @@ void MainWindow::toggleUnits(bool displayIP) {
 
 bool MainWindow::verboseOutput() const {
   return m_verboseOutput;
+}
+
+void MainWindow::toggleVerboseOutput(bool verboseOutput) {
+  m_verboseOutput = verboseOutput;
+}
+
+bool MainWindow::useLabsCLI() const {
+  return m_useLabsCLI;
+}
+
+void MainWindow::toggleUseLabsCLI(bool useLabsCLI) {
+  m_useLabsCLI = useLabsCLI;
 }
 
 bool MainWindow::geometryDiagnostics() const {
@@ -383,10 +399,6 @@ void MainWindow::onVerticalTabSelected(int verticalTabId) {
 
     emit sendAnalytics(m_analyticsId, contentType, contentId);
   }
-}
-
-void MainWindow::toggleVerboseOutput(bool verboseOutput) {
-  m_verboseOutput = verboseOutput;
 }
 
 void MainWindow::toggleGeometryDiagnostics(bool geometryDiagnostics) {

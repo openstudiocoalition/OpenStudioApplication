@@ -32,6 +32,11 @@
 #include "../model_editor/UserSettings.hpp"
 #include "../model_editor/Utilities.hpp"
 
+// TODO: delete once the Labs CLI is the default
+#include "../openstudio_lib/OSAppBase.hpp"
+#include "../openstudio_lib/OSDocument.hpp"
+#include "../openstudio_lib/MainWindow.hpp"
+
 #include <openstudio/utilities/core/Assert.hpp>
 #include <openstudio/utilities/core/StringHelpers.hpp>
 #include <openstudio/utilities/core/PathHelpers.hpp>
@@ -82,35 +87,48 @@ BCLMeasureDialog::BCLMeasureDialog(const BCLMeasure& bclMeasure, QWidget* parent
   m_descriptionTextEdit->setText(toQString(bclMeasure.description()));
   m_modelerDescriptionTextEdit->setText(toQString(bclMeasure.modelerDescription()));
 
-  QString measureTypeString;
-  MeasureType measureType = bclMeasure.measureType();
-  if (measureType == MeasureType::ModelMeasure) {
-    measureTypeString = "OpenStudio Measure";
-  } else if (measureType == MeasureType::EnergyPlusMeasure) {
-    measureTypeString = "EnergyPlus Measure";
-  } else if (measureType == MeasureType::UtilityMeasure) {
-    measureTypeString = "Utility Measure";
-  } else if (measureType == MeasureType::ReportingMeasure) {
-    measureTypeString = "Reporting Measure";
+  {
+    QString measureTypeString;
+    const MeasureType measureType = bclMeasure.measureType();
+    if (measureType == MeasureType::ModelMeasure) {
+      measureTypeString = "OpenStudio Measure";
+    } else if (measureType == MeasureType::EnergyPlusMeasure) {
+      measureTypeString = "EnergyPlus Measure";
+    } else if (measureType == MeasureType::UtilityMeasure) {
+      measureTypeString = "Utility Measure";
+    } else if (measureType == MeasureType::ReportingMeasure) {
+      measureTypeString = "Reporting Measure";
+    }
+    const int index = m_measureTypeComboBox->findText(measureTypeString);
+    m_measureTypeComboBox->setCurrentIndex(index);
   }
-  int index = m_measureTypeComboBox->findText(measureTypeString);
-  m_measureTypeComboBox->setCurrentIndex(index);
+
+  {
+    QString measureLanguageString = "Ruby";
+    const MeasureLanguage measureLanguage = bclMeasure.measureLanguage();
+    if (measureLanguage == MeasureLanguage::Python) {
+      measureLanguageString = "Python";
+    }
+    const int index = m_measureLanguageComboBox->findText(measureLanguageString);
+    m_measureLanguageComboBox->setCurrentIndex(index);
+    // Display the Language, but do not allow editing it!
+    m_measureLanguageComboBox->setEnabled(false);
+  }
 
   QStringList taxonomyParts = toQString(bclMeasure.taxonomyTag()).split('.');
-  if (taxonomyParts.size() > 0) {
-    index = m_taxonomyFirstLevelComboBox->findText(taxonomyParts[0]);
-    m_taxonomyFirstLevelComboBox->setCurrentIndex(index);
+  if (!taxonomyParts.empty()) {
+    const int firstIndex = m_taxonomyFirstLevelComboBox->findText(taxonomyParts[0]);
+    m_taxonomyFirstLevelComboBox->setCurrentIndex(firstIndex);
     firstLevelTaxonomyChanged(m_taxonomyFirstLevelComboBox->currentText());
-  }
-  if (taxonomyParts.size() > 1) {
-    index = m_taxonomySecondLevelComboBox->findText(taxonomyParts[1]);
-    m_taxonomySecondLevelComboBox->setCurrentIndex(index);
+
+    const int secondIndex = m_taxonomySecondLevelComboBox->findText(taxonomyParts[1]);
+    m_taxonomySecondLevelComboBox->setCurrentIndex(secondIndex);
   }
 
-  std::vector<std::string> intendedSoftwareTools = bclMeasure.intendedSoftwareTools();
+  const std::vector<std::string> intendedSoftwareTools = bclMeasure.intendedSoftwareTools();
   QList<QListWidgetItem*> items = m_intendedSoftwareToolListWidget->findItems(".*", Qt::MatchRegularExpression);
   for (QListWidgetItem* item : items) {
-    std::string intendedSoftwareTool = toString(item->text());
+    const std::string intendedSoftwareTool = toString(item->text());
     if (std::find(intendedSoftwareTools.begin(), intendedSoftwareTools.end(), intendedSoftwareTool) == intendedSoftwareTools.end()) {
       item->setCheckState(Qt::Unchecked);
     } else {
@@ -118,10 +136,10 @@ BCLMeasureDialog::BCLMeasureDialog(const BCLMeasure& bclMeasure, QWidget* parent
     }
   }
 
-  std::vector<std::string> intendedUseCases = bclMeasure.intendedUseCases();
+  const std::vector<std::string> intendedUseCases = bclMeasure.intendedUseCases();
   items = m_intendedUseCaseListWidget->findItems(".*", Qt::MatchRegularExpression);
   for (QListWidgetItem* item : items) {
-    std::string intendedUseCase = toString(item->text());
+    const std::string intendedUseCase = toString(item->text());
     if (std::find(intendedUseCases.begin(), intendedUseCases.end(), intendedUseCase) == intendedUseCases.end()) {
       item->setCheckState(Qt::Unchecked);
     } else {
@@ -133,27 +151,27 @@ BCLMeasureDialog::BCLMeasureDialog(const BCLMeasure& bclMeasure, QWidget* parent
 BCLMeasureDialog::~BCLMeasureDialog() = default;
 
 QSize BCLMeasureDialog::sizeHint() const {
-  return QSize(770, 540);
+  return {770, 540};
 }
 
 boost::optional<openstudio::BCLMeasure> BCLMeasureDialog::createMeasure() {
-  openstudio::path umd = userMeasuresDir();
+  const openstudio::path umd = userMeasuresDir();
 
   if (isNetworkPath(umd) && !isNetworkPathAvailable(umd)) {
     QMessageBox::information(this, "Cannot Create Measure",
                              "Your My Measures Directory appears to be on a network drive that is not currently available.\nYou can change your "
                              "specified My Measures Directory using 'Preferences->Change My Measures Directory'.",
                              QMessageBox::Ok);
-    return boost::optional<openstudio::BCLMeasure>();
+    return boost::none;
   }
 
-  std::string name = toString(m_nameLineEdit->text());
-  std::string className = BCLMeasure::makeClassName(name);
+  const std::string name = toString(m_nameLineEdit->text());
+  const std::string className = BCLMeasure::makeClassName(name);
   std::string lowerClassName = toUnderscoreCase(className);
-  std::string description = toString(m_descriptionTextEdit->toPlainText());
-  std::string modelerDescription = toString(m_modelerDescriptionTextEdit->toPlainText());
+  const std::string description = toString(m_descriptionTextEdit->toPlainText());
+  const std::string modelerDescription = toString(m_modelerDescriptionTextEdit->toPlainText());
 
-  std::string measureTypeStr = toString(m_measureTypeComboBox->currentText());
+  const std::string measureTypeStr = toString(m_measureTypeComboBox->currentText());
   MeasureType measureType;
   if (measureTypeStr == "OpenStudio Measure") {
     measureType = MeasureType::ModelMeasure;
@@ -163,6 +181,21 @@ boost::optional<openstudio::BCLMeasure> BCLMeasureDialog::createMeasure() {
     measureType = MeasureType::UtilityMeasure;
   } else if (measureTypeStr == "Reporting Measure") {
     measureType = MeasureType::ReportingMeasure;
+  }
+
+  const std::string measureLanguageStr = toString(m_measureLanguageComboBox->currentText());
+  MeasureLanguage measureLanguage = MeasureLanguage::Ruby;
+  if (measureLanguageStr == "Python") {
+    measureLanguage = MeasureLanguage::Python;
+
+    const bool useLabsCLI = OSAppBase::instance()->currentDocument()->mainWindow()->useLabsCLI();
+    if (!useLabsCLI) {
+      QMessageBox::information(
+        this, "Python Measures requires Labs CLI",
+        "Python Measures are only supported in the openstudio CLI 'labs' experimental subcommand which is not currently enabled."
+        "\nYou can enable it using 'Preferences->Use Labs CLI'.",
+        QMessageBox::Ok);
+    }
   }
 
   QString folderName = toQString(lowerClassName).append("/");
@@ -182,13 +215,13 @@ boost::optional<openstudio::BCLMeasure> BCLMeasureDialog::createMeasure() {
   }
 
   QStringList taxonomyParts;
-  QString taxonomyFirstLevel = m_taxonomyFirstLevelComboBox->currentText();
-  QString taxonomySecondLevel = m_taxonomySecondLevelComboBox->currentText();
+  const QString taxonomyFirstLevel = m_taxonomyFirstLevelComboBox->currentText();
+  const QString taxonomySecondLevel = m_taxonomySecondLevelComboBox->currentText();
   taxonomyParts << taxonomyFirstLevel;
   if (!taxonomySecondLevel.isEmpty()) {
     taxonomyParts << taxonomySecondLevel;
   }
-  std::string taxonomyTag = toString(taxonomyParts.join("."));
+  const std::string taxonomyTag = toString(taxonomyParts.join("."));
 
   std::vector<Attribute> attributes;
 
@@ -196,7 +229,7 @@ boost::optional<openstudio::BCLMeasure> BCLMeasureDialog::createMeasure() {
   for (QListWidgetItem* item : items) {
     if (item->checkState() == Qt::Checked) {
       std::string intendedSoftwareTool = toString(item->text());
-      attributes.push_back(Attribute("Intended Software Tool", intendedSoftwareTool));
+      attributes.emplace_back("Intended Software Tool", std::move(intendedSoftwareTool));
     }
   }
 
@@ -204,7 +237,7 @@ boost::optional<openstudio::BCLMeasure> BCLMeasureDialog::createMeasure() {
   for (QListWidgetItem* item : items) {
     if (item->checkState() == Qt::Checked) {
       std::string intendedUseCase = toString(item->text());
-      attributes.push_back(Attribute("Intended Use Case", intendedUseCase));
+      attributes.emplace_back("Intended Use Case", std::move(intendedUseCase));
     }
   }
 
@@ -235,6 +268,7 @@ boost::optional<openstudio::BCLMeasure> BCLMeasureDialog::createMeasure() {
       result->setArguments(m_bclMeasureToCopy->arguments());
       result->setTaxonomyTag(taxonomyTag);
       result->setMeasureType(measureType);
+      result->setMeasureLanguage(measureLanguage);
 
       // xml checksum is out of date
 
@@ -247,7 +281,7 @@ boost::optional<openstudio::BCLMeasure> BCLMeasureDialog::createMeasure() {
   } else {
     try {
       // starting new measure
-      result = BCLMeasure(name, className, measureDir, taxonomyTag, measureType, description, modelerDescription);
+      result = BCLMeasure(name, className, measureDir, taxonomyTag, measureType, description, modelerDescription, measureLanguage);
 
       for (const Attribute& attribute : attributes) {
         result->addAttribute(attribute);
@@ -262,13 +296,13 @@ boost::optional<openstudio::BCLMeasure> BCLMeasureDialog::createMeasure() {
 }
 
 void BCLMeasureDialog::nameChanged(const QString& newName) {
-  std::string className = BCLMeasure::makeClassName(toString(newName));
+  const std::string className = BCLMeasure::makeClassName(toString(newName));
   m_classNameLabel->setText(toQString(className));
 }
 
 void BCLMeasureDialog::measureTypeChanged(const QString& newName) {
   if (newName == "Reporting Measure") {
-    int index = m_taxonomyFirstLevelComboBox->findText("Reporting");
+    const int index = m_taxonomyFirstLevelComboBox->findText("Reporting");
     m_taxonomyFirstLevelComboBox->setCurrentIndex(index);
   } else {
     // DLM: do we want to toggle this back?
@@ -277,7 +311,8 @@ void BCLMeasureDialog::measureTypeChanged(const QString& newName) {
 
   if (newName == "OpenStudio Measure") {
     // DLM: do we want to toggle this back?
-    QList<QListWidgetItem*> items = m_intendedSoftwareToolListWidget->findItems("Apply Measure Now", Qt::MatchFixedString);
+    QList<QListWidgetItem*> items =
+      m_intendedSoftwareToolListWidget->findItems("Apply Measure Now", Qt::MatchFixedString);  // NOLINT(misc-const-correctness)
     for (QListWidgetItem* item : items) {
       item->setCheckState(Qt::Checked);
     }
@@ -293,7 +328,7 @@ void BCLMeasureDialog::firstLevelTaxonomyChanged(const QString& newName) {
   m_taxonomySecondLevelComboBox->clear();
   m_taxonomySecondLevelComboBox->setEnabled(false);
 
-  std::vector<std::string> secondLevelTerms = BCLMeasure::suggestedSecondLevelTaxonomyTerms(toString(newName));
+  const std::vector<std::string> secondLevelTerms = BCLMeasure::suggestedSecondLevelTaxonomyTerms(toString(newName));
 
   if (!secondLevelTerms.empty()) {
     for (const std::string& secondLevelTerm : secondLevelTerms) {
@@ -306,9 +341,9 @@ void BCLMeasureDialog::firstLevelTaxonomyChanged(const QString& newName) {
 
 void BCLMeasureDialog::init() {
 #ifdef Q_OS_DARWIN
-  int btnHeight = 44;
+  const int btnHeight = 44;
 #else
-  int btnHeight = 34;
+  const int btnHeight = 34;
 #endif
 
   QPushButton* cancelButton = this->cancelButton();
@@ -383,12 +418,26 @@ void BCLMeasureDialog::init() {
   tempVLayout = new QVBoxLayout;
 
   label = new QLabel;
+  label->setText("Measure Language:");
+  label->setObjectName("H2");
+  tempVLayout->addWidget(label);
+  m_measureLanguageComboBox = new QComboBox(this);
+  m_measureLanguageComboBox->addItem("Ruby");
+  m_measureLanguageComboBox->addItem("Python");
+  m_measureLanguageComboBox->setCurrentIndex(0);
+  tempVLayout->addWidget(m_measureLanguageComboBox);
+  tempVLayout->addSpacing(10);
+  tempHLayout->addLayout(tempVLayout);
+
+  tempVLayout = new QVBoxLayout;
+
+  label = new QLabel;
   label->setText("Taxonomy:");
   label->setObjectName("H2");
   tempVLayout->addWidget(label);
   m_taxonomyFirstLevelComboBox = new QComboBox(this);
 
-  std::vector<std::string> firstLevelTerms = BCLMeasure::suggestedFirstLevelTaxonomyTerms();
+  const std::vector<std::string> firstLevelTerms = BCLMeasure::suggestedFirstLevelTaxonomyTerms();
   for (const std::string& firstLevelTerm : firstLevelTerms) {
     m_taxonomyFirstLevelComboBox->addItem(toQString(firstLevelTerm));
   }
@@ -418,7 +467,7 @@ void BCLMeasureDialog::init() {
   }
   QStringListIterator it(intendedSoftwareTools);
   while (it.hasNext()) {
-    QString intendedSoftwareTool = it.next();
+    const QString intendedSoftwareTool = it.next();
     auto* listItem = new QListWidgetItem(intendedSoftwareTool, m_intendedSoftwareToolListWidget);
     // DLM: defaults per David
     if (intendedSoftwareTool == "Analysis Spreadsheet") {
@@ -445,7 +494,7 @@ void BCLMeasureDialog::init() {
   }
   it = QStringListIterator(intendedUseCases);
   while (it.hasNext()) {
-    QString intendedUseCase = it.next();
+    const QString intendedUseCase = it.next();
     auto* listItem = new QListWidgetItem(intendedUseCase, m_intendedUseCaseListWidget);
     // DLM: default to unchecked per David
     listItem->setCheckState(Qt::Unchecked);

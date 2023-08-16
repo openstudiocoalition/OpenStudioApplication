@@ -140,12 +140,19 @@ RunView::RunView() : QWidget(), m_runSocket(nullptr) {
   connect(m_verboseOutputBox, &QCheckBox::clicked, mainWindow, &MainWindow::toggleVerboseOutput);
   mainLayout->addWidget(m_verboseOutputBox, 0, 2);
 
+  bool useLabsCLI = mainWindow->useLabsCLI();
+  m_useLabsCLIBox = new QCheckBox();
+  m_useLabsCLIBox->setText("Use Labs CLI");
+  m_useLabsCLIBox->setChecked(useLabsCLI);
+  connect(m_useLabsCLIBox, &QCheckBox::clicked, mainWindow, &MainWindow::toggleUseLabsCLI);
+  mainLayout->addWidget(m_useLabsCLIBox, 0, 3);
+
   m_openSimDirButton = new QPushButton();
   m_openSimDirButton->setText("Show Simulation");
   m_openSimDirButton->setFlat(true);
   m_openSimDirButton->setObjectName("StandardGrayButton");
   connect(m_openSimDirButton, &QPushButton::clicked, this, &RunView::onOpenSimDirClicked);
-  mainLayout->addWidget(m_openSimDirButton, 0, 3);
+  mainLayout->addWidget(m_openSimDirButton, 0, 4);
 
   m_textInfo = new QTextEdit();
   m_textInfo->setReadOnly(true);
@@ -280,7 +287,11 @@ void RunView::playButtonClicked(bool t_checked) {
     // m_hasSocketConnexion = false;
 
     QStringList arguments;
-    LOG(Debug, "Checkbox is checked? " << std::boolalpha << m_verboseOutputBox->isChecked());
+    LOG(Debug, "Labs CLI Checkbox is checked? " << std::boolalpha << m_useLabsCLIBox->isChecked());
+    if (m_useLabsCLIBox->isChecked()) {
+      arguments << "labs";
+    }
+    LOG(Debug, "Verbose Checkbox is checked? " << std::boolalpha << m_verboseOutputBox->isChecked());
     if (m_verboseOutputBox->isChecked()) {
       arguments << "--verbose";
     } else {
@@ -290,14 +301,14 @@ void RunView::playButtonClicked(bool t_checked) {
       // m_runProcess->setStandardErrorFile(toQString(stderrPath));
     }
 
-    if (m_hasSocketConnexion) {
+    if (m_hasSocketConnexion && !m_useLabsCLIBox) {
       arguments << "run"
                 << "-s" << QString::number(port) << "-w" << workflowJSONPath;
     } else {
       arguments << "run"
                 << "--show-stdout"
-                // << "--style-stdout"
-                // << "--add-timings"
+                << "--style-stdout"
+                << "--add-timings"
                 << "-w" << workflowJSONPath;
     }
     LOG(Debug, "openstudioExePath='" << toString(openstudioExePath) << "'");

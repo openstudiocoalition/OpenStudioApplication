@@ -195,7 +195,7 @@ void MeasureManager::saveTempModel(const path& tempDir) {
 
 std::vector<BCLMeasure> MeasureManager::bclMeasures() const {
   std::vector<BCLMeasure> result;
-
+  result.reserve(m_bclMeasures.size());
   for (const auto& bclMeasure : m_bclMeasures) {
     result.push_back(bclMeasure.second);
   }
@@ -205,7 +205,7 @@ std::vector<BCLMeasure> MeasureManager::bclMeasures() const {
 
 std::vector<BCLMeasure> MeasureManager::myMeasures() const {
   std::vector<BCLMeasure> result;
-
+  result.reserve(m_myMeasures.size());
   for (const auto& measure : m_myMeasures) {
     result.push_back(measure.second);
   }
@@ -215,8 +215,9 @@ std::vector<BCLMeasure> MeasureManager::myMeasures() const {
 
 std::vector<BCLMeasure> MeasureManager::combinedMeasures() const {
   std::vector<BCLMeasure> result;
-  std::set<UUID> resultUUIDs;
+  result.reserve(m_myMeasures.size() + m_bclMeasures.size());
 
+  std::set<UUID> resultUUIDs;
   // insert my measures
   for (auto it = m_myMeasures.begin(), itend = m_myMeasures.end(); it != itend; ++it) {
     if (resultUUIDs.find(it->first) == resultUUIDs.end()) {

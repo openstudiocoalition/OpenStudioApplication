@@ -42,8 +42,8 @@
 
 namespace openstudio {
 
-MainMenu::MainMenu(bool isIP, bool isPlugin, const QString& currLang, bool allowAnalytics, QWidget* parent)
-  : QMenuBar(parent), m_isPlugin(isPlugin), m_isIP(isIP), m_currLang(currLang), m_allowAnalytics(allowAnalytics) {
+MainMenu::MainMenu(bool isIP, bool isPlugin, const QString& currLang, bool allowAnalytics, bool useLabsCLI, QWidget* parent)
+  : QMenuBar(parent), m_isPlugin(isPlugin), m_isIP(isIP), m_currLang(currLang), m_allowAnalytics(allowAnalytics), m_useLabsCLI(useLabsCLI) {
 
   QAction* action = nullptr;
 
@@ -171,10 +171,10 @@ MainMenu::MainMenu(bool isIP, bool isPlugin, const QString& currLang, bool allow
   m_preferencesMenu->addAction(action);
   connect(action, &QAction::triggered, this, &MainMenu::changeMyMeasuresDir, Qt::QueuedConnection);
 
-  action = new QAction(tr("&Change Default Libraries"), this);
-  m_preferencesActions.push_back(action);
-  m_preferencesMenu->addAction(action);
-  connect(action, &QAction::triggered, this, &MainMenu::changeDefaultLibrariesClicked, Qt::QueuedConnection);
+  m_openLibDlgAction = new QAction(tr("&Change Default Libraries"), this);
+  m_preferencesActions.push_back(m_openLibDlgAction);
+  m_preferencesMenu->addAction(m_openLibDlgAction);
+  connect(m_openLibDlgAction, &QAction::triggered, this, &MainMenu::changeDefaultLibrariesClicked, Qt::QueuedConnection);
 
   action = new QAction(tr("&Configure External Tools"), this);
   m_preferencesActions.push_back(action);
@@ -290,15 +290,25 @@ MainMenu::MainMenu(bool isIP, bool isPlugin, const QString& currLang, bool allow
   //m_preferencesMenu->addAction(action);
   //connect(action, &QAction::triggered, this, &MainMenu::changeBclLogin, Qt::QueuedConnection);
 
-  action = new QAction(tr("&Configure Internet Proxy"), this);
-  m_preferencesActions.push_back(action);
-  m_preferencesMenu->addAction(action);
-  connect(action, &QAction::triggered, this, &MainMenu::configureProxyClicked, Qt::QueuedConnection);
+  m_configureProxy = new QAction(tr("&Configure Internet Proxy"), this);
+  m_preferencesActions.push_back(m_configureProxy);
+  m_preferencesMenu->addAction(m_configureProxy);
+  connect(m_configureProxy, &QAction::triggered, this, &MainMenu::configureProxyClicked, Qt::QueuedConnection);
+
+  m_useLabsCLIAction = new QAction(tr("&Use Labs CLI"), this);
+  m_useLabsCLIAction->setCheckable(true);
+  m_preferencesActions.push_back(m_useLabsCLIAction);
+  m_preferencesMenu->addAction(m_useLabsCLIAction);
+  connect(m_useLabsCLIAction, &QAction::triggered, this, &MainMenu::useLabsCLIClicked, Qt::QueuedConnection);
 
   if (m_isIP) {
     m_displayIPUnitsAction->trigger();
   } else {
     m_displaySIUnitsAction->trigger();
+  }
+
+  if (m_useLabsCLI) {
+    m_useLabsCLIAction->setChecked(true);
   }
 
   m_langEnglishAction->setChecked(false);
@@ -729,6 +739,15 @@ void MainMenu::enableAnalytics(bool enable) {
 
 void MainMenu::toggleAnalytics() {
   enableAnalytics(!m_allowAnalytics);
+}
+
+void MainMenu::enableUseLabsCLI(bool enable) {
+  m_useLabsCLI = enable;
+  m_useLabsCLIAction->setChecked(m_useLabsCLI);
+  emit useLabsCLIClicked(m_useLabsCLI);
+}
+void MainMenu::toggleUseLabsCLI() {
+  enableUseLabsCLI(!m_useLabsCLI);
 }
 
 void MainMenu::enableRevertToSavedAction(bool enable) {

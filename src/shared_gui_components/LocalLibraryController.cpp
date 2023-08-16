@@ -491,21 +491,23 @@ LibraryItemDelegate::LibraryItemDelegate(BaseApp* t_app) : m_app(t_app) {}
 QWidget* LibraryItemDelegate::view(QSharedPointer<OSListItem> dataSource) {
 
   if (QSharedPointer<LibraryItem> libraryItem = dataSource.objectCast<LibraryItem>()) {
-    MeasureType measureType = libraryItem->m_bclMeasure.measureType();
+    const MeasureType measureType = libraryItem->m_bclMeasure.measureType();
+    const MeasureLanguage measureLanguage = libraryItem->m_bclMeasure.measureLanguage();
+    const QString measureLangStr = toQString(measureLanguage.valueName());
 
     auto* widget = new LibraryItemView();
 
     if (measureType == MeasureType::ModelMeasure) {
-      widget->m_measureTypeBadge->setPixmap(
-        QPixmap(":/images/openstudio_measure_icon.png").scaled(25, 25, Qt::IgnoreAspectRatio, Qt::SmoothTransformation));
+      widget->m_measureTypeBadge->setPixmap(QPixmap(QString(":/images/openstudio_measure_icon_%1.png").arg(measureLangStr))
+                                              .scaled(25, 25, Qt::IgnoreAspectRatio, Qt::SmoothTransformation));
       widget->m_measureTypeBadge->setVisible(true);
     } else if (measureType == MeasureType::EnergyPlusMeasure) {
-      widget->m_measureTypeBadge->setPixmap(
-        QPixmap(":/images/energyplus_measure_icon.png").scaled(25, 25, Qt::IgnoreAspectRatio, Qt::SmoothTransformation));
+      widget->m_measureTypeBadge->setPixmap(QPixmap(QString(":/images/energyplus_measure_icon_%1.png").arg(measureLangStr))
+                                              .scaled(25, 25, Qt::IgnoreAspectRatio, Qt::SmoothTransformation));
       widget->m_measureTypeBadge->setVisible(true);
     } else if (measureType == MeasureType::ReportingMeasure) {
       widget->m_measureTypeBadge->setPixmap(
-        QPixmap(":/images/report_measure_icon.png").scaled(25, 25, Qt::IgnoreAspectRatio, Qt::SmoothTransformation));
+        QPixmap(QString(":/images/report_measure_icon_%1.png").arg(measureLangStr)).scaled(25, 25, Qt::IgnoreAspectRatio, Qt::SmoothTransformation));
       widget->m_measureTypeBadge->setVisible(true);
     }
 

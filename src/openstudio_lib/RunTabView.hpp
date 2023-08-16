@@ -96,6 +96,7 @@ class RunView : public QWidget
   QTcpSocket* m_runSocket;
 
   QCheckBox* m_verboseOutputBox;
+  QCheckBox* m_useLabsCLIBox;
 
   openstudio::path m_basePath;
   //QFileSystemWatcher * m_simDirWatcher;
