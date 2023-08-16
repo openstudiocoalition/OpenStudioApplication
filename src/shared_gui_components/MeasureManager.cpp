@@ -108,7 +108,7 @@ bool MeasureManager::waitForStarted(int msec) {
   int current = 0;
   while (!success && current < numTries) {
     QNetworkRequest request(thisUrl);
-    request.setHeader(QNetworkRequest::ContentTypeHeader, "application/json");
+    request.setHeader(QNetworkRequest::ContentTypeHeader, "application/json");  // TODO: should probably move that out of the loop
 
     QNetworkAccessManager manager;
 
