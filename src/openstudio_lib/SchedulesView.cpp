@@ -453,7 +453,8 @@ void SchedulesView::showDefaultScheduleDay(const model::ScheduleRuleset& schedul
 void SchedulesView::showSummerScheduleDay(const model::ScheduleRuleset& schedule) {
   setUpdatesEnabled(false);
 
-  model::ScheduleRuleset scheduleRuleset = schedule;
+  // deleting widgets below (e.g. NewProfileView) may delete the object referenced by schedule, make copy beforehand
+  const model::ScheduleRuleset scheduleRuleset = schedule;
 
   QLayoutItem* child = nullptr;
   while ((child = m_contentLayout->takeAt(0)) != nullptr) {
@@ -489,7 +490,8 @@ void SchedulesView::showSummerScheduleDay(const model::ScheduleRuleset& schedule
 void SchedulesView::showWinterScheduleDay(const model::ScheduleRuleset& schedule) {
   setUpdatesEnabled(false);
 
-  model::ScheduleRuleset scheduleRuleset = schedule;
+  // deleting widgets below (e.g. NewProfileView) may delete the object referenced by schedule, make copy beforehand
+  const model::ScheduleRuleset scheduleRuleset = schedule;
 
   QLayoutItem* child = nullptr;
   while ((child = m_contentLayout->takeAt(0)) != nullptr) {
@@ -524,7 +526,8 @@ void SchedulesView::showWinterScheduleDay(const model::ScheduleRuleset& schedule
 void SchedulesView::showHolidayScheduleDay(const model::ScheduleRuleset& schedule) {
   setUpdatesEnabled(false);
 
-  model::ScheduleRuleset scheduleRuleset = schedule;
+  // deleting widgets below (e.g. NewProfileView) may delete the object referenced by schedule, make copy beforehand
+  const model::ScheduleRuleset scheduleRuleset = schedule;
 
   QLayoutItem* child = nullptr;
   while ((child = m_contentLayout->takeAt(0)) != nullptr) {
