@@ -62,6 +62,7 @@ OSCollapsibleItemList::OSCollapsibleItemList(bool addScrollArea, QWidget* parent
   this->setLayout(outerVLayout);
 
   m_searchBox = new QLineEdit();
+  m_searchBox->setClearButtonEnabled(true);
   outerVLayout->addWidget(m_searchBox);
   connect(m_searchBox, &QLineEdit::textEdited, this, &OSCollapsibleItemList::onSearchTextEdited);
 
@@ -235,17 +236,15 @@ void OSCollapsibleItemList::onItemSelected(OSItem* item) {
 }
 
 void OSCollapsibleItemList::onSearchTextEdited(const QString& text) {
-  QLayoutItem* layoutItem = nullptr;
-  OSCollapsibleItem* collapsibleItem = nullptr;
-  OSItem* newSelectedItem = nullptr;
   m_searchActive = !text.isEmpty();
 
+  OSItem* newSelectedItem = nullptr;
   for (int i = 0; i < m_vLayout->count(); ++i) {
 
-    layoutItem = m_vLayout->itemAt(i);
+    QLayoutItem* layoutItem = m_vLayout->itemAt(i);
     QWidget* widget = layoutItem->widget();
 
-    collapsibleItem = qobject_cast<OSCollapsibleItem*>(widget);
+    OSCollapsibleItem* collapsibleItem = qobject_cast<OSCollapsibleItem*>(widget);
     if (collapsibleItem) {
       std::vector<OSItem*> items = collapsibleItem->itemList()->items();
       unsigned numVisible = 0;
@@ -269,8 +268,10 @@ void OSCollapsibleItemList::onSearchTextEdited(const QString& text) {
 
       if (!m_searchActive) {
         collapsibleItem->setExpanded(collapsibleItem->isSelected());
+        collapsibleItem->setVisible(true);
       } else {
         collapsibleItem->setExpanded(numVisible > 0);
+        collapsibleItem->setVisible(numVisible > 0);
       }
     }
   }
