@@ -69,6 +69,8 @@ set(${target_name}_SRC
   FacilityTabController.hpp
   FacilityTabView.cpp
   FacilityTabView.hpp
+  FloorSurfaceDialog.cpp
+  FloorSurfaceDialog.hpp
   GasEquipmentInspectorView.cpp
   GasEquipmentInspectorView.hpp
   GeometryEditorController.cpp
@@ -513,6 +515,7 @@ set(${target_name}_moc
   FacilityStoriesGridView.hpp
   FacilityTabController.hpp
   FacilityTabView.hpp
+  FloorSurfaceDialog.hpp
   GasEquipmentInspectorView.hpp
   GeometryEditorController.hpp
   GeometryEditorView.hpp

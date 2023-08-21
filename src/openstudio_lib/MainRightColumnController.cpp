@@ -995,6 +995,7 @@ void MainRightColumnController::configureForHVACSystemsSubTab(int subTabID) {
   libraryWidget->setItemsRemoveable(false);
   libraryWidget->setItemsType(OSItemType::LibraryItem);
 
+  libraryWidget->addModelObjectType(IddObjectType::OS_SwimmingPool_Indoor, "Swimming Pool Indoor");
   libraryWidget->addModelObjectType(IddObjectType::OS_SolarCollector_IntegralCollectorStorage, "Solar Collector Integral Collector Storage");
   libraryWidget->addModelObjectType(IddObjectType::OS_SolarCollector_FlatPlate_Water, "Solar Collector Flat Plate Water");
   //libraryWidget->addModelObjectType(IddObjectType::OS_SolarCollector_FlatPlate_PhotovoltaicThermal, "Solar Collector Flat Plate Photovoltaic Thermal");
