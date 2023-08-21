@@ -34,7 +34,6 @@
 #include "OSItem.hpp"
 #include "OSDropZone.hpp"
 #include "../shared_gui_components/OSListController.hpp"
-#include "../shared_gui_components/OSListView.hpp"
 #include "../shared_gui_components/GraphicsItems.hpp"
 
 class QGraphicsView;

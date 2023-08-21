@@ -32,7 +32,6 @@
 
 #include "../shared_gui_components/HeaderViews.hpp"
 #include "../shared_gui_components/OSDialog.hpp"
-#include "../shared_gui_components/OSListView.hpp"
 
 #include <openstudio/model/Model.hpp>
 
