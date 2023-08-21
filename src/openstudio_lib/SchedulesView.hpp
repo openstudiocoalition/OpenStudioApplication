@@ -622,6 +622,8 @@ class SpecialScheduleDayView : public QWidget
 
  private:
   SpecialScheduleDayType m_type;
+
+  model::ScheduleRuleset m_scheduleRuleset;
 };
 
 // View a schedule rule of a schedule ruleset
