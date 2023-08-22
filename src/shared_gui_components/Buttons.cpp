@@ -46,6 +46,18 @@ ZoomOutButton::ZoomOutButton(QWidget* parent) : QPushButton(parent) {
   setObjectName("ZoomOutButton");
 }
 
+OneLevelUpButton::OneLevelUpButton(QWidget* parent) : QPushButton(parent) {
+  setFlat(true);
+  setFixedSize(22, 24);
+  setObjectName("OneLevelUpButton");
+}
+
+OneLevelDownButton::OneLevelDownButton(QWidget* parent) : QPushButton(parent) {
+  setFlat(true);
+  setFixedSize(22, 24);
+  setObjectName("OneLevelDownButton");
+}
+
 GrayButton::GrayButton(QWidget* parent) : QPushButton(parent) {
   setObjectName("StandardGrayButton");
 }

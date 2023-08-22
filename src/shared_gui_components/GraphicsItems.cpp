@@ -141,6 +141,13 @@ ZoomInButtonItem::ZoomInButtonItem(QGraphicsItem* parent)
 ZoomOutButtonItem::ZoomOutButtonItem(QGraphicsItem* parent)
   : ButtonItem(QPixmap(":/images/zoom-out.png"), QPixmap(":/images/zoom-out-press.png"), QPixmap(":/images/zoom-out-over.png"), parent) {}
 
+OneLevelDownButtonItem::OneLevelDownButtonItem(QGraphicsItem* parent)
+  : ButtonItem(QPixmap(":/images/arrow_expand.png"), QPixmap(":/images/arrow_expand-press.png"), QPixmap(":/images/arrow_expand-over.png"), parent) {}
+
+OneLevelUpButtonItem::OneLevelUpButtonItem(QGraphicsItem* parent)
+  : ButtonItem(QPixmap(":/images/arrow_one_level_up.png"), QPixmap(":/images/arrow_one_level_up-press.png"),
+               QPixmap(":/images/arrow_one_level_up-over.png"), parent) {}
+
 GridLayoutItem::GridLayoutItem() : m_cellSize(100, 100), m_margin(10) {}
 
 GridLayoutItem::~GridLayoutItem() {

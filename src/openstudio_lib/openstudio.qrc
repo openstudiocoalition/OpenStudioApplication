@@ -28,6 +28,18 @@
     <file>images/airterminal_fourpipebeam@2x.png</file>
     <file>images/arrow.png</file>
     <file>images/arrow@2x.png</file>
+    <file>images/arrow_one_level_up.png</file>
+    <file>images/arrow_one_level_up@2x.png</file>
+    <file>images/arrow_one_level_up-over.png</file>
+    <file>images/arrow_one_level_up-over@2x.png</file>
+    <file>images/arrow_one_level_up-press.png</file>
+    <file>images/arrow_one_level_up-press@2x.png</file>
+    <file>images/arrow_expand.png</file>
+    <file>images/arrow_expand@2x.png</file>
+    <file>images/arrow_expand-over.png</file>
+    <file>images/arrow_expand-over@2x.png</file>
+    <file>images/arrow_expand-press.png</file>
+    <file>images/arrow_expand-press@2x.png</file>
     <file>images/baseboard_electric.png</file>
     <file>images/baseboard_electric@2x.png</file>
     <file>images/baseboard_water.png</file>
