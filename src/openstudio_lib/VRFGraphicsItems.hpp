@@ -62,6 +62,13 @@ class VRFView : public QWidget
   QPushButton* oneLevelUpButton;
 
   QLabel* nameLabel;
+
+ public slots:
+
+  // Display adjustments
+  void zoomIn();
+  void zoomOut();
+  void resetZoom();
 };
 
 class VRFSystemMiniView : public QGraphicsObject

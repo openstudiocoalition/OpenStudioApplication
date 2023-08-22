@@ -284,6 +284,8 @@ void VRFController::zoomInOnSystem(const model::AirConditionerVariableRefrigeran
   m_detailScene->addItem(m_detailView);
   m_vrfView->header->show();
   m_vrfView->graphicsView->setScene(m_detailScene.data());
+  m_vrfView->resetZoom();
+
   m_vrfView->graphicsView->setAlignment(Qt::AlignCenter);
 
   refresh();
@@ -300,6 +302,7 @@ void VRFController::zoomOutToSystemGridView() {
 
   m_vrfView->graphicsView->setScene(m_vrfGridScene.data());
   m_vrfView->graphicsView->setAlignment(Qt::AlignLeft | Qt::AlignTop);
+  m_vrfView->resetZoom();
   m_vrfView->header->hide();
 
   refresh();

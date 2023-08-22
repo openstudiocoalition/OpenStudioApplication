@@ -370,6 +370,10 @@ void HVACSystemsController::update() {
         m_vrfController = std::make_shared<VRFController>();
 
         m_hvacSystemsView->mainViewSwitcher->setView(m_vrfController->vrfView());
+
+        connect(m_hvacSystemsView->hvacToolbarView->zoomInButton, &QPushButton::clicked, m_vrfController->vrfView(), &VRFView::zoomIn);
+        connect(m_hvacSystemsView->hvacToolbarView->zoomOutButton, &QPushButton::clicked, m_vrfController->vrfView(), &VRFView::zoomOut);
+
       } else if (m_hvacSystemsView->hvacToolbarView->gridViewButton->isChecked()) {
         // Not allowed: Refrigeration only on Refrigeration tab
         m_refrigerationController = std::make_shared<RefrigerationController>();

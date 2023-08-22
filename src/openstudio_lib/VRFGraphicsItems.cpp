@@ -73,8 +73,22 @@ VRFView::VRFView() : header(new QWidget()), graphicsView(new QGraphicsView()), o
   oneLevelUpButton->setFixedSize(20, 20);
   oneLevelUpButton->setToolTip("Move back to the list of VRF Systems");
 
+  resetZoom();
+
   graphicsView->setObjectName("GrayWidget");
   mainVLayout->addWidget(graphicsView);
+}
+
+void VRFView::zoomIn() {
+  graphicsView->scale(1.25, 1.25);
+}
+
+void VRFView::zoomOut() {
+  graphicsView->scale(0.8, 0.8);
+}
+
+void VRFView::resetZoom() {
+  graphicsView->resetTransform();
 }
 
 VRFSystemView::VRFSystemView()
