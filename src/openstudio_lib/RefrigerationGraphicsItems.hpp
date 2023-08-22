@@ -67,9 +67,16 @@ class RefrigerationView : public QWidget
 
   QGraphicsView* graphicsView;
 
-  QPushButton* zoomOutButton;
+  QPushButton* oneLevelUpButton;
 
   QLabel* nameLabel;
+
+ public slots:
+
+  // Display adjustments
+  void zoomIn();
+  void zoomOut();
+  void resetZoom();
 };
 
 class CaseViewExpandButton : public AbstractButtonItem
@@ -109,7 +116,7 @@ class RefrigerationSystemMiniView : public QGraphicsObject
 
   RemoveButtonItem* removeButtonItem;
 
-  ZoomInButtonItem* zoomInButtonItem;
+  OneLevelDownButtonItem* oneLevelDownButtonItem;
 
   QRectF boundingRect() const override;
 
@@ -147,7 +154,7 @@ class RefrigerationSystemDetailView : public QGraphicsObject
 
   RefrigerationSystemView* refrigerationSystemView;
 
-  ZoomOutButtonItem* zoomOutButton;
+  OneLevelUpButtonItem* oneLevelUpButton;
 
   QRectF boundingRect() const override;
 
@@ -627,7 +634,7 @@ class SecondaryDetailView : public QGraphicsObject
 
   virtual ~SecondaryDetailView() {}
 
-  ZoomInButtonItem* zoomInButtonItem;
+  OneLevelDownButtonItem* oneLevelDownButtonItem;
   RemoveButtonItem* removeButtonItem;
 
   QRectF boundingRect() const override;

@@ -103,6 +103,13 @@ class HVACToolbarView : public QWidget
   // If control buttons are hidden only the systemComboBox and label are shown.
   void showControls(bool show);
 
+  // calls show() on all individual buttons and make them enabled
+  void resetAllIndividualControlButtons();
+
+  void hideAddCopyDeleteButtons();
+
+  void hideZoomButtons();
+
  protected:
   void paintEvent(QPaintEvent* event) override;
 

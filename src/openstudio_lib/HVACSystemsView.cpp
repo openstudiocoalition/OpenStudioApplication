@@ -170,6 +170,41 @@ void HVACToolbarView::showControls(bool show) {
   }
 }
 
+void HVACToolbarView::hideAddCopyDeleteButtons() {
+  addButton->hide();
+  copyButton->hide();
+  deleteButton->hide();
+}
+
+void HVACToolbarView::hideZoomButtons() {
+  zoomInButton->hide();
+  zoomOutButton->hide();
+}
+
+void HVACToolbarView::resetAllIndividualControlButtons() {
+  addButton->show();
+  copyButton->show();
+  deleteButton->show();
+
+  zoomInButton->show();
+  zoomOutButton->show();
+
+  topologyViewButton->show();
+  controlsViewButton->show();
+  gridViewButton->show();
+
+  addButton->setEnabled(true);
+  copyButton->setEnabled(true);
+  deleteButton->setEnabled(true);
+
+  zoomInButton->setEnabled(true);
+  zoomOutButton->setEnabled(true);
+
+  topologyViewButton->setEnabled(true);
+  controlsViewButton->setEnabled(true);
+  gridViewButton->setEnabled(true);
+}
+
 void HVACToolbarView::paintEvent([[maybe_unused]] QPaintEvent* event) {
   QStyleOption opt;
   opt.initFrom(this);
