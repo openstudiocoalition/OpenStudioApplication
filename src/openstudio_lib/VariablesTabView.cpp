@@ -35,6 +35,7 @@
 #include <openstudio/model/OutputVariable_Impl.hpp>
 
 #include "../model_editor/Utilities.hpp"
+#include "../shared_gui_components/OSDialog.hpp"
 
 #include <openstudio/utilities/sql/SqlFileEnums.hpp>
 
@@ -129,6 +130,12 @@ void VariableListItem::setVariableEnabled(bool t_enabled) {
 
 bool VariableListItem::isVariableEnabled() const {
   return m_onOffButton->isChecked();
+}
+
+void VariableListItem::setReportingFrequency(const std::string& freq) {
+  if (m_variable) {
+    m_variable->setReportingFrequency(freq);
+  }
 }
 
 void VariableListItem::onOffClicked(bool t_on) {
@@ -233,6 +240,10 @@ VariablesList::VariablesList(openstudio::model::Model t_model) : m_model(t_model
     connect(m_displayOnlySelectedToggleButton, &OSSwitch2::clicked, [this](bool /*toggleed*/) { this->onSearchTextEdited(this->m_searchText); });
     filterViaEnabled->addWidget(m_displayOnlySelectedToggleButton);
     filterViaEnabled->addStretch();
+
+    m_applyFrequencyToAllVisibleButton = new QPushButton("Apply Frequency to selected shown variables");
+    connect(m_applyFrequencyToAllVisibleButton, &QPushButton::clicked, this, &VariablesList::applyFrequencyToAllVisibleClicked);
+    filterViaEnabled->addWidget(m_applyFrequencyToAllVisibleButton);
   }
 
   vbox->addLayout(outerHBox);
@@ -255,6 +266,41 @@ void VariablesList::enableAll(bool t_enabled) {
   for (auto& m_variable : m_variables) {
     if (m_variable->isVisible()) {
       m_variable->setVariableEnabled(t_enabled);
+    }
+  }
+}
+
+void VariablesList::applyFrequencyToAllVisibleClicked() {
+  OSDialog dialog;  // (false, this);  // Modal, on stack. I do not want VariablesList deleter to try and delete this one so no parenting
+
+  dialog.setWindowModality(Qt::ApplicationModal);
+
+  dialog.okButton()->setText("Apply Frequency");
+
+  auto* vLayout = new QVBoxLayout();
+  vLayout->setSpacing(5);
+  auto* label = new QLabel("Pick a frequency", this);
+  label->setObjectName("H2");
+  vLayout->addWidget(label);
+
+  auto* freqComboBox = new QComboBox();
+  freqComboBox->setObjectName("FrequencyComboBox");
+  for (const auto& freq : model::OutputVariable::reportingFrequencyValues()) {
+    freqComboBox->addItem(QString::fromStdString(freq));
+  }
+  vLayout->addWidget(freqComboBox);
+  vLayout->addStretch();
+  dialog.upperLayout()->addLayout(vLayout);
+
+  dialog.setFixedSize(QSize(770, 320));
+
+  dialog.exec();
+  if (dialog.result() == QDialog::Accepted) {
+    const std::string freqStr = freqComboBox->currentText().toStdString();
+    for (auto& m_variable : m_variables) {
+      if (m_variable->isVisible()) {
+        m_variable->setReportingFrequency(freqStr);
+      }
     }
   }
 }

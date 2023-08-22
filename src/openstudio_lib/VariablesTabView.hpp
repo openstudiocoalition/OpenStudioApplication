@@ -64,6 +64,8 @@ class VariableListItem
   // If the OSSwitch2 button is on
   bool isVariableEnabled() const;
 
+  void setReportingFrequency(const std::string& freq);
+
  public slots:
   void setVariableEnabled(bool);
 
@@ -105,6 +107,8 @@ class VariablesList
 
   void onSearchTextEdited(const QString& text);
 
+  void applyFrequencyToAllVisibleClicked();
+
  private:
   REGISTER_LOGGER("openstudio.VariablesList");
   openstudio::model::Model m_model;
@@ -114,6 +118,8 @@ class VariablesList
   QCheckBox* m_searchUseRegex;
   QVBoxLayout* m_listLayout;
   OSSwitch2* m_displayOnlySelectedToggleButton;
+
+  QPushButton* m_applyFrequencyToAllVisibleButton;
 
   bool m_dirty;
   bool m_searchActive;
