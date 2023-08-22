@@ -59,7 +59,7 @@ class VRFView : public QWidget
 
   QGraphicsView* graphicsView;
 
-  QPushButton* zoomOutButton;
+  QPushButton* oneLevelUpButton;
 
   QLabel* nameLabel;
 };
@@ -74,7 +74,7 @@ class VRFSystemMiniView : public QGraphicsObject
   virtual ~VRFSystemMiniView() = default;
 
   RemoveButtonItem* removeButtonItem;
-  ZoomInButtonItem* zoomInButtonItem;
+  OneLevelDownButtonItem* oneLevelDownButtonItem;
 
   QRectF boundingRect() const override;
   static QSize cellSize();

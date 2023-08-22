@@ -48,7 +48,7 @@ const int VRFSystemView::zoneDropZoneWidth = 500;
 const int VRFSystemView::dropZoneHeight = 150;
 const int VRFSystemView::terminalViewHeight = 100;
 
-VRFView::VRFView() : header(new QWidget()), graphicsView(new QGraphicsView()), zoomOutButton(new ZoomOutButton()), nameLabel(new QLabel()) {
+VRFView::VRFView() : header(new QWidget()), graphicsView(new QGraphicsView()), oneLevelUpButton(new OneLevelUpButton()), nameLabel(new QLabel()) {
   auto* mainVLayout = new QVBoxLayout();
   mainVLayout->setSpacing(0);
   mainVLayout->setContentsMargins(0, 0, 0, 0);
@@ -67,8 +67,11 @@ VRFView::VRFView() : header(new QWidget()), graphicsView(new QGraphicsView()), z
 
   headerLayout->addWidget(nameLabel);
   headerLayout->addStretch();
-  headerLayout->addWidget(zoomOutButton);
-  zoomOutButton->setFixedSize(20, 20);
+  auto* labelBackUp = new QLabel("Back to system view");
+  headerLayout->addWidget(labelBackUp);
+  headerLayout->addWidget(oneLevelUpButton);
+  oneLevelUpButton->setFixedSize(20, 20);
+  oneLevelUpButton->setToolTip("Move back to the list of VRF Systems");
 
   graphicsView->setObjectName("GrayWidget");
   mainVLayout->addWidget(graphicsView);
@@ -308,7 +311,7 @@ void VRFThermalZoneDropZoneView::paint(QPainter* painter, const QStyleOptionGrap
 }
 
 VRFSystemMiniView::VRFSystemMiniView()
-  : removeButtonItem(new RemoveButtonItem()), zoomInButtonItem(new ZoomInButtonItem()), m_length(75), m_zones(0), m_terminals(0) {
+  : removeButtonItem(new RemoveButtonItem()), oneLevelDownButtonItem(new OneLevelDownButtonItem()), m_length(75), m_zones(0), m_terminals(0) {
 
   m_vrfOutdoorPix = QPixmap(":/images/vrf_outdoor.png").scaled(m_length, m_length);
   m_vrfTransferPix = QPixmap(":/images/vrf_transfer.png").scaled(m_length, m_length);
@@ -319,9 +322,10 @@ VRFSystemMiniView::VRFSystemMiniView()
   removeButtonItem->setPos(cellWidth() - removeButtonItem->boundingRect().width() - 10,
                            headerHeight() / 2.0 - removeButtonItem->boundingRect().height() / 2.0);
 
-  zoomInButtonItem->setParentItem(this);
-  zoomInButtonItem->setPos(removeButtonItem->pos().x() - 10 - zoomInButtonItem->boundingRect().width(),
-                           headerHeight() / 2.0 - zoomInButtonItem->boundingRect().height() / 2.0);
+  oneLevelDownButtonItem->setToolTip("Inspect this VRF System in detail");
+  oneLevelDownButtonItem->setParentItem(this);
+  oneLevelDownButtonItem->setPos(removeButtonItem->pos().x() - 10 - oneLevelDownButtonItem->boundingRect().width(),
+                                 headerHeight() / 2.0 - oneLevelDownButtonItem->boundingRect().height() / 2.0);
 }
 
 QRectF VRFSystemMiniView::boundingRect() const {

@@ -68,7 +68,7 @@ VRFController::VRFController()
     m_detailView(nullptr),
     m_currentSystem(boost::none),
     m_dirty(false) {
-  connect(m_vrfView->zoomOutButton, &QPushButton::clicked, this, &VRFController::zoomOutToSystemGridView);
+  connect(m_vrfView->oneLevelUpButton, &QPushButton::clicked, this, &VRFController::zoomOutToSystemGridView);
 
   m_vrfSystemGridView->setCellSize(VRFSystemMiniView::cellSize());
   m_vrfGridScene = QSharedPointer<QGraphicsScene>(new QGraphicsScene());
@@ -486,7 +486,7 @@ QGraphicsObject* VRFSystemItemDelegate::view(QSharedPointer<OSListItem> dataSour
 
     connect(vrfSystemMiniView->removeButtonItem, &RemoveButtonItem::mouseClicked, listItem.data(), &VRFSystemListItem::remove);
 
-    connect(vrfSystemMiniView->zoomInButtonItem, &ZoomInButtonItem::mouseClicked, listItem.data(), &VRFSystemListItem::zoomInOnSystem);
+    connect(vrfSystemMiniView->oneLevelDownButtonItem, &OneLevelDownButtonItem::mouseClicked, listItem.data(), &VRFSystemListItem::zoomInOnSystem);
 
     vrfSystemMiniView->setName(listItem->systemName());
     vrfSystemMiniView->setNumberOfZones(listItem->numberOfConnectedZones());
