@@ -78,6 +78,40 @@ RefrigerationView::RefrigerationView()
   mainVLayout->addWidget(graphicsView);
 }
 
+void RefrigerationView::wheelEvent(QWheelEvent* event) {
+  if (QApplication::keyboardModifiers() == Qt::ControlModifier) {
+    // angleDelta: Returns the relative amount that the wheel was rotated, in eighths of a degree.
+    // A positive value indicates that the wheel was rotated forwards away from the user;
+    // a negative value indicates that the wheel was rotated backwards toward the user.
+    // angleDelta().y() provides the angle through which the common vertical mouse wheel was rotated since the previous event
+    const double verticalAngle = event->angleDelta().y();
+    if (verticalAngle != 0) {
+      constexpr double zoom_factor_base = 1.0015;
+      const double numDegrees = event->angleDelta().y() / 8.0;
+      const double factor = std::pow(zoom_factor_base, 3.0 * numDegrees);  // Abritrary factor here..
+      graphicsView->scale(factor, factor);
+      return;
+    }
+  }
+  event->ignore();
+}
+
+void RefrigerationView::keyReleaseEvent(QKeyEvent* event) {
+  if (QApplication::keyboardModifiers() & Qt::ControlModifier) {
+
+    if (event->key() == Qt::Key_Plus) {
+      zoomIn();
+      return;
+    }
+
+    if (event->key() == Qt::Key_Minus) {
+      zoomOut();
+      return;
+    }
+  }
+  event->ignore();
+}
+
 void RefrigerationView::zoomIn() {
   graphicsView->scale(1.25, 1.25);
 }

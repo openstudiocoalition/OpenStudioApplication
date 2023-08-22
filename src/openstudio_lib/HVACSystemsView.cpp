@@ -35,6 +35,8 @@
 #include "ModelObjectItem.hpp"
 #include "../shared_gui_components/OSViewSwitcher.hpp"
 #include "../shared_gui_components/Buttons.hpp"
+
+#include <QApplication>
 #include <QStackedWidget>
 #include <QObjectList>
 #include <QGraphicsView>
@@ -273,6 +275,40 @@ HVACGraphicsView::HVACGraphicsView(QWidget* parent) : QGraphicsView(parent) {
   resetZoom();
 
   setObjectName("GrayWidget");
+}
+
+void HVACGraphicsView::wheelEvent(QWheelEvent* event) {
+  if (QApplication::keyboardModifiers() == Qt::ControlModifier) {
+    // angleDelta: Returns the relative amount that the wheel was rotated, in eighths of a degree.
+    // A positive value indicates that the wheel was rotated forwards away from the user;
+    // a negative value indicates that the wheel was rotated backwards toward the user.
+    // angleDelta().y() provides the angle through which the common vertical mouse wheel was rotated since the previous event
+    const double verticalAngle = event->angleDelta().y();
+    if (verticalAngle != 0) {
+      constexpr double zoom_factor_base = 1.0015;
+      const double numDegrees = event->angleDelta().y() / 8.0;
+      const double factor = std::pow(zoom_factor_base, 3.0 * numDegrees);  // Abritrary factor here..
+      this->scale(factor, factor);
+      return;
+    }
+  }
+  event->ignore();
+}
+
+void HVACGraphicsView::keyReleaseEvent(QKeyEvent* event) {
+  if (QApplication::keyboardModifiers() & Qt::ControlModifier) {
+
+    if (event->key() == Qt::Key_Plus) {
+      zoomIn();
+      return;
+    }
+
+    if (event->key() == Qt::Key_Minus) {
+      zoomOut();
+      return;
+    }
+  }
+  event->ignore();
 }
 
 void HVACGraphicsView::zoomIn() {

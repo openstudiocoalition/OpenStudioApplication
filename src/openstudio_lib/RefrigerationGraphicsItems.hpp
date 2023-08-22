@@ -71,8 +71,13 @@ class RefrigerationView : public QWidget
 
   QLabel* nameLabel;
 
- public slots:
+ protected:
+  // Override to allow zooming with CTRL + Wheel Up/Down
+  virtual void wheelEvent(QWheelEvent* event) override;
+  // Override to allow zooming with CTRL + '+' / '-'
+  virtual void keyReleaseEvent(QKeyEvent* event) override;
 
+ public slots:
   // Display adjustments
   void zoomIn();
   void zoomOut();
