@@ -63,6 +63,8 @@ VariableListItem::VariableListItem(const std::string& t_name, const std::string&
   : m_name(t_name), m_keyValue(t_keyValue), m_variable(t_variable), m_model(t_model) {
 
   auto* vbox = new QVBoxLayout();
+  vbox->setContentsMargins(0, 0, 0, 0);
+  vbox->setSpacing(0);
 
   auto* hline = new QFrame();
   hline->setFrameShape(QFrame::HLine);
@@ -97,7 +99,6 @@ VariableListItem::VariableListItem(const std::string& t_name, const std::string&
 
   vbox->addWidget(hline);
   vbox->addLayout(hbox);
-  vbox->setSpacing(0);
   // vbox->addStretch();
   setLayout(vbox);
   onOffClicked(m_variable.is_initialized());
@@ -177,12 +178,12 @@ VariablesList::VariablesList(openstudio::model::Model t_model) : m_model(t_model
   vbox->setSpacing(10);
   setLayout(vbox);
 
-  vbox->addWidget(new QLabel("<b>Possible Output Variables</b>"));
-
   auto* outerHBox = new QHBoxLayout();
 
   auto* allOnOffVBox = new QVBoxLayout();
   {
+    allOnOffVBox->addWidget(new QLabel("<b>Possible Output Variables</b>"));
+
     m_allOnBtn = new QPushButton("All On");
     m_allOnBtn->setFlat(true);
     m_allOnBtn->setObjectName("StandardGrayButton");
@@ -209,6 +210,7 @@ VariablesList::VariablesList(openstudio::model::Model t_model) : m_model(t_model
   outerHBox->addLayout(filterVBox);
 
   {
+    filterVBox->addWidget(new QLabel("<b>Filtering</b>"));
     auto* filterViaText = new QHBoxLayout();
     filterVBox->addLayout(filterViaText);
 
