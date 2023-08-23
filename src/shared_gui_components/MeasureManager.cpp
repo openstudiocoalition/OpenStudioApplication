@@ -470,7 +470,7 @@ std::vector<measure::OSArgument> MeasureManager::getArguments(const BCLMeasure& 
   obj["measure_dir"] = toQString(t_measure.directory());
   obj["osm_path"] = toQString(m_tempModelPath);
   const QJsonDocument doc(obj);
-  const QByteArray data = doc.toJson();
+  const QByteArray data = doc.toJson(QJsonDocument::Compact);
 
   QNetworkAccessManager manager;
   QNetworkReply* reply = manager.post(request, data);
