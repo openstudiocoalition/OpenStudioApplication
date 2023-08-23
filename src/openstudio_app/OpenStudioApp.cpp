@@ -1282,6 +1282,22 @@ void OpenStudioApp::startMeasureManagerProcess() {
   // will terminate the existing process, blocking call
   delete m_measureManagerProcess;
 
+  // Debugging: attach to your own measure manager you've launched in a debugger prior to firing the OSApp.
+  if (qEnvironmentVariableIsSet("OPENSTUDIO_APPLICATION_USE_LOCAL_MEASURE_MANAGER_PORT")) {
+    LOG(Debug, "OPENSTUDIO_APPLICATION_USE_LOCAL_MEASURE_MANAGER_PORT is set");
+    bool ok = false;
+    const int port = qEnvironmentVariableIntValue("OPENSTUDIO_APPLICATION_USE_LOCAL_MEASURE_MANAGER_PORT", &ok);
+    if (ok) {
+      LOG(Debug, "OPENSTUDIO_APPLICATION_USE_LOCAL_MEASURE_MANAGER_PORT is " << port);
+      QString portString = QString::number(port);
+      QString urlString = "http://127.0.0.1:" + portString;
+      QUrl url(urlString);
+      LOG(Debug, "Connection to existing Local Measure Manager: " << toString(urlString));
+      measureManager().setUrl(url);
+      return;
+    }
+  }
+
   // find available port
   QTcpServer tcpServer;
   tcpServer.listen(QHostAddress::LocalHost);
