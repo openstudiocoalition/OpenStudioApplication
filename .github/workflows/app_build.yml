@@ -254,10 +254,8 @@ jobs:
             echo CMAKE_GENERATOR='Ninja' >> $GITHUB_ENV
 
             brew install md5sha1sum
-
-            brew list
-            brew uninstall openssl@3
             brew install openssl@1.1
+            export PKG_CONFIG_PATH="$(brew --prefix openssl@1.1)/lib/pkgconfig"
 
             echo "Installing IFW"
             curl -L -O https://download.qt.io/official_releases/qt-installer-framework/4.3.0/QtInstallerFramework-macOS-x64-4.3.0.dmg
