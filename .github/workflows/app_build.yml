@@ -255,9 +255,10 @@ jobs:
 
             brew install md5sha1sum
 
-            brew install openssl@1.1
-            echo "PKG_CONFIG_PATH=$(brew --prefix openssl@1.1)/lib/pkgconfig"
-            echo "PKG_CONFIG_PATH=$(brew --prefix openssl@1.1)/lib/pkgconfig" >> $GITHUB_ENV
+            ls -alsh /usr/local/lib/pkgconfig
+            rm /usr/local/lib/pkgconfig/libcrypto.pc
+            rm /usr/local/lib/pkgconfig/libssl.pc
+            rm /usr/local/lib/pkgconfig/openssl.pc
 
             echo "Installing IFW"
             curl -L -O https://download.qt.io/official_releases/qt-installer-framework/4.3.0/QtInstallerFramework-macOS-x64-4.3.0.dmg
