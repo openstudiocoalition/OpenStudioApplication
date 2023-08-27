@@ -255,7 +255,8 @@ jobs:
 
             brew install md5sha1sum
 
-            ls -alsh /usr/local/lib/pkgconfig
+            # The openssl@3 package installed on CI adds these files to the pkgconfig directory
+            # Remove them here so they aren't found instead of the version of OpenSSL built by Conan
             rm /usr/local/lib/pkgconfig/libcrypto.pc
             rm /usr/local/lib/pkgconfig/libssl.pc
             rm /usr/local/lib/pkgconfig/openssl.pc
