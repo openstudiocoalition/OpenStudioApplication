@@ -40,7 +40,7 @@
 #include "OSAppBase.hpp"
 #include "OSDocument.hpp"
 #include "RefrigerationScene.hpp"
-#include "FloorSurfaceDialog.hpp"
+#include "SwimmingPoolIndoorFloorSurfaceDialog.hpp"
 #include "../shared_gui_components/OSSwitch.hpp"
 #include "ServiceWaterScene.hpp"
 #include "HorizontalTabWidget.hpp"
@@ -599,7 +599,7 @@ void HVACLayoutController::addLibraryObjectToModelNode(const OSItemId& itemId, m
 
   if (object->iddObjectType() == openstudio::IddObjectType::OS_SwimmingPool_Indoor) {
 
-    FloorSurfaceDialog floorSurfaceDialog(object->cast<model::SwimmingPoolIndoor>());  // , m_hvacSystemsController->hvacSystemsView());
+    SwimmingPoolIndoorFloorSurfaceDialog floorSurfaceDialog(object->cast<model::SwimmingPoolIndoor>());  // , m_hvacSystemsController->hvacSystemsView());
     floorSurfaceDialog.exec();
     if (floorSurfaceDialog.result() == QDialog::Accepted) {
       // auto sf_ = floorSurfaceDialog.floorSurface();

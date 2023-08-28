@@ -27,8 +27,8 @@
 *  ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 ***********************************************************************************************************************/
 
-#ifndef OPENSTUDIO_FLOORSURFACEDIALOG_HPP
-#define OPENSTUDIO_FLOORSURFACEDIALOG_HPP
+#ifndef OPENSTUDIO_SWIMMINGPOOLINDOORFLOORSURFACEDIALOG_HPP
+#define OPENSTUDIO_SWIMMINGPOOLINDOORFLOORSURFACEDIALOG_HPP
 
 #include <openstudio/model/Model.hpp>
 #include <openstudio/model/Surface.hpp>
@@ -41,14 +41,14 @@ class QComboBox;
 
 namespace openstudio {
 
-class FloorSurfaceDialog : public OSDialog
+class SwimmingPoolIndoorFloorSurfaceDialog : public OSDialog
 {
   Q_OBJECT
 
  public:
-  explicit FloorSurfaceDialog(model::SwimmingPoolIndoor pool, QWidget* parent = nullptr);
+  explicit SwimmingPoolIndoorFloorSurfaceDialog(model::SwimmingPoolIndoor pool, QWidget* parent = nullptr);
 
-  virtual ~FloorSurfaceDialog() = default;
+  virtual ~SwimmingPoolIndoorFloorSurfaceDialog() = default;
 
   boost::optional<model::Surface> floorSurface() const;
 
@@ -74,4 +74,4 @@ class FloorSurfaceDialog : public OSDialog
 
 }  // namespace openstudio
 
-#endif  // OPENSTUDIO_FLOORSURFACEDIALOG_HPP
+#endif  // OPENSTUDIO_SWIMMINGPOOLINDOORFLOORSURFACEDIALOG_HPP

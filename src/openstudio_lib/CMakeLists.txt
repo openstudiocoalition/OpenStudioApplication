@@ -69,8 +69,8 @@ set(${target_name}_SRC
   FacilityTabController.hpp
   FacilityTabView.cpp
   FacilityTabView.hpp
-  FloorSurfaceDialog.cpp
-  FloorSurfaceDialog.hpp
+  SwimmingPoolIndoorFloorSurfaceDialog.cpp
+  SwimmingPoolIndoorFloorSurfaceDialog.hpp
   GasEquipmentInspectorView.cpp
   GasEquipmentInspectorView.hpp
   GeometryEditorController.cpp
@@ -515,7 +515,7 @@ set(${target_name}_moc
   FacilityStoriesGridView.hpp
   FacilityTabController.hpp
   FacilityTabView.hpp
-  FloorSurfaceDialog.hpp
+  SwimmingPoolIndoorFloorSurfaceDialog.hpp
   GasEquipmentInspectorView.hpp
   GeometryEditorController.hpp
   GeometryEditorView.hpp

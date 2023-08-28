@@ -27,7 +27,7 @@
 *  ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 ***********************************************************************************************************************/
 
-#include "FloorSurfaceDialog.hpp"
+#include "SwimmingPoolIndoorFloorSurfaceDialog.hpp"
 
 #include "../model_editor/Utilities.hpp"
 
@@ -48,7 +48,7 @@
 
 namespace openstudio {
 
-FloorSurfaceDialog::FloorSurfaceDialog(model::SwimmingPoolIndoor pool, QWidget* parent)
+SwimmingPoolIndoorFloorSurfaceDialog::SwimmingPoolIndoorFloorSurfaceDialog(model::SwimmingPoolIndoor pool, QWidget* parent)
   : OSDialog(false, parent), m_pool(std::move(pool)), m_model(m_pool.model()) {
   setWindowModality(Qt::ApplicationModal);
 
@@ -91,7 +91,7 @@ FloorSurfaceDialog::FloorSurfaceDialog(model::SwimmingPoolIndoor pool, QWidget* 
     hLayout->setSpacing(5);
 
     m_floorSurfaceComboBox = new QComboBox(this);
-    m_floorSurfaceComboBox->setObjectName("FloorSurfaceDialog");
+    m_floorSurfaceComboBox->setObjectName("SwimmingPoolIndoorFloorSurfaceDialog");
 
     for (const auto& surface : floorSurfaces) {
       m_floorSurfaceComboBox->addItem(toQString(surface.nameString()), toQString(surface.handle()));
@@ -116,7 +116,7 @@ FloorSurfaceDialog::FloorSurfaceDialog(model::SwimmingPoolIndoor pool, QWidget* 
     hLayout->addWidget(label);
 
     m_spaceName = new QLabel(this);
-    m_spaceName->setObjectName("FloorSurfaceDialog");
+    m_spaceName->setObjectName("SwimmingPoolIndoorFloorSurfaceDialog");
     hLayout->addWidget(m_spaceName);
     hLayout->addStretch();
 
@@ -134,7 +134,7 @@ FloorSurfaceDialog::FloorSurfaceDialog(model::SwimmingPoolIndoor pool, QWidget* 
     hLayout->addWidget(label);
 
     m_thermalZoneName = new QLabel(this);
-    m_thermalZoneName->setObjectName("FloorSurfaceDialog");
+    m_thermalZoneName->setObjectName("SwimmingPoolIndoorFloorSurfaceDialog");
     hLayout->addWidget(m_thermalZoneName);
     hLayout->addStretch();
 
@@ -147,10 +147,10 @@ FloorSurfaceDialog::FloorSurfaceDialog(model::SwimmingPoolIndoor pool, QWidget* 
   onCurrentIndexChanged(0);
 
   connect(m_floorSurfaceComboBox, static_cast<void (QComboBox::*)(int)>(&QComboBox::currentIndexChanged), this,
-          &FloorSurfaceDialog::onCurrentIndexChanged);
+          &SwimmingPoolIndoorFloorSurfaceDialog::onCurrentIndexChanged);
 }
 
-void FloorSurfaceDialog::onCurrentIndexChanged(int index) {
+void SwimmingPoolIndoorFloorSurfaceDialog::onCurrentIndexChanged(int index) {
   OS_ASSERT(index >= 0);
 
   const UUID handle = toUUID(m_floorSurfaceComboBox->itemData(index).toString());
@@ -171,11 +171,11 @@ void FloorSurfaceDialog::onCurrentIndexChanged(int index) {
   }
 }
 
-boost::optional<model::Surface> FloorSurfaceDialog::floorSurface() const {
+boost::optional<model::Surface> SwimmingPoolIndoorFloorSurfaceDialog::floorSurface() const {
   return m_floorSurface;
 }
 
-void FloorSurfaceDialog::on_okButton(bool checked) {
+void SwimmingPoolIndoorFloorSurfaceDialog::on_okButton(bool checked) {
 
   // In case there are no valid surfaces to assign to, the ok button is disabled anyways, so we can assign here directly
   OS_ASSERT(m_floorSurface);
