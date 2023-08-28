@@ -40,11 +40,13 @@
 #include "OSAppBase.hpp"
 #include "OSDocument.hpp"
 #include "RefrigerationScene.hpp"
+#include "SwimmingPoolIndoorFloorSurfaceDialog.hpp"
 #include "../shared_gui_components/OSSwitch.hpp"
 #include "ServiceWaterScene.hpp"
 #include "HorizontalTabWidget.hpp"
 #include "MainRightColumnController.hpp"
 #include "../shared_gui_components/OSViewSwitcher.hpp"
+
 #include <openstudio/model/ModelObject.hpp>
 #include <openstudio/model/HVACComponent.hpp>
 #include <openstudio/model/HVACComponent_Impl.hpp>
@@ -118,6 +120,8 @@
 #include <openstudio/model/Component_Impl.hpp>
 #include <openstudio/model/ComponentData.hpp>
 #include <openstudio/model/ComponentData_Impl.hpp>
+#include <openstudio/model/SwimmingPoolIndoor.hpp>
+#include <openstudio/model/SwimmingPoolIndoor_Impl.hpp>
 
 #include "../model_editor/Utilities.hpp"
 
@@ -537,59 +541,73 @@ void HVACLayoutController::addLibraryObjectToModelNode(const OSItemId& itemId, m
     }
   }
 
-  if (object) {
+  if (!object) {
+    return;
+  }
 
-    bool added = false;
+  bool added = false;
 
-    if (boost::optional<model::HVACComponent> hvacComponent = object->optionalCast<model::HVACComponent>()) {
-      if (boost::optional<model::Node> node = comp.optionalCast<model::Node>()) {
-        // Note: Julien Marrec, 2018-01-04
-        // When you have a WaterToWaterComponent that has a tertiaryPlantLoop, you should override the addToNode method
-        // to call addToTertiaryNode when needed. This will work with addSupplyBranchForComponent (etc) too
-        // Take a look at CentralHeatPumpSystem::addToNode (and CentralHeatPumpSystem::addToTertiaryNode) for an actual example
-        auto zone = hvacComponent->optionalCast<model::ThermalZone>();
-        if (zone) {
-          added = zone->multiAddToNode(node.get());
-        } else {
-          added = hvacComponent->addToNode(node.get());
-        }
-      } else if (boost::optional<model::Splitter> splitter = comp.optionalCast<model::Splitter>()) {
-        if (boost::optional<model::PlantLoop> plant = splitter->plantLoop()) {
-          if (plant->supplyComponent(splitter->handle())) {
-            added = plant->addSupplyBranchForComponent(hvacComponent.get());
-          } else if (plant->demandComponent(splitter->handle())) {
-            added = plant->addDemandBranchForComponent(hvacComponent.get());
-          }
-        } else if (boost::optional<model::AirLoopHVAC> airLoop = splitter->airLoopHVAC()) {
-          if (boost::optional<model::ThermalZone> zone = object->optionalCast<model::ThermalZone>()) {
-            added = airLoop->multiAddBranchForZone(zone.get());
-          }
-        }
+  if (boost::optional<model::HVACComponent> hvacComponent = object->optionalCast<model::HVACComponent>()) {
+    if (boost::optional<model::Node> node = comp.optionalCast<model::Node>()) {
+      // Note: Julien Marrec, 2018-01-04
+      // When you have a WaterToWaterComponent that has a tertiaryPlantLoop, you should override the addToNode method
+      // to call addToTertiaryNode when needed. This will work with addSupplyBranchForComponent (etc) too
+      // Take a look at CentralHeatPumpSystem::addToNode (and CentralHeatPumpSystem::addToTertiaryNode) for an actual example
+      auto zone = hvacComponent->optionalCast<model::ThermalZone>();
+      if (zone) {
+        added = zone->multiAddToNode(node.get());
+      } else {
+        added = hvacComponent->addToNode(node.get());
       }
-    } else if (boost::optional<model::WaterUseEquipment> waterUseEquipment = object->optionalCast<model::WaterUseEquipment>()) {
-      if (boost::optional<model::WaterUseConnections> waterUseConnections = comp.optionalCast<model::WaterUseConnections>()) {
-        added = waterUseConnections->addWaterUseEquipment(waterUseEquipment.get());
-      }
-    } else if (boost::optional<model::WaterUseEquipmentDefinition> waterUseEquipmentDefinition =
-                 object->optionalCast<model::WaterUseEquipmentDefinition>()) {
-      if (boost::optional<model::WaterUseConnections> waterUseConnections = comp.optionalCast<model::WaterUseConnections>()) {
-        model::WaterUseEquipment waterUseEquipment(waterUseEquipmentDefinition.get());
-        waterUseEquipment.resetFlowRateFractionSchedule();
-
-        added = waterUseConnections->addWaterUseEquipment(waterUseEquipment);
+    } else if (boost::optional<model::Splitter> splitter = comp.optionalCast<model::Splitter>()) {
+      if (boost::optional<model::PlantLoop> plant = splitter->plantLoop()) {
+        if (plant->supplyComponent(splitter->handle())) {
+          added = plant->addSupplyBranchForComponent(hvacComponent.get());
+        } else if (plant->demandComponent(splitter->handle())) {
+          added = plant->addDemandBranchForComponent(hvacComponent.get());
+        }
+      } else if (boost::optional<model::AirLoopHVAC> airLoop = splitter->airLoopHVAC()) {
+        if (boost::optional<model::ThermalZone> zone = object->optionalCast<model::ThermalZone>()) {
+          added = airLoop->multiAddBranchForZone(zone.get());
+        }
       }
     }
+  } else if (boost::optional<model::WaterUseEquipment> waterUseEquipment = object->optionalCast<model::WaterUseEquipment>()) {
+    if (boost::optional<model::WaterUseConnections> waterUseConnections = comp.optionalCast<model::WaterUseConnections>()) {
+      added = waterUseConnections->addWaterUseEquipment(waterUseEquipment.get());
+    }
+  } else if (boost::optional<model::WaterUseEquipmentDefinition> waterUseEquipmentDefinition =
+               object->optionalCast<model::WaterUseEquipmentDefinition>()) {
+    if (boost::optional<model::WaterUseConnections> waterUseConnections = comp.optionalCast<model::WaterUseConnections>()) {
+      model::WaterUseEquipment waterUseEquipment(waterUseEquipmentDefinition.get());
+      waterUseEquipment.resetFlowRateFractionSchedule();
 
-    if (!added) {
-      if (remove) {
-        object->remove();
-      }
+      added = waterUseConnections->addWaterUseEquipment(waterUseEquipment);
+    }
+  }
 
-      QMessageBox message(m_hvacSystemsController->hvacSystemsView());
+  if (!added) {
+    if (remove) {
+      object->remove();
+    }
 
-      message.setText("The selected component is not allowed at this location.");
+    QMessageBox message(m_hvacSystemsController->hvacSystemsView());
+    message.setText("The selected component is not allowed at this location.");
+    message.exec();
+    return;
+  }
 
-      message.exec();
+  if (object->iddObjectType() == openstudio::IddObjectType::OS_SwimmingPool_Indoor) {
+
+    // Do not set parent on purpose (`m_hvacSystemsController->hvacSystemsView()`)
+    SwimmingPoolIndoorFloorSurfaceDialog floorSurfaceDialog(object->cast<model::SwimmingPoolIndoor>());
+    floorSurfaceDialog.exec();
+    if (floorSurfaceDialog.result() == QDialog::Accepted) {
+      // auto sf_ = floorSurfaceDialog.floorSurface();
+      // [[maybe_unused]] auto name = sf_->nameString();
+      // LOG_FREE(Debug, "temp", name);
+    } else {
+      object->remove();
     }
   }
 }

@@ -561,6 +561,8 @@
     <file>images/system_type_9@2x.png</file>
     <file>images/system_type_10.png</file>
     <file>images/system_type_10@2x.png</file>
+    <file>images/swimming_pool.png</file>
+    <file>images/swimming_pool@2x.png</file>
     <file>images/tempering_valve.png</file>
     <file>images/tempering_valve@2x.png</file>
     <file>images/thermal_storage_ice.png</file>
@@ -1074,6 +1076,8 @@
     <file>images/mini_icons/system_type_1@2x.png</file>
     <file>images/mini_icons/system_type_2.png</file>
     <file>images/mini_icons/system_type_2@2x.png</file>
+    <file>images/mini_icons/swimming_pool.png</file>
+    <file>images/mini_icons/swimming_pool@2x.png</file>
     <file>images/mini_icons/thermal_zone.png</file>
     <file>images/mini_icons/thermal_zone@2x.png</file>
     <file>images/mini_icons/user_defined.png</file>

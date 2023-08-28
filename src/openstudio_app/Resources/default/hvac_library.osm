@@ -55,6 +55,14 @@ OS:ScheduleTypeLimits,
   1,                                      !- Upper Limit Value
   Continuous;                             !- Numeric Type
 
+OS:ScheduleTypeLimits,
+  {ef433d3a-4c47-431d-8787-3ebd0c5ee62b}, !- Handle
+  ActivityLevel,                          !- Name
+  0,                                      !- Lower Limit Value
+  ,                                       !- Upper Limit Value
+  Continuous,                             !- Numeric Type
+  ActivityLevel;                          !- Unit Type
+
 OS:Schedule:Ruleset,
   {7b9a6d38-fb98-4fb3-a65f-3acd22246ad5}, ! Handle
   Deck Temperature,                       ! Name
@@ -13199,4 +13207,70 @@ OS:SetpointManager:SystemNodeReset:Temperature,
   12.8,                                   !- Setpoint at High Reference Temperature {C}
   20,                                     !- Low Reference Temperature {C}
   23.3;                                   !- High Reference Temperature {C}
+
+OS:SwimmingPool:Indoor,
+  {0167cb69-111e-47d4-a1ba-bdad073d3752}, !- Handle
+  Swimming Pool Indoor,                   !- Name
+  ,                                       !- Surface Name
+  2,                                      !- Average Depth {m}
+  {9f54092d-a4a8-41b8-a381-c4c332ecb843}, !- Activity Factor Schedule Name
+  {d0a606bc-8ce9-4523-a9a3-6b57c9dde04d}, !- Make-up Water Supply Schedule Name
+  {b267e42b-9691-4116-8393-70bb1197dc5b}, !- Cover Schedule Name
+  0,                                      !- Cover Evaporation Factor
+  0,                                      !- Cover Convection Factor
+  0,                                      !- Cover Short-Wavelength Radiation Factor
+  0,                                      !- Cover Long-Wavelength Radiation Factor
+  ,                                       !- Pool Water Inlet Node
+  ,                                       !- Pool Water Outlet Node
+  0.1,                                    !- Pool Heating System Maximum Water Flow Rate {m3/s}
+  0,                                      !- Pool Miscellaneous Equipment Power {W-s/m3}
+  {af8f3000-55fa-4361-9e61-be6a3ba74259}, !- Setpoint Temperature Schedule
+  15,                                     !- Maximum Number of People
+  {9f54092d-a4a8-41b8-a381-c4c332ecb843}, !- People Schedule
+  {5f47a5ce-57cc-410c-a180-54501860cc2e}; !- People Heat Gain Schedule
+
+OS:Schedule:Ruleset,
+  {d0a606bc-8ce9-4523-a9a3-6b57c9dde04d}, !- Handle
+  Pool MakeUp Water Temperature Schedule, !- Name
+  {0aa7bb86-b420-45ab-9bde-8e8a1cb6966c}, !- Schedule Type Limits Name
+  {f21735d2-57d8-49db-9fca-56b6320724cf}; !- Default Day Schedule Name
+
+OS:Schedule:Day,
+  {f21735d2-57d8-49db-9fca-56b6320724cf}, !- Handle
+  Pool MakeUp Water Temperature Schedule Day, !- Name
+  {0aa7bb86-b420-45ab-9bde-8e8a1cb6966c}, !- Schedule Type Limits Name
+  ,                                       !- Interpolate to Timestep
+  24,                                     !- Hour 1
+  0,                                      !- Minute 1
+  16.67;                                  !- Value Until Time 1
+
+OS:Schedule:Ruleset,
+  {5f47a5ce-57cc-410c-a180-54501860cc2e}, !- Handle
+  Pool People Heat Gain Schedule,         !- Name
+  {ef433d3a-4c47-431d-8787-3ebd0c5ee62b}, !- Schedule Type Limits Name
+  {93487848-c1ab-4048-b954-3b8833712d48}; !- Default Day Schedule Name
+
+OS:Schedule:Day,
+  {93487848-c1ab-4048-b954-3b8833712d48}, !- Handle
+  Pool People Heat Gain Schedule Day,     !- Name
+  {ef433d3a-4c47-431d-8787-3ebd0c5ee62b}, !- Schedule Type Limits Name
+  ,                                       !- Interpolate to Timestep
+  24,                                     !- Hour 1
+  0,                                      !- Minute 1
+  300;                                    !- Value Until Time 1
+
+OS:Schedule:Ruleset,
+  {af8f3000-55fa-4361-9e61-be6a3ba74259}, !- Handle
+  Pool Setpoint Temperature Schedule,     !- Name
+  {0aa7bb86-b420-45ab-9bde-8e8a1cb6966c}, !- Schedule Type Limits Name
+  {013ae896-670f-4e70-8056-d646220d3df5}; !- Default Day Schedule Name
+
+OS:Schedule:Day,
+  {013ae896-670f-4e70-8056-d646220d3df5}, !- Handle
+  Pool Setpoint Temperature Schedule Day, !- Name
+  {0aa7bb86-b420-45ab-9bde-8e8a1cb6966c}, !- Schedule Type Limits Name
+  ,                                       !- Interpolate to Timestep
+  24,                                     !- Hour 1
+  0,                                      !- Minute 1
+  27;                                     !- Value Until Time 1
 
