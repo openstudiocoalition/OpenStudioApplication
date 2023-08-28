@@ -35,27 +35,41 @@
 #include <openstudio/model/OutputVariable_Impl.hpp>
 
 #include "../model_editor/Utilities.hpp"
+#include "../shared_gui_components/OSDialog.hpp"
 
 #include <openstudio/utilities/sql/SqlFileEnums.hpp>
 
-#include <QHBoxLayout>
-#include <QVBoxLayout>
-#include <QLabel>
-#include <QScrollArea>
+#include <QCheckBox>
 #include <QComboBox>
+#include <QHBoxLayout>
+#include <QLabel>
+#include <QLineEdit>
 #include <QPushButton>
+#include <QRegularExpression>
+#include <QScrollArea>
 #include <QTimer>
+#include <QVBoxLayout>
 
 #include "../shared_gui_components/OSSwitch.hpp"
 #include "../shared_gui_components/OSComboBox.hpp"
 
 #include <openstudio/utilities/idd/IddEnums.hxx>
+#include <utility>
 
 namespace openstudio {
 
 VariableListItem::VariableListItem(const std::string& t_name, const std::string& t_keyValue,
                                    const boost::optional<openstudio::model::OutputVariable>& t_variable, const openstudio::model::Model& t_model)
   : m_name(t_name), m_keyValue(t_keyValue), m_variable(t_variable), m_model(t_model) {
+
+  auto* vbox = new QVBoxLayout();
+  vbox->setContentsMargins(0, 0, 0, 0);
+  vbox->setSpacing(0);
+
+  auto* hline = new QFrame();
+  hline->setFrameShape(QFrame::HLine);
+  hline->setFrameShadow(QFrame::Sunken);
+
   auto* hbox = new QHBoxLayout();
   hbox->setContentsMargins(10, 10, 10, 10);
   hbox->setSpacing(10);
@@ -83,7 +97,10 @@ VariableListItem::VariableListItem(const std::string& t_name, const std::string&
 
   hbox->addWidget(m_combobox);
 
-  setLayout(hbox);
+  vbox->addWidget(hline);
+  vbox->addLayout(hbox);
+  // vbox->addStretch();
+  setLayout(vbox);
   onOffClicked(m_variable.is_initialized());
 }
 
@@ -110,6 +127,16 @@ void VariableListItem::indexChanged(const QString& t_frequency) {
 void VariableListItem::setVariableEnabled(bool t_enabled) {
   m_onOffButton->setChecked(t_enabled);
   onOffClicked(t_enabled);
+}
+
+bool VariableListItem::isVariableEnabled() const {
+  return m_onOffButton->isChecked();
+}
+
+void VariableListItem::setReportingFrequency(const std::string& freq) {
+  if (m_variable) {
+    m_variable->setReportingFrequency(freq);
+  }
 }
 
 void VariableListItem::onOffClicked(bool t_on) {
@@ -139,34 +166,89 @@ void VariableListItem::onOffClicked(bool t_on) {
   }
 }
 
-VariablesList::VariablesList(openstudio::model::Model t_model) : m_model(t_model), m_dirty(true) {
+VariablesList::VariablesList(openstudio::model::Model t_model) : m_model(t_model), m_dirty(true), m_searchActive(false) {
   t_model.getImpl<openstudio::model::detail::Model_Impl>()->addWorkspaceObject.connect<VariablesList, &VariablesList::onAdded>(this);
 
   t_model.getImpl<openstudio::model::detail::Model_Impl>()->removeWorkspaceObject.connect<VariablesList, &VariablesList::onRemoved>(this);
+
+  // TODO: should probably use a GridLayout, this is getting out of control
+
   auto* vbox = new QVBoxLayout();
   vbox->setContentsMargins(10, 10, 10, 10);
   vbox->setSpacing(10);
   setLayout(vbox);
 
-  vbox->addWidget(new QLabel("<b>Possible Output Variables</b>"));
+  auto* outerHBox = new QHBoxLayout();
 
-  auto* innerbox = new QVBoxLayout();
-  m_allOnBtn = new QPushButton("All On");
-  m_allOnBtn->setFlat(true);
-  m_allOnBtn->setObjectName("StandardGrayButton");
-  m_allOffBtn = new QPushButton("All Off");
-  m_allOffBtn->setFlat(true);
-  m_allOffBtn->setObjectName("StandardGrayButton");
-  innerbox->addWidget(m_allOnBtn);
-  innerbox->addWidget(m_allOffBtn);
+  auto* allOnOffVBox = new QVBoxLayout();
+  {
+    allOnOffVBox->addWidget(new QLabel("<b>Possible Output Variables</b>"));
 
-  connect(m_allOnBtn, &QPushButton::clicked, this, &VariablesList::allOnClicked);
-  connect(m_allOffBtn, &QPushButton::clicked, this, &VariablesList::allOffClicked);
-  auto* outerbox = new QHBoxLayout();
-  outerbox->addLayout(innerbox);
-  outerbox->addStretch();
+    m_allOnBtn = new QPushButton("All On");
+    m_allOnBtn->setFlat(true);
+    m_allOnBtn->setObjectName("StandardGrayButton");
+    m_allOffBtn = new QPushButton("All Off");
+    m_allOffBtn->setFlat(true);
+    m_allOffBtn->setObjectName("StandardGrayButton");
+    allOnOffVBox->addWidget(m_allOnBtn);
+    allOnOffVBox->addWidget(m_allOffBtn);
 
-  vbox->addLayout(outerbox);
+    connect(m_allOnBtn, &QPushButton::clicked, this, &VariablesList::allOnClicked);
+    connect(m_allOffBtn, &QPushButton::clicked, this, &VariablesList::allOffClicked);
+  }
+
+  outerHBox->addLayout(allOnOffVBox);
+
+  outerHBox->addStretch();
+
+  auto* vline = new QFrame();
+  vline->setFrameShape(QFrame::VLine);
+  vline->setFrameShadow(QFrame::Sunken);
+  outerHBox->addWidget(vline);
+
+  auto* filterVBox = new QVBoxLayout();
+  outerHBox->addLayout(filterVBox);
+
+  {
+    filterVBox->addWidget(new QLabel("<b>Filtering</b>"));
+    auto* filterViaText = new QHBoxLayout();
+    filterVBox->addLayout(filterViaText);
+
+    filterViaText->addWidget(new QLabel("Filter variables"));
+    m_searchBox = new QLineEdit();
+    m_searchBox->setClearButtonEnabled(true);
+    filterViaText->addWidget(m_searchBox);
+    connect(m_searchBox, &QLineEdit::textEdited, this, &VariablesList::onSearchTextEdited);
+    m_searchUseRegex = new QCheckBox();
+    m_searchUseRegex->setText("Use Regex");
+    m_searchUseRegex->setChecked(false);
+    connect(m_searchUseRegex, &QCheckBox::stateChanged, [this](int) { this->onSearchTextEdited(this->m_searchText); });
+    filterViaText->addWidget(m_searchUseRegex);
+  }
+
+  // m_displayOnlySelectedToggleButton = new QPushButton("Display Only Enabled");
+  // m_displayOnlySelectedToggleButton->setFlat(true);
+  // m_displayOnlySelectedToggleButton->setCheckable(true);
+  // m_displayOnlySelectedToggleButton->setChecked(false);
+  // m_displayOnlySelectedToggleButton->setObjectName("StandardGrayButton");
+
+  {
+    auto* filterViaEnabled = new QHBoxLayout();
+    filterVBox->addLayout(filterViaEnabled);
+
+    filterViaEnabled->addWidget(new QLabel("Display Only Enabled Variables"));
+    m_displayOnlySelectedToggleButton = new OSSwitch2();
+    // m_displayOnlySelectedToggleButton->setFixedSize(150, m_displayOnlySelectedToggleButton->height());
+    connect(m_displayOnlySelectedToggleButton, &OSSwitch2::clicked, [this](bool /*toggleed*/) { this->onSearchTextEdited(this->m_searchText); });
+    filterViaEnabled->addWidget(m_displayOnlySelectedToggleButton);
+    filterViaEnabled->addStretch();
+
+    m_applyFrequencyToAllVisibleButton = new QPushButton("Apply Frequency to selected shown variables");
+    connect(m_applyFrequencyToAllVisibleButton, &QPushButton::clicked, this, &VariablesList::applyFrequencyToAllVisibleClicked);
+    filterViaEnabled->addWidget(m_applyFrequencyToAllVisibleButton);
+  }
+
+  vbox->addLayout(outerHBox);
 
   m_listLayout = new QVBoxLayout();
   vbox->addLayout(m_listLayout);
@@ -183,8 +265,45 @@ void VariablesList::allOffClicked() {
 }
 
 void VariablesList::enableAll(bool t_enabled) {
-  for (auto itr = m_variables.begin(); itr != m_variables.end(); ++itr) {
-    (*itr)->setVariableEnabled(t_enabled);
+  for (auto& m_variable : m_variables) {
+    if (m_variable->isVisible()) {
+      m_variable->setVariableEnabled(t_enabled);
+    }
+  }
+}
+
+void VariablesList::applyFrequencyToAllVisibleClicked() {
+  OSDialog dialog;  // (false, this);  // Modal, on stack. I do not want VariablesList deleter to try and delete this one so no parenting
+
+  dialog.setWindowModality(Qt::ApplicationModal);
+
+  dialog.okButton()->setText("Apply Frequency");
+
+  auto* vLayout = new QVBoxLayout();
+  vLayout->setSpacing(5);
+  auto* label = new QLabel("Pick a frequency", this);
+  label->setObjectName("H2");
+  vLayout->addWidget(label);
+
+  auto* freqComboBox = new QComboBox();
+  freqComboBox->setObjectName("FrequencyComboBox");
+  for (const auto& freq : model::OutputVariable::reportingFrequencyValues()) {
+    freqComboBox->addItem(QString::fromStdString(freq));
+  }
+  vLayout->addWidget(freqComboBox);
+  vLayout->addStretch();
+  dialog.upperLayout()->addLayout(vLayout);
+
+  dialog.setFixedSize(QSize(770, 320));
+
+  dialog.exec();
+  if (dialog.result() == QDialog::Accepted) {
+    const std::string freqStr = freqComboBox->currentText().toStdString();
+    for (auto& m_variable : m_variables) {
+      if (m_variable->isVisible()) {
+        m_variable->setReportingFrequency(freqStr);
+      }
+    }
   }
 }
 
@@ -200,7 +319,7 @@ void VariablesList::onAdded(const WorkspaceObject&, const openstudio::IddObjectT
   }
 }
 
-void VariablesList::onRemoved(const WorkspaceObject&, const openstudio::IddObjectType& type, const openstudio::UUID&) {
+void VariablesList::onRemoved(const WorkspaceObject& /*unused*/, const openstudio::IddObjectType& type, const openstudio::UUID& /*unused*/) {
   LOG(Debug, "onRemoved " << type.valueName());
 
   /// \todo if the user is remove to add an output variable through some other means it will not show up here and now
@@ -218,6 +337,51 @@ struct PotentialOutputVariable
   std::string keyValue;
   boost::optional<openstudio::model::OutputVariable> variable;
 };
+
+bool VariableListItem::matchesText(const QString& text, bool useRegex) const {
+
+  const auto qName = QString::fromStdString(m_name);
+  if (qName.contains(text, Qt::CaseInsensitive)) {
+    return true;
+  }
+  QString qKeyValue;
+  if (!m_keyValue.empty() && m_keyValue != "*") {
+    qKeyValue = QString::fromStdString(m_keyValue);
+    if (qKeyValue.contains(text, Qt::CaseInsensitive)) {
+      return true;
+    }
+  }
+
+  if (useRegex) {
+    const QRegularExpression re(text, QRegularExpression::CaseInsensitiveOption);
+    if (auto m = re.match(qName); m.hasMatch()) {
+      return true;
+    }
+    if (!qKeyValue.isEmpty()) {
+      if (auto m = re.match(qKeyValue); m.hasMatch()) {
+        return true;
+      }
+    }
+  }
+  return false;
+}
+
+void VariablesList::onSearchTextEdited(const QString& text) {
+  m_searchText = text;
+  m_searchActive = !text.isEmpty();
+
+  const bool displayOnlySelected = m_displayOnlySelectedToggleButton->isChecked();
+
+  for (auto& variableListItemPtr : m_variables) {
+    if (displayOnlySelected && !variableListItemPtr->isVariableEnabled()) {
+      variableListItemPtr->hide();
+    } else if (m_searchActive && !variableListItemPtr->matchesText(text, m_searchUseRegex->isChecked())) {
+      variableListItemPtr->hide();
+    } else {
+      variableListItemPtr->show();
+    }
+  }
+}
 
 void VariablesList::updateVariableList() {
   m_variables.clear();
@@ -246,9 +410,9 @@ void VariablesList::updateVariableList() {
 
   // add all variables to map, allow only one variable per variable name + keyValue in this application
   for (openstudio::model::OutputVariable outputVariable : m_model.getConcreteModelObjects<openstudio::model::OutputVariable>()) {
-    std::string variableName = outputVariable.variableName();
-    std::string keyValue = outputVariable.keyValue();
-    std::string variableNameKeyValue = variableName + keyValue;
+    const std::string variableName = outputVariable.variableName();
+    const std::string keyValue = outputVariable.keyValue();
+    const std::string variableNameKeyValue = variableName + keyValue;
 
     if (potentialOutputVariableMap.count(variableNameKeyValue) == 0) {
       // DLM: this was causing too much trouble because it kept deleting variables added by users
@@ -279,13 +443,8 @@ void VariablesList::updateVariableList() {
     }
   }
 
-  for (auto itr = potentialOutputVariableMap.begin(); itr != potentialOutputVariableMap.end(); ++itr) {
-    auto* hline = new QFrame();
-    hline->setFrameShape(QFrame::HLine);
-    hline->setFrameShadow(QFrame::Sunken);
-    m_listLayout->addWidget(hline);
-
-    PotentialOutputVariable pov = itr->second;
+  for (const auto& itr : potentialOutputVariableMap) {
+    const PotentialOutputVariable& pov = itr.second;
 
     //LOG(Debug, "Creating VariableListItem for: " << pov.name << ", " << pov.keyValue);
     auto* li = new VariableListItem(pov.name, pov.keyValue, pov.variable, m_model);
@@ -301,7 +460,7 @@ void VariablesList::updateVariableList() {
 VariablesTabView::VariablesTabView(openstudio::model::Model t_model, QWidget* parent)
   : MainTabView("Output Variables", MainTabView::MAIN_TAB, parent) {
   auto* scrollarea = new QScrollArea();
-  auto* vl = new VariablesList(t_model);
+  auto* vl = new VariablesList(std::move(t_model));
   scrollarea->setWidget(vl);
   scrollarea->setWidgetResizable(true);
   addTabWidget(scrollarea);
