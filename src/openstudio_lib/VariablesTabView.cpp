@@ -443,7 +443,7 @@ void VariablesList::updateVariableList() {
     }
   }
 
-  for (auto& itr : potentialOutputVariableMap) {
+  for (const auto& itr : potentialOutputVariableMap) {
     const PotentialOutputVariable& pov = itr.second;
 
     //LOG(Debug, "Creating VariableListItem for: " << pov.name << ", " << pov.keyValue);
