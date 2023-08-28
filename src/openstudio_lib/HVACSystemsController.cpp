@@ -599,7 +599,8 @@ void HVACLayoutController::addLibraryObjectToModelNode(const OSItemId& itemId, m
 
   if (object->iddObjectType() == openstudio::IddObjectType::OS_SwimmingPool_Indoor) {
 
-    SwimmingPoolIndoorFloorSurfaceDialog floorSurfaceDialog(object->cast<model::SwimmingPoolIndoor>());  // , m_hvacSystemsController->hvacSystemsView());
+    // Do not set parent on purpose (`m_hvacSystemsController->hvacSystemsView()`)
+    SwimmingPoolIndoorFloorSurfaceDialog floorSurfaceDialog(object->cast<model::SwimmingPoolIndoor>());
     floorSurfaceDialog.exec();
     if (floorSurfaceDialog.result() == QDialog::Accepted) {
       // auto sf_ = floorSurfaceDialog.floorSurface();
