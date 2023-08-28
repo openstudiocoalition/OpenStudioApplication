@@ -103,6 +103,13 @@ class HVACToolbarView : public QWidget
   // If control buttons are hidden only the systemComboBox and label are shown.
   void showControls(bool show);
 
+  // calls show() on all individual buttons and make them enabled
+  void resetAllIndividualControlButtons();
+
+  void hideAddCopyDeleteButtons();
+
+  void hideZoomButtons();
+
  protected:
   void paintEvent(QPaintEvent* event) override;
 
@@ -119,12 +126,16 @@ class HVACGraphicsView : public QGraphicsView
 
   virtual ~HVACGraphicsView() = default;
 
+ protected:
+  // Override to allow zooming with CTRL + Wheel Up/Down
+  virtual void wheelEvent(QWheelEvent* event) override;
+  // Override to allow zooming with CTRL + '+' / '-'
+  virtual void keyReleaseEvent(QKeyEvent* event) override;
+
  public slots:
-
+  // Display adjustments
   void zoomIn();
-
   void zoomOut();
-
   void resetZoom();
 
  private:

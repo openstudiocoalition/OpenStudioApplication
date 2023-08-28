@@ -195,7 +195,7 @@ RefrigerationController::RefrigerationController()
     m_refrigerationGridScene(new QGraphicsScene()),
     m_noRefrigerationView(new NoRefrigerationView()),
     m_dirty(false) {
-  connect(m_refrigerationView->zoomOutButton, &QPushButton::clicked, this, &RefrigerationController::zoomOutToSystemGridView);
+  connect(m_refrigerationView->oneLevelUpButton, &QPushButton::clicked, this, &RefrigerationController::zoomOutToSystemGridView);
 
   // These get deleted with when the scene is deleted
   m_refrigerationSystemGridView->setCellSize(RefrigerationSystemMiniView::cellSize());
@@ -275,16 +275,14 @@ void RefrigerationController::zoomInOnSystem(const model::RefrigerationSystem& r
   }
 
   m_refrigerationScene = new QGraphicsScene();
-
-  m_refrigerationView->header->show();
-
   m_detailView = new RefrigerationSystemView();
 
-  refresh();
-
   m_refrigerationScene->addItem(m_detailView);
-
+  m_refrigerationView->header->show();
   m_refrigerationView->graphicsView->setScene(m_refrigerationScene);
+  m_refrigerationView->resetZoom();
+
+  refresh();
 
   connect(m_detailView->refrigerationCondenserView, &RefrigerationCondenserView::componentDropped, this,
           &RefrigerationController::onCondenserViewDrop);
@@ -321,23 +319,20 @@ void RefrigerationController::zoomInOnSystem(const model::RefrigerationSystem& r
 }
 
 void RefrigerationController::zoomOutToSystemGridView() {
-  model::OptionalModelObject mo;
-
-  std::shared_ptr<OSDocument> doc = OSAppBase::instance()->currentDocument();
-
-  doc->mainRightColumnController()->inspectModelObject(mo, false);
-
   m_currentSystem = boost::none;
 
-  m_refrigerationView->header->hide();
+  model::OptionalModelObject mo;
+  std::shared_ptr<OSDocument> doc = OSAppBase::instance()->currentDocument();
+  doc->mainRightColumnController()->inspectModelObject(mo, false);
 
   m_refrigerationSystemListController->reset();
 
-  refresh();
-
   m_refrigerationView->graphicsView->setScene(m_refrigerationGridScene.data());
-
   m_refrigerationView->graphicsView->setAlignment(Qt::AlignLeft | Qt::AlignTop);
+  m_refrigerationView->resetZoom();
+  m_refrigerationView->header->hide();
+
+  refresh();
 }
 
 void RefrigerationController::onCondenserViewDrop(const OSItemId& itemid) {
@@ -783,7 +778,7 @@ QGraphicsObject* RefrigerationSystemItemDelegate::view(QSharedPointer<OSListItem
     connect(refrigerationSystemMiniView->removeButtonItem, &RemoveButtonItem::mouseClicked,
             static_cast<RefrigerationSystemListItem*>(dataSource.data()), &RefrigerationSystemListItem::remove);
 
-    connect(refrigerationSystemMiniView->zoomInButtonItem, &ZoomInButtonItem::mouseClicked,
+    connect(refrigerationSystemMiniView->oneLevelDownButtonItem, &OneLevelDownButtonItem::mouseClicked,
             static_cast<RefrigerationSystemListItem*>(dataSource.data()), &RefrigerationSystemListItem::zoomInOnSystem);
 
     refrigerationSystemMiniView->setName(listItem->systemName());

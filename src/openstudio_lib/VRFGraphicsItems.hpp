@@ -59,9 +59,21 @@ class VRFView : public QWidget
 
   QGraphicsView* graphicsView;
 
-  QPushButton* zoomOutButton;
+  QPushButton* oneLevelUpButton;
 
   QLabel* nameLabel;
+
+ protected:
+  // Override to allow zooming with CTRL + Wheel Up/Down
+  virtual void wheelEvent(QWheelEvent* event) override;
+  // Override to allow zooming with CTRL + '+' / '-'
+  virtual void keyReleaseEvent(QKeyEvent* event) override;
+
+ public slots:
+  // Display adjustments
+  void zoomIn();
+  void zoomOut();
+  void resetZoom();
 };
 
 class VRFSystemMiniView : public QGraphicsObject
@@ -74,7 +86,7 @@ class VRFSystemMiniView : public QGraphicsObject
   virtual ~VRFSystemMiniView() = default;
 
   RemoveButtonItem* removeButtonItem;
-  ZoomInButtonItem* zoomInButtonItem;
+  OneLevelDownButtonItem* oneLevelDownButtonItem;
 
   QRectF boundingRect() const override;
   static QSize cellSize();
