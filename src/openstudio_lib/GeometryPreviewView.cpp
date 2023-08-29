@@ -142,7 +142,7 @@ void PreviewWebView::onUnitSystemChange(bool t_isIP) {
 // }
 
 void PreviewWebView::onLoadFinished(bool ok) {
-  QString title = m_view->title();
+  const QString title = m_view->title();
   // qDebug() << "onLoadFinished, ok=" << ok << ", title=" << title;
   if (ok) {
     m_progressBar->setValue(10);
@@ -157,8 +157,8 @@ void PreviewWebView::onLoadFinished(bool ok) {
     //ThreeScene scene = modelToThreeJS(m_model.clone(true).cast<model::Model>(), true, updatePercentage); // triangulated
 
     model::ThreeJSForwardTranslator ft;
-    ThreeScene scene = ft.modelToThreeJS(m_model, true, updatePercentage);  // triangulated
-    std::string json = scene.toJSON(false);                                 // no pretty print
+    const ThreeScene scene = ft.modelToThreeJS(m_model, true, updatePercentage);  // triangulated
+    const std::string json = scene.toJSON(false);                                 // no pretty print
     m_json = QString::fromStdString(json);
   } else {
     m_progressBar->setValue(90);
@@ -168,7 +168,7 @@ void PreviewWebView::onLoadFinished(bool ok) {
   m_document->disable();
 
   // call init and animate
-  QString javascript = QString("init(") + m_json + QString(");\n animate();\n initDatGui();");
+  const QString javascript = QString("runFromJSON(%1);").arg(m_json);
   m_view->page()->runJavaScript(javascript, [this](const QVariant& v) { onJavaScriptFinished(v); });
 
   //javascript = QString("os_data.metadata.version");

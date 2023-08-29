@@ -355,7 +355,7 @@ void FloorspaceEditor::loadEditor() {
       javascript += css;
       cssFile.close();
     } else {
-      LOG_FREE(LogLevel::Error, "FloorspaceEditor", "Failed to open geometry_editor.qss");
+      LOG_FREE(LogLevel::Error, "FloorspaceEditor", "Failed to open geometry_editor.css");
     }
 
     javascript += "`;\n\
