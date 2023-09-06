@@ -37,7 +37,6 @@
 #include <openstudio/nano/nano_signal_slot.hpp>  // Signal-Slot replacement
 #include <boost/optional.hpp>
 
-
 class QCheckBox;
 class QComboBox;
 class QPushButton;

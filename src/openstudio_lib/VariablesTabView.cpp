@@ -279,11 +279,11 @@ void VariablesList::enableAll(bool t_enabled) {
 
 void VariablesList::applyFrequencyToAllVisibleClicked() {
   const std::string freqStr = m_frequencyComboBox->currentData().toString().toStdString();
-  
-this->setEnabled(false);
+
+  this->setEnabled(false);
   m_progressBar->setRange(0, m_variables.size());
   m_progressBar->setVisible(true);
-  
+
   int num = 0;
   for (auto& m_variable : m_variables) {
     if (m_variable->isVisible()) {
