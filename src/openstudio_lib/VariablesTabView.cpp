@@ -36,6 +36,7 @@
 
 #include "../model_editor/Utilities.hpp"
 #include "../shared_gui_components/OSDialog.hpp"
+#include "../shared_gui_components/ProgressBarWithError.hpp"
 
 #include <openstudio/utilities/sql/SqlFileEnums.hpp>
 
@@ -178,80 +179,75 @@ VariablesList::VariablesList(openstudio::model::Model t_model) : m_model(t_model
   vbox->setSpacing(10);
   setLayout(vbox);
 
-  auto* outerHBox = new QHBoxLayout();
+  vbox->addWidget(new QLabel("<b>" + tr("Select Output Variables") + "</b>"));
 
-  auto* allOnOffVBox = new QVBoxLayout();
-  {
-    allOnOffVBox->addWidget(new QLabel("<b>Possible Output Variables</b>"));
+  auto* filterHLayout = new QHBoxLayout();
+  filterHLayout->addWidget(new QLabel(tr("Filter Variables")));
+  m_searchBox = new QLineEdit();
+  m_searchBox->setClearButtonEnabled(true);
+  filterHLayout->addWidget(m_searchBox);
+  connect(m_searchBox, &QLineEdit::textEdited, this, &VariablesList::onSearchTextEdited);
 
-    m_allOnBtn = new QPushButton("All On");
-    m_allOnBtn->setFlat(true);
-    m_allOnBtn->setObjectName("StandardGrayButton");
-    m_allOffBtn = new QPushButton("All Off");
-    m_allOffBtn->setFlat(true);
-    m_allOffBtn->setObjectName("StandardGrayButton");
-    allOnOffVBox->addWidget(m_allOnBtn);
-    allOnOffVBox->addWidget(m_allOffBtn);
+  m_searchUseRegex = new QCheckBox();
+  m_searchUseRegex->setText(tr("Use Regex"));
+  m_searchUseRegex->setChecked(false);
+  connect(m_searchUseRegex, &QCheckBox::stateChanged, [this](int) { this->onSearchTextEdited(this->m_searchText); });
+  filterHLayout->addWidget(m_searchUseRegex);
 
-    connect(m_allOnBtn, &QPushButton::clicked, this, &VariablesList::allOnClicked);
-    connect(m_allOffBtn, &QPushButton::clicked, this, &VariablesList::allOffClicked);
-  }
+  m_displayOnlyComboBox = new QComboBox;
+  m_displayOnlyComboBox->addItem(tr(""), "");
+  m_displayOnlyComboBox->addItem(tr("Enabled"), "Enabled");
+  m_displayOnlyComboBox->addItem(tr("Disabled"), "Disabled");
+  m_displayOnlyComboBox->setCurrentIndex(0);
+  connect(m_displayOnlyComboBox, &QComboBox::currentIndexChanged, [this](int /*index*/) { this->onSearchTextEdited(this->m_searchText); });
+  filterHLayout->addWidget(m_displayOnlyComboBox);
 
-  outerHBox->addLayout(allOnOffVBox);
+  filterHLayout->addStretch();
+  vbox->addLayout(filterHLayout);
 
-  outerHBox->addStretch();
+  vbox->addWidget(new QLabel("<b>" + tr("Update Visible Variables") + "</b>"));
 
-  auto* vline = new QFrame();
-  vline->setFrameShape(QFrame::VLine);
-  vline->setFrameShadow(QFrame::Sunken);
-  outerHBox->addWidget(vline);
+  auto* applyHLayout = new QHBoxLayout();
+  m_allOnBtn = new QPushButton(tr("All On"));
+  m_allOnBtn->setFlat(true);
+  m_allOnBtn->setObjectName("StandardGrayButton");
+  applyHLayout->addWidget(m_allOnBtn);
+  connect(m_allOnBtn, &QPushButton::clicked, this, &VariablesList::allOnClicked);
 
-  auto* filterVBox = new QVBoxLayout();
-  outerHBox->addLayout(filterVBox);
+  m_allOffBtn = new QPushButton(tr("All Off"));
+  m_allOffBtn->setFlat(true);
+  m_allOffBtn->setObjectName("StandardGrayButton");
+  applyHLayout->addWidget(m_allOffBtn);
+  connect(m_allOffBtn, &QPushButton::clicked, this, &VariablesList::allOffClicked);
 
-  {
-    filterVBox->addWidget(new QLabel("<b>Filtering</b>"));
-    auto* filterViaText = new QHBoxLayout();
-    filterVBox->addLayout(filterViaText);
+  m_applyFrequencyBtn = new QPushButton(tr("Apply Frequency"));
+  m_applyFrequencyBtn->setFlat(true);
+  m_applyFrequencyBtn->setObjectName("StandardGrayButton");
+  connect(m_applyFrequencyBtn, &QPushButton::clicked, this, &VariablesList::applyFrequencyToAllVisibleClicked);
+  applyHLayout->addWidget(m_applyFrequencyBtn);
 
-    filterViaText->addWidget(new QLabel("Filter variables"));
-    m_searchBox = new QLineEdit();
-    m_searchBox->setClearButtonEnabled(true);
-    filterViaText->addWidget(m_searchBox);
-    connect(m_searchBox, &QLineEdit::textEdited, this, &VariablesList::onSearchTextEdited);
-    m_searchUseRegex = new QCheckBox();
-    m_searchUseRegex->setText("Use Regex");
-    m_searchUseRegex->setChecked(false);
-    connect(m_searchUseRegex, &QCheckBox::stateChanged, [this](int) { this->onSearchTextEdited(this->m_searchText); });
-    filterViaText->addWidget(m_searchUseRegex);
-  }
+  m_frequencyComboBox = new QComboBox;
+  m_frequencyComboBox->addItem(tr("Detailed"), "Detailed");
+  m_frequencyComboBox->addItem(tr("Timestep"), "Timestep");
+  m_frequencyComboBox->addItem(tr("Hourly"), "Hourly");
+  m_frequencyComboBox->addItem(tr("Daily"), "Daily");
+  m_frequencyComboBox->addItem(tr("Monthly"), "Monthly");
+  m_frequencyComboBox->addItem(tr("RunPeriod"), "RunPeriod");
+  m_frequencyComboBox->addItem(tr("Annual"), "Annual");
+  m_frequencyComboBox->setCurrentIndex(2);
+  applyHLayout->addWidget(m_frequencyComboBox);
 
-  // m_displayOnlySelectedToggleButton = new QPushButton("Display Only Enabled");
-  // m_displayOnlySelectedToggleButton->setFlat(true);
-  // m_displayOnlySelectedToggleButton->setCheckable(true);
-  // m_displayOnlySelectedToggleButton->setChecked(false);
-  // m_displayOnlySelectedToggleButton->setObjectName("StandardGrayButton");
+  applyHLayout->addStretch();
+  m_progressBar = new ProgressBarWithError();
+  m_progressBar->setFixedWidth(200);
+  m_progressBar->setVisible(false);
+  applyHLayout->addWidget(m_progressBar);
 
-  {
-    auto* filterViaEnabled = new QHBoxLayout();
-    filterVBox->addLayout(filterViaEnabled);
-
-    filterViaEnabled->addWidget(new QLabel("Display Only Enabled Variables"));
-    m_displayOnlySelectedToggleButton = new OSSwitch2();
-    // m_displayOnlySelectedToggleButton->setFixedSize(150, m_displayOnlySelectedToggleButton->height());
-    connect(m_displayOnlySelectedToggleButton, &OSSwitch2::clicked, [this](bool /*toggleed*/) { this->onSearchTextEdited(this->m_searchText); });
-    filterViaEnabled->addWidget(m_displayOnlySelectedToggleButton);
-    filterViaEnabled->addStretch();
-
-    m_applyFrequencyToAllVisibleButton = new QPushButton("Apply Frequency to selected shown variables");
-    connect(m_applyFrequencyToAllVisibleButton, &QPushButton::clicked, this, &VariablesList::applyFrequencyToAllVisibleClicked);
-    filterViaEnabled->addWidget(m_applyFrequencyToAllVisibleButton);
-  }
-
-  vbox->addLayout(outerHBox);
+  vbox->addLayout(applyHLayout);
 
   m_listLayout = new QVBoxLayout();
   vbox->addLayout(m_listLayout);
+  vbox->addStretch();
 
   updateVariableList();
 }
@@ -265,46 +261,39 @@ void VariablesList::allOffClicked() {
 }
 
 void VariablesList::enableAll(bool t_enabled) {
+  this->setEnabled(false);
+  m_progressBar->setRange(0, m_variables.size());
+  m_progressBar->setVisible(true);
+
+  int num = 0;
   for (auto& m_variable : m_variables) {
     if (m_variable->isVisible()) {
       m_variable->setVariableEnabled(t_enabled);
     }
+    m_progressBar->setValue(++num);
   }
+
+  m_progressBar->setVisible(false);
+  this->setEnabled(true);
 }
 
 void VariablesList::applyFrequencyToAllVisibleClicked() {
-  OSDialog dialog;  // (false, this);  // Modal, on stack. I do not want VariablesList deleter to try and delete this one so no parenting
-
-  dialog.setWindowModality(Qt::ApplicationModal);
-
-  dialog.okButton()->setText("Apply Frequency");
-
-  auto* vLayout = new QVBoxLayout();
-  vLayout->setSpacing(5);
-  auto* label = new QLabel("Pick a frequency", this);
-  label->setObjectName("H2");
-  vLayout->addWidget(label);
-
-  auto* freqComboBox = new QComboBox();
-  freqComboBox->setObjectName("FrequencyComboBox");
-  for (const auto& freq : model::OutputVariable::reportingFrequencyValues()) {
-    freqComboBox->addItem(QString::fromStdString(freq));
-  }
-  vLayout->addWidget(freqComboBox);
-  vLayout->addStretch();
-  dialog.upperLayout()->addLayout(vLayout);
-
-  dialog.setFixedSize(QSize(770, 320));
-
-  dialog.exec();
-  if (dialog.result() == QDialog::Accepted) {
-    const std::string freqStr = freqComboBox->currentText().toStdString();
-    for (auto& m_variable : m_variables) {
-      if (m_variable->isVisible()) {
-        m_variable->setReportingFrequency(freqStr);
-      }
+  const std::string freqStr = m_frequencyComboBox->currentData().toString().toStdString();
+  
+this->setEnabled(false);
+  m_progressBar->setRange(0, m_variables.size());
+  m_progressBar->setVisible(true);
+  
+  int num = 0;
+  for (auto& m_variable : m_variables) {
+    if (m_variable->isVisible()) {
+      m_variable->setReportingFrequency(freqStr);
     }
+    m_progressBar->setValue(++num);
   }
+
+  m_progressBar->setVisible(false);
+  this->setEnabled(true);
 }
 
 void VariablesList::onAdded(const WorkspaceObject&, const openstudio::IddObjectType& type, const openstudio::UUID&) {
@@ -370,10 +359,19 @@ void VariablesList::onSearchTextEdited(const QString& text) {
   m_searchText = text;
   m_searchActive = !text.isEmpty();
 
-  const bool displayOnlySelected = m_displayOnlySelectedToggleButton->isChecked();
+  QString displayString = m_displayOnlyComboBox->currentData().toString();
+  bool displayOnlyEnabled = false;
+  bool displayOnlyDisabled = false;
+  if (displayString == "Enabled") {
+    displayOnlyEnabled = true;
+  } else if (displayString == "Disabled") {
+    displayOnlyDisabled = true;
+  }
 
   for (auto& variableListItemPtr : m_variables) {
-    if (displayOnlySelected && !variableListItemPtr->isVariableEnabled()) {
+    if (displayOnlyEnabled && !variableListItemPtr->isVariableEnabled()) {
+      variableListItemPtr->hide();
+    } else if (displayOnlyDisabled && variableListItemPtr->isVariableEnabled()) {
       variableListItemPtr->hide();
     } else if (m_searchActive && !variableListItemPtr->matchesText(text, m_searchUseRegex->isChecked())) {
       variableListItemPtr->hide();
