@@ -1443,27 +1443,27 @@ var initDatGui = function () {
   });
   f1.open();
 
-  var diagnostics = gui.addFolder("Diagnostic Tools")
-  {
-    var adjacencies = diagnostics.addFolder('Potential Adjacency Issues');
-    adjacencies.add(settings, 'findAdjacencyIssues').name('Enable').onChange(value => {
-        removeSelection();
-        setLocalStorage('findAdjacencyIssues', value);
-        updateAdjacencyIssues();
-        update(value);
-    });
-    adjacencies.add(settings, 'findAdjacencyThreshold', 0.1, 10, 0.5).name('Threshold').onFinishChange(function (value) {
-        if (settings.findAdjacencyIssues) {
-            removeSelection();
-            setLocalStorage('findAdjacencyThreshold', value);
-            updateAdjacencyIssues();
-            update(value);
-        }
-    });
-    adjacencies.open();
-  }
-
   if(includeGeometryDiagnostics) {
+    var diagnostics = gui.addFolder("Diagnostic Tools")
+    {
+      var adjacencies = diagnostics.addFolder('Potential Adjacency Issues');
+      adjacencies.add(settings, 'findAdjacencyIssues').name('Enable').onChange(value => {
+          removeSelection();
+          setLocalStorage('findAdjacencyIssues', value);
+          updateAdjacencyIssues();
+          update(value);
+      });
+      adjacencies.add(settings, 'findAdjacencyThreshold', 0.1, 10, 0.5).name('Threshold').onFinishChange(function (value) {
+          if (settings.findAdjacencyIssues) {
+              removeSelection();
+              setLocalStorage('findAdjacencyThreshold', value);
+              updateAdjacencyIssues();
+              update(value);
+          }
+      });
+      adjacencies.open();
+    }
+
     {
       var surfaceLevelIssues =  diagnostics.addFolder('Surface Level Issues')
       surfaceLevelIssues.add(settings, 'showOnlyNonConvexSurfaces').name('Non-Convex Surfaces Only').onChange(value => {
@@ -1493,8 +1493,8 @@ var initDatGui = function () {
       });
       spaceLevelIssues.open();
     }
+    diagnostics.open();
   }
-  diagnostics.open();
 
   var f3 = gui.addFolder('Camera');
   [

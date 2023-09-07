@@ -106,7 +106,8 @@ PreviewWebView::PreviewWebView(bool isIP, const model::Model& model, QWidget* t_
   m_geometryDiagnosticsBox = new QCheckBox();
   m_geometryDiagnosticsBox->setText("Geometry Diagnostics");
   m_geometryDiagnosticsBox->setChecked(verboseOutput);
-  m_geometryDiagnosticsBox->setToolTip("Enables checks for Surface/Space Convexity. The ThreeJS export is slightly slower");
+  m_geometryDiagnosticsBox->setToolTip(
+    "Enables adjacency issues. Enables checks for Surface/Space Convexity, due to this the ThreeJS export is slightly slower");
   connect(m_geometryDiagnosticsBox, &QCheckBox::clicked, mainWindow, &MainWindow::toggleGeometryDiagnostics);
   connect(m_geometryDiagnosticsBox, &QCheckBox::stateChanged, [this](int state) {
     if (state == Qt::Checked && !m_includeGeometryDiagnostics) {
