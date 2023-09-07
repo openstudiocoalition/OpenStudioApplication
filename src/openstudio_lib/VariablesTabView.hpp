@@ -115,7 +115,9 @@ class VariablesList
 
   QLineEdit* m_searchBox;
   QCheckBox* m_searchUseRegex;
-  QComboBox* m_displayOnlyComboBox;
+  QPushButton* m_displayAllBtn;
+  QPushButton* m_displayOnlyEnabledBtn;
+  QPushButton* m_displayOnlyDisabledBtn;
   QPushButton* m_allOnBtn;
   QPushButton* m_allOffBtn;
   QComboBox* m_frequencyComboBox;

@@ -181,29 +181,66 @@ VariablesList::VariablesList(openstudio::model::Model t_model) : m_model(t_model
 
   vbox->addWidget(new QLabel("<b>" + tr("Select Output Variables") + "</b>"));
 
-  auto* filterHLayout = new QHBoxLayout();
-  filterHLayout->addWidget(new QLabel(tr("Filter Variables")));
+  auto* displayHLayout = new QHBoxLayout();
+  m_displayAllBtn = new QPushButton(tr("All"));
+  m_displayAllBtn->setFlat(true);
+  m_displayAllBtn->setObjectName("StandardGrayButton");
+  m_displayAllBtn->setCheckable(true);
+  m_displayAllBtn->setChecked(true);
+
+  m_displayOnlyEnabledBtn = new QPushButton(tr("Enabled"));
+  m_displayOnlyEnabledBtn->setFlat(true);
+  m_displayOnlyEnabledBtn->setObjectName("StandardGrayButton");
+  m_displayOnlyEnabledBtn->setCheckable(true);
+  m_displayOnlyEnabledBtn->setChecked(false);
+
+  m_displayOnlyDisabledBtn = new QPushButton(tr("Disabled"));
+  m_displayOnlyDisabledBtn->setFlat(true);
+  m_displayOnlyDisabledBtn->setObjectName("StandardGrayButton");
+  m_displayOnlyDisabledBtn->setCheckable(true);
+  m_displayOnlyDisabledBtn->setChecked(false);
+
+  displayHLayout->addWidget(m_displayAllBtn);
+  displayHLayout->addWidget(m_displayOnlyEnabledBtn);
+  displayHLayout->addWidget(m_displayOnlyDisabledBtn);
+  connect(m_displayAllBtn, &QPushButton::clicked, [this]() {
+    m_displayOnlyEnabledBtn->setChecked(false);
+    m_displayOnlyDisabledBtn->setChecked(false);
+    this->onSearchTextEdited(this->m_searchText);
+  });
+
+  connect(m_displayOnlyEnabledBtn, &QPushButton::clicked, [this]() {
+    m_displayAllBtn->setChecked(false);
+    m_displayOnlyDisabledBtn->setChecked(false);
+    this->onSearchTextEdited(this->m_searchText);
+  });
+
+  connect(m_displayOnlyDisabledBtn, &QPushButton::clicked, [this]() {
+    m_displayAllBtn->setChecked(false);
+    m_displayOnlyEnabledBtn->setChecked(false);
+    this->onSearchTextEdited(this->m_searchText);
+  });
+
+  // displayHLayout->addStretch();
+
+  auto* vline = new QFrame();
+  vline->setFrameShape(QFrame::VLine);
+  vline->setFrameShadow(QFrame::Sunken);
+  displayHLayout->addWidget(vline);
+
+  displayHLayout->addWidget(new QLabel(tr("Filter Variables")));
   m_searchBox = new QLineEdit();
   m_searchBox->setClearButtonEnabled(true);
-  filterHLayout->addWidget(m_searchBox);
+  displayHLayout->addWidget(m_searchBox);
   connect(m_searchBox, &QLineEdit::textEdited, this, &VariablesList::onSearchTextEdited);
 
   m_searchUseRegex = new QCheckBox();
   m_searchUseRegex->setText(tr("Use Regex"));
   m_searchUseRegex->setChecked(false);
   connect(m_searchUseRegex, &QCheckBox::stateChanged, [this](int) { this->onSearchTextEdited(this->m_searchText); });
-  filterHLayout->addWidget(m_searchUseRegex);
-
-  m_displayOnlyComboBox = new QComboBox;
-  m_displayOnlyComboBox->addItem(tr(""), "");
-  m_displayOnlyComboBox->addItem(tr("Enabled"), "Enabled");
-  m_displayOnlyComboBox->addItem(tr("Disabled"), "Disabled");
-  m_displayOnlyComboBox->setCurrentIndex(0);
-  connect(m_displayOnlyComboBox, &QComboBox::currentIndexChanged, [this](int /*index*/) { this->onSearchTextEdited(this->m_searchText); });
-  filterHLayout->addWidget(m_displayOnlyComboBox);
-
-  filterHLayout->addStretch();
-  vbox->addLayout(filterHLayout);
+  displayHLayout->addWidget(m_searchUseRegex);
+  displayHLayout->addStretch();
+  vbox->addLayout(displayHLayout);
 
   vbox->addWidget(new QLabel("<b>" + tr("Update Visible Variables") + "</b>"));
 
@@ -359,15 +396,8 @@ void VariablesList::onSearchTextEdited(const QString& text) {
   m_searchText = text;
   m_searchActive = !text.isEmpty();
 
-  QString displayString = m_displayOnlyComboBox->currentData().toString();
-  bool displayOnlyEnabled = false;
-  bool displayOnlyDisabled = false;
-  if (displayString == "Enabled") {
-    displayOnlyEnabled = true;
-  } else if (displayString == "Disabled") {
-    displayOnlyDisabled = true;
-  }
-
+  const bool displayOnlyEnabled = m_displayOnlyEnabledBtn->isChecked();
+  const bool displayOnlyDisabled = m_displayOnlyDisabledBtn->isChecked();
   for (auto& variableListItemPtr : m_variables) {
     if (displayOnlyEnabled && !variableListItemPtr->isVariableEnabled()) {
       variableListItemPtr->hide();
