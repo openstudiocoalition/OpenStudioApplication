@@ -92,7 +92,7 @@ jobs:
           PLATFORM_NAME: Darwin
           CPACK_BINARY_DEB: OFF
           CPACK_BINARY_IFW: ON
-          CPACK_BINARY_TGZ: ON
+          CPACK_BINARY_TGZ: OFF
           CPACK_BINARY_ZIP: OFF
           BINARY_EXT: dmg
           COMPRESSED_EXT: tar.gz
