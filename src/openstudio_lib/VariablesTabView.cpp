@@ -36,6 +36,7 @@
 
 #include "../model_editor/Utilities.hpp"
 #include "../shared_gui_components/OSDialog.hpp"
+#include "../shared_gui_components/ProgressBarWithError.hpp"
 
 #include <openstudio/utilities/sql/SqlFileEnums.hpp>
 
@@ -178,80 +179,112 @@ VariablesList::VariablesList(openstudio::model::Model t_model) : m_model(t_model
   vbox->setSpacing(10);
   setLayout(vbox);
 
-  auto* outerHBox = new QHBoxLayout();
+  vbox->addWidget(new QLabel("<b>" + tr("Select Output Variables") + "</b>"));
 
-  auto* allOnOffVBox = new QVBoxLayout();
-  {
-    allOnOffVBox->addWidget(new QLabel("<b>Possible Output Variables</b>"));
+  auto* displayHLayout = new QHBoxLayout();
+  m_displayAllBtn = new QPushButton(tr("All"));
+  m_displayAllBtn->setFlat(true);
+  m_displayAllBtn->setObjectName("StandardGrayButton");
+  m_displayAllBtn->setCheckable(true);
+  m_displayAllBtn->setChecked(true);
 
-    m_allOnBtn = new QPushButton("All On");
-    m_allOnBtn->setFlat(true);
-    m_allOnBtn->setObjectName("StandardGrayButton");
-    m_allOffBtn = new QPushButton("All Off");
-    m_allOffBtn->setFlat(true);
-    m_allOffBtn->setObjectName("StandardGrayButton");
-    allOnOffVBox->addWidget(m_allOnBtn);
-    allOnOffVBox->addWidget(m_allOffBtn);
+  m_displayOnlyEnabledBtn = new QPushButton(tr("Enabled"));
+  m_displayOnlyEnabledBtn->setFlat(true);
+  m_displayOnlyEnabledBtn->setObjectName("StandardGrayButton");
+  m_displayOnlyEnabledBtn->setCheckable(true);
+  m_displayOnlyEnabledBtn->setChecked(false);
 
-    connect(m_allOnBtn, &QPushButton::clicked, this, &VariablesList::allOnClicked);
-    connect(m_allOffBtn, &QPushButton::clicked, this, &VariablesList::allOffClicked);
-  }
+  m_displayOnlyDisabledBtn = new QPushButton(tr("Disabled"));
+  m_displayOnlyDisabledBtn->setFlat(true);
+  m_displayOnlyDisabledBtn->setObjectName("StandardGrayButton");
+  m_displayOnlyDisabledBtn->setCheckable(true);
+  m_displayOnlyDisabledBtn->setChecked(false);
 
-  outerHBox->addLayout(allOnOffVBox);
+  displayHLayout->addWidget(m_displayAllBtn);
+  displayHLayout->addWidget(m_displayOnlyEnabledBtn);
+  displayHLayout->addWidget(m_displayOnlyDisabledBtn);
+  connect(m_displayAllBtn, &QPushButton::clicked, [this]() {
+    m_displayOnlyEnabledBtn->setChecked(false);
+    m_displayOnlyDisabledBtn->setChecked(false);
+    this->onSearchTextEdited(this->m_searchText);
+  });
 
-  outerHBox->addStretch();
+  connect(m_displayOnlyEnabledBtn, &QPushButton::clicked, [this]() {
+    m_displayAllBtn->setChecked(false);
+    m_displayOnlyDisabledBtn->setChecked(false);
+    this->onSearchTextEdited(this->m_searchText);
+  });
+
+  connect(m_displayOnlyDisabledBtn, &QPushButton::clicked, [this]() {
+    m_displayAllBtn->setChecked(false);
+    m_displayOnlyEnabledBtn->setChecked(false);
+    this->onSearchTextEdited(this->m_searchText);
+  });
+
+  // displayHLayout->addStretch();
 
   auto* vline = new QFrame();
   vline->setFrameShape(QFrame::VLine);
   vline->setFrameShadow(QFrame::Sunken);
-  outerHBox->addWidget(vline);
+  displayHLayout->addWidget(vline);
 
-  auto* filterVBox = new QVBoxLayout();
-  outerHBox->addLayout(filterVBox);
+  displayHLayout->addWidget(new QLabel(tr("Filter Variables")));
+  m_searchBox = new QLineEdit();
+  m_searchBox->setClearButtonEnabled(true);
+  displayHLayout->addWidget(m_searchBox);
+  connect(m_searchBox, &QLineEdit::textEdited, this, &VariablesList::onSearchTextEdited);
 
-  {
-    filterVBox->addWidget(new QLabel("<b>Filtering</b>"));
-    auto* filterViaText = new QHBoxLayout();
-    filterVBox->addLayout(filterViaText);
+  m_searchUseRegex = new QCheckBox();
+  m_searchUseRegex->setText(tr("Use Regex"));
+  m_searchUseRegex->setChecked(false);
+  connect(m_searchUseRegex, &QCheckBox::stateChanged, [this](int) { this->onSearchTextEdited(this->m_searchText); });
+  displayHLayout->addWidget(m_searchUseRegex);
+  displayHLayout->addStretch();
+  vbox->addLayout(displayHLayout);
 
-    filterViaText->addWidget(new QLabel("Filter variables"));
-    m_searchBox = new QLineEdit();
-    m_searchBox->setClearButtonEnabled(true);
-    filterViaText->addWidget(m_searchBox);
-    connect(m_searchBox, &QLineEdit::textEdited, this, &VariablesList::onSearchTextEdited);
-    m_searchUseRegex = new QCheckBox();
-    m_searchUseRegex->setText("Use Regex");
-    m_searchUseRegex->setChecked(false);
-    connect(m_searchUseRegex, &QCheckBox::stateChanged, [this](int) { this->onSearchTextEdited(this->m_searchText); });
-    filterViaText->addWidget(m_searchUseRegex);
-  }
+  vbox->addWidget(new QLabel("<b>" + tr("Update Visible Variables") + "</b>"));
 
-  // m_displayOnlySelectedToggleButton = new QPushButton("Display Only Enabled");
-  // m_displayOnlySelectedToggleButton->setFlat(true);
-  // m_displayOnlySelectedToggleButton->setCheckable(true);
-  // m_displayOnlySelectedToggleButton->setChecked(false);
-  // m_displayOnlySelectedToggleButton->setObjectName("StandardGrayButton");
+  auto* applyHLayout = new QHBoxLayout();
+  m_allOnBtn = new QPushButton(tr("All On"));
+  m_allOnBtn->setFlat(true);
+  m_allOnBtn->setObjectName("StandardGrayButton");
+  applyHLayout->addWidget(m_allOnBtn);
+  connect(m_allOnBtn, &QPushButton::clicked, this, &VariablesList::allOnClicked);
 
-  {
-    auto* filterViaEnabled = new QHBoxLayout();
-    filterVBox->addLayout(filterViaEnabled);
+  m_allOffBtn = new QPushButton(tr("All Off"));
+  m_allOffBtn->setFlat(true);
+  m_allOffBtn->setObjectName("StandardGrayButton");
+  applyHLayout->addWidget(m_allOffBtn);
+  connect(m_allOffBtn, &QPushButton::clicked, this, &VariablesList::allOffClicked);
 
-    filterViaEnabled->addWidget(new QLabel("Display Only Enabled Variables"));
-    m_displayOnlySelectedToggleButton = new OSSwitch2();
-    // m_displayOnlySelectedToggleButton->setFixedSize(150, m_displayOnlySelectedToggleButton->height());
-    connect(m_displayOnlySelectedToggleButton, &OSSwitch2::clicked, [this](bool /*toggleed*/) { this->onSearchTextEdited(this->m_searchText); });
-    filterViaEnabled->addWidget(m_displayOnlySelectedToggleButton);
-    filterViaEnabled->addStretch();
+  m_applyFrequencyBtn = new QPushButton(tr("Apply Frequency"));
+  m_applyFrequencyBtn->setFlat(true);
+  m_applyFrequencyBtn->setObjectName("StandardGrayButton");
+  connect(m_applyFrequencyBtn, &QPushButton::clicked, this, &VariablesList::applyFrequencyToAllVisibleClicked);
+  applyHLayout->addWidget(m_applyFrequencyBtn);
 
-    m_applyFrequencyToAllVisibleButton = new QPushButton("Apply Frequency to selected shown variables");
-    connect(m_applyFrequencyToAllVisibleButton, &QPushButton::clicked, this, &VariablesList::applyFrequencyToAllVisibleClicked);
-    filterViaEnabled->addWidget(m_applyFrequencyToAllVisibleButton);
-  }
+  m_frequencyComboBox = new QComboBox;
+  m_frequencyComboBox->addItem(tr("Detailed"), "Detailed");
+  m_frequencyComboBox->addItem(tr("Timestep"), "Timestep");
+  m_frequencyComboBox->addItem(tr("Hourly"), "Hourly");
+  m_frequencyComboBox->addItem(tr("Daily"), "Daily");
+  m_frequencyComboBox->addItem(tr("Monthly"), "Monthly");
+  m_frequencyComboBox->addItem(tr("RunPeriod"), "RunPeriod");
+  m_frequencyComboBox->addItem(tr("Annual"), "Annual");
+  m_frequencyComboBox->setCurrentIndex(2);
+  applyHLayout->addWidget(m_frequencyComboBox);
 
-  vbox->addLayout(outerHBox);
+  applyHLayout->addStretch();
+  m_progressBar = new ProgressBarWithError();
+  m_progressBar->setFixedWidth(200);
+  m_progressBar->setVisible(false);
+  applyHLayout->addWidget(m_progressBar);
+
+  vbox->addLayout(applyHLayout);
 
   m_listLayout = new QVBoxLayout();
   vbox->addLayout(m_listLayout);
+  vbox->addStretch();
 
   updateVariableList();
 }
@@ -265,46 +298,39 @@ void VariablesList::allOffClicked() {
 }
 
 void VariablesList::enableAll(bool t_enabled) {
+  this->setEnabled(false);
+  m_progressBar->setRange(0, m_variables.size());
+  m_progressBar->setVisible(true);
+
+  int num = 0;
   for (auto& m_variable : m_variables) {
     if (m_variable->isVisible()) {
       m_variable->setVariableEnabled(t_enabled);
     }
+    m_progressBar->setValue(++num);
   }
+
+  m_progressBar->setVisible(false);
+  this->setEnabled(true);
 }
 
 void VariablesList::applyFrequencyToAllVisibleClicked() {
-  OSDialog dialog;  // (false, this);  // Modal, on stack. I do not want VariablesList deleter to try and delete this one so no parenting
+  const std::string freqStr = m_frequencyComboBox->currentData().toString().toStdString();
 
-  dialog.setWindowModality(Qt::ApplicationModal);
+  this->setEnabled(false);
+  m_progressBar->setRange(0, m_variables.size());
+  m_progressBar->setVisible(true);
 
-  dialog.okButton()->setText("Apply Frequency");
-
-  auto* vLayout = new QVBoxLayout();
-  vLayout->setSpacing(5);
-  auto* label = new QLabel("Pick a frequency", this);
-  label->setObjectName("H2");
-  vLayout->addWidget(label);
-
-  auto* freqComboBox = new QComboBox();
-  freqComboBox->setObjectName("FrequencyComboBox");
-  for (const auto& freq : model::OutputVariable::reportingFrequencyValues()) {
-    freqComboBox->addItem(QString::fromStdString(freq));
-  }
-  vLayout->addWidget(freqComboBox);
-  vLayout->addStretch();
-  dialog.upperLayout()->addLayout(vLayout);
-
-  dialog.setFixedSize(QSize(770, 320));
-
-  dialog.exec();
-  if (dialog.result() == QDialog::Accepted) {
-    const std::string freqStr = freqComboBox->currentText().toStdString();
-    for (auto& m_variable : m_variables) {
-      if (m_variable->isVisible()) {
-        m_variable->setReportingFrequency(freqStr);
-      }
+  int num = 0;
+  for (auto& m_variable : m_variables) {
+    if (m_variable->isVisible()) {
+      m_variable->setReportingFrequency(freqStr);
     }
+    m_progressBar->setValue(++num);
   }
+
+  m_progressBar->setVisible(false);
+  this->setEnabled(true);
 }
 
 void VariablesList::onAdded(const WorkspaceObject&, const openstudio::IddObjectType& type, const openstudio::UUID&) {
@@ -370,10 +396,12 @@ void VariablesList::onSearchTextEdited(const QString& text) {
   m_searchText = text;
   m_searchActive = !text.isEmpty();
 
-  const bool displayOnlySelected = m_displayOnlySelectedToggleButton->isChecked();
-
+  const bool displayOnlyEnabled = m_displayOnlyEnabledBtn->isChecked();
+  const bool displayOnlyDisabled = m_displayOnlyDisabledBtn->isChecked();
   for (auto& variableListItemPtr : m_variables) {
-    if (displayOnlySelected && !variableListItemPtr->isVariableEnabled()) {
+    if (displayOnlyEnabled && !variableListItemPtr->isVariableEnabled()) {
+      variableListItemPtr->hide();
+    } else if (displayOnlyDisabled && variableListItemPtr->isVariableEnabled()) {
       variableListItemPtr->hide();
     } else if (m_searchActive && !variableListItemPtr->matchesText(text, m_searchUseRegex->isChecked())) {
       variableListItemPtr->hide();

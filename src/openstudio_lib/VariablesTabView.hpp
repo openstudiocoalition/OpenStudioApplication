@@ -46,7 +46,7 @@ class QLineEdit;
 namespace openstudio {
 class OSSwitch2;
 class OSComboBox2;
-
+class ProgressBarWithError;
 class VariableListItem
   : public QWidget
   , public Nano::Observer
@@ -112,14 +112,18 @@ class VariablesList
  private:
   REGISTER_LOGGER("openstudio.VariablesList");
   openstudio::model::Model m_model;
-  QPushButton* m_allOnBtn;
-  QPushButton* m_allOffBtn;
+
   QLineEdit* m_searchBox;
   QCheckBox* m_searchUseRegex;
+  QPushButton* m_displayAllBtn;
+  QPushButton* m_displayOnlyEnabledBtn;
+  QPushButton* m_displayOnlyDisabledBtn;
+  QPushButton* m_allOnBtn;
+  QPushButton* m_allOffBtn;
+  QComboBox* m_frequencyComboBox;
+  QPushButton* m_applyFrequencyBtn;
+  ProgressBarWithError* m_progressBar;
   QVBoxLayout* m_listLayout;
-  OSSwitch2* m_displayOnlySelectedToggleButton;
-
-  QPushButton* m_applyFrequencyToAllVisibleButton;
 
   bool m_dirty;
   bool m_searchActive;
