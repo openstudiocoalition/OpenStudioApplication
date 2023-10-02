@@ -81,7 +81,7 @@
 #include <openstudio/model/CurveBiquadratic.hpp>
 #include <openstudio/model/CurveQuadratic.hpp>
 #include <openstudio/model/DistrictCooling.hpp>
-#include <openstudio/model/DistrictHeating.hpp>
+#include <openstudio/model/DistrictHeatingWater.hpp>
 #include <openstudio/model/EvaporativeCoolerDirectResearchSpecial.hpp>
 #include <openstudio/model/FanConstantVolume.hpp>
 #include <openstudio/model/FanOnOff.hpp>

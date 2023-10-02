@@ -344,7 +344,8 @@ void FacilityExteriorEquipmentGridController::addColumns(const QString& category
           Heading(QString(EXTERIORFUELEQUIPMENTFUELTYPE)), static_cast<std::string (*)(const std::string&)>(&openstudio::toString),
           std::function<std::vector<std::string>()>(&model::ExteriorFuelEquipment::fuelTypeValues),
           CastNullAdapter<model::ExteriorFuelEquipment>(&model::ExteriorFuelEquipment::fuelType),
-          CastNullAdapter<model::ExteriorFuelEquipment>(&model::ExteriorFuelEquipment::setFuelType),
+          // Gotta help the compiler here, since there is a `bool setFuelType(const std::string&)` and a `bool setFuelType(const FuelType&)` overload
+          CastNullAdapter<model::ExteriorFuelEquipment, bool, std::string>(&model::ExteriorFuelEquipment::setFuelType),
           boost::optional<std::function<void(model::ExteriorFuelEquipment*)>>(), boost::optional<DataSource>());
 
       } else if (field == EXTERIORFUELEQUIPMENTMULTIPLIER) {

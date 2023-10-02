@@ -1087,7 +1087,7 @@ void MainRightColumnController::configureForHVACSystemsSubTab(int subTabID) {
   libraryWidget->addModelObjectType(IddObjectType::OS_EvaporativeFluidCooler_SingleSpeed, "Evaporative Fluid Cooler Single Speed");
   libraryWidget->addModelObjectType(IddObjectType::OS_Duct, "Duct");
   libraryWidget->addModelObjectType(IddObjectType::OS_DistrictCooling, "District Cooling");
-  libraryWidget->addModelObjectType(IddObjectType::OS_DistrictHeating, "District Heating");
+  libraryWidget->addModelObjectType(IddObjectType::OS_DistrictHeating_Water, "District Heating Water");
   libraryWidget->addModelObjectType(IddObjectType::OS_CoolingTower_TwoSpeed, "Cooling Tower Two Speed");
   libraryWidget->addModelObjectType(IddObjectType::OS_CoolingTower_SingleSpeed, "Cooling Tower Single Speed");
   libraryWidget->addModelObjectType(IddObjectType::OS_CoolingTower_VariableSpeed, "Cooling Tower Variable Speed");
