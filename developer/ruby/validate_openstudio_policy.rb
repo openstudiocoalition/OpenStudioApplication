@@ -6,6 +6,8 @@ POLICY_PATH = File.join(ROOT_DIR, 'src', 'openstudio_lib', 'library', 'OpenStudi
 VALID_ACCESSES = ["LOCKED", "HIDDEN", "FREE"]
 FACTORY = OpenStudio::IddFileAndFactoryWrapper.new("OpenStudio".to_IddFileType)
 
+OVERWRITE = true
+
 # Helper to locate a given IddObject via Name in the current IDD
 # by using IddFileAndFactoryWrapper
 #
@@ -39,7 +41,7 @@ def get_objects_with_curves_or_node_names
   FACTORY.objects.each do |obj|
     cleaned_name = obj.name.gsub(':', '_')
     get_fields(obj).each do |field, index|
-      if field.end_with?('Curve Name') || field.end_with?('Curve') || field.end_with?('Node') || field.end_with?('Node Name') || field.end_with?('Actuator')
+      if (field.end_with?('Curve Name') || field.end_with?('Curve') || field.end_with?('Node') || field.end_with?('Node Name') || field.end_with?('Actuator')) && !field.include?('Coefficient')
         if !h.has_key?(cleaned_name)
           h[cleaned_name] = []
         end
@@ -56,6 +58,8 @@ doc = Oga.parse_xml(handle); nil;
 handle.close
 
 foundIddObjectTypeNames = {}
+
+h = get_objects_with_curves_or_node_names()
 
 doc.xpath('//POLICY').each do |policy|
   raise "Unexpected number of policy attributes (#{policy.attributes.size}) for #{policy}" if policy.attributes.size > 1
@@ -79,11 +83,32 @@ doc.xpath('//POLICY').each do |policy|
     puts "Field '#{iddField}' not found for #{iddObjectTypeName}" if !iddFields.include?(iddField)
     foundIddObjectTypeNames[iddObjectTypeName] << iddField
   end
+
+  next if !OVERWRITE
+
+  next if !h.has_key?(iddObjectTypeName)
+  missing_curve_fields = h[iddObjectTypeName] - foundIddObjectTypeNames[iddObjectTypeName]
+  next if missing_curve_fields.empty?
+  last = policy.children.pop
+  missing_curve_fields.each do |field|
+    if field.include?('Node') || field.include?('Actuator')
+      access = "HIDDEN"
+    else
+      access= "LOCKED"
+    end
+    policy.children << Oga::XML::Text.new({:text => "\n    "})
+    policy.children << Oga::XML::Element.new({
+      :name => "rule",
+      :attributes => [
+        Oga::XML::Attribute.new({:name => "IddField", :value => field}),
+        Oga::XML::Attribute.new({:name => "Access", :value => access})
+      ],
+    })
+  end
+  policy.children << last
 end; nil;
 
 
-
-h = get_objects_with_curves_or_node_names()
 missing_objs = h.keys - foundIddObjectTypeNames.keys
 if !missing_objs.empty?
   puts "These objects have curves or node names, consider adding them to OpenStudioPolicy.xml: #{missing_objs}"
@@ -106,7 +131,7 @@ h.each do |obj_name, keys|
   next if missing_curve_fields.empty?
   puts "For '#{obj_name}', consider adding these:"
   missing_curve_fields.each do |field|
-    if field.include?('Node Name')
+    if field.include?('Node') || field.include?('Actuator')
       access = "HIDDEN"
     else
       access= "LOCKED"
@@ -114,3 +139,5 @@ h.each do |obj_name, keys|
     puts "    <rule IddField=\"#{field}\" Access=\"#{access}\"/>"
   end
 end
+
+File.open(POLICY_PATH, 'w') { |file| file.write(doc.to_xml) }

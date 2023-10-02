@@ -199,6 +199,7 @@
     <rule IddField="Supply Water Storage Tank" Access="HIDDEN" />
     <rule IddField="Condensate Collection Water Storage Tank" Access="HIDDEN" />
     <rule IddField="Stage" Access="LOCKED" />
+    <rule IddField="Crankcase Heater Capacity Function of Temperature Curve Name" Access="LOCKED" />
   </POLICY>
   <POLICY IddObjectType="OS_Coil_Cooling_DX_VariableSpeed">
     <rule IddField="Indoor Air Inlet Node Name" Access="HIDDEN" />
@@ -208,6 +209,7 @@
     <rule IddField="Supply Water Storage Tank Name" Access="HIDDEN" />
     <rule IddField="Condensate Collection Water Storage Tank Name" Access="HIDDEN" />
     <rule IddField="Speed Data List" Access="HIDDEN" />
+    <rule IddField="Crankcase Heater Capacity Function of Temperature Curve Name" Access="LOCKED" />
   </POLICY>
   <POLICY IddObjectType="OS_Coil_Cooling_DX_VariableSpeed_SpeedData">
     <rule IddField="Total Cooling Capacity Function of Temperature Curve Name" Access="LOCKED" />
@@ -228,6 +230,7 @@
     <rule IddField="Air Outlet Node Name" Access="HIDDEN" />
     <rule IddField="Defrost Energy Input Ratio Function of Temperature Curve Name" Access="LOCKED" />
     <rule IddField="Stage" Access="LOCKED" />
+    <rule IddField="Crankcase Heater Capacity Function of Temperature Curve Name" Access="LOCKED" />
   </POLICY>
   <POLICY IddObjectType="OS_Coil_Heating_DX_MultiSpeed_StageData">
     <rule IddField="Heating Capacity Function of Temperature Curve Name" Access="LOCKED" />
@@ -264,6 +267,9 @@
     <rule IddField="Air Outlet Node Name" Access="HIDDEN" />
     <rule IddField="Water Inlet Node Name" Access="HIDDEN" />
     <rule IddField="Water Outlet Node Name" Access="HIDDEN" />
+    <rule IddField="Heating Capacity Curve Name" Access="LOCKED" />
+    <rule IddField="Heating Power Consumption Curve Name" Access="LOCKED" />
+    <rule IddField="Part Load Fraction Correlation Curve Name" Access="LOCKED" />
   </POLICY>
   <POLICY IddObjectType="OS_ThermalZone">
     <rule IddField="Ceiling Height" Access="HIDDEN" />
@@ -288,6 +294,8 @@
     <rule IddField="Air Inlet Node Name" Access="HIDDEN" />
     <rule IddField="Air Outlet Node Name" Access="HIDDEN" />
     <rule IddField="Sensor Node Name" Access="HIDDEN" />
+    <rule IddField="Effectiveness Flow Ratio Modifier Curve Name" Access="LOCKED" />
+    <rule IddField="Water Pump Power Modifier Curve Name" Access="LOCKED" />
   </POLICY>
   <POLICY IddObjectType="OS_EvaporativeCooler_Indirect_ResearchSpecial">
     <rule IddField="Availability Schedule Name" Access="HIDDEN" />
@@ -299,6 +307,10 @@
     <rule IddField="Sensor Node Name" Access="HIDDEN" />
     <rule IddField="Relief Air Inlet Node" Access="HIDDEN" />
     <rule IddField="Water Supply Storage Tank Name" Access="HIDDEN" />
+    <rule IddField="Wetbulb Effectiveness Flow Ratio Modifier Curve Name" Access="LOCKED" />
+    <rule IddField="Drybulb Effectiveness Flow Ratio Modifier Curve Name" Access="LOCKED" />
+    <rule IddField="Water Pump Power Modifier Curve Name" Access="LOCKED" />
+    <rule IddField="Secondary Air Fan Power Modifier Curve Name" Access="LOCKED" />
   </POLICY>
   <POLICY IddObjectType="OS_EvaporativeFluidCooler_SingleSpeed">
     <rule IddField="Water Inlet Node Name" Access="HIDDEN" />
@@ -442,6 +454,12 @@
   <POLICY IddObjectType="OS_Fan_ComponentModel">
     <rule IddField="Air Inlet Node Name" Access="HIDDEN" />
     <rule IddField="Air Outlet Node Name" Access="HIDDEN" />
+    <rule IddField="Fan Pressure Rise Curve Name" Access="LOCKED" />
+    <rule IddField="Duct Static Pressure Reset Curve Name" Access="LOCKED" />
+    <rule IddField="Maximum Belt Efficiency Curve Name" Access="LOCKED" />
+    <rule IddField="Maximum Motor Efficiency Curve Name" Access="LOCKED" />
+    <rule IddField="Normalized Motor Efficiency Curve Name" Access="LOCKED" />
+    <rule IddField="VFD Efficiency Curve Name" Access="LOCKED" />
   </POLICY>
   <POLICY IddObjectType="OS_Fan_ConstantVolume">
     <rule IddField="Air Inlet Node Name" Access="HIDDEN" />
@@ -515,6 +533,7 @@
     <rule IddField="Condenser Air Inlet Node Name" Access="HIDDEN" />
     <rule IddField="Supply Water Storage Tank Name" Access="HIDDEN" />
     <rule IddField="Condensate Collection Water Storage Tank Name" Access="HIDDEN" />
+    <rule IddField="Crankcase Heater Capacity Function of Temperature Curve Name" Access="LOCKED" />
   </POLICY>
   <POLICY IddObjectType="OS_Coil_Cooling_DX_TwoSpeed">
     <rule IddField="Availability Schedule Name" Access="HIDDEN" />
@@ -551,6 +570,7 @@
     <rule IddField="Energy Input Ratio Function of Flow Fraction Curve Name" Access="LOCKED" />
     <rule IddField="Part Load Fraction Correlation Curve Name" Access="LOCKED" />
     <rule IddField="Defrost Energy Input Ratio Function of Temperature Curve Name" Access="LOCKED" />
+    <rule IddField="Crankcase Heater Capacity Function of Temperature Curve Name" Access="LOCKED" />
   </POLICY>
   <POLICY IddObjectType="OS_Coil_Heating_DX_VariableSpeed">
     <rule IddField="Indoor Air Inlet Node Name" Access="HIDDEN" />
@@ -558,6 +578,7 @@
     <rule IddField="Energy Part Load Fraction Curve Name" Access="LOCKED" />
     <rule IddField="Defrost Energy Input Ratio Function of Temperature Curve Name" Access="LOCKED" />
     <rule IddField="Speed Data List" Access="HIDDEN" />
+    <rule IddField="Crankcase Heater Capacity Function of Temperature Curve Name" Access="LOCKED" />
   </POLICY>
   <POLICY IddObjectType="OS_Coil_Heating_DX_VariableSpeed_SpeedData">
     <rule IddField="Heating Capacity Function of Temperature Curve Name" Access="HIDDEN" />
@@ -578,6 +599,10 @@
     <rule IddField="Air Outlet Node Name" Access="HIDDEN" />
     <rule IddField="Water Inlet Node Name" Access="HIDDEN" />
     <rule IddField="Water Outlet Node Name" Access="HIDDEN" />
+    <rule IddField="Total Cooling Capacity Curve Name" Access="LOCKED" />
+    <rule IddField="Sensible Cooling Capacity Curve Name" Access="LOCKED" />
+    <rule IddField="Cooling Power Consumption Curve Name" Access="LOCKED" />
+    <rule IddField="Part Load Fraction Correlation Curve Name" Access="LOCKED" />
   </POLICY>
   <POLICY IddObjectType="OS_Chiller_Electric_EIR">
     <rule IddField="Chilled Water Inlet Node Name" Access="HIDDEN" />
@@ -751,10 +776,16 @@
   <POLICY IddObjectType="OS_Coil_Cooling_FourPipeBeam">
     <rule IddField="Chilled Water Inlet Node Name" Access="HIDDEN" />
     <rule IddField="Chilled Water Outlet Node Name" Access="HIDDEN" />
+    <rule IddField="Beam Cooling Capacity Temperature Difference Modification Factor Curve Name" Access="LOCKED" />
+    <rule IddField="Beam Cooling Capacity Air Flow Modification Factor Curve Name" Access="LOCKED" />
+    <rule IddField="Beam Cooling Capacity Chilled Water Flow Modification Factor Curve Name" Access="LOCKED" />
   </POLICY>
   <POLICY IddObjectType="OS_Coil_Heating_FourPipeBeam">
     <rule IddField="Hot Water Inlet Node Name" Access="HIDDEN" />
     <rule IddField="Hot Water Outlet Node Name" Access="HIDDEN" />
+    <rule IddField="Beam Heating Capacity Temperature Difference Modification Factor Curve Name" Access="LOCKED" />
+    <rule IddField="Beam Heating Capacity Air Flow Modification Factor Curve Name" Access="LOCKED" />
+    <rule IddField="Beam Heating Capacity Hot Water Flow Modification Factor Curve Name" Access="LOCKED" />
   </POLICY>
   <POLICY IddObjectType="OS_AirTerminal_SingleDuct_ConstantVolume_CooledBeam">
     <rule IddField="Availability Schedule Name" Access="HIDDEN" />
@@ -989,18 +1020,23 @@
     <rule IddField="Use Side Outlet Node Name" Access="HIDDEN" />
     <rule IddField="Source Side Inlet Node Name" Access="HIDDEN" />
     <rule IddField="Source Side Outlet Node Name" Access="HIDDEN" />
+    <rule IddField="Part Load Factor Curve Name" Access="LOCKED" />
   </POLICY>
   <POLICY IddObjectType="OS_HeatPump_WaterToWater_EquationFit_Cooling">
     <rule IddField="Load Side Inlet Node Name" Access="HIDDEN" />
     <rule IddField="Load Side Outlet Node Name" Access="HIDDEN" />
     <rule IddField="Source Side Inlet Node Name" Access="HIDDEN" />
     <rule IddField="Source Side Outlet Node Name" Access="HIDDEN" />
+    <rule IddField="Cooling Capacity Curve Name" Access="LOCKED" />
+    <rule IddField="Cooling Compressor Power Curve Name" Access="LOCKED" />
   </POLICY>
   <POLICY IddObjectType="OS_HeatPump_WaterToWater_EquationFit_Heating">
     <rule IddField="Load Side Inlet Node Name" Access="HIDDEN" />
     <rule IddField="Load Side Outlet Node Name" Access="HIDDEN" />
     <rule IddField="Source Side Inlet Node Name" Access="HIDDEN" />
     <rule IddField="Source Side Outlet Node Name" Access="HIDDEN" />
+    <rule IddField="Heating Capacity Curve Name" Access="LOCKED" />
+    <rule IddField="Heating Compressor Power Curve Name" Access="LOCKED" />
   </POLICY>
   <POLICY IddObjectType="OS_WaterHeater_HeatPump">
     <rule IddField="Air Inlet Node" Access="HIDDEN" />
@@ -1026,6 +1062,7 @@
     <rule IddField="Heating COP Function of Temperature Curve Name" Access="LOCKED" />
     <rule IddField="Heating COP Function of Air Flow Fraction Curve Name" Access="LOCKED" />
     <rule IddField="Part Load Fraction Correlation Curve Name" Access="LOCKED" />
+    <rule IddField="Crankcase Heater Capacity Function of Temperature Curve Name" Access="LOCKED" />
   </POLICY>
   <POLICY IddObjectType="OS_Coil_WaterHeating_AirToWaterHeatPump">
     <rule IddField="Evaporator Air Inlet Node Name" Access="HIDDEN" />
@@ -1039,6 +1076,7 @@
     <rule IddField="Heating COP Function of Air Flow Fraction Curve" Access="LOCKED" />
     <rule IddField="Heating COP Function of Water Flow Fraction Curve" Access="LOCKED" />
     <rule IddField="Part Load Fraction Correlation Curve" Access="LOCKED" />
+    <rule IddField="Crankcase Heater Capacity Function of Temperature Curve Name" Access="LOCKED" />
   </POLICY>
   <POLICY IddObjectType="OS_WaterHeater_Stratified">
     <rule IddField="Use Side Inlet Node Name" Access="HIDDEN" />
@@ -1119,6 +1157,7 @@
     <rule IddField="Air Inlet Node Name" Access="HIDDEN" />
     <rule IddField="Air Outlet Node Name" Access="HIDDEN" />
     <rule IddField="Water Storage Tank Name" Access="HIDDEN" />
+    <rule IddField="Thermal Efficiency Modifier Curve Name" Access="LOCKED" />
   </POLICY>
   <POLICY IddObjectType="OS_TemperingValve">
     <rule IddField="Inlet Node Name" Access="HIDDEN" />
@@ -1159,6 +1198,7 @@
     <rule IddField="Dehumidification Mode 1 Stage 1 Plus 2 Coil Performance" Access="HIDDEN" />
     <rule IddField="Supply Water Storage Tank" Access="HIDDEN" />
     <rule IddField="Condensate Collection Water Storage Tank" Access="HIDDEN" />
+    <rule IddField="Crankcase Heater Capacity Function of Temperature Curve Name" Access="LOCKED" />
   </POLICY>
   <POLICY IddObjectType="OS_CoilPerformance_DX_Cooling">
     <rule IddField="Total Cooling Capacity Function of Temperature Curve" Access="LOCKED" />
@@ -1711,6 +1751,11 @@
   <POLICY IddObjectType="OS_Generator_MicroTurbine_HeatRecovery">
     <rule IddField="Heat Recovery Water Inlet Node Name" Access="HIDDEN" />
     <rule IddField="Heat Recovery Water Outlet Node Name" Access="HIDDEN" />
+    <rule IddField="Heat Recovery Water Flow Rate Function of Temperature and Power Curve Name" Access="LOCKED" />
+    <rule IddField="Thermal Efficiency Function of Temperature and Elevation Curve Name" Access="LOCKED" />
+    <rule IddField="Heat Recovery Rate Function of Part Load Ratio Curve Name" Access="LOCKED" />
+    <rule IddField="Heat Recovery Rate Function of Inlet Water Temperature Curve Name" Access="LOCKED" />
+    <rule IddField="Heat Recovery Rate Function of Water Flow Rate Curve Name" Access="LOCKED" />
   </POLICY>
   <POLICY IddObjectType="OS_Generator_FuelCell_ExhaustGasToWaterHeatExchanger">
     <rule IddField="Heat Recovery Water Inlet Node Name" Access="HIDDEN" />
