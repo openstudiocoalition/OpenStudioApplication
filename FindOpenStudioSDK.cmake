@@ -37,7 +37,7 @@ elseif(UNIX)
   endif()
 
 elseif(WIN32)
-  set(OPENSTUDIO_EXPECTED_HASH TODO_TDB_TODO) # TODO
+  set(OPENSTUDIO_EXPECTED_HASH c3dc111de83fb38bb1a8743d704e0d57)
   set(OPENSTUDIO_PLATFORM "Windows")
 endif()
 
