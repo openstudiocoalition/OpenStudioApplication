@@ -43,6 +43,7 @@
 #include "LocationTabView.hpp"
 #include "MainRightColumnController.hpp"
 #include "MainWindow.hpp"
+#include "ModelDesignWizardDialog.hpp"
 #include "ModelObjectItem.hpp"
 #include "ModelObjectTypeListView.hpp"
 #include "OSAppBase.hpp"
@@ -203,6 +204,7 @@ OSDocument::OSDocument(const openstudio::model::Model& library, const openstudio
   connect(m_mainWindow, &MainWindow::changeLanguageClicked, this, &OSDocument::changeLanguageClicked);
   connect(m_mainWindow, &MainWindow::loadLibraryClicked, this, &OSDocument::loadLibraryClicked);
   connect(m_mainWindow, &MainWindow::loadExampleModelClicked, this, &OSDocument::loadExampleModelClicked);
+  connect(m_mainWindow, &MainWindow::modelDesignWizardClicked, this, &OSDocument::modelDesignWizardClicked);
   connect(m_mainWindow, &MainWindow::newClicked, this, &OSDocument::newClicked);
   connect(m_mainWindow, &MainWindow::exitClicked, this, &OSDocument::exitClicked);
   connect(m_mainWindow, &MainWindow::helpClicked, this, &OSDocument::helpClicked);
@@ -1427,19 +1429,29 @@ std::vector<BCLComponent> OSDocument::componentAttributeSearch(const std::vector
   return result;
 }
 
-boost::optional<BCLMeasure> OSDocument::standardReportMeasure() {
-  const std::string uid("a25386cd-60e4-46bc-8b11-c755f379d916");
+boost::optional<BCLMeasure> OSDocument::getOrDownloadMeasure(const std::string& uid) const {
   boost::optional<BCLMeasure> result = getLocalMeasure(uid);
 
   if (m_haveLocalBCL && RemoteBCL::isOnline()) {
     RemoteBCL remoteBCL;
-    boost::optional<BCLMeasure> onlineResult = remoteBCL.getMeasure(uid);
-    if (onlineResult) {
+    if (boost::optional<BCLMeasure> onlineResult = remoteBCL.getMeasure(uid)) {
       result = onlineResult;
     }
   }
 
   return result;
+}
+
+boost::optional<BCLMeasure> OSDocument::standardReportMeasure() {
+  return getOrDownloadMeasure("a25386cd-60e4-46bc-8b11-c755f379d916");
+}
+
+boost::optional<BCLMeasure> OSDocument::createBarFromSpaceTypeRatiosMeasure() {
+  return getOrDownloadMeasure("3e988765-9673-46f8-9b65-99d5b86c2b22");
+}
+
+boost::optional<BCLMeasure> OSDocument::createTypicalBuildingFromModelMeasure() {
+  return getOrDownloadMeasure("339a2e3a-273c-4494-bb50-bfe586a0647c");
 }
 
 bool OSDocument::save() {
@@ -1652,6 +1664,63 @@ boost::optional<model::Component> OSDocument::getComponent(const OSItemId& itemI
 }
 
 void OSDocument::toggleUnits(bool displayIP) {}
+
+void OSDocument::openModelDesignWizardDlg() {
+
+  disable();
+
+  // needed before we can compute arguments
+  OSAppBase::instance()->measureManager().saveTempModel(toPath(m_modelTempDir));
+
+  WorkflowJSON workflow = m_model.workflowJSON();
+  std::vector<WorkflowStep> steps;
+
+  const std::vector<std::pair<QString, boost::optional<BCLMeasure>>> measuresToAdd{
+    {"Create Bar From Space Type Ratios", createBarFromSpaceTypeRatiosMeasure()},
+    {"Create Typical Building from Model", createTypicalBuildingFromModelMeasure()},
+  };
+
+  for (const auto& [measureName, bclMeasure_] : measuresToAdd) {
+    if (!bclMeasure_) {
+      QMessageBox::warning(mainWindow(), tr("Measure Not Found"), tr("Could not find or download ") + QString("'%1'.").arg(measureName));
+      enable();
+      return;
+    }
+    try {
+      const std::pair<bool, std::string> result = OSAppBase::instance()->measureManager().updateMeasure(*bclMeasure_);
+      if (result.first) {
+        // have to reload in case measure manager updated
+        auto reloadedBclMeasure_ = BCLMeasure::load(bclMeasure_->directory());
+        OS_ASSERT(reloadedBclMeasure_);
+
+        MeasureStep step(result.second);
+        // DLM: moved to WorkflowStepResult
+        //step.setMeasureId(reloadedBclMeasure_->uid());
+        //step.setVersionId(reloadedBclMeasure_->versionId());
+        //std::vector<std::string> tags = reloadedBclMeasure_->tags();
+        //if (!tags.empty()){
+        //  step.setTaxonomy(tags[0]);
+        //}
+        step.setName(reloadedBclMeasure_->displayName());
+        step.setDescription(reloadedBclMeasure_->description());
+        step.setModelerDescription(reloadedBclMeasure_->modelerDescription());
+        steps.push_back(step);
+      }
+    } catch (const std::exception&) {
+      QMessageBox::warning(mainWindow(), tr("Failed to Compute Arguments"),
+                           tr("Could not compute arguments for ") + QString("'%1'.").arg(measureName));
+      enable();
+      return;
+    }
+  }
+
+  workflow.setWorkflowSteps(steps);
+
+  enable();
+
+  ModelDesignWizardDialog modelDesignWizardDialog;
+  modelDesignWizardDialog.exec();
+}
 
 void OSDocument::openMeasuresDlg() {
   // save model if dirty

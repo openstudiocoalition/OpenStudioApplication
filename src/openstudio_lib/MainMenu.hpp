@@ -71,6 +71,8 @@ class MainMenu : public QMenuBar
 
   void loadExampleModelClicked();
 
+  void modelDesignWizardClicked();
+
   void revertFileClicked();
 
   void saveAsFileClicked();

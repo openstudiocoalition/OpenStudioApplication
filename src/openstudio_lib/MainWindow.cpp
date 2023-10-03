@@ -130,6 +130,7 @@ MainWindow::MainWindow(bool isPlugin, QWidget* parent)
   connect(mainMenu, &MainMenu::changeLanguageClicked, this, &MainWindow::changeLanguageClicked);
   connect(mainMenu, &MainMenu::loadLibraryClicked, this, &MainWindow::loadLibraryClicked);
   connect(mainMenu, &MainMenu::loadExampleModelClicked, this, &MainWindow::loadExampleModelClicked);
+  connect(mainMenu, &MainMenu::modelDesignWizardClicked, this, &MainWindow::modelDesignWizardClicked);
   connect(mainMenu, &MainMenu::saveAsFileClicked, this, &MainWindow::saveAsFileClicked);
   connect(mainMenu, &MainMenu::saveFileClicked, this, &MainWindow::saveFileClicked);
   connect(mainMenu, &MainMenu::revertFileClicked, this, &MainWindow::revertFileClicked);

@@ -133,6 +133,10 @@ MainMenu::MainMenu(bool isIP, bool isPlugin, const QString& currLang, bool allow
   exampleMenu->addAction(action);
   connect(action, &QAction::triggered, this, &MainMenu::loadExampleModelClicked, Qt::QueuedConnection);
 
+  action = new QAction(tr("Model Design &Wizard"), this);
+  m_fileMenu->addAction(action);
+  connect(action, &QAction::triggered, this, &MainMenu::modelDesignWizardClicked, Qt::QueuedConnection);
+
   if (!m_isPlugin) {
 
     m_fileMenu->addSeparator();

@@ -135,6 +135,8 @@ class OPENSTUDIO_API OSDocument : public OSQObjectController
   std::vector<BCLComponent> componentAttributeSearch(const std::vector<std::pair<std::string, std::string>>& pairs) const;
 
   boost::optional<BCLMeasure> standardReportMeasure();
+  boost::optional<BCLMeasure> createBarFromSpaceTypeRatiosMeasure();
+  boost::optional<BCLMeasure> createTypicalBuildingFromModelMeasure();
 
   // Returns IddObjectType from either model, componentLibrary, or BCL
   boost::optional<IddObjectType> getIddObjectType(const OSItemId& itemId) const;
@@ -211,6 +213,8 @@ class OPENSTUDIO_API OSDocument : public OSQObjectController
 
   void loadExampleModelClicked();
 
+  void modelDesignWizardClicked();
+
   void newClicked();
 
   void exitClicked();
@@ -253,6 +257,8 @@ class OPENSTUDIO_API OSDocument : public OSQObjectController
 
   // returns if a file was saved
   bool saveAs();
+
+  void openModelDesignWizardDlg();
 
   void showRunManagerPreferences();
 
@@ -331,6 +337,8 @@ class OPENSTUDIO_API OSDocument : public OSQObjectController
   void createTab(int verticalId);
 
   void createTabButtons();
+
+  boost::optional<BCLMeasure> getOrDownloadMeasure(const std::string& uid) const;
 
   openstudio::model::Model m_model;
 

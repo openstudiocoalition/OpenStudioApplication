@@ -129,6 +129,8 @@ class MainWindow : public QMainWindow
 
   void loadExampleModelClicked();
 
+  void modelDesignWizardClicked();
+
   void saveAsFileClicked();
 
   void saveFileClicked();

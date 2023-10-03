@@ -165,6 +165,9 @@ class OpenStudioApp : public OSAppBase
   // Loads the result of openstudio::model::exampleModel()
   void loadExampleModel();
 
+  // Start from a fresh model and open the Model Design Wizard
+  void openModelDesignWizardDlg();
+
   // Checks what happened in the LibraryDialog preference panes, and calls writeLibraryPaths to set the user settings
   void changeDefaultLibraries();
 
