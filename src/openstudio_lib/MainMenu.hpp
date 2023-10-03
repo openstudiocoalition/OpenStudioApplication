@@ -50,6 +50,8 @@ class MainMenu : public QMenuBar
 
   void loadShoeboxModelClicked();
 
+  void modelDesignWizardClicked();
+
   void revertFileClicked();
 
   void saveAsFileClicked();

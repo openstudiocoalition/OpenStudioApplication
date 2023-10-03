@@ -1223,6 +1223,7 @@ void OpenStudioApp::connectOSDocumentSignals() {
   connect(m_osDocument.get(), &OSDocument::loadLibraryClicked, this, &OpenStudioApp::loadLibrary);
   connect(m_osDocument.get(), &OSDocument::loadExampleModelClicked, this, &OpenStudioApp::loadExampleModel);
   connect(m_osDocument.get(), &OSDocument::loadShoeboxModelClicked, this, &OpenStudioApp::loadShoeboxModel);
+  connect(m_osDocument.get(), &OSDocument::modelDesignWizardClicked, this, &OpenStudioApp::openModelDesignWizardDlg);
   connect(m_osDocument.get(), &OSDocument::newClicked, this, &OpenStudioApp::newModel);
   connect(m_osDocument.get(), &OSDocument::helpClicked, this, &OpenStudioApp::showHelp);
   connect(m_osDocument.get(), &OSDocument::checkForUpdateClicked, this, &OpenStudioApp::checkForUpdate);
@@ -1245,6 +1246,7 @@ void OpenStudioApp::disconnectOSDocumentSignals() {
     disconnect(m_osDocument.get(), &OSDocument::loadLibraryClicked, this, &OpenStudioApp::loadLibrary);
     disconnect(m_osDocument.get(), &OSDocument::loadExampleModelClicked, this, &OpenStudioApp::loadExampleModel);
     disconnect(m_osDocument.get(), &OSDocument::loadShoeboxModelClicked, this, &OpenStudioApp::loadShoeboxModel);
+    disconnect(m_osDocument.get(), &OSDocument::modelDesignWizardClicked, this, &OpenStudioApp::openModelDesignWizardDlg);
     disconnect(m_osDocument.get(), &OSDocument::newClicked, this, &OpenStudioApp::newModel);
     disconnect(m_osDocument.get(), &OSDocument::helpClicked, this, &OpenStudioApp::showHelp);
     disconnect(m_osDocument.get(), &OSDocument::checkForUpdateClicked, this, &OpenStudioApp::checkForUpdate);
@@ -1572,6 +1574,13 @@ void OpenStudioApp::loadShoeboxModel() {
   waitDialog()->hide();
 
   OpenStudioApp::setQuitOnLastWindowClosed(wasQuitOnLastWindowClosed);
+}
+
+void OpenStudioApp::openModelDesignWizardDlg() {
+
+  newModel();
+
+  m_osDocument->openModelDesignWizardDlg();
 }
 
 void OpenStudioApp::changeDefaultLibraries() {

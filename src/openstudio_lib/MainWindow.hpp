@@ -111,6 +111,8 @@ class MainWindow : public QMainWindow
 
   void loadShoeboxModelClicked();
 
+  void modelDesignWizardClicked();
+
   void saveAsFileClicked();
 
   void saveFileClicked();

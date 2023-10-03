@@ -161,6 +161,8 @@ set(${target_name}_SRC
   MaterialsController.hpp
   MaterialsView.cpp
   MaterialsView.hpp
+  ModelDesignWizardDialog.cpp
+  ModelDesignWizardDialog.hpp
   ModelObjectInspectorView.cpp
   ModelObjectInspectorView.hpp
   ModelObjectItem.cpp
@@ -575,6 +577,7 @@ set(${target_name}_moc
   MaterialRoofVegetationInspectorView.hpp
   MaterialsController.hpp
   MaterialsView.hpp
+  ModelDesignWizardDialog.hpp
   ModelObjectInspectorView.hpp
   ModelObjectItem.hpp
   ModelObjectListView.hpp
