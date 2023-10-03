@@ -408,6 +408,8 @@ set(${target_name}_SRC
   ../shared_gui_components/Component.hpp
   ../shared_gui_components/ComponentList.cpp
   ../shared_gui_components/ComponentList.hpp
+  ../shared_gui_components/DataPointJob.cpp
+  ../shared_gui_components/DataPointJob.hpp
   ../shared_gui_components/EditController.cpp
   ../shared_gui_components/EditController.hpp
   ../shared_gui_components/EditView.cpp
@@ -696,6 +698,7 @@ set(${target_name}_moc
   ../shared_gui_components/CollapsibleComponentList.hpp
   ../shared_gui_components/Component.hpp
   ../shared_gui_components/ComponentList.hpp
+  ../shared_gui_components/DataPointJob.hpp
   ../shared_gui_components/EditController.hpp
   ../shared_gui_components/EditView.hpp
   ../shared_gui_components/GraphicsItems.hpp
