@@ -6,7 +6,7 @@ set(OPENSTUDIO_VERSION "${OPENSTUDIO_VERSION_MAJOR}.${OPENSTUDIO_VERSION_MINOR}.
 #If this is an official release, leave this "", otherwise put for eg '-rc1'
 set(OPENSTUDIO_VERSION_PRERELEASE "-alpha")
 # Enter SHA, always, eg "+79857912c4"
-set(OPENSTUDIO_VERSION_SHA "+2e7a2d8253")
+set(OPENSTUDIO_VERSION_SHA "+308fa5aa77")
 
 # Paths where the cmake-downloaded archives will be put
 set(OPENSTUDIO_ARCHIVE_DIR "${PROJECT_BINARY_DIR}/OpenStudio-${OPENSTUDIO_VERSION}")
@@ -17,9 +17,9 @@ set(OPENSTUDIO_EXT "tar.gz")
 if(APPLE)
   set(OPENSTUDIO_PLATFORM "Darwin-${ARCH}")
   if(ARCH MATCHES "arm64")
-    set(OPENSTUDIO_EXPECTED_HASH 2d6b171a5e446f5567dd22b4ba7560d9)
+    set(OPENSTUDIO_EXPECTED_HASH aeb8e3eb11401c816fd5700e55787326)
   else()
-    set(OPENSTUDIO_EXPECTED_HASH cf861a718dc1439b80190877676067c7)
+    set(OPENSTUDIO_EXPECTED_HASH fb61461bc9ae02a66ba12be539ef7429)
   endif()
 
 elseif(UNIX)
@@ -28,16 +28,16 @@ elseif(UNIX)
     if (ARCH MATCHES "arm64")
       set(OPENSTUDIO_EXPECTED_HASH TBD)
     else()
-      set(OPENSTUDIO_EXPECTED_HASH 0d72b20a66d1019a836327fd63be8d3c)
+      set(OPENSTUDIO_EXPECTED_HASH b0eeb4f48a81031d542150cfdaa761c9)
     endif()
   elseif(LSB_RELEASE_VERSION_SHORT MATCHES "20.04")
-    set(OPENSTUDIO_EXPECTED_HASH ba7ffc6055f07ed5f161e866dbc0b3d5)
+    set(OPENSTUDIO_EXPECTED_HASH 74c3c46dab6b410a0d06ab2cd4f54ac4)
   else()
     message(FATAL_ERROR "OpenStudio SDK no longer provides packages for Ubuntu 18.04")
   endif()
 
 elseif(WIN32)
-  set(OPENSTUDIO_EXPECTED_HASH 4c9d439d0ae10e74e726cbf7478810fe)
+  set(OPENSTUDIO_EXPECTED_HASH c3dc111de83fb38bb1a8743d704e0d57)
   set(OPENSTUDIO_PLATFORM "Windows")
 endif()
 
@@ -75,7 +75,7 @@ else()
   set(OPENSTUDIO_BASELINK_CI
     "http://openstudio-ci-builds.s3-website-us-west-2.amazonaws.com/develop"
     # TODO: TEMPORARY point to a specific subfolder / PR
-    # "http://openstudio-ci-builds.s3-website-us-west-2.amazonaws.com/PR-4712"
+    # "http://openstudio-ci-builds.s3-website-us-west-2.amazonaws.com/PR-4920"
     # "http://openstudio-ci-builds.s3-website-us-west-2.amazonaws.com/${OPENSTUDIO_VERSION}${OPENSTUDIO_VERSION_PRERELEASE}${WIN_SUBFOLDER}"
 
     CACHE STRING "Base link to where the openstudio develop archives are hosted" FORCE)

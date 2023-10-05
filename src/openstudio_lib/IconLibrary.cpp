@@ -165,7 +165,7 @@ IconLibrary::IconLibrary() {
   m_icons[openstudio::IddObjectType(openstudio::IddObjectType::OS_Connector_Mixer).value()] = new QPixmap(":/images/mixer.png");
   m_icons[openstudio::IddObjectType(openstudio::IddObjectType::OS_Connector_Splitter).value()] = new QPixmap(":/images/splitter.png");
   m_icons[openstudio::IddObjectType(openstudio::IddObjectType::OS_DistrictCooling).value()] = new QPixmap(":/images/districtcooling.png");
-  m_icons[openstudio::IddObjectType(openstudio::IddObjectType::OS_DistrictHeating).value()] = new QPixmap(":/images/districtheating.png");
+  m_icons[openstudio::IddObjectType(openstudio::IddObjectType::OS_DistrictHeating_Water).value()] = new QPixmap(":/images/districtheating.png");
   m_icons[openstudio::IddObjectType(openstudio::IddObjectType::OS_Duct).value()] = new QPixmap(":/images/duct.png");
   m_icons[openstudio::IddObjectType(openstudio::IddObjectType::OS_EvaporativeCooler_Direct_ResearchSpecial).value()] =
     new QPixmap(":/images/directEvap.png");
@@ -343,7 +343,7 @@ IconLibrary::IconLibrary() {
     new QPixmap(":/images/mini_icons/default_surface_constructions.png");
   m_miniIcons[openstudio::IddObjectType(openstudio::IddObjectType::OS_DistrictCooling).value()] =
     new QPixmap(":/images/mini_icons/districtcooling.png");
-  m_miniIcons[openstudio::IddObjectType(openstudio::IddObjectType::OS_DistrictHeating).value()] =
+  m_miniIcons[openstudio::IddObjectType(openstudio::IddObjectType::OS_DistrictHeating_Water).value()] =
     new QPixmap(":/images/mini_icons/districtheating.png");
   m_miniIcons[openstudio::IddObjectType(openstudio::IddObjectType::OS_Duct).value()] = new QPixmap(":/images/mini_icons/mini_duct.png");
   m_miniIcons[openstudio::IddObjectType(openstudio::IddObjectType::OS_ElectricEquipment).value()] =

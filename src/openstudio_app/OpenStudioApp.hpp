@@ -53,7 +53,7 @@
 #include <openstudio/model/PumpVariableSpeed.hpp>
 #include <openstudio/model/CoilCoolingWater.hpp>
 #include <openstudio/model/CoilHeatingWater.hpp>
-#include <openstudio/model/DistrictHeating.hpp>
+#include <openstudio/model/DistrictHeatingWater.hpp>
 #include <openstudio/model/DistrictCooling.hpp>
 
 #include <openstudio/utilities/core/Path.hpp>
