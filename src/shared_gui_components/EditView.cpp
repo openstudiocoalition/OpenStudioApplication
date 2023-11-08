@@ -179,6 +179,7 @@ DoubleInputView::DoubleInputView() : InputView() {
   setLayout(vLayout);
 
   nameLabel = new QLabel();
+  nameLabel->setOpenExternalLinks(true);
   nameLabel->setTextFormat(Qt::RichText);
   nameLabel->setWordWrap(true);
   vLayout->addWidget(nameLabel);
@@ -220,6 +221,7 @@ ChoiceInputView::ChoiceInputView() : InputView() {
   setLayout(vLayout);
 
   nameLabel = new QLabel();
+  nameLabel->setOpenExternalLinks(true);
   nameLabel->setWordWrap(true);
   vLayout->addWidget(nameLabel);
 
@@ -294,6 +296,7 @@ IntegerInputView::IntegerInputView() : InputView() {
   setLayout(vLayout);
 
   nameLabel = new QLabel();
+  nameLabel->setOpenExternalLinks(true);
   nameLabel->setWordWrap(true);
   vLayout->addWidget(nameLabel);
 
@@ -334,6 +337,7 @@ StringInputView::StringInputView() : InputView() {
   setLayout(vLayout);
 
   nameLabel = new QLabel();
+  nameLabel->setOpenExternalLinks(true);
   nameLabel->setWordWrap(true);
   vLayout->addWidget(nameLabel);
 
@@ -382,6 +386,7 @@ InputCheckBox::InputCheckBox() : QAbstractButton() {
   setLayout(mainHLayout);
 
   m_label = new QLabel();
+  m_label->setOpenExternalLinks(true);
   m_label->setWordWrap(true);
   mainHLayout->addWidget(m_label);
 
