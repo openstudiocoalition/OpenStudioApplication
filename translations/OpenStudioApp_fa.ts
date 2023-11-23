@@ -793,12 +793,12 @@ If you would like to see the OpenStudioApplication translated in your language o
 <context>
     <name>openstudio::MainWindow</name>
     <message>
-        <location filename="../src/openstudio_lib/MainWindow.cpp" line="390"/>
+        <location filename="../src/openstudio_lib/MainWindow.cpp" line="400"/>
         <source>Allow Analytics</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/MainWindow.cpp" line="391"/>
+        <location filename="../src/openstudio_lib/MainWindow.cpp" line="401"/>
         <source>Allow OpenStudio Coalition to collect anonymous usage statistics to help improve the OpenStudio Application? See the &lt;a href=&quot;https://openstudiocoalition.org/about/privacy_policy/&quot;&gt;privacy policy&lt;/a&gt; for more information.</source>
         <translation type="unfinished"></translation>
     </message>
@@ -846,25 +846,25 @@ If you would like to see the OpenStudioApplication translated in your language o
         <translation>(*.xml)</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/OSDocument.cpp" line="1440"/>
-        <location filename="../src/openstudio_lib/OSDocument.cpp" line="1515"/>
+        <location filename="../src/openstudio_lib/OSDocument.cpp" line="1469"/>
+        <location filename="../src/openstudio_lib/OSDocument.cpp" line="1544"/>
         <source>Failed to save model</source>
         <translation>ناموفق در ذخیره مدل</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/OSDocument.cpp" line="1441"/>
-        <location filename="../src/openstudio_lib/OSDocument.cpp" line="1516"/>
+        <location filename="../src/openstudio_lib/OSDocument.cpp" line="1470"/>
+        <location filename="../src/openstudio_lib/OSDocument.cpp" line="1545"/>
         <source>Failed to save model, make sure that you do not have the location open and that you have correct write access.</source>
         <translation>مدل ذخیره نشد، مطمئن شوید فایل را باز ندارید و دسترسی صحیحی به نوشتن دارید.</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/OSDocument.cpp" line="1484"/>
+        <location filename="../src/openstudio_lib/OSDocument.cpp" line="1513"/>
         <source>Save</source>
         <translation>ذخیره</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/OSDocument.cpp" line="1678"/>
-        <location filename="../src/openstudio_lib/OSDocument.cpp" line="1680"/>
+        <location filename="../src/openstudio_lib/OSDocument.cpp" line="1707"/>
+        <location filename="../src/openstudio_lib/OSDocument.cpp" line="1709"/>
         <source>Select My Measures Directory</source>
         <translation>انتخاب مسیر تمهیدات من</translation>
     </message>
@@ -873,7 +873,7 @@ If you would like to see the OpenStudioApplication translated in your language o
         <translation type="vanished">کتابخانه آنلاین اجزاء ساختمان (BCL)</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/OSDocument.cpp" line="1484"/>
+        <location filename="../src/openstudio_lib/OSDocument.cpp" line="1513"/>
         <source>(*.osm)</source>
         <translation>(*.osm)</translation>
     </message>
@@ -1322,6 +1322,94 @@ Would you like to Restore library paths to default values or Open the library se
         <location filename="../src/openstudio_app/StartupMenu.cpp" line="87"/>
         <source>&amp;About</source>
         <translation>&amp;درباره</translation>
+    </message>
+</context>
+<context>
+    <name>openstudio::VariablesList</name>
+    <message>
+        <location filename="../src/openstudio_lib/VariablesTabView.cpp" line="182"/>
+        <source>Select Output Variables</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../src/openstudio_lib/VariablesTabView.cpp" line="185"/>
+        <source>All</source>
+        <translation type="unfinished">همه</translation>
+    </message>
+    <message>
+        <location filename="../src/openstudio_lib/VariablesTabView.cpp" line="191"/>
+        <source>Enabled</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../src/openstudio_lib/VariablesTabView.cpp" line="197"/>
+        <source>Disabled</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../src/openstudio_lib/VariablesTabView.cpp" line="231"/>
+        <source>Filter Variables</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../src/openstudio_lib/VariablesTabView.cpp" line="238"/>
+        <source>Use Regex</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../src/openstudio_lib/VariablesTabView.cpp" line="245"/>
+        <source>Update Visible Variables</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../src/openstudio_lib/VariablesTabView.cpp" line="248"/>
+        <source>All On</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../src/openstudio_lib/VariablesTabView.cpp" line="254"/>
+        <source>All Off</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../src/openstudio_lib/VariablesTabView.cpp" line="260"/>
+        <source>Apply Frequency</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../src/openstudio_lib/VariablesTabView.cpp" line="267"/>
+        <source>Detailed</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../src/openstudio_lib/VariablesTabView.cpp" line="268"/>
+        <source>Timestep</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../src/openstudio_lib/VariablesTabView.cpp" line="269"/>
+        <source>Hourly</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../src/openstudio_lib/VariablesTabView.cpp" line="270"/>
+        <source>Daily</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../src/openstudio_lib/VariablesTabView.cpp" line="271"/>
+        <source>Monthly</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../src/openstudio_lib/VariablesTabView.cpp" line="272"/>
+        <source>RunPeriod</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../src/openstudio_lib/VariablesTabView.cpp" line="273"/>
+        <source>Annual</source>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>
