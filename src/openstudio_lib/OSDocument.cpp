@@ -1431,6 +1431,11 @@ boost::optional<BCLMeasure> OSDocument::standardReportMeasure() {
   const std::string uid("a25386cd-60e4-46bc-8b11-c755f379d916");
   boost::optional<BCLMeasure> result = getLocalMeasure(uid);
 
+  if (!result) {
+    // if we don't have a result measure in local bcl, use the one in the installer
+    result = BCLMeasure::load(m_resourcesPath / toPath("openstudio_results"));
+  }
+
   if (m_haveLocalBCL && RemoteBCL::isOnline()) {
     RemoteBCL remoteBCL;
     boost::optional<BCLMeasure> onlineResult = remoteBCL.getMeasure(uid);
