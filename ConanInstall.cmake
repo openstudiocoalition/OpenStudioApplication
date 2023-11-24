@@ -24,7 +24,8 @@ if(NOT CONAN_OPENSTUDIO_ALREADY_RUN)
       "https://raw.githubusercontent.com/conan-io/cmake-conan/${CMAKE_CONAN_VERSION}/conan.cmake"
       "${CMAKE_BINARY_DIR}/conan.cmake"
       EXPECTED_HASH SHA256=${CMAKE_CONAN_EXPECTED_HASH}
-      TLS_VERIFY ON)
+      # TLS_VERIFY ON  # TODO: 2023-10-27 - Started failing on Github Actions' Windows runner
+    )
   else()
     message(STATUS "openstudio: using existing conan.cmake")
   endif()

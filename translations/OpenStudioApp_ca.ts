@@ -795,12 +795,12 @@ Si voleu que OpeStudioApplication estigui a la vostra llengua, esperem la vostra
 <context>
     <name>openstudio::MainWindow</name>
     <message>
-        <location filename="../src/openstudio_lib/MainWindow.cpp" line="390"/>
+        <location filename="../src/openstudio_lib/MainWindow.cpp" line="400"/>
         <source>Allow Analytics</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/MainWindow.cpp" line="391"/>
+        <location filename="../src/openstudio_lib/MainWindow.cpp" line="401"/>
         <source>Allow OpenStudio Coalition to collect anonymous usage statistics to help improve the OpenStudio Application? See the &lt;a href=&quot;https://openstudiocoalition.org/about/privacy_policy/&quot;&gt;privacy policy&lt;/a&gt; for more information.</source>
         <translation type="unfinished"></translation>
     </message>
@@ -848,30 +848,30 @@ Si voleu que OpeStudioApplication estigui a la vostra llengua, esperem la vostra
         <translation>(*.xml)</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/OSDocument.cpp" line="1440"/>
-        <location filename="../src/openstudio_lib/OSDocument.cpp" line="1515"/>
+        <location filename="../src/openstudio_lib/OSDocument.cpp" line="1469"/>
+        <location filename="../src/openstudio_lib/OSDocument.cpp" line="1544"/>
         <source>Failed to save model</source>
         <translation>Error al desar el model</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/OSDocument.cpp" line="1441"/>
-        <location filename="../src/openstudio_lib/OSDocument.cpp" line="1516"/>
+        <location filename="../src/openstudio_lib/OSDocument.cpp" line="1470"/>
+        <location filename="../src/openstudio_lib/OSDocument.cpp" line="1545"/>
         <source>Failed to save model, make sure that you do not have the location open and that you have correct write access.</source>
         <translation>Error al desar el model, comprova que no tinguis el fitxer obert i que tens privilegis d&apos;accés d&apos;escriptura.</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/OSDocument.cpp" line="1484"/>
+        <location filename="../src/openstudio_lib/OSDocument.cpp" line="1513"/>
         <source>Save</source>
         <translation>Desar</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/OSDocument.cpp" line="1484"/>
+        <location filename="../src/openstudio_lib/OSDocument.cpp" line="1513"/>
         <source>(*.osm)</source>
         <translation></translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/OSDocument.cpp" line="1678"/>
-        <location filename="../src/openstudio_lib/OSDocument.cpp" line="1680"/>
+        <location filename="../src/openstudio_lib/OSDocument.cpp" line="1707"/>
+        <location filename="../src/openstudio_lib/OSDocument.cpp" line="1709"/>
         <source>Select My Measures Directory</source>
         <translation>Seleccionar la Carpeta &quot;My Measures&quot;</translation>
     </message>
@@ -1326,6 +1326,94 @@ Voldries Restaurar els valors per defecte dels camins de les llibrerires o Obrir
         <location filename="../src/openstudio_app/StartupMenu.cpp" line="87"/>
         <source>&amp;About</source>
         <translation>&amp;Sobre</translation>
+    </message>
+</context>
+<context>
+    <name>openstudio::VariablesList</name>
+    <message>
+        <location filename="../src/openstudio_lib/VariablesTabView.cpp" line="182"/>
+        <source>Select Output Variables</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../src/openstudio_lib/VariablesTabView.cpp" line="185"/>
+        <source>All</source>
+        <translation type="unfinished">Tots</translation>
+    </message>
+    <message>
+        <location filename="../src/openstudio_lib/VariablesTabView.cpp" line="191"/>
+        <source>Enabled</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../src/openstudio_lib/VariablesTabView.cpp" line="197"/>
+        <source>Disabled</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../src/openstudio_lib/VariablesTabView.cpp" line="231"/>
+        <source>Filter Variables</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../src/openstudio_lib/VariablesTabView.cpp" line="238"/>
+        <source>Use Regex</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../src/openstudio_lib/VariablesTabView.cpp" line="245"/>
+        <source>Update Visible Variables</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../src/openstudio_lib/VariablesTabView.cpp" line="248"/>
+        <source>All On</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../src/openstudio_lib/VariablesTabView.cpp" line="254"/>
+        <source>All Off</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../src/openstudio_lib/VariablesTabView.cpp" line="260"/>
+        <source>Apply Frequency</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../src/openstudio_lib/VariablesTabView.cpp" line="267"/>
+        <source>Detailed</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../src/openstudio_lib/VariablesTabView.cpp" line="268"/>
+        <source>Timestep</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../src/openstudio_lib/VariablesTabView.cpp" line="269"/>
+        <source>Hourly</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../src/openstudio_lib/VariablesTabView.cpp" line="270"/>
+        <source>Daily</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../src/openstudio_lib/VariablesTabView.cpp" line="271"/>
+        <source>Monthly</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../src/openstudio_lib/VariablesTabView.cpp" line="272"/>
+        <source>RunPeriod</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../src/openstudio_lib/VariablesTabView.cpp" line="273"/>
+        <source>Annual</source>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>
