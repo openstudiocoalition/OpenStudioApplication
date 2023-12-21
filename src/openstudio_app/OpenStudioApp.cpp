@@ -1288,7 +1288,7 @@ void OpenStudioApp::startMeasureManagerProcess() {
   tcpServer.close();
 
   QString portString = QString::number(port);
-  QString urlString = "http://localhost:" + portString;
+  QString urlString = "http://127.0.0.1:" + portString;
   QUrl url(urlString);
   measureManager().setUrl(url);
 
@@ -1306,6 +1306,7 @@ void OpenStudioApp::startMeasureManagerProcess() {
 
   QString program = toQString(openstudioCLIPath());
   QStringList arguments;
+  arguments << "classic";
   arguments << "measure";
   arguments << "-s";
   arguments << portString;
