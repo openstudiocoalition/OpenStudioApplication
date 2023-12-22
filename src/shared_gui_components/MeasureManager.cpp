@@ -579,6 +579,10 @@ boost::optional<measure::OSArgument> MeasureManager::getArgument(const measure::
     Json::Value choiceValues = argument.get("choice_values", Json::Value(Json::arrayValue));
     Json::Value choiceDisplayNames = argument.get("choice_display_names", Json::Value(Json::arrayValue));
 
+    if (choiceValues.empty()) {
+      choiceValues = argument.get("choices_values", Json::Value(Json::arrayValue));
+    }
+
     Json::ArrayIndex n = choiceValues.size();
     if (n != choiceDisplayNames.size()) {
       choiceDisplayNames = choiceValues;
