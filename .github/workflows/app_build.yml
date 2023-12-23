@@ -28,7 +28,7 @@ env:
   CPACK_SOURCE_TXZ: OFF
   CPACK_SOURCE_TZ: OFF
   CPACK_SOURCE_ZIP: OFF
-  QT_VERSION: 6.3.0
+  QT_VERSION: 6.6.1
   # CPACK_BINARY_DEB: OS-SPECIFIC
   # CPACK_BINARY_IFW: OS-SPECIFIC
 
@@ -275,10 +275,10 @@ jobs:
           gcc --version
 
         elif [ "$RUNNER_OS" == "Windows" ]; then
-          curl -L -O https://download.qt.io/official_releases/qt-installer-framework/4.3.0/QtInstallerFramework-windows-x86-4.3.0.exe
-          ./QtInstallerFramework-windows-x86-4.3.0.exe --verbose --script ./ci/install_script_qtifw.qs
+          curl -L -O https://download.qt.io/official_releases/qt-installer-framework/4.6.1/QtInstallerFramework-windows-x86-4.6.1.exe
+          ./QtInstallerFramework-windows-x86-4.6.1.exe --verbose --script ./ci/install_script_qtifw.qs
           dir "C:/Qt/"
-          echo "C:/Qt/QtIFW-4.3.0/bin" >> $GITHUB_PATH
+          echo "C:/Qt/QtIFW-4.6.1/bin" >> $GITHUB_PATH
 
           echo "Using chocolatey to install ninja"
           choco install ninja
@@ -319,24 +319,24 @@ jobs:
             rm /usr/local/lib/pkgconfig/openssl.pc
 
             echo "Installing IFW"
-            curl -L -O https://download.qt.io/official_releases/qt-installer-framework/4.3.0/QtInstallerFramework-macOS-x64-4.3.0.dmg
-            hdiutil attach -mountpoint ./qtfiw_installer QtInstallerFramework-macOS-x64-4.3.0.dmg
+            curl -L -O https://download.qt.io/official_releases/qt-installer-framework/4.6.1/QtInstallerFramework-macOS-x64-4.6.1.dmg
+            hdiutil attach -mountpoint ./qtfiw_installer QtInstallerFramework-macOS-x64-4.6.1.dmg
             echo "ls ./qtfiw_installer"
             ls ./qtfiw_installer
-            echo "ls ./qtfiw_installer/QtInstallerFramework-macOS-x64-4.3.0.app/"
-            ls ./qtfiw_installer/QtInstallerFramework-macOS-x64-4.3.0.app/
-            echo "ls ./qtfiw_installer/QtInstallerFramework-macOS-x64-4.3.0.app/Contents/"
-            ls ./qtfiw_installer/QtInstallerFramework-macOS-x64-4.3.0.app/Contents/
-            echo "ls ./qtfiw_installer/QtInstallerFramework-macOS-x64-4.3.0.app/Contents/MacOS"
-            ls ./qtfiw_installer/QtInstallerFramework-macOS-x64-4.3.0.app/Contents/MacOS
-            echo "ls ./qtfiw_installer/QtInstallerFramework-macOS-x64-4.3.0.app/Contents/Resources"
-            ls ./qtfiw_installer/QtInstallerFramework-macOS-x64-4.3.0.app/Contents/Resources
+            echo "ls ./qtfiw_installer/QtInstallerFramework-macOS-x64-4.6.1.app/"
+            ls ./qtfiw_installer/QtInstallerFramework-macOS-x64-4.6.1.app/
+            echo "ls ./qtfiw_installer/QtInstallerFramework-macOS-x64-4.6.1.app/Contents/"
+            ls ./qtfiw_installer/QtInstallerFramework-macOS-x64-4.6.1.app/Contents/
+            echo "ls ./qtfiw_installer/QtInstallerFramework-macOS-x64-4.6.1.app/Contents/MacOS"
+            ls ./qtfiw_installer/QtInstallerFramework-macOS-x64-4.6.1.app/Contents/MacOS
+            echo "ls ./qtfiw_installer/QtInstallerFramework-macOS-x64-4.6.1.app/Contents/Resources"
+            ls ./qtfiw_installer/QtInstallerFramework-macOS-x64-4.6.1.app/Contents/Resources
 
-            sudo ./qtfiw_installer/QtInstallerFramework-macOS-x64-4.3.0.app/Contents/MacOS/QtInstallerFramework-macOS-x64-4.3.0 --verbose --script ./ci/install_script_qtifw.qs
+            sudo ./qtfiw_installer/QtInstallerFramework-macOS-x64-4.6.1.app/Contents/MacOS/QtInstallerFramework-macOS-x64-4.6.1 --verbose --script ./ci/install_script_qtifw.qs
             ls ~
             ls ~/Qt/ || true
-            ls ~/Qt/QtIFW-4.3.0 || true
-            echo "~/Qt/QtIFW-4.3.0/bin/" >> $GITHUB_PATH
+            ls ~/Qt/QtIFW-4.6.1 || true
+            echo "~/Qt/QtIFW-4.6.1/bin/" >> $GITHUB_PATH
           fi;
         fi;
 
@@ -505,7 +505,7 @@ jobs:
         cmake -E make_directory ./build
 
         if [ "$RUNNER_OS" == "macOS" ]; then
-          QT_INSTALL_DIR="/Users/irvinemac/Qt/6.3.0/macos/"
+          QT_INSTALL_DIR="/Users/irvinemac/Qt/6.6.1/macos/"
         fi
 
         echo "$QT_INSTALL_DIR/bin" >> $GITHUB_PATH
