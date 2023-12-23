@@ -37,15 +37,14 @@ jobs:
     # Note: as of 2021-01-29, this only works for push, not for pull request
     # if: "!(contains(github.event.head_commit.message, 'skip') && contains(github.event.head_commit.message, 'ci'))"
     runs-on: ${{ matrix.os }}
-    continue-on-error: ${{ matrix.allow_failure }}
+    continue-on-error: true
     strategy:
       # fail-fast: Default is true, switch to false to allow one platform to fail and still run others
       fail-fast: false
       matrix:
-        os: [ubuntu-20.04, ubuntu-22.04, windows-2022, macos-12, macos-arm64]
+        os: [ubuntu-20.04, ubuntu-22.04, windows-2022, macos-13, macos-arm64]
         include:
         - os: ubuntu-20.04
-          allow_failure: true
           SELF_HOSTED: false
           PLATFORM_NAME: Linux
           CPACK_BINARY_DEB: ON
@@ -59,7 +58,6 @@ jobs:
           QT_OS_NAME: linux
           QT_ARCH: gcc_64
         - os: ubuntu-22.04
-          allow_failure: true
           SELF_HOSTED: false
           PLATFORM_NAME: Linux
           CPACK_BINARY_DEB: ON
@@ -73,7 +71,6 @@ jobs:
           QT_OS_NAME: linux
           QT_ARCH: gcc_64
         - os: windows-2022
-          allow_failure: false
           SELF_HOSTED: false
           PLATFORM_NAME: Windows
           CPACK_BINARY_DEB: OFF
@@ -86,8 +83,7 @@ jobs:
           COMPRESSED_PKG_PATH: _CPack_Packages/win64/ZIP
           QT_OS_NAME: windows
           QT_ARCH: win64_msvc2019_64
-        - os: macos-12
-          allow_failure: false
+        - os: macos-13
           SELF_HOSTED: false
           PLATFORM_NAME: Darwin
           CPACK_BINARY_DEB: OFF
@@ -103,7 +99,6 @@ jobs:
           QT_OS_NAME: mac
           QT_ARCH: clang_64
         - os: macos-arm64
-          allow_failure: false
           SELF_HOSTED: true
           PLATFORM_NAME: Darwin
           CPACK_BINARY_DEB: OFF
