@@ -415,7 +415,7 @@ document.head.appendChild(style);\n";
       m_javascriptRunning = true;
 
       std::string json = floorplan.toJSON(false);
-      
+
       QJsonDocument doc = QJsonDocument::fromJson(QString::fromStdString(json).toUtf8());
 
       // ensure any missing required properties are set
