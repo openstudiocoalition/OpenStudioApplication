@@ -301,7 +301,7 @@ void RunView::playButtonClicked(bool t_checked) {
       // m_runProcess->setStandardErrorFile(toQString(stderrPath));
     }
 
-    if (m_hasSocketConnexion && !m_useLabsCLIBox) {
+    if (m_hasSocketConnexion && !m_useLabsCLIBox->isChecked()) {
       arguments << "run"
                 << "-s" << QString::number(port) << "-w" << workflowJSONPath;
     } else {
