@@ -1,7 +1,7 @@
 
 OS:Version,
-  {ec9c8fff-6bee-4876-aea5-2f37082bd5b7}, !- Handle
-  3.6.1;                                  !- Version Identifier
+  {8c03b54b-c15d-48b3-b952-a590108ac926}, !- Handle
+  3.7.0;                                  !- Version Identifier
 
 ! Always OnOff Discrete Schedule Type Limits
 OS:ScheduleTypeLimits,
@@ -543,6 +543,7 @@ OS:Coil:Cooling:DX:SingleSpeed,
   Autosize,                               !- Evaporative Condenser Air Flow Rate {m3/s}
   Autosize,                               !- Evaporative Condenser Pump Rated Power Consumption {W}
   0,                                      !- Crankcase Heater Capacity {W}
+  ,                                       !- Crankcase Heater Capacity Function of Temperature Curve Name
   0,                                      !- Maximum Outdoor Dry-Bulb Temperature for Crankcase Heater Operation {C}
   ,                                       !- Supply Water Storage Tank Name
   ,                                       !- Condensate Collection Water Storage Tank Name
@@ -765,9 +766,9 @@ OS:Coil:Heating:Gas,
   ,                                       !- Air Inlet Node Name
   ,                                       !- Air Outlet Node Name
   ,                                       !- Temperature Setpoint Node Name
-  0,                                      !- Parasitic Electric Load {W}
+  0,                                      !- On Cycle Parasitic Electric Load {W}
   ,                                       !- Part Load Fraction Correlation Curve Name
-  0;                                      !- Parasitic Gas Load {W}
+  0;                                      !- Off Cycle Parasitic Gas Load {W}
 
 OS:AirTerminal:SingleDuct:ConstantVolume:Reheat,
   {a713621f-ee1b-4f97-84bb-2cec78fad3ed}, !- Handle
@@ -1123,9 +1124,9 @@ OS:Coil:Heating:Gas,
   ,                                       !- Air Inlet Node Name
   ,                                       !- Air Outlet Node Name
   ,                                       !- Temperature Setpoint Node Name
-  0,                                      !- Parasitic Electric Load {W}
+  0,                                      !- On Cycle Parasitic Electric Load {W}
   ,                                       !- Part Load Fraction Correlation Curve Name
-  0;                                      !- Parasitic Gas Load {W}
+  0;                                      !- Off Cycle Parasitic Gas Load {W}
 
 OS:AirTerminal:SingleDuct:ParallelPIU:Reheat,
   {0c5479be-55e2-4a40-a050-be17e603fba8}, !- Handle
@@ -1255,7 +1256,8 @@ OS:Controller:OutdoorAir,
   ,                                       !- Humidistat Control Zone Name
   ,                                       !- High Humidity Outdoor Air Flow Ratio
   ,                                       !- Control High Indoor Humidity Based on Outdoor Humidity Ratio
-  BypassWhenOAFlowGreaterThanMinimum;     !- Heat Recovery Bypass Control Type
+  BypassWhenOAFlowGreaterThanMinimum,     !- Heat Recovery Bypass Control Type
+  InterlockedWithMechanicalCooling;       !- Economizer Operation Staging
 
 OS:Controller:MechanicalVentilation,
   {c22b61ea-1b3d-4236-996d-acc40834a950}, !- Handle
@@ -1587,7 +1589,8 @@ OS:Boiler:HotWater,
   ,                                       !- Boiler Water Outlet Node Name
   99,                                     !- Water Outlet Upper Temperature Limit {C}
   NotModulated,                           !- Boiler Flow Mode
-  0,                                      !- Parasitic Electric Load {W}
+  0,                                      !- On Cycle Parasitic Electric Load {W}
+  0,                                      !- Off Cycle Parasitic Fuel Load {W}
   1,                                      !- Sizing Factor
   General;                                !- End-Use Subcategory
 
@@ -1823,6 +1826,7 @@ OS:Coil:Heating:DX:SingleSpeed,
   ,                                       !- Minimum Outdoor Dry-Bulb Temperature for Compressor Operation {C}
   ,                                       !- Maximum Outdoor Dry-Bulb Temperature for Defrost Operation {C}
   ,                                       !- Crankcase Heater Capacity {W}
+  ,                                       !- Crankcase Heater Capacity Function of Temperature Curve Name
   ,                                       !- Maximum Outdoor Dry-Bulb Temperature for Crankcase Heater Operation {C}
   Resistive,                              !- Defrost Strategy
   Timed,                                  !- Defrost Control
@@ -1912,6 +1916,7 @@ OS:Coil:Cooling:DX:SingleSpeed,
   Autosize,                               !- Evaporative Condenser Air Flow Rate {m3/s}
   Autosize,                               !- Evaporative Condenser Pump Rated Power Consumption {W}
   0,                                      !- Crankcase Heater Capacity {W}
+  ,                                       !- Crankcase Heater Capacity Function of Temperature Curve Name
   0,                                      !- Maximum Outdoor Dry-Bulb Temperature for Crankcase Heater Operation {C}
   ,                                       !- Supply Water Storage Tank Name
   ,                                       !- Condensate Collection Water Storage Tank Name
@@ -2044,6 +2049,7 @@ OS:Coil:Cooling:DX:SingleSpeed,
   Autosize,                               !- Evaporative Condenser Air Flow Rate {m3/s}
   Autosize,                               !- Evaporative Condenser Pump Rated Power Consumption {W}
   0,                                      !- Crankcase Heater Capacity {W}
+  ,                                       !- Crankcase Heater Capacity Function of Temperature Curve Name
   0,                                      !- Maximum Outdoor Dry-Bulb Temperature for Crankcase Heater Operation {C}
   ,                                       !- Supply Water Storage Tank Name
   ,                                       !- Condensate Collection Water Storage Tank Name
@@ -2137,19 +2143,35 @@ OS:Coil:Heating:Water,
   ,                                       ! Rated Outlet Air Temperature {C}
   ;                                       ! Rated Ratio for Air and Water Convection
 
-OS:DistrictHeating,
-  {518f05fd-6a27-4cd2-a1f9-b8b6f1396f9c}, ! Handle
-  District Heating,                       ! Name
-  ,                                       ! Hot Water Inlet Node Name
-  ,                                       ! Hot Water Outlet Node Name
-  1000000;                                ! Nominal Capacity {W}
+OS:Schedule:Constant,
+  {8ae933b9-1600-42b2-b0d8-999f863d7fd4}, !- Handle
+  Always On Continuous,                   !- Name
+  {2940e46f-9ef4-4f77-b5fb-3f5ea3f63bbb}, !- Schedule Type Limits Name
+  1;                                      !- Value
+
+OS:ScheduleTypeLimits,
+  {2940e46f-9ef4-4f77-b5fb-3f5ea3f63bbb}, !- Handle
+  Always On Continuous Limits,            !- Name
+  0,                                      !- Lower Limit Value
+  1,                                      !- Upper Limit Value
+  Continuous,                             !- Numeric Type
+  ;                                       !- Unit Type
+
+OS:DistrictHeating:Water,
+  {518f05fd-6a27-4cd2-a1f9-b8b6f1396f9c}, !- Handle
+  District Heating,                       !- Name
+  ,                                       !- Hot Water Inlet Node Name
+  ,                                       !- Hot Water Outlet Node Name
+  1000000,                                !- Nominal Capacity {W}
+  {8ae933b9-1600-42b2-b0d8-999f863d7fd4}; !- Capacity Fraction Schedule
 
 OS:DistrictCooling,
-  {f2c9dc18-ae6c-46e5-adff-e89c4311ab60}, ! Handle
-  District Cooling,                       ! Name
-  ,                                       ! Chilled Water Inlet Node Name
-  ,                                       ! Chilled Water Outlet Node Name
-  1000000;                                ! Nominal Capacity {W}
+  {f2c9dc18-ae6c-46e5-adff-e89c4311ab60}, !- Handle
+  District Cooling,                       !- Name
+  ,                                       !- Chilled Water Inlet Node Name
+  ,                                       !- Chilled Water Outlet Node Name
+  1000000,                                !- Nominal Capacity {W}
+  {8ae933b9-1600-42b2-b0d8-999f863d7fd4}; !- Capacity Fraction Schedule
 
 OS:Pipe:Adiabatic,
   {b28f49ea-8022-4948-ae82-57814a3a8440}, ! Handle
@@ -2165,6 +2187,8 @@ OS:Coil:Cooling:DX:TwoSpeed,
   Autosize,                               !- Rated High Speed Sensible Heat Ratio
   3,                                      !- Rated High Speed COP {W/W}
   Autosize,                               !- Rated High Speed Air Flow Rate {m3/s}
+  773.3,                                  !- Rated High Speed Evaporator Fan Power Per Volume Flow Rate 2017 {W/(m3/s)}
+  934.4,                                  !- Rated High Speed Evaporator Fan Power Per Volume Flow Rate 2023 {W/(m3/s)}
   773.3,                                  !- Unit Internal Static Air Pressure {Pa}
   ,                                       !- Air Inlet Node Name
   ,                                       !- Air Outlet Node Name
@@ -2177,6 +2201,8 @@ OS:Coil:Cooling:DX:TwoSpeed,
   0.69,                                   !- Rated Low Speed Sensible Heat Ratio
   3,                                      !- Rated Low Speed COP {W/W}
   ,                                       !- Rated Low Speed Air Flow Rate {m3/s}
+  773.3,                                  !- Rated Low Speed Evaporator Fan Power Per Volume Flow Rate 2017 {W/(m3/s)}
+  934.4,                                  !- Rated Low Speed Evaporator Fan Power Per Volume Flow Rate 2023 {W/(m3/s)}
   {938a4702-47e7-4432-9c0c-41fb0ac9d663}, !- Low Speed Total Cooling Capacity Function of Temperature Curve Name
   {24b65f08-e434-462e-8421-3b7f7255d8e5}, !- Low Speed Energy Input Ratio Function of Temperature Curve Name
   ,                                       !- Condenser Air Inlet Node Name
@@ -2379,6 +2405,7 @@ OS:Coil:WaterHeating:AirToWaterHeatPump,
   ,                                       !- Condenser Water Inlet Node
   ,                                       !- Condenser Water Outlet Node
   100,                                    !- Crankcase Heater Capacity {W}
+  ,                                       !- Crankcase Heater Capacity Function of Temperature Curve Name
   5,                                      !- Maximum Ambient Temperature for Crankcase Heater Operation {C}
   WetBulbTemperature,                     !- Evaporator Air Temperature Type for Curve Objects
   {e2045130-ce9e-4dec-8e63-f266dd5f148d}, !- Heating Capacity Function of Temperature Curve
@@ -2664,6 +2691,7 @@ OS:Coil:WaterHeating:AirToWaterHeatPump:Wrapped,
   ,                                       !- Evaporator Air Inlet Node Name
   ,                                       !- Evaporator Air Outlet Node Name
   0,                                      !- Crankcase Heater Capacity {W}
+  ,                                       !- Crankcase Heater Capacity Function of Temperature Curve Name
   10,                                     !- Maximum Ambient Temperature for Crankcase Heater Operation {C}
   WetBulbTemperature,                     !- Evaporator Air Temperature Type for Curve Objects
   {de71e6f9-20a5-42c7-9661-c5b401dfc255}, !- Heating Capacity Function of Temperature Curve Name
@@ -3219,9 +3247,9 @@ OS:Coil:Heating:Gas,
   ,                                       !- Air Inlet Node Name
   ,                                       !- Air Outlet Node Name
   ,                                       !- Temperature Setpoint Node Name
-  0,                                      !- Parasitic Electric Load {W}
+  0,                                      !- On Cycle Parasitic Electric Load {W}
   ,                                       !- Part Load Fraction Correlation Curve Name
-  0;                                      !- Parasitic Gas Load {W}
+  0;                                      !- Off Cycle Parasitic Gas Load {W}
 
 OS:ZoneHVAC:UnitHeater,
   {d5102f53-b288-49a6-90bf-94f70658c748}, !- Handle
@@ -3374,7 +3402,8 @@ OS:Coil:Heating:WaterToAirHeatPump:EquationFit,
   20,                                     !- Rated Entering Air Dry-Bulb Temperature {C}
   1,                                      !- Ratio of Rated Heating Capacity to Rated Cooling Capacity
   {54fa4856-1e98-47ed-b6f3-d745cb872634}, !- Heating Capacity Curve Name
-  {24c898c5-c202-403d-9f77-b0d593c664ec}; !- Heating Power Consumption Curve Name
+  {24c898c5-c202-403d-9f77-b0d593c664ec}, !- Heating Power Consumption Curve Name
+  {9b0d1548-c685-4940-9921-42150d66f517}; !- Part Load Fraction Correlation Curve Name
 
 OS:Curve:QuadLinear,
   {54fa4856-1e98-47ed-b6f3-d745cb872634}, !- Handle
@@ -3428,8 +3457,12 @@ OS:Coil:Cooling:WaterToAirHeatPump:EquationFit,
   {414418cb-345c-4318-a9e6-71571785657d}, !- Total Cooling Capacity Curve Name
   {b91981df-6795-4615-a33d-6f1b4d39701a}, !- Sensible Cooling Capacity Curve Name
   {19fab439-6278-43c1-8b91-ce30aadd14ac}, !- Cooling Power Consumption Curve Name
+  {9b0d1548-c685-4940-9921-42150d66f517}, !- Part Load Fraction Correlation Curve Name
   ,                                       !- Nominal Time for Condensate Removal to Begin {s}
-  ;                                       !- Ratio of Initial Moisture Evaporation Rate and Steady State Latent Capacity {dimensionless}
+  ,                                       !- Ratio of Initial Moisture Evaporation Rate and Steady State Latent Capacity {dimensionless}
+  2.5,                                    !- Maximum Cycling Rate {cycles/hr}
+  60,                                     !- Latent Capacity Time Constant {s}
+  60;                                     !- Fan Delay Time {s}
 
 OS:Curve:QuadLinear,
   {414418cb-345c-4318-a9e6-71571785657d}, !- Handle
@@ -3515,7 +3548,8 @@ OS:Coil:Heating:WaterToAirHeatPump:EquationFit,
   20,                                     !- Rated Entering Air Dry-Bulb Temperature {C}
   1,                                      !- Ratio of Rated Heating Capacity to Rated Cooling Capacity
   {85509492-8cf7-45fe-b247-37566886f177}, !- Heating Capacity Curve Name
-  {0f71fc55-7375-4cd1-af51-c81323994e0a}; !- Heating Power Consumption Curve Name
+  {0f71fc55-7375-4cd1-af51-c81323994e0a}, !- Heating Power Consumption Curve Name
+  {4ee36f17-a9cd-46ed-a4f1-a285e2098b45}; !- Part Load Fraction Correlation Curve Name
 
 OS:Curve:QuadLinear,
   {85509492-8cf7-45fe-b247-37566886f177}, !- Handle
@@ -3569,8 +3603,12 @@ OS:Coil:Cooling:WaterToAirHeatPump:EquationFit,
   {b513eb49-8f83-4c64-aac2-cc2a856df035}, !- Total Cooling Capacity Curve Name
   {091a5d44-4f9f-47d3-a0ff-18a58a383e0b}, !- Sensible Cooling Capacity Curve Name
   {69e27838-d9bd-4e20-9835-93be1a1852e8}, !- Cooling Power Consumption Curve Name
+  {4ee36f17-a9cd-46ed-a4f1-a285e2098b45}, !- Part Load Fraction Correlation Curve Name
   ,                                       !- Nominal Time for Condensate Removal to Begin {s}
-  ;                                       !- Ratio of Initial Moisture Evaporation Rate and Steady State Latent Capacity {dimensionless}
+  ,                                       !- Ratio of Initial Moisture Evaporation Rate and Steady State Latent Capacity {dimensionless}
+  2.5,                                    !- Maximum Cycling Rate {cycles/hr}
+  60,                                     !- Latent Capacity Time Constant {s}
+  60;                                     !- Fan Delay Time {s}
 
 OS:Curve:QuadLinear,
   {b513eb49-8f83-4c64-aac2-cc2a856df035}, !- Handle
@@ -3656,7 +3694,8 @@ OS:Coil:Heating:WaterToAirHeatPump:EquationFit,
   20,                                     !- Rated Entering Air Dry-Bulb Temperature {C}
   1,                                      !- Ratio of Rated Heating Capacity to Rated Cooling Capacity
   {b37d22bd-260d-46b1-95b4-e8eeacf35e4d}, !- Heating Capacity Curve Name
-  {1dc9928b-c2df-41c0-b5f3-3b2d613b45a7}; !- Heating Power Consumption Curve Name
+  {1dc9928b-c2df-41c0-b5f3-3b2d613b45a7}, !- Heating Power Consumption Curve Name
+  {ee3b8796-427d-41cb-b097-080c37e32ff7}; !- Part Load Fraction Correlation Curve Name
 
 OS:Curve:QuadLinear,
   {b37d22bd-260d-46b1-95b4-e8eeacf35e4d}, !- Handle
@@ -3710,8 +3749,12 @@ OS:Coil:Cooling:WaterToAirHeatPump:EquationFit,
   {fdd9c030-4eab-4dc8-b22d-5eeffd8cad54}, !- Total Cooling Capacity Curve Name
   {f4aa74c7-3d29-45a2-9259-8706221e352f}, !- Sensible Cooling Capacity Curve Name
   {ccfb6792-ae3c-48ee-a18e-b6e38fc3930b}, !- Cooling Power Consumption Curve Name
+  {ee3b8796-427d-41cb-b097-080c37e32ff7}, !- Part Load Fraction Correlation Curve Name
   ,                                       !- Nominal Time for Condensate Removal to Begin {s}
-  ;                                       !- Ratio of Initial Moisture Evaporation Rate and Steady State Latent Capacity {dimensionless}
+  ,                                       !- Ratio of Initial Moisture Evaporation Rate and Steady State Latent Capacity {dimensionless}
+  2.5,                                    !- Maximum Cycling Rate {cycles/hr}
+  60,                                     !- Latent Capacity Time Constant {s}
+  60;                                     !- Fan Delay Time {s}
 
 OS:Curve:QuadLinear,
   {fdd9c030-4eab-4dc8-b22d-5eeffd8cad54}, !- Handle
@@ -3785,9 +3828,9 @@ OS:Coil:Heating:Gas,
   ,                                       !- Air Inlet Node Name
   ,                                       !- Air Outlet Node Name
   ,                                       !- Temperature Setpoint Node Name
-  0,                                      !- Parasitic Electric Load {W}
+  0,                                      !- On Cycle Parasitic Electric Load {W}
   ,                                       !- Part Load Fraction Correlation Curve Name
-  0;                                      !- Parasitic Gas Load {W}
+  0;                                      !- Off Cycle Parasitic Gas Load {W}
 
 OS:Coil:Heating:Water,
   {b746d8a5-fbfd-4d6a-a703-0ca20ab0ba53}, !- Handle
@@ -3823,10 +3866,6 @@ OS:ZoneHVAC:WaterToAirHeatPump,
   {182c837c-0413-4a6e-8328-7adc0c5d00d6}, !- Supply Air Fan Name
   {d683b8e6-1a67-4e2b-aa32-8a4aa6cedd5d}, !- Heating Coil Name
   {497dcb6a-5e26-44b9-ad01-3a2cee449abb}, !- Cooling Coil Name
-  ,                                       !- Maximum Cycling Rate {cycles/hr}
-  ,                                       !- Heat Pump Time Constant {s}
-  ,                                       !- Fraction of On-Cycle Power Use
-  ,                                       !- Heat Pump Fan Delay Time {s}
   {c29736fa-c1bc-4abc-89e5-9eff83d9426f}, !- Supplemental Heating Coil Name
   Autosize,                               !- Maximum Supply Air Temperature from Supplemental Heater {C}
   ,                                       !- Maximum Outdoor Dry-Bulb Temperature for Supplemental Heater Operation {C}
@@ -3834,6 +3873,18 @@ OS:ZoneHVAC:WaterToAirHeatPump,
   ,                                       !- Fan Placement
   ,                                       !- Supply Air Fan Operating Mode Schedule Name
   ;                                       !- Availability Manager List Name
+
+OS:Curve:Linear,
+  {9b0d1548-c685-4940-9921-42150d66f517}, !- Handle
+  Wtr-to-Air HP Elec Backup-AutogeneratedPLFCurve, !- Name
+  0.833746458696111,                      !- Coefficient1 Constant
+  0.166253541303889,                      !- Coefficient2 x
+  0,                                      !- Minimum Value of x
+  1,                                      !- Maximum Value of x
+  0,                                      !- Minimum Curve Output
+  1,                                      !- Maximum Curve Output
+  Dimensionless,                          !- Input Unit Type for X
+  Dimensionless;                          !- Output Unit Type
 
 OS:ZoneHVAC:WaterToAirHeatPump,
   {d00ed249-7171-4de9-a582-91d948e1b81d}, !- Handle
@@ -3851,10 +3902,6 @@ OS:ZoneHVAC:WaterToAirHeatPump,
   {686ec71a-e2b4-4e6c-bb5a-b8245ecd33e4}, !- Supply Air Fan Name
   {3ad65a6c-58cf-4c1f-937d-359611c4d472}, !- Heating Coil Name
   {e6f679f1-9fe3-4189-af37-13d8cb88d7d8}, !- Cooling Coil Name
-  ,                                       !- Maximum Cycling Rate {cycles/hr}
-  ,                                       !- Heat Pump Time Constant {s}
-  ,                                       !- Fraction of On-Cycle Power Use
-  ,                                       !- Heat Pump Fan Delay Time {s}
   {0a0d302a-f61c-40b7-8482-912889aec901}, !- Supplemental Heating Coil Name
   Autosize,                               !- Maximum Supply Air Temperature from Supplemental Heater {C}
   ,                                       !- Maximum Outdoor Dry-Bulb Temperature for Supplemental Heater Operation {C}
@@ -3862,6 +3909,18 @@ OS:ZoneHVAC:WaterToAirHeatPump,
   ,                                       !- Fan Placement
   ,                                       !- Supply Air Fan Operating Mode Schedule Name
   ;                                       !- Availability Manager List Name
+
+OS:Curve:Linear,
+  {4ee36f17-a9cd-46ed-a4f1-a285e2098b45}, !- Handle
+  Wtr-to-Air HP Gas Backup-AutogeneratedPLFCurve, !- Name
+  0.833746458696111,                      !- Coefficient1 Constant
+  0.166253541303889,                      !- Coefficient2 x
+  0,                                      !- Minimum Value of x
+  1,                                      !- Maximum Value of x
+  0,                                      !- Minimum Curve Output
+  1,                                      !- Maximum Curve Output
+  Dimensionless,                          !- Input Unit Type for X
+  Dimensionless;                          !- Output Unit Type
 
 OS:ZoneHVAC:WaterToAirHeatPump,
   {394ba612-67a4-4f6e-9bac-759be77fd28d}, !- Handle
@@ -3879,10 +3938,6 @@ OS:ZoneHVAC:WaterToAirHeatPump,
   {c947bbf7-a7f6-473b-af51-f5709ab08feb}, !- Supply Air Fan Name
   {54669793-36af-4393-aafe-d99188dfc46f}, !- Heating Coil Name
   {7b550b0c-a709-4422-8f21-690b52ad8519}, !- Cooling Coil Name
-  ,                                       !- Maximum Cycling Rate {cycles/hr}
-  ,                                       !- Heat Pump Time Constant {s}
-  ,                                       !- Fraction of On-Cycle Power Use
-  ,                                       !- Heat Pump Fan Delay Time {s}
   {b746d8a5-fbfd-4d6a-a703-0ca20ab0ba53}, !- Supplemental Heating Coil Name
   Autosize,                               !- Maximum Supply Air Temperature from Supplemental Heater {C}
   ,                                       !- Maximum Outdoor Dry-Bulb Temperature for Supplemental Heater Operation {C}
@@ -3890,6 +3945,18 @@ OS:ZoneHVAC:WaterToAirHeatPump,
   ,                                       !- Fan Placement
   ,                                       !- Supply Air Fan Operating Mode Schedule Name
   ;                                       !- Availability Manager List Name
+
+OS:Curve:Linear,
+  {ee3b8796-427d-41cb-b097-080c37e32ff7}, !- Handle
+  Wtr-to-Air HP HW Backup-AutogeneratedPLFCurve, !- Name
+  0.833746458696111,                      !- Coefficient1 Constant
+  0.166253541303889,                      !- Coefficient2 x
+  0,                                      !- Minimum Value of x
+  1,                                      !- Maximum Value of x
+  0,                                      !- Minimum Curve Output
+  1,                                      !- Maximum Curve Output
+  Dimensionless,                          !- Input Unit Type for X
+  Dimensionless;                          !- Output Unit Type
 
 OS:Coil:Heating:DX:SingleSpeed,
   {36ce71b0-4d19-4604-8dc5-5103bd97703e}, !- Handle
@@ -3911,6 +3978,7 @@ OS:Coil:Heating:DX:SingleSpeed,
   ,                                       !- Minimum Outdoor Dry-Bulb Temperature for Compressor Operation {C}
   ,                                       !- Maximum Outdoor Dry-Bulb Temperature for Defrost Operation {C}
   ,                                       !- Crankcase Heater Capacity {W}
+  ,                                       !- Crankcase Heater Capacity Function of Temperature Curve Name
   ,                                       !- Maximum Outdoor Dry-Bulb Temperature for Crankcase Heater Operation {C}
   Resistive,                              !- Defrost Strategy
   Timed,                                  !- Defrost Control
@@ -4275,6 +4343,7 @@ OS:GroundHeatExchanger:Vertical,
   0.0253977,                              !- U-Tube Distance {m}
   0.00241285,                             !- Pipe Thickness {m}
   2,                                      !- Maximum Length of Simulation
+  {7e025ef8-38ae-47f3-b769-b6b74ad912bf}, !- Undisturbed Ground Temperature Model
   0.0005,                                 !- G-Function Reference Ratio {dimensionless}
   -15.2996,                               !- G-Function Ln(T/Ts) Value 1
   -0.348322,                              !- G-Function G Value 1
@@ -4347,6 +4416,16 @@ OS:GroundHeatExchanger:Vertical,
   3.003,                                  !- G-Function Ln(T/Ts) Value 35
   72.511;                                 !- G-Function G Value 35
 
+OS:Site:GroundTemperature:Undisturbed:KusudaAchenbach,
+  {7e025ef8-38ae-47f3-b769-b6b74ad912bf}, !- Handle
+  Site Ground Temperature Undisturbed Kusuda Achenbach 1, !- Name
+  0.692626,                               !- Soil Thermal Conductivity {W/m-K}
+  920,                                    !- Soil Density {kg/m3}
+  2551.08695652174,                       !- Soil Specific Heat {J/kg-K}
+  13.375,                                 !- Average Soil Surface Temperature {C}
+  3.2,                                    !- Average Amplitude of Surface Temperature {deltaC}
+  8;                                      !- Phase Shift of Minimum Surface Temperature {days}
+
 OS:GroundHeatExchanger:HorizontalTrench,
   {a169f9ac-6a1c-47cd-bd5d-b3736e7279b3}, !- Handle
   Horizontal Ground HX,                   !- Name
@@ -4372,7 +4451,7 @@ OS:GroundHeatExchanger:HorizontalTrench,
 
 OS:Site:GroundTemperature:Undisturbed:KusudaAchenbach,
   {23f697fa-8913-4915-afb4-c9c1987af373}, !- Handle
-  Site Ground Temperature Undisturbed Kusuda Achenbach 1, !- Name
+  Site Ground Temperature Undisturbed Kusuda Achenbach 2, !- Name
   1.08,                                   !- Soil Thermal Conductivity {W/m-K}
   962,                                    !- Soil Density {kg/m3}
   2576,                                   !- Soil Specific Heat {J/kg-K}
@@ -5725,18 +5804,18 @@ OS:AirLoopHVAC:UnitarySystem,
   2,                                      !- DOAS DX Cooling Coil Leaving Minimum Air Temperature {C}
   SensibleOnlyLoadControl,                !- Latent Load Control
   {57df53a7-30bb-453a-941d-18fe5d4b36a0}, !- Supplemental Heating Coil Name
-  ,                                       !- Supply Air Flow Rate Method During Cooling Operation
+  SupplyAirFlowRate,                      !- Supply Air Flow Rate Method During Cooling Operation
   autosize,                               !- Supply Air Flow Rate During Cooling Operation {m3/s}
   ,                                       !- Supply Air Flow Rate Per Floor Area During Cooling Operation {m3/s-m2}
   ,                                       !- Fraction of Autosized Design Cooling Supply Air Flow Rate
   ,                                       !- Design Supply Air Flow Rate Per Unit of Capacity During Cooling Operation {m3/s-W}
-  ,                                       !- Supply Air Flow Rate Method During Heating Operation
+  SupplyAirFlowRate,                      !- Supply Air Flow Rate Method During Heating Operation
   autosize,                               !- Supply Air Flow Rate During Heating Operation {m3/s}
   ,                                       !- Supply Air Flow Rate Per Floor Area during Heating Operation {m3/s-m2}
   ,                                       !- Fraction of Autosized Design Heating Supply Air Flow Rate
   ,                                       !- Design Supply Air Flow Rate Per Unit of Capacity During Heating Operation {m3/s-W}
-  ,                                       !- Supply Air Flow Rate Method When No Cooling or Heating is Required
-  autosize,                               !- Supply Air Flow Rate When No Cooling or Heating is Required {m3/s}
+  None,                                   !- Supply Air Flow Rate Method When No Cooling or Heating is Required
+  ,                                       !- Supply Air Flow Rate When No Cooling or Heating is Required {m3/s}
   ,                                       !- Supply Air Flow Rate Per Floor Area When No Cooling or Heating is Required {m3/s-m2}
   ,                                       !- Fraction of Autosized Design Cooling Supply Air Flow Rate When No Cooling or Heating is Required
   ,                                       !- Fraction of Autosized Design Heating Supply Air Flow Rate When No Cooling or Heating is Required
@@ -5745,10 +5824,6 @@ OS:AirLoopHVAC:UnitarySystem,
   80,                                     !- Maximum Supply Air Temperature {C}
   21,                                     !- Maximum Outdoor Dry-Bulb Temperature for Supplemental Heater Operation {C}
   ,                                       !- Outdoor Dry-Bulb Temperature Sensor Node Name
-  2.5,                                    !- Maximum Cycling Rate {cycles/hr}
-  60,                                     !- Heat Pump Time Constant {s}
-  0.01,                                   !- Fraction of On-Cycle Power Use
-  60,                                     !- Heat Pump Fan Delay Time {s}
   0,                                      !- Ancilliary On-Cycle Electric Power {W}
   0,                                      !- Ancilliary Off-Cycle Electric Power {W}
   ,                                       !- Design Heat Recovery Water Flow Rate {m3/s}
@@ -5819,6 +5894,7 @@ OS:Coil:Cooling:DX:SingleSpeed,
   Autosize,                               !- Evaporative Condenser Air Flow Rate {m3/s}
   Autosize,                               !- Evaporative Condenser Pump Rated Power Consumption {W}
   0,                                      !- Crankcase Heater Capacity {W}
+  ,                                       !- Crankcase Heater Capacity Function of Temperature Curve Name
   0,                                      !- Maximum Outdoor Dry-Bulb Temperature for Crankcase Heater Operation {C}
   ,                                       !- Supply Water Storage Tank Name
   ,                                       !- Condensate Collection Water Storage Tank Name
@@ -5846,6 +5922,7 @@ OS:Coil:Heating:DX:SingleSpeed,
   ,                                       !- Minimum Outdoor Dry-Bulb Temperature for Compressor Operation {C}
   ,                                       !- Maximum Outdoor Dry-Bulb Temperature for Defrost Operation {C}
   ,                                       !- Crankcase Heater Capacity {W}
+  ,                                       !- Crankcase Heater Capacity Function of Temperature Curve Name
   ,                                       !- Maximum Outdoor Dry-Bulb Temperature for Crankcase Heater Operation {C}
   Resistive,                              !- Defrost Strategy
   Timed,                                  !- Defrost Control
@@ -5983,18 +6060,18 @@ OS:AirLoopHVAC:UnitarySystem,
   2,                                      !- DOAS DX Cooling Coil Leaving Minimum Air Temperature {C}
   SensibleOnlyLoadControl,                !- Latent Load Control
   {437d9440-29e7-4af5-9ff9-6c92ef409db9}, !- Supplemental Heating Coil Name
-  ,                                       !- Supply Air Flow Rate Method During Cooling Operation
+  SupplyAirFlowRate,                      !- Supply Air Flow Rate Method During Cooling Operation
   autosize,                               !- Supply Air Flow Rate During Cooling Operation {m3/s}
   ,                                       !- Supply Air Flow Rate Per Floor Area During Cooling Operation {m3/s-m2}
   ,                                       !- Fraction of Autosized Design Cooling Supply Air Flow Rate
   ,                                       !- Design Supply Air Flow Rate Per Unit of Capacity During Cooling Operation {m3/s-W}
-  ,                                       !- Supply Air Flow Rate Method During Heating Operation
+  SupplyAirFlowRate,                      !- Supply Air Flow Rate Method During Heating Operation
   autosize,                               !- Supply Air Flow Rate During Heating Operation {m3/s}
   ,                                       !- Supply Air Flow Rate Per Floor Area during Heating Operation {m3/s-m2}
   ,                                       !- Fraction of Autosized Design Heating Supply Air Flow Rate
   ,                                       !- Design Supply Air Flow Rate Per Unit of Capacity During Heating Operation {m3/s-W}
-  ,                                       !- Supply Air Flow Rate Method When No Cooling or Heating is Required
-  autosize,                               !- Supply Air Flow Rate When No Cooling or Heating is Required {m3/s}
+  None,                                   !- Supply Air Flow Rate Method When No Cooling or Heating is Required
+  ,                                       !- Supply Air Flow Rate When No Cooling or Heating is Required {m3/s}
   ,                                       !- Supply Air Flow Rate Per Floor Area When No Cooling or Heating is Required {m3/s-m2}
   ,                                       !- Fraction of Autosized Design Cooling Supply Air Flow Rate When No Cooling or Heating is Required
   ,                                       !- Fraction of Autosized Design Heating Supply Air Flow Rate When No Cooling or Heating is Required
@@ -6003,10 +6080,6 @@ OS:AirLoopHVAC:UnitarySystem,
   80,                                     !- Maximum Supply Air Temperature {C}
   21,                                     !- Maximum Outdoor Dry-Bulb Temperature for Supplemental Heater Operation {C}
   ,                                       !- Outdoor Dry-Bulb Temperature Sensor Node Name
-  2.5,                                    !- Maximum Cycling Rate {cycles/hr}
-  60,                                     !- Heat Pump Time Constant {s}
-  0.01,                                   !- Fraction of On-Cycle Power Use
-  60,                                     !- Heat Pump Fan Delay Time {s}
   0,                                      !- Ancilliary On-Cycle Electric Power {W}
   0,                                      !- Ancilliary Off-Cycle Electric Power {W}
   ,                                       !- Design Heat Recovery Water Flow Rate {m3/s}
@@ -6057,6 +6130,8 @@ OS:Coil:Cooling:DX:TwoSpeed,
   Autosize,                               !- Rated High Speed Sensible Heat Ratio
   3,                                      !- Rated High Speed COP {W/W}
   Autosize,                               !- Rated High Speed Air Flow Rate {m3/s}
+  773.3,                                  !- Rated High Speed Evaporator Fan Power Per Volume Flow Rate 2017 {W/(m3/s)}
+  934.4,                                  !- Rated High Speed Evaporator Fan Power Per Volume Flow Rate 2023 {W/(m3/s)}
   773.3,                                  !- Unit Internal Static Air Pressure {Pa}
   ,                                       !- Air Inlet Node Name
   ,                                       !- Air Outlet Node Name
@@ -6069,6 +6144,8 @@ OS:Coil:Cooling:DX:TwoSpeed,
   Autosize,                               !- Rated Low Speed Sensible Heat Ratio
   3,                                      !- Rated Low Speed COP {W/W}
   ,                                       !- Rated Low Speed Air Flow Rate {m3/s}
+  773.3,                                  !- Rated Low Speed Evaporator Fan Power Per Volume Flow Rate 2017 {W/(m3/s)}
+  934.4,                                  !- Rated Low Speed Evaporator Fan Power Per Volume Flow Rate 2023 {W/(m3/s)}
   {55d48a87-0dec-40f2-8021-87ae5f5e6675}, !- Low Speed Total Cooling Capacity Function of Temperature Curve Name
   {89ce9122-836f-48b1-9d99-98826d8cb994}, !- Low Speed Energy Input Ratio Function of Temperature Curve Name
   ,                                       !- Condenser Air Inlet Node Name
@@ -6106,6 +6183,7 @@ OS:Coil:Heating:DX:SingleSpeed,
   ,                                       !- Minimum Outdoor Dry-Bulb Temperature for Compressor Operation {C}
   ,                                       !- Maximum Outdoor Dry-Bulb Temperature for Defrost Operation {C}
   ,                                       !- Crankcase Heater Capacity {W}
+  ,                                       !- Crankcase Heater Capacity Function of Temperature Curve Name
   ,                                       !- Maximum Outdoor Dry-Bulb Temperature for Crankcase Heater Operation {C}
   Resistive,                              !- Defrost Strategy
   Timed,                                  !- Defrost Control
@@ -6271,18 +6349,18 @@ OS:AirLoopHVAC:UnitarySystem,
   2,                                      !- DOAS DX Cooling Coil Leaving Minimum Air Temperature {C}
   SensibleOnlyLoadControl,                !- Latent Load Control
   {d0e9d3e3-c0cd-4c2e-82b4-a7c64f5801b8}, !- Supplemental Heating Coil Name
-  ,                                       !- Supply Air Flow Rate Method During Cooling Operation
+  SupplyAirFlowRate,                      !- Supply Air Flow Rate Method During Cooling Operation
   autosize,                               !- Supply Air Flow Rate During Cooling Operation {m3/s}
   ,                                       !- Supply Air Flow Rate Per Floor Area During Cooling Operation {m3/s-m2}
   ,                                       !- Fraction of Autosized Design Cooling Supply Air Flow Rate
   ,                                       !- Design Supply Air Flow Rate Per Unit of Capacity During Cooling Operation {m3/s-W}
-  ,                                       !- Supply Air Flow Rate Method During Heating Operation
+  SupplyAirFlowRate,                      !- Supply Air Flow Rate Method During Heating Operation
   autosize,                               !- Supply Air Flow Rate During Heating Operation {m3/s}
   ,                                       !- Supply Air Flow Rate Per Floor Area during Heating Operation {m3/s-m2}
   ,                                       !- Fraction of Autosized Design Heating Supply Air Flow Rate
   ,                                       !- Design Supply Air Flow Rate Per Unit of Capacity During Heating Operation {m3/s-W}
-  ,                                       !- Supply Air Flow Rate Method When No Cooling or Heating is Required
-  autosize,                               !- Supply Air Flow Rate When No Cooling or Heating is Required {m3/s}
+  None,                                   !- Supply Air Flow Rate Method When No Cooling or Heating is Required
+  ,                                       !- Supply Air Flow Rate When No Cooling or Heating is Required {m3/s}
   ,                                       !- Supply Air Flow Rate Per Floor Area When No Cooling or Heating is Required {m3/s-m2}
   ,                                       !- Fraction of Autosized Design Cooling Supply Air Flow Rate When No Cooling or Heating is Required
   ,                                       !- Fraction of Autosized Design Heating Supply Air Flow Rate When No Cooling or Heating is Required
@@ -6291,10 +6369,6 @@ OS:AirLoopHVAC:UnitarySystem,
   80,                                     !- Maximum Supply Air Temperature {C}
   21,                                     !- Maximum Outdoor Dry-Bulb Temperature for Supplemental Heater Operation {C}
   ,                                       !- Outdoor Dry-Bulb Temperature Sensor Node Name
-  2.5,                                    !- Maximum Cycling Rate {cycles/hr}
-  60,                                     !- Heat Pump Time Constant {s}
-  0.01,                                   !- Fraction of On-Cycle Power Use
-  60,                                     !- Heat Pump Fan Delay Time {s}
   0,                                      !- Ancilliary On-Cycle Electric Power {W}
   0,                                      !- Ancilliary Off-Cycle Electric Power {W}
   ,                                       !- Design Heat Recovery Water Flow Rate {m3/s}
@@ -6345,6 +6419,8 @@ OS:Coil:Cooling:DX:TwoSpeed,
   Autosize,                               !- Rated High Speed Sensible Heat Ratio
   3,                                      !- Rated High Speed COP {W/W}
   Autosize,                               !- Rated High Speed Air Flow Rate {m3/s}
+  773.3,                                  !- Rated High Speed Evaporator Fan Power Per Volume Flow Rate 2017 {W/(m3/s)}
+  934.4,                                  !- Rated High Speed Evaporator Fan Power Per Volume Flow Rate 2023 {W/(m3/s)}
   773.3,                                  !- Unit Internal Static Air Pressure {Pa}
   ,                                       !- Air Inlet Node Name
   ,                                       !- Air Outlet Node Name
@@ -6357,6 +6433,8 @@ OS:Coil:Cooling:DX:TwoSpeed,
   Autosize,                               !- Rated Low Speed Sensible Heat Ratio
   3,                                      !- Rated Low Speed COP {W/W}
   ,                                       !- Rated Low Speed Air Flow Rate {m3/s}
+  773.3,                                  !- Rated Low Speed Evaporator Fan Power Per Volume Flow Rate 2017 {W/(m3/s)}
+  934.4,                                  !- Rated Low Speed Evaporator Fan Power Per Volume Flow Rate 2023 {W/(m3/s)}
   {f058a48b-de2e-467a-b6f2-6abf002ba66e}, !- Low Speed Total Cooling Capacity Function of Temperature Curve Name
   {d0978886-f1be-46cc-87f1-321093763dec}, !- Low Speed Energy Input Ratio Function of Temperature Curve Name
   ,                                       !- Condenser Air Inlet Node Name
@@ -6466,9 +6544,9 @@ OS:Coil:Heating:Gas,
   ,                                       !- Air Inlet Node Name
   ,                                       !- Air Outlet Node Name
   ,                                       !- Temperature Setpoint Node Name
-  0,                                      !- Parasitic Electric Load {W}
+  0,                                      !- On Cycle Parasitic Electric Load {W}
   ,                                       !- Part Load Fraction Correlation Curve Name
-  0;                                      !- Parasitic Gas Load {W}
+  0;                                      !- Off Cycle Parasitic Gas Load {W}
 
 OS:Coil:Heating:Electric,
   {d0e9d3e3-c0cd-4c2e-82b4-a7c64f5801b8}, !- Handle
@@ -6498,18 +6576,18 @@ OS:AirLoopHVAC:UnitarySystem,
   2,                                      !- DOAS DX Cooling Coil Leaving Minimum Air Temperature {C}
   SensibleOnlyLoadControl,                !- Latent Load Control
   {85d6c234-b976-4655-8f65-58ed0a4daced}, !- Supplemental Heating Coil Name
-  ,                                       !- Supply Air Flow Rate Method During Cooling Operation
+  SupplyAirFlowRate,                      !- Supply Air Flow Rate Method During Cooling Operation
   autosize,                               !- Supply Air Flow Rate During Cooling Operation {m3/s}
   ,                                       !- Supply Air Flow Rate Per Floor Area During Cooling Operation {m3/s-m2}
   ,                                       !- Fraction of Autosized Design Cooling Supply Air Flow Rate
   ,                                       !- Design Supply Air Flow Rate Per Unit of Capacity During Cooling Operation {m3/s-W}
-  ,                                       !- Supply Air Flow Rate Method During Heating Operation
+  SupplyAirFlowRate,                      !- Supply Air Flow Rate Method During Heating Operation
   autosize,                               !- Supply Air Flow Rate During Heating Operation {m3/s}
   ,                                       !- Supply Air Flow Rate Per Floor Area during Heating Operation {m3/s-m2}
   ,                                       !- Fraction of Autosized Design Heating Supply Air Flow Rate
   ,                                       !- Design Supply Air Flow Rate Per Unit of Capacity During Heating Operation {m3/s-W}
-  ,                                       !- Supply Air Flow Rate Method When No Cooling or Heating is Required
-  autosize,                               !- Supply Air Flow Rate When No Cooling or Heating is Required {m3/s}
+  None,                                   !- Supply Air Flow Rate Method When No Cooling or Heating is Required
+  ,                                       !- Supply Air Flow Rate When No Cooling or Heating is Required {m3/s}
   ,                                       !- Supply Air Flow Rate Per Floor Area When No Cooling or Heating is Required {m3/s-m2}
   ,                                       !- Fraction of Autosized Design Cooling Supply Air Flow Rate When No Cooling or Heating is Required
   ,                                       !- Fraction of Autosized Design Heating Supply Air Flow Rate When No Cooling or Heating is Required
@@ -6518,10 +6596,6 @@ OS:AirLoopHVAC:UnitarySystem,
   80,                                     !- Maximum Supply Air Temperature {C}
   21,                                     !- Maximum Outdoor Dry-Bulb Temperature for Supplemental Heater Operation {C}
   ,                                       !- Outdoor Dry-Bulb Temperature Sensor Node Name
-  2.5,                                    !- Maximum Cycling Rate {cycles/hr}
-  60,                                     !- Heat Pump Time Constant {s}
-  0.01,                                   !- Fraction of On-Cycle Power Use
-  60,                                     !- Heat Pump Fan Delay Time {s}
   0,                                      !- Ancilliary On-Cycle Electric Power {W}
   0,                                      !- Ancilliary Off-Cycle Electric Power {W}
   ,                                       !- Design Heat Recovery Water Flow Rate {m3/s}
@@ -6572,6 +6646,8 @@ OS:Coil:Cooling:DX:TwoSpeed,
   Autosize,                               !- Rated High Speed Sensible Heat Ratio
   3,                                      !- Rated High Speed COP {W/W}
   Autosize,                               !- Rated High Speed Air Flow Rate {m3/s}
+  773.3,                                  !- Rated High Speed Evaporator Fan Power Per Volume Flow Rate 2017 {W/(m3/s)}
+  934.4,                                  !- Rated High Speed Evaporator Fan Power Per Volume Flow Rate 2023 {W/(m3/s)}
   773.3,                                  !- Unit Internal Static Air Pressure {Pa}
   ,                                       !- Air Inlet Node Name
   ,                                       !- Air Outlet Node Name
@@ -6584,6 +6660,8 @@ OS:Coil:Cooling:DX:TwoSpeed,
   Autosize,                               !- Rated Low Speed Sensible Heat Ratio
   3,                                      !- Rated Low Speed COP {W/W}
   ,                                       !- Rated Low Speed Air Flow Rate {m3/s}
+  773.3,                                  !- Rated Low Speed Evaporator Fan Power Per Volume Flow Rate 2017 {W/(m3/s)}
+  934.4,                                  !- Rated Low Speed Evaporator Fan Power Per Volume Flow Rate 2023 {W/(m3/s)}
   {869b9051-2792-4170-a9db-1d574997486c}, !- Low Speed Total Cooling Capacity Function of Temperature Curve Name
   {9103a3af-2e8e-4ec0-8e0e-8f7c2a31720a}, !- Low Speed Energy Input Ratio Function of Temperature Curve Name
   ,                                       !- Condenser Air Inlet Node Name
@@ -6721,18 +6799,18 @@ OS:AirLoopHVAC:UnitarySystem,
   2,                                      !- DOAS DX Cooling Coil Leaving Minimum Air Temperature {C}
   SensibleOnlyLoadControl,                !- Latent Load Control
   {869e1094-36fc-47cb-a478-acdc192d049d}, !- Supplemental Heating Coil Name
-  ,                                       !- Supply Air Flow Rate Method During Cooling Operation
+  SupplyAirFlowRate,                      !- Supply Air Flow Rate Method During Cooling Operation
   autosize,                               !- Supply Air Flow Rate During Cooling Operation {m3/s}
   ,                                       !- Supply Air Flow Rate Per Floor Area During Cooling Operation {m3/s-m2}
   ,                                       !- Fraction of Autosized Design Cooling Supply Air Flow Rate
   ,                                       !- Design Supply Air Flow Rate Per Unit of Capacity During Cooling Operation {m3/s-W}
-  ,                                       !- Supply Air Flow Rate Method During Heating Operation
+  SupplyAirFlowRate,                      !- Supply Air Flow Rate Method During Heating Operation
   autosize,                               !- Supply Air Flow Rate During Heating Operation {m3/s}
   ,                                       !- Supply Air Flow Rate Per Floor Area during Heating Operation {m3/s-m2}
   ,                                       !- Fraction of Autosized Design Heating Supply Air Flow Rate
   ,                                       !- Design Supply Air Flow Rate Per Unit of Capacity During Heating Operation {m3/s-W}
-  ,                                       !- Supply Air Flow Rate Method When No Cooling or Heating is Required
-  autosize,                               !- Supply Air Flow Rate When No Cooling or Heating is Required {m3/s}
+  None,                                   !- Supply Air Flow Rate Method When No Cooling or Heating is Required
+  ,                                       !- Supply Air Flow Rate When No Cooling or Heating is Required {m3/s}
   ,                                       !- Supply Air Flow Rate Per Floor Area When No Cooling or Heating is Required {m3/s-m2}
   ,                                       !- Fraction of Autosized Design Cooling Supply Air Flow Rate When No Cooling or Heating is Required
   ,                                       !- Fraction of Autosized Design Heating Supply Air Flow Rate When No Cooling or Heating is Required
@@ -6741,10 +6819,6 @@ OS:AirLoopHVAC:UnitarySystem,
   80,                                     !- Maximum Supply Air Temperature {C}
   21,                                     !- Maximum Outdoor Dry-Bulb Temperature for Supplemental Heater Operation {C}
   ,                                       !- Outdoor Dry-Bulb Temperature Sensor Node Name
-  2.5,                                    !- Maximum Cycling Rate {cycles/hr}
-  60,                                     !- Heat Pump Time Constant {s}
-  0.01,                                   !- Fraction of On-Cycle Power Use
-  60,                                     !- Heat Pump Fan Delay Time {s}
   0,                                      !- Ancilliary On-Cycle Electric Power {W}
   0,                                      !- Ancilliary Off-Cycle Electric Power {W}
   ,                                       !- Design Heat Recovery Water Flow Rate {m3/s}
@@ -6815,6 +6889,7 @@ OS:Coil:Cooling:DX:SingleSpeed,
   Autosize,                               !- Evaporative Condenser Air Flow Rate {m3/s}
   Autosize,                               !- Evaporative Condenser Pump Rated Power Consumption {W}
   0,                                      !- Crankcase Heater Capacity {W}
+  ,                                       !- Crankcase Heater Capacity Function of Temperature Curve Name
   0,                                      !- Maximum Outdoor Dry-Bulb Temperature for Crankcase Heater Operation {C}
   ,                                       !- Supply Water Storage Tank Name
   ,                                       !- Condensate Collection Water Storage Tank Name
@@ -6914,18 +6989,18 @@ OS:AirLoopHVAC:UnitarySystem,
   2,                                      !- DOAS DX Cooling Coil Leaving Minimum Air Temperature {C}
   SensibleOnlyLoadControl,                !- Latent Load Control
   {9d0e8ad8-dd64-48db-b8ed-fc443ea25d88}, !- Supplemental Heating Coil Name
-  ,                                       !- Supply Air Flow Rate Method During Cooling Operation
+  SupplyAirFlowRate,                      !- Supply Air Flow Rate Method During Cooling Operation
   autosize,                               !- Supply Air Flow Rate During Cooling Operation {m3/s}
   ,                                       !- Supply Air Flow Rate Per Floor Area During Cooling Operation {m3/s-m2}
   ,                                       !- Fraction of Autosized Design Cooling Supply Air Flow Rate
   ,                                       !- Design Supply Air Flow Rate Per Unit of Capacity During Cooling Operation {m3/s-W}
-  ,                                       !- Supply Air Flow Rate Method During Heating Operation
+  SupplyAirFlowRate,                      !- Supply Air Flow Rate Method During Heating Operation
   autosize,                               !- Supply Air Flow Rate During Heating Operation {m3/s}
   ,                                       !- Supply Air Flow Rate Per Floor Area during Heating Operation {m3/s-m2}
   ,                                       !- Fraction of Autosized Design Heating Supply Air Flow Rate
   ,                                       !- Design Supply Air Flow Rate Per Unit of Capacity During Heating Operation {m3/s-W}
-  ,                                       !- Supply Air Flow Rate Method When No Cooling or Heating is Required
-  autosize,                               !- Supply Air Flow Rate When No Cooling or Heating is Required {m3/s}
+  None,                                   !- Supply Air Flow Rate Method When No Cooling or Heating is Required
+  ,                                       !- Supply Air Flow Rate When No Cooling or Heating is Required {m3/s}
   ,                                       !- Supply Air Flow Rate Per Floor Area When No Cooling or Heating is Required {m3/s-m2}
   ,                                       !- Fraction of Autosized Design Cooling Supply Air Flow Rate When No Cooling or Heating is Required
   ,                                       !- Fraction of Autosized Design Heating Supply Air Flow Rate When No Cooling or Heating is Required
@@ -6934,10 +7009,6 @@ OS:AirLoopHVAC:UnitarySystem,
   80,                                     !- Maximum Supply Air Temperature {C}
   21,                                     !- Maximum Outdoor Dry-Bulb Temperature for Supplemental Heater Operation {C}
   ,                                       !- Outdoor Dry-Bulb Temperature Sensor Node Name
-  2.5,                                    !- Maximum Cycling Rate {cycles/hr}
-  60,                                     !- Heat Pump Time Constant {s}
-  0.01,                                   !- Fraction of On-Cycle Power Use
-  60,                                     !- Heat Pump Fan Delay Time {s}
   0,                                      !- Ancilliary On-Cycle Electric Power {W}
   0,                                      !- Ancilliary Off-Cycle Electric Power {W}
   ,                                       !- Design Heat Recovery Water Flow Rate {m3/s}
@@ -7008,6 +7079,7 @@ OS:Coil:Cooling:DX:SingleSpeed,
   Autosize,                               !- Evaporative Condenser Air Flow Rate {m3/s}
   Autosize,                               !- Evaporative Condenser Pump Rated Power Consumption {W}
   0,                                      !- Crankcase Heater Capacity {W}
+  ,                                       !- Crankcase Heater Capacity Function of Temperature Curve Name
   0,                                      !- Maximum Outdoor Dry-Bulb Temperature for Crankcase Heater Operation {C}
   ,                                       !- Supply Water Storage Tank Name
   ,                                       !- Condensate Collection Water Storage Tank Name
@@ -7079,9 +7151,9 @@ OS:Coil:Heating:Gas,
   ,                                       !- Air Inlet Node Name
   ,                                       !- Air Outlet Node Name
   ,                                       !- Temperature Setpoint Node Name
-  0,                                      !- Parasitic Electric Load {W}
+  0,                                      !- On Cycle Parasitic Electric Load {W}
   ,                                       !- Part Load Fraction Correlation Curve Name
-  0;                                      !- Parasitic Gas Load {W}
+  0;                                      !- Off Cycle Parasitic Gas Load {W}
 
 OS:Coil:Heating:Electric,
   {9d0e8ad8-dd64-48db-b8ed-fc443ea25d88}, !- Handle
@@ -7111,18 +7183,18 @@ OS:AirLoopHVAC:UnitarySystem,
   2,                                      !- DOAS DX Cooling Coil Leaving Minimum Air Temperature {C}
   SensibleOnlyLoadControl,                !- Latent Load Control
   {9d257113-f0f3-4525-989f-2372283f7ced}, !- Supplemental Heating Coil Name
-  ,                                       !- Supply Air Flow Rate Method During Cooling Operation
+  SupplyAirFlowRate,                      !- Supply Air Flow Rate Method During Cooling Operation
   autosize,                               !- Supply Air Flow Rate During Cooling Operation {m3/s}
   ,                                       !- Supply Air Flow Rate Per Floor Area During Cooling Operation {m3/s-m2}
   ,                                       !- Fraction of Autosized Design Cooling Supply Air Flow Rate
   ,                                       !- Design Supply Air Flow Rate Per Unit of Capacity During Cooling Operation {m3/s-W}
-  ,                                       !- Supply Air Flow Rate Method During Heating Operation
+  SupplyAirFlowRate,                      !- Supply Air Flow Rate Method During Heating Operation
   autosize,                               !- Supply Air Flow Rate During Heating Operation {m3/s}
   ,                                       !- Supply Air Flow Rate Per Floor Area during Heating Operation {m3/s-m2}
   ,                                       !- Fraction of Autosized Design Heating Supply Air Flow Rate
   ,                                       !- Design Supply Air Flow Rate Per Unit of Capacity During Heating Operation {m3/s-W}
-  ,                                       !- Supply Air Flow Rate Method When No Cooling or Heating is Required
-  autosize,                               !- Supply Air Flow Rate When No Cooling or Heating is Required {m3/s}
+  None,                                   !- Supply Air Flow Rate Method When No Cooling or Heating is Required
+  ,                                       !- Supply Air Flow Rate When No Cooling or Heating is Required {m3/s}
   ,                                       !- Supply Air Flow Rate Per Floor Area When No Cooling or Heating is Required {m3/s-m2}
   ,                                       !- Fraction of Autosized Design Cooling Supply Air Flow Rate When No Cooling or Heating is Required
   ,                                       !- Fraction of Autosized Design Heating Supply Air Flow Rate When No Cooling or Heating is Required
@@ -7131,10 +7203,6 @@ OS:AirLoopHVAC:UnitarySystem,
   80,                                     !- Maximum Supply Air Temperature {C}
   21,                                     !- Maximum Outdoor Dry-Bulb Temperature for Supplemental Heater Operation {C}
   ,                                       !- Outdoor Dry-Bulb Temperature Sensor Node Name
-  2.5,                                    !- Maximum Cycling Rate {cycles/hr}
-  60,                                     !- Heat Pump Time Constant {s}
-  0.01,                                   !- Fraction of On-Cycle Power Use
-  60,                                     !- Heat Pump Fan Delay Time {s}
   0,                                      !- Ancilliary On-Cycle Electric Power {W}
   0,                                      !- Ancilliary Off-Cycle Electric Power {W}
   ,                                       !- Design Heat Recovery Water Flow Rate {m3/s}
@@ -7237,18 +7305,18 @@ OS:AirLoopHVAC:UnitarySystem,
   2,                                      !- DOAS DX Cooling Coil Leaving Minimum Air Temperature {C}
   SensibleOnlyLoadControl,                !- Latent Load Control
   {f548e6b4-1452-4e34-8cee-61a11e92e8d1}, !- Supplemental Heating Coil Name
-  ,                                       !- Supply Air Flow Rate Method During Cooling Operation
+  SupplyAirFlowRate,                      !- Supply Air Flow Rate Method During Cooling Operation
   autosize,                               !- Supply Air Flow Rate During Cooling Operation {m3/s}
   ,                                       !- Supply Air Flow Rate Per Floor Area During Cooling Operation {m3/s-m2}
   ,                                       !- Fraction of Autosized Design Cooling Supply Air Flow Rate
   ,                                       !- Design Supply Air Flow Rate Per Unit of Capacity During Cooling Operation {m3/s-W}
-  ,                                       !- Supply Air Flow Rate Method During Heating Operation
+  SupplyAirFlowRate,                      !- Supply Air Flow Rate Method During Heating Operation
   autosize,                               !- Supply Air Flow Rate During Heating Operation {m3/s}
   ,                                       !- Supply Air Flow Rate Per Floor Area during Heating Operation {m3/s-m2}
   ,                                       !- Fraction of Autosized Design Heating Supply Air Flow Rate
   ,                                       !- Design Supply Air Flow Rate Per Unit of Capacity During Heating Operation {m3/s-W}
-  ,                                       !- Supply Air Flow Rate Method When No Cooling or Heating is Required
-  autosize,                               !- Supply Air Flow Rate When No Cooling or Heating is Required {m3/s}
+  None,                                   !- Supply Air Flow Rate Method When No Cooling or Heating is Required
+  ,                                       !- Supply Air Flow Rate When No Cooling or Heating is Required {m3/s}
   ,                                       !- Supply Air Flow Rate Per Floor Area When No Cooling or Heating is Required {m3/s-m2}
   ,                                       !- Fraction of Autosized Design Cooling Supply Air Flow Rate When No Cooling or Heating is Required
   ,                                       !- Fraction of Autosized Design Heating Supply Air Flow Rate When No Cooling or Heating is Required
@@ -7257,10 +7325,6 @@ OS:AirLoopHVAC:UnitarySystem,
   80,                                     !- Maximum Supply Air Temperature {C}
   21,                                     !- Maximum Outdoor Dry-Bulb Temperature for Supplemental Heater Operation {C}
   ,                                       !- Outdoor Dry-Bulb Temperature Sensor Node Name
-  2.5,                                    !- Maximum Cycling Rate {cycles/hr}
-  60,                                     !- Heat Pump Time Constant {s}
-  0.01,                                   !- Fraction of On-Cycle Power Use
-  60,                                     !- Heat Pump Fan Delay Time {s}
   0,                                      !- Ancilliary On-Cycle Electric Power {W}
   0,                                      !- Ancilliary Off-Cycle Electric Power {W}
   ,                                       !- Design Heat Recovery Water Flow Rate {m3/s}
@@ -7355,18 +7419,18 @@ OS:AirLoopHVAC:UnitarySystem,
   2,                                      !- DOAS DX Cooling Coil Leaving Minimum Air Temperature {C}
   SensibleOnlyLoadControl,                !- Latent Load Control
   {251f0a6b-debb-4eeb-9f5a-cab558637dcf}, !- Supplemental Heating Coil Name
-  ,                                       !- Supply Air Flow Rate Method During Cooling Operation
+  SupplyAirFlowRate,                      !- Supply Air Flow Rate Method During Cooling Operation
   autosize,                               !- Supply Air Flow Rate During Cooling Operation {m3/s}
   ,                                       !- Supply Air Flow Rate Per Floor Area During Cooling Operation {m3/s-m2}
   ,                                       !- Fraction of Autosized Design Cooling Supply Air Flow Rate
   ,                                       !- Design Supply Air Flow Rate Per Unit of Capacity During Cooling Operation {m3/s-W}
-  ,                                       !- Supply Air Flow Rate Method During Heating Operation
+  SupplyAirFlowRate,                      !- Supply Air Flow Rate Method During Heating Operation
   autosize,                               !- Supply Air Flow Rate During Heating Operation {m3/s}
   ,                                       !- Supply Air Flow Rate Per Floor Area during Heating Operation {m3/s-m2}
   ,                                       !- Fraction of Autosized Design Heating Supply Air Flow Rate
   ,                                       !- Design Supply Air Flow Rate Per Unit of Capacity During Heating Operation {m3/s-W}
-  ,                                       !- Supply Air Flow Rate Method When No Cooling or Heating is Required
-  autosize,                               !- Supply Air Flow Rate When No Cooling or Heating is Required {m3/s}
+  None,                                   !- Supply Air Flow Rate Method When No Cooling or Heating is Required
+  ,                                       !- Supply Air Flow Rate When No Cooling or Heating is Required {m3/s}
   ,                                       !- Supply Air Flow Rate Per Floor Area When No Cooling or Heating is Required {m3/s-m2}
   ,                                       !- Fraction of Autosized Design Cooling Supply Air Flow Rate When No Cooling or Heating is Required
   ,                                       !- Fraction of Autosized Design Heating Supply Air Flow Rate When No Cooling or Heating is Required
@@ -7375,10 +7439,6 @@ OS:AirLoopHVAC:UnitarySystem,
   80,                                     !- Maximum Supply Air Temperature {C}
   21,                                     !- Maximum Outdoor Dry-Bulb Temperature for Supplemental Heater Operation {C}
   ,                                       !- Outdoor Dry-Bulb Temperature Sensor Node Name
-  2.5,                                    !- Maximum Cycling Rate {cycles/hr}
-  60,                                     !- Heat Pump Time Constant {s}
-  0.01,                                   !- Fraction of On-Cycle Power Use
-  60,                                     !- Heat Pump Fan Delay Time {s}
   0,                                      !- Ancilliary On-Cycle Electric Power {W}
   0,                                      !- Ancilliary Off-Cycle Electric Power {W}
   ,                                       !- Design Heat Recovery Water Flow Rate {m3/s}
@@ -7386,6 +7446,18 @@ OS:AirLoopHVAC:UnitarySystem,
   ,                                       !- Heat Recovery Water Inlet Node Name
   ,                                       !- Heat Recovery Water Outlet Node Name
   ;                                       !- Design Specification Multispeed Object Name
+
+OS:Curve:Linear,
+  {ce9139a2-9566-4790-b116-6c10dd466c3c}, !- Handle
+  Unitary - WaterToAir Heat Pump - Cycling - Elec reheat-AutogeneratedPLFCurve, !- Name
+  0.833746458696111,                      !- Coefficient1 Constant
+  0.166253541303889,                      !- Coefficient2 x
+  0,                                      !- Minimum Value of x
+  1,                                      !- Maximum Value of x
+  0,                                      !- Minimum Curve Output
+  1,                                      !- Maximum Curve Output
+  Dimensionless,                          !- Input Unit Type for X
+  Dimensionless;                          !- Output Unit Type
 
 OS:Fan:OnOff,
   {499db098-1af5-4236-8115-51a38ac8163e}, !- Handle
@@ -7439,8 +7511,12 @@ OS:Coil:Cooling:WaterToAirHeatPump:EquationFit,
   {d145ad65-b318-49d6-99ce-1c1416b975c6}, !- Total Cooling Capacity Curve Name
   {fed92a37-e70f-4a7e-8ee3-c4cf5f524681}, !- Sensible Cooling Capacity Curve Name
   {99921d9c-340b-4033-8530-bb0aa36bee1d}, !- Cooling Power Consumption Curve Name
+  {ce9139a2-9566-4790-b116-6c10dd466c3c}, !- Part Load Fraction Correlation Curve Name
   ,                                       !- Nominal Time for Condensate Removal to Begin {s}
-  ;                                       !- Ratio of Initial Moisture Evaporation Rate and Steady State Latent Capacity {dimensionless}
+  ,                                       !- Ratio of Initial Moisture Evaporation Rate and Steady State Latent Capacity {dimensionless}
+  2.5,                                    !- Maximum Cycling Rate {cycles/hr}
+  60,                                     !- Latent Capacity Time Constant {s}
+  60;                                     !- Fan Delay Time {s}
 
 OS:Curve:QuadLinear,
   {d145ad65-b318-49d6-99ce-1c1416b975c6}, !- Handle
@@ -7511,7 +7587,8 @@ OS:Coil:Heating:WaterToAirHeatPump:EquationFit,
   20,                                     !- Rated Entering Air Dry-Bulb Temperature {C}
   1,                                      !- Ratio of Rated Heating Capacity to Rated Cooling Capacity
   {694ad55b-ec7d-4476-a624-e5151cc051eb}, !- Heating Capacity Curve Name
-  {c146ac09-cf40-43e9-ab3b-a98fcbd352bc}; !- Heating Power Consumption Curve Name
+  {c146ac09-cf40-43e9-ab3b-a98fcbd352bc}, !- Heating Power Consumption Curve Name
+  {ce9139a2-9566-4790-b116-6c10dd466c3c}; !- Part Load Fraction Correlation Curve Name
 
 OS:Curve:QuadLinear,
   {694ad55b-ec7d-4476-a624-e5151cc051eb}, !- Handle
@@ -7575,18 +7652,18 @@ OS:AirLoopHVAC:UnitarySystem,
   2,                                      !- DOAS DX Cooling Coil Leaving Minimum Air Temperature {C}
   SensibleOnlyLoadControl,                !- Latent Load Control
   {88f005e0-271a-449a-b091-3f2dc7cf35be}, !- Supplemental Heating Coil Name
-  ,                                       !- Supply Air Flow Rate Method During Cooling Operation
+  SupplyAirFlowRate,                      !- Supply Air Flow Rate Method During Cooling Operation
   autosize,                               !- Supply Air Flow Rate During Cooling Operation {m3/s}
   ,                                       !- Supply Air Flow Rate Per Floor Area During Cooling Operation {m3/s-m2}
   ,                                       !- Fraction of Autosized Design Cooling Supply Air Flow Rate
   ,                                       !- Design Supply Air Flow Rate Per Unit of Capacity During Cooling Operation {m3/s-W}
-  ,                                       !- Supply Air Flow Rate Method During Heating Operation
-  autosize,                               !- Supply Air Flow Rate During Heating Operation {m3/s}
+  None,                                   !- Supply Air Flow Rate Method During Heating Operation
+  ,                                       !- Supply Air Flow Rate During Heating Operation {m3/s}
   ,                                       !- Supply Air Flow Rate Per Floor Area during Heating Operation {m3/s-m2}
   ,                                       !- Fraction of Autosized Design Heating Supply Air Flow Rate
   ,                                       !- Design Supply Air Flow Rate Per Unit of Capacity During Heating Operation {m3/s-W}
-  ,                                       !- Supply Air Flow Rate Method When No Cooling or Heating is Required
-  autosize,                               !- Supply Air Flow Rate When No Cooling or Heating is Required {m3/s}
+  None,                                   !- Supply Air Flow Rate Method When No Cooling or Heating is Required
+  ,                                       !- Supply Air Flow Rate When No Cooling or Heating is Required {m3/s}
   ,                                       !- Supply Air Flow Rate Per Floor Area When No Cooling or Heating is Required {m3/s-m2}
   ,                                       !- Fraction of Autosized Design Cooling Supply Air Flow Rate When No Cooling or Heating is Required
   ,                                       !- Fraction of Autosized Design Heating Supply Air Flow Rate When No Cooling or Heating is Required
@@ -7595,10 +7672,6 @@ OS:AirLoopHVAC:UnitarySystem,
   80,                                     !- Maximum Supply Air Temperature {C}
   21,                                     !- Maximum Outdoor Dry-Bulb Temperature for Supplemental Heater Operation {C}
   ,                                       !- Outdoor Dry-Bulb Temperature Sensor Node Name
-  2.5,                                    !- Maximum Cycling Rate {cycles/hr}
-  60,                                     !- Heat Pump Time Constant {s}
-  0.01,                                   !- Fraction of On-Cycle Power Use
-  60,                                     !- Heat Pump Fan Delay Time {s}
   0,                                      !- Ancilliary On-Cycle Electric Power {W}
   0,                                      !- Ancilliary Off-Cycle Electric Power {W}
   ,                                       !- Design Heat Recovery Water Flow Rate {m3/s}
@@ -7649,6 +7722,8 @@ OS:Coil:Cooling:DX:TwoSpeed,
   Autosize,                               !- Rated High Speed Sensible Heat Ratio
   3,                                      !- Rated High Speed COP {W/W}
   Autosize,                               !- Rated High Speed Air Flow Rate {m3/s}
+  773.3,                                  !- Rated High Speed Evaporator Fan Power Per Volume Flow Rate 2017 {W/(m3/s)}
+  934.4,                                  !- Rated High Speed Evaporator Fan Power Per Volume Flow Rate 2023 {W/(m3/s)}
   773.3,                                  !- Unit Internal Static Air Pressure {Pa}
   ,                                       !- Air Inlet Node Name
   ,                                       !- Air Outlet Node Name
@@ -7661,6 +7736,8 @@ OS:Coil:Cooling:DX:TwoSpeed,
   Autosize,                               !- Rated Low Speed Sensible Heat Ratio
   3,                                      !- Rated Low Speed COP {W/W}
   ,                                       !- Rated Low Speed Air Flow Rate {m3/s}
+  773.3,                                  !- Rated Low Speed Evaporator Fan Power Per Volume Flow Rate 2017 {W/(m3/s)}
+  934.4,                                  !- Rated Low Speed Evaporator Fan Power Per Volume Flow Rate 2023 {W/(m3/s)}
   {1dcdf837-099e-45d4-907d-8b9774717056}, !- Low Speed Total Cooling Capacity Function of Temperature Curve Name
   {837cfa5e-426c-4e02-900c-499e157f123b}, !- Low Speed Energy Input Ratio Function of Temperature Curve Name
   ,                                       !- Condenser Air Inlet Node Name
@@ -7789,18 +7866,18 @@ OS:AirLoopHVAC:UnitarySystem,
   2,                                      !- DOAS DX Cooling Coil Leaving Minimum Air Temperature {C}
   SensibleOnlyLoadControl,                !- Latent Load Control
   {cbbc9cac-e14e-4540-ae79-93928dad263a}, !- Supplemental Heating Coil Name
-  ,                                       !- Supply Air Flow Rate Method During Cooling Operation
+  SupplyAirFlowRate,                      !- Supply Air Flow Rate Method During Cooling Operation
   autosize,                               !- Supply Air Flow Rate During Cooling Operation {m3/s}
   ,                                       !- Supply Air Flow Rate Per Floor Area During Cooling Operation {m3/s-m2}
   ,                                       !- Fraction of Autosized Design Cooling Supply Air Flow Rate
   ,                                       !- Design Supply Air Flow Rate Per Unit of Capacity During Cooling Operation {m3/s-W}
-  ,                                       !- Supply Air Flow Rate Method During Heating Operation
-  autosize,                               !- Supply Air Flow Rate During Heating Operation {m3/s}
+  None,                                   !- Supply Air Flow Rate Method During Heating Operation
+  ,                                       !- Supply Air Flow Rate During Heating Operation {m3/s}
   ,                                       !- Supply Air Flow Rate Per Floor Area during Heating Operation {m3/s-m2}
   ,                                       !- Fraction of Autosized Design Heating Supply Air Flow Rate
   ,                                       !- Design Supply Air Flow Rate Per Unit of Capacity During Heating Operation {m3/s-W}
-  ,                                       !- Supply Air Flow Rate Method When No Cooling or Heating is Required
-  autosize,                               !- Supply Air Flow Rate When No Cooling or Heating is Required {m3/s}
+  None,                                   !- Supply Air Flow Rate Method When No Cooling or Heating is Required
+  ,                                       !- Supply Air Flow Rate When No Cooling or Heating is Required {m3/s}
   ,                                       !- Supply Air Flow Rate Per Floor Area When No Cooling or Heating is Required {m3/s-m2}
   ,                                       !- Fraction of Autosized Design Cooling Supply Air Flow Rate When No Cooling or Heating is Required
   ,                                       !- Fraction of Autosized Design Heating Supply Air Flow Rate When No Cooling or Heating is Required
@@ -7809,10 +7886,6 @@ OS:AirLoopHVAC:UnitarySystem,
   80,                                     !- Maximum Supply Air Temperature {C}
   21,                                     !- Maximum Outdoor Dry-Bulb Temperature for Supplemental Heater Operation {C}
   ,                                       !- Outdoor Dry-Bulb Temperature Sensor Node Name
-  2.5,                                    !- Maximum Cycling Rate {cycles/hr}
-  60,                                     !- Heat Pump Time Constant {s}
-  0.01,                                   !- Fraction of On-Cycle Power Use
-  60,                                     !- Heat Pump Fan Delay Time {s}
   0,                                      !- Ancilliary On-Cycle Electric Power {W}
   0,                                      !- Ancilliary Off-Cycle Electric Power {W}
   ,                                       !- Design Heat Recovery Water Flow Rate {m3/s}
@@ -7883,6 +7956,7 @@ OS:Coil:Cooling:DX:SingleSpeed,
   Autosize,                               !- Evaporative Condenser Air Flow Rate {m3/s}
   Autosize,                               !- Evaporative Condenser Pump Rated Power Consumption {W}
   0,                                      !- Crankcase Heater Capacity {W}
+  ,                                       !- Crankcase Heater Capacity Function of Temperature Curve Name
   0,                                      !- Maximum Outdoor Dry-Bulb Temperature for Crankcase Heater Operation {C}
   ,                                       !- Supply Water Storage Tank Name
   ,                                       !- Condensate Collection Water Storage Tank Name
@@ -7973,18 +8047,18 @@ OS:AirLoopHVAC:UnitarySystem,
   2,                                      !- DOAS DX Cooling Coil Leaving Minimum Air Temperature {C}
   SensibleOnlyLoadControl,                !- Latent Load Control
   ,                                       !- Supplemental Heating Coil Name
-  ,                                       !- Supply Air Flow Rate Method During Cooling Operation
-  autosize,                               !- Supply Air Flow Rate During Cooling Operation {m3/s}
+  None,                                   !- Supply Air Flow Rate Method During Cooling Operation
+  ,                                       !- Supply Air Flow Rate During Cooling Operation {m3/s}
   ,                                       !- Supply Air Flow Rate Per Floor Area During Cooling Operation {m3/s-m2}
   ,                                       !- Fraction of Autosized Design Cooling Supply Air Flow Rate
   ,                                       !- Design Supply Air Flow Rate Per Unit of Capacity During Cooling Operation {m3/s-W}
-  ,                                       !- Supply Air Flow Rate Method During Heating Operation
+  SupplyAirFlowRate,                      !- Supply Air Flow Rate Method During Heating Operation
   autosize,                               !- Supply Air Flow Rate During Heating Operation {m3/s}
   ,                                       !- Supply Air Flow Rate Per Floor Area during Heating Operation {m3/s-m2}
   ,                                       !- Fraction of Autosized Design Heating Supply Air Flow Rate
   ,                                       !- Design Supply Air Flow Rate Per Unit of Capacity During Heating Operation {m3/s-W}
-  ,                                       !- Supply Air Flow Rate Method When No Cooling or Heating is Required
-  autosize,                               !- Supply Air Flow Rate When No Cooling or Heating is Required {m3/s}
+  None,                                   !- Supply Air Flow Rate Method When No Cooling or Heating is Required
+  ,                                       !- Supply Air Flow Rate When No Cooling or Heating is Required {m3/s}
   ,                                       !- Supply Air Flow Rate Per Floor Area When No Cooling or Heating is Required {m3/s-m2}
   ,                                       !- Fraction of Autosized Design Cooling Supply Air Flow Rate When No Cooling or Heating is Required
   ,                                       !- Fraction of Autosized Design Heating Supply Air Flow Rate When No Cooling or Heating is Required
@@ -7993,10 +8067,6 @@ OS:AirLoopHVAC:UnitarySystem,
   80,                                     !- Maximum Supply Air Temperature {C}
   21,                                     !- Maximum Outdoor Dry-Bulb Temperature for Supplemental Heater Operation {C}
   ,                                       !- Outdoor Dry-Bulb Temperature Sensor Node Name
-  2.5,                                    !- Maximum Cycling Rate {cycles/hr}
-  60,                                     !- Heat Pump Time Constant {s}
-  0.01,                                   !- Fraction of On-Cycle Power Use
-  60,                                     !- Heat Pump Fan Delay Time {s}
   0,                                      !- Ancilliary On-Cycle Electric Power {W}
   0,                                      !- Ancilliary Off-Cycle Electric Power {W}
   ,                                       !- Design Heat Recovery Water Flow Rate {m3/s}
@@ -8067,18 +8137,18 @@ OS:AirLoopHVAC:UnitarySystem,
   2,                                      !- DOAS DX Cooling Coil Leaving Minimum Air Temperature {C}
   SensibleOnlyLoadControl,                !- Latent Load Control
   ,                                       !- Supplemental Heating Coil Name
-  ,                                       !- Supply Air Flow Rate Method During Cooling Operation
-  autosize,                               !- Supply Air Flow Rate During Cooling Operation {m3/s}
+  None,                                   !- Supply Air Flow Rate Method During Cooling Operation
+  ,                                       !- Supply Air Flow Rate During Cooling Operation {m3/s}
   ,                                       !- Supply Air Flow Rate Per Floor Area During Cooling Operation {m3/s-m2}
   ,                                       !- Fraction of Autosized Design Cooling Supply Air Flow Rate
   ,                                       !- Design Supply Air Flow Rate Per Unit of Capacity During Cooling Operation {m3/s-W}
-  ,                                       !- Supply Air Flow Rate Method During Heating Operation
+  SupplyAirFlowRate,                      !- Supply Air Flow Rate Method During Heating Operation
   autosize,                               !- Supply Air Flow Rate During Heating Operation {m3/s}
   ,                                       !- Supply Air Flow Rate Per Floor Area during Heating Operation {m3/s-m2}
   ,                                       !- Fraction of Autosized Design Heating Supply Air Flow Rate
   ,                                       !- Design Supply Air Flow Rate Per Unit of Capacity During Heating Operation {m3/s-W}
-  ,                                       !- Supply Air Flow Rate Method When No Cooling or Heating is Required
-  autosize,                               !- Supply Air Flow Rate When No Cooling or Heating is Required {m3/s}
+  None,                                   !- Supply Air Flow Rate Method When No Cooling or Heating is Required
+  ,                                       !- Supply Air Flow Rate When No Cooling or Heating is Required {m3/s}
   ,                                       !- Supply Air Flow Rate Per Floor Area When No Cooling or Heating is Required {m3/s-m2}
   ,                                       !- Fraction of Autosized Design Cooling Supply Air Flow Rate When No Cooling or Heating is Required
   ,                                       !- Fraction of Autosized Design Heating Supply Air Flow Rate When No Cooling or Heating is Required
@@ -8087,10 +8157,6 @@ OS:AirLoopHVAC:UnitarySystem,
   80,                                     !- Maximum Supply Air Temperature {C}
   21,                                     !- Maximum Outdoor Dry-Bulb Temperature for Supplemental Heater Operation {C}
   ,                                       !- Outdoor Dry-Bulb Temperature Sensor Node Name
-  2.5,                                    !- Maximum Cycling Rate {cycles/hr}
-  60,                                     !- Heat Pump Time Constant {s}
-  0.01,                                   !- Fraction of On-Cycle Power Use
-  60,                                     !- Heat Pump Fan Delay Time {s}
   0,                                      !- Ancilliary On-Cycle Electric Power {W}
   0,                                      !- Ancilliary Off-Cycle Electric Power {W}
   ,                                       !- Design Heat Recovery Water Flow Rate {m3/s}
@@ -8142,9 +8208,9 @@ OS:Coil:Heating:Gas,
   ,                                       !- Air Inlet Node Name
   ,                                       !- Air Outlet Node Name
   ,                                       !- Temperature Setpoint Node Name
-  0,                                      !- Parasitic Electric Load {W}
+  0,                                      !- On Cycle Parasitic Electric Load {W}
   ,                                       !- Part Load Fraction Correlation Curve Name
-  0;                                      !- Parasitic Gas Load {W}
+  0;                                      !- Off Cycle Parasitic Gas Load {W}
 
 OS:HeatExchanger:FluidToFluid,
   {fd491069-c3a7-456d-ae6b-203361d31084}, !- Handle
@@ -8363,9 +8429,9 @@ OS:Coil:Heating:Gas,
   ,                                       !- Air Inlet Node Name
   ,                                       !- Air Outlet Node Name
   ,                                       !- Temperature Setpoint Node Name
-  0,                                      !- Parasitic Electric Load {W}
+  0,                                      !- On Cycle Parasitic Electric Load {W}
   ,                                       !- Part Load Fraction Correlation Curve Name
-  0;                                      !- Parasitic Gas Load {W}
+  0;                                      !- Off Cycle Parasitic Gas Load {W}
 
 OS:AirTerminal:SingleDuct:VAV:HeatAndCool:Reheat,
   {2463f3b9-caea-4f6e-829c-94f1a9182562}, !- Handle
@@ -8434,6 +8500,7 @@ OS:Coil:Cooling:DX:SingleSpeed,
   Autosize,                               !- Evaporative Condenser Air Flow Rate {m3/s}
   Autosize,                               !- Evaporative Condenser Pump Rated Power Consumption {W}
   0,                                      !- Crankcase Heater Capacity {W}
+  ,                                       !- Crankcase Heater Capacity Function of Temperature Curve Name
   0,                                      !- Maximum Outdoor Dry-Bulb Temperature for Crankcase Heater Operation {C}
   ,                                       !- Supply Water Storage Tank Name
   ,                                       !- Condensate Collection Water Storage Tank Name
@@ -8505,9 +8572,9 @@ OS:Coil:Heating:Gas,
   ,                                       !- Air Inlet Node Name
   ,                                       !- Air Outlet Node Name
   ,                                       !- Temperature Setpoint Node Name
-  0,                                      !- Parasitic Electric Load {W}
+  0,                                      !- On Cycle Parasitic Electric Load {W}
   ,                                       !- Part Load Fraction Correlation Curve Name
-  0;                                      !- Parasitic Gas Load {W}
+  0;                                      !- Off Cycle Parasitic Gas Load {W}
 
 OS:Fan:ConstantVolume,
   {5893df9a-65df-4686-bfae-fb4564bef2b9}, !- Handle
@@ -9023,6 +9090,7 @@ OS:Coil:Cooling:DX:SingleSpeed,
   Autosize,                               !- Evaporative Condenser Air Flow Rate {m3/s}
   Autosize,                               !- Evaporative Condenser Pump Rated Power Consumption {W}
   0,                                      !- Crankcase Heater Capacity {W}
+  ,                                       !- Crankcase Heater Capacity Function of Temperature Curve Name
   0,                                      !- Maximum Outdoor Dry-Bulb Temperature for Crankcase Heater Operation {C}
   ,                                       !- Supply Water Storage Tank Name
   ,                                       !- Condensate Collection Water Storage Tank Name
@@ -9160,9 +9228,9 @@ OS:Coil:Heating:Gas,
   ,                                       !- Air Inlet Node Name
   ,                                       !- Air Outlet Node Name
   ,                                       !- Temperature Setpoint Node Name
-  0,                                      !- Parasitic Electric Load {W}
+  0,                                      !- On Cycle Parasitic Electric Load {W}
   ,                                       !- Part Load Fraction Correlation Curve Name
-  0;                                      !- Parasitic Gas Load {W}
+  0;                                      !- Off Cycle Parasitic Gas Load {W}
 
 OS:Coil:Cooling:DX:SingleSpeed,
   {5f93800a-bc68-4ed4-8772-0031fc447859}, !- Handle
@@ -9192,6 +9260,7 @@ OS:Coil:Cooling:DX:SingleSpeed,
   Autosize,                               !- Evaporative Condenser Air Flow Rate {m3/s}
   Autosize,                               !- Evaporative Condenser Pump Rated Power Consumption {W}
   0,                                      !- Crankcase Heater Capacity {W}
+  ,                                       !- Crankcase Heater Capacity Function of Temperature Curve Name
   0,                                      !- Maximum Outdoor Dry-Bulb Temperature for Crankcase Heater Operation {C}
   ,                                       !- Supply Water Storage Tank Name
   ,                                       !- Condensate Collection Water Storage Tank Name
@@ -9349,6 +9418,7 @@ OS:Coil:Cooling:DX:SingleSpeed,
   Autosize,                               !- Evaporative Condenser Air Flow Rate {m3/s}
   Autosize,                               !- Evaporative Condenser Pump Rated Power Consumption {W}
   0,                                      !- Crankcase Heater Capacity {W}
+  ,                                       !- Crankcase Heater Capacity Function of Temperature Curve Name
   0,                                      !- Maximum Outdoor Dry-Bulb Temperature for Crankcase Heater Operation {C}
   ,                                       !- Supply Water Storage Tank Name
   ,                                       !- Condensate Collection Water Storage Tank Name
@@ -9453,9 +9523,9 @@ OS:Coil:Heating:Gas,
   ,                                       !- Air Inlet Node Name
   ,                                       !- Air Outlet Node Name
   ,                                       !- Temperature Setpoint Node Name
-  0,                                      !- Parasitic Electric Load {W}
+  0,                                      !- On Cycle Parasitic Electric Load {W}
   ,                                       !- Part Load Fraction Correlation Curve Name
-  0;                                      !- Parasitic Gas Load {W}
+  0;                                      !- Off Cycle Parasitic Gas Load {W}
 
 OS:Coil:Cooling:DX:SingleSpeed,
   {219dbe6c-606e-4e4b-b04e-2a5b715ecdf1}, !- Handle
@@ -9485,6 +9555,7 @@ OS:Coil:Cooling:DX:SingleSpeed,
   Autosize,                               !- Evaporative Condenser Air Flow Rate {m3/s}
   Autosize,                               !- Evaporative Condenser Pump Rated Power Consumption {W}
   0,                                      !- Crankcase Heater Capacity {W}
+  ,                                       !- Crankcase Heater Capacity Function of Temperature Curve Name
   0,                                      !- Maximum Outdoor Dry-Bulb Temperature for Crankcase Heater Operation {C}
   ,                                       !- Supply Water Storage Tank Name
   ,                                       !- Condensate Collection Water Storage Tank Name
@@ -9617,6 +9688,7 @@ OS:Coil:Cooling:DX:SingleSpeed,
   Autosize,                               !- Evaporative Condenser Air Flow Rate {m3/s}
   Autosize,                               !- Evaporative Condenser Pump Rated Power Consumption {W}
   0,                                      !- Crankcase Heater Capacity {W}
+  ,                                       !- Crankcase Heater Capacity Function of Temperature Curve Name
   0,                                      !- Maximum Outdoor Dry-Bulb Temperature for Crankcase Heater Operation {C}
   ,                                       !- Supply Water Storage Tank Name
   ,                                       !- Condensate Collection Water Storage Tank Name
@@ -9715,6 +9787,7 @@ OS:Coil:Cooling:DX:TwoStageWithHumidityControlMode,
   ,                                       !- Air Inlet Node Name
   ,                                       !- Air Outlet Node Name
   0,                                      !- Crankcase Heater Capacity {W}
+  ,                                       !- Crankcase Heater Capacity Function of Temperature Curve Name
   10,                                     !- Maximum Outdoor Dry-Bulb Temperature for Crankcase Heater Operation {C}
   2,                                      !- Number of Capacity Stages
   1,                                      !- Number of Enhanced Dehumidification Modes
@@ -10326,7 +10399,10 @@ OS:LoadProfile:Plant,
   ,                                       !- Outlet Node Name
   {b7e02bb7-c3e4-45a7-a348-5866b7092426}, !- Load Schedule Name
   0.002,                                  !- Peak Flow Rate {m3/s}
-  {9f54092d-a4a8-41b8-a381-c4c332ecb843}; !- Flow Rate Fraction Schedule Name
+  {9f54092d-a4a8-41b8-a381-c4c332ecb843}, !- Flow Rate Fraction Schedule Name
+  Water,                                  !- Plant Loop Fluid Type
+  5,                                      !- Degree of SubCooling {C}
+  20;                                     !- Degree of Loop SubCooling {C}
 
 OS:Schedule:Ruleset,
   {b7e02bb7-c3e4-45a7-a348-5866b7092426}, !- Handle
@@ -12748,7 +12824,7 @@ OS:Coil:Heating:Gas:MultiStage,
   ,                                       !- Air Inlet Node
   ,                                       !- Air Outlet Node
   ,                                       !- Part Load Fraction Correlation Curve
-  ,                                       !- Parasitic Gas Load {W}
+  ,                                       !- Off Cycle Parasitic Gas Load {W}
   {6544ca9f-4605-4833-9e09-5917b3dbc4b9}, !- Stage 1
   {e1dd46be-f9de-46dd-bd57-6e7205006187}; !- Stage 2
 
@@ -12757,14 +12833,14 @@ OS:Coil:Heating:Gas:MultiStage:StageData,
   Coil Heating Gas Multi Stage Stage Data 1, !- Name
   0.8,                                    !- Gas Burner Efficiency {W/W}
   autosize,                               !- Nominal Capacity {W}
-  0;                                      !- Parasitic Electric Load {W}
+  0;                                      !- On Cycle Parasitic Electric Load {W}
 
 OS:Coil:Heating:Gas:MultiStage:StageData,
   {e1dd46be-f9de-46dd-bd57-6e7205006187}, !- Handle
   Coil Heating Gas Multi Stage Stage Data 2, !- Name
   0.8,                                    !- Gas Burner Efficiency {W/W}
   autosize,                               !- Nominal Capacity {W}
-  0;                                      !- Parasitic Electric Load {W}
+  0;                                      !- On Cycle Parasitic Electric Load {W}
 
 OS:Coil:Cooling:DX:MultiSpeed,
   {a76a42fb-2594-4514-afb9-fd45a05494fc}, !- Handle
@@ -12780,6 +12856,7 @@ OS:Coil:Cooling:DX:MultiSpeed,
   No,                                     !- Apply Part Load Fraction to Speeds Greater than 1
   ,                                       !- Apply Latent Degradation to Speeds Greater than 1
   0,                                      !- Crankcase Heater Capacity {W}
+  ,                                       !- Crankcase Heater Capacity Function of Temperature Curve Name
   10,                                     !- Maximum Outdoor Dry-Bulb Temperature for Crankcase Heater Operation {C}
   0,                                      !- Basin Heater Capacity {W/K}
   2,                                      !- Basin Heater Setpoint Temperature {C}
@@ -13041,11 +13118,15 @@ OS:Coil:Cooling:DX:VariableSpeed,
   autosize,                               !- Rated Air Flow Rate At Selected Nominal Speed Level {m3/s}
   0,                                      !- Nominal Time for Condensate to Begin Leaving the Coil {s}
   0,                                      !- Initial Moisture Evaporation Rate Divided by Steady-State AC Latent Capacity {dimensionless}
+  2.5,                                    !- Maximum Cycling Rate {cycles/hr}
+  60,                                     !- Latent Capacity Time Constant {s}
+  60,                                     !- Fan Delay Time {s}
   {7b4bbf3a-da3a-4c78-8a94-31ad7758433e}, !- Energy Part Load Fraction Curve Name
   ,                                       !- Condenser Air Inlet Node Name
   AirCooled,                              !- Condenser Type
   0,                                      !- Evaporative Condenser Pump Rated Power Consumption {W}
   0,                                      !- Crankcase Heater Capacity {W}
+  ,                                       !- Crankcase Heater Capacity Function of Temperature Curve Name
   10,                                     !- Maximum Outdoor Dry-Bulb Temperature for Crankcase Heater Operation {C}
   -25,                                    !- Minimum Outdoor Dry-Bulb Temperature for Compressor Operation {C}
   ,                                       !- Supply Water Storage Tank Name
@@ -13077,6 +13158,8 @@ OS:Coil:Cooling:DX:VariableSpeed:SpeedData,
   0.79,                                   !- Reference Unit Gross Rated Sensible Heat Ratio {dimensionless}
   3.980488789,                            !- Reference Unit Gross Rated Cooling COP {W/W}
   0.944,                                  !- Reference Unit Rated Air Flow Rate {m3/s}
+  773.3,                                  !- Rated Evaporator Fan Power Per Volume Flow Rate 2017 {W/(m3/s)}
+  934.4,                                  !- Rated Evaporator Fan Power Per Volume Flow Rate 2023 {W/(m3/s)}
   ,                                       !- Reference Unit Rated Condenser Air Flow Rate {m3/s}
   ,                                       !- Reference Unit Rated Pad Effectiveness of Evap Precooling {dimensionless}
   {a9724ab5-aa61-4479-aedd-8296e85241c5}, !- Total Cooling Capacity Function of Temperature Curve Name
@@ -13137,6 +13220,8 @@ OS:Coil:Cooling:DX:VariableSpeed:SpeedData,
   0.73,                                   !- Reference Unit Gross Rated Sensible Heat Ratio {dimensionless}
   4.08,                                   !- Reference Unit Gross Rated Cooling COP {W/W}
   1.888,                                  !- Reference Unit Rated Air Flow Rate {m3/s}
+  773.3,                                  !- Rated Evaporator Fan Power Per Volume Flow Rate 2017 {W/(m3/s)}
+  934.4,                                  !- Rated Evaporator Fan Power Per Volume Flow Rate 2023 {W/(m3/s)}
   ,                                       !- Reference Unit Rated Condenser Air Flow Rate {m3/s}
   ,                                       !- Reference Unit Rated Pad Effectiveness of Evap Precooling {dimensionless}
   {f955716b-c5ea-4e93-8fce-83138073a897}, !- Total Cooling Capacity Function of Temperature Curve Name

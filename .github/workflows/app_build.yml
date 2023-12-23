@@ -474,6 +474,8 @@ jobs:
           echo "Qt $QT_VERSION already installed"
         else
           echo "Install aqtinstall, then install Qt $QT_VERSION for ${{ matrix.QT_OS_NAME }} ${{ matrix.QT_ARCH }}"
+          pip show setuptools
+          pip install setuptools --upgrade
           pip3 install aqtinstall
           aqt install-qt --outputdir ./build/Qt-install/ ${{ matrix.QT_OS_NAME }} desktop $QT_VERSION ${{ matrix.QT_ARCH }} -m qtwebchannel qtwebengine qtwebview qt5compat qtpositioning
         fi
