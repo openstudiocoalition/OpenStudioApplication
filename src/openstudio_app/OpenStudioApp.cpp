@@ -1306,7 +1306,7 @@ void OpenStudioApp::startMeasureManagerProcess() {
 
   QString program = toQString(openstudioCLIPath());
   QStringList arguments;
-  arguments << "classic";
+  // arguments << "classic";
   arguments << "measure";
   arguments << "-s";
   arguments << portString;
