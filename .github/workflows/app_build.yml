@@ -275,8 +275,8 @@ jobs:
           gcc --version
 
         elif [ "$RUNNER_OS" == "Windows" ]; then
-          curl -L -O https://download.qt.io/official_releases/qt-installer-framework/4.6.1/QtInstallerFramework-windows-x86-4.6.1.exe
-          ./QtInstallerFramework-windows-x86-4.6.1.exe --verbose --script ./ci/install_script_qtifw.qs
+          curl -L -O https://download.qt.io/official_releases/qt-installer-framework/4.6.1/QtInstallerFramework-windows-x64-4.6.1.exe
+          ./QtInstallerFramework-windows-x64-4.6.1.exe --verbose --script ./ci/install_script_qtifw.qs
           dir "C:/Qt/"
           echo "C:/Qt/QtIFW-4.6.1/bin" >> $GITHUB_PATH
 
@@ -350,7 +350,7 @@ jobs:
       uses: actions/cache@v3
       with:
         path: build/
-        key: ${{ matrix.os }}-build-cache-v1-${{ secrets.CACHE_KEY }}
+        key: ${{ matrix.os }}-${{ env.QT_VERSION }}-build-cache-v1-${{ secrets.CACHE_KEY }}
 
     - name: Did restoring the build-cache work? No
       # If the build cache wasn't found in the cache
