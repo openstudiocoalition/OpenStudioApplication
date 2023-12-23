@@ -1290,7 +1290,7 @@ void OpenStudioApp::startMeasureManagerProcess() {
     if (ok) {
       LOG(Debug, "OPENSTUDIO_APPLICATION_USE_LOCAL_MEASURE_MANAGER_PORT is " << port);
       QString portString = QString::number(port);
-      QString urlString = "http://127.0.0.1:" + portString;
+      QString urlString = "http://localhost:" + portString;
       QUrl url(urlString);
       LOG(Debug, "Connection to existing Local Measure Manager: " << toString(urlString));
       measureManager().setUrl(url);
@@ -1324,8 +1324,8 @@ void OpenStudioApp::startMeasureManagerProcess() {
   const QString program = toQString(openstudioCLIPath());
   QStringList arguments;
 
-  if (m_useLabsCLI) {
-    arguments << "labs";
+  if (!m_useLabsCLI) {
+    arguments << "classic";
   }
   arguments << "measure";
   arguments << "-s";
