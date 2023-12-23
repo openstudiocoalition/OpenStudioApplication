@@ -816,24 +816,24 @@ Wenn Sie möchten, dass die OpenStudio-Applikation in die Sprache Ihrer Wahl üb
 <context>
     <name>openstudio::MeasureManager</name>
     <message>
-        <location filename="../src/shared_gui_components/MeasureManager.cpp" line="949"/>
-        <location filename="../src/shared_gui_components/MeasureManager.cpp" line="968"/>
+        <location filename="../src/shared_gui_components/MeasureManager.cpp" line="953"/>
+        <location filename="../src/shared_gui_components/MeasureManager.cpp" line="972"/>
         <source>Measures Updated</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/shared_gui_components/MeasureManager.cpp" line="949"/>
+        <location filename="../src/shared_gui_components/MeasureManager.cpp" line="953"/>
         <source>All measures are up-to-date.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/shared_gui_components/MeasureManager.cpp" line="953"/>
+        <location filename="../src/shared_gui_components/MeasureManager.cpp" line="957"/>
         <source> measures have been updated on BCL compared to your local BCL directory.
 </source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/shared_gui_components/MeasureManager.cpp" line="954"/>
+        <location filename="../src/shared_gui_components/MeasureManager.cpp" line="958"/>
         <source>Would you like update them?</source>
         <translation type="unfinished"></translation>
     </message>
@@ -856,30 +856,30 @@ Wenn Sie möchten, dass die OpenStudio-Applikation in die Sprache Ihrer Wahl üb
         <translation>(*.xml)</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/OSDocument.cpp" line="1469"/>
-        <location filename="../src/openstudio_lib/OSDocument.cpp" line="1544"/>
+        <location filename="../src/openstudio_lib/OSDocument.cpp" line="1474"/>
+        <location filename="../src/openstudio_lib/OSDocument.cpp" line="1549"/>
         <source>Failed to save model</source>
         <translation>Modell konnte nicht gespeichert werden</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/OSDocument.cpp" line="1470"/>
-        <location filename="../src/openstudio_lib/OSDocument.cpp" line="1545"/>
+        <location filename="../src/openstudio_lib/OSDocument.cpp" line="1475"/>
+        <location filename="../src/openstudio_lib/OSDocument.cpp" line="1550"/>
         <source>Failed to save model, make sure that you do not have the location open and that you have correct write access.</source>
         <translation>Modell konnte nicht gespeichert werden. Vergewissern Sie sich, dass der Speicherort nicht geöffnet ist und dass Sie korrekte Schreibrechte haben.</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/OSDocument.cpp" line="1513"/>
+        <location filename="../src/openstudio_lib/OSDocument.cpp" line="1518"/>
         <source>Save</source>
         <translation>Speichern</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/OSDocument.cpp" line="1513"/>
+        <location filename="../src/openstudio_lib/OSDocument.cpp" line="1518"/>
         <source>(*.osm)</source>
         <translation>(*.osm)</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/OSDocument.cpp" line="1707"/>
-        <location filename="../src/openstudio_lib/OSDocument.cpp" line="1709"/>
+        <location filename="../src/openstudio_lib/OSDocument.cpp" line="1712"/>
+        <location filename="../src/openstudio_lib/OSDocument.cpp" line="1714"/>
         <source>Select My Measures Directory</source>
         <translation>Verzeichnis für Meine Measures auswählen</translation>
     </message>
