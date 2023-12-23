@@ -108,7 +108,7 @@ bool MeasureManager::waitForStarted(int msec) {
   int current = 0;
   while (!success && current < numTries) {
     QNetworkRequest request(thisUrl);
-    request.setHeader(QNetworkRequest::ContentTypeHeader, "json");
+    request.setHeader(QNetworkRequest::ContentTypeHeader, "application/json");
 
     QNetworkAccessManager manager;
 
@@ -463,7 +463,7 @@ std::vector<measure::OSArgument> MeasureManager::getArguments(const BCLMeasure& 
   QString data = QString(R"json({"measure_dir": "%1", "osm_path": "%2"})json").arg(toQString(t_measure.directory()), toQString(m_tempModelPath));
 
   QNetworkRequest request(thisUrl);
-  request.setHeader(QNetworkRequest::ContentTypeHeader, "json");
+  request.setHeader(QNetworkRequest::ContentTypeHeader, "application/json");
 
   QNetworkAccessManager manager;
 
@@ -578,6 +578,10 @@ boost::optional<measure::OSArgument> MeasureManager::getArgument(const measure::
 
     Json::Value choiceValues = argument.get("choice_values", Json::Value(Json::arrayValue));
     Json::Value choiceDisplayNames = argument.get("choice_display_names", Json::Value(Json::arrayValue));
+
+    if (choiceValues.empty()) {
+      choiceValues = argument.get("choices_values", Json::Value(Json::arrayValue));
+    }
 
     Json::ArrayIndex n = choiceValues.size();
     if (n != choiceDisplayNames.size()) {
@@ -836,7 +840,7 @@ bool MeasureManager::reset() {
   QString data = QString("{}");
 
   QNetworkRequest request(thisUrl);
-  request.setHeader(QNetworkRequest::ContentTypeHeader, "json");
+  request.setHeader(QNetworkRequest::ContentTypeHeader, "application/json");
 
   QNetworkAccessManager manager;
 
@@ -876,7 +880,7 @@ bool MeasureManager::checkForLocalBCLUpdates() {
   QString data = QString("{}");
 
   QNetworkRequest request(thisUrl);
-  request.setHeader(QNetworkRequest::ContentTypeHeader, "json");
+  request.setHeader(QNetworkRequest::ContentTypeHeader, "application/json");
 
   QNetworkAccessManager manager;
 
@@ -917,7 +921,7 @@ bool MeasureManager::checkForUpdates(const openstudio::path& measureDir, bool fo
     QString(R"json({"measure_dir": "%1", "force_reload": "%2"})json").arg(toQString(measureDir), force ? QString("true") : QString("false"));
 
   QNetworkRequest request(thisUrl);
-  request.setHeader(QNetworkRequest::ContentTypeHeader, "json");
+  request.setHeader(QNetworkRequest::ContentTypeHeader, "application/json");
 
   QNetworkAccessManager manager;
 
