@@ -192,8 +192,7 @@ boost::optional<openstudio::BCLMeasure> BCLMeasureDialog::createMeasure() {
     if (useClassicCLI) {
       QMessageBox::information(
         this, "Python Measures not available in Classic CLI",
-        "Python Measures are not supported in the Classic CLI.\nYou can change CLI version using 'Preferences->Use Classic CLI'.",
-        QMessageBox::Ok);
+        "Python Measures are not supported in the Classic CLI.\nYou can change CLI version using 'Preferences->Use Classic CLI'.", QMessageBox::Ok);
     }
   }
 

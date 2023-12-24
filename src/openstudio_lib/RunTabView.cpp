@@ -303,7 +303,7 @@ void RunView::playButtonClicked(bool t_checked) {
 
     if (m_useClassicCLIBox->isChecked()) {
       arguments << "run";
-      if (m_hasSocketConnexion){
+      if (m_hasSocketConnexion) {
         arguments << "-s" << QString::number(port);
       }
       arguments << "-w" << workflowJSONPath;

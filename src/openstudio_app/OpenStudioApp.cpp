@@ -270,7 +270,7 @@ void OpenStudioApp::onMeasureManagerAndLibraryReady() {
         }
       }
       LOG(Info, "Recovered from Measure Manager problem, managed to start it on try " << currentTry
-                                                                                     << " at: " << toString(measureManager().url().toString()));
+                                                                                      << " at: " << toString(measureManager().url().toString()));
     }
 
     auto failed = m_buildCompLibWatcher.result();
@@ -1275,7 +1275,7 @@ void OpenStudioApp::measureManagerProcessFinished() {
   detailedText += stdErr;
   detailedText += stdOut;
 
-  QMessageBox messageBox(QMessageBox::Warning, tr("Measure Manager Crashed"), text,  QMessageBox::RestoreDefaults | QMessageBox::Close, mainWidget(),
+  QMessageBox messageBox(QMessageBox::Warning, tr("Measure Manager Crashed"), text, QMessageBox::RestoreDefaults | QMessageBox::Close, mainWidget(),
                          Qt::Dialog | Qt::MSWindowsFixedSizeDialogHint);
   messageBox.setDetailedText(detailedText);
 
