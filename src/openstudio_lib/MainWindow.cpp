@@ -337,6 +337,8 @@ bool MainWindow::useClassicCLI() const {
 
 void MainWindow::toggleUseClassicCLI(bool useClassicCLI) {
   m_useClassicCLI = useClassicCLI;
+  QMessageBox::information(this, tr("Restart required"), tr("Restart the OpenStudio Application to reset Measure Manager."), QMessageBox::Ok,
+                           QMessageBox::Ok);
 }
 
 bool MainWindow::geometryDiagnostics() const {

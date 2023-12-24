@@ -287,7 +287,7 @@ void RunView::playButtonClicked(bool t_checked) {
     // m_hasSocketConnexion = false;
 
     QStringList arguments;
-    LOG(Debug, "Classoc CLI Checkbox is checked? " << std::boolalpha << m_useClassicCLIBox->isChecked());
+    LOG(Debug, "Classic CLI Checkbox is checked? " << std::boolalpha << m_useClassicCLIBox->isChecked());
     if (m_useClassicCLIBox->isChecked()) {
       arguments << "classic";
     }
