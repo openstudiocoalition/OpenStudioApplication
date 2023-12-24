@@ -221,6 +221,8 @@ class OpenStudioApp : public OSAppBase
     GBXML
   };
 
+  void showFailedMeasureManagerDialog();
+
   void showFailedLibraryDialog(const std::vector<std::string>& failedPaths);
 
   void import(fileType type);

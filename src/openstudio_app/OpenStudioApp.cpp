@@ -257,18 +257,20 @@ void OpenStudioApp::onMeasureManagerAndLibraryReady() {
         QMessageBox msgBox;
         msgBox.setWindowTitle(tr("Timeout"));
         msgBox.setIcon(QMessageBox::Critical);
-        msgBox.setText(tr("Failed to start the Measure Manager. Would you like to retry?"));
+        msgBox.setText(tr("Failed to start the Measure Manager. Would you like to keep waiting?"));
         msgBox.setStandardButtons(QMessageBox::Retry | QMessageBox::Close);
         if (msgBox.exec() == QMessageBox::Close) {
-          LOG_AND_THROW("Exit after measure manager failed to start in given time.");
-          ;
+          // this is a fatal error, application will close
+          showFailedMeasureManagerDialog();
+          QCoreApplication::exit();
+          return;
         } else {
           measureManager().waitForStarted(10000);
           ++currentTry;
         }
       }
       LOG(Info, "Recovered from Measure Manager problem, managed to start it on try " << currentTry
-                                                                                      << " at: " << toString(measureManager().url().toString()));
+                                                                                     << " at: " << toString(measureManager().url().toString()));
     }
 
     auto failed = m_buildCompLibWatcher.result();
@@ -1268,11 +1270,17 @@ void OpenStudioApp::measureManagerProcessFinished() {
   QByteArray stdErr = m_measureManagerProcess->readAllStandardError();
   QByteArray stdOut = m_measureManagerProcess->readAllStandardOutput();
 
-  QString message = tr("Measure Manager has crashed, attempting to restart\n\n");
+  QString message = tr("Measure Manager has crashed, attempting to restart. Do you want to reset Measure Manager settings?\n\n");
   message += stdErr;
   message += stdOut;
 
-  QMessageBox::warning(nullptr, tr("Measure Manager has crashed"), message);
+  QMessageBox::StandardButton reply = QMessageBox::warning(mainWidget(), QString("Measure Manager Crashed"), message,
+                                                            QMessageBox::RestoreDefaults | QMessageBox::Cancel, QMessageBox::RestoreDefaults);
+  if (reply == QMessageBox::RestoreDefaults) {
+    QSettings settings(QCoreApplication::organizationName(), QCoreApplication::applicationName());
+    settings.setValue("useLabsCLI", false);
+    m_useLabsCLI = false;
+  }
 
   startMeasureManagerProcess();
 }
@@ -1561,6 +1569,18 @@ void OpenStudioApp::removeLibraryFromsSettings(const openstudio::path& path) {
   paths.erase(std::remove(paths.begin(), paths.end(), path), paths.end());
   // Rewrite all
   writeLibraryPaths(paths);
+}
+
+void OpenStudioApp::showFailedMeasureManagerDialog() {
+
+  QString text = tr("The OpenStudio Application must close. Do you want to reset Measure Manager settings?\n\n");
+  QMessageBox::StandardButton reply = QMessageBox::critical(mainWidget(), QString("Failed to connect to Measure Manager"), text,
+                                                            QMessageBox::RestoreDefaults | QMessageBox::Close, QMessageBox::RestoreDefaults);
+  if (reply == QMessageBox::RestoreDefaults) {
+    QSettings settings(QCoreApplication::organizationName(), QCoreApplication::applicationName());
+    settings.setValue("useLabsCLI", false);
+    settings.sync();
+  }
 }
 
 void OpenStudioApp::showFailedLibraryDialog(const std::vector<std::string>& failedPaths) {
