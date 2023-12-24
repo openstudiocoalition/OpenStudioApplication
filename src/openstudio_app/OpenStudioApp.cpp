@@ -1160,8 +1160,8 @@ void OpenStudioApp::readSettings() {
   setLastPath(settings.value("lastPath", QDir::homePath()).toString());
   setDviewPath(openstudio::toPath(settings.value("dviewPath", "").toString()));
   m_currLang = settings.value("language", "en").toString();
-  m_useLabsCLI = settings.value("useLabsCLI", false).toBool();
-  LOG_FREE(Debug, "OpenStudioApp", "\n\n\nm_currLang=[" << m_currLang.toStdString() << "], m_useLabsCLI=" << m_useLabsCLI << "\n\n\n");
+  m_useClassicCLI = settings.value("useClassicCLI", false).toBool();
+  LOG_FREE(Debug, "OpenStudioApp", "\n\n\nm_currLang=[" << m_currLang.toStdString() << "], m_useClassicCLI=" << m_useClassicCLI << "\n\n\n");
   if (m_currLang.isEmpty()) {
     m_currLang = "en";
   }
@@ -1270,16 +1270,19 @@ void OpenStudioApp::measureManagerProcessFinished() {
   QByteArray stdErr = m_measureManagerProcess->readAllStandardError();
   QByteArray stdOut = m_measureManagerProcess->readAllStandardOutput();
 
-  QString message = tr("Measure Manager has crashed, attempting to restart. Do you want to reset Measure Manager settings?\n\n");
-  message += stdErr;
-  message += stdOut;
+  QString text = tr("Measure Manager has crashed, attempting to restart. Do you want to reset Measure Manager settings?");
+  QString detailedText;
+  detailedText += stdErr;
+  detailedText += stdOut;
 
-  QMessageBox::StandardButton reply = QMessageBox::warning(mainWidget(), QString("Measure Manager Crashed"), message,
-                                                            QMessageBox::RestoreDefaults | QMessageBox::Cancel, QMessageBox::RestoreDefaults);
-  if (reply == QMessageBox::RestoreDefaults) {
+  QMessageBox messageBox(QMessageBox::Warning, tr("Measure Manager Crashed"), text,  QMessageBox::RestoreDefaults | QMessageBox::Close, mainWidget(),
+                         Qt::Dialog | Qt::MSWindowsFixedSizeDialogHint);
+  messageBox.setDetailedText(detailedText);
+
+  if (messageBox.exec() == QMessageBox::RestoreDefaults) {
     QSettings settings(QCoreApplication::organizationName(), QCoreApplication::applicationName());
-    settings.setValue("useLabsCLI", false);
-    m_useLabsCLI = false;
+    settings.setValue("useClassicCLI", true);
+    m_useClassicCLI = true;
   }
 
   startMeasureManagerProcess();
@@ -1332,7 +1335,7 @@ void OpenStudioApp::startMeasureManagerProcess() {
   const QString program = toQString(openstudioCLIPath());
   QStringList arguments;
 
-  if (!m_useLabsCLI) {
+  if (m_useClassicCLI) {
     arguments << "classic";
   }
   arguments << "measure";
@@ -1578,7 +1581,7 @@ void OpenStudioApp::showFailedMeasureManagerDialog() {
                                                             QMessageBox::RestoreDefaults | QMessageBox::Close, QMessageBox::RestoreDefaults);
   if (reply == QMessageBox::RestoreDefaults) {
     QSettings settings(QCoreApplication::organizationName(), QCoreApplication::applicationName());
-    settings.setValue("useLabsCLI", false);
+    settings.setValue("useClassicCLI", true);
     settings.sync();
   }
 }

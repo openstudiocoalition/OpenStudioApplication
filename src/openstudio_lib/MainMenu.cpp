@@ -42,8 +42,8 @@
 
 namespace openstudio {
 
-MainMenu::MainMenu(bool isIP, bool isPlugin, const QString& currLang, bool allowAnalytics, bool useLabsCLI, QWidget* parent)
-  : QMenuBar(parent), m_isPlugin(isPlugin), m_isIP(isIP), m_currLang(currLang), m_allowAnalytics(allowAnalytics), m_useLabsCLI(useLabsCLI) {
+MainMenu::MainMenu(bool isIP, bool isPlugin, const QString& currLang, bool allowAnalytics, bool useClassicCLI, QWidget* parent)
+  : QMenuBar(parent), m_isPlugin(isPlugin), m_isIP(isIP), m_currLang(currLang), m_allowAnalytics(allowAnalytics), m_useClassicCLI(useClassicCLI) {
 
   QAction* action = nullptr;
 
@@ -295,11 +295,11 @@ MainMenu::MainMenu(bool isIP, bool isPlugin, const QString& currLang, bool allow
   m_preferencesMenu->addAction(m_configureProxy);
   connect(m_configureProxy, &QAction::triggered, this, &MainMenu::configureProxyClicked, Qt::QueuedConnection);
 
-  m_useLabsCLIAction = new QAction(tr("&Use Labs CLI"), this);
-  m_useLabsCLIAction->setCheckable(true);
-  m_preferencesActions.push_back(m_useLabsCLIAction);
-  m_preferencesMenu->addAction(m_useLabsCLIAction);
-  connect(m_useLabsCLIAction, &QAction::triggered, this, &MainMenu::useLabsCLIClicked, Qt::QueuedConnection);
+  m_useClassicCLIAction = new QAction(tr("&Use Classic CLI"), this);
+  m_useClassicCLIAction->setCheckable(true);
+  m_preferencesActions.push_back(m_useClassicCLIAction);
+  m_preferencesMenu->addAction(m_useClassicCLIAction);
+  connect(m_useClassicCLIAction, &QAction::triggered, this, &MainMenu::useClassicCLIClicked, Qt::QueuedConnection);
 
   if (m_isIP) {
     m_displayIPUnitsAction->trigger();
@@ -307,8 +307,8 @@ MainMenu::MainMenu(bool isIP, bool isPlugin, const QString& currLang, bool allow
     m_displaySIUnitsAction->trigger();
   }
 
-  if (m_useLabsCLI) {
-    m_useLabsCLIAction->setChecked(true);
+  if (m_useClassicCLI) {
+    m_useClassicCLIAction->setChecked(true);
   }
 
   m_langEnglishAction->setChecked(false);
@@ -741,13 +741,13 @@ void MainMenu::toggleAnalytics() {
   enableAnalytics(!m_allowAnalytics);
 }
 
-void MainMenu::enableUseLabsCLI(bool enable) {
-  m_useLabsCLI = enable;
-  m_useLabsCLIAction->setChecked(m_useLabsCLI);
-  emit useLabsCLIClicked(m_useLabsCLI);
+void MainMenu::enableUseClassicCLI(bool enable) {
+  m_useClassicCLI = enable;
+  m_useClassicCLIAction->setChecked(m_useClassicCLI);
+  emit useClassicCLIClicked(m_useClassicCLI);
 }
-void MainMenu::toggleUseLabsCLI() {
-  enableUseLabsCLI(!m_useLabsCLI);
+void MainMenu::toggleUseClassicCLI() {
+  enableUseClassicCLI(!m_useClassicCLI);
 }
 
 void MainMenu::enableRevertToSavedAction(bool enable) {

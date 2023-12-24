@@ -79,7 +79,7 @@ class MainWindow : public QMainWindow
 
   bool verboseOutput() const;
 
-  bool useLabsCLI() const;
+  bool useClassicCLI() const;
 
   void enableRevertToSavedAction(bool enable);
 
@@ -179,7 +179,7 @@ class MainWindow : public QMainWindow
 
   void sendAnalytics(const QString& analyticsId, const std::string& contentType, const std::string& contentId);
 
-  void enableUseLabsCLI(bool enable);
+  void enableUseClassicCLI(bool enable);
 
  public slots:
 
@@ -193,7 +193,7 @@ class MainWindow : public QMainWindow
 
   void toggleAnalytics(bool allowAnalytics);
 
-  void toggleUseLabsCLI(bool useLabsCLI);
+  void toggleUseClassicCLI(bool useClassicCLI);
 
  protected:
   void closeEvent(QCloseEvent* event) override;
@@ -233,7 +233,7 @@ class MainWindow : public QMainWindow
 
   QString m_analyticsId;
 
-  bool m_useLabsCLI = false;
+  bool m_useClassicCLI = false;
 
  private slots:
 

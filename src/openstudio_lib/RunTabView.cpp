@@ -135,17 +135,17 @@ RunView::RunView() : QWidget(), m_runSocket(nullptr) {
   auto* mainWindow = OSAppBase::instance()->currentDocument()->mainWindow();
   bool verboseOutput = mainWindow->verboseOutput();
   m_verboseOutputBox = new QCheckBox();
-  m_verboseOutputBox->setText("Verbose Output");
+  m_verboseOutputBox->setText("Verbose");
   m_verboseOutputBox->setChecked(verboseOutput);
   connect(m_verboseOutputBox, &QCheckBox::clicked, mainWindow, &MainWindow::toggleVerboseOutput);
   mainLayout->addWidget(m_verboseOutputBox, 0, 2);
 
-  bool useLabsCLI = mainWindow->useLabsCLI();
-  m_useLabsCLIBox = new QCheckBox();
-  m_useLabsCLIBox->setText("Use Labs CLI");
-  m_useLabsCLIBox->setChecked(useLabsCLI);
-  connect(m_useLabsCLIBox, &QCheckBox::clicked, mainWindow, &MainWindow::toggleUseLabsCLI);
-  mainLayout->addWidget(m_useLabsCLIBox, 0, 3);
+  bool useClassicCLI = mainWindow->useClassicCLI();
+  m_useClassicCLIBox = new QCheckBox();
+  m_useClassicCLIBox->setText("Classic CLI");
+  m_useClassicCLIBox->setChecked(useClassicCLI);
+  connect(m_useClassicCLIBox, &QCheckBox::clicked, mainWindow, &MainWindow::toggleUseClassicCLI);
+  mainLayout->addWidget(m_useClassicCLIBox, 0, 3);
 
   m_openSimDirButton = new QPushButton();
   m_openSimDirButton->setText("Show Simulation");
@@ -287,9 +287,9 @@ void RunView::playButtonClicked(bool t_checked) {
     // m_hasSocketConnexion = false;
 
     QStringList arguments;
-    LOG(Debug, "Labs CLI Checkbox is checked? " << std::boolalpha << m_useLabsCLIBox->isChecked());
-    if (m_useLabsCLIBox->isChecked()) {
-      arguments << "labs";
+    LOG(Debug, "Classoc CLI Checkbox is checked? " << std::boolalpha << m_useClassicCLIBox->isChecked());
+    if (m_useClassicCLIBox->isChecked()) {
+      arguments << "classic";
     }
     LOG(Debug, "Verbose Checkbox is checked? " << std::boolalpha << m_verboseOutputBox->isChecked());
     if (m_verboseOutputBox->isChecked()) {
@@ -301,9 +301,12 @@ void RunView::playButtonClicked(bool t_checked) {
       // m_runProcess->setStandardErrorFile(toQString(stderrPath));
     }
 
-    if (m_hasSocketConnexion && !m_useLabsCLIBox->isChecked()) {
-      arguments << "run"
-                << "-s" << QString::number(port) << "-w" << workflowJSONPath;
+    if (m_useClassicCLIBox->isChecked()) {
+      arguments << "run";
+      if (m_hasSocketConnexion){
+        arguments << "-s" << QString::number(port);
+      }
+      arguments << "-w" << workflowJSONPath;
     } else {
       arguments << "run"
                 << "--show-stdout"

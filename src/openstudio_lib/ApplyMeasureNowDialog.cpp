@@ -390,7 +390,7 @@ void ApplyMeasureNowDialog::runMeasure() {
   OS_ASSERT(tempWorkflowJSONPath);
 
   QStringList arguments;
-  if (!OSAppBase::instance()->currentDocument()->mainWindow()->useLabsCLI()) {
+  if (OSAppBase::instance()->currentDocument()->mainWindow()->useClassicCLI()) {
     arguments << "classic";
   }
   arguments << "run"

@@ -188,12 +188,11 @@ boost::optional<openstudio::BCLMeasure> BCLMeasureDialog::createMeasure() {
   if (measureLanguageStr == "Python") {
     measureLanguage = MeasureLanguage::Python;
 
-    const bool useLabsCLI = OSAppBase::instance()->currentDocument()->mainWindow()->useLabsCLI();
-    if (!useLabsCLI) {
+    const bool useClassicCLI = OSAppBase::instance()->currentDocument()->mainWindow()->useClassicCLI();
+    if (useClassicCLI) {
       QMessageBox::information(
-        this, "Python Measures requires Labs CLI",
-        "Python Measures are only supported in the openstudio CLI 'labs' experimental subcommand which is not currently enabled."
-        "\nYou can enable it using 'Preferences->Use Labs CLI'.",
+        this, "Python Measures not available in Classic CLI",
+        "Python Measures are not supported in the Classic CLI.\nYou can change CLI version using 'Preferences->Use Classic CLI'.",
         QMessageBox::Ok);
     }
   }
