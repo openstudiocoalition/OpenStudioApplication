@@ -421,7 +421,9 @@ void BCLMeasureDialog::init() {
   tempVLayout->addWidget(label);
   m_measureLanguageComboBox = new QComboBox(this);
   m_measureLanguageComboBox->addItem("Ruby");
-  m_measureLanguageComboBox->addItem("Python");
+  if (!OSAppBase::instance()->currentDocument()->mainWindow()->useClassicCLI()) {
+    m_measureLanguageComboBox->addItem("Python");
+  }
   m_measureLanguageComboBox->setCurrentIndex(0);
   tempVLayout->addWidget(m_measureLanguageComboBox);
   tempVLayout->addSpacing(10);
