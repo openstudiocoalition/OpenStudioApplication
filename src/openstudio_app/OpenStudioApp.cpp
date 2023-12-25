@@ -257,11 +257,13 @@ void OpenStudioApp::onMeasureManagerAndLibraryReady() {
         QMessageBox msgBox;
         msgBox.setWindowTitle(tr("Timeout"));
         msgBox.setIcon(QMessageBox::Critical);
-        msgBox.setText(tr("Failed to start the Measure Manager. Would you like to retry?"));
+        msgBox.setText(tr("Failed to start the Measure Manager. Would you like to keep waiting?"));
         msgBox.setStandardButtons(QMessageBox::Retry | QMessageBox::Close);
         if (msgBox.exec() == QMessageBox::Close) {
-          LOG_AND_THROW("Exit after measure manager failed to start in given time.");
-          ;
+          // this is a fatal error, application will close
+          showFailedMeasureManagerDialog();
+          QCoreApplication::exit();
+          return;
         } else {
           measureManager().waitForStarted(10000);
           ++currentTry;
@@ -1158,7 +1160,8 @@ void OpenStudioApp::readSettings() {
   setLastPath(settings.value("lastPath", QDir::homePath()).toString());
   setDviewPath(openstudio::toPath(settings.value("dviewPath", "").toString()));
   m_currLang = settings.value("language", "en").toString();
-  LOG_FREE(Debug, "OpenStudioApp", "\n\n\nm_currLang=[" << m_currLang.toStdString() << "]\n\n\n");
+  m_useClassicCLI = settings.value("useClassicCLI", false).toBool();
+  LOG_FREE(Debug, "OpenStudioApp", "\n\n\nm_currLang=[" << m_currLang.toStdString() << "], m_useClassicCLI=" << m_useClassicCLI << "\n\n\n");
   if (m_currLang.isEmpty()) {
     m_currLang = "en";
   }
@@ -1267,11 +1270,20 @@ void OpenStudioApp::measureManagerProcessFinished() {
   QByteArray stdErr = m_measureManagerProcess->readAllStandardError();
   QByteArray stdOut = m_measureManagerProcess->readAllStandardOutput();
 
-  QString message = tr("Measure Manager has crashed, attempting to restart\n\n");
-  message += stdErr;
-  message += stdOut;
+  QString text = tr("Measure Manager has crashed, attempting to restart. Do you want to reset Measure Manager settings?");
+  QString detailedText;
+  detailedText += stdErr;
+  detailedText += stdOut;
 
-  QMessageBox::warning(nullptr, tr("Measure Manager has crashed"), message);
+  QMessageBox messageBox(QMessageBox::Warning, tr("Measure Manager Crashed"), text, QMessageBox::RestoreDefaults | QMessageBox::Close, mainWidget(),
+                         Qt::Dialog | Qt::MSWindowsFixedSizeDialogHint);
+  messageBox.setDetailedText(detailedText);
+
+  if (messageBox.exec() == QMessageBox::RestoreDefaults) {
+    QSettings settings(QCoreApplication::organizationName(), QCoreApplication::applicationName());
+    settings.setValue("useClassicCLI", true);
+    m_useClassicCLI = true;
+  }
 
   startMeasureManagerProcess();
 }
@@ -1280,6 +1292,22 @@ void OpenStudioApp::startMeasureManagerProcess() {
 
   // will terminate the existing process, blocking call
   delete m_measureManagerProcess;
+
+  // Debugging: attach to your own measure manager you've launched in a debugger prior to firing the OSApp.
+  if (qEnvironmentVariableIsSet("OPENSTUDIO_APPLICATION_USE_LOCAL_MEASURE_MANAGER_PORT")) {
+    LOG(Debug, "OPENSTUDIO_APPLICATION_USE_LOCAL_MEASURE_MANAGER_PORT is set");
+    bool ok = false;
+    const int port = qEnvironmentVariableIntValue("OPENSTUDIO_APPLICATION_USE_LOCAL_MEASURE_MANAGER_PORT", &ok);
+    if (ok) {
+      LOG(Debug, "OPENSTUDIO_APPLICATION_USE_LOCAL_MEASURE_MANAGER_PORT is " << port);
+      QString portString = QString::number(port);
+      QString urlString = "http://localhost:" + portString;
+      QUrl url(urlString);
+      LOG(Debug, "Connection to existing Local Measure Manager: " << toString(urlString));
+      measureManager().setUrl(url);
+      return;
+    }
+  }
 
   // find available port
   QTcpServer tcpServer;
@@ -1304,14 +1332,18 @@ void OpenStudioApp::startMeasureManagerProcess() {
   test = (connect(m_measureManagerProcess, &QProcess::stateChanged, this, &OpenStudioApp::measureManagerProcessStateChanged) != nullptr);
   OS_ASSERT(test);
 
-  QString program = toQString(openstudioCLIPath());
+  const QString program = toQString(openstudioCLIPath());
   QStringList arguments;
+
+  if (m_useClassicCLI) {
+    arguments << "classic";
+  }
   arguments << "measure";
   arguments << "-s";
   arguments << portString;
 
   LOG(Debug, "Starting measure manager server at " << url.toString().toStdString());
-  LOG(Debug, "Command: " << toString(openstudioCLIPath()) << " measure -s " << toString(portString));
+  LOG(Debug, "Command: " << toString(program) << " " << toString(arguments.join(' ')));
 
   m_measureManagerProcess->start(program, arguments);
 }
@@ -1540,6 +1572,18 @@ void OpenStudioApp::removeLibraryFromsSettings(const openstudio::path& path) {
   paths.erase(std::remove(paths.begin(), paths.end(), path), paths.end());
   // Rewrite all
   writeLibraryPaths(paths);
+}
+
+void OpenStudioApp::showFailedMeasureManagerDialog() {
+
+  QString text = tr("The OpenStudio Application must close. Do you want to reset Measure Manager settings?\n\n");
+  QMessageBox::StandardButton reply = QMessageBox::critical(mainWidget(), QString("Failed to connect to Measure Manager"), text,
+                                                            QMessageBox::RestoreDefaults | QMessageBox::Close, QMessageBox::RestoreDefaults);
+  if (reply == QMessageBox::RestoreDefaults) {
+    QSettings settings(QCoreApplication::organizationName(), QCoreApplication::applicationName());
+    settings.setValue("useClassicCLI", true);
+    settings.sync();
+  }
 }
 
 void OpenStudioApp::showFailedLibraryDialog(const std::vector<std::string>& failedPaths) {

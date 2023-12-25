@@ -1203,6 +1203,10 @@
     <file alias="images/duplicate_softer_press@2x.png">../shared_gui_components/images/duplicate_softer_press@2x.png</file>
     <file alias="images/energyplus_measure_icon.png">../shared_gui_components/images/energyplus_measure_icon.png</file>
     <file alias="images/energyplus_measure_icon@2x.png">../shared_gui_components/images/energyplus_measure_icon@2x.png</file>
+    <file alias="images/energyplus_measure_icon_Python.png">../shared_gui_components/images/energyplus_measure_icon_Python.png</file>
+    <file alias="images/energyplus_measure_icon_Python@2x.png">../shared_gui_components/images/energyplus_measure_icon_Python@2x.png</file>
+    <file alias="images/energyplus_measure_icon_Ruby.png">../shared_gui_components/images/energyplus_measure_icon_Ruby.png</file>
+    <file alias="images/energyplus_measure_icon_Ruby@2x.png">../shared_gui_components/images/energyplus_measure_icon_Ruby@2x.png</file>
     <file alias="images/error-alert.png">../shared_gui_components/images/error-alert.png</file>
     <file alias="images/error-alert@2x.png">../shared_gui_components/images/error-alert@2x.png</file>
     <file alias="images/fast_forward.png">../shared_gui_components/images/fast_forward.png</file>
@@ -1221,6 +1225,10 @@
     <file alias="images/open_my_measures_press@2x.png">../shared_gui_components/images/open_my_measures_press@2x.png</file>
     <file alias="images/openstudio_measure_icon.png">../shared_gui_components/images/openstudio_measure_icon.png</file>
     <file alias="images/openstudio_measure_icon@2x.png">../shared_gui_components/images/openstudio_measure_icon@2x.png</file>
+    <file alias="images/openstudio_measure_icon_Python.png">../shared_gui_components/images/openstudio_measure_icon_Python.png</file>
+    <file alias="images/openstudio_measure_icon_Python@2x.png">../shared_gui_components/images/openstudio_measure_icon_Python@2x.png</file>
+    <file alias="images/openstudio_measure_icon_Ruby.png">../shared_gui_components/images/openstudio_measure_icon_Ruby.png</file>
+    <file alias="images/openstudio_measure_icon_Ruby@2x.png">../shared_gui_components/images/openstudio_measure_icon_Ruby@2x.png</file>
     <file alias="images/partially_checked_checkbox.png">../shared_gui_components/images/partially_checked_checkbox.png</file>
     <file alias="images/partially_checked_checkbox@2x.png">../shared_gui_components/images/partially_checked_checkbox@2x.png</file>
     <file alias="images/pause_over.png">../shared_gui_components/images/pause_over.png</file>
@@ -1231,6 +1239,10 @@
     <file alias="images/pause_regular@2x.png">../shared_gui_components/images/pause_regular@2x.png</file>
     <file alias="images/report_measure_icon.png">../shared_gui_components/images/report_measure_icon.png</file>
     <file alias="images/report_measure_icon@2x.png">../shared_gui_components/images/report_measure_icon@2x.png</file>
+    <file alias="images/report_measure_icon_Python.png">../shared_gui_components/images/report_measure_icon_Python.png</file>
+    <file alias="images/report_measure_icon_Python@2x.png">../shared_gui_components/images/report_measure_icon_Python@2x.png</file>
+    <file alias="images/report_measure_icon_Ruby.png">../shared_gui_components/images/report_measure_icon_Ruby.png</file>
+    <file alias="images/report_measure_icon_Ruby@2x.png">../shared_gui_components/images/report_measure_icon_Ruby@2x.png</file>
     <file alias="images/reverse.png">../shared_gui_components/images/reverse.png</file>
     <file alias="images/reverse@2x.png">../shared_gui_components/images/reverse@2x.png</file>
     <file alias="images/rotating_arrow.png">../shared_gui_components/images/rotating_arrow.png</file>

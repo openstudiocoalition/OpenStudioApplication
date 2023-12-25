@@ -79,6 +79,8 @@ class MainWindow : public QMainWindow
 
   bool verboseOutput() const;
 
+  bool useClassicCLI() const;
+
   void enableRevertToSavedAction(bool enable);
 
   void enableFileImportActions(bool enable);
@@ -177,6 +179,8 @@ class MainWindow : public QMainWindow
 
   void sendAnalytics(const QString& analyticsId, const std::string& contentType, const std::string& contentId);
 
+  void enableUseClassicCLI(bool enable);
+
  public slots:
 
   void onVerticalTabSelected(int verticalTabId);
@@ -188,6 +192,8 @@ class MainWindow : public QMainWindow
   void promptAnalytics();
 
   void toggleAnalytics(bool allowAnalytics);
+
+  void toggleUseClassicCLI(bool useClassicCLI);
 
  protected:
   void closeEvent(QCloseEvent* event) override;
@@ -226,6 +232,8 @@ class MainWindow : public QMainWindow
   QString m_lastPath;
 
   QString m_analyticsId;
+
+  bool m_useClassicCLI = false;
 
  private slots:
 

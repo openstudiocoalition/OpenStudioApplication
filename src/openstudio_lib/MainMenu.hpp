@@ -41,7 +41,7 @@ class MainMenu : public QMenuBar
   Q_OBJECT
 
  public:
-  MainMenu(bool isIP, bool isPlugin, const QString& currLang, bool allowAnalytics, QWidget* parent = nullptr);
+  MainMenu(bool isIP, bool isPlugin, const QString& currLang, bool allowAnalytics, bool useClassicCLI, QWidget* parent = nullptr);
 
   virtual ~MainMenu();
 
@@ -86,6 +86,8 @@ class MainMenu : public QMenuBar
   void checkForUpdateClicked();
 
   void allowAnalyticsClicked(bool allowAnalytics);
+
+  void useClassicCLIClicked(bool useClassicCLI);
 
   void aboutClicked();
 
@@ -152,6 +154,8 @@ class MainMenu : public QMenuBar
 
   QAction* m_allowAnalyticsAction;
 
+  QAction* m_useClassicCLIAction;
+
   std::vector<QAction*> m_fileImportActions;
 
   std::vector<QAction*> m_preferencesActions;
@@ -163,6 +167,8 @@ class MainMenu : public QMenuBar
   QString m_currLang;
 
   bool m_allowAnalytics;
+
+  bool m_useClassicCLI;
 
  public slots:
 
@@ -177,6 +183,10 @@ class MainMenu : public QMenuBar
   void enableAnalytics(bool enable);
 
   void toggleAnalytics();
+
+  void enableUseClassicCLI(bool enable);
+
+  void toggleUseClassicCLI();
 
  private slots:
 
