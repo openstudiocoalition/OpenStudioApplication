@@ -222,4 +222,14 @@ TEST_F(ModelEditorFixture, InspectorDialog_SignalsOnIddObjectTypeChange) {
 
 TEST_F(ModelEditorFixture, InspectorDialog_SketchUpPlugin) {
   std::shared_ptr<InspectorDialog> inspectorDialog(new InspectorDialog(InspectorDialogClient::SketchUpPlugin));
+  inspectorDialog->hide();
+
+  Model model;
+  Space space(model);
+  ThermalZone thermalZone(model);
+
+  inspectorDialog->setModel(model);
+  inspectorDialog->setIddObjectType(space.iddObjectType());
+
+
 }
