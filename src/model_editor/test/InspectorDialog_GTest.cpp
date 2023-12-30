@@ -222,14 +222,34 @@ TEST_F(ModelEditorFixture, InspectorDialog_SignalsOnIddObjectTypeChange) {
 
 TEST_F(ModelEditorFixture, InspectorDialog_SketchUpPlugin) {
   std::shared_ptr<InspectorDialog> inspectorDialog(new InspectorDialog(InspectorDialogClient::SketchUpPlugin));
-  inspectorDialog->hide();
+  inspectorDialog->show();
 
   Model model;
   Space space(model);
   ThermalZone thermalZone(model);
 
   inspectorDialog->setModel(model);
+  openstudio::Application::instance().processEvents();
+
+  std::vector<openstudio::Handle> handles;
+  inspectorDialog->setSelectedObjectHandles(handles, true);
+  inspectorDialog->update();
+  openstudio::Application::instance().processEvents();
+
+  inspectorDialog->setModel(model);
   inspectorDialog->setIddObjectType(space.iddObjectType());
-
-
+  openstudio::Application::instance().processEvents();
+  inspectorDialog->setIddObjectType(thermalZone.iddObjectType());
+  openstudio::Application::instance().processEvents();
+  inspectorDialog->setIddObjectType(space.iddObjectType());
+  openstudio::Application::instance().processEvents();
+  handles.clear();
+  handles.push_back(space.handle());
+  inspectorDialog->setSelectedObjectHandles(handles, true);
+  openstudio::Application::instance().processEvents();
+  handles.clear();
+  handles.push_back(thermalZone.handle());
+  inspectorDialog->setIddObjectType(thermalZone.iddObjectType());
+  inspectorDialog->setSelectedObjectHandles(handles, true);
+  openstudio::Application::instance().processEvents();
 }
