@@ -280,55 +280,56 @@ void RunView::playButtonClicked(bool t_checked) {
     LOG(Debug, "Verbose Checkbox is checked? " << std::boolalpha << m_verboseOutputBox->isChecked());
     if (m_verboseOutputBox->isChecked()) {
       arguments << "--verbose";
-    } else if (m_useClassicCLIBox->isChecked()) {
+    } else if (m_useClassicCLIBox->isChecked())
       // https://github.com/NREL/OpenStudio/issues/5069
       arguments << "--verbose";
-    }
-
-    if (m_useClassicCLIBox->isChecked()) {
-      arguments << "run"
-                << "-w" << workflowJSONPath;
-    } else {
-      arguments << "run"
-                << "--show-stdout"
-                << "--style-stdout"
-                << "-w" << workflowJSONPath;
-    }
-    LOG(Debug, "openstudioExePath='" << toString(openstudioExePath) << "'");
-    LOG(Debug, "run arguments = " << arguments.join(";").toStdString());
-
-    osdocument->disableTabsDuringRun();
-    m_openSimDirButton->setEnabled(false);
-
-    if (exists(stdoutPath)) {
-      remove(stdoutPath);
-    }
-    if (exists(stderrPath)) {
-      remove(stderrPath);
-    }
-    // touch
-    openstudio::filesystem::ofstream{stdoutPath};
-    openstudio::filesystem::ofstream{stderrPath};
-
-    m_state = State::stopped;
-    m_textInfo->clear();
-
-    m_progressBar->setError(false);
-    m_progressBar->setMinimum(0);
-    m_progressBar->setMaximum(State::complete);
-    m_progressBar->setValue(0);
-
-    m_runProcess->start(openstudioExePath, arguments);
-  } else {
-    // stop running
-    LOG(Debug, "Kill Simulation");
-    m_textInfo->setTextColor(Qt::red);
-    m_textInfo->setFontPointSize(18);
-    m_textInfo->append("Aborted");
-    m_runProcess->blockSignals(true);
-    m_runProcess->kill();
-    m_runProcess->blockSignals(false);
   }
+
+  if (m_useClassicCLIBox->isChecked()) {
+    arguments << "run"
+              << "-w" << workflowJSONPath;
+  } else {
+    arguments << "run"
+              << "--show-stdout"
+              << "--style-stdout"
+              << "-w" << workflowJSONPath;
+  }
+  LOG(Debug, "openstudioExePath='" << toString(openstudioExePath) << "'");
+  LOG(Debug, "run arguments = " << arguments.join(";").toStdString());
+
+  osdocument->disableTabsDuringRun();
+  m_openSimDirButton->setEnabled(false);
+
+  if (exists(stdoutPath)) {
+    remove(stdoutPath);
+  }
+  if (exists(stderrPath)) {
+    remove(stderrPath);
+  }
+  // touch
+  openstudio::filesystem::ofstream{stdoutPath};
+  openstudio::filesystem::ofstream{stderrPath};
+
+  m_state = State::stopped;
+  m_textInfo->clear();
+
+  m_progressBar->setError(false);
+  m_progressBar->setMinimum(0);
+  m_progressBar->setMaximum(State::complete);
+  m_progressBar->setValue(0);
+
+  m_runProcess->start(openstudioExePath, arguments);
+}
+else {
+  // stop running
+  LOG(Debug, "Kill Simulation");
+  m_textInfo->setTextColor(Qt::red);
+  m_textInfo->setFontPointSize(18);
+  m_textInfo->append("Aborted");
+  m_runProcess->blockSignals(true);
+  m_runProcess->kill();
+  m_runProcess->blockSignals(false);
+}
 }
 
 void RunView::readyReadStandardOutput() {
@@ -382,19 +383,17 @@ void RunView::readyReadStandardOutput() {
     } else if (trimmedLine.contains(QChar(27))) {
       // escape character
       continue;
-    } else if (trimmedLine.contains(QChar(9472))) {
-      // line character
+    } else if (trimmedLine.contains(QChar(196))) {
+      // escape character
       continue;
     }
 
     bool processedLine = false;
 
     // check for state transitions
-    int test = 0;
     switch (m_state) {
       case State::stopped:
-        test = trimmedLine.indexOf("Starting state initialization", 0, Qt::CaseInsensitive);
-        if (trimmedLine.contains("Starting state initialization", Qt::CaseInsensitive)) {
+        if (QString::compare(trimmedLine, "Starting state initialization", Qt::CaseInsensitive) == 0) {
           appendH1Text("Initializing workflow.");
           m_state = State::initialization;
           m_progressBar->setValue(m_state);
@@ -405,11 +404,11 @@ void RunView::readyReadStandardOutput() {
         if (QString::compare(trimmedLine, "Started", Qt::CaseInsensitive) == 0) {
           // no-op
           processedLine = true;
-        } else if (trimmedLine.contains("Returned from state initialization", Qt::CaseInsensitive)) {
+        } else if (QString::compare(trimmedLine, "Returned from state initialization", Qt::CaseInsensitive) == 0) {
           // no-op
           processedLine = true;
         } else if (QString::compare(trimmedLine, "Starting state os_measures", Qt::CaseInsensitive) == 0
-                   || trimmedLine.contains("Starting State OpenStudioMeasures", Qt::CaseInsensitive)) {
+                   || QString::compare(trimmedLine, "Starting State OpenStudioMeasures ", Qt::CaseInsensitive) == 0) {
           appendH1Text("Processing OpenStudio Measures.");
           m_state = State::os_measures;
           m_progressBar->setValue(m_state);
@@ -418,10 +417,10 @@ void RunView::readyReadStandardOutput() {
         break;
       case State::os_measures:
         if (QString::compare(trimmedLine, "Returned from state os_measures", Qt::CaseInsensitive) == 0
-            || trimmedLine.contains("Returned from State OpenStudioMeasure", Qt::CaseInsensitive)) {
+            || QString::compare(trimmedLine, "Returned from State OpenStudioMeasure", Qt::CaseInsensitive) == 0) {
           // no-op
           processedLine = true;
-        } else if (trimmedLine.contains("Starting state translator", Qt::CaseInsensitive)) {
+        } else if (QString::compare(trimmedLine, "Starting state translator", Qt::CaseInsensitive) == 0) {
           appendH1Text("Translating the OpenStudio Model to EnergyPlus.");
           m_state = State::translator;
           m_progressBar->setValue(m_state);
@@ -429,11 +428,11 @@ void RunView::readyReadStandardOutput() {
         }
         break;
       case State::translator:
-        if (trimmedLine.contains("Returned from state translator", Qt::CaseInsensitive)) {
+        if (QString::compare(trimmedLine, "Returned from state translator", Qt::CaseInsensitive) == 0) {
           // no-op
           processedLine = true;
         } else if (QString::compare(trimmedLine, "Starting state ep_measures", Qt::CaseInsensitive) == 0
-                   || trimmedLine.contains("Starting state EnergyPlusMeasures", Qt::CaseInsensitive)) {
+                   || QString::compare(trimmedLine, "Starting state EnergyPlusMeasures", Qt::CaseInsensitive) == 0) {
           appendH1Text("Processing EnergyPlus Measures.");
           m_state = State::ep_measures;
           m_progressBar->setValue(m_state);
@@ -441,11 +440,10 @@ void RunView::readyReadStandardOutput() {
         }
         break;
       case State::ep_measures:
-        if (QString::compare(trimmedLine, "Returned from state ep_measures", Qt::CaseInsensitive) == 0
-            || trimmedLine.contains("Returned from State EnergyPlusMeasures", Qt::CaseInsensitive)) {
+        if (QString::compare(trimmedLine, "Returned from state ep_measures", Qt::CaseInsensitive) == 0) {
           // no-op
           processedLine = true;
-        } else if (trimmedLine.contains("Starting state preprocess", Qt::CaseInsensitive)) {
+        } else if (QString::compare(trimmedLine, "Starting state preprocess", Qt::CaseInsensitive) == 0) {
           // ignore this state
           m_state = State::preprocess;
           m_progressBar->setValue(m_state);
@@ -453,24 +451,21 @@ void RunView::readyReadStandardOutput() {
         }
         break;
       case State::preprocess:
-        if (trimmedLine.contains("Returned from state preprocess", Qt::CaseInsensitive)) {
+        if (QString::compare(trimmedLine, "Returned from state preprocess", Qt::CaseInsensitive) == 0) {
           // ignore this state
           processedLine = true;
-        } else if (trimmedLine.contains("Starting state simulation", Qt::CaseInsensitive)
-                   || trimmedLine.contains("Starting State EnergyPlus", Qt::CaseInsensitive)) {
-          appendH1Text("Starting EnergyPlus Simulation.");
+        } else if (QString::compare(trimmedLine, "Starting state simulation", Qt::CaseInsensitive) == 0) {
+          appendH1Text("Starting Simulation.");
           m_state = State::simulation;
           m_progressBar->setValue(m_state);
           processedLine = true;
         }
         break;
       case State::simulation:
-        if (trimmedLine.contains("Returned from state simulation", Qt::CaseInsensitive)
-            || trimmedLine.contains("Returned from state EnergyPlus", Qt::CaseInsensitive)) {
+        if (QString::compare(trimmedLine, "Returned from state simulation", Qt::CaseInsensitive) == 0) {
           // no-op
           processedLine = true;
-        } else if (QString::compare(trimmedLine, "Starting state reporting_measures", Qt::CaseInsensitive) == 0
-                   || trimmedLine.contains("Starting State ReportingMeasures", Qt::CaseInsensitive)) {
+        } else if (QString::compare(trimmedLine, "Starting state reporting_measures", Qt::CaseInsensitive) == 0) {
           appendH1Text("Processing Reporting Measures.");
           m_state = State::reporting_measures;
           m_progressBar->setValue(m_state);
@@ -478,11 +473,10 @@ void RunView::readyReadStandardOutput() {
         }
         break;
       case State::reporting_measures:
-        if (QString::compare(trimmedLine, "Returned from state reporting_measures", Qt::CaseInsensitive) == 0
-            || trimmedLine.contains("Returned from state ReportingMeasures", Qt::CaseInsensitive)) {
+        if (QString::compare(trimmedLine, "Returned from state reporting_measures", Qt::CaseInsensitive) == 0) {
           // no-op
           processedLine = true;
-        } else if (trimmedLine.contains("Starting state postprocess", Qt::CaseInsensitive)) {
+        } else if (QString::compare(trimmedLine, "Starting state postprocess", Qt::CaseInsensitive) == 0) {
           appendH1Text("Gathering Reports.");
           m_state = State::postprocess;
           m_progressBar->setValue(m_state);
@@ -490,7 +484,7 @@ void RunView::readyReadStandardOutput() {
         }
         break;
       case State::postprocess:
-        if (trimmedLine.contains("Returned from state postprocess", Qt::CaseInsensitive)) {
+        if (QString::compare(trimmedLine, "Returned from state postprocess", Qt::CaseInsensitive) == 0) {
           // no-op
           processedLine = true;
         }
@@ -504,9 +498,7 @@ void RunView::readyReadStandardOutput() {
     }
 
     // check for measure output
-    bool isMeasure = false;
     if (m_state == State::os_measures || m_state == State::ep_measures || m_state == State::reporting_measures) {
-      isMeasure = true;
 
       if (QString::compare(trimmedLine, "Failure", Qt::CaseInsensitive) == 0) {
         appendErrorText("Failed.");
@@ -520,10 +512,10 @@ void RunView::readyReadStandardOutput() {
       } else if (trimmedLine.startsWith("Applied", Qt::CaseInsensitive)) {
         // no-op
         processedLine = true;
-      } else if (trimmedLine.indexOf("Step Result", Qt::CaseInsensitive) >= 0) {
+      } else if (QString::compare(trimmedLine, "Step Result", Qt::CaseInsensitive) == 0) {
         appendH1Text(trimmedLine);
         processedLine = true;
-      } else if (trimmedLine.indexOf("Class Name", Qt::CaseInsensitive) >= 0) {
+      } else if (QString::compare(trimmedLine, "Class Name", Qt::CaseInsensitive) == 0) {
         appendH2Text(trimmedLine);
         processedLine = true;
       }
@@ -548,7 +540,7 @@ void RunView::readyReadStandardOutput() {
     }
 
     // don't print debug statements unless in verbose
-    if (logLevel < -1 && !m_verboseOutputBox->isChecked() && !isMeasure) {
+    if (logLevel < -1 && !m_verboseOutputBox->isChecked()) {
       continue;
     }
 

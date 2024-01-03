@@ -80,9 +80,6 @@ class RunView : public QWidget
 
   void onOpenSimDirClicked();
 
-  void onNewConnection();
-
-  void onRunDataReady();
   void readyReadStandardError();
   void readyReadStandardOutput();
 
@@ -92,8 +89,6 @@ class RunView : public QWidget
   QTextEdit* m_textInfo;
   QProcess* m_runProcess;
   QPushButton* m_openSimDirButton;
-  QTcpServer* m_runTcpServer;
-  QTcpSocket* m_runSocket;
 
   QCheckBox* m_verboseOutputBox;
   QCheckBox* m_useClassicCLIBox;
@@ -116,7 +111,6 @@ class RunView : public QWidget
     complete = 9
   };
   State m_state = State::stopped;
-  bool m_hasSocketConnexion = false;
 };
 
 class RunTabView : public MainTabView
