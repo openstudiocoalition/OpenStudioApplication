@@ -83,6 +83,8 @@ class RunView : public QWidget
   void readyReadStandardError();
   void readyReadStandardOutput();
 
+  void resetFont();
+
   QToolButton* m_playButton;
   ProgressBarWithError* m_progressBar;
   QLabel* m_statusLabel;

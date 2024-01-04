@@ -157,6 +157,7 @@ RunView::RunView() : QWidget() {
   m_textInfo = new QTextEdit();
   m_textInfo->setReadOnly(true);
   mainLayout->addWidget(m_textInfo, 1, 0, 1, 4);
+  resetFont();
 
   m_runProcess = new QProcess(this);
   connect(m_runProcess, &QProcess::finished, this, &RunView::onRunProcessFinished);
@@ -194,10 +195,11 @@ void RunView::onOpenSimDirClicked() {
 }
 
 void RunView::onRunProcessErrored(QProcess::ProcessError error) {
-  m_textInfo->setTextColor(Qt::red);
+  m_textInfo->setTextColor(Qt::darkRed);
   m_textInfo->setFontPointSize(18);
   QString text = tr("onRunProcessErrored: Simulation failed to run, QProcess::ProcessError: ") + QString::number(error);
   m_textInfo->append(text);
+  resetFont();
 }
 
 void RunView::onRunProcessFinished(int exitCode, QProcess::ExitStatus status) {
@@ -206,9 +208,10 @@ void RunView::onRunProcessFinished(int exitCode, QProcess::ExitStatus status) {
   }
 
   if (exitCode != 0 || status == QProcess::CrashExit) {
-    m_textInfo->setTextColor(Qt::red);
+    m_textInfo->setTextColor(Qt::darkRed);
     m_textInfo->setFontPointSize(18);
     m_textInfo->append(tr("Simulation failed to run, with exit code ") + QString::number(exitCode));
+    resetFont();
 
     m_progressBar->setError(true);
 
@@ -218,12 +221,14 @@ void RunView::onRunProcessFinished(int exitCode, QProcess::ExitStatus status) {
     //m_textInfo->setFontPointSize(12);
     //QString errorString = QString(m_runProcess->readAllStandardError());
     //m_textInfo->append(errorString);
+    //resetFont();
 
     //m_textInfo->setFontPointSize(15);
     //m_textInfo->append("Stdout:");
     //m_textInfo->setFontPointSize(12);
     //QString outString = QString(m_runProcess->readAllStandardOutput());
     //m_textInfo->append(outString);
+    //resetFont();
   }
 
   m_playButton->setChecked(false);
@@ -280,13 +285,14 @@ void RunView::playButtonClicked(bool t_checked) {
     LOG(Debug, "Verbose Checkbox is checked? " << std::boolalpha << m_verboseOutputBox->isChecked());
     if (m_verboseOutputBox->isChecked()) {
       arguments << "--verbose";
-    } else if (m_useClassicCLIBox->isChecked()) {
+    } else if (!m_useClassicCLIBox->isChecked()) {
       // https://github.com/NREL/OpenStudio/issues/5069
       arguments << "--verbose";
     }
 
     if (m_useClassicCLIBox->isChecked()) {
       arguments << "run"
+                << "--show-stdout"
                 << "-w" << workflowJSONPath;
     } else {
       arguments << "run"
@@ -322,9 +328,11 @@ void RunView::playButtonClicked(bool t_checked) {
   } else {
     // stop running
     LOG(Debug, "Kill Simulation");
-    m_textInfo->setTextColor(Qt::red);
-    m_textInfo->setFontPointSize(18);
+    m_textInfo->setTextColor(Qt::darkRed);
+    m_textInfo->setFontPointSize(15);
     m_textInfo->append("Aborted");
+    resetFont();
+    resetFont();
     m_runProcess->blockSignals(true);
     m_runProcess->kill();
     m_runProcess->blockSignals(false);
@@ -333,28 +341,52 @@ void RunView::playButtonClicked(bool t_checked) {
 
 void RunView::readyReadStandardOutput() {
 
-  auto appendErrorText = [&](const QString& text) {
-    m_textInfo->setTextColor(Qt::red);
-    m_textInfo->setFontPointSize(18);
-    m_textInfo->append(text);
-  };
-
   auto appendNormalText = [&](const QString& text) {
     m_textInfo->setTextColor(Qt::black);
+    m_textInfo->setFontWeight(QFont::Normal);
     m_textInfo->setFontPointSize(12);
     m_textInfo->append(text);
+    resetFont();
   };
 
-  auto appendH1Text = [&](const QString& text) {
-    m_textInfo->setTextColor(Qt::black);
-    m_textInfo->setFontPointSize(18);
+  auto appendWarnText = [&](const QString& text) {
+    m_textInfo->setTextColor(Qt::red);
+    m_textInfo->setFontWeight(QFont::Normal);
+    m_textInfo->setFontPointSize(12);
     m_textInfo->append(text);
+    resetFont();
   };
 
-  auto appendH2Text = [&](const QString& text) {
+  auto appendErrorText = [&](const QString& text) {
+    m_textInfo->setTextColor(Qt::darkRed);
+    m_textInfo->setFontWeight(QFont::Bold);
+    m_textInfo->setFontPointSize(12);
+    m_textInfo->append(text);
+    resetFont();
+  };
+
+  auto appendStateChange = [&](const QString& text) {
     m_textInfo->setTextColor(Qt::black);
+    m_textInfo->setFontWeight(QFont::Bold);
     m_textInfo->setFontPointSize(15);
     m_textInfo->append(text);
+    resetFont();
+  };
+
+  auto appendResult = [&](const QString& text) {
+    m_textInfo->setTextColor(Qt::black);
+    m_textInfo->setFontWeight(QFont::Bold);
+    m_textInfo->setFontPointSize(12);
+    m_textInfo->append(text);
+    resetFont();
+  };
+
+  auto appendErrorResult = [&](const QString& text) {
+    m_textInfo->setTextColor(Qt::darkRed);
+    m_textInfo->setFontWeight(QFont::Bold);
+    m_textInfo->setFontPointSize(12);
+    m_textInfo->append(text);
+    resetFont();
   };
 
   QString data = m_runProcess->readAllStandardOutput();
@@ -395,11 +427,21 @@ void RunView::readyReadStandardOutput() {
       case State::stopped:
         test = trimmedLine.indexOf("Starting state initialization", 0, Qt::CaseInsensitive);
         if (trimmedLine.contains("Starting state initialization", Qt::CaseInsensitive)) {
-          appendH1Text("Initializing workflow.");
+          appendStateChange("Initializing workflow.");
           m_state = State::initialization;
           m_progressBar->setValue(m_state);
           processedLine = true;
+        } else if (trimmedLine.contains("Setting Log Level to Debug", Qt::CaseInsensitive)) {
+          // no-op
+          processedLine = true;
+        } else if (trimmedLine.contains("OSRunner is deprecated, use OpenStudio::Measure::OSRunner instead", Qt::CaseInsensitive)) {
+          // no-op
+          processedLine = true;
+        } else if (trimmedLine.contains("command is deprecated and will be removed in a future release", Qt::CaseInsensitive)) {
+          appendWarnText("The classic command is deprecated and will be removed in a future release.");
+          processedLine = true;
         }
+
         break;
       case State::initialization:
         if (QString::compare(trimmedLine, "Started", Qt::CaseInsensitive) == 0) {
@@ -410,7 +452,7 @@ void RunView::readyReadStandardOutput() {
           processedLine = true;
         } else if (QString::compare(trimmedLine, "Starting state os_measures", Qt::CaseInsensitive) == 0
                    || trimmedLine.contains("Starting State OpenStudioMeasures", Qt::CaseInsensitive)) {
-          appendH1Text("Processing OpenStudio Measures.");
+          appendStateChange("Processing OpenStudio Measures.");
           m_state = State::os_measures;
           m_progressBar->setValue(m_state);
           processedLine = true;
@@ -422,7 +464,7 @@ void RunView::readyReadStandardOutput() {
           // no-op
           processedLine = true;
         } else if (trimmedLine.contains("Starting state translator", Qt::CaseInsensitive)) {
-          appendH1Text("Translating the OpenStudio Model to EnergyPlus.");
+          appendStateChange("Translating the OpenStudio Model to EnergyPlus.");
           m_state = State::translator;
           m_progressBar->setValue(m_state);
           processedLine = true;
@@ -434,7 +476,7 @@ void RunView::readyReadStandardOutput() {
           processedLine = true;
         } else if (QString::compare(trimmedLine, "Starting state ep_measures", Qt::CaseInsensitive) == 0
                    || trimmedLine.contains("Starting state EnergyPlusMeasures", Qt::CaseInsensitive)) {
-          appendH1Text("Processing EnergyPlus Measures.");
+          appendStateChange("Processing EnergyPlus Measures.");
           m_state = State::ep_measures;
           m_progressBar->setValue(m_state);
           processedLine = true;
@@ -446,7 +488,7 @@ void RunView::readyReadStandardOutput() {
           // no-op
           processedLine = true;
         } else if (trimmedLine.contains("Starting state preprocess", Qt::CaseInsensitive)) {
-          // ignore this state
+          appendStateChange("Adding Simulation Output Requests.");
           m_state = State::preprocess;
           m_progressBar->setValue(m_state);
           processedLine = true;
@@ -454,11 +496,11 @@ void RunView::readyReadStandardOutput() {
         break;
       case State::preprocess:
         if (trimmedLine.contains("Returned from state preprocess", Qt::CaseInsensitive)) {
-          // ignore this state
+          // no-op
           processedLine = true;
         } else if (trimmedLine.contains("Starting state simulation", Qt::CaseInsensitive)
                    || trimmedLine.contains("Starting State EnergyPlus", Qt::CaseInsensitive)) {
-          appendH1Text("Starting EnergyPlus Simulation.");
+          appendStateChange("Starting EnergyPlus Simulation.");
           m_state = State::simulation;
           m_progressBar->setValue(m_state);
           processedLine = true;
@@ -471,7 +513,7 @@ void RunView::readyReadStandardOutput() {
           processedLine = true;
         } else if (QString::compare(trimmedLine, "Starting state reporting_measures", Qt::CaseInsensitive) == 0
                    || trimmedLine.contains("Starting State ReportingMeasures", Qt::CaseInsensitive)) {
-          appendH1Text("Processing Reporting Measures.");
+          appendStateChange("Processing Reporting Measures.");
           m_state = State::reporting_measures;
           m_progressBar->setValue(m_state);
           processedLine = true;
@@ -483,7 +525,7 @@ void RunView::readyReadStandardOutput() {
           // no-op
           processedLine = true;
         } else if (trimmedLine.contains("Starting state postprocess", Qt::CaseInsensitive)) {
-          appendH1Text("Gathering Reports.");
+          appendStateChange("Gathering Reports.");
           m_state = State::postprocess;
           m_progressBar->setValue(m_state);
           processedLine = true;
@@ -497,36 +539,6 @@ void RunView::readyReadStandardOutput() {
         break;
       default:
         break;
-    }
-
-    if (processedLine) {
-      continue;
-    }
-
-    // check for measure output
-    bool isMeasure = false;
-    if (m_state == State::os_measures || m_state == State::ep_measures || m_state == State::reporting_measures) {
-      isMeasure = true;
-
-      if (QString::compare(trimmedLine, "Failure", Qt::CaseInsensitive) == 0) {
-        appendErrorText("Failed.");
-        processedLine = true;
-      } else if (QString::compare(trimmedLine, "Complete", Qt::CaseInsensitive) == 0) {
-        appendH1Text("Completed.");
-        processedLine = true;
-      } else if (trimmedLine.startsWith("Applying", Qt::CaseInsensitive)) {
-        appendH2Text(trimmedLine);
-        processedLine = true;
-      } else if (trimmedLine.startsWith("Applied", Qt::CaseInsensitive)) {
-        // no-op
-        processedLine = true;
-      } else if (trimmedLine.indexOf("Step Result", Qt::CaseInsensitive) >= 0) {
-        appendH1Text(trimmedLine);
-        processedLine = true;
-      } else if (trimmedLine.indexOf("Class Name", Qt::CaseInsensitive) >= 0) {
-        appendH2Text(trimmedLine);
-        processedLine = true;
-      }
     }
 
     if (processedLine) {
@@ -547,7 +559,44 @@ void RunView::readyReadStandardOutput() {
       logLevel = 1;
     }
 
-    // don't print debug statements unless in verbose
+    // remove the log level and channel if present
+    static const QRegularExpression channelAndLevel("^\\[.*?\\]\\s*<.*?>\\s*");
+    trimmedLine.remove(channelAndLevel);
+
+//D, [2024-01-03T23:08:15.526127 #41668] DEBUG -- : 
+//I, [2024 - 01 - 03T23:08:15.527811 #41668] INFO -- :  
+
+    // check for measure output
+    bool isMeasure = false;
+    if (m_state == State::os_measures || m_state == State::ep_measures || m_state == State::reporting_measures) {
+      isMeasure = true;
+
+      if (QString::compare(trimmedLine, "Failure", Qt::CaseInsensitive) == 0) {
+        appendErrorResult("Failed.");
+        processedLine = true;
+      } else if (QString::compare(trimmedLine, "Complete", Qt::CaseInsensitive) == 0) {
+        appendResult("Completed.");
+        processedLine = true;
+      } else if (trimmedLine.startsWith("Applying", Qt::CaseInsensitive)) {
+        appendNormalText(trimmedLine);
+        processedLine = true;
+      } else if (trimmedLine.startsWith("Applied", Qt::CaseInsensitive)) {
+        // no-op
+        processedLine = true;
+      } else if (trimmedLine.indexOf("Step Result", Qt::CaseInsensitive) >= 0) {
+        appendResult(trimmedLine);
+        processedLine = true;
+      } else if (trimmedLine.indexOf("Class Name", Qt::CaseInsensitive) >= 0) {
+        appendNormalText(trimmedLine);
+        processedLine = true;
+      }
+    }
+
+    if (processedLine) {
+      continue;
+    }
+
+    // don't print debug statements unless in verbose or if running a measure
     if (logLevel < -1 && !m_verboseOutputBox->isChecked() && !isMeasure) {
       continue;
     }
@@ -556,7 +605,7 @@ void RunView::readyReadStandardOutput() {
     if (logLevel > 0) {
       appendErrorText(trimmedLine);
     } else if (logLevel == 0) {
-      appendH1Text(trimmedLine);
+      appendWarnText(trimmedLine);
     } else {
       appendNormalText(trimmedLine);
     }
@@ -566,8 +615,9 @@ void RunView::readyReadStandardOutput() {
 void RunView::readyReadStandardError() {
   auto appendErrorText = [&](const QString& text) {
     m_textInfo->setTextColor(Qt::darkRed);
-    m_textInfo->setFontPointSize(18);
+    m_textInfo->setFontPointSize(12);
     m_textInfo->append(text);
+    resetFont();
   };
 
   QString data = m_runProcess->readAllStandardError();
@@ -592,6 +642,12 @@ void RunView::readyReadStandardError() {
       appendErrorText("stderr: " + trimmedLine);
     }
   }
+}
+
+void RunView::resetFont() {
+  m_textInfo->setTextColor(Qt::black);
+  m_textInfo->setFontWeight(QFont::Normal);
+  m_textInfo->setFontPointSize(12);
 }
 
 }  // namespace openstudio
