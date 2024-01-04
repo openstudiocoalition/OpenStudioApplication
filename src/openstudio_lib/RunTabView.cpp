@@ -563,8 +563,8 @@ void RunView::readyReadStandardOutput() {
     static const QRegularExpression channelAndLevel("^\\[.*?\\]\\s*<.*?>\\s*");
     trimmedLine.remove(channelAndLevel);
 
-//D, [2024-01-03T23:08:15.526127 #41668] DEBUG -- : 
-//I, [2024 - 01 - 03T23:08:15.527811 #41668] INFO -- :  
+    //D, [2024-01-03T23:08:15.526127 #41668] DEBUG -- :
+    //I, [2024 - 01 - 03T23:08:15.527811 #41668] INFO -- :
 
     // check for measure output
     bool isMeasure = false;
