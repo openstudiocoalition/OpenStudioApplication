@@ -606,9 +606,15 @@ MechanicalVentilationView::MechanicalVentilationView() {
   ventilationCalcMethodComboBox = new OSComboBox2();
   ventilationCalcMethodComboBox->setEnabled(false);
   ventilationCalcMethodComboBox->addItem("Zone Sum", "ZoneSum");
-  ventilationCalcMethodComboBox->addItem("Ventilation Rate Procedure", "VentilationRateProcedure");
+  ventilationCalcMethodComboBox->addItem("Standard 62.1 Ventilation Rate Procedure", "Standard62.1VentilationRateProcedure");
+  ventilationCalcMethodComboBox->addItem("Standard 62.1 Ventilation Rate Procedure With Limit", "Standard62.1VentilationRateProcedureWithLimit");
   ventilationCalcMethodComboBox->addItem("Indoor Air Quality Procedure", "IndoorAirQualityProcedure");
-  ventilationCalcMethodComboBox->addItem("Proportional Control", "ProportionalControl");
+  // TODO: OS 3.7.0 is missing some choices that E+ 23.2.0 has, pending https://github.com/NREL/OpenStudio/issues/5060
+  // ventilationCalcMethodComboBox->addItem("Indoor Air Quality Procedure Generic Contaminant", "IndoorAirQualityProcedureGenericContaminant");
+  // ventilationCalcMethodComboBox->addItem("Indoor Air Quality Procedure Combined", "IndoorAirQualityProcedureCombined");
+  ventilationCalcMethodComboBox->addItem("Proportional Control Bseed On Design Occupancy", "ProportionalControlBasedOnDesignOccupancy");
+  // ventilationCalcMethodComboBox->addItem("Proportional Control Bseed On Design OA Rate", "ProportionalControlBasedOnDesignOARate");
+  ventilationCalcMethodComboBox->addItem("Proportional Control Bseed On Occupancy Schedule", "ProportionalControlBasedOnOccupancySchedule");
   ventilationCalcMethodComboBox->setVisible(false);
 
   methodHBoxLayout->addWidget(ventilationCalcMethodComboBox);
