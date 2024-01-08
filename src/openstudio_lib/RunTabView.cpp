@@ -588,7 +588,8 @@ void RunView::processLine(const QString& line, bool fromSocket) {
       }
       break;
     case State::postprocess:
-      if (trimmedLine.contains("Returned from state postprocess", Qt::CaseInsensitive)) {
+      if (trimmedLine.contains("Returned from state postprocess", Qt::CaseInsensitive)
+          || trimmedLine.contains("Starting State Cleanup", Qt::CaseInsensitive)) {
         // no-op
         return;
       }
