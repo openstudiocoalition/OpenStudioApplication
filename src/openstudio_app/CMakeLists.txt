@@ -137,6 +137,7 @@ if(WIN32)
   target_link_options(${target_name} PRIVATE /STACK:8388608)
 endif()
 
+# TODO: find a way to avoid this... We got a duplicated CLI...
 # This is because Apple has app bundles for .apps.
 # We copy the openstudio cli into the app bundle in an effort
 # to be self contained. It also makes it easy to find the cli since
@@ -448,11 +449,11 @@ if( APPLE )
           "${CMAKE_INSTALL_PREFIX}/OpenStudioApp.app/Contents/Radiance"
 
         COMMAND "${CMAKE_COMMAND}" -E create_symlink
-          "../../../bin/$<TARGET_FILE_NAME:openstudio::rubyengine>"
+          "../../../lib/$<TARGET_FILE_NAME:openstudio::rubyengine>"
           "${CMAKE_INSTALL_PREFIX}/OpenStudioApp.app/Contents/Frameworks/$<TARGET_FILE_NAME:openstudio::rubyengine>"
 
         COMMAND "${CMAKE_COMMAND}" -E create_symlink
-          "../../../bin/$<TARGET_FILE_NAME:openstudio::pythonengine>"
+          "../../../lib/$<TARGET_FILE_NAME:openstudio::pythonengine>"
           "${CMAKE_INSTALL_PREFIX}/OpenStudioApp.app/Contents/Frameworks/$<TARGET_FILE_NAME:openstudio::pythonengine>"
 
         COMMAND_ECHO STDOUT
