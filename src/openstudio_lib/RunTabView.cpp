@@ -260,6 +260,7 @@ void RunView::playButtonClicked(bool t_checked) {
     if (osdocument->modified()) {
       osdocument->save();
       // save dialog was canceled
+      // cppcheck-suppress identicalInnerCondition
       if (osdocument->modified()) {
         m_playButton->setChecked(false);
         return;
