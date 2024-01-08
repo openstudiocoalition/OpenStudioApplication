@@ -911,8 +911,7 @@ cpack_add_component(Libraries
 
 cpack_add_component(Python
   DISPLAY_NAME "Python Bindings"
-  DESCRIPTION "Experimental support for Python Measures"
-  DISABLED
+  DESCRIPTION "Support for Python Measures"
 )
 
 add_custom_target(PACKAGE_DEBUG
