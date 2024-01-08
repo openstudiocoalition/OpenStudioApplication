@@ -91,7 +91,6 @@ class RunView : public QWidget
 
   QToolButton* m_playButton;
   ProgressBarWithError* m_progressBar;
-  QLabel* m_statusLabel;
   QTextEdit* m_textInfo;
   QProcess* m_runProcess;
   QPushButton* m_openSimDirButton;
@@ -120,7 +119,6 @@ class RunView : public QWidget
   };
   State m_state = State::stopped;
   bool m_hasSocketConnection = false;
-  bool m_usingSocketConnection = false;
 };
 
 class RunTabView : public MainTabView

@@ -96,12 +96,12 @@
 
 namespace openstudio {
 
-RunTabView::RunTabView(const model::Model& model, QWidget* parent)
+RunTabView::RunTabView(const model::Model& /*model*/, QWidget* parent)
   : MainTabView("Run Simulation", MainTabView::MAIN_TAB, parent), m_runView(new RunView()) {
   addTabWidget(m_runView);
 }
 
-RunView::RunView() : QWidget(), m_runSocket(nullptr) {
+RunView::RunView() : m_runSocket(nullptr) {
   auto* mainLayout = new QGridLayout();
   mainLayout->setContentsMargins(10, 10, 10, 10);
   mainLayout->setSpacing(5);
@@ -133,14 +133,14 @@ RunView::RunView() : QWidget(), m_runSocket(nullptr) {
   mainLayout->addLayout(progressbarlayout, 0, 1);
 
   auto* mainWindow = OSAppBase::instance()->currentDocument()->mainWindow();
-  bool verboseOutput = mainWindow->verboseOutput();
+  const bool verboseOutput = mainWindow->verboseOutput();
   m_verboseOutputBox = new QCheckBox();
   m_verboseOutputBox->setText("Verbose");
   m_verboseOutputBox->setChecked(verboseOutput);
   connect(m_verboseOutputBox, &QCheckBox::clicked, mainWindow, &MainWindow::toggleVerboseOutput);
   mainLayout->addWidget(m_verboseOutputBox, 0, 2);
 
-  bool useClassicCLI = mainWindow->useClassicCLI();
+  const bool useClassicCLI = mainWindow->useClassicCLI();
   m_useClassicCLIBox = new QCheckBox();
   m_useClassicCLIBox->setText("Classic CLI");
   m_useClassicCLIBox->setChecked(useClassicCLI);
@@ -190,10 +190,9 @@ RunView::RunView() : QWidget(), m_runSocket(nullptr) {
 }
 
 void RunView::onOpenSimDirClicked() {
-  std::shared_ptr<OSDocument> osdocument = OSAppBase::instance()->currentDocument();
-  path runDir = getCompanionFolder(toPath(osdocument->savePath())) / toPath("run");
-  QString path = QDir::toNativeSeparators(toQString(runDir));
-  if (!QDesktopServices::openUrl(QUrl::fromLocalFile(path))) {
+  const auto runDir = getCompanionFolder(toPath(OSAppBase::instance()->currentDocument()->savePath())) / toPath("run");
+  const QString qpath = QDir::toNativeSeparators(toQString(runDir));
+  if (!QDesktopServices::openUrl(QUrl::fromLocalFile(qpath))) {
     QMessageBox::critical(this, "Unable to open simulation", "Please save the OpenStudio Model to view the simulation.");
   }
 }
@@ -201,7 +200,7 @@ void RunView::onOpenSimDirClicked() {
 void RunView::onRunProcessErrored(QProcess::ProcessError error) {
   m_textInfo->setTextColor(Qt::darkRed);
   m_textInfo->setFontPointSize(18);
-  QString text = tr("onRunProcessErrored: Simulation failed to run, QProcess::ProcessError: ") + QString::number(error);
+  const QString text = tr("onRunProcessErrored: Simulation failed to run, QProcess::ProcessError: ") + QString::number(error);
   m_textInfo->append(text);
   resetFont();
 }
@@ -241,21 +240,19 @@ void RunView::onRunProcessFinished(int exitCode, QProcess::ExitStatus status) {
   m_progressBar->setMaximum(State::complete);
   m_progressBar->setValue(State::complete);
 
-  std::shared_ptr<OSDocument> osdocument = OSAppBase::instance()->currentDocument();
+  const std::shared_ptr<OSDocument> osdocument = OSAppBase::instance()->currentDocument();
   osdocument->save();
   osdocument->enableTabsAfterRun();
   m_openSimDirButton->setEnabled(true);
 
-  if (m_runSocket) {
-    delete m_runSocket;
-  }
+  delete m_runSocket;
   m_runSocket = nullptr;
 }
 
 void RunView::playButtonClicked(bool t_checked) {
   LOG(Debug, "playButtonClicked " << t_checked);
 
-  std::shared_ptr<OSDocument> osdocument = OSAppBase::instance()->currentDocument();
+  const std::shared_ptr<OSDocument> osdocument = OSAppBase::instance()->currentDocument();
 
   if (t_checked) {
     // run
@@ -270,7 +267,7 @@ void RunView::playButtonClicked(bool t_checked) {
     }
 
     // Use OpenStudioApplicationPathHelpers to find the CLI
-    QString openstudioExePath = toQString(openstudio::getOpenStudioCoreCLI());
+    const QString openstudioExePath = toQString(openstudio::getOpenStudioCoreCLI());
 
     // run in save dir
     //auto basePath = getCompanionFolder( toPath(osdocument->savePath()) );
@@ -286,10 +283,6 @@ void RunView::playButtonClicked(bool t_checked) {
 
     auto workflowJSONPath = QString::fromStdString(workflowPath.string());
 
-    unsigned port = m_runTcpServer->serverPort();
-    m_hasSocketConnection = (port != 0);
-    // NOTE: temp test, uncomment to see fallback to stdout
-    // m_hasSocketConnection = false;
     QStringList arguments;
     LOG(Debug, "Classic CLI Checkbox is checked? " << std::boolalpha << m_useClassicCLIBox->isChecked());
     if (m_useClassicCLIBox->isChecked()) {
@@ -303,12 +296,14 @@ void RunView::playButtonClicked(bool t_checked) {
       arguments << "--verbose";
     }
 
-    m_usingSocketConnection = false;
+    arguments << "run";
+    // C++ CLI doesn't have working socket connection yet: https://github.com/NREL/OpenStudio/issues/5073
+    m_hasSocketConnection = false;
     if (m_useClassicCLIBox->isChecked()) {
-      arguments << "run";
+      const unsigned port = m_runTcpServer->serverPort();
+      m_hasSocketConnection = (port != 0);
       if (m_hasSocketConnection) {
         arguments << "-s" << QString::number(port);
-        m_usingSocketConnection = true;
       } else {
         arguments << "--show-stdout";
       }
@@ -332,8 +327,8 @@ void RunView::playButtonClicked(bool t_checked) {
       remove(stderrPath);
     }
     // touch
-    openstudio::filesystem::ofstream{stdoutPath};
-    openstudio::filesystem::ofstream{stderrPath};
+    openstudio::filesystem::ofstream{stdoutPath};  // NOLINT(bugprone-unused-raii)
+    openstudio::filesystem::ofstream{stderrPath};  // NOLINT(bugprone-unused-raii)
 
     m_state = State::stopped;
     m_textInfo->clear();
@@ -342,6 +337,15 @@ void RunView::playButtonClicked(bool t_checked) {
     m_progressBar->setMinimum(0);
     m_progressBar->setMaximum(State::complete);
     m_progressBar->setValue(0);
+
+    if (m_useClassicCLIBox->isChecked() && !m_hasSocketConnection) {
+      m_textInfo->setTextColor(Qt::darkRed);
+      m_textInfo->setFontPointSize(15);
+      m_textInfo->append("Could not open socket connection to OpenStudio Classic CLI.");
+      m_textInfo->setFontPointSize(12);
+      m_textInfo->append("Falling back to stdout/stderr parsing, live updates might be slower.");
+      resetFont();
+    }
 
     m_runProcess->start(openstudioExePath, arguments);
   } else {
@@ -362,8 +366,8 @@ void RunView::onNewConnection() {
   connect(m_runSocket, &QTcpSocket::readyRead, this, &RunView::onRunDataReady);
 }
 void RunView::onRunDataReady() {
-  QString data = m_runSocket->readAll();
-  QStringList lines = data.split("\n");
+  const QString data = m_runSocket->readAll();
+  const QStringList lines = data.split("\n");
 
   // Write to stdout (pipe to file, for later viewing)
   auto stdoutPath = m_basePath / "stdout";
@@ -381,8 +385,8 @@ void RunView::onRunDataReady() {
 
 void RunView::readyReadStandardOutput() {
 
-  QString data = m_runProcess->readAllStandardOutput();
-  QStringList lines = data.split("\n");
+  const QString data = m_runProcess->readAllStandardOutput();
+  const QStringList lines = data.split("\n");
 
   // Write to stdout (pipe to file, for later viewing)
   auto stdoutPath = m_basePath / "stdout";
@@ -400,7 +404,7 @@ void RunView::readyReadStandardOutput() {
 
 void RunView::processLine(const QString& line, bool fromSocket) {
 
-  if ((m_usingSocketConnection && !fromSocket)) {
+  if ((m_hasSocketConnection && !fromSocket)) {
     return;
   }
 
@@ -691,8 +695,8 @@ void RunView::readyReadStandardError() {
     resetFont();
   };
 
-  QString data = m_runProcess->readAllStandardError();
-  QStringList lines = data.split("\n");
+  const QString data = m_runProcess->readAllStandardError();
+  const QStringList lines = data.split("\n");
 
   // Write to stderr (pipe to file, for later viewing)
   auto stderrPath = m_basePath / "stderr";
@@ -705,7 +709,7 @@ void RunView::readyReadStandardError() {
 
   for (const auto& line : lines) {
 
-    QString trimmedLine = line.trimmed();
+    const QString trimmedLine = line.trimmed();
 
     if (trimmedLine.isEmpty()) {
       continue;
