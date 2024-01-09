@@ -69,12 +69,12 @@ jobs:
       run: |
         set -x
         archive=$(ls *.${{ matrix.COMPRESSED_EXT }})
-        dirname=$(basename $archive ${{ matrix.COMPRESSED_EXT }})
+        dirname=$(basename $archive .${{ matrix.COMPRESSED_EXT }})
         if [ "${{ matrix.COMPRESSED_EXT }}" == "tar.gz" ]; then
            #dirname=$(tar tzf $archive | head -1 | cut -f1 -d"/")
           tar xfz $archive
         else
-          7z $archive
+          7z X $archive
         fi
 
         OSAPP_ROOT_DIR=$(pwd)/$dirname
