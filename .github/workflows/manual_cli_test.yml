@@ -48,11 +48,23 @@ jobs:
     steps:
     - name: Download binary installer
       uses: actions/download-artifact@v4
+      id: downloader
       with:
         pattern: OpenStudioApplication-*-${{ matrix.os }}.${{ matrix.BINARY_EXT }}
         run-id: ${{ github.event.inputs.run_id}}
         github-token: ${{ secrets.GITHUB_TOKEN }}
+        path: cli_tester
+        merge-multiple: true
 
     - name: Display structure of downloaded files
+      working-directory: cli_tester
+      shell: bash
       run: |
+        echo "steps.downloader.outputs.download-path=${{ steps.downloader.outputs.download-path }}"
         ls -R
+
+    - name: cleanup
+      shell: bash
+      run: |
+        rm -Rf ./cli_tester/ || true
+        rm -Rf ./OpenStudioApplication-*-${{ matrix.os }}.${{ matrix.BINARY_EXT }} || true
