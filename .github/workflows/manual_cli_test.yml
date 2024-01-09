@@ -50,7 +50,7 @@ jobs:
       uses: actions/download-artifact@v4
       id: downloader
       with:
-        pattern: OpenStudioApplication-*-${{ matrix.os }}.${{ matrix.BINARY_EXT }}
+        pattern: OpenStudioApplication-*-${{ matrix.os }}.${{ matrix.COMPRESSED_EXT }}
         run-id: ${{ github.event.inputs.run_id}}
         github-token: ${{ secrets.GITHUB_TOKEN }}
         path: cli_tester
@@ -62,6 +62,100 @@ jobs:
       run: |
         echo "steps.downloader.outputs.download-path=${{ steps.downloader.outputs.download-path }}"
         ls -R
+
+    - name: Install OSApp
+      working-directory: cli_tester
+      shell: bash
+      run: |
+        set -x
+        archive=$(ls "*.${{ matrix.COMPRESSED_EXT }}")
+        dirname=$(basename $archive ${{ matrix.COMPRESSED_EXT }})
+        if [ "${{ matrix.COMPRESSED_EXT }}" == "tar.gz" ]; then
+           #dirname=$(tar tzf $archive | head -1 | cut -f1 -d"/")
+          tar xfz $archive
+        else
+          7z $archive
+        fi
+
+        OSAPP_ROOT_DIR=$(pwd)/$dirname
+        echo "OSAPP_ROOT_DIR=$OSAPP_ROOT_DIR" >> $GITHUB_ENV
+        cp -R $OSAPP_ROOT_DIR/Examples/compact_osw/* .
+        echo "puts ARGV" > test.rb
+        echo "import sys" > test.py
+        echo "print(sys.argv)" >> test.py
+        ls
+
+        if [ ! -d "$OSAPP_ROOT_DIR" ]; then
+          echo "Directly does not exist! $OSAPP_ROOT_DIR"
+          exit 1
+        fi
+
+        if [ "$RUNNER_OS" == "Linux" ]; then
+          export PATH="$OSAPP_ROOT_DIR/bin:$PATH"
+          echo "$OSAPP_ROOT_DIR/bin" >> $GITHUB_PATH
+
+        elif [ "$RUNNER_OS" == "Windows" ]; then
+          export PATH="$OSAPP_ROOT_DIR/bin:$PATH"
+          echo "$OSAPP_ROOT_DIR/bin" >> $GITHUB_PATH
+
+        elif [ "$RUNNER_OS" == "macOS" ]; then
+          export PATH="$OSAPP_ROOT_DIR/OpenStudioApp.app/Contents/MacOS:$PATH"
+          echo "$OSAPP_ROOT_DIR/OpenStudioApp.app/Contents/MacOS" >> $GITHUB_PATH
+        fi
+
+        which openstudio
+        openstudio openstudio_version
+        if openstudio labs; then
+          echo "The Ruby CLI is the default"
+          echo CLASSIC_SUBCOMMAND= >> $GITHUB_ENV
+          echo LABS_SUBCOMMAND=labs >> $GITHUB_ENV
+        else
+          echo "The C++ CLI is the default"
+          echo CLASSIC_SUBCOMMAND=classic >> $GITHUB_ENV
+          echo LABS_SUBCOMMAND= >> $GITHUB_ENV
+        fi
+
+    - name: EnergyPlus itself works
+      working-directory: cli_tester
+      shell: bash
+      run: |
+        if [ "$RUNNER_OS" == "Linux" ]; then
+          $OSAPP_ROOT_DIR/EnergyPlus/energyplus --help || echo "EnergyPlus missing dependencies!" && apt install -y libgomp1 libx11-6 && $OSAPP_ROOT_DIR/EnergyPlus/energyplus --help
+        else
+          $OSAPP_ROOT_DIR/EnergyPlus/energyplus --help
+        fi
+
+    - name: Classic Ruby CLI test
+      working-directory: cli_tester
+      shell: bash
+      run: |
+        set -x
+        openstudio $CLASSIC_SUBCOMMAND --help
+        openstudio $CLASSIC_SUBCOMMAND openstudio_version
+        openstudio $CLASSIC_SUBCOMMAND energyplus_version
+        openstudio $CLASSIC_SUBCOMMAND ruby_version
+        openstudio $CLASSIC_SUBCOMMAND -e "puts OpenStudio::Model::Model.new()"
+        openstudio $CLASSIC_SUBCOMMAND -e "require 'oga'; puts Oga::VERSION"
+        openstudio $CLASSIC_SUBCOMMAND execute_ruby_script test.rb -x arg2
+        openstudio $CLASSIC_SUBCOMMAND run -w compact_ruby_only.osw
+
+    - name: Labs C++ CLI Test
+      working-directory: cli_tester
+      shell: bash
+      run: |
+        set -x
+        openstudio $LABS_SUBCOMMAND --help
+        openstudio $LABS_SUBCOMMAND openstudio_version
+        openstudio $LABS_SUBCOMMAND energyplus_version
+        openstudio $LABS_SUBCOMMAND ruby_version
+        openstudio $LABS_SUBCOMMAND python_version
+        openstudio $LABS_SUBCOMMAND -e "puts OpenStudio::Model::Model.new()"
+        openstudio $LABS_SUBCOMMAND -e "require 'oga'; puts Oga::VERSION"
+        openstudio $LABS_SUBCOMMAND execute_ruby_script test.rb -x arg2
+        openstudio $LABS_SUBCOMMAND execute_python_script test.py -x arg2
+        openstudio $LABS_SUBCOMMAND run -w compact_ruby_only.osw
+        openstudio $LABS_SUBCOMMAND run -w compact_python_only_twomeasures.osw
+        openstudio $LABS_SUBCOMMAND run -w compact_ruby_and_python.osw
 
     - name: cleanup
       shell: bash
