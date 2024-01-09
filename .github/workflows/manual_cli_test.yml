@@ -47,10 +47,11 @@ jobs:
 
     steps:
     - name: Download binary installer
-      uses: actions/download-artifact@v3
+      uses: actions/download-artifact@v4
       with:
         pattern: OpenStudioApplication-*-${{ matrix.os }}.${{ env.BINARY_EXT }}
         run-id: ${{ github.event.inputs.run_id}}
+        github-token: ${{ secrets.GITHUB_TOKEN }}
 
     - name: Display structure of downloaded files
       working-directory: ./wheels
