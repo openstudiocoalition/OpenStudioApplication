@@ -304,6 +304,12 @@ set(CMAKE_RUNTIME_OUTPUT_DIRECTORY "${PROJECT_BINARY_DIR}/Products")
 
 set(LIBRARY_SEARCH_DIRECTORY "${CMAKE_LIBRARY_OUTPUT_DIRECTORY}" "${CMAKE_LIBRARY_OUTPUT_DIRECTORY}/Release" "${CMAKE_LIBRARY_OUTPUT_DIRECTORY}/Debug")
 
+set(LIB_DESTINATION_DIR lib)
+if(WIN32)
+  # Windows does not have RPATH handling, so we just put everything next to the CLI in the bin/ folder
+  set(LIB_DESTINATION_DIR bin)
+endif()
+
 # TODO: move App macros to a local ProjectMacros.cmake
 # Include project specific macros
 include("${PROJECT_SOURCE_DIR}/ProjectMacros.cmake")
@@ -728,9 +734,9 @@ install(DIRECTORY "${openstudio_ROOT_DIR}/Python" DESTINATION "." COMPONENT "Pyt
 # install(DIRECTORY "${openstudio_ROOT_DIR}/lib" DESTINATION "." COMPONENT "OpenStudioApp" USE_SOURCE_PERMISSIONS)
 
 install(IMPORTED_RUNTIME_ARTIFACTS openstudio::openstudio DESTINATION bin COMPONENT "CLI")
-install(IMPORTED_RUNTIME_ARTIFACTS openstudio::openstudiolib DESTINATION lib COMPONENT "CLI")
-install(IMPORTED_RUNTIME_ARTIFACTS openstudio::rubyengine DESTINATION lib COMPONENT "CLI")
-install(IMPORTED_RUNTIME_ARTIFACTS openstudio::pythonengine DESTINATION lib COMPONENT "CLI")
+install(IMPORTED_RUNTIME_ARTIFACTS openstudio::openstudiolib DESTINATION ${LIB_DESTINATION_DIR} COMPONENT "CLI")
+install(IMPORTED_RUNTIME_ARTIFACTS openstudio::rubyengine DESTINATION ${LIB_DESTINATION_DIR} COMPONENT "CLI")
+install(IMPORTED_RUNTIME_ARTIFACTS openstudio::pythonengine DESTINATION ${LIB_DESTINATION_DIR} COMPONENT "CLI")
 
 # install(PROGRAMS ${OS_CLI_IMPORTED_PATH} DESTINATION bin COMPONENT "CLI" RENAME "${OS_CLI_IMPORTED_NAME}")
 
