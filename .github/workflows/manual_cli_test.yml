@@ -77,13 +77,15 @@ jobs:
           7z X $archive
         fi
 
-        OSAPP_ROOT_DIR=$(pwd)/$dirname
+        examples_dir=$(find $(pwd)/$dirname  -name "Examples" -type d)
+        OSAPP_ROOT_DIR=$(dirname $examples_dir)
+
         echo "OSAPP_ROOT_DIR=$OSAPP_ROOT_DIR" >> $GITHUB_ENV
-        cp -R $OSAPP_ROOT_DIR/Examples/compact_osw/* .
         echo "puts ARGV" > test.rb
         echo "import sys" > test.py
         echo "print(sys.argv)" >> test.py
         ls
+        cp -R $examples_dir/compact_osw/* .
 
         if [ ! -d "$OSAPP_ROOT_DIR" ]; then
           echo "Directly does not exist! $OSAPP_ROOT_DIR"
@@ -155,10 +157,12 @@ jobs:
         openstudio $LABS_SUBCOMMAND execute_python_script test.py -x arg2
         openstudio $LABS_SUBCOMMAND run -w compact_ruby_only.osw
         openstudio $LABS_SUBCOMMAND run -w compact_python_only_twomeasures.osw
-        openstudio $LABS_SUBCOMMAND run -w compact_ruby_and_python.osw
+        openstudio $LABS_SUBCOMMAND run -w compact_ruby_then_python.osw
+        openstudio $LABS_SUBCOMMAND run -w compact_python_then_ruby.osw
 
     - name: cleanup
       shell: bash
       run: |
         rm -Rf ./cli_tester/ || true
         rm -Rf ./OpenStudioApplication-*-${{ matrix.os }}.${{ matrix.BINARY_EXT }} || true
+        rm -Rf ./OpenStudioApplication-*-${{ matrix.os }}.${{ matrix.COMPRESSED_EXT }} || true
