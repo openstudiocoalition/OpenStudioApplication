@@ -122,7 +122,7 @@ jobs:
       shell: bash
       run: |
         if [ "$RUNNER_OS" == "Linux" ]; then
-          $OSAPP_ROOT_DIR/EnergyPlus/energyplus --help || echo "EnergyPlus missing dependencies!" && apt install -y libgomp1 libx11-6 && $OSAPP_ROOT_DIR/EnergyPlus/energyplus --help
+          $OSAPP_ROOT_DIR/EnergyPlus/energyplus --help || ( echo "EnergyPlus missing dependencies!" && sudo apt install -y libgomp1 libx11-6 && $OSAPP_ROOT_DIR/EnergyPlus/energyplus --help )
         else
           $OSAPP_ROOT_DIR/EnergyPlus/energyplus --help
         fi
