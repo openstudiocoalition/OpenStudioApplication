@@ -116,7 +116,7 @@ jobs:
 
     steps:
     - uses: actions/checkout@v4
-    - uses: actions/setup-python@v4
+    - uses: actions/setup-python@v5
       if: ${{!matrix.SELF_HOSTED}}
       with:
         python-version: '3.8.x'
@@ -421,7 +421,7 @@ jobs:
     - name: Install conan
       run: |
           python --version
-          pip install conan==1.59.0
+          pip install 'conan<2'
           conan --version
           echo "Enabling conan revisions and setting parallel_download"
           conan config set general.revisions_enabled=True
