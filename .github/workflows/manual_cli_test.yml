@@ -68,7 +68,7 @@ jobs:
       shell: bash
       run: |
         set -x
-        archive=$(ls "*.${{ matrix.COMPRESSED_EXT }}")
+        archive=$(ls *.${{ matrix.COMPRESSED_EXT }})
         dirname=$(basename $archive ${{ matrix.COMPRESSED_EXT }})
         if [ "${{ matrix.COMPRESSED_EXT }}" == "tar.gz" ]; then
            #dirname=$(tar tzf $archive | head -1 | cut -f1 -d"/")
