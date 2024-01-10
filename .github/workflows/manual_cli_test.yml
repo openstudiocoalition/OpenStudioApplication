@@ -181,6 +181,7 @@ jobs:
           }
           BUNDLE_EXT=bundle
           SONAME=dylib
+          CLI_PREFIX=OpenStudioApp.app/Contents/MacOS
         else
           inspect_lib() {
             separator
@@ -190,11 +191,12 @@ jobs:
           }
           BUNDLE_EXT=so
           SONAME=so
+          CLI_PREFIX=bin
         fi
 
         tree -I 'Radiance|python_standard_lib|include'
 
-        inspect_lib bin/openstudio
+        inspect_lib $CLI_PREFIX/openstudio
 
         inspect_lib lib/libopenstudiolib.$SONAME
 
@@ -205,7 +207,7 @@ jobs:
         inspect_lib Ruby/openstudio.$BUNDLE_EXT
 
         inspect_lib EnergyPlus/energyplus
-        inspect_lib EnergyPlus/libenergyplusapi.dylib
+        inspect_lib EnergyPlus/libenergyplusapi.$SONAME
         inspect_lib EnergyPlus/ExpandObjects
 
 
