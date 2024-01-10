@@ -165,7 +165,7 @@ jobs:
 
     - name: Display structure
       if: ${{ always() && runner.os != 'Windows' }}
-      working-directory: cli_tester/${{ env.OSAPP_DIR_NAME }}
+      working-directory: ${{ env.OSAPP_ROOT_DIR }}
       run: |
         separator() {
           echo -e "\n\033[0;31m===========================================================\033[0m"
