@@ -98,7 +98,9 @@ jobs:
 
         elif [ "$RUNNER_OS" == "Windows" ]; then
           export PATH="$OSAPP_ROOT_DIR/bin:$PATH"
-          #echo "$OSAPP_ROOT_DIR/bin" >> $GITHUB_PATH
+          echo "$OSAPP_ROOT_DIR/bin" >> $GITHUB_PATH
+
+          cp $OSAPP_ROOT_DIR/EnergyPlus/python38.dll $OSAPP_ROOT_DIR/bin
 
         elif [ "$RUNNER_OS" == "macOS" ]; then
           export PATH="$OSAPP_ROOT_DIR/OpenStudioApp.app/Contents/MacOS:$PATH"
