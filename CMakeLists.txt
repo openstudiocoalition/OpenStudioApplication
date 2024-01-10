@@ -741,6 +741,11 @@ install(IMPORTED_RUNTIME_ARTIFACTS openstudio::openstudiolib DESTINATION ${LIB_D
 install(IMPORTED_RUNTIME_ARTIFACTS openstudio::rubyengine DESTINATION ${LIB_DESTINATION_DIR} COMPONENT "CLI")
 install(IMPORTED_RUNTIME_ARTIFACTS openstudio::pythonengine DESTINATION ${LIB_DESTINATION_DIR} COMPONENT "CLI")
 
+# TODO: we should probably just install the **entire** OS SDK bin/ directory...
+if(WIN32)
+  install(PROGRAMS "${openstudio_ROOT_DIR}/bin/python38.dll" DESTINATION bin COMPONENT "CLI")
+endif()
+
 # install(PROGRAMS ${OS_CLI_IMPORTED_PATH} DESTINATION bin COMPONENT "CLI" RENAME "${OS_CLI_IMPORTED_NAME}")
 
 
