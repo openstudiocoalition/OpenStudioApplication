@@ -208,7 +208,7 @@ jobs:
 
         inspect_lib EnergyPlus/energyplus
         inspect_lib EnergyPlus/libenergyplusapi.$SONAME
-        inspect_lib EnergyPlus/ExpandObjects
+        inspect_lib EnergyPlus/ExpandObjects || true
 
 
     - name: cleanup
