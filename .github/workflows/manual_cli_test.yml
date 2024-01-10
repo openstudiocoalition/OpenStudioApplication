@@ -56,28 +56,25 @@ jobs:
         path: cli_tester
         merge-multiple: true
 
-    - name: Display structure of downloaded files
-      working-directory: cli_tester
-      shell: bash
-      run: |
-        echo "steps.downloader.outputs.download-path=${{ steps.downloader.outputs.download-path }}"
-        ls -R
-
     - name: Install OSApp
       working-directory: cli_tester
       shell: bash
       run: |
         set -x
+        echo "steps.downloader.outputs.download-path=${{ steps.downloader.outputs.download-path }}"
+        ls -R
+
         archive=$(ls *.${{ matrix.COMPRESSED_EXT }})
-        dirname=$(basename $archive .${{ matrix.COMPRESSED_EXT }})
+        OSAPP_DIR_NAME=$(basename $archive .${{ matrix.COMPRESSED_EXT }})
+        echo "OSAPP_DIR_NAME=$OSAPP_DIR_NAME" >> $GITHUB_ENV
         if [ "${{ matrix.COMPRESSED_EXT }}" == "tar.gz" ]; then
-           #dirname=$(tar tzf $archive | head -1 | cut -f1 -d"/")
+           #OSAPP_DIR_NAME=$(tar tzf $archive | head -1 | cut -f1 -d"/")
           tar xfz $archive
         else
           7z X $archive
         fi
 
-        examples_dir=$(find $(pwd)/$dirname  -name "Examples" -type d)
+        examples_dir=$(find $(pwd)/$OSAPP_DIR_NAME -name "Examples" -type d)
         OSAPP_ROOT_DIR=$(dirname $examples_dir)
 
         echo "OSAPP_ROOT_DIR=$OSAPP_ROOT_DIR" >> $GITHUB_ENV
@@ -100,8 +97,6 @@ jobs:
           export PATH="$OSAPP_ROOT_DIR/bin:$PATH"
           echo "$OSAPP_ROOT_DIR/bin" >> $GITHUB_PATH
 
-          cp $OSAPP_ROOT_DIR/EnergyPlus/python38.dll $OSAPP_ROOT_DIR/bin
-
         elif [ "$RUNNER_OS" == "macOS" ]; then
           export PATH="$OSAPP_ROOT_DIR/OpenStudioApp.app/Contents/MacOS:$PATH"
           echo "$OSAPP_ROOT_DIR/OpenStudioApp.app/Contents/MacOS" >> $GITHUB_PATH
@@ -119,9 +114,6 @@ jobs:
           echo LABS_SUBCOMMAND= >> $GITHUB_ENV
         fi
 
-        echo "List install contents"
-        ls -alshR $OSAPP_ROOT_DIR
-
     - name: EnergyPlus itself works
       working-directory: cli_tester
       shell: bash
@@ -131,14 +123,6 @@ jobs:
         else
           $OSAPP_ROOT_DIR/EnergyPlus/energyplus --help
         fi
-
-    - name: Labs C++ CLI Test Windows only
-      if: runner.os == 'Windows'
-      working-directory: cli_tester
-      shell: pwsh
-      run: |
-        D:\a\OpenStudioApplication\OpenStudioApplication\cli_tester\OpenStudioApplication-1.7.0-rc1+4ad6a0fcf8-Windows\bin\openstudio python_version
-        "D:\a\OpenStudioApplication\OpenStudioApplication\cli_tester\OpenStudioApplication-1.7.0-rc1+4ad6a0fcf8-Windows\bin" | Out-File -FilePath $env:GITHUB_PATH -Append
 
     - name: Classic Ruby CLI test
       working-directory: cli_tester
@@ -173,7 +157,60 @@ jobs:
         openstudio $LABS_SUBCOMMAND run -w compact_ruby_then_python.osw
         openstudio $LABS_SUBCOMMAND run -w compact_python_then_ruby.osw
 
+    - name: Display structure
+      if: ${{ always() && runner.os == 'Windows' }}
+      working-directory: cli_tester/${{ env.OSAPP_DIR_NAME }}
+      run: |
+        tree /f /a
+
+    - name: Display structure
+      if: ${{ always() && runner.os != 'Windows' }}
+      working-directory: cli_tester/${{ env.OSAPP_DIR_NAME }}
+      run: |
+        separator() {
+          echo -e "\n\033[0;31m===========================================================\033[0m"
+        };
+
+        if [ "$RUNNER_OS" == "macOS" ]; then
+          brew install tree
+          inspect_lib() {
+            separator
+            echo -e "\033[0;33m$1\033[0m"
+            otool -L $1
+            otool -l $1 | grep -A2 LC_RPATH || true
+          }
+          BUNDLE_EXT=bundle
+          SONAME=dylib
+        else
+          inspect_lib() {
+            separator
+            echo -e "\033[0;33m$1\033[0m"
+            ldd $1
+            objdump -x $1 | grep RUNPATH || true
+          }
+          BUNDLE_EXT=so
+          SONAME=so
+        fi
+
+        tree -I 'Radiance|python_standard_lib|include'
+
+        inspect_lib bin/openstudio
+
+        inspect_lib lib/libopenstudiolib.$SONAME
+
+        inspect_lib lib/libpythonengine.so
+        inspect_lib lib/librubyengine.so
+
+        inspect_lib Python/_openstudiomodel.so
+        inspect_lib Ruby/openstudio.$BUNDLE_EXT
+
+        inspect_lib EnergyPlus/energyplus
+        inspect_lib EnergyPlus/libenergyplusapi.dylib
+        inspect_lib EnergyPlus/ExpandObjects
+
+
     - name: cleanup
+      if: ${{ always() }}
       shell: bash
       run: |
         rm -Rf ./cli_tester/ || true
