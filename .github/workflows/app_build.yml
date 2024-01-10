@@ -29,8 +29,6 @@ env:
   CPACK_SOURCE_TZ: OFF
   CPACK_SOURCE_ZIP: OFF
   QT_VERSION: 6.6.1
-  CONAN_USER_HOME: "${{ github.workspace }}/conan-cache"
-  CONAN_USER_HOME_SHORT: "${{ github.workspace }}/conan-cache/short"
   # CPACK_BINARY_DEB: OS-SPECIFIC
   # CPACK_BINARY_IFW: OS-SPECIFIC
 
@@ -59,6 +57,8 @@ jobs:
           COMPRESSED_PKG_PATH: _CPack_Packages/Linux/TGZ
           QT_OS_NAME: linux
           QT_ARCH: gcc_64
+          CONAN_USER_HOME: "${{ github.workspace }}/conan-cache"
+          CONAN_USER_HOME_SHORT: "${{ github.workspace }}/conan-cache/short"
         - os: ubuntu-22.04
           SELF_HOSTED: false
           PLATFORM_NAME: Linux
@@ -72,6 +72,8 @@ jobs:
           COMPRESSED_PKG_PATH: _CPack_Packages/Linux/TGZ
           QT_OS_NAME: linux
           QT_ARCH: gcc_64
+          CONAN_USER_HOME: "${{ github.workspace }}/conan-cache"
+          CONAN_USER_HOME_SHORT: "${{ github.workspace }}/conan-cache/short"
         - os: windows-2022
           SELF_HOSTED: false
           PLATFORM_NAME: Windows
@@ -85,6 +87,8 @@ jobs:
           COMPRESSED_PKG_PATH: _CPack_Packages/win64/ZIP
           QT_OS_NAME: windows
           QT_ARCH: win64_msvc2019_64
+          CONAN_USER_HOME: "${{ github.workspace }}/conan-cache"
+          CONAN_USER_HOME_SHORT: "${{ github.workspace }}/conan-cache/short"
         - os: macos-13
           SELF_HOSTED: false
           PLATFORM_NAME: Darwin
@@ -100,6 +104,8 @@ jobs:
           SDKROOT: /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX.sdk
           QT_OS_NAME: mac
           QT_ARCH: clang_64
+          CONAN_USER_HOME: "${{ github.workspace }}/conan-cache"
+          CONAN_USER_HOME_SHORT: "${{ github.workspace }}/conan-cache/short"
         - os: macos-arm64
           SELF_HOSTED: true
           PLATFORM_NAME: Darwin
@@ -121,12 +127,12 @@ jobs:
     - uses: actions/checkout@v4
 
     - uses: actions/setup-python@v5
-      if: ${{!matrix.SELF_HOSTED}}
+      if: ${{ !matrix.SELF_HOSTED }}
       with:
         python-version: '3.8.x'
 
     - uses: ruby/setup-ruby@v1
-      if: ${{!matrix.SELF_HOSTED}}
+      if: ${{ !matrix.SELF_HOSTED }}
       with:
         ruby-version: 2.7
 
@@ -147,7 +153,10 @@ jobs:
         echo CPACK_BINARY_ZIP=${{ matrix.CPACK_BINARY_ZIP }} >> $GITHUB_ENV
         echo CPACK_BINARY_TGZ=${{ matrix.CPACK_BINARY_TGZ }} >> $GITHUB_ENV
         echo BINARY_EXT=${{ matrix.BINARY_EXT }} >> $GITHUB_ENV
-        echo COMPRESSED_EXT=${{ matrix.COMPRESSED_EXT }} >> $GITHUB_ENV
+        if [ "${{ matrix.SELF_HOSTED }}" == "false" ]; then
+          echo CONAN_USER_HOME=${{ matrix.CONAN_USER_HOME }} >> $GITHUB_ENV
+          echo CONAN_USER_HOME_SHORT=${{ matrix.CONAN_USER_HOME_SHORT }} >> $GITHUB_ENV
+        fi
 
         N=$(nproc 2>/dev/null || sysctl -n hw.logicalcpu)
         echo "There are $N threads available"
@@ -186,7 +195,7 @@ jobs:
           echo SDKROOT=${{ matrix.SDKROOT }} >> $GITHUB_ENV
           echo CMAKE_MACOSX_DEPLOYMENT_TARGET='-DCMAKE_OSX_DEPLOYMENT_TARGET=$MACOSX_DEPLOYMENT_TARGET' >> $GITHUB_ENV
 
-          if [ "${{matrix.SELF_HOSTED}}" = "true" ]; then
+          if [ "${{ matrix.SELF_HOSTED }}" = "true" ]; then
             echo "Using previously installed ninja and IFW"
             echo "/Users/irvinemac/Qt/Tools/QtInstallerFramework/4.3/bin/" >> $GITHUB_PATH
           else
@@ -227,7 +236,7 @@ jobs:
       shell: bash
       run: |
         python --version
-        pip install conan==1.59.0
+        pip install 'conan<2'
         conan --version
         echo "Enabling conan revisions and setting parallel_download"
         conan config set general.revisions_enabled=True
@@ -237,11 +246,14 @@ jobs:
         if [ "$RUNNER_OS" == "Linux" ]; then
           conan profile update settings.compiler.libcxx=libstdc++11 default
         fi
-        cat conan-cache/.conan/profiles/default
+        if [ "${{ matrix.SELF_HOSTED }}" == "false" ]; then
+          cat conan-cache/.conan/profiles/default
+        fi
 
     - name: Setup Conan Cache
       uses: actions/cache@v3
       id: cacheconan
+      if: ${{ !matrix.SELF_HOSTED }}
       with:
         path: |
           ${{ env.CONAN_USER_HOME }}
@@ -286,7 +298,7 @@ jobs:
       # Some projects don't allow in-source building, so create a separate build directory
       # We'll use this as our working directory for all subsequent commands
       shell: bash
-      if: ${{!matrix.SELF_HOSTED}}
+      if: ${{ !matrix.SELF_HOSTED }}
       run: |
         set -x
         cmake -E make_directory ./build
@@ -324,7 +336,7 @@ jobs:
 
     - name: Find Qt (Self-Hosted)
       shell: bash
-      if: ${{matrix.SELF_HOSTED}}
+      if: ${{ matrix.SELF_HOSTED }}
       run: |
         set -x
         cmake -E make_directory ./build
