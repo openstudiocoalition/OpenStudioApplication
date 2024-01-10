@@ -237,7 +237,7 @@ jobs:
         if [ "$RUNNER_OS" == "Linux" ]; then
           conan profile update settings.compiler.libcxx=libstdc++11 default
         fi
-        cat ${{ env.CONAN_USER_HOME }}/.conan/profiles/default
+        cat conan-cache/.conan/profiles/default
 
     - name: Setup Conan Cache
       uses: actions/cache@v3
@@ -245,16 +245,17 @@ jobs:
       with:
         path: |
           ${{ env.CONAN_USER_HOME }}
-        key: ${{ matrix.os }}-${{ env.BUILD_TYPE }}-${{ hashFiles('./ConanInstall.txt') }}-${{ hashFiles('${{ env.CONAN_USER_HOME }}/.conan/profiles/default') }}-${{ secrets.CACHE_KEY }}
+        key: ${{ matrix.os }}-${{ env.BUILD_TYPE }}-${{ hashFiles('./ConanInstall.cmake') }}-${{ hashFiles(format('{0}/.conan/profiles/default', env.CONAN_USER_HOME)) }}-${{ secrets.CACHE_KEY }}
 
     - name: Did restoring the conan-cache work? Yes
       # If the SDK wasn't found in the cache
       if: steps.cacheconan.outputs.cache-hit == 'true'
+      working-directory: ${{ env.CONAN_USER_HOME }}
       shell: bash
       run: |
-        cat ${{ env.CONAN_USER_HOME }}/.conan/profiles/default
-        ls ${{ env.CONAN_USER_HOME }}/.conan/data
-        ls ${{ env.CONAN_USER_HOME_SHORT }}
+        cat .conan/profiles/default
+        ls .conan/data
+        ls short || true
 
     # This includes the Qt install, the .cache (ccache) folder on Unix, the OpenStudio SDK tar.gz, and previous build artifacts
     - name: Cache entire build directory
@@ -263,7 +264,7 @@ jobs:
       uses: actions/cache@v3
       with:
         path: build/
-        key: build-cache-${{ matrix.os }}-${{ env.BUILD_TYPE }}-${{ env.QT_VERSION }}-${{ hashFiles('${{ env.CONAN_USER_HOME }}/.conan/profiles/default') }}-${{ secrets.CACHE_KEY }}
+        key: build-cache-${{ matrix.os }}-${{ env.BUILD_TYPE }}-${{ env.QT_VERSION }}-${{ hashFiles(format('{0}/.conan/profiles/default', env.CONAN_USER_HOME)) }}-${{ secrets.CACHE_KEY }}
 
     - name: Did restoring the build-cache work? Yes
       # If it was found in the cache, list files, and Delete the packages already produced
