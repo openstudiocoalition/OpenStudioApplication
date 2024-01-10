@@ -575,7 +575,7 @@ jobs:
       # NOTE: If you re-enable 'Download the OpenStudio installer' step, then pass `openstudio_DIR=$openstudio_DIR cmake [etc]`
       run: |
         set -x
-        cmake -DQT_INSTALL_DIR:PATH=$QT_INSTALL_DIR -DCMAKE_BUILD_TYPE:STRING=$BUILD_TYPE \
+        cmake -G Ninja -DQT_INSTALL_DIR:PATH=$QT_INSTALL_DIR -DCMAKE_BUILD_TYPE:STRING=$BUILD_TYPE \
          -DBUILD_DOCUMENTATION:BOOL=$DBUILD_DOCUMENTATION -DBUILD_TESTING:BOOL=$BUILD_TESTING -DBUILD_BENCHMARK:BOOL=$BUILD_BENCHMARK \
          -DBUILD_PACKAGE:BOOL=$BUILD_PACKAGE -DCPACK_BINARY_DEB:BOOL=$CPACK_BINARY_DEB -DCPACK_BINARY_IFW:BOOL=$CPACK_BINARY_IFW \
          -DCPACK_BINARY_NSIS:BOOL=$CPACK_BINARY_NSIS -DCPACK_BINARY_RPM:BOOL=$CPACK_BINARY_RPM -DCPACK_BINARY_STGZ:BOOL=$CPACK_BINARY_STGZ \
@@ -609,8 +609,8 @@ jobs:
       # Execute the build.  You can specify a specific target with "--target <NAME>"
       run: |
         set -x
-        echo "Building with $N threads"
-        cmake --build . --target package -j $N --config $BUILD_TYPE
+        ninja
+        ninja package || ( echo "Package Step failed" && cpack --debug --verbose --config CPackConfig.cmake )
 
     - name: Test bed Sign inner portable executable files and exe package (Windows 2022)
       working-directory: ./build
