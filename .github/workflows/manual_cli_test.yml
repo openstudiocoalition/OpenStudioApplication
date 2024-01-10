@@ -117,6 +117,9 @@ jobs:
           echo LABS_SUBCOMMAND= >> $GITHUB_ENV
         fi
 
+        echo "List install contents"
+        ls -alshR $OSAPP_ROOT_DIR
+
     - name: EnergyPlus itself works
       working-directory: cli_tester
       shell: bash
