@@ -248,6 +248,8 @@ jobs:
         if [ "$RUNNER_OS" == "Linux" ]; then
           conan profile update settings.compiler.libcxx=libstdc++11 default
         fi
+        conan profile show default
+
         if [ "${{ matrix.SELF_HOSTED }}" == "false" ]; then
           echo "runner.workspace=${{ runner.workspace }}"
           echo "GITHUB_WORKSPACE=$GITHUB_WORKSPACE"
@@ -268,7 +270,7 @@ jobs:
       with:
         path: |
           ${{ env.CONAN_USER_HOME }}
-        key: ${{ matrix.os }}-${{ env.BUILD_TYPE }}-${{ hashFiles('./ConanInstall.cmake') }}-${{ hashFiles(format('{0}/.conan/profiles/default', env.CONAN_USER_HOME)) }}-${{ secrets.CACHE_KEY }}
+        key: conan-cache-${{ matrix.os }}-build=${{ env.BUILD_TYPE }}-conaninstall=${{ hashFiles('./ConanInstall.cmake') }}-conan-profile=${{ hashFiles(env.CONAN_PROFILE_DEFAULT) }}-ck=${{ secrets.CACHE_KEY }}
 
     - name: Did restoring the conan-cache work? Yes
       # If the SDK wasn't found in the cache
@@ -287,7 +289,7 @@ jobs:
       uses: actions/cache@v3
       with:
         path: build/
-        key: build-cache-${{ matrix.os }}-${{ env.BUILD_TYPE }}-${{ env.QT_VERSION }}-${{ hashFiles(format('{0}/.conan/profiles/default', env.CONAN_USER_HOME)) }}-${{ secrets.CACHE_KEY }}
+        key: build-cache-${{ matrix.os }}-build=${{ env.BUILD_TYPE }}-qt=${{ env.QT_VERSION }}-conan-profile=${{ hashFiles(env.CONAN_PROFILE_DEFAULT)}}-ck=${{ secrets.CACHE_KEY }}
 
     - name: Did restoring the build-cache work? Yes
       # If it was found in the cache, list files, and Delete the packages already produced

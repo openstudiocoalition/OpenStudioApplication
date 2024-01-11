@@ -39,3 +39,4 @@ developer/msvc/Visualizers/all_concat.natvis
 .clangd/
 cppcheck.txt*
 clang_format.patch
+conan-cache
