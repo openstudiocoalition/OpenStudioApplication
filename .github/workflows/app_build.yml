@@ -405,6 +405,8 @@ jobs:
          ../
         ninja
         ninja package
+        # Delete conan build and source folders
+        conan remove "*" -s -b -f
 
     # Debug CPack:
     # "C:\Program Files\CMake\bin\cpack.exe" --debug --verbose --config CPackConfig.cmake
@@ -455,6 +457,8 @@ jobs:
         set -x
         ninja
         ninja package || ( echo "Package Step failed" && cpack --debug --verbose --config CPackConfig.cmake )
+        # Delete conan build and source folders
+        conan remove "*" -s -b -f
 
     - name: Test bed Sign inner portable executable files and exe package (Windows 2022)
       working-directory: ./build
