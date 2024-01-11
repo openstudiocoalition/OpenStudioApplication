@@ -165,7 +165,7 @@ jobs:
 
         if [ "$RUNNER_OS" == "Linux" ]; then
           echo "Install needed system dependencies for OPENGL (due to Qt) for Linux"
-          sudo apt update
+          sudo apt update -qq
           sudo apt install -y mesa-common-dev libglu1-mesa-dev patchelf ninja-build ccache libxkbcommon-x11-dev libgl1-mesa-dev chrpath
           gcc --version
 
@@ -280,6 +280,8 @@ jobs:
         path: |
           ${{ env.CONAN_USER_HOME }}
         key: conan-cache-${{ matrix.os }}-build=${{ env.BUILD_TYPE }}-conaninstall=${{ hashFiles('./ConanInstall.cmake') }}-conan-profile=${{ hashFiles(env.CONAN_PROFILE_DEFAULT) }}-ck=${{ secrets.CACHE_KEY }}
+        restore-keys: |
+          conan-cache-${{ matrix.os }}-build=${{ env.BUILD_TYPE }}-conan-profile=${{ hashFiles(env.CONAN_PROFILE_DEFAULT) }}-ck=${{ secrets.CACHE_KEY }}
 
     - name: Did restoring the conan-cache work? Yes
       # If the SDK wasn't found in the cache
