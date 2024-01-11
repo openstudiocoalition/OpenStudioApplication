@@ -157,6 +157,8 @@ jobs:
           echo CONAN_USER_HOME=${{ github.workspace }}/conan-cache >> $GITHUB_ENV
           echo CONAN_USER_HOME_SHORT=${{ github.workspace }}/conan-cache/short >> $GITHUB_ENV
           echo CONAN_PROFILE_DEFAULT=${{ github.workspace }}/conan-cache/.conan/profiles/default >> $GITHUB_ENV
+          CCACHE_DIR=${{ github.workspace }}/.ccache
+          echo CCACHE_DIR=$CCACHE_DIR >> $GITHUB_ENV
         fi
 
         N=$(nproc 2>/dev/null || sysctl -n hw.logicalcpu)
@@ -169,7 +171,7 @@ jobs:
           sudo apt install -y mesa-common-dev libglu1-mesa-dev patchelf ninja-build ccache libxkbcommon-x11-dev libgl1-mesa-dev chrpath
           gcc --version
 
-          ccache --set-config=cache_dir=${{ github.workspace }}/build/.ccache
+          ccache --set-config=cache_dir=$CCACHE_DIR
           ccache --set-config=max_size=500M
           ccache --set-config=compression=true
 
@@ -207,7 +209,7 @@ jobs:
             echo "Using brew to install ninja"
             brew install ninja md5sha1sum ccache
 
-            ccache --set-config=cache_dir=${{ github.workspace }}/build/.ccache
+            ccache --set-config=cache_dir=$CCACHE_DIR
             ccache --set-config=max_size=500M
             ccache --set-config=compression=true
             ccache --set-config=compiler_check=content # darwin only
@@ -293,14 +295,41 @@ jobs:
         ls $CONAN_USER_HOME/.conan/data
         ls $CONAN_USER_HOME/short || true
 
+    - name: Setup CCache
+      uses: actions/cache@v3
+      id: cacheccache
+      if: ${{ !matrix.SELF_HOSTED && runner.os != 'Windows' }}
+      with:
+        path: |
+          ${{ env.CCACHE_DIR}}
+        key: ccache-${{ matrix.os }}-build=${{ env.BUILD_TYPE }}-cmakelists=${{ hashFiles('**/CMakeLists.txt') }}-conan-profile=${{ hashFiles(env.CONAN_PROFILE_DEFAULT) }}-ck=${{ secrets.CACHE_KEY }}
+        restore-keys: |
+          ccache-${{ matrix.os }}-build=${{ env.BUILD_TYPE }}-conan-profile=${{ hashFiles(env.CONAN_PROFILE_DEFAULT) }}-ck=${{ secrets.CACHE_KEY }}
+
+    - name: Did restoring the CCache-cache work? Yes
+      # If the SDK wasn't found in the cache
+      if: steps.cacheccache.outputs.cache-hit == 'true'
+      shell: bash
+      run: |
+        ccache -s -vv
+
     # This includes the Qt install, the .ccache (ccache) folder on Unix, the OpenStudio SDK tar.gz, and previous build artifacts
+    # TODO: problem is that caching is limited to 10 GB. The build folder takes 3-4 GB per runner, and we have 4 of them that try to cache
+    # Perhaps we should just cache the ccache. Anyways, for incremental builds triggered one after another, cache eviction hasn't happened yet and all of them do a cache hit
+    # Build times improvements
+    #  * Ubuntu: 41 min -> 10 min
+    #  * macos-13 (where conan binaries needed to be built): 1h15 ->  27min  (shaving 23 min due to conan cache only)
+    # Another thing is that if the cache is hit, then it's not saved in post build. Fine for the conan cache, but probably want an update for the build stuff
+    # Note that cache is immutable, so that'd mean uploading a NEW cache entry (so potentially 4GB again)
     - name: Cache entire build directory
       id: cachebuild
       if: ${{ !matrix.SELF_HOSTED }}
       uses: actions/cache@v3
       with:
-        path: build/
-        key: build-cache-${{ matrix.os }}-build=${{ env.BUILD_TYPE }}-qt=${{ env.QT_VERSION }}-conan-profile=${{ hashFiles(env.CONAN_PROFILE_DEFAULT)}}-ck=${{ secrets.CACHE_KEY }}
+        path: |
+          build/Qt-install
+          build/OpenStudio-${{ env.OS_SDK_VERSION }}
+        key: minimal-build-cache-${{ matrix.os }}-build=${{ env.BUILD_TYPE }}-qt=${{ env.QT_VERSION }}-conan-profile=${{ hashFiles(env.CONAN_PROFILE_DEFAULT)}}-ck=${{ secrets.CACHE_KEY }}
 
     - name: Did restoring the build-cache work? Yes
       # If it was found in the cache, list files, and Delete the packages already produced
