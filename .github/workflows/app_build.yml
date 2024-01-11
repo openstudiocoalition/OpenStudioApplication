@@ -243,6 +243,7 @@ jobs:
         fi;
 
         cmake --version
+        ccache --show-config || true
 
     - name: Install conan
       shell: bash
@@ -311,7 +312,8 @@ jobs:
       if: steps.cacheccache.outputs.cache-hit == 'true'
       shell: bash
       run: |
-        ccache -s -vv
+        ccache --show-stats -vv || ccache --show-stats
+        ccache --zero-stats
 
     # This includes the Qt install, the .ccache (ccache) folder on Unix, the OpenStudio SDK tar.gz, and previous build artifacts
     # TODO: problem is that caching is limited to 10 GB. The build folder takes 3-4 GB per runner, and we have 4 of them that try to cache
