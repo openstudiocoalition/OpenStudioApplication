@@ -63,9 +63,8 @@ endif()
 include(FindOpenStudioSDK.cmake)
 
 ###############################################################################
-
+#                                C O N A N                                    #
 ###############################################################################
-# Conan
 
 # Note JM 2019-04-24: Another option is to globally set "print_run_commands = True" in ~/.conan/conan.conf
 option(CONAN_PRINT_RUN_COMMANDS "Log every conan self.run command" OFF)

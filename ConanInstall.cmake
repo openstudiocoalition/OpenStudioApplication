@@ -1,8 +1,6 @@
 # This file lists and installs the Conan packages needed
 
-# TODO: DO NOT DO `set(CONAN_OPTIONS "")` since some higher level stuff is added via OpenStudioApplication
-# CONAN_QT is added by OpenStudioApplication
-
+# NOTE: DO NOT DO `set(CONAN_OPTIONS "")` since some higher level stuff may be added via OpenStudioApplication (we were toying on adding CONAN_QT at some point)
 
 if(NOT CONAN_OPENSTUDIO_ALREADY_RUN)
 
@@ -35,7 +33,6 @@ if(NOT CONAN_OPENSTUDIO_ALREADY_RUN)
   conan_check(VERSION 1.53.0 REQUIRED)
 
   message(STATUS "openstudio: RUNNING CONAN")
-
 
   conan_add_remote(NAME nrel INDEX 0
     URL https://conan.openstudio.net/artifactory/api/conan/openstudio)
