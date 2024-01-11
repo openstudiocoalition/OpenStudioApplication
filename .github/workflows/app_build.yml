@@ -169,6 +169,10 @@ jobs:
           sudo apt install -y mesa-common-dev libglu1-mesa-dev patchelf ninja-build ccache libxkbcommon-x11-dev libgl1-mesa-dev chrpath
           gcc --version
 
+          ccache --set-config=cache_dir=${{ github.workspace }}/build/.ccache
+          ccache --set-config=max_size=500M
+          ccache --set-config=compression=true
+
         elif [ "$RUNNER_OS" == "Windows" ]; then
           curl -L -O https://download.qt.io/official_releases/qt-installer-framework/4.6.1/QtInstallerFramework-windows-x64-4.6.1.exe
           ./QtInstallerFramework-windows-x64-4.6.1.exe --verbose --script ./ci/install_script_qtifw.qs
@@ -203,6 +207,11 @@ jobs:
             echo "Using brew to install ninja"
             brew install ninja md5sha1sum ccache
 
+            ccache --set-config=cache_dir=${{ github.workspace }}/build/.ccache
+            ccache --set-config=max_size=500M
+            ccache --set-config=compression=true
+            ccache --set-config=compiler_check=content # darwin only
+
             # The openssl@3 package installed on CI adds these files to the pkgconfig directory
             # Remove them here so they aren't found instead of the version of OpenSSL built by Conan
             rm /usr/local/lib/pkgconfig/libcrypto.pc
@@ -230,10 +239,6 @@ jobs:
             echo "~/Qt/QtIFW-4.6.1/bin/" >> $GITHUB_PATH
           fi;
         fi;
-
-        # TODO: configure ccache
-        # https://github.com/hendrikmuhs/ccache-action/blob/4cb35b2ff44ce57e1f5f5221e26bd8fefcfe41d0/src/restore.ts#L48
-        # ccache --set-config=cache_dir=${{ runner.workspace }}/.ccache
 
         cmake --version
 
@@ -286,7 +291,7 @@ jobs:
         ls $CONAN_USER_HOME/.conan/data
         ls $CONAN_USER_HOME/short || true
 
-    # This includes the Qt install, the .cache (ccache) folder on Unix, the OpenStudio SDK tar.gz, and previous build artifacts
+    # This includes the Qt install, the .ccache (ccache) folder on Unix, the OpenStudio SDK tar.gz, and previous build artifacts
     - name: Cache entire build directory
       id: cachebuild
       if: ${{ !matrix.SELF_HOSTED }}
