@@ -153,6 +153,8 @@ jobs:
           echo CONAN_USER_HOME="${{ github.workspace }}\conan-cache" >> $GITHUB_ENV
           echo CONAN_USER_HOME_SHORT="${{ github.workspace }}\conan-cache\short" >> $GITHUB_ENV
           echo CONAN_PROFILE_DEFAULT="${{ github.workspace }}\conan-cache\.conan\profiles\default" >> $GITHUB_ENV
+          CCACHE_DIR="${{ github.workspace }}\.ccache"
+          echo CCACHE_DIR=$CCACHE_DIR >> $GITHUB_ENV
         else
           echo CONAN_USER_HOME=${{ github.workspace }}/conan-cache >> $GITHUB_ENV
           echo CONAN_USER_HOME_SHORT=${{ github.workspace }}/conan-cache/short >> $GITHUB_ENV
@@ -187,8 +189,12 @@ jobs:
           # using ccache fails to build .rc files on Windows
           # ccache is installed under chocolatey but `choco uninstall ccache` fails
           # setting CCACHE_DISABLE=1 did not work, just remove ccache
-          echo "Remove ccache if it exists"
-          rm -f "/c/ProgramData/Chocolatey/bin/ccache" || true
+          # echo "Remove ccache if it exists"
+          # rm -f "/c/ProgramData/Chocolatey/bin/ccache" || true
+          choco install ccache
+          ccache --set-config=cache_dir=$CCACHE_DIR
+          ccache --set-config=max_size=500M
+          ccache --set-config=compression=true
 
           # C:\Program Files (x86)\Microsoft Visual Studio\2019\Enterprise
           MSVC_DIR=$(vswhere -products '*' -requires Microsoft.Component.MSBuild -property installationPath -latest)
@@ -244,6 +250,7 @@ jobs:
 
         cmake --version
         ccache --show-config || true
+        ccache --zero-stats || true
 
     - name: Install conan
       shell: bash
@@ -299,7 +306,7 @@ jobs:
     - name: Setup CCache
       uses: actions/cache@v3
       id: cacheccache
-      if: ${{ !matrix.SELF_HOSTED && runner.os != 'Windows' }}
+      if: ${{ !matrix.SELF_HOSTED }}
       with:
         path: |
           ${{ env.CCACHE_DIR}}
@@ -438,6 +445,7 @@ jobs:
         ninja package
         # Delete conan build and source folders
         conan remove "*" -s -b -f
+        ccache --show-stats -vv || ccache --show-stats || true
 
     # Debug CPack:
     # "C:\Program Files\CMake\bin\cpack.exe" --debug --verbose --config CPackConfig.cmake
@@ -490,6 +498,8 @@ jobs:
         ninja package || ( echo "Package Step failed" && cpack --debug --verbose --config CPackConfig.cmake )
         # Delete conan build and source folders
         conan remove "*" -s -b -f
+        # Show ccache stats
+        ccache --show-stats -vv || ccache --show-stats || true
 
     - name: Test bed Sign inner portable executable files and exe package (Windows 2022)
       working-directory: ./build
