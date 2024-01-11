@@ -282,6 +282,26 @@ jobs:
           echo hashFiles_conanInstall=${{ hashFiles('./ConanInstall.cmake') }}
         fi
 
+    # Note: I'm picking up the ccache before I do the conan cache, otheriwe on windows when trying to hashFiles('**/CMakeLists.txt') it looks into the conan folder which fails
+    - name: Setup CCache
+      uses: actions/cache@v3
+      id: cacheccache
+      if: ${{ !matrix.SELF_HOSTED }}
+      with:
+        path: |
+          ${{ env.CCACHE_DIR}}
+        key: ccache-${{ matrix.os }}-build=${{ env.BUILD_TYPE }}-cmakelists=${{ hashFiles('**/CMakeLists.txt') }}-conan-profile=${{ hashFiles(env.CONAN_PROFILE_DEFAULT) }}-ck=${{ secrets.CACHE_KEY }}
+        restore-keys: |
+          ccache-${{ matrix.os }}-build=${{ env.BUILD_TYPE }}-conan-profile=${{ hashFiles(env.CONAN_PROFILE_DEFAULT) }}-ck=${{ secrets.CACHE_KEY }}
+
+    - name: Did restoring the CCache-cache work? Yes
+      # If the SDK wasn't found in the cache
+      if: steps.cacheccache.outputs.cache-hit == 'true'
+      shell: bash
+      run: |
+        ccache --show-stats -vv || ccache --show-stats
+        ccache --zero-stats
+
     - name: Setup Conan Cache
       uses: actions/cache@v3
       id: cacheconan
@@ -302,25 +322,6 @@ jobs:
         cat $CONAN_USER_HOME/.conan/profiles/default
         ls $CONAN_USER_HOME/.conan/data
         ls $CONAN_USER_HOME/short || true
-
-    - name: Setup CCache
-      uses: actions/cache@v3
-      id: cacheccache
-      if: ${{ !matrix.SELF_HOSTED }}
-      with:
-        path: |
-          ${{ env.CCACHE_DIR}}
-        key: ccache-${{ matrix.os }}-build=${{ env.BUILD_TYPE }}-cmakelists=${{ hashFiles('**/CMakeLists.txt') }}-conan-profile=${{ hashFiles(env.CONAN_PROFILE_DEFAULT) }}-ck=${{ secrets.CACHE_KEY }}
-        restore-keys: |
-          ccache-${{ matrix.os }}-build=${{ env.BUILD_TYPE }}-conan-profile=${{ hashFiles(env.CONAN_PROFILE_DEFAULT) }}-ck=${{ secrets.CACHE_KEY }}
-
-    - name: Did restoring the CCache-cache work? Yes
-      # If the SDK wasn't found in the cache
-      if: steps.cacheccache.outputs.cache-hit == 'true'
-      shell: bash
-      run: |
-        ccache --show-stats -vv || ccache --show-stats
-        ccache --zero-stats
 
     # This includes the Qt install, the .ccache (ccache) folder on Unix, the OpenStudio SDK tar.gz, and previous build artifacts
     # TODO: problem is that caching is limited to 10 GB. The build folder takes 3-4 GB per runner, and we have 4 of them that try to cache
