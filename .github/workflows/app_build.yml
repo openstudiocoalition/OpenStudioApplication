@@ -150,9 +150,9 @@ jobs:
         if [ "${{ matrix.SELF_HOSTED }}" == "true" ]; then
           echo CONAN_PROFILE_DEFAULT=$HOME/.conan/profiles/default >> $GITHUB_ENV
         else
-          echo CONAN_USER_HOME=${{ runner.workspace }}/conan-cache >> $GITHUB_ENV
-          echo CONAN_USER_HOME_SHORT=${{ runner.workspace }}/conan-cache/short >> $GITHUB_ENV
-          echo CONAN_PROFILE_DEFAULT=${{ runner.workspace }}/conan-cache/.conan/profiles/default >> $GITHUB_ENV
+          echo CONAN_USER_HOME=${{ github.workspace }}/conan-cache >> $GITHUB_ENV
+          echo CONAN_USER_HOME_SHORT=${{ github.workspace }}/conan-cache/short >> $GITHUB_ENV
+          echo CONAN_PROFILE_DEFAULT=${{ github.workspace }}/conan-cache/.conan/profiles/default >> $GITHUB_ENV
         fi
 
         N=$(nproc 2>/dev/null || sysctl -n hw.logicalcpu)
@@ -257,6 +257,8 @@ jobs:
           echo hashFiles=${{ hashFiles(format('{0}/.conan/profiles/default', env.CONAN_USER_HOME)) }}
           echo $CONAN_PROFILE_DEFAULT
           echo hashFiles=${{ hashFiles(env.CONAN_PROFILE_DEFAULT) }}
+          echo hashFiles_rel=${{ hashFiles('./conan-cache/.conan/profiles/default') }}
+          echo hashFiles_conanInstall=${{ hashFiles('./ConanInstall.cmake') }}
         fi
 
     - name: Setup Conan Cache
