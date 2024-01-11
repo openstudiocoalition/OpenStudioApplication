@@ -137,17 +137,6 @@ if(WIN32)
   target_link_options(${target_name} PRIVATE /STACK:8388608)
 endif()
 
-# This is because Apple has app bundles for .apps.
-# We copy the openstudio cli into the app bundle in an effort
-# to be self contained. It also makes it easy to find the cli since
-# it will be sitting next to the app executable.
-if( APPLE )
-  add_custom_command(TARGET ${target_name}
-    POST_BUILD
-    COMMAND ${CMAKE_COMMAND} -E copy_if_different $<TARGET_FILE:openstudio::openstudio> $<TARGET_FILE_DIR:${target_name}>/$<TARGET_FILE_NAME:openstudio::openstudio>
-  )
-endif()
-
 add_custom_command(TARGET ${target_name}
   POST_BUILD
   COMMAND ${CMAKE_COMMAND} -E make_directory $<TARGET_FILE_DIR:${target_name}>/platforms/
@@ -181,8 +170,16 @@ if( APPLE )
     POST_BUILD
     COMMAND ${CMAKE_INSTALL_NAME_TOOL} -add_rpath "${openstudio_ROOT_DIR}/lib/" $<TARGET_FILE:${target_name}>
     COMMAND ${CMAKE_INSTALL_NAME_TOOL} -add_rpath "${QT_INSTALL_DIR}/lib/" $<TARGET_FILE:${target_name}>
+
+    # This is because Apple has app bundles for .apps.
+    # We copy the openstudio cli into the app bundle in an effort
+    # to be self contained. It also makes it easy to find the cli since
+    # it will be sitting next to the app executable.
+    COMMAND ${CMAKE_COMMAND} -E copy_if_different $<TARGET_FILE:openstudio::openstudio> $<TARGET_FILE_DIR:${target_name}>/$<TARGET_FILE_NAME:openstudio::openstudio>
+    # Local dev: find them in the actual OpenStudio root dir
     COMMAND ${CMAKE_INSTALL_NAME_TOOL} -add_rpath "${openstudio_ROOT_DIR}/lib/" $<TARGET_FILE_DIR:${target_name}>/$<TARGET_FILE_NAME:openstudio::openstudio>
-    )
+    # Runtime: it's already going to find them in  in OpenStudioApp.app/Contents/Frameworks
+  )
 
   #add_custom_command(TARGET ${target_name}
   #  POST_BUILD
@@ -368,7 +365,8 @@ if( NOT APPLE )
 
   if(WIN32)
     install(TARGETS OpenStudioApp DESTINATION bin COMPONENT OpenStudioApp )
-    install(PROGRAMS $<TARGET_FILE:openstudio::openstudiolib> DESTINATION bin COMPONENT OpenStudioApp )
+    # Done at top level CMakeLists.txt
+    # install(PROGRAMS $<TARGET_FILE:openstudio::openstudiolib> DESTINATION bin COMPONENT OpenStudioApp )
 
     install(PROGRAMS ${QtWebEngineProcess} DESTINATION bin COMPONENT OpenStudioApp )
 
@@ -448,12 +446,16 @@ if( APPLE )
           "${CMAKE_INSTALL_PREFIX}/OpenStudioApp.app/Contents/Radiance"
 
         COMMAND "${CMAKE_COMMAND}" -E create_symlink
-          "../../../bin/$<TARGET_FILE_NAME:openstudio::rubyengine>"
+          "../../../lib/$<TARGET_FILE_NAME:openstudio::rubyengine>"
           "${CMAKE_INSTALL_PREFIX}/OpenStudioApp.app/Contents/Frameworks/$<TARGET_FILE_NAME:openstudio::rubyengine>"
 
         COMMAND "${CMAKE_COMMAND}" -E create_symlink
-          "../../../bin/$<TARGET_FILE_NAME:openstudio::pythonengine>"
+          "../../../lib/$<TARGET_FILE_NAME:openstudio::pythonengine>"
           "${CMAKE_INSTALL_PREFIX}/OpenStudioApp.app/Contents/Frameworks/$<TARGET_FILE_NAME:openstudio::pythonengine>"
+
+        COMMAND "${CMAKE_COMMAND}" -E create_symlink
+          "../../../lib/$<TARGET_FILE_NAME:openstudio::openstudiolib>"
+          "${CMAKE_INSTALL_PREFIX}/OpenStudioApp.app/Contents/Frameworks/$<TARGET_FILE_NAME:openstudio::openstudiolib>"
 
         COMMAND_ECHO STDOUT
         COMMAND_ERROR_IS_FATAL ANY
@@ -465,7 +467,7 @@ endif()
 
 # TODO: We used to run fixup_bundle on all plaforms before on 5.15.0...
 if(UNIX)
-  # This does some "magic" **including on Linux** (cf #345) (On linux it will install in ./bin/ the libopenstudio.so, and libicu* stuff)
+  # This does some "magic" **including on Linux** (cf #345) (On linux it will install in ./bin/ the libicu* stuff)
   install(CODE "
     # APPS might be a symbolic link which does not work with fixup_bundle
     # expand APPS to a real path
@@ -475,6 +477,24 @@ if(UNIX)
     include(\"${CMAKE_SOURCE_DIR}/CMake/FixupBundleOverrides.cmake\")
     fixup_bundle(\"\${APPS_EXPANDED}\" \"${QTPLUGINS}\" \"${DIRS}\")
     " COMPONENT "OpenStudioApp"
+  )
+endif()
+
+
+if(APPLE)
+  # This is kinda gross, but I can't seem to manage to get fixup_bundle to not trash the RPATH of Contents/MacOS/openstudio... But it will copy at Contents/Frameworks/libopenstudiolib.dylib
+  # So here I just override it with a symlink.
+  install(CODE [[
+      execute_process(
+        COMMAND "${CMAKE_COMMAND}" -E create_symlink
+          "../../../lib/$<TARGET_FILE_NAME:openstudio::openstudiolib>"
+          "${CMAKE_INSTALL_PREFIX}/OpenStudioApp.app/Contents/Frameworks/$<TARGET_FILE_NAME:openstudio::openstudiolib>"
+
+        COMMAND_ECHO STDOUT
+        COMMAND_ERROR_IS_FATAL ANY
+      )
+    ]]
+    COMPONENT OpenStudioApp
   )
 endif()
 
