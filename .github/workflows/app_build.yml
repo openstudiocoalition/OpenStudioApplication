@@ -139,15 +139,20 @@ jobs:
       # access regardless of the host operating system
       shell: bash
       run: |
+        set -x
+        pwd
         echo PLATFORM_NAME=${{ matrix.PLATFORM_NAME }} >> $GITHUB_ENV
         echo CPACK_BINARY_DEB=${{ matrix.CPACK_BINARY_DEB }} >> $GITHUB_ENV
         echo CPACK_BINARY_IFW=${{ matrix.CPACK_BINARY_IFW }} >> $GITHUB_ENV
         echo CPACK_BINARY_ZIP=${{ matrix.CPACK_BINARY_ZIP }} >> $GITHUB_ENV
         echo CPACK_BINARY_TGZ=${{ matrix.CPACK_BINARY_TGZ }} >> $GITHUB_ENV
         echo BINARY_EXT=${{ matrix.BINARY_EXT }} >> $GITHUB_ENV
-        if [ "${{ matrix.SELF_HOSTED }}" == "false" ]; then
+        if [ "${{ matrix.SELF_HOSTED }}" == "true" ]; then
+          echo CONAN_PROFILE_DEFAULT=$HOME/.conan/profiles/default >> $GITHUB_ENV
+        else
           echo CONAN_USER_HOME=${{ runner.workspace }}/conan-cache >> $GITHUB_ENV
           echo CONAN_USER_HOME_SHORT=${{ runner.workspace }}/conan-cache/short >> $GITHUB_ENV
+          echo CONAN_PROFILE_DEFAULT=${{ runner.workspace }}/conan-cache/.conan/profiles/default >> $GITHUB_ENV
         fi
 
         N=$(nproc 2>/dev/null || sysctl -n hw.logicalcpu)
@@ -222,11 +227,16 @@ jobs:
           fi;
         fi;
 
+        # TODO: configure ccache
+        # https://github.com/hendrikmuhs/ccache-action/blob/4cb35b2ff44ce57e1f5f5221e26bd8fefcfe41d0/src/restore.ts#L48
+        # ccache --set-config=cache_dir=${{ runner.workspace }}/.ccache
+
         cmake --version
 
     - name: Install conan
       shell: bash
       run: |
+        set -x
         python --version
         pip install 'conan<2'
         conan --version
@@ -239,7 +249,14 @@ jobs:
           conan profile update settings.compiler.libcxx=libstdc++11 default
         fi
         if [ "${{ matrix.SELF_HOSTED }}" == "false" ]; then
-          cat $CONAN_USER_HOME/.conan/profiles/default
+          echo "runner.workspace=${{ runner.workspace }}"
+          echo "GITHUB_WORKSPACE=$GITHUB_WORKSPACE"
+          echo "github.workspace=${{ github.workspace }}"
+          cat $CONAN_PROFILE_DEFAULT
+          echo format=${{ format('{0}/.conan/profiles/default', env.CONAN_USER_HOME) }}
+          echo hashFiles=${{ hashFiles(format('{0}/.conan/profiles/default', env.CONAN_USER_HOME)) }}
+          echo $CONAN_PROFILE_DEFAULT
+          echo hashFiles=${{ hashFiles(env.CONAN_PROFILE_DEFAULT) }}
         fi
 
     - name: Setup Conan Cache
