@@ -149,6 +149,10 @@ jobs:
         echo BINARY_EXT=${{ matrix.BINARY_EXT }} >> $GITHUB_ENV
         if [ "${{ matrix.SELF_HOSTED }}" == "true" ]; then
           echo CONAN_PROFILE_DEFAULT=$HOME/.conan/profiles/default >> $GITHUB_ENV
+        elif [ "$RUNNER_OS" == "Windows" ]; then
+          echo CONAN_USER_HOME="${{ github.workspace }}\conan-cache" >> $GITHUB_ENV
+          echo CONAN_USER_HOME_SHORT="${{ github.workspace }}\conan-cache\short" >> $GITHUB_ENV
+          echo CONAN_PROFILE_DEFAULT="${{ github.workspace }}\conan-cache\.conan\profiles\default" >> $GITHUB_ENV
         else
           echo CONAN_USER_HOME=${{ github.workspace }}/conan-cache >> $GITHUB_ENV
           echo CONAN_USER_HOME_SHORT=${{ github.workspace }}/conan-cache/short >> $GITHUB_ENV
