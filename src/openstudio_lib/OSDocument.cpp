@@ -126,6 +126,7 @@
 #include <QIcon>
 #include <QInputDialog>
 #include <QSettings>
+#include <QtGlobal>  // Workaround for #659
 
 #include <memory>
 
@@ -353,8 +354,11 @@ void OSDocument::setModel(const model::Model& model, bool modified, bool /*saveC
 }
 
 void OSDocument::weatherFileReset() {
+  // TODO: temporary workaround for #659
+#ifndef Q_OS_DARWIN
   QMessageBox::warning(mainWindow(), "Missing Weather File",
                        "Invalid weather file object, weather file object has been reset. Please choose another weather file.");
+#endif
 }
 
 void OSDocument::createTabButtons() {
