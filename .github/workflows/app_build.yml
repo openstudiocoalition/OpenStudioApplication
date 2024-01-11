@@ -170,7 +170,7 @@ jobs:
         if [ "$RUNNER_OS" == "Linux" ]; then
           echo "Install needed system dependencies for OPENGL (due to Qt) for Linux"
           sudo apt update -qq
-          sudo apt install -y mesa-common-dev libglu1-mesa-dev patchelf ninja-build ccache libxkbcommon-x11-dev libgl1-mesa-dev chrpath
+          sudo apt install -y mesa-common-dev libglu1-mesa-dev patchelf ninja-build ccache libxkbcommon-x11-dev libgl1-mesa-dev chrpath libxcb-cursor0
           gcc --version
 
           ccache --set-config=cache_dir=$CCACHE_DIR
