@@ -290,9 +290,9 @@ jobs:
       with:
         path: |
           ${{ env.CCACHE_DIR}}
-        key: ccache-${{ matrix.os }}-build=${{ env.BUILD_TYPE }}-cmakelists=${{ hashFiles('**/CMakeLists.txt') }}-conan-profile=${{ hashFiles(env.CONAN_PROFILE_DEFAULT) }}-ck=${{ secrets.CACHE_KEY }}
+        key: ccache-${{ matrix.os }}-build=${{ env.BUILD_TYPE }}-conan-profile=${{ hashFiles(env.CONAN_PROFILE_DEFAULT) }}-ck=${{ secrets.CACHE_KEY }}-cmakelists=${{ hashFiles('**/CMakeLists.txt') }}
         restore-keys: |
-          ccache-${{ matrix.os }}-build=${{ env.BUILD_TYPE }}-conan-profile=${{ hashFiles(env.CONAN_PROFILE_DEFAULT) }}-ck=${{ secrets.CACHE_KEY }}
+          ccache-${{ matrix.os }}-build=${{ env.BUILD_TYPE }}-conan-profile=${{ hashFiles(env.CONAN_PROFILE_DEFAULT) }}-ck=${{ secrets.CACHE_KEY }}-
 
     - name: Did restoring the CCache-cache work? Yes
       # If the SDK wasn't found in the cache
@@ -309,9 +309,9 @@ jobs:
       with:
         path: |
           ${{ env.CONAN_USER_HOME }}
-        key: conan-cache-${{ matrix.os }}-build=${{ env.BUILD_TYPE }}-conaninstall=${{ hashFiles('./ConanInstall.cmake') }}-conan-profile=${{ hashFiles(env.CONAN_PROFILE_DEFAULT) }}-ck=${{ secrets.CACHE_KEY }}
+        key: conan-cache-${{ matrix.os }}-build=${{ env.BUILD_TYPE }}-conan-profile=${{ hashFiles(env.CONAN_PROFILE_DEFAULT) }}-ck=${{ secrets.CACHE_KEY }}-conaninstall=${{ hashFiles('./ConanInstall.cmake') }}
         restore-keys: |
-          conan-cache-${{ matrix.os }}-build=${{ env.BUILD_TYPE }}-conan-profile=${{ hashFiles(env.CONAN_PROFILE_DEFAULT) }}-ck=${{ secrets.CACHE_KEY }}
+          conan-cache-${{ matrix.os }}-build=${{ env.BUILD_TYPE }}-conan-profile=${{ hashFiles(env.CONAN_PROFILE_DEFAULT) }}-ck=${{ secrets.CACHE_KEY }}-
 
     - name: Did restoring the conan-cache work? Yes
       # If the SDK wasn't found in the cache
@@ -323,14 +323,9 @@ jobs:
         ls $CONAN_USER_HOME/.conan/data
         ls $CONAN_USER_HOME/short || true
 
-    # This includes the Qt install, the .ccache (ccache) folder on Unix, the OpenStudio SDK tar.gz, and previous build artifacts
-    # TODO: problem is that caching is limited to 10 GB. The build folder takes 3-4 GB per runner, and we have 4 of them that try to cache
+    # This includes the Qt install,  the OpenStudio SDK tar.gz,
+    # TODO: problem is that caching the entire build dir is limited to 10 GB. The build folder takes 3-4 GB per runner, and we have 4 of them that try to cache
     # Perhaps we should just cache the ccache. Anyways, for incremental builds triggered one after another, cache eviction hasn't happened yet and all of them do a cache hit
-    # Build times improvements
-    #  * Ubuntu: 41 min -> 10 min
-    #  * macos-13 (where conan binaries needed to be built): 1h15 ->  27min  (shaving 23 min due to conan cache only)
-    # Another thing is that if the cache is hit, then it's not saved in post build. Fine for the conan cache, but probably want an update for the build stuff
-    # Note that cache is immutable, so that'd mean uploading a NEW cache entry (so potentially 4GB again)
     - name: Cache entire build directory
       id: cachebuild
       if: ${{ !matrix.SELF_HOSTED }}
