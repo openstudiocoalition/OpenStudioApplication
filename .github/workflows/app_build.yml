@@ -57,8 +57,6 @@ jobs:
           COMPRESSED_PKG_PATH: _CPack_Packages/Linux/TGZ
           QT_OS_NAME: linux
           QT_ARCH: gcc_64
-          CONAN_USER_HOME: "${{ github.workspace }}/conan-cache"
-          CONAN_USER_HOME_SHORT: "${{ github.workspace }}/conan-cache/short"
         - os: ubuntu-22.04
           SELF_HOSTED: false
           PLATFORM_NAME: Linux
@@ -72,8 +70,6 @@ jobs:
           COMPRESSED_PKG_PATH: _CPack_Packages/Linux/TGZ
           QT_OS_NAME: linux
           QT_ARCH: gcc_64
-          CONAN_USER_HOME: "${{ github.workspace }}/conan-cache"
-          CONAN_USER_HOME_SHORT: "${{ github.workspace }}/conan-cache/short"
         - os: windows-2022
           SELF_HOSTED: false
           PLATFORM_NAME: Windows
@@ -87,8 +83,6 @@ jobs:
           COMPRESSED_PKG_PATH: _CPack_Packages/win64/ZIP
           QT_OS_NAME: windows
           QT_ARCH: win64_msvc2019_64
-          CONAN_USER_HOME: "${{ github.workspace }}/conan-cache"
-          CONAN_USER_HOME_SHORT: "${{ github.workspace }}/conan-cache/short"
         - os: macos-13
           SELF_HOSTED: false
           PLATFORM_NAME: Darwin
@@ -104,8 +98,6 @@ jobs:
           SDKROOT: /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX.sdk
           QT_OS_NAME: mac
           QT_ARCH: clang_64
-          CONAN_USER_HOME: "${{ github.workspace }}/conan-cache"
-          CONAN_USER_HOME_SHORT: "${{ github.workspace }}/conan-cache/short"
         - os: macos-arm64
           SELF_HOSTED: true
           PLATFORM_NAME: Darwin
@@ -154,8 +146,8 @@ jobs:
         echo CPACK_BINARY_TGZ=${{ matrix.CPACK_BINARY_TGZ }} >> $GITHUB_ENV
         echo BINARY_EXT=${{ matrix.BINARY_EXT }} >> $GITHUB_ENV
         if [ "${{ matrix.SELF_HOSTED }}" == "false" ]; then
-          echo CONAN_USER_HOME=${{ matrix.CONAN_USER_HOME }} >> $GITHUB_ENV
-          echo CONAN_USER_HOME_SHORT=${{ matrix.CONAN_USER_HOME_SHORT }} >> $GITHUB_ENV
+          echo CONAN_USER_HOME=${{ runner.workspace }}/conan-cache >> $GITHUB_ENV
+          echo CONAN_USER_HOME_SHORT=${{ runner.workspace }}/conan-cache/short >> $GITHUB_ENV
         fi
 
         N=$(nproc 2>/dev/null || sysctl -n hw.logicalcpu)
@@ -247,7 +239,7 @@ jobs:
           conan profile update settings.compiler.libcxx=libstdc++11 default
         fi
         if [ "${{ matrix.SELF_HOSTED }}" == "false" ]; then
-          cat conan-cache/.conan/profiles/default
+          cat $CONAN_USER_HOME/.conan/profiles/default
         fi
 
     - name: Setup Conan Cache
@@ -265,9 +257,9 @@ jobs:
       working-directory: ${{ env.CONAN_USER_HOME }}
       shell: bash
       run: |
-        cat .conan/profiles/default
-        ls .conan/data
-        ls short || true
+        cat $CONAN_USER_HOME/.conan/profiles/default
+        ls $CONAN_USER_HOME/.conan/data
+        ls $CONAN_USER_HOME/short || true
 
     # This includes the Qt install, the .cache (ccache) folder on Unix, the OpenStudio SDK tar.gz, and previous build artifacts
     - name: Cache entire build directory
