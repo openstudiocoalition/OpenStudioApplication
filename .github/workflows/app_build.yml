@@ -283,6 +283,7 @@ jobs:
         fi
 
     # Note: I'm picking up the ccache before I do the conan cache, otheriwe on windows when trying to hashFiles('**/CMakeLists.txt') it looks into the conan folder which fails
+    # To prevent problems, changing to multiple more specific glob patterns
     - name: Setup CCache
       uses: actions/cache@v3
       id: cacheccache
@@ -290,7 +291,7 @@ jobs:
       with:
         path: |
           ${{ env.CCACHE_DIR}}
-        key: ccache-${{ matrix.os }}-build=${{ env.BUILD_TYPE }}-conan-profile=${{ hashFiles(env.CONAN_PROFILE_DEFAULT) }}-ck=${{ secrets.CACHE_KEY }}-cmakelists=${{ hashFiles('**/CMakeLists.txt') }}
+        key: ccache-${{ matrix.os }}-build=${{ env.BUILD_TYPE }}-conan-profile=${{ hashFiles(env.CONAN_PROFILE_DEFAULT) }}-ck=${{ secrets.CACHE_KEY }}-cmakelists=${{ hashFiles('CMakeLists.txt', 'src/*/CMakeLists.txt', '*/CMakeLists.txt') }}
         restore-keys: |
           ccache-${{ matrix.os }}-build=${{ env.BUILD_TYPE }}-conan-profile=${{ hashFiles(env.CONAN_PROFILE_DEFAULT) }}-ck=${{ secrets.CACHE_KEY }}-
 
