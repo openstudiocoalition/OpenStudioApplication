@@ -147,6 +147,7 @@ jobs:
         echo CPACK_BINARY_ZIP=${{ matrix.CPACK_BINARY_ZIP }} >> $GITHUB_ENV
         echo CPACK_BINARY_TGZ=${{ matrix.CPACK_BINARY_TGZ }} >> $GITHUB_ENV
         echo BINARY_EXT=${{ matrix.BINARY_EXT }} >> $GITHUB_ENV
+        echo COMPRESSED_EXT=${{ matrix.COMPRESSED_EXT }} >> $GITHUB_ENV
         if [ "${{ matrix.SELF_HOSTED }}" == "true" ]; then
           echo CONAN_PROFILE_DEFAULT=$HOME/.conan/profiles/default >> $GITHUB_ENV
         elif [ "$RUNNER_OS" == "Windows" ]; then
