@@ -991,7 +991,7 @@ void OpenStudioApp::debugWebgl() {
   if (!m_debugWebglView) {
     m_debugWebglView = new QWebEngineView();
   }
-  m_debugWebglView->setUrl(QUrl("https://webglreport.com/"));
+  m_debugWebglView->setUrl(QUrl("chrome://gpu"));
   m_debugWebglView->show();
 }
 
