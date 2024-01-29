@@ -89,7 +89,7 @@ class MainMenu : public QMenuBar
 
   void useClassicCLIClicked(bool useClassicCLI);
 
-  void debugWebglClicked();  
+  void debugWebglClicked();
 
   void aboutClicked();
 

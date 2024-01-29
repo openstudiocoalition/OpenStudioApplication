@@ -290,7 +290,7 @@ class OpenStudioApp : public OSAppBase
 
   bool switchLanguage(const QString& rLanguage);
 
-  QWebEngineView* m_debugWebglView { nullptr };
+  QWebEngineView* m_debugWebglView{nullptr};
 };
 
 }  // namespace openstudio
