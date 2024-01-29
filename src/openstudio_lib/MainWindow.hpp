@@ -149,6 +149,8 @@ class MainWindow : public QMainWindow
 
   void checkForUpdateClicked();
 
+  void debugWebglClicked();
+
   void aboutClicked();
 
   void showRubyConsoleClicked();

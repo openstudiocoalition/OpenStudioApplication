@@ -219,6 +219,8 @@ class OPENSTUDIO_API OSDocument : public OSQObjectController
 
   void checkForUpdateClicked();
 
+  void debugWebglClicked();
+
   void aboutClicked();
 
   // called before actual save (copy from temp to user location) occurs

@@ -67,6 +67,8 @@
 
 class QEvent;
 
+class QWebEngineView;
+
 namespace openstudio {
 
 namespace osversion {
@@ -152,6 +154,8 @@ class OpenStudioApp : public OSAppBase
   void showHelp();
 
   void checkForUpdate();
+
+  void debugWebgl();
 
   void showAbout();
 
@@ -285,6 +289,8 @@ class OpenStudioApp : public OSAppBase
   QFutureWatcher<std::vector<std::string>> m_changeLibrariesWatcher;
 
   bool switchLanguage(const QString& rLanguage);
+
+  QWebEngineView* m_debugWebglView { nullptr };
 };
 
 }  // namespace openstudio

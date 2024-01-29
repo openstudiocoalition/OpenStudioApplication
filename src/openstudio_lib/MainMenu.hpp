@@ -89,6 +89,8 @@ class MainMenu : public QMenuBar
 
   void useClassicCLIClicked(bool useClassicCLI);
 
+  void debugWebglClicked();  
+
   void aboutClicked();
 
   void showRubyConsoleClicked();

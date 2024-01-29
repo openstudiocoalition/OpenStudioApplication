@@ -137,6 +137,7 @@ MainWindow::MainWindow(bool isPlugin, QWidget* parent)
   connect(mainMenu, &MainMenu::exitClicked, this, &MainWindow::exitClicked);
   connect(mainMenu, &MainMenu::helpClicked, this, &MainWindow::helpClicked);
   connect(mainMenu, &MainMenu::checkForUpdateClicked, this, &MainWindow::checkForUpdateClicked);
+  connect(mainMenu, &MainMenu::debugWebglClicked, this, &MainWindow::debugWebglClicked);
   connect(mainMenu, &MainMenu::aboutClicked, this, &MainWindow::aboutClicked);
   connect(mainMenu, &MainMenu::allowAnalyticsClicked, this, &MainWindow::toggleAnalytics);
   connect(mainMenu, &MainMenu::useClassicCLIClicked, this, &MainWindow::toggleUseClassicCLI);
