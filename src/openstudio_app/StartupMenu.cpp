@@ -84,6 +84,10 @@ StartupMenu::StartupMenu(QWidget* parent) : QMenuBar(parent) {
   m_helpMenu->addAction(action);
   connect(action, &QAction::triggered, this, &StartupMenu::checkForUpdateClicked, Qt::QueuedConnection);
 
+  action = new QAction(tr("Debug Webgl"), this);
+  m_helpMenu->addAction(action);
+  connect(action, &QAction::triggered, this, &StartupMenu::debugWebglClicked, Qt::QueuedConnection);
+
   action = new QAction(tr("&About"), this);
   m_helpMenu->addAction(action);
   connect(action, &QAction::triggered, this, &StartupMenu::aboutClicked, Qt::QueuedConnection);
