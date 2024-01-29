@@ -35,7 +35,8 @@ if(NOT CONAN_OPENSTUDIO_ALREADY_RUN)
   message(STATUS "openstudio: RUNNING CONAN")
 
   conan_add_remote(NAME nrel INDEX 0
-    URL https://conan.openstudio.net/artifactory/api/conan/openstudio)
+    URL http://conan.openstudio.net/artifactory/api/conan/openstudio
+    VERIFY_SSL False)
 
   # Track NREL/stable in general, on a feature branch this could be temporarily switched to NREL/testing
   # TODO: temp, revert to stable soon
