@@ -134,6 +134,7 @@
 #include <QtGlobal>
 #include <QSettings>
 #include <QTranslator>
+#include <QWebEngineView>
 
 #include <openstudio/utilities/idd/IddEnums.hxx>
 #include <sstream>
@@ -210,6 +211,7 @@ OpenStudioApp::OpenStudioApp(int& argc, char** argv)
   connect(m_startupMenu.get(), &StartupMenu::newClicked, this, &OpenStudioApp::newModel, Qt::QueuedConnection);
   connect(m_startupMenu.get(), &StartupMenu::helpClicked, this, &OpenStudioApp::showHelp);
   connect(m_startupMenu.get(), &StartupMenu::checkForUpdateClicked, this, &OpenStudioApp::checkForUpdate);
+  connect(m_startupMenu.get(), &StartupMenu::debugWebglClicked, this, &OpenStudioApp::debugWebgl);
   connect(m_startupMenu.get(), &StartupMenu::aboutClicked, this, &OpenStudioApp::showAbout);
 #endif
 
@@ -242,6 +244,10 @@ OpenStudioApp::~OpenStudioApp() {
     m_measureManagerProcess->waitForFinished();
     delete m_measureManagerProcess;
     m_measureManagerProcess = nullptr;
+  }
+
+  if (m_debugWebglView) {
+    delete m_debugWebglView;
   }
 }
 
@@ -981,6 +987,14 @@ void OpenStudioApp::checkForUpdate() {
   }
 }
 
+void OpenStudioApp::debugWebgl() {
+  if (!m_debugWebglView) {
+    m_debugWebglView = new QWebEngineView();
+  }
+  m_debugWebglView->setUrl(QUrl("chrome://gpu"));
+  m_debugWebglView->show();
+}
+
 void OpenStudioApp::showAbout() {
   QWidget* parent = nullptr;
 
@@ -1235,6 +1249,7 @@ void OpenStudioApp::connectOSDocumentSignals() {
   connect(m_osDocument.get(), &OSDocument::newClicked, this, &OpenStudioApp::newModel);
   connect(m_osDocument.get(), &OSDocument::helpClicked, this, &OpenStudioApp::showHelp);
   connect(m_osDocument.get(), &OSDocument::checkForUpdateClicked, this, &OpenStudioApp::checkForUpdate);
+  connect(m_osDocument.get(), &OSDocument::debugWebglClicked, this, &OpenStudioApp::debugWebgl);
   connect(m_osDocument.get(), &OSDocument::aboutClicked, this, &OpenStudioApp::showAbout);
 }
 
@@ -1255,6 +1270,7 @@ void OpenStudioApp::disconnectOSDocumentSignals() {
     disconnect(m_osDocument.get(), &OSDocument::newClicked, this, &OpenStudioApp::newModel);
     disconnect(m_osDocument.get(), &OSDocument::helpClicked, this, &OpenStudioApp::showHelp);
     disconnect(m_osDocument.get(), &OSDocument::checkForUpdateClicked, this, &OpenStudioApp::checkForUpdate);
+    disconnect(m_osDocument.get(), &OSDocument::debugWebglClicked, this, &OpenStudioApp::debugWebgl);
     disconnect(m_osDocument.get(), &OSDocument::aboutClicked, this, &OpenStudioApp::showAbout);
   }
 }

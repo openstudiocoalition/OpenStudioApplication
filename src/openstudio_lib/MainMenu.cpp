@@ -400,6 +400,10 @@ MainMenu::MainMenu(bool isIP, bool isPlugin, const QString& currLang, bool allow
   m_helpMenu->addAction(m_allowAnalyticsAction);
   connect(m_allowAnalyticsAction, &QAction::triggered, this, &MainMenu::toggleAnalytics, Qt::QueuedConnection);
 
+  action = new QAction(tr("Debug Webgl"), this);
+  m_helpMenu->addAction(action);
+  connect(action, &QAction::triggered, this, &MainMenu::debugWebglClicked, Qt::QueuedConnection);
+
   action = new QAction(tr("&About"), this);
   m_helpMenu->addAction(action);
   connect(action, &QAction::triggered, this, &MainMenu::aboutClicked, Qt::QueuedConnection);

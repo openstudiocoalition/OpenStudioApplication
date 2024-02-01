@@ -71,6 +71,8 @@ class StartupMenu : public QMenuBar
 
   void checkForUpdateClicked();
 
+  void debugWebglClicked();
+
   void aboutClicked();
 
  private:

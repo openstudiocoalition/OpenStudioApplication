@@ -208,6 +208,7 @@ OSDocument::OSDocument(const openstudio::model::Model& library, const openstudio
   connect(m_mainWindow, &MainWindow::exitClicked, this, &OSDocument::exitClicked);
   connect(m_mainWindow, &MainWindow::helpClicked, this, &OSDocument::helpClicked);
   connect(m_mainWindow, &MainWindow::checkForUpdateClicked, this, &OSDocument::checkForUpdateClicked);
+  connect(m_mainWindow, &MainWindow::debugWebglClicked, this, &OSDocument::debugWebglClicked);
   connect(m_mainWindow, &MainWindow::aboutClicked, this, &OSDocument::aboutClicked);
   connect(m_mainWindow, &MainWindow::osmDropped, this, &OSDocument::osmDropped);
   connect(m_mainWindow, &MainWindow::exportClicked, this, &OSDocument::exportIdf);
