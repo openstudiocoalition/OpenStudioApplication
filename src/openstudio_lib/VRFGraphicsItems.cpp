@@ -33,6 +33,7 @@
 #include <openstudio/utilities/core/Assert.hpp>
 #include "../shared_gui_components/Buttons.hpp"
 #include <QPainter>
+#include <qnamespace.h>
 #include <utility>
 #include <QGraphicsSceneMouseEvent>
 #include <QApplication>
@@ -48,7 +49,7 @@ const int VRFSystemView::zoneDropZoneWidth = 500;
 const int VRFSystemView::dropZoneHeight = 150;
 const int VRFSystemView::terminalViewHeight = 100;
 
-VRFView::VRFView() : header(new QWidget()), graphicsView(new QGraphicsView()), zoomOutButton(new ZoomOutButton()), nameLabel(new QLabel()) {
+VRFView::VRFView() : header(new QWidget()), graphicsView(new QGraphicsView()), oneLevelUpButton(new OneLevelUpButton()), nameLabel(new QLabel()) {
   auto* mainVLayout = new QVBoxLayout();
   mainVLayout->setSpacing(0);
   mainVLayout->setContentsMargins(0, 0, 0, 0);
@@ -67,11 +68,62 @@ VRFView::VRFView() : header(new QWidget()), graphicsView(new QGraphicsView()), z
 
   headerLayout->addWidget(nameLabel);
   headerLayout->addStretch();
-  headerLayout->addWidget(zoomOutButton);
-  zoomOutButton->setFixedSize(20, 20);
+  auto* labelBackUp = new QLabel("Back to system view");
+  headerLayout->addWidget(labelBackUp);
+  headerLayout->addWidget(oneLevelUpButton);
+  oneLevelUpButton->setFixedSize(20, 20);
+  oneLevelUpButton->setToolTip("Move back to the list of VRF Systems");
+
+  resetZoom();
 
   graphicsView->setObjectName("GrayWidget");
   mainVLayout->addWidget(graphicsView);
+}
+
+void VRFView::wheelEvent(QWheelEvent* event) {
+  if (QApplication::keyboardModifiers() == Qt::ControlModifier) {
+    // angleDelta: Returns the relative amount that the wheel was rotated, in eighths of a degree.
+    // A positive value indicates that the wheel was rotated forwards away from the user;
+    // a negative value indicates that the wheel was rotated backwards toward the user.
+    // angleDelta().y() provides the angle through which the common vertical mouse wheel was rotated since the previous event
+    const double verticalAngle = event->angleDelta().y();
+    if (verticalAngle != 0) {
+      constexpr double zoom_factor_base = 1.0015;
+      const double numDegrees = event->angleDelta().y() / 8.0;
+      const double factor = std::pow(zoom_factor_base, 3.0 * numDegrees);  // Abritrary factor here..
+      graphicsView->scale(factor, factor);
+      return;
+    }
+  }
+  event->ignore();
+}
+
+void VRFView::keyReleaseEvent(QKeyEvent* event) {
+  if (QApplication::keyboardModifiers() & Qt::ControlModifier) {
+
+    if (event->key() == Qt::Key_Plus) {
+      zoomIn();
+      return;
+    }
+
+    if (event->key() == Qt::Key_Minus) {
+      zoomOut();
+      return;
+    }
+  }
+  event->ignore();
+}
+
+void VRFView::zoomIn() {
+  graphicsView->scale(1.25, 1.25);
+}
+
+void VRFView::zoomOut() {
+  graphicsView->scale(0.8, 0.8);
+}
+
+void VRFView::resetZoom() {
+  graphicsView->resetTransform();
 }
 
 VRFSystemView::VRFSystemView()
@@ -308,7 +360,7 @@ void VRFThermalZoneDropZoneView::paint(QPainter* painter, const QStyleOptionGrap
 }
 
 VRFSystemMiniView::VRFSystemMiniView()
-  : removeButtonItem(new RemoveButtonItem()), zoomInButtonItem(new ZoomInButtonItem()), m_length(75), m_zones(0), m_terminals(0) {
+  : removeButtonItem(new RemoveButtonItem()), oneLevelDownButtonItem(new OneLevelDownButtonItem()), m_length(75), m_zones(0), m_terminals(0) {
 
   m_vrfOutdoorPix = QPixmap(":/images/vrf_outdoor.png").scaled(m_length, m_length);
   m_vrfTransferPix = QPixmap(":/images/vrf_transfer.png").scaled(m_length, m_length);
@@ -319,9 +371,10 @@ VRFSystemMiniView::VRFSystemMiniView()
   removeButtonItem->setPos(cellWidth() - removeButtonItem->boundingRect().width() - 10,
                            headerHeight() / 2.0 - removeButtonItem->boundingRect().height() / 2.0);
 
-  zoomInButtonItem->setParentItem(this);
-  zoomInButtonItem->setPos(removeButtonItem->pos().x() - 10 - zoomInButtonItem->boundingRect().width(),
-                           headerHeight() / 2.0 - zoomInButtonItem->boundingRect().height() / 2.0);
+  oneLevelDownButtonItem->setToolTip("Inspect this VRF System in detail");
+  oneLevelDownButtonItem->setParentItem(this);
+  oneLevelDownButtonItem->setPos(removeButtonItem->pos().x() - 10 - oneLevelDownButtonItem->boundingRect().width(),
+                                 headerHeight() / 2.0 - oneLevelDownButtonItem->boundingRect().height() / 2.0);
 }
 
 QRectF VRFSystemMiniView::boundingRect() const {

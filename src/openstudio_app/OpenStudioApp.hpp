@@ -53,7 +53,7 @@
 #include <openstudio/model/PumpVariableSpeed.hpp>
 #include <openstudio/model/CoilCoolingWater.hpp>
 #include <openstudio/model/CoilHeatingWater.hpp>
-#include <openstudio/model/DistrictHeating.hpp>
+#include <openstudio/model/DistrictHeatingWater.hpp>
 #include <openstudio/model/DistrictCooling.hpp>
 
 #include <openstudio/utilities/core/Path.hpp>
@@ -66,6 +66,8 @@
 #include <map>
 
 class QEvent;
+
+class QWebEngineView;
 
 namespace openstudio {
 
@@ -153,6 +155,8 @@ class OpenStudioApp : public OSAppBase
 
   void checkForUpdate();
 
+  void debugWebgl();
+
   void showAbout();
 
   virtual void reloadFile(const QString& osmPath, bool modified, bool saveCurrentTabs) override;
@@ -221,6 +225,8 @@ class OpenStudioApp : public OSAppBase
     GBXML
   };
 
+  void showFailedMeasureManagerDialog();
+
   void showFailedLibraryDialog(const std::vector<std::string>& failedPaths);
 
   void import(fileType type);
@@ -269,6 +275,7 @@ class OpenStudioApp : public OSAppBase
   QTranslator m_qtTranslator;
   QTranslator m_qtBaseTranslator;
   QString m_currLang;
+  bool m_useClassicCLI;
 
   // Try to find DView (or DView.exe) inside the PATH env variable. Will return an *empty* path if couldn't infer it
   openstudio::path inferredDViewPath() const;
@@ -282,6 +289,8 @@ class OpenStudioApp : public OSAppBase
   QFutureWatcher<std::vector<std::string>> m_changeLibrariesWatcher;
 
   bool switchLanguage(const QString& rLanguage);
+
+  QWebEngineView* m_debugWebglView{nullptr};
 };
 
 }  // namespace openstudio

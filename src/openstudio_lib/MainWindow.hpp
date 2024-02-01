@@ -79,6 +79,8 @@ class MainWindow : public QMainWindow
 
   bool verboseOutput() const;
 
+  bool useClassicCLI() const;
+
   void enableRevertToSavedAction(bool enable);
 
   void enableFileImportActions(bool enable);
@@ -86,6 +88,8 @@ class MainWindow : public QMainWindow
   void enablePreferencesActions(bool enable);
 
   void enableComponentsMeasuresActions(bool enable);
+
+  bool geometryDiagnostics() const;
 
   QString lastPath() const;
 
@@ -145,6 +149,8 @@ class MainWindow : public QMainWindow
 
   void checkForUpdateClicked();
 
+  void debugWebglClicked();
+
   void aboutClicked();
 
   void showRubyConsoleClicked();
@@ -175,15 +181,21 @@ class MainWindow : public QMainWindow
 
   void sendAnalytics(const QString& analyticsId, const std::string& contentType, const std::string& contentId);
 
+  void enableUseClassicCLI(bool enable);
+
  public slots:
 
   void onVerticalTabSelected(int verticalTabId);
 
   void toggleVerboseOutput(bool verboseOutput);
 
+  void toggleGeometryDiagnostics(bool geometryDiagnostics);
+
   void promptAnalytics();
 
   void toggleAnalytics(bool allowAnalytics);
+
+  void toggleUseClassicCLI(bool useClassicCLI);
 
  protected:
   void closeEvent(QCloseEvent* event) override;
@@ -215,11 +227,15 @@ class MainWindow : public QMainWindow
 
   bool m_verboseOutput = false;
 
+  bool m_geometryDiagnostics = false;
+
   QString m_currLang;
 
   QString m_lastPath;
 
   QString m_analyticsId;
+
+  bool m_useClassicCLI = false;
 
  private slots:
 

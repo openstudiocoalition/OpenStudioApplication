@@ -48,7 +48,7 @@ class ZoomInButton : public QPushButton
 
  public:
   explicit ZoomInButton(QWidget* parent = nullptr);
-  virtual ~ZoomInButton() {}
+  virtual ~ZoomInButton() = default;
 };
 
 class ZoomOutButton : public QPushButton
@@ -57,7 +57,25 @@ class ZoomOutButton : public QPushButton
 
  public:
   explicit ZoomOutButton(QWidget* parent = nullptr);
-  virtual ~ZoomOutButton() {}
+  virtual ~ZoomOutButton() = default;
+};
+
+class OneLevelDownButton : public QPushButton
+{
+  Q_OBJECT
+
+ public:
+  explicit OneLevelDownButton(QWidget* parent = nullptr);
+  virtual ~OneLevelDownButton() = default;
+};
+
+class OneLevelUpButton : public QPushButton
+{
+  Q_OBJECT
+
+ public:
+  explicit OneLevelUpButton(QWidget* parent = nullptr);
+  virtual ~OneLevelUpButton() = default;
 };
 
 class GrayButton : public QPushButton
@@ -66,7 +84,7 @@ class GrayButton : public QPushButton
 
  public:
   explicit GrayButton(QWidget* parent = nullptr);
-  virtual ~GrayButton() {}
+  virtual ~GrayButton() = default;
 };
 
 class BlueButton : public QPushButton
@@ -75,7 +93,7 @@ class BlueButton : public QPushButton
 
  public:
   explicit BlueButton(QWidget* parent = nullptr);
-  virtual ~BlueButton() {}
+  virtual ~BlueButton() = default;
 };
 
 class AddButton : public QPushButton
@@ -84,7 +102,7 @@ class AddButton : public QPushButton
 
  public:
   explicit AddButton(QWidget* parent = nullptr);
-  virtual ~AddButton() {}
+  virtual ~AddButton() = default;
 };
 
 class SofterAddButton : public QPushButton
@@ -93,7 +111,7 @@ class SofterAddButton : public QPushButton
 
  public:
   explicit SofterAddButton(QWidget* parent = nullptr);
-  virtual ~SofterAddButton() {}
+  virtual ~SofterAddButton() = default;
 };
 
 class RemoveButton : public QPushButton
@@ -102,7 +120,7 @@ class RemoveButton : public QPushButton
 
  public:
   explicit RemoveButton(QWidget* parent = nullptr);
-  virtual ~RemoveButton() {}
+  virtual ~RemoveButton() = default;
 };
 
 class SofterRemoveButton : public QPushButton
@@ -111,7 +129,7 @@ class SofterRemoveButton : public QPushButton
 
  public:
   explicit SofterRemoveButton(QWidget* parent = nullptr);
-  virtual ~SofterRemoveButton() {}
+  virtual ~SofterRemoveButton() = default;
 };
 
 class AddScriptButton : public QPushButton
@@ -120,7 +138,7 @@ class AddScriptButton : public QPushButton
 
  public:
   explicit AddScriptButton(QWidget* parent = nullptr);
-  virtual ~AddScriptButton() {}
+  virtual ~AddScriptButton() = default;
 };
 
 class DuplicateButton : public QPushButton
@@ -129,7 +147,7 @@ class DuplicateButton : public QPushButton
 
  public:
   explicit DuplicateButton(QWidget* parent = nullptr);
-  virtual ~DuplicateButton() {}
+  virtual ~DuplicateButton() = default;
 };
 
 class SofterDuplicateButton : public QPushButton
@@ -138,7 +156,7 @@ class SofterDuplicateButton : public QPushButton
 
  public:
   explicit SofterDuplicateButton(QWidget* parent = nullptr);
-  virtual ~SofterDuplicateButton() {}
+  virtual ~SofterDuplicateButton() = default;
 };
 
 class UpButton : public QPushButton
@@ -147,7 +165,7 @@ class UpButton : public QPushButton
 
  public:
   explicit UpButton(QWidget* parent = nullptr);
-  virtual ~UpButton() {}
+  virtual ~UpButton() = default;
 };
 
 class DownButton : public QPushButton
@@ -156,7 +174,7 @@ class DownButton : public QPushButton
 
  public:
   explicit DownButton(QWidget* parent = nullptr);
-  virtual ~DownButton() {}
+  virtual ~DownButton() = default;
 };
 
 class MyMeasuresFolderButton : public QPushButton
@@ -165,7 +183,7 @@ class MyMeasuresFolderButton : public QPushButton
 
  public:
   explicit MyMeasuresFolderButton(QWidget* parent = nullptr);
-  virtual ~MyMeasuresFolderButton() {}
+  virtual ~MyMeasuresFolderButton() = default;
 };
 
 class CheckForUpdateButton : public QPushButton
@@ -183,7 +201,7 @@ class OpenDirectoryButton : public QPushButton
 
  public:
   explicit OpenDirectoryButton(QWidget* parent = nullptr);
-  virtual ~OpenDirectoryButton() {}
+  virtual ~OpenDirectoryButton() = default;
 };
 
 class CreateOneWithSelectedMeasuresButton : public GrayButton
@@ -192,7 +210,7 @@ class CreateOneWithSelectedMeasuresButton : public GrayButton
 
  public:
   CreateOneWithSelectedMeasuresButton();
-  virtual ~CreateOneWithSelectedMeasuresButton() {}
+  virtual ~CreateOneWithSelectedMeasuresButton() = default;
 };
 
 class CreateOneForEachSelectedMeasureButton : public GrayButton
@@ -201,7 +219,7 @@ class CreateOneForEachSelectedMeasureButton : public GrayButton
 
  public:
   CreateOneForEachSelectedMeasureButton();
-  virtual ~CreateOneForEachSelectedMeasureButton() {}
+  virtual ~CreateOneForEachSelectedMeasureButton() = default;
 };
 
 class CreateFromFileButton : public GrayButton
@@ -210,7 +228,7 @@ class CreateFromFileButton : public GrayButton
 
  public:
   CreateFromFileButton();
-  virtual ~CreateFromFileButton() {}
+  virtual ~CreateFromFileButton() = default;
 };
 
 class PlayButton : public QPushButton
@@ -229,7 +247,7 @@ class PlayButton : public QPushButton
   };
 
   explicit PlayButton(QWidget* parent = nullptr);
-  virtual ~PlayButton() {}
+  virtual ~PlayButton() = default;
 
   Status status() const;
   void setStatus(const Status& status);

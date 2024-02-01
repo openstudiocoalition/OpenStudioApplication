@@ -1,12 +1,12 @@
 set(OPENSTUDIO_VERSION_MAJOR 3)
-set(OPENSTUDIO_VERSION_MINOR 6)
-set(OPENSTUDIO_VERSION_PATCH 1)
+set(OPENSTUDIO_VERSION_MINOR 7)
+set(OPENSTUDIO_VERSION_PATCH 0)
 set(OPENSTUDIO_VERSION "${OPENSTUDIO_VERSION_MAJOR}.${OPENSTUDIO_VERSION_MINOR}.${OPENSTUDIO_VERSION_PATCH}")
 
 #If this is an official release, leave this "", otherwise put for eg '-rc1'
 set(OPENSTUDIO_VERSION_PRERELEASE "")
 # Enter SHA, always, eg "+79857912c4"
-set(OPENSTUDIO_VERSION_SHA "+bb9481519e")
+set(OPENSTUDIO_VERSION_SHA "+d5269793f1")
 
 # Paths where the cmake-downloaded archives will be put
 set(OPENSTUDIO_ARCHIVE_DIR "${PROJECT_BINARY_DIR}/OpenStudio-${OPENSTUDIO_VERSION}")
@@ -17,27 +17,27 @@ set(OPENSTUDIO_EXT "tar.gz")
 if(APPLE)
   set(OPENSTUDIO_PLATFORM "Darwin-${ARCH}")
   if(ARCH MATCHES "arm64")
-    set(OPENSTUDIO_EXPECTED_HASH b7401ca882ba6a162a41ba884555171b)
+    set(OPENSTUDIO_EXPECTED_HASH 62d4fffc8f432d11db3bcc09f2861cfb)
   else()
-    set(OPENSTUDIO_EXPECTED_HASH ba881908f683ec695c209399f261b299)
+    set(OPENSTUDIO_EXPECTED_HASH a4585ef0a3523168f8975ecd1cff1d12)
   endif()
 
 elseif(UNIX)
   set(OPENSTUDIO_PLATFORM "${LSB_RELEASE_ID_SHORT}-${LSB_RELEASE_VERSION_SHORT}-${ARCH}")
   if(LSB_RELEASE_VERSION_SHORT MATCHES "22.04")
     if (ARCH MATCHES "arm64")
-      set(OPENSTUDIO_EXPECTED_HASH 0124e7176d4577bf2152321d1b2770a5)
+      set(OPENSTUDIO_EXPECTED_HASH d98b3d3d133a7c5bc1b9581553d23811)
     else()
-      set(OPENSTUDIO_EXPECTED_HASH 5c45d729f3cadc04a93368e43947dc2d)
+      set(OPENSTUDIO_EXPECTED_HASH 1e48f36417d3d118d6a10f1a7d61f46e)
     endif()
   elseif(LSB_RELEASE_VERSION_SHORT MATCHES "20.04")
-    set(OPENSTUDIO_EXPECTED_HASH 5e67958249d99f96149b4d5576c3d0ef)
+    set(OPENSTUDIO_EXPECTED_HASH 5c006e5e66e5e859206a63626ea2966f)
   else()
     message(FATAL_ERROR "OpenStudio SDK no longer provides packages for Ubuntu 18.04")
   endif()
 
 elseif(WIN32)
-  set(OPENSTUDIO_EXPECTED_HASH 802f8cffeac24f011e636baf1e6ffd40)
+  set(OPENSTUDIO_EXPECTED_HASH f192860357fdbffb5705942a991b072b)
   set(OPENSTUDIO_PLATFORM "Windows")
 endif()
 
@@ -75,7 +75,7 @@ else()
   set(OPENSTUDIO_BASELINK_CI
     "http://openstudio-ci-builds.s3-website-us-west-2.amazonaws.com/develop"
     # TODO: TEMPORARY point to a specific subfolder / PR
-    # "http://openstudio-ci-builds.s3-website-us-west-2.amazonaws.com/PR-4712"
+    # "http://openstudio-ci-builds.s3-website-us-west-2.amazonaws.com/PR-4920"
     # "http://openstudio-ci-builds.s3-website-us-west-2.amazonaws.com/${OPENSTUDIO_VERSION}${OPENSTUDIO_VERSION_PRERELEASE}${WIN_SUBFOLDER}"
 
     CACHE STRING "Base link to where the openstudio develop archives are hosted" FORCE)

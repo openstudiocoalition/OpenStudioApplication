@@ -126,6 +126,7 @@
 #include <QIcon>
 #include <QInputDialog>
 #include <QSettings>
+#include <QtGlobal>  // Workaround for #659
 
 #include <memory>
 
@@ -207,6 +208,7 @@ OSDocument::OSDocument(const openstudio::model::Model& library, const openstudio
   connect(m_mainWindow, &MainWindow::exitClicked, this, &OSDocument::exitClicked);
   connect(m_mainWindow, &MainWindow::helpClicked, this, &OSDocument::helpClicked);
   connect(m_mainWindow, &MainWindow::checkForUpdateClicked, this, &OSDocument::checkForUpdateClicked);
+  connect(m_mainWindow, &MainWindow::debugWebglClicked, this, &OSDocument::debugWebglClicked);
   connect(m_mainWindow, &MainWindow::aboutClicked, this, &OSDocument::aboutClicked);
   connect(m_mainWindow, &MainWindow::osmDropped, this, &OSDocument::osmDropped);
   connect(m_mainWindow, &MainWindow::exportClicked, this, &OSDocument::exportIdf);
@@ -353,8 +355,11 @@ void OSDocument::setModel(const model::Model& model, bool modified, bool /*saveC
 }
 
 void OSDocument::weatherFileReset() {
+  // TODO: temporary workaround for #659
+#ifndef Q_OS_DARWIN
   QMessageBox::warning(mainWindow(), "Missing Weather File",
                        "Invalid weather file object, weather file object has been reset. Please choose another weather file.");
+#endif
 }
 
 void OSDocument::createTabButtons() {
@@ -1431,9 +1436,17 @@ boost::optional<BCLMeasure> OSDocument::standardReportMeasure() {
   const std::string uid("a25386cd-60e4-46bc-8b11-c755f379d916");
   boost::optional<BCLMeasure> result = getLocalMeasure(uid);
 
+  if (!result) {
+    // if we don't have a result measure in local bcl, use the one in the installer
+    result = BCLMeasure::load(m_resourcesPath / toPath("openstudio_results"));
+  }
+
   if (m_haveLocalBCL && RemoteBCL::isOnline()) {
     RemoteBCL remoteBCL;
-    result = remoteBCL.getMeasure(uid);
+    boost::optional<BCLMeasure> onlineResult = remoteBCL.getMeasure(uid);
+    if (onlineResult) {
+      result = onlineResult;
+    }
   }
 
   return result;

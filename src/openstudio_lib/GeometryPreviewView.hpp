@@ -41,6 +41,7 @@
 #include <QWidget>
 #include <QWebEngineView>
 
+class QCheckBox;
 class QComboBox;
 class QPushButton;
 
@@ -91,6 +92,8 @@ class PreviewWebView : public QWidget
   model::Model m_model;
 
   ProgressBarWithError* m_progressBar;
+  QCheckBox* m_geometryDiagnosticsBox;
+  bool m_includeGeometryDiagnostics;
   QPushButton* m_refreshBtn;
 
   QWebEngineView* m_view;

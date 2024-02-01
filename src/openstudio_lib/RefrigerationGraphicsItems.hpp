@@ -34,7 +34,6 @@
 #include "OSItem.hpp"
 #include "OSDropZone.hpp"
 #include "../shared_gui_components/OSListController.hpp"
-#include "../shared_gui_components/OSListView.hpp"
 #include "../shared_gui_components/GraphicsItems.hpp"
 #include <openstudio/utilities/idf/Handle.hpp>
 
@@ -68,9 +67,21 @@ class RefrigerationView : public QWidget
 
   QGraphicsView* graphicsView;
 
-  QPushButton* zoomOutButton;
+  QPushButton* oneLevelUpButton;
 
   QLabel* nameLabel;
+
+ protected:
+  // Override to allow zooming with CTRL + Wheel Up/Down
+  virtual void wheelEvent(QWheelEvent* event) override;
+  // Override to allow zooming with CTRL + '+' / '-'
+  virtual void keyReleaseEvent(QKeyEvent* event) override;
+
+ public slots:
+  // Display adjustments
+  void zoomIn();
+  void zoomOut();
+  void resetZoom();
 };
 
 class CaseViewExpandButton : public AbstractButtonItem
@@ -110,7 +121,7 @@ class RefrigerationSystemMiniView : public QGraphicsObject
 
   RemoveButtonItem* removeButtonItem;
 
-  ZoomInButtonItem* zoomInButtonItem;
+  OneLevelDownButtonItem* oneLevelDownButtonItem;
 
   QRectF boundingRect() const override;
 
@@ -148,7 +159,7 @@ class RefrigerationSystemDetailView : public QGraphicsObject
 
   RefrigerationSystemView* refrigerationSystemView;
 
-  ZoomOutButtonItem* zoomOutButton;
+  OneLevelUpButtonItem* oneLevelUpButton;
 
   QRectF boundingRect() const override;
 
@@ -628,7 +639,7 @@ class SecondaryDetailView : public QGraphicsObject
 
   virtual ~SecondaryDetailView() {}
 
-  ZoomInButtonItem* zoomInButtonItem;
+  OneLevelDownButtonItem* oneLevelDownButtonItem;
   RemoveButtonItem* removeButtonItem;
 
   QRectF boundingRect() const override;

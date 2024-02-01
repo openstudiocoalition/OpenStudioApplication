@@ -37,14 +37,16 @@
 #include <openstudio/nano/nano_signal_slot.hpp>  // Signal-Slot replacement
 #include <boost/optional.hpp>
 
+class QCheckBox;
 class QComboBox;
 class QPushButton;
 class QVBoxLayout;
+class QLineEdit;
 
 namespace openstudio {
 class OSSwitch2;
 class OSComboBox2;
-
+class ProgressBarWithError;
 class VariableListItem
   : public QWidget
   , public Nano::Observer
@@ -56,6 +58,13 @@ class VariableListItem
                    const openstudio::model::Model& t_model);
 
   virtual ~VariableListItem() {}
+
+  bool matchesText(const QString& text, bool useRegex = false) const;
+
+  // If the OSSwitch2 button is on
+  bool isVariableEnabled() const;
+
+  void setReportingFrequency(const std::string& freq);
 
  public slots:
   void setVariableEnabled(bool);
@@ -96,13 +105,29 @@ class VariablesList
   void enableAll(bool);
   void updateVariableList();
 
+  void onSearchTextEdited(const QString& text);
+
+  void applyFrequencyToAllVisibleClicked();
+
  private:
   REGISTER_LOGGER("openstudio.VariablesList");
   openstudio::model::Model m_model;
+
+  QLineEdit* m_searchBox;
+  QCheckBox* m_searchUseRegex;
+  QPushButton* m_displayAllBtn;
+  QPushButton* m_displayOnlyEnabledBtn;
+  QPushButton* m_displayOnlyDisabledBtn;
   QPushButton* m_allOnBtn;
   QPushButton* m_allOffBtn;
+  QComboBox* m_frequencyComboBox;
+  QPushButton* m_applyFrequencyBtn;
+  ProgressBarWithError* m_progressBar;
   QVBoxLayout* m_listLayout;
+
   bool m_dirty;
+  bool m_searchActive;
+  QString m_searchText;
   std::vector<VariableListItem*> m_variables;
 };
 

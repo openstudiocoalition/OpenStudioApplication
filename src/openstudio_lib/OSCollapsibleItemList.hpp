@@ -35,6 +35,7 @@
 
 class QVBoxLayout;
 class QHBoxLayout;
+class QLineEdit;
 
 namespace openstudio {
 
@@ -77,14 +78,18 @@ class OSCollapsibleItemList : public OSItemSelector
 
   void onItemSelected(OSItem* item);
 
+  void onSearchTextEdited(const QString& text);
+
  protected:
   void paintEvent(QPaintEvent* event) override;
 
  private:
   QVBoxLayout* m_vLayout;
+  QLineEdit* m_searchBox;
   QHBoxLayout* m_contentLayout;
   OSCollapsibleItem* m_selectedCollapsibleItem;
   std::vector<OSCollapsibleItem*> m_collapsibleItems;
+  bool m_searchActive;
   bool m_itemsDraggable;
   bool m_itemsRemoveable;
   OSItemType m_itemsType;

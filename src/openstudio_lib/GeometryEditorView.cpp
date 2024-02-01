@@ -87,6 +87,9 @@
 #include <QTcpServer>
 #include <QComboBox>
 #include <QFileDialog>
+#include <QJsonArray>
+#include <QJsonDocument>
+#include <QJsonObject>
 #include <QMessageBox>
 #include <QTimer>
 #include <QStackedWidget>
@@ -355,11 +358,11 @@ void FloorspaceEditor::loadEditor() {
       javascript += css;
       cssFile.close();
     } else {
-      LOG_FREE(LogLevel::Error, "FloorspaceEditor", "Failed to open geometry_editor.qss");
+      LOG_FREE(LogLevel::Error, "FloorspaceEditor", "Failed to open geometry_editor.css");
     }
 
     javascript += "`;\n\
-const style = document.createElement('style')\n\
+const style = document.createElement('style');\n\
 style.type = 'text/css';\n\
 style.innerHTML = rules;\n\
 document.head.appendChild(style);\n";
@@ -412,21 +415,30 @@ document.head.appendChild(style);\n";
       m_javascriptRunning = true;
 
       std::string json = floorplan.toJSON(false);
-      // TODO: @macumber: delete this now?
-      // DLM: temp
-      // Json::CharReaderBuilder rbuilder;
-      // std::istringstream ss(json);
-      // std::string errorString;
-      // Json::Value value;
-      // bool parsingSuccessful = Json::parseFromStream(rbuilder, ss, &value, &errorString);
-      // value.removeMember("stories");
-      // Json::StreamWriterBuilder wbuilder;
-      // // mimic the old FastWriter behavior:
-      // wbuilder["commentStyle"] = "None";
-      // wbuilder["indentation"] = "";
-      // const std::string json = Json::writeString(wbuilder, value);
 
-      QString javascript = QString("window.api.importLibrary(JSON.stringify(") + QString::fromStdString(json) + QString("));");
+      QJsonDocument doc = QJsonDocument::fromJson(QString::fromStdString(json).toUtf8());
+
+      // ensure any missing required properties are set
+      if (!doc.isNull()) {
+        if (doc.isObject()) {
+          QJsonObject obj = doc.object();
+          if (!obj.contains("daylighting_control_definitions")) {
+            obj.insert("daylighting_control_definitions", QJsonArray());
+          }
+          if (!obj.contains("door_definitions")) {
+            obj.insert("door_definitions", QJsonArray());
+          }
+          if (!obj.contains("pitched_roofs")) {
+            obj.insert("pitched_roofs", QJsonArray());
+          }
+          if (!obj.contains("window_definitions")) {
+            obj.insert("window_definitions", QJsonArray());
+          }
+          doc.setObject(obj);
+        }
+      }
+
+      QString javascript = QString("window.api.importLibrary(JSON.stringify(") + doc.toJson(QJsonDocument::Compact) + QString("));");
       m_view->page()->runJavaScript(javascript, [this](const QVariant& /*v*/) { m_javascriptRunning = false; });
       while (m_javascriptRunning) {
         OSAppBase::instance()->processEvents(QEventLoop::ExcludeUserInputEvents, 200);

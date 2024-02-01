@@ -68,8 +68,10 @@ if(APPLE)
     COMMAND ${CMAKE_COMMAND} -E copy_directory ${QT_INSTALL_DIR}/lib/QtSvg.framework $<TARGET_FILE_DIR:openstudio_modeleditor_rb>/QtSvg.framework
     COMMAND ${CMAKE_COMMAND} -E copy_directory ${QT_INSTALL_DIR}/lib/QtWidgets.framework $<TARGET_FILE_DIR:openstudio_modeleditor_rb>/QtWidgets.framework
     COMMAND ${CMAKE_COMMAND} -E copy_directory ${QT_INSTALL_DIR}/lib/QtXml.framework $<TARGET_FILE_DIR:openstudio_modeleditor_rb>/QtXml.framework
-    COMMAND ${CMAKE_COMMAND} -E copy $<TARGET_FILE:openstudio::openstudiolib> $<TARGET_FILE_DIR:openstudio_modeleditor_rb>/.
-    COMMAND ruby "${PROJECT_SOURCE_DIR}/SketchUpInstallName.rb" "${CMAKE_RUNTIME_OUTPUT_DIRECTORY}/ruby/openstudio_modeleditor.bundle"
+    # COMMAND ${CMAKE_COMMAND} -E copy $<TARGET_FILE:openstudio::openstudiolib> $<TARGET_FILE_DIR:openstudio_modeleditor_rb>/.
+    COMMAND ruby "${PROJECT_SOURCE_DIR}/SketchUpInstallName.rb" $<TARGET_FILE:openstudio_modeleditor_rb>
+    # Add for local build dir. TODO: find a better way, this sticks onto the installed openstudio_modeleditor.bundle
+    COMMAND ${CMAKE_INSTALL_NAME_TOOL} -add_rpath "${openstudio_ROOT_DIR}/lib/" $<TARGET_FILE:openstudio_modeleditor_rb>
   )
 endif()
 
@@ -98,7 +100,7 @@ if(APPLE)
   install(FILES $<TARGET_FILE_DIR:openstudio_modeleditor_rb>/QtSvg.framework DESTINATION Ruby COMPONENT "RubyAPI")
   install(FILES $<TARGET_FILE_DIR:openstudio_modeleditor_rb>/QtWidgets.framework DESTINATION Ruby COMPONENT "RubyAPI")
   install(FILES $<TARGET_FILE_DIR:openstudio_modeleditor_rb>/QtXml.framework DESTINATION Ruby COMPONENT "RubyAPI")
-  install(FILES $<TARGET_FILE_DIR:openstudio_modeleditor_rb>/$<TARGET_FILE_NAME:openstudio::openstudiolib> DESTINATION Ruby COMPONENT "RubyAPI")
+  # install(FILES $<TARGET_FILE_DIR:openstudio_modeleditor_rb>/$<TARGET_FILE_NAME:openstudio::openstudiolib> DESTINATION Ruby COMPONENT "RubyAPI")
 endif()
 
 ###############################################################################

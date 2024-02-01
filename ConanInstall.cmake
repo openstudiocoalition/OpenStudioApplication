@@ -1,8 +1,6 @@
 # This file lists and installs the Conan packages needed
 
-# TODO: DO NOT DO `set(CONAN_OPTIONS "")` since some higher level stuff is added via OpenStudioApplication
-# CONAN_QT is added by OpenStudioApplication
-
+# NOTE: DO NOT DO `set(CONAN_OPTIONS "")` since some higher level stuff may be added via OpenStudioApplication (we were toying on adding CONAN_QT at some point)
 
 if(NOT CONAN_OPENSTUDIO_ALREADY_RUN)
 
@@ -24,7 +22,8 @@ if(NOT CONAN_OPENSTUDIO_ALREADY_RUN)
       "https://raw.githubusercontent.com/conan-io/cmake-conan/${CMAKE_CONAN_VERSION}/conan.cmake"
       "${CMAKE_BINARY_DIR}/conan.cmake"
       EXPECTED_HASH SHA256=${CMAKE_CONAN_EXPECTED_HASH}
-      TLS_VERIFY ON)
+      # TLS_VERIFY ON  # TODO: 2023-10-27 - Started failing on Github Actions' Windows runner
+    )
   else()
     message(STATUS "openstudio: using existing conan.cmake")
   endif()
@@ -34,7 +33,6 @@ if(NOT CONAN_OPENSTUDIO_ALREADY_RUN)
   conan_check(VERSION 1.53.0 REQUIRED)
 
   message(STATUS "openstudio: RUNNING CONAN")
-
 
   conan_add_remote(NAME nrel INDEX 0
     URL https://conan.openstudio.net/artifactory/api/conan/openstudio)
@@ -138,6 +136,15 @@ if(NOT CONAN_OPENSTUDIO_ALREADY_RUN)
     endif()
   endif()
 
+  if( APPLE AND ${CMAKE_HOST_SYSTEM_PROCESSOR} STREQUAL "x86_64" )
+    # use newer recipe which updated the mirror urls, for some reason this fails on other platforms
+    # https://github.com/conan-io/conan-center-index/pull/13435
+    # https://conan.io/center/recipes/openssl?version=1.1.1o
+    set(CONAN_OPENSSL "openssl/1.1.1o#4405b3b0a045933a2065e194965b38c1")
+  else()
+    # align on the same as our conan-openstudio-ruby
+    set(CONAN_OPENSSL "openssl/1.1.1o#213dbdeb846a4b40b4dec36cf2e673d7")
+  endif()
 
   message(STATUS "Conan: conan_cmake_configure")
   # This will create the conanfile.txt
@@ -146,7 +153,7 @@ if(NOT CONAN_OPENSTUDIO_ALREADY_RUN)
     ${CONAN_READLINE}
     ${CONAN_QT}
     ${CONAN_RUBY}
-    "openssl/1.1.1o#213dbdeb846a4b40b4dec36cf2e673d7" # force every package to align on the same as our conan-openstudio-ruby
+    ${CONAN_OPENSSL}
     "boost/1.79.0#f664bfe40e2245fa9baf1c742591d582"
     "pugixml/1.12.1#5a39f82651eba3e7d6197903a3202e21"
     "libxml2/2.9.14#fc433aeebfe525657d73334c61f96944"
@@ -159,7 +166,7 @@ if(NOT CONAN_OPENSTUDIO_ALREADY_RUN)
     "cpprestsdk/2.10.18#df2f6ac88e47cadd9c9e8e0971e00d89"
     "websocketpp/0.8.2#3fd704c4c5388d9c08b11af86f79f616"
     "geographiclib/1.52#76536a9315a003ef3511919310b2fe37"
-    "swig/4.0.2#9fcccb1e39eed9acd53a4363d8129be5"
+    "swig/4.1.0#f4419c5ab88f877272cbaa36dd0237ff"
     "tinygltf/2.5.0#c8b2aca9505e86312bb42aa0e1c639ec"
     ${CONAN_GTEST}
     ${CONAN_BENCHMARK}

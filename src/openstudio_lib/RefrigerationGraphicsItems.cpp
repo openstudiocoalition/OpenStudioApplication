@@ -46,7 +46,7 @@ const int RefrigerationSystemView::margin = 10;
 const double RefrigerationSystemView::componentHeight = 75;
 
 RefrigerationView::RefrigerationView()
-  : header(new QWidget()), graphicsView(new QGraphicsView()), zoomOutButton(new ZoomOutButton()), nameLabel(new QLabel()) {
+  : header(new QWidget()), graphicsView(new QGraphicsView()), oneLevelUpButton(new OneLevelUpButton()), nameLabel(new QLabel()) {
   auto* mainVLayout = new QVBoxLayout();
   mainVLayout->setSpacing(0);
   mainVLayout->setContentsMargins(0, 0, 0, 0);
@@ -66,11 +66,64 @@ RefrigerationView::RefrigerationView()
   headerLayout->addWidget(nameLabel);
   headerLayout->addStretch();
 
-  zoomOutButton->setFixedSize(20, 20);
-  headerLayout->addWidget(zoomOutButton);
+  auto* labelBackUp = new QLabel("Back to system view");
+  headerLayout->addWidget(labelBackUp);
+  headerLayout->addWidget(oneLevelUpButton);
+  oneLevelUpButton->setFixedSize(20, 20);
+  oneLevelUpButton->setToolTip("Move back to the list of Refrigeration Systems");
+
+  resetZoom();
 
   graphicsView->setObjectName("GrayWidget");
   mainVLayout->addWidget(graphicsView);
+}
+
+void RefrigerationView::wheelEvent(QWheelEvent* event) {
+  if (QApplication::keyboardModifiers() == Qt::ControlModifier) {
+    // angleDelta: Returns the relative amount that the wheel was rotated, in eighths of a degree.
+    // A positive value indicates that the wheel was rotated forwards away from the user;
+    // a negative value indicates that the wheel was rotated backwards toward the user.
+    // angleDelta().y() provides the angle through which the common vertical mouse wheel was rotated since the previous event
+    const double verticalAngle = event->angleDelta().y();
+    if (verticalAngle != 0) {
+      constexpr double zoom_factor_base = 1.0015;
+      const double numDegrees = event->angleDelta().y() / 8.0;
+      const double factor = std::pow(zoom_factor_base, 3.0 * numDegrees);  // Abritrary factor here..
+      graphicsView->scale(factor, factor);
+      return;
+    }
+  }
+  event->ignore();
+}
+
+void RefrigerationView::keyReleaseEvent(QKeyEvent* event) {
+  if (QApplication::keyboardModifiers() & Qt::ControlModifier) {
+
+    if (event->key() == Qt::Key_Plus) {
+      zoomIn();
+      return;
+    }
+
+    if (event->key() == Qt::Key_Minus) {
+      zoomOut();
+      return;
+    }
+  }
+  event->ignore();
+}
+
+void RefrigerationView::zoomIn() {
+  graphicsView->scale(1.25, 1.25);
+}
+
+void RefrigerationView::zoomOut() {
+  graphicsView->scale(0.8, 0.8);
+}
+
+void RefrigerationView::resetZoom() {
+  graphicsView->resetTransform();
+
+  // graphicsView->scale(0.65, 0.65);
 }
 
 RefrigerationSystemMiniView::RefrigerationSystemMiniView() {
@@ -85,10 +138,11 @@ RefrigerationSystemMiniView::RefrigerationSystemMiniView() {
   removeButtonItem->setPos(cellWidth() - removeButtonItem->boundingRect().width() - 10,
                            headerHeight() / 2.0 - removeButtonItem->boundingRect().height() / 2.0);
 
-  zoomInButtonItem = new ZoomInButtonItem();
-  zoomInButtonItem->setParentItem(this);
-  zoomInButtonItem->setPos(removeButtonItem->pos().x() - 10 - zoomInButtonItem->boundingRect().width(),
-                           headerHeight() / 2.0 - zoomInButtonItem->boundingRect().height() / 2.0);
+  oneLevelDownButtonItem = new OneLevelDownButtonItem();
+  oneLevelDownButtonItem->setToolTip("Inspect this Refrigeration System in detail");
+  oneLevelDownButtonItem->setParentItem(this);
+  oneLevelDownButtonItem->setPos(removeButtonItem->pos().x() - 10 - oneLevelDownButtonItem->boundingRect().width(),
+                                 headerHeight() / 2.0 - oneLevelDownButtonItem->boundingRect().height() / 2.0);
 
   setAcceptDrops(false);
 }
@@ -1163,14 +1217,16 @@ void SecondaryDropZoneView::paint(QPainter* painter, const QStyleOptionGraphicsI
 }
 
 SecondaryDetailView::SecondaryDetailView() : QGraphicsObject() {
-  zoomInButtonItem = new ZoomInButtonItem();
-  zoomInButtonItem->setParentItem(this);
-  zoomInButtonItem->setPos(width() - RefrigerationSystemView::margin - zoomInButtonItem->boundingRect().width(), RefrigerationSystemView::margin);
-  connect(zoomInButtonItem, &ZoomInButtonItem::mouseClicked, this, &SecondaryDetailView::onZoomButtonClicked);
+  oneLevelDownButtonItem = new OneLevelDownButtonItem();
+  oneLevelDownButtonItem->setToolTip("Inspect this Secondary Refrigeration System in detail");
+  oneLevelDownButtonItem->setParentItem(this);
+  oneLevelDownButtonItem->setPos(width() - RefrigerationSystemView::margin - oneLevelDownButtonItem->boundingRect().width(),
+                                 RefrigerationSystemView::margin);
+  connect(oneLevelDownButtonItem, &OneLevelDownButtonItem::mouseClicked, this, &SecondaryDetailView::onZoomButtonClicked);
 
   removeButtonItem = new RemoveButtonItem();
   removeButtonItem->setParentItem(this);
-  removeButtonItem->setPos(zoomInButtonItem->x() - removeButtonItem->boundingRect().width() - RefrigerationSystemView::margin,
+  removeButtonItem->setPos(oneLevelDownButtonItem->x() - removeButtonItem->boundingRect().width() - RefrigerationSystemView::margin,
                            RefrigerationSystemView::margin);
   connect(removeButtonItem, &RemoveButtonItem::mouseClicked, this, &SecondaryDetailView::onRemoveButtonClicked);
 }
@@ -1300,9 +1356,10 @@ RefrigerationSystemDetailView::RefrigerationSystemDetailView() : QGraphicsObject
   refrigerationSystemView->setParentItem(this);
   refrigerationSystemView->setPos(0, 50);
 
-  zoomOutButton = new ZoomOutButtonItem();
-  zoomOutButton->setParentItem(this);
-  zoomOutButton->setPos(800 - zoomOutButton->boundingRect().width() - 10, 10);
+  oneLevelUpButton = new OneLevelUpButtonItem();
+  oneLevelUpButton->setToolTip("Move back to the list of Refrigeration Systems");
+  oneLevelUpButton->setParentItem(this);
+  oneLevelUpButton->setPos(800 - oneLevelUpButton->boundingRect().width() - 10, 10);
 }
 
 QRectF RefrigerationSystemDetailView::boundingRect() const {

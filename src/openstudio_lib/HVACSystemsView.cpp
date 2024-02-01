@@ -35,6 +35,8 @@
 #include "ModelObjectItem.hpp"
 #include "../shared_gui_components/OSViewSwitcher.hpp"
 #include "../shared_gui_components/Buttons.hpp"
+
+#include <QApplication>
 #include <QStackedWidget>
 #include <QObjectList>
 #include <QGraphicsView>
@@ -170,6 +172,41 @@ void HVACToolbarView::showControls(bool show) {
   }
 }
 
+void HVACToolbarView::hideAddCopyDeleteButtons() {
+  addButton->hide();
+  copyButton->hide();
+  deleteButton->hide();
+}
+
+void HVACToolbarView::hideZoomButtons() {
+  zoomInButton->hide();
+  zoomOutButton->hide();
+}
+
+void HVACToolbarView::resetAllIndividualControlButtons() {
+  addButton->show();
+  copyButton->show();
+  deleteButton->show();
+
+  zoomInButton->show();
+  zoomOutButton->show();
+
+  topologyViewButton->show();
+  controlsViewButton->show();
+  gridViewButton->show();
+
+  addButton->setEnabled(true);
+  copyButton->setEnabled(true);
+  deleteButton->setEnabled(true);
+
+  zoomInButton->setEnabled(true);
+  zoomOutButton->setEnabled(true);
+
+  topologyViewButton->setEnabled(true);
+  controlsViewButton->setEnabled(true);
+  gridViewButton->setEnabled(true);
+}
+
 void HVACToolbarView::paintEvent([[maybe_unused]] QPaintEvent* event) {
   QStyleOption opt;
   opt.initFrom(this);
@@ -238,6 +275,40 @@ HVACGraphicsView::HVACGraphicsView(QWidget* parent) : QGraphicsView(parent) {
   resetZoom();
 
   setObjectName("GrayWidget");
+}
+
+void HVACGraphicsView::wheelEvent(QWheelEvent* event) {
+  if (QApplication::keyboardModifiers() == Qt::ControlModifier) {
+    // angleDelta: Returns the relative amount that the wheel was rotated, in eighths of a degree.
+    // A positive value indicates that the wheel was rotated forwards away from the user;
+    // a negative value indicates that the wheel was rotated backwards toward the user.
+    // angleDelta().y() provides the angle through which the common vertical mouse wheel was rotated since the previous event
+    const double verticalAngle = event->angleDelta().y();
+    if (verticalAngle != 0) {
+      constexpr double zoom_factor_base = 1.0015;
+      const double numDegrees = event->angleDelta().y() / 8.0;
+      const double factor = std::pow(zoom_factor_base, 3.0 * numDegrees);  // Abritrary factor here..
+      this->scale(factor, factor);
+      return;
+    }
+  }
+  event->ignore();
+}
+
+void HVACGraphicsView::keyReleaseEvent(QKeyEvent* event) {
+  if (QApplication::keyboardModifiers() & Qt::ControlModifier) {
+
+    if (event->key() == Qt::Key_Plus) {
+      zoomIn();
+      return;
+    }
+
+    if (event->key() == Qt::Key_Minus) {
+      zoomOut();
+      return;
+    }
+  }
+  event->ignore();
 }
 
 void HVACGraphicsView::zoomIn() {
@@ -535,9 +606,15 @@ MechanicalVentilationView::MechanicalVentilationView() {
   ventilationCalcMethodComboBox = new OSComboBox2();
   ventilationCalcMethodComboBox->setEnabled(false);
   ventilationCalcMethodComboBox->addItem("Zone Sum", "ZoneSum");
-  ventilationCalcMethodComboBox->addItem("Ventilation Rate Procedure", "VentilationRateProcedure");
+  ventilationCalcMethodComboBox->addItem("Standard 62.1 Ventilation Rate Procedure", "Standard62.1VentilationRateProcedure");
+  ventilationCalcMethodComboBox->addItem("Standard 62.1 Ventilation Rate Procedure With Limit", "Standard62.1VentilationRateProcedureWithLimit");
   ventilationCalcMethodComboBox->addItem("Indoor Air Quality Procedure", "IndoorAirQualityProcedure");
-  ventilationCalcMethodComboBox->addItem("Proportional Control", "ProportionalControl");
+  // TODO: OS 3.7.0 is missing some choices that E+ 23.2.0 has, pending https://github.com/NREL/OpenStudio/issues/5060
+  // ventilationCalcMethodComboBox->addItem("Indoor Air Quality Procedure Generic Contaminant", "IndoorAirQualityProcedureGenericContaminant");
+  // ventilationCalcMethodComboBox->addItem("Indoor Air Quality Procedure Combined", "IndoorAirQualityProcedureCombined");
+  ventilationCalcMethodComboBox->addItem("Proportional Control Bseed On Design Occupancy", "ProportionalControlBasedOnDesignOccupancy");
+  // ventilationCalcMethodComboBox->addItem("Proportional Control Bseed On Design OA Rate", "ProportionalControlBasedOnDesignOARate");
+  ventilationCalcMethodComboBox->addItem("Proportional Control Bseed On Occupancy Schedule", "ProportionalControlBasedOnOccupancySchedule");
   ventilationCalcMethodComboBox->setVisible(false);
 
   methodHBoxLayout->addWidget(ventilationCalcMethodComboBox);

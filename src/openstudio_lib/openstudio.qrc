@@ -28,6 +28,18 @@
     <file>images/airterminal_fourpipebeam@2x.png</file>
     <file>images/arrow.png</file>
     <file>images/arrow@2x.png</file>
+    <file>images/arrow_one_level_up.png</file>
+    <file>images/arrow_one_level_up@2x.png</file>
+    <file>images/arrow_one_level_up-over.png</file>
+    <file>images/arrow_one_level_up-over@2x.png</file>
+    <file>images/arrow_one_level_up-press.png</file>
+    <file>images/arrow_one_level_up-press@2x.png</file>
+    <file>images/arrow_expand.png</file>
+    <file>images/arrow_expand@2x.png</file>
+    <file>images/arrow_expand-over.png</file>
+    <file>images/arrow_expand-over@2x.png</file>
+    <file>images/arrow_expand-press.png</file>
+    <file>images/arrow_expand-press@2x.png</file>
     <file>images/baseboard_electric.png</file>
     <file>images/baseboard_electric@2x.png</file>
     <file>images/baseboard_water.png</file>
@@ -561,6 +573,8 @@
     <file>images/system_type_9@2x.png</file>
     <file>images/system_type_10.png</file>
     <file>images/system_type_10@2x.png</file>
+    <file>images/swimming_pool.png</file>
+    <file>images/swimming_pool@2x.png</file>
     <file>images/tempering_valve.png</file>
     <file>images/tempering_valve@2x.png</file>
     <file>images/thermal_storage_ice.png</file>
@@ -1074,6 +1088,8 @@
     <file>images/mini_icons/system_type_1@2x.png</file>
     <file>images/mini_icons/system_type_2.png</file>
     <file>images/mini_icons/system_type_2@2x.png</file>
+    <file>images/mini_icons/swimming_pool.png</file>
+    <file>images/mini_icons/swimming_pool@2x.png</file>
     <file>images/mini_icons/thermal_zone.png</file>
     <file>images/mini_icons/thermal_zone@2x.png</file>
     <file>images/mini_icons/user_defined.png</file>
@@ -1118,6 +1134,10 @@
     <file>library/geometry_editor.css</file>
     <file>library/geometry_editor_start.html</file>
     <file>library/geometry_preview.html</file>
+    <file>library/js/three.r98.min.js</file>
+    <file>library/js/three.orbitcontrols.js</file>
+    <file>library/js/dat.gui.0.7.9.min.js</file>
+    <file>library/js/TweenLite.2.1.3.min.js</file>
 
     <file alias="images/add_script_icon.png">../shared_gui_components/images/add_script_icon.png</file>
     <file alias="images/add_script_icon@2x.png">../shared_gui_components/images/add_script_icon@2x.png</file>
@@ -1183,6 +1203,10 @@
     <file alias="images/duplicate_softer_press@2x.png">../shared_gui_components/images/duplicate_softer_press@2x.png</file>
     <file alias="images/energyplus_measure_icon.png">../shared_gui_components/images/energyplus_measure_icon.png</file>
     <file alias="images/energyplus_measure_icon@2x.png">../shared_gui_components/images/energyplus_measure_icon@2x.png</file>
+    <file alias="images/energyplus_measure_icon_Python.png">../shared_gui_components/images/energyplus_measure_icon_Python.png</file>
+    <file alias="images/energyplus_measure_icon_Python@2x.png">../shared_gui_components/images/energyplus_measure_icon_Python@2x.png</file>
+    <file alias="images/energyplus_measure_icon_Ruby.png">../shared_gui_components/images/energyplus_measure_icon_Ruby.png</file>
+    <file alias="images/energyplus_measure_icon_Ruby@2x.png">../shared_gui_components/images/energyplus_measure_icon_Ruby@2x.png</file>
     <file alias="images/error-alert.png">../shared_gui_components/images/error-alert.png</file>
     <file alias="images/error-alert@2x.png">../shared_gui_components/images/error-alert@2x.png</file>
     <file alias="images/fast_forward.png">../shared_gui_components/images/fast_forward.png</file>
@@ -1201,6 +1225,10 @@
     <file alias="images/open_my_measures_press@2x.png">../shared_gui_components/images/open_my_measures_press@2x.png</file>
     <file alias="images/openstudio_measure_icon.png">../shared_gui_components/images/openstudio_measure_icon.png</file>
     <file alias="images/openstudio_measure_icon@2x.png">../shared_gui_components/images/openstudio_measure_icon@2x.png</file>
+    <file alias="images/openstudio_measure_icon_Python.png">../shared_gui_components/images/openstudio_measure_icon_Python.png</file>
+    <file alias="images/openstudio_measure_icon_Python@2x.png">../shared_gui_components/images/openstudio_measure_icon_Python@2x.png</file>
+    <file alias="images/openstudio_measure_icon_Ruby.png">../shared_gui_components/images/openstudio_measure_icon_Ruby.png</file>
+    <file alias="images/openstudio_measure_icon_Ruby@2x.png">../shared_gui_components/images/openstudio_measure_icon_Ruby@2x.png</file>
     <file alias="images/partially_checked_checkbox.png">../shared_gui_components/images/partially_checked_checkbox.png</file>
     <file alias="images/partially_checked_checkbox@2x.png">../shared_gui_components/images/partially_checked_checkbox@2x.png</file>
     <file alias="images/pause_over.png">../shared_gui_components/images/pause_over.png</file>
@@ -1211,6 +1239,10 @@
     <file alias="images/pause_regular@2x.png">../shared_gui_components/images/pause_regular@2x.png</file>
     <file alias="images/report_measure_icon.png">../shared_gui_components/images/report_measure_icon.png</file>
     <file alias="images/report_measure_icon@2x.png">../shared_gui_components/images/report_measure_icon@2x.png</file>
+    <file alias="images/report_measure_icon_Python.png">../shared_gui_components/images/report_measure_icon_Python.png</file>
+    <file alias="images/report_measure_icon_Python@2x.png">../shared_gui_components/images/report_measure_icon_Python@2x.png</file>
+    <file alias="images/report_measure_icon_Ruby.png">../shared_gui_components/images/report_measure_icon_Ruby.png</file>
+    <file alias="images/report_measure_icon_Ruby@2x.png">../shared_gui_components/images/report_measure_icon_Ruby@2x.png</file>
     <file alias="images/reverse.png">../shared_gui_components/images/reverse.png</file>
     <file alias="images/reverse@2x.png">../shared_gui_components/images/reverse@2x.png</file>
     <file alias="images/rotating_arrow.png">../shared_gui_components/images/rotating_arrow.png</file>

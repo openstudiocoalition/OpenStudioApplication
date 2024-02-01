@@ -42,6 +42,7 @@
 #include "MainRightColumnController.hpp"
 #include "OSAppBase.hpp"
 #include "OSDocument.hpp"
+#include "MainWindow.hpp"
 #include "OSItem.hpp"
 #include "../model_editor/Utilities.hpp"
 
@@ -389,6 +390,9 @@ void ApplyMeasureNowDialog::runMeasure() {
   OS_ASSERT(tempWorkflowJSONPath);
 
   QStringList arguments;
+  if (OSAppBase::instance()->currentDocument()->mainWindow()->useClassicCLI()) {
+    arguments << "classic";
+  }
   arguments << "run"
             << "-m"
             << "-w" << toQString(*tempWorkflowJSONPath);

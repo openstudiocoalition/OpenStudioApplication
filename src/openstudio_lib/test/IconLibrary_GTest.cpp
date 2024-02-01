@@ -113,6 +113,7 @@ TEST_F(OpenStudioLibFixture, IconLibrary_Icon) {
   //iddObjectTypes.push_back(IddObjectType::OS_SteamEquipment_Definition);
   //iddObjectTypes.push_back(IddObjectType::OS_SubSurface);
   //iddObjectTypes.push_back(IddObjectType::OS_Surface);
+  iddObjectTypes.push_back(IddObjectType::OS_SwimmingPool_Indoor);
   iddObjectTypes.push_back(IddObjectType::OS_ThermalZone);
   //iddObjectTypes.push_back(IddObjectType::OS_WindowMaterial_Blind);
   //iddObjectTypes.push_back(IddObjectType::OS_WindowMaterial_Gas);
@@ -209,6 +210,7 @@ TEST_F(OpenStudioLibFixture, IconLibrary_MiniIcon) {
   iddObjectTypes.push_back(IddObjectType::OS_SteamEquipment_Definition);
   iddObjectTypes.push_back(IddObjectType::OS_SubSurface);
   iddObjectTypes.push_back(IddObjectType::OS_Surface);
+  iddObjectTypes.push_back(IddObjectType::OS_SwimmingPool_Indoor);
   iddObjectTypes.push_back(IddObjectType::OS_ThermalZone);
   iddObjectTypes.push_back(IddObjectType::OS_WindowMaterial_Blind);
   iddObjectTypes.push_back(IddObjectType::OS_WindowMaterial_Gas);

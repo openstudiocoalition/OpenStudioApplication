@@ -6,15 +6,17 @@ set(CMAKE_CXX_STANDARD_REQUIRED ON)
 # Do not enable compiler specific extensions, for eg on GCC use -std=c++1z (=c++17) and not -std=gnu++17
 set(CMAKE_CXX_EXTENSIONS OFF)
 
-# Use ccache is available, has to be before "project()"
-find_program(CCACHE_PROGRAM ccache)
+# Use ccache if available, has to be before "project()"
+find_program(CCACHE_PROGRAM NAMES ccache sccache)
 if(CCACHE_PROGRAM)
-  # Support Unix Makefiles and Ninja
-  message(STATUS "Using CCACHE")
-  set_property(GLOBAL PROPERTY RULE_LAUNCH_COMPILE "${CCACHE_PROGRAM}")
+  # Support: Unix Makefiles and Ninja only
+  # RULE_LAUNCH_COMPILE is an internal variable and makes RC compilation fail on windows, hence why we use the C/CXX COMPILER_LAUNCHER instead
+  message(STATUS "${CCACHE_PROGRAM} found and enabled")
+  set(CMAKE_CXX_COMPILER_LAUNCHER ${CCACHE_PROGRAM} CACHE FILEPATH "CXX compiler cache used")
+  set(CMAKE_C_COMPILER_LAUNCHER ${CCACHE_PROGRAM} CACHE FILEPATH "C compiler cache used")
 endif()
 
-project(OpenStudioApplication VERSION 1.6.0)
+project(OpenStudioApplication VERSION 1.7.0)
 
 # Check system info globally so we can use it everywhere after: Has to be done before FindOpenStudioSDK.cmake
 if(APPLE)
@@ -61,9 +63,8 @@ endif()
 include(FindOpenStudioSDK.cmake)
 
 ###############################################################################
-
+#                                C O N A N                                    #
 ###############################################################################
-# Conan
 
 # Note JM 2019-04-24: Another option is to globally set "print_run_commands = True" in ~/.conan/conan.conf
 option(CONAN_PRINT_RUN_COMMANDS "Log every conan self.run command" OFF)
@@ -248,7 +249,7 @@ endif()
 
 # TODO: Modify the more specific variables as needed to indicate prerelease, etc
 # Keep in beta in-between release cycles. Set to empty string (or comment out) for official)
-set(PROJECT_VERSION_PRERELEASE "")
+set(PROJECT_VERSION_PRERELEASE "rc2")
 
 # OpenStudio version: Only include Major.Minor.Patch, eg "3.0.0", even if you have a prerelease tag
 set(OPENSTUDIOAPPLICATION_VERSION "${PROJECT_VERSION_MAJOR}.${PROJECT_VERSION_MINOR}.${PROJECT_VERSION_PATCH}")
@@ -304,6 +305,12 @@ set(CMAKE_RUNTIME_OUTPUT_DIRECTORY "${PROJECT_BINARY_DIR}/Products")
 
 set(LIBRARY_SEARCH_DIRECTORY "${CMAKE_LIBRARY_OUTPUT_DIRECTORY}" "${CMAKE_LIBRARY_OUTPUT_DIRECTORY}/Release" "${CMAKE_LIBRARY_OUTPUT_DIRECTORY}/Debug")
 
+set(LIB_DESTINATION_DIR lib)
+if(WIN32)
+  # Windows does not have RPATH handling, so we just put everything next to the CLI in the bin/ folder
+  set(LIB_DESTINATION_DIR bin)
+endif()
+
 # TODO: move App macros to a local ProjectMacros.cmake
 # Include project specific macros
 include("${PROJECT_SOURCE_DIR}/ProjectMacros.cmake")
@@ -348,6 +355,10 @@ if(UNIX)
   #set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -Werror")
   if(APPLE)
     set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -Wno-overloaded-virtual -ftemplate-depth=1024")
+
+    # TODO: remove when bumping Boost to 1.81+, cf https://github.com/NREL/OpenStudio/issues/4978
+    add_definitions(-DBOOST_NO_CXX98_FUNCTION_BASE)
+    add_definitions(-D_HAS_AUTO_PTR_ETC=0)
   else()
     set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -Wno-overloaded-virtual")
     # DLM: had to add this due to issues with boost optional and gcc, may be resolved if we move to std::optional
@@ -480,9 +491,9 @@ set(SWIG_EXECUTABLE "${CURRENT_CONAN_SWIG_ROOT}/bin/swig")
 set(SWIG_LIB "${CURRENT_CONAN_SWIG_ROOT}/bin/swiglib")
 
 # Qt
-# e.g. QT_INSTALL_DIR = C:/Qt/6.3.0/msvc2019_64
+# e.g. QT_INSTALL_DIR = C:/Qt/6.6.1/msvc2019_64
 set(QT_INSTALL_DIR "" CACHE PATH "Path to Qt Install")
-set(QT_VERSION "6.3.0")
+set(QT_VERSION "6.6.1")
 
 # TODO: how to set OPENSSL_ROOT_DIR to a generator expression?
 set(OPENSSL_ROOT_DIR ${CONAN_OPENSSL_ROOT_RELEASE})
@@ -506,6 +517,7 @@ find_file(qweb_resources NAMES qtwebengine_resources.pak PATHS "${QT_INSTALL_DIR
 find_file(qweb_resources_devtools NAMES qtwebengine_devtools_resources.pak PATHS "${QT_INSTALL_DIR}/resources/" "${QT_INSTALL_DIR}/lib/QtWebEngineCore.framework/Resources" NO_DEFAULT_PATH)
 find_file(qweb_resources_100 NAMES qtwebengine_resources_100p.pak PATHS "${QT_INSTALL_DIR}/resources/" "${QT_INSTALL_DIR}/lib/QtWebEngineCore.framework/Resources" NO_DEFAULT_PATH)
 find_file(qweb_resources_200 NAMES qtwebengine_resources_200p.pak PATHS "${QT_INSTALL_DIR}/resources/" "${QT_INSTALL_DIR}/lib/QtWebEngineCore.framework/Resources" NO_DEFAULT_PATH)
+find_file(qweb_resources_v8_context_snapshot NAMES v8_context_snapshot.bin PATHS "${QT_INSTALL_DIR}/resources/" "${QT_INSTALL_DIR}/lib/QtWebEngineCore.framework/Resources" NO_DEFAULT_PATH)
 
 # QT_WEB_LIBS are linked by OS App and openstudio_lib but not by openstudio_modeleditor.so or openstudio_modeleditor
 list(APPEND QT_WEB_LIBS Qt6::WebEngineCore)
@@ -579,7 +591,7 @@ if(WIN32)
 endif()
 
 if(UNIX AND NOT APPLE)
-  # Apparently libqxcb.so depends on libQt6OpenGL.so in Qt 6.3.0 (it depended on libGL on 5.15.0 but not OpenGL)
+  # Apparently libqxcb.so depends on libQt6OpenGL.so in Qt 6.6.1 (it depended on libGL on 5.15.0 but not OpenGL)
   find_package(Qt6OpenGL ${QT_VERSION} REQUIRED PATHS ${QT_INSTALL_DIR} NO_DEFAULT_PATH)
   list(APPEND QT_LIBS Qt6::OpenGL)
 endif()
@@ -723,10 +735,18 @@ install(DIRECTORY "${openstudio_ROOT_DIR}/Python" DESTINATION "." COMPONENT "Pyt
 # TODO: at 3.5.0, the lib/ directory on UNIX (only UNIX) contains the libopenstudiolib.so, but also the librubyengine.so, libpythonengine.so
 # install(DIRECTORY "${openstudio_ROOT_DIR}/lib" DESTINATION "." COMPONENT "OpenStudioApp" USE_SOURCE_PERMISSIONS)
 
-install(IMPORTED_RUNTIME_ARTIFACTS openstudio::openstudio DESTINATION bin COMPONENT "CLI")
-install(IMPORTED_RUNTIME_ARTIFACTS openstudio::openstudiolib DESTINATION bin COMPONENT "CLI")
-install(IMPORTED_RUNTIME_ARTIFACTS openstudio::rubyengine DESTINATION bin COMPONENT "CLI")
-install(IMPORTED_RUNTIME_ARTIFACTS openstudio::pythonengine DESTINATION bin COMPONENT "CLI")
+if(NOT APPLE)
+  # On Mac, in openstudio_app/CMakeLists.txt we've already copied the CLI to the OpenStudio.app/Contents/MacOS
+  install(IMPORTED_RUNTIME_ARTIFACTS openstudio::openstudio DESTINATION bin COMPONENT "CLI")
+endif()
+install(IMPORTED_RUNTIME_ARTIFACTS openstudio::openstudiolib DESTINATION ${LIB_DESTINATION_DIR} COMPONENT "CLI")
+install(IMPORTED_RUNTIME_ARTIFACTS openstudio::rubyengine DESTINATION ${LIB_DESTINATION_DIR} COMPONENT "CLI")
+install(IMPORTED_RUNTIME_ARTIFACTS openstudio::pythonengine DESTINATION ${LIB_DESTINATION_DIR} COMPONENT "CLI")
+
+# TODO: we should probably just install the **entire** OS SDK bin/ directory...
+if(WIN32)
+  install(PROGRAMS "${openstudio_ROOT_DIR}/bin/python38.dll" DESTINATION bin COMPONENT "CLI")
+endif()
 
 # install(PROGRAMS ${OS_CLI_IMPORTED_PATH} DESTINATION bin COMPONENT "CLI" RENAME "${OS_CLI_IMPORTED_NAME}")
 
@@ -779,7 +799,7 @@ elseif(UNIX)
   # set(CPACK_DEBIAN_PACKAGE_DEBUG ON)
 
   # Focal Fossa (20.04) uses libwxgtk3.0-gtk3-0v5, apparently need libxcb-xinerama0 as well
-  set(CPACK_DEBIAN_PACKAGE_DEPENDS "libxcb-xinerama0 (>= 1.13), libwxgtk3.0-0v5 (>= 3.0.0) | libwxgtk3.0-0 (>=3.0.0) | libwxgtk3.0-gtk3-0v5 (>=3.0.0)")
+  set(CPACK_DEBIAN_PACKAGE_DEPENDS "libxcb-xinerama0 (>= 1.13), libwxgtk3.0-0v5 (>= 3.0.0) | libwxgtk3.0-0 (>=3.0.0) | libwxgtk3.0-gtk3-0v5 (>=3.0.0), libxcb-cursor0")
 
   # These two will set the .deb install path correctly
   set(CPACK_SET_DESTDIR ON)
@@ -907,8 +927,7 @@ cpack_add_component(Libraries
 
 cpack_add_component(Python
   DISPLAY_NAME "Python Bindings"
-  DESCRIPTION "Experimental support for Python Measures"
-  DISABLED
+  DESCRIPTION "Support for Python Measures"
 )
 
 add_custom_target(PACKAGE_DEBUG

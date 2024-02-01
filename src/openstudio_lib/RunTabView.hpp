@@ -83,12 +83,14 @@ class RunView : public QWidget
   void onNewConnection();
 
   void onRunDataReady();
-  void readyReadStandardError();
   void readyReadStandardOutput();
+  void processLine(const QString& line, bool fromSocket);
+  void readyReadStandardError();
+
+  void resetFont();
 
   QToolButton* m_playButton;
   ProgressBarWithError* m_progressBar;
-  QLabel* m_statusLabel;
   QTextEdit* m_textInfo;
   QProcess* m_runProcess;
   QPushButton* m_openSimDirButton;
@@ -96,6 +98,7 @@ class RunView : public QWidget
   QTcpSocket* m_runSocket;
 
   QCheckBox* m_verboseOutputBox;
+  QCheckBox* m_useClassicCLIBox;
 
   openstudio::path m_basePath;
   //QFileSystemWatcher * m_simDirWatcher;
@@ -115,7 +118,7 @@ class RunView : public QWidget
     complete = 9
   };
   State m_state = State::stopped;
-  bool m_hasSocketConnexion = false;
+  bool m_hasSocketConnection = false;
 };
 
 class RunTabView : public MainTabView

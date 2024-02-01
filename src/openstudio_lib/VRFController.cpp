@@ -68,7 +68,7 @@ VRFController::VRFController()
     m_detailView(nullptr),
     m_currentSystem(boost::none),
     m_dirty(false) {
-  connect(m_vrfView->zoomOutButton, &QPushButton::clicked, this, &VRFController::zoomOutToSystemGridView);
+  connect(m_vrfView->oneLevelUpButton, &QPushButton::clicked, this, &VRFController::zoomOutToSystemGridView);
 
   m_vrfSystemGridView->setCellSize(VRFSystemMiniView::cellSize());
   m_vrfGridScene = QSharedPointer<QGraphicsScene>(new QGraphicsScene());
@@ -284,6 +284,8 @@ void VRFController::zoomInOnSystem(const model::AirConditionerVariableRefrigeran
   m_detailScene->addItem(m_detailView);
   m_vrfView->header->show();
   m_vrfView->graphicsView->setScene(m_detailScene.data());
+  m_vrfView->resetZoom();
+
   m_vrfView->graphicsView->setAlignment(Qt::AlignCenter);
 
   refresh();
@@ -300,6 +302,7 @@ void VRFController::zoomOutToSystemGridView() {
 
   m_vrfView->graphicsView->setScene(m_vrfGridScene.data());
   m_vrfView->graphicsView->setAlignment(Qt::AlignLeft | Qt::AlignTop);
+  m_vrfView->resetZoom();
   m_vrfView->header->hide();
 
   refresh();
@@ -486,7 +489,7 @@ QGraphicsObject* VRFSystemItemDelegate::view(QSharedPointer<OSListItem> dataSour
 
     connect(vrfSystemMiniView->removeButtonItem, &RemoveButtonItem::mouseClicked, listItem.data(), &VRFSystemListItem::remove);
 
-    connect(vrfSystemMiniView->zoomInButtonItem, &ZoomInButtonItem::mouseClicked, listItem.data(), &VRFSystemListItem::zoomInOnSystem);
+    connect(vrfSystemMiniView->oneLevelDownButtonItem, &OneLevelDownButtonItem::mouseClicked, listItem.data(), &VRFSystemListItem::zoomInOnSystem);
 
     vrfSystemMiniView->setName(listItem->systemName());
     vrfSystemMiniView->setNumberOfZones(listItem->numberOfConnectedZones());

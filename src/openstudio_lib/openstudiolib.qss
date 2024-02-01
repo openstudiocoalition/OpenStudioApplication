@@ -822,6 +822,40 @@ QPushButton#ZoomOutButton:pressed {
   background-image: url(":/images/zoom-out-press.png");
 }
 
+QPushButton#OneLevelUpButton {
+  border: none;
+  border-radius: none;
+  background: transparent;
+  background-image: url(":/images/arrow_one_level_up.png");
+  padding-left: none;
+  padding-right: none;
+}
+
+QPushButton#OneLevelUpButton:hover {
+  background-image: url(":/images/arrow_one_level_up-over.png");
+}
+
+QPushButton#OneLevelUpButton:pressed {
+  background-image: url(":/images/arrow_one_level_up-press.png");
+}
+
+QPushButton#OneLevelDownButton {
+  border: none;
+  border-radius: none;
+  background: transparent;
+  background-image: url(":/images/arrow_expand.png");
+  padding-left: none;
+  padding-right: none;
+}
+
+QPushButton#OneLevelDownButton:hover {
+  background-image: url(":/images/arrow_expand-over.png");
+}
+
+QPushButton#OneLevelDownButton:pressed {
+  background-image: url(":/images/arrow_expand-press.png");
+}
+
 QRadioButton {
   font-size: 12px;
 }

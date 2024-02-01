@@ -40,11 +40,13 @@
 #include "OSAppBase.hpp"
 #include "OSDocument.hpp"
 #include "RefrigerationScene.hpp"
+#include "SwimmingPoolIndoorFloorSurfaceDialog.hpp"
 #include "../shared_gui_components/OSSwitch.hpp"
 #include "ServiceWaterScene.hpp"
 #include "HorizontalTabWidget.hpp"
 #include "MainRightColumnController.hpp"
 #include "../shared_gui_components/OSViewSwitcher.hpp"
+
 #include <openstudio/model/ModelObject.hpp>
 #include <openstudio/model/HVACComponent.hpp>
 #include <openstudio/model/HVACComponent_Impl.hpp>
@@ -118,6 +120,8 @@
 #include <openstudio/model/Component_Impl.hpp>
 #include <openstudio/model/ComponentData.hpp>
 #include <openstudio/model/ComponentData_Impl.hpp>
+#include <openstudio/model/SwimmingPoolIndoor.hpp>
+#include <openstudio/model/SwimmingPoolIndoor_Impl.hpp>
 
 #include "../model_editor/Utilities.hpp"
 
@@ -313,15 +317,10 @@ void HVACSystemsController::update() {
     // Show layout
     QString handle = currentHandle();
 
-    m_hvacSystemsView->hvacToolbarView->zoomInButton->show();
-    m_hvacSystemsView->hvacToolbarView->zoomOutButton->show();
-
-    m_hvacSystemsView->hvacToolbarView->addButton->show();
-    m_hvacSystemsView->hvacToolbarView->copyButton->show();
-    m_hvacSystemsView->hvacToolbarView->deleteButton->show();
-
     // Show Controls, to avoid still displaying the name of a previously selected "Water Use Connection" object for eg
     m_hvacSystemsView->hvacToolbarView->showControls(true);
+    // Display all individual buttons in case they have been hidden before and re-enable them
+    m_hvacSystemsView->hvacToolbarView->resetAllIndividualControlButtons();
 
     m_hvacLayoutController.reset();
     m_hvacControlsController.reset();
@@ -331,22 +330,25 @@ void HVACSystemsController::update() {
     OSAppBase::instance()->processEvents();
 
     if (handle == REFRIGERATION) {
-      m_hvacSystemsView->hvacToolbarView->zoomInButton->setEnabled(false);
-      m_hvacSystemsView->hvacToolbarView->zoomOutButton->setEnabled(false);
+
+      m_hvacSystemsView->hvacToolbarView->controlsViewButton->hide();
 
       if (m_hvacSystemsView->hvacToolbarView->topologyViewButton->isChecked()) {
         m_refrigerationController = std::make_shared<RefrigerationController>();
 
         m_hvacSystemsView->mainViewSwitcher->setView(m_refrigerationController->refrigerationView());
+
+        connect(m_hvacSystemsView->hvacToolbarView->zoomInButton, &QPushButton::clicked, m_refrigerationController->refrigerationView(),
+                &RefrigerationView::zoomIn);
+        connect(m_hvacSystemsView->hvacToolbarView->zoomOutButton, &QPushButton::clicked, m_refrigerationController->refrigerationView(),
+                &RefrigerationView::zoomOut);
+
       } else if (m_hvacSystemsView->hvacToolbarView->gridViewButton->isChecked()) {
-        // TODO
+        // m_hvacSystemsView->hvacToolbarView->zoomInButton->setEnabled(false);
+        // m_hvacSystemsView->hvacToolbarView->zoomOutButton->setEnabled(false);
 
-        m_hvacSystemsView->hvacToolbarView->zoomInButton->hide();
-        m_hvacSystemsView->hvacToolbarView->zoomOutButton->hide();
-
-        m_hvacSystemsView->hvacToolbarView->addButton->hide();
-        m_hvacSystemsView->hvacToolbarView->copyButton->hide();
-        m_hvacSystemsView->hvacToolbarView->deleteButton->hide();
+        m_hvacSystemsView->hvacToolbarView->hideAddCopyDeleteButtons();
+        m_hvacSystemsView->hvacToolbarView->hideZoomButtons();
 
         m_refrigerationGridController = std::make_shared<RefrigerationGridController>(m_isIP, m_model);
 
@@ -358,36 +360,48 @@ void HVACSystemsController::update() {
         m_hvacSystemsView->mainViewSwitcher->setView(m_refrigerationGridController->refrigerationGridView());
       } else {
         // Not allowed
+        // TODO: should we automatically switch to the topologyView?
+        m_hvacSystemsView->hvacToolbarView->controlsViewButton->show();  // Make it clearer that's the tab you're on
         m_hvacControlsController = std::make_shared<HVACControlsController>(this);
 
         m_hvacSystemsView->mainViewSwitcher->setView(m_hvacControlsController->noControlsView());
       }
     } else if (handle == VRF) {
-      m_hvacSystemsView->hvacToolbarView->zoomInButton->setEnabled(false);
-      m_hvacSystemsView->hvacToolbarView->zoomOutButton->setEnabled(false);
+
+      m_hvacSystemsView->hvacToolbarView->controlsViewButton->hide();
+      m_hvacSystemsView->hvacToolbarView->gridViewButton->hide();
 
       if (m_hvacSystemsView->hvacToolbarView->topologyViewButton->isChecked()) {
         m_vrfController = std::make_shared<VRFController>();
 
         m_hvacSystemsView->mainViewSwitcher->setView(m_vrfController->vrfView());
+
+        connect(m_hvacSystemsView->hvacToolbarView->zoomInButton, &QPushButton::clicked, m_vrfController->vrfView(), &VRFView::zoomIn);
+        connect(m_hvacSystemsView->hvacToolbarView->zoomOutButton, &QPushButton::clicked, m_vrfController->vrfView(), &VRFView::zoomOut);
+
       } else if (m_hvacSystemsView->hvacToolbarView->gridViewButton->isChecked()) {
         // Not allowed: Refrigeration only on Refrigeration tab
         m_refrigerationController = std::make_shared<RefrigerationController>();
-
+        m_hvacSystemsView->hvacToolbarView->gridViewButton->show();  // Make it clearer that's the tab you're on
         m_hvacSystemsView->mainViewSwitcher->setView(m_refrigerationController->noRefrigerationView());
       } else {
         m_hvacControlsController = std::make_shared<HVACControlsController>(this);
-
+        m_hvacSystemsView->hvacToolbarView->controlsViewButton->show();  // Make it clearer that's the tab you're on
         m_hvacSystemsView->mainViewSwitcher->setView(m_hvacControlsController->noControlsView());
       }
     } else  // NOT VRF NOR REFRIGERATION
     {
+      m_hvacSystemsView->hvacToolbarView->gridViewButton->hide();
+
+      const bool isSHW = (!currentLoop().has_value());
+      if (isSHW) {
+        // Only Layout for SHW
+        m_hvacSystemsView->hvacToolbarView->controlsViewButton->hide();
+      }
+
       if (m_hvacSystemsView->hvacToolbarView->topologyViewButton->isChecked()) {
         m_hvacLayoutController = std::make_shared<HVACLayoutController>(this);
         m_hvacSystemsView->mainViewSwitcher->setView(m_hvacLayoutController->hvacGraphicsView());
-
-        m_hvacSystemsView->hvacToolbarView->zoomInButton->setEnabled(true);
-        m_hvacSystemsView->hvacToolbarView->zoomOutButton->setEnabled(true);
 
         OSAppBase::instance()->currentDocument()->mainRightColumnController()->mainRightColumnView()->setCurrentId(
           MainRightColumnController::LIBRARY);
@@ -399,31 +413,26 @@ void HVACSystemsController::update() {
       } else {
         m_hvacControlsController = std::make_shared<HVACControlsController>(this);
 
-        if (currentLoop()) {
-          // If an AirLoopHVAC, set the view to the HVACAirLoopControlsView
-          if ((currentLoop()->optionalCast<model::AirLoopHVAC>())) {
-            m_hvacSystemsView->mainViewSwitcher->setView(m_hvacControlsController->hvacAirLoopControlsView());
+        m_hvacSystemsView->hvacToolbarView->hideZoomButtons();
+        // m_hvacSystemsView->hvacToolbarView->zoomInButton->setEnabled(false);
+        // m_hvacSystemsView->hvacToolbarView->zoomOutButton->setEnabled(false);
 
-            m_hvacSystemsView->hvacToolbarView->zoomInButton->setEnabled(false);
-            m_hvacSystemsView->hvacToolbarView->zoomOutButton->setEnabled(false);
-
-            OSAppBase::instance()->currentDocument()->mainRightColumnController()->mainRightColumnView()->setCurrentId(
-              MainRightColumnController::MY_MODEL);
-          }
-          // If a PlantLoop, HVACPlantLoopControlsView
-          else if ((currentLoop()->optionalCast<model::PlantLoop>())) {
-            m_hvacSystemsView->mainViewSwitcher->setView(m_hvacControlsController->hvacPlantLoopControlsView());
-
-            m_hvacSystemsView->hvacToolbarView->zoomInButton->setEnabled(false);
-            m_hvacSystemsView->hvacToolbarView->zoomOutButton->setEnabled(false);
-
-            OSAppBase::instance()->currentDocument()->mainRightColumnController()->mainRightColumnView()->setCurrentId(
-              MainRightColumnController::MY_MODEL);
-          } else {
-            m_hvacSystemsView->mainViewSwitcher->setView(m_hvacControlsController->noControlsView());
-          }
-        } else {
+        if (isSHW) {
+          m_hvacSystemsView->hvacToolbarView->controlsViewButton->show();  // Make it clearer that's the tab you're on
           m_hvacSystemsView->mainViewSwitcher->setView(m_hvacControlsController->noControlsView());
+        } else if ((currentLoop()->optionalCast<model::AirLoopHVAC>())) {
+          m_hvacSystemsView->mainViewSwitcher->setView(m_hvacControlsController->hvacAirLoopControlsView());
+
+          OSAppBase::instance()->currentDocument()->mainRightColumnController()->mainRightColumnView()->setCurrentId(
+            MainRightColumnController::MY_MODEL);
+        } else if ((currentLoop()->optionalCast<model::PlantLoop>())) {
+          // If a PlantLoop, HVACPlantLoopControlsView
+          m_hvacSystemsView->mainViewSwitcher->setView(m_hvacControlsController->hvacPlantLoopControlsView());
+
+          OSAppBase::instance()->currentDocument()->mainRightColumnController()->mainRightColumnView()->setCurrentId(
+            MainRightColumnController::MY_MODEL);
+        } else {
+          OS_ASSERT(false);
         }
       }
     }
@@ -537,59 +546,73 @@ void HVACLayoutController::addLibraryObjectToModelNode(const OSItemId& itemId, m
     }
   }
 
-  if (object) {
+  if (!object) {
+    return;
+  }
 
-    bool added = false;
+  bool added = false;
 
-    if (boost::optional<model::HVACComponent> hvacComponent = object->optionalCast<model::HVACComponent>()) {
-      if (boost::optional<model::Node> node = comp.optionalCast<model::Node>()) {
-        // Note: Julien Marrec, 2018-01-04
-        // When you have a WaterToWaterComponent that has a tertiaryPlantLoop, you should override the addToNode method
-        // to call addToTertiaryNode when needed. This will work with addSupplyBranchForComponent (etc) too
-        // Take a look at CentralHeatPumpSystem::addToNode (and CentralHeatPumpSystem::addToTertiaryNode) for an actual example
-        auto zone = hvacComponent->optionalCast<model::ThermalZone>();
-        if (zone) {
-          added = zone->multiAddToNode(node.get());
-        } else {
-          added = hvacComponent->addToNode(node.get());
-        }
-      } else if (boost::optional<model::Splitter> splitter = comp.optionalCast<model::Splitter>()) {
-        if (boost::optional<model::PlantLoop> plant = splitter->plantLoop()) {
-          if (plant->supplyComponent(splitter->handle())) {
-            added = plant->addSupplyBranchForComponent(hvacComponent.get());
-          } else if (plant->demandComponent(splitter->handle())) {
-            added = plant->addDemandBranchForComponent(hvacComponent.get());
-          }
-        } else if (boost::optional<model::AirLoopHVAC> airLoop = splitter->airLoopHVAC()) {
-          if (boost::optional<model::ThermalZone> zone = object->optionalCast<model::ThermalZone>()) {
-            added = airLoop->multiAddBranchForZone(zone.get());
-          }
-        }
+  if (boost::optional<model::HVACComponent> hvacComponent = object->optionalCast<model::HVACComponent>()) {
+    if (boost::optional<model::Node> node = comp.optionalCast<model::Node>()) {
+      // Note: Julien Marrec, 2018-01-04
+      // When you have a WaterToWaterComponent that has a tertiaryPlantLoop, you should override the addToNode method
+      // to call addToTertiaryNode when needed. This will work with addSupplyBranchForComponent (etc) too
+      // Take a look at CentralHeatPumpSystem::addToNode (and CentralHeatPumpSystem::addToTertiaryNode) for an actual example
+      auto zone = hvacComponent->optionalCast<model::ThermalZone>();
+      if (zone) {
+        added = zone->multiAddToNode(node.get());
+      } else {
+        added = hvacComponent->addToNode(node.get());
       }
-    } else if (boost::optional<model::WaterUseEquipment> waterUseEquipment = object->optionalCast<model::WaterUseEquipment>()) {
-      if (boost::optional<model::WaterUseConnections> waterUseConnections = comp.optionalCast<model::WaterUseConnections>()) {
-        added = waterUseConnections->addWaterUseEquipment(waterUseEquipment.get());
-      }
-    } else if (boost::optional<model::WaterUseEquipmentDefinition> waterUseEquipmentDefinition =
-                 object->optionalCast<model::WaterUseEquipmentDefinition>()) {
-      if (boost::optional<model::WaterUseConnections> waterUseConnections = comp.optionalCast<model::WaterUseConnections>()) {
-        model::WaterUseEquipment waterUseEquipment(waterUseEquipmentDefinition.get());
-        waterUseEquipment.resetFlowRateFractionSchedule();
-
-        added = waterUseConnections->addWaterUseEquipment(waterUseEquipment);
+    } else if (boost::optional<model::Splitter> splitter = comp.optionalCast<model::Splitter>()) {
+      if (boost::optional<model::PlantLoop> plant = splitter->plantLoop()) {
+        if (plant->supplyComponent(splitter->handle())) {
+          added = plant->addSupplyBranchForComponent(hvacComponent.get());
+        } else if (plant->demandComponent(splitter->handle())) {
+          added = plant->addDemandBranchForComponent(hvacComponent.get());
+        }
+      } else if (boost::optional<model::AirLoopHVAC> airLoop = splitter->airLoopHVAC()) {
+        if (boost::optional<model::ThermalZone> zone = object->optionalCast<model::ThermalZone>()) {
+          added = airLoop->multiAddBranchForZone(zone.get());
+        }
       }
     }
+  } else if (boost::optional<model::WaterUseEquipment> waterUseEquipment = object->optionalCast<model::WaterUseEquipment>()) {
+    if (boost::optional<model::WaterUseConnections> waterUseConnections = comp.optionalCast<model::WaterUseConnections>()) {
+      added = waterUseConnections->addWaterUseEquipment(waterUseEquipment.get());
+    }
+  } else if (boost::optional<model::WaterUseEquipmentDefinition> waterUseEquipmentDefinition =
+               object->optionalCast<model::WaterUseEquipmentDefinition>()) {
+    if (boost::optional<model::WaterUseConnections> waterUseConnections = comp.optionalCast<model::WaterUseConnections>()) {
+      model::WaterUseEquipment waterUseEquipment(waterUseEquipmentDefinition.get());
+      waterUseEquipment.resetFlowRateFractionSchedule();
 
-    if (!added) {
-      if (remove) {
-        object->remove();
-      }
+      added = waterUseConnections->addWaterUseEquipment(waterUseEquipment);
+    }
+  }
 
-      QMessageBox message(m_hvacSystemsController->hvacSystemsView());
+  if (!added) {
+    if (remove) {
+      object->remove();
+    }
 
-      message.setText("The selected component is not allowed at this location.");
+    QMessageBox message(m_hvacSystemsController->hvacSystemsView());
+    message.setText("The selected component is not allowed at this location.");
+    message.exec();
+    return;
+  }
 
-      message.exec();
+  if (object->iddObjectType() == openstudio::IddObjectType::OS_SwimmingPool_Indoor) {
+
+    // Do not set parent on purpose (`m_hvacSystemsController->hvacSystemsView()`)
+    SwimmingPoolIndoorFloorSurfaceDialog floorSurfaceDialog(object->cast<model::SwimmingPoolIndoor>());
+    floorSurfaceDialog.exec();
+    if (floorSurfaceDialog.result() == QDialog::Accepted) {
+      // auto sf_ = floorSurfaceDialog.floorSurface();
+      // [[maybe_unused]] auto name = sf_->nameString();
+      // LOG_FREE(Debug, "temp", name);
+    } else {
+      object->remove();
     }
   }
 }

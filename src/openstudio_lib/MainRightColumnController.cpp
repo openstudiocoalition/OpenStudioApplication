@@ -995,6 +995,7 @@ void MainRightColumnController::configureForHVACSystemsSubTab(int subTabID) {
   libraryWidget->setItemsRemoveable(false);
   libraryWidget->setItemsType(OSItemType::LibraryItem);
 
+  libraryWidget->addModelObjectType(IddObjectType::OS_SwimmingPool_Indoor, "Swimming Pool Indoor");
   libraryWidget->addModelObjectType(IddObjectType::OS_SolarCollector_IntegralCollectorStorage, "Solar Collector Integral Collector Storage");
   libraryWidget->addModelObjectType(IddObjectType::OS_SolarCollector_FlatPlate_Water, "Solar Collector Flat Plate Water");
   //libraryWidget->addModelObjectType(IddObjectType::OS_SolarCollector_FlatPlate_PhotovoltaicThermal, "Solar Collector Flat Plate Photovoltaic Thermal");
@@ -1086,7 +1087,7 @@ void MainRightColumnController::configureForHVACSystemsSubTab(int subTabID) {
   libraryWidget->addModelObjectType(IddObjectType::OS_EvaporativeFluidCooler_SingleSpeed, "Evaporative Fluid Cooler Single Speed");
   libraryWidget->addModelObjectType(IddObjectType::OS_Duct, "Duct");
   libraryWidget->addModelObjectType(IddObjectType::OS_DistrictCooling, "District Cooling");
-  libraryWidget->addModelObjectType(IddObjectType::OS_DistrictHeating, "District Heating");
+  libraryWidget->addModelObjectType(IddObjectType::OS_DistrictHeating_Water, "District Heating Water");
   libraryWidget->addModelObjectType(IddObjectType::OS_CoolingTower_TwoSpeed, "Cooling Tower Two Speed");
   libraryWidget->addModelObjectType(IddObjectType::OS_CoolingTower_SingleSpeed, "Cooling Tower Single Speed");
   libraryWidget->addModelObjectType(IddObjectType::OS_CoolingTower_VariableSpeed, "Cooling Tower Variable Speed");

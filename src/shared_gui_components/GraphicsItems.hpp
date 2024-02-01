@@ -129,6 +129,18 @@ class ZoomOutButtonItem : public ButtonItem
   explicit ZoomOutButtonItem(QGraphicsItem* parent = nullptr);
 };
 
+class OneLevelDownButtonItem : public ButtonItem
+{
+ public:
+  explicit OneLevelDownButtonItem(QGraphicsItem* parent = nullptr);
+};
+
+class OneLevelUpButtonItem : public ButtonItem
+{
+ public:
+  explicit OneLevelUpButtonItem(QGraphicsItem* parent = nullptr);
+};
+
 class GridLayoutItem : public QGraphicsObject
 {
   Q_OBJECT;

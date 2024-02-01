@@ -76,6 +76,8 @@
 #include <QNetworkRequest>
 #include <QNetworkReply>
 #include <QThread>
+#include <QJsonObject>
+#include <QJsonDocument>
 // Debug only
 //#include <QSslError>
 //#include <QDateTime>
@@ -102,15 +104,15 @@ bool MeasureManager::waitForStarted(int msec) {
 
   QUrl thisUrl(m_url);
   thisUrl.setPath("/");
+  QNetworkRequest request(thisUrl);
+  request.setHeader(QNetworkRequest::ContentTypeHeader, "application/json");
 
-  int msecPerLoop = 20;
-  int numTries = msec / msecPerLoop;
+  QNetworkAccessManager manager;
+
+  const int msecPerLoop = 20;
+  const int numTries = msec / msecPerLoop;
   int current = 0;
   while (!success && current < numTries) {
-    QNetworkRequest request(thisUrl);
-    request.setHeader(QNetworkRequest::ContentTypeHeader, "json");
-
-    QNetworkAccessManager manager;
 
     QNetworkReply* reply = manager.get(request);
 
@@ -195,7 +197,7 @@ void MeasureManager::saveTempModel(const path& tempDir) {
 
 std::vector<BCLMeasure> MeasureManager::bclMeasures() const {
   std::vector<BCLMeasure> result;
-
+  result.reserve(m_bclMeasures.size());
   for (const auto& bclMeasure : m_bclMeasures) {
     result.push_back(bclMeasure.second);
   }
@@ -205,7 +207,7 @@ std::vector<BCLMeasure> MeasureManager::bclMeasures() const {
 
 std::vector<BCLMeasure> MeasureManager::myMeasures() const {
   std::vector<BCLMeasure> result;
-
+  result.reserve(m_myMeasures.size());
   for (const auto& measure : m_myMeasures) {
     result.push_back(measure.second);
   }
@@ -215,8 +217,9 @@ std::vector<BCLMeasure> MeasureManager::myMeasures() const {
 
 std::vector<BCLMeasure> MeasureManager::combinedMeasures() const {
   std::vector<BCLMeasure> result;
-  std::set<UUID> resultUUIDs;
+  result.reserve(m_myMeasures.size() + m_bclMeasures.size());
 
+  std::set<UUID> resultUUIDs;
   // insert my measures
   for (auto it = m_myMeasures.begin(), itend = m_myMeasures.end(); it != itend; ++it) {
     if (resultUUIDs.find(it->first) == resultUUIDs.end()) {
@@ -460,21 +463,24 @@ std::vector<measure::OSArgument> MeasureManager::getArguments(const BCLMeasure& 
 
   // std::string url_s = m_url.toString().toStdString();
 
-  QString data = QString(R"json({"measure_dir": "%1", "osm_path": "%2"})json").arg(toQString(t_measure.directory()), toQString(m_tempModelPath));
-
   QNetworkRequest request(thisUrl);
-  request.setHeader(QNetworkRequest::ContentTypeHeader, "json");
+  request.setHeader(QNetworkRequest::ContentTypeHeader, "application/json");
+
+  QJsonObject obj;
+  obj["measure_dir"] = toQString(t_measure.directory());
+  obj["osm_path"] = toQString(m_tempModelPath);
+  const QJsonDocument doc(obj);
+  const QByteArray data = doc.toJson(QJsonDocument::Compact);
 
   QNetworkAccessManager manager;
-
-  QNetworkReply* reply = manager.post(request, data.toUtf8());
+  QNetworkReply* reply = manager.post(request, data);
 
   while (reply->isRunning()) {
     Application::instance().processEvents();
   }
 
-  QString replyString = reply->readAll();
-  std::string s = replyString.toStdString();
+  const QString replyString = reply->readAll();
+  const std::string s = replyString.toStdString();
   auto error = reply->error();
   delete reply;
 
@@ -578,6 +584,10 @@ boost::optional<measure::OSArgument> MeasureManager::getArgument(const measure::
 
     Json::Value choiceValues = argument.get("choice_values", Json::Value(Json::arrayValue));
     Json::Value choiceDisplayNames = argument.get("choice_display_names", Json::Value(Json::arrayValue));
+
+    if (choiceValues.empty()) {
+      choiceValues = argument.get("choices_values", Json::Value(Json::arrayValue));
+    }
 
     Json::ArrayIndex n = choiceValues.size();
     if (n != choiceDisplayNames.size()) {
@@ -833,14 +843,13 @@ bool MeasureManager::reset() {
 
   // std::string url_s = m_url.toString().toStdString();
 
-  QString data = QString("{}");
-
   QNetworkRequest request(thisUrl);
-  request.setHeader(QNetworkRequest::ContentTypeHeader, "json");
+  request.setHeader(QNetworkRequest::ContentTypeHeader, "application/json");
+
+  const QByteArray data = QString("{}").toUtf8();
 
   QNetworkAccessManager manager;
-
-  QNetworkReply* reply = manager.post(request, data.toUtf8());
+  QNetworkReply* reply = manager.post(request, data);
 
   while (reply->isRunning()) {
     Application::instance().processEvents();
@@ -873,14 +882,13 @@ bool MeasureManager::checkForLocalBCLUpdates() {
 
   // std::string url_s = m_url.toString().toStdString();
 
-  QString data = QString("{}");
-
   QNetworkRequest request(thisUrl);
-  request.setHeader(QNetworkRequest::ContentTypeHeader, "json");
+  request.setHeader(QNetworkRequest::ContentTypeHeader, "application/json");
+
+  const QByteArray data = QString("{}").toUtf8();
 
   QNetworkAccessManager manager;
-
-  QNetworkReply* reply = manager.post(request, data.toUtf8());
+  QNetworkReply* reply = manager.post(request, data);
 
   while (reply->isRunning()) {
     Application::instance().processEvents();
@@ -913,15 +921,17 @@ bool MeasureManager::checkForUpdates(const openstudio::path& measureDir, bool fo
 
   // std::string url_s = m_url.toString().toStdString();
 
-  QString data =
-    QString(R"json({"measure_dir": "%1", "force_reload": "%2"})json").arg(toQString(measureDir), force ? QString("true") : QString("false"));
+  QJsonObject obj;
+  obj["measure_dir"] = toQString(measureDir);
+  obj["force_reload"] = force;
+  const QJsonDocument doc(obj);
+  const QByteArray data = doc.toJson();
 
   QNetworkRequest request(thisUrl);
-  request.setHeader(QNetworkRequest::ContentTypeHeader, "json");
+  request.setHeader(QNetworkRequest::ContentTypeHeader, "application/json");
 
   QNetworkAccessManager manager;
-
-  QNetworkReply* reply = manager.post(request, data.toUtf8());
+  QNetworkReply* reply = manager.post(request, data);
 
   while (reply->isRunning()) {
     Application::instance().processEvents();
