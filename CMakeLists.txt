@@ -23,7 +23,21 @@ if(APPLE)
   # Looking at cmake source code OS_RELEASE is already set to the output of `sw_vers -productVersion` which is what we want
   cmake_host_system_information(RESULT OSX_VERSION QUERY OS_RELEASE)
   message("-- OS_RELEASE variable is set to: " ${OSX_VERSION})
+
+  if(DEFINED XCODE_VERSION)
+    if(XCODE_VERSION VERSION_LESS "13.0")
+      message(FATAL_ERROR "The minimum required version of XCode for compiling OpenStudio is 13, however XCODE_VERSION is set to " ${XCODE_VERSION} ". Please upgrade XCode and try again.")
+    endif()
+  # When using a generator other than XCode, ${XCODE_VERSION} is not set. Verify that we have at least the minimum macOS version required for XCode 13
+  elseif(OSX_VERSION VERSION_LESS "11.3")
+    message(FATAL_ERROR "The minimum required version of XCode for compiling OpenStudio is 13, which requires macOS 11.3 or greater, however macOS version is set to " ${OSX_VERSION} ". Please upgrade macOS and XCode and try again.")
+  endif()
+
   if(NOT CMAKE_OSX_DEPLOYMENT_TARGET STREQUAL "")
+    if(CMAKE_OSX_DEPLOYMENT_TARGET VERSION_LESS "11.0")
+      message(FATAL_ERROR "The minimum required target version for macOS is 11.0, however CMAKE_OSX_DEPLOYMENT_TARGET is set to ${CMAKE_OSX_DEPLOYMENT_TARGET}. Please set CMAKE_OSX_DEPLOYMENT_TARGET to 11.0 or greater and try again.")
+    endif()
+
     message("Using CMAKE_OSX_DEPLOYMENT_TARGET=${CMAKE_OSX_DEPLOYMENT_TARGET}")
     set(OSX_VERSION "${CMAKE_OSX_DEPLOYMENT_TARGET}")
   endif()

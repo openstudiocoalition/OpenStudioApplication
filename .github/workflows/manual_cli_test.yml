@@ -37,7 +37,7 @@ jobs:
           PLATFORM_NAME: Darwin
           BINARY_EXT: dmg
           COMPRESSED_EXT: tar.gz
-          MACOSX_DEPLOYMENT_TARGET: 10.15
+          MACOSX_DEPLOYMENT_TARGET: 11.0
         - os: macos-arm64
           SELF_HOSTED: true
           PLATFORM_NAME: Darwin
