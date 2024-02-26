@@ -1602,8 +1602,7 @@ void HVACLayoutController::updateLater() {
   QTimer::singleShot(0, this, &HVACLayoutController::update);
 }
 
-SystemAvailabilityVectorController::SystemAvailabilityVectorController()
-  : ModelObjectVectorController()  {}
+SystemAvailabilityVectorController::SystemAvailabilityVectorController() : ModelObjectVectorController() {}
 
 SystemAvailabilityVectorController::~SystemAvailabilityVectorController() {}
 
@@ -1615,8 +1614,7 @@ void SystemAvailabilityVectorController::attach(const model::ModelObject& modelO
   if (m_modelObject) {
     m_model = m_modelObject->model();
 
-    m_model->getImpl<model::detail::Model_Impl>()
-      ->onChange.connect<OSVectorController, &OSVectorController::reportItems>(this);
+    m_model->getImpl<model::detail::Model_Impl>()->onChange.connect<OSVectorController, &OSVectorController::reportItems>(this);
   }
 
   reportItems();
@@ -1628,8 +1626,7 @@ void SystemAvailabilityVectorController::detach() {
   }
 
   if (m_model) {
-    m_model->getImpl<model::detail::Model_Impl>()
-      ->onChange.disconnect<OSVectorController, &OSVectorController::reportItems>(this);
+    m_model->getImpl<model::detail::Model_Impl>()->onChange.disconnect<OSVectorController, &OSVectorController::reportItems>(this);
 
     m_model.reset();
   }
@@ -1676,8 +1673,7 @@ void SystemAvailabilityVectorController::onReplaceItem(OSItem* /*currentItem*/, 
   onDrop(replacementItemId);
 }
 
-SupplyAirTempScheduleVectorController::SupplyAirTempScheduleVectorController()
-  : ModelObjectVectorController() {}
+SupplyAirTempScheduleVectorController::SupplyAirTempScheduleVectorController() : ModelObjectVectorController() {}
 
 SupplyAirTempScheduleVectorController::~SupplyAirTempScheduleVectorController() {}
 
@@ -1693,8 +1689,7 @@ void SupplyAirTempScheduleVectorController::attach(const model::ModelObject& mod
   if (m_modelObject) {
     m_model = m_modelObject->model();
 
-    m_model->getImpl<model::detail::Model_Impl>()
-      ->onChange.connect<OSVectorController, &OSVectorController::reportItems>(this);
+    m_model->getImpl<model::detail::Model_Impl>()->onChange.connect<OSVectorController, &OSVectorController::reportItems>(this);
   }
 
   reportItems();
@@ -1706,8 +1701,7 @@ void SupplyAirTempScheduleVectorController::detach() {
   }
 
   if (m_model) {
-    m_model->getImpl<model::detail::Model_Impl>()
-      ->onChange.disconnect<OSVectorController, &OSVectorController::reportItems>(this);
+    m_model->getImpl<model::detail::Model_Impl>()->onChange.disconnect<OSVectorController, &OSVectorController::reportItems>(this);
 
     m_model.reset();
   }
@@ -1765,8 +1759,7 @@ void SupplyAirTempScheduleVectorController::onDropZoneItemClicked(OSItem* item) 
 // CLASSIC ONES
 
 // CTOR
-AvailabilityManagerObjectVectorController::AvailabilityManagerObjectVectorController()
-  : ModelObjectVectorController() {}
+AvailabilityManagerObjectVectorController::AvailabilityManagerObjectVectorController() : ModelObjectVectorController() {}
 
 AvailabilityManagerObjectVectorController::~AvailabilityManagerObjectVectorController() {}
 
@@ -1778,8 +1771,7 @@ void AvailabilityManagerObjectVectorController::attach(const model::ModelObject&
   if (m_modelObject) {
     m_model = m_modelObject->model();
 
-    m_model->getImpl<model::detail::Model_Impl>()
-      ->onChange.connect<OSVectorController, &OSVectorController::reportItems>(this);
+    m_model->getImpl<model::detail::Model_Impl>()->onChange.connect<OSVectorController, &OSVectorController::reportItems>(this);
   }
 
   reportItems();
@@ -1791,8 +1783,7 @@ void AvailabilityManagerObjectVectorController::detach() {
   }
 
   if (m_model) {
-    m_model->getImpl<model::detail::Model_Impl>()
-      ->onChange.disconnect<OSVectorController, &OSVectorController::reportItems>(this);
+    m_model->getImpl<model::detail::Model_Impl>()->onChange.disconnect<OSVectorController, &OSVectorController::reportItems>(this);
 
     m_model.reset();
   }

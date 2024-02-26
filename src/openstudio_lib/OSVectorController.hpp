@@ -85,8 +85,7 @@ class OSVectorController
 
   virtual void onMakeNewItem();
 
- private: 
-
+ private:
   bool m_reportScheduled;
 
   QMutex* m_reportItemsMutex;
@@ -94,7 +93,6 @@ class OSVectorController
  private slots:
 
   void reportItemsImpl();
-
 };
 
 }  // namespace openstudio

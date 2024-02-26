@@ -49,8 +49,8 @@
 namespace openstudio {
 
 ScheduleSetsView::ScheduleSetsView(const openstudio::model::Model& model, QWidget* parent)
-  : ModelSubTabView(new ModelObjectListView(IddObjectType::OS_DefaultScheduleSet, model, true, false, parent), new ScheduleSetInspectorView(model, parent),
-                    false, parent) {}
+  : ModelSubTabView(new ModelObjectListView(IddObjectType::OS_DefaultScheduleSet, model, true, false, parent),
+                    new ScheduleSetInspectorView(model, parent), false, parent) {}
 
 std::vector<std::pair<IddObjectType, std::string>> ScheduleSetsView::modelObjectTypesAndNames() {
   std::vector<std::pair<IddObjectType, std::string>> result;

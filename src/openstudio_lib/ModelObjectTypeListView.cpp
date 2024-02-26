@@ -42,7 +42,7 @@
 
 namespace openstudio {
 
-ModelObjectTypeListView::ModelObjectTypeListView(const model::Model& model, bool addScrollArea, OSItemType headerType, bool isLibrary, 
+ModelObjectTypeListView::ModelObjectTypeListView(const model::Model& model, bool addScrollArea, OSItemType headerType, bool isLibrary,
                                                  QWidget* parent)
   : OSCollapsibleItemList(addScrollArea, parent), m_model(model), m_headerType(headerType), m_isLibrary(isLibrary) {}
 

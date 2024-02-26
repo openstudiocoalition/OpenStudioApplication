@@ -60,7 +60,7 @@ ModelObjectListController::ModelObjectListController(const openstudio::IddObject
   : m_iddObjectType(iddObjectType), m_model(model), m_isLibrary(isLibrary), m_reportScheduled(false), m_reportItemsMutex(new QMutex()) {
 
   if (!m_isLibrary) {
-  
+
     // model.getImpl<model::detail::Model_Impl>().get()->addWorkspaceObjectPtr.connect<ModelObjectListController, &ModelObjectListController::objectAdded>(this);
     connect(OSAppBase::instance(), &OSAppBase::workspaceObjectAddedPtr, this, &ModelObjectListController::objectAdded, Qt::QueuedConnection);
 
@@ -109,7 +109,7 @@ void ModelObjectListController::reportItemsImpl() {
     m_reportScheduled = false;
     std::vector<OSItemId> ids = this->makeVector();
     emit itemIds(ids);
-  
+
     if (m_selectedHandle) {
       m_selectedHandle.reset();
       for (const OSItemId& id : ids) {
