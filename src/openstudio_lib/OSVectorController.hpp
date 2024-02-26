@@ -39,6 +39,8 @@
 #include <vector>
 #include <openstudio/nano/nano_signal_slot.hpp>  // Signal-Slot replacement
 
+class QMutex;
+
 namespace openstudio {
 
 class OSVectorController
@@ -52,7 +54,7 @@ class OSVectorController
   // for now, each controller must be parented by a widget
   OSVectorController();
 
-  virtual ~OSVectorController() {}
+  virtual ~OSVectorController();
 
  public slots:
 
@@ -82,6 +84,17 @@ class OSVectorController
   virtual void onDrop(const OSItemId& itemId);
 
   virtual void onMakeNewItem();
+
+ private: 
+
+  bool m_reportScheduled;
+
+  QMutex* m_reportItemsMutex;
+
+ private slots:
+
+  void reportItemsImpl();
+
 };
 
 }  // namespace openstudio

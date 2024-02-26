@@ -1603,11 +1603,9 @@ void HVACLayoutController::updateLater() {
 }
 
 SystemAvailabilityVectorController::SystemAvailabilityVectorController()
-  : ModelObjectVectorController(), m_reportScheduled(false), m_reportItemsMutex(new QMutex()) {}
+  : ModelObjectVectorController()  {}
 
-SystemAvailabilityVectorController::~SystemAvailabilityVectorController() {
-  delete m_reportItemsMutex;
-}
+SystemAvailabilityVectorController::~SystemAvailabilityVectorController() {}
 
 void SystemAvailabilityVectorController::attach(const model::ModelObject& modelObject) {
   detach();
@@ -1618,10 +1616,10 @@ void SystemAvailabilityVectorController::attach(const model::ModelObject& modelO
     m_model = m_modelObject->model();
 
     m_model->getImpl<model::detail::Model_Impl>()
-      ->onChange.connect<SystemAvailabilityVectorController, &SystemAvailabilityVectorController::reportItemsLater>(this);
+      ->onChange.connect<OSVectorController, &OSVectorController::reportItems>(this);
   }
 
-  reportItemsLater();
+  reportItems();
 }
 
 void SystemAvailabilityVectorController::detach() {
@@ -1631,32 +1629,12 @@ void SystemAvailabilityVectorController::detach() {
 
   if (m_model) {
     m_model->getImpl<model::detail::Model_Impl>()
-      ->onChange.disconnect<SystemAvailabilityVectorController, &SystemAvailabilityVectorController::reportItemsLater>(this);
+      ->onChange.disconnect<OSVectorController, &OSVectorController::reportItems>(this);
 
     m_model.reset();
   }
 
-  reportItemsLater();
-}
-
-void SystemAvailabilityVectorController::reportItemsLater() {
-  m_reportScheduled = true;
-
-  QTimer::singleShot(0, this, &SystemAvailabilityVectorController::reportItems);
-}
-
-void SystemAvailabilityVectorController::reportItems() {
-  if (!m_reportItemsMutex->tryLock()) {
-    return;
-  }
-
-  if (m_reportScheduled) {
-    m_reportScheduled = false;
-
-    ModelObjectVectorController::reportItems();
-  }
-
-  m_reportItemsMutex->unlock();
+  reportItems();
 }
 
 boost::optional<model::AirLoopHVAC> SystemAvailabilityVectorController::airLoopHVAC() {
@@ -1699,11 +1677,9 @@ void SystemAvailabilityVectorController::onReplaceItem(OSItem* /*currentItem*/, 
 }
 
 SupplyAirTempScheduleVectorController::SupplyAirTempScheduleVectorController()
-  : ModelObjectVectorController(), m_reportScheduled(false), m_reportItemsMutex(new QMutex()) {}
+  : ModelObjectVectorController() {}
 
-SupplyAirTempScheduleVectorController::~SupplyAirTempScheduleVectorController() {
-  delete m_reportItemsMutex;
-}
+SupplyAirTempScheduleVectorController::~SupplyAirTempScheduleVectorController() {}
 
 void SystemAvailabilityVectorController::onDropZoneItemClicked(OSItem* item) {
   OSAppBase::instance()->currentDocument()->mainRightColumnController()->inspectModelObjectByItem(item, false);
@@ -1718,10 +1694,10 @@ void SupplyAirTempScheduleVectorController::attach(const model::ModelObject& mod
     m_model = m_modelObject->model();
 
     m_model->getImpl<model::detail::Model_Impl>()
-      ->onChange.connect<SupplyAirTempScheduleVectorController, &SupplyAirTempScheduleVectorController::reportItemsLater>(this);
+      ->onChange.connect<OSVectorController, &OSVectorController::reportItems>(this);
   }
 
-  reportItemsLater();
+  reportItems();
 }
 
 void SupplyAirTempScheduleVectorController::detach() {
@@ -1731,32 +1707,10 @@ void SupplyAirTempScheduleVectorController::detach() {
 
   if (m_model) {
     m_model->getImpl<model::detail::Model_Impl>()
-      ->onChange.disconnect<SupplyAirTempScheduleVectorController, &SupplyAirTempScheduleVectorController::reportItemsLater>(this);
+      ->onChange.disconnect<OSVectorController, &OSVectorController::reportItems>(this);
 
     m_model.reset();
   }
-
-  reportItemsLater();
-}
-
-void SupplyAirTempScheduleVectorController::reportItemsLater() {
-  m_reportScheduled = true;
-
-  QTimer::singleShot(0, this, &SupplyAirTempScheduleVectorController::reportItems);
-}
-
-void SupplyAirTempScheduleVectorController::reportItems() {
-  if (!m_reportItemsMutex->tryLock()) {
-    return;
-  }
-
-  if (m_reportScheduled) {
-    m_reportScheduled = false;
-
-    ModelObjectVectorController::reportItems();
-  }
-
-  m_reportItemsMutex->unlock();
 }
 
 boost::optional<model::SetpointManagerScheduled> SupplyAirTempScheduleVectorController::setpointManagerScheduled() {
@@ -1812,11 +1766,9 @@ void SupplyAirTempScheduleVectorController::onDropZoneItemClicked(OSItem* item) 
 
 // CTOR
 AvailabilityManagerObjectVectorController::AvailabilityManagerObjectVectorController()
-  : ModelObjectVectorController(), m_reportScheduled(false), m_reportItemsMutex(new QMutex()) {}
+  : ModelObjectVectorController() {}
 
-AvailabilityManagerObjectVectorController::~AvailabilityManagerObjectVectorController() {
-  delete m_reportItemsMutex;
-}
+AvailabilityManagerObjectVectorController::~AvailabilityManagerObjectVectorController() {}
 
 void AvailabilityManagerObjectVectorController::attach(const model::ModelObject& modelObject) {
   detach();
@@ -1827,10 +1779,10 @@ void AvailabilityManagerObjectVectorController::attach(const model::ModelObject&
     m_model = m_modelObject->model();
 
     m_model->getImpl<model::detail::Model_Impl>()
-      ->onChange.connect<AvailabilityManagerObjectVectorController, &AvailabilityManagerObjectVectorController::reportItemsLater>(this);
+      ->onChange.connect<OSVectorController, &OSVectorController::reportItems>(this);
   }
 
-  reportItemsLater();
+  reportItems();
 }
 
 void AvailabilityManagerObjectVectorController::detach() {
@@ -1840,32 +1792,12 @@ void AvailabilityManagerObjectVectorController::detach() {
 
   if (m_model) {
     m_model->getImpl<model::detail::Model_Impl>()
-      ->onChange.disconnect<AvailabilityManagerObjectVectorController, &AvailabilityManagerObjectVectorController::reportItemsLater>(this);
+      ->onChange.disconnect<OSVectorController, &OSVectorController::reportItems>(this);
 
     m_model.reset();
   }
 
-  reportItemsLater();
-}
-
-void AvailabilityManagerObjectVectorController::reportItemsLater() {
-  m_reportScheduled = true;
-
-  QTimer::singleShot(0, this, &AvailabilityManagerObjectVectorController::reportItems);
-}
-
-void AvailabilityManagerObjectVectorController::reportItems() {
-  if (!m_reportItemsMutex->tryLock()) {
-    return;
-  }
-
-  if (m_reportScheduled) {
-    m_reportScheduled = false;
-
-    ModelObjectVectorController::reportItems();
-  }
-
-  m_reportItemsMutex->unlock();
+  reportItems();
 }
 
 // ACTUAL STUFF

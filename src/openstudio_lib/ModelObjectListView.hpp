@@ -37,6 +37,8 @@
 #include <openstudio/model/ModelObject.hpp>
 #include "../model_editor/QMetaTypes.hpp"
 
+class QMutex;
+
 namespace openstudio {
 
 class ModelObjectListController : public OSVectorController
@@ -44,9 +46,9 @@ class ModelObjectListController : public OSVectorController
   Q_OBJECT
 
  public:
-  ModelObjectListController(const openstudio::IddObjectType& iddObjectType, const model::Model& model, bool showLocalBCL = false);
+  ModelObjectListController(const openstudio::IddObjectType& iddObjectType, const model::Model& model, bool isLibrary);
 
-  virtual ~ModelObjectListController() {}
+  virtual ~ModelObjectListController();
 
   IddObjectType iddObjectType() const;
 
@@ -60,7 +62,12 @@ class ModelObjectListController : public OSVectorController
  private:
   openstudio::IddObjectType m_iddObjectType;
   model::Model m_model;
-  bool m_showLocalBCL;
+  bool m_isLibrary;
+  bool m_reportScheduled;
+  boost::optional<openstudio::UUID> m_selectedHandle;
+  QMutex* m_reportItemsMutex;
+
+  void reportItemsImpl();
 };
 
 class ModelObjectListView : public OSItemList
@@ -68,7 +75,7 @@ class ModelObjectListView : public OSItemList
   Q_OBJECT
 
  public:
-  ModelObjectListView(const openstudio::IddObjectType& iddObjectType, const model::Model& model, bool addScrollArea, bool showLocalBCL = false,
+  ModelObjectListView(const openstudio::IddObjectType& iddObjectType, const model::Model& model, bool addScrollArea, bool isLibrary,
                       QWidget* parent = nullptr);
 
   virtual ~ModelObjectListView() {}
