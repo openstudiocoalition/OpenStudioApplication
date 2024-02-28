@@ -111,13 +111,13 @@ void ModelObjectListController::reportItemsImpl() {
     emit itemIds(ids);
 
     if (m_selectedHandle) {
-      m_selectedHandle.reset();
       for (const OSItemId& id : ids) {
         if (id.itemId() == toQString(*m_selectedHandle)) {
           emit selectedItemId(id);
           break;
         }
       }
+      m_selectedHandle.reset();
     }
   }
 
