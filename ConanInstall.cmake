@@ -43,10 +43,10 @@ if(NOT CONAN_OPENSTUDIO_ALREADY_RUN)
 
   # see issue #689
   if(WIN32)
-    set(CONAN_GMP ""
+    set(CONAN_GMP "")
   else()
     conan_add_remote(NAME conancenter INDEX 1 URL https://center.conan.io)
-    set(CONAN_GMP "gmp/6.2.1#560eab30a8f52beae2cef5ff26cdd61c"
+    set(CONAN_GMP "gmp/6.2.1#560eab30a8f52beae2cef5ff26cdd61c")
   endif()
 
   # conan_add_remote(
