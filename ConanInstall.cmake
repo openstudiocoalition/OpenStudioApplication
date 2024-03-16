@@ -41,6 +41,13 @@ if(NOT CONAN_OPENSTUDIO_ALREADY_RUN)
   # TODO: temp, revert to stable soon
   set(CONAN_RUBY "openstudio_ruby/2.7.2@nrel/testing#d66e3b66568b13acf3b16d866bec68d0")
 
+  # TODO: temp, see issue #689 . gmp revision on NREL has sources to gmplib.org which banned GHA IP range, so pick a newer conan-center-index revision in the meantime that uses GCC's FTP.
+  if(WIN32)
+    set(CONAN_GMP "")
+  else()
+    set(CONAN_GMP "gmp/6.2.1#560eab30a8f52beae2cef5ff26cdd61c")
+  endif()
+
   # conan_add_remote(
   #   NAME bincrafters URL
   #   https://bincrafters.jfrog.io/artifactory/api/conan/public-conan)
@@ -152,6 +159,7 @@ if(NOT CONAN_OPENSTUDIO_ALREADY_RUN)
     REQUIRES
     ${CONAN_READLINE}
     ${CONAN_QT}
+    ${CONAN_GMP}
     ${CONAN_RUBY}
     ${CONAN_OPENSSL}
     "boost/1.79.0#f664bfe40e2245fa9baf1c742591d582"
