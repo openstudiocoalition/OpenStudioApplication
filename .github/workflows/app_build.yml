@@ -28,7 +28,7 @@ env:
   CPACK_SOURCE_TXZ: OFF
   CPACK_SOURCE_TZ: OFF
   CPACK_SOURCE_ZIP: OFF
-  QT_VERSION: 6.6.1
+  QT_VERSION: 6.6.2
   # CPACK_BINARY_DEB: OS-SPECIFIC
   # CPACK_BINARY_IFW: OS-SPECIFIC
 
@@ -402,7 +402,7 @@ jobs:
         cmake -E make_directory ./build
 
         if [ "$RUNNER_OS" == "macOS" ]; then
-          QT_INSTALL_DIR="/Users/irvinemac/Qt/6.6.1/macos/"
+          QT_INSTALL_DIR="/Users/irvinemac/Qt/6.6.2/macos/"
         fi
 
         echo "$QT_INSTALL_DIR/bin" >> $GITHUB_PATH
