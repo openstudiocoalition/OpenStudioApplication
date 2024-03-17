@@ -43,8 +43,10 @@ OSVectorController::~OSVectorController() {
 void OSVectorController::reportItems() {
   m_reportItemsMutex->lock();
 
-  m_reportScheduled = true;
-  QTimer::singleShot(0, this, &OSVectorController::reportItemsImpl);
+  if (!m_reportScheduled) {
+    m_reportScheduled = true;
+    QTimer::singleShot(0, this, &OSVectorController::reportItemsImpl);
+  }
 
   m_reportItemsMutex->unlock();
 }
