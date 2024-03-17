@@ -82,10 +82,9 @@ void ModelObjectListController::objectAdded(std::shared_ptr<openstudio::detail::
   if (iddObjectType == m_iddObjectType) {
     m_reportItemsMutex->lock();
 
-    
     m_selectedHandle = handle;
     if (!m_reportScheduled) {
-      m_reportScheduled = true;  
+      m_reportScheduled = true;
       QTimer::singleShot(0, this, &ModelObjectListController::reportItemsImpl);
     }
 
