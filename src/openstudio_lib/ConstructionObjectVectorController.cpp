@@ -43,51 +43,27 @@
 #include <openstudio/utilities/idd/IddEnums.hxx>
 
 #include <QMessageBox>
-#include <QTimer>
-#include <QMutex>
 
 namespace openstudio {
 
 // ConstructionObjectVectorController
 
 ConstructionObjectVectorController::ConstructionObjectVectorController(QWidget* parentWidget)
-  : ModelObjectVectorController(), m_reportScheduled(false), m_reportItemsMutex(new QMutex()), m_parentWidget(parentWidget) {}
+  : ModelObjectVectorController(), m_parentWidget(parentWidget) {}
 
-ConstructionObjectVectorController::~ConstructionObjectVectorController() {
-  delete m_reportItemsMutex;
-}
-
-void ConstructionObjectVectorController::reportItemsLater() {
-  m_reportScheduled = true;
-
-  QTimer::singleShot(0, this, &ConstructionObjectVectorController::reportItems);
-}
-
-void ConstructionObjectVectorController::reportItems() {
-  if (!m_reportItemsMutex->tryLock()) {
-    return;
-  }
-
-  if (m_reportScheduled) {
-    m_reportScheduled = false;
-
-    ModelObjectVectorController::reportItems();
-  }
-
-  m_reportItemsMutex->unlock();
-}
+ConstructionObjectVectorController::~ConstructionObjectVectorController() {}
 
 void ConstructionObjectVectorController::onChangeRelationship(const model::ModelObject& /*modelObject*/, int /*index*/, Handle /*newHandle*/,
                                                               Handle /*oldHandle*/) {
-  reportItemsLater();
+  reportItems();
 }
 
 void ConstructionObjectVectorController::onDataChange(const model::ModelObject& /*modelObject*/) {
-  reportItemsLater();
+  reportItems();
 }
 
 void ConstructionObjectVectorController::onChange(const model::ModelObject& /*modelObject*/) {
-  reportItemsLater();
+  reportItems();
 }
 
 std::vector<OSItemId> ConstructionObjectVectorController::makeVector() {

@@ -29,12 +29,37 @@
 
 #include "OSVectorController.hpp"
 
+#include <QMutex>
+#include <QTimer>
+
 namespace openstudio {
 
-OSVectorController::OSVectorController() : QObject() {}
+OSVectorController::OSVectorController() : QObject(), m_reportScheduled(false), m_reportItemsMutex(new QMutex()) {}
+
+OSVectorController::~OSVectorController() {
+  delete m_reportItemsMutex;
+}
 
 void OSVectorController::reportItems() {
-  emit itemIds(this->makeVector());
+  m_reportItemsMutex->lock();
+
+  if (!m_reportScheduled) {
+    m_reportScheduled = true;
+    QTimer::singleShot(0, this, &OSVectorController::reportItemsImpl);
+  }
+
+  m_reportItemsMutex->unlock();
+}
+
+void OSVectorController::reportItemsImpl() {
+  m_reportItemsMutex->lock();
+
+  if (m_reportScheduled) {
+    m_reportScheduled = false;
+    emit itemIds(this->makeVector());
+  }
+
+  m_reportItemsMutex->unlock();
 }
 
 void OSVectorController::removeItem(OSItem* item) {

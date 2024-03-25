@@ -48,10 +48,10 @@ class ModelObjectTypeListView : public OSCollapsibleItemList
   Q_OBJECT
 
  public:
-  ModelObjectTypeListView(const model::Model& model, bool addScrollArea, OSItemType headerType, bool showLocalBCL = false, QWidget* parent = nullptr);
+  ModelObjectTypeListView(const model::Model& model, bool addScrollArea, OSItemType headerType, bool isLibrary, QWidget* parent = nullptr);
 
   ModelObjectTypeListView(const std::vector<std::pair<IddObjectType, std::string>>& modelObjectTypesAndNames, const model::Model& model,
-                          bool addScrollArea, OSItemType headerType, bool showLocalBCL = false, QWidget* parent = nullptr);
+                          bool addScrollArea, OSItemType headerType, bool isLibrary, QWidget* parent = nullptr);
 
   virtual ~ModelObjectTypeListView() {}
 
@@ -66,7 +66,7 @@ class ModelObjectTypeListView : public OSCollapsibleItemList
 
   model::Model m_model;
   OSItemType m_headerType;
-  bool m_showLocalBCL;
+  bool m_isLibrary;
 };
 
 }  // namespace openstudio
