@@ -544,7 +544,7 @@ void Component::createCompleteLayout() {
     return tableWidget;
   };
 
-  auto addRowToTableWiget = [](QTableWidget* tableWidget, const QString& header, const QString& value) {
+  auto addRowToTableWidget = [](QTableWidget* tableWidget, const QString& header, const QString& value) {
     tableWidget->insertRow(tableWidget->rowCount());
 
     auto* item = new QTableWidgetItem(header);
@@ -601,7 +601,7 @@ void Component::createCompleteLayout() {
         display += temp.c_str();
       }
 
-      addRowToTableWiget(tableWidget, attribute.name().c_str(), display);
+      addRowToTableWidget(tableWidget, attribute.name().c_str(), display);
     }
 
     makeTableShowCompletely(tableWidget);
@@ -633,7 +633,7 @@ void Component::createCompleteLayout() {
         type += " (" + units.get() + ")";
       }
 
-      addRowToTableWiget(tableWidget, name.c_str(), type.c_str());
+      addRowToTableWidget(tableWidget, name.c_str(), type.c_str());
     }
 
     makeTableShowCompletely(tableWidget);
@@ -731,10 +731,10 @@ void Component::createCompleteLayout() {
     mainLayout->addWidget(label);
 
     auto* tableWidget = createAndRegisterTableWidgetWithTwoColums();
-    addRowToTableWiget(tableWidget, "UID", m_uid);
-    addRowToTableWiget(tableWidget, "Version ID", m_versionId);
+    addRowToTableWidget(tableWidget, "UID", m_uid);
+    addRowToTableWidget(tableWidget, "Version ID", m_versionId);
     if (!m_versionModified.isEmpty()) {
-      addRowToTableWiget(tableWidget, "Version Modified", m_versionModified);
+      addRowToTableWidget(tableWidget, "Version Modified", m_versionModified);
     }
     makeTableShowCompletely(tableWidget);
   }
