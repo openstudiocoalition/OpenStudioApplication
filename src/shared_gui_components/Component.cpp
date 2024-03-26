@@ -507,8 +507,9 @@ void Component::createCompleteLayout() {
     }
     {
       auto* content = new QLabel(m_description);
-      mainLayout->addWidget(content);
       content->setWordWrap(true);
+      content->setOpenExternalLinks(true);
+      mainLayout->addWidget(content);
     }
   }
 
@@ -520,8 +521,9 @@ void Component::createCompleteLayout() {
     }
     {
       auto* content = new QLabel(m_modelerDescription);
-      mainLayout->addWidget(content);
       content->setWordWrap(true);
+      content->setOpenExternalLinks(true);
+      mainLayout->addWidget(content);
     }
   }
 
