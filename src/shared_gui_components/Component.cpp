@@ -686,29 +686,25 @@ void Component::createCompleteLayout() {
     auto* label = new QLabel("Sources");
     label->setObjectName("H1");
     mainLayout->addWidget(label);
-    for (const BCLProvenance& provenance : m_provenances) {
-      QString display = "Author: ";
-      display += provenance.author().c_str();
-      label = new QLabel(display);
-      mainLayout->addWidget(label);
-
-      display = "Comment: ";
-      display += provenance.comment().c_str();
-      label = new QLabel(display);
-      mainLayout->addWidget(label);
-
-      display = "Date & time: ";
-      display += provenance.datetime().c_str();
-      label = new QLabel(display);
-      mainLayout->addWidget(label);
-
-      label = new QLabel();
-      mainLayout->addWidget(label);
-    }
-
     if (m_provenances.empty()) {
       label = new QLabel();
       mainLayout->addWidget(label);
+    } else {
+      auto* tableWidget = createAndRegisterTableWidgetWithTwoColums();
+      for (const BCLProvenance& provenance : m_provenances) {
+        if (!provenance.author().empty()) {
+          addRowToTableWidget(tableWidget, "Author", provenance.author().c_str());
+        }
+        if (!provenance.comment().empty()) {
+          addRowToTableWidget(tableWidget, "Comment", provenance.comment().c_str());
+        }
+        if (!provenance.datetime().empty()) {
+          addRowToTableWidget(tableWidget, "Date & time", provenance.datetime().c_str());
+        }
+        // TODO: add a separator?
+        // addRowToTableWidget(tableWidget, "", "");
+      }
+      makeTableShowCompletely(tableWidget);
     }
   }
 
