@@ -39,6 +39,7 @@
 #include <openstudio/utilities/core/Compare.hpp>
 #include <openstudio/utilities/units/Quantity.hpp>
 #include <openstudio/utilities/units/Unit.hpp>
+#include <openstudio/utilities/time/DateTime.hpp>
 
 #include <openstudio/OpenStudio.hxx>
 
@@ -49,6 +50,7 @@
 #include <QPainter>
 #include <QTableWidget>
 #include <QTableWidgetItem>
+#include <QDateTime>
 
 #define OPENSTUDIO_TYPE "OpenStudio Type"
 
@@ -208,10 +210,13 @@ Component::Component(bool showAbridgedView, bool showCheckBox, QWidget* parent)
 Component::Component(const Component& other) {
   ///! no self-assignment
   if (this != &other) {
+    m_componentType = other.m_componentType;
     m_name = other.m_name;
     m_uid = other.m_uid;
     m_versionId = other.m_versionId;
     m_description = other.m_description;
+    m_modelerDescription = other.m_modelerDescription;
+    m_versionModified = other.m_versionModified;
     m_fidelityLevel = other.m_fidelityLevel;
     m_error = other.m_error;
     m_attributes = other.m_attributes;
@@ -220,10 +225,12 @@ Component::Component(const Component& other) {
     m_fileReferences = other.m_fileReferences;
     m_provenances = other.m_provenances;
     m_tags = other.m_tags;
+    m_available = other.m_available;
+    m_updateAvailable = other.m_updateAvailable;
 
-    // TODO: why were we assigning to other.xxx then overriding with false?
-    // m_showAbridgedView = other.m_showAbridgedView;
-    // m_showCheckBox = other.m_showCheckBox;
+    m_org = other.m_org;
+    m_repo = other.m_repo;
+    m_releaseTag = other.m_releaseTag;
 
     m_showAbridgedView = false;
     m_showCheckBox = false;
@@ -241,10 +248,13 @@ Component::Component(const Component& other) {
 Component& Component::operator=(const Component& other) {
   ///! no self-assignment
   if (this != &other) {
+    m_componentType = other.m_componentType;
     m_name = other.m_name;
     m_uid = other.m_uid;
     m_versionId = other.m_versionId;
     m_description = other.m_description;
+    m_modelerDescription = other.m_modelerDescription;
+    m_versionModified = other.m_versionModified;
     m_fidelityLevel = other.m_fidelityLevel;
     m_error = other.m_error;
     m_attributes = other.m_attributes;
@@ -253,10 +263,12 @@ Component& Component::operator=(const Component& other) {
     m_fileReferences = other.m_fileReferences;
     m_provenances = other.m_provenances;
     m_tags = other.m_tags;
+    m_available = other.m_available;
+    m_updateAvailable = other.m_updateAvailable;
 
-    // TODO: why were we assigning to other.xxx then overriding with false?
-    // m_showAbridgedView = other.m_showAbridgedView;
-    // m_showCheckBox = other.m_showCheckBox;
+    m_org = other.m_org;
+    m_repo = other.m_repo;
+    m_releaseTag = other.m_releaseTag;
 
     m_showAbridgedView = false;
     m_showCheckBox = false;
@@ -330,6 +342,16 @@ void Component::parseBCLMeasure(const BCLMeasure& bclMeasure) {
   m_uid = bclMeasure.uid().c_str();
   m_versionId = bclMeasure.versionId().c_str();
   m_description = bclMeasure.description().c_str();
+  m_description = m_description.trimmed();
+  m_modelerDescription = bclMeasure.modelerDescription().c_str();
+  m_modelerDescription = m_modelerDescription.trimmed();  // alternative: .simplified, removes consecutive whitespaces inside the string as well
+
+  if (auto dt_ = bclMeasure.versionModified()) {
+    // m_versionModified = dt_->toXsdDateTime().c_str();
+    QDateTime qDT;
+    qDT.setSecsSinceEpoch(static_cast<qint64>(dt_->toEpoch()));
+    m_versionModified = qDT.toString("dddd MMMM d yyyy HH:mm:ss");
+  }
 
   m_error = bclMeasure.error();
   m_attributes = bclMeasure.attributes();
@@ -365,7 +387,20 @@ void Component::parseBCLSearchResult(const BCLSearchResult& bclSearchResult) {
   m_uid = bclSearchResult.uid().c_str();
   m_versionId = bclSearchResult.versionId().c_str();
   m_description = bclSearchResult.description().c_str();
+  m_description = m_description.trimmed();
+  m_modelerDescription = bclSearchResult.modelerDescription().c_str();
+  m_modelerDescription = m_modelerDescription.trimmed();
   m_fidelityLevel = bclSearchResult.fidelityLevel().c_str();
+
+  if (auto dt_ = bclSearchResult.versionModified()) {
+    // m_versionModified = dt_->toXsdDateTime().c_str();
+    QDateTime qDT;
+    qDT.setSecsSinceEpoch(static_cast<qint64>(dt_->toEpoch()));
+    m_versionModified = qDT.toString("dddd MMMM d yyyy HH:mm:ss");
+  }
+  m_org = bclSearchResult.org().c_str();
+  m_repo = bclSearchResult.repo().c_str();
+  m_releaseTag = bclSearchResult.releaseTag().c_str();
 
   // m_error
   m_attributes = bclSearchResult.attributes();
@@ -464,109 +499,56 @@ void Component::createAbridgedLayout() {
 }
 
 void Component::createCompleteLayout() {
-  QLabel* label = nullptr;
-
-  QString string;
 
   auto* mainLayout = new QVBoxLayout();
 
-  QTableWidget* tableWidget = nullptr;
-
   ///! Error
   if (m_error) {
-    label = new QLabel("Errors");
+    auto* label = new QLabel("Errors");
     label->setObjectName("H1");
     mainLayout->addWidget(label);
 
     label = new QLabel(m_error->c_str());
     mainLayout->addWidget(label);
 
+    // TODO: why this empty label?
     label = new QLabel();
     mainLayout->addWidget(label);
   }
 
-  ///! Attributes
-  ///! Class BCL only stores double (optional units),
-  ///! int (optional units), and string, with their names.
-  //if (!m_attributes.empty()){
-  label = new QLabel("Attributes");
-  label->setObjectName("H1");
-  mainLayout->addWidget(label);
-
-  tableWidget = new QTableWidget(0, 2, this);
-  // really don't want the user to select or give focus to any table cells
-  tableWidget->setEditTriggers(QAbstractItemView::NoEditTriggers);
-  tableWidget->setSelectionMode(QAbstractItemView::NoSelection);
-  tableWidget->setAlternatingRowColors(true);
-  tableWidget->verticalHeader()->hide();
-  tableWidget->horizontalHeader()->hide();
-  tableWidget->setVerticalScrollBarPolicy(Qt::ScrollBarAlwaysOff);
-  tableWidget->setHorizontalScrollBarPolicy(Qt::ScrollBarAlwaysOff);
-  tableWidget->setSizePolicy(QSizePolicy::Preferred, QSizePolicy::Fixed);
-  tableWidget->horizontalHeader()->setSectionResizeMode(QHeaderView::ResizeToContents);
-  tableWidget->horizontalHeader()->setStretchLastSection(true);
-
-  mainLayout->addWidget(tableWidget);
-
-  for (const Attribute& attribute : m_attributes) {
-    tableWidget->insertRow(tableWidget->rowCount());
-
-    auto* item = new QTableWidgetItem(attribute.name().c_str());
-    tableWidget->setItem(tableWidget->rowCount() - 1, 0, item);
-
-    boost::optional<std::string> optionalUnits = attribute.units();
-
-    openstudio::AttributeValueType type = attribute.valueType();
-
-    if (type == AttributeValueType::Boolean) {
-      bool success = attribute.valueAsBoolean();
-      if (success) {
-        string = "true";
-      } else {
-        string = "false";
-      }
-    } else if (type == AttributeValueType::Double) {
-      string = string.setNum(attribute.valueAsDouble());
-    } else if (type == AttributeValueType::Integer) {
-      string = string.setNum(attribute.valueAsInteger());
-    } else if (type == AttributeValueType::Unsigned) {
-      string = string.setNum(attribute.valueAsUnsigned());
-    } else if (type == AttributeValueType::String) {
-      string = attribute.valueAsString().c_str();
-    } else if (type == AttributeValueType::AttributeVector) {
-      AttributeVector attributeVector = attribute.valueAsAttributeVector();
-      // TODO handle this case
-    } else {
-      // should never get here
+  // Description
+  if (!m_description.isEmpty()) {
+    {
+      auto* label = new QLabel("Description");
+      label->setObjectName("H1");
+      mainLayout->addWidget(label);
     }
-    if (optionalUnits) {
-      string += " ";
-      std::string temp = optionalUnits.get();
-      string += temp.c_str();
+    {
+      auto* content = new QLabel(m_description);
+      content->setWordWrap(true);
+      content->setOpenExternalLinks(true);
+      mainLayout->addWidget(content);
     }
-    item = new QTableWidgetItem(string);
-    tableWidget->setItem(tableWidget->rowCount() - 1, 1, item);
   }
 
-  // make the table show completely
-  int rowHeight = tableWidget->rowHeight(0);
-  int rowCount = tableWidget->rowCount();
-  int tableHeight = rowHeight * rowCount;
-  tableWidget->setFixedHeight(tableHeight);
+  if (!m_modelerDescription.isEmpty()) {
+    {
+      auto* label = new QLabel("Modeler Description");
+      label->setObjectName("H1");
+      mainLayout->addWidget(label);
+    }
+    {
+      auto* content = new QLabel(m_modelerDescription);
+      content->setWordWrap(true);
+      content->setOpenExternalLinks(true);
+      mainLayout->addWidget(content);
+    }
+  }
 
-  label = new QLabel();
-  mainLayout->addWidget(label);
-  //}
+  // Lambda Helpers for tables
 
-  /////! Arguments
-  if (m_componentType != "component") {
-    //if (!m_arguments.empty()){
-
-    label = new QLabel("Arguments");
-    label->setObjectName("H1");
-    mainLayout->addWidget(label);
-
-    tableWidget = new QTableWidget(0, 2, this);
+  auto createAndRegisterTableWidgetWithTwoColums = [this, &mainLayout]() -> QTableWidget* {
+    auto* tableWidget = new QTableWidget(0, 2, this);
     // really don't want the user to select or give focus to any table cells
     tableWidget->setEditTriggers(QAbstractItemView::NoEditTriggers);
     tableWidget->setSelectionMode(QAbstractItemView::NoSelection);
@@ -578,19 +560,92 @@ void Component::createCompleteLayout() {
     tableWidget->setSizePolicy(QSizePolicy::Preferred, QSizePolicy::Fixed);
     tableWidget->horizontalHeader()->setSectionResizeMode(QHeaderView::ResizeToContents);
     tableWidget->horizontalHeader()->setStretchLastSection(true);
-
     mainLayout->addWidget(tableWidget);
+    return tableWidget;
+  };
+
+  auto addRowToTableWidget = [](QTableWidget* tableWidget, const QString& header, const QString& value) {
+    tableWidget->insertRow(tableWidget->rowCount());
+
+    auto* item = new QTableWidgetItem(header);
+    tableWidget->setItem(tableWidget->rowCount() - 1, 0, item);
+
+    item = new QTableWidgetItem(value);
+    tableWidget->setItem(tableWidget->rowCount() - 1, 1, item);
+  };
+
+  auto makeTableShowCompletely = [](QTableWidget* tableWidget) {
+    // make the table show completely
+    const int rowHeight = tableWidget->rowHeight(0);
+    const int rowCount = tableWidget->rowCount();
+    const int tableHeight = rowHeight * rowCount;
+    tableWidget->setFixedHeight(tableHeight);
+  };
+
+  //if (!m_attributes.empty()){
+  {
+    ///! Attributes
+    ///! Class BCL only stores double (optional units),
+    ///! int (optional units), and string, with their names.
+    auto* label = new QLabel("Attributes");
+    label->setObjectName("H1");
+    mainLayout->addWidget(label);
+
+    auto* tableWidget = createAndRegisterTableWidgetWithTwoColums();
+    for (const Attribute& attribute : m_attributes) {
+
+      boost::optional<std::string> optionalUnits = attribute.units();
+
+      const openstudio::AttributeValueType type = attribute.valueType();
+
+      QString display;
+      if (type == AttributeValueType::Boolean) {
+        display = attribute.valueAsBoolean() ? "true" : "false";
+      } else if (type == AttributeValueType::Double) {
+        display.setNum(attribute.valueAsDouble());
+      } else if (type == AttributeValueType::Integer) {
+        display.setNum(attribute.valueAsInteger());
+      } else if (type == AttributeValueType::Unsigned) {
+        display.setNum(attribute.valueAsUnsigned());
+      } else if (type == AttributeValueType::String) {
+        display = attribute.valueAsString().c_str();
+      } else if (type == AttributeValueType::AttributeVector) {
+        AttributeVector attributeVector = attribute.valueAsAttributeVector();
+        // TODO handle this case
+      } else {
+        // should never get here
+      }
+      if (optionalUnits) {
+        display += " ";
+        const std::string temp = optionalUnits.get();
+        display += temp.c_str();
+      }
+
+      addRowToTableWidget(tableWidget, attribute.name().c_str(), display);
+    }
+
+    makeTableShowCompletely(tableWidget);
+
+    label = new QLabel();
+    mainLayout->addWidget(label);
+  }
+
+  /////! Arguments
+  if (m_componentType != "component") {
+    //if (!m_arguments.empty()){
+
+    auto* label = new QLabel("Arguments");
+    label->setObjectName("H1");
+    mainLayout->addWidget(label);
+
+    auto* tableWidget = createAndRegisterTableWidgetWithTwoColums();
 
     for (const BCLMeasureArgument& argument : m_arguments) {
-      tableWidget->insertRow(tableWidget->rowCount());
 
       std::string name = argument.displayName();
       if (name.empty()) {
         name = argument.name();
       }
-
-      auto* item = new QTableWidgetItem(name.c_str());
-      tableWidget->setItem(tableWidget->rowCount() - 1, 0, item);
 
       std::string type = argument.type();
       boost::optional<std::string> units = argument.units();
@@ -598,15 +653,10 @@ void Component::createCompleteLayout() {
         type += " (" + units.get() + ")";
       }
 
-      item = new QTableWidgetItem(type.c_str());
-      tableWidget->setItem(tableWidget->rowCount() - 1, 1, item);
+      addRowToTableWidget(tableWidget, name.c_str(), type.c_str());
     }
 
-    // make the table show completely
-    rowHeight = tableWidget->rowHeight(0);
-    rowCount = tableWidget->rowCount();
-    tableHeight = rowHeight * rowCount;
-    tableWidget->setFixedHeight(tableHeight);
+    makeTableShowCompletely(tableWidget);
 
     label = new QLabel();
     mainLayout->addWidget(label);
@@ -614,7 +664,7 @@ void Component::createCompleteLayout() {
 
   /////! Files
   if (!m_files.empty()) {
-    label = new QLabel("Files");
+    auto* label = new QLabel("Files");
     label->setObjectName("H1");
     mainLayout->addWidget(label);
     for (const BCLFile& file : m_files) {
@@ -650,48 +700,87 @@ void Component::createCompleteLayout() {
 
   ///! Provenances
   //if (!m_provenances.empty()){
-  label = new QLabel("Sources");
-  label->setObjectName("H1");
-  mainLayout->addWidget(label);
-  for (const BCLProvenance& provenance : m_provenances) {
-    string = "Author: ";
-    string += provenance.author().c_str();
-    label = new QLabel(string);
+  {
+    auto* label = new QLabel("Sources");
+    label->setObjectName("H1");
     mainLayout->addWidget(label);
+    if (m_provenances.empty() && m_org.isEmpty() && m_repo.isEmpty()) {
+      label = new QLabel();
+      mainLayout->addWidget(label);
 
-    string = "Comment: ";
-    string += provenance.comment().c_str();
-    label = new QLabel(string);
-    mainLayout->addWidget(label);
+    } else {
+      auto* tableWidget = createAndRegisterTableWidgetWithTwoColums();
+      if (!m_org.isEmpty()) {
+        addRowToTableWidget(tableWidget, "Organization", m_org);
+      }
+      if (!m_repo.isEmpty()) {
+        addRowToTableWidget(tableWidget, "Repository", m_repo);
+      }
+      if (!m_releaseTag.isEmpty()) {
+        addRowToTableWidget(tableWidget, "Release Tag", m_releaseTag);
+      }
 
-    string = "Date & time: ";
-    string += provenance.datetime().c_str();
-    label = new QLabel(string);
-    mainLayout->addWidget(label);
+      for (const BCLProvenance& provenance : m_provenances) {
+        if (!provenance.author().empty()) {
+          addRowToTableWidget(tableWidget, "Author", provenance.author().c_str());
+        }
+        if (!provenance.comment().empty()) {
+          addRowToTableWidget(tableWidget, "Comment", provenance.comment().c_str());
+        }
+        if (!provenance.datetime().empty()) {
+          addRowToTableWidget(tableWidget, "Date & time", provenance.datetime().c_str());
+        }
+        // TODO: add a separator?
+        // addRowToTableWidget(tableWidget, "", "");
+      }
+      makeTableShowCompletely(tableWidget);
 
-    label = new QLabel();
-    mainLayout->addWidget(label);
+      if (!m_org.isEmpty() && !m_repo.isEmpty()) {
+        const QString repo_url = QString("https://github.com/%1/%2").arg(m_org).arg(m_repo);
+        const QString link = QString("<a href=\"%1\">%1</a>").arg(repo_url);
+        auto* content = new QLabel(link);
+        content->setOpenExternalLinks(true);
+        mainLayout->addWidget(content);
+
+        if (!m_releaseTag.isEmpty()) {
+          const QString direct_url = QString("%1/tree/%2/lib/measures").arg(repo_url).arg(m_releaseTag);
+          const QString direct_link = QString("<a href=\"%1\">%1</a>").arg(direct_url);
+          auto* contentDirect = new QLabel(direct_link);
+          contentDirect->setOpenExternalLinks(true);
+          mainLayout->addWidget(contentDirect);
+        }
+      }
+    }
   }
-
-  if (m_provenances.empty()) {
-    label = new QLabel();
-    mainLayout->addWidget(label);
-  }
-  //}
 
   ///! Tags
-  //if (!m_tags.empty()){
-  label = new QLabel("Tags");
-  label->setObjectName("H1");
-  mainLayout->addWidget(label);
-  for (const std::string& tag : m_tags) {
-    label = new QLabel(tag.c_str());
+  //if (!m_tags.empty())
+  {
+    auto* label = new QLabel("Tags");
+    label->setObjectName("H1");
+    mainLayout->addWidget(label);
+    for (const std::string& tag : m_tags) {
+      label = new QLabel(tag.c_str());
+      mainLayout->addWidget(label);
+
+      label = new QLabel();
+      mainLayout->addWidget(label);
+    }
+  }
+
+  {
+    auto* label = new QLabel("Version");
+    label->setObjectName("H1");
     mainLayout->addWidget(label);
 
-    label = new QLabel();
-    mainLayout->addWidget(label);
+    auto* tableWidget = createAndRegisterTableWidgetWithTwoColums();
+    addRowToTableWidget(tableWidget, "UID", m_uid);
+    addRowToTableWidget(tableWidget, "Version ID", m_versionId);
+    if (!m_versionModified.isEmpty()) {
+      addRowToTableWidget(tableWidget, "Version Modified", m_versionModified);
+    }
+    makeTableShowCompletely(tableWidget);
   }
-  //}
 
   setLayout(mainLayout);
 }

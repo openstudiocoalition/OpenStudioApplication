@@ -78,7 +78,12 @@ class Component : public QAbstractButton
   QString m_uid;
   QString m_versionId;
   QString m_description;
+  QString m_modelerDescription;
+  QString m_versionModified;
   QString m_fidelityLevel;
+  QString m_org;
+  QString m_repo;
+  QString m_releaseTag;
   boost::optional<std::string> m_error;
   std::vector<Attribute> m_attributes;
   std::vector<BCLMeasureArgument> m_arguments;
