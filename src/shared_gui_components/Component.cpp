@@ -209,6 +209,7 @@ Component::Component(bool showAbridgedView, bool showCheckBox, QWidget* parent)
 Component::Component(const Component& other) {
   ///! no self-assignment
   if (this != &other) {
+    m_componentType = other.m_componentType;
     m_name = other.m_name;
     m_uid = other.m_uid;
     m_versionId = other.m_versionId;
@@ -223,10 +224,8 @@ Component::Component(const Component& other) {
     m_fileReferences = other.m_fileReferences;
     m_provenances = other.m_provenances;
     m_tags = other.m_tags;
-
-    // TODO: why were we assigning to other.xxx then overriding with false?
-    // m_showAbridgedView = other.m_showAbridgedView;
-    // m_showCheckBox = other.m_showCheckBox;
+    m_available = other.m_available;
+    m_updateAvailable = other.m_updateAvailable;
 
     m_showAbridgedView = false;
     m_showCheckBox = false;
@@ -244,6 +243,7 @@ Component::Component(const Component& other) {
 Component& Component::operator=(const Component& other) {
   ///! no self-assignment
   if (this != &other) {
+    m_componentType = other.m_componentType;
     m_name = other.m_name;
     m_uid = other.m_uid;
     m_versionId = other.m_versionId;
@@ -258,10 +258,8 @@ Component& Component::operator=(const Component& other) {
     m_fileReferences = other.m_fileReferences;
     m_provenances = other.m_provenances;
     m_tags = other.m_tags;
-
-    // TODO: why were we assigning to other.xxx then overriding with false?
-    // m_showAbridgedView = other.m_showAbridgedView;
-    // m_showCheckBox = other.m_showCheckBox;
+    m_available = other.m_available;
+    m_updateAvailable = other.m_updateAvailable;
 
     m_showAbridgedView = false;
     m_showCheckBox = false;
