@@ -749,10 +749,10 @@ install(DIRECTORY "${openstudio_ROOT_DIR}/Python" DESTINATION "." COMPONENT "Pyt
 # TODO: at 3.5.0, the lib/ directory on UNIX (only UNIX) contains the libopenstudiolib.so, but also the librubyengine.so, libpythonengine.so
 # install(DIRECTORY "${openstudio_ROOT_DIR}/lib" DESTINATION "." COMPONENT "OpenStudioApp" USE_SOURCE_PERMISSIONS)
 
-if(NOT APPLE)
-  # On Mac, in openstudio_app/CMakeLists.txt we've already copied the CLI to the OpenStudio.app/Contents/MacOS
-  install(IMPORTED_RUNTIME_ARTIFACTS openstudio::openstudio DESTINATION bin COMPONENT "CLI")
-endif()
+# On Mac, in openstudio_app/CMakeLists.txt we've already copied the CLI to the OpenStudio.app/Contents/MacOS
+# However, it is still needed in the bin directory so it can be found relative to the files in lib, this occurs
+# when a measure tries to use getOpenStudioCLI, see #695
+install(IMPORTED_RUNTIME_ARTIFACTS openstudio::openstudio DESTINATION bin COMPONENT "CLI")
 install(IMPORTED_RUNTIME_ARTIFACTS openstudio::openstudiolib DESTINATION ${LIB_DESTINATION_DIR} COMPONENT "CLI")
 install(IMPORTED_RUNTIME_ARTIFACTS openstudio::rubyengine DESTINATION ${LIB_DESTINATION_DIR} COMPONENT "CLI")
 install(IMPORTED_RUNTIME_ARTIFACTS openstudio::pythonengine DESTINATION ${LIB_DESTINATION_DIR} COMPONENT "CLI")
