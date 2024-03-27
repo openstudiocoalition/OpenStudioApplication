@@ -287,10 +287,12 @@ void BuildingComponentDialogCentralWidget::comboBoxIndexChanged(const QString& t
 void BuildingComponentDialogCentralWidget::componentDownloadComplete(const std::string& uid, const boost::optional<BCLComponent>& component) {
   if (component) {
     // good
-    // remove old component
-    boost::optional<BCLComponent> oldComponent = OSAppBase::instance()->currentDocument()->getLocalComponent(component->uid());
-    if (oldComponent && oldComponent->versionId() != component->versionId()) {
-      LocalBCL::instance().removeComponent(*oldComponent);
+
+    // remove old components
+    for (auto& oldComponent : OSAppBase::instance()->currentDocument()->getLocalComponents()) {
+      if ((oldComponent.uid() == component->uid()) && (oldComponent.versionId() != component->versionId())) {
+        LocalBCL::instance().removeComponent(oldComponent);
+      }
     }
   } else {
     // error downloading component
@@ -306,11 +308,13 @@ void BuildingComponentDialogCentralWidget::measureDownloadComplete(const std::st
   if (measure) {
     // good
 
-    // remove old measure
-    boost::optional<BCLMeasure> oldMeasure = OSAppBase::instance()->currentDocument()->getLocalMeasure(measure->uid());
-    if (oldMeasure && oldMeasure->versionId() != measure->versionId()) {
-      LocalBCL::instance().removeMeasure(*oldMeasure);
+    // remove old measures
+    for (auto& oldMeasure : OSAppBase::instance()->currentDocument()->getLocalMeasures()) {
+      if ((oldMeasure.uid() == measure->uid()) && (oldMeasure.versionId() != measure->versionId())) {
+        LocalBCL::instance().removeMeasure(oldMeasure);
+      }
     }
+
   } else {
     // error downloading measure
     downloadFailed(uid);

@@ -1173,6 +1173,8 @@
     <file alias="images/checked_checkbox_green@2x.png">../shared_gui_components/images/checked_checkbox_green@2x.png</file>
     <file alias="images/checked_checkbox_locked.png">../shared_gui_components/images/checked_checkbox_locked.png</file>
     <file alias="images/checked_checkbox_locked@2x.png">../shared_gui_components/images/checked_checkbox_locked@2x.png</file>
+    <file alias="images/checked_checkbox_update_available.png">../shared_gui_components/images/checked_checkbox_update_available.png</file>
+    <file alias="images/checked_checkbox_update_available@2x.png">../shared_gui_components/images/checked_checkbox_update_available@2x.png</file>
     <file alias="images/delete_softer.png">../shared_gui_components/images/delete_softer.png</file>
     <file alias="images/delete_softer@2x.png">../shared_gui_components/images/delete_softer@2x.png</file>
     <file alias="images/delete_softer_over.png">../shared_gui_components/images/delete_softer_over.png</file>
@@ -1231,6 +1233,10 @@
     <file alias="images/openstudio_measure_icon_Ruby@2x.png">../shared_gui_components/images/openstudio_measure_icon_Ruby@2x.png</file>
     <file alias="images/partially_checked_checkbox.png">../shared_gui_components/images/partially_checked_checkbox.png</file>
     <file alias="images/partially_checked_checkbox@2x.png">../shared_gui_components/images/partially_checked_checkbox@2x.png</file>
+    <file alias="images/partially_checked_checkbox_locked.png">../shared_gui_components/images/partially_checked_checkbox_locked.png</file>
+    <file alias="images/partially_checked_checkbox_locked@2x.png">../shared_gui_components/images/partially_checked_checkbox_locked@2x.png</file>
+    <file alias="images/partially_checked_checkbox_update_available.png">../shared_gui_components/images/partially_checked_checkbox_update_available.png</file>
+    <file alias="images/partially_checked_checkbox_update_available@2x.png">../shared_gui_components/images/partially_checked_checkbox_update_available@2x.png</file>
     <file alias="images/pause_over.png">../shared_gui_components/images/pause_over.png</file>
     <file alias="images/pause_over@2x.png">../shared_gui_components/images/pause_over@2x.png</file>
     <file alias="images/pause_press.png">../shared_gui_components/images/pause_press.png</file>
@@ -1281,6 +1287,8 @@
     <file alias="images/unchecked_checkbox_green@2x.png">../shared_gui_components/images/unchecked_checkbox_green@2x.png</file>
     <file alias="images/unchecked_checkbox_locked.png">../shared_gui_components/images/unchecked_checkbox_locked.png</file>
     <file alias="images/unchecked_checkbox_locked@2x.png">../shared_gui_components/images/unchecked_checkbox_locked@2x.png</file>
+    <file alias="images/unchecked_checkbox_update_available.png">../shared_gui_components/images/unchecked_checkbox_update_available.png</file>
+    <file alias="images/unchecked_checkbox_update_available@2x.png">../shared_gui_components/images/unchecked_checkbox_update_available@2x.png</file>
     <file alias="images/check_for_updates.png">../shared_gui_components/images/check_for_updates.png</file>
     <file alias="images/check_for_updates@2x.png">../shared_gui_components/images/check_for_updates@2x.png</file>
 

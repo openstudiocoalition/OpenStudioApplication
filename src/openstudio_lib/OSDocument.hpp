@@ -130,6 +130,7 @@ class OPENSTUDIO_API OSDocument : public OSQObjectController
   boost::optional<BCLMeasure> getLocalMeasure(const std::string& uid) const;
   boost::optional<BCLMeasure> getLocalMeasure(const std::string& uid, const std::string& versionId) const;
 
+  std::vector<BCLComponent> getLocalComponents() const;
   std::vector<BCLMeasure> getLocalMeasures() const;
 
   std::vector<BCLComponent> componentAttributeSearch(const std::vector<std::pair<std::string, std::string>>& pairs) const;

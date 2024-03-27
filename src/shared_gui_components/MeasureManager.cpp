@@ -981,9 +981,6 @@ void MeasureManager::checkForRemoteBCLUpdates() {
     int result = msg.exec();
     if (result == QMessageBox::Yes) {
       remoteBCL.updateMeasures();
-      for (auto& oldMeasure : oldMeasures) {
-        LocalBCL::instance().removeMeasure(oldMeasure);
-      }
       updateMeasuresLists(false);
     }
   }

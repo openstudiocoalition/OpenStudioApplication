@@ -1406,6 +1406,19 @@ boost::optional<BCLMeasure> OSDocument::getLocalMeasure(const std::string& uid, 
   return result;
 }
 
+std::vector<BCLComponent> OSDocument::getLocalComponents() const {
+  std::vector<BCLComponent> result;
+  if (m_haveLocalBCL) {
+    try {
+      result = LocalBCL::instance().components();
+    } catch (const std::exception& e) {
+      LOG(Error, "Cannot access local BCL: " << e.what());
+      m_haveLocalBCL = false;
+    }
+  }
+  return result;
+}
+
 std::vector<BCLMeasure> OSDocument::getLocalMeasures() const {
   std::vector<BCLMeasure> result;
   if (m_haveLocalBCL) {
