@@ -288,12 +288,7 @@ void BuildingComponentDialogCentralWidget::componentDownloadComplete(const std::
   if (component) {
     // good
 
-    // remove old components
-    for (auto& oldComponent : OSAppBase::instance()->currentDocument()->getLocalComponents()) {
-      if ((oldComponent.uid() == component->uid()) && (oldComponent.versionId() != component->versionId())) {
-        LocalBCL::instance().removeComponent(oldComponent);
-      }
-    }
+    OSAppBase::instance()->currentDocument()->removeOutdatedLocalComponents(component->uid(), component->versionId());
   } else {
     // error downloading component
     downloadFailed(uid);
@@ -308,13 +303,7 @@ void BuildingComponentDialogCentralWidget::measureDownloadComplete(const std::st
   if (measure) {
     // good
 
-    // remove old measures
-    for (auto& oldMeasure : OSAppBase::instance()->currentDocument()->getLocalMeasures()) {
-      if ((oldMeasure.uid() == measure->uid()) && (oldMeasure.versionId() != measure->versionId())) {
-        LocalBCL::instance().removeMeasure(oldMeasure);
-      }
-    }
-
+    OSAppBase::instance()->currentDocument()->removeOutdatedLocalMeasures(measure->uid(), measure->versionId());
   } else {
     // error downloading measure
     downloadFailed(uid);

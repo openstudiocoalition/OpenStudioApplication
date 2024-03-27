@@ -131,6 +131,11 @@ class OPENSTUDIO_API OSDocument : public OSQObjectController
   std::vector<BCLComponent> getLocalComponents() const;
   std::vector<BCLMeasure> getLocalMeasures() const;
 
+  // Removes all components with uid but NOT currentVersionId
+  size_t removeOutdatedLocalComponents(const std::string& uid, const std::string& currentVersionId) const;
+  // Removes all measures with uid but NOT currentVersionId
+  size_t removeOutdatedLocalMeasures(const std::string& uid, const std::string& currentVersionId) const;
+
   std::vector<BCLComponent> componentAttributeSearch(const std::vector<std::pair<std::string, std::string>>& pairs) const;
 
   boost::optional<BCLMeasure> standardReportMeasure();
