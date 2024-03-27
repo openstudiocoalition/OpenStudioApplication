@@ -964,13 +964,11 @@ void MeasureManager::checkForRemoteBCLUpdates() {
                  + tr("Would you like update them?"));
 
     QString detailedText;
-    std::vector<BCLMeasure> oldMeasures;
     for (const BCLSearchResult& update : updates) {
       detailedText += toQString("* name: " + update.name() + "\n");
       detailedText += toQString(" - uid: " + update.uid() + "\n");
       auto current = m_bclMeasures.find(toUUID(update.uid()));
       if (current != m_bclMeasures.end()) {
-        oldMeasures.push_back(current->second);
         detailedText += toQString(" - old versionId: " + current->second.versionId() + "\n");
       }
       detailedText += toQString(" - new versionId: " + update.versionId() + "\n\n");
@@ -995,22 +993,17 @@ void MeasureManager::downloadBCLMeasures() {
     std::vector<BCLSearchResult> updates = remoteBCL.measuresWithUpdates();
 
     QString detailedText;
-    std::vector<BCLMeasure> oldMeasures;
     for (const BCLSearchResult& update : updates) {
       detailedText += toQString("* name: " + update.name() + "\n");
       detailedText += toQString(" - uid: " + update.uid() + "\n");
       auto current = m_bclMeasures.find(toUUID(update.uid()));
       if (current != m_bclMeasures.end()) {
-        oldMeasures.push_back(current->second);
         detailedText += toQString(" - old versionId: " + current->second.versionId() + "\n");
       }
       detailedText += toQString(" - new versionId: " + update.versionId() + "\n\n");
     }
 
     remoteBCL.updateMeasures();
-    for (auto& oldMeasure : oldMeasures) {
-      LocalBCL::instance().removeMeasure(oldMeasure);
-    }
     updateMeasuresLists(false);
 
     QMessageBox msg(m_app->mainWidget());
