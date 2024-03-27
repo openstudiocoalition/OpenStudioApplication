@@ -124,11 +124,9 @@ class OPENSTUDIO_API OSDocument : public OSQObjectController
   // returns false if the LocalBCL cannot be accessed
   bool haveLocalBCL() const;
 
-  boost::optional<BCLComponent> getLocalComponent(const std::string& uid) const;
-  boost::optional<BCLComponent> getLocalComponent(const std::string& uid, const std::string& versionId) const;
+  boost::optional<BCLComponent> getLocalComponent(const std::string& uid, const std::string& versionId = "") const;
 
-  boost::optional<BCLMeasure> getLocalMeasure(const std::string& uid) const;
-  boost::optional<BCLMeasure> getLocalMeasure(const std::string& uid, const std::string& versionId) const;
+  boost::optional<BCLMeasure> getLocalMeasure(const std::string& uid, const std::string& versionId = "") const;
 
   std::vector<BCLComponent> getLocalComponents() const;
   std::vector<BCLMeasure> getLocalMeasures() const;

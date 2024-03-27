@@ -1354,37 +1354,11 @@ void OSDocument::addStandardMeasures() {
   enable();
 }
 
-boost::optional<BCLComponent> OSDocument::getLocalComponent(const std::string& uid) const {
-  boost::optional<BCLComponent> result;
-  if (m_haveLocalBCL) {
-    try {
-      result = LocalBCL::instance().getComponent(uid);
-    } catch (const std::exception& e) {
-      LOG(Error, "Cannot access local BCL: " << e.what());
-      m_haveLocalBCL = false;
-    }
-  }
-  return result;
-}
-
 boost::optional<BCLComponent> OSDocument::getLocalComponent(const std::string& uid, const std::string& versionId) const {
   boost::optional<BCLComponent> result;
   if (m_haveLocalBCL) {
     try {
       result = LocalBCL::instance().getComponent(uid, versionId);
-    } catch (const std::exception& e) {
-      LOG(Error, "Cannot access local BCL: " << e.what());
-      m_haveLocalBCL = false;
-    }
-  }
-  return result;
-}
-
-boost::optional<BCLMeasure> OSDocument::getLocalMeasure(const std::string& uid) const {
-  boost::optional<BCLMeasure> result;
-  if (m_haveLocalBCL) {
-    try {
-      result = LocalBCL::instance().getMeasure(uid);
     } catch (const std::exception& e) {
       LOG(Error, "Cannot access local BCL: " << e.what());
       m_haveLocalBCL = false;
