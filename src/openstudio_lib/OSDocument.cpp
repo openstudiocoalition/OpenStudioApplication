@@ -1380,6 +1380,25 @@ boost::optional<BCLComponent> OSDocument::getLocalComponent(const std::string& u
   return result;
 }
 
+size_t OSDocument::removeOutdatedLocalComponents(const std::string& uid, const std::string& currentVersionId) {
+  size_t result = 0;
+  if (m_haveLocalBCL) {
+    try {
+      for (auto& oldComponent : LocalBCL::instance().components()) {
+        if ((oldComponent.uid() == uid) && (oldComponent.versionId() != currentVersionId)) {
+          if (LocalBCL::instance().removeComponent(oldComponent)) {
+            ++result;
+          }
+        }
+      }
+    } catch (const std::exception& e) {
+      LOG(Error, "Cannot access local BCL: " << e.what());
+      m_haveLocalBCL = false;
+    }
+  }
+  return result;
+}
+
 boost::optional<BCLMeasure> OSDocument::getLocalMeasure(const std::string& uid) const {
   boost::optional<BCLMeasure> result;
   if (m_haveLocalBCL) {
@@ -1406,11 +1425,17 @@ boost::optional<BCLMeasure> OSDocument::getLocalMeasure(const std::string& uid, 
   return result;
 }
 
-std::vector<BCLComponent> OSDocument::getLocalComponents() const {
-  std::vector<BCLComponent> result;
+size_t OSDocument::removeOutdatedLocalMeasures(const std::string& uid, const std::string& currentVersionId) {
+  size_t result = 0;
   if (m_haveLocalBCL) {
     try {
-      result = LocalBCL::instance().components();
+      for (auto& oldMeasure : LocalBCL::instance().measures()) {
+        if ((oldMeasure.uid() == uid) && (oldMeasure.versionId() != currentVersionId)) {
+          if (LocalBCL::instance().removeMeasure(oldMeasure)) {
+            ++result;
+          }
+        }
+      }
     } catch (const std::exception& e) {
       LOG(Error, "Cannot access local BCL: " << e.what());
       m_haveLocalBCL = false;

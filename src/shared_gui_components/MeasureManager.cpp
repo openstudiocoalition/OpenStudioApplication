@@ -56,6 +56,9 @@
 #include <openstudio/utilities/filetypes/WorkflowStep.hpp>
 #include <openstudio/utilities/filetypes/WorkflowStep_Impl.hpp>
 
+#include "../openstudio_lib/OSAppBase.hpp"
+#include "../openstudio_lib/OSDocument.hpp"
+
 #include <json/json.h>
 
 #include <QAbstractButton>
@@ -964,13 +967,11 @@ void MeasureManager::checkForRemoteBCLUpdates() {
                  + tr("Would you like update them?"));
 
     QString detailedText;
-    std::vector<BCLMeasure> oldMeasures;
     for (const BCLSearchResult& update : updates) {
       detailedText += toQString("* name: " + update.name() + "\n");
       detailedText += toQString(" - uid: " + update.uid() + "\n");
       auto current = m_bclMeasures.find(toUUID(update.uid()));
       if (current != m_bclMeasures.end()) {
-        oldMeasures.push_back(current->second);
         detailedText += toQString(" - old versionId: " + current->second.versionId() + "\n");
       }
       detailedText += toQString(" - new versionId: " + update.versionId() + "\n\n");
@@ -981,6 +982,15 @@ void MeasureManager::checkForRemoteBCLUpdates() {
     int result = msg.exec();
     if (result == QMessageBox::Yes) {
       remoteBCL.updateMeasures();
+
+      // remoteBCL.updateMeasures should remove outdated measures, but won't work correctly until https://github.com/NREL/OpenStudio/pull/5129
+      // if we have the new measure, delete outdated ones
+      for (const BCLSearchResult& update : updates) {
+        if (OSAppBase::instance()->currentDocument()->getLocalMeasure(update.uid(), update.versionId())) {
+          OSAppBase::instance()->currentDocument()->removeOutdatedLocalMeasures(update.uid(), update.versionId());
+        }
+      }
+  
       updateMeasuresLists(false);
     }
   }
@@ -995,22 +1005,26 @@ void MeasureManager::downloadBCLMeasures() {
     std::vector<BCLSearchResult> updates = remoteBCL.measuresWithUpdates();
 
     QString detailedText;
-    std::vector<BCLMeasure> oldMeasures;
     for (const BCLSearchResult& update : updates) {
       detailedText += toQString("* name: " + update.name() + "\n");
       detailedText += toQString(" - uid: " + update.uid() + "\n");
       auto current = m_bclMeasures.find(toUUID(update.uid()));
       if (current != m_bclMeasures.end()) {
-        oldMeasures.push_back(current->second);
         detailedText += toQString(" - old versionId: " + current->second.versionId() + "\n");
       }
       detailedText += toQString(" - new versionId: " + update.versionId() + "\n\n");
     }
 
     remoteBCL.updateMeasures();
-    for (auto& oldMeasure : oldMeasures) {
-      LocalBCL::instance().removeMeasure(oldMeasure);
+
+    // remoteBCL.updateMeasures should remove outdated measures, but won't work correctly until https://github.com/NREL/OpenStudio/pull/5129
+    // if we have the new measure, delete outdated ones
+    for (const BCLSearchResult& update : updates) {
+      if (OSAppBase::instance()->currentDocument()->getLocalMeasure(update.uid(), update.versionId())) {
+        OSAppBase::instance()->currentDocument()->removeOutdatedLocalMeasures(update.uid(), update.versionId());
+      }
     }
+
     updateMeasuresLists(false);
 
     QMessageBox msg(m_app->mainWidget());
