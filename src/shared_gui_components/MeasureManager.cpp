@@ -990,7 +990,7 @@ void MeasureManager::checkForRemoteBCLUpdates() {
           OSAppBase::instance()->currentDocument()->removeOutdatedLocalMeasures(update.uid(), update.versionId());
         }
       }
-  
+
       updateMeasuresLists(false);
     }
   }
