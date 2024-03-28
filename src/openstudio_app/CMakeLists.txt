@@ -459,6 +459,11 @@ if( APPLE )
           "../../../lib/$<TARGET_FILE_NAME:openstudio::openstudiolib>"
           "${CMAKE_INSTALL_PREFIX}/OpenStudioApp.app/Contents/Frameworks/$<TARGET_FILE_NAME:openstudio::openstudiolib>"
 
+        COMMAND "${CMAKE_COMMAND}" -E make_directory "${CMAKE_INSTALL_PREFIX}/bin"
+        COMMAND "${CMAKE_COMMAND}" -E create_symlink
+          "../OpenStudioApp.app/Contents/MacOS/$<TARGET_FILE_NAME:openstudio::openstudio>"
+          "${CMAKE_INSTALL_PREFIX}/bin/$<TARGET_FILE_NAME:openstudio::openstudio>"
+
         COMMAND_ECHO STDOUT
         COMMAND_ERROR_IS_FATAL ANY
       )
