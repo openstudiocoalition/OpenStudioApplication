@@ -16,14 +16,28 @@ if(CCACHE_PROGRAM)
   set(CMAKE_C_COMPILER_LAUNCHER ${CCACHE_PROGRAM} CACHE FILEPATH "C compiler cache used")
 endif()
 
-project(OpenStudioApplication VERSION 1.7.0)
+project(OpenStudioApplication VERSION 1.7.1)
 
 # Check system info globally so we can use it everywhere after: Has to be done before FindOpenStudioSDK.cmake
 if(APPLE)
   # Looking at cmake source code OS_RELEASE is already set to the output of `sw_vers -productVersion` which is what we want
   cmake_host_system_information(RESULT OSX_VERSION QUERY OS_RELEASE)
   message("-- OS_RELEASE variable is set to: " ${OSX_VERSION})
+
+  if(DEFINED XCODE_VERSION)
+    if(XCODE_VERSION VERSION_LESS "13.0")
+      message(FATAL_ERROR "The minimum required version of XCode for compiling OpenStudio is 13, however XCODE_VERSION is set to " ${XCODE_VERSION} ". Please upgrade XCode and try again.")
+    endif()
+  # When using a generator other than XCode, ${XCODE_VERSION} is not set. Verify that we have at least the minimum macOS version required for XCode 13
+  elseif(OSX_VERSION VERSION_LESS "11.3")
+    message(FATAL_ERROR "The minimum required version of XCode for compiling OpenStudio is 13, which requires macOS 11.3 or greater, however macOS version is set to " ${OSX_VERSION} ". Please upgrade macOS and XCode and try again.")
+  endif()
+
   if(NOT CMAKE_OSX_DEPLOYMENT_TARGET STREQUAL "")
+    if(CMAKE_OSX_DEPLOYMENT_TARGET VERSION_LESS "11.0")
+      message(FATAL_ERROR "The minimum required target version for macOS is 11.0, however CMAKE_OSX_DEPLOYMENT_TARGET is set to ${CMAKE_OSX_DEPLOYMENT_TARGET}. Please set CMAKE_OSX_DEPLOYMENT_TARGET to 11.0 or greater and try again.")
+    endif()
+
     message("Using CMAKE_OSX_DEPLOYMENT_TARGET=${CMAKE_OSX_DEPLOYMENT_TARGET}")
     set(OSX_VERSION "${CMAKE_OSX_DEPLOYMENT_TARGET}")
   endif()
@@ -249,7 +263,7 @@ endif()
 
 # TODO: Modify the more specific variables as needed to indicate prerelease, etc
 # Keep in beta in-between release cycles. Set to empty string (or comment out) for official)
-set(PROJECT_VERSION_PRERELEASE "")
+set(PROJECT_VERSION_PRERELEASE "rc1")
 
 # OpenStudio version: Only include Major.Minor.Patch, eg "3.0.0", even if you have a prerelease tag
 set(OPENSTUDIOAPPLICATION_VERSION "${PROJECT_VERSION_MAJOR}.${PROJECT_VERSION_MINOR}.${PROJECT_VERSION_PATCH}")
@@ -491,9 +505,9 @@ set(SWIG_EXECUTABLE "${CURRENT_CONAN_SWIG_ROOT}/bin/swig")
 set(SWIG_LIB "${CURRENT_CONAN_SWIG_ROOT}/bin/swiglib")
 
 # Qt
-# e.g. QT_INSTALL_DIR = C:/Qt/6.6.1/msvc2019_64
+# e.g. QT_INSTALL_DIR = C:/Qt/6.6.3/msvc2019_64
 set(QT_INSTALL_DIR "" CACHE PATH "Path to Qt Install")
-set(QT_VERSION "6.6.1")
+set(QT_VERSION "6.6.3")
 
 # TODO: how to set OPENSSL_ROOT_DIR to a generator expression?
 set(OPENSSL_ROOT_DIR ${CONAN_OPENSSL_ROOT_RELEASE})
@@ -591,7 +605,7 @@ if(WIN32)
 endif()
 
 if(UNIX AND NOT APPLE)
-  # Apparently libqxcb.so depends on libQt6OpenGL.so in Qt 6.6.1 (it depended on libGL on 5.15.0 but not OpenGL)
+  # Apparently libqxcb.so depends on libQt6OpenGL.so in Qt 6.6.3 (it depended on libGL on 5.15.0 but not OpenGL)
   find_package(Qt6OpenGL ${QT_VERSION} REQUIRED PATHS ${QT_INSTALL_DIR} NO_DEFAULT_PATH)
   list(APPEND QT_LIBS Qt6::OpenGL)
 endif()
@@ -736,7 +750,10 @@ install(DIRECTORY "${openstudio_ROOT_DIR}/Python" DESTINATION "." COMPONENT "Pyt
 # install(DIRECTORY "${openstudio_ROOT_DIR}/lib" DESTINATION "." COMPONENT "OpenStudioApp" USE_SOURCE_PERMISSIONS)
 
 if(NOT APPLE)
-  # On Mac, in openstudio_app/CMakeLists.txt we've already copied the CLI to the OpenStudio.app/Contents/MacOS
+  # On Mac, we want to have openstudio CLI next to the OpenStudioApp in ./OpenStudio.app/Contents/MacOS
+  # But we still need it in the ./bin directory so it can be found relative to the files in ./lib, this occurs when a measure tries to use getOpenStudioCLI, see #695
+  # In openstudio_app/CMakeLists.txt we've already copied the CLI to the OpenStudio.app/Contents/MacOS, and we install a symlink to ./bin as well
+  # TODO: the link order is the reverse of the lib ones (where we create a symlink **in the bundle** that points to the ./lib contents)
   install(IMPORTED_RUNTIME_ARTIFACTS openstudio::openstudio DESTINATION bin COMPONENT "CLI")
 endif()
 install(IMPORTED_RUNTIME_ARTIFACTS openstudio::openstudiolib DESTINATION ${LIB_DESTINATION_DIR} COMPONENT "CLI")

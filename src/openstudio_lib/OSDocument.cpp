@@ -128,6 +128,7 @@
 #include <QSettings>
 #include <QtGlobal>  // Workaround for #659
 
+#include <algorithm>
 #include <memory>
 
 #if (defined(_WIN32) || defined(_WIN64))
@@ -1354,37 +1355,11 @@ void OSDocument::addStandardMeasures() {
   enable();
 }
 
-boost::optional<BCLComponent> OSDocument::getLocalComponent(const std::string& uid) const {
-  boost::optional<BCLComponent> result;
-  if (m_haveLocalBCL) {
-    try {
-      result = LocalBCL::instance().getComponent(uid);
-    } catch (const std::exception& e) {
-      LOG(Error, "Cannot access local BCL: " << e.what());
-      m_haveLocalBCL = false;
-    }
-  }
-  return result;
-}
-
 boost::optional<BCLComponent> OSDocument::getLocalComponent(const std::string& uid, const std::string& versionId) const {
   boost::optional<BCLComponent> result;
   if (m_haveLocalBCL) {
     try {
       result = LocalBCL::instance().getComponent(uid, versionId);
-    } catch (const std::exception& e) {
-      LOG(Error, "Cannot access local BCL: " << e.what());
-      m_haveLocalBCL = false;
-    }
-  }
-  return result;
-}
-
-boost::optional<BCLMeasure> OSDocument::getLocalMeasure(const std::string& uid) const {
-  boost::optional<BCLMeasure> result;
-  if (m_haveLocalBCL) {
-    try {
-      result = LocalBCL::instance().getMeasure(uid);
     } catch (const std::exception& e) {
       LOG(Error, "Cannot access local BCL: " << e.what());
       m_haveLocalBCL = false;
@@ -1417,6 +1392,78 @@ std::vector<BCLMeasure> OSDocument::getLocalMeasures() const {
     }
   }
   return result;
+}
+
+std::vector<BCLComponent> OSDocument::getLocalComponents() const {
+  std::vector<BCLComponent> result;
+  if (m_haveLocalBCL) {
+    try {
+      result = LocalBCL::instance().components();
+    } catch (const std::exception& e) {
+      LOG(Error, "Cannot access local BCL: " << e.what());
+      m_haveLocalBCL = false;
+    }
+  }
+  return result;
+}
+
+size_t OSDocument::removeOutdatedLocalComponents(const std::string& uid, const std::string& currentVersionId) const {
+  // TODO: when https://github.com/NREL/OpenStudio/pull/5129 is merged, we can just call it
+  // size_t result = 0;
+  // if (m_haveLocalBCL) {
+  //   try {
+  //     result = LocalBCL::instance().removeOutdatedLocalComponents(uid, currentVersionId);
+  //   } catch (const std::exception& e) {
+  //     LOG(Error, "Cannot access local BCL: " << e.what());
+  //     m_haveLocalBCL = false;
+  //   }
+  // }
+  // return result;
+
+  auto components = getLocalComponents();
+  if (components.empty()) {
+    return {};
+  }
+
+  // Not empty, we do have a localbcl
+  components.erase(std::remove_if(components.begin(), components.end(),
+                                  [&uid, &currentVersionId](const auto& component) {
+                                    return (component.uid() != uid) || (component.versionId() == currentVersionId);
+                                  }),
+                   components.end());
+  for (auto& component : components) {
+    LocalBCL::instance().removeComponent(component);
+  }
+  return components.size();
+}
+
+size_t OSDocument::removeOutdatedLocalMeasures(const std::string& uid, const std::string& currentVersionId) const {
+  // TODO: when https://github.com/NREL/OpenStudio/pull/5129 is merged, we can just call it
+  // size_t result = 0;
+  // if (m_haveLocalBCL) {
+  //   try {
+  //     result = LocalBCL::instance().removeOutdatedLocalMeasures(uid, currentVersionId);
+  //   } catch (const std::exception& e) {
+  //     LOG(Error, "Cannot access local BCL: " << e.what());
+  //     m_haveLocalBCL = false;
+  //   }
+  // }
+  // return result;
+
+  auto measures = getLocalMeasures();
+  if (measures.empty()) {
+    return {};
+  }
+
+  // Not empty, we do have a localbcl
+  measures.erase(
+    std::remove_if(measures.begin(), measures.end(),
+                   [&uid, &currentVersionId](const auto& measure) { return (measure.uid() != uid) || (measure.versionId() == currentVersionId); }),
+    measures.end());
+  for (auto& measure : measures) {
+    LocalBCL::instance().removeMeasure(measure);
+  }
+  return measures.size();
 }
 
 std::vector<BCLComponent> OSDocument::componentAttributeSearch(const std::vector<std::pair<std::string, std::string>>& pairs) const {

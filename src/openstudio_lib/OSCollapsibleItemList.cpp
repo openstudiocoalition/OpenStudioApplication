@@ -195,7 +195,7 @@ void OSCollapsibleItemList::onCollapsableItemSelected(OSCollapsibleItem* selecte
         if (!m_searchActive) {
           collapsibleItem->setExpanded(false);
         }
-        //collapsibleItem->itemList()->clearSelection();
+        collapsibleItem->itemList()->clearSelection();
       }
     }
   }

@@ -51,17 +51,26 @@
 #include <openstudio/utilities/idd/IddEnums.hxx>
 
 #include <iostream>
+#include <QMutex>
+#include <QTimer>
 
 namespace openstudio {
 
-ModelObjectListController::ModelObjectListController(const openstudio::IddObjectType& iddObjectType, const model::Model& model, bool showLocalBCL)
-  : m_iddObjectType(iddObjectType), m_model(model), m_showLocalBCL(showLocalBCL) {
+ModelObjectListController::ModelObjectListController(const openstudio::IddObjectType& iddObjectType, const model::Model& model, bool isLibrary)
+  : m_iddObjectType(iddObjectType), m_model(model), m_isLibrary(isLibrary), m_reportScheduled(false), m_reportItemsMutex(new QMutex()) {
 
-  // model.getImpl<model::detail::Model_Impl>().get()->addWorkspaceObjectPtr.connect<ModelObjectListController, &ModelObjectListController::objectAdded>(this);
-  connect(OSAppBase::instance(), &OSAppBase::workspaceObjectAddedPtr, this, &ModelObjectListController::objectAdded, Qt::QueuedConnection);
+  if (!m_isLibrary) {
 
-  //model.getImpl<model::detail::Model_Impl>().get()->removeWorkspaceObjectPtr.connect<ModelObjectListController, &ModelObjectListController::objectRemoved>(this);
-  connect(OSAppBase::instance(), &OSAppBase::workspaceObjectRemovedPtr, this, &ModelObjectListController::objectRemoved, Qt::QueuedConnection);
+    // model.getImpl<model::detail::Model_Impl>().get()->addWorkspaceObjectPtr.connect<ModelObjectListController, &ModelObjectListController::objectAdded>(this);
+    connect(OSAppBase::instance(), &OSAppBase::workspaceObjectAddedPtr, this, &ModelObjectListController::objectAdded, Qt::QueuedConnection);
+
+    //model.getImpl<model::detail::Model_Impl>().get()->removeWorkspaceObjectPtr.connect<ModelObjectListController, &ModelObjectListController::objectRemoved>(this);
+    connect(OSAppBase::instance(), &OSAppBase::workspaceObjectRemovedPtr, this, &ModelObjectListController::objectRemoved, Qt::QueuedConnection);
+  }
+}
+
+ModelObjectListController::~ModelObjectListController() {
+  delete m_reportItemsMutex;
 }
 
 IddObjectType ModelObjectListController::iddObjectType() const {
@@ -71,29 +80,58 @@ IddObjectType ModelObjectListController::iddObjectType() const {
 void ModelObjectListController::objectAdded(std::shared_ptr<openstudio::detail::WorkspaceObject_Impl> impl,
                                             const openstudio::IddObjectType& iddObjectType, const openstudio::UUID& handle) {
   if (iddObjectType == m_iddObjectType) {
-    std::vector<OSItemId> ids = this->makeVector();
-    emit itemIds(ids);
+    m_reportItemsMutex->lock();
 
-    for (const OSItemId& id : ids) {
-      if (id.itemId() == toQString(impl->handle())) {
-        emit selectedItemId(id);
-        break;
-      }
+    m_selectedHandle = handle;
+    if (!m_reportScheduled) {
+      m_reportScheduled = true;
+      QTimer::singleShot(0, this, &ModelObjectListController::reportItemsImpl);
     }
+
+    m_reportItemsMutex->unlock();
   }
 }
 
 void ModelObjectListController::objectRemoved(std::shared_ptr<openstudio::detail::WorkspaceObject_Impl> impl,
                                               const openstudio::IddObjectType& iddObjectType, const openstudio::UUID& handle) {
   if (iddObjectType == m_iddObjectType) {
-    emit itemIds(makeVector());
+    m_reportItemsMutex->lock();
+
+    if (!m_reportScheduled) {
+      m_reportScheduled = true;
+      QTimer::singleShot(0, this, &ModelObjectListController::reportItemsImpl);
+    }
+
+    m_reportItemsMutex->unlock();
   }
+}
+
+void ModelObjectListController::reportItemsImpl() {
+  m_reportItemsMutex->lock();
+
+  if (m_reportScheduled) {
+    m_reportScheduled = false;
+    std::vector<OSItemId> ids = this->makeVector();
+    emit itemIds(ids);
+
+    if (m_selectedHandle) {
+      for (const OSItemId& id : ids) {
+        if (id.itemId() == toQString(*m_selectedHandle)) {
+          emit selectedItemId(id);
+          break;
+        }
+      }
+      m_selectedHandle.reset();
+    }
+  }
+
+  m_reportItemsMutex->unlock();
 }
 
 std::vector<OSItemId> ModelObjectListController::makeVector() {
   std::vector<OSItemId> result;
 
-  if (m_showLocalBCL) {
+  if (m_isLibrary) {
     std::vector<std::pair<std::string, std::string>> pairs;
     pairs.push_back(std::make_pair<std::string, std::string>("OpenStudio Type", m_iddObjectType.valueDescription()));
 
@@ -150,8 +188,8 @@ std::vector<OSItemId> ModelObjectListController::makeVector() {
 }
 
 ModelObjectListView::ModelObjectListView(const openstudio::IddObjectType& iddObjectType, const model::Model& model, bool addScrollArea,
-                                         bool showLocalBCL, QWidget* parent)
-  : OSItemList(new ModelObjectListController(iddObjectType, model, showLocalBCL), addScrollArea, parent) {}
+                                         bool isLibrary, QWidget* parent)
+  : OSItemList(new ModelObjectListController(iddObjectType, model, isLibrary), addScrollArea, parent) {}
 
 boost::optional<openstudio::model::ModelObject> ModelObjectListView::selectedModelObject() const {
   OSItem* selectedItem = this->selectedItem();

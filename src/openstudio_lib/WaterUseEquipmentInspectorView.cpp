@@ -260,7 +260,9 @@ WaterUseEquipmentDefinitionInspectorView::WaterUseEquipmentDefinitionInspectorVi
   mainGridLayout->addWidget(label, 6, 0);
 
   m_targetTemperatureScheduleDZ = new OSDropZone(m_targetTemperatureScheduleVC);
+  m_targetTemperatureScheduleDZ->setMinItems(0);
   m_targetTemperatureScheduleDZ->setMaxItems(1);
+  m_targetTemperatureScheduleDZ->setItemsAcceptDrops(true);
   mainGridLayout->addWidget(m_targetTemperatureScheduleDZ, 7, 0, 1, 3);
 
   // Sensible Fraction Schedule
@@ -270,7 +272,9 @@ WaterUseEquipmentDefinitionInspectorView::WaterUseEquipmentDefinitionInspectorVi
   mainGridLayout->addWidget(label, 8, 0);
 
   m_sensibleFractionScheduleDZ = new OSDropZone(m_sensibleFractionScheduleVC);
+  m_sensibleFractionScheduleDZ->setMinItems(0);
   m_sensibleFractionScheduleDZ->setMaxItems(1);
+  m_sensibleFractionScheduleDZ->setItemsAcceptDrops(true);
   mainGridLayout->addWidget(m_sensibleFractionScheduleDZ, 9, 0, 1, 3);
 
   // Latent Fraction Schedule
@@ -280,7 +284,9 @@ WaterUseEquipmentDefinitionInspectorView::WaterUseEquipmentDefinitionInspectorVi
   mainGridLayout->addWidget(label, 10, 0);
 
   m_latentFractionScheduleDZ = new OSDropZone(m_latentFractionScheduleVC);
+  m_latentFractionScheduleDZ->setMinItems(0);
   m_latentFractionScheduleDZ->setMaxItems(1);
+  m_latentFractionScheduleDZ->setItemsAcceptDrops(true);
   mainGridLayout->addWidget(m_latentFractionScheduleDZ, 11, 0, 1, 3);
 
   // Stretch

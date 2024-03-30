@@ -28,7 +28,7 @@ env:
   CPACK_SOURCE_TXZ: OFF
   CPACK_SOURCE_TZ: OFF
   CPACK_SOURCE_ZIP: OFF
-  QT_VERSION: 6.6.1
+  QT_VERSION: 6.6.3
   # CPACK_BINARY_DEB: OS-SPECIFIC
   # CPACK_BINARY_IFW: OS-SPECIFIC
 
@@ -94,7 +94,7 @@ jobs:
           COMPRESSED_EXT: tar.gz
           BINARY_PKG_PATH: _CPack_Packages/Darwin/IFW
           COMPRESSED_PKG_PATH: _CPack_Packages/Darwin/TGZ
-          MACOSX_DEPLOYMENT_TARGET: 10.15
+          MACOSX_DEPLOYMENT_TARGET: 11.0
           SDKROOT: /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX.sdk
           QT_OS_NAME: mac
           QT_ARCH: clang_64
@@ -402,7 +402,7 @@ jobs:
         cmake -E make_directory ./build
 
         if [ "$RUNNER_OS" == "macOS" ]; then
-          QT_INSTALL_DIR="/Users/irvinemac/Qt/6.6.1/macos/"
+          QT_INSTALL_DIR="/Users/irvinemac/Qt/6.6.3/macos/"
         fi
 
         echo "$QT_INSTALL_DIR/bin" >> $GITHUB_PATH

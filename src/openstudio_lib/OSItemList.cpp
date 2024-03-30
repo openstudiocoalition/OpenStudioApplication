@@ -48,8 +48,7 @@ OSItemList::OSItemList(OSVectorController* vectorController, bool addScrollArea,
     m_selectedItem(nullptr),
     m_itemsDraggable(false),
     m_itemsRemoveable(false),
-    m_type(OSItemType::ListItem),
-    m_dirty(false) {
+    m_type(OSItemType::ListItem) {
   // for now we will allow this item list to manage memory of
   OS_ASSERT(!m_vectorController->parent());
   m_vectorController->setParent(this);
@@ -203,15 +202,6 @@ void OSItemList::setItemIds(const std::vector<OSItemId>& itemIds) {
     }
   }
   selectItem(firstItem());
-
-  m_dirty = true;
-  QTimer::singleShot(0, this, &OSItemList::refresh);
-}
-
-void OSItemList::refresh() {
-  if (m_dirty) {
-    m_dirty = false;
-  }
 }
 
 void OSItemList::addItem(OSItem* item, bool selectItem) {
@@ -234,9 +224,6 @@ void OSItemList::addItem(OSItem* item, bool selectItem) {
   if (selectItem) {
     this->selectItem(item);
   }
-
-  m_dirty = true;
-  QTimer::singleShot(0, this, &OSItemList::refresh);
 }
 
 void OSItemList::selectItem(OSItem* selectItem) {

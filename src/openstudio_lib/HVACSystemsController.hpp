@@ -330,10 +330,6 @@ class SystemAvailabilityVectorController : public ModelObjectVectorController
 
  public slots:
 
-  void reportItemsLater();
-
-  void reportItems();
-
   void onDropZoneItemClicked(OSItem* item);
 
  protected:
@@ -342,11 +338,6 @@ class SystemAvailabilityVectorController : public ModelObjectVectorController
   void onReplaceItem(OSItem* currentItem, const OSItemId& replacementItemId) override;
 
   void onDrop(const OSItemId& itemId) override;
-
- private:
-  bool m_reportScheduled;
-
-  QMutex* m_reportItemsMutex;
 };
 
 class SupplyAirTempScheduleVectorController : public ModelObjectVectorController
@@ -366,10 +357,6 @@ class SupplyAirTempScheduleVectorController : public ModelObjectVectorController
 
  public slots:
 
-  void reportItemsLater();
-
-  void reportItems();
-
   void onDropZoneItemClicked(OSItem* item);
 
  protected:
@@ -378,11 +365,6 @@ class SupplyAirTempScheduleVectorController : public ModelObjectVectorController
   void onReplaceItem(OSItem* currentItem, const OSItemId& replacementItemId) override;
 
   void onDrop(const OSItemId& itemId) override;
-
- private:
-  bool m_reportScheduled;
-
-  QMutex* m_reportItemsMutex;
 };
 
 class AvailabilityManagerObjectVectorController : public ModelObjectVectorController
@@ -404,10 +386,6 @@ class AvailabilityManagerObjectVectorController : public ModelObjectVectorContro
 
  public slots:
 
-  void reportItemsLater();
-
-  void reportItems();
-
   void onDropZoneItemClicked(OSItem* item);
 
  protected:
@@ -422,11 +400,6 @@ class AvailabilityManagerObjectVectorController : public ModelObjectVectorContro
   virtual void onReplaceItem(OSItem* currentItem, const OSItemId& replacementItemId) override;
 
   virtual void onDrop(const OSItemId& itemId) override;
-
- private:
-  bool m_reportScheduled;
-
-  QMutex* m_reportItemsMutex;
 };
 
 }  // namespace openstudio

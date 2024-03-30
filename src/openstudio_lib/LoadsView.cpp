@@ -57,7 +57,7 @@
 namespace openstudio {
 
 LoadsView::LoadsView(bool isIP, const openstudio::model::Model& model, QWidget* parent)
-  : ModelSubTabView(new ModelObjectTypeListView(LoadsView::modelObjectTypesAndNames(), model, true, OSItemType::CollapsibleListHeader, parent),
+  : ModelSubTabView(new ModelObjectTypeListView(LoadsView::modelObjectTypesAndNames(), model, true, OSItemType::CollapsibleListHeader, false, parent),
                     new LoadsInspectorView(isIP, model, parent), false, parent) {
   connect(this, &LoadsView::toggleUnitsClicked, modelObjectInspectorView(), &ModelObjectInspectorView::toggleUnitsClicked);
 }

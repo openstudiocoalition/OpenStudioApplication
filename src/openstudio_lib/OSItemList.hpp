@@ -89,8 +89,6 @@ class OSItemList : public OSItemSelector
 
   void setItemIds(const std::vector<OSItemId>& itemIds);
 
-  void refresh();
-
  signals:
 
   void itemsRequested();
@@ -105,7 +103,6 @@ class OSItemList : public OSItemSelector
   bool m_itemsDraggable;
   bool m_itemsRemoveable;
   OSItemType m_type;
-  bool m_dirty;
 };
 
 }  // namespace openstudio
