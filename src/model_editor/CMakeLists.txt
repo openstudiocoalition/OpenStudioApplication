@@ -91,7 +91,7 @@ set(${target_name}_depends
   openstudio::openstudiolib
   openstudioapp_utilities
   ${QT_LIBS}
-  #CONAN_PKG::openstudio_ruby
+  #Ruby::Ruby
 )
 if(WIN32)
   list(APPEND ${target_name}_depends qtwinmigrate)

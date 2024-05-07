@@ -8,7 +8,7 @@ from conan.tools.cmake import CMakeToolchain
 required_conan_version = ">=2.0"
 
 
-class OpenStudioBuildRecipe(ConanFile):
+class OpenStudioAppBuildRecipe(ConanFile):
     settings = "os", "compiler", "build_type", "arch"
     generators = "CMakeDeps"  # CMakeToolchain explicitly instantiated
 
@@ -43,7 +43,7 @@ class OpenStudioBuildRecipe(ConanFile):
         self.requires("geographiclib/1.52")  # 76536a9315a003ef3511919310b2fe37
         self.requires("swig/4.1.1")  # Pending https://github.com/conan-io/conan-center-index/pull/19058
         self.requires("tinygltf/2.5.0")  # c8b2aca9505e86312bb42aa0e1c639ec
-        self.requires("cli11/2.3.2")  # 8ccdf14fb1ad53532d498c16ae580b4b
+        # self.requires("cli11/2.3.2")  # 8ccdf14fb1ad53532d498c16ae580b4b
 
         self.requires(
             "minizip/1.2.13"
@@ -87,6 +87,13 @@ class OpenStudioBuildRecipe(ConanFile):
         tc.cache_variables["CPACK_BINARY_TBZ2"] = False
         tc.cache_variables["CPACK_BINARY_TXZ"] = False
         tc.cache_variables["CPACK_BINARY_TZ"] = False
+
+        tc.cache_variables["CPACK_SOURCE_RPM"] = False
+        tc.cache_variables["CPACK_SOURCE_TBZ2"] = False
+        tc.cache_variables["CPACK_SOURCE_TGZ"] = False
+        tc.cache_variables["CPACK_SOURCE_TXZ"] = False
+        tc.cache_variables["CPACK_SOURCE_TZ"] = False
+        tc.cache_variables["CPACK_SOURCE_ZIP"] = False
 
         v = sys.version_info
         if (v.major, v.minor) == (3, 8):

@@ -80,22 +80,32 @@ include(FindOpenStudioSDK.cmake)
 #                                C O N A N                                    #
 ###############################################################################
 
-# Note JM 2019-04-24: Another option is to globally set "print_run_commands = True" in ~/.conan/conan.conf
-option(CONAN_PRINT_RUN_COMMANDS "Log every conan self.run command" OFF)
-mark_as_advanced(CONAN_PRINT_RUN_COMMANDS)
-if(CONAN_PRINT_RUN_COMMANDS)
-  set(ENV{CONAN_PRINT_RUN_COMMANDS} "1")
-  message("Setting CONAN_PRINT_RUN_COMMANDS: $ENV{CONAN_PRINT_RUN_COMMANDS}")
-else()
-  unset(ENV{CONAN_PRINT_RUN_COMMANDS})
-  message("CONAN_PRINT_RUN_COMMANDS: $ENV{CONAN_PRINT_RUN_COMMANDS}")
+find_package(Ruby)
+message("Ruby_INCLUDE_DIRS=${Ruby_INCLUDE_DIRS}")
+find_package(pugixml)
+find_package(LibXslt)
+find_package(libxml2)
+find_package(jsoncpp)
+find_package(fmt)
+find_package(SQLite3)
+find_package(cpprestsdk)
+find_package(websocketpp)
+find_package(Boost)
+find_package(geographiclib)
+find_package(SWIG 4.1.1 EXACT REQUIRED CONFIG)
+message("SWIG_EXECUTABLE=${SWIG_EXECUTABLE}")
+message("SWIG_DIR=${SWIG_DIR}")
+find_package(TinyGLTF)
+find_package(CLI11)
+find_package(minizip)
+find_package(OpenSSL)
+find_package(ZLIB)
+if(BUILD_TESTING)
+  find_package(GTest)
 endif()
-
-# Attempt to run, it'll do the right thing if the calling cmake script already ran it
-set(CONAN_INSTALL_FILE "${PROJECT_SOURCE_DIR}/ConanInstall.cmake")
-include("${CONAN_INSTALL_FILE}")
-
-get_target_property(RUBY_INCLUDE_DIRS CONAN_PKG::openstudio_ruby INTERFACE_INCLUDE_DIRECTORIES)
+if(BUILD_BENCHMARK)
+  find_package(benchmark)
+endif()
 
 # A macro to find a conan related value especially when using multi-config builds (MSVC)
 # But it also works with single-config builds
@@ -497,12 +507,6 @@ if(UNIX)
   set(CMAKE_THREAD_LIBS "${CMAKE_THREAD_LIBS_INIT}" CACHE STRING "Thread library used.")
   mark_as_advanced(CMAKE_THREAD_LIBS)
 endif()
-
-# Swig
-FindValue(CONAN_SWIG_ROOT)
-set(SWIG_EXECUTABLE "${CURRENT_CONAN_SWIG_ROOT}/bin/swig")
-# The conan-provided binary has a built-in swiglib (`swig -swiglib`) that points to the build box on which it was built, which is problematic for us.
-set(SWIG_LIB "${CURRENT_CONAN_SWIG_ROOT}/bin/swiglib")
 
 # Qt
 # e.g. QT_INSTALL_DIR = C:/Qt/6.6.3/msvc2019_64

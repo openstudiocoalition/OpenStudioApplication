@@ -10,13 +10,13 @@ conan remote add -f nrel-v2 http://conan.openstudio.net/artifactory/api/conan/co
 ## Install the conan dependencies into a build folder
 
 ```shell
-conan install . --output-folder=../OS-build-release --build=missing -c tools.cmake.cmaketoolchain:generator=Ninja -s compiler.cppstd=20 -s build_type=Release
+conan install . --output-folder=../OSApp-build-release --build=missing -c tools.cmake.cmaketoolchain:generator=Ninja -s compiler.cppstd=20 -s build_type=Release
 ```
 
 You can also do another configuration, such as `Debug`, `RelWithDeb`, etc
 
 ```shell
-conan install . --output-folder=../OS-build --build=missing -c tools.cmake.cmaketoolchain:generator=Ninja -s compiler.cppstd=20 -s build_type=Debug
+conan install . --output-folder=../OSApp-build --build=missing -c tools.cmake.cmaketoolchain:generator=Ninja -s compiler.cppstd=20 -s build_type=Debug
 ```
 
 You'll have the `conan-release` and `conan-debug` CMake Presets in the root folder. Do `cmake --list-presets` to list the available presets (which are in `CMakeUserPresets.json`)
@@ -36,12 +36,12 @@ you'll see that the `conanfile` actually defines common build variables for you 
 such as defining which `CPack` Generators to use depending on your target platform, trying to infer the `Python_ROOT_DIR` etc
 
 <pre><font color="#75507B"><b>conanfile.py:</b></font> <font color="#75507B"><b>Calling generate()</b></font>
-conanfile.py: Generators folder: /path/to/OS-build-release
+conanfile.py: Generators folder: /path/to/OSApp-build-release
 conanfile.py: Setting PYTHON_VERSION and Python_ROOT_DIR from your current python: 3.8.13, &apos;/home/julien/.pyenv/versions/3.8.13&apos;
 conanfile.py: CMakeToolchain generated: conan_toolchain.cmake
 conanfile.py: Preset &apos;conan-release&apos; added to CMakePresets.json. Invoke it manually using &apos;cmake --preset conan-release&apos; if using CMake&gt;=3.23
 conanfile.py: If your CMake version is not compatible with CMakePresets (&lt;3.23) call cmake like:
-    cmake &lt;path&gt; -G Ninja -DCMAKE_TOOLCHAIN_FILE=/path/to/OS-build-release/conan_toolchain.cmake \
+    cmake &lt;path&gt; -G Ninja -DCMAKE_TOOLCHAIN_FILE=/path/to/OSApp-build-release/conan_toolchain.cmake \
       -DBUILD_CLI=ON -DBUILD_RUBY_BINDINGS=ON -DBUILD_PYTHON_BINDINGS=ON \
       -DBUILD_PYTHON_PIP_PACKAGE=OFF -DBUILD_TESTING=ON -DBUILD_BENCHMARK=ON \
       -DCPACK_BINARY_TGZ=ON -DCPACK_BINARY_IFW=OFF -DCPACK_BINARY_DEB=ON -DCPACK_BINARY_NSIS=OFF \
@@ -70,9 +70,8 @@ Example:
 
 ```
 cmake --preset conan-release \
-  -DBUILD_PYTHON_BINDINGS:BOOL=ON -DBUILD_PYTHON_PIP_PACKAGE:BOOL=ON \
-  -DPYTHON_VERSION=3.8.13 -DPython_ROOT_DIR:PATH=$HOME/.pyenv/versions/3.8.13/ \
-  -DBUILD_CSHARP_BINDINGS:BOOL=ON
+  -DQT_INSTALL_DIR:PATH=/opt/Qt/6.6.3/gcc_64 \
+  -DBUILD_PACKAGE:BOOL=ON
 ```
 
 Building
@@ -86,7 +85,7 @@ cmake --build --preset conan-release
 First, go to the **build** directory, and **activate the conan build environment**.
 
 ```shell
-cd ../OS-build-release
+cd ../OSApp-build-release
 # Unix
 . ./conanbuild.sh
 # Windows
@@ -97,11 +96,10 @@ Still in the build directory, run cmake, but do pass the `CMAKE_TOOLCHAIN_FILE`
 
 ```
 cmake -G Ninja -DCMAKE_TOOLCHAIN_FILE=conan_toolchain.cmake -DCMAKE_BUILD_TYPE:STRING=Release \
+  -DQT_INSTALL_DIR:PATH=/opt/Qt/6.6.3/gcc_64 \
   -DBUILD_TESTING:BOOL=ON -DCPACK_BINARY_TGZ:BOOL=ON -DCPACK_BINARY_DEB:BOOL=ON \
   -DCPACK_BINARY_IFW:BOOL=OFF -DCPACK_BINARY_NSIS:BOOL=OFF -DCPACK_BINARY_RPM:BOOL=OFF -DCPACK_BINARY_STGZ:BOOL=OFF \
   -DCPACK_BINARY_TBZ2:BOOL=OFF -DCPACK_BINARY_TXZ:BOOL=OFF -DCPACK_BINARY_TZ:BOOL=OFF \
-  -DBUILD_PYTHON_BINDINGS:BOOL=ON -DBUILD_PYTHON_PIP_PACKAGE:BOOL=ON \
-  -DPYTHON_VERSION=3.8.13 -DPython_ROOT_DIR:PATH=/home/julien/.pyenv/versions/3.8.13/  \
   -DCMAKE_EXPORT_COMPILE_COMMANDS:BOOL=ON \
   ../OpenStudio
 ```
@@ -120,7 +118,7 @@ call deactivate_conanbuild.bat
 ```
 git clone git@github.com/NREL/OpenStudio.git
 cd OpenStudio
-conan install . --output-folder=../OS-build-release --build=missing -c tools.cmake.cmaketoolchain:generator=Ninja -s compiler.cppstd=20 -s build_type=Release
+conan install . --output-folder=../OSApp-build-release --build=missing -c tools.cmake.cmaketoolchain:generator=Ninja -s compiler.cppstd=20 -s build_type=Release
 cmake --preset conan-release
 cmake --build --preset conan-release
 ```
@@ -131,7 +129,7 @@ If you want to update a dependency in the `conan.lock`, just delete the line, an
 
 
 ```shell
-conan install . --output-folder=../OS-build-release --build=missing \
+conan install . --output-folder=../OSApp-build-release --build=missing \
    -c tools.cmake.cmaketoolchain:generator=Ninja -s compiler.cppstd=20 -s build_type=Release \
    --lockfile-partial --lockfile-out=conan.lock
 ```
