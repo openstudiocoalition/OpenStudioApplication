@@ -32,6 +32,7 @@
 
 #include "OSItemSelector.hpp"
 #include "OSItem.hpp"
+#include "OSCategoryPlaceholder.hpp"
 
 class QVBoxLayout;
 class QHBoxLayout;
@@ -54,6 +55,7 @@ class OSCollapsibleItemList : public OSItemSelector
   virtual ~OSCollapsibleItemList() {}
 
   void addCollapsibleItem(OSCollapsibleItem* collapsibleItem);
+  void addCategoryPlaceholderItem(OSCategoryPlaceholder* categoryPlaceholderItem);
 
   OSCollapsibleItem* selectedCollapsibleItem() const;
 
@@ -89,6 +91,7 @@ class OSCollapsibleItemList : public OSItemSelector
   QHBoxLayout* m_contentLayout;
   OSCollapsibleItem* m_selectedCollapsibleItem;
   std::vector<OSCollapsibleItem*> m_collapsibleItems;
+  std::vector<OSCategoryPlaceholder*> m_placeholderItems;
   bool m_searchActive;
   bool m_itemsDraggable;
   bool m_itemsRemoveable;

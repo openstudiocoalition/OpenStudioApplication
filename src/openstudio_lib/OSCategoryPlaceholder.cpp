@@ -27,51 +27,53 @@
 *  ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 ***********************************************************************************************************************/
 
-#ifndef OPENSTUDIO_MODELOBJECTTYPELISTVIEW_HPP
-#define OPENSTUDIO_MODELOBJECTTYPELISTVIEW_HPP
-
-#include "OSCollapsibleItemList.hpp"
 #include "OSCategoryPlaceholder.hpp"
 
-#include <openstudio/model/Model.hpp>
-#include <openstudio/model/ModelObject.hpp>
+#include <openstudio/utilities/core/Assert.hpp>
 
-#include <boost/optional.hpp>
+#include <QBoxLayout>
+#include <QLabel>
+#include <QPainter>
+#include <QStyleOption>
 
-class QVBoxLayout;
-
-class QHBoxLayout;
+#include <iostream>
 
 namespace openstudio {
 
-class ModelObjectTypeListView : public OSCollapsibleItemList
-{
-  Q_OBJECT
+OSCategoryPlaceholder::OSCategoryPlaceholder(const std::string& text, QWidget* parent)
+  : QWidget(parent) {
+  setFixedHeight(50);
+  setSizePolicy(QSizePolicy::Preferred, QSizePolicy::Fixed);
+  setObjectName("OSCategoryPlaceholder");
 
- public:
-  ModelObjectTypeListView(const model::Model& model, bool addScrollArea, OSItemType headerType, bool isLibrary, QWidget* parent = nullptr);
+  this->setProperty("style", "0");
+  this->setStyleSheet("QWidget#OSCategoryPlaceholder[style=\"0\"] { background: qlineargradient(x1:0,y1:0,x2:0,y2:1,"
+                      "  stop: 0.0 #636161, stop: 0.10 #636161, stop: 0.15 #EFEFEF, stop: 0.85 #EFEFEF, stop: 0.9 #636161,"
+                      "  stop: 1.0 #636161);  border-bottom: 1px solid black; }");
 
-  ModelObjectTypeListView(const std::vector<std::pair<IddObjectType, std::string>>& modelObjectTypesAndNames, const model::Model& model,
-                          bool addScrollArea, OSItemType headerType, bool isLibrary, QWidget* parent = nullptr);
+  auto* mainHLayout = new QHBoxLayout();
+  mainHLayout->setContentsMargins(9, 0, 9, 0);
+  setLayout(mainHLayout);
 
-  virtual ~ModelObjectTypeListView() {}
+  // Label
 
-  void addModelObjectType(const IddObjectType& iddObjectType, const std::string& name);
-  
-  void addModelObjectCategoryPlaceholder(const std::string& name);
+  m_textLabel = new QLabel(QString::fromStdString(text));
+  m_textLabel->setWordWrap(true);
+  m_textLabel->setObjectName("H1");
+  mainHLayout->addWidget(m_textLabel, 10);
 
-  virtual IddObjectType currentIddObjectType() const;
+  mainHLayout->addStretch();
+}
 
-  virtual boost::optional<openstudio::model::ModelObject> selectedModelObject() const;
+QString OSCategoryPlaceholder::text() const {
+  return m_textLabel->text();
+}
 
- private:
-  std::vector<std::pair<IddObjectType, std::string>> m_modelObjectTypesAndNames;
-
-  model::Model m_model;
-  OSItemType m_headerType;
-  bool m_isLibrary;
-};
+void OSCategoryPlaceholder::paintEvent(QPaintEvent* event) {
+  QStyleOption opt;
+  opt.initFrom(this);
+  QPainter p(this);
+  style()->drawPrimitive(QStyle::PE_Widget, &opt, &p, this);
+}
 
 }  // namespace openstudio
-
-#endif  // OPENSTUDIO_MODELOBJECTTYPELISTVIEW_HPP

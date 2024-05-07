@@ -32,6 +32,7 @@
 #include "OSItemList.hpp"
 #include "OSCollapsibleItem.hpp"
 #include "OSCollapsibleItemHeader.hpp"
+#include "OSCategoryPlaceholder.hpp"
 
 #include <openstudio/utilities/core/Assert.hpp>
 
@@ -54,7 +55,8 @@ OSCollapsibleItemList::OSCollapsibleItemList(bool addScrollArea, QWidget* parent
     m_searchActive(false),
     m_itemsDraggable(false),
     m_itemsRemoveable(false),
-    m_itemsType(OSItemType::ListItem) {
+    m_itemsType(OSItemType::ListItem),
+    m_placeholderItems() {
   this->setObjectName("GrayWidget");
 
   auto* outerVLayout = new QVBoxLayout();
@@ -167,6 +169,12 @@ void OSCollapsibleItemList::addCollapsibleItem(OSCollapsibleItem* collapsibleIte
   connect(collapsibleItem, &OSCollapsibleItem::openLibDlgClicked, this, &OSCollapsibleItemList::openLibDlgClicked);
 }
 
+void OSCollapsibleItemList::addCategoryPlaceholderItem(OSCategoryPlaceholder* categoryPlaceholderItem) {
+  
+  m_placeholderItems.push_back(categoryPlaceholderItem);
+  m_vLayout->insertWidget(0, categoryPlaceholderItem);
+}
+
 void OSCollapsibleItemList::onCollapsableItemSelected(OSCollapsibleItem* selectedItem) {
   QLayoutItem* layoutItem = nullptr;
   OSCollapsibleItem* collapsibleItem = nullptr;
@@ -239,22 +247,31 @@ void OSCollapsibleItemList::onSearchTextEdited(const QString& text) {
   m_searchActive = !text.isEmpty();
 
   OSItem* newSelectedItem = nullptr;
+  OSCategoryPlaceholder* placeholderItem = nullptr;
+  QString searchText, categoryText, placeholderText;
   for (int i = 0; i < m_vLayout->count(); ++i) {
 
     QLayoutItem* layoutItem = m_vLayout->itemAt(i);
     QWidget* widget = layoutItem->widget();
 
+    // filter collapsible items
     OSCollapsibleItem* collapsibleItem = qobject_cast<OSCollapsibleItem*>(widget);
     if (collapsibleItem) {
+      categoryText = collapsibleItem->collapsibleItemHeader()->text();
       std::vector<OSItem*> items = collapsibleItem->itemList()->items();
       unsigned numVisible = 0;
       for (const auto& item : items) {
         if (m_searchActive) {
-          if (item->text().contains(text, Qt::CaseInsensitive)) {
+          searchText = item->text() % " " % categoryText % " " % placeholderText;
+          if (searchText.contains(text, Qt::CaseInsensitive)) {
             item->setVisible(true);
             if (!newSelectedItem) {
               newSelectedItem = item;
               collapsibleItem->itemList()->selectItem(newSelectedItem);
+            }
+            // show the last category placeholder item
+            if (placeholderItem) {
+              placeholderItem->setVisible(true);
             }
             ++numVisible;
           } else {
@@ -272,6 +289,22 @@ void OSCollapsibleItemList::onSearchTextEdited(const QString& text) {
       } else {
         collapsibleItem->setExpanded(numVisible > 0);
         collapsibleItem->setVisible(numVisible > 0);
+      }
+    } else {
+
+      // filter category placeholder items
+      placeholderItem = qobject_cast<OSCategoryPlaceholder*>(widget);
+      if (placeholderItem) {
+        placeholderText = placeholderItem->text();
+        if (m_searchActive) {
+          if (placeholderText.contains(text, Qt::CaseInsensitive)) {
+            placeholderItem->setVisible(true);
+          } else {
+            placeholderItem->setVisible(false);
+          }
+        } else {
+          placeholderItem->setVisible(true);
+        }
       }
     }
   }

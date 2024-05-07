@@ -27,51 +27,37 @@
 *  ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 ***********************************************************************************************************************/
 
-#ifndef OPENSTUDIO_MODELOBJECTTYPELISTVIEW_HPP
-#define OPENSTUDIO_MODELOBJECTTYPELISTVIEW_HPP
+#ifndef OPENSTUDIO_OSCATEGORYPLACEHOLDER_HPP
+#define OPENSTUDIO_OSCATEGORYPLACEHOLDER_HPP
 
-#include "OSCollapsibleItemList.hpp"
-#include "OSCategoryPlaceholder.hpp"
-
-#include <openstudio/model/Model.hpp>
-#include <openstudio/model/ModelObject.hpp>
-
-#include <boost/optional.hpp>
+#include <QWidget>
 
 class QVBoxLayout;
-
 class QHBoxLayout;
+class QLabel;
 
 namespace openstudio {
 
-class ModelObjectTypeListView : public OSCollapsibleItemList
+class OSCategoryPlaceholder : public QWidget
 {
   Q_OBJECT
 
  public:
-  ModelObjectTypeListView(const model::Model& model, bool addScrollArea, OSItemType headerType, bool isLibrary, QWidget* parent = nullptr);
+  OSCategoryPlaceholder(const std::string& text, QWidget* parent = nullptr);
 
-  ModelObjectTypeListView(const std::vector<std::pair<IddObjectType, std::string>>& modelObjectTypesAndNames, const model::Model& model,
-                          bool addScrollArea, OSItemType headerType, bool isLibrary, QWidget* parent = nullptr);
-
-  virtual ~ModelObjectTypeListView() {}
-
-  void addModelObjectType(const IddObjectType& iddObjectType, const std::string& name);
+  virtual ~OSCategoryPlaceholder() {}
   
-  void addModelObjectCategoryPlaceholder(const std::string& name);
-
-  virtual IddObjectType currentIddObjectType() const;
-
-  virtual boost::optional<openstudio::model::ModelObject> selectedModelObject() const;
-
+  QString text() const;
+  
+ protected:
+  void paintEvent(QPaintEvent* event) override;
+  
  private:
-  std::vector<std::pair<IddObjectType, std::string>> m_modelObjectTypesAndNames;
+  QLabel* m_textLabel;
+  
 
-  model::Model m_model;
-  OSItemType m_headerType;
-  bool m_isLibrary;
 };
 
 }  // namespace openstudio
 
-#endif  // OPENSTUDIO_MODELOBJECTTYPELISTVIEW_HPP
+#endif  // OPENSTUDIO_OSCATEGORYPLACEHOLDER_HPP
