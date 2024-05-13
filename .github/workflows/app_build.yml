@@ -27,35 +27,35 @@ jobs:
       # fail-fast: Default is true, switch to false to allow one platform to fail and still run others
       fail-fast: false
       matrix:
-        os: [ubuntu-20.04, ubuntu-22.04, windows-2022, macos-13, macos-arm64]
+        os: [macos-13, macos-arm64] # ubuntu-20.04, ubuntu-22.04, windows-2022,
         include:
-        - os: ubuntu-20.04
-          SELF_HOSTED: false
-          PLATFORM_NAME: Linux
-          BINARY_EXT: deb
-          COMPRESSED_EXT: tar.gz
-          BINARY_PKG_PATH: _CPack_Packages/Linux/DEB
-          COMPRESSED_PKG_PATH: _CPack_Packages/Linux/TGZ
-          QT_OS_NAME: linux
-          QT_ARCH: gcc_64
-        - os: ubuntu-22.04
-          SELF_HOSTED: false
-          PLATFORM_NAME: Linux
-          BINARY_EXT: deb
-          COMPRESSED_EXT: tar.gz
-          BINARY_PKG_PATH: _CPack_Packages/Linux/DEB
-          COMPRESSED_PKG_PATH: _CPack_Packages/Linux/TGZ
-          QT_OS_NAME: linux
-          QT_ARCH: gcc_64
-        - os: windows-2022
-          SELF_HOSTED: false
-          PLATFORM_NAME: Windows
-          BINARY_EXT: exe
-          COMPRESSED_EXT: zip
-          BINARY_PKG_PATH: _CPack_Packages/win64/IFW
-          COMPRESSED_PKG_PATH: _CPack_Packages/win64/ZIP
-          QT_OS_NAME: windows
-          QT_ARCH: win64_msvc2019_64
+        #- os: ubuntu-20.04
+          #SELF_HOSTED: false
+          #PLATFORM_NAME: Linux
+          #BINARY_EXT: deb
+          #COMPRESSED_EXT: tar.gz
+          #BINARY_PKG_PATH: _CPack_Packages/Linux/DEB
+          #COMPRESSED_PKG_PATH: _CPack_Packages/Linux/TGZ
+          #QT_OS_NAME: linux
+          #QT_ARCH: gcc_64
+        #- os: ubuntu-22.04
+          #SELF_HOSTED: false
+          #PLATFORM_NAME: Linux
+          #BINARY_EXT: deb
+          #COMPRESSED_EXT: tar.gz
+          #BINARY_PKG_PATH: _CPack_Packages/Linux/DEB
+          #COMPRESSED_PKG_PATH: _CPack_Packages/Linux/TGZ
+          #QT_OS_NAME: linux
+          #QT_ARCH: gcc_64
+        #- os: windows-2022
+          #SELF_HOSTED: false
+          #PLATFORM_NAME: Windows
+          #BINARY_EXT: exe
+          #COMPRESSED_EXT: zip
+          #BINARY_PKG_PATH: _CPack_Packages/win64/IFW
+          #COMPRESSED_PKG_PATH: _CPack_Packages/win64/ZIP
+          #QT_OS_NAME: windows
+          #QT_ARCH: win64_msvc2019_64
         - os: macos-13
           SELF_HOSTED: false
           PLATFORM_NAME: Darwin
