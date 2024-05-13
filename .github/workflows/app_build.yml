@@ -461,8 +461,22 @@ jobs:
         if [ "${{ matrix.SELF_HOSTED }}" == "true" ]; then
           # TODO: temp... this is unfortunate but the OS SDK arm64 rc2 package has a different sha when extracted...
           # OpenStudio-3.8.0-rc2+af997f4fef-Darwin-x86_64.tar.gz on github, but when extracted it's OpenStudio-3.8.0-rc2+06d9d975e1-Darwin-arm64
-          OS_DIR="-Dopenstudio_DIR:PATH=$(pwd)/build/OpenStudio-3.8.0/OpenStudio-3.8.0-rc2+06d9d975e1-Darwin-arm64/lib/cmake/openstudio"
+          cmake --preset conan-release -DQT_INSTALL_DIR:PATH=${{ env.QT_INSTALL_DIR }} \
+              -DBUILD_DOCUMENTATION:BOOL=${{ env.BUILD_DOCUMENTATION }} \
+              -DBUILD_PACKAGE:BOOL=${{ env.BUILD_PACKAGE }} \
+              -DANALYTICS_API_SECRET:STRING=${{ secrets.ANALYTICS_API_SECRET }} \
+              -DANALYTICS_MEASUREMENT_ID:STRING=${{ secrets.ANALYTICS_MEASUREMENT_ID }} || true
+
+          ls $(pwd)/build/OpenStudio-3.8.0 || true
+          OS_DIR=$(find "$(pwd)/build/OpenStudio-3.8.0" -name openstudioConfig.cmake)
+          OS_DIR=$(dirname $OS_DIR)
+          cmake --preset conan-release -DQT_INSTALL_DIR:PATH=${{ env.QT_INSTALL_DIR }} \
+              -DBUILD_DOCUMENTATION:BOOL=${{ env.BUILD_DOCUMENTATION }} \
+              -DBUILD_PACKAGE:BOOL=${{ env.BUILD_PACKAGE }} \
+              -DANALYTICS_API_SECRET:STRING=${{ secrets.ANALYTICS_API_SECRET }} \
+              -DANALYTICS_MEASUREMENT_ID:STRING=${{ secrets.ANALYTICS_MEASUREMENT_ID }} -Dopenstudio_DIR:PATH=$OS_DIR
         fi
+
         cmake --preset conan-release -DQT_INSTALL_DIR:PATH=${{ env.QT_INSTALL_DIR }} \
               -DBUILD_DOCUMENTATION:BOOL=${{ env.BUILD_DOCUMENTATION }} \
               -DBUILD_PACKAGE:BOOL=${{ env.BUILD_PACKAGE }} \
