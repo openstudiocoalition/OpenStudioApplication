@@ -41,3 +41,4 @@ cppcheck.txt*
 clang_format.patch
 conan-cache
 .ccache
+CMakeUserPresets.json

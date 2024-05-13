@@ -719,7 +719,7 @@ set(${target_name}_moc
   ../shared_gui_components/NetworkProxyDialog.hpp
 )
 
-#include_directories(SYSTEM ${RUBY_INCLUDE_DIRS})
+#include_directories(SYSTEM ${Ruby_INCLUDE_DIRS})
 
 # resource files
 set(${target_name}_qrc
@@ -800,7 +800,7 @@ if(BUILD_BENCHMARK)
     message("bench_name=${bench_name}")
     add_executable( ${bench_name} ${bench_file} )
     target_link_libraries(${bench_name}
-      CONAN_PKG::benchmark
+      benchmark::benchmark_main
       ${target_name}
       ${${target_name}_test_depends}
     )

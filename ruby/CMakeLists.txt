@@ -19,7 +19,7 @@ add_library(openstudio_modeleditor_rb MODULE
   openstudio_modeleditor_rb.cpp
 )
 
-target_include_directories(openstudio_modeleditor_rb SYSTEM PRIVATE ${RUBY_INCLUDE_DIRS})
+target_include_directories(openstudio_modeleditor_rb SYSTEM PRIVATE ${Ruby_INCLUDE_DIRS})
 
 set_target_properties(openstudio_modeleditor_rb PROPERTIES PREFIX "")
 set_target_properties(openstudio_modeleditor_rb PROPERTIES OUTPUT_NAME openstudio_modeleditor)
