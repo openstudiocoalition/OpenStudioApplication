@@ -61,7 +61,6 @@ ModelObjectTypeListView::ModelObjectTypeListView(const std::vector<std::pair<Idd
   }
 }
 
-
 void ModelObjectTypeListView::addModelObjectType(const IddObjectType& iddObjectType, const std::string& name) {
   auto* collapsibleItemHeader = new OSCollapsibleItemHeader(name, OSItemId("", "", false), m_headerType);
   auto* modelObjectListView = new ModelObjectListView(iddObjectType, m_model, false, m_isLibrary);
@@ -71,7 +70,7 @@ void ModelObjectTypeListView::addModelObjectType(const IddObjectType& iddObjectT
 }
 
 void ModelObjectTypeListView::addModelObjectCategoryPlaceholder(const std::string& name) {
- 
+
   auto* categoryPlaceholderItem = new OSCategoryPlaceholder(name);
   addCategoryPlaceholderItem(categoryPlaceholderItem);
 }

@@ -43,19 +43,17 @@ class OSCategoryPlaceholder : public QWidget
   Q_OBJECT
 
  public:
-  OSCategoryPlaceholder(const std::string& text, QWidget* parent = nullptr);
+  explicit OSCategoryPlaceholder(const std::string& text, QWidget* parent = nullptr);
 
-  virtual ~OSCategoryPlaceholder() {}
-  
+  virtual ~OSCategoryPlaceholder() = default;
+
   QString text() const;
-  
+
  protected:
   void paintEvent(QPaintEvent* event) override;
-  
+
  private:
   QLabel* m_textLabel;
-  
-
 };
 
 }  // namespace openstudio

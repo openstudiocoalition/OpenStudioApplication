@@ -40,8 +40,7 @@
 
 namespace openstudio {
 
-OSCategoryPlaceholder::OSCategoryPlaceholder(const std::string& text, QWidget* parent)
-  : QWidget(parent) {
+OSCategoryPlaceholder::OSCategoryPlaceholder(const std::string& text, QWidget* parent) : QWidget(parent) {
   setFixedHeight(50);
   setSizePolicy(QSizePolicy::Preferred, QSizePolicy::Fixed);
   setObjectName("OSCategoryPlaceholder");

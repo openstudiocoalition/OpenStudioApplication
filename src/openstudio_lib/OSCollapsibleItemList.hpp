@@ -52,7 +52,7 @@ class OSCollapsibleItemList : public OSItemSelector
  public:
   explicit OSCollapsibleItemList(bool addScrollArea, QWidget* parent = nullptr);
 
-  virtual ~OSCollapsibleItemList() {}
+  virtual ~OSCollapsibleItemList() = default;
 
   void addCollapsibleItem(OSCollapsibleItem* collapsibleItem);
   void addCategoryPlaceholderItem(OSCategoryPlaceholder* categoryPlaceholderItem);

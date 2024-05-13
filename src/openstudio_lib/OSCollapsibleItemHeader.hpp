@@ -47,7 +47,7 @@ class OSCollapsibleItemHeader : public QWidget
   OSCollapsibleItemHeader(const std::string& text, const OSItemId& itemId, OSItemType type = OSItemType::CollapsibleListHeader,
                           QWidget* parent = nullptr);
 
-  virtual ~OSCollapsibleItemHeader() {}
+  virtual ~OSCollapsibleItemHeader() = default;
 
   QString text() const;
 

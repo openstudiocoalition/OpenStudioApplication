@@ -55,8 +55,7 @@ OSCollapsibleItemList::OSCollapsibleItemList(bool addScrollArea, QWidget* parent
     m_searchActive(false),
     m_itemsDraggable(false),
     m_itemsRemoveable(false),
-    m_itemsType(OSItemType::ListItem),
-    m_placeholderItems() {
+    m_itemsType(OSItemType::ListItem) {
   this->setObjectName("GrayWidget");
 
   auto* outerVLayout = new QVBoxLayout();
@@ -170,7 +169,7 @@ void OSCollapsibleItemList::addCollapsibleItem(OSCollapsibleItem* collapsibleIte
 }
 
 void OSCollapsibleItemList::addCategoryPlaceholderItem(OSCategoryPlaceholder* categoryPlaceholderItem) {
-  
+
   m_placeholderItems.push_back(categoryPlaceholderItem);
   m_vLayout->insertWidget(0, categoryPlaceholderItem);
 }

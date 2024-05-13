@@ -57,7 +57,7 @@ class ModelObjectTypeListView : public OSCollapsibleItemList
   virtual ~ModelObjectTypeListView() {}
 
   void addModelObjectType(const IddObjectType& iddObjectType, const std::string& name);
-  
+
   void addModelObjectCategoryPlaceholder(const std::string& name);
 
   virtual IddObjectType currentIddObjectType() const;
