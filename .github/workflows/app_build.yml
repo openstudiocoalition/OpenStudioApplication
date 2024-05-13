@@ -353,6 +353,7 @@ jobs:
         # Delete the archived OS SDK if not the expected version
         if [ -d "build/OpenStudio-$OS_SDK_VERSION" ]; then
           cd build/OpenStudio-$OS_SDK_VERSION
+          ls
           ls $OS_SDK_INSTALLER_NAME* || rm -Rf ./*
         fi
 
