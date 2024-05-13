@@ -428,6 +428,7 @@ jobs:
       # NOTE: If you re-enable 'Download the OpenStudio installer' step, then pass `openstudio_DIR=$openstudio_DIR cmake [etc]`
       run: |
         conan install . --output-folder=./build --build=missing -c tools.cmake.cmaketoolchain:generator=Ninja -s compiler.cppstd=20 -s build_type=Release
+        call ./build/conanbuild.bat
         cmake --preset conan-release -DQT_INSTALL_DIR:PATH=${{ env.QT_INSTALL_DIR }} ^
               -DBUILD_DOCUMENTATION:BOOL=${{ env.BUILD_DOCUMENTATION }} ^
               -DBUILD_PACKAGE:BOOL=${{ env.BUILD_PACKAGE }} ^
@@ -450,7 +451,13 @@ jobs:
       # NOTE: If you re-enable 'Download the OpenStudio installer' step, then pass `openstudio_DIR=$openstudio_DIR cmake [etc]`
       run: |
         set -x
-        conan install . --output-folder=./build --build=missing -c tools.cmake.cmaketoolchain:generator=Ninja -s compiler.cppstd=20 -s build_type=Release
+        if [ "$RUNNER_OS" == "macOS" ]; then
+          # Avoid "builtin __has_nothrow_assign is deprecated; use __is_nothrow_assignable instead" in boost/1.78 with recent clang
+          conan install . --output-folder=./build --build=missing -c tools.cmake.cmaketoolchain:generator=Ninja -s compiler.cppstd=20 -s build_type=Release -c tools.build:cxxflags="['-D_LIBCPP_ENABLE_CXX17_REMOVED_UNARY_BINARY_FUNCTION']"
+        else
+          conan install . --output-folder=./build --build=missing -c tools.cmake.cmaketoolchain:generator=Ninja -s compiler.cppstd=20 -s build_type=Release
+        fi
+
         cmake --preset conan-release -DQT_INSTALL_DIR:PATH=${{ env.QT_INSTALL_DIR }} \
               -DBUILD_DOCUMENTATION:BOOL=${{ env.BUILD_DOCUMENTATION }} \
               -DBUILD_PACKAGE:BOOL=${{ env.BUILD_PACKAGE }} \
