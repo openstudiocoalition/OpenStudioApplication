@@ -477,6 +477,8 @@ if(WIN32)
   # add_compile_definitions(BOOST_USE_WINDOWS_H) # Getting a confict with `typedef GUID UUID` from windows.h
   add_compile_definitions(BOOST_WINAPI_DEFINE_VERSION_MACROS)
   add_compile_definitions(WIN32_LEAN_AND_MEAN) # That excludes stuff that's not used too often, including the GUID stuff
+  # TODO: remove when possible, see https://github.com/microsoft/cpprestsdk/issues/1768
+  add_compile_definitions(_SILENCE_STDEXT_ARR_ITERS_DEPRECATION_WARNING)
 endif()
 
 # Check version of gcc
