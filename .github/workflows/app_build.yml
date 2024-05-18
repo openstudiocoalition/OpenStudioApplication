@@ -19,8 +19,8 @@ env:
 
 jobs:
   build:
-    # Note: as of 2021-01-29, this only works for push, not for pull request
-    # if: "!(contains(github.event.head_commit.message, 'skip') && contains(github.event.head_commit.message, 'ci'))"
+    if: ${{ github.event_name == 'push' || !github.event.pull_request.draft }}
+
     runs-on: ${{ matrix.os }}
     continue-on-error: true
     strategy:
