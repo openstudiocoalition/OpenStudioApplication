@@ -229,7 +229,7 @@ elseif( UNIX )
     COMMAND ${CMAKE_COMMAND} -E copy_if_different ${qweb_resources_devtools} $<TARGET_FILE_DIR:${target_name}>/resources/
     COMMAND ${CMAKE_COMMAND} -E copy_if_different ${qweb_resources_100} $<TARGET_FILE_DIR:${target_name}>/resources/
     COMMAND ${CMAKE_COMMAND} -E copy_if_different ${qweb_resources_200} $<TARGET_FILE_DIR:${target_name}>/resources/
-    COMMAND ${CMAKE_COMMAND} -E copy_if_different ${qweb_resources_v8_context_snapshot} $<TARGET_FILE_DIR:${target_name}>/resources/
+    #COMMAND ${CMAKE_COMMAND} -E copy_if_different ${qweb_resources_v8_context_snapshot} $<TARGET_FILE_DIR:${target_name}>/resources/
   )
 
   # Note: JM: Qt 6.3.0, I can no longer access $<TARGET_FILE:Qt6::QXcbIntegrationPlugin>
@@ -272,7 +272,7 @@ elseif( WIN32 )
     COMMAND ${CMAKE_COMMAND} -E copy_if_different ${qweb_resources_devtools} $<TARGET_FILE_DIR:${target_name}>/resources/
     COMMAND ${CMAKE_COMMAND} -E copy_if_different ${qweb_resources_100} $<TARGET_FILE_DIR:${target_name}>/resources/
     COMMAND ${CMAKE_COMMAND} -E copy_if_different ${qweb_resources_200} $<TARGET_FILE_DIR:${target_name}>/resources/
-    COMMAND ${CMAKE_COMMAND} -E copy_if_different ${qweb_resources_v8_context_snapshot} $<TARGET_FILE_DIR:${target_name}>/resources/
+    #COMMAND ${CMAKE_COMMAND} -E copy_if_different ${qweb_resources_v8_context_snapshot} $<TARGET_FILE_DIR:${target_name}>/resources/
   )
 
   # On Windows, we must copy the DLLs inside the build folder or it won't find them

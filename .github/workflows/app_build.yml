@@ -15,7 +15,7 @@ env:
   BUILD_TESTING: ON
   BUILD_BENCHMARK: ON
   BUILD_PACKAGE: ON
-  QT_VERSION: 6.6.3
+  QT_VERSION: 6.5.3
 
 jobs:
   build:
@@ -405,7 +405,7 @@ jobs:
         cmake -E make_directory ./build
 
         if [ "$RUNNER_OS" == "macOS" ]; then
-          QT_INSTALL_DIR="/Users/irvinemac/Qt/6.6.3/macos/"
+          QT_INSTALL_DIR="/Users/irvinemac/Qt/6.5.3/macos/"
         fi
 
         echo "$QT_INSTALL_DIR/bin" >> $GITHUB_PATH

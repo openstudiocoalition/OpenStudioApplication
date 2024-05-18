@@ -510,9 +510,9 @@ if(UNIX)
 endif()
 
 # Qt
-# e.g. QT_INSTALL_DIR = C:/Qt/6.6.3/msvc2019_64
+# e.g. QT_INSTALL_DIR = C:/Qt/6.5.3/msvc2019_64
 set(QT_INSTALL_DIR "" CACHE PATH "Path to Qt Install")
-set(QT_VERSION "6.6.3")
+set(QT_VERSION "6.5.3")
 
 # TODO: how to set OPENSSL_ROOT_DIR to a generator expression?
 set(OPENSSL_ROOT_DIR ${CONAN_OPENSSL_ROOT_RELEASE})
@@ -536,7 +536,7 @@ find_file(qweb_resources NAMES qtwebengine_resources.pak PATHS "${QT_INSTALL_DIR
 find_file(qweb_resources_devtools NAMES qtwebengine_devtools_resources.pak PATHS "${QT_INSTALL_DIR}/resources/" "${QT_INSTALL_DIR}/lib/QtWebEngineCore.framework/Resources" NO_DEFAULT_PATH)
 find_file(qweb_resources_100 NAMES qtwebengine_resources_100p.pak PATHS "${QT_INSTALL_DIR}/resources/" "${QT_INSTALL_DIR}/lib/QtWebEngineCore.framework/Resources" NO_DEFAULT_PATH)
 find_file(qweb_resources_200 NAMES qtwebengine_resources_200p.pak PATHS "${QT_INSTALL_DIR}/resources/" "${QT_INSTALL_DIR}/lib/QtWebEngineCore.framework/Resources" NO_DEFAULT_PATH)
-find_file(qweb_resources_v8_context_snapshot NAMES v8_context_snapshot.bin PATHS "${QT_INSTALL_DIR}/resources/" "${QT_INSTALL_DIR}/lib/QtWebEngineCore.framework/Resources" NO_DEFAULT_PATH)
+#find_file(qweb_resources_v8_context_snapshot NAMES v8_context_snapshot.bin PATHS "${QT_INSTALL_DIR}/resources/" "${QT_INSTALL_DIR}/lib/QtWebEngineCore.framework/Resources" NO_DEFAULT_PATH)
 
 # QT_WEB_LIBS are linked by OS App and openstudio_lib but not by openstudio_modeleditor.so or openstudio_modeleditor
 list(APPEND QT_WEB_LIBS Qt6::WebEngineCore)
@@ -610,7 +610,7 @@ if(WIN32)
 endif()
 
 if(UNIX AND NOT APPLE)
-  # Apparently libqxcb.so depends on libQt6OpenGL.so in Qt 6.6.3 (it depended on libGL on 5.15.0 but not OpenGL)
+  # Apparently libqxcb.so depends on libQt6OpenGL.so in Qt 6.5.3 (it depended on libGL on 5.15.0 but not OpenGL)
   find_package(Qt6OpenGL ${QT_VERSION} REQUIRED PATHS ${QT_INSTALL_DIR} NO_DEFAULT_PATH)
   list(APPEND QT_LIBS Qt6::OpenGL)
 endif()
