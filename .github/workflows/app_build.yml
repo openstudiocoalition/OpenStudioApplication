@@ -8,6 +8,7 @@ on:
       - 'v*' # Push events to matching v*, i.e. v1.0, v20.15.10
   pull_request:
     branches: [ master, develop ]
+    types: [ opened, reopened, synchronize, ready_for_review ]
 
 env:
   BUILD_TYPE: Release
