@@ -1,7 +1,7 @@
 
 OS:Version,
-  {8c03b54b-c15d-48b3-b952-a590108ac926}, !- Handle
-  3.7.0;                                  !- Version Identifier
+  {f6cbc252-74d7-402f-baed-cdce79abd81f}, !- Handle
+  3.8.0;                                  !- Version Identifier
 
 ! Always OnOff Discrete Schedule Type Limits
 OS:ScheduleTypeLimits,
@@ -72,31 +72,31 @@ OS:Schedule:Ruleset,
   {95c78f52-da30-4a0d-89e9-0555bc997738}; ! Winter Design Day Schedule Name
 
 OS:Schedule:Day,
-  {95b90024-04b9-42bd-bb61-cf49cd53075a}, ! Handle
-  Deck Temperature Default,               ! Name
-  {0aa7bb86-b420-45ab-9bde-8e8a1cb6966c}, ! Schedule Type Limits Name
-  ,                                       ! Interpolate to Timestep
-  24,                                     ! Hour 1
-  0,                                      ! Minute 1
-  12.8;                                   ! Value Until Time 1
+  {95b90024-04b9-42bd-bb61-cf49cd53075a}, !- Handle
+  Deck Temperature Default,               !- Name
+  {0aa7bb86-b420-45ab-9bde-8e8a1cb6966c}, !- Schedule Type Limits Name
+  No,                                     !- Interpolate to Timestep
+  24,                                     !- Hour 1
+  0,                                      !- Minute 1
+  12.8;                                   !- Value Until Time 1
 
 OS:Schedule:Day,
-  {82d14405-5ef1-4ba9-964e-5eeda4406377}, ! Handle
-  Deck Temperature Summer Design Day,     ! Name
-  {0aa7bb86-b420-45ab-9bde-8e8a1cb6966c}, ! Schedule Type Limits Name
-  ,                                       ! Interpolate to Timestep
-  24,                                     ! Hour 1
-  0,                                      ! Minute 1
-  12.8;                                   ! Value Until Time 1
+  {82d14405-5ef1-4ba9-964e-5eeda4406377}, !- Handle
+  Deck Temperature Summer Design Day,     !- Name
+  {0aa7bb86-b420-45ab-9bde-8e8a1cb6966c}, !- Schedule Type Limits Name
+  No,                                     !- Interpolate to Timestep
+  24,                                     !- Hour 1
+  0,                                      !- Minute 1
+  12.8;                                   !- Value Until Time 1
 
 OS:Schedule:Day,
-  {95c78f52-da30-4a0d-89e9-0555bc997738}, ! Handle
-  Deck Temperature Winter Design Day,     ! Name
-  {0aa7bb86-b420-45ab-9bde-8e8a1cb6966c}, ! Schedule Type Limits Name
-  ,                                       ! Interpolate to Timestep
-  24,                                     ! Hour 1
-  0,                                      ! Minute 1
-  12.8;                                   ! Value Until Time 1
+  {95c78f52-da30-4a0d-89e9-0555bc997738}, !- Handle
+  Deck Temperature Winter Design Day,     !- Name
+  {0aa7bb86-b420-45ab-9bde-8e8a1cb6966c}, !- Schedule Type Limits Name
+  No,                                     !- Interpolate to Timestep
+  24,                                     !- Hour 1
+  0,                                      !- Minute 1
+  12.8;                                   !- Value Until Time 1
 
 OS:Schedule:Ruleset,
   {79d1a727-7423-4a1b-a207-ba52d7b79585}, ! Handle
@@ -107,31 +107,31 @@ OS:Schedule:Ruleset,
   {f68485a1-707c-47b6-9d74-c28290a31dd0}; ! Winter Design Day Schedule Name
 
 OS:Schedule:Day,
-  {6c00760d-609c-47a8-8712-9d3bab3b8988}, ! Handle
-  Hot Water Temperature Default,          ! Name
-  {0aa7bb86-b420-45ab-9bde-8e8a1cb6966c}, ! Schedule Type Limits Name
-  ,                                       ! Interpolate to Timestep
-  24,                                     ! Hour 1
-  0,                                      ! Minute 1
-  67;                                     ! Value Until Time 1
+  {6c00760d-609c-47a8-8712-9d3bab3b8988}, !- Handle
+  Hot Water Temperature Default,          !- Name
+  {0aa7bb86-b420-45ab-9bde-8e8a1cb6966c}, !- Schedule Type Limits Name
+  No,                                     !- Interpolate to Timestep
+  24,                                     !- Hour 1
+  0,                                      !- Minute 1
+  67;                                     !- Value Until Time 1
 
 OS:Schedule:Day,
-  {b631e7a3-37a8-41e5-8135-9b04110f3595}, ! Handle
-  Hot Water Temperature Summer Design Day, ! Name
-  {0aa7bb86-b420-45ab-9bde-8e8a1cb6966c}, ! Schedule Type Limits Name
-  ,                                       ! Interpolate to Timestep
-  24,                                     ! Hour 1
-  0,                                      ! Minute 1
-  67;                                     ! Value Until Time 1
+  {b631e7a3-37a8-41e5-8135-9b04110f3595}, !- Handle
+  Hot Water Temperature Summer Design Day, !- Name
+  {0aa7bb86-b420-45ab-9bde-8e8a1cb6966c}, !- Schedule Type Limits Name
+  No,                                     !- Interpolate to Timestep
+  24,                                     !- Hour 1
+  0,                                      !- Minute 1
+  67;                                     !- Value Until Time 1
 
 OS:Schedule:Day,
-  {f68485a1-707c-47b6-9d74-c28290a31dd0}, ! Handle
-  Hot Water Temperature Winter Design Day, ! Name
-  {0aa7bb86-b420-45ab-9bde-8e8a1cb6966c}, ! Schedule Type Limits Name
-  ,                                       ! Interpolate to Timestep
-  24,                                     ! Hour 1
-  0,                                      ! Minute 1
-  67;                                     ! Value Until Time 1
+  {f68485a1-707c-47b6-9d74-c28290a31dd0}, !- Handle
+  Hot Water Temperature Winter Design Day, !- Name
+  {0aa7bb86-b420-45ab-9bde-8e8a1cb6966c}, !- Schedule Type Limits Name
+  No,                                     !- Interpolate to Timestep
+  24,                                     !- Hour 1
+  0,                                      !- Minute 1
+  67;                                     !- Value Until Time 1
 
 OS:Schedule:Ruleset,
   {65a1b0a1-d443-4036-bf41-434dd40cfc03}, ! Handle
@@ -142,31 +142,31 @@ OS:Schedule:Ruleset,
   {60c11249-2bc8-40f9-ad01-f25308df3870}; ! Winter Design Day Schedule Name
 
 OS:Schedule:Day,
-  {5ed7a3e4-5e4a-4764-b5f5-4e86b859896a}, ! Handle
-  Chilled Water Temperature Default,      ! Name
-  {0aa7bb86-b420-45ab-9bde-8e8a1cb6966c}, ! Schedule Type Limits Name
-  ,                                       ! Interpolate to Timestep
-  24,                                     ! Hour 1
-  0,                                      ! Minute 1
-  6.7;                                    ! Value Until Time 1
+  {5ed7a3e4-5e4a-4764-b5f5-4e86b859896a}, !- Handle
+  Chilled Water Temperature Default,      !- Name
+  {0aa7bb86-b420-45ab-9bde-8e8a1cb6966c}, !- Schedule Type Limits Name
+  No,                                     !- Interpolate to Timestep
+  24,                                     !- Hour 1
+  0,                                      !- Minute 1
+  6.7;                                    !- Value Until Time 1
 
 OS:Schedule:Day,
-  {fb0171b5-e5d5-4644-a2f3-dace8526fb8d}, ! Handle
-  Chilled Water Temperature Summer Design Day, ! Name
-  {0aa7bb86-b420-45ab-9bde-8e8a1cb6966c}, ! Schedule Type Limits Name
-  ,                                       ! Interpolate to Timestep
-  24,                                     ! Hour 1
-  0,                                      ! Minute 1
-  6.7;                                    ! Value Until Time 1
+  {fb0171b5-e5d5-4644-a2f3-dace8526fb8d}, !- Handle
+  Chilled Water Temperature Summer Design Day, !- Name
+  {0aa7bb86-b420-45ab-9bde-8e8a1cb6966c}, !- Schedule Type Limits Name
+  No,                                     !- Interpolate to Timestep
+  24,                                     !- Hour 1
+  0,                                      !- Minute 1
+  6.7;                                    !- Value Until Time 1
 
 OS:Schedule:Day,
-  {60c11249-2bc8-40f9-ad01-f25308df3870}, ! Handle
-  Chilled Water Temperature Winter Design Day, ! Name
-  {0aa7bb86-b420-45ab-9bde-8e8a1cb6966c}, ! Schedule Type Limits Name
-  ,                                       ! Interpolate to Timestep
-  24,                                     ! Hour 1
-  0,                                      ! Minute 1
-  6.7;                                    ! Value Until Time 1
+  {60c11249-2bc8-40f9-ad01-f25308df3870}, !- Handle
+  Chilled Water Temperature Winter Design Day, !- Name
+  {0aa7bb86-b420-45ab-9bde-8e8a1cb6966c}, !- Schedule Type Limits Name
+  No,                                     !- Interpolate to Timestep
+  24,                                     !- Hour 1
+  0,                                      !- Minute 1
+  6.7;                                    !- Value Until Time 1
 
 OS:Schedule:Ruleset,
   {cc53a423-3dc6-47ad-90d5-0154db8eccc8}, ! Handle
@@ -175,13 +175,13 @@ OS:Schedule:Ruleset,
   {7eb2848e-01e0-426d-aafa-66f3edbc9660}; ! Default Day Schedule Name
 
 OS:Schedule:Day,
-  {7eb2848e-01e0-426d-aafa-66f3edbc9660}, ! Handle
-  Water Heater Ambient Temperature Default, ! Name
-  {0aa7bb86-b420-45ab-9bde-8e8a1cb6966c}, ! Schedule Type Limits Name
-  ,                                       ! Interpolate to Timestep
-  24,                                     ! Hour 1
-  0,                                      ! Minute 1
-  22;                                     ! Value Until Time 1
+  {7eb2848e-01e0-426d-aafa-66f3edbc9660}, !- Handle
+  Water Heater Ambient Temperature Default, !- Name
+  {0aa7bb86-b420-45ab-9bde-8e8a1cb6966c}, !- Schedule Type Limits Name
+  No,                                     !- Interpolate to Timestep
+  24,                                     !- Hour 1
+  0,                                      !- Minute 1
+  22;                                     !- Value Until Time 1
 
 OS:Schedule:Ruleset,
   {c13bffd8-644e-4f69-871f-7dcafa493644}, ! Handle
@@ -190,13 +190,13 @@ OS:Schedule:Ruleset,
   {97b084f4-4eda-4f4b-a7c9-ef8eb8825fdb}; ! Default Day Schedule Name
 
 OS:Schedule:Day,
-  {97b084f4-4eda-4f4b-a7c9-ef8eb8825fdb}, ! Handle
-  Water Heater Setpoint Temperature Default, ! Name
-  {0aa7bb86-b420-45ab-9bde-8e8a1cb6966c}, ! Schedule Type Limits Name
-  ,                                       ! Interpolate to Timestep
-  24,                                     ! Hour 1
-  0,                                      ! Minute 1
-  60;                                     ! Value Until Time 1
+  {97b084f4-4eda-4f4b-a7c9-ef8eb8825fdb}, !- Handle
+  Water Heater Setpoint Temperature Default, !- Name
+  {0aa7bb86-b420-45ab-9bde-8e8a1cb6966c}, !- Schedule Type Limits Name
+  No,                                     !- Interpolate to Timestep
+  24,                                     !- Hour 1
+  0,                                      !- Minute 1
+  60;                                     !- Value Until Time 1
 
 OS:SetpointManager:FollowOutdoorAirTemperature,
   {66411916-74d9-491e-8fdd-63249f651c0e}, ! Handle
@@ -409,7 +409,7 @@ OS:Schedule:Day,
   {47fec27d-6610-4f32-94f3-860c2949a1d8}, !- Handle
   Min Max Temp w Deadband Max Day,        !- Name
   {919bbba6-e6ba-472c-968a-3444cb36c6e6}, !- Schedule Type Limits Name
-  ,                                       !- Interpolate to Timestep
+  No,                                     !- Interpolate to Timestep
   24,                                     !- Hour 1
   0,                                      !- Minute 1
   26.7;                                   !- Value Until Time 1
@@ -424,7 +424,7 @@ OS:Schedule:Day,
   {2e127e60-a413-4470-9836-838e2468abe2}, !- Handle
   Min Max Temp w Deadband Min Day,        !- Name
   {554ee901-8dc9-456e-884a-409b5b97127b}, !- Schedule Type Limits Name
-  ,                                       !- Interpolate to Timestep
+  No,                                     !- Interpolate to Timestep
   24,                                     !- Hour 1
   0,                                      !- Minute 1
   10;                                     !- Value Until Time 1
@@ -1775,7 +1775,7 @@ OS:Schedule:Day,
   {9b35d3ba-4ce5-49f8-91ac-bdb91509399c}, !- Handle
   Schedule Day 8,                         !- Name
   {0aa7bb86-b420-45ab-9bde-8e8a1cb6966c}, !- Schedule Type Limits Name
-  ,                                       !- Interpolate to Timestep
+  No,                                     !- Interpolate to Timestep
   24,                                     !- Hour 1
   0,                                      !- Minute 1
   15;                                     !- Value Until Time 1
@@ -1791,6 +1791,7 @@ OS:ZoneHVAC:PackagedTerminalHeatPump,
   Autosize,                               !- Supply Air Flow Rate During Cooling Operation {m3/s}
   Autosize,                               !- Supply Air Flow Rate During Heating Operation {m3/s}
   Autosize,                               !- Supply Air Flow Rate When No Cooling or Heating is Needed {m3/s}
+  Yes,                                    !- No Load Supply Air Flow Rate Control Set To Low Speed
   Autosize,                               !- Outdoor Air Flow Rate During Cooling Operation {m3/s}
   Autosize,                               !- Outdoor Air Flow Rate During Heating Operation {m3/s}
   Autosize,                               !- Outdoor Air Flow Rate When No Cooling or Heating is Needed {m3/s}
@@ -2002,24 +2003,25 @@ OS:Coil:Heating:Electric,
   ;                                       ! Air Outlet Node Name
 
 OS:ZoneHVAC:PackagedTerminalAirConditioner,
-  {1be22621-ed22-48ec-96e7-12724604833d}, ! Handle
-  PTAC DX Clg HW Htg,                     ! Name
-  {9f54092d-a4a8-41b8-a381-c4c332ecb843}, ! Availability Schedule Name
-  ,                                       ! Air Inlet Node Name
-  ,                                       ! Air Outlet Node Name
-  OutdoorAir:Mixer,                       ! Outdoor Air Mixer Object Type
-  ,                                       ! Outdoor Air Mixer Name
-  Autosize,                               ! Supply Air Flow Rate During Cooling Operation {m3/s}
-  Autosize,                               ! Supply Air Flow Rate During Heating Operation {m3/s}
-  Autosize,                               ! Supply Air Flow Rate When No Cooling or Heating is Needed {m3/s}
-  Autosize,                               ! Outdoor Air Flow Rate During Cooling Operation {m3/s}
-  Autosize,                               ! Outdoor Air Flow Rate During Heating Operation {m3/s}
-  Autosize,                               ! Outdoor Air Flow Rate When No Cooling or Heating is Needed {m3/s}
-  {ee8dd059-19cf-4a49-9057-a73c2da0df82}, ! Supply Air Fan Name
-  {088c33d6-4a37-474d-9b5f-6dccbb3a0094}, ! Heating Coil Name
-  {9c508114-016d-4f8e-a2d1-7742c37adb80}, ! Cooling Coil Name
-  DrawThrough,                            ! Fan Placement
-  {9f54092d-a4a8-41b8-a381-c4c332ecb843}; ! Supply Air Fan Operating Mode Schedule Name
+  {1be22621-ed22-48ec-96e7-12724604833d}, !- Handle
+  PTAC DX Clg HW Htg,                     !- Name
+  {9f54092d-a4a8-41b8-a381-c4c332ecb843}, !- Availability Schedule Name
+  ,                                       !- Air Inlet Node Name
+  ,                                       !- Air Outlet Node Name
+  OutdoorAir:Mixer,                       !- Outdoor Air Mixer Object Type
+  ,                                       !- Outdoor Air Mixer Name
+  Autosize,                               !- Supply Air Flow Rate During Cooling Operation {m3/s}
+  Autosize,                               !- Supply Air Flow Rate During Heating Operation {m3/s}
+  Autosize,                               !- Supply Air Flow Rate When No Cooling or Heating is Needed {m3/s}
+  Yes,                                    !- No Load Supply Air Flow Rate Control Set To Low Speed
+  Autosize,                               !- Outdoor Air Flow Rate During Cooling Operation {m3/s}
+  Autosize,                               !- Outdoor Air Flow Rate During Heating Operation {m3/s}
+  Autosize,                               !- Outdoor Air Flow Rate When No Cooling or Heating is Needed {m3/s}
+  {ee8dd059-19cf-4a49-9057-a73c2da0df82}, !- Supply Air Fan Name
+  {088c33d6-4a37-474d-9b5f-6dccbb3a0094}, !- Heating Coil Name
+  {9c508114-016d-4f8e-a2d1-7742c37adb80}, !- Cooling Coil Name
+  DrawThrough,                            !- Fan Placement
+  {9f54092d-a4a8-41b8-a381-c4c332ecb843}; !- Supply Air Fan Operating Mode Schedule Name
 
 OS:Coil:Cooling:DX:SingleSpeed,
   {9c508114-016d-4f8e-a2d1-7742c37adb80}, !- Handle
@@ -2506,13 +2508,13 @@ OS:Schedule:Ruleset,
   {8c74544a-4d75-4e86-a169-3abf44d0edcc}; ! Default Day Schedule Name
 
 OS:Schedule:Day,
-  {8c74544a-4d75-4e86-a169-3abf44d0edcc}, ! Handle
-  Water Heater Stratified Setpoint Temperature Default, ! Name
-  {0aa7bb86-b420-45ab-9bde-8e8a1cb6966c}, ! Schedule Type Limits Name
-  ,                                       ! Interpolate to Timestep
-  24,                                     ! Hour 1
-  0,                                      ! Minute 1
-  48.89;                                  ! Value Until Time 1
+  {8c74544a-4d75-4e86-a169-3abf44d0edcc}, !- Handle
+  Water Heater Stratified Setpoint Temperature Default, !- Name
+  {0aa7bb86-b420-45ab-9bde-8e8a1cb6966c}, !- Schedule Type Limits Name
+  No,                                     !- Interpolate to Timestep
+  24,                                     !- Hour 1
+  0,                                      !- Minute 1
+  48.89;                                  !- Value Until Time 1
 
 OS:WaterHeater:Stratified,
   {db2fa640-2a72-4846-9027-769207ea3ebf}, !- Handle
@@ -2846,7 +2848,7 @@ OS:Schedule:Day,
   {d8c17c03-c30b-47f4-91ed-c29a709c4e1e}, !- Handle
   Schedule Day 16,                        !- Name
   {0aa7bb86-b420-45ab-9bde-8e8a1cb6966c}, !- Schedule Type Limits Name
-  ,                                       !- Interpolate to Timestep
+  No,                                     !- Interpolate to Timestep
   24,                                     !- Hour 1
   0,                                      !- Minute 1
   48.89;                                  !- Value Until Time 1
@@ -2861,7 +2863,7 @@ OS:Schedule:Day,
   {7e36eccf-f03e-4c51-b515-74437a59cd10}, !- Handle
   Schedule Day 2,                         !- Name
   {0aa7bb86-b420-45ab-9bde-8e8a1cb6966c}, !- Schedule Type Limits Name
-  ,                                       !- Interpolate to Timestep
+  No,                                     !- Interpolate to Timestep
   24,                                     !- Hour 1
   0,                                      !- Minute 1
   48.89;                                  !- Value Until Time 1
@@ -2876,7 +2878,7 @@ OS:Schedule:Day,
   {194896f4-7cba-4cb0-9508-6819e4113467}, !- Handle
   Schedule Day 3,                         !- Name
   {0aa7bb86-b420-45ab-9bde-8e8a1cb6966c}, !- Schedule Type Limits Name
-  ,                                       !- Interpolate to Timestep
+  No,                                     !- Interpolate to Timestep
   24,                                     !- Hour 1
   0,                                      !- Minute 1
   22;                                     !- Value Until Time 1
@@ -2929,7 +2931,7 @@ OS:Schedule:Day,
   {b1756833-41db-47e2-98b9-49badd1391de}, !- Handle
   Schedule Day 12,                        !- Name
   {0aa7bb86-b420-45ab-9bde-8e8a1cb6966c}, !- Schedule Type Limits Name
-  ,                                       !- Interpolate to Timestep
+  No,                                     !- Interpolate to Timestep
   24,                                     !- Hour 1
   0,                                      !- Minute 1
   60;                                     !- Value Until Time 1
@@ -2944,7 +2946,7 @@ OS:Schedule:Day,
   {b73b2900-410b-495b-a3de-56d24e5ee5bf}, !- Handle
   Schedule Day 14,                        !- Name
   {0aa7bb86-b420-45ab-9bde-8e8a1cb6966c}, !- Schedule Type Limits Name
-  ,                                       !- Interpolate to Timestep
+  No,                                     !- Interpolate to Timestep
   24,                                     !- Hour 1
   0,                                      !- Minute 1
   19.7;                                   !- Value Until Time 1
@@ -2959,7 +2961,7 @@ OS:Schedule:Day,
   {a538628e-bfc2-49cd-9f34-54241265e5f2}, !- Handle
   Schedule Day 11,                        !- Name
   {09791629-0b05-4935-8060-d1ca19e6d0a3}, !- Schedule Type Limits Name
-  ,                                       !- Interpolate to Timestep
+  No,                                     !- Interpolate to Timestep
   24,                                     !- Hour 1
   0,                                      !- Minute 1
   0.5;                                    !- Value Until Time 1
@@ -2974,7 +2976,7 @@ OS:Schedule:Day,
   {f91e7c62-5717-4d64-91cf-8a829e06d1de}, !- Handle
   Schedule Day 17,                        !- Name
   {0aa7bb86-b420-45ab-9bde-8e8a1cb6966c}, !- Schedule Type Limits Name
-  ,                                       !- Interpolate to Timestep
+  No,                                     !- Interpolate to Timestep
   24,                                     !- Hour 1
   0,                                      !- Minute 1
   21;                                     !- Value Until Time 1
@@ -2989,7 +2991,7 @@ OS:Schedule:Day,
   {2e133a0a-b7e9-47ba-8515-efaf35ce3011}, !- Handle
   Schedule Day 9,                         !- Name
   {0aa7bb86-b420-45ab-9bde-8e8a1cb6966c}, !- Schedule Type Limits Name
-  ,                                       !- Interpolate to Timestep
+  No,                                     !- Interpolate to Timestep
   24,                                     !- Hour 1
   0,                                      !- Minute 1
   22;                                     !- Value Until Time 1
@@ -3004,7 +3006,7 @@ OS:Schedule:Day,
   {b1ebec0b-6d61-4fe7-b099-81418aff1c0a}, !- Handle
   Schedule Day 13,                        !- Name
   {0aa7bb86-b420-45ab-9bde-8e8a1cb6966c}, !- Schedule Type Limits Name
-  ,                                       !- Interpolate to Timestep
+  No,                                     !- Interpolate to Timestep
   24,                                     !- Hour 1
   0,                                      !- Minute 1
   60;                                     !- Value Until Time 1
@@ -3057,7 +3059,7 @@ OS:Schedule:Day,
   {c77280c9-a1a3-4877-9bbf-d1cc0d16fe60}, !- Handle
   Schedule Day 15,                        !- Name
   {0aa7bb86-b420-45ab-9bde-8e8a1cb6966c}, !- Schedule Type Limits Name
-  ,                                       !- Interpolate to Timestep
+  No,                                     !- Interpolate to Timestep
   24,                                     !- Hour 1
   0,                                      !- Minute 1
   60;                                     !- Value Until Time 1
@@ -3072,7 +3074,7 @@ OS:Schedule:Day,
   {5bfbd450-8c1d-4c1d-95ef-9dd0671a6683}, !- Handle
   Schedule Day 4,                         !- Name
   {800d56d5-16ef-4ac2-a7d0-6abcfc246032}, !- Schedule Type Limits Name
-  ,                                       !- Interpolate to Timestep
+  No,                                     !- Interpolate to Timestep
   24,                                     !- Hour 1
   0,                                      !- Minute 1
   0.2;                                    !- Value Until Time 1
@@ -3087,7 +3089,7 @@ OS:Schedule:Day,
   {81a7b613-3016-4312-ba3c-0885344e023a}, !- Handle
   Schedule Day 5,                         !- Name
   {0aa7bb86-b420-45ab-9bde-8e8a1cb6966c}, !- Schedule Type Limits Name
-  ,                                       !- Interpolate to Timestep
+  No,                                     !- Interpolate to Timestep
   24,                                     !- Hour 1
   0,                                      !- Minute 1
   19.7;                                   !- Value Until Time 1
@@ -3102,7 +3104,7 @@ OS:Schedule:Day,
   {38b4b584-88e0-4d37-bc17-2bf3ff742a62}, !- Handle
   Schedule Day 6,                         !- Name
   {09791629-0b05-4935-8060-d1ca19e6d0a3}, !- Schedule Type Limits Name
-  ,                                       !- Interpolate to Timestep
+  No,                                     !- Interpolate to Timestep
   24,                                     !- Hour 1
   0,                                      !- Minute 1
   0.5;                                    !- Value Until Time 1
@@ -3117,7 +3119,7 @@ OS:Schedule:Day,
   {5d2f4cc2-c6f8-4de1-a3fc-62389d3fd6d1}, !- Handle
   Schedule Day 7,                         !- Name
   {0aa7bb86-b420-45ab-9bde-8e8a1cb6966c}, !- Schedule Type Limits Name
-  ,                                       !- Interpolate to Timestep
+  No,                                     !- Interpolate to Timestep
   24,                                     !- Hour 1
   0,                                      !- Minute 1
   21;                                     !- Value Until Time 1
@@ -3860,6 +3862,7 @@ OS:ZoneHVAC:WaterToAirHeatPump,
   Autosize,                               !- Supply Air Flow Rate During Cooling Operation {m3/s}
   Autosize,                               !- Supply Air Flow Rate During Heating Operation {m3/s}
   autosize,                               !- Supply Air Flow Rate When No Cooling or Heating is Needed {m3/s}
+  Yes,                                    !- No Load Supply Air Flow Rate Control Set To Low Speed
   autosize,                               !- Outdoor Air Flow Rate During Cooling Operation {m3/s}
   autosize,                               !- Outdoor Air Flow Rate During Heating Operation {m3/s}
   Autosize,                               !- Outdoor Air Flow Rate When No Cooling or Heating is Needed {m3/s}
@@ -3896,6 +3899,7 @@ OS:ZoneHVAC:WaterToAirHeatPump,
   Autosize,                               !- Supply Air Flow Rate During Cooling Operation {m3/s}
   Autosize,                               !- Supply Air Flow Rate During Heating Operation {m3/s}
   autosize,                               !- Supply Air Flow Rate When No Cooling or Heating is Needed {m3/s}
+  Yes,                                    !- No Load Supply Air Flow Rate Control Set To Low Speed
   autosize,                               !- Outdoor Air Flow Rate During Cooling Operation {m3/s}
   autosize,                               !- Outdoor Air Flow Rate During Heating Operation {m3/s}
   Autosize,                               !- Outdoor Air Flow Rate When No Cooling or Heating is Needed {m3/s}
@@ -3932,6 +3936,7 @@ OS:ZoneHVAC:WaterToAirHeatPump,
   Autosize,                               !- Supply Air Flow Rate During Cooling Operation {m3/s}
   Autosize,                               !- Supply Air Flow Rate During Heating Operation {m3/s}
   autosize,                               !- Supply Air Flow Rate When No Cooling or Heating is Needed {m3/s}
+  Yes,                                    !- No Load Supply Air Flow Rate Control Set To Low Speed
   autosize,                               !- Outdoor Air Flow Rate During Cooling Operation {m3/s}
   autosize,                               !- Outdoor Air Flow Rate During Heating Operation {m3/s}
   Autosize,                               !- Outdoor Air Flow Rate When No Cooling or Heating is Needed {m3/s}
@@ -4040,6 +4045,66 @@ OS:Curve:Quadratic,
   0,                                      ! Minimum Value of x {BasedOnField A2}
   1;                                      ! Maximum Value of x {BasedOnField A2}
 
+OS:Table:Lookup,
+  {f0227845-042c-4180-85c3-c0a106761243}, !- Handle
+  Air-to-Air Plate HX_SensHeatEff,        !- Name
+  {b5b58d9a-e527-4719-a1ea-f7efa259a5c7}, !- Independent Variable List Name
+  DivisorOnly,                            !- Normalization Method
+  0.76,                                   !- Normalization Divisor
+  0,                                      !- Minimum Output {BasedOnField A5}
+  10,                                     !- Maximum Output {BasedOnField A5}
+  Dimensionless,                          !- Output Unit Type
+  ,                                       !- External File Name
+  ,                                       !- External File Column Number
+  ,                                       !- External File Starting Row Number
+  0.81,                                   !- Output Value 1 {BasedOnField A5}
+  0.76;                                   !- Output Value 2 {BasedOnField A5}
+
+OS:Table:Lookup,
+  {39b68410-4169-409f-84a4-e2287999cd10}, !- Handle
+  Air-to-Air Plate HX_LatHeatEff,         !- Name
+  {b5b58d9a-e527-4719-a1ea-f7efa259a5c7}, !- Independent Variable List Name
+  DivisorOnly,                            !- Normalization Method
+  0.68,                                   !- Normalization Divisor
+  0,                                      !- Minimum Output {BasedOnField A5}
+  10,                                     !- Maximum Output {BasedOnField A5}
+  Dimensionless,                          !- Output Unit Type
+  ,                                       !- External File Name
+  ,                                       !- External File Column Number
+  ,                                       !- External File Starting Row Number
+  0.73,                                   !- Output Value 1 {BasedOnField A5}
+  0.68;                                   !- Output Value 2 {BasedOnField A5}
+
+OS:Table:Lookup,
+  {dd26796b-ef95-4b8b-86c6-4e79b336233a}, !- Handle
+  Air-to-Air Plate HX_SensCoolEff,        !- Name
+  {b5b58d9a-e527-4719-a1ea-f7efa259a5c7}, !- Independent Variable List Name
+  DivisorOnly,                            !- Normalization Method
+  0.76,                                   !- Normalization Divisor
+  0,                                      !- Minimum Output {BasedOnField A5}
+  10,                                     !- Maximum Output {BasedOnField A5}
+  Dimensionless,                          !- Output Unit Type
+  ,                                       !- External File Name
+  ,                                       !- External File Column Number
+  ,                                       !- External File Starting Row Number
+  0.81,                                   !- Output Value 1 {BasedOnField A5}
+  0.76;                                   !- Output Value 2 {BasedOnField A5}
+
+OS:Table:Lookup,
+  {10df5c60-2f34-4291-ac47-4ddc76c72a0f}, !- Handle
+  Air-to-Air Plate HX_LatCoolEff,         !- Name
+  {b5b58d9a-e527-4719-a1ea-f7efa259a5c7}, !- Independent Variable List Name
+  DivisorOnly,                            !- Normalization Method
+  0.68,                                   !- Normalization Divisor
+  0,                                      !- Minimum Output {BasedOnField A5}
+  10,                                     !- Maximum Output {BasedOnField A5}
+  Dimensionless,                          !- Output Unit Type
+  ,                                       !- External File Name
+  ,                                       !- External File Column Number
+  ,                                       !- External File Starting Row Number
+  0.73,                                   !- Output Value 1 {BasedOnField A5}
+  0.68;                                   !- Output Value 2 {BasedOnField A5}
+
 OS:HeatExchanger:AirToAir:SensibleAndLatent,
   {648d1052-42c2-4c83-82e9-af6299097461}, !- Handle
   Air-to-Air Plate HX,                    !- Name
@@ -4047,12 +4112,8 @@ OS:HeatExchanger:AirToAir:SensibleAndLatent,
   autosize,                               !- Nominal Supply Air Flow Rate {m3/s}
   0.76,                                   !- Sensible Effectiveness at 100% Heating Air Flow {dimensionless}
   0.68,                                   !- Latent Effectiveness at 100% Heating Air Flow {dimensionless}
-  0.81,                                   !- Sensible Effectiveness at 75% Heating Air Flow {dimensionless}
-  0.73,                                   !- Latent Effectiveness at 75% Heating Air Flow {dimensionless}
   0.76,                                   !- Sensible Effectiveness at 100% Cooling Air Flow {dimensionless}
   0.68,                                   !- Latent Effectiveness at 100% Cooling Air Flow {dimensionless}
-  0.81,                                   !- Sensible Effectiveness at 75% Cooling Air Flow {dimensionless}
-  0.73,                                   !- Latent Effectiveness at 75% Cooling Air Flow {dimensionless}
   ,                                       !- Supply Air Inlet Node
   ,                                       !- Supply Air Outlet Node
   ,                                       !- Exhaust Air Inlet Node
@@ -4064,7 +4125,31 @@ OS:HeatExchanger:AirToAir:SensibleAndLatent,
   1.7,                                    !- Threshold Temperature {C}
   ,                                       !- Initial Defrost Time Fraction {dimensionless}
   ,                                       !- Rate of Defrost Time Fraction Increase {1/K}
-  Yes;                                    !- Economizer Lockout
+  Yes,                                    !- Economizer Lockout
+  {f0227845-042c-4180-85c3-c0a106761243}, !- Sensible Effectiveness of Heating Air Flow Curve Name
+  {39b68410-4169-409f-84a4-e2287999cd10}, !- Latent Effectiveness of Heating Air Flow Curve Name
+  {dd26796b-ef95-4b8b-86c6-4e79b336233a}, !- Sensible Effectiveness of Cooling Air Flow Curve Name
+  {10df5c60-2f34-4291-ac47-4ddc76c72a0f}; !- Latent Effectiveness of Cooling Air Flow Curve Name
+
+OS:ModelObjectList,
+  {b5b58d9a-e527-4719-a1ea-f7efa259a5c7}, !- Handle
+  Air-to-Air Plate HX_IndependentVariableList, !- Name
+  {90736c0d-c1e4-4db8-b727-0c6eb065ad4f}; !- Model Object 1
+
+OS:Table:IndependentVariable,
+  {90736c0d-c1e4-4db8-b727-0c6eb065ad4f}, !- Handle
+  Air-to-Air Plate HX_IndependentVariable, !- Name
+  Linear,                                 !- Interpolation Method
+  Linear,                                 !- Extrapolation Method
+  0,                                      !- Minimum Value {BasedOnField A5}
+  10,                                     !- Maximum Value {BasedOnField A5}
+  ,                                       !- Normalization Reference Value {BasedOnField A5}
+  Dimensionless,                          !- Unit Type
+  ,                                       !- External File Name
+  ,                                       !- External File Column Number
+  ,                                       !- External File Starting Row Number
+  0.75,                                   !- Value 1
+  1;                                      !- Value 2
 
 OS:Schedule:Ruleset,
   {859796f4-c144-4b41-8cdf-85a012be8c24}, !- Handle
@@ -4076,7 +4161,7 @@ OS:Schedule:Day,
   {c96897c6-4dfe-4beb-8289-1a2274edd626}, !- Handle
   Low Temp Rad Elec Htg Sch All Days,     !- Name
   {0aa7bb86-b420-45ab-9bde-8e8a1cb6966c}, !- Schedule Type Limits Name
-  ,                                       !- Interpolate to Timestep
+  No,                                     !- Interpolate to Timestep
   24,                                     !- Hour 1
   0,                                      !- Minute 1
   21.11;                                  !- Value Until Time 1
@@ -4102,7 +4187,7 @@ OS:Schedule:Day,
   {7ff43983-0033-4fbf-84a8-56e7142a17c7}, !- Handle
   Const Vol Rad Htg Hi Wtr Temp Sch All Days, !- Name
   {0aa7bb86-b420-45ab-9bde-8e8a1cb6966c}, !- Schedule Type Limits Name
-  ,                                       !- Interpolate to Timestep
+  No,                                     !- Interpolate to Timestep
   24,                                     !- Hour 1
   0,                                      !- Minute 1
   50;                                     !- Value Until Time 1
@@ -4117,7 +4202,7 @@ OS:Schedule:Day,
   {2fb39887-8077-4c7c-aa0f-8fbda6665e6a}, !- Handle
   Const Vol Rad Htg Low Wtr Temp Sch All Days, !- Name
   {0aa7bb86-b420-45ab-9bde-8e8a1cb6966c}, !- Schedule Type Limits Name
-  ,                                       !- Interpolate to Timestep
+  No,                                     !- Interpolate to Timestep
   24,                                     !- Hour 1
   0,                                      !- Minute 1
   30;                                     !- Value Until Time 1
@@ -4132,7 +4217,7 @@ OS:Schedule:Day,
   {0ea072fa-b2f4-4f0b-8b0d-9e80ae1f79ab}, !- Handle
   Const Vol Rad Htg Hi Air Temp Sch All Days, !- Name
   {0aa7bb86-b420-45ab-9bde-8e8a1cb6966c}, !- Schedule Type Limits Name
-  ,                                       !- Interpolate to Timestep
+  No,                                     !- Interpolate to Timestep
   24,                                     !- Hour 1
   0,                                      !- Minute 1
   20;                                     !- Value Until Time 1
@@ -4147,7 +4232,7 @@ OS:Schedule:Day,
   {129b4ae0-31a3-405f-9e13-54bcd84deb53}, !- Handle
   Const Vol Rad Htg Low Air Temp Sch All Days, !- Name
   {0aa7bb86-b420-45ab-9bde-8e8a1cb6966c}, !- Schedule Type Limits Name
-  ,                                       !- Interpolate to Timestep
+  No,                                     !- Interpolate to Timestep
   24,                                     !- Hour 1
   0,                                      !- Minute 1
   17;                                     !- Value Until Time 1
@@ -4172,7 +4257,7 @@ OS:Schedule:Day,
   {a98ecf06-fd99-4949-8cc9-2e26f8236fa1}, !- Handle
   Const Vol Rad Clg Hi Wtr Temp Sch All Days, !- Name
   {0aa7bb86-b420-45ab-9bde-8e8a1cb6966c}, !- Schedule Type Limits Name
-  ,                                       !- Interpolate to Timestep
+  No,                                     !- Interpolate to Timestep
   24,                                     !- Hour 1
   0,                                      !- Minute 1
   15;                                     !- Value Until Time 1
@@ -4187,7 +4272,7 @@ OS:Schedule:Day,
   {850fbc26-36ef-40f0-88dd-5901bb675757}, !- Handle
   Const Vol Rad Clg Low Wtr Temp Sch All Days, !- Name
   {0aa7bb86-b420-45ab-9bde-8e8a1cb6966c}, !- Schedule Type Limits Name
-  ,                                       !- Interpolate to Timestep
+  No,                                     !- Interpolate to Timestep
   24,                                     !- Hour 1
   0,                                      !- Minute 1
   10;                                     !- Value Until Time 1
@@ -4202,7 +4287,7 @@ OS:Schedule:Day,
   {1d3ca4dd-4786-4a6b-98d3-84d051d232b8}, !- Handle
   Const Vol Rad Clg Hi Air Temp Sch All Days, !- Name
   {0aa7bb86-b420-45ab-9bde-8e8a1cb6966c}, !- Schedule Type Limits Name
-  ,                                       !- Interpolate to Timestep
+  No,                                     !- Interpolate to Timestep
   24,                                     !- Hour 1
   0,                                      !- Minute 1
   25;                                     !- Value Until Time 1
@@ -4217,7 +4302,7 @@ OS:Schedule:Day,
   {00467e20-e645-4a8e-9fda-739d6b6980aa}, !- Handle
   Const Vol Rad Clg Low Air Temp Sch All Days, !- Name
   {0aa7bb86-b420-45ab-9bde-8e8a1cb6966c}, !- Schedule Type Limits Name
-  ,                                       !- Interpolate to Timestep
+  No,                                     !- Interpolate to Timestep
   24,                                     !- Hour 1
   0,                                      !- Minute 1
   21;                                     !- Value Until Time 1
@@ -4265,7 +4350,7 @@ OS:Schedule:Day,
   {a942c4bf-5dd0-49e6-91cd-acbe6c781899}, !- Handle
   Var Vol Rad Htg Air Temp Sch All Days,  !- Name
   {0aa7bb86-b420-45ab-9bde-8e8a1cb6966c}, !- Schedule Type Limits Name
-  ,                                       !- Interpolate to Timestep
+  No,                                     !- Interpolate to Timestep
   24,                                     !- Hour 1
   0,                                      !- Minute 1
   15;                                     !- Value Until Time 1
@@ -4293,7 +4378,7 @@ OS:Schedule:Day,
   {2f9cd70f-f64a-4616-9843-e00b343fa6c2}, !- Handle
   Var Vol Rad Clg Air Temp Sch All Days,  !- Name
   {0aa7bb86-b420-45ab-9bde-8e8a1cb6966c}, !- Schedule Type Limits Name
-  ,                                       !- Interpolate to Timestep
+  No,                                     !- Interpolate to Timestep
   24,                                     !- Hour 1
   0,                                      !- Minute 1
   50;                                     !- Value Until Time 1
@@ -4682,7 +4767,7 @@ OS:Schedule:Day,
   {0ed6184f-f6d1-4889-8240-49f89a75a9dd}, !- Handle
   Refrigeration Default Day,              !- Name
   {800d56d5-16ef-4ac2-a7d0-6abcfc246032}, !- Schedule Type Limits Name
-  ,                                       !- Interpolate to Timestep
+  No,                                     !- Interpolate to Timestep
   24,                                     !- Hour 1
   0,                                      !- Minute 1
   0;                                      !- Value Until Time 1
@@ -5821,6 +5906,7 @@ OS:AirLoopHVAC:UnitarySystem,
   ,                                       !- Fraction of Autosized Design Heating Supply Air Flow Rate When No Cooling or Heating is Required
   ,                                       !- Design Supply Air Flow Rate Per Unit of Capacity During Cooling Operation When No Cooling or Heating is Required {m3/s-W}
   ,                                       !- Design Supply Air Flow Rate Per Unit of Capacity During Heating Operation When No Cooling or Heating is Required {m3/s-W}
+  Yes,                                    !- No Load Supply Air Flow Rate Control Set To Low Speed
   80,                                     !- Maximum Supply Air Temperature {C}
   21,                                     !- Maximum Outdoor Dry-Bulb Temperature for Supplemental Heater Operation {C}
   ,                                       !- Outdoor Dry-Bulb Temperature Sensor Node Name
@@ -6077,6 +6163,7 @@ OS:AirLoopHVAC:UnitarySystem,
   ,                                       !- Fraction of Autosized Design Heating Supply Air Flow Rate When No Cooling or Heating is Required
   ,                                       !- Design Supply Air Flow Rate Per Unit of Capacity During Cooling Operation When No Cooling or Heating is Required {m3/s-W}
   ,                                       !- Design Supply Air Flow Rate Per Unit of Capacity During Heating Operation When No Cooling or Heating is Required {m3/s-W}
+  Yes,                                    !- No Load Supply Air Flow Rate Control Set To Low Speed
   80,                                     !- Maximum Supply Air Temperature {C}
   21,                                     !- Maximum Outdoor Dry-Bulb Temperature for Supplemental Heater Operation {C}
   ,                                       !- Outdoor Dry-Bulb Temperature Sensor Node Name
@@ -6366,6 +6453,7 @@ OS:AirLoopHVAC:UnitarySystem,
   ,                                       !- Fraction of Autosized Design Heating Supply Air Flow Rate When No Cooling or Heating is Required
   ,                                       !- Design Supply Air Flow Rate Per Unit of Capacity During Cooling Operation When No Cooling or Heating is Required {m3/s-W}
   ,                                       !- Design Supply Air Flow Rate Per Unit of Capacity During Heating Operation When No Cooling or Heating is Required {m3/s-W}
+  Yes,                                    !- No Load Supply Air Flow Rate Control Set To Low Speed
   80,                                     !- Maximum Supply Air Temperature {C}
   21,                                     !- Maximum Outdoor Dry-Bulb Temperature for Supplemental Heater Operation {C}
   ,                                       !- Outdoor Dry-Bulb Temperature Sensor Node Name
@@ -6593,6 +6681,7 @@ OS:AirLoopHVAC:UnitarySystem,
   ,                                       !- Fraction of Autosized Design Heating Supply Air Flow Rate When No Cooling or Heating is Required
   ,                                       !- Design Supply Air Flow Rate Per Unit of Capacity During Cooling Operation When No Cooling or Heating is Required {m3/s-W}
   ,                                       !- Design Supply Air Flow Rate Per Unit of Capacity During Heating Operation When No Cooling or Heating is Required {m3/s-W}
+  Yes,                                    !- No Load Supply Air Flow Rate Control Set To Low Speed
   80,                                     !- Maximum Supply Air Temperature {C}
   21,                                     !- Maximum Outdoor Dry-Bulb Temperature for Supplemental Heater Operation {C}
   ,                                       !- Outdoor Dry-Bulb Temperature Sensor Node Name
@@ -6816,6 +6905,7 @@ OS:AirLoopHVAC:UnitarySystem,
   ,                                       !- Fraction of Autosized Design Heating Supply Air Flow Rate When No Cooling or Heating is Required
   ,                                       !- Design Supply Air Flow Rate Per Unit of Capacity During Cooling Operation When No Cooling or Heating is Required {m3/s-W}
   ,                                       !- Design Supply Air Flow Rate Per Unit of Capacity During Heating Operation When No Cooling or Heating is Required {m3/s-W}
+  Yes,                                    !- No Load Supply Air Flow Rate Control Set To Low Speed
   80,                                     !- Maximum Supply Air Temperature {C}
   21,                                     !- Maximum Outdoor Dry-Bulb Temperature for Supplemental Heater Operation {C}
   ,                                       !- Outdoor Dry-Bulb Temperature Sensor Node Name
@@ -7006,6 +7096,7 @@ OS:AirLoopHVAC:UnitarySystem,
   ,                                       !- Fraction of Autosized Design Heating Supply Air Flow Rate When No Cooling or Heating is Required
   ,                                       !- Design Supply Air Flow Rate Per Unit of Capacity During Cooling Operation When No Cooling or Heating is Required {m3/s-W}
   ,                                       !- Design Supply Air Flow Rate Per Unit of Capacity During Heating Operation When No Cooling or Heating is Required {m3/s-W}
+  Yes,                                    !- No Load Supply Air Flow Rate Control Set To Low Speed
   80,                                     !- Maximum Supply Air Temperature {C}
   21,                                     !- Maximum Outdoor Dry-Bulb Temperature for Supplemental Heater Operation {C}
   ,                                       !- Outdoor Dry-Bulb Temperature Sensor Node Name
@@ -7200,6 +7291,7 @@ OS:AirLoopHVAC:UnitarySystem,
   ,                                       !- Fraction of Autosized Design Heating Supply Air Flow Rate When No Cooling or Heating is Required
   ,                                       !- Design Supply Air Flow Rate Per Unit of Capacity During Cooling Operation When No Cooling or Heating is Required {m3/s-W}
   ,                                       !- Design Supply Air Flow Rate Per Unit of Capacity During Heating Operation When No Cooling or Heating is Required {m3/s-W}
+  Yes,                                    !- No Load Supply Air Flow Rate Control Set To Low Speed
   80,                                     !- Maximum Supply Air Temperature {C}
   21,                                     !- Maximum Outdoor Dry-Bulb Temperature for Supplemental Heater Operation {C}
   ,                                       !- Outdoor Dry-Bulb Temperature Sensor Node Name
@@ -7322,6 +7414,7 @@ OS:AirLoopHVAC:UnitarySystem,
   ,                                       !- Fraction of Autosized Design Heating Supply Air Flow Rate When No Cooling or Heating is Required
   ,                                       !- Design Supply Air Flow Rate Per Unit of Capacity During Cooling Operation When No Cooling or Heating is Required {m3/s-W}
   ,                                       !- Design Supply Air Flow Rate Per Unit of Capacity During Heating Operation When No Cooling or Heating is Required {m3/s-W}
+  Yes,                                    !- No Load Supply Air Flow Rate Control Set To Low Speed
   80,                                     !- Maximum Supply Air Temperature {C}
   21,                                     !- Maximum Outdoor Dry-Bulb Temperature for Supplemental Heater Operation {C}
   ,                                       !- Outdoor Dry-Bulb Temperature Sensor Node Name
@@ -7436,6 +7529,7 @@ OS:AirLoopHVAC:UnitarySystem,
   ,                                       !- Fraction of Autosized Design Heating Supply Air Flow Rate When No Cooling or Heating is Required
   ,                                       !- Design Supply Air Flow Rate Per Unit of Capacity During Cooling Operation When No Cooling or Heating is Required {m3/s-W}
   ,                                       !- Design Supply Air Flow Rate Per Unit of Capacity During Heating Operation When No Cooling or Heating is Required {m3/s-W}
+  Yes,                                    !- No Load Supply Air Flow Rate Control Set To Low Speed
   80,                                     !- Maximum Supply Air Temperature {C}
   21,                                     !- Maximum Outdoor Dry-Bulb Temperature for Supplemental Heater Operation {C}
   ,                                       !- Outdoor Dry-Bulb Temperature Sensor Node Name
@@ -7669,6 +7763,7 @@ OS:AirLoopHVAC:UnitarySystem,
   ,                                       !- Fraction of Autosized Design Heating Supply Air Flow Rate When No Cooling or Heating is Required
   ,                                       !- Design Supply Air Flow Rate Per Unit of Capacity During Cooling Operation When No Cooling or Heating is Required {m3/s-W}
   ,                                       !- Design Supply Air Flow Rate Per Unit of Capacity During Heating Operation When No Cooling or Heating is Required {m3/s-W}
+  Yes,                                    !- No Load Supply Air Flow Rate Control Set To Low Speed
   80,                                     !- Maximum Supply Air Temperature {C}
   21,                                     !- Maximum Outdoor Dry-Bulb Temperature for Supplemental Heater Operation {C}
   ,                                       !- Outdoor Dry-Bulb Temperature Sensor Node Name
@@ -7883,6 +7978,7 @@ OS:AirLoopHVAC:UnitarySystem,
   ,                                       !- Fraction of Autosized Design Heating Supply Air Flow Rate When No Cooling or Heating is Required
   ,                                       !- Design Supply Air Flow Rate Per Unit of Capacity During Cooling Operation When No Cooling or Heating is Required {m3/s-W}
   ,                                       !- Design Supply Air Flow Rate Per Unit of Capacity During Heating Operation When No Cooling or Heating is Required {m3/s-W}
+  Yes,                                    !- No Load Supply Air Flow Rate Control Set To Low Speed
   80,                                     !- Maximum Supply Air Temperature {C}
   21,                                     !- Maximum Outdoor Dry-Bulb Temperature for Supplemental Heater Operation {C}
   ,                                       !- Outdoor Dry-Bulb Temperature Sensor Node Name
@@ -8064,6 +8160,7 @@ OS:AirLoopHVAC:UnitarySystem,
   ,                                       !- Fraction of Autosized Design Heating Supply Air Flow Rate When No Cooling or Heating is Required
   ,                                       !- Design Supply Air Flow Rate Per Unit of Capacity During Cooling Operation When No Cooling or Heating is Required {m3/s-W}
   ,                                       !- Design Supply Air Flow Rate Per Unit of Capacity During Heating Operation When No Cooling or Heating is Required {m3/s-W}
+  Yes,                                    !- No Load Supply Air Flow Rate Control Set To Low Speed
   80,                                     !- Maximum Supply Air Temperature {C}
   21,                                     !- Maximum Outdoor Dry-Bulb Temperature for Supplemental Heater Operation {C}
   ,                                       !- Outdoor Dry-Bulb Temperature Sensor Node Name
@@ -8154,6 +8251,7 @@ OS:AirLoopHVAC:UnitarySystem,
   ,                                       !- Fraction of Autosized Design Heating Supply Air Flow Rate When No Cooling or Heating is Required
   ,                                       !- Design Supply Air Flow Rate Per Unit of Capacity During Cooling Operation When No Cooling or Heating is Required {m3/s-W}
   ,                                       !- Design Supply Air Flow Rate Per Unit of Capacity During Heating Operation When No Cooling or Heating is Required {m3/s-W}
+  Yes,                                    !- No Load Supply Air Flow Rate Control Set To Low Speed
   80,                                     !- Maximum Supply Air Temperature {C}
   21,                                     !- Maximum Outdoor Dry-Bulb Temperature for Supplemental Heater Operation {C}
   ,                                       !- Outdoor Dry-Bulb Temperature Sensor Node Name
@@ -9001,7 +9099,7 @@ OS:Schedule:Day,
   {0b960b7a-d201-4455-a1b5-064ce93e2f56}, !- Handle
   Cycling PTAC Fan Mode Sch Default,      !- Name
   {57553c0e-9004-4492-814d-5cc751d9a160}, !- Schedule Type Limits Name
-  ,                                       !- Interpolate to Timestep
+  No,                                     !- Interpolate to Timestep
   24,                                     !- Hour 1
   0,                                      !- Minute 1
   0;                                      !- Value Until Time 1
@@ -9164,6 +9262,7 @@ OS:ZoneHVAC:PackagedTerminalAirConditioner,
   Autosize,                               !- Supply Air Flow Rate During Cooling Operation {m3/s}
   Autosize,                               !- Supply Air Flow Rate During Heating Operation {m3/s}
   Autosize,                               !- Supply Air Flow Rate When No Cooling or Heating is Needed {m3/s}
+  Yes,                                    !- No Load Supply Air Flow Rate Control Set To Low Speed
   Autosize,                               !- Outdoor Air Flow Rate During Cooling Operation {m3/s}
   Autosize,                               !- Outdoor Air Flow Rate During Heating Operation {m3/s}
   Autosize,                               !- Outdoor Air Flow Rate When No Cooling or Heating is Needed {m3/s}
@@ -9334,6 +9433,7 @@ OS:ZoneHVAC:PackagedTerminalAirConditioner,
   Autosize,                               !- Supply Air Flow Rate During Cooling Operation {m3/s}
   Autosize,                               !- Supply Air Flow Rate During Heating Operation {m3/s}
   Autosize,                               !- Supply Air Flow Rate When No Cooling or Heating is Needed {m3/s}
+  Yes,                                    !- No Load Supply Air Flow Rate Control Set To Low Speed
   Autosize,                               !- Outdoor Air Flow Rate During Cooling Operation {m3/s}
   Autosize,                               !- Outdoor Air Flow Rate During Heating Operation {m3/s}
   Autosize,                               !- Outdoor Air Flow Rate When No Cooling or Heating is Needed {m3/s}
@@ -9492,6 +9592,7 @@ OS:ZoneHVAC:PackagedTerminalAirConditioner,
   Autosize,                               !- Supply Air Flow Rate During Cooling Operation {m3/s}
   Autosize,                               !- Supply Air Flow Rate During Heating Operation {m3/s}
   Autosize,                               !- Supply Air Flow Rate When No Cooling or Heating is Needed {m3/s}
+  Yes,                                    !- No Load Supply Air Flow Rate Control Set To Low Speed
   Autosize,                               !- Outdoor Air Flow Rate During Cooling Operation {m3/s}
   Autosize,                               !- Outdoor Air Flow Rate During Heating Operation {m3/s}
   Autosize,                               !- Outdoor Air Flow Rate When No Cooling or Heating is Needed {m3/s}
@@ -9629,6 +9730,7 @@ OS:ZoneHVAC:PackagedTerminalAirConditioner,
   Autosize,                               !- Supply Air Flow Rate During Cooling Operation {m3/s}
   Autosize,                               !- Supply Air Flow Rate During Heating Operation {m3/s}
   Autosize,                               !- Supply Air Flow Rate When No Cooling or Heating is Needed {m3/s}
+  Yes,                                    !- No Load Supply Air Flow Rate Control Set To Low Speed
   Autosize,                               !- Outdoor Air Flow Rate During Cooling Operation {m3/s}
   Autosize,                               !- Outdoor Air Flow Rate During Heating Operation {m3/s}
   Autosize,                               !- Outdoor Air Flow Rate When No Cooling or Heating is Needed {m3/s}
@@ -9762,6 +9864,7 @@ OS:ZoneHVAC:PackagedTerminalAirConditioner,
   Autosize,                               !- Supply Air Flow Rate During Cooling Operation {m3/s}
   Autosize,                               !- Supply Air Flow Rate During Heating Operation {m3/s}
   Autosize,                               !- Supply Air Flow Rate When No Cooling or Heating is Needed {m3/s}
+  Yes,                                    !- No Load Supply Air Flow Rate Control Set To Low Speed
   Autosize,                               !- Outdoor Air Flow Rate During Cooling Operation {m3/s}
   Autosize,                               !- Outdoor Air Flow Rate During Heating Operation {m3/s}
   Autosize,                               !- Outdoor Air Flow Rate When No Cooling or Heating is Needed {m3/s}
@@ -10414,7 +10517,7 @@ OS:Schedule:Day,
   {bd081929-36d7-41c4-96d2-95c9c5f588ca}, !- Handle
   Schedule Day 10,                        !- Name
   {e7abde92-45b2-45e9-9de6-9794b4b6edb4}, !- Schedule Type Limits Name
-  ,                                       !- Interpolate to Timestep
+  No,                                     !- Interpolate to Timestep
   24,                                     !- Hour 1
   0,                                      !- Minute 1
   0;                                      !- Value Until Time 1
@@ -10475,7 +10578,7 @@ OS:Schedule:Day,
   {09b28e72-3925-440b-bd8c-33cd5f82de4b}, !- Handle
   Schedule Day 1,                         !- Name
   {0aa7bb86-b420-45ab-9bde-8e8a1cb6966c}, !- Schedule Type Limits Name
-  ,                                       !- Interpolate to Timestep
+  No,                                     !- Interpolate to Timestep
   24,                                     !- Hour 1
   0,                                      !- Minute 1
   48.89;                                  !- Value Until Time 1
@@ -10511,6 +10614,66 @@ OS:ZoneHVAC:EnergyRecoveryVentilator:Controller,
   1,                                      !- High Humidity Outdoor Air Flow Ratio
   Yes;                                    !- Control High Indoor Humidity Based on Outdoor Humidity Ratio
 
+OS:Table:Lookup,
+  {98c84134-9027-4020-82df-218e43ba83e6}, !- Handle
+  ERV HX_SensHeatEff,                     !- Name
+  {5ccc3232-56b9-43f7-be96-31799d015bde}, !- Independent Variable List Name
+  DivisorOnly,                            !- Normalization Method
+  0.76,                                   !- Normalization Divisor
+  0,                                      !- Minimum Output {BasedOnField A5}
+  10,                                     !- Maximum Output {BasedOnField A5}
+  Dimensionless,                          !- Output Unit Type
+  ,                                       !- External File Name
+  ,                                       !- External File Column Number
+  ,                                       !- External File Starting Row Number
+  0.81,                                   !- Output Value 1 {BasedOnField A5}
+  0.76;                                   !- Output Value 2 {BasedOnField A5}
+
+OS:Table:Lookup,
+  {9b0e8338-021a-47be-afbf-e043f5aea93c}, !- Handle
+  ERV HX_LatHeatEff,                      !- Name
+  {5ccc3232-56b9-43f7-be96-31799d015bde}, !- Independent Variable List Name
+  DivisorOnly,                            !- Normalization Method
+  0.68,                                   !- Normalization Divisor
+  0,                                      !- Minimum Output {BasedOnField A5}
+  10,                                     !- Maximum Output {BasedOnField A5}
+  Dimensionless,                          !- Output Unit Type
+  ,                                       !- External File Name
+  ,                                       !- External File Column Number
+  ,                                       !- External File Starting Row Number
+  0.73,                                   !- Output Value 1 {BasedOnField A5}
+  0.68;                                   !- Output Value 2 {BasedOnField A5}
+
+OS:Table:Lookup,
+  {c2a6137d-c8c8-44cf-af0b-0c21d40453f8}, !- Handle
+  ERV HX_SensCoolEff,                     !- Name
+  {5ccc3232-56b9-43f7-be96-31799d015bde}, !- Independent Variable List Name
+  DivisorOnly,                            !- Normalization Method
+  0.76,                                   !- Normalization Divisor
+  0,                                      !- Minimum Output {BasedOnField A5}
+  10,                                     !- Maximum Output {BasedOnField A5}
+  Dimensionless,                          !- Output Unit Type
+  ,                                       !- External File Name
+  ,                                       !- External File Column Number
+  ,                                       !- External File Starting Row Number
+  0.81,                                   !- Output Value 1 {BasedOnField A5}
+  0.76;                                   !- Output Value 2 {BasedOnField A5}
+
+OS:Table:Lookup,
+  {7493fdcc-67ee-4954-9bca-73833b34d668}, !- Handle
+  ERV HX_LatCoolEff,                      !- Name
+  {5ccc3232-56b9-43f7-be96-31799d015bde}, !- Independent Variable List Name
+  DivisorOnly,                            !- Normalization Method
+  0.68,                                   !- Normalization Divisor
+  0,                                      !- Minimum Output {BasedOnField A5}
+  10,                                     !- Maximum Output {BasedOnField A5}
+  Dimensionless,                          !- Output Unit Type
+  ,                                       !- External File Name
+  ,                                       !- External File Column Number
+  ,                                       !- External File Starting Row Number
+  0.73,                                   !- Output Value 1 {BasedOnField A5}
+  0.68;                                   !- Output Value 2 {BasedOnField A5}
+
 OS:HeatExchanger:AirToAir:SensibleAndLatent,
   {865903c0-b04d-453a-80e3-217d60f8a56d}, !- Handle
   ERV HX,                                 !- Name
@@ -10518,12 +10681,8 @@ OS:HeatExchanger:AirToAir:SensibleAndLatent,
   autosize,                               !- Nominal Supply Air Flow Rate {m3/s}
   0.76,                                   !- Sensible Effectiveness at 100% Heating Air Flow {dimensionless}
   0.68,                                   !- Latent Effectiveness at 100% Heating Air Flow {dimensionless}
-  0.81,                                   !- Sensible Effectiveness at 75% Heating Air Flow {dimensionless}
-  0.73,                                   !- Latent Effectiveness at 75% Heating Air Flow {dimensionless}
   0.76,                                   !- Sensible Effectiveness at 100% Cooling Air Flow {dimensionless}
   0.68,                                   !- Latent Effectiveness at 100% Cooling Air Flow {dimensionless}
-  0.81,                                   !- Sensible Effectiveness at 75% Cooling Air Flow {dimensionless}
-  0.73,                                   !- Latent Effectiveness at 75% Cooling Air Flow {dimensionless}
   ,                                       !- Supply Air Inlet Node
   ,                                       !- Supply Air Outlet Node
   ,                                       !- Exhaust Air Inlet Node
@@ -10535,7 +10694,31 @@ OS:HeatExchanger:AirToAir:SensibleAndLatent,
   1.7,                                    !- Threshold Temperature {C}
   ,                                       !- Initial Defrost Time Fraction {dimensionless}
   ,                                       !- Rate of Defrost Time Fraction Increase {1/K}
-  Yes;                                    !- Economizer Lockout
+  Yes,                                    !- Economizer Lockout
+  {98c84134-9027-4020-82df-218e43ba83e6}, !- Sensible Effectiveness of Heating Air Flow Curve Name
+  {9b0e8338-021a-47be-afbf-e043f5aea93c}, !- Latent Effectiveness of Heating Air Flow Curve Name
+  {c2a6137d-c8c8-44cf-af0b-0c21d40453f8}, !- Sensible Effectiveness of Cooling Air Flow Curve Name
+  {7493fdcc-67ee-4954-9bca-73833b34d668}; !- Latent Effectiveness of Cooling Air Flow Curve Name
+
+OS:ModelObjectList,
+  {5ccc3232-56b9-43f7-be96-31799d015bde}, !- Handle
+  ERV HX_IndependentVariableList,         !- Name
+  {0fdb002d-dfe6-4f9b-9c36-ea6addfed54d}; !- Model Object 1
+
+OS:Table:IndependentVariable,
+  {0fdb002d-dfe6-4f9b-9c36-ea6addfed54d}, !- Handle
+  ERV HX_IndependentVariable,             !- Name
+  Linear,                                 !- Interpolation Method
+  Linear,                                 !- Extrapolation Method
+  0,                                      !- Minimum Value {BasedOnField A5}
+  10,                                     !- Maximum Value {BasedOnField A5}
+  ,                                       !- Normalization Reference Value {BasedOnField A5}
+  Dimensionless,                          !- Unit Type
+  ,                                       !- External File Name
+  ,                                       !- External File Column Number
+  ,                                       !- External File Starting Row Number
+  0.75,                                   !- Value 1
+  1;                                      !- Value 2
 
 OS:Fan:OnOff,
   {d3ca499f-ae74-4f5d-831d-8464be067dcd}, !- Handle
@@ -12062,7 +12245,7 @@ OS:Schedule:Day,
   {cd9b992b-d6f3-43ae-81b2-3437b743aa52}, !- Handle
   AVM Hybrid Ventilation Control Mode Schedule DefaultDay, !- Name
   {19aed973-104b-44bf-a59f-1d47bc7f2dcc}, !- Schedule Type Limits Name
-  ,                                       !- Interpolate to Timestep
+  No,                                     !- Interpolate to Timestep
   24,                                     !- Hour 1
   0,                                      !- Minute 1
   1;                                      !- Value Until Time 1
@@ -12084,7 +12267,7 @@ OS:Schedule:Day,
   {35966a45-19aa-479e-bfc5-beef62a7e102}, !- Handle
   AVM Hybrid Ventilation Min OA Schedule defaultDay, !- Name
   {0aa7bb86-b420-45ab-9bde-8e8a1cb6966c}, !- Schedule Type Limits Name
-  ,                                       !- Interpolate to Timestep
+  No,                                     !- Interpolate to Timestep
   24,                                     !- Hour 1
   0,                                      !- Minute 1
   0;                                      !- Value Until Time 1
@@ -12450,7 +12633,7 @@ OS:Schedule:Day,
   {0ce20635-a0aa-4dd9-8c4a-6bc27c66b0bf}, !- Handle
   WaterUse Schedule 120F Day,             !- Name
   {0aa7bb86-b420-45ab-9bde-8e8a1cb6966c}, !- Schedule Type Limits Name
-  ,                                       !- Interpolate to Timestep
+  No,                                     !- Interpolate to Timestep
   24,                                     !- Hour 1
   0,                                      !- Minute 1
   48.8888888888889;                       !- Value Until Time 1
@@ -12465,7 +12648,7 @@ OS:Schedule:Day,
   {85fd95fb-dd17-4fec-bc59-bb05477b926e}, !- Handle
   WaterUse Sensible Fraction Schedule 20p Day, !- Name
   {800d56d5-16ef-4ac2-a7d0-6abcfc246032}, !- Schedule Type Limits Name
-  ,                                       !- Interpolate to Timestep
+  No,                                     !- Interpolate to Timestep
   24,                                     !- Hour 1
   0,                                      !- Minute 1
   0.2;                                    !- Value Until Time 1
@@ -12480,7 +12663,7 @@ OS:Schedule:Day,
   {bde93882-2840-4a44-a751-661639853442}, !- Handle
   WaterUse Latent Fraction Schedule 5p Day, !- Name
   {800d56d5-16ef-4ac2-a7d0-6abcfc246032}, !- Schedule Type Limits Name
-  ,                                       !- Interpolate to Timestep
+  No,                                     !- Interpolate to Timestep
   24,                                     !- Hour 1
   0,                                      !- Minute 1
   0.05;                                   !- Value Until Time 1
@@ -13324,7 +13507,7 @@ OS:Schedule:Day,
   {f21735d2-57d8-49db-9fca-56b6320724cf}, !- Handle
   Pool MakeUp Water Temperature Schedule Day, !- Name
   {0aa7bb86-b420-45ab-9bde-8e8a1cb6966c}, !- Schedule Type Limits Name
-  ,                                       !- Interpolate to Timestep
+  No,                                     !- Interpolate to Timestep
   24,                                     !- Hour 1
   0,                                      !- Minute 1
   16.67;                                  !- Value Until Time 1
@@ -13339,7 +13522,7 @@ OS:Schedule:Day,
   {93487848-c1ab-4048-b954-3b8833712d48}, !- Handle
   Pool People Heat Gain Schedule Day,     !- Name
   {ef433d3a-4c47-431d-8787-3ebd0c5ee62b}, !- Schedule Type Limits Name
-  ,                                       !- Interpolate to Timestep
+  No,                                     !- Interpolate to Timestep
   24,                                     !- Hour 1
   0,                                      !- Minute 1
   300;                                    !- Value Until Time 1
@@ -13354,7 +13537,7 @@ OS:Schedule:Day,
   {013ae896-670f-4e70-8056-d646220d3df5}, !- Handle
   Pool Setpoint Temperature Schedule Day, !- Name
   {0aa7bb86-b420-45ab-9bde-8e8a1cb6966c}, !- Schedule Type Limits Name
-  ,                                       !- Interpolate to Timestep
+  No,                                     !- Interpolate to Timestep
   24,                                     !- Hour 1
   0,                                      !- Minute 1
   27;                                     !- Value Until Time 1
