@@ -406,7 +406,7 @@ jobs:
         cmake -E make_directory ./build
 
         if [ "$RUNNER_OS" == "macOS" ]; then
-          QT_INSTALL_DIR="/Users/irvinemac/Qt/6.5.3/macos/"
+          QT_INSTALL_DIR="/Users/irvinemac/Qt/$QT_VERSION/macos/"
         fi
 
         echo "$QT_INSTALL_DIR/bin" >> $GITHUB_PATH
