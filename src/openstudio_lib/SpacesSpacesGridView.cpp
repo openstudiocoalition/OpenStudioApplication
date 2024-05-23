@@ -68,6 +68,8 @@
 // used on column headers, and other grid widgets
 
 #define NAME "Space Name"
+#define DISPLAYNAME "Display Name"
+#define CADOBJECTID "CAD Object ID"
 #define SELECTED "All"
 
 // GENERAL
@@ -158,7 +160,7 @@ void SpacesSpacesGridController::onCategorySelected(int index) {
 
 void SpacesSpacesGridController::addColumns(const QString& category, std::vector<QString>& fields) {
   // always show name and selected columns
-  fields.insert(fields.begin(), {NAME, SELECTED});
+  fields.insert(fields.begin(), {NAME, SELECTED, DISPLAYNAME, CADOBJECTID});
 
   resetBaseConcepts();
 
@@ -167,6 +169,20 @@ void SpacesSpacesGridController::addColumns(const QString& category, std::vector
     if (field == NAME) {
       addParentNameLineEditColumn(Heading(QString(NAME), false, false), false, CastNullAdapter<model::Space>(&model::Space::name),
                                   CastNullAdapter<model::Space>(&model::Space::setName));
+    } else if (field == DISPLAYNAME) {
+      addNameLineEditColumn(Heading(QString(DISPLAYNAME), false, true),                      // heading
+                            false,                                                           // isInspectable
+                            false,                                                           // isLocked
+                            DisplayNameAdapter<model::Space>(&model::Space::displayName),    // getter
+                            DisplayNameAdapter<model::Space>(&model::Space::setDisplayName)  // setter
+      );
+    } else if (field == CADOBJECTID) {
+      addNameLineEditColumn(Heading(QString(CADOBJECTID), false, true),                      // heading
+                            false,                                                           // isInspectable
+                            false,                                                           // isLocked
+                            DisplayNameAdapter<model::Space>(&model::Space::cadObjectId),    // getter
+                            DisplayNameAdapter<model::Space>(&model::Space::setCADObjectId)  // setter
+      );
     } else if (field == SELECTED) {
       auto checkbox = QSharedPointer<OSSelectAllCheckBox>(new OSSelectAllCheckBox());
       checkbox->setToolTip("Check to select all rows");
