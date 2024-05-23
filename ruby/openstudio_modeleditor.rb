@@ -51,12 +51,12 @@ if /mswin/.match(RUBY_PLATFORM) or /mingw/.match(RUBY_PLATFORM)
   qt_dll_path = File.expand_path(File.join(File.dirname(__FILE__), '../bin/'))
 
   # if install path fails, try developer paths
-  if !File.exist?(File.join(qt_dll_path, 'Qt5Core.dll'))
+  if !File.exists?(File.join(qt_dll_path, 'Qt6Core.dll'))
     release_dll_path = File.expand_path(File.join(File.dirname(__FILE__), '../../Release/'))
     debug_dll_path = File.expand_path(File.join(File.dirname(__FILE__), '../../Debug/'))
-    if File.exist?(File.join(release_dll_path, 'Qt5Core.dll'))
+    if File.exists?(File.join(release_dll_path, 'Qt6Core.dll'))
       qt_dll_path = release_dll_path
-    elsif File.exist?(File.join(debug_dll_path, 'Qt5Core.dll'))
+    elsif File.exists?(File.join(debug_dll_path, 'Qt6Core.dll'))
       qt_dll_path = debug_dll_path
     end
   end
