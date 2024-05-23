@@ -512,7 +512,16 @@ endif()
 # Qt
 # e.g. QT_INSTALL_DIR = C:/Qt/6.5.3/msvc2019_64
 set(QT_INSTALL_DIR "" CACHE PATH "Path to Qt Install")
-set(QT_VERSION "6.5.3")
+set(QT_VERSION "6.5.3" CACHE STRING "Qt target version, defaults to 6.5.3")
+
+# For AboutBox, but also validates that the version is valid
+string(REGEX MATCH "^([0-9]+\\.[0-9]+)"
+  QT_VERSION_MAJOR_MINOR ${QT_VERSION})
+if(NOT QT_VERSION_MAJOR_MINOR)
+  message(FATAL_ERROR "Failed to match QT_VERSION=${QT_VERSION}")
+endif()
+set(QT_DOC_LINK "https://doc.qt.io/qt-${QT_VERSION_MAJOR_MINOR}/qtmodules.html")
+
 
 # TODO: how to set OPENSSL_ROOT_DIR to a generator expression?
 set(OPENSSL_ROOT_DIR ${CONAN_OPENSSL_ROOT_RELEASE})

@@ -7,8 +7,8 @@
 <p><a href='https://openstudio.net'>OpenStudio SDK (core)</a> version: ${openstudio_VERSION}</p> \
 <p>Copyright &copy; 2020-2023, OpenStudio Coalition and other contributors. All rights reserved.</p> \
 <p>OpenStudio is a cross-platform tool to support whole building energy and daylight modeling using <a href='http://apps1.eere.energy.gov/buildings/energyplus/'>EnergyPlus</a> and <a href='http://www.radiance-online.org/'>Radiance</a>.</p> \
-<p>OpenStudio uses the following QT modules (version 6.3.0) that are dynamically linked using GNU Lesser General Public License (LGPL): \
+<p>OpenStudio uses the following QT modules (version ${QT_VERSION}) that are dynamically linked using GNU Lesser General Public License (LGPL): \
 <font size='2'>Qt6Core, Qt6Core5Compat Qt6Widgets, Qt6Network, Qt6Concurrent, Qt6PrintSupport, Qt6Gui, Qt6Quick, Qt6QuickWidgets, Qt6Qml, Qt6QmlModels, Qt6WebChannel, Qt6Positioning, Qt6WebEngine, Qt6WebEngineWidgets, QtWebEngineCore, Qt6DBus, Qt6Xml, Qt6Svg, Qt6OpenGL</font> </p> \
-<p> For information on QT, please refer to <a href='https://doc.qt.io/qt-6.2/qtmodules.html'>QT</a></p> \
+<p> For information on QT, please refer to <a href='${QT_DOC_LINK}'>QT</a></p> \
 <p> A copy of the GPL 3.0 and LGPL 3.0 are included in the root path of your installation directory.</p>"
 #endif  // OPENSTUDIOAPP_ABOUTBOX
