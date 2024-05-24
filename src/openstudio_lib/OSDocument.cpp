@@ -324,7 +324,8 @@ void OSDocument::setModel(const model::Model& model, bool modified, bool /*saveC
 
   m_mainRightColumnController = std::make_shared<MainRightColumnController>(m_model, m_resourcesPath);
   connect(this, &OSDocument::toggleUnitsClicked, m_mainRightColumnController.get(), &MainRightColumnController::toggleUnitsClicked);
-  // connect(this, &OSDocument::toggleDisplayAdditionalProps, m_mainRightColumnController.get(), &MainRightColumnController::toggleDisplayAdditionalProps);
+  connect(this, &OSDocument::toggleDisplayAdditionalPropsClicked, m_mainRightColumnController.get(),
+          &MainRightColumnController::toggleDisplayAdditionalPropsClicked);
 
   m_mainWindow->setMainRightColumnView(m_mainRightColumnController->mainRightColumnView());
 

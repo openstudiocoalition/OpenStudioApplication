@@ -81,6 +81,7 @@ InspectorController::InspectorController() : QObject() {
 
   connect(this, &InspectorController::toggleUnitsClicked, m_inspectorView, &InspectorView::toggleUnitsClicked);
 
+  connect(this, &InspectorController::toggleDisplayAdditionalPropsClicked, m_inspectorView, &InspectorView::toggleDisplayAdditionalPropsClicked);
   connect(m_inspectorView, &InspectorView::removeZoneClicked, this, &InspectorController::removeBranchForZone);
 
   connect(m_inspectorView, &InspectorView::addToLoopClicked, this, &InspectorController::addToLoop);
@@ -108,8 +109,9 @@ InspectorView* InspectorController::inspectorView() {
 
 void InspectorController::layoutModelObject(model::OptionalModelObject& modelObject, bool readOnly) {
   bool displayIP = OSAppBase::instance()->currentDocument()->mainWindow()->displayIP();
+  bool displayAdditionalProps = OSAppBase::instance()->currentDocument()->mainWindow()->displayAdditionalProps();
 
-  m_inspectorView->layoutModelObject(modelObject, readOnly, displayIP);
+  m_inspectorView->layoutModelObject(modelObject, readOnly, displayIP, displayAdditionalProps);
 
   m_modelObject = modelObject;
 }

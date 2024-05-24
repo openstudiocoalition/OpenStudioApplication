@@ -97,6 +97,8 @@ MainRightColumnController::MainRightColumnController(const model::Model& model, 
   // Inspector, we're keeping it around to be able to follow the units toggled
   m_inspectorController = std::shared_ptr<InspectorController>(new InspectorController());
   connect(this, &MainRightColumnController::toggleUnitsClicked, m_inspectorController.get(), &InspectorController::toggleUnitsClicked);
+  connect(this, &MainRightColumnController::toggleDisplayAdditionalPropsClicked, m_inspectorController.get(),
+          &InspectorController::toggleDisplayAdditionalPropsClicked);
   connect(m_inspectorController.get(), &InspectorController::removeButtonClicked, this, &MainRightColumnController::onRemoveButtonClicked);
   connect(m_inspectorController.get(), &InspectorController::workspaceObjectRemoved, this, &MainRightColumnController::onWorkspaceObjectRemoved);
   connect(m_inspectorController.get(), &InspectorController::itemRemoveClicked, this, &MainRightColumnController::onItemRemoveClicked);

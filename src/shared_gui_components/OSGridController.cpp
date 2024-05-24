@@ -82,6 +82,7 @@ OSGridController::OSGridController()
   : m_hasHorizontalHeader(true),
     m_currentCategoryIndex(0),
     m_isIP(false),
+    m_displayAdditionalProps(false),
     m_horizontalHeaderBtnGrp(nullptr),
     m_objectSelector(new OSObjectSelector(this)) {}
 

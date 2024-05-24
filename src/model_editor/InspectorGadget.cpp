@@ -36,6 +36,7 @@
 #include <openstudio/model/Model.hpp>
 #include <openstudio/model/ParentObject.hpp>
 #include <openstudio/model/ParentObject_Impl.hpp>
+#include <openstudio/model/AdditionalProperties.hpp>
 
 #include "../model_editor/Utilities.hpp"
 
@@ -58,6 +59,7 @@
 
 #include <iostream>
 #include <limits>
+#include <utilities/idd/IddEnums.hpp>
 #include <vector>
 
 #include <QDoubleValidator>
@@ -165,6 +167,7 @@ InspectorGadget::~InspectorGadget() {
 
 void InspectorGadget::connectSignalsAndSlots() {
   connect(this, &InspectorGadget::toggleUnitsClicked, this, &InspectorGadget::toggleUnits);
+  connect(this, &InspectorGadget::toggleDisplayAdditionalPropsClicked, this, &InspectorGadget::toggleDisplayAdditionalProps);
 }
 
 void InspectorGadget::rebuild(bool recursive) {
@@ -366,6 +369,51 @@ void InspectorGadget::layoutItems(QVBoxLayout* masterLayout, QWidget* parent, bo
       }
     }
   }  // if(p)
+
+  if (m_displayAdditionalProps) {
+    // m_workspaceObj->getSources(IddObjectType::OS_AdditionalProperties)
+    if (auto mo_ = m_workspaceObj->optionalCast<model::ModelObject>(); mo_.has_value() && mo_->hasAdditionalProperties()) {
+      auto addProps = mo_->additionalProperties();
+      auto igChildItr = m_childMap.find(addProps);
+      if (igChildItr != m_childMap.end()) {
+        InspectorGadget* igchild = igChildItr->second;
+        layout->addWidget(igchild);
+      } else {
+        bool showComment = false;
+        bool showFields = true;
+        if (m_recursive) {
+          showComment = m_showComments;
+          showFields = m_showAllFields;
+        }
+        auto* igChild = new InspectorGadget(addProps, m_indent, m_comboBridge, showComment, showFields, m_recursive, m_locked);
+
+        igChild->setUnitSystem(m_unitSystem);
+        layout->addWidget(igChild);
+        m_childMap[addProps] = igChild;
+      }
+
+#if 0
+      for (const auto& name : addProps.featureNames()) {
+        auto propType_ = addProps.getFeatureDataType(name);
+        OS_ASSERT(propType_);
+        auto propType = std::move(*propType_);
+        if (propType == "String") {
+          boost::optional<std::string> val_ = addProps.getFeatureAsString(name);
+          OS_ASSERT(val_);
+        } else if (propType == "Double") {
+          boost::optional<double> val_ = addProps.getFeatureAsDouble(name);
+          OS_ASSERT(val_);
+        } else if (propType == "Integer") {
+          boost::optional<int> val_ = addProps.getFeatureAsInteger(name);
+          OS_ASSERT(val_);
+        } else if (propType == "Double") {
+          boost::optional<bool> val_ = addProps.getFeatureAsBoolean(name);
+          OS_ASSERT(val_);
+        }
+      }
+#endif
+    }
+  }
 
   if (m_stretch) {
     masterLayout->addStretch();
@@ -1146,5 +1194,19 @@ void InspectorGadget::setUnitSystem(const InspectorGadget::UNIT_SYSTEM unitSyste
   clear(true);
   m_workspaceObj = currentObject;
   m_unitSystem = unitSystem;
+  rebuild(true);
+}
+
+void InspectorGadget::toggleDisplayAdditionalProps(bool displayAdditionalProps) {
+  qDebug() << "InspectorGadget::toggleDisplayAdditionalProps";
+  setDisplayAdditionalProps(displayAdditionalProps);
+}
+
+void InspectorGadget::setDisplayAdditionalProps(bool displayAdditionalProps) {
+  qDebug() << "InspectorGadget::setDisplayAdditionalProps=" << displayAdditionalProps;
+  openstudio::OptionalWorkspaceObject currentObject = m_workspaceObj;
+  clear(true);
+  m_workspaceObj = currentObject;
+  m_displayAdditionalProps = displayAdditionalProps;
   rebuild(true);
 }
