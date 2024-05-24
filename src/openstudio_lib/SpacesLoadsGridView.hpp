@@ -46,7 +46,7 @@ class SpacesLoadsGridView : public SpacesSubtabGridView
   Q_OBJECT
 
  public:
-  SpacesLoadsGridView(bool isIP, const model::Model& model, QWidget* parent = nullptr);
+  SpacesLoadsGridView(bool isIP, bool displayAdditionalProps, const model::Model& model, QWidget* parent = nullptr);
 
   virtual ~SpacesLoadsGridView() = default;
 
@@ -67,7 +67,7 @@ class SpacesLoadsGridController : public OSGridController
   Q_OBJECT
 
  public:
-  SpacesLoadsGridController(bool isIP, const QString& headerText, IddObjectType iddObjectType, const model::Model& model,
+  SpacesLoadsGridController(bool isIP, bool displayAdditionalProps, const QString& headerText, IddObjectType iddObjectType, const model::Model& model,
                             const std::vector<model::ModelObject>& modelObjects);
 
   virtual ~SpacesLoadsGridController() = default;

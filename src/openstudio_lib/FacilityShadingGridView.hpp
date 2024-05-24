@@ -51,7 +51,7 @@ class FacilityShadingGridView : public GridViewSubTab
   Q_OBJECT
 
  public:
-  FacilityShadingGridView(bool isIP, const model::Model& model, QWidget* parent = 0);
+  FacilityShadingGridView(bool isIP, bool displayAdditionalProps, const model::Model& model, QWidget* parent = 0);
 
   virtual ~FacilityShadingGridView() {}
 
@@ -109,8 +109,8 @@ class FacilityShadingGridController : public OSGridController
   Q_OBJECT
 
  public:
-  FacilityShadingGridController(bool isIP, const QString& headerText, IddObjectType iddObjectType, const model::Model& model,
-                                const std::vector<model::ModelObject>& modelObjects);
+  FacilityShadingGridController(bool isIP, bool displayAdditionalProps, const QString& headerText, IddObjectType iddObjectType,
+                                const model::Model& model, const std::vector<model::ModelObject>& modelObjects);
 
   virtual ~FacilityShadingGridController() {}
 

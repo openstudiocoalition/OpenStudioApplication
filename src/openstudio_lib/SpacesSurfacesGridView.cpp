@@ -58,6 +58,8 @@
 
 #define NAME "Space Name"
 #define SELECTED "All"
+#define DISPLAYNAME "Display Name"
+#define CADOBJECTID "CAD Object ID"
 
 // GENERAL
 #define SURFACENAME "Surface Name"
@@ -71,7 +73,8 @@
 
 namespace openstudio {
 
-SpacesSurfacesGridView::SpacesSurfacesGridView(bool isIP, const model::Model& model, QWidget* parent) : SpacesSubtabGridView(isIP, model, parent) {
+SpacesSurfacesGridView::SpacesSurfacesGridView(bool isIP, bool displayAdditionalProps, const model::Model& model, QWidget* parent)
+  : SpacesSubtabGridView(isIP, displayAdditionalProps, model, parent) {
   showStoryFilter();
   showThermalZoneFilter();
   showSpaceTypeFilter();
@@ -83,7 +86,7 @@ SpacesSurfacesGridView::SpacesSurfacesGridView(bool isIP, const model::Model& mo
   m_filterGridLayout->setRowStretch(m_filterGridLayout->rowCount(), 100);
   m_filterGridLayout->setColumnStretch(m_filterGridLayout->columnCount(), 100);
 
-  m_gridController = new SpacesSurfacesGridController(isIP, "Space", IddObjectType::OS_Space, model, m_spacesModelObjects);
+  m_gridController = new SpacesSurfacesGridController(isIP, displayAdditionalProps, "Space", IddObjectType::OS_Space, model, m_spacesModelObjects);
   m_gridView = new OSGridView(m_gridController, "Space", "Drop\nSpace", false, parent);
 
   setGridController(m_gridController);
@@ -114,9 +117,10 @@ void SpacesSurfacesGridView::clearSelection() {
   m_itemSelectorButtons->disablePurgeButton();
 }
 
-SpacesSurfacesGridController::SpacesSurfacesGridController(bool isIP, const QString& headerText, IddObjectType iddObjectType,
-                                                           const model::Model& model, const std::vector<model::ModelObject>& modelObjects)
-  : OSGridController(isIP, headerText, iddObjectType, model, modelObjects) {
+SpacesSurfacesGridController::SpacesSurfacesGridController(bool isIP, bool displayAdditionalProps, const QString& headerText,
+                                                           IddObjectType iddObjectType, const model::Model& model,
+                                                           const std::vector<model::ModelObject>& modelObjects)
+  : OSGridController(isIP, headerText, iddObjectType, model, modelObjects, displayAdditionalProps) {
   setCategoriesAndFields();
 }
 
@@ -138,6 +142,10 @@ void SpacesSurfacesGridController::onCategorySelected(int index) {
 }
 
 void SpacesSurfacesGridController::addColumns(const QString& category, std::vector<QString>& fields) {
+
+  if (isDisplayAdditionalProps()) {
+    fields.insert(fields.begin(), {DISPLAYNAME, CADOBJECTID});
+  }
   // always show name and selected columns
   fields.insert(fields.begin(), {NAME, SELECTED});
 
@@ -148,6 +156,20 @@ void SpacesSurfacesGridController::addColumns(const QString& category, std::vect
     if (field == NAME) {
       addParentNameLineEditColumn(Heading(QString(NAME), false, false), false, CastNullAdapter<model::Space>(&model::Space::name),
                                   CastNullAdapter<model::Space>(&model::Space::setName));
+    } else if (field == DISPLAYNAME) {
+      addNameLineEditColumn(Heading(QString(DISPLAYNAME), false, false),                      // heading
+                            false,                                                           // isInspectable
+                            false,                                                           // isLocked
+                            DisplayNameAdapter<model::Space>(&model::Space::displayName),    // getter
+                            DisplayNameAdapter<model::Space>(&model::Space::setDisplayName)  // setter
+      );
+    } else if (field == CADOBJECTID) {
+      addNameLineEditColumn(Heading(QString(CADOBJECTID), false, false),                      // heading
+                            false,                                                           // isInspectable
+                            false,                                                           // isLocked
+                            DisplayNameAdapter<model::Space>(&model::Space::cadObjectId),    // getter
+                            DisplayNameAdapter<model::Space>(&model::Space::setCADObjectId)  // setter
+      );
     } else {
 
       std::function<std::vector<model::ModelObject>(const model::Space&)> allSurfaces([](const model::Space& t_space) {

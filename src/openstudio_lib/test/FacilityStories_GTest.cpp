@@ -61,7 +61,7 @@ TEST_F(OpenStudioLibFixture, FacilityStoriesGridView) {
   auto story3 = stories[2];
   story3.setNominalZCoordinate(6);
 
-  auto gridView = std::make_shared<FacilityStoriesGridView>(false, m);
+  auto gridView = std::make_shared<FacilityStoriesGridView>(false, false, m);
   auto* gridController = getGridController(gridView.get());
   auto* objectSelector = getObjectSelector(gridController);
 

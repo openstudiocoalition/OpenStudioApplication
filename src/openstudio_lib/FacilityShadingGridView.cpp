@@ -71,6 +71,8 @@
 
 #define NAME "Shading Surface Group Name"
 #define SELECTED "All"
+#define DISPLAYNAME "Display Name"
+#define CADOBJECTID "CAD Object ID"
 
 // GENERAL
 #define TYPE "Type"                                // read only
@@ -88,7 +90,8 @@
 
 namespace openstudio {
 
-FacilityShadingGridView::FacilityShadingGridView(bool isIP, const model::Model& model, QWidget* parent) : GridViewSubTab(isIP, model, parent) {
+FacilityShadingGridView::FacilityShadingGridView(bool isIP, bool displayAdditionalProps, const model::Model& model, QWidget* parent)
+  : GridViewSubTab(isIP, displayAdditionalProps, model, parent) {
   std::vector<model::ShadingSurfaceGroup> shadingGroups = model.getConcreteModelObjects<model::ShadingSurfaceGroup>();
   // Filter out the 'Space' shadingSurfaceTypes
   // These are displayed on the Space's "Shading" subtab
@@ -99,7 +102,8 @@ FacilityShadingGridView::FacilityShadingGridView(bool isIP, const model::Model& 
   auto modelObjects = subsetCastVector<model::ModelObject>(shadingGroups);
   std::sort(modelObjects.begin(), modelObjects.end(), openstudio::WorkspaceObjectNameLess());
 
-  m_gridController = new FacilityShadingGridController(isIP, "Shading Surface Group", IddObjectType::OS_ShadingSurfaceGroup, model, modelObjects);
+  m_gridController = new FacilityShadingGridController(isIP, displayAdditionalProps, "Shading Surface Group", IddObjectType::OS_ShadingSurfaceGroup,
+                                                       model, modelObjects);
   m_gridView = new OSGridView(m_gridController, "Shading Surface Group", "Drop Shading\nSurface Group", false, parent);
 
   setGridController(m_gridController);
@@ -418,9 +422,10 @@ void FacilityShadingGridView::onClearSelection() {
   m_itemSelectorButtons->disablePurgeButton();
 }
 
-FacilityShadingGridController::FacilityShadingGridController(bool isIP, const QString& headerText, IddObjectType iddObjectType,
-                                                             const model::Model& model, const std::vector<model::ModelObject>& modelObjects)
-  : OSGridController(isIP, headerText, iddObjectType, model, modelObjects) {
+FacilityShadingGridController::FacilityShadingGridController(bool isIP, bool displayAdditionalProps, const QString& headerText,
+                                                             IddObjectType iddObjectType, const model::Model& model,
+                                                             const std::vector<model::ModelObject>& modelObjects)
+  : OSGridController(isIP, headerText, iddObjectType, model, modelObjects, displayAdditionalProps) {
   setCategoriesAndFields();
 }
 
@@ -443,6 +448,11 @@ void FacilityShadingGridController::onCategorySelected(int index) {
 }
 
 void FacilityShadingGridController::addColumns(const QString& category, std::vector<QString>& fields) {
+
+  if (isDisplayAdditionalProps()) {
+    // We place it after the SHADINGSURFACENAME
+    fields.insert(std::next(fields.begin()), {DISPLAYNAME, CADOBJECTID});
+  }
   // always show name and selected columns
   // show type next to name, since it comes from the groups
   fields.insert(fields.begin(), {NAME, TYPE, SELECTED});
@@ -472,7 +482,6 @@ void FacilityShadingGridController::addColumns(const QString& category, std::vec
         CastNullAdapter<model::ShadingSurfaceGroup>(&model::ShadingSurfaceGroup::shadingSurfaceType),
         CastNullAdapter<model::ShadingSurfaceGroup>(&model::ShadingSurfaceGroup::setShadingSurfaceType),
         boost::optional<std::function<void(model::ShadingSurfaceGroup*)>>(), boost::optional<std::function<bool(model::ShadingSurfaceGroup*)>>());
-
     } else {
 
       std::function<std::vector<model::ModelObject>(const model::ShadingSurfaceGroup&)> allShadingSurfaces(
@@ -498,6 +507,22 @@ void FacilityShadingGridController::addColumns(const QString& category, std::vec
                           boost::optional<std::function<void(model::ShadingSurface*)>>(
                             std::function<void(model::ShadingSurface*)>([](model::ShadingSurface* t_ss) { t_ss->remove(); })),
                           boost::optional<std::function<bool(model::ShadingSurface*)>>(), DataSource(allShadingSurfaces, true));
+      } else if (field == DISPLAYNAME) {
+        addLoadNameColumn(Heading(QString(DISPLAYNAME), false, false),                                        // heading
+                          DisplayNameAdapter<model::ShadingSurface>(&model::ShadingSurface::displayName),     // getter
+                          DisplayNameAdapter<model::ShadingSurface>(&model::ShadingSurface::setDisplayName),  // setter
+                          boost::optional<std::function<void(model::ShadingSurface*)>>(),                     // resetter
+                          boost::optional<std::function<bool(model::ShadingSurface*)>>(),                     // isDefaulted
+                          DataSource(allShadingSurfaces, true)                                                // t_source
+        );
+      } else if (field == CADOBJECTID) {
+        addLoadNameColumn(Heading(QString(CADOBJECTID), false, false),                                        // heading
+                          DisplayNameAdapter<model::ShadingSurface>(&model::ShadingSurface::cadObjectId),     // getter
+                          DisplayNameAdapter<model::ShadingSurface>(&model::ShadingSurface::setCADObjectId),  // setter
+                          boost::optional<std::function<void(model::ShadingSurface*)>>(),                     // resetter
+                          boost::optional<std::function<bool(model::ShadingSurface*)>>(),                     // isDefaulted
+                          DataSource(allShadingSurfaces, true)                                                // t_source
+        );
       } else if (field == CONSTRUCTIONNAME) {
         addDropZoneColumn(
           Heading(QString(CONSTRUCTIONNAME), true, false), CastNullAdapter<model::ShadingSurface>(&model::ShadingSurface::construction),

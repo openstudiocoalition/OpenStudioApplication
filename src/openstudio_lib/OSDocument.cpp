@@ -223,6 +223,7 @@ OSDocument::OSDocument(const openstudio::model::Model& library, const openstudio
   connect(m_mainWindow, &MainWindow::scanForToolsClicked, this, &OSDocument::scanForTools);
   connect(m_mainWindow, &MainWindow::showRunManagerPreferencesClicked, this, &OSDocument::showRunManagerPreferences);
   connect(m_mainWindow, &MainWindow::toggleUnitsClicked, this, &OSDocument::toggleUnitsClicked);
+  connect(m_mainWindow, &MainWindow::toggleDisplayAdditionalPropsClicked, this, &OSDocument::toggleDisplayAdditionalPropsClicked);
   connect(m_mainWindow, &MainWindow::applyMeasureClicked, this, &OSDocument::openMeasuresDlg);
   connect(m_mainWindow, &MainWindow::downloadMeasuresClicked, this, &OSDocument::openMeasuresBclDlg);
   connect(m_mainWindow, &MainWindow::changeMyMeasuresDir, this, &OSDocument::openChangeMeasuresDirDlg);
@@ -323,6 +324,7 @@ void OSDocument::setModel(const model::Model& model, bool modified, bool /*saveC
 
   m_mainRightColumnController = std::make_shared<MainRightColumnController>(m_model, m_resourcesPath);
   connect(this, &OSDocument::toggleUnitsClicked, m_mainRightColumnController.get(), &MainRightColumnController::toggleUnitsClicked);
+  // connect(this, &OSDocument::toggleDisplayAdditionalProps, m_mainRightColumnController.get(), &MainRightColumnController::toggleDisplayAdditionalProps);
 
   m_mainWindow->setMainRightColumnView(m_mainRightColumnController->mainRightColumnView());
 
@@ -441,6 +443,7 @@ void OSDocument::createTab(int verticalId) {
   m_verticalId = verticalId;
 
   bool isIP = m_mainWindow->displayIP();
+  bool displayAdditionalProps = m_mainWindow->displayAdditionalProps();
 
   switch (verticalId) {
     case SITE:
@@ -566,10 +569,13 @@ void OSDocument::createTab(int verticalId) {
     case FACILITY:
       // Facility
 
-      m_mainTabController = std::shared_ptr<MainTabController>(new FacilityTabController(isIP, m_model));
+      m_mainTabController = std::shared_ptr<MainTabController>(new FacilityTabController(isIP, displayAdditionalProps, m_model));
       m_mainWindow->setView(m_mainTabController->mainContentWidget(), FACILITY);
 
       connect(this, &OSDocument::toggleUnitsClicked, m_mainTabController.get(), &FacilityTabController::toggleUnitsClicked);
+
+      connect(this, &OSDocument::toggleDisplayAdditionalPropsClicked, m_mainTabController.get(),
+              &FacilityTabController::toggleDisplayAdditionalPropsClicked);
 
       connect(m_mainTabController.get(), &FacilityTabController::modelObjectSelected, m_mainRightColumnController.get(),
               &MainRightColumnController::inspectModelObject);
@@ -594,10 +600,13 @@ void OSDocument::createTab(int verticalId) {
     case SPACES:
       // Spaces
 
-      m_mainTabController = std::shared_ptr<MainTabController>(new SpacesTabController(isIP, m_model));
+      m_mainTabController = std::shared_ptr<MainTabController>(new SpacesTabController(isIP, displayAdditionalProps, m_model));
       m_mainWindow->setView(m_mainTabController->mainContentWidget(), SPACES);
 
       connect(this, &OSDocument::toggleUnitsClicked, m_mainTabController.get(), &SpacesTabController::toggleUnitsClicked);
+
+      connect(this, &OSDocument::toggleDisplayAdditionalPropsClicked, m_mainTabController.get(),
+              &SpacesTabController::toggleDisplayAdditionalPropsClicked);
 
       connect(m_mainTabController.get(), &SpacesTabController::modelObjectSelected, m_mainRightColumnController.get(),
               &MainRightColumnController::inspectModelObject);

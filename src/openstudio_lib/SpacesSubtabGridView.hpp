@@ -49,7 +49,7 @@ class SpacesSubtabGridView : public GridViewSubTab
   Q_OBJECT
 
  public:
-  SpacesSubtabGridView(bool isIP, const model::Model& model, QWidget* parent = nullptr);
+  SpacesSubtabGridView(bool isIP, bool displayAdditionalProps, const model::Model& model, QWidget* parent = nullptr);
 
   virtual ~SpacesSubtabGridView() = default;
 

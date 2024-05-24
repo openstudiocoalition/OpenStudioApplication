@@ -439,7 +439,7 @@ void OSGridView::createCellWrapper(int row, int column) {
   OS_ASSERT(m_gridController);
 
   OSCellWrapper* widget = m_gridController->createCellWrapper(row, column, this);
-  LOG_FREE(Debug, "OSGridView", "Creating cell wrapper row=" << row << ", col=" << column);
+  // LOG_FREE(Debug, "OSGridView", "Creating cell wrapper row=" << row << ", col=" << column);
 
   addCellWrapper(widget, row, column);
 }

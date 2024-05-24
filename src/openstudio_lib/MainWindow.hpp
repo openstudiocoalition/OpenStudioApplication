@@ -185,6 +185,8 @@ class MainWindow : public QMainWindow
 
   void enableUseClassicCLI(bool enable);
 
+  void toggleDisplayAdditionalPropsClicked(bool displayAdditionalProps);
+
  public slots:
 
   void onVerticalTabSelected(int verticalTabId);

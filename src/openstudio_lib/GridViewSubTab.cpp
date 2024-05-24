@@ -47,8 +47,13 @@
 
 namespace openstudio {
 
-GridViewSubTab::GridViewSubTab(bool isIP, const model::Model& model, QWidget* parent)
-  : QWidget(parent), m_model(model), m_isIP(isIP), m_scrollLayout(new QVBoxLayout()), m_itemSelectorButtons(new OSItemSelectorButtons()) {
+GridViewSubTab::GridViewSubTab(bool isIP, bool displayAdditionalProps, const model::Model& model, QWidget* parent)
+  : QWidget(parent),
+    m_model(model),
+    m_isIP(isIP),
+    m_displayAdditionalProps(displayAdditionalProps),
+    m_scrollLayout(new QVBoxLayout()),
+    m_itemSelectorButtons(new OSItemSelectorButtons()) {
 
   // ***** Main Layout *****
   auto* mainLayout = new QVBoxLayout();
@@ -85,6 +90,7 @@ GridViewSubTab::GridViewSubTab(bool isIP, const model::Model& model, QWidget* pa
   connect(m_itemSelectorButtons, &OSItemSelectorButtons::purgeClicked, this, &GridViewSubTab::onPurgeClicked);
 
   connect(this, &GridViewSubTab::toggleUnitsClicked, this, &GridViewSubTab::toggleUnits);
+  connect(this, &GridViewSubTab::toggleDisplayAdditionalPropsClicked, this, &GridViewSubTab::toggleDisplayAdditionalProps);
 }
 
 void GridViewSubTab::setGridView(OSGridView* gridView) {
@@ -97,12 +103,15 @@ void GridViewSubTab::setGridView(OSGridView* gridView) {
   connect(this, &GridViewSubTab::selectionCleared, m_gridController, &OSGridController::onSelectionCleared);
 
   connect(this, &GridViewSubTab::toggleUnitsClicked, m_gridController, &OSGridController::toggleUnitsClicked);
-
   connect(this, &GridViewSubTab::toggleUnitsClicked, m_gridController, &OSGridController::onToggleUnits);
+
+  connect(this, &GridViewSubTab::toggleDisplayAdditionalPropsClicked, m_gridController, &OSGridController::toggleDisplayAdditionalPropsClicked);
+  connect(this, &GridViewSubTab::toggleDisplayAdditionalPropsClicked, m_gridController, &OSGridController::onToggleDisplayAdditionalProps);
 }
 
 void GridViewSubTab::setGridController(OSGridController* gridController) {
   connect(this, &GridViewSubTab::toggleUnitsClicked, gridController, &OSGridController::onToggleUnits);
+  connect(this, &GridViewSubTab::toggleDisplayAdditionalPropsClicked, gridController, &OSGridController::onToggleDisplayAdditionalProps);
 }
 
 void GridViewSubTab::onAddClicked() {
@@ -174,6 +183,10 @@ void GridViewSubTab::onDropZoneItemClicked(OSItem* item) {
 
 void GridViewSubTab::toggleUnits(bool isIP) {
   m_isIP = isIP;
+}
+
+void GridViewSubTab::toggleDisplayAdditionalProps(bool displayAdditionalProps) {
+  m_displayAdditionalProps = displayAdditionalProps;
 }
 
 void GridViewSubTab::onGridRowSelectionChanged(int numSelected, int /*numSelectable*/) {

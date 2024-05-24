@@ -46,7 +46,7 @@ class SpacesShadingGridView : public SpacesSubtabGridView
   Q_OBJECT
 
  public:
-  SpacesShadingGridView(bool isIP, const model::Model& model, QWidget* parent = nullptr);
+  SpacesShadingGridView(bool isIP, bool displayAdditionalProps, const model::Model& model, QWidget* parent = nullptr);
 
   virtual ~SpacesShadingGridView() = default;
 
@@ -67,8 +67,8 @@ class SpacesShadingGridController : public OSGridController
   Q_OBJECT
 
  public:
-  SpacesShadingGridController(bool isIP, const QString& headerText, IddObjectType iddObjectType, const model::Model& model,
-                              const std::vector<model::ModelObject>& modelObjects);
+  SpacesShadingGridController(bool isIP, bool displayAdditionalProps, const QString& headerText, IddObjectType iddObjectType,
+                              const model::Model& model, const std::vector<model::ModelObject>& modelObjects);
 
   virtual ~SpacesShadingGridController() = default;
 

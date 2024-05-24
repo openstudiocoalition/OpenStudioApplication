@@ -37,8 +37,8 @@
 
 namespace openstudio {
 
-FacilityTabController::FacilityTabController(bool isIP, const model::Model& model)
-  : MainTabController(new FacilityTabView()), m_model(model), m_isIP(isIP) {
+FacilityTabController::FacilityTabController(bool isIP, bool displayAdditionalProps, const model::Model& model)
+  : MainTabController(new FacilityTabView()), m_model(model), m_isIP(isIP), m_displayAdditionalProps(displayAdditionalProps) {
   mainContentWidget()->addSubTab("Building", BUILDING);
   mainContentWidget()->addSubTab("Stories", STORIES);
   mainContentWidget()->addSubTab("Shading", SHADING);
@@ -75,27 +75,33 @@ void FacilityTabController::setSubTab(int index) {
       break;
     }
     case 1: {
-      auto* facilityStoriesGridView = new FacilityStoriesGridView(m_isIP, m_model);
+      auto* facilityStoriesGridView = new FacilityStoriesGridView(m_isIP, m_displayAdditionalProps, m_model);
       connect(this, &FacilityTabController::toggleUnitsClicked, facilityStoriesGridView, &FacilityStoriesGridView::toggleUnitsClicked);
       connect(facilityStoriesGridView, &FacilityStoriesGridView::dropZoneItemSelected, this, &FacilityTabController::dropZoneItemSelected);
+      connect(this, &FacilityTabController::toggleDisplayAdditionalPropsClicked, facilityStoriesGridView,
+              &FacilityStoriesGridView::toggleDisplayAdditionalPropsClicked);
       this->mainContentWidget()->setSubTab(facilityStoriesGridView);
       m_currentView = facilityStoriesGridView;
       break;
     }
     case 2: {
-      auto* facilityShadingGridView = new FacilityShadingGridView(m_isIP, m_model);
+      auto* facilityShadingGridView = new FacilityShadingGridView(m_isIP, m_displayAdditionalProps, m_model);
       connect(this, &FacilityTabController::toggleUnitsClicked, facilityShadingGridView, &FacilityShadingGridView::toggleUnitsClicked);
       connect(facilityShadingGridView, &FacilityShadingGridView::dropZoneItemSelected, this, &FacilityTabController::dropZoneItemSelected);
+      connect(this, &FacilityTabController::toggleDisplayAdditionalPropsClicked, facilityShadingGridView,
+              &FacilityShadingGridView::toggleDisplayAdditionalPropsClicked);
       this->mainContentWidget()->setSubTab(facilityShadingGridView);
       m_currentView = facilityShadingGridView;
       break;
     }
     case 3: {
-      auto* facilityExteriorEquipmentGridView = new FacilityExteriorEquipmentGridView(m_isIP, m_model);
+      auto* facilityExteriorEquipmentGridView = new FacilityExteriorEquipmentGridView(m_isIP, m_displayAdditionalProps, m_model);
       connect(this, &FacilityTabController::toggleUnitsClicked, facilityExteriorEquipmentGridView,
               &FacilityExteriorEquipmentGridView::toggleUnitsClicked);
       connect(facilityExteriorEquipmentGridView, &FacilityExteriorEquipmentGridView::dropZoneItemSelected, this,
               &FacilityTabController::dropZoneItemSelected);
+      connect(this, &FacilityTabController::toggleDisplayAdditionalPropsClicked, facilityExteriorEquipmentGridView,
+              &FacilityExteriorEquipmentGridView::toggleDisplayAdditionalPropsClicked);
       this->mainContentWidget()->setSubTab(facilityExteriorEquipmentGridView);
       m_currentView = facilityExteriorEquipmentGridView;
       break;

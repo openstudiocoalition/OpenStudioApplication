@@ -39,7 +39,7 @@ class FacilityTabController : public MainTabController
   Q_OBJECT
 
  public:
-  FacilityTabController(bool isIP, const model::Model& model);
+  FacilityTabController(bool isIP, bool displayAdditionalProps, const model::Model& model);
 
   virtual ~FacilityTabController();
 
@@ -55,6 +55,8 @@ class FacilityTabController : public MainTabController
   model::Model m_model;
 
   bool m_isIP;
+
+  bool m_displayAdditionalProps;
 
   QWidget* m_currentView = nullptr;
 
