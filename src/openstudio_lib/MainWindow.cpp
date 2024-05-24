@@ -109,7 +109,7 @@ MainWindow::MainWindow(bool isPlugin, QWidget* parent)
   m_analyticsHelper = new AnalyticsHelper(this);
   connect(this, &MainWindow::sendAnalytics, m_analyticsHelper, &AnalyticsHelper::sendAnalytics);
 
-  auto* mainMenu = new MainMenu(m_displayIP, m_isPlugin, m_currLang, allowAnalytics(), m_useClassicCLI);
+  auto* mainMenu = new MainMenu(m_displayIP, m_isPlugin, m_currLang, allowAnalytics(), m_useClassicCLI, m_displayAdditionalProps);
   connect(mainMenu, &MainMenu::toggleUnitsClicked, this, &MainWindow::toggleUnits);
   connect(mainMenu, &MainMenu::changeLanguageClicked, this, &MainWindow::changeLanguage);
   connect(mainMenu, &MainMenu::downloadComponentsClicked, this, &MainWindow::downloadComponentsClicked);
@@ -150,6 +150,7 @@ MainWindow::MainWindow(bool isPlugin, QWidget* parent)
   connect(mainMenu, &MainMenu::downloadMeasuresClicked, this, &MainWindow::downloadMeasuresClicked);
   connect(mainMenu, &MainMenu::changeBclLogin, this, &MainWindow::changeBclLogin);
   connect(mainMenu, &MainMenu::configureProxyClicked, this, &MainWindow::configureProxyClicked);
+  connect(mainMenu, &MainMenu::displayAdditionalPropsClicked, this, &MainWindow::toggleDisplayAdditionalProps);
   connect(this, &MainWindow::enableRevertToSaved, mainMenu, &MainMenu::enableRevertToSavedAction);
   connect(this, &MainWindow::enableFileImports, mainMenu, &MainMenu::enableFileImportActions);
   connect(this, &MainWindow::enablePreferences, mainMenu, &MainMenu::enablePreferencesActions);
@@ -285,6 +286,7 @@ void MainWindow::readSettings() {
   m_geometryDiagnostics = settings.value("geometryDiagnostics").toBool();
   m_useClassicCLI = settings.value("useClassicCLI").toBool();
   m_currLang = settings.value("language", "en").toString();
+  m_displayAdditionalProps = settings.value("displayAdditionalProps").toBool();
   LOG_FREE(Debug, "MainWindow", "\n\n\nm_currLang=[" << m_currLang.toStdString() << "]\n\n\n");
   if (m_currLang.isEmpty()) {
     m_currLang = "en";
@@ -304,6 +306,7 @@ void MainWindow::writeSettings() {
   settings.setValue("verboseOutput", m_verboseOutput);
   settings.setValue("geometryDiagnostics", m_geometryDiagnostics);
   settings.setValue("useClassicCLI", m_useClassicCLI);
+  settings.setValue("displayAdditionalProps", m_displayAdditionalProps);
   settings.setValue("language", m_currLang);
   settings.setValue("analyticsId", m_analyticsId);
 }
@@ -473,6 +476,15 @@ void MainWindow::loadProxySettings() {
       configureProxyClicked();
     }
   }
+}
+
+bool MainWindow::displayAdditionalProps() const {
+  return m_displayAdditionalProps;
+}
+
+void MainWindow::toggleDisplayAdditionalProps(bool displayAdditionalProps) {
+  m_displayAdditionalProps = displayAdditionalProps;
+  writeSettings();
 }
 
 }  // namespace openstudio
