@@ -553,8 +553,12 @@ jobs:
       # Execute tests defined by the CMake configuration.
       # See https://cmake.org/cmake/help/latest/manual/ctest.1.html for more detail
       run: |
-        Xvfb :99 &
-        export DISPLAY=:99
+        if [ "$RUNNER_OS" == "macOS" ]; then
+          automationmodetool
+        else
+          Xvfb :99 &
+          export DISPLAY=:99
+        fi
         ctest -j -T test --output-on-failure --no-compress-output -C $BUILD_TYPE || true
 
     - name: Archive test results?
@@ -569,8 +573,12 @@ jobs:
       # Execute tests defined by the CMake configuration.
       # See https://cmake.org/cmake/help/latest/manual/ctest.1.html for more detail
       run: |
-        Xvfb :99 &
-        export DISPLAY=:99
+        if [ "$RUNNER_OS" == "macOS" ]; then
+          automationmodetool
+        else
+          Xvfb :99 &
+          export DISPLAY=:99
+        fi
         Products/SpacesSurfaces_Benchmark --benchmark_out_format=csv --benchmark_out='bench_results_SpacesSurfaces.csv' || true
 
     - name: Archive benchmark results?
