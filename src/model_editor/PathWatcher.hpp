@@ -92,9 +92,6 @@ class MODELEDITOR_API PathWatcher : public QObject
 
  public slots:
 
-  /// called when file/directory is added or removed or when directory is removed
-  void directoryChanged(const QString& path);
-
   /// called when file is modified or removed
   void fileChanged(const QString& path);
 
@@ -103,7 +100,6 @@ class MODELEDITOR_API PathWatcher : public QObject
 
  private:
   /// impl
-  std::shared_ptr<QFileSystemWatcher> m_impl;
   std::shared_ptr<QTimer> m_timer;
 
   bool m_enabled;
