@@ -17,6 +17,7 @@ env:
   BUILD_BENCHMARK: ON
   BUILD_PACKAGE: ON
   QT_VERSION: 6.5.2
+  QT_DEBUG_PLUGINS: 1
 
 jobs:
   build:
@@ -131,7 +132,7 @@ jobs:
         if [ "$RUNNER_OS" == "Linux" ]; then
           echo "Install needed system dependencies for OPENGL (due to Qt) for Linux"
           sudo apt update -qq
-          sudo apt install -y mesa-common-dev libglu1-mesa-dev patchelf ninja-build ccache libxkbcommon-x11-dev libgl1-mesa-dev chrpath libxcb-cursor0
+          sudo apt install -y mesa-common-dev libglu1-mesa-dev patchelf ninja-build ccache libxkbcommon-x11-dev libgl1-mesa-dev chrpath libxcb libxcb-cursor0
           gcc --version
 
           ccache --set-config=cache_dir=$CCACHE_DIR
@@ -555,11 +556,13 @@ jobs:
       run: |
         if [ "$RUNNER_OS" == "macOS" ]; then
           automationmodetool
+          export XVFBCMD=""
+        elif [ "$RUNNER_OS" == "Windows" ]; then
+          export XVFBCMD=""
         else
-          Xvfb :99 &
-          export DISPLAY=:99
+          export XVFBCMD="xvfb-run"
         fi
-        ctest -j -T test --output-on-failure --no-compress-output -C $BUILD_TYPE || true
+        $XVFBCMD ctest -j -T test --output-on-failure --no-compress-output -C $BUILD_TYPE || true
 
     - name: Archive test results?
       uses: actions/upload-artifact@v4
@@ -575,11 +578,13 @@ jobs:
       run: |
         if [ "$RUNNER_OS" == "macOS" ]; then
           automationmodetool
+          export XVFBCMD=""
+        elif [ "$RUNNER_OS" == "Windows" ]; then
+          export XVFBCMD=""
         else
-          Xvfb :99 &
-          export DISPLAY=:99
+          export XVFBCMD="xvfb-run"
         fi
-        Products/SpacesSurfaces_Benchmark --benchmark_out_format=csv --benchmark_out='bench_results_SpacesSurfaces.csv' || true
+        $XVFBCMD Products/SpacesSurfaces_Benchmark --benchmark_out_format=csv --benchmark_out='bench_results_SpacesSurfaces.csv' || true
 
     - name: Archive benchmark results?
       uses: actions/upload-artifact@v4
