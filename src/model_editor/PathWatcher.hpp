@@ -38,11 +38,9 @@
 #include <QString>
 
 // forward declarations
-class QFileSystemWatcher;
 class QTimer;
 
-/** Class for watching either a file or directory, QFileSystemWatcher has issues when watching
-  **  many files so it is not recommended to use too many of these objects.
+/** Class for watching a file for changes, directories are not supported 
   **/
 class MODELEDITOR_API PathWatcher : public QObject
 {
@@ -51,11 +49,11 @@ class MODELEDITOR_API PathWatcher : public QObject
 
  public:
   /// constructor with path
-
-  /// if path is a directory it must exist at time of construction, no periodic checks are performed for directory
+  
   /// if path is not a directory it is assumed to be a regular file which may or may not exist at construction,
   /// a timer is used to periodically check for changes to the file
-  /// msec is the timer delay to check for updates to the file, msec does not apply if the path is a directory
+  /// msec is the timer delay to check for updates to the file,
+  /// an execption is thrown if path is a directory
   explicit PathWatcher(const openstudio::path& p, int msec = 1000);
 
   /// virtual destructor
@@ -83,11 +81,9 @@ class MODELEDITOR_API PathWatcher : public QObject
   virtual void onPathAdded();
 
   /// for files, called when watched file is modified if watcher enabled
-  /// for directories, called when file/directory is added or removed to the watched directory if watcher enabled
   virtual void onPathChanged();
 
   /// for files, called when watched file is removed if watcher enabled
-  /// for directories, called when the watched directory is removed if watcher enabled
   virtual void onPathRemoved();
 
  public slots:
@@ -103,7 +99,6 @@ class MODELEDITOR_API PathWatcher : public QObject
   std::shared_ptr<QTimer> m_timer;
 
   bool m_enabled;
-  bool m_isDirectory;
   bool m_exists;
   bool m_dirty;
   std::string m_checksum;

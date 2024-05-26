@@ -35,13 +35,11 @@
 #include <openstudio/utilities/core/Checksum.hpp>
 #include <openstudio/utilities/core/Assert.hpp>
 
-#include <QFileSystemWatcher>
 #include <QTimer>
 
 /// constructor
 PathWatcher::PathWatcher(const openstudio::path& p, int msec)
   : m_enabled(true),
-    m_isDirectory(openstudio::filesystem::is_directory(p) || openstudio::toString(p.filename()) == "." || openstudio::toString(p.filename()) == "/"),
     m_exists(openstudio::filesystem::exists(p)),
     m_dirty(false),
     m_checksum(openstudio::checksum(p)),
@@ -51,13 +49,10 @@ PathWatcher::PathWatcher(const openstudio::path& p, int msec)
   openstudio::Application::instance().application(false);
   openstudio::Application::instance().processEvents();
 
-  if (m_isDirectory) {
+  const bool isDirectory = (openstudio::filesystem::is_directory(p) || openstudio::toString(p.filename()) == "." || openstudio::toString(p.filename()) == "/");
+  if (isDirectory) {
 
-    if (!m_exists) {
-      LOG_FREE_AND_THROW("openstudio.PathWatcher", "Directory '" << openstudio::toString(p) << "' does not exist, cannot be watched");
-    }
-
-    LOG_FREE_AND_THROW("openstudio.PathWatcher", "Watching Directory is not supported");
+    LOG_FREE_AND_THROW("openstudio.PathWatcher", "Watching Directory '" << openstudio::toString(p) << "' is not supported");
 
   } else {
     m_timer = std::shared_ptr<QTimer>(new QTimer());
