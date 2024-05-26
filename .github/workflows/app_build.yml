@@ -16,7 +16,7 @@ env:
   BUILD_TESTING: ON
   BUILD_BENCHMARK: ON
   BUILD_PACKAGE: ON
-  QT_VERSION: 6.5.3
+  QT_VERSION: 6.5.2
 
 jobs:
   build:

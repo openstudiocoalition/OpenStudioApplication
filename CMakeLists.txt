@@ -510,9 +510,9 @@ if(UNIX)
 endif()
 
 # Qt
-# e.g. QT_INSTALL_DIR = C:/Qt/6.5.3/msvc2019_64
+# e.g. QT_INSTALL_DIR = C:/Qt/6.5.2/msvc2019_64
 set(QT_INSTALL_DIR "" CACHE PATH "Path to Qt Install")
-set(QT_VERSION "6.5.3" CACHE STRING "Qt target version, defaults to 6.5.3")
+set(QT_VERSION "6.5.2" CACHE STRING "Qt target version, defaults to 6.5.2")
 
 # For AboutBox, but also validates that the version is valid
 string(REGEX MATCH "^([0-9]+\\.[0-9]+)"
@@ -619,7 +619,7 @@ if(WIN32)
 endif()
 
 if(UNIX AND NOT APPLE)
-  # Apparently libqxcb.so depends on libQt6OpenGL.so in Qt 6.5.3 (it depended on libGL on 5.15.0 but not OpenGL)
+  # Apparently libqxcb.so depends on libQt6OpenGL.so in Qt 6 (it depended on libGL on 5.15.0 but not OpenGL)
   find_package(Qt6OpenGL ${QT_VERSION} REQUIRED PATHS ${QT_INSTALL_DIR} NO_DEFAULT_PATH)
   list(APPEND QT_LIBS Qt6::OpenGL)
 endif()
