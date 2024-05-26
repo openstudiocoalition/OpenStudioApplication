@@ -49,7 +49,7 @@ class MODELEDITOR_API PathWatcher : public QObject
 
  public:
   /// constructor with path
-  
+
   /// if path is not a directory it is assumed to be a regular file which may or may not exist at construction,
   /// a timer is used to periodically check for changes to the file
   /// msec is the timer delay to check for updates to the file,

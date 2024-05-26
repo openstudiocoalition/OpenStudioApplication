@@ -39,17 +39,13 @@
 
 /// constructor
 PathWatcher::PathWatcher(const openstudio::path& p, int msec)
-  : m_enabled(true),
-    m_exists(openstudio::filesystem::exists(p)),
-    m_dirty(false),
-    m_checksum(openstudio::checksum(p)),
-    m_path(p),
-    m_msec(msec) {
+  : m_enabled(true), m_exists(openstudio::filesystem::exists(p)), m_dirty(false), m_checksum(openstudio::checksum(p)), m_path(p), m_msec(msec) {
   // make sure a QApplication exists
   openstudio::Application::instance().application(false);
   openstudio::Application::instance().processEvents();
 
-  const bool isDirectory = (openstudio::filesystem::is_directory(p) || openstudio::toString(p.filename()) == "." || openstudio::toString(p.filename()) == "/");
+  const bool isDirectory =
+    (openstudio::filesystem::is_directory(p) || openstudio::toString(p.filename()) == "." || openstudio::toString(p.filename()) == "/");
   if (isDirectory) {
 
     LOG_FREE_AND_THROW("openstudio.PathWatcher", "Watching Directory '" << openstudio::toString(p) << "' is not supported");
