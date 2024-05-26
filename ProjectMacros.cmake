@@ -140,7 +140,7 @@ macro(CREATE_TEST_TARGETS BASE_NAME SRC DEPENDENCIES)
     endif()
 
     target_link_libraries(${BASE_NAME}_tests
-      gtest::gtest
+      GTest::gtest
       ${ALL_DEPENDENCIES}
     )
 

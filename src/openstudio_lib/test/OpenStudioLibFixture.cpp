@@ -50,9 +50,19 @@ using namespace openstudio;
 // static variables
 boost::optional<openstudio::FileLogSink> OpenStudioLibFixture::logFile;
 
-void OpenStudioLibFixture::SetUp() {
-  openstudio::Application::instance().application(true);
+int main(int argc, char* argv[]) {
+  auto app = openstudio::Application::instance().application(true);
+
+  QTimer::singleShot(0, [&]() {
+    ::testing::InitGoogleTest(&argc, argv);
+    auto testResult = RUN_ALL_TESTS();
+    app->exit(testResult);
+  });
+
+  return app->exec();
 }
+
+void OpenStudioLibFixture::SetUp() {}
 
 void OpenStudioLibFixture::TearDown() {}
 
