@@ -66,7 +66,7 @@ TEST_F(OpenStudioLibFixture, DesignDayGridView) {
   EXPECT_EQ(numCategories, gridController->categories().size());
   EXPECT_EQ(numRows, gridController->rowCount());
   EXPECT_EQ(numColumns, gridController->columnCount());
-
+std::cout << "P0" << std::endl;
   processEvents();
 
   auto modelObjects = gridController->modelObjects();
@@ -92,14 +92,14 @@ TEST_F(OpenStudioLibFixture, DesignDayGridView) {
   checkExpected(objectSelector, gridView, 0, 1, 1, boost::none, designDay1, true, true, false, true, false, "000");    // Selector
   checkExpected(objectSelector, gridView, 0, 1, 2, boost::none, designDay1, true, true, false, false, false, "0000");  // Day of Month
   checkExpected(objectSelector, gridView, 0, 1, 3, boost::none, designDay1, true, true, false, false, false, "0000");  // Month
-  checkExpected(objectSelector, gridView, 0, 1, 4, boost::none, designDay1, true, true, false, false, false, "000");   // Day Type
+  checkExpected(objectSelector, gridView, 0, 1, 4, boost::none, designDay1, true, true, false, false, false, "0000");   // Day Type
   checkExpected(objectSelector, gridView, 0, 1, 5, boost::none, designDay1, true, true, false, false, false, "000");   // DST
 
   checkExpected(objectSelector, gridView, 1, 2, 0, boost::none, designDay2, true, true, false, false, false, "000");   // Name
   checkExpected(objectSelector, gridView, 1, 2, 1, boost::none, designDay2, true, true, false, true, false, "000");    // Selector
   checkExpected(objectSelector, gridView, 1, 2, 2, boost::none, designDay2, true, true, false, false, false, "0000");  // Day of Month
   checkExpected(objectSelector, gridView, 1, 2, 3, boost::none, designDay2, true, true, false, false, false, "0000");  // Month
-  checkExpected(objectSelector, gridView, 1, 2, 4, boost::none, designDay2, true, true, false, false, false, "000");   // Day Type
+  checkExpected(objectSelector, gridView, 1, 2, 4, boost::none, designDay2, true, true, false, false, false, "0000");   // Day Type
   checkExpected(objectSelector, gridView, 1, 2, 5, boost::none, designDay2, true, true, false, false, false, "000");   // DST
 
   objectSelector->setObjectSelected(designDay1, true);
@@ -120,14 +120,14 @@ TEST_F(OpenStudioLibFixture, DesignDayGridView) {
   checkExpected(objectSelector, gridView, 0, 1, 1, boost::none, designDay1, true, true, true, true, false, "000");    // Selector
   checkExpected(objectSelector, gridView, 0, 1, 2, boost::none, designDay1, true, true, true, false, false, "0000");  // Day of Month
   checkExpected(objectSelector, gridView, 0, 1, 3, boost::none, designDay1, true, true, true, false, false, "0000");  // Month
-  checkExpected(objectSelector, gridView, 0, 1, 4, boost::none, designDay1, true, true, true, false, false, "000");   // Day Type
+  checkExpected(objectSelector, gridView, 0, 1, 4, boost::none, designDay1, true, true, true, false, false, "0000");   // Day Type
   checkExpected(objectSelector, gridView, 0, 1, 5, boost::none, designDay1, true, true, true, false, false, "000");   // DST
 
   checkExpected(objectSelector, gridView, 1, 2, 0, boost::none, designDay2, true, true, false, false, false, "000");   // Name
   checkExpected(objectSelector, gridView, 1, 2, 1, boost::none, designDay2, true, true, false, true, false, "000");    // Selector
   checkExpected(objectSelector, gridView, 1, 2, 2, boost::none, designDay2, true, true, false, false, false, "0000");  // Day of Month
   checkExpected(objectSelector, gridView, 1, 2, 3, boost::none, designDay2, true, true, false, false, false, "0000");  // Month
-  checkExpected(objectSelector, gridView, 1, 2, 4, boost::none, designDay2, true, true, false, false, false, "000");   // Day Type
+  checkExpected(objectSelector, gridView, 1, 2, 4, boost::none, designDay2, true, true, false, false, false, "0000");   // Day Type
   checkExpected(objectSelector, gridView, 1, 2, 5, boost::none, designDay2, true, true, false, false, false, "000");   // DST
 
   designDay1.remove();
@@ -145,16 +145,16 @@ TEST_F(OpenStudioLibFixture, DesignDayGridView) {
   checkExpected(objectSelector, gridView, -1, 0, 5, boost::none, boost::none, true, true, false, false, false, "");
 
   checkExpected(objectSelector, gridView, 0, 1, 0, boost::none, designDay1, true, true, true, false, false, "100");   // Name
-  checkExpected(objectSelector, gridView, 0, 1, 1, boost::none, designDay1, true, true, true, true, false, "100");    // Selector
+  checkExpected(objectSelector, gridView, 0, 1, 1, boost::none, designDay1, true, true, true, true, false, "000");    // Selector
   checkExpected(objectSelector, gridView, 0, 1, 2, boost::none, designDay1, true, true, true, false, false, "1000");  // Day of Month
   checkExpected(objectSelector, gridView, 0, 1, 3, boost::none, designDay1, true, true, true, false, false, "1000");  // Month
-  checkExpected(objectSelector, gridView, 0, 1, 4, boost::none, designDay1, true, true, true, false, false, "100");   // Day Type
-  checkExpected(objectSelector, gridView, 0, 1, 5, boost::none, designDay1, true, true, true, false, false, "100");   // DST
+  checkExpected(objectSelector, gridView, 0, 1, 4, boost::none, designDay1, true, true, true, false, false, "1000");   // Day Type
+  checkExpected(objectSelector, gridView, 0, 1, 5, boost::none, designDay1, true, true, true, false, false, "000");   // DST
 
   checkExpected(objectSelector, gridView, 1, 2, 0, boost::none, designDay2, true, true, false, false, false, "000");   // Name
   checkExpected(objectSelector, gridView, 1, 2, 1, boost::none, designDay2, true, true, false, true, false, "000");    // Selector
   checkExpected(objectSelector, gridView, 1, 2, 2, boost::none, designDay2, true, true, false, false, false, "0000");  // Day of Month
   checkExpected(objectSelector, gridView, 1, 2, 3, boost::none, designDay2, true, true, false, false, false, "0000");  // Month
-  checkExpected(objectSelector, gridView, 1, 2, 4, boost::none, designDay2, true, true, false, false, false, "000");   // Day Type
+  checkExpected(objectSelector, gridView, 1, 2, 4, boost::none, designDay2, true, true, false, false, false, "0000");   // Day Type
   checkExpected(objectSelector, gridView, 1, 2, 5, boost::none, designDay2, true, true, false, false, false, "000");   // DST
 }
