@@ -33,14 +33,14 @@ then
 fi
 
 # first find if any files changed
-num=$(git diff $PR_BRANCH_NAME $TARGET_BRANCH_NAME --name-only | /bin/grep '.*\.\(cpp\|c\|cxx\|cxx.in\|hpp\|h\|hxx\|hxx.in\)$' | wc -l | tr -d '[:space:]')
+num=$(git diff $PR_BRANCH_NAME $TARGET_BRANCH_NAME --name-only | grep '.*\.\(cpp\|c\|cxx\|cxx.in\|hpp\|h\|hxx\|hxx.in\)$' | wc -l | tr -d '[:space:]')
 if [ $num -eq 0 ]
 then
   echo "No files of type (cpp, c, cxx, cxx.in, hpp, h, hxx, hxx.in) changed. Skipping clang-formatting"
   exit 0
 fi
 
-git diff $PR_BRANCH_NAME $TARGET_BRANCH_NAME --name-only | /bin/grep '.*\.\(cpp\|c\|cxx\|cxx.in\|hpp\|h\|hxx\|hxx.in\)$' | xargs clang-format -style=file -i -fallback-style=none
+git diff $PR_BRANCH_NAME $TARGET_BRANCH_NAME --name-only | grep '.*\.\(cpp\|c\|cxx\|cxx.in\|hpp\|h\|hxx\|hxx.in\)$' | xargs clang-format -style=file -i -fallback-style=none
 
 # clang-format will auto correct files so prepare the diff and use this as artifact
 git diff > clang_format.patch

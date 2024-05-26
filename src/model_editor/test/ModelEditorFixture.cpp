@@ -36,6 +36,7 @@
 #include <QTimer>
 
 int main(int argc, char* argv[]) {
+  Q_INIT_RESOURCE(modeleditorlib);
   auto app = openstudio::Application::instance().application(true);
 
   QTimer::singleShot(0, [&]() {
