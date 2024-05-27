@@ -49,37 +49,37 @@ jobs:
           COMPRESSED_PKG_PATH: _CPack_Packages/Linux/TGZ
           QT_OS_NAME: linux
           QT_ARCH: gcc_64
-        - os: windows-2022
-          SELF_HOSTED: false
-          PLATFORM_NAME: Windows
-          BINARY_EXT: exe
-          COMPRESSED_EXT: zip
-          BINARY_PKG_PATH: _CPack_Packages/win64/IFW
-          COMPRESSED_PKG_PATH: _CPack_Packages/win64/ZIP
-          QT_OS_NAME: windows
-          QT_ARCH: win64_msvc2019_64
-        - os: macos-13
-          SELF_HOSTED: false
-          PLATFORM_NAME: Darwin
-          BINARY_EXT: dmg
-          COMPRESSED_EXT: tar.gz
-          BINARY_PKG_PATH: _CPack_Packages/Darwin/IFW
-          COMPRESSED_PKG_PATH: _CPack_Packages/Darwin/TGZ
-          MACOSX_DEPLOYMENT_TARGET: 11.0
-          SDKROOT: /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX.sdk
-          QT_OS_NAME: mac
-          QT_ARCH: clang_64
-        - os: macos-arm64
-          SELF_HOSTED: true
-          PLATFORM_NAME: Darwin
-          BINARY_EXT: dmg
-          COMPRESSED_EXT: tar.gz
-          BINARY_PKG_PATH: _CPack_Packages/Darwin/IFW
-          COMPRESSED_PKG_PATH: _CPack_Packages/Darwin/TGZ
-          MACOSX_DEPLOYMENT_TARGET: 12.1
-          SDKROOT: /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX.sdk
-          QT_OS_NAME: mac
-          QT_ARCH: arm_64
+        #- os: windows-2022
+        #  SELF_HOSTED: false
+        #  PLATFORM_NAME: Windows
+        #  BINARY_EXT: exe
+        #  COMPRESSED_EXT: zip
+        #  BINARY_PKG_PATH: _CPack_Packages/win64/IFW
+        #  COMPRESSED_PKG_PATH: _CPack_Packages/win64/ZIP
+        #  QT_OS_NAME: windows
+        #  QT_ARCH: win64_msvc2019_64
+        #- os: macos-13
+        #  SELF_HOSTED: false
+        #  PLATFORM_NAME: Darwin
+        #  BINARY_EXT: dmg
+        #  COMPRESSED_EXT: tar.gz
+        #  BINARY_PKG_PATH: _CPack_Packages/Darwin/IFW
+        #  COMPRESSED_PKG_PATH: _CPack_Packages/Darwin/TGZ
+        #  MACOSX_DEPLOYMENT_TARGET: 11.0
+        #  SDKROOT: /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX.sdk
+        #  QT_OS_NAME: mac
+        #  QT_ARCH: clang_64
+        #- os: macos-arm64
+        #  SELF_HOSTED: true
+        #  PLATFORM_NAME: Darwin
+        #  BINARY_EXT: dmg
+        #  COMPRESSED_EXT: tar.gz
+        #  BINARY_PKG_PATH: _CPack_Packages/Darwin/IFW
+        #  COMPRESSED_PKG_PATH: _CPack_Packages/Darwin/TGZ
+        #  MACOSX_DEPLOYMENT_TARGET: 12.1
+        #  SDKROOT: /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX.sdk
+        #  QT_OS_NAME: mac
+        #  QT_ARCH: arm_64
 
     steps:
 
@@ -132,7 +132,7 @@ jobs:
         if [ "$RUNNER_OS" == "Linux" ]; then
           echo "Install needed system dependencies for OPENGL (due to Qt) for Linux"
           sudo apt update -qq
-          sudo apt install -y mesa-common-dev libglu1-mesa-dev patchelf ninja-build ccache libxkbcommon-x11-dev libgl1-mesa-dev chrpath libxcb-icccm4 libxcb-keysyms1 libxcb-xkb1 libxkbcommon-x11-0 libxcb-cursor0
+          sudo apt install -y mesa-common-dev libglu1-mesa-dev patchelf ninja-build ccache libxkbcommon-x11-dev libgl1-mesa-dev chrpath libxcb-icccm4 libxcb-keysyms1 libxcb-xkb1 libxcb-randr0 libxkbcommon-x11-0 libxcb-cursor0
           gcc --version
 
           ccache --set-config=cache_dir=$CCACHE_DIR
