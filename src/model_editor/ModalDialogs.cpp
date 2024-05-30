@@ -282,9 +282,9 @@ void ModelObjectSelectorDialog::loadComboBoxData() {
 
 ModelObjectSelectorDialogWatcher::ModelObjectSelectorDialogWatcher(std::shared_ptr<ModelObjectSelectorDialog> modelObjectSelectorDialog)
   : m_modelObjectSelectorDialog(std::move(modelObjectSelectorDialog)) {
-  OS_ASSERT(modelObjectSelectorDialog);
+  OS_ASSERT(m_modelObjectSelectorDialog);
 
-  connect(modelObjectSelectorDialog.get(), &ModelObjectSelectorDialog::closed, this, &ModelObjectSelectorDialogWatcher::onClose);
+  connect(m_modelObjectSelectorDialog.get(), &ModelObjectSelectorDialog::closed, this, &ModelObjectSelectorDialogWatcher::onClose);
 }
 
 boost::optional<openstudio::model::ModelObject> ModelObjectSelectorDialogWatcher::selectedModelObject() const {

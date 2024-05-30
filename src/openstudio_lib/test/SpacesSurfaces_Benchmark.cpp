@@ -44,6 +44,19 @@
 using namespace openstudio;
 using namespace openstudio::model;
 
+int main(int argc, char* argv[]) {
+  Q_INIT_RESOURCE(openstudio);
+  auto app = openstudio::Application::instance().application(true);
+
+  QTimer::singleShot(0, [&]() {
+    ::benchmark::Initialize(&argc, argv);
+    ::benchmark::RunSpecifiedBenchmarks();
+    app->exit(0);
+  });
+
+  return app->exec();
+}
+
 model::Model makeModelWithNSurfaces(size_t nSurfaces) {
 
   Model m;
