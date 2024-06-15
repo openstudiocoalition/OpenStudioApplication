@@ -49,7 +49,7 @@ jobs:
           COMPRESSED_PKG_PATH: _CPack_Packages/Linux/TGZ
           QT_OS_NAME: linux
           QT_ARCH: gcc_64
-        - os: windows-2022
+        - os: windows-2019
           SELF_HOSTED: false
           PLATFORM_NAME: Windows
           BINARY_EXT: exe
