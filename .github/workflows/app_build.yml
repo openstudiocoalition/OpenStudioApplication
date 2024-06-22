@@ -228,7 +228,7 @@ jobs:
 
         begin_group "Default profile"
         if [ "${{ matrix.SELF_HOSTED }}" == "true" ]; then
-          export CONAN_USER_HOME=$HOME
+          export CONAN_USER_HOME=$HOME${DIR_SEP}actions-runner${DIR_SEP}conan-cache
         else
           export CONAN_USER_HOME="${{ github.workspace }}${DIR_SEP}conan-cache"
         fi;
@@ -404,6 +404,7 @@ jobs:
       if: ${{ matrix.SELF_HOSTED }}
       run: |
         set -x
+        cmake -E rm -rf ./build
         cmake -E make_directory ./build
 
         if [ "$RUNNER_OS" == "macOS" ]; then
@@ -490,19 +491,18 @@ jobs:
         conan cache clean --source --build --download --temp
         ccache --show-stats -vv || ccache --show-stats || true
 
-    - name: Test bed Sign inner portable executable files and exe package (Windows 2022)
+    - name: Test bed Sign inner portable executable files and exe package (Windows)
       working-directory: ./build
-      if: (matrix.os == 'windows-2022')
+      if: runner.os == 'Windows'
       shell: powershell
       run: |
         $installer_exe = Get-ChildItem -Filter "${{ matrix.BINARY_PKG_PATH }}/*.${{ env.BINARY_EXT }}" -File | Select-Object -First 1 | % { $_.FullName}
         echo $installer_exe
         echo "$installer_exe"
 
-    - name: Sign inner portable executable files and exe package (Windows 2022)
+    - name: Sign inner portable executable files and exe package (Windows)
       working-directory: ./build
-      # if: (runner.os == 'Windows')
-      if: contains(github.ref, 'refs/tags') && (matrix.os == 'windows-2022')
+      if: contains(github.ref, 'refs/tags') && (runner.os == 'Windows')
       shell: powershell
       run: |
         # Install signpath
