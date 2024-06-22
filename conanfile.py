@@ -22,7 +22,7 @@ class OpenStudioAppBuildRecipe(ConanFile):
     }
 
     def requirements(self):
-        self.requires("ruby/3.2.2")
+        self.requires("ruby/3.2.2#e349279c358fd8f54d83446a3af8ecfe%1718616192.725")
 
         if is_apple_os(self):
             self.requires(

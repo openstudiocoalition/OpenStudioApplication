@@ -8,6 +8,7 @@ on:
       - 'v*' # Push events to matching v*, i.e. v1.0, v20.15.10
   pull_request:
     branches: [ master, develop ]
+    types: [ opened, reopened, synchronize, ready_for_review ]
 
 env:
   BUILD_TYPE: Release
@@ -15,12 +16,13 @@ env:
   BUILD_TESTING: ON
   BUILD_BENCHMARK: ON
   BUILD_PACKAGE: ON
-  QT_VERSION: 6.6.3
+  QT_VERSION: 6.5.2
+  QT_DEBUG_PLUGINS: 1
 
 jobs:
   build:
-    # Note: as of 2021-01-29, this only works for push, not for pull request
-    # if: "!(contains(github.event.head_commit.message, 'skip') && contains(github.event.head_commit.message, 'ci'))"
+    if: ${{ github.event_name == 'push' || !github.event.pull_request.draft }}
+
     runs-on: ${{ matrix.os }}
     continue-on-error: true
     strategy:
@@ -130,7 +132,7 @@ jobs:
         if [ "$RUNNER_OS" == "Linux" ]; then
           echo "Install needed system dependencies for OPENGL (due to Qt) for Linux"
           sudo apt update -qq
-          sudo apt install -y mesa-common-dev libglu1-mesa-dev patchelf ninja-build ccache libxkbcommon-x11-dev libgl1-mesa-dev chrpath libxcb-cursor0
+          sudo apt install -y mesa-common-dev libglu1-mesa-dev patchelf ninja-build ccache libxkbcommon-x11-dev libgl1-mesa-dev chrpath libxcb-icccm4 libxcb-keysyms1 libxcb-xkb1 libxcb-randr0 libxcb-shape0 libxkbcommon-x11-0 libxcb-cursor0
           gcc --version
 
           ccache --set-config=cache_dir=$CCACHE_DIR
@@ -226,7 +228,7 @@ jobs:
 
         begin_group "Default profile"
         if [ "${{ matrix.SELF_HOSTED }}" == "true" ]; then
-          export CONAN_USER_HOME=$HOME
+          export CONAN_USER_HOME=$HOME${DIR_SEP}actions-runner${DIR_SEP}conan-cache
         else
           export CONAN_USER_HOME="${{ github.workspace }}${DIR_SEP}conan-cache"
         fi;
@@ -402,10 +404,11 @@ jobs:
       if: ${{ matrix.SELF_HOSTED }}
       run: |
         set -x
+        cmake -E rm -rf ./build
         cmake -E make_directory ./build
 
         if [ "$RUNNER_OS" == "macOS" ]; then
-          QT_INSTALL_DIR="/Users/irvinemac/Qt/6.6.3/macos/"
+          QT_INSTALL_DIR="/Users/irvinemac/Qt/$QT_VERSION/macos/"
         fi
 
         echo "$QT_INSTALL_DIR/bin" >> $GITHUB_PATH
@@ -488,19 +491,18 @@ jobs:
         conan cache clean --source --build --download --temp
         ccache --show-stats -vv || ccache --show-stats || true
 
-    - name: Test bed Sign inner portable executable files and exe package (Windows 2022)
+    - name: Test bed Sign inner portable executable files and exe package (Windows)
       working-directory: ./build
-      if: (matrix.os == 'windows-2022')
+      if: runner.os == 'Windows'
       shell: powershell
       run: |
         $installer_exe = Get-ChildItem -Filter "${{ matrix.BINARY_PKG_PATH }}/*.${{ env.BINARY_EXT }}" -File | Select-Object -First 1 | % { $_.FullName}
         echo $installer_exe
         echo "$installer_exe"
 
-    - name: Sign inner portable executable files and exe package (Windows 2022)
+    - name: Sign inner portable executable files and exe package (Windows)
       working-directory: ./build
-      # if: (runner.os == 'Windows')
-      if: contains(github.ref, 'refs/tags') && (matrix.os == 'windows-2022')
+      if: contains(github.ref, 'refs/tags') && (runner.os == 'Windows')
       shell: powershell
       run: |
         # Install signpath
@@ -552,9 +554,15 @@ jobs:
       # Execute tests defined by the CMake configuration.
       # See https://cmake.org/cmake/help/latest/manual/ctest.1.html for more detail
       run: |
-        Xvfb :99 &
-        export DISPLAY=:99
-        ctest -j -T test --output-on-failure --no-compress-output -C $BUILD_TYPE || true
+        if [ "$RUNNER_OS" == "macOS" ]; then
+          automationmodetool
+          export XVFBCMD=""
+        elif [ "$RUNNER_OS" == "Windows" ]; then
+          export XVFBCMD=""
+        else
+          export XVFBCMD="xvfb-run"
+        fi
+        $XVFBCMD ctest -j -T test --output-on-failure --no-compress-output -C $BUILD_TYPE || true
 
     - name: Archive test results?
       uses: actions/upload-artifact@v4
@@ -568,9 +576,15 @@ jobs:
       # Execute tests defined by the CMake configuration.
       # See https://cmake.org/cmake/help/latest/manual/ctest.1.html for more detail
       run: |
-        Xvfb :99 &
-        export DISPLAY=:99
-        Products/SpacesSurfaces_Benchmark --benchmark_out_format=csv --benchmark_out='bench_results_SpacesSurfaces.csv' || true
+        if [ "$RUNNER_OS" == "macOS" ]; then
+          automationmodetool
+          export XVFBCMD=""
+        elif [ "$RUNNER_OS" == "Windows" ]; then
+          export XVFBCMD=""
+        else
+          export XVFBCMD="xvfb-run"
+        fi
+        $XVFBCMD Products/SpacesSurfaces_Benchmark --benchmark_out_format=csv --benchmark_out='bench_results_SpacesSurfaces.csv' || true
 
     - name: Archive benchmark results?
       uses: actions/upload-artifact@v4

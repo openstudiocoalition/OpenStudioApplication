@@ -25,6 +25,7 @@ set(${target_name}_swig_src
 set(${target_name}_depends
   ${Boost_LIBRARIES}
   ${CMAKE_THREAD_LIBS}
+  openstudio_modeleditor
   openstudio::openstudiolib
   ${QT_LIBS}
 )

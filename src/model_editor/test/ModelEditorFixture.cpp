@@ -33,9 +33,22 @@
 
 #include <openstudio/utilities/core/Path.hpp>
 
-void ModelEditorFixture::SetUp() {
-  openstudio::Application::instance().application(true);
+#include <QTimer>
+
+int main(int argc, char* argv[]) {
+  Q_INIT_RESOURCE(modeleditorlib);
+  auto app = openstudio::Application::instance().application(true);
+
+  QTimer::singleShot(0, [&]() {
+    ::testing::InitGoogleTest(&argc, argv);
+    auto testResult = RUN_ALL_TESTS();
+    app->exit(testResult);
+  });
+
+  return app->exec();
 }
+
+void ModelEditorFixture::SetUp() {}
 
 void ModelEditorFixture::TearDown() {}
 
