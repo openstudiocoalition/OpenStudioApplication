@@ -50,6 +50,7 @@
 #include <QPainter>
 #include <QTableWidget>
 #include <QTableWidgetItem>
+#include <QDateTime>
 
 #define OPENSTUDIO_TYPE "OpenStudio Type"
 
@@ -227,6 +228,10 @@ Component::Component(const Component& other) {
     m_available = other.m_available;
     m_updateAvailable = other.m_updateAvailable;
 
+    m_org = other.m_org;
+    m_repo = other.m_repo;
+    m_releaseTag = other.m_releaseTag;
+
     m_showAbridgedView = false;
     m_showCheckBox = false;
 
@@ -260,6 +265,10 @@ Component& Component::operator=(const Component& other) {
     m_tags = other.m_tags;
     m_available = other.m_available;
     m_updateAvailable = other.m_updateAvailable;
+
+    m_org = other.m_org;
+    m_repo = other.m_repo;
+    m_releaseTag = other.m_releaseTag;
 
     m_showAbridgedView = false;
     m_showCheckBox = false;
@@ -338,7 +347,10 @@ void Component::parseBCLMeasure(const BCLMeasure& bclMeasure) {
   m_modelerDescription = m_modelerDescription.trimmed();  // alternative: .simplified, removes consecutive whitespaces inside the string as well
 
   if (auto dt_ = bclMeasure.versionModified()) {
-    m_versionModified = dt_->toXsdDateTime().c_str();
+    // m_versionModified = dt_->toXsdDateTime().c_str();
+    QDateTime qDT;
+    qDT.setSecsSinceEpoch(static_cast<qint64>(dt_->toEpoch()));
+    m_versionModified = qDT.toString("dddd MMMM d yyyy HH:mm:ss");
   }
 
   m_error = bclMeasure.error();
@@ -380,7 +392,15 @@ void Component::parseBCLSearchResult(const BCLSearchResult& bclSearchResult) {
   m_modelerDescription = m_modelerDescription.trimmed();
   m_fidelityLevel = bclSearchResult.fidelityLevel().c_str();
 
-  // TODO: BCLSearchResult is missing version modified, cf https://github.com/NREL/OpenStudio/issues/5125
+  if (auto dt_ = bclSearchResult.versionModified()) {
+    // m_versionModified = dt_->toXsdDateTime().c_str();
+    QDateTime qDT;
+    qDT.setSecsSinceEpoch(static_cast<qint64>(dt_->toEpoch()));
+    m_versionModified = qDT.toString("dddd MMMM d yyyy HH:mm:ss");
+  }
+  m_org = bclSearchResult.org().c_str();
+  m_repo = bclSearchResult.repo().c_str();
+  m_releaseTag = bclSearchResult.releaseTag().c_str();
 
   // m_error
   m_attributes = bclSearchResult.attributes();
@@ -684,11 +704,22 @@ void Component::createCompleteLayout() {
     auto* label = new QLabel("Sources");
     label->setObjectName("H1");
     mainLayout->addWidget(label);
-    if (m_provenances.empty()) {
+    if (m_provenances.empty() && m_org.isEmpty() && m_repo.isEmpty()) {
       label = new QLabel();
       mainLayout->addWidget(label);
+
     } else {
       auto* tableWidget = createAndRegisterTableWidgetWithTwoColums();
+      if (!m_org.isEmpty()) {
+        addRowToTableWidget(tableWidget, "Organization", m_org);
+      }
+      if (!m_repo.isEmpty()) {
+        addRowToTableWidget(tableWidget, "Repository", m_repo);
+      }
+      if (!m_releaseTag.isEmpty()) {
+        addRowToTableWidget(tableWidget, "Release Tag", m_releaseTag);
+      }
+
       for (const BCLProvenance& provenance : m_provenances) {
         if (!provenance.author().empty()) {
           addRowToTableWidget(tableWidget, "Author", provenance.author().c_str());
@@ -703,6 +734,22 @@ void Component::createCompleteLayout() {
         // addRowToTableWidget(tableWidget, "", "");
       }
       makeTableShowCompletely(tableWidget);
+
+      if (!m_org.isEmpty() && !m_repo.isEmpty()) {
+        const QString repo_url = QString("https://github.com/%1/%2").arg(m_org).arg(m_repo);
+        const QString link = QString("<a href=\"%1\">%1</a>").arg(repo_url);
+        auto* content = new QLabel(link);
+        content->setOpenExternalLinks(true);
+        mainLayout->addWidget(content);
+
+        if (!m_releaseTag.isEmpty()) {
+          const QString direct_url = QString("%1/tree/%2/lib/measures").arg(repo_url).arg(m_releaseTag);
+          const QString direct_link = QString("<a href=\"%1\">%1</a>").arg(direct_url);
+          auto* contentDirect = new QLabel(direct_link);
+          contentDirect->setOpenExternalLinks(true);
+          mainLayout->addWidget(contentDirect);
+        }
+      }
     }
   }
 

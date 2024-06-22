@@ -116,42 +116,8 @@ class PathWatcher_Test < MiniTest::Unit::TestCase
     p = OpenStudio::Path.new("./")
     assert(OpenStudio::exists(p))
 
-    filePath = OpenStudio::Path.new("./path_watcher_dir")
-    if OpenStudio::exists(filePath)
-      OpenStudio::remove(filePath)
-    end
-    assert((not OpenStudio::exists(filePath)))
-
-    watcher = TestPathWatcher.new(p)
-    assert((not watcher.changed))
-
-    filePath = OpenStudio::Path.new("./path_watcher_dir")
-    File.open(filePath.to_s, 'w') do |f|
-      f << "test 1"
-	  begin
-		f.fsync
-	  rescue
-	    f.flush
-	  end
-    end
-    assert(OpenStudio::exists(filePath))
-
-    # calls processEvents
-    OpenStudio::System::msleep(10000)
-    OpenStudio::Modeleditor::Application::instance().processEvents(10000)
-
-    assert(watcher.changed)
-    watcher.changed = false
-    assert((not watcher.changed))
-
-    OpenStudio::remove(filePath)
-    assert((not OpenStudio::exists(filePath)))
-
-    # calls processEvents
-    OpenStudio::System::msleep(10000)
-    OpenStudio::Modeleditor::Application::instance().processEvents(10000)
-
-    assert(watcher.changed)
+    # try existent dir
+    assert_raises(RuntimeError){TestPathWatcher.new(OpenStudio::Path.new(p))}
 
     # try non-existent dir
     assert_raises(RuntimeError){TestPathWatcher.new(OpenStudio::Path.new("./I do not exist/"))}

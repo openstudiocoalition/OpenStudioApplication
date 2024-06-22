@@ -803,7 +803,7 @@ if(BUILD_BENCHMARK)
     message("bench_name=${bench_name}")
     add_executable( ${bench_name} ${bench_file} )
     target_link_libraries(${bench_name}
-      benchmark::benchmark_main
+      benchmark::benchmark
       ${target_name}
       ${${target_name}_test_depends}
     )

@@ -32,9 +32,21 @@
 #include "../../model_editor/Application.hpp"
 #include <openstudio/utilities/core/Path.hpp>
 
-void OpenStudioAppFixture::SetUp() {
-  openstudio::Application::instance().application(false);
+#include <QTimer>
+
+int main(int argc, char* argv[]) {
+  auto app = openstudio::Application::instance().application(false);
+
+  QTimer::singleShot(0, [&]() {
+    ::testing::InitGoogleTest(&argc, argv);
+    auto testResult = RUN_ALL_TESTS();
+    app->exit(testResult);
+  });
+
+  return app->exec();
 }
+
+void OpenStudioAppFixture::SetUp() {}
 
 void OpenStudioAppFixture::TearDown() {}
 

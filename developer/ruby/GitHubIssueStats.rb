@@ -61,7 +61,7 @@ end
 if !ENV['GITHUB_TOKEN'].nil?
   token = ENV['GITHUB_TOKEN']
   @github = Github.new oauth_token: token
-elsif File.exists?(Dir.home + '/github_config.yml')
+elsif File.exist?(Dir.home + '/github_config.yml')
   github_options = YAML.load_file(Dir.home + '/github_config.yml')
   token = github_options['oauth_token']
   @github = Github.new oauth_token: token
