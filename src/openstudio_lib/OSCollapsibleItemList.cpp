@@ -42,6 +42,7 @@
 #include <QPushButton>
 #include <QResizeEvent>
 #include <QScrollArea>
+#include <QStringBuilder>
 #include <QStyleOption>
 #include <QVBoxLayout>
 
