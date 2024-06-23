@@ -41,14 +41,12 @@
 namespace openstudio {
 
 OSCategoryPlaceholder::OSCategoryPlaceholder(const std::string& text, QWidget* parent) : QWidget(parent) {
-  setFixedHeight(50);
+  setFixedHeight(40);
   setSizePolicy(QSizePolicy::Preferred, QSizePolicy::Fixed);
   setObjectName("OSCategoryPlaceholder");
 
   this->setProperty("style", "0");
-  this->setStyleSheet("QWidget#OSCategoryPlaceholder[style=\"0\"] { background: qlineargradient(x1:0,y1:0,x2:0,y2:1,"
-                      "  stop: 0.0 #636161, stop: 0.10 #636161, stop: 0.15 #EFEFEF, stop: 0.85 #EFEFEF, stop: 0.9 #636161,"
-                      "  stop: 1.0 #636161);  border-bottom: 1px solid black; }");
+  this->setStyleSheet("QWidget#OSCategoryPlaceholder[style=\"0\"] { background-color: #95B3DE; border-bottom: 1px solid black; }");
 
   auto* mainHLayout = new QHBoxLayout();
   mainHLayout->setContentsMargins(9, 0, 9, 0);
@@ -58,7 +56,8 @@ OSCategoryPlaceholder::OSCategoryPlaceholder(const std::string& text, QWidget* p
 
   m_textLabel = new QLabel(QString::fromStdString(text));
   m_textLabel->setWordWrap(true);
-  m_textLabel->setObjectName("H1");
+  m_textLabel->setObjectName("OSCategoryPlaceholderText");
+  m_textLabel->setStyleSheet("QLabel#OSCategoryPlaceholderText { font-size: 14px; color: white; }");
   mainHLayout->addWidget(m_textLabel, 10);
 
   mainHLayout->addStretch();
