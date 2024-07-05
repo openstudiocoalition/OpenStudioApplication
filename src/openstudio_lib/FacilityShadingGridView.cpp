@@ -451,7 +451,7 @@ void FacilityShadingGridController::addColumns(const QString& category, std::vec
 
   if (isDisplayAdditionalProps()) {
     // We place it after the SHADINGSURFACENAME
-    fields.insert(std::next(fields.begin()), {DISPLAYNAME, CADOBJECTID});
+    fields.insert(fields.begin(), {DISPLAYNAME, CADOBJECTID});
   }
   // always show name and selected columns
   // show type next to name, since it comes from the groups
