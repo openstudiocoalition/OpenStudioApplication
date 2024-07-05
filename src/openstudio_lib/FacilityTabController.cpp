@@ -45,13 +45,22 @@ FacilityTabController::FacilityTabController(bool isIP, bool displayAdditionalPr
   mainContentWidget()->addSubTab("Exterior Equipment", EXTERIOR_EQUIPMENT);
 
   connect(this->mainContentWidget(), &MainTabView::tabSelected, this, &FacilityTabController::setSubTab);
+
+  connect(this, &FacilityTabController::toggleUnitsClicked, this, &FacilityTabController::toggleUnits);
+  connect(this, &FacilityTabController::toggleDisplayAdditionalPropsClicked, this, &FacilityTabController::toggleDisplayAdditionalProps);
 }
 
 FacilityTabController::~FacilityTabController() {
   disconnect(this->mainContentWidget(), &MainTabView::tabSelected, this, &FacilityTabController::setSubTab);
 }
 
-void FacilityTabController::toggleUnits(bool displayIP) {}
+void FacilityTabController::toggleUnits(bool displayIP) {
+  m_isIP = displayIP;
+}
+
+void FacilityTabController::toggleDisplayAdditionalProps(bool displayAdditionalProps) {
+  m_displayAdditionalProps = displayAdditionalProps;
+}
 
 void FacilityTabController::setSubTab(int index) {
   if (m_currentIndex == index) {
@@ -67,9 +76,15 @@ void FacilityTabController::setSubTab(int index) {
 
   switch (index) {
     case 0: {
-      auto* buildingInspectorView = new BuildingInspectorView(m_isIP, m_model);
+      auto* buildingInspectorView = new BuildingInspectorView(m_isIP, m_displayAdditionalProps, m_model);
       connect(this, &FacilityTabController::toggleUnitsClicked, buildingInspectorView, &BuildingInspectorView::toggleUnitsClicked);
       connect(buildingInspectorView, &BuildingInspectorView::dropZoneItemClicked, this, &FacilityTabController::dropZoneItemClicked);
+      connect(this, &FacilityTabController::toggleDisplayAdditionalPropsClicked, buildingInspectorView,
+              &BuildingInspectorView::toggleDisplayAdditionalPropsClicked);
+
+      connect(this, &FacilityTabController::toggleUnitsClicked, buildingInspectorView, &BuildingInspectorView::toggleUnits);
+      connect(this, &FacilityTabController::toggleDisplayAdditionalPropsClicked, buildingInspectorView,
+              &BuildingInspectorView::toggleDisplayAdditionalProps);
       this->mainContentWidget()->setSubTab(buildingInspectorView);
       m_currentView = buildingInspectorView;
       break;

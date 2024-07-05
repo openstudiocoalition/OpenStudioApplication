@@ -112,7 +112,7 @@ class BuildingInspectorView : public ModelObjectInspectorView
   Q_OBJECT
 
  public:
-  BuildingInspectorView(bool isIP, const openstudio::model::Model& model, QWidget* parent = nullptr);
+  BuildingInspectorView(bool isIP, bool displayAdditionalProps, const openstudio::model::Model& model, QWidget* parent = nullptr);
 
   virtual ~BuildingInspectorView() {}
 
@@ -152,6 +152,10 @@ class BuildingInspectorView : public ModelObjectInspectorView
   OSIntegerEdit2* m_numberLivingUnits = nullptr;
   OSIntegerEdit2* m_numberStories = nullptr;
   OSLineEdit2* m_nameEdit = nullptr;
+  QLabel* m_displayNamelabel = nullptr;
+  OSLineEdit2* m_displayNameEdit = nullptr;
+  QLabel* m_cadObjectIdLabel = nullptr;
+  OSLineEdit2* m_cadObjectIdEdit = nullptr;
   OSQuantityEdit2* m_northAxisEdit = nullptr;
   OSQuantityEdit2* m_floorToCeilingHeight = nullptr;
   OSQuantityEdit2* m_floorToFloorHeight = nullptr;
@@ -159,10 +163,13 @@ class BuildingInspectorView : public ModelObjectInspectorView
   QComboBox* m_standardsTemplateComboBox = nullptr;
   QComboBox* m_standardsBuildingTypeComboBox = nullptr;
   bool m_isIP;
+  bool m_displayAdditionalProps;
 
  public slots:
 
   void toggleUnits(bool displayIP) override;
+
+  void toggleDisplayAdditionalProps(bool displayAdditionalProps) override;
 };
 
 }  // namespace openstudio

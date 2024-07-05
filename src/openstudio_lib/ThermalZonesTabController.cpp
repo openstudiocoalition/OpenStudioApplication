@@ -37,8 +37,9 @@
 
 namespace openstudio {
 
-ThermalZonesTabController::ThermalZonesTabController(bool isIP, const model::Model& model)
-  : MainTabController(new ThermalZonesTabView()), m_thermalZonesController(std::make_shared<ThermalZonesController>(isIP, model)) {
+ThermalZonesTabController::ThermalZonesTabController(bool isIP, bool displayAdditionalProps, const model::Model& model)
+  : MainTabController(new ThermalZonesTabView()),
+    m_thermalZonesController(std::make_shared<ThermalZonesController>(isIP, displayAdditionalProps, model)) {
   this->mainContentWidget()->addTabWidget(m_thermalZonesController->subTabView());
 
   connect(this, &ThermalZonesTabController::itemRemoveClicked, m_thermalZonesController.get(), &ThermalZonesController::removeItem);
@@ -48,6 +49,9 @@ ThermalZonesTabController::ThermalZonesTabController(bool isIP, const model::Mod
   connect(m_thermalZonesController.get(), &ThermalZonesController::dropZoneItemSelected, this, &ThermalZonesTabController::dropZoneItemSelected);
 
   connect(this, &ThermalZonesTabController::toggleUnitsClicked, m_thermalZonesController.get(), &ThermalZonesController::toggleUnitsClicked);
+
+  connect(this, &ThermalZonesTabController::toggleDisplayAdditionalPropsClicked, m_thermalZonesController.get(),
+          &ThermalZonesController::toggleDisplayAdditionalPropsClicked);
 }
 
 }  // namespace openstudio

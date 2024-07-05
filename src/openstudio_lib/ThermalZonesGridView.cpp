@@ -79,6 +79,8 @@
 
 #define NAME "Name"
 #define SELECTED "All"
+#define DISPLAYNAME "Display Name"
+#define CADOBJECTID "CAD Object ID"
 
 //HVAC SYSTEMS
 #define RENDERINGCOLOR "Rendering Color"
@@ -115,7 +117,8 @@
 
 namespace openstudio {
 
-ThermalZonesGridView::ThermalZonesGridView(bool isIP, const model::Model& model, QWidget* parent) : QWidget(parent), m_isIP(isIP) {
+ThermalZonesGridView::ThermalZonesGridView(bool isIP, bool displayAdditionalProps, const model::Model& model, QWidget* parent)
+  : QWidget(parent), m_isIP(isIP), m_displayAdditionalProps(displayAdditionalProps) {
   QVBoxLayout* layout = nullptr;
 
   layout = new QVBoxLayout();
@@ -126,7 +129,8 @@ ThermalZonesGridView::ThermalZonesGridView(bool isIP, const model::Model& model,
   std::vector<model::ThermalZone> thermalZones = model.getConcreteModelObjects<model::ThermalZone>();
   std::vector<model::ModelObject> thermalZoneModelObjects = subsetCastVector<model::ModelObject>(thermalZones);
 
-  m_gridController = new ThermalZonesGridController(m_isIP, "Thermal Zones", IddObjectType::OS_ThermalZone, model, thermalZoneModelObjects);
+  m_gridController =
+    new ThermalZonesGridController(m_isIP, m_displayAdditionalProps, "Thermal Zones", IddObjectType::OS_ThermalZone, model, thermalZoneModelObjects);
   auto* gridView = new OSGridView(m_gridController, "Thermal Zones", "Drop\nZone", false, parent);
 
   connect(gridView, &OSGridView::dropZoneItemClicked, this, &ThermalZonesGridView::dropZoneItemClicked);
@@ -143,6 +147,11 @@ ThermalZonesGridView::ThermalZonesGridView(bool isIP, const model::Model& model,
 
   connect(this, &ThermalZonesGridView::toggleUnitsClicked, m_gridController, &ThermalZonesGridController::onToggleUnits);
 
+  connect(this, &ThermalZonesGridView::toggleDisplayAdditionalPropsClicked, m_gridController, &ThermalZonesGridController::toggleDisplayAdditionalPropsClicked);
+
+  connect(this, &ThermalZonesGridView::toggleDisplayAdditionalPropsClicked, m_gridController,
+          &ThermalZonesGridController::onToggleDisplayAdditionalProps);
+
   // std::vector<model::ThermalZone> thermalZone = model.getConcreteModelObjects<model::ThermalZone>();  // NOTE for horizontal system lists
 }
 
@@ -150,9 +159,10 @@ std::set<model::ModelObject> ThermalZonesGridView::selectedObjects() const {
   return m_gridController->selectedObjects();
 }
 
-ThermalZonesGridController::ThermalZonesGridController(bool isIP, const QString& headerText, IddObjectType iddObjectType, const model::Model& model,
+ThermalZonesGridController::ThermalZonesGridController(bool isIP, bool displayAdditionalProps, const QString& headerText, IddObjectType iddObjectType,
+                                                       const model::Model& model,
                                                        const std::vector<model::ModelObject>& modelObjects)
-  : OSGridController(isIP, headerText, iddObjectType, model, modelObjects) {
+  : OSGridController(isIP, headerText, iddObjectType, model, modelObjects, displayAdditionalProps) {
   setCategoriesAndFields();
 }
 
@@ -210,6 +220,11 @@ void ThermalZonesGridController::setCategoriesAndFields() {
 }
 
 void ThermalZonesGridController::addColumns(const QString& /*category*/, std::vector<QString>& fields) {
+
+  if (isDisplayAdditionalProps()) {
+    fields.insert(fields.begin(), {DISPLAYNAME, CADOBJECTID});
+  }
+
   // always show name column
   fields.insert(fields.begin(), {NAME, SELECTED});
 
@@ -591,7 +606,20 @@ void ThermalZonesGridController::addColumns(const QString& /*category*/, std::ve
       addParentNameLineEditColumn(Heading(QString(NAME), false, false), false, CastNullAdapter<model::ThermalZone>(&model::ThermalZone::name),
                                   CastNullAdapter<model::ThermalZone>(&model::ThermalZone::setName),
                                   boost::optional<std::function<void(model::ThermalZone*)>>());
-
+    } else if (field == DISPLAYNAME) {
+      addNameLineEditColumn(Heading(QString(DISPLAYNAME), false, false),                     // heading
+                            false,                                                           // isInspectable
+                            false,                                                           // isLocked
+                            DisplayNameAdapter<model::ThermalZone>(&model::ThermalZone::displayName),  // getter
+                            DisplayNameAdapter<model::ThermalZone>(&model::ThermalZone::setDisplayName)  // setter
+      );
+    } else if (field == CADOBJECTID) {
+      addNameLineEditColumn(Heading(QString(CADOBJECTID), false, false),                     // heading
+                            false,                                                           // isInspectable
+                            false,                                                           // isLocked
+                            DisplayNameAdapter<model::ThermalZone>(&model::ThermalZone::cadObjectId),    // getter
+                            DisplayNameAdapter<model::ThermalZone>(&model::ThermalZone::setCADObjectId)  // setter
+      );
     } else if (field == AIRLOOPNAME) {
       std::function<std::vector<model::ModelObject>(const model::ThermalZone&)> airloops([](const model::ThermalZone& t) {
         // we need to pass in a const &, but the function expects non-const, so let's copy the wrapper

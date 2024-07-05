@@ -632,7 +632,7 @@ void OSDocument::createTab(int verticalId) {
     case THERMAL_ZONES:
       // Thermal Zones
 
-      m_mainTabController = std::shared_ptr<MainTabController>(new ThermalZonesTabController(isIP, m_model));
+      m_mainTabController = std::shared_ptr<MainTabController>(new ThermalZonesTabController(isIP, displayAdditionalProps, m_model));
       m_mainWindow->setView(m_mainTabController->mainContentWidget(), THERMAL_ZONES);
 
       connect(m_mainTabController.get(), &ThermalZonesTabController::modelObjectSelected, m_mainRightColumnController.get(),
@@ -643,6 +643,9 @@ void OSDocument::createTab(int verticalId) {
 
       connect(this, &OSDocument::toggleUnitsClicked, qobject_cast<ThermalZonesTabController*>(m_mainTabController.get()),
               &ThermalZonesTabController::toggleUnitsClicked);
+
+      connect(this, &OSDocument::toggleDisplayAdditionalPropsClicked, m_mainTabController.get(),
+              &ThermalZonesTabController::toggleDisplayAdditionalPropsClicked);
 
       connect(m_mainTabController->mainContentWidget(), &MainTabView::tabSelected, m_mainRightColumnController.get(),
               &MainRightColumnController::configureForThermalZonesSubTab);

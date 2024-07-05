@@ -66,6 +66,8 @@ class FacilityTabController : public MainTabController
 
   void toggleUnits(bool displayIP);
 
+  void toggleDisplayAdditionalProps(bool displayAdditionalProps);
+
   virtual void setSubTab(int index) override;
 };
 

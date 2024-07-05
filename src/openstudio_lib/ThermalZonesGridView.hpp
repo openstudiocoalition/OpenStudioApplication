@@ -48,7 +48,7 @@ class ThermalZonesGridView : public QWidget
   Q_OBJECT
 
  public:
-  ThermalZonesGridView(bool isIP, const model::Model& model, QWidget* parent = nullptr);
+  ThermalZonesGridView(bool isIP, bool displayAdditionalProps, const model::Model& model, QWidget* parent = nullptr);
 
   virtual ~ThermalZonesGridView() {}
 
@@ -59,9 +59,13 @@ class ThermalZonesGridView : public QWidget
 
   bool m_isIP;
 
+  bool m_displayAdditionalProps;
+
  signals:
 
   void toggleUnitsClicked(bool displayIP);
+
+  void toggleDisplayAdditionalPropsClicked(bool displayAdditionalProps);
 
   void dropZoneItemClicked(OSItem* item);
 
@@ -74,7 +78,8 @@ class ThermalZonesGridController : public OSGridController
   Q_OBJECT
 
  public:
-  ThermalZonesGridController(bool isIP, const QString& headerText, IddObjectType iddObjectType, const model::Model& model,
+  ThermalZonesGridController(bool isIP, bool displayAdditionalProps, const QString& headerText, IddObjectType iddObjectType,
+                             const model::Model& model,
                              const std::vector<model::ModelObject>& modelObjects);
 
   virtual ~ThermalZonesGridController() {}
