@@ -37,6 +37,8 @@
 
 #include <openstudio/utilities/bcl/BCLMeasure.hpp>
 
+#include <mutex>
+
 class QPushButton;
 class QStackedWidget;
 class QTextEdit;
@@ -130,6 +132,8 @@ class ApplyMeasureNowDialog : public OSDialog
 
   QStackedWidget* m_rightPaneStackedWidget;
 
+  QTextEdit* m_argumentsLoadingTextEdit;
+
   QTextEdit* m_argumentsFailedTextEdit;
 
   DataPointJobItemView* m_jobItemView;
@@ -141,6 +145,8 @@ class ApplyMeasureNowDialog : public OSDialog
   int m_runningPageIdx;
 
   int m_outputPageIdx;
+
+  int m_argumentsLoadingPageIdx;
 
   int m_argumentsFailedPageIdx;
 
@@ -163,6 +169,8 @@ class ApplyMeasureNowDialog : public OSDialog
   WorkflowJSON m_modelWorkflowJSON;
 
   WorkflowJSON m_tempWorkflowJSON;
+
+  std::mutex m_displayMutex;
 };
 
 class DataPointJobHeaderView : public OSHeader

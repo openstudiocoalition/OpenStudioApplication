@@ -47,7 +47,6 @@
 
 #include <openstudio/utilities/core/Assert.hpp>
 #include <openstudio/utilities/core/PathHelpers.hpp>
-#include <openstudio/utilities/core/RubyException.hpp>
 #include <openstudio/utilities/core/System.hpp>
 #include <openstudio/utilities/bcl/BCLMeasure.hpp>
 #include <openstudio/utilities/bcl/RemoteBCL.hpp>
@@ -371,7 +370,7 @@ std::pair<bool, std::string> MeasureManager::updateMeasure(const BCLMeasure& t_m
       result = std::pair<bool, std::string>(false, ss.str());
     }
 
-  } catch (const RubyException& e) {
+  } catch (const std::exception& e) {
     std::stringstream ss;
     ss << "An error occurred while updating measure '" << t_measure.displayName() << "':" << std::endl;
     ss << "  " << e.what();
@@ -499,7 +498,7 @@ std::vector<measure::OSArgument> MeasureManager::getArguments(const BCLMeasure& 
   Json::Value json;
   bool parsingSuccessful = Json::parseFromStream(rbuilder, ss, &json, &errorString);
 
-  if (parsingSuccessful) {
+  if (parsingSuccessful && json.type() == Json::objectValue) {
 
     Json::Value arguments = json.get("arguments", Json::Value(Json::arrayValue));
 

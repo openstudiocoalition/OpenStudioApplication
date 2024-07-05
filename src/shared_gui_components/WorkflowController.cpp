@@ -44,7 +44,6 @@
 #include <openstudio/utilities/core/Assert.hpp>
 #include <openstudio/utilities/core/Compare.hpp>
 #include <openstudio/utilities/core/Containers.hpp>
-#include <openstudio/utilities/core/RubyException.hpp>
 #include <openstudio/utilities/core/PathHelpers.hpp>
 #include <openstudio/utilities/bcl/BCLMeasure.hpp>
 #include <openstudio/utilities/filetypes/WorkflowStep_Impl.hpp>
@@ -257,7 +256,7 @@ void MeasureStepController::addItemForDroppedMeasure(QDropEvent* event) {
   MeasureStep measureStep(toString(getLastLevelDirectoryName(projectMeasure->directory())));
   try {
     /* std::vector<measure::OSArgument> arguments = */ m_app->measureManager().getArguments(*projectMeasure);
-  } catch (const RubyException& e) {
+  } catch (const std::exception& e) {
     QString errorMessage("Failed to compute arguments for measure: \n\n");
     errorMessage += QString::fromStdString(e.what());
     QMessageBox::information(m_app->mainWidget(), QString("Failed to add measure"), errorMessage);
@@ -352,7 +351,7 @@ void MeasureStepController::moveDown(MeasureStep step) {
 
 MeasureStepItem::MeasureStepItem(MeasureType measureType, MeasureStep step, openstudio::BaseApp* t_baseApp)
   : m_measureType(measureType),
-    m_step(std::move(step)),
+    m_step(step),
     m_app(t_baseApp)
 
 {}
