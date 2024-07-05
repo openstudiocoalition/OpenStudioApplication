@@ -147,7 +147,8 @@ ThermalZonesGridView::ThermalZonesGridView(bool isIP, bool displayAdditionalProp
 
   connect(this, &ThermalZonesGridView::toggleUnitsClicked, m_gridController, &ThermalZonesGridController::onToggleUnits);
 
-  connect(this, &ThermalZonesGridView::toggleDisplayAdditionalPropsClicked, m_gridController, &ThermalZonesGridController::toggleDisplayAdditionalPropsClicked);
+  connect(this, &ThermalZonesGridView::toggleDisplayAdditionalPropsClicked, m_gridController,
+          &ThermalZonesGridController::toggleDisplayAdditionalPropsClicked);
 
   connect(this, &ThermalZonesGridView::toggleDisplayAdditionalPropsClicked, m_gridController,
           &ThermalZonesGridController::onToggleDisplayAdditionalProps);
@@ -160,8 +161,7 @@ std::set<model::ModelObject> ThermalZonesGridView::selectedObjects() const {
 }
 
 ThermalZonesGridController::ThermalZonesGridController(bool isIP, bool displayAdditionalProps, const QString& headerText, IddObjectType iddObjectType,
-                                                       const model::Model& model,
-                                                       const std::vector<model::ModelObject>& modelObjects)
+                                                       const model::Model& model, const std::vector<model::ModelObject>& modelObjects)
   : OSGridController(isIP, headerText, iddObjectType, model, modelObjects, displayAdditionalProps) {
   setCategoriesAndFields();
 }
@@ -607,16 +607,16 @@ void ThermalZonesGridController::addColumns(const QString& /*category*/, std::ve
                                   CastNullAdapter<model::ThermalZone>(&model::ThermalZone::setName),
                                   boost::optional<std::function<void(model::ThermalZone*)>>());
     } else if (field == DISPLAYNAME) {
-      addNameLineEditColumn(Heading(QString(DISPLAYNAME), false, false),                     // heading
-                            false,                                                           // isInspectable
-                            false,                                                           // isLocked
-                            DisplayNameAdapter<model::ThermalZone>(&model::ThermalZone::displayName),  // getter
+      addNameLineEditColumn(Heading(QString(DISPLAYNAME), false, false),                                 // heading
+                            false,                                                                       // isInspectable
+                            false,                                                                       // isLocked
+                            DisplayNameAdapter<model::ThermalZone>(&model::ThermalZone::displayName),    // getter
                             DisplayNameAdapter<model::ThermalZone>(&model::ThermalZone::setDisplayName)  // setter
       );
     } else if (field == CADOBJECTID) {
-      addNameLineEditColumn(Heading(QString(CADOBJECTID), false, false),                     // heading
-                            false,                                                           // isInspectable
-                            false,                                                           // isLocked
+      addNameLineEditColumn(Heading(QString(CADOBJECTID), false, false),                                 // heading
+                            false,                                                                       // isInspectable
+                            false,                                                                       // isLocked
                             DisplayNameAdapter<model::ThermalZone>(&model::ThermalZone::cadObjectId),    // getter
                             DisplayNameAdapter<model::ThermalZone>(&model::ThermalZone::setCADObjectId)  // setter
       );

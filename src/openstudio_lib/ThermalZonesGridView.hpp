@@ -79,8 +79,7 @@ class ThermalZonesGridController : public OSGridController
 
  public:
   ThermalZonesGridController(bool isIP, bool displayAdditionalProps, const QString& headerText, IddObjectType iddObjectType,
-                             const model::Model& model,
-                             const std::vector<model::ModelObject>& modelObjects);
+                             const model::Model& model, const std::vector<model::ModelObject>& modelObjects);
 
   virtual ~ThermalZonesGridController() {}
 

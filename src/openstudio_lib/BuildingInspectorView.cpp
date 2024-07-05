@@ -276,10 +276,10 @@ BuildingInspectorView::BuildingInspectorView(bool isIP, bool displayAdditionalPr
   mainGridLayout->addLayout(vLayout, row, 1, 1, 1);
   mainGridLayout->setRowMinimumHeight(row, 30);
 
-  toggleDisplayAdditionalProps(m_displayAdditionalProps);
+  this->toggleDisplayAdditionalProps(m_displayAdditionalProps);
 
   ++row;
-  
+
   // Measure Tags
   QFrame* line;
   line = new QFrame();
@@ -618,12 +618,10 @@ void BuildingInspectorView::attach(openstudio::model::Building& building) {
     *m_building, OptionalStringGetter(std::bind(&model::Building::name, m_building.get_ptr(), true)),
     boost::optional<StringSetterOptionalStringReturn>(std::bind(&model::Building::setName, m_building.get_ptr(), std::placeholders::_1)));
 
-  m_displayNameEdit->bind(
-    *m_building, OptionalStringGetter(std::bind(&model::Building::displayName, m_building.get_ptr())),
+  m_displayNameEdit->bind(*m_building, OptionalStringGetter(std::bind(&model::Building::displayName, m_building.get_ptr())),
                           boost::optional<StringSetter>(std::bind(&model::Building::setDisplayName, m_building.get_ptr(), std::placeholders::_1)));
 
-  m_cadObjectIdEdit->bind(
-    *m_building, OptionalStringGetter(std::bind(&model::Building::cadObjectId, m_building.get_ptr())),
+  m_cadObjectIdEdit->bind(*m_building, OptionalStringGetter(std::bind(&model::Building::cadObjectId, m_building.get_ptr())),
                           boost::optional<StringSetter>(std::bind(&model::Building::setCADObjectId, m_building.get_ptr(), std::placeholders::_1)));
 
   populateStandardsTemplates();

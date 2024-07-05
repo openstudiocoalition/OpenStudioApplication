@@ -44,8 +44,7 @@ namespace openstudio {
 
 ThermalZonesView::ThermalZonesView(bool isIP, bool displayAdditionalProps, const model::Model& model, QWidget* parent)
   : ModelSubTabView(new ModelObjectListView(IddObjectType::OS_ThermalZone, model, true, false, parent),
-                    new ThermalZoneView(isIP, displayAdditionalProps, model, parent),
-                    true, parent) {
+                    new ThermalZoneView(isIP, displayAdditionalProps, model, parent), true, parent) {
 
   connect(itemSelector(), &OSItemSelector::selectionCleared, inspectorView(), &OSInspectorView::clearSelection);
 
