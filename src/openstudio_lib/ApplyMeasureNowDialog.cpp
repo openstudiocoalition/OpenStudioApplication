@@ -303,7 +303,7 @@ void ApplyMeasureNowDialog::displayMeasure() {
   std::unique_lock lock(m_displayMutex, std::try_to_lock);
   if (!lock.owns_lock()) {
     return;
-  }  
+  }
 
   this->okButton()->setText(APPLY_MEASURE);
   this->okButton()->show();
