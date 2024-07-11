@@ -31,6 +31,7 @@
 #define OPENSTUDIO_MODELOBJECTTYPELISTVIEW_HPP
 
 #include "OSCollapsibleItemList.hpp"
+#include "OSCategoryPlaceholder.hpp"
 
 #include <openstudio/model/Model.hpp>
 #include <openstudio/model/ModelObject.hpp>
@@ -56,6 +57,8 @@ class ModelObjectTypeListView : public OSCollapsibleItemList
   virtual ~ModelObjectTypeListView() {}
 
   void addModelObjectType(const IddObjectType& iddObjectType, const std::string& name);
+
+  void addModelObjectCategoryPlaceholder(const std::string& name);
 
   virtual IddObjectType currentIddObjectType() const;
 

@@ -15,7 +15,8 @@ jobs:
       run: |
           echo "GITHUB_REF=$GITHUB_REF GITHUB_BASE_REF=$GITHUB_BASE_REF GITHUB_HEAD_REF=$GITHUB_HEAD_REF"
           git fetch --all
-          ./ci/clang-format.sh remotes/origin/$GITHUB_HEAD_REF remotes/origin/$GITHUB_BASE_REF
+          echo "Using clang-format: $(clang-format --version)"
+          ./ci/clang-format.sh HEAD remotes/origin/$GITHUB_BASE_REF
 
     - name: Upload clang-format patch as artifact
       if: ${{ failure() }}

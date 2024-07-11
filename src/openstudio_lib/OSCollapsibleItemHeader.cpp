@@ -59,10 +59,10 @@ OSCollapsibleItemHeader::OSCollapsibleItemHeader(const std::string& text, const 
 
   // Label
 
-  auto* textLabel = new QLabel(QString::fromStdString(text));
-  textLabel->setWordWrap(true);
-  textLabel->setObjectName("H2");
-  mainHLayout->addWidget(textLabel, 10);
+  m_textLabel = new QLabel(QString::fromStdString(text));
+  m_textLabel->setWordWrap(true);
+  m_textLabel->setObjectName("H2");
+  mainHLayout->addWidget(m_textLabel, 10);
 
   mainHLayout->addStretch();
 
@@ -78,6 +78,10 @@ OSCollapsibleItemHeader::OSCollapsibleItemHeader(const std::string& text, const 
 
 QSize OSCollapsibleItemHeader::sizeHint() const {
   return QSize(150, 50);
+}
+
+QString OSCollapsibleItemHeader::text() const {
+  return m_textLabel->text();
 }
 
 bool OSCollapsibleItemHeader::expanded() const {
