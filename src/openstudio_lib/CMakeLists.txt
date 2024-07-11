@@ -184,6 +184,8 @@ set(${target_name}_SRC
   OpenStudioAPI.hpp
   OSAppBase.cpp
   OSAppBase.hpp
+  OSCategoryPlaceholder.cpp
+  OSCategoryPlaceholder.hpp
   OSCollapsibleItem.cpp
   OSCollapsibleItem.hpp
   OSCollapsibleItemHeader.cpp
@@ -571,6 +573,7 @@ set(${target_name}_moc
   ModelSubTabController.hpp
   ModelSubTabView.hpp
   OSAppBase.hpp
+  OSCategoryPlaceholder.hpp
   OSCollapsibleItem.hpp
   OSCollapsibleItemHeader.hpp
   OSCollapsibleItemList.hpp

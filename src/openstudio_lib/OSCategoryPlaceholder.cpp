@@ -27,77 +27,51 @@
 *  ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 ***********************************************************************************************************************/
 
-#ifndef OPENSTUDIO_OSCOLLAPSIBLEITEMLIST_HPP
-#define OPENSTUDIO_OSCOLLAPSIBLEITEMLIST_HPP
-
-#include "OSItemSelector.hpp"
-#include "OSItem.hpp"
 #include "OSCategoryPlaceholder.hpp"
 
-class QVBoxLayout;
-class QHBoxLayout;
-class QLineEdit;
+#include <openstudio/utilities/core/Assert.hpp>
+
+#include <QBoxLayout>
+#include <QLabel>
+#include <QPainter>
+#include <QStyleOption>
+
+#include <iostream>
 
 namespace openstudio {
 
-class OSItem;
-class OSCollapsibleItem;
-class OSCollapsibleItemHeader;
-class OSVectorController;
+OSCategoryPlaceholder::OSCategoryPlaceholder(const std::string& text, QWidget* parent) : QWidget(parent) {
+  setFixedHeight(40);
+  setSizePolicy(QSizePolicy::Preferred, QSizePolicy::Fixed);
+  setObjectName("OSCategoryPlaceholder");
 
-class OSCollapsibleItemList : public OSItemSelector
-{
-  Q_OBJECT
+  this->setProperty("style", "0");
+  this->setStyleSheet("QWidget#OSCategoryPlaceholder[style=\"0\"] { background-color: #95B3DE; border-bottom: 1px solid black; }");
 
- public:
-  explicit OSCollapsibleItemList(bool addScrollArea, QWidget* parent = nullptr);
+  auto* mainHLayout = new QHBoxLayout();
+  mainHLayout->setContentsMargins(9, 0, 9, 0);
+  setLayout(mainHLayout);
 
-  virtual ~OSCollapsibleItemList() = default;
+  // Label
 
-  void addCollapsibleItem(OSCollapsibleItem* collapsibleItem);
-  void addCategoryPlaceholderItem(OSCategoryPlaceholder* categoryPlaceholderItem);
+  m_textLabel = new QLabel(QString::fromStdString(text));
+  m_textLabel->setWordWrap(true);
+  m_textLabel->setObjectName("OSCategoryPlaceholderText");
+  m_textLabel->setStyleSheet("QLabel#OSCategoryPlaceholderText { font-size: 14px; color: white; }");
+  mainHLayout->addWidget(m_textLabel, 10);
 
-  OSCollapsibleItem* selectedCollapsibleItem() const;
+  mainHLayout->addStretch();
+}
 
-  OSItem* selectedItem() const override;
+QString OSCategoryPlaceholder::text() const {
+  return m_textLabel->text();
+}
 
-  bool itemsDraggable() const;
-  void setItemsDraggable(bool itemsDraggable);
-
-  bool itemsRemoveable() const;
-  void setItemsRemoveable(bool itemsRemoveable);
-
-  OSItemType itemsType() const;
-  void setItemsType(OSItemType type);
-
- signals:
-
-  void openLibDlgClicked();
-
- private slots:
-
-  void onCollapsableItemSelected(OSCollapsibleItem* selectedItem);
-
-  void onItemSelected(OSItem* item);
-
-  void onSearchTextEdited(const QString& text);
-
- protected:
-  void paintEvent(QPaintEvent* event) override;
-
- private:
-  QVBoxLayout* m_vLayout;
-  QLineEdit* m_searchBox;
-  QHBoxLayout* m_contentLayout;
-  OSCollapsibleItem* m_selectedCollapsibleItem;
-  std::vector<OSCollapsibleItem*> m_collapsibleItems;
-  std::vector<OSCategoryPlaceholder*> m_placeholderItems;
-  bool m_searchActive;
-  bool m_itemsDraggable;
-  bool m_itemsRemoveable;
-  OSItemType m_itemsType;
-};
+void OSCategoryPlaceholder::paintEvent(QPaintEvent* event) {
+  QStyleOption opt;
+  opt.initFrom(this);
+  QPainter p(this);
+  style()->drawPrimitive(QStyle::PE_Widget, &opt, &p, this);
+}
 
 }  // namespace openstudio
-
-#endif  // OPENSTUDIO_OSCOLLAPSIBLEITEMLIST_HPP
