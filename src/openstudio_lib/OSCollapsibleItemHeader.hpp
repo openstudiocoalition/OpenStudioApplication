@@ -47,7 +47,9 @@ class OSCollapsibleItemHeader : public QWidget
   OSCollapsibleItemHeader(const std::string& text, const OSItemId& itemId, OSItemType type = OSItemType::CollapsibleListHeader,
                           QWidget* parent = nullptr);
 
-  virtual ~OSCollapsibleItemHeader() {}
+  virtual ~OSCollapsibleItemHeader() = default;
+
+  QString text() const;
 
   bool expanded() const;
   void setExpanded(bool isExpanded);
@@ -70,6 +72,7 @@ class OSCollapsibleItemHeader : public QWidget
   void setImage(bool expanded);
 
   QLabel* m_arrowLabel;
+  QLabel* m_textLabel;
 
   bool m_expanded;
   bool m_selected;

@@ -275,6 +275,7 @@ void MainRightColumnController::configureForSchedulesSubTab(int subTabID) {
       myModelList->addModelObjectType(IddObjectType::OS_Schedule_Constant, "Constant Schedules");
       myModelList->addModelObjectType(IddObjectType::OS_Schedule_Compact, "Compact Schedules");
       myModelList->addModelObjectType(IddObjectType::OS_Schedule_Ruleset, "Ruleset Schedules");
+      myModelList->addModelObjectCategoryPlaceholder("Schedules");
 
       setMyModelView(myModelList);
 
@@ -290,7 +291,9 @@ void MainRightColumnController::configureForSchedulesSubTab(int subTabID) {
       myLibraryList->addModelObjectType(IddObjectType::OS_Schedule_Constant, "Constant Schedules");
       myLibraryList->addModelObjectType(IddObjectType::OS_Schedule_Compact, "Compact Schedules");
       myLibraryList->addModelObjectType(IddObjectType::OS_Schedule_Ruleset, "Ruleset Schedules");
+      myLibraryList->addModelObjectCategoryPlaceholder("Schedules");
       myLibraryList->addModelObjectType(IddObjectType::OS_DefaultScheduleSet, "Schedule Sets");
+      myLibraryList->addModelObjectCategoryPlaceholder("Schedule Sets");
 
       setLibraryView(myLibraryList);
       doc->openSidebar();
@@ -308,6 +311,7 @@ void MainRightColumnController::configureForSchedulesSubTab(int subTabID) {
       myLibraryList->setItemsType(OSItemType::LibraryItem);
 
       myLibraryList->addModelObjectType(IddObjectType::OS_Schedule_Ruleset, "Schedule Rulesets");
+      myLibraryList->addModelObjectCategoryPlaceholder("Schedules");
 
       setLibraryView(myLibraryList);
       doc->openSidebar();
@@ -343,6 +347,7 @@ void MainRightColumnController::configureForConstructionsSubTab(int subTabID) {
       myModelList->addModelObjectType(IddObjectType::OS_Construction_InternalSource, "Internal Source Constructions");
       myModelList->addModelObjectType(IddObjectType::OS_Construction_AirBoundary, "Air Boundary Constructions");
       myModelList->addModelObjectType(IddObjectType::OS_Construction, "Constructions");
+      myModelList->addModelObjectCategoryPlaceholder("Constructions");
 
       setMyModelView(myModelList);
 
@@ -358,7 +363,9 @@ void MainRightColumnController::configureForConstructionsSubTab(int subTabID) {
       myLibraryList->addModelObjectType(IddObjectType::OS_Construction_InternalSource, "Internal Source Constructions");
       myLibraryList->addModelObjectType(IddObjectType::OS_Construction_AirBoundary, "Air Boundary Constructions");
       myLibraryList->addModelObjectType(IddObjectType::OS_Construction, "Constructions");
+      myLibraryList->addModelObjectCategoryPlaceholder("Constructions");
       myLibraryList->addModelObjectType(IddObjectType::OS_DefaultConstructionSet, "Construction Sets");
+      myLibraryList->addModelObjectCategoryPlaceholder("Construction Sets");
 
       setLibraryView(myLibraryList);
 
@@ -387,12 +394,14 @@ void MainRightColumnController::configureForConstructionsSubTab(int subTabID) {
       myModelList->addModelObjectType(IddObjectType::OS_WindowMaterial_Gas, "Gas Window Materials");
       myModelList->addModelObjectType(IddObjectType::OS_WindowMaterial_Glazing, "Glazing Window Materials");
       myModelList->addModelObjectType(IddObjectType::OS_WindowMaterial_SimpleGlazingSystem, "Simple Glazing System Window Materials");
+      myModelList->addModelObjectCategoryPlaceholder("Window Materials");
 
       myModelList->addModelObjectType(IddObjectType::OS_Material_RoofVegetation, "Roof Vegetation Materials");
       myModelList->addModelObjectType(IddObjectType::OS_Material_InfraredTransparent, "Infrared Transparent Materials");
       myModelList->addModelObjectType(IddObjectType::OS_Material_AirGap, "Air Gap Materials");
       myModelList->addModelObjectType(IddObjectType::OS_Material_NoMass, "No Mass Materials");
       myModelList->addModelObjectType(IddObjectType::OS_Material, "Materials");
+      myModelList->addModelObjectCategoryPlaceholder("Materials");
 
       setMyModelView(myModelList);
 
@@ -414,12 +423,14 @@ void MainRightColumnController::configureForConstructionsSubTab(int subTabID) {
       myLibraryList->addModelObjectType(IddObjectType::OS_WindowMaterial_Gas, "Gas Window Materials");
       myLibraryList->addModelObjectType(IddObjectType::OS_WindowMaterial_Glazing, "Glazing Window Materials");
       myLibraryList->addModelObjectType(IddObjectType::OS_WindowMaterial_SimpleGlazingSystem, "Simple Glazing System Window Materials");
+      myLibraryList->addModelObjectCategoryPlaceholder("Window Materials");
 
       myLibraryList->addModelObjectType(IddObjectType::OS_Material_RoofVegetation, "Roof Vegetation Materials");
       myLibraryList->addModelObjectType(IddObjectType::OS_Material_InfraredTransparent, "Infrared Transparent Materials");
       myLibraryList->addModelObjectType(IddObjectType::OS_Material_AirGap, "Air Gap Materials");
       myLibraryList->addModelObjectType(IddObjectType::OS_Material_NoMass, "No Mass Materials");
       myLibraryList->addModelObjectType(IddObjectType::OS_Material, "Materials");
+      myLibraryList->addModelObjectCategoryPlaceholder("Materials");
 
       myLibraryList->addModelObjectType(IddObjectType::OS_Construction_WindowDataFile, "Window Data File Constructions");
       myLibraryList->addModelObjectType(IddObjectType::OS_Construction_FfactorGroundFloor, "F-factor Ground Floor Constructions");
@@ -427,6 +438,7 @@ void MainRightColumnController::configureForConstructionsSubTab(int subTabID) {
       myLibraryList->addModelObjectType(IddObjectType::OS_Construction_InternalSource, "Internal Source Constructions");
       myLibraryList->addModelObjectType(IddObjectType::OS_Construction_AirBoundary, "Air Boundary Constructions");
       myLibraryList->addModelObjectType(IddObjectType::OS_Construction, "Constructions");
+      myLibraryList->addModelObjectCategoryPlaceholder("Constructions");
 
       setLibraryView(myLibraryList);
 
@@ -463,12 +475,14 @@ void MainRightColumnController::configureForConstructionsSubTab(int subTabID) {
       myLibraryList->addModelObjectType(IddObjectType::OS_WindowMaterial_Gas, "Gas Window Materials");
       myLibraryList->addModelObjectType(IddObjectType::OS_WindowMaterial_Glazing, "Glazing Window Materials");
       myLibraryList->addModelObjectType(IddObjectType::OS_WindowMaterial_SimpleGlazingSystem, "Simple Glazing System Window Materials");
+      myLibraryList->addModelObjectCategoryPlaceholder("Window Materials");
 
       myLibraryList->addModelObjectType(IddObjectType::OS_Material_RoofVegetation, "Roof Vegetation Materials");
       myLibraryList->addModelObjectType(IddObjectType::OS_Material_InfraredTransparent, "Infrared Transparent Materials");
       myLibraryList->addModelObjectType(IddObjectType::OS_Material_AirGap, "Air Gap Materials");
       myLibraryList->addModelObjectType(IddObjectType::OS_Material_NoMass, "No Mass Materials");
       myLibraryList->addModelObjectType(IddObjectType::OS_Material, "Materials");
+      myLibraryList->addModelObjectCategoryPlaceholder("Materials");
 
       setLibraryView(myLibraryList);
 
@@ -521,12 +535,14 @@ void MainRightColumnController::configureForLoadsSubTab(int subTabID) {
   myModelList->addModelObjectType(IddObjectType::OS_Construction_InternalSource, "Internal Source Constructions");
   myModelList->addModelObjectType(IddObjectType::OS_Construction_AirBoundary, "Air Boundary Constructions");
   myModelList->addModelObjectType(IddObjectType::OS_Construction, "Constructions");
+  myModelList->addModelObjectCategoryPlaceholder("Constructions");
   myModelList->addModelObjectType(IddObjectType::OS_Schedule_VariableInterval, "Variable Interval Schedules");
   myModelList->addModelObjectType(IddObjectType::OS_Schedule_FixedInterval, "Fixed Interval Schedules");
   myModelList->addModelObjectType(IddObjectType::OS_Schedule_Year, "Year Schedules");
   myModelList->addModelObjectType(IddObjectType::OS_Schedule_Constant, "Constant Schedules");
   myModelList->addModelObjectType(IddObjectType::OS_Schedule_Compact, "Compact Schedules");
   myModelList->addModelObjectType(IddObjectType::OS_Schedule_Ruleset, "Ruleset Schedules");
+  myModelList->addModelObjectCategoryPlaceholder("Schedules");
 
   setMyModelView(myModelList);
 
@@ -543,6 +559,7 @@ void MainRightColumnController::configureForLoadsSubTab(int subTabID) {
   myLibraryList->addModelObjectType(IddObjectType::OS_Construction_InternalSource, "Internal Source Constructions");
   myLibraryList->addModelObjectType(IddObjectType::OS_Construction_AirBoundary, "Air Boundary Constructions");
   myLibraryList->addModelObjectType(IddObjectType::OS_Construction, "Constructions");
+  myLibraryList->addModelObjectCategoryPlaceholder("Constructions");
   myLibraryList->addModelObjectType(IddObjectType::OS_InternalMass_Definition, "Internal Mass Definitions");
   myLibraryList->addModelObjectType(IddObjectType::OS_OtherEquipment_Definition, "Other Equipment Definitions");
   myLibraryList->addModelObjectType(IddObjectType::OS_SteamEquipment_Definition, "Steam Equipment Definitions");
@@ -553,12 +570,14 @@ void MainRightColumnController::configureForLoadsSubTab(int subTabID) {
   myLibraryList->addModelObjectType(IddObjectType::OS_Luminaire_Definition, "Luminaire Definitions");
   myLibraryList->addModelObjectType(IddObjectType::OS_Lights_Definition, "Lights Definitions");
   myLibraryList->addModelObjectType(IddObjectType::OS_People_Definition, "People Definitions");
+  myLibraryList->addModelObjectCategoryPlaceholder("Definitions");
   myLibraryList->addModelObjectType(IddObjectType::OS_Schedule_VariableInterval, "Variable Interval Schedules");
   myLibraryList->addModelObjectType(IddObjectType::OS_Schedule_FixedInterval, "Fixed Interval Schedules");
   myLibraryList->addModelObjectType(IddObjectType::OS_Schedule_Year, "Year Schedules");
   myLibraryList->addModelObjectType(IddObjectType::OS_Schedule_Constant, "Constant Schedules");
   myLibraryList->addModelObjectType(IddObjectType::OS_Schedule_Compact, "Compact Schedules");
   myLibraryList->addModelObjectType(IddObjectType::OS_Schedule_Ruleset, "Ruleset Schedules");
+  myLibraryList->addModelObjectCategoryPlaceholder("Schedules");
 
   setLibraryView(myLibraryList);
 
@@ -585,6 +604,7 @@ void MainRightColumnController::configureForSpaceTypesSubTab(int subTabID) {
   myModelList->addModelObjectType(IddObjectType::OS_Schedule_Constant, "Constant Schedules");
   myModelList->addModelObjectType(IddObjectType::OS_Schedule_Compact, "Compact Schedules");
   myModelList->addModelObjectType(IddObjectType::OS_Schedule_Ruleset, "Ruleset Schedules");
+  myModelList->addModelObjectCategoryPlaceholder("Schedules");
 
   myModelList->addModelObjectType(IddObjectType::OS_InternalMass_Definition, "Internal Mass Definitions");
   myModelList->addModelObjectType(IddObjectType::OS_OtherEquipment_Definition, "Other Equipment Definitions");
@@ -596,19 +616,12 @@ void MainRightColumnController::configureForSpaceTypesSubTab(int subTabID) {
   myModelList->addModelObjectType(IddObjectType::OS_Luminaire_Definition, "Luminaire Definitions");
   myModelList->addModelObjectType(IddObjectType::OS_Lights_Definition, "Lights Definitions");
   myModelList->addModelObjectType(IddObjectType::OS_People_Definition, "People Definitions");
-
-  //OSCollapsibleItemHeader* unassignedSpacesCollapsibleHeader = new OSCollapsibleItemHeader("Unassigned Spaces", OSItemId("",""), OSItemType::CollapsibleListHeader);
-  //unassignedSpacesCollapsibleHeader->setRemoveable(false);
-  //SpaceTypeUnassignedSpacesVectorController* unassignedSpacesVectorController = new SpaceTypeUnassignedSpacesVectorController();
-  //unassignedSpacesVectorController->attachModel(m_model);
-  //OSItemList* unassignedSpacesList = new OSItemList(unassignedSpacesVectorController, false);
-  //OSCollapsibleItem* unassignedSpacesCollapsibleItem = new OSCollapsibleItem(unassignedSpacesCollapsibleHeader, unassignedSpacesList);
-  //myModelList->addCollapsibleItem(unassignedSpacesCollapsibleItem);
-
   //myModelList->addModelObjectType(IddObjectType::OS_SpaceInfiltration_DesignFlowRate, "Space Infiltration Design Flow Rates"); // do not show in my model because these are not shareable
   myModelList->addModelObjectType(IddObjectType::OS_DesignSpecification_OutdoorAir, "Design Specification Outdoor Air");
+  myModelList->addModelObjectCategoryPlaceholder("Definitions");
   myModelList->addModelObjectType(IddObjectType::OS_DefaultScheduleSet, "Schedule Sets");
   myModelList->addModelObjectType(IddObjectType::OS_DefaultConstructionSet, "Construction Sets");
+  myModelList->addModelObjectCategoryPlaceholder("Defaults");
 
   setMyModelView(myModelList);
 
@@ -626,6 +639,7 @@ void MainRightColumnController::configureForSpaceTypesSubTab(int subTabID) {
   myLibraryList->addModelObjectType(IddObjectType::OS_Schedule_Constant, "Constant Schedules");
   myLibraryList->addModelObjectType(IddObjectType::OS_Schedule_Compact, "Compact Schedules");
   myLibraryList->addModelObjectType(IddObjectType::OS_Schedule_Ruleset, "Ruleset Schedules");
+  myLibraryList->addModelObjectCategoryPlaceholder("Schedules");
 
   myLibraryList->addModelObjectType(IddObjectType::OS_InternalMass_Definition, "Internal Mass Definitions");
   myLibraryList->addModelObjectType(IddObjectType::OS_OtherEquipment_Definition, "Other Equipment Definitions");
@@ -640,9 +654,12 @@ void MainRightColumnController::configureForSpaceTypesSubTab(int subTabID) {
   myLibraryList->addModelObjectType(IddObjectType::OS_SpaceInfiltration_DesignFlowRate, "Space Infiltration Design Flow Rates");
   myLibraryList->addModelObjectType(IddObjectType::OS_SpaceInfiltration_EffectiveLeakageArea, "Space Infiltration Effective Leakage Areas");
   myLibraryList->addModelObjectType(IddObjectType::OS_DesignSpecification_OutdoorAir, "Design Specification Outdoor Air");
+  myLibraryList->addModelObjectCategoryPlaceholder("Definitions");
+
   myLibraryList->addModelObjectType(IddObjectType::OS_DefaultScheduleSet, "Schedule Sets");
   myLibraryList->addModelObjectType(IddObjectType::OS_DefaultConstructionSet, "Construction Sets");
   myLibraryList->addModelObjectType(IddObjectType::OS_SpaceType, "Space Types");
+  myLibraryList->addModelObjectCategoryPlaceholder("Defaults");
   setLibraryView(myLibraryList);
 
   doc->openSidebar();
@@ -661,18 +678,21 @@ void MainRightColumnController::configureForFacilitySubTab(int subTabID) {
 
   myModelList->addModelObjectType(IddObjectType::OS_SubSurface, "Sub Surfaces");
   myModelList->addModelObjectType(IddObjectType::OS_Surface, "Surfaces");
+  myModelList->addModelObjectCategoryPlaceholder("Surfaces");
   myModelList->addModelObjectType(IddObjectType::OS_Construction_WindowDataFile, "Window Data File Constructions");
   myModelList->addModelObjectType(IddObjectType::OS_Construction_FfactorGroundFloor, "F-factor Ground Floor Constructions");
   myModelList->addModelObjectType(IddObjectType::OS_Construction_CfactorUndergroundWall, "C-factor Underground Wall Constructions");
   myModelList->addModelObjectType(IddObjectType::OS_Construction_InternalSource, "Internal Source Constructions");
   myModelList->addModelObjectType(IddObjectType::OS_Construction_AirBoundary, "Air Boundary Constructions");
   myModelList->addModelObjectType(IddObjectType::OS_Construction, "Constructions");
+  myModelList->addModelObjectCategoryPlaceholder("Constructions");
   myModelList->addModelObjectType(IddObjectType::OS_Schedule_VariableInterval, "Variable Interval Schedules");
   myModelList->addModelObjectType(IddObjectType::OS_Schedule_FixedInterval, "Fixed Interval Schedules");
   myModelList->addModelObjectType(IddObjectType::OS_Schedule_Year, "Year Schedules");
   myModelList->addModelObjectType(IddObjectType::OS_Schedule_Constant, "Constant Schedules");
   myModelList->addModelObjectType(IddObjectType::OS_Schedule_Compact, "Compact Schedules");
   myModelList->addModelObjectType(IddObjectType::OS_Schedule_Ruleset, "Ruleset Schedules");
+  myModelList->addModelObjectCategoryPlaceholder("Schedules");
   myModelList->addModelObjectType(IddObjectType::OS_InternalMass_Definition, "Internal Mass Definitions");
   myModelList->addModelObjectType(IddObjectType::OS_OtherEquipment_Definition, "Other Equipment Definitions");
   myModelList->addModelObjectType(IddObjectType::OS_SteamEquipment_Definition, "Steam Equipment Definitions");
@@ -688,11 +708,14 @@ void MainRightColumnController::configureForFacilitySubTab(int subTabID) {
   myModelList->addModelObjectType(IddObjectType::OS_Exterior_Lights_Definition, "Exterior Lights Definitions");
   //myModelList->addModelObjectType(IddObjectType::OS_SpaceInfiltration_DesignFlowRate, "Space Infiltration Design Flow Rates"); // do not show in my model because these are not shareable
   myModelList->addModelObjectType(IddObjectType::OS_DesignSpecification_OutdoorAir, "Design Specification Outdoor Air");
+  myModelList->addModelObjectCategoryPlaceholder("Definitions");
   myModelList->addModelObjectType(IddObjectType::OS_DefaultScheduleSet, "Schedule Sets");
   myModelList->addModelObjectType(IddObjectType::OS_DefaultConstructionSet, "Construction Sets");
   myModelList->addModelObjectType(IddObjectType::OS_SpaceType, "Space Types");
+  myModelList->addModelObjectCategoryPlaceholder("Defaults");
   myModelList->addModelObjectType(IddObjectType::OS_ThermalZone, "Thermal Zones");
   myModelList->addModelObjectType(IddObjectType::OS_BuildingStory, "Building Stories");
+  myModelList->addModelObjectCategoryPlaceholder("Building");
 
   setMyModelView(myModelList);
 
@@ -712,18 +735,21 @@ void MainRightColumnController::configureForFacilitySubTab(int subTabID) {
   myLibraryList->addModelObjectType(IddObjectType::OS_ZoneHVAC_LowTemperatureRadiant_VariableFlow, "Low Temp Radiant Variable Flow");
   myLibraryList->addModelObjectType(IddObjectType::OS_ZoneHVAC_LowTemperatureRadiant_Electric, "Low Temp Radiant Electric");
   myLibraryList->addModelObjectType(IddObjectType::OS_ZoneHVAC_HighTemperatureRadiant, "High Temp Radiant");
+  myLibraryList->addModelObjectCategoryPlaceholder("Zone HVAC");
   myLibraryList->addModelObjectType(IddObjectType::OS_Construction_WindowDataFile, "Window Data File Constructions");
   myLibraryList->addModelObjectType(IddObjectType::OS_Construction_FfactorGroundFloor, "F-factor Ground Floor Constructions");
   myLibraryList->addModelObjectType(IddObjectType::OS_Construction_CfactorUndergroundWall, "C-factor Underground Wall Constructions");
   myLibraryList->addModelObjectType(IddObjectType::OS_Construction_InternalSource, "Internal Source Constructions");
   myLibraryList->addModelObjectType(IddObjectType::OS_Construction_AirBoundary, "Air Boundary Constructions");
   myLibraryList->addModelObjectType(IddObjectType::OS_Construction, "Constructions");
+  myLibraryList->addModelObjectCategoryPlaceholder("Constructions");
   myLibraryList->addModelObjectType(IddObjectType::OS_Schedule_VariableInterval, "Variable Interval Schedules");
   myLibraryList->addModelObjectType(IddObjectType::OS_Schedule_FixedInterval, "Fixed Interval Schedules");
   myLibraryList->addModelObjectType(IddObjectType::OS_Schedule_Year, "Year Schedules");
   myLibraryList->addModelObjectType(IddObjectType::OS_Schedule_Constant, "Constant Schedules");
   myLibraryList->addModelObjectType(IddObjectType::OS_Schedule_Compact, "Compact Schedules");
   myLibraryList->addModelObjectType(IddObjectType::OS_Schedule_Ruleset, "Ruleset Schedules");
+  myLibraryList->addModelObjectCategoryPlaceholder("Schedules");
   myLibraryList->addModelObjectType(IddObjectType::OS_InternalMass_Definition, "Internal Mass Definitions");
   myLibraryList->addModelObjectType(IddObjectType::OS_OtherEquipment_Definition, "Other Equipment Definitions");
   myLibraryList->addModelObjectType(IddObjectType::OS_SteamEquipment_Definition, "Steam Equipment Definitions");
@@ -743,9 +769,11 @@ void MainRightColumnController::configureForFacilitySubTab(int subTabID) {
   myLibraryList->addModelObjectType(IddObjectType::OS_SpaceInfiltration_DesignFlowRate, "Space Infiltration Design Flow Rates");
   myLibraryList->addModelObjectType(IddObjectType::OS_SpaceInfiltration_EffectiveLeakageArea, "Space Infiltration Effective Leakage Areas");
   myLibraryList->addModelObjectType(IddObjectType::OS_DesignSpecification_OutdoorAir, "Design Specification Outdoor Air");
+  myLibraryList->addModelObjectCategoryPlaceholder("Definitions");
   myLibraryList->addModelObjectType(IddObjectType::OS_DefaultScheduleSet, "Schedule Sets");
   myLibraryList->addModelObjectType(IddObjectType::OS_DefaultConstructionSet, "Construction Sets");
   myLibraryList->addModelObjectType(IddObjectType::OS_SpaceType, "Space Types");
+  myLibraryList->addModelObjectCategoryPlaceholder("Defaults");
 
   setLibraryView(myLibraryList);
 
@@ -764,25 +792,29 @@ void MainRightColumnController::configureForSpacesSubTab(int subTabID) {
   myModelList->setItemsRemoveable(false);
   myModelList->setItemsType(OSItemType::LibraryItem);
 
-  myModelList->addModelObjectType(IddObjectType::OS_InteriorPartitionSurface, "Interior Partition Surface");
-  myModelList->addModelObjectType(IddObjectType::OS_ShadingSurface, "Shading Surface");
   myModelList->addModelObjectType(IddObjectType::OS_ShadingControl, "ShadingControl");
   myModelList->addModelObjectType(IddObjectType::OS_WindowProperty_FrameAndDivider, "Frame And Divider Window Property");
   myModelList->addModelObjectType(IddObjectType::OS_DaylightingDevice_Shelf, "DaylightingDevice Shelf");
+  myModelList->addModelObjectCategoryPlaceholder("Daylighting");
+  myModelList->addModelObjectType(IddObjectType::OS_InteriorPartitionSurface, "Interior Partition Surface");
+  myModelList->addModelObjectType(IddObjectType::OS_ShadingSurface, "Shading Surface");
   myModelList->addModelObjectType(IddObjectType::OS_SubSurface, "Sub Surfaces");
   myModelList->addModelObjectType(IddObjectType::OS_Surface, "Surfaces");
+  myModelList->addModelObjectCategoryPlaceholder("Surfaces");
   myModelList->addModelObjectType(IddObjectType::OS_Construction_WindowDataFile, "Window Data File Constructions");
   myModelList->addModelObjectType(IddObjectType::OS_Construction_FfactorGroundFloor, "F-factor Ground Floor Constructions");
   myModelList->addModelObjectType(IddObjectType::OS_Construction_CfactorUndergroundWall, "C-factor Underground Wall Constructions");
   myModelList->addModelObjectType(IddObjectType::OS_Construction_InternalSource, "Internal Source Constructions");
   myModelList->addModelObjectType(IddObjectType::OS_Construction_AirBoundary, "Air Boundary Constructions");
   myModelList->addModelObjectType(IddObjectType::OS_Construction, "Constructions");
+  myModelList->addModelObjectCategoryPlaceholder("Constructions");
   myModelList->addModelObjectType(IddObjectType::OS_Schedule_VariableInterval, "Variable Interval Schedules");
   myModelList->addModelObjectType(IddObjectType::OS_Schedule_FixedInterval, "Fixed Interval Schedules");
   myModelList->addModelObjectType(IddObjectType::OS_Schedule_Year, "Year Schedules");
   myModelList->addModelObjectType(IddObjectType::OS_Schedule_Constant, "Constant Schedules");
   myModelList->addModelObjectType(IddObjectType::OS_Schedule_Compact, "Compact Schedules");
   myModelList->addModelObjectType(IddObjectType::OS_Schedule_Ruleset, "Ruleset Schedules");
+  myModelList->addModelObjectCategoryPlaceholder("Schedules");
   myModelList->addModelObjectType(IddObjectType::OS_InternalMass_Definition, "Internal Mass Definitions");
   myModelList->addModelObjectType(IddObjectType::OS_OtherEquipment_Definition, "Other Equipment Definitions");
   myModelList->addModelObjectType(IddObjectType::OS_SteamEquipment_Definition, "Steam Equipment Definitions");
@@ -797,12 +829,14 @@ void MainRightColumnController::configureForSpacesSubTab(int subTabID) {
   myModelList->addModelObjectType(IddObjectType::OS_People_Definition, "People Definitions");
   //myModelList->addModelObjectType(IddObjectType::OS_SpaceInfiltration_DesignFlowRate, "Space Infiltration Design Flow Rates"); // do not show in my model because these are not shareable
   myModelList->addModelObjectType(IddObjectType::OS_DesignSpecification_OutdoorAir, "Design Specification Outdoor Air");
+  myModelList->addModelObjectCategoryPlaceholder("Definitions");
   myModelList->addModelObjectType(IddObjectType::OS_DefaultScheduleSet, "Schedule Sets");
   myModelList->addModelObjectType(IddObjectType::OS_DefaultConstructionSet, "Construction Sets");
   myModelList->addModelObjectType(IddObjectType::OS_SpaceType, "Space Types");
+  myModelList->addModelObjectCategoryPlaceholder("Defaults");
   myModelList->addModelObjectType(IddObjectType::OS_ThermalZone, "Thermal Zones");
   myModelList->addModelObjectType(IddObjectType::OS_BuildingStory, "Building Stories");
-  myModelList->addModelObjectType(IddObjectType::OS_InteriorPartitionSurface, "Interior Partition Surface");
+  myModelList->addModelObjectCategoryPlaceholder("Building");
 
   setMyModelView(myModelList);
 
@@ -817,6 +851,7 @@ void MainRightColumnController::configureForSpacesSubTab(int subTabID) {
   myLibraryList->addModelObjectType(IddObjectType::OS_ShadingControl, "ShadingControl");
   myLibraryList->addModelObjectType(IddObjectType::OS_WindowProperty_FrameAndDivider, "Frame And Divider Window Property");
   myLibraryList->addModelObjectType(IddObjectType::OS_DaylightingDevice_Shelf, "DaylightingDevice Shelf");
+  myLibraryList->addModelObjectCategoryPlaceholder("Daylighting");
   myLibraryList->addModelObjectType(IddObjectType::OS_Fan_ZoneExhaust, "Fan Zone Exhaust");
   myLibraryList->addModelObjectType(IddObjectType::OS_ZoneHVAC_PackagedTerminalHeatPump, "PTHP");
   myLibraryList->addModelObjectType(IddObjectType::OS_ZoneHVAC_PackagedTerminalAirConditioner, "PTAC");
@@ -825,18 +860,21 @@ void MainRightColumnController::configureForSpacesSubTab(int subTabID) {
   myLibraryList->addModelObjectType(IddObjectType::OS_ZoneHVAC_LowTemperatureRadiant_VariableFlow, "Low Temp Radiant Variable Flow");
   myLibraryList->addModelObjectType(IddObjectType::OS_ZoneHVAC_LowTemperatureRadiant_Electric, "Low Temp Radiant Electric");
   myLibraryList->addModelObjectType(IddObjectType::OS_ZoneHVAC_HighTemperatureRadiant, "High Temp Radiant");
+  myLibraryList->addModelObjectCategoryPlaceholder("Zone HVAC");
   myLibraryList->addModelObjectType(IddObjectType::OS_Construction_WindowDataFile, "Window Data File Constructions");
   myLibraryList->addModelObjectType(IddObjectType::OS_Construction_FfactorGroundFloor, "F-factor Ground Floor Constructions");
   myLibraryList->addModelObjectType(IddObjectType::OS_Construction_CfactorUndergroundWall, "C-factor Underground Wall Constructions");
   myLibraryList->addModelObjectType(IddObjectType::OS_Construction_InternalSource, "Internal Source Constructions");
   myLibraryList->addModelObjectType(IddObjectType::OS_Construction_AirBoundary, "Air Boundary Constructions");
   myLibraryList->addModelObjectType(IddObjectType::OS_Construction, "Constructions");
+  myLibraryList->addModelObjectCategoryPlaceholder("Constructions");
   myLibraryList->addModelObjectType(IddObjectType::OS_Schedule_VariableInterval, "Variable Interval Schedules");
   myLibraryList->addModelObjectType(IddObjectType::OS_Schedule_FixedInterval, "Fixed Interval Schedules");
   myLibraryList->addModelObjectType(IddObjectType::OS_Schedule_Year, "Year Schedules");
   myLibraryList->addModelObjectType(IddObjectType::OS_Schedule_Constant, "Constant Schedules");
   myLibraryList->addModelObjectType(IddObjectType::OS_Schedule_Compact, "Compact Schedules");
   myLibraryList->addModelObjectType(IddObjectType::OS_Schedule_Ruleset, "Ruleset Schedules");
+  myLibraryList->addModelObjectCategoryPlaceholder("Schedules");
   myLibraryList->addModelObjectType(IddObjectType::OS_InternalMass_Definition, "Internal Mass Definitions");
   myLibraryList->addModelObjectType(IddObjectType::OS_OtherEquipment_Definition, "Other Equipment Definitions");
   myLibraryList->addModelObjectType(IddObjectType::OS_SteamEquipment_Definition, "Steam Equipment Definitions");
@@ -852,9 +890,11 @@ void MainRightColumnController::configureForSpacesSubTab(int subTabID) {
   myLibraryList->addModelObjectType(IddObjectType::OS_SpaceInfiltration_DesignFlowRate, "Space Infiltration Design Flow Rates");
   myLibraryList->addModelObjectType(IddObjectType::OS_SpaceInfiltration_EffectiveLeakageArea, "Space Infiltration Effective Leakage Areas");
   myLibraryList->addModelObjectType(IddObjectType::OS_DesignSpecification_OutdoorAir, "Design Specification Outdoor Air");
+  myLibraryList->addModelObjectCategoryPlaceholder("Definition");
   myLibraryList->addModelObjectType(IddObjectType::OS_DefaultScheduleSet, "Schedule Sets");
   myLibraryList->addModelObjectType(IddObjectType::OS_DefaultConstructionSet, "Construction Sets");
   myLibraryList->addModelObjectType(IddObjectType::OS_SpaceType, "Space Types");
+  myLibraryList->addModelObjectCategoryPlaceholder("Defaults");
 
   setLibraryView(myLibraryList);
 
@@ -879,12 +919,14 @@ void MainRightColumnController::configureForThermalZonesSubTab(int subTabID) {
 
   myModelList->addModelObjectType(IddObjectType::OS_WaterHeater_HeatPump, "Water Heater - Heat Pump");
   myModelList->addModelObjectType(IddObjectType::OS_WaterHeater_HeatPump_WrappedCondenser, "Water Heater - Heat Pump - Wrapped Condenser");
+  myModelList->addModelObjectCategoryPlaceholder("Water Heaters");
   myModelList->addModelObjectType(IddObjectType::OS_Schedule_VariableInterval, "Variable Interval Schedules");
   myModelList->addModelObjectType(IddObjectType::OS_Schedule_FixedInterval, "Fixed Interval Schedules");
   myModelList->addModelObjectType(IddObjectType::OS_Schedule_Year, "Year Schedules");
   myModelList->addModelObjectType(IddObjectType::OS_Schedule_Constant, "Constant Schedules");
   myModelList->addModelObjectType(IddObjectType::OS_Schedule_Compact, "Compact Schedules");
   myModelList->addModelObjectType(IddObjectType::OS_Schedule_Ruleset, "Ruleset Schedules");
+  myModelList->addModelObjectCategoryPlaceholder("Schedules");
 
   setMyModelView(myModelList);
 
@@ -896,7 +938,11 @@ void MainRightColumnController::configureForThermalZonesSubTab(int subTabID) {
   libraryWidget->setItemsRemoveable(false);
   libraryWidget->setItemsType(OSItemType::LibraryItem);
 
+  libraryWidget->addModelObjectType(IddObjectType::OS_WaterHeater_HeatPump, "Water Heater - Heat Pump");
+  libraryWidget->addModelObjectType(IddObjectType::OS_WaterHeater_HeatPump_WrappedCondenser, "Water Heater - Heat Pump - Wrapped Condenser");
+  libraryWidget->addModelObjectCategoryPlaceholder("Water Heaters");
   libraryWidget->addModelObjectType(IddObjectType::OS_AirLoopHVAC_UnitarySystem, "Unitary System");
+  libraryWidget->addModelObjectCategoryPlaceholder("Unitary Systems");
   libraryWidget->addModelObjectType(IddObjectType::OS_ZoneHVAC_CoolingPanel_RadiantConvective_Water, "Cooling Panel Radiant Convective Water");
   libraryWidget->addModelObjectType(IddObjectType::OS_ZoneHVAC_Baseboard_Convective_Electric, "Baseboard Convective Electric");
   libraryWidget->addModelObjectType(IddObjectType::OS_ZoneHVAC_Baseboard_Convective_Water, "Baseboard Convective Water");
@@ -906,8 +952,6 @@ void MainRightColumnController::configureForThermalZonesSubTab(int subTabID) {
   libraryWidget->addModelObjectType(IddObjectType::OS_ZoneHVAC_EnergyRecoveryVentilator, "ERV");
   libraryWidget->addModelObjectType(IddObjectType::OS_ZoneHVAC_FourPipeFanCoil, "Four Pipe Fan Coil");
   libraryWidget->addModelObjectType(IddObjectType::OS_Fan_ZoneExhaust, "Fan Zone Exhaust");
-  libraryWidget->addModelObjectType(IddObjectType::OS_WaterHeater_HeatPump, "Water Heater - Heat Pump");
-  libraryWidget->addModelObjectType(IddObjectType::OS_WaterHeater_HeatPump_WrappedCondenser, "Water Heater - Heat Pump - Wrapped Condenser");
   libraryWidget->addModelObjectType(IddObjectType::OS_ZoneHVAC_PackagedTerminalHeatPump, "PTHP");
   libraryWidget->addModelObjectType(IddObjectType::OS_ZoneHVAC_WaterToAirHeatPump, "Water To Air HP");
   libraryWidget->addModelObjectType(IddObjectType::OS_ZoneHVAC_PackagedTerminalAirConditioner, "PTAC");
@@ -917,10 +961,13 @@ void MainRightColumnController::configureForThermalZonesSubTab(int subTabID) {
   libraryWidget->addModelObjectType(IddObjectType::OS_ZoneHVAC_HighTemperatureRadiant, "High Temp Radiant");
   libraryWidget->addModelObjectType(IddObjectType::OS_ZoneHVAC_UnitHeater, "Unit Heater");
   libraryWidget->addModelObjectType(IddObjectType::OS_ZoneHVAC_UnitVentilator, "Unit Ventilator");
+  libraryWidget->addModelObjectCategoryPlaceholder("Zone HVAC");
   libraryWidget->addModelObjectType(IddObjectType::OS_ZoneVentilation_DesignFlowRate, "Zone Ventilation Design Flow Rate");
   libraryWidget->addModelObjectType(IddObjectType::OS_ZoneVentilation_WindandStackOpenArea, "Zone Ventilation Wind and Stack Open Area");
+  libraryWidget->addModelObjectCategoryPlaceholder("Ventilation");
   libraryWidget->addModelObjectType(IddObjectType::OS_Schedule_Compact, "Compact Schedules");
   libraryWidget->addModelObjectType(IddObjectType::OS_Schedule_Ruleset, "Schedule Rulesets");
+  libraryWidget->addModelObjectCategoryPlaceholder("Schedules");
 
   setLibraryView(libraryWidget);
 
@@ -946,14 +993,19 @@ void MainRightColumnController::configureForHVACSystemsSubTab(int subTabID) {
   // Water and Tanks
   myModelList->addModelObjectType(IddObjectType::OS_WaterUse_Equipment_Definition, "Water Use Equipment Definition");
   myModelList->addModelObjectType(IddObjectType::OS_WaterUse_Connections, "Water Use Connections");
+  myModelList->addModelObjectCategoryPlaceholder("Water Uses");
   myModelList->addModelObjectType(IddObjectType::OS_WaterHeater_Mixed, "Water Heater Mixed");
   myModelList->addModelObjectType(IddObjectType::OS_WaterHeater_Stratified, "Water Heater Stratified");
+  myModelList->addModelObjectCategoryPlaceholder("Water Heaters");
   myModelList->addModelObjectType(IddObjectType::OS_AirConditioner_VariableRefrigerantFlow, "VRF System");
+  myModelList->addModelObjectCategoryPlaceholder("VRFs");
   myModelList->addModelObjectType(IddObjectType::OS_ThermalStorage_ChilledWater_Stratified, "Thermal Storage - Chilled Water");
+  myModelList->addModelObjectCategoryPlaceholder("Thermal Storage");
 
   // Refrigeration
   myModelList->addModelObjectType(IddObjectType::OS_Refrigeration_System, "Refrigeration System");
   myModelList->addModelObjectType(IddObjectType::OS_Refrigeration_Condenser_WaterCooled, "Refrigeration Condenser Water Cooled");
+  myModelList->addModelObjectCategoryPlaceholder("Refrigeration");
 
   // ZoneHVAC Components
   myModelList->addModelObjectType(IddObjectType::OS_ZoneHVAC_WaterToAirHeatPump, "Water To Air HP");
@@ -963,20 +1015,26 @@ void MainRightColumnController::configureForHVACSystemsSubTab(int subTabID) {
   myModelList->addModelObjectType(IddObjectType::OS_ZoneHVAC_PackagedTerminalHeatPump, "PTHP");
   myModelList->addModelObjectType(IddObjectType::OS_ZoneHVAC_PackagedTerminalAirConditioner, "PTAC");
   myModelList->addModelObjectType(IddObjectType::OS_ZoneHVAC_FourPipeFanCoil, "Four Pipe Fan Coil");
+  myModelList->addModelObjectCategoryPlaceholder("Zone HVAC");
 
   // Central components and coils
   myModelList->addModelObjectType(IddObjectType::OS_HeatPump_WaterToWater_EquationFit_Heating, "Heat Pump - Water to Water - Heating");
   myModelList->addModelObjectType(IddObjectType::OS_HeatPump_WaterToWater_EquationFit_Cooling, "Heat Pump - Water to Water - Cooling");
   myModelList->addModelObjectType(IddObjectType::OS_HeatExchanger_FluidToFluid, "Heat Exchanger Fluid To Fluid");
+  myModelList->addModelObjectCategoryPlaceholder("Heat Exchangers");
   myModelList->addModelObjectType(IddObjectType::OS_Coil_Heating_Water, "Coil Heating Water");
   myModelList->addModelObjectType(IddObjectType::OS_Coil_Cooling_Water, "Coil Cooling Water");
+  myModelList->addModelObjectCategoryPlaceholder("Coils");
   myModelList->addModelObjectType(IddObjectType::OS_CentralHeatPumpSystem, "Central Heat Pump System");
+  myModelList->addModelObjectCategoryPlaceholder("Heat Pumps");
   myModelList->addModelObjectType(IddObjectType::OS_Chiller_Electric_EIR, "Chiller - Electric EIR");
   myModelList->addModelObjectType(IddObjectType::OS_Chiller_Absorption, "Chiller - Absorption");
   myModelList->addModelObjectType(IddObjectType::OS_Chiller_Absorption_Indirect, "Chiller - Indirect Absorption");
+  myModelList->addModelObjectCategoryPlaceholder("Chillers");
 
   // Zones
   myModelList->addModelObjectType(IddObjectType::OS_ThermalZone, "Thermal Zone");
+  myModelList->addModelObjectCategoryPlaceholder("Zones");
 
   // Schedules
   myModelList->addModelObjectType(IddObjectType::OS_Schedule_VariableInterval, "Variable Interval Schedules");
@@ -985,6 +1043,7 @@ void MainRightColumnController::configureForHVACSystemsSubTab(int subTabID) {
   myModelList->addModelObjectType(IddObjectType::OS_Schedule_Constant, "Constant Schedules");
   myModelList->addModelObjectType(IddObjectType::OS_Schedule_Compact, "Compact Schedules");
   myModelList->addModelObjectType(IddObjectType::OS_Schedule_Ruleset, "Ruleset Schedules");
+  myModelList->addModelObjectCategoryPlaceholder("Schedules");
 
   setMyModelView(myModelList);
 
@@ -998,19 +1057,25 @@ void MainRightColumnController::configureForHVACSystemsSubTab(int subTabID) {
   libraryWidget->setItemsType(OSItemType::LibraryItem);
 
   libraryWidget->addModelObjectType(IddObjectType::OS_SwimmingPool_Indoor, "Swimming Pool Indoor");
+  libraryWidget->addModelObjectCategoryPlaceholder("Swimming Pools");
   libraryWidget->addModelObjectType(IddObjectType::OS_SolarCollector_IntegralCollectorStorage, "Solar Collector Integral Collector Storage");
   libraryWidget->addModelObjectType(IddObjectType::OS_SolarCollector_FlatPlate_Water, "Solar Collector Flat Plate Water");
   //libraryWidget->addModelObjectType(IddObjectType::OS_SolarCollector_FlatPlate_PhotovoltaicThermal, "Solar Collector Flat Plate Photovoltaic Thermal");
+  libraryWidget->addModelObjectCategoryPlaceholder("Solar Collectors");
   libraryWidget->addModelObjectType(IddObjectType::OS_WaterUse_Equipment, "Water Use Equipment");
   libraryWidget->addModelObjectType(IddObjectType::OS_WaterUse_Connections, "Water Use Connections");
+  libraryWidget->addModelObjectCategoryPlaceholder("Water Uses");
   libraryWidget->addModelObjectType(IddObjectType::OS_WaterHeater_HeatPump, "Water Heater - Heat Pump");
   libraryWidget->addModelObjectType(IddObjectType::OS_WaterHeater_HeatPump_WrappedCondenser, "Water Heater - Heat Pump - Wrapped Condenser");
   libraryWidget->addModelObjectType(IddObjectType::OS_WaterHeater_Mixed, "Water Heater Mixed");
   libraryWidget->addModelObjectType(IddObjectType::OS_WaterHeater_Stratified, "Water Heater Stratified");
+  libraryWidget->addModelObjectCategoryPlaceholder("Water Heaters");
   libraryWidget->addModelObjectType(IddObjectType::OS_AirConditioner_VariableRefrigerantFlow, "VRF System");
   libraryWidget->addModelObjectType(IddObjectType::OS_ZoneHVAC_TerminalUnit_VariableRefrigerantFlow, "VRF Terminal");
+  libraryWidget->addModelObjectCategoryPlaceholder("VRFs");
   libraryWidget->addModelObjectType(IddObjectType::OS_ThermalStorage_Ice_Detailed, "Thermal Storage - Ice Storage");
   libraryWidget->addModelObjectType(IddObjectType::OS_ThermalStorage_ChilledWater_Stratified, "Thermal Storage - Chilled Water");
+  libraryWidget->addModelObjectCategoryPlaceholder("Thermal Storage");
   libraryWidget->addModelObjectType(IddObjectType::OS_TemperingValve, "Tempering Valve");
   libraryWidget->addModelObjectType(IddObjectType::OS_SetpointManager_SystemNodeReset_Humidity, "Setpoint Manager System Node Reset Humidity");
   libraryWidget->addModelObjectType(IddObjectType::OS_SetpointManager_SystemNodeReset_Temperature, "Setpoint Manager System Node Reset Temperature");
@@ -1040,6 +1105,7 @@ void MainRightColumnController::configureForHVACSystemsSubTab(int subTabID) {
   libraryWidget->addModelObjectType(IddObjectType::OS_SetpointManager_SingleZone_Reheat, "Setpoint Manager Single Zone Reheat");
   libraryWidget->addModelObjectType(IddObjectType::OS_SetpointManager_Warmest, "Setpoint Manager Warmest");
   libraryWidget->addModelObjectType(IddObjectType::OS_SetpointManager_WarmestTemperatureFlow, "Setpoint Manager Warmest Temp and Flow");
+  libraryWidget->addModelObjectCategoryPlaceholder("Setpoint Managers");
   libraryWidget->addModelObjectType(IddObjectType::OS_Refrigeration_WalkIn, "Refrigeration Walkin");
   libraryWidget->addModelObjectType(IddObjectType::OS_Refrigeration_System, "Refrigeration System");
   libraryWidget->addModelObjectType(IddObjectType::OS_Refrigeration_Subcooler_Mechanical, "Refrigeration Subcooler Mechanical");
@@ -1050,53 +1116,73 @@ void MainRightColumnController::configureForHVACSystemsSubTab(int subTabID) {
   libraryWidget->addModelObjectType(IddObjectType::OS_Refrigeration_Condenser_EvaporativeCooled, "Refrigeration Condenser Evaporative Cooled");
   libraryWidget->addModelObjectType(IddObjectType::OS_Refrigeration_Condenser_AirCooled, "Refrigeration Condenser Air Cooled");
   libraryWidget->addModelObjectType(IddObjectType::OS_Refrigeration_Case, "Refrigeration Case");
+  libraryWidget->addModelObjectCategoryPlaceholder("Refrigeration");
   libraryWidget->addModelObjectType(IddObjectType::OS_Pump_ConstantSpeed, "Pump Constant Speed");
   libraryWidget->addModelObjectType(IddObjectType::OS_HeaderedPumps_ConstantSpeed, "Pump Constant Speed Headered");
   libraryWidget->addModelObjectType(IddObjectType::OS_Pump_VariableSpeed, "Pump Variable Speed");
   libraryWidget->addModelObjectType(IddObjectType::OS_HeaderedPumps_VariableSpeed, "Pump Variable Speed Headered");
+  libraryWidget->addModelObjectCategoryPlaceholder("Pumps");
   libraryWidget->addModelObjectType(IddObjectType::OS_PlantComponent_TemperatureSource, "Plant Component - Temp Source");
   libraryWidget->addModelObjectType(IddObjectType::OS_PlantComponent_UserDefined, "Plant Component - User Defined");
+  libraryWidget->addModelObjectCategoryPlaceholder("Plant Components");
   libraryWidget->addModelObjectType(IddObjectType::OS_Pipe_Outdoor, "Pipe - Outdoor");
   libraryWidget->addModelObjectType(IddObjectType::OS_Pipe_Indoor, "Pipe - Indoor");
   libraryWidget->addModelObjectType(IddObjectType::OS_Pipe_Adiabatic, "Pipe - Adiabatic");
+  libraryWidget->addModelObjectCategoryPlaceholder("Pipes");
   libraryWidget->addModelObjectType(IddObjectType::OS_LoadProfile_Plant, "Load Profile - Plant");
+  libraryWidget->addModelObjectCategoryPlaceholder("Load Profiles");
   libraryWidget->addModelObjectType(IddObjectType::OS_Humidifier_Steam_Electric, "Humidifier Steam Electric");
   libraryWidget->addModelObjectType(IddObjectType::OS_Humidifier_Steam_Gas, "Humidifier Steam Gas");
+  libraryWidget->addModelObjectCategoryPlaceholder("Humidifiers");
   libraryWidget->addModelObjectType(IddObjectType::OS_HeatPump_WaterToWater_EquationFit_Heating, "Heat Pump - Water to Water - Heating");
   libraryWidget->addModelObjectType(IddObjectType::OS_HeatPump_WaterToWater_EquationFit_Cooling, "Heat Pump - Water to Water - Cooling");
+  libraryWidget->addModelObjectCategoryPlaceholder("Heat Pumps");
   libraryWidget->addModelObjectType(IddObjectType::OS_HeatExchanger_FluidToFluid, "Heat Exchanger Fluid To Fluid");
   libraryWidget->addModelObjectType(IddObjectType::OS_HeatExchanger_AirToAir_SensibleAndLatent, "Heat Exchanger Air To Air Sensible and Latent");
+  libraryWidget->addModelObjectCategoryPlaceholder("Heat Exchangers");
   libraryWidget->addModelObjectType(IddObjectType::OS_Generator_FuelCell_ExhaustGasToWaterHeatExchanger,
-                                    "Generator FuelCell - ExhaustGasToWaterHeatExchanger");
+                                    "Generator FuelCell - Exhaust Gas To Water Heat Exchanger");
   libraryWidget->addModelObjectType(IddObjectType::OS_Generator_MicroTurbine_HeatRecovery, "Generator MicroTurbine - Heat Recovery");
+  libraryWidget->addModelObjectCategoryPlaceholder("Generators");
   libraryWidget->addModelObjectType(IddObjectType::OS_GroundHeatExchanger_Vertical, "Ground Heat Exchanger - Vertical ");
   libraryWidget->addModelObjectType(IddObjectType::OS_GroundHeatExchanger_HorizontalTrench, "Ground Heat Exchanger - Horizontal");
+  libraryWidget->addModelObjectCategoryPlaceholder("Ground Heat Exchangers");
   libraryWidget->addModelObjectType(IddObjectType::OS_FluidCooler_TwoSpeed, "Fluid Cooler Two Speed");
   libraryWidget->addModelObjectType(IddObjectType::OS_FluidCooler_SingleSpeed, "Fluid Cooler Single Speed");
+  libraryWidget->addModelObjectCategoryPlaceholder("Fluid Coolers");
   libraryWidget->addModelObjectType(IddObjectType::OS_ZoneHVAC_FourPipeFanCoil, "Four Pipe Fan Coil");
   libraryWidget->addModelObjectType(IddObjectType::OS_ZoneHVAC_PackagedTerminalHeatPump, "PTHP");
   libraryWidget->addModelObjectType(IddObjectType::OS_ZoneHVAC_WaterToAirHeatPump, "Water To Air HP");
   libraryWidget->addModelObjectType(IddObjectType::OS_ZoneHVAC_PackagedTerminalAirConditioner, "PTAC");
   libraryWidget->addModelObjectType(IddObjectType::OS_ZoneHVAC_UnitHeater, "Unit Heater");
   libraryWidget->addModelObjectType(IddObjectType::OS_ZoneHVAC_UnitVentilator, "Unit Ventilator");
+  libraryWidget->addModelObjectCategoryPlaceholder("Zone HVAC");
   libraryWidget->addModelObjectType(IddObjectType::OS_Fan_ComponentModel, "Fan Component Model");
   libraryWidget->addModelObjectType(IddObjectType::OS_Fan_SystemModel, "Fan System Model");
   libraryWidget->addModelObjectType(IddObjectType::OS_Fan_VariableVolume, "Fan Variable Volume");
   libraryWidget->addModelObjectType(IddObjectType::OS_Fan_ConstantVolume, "Fan Constant Volume");
+  libraryWidget->addModelObjectCategoryPlaceholder("Fans");
   libraryWidget->addModelObjectType(IddObjectType::OS_EvaporativeCooler_Direct_ResearchSpecial, "Evaporative Cooler Direct Research Special");
   libraryWidget->addModelObjectType(IddObjectType::OS_EvaporativeCooler_Indirect_ResearchSpecial, "Evaporative Cooler Indirect Research Special");
   libraryWidget->addModelObjectType(IddObjectType::OS_EvaporativeFluidCooler_TwoSpeed, "Evaporative Fluid Cooler Two Speed");
   libraryWidget->addModelObjectType(IddObjectType::OS_EvaporativeFluidCooler_SingleSpeed, "Evaporative Fluid Cooler Single Speed");
+  libraryWidget->addModelObjectCategoryPlaceholder("Evaporative Coolers");
   libraryWidget->addModelObjectType(IddObjectType::OS_Duct, "Duct");
+  libraryWidget->addModelObjectCategoryPlaceholder("Ducts");
   libraryWidget->addModelObjectType(IddObjectType::OS_DistrictCooling, "District Cooling");
+  libraryWidget->addModelObjectCategoryPlaceholder("District Cooling");
   libraryWidget->addModelObjectType(IddObjectType::OS_DistrictHeating_Water, "District Heating Water");
+  libraryWidget->addModelObjectCategoryPlaceholder("District Heating");
   libraryWidget->addModelObjectType(IddObjectType::OS_CoolingTower_TwoSpeed, "Cooling Tower Two Speed");
   libraryWidget->addModelObjectType(IddObjectType::OS_CoolingTower_SingleSpeed, "Cooling Tower Single Speed");
   libraryWidget->addModelObjectType(IddObjectType::OS_CoolingTower_VariableSpeed, "Cooling Tower Variable Speed");
+  libraryWidget->addModelObjectCategoryPlaceholder("Cooling Towers");
   libraryWidget->addModelObjectType(IddObjectType::OS_CentralHeatPumpSystem, "Central Heat Pump System");
+  libraryWidget->addModelObjectCategoryPlaceholder("Central Heat Pump Systems");
   libraryWidget->addModelObjectType(IddObjectType::OS_Chiller_Electric_EIR, "Chiller - Electric EIR");
   libraryWidget->addModelObjectType(IddObjectType::OS_Chiller_Absorption_Indirect, "Chiller - Indirect Absorption");
   libraryWidget->addModelObjectType(IddObjectType::OS_Chiller_Absorption, "Chiller - Absorption");
+  libraryWidget->addModelObjectCategoryPlaceholder("Chillers");
   libraryWidget->addModelObjectType(IddObjectType::OS_Coil_Heating_Gas, "Coil Heating Gas");
   libraryWidget->addModelObjectType(IddObjectType::OS_Coil_Heating_DX_SingleSpeed, "Coil Heating DX SingleSpeed");
   libraryWidget->addModelObjectType(IddObjectType::OS_Coil_Heating_Electric, "Coil Heating Electric");
@@ -1106,7 +1192,9 @@ void MainRightColumnController::configureForHVACSystemsSubTab(int subTabID) {
   libraryWidget->addModelObjectType(IddObjectType::OS_Coil_Cooling_DX_TwoStageWithHumidityControlMode, "Coil Cooling DX TwoStage - Humidity Control");
   libraryWidget->addModelObjectType(IddObjectType::OS_Coil_Cooling_DX_TwoSpeed, "Coil Cooling DX TwoSpeed");
   libraryWidget->addModelObjectType(IddObjectType::OS_Coil_Cooling_DX_SingleSpeed, "Coil Cooling DX SingleSpeed");
+  libraryWidget->addModelObjectCategoryPlaceholder("Coils");
   libraryWidget->addModelObjectType(IddObjectType::OS_Boiler_HotWater, "Boiler Hot Water");
+  libraryWidget->addModelObjectCategoryPlaceholder("Boilers");
   libraryWidget->addModelObjectType(IddObjectType::OS_AirTerminal_SingleDuct_ConstantVolume_FourPipeInduction, "Air Terminal Four Pipe Induction");
   libraryWidget->addModelObjectType(IddObjectType::OS_AirTerminal_SingleDuct_ConstantVolume_CooledBeam, "Air Terminal Chilled Beam");
   libraryWidget->addModelObjectType(IddObjectType::OS_AirTerminal_SingleDuct_ConstantVolume_FourPipeBeam, "Air Terminal Four Pipe Beam");
@@ -1123,12 +1211,13 @@ void MainRightColumnController::configureForHVACSystemsSubTab(int subTabID) {
   libraryWidget->addModelObjectType(IddObjectType::OS_AirTerminal_DualDuct_ConstantVolume, "Air Terminal Dual Duct Constant Volume");
   libraryWidget->addModelObjectType(IddObjectType::OS_AirTerminal_DualDuct_VAV, "Air Terminal Dual Duct VAV");
   libraryWidget->addModelObjectType(IddObjectType::OS_AirTerminal_DualDuct_VAV_OutdoorAir, "Air Terminal Dual Duct VAV Outdoor Air");
+  libraryWidget->addModelObjectCategoryPlaceholder("Air Terminals");
   libraryWidget->addModelObjectType(IddObjectType::OS_AirLoopHVAC_OutdoorAirSystem, "AirLoopHVAC Outdoor Air System");
   libraryWidget->addModelObjectType(IddObjectType::OS_AirLoopHVAC_UnitaryHeatPump_AirToAir_MultiSpeed,
                                     "AirLoopHVAC Unitary Heat Pump AirToAir MultiSpeed");
   libraryWidget->addModelObjectType(IddObjectType::OS_AirLoopHVAC_UnitarySystem, "AirLoopHVAC Unitary System");
   libraryWidget->addModelObjectType(IddObjectType::OS_AirLoopHVAC_UnitaryHeatCool_VAVChangeoverBypass, "AirLoopHVAC Unitary VAV Changeover Bypass");
-
+  libraryWidget->addModelObjectCategoryPlaceholder("Air Loop HVAC");
   libraryWidget->addModelObjectType(IddObjectType::OS_AvailabilityManager_Scheduled, "Availability Manager Scheduled");
   libraryWidget->addModelObjectType(IddObjectType::OS_AvailabilityManager_ScheduledOn, "Availability Manager Scheduled On");
   libraryWidget->addModelObjectType(IddObjectType::OS_AvailabilityManager_ScheduledOff, "Availability Manager Scheduled Off");
@@ -1145,6 +1234,7 @@ void MainRightColumnController::configureForHVACSystemsSubTab(int subTabID) {
   libraryWidget->addModelObjectType(IddObjectType::OS_AvailabilityManager_NightCycle, "Availability Manager Night Cycle");
   libraryWidget->addModelObjectType(IddObjectType::OS_AvailabilityManager_NightVentilation, "Availability Manager Night Ventilation");
   libraryWidget->addModelObjectType(IddObjectType::OS_AvailabilityManager_HybridVentilation, "Availability Manager Hybrid Ventilation");
+  libraryWidget->addModelObjectCategoryPlaceholder("Availability Managers");
 
   setLibraryView(libraryWidget);
 

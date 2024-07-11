@@ -32,6 +32,7 @@
 #include "ModelObjectItem.hpp"
 #include "ModelObjectListView.hpp"
 #include "OSCollapsibleItemHeader.hpp"
+#include "OSCategoryPlaceholder.hpp"
 #include "OSItem.hpp"
 
 #include <openstudio/model/Model.hpp>
@@ -66,6 +67,12 @@ void ModelObjectTypeListView::addModelObjectType(const IddObjectType& iddObjectT
   auto* modelObjectTypeItem = new ModelObjectTypeItem(collapsibleItemHeader, modelObjectListView);
 
   addCollapsibleItem(modelObjectTypeItem);
+}
+
+void ModelObjectTypeListView::addModelObjectCategoryPlaceholder(const std::string& name) {
+
+  auto* categoryPlaceholderItem = new OSCategoryPlaceholder(name);
+  addCategoryPlaceholderItem(categoryPlaceholderItem);
 }
 
 IddObjectType ModelObjectTypeListView::currentIddObjectType() const {
