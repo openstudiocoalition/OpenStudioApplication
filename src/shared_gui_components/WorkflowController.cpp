@@ -556,11 +556,14 @@ QWidget* MeasureStepItemDelegate::view(QSharedPointer<OSListItem> dataSource) {
 
     connect(measureStepItem.data(), &MeasureStepItem::selectedChanged, workflowStepView->workflowStepButton, &WorkflowStepButton::setHasEmphasis);
 
-    // Warning Icon
-
-    workflowStepView->workflowStepButton->cautionLabel->setVisible(measureStepItem->hasIncompleteArguments());
-
-    connect(measureStepItem.data(), &MeasureStepItem::argumentsChanged, workflowStepView->workflowStepButton->cautionLabel, &QLabel::setVisible);
+    try {
+      // Warning Icon
+      workflowStepView->workflowStepButton->cautionLabel->setVisible(measureStepItem->hasIncompleteArguments());
+      connect(measureStepItem.data(), &MeasureStepItem::argumentsChanged, workflowStepView->workflowStepButton->cautionLabel, &QLabel::setVisible);
+    } catch (const std::exception& e) {
+      workflowStepView->workflowStepButton->errorLabel->setToolTip(e.what());
+      workflowStepView->workflowStepButton->errorLabel->setVisible(true);
+    }
 
     // Up and down buttons
 

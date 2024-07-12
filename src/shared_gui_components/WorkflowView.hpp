@@ -158,6 +158,8 @@ class WorkflowStepButton : public QAbstractButton
 
   QLabel* cautionLabel;
 
+  QLabel* errorLabel;
+
  public slots:
 
   void setHasEmphasis(bool hasEmphasis);

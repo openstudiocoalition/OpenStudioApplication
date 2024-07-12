@@ -86,15 +86,21 @@ void EditController::setMeasureStepItem(measuretab::MeasureStepItem* measureStep
   editRubyMeasureView->modelerDescriptionTextEdit->setText(m_measureStepItem->modelerDescription());
 
   // Inputs
+  try {
+    std::vector<measure::OSArgument> arguments = m_measureStepItem->arguments();
 
-  std::vector<measure::OSArgument> arguments = m_measureStepItem->arguments();
+    for (const auto& arg : arguments) {
+      QSharedPointer<InputController> inputController = QSharedPointer<InputController>(new InputController(this, arg, t_app));
 
-  for (const auto& arg : arguments) {
-    QSharedPointer<InputController> inputController = QSharedPointer<InputController>(new InputController(this, arg, t_app));
+      m_inputControllers.push_back(inputController);
 
-    m_inputControllers.push_back(inputController);
-
-    editRubyMeasureView->addInputView(inputController->inputView);
+      editRubyMeasureView->addInputView(inputController->inputView);
+    }
+  } catch (const std::exception& e) {
+    QTextEdit* error = new QTextEdit(e.what());
+    error->setReadOnly(true);
+    error->setWordWrapMode(QTextOption::WrapAtWordBoundaryOrAnywhere);
+    editRubyMeasureView->addInputView(error);
   }
 }
 
