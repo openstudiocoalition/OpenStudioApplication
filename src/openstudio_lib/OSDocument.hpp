@@ -214,6 +214,8 @@ class OPENSTUDIO_API OSDocument : public OSQObjectController
 
   void loadExampleModelClicked();
 
+  void loadShoeboxModelClicked();
+
   void newClicked();
 
   void exitClicked();

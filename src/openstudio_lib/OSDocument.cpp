@@ -205,6 +205,7 @@ OSDocument::OSDocument(const openstudio::model::Model& library, const openstudio
   connect(m_mainWindow, &MainWindow::changeLanguageClicked, this, &OSDocument::changeLanguageClicked);
   connect(m_mainWindow, &MainWindow::loadLibraryClicked, this, &OSDocument::loadLibraryClicked);
   connect(m_mainWindow, &MainWindow::loadExampleModelClicked, this, &OSDocument::loadExampleModelClicked);
+  connect(m_mainWindow, &MainWindow::loadShoeboxModelClicked, this, &OSDocument::loadShoeboxModelClicked);
   connect(m_mainWindow, &MainWindow::newClicked, this, &OSDocument::newClicked);
   connect(m_mainWindow, &MainWindow::exitClicked, this, &OSDocument::exitClicked);
   connect(m_mainWindow, &MainWindow::helpClicked, this, &OSDocument::helpClicked);
@@ -1480,6 +1481,11 @@ std::vector<BCLComponent> OSDocument::componentAttributeSearch(const std::vector
 }
 
 boost::optional<BCLMeasure> OSDocument::standardReportMeasure() {
+  // DLM: Breaking changes in openstudio_results measures prevent us from being able to ensure
+  // that measure in users local BCL or remote BCL will work, just use measure in installer
+  return BCLMeasure::load(m_resourcesPath / toPath("openstudio_results"));
+
+  /*
   const std::string uid("a25386cd-60e4-46bc-8b11-c755f379d916");
   boost::optional<BCLMeasure> result = getLocalMeasure(uid);
 
@@ -1497,6 +1503,7 @@ boost::optional<BCLMeasure> OSDocument::standardReportMeasure() {
   }
 
   return result;
+  */
 }
 
 bool OSDocument::save() {

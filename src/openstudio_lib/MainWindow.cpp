@@ -130,6 +130,7 @@ MainWindow::MainWindow(bool isPlugin, QWidget* parent)
   connect(mainMenu, &MainMenu::changeLanguageClicked, this, &MainWindow::changeLanguageClicked);
   connect(mainMenu, &MainMenu::loadLibraryClicked, this, &MainWindow::loadLibraryClicked);
   connect(mainMenu, &MainMenu::loadExampleModelClicked, this, &MainWindow::loadExampleModelClicked);
+  connect(mainMenu, &MainMenu::loadShoeboxModelClicked, this, &MainWindow::loadShoeboxModelClicked);
   connect(mainMenu, &MainMenu::saveAsFileClicked, this, &MainWindow::saveAsFileClicked);
   connect(mainMenu, &MainMenu::saveFileClicked, this, &MainWindow::saveFileClicked);
   connect(mainMenu, &MainMenu::revertFileClicked, this, &MainWindow::revertFileClicked);
@@ -338,8 +339,6 @@ bool MainWindow::useClassicCLI() const {
 
 void MainWindow::toggleUseClassicCLI(bool useClassicCLI) {
   m_useClassicCLI = useClassicCLI;
-  QMessageBox::information(this, tr("Restart required"), tr("Restart the OpenStudio Application to reset Measure Manager."), QMessageBox::Ok,
-                           QMessageBox::Ok);
 }
 
 bool MainWindow::geometryDiagnostics() const {

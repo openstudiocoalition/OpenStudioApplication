@@ -104,17 +104,19 @@ bool MeasureManager::waitForStarted(int msec) {
   // ping server until get a started response
   bool success = false;
 
-  QUrl thisUrl(m_url);
-  thisUrl.setPath("/");
-  QNetworkRequest request(thisUrl);
-  request.setHeader(QNetworkRequest::ContentTypeHeader, "application/json");
-
+  QUrl thisUrl;
   QNetworkAccessManager manager;
 
   const int msecPerLoop = 20;
   const int numTries = msec / msecPerLoop;
   int current = 0;
   while (!success && current < numTries) {
+
+    // m_url may change if measure manager is restarted
+    thisUrl = m_url;
+    thisUrl.setPath("/");
+    QNetworkRequest request(thisUrl);
+    request.setHeader(QNetworkRequest::ContentTypeHeader, "application/json");
 
     QNetworkReply* reply = manager.get(request);
 
