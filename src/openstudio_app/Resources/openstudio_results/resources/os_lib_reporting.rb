@@ -719,7 +719,6 @@ module OsLib_Reporting
         target_units = source_units
       end
 
-      target_units = 'kBtu'
       value = OpenStudio.convert(results.get, 'GJ', target_units).get
       value_neat = OpenStudio.toNeatString(value, 0, true)
       output_data_energy_use[:data] << [fuel_type, value_neat]
@@ -982,7 +981,7 @@ module OsLib_Reporting
       # Constrol type and temperature range
       setpoint = component.to_SetpointManagerScheduled.get
       supply_air_temp_schedule = setpoint.schedule
-      schedule_values = OsLib_Schedules.getMinMaxAnnualProfileValue(component.model, supply_air_temp_schedule)
+      schedule_values = OpenstudioStandards::Schedules.schedule_get_min_max(supply_air_temp_schedule)
       if schedule_values.nil?
         schedule_values_pretty = "can't inspect schedule"
         target_units = ''
@@ -1230,14 +1229,14 @@ module OsLib_Reporting
           if thermal_zone.thermostatSetpointDualSetpoint.is_initialized
             thermostat = thermal_zone.thermostatSetpointDualSetpoint.get
             if thermostat.coolingSetpointTemperatureSchedule.is_initialized
-              schedule_values = OsLib_Schedules.getMinMaxAnnualProfileValue(model, thermostat.coolingSetpointTemperatureSchedule.get)
+              schedule_values = OpenstudioStandards::Schedules.schedule_get_min_max(thermostat.coolingSetpointTemperatureSchedule.get)
               unless schedule_values.nil?
                 cooling_temp_ranges << schedule_values['min']
                 cooling_temp_ranges << schedule_values['max']
               end
             end
             if thermostat.heatingSetpointTemperatureSchedule.is_initialized
-              schedule_values = OsLib_Schedules.getMinMaxAnnualProfileValue(model, thermostat.heatingSetpointTemperatureSchedule.get)
+              schedule_values = OpenstudioStandards::Schedules.schedule_get_min_max(thermostat.heatingSetpointTemperatureSchedule.get)
               unless schedule_values.nil?
                 heating_temps_ranges << schedule_values['min']
                 heating_temps_ranges << schedule_values['max']
@@ -1717,19 +1716,20 @@ module OsLib_Reporting
           if use_old_gem_code
             shgc = construction_root.calculated_solar_heat_gain_coefficient
           else
-            shgc = std.construction_calculated_solar_heat_gain_coefficient(construction_root)
+            shgc = OpenstudioStandards::Constructions.construction_get_solar_transmittance(construction_root)
           end
           shgc_neat = OpenStudio.toNeatString(shgc, n_decimals_rvalue, false)
           if use_old_gem_code
             vlt = construction_root.calculated_visible_transmittance
           else
-            vlt = std.construction_calculated_visible_transmittance(construction_root)
+            vlt = OpenstudioStandards::Constructions.construction_get_visible_transmittance(construction_root) 
           end
           vlt_neat = OpenStudio.toNeatString(vlt, n_decimals_rvalue, false)
           if use_old_gem_code
             u_factor = construction_root.calculated_u_factor
           else
-            u_factor = std.construction_calculated_u_factor(construction_root)
+            surface_construction = construction_root.to_LayeredConstruction.get
+            u_factor = OpenstudioStandards::Constructions.construction_get_conductance(surface_construction)
           end
           ufactor_conv = OpenStudio.convert(u_factor, source_ufactor_units, target_ufactor_units).get
           ufactor_neat = OpenStudio.toNeatString(ufactor_conv, n_decimals_rvalue, false)
@@ -1870,7 +1870,7 @@ module OsLib_Reporting
       peak_flow_rate_neat = OpenStudio.toNeatString(peak_flow_rate_conv, n_decimals, true)
       if water_use_equipment_def.targetTemperatureSchedule.is_initialized
         target_temp_sch = water_use_equipment_def.targetTemperatureSchedule.get
-        schedule_values = OsLib_Schedules.getMinMaxAnnualProfileValue(model, target_temp_sch)
+        schedule_values = OpenstudioStandards::Schedules.schedule_get_min_max(target_temp_sch)
         if !schedule_values.nil?
           min_conv = OpenStudio.convert(schedule_values['min'], source_units_temp, target_units_temp).get
           max_conv = OpenStudio.convert(schedule_values['max'], source_units_temp, target_units_temp).get
