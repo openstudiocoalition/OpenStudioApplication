@@ -1482,7 +1482,6 @@ std::vector<BCLComponent> OSDocument::componentAttributeSearch(const std::vector
 boost::optional<BCLMeasure> OSDocument::standardReportMeasure() {
   // DLM: Breaking changes in openstudio_results measures prevent us from being able to ensure
   // that measure in users local BCL or remote BCL will work, just use measure in installer
-
   return BCLMeasure::load(m_resourcesPath / toPath("openstudio_results"));
 }
 
