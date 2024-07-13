@@ -1488,14 +1488,6 @@ boost::optional<BCLMeasure> OSDocument::standardReportMeasure() {
     result = BCLMeasure::load(m_resourcesPath / toPath("openstudio_results"));
   }
 
-  if (m_haveLocalBCL && RemoteBCL::isOnline()) {
-    RemoteBCL remoteBCL;
-    boost::optional<BCLMeasure> onlineResult = remoteBCL.getMeasure(uid);
-    if (onlineResult) {
-      result = onlineResult;
-    }
-  }
-
   return result;
 }
 
