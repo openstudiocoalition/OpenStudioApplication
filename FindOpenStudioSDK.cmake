@@ -6,7 +6,7 @@ set(OPENSTUDIO_VERSION "${OPENSTUDIO_VERSION_MAJOR}.${OPENSTUDIO_VERSION_MINOR}.
 #If this is an official release, leave this "", otherwise put for eg '-rc1'
 set(OPENSTUDIO_VERSION_PRERELEASE "")
 # Enter SHA, always, eg "+79857912c4"
-set(OPENSTUDIO_VERSION_SHA "+f953b6fcaf")
+set(OPENSTUDIO_VERSION_SHA "+ca6043ee16")
 
 # Paths where the cmake-downloaded archives will be put
 set(OPENSTUDIO_ARCHIVE_DIR "${PROJECT_BINARY_DIR}/OpenStudio-${OPENSTUDIO_VERSION}")
