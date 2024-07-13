@@ -1480,15 +1480,10 @@ std::vector<BCLComponent> OSDocument::componentAttributeSearch(const std::vector
 }
 
 boost::optional<BCLMeasure> OSDocument::standardReportMeasure() {
-  const std::string uid("a25386cd-60e4-46bc-8b11-c755f379d916");
-  boost::optional<BCLMeasure> result = getLocalMeasure(uid);
+  // DLM: Breaking changes in openstudio_results measures prevent us from being able to ensure
+  // that measure in users local BCL or remote BCL will work, just use measure in installer
 
-  if (!result) {
-    // if we don't have a result measure in local bcl, use the one in the installer
-    result = BCLMeasure::load(m_resourcesPath / toPath("openstudio_results"));
-  }
-
-  return result;
+  return BCLMeasure::load(m_resourcesPath / toPath("openstudio_results"));
 }
 
 bool OSDocument::save() {
