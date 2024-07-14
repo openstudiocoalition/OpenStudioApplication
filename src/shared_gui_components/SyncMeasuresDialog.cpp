@@ -124,7 +124,13 @@ void SyncMeasuresDialog::findUpdates() {
     boost::optional<BCLMeasure> workflowMeasure = m_workflow.getBCLMeasureByUUID(measure.uuid());
     if (workflowMeasure) {
       if (workflowMeasure->versionUUID() != measure.versionUUID()) {
-        m_measuresNeedingUpdates.push_back(measure);
+        if (workflowMeasure->versionModified() && measure.versionModified()) {
+          if (workflowMeasure->versionModified().get() < measure.versionModified().get()) {
+            m_measuresNeedingUpdates.push_back(measure);
+          }
+        } else {
+          m_measuresNeedingUpdates.push_back(measure);
+        }
       }
     }
 

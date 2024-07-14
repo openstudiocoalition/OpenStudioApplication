@@ -1315,7 +1315,7 @@ void OSDocument::addStandardMeasures() {
 
   // standard report measure
   bool srmAdded = false;
-  boost::optional<BCLMeasure> srm = standardReportMeasure();
+  boost::optional<BCLMeasure> srm = OSAppBase::instance()->measureManager().standardReportMeasure();
   if (srm) {
     try {
       std::pair<bool, std::string> result = OSAppBase::instance()->measureManager().updateMeasure(*srm);
@@ -1478,32 +1478,6 @@ std::vector<BCLComponent> OSDocument::componentAttributeSearch(const std::vector
     }
   }
   return result;
-}
-
-boost::optional<BCLMeasure> OSDocument::standardReportMeasure() {
-  // DLM: Breaking changes in openstudio_results measures prevent us from being able to ensure
-  // that measure in users local BCL or remote BCL will work, just use measure in installer
-  return BCLMeasure::load(m_resourcesPath / toPath("openstudio_results"));
-
-  /*
-  const std::string uid("a25386cd-60e4-46bc-8b11-c755f379d916");
-  boost::optional<BCLMeasure> result = getLocalMeasure(uid);
-
-  if (!result) {
-    // if we don't have a result measure in local bcl, use the one in the installer
-    result = BCLMeasure::load(m_resourcesPath / toPath("openstudio_results"));
-  }
-
-  if (m_haveLocalBCL && RemoteBCL::isOnline()) {
-    RemoteBCL remoteBCL;
-    boost::optional<BCLMeasure> onlineResult = remoteBCL.getMeasure(uid);
-    if (onlineResult) {
-      result = onlineResult;
-    }
-  }
-
-  return result;
-  */
 }
 
 bool OSDocument::save() {

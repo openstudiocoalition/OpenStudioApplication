@@ -104,6 +104,8 @@ class MeasureManager : public QObject
 
   void setUrl(const QUrl& url);
 
+  void setResourcesPath(const openstudio::path& resourcesPath);
+
   bool waitForStarted(int msec = 10000);
 
   void setLibraryController(const QSharedPointer<LocalLibraryController>& t_libraryController);
@@ -113,6 +115,9 @@ class MeasureManager : public QObject
 
   //// Saves the current model to a temp location, used when computing arguments
   void saveTempModel(const path& tempDir);
+
+  /// The standard report measure that comes with the application
+  boost::optional<BCLMeasure> standardReportMeasure() const;
 
   //// Measures downloaded from the BCL.
   std::vector<BCLMeasure> bclMeasures() const;
@@ -178,9 +183,6 @@ class MeasureManager : public QObject
   // Checks for updated versions
   void checkForRemoteBCLUpdates();
 
-  /// Downloads updated versions of all BCL measures
-  void downloadBCLMeasures();
-
   void addMeasure();
 
   void duplicateSelectedMeasure();
@@ -210,6 +212,7 @@ class MeasureManager : public QObject
   std::map<UUID, BCLMeasure> m_bclMeasures;
   std::map<openstudio::path, std::vector<measure::OSArgument>> m_measureArguments;
   QUrl m_url;
+  openstudio::path m_resourcesPath;
   QSharedPointer<LocalLibraryController> m_libraryController;
   bool m_started;
   QMutex m_mutex;

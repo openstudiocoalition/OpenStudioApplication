@@ -96,6 +96,10 @@ void MeasureManager::setUrl(const QUrl& url) {
   m_url = url;
 }
 
+void MeasureManager::setResourcesPath(const openstudio::path& resourcesPath) {
+  m_resourcesPath = resourcesPath;
+}
+
 bool MeasureManager::waitForStarted(int msec) {
   if (m_started) {
     return true;
@@ -199,6 +203,13 @@ void MeasureManager::saveTempModel(const path& tempDir) {
   m_measureArguments.clear();
 }
 
+
+boost::optional<BCLMeasure> MeasureManager::standardReportMeasure() const {
+  // DLM: Breaking changes in openstudio_results measures prevent us from being able to ensure
+  // that measure in users local BCL or remote BCL will work, just use measure in installer
+  return BCLMeasure::load(m_resourcesPath / toPath("openstudio_results"));
+}
+
 std::vector<BCLMeasure> MeasureManager::bclMeasures() const {
   std::vector<BCLMeasure> result;
   result.reserve(m_bclMeasures.size());
@@ -224,6 +235,7 @@ std::vector<BCLMeasure> MeasureManager::combinedMeasures() const {
   result.reserve(m_myMeasures.size() + m_bclMeasures.size());
 
   std::set<UUID> resultUUIDs;
+
   // insert my measures
   for (auto it = m_myMeasures.begin(), itend = m_myMeasures.end(); it != itend; ++it) {
     if (resultUUIDs.find(it->first) == resultUUIDs.end()) {
@@ -958,11 +970,25 @@ bool MeasureManager::checkForUpdates(const openstudio::path& measureDir, bool fo
 
 void MeasureManager::checkForRemoteBCLUpdates() {
   RemoteBCL remoteBCL;
-  int numUpdates = remoteBCL.checkForMeasureUpdates();
+  remoteBCL.checkForMeasureUpdates();
+  std::vector<BCLSearchResult> updates = remoteBCL.measuresWithUpdates();
+
+  // remove false updates (e.g. measure was updated after downloading from bcl due to incorrect sha)
+  updates.erase(std::remove_if(updates.begin(), updates.end(), [this](const BCLSearchResult& update) { 
+     auto current = m_bclMeasures.find(toUUID(update.uid()));
+      if (current != m_bclMeasures.end()) {
+        if (update.versionModified() && current->second.versionModified()) {
+          return update.versionModified().get() < current->second.versionModified().get();
+        }
+      }
+      return false;
+  }), updates.end());
+
+  int numUpdates = updates.size();
+
   if (numUpdates == 0) {
     QMessageBox::information(m_app->mainWidget(), tr("Measures Updated"), tr("All measures are up-to-date."));
-  } else {
-    std::vector<BCLSearchResult> updates = remoteBCL.measuresWithUpdates();
+  } else {    
 
     QString text(QString::number(numUpdates) + tr(" measures have been updated on BCL compared to your local BCL directory.\n")
                  + tr("Would you like update them?"));
@@ -994,50 +1020,6 @@ void MeasureManager::checkForRemoteBCLUpdates() {
 
       updateMeasuresLists(false);
     }
-  }
-}
-
-void MeasureManager::downloadBCLMeasures() {
-  RemoteBCL remoteBCL;
-  int numUpdates = remoteBCL.checkForMeasureUpdates();
-  if (numUpdates == 0) {
-    QMessageBox::information(m_app->mainWidget(), "Measures Updated", "All measures are up-to-date.");
-  } else {
-    std::vector<BCLSearchResult> updates = remoteBCL.measuresWithUpdates();
-
-    QString detailedText;
-    for (const BCLSearchResult& update : updates) {
-      detailedText += toQString("* name: " + update.name() + "\n");
-      detailedText += toQString(" - uid: " + update.uid() + "\n");
-      auto current = m_bclMeasures.find(toUUID(update.uid()));
-      if (current != m_bclMeasures.end()) {
-        detailedText += toQString(" - old versionId: " + current->second.versionId() + "\n");
-      }
-      detailedText += toQString(" - new versionId: " + update.versionId() + "\n\n");
-    }
-
-    remoteBCL.updateMeasures();
-
-    // remoteBCL.updateMeasures should remove outdated measures, but won't work correctly until https://github.com/NREL/OpenStudio/pull/5129
-    // if we have the new measure, delete outdated ones
-    for (const BCLSearchResult& update : updates) {
-      if (OSAppBase::instance()->currentDocument()->getLocalMeasure(update.uid(), update.versionId())) {
-        OSAppBase::instance()->currentDocument()->removeOutdatedLocalMeasures(update.uid(), update.versionId());
-      }
-    }
-
-    updateMeasuresLists(false);
-
-    QMessageBox msg(m_app->mainWidget());
-    msg.setIcon(QMessageBox::Information);
-    msg.setWindowTitle("Measures Updated");
-    if (numUpdates == 1) {
-      msg.setText("1 measure has been updated.");
-    } else {
-      msg.setText(QString::number(numUpdates) + " measures have been updated.");
-    }
-    msg.setDetailedText(detailedText);
-    msg.exec();
   }
 }
 

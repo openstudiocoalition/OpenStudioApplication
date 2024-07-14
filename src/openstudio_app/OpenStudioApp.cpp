@@ -221,6 +221,8 @@ OpenStudioApp::OpenStudioApp(int& argc, char** argv)
   waitDialog->show();
   emit resetWaitDialog();
 
+  measureManager().setResourcesPath(resourcesPath());
+
   // Non blocking
   startMeasureManagerProcess();
 
