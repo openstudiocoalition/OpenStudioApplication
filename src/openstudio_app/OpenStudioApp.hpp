@@ -276,7 +276,6 @@ class OpenStudioApp : public OSAppBase
   QTranslator m_qtTranslator;
   QTranslator m_qtBaseTranslator;
   QString m_currLang;
-  //bool m_useClassicCLI;
 
   // Try to find DView (or DView.exe) inside the PATH env variable. Will return an *empty* path if couldn't infer it
   openstudio::path inferredDViewPath() const;
