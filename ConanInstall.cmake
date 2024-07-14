@@ -156,7 +156,7 @@ if(NOT CONAN_OPENSTUDIO_ALREADY_RUN)
   if( APPLE AND ${CMAKE_HOST_SYSTEM_PROCESSOR} STREQUAL "arm64" )
     # most recent version of xcode gives error on boost 1.79.0:
     #    " ./boost/unordered/detail/fwd.hpp:53:16: error: no member named 'piecewise_construct' in namespace 'std'; did you mean 'piecewise_construct_t'?"
-    set(CONAN_BOOST "boost/1.79.0#de05119d37ed531ceb0a77012fe01228")
+    set(CONAN_BOOST "boost/1.79.0#f664bfe40e2245fa9baf1c742591d582")
   else()
     set(CONAN_BOOST "boost/1.79.0#f664bfe40e2245fa9baf1c742591d582")
   endif()
