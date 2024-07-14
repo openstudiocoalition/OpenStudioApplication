@@ -3,8 +3,8 @@
   <schema_version>3.1</schema_version>
   <name>openstudio_results</name>
   <uid>a25386cd-60e4-46bc-8b11-c755f379d916</uid>
-  <version_id>e90f7276-5253-493f-b3cd-dbac53a94fd1</version_id>
-  <version_modified>2024-07-11T18:49:34Z</version_modified>
+  <version_id>5b4d387a-f537-4693-a9eb-6192957b6c1b</version_id>
+  <version_modified>2024-07-11T14:31:57Z</version_modified>
   <xml_checksum>557BF06F</xml_checksum>
   <class_name>OpenStudioResults</class_name>
   <display_name>OpenStudio Results</display_name>
@@ -1406,10 +1406,82 @@
       <checksum>945F4BD1</checksum>
     </file>
     <file>
+      <filename>1004_SmallHotel_a.osm</filename>
+      <filetype>osm</filetype>
+      <usage_type>test</usage_type>
+      <checksum>C62949E8</checksum>
+    </file>
+    <file>
+      <filename>EdgeCaseModel.osm</filename>
+      <filetype>osm</filetype>
+      <usage_type>test</usage_type>
+      <checksum>4EEA709C</checksum>
+    </file>
+    <file>
+      <filename>EmptyModel.osm</filename>
+      <filetype>osm</filetype>
+      <usage_type>test</usage_type>
+      <checksum>A597C804</checksum>
+    </file>
+    <file>
+      <filename>ExampleModel.osm</filename>
+      <filetype>osm</filetype>
+      <usage_type>test</usage_type>
+      <checksum>42C65747</checksum>
+    </file>
+    <file>
+      <filename>ExampleModel.osm</filename>
+      <filetype>osm</filetype>
+      <usage_type>test</usage_type>
+      <checksum>42C65747</checksum>
+    </file>
+    <file>
+      <filename>HeatingOnly.osm</filename>
+      <filetype>osm</filetype>
+      <usage_type>test</usage_type>
+      <checksum>99A21A4F</checksum>
+    </file>
+    <file>
+      <filename>NoRunPeriod.osm</filename>
+      <filetype>osm</filetype>
+      <usage_type>test</usage_type>
+      <checksum>32622D37</checksum>
+    </file>
+    <file>
       <filename>OpenStudioResults_Test.rb</filename>
       <filetype>rb</filetype>
       <usage_type>test</usage_type>
       <checksum>EB58219A</checksum>
+    </file>
+    <file>
+      <filename>PeriodInConstName.osm</filename>
+      <filetype>osm</filetype>
+      <usage_type>test</usage_type>
+      <checksum>E41FBCFF</checksum>
+    </file>
+    <file>
+      <filename>PeriodInConstName.osm</filename>
+      <filetype>osm</filetype>
+      <usage_type>test</usage_type>
+      <checksum>E41FBCFF</checksum>
+    </file>
+    <file>
+      <filename>USA_CO_Golden-NREL.724666_TMY3.epw</filename>
+      <filetype>epw</filetype>
+      <usage_type>test</usage_type>
+      <checksum>BDF687C1</checksum>
+    </file>
+    <file>
+      <filename>add_tariff.osw</filename>
+      <filetype>osw</filetype>
+      <usage_type>test</usage_type>
+      <checksum>BF680A60</checksum>
+    </file>
+    <file>
+      <filename>add_tariff.osw</filename>
+      <filetype>osw</filetype>
+      <usage_type>test</usage_type>
+      <checksum>BF680A60</checksum>
     </file>
   </files>
 </measure>
