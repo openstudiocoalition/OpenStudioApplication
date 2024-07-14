@@ -96,7 +96,7 @@ jobs:
         #  BINARY_PKG_PATH: _CPack_Packages/Darwin/IFW
         #  COMPRESSED_PKG_PATH: _CPack_Packages/Darwin/TGZ
         #  MACOSX_DEPLOYMENT_TARGET: 11.0
-        #  SDKROOT: /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX.sdk
+        #  SDKROOT: /Applications/Xcode_15.0.1.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX.sdk
         #  QT_OS_NAME: mac
         #  QT_ARCH: clang_64
         - os: macos-arm64
@@ -111,7 +111,7 @@ jobs:
           BINARY_PKG_PATH: _CPack_Packages/Darwin/IFW
           COMPRESSED_PKG_PATH: _CPack_Packages/Darwin/TGZ
           MACOSX_DEPLOYMENT_TARGET: 12.1
-          SDKROOT: /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX.sdk
+          SDKROOT: /Applications/Xcode_15.0.1.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX.sdk
           QT_OS_NAME: mac
           QT_ARCH: arm_64
 
@@ -214,6 +214,9 @@ jobs:
             echo "Using previously installed ninja and IFW"
             echo "/Users/irvinemac/Qt/Tools/QtInstallerFramework/4.3/bin/" >> $GITHUB_PATH
           else
+            echo "Setting Xcode version"
+            sudo xcode-select -s "/Applications/Xcode_15.0.1.app/Contents/Developer/"
+
             echo "Using brew to install ninja"
             brew install ninja md5sha1sum ccache
 
