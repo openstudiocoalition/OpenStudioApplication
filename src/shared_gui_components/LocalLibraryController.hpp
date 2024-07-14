@@ -89,7 +89,6 @@ class LocalLibraryController : public QObject
  private slots:
   void addMeasure();
   void duplicateSelectedMeasure();
-  void downloadUpdatedBCLMeasures();
   void openBclDlg();
   void checkForRemoteBCLUpdates();
 
