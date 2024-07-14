@@ -5,8 +5,8 @@
 if(NOT CONAN_OPENSTUDIO_ALREADY_RUN)
 
   set(CMAKE_CONAN_EXPECTED_HASH
-      5cdb3042632da3efff558924eecefd580a0e786863a857ca097c3d1d43df5dcd)
-  set(CMAKE_CONAN_VERSION "0.18.1")
+      6abed7382c98a76b447675b30baff6a0b2f5d263041f6eb2fb682b80adaa2555)
+  set(CMAKE_CONAN_VERSION "b240c809b5ea097077fc8222cad71d2329288e48")
 
   if(EXISTS "${CMAKE_BINARY_DIR}/conan.cmake")
     file(SHA256 "${CMAKE_BINARY_DIR}/conan.cmake" CMAKE_CONAN_HASH)
@@ -153,6 +153,14 @@ if(NOT CONAN_OPENSTUDIO_ALREADY_RUN)
     set(CONAN_OPENSSL "openssl/1.1.1o#213dbdeb846a4b40b4dec36cf2e673d7")
   endif()
 
+  if( APPLE AND ${CMAKE_HOST_SYSTEM_PROCESSOR} STREQUAL "arm64" )
+    # most recent version of xcode gives error on boost 1.79.0:
+    #    " ./boost/unordered/detail/fwd.hpp:53:16: error: no member named 'piecewise_construct' in namespace 'std'; did you mean 'piecewise_construct_t'?"
+    set(CONAN_BOOST "boost/1.84.0#85fab16ba3b744074ca9733d2ed5fe5a")
+  else()
+    set(CONAN_BOOST "boost/1.79.0#f664bfe40e2245fa9baf1c742591d582")
+  endif()
+
   message(STATUS "Conan: conan_cmake_configure")
   # This will create the conanfile.txt
   conan_cmake_configure(
@@ -162,7 +170,7 @@ if(NOT CONAN_OPENSTUDIO_ALREADY_RUN)
     ${CONAN_GMP}
     ${CONAN_RUBY}
     ${CONAN_OPENSSL}
-    "boost/1.79.0#f664bfe40e2245fa9baf1c742591d582"
+    ${CONAN_BOOST}
     "pugixml/1.12.1#5a39f82651eba3e7d6197903a3202e21"
     "libxml2/2.9.14#fc433aeebfe525657d73334c61f96944"
     "libxslt/1.1.34#9085031f5b9b2bb328ad615cd1bf1282"
