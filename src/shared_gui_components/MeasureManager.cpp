@@ -203,7 +203,6 @@ void MeasureManager::saveTempModel(const path& tempDir) {
   m_measureArguments.clear();
 }
 
-
 boost::optional<BCLMeasure> MeasureManager::standardReportMeasure() const {
   // DLM: Breaking changes in openstudio_results measures prevent us from being able to ensure
   // that measure in users local BCL or remote BCL will work, just use measure in installer
@@ -974,21 +973,23 @@ void MeasureManager::checkForRemoteBCLUpdates() {
   std::vector<BCLSearchResult> updates = remoteBCL.measuresWithUpdates();
 
   // remove false updates (e.g. measure was updated after downloading from bcl due to incorrect sha)
-  updates.erase(std::remove_if(updates.begin(), updates.end(), [this](const BCLSearchResult& update) { 
-     auto current = m_bclMeasures.find(toUUID(update.uid()));
-      if (current != m_bclMeasures.end()) {
-        if (update.versionModified() && current->second.versionModified()) {
-          return update.versionModified().get() < current->second.versionModified().get();
-        }
-      }
-      return false;
-  }), updates.end());
+  updates.erase(std::remove_if(updates.begin(), updates.end(),
+                               [this](const BCLSearchResult& update) {
+                                 auto current = m_bclMeasures.find(toUUID(update.uid()));
+                                 if (current != m_bclMeasures.end()) {
+                                   if (update.versionModified() && current->second.versionModified()) {
+                                     return update.versionModified().get() < current->second.versionModified().get();
+                                   }
+                                 }
+                                 return false;
+                               }),
+                updates.end());
 
   int numUpdates = updates.size();
 
   if (numUpdates == 0) {
     QMessageBox::information(m_app->mainWidget(), tr("Measures Updated"), tr("All measures are up-to-date."));
-  } else {    
+  } else {
 
     QString text(QString::number(numUpdates) + tr(" measures have been updated on BCL compared to your local BCL directory.\n")
                  + tr("Would you like update them?"));
