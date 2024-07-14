@@ -181,19 +181,28 @@ void MeasureStepController::removeItemForStep(MeasureStep step) {
   std::vector<MeasureStep> oldMeasureSteps = measureSteps();
 
   bool didRemove = false;
+  bool canDeleteMeasure = true;
   std::vector<MeasureStep> newMeasureSteps;
   newMeasureSteps.reserve(oldMeasureSteps.size());
   for (const auto& oldMeasureStep : oldMeasureSteps) {
     if (oldMeasureStep == step) {
       didRemove = true;
     } else {
+      if (oldMeasureStep.measureDirName() == step.measureDirName()) {
+        canDeleteMeasure = false;
+      }
       newMeasureSteps.push_back(oldMeasureStep);
     }
   }
 
   if (didRemove) {
-    // DLM: TODO actually remove the directory here, make sure it not being used by any other steps first
-    // maybe want a purge unused measures in WorkflowJSON?
+    // remove the measure
+    if (canDeleteMeasure) {
+      boost::optional<openstudio::path> measureDir = m_app->currentModel()->workflowJSON().findMeasure(step.measureDirName());
+      if (measureDir && openstudio::filesystem::exists(*measureDir)) {
+        openstudio::filesystem::remove_all(*measureDir);
+      }
+    }
 
     // set the new steps
     m_app->currentModel()->workflowJSON().setMeasureSteps(m_measureType, newMeasureSteps);
