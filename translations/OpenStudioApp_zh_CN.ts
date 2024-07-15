@@ -33,23 +33,23 @@
 <context>
     <name>InspectorGadget</name>
     <message>
-        <location filename="../src/model_editor/InspectorGadget.cpp" line="608"/>
-        <location filename="../src/model_editor/InspectorGadget.cpp" line="653"/>
+        <location filename="../src/model_editor/InspectorGadget.cpp" line="656"/>
+        <location filename="../src/model_editor/InspectorGadget.cpp" line="701"/>
         <source>Hard Sized</source>
         <translation>人工计算</translation>
     </message>
     <message>
-        <location filename="../src/model_editor/InspectorGadget.cpp" line="609"/>
+        <location filename="../src/model_editor/InspectorGadget.cpp" line="657"/>
         <source>Autosized</source>
         <translation>自动计算</translation>
     </message>
     <message>
-        <location filename="../src/model_editor/InspectorGadget.cpp" line="654"/>
+        <location filename="../src/model_editor/InspectorGadget.cpp" line="702"/>
         <source>Autocalculate</source>
         <translation>自动计算</translation>
     </message>
     <message>
-        <location filename="../src/model_editor/InspectorGadget.cpp" line="832"/>
+        <location filename="../src/model_editor/InspectorGadget.cpp" line="880"/>
         <source>Add/Remove Extensible Groups</source>
         <translation>增加/删除 扩展组</translation>
     </message>
@@ -516,141 +516,141 @@ Zone</source>
 <context>
     <name>openstudio::MainMenu</name>
     <message>
-        <location filename="../src/openstudio_lib/MainMenu.cpp" line="51"/>
+        <location filename="../src/openstudio_lib/MainMenu.cpp" line="58"/>
         <source>&amp;File</source>
         <translation>&amp;文件</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/MainMenu.cpp" line="55"/>
+        <location filename="../src/openstudio_lib/MainMenu.cpp" line="62"/>
         <source>&amp;New</source>
         <translation>&amp;新建</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/MainMenu.cpp" line="61"/>
+        <location filename="../src/openstudio_lib/MainMenu.cpp" line="68"/>
         <source>&amp;Open</source>
         <translation>&amp;打开</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/MainMenu.cpp" line="68"/>
-        <location filename="../src/openstudio_lib/MainMenu.cpp" line="765"/>
+        <location filename="../src/openstudio_lib/MainMenu.cpp" line="75"/>
+        <location filename="../src/openstudio_lib/MainMenu.cpp" line="788"/>
         <source>&amp;Revert to Saved</source>
         <translation>&amp;恢复到之前保存</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/MainMenu.cpp" line="69"/>
+        <location filename="../src/openstudio_lib/MainMenu.cpp" line="76"/>
         <source>Ctrl+R</source>
         <translation>Ctrl+R</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/MainMenu.cpp" line="75"/>
+        <location filename="../src/openstudio_lib/MainMenu.cpp" line="82"/>
         <source>&amp;Save</source>
         <translation>&amp;保存</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/MainMenu.cpp" line="80"/>
+        <location filename="../src/openstudio_lib/MainMenu.cpp" line="87"/>
         <source>Save &amp;As</source>
         <translation>&amp;另存为</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/MainMenu.cpp" line="88"/>
+        <location filename="../src/openstudio_lib/MainMenu.cpp" line="95"/>
         <source>&amp;Import</source>
         <translation>&amp;导入</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/MainMenu.cpp" line="90"/>
-        <location filename="../src/openstudio_lib/MainMenu.cpp" line="112"/>
+        <location filename="../src/openstudio_lib/MainMenu.cpp" line="97"/>
+        <location filename="../src/openstudio_lib/MainMenu.cpp" line="119"/>
         <source>&amp;IDF</source>
         <translation>&amp;IDF</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/MainMenu.cpp" line="95"/>
-        <location filename="../src/openstudio_lib/MainMenu.cpp" line="116"/>
+        <location filename="../src/openstudio_lib/MainMenu.cpp" line="102"/>
+        <location filename="../src/openstudio_lib/MainMenu.cpp" line="123"/>
         <source>&amp;gbXML</source>
         <translation>&amp;gbXML</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/MainMenu.cpp" line="100"/>
-        <location filename="../src/openstudio_lib/MainMenu.cpp" line="120"/>
+        <location filename="../src/openstudio_lib/MainMenu.cpp" line="107"/>
+        <location filename="../src/openstudio_lib/MainMenu.cpp" line="127"/>
         <source>&amp;SDD</source>
         <translation>&amp;SDD</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/MainMenu.cpp" line="105"/>
+        <location filename="../src/openstudio_lib/MainMenu.cpp" line="112"/>
         <source>I&amp;FC</source>
         <translation>I&amp;FC</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/MainMenu.cpp" line="110"/>
+        <location filename="../src/openstudio_lib/MainMenu.cpp" line="117"/>
         <source>&amp;Export</source>
         <translation>&amp;导出</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/MainMenu.cpp" line="124"/>
+        <location filename="../src/openstudio_lib/MainMenu.cpp" line="131"/>
         <source>&amp;Load Library</source>
         <translation>&amp;加载资料库</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/MainMenu.cpp" line="130"/>
+        <location filename="../src/openstudio_lib/MainMenu.cpp" line="137"/>
         <source>E&amp;xamples</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/MainMenu.cpp" line="132"/>
+        <location filename="../src/openstudio_lib/MainMenu.cpp" line="139"/>
         <source>&amp;Example Model</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/MainMenu.cpp" line="145"/>
+        <location filename="../src/openstudio_lib/MainMenu.cpp" line="152"/>
         <source>E&amp;xit</source>
         <translation>&amp;退出</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/MainMenu.cpp" line="152"/>
+        <location filename="../src/openstudio_lib/MainMenu.cpp" line="159"/>
         <source>&amp;Preferences</source>
         <translation>&amp;设置</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/MainMenu.cpp" line="155"/>
+        <location filename="../src/openstudio_lib/MainMenu.cpp" line="162"/>
         <source>&amp;Units</source>
         <translation>&amp;单位</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/MainMenu.cpp" line="157"/>
+        <location filename="../src/openstudio_lib/MainMenu.cpp" line="164"/>
         <source>Metric (&amp;SI)</source>
         <translation>公制 （&amp;SI）</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/MainMenu.cpp" line="163"/>
+        <location filename="../src/openstudio_lib/MainMenu.cpp" line="170"/>
         <source>English (&amp;I-P)</source>
         <translation>英制 （&amp;I-P）</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/MainMenu.cpp" line="169"/>
+        <location filename="../src/openstudio_lib/MainMenu.cpp" line="176"/>
         <source>&amp;Change My Measures Directory</source>
         <translation>&amp;修改我的脚本文件夹</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/MainMenu.cpp" line="174"/>
+        <location filename="../src/openstudio_lib/MainMenu.cpp" line="181"/>
         <source>&amp;Change Default Libraries</source>
         <translation>&amp;设置默认资料库</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/MainMenu.cpp" line="179"/>
+        <location filename="../src/openstudio_lib/MainMenu.cpp" line="186"/>
         <source>&amp;Configure External Tools</source>
         <translation>&amp;设置外置工具</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/MainMenu.cpp" line="184"/>
+        <location filename="../src/openstudio_lib/MainMenu.cpp" line="191"/>
         <source>&amp;Language</source>
         <translation>&amp;语言</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/MainMenu.cpp" line="186"/>
+        <location filename="../src/openstudio_lib/MainMenu.cpp" line="193"/>
         <source>English</source>
         <translation>英语</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/MainMenu.cpp" line="192"/>
+        <location filename="../src/openstudio_lib/MainMenu.cpp" line="199"/>
         <source>French</source>
         <translation>法语</translation>
     </message>
@@ -659,142 +659,147 @@ Zone</source>
         <translation type="vanished">阿拉伯语</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/MainMenu.cpp" line="198"/>
+        <location filename="../src/openstudio_lib/MainMenu.cpp" line="205"/>
         <source>Spanish</source>
         <translation>西班牙语</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/MainMenu.cpp" line="204"/>
+        <location filename="../src/openstudio_lib/MainMenu.cpp" line="211"/>
         <source>Farsi</source>
         <translation>波斯语</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/MainMenu.cpp" line="270"/>
+        <location filename="../src/openstudio_lib/MainMenu.cpp" line="277"/>
         <source>Hebrew</source>
         <translation>希伯来语</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/MainMenu.cpp" line="210"/>
+        <location filename="../src/openstudio_lib/MainMenu.cpp" line="217"/>
         <source>Italian</source>
         <translation>意大利语</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/MainMenu.cpp" line="216"/>
+        <location filename="../src/openstudio_lib/MainMenu.cpp" line="223"/>
         <source>Chinese</source>
         <translation>中文</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/MainMenu.cpp" line="222"/>
+        <location filename="../src/openstudio_lib/MainMenu.cpp" line="229"/>
         <source>Greek</source>
         <translation>希腊语</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/MainMenu.cpp" line="228"/>
+        <location filename="../src/openstudio_lib/MainMenu.cpp" line="235"/>
         <source>Polish</source>
         <translation>波兰语</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/MainMenu.cpp" line="234"/>
+        <location filename="../src/openstudio_lib/MainMenu.cpp" line="241"/>
         <source>Catalan</source>
         <translation>加泰罗尼亚语</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/MainMenu.cpp" line="240"/>
+        <location filename="../src/openstudio_lib/MainMenu.cpp" line="247"/>
         <source>Hindi</source>
         <translation>印地语</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/MainMenu.cpp" line="246"/>
+        <location filename="../src/openstudio_lib/MainMenu.cpp" line="253"/>
         <source>Vietnamese</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/MainMenu.cpp" line="252"/>
+        <location filename="../src/openstudio_lib/MainMenu.cpp" line="259"/>
         <source>Japanese</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/MainMenu.cpp" line="258"/>
+        <location filename="../src/openstudio_lib/MainMenu.cpp" line="265"/>
         <source>German</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/MainMenu.cpp" line="276"/>
+        <location filename="../src/openstudio_lib/MainMenu.cpp" line="283"/>
         <source>Add a new language</source>
         <translation>添加新语言</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/MainMenu.cpp" line="293"/>
+        <location filename="../src/openstudio_lib/MainMenu.cpp" line="300"/>
         <source>&amp;Configure Internet Proxy</source>
         <translation>&amp;设置网络代理</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/MainMenu.cpp" line="298"/>
+        <location filename="../src/openstudio_lib/MainMenu.cpp" line="305"/>
         <source>&amp;Use Classic CLI</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/MainMenu.cpp" line="365"/>
+        <location filename="../src/openstudio_lib/MainMenu.cpp" line="311"/>
+        <source>&amp;Display Additional Proprerties</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../src/openstudio_lib/MainMenu.cpp" line="382"/>
         <source>&amp;Components &amp;&amp; Measures</source>
         <translation>&amp;组件 &amp;&amp; 脚本</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/MainMenu.cpp" line="368"/>
+        <location filename="../src/openstudio_lib/MainMenu.cpp" line="385"/>
         <source>&amp;Apply Measure Now</source>
         <translation>&amp;应用脚本</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/MainMenu.cpp" line="370"/>
+        <location filename="../src/openstudio_lib/MainMenu.cpp" line="387"/>
         <source>Ctrl+M</source>
         <translation>Ctrl+M</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/MainMenu.cpp" line="374"/>
+        <location filename="../src/openstudio_lib/MainMenu.cpp" line="391"/>
         <source>Find &amp;Measures</source>
         <translation>查找 &amp;脚本</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/MainMenu.cpp" line="379"/>
+        <location filename="../src/openstudio_lib/MainMenu.cpp" line="396"/>
         <source>Find &amp;Components</source>
         <translation>查找 &amp;组件</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/MainMenu.cpp" line="385"/>
+        <location filename="../src/openstudio_lib/MainMenu.cpp" line="402"/>
         <source>&amp;Help</source>
         <translation>&amp;帮助</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/MainMenu.cpp" line="388"/>
+        <location filename="../src/openstudio_lib/MainMenu.cpp" line="405"/>
         <source>OpenStudio &amp;Help</source>
         <translation>OpenStudio &amp;帮助</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/MainMenu.cpp" line="392"/>
+        <location filename="../src/openstudio_lib/MainMenu.cpp" line="409"/>
         <source>Check For &amp;Update</source>
         <translation>&amp;检查更新</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/MainMenu.cpp" line="396"/>
+        <location filename="../src/openstudio_lib/MainMenu.cpp" line="413"/>
         <source>Allow Analytics</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/MainMenu.cpp" line="403"/>
+        <location filename="../src/openstudio_lib/MainMenu.cpp" line="420"/>
         <source>Debug Webgl</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/MainMenu.cpp" line="407"/>
+        <location filename="../src/openstudio_lib/MainMenu.cpp" line="424"/>
         <source>&amp;About</source>
         <translation>&amp;关于</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/MainMenu.cpp" line="731"/>
+        <location filename="../src/openstudio_lib/MainMenu.cpp" line="748"/>
         <source>Adding a new language</source>
         <translation>增加新语言</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/MainMenu.cpp" line="732"/>
+        <location filename="../src/openstudio_lib/MainMenu.cpp" line="749"/>
         <source>Adding a new language requires almost no coding skill, but it does require language skills: the only thing to do is to translate each sentence/word with the help of a dedicated software.
 If you would like to see the OpenStudioApplication translated in your language of choice, we would welcome your help. Send an email to osc@openstudiocoalition.org specifying which language you want to add, and we will be in touch to help you get started.</source>
         <translation>增加一种新语言不需要有编程背景，只要有语言能力：你只要做的是在专用软件里翻译对应的词句。
@@ -804,22 +809,22 @@ If you would like to see the OpenStudioApplication translated in your language o
 <context>
     <name>openstudio::MainWindow</name>
     <message>
-        <location filename="../src/openstudio_lib/MainWindow.cpp" line="341"/>
+        <location filename="../src/openstudio_lib/MainWindow.cpp" line="345"/>
         <source>Restart required</source>
         <translation type="unfinished">要求重启</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/MainWindow.cpp" line="341"/>
+        <location filename="../src/openstudio_lib/MainWindow.cpp" line="345"/>
         <source>Restart the OpenStudio Application to reset Measure Manager.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/MainWindow.cpp" line="415"/>
+        <location filename="../src/openstudio_lib/MainWindow.cpp" line="419"/>
         <source>Allow Analytics</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/MainWindow.cpp" line="416"/>
+        <location filename="../src/openstudio_lib/MainWindow.cpp" line="420"/>
         <source>Allow OpenStudio Coalition to collect anonymous usage statistics to help improve the OpenStudio Application? See the &lt;a href=&quot;https://openstudiocoalition.org/about/privacy_policy/&quot;&gt;privacy policy&lt;/a&gt; for more information.</source>
         <translation type="unfinished"></translation>
     </message>
@@ -852,45 +857,45 @@ If you would like to see the OpenStudioApplication translated in your language o
 <context>
     <name>openstudio::OSDocument</name>
     <message>
-        <location filename="../src/openstudio_lib/OSDocument.cpp" line="1223"/>
+        <location filename="../src/openstudio_lib/OSDocument.cpp" line="1236"/>
         <source>Export Idf</source>
         <translation>导出 Idf</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/OSDocument.cpp" line="1223"/>
+        <location filename="../src/openstudio_lib/OSDocument.cpp" line="1236"/>
         <source>(*.idf)</source>
         <translation>(*.idf)</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/OSDocument.cpp" line="1258"/>
+        <location filename="../src/openstudio_lib/OSDocument.cpp" line="1271"/>
         <source>(*.xml)</source>
         <translation>(*.xml)</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/OSDocument.cpp" line="1526"/>
-        <location filename="../src/openstudio_lib/OSDocument.cpp" line="1601"/>
+        <location filename="../src/openstudio_lib/OSDocument.cpp" line="1539"/>
+        <location filename="../src/openstudio_lib/OSDocument.cpp" line="1614"/>
         <source>Failed to save model</source>
         <translation>保存失败</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/OSDocument.cpp" line="1527"/>
-        <location filename="../src/openstudio_lib/OSDocument.cpp" line="1602"/>
+        <location filename="../src/openstudio_lib/OSDocument.cpp" line="1540"/>
+        <location filename="../src/openstudio_lib/OSDocument.cpp" line="1615"/>
         <source>Failed to save model, make sure that you do not have the location open and that you have correct write access.</source>
         <translation>保存失败，请确保你的保存地址有效且可覆盖。</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/OSDocument.cpp" line="1570"/>
+        <location filename="../src/openstudio_lib/OSDocument.cpp" line="1583"/>
         <source>Save</source>
         <translation>保存</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/OSDocument.cpp" line="1570"/>
+        <location filename="../src/openstudio_lib/OSDocument.cpp" line="1583"/>
         <source>(*.osm)</source>
         <translation>(*.osm)</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/OSDocument.cpp" line="1764"/>
-        <location filename="../src/openstudio_lib/OSDocument.cpp" line="1766"/>
+        <location filename="../src/openstudio_lib/OSDocument.cpp" line="1777"/>
+        <location filename="../src/openstudio_lib/OSDocument.cpp" line="1779"/>
         <source>Select My Measures Directory</source>
         <translation>选择我的脚本文件夹</translation>
     </message>

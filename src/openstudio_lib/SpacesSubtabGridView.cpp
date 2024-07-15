@@ -122,8 +122,9 @@
 
 namespace openstudio {
 
-SpacesSubtabGridView::SpacesSubtabGridView(bool isIP, const model::Model& model, QWidget* parent)
-  : GridViewSubTab(isIP, model, parent), m_spacesModelObjects(subsetCastVector<model::ModelObject>(model.getConcreteModelObjects<model::Space>())) {
+SpacesSubtabGridView::SpacesSubtabGridView(bool isIP, bool displayAdditionalProps, const model::Model& model, QWidget* parent)
+  : GridViewSubTab(isIP, displayAdditionalProps, model, parent),
+    m_spacesModelObjects(subsetCastVector<model::ModelObject>(model.getConcreteModelObjects<model::Space>())) {
 
   // Filters
 

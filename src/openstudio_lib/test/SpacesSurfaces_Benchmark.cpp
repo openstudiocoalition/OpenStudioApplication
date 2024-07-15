@@ -84,7 +84,7 @@ static void BM_SpacesSurfaces(benchmark::State& state) {
 
   // Code inside this loop is measured repeatedly
   for (auto _ : state) {
-    auto gridView = std::make_shared<SpacesSurfacesGridView>(false, model);
+    auto gridView = std::make_shared<SpacesSurfacesGridView>(false, false, model);
     openstudio::Application::instance().application(true)->processEvents();
     benchmark::DoNotOptimize(gridView);
   };

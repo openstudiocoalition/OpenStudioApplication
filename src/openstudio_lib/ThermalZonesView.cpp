@@ -42,19 +42,19 @@
 
 namespace openstudio {
 
-ThermalZonesView::ThermalZonesView(bool isIP, const model::Model& model, QWidget* parent)
-  : ModelSubTabView(new ModelObjectListView(IddObjectType::OS_ThermalZone, model, true, false, parent), new ThermalZoneView(isIP, model, parent),
-                    true, parent) {
+ThermalZonesView::ThermalZonesView(bool isIP, bool displayAdditionalProps, const model::Model& model, QWidget* parent)
+  : ModelSubTabView(new ModelObjectListView(IddObjectType::OS_ThermalZone, model, true, false, parent),
+                    new ThermalZoneView(isIP, displayAdditionalProps, model, parent), true, parent) {
 
   connect(itemSelector(), &OSItemSelector::selectionCleared, inspectorView(), &OSInspectorView::clearSelection);
 
   connect(inspectorView(), &OSInspectorView::dropZoneItemClicked, this, &ThermalZonesView::dropZoneItemClicked);
 }
 
-ThermalZoneView::ThermalZoneView(bool isIP, const model::Model& model, QWidget* parent)
-  : ModelObjectInspectorView(model, true, parent), m_isIP(isIP) {
+ThermalZoneView::ThermalZoneView(bool isIP, bool displayAdditionalProps, const model::Model& model, QWidget* parent)
+  : ModelObjectInspectorView(model, true, parent), m_isIP(isIP), m_displayAdditionalProps(displayAdditionalProps) {
 
-  m_thermalZonesGridView = new ThermalZonesGridView(this->m_isIP, this->m_model, this);
+  m_thermalZonesGridView = new ThermalZonesGridView(this->m_isIP, this->m_displayAdditionalProps, this->m_model, this);
   this->stackedWidget()->addWidget(m_thermalZonesGridView);
 
   connect(m_thermalZonesGridView, &ThermalZonesGridView::dropZoneItemClicked, this, &ThermalZoneView::dropZoneItemClicked);
@@ -64,6 +64,12 @@ ThermalZoneView::ThermalZoneView(bool isIP, const model::Model& model, QWidget* 
   connect(this, &ThermalZoneView::toggleUnitsClicked, this, &ThermalZoneView::toggleUnits);
 
   connect(this, &ThermalZoneView::toggleUnitsClicked, m_thermalZonesGridView, &ThermalZonesGridView::toggleUnitsClicked);
+
+  connect(this, &ThermalZoneView::toggleDisplayAdditionalPropsClicked, this, &ThermalZoneView::toggleDisplayAdditionalProps);
+
+  connect(this, &ThermalZoneView::toggleDisplayAdditionalPropsClicked, m_thermalZonesGridView,
+          &ThermalZonesGridView::toggleDisplayAdditionalPropsClicked);
+
   refresh();
 }
 
@@ -81,6 +87,10 @@ void ThermalZoneView::refresh() {}
 
 void ThermalZoneView::toggleUnits(bool isIP) {
   m_isIP = isIP;
+}
+
+void ThermalZoneView::toggleDisplayAdditionalProps(bool displayAdditionalProps) {
+  m_displayAdditionalProps = displayAdditionalProps;
 }
 
 }  // namespace openstudio

@@ -1,5 +1,8 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <ROOT>
+  <POLICY IddObjectType="OS_AdditionalProperties">
+    <rule IddField="Object Name" Access="HIDDEN" />
+  </POLICY>
   <POLICY IddObjectType="OS_AirLoopHVAC_SupplyPlenum">
     <rule IddField="Thermal Zone" Access="LOCKED" />
     <rule IddField="Inlet Node" Access="HIDDEN" />

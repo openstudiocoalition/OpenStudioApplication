@@ -55,7 +55,7 @@ class GridViewSubTab : public QWidget
   Q_OBJECT
 
  public:
-  GridViewSubTab(bool isIP, const model::Model& model, QWidget* parent = nullptr);
+  GridViewSubTab(bool isIP, bool displayAdditionalProps, const model::Model& model, QWidget* parent = nullptr);
 
   virtual ~GridViewSubTab() = default;
 
@@ -84,6 +84,8 @@ class GridViewSubTab : public QWidget
 
   bool m_isIP;
 
+  bool m_displayAdditionalProps;
+
   QVBoxLayout* m_scrollLayout = nullptr;
 
   OSItemSelectorButtons* m_itemSelectorButtons = nullptr;
@@ -91,6 +93,8 @@ class GridViewSubTab : public QWidget
  signals:
 
   void toggleUnitsClicked(bool displayIP);
+
+  void toggleDisplayAdditionalPropsClicked(bool displayAdditionalProps);
 
   void dropZoneItemSelected(OSItem* item, bool readOnly);
 
@@ -113,6 +117,8 @@ class GridViewSubTab : public QWidget
   void onPurgeClicked();
 
   void toggleUnits(bool isIP);
+
+  void toggleDisplayAdditionalProps(bool displayAdditionalProps);
 
   virtual void onSelectItem() = 0;
 

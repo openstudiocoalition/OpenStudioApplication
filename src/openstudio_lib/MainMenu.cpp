@@ -42,8 +42,15 @@
 
 namespace openstudio {
 
-MainMenu::MainMenu(bool isIP, bool isPlugin, const QString& currLang, bool allowAnalytics, bool useClassicCLI, QWidget* parent)
-  : QMenuBar(parent), m_isPlugin(isPlugin), m_isIP(isIP), m_currLang(currLang), m_allowAnalytics(allowAnalytics), m_useClassicCLI(useClassicCLI) {
+MainMenu::MainMenu(bool isIP, bool isPlugin, const QString& currLang, bool allowAnalytics, bool useClassicCLI, bool displayAdditionalProps,
+                   QWidget* parent)
+  : QMenuBar(parent),
+    m_isPlugin(isPlugin),
+    m_isIP(isIP),
+    m_currLang(currLang),
+    m_allowAnalytics(allowAnalytics),
+    m_useClassicCLI(useClassicCLI),
+    m_displayAdditionalProps(displayAdditionalProps) {
 
   QAction* action = nullptr;
 
@@ -301,6 +308,12 @@ MainMenu::MainMenu(bool isIP, bool isPlugin, const QString& currLang, bool allow
   m_preferencesMenu->addAction(m_useClassicCLIAction);
   connect(m_useClassicCLIAction, &QAction::triggered, this, &MainMenu::useClassicCLIClicked, Qt::QueuedConnection);
 
+  m_displayAdditionalPropsAction = new QAction(tr("&Display Additional Proprerties"), this);
+  m_displayAdditionalPropsAction->setCheckable(true);
+  m_preferencesActions.push_back(m_displayAdditionalPropsAction);
+  m_preferencesMenu->addAction(m_displayAdditionalPropsAction);
+  connect(m_displayAdditionalPropsAction, &QAction::triggered, this, &MainMenu::enableDisplayAdditionalProps, Qt::QueuedConnection);
+
   if (m_isIP) {
     m_displayIPUnitsAction->trigger();
   } else {
@@ -309,6 +322,10 @@ MainMenu::MainMenu(bool isIP, bool isPlugin, const QString& currLang, bool allow
 
   if (m_useClassicCLI) {
     m_useClassicCLIAction->setChecked(true);
+  }
+
+  if (m_displayAdditionalProps) {
+    m_displayAdditionalPropsAction->setChecked(true);
   }
 
   m_langEnglishAction->setChecked(false);
@@ -752,6 +769,12 @@ void MainMenu::enableUseClassicCLI(bool enable) {
 }
 void MainMenu::toggleUseClassicCLI() {
   enableUseClassicCLI(!m_useClassicCLI);
+}
+
+void MainMenu::enableDisplayAdditionalProps(bool displayAdditionalProps) {
+  m_displayAdditionalProps = displayAdditionalProps;
+  m_displayAdditionalPropsAction->setChecked(m_displayAdditionalProps);
+  emit displayAdditionalPropsClicked(m_displayAdditionalProps);
 }
 
 void MainMenu::enableRevertToSavedAction(bool enable) {

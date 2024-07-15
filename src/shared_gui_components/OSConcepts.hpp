@@ -258,6 +258,24 @@ std::function<RetType(FromDataType*, Param1)> ProxyAdapter(RetType (ToDataType::
   return std::bind(&OneParamProxy<RetType, FromDataType, Param1, ToDataType>, std::placeholders::_1, std::placeholders::_2, outter, inner);
 }
 
+// Getter: discards the bool parameter it usually expects for IdfObject::name(bool returnDefault)
+template <typename DataType>
+std::function<boost::optional<std::string>(DataType*, bool)> DisplayNameAdapter(boost::optional<std::string> (DataType::*t_func)() const) {
+  return std::function<boost::optional<std::string>(DataType*, bool)>([t_func](DataType* obj, bool) { return (obj->*t_func)(); });
+}
+
+// Setter: changes a bool setDisplayName(const std::string& displayName) to `optional<string> setDisplayName(const std::string&)`
+template <typename DataType>
+std::function<boost::optional<std::string>(DataType*, const std::string&)> DisplayNameAdapter(bool (DataType::*t_func)(const std::string&)) {
+  return std::function<boost::optional<std::string>(DataType*, const std::string&)>([t_func](DataType* obj, std::string p1) {
+    bool result = (obj->*t_func)(p1);
+    if (result) {
+      return boost::optional<std::string>{p1};
+    }
+    return boost::optional<std::string>{};
+  });
+}
+
 class ConceptProxy
 {
  public:

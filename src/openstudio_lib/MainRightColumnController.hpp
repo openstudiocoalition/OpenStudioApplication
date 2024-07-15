@@ -89,6 +89,8 @@ class MainRightColumnController : public OSQObjectController
 
   void toggleUnitsClicked(bool displayIP);
 
+  void toggleDisplayAdditionalPropsClicked(bool displayAdditionalProps);
+
   void itemRemoveClicked(OSItem*);
 
  public slots:

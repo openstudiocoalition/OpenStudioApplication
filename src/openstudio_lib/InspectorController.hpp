@@ -65,6 +65,8 @@ class InspectorController : public QObject
 
   void toggleUnitsClicked(bool displayIP);
 
+  void toggleDisplayAdditionalPropsClicked(bool displayAdditionalProps);
+
   void itemRemoveClicked(OSItem*);
 
   void removeButtonClicked(bool);

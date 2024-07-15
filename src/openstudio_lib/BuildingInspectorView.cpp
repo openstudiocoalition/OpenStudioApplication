@@ -222,8 +222,8 @@ void BuildingDefaultScheduleSetVectorController::onDrop(const OSItemId& itemId) 
 
 // BuildingInspectorView
 
-BuildingInspectorView::BuildingInspectorView(bool isIP, const openstudio::model::Model& model, QWidget* parent)
-  : ModelObjectInspectorView(model, true, parent), m_isIP(isIP) {
+BuildingInspectorView::BuildingInspectorView(bool isIP, bool displayAdditionalProps, const openstudio::model::Model& model, QWidget* parent)
+  : ModelObjectInspectorView(model, true, parent), m_isIP(isIP), m_displayAdditionalProps(displayAdditionalProps) {
   auto* hiddenWidget = new QWidget();
   this->stackedWidget()->insertWidget(0, hiddenWidget);
 
@@ -250,9 +250,33 @@ BuildingInspectorView::BuildingInspectorView(bool isIP, const openstudio::model:
 
   m_nameEdit = new OSLineEdit2();
   vLayout->addWidget(m_nameEdit);
-
   mainGridLayout->addLayout(vLayout, row, 0, 1, 2);
   mainGridLayout->setRowMinimumHeight(row, 30);
+  ++row;
+
+  vLayout = new QVBoxLayout();
+  m_displayNamelabel = new QLabel();
+  m_displayNamelabel->setText("Display Name: ");
+  m_displayNamelabel->setStyleSheet("QLabel { font: bold; }");
+  vLayout->addWidget(m_displayNamelabel);
+
+  m_displayNameEdit = new OSLineEdit2();
+  vLayout->addWidget(m_displayNameEdit);
+  mainGridLayout->addLayout(vLayout, row, 0, 1, 1);
+  mainGridLayout->setRowMinimumHeight(row, 30);
+
+  vLayout = new QVBoxLayout();
+  m_cadObjectIdLabel = new QLabel();
+  m_cadObjectIdLabel->setText("CAD Object Id: ");
+  m_cadObjectIdLabel->setStyleSheet("QLabel { font: bold; }");
+  vLayout->addWidget(m_cadObjectIdLabel);
+
+  m_cadObjectIdEdit = new OSLineEdit2();
+  vLayout->addWidget(m_cadObjectIdEdit);
+  mainGridLayout->addLayout(vLayout, row, 1, 1, 1);
+  mainGridLayout->setRowMinimumHeight(row, 30);
+
+  this->toggleDisplayAdditionalProps(m_displayAdditionalProps);
 
   ++row;
 
@@ -594,6 +618,12 @@ void BuildingInspectorView::attach(openstudio::model::Building& building) {
     *m_building, OptionalStringGetter(std::bind(&model::Building::name, m_building.get_ptr(), true)),
     boost::optional<StringSetterOptionalStringReturn>(std::bind(&model::Building::setName, m_building.get_ptr(), std::placeholders::_1)));
 
+  m_displayNameEdit->bind(*m_building, OptionalStringGetter(std::bind(&model::Building::displayName, m_building.get_ptr())),
+                          boost::optional<StringSetter>(std::bind(&model::Building::setDisplayName, m_building.get_ptr(), std::placeholders::_1)));
+
+  m_cadObjectIdEdit->bind(*m_building, OptionalStringGetter(std::bind(&model::Building::cadObjectId, m_building.get_ptr())),
+                          boost::optional<StringSetter>(std::bind(&model::Building::setCADObjectId, m_building.get_ptr(), std::placeholders::_1)));
+
   populateStandardsTemplates();
   populateStandardsBuildingTypes();
 
@@ -655,6 +685,10 @@ void BuildingInspectorView::detach() {
   this->stackedWidget()->setCurrentIndex(0);
 
   m_nameEdit->unbind();
+
+  m_displayNameEdit->unbind();
+
+  m_cadObjectIdEdit->unbind();
 
   disconnect(m_standardsTemplateComboBox, nullptr, this, nullptr);
   m_standardsTemplateComboBox->clear();
@@ -724,6 +758,15 @@ void BuildingInspectorView::populateStandardsBuildingTypes() {
 
 void BuildingInspectorView::toggleUnits(bool displayIP) {
   m_isIP = displayIP;
+}
+
+void BuildingInspectorView::toggleDisplayAdditionalProps(bool displayAdditionalProps) {
+  m_displayAdditionalProps = displayAdditionalProps;
+
+  m_displayNamelabel->setVisible(m_displayAdditionalProps);
+  m_displayNameEdit->setVisible(m_displayAdditionalProps);
+  m_cadObjectIdLabel->setVisible(m_displayAdditionalProps);
+  m_cadObjectIdEdit->setVisible(m_displayAdditionalProps);
 }
 
 }  // namespace openstudio

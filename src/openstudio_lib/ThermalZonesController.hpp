@@ -54,13 +54,15 @@ class ThermalZonesController : public ModelSubTabController
   Q_OBJECT
 
  public:
-  ThermalZonesController(bool isIP, const model::Model& model);
+  ThermalZonesController(bool isIP, bool displayAdditionalProps, const model::Model& model);
 
   virtual ~ThermalZonesController() {}
 
  signals:
 
   void toggleUnitsClicked(bool);
+
+  void toggleDisplayAdditionalPropsClicked(bool);
 
  protected:
   virtual void onSelectItem(OSItem* item) override;

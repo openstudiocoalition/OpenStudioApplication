@@ -82,17 +82,19 @@ OSGridController::OSGridController()
   : m_hasHorizontalHeader(true),
     m_currentCategoryIndex(0),
     m_isIP(false),
+    m_displayAdditionalProps(false),
     m_horizontalHeaderBtnGrp(nullptr),
     m_objectSelector(new OSObjectSelector(this)) {}
 
 OSGridController::OSGridController(bool isIP, const QString& settingsKey, IddObjectType iddObjectType, const model::Model& model,
-                                   const std::vector<model::ModelObject>& modelObjects)
+                                   const std::vector<model::ModelObject>& modelObjects, bool displayAdditionalProps)
   : m_iddObjectType(iddObjectType),
     m_modelObjects(modelObjects),
     m_hasHorizontalHeader(true),
     m_currentCategoryIndex(0),
     m_model(model),
     m_isIP(isIP),
+    m_displayAdditionalProps(displayAdditionalProps),
     m_horizontalHeaderBtnGrp(nullptr),
     m_settingsKey(settingsKey),
     m_objectSelector(new OSObjectSelector(this)) {
@@ -135,6 +137,10 @@ void OSGridController::setIddObjectType(const IddObjectType& iddObjectType) {
 
 bool OSGridController::isIP() const {
   return m_isIP;
+}
+
+bool OSGridController::isDisplayAdditionalProps() const {
+  return m_displayAdditionalProps;
 }
 
 bool OSGridController::hasHorizontalHeader() const {
@@ -580,6 +586,17 @@ void OSGridController::onHorizontalHeaderChecked(int index) {
 
 void OSGridController::onToggleUnits(bool displayIP) {
   m_isIP = displayIP;
+}
+
+void OSGridController::onToggleDisplayAdditionalProps(bool displayAdditionalProps) {
+  m_displayAdditionalProps = displayAdditionalProps;
+
+  m_currentFields = m_categoriesAndFields.at(m_currentCategoryIndex).second;
+
+  addColumns(m_currentCategory, m_currentFields);
+
+  // One of the only times we request a recreate all
+  emit recreateAll();
 }
 
 void OSGridController::onComboBoxIndexChanged(int index) {}

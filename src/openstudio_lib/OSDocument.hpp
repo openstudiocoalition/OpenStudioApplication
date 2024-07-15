@@ -237,6 +237,8 @@ class OPENSTUDIO_API OSDocument : public OSQObjectController
 
   void toggleUnitsClicked(bool displayIP);
 
+  void toggleDisplayAdditionalPropsClicked(bool displayAdditionalProps);
+
   void treeChanged(const openstudio::UUID& t_uuid);
 
   void enableRevertToSaved(bool enable);

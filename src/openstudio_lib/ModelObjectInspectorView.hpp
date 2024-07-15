@@ -68,6 +68,8 @@ class ModelObjectInspectorView : public OSInspectorView
 
   void toggleUnitsClicked(bool displayIP);
 
+  void toggleDisplayAdditionalPropsClicked(bool displayAdditionalProps);
+
   void itemSelected(OSItem* item);
 
   void selectionCleared();
@@ -95,7 +97,11 @@ class ModelObjectInspectorView : public OSInspectorView
 
  protected slots:
 
+  // does nothing, override in derived class
   virtual void toggleUnits(bool displayIP);
+
+  // does nothing, override in derived class
+  virtual void toggleDisplayAdditionalProps(bool displayAdditionalProps);
 
  private:
   boost::optional<openstudio::model::ModelObject> m_modelObject;

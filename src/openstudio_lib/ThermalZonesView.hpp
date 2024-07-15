@@ -44,7 +44,7 @@ class ThermalZonesView : public ModelSubTabView
   Q_OBJECT
 
  public:
-  ThermalZonesView(bool isIP, const model::Model& model, QWidget* parent = nullptr);
+  ThermalZonesView(bool isIP, bool displayAdditionalProps, const model::Model& model, QWidget* parent = nullptr);
 
   virtual ~ThermalZonesView() {}
 };
@@ -55,7 +55,7 @@ class ThermalZoneView : public ModelObjectInspectorView
   Q_OBJECT
 
  public:
-  ThermalZoneView(bool isIP, const model::Model& model, QWidget* parent = nullptr);
+  ThermalZoneView(bool isIP, bool displayAdditionalProps, const model::Model& model, QWidget* parent = nullptr);
 
   virtual ~ThermalZoneView() {}
 
@@ -85,10 +85,14 @@ class ThermalZoneView : public ModelObjectInspectorView
 
   void toggleUnits(bool) override;
 
+  void toggleDisplayAdditionalProps(bool) override;
+
  private:
   ThermalZonesGridView* m_thermalZonesGridView = nullptr;
 
   bool m_isIP;
+
+  bool m_displayAdditionalProps;
 };
 
 }  // namespace openstudio
