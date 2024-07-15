@@ -875,13 +875,39 @@ void SpacesLoadsGridController::addColumns(const QString& category, std::vector<
         // The final argument to DataSource tells the system that we want an additional widget to be displayed
         // at the bottom of each list. In this case, it's a dropZone. Any type of BaseConcept would work.
 
+        std::function<boost::optional<model::SpaceLoad>(model::Space*)> getter;
+
+        std::function<bool(model::Space*, const model::SpaceLoad&)> setter([](model::Space* t_space, model::SpaceLoad t_load) {
+          auto iddObjectType = t_load.iddObjectType();
+          if (!(iddObjectType == IddObjectType::OS_SpaceInfiltration_DesignFlowRate
+                || iddObjectType == IddObjectType::OS_SpaceInfiltration_EffectiveLeakageArea)) {
+            return false;
+          }
+          if (t_load.space() || t_load.spaceType()) {
+            boost::optional<model::ModelObject> clone_load = t_load.clone(t_space->model());
+            OS_ASSERT(clone_load);
+            auto success = clone_load->cast<model::SpaceLoad>().setSpace(*t_space);
+            OS_ASSERT(success);
+            return success;
+          } else {
+            auto success = t_load.setSpace(*t_space);
+            OS_ASSERT(success);
+            return success;
+          }
+        });
+
         addLoadNameColumn(Heading(QString(LOADNAME), true, false), CastNullAdapter<model::SpaceLoad>(&model::SpaceLoad::name),
                           CastNullAdapter<model::SpaceLoad>(&model::SpaceLoad::setName),
                           boost::optional<std::function<void(model::SpaceLoad*)>>(
                             std::function<void(model::SpaceLoad*)>([](model::SpaceLoad* t_sl) { t_sl->remove(); })),
                           boost::optional<std::function<bool(model::SpaceLoad*)>>(
                             std::function<bool(model::SpaceLoad*)>([](model::SpaceLoad* t_sl) { return !t_sl->space(); })),
-                          DataSource(allLoads, true));
+
+                          DataSource(allLoads, false,
+                                     QSharedPointer<DropZoneConcept>(new DropZoneConceptImpl<model::SpaceLoad, model::Space>(
+                                       Heading(tr("Drop Space Infiltration")), getter, setter, boost::none, boost::none, boost::none)))
+
+        );
 
       } else if (field == SELECTED) {
         auto checkbox = QSharedPointer<OSSelectAllCheckBox>(new OSSelectAllCheckBox());
