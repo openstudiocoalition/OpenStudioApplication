@@ -508,20 +508,24 @@ void FacilityShadingGridController::addColumns(const QString& category, std::vec
                             std::function<void(model::ShadingSurface*)>([](model::ShadingSurface* t_ss) { t_ss->remove(); })),
                           boost::optional<std::function<bool(model::ShadingSurface*)>>(), DataSource(allShadingSurfaces, true));
       } else if (field == DISPLAYNAME) {
-        addLoadNameColumn(Heading(QString(DISPLAYNAME), false, false),                                        // heading
-                          DisplayNameAdapter<model::ShadingSurface>(&model::ShadingSurface::displayName),     // getter
-                          DisplayNameAdapter<model::ShadingSurface>(&model::ShadingSurface::setDisplayName),  // setter
-                          boost::optional<std::function<void(model::ShadingSurface*)>>(),                     // resetter
-                          boost::optional<std::function<bool(model::ShadingSurface*)>>(),                     // isDefaulted
-                          DataSource(allShadingSurfaces, true)                                                // t_source
+        addNameLineEditColumn(Heading(QString(DISPLAYNAME), false, false),                                        // heading
+                              false,                                                                              // isInspectable
+                              false,                                                                              // isLocked
+                              DisplayNameAdapter<model::ShadingSurface>(&model::ShadingSurface::displayName),     // getter
+                              DisplayNameAdapter<model::ShadingSurface>(&model::ShadingSurface::setDisplayName),  // setter
+                              boost::optional<std::function<void(model::ShadingSurface*)>>(),                     // resetter
+                              boost::optional<std::function<bool(model::ShadingSurface*)>>(),                     // isDefaulted
+                              DataSource(allShadingSurfaces, true)                                                // t_source
         );
       } else if (field == CADOBJECTID) {
-        addLoadNameColumn(Heading(QString(CADOBJECTID), false, false),                                        // heading
-                          DisplayNameAdapter<model::ShadingSurface>(&model::ShadingSurface::cadObjectId),     // getter
-                          DisplayNameAdapter<model::ShadingSurface>(&model::ShadingSurface::setCADObjectId),  // setter
-                          boost::optional<std::function<void(model::ShadingSurface*)>>(),                     // resetter
-                          boost::optional<std::function<bool(model::ShadingSurface*)>>(),                     // isDefaulted
-                          DataSource(allShadingSurfaces, true)                                                // t_source
+        addNameLineEditColumn(Heading(QString(CADOBJECTID), false, false),                                        // heading
+                              false,                                                                              // isInspectable
+                              false,                                                                              // isLocked
+                              DisplayNameAdapter<model::ShadingSurface>(&model::ShadingSurface::cadObjectId),     // getter
+                              DisplayNameAdapter<model::ShadingSurface>(&model::ShadingSurface::setCADObjectId),  // setter
+                              boost::optional<std::function<void(model::ShadingSurface*)>>(),                     // resetter
+                              boost::optional<std::function<bool(model::ShadingSurface*)>>(),                     // isDefaulted
+                              DataSource(allShadingSurfaces, true)                                                // t_source
         );
       } else if (field == CONSTRUCTIONNAME) {
         addDropZoneColumn(
