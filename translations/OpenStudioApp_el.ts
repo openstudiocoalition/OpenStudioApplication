@@ -865,30 +865,30 @@ If you would like to see the OpenStudioApplication translated in your language o
         <translation>(*.xml)</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/OSDocument.cpp" line="1507"/>
-        <location filename="../src/openstudio_lib/OSDocument.cpp" line="1582"/>
+        <location filename="../src/openstudio_lib/OSDocument.cpp" line="1474"/>
+        <location filename="../src/openstudio_lib/OSDocument.cpp" line="1549"/>
         <source>Failed to save model</source>
         <translation>Αποτυχία αποθήκευσης μοντέλου</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/OSDocument.cpp" line="1508"/>
-        <location filename="../src/openstudio_lib/OSDocument.cpp" line="1583"/>
+        <location filename="../src/openstudio_lib/OSDocument.cpp" line="1475"/>
+        <location filename="../src/openstudio_lib/OSDocument.cpp" line="1550"/>
         <source>Failed to save model, make sure that you do not have the location open and that you have correct write access.</source>
         <translation>Αποτυχία αποθήκευσης μοντέλου, βεβαιωθείτε ότι δεν έχετε ανοιχτή την τοποθεσία και ότι έχετε σωστή πρόσβαση εγγραφής.</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/OSDocument.cpp" line="1551"/>
+        <location filename="../src/openstudio_lib/OSDocument.cpp" line="1518"/>
         <source>Save</source>
         <translation>Αποθήκευση</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/OSDocument.cpp" line="1551"/>
+        <location filename="../src/openstudio_lib/OSDocument.cpp" line="1518"/>
         <source>(*.osm)</source>
         <translation>(*.osm)</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/OSDocument.cpp" line="1745"/>
-        <location filename="../src/openstudio_lib/OSDocument.cpp" line="1747"/>
+        <location filename="../src/openstudio_lib/OSDocument.cpp" line="1712"/>
+        <location filename="../src/openstudio_lib/OSDocument.cpp" line="1714"/>
         <source>Select My Measures Directory</source>
         <translation>Επιλέξτε τον κατάλογο των Ενεργειακών Μέτρων μου</translation>
     </message>

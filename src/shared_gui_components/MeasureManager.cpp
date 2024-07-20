@@ -1010,15 +1010,6 @@ void MeasureManager::checkForRemoteBCLUpdates() {
     int result = msg.exec();
     if (result == QMessageBox::Yes) {
       remoteBCL.updateMeasures();
-
-      // remoteBCL.updateMeasures should remove outdated measures, but won't work correctly until https://github.com/NREL/OpenStudio/pull/5129
-      // if we have the new measure, delete outdated ones
-      for (const BCLSearchResult& update : updates) {
-        if (OSAppBase::instance()->currentDocument()->getLocalMeasure(update.uid(), update.versionId())) {
-          OSAppBase::instance()->currentDocument()->removeOutdatedLocalMeasures(update.uid(), update.versionId());
-        }
-      }
-
       updateMeasuresLists(false);
     }
   }

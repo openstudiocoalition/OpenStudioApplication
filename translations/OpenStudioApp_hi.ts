@@ -866,30 +866,30 @@ If you would like to see the OpenStudioApplication translated in your language o
         <translation>(*एक्सएमएल)</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/OSDocument.cpp" line="1507"/>
-        <location filename="../src/openstudio_lib/OSDocument.cpp" line="1582"/>
+        <location filename="../src/openstudio_lib/OSDocument.cpp" line="1474"/>
+        <location filename="../src/openstudio_lib/OSDocument.cpp" line="1549"/>
         <source>Failed to save model</source>
         <translation>मॉडल सहेजने में विफल</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/OSDocument.cpp" line="1508"/>
-        <location filename="../src/openstudio_lib/OSDocument.cpp" line="1583"/>
+        <location filename="../src/openstudio_lib/OSDocument.cpp" line="1475"/>
+        <location filename="../src/openstudio_lib/OSDocument.cpp" line="1550"/>
         <source>Failed to save model, make sure that you do not have the location open and that you have correct write access.</source>
         <translation>मॉडल को सहेजने में विफल, सुनिश्चित करें कि आपके पास स्थान खुला नहीं है और आपके पास सही लेखन पहुंच है.</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/OSDocument.cpp" line="1551"/>
+        <location filename="../src/openstudio_lib/OSDocument.cpp" line="1518"/>
         <source>Save</source>
         <translation>सहेजें</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/OSDocument.cpp" line="1551"/>
+        <location filename="../src/openstudio_lib/OSDocument.cpp" line="1518"/>
         <source>(*.osm)</source>
         <translation>(*.ओएसएम)</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/OSDocument.cpp" line="1745"/>
-        <location filename="../src/openstudio_lib/OSDocument.cpp" line="1747"/>
+        <location filename="../src/openstudio_lib/OSDocument.cpp" line="1712"/>
+        <location filename="../src/openstudio_lib/OSDocument.cpp" line="1714"/>
         <source>Select My Measures Directory</source>
         <translation>मेरी उपाय निर्देशिका का चयन करें</translation>
     </message>
