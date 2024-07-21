@@ -46,7 +46,7 @@ class SpacesDaylightingGridView : public SpacesSubtabGridView
   Q_OBJECT
 
  public:
-  SpacesDaylightingGridView(bool isIP, const model::Model& model, QWidget* parent = nullptr);
+  SpacesDaylightingGridView(bool isIP, bool displayAdditionalProps, const model::Model& model, QWidget* parent = nullptr);
 
   virtual ~SpacesDaylightingGridView() {}
 
@@ -60,8 +60,8 @@ class SpacesDaylightingGridController : public OSGridController
   Q_OBJECT
 
  public:
-  SpacesDaylightingGridController(bool isIP, const QString& headerText, IddObjectType iddObjectType, const model::Model& model,
-                                  const std::vector<model::ModelObject>& modelObjects);
+  SpacesDaylightingGridController(bool isIP, bool displayAdditionalProps, const QString& headerText, IddObjectType iddObjectType,
+                                  const model::Model& model, const std::vector<model::ModelObject>& modelObjects);
 
   virtual ~SpacesDaylightingGridController() {}
 

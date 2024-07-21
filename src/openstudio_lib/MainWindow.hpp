@@ -81,6 +81,8 @@ class MainWindow : public QMainWindow
 
   bool useClassicCLI() const;
 
+  bool displayAdditionalProps() const;
+
   void enableRevertToSavedAction(bool enable);
 
   void enableFileImportActions(bool enable);
@@ -185,6 +187,8 @@ class MainWindow : public QMainWindow
 
   void enableUseClassicCLI(bool enable);
 
+  void toggleDisplayAdditionalPropsClicked(bool displayAdditionalProps);
+
  public slots:
 
   void onVerticalTabSelected(int verticalTabId);
@@ -198,6 +202,8 @@ class MainWindow : public QMainWindow
   void toggleAnalytics(bool allowAnalytics);
 
   void toggleUseClassicCLI(bool useClassicCLI);
+
+  void toggleDisplayAdditionalProps(bool displayAdditionalProps);
 
  protected:
   void closeEvent(QCloseEvent* event) override;
@@ -231,13 +237,15 @@ class MainWindow : public QMainWindow
 
   bool m_geometryDiagnostics = false;
 
+  bool m_useClassicCLI = false;
+
+  bool m_displayAdditionalProps = false;
+
   QString m_currLang;
 
   QString m_lastPath;
 
   QString m_analyticsId;
-
-  bool m_useClassicCLI = false;
 
  private slots:
 

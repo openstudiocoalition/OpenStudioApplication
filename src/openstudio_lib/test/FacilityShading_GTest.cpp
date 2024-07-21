@@ -64,7 +64,7 @@ TEST_F(OpenStudioLibFixture, FacilityShadingGridView) {
   ASSERT_NE(it, shadingGroups.end());
   auto shadingGroup1 = *it;
 
-  auto gridView = std::make_shared<FacilityShadingGridView>(false, model);
+  auto gridView = std::make_shared<FacilityShadingGridView>(false, false, model);
   auto* gridController = getGridController(gridView.get());
   auto* objectSelector = getObjectSelector(gridController);
 

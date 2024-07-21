@@ -170,7 +170,7 @@ class OSGridController : public QObject
   // rowCount() and itemAt(), showing one row for each object
   // in the model that is iddObjectType
   OSGridController(bool isIP, const QString& settingsKey, IddObjectType iddObjectType, const model::Model& model,
-                   const std::vector<model::ModelObject>& modelObjects);
+                   const std::vector<model::ModelObject>& modelObjects, bool displayAdditionalProps = false);
 
   virtual ~OSGridController();
 
@@ -493,6 +493,8 @@ class OSGridController : public QObject
 
   bool isIP() const;
 
+  bool isDisplayAdditionalProps() const;
+
  protected:
   void setIddObjectType(const IddObjectType& iddObjectType);
 
@@ -533,6 +535,7 @@ class OSGridController : public QObject
   model::Model m_model;
 
   bool m_isIP;
+  bool m_displayAdditionalProps;
 
  protected:
   bool hasHorizontalHeader() const;
@@ -626,6 +629,8 @@ class OSGridController : public QObject
   // signal to any created quantity edits to update
   void toggleUnitsClicked(bool displayIP);
 
+  void toggleDisplayAdditionalPropsClicked(bool displayAdditionalProps);
+
   // signal when selection changes
   void gridRowSelectionChanged(int numSelected, int numSelectable);
 
@@ -636,6 +641,8 @@ class OSGridController : public QObject
   virtual void onItemDropped(const OSItemId& itemId) = 0;
 
   void onToggleUnits(bool displayIP);
+
+  void onToggleDisplayAdditionalProps(bool displayAdditionalProps);
 
   virtual void onComboBoxIndexChanged(int index);
 

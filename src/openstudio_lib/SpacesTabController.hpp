@@ -39,7 +39,7 @@ class SpacesTabController : public MainTabController
   Q_OBJECT
 
  public:
-  SpacesTabController(bool isIP, const model::Model& model);
+  SpacesTabController(bool isIP, bool displayAdditionalProps, const model::Model& model);
 
   virtual ~SpacesTabController();
 
@@ -58,6 +58,8 @@ class SpacesTabController : public MainTabController
   model::Model m_model;
 
   bool m_isIP;
+
+  bool m_displayAdditionalProps;
 
   QWidget* m_currentView = nullptr;
 

@@ -157,11 +157,15 @@ class MODELEDITOR_API InspectorGadget
 
   void setUnitSystem(const UNIT_SYSTEM unitSystem);
 
+  void setDisplayAdditionalProps(bool displayAdditionalProps);
+
   void removeWorkspaceObject(const openstudio::Handle&);  // Middleman nano slot to emit QT signal to simulate signal chaining
 
  public slots:
 
   void toggleUnits(bool displayIP);
+
+  void toggleDisplayAdditionalProps(bool displayAdditionalProps);
 
   /*! \brief lays out the last object again.
    *
@@ -227,6 +231,8 @@ class MODELEDITOR_API InspectorGadget
   void nameChanged(QString);
 
   void toggleUnitsClicked(bool);
+
+  void toggleDisplayAdditionalPropsClicked(bool);
 
   /*!
    *This signal is emitted when the IG changes the model. If your program
@@ -317,6 +323,7 @@ class MODELEDITOR_API InspectorGadget
   bool m_recursive;
   UNIT_SYSTEM m_unitSystem;
   bool m_workspaceObjectChanged;
+  bool m_displayAdditionalProps = false;
 
   typedef std::map<openstudio::model::ModelObject, InspectorGadget*> MODELMAP;
   MODELMAP m_childMap;

@@ -46,7 +46,7 @@ class FacilityExteriorEquipmentGridView : public GridViewSubTab
   Q_OBJECT
 
  public:
-  FacilityExteriorEquipmentGridView(bool isIP, const model::Model& model, QWidget* parent = 0);
+  FacilityExteriorEquipmentGridView(bool isIP, bool displayAdditionalProps, const model::Model& model, QWidget* parent = 0);
 
   virtual ~FacilityExteriorEquipmentGridView() {}
 
@@ -72,8 +72,8 @@ class FacilityExteriorEquipmentGridController : public OSGridController
   Q_OBJECT
 
  public:
-  FacilityExteriorEquipmentGridController(bool isIP, const QString& settingsText, IddObjectType iddObjectType, const model::Model& model,
-                                          const std::vector<model::ModelObject>& modelObjects);
+  FacilityExteriorEquipmentGridController(bool isIP, bool displayAdditionalProps, const QString& settingsText, IddObjectType iddObjectType,
+                                          const model::Model& model, const std::vector<model::ModelObject>& modelObjects);
 
   virtual ~FacilityExteriorEquipmentGridController() = default;
 

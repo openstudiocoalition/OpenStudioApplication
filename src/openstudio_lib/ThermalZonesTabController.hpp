@@ -42,7 +42,7 @@ class ThermalZonesTabController : public MainTabController
   Q_OBJECT
 
  public:
-  ThermalZonesTabController(bool isIP, const model::Model& model);
+  ThermalZonesTabController(bool isIP, bool displayAdditionalProps, const model::Model& model);
 
   virtual ~ThermalZonesTabController() {}
 

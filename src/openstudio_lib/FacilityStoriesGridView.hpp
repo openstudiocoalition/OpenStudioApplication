@@ -48,7 +48,7 @@ class FacilityStoriesGridView : public GridViewSubTab
   Q_OBJECT
 
  public:
-  FacilityStoriesGridView(bool isIP, const model::Model& model, QWidget* parent = 0);
+  FacilityStoriesGridView(bool isIP, bool displayAdditionalProps, const model::Model& model, QWidget* parent = 0);
 
   virtual ~FacilityStoriesGridView() = default;
 
@@ -86,8 +86,8 @@ class FacilityStoriesGridController : public OSGridController
   Q_OBJECT
 
  public:
-  FacilityStoriesGridController(bool isIP, const QString& headerText, IddObjectType iddObjectType, const model::Model& model,
-                                const std::vector<model::ModelObject>& modelObjects);
+  FacilityStoriesGridController(bool isIP, bool displayAdditionalProps, const QString& headerText, IddObjectType iddObjectType,
+                                const model::Model& model, const std::vector<model::ModelObject>& modelObjects);
 
   virtual ~FacilityStoriesGridController() = default;
 

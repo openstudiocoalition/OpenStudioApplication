@@ -113,6 +113,8 @@ boost::optional<openstudio::model::ModelObject> ModelObjectInspectorView::modelO
 
 void ModelObjectInspectorView::toggleUnits(bool displayIP) {}
 
+void ModelObjectInspectorView::toggleDisplayAdditionalProps(bool displayAdditionalProps) {}
+
 DefaultInspectorView::DefaultInspectorView(const model::Model& model, QWidget* parent) : ModelObjectInspectorView(model, true, parent) {
   auto* hiddenWidget = new QWidget();
   this->stackedWidget()->insertWidget(0, hiddenWidget);

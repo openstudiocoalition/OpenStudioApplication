@@ -46,7 +46,7 @@ class SpacesInteriorPartitionsGridView : public SpacesSubtabGridView
   Q_OBJECT
 
  public:
-  SpacesInteriorPartitionsGridView(bool isIP, const model::Model& model, QWidget* parent = nullptr);
+  SpacesInteriorPartitionsGridView(bool isIP, bool displayAdditionalProps, const model::Model& model, QWidget* parent = nullptr);
 
   virtual ~SpacesInteriorPartitionsGridView() = default;
 
@@ -67,8 +67,8 @@ class SpacesInteriorPartitionsGridController : public OSGridController
   Q_OBJECT
 
  public:
-  SpacesInteriorPartitionsGridController(bool isIP, const QString& headerText, IddObjectType iddObjectType, const model::Model& model,
-                                         const std::vector<model::ModelObject>& modelObjects);
+  SpacesInteriorPartitionsGridController(bool isIP, bool displayAdditionalProps, const QString& headerText, IddObjectType iddObjectType,
+                                         const model::Model& model, const std::vector<model::ModelObject>& modelObjects);
 
   virtual ~SpacesInteriorPartitionsGridController() = default;
 

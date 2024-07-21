@@ -187,7 +187,8 @@ void InspectorView::update() {
   }
 }
 
-void InspectorView::layoutModelObject(openstudio::model::OptionalModelObject& modelObject, bool readOnly, bool displayIP) {
+void InspectorView::layoutModelObject(openstudio::model::OptionalModelObject& modelObject, bool readOnly, bool displayIP,
+                                      bool displayAdditionalProps) {
   m_modelObject = modelObject;
 
   if (QWidget* _parentWidget = parentWidget()) {
@@ -203,8 +204,9 @@ void InspectorView::layoutModelObject(openstudio::model::OptionalModelObject& mo
       m_currentView = new SplitterMixerInspectorView();
 
       connect(this, &InspectorView::toggleUnitsClicked, m_currentView, &BaseInspectorView::toggleUnitsClicked);
+      connect(this, &InspectorView::toggleDisplayAdditionalPropsClicked, m_currentView, &BaseInspectorView::toggleDisplayAdditionalPropsClicked);
 
-      m_currentView->layoutModelObject(splitter.get(), readOnly, displayIP);
+      m_currentView->layoutModelObject(splitter.get(), readOnly, displayIP, displayAdditionalProps);
 
       m_vLayout->addWidget(m_currentView);
 
@@ -220,6 +222,7 @@ void InspectorView::layoutModelObject(openstudio::model::OptionalModelObject& mo
 
       m_currentView = new ThermalZoneInspectorView();
       connect(this, &InspectorView::toggleUnitsClicked, m_currentView, &BaseInspectorView::toggleUnitsClicked);
+      connect(this, &InspectorView::toggleDisplayAdditionalPropsClicked, m_currentView, &BaseInspectorView::toggleDisplayAdditionalPropsClicked);
 
       connect(static_cast<ThermalZoneInspectorView*>(m_currentView), &ThermalZoneInspectorView::moveBranchForZoneSupplySelected, this,
               &InspectorView::moveBranchForZoneSupplySelected);
@@ -227,7 +230,7 @@ void InspectorView::layoutModelObject(openstudio::model::OptionalModelObject& mo
       connect(static_cast<ThermalZoneInspectorView*>(m_currentView), &ThermalZoneInspectorView::moveBranchForZoneReturnSelected, this,
               &InspectorView::moveBranchForZoneReturnSelected);
 
-      m_currentView->layoutModelObject(zone.get(), readOnly, displayIP);
+      m_currentView->layoutModelObject(zone.get(), readOnly, displayIP, displayAdditionalProps);
 
       m_vLayout->addWidget(m_currentView);
     } else if (model::OptionalAirLoopHVACZoneMixer mixer = modelObject->optionalCast<model::AirLoopHVACZoneMixer>()) {
@@ -237,8 +240,9 @@ void InspectorView::layoutModelObject(openstudio::model::OptionalModelObject& mo
 
       m_currentView = new SplitterMixerInspectorView();
       connect(this, &InspectorView::toggleUnitsClicked, m_currentView, &BaseInspectorView::toggleUnitsClicked);
+      connect(this, &InspectorView::toggleDisplayAdditionalPropsClicked, m_currentView, &BaseInspectorView::toggleDisplayAdditionalPropsClicked);
 
-      m_currentView->layoutModelObject(mixer.get(), readOnly, displayIP);
+      m_currentView->layoutModelObject(mixer.get(), readOnly, displayIP, displayAdditionalProps);
 
       m_vLayout->addWidget(m_currentView);
 
@@ -255,8 +259,9 @@ void InspectorView::layoutModelObject(openstudio::model::OptionalModelObject& mo
 
       m_currentView = new AirTerminalSingleDuctConstantVolumeFourPipeInductionInspectorView();
       connect(this, &InspectorView::toggleUnitsClicked, m_currentView, &BaseInspectorView::toggleUnitsClicked);
+      connect(this, &InspectorView::toggleDisplayAdditionalPropsClicked, m_currentView, &BaseInspectorView::toggleDisplayAdditionalPropsClicked);
 
-      m_currentView->layoutModelObject(component.get(), readOnly, displayIP);
+      m_currentView->layoutModelObject(component.get(), readOnly, displayIP, displayAdditionalProps);
 
       m_vLayout->addWidget(m_currentView);
 
@@ -275,8 +280,9 @@ void InspectorView::layoutModelObject(openstudio::model::OptionalModelObject& mo
 
       m_currentView = new AirTerminalSingleDuctConstantVolumeFourPipeBeamInspectorView();
       connect(this, &InspectorView::toggleUnitsClicked, m_currentView, &BaseInspectorView::toggleUnitsClicked);
+      connect(this, &InspectorView::toggleDisplayAdditionalPropsClicked, m_currentView, &BaseInspectorView::toggleDisplayAdditionalPropsClicked);
 
-      m_currentView->layoutModelObject(component.get(), readOnly, displayIP);
+      m_currentView->layoutModelObject(component.get(), readOnly, displayIP, displayAdditionalProps);
 
       m_vLayout->addWidget(m_currentView);
 
@@ -296,8 +302,9 @@ void InspectorView::layoutModelObject(openstudio::model::OptionalModelObject& mo
 
       m_currentView = new AirLoopHVACUnitarySystemInspectorView();
       connect(this, &InspectorView::toggleUnitsClicked, m_currentView, &BaseInspectorView::toggleUnitsClicked);
+      connect(this, &InspectorView::toggleDisplayAdditionalPropsClicked, m_currentView, &BaseInspectorView::toggleDisplayAdditionalPropsClicked);
 
-      m_currentView->layoutModelObject(component.get(), readOnly, displayIP);
+      m_currentView->layoutModelObject(component.get(), readOnly, displayIP, displayAdditionalProps);
 
       m_vLayout->addWidget(m_currentView);
 
@@ -313,8 +320,9 @@ void InspectorView::layoutModelObject(openstudio::model::OptionalModelObject& mo
 
       m_currentView = new WaterToAirInspectorView();
       connect(this, &InspectorView::toggleUnitsClicked, m_currentView, &BaseInspectorView::toggleUnitsClicked);
+      connect(this, &InspectorView::toggleDisplayAdditionalPropsClicked, m_currentView, &BaseInspectorView::toggleDisplayAdditionalPropsClicked);
 
-      m_currentView->layoutModelObject(component.get(), readOnly, displayIP);
+      m_currentView->layoutModelObject(component.get(), readOnly, displayIP, displayAdditionalProps);
 
       m_vLayout->addWidget(m_currentView);
 
@@ -331,8 +339,9 @@ void InspectorView::layoutModelObject(openstudio::model::OptionalModelObject& mo
 
       m_currentView = new AirTerminalSingleDuctConstantVolumeCooledBeamInspectorView();
       connect(this, &InspectorView::toggleUnitsClicked, m_currentView, &BaseInspectorView::toggleUnitsClicked);
+      connect(this, &InspectorView::toggleDisplayAdditionalPropsClicked, m_currentView, &BaseInspectorView::toggleDisplayAdditionalPropsClicked);
 
-      m_currentView->layoutModelObject(component.get(), readOnly, displayIP);
+      m_currentView->layoutModelObject(component.get(), readOnly, displayIP, displayAdditionalProps);
 
       m_vLayout->addWidget(m_currentView);
 
@@ -349,8 +358,9 @@ void InspectorView::layoutModelObject(openstudio::model::OptionalModelObject& mo
 
       m_currentView = new AirTerminalSingleDuctConstantVolumeReheatInspectorView();
       connect(this, &InspectorView::toggleUnitsClicked, m_currentView, &BaseInspectorView::toggleUnitsClicked);
+      connect(this, &InspectorView::toggleDisplayAdditionalPropsClicked, m_currentView, &BaseInspectorView::toggleDisplayAdditionalPropsClicked);
 
-      m_currentView->layoutModelObject(component.get(), readOnly, displayIP);
+      m_currentView->layoutModelObject(component.get(), readOnly, displayIP, displayAdditionalProps);
 
       m_vLayout->addWidget(m_currentView);
 
@@ -367,8 +377,9 @@ void InspectorView::layoutModelObject(openstudio::model::OptionalModelObject& mo
 
       m_currentView = new AirTerminalSingleDuctVAVReheatInspectorView();
       connect(this, &InspectorView::toggleUnitsClicked, m_currentView, &BaseInspectorView::toggleUnitsClicked);
+      connect(this, &InspectorView::toggleDisplayAdditionalPropsClicked, m_currentView, &BaseInspectorView::toggleDisplayAdditionalPropsClicked);
 
-      m_currentView->layoutModelObject(component.get(), readOnly, displayIP);
+      m_currentView->layoutModelObject(component.get(), readOnly, displayIP, displayAdditionalProps);
 
       m_vLayout->addWidget(m_currentView);
 
@@ -384,8 +395,9 @@ void InspectorView::layoutModelObject(openstudio::model::OptionalModelObject& mo
 
       m_currentView = new AirTerminalSingleDuctParallelPIUReheatInspectorView();
       connect(this, &InspectorView::toggleUnitsClicked, m_currentView, &BaseInspectorView::toggleUnitsClicked);
+      connect(this, &InspectorView::toggleDisplayAdditionalPropsClicked, m_currentView, &BaseInspectorView::toggleDisplayAdditionalPropsClicked);
 
-      m_currentView->layoutModelObject(component.get(), readOnly, displayIP);
+      m_currentView->layoutModelObject(component.get(), readOnly, displayIP, displayAdditionalProps);
 
       m_vLayout->addWidget(m_currentView);
 
@@ -401,8 +413,9 @@ void InspectorView::layoutModelObject(openstudio::model::OptionalModelObject& mo
 
       m_currentView = new AirTerminalSingleDuctSeriesPIUReheatInspectorView();
       connect(this, &InspectorView::toggleUnitsClicked, m_currentView, &BaseInspectorView::toggleUnitsClicked);
+      connect(this, &InspectorView::toggleDisplayAdditionalPropsClicked, m_currentView, &BaseInspectorView::toggleDisplayAdditionalPropsClicked);
 
-      m_currentView->layoutModelObject(component.get(), readOnly, displayIP);
+      m_currentView->layoutModelObject(component.get(), readOnly, displayIP, displayAdditionalProps);
 
       m_vLayout->addWidget(m_currentView);
 
@@ -419,8 +432,9 @@ void InspectorView::layoutModelObject(openstudio::model::OptionalModelObject& mo
 
       m_currentView = new AirTerminalSingleDuctVAVHeatAndCoolReheatInspectorView();
       connect(this, &InspectorView::toggleUnitsClicked, m_currentView, &BaseInspectorView::toggleUnitsClicked);
+      connect(this, &InspectorView::toggleDisplayAdditionalPropsClicked, m_currentView, &BaseInspectorView::toggleDisplayAdditionalPropsClicked);
 
-      m_currentView->layoutModelObject(component.get(), readOnly, displayIP);
+      m_currentView->layoutModelObject(component.get(), readOnly, displayIP, displayAdditionalProps);
 
       m_vLayout->addWidget(m_currentView);
 
@@ -437,8 +451,9 @@ void InspectorView::layoutModelObject(openstudio::model::OptionalModelObject& mo
 
       m_currentView = new ZoneHVACBaseboardConvectiveWaterInspectorView();
       connect(this, &InspectorView::toggleUnitsClicked, m_currentView, &BaseInspectorView::toggleUnitsClicked);
+      connect(this, &InspectorView::toggleDisplayAdditionalPropsClicked, m_currentView, &BaseInspectorView::toggleDisplayAdditionalPropsClicked);
 
-      m_currentView->layoutModelObject(component.get(), readOnly, displayIP);
+      m_currentView->layoutModelObject(component.get(), readOnly, displayIP, displayAdditionalProps);
 
       m_vLayout->addWidget(m_currentView);
 
@@ -455,8 +470,9 @@ void InspectorView::layoutModelObject(openstudio::model::OptionalModelObject& mo
 
       m_currentView = new ZoneHVACBaseboardRadiantConvectiveWaterInspectorView();
       connect(this, &InspectorView::toggleUnitsClicked, m_currentView, &BaseInspectorView::toggleUnitsClicked);
+      connect(this, &InspectorView::toggleDisplayAdditionalPropsClicked, m_currentView, &BaseInspectorView::toggleDisplayAdditionalPropsClicked);
 
-      m_currentView->layoutModelObject(component.get(), readOnly, displayIP);
+      m_currentView->layoutModelObject(component.get(), readOnly, displayIP, displayAdditionalProps);
 
       m_vLayout->addWidget(m_currentView);
 
@@ -473,8 +489,9 @@ void InspectorView::layoutModelObject(openstudio::model::OptionalModelObject& mo
 
       m_currentView = new ZoneHVACCoolingPanelRadiantConvectiveWaterInspectorView();
       connect(this, &InspectorView::toggleUnitsClicked, m_currentView, &BaseInspectorView::toggleUnitsClicked);
+      connect(this, &InspectorView::toggleDisplayAdditionalPropsClicked, m_currentView, &BaseInspectorView::toggleDisplayAdditionalPropsClicked);
 
-      m_currentView->layoutModelObject(component.get(), readOnly, displayIP);
+      m_currentView->layoutModelObject(component.get(), readOnly, displayIP, displayAdditionalProps);
 
       m_vLayout->addWidget(m_currentView);
 
@@ -490,8 +507,9 @@ void InspectorView::layoutModelObject(openstudio::model::OptionalModelObject& mo
 
       m_currentView = new ZoneHVACFourPipeFanCoilInspectorView();
       connect(this, &InspectorView::toggleUnitsClicked, m_currentView, &BaseInspectorView::toggleUnitsClicked);
+      connect(this, &InspectorView::toggleDisplayAdditionalPropsClicked, m_currentView, &BaseInspectorView::toggleDisplayAdditionalPropsClicked);
 
-      m_currentView->layoutModelObject(component.get(), readOnly, displayIP);
+      m_currentView->layoutModelObject(component.get(), readOnly, displayIP, displayAdditionalProps);
 
       m_vLayout->addWidget(m_currentView);
 
@@ -508,8 +526,9 @@ void InspectorView::layoutModelObject(openstudio::model::OptionalModelObject& mo
 
       m_currentView = new ZoneHVACLowTempRadiantConstFlowInspectorView();
       connect(this, &InspectorView::toggleUnitsClicked, m_currentView, &BaseInspectorView::toggleUnitsClicked);
+      connect(this, &InspectorView::toggleDisplayAdditionalPropsClicked, m_currentView, &BaseInspectorView::toggleDisplayAdditionalPropsClicked);
 
-      m_currentView->layoutModelObject(component.get(), readOnly, displayIP);
+      m_currentView->layoutModelObject(component.get(), readOnly, displayIP, displayAdditionalProps);
 
       m_vLayout->addWidget(m_currentView);
 
@@ -527,8 +546,9 @@ void InspectorView::layoutModelObject(openstudio::model::OptionalModelObject& mo
 
       m_currentView = new ZoneHVACLowTempRadiantVarFlowInspectorView();
       connect(this, &InspectorView::toggleUnitsClicked, m_currentView, &BaseInspectorView::toggleUnitsClicked);
+      connect(this, &InspectorView::toggleDisplayAdditionalPropsClicked, m_currentView, &BaseInspectorView::toggleDisplayAdditionalPropsClicked);
 
-      m_currentView->layoutModelObject(component.get(), readOnly, displayIP);
+      m_currentView->layoutModelObject(component.get(), readOnly, displayIP, displayAdditionalProps);
 
       m_vLayout->addWidget(m_currentView);
 
@@ -544,8 +564,9 @@ void InspectorView::layoutModelObject(openstudio::model::OptionalModelObject& mo
 
       m_currentView = new ZoneHVACWaterToAirHeatPumpInspectorView();
       connect(this, &InspectorView::toggleUnitsClicked, m_currentView, &BaseInspectorView::toggleUnitsClicked);
+      connect(this, &InspectorView::toggleDisplayAdditionalPropsClicked, m_currentView, &BaseInspectorView::toggleDisplayAdditionalPropsClicked);
 
-      m_currentView->layoutModelObject(component.get(), readOnly, displayIP);
+      m_currentView->layoutModelObject(component.get(), readOnly, displayIP, displayAdditionalProps);
 
       m_vLayout->addWidget(m_currentView);
 
@@ -564,8 +585,9 @@ void InspectorView::layoutModelObject(openstudio::model::OptionalModelObject& mo
 
       m_currentView = new ZoneHVACPackagedTerminalAirConditionerInspectorView();
       connect(this, &InspectorView::toggleUnitsClicked, m_currentView, &BaseInspectorView::toggleUnitsClicked);
+      connect(this, &InspectorView::toggleDisplayAdditionalPropsClicked, m_currentView, &BaseInspectorView::toggleDisplayAdditionalPropsClicked);
 
-      m_currentView->layoutModelObject(component.get(), readOnly, displayIP);
+      m_currentView->layoutModelObject(component.get(), readOnly, displayIP, displayAdditionalProps);
 
       m_vLayout->addWidget(m_currentView);
 
@@ -584,8 +606,9 @@ void InspectorView::layoutModelObject(openstudio::model::OptionalModelObject& mo
 
       m_currentView = new ZoneHVACPackagedTerminalHeatPumpInspectorView();
       connect(this, &InspectorView::toggleUnitsClicked, m_currentView, &BaseInspectorView::toggleUnitsClicked);
+      connect(this, &InspectorView::toggleDisplayAdditionalPropsClicked, m_currentView, &BaseInspectorView::toggleDisplayAdditionalPropsClicked);
 
-      m_currentView->layoutModelObject(component.get(), readOnly, displayIP);
+      m_currentView->layoutModelObject(component.get(), readOnly, displayIP, displayAdditionalProps);
 
       m_vLayout->addWidget(m_currentView);
 
@@ -603,8 +626,9 @@ void InspectorView::layoutModelObject(openstudio::model::OptionalModelObject& mo
 
       m_currentView = new WaterHeaterHeatPumpInspectorView();
       connect(this, &InspectorView::toggleUnitsClicked, m_currentView, &BaseInspectorView::toggleUnitsClicked);
+      connect(this, &InspectorView::toggleDisplayAdditionalPropsClicked, m_currentView, &BaseInspectorView::toggleDisplayAdditionalPropsClicked);
 
-      m_currentView->layoutModelObject(component.get(), readOnly, displayIP);
+      m_currentView->layoutModelObject(component.get(), readOnly, displayIP, displayAdditionalProps);
 
       m_vLayout->addWidget(m_currentView);
 
@@ -621,8 +645,9 @@ void InspectorView::layoutModelObject(openstudio::model::OptionalModelObject& mo
       m_currentView = new ZoneHVACUnitHeaterInspectorView();
 
       connect(this, &InspectorView::toggleUnitsClicked, m_currentView, &BaseInspectorView::toggleUnitsClicked);
+      connect(this, &InspectorView::toggleDisplayAdditionalPropsClicked, m_currentView, &BaseInspectorView::toggleDisplayAdditionalPropsClicked);
 
-      m_currentView->layoutModelObject(component.get(), readOnly, displayIP);
+      m_currentView->layoutModelObject(component.get(), readOnly, displayIP, displayAdditionalProps);
 
       m_vLayout->addWidget(m_currentView);
 
@@ -639,8 +664,9 @@ void InspectorView::layoutModelObject(openstudio::model::OptionalModelObject& mo
       m_currentView = new ZoneHVACUnitVentilatorInspectorView();
 
       connect(this, &InspectorView::toggleUnitsClicked, m_currentView, &BaseInspectorView::toggleUnitsClicked);
+      connect(this, &InspectorView::toggleDisplayAdditionalPropsClicked, m_currentView, &BaseInspectorView::toggleDisplayAdditionalPropsClicked);
 
-      m_currentView->layoutModelObject(component.get(), readOnly, displayIP);
+      m_currentView->layoutModelObject(component.get(), readOnly, displayIP, displayAdditionalProps);
 
       m_vLayout->addWidget(m_currentView);
 
@@ -656,6 +682,7 @@ void InspectorView::layoutModelObject(openstudio::model::OptionalModelObject& mo
 
       m_currentView = new GenericInspectorView();
       connect(this, &InspectorView::toggleUnitsClicked, m_currentView, &BaseInspectorView::toggleUnitsClicked);
+      connect(this, &InspectorView::toggleDisplayAdditionalPropsClicked, m_currentView, &BaseInspectorView::toggleDisplayAdditionalPropsClicked);
 
       m_vLayout->addWidget(m_currentView);
     } else if (boost::optional<model::RefrigerationWalkIn> component = modelObject->optionalCast<model::RefrigerationWalkIn>()) {
@@ -666,8 +693,9 @@ void InspectorView::layoutModelObject(openstudio::model::OptionalModelObject& mo
       m_currentView = new RefrigerationWalkinInspectorView();
 
       connect(this, &InspectorView::toggleUnitsClicked, m_currentView, &BaseInspectorView::toggleUnitsClicked);
+      connect(this, &InspectorView::toggleDisplayAdditionalPropsClicked, m_currentView, &BaseInspectorView::toggleDisplayAdditionalPropsClicked);
 
-      m_currentView->layoutModelObject(component.get(), readOnly, displayIP);
+      m_currentView->layoutModelObject(component.get(), readOnly, displayIP, displayAdditionalProps);
 
       m_vLayout->addWidget(m_currentView);
     } else if (boost::optional<model::ScheduleRuleset> component = modelObject->optionalCast<model::ScheduleRuleset>()) {
@@ -677,7 +705,7 @@ void InspectorView::layoutModelObject(openstudio::model::OptionalModelObject& mo
 
       m_currentView = new ScheduleRulesetInspectorView();
 
-      m_currentView->layoutModelObject(component.get(), readOnly, displayIP);
+      m_currentView->layoutModelObject(component.get(), readOnly, displayIP, displayAdditionalProps);
 
       m_vLayout->addWidget(m_currentView);
     } else if (boost::optional<model::FanVariableVolume> component = modelObject->optionalCast<model::FanVariableVolume>()) {
@@ -704,8 +732,9 @@ void InspectorView::layoutModelObject(openstudio::model::OptionalModelObject& mo
       m_currentView = new GenericInspectorView();
 
       connect(this, &InspectorView::toggleUnitsClicked, m_currentView, &BaseInspectorView::toggleUnitsClicked);
+      connect(this, &InspectorView::toggleDisplayAdditionalPropsClicked, m_currentView, &BaseInspectorView::toggleDisplayAdditionalPropsClicked);
 
-      m_currentView->layoutModelObject(modelObject.get(), readOnly, displayIP);
+      m_currentView->layoutModelObject(modelObject.get(), readOnly, displayIP, displayAdditionalProps);
 
       m_vLayout->addWidget(m_currentView);
 
@@ -737,8 +766,9 @@ void InspectorView::layoutModelObject(openstudio::model::OptionalModelObject& mo
       m_currentView = new GenericInspectorView();
 
       connect(this, &InspectorView::toggleUnitsClicked, m_currentView, &BaseInspectorView::toggleUnitsClicked);
+      connect(this, &InspectorView::toggleDisplayAdditionalPropsClicked, m_currentView, &BaseInspectorView::toggleDisplayAdditionalPropsClicked);
 
-      m_currentView->layoutModelObject(modelObject.get(), readOnly, displayIP);
+      m_currentView->layoutModelObject(modelObject.get(), readOnly, displayIP, displayAdditionalProps);
 
       m_vLayout->addWidget(m_currentView);
 
@@ -770,8 +800,9 @@ void InspectorView::layoutModelObject(openstudio::model::OptionalModelObject& mo
       m_currentView = new GenericInspectorView();
 
       connect(this, &InspectorView::toggleUnitsClicked, m_currentView, &BaseInspectorView::toggleUnitsClicked);
+      connect(this, &InspectorView::toggleDisplayAdditionalPropsClicked, m_currentView, &BaseInspectorView::toggleDisplayAdditionalPropsClicked);
 
-      m_currentView->layoutModelObject(modelObject.get(), readOnly, displayIP);
+      m_currentView->layoutModelObject(modelObject.get(), readOnly, displayIP, displayAdditionalProps);
 
       m_vLayout->addWidget(m_currentView);
 
@@ -787,8 +818,9 @@ void InspectorView::layoutModelObject(openstudio::model::OptionalModelObject& mo
       m_currentView = new GenericInspectorView();
 
       connect(this, &InspectorView::toggleUnitsClicked, m_currentView, &BaseInspectorView::toggleUnitsClicked);
+      connect(this, &InspectorView::toggleDisplayAdditionalPropsClicked, m_currentView, &BaseInspectorView::toggleDisplayAdditionalPropsClicked);
 
-      m_currentView->layoutModelObject(modelObject.get(), readOnly, displayIP);
+      m_currentView->layoutModelObject(modelObject.get(), readOnly, displayIP, displayAdditionalProps);
 
       m_vLayout->addWidget(m_currentView);
     }
@@ -800,6 +832,7 @@ void InspectorView::layoutModelObject(openstudio::model::OptionalModelObject& mo
     m_currentView = new GenericInspectorView();
 
     connect(this, &InspectorView::toggleUnitsClicked, m_currentView, &BaseInspectorView::toggleUnitsClicked);
+    connect(this, &InspectorView::toggleDisplayAdditionalPropsClicked, m_currentView, &BaseInspectorView::toggleDisplayAdditionalPropsClicked);
 
     m_vLayout->addWidget(m_currentView);
   }
@@ -863,7 +896,7 @@ SplitterMixerInspectorView::SplitterMixerInspectorView(QWidget* parent) : BaseIn
   connect(m_zoneChooserView, &ZoneChooserView::removeZoneClicked, this, &SplitterMixerInspectorView::removeZoneClicked);
 }
 
-void SplitterMixerInspectorView::layoutModelObject(model::ModelObject& modelObject, bool readOnly, bool displayIP) {
+void SplitterMixerInspectorView::layoutModelObject(model::ModelObject& modelObject, bool readOnly, bool displayIP, bool displayAdditionalProps) {
   m_zoneChooserView->layoutModelObject(modelObject);
 }
 
@@ -871,6 +904,7 @@ GenericInspectorView::GenericInspectorView(QWidget* parent) : BaseInspectorView(
   m_inspectorGadget = new InspectorGadget();
 
   connect(this, &GenericInspectorView::toggleUnitsClicked, m_inspectorGadget, &InspectorGadget::toggleUnitsClicked);
+  connect(this, &GenericInspectorView::toggleDisplayAdditionalPropsClicked, m_inspectorGadget, &InspectorGadget::toggleDisplayAdditionalPropsClicked);
   connect(m_inspectorGadget, &InspectorGadget::workspaceObjectRemoved, this, &BaseInspectorView::workspaceObjectRemoved);
 
   m_libraryTabWidget->addTab(m_inspectorGadget, ":/images/properties_icon_on.png", ":/images/properties_icon_off.png");
@@ -882,7 +916,7 @@ GenericInspectorView::GenericInspectorView(QWidget* parent) : BaseInspectorView(
   m_libraryTabWidget->addTab(m_emsSensorView, ":/images/controller_icon_on.png", ":/images/controller_icon_off.png");
 }
 
-void GenericInspectorView::layoutModelObject(model::ModelObject& modelObject, bool readOnly, bool displayIP) {
+void GenericInspectorView::layoutModelObject(model::ModelObject& modelObject, bool readOnly, bool displayIP, bool displayAdditionalProps) {
   bool force = false;
   bool recursive = true;
   bool locked = readOnly;
@@ -892,6 +926,7 @@ void GenericInspectorView::layoutModelObject(model::ModelObject& modelObject, bo
   } else {
     m_inspectorGadget->setUnitSystem(InspectorGadget::SI);
   }
+  m_inspectorGadget->setDisplayAdditionalProps(displayAdditionalProps);
   m_inspectorGadget->layoutModelObj(modelObject, force, recursive, locked, hideChildren);
   m_emsActuatorView->layoutModelObject(modelObject);
   m_emsSensorView->layoutModelObject(modelObject);
@@ -1009,7 +1044,8 @@ RefrigerationWalkinInspectorView::RefrigerationWalkinInspectorView(QWidget* pare
   m_libraryTabWidget->addTab(m_zoneBoundaryWidget, ":/images/walkin_right_tab_on.png", ":/images/walkin_right_tab_off.png");
 }
 
-void RefrigerationWalkinInspectorView::layoutModelObject(model::ModelObject& modelObject, bool readOnly, bool displayIP) {
+void RefrigerationWalkinInspectorView::layoutModelObject(model::ModelObject& modelObject, bool readOnly, bool displayIP,
+                                                         bool displayAdditionalProps) {
   m_modelObject = modelObject;
 
   bool force = false;
@@ -1270,7 +1306,7 @@ void ThermalZoneInspectorView::update() {
   returnChooser->blockSignals(false);
 }
 
-void ThermalZoneInspectorView::layoutModelObject(model::ModelObject& modelObject, bool readOnly, bool displayIP) {
+void ThermalZoneInspectorView::layoutModelObject(model::ModelObject& modelObject, bool readOnly, bool displayIP, bool displayAdditionalProps) {
   bool force = false;
   bool recursive = true;
   bool hideChildren = false;
@@ -1312,7 +1348,7 @@ WaterToAirInspectorView::WaterToAirInspectorView(QWidget* parent) : BaseInspecto
   connect(m_loopChooserView, &LoopChooserView::removeFromLoopClicked, this, &WaterToAirInspectorView::removeFromLoopClicked);
 }
 
-void WaterToAirInspectorView::layoutModelObject(model::ModelObject& modelObject, bool readOnly, bool displayIP) {
+void WaterToAirInspectorView::layoutModelObject(model::ModelObject& modelObject, bool readOnly, bool displayIP, bool displayAdditionalProps) {
   m_modelObject = modelObject;
 
   bool force = false;
@@ -1393,7 +1429,7 @@ AirTerminalInspectorView::AirTerminalInspectorView(QWidget* parent) : BaseInspec
 }
 
 template <class T>
-void AirTerminalInspectorView::layoutModelObject(model::ModelObject& modelObject, bool readOnly, bool displayIP) {
+void AirTerminalInspectorView::layoutModelObject(model::ModelObject& modelObject, bool readOnly, bool displayIP, bool displayAdditionalProps) {
   m_modelObject = modelObject;
 
   bool force = false;
@@ -1430,34 +1466,39 @@ void AirTerminalInspectorView::layoutModelObject(model::ModelObject& modelObject
 AirTerminalSingleDuctConstantVolumeReheatInspectorView::AirTerminalSingleDuctConstantVolumeReheatInspectorView(QWidget* parent)
   : AirTerminalInspectorView(parent) {}
 
-void AirTerminalSingleDuctConstantVolumeReheatInspectorView::layoutModelObject(model::ModelObject& modelObject, bool readOnly, bool displayIP) {
+void AirTerminalSingleDuctConstantVolumeReheatInspectorView::layoutModelObject(model::ModelObject& modelObject, bool readOnly, bool displayIP,
+                                                                               bool displayAdditionalProps) {
   AirTerminalInspectorView::layoutModelObject<model::AirTerminalSingleDuctConstantVolumeReheat>(modelObject, readOnly, displayIP);
 }
 
 AirTerminalSingleDuctVAVReheatInspectorView::AirTerminalSingleDuctVAVReheatInspectorView(QWidget* parent) : AirTerminalInspectorView(parent) {}
 
-void AirTerminalSingleDuctVAVReheatInspectorView::layoutModelObject(model::ModelObject& modelObject, bool readOnly, bool displayIP) {
+void AirTerminalSingleDuctVAVReheatInspectorView::layoutModelObject(model::ModelObject& modelObject, bool readOnly, bool displayIP,
+                                                                    bool displayAdditionalProps) {
   AirTerminalInspectorView::layoutModelObject<model::AirTerminalSingleDuctVAVReheat>(modelObject, readOnly, displayIP);
 }
 
 AirTerminalSingleDuctParallelPIUReheatInspectorView::AirTerminalSingleDuctParallelPIUReheatInspectorView(QWidget* parent)
   : AirTerminalInspectorView(parent) {}
 
-void AirTerminalSingleDuctParallelPIUReheatInspectorView::layoutModelObject(model::ModelObject& modelObject, bool readOnly, bool displayIP) {
+void AirTerminalSingleDuctParallelPIUReheatInspectorView::layoutModelObject(model::ModelObject& modelObject, bool readOnly, bool displayIP,
+                                                                            bool displayAdditionalProps) {
   AirTerminalInspectorView::layoutModelObject<model::AirTerminalSingleDuctParallelPIUReheat>(modelObject, readOnly, displayIP);
 }
 
 AirTerminalSingleDuctSeriesPIUReheatInspectorView::AirTerminalSingleDuctSeriesPIUReheatInspectorView(QWidget* parent)
   : AirTerminalInspectorView(parent) {}
 
-void AirTerminalSingleDuctSeriesPIUReheatInspectorView::layoutModelObject(model::ModelObject& modelObject, bool readOnly, bool displayIP) {
+void AirTerminalSingleDuctSeriesPIUReheatInspectorView::layoutModelObject(model::ModelObject& modelObject, bool readOnly, bool displayIP,
+                                                                          bool displayAdditionalProps) {
   AirTerminalInspectorView::layoutModelObject<model::AirTerminalSingleDuctSeriesPIUReheat>(modelObject, readOnly, displayIP);
 }
 
 AirTerminalSingleDuctVAVHeatAndCoolReheatInspectorView::AirTerminalSingleDuctVAVHeatAndCoolReheatInspectorView(QWidget* parent)
   : AirTerminalInspectorView(parent) {}
 
-void AirTerminalSingleDuctVAVHeatAndCoolReheatInspectorView::layoutModelObject(model::ModelObject& modelObject, bool readOnly, bool displayIP) {
+void AirTerminalSingleDuctVAVHeatAndCoolReheatInspectorView::layoutModelObject(model::ModelObject& modelObject, bool readOnly, bool displayIP,
+                                                                               bool displayAdditionalProps) {
   AirTerminalInspectorView::layoutModelObject<model::AirTerminalSingleDuctVAVHeatAndCoolReheat>(modelObject, readOnly, displayIP);
 }
 
@@ -1483,7 +1524,8 @@ AirTerminalSingleDuctConstantVolumeCooledBeamInspectorView::AirTerminalSingleDuc
           &AirTerminalSingleDuctConstantVolumeCooledBeamInspectorView::removeFromLoopClicked);
 }
 
-void AirTerminalSingleDuctConstantVolumeCooledBeamInspectorView::layoutModelObject(model::ModelObject& modelObject, bool readOnly, bool displayIP) {
+void AirTerminalSingleDuctConstantVolumeCooledBeamInspectorView::layoutModelObject(model::ModelObject& modelObject, bool readOnly, bool displayIP,
+                                                                                   bool displayAdditionalProps) {
   m_modelObject = modelObject;
 
   bool force = false;
@@ -1533,7 +1575,8 @@ ZoneHVACBaseboardConvectiveWaterInspectorView::ZoneHVACBaseboardConvectiveWaterI
           &ZoneHVACBaseboardConvectiveWaterInspectorView::removeFromLoopClicked);
 }
 
-void ZoneHVACBaseboardConvectiveWaterInspectorView::layoutModelObject(model::ModelObject& modelObject, bool readOnly, bool displayIP) {
+void ZoneHVACBaseboardConvectiveWaterInspectorView::layoutModelObject(model::ModelObject& modelObject, bool readOnly, bool displayIP,
+                                                                      bool displayAdditionalProps) {
   m_modelObject = modelObject;
 
   bool force = false;
@@ -1586,7 +1629,8 @@ ZoneHVACBaseboardRadiantConvectiveWaterInspectorView::ZoneHVACBaseboardRadiantCo
           &ZoneHVACBaseboardRadiantConvectiveWaterInspectorView::removeFromLoopClicked);
 }
 
-void ZoneHVACBaseboardRadiantConvectiveWaterInspectorView::layoutModelObject(model::ModelObject& modelObject, bool readOnly, bool displayIP) {
+void ZoneHVACBaseboardRadiantConvectiveWaterInspectorView::layoutModelObject(model::ModelObject& modelObject, bool readOnly, bool displayIP,
+                                                                             bool displayAdditionalProps) {
   m_modelObject = modelObject;
 
   bool force = false;
@@ -1641,7 +1685,8 @@ ZoneHVACCoolingPanelRadiantConvectiveWaterInspectorView::ZoneHVACCoolingPanelRad
           &ZoneHVACCoolingPanelRadiantConvectiveWaterInspectorView::removeFromLoopClicked);
 }
 
-void ZoneHVACCoolingPanelRadiantConvectiveWaterInspectorView::layoutModelObject(model::ModelObject& modelObject, bool readOnly, bool displayIP) {
+void ZoneHVACCoolingPanelRadiantConvectiveWaterInspectorView::layoutModelObject(model::ModelObject& modelObject, bool readOnly, bool displayIP,
+                                                                                bool displayAdditionalProps) {
   m_modelObject = modelObject;
 
   bool force = false;
@@ -1700,7 +1745,8 @@ ZoneHVACFourPipeFanCoilInspectorView::ZoneHVACFourPipeFanCoilInspectorView(QWidg
   connect(m_coolingLoopChooserView, &LoopChooserView::removeFromLoopClicked, this, &ZoneHVACFourPipeFanCoilInspectorView::removeFromLoopClicked);
 }
 
-void ZoneHVACFourPipeFanCoilInspectorView::layoutModelObject(model::ModelObject& modelObject, bool readOnly, bool displayIP) {
+void ZoneHVACFourPipeFanCoilInspectorView::layoutModelObject(model::ModelObject& modelObject, bool readOnly, bool displayIP,
+                                                             bool displayAdditionalProps) {
   m_modelObject = modelObject;
 
   bool force = false;
@@ -1775,7 +1821,8 @@ ZoneHVACLowTempRadiantConstFlowInspectorView::ZoneHVACLowTempRadiantConstFlowIns
           &ZoneHVACLowTempRadiantConstFlowInspectorView::removeFromLoopClicked);
 }
 
-void ZoneHVACLowTempRadiantConstFlowInspectorView::layoutModelObject(model::ModelObject& modelObject, bool readOnly, bool displayIP) {
+void ZoneHVACLowTempRadiantConstFlowInspectorView::layoutModelObject(model::ModelObject& modelObject, bool readOnly, bool displayIP,
+                                                                     bool displayAdditionalProps) {
 
   m_modelObject = modelObject;
 
@@ -1851,7 +1898,8 @@ ZoneHVACLowTempRadiantVarFlowInspectorView::ZoneHVACLowTempRadiantVarFlowInspect
           &ZoneHVACLowTempRadiantVarFlowInspectorView::removeFromLoopClicked);
 }
 
-void ZoneHVACLowTempRadiantVarFlowInspectorView::layoutModelObject(model::ModelObject& modelObject, bool readOnly, bool displayIP) {
+void ZoneHVACLowTempRadiantVarFlowInspectorView::layoutModelObject(model::ModelObject& modelObject, bool readOnly, bool displayIP,
+                                                                   bool displayAdditionalProps) {
 
   m_modelObject = modelObject;
 
@@ -1935,7 +1983,8 @@ ZoneHVACWaterToAirHeatPumpInspectorView::ZoneHVACWaterToAirHeatPumpInspectorView
           &ZoneHVACWaterToAirHeatPumpInspectorView::removeFromLoopClicked);
 }
 
-void ZoneHVACWaterToAirHeatPumpInspectorView::layoutModelObject(model::ModelObject& modelObject, bool readOnly, bool displayIP) {
+void ZoneHVACWaterToAirHeatPumpInspectorView::layoutModelObject(model::ModelObject& modelObject, bool readOnly, bool displayIP,
+                                                                bool displayAdditionalProps) {
   m_modelObject = modelObject;
 
   bool force = false;
@@ -2018,7 +2067,8 @@ ZoneHVACPackagedTerminalAirConditionerInspectorView::ZoneHVACPackagedTerminalAir
           &ZoneHVACPackagedTerminalAirConditionerInspectorView::removeFromLoopClicked);
 }
 
-void ZoneHVACPackagedTerminalAirConditionerInspectorView::layoutModelObject(model::ModelObject& modelObject, bool readOnly, bool displayIP) {
+void ZoneHVACPackagedTerminalAirConditionerInspectorView::layoutModelObject(model::ModelObject& modelObject, bool readOnly, bool displayIP,
+                                                                            bool displayAdditionalProps) {
   m_modelObject = modelObject;
 
   bool force = false;
@@ -2071,7 +2121,8 @@ ZoneHVACPackagedTerminalHeatPumpInspectorView::ZoneHVACPackagedTerminalHeatPumpI
   connect(m_loopChooserView, &LoopChooserView::removeFromLoopClicked, this, &ZoneHVACPackagedTerminalHeatPumpInspectorView::removeFromLoopClicked);
 }
 
-void ZoneHVACPackagedTerminalHeatPumpInspectorView::layoutModelObject(model::ModelObject& modelObject, bool readOnly, bool displayIP) {
+void ZoneHVACPackagedTerminalHeatPumpInspectorView::layoutModelObject(model::ModelObject& modelObject, bool readOnly, bool displayIP,
+                                                                      bool displayAdditionalProps) {
   m_modelObject = modelObject;
 
   bool force = false;
@@ -2123,7 +2174,8 @@ WaterHeaterHeatPumpInspectorView::WaterHeaterHeatPumpInspectorView(QWidget* pare
   connect(m_loopChooserView, &LoopChooserView::removeFromLoopClicked, this, &WaterHeaterHeatPumpInspectorView::removeFromLoopClicked);
 }
 
-void WaterHeaterHeatPumpInspectorView::layoutModelObject(model::ModelObject& modelObject, bool readOnly, bool displayIP) {
+void WaterHeaterHeatPumpInspectorView::layoutModelObject(model::ModelObject& modelObject, bool readOnly, bool displayIP,
+                                                         bool displayAdditionalProps) {
   m_modelObject = modelObject;
 
   bool force = false;
@@ -2173,7 +2225,7 @@ ZoneHVACUnitHeaterInspectorView::ZoneHVACUnitHeaterInspectorView(QWidget* parent
   connect(m_heatingLoopChooserView, &LoopChooserView::removeFromLoopClicked, this, &ZoneHVACUnitHeaterInspectorView::removeFromLoopClicked);
 }
 
-void ZoneHVACUnitHeaterInspectorView::layoutModelObject(model::ModelObject& modelObject, bool readOnly, bool displayIP) {
+void ZoneHVACUnitHeaterInspectorView::layoutModelObject(model::ModelObject& modelObject, bool readOnly, bool displayIP, bool displayAdditionalProps) {
   m_modelObject = modelObject;
 
   bool force = false;
@@ -2233,7 +2285,8 @@ ZoneHVACUnitVentilatorInspectorView::ZoneHVACUnitVentilatorInspectorView(QWidget
   connect(m_coolingLoopChooserView, &LoopChooserView::removeFromLoopClicked, this, &ZoneHVACUnitVentilatorInspectorView::removeFromLoopClicked);
 }
 
-void ZoneHVACUnitVentilatorInspectorView::layoutModelObject(model::ModelObject& modelObject, bool readOnly, bool displayIP) {
+void ZoneHVACUnitVentilatorInspectorView::layoutModelObject(model::ModelObject& modelObject, bool readOnly, bool displayIP,
+                                                            bool displayAdditionalProps) {
   m_modelObject = modelObject;
 
   bool force = false;
@@ -2307,7 +2360,8 @@ AirLoopHVACUnitarySystemInspectorView::AirLoopHVACUnitarySystemInspectorView(QWi
   connect(m_secondaryLoopChooserView, &LoopChooserView::removeFromLoopClicked, this, &AirLoopHVACUnitarySystemInspectorView::removeFromLoopClicked);
 }
 
-void AirLoopHVACUnitarySystemInspectorView::layoutModelObject(model::ModelObject& modelObject, bool readOnly, bool displayIP) {
+void AirLoopHVACUnitarySystemInspectorView::layoutModelObject(model::ModelObject& modelObject, bool readOnly, bool displayIP,
+                                                              bool displayAdditionalProps) {
   m_modelObject = modelObject;
 
   bool force = false;
@@ -2398,7 +2452,7 @@ AirTerminalSingleDuctConstantVolumeFourPipeInductionInspectorView::AirTerminalSi
 }
 
 void AirTerminalSingleDuctConstantVolumeFourPipeInductionInspectorView::layoutModelObject(model::ModelObject& modelObject, bool readOnly,
-                                                                                          bool displayIP) {
+                                                                                          bool displayIP, bool displayAdditionalProps) {
   m_modelObject = modelObject;
 
   bool force = false;
@@ -2476,7 +2530,8 @@ AirTerminalSingleDuctConstantVolumeFourPipeBeamInspectorView::AirTerminalSingleD
           &AirTerminalSingleDuctConstantVolumeFourPipeBeamInspectorView::removeFromLoopClicked);
 }
 
-void AirTerminalSingleDuctConstantVolumeFourPipeBeamInspectorView::layoutModelObject(model::ModelObject& modelObject, bool readOnly, bool displayIP) {
+void AirTerminalSingleDuctConstantVolumeFourPipeBeamInspectorView::layoutModelObject(model::ModelObject& modelObject, bool readOnly, bool displayIP,
+                                                                                     bool displayAdditionalProps) {
   m_modelObject = modelObject;
 
   bool force = false;
@@ -2522,7 +2577,7 @@ void AirTerminalSingleDuctConstantVolumeFourPipeBeamInspectorView::layoutModelOb
 // SCHEDULERULESET
 ScheduleRulesetInspectorView::ScheduleRulesetInspectorView(QWidget* parent) : BaseInspectorView(parent) {}
 
-void ScheduleRulesetInspectorView::layoutModelObject(model::ModelObject& modelObject, bool readOnly, bool displayIP) {
+void ScheduleRulesetInspectorView::layoutModelObject(model::ModelObject& modelObject, bool readOnly, bool displayIP, bool displayAdditionalProps) {
   auto* widget = new QWidget();
 
   auto* mainLayout = new QVBoxLayout();
