@@ -1104,7 +1104,7 @@ If you would like to see the OpenStudioApplication translated in your language o
     </message>
     <message>
         <location filename="../src/openstudio_app/OpenStudioApp.cpp" line="909"/>
-        <location filename="../src/openstudio_app/OpenStudioApp.cpp" line="1519"/>
+        <location filename="../src/openstudio_app/OpenStudioApp.cpp" line="1521"/>
         <source>(*.osm)</source>
         <translation>(*.ओएसएम)</translation>
     </message>
@@ -1186,19 +1186,19 @@ Ruby scripts are no longer supported and have been replaced by measures.</source
     </message>
     <message>
         <location filename="../src/openstudio_app/OpenStudioApp.cpp" line="1189"/>
-        <location filename="../src/openstudio_app/OpenStudioApp.cpp" line="1373"/>
+        <location filename="../src/openstudio_app/OpenStudioApp.cpp" line="1375"/>
         <source>Settings file not writable</source>
         <translation>सेटिंग फ़ाइल लिखने योग्य नहीं है</translation>
     </message>
     <message>
         <location filename="../src/openstudio_app/OpenStudioApp.cpp" line="1190"/>
-        <location filename="../src/openstudio_app/OpenStudioApp.cpp" line="1374"/>
+        <location filename="../src/openstudio_app/OpenStudioApp.cpp" line="1376"/>
         <source>Your settings file &apos;</source>
         <translation>आपकी सेटिंग फ़ाइल &apos;</translation>
     </message>
     <message>
         <location filename="../src/openstudio_app/OpenStudioApp.cpp" line="1190"/>
-        <location filename="../src/openstudio_app/OpenStudioApp.cpp" line="1374"/>
+        <location filename="../src/openstudio_app/OpenStudioApp.cpp" line="1376"/>
         <source>&apos; is not writable. Adjust the file permissions</source>
         <translation>&apos;लिखने योग्य नहीं है। फ़ाइल अनुमतियों को समायोजित करें</translation>
     </message>
@@ -1233,24 +1233,24 @@ Do you want to create a new model?</source>
         <translation type="vanished">उपाय प्रबंधक क्रैश हो गया है</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_app/OpenStudioApp.cpp" line="1446"/>
+        <location filename="../src/openstudio_app/OpenStudioApp.cpp" line="1448"/>
         <source>Restart required</source>
         <translation>पुनरारंभ करना आवश्यक है</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_app/OpenStudioApp.cpp" line="1447"/>
+        <location filename="../src/openstudio_app/OpenStudioApp.cpp" line="1449"/>
         <source>A restart of the OpenStudio Application is required for language changes to be fully functionnal.
 Would you like to restart now?</source>
         <translation>भाषा परिवर्तन पूरी तरह कार्यात्मक होने के लिए ओपेनस्टूडियो एप्लिकेशन के पुनरारंभ की आवश्यकता है।
 क्या आप अभी पुनः आरंभ करना चाहेंगे?</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_app/OpenStudioApp.cpp" line="1519"/>
+        <location filename="../src/openstudio_app/OpenStudioApp.cpp" line="1521"/>
         <source>Select Library</source>
         <translation>लाइब्रेरी का चयन करें</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_app/OpenStudioApp.cpp" line="1625"/>
+        <location filename="../src/openstudio_app/OpenStudioApp.cpp" line="1627"/>
         <source>Failed to load the following libraries...
 
 </source>
@@ -1259,7 +1259,7 @@ Would you like to restart now?</source>
 </translation>
     </message>
     <message>
-        <location filename="../src/openstudio_app/OpenStudioApp.cpp" line="1633"/>
+        <location filename="../src/openstudio_app/OpenStudioApp.cpp" line="1635"/>
         <source>
 
 Would you like to Restore library paths to default values or Open the library settings to change them manually?</source>

@@ -154,6 +154,8 @@ class WorkflowStepButton : public QAbstractButton
 
   virtual ~WorkflowStepButton() = default;
 
+  QLabel* measureTypeBadge;
+
   QLabel* nameLabel;
 
   QLabel* cautionLabel;

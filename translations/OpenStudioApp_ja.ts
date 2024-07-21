@@ -1107,7 +1107,7 @@ If you would like to see the OpenStudioApplication translated in your language o
     </message>
     <message>
         <location filename="../src/openstudio_app/OpenStudioApp.cpp" line="909"/>
-        <location filename="../src/openstudio_app/OpenStudioApp.cpp" line="1519"/>
+        <location filename="../src/openstudio_app/OpenStudioApp.cpp" line="1521"/>
         <source>(*.osm)</source>
         <translation>(*.osm)</translation>
     </message>
@@ -1189,19 +1189,19 @@ Rubyスクリプトはサポートされなくなり、メジャーに置き換�
     </message>
     <message>
         <location filename="../src/openstudio_app/OpenStudioApp.cpp" line="1189"/>
-        <location filename="../src/openstudio_app/OpenStudioApp.cpp" line="1373"/>
+        <location filename="../src/openstudio_app/OpenStudioApp.cpp" line="1375"/>
         <source>Settings file not writable</source>
         <translation>設定ファイルは書き込み不可</translation>
     </message>
     <message>
         <location filename="../src/openstudio_app/OpenStudioApp.cpp" line="1190"/>
-        <location filename="../src/openstudio_app/OpenStudioApp.cpp" line="1374"/>
+        <location filename="../src/openstudio_app/OpenStudioApp.cpp" line="1376"/>
         <source>Your settings file &apos;</source>
         <translation>設定ファイル</translation>
     </message>
     <message>
         <location filename="../src/openstudio_app/OpenStudioApp.cpp" line="1190"/>
-        <location filename="../src/openstudio_app/OpenStudioApp.cpp" line="1374"/>
+        <location filename="../src/openstudio_app/OpenStudioApp.cpp" line="1376"/>
         <source>&apos; is not writable. Adjust the file permissions</source>
         <translation>は書き込み出来ません。ファイルのアクセス許可を調整してください</translation>
     </message>
@@ -1236,24 +1236,24 @@ Do you want to create a new model?</source>
         <translation type="vanished">メジャーマネージャーがクラッシュしました</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_app/OpenStudioApp.cpp" line="1446"/>
+        <location filename="../src/openstudio_app/OpenStudioApp.cpp" line="1448"/>
         <source>Restart required</source>
         <translation>再起動してください</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_app/OpenStudioApp.cpp" line="1447"/>
+        <location filename="../src/openstudio_app/OpenStudioApp.cpp" line="1449"/>
         <source>A restart of the OpenStudio Application is required for language changes to be fully functionnal.
 Would you like to restart now?</source>
         <translation>言語の変更を適用するためにはOpenStudioの再起動が必要です。
 今すぐ再起動しますか？</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_app/OpenStudioApp.cpp" line="1519"/>
+        <location filename="../src/openstudio_app/OpenStudioApp.cpp" line="1521"/>
         <source>Select Library</source>
         <translation>ライブラリーを選択</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_app/OpenStudioApp.cpp" line="1625"/>
+        <location filename="../src/openstudio_app/OpenStudioApp.cpp" line="1627"/>
         <source>Failed to load the following libraries...
 
 </source>
@@ -1262,7 +1262,7 @@ Would you like to restart now?</source>
 </translation>
     </message>
     <message>
-        <location filename="../src/openstudio_app/OpenStudioApp.cpp" line="1633"/>
+        <location filename="../src/openstudio_app/OpenStudioApp.cpp" line="1635"/>
         <source>
 
 Would you like to Restore library paths to default values or Open the library settings to change them manually?</source>

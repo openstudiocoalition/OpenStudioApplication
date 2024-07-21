@@ -1106,7 +1106,7 @@ Si voleu que OpeStudioApplication estigui a la vostra llengua, esperem la vostra
     </message>
     <message>
         <location filename="../src/openstudio_app/OpenStudioApp.cpp" line="909"/>
-        <location filename="../src/openstudio_app/OpenStudioApp.cpp" line="1519"/>
+        <location filename="../src/openstudio_app/OpenStudioApp.cpp" line="1521"/>
         <source>(*.osm)</source>
         <translation>(*.osm)</translation>
     </message>
@@ -1188,19 +1188,19 @@ Els scripts de Ruby ja no són compatibles i &apos;shan substituït per Mesures.
     </message>
     <message>
         <location filename="../src/openstudio_app/OpenStudioApp.cpp" line="1189"/>
-        <location filename="../src/openstudio_app/OpenStudioApp.cpp" line="1373"/>
+        <location filename="../src/openstudio_app/OpenStudioApp.cpp" line="1375"/>
         <source>Settings file not writable</source>
         <translation>No es pot escriure el fitxer de configuració</translation>
     </message>
     <message>
         <location filename="../src/openstudio_app/OpenStudioApp.cpp" line="1190"/>
-        <location filename="../src/openstudio_app/OpenStudioApp.cpp" line="1374"/>
+        <location filename="../src/openstudio_app/OpenStudioApp.cpp" line="1376"/>
         <source>Your settings file &apos;</source>
         <translation>El vostre fitxer de configuració &apos;</translation>
     </message>
     <message>
         <location filename="../src/openstudio_app/OpenStudioApp.cpp" line="1190"/>
-        <location filename="../src/openstudio_app/OpenStudioApp.cpp" line="1374"/>
+        <location filename="../src/openstudio_app/OpenStudioApp.cpp" line="1376"/>
         <source>&apos; is not writable. Adjust the file permissions</source>
         <translation>&apos; no es pot escriure. Canvieu els permisos</translation>
     </message>
@@ -1235,24 +1235,24 @@ Vols crear-ne un de nou¿</translation>
         <translation type="vanished">El Gestor de Mesures s&apos;ha bloquejat</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_app/OpenStudioApp.cpp" line="1446"/>
+        <location filename="../src/openstudio_app/OpenStudioApp.cpp" line="1448"/>
         <source>Restart required</source>
         <translation>S&apos;ha de reiniciar</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_app/OpenStudioApp.cpp" line="1447"/>
+        <location filename="../src/openstudio_app/OpenStudioApp.cpp" line="1449"/>
         <source>A restart of the OpenStudio Application is required for language changes to be fully functionnal.
 Would you like to restart now?</source>
         <translation>Per tal que els canvis de llengua es facin efectius, s&apos;ha de reiniciar l&apos;Aplicació d&apos;OpenStudio.
 Vols reiniciar ara?</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_app/OpenStudioApp.cpp" line="1519"/>
+        <location filename="../src/openstudio_app/OpenStudioApp.cpp" line="1521"/>
         <source>Select Library</source>
         <translation>Seleccionar llibreria</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_app/OpenStudioApp.cpp" line="1625"/>
+        <location filename="../src/openstudio_app/OpenStudioApp.cpp" line="1627"/>
         <source>Failed to load the following libraries...
 
 </source>
@@ -1261,7 +1261,7 @@ Vols reiniciar ara?</translation>
 </translation>
     </message>
     <message>
-        <location filename="../src/openstudio_app/OpenStudioApp.cpp" line="1633"/>
+        <location filename="../src/openstudio_app/OpenStudioApp.cpp" line="1635"/>
         <source>
 
 Would you like to Restore library paths to default values or Open the library settings to change them manually?</source>

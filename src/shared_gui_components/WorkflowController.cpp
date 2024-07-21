@@ -389,6 +389,12 @@ MeasureType MeasureStepItem::measureType() const {
   return bclMeasure_->measureType();
 }
 
+MeasureLanguage MeasureStepItem::measureLanguage() const {
+  OptionalBCLMeasure bclMeasure_ = this->bclMeasure();
+  OS_ASSERT(bclMeasure_);
+  return bclMeasure_->measureLanguage();
+}
+
 MeasureStep MeasureStepItem::measureStep() const {
   return m_step;
 }
@@ -549,6 +555,26 @@ MeasureStepItemDelegate::MeasureStepItemDelegate() = default;
 QWidget* MeasureStepItemDelegate::view(QSharedPointer<OSListItem> dataSource) {
   if (QSharedPointer<MeasureStepItem> measureStepItem = dataSource.objectCast<MeasureStepItem>()) {
     auto* workflowStepView = new WorkflowStepView();
+
+    const QString measureLangStr = toQString(measureStepItem->measureLanguage().valueName());
+    if (measureStepItem->measureType() == MeasureType::ModelMeasure) {
+      workflowStepView->workflowStepButton->measureTypeBadge->setPixmap(
+        QPixmap(QString(":/images/openstudio_measure_icon_%1.png").arg(measureLangStr))
+                                              .scaled(15, 15, Qt::IgnoreAspectRatio, Qt::SmoothTransformation));
+      workflowStepView->workflowStepButton->measureTypeBadge->setVisible(true);
+    } else if (measureStepItem->measureType() == MeasureType::EnergyPlusMeasure) {
+      workflowStepView->workflowStepButton->measureTypeBadge->setPixmap(
+        QPixmap(QString(":/images/energyplus_measure_icon_%1.png").arg(measureLangStr))
+                                              .scaled(15, 15, Qt::IgnoreAspectRatio, Qt::SmoothTransformation));
+      workflowStepView->workflowStepButton->measureTypeBadge->setVisible(true);
+    } else if (measureStepItem->measureType() == MeasureType::ReportingMeasure) {
+      workflowStepView->workflowStepButton->measureTypeBadge->setPixmap(
+        QPixmap(QString(":/images/report_measure_icon_%1.png").arg(measureLangStr)).scaled(15, 15, Qt::IgnoreAspectRatio, Qt::SmoothTransformation));
+      workflowStepView->workflowStepButton->measureTypeBadge->setVisible(true);
+    }
+
+    workflowStepView->workflowStepButton->nameLabel->setText(measureStepItem->name());
+
     workflowStepView->workflowStepButton->nameLabel->setText(measureStepItem->name());
 
     connect(measureStepItem.data(), &MeasureStepItem::nameChanged, workflowStepView->workflowStepButton->nameLabel, &QLabel::setText);
