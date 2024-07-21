@@ -149,7 +149,8 @@ void WorkflowStepView::paintEvent(QPaintEvent* /*event*/) {
   style()->drawPrimitive(QStyle::PE_Widget, &opt, &p, this);
 }
 
-WorkflowStepButton::WorkflowStepButton() : measureTypeBadge(new QLabel()), nameLabel(new QLabel()), cautionLabel(new QLabel()), errorLabel(new QLabel()) {
+WorkflowStepButton::WorkflowStepButton()
+  : measureTypeBadge(new QLabel()), nameLabel(new QLabel()), cautionLabel(new QLabel()), errorLabel(new QLabel()) {
   setFixedHeight(25);
 
   setHasEmphasis(false);

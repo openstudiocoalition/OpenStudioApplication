@@ -943,8 +943,8 @@ bool MeasureManager::checkForUpdates(const openstudio::path& measureDir, bool fo
   // std::string url_s = m_url.toString().toStdString();
 
   QJsonObject obj;
-  obj["measure_dir"] = toQString(measureDir); // classic cli
-  obj["measures_dir"] = toQString(measureDir); // new cli
+  obj["measure_dir"] = toQString(measureDir);   // classic cli
+  obj["measures_dir"] = toQString(measureDir);  // new cli
   obj["force_reload"] = force;
   const QJsonDocument doc(obj);
   const QByteArray data = doc.toJson();

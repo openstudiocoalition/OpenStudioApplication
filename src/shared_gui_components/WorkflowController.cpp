@@ -560,12 +560,12 @@ QWidget* MeasureStepItemDelegate::view(QSharedPointer<OSListItem> dataSource) {
     if (measureStepItem->measureType() == MeasureType::ModelMeasure) {
       workflowStepView->workflowStepButton->measureTypeBadge->setPixmap(
         QPixmap(QString(":/images/openstudio_measure_icon_%1.png").arg(measureLangStr))
-                                              .scaled(15, 15, Qt::IgnoreAspectRatio, Qt::SmoothTransformation));
+          .scaled(15, 15, Qt::IgnoreAspectRatio, Qt::SmoothTransformation));
       workflowStepView->workflowStepButton->measureTypeBadge->setVisible(true);
     } else if (measureStepItem->measureType() == MeasureType::EnergyPlusMeasure) {
       workflowStepView->workflowStepButton->measureTypeBadge->setPixmap(
         QPixmap(QString(":/images/energyplus_measure_icon_%1.png").arg(measureLangStr))
-                                              .scaled(15, 15, Qt::IgnoreAspectRatio, Qt::SmoothTransformation));
+          .scaled(15, 15, Qt::IgnoreAspectRatio, Qt::SmoothTransformation));
       workflowStepView->workflowStepButton->measureTypeBadge->setVisible(true);
     } else if (measureStepItem->measureType() == MeasureType::ReportingMeasure) {
       workflowStepView->workflowStepButton->measureTypeBadge->setPixmap(
