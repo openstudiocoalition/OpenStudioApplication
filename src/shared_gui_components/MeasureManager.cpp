@@ -57,6 +57,7 @@
 
 #include "../openstudio_lib/OSAppBase.hpp"
 #include "../openstudio_lib/OSDocument.hpp"
+#include "../utilities/OpenStudioApplicationPathHelpers.hpp"
 
 #include <json/json.h>
 
@@ -206,7 +207,12 @@ void MeasureManager::saveTempModel(const path& tempDir) {
 boost::optional<BCLMeasure> MeasureManager::standardReportMeasure() const {
   // DLM: Breaking changes in openstudio_results measures prevent us from being able to ensure
   // that measure in users local BCL or remote BCL will work, just use measure in installer
-  return BCLMeasure::load(m_resourcesPath / toPath("openstudio_results"));
+  boost::optional<BCLMeasure> result = BCLMeasure::load(m_resourcesPath / toPath("openstudio_results"));
+  if (!result && isOpenStudioApplicationRunningFromBuildDirectory()) {
+    result = BCLMeasure::load(getOpenStudioCoalitionMeasuresSourceDirectory() / toPath("models/ShoeboxExample/measures/openstudio_results"));
+  }
+
+  return result;
 }
 
 std::vector<BCLMeasure> MeasureManager::bclMeasures() const {

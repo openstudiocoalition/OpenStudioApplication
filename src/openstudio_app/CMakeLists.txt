@@ -3,8 +3,6 @@ set(target_name OpenStudioApp)
 include_directories(${CMAKE_CURRENT_BINARY_DIR})
 include_directories(${QT_INCLUDES})
 
-include(FetchContent)
-
 # source files
 set(${target_name}_SRC
   main.cpp
@@ -351,15 +349,7 @@ install(DIRECTORY ${CMAKE_SOURCE_DIR}/src/openstudio_app/Resources/
         COMPONENT "Resources"
 )
 
-# download and install measures/models from openstudio-coalition-measures
-
-FetchContent_Declare(
-  openstudio-coalition-measures
-  GIT_REPOSITORY https://github.com/openstudiocoalition/openstudio-coalition-measures.git
-  GIT_TAG        da6832b3eec8e3ecccaadd39142e7c3d9c2da10f # release-1.8.0
-)
-
-FetchContent_MakeAvailable(openstudio-coalition-measures)
+# install measures/models from openstudio-coalition-measures
 
 install(FILES ${openstudio-coalition-measures_SOURCE_DIR}/models/ShoeboxExample.osm
         DESTINATION ${RESOURCES_DEST}/ShoeboxModel

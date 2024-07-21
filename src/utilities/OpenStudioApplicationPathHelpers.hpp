@@ -60,6 +60,9 @@ OSAPP_UTILITIES_API openstudio::path getOpenStudioApplicationSourceDirectory();
 /// \returns The directory the application was built in
 OSAPP_UTILITIES_API openstudio::path getOpenStudioApplicationBuildDirectory();
 
+/// \returns The directory that openstudio-coalition-measures are installed in if running from build directory
+OSAPP_UTILITIES_API openstudio::path getOpenStudioCoalitionMeasuresSourceDirectory();
+
 /// \returns The path to the current executable application
 OSAPP_UTILITIES_API openstudio::path getOpenStudioApplicationPath();
 

@@ -1578,6 +1578,11 @@ void OpenStudioApp::loadShoeboxModel() {
 
   auto filePath = resourcesPath() / toPath("ShoeboxModel/ShoeboxExample.osm");
   boost::optional<openstudio::model::Model> model = versionTranslator.loadModel(filePath);
+  if (!model && isOpenStudioApplicationRunningFromBuildDirectory()) {
+    filePath = getOpenStudioCoalitionMeasuresSourceDirectory() / toPath("models/ShoeboxExample.osm");
+    model = versionTranslator.loadModel(filePath);
+  }
+
   if (model) {
     m_osDocument = std::make_shared<OSDocument>(componentLibrary(), resourcesPath(), model, toQString(filePath), false, startTabIndex());
     m_osDocument->setSavePath("");
