@@ -3,6 +3,8 @@ set(target_name OpenStudioApp)
 include_directories(${CMAKE_CURRENT_BINARY_DIR})
 include_directories(${QT_INCLUDES})
 
+include(FetchContent)
+
 # source files
 set(${target_name}_SRC
   main.cpp
@@ -337,22 +339,42 @@ get_target_property(os_lib_location openstudio::openstudiolib LOCATION)
 get_filename_component(os_lib_dir ${os_lib_location} DIRECTORY)
 set(DIRS "${QT_INSTALL_DIR}/bin" "${QT_INSTALL_DIR}/lib" "${os_lib_dir}")
 
-if(APPLE)
-  install(DIRECTORY ${CMAKE_SOURCE_DIR}/src/openstudio_app/Resources/
-          DESTINATION OpenStudioApp.app/Contents/Resources
-          COMPONENT "Resources"
-  )
-elseif(WIN32)
-  install(DIRECTORY ${CMAKE_SOURCE_DIR}/src/openstudio_app/Resources/
-    DESTINATION Resources
-    COMPONENT "Resources"
-  )
+# install resources directory
+if( APPLE )
+  set(RESOURCES_DEST "OpenStudioApp.app/Contents/Resources")
 else()
-  install(DIRECTORY ${CMAKE_SOURCE_DIR}/src/openstudio_app/Resources/
-    DESTINATION Resources
-    COMPONENT "Resources"
-  )
+  set(RESOURCES_DEST "Resources")
 endif()
+
+install(DIRECTORY ${CMAKE_SOURCE_DIR}/src/openstudio_app/Resources/
+        DESTINATION ${RESOURCES_DEST}
+        COMPONENT "Resources"
+)
+
+# download and install measures/models from openstudio-coalition-measures
+
+FetchContent_Declare(
+  openstudio-coalition-measures
+  GIT_REPOSITORY https://github.com/openstudiocoalition/openstudio-coalition-measures.git
+  GIT_TAG        da6832b3eec8e3ecccaadd39142e7c3d9c2da10f # release-1.8.0
+)
+
+FetchContent_MakeAvailable(openstudio-coalition-measures)
+
+install(FILES ${openstudio-coalition-measures_SOURCE_DIR}/models/ShoeboxExample.osm
+        DESTINATION ${RESOURCES_DEST}/ShoeboxModel
+        COMPONENT "Resources"
+)
+
+install(DIRECTORY ${openstudio-coalition-measures_SOURCE_DIR}/models/ShoeboxExample
+        DESTINATION ${RESOURCES_DEST}/ShoeboxModel
+        COMPONENT "Resources"
+)
+
+install(DIRECTORY ${openstudio-coalition-measures_SOURCE_DIR}/models/ShoeboxExample/measures/openstudio_results
+        DESTINATION ${RESOURCES_DEST}/openstudio_results
+        COMPONENT "Resources"
+)
 
 # since on apple the whole app bundle is installed (including these webkit components) we can exclude apple
 if( NOT APPLE )
