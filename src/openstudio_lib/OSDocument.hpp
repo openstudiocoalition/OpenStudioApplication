@@ -137,8 +137,6 @@ class OPENSTUDIO_API OSDocument : public OSQObjectController
 
   std::vector<BCLComponent> componentAttributeSearch(const std::vector<std::pair<std::string, std::string>>& pairs) const;
 
-  boost::optional<BCLMeasure> standardReportMeasure();
-
   // Returns IddObjectType from either model, componentLibrary, or BCL
   boost::optional<IddObjectType> getIddObjectType(const OSItemId& itemId) const;
 
@@ -213,6 +211,8 @@ class OPENSTUDIO_API OSDocument : public OSQObjectController
   void loadLibraryClicked();
 
   void loadExampleModelClicked();
+
+  void loadShoeboxModelClicked();
 
   void newClicked();
 

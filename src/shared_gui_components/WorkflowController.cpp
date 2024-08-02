@@ -44,7 +44,6 @@
 #include <openstudio/utilities/core/Assert.hpp>
 #include <openstudio/utilities/core/Compare.hpp>
 #include <openstudio/utilities/core/Containers.hpp>
-#include <openstudio/utilities/core/RubyException.hpp>
 #include <openstudio/utilities/core/PathHelpers.hpp>
 #include <openstudio/utilities/bcl/BCLMeasure.hpp>
 #include <openstudio/utilities/filetypes/WorkflowStep_Impl.hpp>
@@ -182,19 +181,28 @@ void MeasureStepController::removeItemForStep(MeasureStep step) {
   std::vector<MeasureStep> oldMeasureSteps = measureSteps();
 
   bool didRemove = false;
+  bool canDeleteMeasure = true;
   std::vector<MeasureStep> newMeasureSteps;
   newMeasureSteps.reserve(oldMeasureSteps.size());
   for (const auto& oldMeasureStep : oldMeasureSteps) {
     if (oldMeasureStep == step) {
       didRemove = true;
     } else {
+      if (oldMeasureStep.measureDirName() == step.measureDirName()) {
+        canDeleteMeasure = false;
+      }
       newMeasureSteps.push_back(oldMeasureStep);
     }
   }
 
   if (didRemove) {
-    // DLM: TODO actually remove the directory here, make sure it not being used by any other steps first
-    // maybe want a purge unused measures in WorkflowJSON?
+    // remove the measure
+    if (canDeleteMeasure) {
+      boost::optional<openstudio::path> measureDir = m_app->currentModel()->workflowJSON().findMeasure(step.measureDirName());
+      if (measureDir && openstudio::filesystem::exists(*measureDir)) {
+        openstudio::filesystem::remove_all(*measureDir);
+      }
+    }
 
     // set the new steps
     m_app->currentModel()->workflowJSON().setMeasureSteps(m_measureType, newMeasureSteps);
@@ -257,7 +265,7 @@ void MeasureStepController::addItemForDroppedMeasure(QDropEvent* event) {
   MeasureStep measureStep(toString(getLastLevelDirectoryName(projectMeasure->directory())));
   try {
     /* std::vector<measure::OSArgument> arguments = */ m_app->measureManager().getArguments(*projectMeasure);
-  } catch (const RubyException& e) {
+  } catch (const std::exception& e) {
     QString errorMessage("Failed to compute arguments for measure: \n\n");
     errorMessage += QString::fromStdString(e.what());
     QMessageBox::information(m_app->mainWidget(), QString("Failed to add measure"), errorMessage);
@@ -352,7 +360,7 @@ void MeasureStepController::moveDown(MeasureStep step) {
 
 MeasureStepItem::MeasureStepItem(MeasureType measureType, MeasureStep step, openstudio::BaseApp* t_baseApp)
   : m_measureType(measureType),
-    m_step(std::move(step)),
+    m_step(step),
     m_app(t_baseApp)
 
 {}
@@ -379,6 +387,12 @@ MeasureType MeasureStepItem::measureType() const {
   OptionalBCLMeasure bclMeasure_ = this->bclMeasure();
   OS_ASSERT(bclMeasure_);
   return bclMeasure_->measureType();
+}
+
+MeasureLanguage MeasureStepItem::measureLanguage() const {
+  OptionalBCLMeasure bclMeasure_ = this->bclMeasure();
+  OS_ASSERT(bclMeasure_);
+  return bclMeasure_->measureLanguage();
 }
 
 MeasureStep MeasureStepItem::measureStep() const {
@@ -541,6 +555,26 @@ MeasureStepItemDelegate::MeasureStepItemDelegate() = default;
 QWidget* MeasureStepItemDelegate::view(QSharedPointer<OSListItem> dataSource) {
   if (QSharedPointer<MeasureStepItem> measureStepItem = dataSource.objectCast<MeasureStepItem>()) {
     auto* workflowStepView = new WorkflowStepView();
+
+    const QString measureLangStr = toQString(measureStepItem->measureLanguage().valueName());
+    if (measureStepItem->measureType() == MeasureType::ModelMeasure) {
+      workflowStepView->workflowStepButton->measureTypeBadge->setPixmap(
+        QPixmap(QString(":/images/openstudio_measure_icon_%1.png").arg(measureLangStr))
+          .scaled(15, 15, Qt::IgnoreAspectRatio, Qt::SmoothTransformation));
+      workflowStepView->workflowStepButton->measureTypeBadge->setVisible(true);
+    } else if (measureStepItem->measureType() == MeasureType::EnergyPlusMeasure) {
+      workflowStepView->workflowStepButton->measureTypeBadge->setPixmap(
+        QPixmap(QString(":/images/energyplus_measure_icon_%1.png").arg(measureLangStr))
+          .scaled(15, 15, Qt::IgnoreAspectRatio, Qt::SmoothTransformation));
+      workflowStepView->workflowStepButton->measureTypeBadge->setVisible(true);
+    } else if (measureStepItem->measureType() == MeasureType::ReportingMeasure) {
+      workflowStepView->workflowStepButton->measureTypeBadge->setPixmap(
+        QPixmap(QString(":/images/report_measure_icon_%1.png").arg(measureLangStr)).scaled(15, 15, Qt::IgnoreAspectRatio, Qt::SmoothTransformation));
+      workflowStepView->workflowStepButton->measureTypeBadge->setVisible(true);
+    }
+
+    workflowStepView->workflowStepButton->nameLabel->setText(measureStepItem->name());
+
     workflowStepView->workflowStepButton->nameLabel->setText(measureStepItem->name());
 
     connect(measureStepItem.data(), &MeasureStepItem::nameChanged, workflowStepView->workflowStepButton->nameLabel, &QLabel::setText);
@@ -557,11 +591,14 @@ QWidget* MeasureStepItemDelegate::view(QSharedPointer<OSListItem> dataSource) {
 
     connect(measureStepItem.data(), &MeasureStepItem::selectedChanged, workflowStepView->workflowStepButton, &WorkflowStepButton::setHasEmphasis);
 
-    // Warning Icon
-
-    workflowStepView->workflowStepButton->cautionLabel->setVisible(measureStepItem->hasIncompleteArguments());
-
-    connect(measureStepItem.data(), &MeasureStepItem::argumentsChanged, workflowStepView->workflowStepButton->cautionLabel, &QLabel::setVisible);
+    try {
+      // Warning Icon
+      workflowStepView->workflowStepButton->cautionLabel->setVisible(measureStepItem->hasIncompleteArguments());
+      connect(measureStepItem.data(), &MeasureStepItem::argumentsChanged, workflowStepView->workflowStepButton->cautionLabel, &QLabel::setVisible);
+    } catch (const std::exception& e) {
+      workflowStepView->workflowStepButton->errorLabel->setToolTip(e.what());
+      workflowStepView->workflowStepButton->errorLabel->setVisible(true);
+    }
 
     // Up and down buttons
 

@@ -72,6 +72,8 @@ class MainMenu : public QMenuBar
 
   void loadExampleModelClicked();
 
+  void loadShoeboxModelClicked();
+
   void revertFileClicked();
 
   void saveAsFileClicked();

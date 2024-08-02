@@ -64,7 +64,6 @@ class BaseApp
   virtual void duplicateSelectedMeasure() = 0;
   virtual void updateMyMeasures() = 0;
   virtual void updateBCLMeasures() = 0;
-  virtual void downloadUpdatedBCLMeasures() = 0;
   virtual void openBclDlg() = 0;
   virtual void checkForRemoteBCLUpdates() = 0;
 

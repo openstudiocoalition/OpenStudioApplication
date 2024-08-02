@@ -272,7 +272,7 @@ endif()
 
 # TODO: Modify the more specific variables as needed to indicate prerelease, etc
 # Keep in beta in-between release cycles. Set to empty string (or comment out) for official)
-set(PROJECT_VERSION_PRERELEASE "")
+set(PROJECT_VERSION_PRERELEASE "rc1")
 
 # OpenStudio version: Only include Major.Minor.Patch, eg "3.0.0", even if you have a prerelease tag
 set(OPENSTUDIOAPPLICATION_VERSION "${PROJECT_VERSION_MAJOR}.${PROJECT_VERSION_MINOR}.${PROJECT_VERSION_PATCH}")
@@ -645,6 +645,16 @@ endif()
 
 set(CMAKE_AUTOMOC OFF)
 
+include(FetchContent)
+
+FetchContent_Declare(
+  openstudio-coalition-measures
+  GIT_REPOSITORY https://github.com/openstudiocoalition/openstudio-coalition-measures.git
+  GIT_TAG        da6832b3eec8e3ecccaadd39142e7c3d9c2da10f # release-1.8.0
+)
+
+FetchContent_MakeAvailable(openstudio-coalition-measures)
+
 ###############################################################################
 #                         I N C L U D E    P A T H S                          #
 ###############################################################################
@@ -776,7 +786,7 @@ install(IMPORTED_RUNTIME_ARTIFACTS openstudio::pythonengine DESTINATION ${LIB_DE
 
 # TODO: we should probably just install the **entire** OS SDK bin/ directory...
 if(WIN32)
-  install(PROGRAMS "${openstudio_ROOT_DIR}/bin/python38.dll" DESTINATION bin COMPONENT "CLI")
+  install(PROGRAMS $<$<CONFIG:Debug>:${openstudio_ROOT_DIR}/bin/python38_d.dll>$<$<CONFIG:Release>:${openstudio_ROOT_DIR}/bin/python38.dll>$<$<CONFIG:RelWithDebInfo>:${openstudio_ROOT_DIR}/bin/python38.dll>$<$<CONFIG:MinSizeRel>:${openstudio_ROOT_DIR}/bin/python38.dll> DESTINATION bin COMPONENT "CLI")
 endif()
 
 # install(PROGRAMS ${OS_CLI_IMPORTED_PATH} DESTINATION bin COMPONENT "CLI" RENAME "${OS_CLI_IMPORTED_NAME}")

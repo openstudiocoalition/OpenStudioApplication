@@ -92,6 +92,10 @@ openstudio::path getOpenStudioApplicationBuildDirectory() {
   return openstudio::toPath("${CMAKE_BINARY_DIR}");
 }
 
+openstudio::path getOpenStudioCoalitionMeasuresSourceDirectory() {
+  return openstudio::toPath("${openstudio-coalition-measures_SOURCE_DIR}");
+}
+
 openstudio::path getOpenStudioApplicationPath() {
   openstudio::path path;
 #if defined _WIN32

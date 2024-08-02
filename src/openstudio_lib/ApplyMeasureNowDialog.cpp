@@ -53,7 +53,6 @@
 #include "../utilities/OpenStudioApplicationPathHelpers.hpp"
 
 #include <openstudio/utilities/core/PathHelpers.hpp>
-#include <openstudio/utilities/core/RubyException.hpp>
 #include <openstudio/utilities/filetypes/WorkflowJSON.hpp>
 #include <openstudio/utilities/filetypes/WorkflowStep.hpp>
 #include <openstudio/utilities/filetypes/WorkflowStepResult.hpp>
@@ -77,6 +76,7 @@
 
 #include <fstream>
 
+#define LOADING_ARG_TEXT "<FONT COLOR = BLACK>Loading Arguments..."
 #define FAILED_ARG_TEXT "<FONT COLOR = RED>Failed to Show Arguments<FONT COLOR = BLACK> <br> <br>Reason(s): <br> <br>"
 
 #define ACCEPT_CHANGES "Accept Changes"
@@ -89,6 +89,7 @@ ApplyMeasureNowDialog::ApplyMeasureNowDialog(QWidget* parent)
     m_editController(nullptr),
     m_mainPaneStackedWidget(nullptr),
     m_rightPaneStackedWidget(nullptr),
+    m_argumentsLoadingTextEdit(nullptr),
     m_argumentsFailedTextEdit(nullptr),
     m_jobItemView(nullptr),
     m_timer(nullptr),
@@ -177,6 +178,9 @@ void ApplyMeasureNowDialog::createWidgets() {
 
   // INPUT
 
+  m_argumentsLoadingTextEdit = new QTextEdit(LOADING_ARG_TEXT);
+  m_argumentsLoadingTextEdit->setReadOnly(true);
+
   m_argumentsFailedTextEdit = new QTextEdit(FAILED_ARG_TEXT);
   m_argumentsFailedTextEdit->setReadOnly(true);
 
@@ -193,6 +197,7 @@ void ApplyMeasureNowDialog::createWidgets() {
   app->currentDocument()->enable();
 
   m_rightPaneStackedWidget = new QStackedWidget();
+  m_argumentsLoadingPageIdx = m_rightPaneStackedWidget->addWidget(m_argumentsLoadingTextEdit);
   m_argumentsFailedPageIdx = m_rightPaneStackedWidget->addWidget(m_argumentsFailedTextEdit);
 
   auto* viewSwitcher = new OSViewSwitcher();
@@ -295,11 +300,16 @@ void ApplyMeasureNowDialog::resizeEvent(QResizeEvent* event) {
 }
 
 void ApplyMeasureNowDialog::displayMeasure() {
+  std::unique_lock lock(m_displayMutex, std::try_to_lock);
+  if (!lock.owns_lock()) {
+    return;
+  }
+
   this->okButton()->setText(APPLY_MEASURE);
   this->okButton()->show();
   this->okButton()->setEnabled(false);
 
-  m_rightPaneStackedWidget->setCurrentIndex(m_argumentsOkPageIdx);
+  m_rightPaneStackedWidget->setCurrentIndex(m_argumentsLoadingPageIdx);
 
   m_bclMeasure.reset();
   m_currentMeasureStepItem.clear();
@@ -349,6 +359,7 @@ void ApplyMeasureNowDialog::displayMeasure() {
     m_currentMeasureStepItem->setDescription(m_bclMeasure->description().c_str());
 
     m_editController->setMeasureStepItem(m_currentMeasureStepItem.data(), app);
+    m_rightPaneStackedWidget->setCurrentIndex(m_argumentsOkPageIdx);
 
   } catch (const std::exception& e) {
     QString errorMessage("Failed to display measure: \n\n");

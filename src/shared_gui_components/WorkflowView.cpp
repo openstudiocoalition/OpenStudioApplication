@@ -149,7 +149,8 @@ void WorkflowStepView::paintEvent(QPaintEvent* /*event*/) {
   style()->drawPrimitive(QStyle::PE_Widget, &opt, &p, this);
 }
 
-WorkflowStepButton::WorkflowStepButton() : nameLabel(new QLabel()), cautionLabel(new QLabel()) {
+WorkflowStepButton::WorkflowStepButton()
+  : measureTypeBadge(new QLabel()), nameLabel(new QLabel()), cautionLabel(new QLabel()), errorLabel(new QLabel()) {
   setFixedHeight(25);
 
   setHasEmphasis(false);
@@ -158,6 +159,10 @@ WorkflowStepButton::WorkflowStepButton() : nameLabel(new QLabel()), cautionLabel
   mainHLayout->setContentsMargins(5, 5, 5, 5);
   mainHLayout->setSpacing(5);
   setLayout(mainHLayout);
+
+  measureTypeBadge->setVisible(false);
+
+  mainHLayout->addWidget(measureTypeBadge);
 
   nameLabel->setStyleSheet("font:italic");
 
@@ -168,6 +173,10 @@ WorkflowStepButton::WorkflowStepButton() : nameLabel(new QLabel()), cautionLabel
   cautionLabel->setPixmap(QPixmap(":/images/warning_icon.png"));
   mainHLayout->addWidget(cautionLabel);
   cautionLabel->setVisible(false);
+
+  errorLabel->setPixmap(QPixmap(":/images/broken_script.png").scaled(24, 24));
+  mainHLayout->addWidget(errorLabel);
+  errorLabel->setVisible(false);
 }
 
 void WorkflowStepButton::setHasEmphasis(bool hasEmphasis) {

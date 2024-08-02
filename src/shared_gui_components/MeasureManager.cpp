@@ -47,7 +47,6 @@
 
 #include <openstudio/utilities/core/Assert.hpp>
 #include <openstudio/utilities/core/PathHelpers.hpp>
-#include <openstudio/utilities/core/RubyException.hpp>
 #include <openstudio/utilities/core/System.hpp>
 #include <openstudio/utilities/bcl/BCLMeasure.hpp>
 #include <openstudio/utilities/bcl/RemoteBCL.hpp>
@@ -58,6 +57,7 @@
 
 #include "../openstudio_lib/OSAppBase.hpp"
 #include "../openstudio_lib/OSDocument.hpp"
+#include "../utilities/OpenStudioApplicationPathHelpers.hpp"
 
 #include <json/json.h>
 
@@ -97,6 +97,10 @@ void MeasureManager::setUrl(const QUrl& url) {
   m_url = url;
 }
 
+void MeasureManager::setResourcesPath(const openstudio::path& resourcesPath) {
+  m_resourcesPath = resourcesPath;
+}
+
 bool MeasureManager::waitForStarted(int msec) {
   if (m_started) {
     return true;
@@ -105,17 +109,19 @@ bool MeasureManager::waitForStarted(int msec) {
   // ping server until get a started response
   bool success = false;
 
-  QUrl thisUrl(m_url);
-  thisUrl.setPath("/");
-  QNetworkRequest request(thisUrl);
-  request.setHeader(QNetworkRequest::ContentTypeHeader, "application/json");
-
+  QUrl thisUrl;
   QNetworkAccessManager manager;
 
   const int msecPerLoop = 20;
   const int numTries = msec / msecPerLoop;
   int current = 0;
   while (!success && current < numTries) {
+
+    // m_url may change if measure manager is restarted
+    thisUrl = m_url;
+    thisUrl.setPath("/");
+    QNetworkRequest request(thisUrl);
+    request.setHeader(QNetworkRequest::ContentTypeHeader, "application/json");
 
     QNetworkReply* reply = manager.get(request);
 
@@ -198,6 +204,17 @@ void MeasureManager::saveTempModel(const path& tempDir) {
   m_measureArguments.clear();
 }
 
+boost::optional<BCLMeasure> MeasureManager::standardReportMeasure() const {
+  // DLM: Breaking changes in openstudio_results measures prevent us from being able to ensure
+  // that measure in users local BCL or remote BCL will work, just use measure in installer
+  boost::optional<BCLMeasure> result = BCLMeasure::load(m_resourcesPath / toPath("openstudio_results"));
+  if (!result && isOpenStudioApplicationRunningFromBuildDirectory()) {
+    result = BCLMeasure::load(getOpenStudioCoalitionMeasuresSourceDirectory() / toPath("models/ShoeboxExample/measures/openstudio_results"));
+  }
+
+  return result;
+}
+
 std::vector<BCLMeasure> MeasureManager::bclMeasures() const {
   std::vector<BCLMeasure> result;
   result.reserve(m_bclMeasures.size());
@@ -223,6 +240,7 @@ std::vector<BCLMeasure> MeasureManager::combinedMeasures() const {
   result.reserve(m_myMeasures.size() + m_bclMeasures.size());
 
   std::set<UUID> resultUUIDs;
+
   // insert my measures
   for (auto it = m_myMeasures.begin(), itend = m_myMeasures.end(); it != itend; ++it) {
     if (resultUUIDs.find(it->first) == resultUUIDs.end()) {
@@ -371,7 +389,7 @@ std::pair<bool, std::string> MeasureManager::updateMeasure(const BCLMeasure& t_m
       result = std::pair<bool, std::string>(false, ss.str());
     }
 
-  } catch (const RubyException& e) {
+  } catch (const std::exception& e) {
     std::stringstream ss;
     ss << "An error occurred while updating measure '" << t_measure.displayName() << "':" << std::endl;
     ss << "  " << e.what();
@@ -499,7 +517,7 @@ std::vector<measure::OSArgument> MeasureManager::getArguments(const BCLMeasure& 
   Json::Value json;
   bool parsingSuccessful = Json::parseFromStream(rbuilder, ss, &json, &errorString);
 
-  if (parsingSuccessful) {
+  if (parsingSuccessful && json.type() == Json::objectValue) {
 
     Json::Value arguments = json.get("arguments", Json::Value(Json::arrayValue));
 
@@ -925,7 +943,8 @@ bool MeasureManager::checkForUpdates(const openstudio::path& measureDir, bool fo
   // std::string url_s = m_url.toString().toStdString();
 
   QJsonObject obj;
-  obj["measure_dir"] = toQString(measureDir);
+  obj["measure_dir"] = toQString(measureDir);   // classic cli
+  obj["measures_dir"] = toQString(measureDir);  // new cli
   obj["force_reload"] = force;
   const QJsonDocument doc(obj);
   const QByteArray data = doc.toJson();
@@ -957,11 +976,27 @@ bool MeasureManager::checkForUpdates(const openstudio::path& measureDir, bool fo
 
 void MeasureManager::checkForRemoteBCLUpdates() {
   RemoteBCL remoteBCL;
-  int numUpdates = remoteBCL.checkForMeasureUpdates();
+  remoteBCL.checkForMeasureUpdates();
+  std::vector<BCLSearchResult> updates = remoteBCL.measuresWithUpdates();
+
+  // remove false updates (e.g. measure was updated after downloading from bcl due to incorrect sha)
+  updates.erase(std::remove_if(updates.begin(), updates.end(),
+                               [this](const BCLSearchResult& update) {
+                                 auto current = m_bclMeasures.find(toUUID(update.uid()));
+                                 if (current != m_bclMeasures.end()) {
+                                   if (update.versionModified() && current->second.versionModified()) {
+                                     return update.versionModified().get() < current->second.versionModified().get();
+                                   }
+                                 }
+                                 return false;
+                               }),
+                updates.end());
+
+  int numUpdates = updates.size();
+
   if (numUpdates == 0) {
     QMessageBox::information(m_app->mainWidget(), tr("Measures Updated"), tr("All measures are up-to-date."));
   } else {
-    std::vector<BCLSearchResult> updates = remoteBCL.measuresWithUpdates();
 
     QString text(QString::number(numUpdates) + tr(" measures have been updated on BCL compared to your local BCL directory.\n")
                  + tr("Would you like update them?"));
@@ -982,61 +1017,8 @@ void MeasureManager::checkForRemoteBCLUpdates() {
     int result = msg.exec();
     if (result == QMessageBox::Yes) {
       remoteBCL.updateMeasures();
-
-      // remoteBCL.updateMeasures should remove outdated measures, but won't work correctly until https://github.com/NREL/OpenStudio/pull/5129
-      // if we have the new measure, delete outdated ones
-      for (const BCLSearchResult& update : updates) {
-        if (OSAppBase::instance()->currentDocument()->getLocalMeasure(update.uid(), update.versionId())) {
-          OSAppBase::instance()->currentDocument()->removeOutdatedLocalMeasures(update.uid(), update.versionId());
-        }
-      }
-
       updateMeasuresLists(false);
     }
-  }
-}
-
-void MeasureManager::downloadBCLMeasures() {
-  RemoteBCL remoteBCL;
-  int numUpdates = remoteBCL.checkForMeasureUpdates();
-  if (numUpdates == 0) {
-    QMessageBox::information(m_app->mainWidget(), "Measures Updated", "All measures are up-to-date.");
-  } else {
-    std::vector<BCLSearchResult> updates = remoteBCL.measuresWithUpdates();
-
-    QString detailedText;
-    for (const BCLSearchResult& update : updates) {
-      detailedText += toQString("* name: " + update.name() + "\n");
-      detailedText += toQString(" - uid: " + update.uid() + "\n");
-      auto current = m_bclMeasures.find(toUUID(update.uid()));
-      if (current != m_bclMeasures.end()) {
-        detailedText += toQString(" - old versionId: " + current->second.versionId() + "\n");
-      }
-      detailedText += toQString(" - new versionId: " + update.versionId() + "\n\n");
-    }
-
-    remoteBCL.updateMeasures();
-
-    // remoteBCL.updateMeasures should remove outdated measures, but won't work correctly until https://github.com/NREL/OpenStudio/pull/5129
-    // if we have the new measure, delete outdated ones
-    for (const BCLSearchResult& update : updates) {
-      if (OSAppBase::instance()->currentDocument()->getLocalMeasure(update.uid(), update.versionId())) {
-        OSAppBase::instance()->currentDocument()->removeOutdatedLocalMeasures(update.uid(), update.versionId());
-      }
-    }
-
-    updateMeasuresLists(false);
-
-    QMessageBox msg(m_app->mainWidget());
-    msg.setIcon(QMessageBox::Information);
-    msg.setWindowTitle("Measures Updated");
-    if (numUpdates == 1) {
-      msg.setText("1 measure has been updated.");
-    } else {
-      msg.setText(QString::number(numUpdates) + " measures have been updated.");
-    }
-    msg.setDetailedText(detailedText);
-    msg.exec();
   }
 }
 

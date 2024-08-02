@@ -133,6 +133,8 @@ class MainWindow : public QMainWindow
 
   void loadExampleModelClicked();
 
+  void loadShoeboxModelClicked();
+
   void saveAsFileClicked();
 
   void saveFileClicked();

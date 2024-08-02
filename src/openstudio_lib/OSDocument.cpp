@@ -205,6 +205,7 @@ OSDocument::OSDocument(const openstudio::model::Model& library, const openstudio
   connect(m_mainWindow, &MainWindow::changeLanguageClicked, this, &OSDocument::changeLanguageClicked);
   connect(m_mainWindow, &MainWindow::loadLibraryClicked, this, &OSDocument::loadLibraryClicked);
   connect(m_mainWindow, &MainWindow::loadExampleModelClicked, this, &OSDocument::loadExampleModelClicked);
+  connect(m_mainWindow, &MainWindow::loadShoeboxModelClicked, this, &OSDocument::loadShoeboxModelClicked);
   connect(m_mainWindow, &MainWindow::newClicked, this, &OSDocument::newClicked);
   connect(m_mainWindow, &MainWindow::exitClicked, this, &OSDocument::exitClicked);
   connect(m_mainWindow, &MainWindow::helpClicked, this, &OSDocument::helpClicked);
@@ -1327,7 +1328,7 @@ void OSDocument::addStandardMeasures() {
 
   // standard report measure
   bool srmAdded = false;
-  boost::optional<BCLMeasure> srm = standardReportMeasure();
+  boost::optional<BCLMeasure> srm = OSAppBase::instance()->measureManager().standardReportMeasure();
   if (srm) {
     try {
       std::pair<bool, std::string> result = OSAppBase::instance()->measureManager().updateMeasure(*srm);
@@ -1421,62 +1422,29 @@ std::vector<BCLComponent> OSDocument::getLocalComponents() const {
 }
 
 size_t OSDocument::removeOutdatedLocalComponents(const std::string& uid, const std::string& currentVersionId) const {
-  // TODO: when https://github.com/NREL/OpenStudio/pull/5129 is merged, we can just call it
-  // size_t result = 0;
-  // if (m_haveLocalBCL) {
-  //   try {
-  //     result = LocalBCL::instance().removeOutdatedLocalComponents(uid, currentVersionId);
-  //   } catch (const std::exception& e) {
-  //     LOG(Error, "Cannot access local BCL: " << e.what());
-  //     m_haveLocalBCL = false;
-  //   }
-  // }
-  // return result;
-
-  auto components = getLocalComponents();
-  if (components.empty()) {
-    return {};
+  size_t result = 0;
+  if (m_haveLocalBCL) {
+    try {
+      result = LocalBCL::instance().removeOutdatedLocalComponents(uid, currentVersionId);
+    } catch (const std::exception& e) {
+      LOG(Error, "Cannot access local BCL: " << e.what());
+      m_haveLocalBCL = false;
+    }
   }
-
-  // Not empty, we do have a localbcl
-  components.erase(std::remove_if(components.begin(), components.end(),
-                                  [&uid, &currentVersionId](const auto& component) {
-                                    return (component.uid() != uid) || (component.versionId() == currentVersionId);
-                                  }),
-                   components.end());
-  for (auto& component : components) {
-    LocalBCL::instance().removeComponent(component);
-  }
-  return components.size();
+  return result;
 }
 
 size_t OSDocument::removeOutdatedLocalMeasures(const std::string& uid, const std::string& currentVersionId) const {
-  // TODO: when https://github.com/NREL/OpenStudio/pull/5129 is merged, we can just call it
-  // size_t result = 0;
-  // if (m_haveLocalBCL) {
-  //   try {
-  //     result = LocalBCL::instance().removeOutdatedLocalMeasures(uid, currentVersionId);
-  //   } catch (const std::exception& e) {
-  //     LOG(Error, "Cannot access local BCL: " << e.what());
-  //     m_haveLocalBCL = false;
-  //   }
-  // }
-  // return result;
-
-  auto measures = getLocalMeasures();
-  if (measures.empty()) {
-    return {};
+  size_t result = 0;
+  if (m_haveLocalBCL) {
+    try {
+      result = LocalBCL::instance().removeOutdatedLocalMeasures(uid, currentVersionId);
+    } catch (const std::exception& e) {
+      LOG(Error, "Cannot access local BCL: " << e.what());
+      m_haveLocalBCL = false;
+    }
   }
-
-  // Not empty, we do have a localbcl
-  measures.erase(
-    std::remove_if(measures.begin(), measures.end(),
-                   [&uid, &currentVersionId](const auto& measure) { return (measure.uid() != uid) || (measure.versionId() == currentVersionId); }),
-    measures.end());
-  for (auto& measure : measures) {
-    LocalBCL::instance().removeMeasure(measure);
-  }
-  return measures.size();
+  return result;
 }
 
 std::vector<BCLComponent> OSDocument::componentAttributeSearch(const std::vector<std::pair<std::string, std::string>>& pairs) const {
@@ -1490,12 +1458,6 @@ std::vector<BCLComponent> OSDocument::componentAttributeSearch(const std::vector
     }
   }
   return result;
-}
-
-boost::optional<BCLMeasure> OSDocument::standardReportMeasure() {
-  // DLM: Breaking changes in openstudio_results measures prevent us from being able to ensure
-  // that measure in users local BCL or remote BCL will work, just use measure in installer
-  return BCLMeasure::load(m_resourcesPath / toPath("openstudio_results"));
 }
 
 bool OSDocument::save() {

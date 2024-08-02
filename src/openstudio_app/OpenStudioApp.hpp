@@ -169,6 +169,9 @@ class OpenStudioApp : public OSAppBase
   // Loads the result of openstudio::model::exampleModel()
   void loadExampleModel();
 
+  // Creates a skeleton measure based model
+  void loadShoeboxModel();
+
   // Checks what happened in the LibraryDialog preference panes, and calls writeLibraryPaths to set the user settings
   void changeDefaultLibraries();
 
@@ -225,8 +228,6 @@ class OpenStudioApp : public OSAppBase
     GBXML
   };
 
-  void showFailedMeasureManagerDialog();
-
   void showFailedLibraryDialog(const std::vector<std::string>& failedPaths);
 
   void import(fileType type);
@@ -275,7 +276,6 @@ class OpenStudioApp : public OSAppBase
   QTranslator m_qtTranslator;
   QTranslator m_qtBaseTranslator;
   QString m_currLang;
-  bool m_useClassicCLI;
 
   // Try to find DView (or DView.exe) inside the PATH env variable. Will return an *empty* path if couldn't infer it
   openstudio::path inferredDViewPath() const;

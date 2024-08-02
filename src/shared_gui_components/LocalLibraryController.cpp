@@ -117,10 +117,6 @@ void LocalLibraryController::duplicateSelectedMeasure() {
   m_app->duplicateSelectedMeasure();
 }
 
-void LocalLibraryController::downloadUpdatedBCLMeasures() {
-  m_app->downloadUpdatedBCLMeasures();
-}
-
 void LocalLibraryController::openBclDlg() {
   m_app->openBclDlg();
 }

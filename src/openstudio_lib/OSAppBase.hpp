@@ -76,7 +76,6 @@ class OPENSTUDIO_API OSAppBase
   virtual void duplicateSelectedMeasure() override;
   virtual void updateMyMeasures() override;
   virtual void updateBCLMeasures() override;
-  virtual void downloadUpdatedBCLMeasures() override;
   virtual void openBclDlg() override;
   virtual void chooseHorizontalEditTab() override;
   virtual void checkForRemoteBCLUpdates() override;

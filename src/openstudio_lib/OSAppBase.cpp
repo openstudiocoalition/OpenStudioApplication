@@ -243,10 +243,6 @@ void OSAppBase::checkForRemoteBCLUpdates() {
   measureManager().checkForRemoteBCLUpdates();
 }
 
-void OSAppBase::downloadUpdatedBCLMeasures() {
-  measureManager().downloadBCLMeasures();
-}
-
 void OSAppBase::openBclDlg() {
   std::shared_ptr<OSDocument> document = currentDocument();
 
