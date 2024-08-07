@@ -439,6 +439,7 @@ jobs:
         cmake --preset conan-release -DQT_INSTALL_DIR:PATH=${{ env.QT_INSTALL_DIR }} ^
               -DBUILD_DOCUMENTATION:BOOL=${{ env.BUILD_DOCUMENTATION }} ^
               -DBUILD_PACKAGE:BOOL=${{ env.BUILD_PACKAGE }} ^
+              -DCPACK_BINARY_ZIP:BOOL=ON ^
               -DANALYTICS_API_SECRET:STRING=${{ secrets.ANALYTICS_API_SECRET }} ^
               -DANALYTICS_MEASUREMENT_ID:STRING=${{ secrets.ANALYTICS_MEASUREMENT_ID }}
         cmake --build --preset conan-release --target package
@@ -471,6 +472,7 @@ jobs:
           cmake --preset conan-release -DQT_INSTALL_DIR:PATH=${{ env.QT_INSTALL_DIR }} \
               -DBUILD_DOCUMENTATION:BOOL=${{ env.BUILD_DOCUMENTATION }} \
               -DBUILD_PACKAGE:BOOL=${{ env.BUILD_PACKAGE }} \
+              -DCPACK_BINARY_TGZ:BOOL=ON \
               -DANALYTICS_API_SECRET:STRING=${{ secrets.ANALYTICS_API_SECRET }} \
               -DANALYTICS_MEASUREMENT_ID:STRING=${{ secrets.ANALYTICS_MEASUREMENT_ID }} || true
 
@@ -480,6 +482,7 @@ jobs:
           cmake --preset conan-release -DQT_INSTALL_DIR:PATH=${{ env.QT_INSTALL_DIR }} \
               -DBUILD_DOCUMENTATION:BOOL=${{ env.BUILD_DOCUMENTATION }} \
               -DBUILD_PACKAGE:BOOL=${{ env.BUILD_PACKAGE }} \
+              -DCPACK_BINARY_TGZ:BOOL=ON \
               -DANALYTICS_API_SECRET:STRING=${{ secrets.ANALYTICS_API_SECRET }} \
               -DANALYTICS_MEASUREMENT_ID:STRING=${{ secrets.ANALYTICS_MEASUREMENT_ID }} -Dopenstudio_DIR:PATH=$OS_DIR
         fi
@@ -487,6 +490,7 @@ jobs:
         cmake --preset conan-release -DQT_INSTALL_DIR:PATH=${{ env.QT_INSTALL_DIR }} \
               -DBUILD_DOCUMENTATION:BOOL=${{ env.BUILD_DOCUMENTATION }} \
               -DBUILD_PACKAGE:BOOL=${{ env.BUILD_PACKAGE }} \
+              -DCPACK_BINARY_TGZ:BOOL=ON \
               -DANALYTICS_API_SECRET:STRING=${{ secrets.ANALYTICS_API_SECRET }} \
               -DANALYTICS_MEASUREMENT_ID:STRING=${{ secrets.ANALYTICS_MEASUREMENT_ID }}
         cmake --build --preset conan-release --target package
