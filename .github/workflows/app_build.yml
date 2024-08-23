@@ -70,6 +70,7 @@ jobs:
           SDKROOT: /Applications/Xcode_15.0.1.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX.sdk
           QT_OS_NAME: mac
           QT_ARCH: clang_64
+          arch: x86_64
         - os: macos-arm64
           SELF_HOSTED: true
           PLATFORM_NAME: Darwin
@@ -81,6 +82,7 @@ jobs:
           SDKROOT: /Applications/Xcode_15.0.1.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX.sdk
           QT_OS_NAME: mac
           QT_ARCH: arm_64
+          arch: arm64
 
     steps:
 
@@ -222,6 +224,7 @@ jobs:
         security find-identity -vvvv $KEYCHAIN_PATH
 
         # Add needed intermediary certificates
+        brew list aria2 || brew install aria2
         aria2c https://www.apple.com/certificateauthority/AppleWWDRCAG2.cer
         aria2c https://www.apple.com/certificateauthority/DeveloperIDG2CA.cer
         security import AppleWWDRCAG2.cer -k $KEYCHAIN_PATH
