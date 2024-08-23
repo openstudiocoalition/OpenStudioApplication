@@ -18,6 +18,15 @@ BUNDLED_APPS = ['OpenStudioApp.app']
 # BUNDLED_APPS = []
 
 
+# Path.is_relative_to was added only in Python 3.9
+if not hasattr(Path, 'is_relative_to'):
+    def _is_relative_to(self, other):
+        if not isinstance(other, Path):
+            other = Path(other)
+        return other == self or other in self.parents
+    Path.is_relative_to = _is_relative_to
+
+
 def get_cmake_install_prefix_for_generator(build_dir: Path, generator: Generator, component: str = None) -> Path:
     cpack_dir = build_dir / f"_CPack_Packages/Darwin/{generator.name}"
     if not cpack_dir.exists():
