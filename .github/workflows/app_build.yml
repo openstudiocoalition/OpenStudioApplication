@@ -602,6 +602,25 @@ jobs:
         name: OpenStudioApplication-${{ env.OS_APP_VERSION }}.${{ github.sha }}-${{ matrix.os }}.${{ env.COMPRESSED_EXT }}
         path: build/${{ matrix.COMPRESSED_PKG_PATH }}/*.${{ env.COMPRESSED_EXT }}
 
+    - name: Full Test Package signing for IFW and TGZ
+      if: runner.os == 'macOS'
+      working-directory: ./build
+      shell: bash
+      run: |
+        begin_group() { echo -e "::group::\033[93m$1\033[0m"; }
+
+        begin_group "Full Check signature of _CPack_Packages for both IFW and TGZ"
+        python ../developer/python/verify_signature.py --verbose --only-generator IFW .
+        python ../developer/python/verify_signature.py --otool --otool-out-file otool_infos_cpack_tgz.json --verbose --only-generator TGZ .
+        echo "::endgroup::"
+
+    - name: Upload otool info as artifact
+      uses: actions/upload-artifact@v4
+      with:
+        name: otool_infos_cpack_${{ matrix.os }}_${{ matrix.arch }}
+        path: build/otool*json
+        if-no-files-found: error
+
     - name: Test
       working-directory: ./build
       shell: bash
@@ -675,3 +694,94 @@ jobs:
         /bin/rm OpenStudioApplication-*${{ env.COMPRESSED_EXT }} || true
         /bin/rm OpenStudioApplication-*${{ env.BINARY_EXT }} || true
         ls OpenStudioApplication-* || true
+
+
+  test_package:
+    name: Test Built Package
+    needs: build
+    runs-on: ${{ matrix.os }}
+    strategy:
+      # fail-fast: Default is true, switch to false to allow one platform to fail and still run others
+      fail-fast: false
+      matrix:
+        os: [macos-13, macos-arm64]
+        include:
+        - os: macos-13
+          SELF_HOSTED: false
+          BINARY_EXT: dmg
+          COMPRESSED_EXT: tar.gz
+          arch: x86_64
+        - os: macos-arm64
+          SELF_HOSTED: true
+          BINARY_EXT: dmg
+          COMPRESSED_EXT: tar.gz
+          arch: arm64
+
+
+    steps:
+    - uses: actions/checkout@v4  # Still need E+ checked out to get testing scripts
+      with:
+        path: checkout
+
+    #- name: Gather Test Package from Artifacts
+    #  uses: actions/download-artifact@v4
+    #  with:
+    #    name: OpenStudioApplication-${{ env.OS_APP_VERSION }}.${{ github.sha }}-${{ matrix.os }}.${{ env.COMPRESSED_EXT }}
+    #    path: package
+
+    - name: Gather Dmg Package from Artifacts
+      uses: actions/download-artifact@v4
+      with:
+        name: OpenStudioApplication-${{ env.OS_APP_VERSION }}.${{ github.sha }}-${{ matrix.os }}.${{ env.BINARY_EXT }}
+        path: dmg
+
+    - name: Test Dmg Install and Package signing
+      working-directory: ./dmg
+      shell: bash
+      run: |
+        begin_group() { echo -e "::group::\033[93m$1\033[0m"; }
+
+        set -x
+
+        dmg=$(ls OpenStudioApplication-*.dmg)
+        begin_group "Checking Signature of .dmg"
+        spctl --assess --type open --context context:primary-signature -vvvv $dmg
+        echo "::endgroup::"
+
+        begin_group "Mounting Dmg, and checking signature of installer app"
+        mkdir temp_mount
+        hdiutil attach -mountpoint ./temp_mount/ $dmg
+        filename="${dmg%.*}"
+        spctl --assess --type open --context context:primary-signature -vvvv ./temp_mount/$filename.app
+        echo "::endgroup::"
+
+        begin_group "Installing"
+        sudo ./temp_mount/$filename.app/Contents/MacOS/$filename --accept-licenses --default-answer --confirm-command --root $(pwd)/test_install install
+        hdiutil detach ./temp_mount/
+        echo "::endgroup::"
+
+        begin_group "Quick Check signature of inner executables and binaries"
+        codesign -dvvv ./lib/libopenstudiolib.dylib
+        codesign -dvvv ./lib/libpythonengine.so
+        codesign -dvvv ./lib/librubyengine.so
+        codesign -dvvv ./test_install/EnergyPlus/energyplus
+        codesign -dvvv ./test_install/EnergyPlus/libenergyplusapi.dylib
+        codesign -dvvv ./test_install/EnergyPlus/libpython*.dylib
+        codesign -dvvv ./test_install/ExpandObjects
+        echo "::endgroup::"
+
+        begin_group "Full Check signature of installed DMG for all executables and resolve otool libraries"
+        python ../developer/python/verify_signature.py --otool --otool-out-file otool_info_dmg.json --verbose --install test_install
+        echo "::endgroup::"
+
+        begin_group "Running a simulation with python"
+        ./test_install/EnergyPlus/energyplus --help
+        ./test_install/EnergyPlus/energyplus -w ./test_install/EnergyPlus/WeatherData/USA_IL_Chicago-OHare.Intl.AP.725300_TMY3.epw -d out ./test_install/EnergyPlus/ExampleFiles/PythonPluginCustomSchedule.idf
+        echo "::endgroup::"
+
+    - name: Upload otool info as artifact
+      uses: actions/upload-artifact@v4
+      with:
+        name: otool_info_dmg_${{ matrix.os }}_${{ matrix.arch }}
+        path: dmg/otool*json
+        if-no-files-found: error
