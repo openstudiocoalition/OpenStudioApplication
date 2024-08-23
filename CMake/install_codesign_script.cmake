@@ -307,13 +307,6 @@ if(CMAKE_INSTALL_COMPONENT STREQUAL "CLI" OR NOT CMAKE_INSTALL_COMPONENT)
   )
 endif()
 
-if(CMAKE_INSTALL_COMPONENT STREQUAL "RubyAPI" OR NOT CMAKE_INSTALL_COMPONENT)
-  list(APPEND FILES_TO_SIGN
-    Ruby/openstudio_modeleditor.bundle
-    Ruby/platforms/libqcocoa.dylib
-  )
-endif()
-
 if(NOT FILES_TO_SIGN)
   message(AUTHOR_WARNING "FILES_TO_SIGN is empty")
 else()

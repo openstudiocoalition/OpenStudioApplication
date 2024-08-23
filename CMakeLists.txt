@@ -1000,6 +1000,11 @@ cpack_add_component(Python
   DESCRIPTION "Support for Python Measures"
 )
 
+cpack_add_component(RubyAPI
+  DISPLAY_NAME "Ruby API"
+  DESCRIPTION "The Ruby openstudio modeleditor for Sketchup"
+)
+
 add_custom_target(PACKAGE_DEBUG
   COMMAND ${CMAKE_CPACK_COMMAND} --debug --verbose --config CPackConfig.cmake
   COMMENTS "Build package with debug and verbose output"
