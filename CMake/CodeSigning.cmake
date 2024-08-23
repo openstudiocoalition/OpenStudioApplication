@@ -10,7 +10,7 @@ This module defines functions to codesign, notarize and staple macOS files.
 
     codesign_files_macos(
                          SIGNING_IDENTITY <identity>
-                         [FORCE] [VERBOSE]
+                         [FORCE] [VERBOSE] [DEEP]
                          [IDENTIFIER <identifier>]
                          [PREFIX <prefix>]
                          [OPTIONS <options>...]
@@ -33,6 +33,9 @@ This module defines functions to codesign, notarize and staple macOS files.
 
   ``FORCE``
     If specified, will append ``--force``
+
+  ``DEEP``
+    If specified, will append ``--deep``. Note that this is supposedly deprecated by the ``codesign`` utility.
 
   ``OPTIONS options...``
     Specifies the options to pass to ``--options``. If not specified, uses ``--options runtime``
@@ -142,7 +145,7 @@ endfunction()
 #------------------------------------------------------------------------------
 function(codesign_files_macos)
   set(prefix "")
-  set(valueLessKeywords FORCE VERBOSE)
+  set(valueLessKeywords FORCE VERBOSE DEEP)
   set(singleValueKeywords SIGNING_IDENTITY IDENTIFIER PREFIX)
   set(multiValueKeywords FILES OPTIONS)
   cmake_parse_arguments(
@@ -187,6 +190,10 @@ function(codesign_files_macos)
 
   if(_FORCE)
     list(APPEND cmd --force)
+  endif()
+
+  if(_DEEP)
+    list(APPEND cmd --deep)
   endif()
 
   list(APPEND cmd --timestamp)
@@ -387,12 +394,13 @@ function(register_install_codesign_target TARGET_NAME DESTINATION COMPONENT)
     CODE "
     include(\"${CMAKE_CURRENT_FUNCTION_LIST_FILE}\")
     codesign_files_macos(
-      FILES \"\${CMAKE_INSTALL_PREFIX}/${DESTINATION}/$<TARGET_FILE_NAME:${TARGET_NAME}>\"
+      FILES \"\${CMAKE_INSTALL_PREFIX}/${DESTINATION}/$<IF:$<BOOL:$<TARGET_PROPERTY:${TARGET_NAME},MACOSX_BUNDLE>>,$<TARGET_BUNDLE_DIR_NAME:${TARGET_NAME}>,$<TARGET_FILE_NAME:${TARGET_NAME}>>\"
       SIGNING_IDENTITY \"${CPACK_CODESIGNING_DEVELOPPER_ID_APPLICATION}\"
       IDENTIFIER \"${CPACK_CODESIGNING_MACOS_IDENTIFIER}.${TARGET_NAME}\"
-      FORCE VERBOSE
+      FORCE VERBOSE $<$<BOOL:$<TARGET_PROPERTY:${TARGET_NAME},MACOSX_BUNDLE>>:DEEP>
       )
-    "
-    COMPONENT ${COMPONENT})
+  "
+    COMPONENT ${COMPONENT}
+  )
 
 endfunction()

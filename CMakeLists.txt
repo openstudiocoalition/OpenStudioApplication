@@ -344,20 +344,6 @@ include("${PROJECT_SOURCE_DIR}/ProjectMacros.cmake")
 # Start with ROOT, then PROJECT_BINARY_DIR
 list(APPEND CMAKE_MODULE_PATH "${CMAKE_BINARY_DIR} ${PROJECT_BINARY_DIR}" "${PROJECT_SOURCE_DIR}/CMake")
 
-if(APPLE)
-
-  include(${CMAKE_CURRENT_LIST_DIR}/CMake/CodeSigning.cmake)
-
-  # Defines CPACK_CODESIGNING_DEVELOPPER_ID_APPLICATION and CPACK_CODESIGNING_NOTARY_PROFILE_NAME
-  setup_macos_codesigning_variables()
-
-  if(CPACK_CODESIGNING_DEVELOPPER_ID_APPLICATION)
-    # Register the CPACK_POST_BUILD_SCRIPTS
-    set(CPACK_POST_BUILD_SCRIPTS "${CMAKE_CURRENT_LIST_DIR}/CMake/CPackSignAndNotarizeDmg.cmake")
-  endif()
-
-endif()
-
 # Use CTest
 set(ALL_TESTING_TARGETS "") # global list
 if(BUILD_TESTING)
@@ -934,6 +920,21 @@ elseif(WIN32)
   set(CPACK_IFW_TARGET_DIRECTORY "C:/${CPACK_PACKAGE_INSTALL_DIRECTORY}")
   set(CPACK_BINARY_IFW ON CACHE BOOL "Enable to build IFW packages")
   set(CPACK_BINARY_NSIS OFF CACHE BOOL "Enable to build NSIS packages")
+endif()
+
+
+if(APPLE)
+
+  include(${CMAKE_CURRENT_LIST_DIR}/CMake/CodeSigning.cmake)
+
+  # Defines CPACK_CODESIGNING_DEVELOPPER_ID_APPLICATION and CPACK_CODESIGNING_NOTARY_PROFILE_NAME
+  setup_macos_codesigning_variables()
+
+  if(CPACK_CODESIGNING_DEVELOPPER_ID_APPLICATION)
+    # Register the CPACK_POST_BUILD_SCRIPTS
+    set(CPACK_POST_BUILD_SCRIPTS "${CMAKE_CURRENT_LIST_DIR}/CMake/CPackSignAndNotarizeDmg.cmake")
+  endif()
+
 endif()
 
 ######################################################################################################################################################
