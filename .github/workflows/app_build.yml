@@ -102,6 +102,7 @@ jobs:
         ruby-version: 3.2.2
 
     - name: Extract OSApp and OS SDK versions from CMakeLists.txt
+      id: parse_cmake_versions
       shell: bash
       run: |
         # This both prints the variables and adds them to GITHUB_ENV
