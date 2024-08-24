@@ -23,6 +23,9 @@ jobs:
   build:
     if: ${{ github.event_name == 'push' || !github.event.pull_request.draft }}
 
+    outputs:
+      OS_APP_VERSION: ${{ steps.parse_cmake_versions.outputs.OS_APP_VERSION }}
+
     runs-on: ${{ matrix.os }}
     continue-on-error: true
     strategy:
@@ -719,20 +722,20 @@ jobs:
 
 
     steps:
-    - uses: actions/checkout@v4  # Still need E+ checked out to get testing scripts
+    - uses: actions/checkout@v4  # Still need code checked out to get testing scripts
       with:
         path: checkout
 
     #- name: Gather Test Package from Artifacts
     #  uses: actions/download-artifact@v4
     #  with:
-    #    name: OpenStudioApplication-${{ env.OS_APP_VERSION }}.${{ github.sha }}-${{ matrix.os }}.${{ env.COMPRESSED_EXT }}
+    #    name: OpenStudioApplication-${{ needs.build.outputs.OS_APP_VERSION }}.${{ github.sha }}-${{ matrix.os }}.${{ matrix.COMPRESSED_EXT }}
     #    path: package
 
     - name: Gather Dmg Package from Artifacts
       uses: actions/download-artifact@v4
       with:
-        name: OpenStudioApplication-${{ env.OS_APP_VERSION }}.${{ github.sha }}-${{ matrix.os }}.${{ env.BINARY_EXT }}
+        name: OpenStudioApplication-${{ needs.build.outputs.OS_APP_VERSION }}.${{ github.sha }}-${{ matrix.os }}.${{ matrix.BINARY_EXT }}
         path: dmg
 
     - name: Test Dmg Install and Package signing

@@ -14,16 +14,19 @@ class Generator(Enum):
     IFW = 1
     TGZ = 2
 
-BUNDLED_APPS = ['OpenStudioApp.app']
+
+BUNDLED_APPS = ["OpenStudioApp.app"]
 # BUNDLED_APPS = []
 
 
 # Path.is_relative_to was added only in Python 3.9
-if not hasattr(Path, 'is_relative_to'):
+if not hasattr(Path, "is_relative_to"):
+
     def _is_relative_to(self, other):
         if not isinstance(other, Path):
             other = Path(other)
         return other == self or other in self.parents
+
     Path.is_relative_to = _is_relative_to
 
 
@@ -32,13 +35,13 @@ def get_cmake_install_prefix_for_generator(build_dir: Path, generator: Generator
     if not cpack_dir.exists():
         print(f"Could not find a _CPack_Packages directory for {generator.name}")
         return None
-    cmake_install_root = next(x for x in cpack_dir.glob('*') if x.is_dir() and x.suffix != '.app')
+    cmake_install_root = next(x for x in cpack_dir.glob("*") if x.is_dir() and x.suffix != ".app")
     if generator == Generator.TGZ:
         return cmake_install_root
 
-    p = cmake_install_root / 'packages'
+    p = cmake_install_root / "packages"
     if component:
-        p = p / component / 'data'
+        p = p / component / "data"
     assert p.is_dir()
     return p
 
@@ -67,12 +70,15 @@ def find_executable_files(root_dir: Path) -> List[Path]:
         ]
     )
 
-    sos = list([
-        x for x in root_dir.glob('**/*.so')
-        if x.is_file()
-        and not x.is_symlink()
-        and not any([x.is_relative_to(bundled_p) for bundled_p in bundled_apps])
-    ])
+    sos = list(
+        [
+            x
+            for x in root_dir.glob("**/*.so")
+            if x.is_file()
+            and not x.is_symlink()
+            and not any([x.is_relative_to(bundled_p) for bundled_p in bundled_apps])
+        ]
+    )
 
     print(f"In {root_dir} found {len(files)} executable files and {len(dylibs)} dylibs and {len(sos)} SOs")
 
@@ -133,26 +139,26 @@ def get_linked_libraries(p):
 
     m = _OTOOL_ARCHITECTURE_RE.match(lines[0])
     assert m
-    arch = m.groupdict()['architecture']
+    arch = m.groupdict()["architecture"]
     if arch is None:
         lines = lines[1:]
     else:
         arches = {}
-        arches[arch] = {'start': 1}
+        arches[arch] = {"start": 1}
         for i, line in enumerate(lines):
             if i == 0:
                 continue
             if m := _OTOOL_ARCHITECTURE_RE.match(line):
-                arches[arch]['end'] = i
-                arch = m.groupdict()['architecture']
-                arches[arch] = {'start': i + 1}
-        arches[arch]['end'] = len(lines) - 1
+                arches[arch]["end"] = i
+                arch = m.groupdict()["architecture"]
+                arches[arch] = {"start": i + 1}
+        arches[arch]["end"] = len(lines) - 1
 
-        in_preference_order = ['arm64', 'x86_64', 'i386']
+        in_preference_order = ["arm64", "x86_64", "i386"]
         for pref_arch in in_preference_order:
             if pref_arch in arches:
                 arch = pref_arch
-                lines = lines[arches[pref_arch]['start']:arches[pref_arch]['end']]
+                lines = lines[arches[pref_arch]["start"] : arches[pref_arch]["end"]]
                 print(f"Found multiple architectures, will select {pref_arch}, candidates were {arches.keys()}")
                 break
 
@@ -244,7 +250,7 @@ def otool(p, verify_resolve=False, verbose=False):
                 break
         if not found and verify_resolve:
             msg = f"Could not resolve '{libname}' for '{p}'"
-            if 'Radiance' in p.parts:
+            if "Radiance" in p.parts:
                 print(msg)
             else:
                 raise ValueError(msg)
@@ -274,9 +280,7 @@ if __name__ == "__main__":
     parser.add_argument(
         "--install", action="store_true", default=False, help="This is an install dir, not the build_dir"
     )
-    parser.add_argument(
-        "--verbose", action="store_true", default=False, help="Enable verbose output"
-    )
+    parser.add_argument("--verbose", action="store_true", default=False, help="Enable verbose output")
     parser.add_argument(
         "--only-generator", type=str, help="Only run for the given generator", choices=[i.name for i in Generator]
     )
