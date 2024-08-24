@@ -765,9 +765,9 @@ jobs:
         echo "::endgroup::"
 
         begin_group "Quick Check signature of inner executables and binaries"
-        codesign -dvvv ./lib/libopenstudiolib.dylib
-        codesign -dvvv ./lib/libpythonengine.so
-        codesign -dvvv ./lib/librubyengine.so
+        codesign -dvvv ./test_install/lib/libopenstudiolib.dylib
+        codesign -dvvv ./test_install/lib/libpythonengine.so
+        codesign -dvvv ./test_install/lib/librubyengine.so
         codesign -dvvv ./test_install/EnergyPlus/energyplus
         codesign -dvvv ./test_install/EnergyPlus/libenergyplusapi.dylib
         codesign -dvvv ./test_install/EnergyPlus/libpython*.dylib
