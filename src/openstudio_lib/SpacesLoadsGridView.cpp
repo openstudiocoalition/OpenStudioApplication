@@ -95,6 +95,7 @@
 
 #include <openstudio/utilities/core/Assert.hpp>
 #include <openstudio/utilities/core/Compare.hpp>
+#include <openstudio/utilities/core/ContainersMove.hpp>
 #include <openstudio/utilities/idd/IddEnums.hxx>
 #include <openstudio/utilities/idd/OS_Space_FieldEnums.hxx>
 
@@ -224,56 +225,20 @@ void SpacesLoadsGridController::addColumns(const QString& category, std::vector<
       // Create a lambda function that collates all of the loads in a space
       // and returns them as an std::vector
       std::function<std::vector<model::ModelObject>(const model::Space&)> allLoads([](const model::Space& t_space) {
-        std::vector<model::ModelObject> loads;
-        auto InternalMass = t_space.internalMass();
-        auto People = t_space.people();
-        auto Lights = t_space.lights();
-        auto Luminaire = t_space.luminaires();
-        auto ElectricEquipment = t_space.electricEquipment();
-        auto GasEquipment = t_space.gasEquipment();
-        auto HotWaterEquipment = t_space.hotWaterEquipment();
-        auto SteamEquipment = t_space.steamEquipment();
-        auto OtherEquipment = t_space.otherEquipment();
-        auto SpaceInfiltrationDesignFlowRate = t_space.spaceInfiltrationDesignFlowRates();
-        auto SpaceInfiltrationEffectiveLeakageArea = t_space.spaceInfiltrationEffectiveLeakageAreas();
+        std::vector<model::ModelObject> loads = openstudio::concat<model::ModelObject>(
+          t_space.internalMass(), t_space.people(), t_space.lights(), t_space.luminaires(), t_space.electricEquipment(), t_space.gasEquipment(),
+          t_space.hotWaterEquipment(), t_space.steamEquipment(), t_space.otherEquipment(), t_space.spaceInfiltrationDesignFlowRates(),
+          t_space.spaceInfiltrationEffectiveLeakageAreas());
 
-        loads.insert(loads.end(), InternalMass.begin(), InternalMass.end());
-        loads.insert(loads.end(), People.begin(), People.end());
-        loads.insert(loads.end(), Lights.begin(), Lights.end());
-        loads.insert(loads.end(), Luminaire.begin(), Luminaire.end());
-        loads.insert(loads.end(), ElectricEquipment.begin(), ElectricEquipment.end());
-        loads.insert(loads.end(), GasEquipment.begin(), GasEquipment.end());
-        loads.insert(loads.end(), HotWaterEquipment.begin(), HotWaterEquipment.end());
-        loads.insert(loads.end(), SteamEquipment.begin(), SteamEquipment.end());
-        loads.insert(loads.end(), OtherEquipment.begin(), OtherEquipment.end());
-        loads.insert(loads.end(), SpaceInfiltrationDesignFlowRate.begin(), SpaceInfiltrationDesignFlowRate.end());
-        loads.insert(loads.end(), SpaceInfiltrationEffectiveLeakageArea.begin(), SpaceInfiltrationEffectiveLeakageArea.end());
+        if (boost::optional<model::SpaceType> spaceType_ = t_space.spaceType()) {
+          // this will provide inherited loads
+          auto spaceType = std::move(*spaceType_);
 
-        boost::optional<model::SpaceType> spaceType = t_space.spaceType();  // this will provide inherited loads
-        if (spaceType) {
-          InternalMass = spaceType->internalMass();
-          People = spaceType->people();
-          Lights = spaceType->lights();
-          Luminaire = spaceType->luminaires();
-          ElectricEquipment = spaceType->electricEquipment();
-          GasEquipment = spaceType->gasEquipment();
-          HotWaterEquipment = spaceType->hotWaterEquipment();
-          SteamEquipment = spaceType->steamEquipment();
-          OtherEquipment = spaceType->otherEquipment();
-          SpaceInfiltrationDesignFlowRate = spaceType->spaceInfiltrationDesignFlowRates();
-          SpaceInfiltrationEffectiveLeakageArea = spaceType->spaceInfiltrationEffectiveLeakageAreas();
-
-          loads.insert(loads.end(), InternalMass.begin(), InternalMass.end());
-          loads.insert(loads.end(), People.begin(), People.end());
-          loads.insert(loads.end(), Lights.begin(), Lights.end());
-          loads.insert(loads.end(), Luminaire.begin(), Luminaire.end());
-          loads.insert(loads.end(), ElectricEquipment.begin(), ElectricEquipment.end());
-          loads.insert(loads.end(), GasEquipment.begin(), GasEquipment.end());
-          loads.insert(loads.end(), HotWaterEquipment.begin(), HotWaterEquipment.end());
-          loads.insert(loads.end(), SteamEquipment.begin(), SteamEquipment.end());
-          loads.insert(loads.end(), OtherEquipment.begin(), OtherEquipment.end());
-          loads.insert(loads.end(), SpaceInfiltrationDesignFlowRate.begin(), SpaceInfiltrationDesignFlowRate.end());
-          loads.insert(loads.end(), SpaceInfiltrationEffectiveLeakageArea.begin(), SpaceInfiltrationEffectiveLeakageArea.end());
+          loads = openstudio::concat<model::ModelObject>(
+            loads,  //
+            spaceType.internalMass(), spaceType.people(), spaceType.lights(), spaceType.luminaires(), spaceType.electricEquipment(),
+            spaceType.gasEquipment(), spaceType.hotWaterEquipment(), spaceType.steamEquipment(), spaceType.otherEquipment(),
+            spaceType.spaceInfiltrationDesignFlowRates(), spaceType.spaceInfiltrationEffectiveLeakageAreas());
         }
 
         return loads;
@@ -282,7 +247,7 @@ void SpacesLoadsGridController::addColumns(const QString& category, std::vector<
       std::function<std::vector<boost::optional<model::ModelObject>>(const model::Space&)> allLoadInstances([allLoads](const model::Space& t_space) {
         std::vector<boost::optional<model::ModelObject>> loadInstances;
         for (const auto& l : allLoads(t_space)) {
-          loadInstances.push_back(boost::optional<model::ModelObject>(l.optionalCast<model::SpaceLoadInstance>()));
+          loadInstances.emplace_back(l.optionalCast<model::SpaceLoadInstance>());
         }
         return loadInstances;
       });
@@ -293,7 +258,7 @@ void SpacesLoadsGridController::addColumns(const QString& category, std::vector<
           for (auto& l : allLoads(t_space)) {
             // internal mass does not have a schedule
             if (!l.optionalCast<model::InternalMass>()) {
-              retval.push_back(boost::optional<model::ModelObject>(std::move(l)));
+              retval.emplace_back(std::move(l));
             } else {
               retval.emplace_back();
             }
@@ -308,7 +273,7 @@ void SpacesLoadsGridController::addColumns(const QString& category, std::vector<
             // only people have activity schedules, so this effectively gives us only
             // the People objects while inserting blanks for those which are not people,
             // which is what we want
-            retval.push_back(boost::optional<model::ModelObject>(l.optionalCast<model::People>()));
+            retval.emplace_back(l.optionalCast<model::People>());
           }
           return retval;
         });
@@ -318,7 +283,7 @@ void SpacesLoadsGridController::addColumns(const QString& category, std::vector<
           std::vector<boost::optional<model::ModelObject>> definitions;
           for (const auto& l : allLoadInstances(t_space)) {
             if (l) {
-              definitions.push_back(l->cast<model::SpaceLoadInstance>().definition());
+              definitions.emplace_back(l->cast<model::SpaceLoadInstance>().definition());
             } else {
               definitions.emplace_back();
             }
@@ -327,72 +292,42 @@ void SpacesLoadsGridController::addColumns(const QString& category, std::vector<
         });
 
       std::function<std::vector<boost::optional<model::ModelObject>>(const model::Space&)> allLoadsWithMultipliers([](const model::Space& t_space) {
-        std::vector<boost::optional<model::ModelObject>> loads;
-        auto InternalMass = t_space.internalMass();
-        auto People = t_space.people();
-        auto Lights = t_space.lights();
-        auto Luminaire = t_space.luminaires();
-        auto ElectricEquipment = t_space.electricEquipment();
-        auto GasEquipment = t_space.gasEquipment();
-        auto HotWaterEquipment = t_space.hotWaterEquipment();
-        auto SteamEquipment = t_space.steamEquipment();
-        auto OtherEquipment = t_space.otherEquipment();
-        auto SpaceInfiltrationDesignFlowRate = t_space.spaceInfiltrationDesignFlowRates();
-        auto SpaceInfiltrationEffectiveLeakageArea = t_space.spaceInfiltrationEffectiveLeakageAreas();
+        std::vector<boost::optional<model::ModelObject>> loads = openstudio::concat<boost::optional<model::ModelObject>>(
+          t_space.internalMass(), t_space.people(), t_space.lights(), t_space.luminaires(), t_space.electricEquipment(), t_space.gasEquipment(),
+          t_space.hotWaterEquipment(), t_space.steamEquipment(), t_space.otherEquipment());
 
-        loads.insert(loads.end(), InternalMass.begin(), InternalMass.end());
-        loads.insert(loads.end(), People.begin(), People.end());
-        loads.insert(loads.end(), Lights.begin(), Lights.end());
-        loads.insert(loads.end(), Luminaire.begin(), Luminaire.end());
-        loads.insert(loads.end(), ElectricEquipment.begin(), ElectricEquipment.end());
-        loads.insert(loads.end(), GasEquipment.begin(), GasEquipment.end());
-        loads.insert(loads.end(), HotWaterEquipment.begin(), HotWaterEquipment.end());
-        loads.insert(loads.end(), SteamEquipment.begin(), SteamEquipment.end());
-        loads.insert(loads.end(), OtherEquipment.begin(), OtherEquipment.end());
-        //loads.insert(loads.end(), SpaceInfiltrationDesignFlowRate.begin(), SpaceInfiltrationDesignFlowRate.end());
-        //loads.insert(loads.end(), SpaceInfiltrationEffectiveLeakageArea.begin(), SpaceInfiltrationEffectiveLeakageArea.end());
+        {
+          auto spidfrs = t_space.spaceInfiltrationDesignFlowRates();
+          auto spiels = t_space.spaceInfiltrationEffectiveLeakageAreas();
 
-        for (unsigned i = 0; i < SpaceInfiltrationDesignFlowRate.size(); ++i) {
-          loads.emplace_back();
+          for (unsigned i = 0; i < spiels.size(); ++i) {
+            loads.emplace_back();
+          }
+
+          for (unsigned i = 0; i < spiels.size(); ++i) {
+            loads.emplace_back();
+          }
         }
 
-        for (unsigned i = 0; i < SpaceInfiltrationEffectiveLeakageArea.size(); ++i) {
-          loads.emplace_back();
-        }
+        boost::optional<model::SpaceType> spaceType_ = t_space.spaceType();  // this will provide inherited loads
+        if (spaceType_) {
+          auto spaceType = std::move(*spaceType_);
+          loads = openstudio::concat<boost::optional<model::ModelObject>>(
+            loads, spaceType.internalMass(), spaceType.people(), spaceType.lights(), spaceType.luminaires(), spaceType.electricEquipment(),
+            spaceType.gasEquipment(), spaceType.hotWaterEquipment(), spaceType.steamEquipment(), spaceType.otherEquipment());
 
-        boost::optional<model::SpaceType> spaceType = t_space.spaceType();  // this will provide inherited loads
-        if (spaceType) {
-          InternalMass = spaceType->internalMass();
-          People = spaceType->people();
-          Lights = spaceType->lights();
-          Luminaire = spaceType->luminaires();
-          ElectricEquipment = spaceType->electricEquipment();
-          GasEquipment = spaceType->gasEquipment();
-          HotWaterEquipment = spaceType->hotWaterEquipment();
-          SteamEquipment = spaceType->steamEquipment();
-          OtherEquipment = spaceType->otherEquipment();
-          SpaceInfiltrationDesignFlowRate = spaceType->spaceInfiltrationDesignFlowRates();
-          SpaceInfiltrationEffectiveLeakageArea = spaceType->spaceInfiltrationEffectiveLeakageAreas();
+          {
+            auto spidfrs = spaceType.spaceInfiltrationDesignFlowRates();
+            auto spiels = spaceType.spaceInfiltrationEffectiveLeakageAreas();
 
-          loads.insert(loads.end(), InternalMass.begin(), InternalMass.end());
-          loads.insert(loads.end(), People.begin(), People.end());
-          loads.insert(loads.end(), Lights.begin(), Lights.end());
-          loads.insert(loads.end(), Luminaire.begin(), Luminaire.end());
-          loads.insert(loads.end(), ElectricEquipment.begin(), ElectricEquipment.end());
-          loads.insert(loads.end(), GasEquipment.begin(), GasEquipment.end());
-          loads.insert(loads.end(), HotWaterEquipment.begin(), HotWaterEquipment.end());
-          loads.insert(loads.end(), SteamEquipment.begin(), SteamEquipment.end());
-          loads.insert(loads.end(), OtherEquipment.begin(), OtherEquipment.end());
-          //loads.insert(loads.end(), SpaceInfiltrationDesignFlowRate.begin(), SpaceInfiltrationDesignFlowRate.end());
-          //loads.insert(loads.end(), SpaceInfiltrationEffectiveLeakageArea.begin(), SpaceInfiltrationEffectiveLeakageArea.end());
-        }
+            for (unsigned i = 0; i < spidfrs.size(); ++i) {
+              loads.emplace_back();
+            }
 
-        for (unsigned i = 0; i < SpaceInfiltrationDesignFlowRate.size(); ++i) {
-          loads.emplace_back();
-        }
-
-        for (unsigned i = 0; i < SpaceInfiltrationEffectiveLeakageArea.size(); ++i) {
-          loads.emplace_back();
+            for (unsigned i = 0; i < spiels.size(); ++i) {
+              loads.emplace_back();
+            }
+          }
         }
 
         return loads;
