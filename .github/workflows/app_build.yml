@@ -708,18 +708,18 @@ jobs:
       # fail-fast: Default is true, switch to false to allow one platform to fail and still run others
       fail-fast: false
       matrix:
-        os: [macos-13, macos-arm64]
+        os: [macos-13] # , macos-arm64]
         include:
         - os: macos-13
           SELF_HOSTED: false
           BINARY_EXT: dmg
           COMPRESSED_EXT: tar.gz
           arch: x86_64
-        - os: macos-arm64
-          SELF_HOSTED: true
-          BINARY_EXT: dmg
-          COMPRESSED_EXT: tar.gz
-          arch: arm64
+            #- os: macos-arm64
+            #  SELF_HOSTED: true
+            #  BINARY_EXT: dmg
+            #  COMPRESSED_EXT: tar.gz
+            #  arch: arm64
 
 
     steps:
@@ -789,7 +789,11 @@ jobs:
 
         begin_group "Running a simulation with python"
         ./test_install/EnergyPlus/energyplus --help
-        ./test_install/EnergyPlus/energyplus -w ./test_install/EnergyPlus/WeatherData/USA_IL_Chicago-OHare.Intl.AP.725300_TMY3.epw -d out ./test_install/EnergyPlus/ExampleFiles/PythonPluginCustomSchedule.idf
+        cur_v=$(python -c "import sys; sys.path.insert(0, './test_install/EnergyPlus'); from pyenergyplus.func import EnergyPlusVersion; v = EnergyPlusVersion(); print(f'{v.ep_version_major}.{v.ep_version_minor}.{v.ep_version_patch}')")
+        aria2c https://raw.githubusercontent.com/NREL/EnergyPlus/v${cur_v}/testfiles/PythonPluginCustomSchedule.py
+        aria2c https://raw.githubusercontent.com/NREL/EnergyPlus/v${cur_v}/testfiles/PythonPluginCustomSchedule.idf
+        aria2c https://raw.githubusercontent.com/NREL/EnergyPlus/v${cur_v}/weather/USA_IL_Chicago-OHare.Intl.AP.725300_TMY3.epw
+        ./test_install/EnergyPlus/energyplus -w USA_IL_Chicago-OHare.Intl.AP.725300_TMY3.epw -d out PythonPluginCustomSchedule.idf
         echo "::endgroup::"
 
     - name: Upload otool info as artifact
