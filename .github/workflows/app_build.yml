@@ -771,7 +771,7 @@ jobs:
         codesign -dvvv ./test_install/EnergyPlus/energyplus
         codesign -dvvv ./test_install/EnergyPlus/libenergyplusapi.dylib
         codesign -dvvv ./test_install/EnergyPlus/libpython*.dylib
-        codesign -dvvv ./test_install/ExpandObjects
+        codesign -dvvv ./test_install/EnergyPlus/ExpandObjects
         echo "::endgroup::"
 
         begin_group "Full Check signature of installed DMG for all executables and resolve otool libraries"
