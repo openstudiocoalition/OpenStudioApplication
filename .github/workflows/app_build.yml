@@ -760,7 +760,7 @@ jobs:
         echo "::endgroup::"
 
         begin_group "Installing"
-        sudo ./temp_mount/$filename.app/Contents/MacOS/$filename --accept-licenses --default-answer --confirm-command --root $(pwd)/test_install install
+        ./temp_mount/$filename.app/Contents/MacOS/$filename --accept-licenses --default-answer --confirm-command --root $(pwd)/test_install install
         hdiutil detach ./temp_mount/
         echo "::endgroup::"
 
