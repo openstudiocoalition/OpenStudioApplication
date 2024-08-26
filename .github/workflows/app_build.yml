@@ -754,14 +754,14 @@ jobs:
 
         begin_group "Mounting Dmg, and checking signature of installer app"
         mkdir temp_mount
-        hdiutil attach -mountpoint ./temp_mount/ $dmg
+        sudo hdiutil attach -mountpoint ./temp_mount/ $dmg
         filename="${dmg%.*}"
         spctl --assess --type open --context context:primary-signature -vvvv ./temp_mount/$filename.app
         echo "::endgroup::"
 
         begin_group "Installing"
-        ./temp_mount/$filename.app/Contents/MacOS/$filename --accept-licenses --default-answer --confirm-command --root $(pwd)/test_install install
-        hdiutil detach ./temp_mount/
+        sudo ./temp_mount/$filename.app/Contents/MacOS/$filename --accept-licenses --default-answer --confirm-command --root $(pwd)/test_install install
+        sudo hdiutil detach ./temp_mount/
         echo "::endgroup::"
 
         begin_group "Quick Check signature of inner executables and binaries"
