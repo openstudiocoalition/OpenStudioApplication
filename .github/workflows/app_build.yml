@@ -754,11 +754,7 @@ jobs:
 
         begin_group "Mounting Dmg, and checking signature of installer app"
         mkdir temp_mount
-        if [ "${{ matrix.SELF_HOSTED }}" == "true" ]; then
-          printf "${{ secrets.MACOS_SELF_HOSTED_PASSWORD }}\n" | sudo -S hdiutil attach -mountpoint ./temp_mount/ $dmg
-        else
-          sudo hdiutil attach -mountpoint ./temp_mount/ $dmg
-        fi
+        hdiutil attach -mountpoint ./temp_mount/ $dmg
         filename="${dmg%.*}"
         spctl --assess --type open --context context:primary-signature -vvvv ./temp_mount/$filename.app
         echo "::endgroup::"
@@ -766,12 +762,11 @@ jobs:
         begin_group "Installing"
         if [ "${{ matrix.SELF_HOSTED }}" == "true" ]; then
            printf "${{ secrets.MACOS_SELF_HOSTED_PASSWORD }}\n" | sudo -S ./temp_mount/$filename.app/Contents/MacOS/$filename --accept-licenses --default-answer --confirm-command --root $(pwd)/test_install install
-           printf "${{ secrets.MACOS_SELF_HOSTED_PASSWORD }}\n" | sudo -S hdiutil detach ./temp_mount/
         else
           sudo ./temp_mount/$filename.app/Contents/MacOS/$filename --accept-licenses --default-answer --confirm-command --root $(pwd)/test_install install
-          sudo hdiutil detach ./temp_mount/
         fi
-         echo "::endgroup::"
+        hdiutil detach ./temp_mount/
+        echo "::endgroup::"
 
         begin_group "Quick Check signature of inner executables and binaries"
         codesign -dvvv ./test_install/lib/libopenstudiolib.dylib
