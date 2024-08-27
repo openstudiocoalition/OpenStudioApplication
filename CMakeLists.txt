@@ -531,7 +531,7 @@ message(STATUS "QT_INSTALL_DIR=${QT_INSTALL_DIR}")
 
 find_package(Qt6 ${QT_VERSION} COMPONENTS CoreTools GuiTools WidgetsTools QmlTools WebEngineCoreTools REQUIRED PATHS ${QT_INSTALL_DIR} NO_DEFAULT_PATH)
 
-find_package(Qt6 ${QT_VERSION} COMPONENTS Core Core5Compat Gui Widgets Sql Svg Network Xml Concurrent PrintSupport Quick QuickWidgets Qml WebChannel Positioning WebEngineCore WebEngineWidgets REQUIRED PATHS ${QT_INSTALL_DIR} NO_DEFAULT_PATH)
+find_package(Qt6 ${QT_VERSION} COMPONENTS Core Core5Compat Gui Widgets Sql Svg Network Xml Concurrent PrintSupport Quick QuickWidgets Qml WebChannel Positioning WebEngineCore WebEngineWidgets Charts REQUIRED PATHS ${QT_INSTALL_DIR} NO_DEFAULT_PATH)
 
 find_package(Qt6LinguistTools ${QT_VERSION} REQUIRED PATHS ${QT_INSTALL_DIR} NO_DEFAULT_PATH)
 
@@ -607,6 +607,7 @@ list(APPEND QT_LIBS Qt6::Xml)
 list(APPEND QT_LIBS Qt6::PrintSupport)
 list(APPEND QT_LIBS Qt6::Gui)
 list(APPEND QT_LIBS Qt6::Svg)
+list(APPEND QT_LIBS Qt6::Charts)
 
 if(WIN32)
   find_package(Qt6OpenGL ${QT_VERSION} REQUIRED PATHS ${QT_INSTALL_DIR} NO_DEFAULT_PATH)

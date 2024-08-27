@@ -1196,12 +1196,12 @@ void HVACControlsController::update() {
         // Allow clicking on the Schedule to see it in the right column inspector
         connect(m_supplyAirTempScheduleDropZone.data(), &OSDropZone::itemClicked, supplyAirTempScheduleVectorController,
                 &SupplyAirTempScheduleVectorController::onDropZoneItemClicked);
-      } else if (_spm && (_spm->optionalCast<model::SetpointManagerFollowOutdoorAirTemperature>())) {
-        m_followOATempSPMView = new FollowOATempSPMView();
+      } else if (_spm && (spmFOAT = _spm->optionalCast<model::SetpointManagerFollowOutdoorAirTemperature>())) {
+        m_followOATempSPMView = new FollowOATempSPMView(*spmFOAT);
 
         m_hvacAirLoopControlsView->supplyAirTemperatureViewSwitcher->setView(m_followOATempSPMView);
-      } else if (_spm && (_spm->optionalCast<model::SetpointManagerOutdoorAirReset>())) {
-        m_oaResetSPMView = new OAResetSPMView();
+      } else if (_spm && (spmOAR = _spm->optionalCast<model::SetpointManagerOutdoorAirReset>())) {
+        m_oaResetSPMView = new OAResetSPMView(*spmOAR);
 
         m_hvacAirLoopControlsView->supplyAirTemperatureViewSwitcher->setView(m_oaResetSPMView);
       } else if (!t_airLoopHVAC->supplyComponents(model::AirLoopHVACUnitaryHeatPumpAirToAir::iddObjectType()).empty()) {
@@ -1345,6 +1345,48 @@ void HVACControlsController::update() {
       }
       uncontrolledComps.append("</ul>");
       m_hvacPlantLoopControlsView->uncontrolledComponentsLabel->setText(uncontrolledComps);
+
+      // Supply Water Temperature
+      boost::optional<model::SetpointManager> spm_;
+      for (auto& spm : t_plantLoop->supplyOutletNode().setpointManagers()) {
+        if (istringEqual("Temperature", spm.controlVariable())) {
+          spm_ = spm;
+          break;
+        }
+      }
+
+      if (spm_) {
+        if (auto spmS_ = spm_->optionalCast<model::SetpointManagerScheduled>()) {
+          m_scheduledSPMView = new ScheduledSPMView();
+
+          m_hvacPlantLoopControlsView->supplyTemperatureViewSwitcher->setView(m_scheduledSPMView);
+
+          // It's name SupplyAir but whatever
+          auto* supplyAirTempScheduleVectorController = new SupplyAirTempScheduleVectorController();
+          supplyAirTempScheduleVectorController->attach(spmS_.get());
+          m_supplyAirTempScheduleDropZone = new OSDropZone(supplyAirTempScheduleVectorController);
+          m_supplyAirTempScheduleDropZone->setSizePolicy(QSizePolicy::Fixed, QSizePolicy::Fixed);
+          m_supplyAirTempScheduleDropZone->setMinItems(1);
+          m_supplyAirTempScheduleDropZone->setMaxItems(1);
+          m_supplyAirTempScheduleDropZone->setItemsRemoveable(false);
+          m_supplyAirTempScheduleDropZone->setAcceptDrops(true);
+          m_supplyAirTempScheduleDropZone->setItemsAcceptDrops(true);
+          m_supplyAirTempScheduleDropZone->setEnabled(true);
+          m_scheduledSPMView->supplyAirTemperatureViewSwitcher->setView(m_supplyAirTempScheduleDropZone);
+
+          // Allow clicking on the Schedule to see it in the right column inspector
+          connect(m_supplyAirTempScheduleDropZone.data(), &OSDropZone::itemClicked, supplyAirTempScheduleVectorController,
+                  &SupplyAirTempScheduleVectorController::onDropZoneItemClicked);
+        } else if (auto spmFOAT_ = spm_->optionalCast<model::SetpointManagerFollowOutdoorAirTemperature>()) {
+          m_followOATempSPMView = new FollowOATempSPMView(*spmFOAT_);
+
+          m_hvacPlantLoopControlsView->supplyTemperatureViewSwitcher->setView(m_followOATempSPMView);
+        } else if (auto spmOAR_ = spm_->optionalCast<model::SetpointManagerOutdoorAirReset>()) {
+          m_oaResetSPMView = new OAResetSPMView(*spmOAR_);
+
+          m_hvacPlantLoopControlsView->supplyTemperatureViewSwitcher->setView(m_oaResetSPMView);
+        }
+      }
 
       // AvailabilityManagers
 

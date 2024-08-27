@@ -51,6 +51,11 @@ class SingleZoneResetSPView;
 class OSViewSwitcher;
 class OSSwitch2;
 
+namespace model {
+class SetpointManagerOutdoorAirReset;
+class SetpointManagerFollowOutdoorAirTemperature;
+}  // namespace model
+
 class HVACSystemsView : public QWidget
 {
   Q_OBJECT
@@ -187,6 +192,8 @@ class HVACPlantLoopControlsView : public QScrollArea
   QLabel* setpointComponentsLabel;
   QLabel* uncontrolledComponentsLabel;
 
+  OSViewSwitcher* supplyTemperatureViewSwitcher;
+
   OSViewSwitcher* availabilityManagerViewSwitcher;
 };
 
@@ -239,7 +246,7 @@ class ScheduledSPMView : public QWidget
 class FollowOATempSPMView : public QWidget
 {
  public:
-  FollowOATempSPMView();
+  FollowOATempSPMView(const model::SetpointManagerFollowOutdoorAirTemperature& spm);
 
   virtual ~FollowOATempSPMView() = default;
 };
@@ -247,7 +254,7 @@ class FollowOATempSPMView : public QWidget
 class OAResetSPMView : public QWidget
 {
  public:
-  OAResetSPMView();
+  OAResetSPMView(const model::SetpointManagerOutdoorAirReset& spm);
 
   virtual ~OAResetSPMView() = default;
 };
