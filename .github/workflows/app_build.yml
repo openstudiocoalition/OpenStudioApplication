@@ -708,19 +708,19 @@ jobs:
       # fail-fast: Default is true, switch to false to allow one platform to fail and still run others
       fail-fast: false
       matrix:
-        os: [macos-13] # , macos-arm64]
+        os: [macos-13, macos-14]
         include:
         - os: macos-13
           SELF_HOSTED: false
           BINARY_EXT: dmg
           COMPRESSED_EXT: tar.gz
           arch: x86_64
-            #- os: macos-arm64
-            #  SELF_HOSTED: true
-            #  BINARY_EXT: dmg
-            #  COMPRESSED_EXT: tar.gz
-            #  arch: arm64
-
+        # This is the GHA hosted one
+        - os: macos-14
+          SELF_HOSTED: false
+          BINARY_EXT: dmg
+          COMPRESSED_EXT: tar.gz
+          arch: arm64
 
     steps:
     - uses: actions/checkout@v4  # Still need code checked out to get testing scripts
@@ -760,11 +760,7 @@ jobs:
         echo "::endgroup::"
 
         begin_group "Installing"
-        if [ "${{ matrix.SELF_HOSTED }}" == "true" ]; then
-           printf "${{ secrets.MACOS_SELF_HOSTED_PASSWORD }}\n" | sudo -S ./temp_mount/$filename.app/Contents/MacOS/$filename --accept-licenses --default-answer --confirm-command --root $(pwd)/test_install install
-        else
-          sudo ./temp_mount/$filename.app/Contents/MacOS/$filename --accept-licenses --default-answer --confirm-command --root $(pwd)/test_install install
-        fi
+        sudo ./temp_mount/$filename.app/Contents/MacOS/$filename --accept-licenses --default-answer --confirm-command --root $(pwd)/test_install install
         hdiutil detach ./temp_mount/
         echo "::endgroup::"
 
