@@ -711,12 +711,14 @@ jobs:
         os: [macos-13, macos-14]
         include:
         - os: macos-13
+          binary_os: macos-13
           SELF_HOSTED: false
           BINARY_EXT: dmg
           COMPRESSED_EXT: tar.gz
           arch: x86_64
         # This is the GHA hosted one
         - os: macos-14
+          binary_os: macos-arm64
           SELF_HOSTED: false
           BINARY_EXT: dmg
           COMPRESSED_EXT: tar.gz
@@ -730,13 +732,13 @@ jobs:
     #- name: Gather Test Package from Artifacts
     #  uses: actions/download-artifact@v4
     #  with:
-    #    name: OpenStudioApplication-${{ needs.build.outputs.OS_APP_VERSION }}.${{ github.sha }}-${{ matrix.os }}.${{ matrix.COMPRESSED_EXT }}
+    #    name: OpenStudioApplication-${{ needs.build.outputs.OS_APP_VERSION }}.${{ github.sha }}-${{ matrix.binary_os }}.${{ matrix.COMPRESSED_EXT }}
     #    path: package
 
     - name: Gather Dmg Package from Artifacts
       uses: actions/download-artifact@v4
       with:
-        name: OpenStudioApplication-${{ needs.build.outputs.OS_APP_VERSION }}.${{ github.sha }}-${{ matrix.os }}.${{ matrix.BINARY_EXT }}
+        name: OpenStudioApplication-${{ needs.build.outputs.OS_APP_VERSION }}.${{ github.sha }}-${{ matrix.binary_os }}.${{ matrix.BINARY_EXT }}
         path: dmg
 
     - name: Test Dmg Install and Package signing
@@ -761,7 +763,6 @@ jobs:
 
         begin_group "Installing"
         sudo ./temp_mount/$filename.app/Contents/MacOS/$filename --accept-licenses --default-answer --confirm-command --root $(pwd)/test_install install
-        hdiutil detach ./temp_mount/
         echo "::endgroup::"
 
         begin_group "Quick Check signature of inner executables and binaries"
@@ -786,6 +787,8 @@ jobs:
         aria2c https://raw.githubusercontent.com/NREL/EnergyPlus/v${cur_v}/weather/USA_IL_Chicago-OHare.Intl.AP.725300_TMY3.epw
         ./test_install/EnergyPlus/energyplus -w USA_IL_Chicago-OHare.Intl.AP.725300_TMY3.epw -d out PythonPluginCustomSchedule.idf
         echo "::endgroup::"
+
+        hdiutil detach ./temp_mount/
 
     - name: Upload otool info as artifact
       uses: actions/upload-artifact@v4

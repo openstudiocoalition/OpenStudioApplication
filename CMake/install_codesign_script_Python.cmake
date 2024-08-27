@@ -1,6 +1,6 @@
 #[=======================================================================[.rst:
-install_codesign_script
------------------------
+install_codesign_script_Python
+------------------------------
 
 This file is meant to be used up as a ``install(SCRIPT)``
 
@@ -19,7 +19,7 @@ Pre-conditions:
     * Part of the same ``project()``
     * Using the same CPack ``COMPONENT``
 
-This script will codesign the ``FILES_TO_SIGN``.
+This script will codesign the Python/ sos which are globbed.
 
 To do so, it uses the `CodeSigning`_ functions :cmake:command:`codesign_files_macos`
 
@@ -29,12 +29,10 @@ after any rpath adjustments, to ensure the signature sticks.
 Usage::
 
   if(APPLE AND CPACK_CODESIGNING_DEVELOPPER_ID_APPLICATION)
-    set(FILES_TO_SIGN "fileA" "fileB")
-    install(CODE "set(FILES_TO_SIGN \"${FILES_TO_SIGN}\")" COMPONENT Unspecified)
-    install(CODE "set(CPACK_CODESIGNING_DEVELOPPER_ID_APPLICATION \"${CPACK_CODESIGNING_DEVELOPPER_ID_APPLICATION}\")" COMPONENT Unspecified)
-    install(CODE "set(CPACK_CODESIGNING_MACOS_IDENTIFIER \"${CPACK_CODESIGNING_MACOS_IDENTIFIER}\")" COMPONENT Unspecified)
+    install(CODE "set(CPACK_CODESIGNING_DEVELOPPER_ID_APPLICATION \"${CPACK_CODESIGNING_DEVELOPPER_ID_APPLICATION}\")" COMPONENT Python)
+    install(CODE "set(CPACK_CODESIGNING_MACOS_IDENTIFIER \"${CPACK_CODESIGNING_MACOS_IDENTIFIER}\")" COMPONENT Python)
     # call the script
-    install(SCRIPT "${CMAKE_CURRENT_LIST_DIR}/install_codesign_script.cmake" COMPONENT Unspecified)
+    install(SCRIPT "${CMAKE_CURRENT_LIST_DIR}/install_codesign_script_Python.cmake" COMPONENT Python)
   endif()
 #]=======================================================================]
 
@@ -100,25 +98,18 @@ if(NOT CPACK_CODESIGNING_MACOS_IDENTIFIER)
   message(FATAL_ERROR "CPACK_CODESIGNING_MACOS_IDENTIFIER is required")
 endif()
 
-if(NOT FILES_TO_SIGN)
-  message(AUTHOR_WARNING "FILES_TO_SIGN is empty")
-else()
-  foreach(path ${FILES_TO_SIGN})
-    list(APPEND _FULL_PATHS "${CMAKE_INSTALL_PREFIX}/${path}")
-  endforeach()
-  print_relative_paths(PREFIX "FULL_PATHS=" ABSOLUTE_PATHS ${_FULL_PATHS})
-endif()
+file(GLOB _PYTHON_OS_SOS "${CMAKE_INSTALL_PREFIX}/Python/*.so")
+print_relative_paths(PREFIX "PYTHON_OS_SOS=" ABSOLUTE_PATHS ${_PYTHON_OS_SOS})
 
 include(${CMAKE_CURRENT_LIST_DIR}/CodeSigning.cmake)
 codesign_files_macos(
-  FILES ${_FULL_PATHS}
+  FILES ${_PYTHON_OS_SOS}
   SIGNING_IDENTITY ${CPACK_CODESIGNING_DEVELOPPER_ID_APPLICATION}
   PREFIX "${CPACK_CODESIGNING_MACOS_IDENTIFIER}."
   FORCE VERBOSE
 )
 
 # Clean up to avoid multiple passes (several components) appending to a pre-existing list
-unset(FILES_TO_SIGN)
-unset(_FULL_PATHS)
+unset(_PYTHON_OS_SOS)
 
-message("Finished Codesigning inner executables and library")
+message("Finished Codesigning inner executables and library for CPack Component Python")

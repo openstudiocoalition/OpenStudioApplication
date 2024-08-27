@@ -935,18 +935,27 @@ endif()
 if(APPLE)
 
   if(CPACK_CODESIGNING_DEVELOPPER_ID_APPLICATION)
-    set(comps_to_sign
-      OpenStudioApp
-      Python
-      CLI
+    # Codesign inner binaries and libraries, in the CPack staging area for the current project & component
+    # Define some required variables for the script in the scope of the install(SCRIPT) first
+    set(CLI_FILES_TO_SIGN
+      lib/libopenstudiolib.dylib
+      lib/libpythonengine.so
+      lib/librubyengine.so
+      bin/install_utility
     )
-    foreach(comp_to_sign ${comps_to_sign})
-      # Codesign inner binaries and libraries, in the CPack staging area for the current project & component
-      # Define some required variables for the script in the scope of the install(SCRIPT) first
-      install(CODE "set(CPACK_CODESIGNING_DEVELOPPER_ID_APPLICATION \"${CPACK_CODESIGNING_DEVELOPPER_ID_APPLICATION}\")" COMPONENT ${comp_to_sign})
-      install(CODE "set(CPACK_CODESIGNING_MACOS_IDENTIFIER \"${CPACK_CODESIGNING_MACOS_IDENTIFIER}\")" COMPONENT ${comp_to_sign})
-      install(SCRIPT "${CMAKE_CURRENT_LIST_DIR}/CMake/install_codesign_script.cmake" COMPONENT ${comp_to_sign})
-    endforeach()
+    install(CODE "set(FILES_TO_SIGN \"${CLI_FILES_TO_SIGN}\")" COMPONENT "CLI")
+    install(CODE "set(CPACK_CODESIGNING_DEVELOPPER_ID_APPLICATION \"${CPACK_CODESIGNING_DEVELOPPER_ID_APPLICATION}\")" COMPONENT CLI)
+    install(CODE "set(CPACK_CODESIGNING_MACOS_IDENTIFIER \"${CPACK_CODESIGNING_MACOS_IDENTIFIER}\")" COMPONENT CLI)
+    install(SCRIPT "${CMAKE_CURRENT_LIST_DIR}/CMake/install_codesign_script.cmake" COMPONENT CLI)
+
+    # These two have special globs added to the their install script, and I define FILES_TO_SIGN in there if needed (long list)
+    install(CODE "set(CPACK_CODESIGNING_DEVELOPPER_ID_APPLICATION \"${CPACK_CODESIGNING_DEVELOPPER_ID_APPLICATION}\")" COMPONENT OpenStudioApp)
+    install(CODE "set(CPACK_CODESIGNING_MACOS_IDENTIFIER \"${CPACK_CODESIGNING_MACOS_IDENTIFIER}\")" COMPONENT OpenStudioApp)
+    install(SCRIPT "${CMAKE_CURRENT_LIST_DIR}/CMake/install_codesign_script_OpenStudioApp.cmake" COMPONENT OpenStudioApp)
+
+    install(CODE "set(CPACK_CODESIGNING_DEVELOPPER_ID_APPLICATION \"${CPACK_CODESIGNING_DEVELOPPER_ID_APPLICATION}\")" COMPONENT Python)
+    install(CODE "set(CPACK_CODESIGNING_MACOS_IDENTIFIER \"${CPACK_CODESIGNING_MACOS_IDENTIFIER}\")" COMPONENT Python)
+    install(SCRIPT "${CMAKE_CURRENT_LIST_DIR}/CMake/install_codesign_script_Python.cmake" COMPONENT Python)
 
     # Register the CPACK_POST_BUILD_SCRIPTS
     set(CPACK_POST_BUILD_SCRIPTS "${CMAKE_CURRENT_LIST_DIR}/CMake/CPackSignAndNotarizeDmg.cmake")
