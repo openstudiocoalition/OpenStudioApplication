@@ -52,8 +52,15 @@ class OSViewSwitcher;
 class OSSwitch2;
 
 namespace model {
+class SetpointManager;
 class SetpointManagerOutdoorAirReset;
 class SetpointManagerFollowOutdoorAirTemperature;
+class SetpointManagerFollowGroundTemperature;
+class SetpointManagerSystemNodeResetTemperature;
+
+class SetpointManagerWarmest;
+class SetpointManagerWarmestTemperatureFlow;
+class SetpointManagerColdest;
 }  // namespace model
 
 class HVACSystemsView : public QWidget
@@ -223,12 +230,12 @@ class NoMechanicalVentilationView : public QWidget
   virtual ~NoMechanicalVentilationView() = default;
 };
 
-class SingleZoneReheatSPMView : public QWidget
+class SingleZoneSPMView : public QWidget
 {
  public:
-  SingleZoneReheatSPMView();
+  SingleZoneSPMView(const QString& spmType = "SingleZoneReheat");
 
-  virtual ~SingleZoneReheatSPMView() = default;
+  virtual ~SingleZoneSPMView() = default;
 
   OSComboBox2* controlZoneComboBox;
 };
@@ -251,12 +258,38 @@ class FollowOATempSPMView : public QWidget
   virtual ~FollowOATempSPMView() = default;
 };
 
+class FollowGroundTempSPMView : public QWidget
+{
+ public:
+  FollowGroundTempSPMView(const model::SetpointManagerFollowGroundTemperature& spm);
+
+  virtual ~FollowGroundTempSPMView() = default;
+};
+
 class OAResetSPMView : public QWidget
 {
  public:
   OAResetSPMView(const model::SetpointManagerOutdoorAirReset& spm);
-
   virtual ~OAResetSPMView() = default;
+};
+
+class SystemNodeResetSPMView : public QWidget
+{
+ public:
+  SystemNodeResetSPMView(const model::SetpointManagerSystemNodeResetTemperature& spm);
+  virtual ~SystemNodeResetSPMView() = default;
+};
+
+class WarmestColdestSPMView : public QWidget
+{
+ public:
+  explicit WarmestColdestSPMView(const model::SetpointManagerWarmest& spm);
+  explicit WarmestColdestSPMView(const model::SetpointManagerWarmestTemperatureFlow& spm);
+  explicit WarmestColdestSPMView(const model::SetpointManagerColdest& spm);
+  virtual ~WarmestColdestSPMView() = default;
+
+ private:
+  void commonSetup(double minimumSetpointTemperature, double maximumSetpointTemperature, const std::string& strategy, const QString& spmType);
 };
 
 class AirLoopHVACUnitaryHeatPumpAirToAirControlView : public QWidget
@@ -273,6 +306,8 @@ class NoSupplyAirTempControlView : public QWidget
 {
  public:
   NoSupplyAirTempControlView();
+
+  NoSupplyAirTempControlView(const model::SetpointManager& spm);
 
   virtual ~NoSupplyAirTempControlView() = default;
 };

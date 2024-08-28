@@ -69,7 +69,7 @@ class HVACGraphicsView;
 class HVACLayoutController;
 class HVACControlsController;
 class MechanicalVentilationView;
-class SingleZoneReheatSPMView;
+class SingleZoneSPMView;
 class NoSupplyAirTempControlView;
 class NoMechanicalVentilationView;
 class ScheduledSPMView;
@@ -77,7 +77,10 @@ class SystemAvailabilityVectorController;
 class AvailabilityManagerObjectVectorController;
 class OSDropZone;
 class FollowOATempSPMView;
+class FollowGroundTempSPMView;
 class OAResetSPMView;
+class SystemNodeResetSPMView;
+class WarmestColdestSPMView;
 class AirLoopHVACUnitaryHeatPumpAirToAirControlView;
 class NoControlsView;
 class RefrigerationController;
@@ -226,7 +229,9 @@ class HVACControlsController
 
   void onNightCycleComboBoxIndexChanged(int index);
 
-  void onControlZoneComboBoxChanged(int index);
+  void onControlZoneComboBoxChangedSingleZoneReheat(int index);
+  void onControlZoneComboBoxChangedSingleZoneHeating(int index);
+  void onControlZoneComboBoxChangedSingleZoneCooling(int index);
 
   void onUnitaryHeatPumpControlZoneChanged(int index);
 
@@ -241,7 +246,7 @@ class HVACControlsController
 
   QPointer<MechanicalVentilationView> m_mechanicalVentilationView;
 
-  QPointer<SingleZoneReheatSPMView> m_singleZoneReheatSPMView;
+  QPointer<SingleZoneSPMView> m_singleZoneSPMView;
 
   QPointer<ScheduledSPMView> m_scheduledSPMView;
 
@@ -255,7 +260,13 @@ class HVACControlsController
 
   QPointer<FollowOATempSPMView> m_followOATempSPMView;
 
+  QPointer<FollowGroundTempSPMView> m_followGroundTempSPMView;
+
   QPointer<OAResetSPMView> m_oaResetSPMView;
+
+  QPointer<SystemNodeResetSPMView> m_systemNodeResetSPMView;
+
+  QPointer<WarmestColdestSPMView> m_warmestColdestSPMView;
 
   QPointer<AirLoopHVACUnitaryHeatPumpAirToAirControlView> m_airLoopHVACUnitaryHeatPumpAirToAirControlView;
 
