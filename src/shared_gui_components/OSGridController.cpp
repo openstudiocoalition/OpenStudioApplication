@@ -43,7 +43,6 @@
 #include "../openstudio_lib/OSDropZone.hpp"
 #include "../openstudio_lib/OSItemSelector.hpp"
 #include "../openstudio_lib/RenderingColorWidget.hpp"
-#include "../openstudio_lib/SchedulesView.hpp"
 
 #include <openstudio/model/Model_Impl.hpp>
 #include <openstudio/model/ModelObject_Impl.hpp>
@@ -75,8 +74,6 @@
 #include <iterator>
 
 namespace openstudio {
-
-const std::vector<QColor> OSGridController::m_colors = SchedulesView::initializeColors();
 
 OSGridController::OSGridController()
   : m_hasHorizontalHeader(true),

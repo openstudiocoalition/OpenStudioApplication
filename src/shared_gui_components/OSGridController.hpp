@@ -530,8 +530,6 @@ class OSGridController : public QObject
 
   std::vector<QString> m_customFields;
 
-  static const std::vector<QColor> m_colors;
-
   model::Model m_model;
 
   bool m_isIP;

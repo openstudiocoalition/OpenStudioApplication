@@ -393,6 +393,7 @@ set(${target_name}_SRC
   ../shared_gui_components/CollapsibleComponentHeader.hpp
   ../shared_gui_components/CollapsibleComponentList.cpp
   ../shared_gui_components/CollapsibleComponentList.hpp
+  ../shared_gui_components/ColorPalettes.hpp
   ../shared_gui_components/Component.cpp
   ../shared_gui_components/Component.hpp
   ../shared_gui_components/ComponentList.cpp
