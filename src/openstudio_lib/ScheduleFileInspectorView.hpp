@@ -35,6 +35,7 @@
 
 class QLineEdit;
 class QPlainTextEdit;
+class QPushButton;
 
 namespace openstudio {
 
@@ -84,6 +85,8 @@ class ScheduleFileInspectorView : public ModelObjectInspectorView
   OSSwitch2* m_translateFileWithRelativePath = nullptr;
 
   QLineEdit* m_numLines = nullptr;
+  bool m_displayAllContent = false;
+  QPushButton* m_displayAllContentSwitch = nullptr;
   QPlainTextEdit* m_contentLines = nullptr;
   QStringList m_lines;
 };

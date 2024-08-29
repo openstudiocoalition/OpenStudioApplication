@@ -49,6 +49,7 @@
 #include <QFile>
 #include <QTextStream>
 #include <QPlainTextEdit>
+#include <QPushButton>
 
 namespace openstudio {
 
@@ -238,7 +239,27 @@ void ScheduleFileInspectorView::createLayout() {
 
   m_numLines = new QLineEdit();
   m_numLines->setReadOnly(true);
-  mainGridLayout->addWidget(m_numLines, row, 1, 1, 2);
+  mainGridLayout->addWidget(m_numLines, row, 1, 1, 1);
+
+  ++row;
+
+  label = new QLabel("Display All File Content: ");
+  label->setObjectName("H3");
+  mainGridLayout->addWidget(label, row, 0);
+
+  // Mimic an OSSwitch2
+  m_displayAllContentSwitch = new QPushButton();
+  m_displayAllContentSwitch->setAcceptDrops(false);
+  m_displayAllContentSwitch->setFlat(true);
+  m_displayAllContentSwitch->setFixedSize(63, 21);
+  m_displayAllContentSwitch->setObjectName("OnOffSliderButton");
+  m_displayAllContentSwitch->setCheckable(true);
+  mainGridLayout->addWidget(m_displayAllContentSwitch, row, 1, 1, 1);
+
+  connect(m_displayAllContentSwitch, &QPushButton::toggled, [this](bool) {
+    m_displayAllContent = !m_displayAllContent;
+    refreshContent();
+  });
 
   ++row;
 
@@ -403,7 +424,7 @@ void ScheduleFileInspectorView::refreshContent() {
     for (const QString& line : m_lines) {
       if (curLine < rowstoSkipatTop) {
         m_contentLines->appendHtml(QString("<span style='color: gray'>%1</span>").arg(line));
-      } else if (curLine < read_n_lines) {
+      } else if (m_displayAllContent || (curLine < read_n_lines)) {
         m_contentLines->appendHtml(QString("<span style='color: green'>%1</span>").arg(line));
       } else if (curLine == read_n_lines) {
         m_contentLines->appendHtml("<strong>[...]</strong>");
