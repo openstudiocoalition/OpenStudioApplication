@@ -349,7 +349,14 @@ void ScheduleFileInspectorView::attach(openstudio::model::ScheduleFile& sch) {
     // ScheduleFile::columnSeparatorValues does not exist: https://github.com/NREL/OpenStudio/issues/5246
     []() { return std::vector<std::string>{"Comma", "Tab", "Space", "Semicolon"}; },
     std::bind(&model::ScheduleFile::columnSeparator, m_sch.get_ptr()),
-    std::bind(&model::ScheduleFile::setColumnSeparator, m_sch.get_ptr(), std::placeholders::_1), boost::none, boost::none);
+    [this](const std::string& value) -> bool {
+      bool result = m_sch->setColumnSeparator(value);
+      if (result) {
+        refreshContent();
+      }
+      return result;
+    },
+    boost::none, boost::none);
 
   m_minutesperItem->bind<std::string>(
     *m_sch,
