@@ -41,6 +41,7 @@
 
 #include <openstudio/utilities/core/Assert.hpp>
 #include <openstudio/utilities/core/Filesystem.hpp>
+#include <openstudio/utilities/core/Compare.hpp>
 
 #include <QGridLayout>
 #include <QLabel>
@@ -50,6 +51,7 @@
 #include <QTextStream>
 #include <QPlainTextEdit>
 #include <QPushButton>
+#include <Qt>  // Qt namespace, for SplitBehaviorFlags
 
 namespace openstudio {
 
@@ -310,7 +312,14 @@ void ScheduleFileInspectorView::attach(openstudio::model::ScheduleFile& sch) {
 
   // OSIntegerEdit2
   m_columnNumber->bind(*m_sch, IntGetter(std::bind(&model::ScheduleFile::columnNumber, m_sch.get_ptr())),
-                       boost::optional<IntSetter>(std::bind(&model::ScheduleFile::setColumnNumber, m_sch.get_ptr(), std::placeholders::_1)));
+                       boost::optional<IntSetter>([this](int value) -> bool {
+                         bool result = m_sch->setColumnNumber(value);
+                         if (result) {
+                           refreshContent();
+                           refreshError();
+                         }
+                         return result;
+                       }));
 
   m_rowstoSkipatTop->bind(*m_sch, IntGetter(std::bind(&model::ScheduleFile::rowstoSkipatTop, m_sch.get_ptr())),
                           boost::optional<IntSetter>([this](int value) -> bool {
@@ -433,6 +442,21 @@ void ScheduleFileInspectorView::refreshContent() {
   if (openstudio::filesystem::is_regular_file(fpath)) {
     const int rowstoSkipatTop = m_sch->rowstoSkipatTop();
 
+    const int colNum = m_sch->columnNumber() - 1;  // Turn 1-indexed to 0-indexed
+
+    QString sep;
+    Qt::SplitBehavior behavior = Qt::KeepEmptyParts;
+    if (openstudio::istringEqual(m_sch->columnSeparator(), "Comma")) {
+      sep = ',';
+    } else if (openstudio::istringEqual(m_sch->columnSeparator(), "Tab")) {
+      sep = '\t';
+    } else if (openstudio::istringEqual(m_sch->columnSeparator(), "Space")) {
+      sep = ' ';  // QRegularExpression("\\s+")
+      behavior = Qt::SkipEmptyParts;
+    } else if (openstudio::istringEqual(m_sch->columnSeparator(), "Semicolon")) {
+      sep = ';';
+    }  // Fixed: not handled
+
     if (m_lines.isEmpty()) {
       m_lines.clear();
 
@@ -453,20 +477,34 @@ void ScheduleFileInspectorView::refreshContent() {
 
     const int read_n_lines = std::min(std::max(rowstoSkipatTop + 2, 10), static_cast<int>(m_lines.size()));
 
+    auto constructStyledLine = [&sep, &behavior, &colNum](const QString& line, const QString& color) {
+      QStringList vals = line.split(sep, behavior);
+      QString str;
+      for (int j = 0; j < vals.size(); ++j) {
+        QString val = vals[j];
+        if (j == colNum) {
+          str.append(QString("<span style='color: %1'>%2</span>").arg(color).arg(val));
+        } else {
+          str.append(QString("<span style='color: gray'>%1</span>").arg(val));
+        }
+        if (j < vals.size() - 1) {
+          str.append(",");
+        }
+      }
+      return str;
+    };
+
     int curLine = 0;
     for (const QString& line : m_lines) {
       if (curLine < rowstoSkipatTop) {
-        m_contentLines->appendHtml(QString("<span style='color: gray'>%1</span>").arg(line));
-      } else if (m_displayAllContent || (curLine < read_n_lines)) {
-        m_contentLines->appendHtml(QString("<span style='color: green'>%1</span>").arg(line));
+        m_contentLines->appendHtml(constructStyledLine(line, "black"));
+      } else if (m_displayAllContent || (curLine < read_n_lines) || (curLine > m_lines.size() - 5)) {
+        m_contentLines->appendHtml(constructStyledLine(line, "green"));
       } else if (curLine == read_n_lines) {
         m_contentLines->appendHtml("<strong>[...]</strong>");
-      } else if (curLine > m_lines.size() - 5) {
-        m_contentLines->appendHtml(QString("<span style='color: green'>%1</span>").arg(line));
       }
       ++curLine;
     }
-
   } else {
     m_contentLines->setPlainText(QString("File not found at '%1'").arg(toQString(fpath)));
   }
