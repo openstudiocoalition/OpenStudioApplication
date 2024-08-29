@@ -142,4 +142,3 @@ void ScheduleConstantInspectorView::detach() {
 void ScheduleConstantInspectorView::refresh() {}
 
 }  // namespace openstudio
-

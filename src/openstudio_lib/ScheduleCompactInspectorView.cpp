@@ -146,4 +146,3 @@ void ScheduleCompactInspectorView::detach() {
 void ScheduleCompactInspectorView::refresh() {}
 
 }  // namespace openstudio
-
