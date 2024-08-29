@@ -241,6 +241,11 @@ void ScheduleFileInspectorView::createLayout() {
   m_numLines->setReadOnly(true);
   mainGridLayout->addWidget(m_numLines, row, 1, 1, 1);
 
+  m_error = new QLabel();
+  m_error->setStyleSheet("QLabel { color : red; font: bold }");
+  m_error->hide();
+  mainGridLayout->addWidget(m_error, row, 2, 1, 1);
+
   ++row;
 
   label = new QLabel("Display All File Content: ");
@@ -276,7 +281,8 @@ void ScheduleFileInspectorView::createLayout() {
 
   mainGridLayout->setRowStretch(100, 100);
 
-  mainGridLayout->setColumnStretch(100, 100);
+  mainGridLayout->setColumnStretch(4, 3);
+  mainGridLayout->setColumnStretch(5, 1);
 }
 
 void ScheduleFileInspectorView::onClearSelection() {
@@ -312,15 +318,21 @@ void ScheduleFileInspectorView::attach(openstudio::model::ScheduleFile& sch) {
                             bool result = m_sch->setRowstoSkipatTop(value);
                             if (result) {
                               refreshContent();
+                              refreshError();
                             }
                             return result;
                           })
                           // boost::optional<IntSetter>(std::bind(&model::ScheduleFile::setRowstoSkipatTop, m_sch.get_ptr(), std::placeholders::_1))
   );
 
-  m_numberofHoursofData->bind(
-    *m_sch, OptionalIntGetter(std::bind(&model::ScheduleFile::numberofHoursofData, m_sch.get_ptr())),
-    boost::optional<IntSetter>(std::bind(&model::ScheduleFile::setNumberofHoursofData, m_sch.get_ptr(), std::placeholders::_1)));
+  m_numberofHoursofData->bind(*m_sch, OptionalIntGetter(std::bind(&model::ScheduleFile::numberofHoursofData, m_sch.get_ptr())),
+                              boost::optional<IntSetter>([this](int value) -> bool {
+                                bool result = m_sch->setNumberofHoursofData(value);
+                                if (result) {
+                                  refreshError();
+                                }
+                                return result;
+                              }));
 
   // OSComboBox2
 
@@ -341,7 +353,13 @@ void ScheduleFileInspectorView::attach(openstudio::model::ScheduleFile& sch) {
     [sch_ptr = m_sch.get_ptr()]() -> std::string { return sch_ptr->minutesperItem().get(); },
     // Setter, another weirdness, but for backward compat it takes a std::string or an int... and the std::string one is deprecated
     // std::bind(&model::ScheduleFile::setMinutesperItem, m_sch.get_ptr(), std::placeholders::_1),
-    [sch_ptr = m_sch.get_ptr()](const std::string& minutesperItem) { return sch_ptr->setMinutesperItem(std::stoi(minutesperItem)); },
+    [this](const std::string& minutesperItem) {
+      bool result = m_sch->setMinutesperItem(std::stoi(minutesperItem));
+      if (result) {
+        refreshError();
+      }
+      return result;
+    },
     boost::optional<NoFailAction>(std::bind(&model::ScheduleFile::resetMinutesperItem, m_sch.get_ptr())),     // reset
     boost::optional<BasicQuery>(std::bind(&model::ScheduleFile::isMinutesperItemDefaulted, m_sch.get_ptr()))  // isDefaulted
 
@@ -389,6 +407,22 @@ void ScheduleFileInspectorView::detach() {
 }
 
 void ScheduleFileInspectorView::refresh() {}
+
+void ScheduleFileInspectorView::refreshError() {
+  const int minutesperItem = std::stoi(m_sch->minutesperItem().get());
+  const int numHours = m_sch->numberofHoursofData().value_or(8760);
+  const int expectedRecords = numHours * 60 / minutesperItem;
+
+  const int rowstoSkipatTop = m_sch->rowstoSkipatTop();
+  const int totalLines = m_lines.size();
+  const int numRecords = totalLines - rowstoSkipatTop;
+  if (numRecords != expectedRecords) {
+    m_error->setText(QString("Expected %1 records but only %2 are selected").arg(expectedRecords).arg(numRecords));
+    m_error->show();
+  } else {
+    m_error->hide();
+  }
+}
 
 void ScheduleFileInspectorView::refreshContent() {
   // QLineEdit

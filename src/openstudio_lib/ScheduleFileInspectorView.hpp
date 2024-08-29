@@ -71,6 +71,8 @@ class ScheduleFileInspectorView : public ModelObjectInspectorView
 
   void refreshContent();
 
+  void refreshError();
+
   boost::optional<model::ScheduleFile> m_sch;
 
   OSLineEdit2* m_nameEdit = nullptr;
@@ -85,6 +87,7 @@ class ScheduleFileInspectorView : public ModelObjectInspectorView
   OSSwitch2* m_translateFileWithRelativePath = nullptr;
 
   QLineEdit* m_numLines = nullptr;
+  QLabel* m_error = nullptr;
   bool m_displayAllContent = false;
   QPushButton* m_displayAllContentSwitch = nullptr;
   QPlainTextEdit* m_contentLines = nullptr;
