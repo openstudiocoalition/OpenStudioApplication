@@ -127,7 +127,8 @@ void ScheduleFileInspectorView::createLayout() {
 
   mainGridLayout->addLayout(vLayout, row, 1);
 
-  connect(m_rowstoSkipatTop, &OSIntegerEdit2::editingFinished, this, &ScheduleFileInspectorView::refreshContent);
+  // Will be done in a lambda below, otherwise there's a race condition, the modelObject itself isn't modified when refreshContent is called
+  // connect(m_rowstoSkipatTop, &OSIntegerEdit2::editingFinished, this, &ScheduleFileInspectorView::refreshContent);
 
   ++row;
 
@@ -219,19 +220,34 @@ void ScheduleFileInspectorView::createLayout() {
 
   ++row;
 
+  auto* line = new QFrame();
+  line->setFrameShape(QFrame::HLine);
+  line->setFrameShadow(QFrame::Sunken);
+  mainGridLayout->addWidget(line, row, 0, 1, -1);
+  row++;
+
   label = new QLabel("Content: ");
   label->setObjectName("H2");
   mainGridLayout->addWidget(label, row, 0);
 
   ++row;
 
-  m_firstLines = new QPlainTextEdit();
-  m_firstLines->setReadOnly(true);
-  QFont f("monospace");
-  f.setStyleHint(QFont::Monospace);
-  m_firstLines->setFont(f);
+  label = new QLabel("Number of Lines in file: ");
+  label->setObjectName("H3");
+  mainGridLayout->addWidget(label, row, 0);
 
-  mainGridLayout->addWidget(m_firstLines, row, 0, 1, 5);
+  m_numLines = new QLineEdit();
+  m_numLines->setReadOnly(true);
+  mainGridLayout->addWidget(m_numLines, row, 1, 1, 2);
+
+  ++row;
+
+  m_contentLines = new QPlainTextEdit();
+  m_contentLines->setReadOnly(true);
+  const QFont f = QFontDatabase::systemFont(QFontDatabase::FixedFont);
+  m_contentLines->setFont(f);
+
+  mainGridLayout->addWidget(m_contentLines, row, 0, 1, 5);
 
   ++row;
 
@@ -271,7 +287,15 @@ void ScheduleFileInspectorView::attach(openstudio::model::ScheduleFile& sch) {
                        boost::optional<IntSetter>(std::bind(&model::ScheduleFile::setColumnNumber, m_sch.get_ptr(), std::placeholders::_1)));
 
   m_rowstoSkipatTop->bind(*m_sch, IntGetter(std::bind(&model::ScheduleFile::rowstoSkipatTop, m_sch.get_ptr())),
-                          boost::optional<IntSetter>(std::bind(&model::ScheduleFile::setRowstoSkipatTop, m_sch.get_ptr(), std::placeholders::_1)));
+                          boost::optional<IntSetter>([this](int value) -> bool {
+                            bool result = m_sch->setRowstoSkipatTop(value);
+                            if (result) {
+                              refreshContent();
+                            }
+                            return result;
+                          })
+                          // boost::optional<IntSetter>(std::bind(&model::ScheduleFile::setRowstoSkipatTop, m_sch.get_ptr(), std::placeholders::_1))
+  );
 
   m_numberofHoursofData->bind(
     *m_sch, OptionalIntGetter(std::bind(&model::ScheduleFile::numberofHoursofData, m_sch.get_ptr())),
@@ -282,9 +306,7 @@ void ScheduleFileInspectorView::attach(openstudio::model::ScheduleFile& sch) {
   m_columnSeparator->bind<std::string>(
     *m_sch, static_cast<std::string (*)(const std::string&)>(&openstudio::toString),
     // ScheduleFile::columnSeparatorValues does not exist: https://github.com/NREL/OpenStudio/issues/5246
-    []() {
-      return std::vector<std::string>{"Comma", "Tab", "Fixed", "Space", "Semicolon"};
-    },
+    []() { return std::vector<std::string>{"Comma", "Tab", "Fixed", "Space", "Semicolon"}; },
     std::bind(&model::ScheduleFile::columnSeparator, m_sch.get_ptr()),
     std::bind(&model::ScheduleFile::setColumnSeparator, m_sch.get_ptr(), std::placeholders::_1), boost::none, boost::none);
 
@@ -352,13 +374,12 @@ void ScheduleFileInspectorView::refreshContent() {
   m_filePath->setText(toQString(m_sch->externalFile().fileName()));
 
   openstudio::path fpath = m_sch->externalFile().filePath();
-  m_firstLines->clear();
+  m_contentLines->clear();
 
   if (openstudio::filesystem::is_regular_file(fpath)) {
     const int rowstoSkipatTop = m_sch->rowstoSkipatTop();
-    const int read_n_lines = std::max(rowstoSkipatTop + 2, 10);
 
-    if (m_lines.size() < read_n_lines) {
+    if (m_lines.isEmpty()) {
       m_lines.clear();
 
       QFile inputFile(toQString(fpath));
@@ -367,25 +388,33 @@ void ScheduleFileInspectorView::refreshContent() {
         int curLine = 0;
 
         QTextStream in(&inputFile);
-        while (!in.atEnd() && curLine < read_n_lines) {
+        while (!in.atEnd()) {  //  && curLine < read_n_lines) {
           m_lines.append(in.readLine());
           ++curLine;
         }
         inputFile.close();
       }
+      m_numLines->setText(QString::number(m_lines.size()));
     }
+
+    const int read_n_lines = std::min(std::max(rowstoSkipatTop + 2, 10), static_cast<int>(m_lines.size()));
+
     int curLine = 0;
     for (const QString& line : m_lines) {
       if (curLine < rowstoSkipatTop) {
-        m_firstLines->appendHtml(QString("<span style='color: gray'>%1</span>").arg(line));
-      } else {
-        m_firstLines->appendHtml(QString("<span style='color: green'>%1</span>").arg(line));
+        m_contentLines->appendHtml(QString("<span style='color: gray'>%1</span>").arg(line));
+      } else if (curLine < read_n_lines) {
+        m_contentLines->appendHtml(QString("<span style='color: green'>%1</span>").arg(line));
+      } else if (curLine == read_n_lines) {
+        m_contentLines->appendHtml("<strong>[...]</strong>");
+      } else if (curLine > m_lines.size() - 5) {
+        m_contentLines->appendHtml(QString("<span style='color: green'>%1</span>").arg(line));
       }
       ++curLine;
     }
 
   } else {
-    m_firstLines->setPlainText(QString("File not found at '%1'").arg(toQString(fpath)));
+    m_contentLines->setPlainText(QString("File not found at '%1'").arg(toQString(fpath)));
   }
 }
 

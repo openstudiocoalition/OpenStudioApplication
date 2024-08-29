@@ -91,8 +91,7 @@ void ScheduleCompactInspectorView::createLayout() {
 
   m_content = new QPlainTextEdit();
   m_content->setReadOnly(true);
-  QFont f("monospace");
-  f.setStyleHint(QFont::Monospace);
+  const QFont f = QFontDatabase::systemFont(QFontDatabase::FixedFont);
   m_content->setFont(f);
 
   mainGridLayout->addWidget(m_content, row++, 0, 1, 2);

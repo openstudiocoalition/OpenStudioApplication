@@ -83,7 +83,8 @@ class ScheduleFileInspectorView : public ModelObjectInspectorView
   OSSwitch2* m_adjustScheduleforDaylightSavings = nullptr;
   OSSwitch2* m_translateFileWithRelativePath = nullptr;
 
-  QPlainTextEdit* m_firstLines = nullptr;
+  QLineEdit* m_numLines = nullptr;
+  QPlainTextEdit* m_contentLines = nullptr;
   QStringList m_lines;
 };
 
