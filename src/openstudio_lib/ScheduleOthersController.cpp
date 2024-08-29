@@ -27,110 +27,67 @@
 *  ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 ***********************************************************************************************************************/
 
-#ifndef OPENSTUDIO_SCHEDULESTABCONTROLLER_HPP
-#define OPENSTUDIO_SCHEDULESTABCONTROLLER_HPP
+#include "ScheduleOthersController.hpp"
+#include "ScheduleOthersView.hpp"
 
-#include "MainTabController.hpp"
+#include <openstudio/model/ScheduleConstant.hpp>
+#include <openstudio/model/ScheduleConstant_Impl.hpp>
 
-#include <openstudio/model/Model.hpp>
-#include <openstudio/model/ScheduleRuleset.hpp>
-#include <openstudio/model/ScheduleRuleset_Impl.hpp>
+#include <openstudio/utilities/core/Logger.hpp>
 
-#include <openstudio/utilities/core/UUID.hpp>
+#include <openstudio/utilities/idd/IddEnums.hxx>
 
-#include <boost/smart_ptr.hpp>
-
-#include <QObject>
+#include <QMessageBox>
 
 namespace openstudio {
 
-class OSItemId;
+ScheduleOthersController::ScheduleOthersController(const model::Model& model) : ModelSubTabController(new ScheduleOthersView(model), model) {}
 
-namespace model {
-
-class ScheduleCompact;
-
+void ScheduleOthersController::onAddObject(const openstudio::IddObjectType& iddObjectType) {
+  switch (iddObjectType.value()) {
+    case IddObjectType::OS_Schedule_Constant: {
+      openstudio::model::ScheduleConstant(this->model());
+      break;
+    }
+    case IddObjectType::OS_Schedule_Compact: {
+      QMessageBox message(subTabView());
+      message.setText("Creation of Schedule:Compact is not supported, you should use a ScheduleRuleset instead");
+      message.exec();
+      return;
+      break;
+    }
+    default:
+      LOG_FREE_AND_THROW("ScheduleOthersController", "Unknown IddObjectType '" << iddObjectType.valueName() << "'");
+  }
 }
 
-class DayScheduleScene;
+void ScheduleOthersController::onCopyObject(const openstudio::model::ModelObject& modelObject) {
+  modelObject.clone(this->model());
+}
 
-class MainTabView;
+void ScheduleOthersController::onRemoveObject(openstudio::model::ModelObject modelObject) {
+  modelObject.remove();
+}
 
-class ScheduleDialog;
+void ScheduleOthersController::onReplaceObject(openstudio::model::ModelObject modelObject, const OSItemId& replacementItemId) {
+  // not yet implemented
+}
 
-class ScheduleSetsController;
+void ScheduleOthersController::onPurgeObjects(const openstudio::IddObjectType& iddObjectType) {
+  this->model().purgeUnusedResourceObjects(iddObjectType);
+}
 
-class SchedulesView;
+void ScheduleOthersController::onDrop(const OSItemId& itemId) {
+  boost::optional<model::ModelObject> modelObject = this->getModelObject(itemId);
+  if (modelObject) {
+    if (modelObject->optionalCast<model::ScheduleConstant>()) {
+      if (this->fromComponentLibrary(itemId)) {
+        modelObject->clone(this->model());
+      }
+    }
+  }
+}
 
-class SchedulesTabController : public MainTabController
-{
-  Q_OBJECT
-
- public:
-  SchedulesTabController(bool isIP, const model::Model& model);
-
-  virtual ~SchedulesTabController();
-
-  enum TabID
-  {
-    //YEAR_SETTINGS,
-    SCHEDULE_SETS,
-    SCHEDULES,
-    SCHEDULESOTHER
-  };
-
-  static double defaultStartingValue(const model::ScheduleDay& scheduleDay);
-
- private:
-  void showScheduleDialog();
-
-  ScheduleDialog* m_scheduleDialog = nullptr;
-
-  model::Model m_model;
-
-  bool m_isIP;
-
-  QWidget* m_currentView = nullptr;
-
-  QObject* m_currentController = nullptr;
-
-  int m_currentIndex = -1;
-
- public slots:
-
-  virtual void setSubTab(int index) override;
-
-  void toggleUnits(bool displayIP);
-
- private slots:
-
-  void addScheduleRuleset();
-
-  void copySelectedSchedule();
-
-  void removeSelectedSchedule();
-
-  void purgeUnusedScheduleRulesets();
-
-  void addRule(model::ScheduleRuleset& scheduleRuleset, UUID scheduleDayHandle);
-
-  void addSummerProfile(model::ScheduleRuleset& scheduleRuleset, UUID scheduleDayHandle);
-
-  void addWinterProfile(model::ScheduleRuleset& scheduleRuleset, UUID scheduleDayHandle);
-
-  void addHolidayProfile(model::ScheduleRuleset& scheduleRuleset, UUID scheduleDayHandle);
-
-  void removeScheduleRule(model::ScheduleRule& scheduleRule);
-
-  void onDayScheduleSceneChanged(DayScheduleScene* scene, double lowerLimitValue, double upperLimitValue);
-
-  void onStartDateTimeChanged(model::ScheduleRule& scheduleRule, const QDateTime& newDate);
-
-  void onEndDateTimeChanged(model::ScheduleRule& scheduleRule, const QDateTime& newDate);
-
-  void onItemDropped(const OSItemId& itemId);
-};
+void ScheduleOthersController::onInspectItem(OSItem* item) {}
 
 }  // namespace openstudio
-
-#endif  // OPENSTUDIO_SCHEDULESTABCONTROLLER_HPP

@@ -254,6 +254,16 @@ set(${target_name}_SRC
   SchedulesTabView.hpp
   SchedulesView.cpp
   SchedulesView.hpp
+  ScheduleOthersController.cpp
+  ScheduleOthersController.hpp
+  ScheduleOthersView.cpp
+  ScheduleOthersView.hpp
+  ScheduleConstantInspectorView.cpp
+  ScheduleConstantInspectorView.hpp
+  ScheduleCompactInspectorView.cpp
+  ScheduleCompactInspectorView.hpp
+  ScheduleFileInspectorView.cpp
+  ScheduleFileInspectorView.hpp
   ScriptItem.cpp
   ScriptItem.hpp
   ScriptsTabController.cpp
@@ -609,6 +619,11 @@ set(${target_name}_moc
   SchedulesTabController.hpp
   SchedulesTabView.hpp
   SchedulesView.hpp
+  ScheduleOthersView.hpp
+  ScheduleOthersController.hpp
+  ScheduleConstantInspectorView.hpp
+  ScheduleCompactInspectorView.hpp
+  ScheduleFileInspectorView.hpp
   ScriptItem.hpp
   ScriptsTabController.hpp
   ScriptsTabView.hpp

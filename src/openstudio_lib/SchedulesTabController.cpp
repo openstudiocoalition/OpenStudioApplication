@@ -39,6 +39,8 @@
 #include "SchedulesTabView.hpp"
 #include "SchedulesView.hpp"
 #include "ScheduleDayView.hpp"
+#include "ScheduleOthersController.hpp"
+#include "ScheduleOthersView.hpp"
 #include "SubTabView.hpp"
 
 #include <openstudio/model/Model.hpp>
@@ -71,6 +73,7 @@ SchedulesTabController::SchedulesTabController(bool isIP, const model::Model& mo
   : MainTabController(new SchedulesTabView(model)), m_model(model), m_isIP(isIP) {
   mainContentWidget()->addSubTab("Schedule Sets", SCHEDULE_SETS);
   mainContentWidget()->addSubTab("Schedules", SCHEDULES);
+  mainContentWidget()->addSubTab("Other Schedules", SCHEDULESOTHER);
 
   connect(this->mainContentWidget(), &MainTabView::tabSelected, this, &SchedulesTabController::setSubTab);
 }
@@ -449,13 +452,20 @@ void SchedulesTabController::setSubTab(int index) {
     disconnect(qobject_cast<SchedulesView*>(m_currentView), &SchedulesView::itemDropped, this, &SchedulesTabController::onItemDropped);
     disconnect(qobject_cast<SchedulesView*>(m_currentView), &SchedulesView::modelObjectSelected, this, &SchedulesTabController::modelObjectSelected);
     disconnect(this, &SchedulesTabController::toggleUnitsClicked, this, &SchedulesTabController::toggleUnits);
+  } else if (qobject_cast<ScheduleOthersView*>(m_currentView) && qobject_cast<ScheduleOthersController*>(m_currentController)) {
+    disconnect(qobject_cast<ScheduleOthersController*>(m_currentController), &ScheduleOthersController::downloadComponentsClicked, this,
+               &SchedulesTabController::downloadComponentsClicked);
+    disconnect(qobject_cast<ScheduleOthersController*>(m_currentController), &ScheduleOthersController::openLibDlgClicked, this,
+               &SchedulesTabController::openLibDlgClicked);
+    disconnect(this, &SchedulesTabController::toggleUnitsClicked, this, &SchedulesTabController::toggleUnits);
+    m_currentController = nullptr;
   } else if (m_currentView) {
     // Oops! Should never get here
     OS_ASSERT(false);
   }
 
   switch (index) {
-    case 0: {
+    case TabID::SCHEDULE_SETS: {
       auto* scheduleSetsController = new ScheduleSetsController(m_model);
       connect(scheduleSetsController, &ScheduleSetsController::downloadComponentsClicked, this, &SchedulesTabController::downloadComponentsClicked);
       connect(scheduleSetsController, &ScheduleSetsController::openLibDlgClicked, this, &SchedulesTabController::openLibDlgClicked);
@@ -465,7 +475,7 @@ void SchedulesTabController::setSubTab(int index) {
       m_currentController = scheduleSetsController;
       break;
     }
-    case 1: {
+    case TabID::SCHEDULES: {
       auto* schedulesView = new SchedulesView(m_isIP, m_model);
       addQObject(schedulesView);
       connect(this, &SchedulesTabController::toggleUnitsClicked, schedulesView, &SchedulesView::toggleUnitsClicked);
@@ -486,6 +496,17 @@ void SchedulesTabController::setSubTab(int index) {
       connect(this, &SchedulesTabController::toggleUnitsClicked, this, &SchedulesTabController::toggleUnits);
       this->mainContentWidget()->setSubTab(schedulesView);
       m_currentView = schedulesView;
+      break;
+    }
+    case TabID::SCHEDULESOTHER: {
+      auto* scheduleOthersController = new ScheduleOthersController(m_model);
+      connect(scheduleOthersController, &ScheduleOthersController::downloadComponentsClicked, this,
+              &SchedulesTabController::downloadComponentsClicked);
+      connect(scheduleOthersController, &ScheduleOthersController::openLibDlgClicked, this, &SchedulesTabController::openLibDlgClicked);
+      connect(this, &SchedulesTabController::toggleUnitsClicked, this, &SchedulesTabController::toggleUnits);
+      this->mainContentWidget()->setSubTab(scheduleOthersController->subTabView());
+      m_currentView = scheduleOthersController->subTabView();
+      m_currentController = scheduleOthersController;
       break;
     }
     default:
