@@ -4048,7 +4048,7 @@ OS:Curve:Quadratic,
 OS:Table:Lookup,
   {f0227845-042c-4180-85c3-c0a106761243}, !- Handle
   Air-to-Air Plate HX_SensHeatEff,        !- Name
-  {b5b58d9a-e527-4719-a1ea-f7efa259a5c7}, !- Independent Variable List Name
+  {15b35fef-e20c-4ddf-a0f9-6a58d8cfb0d1}, !- Independent Variable List Name
   DivisorOnly,                            !- Normalization Method
   0.76,                                   !- Normalization Divisor
   0,                                      !- Minimum Output {BasedOnField A5}
@@ -4060,10 +4060,15 @@ OS:Table:Lookup,
   0.81,                                   !- Output Value 1 {BasedOnField A5}
   0.76;                                   !- Output Value 2 {BasedOnField A5}
 
+OS:ModelObjectList,
+  {15b35fef-e20c-4ddf-a0f9-6a58d8cfb0d1}, !- Handle
+  Air-to-Air Plate HX_IndependentVariableList_SensHeatEff, !- Name
+  {90736c0d-c1e4-4db8-b727-0c6eb065ad4f}; !- Model Object 1
+
 OS:Table:Lookup,
   {39b68410-4169-409f-84a4-e2287999cd10}, !- Handle
   Air-to-Air Plate HX_LatHeatEff,         !- Name
-  {b5b58d9a-e527-4719-a1ea-f7efa259a5c7}, !- Independent Variable List Name
+  {109e9341-04da-45cb-bcc8-100cea7fd905}, !- Independent Variable List Name
   DivisorOnly,                            !- Normalization Method
   0.68,                                   !- Normalization Divisor
   0,                                      !- Minimum Output {BasedOnField A5}
@@ -4075,10 +4080,15 @@ OS:Table:Lookup,
   0.73,                                   !- Output Value 1 {BasedOnField A5}
   0.68;                                   !- Output Value 2 {BasedOnField A5}
 
+OS:ModelObjectList,
+  {109e9341-04da-45cb-bcc8-100cea7fd905}, !- Handle
+  Air-to-Air Plate HX_IndependentVariableList_LatHeatEff, !- Name
+  {90736c0d-c1e4-4db8-b727-0c6eb065ad4f}; !- Model Object 1
+
 OS:Table:Lookup,
   {dd26796b-ef95-4b8b-86c6-4e79b336233a}, !- Handle
   Air-to-Air Plate HX_SensCoolEff,        !- Name
-  {b5b58d9a-e527-4719-a1ea-f7efa259a5c7}, !- Independent Variable List Name
+  {7b2fe2ae-2dad-42f7-988c-6f6fb118ec57}, !- Independent Variable List Name
   DivisorOnly,                            !- Normalization Method
   0.76,                                   !- Normalization Divisor
   0,                                      !- Minimum Output {BasedOnField A5}
@@ -4089,6 +4099,11 @@ OS:Table:Lookup,
   ,                                       !- External File Starting Row Number
   0.81,                                   !- Output Value 1 {BasedOnField A5}
   0.76;                                   !- Output Value 2 {BasedOnField A5}
+
+OS:ModelObjectList,
+  {7b2fe2ae-2dad-42f7-988c-6f6fb118ec57}, !- Handle
+  Air-to-Air Plate HX_IndependentVariableList_SensCoolEff, !- Name
+  {90736c0d-c1e4-4db8-b727-0c6eb065ad4f}; !- Model Object 1
 
 OS:Table:Lookup,
   {10df5c60-2f34-4291-ac47-4ddc76c72a0f}, !- Handle
@@ -4104,6 +4119,11 @@ OS:Table:Lookup,
   ,                                       !- External File Starting Row Number
   0.73,                                   !- Output Value 1 {BasedOnField A5}
   0.68;                                   !- Output Value 2 {BasedOnField A5}
+
+OS:ModelObjectList,
+  {b5b58d9a-e527-4719-a1ea-f7efa259a5c7}, !- Handle
+  Air-to-Air Plate HX_IndependentVariableList_LatCoolEff, !- Name
+  {90736c0d-c1e4-4db8-b727-0c6eb065ad4f}; !- Model Object 1
 
 OS:HeatExchanger:AirToAir:SensibleAndLatent,
   {648d1052-42c2-4c83-82e9-af6299097461}, !- Handle
@@ -4130,11 +4150,6 @@ OS:HeatExchanger:AirToAir:SensibleAndLatent,
   {39b68410-4169-409f-84a4-e2287999cd10}, !- Latent Effectiveness of Heating Air Flow Curve Name
   {dd26796b-ef95-4b8b-86c6-4e79b336233a}, !- Sensible Effectiveness of Cooling Air Flow Curve Name
   {10df5c60-2f34-4291-ac47-4ddc76c72a0f}; !- Latent Effectiveness of Cooling Air Flow Curve Name
-
-OS:ModelObjectList,
-  {b5b58d9a-e527-4719-a1ea-f7efa259a5c7}, !- Handle
-  Air-to-Air Plate HX_IndependentVariableList, !- Name
-  {90736c0d-c1e4-4db8-b727-0c6eb065ad4f}; !- Model Object 1
 
 OS:Table:IndependentVariable,
   {90736c0d-c1e4-4db8-b727-0c6eb065ad4f}, !- Handle
@@ -10617,7 +10632,7 @@ OS:ZoneHVAC:EnergyRecoveryVentilator:Controller,
 OS:Table:Lookup,
   {98c84134-9027-4020-82df-218e43ba83e6}, !- Handle
   ERV HX_SensHeatEff,                     !- Name
-  {5ccc3232-56b9-43f7-be96-31799d015bde}, !- Independent Variable List Name
+  {77b26c6a-1c62-41ac-9a7c-77191deaaa6c}, !- Independent Variable List Name
   DivisorOnly,                            !- Normalization Method
   0.76,                                   !- Normalization Divisor
   0,                                      !- Minimum Output {BasedOnField A5}
@@ -10629,10 +10644,15 @@ OS:Table:Lookup,
   0.81,                                   !- Output Value 1 {BasedOnField A5}
   0.76;                                   !- Output Value 2 {BasedOnField A5}
 
+OS:ModelObjectList,
+  {77b26c6a-1c62-41ac-9a7c-77191deaaa6c}, !- Handle
+  ERV HX_IndependentVariableList_SensHeatEff, !- Name
+  {0fdb002d-dfe6-4f9b-9c36-ea6addfed54d}; !- Model Object 1
+
 OS:Table:Lookup,
   {9b0e8338-021a-47be-afbf-e043f5aea93c}, !- Handle
   ERV HX_LatHeatEff,                      !- Name
-  {5ccc3232-56b9-43f7-be96-31799d015bde}, !- Independent Variable List Name
+  {39b38d45-cf53-41ac-9c97-34365f0e717f}, !- Independent Variable List Name
   DivisorOnly,                            !- Normalization Method
   0.68,                                   !- Normalization Divisor
   0,                                      !- Minimum Output {BasedOnField A5}
@@ -10644,10 +10664,15 @@ OS:Table:Lookup,
   0.73,                                   !- Output Value 1 {BasedOnField A5}
   0.68;                                   !- Output Value 2 {BasedOnField A5}
 
+OS:ModelObjectList,
+  {39b38d45-cf53-41ac-9c97-34365f0e717f}, !- Handle
+  ERV HX_IndependentVariableList_LatHeatEff, !- Name
+  {0fdb002d-dfe6-4f9b-9c36-ea6addfed54d}; !- Model Object 1
+
 OS:Table:Lookup,
   {c2a6137d-c8c8-44cf-af0b-0c21d40453f8}, !- Handle
   ERV HX_SensCoolEff,                     !- Name
-  {5ccc3232-56b9-43f7-be96-31799d015bde}, !- Independent Variable List Name
+  {357cce29-6cb3-4f8d-8634-18066f18ccbd}, !- Independent Variable List Name
   DivisorOnly,                            !- Normalization Method
   0.76,                                   !- Normalization Divisor
   0,                                      !- Minimum Output {BasedOnField A5}
@@ -10658,6 +10683,11 @@ OS:Table:Lookup,
   ,                                       !- External File Starting Row Number
   0.81,                                   !- Output Value 1 {BasedOnField A5}
   0.76;                                   !- Output Value 2 {BasedOnField A5}
+
+OS:ModelObjectList,
+  {357cce29-6cb3-4f8d-8634-18066f18ccbd}, !- Handle
+  ERV HX_IndependentVariableList_SensCoolEff, !- Name
+  {0fdb002d-dfe6-4f9b-9c36-ea6addfed54d}; !- Model Object 1
 
 OS:Table:Lookup,
   {7493fdcc-67ee-4954-9bca-73833b34d668}, !- Handle
@@ -10673,6 +10703,11 @@ OS:Table:Lookup,
   ,                                       !- External File Starting Row Number
   0.73,                                   !- Output Value 1 {BasedOnField A5}
   0.68;                                   !- Output Value 2 {BasedOnField A5}
+
+OS:ModelObjectList,
+  {5ccc3232-56b9-43f7-be96-31799d015bde}, !- Handle
+  ERV HX_IndependentVariableList_LatCoolEff, !- Name
+  {0fdb002d-dfe6-4f9b-9c36-ea6addfed54d}; !- Model Object 1
 
 OS:HeatExchanger:AirToAir:SensibleAndLatent,
   {865903c0-b04d-453a-80e3-217d60f8a56d}, !- Handle
@@ -10699,11 +10734,6 @@ OS:HeatExchanger:AirToAir:SensibleAndLatent,
   {9b0e8338-021a-47be-afbf-e043f5aea93c}, !- Latent Effectiveness of Heating Air Flow Curve Name
   {c2a6137d-c8c8-44cf-af0b-0c21d40453f8}, !- Sensible Effectiveness of Cooling Air Flow Curve Name
   {7493fdcc-67ee-4954-9bca-73833b34d668}; !- Latent Effectiveness of Cooling Air Flow Curve Name
-
-OS:ModelObjectList,
-  {5ccc3232-56b9-43f7-be96-31799d015bde}, !- Handle
-  ERV HX_IndependentVariableList,         !- Name
-  {0fdb002d-dfe6-4f9b-9c36-ea6addfed54d}; !- Model Object 1
 
 OS:Table:IndependentVariable,
   {0fdb002d-dfe6-4f9b-9c36-ea6addfed54d}, !- Handle
