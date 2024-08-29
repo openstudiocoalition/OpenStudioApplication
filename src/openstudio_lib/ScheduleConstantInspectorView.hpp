@@ -44,7 +44,7 @@ class ScheduleConstantInspectorView : public ModelObjectInspectorView
   Q_OBJECT
 
  public:
-  ScheduleConstantInspectorView(const openstudio::model::Model& model, QWidget* parent = nullptr);
+  explicit ScheduleConstantInspectorView(const openstudio::model::Model& model, QWidget* parent = nullptr);
 
   virtual ~ScheduleConstantInspectorView() = default;
 

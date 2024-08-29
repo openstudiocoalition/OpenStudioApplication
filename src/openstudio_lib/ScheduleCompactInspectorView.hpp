@@ -44,7 +44,7 @@ class ScheduleCompactInspectorView : public ModelObjectInspectorView
   Q_OBJECT
 
  public:
-  ScheduleCompactInspectorView(const openstudio::model::Model& model, QWidget* parent = nullptr);
+  explicit ScheduleCompactInspectorView(const openstudio::model::Model& model, QWidget* parent = nullptr);
 
   virtual ~ScheduleCompactInspectorView() = default;
 

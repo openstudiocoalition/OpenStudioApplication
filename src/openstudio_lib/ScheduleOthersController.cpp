@@ -59,7 +59,6 @@ void ScheduleOthersController::onAddObject(const openstudio::IddObjectType& iddO
       message.setText("Creation of Schedule:Compact is not supported, you should use a ScheduleRuleset instead");
       message.exec();
       return;
-      break;
     }
     case IddObjectType::OS_Schedule_File: {
       QString selfilter = tr("CSV Files(*.csv)");

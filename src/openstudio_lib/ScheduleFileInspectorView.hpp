@@ -49,7 +49,7 @@ class ScheduleFileInspectorView : public ModelObjectInspectorView
   Q_OBJECT
 
  public:
-  ScheduleFileInspectorView(const openstudio::model::Model& model, QWidget* parent = nullptr);
+  explicit ScheduleFileInspectorView(const openstudio::model::Model& model, QWidget* parent = nullptr);
 
   virtual ~ScheduleFileInspectorView() = default;
 
