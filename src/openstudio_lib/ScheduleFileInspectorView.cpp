@@ -155,7 +155,6 @@ void ScheduleFileInspectorView::createLayout() {
   m_columnSeparator = new OSComboBox2();
   m_columnSeparator->addItem("Comma");
   m_columnSeparator->addItem("Tab");
-  m_columnSeparator->addItem("Fixed");
   m_columnSeparator->addItem("Space");
   m_columnSeparator->addItem("Semicolon");
   m_columnSeparator->setEnabled(true);
@@ -339,7 +338,7 @@ void ScheduleFileInspectorView::attach(openstudio::model::ScheduleFile& sch) {
   m_columnSeparator->bind<std::string>(
     *m_sch, static_cast<std::string (*)(const std::string&)>(&openstudio::toString),
     // ScheduleFile::columnSeparatorValues does not exist: https://github.com/NREL/OpenStudio/issues/5246
-    []() { return std::vector<std::string>{"Comma", "Tab", "Fixed", "Space", "Semicolon"}; },
+    []() { return std::vector<std::string>{"Comma", "Tab", "Space", "Semicolon"}; },
     std::bind(&model::ScheduleFile::columnSeparator, m_sch.get_ptr()),
     std::bind(&model::ScheduleFile::setColumnSeparator, m_sch.get_ptr(), std::placeholders::_1), boost::none, boost::none);
 
