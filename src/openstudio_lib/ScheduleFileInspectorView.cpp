@@ -156,6 +156,7 @@ void ScheduleFileInspectorView::createLayout() {
   m_columnSeparator->addItem("Fixed");
   m_columnSeparator->addItem("Space");
   m_columnSeparator->addItem("Semicolon");
+  m_columnSeparator->setEnabled(true);
   vLayout->addWidget(m_columnSeparator);
 
   mainGridLayout->addLayout(vLayout, row, 1);
@@ -185,6 +186,7 @@ void ScheduleFileInspectorView::createLayout() {
   for (const auto& val : model::ScheduleFile::minutesperItemValues()) {
     m_minutesperItem->addItem(QString::fromStdString(val));
   }
+  m_minutesperItem->setEnabled(true);
   vLayout->addWidget(m_minutesperItem);
 
   mainGridLayout->addLayout(vLayout, row, 1);
@@ -221,13 +223,17 @@ void ScheduleFileInspectorView::createLayout() {
   label->setObjectName("H2");
   mainGridLayout->addWidget(label, row, 0);
 
+  ++row;
+
   m_firstLines = new QPlainTextEdit();
   m_firstLines->setReadOnly(true);
   QFont f("monospace");
   f.setStyleHint(QFont::Monospace);
   m_firstLines->setFont(f);
 
-  mainGridLayout->addWidget(m_firstLines, row++, 0, 1, 5);
+  mainGridLayout->addWidget(m_firstLines, row, 0, 1, 5);
+
+  ++row;
 
   // Stretch
 
@@ -283,11 +289,18 @@ void ScheduleFileInspectorView::attach(openstudio::model::ScheduleFile& sch) {
     std::bind(&model::ScheduleFile::setColumnSeparator, m_sch.get_ptr(), std::placeholders::_1), boost::none, boost::none);
 
   m_minutesperItem->bind<std::string>(
-    *m_sch, static_cast<std::string (*)(const std::string&)>(&openstudio::toString), &model::ScheduleFile::minutesperItemValues,
-    OptionalStringGetter(std::bind(&model::ScheduleFile::minutesperItem, m_sch.get_ptr())),
-    boost::optional<StringSetter>(std::bind(&model::ScheduleFile::setColumnSeparator, m_sch.get_ptr(), std::placeholders::_1)),
-    boost::optional<NoFailAction>(std::bind(&model::ScheduleFile::resetMinutesperItem, m_sch.get_ptr())),
-    boost::optional<BasicQuery>(std::bind(&model::ScheduleFile::isMinutesperItemDefaulted, m_sch.get_ptr()))
+    *m_sch,
+    static_cast<std::string (*)(const std::string&)>(&openstudio::toString),  // toString
+    &model::ScheduleFile::minutesperItemValues,                               // choices
+    // Getter
+    // This returns an optional std::string when it really has a default...
+    // OptionalStringGetter(std::bind(&model::ScheduleFile::minutesperItem, m_sch.get_ptr())),
+    [sch_ptr = m_sch.get_ptr()]() -> std::string { return sch_ptr->minutesperItem().get(); },
+    // Setter, another weirdness, but for backward compat it takes a std::string or an int... and the std::string one is deprecated
+    // std::bind(&model::ScheduleFile::setMinutesperItem, m_sch.get_ptr(), std::placeholders::_1),
+    [sch_ptr = m_sch.get_ptr()](const std::string& minutesperItem) { return sch_ptr->setMinutesperItem(std::stoi(minutesperItem)); },
+    boost::optional<NoFailAction>(std::bind(&model::ScheduleFile::resetMinutesperItem, m_sch.get_ptr())),     // reset
+    boost::optional<BasicQuery>(std::bind(&model::ScheduleFile::isMinutesperItemDefaulted, m_sch.get_ptr()))  // isDefaulted
 
   );
 
@@ -335,7 +348,6 @@ void ScheduleFileInspectorView::detach() {
 void ScheduleFileInspectorView::refresh() {}
 
 void ScheduleFileInspectorView::refreshContent() {
-
   // QLineEdit
   m_filePath->setText(toQString(m_sch->externalFile().fileName()));
 
@@ -378,4 +390,3 @@ void ScheduleFileInspectorView::refreshContent() {
 }
 
 }  // namespace openstudio
-
