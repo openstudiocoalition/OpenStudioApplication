@@ -233,7 +233,7 @@ class NoMechanicalVentilationView : public QWidget
 class SingleZoneSPMView : public QWidget
 {
  public:
-  SingleZoneSPMView(const QString& spmType = "SingleZoneReheat");
+  explicit SingleZoneSPMView(const QString& spmType = "SingleZoneReheat");
 
   virtual ~SingleZoneSPMView() = default;
 
@@ -253,7 +253,7 @@ class ScheduledSPMView : public QWidget
 class FollowOATempSPMView : public QWidget
 {
  public:
-  FollowOATempSPMView(const model::SetpointManagerFollowOutdoorAirTemperature& spm);
+  explicit FollowOATempSPMView(const model::SetpointManagerFollowOutdoorAirTemperature& spm);
 
   virtual ~FollowOATempSPMView() = default;
 };
@@ -261,7 +261,7 @@ class FollowOATempSPMView : public QWidget
 class FollowGroundTempSPMView : public QWidget
 {
  public:
-  FollowGroundTempSPMView(const model::SetpointManagerFollowGroundTemperature& spm);
+  explicit FollowGroundTempSPMView(const model::SetpointManagerFollowGroundTemperature& spm);
 
   virtual ~FollowGroundTempSPMView() = default;
 };
@@ -269,14 +269,14 @@ class FollowGroundTempSPMView : public QWidget
 class OAResetSPMView : public QWidget
 {
  public:
-  OAResetSPMView(const model::SetpointManagerOutdoorAirReset& spm);
+  explicit OAResetSPMView(const model::SetpointManagerOutdoorAirReset& spm);
   virtual ~OAResetSPMView() = default;
 };
 
 class SystemNodeResetSPMView : public QWidget
 {
  public:
-  SystemNodeResetSPMView(const model::SetpointManagerSystemNodeResetTemperature& spm);
+  explicit SystemNodeResetSPMView(const model::SetpointManagerSystemNodeResetTemperature& spm);
   virtual ~SystemNodeResetSPMView() = default;
 };
 
@@ -307,7 +307,7 @@ class NoSupplyAirTempControlView : public QWidget
  public:
   NoSupplyAirTempControlView();
 
-  NoSupplyAirTempControlView(const model::SetpointManager& spm);
+  explicit NoSupplyAirTempControlView(const model::SetpointManager& spm);
 
   virtual ~NoSupplyAirTempControlView() = default;
 };
