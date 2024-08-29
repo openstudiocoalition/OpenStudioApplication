@@ -34,6 +34,7 @@
 #include <openstudio/model/ScheduleFile.hpp>
 
 class QLineEdit;
+class QPlainTextEdit;
 
 namespace openstudio {
 
@@ -67,6 +68,8 @@ class ScheduleFileInspectorView : public ModelObjectInspectorView
 
   void refresh();
 
+  void refreshContent();
+
   boost::optional<model::ScheduleFile> m_sch;
 
   OSLineEdit2* m_nameEdit = nullptr;
@@ -79,6 +82,9 @@ class ScheduleFileInspectorView : public ModelObjectInspectorView
   OSComboBox2* m_minutesperItem = nullptr;
   OSSwitch2* m_adjustScheduleforDaylightSavings = nullptr;
   OSSwitch2* m_translateFileWithRelativePath = nullptr;
+
+  QPlainTextEdit* m_firstLines = nullptr;
+  QStringList m_lines;
 };
 
 }  // namespace openstudio

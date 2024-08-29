@@ -40,11 +40,15 @@
 #include <openstudio/model/ExternalFile.hpp>
 
 #include <openstudio/utilities/core/Assert.hpp>
+#include <openstudio/utilities/core/Filesystem.hpp>
 
 #include <QGridLayout>
 #include <QLabel>
 #include <QStackedWidget>
 #include <QLineEdit>
+#include <QFile>
+#include <QTextStream>
+#include <QPlainTextEdit>
 
 namespace openstudio {
 
@@ -122,6 +126,8 @@ void ScheduleFileInspectorView::createLayout() {
   vLayout->addWidget(m_rowstoSkipatTop);
 
   mainGridLayout->addLayout(vLayout, row, 1);
+
+  connect(m_rowstoSkipatTop, &OSIntegerEdit2::editingFinished, this, &ScheduleFileInspectorView::refreshContent);
 
   ++row;
 
@@ -211,6 +217,18 @@ void ScheduleFileInspectorView::createLayout() {
 
   ++row;
 
+  label = new QLabel("Content: ");
+  label->setObjectName("H2");
+  mainGridLayout->addWidget(label, row, 0);
+
+  m_firstLines = new QPlainTextEdit();
+  m_firstLines->setReadOnly(true);
+  QFont f("monospace");
+  f.setStyleHint(QFont::Monospace);
+  m_firstLines->setFont(f);
+
+  mainGridLayout->addWidget(m_firstLines, row++, 0, 1, 5);
+
   // Stretch
 
   mainGridLayout->setRowStretch(100, 100);
@@ -295,8 +313,7 @@ void ScheduleFileInspectorView::attach(openstudio::model::ScheduleFile& sch) {
     boost::optional<NoFailAction>(std::bind(&model::ScheduleFile::resetTranslateFileWithRelativePath, m_sch.get_ptr())),
     boost::optional<BasicQuery>(std::bind(&model::ScheduleFile::isTranslateFileWithRelativePathDefaulted, m_sch.get_ptr())));
 
-  // QLineEdit
-  m_filePath->setText(toQString(m_sch->externalFile().fileName()));
+  refreshContent();
 
   this->stackedWidget()->setCurrentIndex(1);
 }
@@ -318,6 +335,49 @@ void ScheduleFileInspectorView::detach() {
 }
 
 void ScheduleFileInspectorView::refresh() {}
+
+void ScheduleFileInspectorView::refreshContent() {
+
+  // QLineEdit
+  m_filePath->setText(toQString(m_sch->externalFile().fileName()));
+
+  openstudio::path fpath = m_sch->externalFile().filePath();
+  m_firstLines->clear();
+
+  if (openstudio::filesystem::is_regular_file(fpath)) {
+    const int rowstoSkipatTop = m_sch->rowstoSkipatTop();
+    const int read_n_lines = std::max(rowstoSkipatTop + 2, 10);
+
+    if (m_lines.size() < read_n_lines) {
+      m_lines.clear();
+
+      QFile inputFile(toQString(fpath));
+
+      if (inputFile.open(QIODevice::ReadOnly)) {
+        int curLine = 0;
+
+        QTextStream in(&inputFile);
+        while (!in.atEnd() && curLine < read_n_lines) {
+          m_lines.append(in.readLine());
+          ++curLine;
+        }
+        inputFile.close();
+      }
+    }
+    int curLine = 0;
+    for (const QString& line : m_lines) {
+      if (curLine < rowstoSkipatTop) {
+        m_firstLines->appendHtml(QString("<span style='color: gray'>%1</span>").arg(line));
+      } else {
+        m_firstLines->appendHtml(QString("<span style='color: green'>%1</span>").arg(line));
+      }
+      ++curLine;
+    }
+
+  } else {
+    m_firstLines->setPlainText(QString("File not found at '%1'").arg(toQString(fpath)));
+  }
+}
 
 }  // namespace openstudio
 
