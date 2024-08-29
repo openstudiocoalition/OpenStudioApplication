@@ -282,16 +282,14 @@ void ScheduleFileInspectorView::attach(openstudio::model::ScheduleFile& sch) {
     std::bind(&model::ScheduleFile::columnSeparator, m_sch.get_ptr()),
     std::bind(&model::ScheduleFile::setColumnSeparator, m_sch.get_ptr(), std::placeholders::_1), boost::none, boost::none);
 
-  /*
-  m_minutesperItem->bind<std::string>(*m_sch, static_cast<std::string (*)(const std::string&)>(&openstudio::toString),
-                                      &model::ScheduleFile::minutesperItemValues,
-                                      OptionalStringGetter(std::bind(&model::ScheduleFile::minutesperItem, m_sch.get_ptr())),
-                                      std::bind(&model::ScheduleFile::setColumnSeparator, m_sch.get_ptr(), std::placeholders::_1),
-                                      boost::optional<NoFailAction>(std::bind(&model::ScheduleFile::resetMinutesperItem, m_sch.get_ptr())),
-                                      boost::optional<BasicQuery>(std::bind(&model::ScheduleFile::isMinutesperItemDefaulted, m_sch.get_ptr()))
+  m_minutesperItem->bind<std::string>(
+    *m_sch, static_cast<std::string (*)(const std::string&)>(&openstudio::toString), &model::ScheduleFile::minutesperItemValues,
+    OptionalStringGetter(std::bind(&model::ScheduleFile::minutesperItem, m_sch.get_ptr())),
+    boost::optional<StringSetter>(std::bind(&model::ScheduleFile::setColumnSeparator, m_sch.get_ptr(), std::placeholders::_1)),
+    boost::optional<NoFailAction>(std::bind(&model::ScheduleFile::resetMinutesperItem, m_sch.get_ptr())),
+    boost::optional<BasicQuery>(std::bind(&model::ScheduleFile::isMinutesperItemDefaulted, m_sch.get_ptr()))
 
   );
-  */
 
   // OSSwitch2
 
@@ -327,7 +325,7 @@ void ScheduleFileInspectorView::detach() {
   m_numberofHoursofData->unbind();
   m_columnSeparator->unbind();
   m_interpolatetoTimestep->unbind();
-  // m_minutesperItem->unbind();
+  m_minutesperItem->unbind();
   m_adjustScheduleforDaylightSavings->unbind();
   m_translateFileWithRelativePath->unbind();
 
