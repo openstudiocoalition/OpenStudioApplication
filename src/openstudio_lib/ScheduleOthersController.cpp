@@ -32,12 +32,17 @@
 
 #include <openstudio/model/ScheduleConstant.hpp>
 #include <openstudio/model/ScheduleConstant_Impl.hpp>
+#include <openstudio/model/ExternalFile.hpp>
+#include <openstudio/model/ExternalFile_Impl.hpp>
+#include <openstudio/model/ScheduleFile.hpp>
 
 #include <openstudio/utilities/core/Logger.hpp>
 
 #include <openstudio/utilities/idd/IddEnums.hxx>
 
 #include <QMessageBox>
+#include <QFileDialog>
+#include <QDir>
 
 namespace openstudio {
 
@@ -55,6 +60,18 @@ void ScheduleOthersController::onAddObject(const openstudio::IddObjectType& iddO
       message.exec();
       return;
       break;
+    }
+    case IddObjectType::OS_Schedule_File: {
+      QString selfilter = tr("CSV Files(*.csv)");
+      QString fileName = QFileDialog::getOpenFileName(this->subTabView(), tr("Select External File"), QDir::homePath(),
+                                                      tr("All files (*.*);;CSV Files(*.csv);;TSV Files(*.tsv)"), &selfilter);
+      if (!fileName.isNull()) {
+        boost::optional<model::ExternalFile> e_ = model::ExternalFile::getExternalFile(this->model(), fileName.toStdString());
+        if (e_) {
+          model::ScheduleFile(*e_, 1, 1);
+        }
+        break;
+      }
     }
     default:
       LOG_FREE_AND_THROW("ScheduleOthersController", "Unknown IddObjectType '" << iddObjectType.valueName() << "'");
