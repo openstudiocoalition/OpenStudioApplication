@@ -27,110 +27,37 @@
 *  ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 ***********************************************************************************************************************/
 
-#ifndef OPENSTUDIO_SCHEDULESTABCONTROLLER_HPP
-#define OPENSTUDIO_SCHEDULESTABCONTROLLER_HPP
+#ifndef SHAREDGUICOMPONENTS_COLORPALETTES_HPP
+#define SHAREDGUICOMPONENTS_COLORPALETTES_HPP
 
-#include "MainTabController.hpp"
+#include <array>
 
-#include <openstudio/model/Model.hpp>
-#include <openstudio/model/ScheduleRuleset.hpp>
-#include <openstudio/model/ScheduleRuleset_Impl.hpp>
-
-#include <openstudio/utilities/core/UUID.hpp>
-
-#include <boost/smart_ptr.hpp>
-
-#include <QObject>
+#include <QColor>
 
 namespace openstudio {
 
-class OSItemId;
+namespace ColorPalettes {
 
-namespace model {
+static constexpr std::array<QColor, 13> schedule_rules_colors{{
+  // {r, g, b},     // **approximative** color name (found closest match from SVG color keyword name from World Wide Web Consortium)
+  {170, 68, 153},   // darkorchid
+  {51, 34, 136},    // darkslateblue
+  {17, 119, 51},    // forestgreen
+  {153, 153, 51},   // olivedrab
+  {221, 204, 119},  // burlywood
+  {204, 102, 119},  // indianred
+  {136, 34, 85},    // brown
+  {68, 170, 153},   // cadetblue
+  {102, 153, 204},  // cornflowerblue
+  {102, 17, 0},     // maroon
+  {170, 68, 102},   // indianred
+  {80, 80, 80},     // darkslategray
+  {136, 204, 238},  // skyblue
 
-class ScheduleCompact;
+}};
 
-}
-
-class DayScheduleScene;
-
-class MainTabView;
-
-class ScheduleDialog;
-
-class ScheduleSetsController;
-
-class SchedulesView;
-
-class SchedulesTabController : public MainTabController
-{
-  Q_OBJECT
-
- public:
-  SchedulesTabController(bool isIP, const model::Model& model);
-
-  virtual ~SchedulesTabController();
-
-  enum TabID
-  {
-    //YEAR_SETTINGS,
-    SCHEDULE_SETS,
-    SCHEDULES,
-    SCHEDULESOTHER
-  };
-
-  static double defaultStartingValue(const model::ScheduleDay& scheduleDay);
-
- private:
-  void showScheduleDialog();
-
-  ScheduleDialog* m_scheduleDialog = nullptr;
-
-  model::Model m_model;
-
-  bool m_isIP;
-
-  QWidget* m_currentView = nullptr;
-
-  QObject* m_currentController = nullptr;
-
-  int m_currentIndex = -1;
-
- public slots:
-
-  virtual void setSubTab(int index) override;
-
-  void toggleUnits(bool displayIP);
-
- private slots:
-
-  void addScheduleRuleset();
-
-  void copySelectedSchedule();
-
-  void removeSelectedSchedule();
-
-  void purgeUnusedScheduleRulesets();
-
-  void addRule(model::ScheduleRuleset& scheduleRuleset, UUID scheduleDayHandle);
-
-  void addSummerProfile(model::ScheduleRuleset& scheduleRuleset, UUID scheduleDayHandle);
-
-  void addWinterProfile(model::ScheduleRuleset& scheduleRuleset, UUID scheduleDayHandle);
-
-  void addHolidayProfile(model::ScheduleRuleset& scheduleRuleset, UUID scheduleDayHandle);
-
-  void removeScheduleRule(model::ScheduleRule& scheduleRule);
-
-  void onDayScheduleSceneChanged(DayScheduleScene* scene, double lowerLimitValue, double upperLimitValue);
-
-  void onStartDateTimeChanged(model::ScheduleRule& scheduleRule, const QDateTime& newDate);
-
-  void onEndDateTimeChanged(model::ScheduleRule& scheduleRule, const QDateTime& newDate);
-
-  void onItemDropped(const OSItemId& itemId);
-};
+}  // namespace ColorPalettes
 
 }  // namespace openstudio
 
-#endif  // OPENSTUDIO_SCHEDULESTABCONTROLLER_HPP
+#endif  // SHAREDGUICOMPONENTS_COLORPALETTES_HPP

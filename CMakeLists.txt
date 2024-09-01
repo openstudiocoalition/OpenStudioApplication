@@ -312,6 +312,15 @@ option(BUILD_BENCHMARK "Build benchmarking targets" OFF)
 
 option(BUILD_MICRO_PROFILING "Build micro profiling" OFF)
 
+if(APPLE)
+
+  include(${CMAKE_CURRENT_LIST_DIR}/CMake/CodeSigning.cmake)
+
+  # Defines CPACK_CODESIGNING_DEVELOPPER_ID_APPLICATION and CPACK_CODESIGNING_NOTARY_PROFILE_NAME
+  setup_macos_codesigning_variables()
+
+endif()
+
 # DView
 # option(BUILD_DVIEW "Build DView" OFF)
 
@@ -923,6 +932,38 @@ elseif(WIN32)
   set(CPACK_BINARY_NSIS OFF CACHE BOOL "Enable to build NSIS packages")
 endif()
 
+
+if(APPLE)
+
+  if(CPACK_CODESIGNING_DEVELOPPER_ID_APPLICATION)
+    # Codesign inner binaries and libraries, in the CPack staging area for the current project & component
+    # Define some required variables for the script in the scope of the install(SCRIPT) first
+    set(CLI_FILES_TO_SIGN
+      lib/libopenstudiolib.dylib
+      lib/libpythonengine.so
+      lib/librubyengine.so
+      bin/install_utility
+    )
+    install(CODE "set(FILES_TO_SIGN \"${CLI_FILES_TO_SIGN}\")" COMPONENT "CLI")
+    install(CODE "set(CPACK_CODESIGNING_DEVELOPPER_ID_APPLICATION \"${CPACK_CODESIGNING_DEVELOPPER_ID_APPLICATION}\")" COMPONENT CLI)
+    install(CODE "set(CPACK_CODESIGNING_MACOS_IDENTIFIER \"${CPACK_CODESIGNING_MACOS_IDENTIFIER}\")" COMPONENT CLI)
+    install(SCRIPT "${CMAKE_CURRENT_LIST_DIR}/CMake/install_codesign_script.cmake" COMPONENT CLI)
+
+    # These two have special globs added to the their install script, and I define FILES_TO_SIGN in there if needed (long list)
+    install(CODE "set(CPACK_CODESIGNING_DEVELOPPER_ID_APPLICATION \"${CPACK_CODESIGNING_DEVELOPPER_ID_APPLICATION}\")" COMPONENT OpenStudioApp)
+    install(CODE "set(CPACK_CODESIGNING_MACOS_IDENTIFIER \"${CPACK_CODESIGNING_MACOS_IDENTIFIER}\")" COMPONENT OpenStudioApp)
+    install(SCRIPT "${CMAKE_CURRENT_LIST_DIR}/CMake/install_codesign_script_OpenStudioApp.cmake" COMPONENT OpenStudioApp)
+
+    install(CODE "set(CPACK_CODESIGNING_DEVELOPPER_ID_APPLICATION \"${CPACK_CODESIGNING_DEVELOPPER_ID_APPLICATION}\")" COMPONENT Python)
+    install(CODE "set(CPACK_CODESIGNING_MACOS_IDENTIFIER \"${CPACK_CODESIGNING_MACOS_IDENTIFIER}\")" COMPONENT Python)
+    install(SCRIPT "${CMAKE_CURRENT_LIST_DIR}/CMake/install_codesign_script_Python.cmake" COMPONENT Python)
+
+    # Register the CPACK_POST_BUILD_SCRIPTS
+    set(CPACK_POST_BUILD_SCRIPTS "${CMAKE_CURRENT_LIST_DIR}/CMake/CPackSignAndNotarizeDmg.cmake")
+  endif()
+
+endif()
+
 ######################################################################################################################################################
 #                                                    P A C K A G I N G   &   C O M P O N E N T S                                                     #
 ######################################################################################################################################################
@@ -967,6 +1008,11 @@ cpack_add_component(Libraries
 cpack_add_component(Python
   DISPLAY_NAME "Python Bindings"
   DESCRIPTION "Support for Python Measures"
+)
+
+cpack_add_component(RubyAPI
+  DISPLAY_NAME "Ruby API"
+  DESCRIPTION "The Ruby openstudio modeleditor for Sketchup"
 )
 
 add_custom_target(PACKAGE_DEBUG

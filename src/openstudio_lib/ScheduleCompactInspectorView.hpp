@@ -27,110 +27,50 @@
 *  ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 ***********************************************************************************************************************/
 
-#ifndef OPENSTUDIO_SCHEDULESTABCONTROLLER_HPP
-#define OPENSTUDIO_SCHEDULESTABCONTROLLER_HPP
+#ifndef OPENSTUDIO_SCHEDULECOMPACTINSPECTORVIEW_HPP
+#define OPENSTUDIO_SCHEDULECOMPACTINSPECTORVIEW_HPP
 
-#include "MainTabController.hpp"
+#include "ModelObjectInspectorView.hpp"
+#include <openstudio/model/ScheduleCompact.hpp>
 
-#include <openstudio/model/Model.hpp>
-#include <openstudio/model/ScheduleRuleset.hpp>
-#include <openstudio/model/ScheduleRuleset_Impl.hpp>
-
-#include <openstudio/utilities/core/UUID.hpp>
-
-#include <boost/smart_ptr.hpp>
-
-#include <QObject>
+class QPlainTextEdit;
 
 namespace openstudio {
 
-class OSItemId;
+class OSLineEdit2;
 
-namespace model {
-
-class ScheduleCompact;
-
-}
-
-class DayScheduleScene;
-
-class MainTabView;
-
-class ScheduleDialog;
-
-class ScheduleSetsController;
-
-class SchedulesView;
-
-class SchedulesTabController : public MainTabController
+class ScheduleCompactInspectorView : public ModelObjectInspectorView
 {
   Q_OBJECT
 
  public:
-  SchedulesTabController(bool isIP, const model::Model& model);
+  explicit ScheduleCompactInspectorView(const openstudio::model::Model& model, QWidget* parent = nullptr);
 
-  virtual ~SchedulesTabController();
+  virtual ~ScheduleCompactInspectorView() = default;
 
-  enum TabID
-  {
-    //YEAR_SETTINGS,
-    SCHEDULE_SETS,
-    SCHEDULES,
-    SCHEDULESOTHER
-  };
+ protected:
+  virtual void onClearSelection() override;
 
-  static double defaultStartingValue(const model::ScheduleDay& scheduleDay);
+  virtual void onSelectModelObject(const openstudio::model::ModelObject& modelObject) override;
+
+  virtual void onUpdate() override;
 
  private:
-  void showScheduleDialog();
+  void createLayout();
 
-  ScheduleDialog* m_scheduleDialog = nullptr;
+  void attach(openstudio::model::ScheduleCompact& sch);
 
-  model::Model m_model;
+  void detach();
 
-  bool m_isIP;
+  void refresh();
 
-  QWidget* m_currentView = nullptr;
+  boost::optional<model::ScheduleCompact> m_sch;
 
-  QObject* m_currentController = nullptr;
+  OSLineEdit2* m_nameEdit = nullptr;
 
-  int m_currentIndex = -1;
-
- public slots:
-
-  virtual void setSubTab(int index) override;
-
-  void toggleUnits(bool displayIP);
-
- private slots:
-
-  void addScheduleRuleset();
-
-  void copySelectedSchedule();
-
-  void removeSelectedSchedule();
-
-  void purgeUnusedScheduleRulesets();
-
-  void addRule(model::ScheduleRuleset& scheduleRuleset, UUID scheduleDayHandle);
-
-  void addSummerProfile(model::ScheduleRuleset& scheduleRuleset, UUID scheduleDayHandle);
-
-  void addWinterProfile(model::ScheduleRuleset& scheduleRuleset, UUID scheduleDayHandle);
-
-  void addHolidayProfile(model::ScheduleRuleset& scheduleRuleset, UUID scheduleDayHandle);
-
-  void removeScheduleRule(model::ScheduleRule& scheduleRule);
-
-  void onDayScheduleSceneChanged(DayScheduleScene* scene, double lowerLimitValue, double upperLimitValue);
-
-  void onStartDateTimeChanged(model::ScheduleRule& scheduleRule, const QDateTime& newDate);
-
-  void onEndDateTimeChanged(model::ScheduleRule& scheduleRule, const QDateTime& newDate);
-
-  void onItemDropped(const OSItemId& itemId);
+  QPlainTextEdit* m_content = nullptr;
 };
 
 }  // namespace openstudio
 
-#endif  // OPENSTUDIO_SCHEDULESTABCONTROLLER_HPP
+#endif  // OPENSTUDIO_SCHEDULECOMPACTINSPECTORVIEW_HPP

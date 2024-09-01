@@ -101,6 +101,21 @@ if(APPLE)
   install(FILES $<TARGET_FILE_DIR:openstudio_modeleditor_rb>/QtWidgets.framework DESTINATION Ruby COMPONENT "RubyAPI")
   install(FILES $<TARGET_FILE_DIR:openstudio_modeleditor_rb>/QtXml.framework DESTINATION Ruby COMPONENT "RubyAPI")
   # install(FILES $<TARGET_FILE_DIR:openstudio_modeleditor_rb>/$<TARGET_FILE_NAME:openstudio::openstudiolib> DESTINATION Ruby COMPONENT "RubyAPI")
+
+  if(CPACK_CODESIGNING_DEVELOPPER_ID_APPLICATION)
+
+    set(FILES_TO_SIGN
+      Ruby/openstudio_modeleditor.bundle
+      Ruby/platforms/libqcocoa.dylib
+    )
+
+    # Codesign inner binaries and libraries, in the CPack staging area for the current project & component
+    # Define some required variables for the script in the scope of the install(SCRIPT) first
+    install(CODE "set(CPACK_CODESIGNING_DEVELOPPER_ID_APPLICATION \"${CPACK_CODESIGNING_DEVELOPPER_ID_APPLICATION}\")" COMPONENT "RubyAPI")
+    install(CODE "set(CPACK_CODESIGNING_MACOS_IDENTIFIER \"${CPACK_CODESIGNING_MACOS_IDENTIFIER}\")" COMPONENT "RubyAPI")
+    install(CODE "set(FILES_TO_SIGN \"${FILES_TO_SIGN}\")" COMPONENT "RubyAPI")
+    install(SCRIPT "${CMAKE_CURRENT_LIST_DIR}/../CMake/install_codesign_script.cmake" COMPONENT "RubyAPI")
+  endif()
 endif()
 
 ###############################################################################
