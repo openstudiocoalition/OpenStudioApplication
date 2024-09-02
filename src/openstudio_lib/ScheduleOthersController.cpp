@@ -69,8 +69,8 @@ void ScheduleOthersController::onAddObject(const openstudio::IddObjectType& iddO
         if (e_) {
           model::ScheduleFile(*e_, 1, 1);
         }
-        break;
       }
+      break;
     }
     default:
       LOG_FREE_AND_THROW("ScheduleOthersController", "Unknown IddObjectType '" << iddObjectType.valueName() << "'");
