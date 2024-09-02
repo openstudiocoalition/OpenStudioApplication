@@ -319,6 +319,25 @@ void MainRightColumnController::configureForSchedulesSubTab(int subTabID) {
 
       break;
     }
+    case SchedulesTabController::SCHEDULESOTHER: {
+      model::Model lib = doc->componentLibrary();
+
+      // my library
+      auto* myLibraryList = new ModelObjectTypeListView(lib, true, OSItemType::CollapsibleListHeader, true);
+      myLibraryList->setItemsDraggable(true);
+      myLibraryList->setItemsRemoveable(false);
+      myLibraryList->setItemsType(OSItemType::LibraryItem);
+
+      myLibraryList->addModelObjectType(IddObjectType::OS_Schedule_Constant, "Constant Schedules");
+      // myLibraryList->addModelObjectType(IddObjectType::OS_Schedule_Compact, "Compact Schedules");
+      myLibraryList->addModelObjectCategoryPlaceholder("Schedules");
+
+      setLibraryView(myLibraryList);
+      doc->openSidebar();
+      //doc->closeSidebar();
+
+      break;
+    }
     default:
       break;
   }

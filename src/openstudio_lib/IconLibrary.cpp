@@ -448,6 +448,7 @@ IconLibrary::IconLibrary() {
     new QPixmap(":/images/mini_icons/mini_water_cooled.png");
   m_miniIcons[openstudio::IddObjectType(openstudio::IddObjectType::OS_Schedule_Compact).value()] = new QPixmap(":/images/mini_icons/schedule.png");
   m_miniIcons[openstudio::IddObjectType(openstudio::IddObjectType::OS_Schedule_Constant).value()] = new QPixmap(":/images/mini_icons/schedule.png");
+  m_miniIcons[openstudio::IddObjectType(openstudio::IddObjectType::OS_Schedule_File).value()] = new QPixmap(":/images/mini_icons/schedule.png");
   m_miniIcons[openstudio::IddObjectType(openstudio::IddObjectType::OS_Schedule_FixedInterval).value()] =
     new QPixmap(":/images/mini_icons/schedule.png");
   m_miniIcons[openstudio::IddObjectType(openstudio::IddObjectType::OS_Schedule_Ruleset).value()] = new QPixmap(":/images/mini_icons/schedule.png");

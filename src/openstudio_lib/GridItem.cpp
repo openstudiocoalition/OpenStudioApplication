@@ -31,11 +31,11 @@
 #include "ServiceWaterGridItems.hpp"
 #include "IconLibrary.hpp"
 #include "LoopScene.hpp"
-#include "SchedulesView.hpp"
 #include "OSDocument.hpp"
 #include "OSAppBase.hpp"
 #include "MainRightColumnController.hpp"
 #include "ModelObjectItem.hpp"
+#include "../shared_gui_components/ColorPalettes.hpp"
 
 #include <openstudio/utilities/core/Assert.hpp>
 #include <openstudio/utilities/core/Compare.hpp>
@@ -1380,11 +1380,11 @@ QColor SystemItem::plenumColor(const Handle& plenumHandle) {
   } else {
     int index = plenumIndex(plenumHandle);
     if (index < 0) {
-      color = SchedulesView::colors[0];
+      color = ColorPalettes::schedule_rules_colors[0];
     } else if (index > 12) {
-      color = SchedulesView::colors[12];
+      color = ColorPalettes::schedule_rules_colors[12];
     } else {
-      color = SchedulesView::colors[index];
+      color = ColorPalettes::schedule_rules_colors[index];
     }
 
     // DLM: Create a RenderingColor and associate it with the thermal zone?

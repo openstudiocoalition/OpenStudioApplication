@@ -45,8 +45,6 @@
 #include <boost/optional.hpp>
 #include <boost/smart_ptr.hpp>
 
-#include <map>
-
 #include <QCalendarWidget>
 #include <QColor>
 #include <QComboBox>
@@ -132,10 +130,6 @@ class SchedulesView
   Q_OBJECT
 
  public:
-  static const std::vector<QColor> colors;
-
-  static std::vector<QColor> initializeColors();
-
   SchedulesView(bool isIP, const model::Model& model);
 
   virtual ~SchedulesView() = default;
