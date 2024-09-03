@@ -559,6 +559,7 @@ find_file(qweb_resources_200 NAMES qtwebengine_resources_200p.pak PATHS "${QT_IN
 # QT_WEB_LIBS are linked by OS App and openstudio_lib but not by openstudio_modeleditor.so or openstudio_modeleditor
 list(APPEND QT_WEB_LIBS Qt6::WebEngineCore)
 list(APPEND QT_WEB_LIBS Qt6::WebEngineWidgets)
+list(APPEND QT_WEB_LIBS Qt6::Charts)
 set_target_properties(${QT_WEB_LIBS} PROPERTIES INTERFACE_LINK_LIBRARIES "")
 
 if(NOT APPLE)
@@ -616,7 +617,6 @@ list(APPEND QT_LIBS Qt6::Xml)
 list(APPEND QT_LIBS Qt6::PrintSupport)
 list(APPEND QT_LIBS Qt6::Gui)
 list(APPEND QT_LIBS Qt6::Svg)
-list(APPEND QT_LIBS Qt6::Charts)
 
 if(WIN32)
   find_package(Qt6OpenGL ${QT_VERSION} REQUIRED PATHS ${QT_INSTALL_DIR} NO_DEFAULT_PATH)
