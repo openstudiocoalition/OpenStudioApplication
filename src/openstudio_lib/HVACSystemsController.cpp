@@ -79,12 +79,27 @@
 #include <openstudio/model/SetpointManager.hpp>
 #include <openstudio/model/SetpointManagerSingleZoneReheat.hpp>
 #include <openstudio/model/SetpointManagerSingleZoneReheat_Impl.hpp>
+#include <openstudio/model/SetpointManagerSingleZoneHeating.hpp>
+#include <openstudio/model/SetpointManagerSingleZoneHeating_Impl.hpp>
+#include <openstudio/model/SetpointManagerSingleZoneCooling.hpp>
+#include <openstudio/model/SetpointManagerSingleZoneCooling_Impl.hpp>
 #include <openstudio/model/SetpointManagerScheduled.hpp>
 #include <openstudio/model/SetpointManagerScheduled_Impl.hpp>
 #include <openstudio/model/SetpointManagerFollowOutdoorAirTemperature.hpp>
 #include <openstudio/model/SetpointManagerFollowOutdoorAirTemperature_Impl.hpp>
 #include <openstudio/model/SetpointManagerOutdoorAirReset.hpp>
 #include <openstudio/model/SetpointManagerOutdoorAirReset_Impl.hpp>
+#include <openstudio/model/SetpointManagerFollowGroundTemperature.hpp>
+#include <openstudio/model/SetpointManagerFollowGroundTemperature_Impl.hpp>
+#include <openstudio/model/SetpointManagerSystemNodeResetTemperature.hpp>
+#include <openstudio/model/SetpointManagerSystemNodeResetTemperature_Impl.hpp>
+#include <openstudio/model/SetpointManagerWarmest.hpp>
+#include <openstudio/model/SetpointManagerWarmest_Impl.hpp>
+#include <openstudio/model/SetpointManagerWarmestTemperatureFlow.hpp>
+#include <openstudio/model/SetpointManagerWarmestTemperatureFlow_Impl.hpp>
+#include <openstudio/model/SetpointManagerColdest.hpp>
+#include <openstudio/model/SetpointManagerColdest_Impl.hpp>
+
 #include <openstudio/model/CoilCoolingDXSingleSpeed.hpp>
 #include <openstudio/model/CoilCoolingDXSingleSpeed_Impl.hpp>
 #include <openstudio/model/CoilCoolingDXTwoSpeed.hpp>
@@ -935,14 +950,17 @@ HVACControlsController::~HVACControlsController() {
   delete m_hvacPlantLoopControlsView;
   delete m_noControlsView;
   delete m_mechanicalVentilationView;
-  delete m_singleZoneReheatSPMView;
+  delete m_singleZoneSPMView;
   delete m_noSupplyAirTempControlView;
   delete m_noMechanicalVentilationView;
   delete m_systemAvailabilityDropZone;
   delete m_supplyAirTempScheduleDropZone;
   delete m_availabilityManagerDropZone;
   delete m_followOATempSPMView;
+  delete m_followGroundTempSPMView;
   delete m_oaResetSPMView;
+  delete m_systemNodeResetSPMView;
+  delete m_warmestColdestSPMView;
   delete m_airLoopHVACUnitaryHeatPumpAirToAirControlView;
   delete m_scheduledSPMView;
 }
@@ -982,14 +1000,17 @@ void HVACControlsController::update() {
       m_hvacAirLoopControlsView->setUpdatesEnabled(false);
 
       delete m_mechanicalVentilationView;
-      delete m_singleZoneReheatSPMView;
+      delete m_singleZoneSPMView;
       delete m_noSupplyAirTempControlView;
       delete m_noMechanicalVentilationView;
       delete m_systemAvailabilityDropZone;
       delete m_supplyAirTempScheduleDropZone;
       delete m_availabilityManagerDropZone;
       delete m_followOATempSPMView;
+      delete m_followGroundTempSPMView;
       delete m_oaResetSPMView;
+      delete m_systemNodeResetSPMView;
+      delete m_warmestColdestSPMView;
       delete m_scheduledSPMView;
       delete m_airLoopHVACUnitaryHeatPumpAirToAirControlView;
 
@@ -1130,126 +1151,209 @@ void HVACControlsController::update() {
       }
 
       // Supply Air Temperature
-      boost::optional<model::SetpointManager> _spm;
+      boost::optional<model::SetpointManager> spm_;
       for (auto& spm : t_airLoopHVAC->supplyOutletNode().setpointManagers()) {
         if (istringEqual("Temperature", spm.controlVariable())) {
-          _spm = spm;
+          spm_ = spm;
           break;
         }
       }
 
-      boost::optional<model::SetpointManagerSingleZoneReheat> spmSZR;
-      boost::optional<model::SetpointManagerScheduled> spmS;
-      boost::optional<model::SetpointManagerFollowOutdoorAirTemperature> spmFOAT;
-      boost::optional<model::SetpointManagerOutdoorAirReset> spmOAR;
+      if (spm_) {
+        if (auto spmSZR_ = spm_->optionalCast<model::SetpointManagerSingleZoneReheat>()) {
+          m_singleZoneSPMView = new SingleZoneSPMView("SingleZoneReheat");
 
-      if (_spm && (spmSZR = _spm->optionalCast<model::SetpointManagerSingleZoneReheat>())) {
-        m_singleZoneReheatSPMView = new SingleZoneReheatSPMView();
+          m_hvacAirLoopControlsView->supplyAirTemperatureViewSwitcher->setView(m_singleZoneSPMView);
 
-        m_hvacAirLoopControlsView->supplyAirTemperatureViewSwitcher->setView(m_singleZoneReheatSPMView);
-
-        for (auto& thermalZone : t_airLoopHVAC->thermalZones()) {
-          m_singleZoneReheatSPMView->controlZoneComboBox->addItem(QString::fromStdString(thermalZone.nameString()), toQString(thermalZone.handle()));
-        }
-
-        m_singleZoneReheatSPMView->controlZoneComboBox->addItem("", toQString(UUID()));
-
-        if (boost::optional<model::ThermalZone> tz = spmSZR->controlZone()) {
-          int index = m_singleZoneReheatSPMView->controlZoneComboBox->findData(toQString(tz->handle()));
-
-          if (index > -1) {
-            m_singleZoneReheatSPMView->controlZoneComboBox->setCurrentIndex(index);
-          } else {
-            m_singleZoneReheatSPMView->controlZoneComboBox->addItem(QString::fromStdString(tz->nameString()), toQString(tz->handle()));
-
-            int i = m_singleZoneReheatSPMView->controlZoneComboBox->count() - 1;
-
-            m_singleZoneReheatSPMView->controlZoneComboBox->setCurrentIndex(i);
+          for (auto& thermalZone : t_airLoopHVAC->thermalZones()) {
+            m_singleZoneSPMView->controlZoneComboBox->addItem(QString::fromStdString(thermalZone.nameString()), toQString(thermalZone.handle()));
           }
-        } else {
-          int index = m_singleZoneReheatSPMView->controlZoneComboBox->findData(toQString(UUID()));
 
-          OS_ASSERT(index > -1);
+          m_singleZoneSPMView->controlZoneComboBox->addItem("", toQString(UUID()));
 
-          m_singleZoneReheatSPMView->controlZoneComboBox->setCurrentIndex(index);
-        }
+          if (boost::optional<model::ThermalZone> tz = spmSZR_->controlZone()) {
+            int index = m_singleZoneSPMView->controlZoneComboBox->findData(toQString(tz->handle()));
 
-        connect(m_singleZoneReheatSPMView->controlZoneComboBox, static_cast<void (QComboBox::*)(int)>(&QComboBox::currentIndexChanged), this,
-                &HVACControlsController::onControlZoneComboBoxChanged);
-      } else if (_spm && (spmS = _spm->optionalCast<model::SetpointManagerScheduled>())) {
-        m_scheduledSPMView = new ScheduledSPMView();
+            if (index > -1) {
+              m_singleZoneSPMView->controlZoneComboBox->setCurrentIndex(index);
+            } else {
+              m_singleZoneSPMView->controlZoneComboBox->addItem(QString::fromStdString(tz->nameString()), toQString(tz->handle()));
 
-        m_hvacAirLoopControlsView->supplyAirTemperatureViewSwitcher->setView(m_scheduledSPMView);
+              int i = m_singleZoneSPMView->controlZoneComboBox->count() - 1;
 
-        auto* supplyAirTempScheduleVectorController = new SupplyAirTempScheduleVectorController();
-        supplyAirTempScheduleVectorController->attach(spmS.get());
-        m_supplyAirTempScheduleDropZone = new OSDropZone(supplyAirTempScheduleVectorController);
-        m_supplyAirTempScheduleDropZone->setSizePolicy(QSizePolicy::Fixed, QSizePolicy::Fixed);
-        m_supplyAirTempScheduleDropZone->setMinItems(1);
-        m_supplyAirTempScheduleDropZone->setMaxItems(1);
-        m_supplyAirTempScheduleDropZone->setItemsRemoveable(false);
-        m_supplyAirTempScheduleDropZone->setAcceptDrops(true);
-        m_supplyAirTempScheduleDropZone->setItemsAcceptDrops(true);
-        m_supplyAirTempScheduleDropZone->setEnabled(true);
-        m_scheduledSPMView->supplyAirTemperatureViewSwitcher->setView(m_supplyAirTempScheduleDropZone);
-
-        // Allow clicking on the Schedule to see it in the right column inspector
-        connect(m_supplyAirTempScheduleDropZone.data(), &OSDropZone::itemClicked, supplyAirTempScheduleVectorController,
-                &SupplyAirTempScheduleVectorController::onDropZoneItemClicked);
-      } else if (_spm && (_spm->optionalCast<model::SetpointManagerFollowOutdoorAirTemperature>())) {
-        m_followOATempSPMView = new FollowOATempSPMView();
-
-        m_hvacAirLoopControlsView->supplyAirTemperatureViewSwitcher->setView(m_followOATempSPMView);
-      } else if (_spm && (_spm->optionalCast<model::SetpointManagerOutdoorAirReset>())) {
-        m_oaResetSPMView = new OAResetSPMView();
-
-        m_hvacAirLoopControlsView->supplyAirTemperatureViewSwitcher->setView(m_oaResetSPMView);
-      } else if (!t_airLoopHVAC->supplyComponents(model::AirLoopHVACUnitaryHeatPumpAirToAir::iddObjectType()).empty()) {
-        auto hp = t_airLoopHVAC->supplyComponents(model::AirLoopHVACUnitaryHeatPumpAirToAir::iddObjectType())
-                    .back()
-                    .cast<model::AirLoopHVACUnitaryHeatPumpAirToAir>();
-
-        m_airLoopHVACUnitaryHeatPumpAirToAirControlView = new AirLoopHVACUnitaryHeatPumpAirToAirControlView();
-
-        m_hvacAirLoopControlsView->supplyAirTemperatureViewSwitcher->setView(m_airLoopHVACUnitaryHeatPumpAirToAirControlView);
-
-        std::vector<model::ThermalZone> thermalZones = t_airLoopHVAC->thermalZones();
-
-        for (auto& thermalZone : thermalZones) {
-          m_airLoopHVACUnitaryHeatPumpAirToAirControlView->controlZoneComboBox->addItem(QString::fromStdString(thermalZone.nameString()),
-                                                                                        toQString(thermalZone.handle()));
-        }
-
-        m_airLoopHVACUnitaryHeatPumpAirToAirControlView->controlZoneComboBox->addItem("", toQString(UUID()));
-
-        if (boost::optional<model::ThermalZone> tz = hp.controllingZone()) {
-          int index = m_airLoopHVACUnitaryHeatPumpAirToAirControlView->controlZoneComboBox->findData(toQString(tz->handle()));
-
-          if (index > -1) {
-            m_airLoopHVACUnitaryHeatPumpAirToAirControlView->controlZoneComboBox->setCurrentIndex(index);
+              m_singleZoneSPMView->controlZoneComboBox->setCurrentIndex(i);
+            }
           } else {
-            m_airLoopHVACUnitaryHeatPumpAirToAirControlView->controlZoneComboBox->addItem(QString::fromStdString(tz->nameString()),
-                                                                                          toQString(tz->handle()));
+            int index = m_singleZoneSPMView->controlZoneComboBox->findData(toQString(UUID()));
 
-            int i = m_airLoopHVACUnitaryHeatPumpAirToAirControlView->controlZoneComboBox->count() - 1;
+            OS_ASSERT(index > -1);
 
-            m_airLoopHVACUnitaryHeatPumpAirToAirControlView->controlZoneComboBox->setCurrentIndex(i);
+            m_singleZoneSPMView->controlZoneComboBox->setCurrentIndex(index);
           }
+
+          connect(m_singleZoneSPMView->controlZoneComboBox, static_cast<void (QComboBox::*)(int)>(&QComboBox::currentIndexChanged), this,
+                  &HVACControlsController::onControlZoneComboBoxChangedSingleZoneReheat);
+        } else if (auto spmSZR_ = spm_->optionalCast<model::SetpointManagerSingleZoneHeating>()) {
+          m_singleZoneSPMView = new SingleZoneSPMView("SingleZoneHeating");
+
+          m_hvacAirLoopControlsView->supplyAirTemperatureViewSwitcher->setView(m_singleZoneSPMView);
+
+          for (auto& thermalZone : t_airLoopHVAC->thermalZones()) {
+            m_singleZoneSPMView->controlZoneComboBox->addItem(QString::fromStdString(thermalZone.nameString()), toQString(thermalZone.handle()));
+          }
+
+          m_singleZoneSPMView->controlZoneComboBox->addItem("", toQString(UUID()));
+
+          if (boost::optional<model::ThermalZone> tz = spmSZR_->controlZone()) {
+            int index = m_singleZoneSPMView->controlZoneComboBox->findData(toQString(tz->handle()));
+
+            if (index > -1) {
+              m_singleZoneSPMView->controlZoneComboBox->setCurrentIndex(index);
+            } else {
+              m_singleZoneSPMView->controlZoneComboBox->addItem(QString::fromStdString(tz->nameString()), toQString(tz->handle()));
+
+              int i = m_singleZoneSPMView->controlZoneComboBox->count() - 1;
+
+              m_singleZoneSPMView->controlZoneComboBox->setCurrentIndex(i);
+            }
+          } else {
+            int index = m_singleZoneSPMView->controlZoneComboBox->findData(toQString(UUID()));
+
+            OS_ASSERT(index > -1);
+
+            m_singleZoneSPMView->controlZoneComboBox->setCurrentIndex(index);
+          }
+
+          connect(m_singleZoneSPMView->controlZoneComboBox, static_cast<void (QComboBox::*)(int)>(&QComboBox::currentIndexChanged), this,
+                  &HVACControlsController::onControlZoneComboBoxChangedSingleZoneHeating);
+        } else if (auto spmSZR_ = spm_->optionalCast<model::SetpointManagerSingleZoneCooling>()) {
+          m_singleZoneSPMView = new SingleZoneSPMView("SingleZoneCooling");
+
+          m_hvacAirLoopControlsView->supplyAirTemperatureViewSwitcher->setView(m_singleZoneSPMView);
+
+          for (auto& thermalZone : t_airLoopHVAC->thermalZones()) {
+            m_singleZoneSPMView->controlZoneComboBox->addItem(QString::fromStdString(thermalZone.nameString()), toQString(thermalZone.handle()));
+          }
+
+          m_singleZoneSPMView->controlZoneComboBox->addItem("", toQString(UUID()));
+
+          if (boost::optional<model::ThermalZone> tz = spmSZR_->controlZone()) {
+            int index = m_singleZoneSPMView->controlZoneComboBox->findData(toQString(tz->handle()));
+
+            if (index > -1) {
+              m_singleZoneSPMView->controlZoneComboBox->setCurrentIndex(index);
+            } else {
+              m_singleZoneSPMView->controlZoneComboBox->addItem(QString::fromStdString(tz->nameString()), toQString(tz->handle()));
+
+              int i = m_singleZoneSPMView->controlZoneComboBox->count() - 1;
+
+              m_singleZoneSPMView->controlZoneComboBox->setCurrentIndex(i);
+            }
+          } else {
+            int index = m_singleZoneSPMView->controlZoneComboBox->findData(toQString(UUID()));
+
+            OS_ASSERT(index > -1);
+
+            m_singleZoneSPMView->controlZoneComboBox->setCurrentIndex(index);
+          }
+
+          connect(m_singleZoneSPMView->controlZoneComboBox, static_cast<void (QComboBox::*)(int)>(&QComboBox::currentIndexChanged), this,
+                  &HVACControlsController::onControlZoneComboBoxChangedSingleZoneCooling);
+        } else if (auto spmS_ = spm_->optionalCast<model::SetpointManagerScheduled>()) {
+          m_scheduledSPMView = new ScheduledSPMView();
+
+          m_hvacAirLoopControlsView->supplyAirTemperatureViewSwitcher->setView(m_scheduledSPMView);
+
+          auto* supplyAirTempScheduleVectorController = new SupplyAirTempScheduleVectorController();
+          supplyAirTempScheduleVectorController->attach(spmS_.get());
+          m_supplyAirTempScheduleDropZone = new OSDropZone(supplyAirTempScheduleVectorController);
+          m_supplyAirTempScheduleDropZone->setSizePolicy(QSizePolicy::Fixed, QSizePolicy::Fixed);
+          m_supplyAirTempScheduleDropZone->setMinItems(1);
+          m_supplyAirTempScheduleDropZone->setMaxItems(1);
+          m_supplyAirTempScheduleDropZone->setItemsRemoveable(false);
+          m_supplyAirTempScheduleDropZone->setAcceptDrops(true);
+          m_supplyAirTempScheduleDropZone->setItemsAcceptDrops(true);
+          m_supplyAirTempScheduleDropZone->setEnabled(true);
+          m_scheduledSPMView->supplyAirTemperatureViewSwitcher->setView(m_supplyAirTempScheduleDropZone);
+
+          // Allow clicking on the Schedule to see it in the right column inspector
+          connect(m_supplyAirTempScheduleDropZone.data(), &OSDropZone::itemClicked, supplyAirTempScheduleVectorController,
+                  &SupplyAirTempScheduleVectorController::onDropZoneItemClicked);
+        } else if (auto spmFOAT_ = spm_->optionalCast<model::SetpointManagerFollowOutdoorAirTemperature>()) {
+          m_followOATempSPMView = new FollowOATempSPMView(*spmFOAT_);
+
+          m_hvacAirLoopControlsView->supplyAirTemperatureViewSwitcher->setView(m_followOATempSPMView);
+        } else if (auto spmOAR_ = spm_->optionalCast<model::SetpointManagerOutdoorAirReset>()) {
+          m_oaResetSPMView = new OAResetSPMView(*spmOAR_);
+
+          m_hvacAirLoopControlsView->supplyAirTemperatureViewSwitcher->setView(m_oaResetSPMView);
+        } else if (auto spmWarmest_ = spm_->optionalCast<model::SetpointManagerWarmest>()) {
+          m_warmestColdestSPMView = new WarmestColdestSPMView(*spmWarmest_);
+
+          m_hvacAirLoopControlsView->supplyAirTemperatureViewSwitcher->setView(m_warmestColdestSPMView);
+        } else if (auto spmWarmestTempFlow_ = spm_->optionalCast<model::SetpointManagerWarmestTemperatureFlow>()) {
+          m_warmestColdestSPMView = new WarmestColdestSPMView(*spmWarmestTempFlow_);
+
+          m_hvacAirLoopControlsView->supplyAirTemperatureViewSwitcher->setView(m_warmestColdestSPMView);
+        } else if (auto spmColdest_ = spm_->optionalCast<model::SetpointManagerColdest>()) {
+          m_warmestColdestSPMView = new WarmestColdestSPMView(*spmColdest_);
+
+          m_hvacAirLoopControlsView->supplyAirTemperatureViewSwitcher->setView(m_warmestColdestSPMView);
         } else {
-          int index = m_airLoopHVACUnitaryHeatPumpAirToAirControlView->controlZoneComboBox->findData(toQString(UUID()));
+          // Unsupported SPM, but there is one
+          m_noSupplyAirTempControlView = new NoSupplyAirTempControlView(*spm_);
 
-          OS_ASSERT(index > -1);
-
-          m_airLoopHVACUnitaryHeatPumpAirToAirControlView->controlZoneComboBox->setCurrentIndex(index);
+          m_hvacAirLoopControlsView->supplyAirTemperatureViewSwitcher->setView(m_noSupplyAirTempControlView);
         }
-
-        connect(m_airLoopHVACUnitaryHeatPumpAirToAirControlView->controlZoneComboBox,
-                static_cast<void (QComboBox::*)(int)>(&QComboBox::currentIndexChanged), this,
-                &HVACControlsController::onUnitaryHeatPumpControlZoneChanged);
       } else {
-        m_noSupplyAirTempControlView = new NoSupplyAirTempControlView();
 
-        m_hvacAirLoopControlsView->supplyAirTemperatureViewSwitcher->setView(m_noSupplyAirTempControlView);
+        if (!t_airLoopHVAC->supplyComponents(model::AirLoopHVACUnitaryHeatPumpAirToAir::iddObjectType()).empty()) {
+          auto hp = t_airLoopHVAC->supplyComponents(model::AirLoopHVACUnitaryHeatPumpAirToAir::iddObjectType())
+                      .back()
+                      .cast<model::AirLoopHVACUnitaryHeatPumpAirToAir>();
+
+          m_airLoopHVACUnitaryHeatPumpAirToAirControlView = new AirLoopHVACUnitaryHeatPumpAirToAirControlView();
+
+          m_hvacAirLoopControlsView->supplyAirTemperatureViewSwitcher->setView(m_airLoopHVACUnitaryHeatPumpAirToAirControlView);
+
+          std::vector<model::ThermalZone> thermalZones = t_airLoopHVAC->thermalZones();
+
+          for (auto& thermalZone : thermalZones) {
+            m_airLoopHVACUnitaryHeatPumpAirToAirControlView->controlZoneComboBox->addItem(QString::fromStdString(thermalZone.nameString()),
+                                                                                          toQString(thermalZone.handle()));
+          }
+
+          m_airLoopHVACUnitaryHeatPumpAirToAirControlView->controlZoneComboBox->addItem("", toQString(UUID()));
+
+          if (boost::optional<model::ThermalZone> tz = hp.controllingZone()) {
+            int index = m_airLoopHVACUnitaryHeatPumpAirToAirControlView->controlZoneComboBox->findData(toQString(tz->handle()));
+
+            if (index > -1) {
+              m_airLoopHVACUnitaryHeatPumpAirToAirControlView->controlZoneComboBox->setCurrentIndex(index);
+            } else {
+              m_airLoopHVACUnitaryHeatPumpAirToAirControlView->controlZoneComboBox->addItem(QString::fromStdString(tz->nameString()),
+                                                                                            toQString(tz->handle()));
+
+              int i = m_airLoopHVACUnitaryHeatPumpAirToAirControlView->controlZoneComboBox->count() - 1;
+
+              m_airLoopHVACUnitaryHeatPumpAirToAirControlView->controlZoneComboBox->setCurrentIndex(i);
+            }
+          } else {
+            int index = m_airLoopHVACUnitaryHeatPumpAirToAirControlView->controlZoneComboBox->findData(toQString(UUID()));
+
+            OS_ASSERT(index > -1);
+
+            m_airLoopHVACUnitaryHeatPumpAirToAirControlView->controlZoneComboBox->setCurrentIndex(index);
+          }
+
+          connect(m_airLoopHVACUnitaryHeatPumpAirToAirControlView->controlZoneComboBox,
+                  static_cast<void (QComboBox::*)(int)>(&QComboBox::currentIndexChanged), this,
+                  &HVACControlsController::onUnitaryHeatPumpControlZoneChanged);
+        } else {
+          m_noSupplyAirTempControlView = new NoSupplyAirTempControlView();
+
+          m_hvacAirLoopControlsView->supplyAirTemperatureViewSwitcher->setView(m_noSupplyAirTempControlView);
+        }
       }
 
       // AVM List
@@ -1346,6 +1450,67 @@ void HVACControlsController::update() {
       uncontrolledComps.append("</ul>");
       m_hvacPlantLoopControlsView->uncontrolledComponentsLabel->setText(uncontrolledComps);
 
+      // Supply Water Temperature
+      boost::optional<model::SetpointManager> spm_;
+      for (auto& spm : t_plantLoop->supplyOutletNode().setpointManagers()) {
+        if (istringEqual("Temperature", spm.controlVariable())) {
+          spm_ = spm;
+          break;
+        }
+      }
+
+      if (spm_) {
+        if (auto spmS_ = spm_->optionalCast<model::SetpointManagerScheduled>()) {
+          m_scheduledSPMView = new ScheduledSPMView();
+
+          m_hvacPlantLoopControlsView->supplyTemperatureViewSwitcher->setView(m_scheduledSPMView);
+
+          // It's name SupplyAir but whatever
+          auto* supplyAirTempScheduleVectorController = new SupplyAirTempScheduleVectorController();
+          supplyAirTempScheduleVectorController->attach(spmS_.get());
+          m_supplyAirTempScheduleDropZone = new OSDropZone(supplyAirTempScheduleVectorController);
+          m_supplyAirTempScheduleDropZone->setSizePolicy(QSizePolicy::Fixed, QSizePolicy::Fixed);
+          m_supplyAirTempScheduleDropZone->setMinItems(1);
+          m_supplyAirTempScheduleDropZone->setMaxItems(1);
+          m_supplyAirTempScheduleDropZone->setItemsRemoveable(false);
+          m_supplyAirTempScheduleDropZone->setAcceptDrops(true);
+          m_supplyAirTempScheduleDropZone->setItemsAcceptDrops(true);
+          m_supplyAirTempScheduleDropZone->setEnabled(true);
+          m_scheduledSPMView->supplyAirTemperatureViewSwitcher->setView(m_supplyAirTempScheduleDropZone);
+
+          // Allow clicking on the Schedule to see it in the right column inspector
+          connect(m_supplyAirTempScheduleDropZone.data(), &OSDropZone::itemClicked, supplyAirTempScheduleVectorController,
+                  &SupplyAirTempScheduleVectorController::onDropZoneItemClicked);
+        } else if (auto spmFOAT_ = spm_->optionalCast<model::SetpointManagerFollowOutdoorAirTemperature>()) {
+          m_followOATempSPMView = new FollowOATempSPMView(*spmFOAT_);
+
+          m_hvacPlantLoopControlsView->supplyTemperatureViewSwitcher->setView(m_followOATempSPMView);
+        } else if (auto spmOAR_ = spm_->optionalCast<model::SetpointManagerOutdoorAirReset>()) {
+          m_oaResetSPMView = new OAResetSPMView(*spmOAR_);
+
+          m_hvacPlantLoopControlsView->supplyTemperatureViewSwitcher->setView(m_oaResetSPMView);
+        } else if (auto spmFGT_ = spm_->optionalCast<model::SetpointManagerFollowGroundTemperature>()) {
+          m_followGroundTempSPMView = new FollowGroundTempSPMView(*spmFGT_);
+
+          m_hvacPlantLoopControlsView->supplyTemperatureViewSwitcher->setView(m_followGroundTempSPMView);
+        } else if (auto spmFGT_ = spm_->optionalCast<model::SetpointManagerSystemNodeResetTemperature>()) {
+          m_systemNodeResetSPMView = new SystemNodeResetSPMView(*spmFGT_);
+
+          m_hvacPlantLoopControlsView->supplyTemperatureViewSwitcher->setView(m_systemNodeResetSPMView);
+
+        } else {
+          // Unsupported SPM, but there is one
+          m_noSupplyAirTempControlView = new NoSupplyAirTempControlView(*spm_);
+
+          m_hvacPlantLoopControlsView->supplyTemperatureViewSwitcher->setView(m_noSupplyAirTempControlView);
+        }
+      } else {
+        // No SPM
+        m_noSupplyAirTempControlView = new NoSupplyAirTempControlView();
+
+        m_hvacPlantLoopControlsView->supplyTemperatureViewSwitcher->setView(m_noSupplyAirTempControlView);
+      }
+
       // AvailabilityManagers
 
       auto* availabilityManagerObjectVectorController = new AvailabilityManagerObjectVectorController();
@@ -1423,8 +1588,8 @@ void HVACControlsController::onNightCycleComboBoxIndexChanged(int index) {
   t_airLoopHVAC->setNightCycleControlType(data.toStdString());
 }
 
-void HVACControlsController::onControlZoneComboBoxChanged(int index) {
-  QString stringHandle = m_singleZoneReheatSPMView->controlZoneComboBox->itemData(index).toString();
+void HVACControlsController::onControlZoneComboBoxChangedSingleZoneReheat(int index) {
+  QString stringHandle = m_singleZoneSPMView->controlZoneComboBox->itemData(index).toString();
 
   UUID handle(toUUID(stringHandle));
 
@@ -1447,6 +1612,57 @@ void HVACControlsController::onControlZoneComboBoxChanged(int index) {
     }
   }
 }
+
+void HVACControlsController::onControlZoneComboBoxChangedSingleZoneHeating(int index) {
+  QString stringHandle = m_singleZoneSPMView->controlZoneComboBox->itemData(index).toString();
+
+  UUID handle(toUUID(stringHandle));
+
+  model::Model t_model = m_hvacSystemsController->model();
+
+  boost::optional<model::ThermalZone> tz = t_model.getModelObject<model::ThermalZone>(handle);
+
+  boost::optional<model::AirLoopHVAC> t_airLoopHVAC = airLoopHVAC();
+
+  OS_ASSERT(t_airLoopHVAC);
+
+  std::vector<model::SetpointManagerSingleZoneHeating> setpointManagers =
+    subsetCastVector<model::SetpointManagerSingleZoneHeating>(t_airLoopHVAC->supplyOutletNode().setpointManagers());
+  if (!setpointManagers.empty()) {
+    model::SetpointManagerSingleZoneHeating spm = setpointManagers.front();
+    if (tz) {
+      spm.setControlZone(*tz);
+    } else {
+      spm.resetControlZone();
+    }
+  }
+}
+
+void HVACControlsController::onControlZoneComboBoxChangedSingleZoneCooling(int index) {
+  QString stringHandle = m_singleZoneSPMView->controlZoneComboBox->itemData(index).toString();
+
+  UUID handle(toUUID(stringHandle));
+
+  model::Model t_model = m_hvacSystemsController->model();
+
+  boost::optional<model::ThermalZone> tz = t_model.getModelObject<model::ThermalZone>(handle);
+
+  boost::optional<model::AirLoopHVAC> t_airLoopHVAC = airLoopHVAC();
+
+  OS_ASSERT(t_airLoopHVAC);
+
+  std::vector<model::SetpointManagerSingleZoneCooling> setpointManagers =
+    subsetCastVector<model::SetpointManagerSingleZoneCooling>(t_airLoopHVAC->supplyOutletNode().setpointManagers());
+  if (!setpointManagers.empty()) {
+    model::SetpointManagerSingleZoneCooling spm = setpointManagers.front();
+    if (tz) {
+      spm.setControlZone(*tz);
+    } else {
+      spm.resetControlZone();
+    }
+  }
+}
+
 void HVACControlsController::onUnitaryHeatPumpControlZoneChanged(int index) {
   QString stringHandle = m_airLoopHVACUnitaryHeatPumpAirToAirControlView->controlZoneComboBox->itemData(index).toString();
 

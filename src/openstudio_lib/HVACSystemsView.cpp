@@ -35,6 +35,14 @@
 #include "ModelObjectItem.hpp"
 #include "../shared_gui_components/OSViewSwitcher.hpp"
 #include "../shared_gui_components/Buttons.hpp"
+#include <openstudio/model/SetpointManagerOutdoorAirReset.hpp>
+#include <openstudio/model/SetpointManagerFollowOutdoorAirTemperature.hpp>
+#include <openstudio/model/SetpointManagerFollowGroundTemperature.hpp>
+#include <openstudio/model/SetpointManagerSystemNodeResetTemperature.hpp>
+#include <openstudio/model/SetpointManagerWarmest.hpp>
+#include <openstudio/model/SetpointManagerWarmestTemperatureFlow.hpp>
+#include <openstudio/model/SetpointManagerColdest.hpp>
+#include <openstudio/model/Node.hpp>
 
 #include <QApplication>
 #include <QStackedWidget>
@@ -50,6 +58,12 @@
 #include <QPainter>
 #include <QLabel>
 #include <QButtonGroup>
+
+#include <QChart>
+#include <QChartView>
+#include <QLineSeries>
+#include <QValueAxis>
+#include <qnamespace.h>
 
 namespace openstudio {
 
@@ -545,6 +559,20 @@ HVACPlantLoopControlsView::HVACPlantLoopControlsView() {
   vClassificationLayout->addWidget(uncontrolledComponentsLabel);
   hClassificationLayout->addStretch();
 
+  // Add a separation Line
+  line = new QFrame();
+  line->setFrameShape(QFrame::HLine);
+  line->setFrameShadow(QFrame::Sunken);
+  mainVLayout->addWidget(line);
+
+  auto* supplyTemperatureTitle = new QLabel("Supply Water Temperature");
+  supplyTemperatureTitle->setObjectName("H1");
+  mainVLayout->addWidget(supplyTemperatureTitle);
+
+  supplyTemperatureViewSwitcher = new OSViewSwitcher();
+  supplyTemperatureViewSwitcher->setSizePolicy(QSizePolicy::Preferred, QSizePolicy::Fixed);
+  mainVLayout->addWidget(supplyTemperatureViewSwitcher);
+
   // Add a separation line
   line = new QFrame();
   line->setFrameShape(QFrame::HLine);
@@ -645,16 +673,14 @@ NoMechanicalVentilationView::NoMechanicalVentilationView() {
   mainVLayout->addWidget(noVentilationTitle);
 }
 
-SingleZoneReheatSPMView::SingleZoneReheatSPMView() {
+SingleZoneSPMView::SingleZoneSPMView(const QString& spmType) {
   auto* mainVLayout = new QVBoxLayout();
   mainVLayout->setAlignment(Qt::AlignTop);
   mainVLayout->setContentsMargins(0, 0, 0, 0);
   mainVLayout->setSpacing(10);
   setLayout(mainVLayout);
 
-  QString singleZoneResetSPText;
-  singleZoneResetSPText.append("Supply temperature is controlled by a \"SingleZoneReheat\" setpoint manager.");
-  auto* singleZoneResetSPTitle = new QLabel(singleZoneResetSPText);
+  auto* singleZoneResetSPTitle = new QLabel(QString("Supply temperature is controlled by a <strong>%1</strong> setpoint manager.").arg(spmType));
   mainVLayout->addWidget(singleZoneResetSPTitle);
 
   auto* zoneSelectorHBoxLayout = new QHBoxLayout();
@@ -673,7 +699,7 @@ SingleZoneReheatSPMView::SingleZoneReheatSPMView() {
   mainVLayout->addLayout(zoneSelectorHBoxLayout);
 }
 
-OAResetSPMView::OAResetSPMView() {
+OAResetSPMView::OAResetSPMView(const model::SetpointManagerOutdoorAirReset& spm) {
   auto* mainVLayout = new QVBoxLayout();
   mainVLayout->setAlignment(Qt::AlignTop);
   mainVLayout->setContentsMargins(0, 0, 0, 0);
@@ -684,6 +710,84 @@ OAResetSPMView::OAResetSPMView() {
   text.append("Supply temperature is controlled by an outdoor air reset setpoint manager.");
   auto* title = new QLabel(text);
   mainVLayout->addWidget(title);
+
+  auto* series = new QLineSeries;
+
+  const auto lowOATemp = spm.outdoorLowTemperature();           // 5
+  const auto highOATemp = spm.outdoorHighTemperature();         // 30
+  const auto lowVal = spm.setpointatOutdoorLowTemperature();    // 25
+  const auto highVal = spm.setpointatOutdoorHighTemperature();  // 18
+  series->append(lowOATemp - 5, lowVal);
+  series->append(lowOATemp, lowVal);
+  series->append(highOATemp, highVal);
+  series->append(highOATemp + 5, highVal);
+
+  auto* chart = new QChart;
+  chart->legend()->hide();
+  chart->addSeries(series);
+  chart->createDefaultAxes();
+  auto* xAxis = chart->axes(Qt::Horizontal)[0];
+  xAxis->setTitleText("Outdoor Air Temperature [C]");
+  auto* yAxis = chart->axes(Qt::Vertical)[0];
+  yAxis->setTitleText("Setpoint Temperature [C]");
+  yAxis->setRange(std::min(lowVal, highVal) - 2, std::max(lowVal, highVal) + 2);
+
+  chart->setTitle("Setpoint Outdoor Air Temp Reset");
+  chart->setAnimationOptions(QChart::SeriesAnimations);
+
+  auto* m_defaultChartView = new QChartView(chart, this);
+  m_defaultChartView->setRenderHint(QPainter::Antialiasing);
+  m_defaultChartView->setMinimumSize(400, 400);
+  mainVLayout->addWidget(m_defaultChartView);
+  mainVLayout->addStretch();
+}
+
+SystemNodeResetSPMView::SystemNodeResetSPMView(const model::SetpointManagerSystemNodeResetTemperature& spm) {
+
+  auto* mainVLayout = new QVBoxLayout();
+  mainVLayout->setAlignment(Qt::AlignTop);
+  mainVLayout->setContentsMargins(0, 0, 0, 0);
+  mainVLayout->setSpacing(10);
+  setLayout(mainVLayout);
+
+  QString nodeName = "which is <strong style=\"color:red\">missing its Reference Node</strong>";
+  if (auto node_ = spm.referenceNode()) {
+    nodeName = QString("with Reference Node '%1'").arg(QString::fromStdString(node_->nameString()));
+  }
+
+  QString text = QString("Supply temperature is controlled by a System Node Reset Temperature setpoint manager %1.").arg(nodeName);
+  auto* title = new QLabel(text);
+  mainVLayout->addWidget(title);
+
+  auto* series = new QLineSeries;
+
+  const auto lowOATemp = spm.lowReferenceTemperature();           // 5
+  const auto highOATemp = spm.highReferenceTemperature();         // 30
+  const auto lowVal = spm.setpointatLowReferenceTemperature();    // 25
+  const auto highVal = spm.setpointatHighReferenceTemperature();  // 18
+  series->append(lowOATemp - 5, lowVal);
+  series->append(lowOATemp, lowVal);
+  series->append(highOATemp, highVal);
+  series->append(highOATemp + 5, highVal);
+
+  auto* chart = new QChart;
+  chart->legend()->hide();
+  chart->addSeries(series);
+  chart->createDefaultAxes();
+  auto* xAxis = chart->axes(Qt::Horizontal)[0];
+  xAxis->setTitleText("System Node Temperature [C]");
+  auto* yAxis = chart->axes(Qt::Vertical)[0];
+  yAxis->setTitleText("Setpoint Temperature [C]");
+  yAxis->setRange(std::min(lowVal, highVal) - 2, std::max(lowVal, highVal) + 2);
+
+  chart->setTitle("Setpoint System Node Reset Temperature");
+  chart->setAnimationOptions(QChart::SeriesAnimations);
+
+  auto* m_defaultChartView = new QChartView(chart, this);
+  m_defaultChartView->setRenderHint(QPainter::Antialiasing);
+  m_defaultChartView->setMinimumSize(400, 400);
+  mainVLayout->addWidget(m_defaultChartView);
+  mainVLayout->addStretch();
 }
 
 ScheduledSPMView::ScheduledSPMView() {
@@ -692,10 +796,10 @@ ScheduledSPMView::ScheduledSPMView() {
   mainVLayout->setSpacing(10);
   setLayout(mainVLayout);
 
-  auto* scheduledSPMlabel = new QLabel("Supply air temperature is controlled by a scheduled setpoint manager.");
+  auto* scheduledSPMlabel = new QLabel("Supply temperature is controlled by a scheduled setpoint manager.");
   mainVLayout->addWidget(scheduledSPMlabel);
 
-  auto* supplyAirTempScheduleTitle = new QLabel("Supply Air Temperature Schedule");
+  auto* supplyAirTempScheduleTitle = new QLabel("Supply Temperature Schedule");
   supplyAirTempScheduleTitle->setObjectName("H2");
   mainVLayout->addWidget(supplyAirTempScheduleTitle);
 
@@ -704,14 +808,135 @@ ScheduledSPMView::ScheduledSPMView() {
   mainVLayout->addWidget(supplyAirTemperatureViewSwitcher);
 }
 
-FollowOATempSPMView::FollowOATempSPMView() {
+FollowOATempSPMView::FollowOATempSPMView(const model::SetpointManagerFollowOutdoorAirTemperature& spm) {
   auto* mainVLayout = new QVBoxLayout();
   mainVLayout->setContentsMargins(0, 0, 0, 0);
   mainVLayout->setSpacing(10);
   setLayout(mainVLayout);
 
-  auto* followOATempSPMlabel = new QLabel("Supply air temperature follows the outdoor air temperature.");
+  auto const refTempType = QString::fromStdString(spm.referenceTemperatureType());
+  const auto offset = spm.offsetTemperatureDifference();
+  const auto minVal = spm.minimumSetpointTemperature();
+  const auto maxVal = spm.maximumSetpointTemperature();
+
+  auto* followOATempSPMlabel =
+    new QLabel(QString("Supply temperature follows the %1 temperature with an offset of %2 C.").arg(refTempType, QString::number(offset)));
   mainVLayout->addWidget(followOATempSPMlabel);
+
+  auto* series = new QLineSeries;
+  series->setName("Setpoint Temperature");
+  auto* seriesOA = new QLineSeries;
+  seriesOA->setName(refTempType);
+  QRgb color1 = qRgb(255, 0, 0);
+  QPen pen1(color1);
+  pen1.setStyle(Qt::DotLine);
+  pen1.setWidth(1);
+  seriesOA->setPen(pen1);
+
+  std::vector<double> xVals{-20, -15, -10, -5, 0, 5, 10, 15, 20, 25, 30, 35, 40};
+  for (const auto& x : xVals) {
+    double y = std::clamp(x + offset, minVal, maxVal);
+    series->append(x, y);
+    seriesOA->append(x, x);
+  }
+
+  auto* chart = new QChart;
+  chart->legend()->hide();
+  chart->addSeries(series);
+  chart->addSeries(seriesOA);
+  chart->createDefaultAxes();
+  auto* xAxis = chart->axes(Qt::Horizontal)[0];
+  xAxis->setTitleText(QString("%1 Temperature [C]").arg(refTempType));
+  auto* yAxis = chart->axes(Qt::Vertical)[0];
+  yAxis->setTitleText("Setpoint Temperature [C]");
+
+  chart->setTitle("Setpoint Follow Outdoor Air Temperature");
+  chart->setAnimationOptions(QChart::SeriesAnimations);
+
+  auto* m_defaultChartView = new QChartView(chart, this);
+  m_defaultChartView->setRenderHint(QPainter::Antialiasing);
+  m_defaultChartView->setMinimumSize(400, 400);
+  mainVLayout->addWidget(m_defaultChartView);
+  mainVLayout->addStretch();
+}
+
+FollowGroundTempSPMView::FollowGroundTempSPMView(const model::SetpointManagerFollowGroundTemperature& spm) {
+  auto* mainVLayout = new QVBoxLayout();
+  mainVLayout->setContentsMargins(0, 0, 0, 0);
+  mainVLayout->setSpacing(10);
+  setLayout(mainVLayout);
+
+  const auto offset = spm.offsetTemperatureDifference();
+  const auto minVal = spm.minimumSetpointTemperature();
+  const auto maxVal = spm.maximumSetpointTemperature();
+
+  auto* followTempSPMlabel =
+    new QLabel(QString("Supply temperature follows the Ground Temperature with an offset of %2 C.").arg(QString::number(offset)));
+  mainVLayout->addWidget(followTempSPMlabel);
+
+  auto* series = new QLineSeries;
+  series->setName("Setpoint Temperature");
+  auto* seriesOA = new QLineSeries;
+  seriesOA->setName("Ground Temperature");
+  QRgb color1 = qRgb(255, 0, 0);
+  QPen pen1(color1);
+  pen1.setStyle(Qt::DotLine);
+  pen1.setWidth(1);
+  seriesOA->setPen(pen1);
+
+  std::vector<double> xVals{-20, -15, -10, -5, 0, 5, 10, 15, 20, 25, 30, 35, 40};
+  for (const auto& x : xVals) {
+    double y = std::clamp(x + offset, minVal, maxVal);
+    series->append(x, y);
+    seriesOA->append(x, x);
+  }
+
+  auto* chart = new QChart;
+  chart->legend()->hide();
+  chart->addSeries(series);
+  chart->addSeries(seriesOA);
+  chart->createDefaultAxes();
+  auto* xAxis = chart->axes(Qt::Horizontal)[0];
+  xAxis->setTitleText("Ground Temperature [C]");
+  auto* yAxis = chart->axes(Qt::Vertical)[0];
+  yAxis->setTitleText("Setpoint Temperature [C]");
+
+  chart->setTitle("Setpoint Follow Ground Temperature");
+  chart->setAnimationOptions(QChart::SeriesAnimations);
+
+  auto* m_defaultChartView = new QChartView(chart, this);
+  m_defaultChartView->setRenderHint(QPainter::Antialiasing);
+  m_defaultChartView->setMinimumSize(400, 400);
+  mainVLayout->addWidget(m_defaultChartView);
+  mainVLayout->addStretch();
+}
+
+WarmestColdestSPMView::WarmestColdestSPMView(const model::SetpointManagerWarmest& spm) {
+
+  commonSetup(spm.minimumSetpointTemperature(), spm.maximumSetpointTemperature(), spm.strategy(), "Warmest");
+}
+WarmestColdestSPMView::WarmestColdestSPMView(const model::SetpointManagerWarmestTemperatureFlow& spm) {
+  commonSetup(spm.minimumSetpointTemperature(), spm.maximumSetpointTemperature(), spm.strategy(), "Warmest Temperature And Flow");
+}
+
+WarmestColdestSPMView::WarmestColdestSPMView(const model::SetpointManagerColdest& spm) {
+  commonSetup(spm.minimumSetpointTemperature(), spm.maximumSetpointTemperature(), spm.strategy(), "Coldest");
+}
+
+void WarmestColdestSPMView::commonSetup(double minimumSetpointTemperature, double maximumSetpointTemperature, const std::string& strategy,
+                                        const QString& spmType) {
+  auto* mainVLayout = new QVBoxLayout();
+  mainVLayout->setContentsMargins(0, 0, 0, 0);
+  mainVLayout->setSpacing(10);
+  setLayout(mainVLayout);
+
+  auto* label = new QLabel(
+    QString("Supply Air Temperature is managed by a Setpoint Manager %1 with a minimum temperature of %2 C and a maximum temperature of %3 C, with a "
+            "strategy of %4")
+      .arg(spmType, QString::number(minimumSetpointTemperature), QString::number(maximumSetpointTemperature), QString::fromStdString(strategy)));
+
+  label->setWordWrap(true);
+  mainVLayout->addWidget(label);
 }
 
 AirLoopHVACUnitaryHeatPumpAirToAirControlView::AirLoopHVACUnitaryHeatPumpAirToAirControlView() {
@@ -745,7 +970,19 @@ NoSupplyAirTempControlView::NoSupplyAirTempControlView() {
   mainVLayout->setSpacing(10);
   setLayout(mainVLayout);
 
-  auto* label = new QLabel("Unknown or missing supply air temperature control.  Try adding a setpoint manager to your air system.");
+  auto* label = new QLabel("<strong style=\"color:red\">Missing supply temperature control</strong>. "
+                           "Try adding a setpoint manager to the supply outlet node of your system.");
+  label->setWordWrap(true);
+  mainVLayout->addWidget(label);
+}
+
+NoSupplyAirTempControlView::NoSupplyAirTempControlView(const model::SetpointManager& spm) {
+  auto* mainVLayout = new QVBoxLayout();
+  mainVLayout->setContentsMargins(0, 0, 0, 0);
+  mainVLayout->setSpacing(10);
+  setLayout(mainVLayout);
+
+  auto* label = new QLabel(QString("Supply temperature control of type '%1'.").arg(QString::fromStdString(spm.iddObjectType().valueDescription())));
   label->setWordWrap(true);
   mainVLayout->addWidget(label);
 }
