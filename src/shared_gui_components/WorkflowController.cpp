@@ -35,6 +35,7 @@
 #include "BaseApp.hpp"
 #include "../openstudio_lib/OSAppBase.hpp"
 #include "../openstudio_lib/OSDocument.hpp"
+#include "../openstudio_lib/MainWindow.hpp"
 #include "LocalLibraryController.hpp"
 #include "WorkflowTools.hpp"
 #include "../model_editor/Utilities.hpp"
@@ -556,7 +557,9 @@ QWidget* MeasureStepItemDelegate::view(QSharedPointer<OSListItem> dataSource) {
   if (QSharedPointer<MeasureStepItem> measureStepItem = dataSource.objectCast<MeasureStepItem>()) {
     auto* workflowStepView = new WorkflowStepView();
 
-    const QString measureLangStr = toQString(measureStepItem->measureLanguage().valueName());
+    const MeasureLanguage measureLanguage = measureStepItem->measureLanguage();
+
+    const QString measureLangStr = toQString(measureLanguage.valueName());
     if (measureStepItem->measureType() == MeasureType::ModelMeasure) {
       workflowStepView->workflowStepButton->measureTypeBadge->setPixmap(
         QPixmap(QString(":/images/openstudio_measure_icon_%1.png").arg(measureLangStr))
@@ -591,13 +594,20 @@ QWidget* MeasureStepItemDelegate::view(QSharedPointer<OSListItem> dataSource) {
 
     connect(measureStepItem.data(), &MeasureStepItem::selectedChanged, workflowStepView->workflowStepButton, &WorkflowStepButton::setHasEmphasis);
 
-    try {
-      // Warning Icon
-      workflowStepView->workflowStepButton->cautionLabel->setVisible(measureStepItem->hasIncompleteArguments());
-      connect(measureStepItem.data(), &MeasureStepItem::argumentsChanged, workflowStepView->workflowStepButton->cautionLabel, &QLabel::setVisible);
-    } catch (const std::exception& e) {
-      workflowStepView->workflowStepButton->errorLabel->setToolTip(e.what());
+    const bool useClassicCLI = OSAppBase::instance()->currentDocument()->mainWindow()->useClassicCLI();
+    if (useClassicCLI && (measureLanguage == MeasureLanguage::Python)) {
+      workflowStepView->workflowStepButton->errorLabel->setToolTip(
+        "Python Measures are not supported in the Classic CLI.\nYou can change CLI version using 'Preferences->Use Classic CLI'.");
       workflowStepView->workflowStepButton->errorLabel->setVisible(true);
+    } else {
+      try {
+        // Warning Icon
+        workflowStepView->workflowStepButton->cautionLabel->setVisible(measureStepItem->hasIncompleteArguments());
+        connect(measureStepItem.data(), &MeasureStepItem::argumentsChanged, workflowStepView->workflowStepButton->cautionLabel, &QLabel::setVisible);
+      } catch (const std::exception& e) {
+        workflowStepView->workflowStepButton->errorLabel->setToolTip(e.what());
+        workflowStepView->workflowStepButton->errorLabel->setVisible(true);
+      }
     }
 
     // Up and down buttons
