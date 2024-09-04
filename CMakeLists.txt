@@ -524,6 +524,7 @@ set(QT_INSTALL_DIR "" CACHE PATH "Path to Qt Install")
 set(QT_VERSION "6.5.2" CACHE STRING "Qt target version, defaults to 6.5.2")
 
 # For AboutBox, but also validates that the version is valid
+string(TIMESTAMP CURRENT_YEAR "%Y")
 string(REGEX MATCH "^([0-9]+\\.[0-9]+)"
   QT_VERSION_MAJOR_MINOR ${QT_VERSION})
 if(NOT QT_VERSION_MAJOR_MINOR)
