@@ -848,7 +848,7 @@ elseif(UNIX)
   # set(CPACK_DEBIAN_PACKAGE_DEBUG ON)
 
   # Focal Fossa (20.04) uses libwxgtk3.0-gtk3-0v5, apparently need libxcb-xinerama0 as well
-  set(CPACK_DEBIAN_PACKAGE_DEPENDS "libxcb-xinerama0 (>= 1.13), libwxgtk3.0-0v5 (>= 3.0.0) | libwxgtk3.0-0 (>=3.0.0) | libwxgtk3.0-gtk3-0v5 (>=3.0.0), libxcb-cursor0")
+  set(CPACK_DEBIAN_PACKAGE_DEPENDS "libxcb-xinerama0 (>= 1.13), libwxgtk3.0-0v5 (>= 3.0.0) | libwxgtk3.0-0 (>=3.0.0) | libwxgtk3.0-gtk3-0v5 (>=3.0.0) | libwxgtk3.2-1t64 (>= 3.2.0), libxcb-cursor0")
 
   # These two will set the .deb install path correctly
   set(CPACK_SET_DESTDIR ON)
@@ -887,12 +887,12 @@ elseif(UNIX)
   # Create a proper App with file associations
 
   # Install the .desktop manifest (allows the App to be seen in the Dash and adding to the dock, and to map it a mimetype)
-  # install(FILES "${PROJECT_SOURCE_DIR}/src/openstudio_app/openstudioapp.desktop" DESTINATION /usr/share/applications)
-  install(FILES "${PROJECT_SOURCE_DIR}/src/openstudio_app/openstudioapp.desktop" DESTINATION Temp/)
+  # install(FILES "${PROJECT_SOURCE_DIR}/debian/openstudioapp.desktop" DESTINATION /usr/share/applications)
+  install(FILES "${PROJECT_SOURCE_DIR}/debian/openstudioapp.desktop" DESTINATION Temp/)
 
   # Install the XML mime info
-  # install(FILES "${PROJECT_SOURCE_DIR}/src/openstudio_app/x-openstudio.xml" DESTINATION /usr/share/mime/application)
-  install(FILES "${PROJECT_SOURCE_DIR}/src/openstudio_app/x-openstudio.xml" DESTINATION Temp/)
+  # install(FILES "${PROJECT_SOURCE_DIR}/debian/x-openstudio.xml" DESTINATION /usr/share/mime/application)
+  install(FILES "${PROJECT_SOURCE_DIR}/debian/x-openstudio.xml" DESTINATION Temp/)
 
   set(CPACK_DEBIAN_PACKAGE_CONTROL_EXTRA "${CPACK_DEBIAN_BIN_PACKAGE_CONTROL_EXTRA};${POSTINST_FILE};${POSTRM_FILE}")
 
