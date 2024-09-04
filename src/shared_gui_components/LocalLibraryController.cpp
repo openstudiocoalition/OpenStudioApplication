@@ -521,7 +521,11 @@ QWidget* LibraryItemDelegate::view(QSharedPointer<OSListItem> dataSource) {
     // Name
 
     widget->label->setText(libraryItem->displayName());
-    if (libraryItem->hasError()) {
+    const bool useClassicCLI = OSAppBase::instance()->currentDocument()->mainWindow()->useClassicCLI();
+    if (useClassicCLI && (measureLanguage == MeasureLanguage::Python)) {
+      widget->setToolTip("Python Measures are not supported in the Classic CLI.\nYou can change CLI version using 'Preferences->Use Classic CLI'.");
+      widget->errorLabel->setVisible(true);
+    } else if (libraryItem->hasError()) {
       widget->setToolTip(libraryItem->error());
       widget->errorLabel->setVisible(true);
     } else {
