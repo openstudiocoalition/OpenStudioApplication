@@ -352,17 +352,17 @@ install(DIRECTORY ${CMAKE_SOURCE_DIR}/src/openstudio_app/Resources/
 # install measures/models from openstudio-coalition-measures
 
 install(FILES ${openstudio-coalition-measures_SOURCE_DIR}/models/ShoeboxExample.osm
-        DESTINATION ${RESOURCES_DEST}/ShoeboxModel
+        DESTINATION ${RESOURCES_DEST}/ShoeboxModel/
         COMPONENT "Resources"
 )
 
 install(DIRECTORY ${openstudio-coalition-measures_SOURCE_DIR}/models/ShoeboxExample
-        DESTINATION ${RESOURCES_DEST}/ShoeboxModel
+        DESTINATION ${RESOURCES_DEST}/ShoeboxModel/
         COMPONENT "Resources"
 )
 
 install(DIRECTORY ${openstudio-coalition-measures_SOURCE_DIR}/models/ShoeboxExample/measures/openstudio_results
-        DESTINATION ${RESOURCES_DEST}/openstudio_results
+        DESTINATION ${RESOURCES_DEST}/
         COMPONENT "Resources"
 )
 
