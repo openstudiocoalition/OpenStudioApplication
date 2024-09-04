@@ -555,7 +555,7 @@ if(APPLE AND CPACK_CODESIGNING_DEVELOPPER_ID_APPLICATION)
       FILES \"\${CMAKE_INSTALL_PREFIX}/$<TARGET_BUNDLE_DIR_NAME:${target_name}>/Contents/Frameworks/QtWebEngineCore.framework/Versions/A/Helpers/QtWebEngineProcess.app/Contents/MacOS/QtWebEngineProcess\"
       SIGNING_IDENTITY \"${CPACK_CODESIGNING_DEVELOPPER_ID_APPLICATION}\"
       IDENTIFIER \"${CPACK_CODESIGNING_MACOS_IDENTIFIER}.QtWebEngineProcess\"
-      ENTITLEMENTS \"${CMAKE_CURRENT_SOURCE_DIR}/../../cmake/QtWebEngineProcess.entitlements\"
+      ENTITLEMENTS \"${QtWebEngineProcess}/Contents/Resources/QtWebEngineProcess.entitlements\"
       FORCE VERBOSE
       )
   "
