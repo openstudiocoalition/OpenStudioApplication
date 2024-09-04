@@ -1,12 +1,12 @@
 #ifndef MODELEDITOR_ABOUTBOX
 
 #define MODELEDITOR_ABOUTBOX \
-"<center> \
+  "<center> \
 <h2>ModelEditor</h2> \
 <p>Version: ${OPENSTUDIOAPPLICATION_LONG_VERSION}</p> \
 <p>Compiler: ${ABOUT_COMPILER}</p> \
 <p>openstudio SDK (core) version: ${openstudio_VERSION}</p> \
-<p>Copyright &copy; 2008-2019, Alliance for Sustainable Energy, LLC, and other contributors. All rights reserved.</p> \
+<p>Copyright &copy; 2020-${CURRENT_YEAR}, OpenStudio Coalition and other contributors. All rights reserved.</p> \
 <p>ModelEditor is a program for editing <a href='http://apps1.eere.energy.gov/buildings/energyplus/'>EnergyPlus</a> input files.</p>"
 
-#endif // MODELEDITOR_ABOUTBOX
+#endif  // MODELEDITOR_ABOUTBOX
