@@ -1,7 +1,7 @@
 #ifndef MODELEDITOR_ABOUTBOX
 
 #define MODELEDITOR_ABOUTBOX \
-  "<center> \
+"<center> \
 <h2>ModelEditor</h2> \
 <p>Version: ${OPENSTUDIOAPPLICATION_LONG_VERSION}</p> \
 <p>Compiler: ${ABOUT_COMPILER}</p> \
