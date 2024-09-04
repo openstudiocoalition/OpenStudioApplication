@@ -887,12 +887,12 @@ elseif(UNIX)
   # Create a proper App with file associations
 
   # Install the .desktop manifest (allows the App to be seen in the Dash and adding to the dock, and to map it a mimetype)
-  # install(FILES "${PROJECT_SOURCE_DIR}/src/openstudio_app/openstudioapp.desktop" DESTINATION /usr/share/applications)
-  install(FILES "${PROJECT_SOURCE_DIR}/src/openstudio_app/openstudioapp.desktop" DESTINATION Temp/)
+  # install(FILES "${PROJECT_SOURCE_DIR}/debian/openstudioapp.desktop" DESTINATION /usr/share/applications)
+  install(FILES "${PROJECT_SOURCE_DIR}/debian/openstudioapp.desktop" DESTINATION Temp/)
 
   # Install the XML mime info
-  # install(FILES "${PROJECT_SOURCE_DIR}/src/openstudio_app/x-openstudio.xml" DESTINATION /usr/share/mime/application)
-  install(FILES "${PROJECT_SOURCE_DIR}/src/openstudio_app/x-openstudio.xml" DESTINATION Temp/)
+  # install(FILES "${PROJECT_SOURCE_DIR}/debian/x-openstudio.xml" DESTINATION /usr/share/mime/application)
+  install(FILES "${PROJECT_SOURCE_DIR}/debian/x-openstudio.xml" DESTINATION Temp/)
 
   set(CPACK_DEBIAN_PACKAGE_CONTROL_EXTRA "${CPACK_DEBIAN_BIN_PACKAGE_CONTROL_EXTRA};${POSTINST_FILE};${POSTRM_FILE}")
 

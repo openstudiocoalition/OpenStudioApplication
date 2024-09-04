@@ -9,4 +9,4 @@ Icon=openstudioapp
 Terminal=false
 Categories=Utility;X-OpenStudio;X-EnergyModeling;
 MimeType=application/x-openstudio;
-
+StartupWMClass=OpenStudioApp
