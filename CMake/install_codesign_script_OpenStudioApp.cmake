@@ -299,6 +299,14 @@ codesign_files_macos(
   FORCE VERBOSE
 )
 
+codesign_files_macos(
+  FILES ${CMAKE_INSTALL_PREFIX}/OpenStudioApp.app/Contents/Frameworks/QtWebEngineCore.framework/QtWebEngineCore
+  SIGNING_IDENTITY ${CPACK_CODESIGNING_DEVELOPPER_ID_APPLICATION}
+  PREFIX "${CPACK_CODESIGNING_MACOS_IDENTIFIER}."
+  ENTITLEMENTS "${CMAKE_CURRENT_LIST_DIR}/QtWebEngineProcess.entitlements"
+  FORCE VERBOSE
+)
+
 # Clean up to avoid multiple passes (several components) appending to a pre-existing list
 unset(FILES_TO_SIGN)
 unset(_FULL_PATHS)
