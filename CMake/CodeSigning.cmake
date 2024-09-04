@@ -14,6 +14,7 @@ This module defines functions to codesign, notarize and staple macOS files.
                          [IDENTIFIER <identifier>]
                          [PREFIX <prefix>]
                          [OPTIONS <options>...]
+                         [ENTITLEMENTS <entitlements_file>]
                          FILES <files>...
     )
 
@@ -46,6 +47,8 @@ This module defines functions to codesign, notarize and staple macOS files.
   ``PREFIX``
     What to pass to ``--prefix``. eg 'com.domain.MyApp.' with a **trailing dot**. Ignored if ``IDENTIFIER`` is passed
 
+  ``ENTITLEMENTS entitlements_file``
+    The entitlements xml file to use
 
 .. cmake:command:: notarize_files_macos
 
@@ -146,7 +149,7 @@ endfunction()
 function(codesign_files_macos)
   set(prefix "")
   set(valueLessKeywords FORCE VERBOSE DEEP)
-  set(singleValueKeywords SIGNING_IDENTITY IDENTIFIER PREFIX)
+  set(singleValueKeywords SIGNING_IDENTITY IDENTIFIER PREFIX ENTITLEMENTS)
   set(multiValueKeywords FILES OPTIONS)
   cmake_parse_arguments(
     PARSE_ARGV 0 # Start at one with NAME is the first param
@@ -203,6 +206,14 @@ function(codesign_files_macos)
     list(APPEND cmd "--identifier" "${_IDENTIFIER}")
   elseif(_PREFIX)
     list(APPEND cmd "--prefix" "${_PREFIX}")
+  endif()
+
+  if (_ENTITLEMENTS)
+    if (NOT EXISTS "${_ENTITLEMENTS}")
+      message(FATAL_ERROR "Can't sign with entitlements ${_ENTITLEMENTS}, no file exists at that path.")
+    endif ()
+
+    list(APPEND cmd "--entitlements" "${_ENTITLEMENTS}")
   endif()
 
   foreach(path ${_FILES})
