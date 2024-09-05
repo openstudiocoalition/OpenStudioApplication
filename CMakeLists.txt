@@ -842,9 +842,9 @@ endif()
 set(CPACK_PACKAGE_CONTACT "osc@openstudiocoalition.org")
 
 # Install additional Documents, such as release notes
-install(FILES "${PROJECT_SOURCE_DIR}/QT_LICENSE_GPL_3_0.txt" DESTINATION .)
-install(FILES "${PROJECT_SOURCE_DIR}/QT_LICENSE_LGPL_3_0.txt" DESTINATION .)
-install(FILES "${PROJECT_SOURCE_DIR}/LICENSE.md" DESTINATION .)
+install(FILES "${PROJECT_SOURCE_DIR}/QT_LICENSE_GPL_3_0.txt" DESTINATION .  COMPONENT Licenses)
+install(FILES "${PROJECT_SOURCE_DIR}/QT_LICENSE_LGPL_3_0.txt" DESTINATION . COMPONENT Licenses)
+install(FILES "${PROJECT_SOURCE_DIR}/LICENSE.md" DESTINATION . COMPONENT Licenses)
 
 # Not sure whether we want a "Accept license" box in the IFW installer or not...
 set(CPACK_RESOURCE_FILE_LICENSE "${PROJECT_SOURCE_DIR}/LICENSE.md")
@@ -1034,6 +1034,19 @@ cpack_add_component(Python
 cpack_add_component(RubyAPI
   DISPLAY_NAME "Ruby API"
   DESCRIPTION "The Ruby openstudio modeleditor for Sketchup"
+)
+
+cpack_add_component(
+  Licenses
+  DISPLAY_NAME "Licenses"
+  DESCRIPTION "License files for OpenStudio Application"
+  REQUIRED
+  HIDDEN
+)
+
+cpack_ifw_configure_component(Licenses
+  FORCED_INSTALLATION
+  LICENSES "OpenStudio Application" ${CPACK_RESOURCE_FILE_LICENSE}
 )
 
 add_custom_target(PACKAGE_DEBUG
