@@ -1007,6 +1007,7 @@ cpack_add_component(Resources
 cpack_add_component(OpenStudioApp
   DISPLAY_NAME "OpenStudio Application"
   DESCRIPTION "OpenStudio Application"
+  REQUIRED
 )
 
 cpack_ifw_configure_component(Resources
