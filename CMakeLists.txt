@@ -824,6 +824,7 @@ set(CPACK_PACKAGE_VERSION_PATCH ${OpenStudioApplication_VERSION_PATCH})
 set(CPACK_PACKAGE_DESCRIPTION_SUMMARY "OpenStudioApplication ${OpenStudioApplication_VERSION} is a Graphical User Interface for OpenStudio")
 set(CPACK_PACKAGE_DESCRIPTION "OpenStudioApplication ${OpenStudioApplication_VERSION}, based on openstudio (core) ${OPENSTUDIO_VERSION}. OpenStudio is a cross-platform collection of software tools to support whole building energy modeling using EnergyPlus and advanced daylight analysis using Radiance")
 
+set(CPACK_IFW_PACKAGE_TITLE "OpenStudioApplication ${OpenStudioApplication_VERSION}")
 set(CPACK_IFW_PRODUCT_URL "https://openstudiocoalition.org")
 set(CPACK_IFW_PACKAGE_WINDOW_ICON "${PROJECT_SOURCE_DIR}/icons/os_32.png")
 
