@@ -813,14 +813,19 @@ endif()
 # Leaving it
 set(CPACK_IFW_VERBOSE ON)
 
-set(CPACK_PACKAGE_VENDOR "OpenStudio Coalition")
+set(CPACK_PACKAGE_VENDOR "OpenStudio Coalition") # CPACK_IFW_PACKAGE_PUBLISHER is set from this
+
 # These are ok, even if we have a prerelease tag
 set(CPACK_PACKAGE_VERSION_MAJOR ${OpenStudioApplication_VERSION_MAJOR})
 set(CPACK_PACKAGE_VERSION_MINOR ${OpenStudioApplication_VERSION_MINOR})
 set(CPACK_PACKAGE_VERSION_PATCH ${OpenStudioApplication_VERSION_PATCH})
 
 # CPACK_DEBIAN_PACKAGE_DESCRIPTION defaults to this one too. dpkg-deb -I xxx.deb will show this description
-set(CPACK_PACKAGE_DESCRIPTION_SUMMARY "OpenStudioApplication ${OpenStudioApplication_VERSION}, based on openstudio (core) ${OPENSTUDIO_VERSION}. OpenStudio is a cross-platform collection of software tools to support whole building energy modeling using EnergyPlus and advanced daylight analysis using Radiance")
+set(CPACK_PACKAGE_DESCRIPTION_SUMMARY "OpenStudioApplication ${OpenStudioApplication_VERSION} is a Graphical User Interface for OpenStudio")
+set(CPACK_PACKAGE_DESCRIPTION "OpenStudioApplication ${OpenStudioApplication_VERSION}, based on openstudio (core) ${OPENSTUDIO_VERSION}. OpenStudio is a cross-platform collection of software tools to support whole building energy modeling using EnergyPlus and advanced daylight analysis using Radiance")
+
+set(CPACK_IFW_PRODUCT_URL "https://openstudiocoalition.org")
+set(CPACK_IFW_PACKAGE_WINDOW_ICON "${PROJECT_SOURCE_DIR}/icons/os_32.png")
 
 # The actual package file name on disk
 if(APPLE)
@@ -836,13 +841,21 @@ endif()
 
 set(CPACK_PACKAGE_CONTACT "osc@openstudiocoalition.org")
 
-  # Install additional Documents, such as release notes
-  install(FILES "${PROJECT_SOURCE_DIR}/QT_LICENSE_GPL_3_0.txt" DESTINATION .)
-  install(FILES "${PROJECT_SOURCE_DIR}/QT_LICENSE_LGPL_3_0.txt" DESTINATION .)
-  install(FILES "${PROJECT_SOURCE_DIR}/LICENSE.md" DESTINATION .)
+# Install additional Documents, such as release notes
+install(FILES "${PROJECT_SOURCE_DIR}/QT_LICENSE_GPL_3_0.txt" DESTINATION .)
+install(FILES "${PROJECT_SOURCE_DIR}/QT_LICENSE_LGPL_3_0.txt" DESTINATION .)
+install(FILES "${PROJECT_SOURCE_DIR}/LICENSE.md" DESTINATION .)
+
+# Not sure whether we want a "Accept license" box in the IFW installer or not...
+set(CPACK_RESOURCE_FILE_LICENSE "${PROJECT_SOURCE_DIR}/LICENSE.md")
+# set(CPACK_RESOURCE_FILE_README "${PROJECT_BINARY_DIR}/release/readme.html")
 
 if (APPLE)
   set(CPACK_IFW_TARGET_DIRECTORY /Applications/OpenStudioApplication-${OpenStudioApplication_VERSION}/)
+  # Custom installer icon. Has to be .icns on mac, .ico on windows, not supported on Unix
+  set(CPACK_IFW_PACKAGE_ICON "${PROJECT_SOURCE_DIR}/icons/os.icns")
+  # Launch OpenStudioApp at end of install
+  set(CPACK_IFW_PACKAGE_RUN_PROGRAM "@TargetDir@/OpenStudioApp.app/Contents/MacOS/OpenStudioApp")
 elseif(UNIX)
 
   # For debug
@@ -932,6 +945,12 @@ elseif(WIN32)
   set(CPACK_IFW_TARGET_DIRECTORY "C:/${CPACK_PACKAGE_INSTALL_DIRECTORY}")
   set(CPACK_BINARY_IFW ON CACHE BOOL "Enable to build IFW packages")
   set(CPACK_BINARY_NSIS OFF CACHE BOOL "Enable to build NSIS packages")
+
+  # Custom installer icon. Has to be .icns on mac, .ico on windows, not supported on Unix
+  set(CPACK_IFW_PACKAGE_ICON "${PROJECT_SOURCE_DIR}/icons/os.ico")
+
+  # Launch OpenStudioApp at end of install
+  set(CPACK_IFW_PACKAGE_RUN_PROGRAM "@TargetDir@/bin/OpenStudioApp")
 endif()
 
 
