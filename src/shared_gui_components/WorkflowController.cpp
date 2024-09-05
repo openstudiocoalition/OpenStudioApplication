@@ -570,7 +570,8 @@ QWidget* MeasureStepItemDelegate::view(QSharedPointer<OSListItem> dataSource) {
 
     connect(measureStepItem.data(), &MeasureStepItem::selectedChanged, workflowStepView->workflowStepButton, &WorkflowStepButton::setHasEmphasis);
 
-    const bool useClassicCLI = OSAppBase::instance()->currentDocument()->mainWindow()->useClassicCLI();
+    const bool useClassicCLI =
+      OSAppBase::instance()->currentDocument() == nullptr ? false : OSAppBase::instance()->currentDocument()->mainWindow()->useClassicCLI();
     if (useClassicCLI && (measureLanguage == MeasureLanguage::Python)) {
       workflowStepView->workflowStepButton->errorLabel->setToolTip(
         "Python Measures are not supported in the Classic CLI.\nYou can change CLI version using 'Preferences->Use Classic CLI'.");
