@@ -1,30 +1,6 @@
 /***********************************************************************************************************************
-*  OpenStudio(R), Copyright (c) 2020-2023, OpenStudio Coalition and other contributors. All rights reserved.
-*
-*  Redistribution and use in source and binary forms, with or without modification, are permitted provided that the
-*  following conditions are met:
-*
-*  (1) Redistributions of source code must retain the above copyright notice, this list of conditions and the following
-*  disclaimer.
-*
-*  (2) Redistributions in binary form must reproduce the above copyright notice, this list of conditions and the following
-*  disclaimer in the documentation and/or other materials provided with the distribution.
-*
-*  (3) Neither the name of the copyright holder nor the names of any contributors may be used to endorse or promote products
-*  derived from this software without specific prior written permission from the respective party.
-*
-*  (4) Other than as required in clauses (1) and (2), distributions in any form of modifications or other derivative works
-*  may not use the "OpenStudio" trademark, "OS", "os", or any other confusingly similar designation without specific prior
-*  written permission from Alliance for Sustainable Energy, LLC.
-*
-*  THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDER(S) AND ANY CONTRIBUTORS "AS IS" AND ANY EXPRESS OR IMPLIED WARRANTIES,
-*  INCLUDING, BUT NOT LIMITED TO, THE IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE ARE
-*  DISCLAIMED. IN NO EVENT SHALL THE COPYRIGHT HOLDER(S), ANY CONTRIBUTORS, THE UNITED STATES GOVERNMENT, OR THE UNITED
-*  STATES DEPARTMENT OF ENERGY, NOR ANY OF THEIR EMPLOYEES, BE LIABLE FOR ANY DIRECT, INDIRECT, INCIDENTAL, SPECIAL,
-*  EXEMPLARY, OR CONSEQUENTIAL DAMAGES (INCLUDING, BUT NOT LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES; LOSS OF
-*  USE, DATA, OR PROFITS; OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND ON ANY THEORY OF LIABILITY, WHETHER IN CONTRACT,
-*  STRICT LIABILITY, OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF
-*  ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
+*  OpenStudio(R), Copyright (c) OpenStudio Coalition and other contributors.
+*  See also https://openstudiocoalition.org/about/software_license/
 ***********************************************************************************************************************/
 
 #include "SpacesLoadsGridView.hpp"
@@ -95,6 +71,7 @@
 
 #include <openstudio/utilities/core/Assert.hpp>
 #include <openstudio/utilities/core/Compare.hpp>
+#include <openstudio/utilities/core/ContainersMove.hpp>
 #include <openstudio/utilities/idd/IddEnums.hxx>
 #include <openstudio/utilities/idd/OS_Space_FieldEnums.hxx>
 
@@ -105,6 +82,8 @@
 
 #define NAME "Space Name"
 #define SELECTED "All"
+#define DISPLAYNAME "Display Name"
+#define CADOBJECTID "CAD Object ID"
 
 // GENERAL
 #define LOADNAME "Load Name"
@@ -115,7 +94,8 @@
 
 namespace openstudio {
 
-SpacesLoadsGridView::SpacesLoadsGridView(bool isIP, const model::Model& model, QWidget* parent) : SpacesSubtabGridView(isIP, model, parent) {
+SpacesLoadsGridView::SpacesLoadsGridView(bool isIP, bool displayAdditionalProps, const model::Model& model, QWidget* parent)
+  : SpacesSubtabGridView(isIP, displayAdditionalProps, model, parent) {
   showStoryFilter();
   showThermalZoneFilter();
   showSpaceTypeFilter();
@@ -124,7 +104,7 @@ SpacesLoadsGridView::SpacesLoadsGridView(bool isIP, const model::Model& model, Q
   m_filterGridLayout->setRowStretch(m_filterGridLayout->rowCount(), 100);
   m_filterGridLayout->setColumnStretch(m_filterGridLayout->columnCount(), 100);
 
-  m_gridController = new SpacesLoadsGridController(isIP, "Space", IddObjectType::OS_Space, model, m_spacesModelObjects);
+  m_gridController = new SpacesLoadsGridController(isIP, displayAdditionalProps, "Space", IddObjectType::OS_Space, model, m_spacesModelObjects);
   m_gridView = new OSGridView(m_gridController, "Space", "Drop\nSpace", false, parent);
 
   const std::function<bool(const model::ModelObject&)> isLocked([](const model::ModelObject& modelObject) {
@@ -165,9 +145,9 @@ void SpacesLoadsGridView::clearSelection() {
   m_itemSelectorButtons->disablePurgeButton();
 }
 
-SpacesLoadsGridController::SpacesLoadsGridController(bool isIP, const QString& headerText, IddObjectType iddObjectType, const model::Model& model,
-                                                     const std::vector<model::ModelObject>& modelObjects)
-  : OSGridController(isIP, headerText, iddObjectType, model, modelObjects) {
+SpacesLoadsGridController::SpacesLoadsGridController(bool isIP, bool displayAdditionalProps, const QString& headerText, IddObjectType iddObjectType,
+                                                     const model::Model& model, const std::vector<model::ModelObject>& modelObjects)
+  : OSGridController(isIP, headerText, iddObjectType, model, modelObjects, displayAdditionalProps) {
   setCategoriesAndFields();
 }
 
@@ -188,6 +168,10 @@ void SpacesLoadsGridController::onCategorySelected(int index) {
 }
 
 void SpacesLoadsGridController::addColumns(const QString& category, std::vector<QString>& fields) {
+
+  if (isDisplayAdditionalProps()) {
+    fields.insert(fields.begin(), {DISPLAYNAME, CADOBJECTID});
+  }
   // always show name and selected columns
   fields.insert(fields.begin(), {NAME, SELECTED});
 
@@ -199,60 +183,38 @@ void SpacesLoadsGridController::addColumns(const QString& category, std::vector<
       const bool isInspectable = false;
       addParentNameLineEditColumn(Heading(QString(NAME), false, false), isInspectable, CastNullAdapter<model::Space>(&model::Space::name),
                                   CastNullAdapter<model::Space>(&model::Space::setName));
+    } else if (field == DISPLAYNAME) {
+      addNameLineEditColumn(Heading(QString(DISPLAYNAME), false, false),                     // heading
+                            false,                                                           // isInspectable
+                            false,                                                           // isLocked
+                            DisplayNameAdapter<model::Space>(&model::Space::displayName),    // getter
+                            DisplayNameAdapter<model::Space>(&model::Space::setDisplayName)  // setter
+      );
+    } else if (field == CADOBJECTID) {
+      addNameLineEditColumn(Heading(QString(CADOBJECTID), false, false),                     // heading
+                            false,                                                           // isInspectable
+                            false,                                                           // isLocked
+                            DisplayNameAdapter<model::Space>(&model::Space::cadObjectId),    // getter
+                            DisplayNameAdapter<model::Space>(&model::Space::setCADObjectId)  // setter
+      );
     } else {
       // Create a lambda function that collates all of the loads in a space
       // and returns them as an std::vector
       std::function<std::vector<model::ModelObject>(const model::Space&)> allLoads([](const model::Space& t_space) {
-        std::vector<model::ModelObject> loads;
-        auto InternalMass = t_space.internalMass();
-        auto People = t_space.people();
-        auto Lights = t_space.lights();
-        auto Luminaire = t_space.luminaires();
-        auto ElectricEquipment = t_space.electricEquipment();
-        auto GasEquipment = t_space.gasEquipment();
-        auto HotWaterEquipment = t_space.hotWaterEquipment();
-        auto SteamEquipment = t_space.steamEquipment();
-        auto OtherEquipment = t_space.otherEquipment();
-        auto SpaceInfiltrationDesignFlowRate = t_space.spaceInfiltrationDesignFlowRates();
-        auto SpaceInfiltrationEffectiveLeakageArea = t_space.spaceInfiltrationEffectiveLeakageAreas();
+        std::vector<model::ModelObject> loads = openstudio::concat<model::ModelObject>(
+          t_space.internalMass(), t_space.people(), t_space.lights(), t_space.luminaires(), t_space.electricEquipment(), t_space.gasEquipment(),
+          t_space.hotWaterEquipment(), t_space.steamEquipment(), t_space.otherEquipment(), t_space.spaceInfiltrationDesignFlowRates(),
+          t_space.spaceInfiltrationEffectiveLeakageAreas());
 
-        loads.insert(loads.end(), InternalMass.begin(), InternalMass.end());
-        loads.insert(loads.end(), People.begin(), People.end());
-        loads.insert(loads.end(), Lights.begin(), Lights.end());
-        loads.insert(loads.end(), Luminaire.begin(), Luminaire.end());
-        loads.insert(loads.end(), ElectricEquipment.begin(), ElectricEquipment.end());
-        loads.insert(loads.end(), GasEquipment.begin(), GasEquipment.end());
-        loads.insert(loads.end(), HotWaterEquipment.begin(), HotWaterEquipment.end());
-        loads.insert(loads.end(), SteamEquipment.begin(), SteamEquipment.end());
-        loads.insert(loads.end(), OtherEquipment.begin(), OtherEquipment.end());
-        loads.insert(loads.end(), SpaceInfiltrationDesignFlowRate.begin(), SpaceInfiltrationDesignFlowRate.end());
-        loads.insert(loads.end(), SpaceInfiltrationEffectiveLeakageArea.begin(), SpaceInfiltrationEffectiveLeakageArea.end());
+        if (boost::optional<model::SpaceType> spaceType_ = t_space.spaceType()) {
+          // this will provide inherited loads
+          auto spaceType = std::move(*spaceType_);
 
-        boost::optional<model::SpaceType> spaceType = t_space.spaceType();  // this will provide inherited loads
-        if (spaceType) {
-          InternalMass = spaceType->internalMass();
-          People = spaceType->people();
-          Lights = spaceType->lights();
-          Luminaire = spaceType->luminaires();
-          ElectricEquipment = spaceType->electricEquipment();
-          GasEquipment = spaceType->gasEquipment();
-          HotWaterEquipment = spaceType->hotWaterEquipment();
-          SteamEquipment = spaceType->steamEquipment();
-          OtherEquipment = spaceType->otherEquipment();
-          SpaceInfiltrationDesignFlowRate = spaceType->spaceInfiltrationDesignFlowRates();
-          SpaceInfiltrationEffectiveLeakageArea = spaceType->spaceInfiltrationEffectiveLeakageAreas();
-
-          loads.insert(loads.end(), InternalMass.begin(), InternalMass.end());
-          loads.insert(loads.end(), People.begin(), People.end());
-          loads.insert(loads.end(), Lights.begin(), Lights.end());
-          loads.insert(loads.end(), Luminaire.begin(), Luminaire.end());
-          loads.insert(loads.end(), ElectricEquipment.begin(), ElectricEquipment.end());
-          loads.insert(loads.end(), GasEquipment.begin(), GasEquipment.end());
-          loads.insert(loads.end(), HotWaterEquipment.begin(), HotWaterEquipment.end());
-          loads.insert(loads.end(), SteamEquipment.begin(), SteamEquipment.end());
-          loads.insert(loads.end(), OtherEquipment.begin(), OtherEquipment.end());
-          loads.insert(loads.end(), SpaceInfiltrationDesignFlowRate.begin(), SpaceInfiltrationDesignFlowRate.end());
-          loads.insert(loads.end(), SpaceInfiltrationEffectiveLeakageArea.begin(), SpaceInfiltrationEffectiveLeakageArea.end());
+          loads = openstudio::concat<model::ModelObject>(
+            loads,  //
+            spaceType.internalMass(), spaceType.people(), spaceType.lights(), spaceType.luminaires(), spaceType.electricEquipment(),
+            spaceType.gasEquipment(), spaceType.hotWaterEquipment(), spaceType.steamEquipment(), spaceType.otherEquipment(),
+            spaceType.spaceInfiltrationDesignFlowRates(), spaceType.spaceInfiltrationEffectiveLeakageAreas());
         }
 
         return loads;
@@ -261,7 +223,7 @@ void SpacesLoadsGridController::addColumns(const QString& category, std::vector<
       std::function<std::vector<boost::optional<model::ModelObject>>(const model::Space&)> allLoadInstances([allLoads](const model::Space& t_space) {
         std::vector<boost::optional<model::ModelObject>> loadInstances;
         for (const auto& l : allLoads(t_space)) {
-          loadInstances.push_back(boost::optional<model::ModelObject>(l.optionalCast<model::SpaceLoadInstance>()));
+          loadInstances.emplace_back(l.optionalCast<model::SpaceLoadInstance>());
         }
         return loadInstances;
       });
@@ -272,7 +234,7 @@ void SpacesLoadsGridController::addColumns(const QString& category, std::vector<
           for (auto& l : allLoads(t_space)) {
             // internal mass does not have a schedule
             if (!l.optionalCast<model::InternalMass>()) {
-              retval.push_back(boost::optional<model::ModelObject>(std::move(l)));
+              retval.emplace_back(std::move(l));
             } else {
               retval.emplace_back();
             }
@@ -287,7 +249,7 @@ void SpacesLoadsGridController::addColumns(const QString& category, std::vector<
             // only people have activity schedules, so this effectively gives us only
             // the People objects while inserting blanks for those which are not people,
             // which is what we want
-            retval.push_back(boost::optional<model::ModelObject>(l.optionalCast<model::People>()));
+            retval.emplace_back(l.optionalCast<model::People>());
           }
           return retval;
         });
@@ -297,7 +259,7 @@ void SpacesLoadsGridController::addColumns(const QString& category, std::vector<
           std::vector<boost::optional<model::ModelObject>> definitions;
           for (const auto& l : allLoadInstances(t_space)) {
             if (l) {
-              definitions.push_back(l->cast<model::SpaceLoadInstance>().definition());
+              definitions.emplace_back(l->cast<model::SpaceLoadInstance>().definition());
             } else {
               definitions.emplace_back();
             }
@@ -306,72 +268,42 @@ void SpacesLoadsGridController::addColumns(const QString& category, std::vector<
         });
 
       std::function<std::vector<boost::optional<model::ModelObject>>(const model::Space&)> allLoadsWithMultipliers([](const model::Space& t_space) {
-        std::vector<boost::optional<model::ModelObject>> loads;
-        auto InternalMass = t_space.internalMass();
-        auto People = t_space.people();
-        auto Lights = t_space.lights();
-        auto Luminaire = t_space.luminaires();
-        auto ElectricEquipment = t_space.electricEquipment();
-        auto GasEquipment = t_space.gasEquipment();
-        auto HotWaterEquipment = t_space.hotWaterEquipment();
-        auto SteamEquipment = t_space.steamEquipment();
-        auto OtherEquipment = t_space.otherEquipment();
-        auto SpaceInfiltrationDesignFlowRate = t_space.spaceInfiltrationDesignFlowRates();
-        auto SpaceInfiltrationEffectiveLeakageArea = t_space.spaceInfiltrationEffectiveLeakageAreas();
+        std::vector<boost::optional<model::ModelObject>> loads = openstudio::concat<boost::optional<model::ModelObject>>(
+          t_space.internalMass(), t_space.people(), t_space.lights(), t_space.luminaires(), t_space.electricEquipment(), t_space.gasEquipment(),
+          t_space.hotWaterEquipment(), t_space.steamEquipment(), t_space.otherEquipment());
 
-        loads.insert(loads.end(), InternalMass.begin(), InternalMass.end());
-        loads.insert(loads.end(), People.begin(), People.end());
-        loads.insert(loads.end(), Lights.begin(), Lights.end());
-        loads.insert(loads.end(), Luminaire.begin(), Luminaire.end());
-        loads.insert(loads.end(), ElectricEquipment.begin(), ElectricEquipment.end());
-        loads.insert(loads.end(), GasEquipment.begin(), GasEquipment.end());
-        loads.insert(loads.end(), HotWaterEquipment.begin(), HotWaterEquipment.end());
-        loads.insert(loads.end(), SteamEquipment.begin(), SteamEquipment.end());
-        loads.insert(loads.end(), OtherEquipment.begin(), OtherEquipment.end());
-        //loads.insert(loads.end(), SpaceInfiltrationDesignFlowRate.begin(), SpaceInfiltrationDesignFlowRate.end());
-        //loads.insert(loads.end(), SpaceInfiltrationEffectiveLeakageArea.begin(), SpaceInfiltrationEffectiveLeakageArea.end());
+        {
+          auto spidfrs = t_space.spaceInfiltrationDesignFlowRates();
+          auto spiels = t_space.spaceInfiltrationEffectiveLeakageAreas();
 
-        for (unsigned i = 0; i < SpaceInfiltrationDesignFlowRate.size(); ++i) {
-          loads.emplace_back();
+          for (unsigned i = 0; i < spiels.size(); ++i) {
+            loads.emplace_back();
+          }
+
+          for (unsigned i = 0; i < spiels.size(); ++i) {
+            loads.emplace_back();
+          }
         }
 
-        for (unsigned i = 0; i < SpaceInfiltrationEffectiveLeakageArea.size(); ++i) {
-          loads.emplace_back();
-        }
+        boost::optional<model::SpaceType> spaceType_ = t_space.spaceType();  // this will provide inherited loads
+        if (spaceType_) {
+          auto spaceType = std::move(*spaceType_);
+          loads = openstudio::concat<boost::optional<model::ModelObject>>(
+            loads, spaceType.internalMass(), spaceType.people(), spaceType.lights(), spaceType.luminaires(), spaceType.electricEquipment(),
+            spaceType.gasEquipment(), spaceType.hotWaterEquipment(), spaceType.steamEquipment(), spaceType.otherEquipment());
 
-        boost::optional<model::SpaceType> spaceType = t_space.spaceType();  // this will provide inherited loads
-        if (spaceType) {
-          InternalMass = spaceType->internalMass();
-          People = spaceType->people();
-          Lights = spaceType->lights();
-          Luminaire = spaceType->luminaires();
-          ElectricEquipment = spaceType->electricEquipment();
-          GasEquipment = spaceType->gasEquipment();
-          HotWaterEquipment = spaceType->hotWaterEquipment();
-          SteamEquipment = spaceType->steamEquipment();
-          OtherEquipment = spaceType->otherEquipment();
-          SpaceInfiltrationDesignFlowRate = spaceType->spaceInfiltrationDesignFlowRates();
-          SpaceInfiltrationEffectiveLeakageArea = spaceType->spaceInfiltrationEffectiveLeakageAreas();
+          {
+            auto spidfrs = spaceType.spaceInfiltrationDesignFlowRates();
+            auto spiels = spaceType.spaceInfiltrationEffectiveLeakageAreas();
 
-          loads.insert(loads.end(), InternalMass.begin(), InternalMass.end());
-          loads.insert(loads.end(), People.begin(), People.end());
-          loads.insert(loads.end(), Lights.begin(), Lights.end());
-          loads.insert(loads.end(), Luminaire.begin(), Luminaire.end());
-          loads.insert(loads.end(), ElectricEquipment.begin(), ElectricEquipment.end());
-          loads.insert(loads.end(), GasEquipment.begin(), GasEquipment.end());
-          loads.insert(loads.end(), HotWaterEquipment.begin(), HotWaterEquipment.end());
-          loads.insert(loads.end(), SteamEquipment.begin(), SteamEquipment.end());
-          loads.insert(loads.end(), OtherEquipment.begin(), OtherEquipment.end());
-          //loads.insert(loads.end(), SpaceInfiltrationDesignFlowRate.begin(), SpaceInfiltrationDesignFlowRate.end());
-          //loads.insert(loads.end(), SpaceInfiltrationEffectiveLeakageArea.begin(), SpaceInfiltrationEffectiveLeakageArea.end());
-        }
+            for (unsigned i = 0; i < spidfrs.size(); ++i) {
+              loads.emplace_back();
+            }
 
-        for (unsigned i = 0; i < SpaceInfiltrationDesignFlowRate.size(); ++i) {
-          loads.emplace_back();
-        }
-
-        for (unsigned i = 0; i < SpaceInfiltrationEffectiveLeakageArea.size(); ++i) {
-          loads.emplace_back();
+            for (unsigned i = 0; i < spiels.size(); ++i) {
+              loads.emplace_back();
+            }
+          }
         }
 
         return loads;
@@ -854,13 +786,39 @@ void SpacesLoadsGridController::addColumns(const QString& category, std::vector<
         // The final argument to DataSource tells the system that we want an additional widget to be displayed
         // at the bottom of each list. In this case, it's a dropZone. Any type of BaseConcept would work.
 
+        std::function<boost::optional<model::SpaceLoad>(model::Space*)> getter;
+
+        std::function<bool(model::Space*, const model::SpaceLoad&)> setter([](model::Space* t_space, model::SpaceLoad t_load) {
+          auto iddObjectType = t_load.iddObjectType();
+          if (!(iddObjectType == IddObjectType::OS_SpaceInfiltration_DesignFlowRate
+                || iddObjectType == IddObjectType::OS_SpaceInfiltration_EffectiveLeakageArea)) {
+            return false;
+          }
+          if (t_load.space() || t_load.spaceType()) {
+            boost::optional<model::ModelObject> clone_load = t_load.clone(t_space->model());
+            OS_ASSERT(clone_load);
+            auto success = clone_load->cast<model::SpaceLoad>().setSpace(*t_space);
+            OS_ASSERT(success);
+            return success;
+          } else {
+            auto success = t_load.setSpace(*t_space);
+            OS_ASSERT(success);
+            return success;
+          }
+        });
+
         addLoadNameColumn(Heading(QString(LOADNAME), true, false), CastNullAdapter<model::SpaceLoad>(&model::SpaceLoad::name),
                           CastNullAdapter<model::SpaceLoad>(&model::SpaceLoad::setName),
                           boost::optional<std::function<void(model::SpaceLoad*)>>(
                             std::function<void(model::SpaceLoad*)>([](model::SpaceLoad* t_sl) { t_sl->remove(); })),
                           boost::optional<std::function<bool(model::SpaceLoad*)>>(
                             std::function<bool(model::SpaceLoad*)>([](model::SpaceLoad* t_sl) { return !t_sl->space(); })),
-                          DataSource(allLoads, true));
+
+                          DataSource(allLoads, false,
+                                     QSharedPointer<DropZoneConcept>(new DropZoneConceptImpl<model::SpaceLoad, model::Space>(
+                                       Heading(tr("Drop Space Infiltration")), getter, setter, boost::none, boost::none, boost::none)))
+
+        );
 
       } else if (field == SELECTED) {
         auto checkbox = QSharedPointer<OSSelectAllCheckBox>(new OSSelectAllCheckBox());

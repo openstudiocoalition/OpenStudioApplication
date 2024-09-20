@@ -1,30 +1,6 @@
 /***********************************************************************************************************************
-*  OpenStudio(R), Copyright (c) 2020-2023, OpenStudio Coalition and other contributors. All rights reserved.
-*
-*  Redistribution and use in source and binary forms, with or without modification, are permitted provided that the
-*  following conditions are met:
-*
-*  (1) Redistributions of source code must retain the above copyright notice, this list of conditions and the following
-*  disclaimer.
-*
-*  (2) Redistributions in binary form must reproduce the above copyright notice, this list of conditions and the following
-*  disclaimer in the documentation and/or other materials provided with the distribution.
-*
-*  (3) Neither the name of the copyright holder nor the names of any contributors may be used to endorse or promote products
-*  derived from this software without specific prior written permission from the respective party.
-*
-*  (4) Other than as required in clauses (1) and (2), distributions in any form of modifications or other derivative works
-*  may not use the "OpenStudio" trademark, "OS", "os", or any other confusingly similar designation without specific prior
-*  written permission from Alliance for Sustainable Energy, LLC.
-*
-*  THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDER(S) AND ANY CONTRIBUTORS "AS IS" AND ANY EXPRESS OR IMPLIED WARRANTIES,
-*  INCLUDING, BUT NOT LIMITED TO, THE IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE ARE
-*  DISCLAIMED. IN NO EVENT SHALL THE COPYRIGHT HOLDER(S), ANY CONTRIBUTORS, THE UNITED STATES GOVERNMENT, OR THE UNITED
-*  STATES DEPARTMENT OF ENERGY, NOR ANY OF THEIR EMPLOYEES, BE LIABLE FOR ANY DIRECT, INDIRECT, INCIDENTAL, SPECIAL,
-*  EXEMPLARY, OR CONSEQUENTIAL DAMAGES (INCLUDING, BUT NOT LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES; LOSS OF
-*  USE, DATA, OR PROFITS; OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND ON ANY THEORY OF LIABILITY, WHETHER IN CONTRACT,
-*  STRICT LIABILITY, OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF
-*  ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
+*  OpenStudio(R), Copyright (c) OpenStudio Coalition and other contributors.
+*  See also https://openstudiocoalition.org/about/software_license/
 ***********************************************************************************************************************/
 
 #include "WorkflowController.hpp"
@@ -35,6 +11,7 @@
 #include "BaseApp.hpp"
 #include "../openstudio_lib/OSAppBase.hpp"
 #include "../openstudio_lib/OSDocument.hpp"
+#include "../openstudio_lib/MainWindow.hpp"
 #include "LocalLibraryController.hpp"
 #include "WorkflowTools.hpp"
 #include "../model_editor/Utilities.hpp"
@@ -44,7 +21,6 @@
 #include <openstudio/utilities/core/Assert.hpp>
 #include <openstudio/utilities/core/Compare.hpp>
 #include <openstudio/utilities/core/Containers.hpp>
-#include <openstudio/utilities/core/RubyException.hpp>
 #include <openstudio/utilities/core/PathHelpers.hpp>
 #include <openstudio/utilities/bcl/BCLMeasure.hpp>
 #include <openstudio/utilities/filetypes/WorkflowStep_Impl.hpp>
@@ -182,19 +158,28 @@ void MeasureStepController::removeItemForStep(MeasureStep step) {
   std::vector<MeasureStep> oldMeasureSteps = measureSteps();
 
   bool didRemove = false;
+  bool canDeleteMeasure = true;
   std::vector<MeasureStep> newMeasureSteps;
   newMeasureSteps.reserve(oldMeasureSteps.size());
   for (const auto& oldMeasureStep : oldMeasureSteps) {
     if (oldMeasureStep == step) {
       didRemove = true;
     } else {
+      if (oldMeasureStep.measureDirName() == step.measureDirName()) {
+        canDeleteMeasure = false;
+      }
       newMeasureSteps.push_back(oldMeasureStep);
     }
   }
 
   if (didRemove) {
-    // DLM: TODO actually remove the directory here, make sure it not being used by any other steps first
-    // maybe want a purge unused measures in WorkflowJSON?
+    // remove the measure
+    if (canDeleteMeasure) {
+      boost::optional<openstudio::path> measureDir = m_app->currentModel()->workflowJSON().findMeasure(step.measureDirName());
+      if (measureDir && openstudio::filesystem::exists(*measureDir)) {
+        openstudio::filesystem::remove_all(*measureDir);
+      }
+    }
 
     // set the new steps
     m_app->currentModel()->workflowJSON().setMeasureSteps(m_measureType, newMeasureSteps);
@@ -257,7 +242,7 @@ void MeasureStepController::addItemForDroppedMeasure(QDropEvent* event) {
   MeasureStep measureStep(toString(getLastLevelDirectoryName(projectMeasure->directory())));
   try {
     /* std::vector<measure::OSArgument> arguments = */ m_app->measureManager().getArguments(*projectMeasure);
-  } catch (const RubyException& e) {
+  } catch (const std::exception& e) {
     QString errorMessage("Failed to compute arguments for measure: \n\n");
     errorMessage += QString::fromStdString(e.what());
     QMessageBox::information(m_app->mainWidget(), QString("Failed to add measure"), errorMessage);
@@ -352,7 +337,7 @@ void MeasureStepController::moveDown(MeasureStep step) {
 
 MeasureStepItem::MeasureStepItem(MeasureType measureType, MeasureStep step, openstudio::BaseApp* t_baseApp)
   : m_measureType(measureType),
-    m_step(std::move(step)),
+    m_step(step),
     m_app(t_baseApp)
 
 {}
@@ -379,6 +364,12 @@ MeasureType MeasureStepItem::measureType() const {
   OptionalBCLMeasure bclMeasure_ = this->bclMeasure();
   OS_ASSERT(bclMeasure_);
   return bclMeasure_->measureType();
+}
+
+MeasureLanguage MeasureStepItem::measureLanguage() const {
+  OptionalBCLMeasure bclMeasure_ = this->bclMeasure();
+  OS_ASSERT(bclMeasure_);
+  return bclMeasure_->measureLanguage();
 }
 
 MeasureStep MeasureStepItem::measureStep() const {
@@ -541,6 +532,28 @@ MeasureStepItemDelegate::MeasureStepItemDelegate() = default;
 QWidget* MeasureStepItemDelegate::view(QSharedPointer<OSListItem> dataSource) {
   if (QSharedPointer<MeasureStepItem> measureStepItem = dataSource.objectCast<MeasureStepItem>()) {
     auto* workflowStepView = new WorkflowStepView();
+
+    const MeasureLanguage measureLanguage = measureStepItem->measureLanguage();
+
+    const QString measureLangStr = toQString(measureLanguage.valueName());
+    if (measureStepItem->measureType() == MeasureType::ModelMeasure) {
+      workflowStepView->workflowStepButton->measureTypeBadge->setPixmap(
+        QPixmap(QString(":/images/openstudio_measure_icon_%1.png").arg(measureLangStr))
+          .scaled(15, 15, Qt::IgnoreAspectRatio, Qt::SmoothTransformation));
+      workflowStepView->workflowStepButton->measureTypeBadge->setVisible(true);
+    } else if (measureStepItem->measureType() == MeasureType::EnergyPlusMeasure) {
+      workflowStepView->workflowStepButton->measureTypeBadge->setPixmap(
+        QPixmap(QString(":/images/energyplus_measure_icon_%1.png").arg(measureLangStr))
+          .scaled(15, 15, Qt::IgnoreAspectRatio, Qt::SmoothTransformation));
+      workflowStepView->workflowStepButton->measureTypeBadge->setVisible(true);
+    } else if (measureStepItem->measureType() == MeasureType::ReportingMeasure) {
+      workflowStepView->workflowStepButton->measureTypeBadge->setPixmap(
+        QPixmap(QString(":/images/report_measure_icon_%1.png").arg(measureLangStr)).scaled(15, 15, Qt::IgnoreAspectRatio, Qt::SmoothTransformation));
+      workflowStepView->workflowStepButton->measureTypeBadge->setVisible(true);
+    }
+
+    workflowStepView->workflowStepButton->nameLabel->setText(measureStepItem->name());
+
     workflowStepView->workflowStepButton->nameLabel->setText(measureStepItem->name());
 
     connect(measureStepItem.data(), &MeasureStepItem::nameChanged, workflowStepView->workflowStepButton->nameLabel, &QLabel::setText);
@@ -557,11 +570,22 @@ QWidget* MeasureStepItemDelegate::view(QSharedPointer<OSListItem> dataSource) {
 
     connect(measureStepItem.data(), &MeasureStepItem::selectedChanged, workflowStepView->workflowStepButton, &WorkflowStepButton::setHasEmphasis);
 
-    // Warning Icon
-
-    workflowStepView->workflowStepButton->cautionLabel->setVisible(measureStepItem->hasIncompleteArguments());
-
-    connect(measureStepItem.data(), &MeasureStepItem::argumentsChanged, workflowStepView->workflowStepButton->cautionLabel, &QLabel::setVisible);
+    const bool useClassicCLI =
+      OSAppBase::instance()->currentDocument() == nullptr ? false : OSAppBase::instance()->currentDocument()->mainWindow()->useClassicCLI();
+    if (useClassicCLI && (measureLanguage == MeasureLanguage::Python)) {
+      workflowStepView->workflowStepButton->errorLabel->setToolTip(
+        "Python Measures are not supported in the Classic CLI.\nYou can change CLI version using 'Preferences->Use Classic CLI'.");
+      workflowStepView->workflowStepButton->errorLabel->setVisible(true);
+    } else {
+      try {
+        // Warning Icon
+        workflowStepView->workflowStepButton->cautionLabel->setVisible(measureStepItem->hasIncompleteArguments());
+        connect(measureStepItem.data(), &MeasureStepItem::argumentsChanged, workflowStepView->workflowStepButton->cautionLabel, &QLabel::setVisible);
+      } catch (const std::exception& e) {
+        workflowStepView->workflowStepButton->errorLabel->setToolTip(e.what());
+        workflowStepView->workflowStepButton->errorLabel->setVisible(true);
+      }
+    }
 
     // Up and down buttons
 

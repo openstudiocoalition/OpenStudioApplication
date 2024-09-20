@@ -1,30 +1,6 @@
 /***********************************************************************************************************************
-*  OpenStudio(R), Copyright (c) 2020-2023, OpenStudio Coalition and other contributors. All rights reserved.
-*
-*  Redistribution and use in source and binary forms, with or without modification, are permitted provided that the
-*  following conditions are met:
-*
-*  (1) Redistributions of source code must retain the above copyright notice, this list of conditions and the following
-*  disclaimer.
-*
-*  (2) Redistributions in binary form must reproduce the above copyright notice, this list of conditions and the following
-*  disclaimer in the documentation and/or other materials provided with the distribution.
-*
-*  (3) Neither the name of the copyright holder nor the names of any contributors may be used to endorse or promote products
-*  derived from this software without specific prior written permission from the respective party.
-*
-*  (4) Other than as required in clauses (1) and (2), distributions in any form of modifications or other derivative works
-*  may not use the "OpenStudio" trademark, "OS", "os", or any other confusingly similar designation without specific prior
-*  written permission from Alliance for Sustainable Energy, LLC.
-*
-*  THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDER(S) AND ANY CONTRIBUTORS "AS IS" AND ANY EXPRESS OR IMPLIED WARRANTIES,
-*  INCLUDING, BUT NOT LIMITED TO, THE IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE ARE
-*  DISCLAIMED. IN NO EVENT SHALL THE COPYRIGHT HOLDER(S), ANY CONTRIBUTORS, THE UNITED STATES GOVERNMENT, OR THE UNITED
-*  STATES DEPARTMENT OF ENERGY, NOR ANY OF THEIR EMPLOYEES, BE LIABLE FOR ANY DIRECT, INDIRECT, INCIDENTAL, SPECIAL,
-*  EXEMPLARY, OR CONSEQUENTIAL DAMAGES (INCLUDING, BUT NOT LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES; LOSS OF
-*  USE, DATA, OR PROFITS; OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND ON ANY THEORY OF LIABILITY, WHETHER IN CONTRACT,
-*  STRICT LIABILITY, OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF
-*  ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
+*  OpenStudio(R), Copyright (c) OpenStudio Coalition and other contributors.
+*  See also https://openstudiocoalition.org/about/software_license/
 ***********************************************************************************************************************/
 
 #include "ThermalZonesGridView.hpp"
@@ -79,6 +55,8 @@
 
 #define NAME "Name"
 #define SELECTED "All"
+#define DISPLAYNAME "Display Name"
+#define CADOBJECTID "CAD Object ID"
 
 //HVAC SYSTEMS
 #define RENDERINGCOLOR "Rendering Color"
@@ -115,7 +93,8 @@
 
 namespace openstudio {
 
-ThermalZonesGridView::ThermalZonesGridView(bool isIP, const model::Model& model, QWidget* parent) : QWidget(parent), m_isIP(isIP) {
+ThermalZonesGridView::ThermalZonesGridView(bool isIP, bool displayAdditionalProps, const model::Model& model, QWidget* parent)
+  : QWidget(parent), m_isIP(isIP), m_displayAdditionalProps(displayAdditionalProps) {
   QVBoxLayout* layout = nullptr;
 
   layout = new QVBoxLayout();
@@ -126,7 +105,8 @@ ThermalZonesGridView::ThermalZonesGridView(bool isIP, const model::Model& model,
   std::vector<model::ThermalZone> thermalZones = model.getConcreteModelObjects<model::ThermalZone>();
   std::vector<model::ModelObject> thermalZoneModelObjects = subsetCastVector<model::ModelObject>(thermalZones);
 
-  m_gridController = new ThermalZonesGridController(m_isIP, "Thermal Zones", IddObjectType::OS_ThermalZone, model, thermalZoneModelObjects);
+  m_gridController =
+    new ThermalZonesGridController(m_isIP, m_displayAdditionalProps, "Thermal Zones", IddObjectType::OS_ThermalZone, model, thermalZoneModelObjects);
   auto* gridView = new OSGridView(m_gridController, "Thermal Zones", "Drop\nZone", false, parent);
 
   connect(gridView, &OSGridView::dropZoneItemClicked, this, &ThermalZonesGridView::dropZoneItemClicked);
@@ -143,6 +123,12 @@ ThermalZonesGridView::ThermalZonesGridView(bool isIP, const model::Model& model,
 
   connect(this, &ThermalZonesGridView::toggleUnitsClicked, m_gridController, &ThermalZonesGridController::onToggleUnits);
 
+  connect(this, &ThermalZonesGridView::toggleDisplayAdditionalPropsClicked, m_gridController,
+          &ThermalZonesGridController::toggleDisplayAdditionalPropsClicked);
+
+  connect(this, &ThermalZonesGridView::toggleDisplayAdditionalPropsClicked, m_gridController,
+          &ThermalZonesGridController::onToggleDisplayAdditionalProps);
+
   // std::vector<model::ThermalZone> thermalZone = model.getConcreteModelObjects<model::ThermalZone>();  // NOTE for horizontal system lists
 }
 
@@ -150,9 +136,9 @@ std::set<model::ModelObject> ThermalZonesGridView::selectedObjects() const {
   return m_gridController->selectedObjects();
 }
 
-ThermalZonesGridController::ThermalZonesGridController(bool isIP, const QString& headerText, IddObjectType iddObjectType, const model::Model& model,
-                                                       const std::vector<model::ModelObject>& modelObjects)
-  : OSGridController(isIP, headerText, iddObjectType, model, modelObjects) {
+ThermalZonesGridController::ThermalZonesGridController(bool isIP, bool displayAdditionalProps, const QString& headerText, IddObjectType iddObjectType,
+                                                       const model::Model& model, const std::vector<model::ModelObject>& modelObjects)
+  : OSGridController(isIP, headerText, iddObjectType, model, modelObjects, displayAdditionalProps) {
   setCategoriesAndFields();
 }
 
@@ -210,6 +196,11 @@ void ThermalZonesGridController::setCategoriesAndFields() {
 }
 
 void ThermalZonesGridController::addColumns(const QString& /*category*/, std::vector<QString>& fields) {
+
+  if (isDisplayAdditionalProps()) {
+    fields.insert(fields.begin(), {DISPLAYNAME, CADOBJECTID});
+  }
+
   // always show name column
   fields.insert(fields.begin(), {NAME, SELECTED});
 
@@ -591,7 +582,20 @@ void ThermalZonesGridController::addColumns(const QString& /*category*/, std::ve
       addParentNameLineEditColumn(Heading(QString(NAME), false, false), false, CastNullAdapter<model::ThermalZone>(&model::ThermalZone::name),
                                   CastNullAdapter<model::ThermalZone>(&model::ThermalZone::setName),
                                   boost::optional<std::function<void(model::ThermalZone*)>>());
-
+    } else if (field == DISPLAYNAME) {
+      addNameLineEditColumn(Heading(QString(DISPLAYNAME), false, false),                                 // heading
+                            false,                                                                       // isInspectable
+                            false,                                                                       // isLocked
+                            DisplayNameAdapter<model::ThermalZone>(&model::ThermalZone::displayName),    // getter
+                            DisplayNameAdapter<model::ThermalZone>(&model::ThermalZone::setDisplayName)  // setter
+      );
+    } else if (field == CADOBJECTID) {
+      addNameLineEditColumn(Heading(QString(CADOBJECTID), false, false),                                 // heading
+                            false,                                                                       // isInspectable
+                            false,                                                                       // isLocked
+                            DisplayNameAdapter<model::ThermalZone>(&model::ThermalZone::cadObjectId),    // getter
+                            DisplayNameAdapter<model::ThermalZone>(&model::ThermalZone::setCADObjectId)  // setter
+      );
     } else if (field == AIRLOOPNAME) {
       std::function<std::vector<model::ModelObject>(const model::ThermalZone&)> airloops([](const model::ThermalZone& t) {
         // we need to pass in a const &, but the function expects non-const, so let's copy the wrapper

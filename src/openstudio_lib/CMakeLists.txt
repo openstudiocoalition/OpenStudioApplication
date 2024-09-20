@@ -184,6 +184,8 @@ set(${target_name}_SRC
   OpenStudioAPI.hpp
   OSAppBase.cpp
   OSAppBase.hpp
+  OSCategoryPlaceholder.cpp
+  OSCategoryPlaceholder.hpp
   OSCollapsibleItem.cpp
   OSCollapsibleItem.hpp
   OSCollapsibleItemHeader.cpp
@@ -252,6 +254,16 @@ set(${target_name}_SRC
   SchedulesTabView.hpp
   SchedulesView.cpp
   SchedulesView.hpp
+  ScheduleOthersController.cpp
+  ScheduleOthersController.hpp
+  ScheduleOthersView.cpp
+  ScheduleOthersView.hpp
+  ScheduleConstantInspectorView.cpp
+  ScheduleConstantInspectorView.hpp
+  ScheduleCompactInspectorView.cpp
+  ScheduleCompactInspectorView.hpp
+  ScheduleFileInspectorView.cpp
+  ScheduleFileInspectorView.hpp
   ScriptItem.cpp
   ScriptItem.hpp
   ScriptsTabController.cpp
@@ -391,6 +403,7 @@ set(${target_name}_SRC
   ../shared_gui_components/CollapsibleComponentHeader.hpp
   ../shared_gui_components/CollapsibleComponentList.cpp
   ../shared_gui_components/CollapsibleComponentList.hpp
+  ../shared_gui_components/ColorPalettes.hpp
   ../shared_gui_components/Component.cpp
   ../shared_gui_components/Component.hpp
   ../shared_gui_components/ComponentList.cpp
@@ -571,6 +584,7 @@ set(${target_name}_moc
   ModelSubTabController.hpp
   ModelSubTabView.hpp
   OSAppBase.hpp
+  OSCategoryPlaceholder.hpp
   OSCollapsibleItem.hpp
   OSCollapsibleItemHeader.hpp
   OSCollapsibleItemList.hpp
@@ -605,6 +619,11 @@ set(${target_name}_moc
   SchedulesTabController.hpp
   SchedulesTabView.hpp
   SchedulesView.hpp
+  ScheduleOthersView.hpp
+  ScheduleOthersController.hpp
+  ScheduleConstantInspectorView.hpp
+  ScheduleCompactInspectorView.hpp
+  ScheduleFileInspectorView.hpp
   ScriptItem.hpp
   ScriptsTabController.hpp
   ScriptsTabView.hpp
@@ -719,7 +738,7 @@ set(${target_name}_moc
   ../shared_gui_components/NetworkProxyDialog.hpp
 )
 
-#include_directories(SYSTEM ${RUBY_INCLUDE_DIRS})
+#include_directories(SYSTEM ${Ruby_INCLUDE_DIRS})
 
 # resource files
 set(${target_name}_qrc
@@ -800,7 +819,7 @@ if(BUILD_BENCHMARK)
     message("bench_name=${bench_name}")
     add_executable( ${bench_name} ${bench_file} )
     target_link_libraries(${bench_name}
-      CONAN_PKG::benchmark
+      benchmark::benchmark
       ${target_name}
       ${${target_name}_test_depends}
     )

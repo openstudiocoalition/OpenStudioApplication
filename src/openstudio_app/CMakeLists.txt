@@ -229,7 +229,7 @@ elseif( UNIX )
     COMMAND ${CMAKE_COMMAND} -E copy_if_different ${qweb_resources_devtools} $<TARGET_FILE_DIR:${target_name}>/resources/
     COMMAND ${CMAKE_COMMAND} -E copy_if_different ${qweb_resources_100} $<TARGET_FILE_DIR:${target_name}>/resources/
     COMMAND ${CMAKE_COMMAND} -E copy_if_different ${qweb_resources_200} $<TARGET_FILE_DIR:${target_name}>/resources/
-    COMMAND ${CMAKE_COMMAND} -E copy_if_different ${qweb_resources_v8_context_snapshot} $<TARGET_FILE_DIR:${target_name}>/resources/
+    #COMMAND ${CMAKE_COMMAND} -E copy_if_different ${qweb_resources_v8_context_snapshot} $<TARGET_FILE_DIR:${target_name}>/resources/
   )
 
   # Note: JM: Qt 6.3.0, I can no longer access $<TARGET_FILE:Qt6::QXcbIntegrationPlugin>
@@ -272,7 +272,7 @@ elseif( WIN32 )
     COMMAND ${CMAKE_COMMAND} -E copy_if_different ${qweb_resources_devtools} $<TARGET_FILE_DIR:${target_name}>/resources/
     COMMAND ${CMAKE_COMMAND} -E copy_if_different ${qweb_resources_100} $<TARGET_FILE_DIR:${target_name}>/resources/
     COMMAND ${CMAKE_COMMAND} -E copy_if_different ${qweb_resources_200} $<TARGET_FILE_DIR:${target_name}>/resources/
-    COMMAND ${CMAKE_COMMAND} -E copy_if_different ${qweb_resources_v8_context_snapshot} $<TARGET_FILE_DIR:${target_name}>/resources/
+    #COMMAND ${CMAKE_COMMAND} -E copy_if_different ${qweb_resources_v8_context_snapshot} $<TARGET_FILE_DIR:${target_name}>/resources/
   )
 
   # On Windows, we must copy the DLLs inside the build folder or it won't find them
@@ -337,22 +337,34 @@ get_target_property(os_lib_location openstudio::openstudiolib LOCATION)
 get_filename_component(os_lib_dir ${os_lib_location} DIRECTORY)
 set(DIRS "${QT_INSTALL_DIR}/bin" "${QT_INSTALL_DIR}/lib" "${os_lib_dir}")
 
-if(APPLE)
-  install(DIRECTORY ${CMAKE_SOURCE_DIR}/src/openstudio_app/Resources/
-          DESTINATION OpenStudioApp.app/Contents/Resources
-          COMPONENT "Resources"
-  )
-elseif(WIN32)
-  install(DIRECTORY ${CMAKE_SOURCE_DIR}/src/openstudio_app/Resources/
-    DESTINATION Resources
-    COMPONENT "Resources"
-  )
+# install resources directory
+if( APPLE )
+  set(RESOURCES_DEST "OpenStudioApp.app/Contents/Resources")
 else()
-  install(DIRECTORY ${CMAKE_SOURCE_DIR}/src/openstudio_app/Resources/
-    DESTINATION Resources
-    COMPONENT "Resources"
-  )
+  set(RESOURCES_DEST "Resources")
 endif()
+
+install(DIRECTORY ${CMAKE_SOURCE_DIR}/src/openstudio_app/Resources/
+        DESTINATION ${RESOURCES_DEST}
+        COMPONENT "Resources"
+)
+
+# install measures/models from openstudio-coalition-measures
+
+install(FILES ${openstudio-coalition-measures_SOURCE_DIR}/models/ShoeboxExample.osm
+        DESTINATION ${RESOURCES_DEST}/ShoeboxModel/
+        COMPONENT "Resources"
+)
+
+install(DIRECTORY ${openstudio-coalition-measures_SOURCE_DIR}/models/ShoeboxExample
+        DESTINATION ${RESOURCES_DEST}/ShoeboxModel/
+        COMPONENT "Resources"
+)
+
+install(DIRECTORY ${openstudio-coalition-measures_SOURCE_DIR}/models/ShoeboxExample/measures/openstudio_results
+        DESTINATION ${RESOURCES_DEST}/
+        COMPONENT "Resources"
+)
 
 # since on apple the whole app bundle is installed (including these webkit components) we can exclude apple
 if( NOT APPLE )
@@ -460,6 +472,13 @@ if( APPLE )
           "${CMAKE_INSTALL_PREFIX}/OpenStudioApp.app/Contents/Frameworks/$<TARGET_FILE_NAME:openstudio::openstudiolib>"
 
         COMMAND "${CMAKE_COMMAND}" -E make_directory "${CMAKE_INSTALL_PREFIX}/bin"
+
+        COMMAND_ECHO STDOUT
+        COMMAND_ERROR_IS_FATAL ANY
+      )
+
+      # We break it into two `execute_process`es so that there is no race condition between the make_directory above and the create_symlink below
+      execute_process(
         COMMAND "${CMAKE_COMMAND}" -E create_symlink
           "../OpenStudioApp.app/Contents/MacOS/$<TARGET_FILE_NAME:openstudio::openstudio>"
           "${CMAKE_INSTALL_PREFIX}/bin/$<TARGET_FILE_NAME:openstudio::openstudio>"
@@ -523,4 +542,23 @@ if(BUILD_TESTING)
   #  openstudio_app_resources
   #)
 
+endif()
+
+if(APPLE AND CPACK_CODESIGNING_DEVELOPPER_ID_APPLICATION)
+  include("${CMAKE_CURRENT_SOURCE_DIR}/../../cmake/CodeSigning.cmake")
+  register_install_codesign_target(${target_name} "." "OpenStudioApp")
+
+  install(
+    CODE "
+    include(\"${CMAKE_CURRENT_FUNCTION_LIST_FILE}\")
+    codesign_files_macos(
+      FILES \"\${CMAKE_INSTALL_PREFIX}/$<TARGET_BUNDLE_DIR_NAME:${target_name}>/Contents/Frameworks/QtWebEngineCore.framework/Versions/A/Helpers/QtWebEngineProcess.app/Contents/MacOS/QtWebEngineProcess\"
+      SIGNING_IDENTITY \"${CPACK_CODESIGNING_DEVELOPPER_ID_APPLICATION}\"
+      IDENTIFIER \"${CPACK_CODESIGNING_MACOS_IDENTIFIER}.QtWebEngineProcess\"
+      ENTITLEMENTS \"${QtWebEngineProcess}/Contents/Resources/QtWebEngineProcess.entitlements\"
+      FORCE VERBOSE
+      )
+  "
+    COMPONENT OpenStudioApp
+  )
 endif()

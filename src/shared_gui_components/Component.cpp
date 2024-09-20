@@ -1,30 +1,6 @@
 /***********************************************************************************************************************
-*  OpenStudio(R), Copyright (c) 2020-2023, OpenStudio Coalition and other contributors. All rights reserved.
-*
-*  Redistribution and use in source and binary forms, with or without modification, are permitted provided that the
-*  following conditions are met:
-*
-*  (1) Redistributions of source code must retain the above copyright notice, this list of conditions and the following
-*  disclaimer.
-*
-*  (2) Redistributions in binary form must reproduce the above copyright notice, this list of conditions and the following
-*  disclaimer in the documentation and/or other materials provided with the distribution.
-*
-*  (3) Neither the name of the copyright holder nor the names of any contributors may be used to endorse or promote products
-*  derived from this software without specific prior written permission from the respective party.
-*
-*  (4) Other than as required in clauses (1) and (2), distributions in any form of modifications or other derivative works
-*  may not use the "OpenStudio" trademark, "OS", "os", or any other confusingly similar designation without specific prior
-*  written permission from Alliance for Sustainable Energy, LLC.
-*
-*  THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDER(S) AND ANY CONTRIBUTORS "AS IS" AND ANY EXPRESS OR IMPLIED WARRANTIES,
-*  INCLUDING, BUT NOT LIMITED TO, THE IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE ARE
-*  DISCLAIMED. IN NO EVENT SHALL THE COPYRIGHT HOLDER(S), ANY CONTRIBUTORS, THE UNITED STATES GOVERNMENT, OR THE UNITED
-*  STATES DEPARTMENT OF ENERGY, NOR ANY OF THEIR EMPLOYEES, BE LIABLE FOR ANY DIRECT, INDIRECT, INCIDENTAL, SPECIAL,
-*  EXEMPLARY, OR CONSEQUENTIAL DAMAGES (INCLUDING, BUT NOT LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES; LOSS OF
-*  USE, DATA, OR PROFITS; OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND ON ANY THEORY OF LIABILITY, WHETHER IN CONTRACT,
-*  STRICT LIABILITY, OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF
-*  ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
+*  OpenStudio(R), Copyright (c) OpenStudio Coalition and other contributors.
+*  See also https://openstudiocoalition.org/about/software_license/
 ***********************************************************************************************************************/
 
 #include "Component.hpp"
@@ -50,6 +26,7 @@
 #include <QPainter>
 #include <QTableWidget>
 #include <QTableWidgetItem>
+#include <QDateTime>
 
 #define OPENSTUDIO_TYPE "OpenStudio Type"
 
@@ -227,6 +204,10 @@ Component::Component(const Component& other) {
     m_available = other.m_available;
     m_updateAvailable = other.m_updateAvailable;
 
+    m_org = other.m_org;
+    m_repo = other.m_repo;
+    m_releaseTag = other.m_releaseTag;
+
     m_showAbridgedView = false;
     m_showCheckBox = false;
 
@@ -260,6 +241,10 @@ Component& Component::operator=(const Component& other) {
     m_tags = other.m_tags;
     m_available = other.m_available;
     m_updateAvailable = other.m_updateAvailable;
+
+    m_org = other.m_org;
+    m_repo = other.m_repo;
+    m_releaseTag = other.m_releaseTag;
 
     m_showAbridgedView = false;
     m_showCheckBox = false;
@@ -338,7 +323,10 @@ void Component::parseBCLMeasure(const BCLMeasure& bclMeasure) {
   m_modelerDescription = m_modelerDescription.trimmed();  // alternative: .simplified, removes consecutive whitespaces inside the string as well
 
   if (auto dt_ = bclMeasure.versionModified()) {
-    m_versionModified = dt_->toXsdDateTime().c_str();
+    // m_versionModified = dt_->toXsdDateTime().c_str();
+    QDateTime qDT;
+    qDT.setSecsSinceEpoch(static_cast<qint64>(dt_->toEpoch()));
+    m_versionModified = qDT.toString("dddd MMMM d yyyy HH:mm:ss");
   }
 
   m_error = bclMeasure.error();
@@ -380,7 +368,15 @@ void Component::parseBCLSearchResult(const BCLSearchResult& bclSearchResult) {
   m_modelerDescription = m_modelerDescription.trimmed();
   m_fidelityLevel = bclSearchResult.fidelityLevel().c_str();
 
-  // TODO: BCLSearchResult is missing version modified, cf https://github.com/NREL/OpenStudio/issues/5125
+  if (auto dt_ = bclSearchResult.versionModified()) {
+    // m_versionModified = dt_->toXsdDateTime().c_str();
+    QDateTime qDT;
+    qDT.setSecsSinceEpoch(static_cast<qint64>(dt_->toEpoch()));
+    m_versionModified = qDT.toString("dddd MMMM d yyyy HH:mm:ss");
+  }
+  m_org = bclSearchResult.org().c_str();
+  m_repo = bclSearchResult.repo().c_str();
+  m_releaseTag = bclSearchResult.releaseTag().c_str();
 
   // m_error
   m_attributes = bclSearchResult.attributes();
@@ -684,11 +680,22 @@ void Component::createCompleteLayout() {
     auto* label = new QLabel("Sources");
     label->setObjectName("H1");
     mainLayout->addWidget(label);
-    if (m_provenances.empty()) {
+    if (m_provenances.empty() && m_org.isEmpty() && m_repo.isEmpty()) {
       label = new QLabel();
       mainLayout->addWidget(label);
+
     } else {
       auto* tableWidget = createAndRegisterTableWidgetWithTwoColums();
+      if (!m_org.isEmpty()) {
+        addRowToTableWidget(tableWidget, "Organization", m_org);
+      }
+      if (!m_repo.isEmpty()) {
+        addRowToTableWidget(tableWidget, "Repository", m_repo);
+      }
+      if (!m_releaseTag.isEmpty()) {
+        addRowToTableWidget(tableWidget, "Release Tag", m_releaseTag);
+      }
+
       for (const BCLProvenance& provenance : m_provenances) {
         if (!provenance.author().empty()) {
           addRowToTableWidget(tableWidget, "Author", provenance.author().c_str());
@@ -703,6 +710,22 @@ void Component::createCompleteLayout() {
         // addRowToTableWidget(tableWidget, "", "");
       }
       makeTableShowCompletely(tableWidget);
+
+      if (!m_org.isEmpty() && !m_repo.isEmpty()) {
+        const QString repo_url = QString("https://github.com/%1/%2").arg(m_org).arg(m_repo);
+        const QString link = QString("<a href=\"%1\">%1</a>").arg(repo_url);
+        auto* content = new QLabel(link);
+        content->setOpenExternalLinks(true);
+        mainLayout->addWidget(content);
+
+        if (!m_releaseTag.isEmpty()) {
+          const QString direct_url = QString("%1/tree/%2/lib/measures").arg(repo_url).arg(m_releaseTag);
+          const QString direct_link = QString("<a href=\"%1\">%1</a>").arg(direct_url);
+          auto* contentDirect = new QLabel(direct_link);
+          contentDirect->setOpenExternalLinks(true);
+          mainLayout->addWidget(contentDirect);
+        }
+      }
     }
   }
 

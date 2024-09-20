@@ -1,30 +1,6 @@
 /***********************************************************************************************************************
-*  OpenStudio(R), Copyright (c) 2020-2023, OpenStudio Coalition and other contributors. All rights reserved.
-*
-*  Redistribution and use in source and binary forms, with or without modification, are permitted provided that the
-*  following conditions are met:
-*
-*  (1) Redistributions of source code must retain the above copyright notice, this list of conditions and the following
-*  disclaimer.
-*
-*  (2) Redistributions in binary form must reproduce the above copyright notice, this list of conditions and the following
-*  disclaimer in the documentation and/or other materials provided with the distribution.
-*
-*  (3) Neither the name of the copyright holder nor the names of any contributors may be used to endorse or promote products
-*  derived from this software without specific prior written permission from the respective party.
-*
-*  (4) Other than as required in clauses (1) and (2), distributions in any form of modifications or other derivative works
-*  may not use the "OpenStudio" trademark, "OS", "os", or any other confusingly similar designation without specific prior
-*  written permission from Alliance for Sustainable Energy, LLC.
-*
-*  THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDER(S) AND ANY CONTRIBUTORS "AS IS" AND ANY EXPRESS OR IMPLIED WARRANTIES,
-*  INCLUDING, BUT NOT LIMITED TO, THE IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE ARE
-*  DISCLAIMED. IN NO EVENT SHALL THE COPYRIGHT HOLDER(S), ANY CONTRIBUTORS, THE UNITED STATES GOVERNMENT, OR THE UNITED
-*  STATES DEPARTMENT OF ENERGY, NOR ANY OF THEIR EMPLOYEES, BE LIABLE FOR ANY DIRECT, INDIRECT, INCIDENTAL, SPECIAL,
-*  EXEMPLARY, OR CONSEQUENTIAL DAMAGES (INCLUDING, BUT NOT LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES; LOSS OF
-*  USE, DATA, OR PROFITS; OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND ON ANY THEORY OF LIABILITY, WHETHER IN CONTRACT,
-*  STRICT LIABILITY, OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF
-*  ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
+*  OpenStudio(R), Copyright (c) OpenStudio Coalition and other contributors.
+*  See also https://openstudiocoalition.org/about/software_license/
 ***********************************************************************************************************************/
 
 #ifndef OPENSTUDIO_INSPECTORVIEW_HPP
@@ -93,6 +69,7 @@ class InspectorView : public QWidget
   void addToLoopClicked(model::Loop&, boost::optional<model::HVACComponent>&);
   void removeFromLoopClicked(model::Loop&, boost::optional<model::HVACComponent>&);
   void toggleUnitsClicked(bool displayIP);
+  void toggleDisplayAdditionalPropsClicked(bool displayAdditionalProps);
   void itemRemoveClicked(OSItem*);
   void removeButtonClicked(bool);
   void workspaceObjectRemoved();
@@ -104,7 +81,7 @@ class InspectorView : public QWidget
 
  public slots:
 
-  void layoutModelObject(model::OptionalModelObject&, bool readOnly, bool displayIP);
+  void layoutModelObject(model::OptionalModelObject&, bool readOnly, bool displayIP, bool displayAdditionalProps = false);
   virtual void toggleUnits(bool displayIP);
 
  protected slots:
@@ -132,7 +109,7 @@ class BaseInspectorView
 
   void addMainView(QWidget* widget);
 
-  virtual void layoutModelObject(model::ModelObject&, bool readOnly, bool displayIP) = 0;
+  virtual void layoutModelObject(model::ModelObject&, bool readOnly, bool displayIP, bool displayAdditionalProps = false) = 0;
 
   virtual void update() {}
 
@@ -141,6 +118,7 @@ class BaseInspectorView
  signals:
 
   void toggleUnitsClicked(bool displayIP);
+  void toggleDisplayAdditionalPropsClicked(bool displayAdditionalProps);
 
   void removeButtonClicked(bool);
 
@@ -163,7 +141,7 @@ class GenericInspectorView : public BaseInspectorView
 
   virtual ~GenericInspectorView() {}
 
-  void layoutModelObject(model::ModelObject&, bool readOnly, bool displayIP) override;
+  void layoutModelObject(model::ModelObject&, bool readOnly, bool displayIP, bool displayAdditionalProps = false) override;
 
  private:
   InspectorGadget* m_inspectorGadget;
@@ -184,7 +162,7 @@ class SplitterMixerInspectorView : public BaseInspectorView
 
   virtual ~SplitterMixerInspectorView() {}
 
-  void layoutModelObject(model::ModelObject&, bool readOnly, bool displayIP) override;
+  void layoutModelObject(model::ModelObject&, bool readOnly, bool displayIP, bool displayAdditionalProps = false) override;
 
  signals:
 
@@ -237,7 +215,7 @@ class RefrigerationWalkinInspectorView : public BaseInspectorView
 
   virtual ~RefrigerationWalkinInspectorView() {}
 
-  void layoutModelObject(model::ModelObject&, bool readOnly, bool displayIP) override;
+  void layoutModelObject(model::ModelObject&, bool readOnly, bool displayIP, bool displayAdditionalProps = false) override;
 
  private:
   InspectorGadget* m_walkinInspectorGadget;
@@ -255,7 +233,7 @@ class ThermalZoneInspectorView : public BaseInspectorView
 
   virtual ~ThermalZoneInspectorView() {}
 
-  void layoutModelObject(model::ModelObject&, bool readOnly, bool displayIP) override;
+  void layoutModelObject(model::ModelObject&, bool readOnly, bool displayIP, bool displayAdditionalProps = false) override;
 
  signals:
 
@@ -289,7 +267,7 @@ class WaterToAirInspectorView : public BaseInspectorView
 
   virtual ~WaterToAirInspectorView() {}
 
-  void layoutModelObject(model::ModelObject&, bool readOnly, bool displayIP) override;
+  void layoutModelObject(model::ModelObject&, bool readOnly, bool displayIP, bool displayAdditionalProps = false) override;
 
  signals:
 
@@ -324,7 +302,7 @@ class AirTerminalSingleDuctConstantVolumeCooledBeamInspectorView : public BaseIn
 
   virtual ~AirTerminalSingleDuctConstantVolumeCooledBeamInspectorView() {}
 
-  void layoutModelObject(model::ModelObject&, bool readOnly, bool displayIP) override;
+  void layoutModelObject(model::ModelObject&, bool readOnly, bool displayIP, bool displayAdditionalProps = false) override;
 
  signals:
 
@@ -358,7 +336,7 @@ class AirTerminalInspectorView : public BaseInspectorView
  protected:
   template <class T>
   // cppcheck-suppress missingOverride
-  void layoutModelObject(model::ModelObject&, bool readOnly, bool displayIP);
+  void layoutModelObject(model::ModelObject&, bool readOnly, bool displayIP, bool displayAdditionalProps = false);
 
   //private:
 
@@ -378,7 +356,7 @@ class AirTerminalSingleDuctConstantVolumeReheatInspectorView : public AirTermina
 
   virtual ~AirTerminalSingleDuctConstantVolumeReheatInspectorView() {}
 
-  void layoutModelObject(model::ModelObject&, bool readOnly, bool displayIP) override;
+  void layoutModelObject(model::ModelObject&, bool readOnly, bool displayIP, bool displayAdditionalProps = false) override;
 };
 
 class AirTerminalSingleDuctVAVReheatInspectorView : public AirTerminalInspectorView
@@ -390,7 +368,7 @@ class AirTerminalSingleDuctVAVReheatInspectorView : public AirTerminalInspectorV
 
   virtual ~AirTerminalSingleDuctVAVReheatInspectorView() {}
 
-  void layoutModelObject(model::ModelObject&, bool readOnly, bool displayIP) override;
+  void layoutModelObject(model::ModelObject&, bool readOnly, bool displayIP, bool displayAdditionalProps = false) override;
 };
 
 class AirTerminalSingleDuctParallelPIUReheatInspectorView : public AirTerminalInspectorView
@@ -402,7 +380,7 @@ class AirTerminalSingleDuctParallelPIUReheatInspectorView : public AirTerminalIn
 
   virtual ~AirTerminalSingleDuctParallelPIUReheatInspectorView() {}
 
-  void layoutModelObject(model::ModelObject&, bool readOnly, bool displayIP) override;
+  void layoutModelObject(model::ModelObject&, bool readOnly, bool displayIP, bool displayAdditionalProps = false) override;
 };
 
 class AirTerminalSingleDuctSeriesPIUReheatInspectorView : public AirTerminalInspectorView
@@ -414,7 +392,7 @@ class AirTerminalSingleDuctSeriesPIUReheatInspectorView : public AirTerminalInsp
 
   virtual ~AirTerminalSingleDuctSeriesPIUReheatInspectorView() {}
 
-  void layoutModelObject(model::ModelObject&, bool readOnly, bool displayIP) override;
+  void layoutModelObject(model::ModelObject&, bool readOnly, bool displayIP, bool displayAdditionalProps = false) override;
 };
 
 class AirTerminalSingleDuctVAVHeatAndCoolReheatInspectorView : public AirTerminalInspectorView
@@ -426,7 +404,7 @@ class AirTerminalSingleDuctVAVHeatAndCoolReheatInspectorView : public AirTermina
 
   virtual ~AirTerminalSingleDuctVAVHeatAndCoolReheatInspectorView() {}
 
-  void layoutModelObject(model::ModelObject&, bool readOnly, bool displayIP) override;
+  void layoutModelObject(model::ModelObject&, bool readOnly, bool displayIP, bool displayAdditionalProps = false) override;
 };
 
 class ZoneHVACPackagedTerminalAirConditionerInspectorView : public BaseInspectorView
@@ -438,7 +416,7 @@ class ZoneHVACPackagedTerminalAirConditionerInspectorView : public BaseInspector
 
   virtual ~ZoneHVACPackagedTerminalAirConditionerInspectorView() {}
 
-  void layoutModelObject(model::ModelObject&, bool readOnly, bool displayIP) override;
+  void layoutModelObject(model::ModelObject&, bool readOnly, bool displayIP, bool displayAdditionalProps = false) override;
 
  signals:
 
@@ -463,7 +441,7 @@ class ZoneHVACPackagedTerminalHeatPumpInspectorView : public BaseInspectorView
 
   virtual ~ZoneHVACPackagedTerminalHeatPumpInspectorView() {}
 
-  void layoutModelObject(model::ModelObject&, bool readOnly, bool displayIP) override;
+  void layoutModelObject(model::ModelObject&, bool readOnly, bool displayIP, bool displayAdditionalProps = false) override;
 
  signals:
 
@@ -488,7 +466,7 @@ class WaterHeaterHeatPumpInspectorView : public BaseInspectorView
 
   virtual ~WaterHeaterHeatPumpInspectorView() {}
 
-  void layoutModelObject(model::ModelObject&, bool readOnly, bool displayIP) override;
+  void layoutModelObject(model::ModelObject&, bool readOnly, bool displayIP, bool displayAdditionalProps = false) override;
 
  signals:
 
@@ -513,7 +491,7 @@ class ZoneHVACFourPipeFanCoilInspectorView : public BaseInspectorView
 
   virtual ~ZoneHVACFourPipeFanCoilInspectorView() {}
 
-  void layoutModelObject(model::ModelObject&, bool readOnly, bool displayIP) override;
+  void layoutModelObject(model::ModelObject&, bool readOnly, bool displayIP, bool displayAdditionalProps = false) override;
 
  signals:
 
@@ -538,7 +516,7 @@ class ZoneHVACLowTempRadiantConstFlowInspectorView : public BaseInspectorView
  public:
   explicit ZoneHVACLowTempRadiantConstFlowInspectorView(QWidget* parent = nullptr);
 
-  void layoutModelObject(model::ModelObject&, bool readOnly, bool displayIP) override;
+  void layoutModelObject(model::ModelObject&, bool readOnly, bool displayIP, bool displayAdditionalProps = false) override;
 
  signals:
 
@@ -563,7 +541,7 @@ class ZoneHVACLowTempRadiantVarFlowInspectorView : public BaseInspectorView
  public:
   explicit ZoneHVACLowTempRadiantVarFlowInspectorView(QWidget* parent = nullptr);
 
-  void layoutModelObject(model::ModelObject&, bool readOnly, bool displayIP) override;
+  void layoutModelObject(model::ModelObject&, bool readOnly, bool displayIP, bool displayAdditionalProps = false) override;
 
  signals:
 
@@ -590,7 +568,7 @@ class ZoneHVACWaterToAirHeatPumpInspectorView : public BaseInspectorView
 
   virtual ~ZoneHVACWaterToAirHeatPumpInspectorView() {}
 
-  void layoutModelObject(model::ModelObject&, bool readOnly, bool displayIP) override;
+  void layoutModelObject(model::ModelObject&, bool readOnly, bool displayIP, bool displayAdditionalProps = false) override;
 
  signals:
 
@@ -619,7 +597,7 @@ class ZoneHVACBaseboardConvectiveWaterInspectorView : public BaseInspectorView
 
   virtual ~ZoneHVACBaseboardConvectiveWaterInspectorView() {}
 
-  void layoutModelObject(model::ModelObject&, bool readOnly, bool displayIP) override;
+  void layoutModelObject(model::ModelObject&, bool readOnly, bool displayIP, bool displayAdditionalProps = false) override;
 
  signals:
 
@@ -644,7 +622,7 @@ class ZoneHVACBaseboardRadiantConvectiveWaterInspectorView : public BaseInspecto
 
   virtual ~ZoneHVACBaseboardRadiantConvectiveWaterInspectorView() {}
 
-  void layoutModelObject(model::ModelObject&, bool readOnly, bool displayIP) override;
+  void layoutModelObject(model::ModelObject&, bool readOnly, bool displayIP, bool displayAdditionalProps = false) override;
 
  signals:
 
@@ -669,7 +647,7 @@ class ZoneHVACCoolingPanelRadiantConvectiveWaterInspectorView : public BaseInspe
 
   virtual ~ZoneHVACCoolingPanelRadiantConvectiveWaterInspectorView() {}
 
-  void layoutModelObject(model::ModelObject&, bool readOnly, bool displayIP) override;
+  void layoutModelObject(model::ModelObject&, bool readOnly, bool displayIP, bool displayAdditionalProps = false) override;
 
  signals:
 
@@ -694,7 +672,7 @@ class ZoneHVACUnitHeaterInspectorView : public BaseInspectorView
 
   virtual ~ZoneHVACUnitHeaterInspectorView() {}
 
-  void layoutModelObject(model::ModelObject&, bool readOnly, bool displayIP) override;
+  void layoutModelObject(model::ModelObject&, bool readOnly, bool displayIP, bool displayAdditionalProps = false) override;
 
  signals:
 
@@ -719,7 +697,7 @@ class ZoneHVACUnitVentilatorInspectorView : public BaseInspectorView
 
   virtual ~ZoneHVACUnitVentilatorInspectorView() {}
 
-  void layoutModelObject(model::ModelObject&, bool readOnly, bool displayIP) override;
+  void layoutModelObject(model::ModelObject&, bool readOnly, bool displayIP, bool displayAdditionalProps = false) override;
 
  signals:
 
@@ -746,7 +724,7 @@ class AirLoopHVACUnitarySystemInspectorView : public BaseInspectorView
 
   virtual ~AirLoopHVACUnitarySystemInspectorView() {}
 
-  void layoutModelObject(model::ModelObject&, bool readOnly, bool displayIP) override;
+  void layoutModelObject(model::ModelObject&, bool readOnly, bool displayIP, bool displayAdditionalProps = false) override;
 
  signals:
 
@@ -773,7 +751,7 @@ class AirTerminalSingleDuctConstantVolumeFourPipeInductionInspectorView : public
 
   virtual ~AirTerminalSingleDuctConstantVolumeFourPipeInductionInspectorView() {}
 
-  void layoutModelObject(model::ModelObject&, bool readOnly, bool displayIP) override;
+  void layoutModelObject(model::ModelObject&, bool readOnly, bool displayIP, bool displayAdditionalProps = false) override;
 
  signals:
 
@@ -799,7 +777,7 @@ class AirTerminalSingleDuctConstantVolumeFourPipeBeamInspectorView : public Base
 
   virtual ~AirTerminalSingleDuctConstantVolumeFourPipeBeamInspectorView() {}
 
-  void layoutModelObject(model::ModelObject&, bool readOnly, bool displayIP) override;
+  void layoutModelObject(model::ModelObject&, bool readOnly, bool displayIP, bool displayAdditionalProps = false) override;
 
  signals:
 
@@ -825,7 +803,7 @@ class ScheduleRulesetInspectorView : public BaseInspectorView
 
   virtual ~ScheduleRulesetInspectorView() {}
 
-  virtual void layoutModelObject(model::ModelObject& modelObject, bool readOnly, bool displayIP) override;
+  virtual void layoutModelObject(model::ModelObject& modelObject, bool readOnly, bool displayIP, bool displayAdditionalProps = false) override;
 };
 
 }  // namespace openstudio

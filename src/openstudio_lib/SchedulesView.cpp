@@ -1,30 +1,6 @@
 /***********************************************************************************************************************
-*  OpenStudio(R), Copyright (c) 2020-2023, OpenStudio Coalition and other contributors. All rights reserved.
-*
-*  Redistribution and use in source and binary forms, with or without modification, are permitted provided that the
-*  following conditions are met:
-*
-*  (1) Redistributions of source code must retain the above copyright notice, this list of conditions and the following
-*  disclaimer.
-*
-*  (2) Redistributions in binary form must reproduce the above copyright notice, this list of conditions and the following
-*  disclaimer in the documentation and/or other materials provided with the distribution.
-*
-*  (3) Neither the name of the copyright holder nor the names of any contributors may be used to endorse or promote products
-*  derived from this software without specific prior written permission from the respective party.
-*
-*  (4) Other than as required in clauses (1) and (2), distributions in any form of modifications or other derivative works
-*  may not use the "OpenStudio" trademark, "OS", "os", or any other confusingly similar designation without specific prior
-*  written permission from Alliance for Sustainable Energy, LLC.
-*
-*  THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDER(S) AND ANY CONTRIBUTORS "AS IS" AND ANY EXPRESS OR IMPLIED WARRANTIES,
-*  INCLUDING, BUT NOT LIMITED TO, THE IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE ARE
-*  DISCLAIMED. IN NO EVENT SHALL THE COPYRIGHT HOLDER(S), ANY CONTRIBUTORS, THE UNITED STATES GOVERNMENT, OR THE UNITED
-*  STATES DEPARTMENT OF ENERGY, NOR ANY OF THEIR EMPLOYEES, BE LIABLE FOR ANY DIRECT, INDIRECT, INCIDENTAL, SPECIAL,
-*  EXEMPLARY, OR CONSEQUENTIAL DAMAGES (INCLUDING, BUT NOT LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES; LOSS OF
-*  USE, DATA, OR PROFITS; OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND ON ANY THEORY OF LIABILITY, WHETHER IN CONTRACT,
-*  STRICT LIABILITY, OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF
-*  ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
+*  OpenStudio(R), Copyright (c) OpenStudio Coalition and other contributors.
+*  See also https://openstudiocoalition.org/about/software_license/
 ***********************************************************************************************************************/
 
 #include "SchedulesView.hpp"
@@ -35,6 +11,7 @@
 #include "OSItem.hpp"
 #include "OSItemSelectorButtons.hpp"
 #include "../shared_gui_components/OSLineEdit.hpp"
+#include "../shared_gui_components/ColorPalettes.hpp"
 
 #include <openstudio/model/Model.hpp>
 #include <openstudio/model/Model_Impl.hpp>
@@ -58,6 +35,7 @@
 
 #include <QButtonGroup>
 #include <QCalendarWidget>
+#include <QColor>
 #include <QDateTime>
 #include <QDateTimeEdit>
 #include <QDoubleSpinBox>
@@ -87,28 +65,6 @@ namespace openstudio {
 /******************************************************************************/
 // SchedulesView
 /******************************************************************************/
-
-const std::vector<QColor> SchedulesView::colors = SchedulesView::initializeColors();
-
-std::vector<QColor> SchedulesView::initializeColors() {
-  std::vector<QColor> _colors(13);
-
-  _colors[0] = QColor(170, 68, 153);
-  _colors[1] = QColor(51, 34, 136);
-  _colors[2] = QColor(17, 119, 51);
-  _colors[3] = QColor(153, 153, 51);
-  _colors[4] = QColor(221, 204, 119);
-  _colors[5] = QColor(204, 102, 119);
-  _colors[6] = QColor(136, 34, 85);
-  _colors[7] = QColor(68, 170, 153);
-  _colors[8] = QColor(102, 153, 204);
-  _colors[9] = QColor(102, 17, 0);
-  _colors[10] = QColor(170, 68, 102);
-  _colors[11] = QColor(80, 80, 80);
-  _colors[12] = QColor(136, 204, 238);
-
-  return _colors;
-}
 
 SchedulesView::SchedulesView(bool isIP, const model::Model& model)
   : m_model(model), m_leftVLayout(new QVBoxLayout()), m_contentLayout(new QHBoxLayout()), m_isIP(isIP) {
@@ -1056,7 +1012,7 @@ void ScheduleTabRule::paintEvent(QPaintEvent* /*event*/) {
     p.drawRect(0, 0, size().width() - 1, size().height() - 1);
   }
 
-  p.setBrush(QBrush(m_scheduleTab->schedulesView()->colors[i]));
+  p.setBrush(QBrush(ColorPalettes::schedule_rules_colors[i]));
 
   p.setPen(Qt::SolidLine);
 
@@ -1167,7 +1123,7 @@ void ScheduleTabDefault::paintEvent(QPaintEvent* /*event*/) {
 
   // DLM: don't draw color squares for special days (winter/summer design days and Holiday)
   if (m_type == DEFAULT) {
-    p.setBrush(QBrush(m_scheduleTab->schedulesView()->colors[12]));
+    p.setBrush(QBrush(ColorPalettes::schedule_rules_colors[12]));
     p.drawRect(0, 0, 5, size().height() - 1);
   }
 
@@ -1585,7 +1541,7 @@ ScheduleRuleView::ScheduleRuleView(bool isIP, const model::ScheduleRule& schedul
   if (colorIndex > 12) {
     colorIndex = 12;
   }
-  QColor color = m_schedulesView->colors[colorIndex];
+  QColor color = ColorPalettes::schedule_rules_colors[colorIndex];
   colorStyle.append(color.name());
   colorStyle.append("; }");
   colorWidget->setStyleSheet(colorStyle);
@@ -2103,14 +2059,14 @@ void ScheduleCalendarWidget::paintCell(QPainter* painter, const QRect& rect, QDa
 
     int ruleIndex = m_monthView->yearOverview()->activeRuleIndices()[dayOfYear - 1];
 
-    QColor ruleColor = SchedulesView::colors[12];
+    QColor ruleColor = ColorPalettes::schedule_rules_colors[12];
 
     if (ruleIndex > 12) {
       ruleIndex = 12;
     }
 
     if (ruleIndex > -1) {
-      ruleColor = SchedulesView::colors[ruleIndex];
+      ruleColor = ColorPalettes::schedule_rules_colors[ruleIndex];
     }
 
     QString dateString = QString::number(date.day());

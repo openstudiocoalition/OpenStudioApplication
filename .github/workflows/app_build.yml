@@ -8,6 +8,7 @@ on:
       - 'v*' # Push events to matching v*, i.e. v1.0, v20.15.10
   pull_request:
     branches: [ master, develop ]
+    types: [ opened, reopened, synchronize, ready_for_review ]
 
 env:
   BUILD_TYPE: Release
@@ -15,81 +16,67 @@ env:
   BUILD_TESTING: ON
   BUILD_BENCHMARK: ON
   BUILD_PACKAGE: ON
-  CPACK_BINARY_NSIS: OFF
-  CPACK_BINARY_RPM: OFF
-  CPACK_BINARY_STGZ: OFF
-  CPACK_BINARY_TBZ2: OFF
-  CPACK_BINARY_TGZ: ON
-  CPACK_BINARY_TXZ: OFF
-  CPACK_BINARY_TZ: OFF
-  CPACK_SOURCE_RPM: OFF
-  CPACK_SOURCE_TBZ2: OFF
-  CPACK_SOURCE_TGZ: OFF
-  CPACK_SOURCE_TXZ: OFF
-  CPACK_SOURCE_TZ: OFF
-  CPACK_SOURCE_ZIP: OFF
-  QT_VERSION: 6.6.3
-  # CPACK_BINARY_DEB: OS-SPECIFIC
-  # CPACK_BINARY_IFW: OS-SPECIFIC
+  QT_VERSION: 6.5.2
+  QT_DEBUG_PLUGINS: 1
 
 jobs:
   build:
-    # Note: as of 2021-01-29, this only works for push, not for pull request
-    # if: "!(contains(github.event.head_commit.message, 'skip') && contains(github.event.head_commit.message, 'ci'))"
+    if: ${{ github.event_name == 'push' || !github.event.pull_request.draft }}
+
+    outputs:
+      OS_APP_VERSION: ${{ steps.parse_cmake_versions.outputs.OS_APP_VERSION }}
+
     runs-on: ${{ matrix.os }}
     continue-on-error: true
     strategy:
       # fail-fast: Default is true, switch to false to allow one platform to fail and still run others
       fail-fast: false
       matrix:
-        os: [ubuntu-20.04, ubuntu-22.04, windows-2022, macos-13, macos-arm64]
+        os: [ubuntu-20.04, ubuntu-22.04, ubuntu-24.04, windows-2022, macos-13, macos-arm64]
         include:
         - os: ubuntu-20.04
           SELF_HOSTED: false
           PLATFORM_NAME: Linux
-          CPACK_BINARY_DEB: ON
-          CPACK_BINARY_IFW: OFF
-          CPACK_BINARY_TGZ: ON
-          CPACK_BINARY_ZIP: OFF
           BINARY_EXT: deb
           COMPRESSED_EXT: tar.gz
           BINARY_PKG_PATH: _CPack_Packages/Linux/DEB
           COMPRESSED_PKG_PATH: _CPack_Packages/Linux/TGZ
           QT_OS_NAME: linux
           QT_ARCH: gcc_64
+          arch: x86_64
         - os: ubuntu-22.04
           SELF_HOSTED: false
           PLATFORM_NAME: Linux
-          CPACK_BINARY_DEB: ON
-          CPACK_BINARY_IFW: OFF
-          CPACK_BINARY_TGZ: ON
-          CPACK_BINARY_ZIP: OFF
           BINARY_EXT: deb
           COMPRESSED_EXT: tar.gz
           BINARY_PKG_PATH: _CPack_Packages/Linux/DEB
           COMPRESSED_PKG_PATH: _CPack_Packages/Linux/TGZ
           QT_OS_NAME: linux
           QT_ARCH: gcc_64
+          arch: x86_64
+        - os: ubuntu-24.04
+          SELF_HOSTED: false
+          PLATFORM_NAME: Linux
+          BINARY_EXT: deb
+          COMPRESSED_EXT: tar.gz
+          BINARY_PKG_PATH: _CPack_Packages/Linux/DEB
+          COMPRESSED_PKG_PATH: _CPack_Packages/Linux/TGZ
+          QT_OS_NAME: linux
+          QT_ARCH: gcc_64
+          arch: x86_64
         - os: windows-2022
           SELF_HOSTED: false
           PLATFORM_NAME: Windows
-          CPACK_BINARY_DEB: OFF
-          CPACK_BINARY_IFW: ON
-          CPACK_BINARY_TGZ: OFF
-          CPACK_BINARY_ZIP: ON
           BINARY_EXT: exe
           COMPRESSED_EXT: zip
           BINARY_PKG_PATH: _CPack_Packages/win64/IFW
           COMPRESSED_PKG_PATH: _CPack_Packages/win64/ZIP
           QT_OS_NAME: windows
           QT_ARCH: win64_msvc2019_64
+          arch: x86_64
         - os: macos-13
           SELF_HOSTED: false
           PLATFORM_NAME: Darwin
-          CPACK_BINARY_DEB: OFF
-          CPACK_BINARY_IFW: ON
-          CPACK_BINARY_TGZ: ON
-          CPACK_BINARY_ZIP: OFF
           BINARY_EXT: dmg
           COMPRESSED_EXT: tar.gz
           BINARY_PKG_PATH: _CPack_Packages/Darwin/IFW
@@ -98,13 +85,10 @@ jobs:
           SDKROOT: /Applications/Xcode_15.0.1.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX.sdk
           QT_OS_NAME: mac
           QT_ARCH: clang_64
+          arch: x86_64
         - os: macos-arm64
           SELF_HOSTED: true
           PLATFORM_NAME: Darwin
-          CPACK_BINARY_DEB: OFF
-          CPACK_BINARY_IFW: ON
-          CPACK_BINARY_TGZ: ON
-          CPACK_BINARY_ZIP: OFF
           BINARY_EXT: dmg
           COMPRESSED_EXT: tar.gz
           BINARY_PKG_PATH: _CPack_Packages/Darwin/IFW
@@ -113,6 +97,7 @@ jobs:
           SDKROOT: /Applications/Xcode_15.0.1.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX.sdk
           QT_OS_NAME: mac
           QT_ARCH: arm_64
+          arch: arm64
 
     steps:
 
@@ -126,9 +111,10 @@ jobs:
     - uses: ruby/setup-ruby@v1
       if: ${{ !matrix.SELF_HOSTED }}
       with:
-        ruby-version: 2.7
+        ruby-version: 3.2.2
 
     - name: Extract OSApp and OS SDK versions from CMakeLists.txt
+      id: parse_cmake_versions
       shell: bash
       run: |
         # This both prints the variables and adds them to GITHUB_ENV
@@ -142,25 +128,19 @@ jobs:
         set -x
         pwd
         echo PLATFORM_NAME=${{ matrix.PLATFORM_NAME }} >> $GITHUB_ENV
-        echo CPACK_BINARY_DEB=${{ matrix.CPACK_BINARY_DEB }} >> $GITHUB_ENV
-        echo CPACK_BINARY_IFW=${{ matrix.CPACK_BINARY_IFW }} >> $GITHUB_ENV
-        echo CPACK_BINARY_ZIP=${{ matrix.CPACK_BINARY_ZIP }} >> $GITHUB_ENV
-        echo CPACK_BINARY_TGZ=${{ matrix.CPACK_BINARY_TGZ }} >> $GITHUB_ENV
         echo BINARY_EXT=${{ matrix.BINARY_EXT }} >> $GITHUB_ENV
         echo COMPRESSED_EXT=${{ matrix.COMPRESSED_EXT }} >> $GITHUB_ENV
-        if [ "${{ matrix.SELF_HOSTED }}" == "true" ]; then
-          echo CONAN_PROFILE_DEFAULT=$HOME/.conan/profiles/default >> $GITHUB_ENV
-        elif [ "$RUNNER_OS" == "Windows" ]; then
-          echo CONAN_USER_HOME="${{ github.workspace }}\conan-cache" >> $GITHUB_ENV
-          echo CONAN_USER_HOME_SHORT="${{ github.workspace }}\conan-cache\short" >> $GITHUB_ENV
-          echo CONAN_PROFILE_DEFAULT="${{ github.workspace }}\conan-cache\.conan\profiles\default" >> $GITHUB_ENV
-          CCACHE_DIR="${{ github.workspace }}\.ccache"
-          echo CCACHE_DIR=$CCACHE_DIR >> $GITHUB_ENV
+
+        if [ "$RUNNER_OS" == "Windows" ]; then
+          DIR_SEP="\\"
         else
-          echo CONAN_USER_HOME=${{ github.workspace }}/conan-cache >> $GITHUB_ENV
-          echo CONAN_USER_HOME_SHORT=${{ github.workspace }}/conan-cache/short >> $GITHUB_ENV
-          echo CONAN_PROFILE_DEFAULT=${{ github.workspace }}/conan-cache/.conan/profiles/default >> $GITHUB_ENV
-          CCACHE_DIR=${{ github.workspace }}/.ccache
+          DIR_SEP="/"
+        fi
+
+        echo DIR_SEP=$DIR_SEP >> $GITHUB_ENV
+
+        if [ "${{ matrix.SELF_HOSTED }}" != "true" ]; then
+          CCACHE_DIR="${{ github.workspace }}${DIR_SEP}.ccache"
           echo CCACHE_DIR=$CCACHE_DIR >> $GITHUB_ENV
         fi
 
@@ -171,7 +151,7 @@ jobs:
         if [ "$RUNNER_OS" == "Linux" ]; then
           echo "Install needed system dependencies for OPENGL (due to Qt) for Linux"
           sudo apt update -qq
-          sudo apt install -y mesa-common-dev libglu1-mesa-dev patchelf ninja-build ccache libxkbcommon-x11-dev libgl1-mesa-dev chrpath libxcb-cursor0
+          sudo apt install -y mesa-common-dev libglu1-mesa-dev patchelf ninja-build ccache libxkbcommon-x11-dev libgl1-mesa-dev chrpath libxcb-icccm4 libxcb-keysyms1 libxcb-xkb1 libxcb-randr0 libxcb-shape0 libxkbcommon-x11-0 libxcb-cursor0
           gcc --version
 
           ccache --set-config=cache_dir=$CCACHE_DIR
@@ -229,26 +209,6 @@ jobs:
             rm /usr/local/lib/pkgconfig/libcrypto.pc
             rm /usr/local/lib/pkgconfig/libssl.pc
             rm /usr/local/lib/pkgconfig/openssl.pc
-
-            echo "Installing IFW"
-            curl -L -O https://download.qt.io/official_releases/qt-installer-framework/4.6.1/QtInstallerFramework-macOS-x64-4.6.1.dmg
-            hdiutil attach -mountpoint ./qtfiw_installer QtInstallerFramework-macOS-x64-4.6.1.dmg
-            echo "ls ./qtfiw_installer"
-            ls ./qtfiw_installer
-            echo "ls ./qtfiw_installer/QtInstallerFramework-macOS-x64-4.6.1.app/"
-            ls ./qtfiw_installer/QtInstallerFramework-macOS-x64-4.6.1.app/
-            echo "ls ./qtfiw_installer/QtInstallerFramework-macOS-x64-4.6.1.app/Contents/"
-            ls ./qtfiw_installer/QtInstallerFramework-macOS-x64-4.6.1.app/Contents/
-            echo "ls ./qtfiw_installer/QtInstallerFramework-macOS-x64-4.6.1.app/Contents/MacOS"
-            ls ./qtfiw_installer/QtInstallerFramework-macOS-x64-4.6.1.app/Contents/MacOS
-            echo "ls ./qtfiw_installer/QtInstallerFramework-macOS-x64-4.6.1.app/Contents/Resources"
-            ls ./qtfiw_installer/QtInstallerFramework-macOS-x64-4.6.1.app/Contents/Resources
-
-            sudo ./qtfiw_installer/QtInstallerFramework-macOS-x64-4.6.1.app/Contents/MacOS/QtInstallerFramework-macOS-x64-4.6.1 --verbose --script ./ci/install_script_qtifw.qs
-            ls ~
-            ls ~/Qt/ || true
-            ls ~/Qt/QtIFW-4.6.1 || true
-            echo "~/Qt/QtIFW-4.6.1/bin/" >> $GITHUB_PATH
           fi;
         fi;
 
@@ -256,23 +216,108 @@ jobs:
         ccache --show-config || true
         ccache --zero-stats || true
 
+    - name: "Configure for codesigning"
+      if: runner.os == 'macOS'
+      run: |
+        set -x
+        cd $RUNNER_TEMP
+        mkdir codesigning && cd codesigning
+        # ----- Create certificate files from secrets base64 -----
+        echo "${{ secrets.MACOS_DEVELOPER_ID_APPLICATION_CERTIFICATE_P12_BASE64 }}" | base64 --decode > certificate_application.p12
+        echo "${{ secrets.MACOS_DEVELOPER_ID_INSTALLER_CERTIFICATE_P12_BASE64 }}" | base64 --decode > certificate_installer.p12
+
+        # ----- Configure Keychain -----
+        KEYCHAIN_PATH=$RUNNER_TEMP/app-signing.keychain-db
+        security create-keychain -p "${{ secrets.MACOS_KEYCHAIN_PASSWORD }}" $KEYCHAIN_PATH
+        # Unlock it for 6 hours
+        security set-keychain-settings -lut 21600 $KEYCHAIN_PATH
+        security unlock-keychain -p "${{ secrets.MACOS_KEYCHAIN_PASSWORD }}" $KEYCHAIN_PATH
+
+        # ----- Import certificates on Keychain -----
+        security import certificate_application.p12 -P '${{ secrets.MACOS_DEVELOPER_ID_APPLICATION_CERTIFICATE_P12_PASSWORD }}' -A -t cert -f pkcs12 -k $KEYCHAIN_PATH
+        security import certificate_installer.p12   -P '${{ secrets.MACOS_DEVELOPER_ID_INSTALLER_CERTIFICATE_P12_PASSWORD }}'   -A -t cert -f pkcs12 -k $KEYCHAIN_PATH
+        security list-keychain -d user -s $KEYCHAIN_PATH
+        security find-identity -vvvv $KEYCHAIN_PATH
+
+        # Add needed intermediary certificates
+        brew list aria2 || brew install aria2
+        aria2c https://www.apple.com/certificateauthority/AppleWWDRCAG2.cer
+        aria2c https://www.apple.com/certificateauthority/DeveloperIDG2CA.cer
+        security import AppleWWDRCAG2.cer -k $KEYCHAIN_PATH
+        security import DeveloperIDG2CA.cer -k $KEYCHAIN_PATH
+        security find-identity -vvvv $KEYCHAIN_PATH
+        security find-identity -v -p codesigning
+
+        # Store AppConnect credentials
+        echo "${{ secrets.NOTARIZATION_API_KEY }}" > AppConnect_Developer_API_Key.p8
+        xcrun notarytool store-credentials OpenStudioApplication \
+              --key AppConnect_Developer_API_Key.p8 \
+              --key-id ${{ secrets.NOTARIZATION_API_TEAM_ID }} \
+              --issuer ${{ secrets.NOTARIZATION_API_ISSUER_ID }} \
+              --keychain $KEYCHAIN_PATH
+
+        cd .. && rm -Rf codesigning
+
+        # Download my patched QtIFW
+        mkdir QtIFW && cd QtIFW
+        aria2c https://github.com/jmarrec/QtIFW-fixup/releases/download/v5.0.0-dev-with-fixup/QtIFW-5.0.0-${{ matrix.arch }}.zip
+        xattr -r -d com.apple.quarantine ./QtIFW-5.0.0-${{ matrix.arch }}.zip
+        unzip QtIFW-5.0.0-${{ matrix.arch }}.zip
+        rm -Rf ./*.zip
+        chmod +x *
+        ./installerbase --version
+        echo "$(pwd)" >> $GITHUB_PATH
+
     - name: Install conan
       shell: bash
       run: |
-        set -x
-        python --version
-        pip install 'conan<2'
-        conan --version
-        echo "Enabling conan revisions and setting parallel_download"
-        conan config set general.revisions_enabled=True
-        conan config set general.parallel_download=8
-        # We detect the profile and use that as one of the cache key parameters, so if GHA upgrades compilers it won't pick up old binaries
-        conan profile new --detect --force default
-        if [ "$RUNNER_OS" == "Linux" ]; then
-          conan profile update settings.compiler.libcxx=libstdc++11 default
-        fi
-        conan profile show default
+        begin_group() { echo -e "::group::\033[93m$1\033[0m"; }
 
+        set -x
+        begin_group "Install conan 2"
+        python --version
+        pip install 'conan>2'
+        conan --version
+        echo "::endgroup::"
+
+        begin_group "Default profile"
+        if [ "${{ matrix.SELF_HOSTED }}" == "true" ]; then
+          export CONAN_USER_HOME=$HOME${DIR_SEP}actions-runner${DIR_SEP}conan-cache
+        else
+          export CONAN_USER_HOME="${{ github.workspace }}${DIR_SEP}conan-cache"
+        fi;
+        echo CONAN_USER_HOME="$CONAN_USER_HOME" >> $GITHUB_ENV
+
+        export CONAN_HOME="$CONAN_USER_HOME${DIR_SEP}.conan2"
+        echo CONAN_HOME="$CONAN_HOME" >> $GITHUB_ENV
+
+        export CONAN_PROFILE_DEFAULT="$CONAN_HOME${DIR_SEP}profiles${DIR_SEP}default"
+        echo CONAN_PROFILE_DEFAULT="$CONAN_PROFILE_DEFAULT" >> $GITHUB_ENV
+
+        conan profile detect --force --name default
+        cat $CONAN_PROFILE_DEFAULT
+        # Mac has the FreeBSD flavor of sed and MUST take a backup suffix...
+        sed -i.bak 's/cppstd=.*$/cppstd=20/g' $CONAN_PROFILE_DEFAULT
+        sed -i.bak 's/build_type=.*$/build_type=${{ env.BUILD_TYPE }}/g' $CONAN_PROFILE_DEFAULT
+        # Windows only
+        sed -i.bak 's/compiler.runtime_type=.*$/compiler.runtime_type=${{ env.BUILD_TYPE }}/g' $CONAN_PROFILE_DEFAULT
+        rm -Rf $CONAN_PROFILE_DEFAULT.bak || true
+        conan profile show
+        echo "::endgroup::"
+
+        begin_group "Global.conf"
+        echo "core:non_interactive = True" >> $CONAN_HOME/global.conf
+        echo "core.download:parallel = {{os.cpu_count() - 2}}" >> $CONAN_HOME/global.conf
+        echo "core.sources:download_cache = $CONAN_USER_HOME/.conan-download-cache" >> $CONAN_HOME/global.conf
+        cat $CONAN_HOME/global.conf
+        echo "::endgroup::"
+
+        begin_group "Remotes"
+        conan remote add --force nrel-v2 https://conan.openstudio.net/artifactory/api/conan/conan-v2
+        conan remote list
+        echo "::endgroup::"
+
+        begin_group "Debug hashFiles and co"
         if [ "${{ matrix.SELF_HOSTED }}" == "false" ]; then
           echo "runner.workspace=${{ runner.workspace }}"
           echo "GITHUB_WORKSPACE=$GITHUB_WORKSPACE"
@@ -285,16 +330,17 @@ jobs:
           echo hashFiles_rel=${{ hashFiles('./conan-cache/.conan/profiles/default') }}
           echo hashFiles_conanInstall=${{ hashFiles('./ConanInstall.cmake') }}
         fi
+        echo "::endgroup::"
 
-    # Note: I'm picking up the ccache before I do the conan cache, otheriwe on windows when trying to hashFiles('**/CMakeLists.txt') it looks into the conan folder which fails
+    # Note: I'm picking up the ccache before I do the conan cache, otherwise on windows when trying to hashFiles('**/CMakeLists.txt') it looks into the conan folder which fails
     # To prevent problems, changing to multiple more specific glob patterns
     - name: Setup CCache
-      uses: actions/cache@v3
+      uses: actions/cache@v4
       id: cacheccache
       if: ${{ !matrix.SELF_HOSTED }}
       with:
         path: |
-          ${{ env.CCACHE_DIR}}
+          ${{ env.CCACHE_DIR }}
         key: ccache-${{ matrix.os }}-build=${{ env.BUILD_TYPE }}-conan-profile=${{ hashFiles(env.CONAN_PROFILE_DEFAULT) }}-ck=${{ secrets.CACHE_KEY }}-cmakelists=${{ hashFiles('CMakeLists.txt', 'src/*/CMakeLists.txt', '*/CMakeLists.txt') }}
         restore-keys: |
           ccache-${{ matrix.os }}-build=${{ env.BUILD_TYPE }}-conan-profile=${{ hashFiles(env.CONAN_PROFILE_DEFAULT) }}-ck=${{ secrets.CACHE_KEY }}-
@@ -308,15 +354,17 @@ jobs:
         ccache --zero-stats
 
     - name: Setup Conan Cache
-      uses: actions/cache@v3
+      uses: actions/cache@v4
       id: cacheconan
       if: ${{ !matrix.SELF_HOSTED }}
       with:
         path: |
           ${{ env.CONAN_USER_HOME }}
-        key: conan-cache-${{ matrix.os }}-build=${{ env.BUILD_TYPE }}-conan-profile=${{ hashFiles(env.CONAN_PROFILE_DEFAULT) }}-ck=${{ secrets.CACHE_KEY }}-conaninstall=${{ hashFiles('./ConanInstall.cmake') }}
+        key: conan-cache-${{ matrix.os }}-build=${{ env.BUILD_TYPE }}-conan-profile=${{ hashFiles(env.CONAN_PROFILE_DEFAULT) }}-conaninstall=${{ hashFiles('./conanfile.py') }}-ck=${{ secrets.CACHE_KEY }}
         restore-keys: |
-          conan-cache-${{ matrix.os }}-build=${{ env.BUILD_TYPE }}-conan-profile=${{ hashFiles(env.CONAN_PROFILE_DEFAULT) }}-ck=${{ secrets.CACHE_KEY }}-
+          conan-cache-${{ matrix.os }}-build=${{ env.BUILD_TYPE }}-conan-profile=${{ hashFiles(env.CONAN_PROFILE_DEFAULT) }}-conaninstall=${{ hashFiles('./conanfile.py') }}-
+          conan-cache-${{ matrix.os }}-build=${{ env.BUILD_TYPE }}-conan-profile=${{ hashFiles(env.CONAN_PROFILE_DEFAULT) }}-
+          conan-cache-${{ matrix.os }}-build=${{ env.BUILD_TYPE }}-
 
     - name: Did restoring the conan-cache work? Yes
       # If the SDK wasn't found in the cache
@@ -324,14 +372,21 @@ jobs:
       working-directory: ${{ env.CONAN_USER_HOME }}
       shell: bash
       run: |
-        cat $CONAN_USER_HOME/.conan/profiles/default
-        ls $CONAN_USER_HOME/.conan/data
-        ls $CONAN_USER_HOME/short || true
+        set -x
+        set +e
+        cat $CONAN_PROFILE_DEFAULT
+        ls $CONAN_HOME
+        ls $CONAN_USER_HOME/.conan-download-cache
+        cat $CONAN_HOME/global.conf
+        ls $CONAN_USER_HOME/short
+        conan config show core.download:download_cache
+        conan config show core.sources:download_cache
+        exit 0
 
     # This includes the Qt install,  the OpenStudio SDK tar.gz,
     # TODO: problem is that caching the entire build dir is limited to 10 GB. The build folder takes 3-4 GB per runner, and we have 4 of them that try to cache
     # Perhaps we should just cache the ccache. Anyways, for incremental builds triggered one after another, cache eviction hasn't happened yet and all of them do a cache hit
-    - name: Cache entire build directory
+    - name: Cache Qt and SDK
       id: cachebuild
       if: ${{ !matrix.SELF_HOSTED }}
       uses: actions/cache@v3
@@ -354,6 +409,7 @@ jobs:
         # Delete the archived OS SDK if not the expected version
         if [ -d "build/OpenStudio-$OS_SDK_VERSION" ]; then
           cd build/OpenStudio-$OS_SDK_VERSION
+          ls
           ls $OS_SDK_INSTALLER_NAME* || rm -Rf ./*
         fi
 
@@ -382,7 +438,7 @@ jobs:
           pip show setuptools
           pip install setuptools --upgrade
           pip3 install aqtinstall
-          aqt install-qt --outputdir ./build/Qt-install/ ${{ matrix.QT_OS_NAME }} desktop $QT_VERSION ${{ matrix.QT_ARCH }} -m qtwebchannel qtwebengine qtwebview qt5compat qtpositioning
+          aqt install-qt --outputdir ./build/Qt-install/ ${{ matrix.QT_OS_NAME }} desktop $QT_VERSION ${{ matrix.QT_ARCH }} -m qtwebchannel qtwebengine qtwebview qt5compat qtpositioning qtcharts
         fi
 
         echo "$QT_INSTALL_DIR/bin" >> $GITHUB_PATH
@@ -402,10 +458,11 @@ jobs:
       if: ${{ matrix.SELF_HOSTED }}
       run: |
         set -x
+        cmake -E rm -rf ./build
         cmake -E make_directory ./build
 
         if [ "$RUNNER_OS" == "macOS" ]; then
-          QT_INSTALL_DIR="/Users/irvinemac/Qt/6.6.3/macos/"
+          QT_INSTALL_DIR="/Users/irvinemac/Qt/$QT_VERSION/macos/"
         fi
 
         echo "$QT_INSTALL_DIR/bin" >> $GITHUB_PATH
@@ -423,29 +480,22 @@ jobs:
     - name: Configure CMake & build (Windows)
       if: runner.os == 'Windows'
       shell: cmd
-      working-directory: ./build
       # Note the current convention is to use the -S and -B options here to specify source
       # and build directories, but this is only available with CMake 3.13 and higher.
       # The CMake binaries on the Github Actions machines are (as of this writing) 3.12
       # NOTE: If you re-enable 'Download the OpenStudio installer' step, then pass `openstudio_DIR=$openstudio_DIR cmake [etc]`
       run: |
-        echo "Using vcvarsall to initialize the development environment"
-        call vcvarsall.bat x64
-        dir
-        cmake -G Ninja -DQT_INSTALL_DIR:PATH=${{ env.QT_INSTALL_DIR }} -DCMAKE_BUILD_TYPE:STRING=${{ env.BUILD_TYPE }} ^
-         -DBUILD_DOCUMENTATION:BOOL=${{ env.BUILD_DOCUMENTATION }} -DBUILD_TESTING:BOOL=${{ env.BUILD_TESTING }} -DBUILD_BENCHMARK:BOOL=${{ env.BUILD_BENCHMARK}} ^
-         -DBUILD_PACKAGE:BOOL=${{ env.BUILD_PACKAGE }} -DCPACK_BINARY_DEB:BOOL=${{ env.CPACK_BINARY_DEB }} -DCPACK_BINARY_IFW:BOOL=${{ env.CPACK_BINARY_IFW }} ^
-         -DCPACK_BINARY_NSIS:BOOL=${{ env.CPACK_BINARY_NSIS }} -DCPACK_BINARY_RPM:BOOL=${{ env.CPACK_BINARY_RPM }} -DCPACK_BINARY_STGZ:BOOL=${{ env.CPACK_BINARY_STGZ }} ^
-         -DCPACK_BINARY_TBZ2:BOOL=${{ env.CPACK_BINARY_TBZ2 }} -DCPACK_BINARY_TGZ:BOOL=${{ env.CPACK_BINARY_TGZ }} -DCPACK_BINARY_ZIP:BOOL=${{ env.CPACK_BINARY_ZIP }} ^
-         -DCPACK_BINARY_TXZ:BOOL=${{ env.CPACK_BINARY_TXZ }} -DCPACK_BINARY_TZ:BOOL=${{ env.CPACK_BINARY_TZ }} -DCPACK_SOURCE_RPM:BOOL=${{ env.CPACK_SOURCE_RPM }} ^
-         -DCPACK_SOURCE_TBZ2:BOOL=${{ env.CPACK_SOURCE_TBZ2 }} -DCPACK_SOURCE_TGZ:BOOL=${{ env.CPACK_SOURCE_TGZ }} -DCPACK_SOURCE_TXZ:BOOL=${{ env.CPACK_SOURCE_TXZ }} ^
-         -DCPACK_SOURCE_TZ:BOOL=${{ env.CPACK_SOURCE_TZ }} -DCPACK_SOURCE_ZIP:BOOL=${{ env.CPACK_SOURCE_ZIP }} ^
-         -DANALYTICS_API_SECRET:STRING=${{secrets.ANALYTICS_API_SECRET }} -DANALYTICS_MEASUREMENT_ID:STRING=${{secrets.ANALYTICS_MEASUREMENT_ID }} ^
-         ../
-        ninja
-        ninja package
+        conan install . --output-folder=./build --build=missing -c tools.cmake.cmaketoolchain:generator=Ninja -s compiler.cppstd=20 -s build_type=Release
+        call ./build/conanbuild.bat
+        cmake --preset conan-release -DQT_INSTALL_DIR:PATH=${{ env.QT_INSTALL_DIR }} ^
+              -DBUILD_DOCUMENTATION:BOOL=${{ env.BUILD_DOCUMENTATION }} ^
+              -DBUILD_PACKAGE:BOOL=${{ env.BUILD_PACKAGE }} ^
+              -DCPACK_BINARY_ZIP:BOOL=ON ^
+              -DANALYTICS_API_SECRET:STRING=${{ secrets.ANALYTICS_API_SECRET }} ^
+              -DANALYTICS_MEASUREMENT_ID:STRING=${{ secrets.ANALYTICS_MEASUREMENT_ID }}
+        cmake --build --preset conan-release --target package
         # Delete conan build and source folders
-        conan remove "*" -s -b -f
+        conan cache clean --source --build --download --temp
         ccache --show-stats -vv || ccache --show-stats || true
 
     # Debug CPack:
@@ -454,67 +504,75 @@ jobs:
     - name: Configure CMake (Unix)
       if: runner.os != 'Windows'
       shell: bash
-      working-directory: ./build
       # Note the current convention is to use the -S and -B options here to specify source
       # and build directories, but this is only available with CMake 3.13 and higher.
       # The CMake binaries on the Github Actions machines are (as of this writing) 3.12
       # NOTE: If you re-enable 'Download the OpenStudio installer' step, then pass `openstudio_DIR=$openstudio_DIR cmake [etc]`
       run: |
         set -x
-        cmake -G Ninja -DQT_INSTALL_DIR:PATH=$QT_INSTALL_DIR -DCMAKE_BUILD_TYPE:STRING=$BUILD_TYPE \
-         -DBUILD_DOCUMENTATION:BOOL=$DBUILD_DOCUMENTATION -DBUILD_TESTING:BOOL=$BUILD_TESTING -DBUILD_BENCHMARK:BOOL=$BUILD_BENCHMARK \
-         -DBUILD_PACKAGE:BOOL=$BUILD_PACKAGE -DCPACK_BINARY_DEB:BOOL=$CPACK_BINARY_DEB -DCPACK_BINARY_IFW:BOOL=$CPACK_BINARY_IFW \
-         -DCPACK_BINARY_NSIS:BOOL=$CPACK_BINARY_NSIS -DCPACK_BINARY_RPM:BOOL=$CPACK_BINARY_RPM -DCPACK_BINARY_STGZ:BOOL=$CPACK_BINARY_STGZ \
-         -DCPACK_BINARY_TBZ2:BOOL=$CPACK_BINARY_TBZ2 -DCPACK_BINARY_TGZ:BOOL=$CPACK_BINARY_TGZ -DCPACK_BINARY_ZIP:BOOL=$CPACK_BINARY_ZIP \
-         -DCPACK_BINARY_TXZ:BOOL=$CPACK_BINARY_TXZ -DCPACK_BINARY_TZ:BOOL=$CPACK_BINARY_TZ -DCPACK_SOURCE_RPM:BOOL=$CPACK_SOURCE_RPM \
-         -DCPACK_SOURCE_TBZ2:BOOL=$CPACK_SOURCE_TBZ2 -DCPACK_SOURCE_TGZ:BOOL=$CPACK_SOURCE_TGZ -DCPACK_SOURCE_TXZ:BOOL=$CPACK_SOURCE_TXZ \
-         -DCPACK_SOURCE_TZ:BOOL=$CPACK_SOURCE_TZ -DCPACK_SOURCE_ZIP:BOOL=$CPACK_SOURCE_ZIP \
-         -DANALYTICS_API_SECRET:STRING=${{secrets.ANALYTICS_API_SECRET }} -DANALYTICS_MEASUREMENT_ID:STRING=${{secrets.ANALYTICS_MEASUREMENT_ID }} \
-         ../
+        if [ "$RUNNER_OS" == "macOS" ]; then
+          # Avoid "builtin __has_nothrow_assign is deprecated; use __is_nothrow_assignable instead" in boost/1.78 with recent clang
+          conan install . --output-folder=./build --build=missing -c tools.cmake.cmaketoolchain:generator=Ninja -s compiler.cppstd=20 -s build_type=Release -c tools.build:cxxflags="['-D_LIBCPP_ENABLE_CXX17_REMOVED_UNARY_BINARY_FUNCTION']"
+        else
+          conan install . --output-folder=./build --build=missing -c tools.cmake.cmaketoolchain:generator=Ninja -s compiler.cppstd=20 -s build_type=Release
+        fi
 
-    # Note: JM 2020-07-22 This is an example of how to get a config log for a failed conan dependency build (no binary available)
-    # This WILL be handy some day, so leave it here
-    #- name: upload config.log for failed gdbm build
-      #if: ${{ failure() }}
-      #shell: bash
-      #run: |
-        #configlog=$(find ~/.conan/data/gdbm/1.18.1/_/_/build -name config.log)
-        #cat $configlog
+        if [ "${{ matrix.SELF_HOSTED }}" == "true" ]; then
+          # TODO: temp... this is unfortunate but the OS SDK arm64 rc2 package has a different sha when extracted...
+          # OpenStudio-3.8.0-rc2+af997f4fef-Darwin-x86_64.tar.gz on github, but when extracted it's OpenStudio-3.8.0-rc2+06d9d975e1-Darwin-arm64
+          cmake --preset conan-release -DQT_INSTALL_DIR:PATH=${{ env.QT_INSTALL_DIR }} \
+              -DBUILD_DOCUMENTATION:BOOL=${{ env.BUILD_DOCUMENTATION }} \
+              -DBUILD_PACKAGE:BOOL=${{ env.BUILD_PACKAGE }} \
+              -DCPACK_BINARY_TGZ:BOOL=ON \
+              -DANALYTICS_API_SECRET:STRING=${{ secrets.ANALYTICS_API_SECRET }} \
+              -DANALYTICS_MEASUREMENT_ID:STRING=${{ secrets.ANALYTICS_MEASUREMENT_ID }} || true
 
-    #- name: upload config.log for failed gdbm build
-      #if: ${{ failure() }}
-      #uses: actions/upload-artifact@v4
-      #with:
-          #name: ${{ matrix.os }}-gdbm_config.log
-          #path: ~/.conan/data/gdbm/1.18.1/_/_/build/**/source_subfolder/config.log
+          ls $(pwd)/build/OpenStudio-3.8.0 || true
+          OS_DIR=$(find "$(pwd)/build/OpenStudio-3.8.0" -name openstudioConfig.cmake)
+          OS_DIR=$(dirname $OS_DIR)
+          cmake --preset conan-release -DQT_INSTALL_DIR:PATH=${{ env.QT_INSTALL_DIR }} \
+              -DBUILD_DOCUMENTATION:BOOL=${{ env.BUILD_DOCUMENTATION }} \
+              -DBUILD_PACKAGE:BOOL=${{ env.BUILD_PACKAGE }} \
+              -DCPACK_BINARY_TGZ:BOOL=ON \
+              -DANALYTICS_API_SECRET:STRING=${{ secrets.ANALYTICS_API_SECRET }} \
+              -DANALYTICS_MEASUREMENT_ID:STRING=${{ secrets.ANALYTICS_MEASUREMENT_ID }} -Dopenstudio_DIR:PATH=$OS_DIR
+        fi
 
-    - name: Build (Unix)
-      working-directory: ./build
-      if: runner.os != 'Windows'
-      shell: bash
-      # Execute the build.  You can specify a specific target with "--target <NAME>"
-      run: |
-        set -x
-        ninja
-        ninja package || ( echo "Package Step failed" && cpack --debug --verbose --config CPackConfig.cmake )
+        if [ "$RUNNER_OS" == "macOS" ]; then
+          cmake --preset conan-release -DQT_INSTALL_DIR:PATH=${{ env.QT_INSTALL_DIR }} \
+              -DBUILD_DOCUMENTATION:BOOL=${{ env.BUILD_DOCUMENTATION }} \
+              -DBUILD_PACKAGE:BOOL=${{ env.BUILD_PACKAGE }} \
+              -DCPACK_BINARY_TGZ:BOOL=ON \
+              -DANALYTICS_API_SECRET:STRING=${{ secrets.ANALYTICS_API_SECRET }} \
+              -DANALYTICS_MEASUREMENT_ID:STRING=${{ secrets.ANALYTICS_MEASUREMENT_ID }} \
+              -DCPACK_CODESIGNING_DEVELOPPER_ID_APPLICATION:STRING="Developer ID Application: The Energy Coalition (UG9S5ZLM34)" \
+              -DCPACK_CODESIGNING_NOTARY_PROFILE_NAME:STRING=OpenStudioApplication \
+              -DCPACK_CODESIGNING_MACOS_IDENTIFIER:STRING=org.openstudiocoalition.OpenStudioApplication
+        else
+          cmake --preset conan-release -DQT_INSTALL_DIR:PATH=${{ env.QT_INSTALL_DIR }} \
+                -DBUILD_DOCUMENTATION:BOOL=${{ env.BUILD_DOCUMENTATION }} \
+                -DBUILD_PACKAGE:BOOL=${{ env.BUILD_PACKAGE }} \
+                -DCPACK_BINARY_TGZ:BOOL=ON \
+                -DANALYTICS_API_SECRET:STRING=${{ secrets.ANALYTICS_API_SECRET }} \
+                -DANALYTICS_MEASUREMENT_ID:STRING=${{ secrets.ANALYTICS_MEASUREMENT_ID }}
+        fi;
+        cmake --build --preset conan-release --target package
         # Delete conan build and source folders
-        conan remove "*" -s -b -f
-        # Show ccache stats
+        conan cache clean --source --build --download --temp
         ccache --show-stats -vv || ccache --show-stats || true
 
-    - name: Test bed Sign inner portable executable files and exe package (Windows 2022)
+    - name: Test bed Sign inner portable executable files and exe package (Windows)
       working-directory: ./build
-      if: (matrix.os == 'windows-2022')
+      if: runner.os == 'Windows'
       shell: powershell
       run: |
         $installer_exe = Get-ChildItem -Filter "${{ matrix.BINARY_PKG_PATH }}/*.${{ env.BINARY_EXT }}" -File | Select-Object -First 1 | % { $_.FullName}
         echo $installer_exe
         echo "$installer_exe"
 
-    - name: Sign inner portable executable files and exe package (Windows 2022)
+    - name: Sign inner portable executable files and exe package (Windows)
       working-directory: ./build
-      # if: (runner.os == 'Windows')
-      if: contains(github.ref, 'refs/tags') && (matrix.os == 'windows-2022')
+      if: contains(github.ref, 'refs/tags') && (runner.os == 'Windows')
       shell: powershell
       run: |
         # Install signpath
@@ -560,15 +618,41 @@ jobs:
         name: OpenStudioApplication-${{ env.OS_APP_VERSION }}.${{ github.sha }}-${{ matrix.os }}.${{ env.COMPRESSED_EXT }}
         path: build/${{ matrix.COMPRESSED_PKG_PATH }}/*.${{ env.COMPRESSED_EXT }}
 
+    - name: Full Test Package signing for IFW and TGZ
+      if: runner.os == 'macOS'
+      working-directory: ./build
+      shell: bash
+      run: |
+        begin_group() { echo -e "::group::\033[93m$1\033[0m"; }
+
+        begin_group "Full Check signature of _CPack_Packages for both IFW and TGZ"
+        python ../developer/python/verify_signature.py --verbose --only-generator IFW .
+        python ../developer/python/verify_signature.py --otool --otool-out-file otool_infos_cpack_tgz.json --verbose --only-generator TGZ .
+        echo "::endgroup::"
+
+    - name: Upload otool info as artifact
+      if: runner.os == 'macOS'
+      uses: actions/upload-artifact@v4
+      with:
+        name: otool_infos_cpack_${{ matrix.os }}_${{ matrix.arch }}
+        path: build/otool*json
+        if-no-files-found: error
+
     - name: Test
       working-directory: ./build
       shell: bash
       # Execute tests defined by the CMake configuration.
       # See https://cmake.org/cmake/help/latest/manual/ctest.1.html for more detail
       run: |
-        Xvfb :99 &
-        export DISPLAY=:99
-        ctest -j -T test --output-on-failure --no-compress-output -C $BUILD_TYPE || true
+        if [ "$RUNNER_OS" == "macOS" ]; then
+          automationmodetool
+          export XVFBCMD=""
+        elif [ "$RUNNER_OS" == "Windows" ]; then
+          export XVFBCMD=""
+        else
+          export XVFBCMD="xvfb-run"
+        fi
+        $XVFBCMD ctest -j -T test --output-on-failure --no-compress-output -C $BUILD_TYPE || true
 
     - name: Archive test results?
       uses: actions/upload-artifact@v4
@@ -582,9 +666,15 @@ jobs:
       # Execute tests defined by the CMake configuration.
       # See https://cmake.org/cmake/help/latest/manual/ctest.1.html for more detail
       run: |
-        Xvfb :99 &
-        export DISPLAY=:99
-        Products/SpacesSurfaces_Benchmark --benchmark_out_format=csv --benchmark_out='bench_results_SpacesSurfaces.csv' || true
+        if [ "$RUNNER_OS" == "macOS" ]; then
+          automationmodetool
+          export XVFBCMD=""
+        elif [ "$RUNNER_OS" == "Windows" ]; then
+          export XVFBCMD=""
+        else
+          export XVFBCMD="xvfb-run"
+        fi
+        $XVFBCMD Products/SpacesSurfaces_Benchmark --benchmark_out_format=csv --benchmark_out='bench_results_SpacesSurfaces.csv' || true
 
     - name: Archive benchmark results?
       uses: actions/upload-artifact@v4
@@ -621,3 +711,101 @@ jobs:
         /bin/rm OpenStudioApplication-*${{ env.COMPRESSED_EXT }} || true
         /bin/rm OpenStudioApplication-*${{ env.BINARY_EXT }} || true
         ls OpenStudioApplication-* || true
+
+
+  test_package_macos:
+    name: Test Built Package on macOS
+    needs: build
+    runs-on: ${{ matrix.os }}
+    strategy:
+      # fail-fast: Default is true, switch to false to allow one platform to fail and still run others
+      fail-fast: false
+      matrix:
+        os: [macos-13, macos-14]
+        include:
+        - os: macos-13
+          binary_os: macos-13
+          SELF_HOSTED: false
+          BINARY_EXT: dmg
+          COMPRESSED_EXT: tar.gz
+          arch: x86_64
+        # This is the GHA hosted one
+        - os: macos-14
+          binary_os: macos-arm64
+          SELF_HOSTED: false
+          BINARY_EXT: dmg
+          COMPRESSED_EXT: tar.gz
+          arch: arm64
+
+    steps:
+    - uses: actions/checkout@v4  # Still need code checked out to get testing scripts
+      with:
+        path: checkout
+
+    #- name: Gather Test Package from Artifacts
+    #  uses: actions/download-artifact@v4
+    #  with:
+    #    name: OpenStudioApplication-${{ needs.build.outputs.OS_APP_VERSION }}.${{ github.sha }}-${{ matrix.binary_os }}.${{ matrix.COMPRESSED_EXT }}
+    #    path: package
+
+    - name: Gather Dmg Package from Artifacts
+      uses: actions/download-artifact@v4
+      with:
+        name: OpenStudioApplication-${{ needs.build.outputs.OS_APP_VERSION }}.${{ github.sha }}-${{ matrix.binary_os }}.${{ matrix.BINARY_EXT }}
+        path: dmg
+
+    - name: Test Dmg Install and Package signing
+      working-directory: ./dmg
+      shell: bash
+      run: |
+        begin_group() { echo -e "::group::\033[93m$1\033[0m"; }
+
+        set -x
+
+        dmg=$(ls OpenStudioApplication-*.dmg)
+        begin_group "Checking Signature of .dmg"
+        spctl --assess --type open --context context:primary-signature -vvvv $dmg
+        echo "::endgroup::"
+
+        begin_group "Mounting Dmg, and checking signature of installer app"
+        mkdir temp_mount
+        hdiutil attach -mountpoint ./temp_mount/ $dmg
+        filename="${dmg%.*}"
+        spctl --assess --type open --context context:primary-signature -vvvv ./temp_mount/$filename.app
+        echo "::endgroup::"
+
+        begin_group "Installing"
+        sudo ./temp_mount/$filename.app/Contents/MacOS/$filename --accept-licenses --default-answer --confirm-command --root $(pwd)/test_install install
+        echo "::endgroup::"
+
+        begin_group "Quick Check signature of inner executables and binaries"
+        codesign -dvvv ./test_install/lib/libopenstudiolib.dylib
+        codesign -dvvv ./test_install/lib/libpythonengine.so
+        codesign -dvvv ./test_install/lib/librubyengine.so
+        codesign -dvvv ./test_install/EnergyPlus/energyplus
+        codesign -dvvv ./test_install/EnergyPlus/libenergyplusapi.dylib
+        codesign -dvvv ./test_install/EnergyPlus/libpython*.dylib
+        codesign -dvvv ./test_install/EnergyPlus/ExpandObjects
+        echo "::endgroup::"
+
+        begin_group "Full Check signature of installed DMG for all executables and resolve otool libraries"
+        python ../checkout/developer/python/verify_signature.py --otool --otool-out-file otool_info_dmg.json --verbose --install test_install
+        echo "::endgroup::"
+
+        begin_group "Running a simulation with python"
+        ./test_install/EnergyPlus/energyplus --help
+        cur_v=$(python -c "import sys; sys.path.insert(0, './test_install/EnergyPlus'); from pyenergyplus.func import EnergyPlusVersion; v = EnergyPlusVersion(); print(f'{v.ep_version_major}.{v.ep_version_minor}.{v.ep_version_patch}')")
+        aria2c https://raw.githubusercontent.com/NREL/EnergyPlus/v${cur_v}/testfiles/PythonPluginCustomSchedule.py
+        aria2c https://raw.githubusercontent.com/NREL/EnergyPlus/v${cur_v}/testfiles/PythonPluginCustomSchedule.idf
+        aria2c https://raw.githubusercontent.com/NREL/EnergyPlus/v${cur_v}/weather/USA_IL_Chicago-OHare.Intl.AP.725300_TMY3.epw
+        ./test_install/EnergyPlus/energyplus -w USA_IL_Chicago-OHare.Intl.AP.725300_TMY3.epw -d out PythonPluginCustomSchedule.idf
+        echo "::endgroup::"
+
+        hdiutil detach ./temp_mount/
+
+    - name: Upload otool info as artifact
+      uses: actions/upload-artifact@v4
+      with:
+        name: otool_info_dmg_${{ matrix.os }}_${{ matrix.arch }}
+        path: dmg/otool*json
+        if-no-files-found: error

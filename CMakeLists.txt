@@ -16,7 +16,7 @@ if(CCACHE_PROGRAM)
   set(CMAKE_C_COMPILER_LAUNCHER ${CCACHE_PROGRAM} CACHE FILEPATH "C compiler cache used")
 endif()
 
-project(OpenStudioApplication VERSION 1.7.2)
+project(OpenStudioApplication VERSION 1.8.0)
 
 # Check system info globally so we can use it everywhere after: Has to be done before FindOpenStudioSDK.cmake
 if(APPLE)
@@ -80,22 +80,31 @@ include(FindOpenStudioSDK.cmake)
 #                                C O N A N                                    #
 ###############################################################################
 
-# Note JM 2019-04-24: Another option is to globally set "print_run_commands = True" in ~/.conan/conan.conf
-option(CONAN_PRINT_RUN_COMMANDS "Log every conan self.run command" OFF)
-mark_as_advanced(CONAN_PRINT_RUN_COMMANDS)
-if(CONAN_PRINT_RUN_COMMANDS)
-  set(ENV{CONAN_PRINT_RUN_COMMANDS} "1")
-  message("Setting CONAN_PRINT_RUN_COMMANDS: $ENV{CONAN_PRINT_RUN_COMMANDS}")
-else()
-  unset(ENV{CONAN_PRINT_RUN_COMMANDS})
-  message("CONAN_PRINT_RUN_COMMANDS: $ENV{CONAN_PRINT_RUN_COMMANDS}")
+find_package(Ruby)
+message("Ruby_INCLUDE_DIRS=${Ruby_INCLUDE_DIRS}")
+find_package(pugixml)
+find_package(LibXslt)
+find_package(libxml2)
+find_package(jsoncpp)
+find_package(fmt)
+find_package(SQLite3)
+find_package(cpprestsdk)
+find_package(websocketpp)
+find_package(Boost)
+find_package(geographiclib)
+find_package(SWIG 4.1.1 EXACT REQUIRED CONFIG)
+message("SWIG_EXECUTABLE=${SWIG_EXECUTABLE}")
+message("SWIG_DIR=${SWIG_DIR}")
+find_package(TinyGLTF)
+find_package(minizip)
+find_package(OpenSSL)
+find_package(ZLIB)
+if(BUILD_TESTING)
+  find_package(GTest)
 endif()
-
-# Attempt to run, it'll do the right thing if the calling cmake script already ran it
-set(CONAN_INSTALL_FILE "${PROJECT_SOURCE_DIR}/ConanInstall.cmake")
-include("${CONAN_INSTALL_FILE}")
-
-get_target_property(RUBY_INCLUDE_DIRS CONAN_PKG::openstudio_ruby INTERFACE_INCLUDE_DIRECTORIES)
+if(BUILD_BENCHMARK)
+  find_package(benchmark)
+endif()
 
 # A macro to find a conan related value especially when using multi-config builds (MSVC)
 # But it also works with single-config builds
@@ -303,6 +312,15 @@ option(BUILD_BENCHMARK "Build benchmarking targets" OFF)
 
 option(BUILD_MICRO_PROFILING "Build micro profiling" OFF)
 
+if(APPLE)
+
+  include(${CMAKE_CURRENT_LIST_DIR}/CMake/CodeSigning.cmake)
+
+  # Defines CPACK_CODESIGNING_DEVELOPPER_ID_APPLICATION and CPACK_CODESIGNING_NOTARY_PROFILE_NAME
+  setup_macos_codesigning_variables()
+
+endif()
+
 # DView
 # option(BUILD_DVIEW "Build DView" OFF)
 
@@ -468,6 +486,8 @@ if(WIN32)
   # add_compile_definitions(BOOST_USE_WINDOWS_H) # Getting a confict with `typedef GUID UUID` from windows.h
   add_compile_definitions(BOOST_WINAPI_DEFINE_VERSION_MACROS)
   add_compile_definitions(WIN32_LEAN_AND_MEAN) # That excludes stuff that's not used too often, including the GUID stuff
+  # TODO: remove when possible, see https://github.com/microsoft/cpprestsdk/issues/1768
+  add_compile_definitions(_SILENCE_STDEXT_ARR_ITERS_DEPRECATION_WARNING)
 endif()
 
 # Check version of gcc
@@ -498,16 +518,20 @@ if(UNIX)
   mark_as_advanced(CMAKE_THREAD_LIBS)
 endif()
 
-# Swig
-FindValue(CONAN_SWIG_ROOT)
-set(SWIG_EXECUTABLE "${CURRENT_CONAN_SWIG_ROOT}/bin/swig")
-# The conan-provided binary has a built-in swiglib (`swig -swiglib`) that points to the build box on which it was built, which is problematic for us.
-set(SWIG_LIB "${CURRENT_CONAN_SWIG_ROOT}/bin/swiglib")
-
 # Qt
-# e.g. QT_INSTALL_DIR = C:/Qt/6.6.3/msvc2019_64
+# e.g. QT_INSTALL_DIR = C:/Qt/6.5.2/msvc2019_64
 set(QT_INSTALL_DIR "" CACHE PATH "Path to Qt Install")
-set(QT_VERSION "6.6.3")
+set(QT_VERSION "6.5.2" CACHE STRING "Qt target version, defaults to 6.5.2")
+
+# For AboutBox, but also validates that the version is valid
+string(TIMESTAMP CURRENT_YEAR "%Y")
+string(REGEX MATCH "^([0-9]+\\.[0-9]+)"
+  QT_VERSION_MAJOR_MINOR ${QT_VERSION})
+if(NOT QT_VERSION_MAJOR_MINOR)
+  message(FATAL_ERROR "Failed to match QT_VERSION=${QT_VERSION}")
+endif()
+set(QT_DOC_LINK "https://doc.qt.io/qt-${QT_VERSION_MAJOR_MINOR}/qtmodules.html")
+
 
 # TODO: how to set OPENSSL_ROOT_DIR to a generator expression?
 set(OPENSSL_ROOT_DIR ${CONAN_OPENSSL_ROOT_RELEASE})
@@ -517,7 +541,7 @@ message(STATUS "QT_INSTALL_DIR=${QT_INSTALL_DIR}")
 
 find_package(Qt6 ${QT_VERSION} COMPONENTS CoreTools GuiTools WidgetsTools QmlTools WebEngineCoreTools REQUIRED PATHS ${QT_INSTALL_DIR} NO_DEFAULT_PATH)
 
-find_package(Qt6 ${QT_VERSION} COMPONENTS Core Core5Compat Gui Widgets Sql Svg Network Xml Concurrent PrintSupport Quick QuickWidgets Qml WebChannel Positioning WebEngineCore WebEngineWidgets REQUIRED PATHS ${QT_INSTALL_DIR} NO_DEFAULT_PATH)
+find_package(Qt6 ${QT_VERSION} COMPONENTS Core Core5Compat Gui Widgets Sql Svg Network Xml Concurrent PrintSupport Quick QuickWidgets Qml WebChannel Positioning WebEngineCore WebEngineWidgets Charts REQUIRED PATHS ${QT_INSTALL_DIR} NO_DEFAULT_PATH)
 
 find_package(Qt6LinguistTools ${QT_VERSION} REQUIRED PATHS ${QT_INSTALL_DIR} NO_DEFAULT_PATH)
 
@@ -531,11 +555,12 @@ find_file(qweb_resources NAMES qtwebengine_resources.pak PATHS "${QT_INSTALL_DIR
 find_file(qweb_resources_devtools NAMES qtwebengine_devtools_resources.pak PATHS "${QT_INSTALL_DIR}/resources/" "${QT_INSTALL_DIR}/lib/QtWebEngineCore.framework/Resources" NO_DEFAULT_PATH)
 find_file(qweb_resources_100 NAMES qtwebengine_resources_100p.pak PATHS "${QT_INSTALL_DIR}/resources/" "${QT_INSTALL_DIR}/lib/QtWebEngineCore.framework/Resources" NO_DEFAULT_PATH)
 find_file(qweb_resources_200 NAMES qtwebengine_resources_200p.pak PATHS "${QT_INSTALL_DIR}/resources/" "${QT_INSTALL_DIR}/lib/QtWebEngineCore.framework/Resources" NO_DEFAULT_PATH)
-find_file(qweb_resources_v8_context_snapshot NAMES v8_context_snapshot.bin PATHS "${QT_INSTALL_DIR}/resources/" "${QT_INSTALL_DIR}/lib/QtWebEngineCore.framework/Resources" NO_DEFAULT_PATH)
+#find_file(qweb_resources_v8_context_snapshot NAMES v8_context_snapshot.bin PATHS "${QT_INSTALL_DIR}/resources/" "${QT_INSTALL_DIR}/lib/QtWebEngineCore.framework/Resources" NO_DEFAULT_PATH)
 
 # QT_WEB_LIBS are linked by OS App and openstudio_lib but not by openstudio_modeleditor.so or openstudio_modeleditor
 list(APPEND QT_WEB_LIBS Qt6::WebEngineCore)
 list(APPEND QT_WEB_LIBS Qt6::WebEngineWidgets)
+list(APPEND QT_WEB_LIBS Qt6::Charts)
 set_target_properties(${QT_WEB_LIBS} PROPERTIES INTERFACE_LINK_LIBRARIES "")
 
 if(NOT APPLE)
@@ -597,6 +622,7 @@ list(APPEND QT_LIBS Qt6::Svg)
 if(WIN32)
   find_package(Qt6OpenGL ${QT_VERSION} REQUIRED PATHS ${QT_INSTALL_DIR} NO_DEFAULT_PATH)
   list(APPEND QT_LIBS Qt6::OpenGL)
+  list(APPEND QT_LIBS Qt6::OpenGLWidgets)
 
   find_program(QT_WINDEPLOY_QT NAMES windeployqt.exe PATHS "${QT_INSTALL_DIR}/bin" NO_DEFAULT_PATH)
 
@@ -605,7 +631,7 @@ if(WIN32)
 endif()
 
 if(UNIX AND NOT APPLE)
-  # Apparently libqxcb.so depends on libQt6OpenGL.so in Qt 6.6.3 (it depended on libGL on 5.15.0 but not OpenGL)
+  # Apparently libqxcb.so depends on libQt6OpenGL.so in Qt 6 (it depended on libGL on 5.15.0 but not OpenGL)
   find_package(Qt6OpenGL ${QT_VERSION} REQUIRED PATHS ${QT_INSTALL_DIR} NO_DEFAULT_PATH)
   list(APPEND QT_LIBS Qt6::OpenGL)
 endif()
@@ -630,6 +656,16 @@ if(UNIX)
 endif()
 
 set(CMAKE_AUTOMOC OFF)
+
+include(FetchContent)
+
+FetchContent_Declare(
+  openstudio-coalition-measures
+  GIT_REPOSITORY https://github.com/openstudiocoalition/openstudio-coalition-measures.git
+  GIT_TAG        da6832b3eec8e3ecccaadd39142e7c3d9c2da10f # release-1.8.0
+)
+
+FetchContent_MakeAvailable(openstudio-coalition-measures)
 
 ###############################################################################
 #                         I N C L U D E    P A T H S                          #
@@ -762,7 +798,7 @@ install(IMPORTED_RUNTIME_ARTIFACTS openstudio::pythonengine DESTINATION ${LIB_DE
 
 # TODO: we should probably just install the **entire** OS SDK bin/ directory...
 if(WIN32)
-  install(PROGRAMS "${openstudio_ROOT_DIR}/bin/python38.dll" DESTINATION bin COMPONENT "CLI")
+  install(PROGRAMS $<$<CONFIG:Debug>:${openstudio_ROOT_DIR}/bin/python38_d.dll>$<$<CONFIG:Release>:${openstudio_ROOT_DIR}/bin/python38.dll>$<$<CONFIG:RelWithDebInfo>:${openstudio_ROOT_DIR}/bin/python38.dll>$<$<CONFIG:MinSizeRel>:${openstudio_ROOT_DIR}/bin/python38.dll> DESTINATION bin COMPONENT "CLI")
 endif()
 
 # install(PROGRAMS ${OS_CLI_IMPORTED_PATH} DESTINATION bin COMPONENT "CLI" RENAME "${OS_CLI_IMPORTED_NAME}")
@@ -777,22 +813,25 @@ endif()
 # Leaving it
 set(CPACK_IFW_VERBOSE ON)
 
-set(CPACK_PACKAGE_VENDOR "OpenStudio Coalition")
+set(CPACK_PACKAGE_VENDOR "OpenStudio Coalition") # CPACK_IFW_PACKAGE_PUBLISHER is set from this
+
 # These are ok, even if we have a prerelease tag
 set(CPACK_PACKAGE_VERSION_MAJOR ${OpenStudioApplication_VERSION_MAJOR})
 set(CPACK_PACKAGE_VERSION_MINOR ${OpenStudioApplication_VERSION_MINOR})
 set(CPACK_PACKAGE_VERSION_PATCH ${OpenStudioApplication_VERSION_PATCH})
 
 # CPACK_DEBIAN_PACKAGE_DESCRIPTION defaults to this one too. dpkg-deb -I xxx.deb will show this description
-set(CPACK_PACKAGE_DESCRIPTION_SUMMARY "OpenStudioApplication ${OpenStudioApplication_VERSION}, based on openstudio (core) ${OPENSTUDIO_VERSION}. OpenStudio is a cross-platform collection of software tools to support whole building energy modeling using EnergyPlus and advanced daylight analysis using Radiance")
+set(CPACK_PACKAGE_DESCRIPTION_SUMMARY "OpenStudioApplication ${OpenStudioApplication_VERSION} is a Graphical User Interface for OpenStudio")
+set(CPACK_PACKAGE_DESCRIPTION "OpenStudioApplication ${OpenStudioApplication_VERSION}, based on openstudio (core) ${OPENSTUDIO_VERSION}. OpenStudio is a cross-platform collection of software tools to support whole building energy modeling using EnergyPlus and advanced daylight analysis using Radiance")
+
+set(CPACK_IFW_PACKAGE_TITLE "OpenStudioApplication ${OpenStudioApplication_VERSION}")
+set(CPACK_IFW_PRODUCT_URL "https://openstudiocoalition.org")
+set(CPACK_IFW_PACKAGE_WINDOW_ICON "${PROJECT_SOURCE_DIR}/icons/os_32.png")
 
 # The actual package file name on disk
 if(APPLE)
-  include(CMake/TargetArch.cmake)
-  target_architecture(TARGET_ARCH)
-
   # eg OpenStudioApplication-1.2.0-alpha+394bbe9f8d-macOS-10.15-x86_64 (future: OpenStudioApplication-1.2.0-alpha+394bbe9f8d-macOS-11.2-arm64)
-  set(CPACK_PACKAGE_FILE_NAME "${CMAKE_PROJECT_NAME}-${OPENSTUDIOAPPLICATION_LONG_VERSION}-macOS${OSX_VERSION_MAJOR_MINOR}-${TARGET_ARCH}")
+  set(CPACK_PACKAGE_FILE_NAME "${CMAKE_PROJECT_NAME}-${OPENSTUDIOAPPLICATION_LONG_VERSION}-macOS${OSX_VERSION_MAJOR_MINOR}-${ARCH}")
 elseif(UNIX)
   # eg: OpenStudioApplication-1.2.0-alpha+394bbe9f8d-Ubuntu18.04
   set(CPACK_PACKAGE_FILE_NAME "${CMAKE_PROJECT_NAME}-${OPENSTUDIOAPPLICATION_LONG_VERSION}-${LSB_RELEASE_ID_SHORT}${LSB_RELEASE_VERSION_SHORT}")
@@ -803,20 +842,28 @@ endif()
 
 set(CPACK_PACKAGE_CONTACT "osc@openstudiocoalition.org")
 
-  # Install additional Documents, such as release notes
-  install(FILES "${PROJECT_SOURCE_DIR}/QT_LICENSE_GPL_3_0.txt" DESTINATION .)
-  install(FILES "${PROJECT_SOURCE_DIR}/QT_LICENSE_LGPL_3_0.txt" DESTINATION .)
-  install(FILES "${PROJECT_SOURCE_DIR}/LICENSE.md" DESTINATION .)
+# Install additional Documents, such as release notes
+install(FILES "${PROJECT_SOURCE_DIR}/QT_LICENSE_GPL_3_0.txt" DESTINATION .  COMPONENT Licenses)
+install(FILES "${PROJECT_SOURCE_DIR}/QT_LICENSE_LGPL_3_0.txt" DESTINATION . COMPONENT Licenses)
+install(FILES "${PROJECT_SOURCE_DIR}/LICENSE.md" DESTINATION . COMPONENT Licenses)
+
+# Not sure whether we want a "Accept license" box in the IFW installer or not...
+set(CPACK_RESOURCE_FILE_LICENSE "${PROJECT_SOURCE_DIR}/LICENSE.md")
+# set(CPACK_RESOURCE_FILE_README "${PROJECT_BINARY_DIR}/release/readme.html")
 
 if (APPLE)
   set(CPACK_IFW_TARGET_DIRECTORY /Applications/OpenStudioApplication-${OpenStudioApplication_VERSION}/)
+  # Custom installer icon. Has to be .icns on mac, .ico on windows, not supported on Unix
+  set(CPACK_IFW_PACKAGE_ICON "${PROJECT_SOURCE_DIR}/icons/os.icns")
+  # Launch OpenStudioApp at end of install
+  set(CPACK_IFW_PACKAGE_RUN_PROGRAM "@TargetDir@/OpenStudioApp.app/Contents/MacOS/OpenStudioApp")
 elseif(UNIX)
 
   # For debug
   # set(CPACK_DEBIAN_PACKAGE_DEBUG ON)
 
   # Focal Fossa (20.04) uses libwxgtk3.0-gtk3-0v5, apparently need libxcb-xinerama0 as well
-  set(CPACK_DEBIAN_PACKAGE_DEPENDS "libxcb-xinerama0 (>= 1.13), libwxgtk3.0-0v5 (>= 3.0.0) | libwxgtk3.0-0 (>=3.0.0) | libwxgtk3.0-gtk3-0v5 (>=3.0.0), libxcb-cursor0")
+  set(CPACK_DEBIAN_PACKAGE_DEPENDS "libxcb-xinerama0 (>= 1.13), libwxgtk3.0-0v5 (>= 3.0.0) | libwxgtk3.0-0 (>=3.0.0) | libwxgtk3.0-gtk3-0v5 (>=3.0.0) | libwxgtk3.2-1t64 (>= 3.2.0), libxcb-cursor0")
 
   # These two will set the .deb install path correctly
   set(CPACK_SET_DESTDIR ON)
@@ -855,12 +902,12 @@ elseif(UNIX)
   # Create a proper App with file associations
 
   # Install the .desktop manifest (allows the App to be seen in the Dash and adding to the dock, and to map it a mimetype)
-  # install(FILES "${PROJECT_SOURCE_DIR}/src/openstudio_app/openstudioapp.desktop" DESTINATION /usr/share/applications)
-  install(FILES "${PROJECT_SOURCE_DIR}/src/openstudio_app/openstudioapp.desktop" DESTINATION Temp/)
+  # install(FILES "${PROJECT_SOURCE_DIR}/debian/openstudioapp.desktop" DESTINATION /usr/share/applications)
+  install(FILES "${PROJECT_SOURCE_DIR}/debian/openstudioapp.desktop" DESTINATION Temp/)
 
   # Install the XML mime info
-  # install(FILES "${PROJECT_SOURCE_DIR}/src/openstudio_app/x-openstudio.xml" DESTINATION /usr/share/mime/application)
-  install(FILES "${PROJECT_SOURCE_DIR}/src/openstudio_app/x-openstudio.xml" DESTINATION Temp/)
+  # install(FILES "${PROJECT_SOURCE_DIR}/debian/x-openstudio.xml" DESTINATION /usr/share/mime/application)
+  install(FILES "${PROJECT_SOURCE_DIR}/debian/x-openstudio.xml" DESTINATION Temp/)
 
   set(CPACK_DEBIAN_PACKAGE_CONTROL_EXTRA "${CPACK_DEBIAN_BIN_PACKAGE_CONTROL_EXTRA};${POSTINST_FILE};${POSTRM_FILE}")
 
@@ -899,6 +946,44 @@ elseif(WIN32)
   set(CPACK_IFW_TARGET_DIRECTORY "C:/${CPACK_PACKAGE_INSTALL_DIRECTORY}")
   set(CPACK_BINARY_IFW ON CACHE BOOL "Enable to build IFW packages")
   set(CPACK_BINARY_NSIS OFF CACHE BOOL "Enable to build NSIS packages")
+
+  # Custom installer icon. Has to be .icns on mac, .ico on windows, not supported on Unix
+  set(CPACK_IFW_PACKAGE_ICON "${PROJECT_SOURCE_DIR}/icons/os.ico")
+
+  # Launch OpenStudioApp at end of install
+  set(CPACK_IFW_PACKAGE_RUN_PROGRAM "@TargetDir@/bin/OpenStudioApp")
+endif()
+
+
+if(APPLE)
+
+  if(CPACK_CODESIGNING_DEVELOPPER_ID_APPLICATION)
+    # Codesign inner binaries and libraries, in the CPack staging area for the current project & component
+    # Define some required variables for the script in the scope of the install(SCRIPT) first
+    set(CLI_FILES_TO_SIGN
+      lib/libopenstudiolib.dylib
+      lib/libpythonengine.so
+      lib/librubyengine.so
+      bin/install_utility
+    )
+    install(CODE "set(FILES_TO_SIGN \"${CLI_FILES_TO_SIGN}\")" COMPONENT "CLI")
+    install(CODE "set(CPACK_CODESIGNING_DEVELOPPER_ID_APPLICATION \"${CPACK_CODESIGNING_DEVELOPPER_ID_APPLICATION}\")" COMPONENT CLI)
+    install(CODE "set(CPACK_CODESIGNING_MACOS_IDENTIFIER \"${CPACK_CODESIGNING_MACOS_IDENTIFIER}\")" COMPONENT CLI)
+    install(SCRIPT "${CMAKE_CURRENT_LIST_DIR}/CMake/install_codesign_script.cmake" COMPONENT CLI)
+
+    # These two have special globs added to the their install script, and I define FILES_TO_SIGN in there if needed (long list)
+    install(CODE "set(CPACK_CODESIGNING_DEVELOPPER_ID_APPLICATION \"${CPACK_CODESIGNING_DEVELOPPER_ID_APPLICATION}\")" COMPONENT OpenStudioApp)
+    install(CODE "set(CPACK_CODESIGNING_MACOS_IDENTIFIER \"${CPACK_CODESIGNING_MACOS_IDENTIFIER}\")" COMPONENT OpenStudioApp)
+    install(SCRIPT "${CMAKE_CURRENT_LIST_DIR}/CMake/install_codesign_script_OpenStudioApp.cmake" COMPONENT OpenStudioApp)
+
+    install(CODE "set(CPACK_CODESIGNING_DEVELOPPER_ID_APPLICATION \"${CPACK_CODESIGNING_DEVELOPPER_ID_APPLICATION}\")" COMPONENT Python)
+    install(CODE "set(CPACK_CODESIGNING_MACOS_IDENTIFIER \"${CPACK_CODESIGNING_MACOS_IDENTIFIER}\")" COMPONENT Python)
+    install(SCRIPT "${CMAKE_CURRENT_LIST_DIR}/CMake/install_codesign_script_Python.cmake" COMPONENT Python)
+
+    # Register the CPACK_POST_BUILD_SCRIPTS
+    set(CPACK_POST_BUILD_SCRIPTS "${CMAKE_CURRENT_LIST_DIR}/CMake/CPackSignAndNotarizeDmg.cmake")
+  endif()
+
 endif()
 
 ######################################################################################################################################################
@@ -923,6 +1008,7 @@ cpack_add_component(Resources
 cpack_add_component(OpenStudioApp
   DISPLAY_NAME "OpenStudio Application"
   DESCRIPTION "OpenStudio Application"
+  REQUIRED
 )
 
 cpack_ifw_configure_component(Resources
@@ -945,6 +1031,24 @@ cpack_add_component(Libraries
 cpack_add_component(Python
   DISPLAY_NAME "Python Bindings"
   DESCRIPTION "Support for Python Measures"
+)
+
+cpack_add_component(RubyAPI
+  DISPLAY_NAME "Ruby API"
+  DESCRIPTION "The Ruby openstudio modeleditor for Sketchup"
+)
+
+cpack_add_component(
+  Licenses
+  DISPLAY_NAME "Licenses"
+  DESCRIPTION "License files for OpenStudio Application"
+  REQUIRED
+  HIDDEN
+)
+
+cpack_ifw_configure_component(Licenses
+  FORCED_INSTALLATION
+  LICENSES "OpenStudio Application" ${CPACK_RESOURCE_FILE_LICENSE}
 )
 
 add_custom_target(PACKAGE_DEBUG

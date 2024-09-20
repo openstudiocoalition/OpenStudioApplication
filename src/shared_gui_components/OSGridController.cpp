@@ -1,30 +1,6 @@
 /***********************************************************************************************************************
-*  OpenStudio(R), Copyright (c) 2020-2023, OpenStudio Coalition and other contributors. All rights reserved.
-*
-*  Redistribution and use in source and binary forms, with or without modification, are permitted provided that the
-*  following conditions are met:
-*
-*  (1) Redistributions of source code must retain the above copyright notice, this list of conditions and the following
-*  disclaimer.
-*
-*  (2) Redistributions in binary form must reproduce the above copyright notice, this list of conditions and the following
-*  disclaimer in the documentation and/or other materials provided with the distribution.
-*
-*  (3) Neither the name of the copyright holder nor the names of any contributors may be used to endorse or promote products
-*  derived from this software without specific prior written permission from the respective party.
-*
-*  (4) Other than as required in clauses (1) and (2), distributions in any form of modifications or other derivative works
-*  may not use the "OpenStudio" trademark, "OS", "os", or any other confusingly similar designation without specific prior
-*  written permission from Alliance for Sustainable Energy, LLC.
-*
-*  THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDER(S) AND ANY CONTRIBUTORS "AS IS" AND ANY EXPRESS OR IMPLIED WARRANTIES,
-*  INCLUDING, BUT NOT LIMITED TO, THE IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE ARE
-*  DISCLAIMED. IN NO EVENT SHALL THE COPYRIGHT HOLDER(S), ANY CONTRIBUTORS, THE UNITED STATES GOVERNMENT, OR THE UNITED
-*  STATES DEPARTMENT OF ENERGY, NOR ANY OF THEIR EMPLOYEES, BE LIABLE FOR ANY DIRECT, INDIRECT, INCIDENTAL, SPECIAL,
-*  EXEMPLARY, OR CONSEQUENTIAL DAMAGES (INCLUDING, BUT NOT LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES; LOSS OF
-*  USE, DATA, OR PROFITS; OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND ON ANY THEORY OF LIABILITY, WHETHER IN CONTRACT,
-*  STRICT LIABILITY, OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF
-*  ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
+*  OpenStudio(R), Copyright (c) OpenStudio Coalition and other contributors.
+*  See also https://openstudiocoalition.org/about/software_license/
 ***********************************************************************************************************************/
 
 #include "OSGridController.hpp"
@@ -43,7 +19,6 @@
 #include "../openstudio_lib/OSDropZone.hpp"
 #include "../openstudio_lib/OSItemSelector.hpp"
 #include "../openstudio_lib/RenderingColorWidget.hpp"
-#include "../openstudio_lib/SchedulesView.hpp"
 
 #include <openstudio/model/Model_Impl.hpp>
 #include <openstudio/model/ModelObject_Impl.hpp>
@@ -76,23 +51,23 @@
 
 namespace openstudio {
 
-const std::vector<QColor> OSGridController::m_colors = SchedulesView::initializeColors();
-
 OSGridController::OSGridController()
   : m_hasHorizontalHeader(true),
     m_currentCategoryIndex(0),
     m_isIP(false),
+    m_displayAdditionalProps(false),
     m_horizontalHeaderBtnGrp(nullptr),
     m_objectSelector(new OSObjectSelector(this)) {}
 
 OSGridController::OSGridController(bool isIP, const QString& settingsKey, IddObjectType iddObjectType, const model::Model& model,
-                                   const std::vector<model::ModelObject>& modelObjects)
+                                   const std::vector<model::ModelObject>& modelObjects, bool displayAdditionalProps)
   : m_iddObjectType(iddObjectType),
     m_modelObjects(modelObjects),
     m_hasHorizontalHeader(true),
     m_currentCategoryIndex(0),
     m_model(model),
     m_isIP(isIP),
+    m_displayAdditionalProps(displayAdditionalProps),
     m_horizontalHeaderBtnGrp(nullptr),
     m_settingsKey(settingsKey),
     m_objectSelector(new OSObjectSelector(this)) {
@@ -135,6 +110,10 @@ void OSGridController::setIddObjectType(const IddObjectType& iddObjectType) {
 
 bool OSGridController::isIP() const {
   return m_isIP;
+}
+
+bool OSGridController::isDisplayAdditionalProps() const {
+  return m_displayAdditionalProps;
 }
 
 bool OSGridController::hasHorizontalHeader() const {
@@ -580,6 +559,17 @@ void OSGridController::onHorizontalHeaderChecked(int index) {
 
 void OSGridController::onToggleUnits(bool displayIP) {
   m_isIP = displayIP;
+}
+
+void OSGridController::onToggleDisplayAdditionalProps(bool displayAdditionalProps) {
+  m_displayAdditionalProps = displayAdditionalProps;
+
+  m_currentFields = m_categoriesAndFields.at(m_currentCategoryIndex).second;
+
+  addColumns(m_currentCategory, m_currentFields);
+
+  // One of the only times we request a recreate all
+  emit recreateAll();
 }
 
 void OSGridController::onComboBoxIndexChanged(int index) {}

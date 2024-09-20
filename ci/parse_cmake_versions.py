@@ -15,8 +15,9 @@ def parse_os_app_version(cmakelists_path: Path):
 
     if "GITHUB_ENV" not in os.environ:
         return
-    with open(os.environ["GITHUB_ENV"], "a") as f:
-        f.write(f"\nOS_APP_VERSION={version}")
+    for out in ["GITHUB_ENV", "GITHUB_OUTPUT"]:
+        with open(os.environ[out], "a") as f:
+            f.write(f"\nOS_APP_VERSION={version}")
 
 
 def parse_os_sdk_version(find_sdk_path: Path):
@@ -62,14 +63,15 @@ def parse_os_sdk_version(find_sdk_path: Path):
     if "GITHUB_ENV" not in os.environ:
         return
 
-    with open(os.environ["GITHUB_ENV"], "a") as f:
-        f.write(f"\nOS_SDK_VERSION_MAJOR={OS_SDK_VERSION_MAJOR}")
-        f.write(f"\nOS_SDK_VERSION_MINOR={OS_SDK_VERSION_MINOR}")
-        f.write(f"\nOS_SDK_VERSION_PATCH={OS_SDK_VERSION_PATCH}")
-        f.write(f"\nOS_SDK_VERSION={OS_SDK_VERSION}")
-        f.write(f"\nOS_SDK_VERSION={OS_SDK_VERSION}")
-        f.write(f"\nOS_SDK_VERSION_SHA={OS_SDK_VERSION_SHA}")
-        f.write(f"\nOS_SDK_INSTALLER_NAME={OS_SDK_INSTALLER_NAME}")
+    for out in ["GITHUB_ENV", "GITHUB_OUTPUT"]:
+        with open(os.environ[out], "a") as f:
+            f.write(f"\nOS_SDK_VERSION_MAJOR={OS_SDK_VERSION_MAJOR}")
+            f.write(f"\nOS_SDK_VERSION_MINOR={OS_SDK_VERSION_MINOR}")
+            f.write(f"\nOS_SDK_VERSION_PATCH={OS_SDK_VERSION_PATCH}")
+            f.write(f"\nOS_SDK_VERSION={OS_SDK_VERSION}")
+            f.write(f"\nOS_SDK_VERSION={OS_SDK_VERSION}")
+            f.write(f"\nOS_SDK_VERSION_SHA={OS_SDK_VERSION_SHA}")
+            f.write(f"\nOS_SDK_INSTALLER_NAME={OS_SDK_INSTALLER_NAME}")
 
 
 if __name__ == "__main__":

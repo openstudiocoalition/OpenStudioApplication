@@ -1,30 +1,6 @@
 /***********************************************************************************************************************
-*  OpenStudio(R), Copyright (c) 2020-2023, OpenStudio Coalition and other contributors. All rights reserved.
-*
-*  Redistribution and use in source and binary forms, with or without modification, are permitted provided that the
-*  following conditions are met:
-*
-*  (1) Redistributions of source code must retain the above copyright notice, this list of conditions and the following
-*  disclaimer.
-*
-*  (2) Redistributions in binary form must reproduce the above copyright notice, this list of conditions and the following
-*  disclaimer in the documentation and/or other materials provided with the distribution.
-*
-*  (3) Neither the name of the copyright holder nor the names of any contributors may be used to endorse or promote products
-*  derived from this software without specific prior written permission from the respective party.
-*
-*  (4) Other than as required in clauses (1) and (2), distributions in any form of modifications or other derivative works
-*  may not use the "OpenStudio" trademark, "OS", "os", or any other confusingly similar designation without specific prior
-*  written permission from Alliance for Sustainable Energy, LLC.
-*
-*  THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDER(S) AND ANY CONTRIBUTORS "AS IS" AND ANY EXPRESS OR IMPLIED WARRANTIES,
-*  INCLUDING, BUT NOT LIMITED TO, THE IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE ARE
-*  DISCLAIMED. IN NO EVENT SHALL THE COPYRIGHT HOLDER(S), ANY CONTRIBUTORS, THE UNITED STATES GOVERNMENT, OR THE UNITED
-*  STATES DEPARTMENT OF ENERGY, NOR ANY OF THEIR EMPLOYEES, BE LIABLE FOR ANY DIRECT, INDIRECT, INCIDENTAL, SPECIAL,
-*  EXEMPLARY, OR CONSEQUENTIAL DAMAGES (INCLUDING, BUT NOT LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES; LOSS OF
-*  USE, DATA, OR PROFITS; OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND ON ANY THEORY OF LIABILITY, WHETHER IN CONTRACT,
-*  STRICT LIABILITY, OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF
-*  ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
+*  OpenStudio(R), Copyright (c) OpenStudio Coalition and other contributors.
+*  See also https://openstudiocoalition.org/about/software_license/
 ***********************************************************************************************************************/
 
 #include "MainWindow.hpp"
@@ -109,7 +85,7 @@ MainWindow::MainWindow(bool isPlugin, QWidget* parent)
   m_analyticsHelper = new AnalyticsHelper(this);
   connect(this, &MainWindow::sendAnalytics, m_analyticsHelper, &AnalyticsHelper::sendAnalytics);
 
-  auto* mainMenu = new MainMenu(m_displayIP, m_isPlugin, m_currLang, allowAnalytics(), m_useClassicCLI);
+  auto* mainMenu = new MainMenu(m_displayIP, m_isPlugin, m_currLang, allowAnalytics(), m_useClassicCLI, m_displayAdditionalProps);
   connect(mainMenu, &MainMenu::toggleUnitsClicked, this, &MainWindow::toggleUnits);
   connect(mainMenu, &MainMenu::changeLanguageClicked, this, &MainWindow::changeLanguage);
   connect(mainMenu, &MainMenu::downloadComponentsClicked, this, &MainWindow::downloadComponentsClicked);
@@ -130,6 +106,7 @@ MainWindow::MainWindow(bool isPlugin, QWidget* parent)
   connect(mainMenu, &MainMenu::changeLanguageClicked, this, &MainWindow::changeLanguageClicked);
   connect(mainMenu, &MainMenu::loadLibraryClicked, this, &MainWindow::loadLibraryClicked);
   connect(mainMenu, &MainMenu::loadExampleModelClicked, this, &MainWindow::loadExampleModelClicked);
+  connect(mainMenu, &MainMenu::loadShoeboxModelClicked, this, &MainWindow::loadShoeboxModelClicked);
   connect(mainMenu, &MainMenu::saveAsFileClicked, this, &MainWindow::saveAsFileClicked);
   connect(mainMenu, &MainMenu::saveFileClicked, this, &MainWindow::saveFileClicked);
   connect(mainMenu, &MainMenu::revertFileClicked, this, &MainWindow::revertFileClicked);
@@ -150,6 +127,8 @@ MainWindow::MainWindow(bool isPlugin, QWidget* parent)
   connect(mainMenu, &MainMenu::downloadMeasuresClicked, this, &MainWindow::downloadMeasuresClicked);
   connect(mainMenu, &MainMenu::changeBclLogin, this, &MainWindow::changeBclLogin);
   connect(mainMenu, &MainMenu::configureProxyClicked, this, &MainWindow::configureProxyClicked);
+  connect(mainMenu, &MainMenu::displayAdditionalPropsClicked, this, &MainWindow::toggleDisplayAdditionalProps);
+  connect(mainMenu, &MainMenu::displayAdditionalPropsClicked, this, &MainWindow::toggleDisplayAdditionalPropsClicked);
   connect(this, &MainWindow::enableRevertToSaved, mainMenu, &MainMenu::enableRevertToSavedAction);
   connect(this, &MainWindow::enableFileImports, mainMenu, &MainMenu::enableFileImportActions);
   connect(this, &MainWindow::enablePreferences, mainMenu, &MainMenu::enablePreferencesActions);
@@ -285,6 +264,7 @@ void MainWindow::readSettings() {
   m_geometryDiagnostics = settings.value("geometryDiagnostics").toBool();
   m_useClassicCLI = settings.value("useClassicCLI").toBool();
   m_currLang = settings.value("language", "en").toString();
+  m_displayAdditionalProps = settings.value("displayAdditionalProps").toBool();
   LOG_FREE(Debug, "MainWindow", "\n\n\nm_currLang=[" << m_currLang.toStdString() << "]\n\n\n");
   if (m_currLang.isEmpty()) {
     m_currLang = "en";
@@ -304,6 +284,7 @@ void MainWindow::writeSettings() {
   settings.setValue("verboseOutput", m_verboseOutput);
   settings.setValue("geometryDiagnostics", m_geometryDiagnostics);
   settings.setValue("useClassicCLI", m_useClassicCLI);
+  settings.setValue("displayAdditionalProps", m_displayAdditionalProps);
   settings.setValue("language", m_currLang);
   settings.setValue("analyticsId", m_analyticsId);
 }
@@ -338,8 +319,6 @@ bool MainWindow::useClassicCLI() const {
 
 void MainWindow::toggleUseClassicCLI(bool useClassicCLI) {
   m_useClassicCLI = useClassicCLI;
-  QMessageBox::information(this, tr("Restart required"), tr("Restart the OpenStudio Application to reset Measure Manager."), QMessageBox::Ok,
-                           QMessageBox::Ok);
 }
 
 bool MainWindow::geometryDiagnostics() const {
@@ -473,6 +452,15 @@ void MainWindow::loadProxySettings() {
       configureProxyClicked();
     }
   }
+}
+
+bool MainWindow::displayAdditionalProps() const {
+  return m_displayAdditionalProps;
+}
+
+void MainWindow::toggleDisplayAdditionalProps(bool displayAdditionalProps) {
+  m_displayAdditionalProps = displayAdditionalProps;
+  writeSettings();
 }
 
 }  // namespace openstudio

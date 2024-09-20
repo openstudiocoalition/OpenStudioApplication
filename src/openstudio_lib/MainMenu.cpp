@@ -1,30 +1,6 @@
 /***********************************************************************************************************************
-*  OpenStudio(R), Copyright (c) 2020-2023, OpenStudio Coalition and other contributors. All rights reserved.
-*
-*  Redistribution and use in source and binary forms, with or without modification, are permitted provided that the
-*  following conditions are met:
-*
-*  (1) Redistributions of source code must retain the above copyright notice, this list of conditions and the following
-*  disclaimer.
-*
-*  (2) Redistributions in binary form must reproduce the above copyright notice, this list of conditions and the following
-*  disclaimer in the documentation and/or other materials provided with the distribution.
-*
-*  (3) Neither the name of the copyright holder nor the names of any contributors may be used to endorse or promote products
-*  derived from this software without specific prior written permission from the respective party.
-*
-*  (4) Other than as required in clauses (1) and (2), distributions in any form of modifications or other derivative works
-*  may not use the "OpenStudio" trademark, "OS", "os", or any other confusingly similar designation without specific prior
-*  written permission from Alliance for Sustainable Energy, LLC.
-*
-*  THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDER(S) AND ANY CONTRIBUTORS "AS IS" AND ANY EXPRESS OR IMPLIED WARRANTIES,
-*  INCLUDING, BUT NOT LIMITED TO, THE IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE ARE
-*  DISCLAIMED. IN NO EVENT SHALL THE COPYRIGHT HOLDER(S), ANY CONTRIBUTORS, THE UNITED STATES GOVERNMENT, OR THE UNITED
-*  STATES DEPARTMENT OF ENERGY, NOR ANY OF THEIR EMPLOYEES, BE LIABLE FOR ANY DIRECT, INDIRECT, INCIDENTAL, SPECIAL,
-*  EXEMPLARY, OR CONSEQUENTIAL DAMAGES (INCLUDING, BUT NOT LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES; LOSS OF
-*  USE, DATA, OR PROFITS; OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND ON ANY THEORY OF LIABILITY, WHETHER IN CONTRACT,
-*  STRICT LIABILITY, OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF
-*  ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
+*  OpenStudio(R), Copyright (c) OpenStudio Coalition and other contributors.
+*  See also https://openstudiocoalition.org/about/software_license/
 ***********************************************************************************************************************/
 
 #include "MainMenu.hpp"
@@ -42,8 +18,15 @@
 
 namespace openstudio {
 
-MainMenu::MainMenu(bool isIP, bool isPlugin, const QString& currLang, bool allowAnalytics, bool useClassicCLI, QWidget* parent)
-  : QMenuBar(parent), m_isPlugin(isPlugin), m_isIP(isIP), m_currLang(currLang), m_allowAnalytics(allowAnalytics), m_useClassicCLI(useClassicCLI) {
+MainMenu::MainMenu(bool isIP, bool isPlugin, const QString& currLang, bool allowAnalytics, bool useClassicCLI, bool displayAdditionalProps,
+                   QWidget* parent)
+  : QMenuBar(parent),
+    m_isPlugin(isPlugin),
+    m_isIP(isIP),
+    m_currLang(currLang),
+    m_allowAnalytics(allowAnalytics),
+    m_useClassicCLI(useClassicCLI),
+    m_displayAdditionalProps(displayAdditionalProps) {
 
   QAction* action = nullptr;
 
@@ -132,6 +115,10 @@ MainMenu::MainMenu(bool isIP, bool isPlugin, const QString& currLang, bool allow
   action = new QAction(tr("&Example Model"), this);
   exampleMenu->addAction(action);
   connect(action, &QAction::triggered, this, &MainMenu::loadExampleModelClicked, Qt::QueuedConnection);
+
+  action = new QAction(tr("Shoebox Model"), this);
+  exampleMenu->addAction(action);
+  connect(action, &QAction::triggered, this, &MainMenu::loadShoeboxModelClicked, Qt::QueuedConnection);
 
   if (!m_isPlugin) {
 
@@ -301,6 +288,12 @@ MainMenu::MainMenu(bool isIP, bool isPlugin, const QString& currLang, bool allow
   m_preferencesMenu->addAction(m_useClassicCLIAction);
   connect(m_useClassicCLIAction, &QAction::triggered, this, &MainMenu::useClassicCLIClicked, Qt::QueuedConnection);
 
+  m_displayAdditionalPropsAction = new QAction(tr("&Display Additional Proprerties"), this);
+  m_displayAdditionalPropsAction->setCheckable(true);
+  m_preferencesActions.push_back(m_displayAdditionalPropsAction);
+  m_preferencesMenu->addAction(m_displayAdditionalPropsAction);
+  connect(m_displayAdditionalPropsAction, &QAction::triggered, this, &MainMenu::enableDisplayAdditionalProps, Qt::QueuedConnection);
+
   if (m_isIP) {
     m_displayIPUnitsAction->trigger();
   } else {
@@ -309,6 +302,10 @@ MainMenu::MainMenu(bool isIP, bool isPlugin, const QString& currLang, bool allow
 
   if (m_useClassicCLI) {
     m_useClassicCLIAction->setChecked(true);
+  }
+
+  if (m_displayAdditionalProps) {
+    m_displayAdditionalPropsAction->setChecked(true);
   }
 
   m_langEnglishAction->setChecked(false);
@@ -752,6 +749,12 @@ void MainMenu::enableUseClassicCLI(bool enable) {
 }
 void MainMenu::toggleUseClassicCLI() {
   enableUseClassicCLI(!m_useClassicCLI);
+}
+
+void MainMenu::enableDisplayAdditionalProps(bool displayAdditionalProps) {
+  m_displayAdditionalProps = displayAdditionalProps;
+  m_displayAdditionalPropsAction->setChecked(m_displayAdditionalProps);
+  emit displayAdditionalPropsClicked(m_displayAdditionalProps);
 }
 
 void MainMenu::enableRevertToSavedAction(bool enable) {

@@ -3,32 +3,28 @@
 # Inputs:
 #   ARGV[0] - path to top level cmake source directory (one level above 'src' directory)
 
-require 'pathname'
-require 'rubygems'
 require 'fileutils'
+require 'pathname'
 
 include FileUtils
 
-# check that called from command line directly
-if not ($0 == __FILE__)
-  puts "#{__FILE__} called from external script"
-  exit
-end
+ROOT_DIR = Pathname.new(__dir__).parent.parent
 
-basepath = ARGV[0].gsub("\\", "/")
+license_lines = [
+  "OpenStudio(R), Copyright (c) OpenStudio Coalition and other contributors.\n",
+  "See also https://openstudiocoalition.org/about/software_license/\n",
+]
 
 copyright = "/***********************************************************************************************************************\n"
 ruby_copyright = "########################################################################################################################\n"
-File.open(basepath + "/LICENSE.md") do |file|
-  while (line = file.gets)
-    if line.strip.empty?
-      copyright +=  "*" + line
-      ruby_copyright += "#" + line
+license_lines.each do |line|
+  if line.strip.empty?
+    copyright += '*' + line
+    ruby_copyright += '#' + line
 
-    else
-      copyright += "*  " + line
-      ruby_copyright += "#  " + line
-    end
+  else
+    copyright += '*  ' + line
+    ruby_copyright += '#  ' + line
   end
 end
 copyright += "***********************************************************************************************************************/\n\n"
@@ -36,107 +32,57 @@ ruby_copyright += "#############################################################
 
 # first do c++
 
-# exceptions are files that are not part of OpenStudio
-exceptions = [basepath + "/src/qtwinmigrate/",
-              "mainpage.hpp"]
+# exclusions are files that are not part of OpenStudio
+folder_exclusions = [
+  ROOT_DIR / 'src/qtwinmigrate',
+]
+filename_exclusions = [
+  'mainpage.hpp',
+]
 
 # glob for hpp and cpp
-files = Dir.glob(basepath + "/src/**/*.[ch]pp")
-files.concat Dir.glob(basepath + "/ruby/**/*.[ch]pp")
-files.concat Dir.glob(basepath + "/src/**/*.cxx.in")
-files.concat Dir.glob(basepath + "/src/**/*.tmp")
+files = ROOT_DIR.glob('src/**/*.[ch]pp')
+files += ROOT_DIR.glob('ruby/**/*.[ch]pp')
+files += ROOT_DIR.glob('src/**/*.[ch]xx.in')
+files += ROOT_DIR.glob('src/**/*.tmp')
 
 # reject exceptions
 files.reject! do |p|
-  result = false
-  exceptions.each do |e|
-    if p.include?(e)
-      result = true
-      puts p
-      break
-    end
-  end
-  result
+  filename_exclusions.any? { |fname| p.basename.to_s == fname } ||
+    p.ascend { |path| break true if folder_exclusions.any? { |p2| path == p2 } }
 end
 
 # loop over all files
 files.each do |p|
-
-  # start with copyright
-  text = copyright
-
-  # read file
-  File.open(p, "r") do |file|
-    # read until end of current copyright
-    while (line = file.gets)
-      if not /^\s?[\/\*]/.match(line)
-        if not line.chomp.empty?
-          text += line
-        end
-        break
-      end
-    end
-
-    # now keep rest of file
-    while (line = file.gets)
-      text += line
-    end
-  end
+  # Read lines and remove copyright
+  lines = p.readlines
+  lines.shift(lines.find_index { |line| !(line.chomp.empty? || %r{^\s?[/*]}.match(line)) })
 
   # write file
-  File.open(p, "w") do |file|
-    file << text
-  end
-
+  p.write(copyright + lines.join)
 end
 
 # now do ruby
 
 # exceptions are files that are not part of OpenStudio
-exceptions = []
+folder_exclusions = []
+filename_exclusions = []
 
 # glob for rb
-files = Dir.glob(basepath + "/ruby/**/*.rb")
+files = ROOT_DIR.glob('ruby/**/*.rb')
 
 # reject exceptions
 files.reject! do |p|
-  result = false
-  exceptions.each do |e|
-    if p.include?(e)
-      result = true
-      break
-    end
-  end
-  result
+  filename_exclusions.any? { |fname| p.basename.to_s == fname } ||
+    p.ascend { |path| break true if folder_exclusions.any? { |p2| path == p2 } }
 end
 
 # loop over all files
 files.each do |p|
-
-  # start with copyright
-  text = ruby_copyright
-
-  # read file
-  File.open(p, "r") do |file|
-    # read until end of current copyright
-    while (line = file.gets)
-      if not /^#/.match(line)
-        if not line.chomp.empty?
-          text += line
-        end
-        break
-      end
-    end
-
-    # now keep rest of file
-    while (line = file.gets)
-      text += line
-    end
-  end
+  # Read lines and remove copyright
+  lines = p.readlines
+  lines.shift(lines.find_index { |line| !(line.chomp.empty? || /^#/.match(line)) })
 
   # write file
-  File.open(p, "w") do |file|
-    file << text
-  end
-
+  p.write(ruby_copyright + lines.join)
 end

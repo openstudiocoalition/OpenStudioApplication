@@ -1,30 +1,6 @@
 /***********************************************************************************************************************
-*  OpenStudio(R), Copyright (c) 2020-2023, OpenStudio Coalition and other contributors. All rights reserved.
-*
-*  Redistribution and use in source and binary forms, with or without modification, are permitted provided that the
-*  following conditions are met:
-*
-*  (1) Redistributions of source code must retain the above copyright notice, this list of conditions and the following
-*  disclaimer.
-*
-*  (2) Redistributions in binary form must reproduce the above copyright notice, this list of conditions and the following
-*  disclaimer in the documentation and/or other materials provided with the distribution.
-*
-*  (3) Neither the name of the copyright holder nor the names of any contributors may be used to endorse or promote products
-*  derived from this software without specific prior written permission from the respective party.
-*
-*  (4) Other than as required in clauses (1) and (2), distributions in any form of modifications or other derivative works
-*  may not use the "OpenStudio" trademark, "OS", "os", or any other confusingly similar designation without specific prior
-*  written permission from Alliance for Sustainable Energy, LLC.
-*
-*  THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDER(S) AND ANY CONTRIBUTORS "AS IS" AND ANY EXPRESS OR IMPLIED WARRANTIES,
-*  INCLUDING, BUT NOT LIMITED TO, THE IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE ARE
-*  DISCLAIMED. IN NO EVENT SHALL THE COPYRIGHT HOLDER(S), ANY CONTRIBUTORS, THE UNITED STATES GOVERNMENT, OR THE UNITED
-*  STATES DEPARTMENT OF ENERGY, NOR ANY OF THEIR EMPLOYEES, BE LIABLE FOR ANY DIRECT, INDIRECT, INCIDENTAL, SPECIAL,
-*  EXEMPLARY, OR CONSEQUENTIAL DAMAGES (INCLUDING, BUT NOT LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES; LOSS OF
-*  USE, DATA, OR PROFITS; OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND ON ANY THEORY OF LIABILITY, WHETHER IN CONTRACT,
-*  STRICT LIABILITY, OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF
-*  ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
+*  OpenStudio(R), Copyright (c) OpenStudio Coalition and other contributors.
+*  See also https://openstudiocoalition.org/about/software_license/
 ***********************************************************************************************************************/
 
 #include "FacilityShadingGridView.hpp"
@@ -71,6 +47,8 @@
 
 #define NAME "Shading Surface Group Name"
 #define SELECTED "All"
+#define DISPLAYNAME "Display Name"
+#define CADOBJECTID "CAD Object ID"
 
 // GENERAL
 #define TYPE "Type"                                // read only
@@ -88,7 +66,8 @@
 
 namespace openstudio {
 
-FacilityShadingGridView::FacilityShadingGridView(bool isIP, const model::Model& model, QWidget* parent) : GridViewSubTab(isIP, model, parent) {
+FacilityShadingGridView::FacilityShadingGridView(bool isIP, bool displayAdditionalProps, const model::Model& model, QWidget* parent)
+  : GridViewSubTab(isIP, displayAdditionalProps, model, parent) {
   std::vector<model::ShadingSurfaceGroup> shadingGroups = model.getConcreteModelObjects<model::ShadingSurfaceGroup>();
   // Filter out the 'Space' shadingSurfaceTypes
   // These are displayed on the Space's "Shading" subtab
@@ -99,7 +78,8 @@ FacilityShadingGridView::FacilityShadingGridView(bool isIP, const model::Model& 
   auto modelObjects = subsetCastVector<model::ModelObject>(shadingGroups);
   std::sort(modelObjects.begin(), modelObjects.end(), openstudio::WorkspaceObjectNameLess());
 
-  m_gridController = new FacilityShadingGridController(isIP, "Shading Surface Group", IddObjectType::OS_ShadingSurfaceGroup, model, modelObjects);
+  m_gridController = new FacilityShadingGridController(isIP, displayAdditionalProps, "Shading Surface Group", IddObjectType::OS_ShadingSurfaceGroup,
+                                                       model, modelObjects);
   m_gridView = new OSGridView(m_gridController, "Shading Surface Group", "Drop Shading\nSurface Group", false, parent);
 
   setGridController(m_gridController);
@@ -418,9 +398,10 @@ void FacilityShadingGridView::onClearSelection() {
   m_itemSelectorButtons->disablePurgeButton();
 }
 
-FacilityShadingGridController::FacilityShadingGridController(bool isIP, const QString& headerText, IddObjectType iddObjectType,
-                                                             const model::Model& model, const std::vector<model::ModelObject>& modelObjects)
-  : OSGridController(isIP, headerText, iddObjectType, model, modelObjects) {
+FacilityShadingGridController::FacilityShadingGridController(bool isIP, bool displayAdditionalProps, const QString& headerText,
+                                                             IddObjectType iddObjectType, const model::Model& model,
+                                                             const std::vector<model::ModelObject>& modelObjects)
+  : OSGridController(isIP, headerText, iddObjectType, model, modelObjects, displayAdditionalProps) {
   setCategoriesAndFields();
 }
 
@@ -443,6 +424,11 @@ void FacilityShadingGridController::onCategorySelected(int index) {
 }
 
 void FacilityShadingGridController::addColumns(const QString& category, std::vector<QString>& fields) {
+
+  if (isDisplayAdditionalProps()) {
+    // We place it after the SHADINGSURFACENAME
+    fields.insert(fields.begin(), {DISPLAYNAME, CADOBJECTID});
+  }
   // always show name and selected columns
   // show type next to name, since it comes from the groups
   fields.insert(fields.begin(), {NAME, TYPE, SELECTED});
@@ -472,7 +458,6 @@ void FacilityShadingGridController::addColumns(const QString& category, std::vec
         CastNullAdapter<model::ShadingSurfaceGroup>(&model::ShadingSurfaceGroup::shadingSurfaceType),
         CastNullAdapter<model::ShadingSurfaceGroup>(&model::ShadingSurfaceGroup::setShadingSurfaceType),
         boost::optional<std::function<void(model::ShadingSurfaceGroup*)>>(), boost::optional<std::function<bool(model::ShadingSurfaceGroup*)>>());
-
     } else {
 
       std::function<std::vector<model::ModelObject>(const model::ShadingSurfaceGroup&)> allShadingSurfaces(
@@ -498,6 +483,26 @@ void FacilityShadingGridController::addColumns(const QString& category, std::vec
                           boost::optional<std::function<void(model::ShadingSurface*)>>(
                             std::function<void(model::ShadingSurface*)>([](model::ShadingSurface* t_ss) { t_ss->remove(); })),
                           boost::optional<std::function<bool(model::ShadingSurface*)>>(), DataSource(allShadingSurfaces, true));
+      } else if (field == DISPLAYNAME) {
+        addNameLineEditColumn(Heading(QString(DISPLAYNAME), false, false),                                        // heading
+                              false,                                                                              // isInspectable
+                              false,                                                                              // isLocked
+                              DisplayNameAdapter<model::ShadingSurface>(&model::ShadingSurface::displayName),     // getter
+                              DisplayNameAdapter<model::ShadingSurface>(&model::ShadingSurface::setDisplayName),  // setter
+                              boost::optional<std::function<void(model::ShadingSurface*)>>(),                     // resetter
+                              boost::optional<std::function<bool(model::ShadingSurface*)>>(),                     // isDefaulted
+                              DataSource(allShadingSurfaces, true)                                                // t_source
+        );
+      } else if (field == CADOBJECTID) {
+        addNameLineEditColumn(Heading(QString(CADOBJECTID), false, false),                                        // heading
+                              false,                                                                              // isInspectable
+                              false,                                                                              // isLocked
+                              DisplayNameAdapter<model::ShadingSurface>(&model::ShadingSurface::cadObjectId),     // getter
+                              DisplayNameAdapter<model::ShadingSurface>(&model::ShadingSurface::setCADObjectId),  // setter
+                              boost::optional<std::function<void(model::ShadingSurface*)>>(),                     // resetter
+                              boost::optional<std::function<bool(model::ShadingSurface*)>>(),                     // isDefaulted
+                              DataSource(allShadingSurfaces, true)                                                // t_source
+        );
       } else if (field == CONSTRUCTIONNAME) {
         addDropZoneColumn(
           Heading(QString(CONSTRUCTIONNAME), true, false), CastNullAdapter<model::ShadingSurface>(&model::ShadingSurface::construction),

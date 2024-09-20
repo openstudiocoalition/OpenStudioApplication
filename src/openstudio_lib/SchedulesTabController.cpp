@@ -1,30 +1,6 @@
 /***********************************************************************************************************************
-*  OpenStudio(R), Copyright (c) 2020-2023, OpenStudio Coalition and other contributors. All rights reserved.
-*
-*  Redistribution and use in source and binary forms, with or without modification, are permitted provided that the
-*  following conditions are met:
-*
-*  (1) Redistributions of source code must retain the above copyright notice, this list of conditions and the following
-*  disclaimer.
-*
-*  (2) Redistributions in binary form must reproduce the above copyright notice, this list of conditions and the following
-*  disclaimer in the documentation and/or other materials provided with the distribution.
-*
-*  (3) Neither the name of the copyright holder nor the names of any contributors may be used to endorse or promote products
-*  derived from this software without specific prior written permission from the respective party.
-*
-*  (4) Other than as required in clauses (1) and (2), distributions in any form of modifications or other derivative works
-*  may not use the "OpenStudio" trademark, "OS", "os", or any other confusingly similar designation without specific prior
-*  written permission from Alliance for Sustainable Energy, LLC.
-*
-*  THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDER(S) AND ANY CONTRIBUTORS "AS IS" AND ANY EXPRESS OR IMPLIED WARRANTIES,
-*  INCLUDING, BUT NOT LIMITED TO, THE IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE ARE
-*  DISCLAIMED. IN NO EVENT SHALL THE COPYRIGHT HOLDER(S), ANY CONTRIBUTORS, THE UNITED STATES GOVERNMENT, OR THE UNITED
-*  STATES DEPARTMENT OF ENERGY, NOR ANY OF THEIR EMPLOYEES, BE LIABLE FOR ANY DIRECT, INDIRECT, INCIDENTAL, SPECIAL,
-*  EXEMPLARY, OR CONSEQUENTIAL DAMAGES (INCLUDING, BUT NOT LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES; LOSS OF
-*  USE, DATA, OR PROFITS; OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND ON ANY THEORY OF LIABILITY, WHETHER IN CONTRACT,
-*  STRICT LIABILITY, OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF
-*  ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
+*  OpenStudio(R), Copyright (c) OpenStudio Coalition and other contributors.
+*  See also https://openstudiocoalition.org/about/software_license/
 ***********************************************************************************************************************/
 
 #include "SchedulesTabController.hpp"
@@ -39,6 +15,8 @@
 #include "SchedulesTabView.hpp"
 #include "SchedulesView.hpp"
 #include "ScheduleDayView.hpp"
+#include "ScheduleOthersController.hpp"
+#include "ScheduleOthersView.hpp"
 #include "SubTabView.hpp"
 
 #include <openstudio/model/Model.hpp>
@@ -71,6 +49,7 @@ SchedulesTabController::SchedulesTabController(bool isIP, const model::Model& mo
   : MainTabController(new SchedulesTabView(model)), m_model(model), m_isIP(isIP) {
   mainContentWidget()->addSubTab("Schedule Sets", SCHEDULE_SETS);
   mainContentWidget()->addSubTab("Schedules", SCHEDULES);
+  mainContentWidget()->addSubTab("Other Schedules", SCHEDULESOTHER);
 
   connect(this->mainContentWidget(), &MainTabView::tabSelected, this, &SchedulesTabController::setSubTab);
 }
@@ -449,13 +428,20 @@ void SchedulesTabController::setSubTab(int index) {
     disconnect(qobject_cast<SchedulesView*>(m_currentView), &SchedulesView::itemDropped, this, &SchedulesTabController::onItemDropped);
     disconnect(qobject_cast<SchedulesView*>(m_currentView), &SchedulesView::modelObjectSelected, this, &SchedulesTabController::modelObjectSelected);
     disconnect(this, &SchedulesTabController::toggleUnitsClicked, this, &SchedulesTabController::toggleUnits);
+  } else if (qobject_cast<ScheduleOthersView*>(m_currentView) && qobject_cast<ScheduleOthersController*>(m_currentController)) {
+    disconnect(qobject_cast<ScheduleOthersController*>(m_currentController), &ScheduleOthersController::downloadComponentsClicked, this,
+               &SchedulesTabController::downloadComponentsClicked);
+    disconnect(qobject_cast<ScheduleOthersController*>(m_currentController), &ScheduleOthersController::openLibDlgClicked, this,
+               &SchedulesTabController::openLibDlgClicked);
+    disconnect(this, &SchedulesTabController::toggleUnitsClicked, this, &SchedulesTabController::toggleUnits);
+    m_currentController = nullptr;
   } else if (m_currentView) {
     // Oops! Should never get here
     OS_ASSERT(false);
   }
 
   switch (index) {
-    case 0: {
+    case TabID::SCHEDULE_SETS: {
       auto* scheduleSetsController = new ScheduleSetsController(m_model);
       connect(scheduleSetsController, &ScheduleSetsController::downloadComponentsClicked, this, &SchedulesTabController::downloadComponentsClicked);
       connect(scheduleSetsController, &ScheduleSetsController::openLibDlgClicked, this, &SchedulesTabController::openLibDlgClicked);
@@ -465,7 +451,7 @@ void SchedulesTabController::setSubTab(int index) {
       m_currentController = scheduleSetsController;
       break;
     }
-    case 1: {
+    case TabID::SCHEDULES: {
       auto* schedulesView = new SchedulesView(m_isIP, m_model);
       addQObject(schedulesView);
       connect(this, &SchedulesTabController::toggleUnitsClicked, schedulesView, &SchedulesView::toggleUnitsClicked);
@@ -486,6 +472,17 @@ void SchedulesTabController::setSubTab(int index) {
       connect(this, &SchedulesTabController::toggleUnitsClicked, this, &SchedulesTabController::toggleUnits);
       this->mainContentWidget()->setSubTab(schedulesView);
       m_currentView = schedulesView;
+      break;
+    }
+    case TabID::SCHEDULESOTHER: {
+      auto* scheduleOthersController = new ScheduleOthersController(m_model);
+      connect(scheduleOthersController, &ScheduleOthersController::downloadComponentsClicked, this,
+              &SchedulesTabController::downloadComponentsClicked);
+      connect(scheduleOthersController, &ScheduleOthersController::openLibDlgClicked, this, &SchedulesTabController::openLibDlgClicked);
+      connect(this, &SchedulesTabController::toggleUnitsClicked, this, &SchedulesTabController::toggleUnits);
+      this->mainContentWidget()->setSubTab(scheduleOthersController->subTabView());
+      m_currentView = scheduleOthersController->subTabView();
+      m_currentController = scheduleOthersController;
       break;
     }
     default:

@@ -1,30 +1,6 @@
 /***********************************************************************************************************************
-*  OpenStudio(R), Copyright (c) 2020-2023, OpenStudio Coalition and other contributors. All rights reserved.
-*
-*  Redistribution and use in source and binary forms, with or without modification, are permitted provided that the
-*  following conditions are met:
-*
-*  (1) Redistributions of source code must retain the above copyright notice, this list of conditions and the following
-*  disclaimer.
-*
-*  (2) Redistributions in binary form must reproduce the above copyright notice, this list of conditions and the following
-*  disclaimer in the documentation and/or other materials provided with the distribution.
-*
-*  (3) Neither the name of the copyright holder nor the names of any contributors may be used to endorse or promote products
-*  derived from this software without specific prior written permission from the respective party.
-*
-*  (4) Other than as required in clauses (1) and (2), distributions in any form of modifications or other derivative works
-*  may not use the "OpenStudio" trademark, "OS", "os", or any other confusingly similar designation without specific prior
-*  written permission from Alliance for Sustainable Energy, LLC.
-*
-*  THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDER(S) AND ANY CONTRIBUTORS "AS IS" AND ANY EXPRESS OR IMPLIED WARRANTIES,
-*  INCLUDING, BUT NOT LIMITED TO, THE IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE ARE
-*  DISCLAIMED. IN NO EVENT SHALL THE COPYRIGHT HOLDER(S), ANY CONTRIBUTORS, THE UNITED STATES GOVERNMENT, OR THE UNITED
-*  STATES DEPARTMENT OF ENERGY, NOR ANY OF THEIR EMPLOYEES, BE LIABLE FOR ANY DIRECT, INDIRECT, INCIDENTAL, SPECIAL,
-*  EXEMPLARY, OR CONSEQUENTIAL DAMAGES (INCLUDING, BUT NOT LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES; LOSS OF
-*  USE, DATA, OR PROFITS; OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND ON ANY THEORY OF LIABILITY, WHETHER IN CONTRACT,
-*  STRICT LIABILITY, OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF
-*  ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
+*  OpenStudio(R), Copyright (c) OpenStudio Coalition and other contributors.
+*  See also https://openstudiocoalition.org/about/software_license/
 ***********************************************************************************************************************/
 
 #include "ApplyMeasureNowDialog.hpp"
@@ -53,7 +29,6 @@
 #include "../utilities/OpenStudioApplicationPathHelpers.hpp"
 
 #include <openstudio/utilities/core/PathHelpers.hpp>
-#include <openstudio/utilities/core/RubyException.hpp>
 #include <openstudio/utilities/filetypes/WorkflowJSON.hpp>
 #include <openstudio/utilities/filetypes/WorkflowStep.hpp>
 #include <openstudio/utilities/filetypes/WorkflowStepResult.hpp>
@@ -77,6 +52,7 @@
 
 #include <fstream>
 
+#define LOADING_ARG_TEXT "<FONT COLOR = BLACK>Loading Arguments..."
 #define FAILED_ARG_TEXT "<FONT COLOR = RED>Failed to Show Arguments<FONT COLOR = BLACK> <br> <br>Reason(s): <br> <br>"
 
 #define ACCEPT_CHANGES "Accept Changes"
@@ -89,6 +65,7 @@ ApplyMeasureNowDialog::ApplyMeasureNowDialog(QWidget* parent)
     m_editController(nullptr),
     m_mainPaneStackedWidget(nullptr),
     m_rightPaneStackedWidget(nullptr),
+    m_argumentsLoadingTextEdit(nullptr),
     m_argumentsFailedTextEdit(nullptr),
     m_jobItemView(nullptr),
     m_timer(nullptr),
@@ -177,6 +154,9 @@ void ApplyMeasureNowDialog::createWidgets() {
 
   // INPUT
 
+  m_argumentsLoadingTextEdit = new QTextEdit(LOADING_ARG_TEXT);
+  m_argumentsLoadingTextEdit->setReadOnly(true);
+
   m_argumentsFailedTextEdit = new QTextEdit(FAILED_ARG_TEXT);
   m_argumentsFailedTextEdit->setReadOnly(true);
 
@@ -193,6 +173,7 @@ void ApplyMeasureNowDialog::createWidgets() {
   app->currentDocument()->enable();
 
   m_rightPaneStackedWidget = new QStackedWidget();
+  m_argumentsLoadingPageIdx = m_rightPaneStackedWidget->addWidget(m_argumentsLoadingTextEdit);
   m_argumentsFailedPageIdx = m_rightPaneStackedWidget->addWidget(m_argumentsFailedTextEdit);
 
   auto* viewSwitcher = new OSViewSwitcher();
@@ -295,11 +276,16 @@ void ApplyMeasureNowDialog::resizeEvent(QResizeEvent* event) {
 }
 
 void ApplyMeasureNowDialog::displayMeasure() {
+  std::unique_lock lock(m_displayMutex, std::try_to_lock);
+  if (!lock.owns_lock()) {
+    return;
+  }
+
   this->okButton()->setText(APPLY_MEASURE);
   this->okButton()->show();
   this->okButton()->setEnabled(false);
 
-  m_rightPaneStackedWidget->setCurrentIndex(m_argumentsOkPageIdx);
+  m_rightPaneStackedWidget->setCurrentIndex(m_argumentsLoadingPageIdx);
 
   m_bclMeasure.reset();
   m_currentMeasureStepItem.clear();
@@ -349,6 +335,7 @@ void ApplyMeasureNowDialog::displayMeasure() {
     m_currentMeasureStepItem->setDescription(m_bclMeasure->description().c_str());
 
     m_editController->setMeasureStepItem(m_currentMeasureStepItem.data(), app);
+    m_rightPaneStackedWidget->setCurrentIndex(m_argumentsOkPageIdx);
 
   } catch (const std::exception& e) {
     QString errorMessage("Failed to display measure: \n\n");

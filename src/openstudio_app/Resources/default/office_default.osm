@@ -1,7 +1,7 @@
 
 OS:Version,
-  {5ba19725-0242-48d7-bc63-e380e0a9507f}, !- Handle
-  3.7.0;                                  !- Version Identifier
+  {caef3d3a-790f-44c7-8464-e294d801a663}, !- Handle
+  3.8.0;                                  !- Version Identifier
 
 OS:Schedule:Constant,
   {1fe75643-8848-46bb-8327-b84d604dc1cc}, !- Handle
@@ -83,10 +83,10 @@ OS:ScheduleTypeLimits,
   CONTINUOUS;                             ! Numeric Type
 
 OS:Schedule:Day,
-  {f527ce9d-9816-4782-9799-67e4e81510db}, ! Handle
-  Office Bldg Light Default Schedule,     ! Name
-  {46639c15-3d9e-445e-bf44-62058e5636d7}, ! Schedule Type Limits Name
-  ,                                       ! Interpolate to Timestep
+  {f527ce9d-9816-4782-9799-67e4e81510db}, !- Handle
+  Office Bldg Light Default Schedule,     !- Name
+  {46639c15-3d9e-445e-bf44-62058e5636d7}, !- Schedule Type Limits Name
+  No,                                     !- Interpolate to Timestep
   5,                                      !- Hour 1
   0,                                      !- Minute 1
   0.05,                                   !- Value Until Time 1
@@ -116,22 +116,22 @@ OS:Schedule:Day,
   0.05;                                   !- Value Until Time 9
 
 OS:Schedule:Day,
-  {1e5fadd7-0f69-4049-94f9-be070e42cd9b}, ! Handle
-  Office Bldg Light Summer Design Day,    ! Name
-  {46639c15-3d9e-445e-bf44-62058e5636d7}, ! Schedule Type Limits Name
-  ,                                       ! Interpolate to Timestep
-  24,                                     ! Hour 1
-  0,                                      ! Minute 1
-  1;                                      ! Value Until Time 1
+  {1e5fadd7-0f69-4049-94f9-be070e42cd9b}, !- Handle
+  Office Bldg Light Summer Design Day,    !- Name
+  {46639c15-3d9e-445e-bf44-62058e5636d7}, !- Schedule Type Limits Name
+  No,                                     !- Interpolate to Timestep
+  24,                                     !- Hour 1
+  0,                                      !- Minute 1
+  1;                                      !- Value Until Time 1
 
 OS:Schedule:Day,
-  {f1d6d84f-b3ca-4a56-9fb6-be0771a24ee7}, ! Handle
-  Office Bldg Light Winter Design Day,    ! Name
-  {46639c15-3d9e-445e-bf44-62058e5636d7}, ! Schedule Type Limits Name
-  ,                                       ! Interpolate to Timestep
-  24,                                     ! Hour 1
-  0,                                      ! Minute 1
-  0;                                      ! Value Until Time 1
+  {f1d6d84f-b3ca-4a56-9fb6-be0771a24ee7}, !- Handle
+  Office Bldg Light Winter Design Day,    !- Name
+  {46639c15-3d9e-445e-bf44-62058e5636d7}, !- Schedule Type Limits Name
+  No,                                     !- Interpolate to Timestep
+  24,                                     !- Hour 1
+  0,                                      !- Minute 1
+  0;                                      !- Value Until Time 1
 
 OS:Schedule:Rule,
   {908b277a-17ad-43e5-8ca0-e1d276873fc0}, !- Handle
@@ -153,13 +153,13 @@ OS:Schedule:Rule,
   31;                                     !- End Day
 
 OS:Schedule:Day,
-  {f781a329-5fd9-4e85-a1ef-b4bef14b48ef}, ! Handle
-  Office Bldg Light Rule 1 Day Schedule,  ! Name
-  {46639c15-3d9e-445e-bf44-62058e5636d7}, ! Schedule Type Limits Name
-  ,                                       ! Interpolate to Timestep
-  24,                                     ! Hour 1
-  0,                                      ! Minute 1
-  0.050000000000000003;                   ! Value Until Time 1
+  {f781a329-5fd9-4e85-a1ef-b4bef14b48ef}, !- Handle
+  Office Bldg Light Rule 1 Day Schedule,  !- Name
+  {46639c15-3d9e-445e-bf44-62058e5636d7}, !- Schedule Type Limits Name
+  No,                                     !- Interpolate to Timestep
+  24,                                     !- Hour 1
+  0,                                      !- Minute 1
+  0.050000000000000003;                   !- Value Until Time 1
 
 OS:Schedule:Rule,
   {58f59580-2b1c-4b49-8761-6e97b4f06a41}, !- Handle
@@ -181,25 +181,25 @@ OS:Schedule:Rule,
   31;                                     !- End Day
 
 OS:Schedule:Day,
-  {d19a64b1-fd5a-4540-b6d8-57bf21de3b30}, ! Handle
-  Office Bldg Light Rule 2 Day Schedule,  ! Name
-  {46639c15-3d9e-445e-bf44-62058e5636d7}, ! Schedule Type Limits Name
-  ,                                       ! Interpolate to Timestep
-  6,                                      ! Hour 1
-  0,                                      ! Minute 1
-  0.050000000000000003,                   ! Value Until Time 1
-  8,                                      ! Hour 2
-  0,                                      ! Minute 2
-  0.10000000000000001,                    ! Value Until Time 2
-  14,                                     ! Hour 3
-  0,                                      ! Minute 3
-  0.5,                                    ! Value Until Time 3
-  17,                                     ! Hour 4
-  0,                                      ! Minute 4
-  0.14999999999999999,                    ! Value Until Time 4
-  24,                                     ! Hour 5
-  0,                                      ! Minute 5
-  0.050000000000000003;                   ! Value Until Time 5
+  {d19a64b1-fd5a-4540-b6d8-57bf21de3b30}, !- Handle
+  Office Bldg Light Rule 2 Day Schedule,  !- Name
+  {46639c15-3d9e-445e-bf44-62058e5636d7}, !- Schedule Type Limits Name
+  No,                                     !- Interpolate to Timestep
+  6,                                      !- Hour 1
+  0,                                      !- Minute 1
+  0.050000000000000003,                   !- Value Until Time 1
+  8,                                      !- Hour 2
+  0,                                      !- Minute 2
+  0.10000000000000001,                    !- Value Until Time 2
+  14,                                     !- Hour 3
+  0,                                      !- Minute 3
+  0.5,                                    !- Value Until Time 3
+  17,                                     !- Hour 4
+  0,                                      !- Minute 4
+  0.14999999999999999,                    !- Value Until Time 4
+  24,                                     !- Hour 5
+  0,                                      !- Minute 5
+  0.050000000000000003;                   !- Value Until Time 5
 
 OS:DesignSpecification:OutdoorAir,
   {275b2507-2551-4c6b-9576-0694f401735c}, !- Handle
@@ -242,10 +242,10 @@ OS:Schedule:Ruleset,
   {1a8a0f65-267d-4ea9-8175-002bf3fdd780}; ! Winter Design Day Schedule Name
 
 OS:Schedule:Day,
-  {889bfb8a-8061-48b2-bcb4-c05c2404845f}, ! Handle
-  Office Bldg Occ Default Schedule 1,     ! Name
-  {46639c15-3d9e-445e-bf44-62058e5636d7}, ! Schedule Type Limits Name
-  ,                                       ! Interpolate to Timestep
+  {889bfb8a-8061-48b2-bcb4-c05c2404845f}, !- Handle
+  Office Bldg Occ Default Schedule 1,     !- Name
+  {46639c15-3d9e-445e-bf44-62058e5636d7}, !- Schedule Type Limits Name
+  No,                                     !- Interpolate to Timestep
   6,                                      !- Hour 1
   0,                                      !- Minute 1
   0,                                      !- Value Until Time 1
@@ -266,28 +266,28 @@ OS:Schedule:Day,
   0.0500000007450581;                     !- Value Until Time 6
 
 OS:Schedule:Day,
-  {0e24e94b-015e-4feb-a85b-f76842862d1e}, ! Handle
-  Office Bldg Occ Summer Design Day 1,    ! Name
-  {46639c15-3d9e-445e-bf44-62058e5636d7}, ! Schedule Type Limits Name
-  ,                                       ! Interpolate to Timestep
-  6,                                      ! Hour 1
-  0,                                      ! Minute 1
-  0,                                      ! Value Until Time 1
-  22,                                     ! Hour 2
-  0,                                      ! Minute 2
-  1,                                      ! Value Until Time 2
-  24,                                     ! Hour 3
-  0,                                      ! Minute 3
-  0.050000000000000003;                   ! Value Until Time 3
+  {0e24e94b-015e-4feb-a85b-f76842862d1e}, !- Handle
+  Office Bldg Occ Summer Design Day 1,    !- Name
+  {46639c15-3d9e-445e-bf44-62058e5636d7}, !- Schedule Type Limits Name
+  No,                                     !- Interpolate to Timestep
+  6,                                      !- Hour 1
+  0,                                      !- Minute 1
+  0,                                      !- Value Until Time 1
+  22,                                     !- Hour 2
+  0,                                      !- Minute 2
+  1,                                      !- Value Until Time 2
+  24,                                     !- Hour 3
+  0,                                      !- Minute 3
+  0.050000000000000003;                   !- Value Until Time 3
 
 OS:Schedule:Day,
-  {1a8a0f65-267d-4ea9-8175-002bf3fdd780}, ! Handle
-  Office Bldg Occ Winter Design Day 1,    ! Name
-  {46639c15-3d9e-445e-bf44-62058e5636d7}, ! Schedule Type Limits Name
-  ,                                       ! Interpolate to Timestep
-  24,                                     ! Hour 1
-  0,                                      ! Minute 1
-  0;                                      ! Value Until Time 1
+  {1a8a0f65-267d-4ea9-8175-002bf3fdd780}, !- Handle
+  Office Bldg Occ Winter Design Day 1,    !- Name
+  {46639c15-3d9e-445e-bf44-62058e5636d7}, !- Schedule Type Limits Name
+  No,                                     !- Interpolate to Timestep
+  24,                                     !- Hour 1
+  0,                                      !- Minute 1
+  0;                                      !- Value Until Time 1
 
 OS:Schedule:Rule,
   {a97798e8-5429-4f50-b44e-dfb58ab1171e}, !- Handle
@@ -309,13 +309,13 @@ OS:Schedule:Rule,
   31;                                     !- End Day
 
 OS:Schedule:Day,
-  {67399e18-2529-4b87-8ea4-2dc28aff6617}, ! Handle
-  Office Bldg Occ Rule 1 Day Schedule 1,  ! Name
-  {46639c15-3d9e-445e-bf44-62058e5636d7}, ! Schedule Type Limits Name
-  ,                                       ! Interpolate to Timestep
-  24,                                     ! Hour 1
-  0,                                      ! Minute 1
-  0;                                      ! Value Until Time 1
+  {67399e18-2529-4b87-8ea4-2dc28aff6617}, !- Handle
+  Office Bldg Occ Rule 1 Day Schedule 1,  !- Name
+  {46639c15-3d9e-445e-bf44-62058e5636d7}, !- Schedule Type Limits Name
+  No,                                     !- Interpolate to Timestep
+  24,                                     !- Hour 1
+  0,                                      !- Minute 1
+  0;                                      !- Value Until Time 1
 
 OS:Schedule:Rule,
   {6b831ffb-ef84-4a8a-a32f-d7d10b547a0e}, !- Handle
@@ -337,10 +337,10 @@ OS:Schedule:Rule,
   31;                                     !- End Day
 
 OS:Schedule:Day,
-  {ee72aee8-eeaf-433a-9e3e-619a532596a3}, ! Handle
-  Office Bldg Occ Rule 2 Day Schedule 1,  ! Name
-  {46639c15-3d9e-445e-bf44-62058e5636d7}, ! Schedule Type Limits Name
-  ,                                       ! Interpolate to Timestep
+  {ee72aee8-eeaf-433a-9e3e-619a532596a3}, !- Handle
+  Office Bldg Occ Rule 2 Day Schedule 1,  !- Name
+  {46639c15-3d9e-445e-bf44-62058e5636d7}, !- Schedule Type Limits Name
+  No,                                     !- Interpolate to Timestep
   6,                                      !- Hour 1
   0,                                      !- Minute 1
   0,                                      !- Value Until Time 1
@@ -374,28 +374,28 @@ OS:ScheduleTypeLimits,
   ActivityLevel;                          !- Unit Type
 
 OS:Schedule:Day,
-  {2a936091-d303-4d47-b907-3f9308de0f26}, ! Handle
-  Office Activity Default Schedule,       ! Name
-  {115aba64-18e9-477b-9f56-bc49f71a3d65}, ! Schedule Type Limits Name
-  ,                                       ! Interpolate to Timestep
+  {2a936091-d303-4d47-b907-3f9308de0f26}, !- Handle
+  Office Activity Default Schedule,       !- Name
+  {115aba64-18e9-477b-9f56-bc49f71a3d65}, !- Schedule Type Limits Name
+  No,                                     !- Interpolate to Timestep
   24,                                     !- Hour 1
   0,                                      !- Minute 1
   132;                                    !- Value Until Time 1
 
 OS:Schedule:Day,
-  {17322361-6930-4b2c-8780-26df8535ea54}, ! Handle
-  Office Activity Summer Design Day,      ! Name
-  {115aba64-18e9-477b-9f56-bc49f71a3d65}, ! Schedule Type Limits Name
-  ,                                       ! Interpolate to Timestep
+  {17322361-6930-4b2c-8780-26df8535ea54}, !- Handle
+  Office Activity Summer Design Day,      !- Name
+  {115aba64-18e9-477b-9f56-bc49f71a3d65}, !- Schedule Type Limits Name
+  No,                                     !- Interpolate to Timestep
   24,                                     !- Hour 1
   0,                                      !- Minute 1
   132;                                    !- Value Until Time 1
 
 OS:Schedule:Day,
-  {a7fce132-c6ca-41e8-aa21-8e49d328f410}, ! Handle
-  Office Activity Winter Design Day,      ! Name
-  {115aba64-18e9-477b-9f56-bc49f71a3d65}, ! Schedule Type Limits Name
-  ,                                       ! Interpolate to Timestep
+  {a7fce132-c6ca-41e8-aa21-8e49d328f410}, !- Handle
+  Office Activity Winter Design Day,      !- Name
+  {115aba64-18e9-477b-9f56-bc49f71a3d65}, !- Schedule Type Limits Name
+  No,                                     !- Interpolate to Timestep
   24,                                     !- Hour 1
   0,                                      !- Minute 1
   132;                                    !- Value Until Time 1
@@ -424,10 +424,10 @@ OS:Schedule:Ruleset,
   {bf393fb4-114d-42cb-8f1a-062a9f6e9af6}; ! Winter Design Day Schedule Name
 
 OS:Schedule:Day,
-  {0f0a4c58-d61a-4fe2-b785-c13d80aeae72}, ! Handle
-  Office Infil Quarter On Default Schedule, ! Name
-  {46639c15-3d9e-445e-bf44-62058e5636d7}, ! Schedule Type Limits Name
-  ,                                       ! Interpolate to Timestep
+  {0f0a4c58-d61a-4fe2-b785-c13d80aeae72}, !- Handle
+  Office Infil Quarter On Default Schedule, !- Name
+  {46639c15-3d9e-445e-bf44-62058e5636d7}, !- Schedule Type Limits Name
+  No,                                     !- Interpolate to Timestep
   6,                                      !- Hour 1
   0,                                      !- Minute 1
   1,                                      !- Value Until Time 1
@@ -439,34 +439,34 @@ OS:Schedule:Day,
   1;                                      !- Value Until Time 3
 
 OS:Schedule:Day,
-  {495fb1a4-73fa-4a01-9390-dc96865b0e10}, ! Handle
-  Office Infil Quarter On Summer Design Day, ! Name
-  {46639c15-3d9e-445e-bf44-62058e5636d7}, ! Schedule Type Limits Name
-  ,                                       ! Interpolate to Timestep
-  6,                                      ! Hour 1
-  0,                                      ! Minute 1
-  1,                                      ! Value Until Time 1
-  22,                                     ! Hour 2
-  0,                                      ! Minute 2
-  0.25,                                   ! Value Until Time 2
-  24,                                     ! Hour 3
-  0,                                      ! Minute 3
-  1;                                      ! Value Until Time 3
+  {495fb1a4-73fa-4a01-9390-dc96865b0e10}, !- Handle
+  Office Infil Quarter On Summer Design Day, !- Name
+  {46639c15-3d9e-445e-bf44-62058e5636d7}, !- Schedule Type Limits Name
+  No,                                     !- Interpolate to Timestep
+  6,                                      !- Hour 1
+  0,                                      !- Minute 1
+  1,                                      !- Value Until Time 1
+  22,                                     !- Hour 2
+  0,                                      !- Minute 2
+  0.25,                                   !- Value Until Time 2
+  24,                                     !- Hour 3
+  0,                                      !- Minute 3
+  1;                                      !- Value Until Time 3
 
 OS:Schedule:Day,
-  {bf393fb4-114d-42cb-8f1a-062a9f6e9af6}, ! Handle
-  Office Infil Quarter On Winter Design Day, ! Name
-  {46639c15-3d9e-445e-bf44-62058e5636d7}, ! Schedule Type Limits Name
-  ,                                       ! Interpolate to Timestep
-  6,                                      ! Hour 1
-  0,                                      ! Minute 1
-  1,                                      ! Value Until Time 1
-  18,                                     ! Hour 2
-  0,                                      ! Minute 2
-  0.25,                                   ! Value Until Time 2
-  24,                                     ! Hour 3
-  0,                                      ! Minute 3
-  1;                                      ! Value Until Time 3
+  {bf393fb4-114d-42cb-8f1a-062a9f6e9af6}, !- Handle
+  Office Infil Quarter On Winter Design Day, !- Name
+  {46639c15-3d9e-445e-bf44-62058e5636d7}, !- Schedule Type Limits Name
+  No,                                     !- Interpolate to Timestep
+  6,                                      !- Hour 1
+  0,                                      !- Minute 1
+  1,                                      !- Value Until Time 1
+  18,                                     !- Hour 2
+  0,                                      !- Minute 2
+  0.25,                                   !- Value Until Time 2
+  24,                                     !- Hour 3
+  0,                                      !- Minute 3
+  1;                                      !- Value Until Time 3
 
 OS:Schedule:Rule,
   {669f6450-48fd-4c9f-aa54-cb0a65aaaea4}, !- Handle
@@ -488,13 +488,13 @@ OS:Schedule:Rule,
   31;                                     !- End Day
 
 OS:Schedule:Day,
-  {a70ff7aa-e531-409d-9b14-d76d8b3d2fcd}, ! Handle
-  Office Infil Quarter On Rule 1 Day Schedule, ! Name
-  {46639c15-3d9e-445e-bf44-62058e5636d7}, ! Schedule Type Limits Name
-  ,                                       ! Interpolate to Timestep
-  24,                                     ! Hour 1
-  0,                                      ! Minute 1
-  1;                                      ! Value Until Time 1
+  {a70ff7aa-e531-409d-9b14-d76d8b3d2fcd}, !- Handle
+  Office Infil Quarter On Rule 1 Day Schedule, !- Name
+  {46639c15-3d9e-445e-bf44-62058e5636d7}, !- Schedule Type Limits Name
+  No,                                     !- Interpolate to Timestep
+  24,                                     !- Hour 1
+  0,                                      !- Minute 1
+  1;                                      !- Value Until Time 1
 
 OS:Schedule:Rule,
   {0754978c-410e-49ee-a9fb-78c434aa0747}, !- Handle
@@ -516,19 +516,19 @@ OS:Schedule:Rule,
   31;                                     !- End Day
 
 OS:Schedule:Day,
-  {e0f7388a-c254-4ec7-be7c-4baf001742a7}, ! Handle
-  Office Infil Quarter On Rule 2 Day Schedule, ! Name
-  {46639c15-3d9e-445e-bf44-62058e5636d7}, ! Schedule Type Limits Name
-  ,                                       ! Interpolate to Timestep
-  6,                                      ! Hour 1
-  0,                                      ! Minute 1
-  1,                                      ! Value Until Time 1
-  18,                                     ! Hour 2
-  0,                                      ! Minute 2
-  0.25,                                   ! Value Until Time 2
-  24,                                     ! Hour 3
-  0,                                      ! Minute 3
-  1;                                      ! Value Until Time 3
+  {e0f7388a-c254-4ec7-be7c-4baf001742a7}, !- Handle
+  Office Infil Quarter On Rule 2 Day Schedule, !- Name
+  {46639c15-3d9e-445e-bf44-62058e5636d7}, !- Schedule Type Limits Name
+  No,                                     !- Interpolate to Timestep
+  6,                                      !- Hour 1
+  0,                                      !- Minute 1
+  1,                                      !- Value Until Time 1
+  18,                                     !- Hour 2
+  0,                                      !- Minute 2
+  0.25,                                   !- Value Until Time 2
+  24,                                     !- Hour 3
+  0,                                      !- Minute 3
+  1;                                      !- Value Until Time 3
 
 OS:ElectricEquipment:Definition,
   {7b738bdd-2763-406d-995b-25758a6d1018}, !- Handle
@@ -556,10 +556,10 @@ OS:Schedule:Ruleset,
   {c07620c6-9e60-4460-8226-4ae184c20265}; ! Winter Design Day Schedule Name
 
 OS:Schedule:Day,
-  {482623b1-c0bb-4a7b-844e-be61c3db495e}, ! Handle
-  Office Bldg Equip Default Schedule,     ! Name
-  {46639c15-3d9e-445e-bf44-62058e5636d7}, ! Schedule Type Limits Name
-  ,                                       ! Interpolate to Timestep
+  {482623b1-c0bb-4a7b-844e-be61c3db495e}, !- Handle
+  Office Bldg Equip Default Schedule,     !- Name
+  {46639c15-3d9e-445e-bf44-62058e5636d7}, !- Schedule Type Limits Name
+  No,                                     !- Interpolate to Timestep
   8,                                      !- Hour 1
   0,                                      !- Minute 1
   0.4,                                    !- Value Until Time 1
@@ -586,22 +586,22 @@ OS:Schedule:Day,
   0.4;                                    !- Value Until Time 8
 
 OS:Schedule:Day,
-  {f3fed466-0fe5-4cd4-85d1-9a6851de4f45}, ! Handle
-  Office Bldg Equip Summer Design Day,    ! Name
-  {46639c15-3d9e-445e-bf44-62058e5636d7}, ! Schedule Type Limits Name
-  ,                                       ! Interpolate to Timestep
-  24,                                     ! Hour 1
-  0,                                      ! Minute 1
-  1;                                      ! Value Until Time 1
+  {f3fed466-0fe5-4cd4-85d1-9a6851de4f45}, !- Handle
+  Office Bldg Equip Summer Design Day,    !- Name
+  {46639c15-3d9e-445e-bf44-62058e5636d7}, !- Schedule Type Limits Name
+  No,                                     !- Interpolate to Timestep
+  24,                                     !- Hour 1
+  0,                                      !- Minute 1
+  1;                                      !- Value Until Time 1
 
 OS:Schedule:Day,
-  {c07620c6-9e60-4460-8226-4ae184c20265}, ! Handle
-  Office Bldg Equip Winter Design Day,    ! Name
-  {46639c15-3d9e-445e-bf44-62058e5636d7}, ! Schedule Type Limits Name
-  ,                                       ! Interpolate to Timestep
-  24,                                     ! Hour 1
-  0,                                      ! Minute 1
-  0;                                      ! Value Until Time 1
+  {c07620c6-9e60-4460-8226-4ae184c20265}, !- Handle
+  Office Bldg Equip Winter Design Day,    !- Name
+  {46639c15-3d9e-445e-bf44-62058e5636d7}, !- Schedule Type Limits Name
+  No,                                     !- Interpolate to Timestep
+  24,                                     !- Hour 1
+  0,                                      !- Minute 1
+  0;                                      !- Value Until Time 1
 
 OS:Schedule:Rule,
   {ef64122e-df93-4108-bfcf-d1233b552ebc}, !- Handle
@@ -623,13 +623,13 @@ OS:Schedule:Rule,
   31;                                     !- End Day
 
 OS:Schedule:Day,
-  {d3ee3a96-7374-4f52-a6f1-5d5d9202b8aa}, ! Handle
-  Office Bldg Equip Rule 1 Day Schedule,  ! Name
-  {46639c15-3d9e-445e-bf44-62058e5636d7}, ! Schedule Type Limits Name
-  ,                                       ! Interpolate to Timestep
-  24,                                     ! Hour 1
-  0,                                      ! Minute 1
-  0.29999999999999999;                    ! Value Until Time 1
+  {d3ee3a96-7374-4f52-a6f1-5d5d9202b8aa}, !- Handle
+  Office Bldg Equip Rule 1 Day Schedule,  !- Name
+  {46639c15-3d9e-445e-bf44-62058e5636d7}, !- Schedule Type Limits Name
+  No,                                     !- Interpolate to Timestep
+  24,                                     !- Hour 1
+  0,                                      !- Minute 1
+  0.29999999999999999;                    !- Value Until Time 1
 
 OS:Schedule:Rule,
   {148ecf7d-381b-405a-83e5-4dda8df23254}, !- Handle
@@ -651,25 +651,25 @@ OS:Schedule:Rule,
   31;                                     !- End Day
 
 OS:Schedule:Day,
-  {16910aad-aa54-450e-ad27-3d490c451dcb}, ! Handle
-  Office Bldg Equip Rule 2 Day Schedule,  ! Name
-  {46639c15-3d9e-445e-bf44-62058e5636d7}, ! Schedule Type Limits Name
-  ,                                       ! Interpolate to Timestep
-  6,                                      ! Hour 1
-  0,                                      ! Minute 1
-  0.29999999999999999,                    ! Value Until Time 1
-  8,                                      ! Hour 2
-  0,                                      ! Minute 2
-  0.40000000000000002,                    ! Value Until Time 2
-  14,                                     ! Hour 3
-  0,                                      ! Minute 3
-  0.5,                                    ! Value Until Time 3
-  17,                                     ! Hour 4
-  0,                                      ! Minute 4
-  0.34999999999999998,                    ! Value Until Time 4
-  24,                                     ! Hour 5
-  0,                                      ! Minute 5
-  0.29999999999999999;                    ! Value Until Time 5
+  {16910aad-aa54-450e-ad27-3d490c451dcb}, !- Handle
+  Office Bldg Equip Rule 2 Day Schedule,  !- Name
+  {46639c15-3d9e-445e-bf44-62058e5636d7}, !- Schedule Type Limits Name
+  No,                                     !- Interpolate to Timestep
+  6,                                      !- Hour 1
+  0,                                      !- Minute 1
+  0.29999999999999999,                    !- Value Until Time 1
+  8,                                      !- Hour 2
+  0,                                      !- Minute 2
+  0.40000000000000002,                    !- Value Until Time 2
+  14,                                     !- Hour 3
+  0,                                      !- Minute 3
+  0.5,                                    !- Value Until Time 3
+  17,                                     !- Hour 4
+  0,                                      !- Minute 4
+  0.34999999999999998,                    !- Value Until Time 4
+  24,                                     !- Hour 5
+  0,                                      !- Minute 5
+  0.29999999999999999;                    !- Value Until Time 5
 
 OS:ThermostatSetpoint:DualSetpoint,
   {4c10e941-222f-4ce6-97c2-167d512784bb}, !- Handle
@@ -694,10 +694,10 @@ OS:ScheduleTypeLimits,
   Temperature;                            !- Unit Type
 
 OS:Schedule:Day,
-  {8882803d-5d69-4a07-a318-9917a000abb6}, ! Handle
-  Medium Office HtgSetp Default Schedule, ! Name
-  {fe175268-292a-4433-a896-b1196b2fabee}, ! Schedule Type Limits Name
-  ,                                       ! Interpolate to Timestep
+  {8882803d-5d69-4a07-a318-9917a000abb6}, !- Handle
+  Medium Office HtgSetp Default Schedule, !- Name
+  {fe175268-292a-4433-a896-b1196b2fabee}, !- Schedule Type Limits Name
+  No,                                     !- Interpolate to Timestep
   6,                                      !- Hour 1
   0,                                      !- Minute 1
   15.6,                                   !- Value Until Time 1
@@ -709,22 +709,22 @@ OS:Schedule:Day,
   15.6;                                   !- Value Until Time 3
 
 OS:Schedule:Day,
-  {d8e08bcc-fb61-400d-8fcc-652931ec5576}, ! Handle
-  Medium Office HtgSetp Summer Design Day, ! Name
-  {fe175268-292a-4433-a896-b1196b2fabee}, ! Schedule Type Limits Name
-  ,                                       ! Interpolate to Timestep
-  24,                                     ! Hour 1
-  0,                                      ! Minute 1
-  15.6;                                   ! Value Until Time 1
+  {d8e08bcc-fb61-400d-8fcc-652931ec5576}, !- Handle
+  Medium Office HtgSetp Summer Design Day, !- Name
+  {fe175268-292a-4433-a896-b1196b2fabee}, !- Schedule Type Limits Name
+  No,                                     !- Interpolate to Timestep
+  24,                                     !- Hour 1
+  0,                                      !- Minute 1
+  15.6;                                   !- Value Until Time 1
 
 OS:Schedule:Day,
-  {e7c96e76-f302-4674-8a2a-3dc7a341b8cb}, ! Handle
-  Medium Office HtgSetp Winter Design Day, ! Name
-  {fe175268-292a-4433-a896-b1196b2fabee}, ! Schedule Type Limits Name
-  ,                                       ! Interpolate to Timestep
-  24,                                     ! Hour 1
-  0,                                      ! Minute 1
-  21;                                     ! Value Until Time 1
+  {e7c96e76-f302-4674-8a2a-3dc7a341b8cb}, !- Handle
+  Medium Office HtgSetp Winter Design Day, !- Name
+  {fe175268-292a-4433-a896-b1196b2fabee}, !- Schedule Type Limits Name
+  No,                                     !- Interpolate to Timestep
+  24,                                     !- Hour 1
+  0,                                      !- Minute 1
+  21;                                     !- Value Until Time 1
 
 OS:Schedule:Rule,
   {c7f812fa-7446-40ee-b68b-b3a8b51b12e6}, !- Handle
@@ -746,13 +746,13 @@ OS:Schedule:Rule,
   31;                                     !- End Day
 
 OS:Schedule:Day,
-  {42a8882f-6fd8-4828-a5b5-47a81c1a7b4b}, ! Handle
-  Medium Office HtgSetp Rule 1 Day Schedule, ! Name
-  {fe175268-292a-4433-a896-b1196b2fabee}, ! Schedule Type Limits Name
-  ,                                       ! Interpolate to Timestep
-  24,                                     ! Hour 1
-  0,                                      ! Minute 1
-  15.6;                                   ! Value Until Time 1
+  {42a8882f-6fd8-4828-a5b5-47a81c1a7b4b}, !- Handle
+  Medium Office HtgSetp Rule 1 Day Schedule, !- Name
+  {fe175268-292a-4433-a896-b1196b2fabee}, !- Schedule Type Limits Name
+  No,                                     !- Interpolate to Timestep
+  24,                                     !- Hour 1
+  0,                                      !- Minute 1
+  15.6;                                   !- Value Until Time 1
 
 OS:Schedule:Rule,
   {2e1dc3e8-d10c-4d93-ae1c-b45ed550e975}, !- Handle
@@ -774,19 +774,19 @@ OS:Schedule:Rule,
   31;                                     !- End Day
 
 OS:Schedule:Day,
-  {aac68dcf-cce4-43fa-939c-a27379cb5e6d}, ! Handle
-  Medium Office HtgSetp Rule 2 Day Schedule, ! Name
-  {fe175268-292a-4433-a896-b1196b2fabee}, ! Schedule Type Limits Name
-  ,                                       ! Interpolate to Timestep
-  6,                                      ! Hour 1
-  0,                                      ! Minute 1
-  15.6,                                   ! Value Until Time 1
-  18,                                     ! Hour 2
-  0,                                      ! Minute 2
-  21,                                     ! Value Until Time 2
-  24,                                     ! Hour 3
-  0,                                      ! Minute 3
-  15.6;                                   ! Value Until Time 3
+  {aac68dcf-cce4-43fa-939c-a27379cb5e6d}, !- Handle
+  Medium Office HtgSetp Rule 2 Day Schedule, !- Name
+  {fe175268-292a-4433-a896-b1196b2fabee}, !- Schedule Type Limits Name
+  No,                                     !- Interpolate to Timestep
+  6,                                      !- Hour 1
+  0,                                      !- Minute 1
+  15.6,                                   !- Value Until Time 1
+  18,                                     !- Hour 2
+  0,                                      !- Minute 2
+  21,                                     !- Value Until Time 2
+  24,                                     !- Hour 3
+  0,                                      !- Minute 3
+  15.6;                                   !- Value Until Time 3
 
 OS:Schedule:Ruleset,
   {b0c1894d-c9fc-4037-9dd0-81db953b7a2a}, ! Handle
@@ -805,10 +805,10 @@ OS:ScheduleTypeLimits,
   Temperature;                            !- Unit Type
 
 OS:Schedule:Day,
-  {b2d005f8-5eb3-447e-8697-9b31aaa3a2db}, ! Handle
-  Medium Office ClgSetp Default Schedule, ! Name
-  {39bcb3ad-c249-4e1e-963c-be23295372e4}, ! Schedule Type Limits Name
-  ,                                       ! Interpolate to Timestep
+  {b2d005f8-5eb3-447e-8697-9b31aaa3a2db}, !- Handle
+  Medium Office ClgSetp Default Schedule, !- Name
+  {39bcb3ad-c249-4e1e-963c-be23295372e4}, !- Schedule Type Limits Name
+  No,                                     !- Interpolate to Timestep
   6,                                      !- Hour 1
   0,                                      !- Minute 1
   26.7,                                   !- Value Until Time 1
@@ -820,28 +820,28 @@ OS:Schedule:Day,
   26.7;                                   !- Value Until Time 3
 
 OS:Schedule:Day,
-  {a3605db2-8181-496b-8473-1aa0a642a54f}, ! Handle
-  Medium Office ClgSetp Summer Design Day, ! Name
-  {39bcb3ad-c249-4e1e-963c-be23295372e4}, ! Schedule Type Limits Name
-  ,                                       ! Interpolate to Timestep
-  6,                                      ! Hour 1
-  0,                                      ! Minute 1
-  26.699999999999999,                     ! Value Until Time 1
-  22,                                     ! Hour 2
-  0,                                      ! Minute 2
-  24,                                     ! Value Until Time 2
-  24,                                     ! Hour 3
-  0,                                      ! Minute 3
-  26.699999999999999;                     ! Value Until Time 3
+  {a3605db2-8181-496b-8473-1aa0a642a54f}, !- Handle
+  Medium Office ClgSetp Summer Design Day, !- Name
+  {39bcb3ad-c249-4e1e-963c-be23295372e4}, !- Schedule Type Limits Name
+  No,                                     !- Interpolate to Timestep
+  6,                                      !- Hour 1
+  0,                                      !- Minute 1
+  26.699999999999999,                     !- Value Until Time 1
+  22,                                     !- Hour 2
+  0,                                      !- Minute 2
+  24,                                     !- Value Until Time 2
+  24,                                     !- Hour 3
+  0,                                      !- Minute 3
+  26.699999999999999;                     !- Value Until Time 3
 
 OS:Schedule:Day,
-  {e7eb3567-d62b-4ef1-bd1a-6e8dbc046b21}, ! Handle
-  Medium Office ClgSetp Winter Design Day, ! Name
-  {39bcb3ad-c249-4e1e-963c-be23295372e4}, ! Schedule Type Limits Name
-  ,                                       ! Interpolate to Timestep
-  24,                                     ! Hour 1
-  0,                                      ! Minute 1
-  26.699999999999999;                     ! Value Until Time 1
+  {e7eb3567-d62b-4ef1-bd1a-6e8dbc046b21}, !- Handle
+  Medium Office ClgSetp Winter Design Day, !- Name
+  {39bcb3ad-c249-4e1e-963c-be23295372e4}, !- Schedule Type Limits Name
+  No,                                     !- Interpolate to Timestep
+  24,                                     !- Hour 1
+  0,                                      !- Minute 1
+  26.699999999999999;                     !- Value Until Time 1
 
 OS:Schedule:Rule,
   {0d632a2f-7030-458d-a605-1c8b22675112}, !- Handle
@@ -863,13 +863,13 @@ OS:Schedule:Rule,
   31;                                     !- End Day
 
 OS:Schedule:Day,
-  {ef8f110c-4e65-4bff-a09f-b7a26ac7ead7}, ! Handle
-  Medium Office ClgSetp Rule 1 Day Schedule, ! Name
-  {39bcb3ad-c249-4e1e-963c-be23295372e4}, ! Schedule Type Limits Name
-  ,                                       ! Interpolate to Timestep
-  24,                                     ! Hour 1
-  0,                                      ! Minute 1
-  26.699999999999999;                     ! Value Until Time 1
+  {ef8f110c-4e65-4bff-a09f-b7a26ac7ead7}, !- Handle
+  Medium Office ClgSetp Rule 1 Day Schedule, !- Name
+  {39bcb3ad-c249-4e1e-963c-be23295372e4}, !- Schedule Type Limits Name
+  No,                                     !- Interpolate to Timestep
+  24,                                     !- Hour 1
+  0,                                      !- Minute 1
+  26.699999999999999;                     !- Value Until Time 1
 
 OS:Schedule:Rule,
   {64435df8-d2ce-49d3-ab10-d80ef7c9dc79}, !- Handle
@@ -891,19 +891,19 @@ OS:Schedule:Rule,
   31;                                     !- End Day
 
 OS:Schedule:Day,
-  {3103b702-d5fe-489f-a4a3-03c0cdaefd36}, ! Handle
-  Medium Office ClgSetp Rule 2 Day Schedule, ! Name
-  {39bcb3ad-c249-4e1e-963c-be23295372e4}, ! Schedule Type Limits Name
-  ,                                       ! Interpolate to Timestep
-  6,                                      ! Hour 1
-  0,                                      ! Minute 1
-  26.699999999999999,                     ! Value Until Time 1
-  18,                                     ! Hour 2
-  0,                                      ! Minute 2
-  24,                                     ! Value Until Time 2
-  24,                                     ! Hour 3
-  0,                                      ! Minute 3
-  26.699999999999999;                     ! Value Until Time 3
+  {3103b702-d5fe-489f-a4a3-03c0cdaefd36}, !- Handle
+  Medium Office ClgSetp Rule 2 Day Schedule, !- Name
+  {39bcb3ad-c249-4e1e-963c-be23295372e4}, !- Schedule Type Limits Name
+  No,                                     !- Interpolate to Timestep
+  6,                                      !- Hour 1
+  0,                                      !- Minute 1
+  26.699999999999999,                     !- Value Until Time 1
+  18,                                     !- Hour 2
+  0,                                      !- Minute 2
+  24,                                     !- Value Until Time 2
+  24,                                     !- Hour 3
+  0,                                      !- Minute 3
+  26.699999999999999;                     !- Value Until Time 3
 
 OS:SpaceType,
   {b4b25ccd-2a04-458c-8ed0-b3bbf235bf49}, !- Handle
@@ -996,10 +996,10 @@ OS:Schedule:Ruleset,
   {a212beaa-cb04-4f02-865c-c5535967ba76}; ! Winter Design Day Schedule Name
 
 OS:Schedule:Day,
-  {76902b2d-24eb-486d-9797-42d4b43e98a6}, ! Handle
-  Office Bldg Occ Default Schedule,       ! Name
-  {46639c15-3d9e-445e-bf44-62058e5636d7}, ! Schedule Type Limits Name
-  ,                                       ! Interpolate to Timestep
+  {76902b2d-24eb-486d-9797-42d4b43e98a6}, !- Handle
+  Office Bldg Occ Default Schedule,       !- Name
+  {46639c15-3d9e-445e-bf44-62058e5636d7}, !- Schedule Type Limits Name
+  No,                                     !- Interpolate to Timestep
   6,                                      !- Hour 1
   0,                                      !- Minute 1
   0,                                      !- Value Until Time 1
@@ -1032,28 +1032,28 @@ OS:Schedule:Day,
   0.0500000007450581;                     !- Value Until Time 10
 
 OS:Schedule:Day,
-  {f1ee8ec8-3e77-4e46-9b20-c5fbbab102c5}, ! Handle
-  Office Bldg Occ Summer Design Day,      ! Name
-  {46639c15-3d9e-445e-bf44-62058e5636d7}, ! Schedule Type Limits Name
-  ,                                       ! Interpolate to Timestep
-  6,                                      ! Hour 1
-  0,                                      ! Minute 1
-  0,                                      ! Value Until Time 1
-  22,                                     ! Hour 2
-  0,                                      ! Minute 2
-  1,                                      ! Value Until Time 2
-  24,                                     ! Hour 3
-  0,                                      ! Minute 3
-  0.050000000000000003;                   ! Value Until Time 3
+  {f1ee8ec8-3e77-4e46-9b20-c5fbbab102c5}, !- Handle
+  Office Bldg Occ Summer Design Day,      !- Name
+  {46639c15-3d9e-445e-bf44-62058e5636d7}, !- Schedule Type Limits Name
+  No,                                     !- Interpolate to Timestep
+  6,                                      !- Hour 1
+  0,                                      !- Minute 1
+  0,                                      !- Value Until Time 1
+  22,                                     !- Hour 2
+  0,                                      !- Minute 2
+  1,                                      !- Value Until Time 2
+  24,                                     !- Hour 3
+  0,                                      !- Minute 3
+  0.050000000000000003;                   !- Value Until Time 3
 
 OS:Schedule:Day,
-  {a212beaa-cb04-4f02-865c-c5535967ba76}, ! Handle
-  Office Bldg Occ Winter Design Day,      ! Name
-  {46639c15-3d9e-445e-bf44-62058e5636d7}, ! Schedule Type Limits Name
-  ,                                       ! Interpolate to Timestep
-  24,                                     ! Hour 1
-  0,                                      ! Minute 1
-  0;                                      ! Value Until Time 1
+  {a212beaa-cb04-4f02-865c-c5535967ba76}, !- Handle
+  Office Bldg Occ Winter Design Day,      !- Name
+  {46639c15-3d9e-445e-bf44-62058e5636d7}, !- Schedule Type Limits Name
+  No,                                     !- Interpolate to Timestep
+  24,                                     !- Hour 1
+  0,                                      !- Minute 1
+  0;                                      !- Value Until Time 1
 
 OS:Schedule:Rule,
   {b8161167-4161-4e02-8f47-36bd863088fc}, !- Handle
@@ -1075,13 +1075,13 @@ OS:Schedule:Rule,
   31;                                     !- End Day
 
 OS:Schedule:Day,
-  {1ead174b-87ef-4841-aa88-529f1393689b}, ! Handle
-  Office Bldg Occ Rule 1 Day Schedule,    ! Name
-  {46639c15-3d9e-445e-bf44-62058e5636d7}, ! Schedule Type Limits Name
-  ,                                       ! Interpolate to Timestep
-  24,                                     ! Hour 1
-  0,                                      ! Minute 1
-  0;                                      ! Value Until Time 1
+  {1ead174b-87ef-4841-aa88-529f1393689b}, !- Handle
+  Office Bldg Occ Rule 1 Day Schedule,    !- Name
+  {46639c15-3d9e-445e-bf44-62058e5636d7}, !- Schedule Type Limits Name
+  No,                                     !- Interpolate to Timestep
+  24,                                     !- Hour 1
+  0,                                      !- Minute 1
+  0;                                      !- Value Until Time 1
 
 OS:Schedule:Rule,
   {fbf97f6c-3df4-4a6b-8446-999a24edf3bc}, !- Handle
@@ -1103,10 +1103,10 @@ OS:Schedule:Rule,
   31;                                     !- End Day
 
 OS:Schedule:Day,
-  {6976aee5-609c-4442-ad06-6ae5468617e3}, ! Handle
-  Office Bldg Occ Rule 2 Day Schedule,    ! Name
-  {46639c15-3d9e-445e-bf44-62058e5636d7}, ! Schedule Type Limits Name
-  ,                                       ! Interpolate to Timestep
+  {6976aee5-609c-4442-ad06-6ae5468617e3}, !- Handle
+  Office Bldg Occ Rule 2 Day Schedule,    !- Name
+  {46639c15-3d9e-445e-bf44-62058e5636d7}, !- Schedule Type Limits Name
+  No,                                     !- Interpolate to Timestep
   6,                                      !- Hour 1
   0,                                      !- Minute 1
   0,                                      !- Value Until Time 1
@@ -2457,10 +2457,10 @@ OS:ScheduleTypeLimits,
   Continuous;                             !- Numeric Type
 
 OS:Schedule:Day,
-  {52c25c37-8b87-4ba0-a348-2f135c716cff}, ! Handle
-  Large Office Bldg Light Default Schedule, ! Name
-  {c50de33e-2a31-403b-929e-8d1c42a993ef}, ! Schedule Type Limits Name
-  ,                                       ! Interpolate to Timestep
+  {52c25c37-8b87-4ba0-a348-2f135c716cff}, !- Handle
+  Large Office Bldg Light Default Schedule, !- Name
+  {c50de33e-2a31-403b-929e-8d1c42a993ef}, !- Schedule Type Limits Name
+  No,                                     !- Interpolate to Timestep
   5,                                      !- Hour 1
   0,                                      !- Minute 1
   0.05,                                   !- Value Until Time 1
@@ -2490,22 +2490,22 @@ OS:Schedule:Day,
   0.05;                                   !- Value Until Time 9
 
 OS:Schedule:Day,
-  {6752b800-caef-41d7-ab5f-0ee8fe2bcb7d}, ! Handle
-  Large Office Bldg Light Summer Design Day, ! Name
-  {c50de33e-2a31-403b-929e-8d1c42a993ef}, ! Schedule Type Limits Name
-  ,                                       ! Interpolate to Timestep
-  24,                                     ! Hour 1
-  0,                                      ! Minute 1
-  1;                                      ! Value Until Time 1
+  {6752b800-caef-41d7-ab5f-0ee8fe2bcb7d}, !- Handle
+  Large Office Bldg Light Summer Design Day, !- Name
+  {c50de33e-2a31-403b-929e-8d1c42a993ef}, !- Schedule Type Limits Name
+  No,                                     !- Interpolate to Timestep
+  24,                                     !- Hour 1
+  0,                                      !- Minute 1
+  1;                                      !- Value Until Time 1
 
 OS:Schedule:Day,
-  {a1f28c2b-f74f-4c67-978b-37ad2a67a17b}, ! Handle
-  Large Office Bldg Light Winter Design Day, ! Name
-  {c50de33e-2a31-403b-929e-8d1c42a993ef}, ! Schedule Type Limits Name
-  ,                                       ! Interpolate to Timestep
-  24,                                     ! Hour 1
-  0,                                      ! Minute 1
-  0;                                      ! Value Until Time 1
+  {a1f28c2b-f74f-4c67-978b-37ad2a67a17b}, !- Handle
+  Large Office Bldg Light Winter Design Day, !- Name
+  {c50de33e-2a31-403b-929e-8d1c42a993ef}, !- Schedule Type Limits Name
+  No,                                     !- Interpolate to Timestep
+  24,                                     !- Hour 1
+  0,                                      !- Minute 1
+  0;                                      !- Value Until Time 1
 
 OS:Schedule:Rule,
   {e993fcdd-4bf2-4620-80da-3cefd388470a}, !- Handle
@@ -2527,13 +2527,13 @@ OS:Schedule:Rule,
   31;                                     !- End Day
 
 OS:Schedule:Day,
-  {075c555a-61c2-4dc0-b42a-4c76eeab2975}, ! Handle
-  Large Office Bldg Light Rule 1 Day Schedule, ! Name
-  {c50de33e-2a31-403b-929e-8d1c42a993ef}, ! Schedule Type Limits Name
-  ,                                       ! Interpolate to Timestep
-  24,                                     ! Hour 1
-  0,                                      ! Minute 1
-  0.050000000000000003;                   ! Value Until Time 1
+  {075c555a-61c2-4dc0-b42a-4c76eeab2975}, !- Handle
+  Large Office Bldg Light Rule 1 Day Schedule, !- Name
+  {c50de33e-2a31-403b-929e-8d1c42a993ef}, !- Schedule Type Limits Name
+  No,                                     !- Interpolate to Timestep
+  24,                                     !- Hour 1
+  0,                                      !- Minute 1
+  0.050000000000000003;                   !- Value Until Time 1
 
 OS:Schedule:Rule,
   {1822b24d-5ca6-4da7-94ae-0b2fcd5c329a}, !- Handle
@@ -2555,25 +2555,25 @@ OS:Schedule:Rule,
   31;                                     !- End Day
 
 OS:Schedule:Day,
-  {0e53450b-3329-4a77-b402-c64e9577d303}, ! Handle
-  Large Office Bldg Light Rule 2 Day Schedule, ! Name
-  {c50de33e-2a31-403b-929e-8d1c42a993ef}, ! Schedule Type Limits Name
-  ,                                       ! Interpolate to Timestep
-  6,                                      ! Hour 1
-  0,                                      ! Minute 1
-  0.050000000000000003,                   ! Value Until Time 1
-  8,                                      ! Hour 2
-  0,                                      ! Minute 2
-  0.10000000000000001,                    ! Value Until Time 2
-  14,                                     ! Hour 3
-  0,                                      ! Minute 3
-  0.5,                                    ! Value Until Time 3
-  17,                                     ! Hour 4
-  0,                                      ! Minute 4
-  0.14999999999999999,                    ! Value Until Time 4
-  24,                                     ! Hour 5
-  0,                                      ! Minute 5
-  0.050000000000000003;                   ! Value Until Time 5
+  {0e53450b-3329-4a77-b402-c64e9577d303}, !- Handle
+  Large Office Bldg Light Rule 2 Day Schedule, !- Name
+  {c50de33e-2a31-403b-929e-8d1c42a993ef}, !- Schedule Type Limits Name
+  No,                                     !- Interpolate to Timestep
+  6,                                      !- Hour 1
+  0,                                      !- Minute 1
+  0.050000000000000003,                   !- Value Until Time 1
+  8,                                      !- Hour 2
+  0,                                      !- Minute 2
+  0.10000000000000001,                    !- Value Until Time 2
+  14,                                     !- Hour 3
+  0,                                      !- Minute 3
+  0.5,                                    !- Value Until Time 3
+  17,                                     !- Hour 4
+  0,                                      !- Minute 4
+  0.14999999999999999,                    !- Value Until Time 4
+  24,                                     !- Hour 5
+  0,                                      !- Minute 5
+  0.050000000000000003;                   !- Value Until Time 5
 
 OS:DesignSpecification:OutdoorAir,
   {b212614e-35f5-4376-9ba6-f2029aa777a8}, !- Handle
@@ -2616,10 +2616,10 @@ OS:Schedule:Ruleset,
   {a1253a97-66bf-41f7-b016-76862722d571}; ! Winter Design Day Schedule Name
 
 OS:Schedule:Day,
-  {5a487fe3-835b-4774-8366-f85dde074bf0}, ! Handle
-  Large Office Bldg Occ Default Schedule, ! Name
-  {c50de33e-2a31-403b-929e-8d1c42a993ef}, ! Schedule Type Limits Name
-  ,                                       ! Interpolate to Timestep
+  {5a487fe3-835b-4774-8366-f85dde074bf0}, !- Handle
+  Large Office Bldg Occ Default Schedule, !- Name
+  {c50de33e-2a31-403b-929e-8d1c42a993ef}, !- Schedule Type Limits Name
+  No,                                     !- Interpolate to Timestep
   6,                                      !- Hour 1
   0,                                      !- Minute 1
   0,                                      !- Value Until Time 1
@@ -2652,28 +2652,28 @@ OS:Schedule:Day,
   0.05;                                   !- Value Until Time 10
 
 OS:Schedule:Day,
-  {520d6cb9-b0b1-407f-83c2-96d15c1054e7}, ! Handle
-  Large Office Bldg Occ Summer Design Day, ! Name
-  {c50de33e-2a31-403b-929e-8d1c42a993ef}, ! Schedule Type Limits Name
-  ,                                       ! Interpolate to Timestep
-  6,                                      ! Hour 1
-  0,                                      ! Minute 1
-  0,                                      ! Value Until Time 1
-  22,                                     ! Hour 2
-  0,                                      ! Minute 2
-  1,                                      ! Value Until Time 2
-  24,                                     ! Hour 3
-  0,                                      ! Minute 3
-  0.050000000000000003;                   ! Value Until Time 3
+  {520d6cb9-b0b1-407f-83c2-96d15c1054e7}, !- Handle
+  Large Office Bldg Occ Summer Design Day, !- Name
+  {c50de33e-2a31-403b-929e-8d1c42a993ef}, !- Schedule Type Limits Name
+  No,                                     !- Interpolate to Timestep
+  6,                                      !- Hour 1
+  0,                                      !- Minute 1
+  0,                                      !- Value Until Time 1
+  22,                                     !- Hour 2
+  0,                                      !- Minute 2
+  1,                                      !- Value Until Time 2
+  24,                                     !- Hour 3
+  0,                                      !- Minute 3
+  0.050000000000000003;                   !- Value Until Time 3
 
 OS:Schedule:Day,
-  {a1253a97-66bf-41f7-b016-76862722d571}, ! Handle
-  Large Office Bldg Occ Winter Design Day, ! Name
-  {c50de33e-2a31-403b-929e-8d1c42a993ef}, ! Schedule Type Limits Name
-  ,                                       ! Interpolate to Timestep
-  24,                                     ! Hour 1
-  0,                                      ! Minute 1
-  0;                                      ! Value Until Time 1
+  {a1253a97-66bf-41f7-b016-76862722d571}, !- Handle
+  Large Office Bldg Occ Winter Design Day, !- Name
+  {c50de33e-2a31-403b-929e-8d1c42a993ef}, !- Schedule Type Limits Name
+  No,                                     !- Interpolate to Timestep
+  24,                                     !- Hour 1
+  0,                                      !- Minute 1
+  0;                                      !- Value Until Time 1
 
 OS:Schedule:Rule,
   {6b2290e6-83e6-4257-8bbf-21541e13acc8}, !- Handle
@@ -2695,13 +2695,13 @@ OS:Schedule:Rule,
   31;                                     !- End Day
 
 OS:Schedule:Day,
-  {1c83a61e-98a0-4a84-b2fb-c90b7714176a}, ! Handle
-  Large Office Bldg Occ Rule 1 Day Schedule, ! Name
-  {c50de33e-2a31-403b-929e-8d1c42a993ef}, ! Schedule Type Limits Name
-  ,                                       ! Interpolate to Timestep
-  24,                                     ! Hour 1
-  0,                                      ! Minute 1
-  0;                                      ! Value Until Time 1
+  {1c83a61e-98a0-4a84-b2fb-c90b7714176a}, !- Handle
+  Large Office Bldg Occ Rule 1 Day Schedule, !- Name
+  {c50de33e-2a31-403b-929e-8d1c42a993ef}, !- Schedule Type Limits Name
+  No,                                     !- Interpolate to Timestep
+  24,                                     !- Hour 1
+  0,                                      !- Minute 1
+  0;                                      !- Value Until Time 1
 
 OS:Schedule:Rule,
   {8209eb3a-736d-4a18-ac0a-24109a77fb15}, !- Handle
@@ -2723,25 +2723,25 @@ OS:Schedule:Rule,
   31;                                     !- End Day
 
 OS:Schedule:Day,
-  {ac99d433-bc10-4b25-b41e-394e8732c645}, ! Handle
-  Large Office Bldg Occ Rule 2 Day Schedule, ! Name
-  {c50de33e-2a31-403b-929e-8d1c42a993ef}, ! Schedule Type Limits Name
-  ,                                       ! Interpolate to Timestep
-  6,                                      ! Hour 1
-  0,                                      ! Minute 1
-  0,                                      ! Value Until Time 1
-  8,                                      ! Hour 2
-  0,                                      ! Minute 2
-  0.10000000000000001,                    ! Value Until Time 2
-  14,                                     ! Hour 3
-  0,                                      ! Minute 3
-  0.5,                                    ! Value Until Time 3
-  17,                                     ! Hour 4
-  0,                                      ! Minute 4
-  0.10000000000000001,                    ! Value Until Time 4
-  24,                                     ! Hour 5
-  0,                                      ! Minute 5
-  0;                                      ! Value Until Time 5
+  {ac99d433-bc10-4b25-b41e-394e8732c645}, !- Handle
+  Large Office Bldg Occ Rule 2 Day Schedule, !- Name
+  {c50de33e-2a31-403b-929e-8d1c42a993ef}, !- Schedule Type Limits Name
+  No,                                     !- Interpolate to Timestep
+  6,                                      !- Hour 1
+  0,                                      !- Minute 1
+  0,                                      !- Value Until Time 1
+  8,                                      !- Hour 2
+  0,                                      !- Minute 2
+  0.10000000000000001,                    !- Value Until Time 2
+  14,                                     !- Hour 3
+  0,                                      !- Minute 3
+  0.5,                                    !- Value Until Time 3
+  17,                                     !- Hour 4
+  0,                                      !- Minute 4
+  0.10000000000000001,                    !- Value Until Time 4
+  24,                                     !- Hour 5
+  0,                                      !- Minute 5
+  0;                                      !- Value Until Time 5
 
 OS:Schedule:Ruleset,
   {33614f86-0df7-4712-b581-d943d0995157}, ! Handle
@@ -2760,31 +2760,31 @@ OS:ScheduleTypeLimits,
   ActivityLevel;                          !- Unit Type
 
 OS:Schedule:Day,
-  {18794ae1-df92-44fa-a422-0682e6a94c40}, ! Handle
-  Large Office Activity Default Schedule, ! Name
-  {db77c810-6d42-49c7-966e-9a928067165f}, ! Schedule Type Limits Name
-  ,                                       ! Interpolate to Timestep
+  {18794ae1-df92-44fa-a422-0682e6a94c40}, !- Handle
+  Large Office Activity Default Schedule, !- Name
+  {db77c810-6d42-49c7-966e-9a928067165f}, !- Schedule Type Limits Name
+  No,                                     !- Interpolate to Timestep
   24,                                     !- Hour 1
   0,                                      !- Minute 1
   120;                                    !- Value Until Time 1
 
 OS:Schedule:Day,
-  {574bf851-001c-49c8-b9a8-2bb7cb2e11e5}, ! Handle
-  Large Office Activity Summer Design Day, ! Name
-  {db77c810-6d42-49c7-966e-9a928067165f}, ! Schedule Type Limits Name
-  ,                                       ! Interpolate to Timestep
-  24,                                     ! Hour 1
-  0,                                      ! Minute 1
-  120;                                    ! Value Until Time 1
+  {574bf851-001c-49c8-b9a8-2bb7cb2e11e5}, !- Handle
+  Large Office Activity Summer Design Day, !- Name
+  {db77c810-6d42-49c7-966e-9a928067165f}, !- Schedule Type Limits Name
+  No,                                     !- Interpolate to Timestep
+  24,                                     !- Hour 1
+  0,                                      !- Minute 1
+  120;                                    !- Value Until Time 1
 
 OS:Schedule:Day,
-  {e170f2b9-8f2d-478c-ab86-a3148c69208f}, ! Handle
-  Large Office Activity Winter Design Day, ! Name
-  {db77c810-6d42-49c7-966e-9a928067165f}, ! Schedule Type Limits Name
-  ,                                       ! Interpolate to Timestep
-  24,                                     ! Hour 1
-  0,                                      ! Minute 1
-  120;                                    ! Value Until Time 1
+  {e170f2b9-8f2d-478c-ab86-a3148c69208f}, !- Handle
+  Large Office Activity Winter Design Day, !- Name
+  {db77c810-6d42-49c7-966e-9a928067165f}, !- Schedule Type Limits Name
+  No,                                     !- Interpolate to Timestep
+  24,                                     !- Hour 1
+  0,                                      !- Minute 1
+  120;                                    !- Value Until Time 1
 
 OS:SpaceInfiltration:DesignFlowRate,
   {07f43ebf-d729-48d0-9248-a3bfe3ac3d44}, !- Handle
@@ -2810,10 +2810,10 @@ OS:Schedule:Ruleset,
   {04216b2f-0705-4b18-85bc-faab894e900d}; ! Winter Design Day Schedule Name
 
 OS:Schedule:Day,
-  {e5ae59a7-8042-44fe-8fb5-4ae1705d3e21}, ! Handle
-  Large Office Infil Quarter On Default Schedule, ! Name
-  {c50de33e-2a31-403b-929e-8d1c42a993ef}, ! Schedule Type Limits Name
-  ,                                       ! Interpolate to Timestep
+  {e5ae59a7-8042-44fe-8fb5-4ae1705d3e21}, !- Handle
+  Large Office Infil Quarter On Default Schedule, !- Name
+  {c50de33e-2a31-403b-929e-8d1c42a993ef}, !- Schedule Type Limits Name
+  No,                                     !- Interpolate to Timestep
   6,                                      !- Hour 1
   0,                                      !- Minute 1
   1,                                      !- Value Until Time 1
@@ -2825,34 +2825,34 @@ OS:Schedule:Day,
   1;                                      !- Value Until Time 3
 
 OS:Schedule:Day,
-  {3b0f6422-289c-4100-9539-13fe9d4c39bf}, ! Handle
-  Large Office Infil Quarter On Summer Design Day, ! Name
-  {c50de33e-2a31-403b-929e-8d1c42a993ef}, ! Schedule Type Limits Name
-  ,                                       ! Interpolate to Timestep
-  6,                                      ! Hour 1
-  0,                                      ! Minute 1
-  1,                                      ! Value Until Time 1
-  22,                                     ! Hour 2
-  0,                                      ! Minute 2
-  0.25,                                   ! Value Until Time 2
-  24,                                     ! Hour 3
-  0,                                      ! Minute 3
-  1;                                      ! Value Until Time 3
+  {3b0f6422-289c-4100-9539-13fe9d4c39bf}, !- Handle
+  Large Office Infil Quarter On Summer Design Day, !- Name
+  {c50de33e-2a31-403b-929e-8d1c42a993ef}, !- Schedule Type Limits Name
+  No,                                     !- Interpolate to Timestep
+  6,                                      !- Hour 1
+  0,                                      !- Minute 1
+  1,                                      !- Value Until Time 1
+  22,                                     !- Hour 2
+  0,                                      !- Minute 2
+  0.25,                                   !- Value Until Time 2
+  24,                                     !- Hour 3
+  0,                                      !- Minute 3
+  1;                                      !- Value Until Time 3
 
 OS:Schedule:Day,
-  {04216b2f-0705-4b18-85bc-faab894e900d}, ! Handle
-  Large Office Infil Quarter On Winter Design Day, ! Name
-  {c50de33e-2a31-403b-929e-8d1c42a993ef}, ! Schedule Type Limits Name
-  ,                                       ! Interpolate to Timestep
-  6,                                      ! Hour 1
-  0,                                      ! Minute 1
-  1,                                      ! Value Until Time 1
-  18,                                     ! Hour 2
-  0,                                      ! Minute 2
-  0.25,                                   ! Value Until Time 2
-  24,                                     ! Hour 3
-  0,                                      ! Minute 3
-  1;                                      ! Value Until Time 3
+  {04216b2f-0705-4b18-85bc-faab894e900d}, !- Handle
+  Large Office Infil Quarter On Winter Design Day, !- Name
+  {c50de33e-2a31-403b-929e-8d1c42a993ef}, !- Schedule Type Limits Name
+  No,                                     !- Interpolate to Timestep
+  6,                                      !- Hour 1
+  0,                                      !- Minute 1
+  1,                                      !- Value Until Time 1
+  18,                                     !- Hour 2
+  0,                                      !- Minute 2
+  0.25,                                   !- Value Until Time 2
+  24,                                     !- Hour 3
+  0,                                      !- Minute 3
+  1;                                      !- Value Until Time 3
 
 OS:Schedule:Rule,
   {c3c5ea47-8a11-4dd0-a525-11253766908b}, !- Handle
@@ -2874,13 +2874,13 @@ OS:Schedule:Rule,
   31;                                     !- End Day
 
 OS:Schedule:Day,
-  {bf38162e-0fc0-4bd8-9fee-f15555eb9377}, ! Handle
-  Large Office Infil Quarter On Rule 1 Day Schedule, ! Name
-  {c50de33e-2a31-403b-929e-8d1c42a993ef}, ! Schedule Type Limits Name
-  ,                                       ! Interpolate to Timestep
-  24,                                     ! Hour 1
-  0,                                      ! Minute 1
-  1;                                      ! Value Until Time 1
+  {bf38162e-0fc0-4bd8-9fee-f15555eb9377}, !- Handle
+  Large Office Infil Quarter On Rule 1 Day Schedule, !- Name
+  {c50de33e-2a31-403b-929e-8d1c42a993ef}, !- Schedule Type Limits Name
+  No,                                     !- Interpolate to Timestep
+  24,                                     !- Hour 1
+  0,                                      !- Minute 1
+  1;                                      !- Value Until Time 1
 
 OS:Schedule:Rule,
   {3fe5f1f7-922f-44d9-9b56-cb70366a5183}, !- Handle
@@ -2902,19 +2902,19 @@ OS:Schedule:Rule,
   31;                                     !- End Day
 
 OS:Schedule:Day,
-  {a51d47b7-d9e6-450b-818c-71e2d734461a}, ! Handle
-  Large Office Infil Quarter On Rule 2 Day Schedule, ! Name
-  {c50de33e-2a31-403b-929e-8d1c42a993ef}, ! Schedule Type Limits Name
-  ,                                       ! Interpolate to Timestep
-  6,                                      ! Hour 1
-  0,                                      ! Minute 1
-  1,                                      ! Value Until Time 1
-  18,                                     ! Hour 2
-  0,                                      ! Minute 2
-  0.25,                                   ! Value Until Time 2
-  24,                                     ! Hour 3
-  0,                                      ! Minute 3
-  1;                                      ! Value Until Time 3
+  {a51d47b7-d9e6-450b-818c-71e2d734461a}, !- Handle
+  Large Office Infil Quarter On Rule 2 Day Schedule, !- Name
+  {c50de33e-2a31-403b-929e-8d1c42a993ef}, !- Schedule Type Limits Name
+  No,                                     !- Interpolate to Timestep
+  6,                                      !- Hour 1
+  0,                                      !- Minute 1
+  1,                                      !- Value Until Time 1
+  18,                                     !- Hour 2
+  0,                                      !- Minute 2
+  0.25,                                   !- Value Until Time 2
+  24,                                     !- Hour 3
+  0,                                      !- Minute 3
+  1;                                      !- Value Until Time 3
 
 OS:ElectricEquipment:Definition,
   {ab0065c9-7378-4aac-b981-6c37402b65b0}, !- Handle
@@ -2942,10 +2942,10 @@ OS:Schedule:Ruleset,
   {a60373be-49af-4ced-91b1-01fed41074e4}; ! Winter Design Day Schedule Name
 
 OS:Schedule:Day,
-  {c8387f07-2456-475c-823f-d939ee1a0b67}, ! Handle
-  Large Office Bldg Equip Default Schedule, ! Name
-  {c50de33e-2a31-403b-929e-8d1c42a993ef}, ! Schedule Type Limits Name
-  ,                                       ! Interpolate to Timestep
+  {c8387f07-2456-475c-823f-d939ee1a0b67}, !- Handle
+  Large Office Bldg Equip Default Schedule, !- Name
+  {c50de33e-2a31-403b-929e-8d1c42a993ef}, !- Schedule Type Limits Name
+  No,                                     !- Interpolate to Timestep
   8,                                      !- Hour 1
   0,                                      !- Minute 1
   0.4,                                    !- Value Until Time 1
@@ -2972,22 +2972,22 @@ OS:Schedule:Day,
   0.4;                                    !- Value Until Time 8
 
 OS:Schedule:Day,
-  {86969a5e-39eb-447c-9fab-401eebe3e71c}, ! Handle
-  Large Office Bldg Equip Summer Design Day, ! Name
-  {c50de33e-2a31-403b-929e-8d1c42a993ef}, ! Schedule Type Limits Name
-  ,                                       ! Interpolate to Timestep
-  24,                                     ! Hour 1
-  0,                                      ! Minute 1
-  1;                                      ! Value Until Time 1
+  {86969a5e-39eb-447c-9fab-401eebe3e71c}, !- Handle
+  Large Office Bldg Equip Summer Design Day, !- Name
+  {c50de33e-2a31-403b-929e-8d1c42a993ef}, !- Schedule Type Limits Name
+  No,                                     !- Interpolate to Timestep
+  24,                                     !- Hour 1
+  0,                                      !- Minute 1
+  1;                                      !- Value Until Time 1
 
 OS:Schedule:Day,
-  {a60373be-49af-4ced-91b1-01fed41074e4}, ! Handle
-  Large Office Bldg Equip Winter Design Day, ! Name
-  {c50de33e-2a31-403b-929e-8d1c42a993ef}, ! Schedule Type Limits Name
-  ,                                       ! Interpolate to Timestep
-  24,                                     ! Hour 1
-  0,                                      ! Minute 1
-  0;                                      ! Value Until Time 1
+  {a60373be-49af-4ced-91b1-01fed41074e4}, !- Handle
+  Large Office Bldg Equip Winter Design Day, !- Name
+  {c50de33e-2a31-403b-929e-8d1c42a993ef}, !- Schedule Type Limits Name
+  No,                                     !- Interpolate to Timestep
+  24,                                     !- Hour 1
+  0,                                      !- Minute 1
+  0;                                      !- Value Until Time 1
 
 OS:Schedule:Rule,
   {7149bcfb-5097-4839-8a6a-ae6b0566da96}, !- Handle
@@ -3009,13 +3009,13 @@ OS:Schedule:Rule,
   31;                                     !- End Day
 
 OS:Schedule:Day,
-  {458917f7-6665-4186-b3ec-363f21da5d0a}, ! Handle
-  Large Office Bldg Equip Rule 1 Day Schedule, ! Name
-  {c50de33e-2a31-403b-929e-8d1c42a993ef}, ! Schedule Type Limits Name
-  ,                                       ! Interpolate to Timestep
-  24,                                     ! Hour 1
-  0,                                      ! Minute 1
-  0.29999999999999999;                    ! Value Until Time 1
+  {458917f7-6665-4186-b3ec-363f21da5d0a}, !- Handle
+  Large Office Bldg Equip Rule 1 Day Schedule, !- Name
+  {c50de33e-2a31-403b-929e-8d1c42a993ef}, !- Schedule Type Limits Name
+  No,                                     !- Interpolate to Timestep
+  24,                                     !- Hour 1
+  0,                                      !- Minute 1
+  0.29999999999999999;                    !- Value Until Time 1
 
 OS:Schedule:Rule,
   {368172ef-1ae0-4e6c-96b9-b0ce19029e0a}, !- Handle
@@ -3037,25 +3037,25 @@ OS:Schedule:Rule,
   31;                                     !- End Day
 
 OS:Schedule:Day,
-  {8c75aa08-6e3e-478e-aeb4-72ed71fe4a56}, ! Handle
-  Large Office Bldg Equip Rule 2 Day Schedule, ! Name
-  {c50de33e-2a31-403b-929e-8d1c42a993ef}, ! Schedule Type Limits Name
-  ,                                       ! Interpolate to Timestep
-  6,                                      ! Hour 1
-  0,                                      ! Minute 1
-  0.29999999999999999,                    ! Value Until Time 1
-  8,                                      ! Hour 2
-  0,                                      ! Minute 2
-  0.40000000000000002,                    ! Value Until Time 2
-  14,                                     ! Hour 3
-  0,                                      ! Minute 3
-  0.5,                                    ! Value Until Time 3
-  17,                                     ! Hour 4
-  0,                                      ! Minute 4
-  0.34999999999999998,                    ! Value Until Time 4
-  24,                                     ! Hour 5
-  0,                                      ! Minute 5
-  0.29999999999999999;                    ! Value Until Time 5
+  {8c75aa08-6e3e-478e-aeb4-72ed71fe4a56}, !- Handle
+  Large Office Bldg Equip Rule 2 Day Schedule, !- Name
+  {c50de33e-2a31-403b-929e-8d1c42a993ef}, !- Schedule Type Limits Name
+  No,                                     !- Interpolate to Timestep
+  6,                                      !- Hour 1
+  0,                                      !- Minute 1
+  0.29999999999999999,                    !- Value Until Time 1
+  8,                                      !- Hour 2
+  0,                                      !- Minute 2
+  0.40000000000000002,                    !- Value Until Time 2
+  14,                                     !- Hour 3
+  0,                                      !- Minute 3
+  0.5,                                    !- Value Until Time 3
+  17,                                     !- Hour 4
+  0,                                      !- Minute 4
+  0.34999999999999998,                    !- Value Until Time 4
+  24,                                     !- Hour 5
+  0,                                      !- Minute 5
+  0.29999999999999999;                    !- Value Until Time 5
 
 OS:ThermostatSetpoint:DualSetpoint,
   {2e0d8e87-f663-4cc4-95e5-e3450e3ad2f7}, !- Handle
@@ -3080,10 +3080,10 @@ OS:ScheduleTypeLimits,
   Temperature;                            !- Unit Type
 
 OS:Schedule:Day,
-  {f2084031-9ed1-4770-8d0d-6a78ac4a504b}, ! Handle
-  Large Office HtgSetp Default Schedule,  ! Name
-  {a9dadb87-2284-4037-ada9-d8ba03d45fc3}, ! Schedule Type Limits Name
-  ,                                       ! Interpolate to Timestep
+  {f2084031-9ed1-4770-8d0d-6a78ac4a504b}, !- Handle
+  Large Office HtgSetp Default Schedule,  !- Name
+  {a9dadb87-2284-4037-ada9-d8ba03d45fc3}, !- Schedule Type Limits Name
+  No,                                     !- Interpolate to Timestep
   6,                                      !- Hour 1
   0,                                      !- Minute 1
   15.6,                                   !- Value Until Time 1
@@ -3095,22 +3095,22 @@ OS:Schedule:Day,
   15.6;                                   !- Value Until Time 3
 
 OS:Schedule:Day,
-  {7bafb6f6-149a-4862-a38f-50ebac27286a}, ! Handle
-  Large Office HtgSetp Summer Design Day, ! Name
-  {a9dadb87-2284-4037-ada9-d8ba03d45fc3}, ! Schedule Type Limits Name
-  ,                                       ! Interpolate to Timestep
-  24,                                     ! Hour 1
-  0,                                      ! Minute 1
-  15.6;                                   ! Value Until Time 1
+  {7bafb6f6-149a-4862-a38f-50ebac27286a}, !- Handle
+  Large Office HtgSetp Summer Design Day, !- Name
+  {a9dadb87-2284-4037-ada9-d8ba03d45fc3}, !- Schedule Type Limits Name
+  No,                                     !- Interpolate to Timestep
+  24,                                     !- Hour 1
+  0,                                      !- Minute 1
+  15.6;                                   !- Value Until Time 1
 
 OS:Schedule:Day,
-  {a3fbd73b-06c3-4bf6-a249-05d87cebdfc6}, ! Handle
-  Large Office HtgSetp Winter Design Day, ! Name
-  {a9dadb87-2284-4037-ada9-d8ba03d45fc3}, ! Schedule Type Limits Name
-  ,                                       ! Interpolate to Timestep
-  24,                                     ! Hour 1
-  0,                                      ! Minute 1
-  21;                                     ! Value Until Time 1
+  {a3fbd73b-06c3-4bf6-a249-05d87cebdfc6}, !- Handle
+  Large Office HtgSetp Winter Design Day, !- Name
+  {a9dadb87-2284-4037-ada9-d8ba03d45fc3}, !- Schedule Type Limits Name
+  No,                                     !- Interpolate to Timestep
+  24,                                     !- Hour 1
+  0,                                      !- Minute 1
+  21;                                     !- Value Until Time 1
 
 OS:Schedule:Rule,
   {3dec2ebc-3be0-4809-ab92-aba518f7243a}, !- Handle
@@ -3132,13 +3132,13 @@ OS:Schedule:Rule,
   31;                                     !- End Day
 
 OS:Schedule:Day,
-  {6eec3602-ae5e-4520-9022-42f6eb158f11}, ! Handle
-  Large Office HtgSetp Rule 1 Day Schedule, ! Name
-  {a9dadb87-2284-4037-ada9-d8ba03d45fc3}, ! Schedule Type Limits Name
-  ,                                       ! Interpolate to Timestep
-  24,                                     ! Hour 1
-  0,                                      ! Minute 1
-  15.6;                                   ! Value Until Time 1
+  {6eec3602-ae5e-4520-9022-42f6eb158f11}, !- Handle
+  Large Office HtgSetp Rule 1 Day Schedule, !- Name
+  {a9dadb87-2284-4037-ada9-d8ba03d45fc3}, !- Schedule Type Limits Name
+  No,                                     !- Interpolate to Timestep
+  24,                                     !- Hour 1
+  0,                                      !- Minute 1
+  15.6;                                   !- Value Until Time 1
 
 OS:Schedule:Rule,
   {d0fd0485-8d3a-4d93-b472-c2c055f12d8f}, !- Handle
@@ -3160,19 +3160,19 @@ OS:Schedule:Rule,
   31;                                     !- End Day
 
 OS:Schedule:Day,
-  {855ab926-166d-457e-bee0-48035528728b}, ! Handle
-  Large Office HtgSetp Rule 2 Day Schedule, ! Name
-  {a9dadb87-2284-4037-ada9-d8ba03d45fc3}, ! Schedule Type Limits Name
-  ,                                       ! Interpolate to Timestep
-  6,                                      ! Hour 1
-  0,                                      ! Minute 1
-  15.6,                                   ! Value Until Time 1
-  18,                                     ! Hour 2
-  0,                                      ! Minute 2
-  21,                                     ! Value Until Time 2
-  24,                                     ! Hour 3
-  0,                                      ! Minute 3
-  15.6;                                   ! Value Until Time 3
+  {855ab926-166d-457e-bee0-48035528728b}, !- Handle
+  Large Office HtgSetp Rule 2 Day Schedule, !- Name
+  {a9dadb87-2284-4037-ada9-d8ba03d45fc3}, !- Schedule Type Limits Name
+  No,                                     !- Interpolate to Timestep
+  6,                                      !- Hour 1
+  0,                                      !- Minute 1
+  15.6,                                   !- Value Until Time 1
+  18,                                     !- Hour 2
+  0,                                      !- Minute 2
+  21,                                     !- Value Until Time 2
+  24,                                     !- Hour 3
+  0,                                      !- Minute 3
+  15.6;                                   !- Value Until Time 3
 
 OS:Schedule:Ruleset,
   {28f74a9b-29da-4e35-bd76-56b9a3c9360c}, ! Handle
@@ -3191,10 +3191,10 @@ OS:ScheduleTypeLimits,
   Temperature;                            !- Unit Type
 
 OS:Schedule:Day,
-  {5eec5b53-578e-4e6d-bfd9-3ab760d8ce47}, ! Handle
-  Large Office ClgSetp Default Schedule,  ! Name
-  {41c7ee57-bfc4-48e2-9eb9-df0001ab88f0}, ! Schedule Type Limits Name
-  ,                                       ! Interpolate to Timestep
+  {5eec5b53-578e-4e6d-bfd9-3ab760d8ce47}, !- Handle
+  Large Office ClgSetp Default Schedule,  !- Name
+  {41c7ee57-bfc4-48e2-9eb9-df0001ab88f0}, !- Schedule Type Limits Name
+  No,                                     !- Interpolate to Timestep
   6,                                      !- Hour 1
   0,                                      !- Minute 1
   26.7,                                   !- Value Until Time 1
@@ -3206,28 +3206,28 @@ OS:Schedule:Day,
   26.7;                                   !- Value Until Time 3
 
 OS:Schedule:Day,
-  {595d5a37-9ee2-40c6-8390-a264a70b9bf5}, ! Handle
-  Large Office ClgSetp Summer Design Day, ! Name
-  {41c7ee57-bfc4-48e2-9eb9-df0001ab88f0}, ! Schedule Type Limits Name
-  ,                                       ! Interpolate to Timestep
-  6,                                      ! Hour 1
-  0,                                      ! Minute 1
-  26.699999999999999,                     ! Value Until Time 1
-  22,                                     ! Hour 2
-  0,                                      ! Minute 2
-  24,                                     ! Value Until Time 2
-  24,                                     ! Hour 3
-  0,                                      ! Minute 3
-  26.699999999999999;                     ! Value Until Time 3
+  {595d5a37-9ee2-40c6-8390-a264a70b9bf5}, !- Handle
+  Large Office ClgSetp Summer Design Day, !- Name
+  {41c7ee57-bfc4-48e2-9eb9-df0001ab88f0}, !- Schedule Type Limits Name
+  No,                                     !- Interpolate to Timestep
+  6,                                      !- Hour 1
+  0,                                      !- Minute 1
+  26.699999999999999,                     !- Value Until Time 1
+  22,                                     !- Hour 2
+  0,                                      !- Minute 2
+  24,                                     !- Value Until Time 2
+  24,                                     !- Hour 3
+  0,                                      !- Minute 3
+  26.699999999999999;                     !- Value Until Time 3
 
 OS:Schedule:Day,
-  {bf709691-6dea-47a8-9d7f-a07245ece8ec}, ! Handle
-  Large Office ClgSetp Winter Design Day, ! Name
-  {41c7ee57-bfc4-48e2-9eb9-df0001ab88f0}, ! Schedule Type Limits Name
-  ,                                       ! Interpolate to Timestep
-  24,                                     ! Hour 1
-  0,                                      ! Minute 1
-  26.699999999999999;                     ! Value Until Time 1
+  {bf709691-6dea-47a8-9d7f-a07245ece8ec}, !- Handle
+  Large Office ClgSetp Winter Design Day, !- Name
+  {41c7ee57-bfc4-48e2-9eb9-df0001ab88f0}, !- Schedule Type Limits Name
+  No,                                     !- Interpolate to Timestep
+  24,                                     !- Hour 1
+  0,                                      !- Minute 1
+  26.699999999999999;                     !- Value Until Time 1
 
 OS:Schedule:Rule,
   {0c2aa966-89ef-414d-9cb8-7c5866667a68}, !- Handle
@@ -3249,13 +3249,13 @@ OS:Schedule:Rule,
   31;                                     !- End Day
 
 OS:Schedule:Day,
-  {4eb7dda9-f704-4e80-b779-17f6a393f713}, ! Handle
-  Large Office ClgSetp Rule 1 Day Schedule, ! Name
-  {41c7ee57-bfc4-48e2-9eb9-df0001ab88f0}, ! Schedule Type Limits Name
-  ,                                       ! Interpolate to Timestep
-  24,                                     ! Hour 1
-  0,                                      ! Minute 1
-  26.699999999999999;                     ! Value Until Time 1
+  {4eb7dda9-f704-4e80-b779-17f6a393f713}, !- Handle
+  Large Office ClgSetp Rule 1 Day Schedule, !- Name
+  {41c7ee57-bfc4-48e2-9eb9-df0001ab88f0}, !- Schedule Type Limits Name
+  No,                                     !- Interpolate to Timestep
+  24,                                     !- Hour 1
+  0,                                      !- Minute 1
+  26.699999999999999;                     !- Value Until Time 1
 
 OS:Schedule:Rule,
   {bfc0394c-2ee2-4a76-b55b-94b145027791}, !- Handle
@@ -3277,19 +3277,19 @@ OS:Schedule:Rule,
   31;                                     !- End Day
 
 OS:Schedule:Day,
-  {9616ff3f-9dda-4339-accb-413452c0303f}, ! Handle
-  Large Office ClgSetp Rule 2 Day Schedule, ! Name
-  {41c7ee57-bfc4-48e2-9eb9-df0001ab88f0}, ! Schedule Type Limits Name
-  ,                                       ! Interpolate to Timestep
-  6,                                      ! Hour 1
-  0,                                      ! Minute 1
-  26.699999999999999,                     ! Value Until Time 1
-  18,                                     ! Hour 2
-  0,                                      ! Minute 2
-  24,                                     ! Value Until Time 2
-  24,                                     ! Hour 3
-  0,                                      ! Minute 3
-  26.699999999999999;                     ! Value Until Time 3
+  {9616ff3f-9dda-4339-accb-413452c0303f}, !- Handle
+  Large Office ClgSetp Rule 2 Day Schedule, !- Name
+  {41c7ee57-bfc4-48e2-9eb9-df0001ab88f0}, !- Schedule Type Limits Name
+  No,                                     !- Interpolate to Timestep
+  6,                                      !- Hour 1
+  0,                                      !- Minute 1
+  26.699999999999999,                     !- Value Until Time 1
+  18,                                     !- Hour 2
+  0,                                      !- Minute 2
+  24,                                     !- Value Until Time 2
+  24,                                     !- Hour 3
+  0,                                      !- Minute 3
+  26.699999999999999;                     !- Value Until Time 3
 
 OS:SpaceType,
   {722a16d5-634d-4160-a9b0-cf8e624e3636}, !- Handle
@@ -3382,10 +3382,10 @@ OS:Schedule:Ruleset,
   {46b09b73-6cc8-4edd-9517-bd39c9f77511}; ! Winter Design Day Schedule Name
 
 OS:Schedule:Day,
-  {9f032ce4-a117-4819-b533-5369271ed22d}, ! Handle
-  Medium Office Bldg Occ Default Schedule, ! Name
-  {46639c15-3d9e-445e-bf44-62058e5636d7}, ! Schedule Type Limits Name
-  ,                                       ! Interpolate to Timestep
+  {9f032ce4-a117-4819-b533-5369271ed22d}, !- Handle
+  Medium Office Bldg Occ Default Schedule, !- Name
+  {46639c15-3d9e-445e-bf44-62058e5636d7}, !- Schedule Type Limits Name
+  No,                                     !- Interpolate to Timestep
   6,                                      !- Hour 1
   0,                                      !- Minute 1
   0,                                      !- Value Until Time 1
@@ -3418,28 +3418,28 @@ OS:Schedule:Day,
   0.05;                                   !- Value Until Time 10
 
 OS:Schedule:Day,
-  {6607e8b9-080f-4d5a-bf8c-012b229b3390}, ! Handle
-  Medium Office Bldg Occ Summer Design Day, ! Name
-  {46639c15-3d9e-445e-bf44-62058e5636d7}, ! Schedule Type Limits Name
-  ,                                       ! Interpolate to Timestep
-  6,                                      ! Hour 1
-  0,                                      ! Minute 1
-  0,                                      ! Value Until Time 1
-  22,                                     ! Hour 2
-  0,                                      ! Minute 2
-  1,                                      ! Value Until Time 2
-  24,                                     ! Hour 3
-  0,                                      ! Minute 3
-  0.050000000000000003;                   ! Value Until Time 3
+  {6607e8b9-080f-4d5a-bf8c-012b229b3390}, !- Handle
+  Medium Office Bldg Occ Summer Design Day, !- Name
+  {46639c15-3d9e-445e-bf44-62058e5636d7}, !- Schedule Type Limits Name
+  No,                                     !- Interpolate to Timestep
+  6,                                      !- Hour 1
+  0,                                      !- Minute 1
+  0,                                      !- Value Until Time 1
+  22,                                     !- Hour 2
+  0,                                      !- Minute 2
+  1,                                      !- Value Until Time 2
+  24,                                     !- Hour 3
+  0,                                      !- Minute 3
+  0.050000000000000003;                   !- Value Until Time 3
 
 OS:Schedule:Day,
-  {46b09b73-6cc8-4edd-9517-bd39c9f77511}, ! Handle
-  Medium Office Bldg Occ Winter Design Day, ! Name
-  {46639c15-3d9e-445e-bf44-62058e5636d7}, ! Schedule Type Limits Name
-  ,                                       ! Interpolate to Timestep
-  24,                                     ! Hour 1
-  0,                                      ! Minute 1
-  0;                                      ! Value Until Time 1
+  {46b09b73-6cc8-4edd-9517-bd39c9f77511}, !- Handle
+  Medium Office Bldg Occ Winter Design Day, !- Name
+  {46639c15-3d9e-445e-bf44-62058e5636d7}, !- Schedule Type Limits Name
+  No,                                     !- Interpolate to Timestep
+  24,                                     !- Hour 1
+  0,                                      !- Minute 1
+  0;                                      !- Value Until Time 1
 
 OS:Schedule:Rule,
   {93f3fbaf-3bcc-4d46-aa12-29f75ede5812}, !- Handle
@@ -3461,13 +3461,13 @@ OS:Schedule:Rule,
   31;                                     !- End Day
 
 OS:Schedule:Day,
-  {41d016c8-0dad-4e7b-bc98-ac9d99fc871b}, ! Handle
-  Medium Office Bldg Occ Rule 1 Day Schedule, ! Name
-  {46639c15-3d9e-445e-bf44-62058e5636d7}, ! Schedule Type Limits Name
-  ,                                       ! Interpolate to Timestep
-  24,                                     ! Hour 1
-  0,                                      ! Minute 1
-  0;                                      ! Value Until Time 1
+  {41d016c8-0dad-4e7b-bc98-ac9d99fc871b}, !- Handle
+  Medium Office Bldg Occ Rule 1 Day Schedule, !- Name
+  {46639c15-3d9e-445e-bf44-62058e5636d7}, !- Schedule Type Limits Name
+  No,                                     !- Interpolate to Timestep
+  24,                                     !- Hour 1
+  0,                                      !- Minute 1
+  0;                                      !- Value Until Time 1
 
 OS:Schedule:Rule,
   {531b6f84-a9f6-4451-b459-a3fba4568642}, !- Handle
@@ -3489,25 +3489,25 @@ OS:Schedule:Rule,
   31;                                     !- End Day
 
 OS:Schedule:Day,
-  {5f0e50da-131f-4b5b-a8c4-dec84d5df3f0}, ! Handle
-  Medium Office Bldg Occ Rule 2 Day Schedule, ! Name
-  {46639c15-3d9e-445e-bf44-62058e5636d7}, ! Schedule Type Limits Name
-  ,                                       ! Interpolate to Timestep
-  6,                                      ! Hour 1
-  0,                                      ! Minute 1
-  0,                                      ! Value Until Time 1
-  8,                                      ! Hour 2
-  0,                                      ! Minute 2
-  0.10000000000000001,                    ! Value Until Time 2
-  14,                                     ! Hour 3
-  0,                                      ! Minute 3
-  0.5,                                    ! Value Until Time 3
-  17,                                     ! Hour 4
-  0,                                      ! Minute 4
-  0.10000000000000001,                    ! Value Until Time 4
-  24,                                     ! Hour 5
-  0,                                      ! Minute 5
-  0;                                      ! Value Until Time 5
+  {5f0e50da-131f-4b5b-a8c4-dec84d5df3f0}, !- Handle
+  Medium Office Bldg Occ Rule 2 Day Schedule, !- Name
+  {46639c15-3d9e-445e-bf44-62058e5636d7}, !- Schedule Type Limits Name
+  No,                                     !- Interpolate to Timestep
+  6,                                      !- Hour 1
+  0,                                      !- Minute 1
+  0,                                      !- Value Until Time 1
+  8,                                      !- Hour 2
+  0,                                      !- Minute 2
+  0.10000000000000001,                    !- Value Until Time 2
+  14,                                     !- Hour 3
+  0,                                      !- Minute 3
+  0.5,                                    !- Value Until Time 3
+  17,                                     !- Hour 4
+  0,                                      !- Minute 4
+  0.10000000000000001,                    !- Value Until Time 4
+  24,                                     !- Hour 5
+  0,                                      !- Minute 5
+  0;                                      !- Value Until Time 5
 
 OS:Schedule:Ruleset,
   {7651bffc-0582-49f0-bef8-c342bde3ae49}, ! Handle
@@ -3526,31 +3526,31 @@ OS:ScheduleTypeLimits,
   ActivityLevel;                          !- Unit Type
 
 OS:Schedule:Day,
-  {93a750b7-5b84-4924-99f6-fe36368706b2}, ! Handle
-  Medium Office Activity Default Schedule, ! Name
-  {724e0a25-cd51-4aef-b8ed-bd0074db9d88}, ! Schedule Type Limits Name
-  ,                                       ! Interpolate to Timestep
+  {93a750b7-5b84-4924-99f6-fe36368706b2}, !- Handle
+  Medium Office Activity Default Schedule, !- Name
+  {724e0a25-cd51-4aef-b8ed-bd0074db9d88}, !- Schedule Type Limits Name
+  No,                                     !- Interpolate to Timestep
   24,                                     !- Hour 1
   0,                                      !- Minute 1
   120;                                    !- Value Until Time 1
 
 OS:Schedule:Day,
-  {5a6b4477-b695-4554-94fc-e4b473bc19bc}, ! Handle
-  Medium Office Activity Summer Design Day, ! Name
-  {724e0a25-cd51-4aef-b8ed-bd0074db9d88}, ! Schedule Type Limits Name
-  ,                                       ! Interpolate to Timestep
-  24,                                     ! Hour 1
-  0,                                      ! Minute 1
-  120;                                    ! Value Until Time 1
+  {5a6b4477-b695-4554-94fc-e4b473bc19bc}, !- Handle
+  Medium Office Activity Summer Design Day, !- Name
+  {724e0a25-cd51-4aef-b8ed-bd0074db9d88}, !- Schedule Type Limits Name
+  No,                                     !- Interpolate to Timestep
+  24,                                     !- Hour 1
+  0,                                      !- Minute 1
+  120;                                    !- Value Until Time 1
 
 OS:Schedule:Day,
-  {2c143c62-301b-4ecd-8702-5869ab99278b}, ! Handle
-  Medium Office Activity Winter Design Day, ! Name
-  {724e0a25-cd51-4aef-b8ed-bd0074db9d88}, ! Schedule Type Limits Name
-  ,                                       ! Interpolate to Timestep
-  24,                                     ! Hour 1
-  0,                                      ! Minute 1
-  120;                                    ! Value Until Time 1
+  {2c143c62-301b-4ecd-8702-5869ab99278b}, !- Handle
+  Medium Office Activity Winter Design Day, !- Name
+  {724e0a25-cd51-4aef-b8ed-bd0074db9d88}, !- Schedule Type Limits Name
+  No,                                     !- Interpolate to Timestep
+  24,                                     !- Hour 1
+  0,                                      !- Minute 1
+  120;                                    !- Value Until Time 1
 
 OS:SpaceInfiltration:DesignFlowRate,
   {5d2d1e2d-96f5-4b6e-b4a9-814eee0460fa}, !- Handle
@@ -3576,10 +3576,10 @@ OS:Schedule:Ruleset,
   {ad77c9a4-86ed-4a05-937d-4719846cb585}; ! Winter Design Day Schedule Name
 
 OS:Schedule:Day,
-  {10f7b19d-4452-4337-b587-b2d99069ea67}, ! Handle
-  Medium Office Infil Quarter On Default Schedule, ! Name
-  {46639c15-3d9e-445e-bf44-62058e5636d7}, ! Schedule Type Limits Name
-  ,                                       ! Interpolate to Timestep
+  {10f7b19d-4452-4337-b587-b2d99069ea67}, !- Handle
+  Medium Office Infil Quarter On Default Schedule, !- Name
+  {46639c15-3d9e-445e-bf44-62058e5636d7}, !- Schedule Type Limits Name
+  No,                                     !- Interpolate to Timestep
   6,                                      !- Hour 1
   0,                                      !- Minute 1
   1,                                      !- Value Until Time 1
@@ -3591,34 +3591,34 @@ OS:Schedule:Day,
   1;                                      !- Value Until Time 3
 
 OS:Schedule:Day,
-  {c34926d6-7436-4f8f-9727-dea6c3aae8c9}, ! Handle
-  Medium Office Infil Quarter On Summer Design Day, ! Name
-  {46639c15-3d9e-445e-bf44-62058e5636d7}, ! Schedule Type Limits Name
-  ,                                       ! Interpolate to Timestep
-  6,                                      ! Hour 1
-  0,                                      ! Minute 1
-  1,                                      ! Value Until Time 1
-  22,                                     ! Hour 2
-  0,                                      ! Minute 2
-  0.25,                                   ! Value Until Time 2
-  24,                                     ! Hour 3
-  0,                                      ! Minute 3
-  1;                                      ! Value Until Time 3
+  {c34926d6-7436-4f8f-9727-dea6c3aae8c9}, !- Handle
+  Medium Office Infil Quarter On Summer Design Day, !- Name
+  {46639c15-3d9e-445e-bf44-62058e5636d7}, !- Schedule Type Limits Name
+  No,                                     !- Interpolate to Timestep
+  6,                                      !- Hour 1
+  0,                                      !- Minute 1
+  1,                                      !- Value Until Time 1
+  22,                                     !- Hour 2
+  0,                                      !- Minute 2
+  0.25,                                   !- Value Until Time 2
+  24,                                     !- Hour 3
+  0,                                      !- Minute 3
+  1;                                      !- Value Until Time 3
 
 OS:Schedule:Day,
-  {ad77c9a4-86ed-4a05-937d-4719846cb585}, ! Handle
-  Medium Office Infil Quarter On Winter Design Day, ! Name
-  {46639c15-3d9e-445e-bf44-62058e5636d7}, ! Schedule Type Limits Name
-  ,                                       ! Interpolate to Timestep
-  6,                                      ! Hour 1
-  0,                                      ! Minute 1
-  1,                                      ! Value Until Time 1
-  18,                                     ! Hour 2
-  0,                                      ! Minute 2
-  0.25,                                   ! Value Until Time 2
-  24,                                     ! Hour 3
-  0,                                      ! Minute 3
-  1;                                      ! Value Until Time 3
+  {ad77c9a4-86ed-4a05-937d-4719846cb585}, !- Handle
+  Medium Office Infil Quarter On Winter Design Day, !- Name
+  {46639c15-3d9e-445e-bf44-62058e5636d7}, !- Schedule Type Limits Name
+  No,                                     !- Interpolate to Timestep
+  6,                                      !- Hour 1
+  0,                                      !- Minute 1
+  1,                                      !- Value Until Time 1
+  18,                                     !- Hour 2
+  0,                                      !- Minute 2
+  0.25,                                   !- Value Until Time 2
+  24,                                     !- Hour 3
+  0,                                      !- Minute 3
+  1;                                      !- Value Until Time 3
 
 OS:Schedule:Rule,
   {efccc2eb-56fd-412a-b63b-91e6e93f2f76}, !- Handle
@@ -3640,13 +3640,13 @@ OS:Schedule:Rule,
   31;                                     !- End Day
 
 OS:Schedule:Day,
-  {704bfc92-0704-49f0-a832-ddb0869765de}, ! Handle
-  Medium Office Infil Quarter On Rule 1 Day Schedule, ! Name
-  {46639c15-3d9e-445e-bf44-62058e5636d7}, ! Schedule Type Limits Name
-  ,                                       ! Interpolate to Timestep
-  24,                                     ! Hour 1
-  0,                                      ! Minute 1
-  1;                                      ! Value Until Time 1
+  {704bfc92-0704-49f0-a832-ddb0869765de}, !- Handle
+  Medium Office Infil Quarter On Rule 1 Day Schedule, !- Name
+  {46639c15-3d9e-445e-bf44-62058e5636d7}, !- Schedule Type Limits Name
+  No,                                     !- Interpolate to Timestep
+  24,                                     !- Hour 1
+  0,                                      !- Minute 1
+  1;                                      !- Value Until Time 1
 
 OS:Schedule:Rule,
   {148c0532-bdb0-42d5-bfcc-d099b0354456}, !- Handle
@@ -3668,19 +3668,19 @@ OS:Schedule:Rule,
   31;                                     !- End Day
 
 OS:Schedule:Day,
-  {33628b24-7929-42bc-a7af-063332bd3b03}, ! Handle
-  Medium Office Infil Quarter On Rule 2 Day Schedule, ! Name
-  {46639c15-3d9e-445e-bf44-62058e5636d7}, ! Schedule Type Limits Name
-  ,                                       ! Interpolate to Timestep
-  6,                                      ! Hour 1
-  0,                                      ! Minute 1
-  1,                                      ! Value Until Time 1
-  18,                                     ! Hour 2
-  0,                                      ! Minute 2
-  0.25,                                   ! Value Until Time 2
-  24,                                     ! Hour 3
-  0,                                      ! Minute 3
-  1;                                      ! Value Until Time 3
+  {33628b24-7929-42bc-a7af-063332bd3b03}, !- Handle
+  Medium Office Infil Quarter On Rule 2 Day Schedule, !- Name
+  {46639c15-3d9e-445e-bf44-62058e5636d7}, !- Schedule Type Limits Name
+  No,                                     !- Interpolate to Timestep
+  6,                                      !- Hour 1
+  0,                                      !- Minute 1
+  1,                                      !- Value Until Time 1
+  18,                                     !- Hour 2
+  0,                                      !- Minute 2
+  0.25,                                   !- Value Until Time 2
+  24,                                     !- Hour 3
+  0,                                      !- Minute 3
+  1;                                      !- Value Until Time 3
 
 OS:ElectricEquipment:Definition,
   {cbe742e9-158d-4107-a571-99725288afb4}, !- Handle
@@ -3708,10 +3708,10 @@ OS:Schedule:Ruleset,
   {f57c41fc-c559-4c4f-8adb-4b392bfaf028}; ! Winter Design Day Schedule Name
 
 OS:Schedule:Day,
-  {bf704b7a-9297-4a96-9dfb-8bab054c5cb5}, ! Handle
-  Medium Office Bldg Equip Default Schedule, ! Name
-  {46639c15-3d9e-445e-bf44-62058e5636d7}, ! Schedule Type Limits Name
-  ,                                       ! Interpolate to Timestep
+  {bf704b7a-9297-4a96-9dfb-8bab054c5cb5}, !- Handle
+  Medium Office Bldg Equip Default Schedule, !- Name
+  {46639c15-3d9e-445e-bf44-62058e5636d7}, !- Schedule Type Limits Name
+  No,                                     !- Interpolate to Timestep
   8,                                      !- Hour 1
   0,                                      !- Minute 1
   0.4,                                    !- Value Until Time 1
@@ -3738,22 +3738,22 @@ OS:Schedule:Day,
   0.4;                                    !- Value Until Time 8
 
 OS:Schedule:Day,
-  {5ccb85f3-3573-41c1-ab0e-dc464fa8369a}, ! Handle
-  Medium Office Bldg Equip Summer Design Day, ! Name
-  {46639c15-3d9e-445e-bf44-62058e5636d7}, ! Schedule Type Limits Name
-  ,                                       ! Interpolate to Timestep
-  24,                                     ! Hour 1
-  0,                                      ! Minute 1
-  1;                                      ! Value Until Time 1
+  {5ccb85f3-3573-41c1-ab0e-dc464fa8369a}, !- Handle
+  Medium Office Bldg Equip Summer Design Day, !- Name
+  {46639c15-3d9e-445e-bf44-62058e5636d7}, !- Schedule Type Limits Name
+  No,                                     !- Interpolate to Timestep
+  24,                                     !- Hour 1
+  0,                                      !- Minute 1
+  1;                                      !- Value Until Time 1
 
 OS:Schedule:Day,
-  {f57c41fc-c559-4c4f-8adb-4b392bfaf028}, ! Handle
-  Medium Office Bldg Equip Winter Design Day, ! Name
-  {46639c15-3d9e-445e-bf44-62058e5636d7}, ! Schedule Type Limits Name
-  ,                                       ! Interpolate to Timestep
-  24,                                     ! Hour 1
-  0,                                      ! Minute 1
-  0;                                      ! Value Until Time 1
+  {f57c41fc-c559-4c4f-8adb-4b392bfaf028}, !- Handle
+  Medium Office Bldg Equip Winter Design Day, !- Name
+  {46639c15-3d9e-445e-bf44-62058e5636d7}, !- Schedule Type Limits Name
+  No,                                     !- Interpolate to Timestep
+  24,                                     !- Hour 1
+  0,                                      !- Minute 1
+  0;                                      !- Value Until Time 1
 
 OS:Schedule:Rule,
   {d6cb0cf6-da77-4422-91ed-f9b16f4a074b}, !- Handle
@@ -3775,13 +3775,13 @@ OS:Schedule:Rule,
   31;                                     !- End Day
 
 OS:Schedule:Day,
-  {dd0aea7f-20ff-4725-9c38-bf26b08baafd}, ! Handle
-  Medium Office Bldg Equip Rule 1 Day Schedule, ! Name
-  {46639c15-3d9e-445e-bf44-62058e5636d7}, ! Schedule Type Limits Name
-  ,                                       ! Interpolate to Timestep
-  24,                                     ! Hour 1
-  0,                                      ! Minute 1
-  0.29999999999999999;                    ! Value Until Time 1
+  {dd0aea7f-20ff-4725-9c38-bf26b08baafd}, !- Handle
+  Medium Office Bldg Equip Rule 1 Day Schedule, !- Name
+  {46639c15-3d9e-445e-bf44-62058e5636d7}, !- Schedule Type Limits Name
+  No,                                     !- Interpolate to Timestep
+  24,                                     !- Hour 1
+  0,                                      !- Minute 1
+  0.29999999999999999;                    !- Value Until Time 1
 
 OS:Schedule:Rule,
   {fc5b8baf-c101-48ac-baff-dd26b6be21b3}, !- Handle
@@ -3803,25 +3803,25 @@ OS:Schedule:Rule,
   31;                                     !- End Day
 
 OS:Schedule:Day,
-  {f3eac8f6-f536-402a-84ad-ee7462d7d6a1}, ! Handle
-  Medium Office Bldg Equip Rule 2 Day Schedule, ! Name
-  {46639c15-3d9e-445e-bf44-62058e5636d7}, ! Schedule Type Limits Name
-  ,                                       ! Interpolate to Timestep
-  6,                                      ! Hour 1
-  0,                                      ! Minute 1
-  0.29999999999999999,                    ! Value Until Time 1
-  8,                                      ! Hour 2
-  0,                                      ! Minute 2
-  0.40000000000000002,                    ! Value Until Time 2
-  14,                                     ! Hour 3
-  0,                                      ! Minute 3
-  0.5,                                    ! Value Until Time 3
-  17,                                     ! Hour 4
-  0,                                      ! Minute 4
-  0.34999999999999998,                    ! Value Until Time 4
-  24,                                     ! Hour 5
-  0,                                      ! Minute 5
-  0.29999999999999999;                    ! Value Until Time 5
+  {f3eac8f6-f536-402a-84ad-ee7462d7d6a1}, !- Handle
+  Medium Office Bldg Equip Rule 2 Day Schedule, !- Name
+  {46639c15-3d9e-445e-bf44-62058e5636d7}, !- Schedule Type Limits Name
+  No,                                     !- Interpolate to Timestep
+  6,                                      !- Hour 1
+  0,                                      !- Minute 1
+  0.29999999999999999,                    !- Value Until Time 1
+  8,                                      !- Hour 2
+  0,                                      !- Minute 2
+  0.40000000000000002,                    !- Value Until Time 2
+  14,                                     !- Hour 3
+  0,                                      !- Minute 3
+  0.5,                                    !- Value Until Time 3
+  17,                                     !- Hour 4
+  0,                                      !- Minute 4
+  0.34999999999999998,                    !- Value Until Time 4
+  24,                                     !- Hour 5
+  0,                                      !- Minute 5
+  0.29999999999999999;                    !- Value Until Time 5
 
 OS:ThermostatSetpoint:DualSetpoint,
   {6f2426c5-ac93-4ed3-8290-6cba3d44eb04}, !- Handle
@@ -3920,10 +3920,10 @@ OS:Schedule:Ruleset,
   {8666649e-ef84-4fa3-9d27-31e462680c94}; ! Winter Design Day Schedule Name
 
 OS:Schedule:Day,
-  {27db2fc7-985b-405f-b217-c61f871fde68}, ! Handle
-  Small Office Bldg Occ Default Schedule, ! Name
-  {c50de33e-2a31-403b-929e-8d1c42a993ef}, ! Schedule Type Limits Name
-  ,                                       ! Interpolate to Timestep
+  {27db2fc7-985b-405f-b217-c61f871fde68}, !- Handle
+  Small Office Bldg Occ Default Schedule, !- Name
+  {c50de33e-2a31-403b-929e-8d1c42a993ef}, !- Schedule Type Limits Name
+  No,                                     !- Interpolate to Timestep
   6,                                      !- Hour 1
   0,                                      !- Minute 1
   0,                                      !- Value Until Time 1
@@ -3953,28 +3953,28 @@ OS:Schedule:Day,
   0.05;                                   !- Value Until Time 9
 
 OS:Schedule:Day,
-  {7a2a4335-8017-4278-8d87-5dae03ef442a}, ! Handle
-  Small Office Bldg Occ Summer Design Day, ! Name
-  {c50de33e-2a31-403b-929e-8d1c42a993ef}, ! Schedule Type Limits Name
-  ,                                       ! Interpolate to Timestep
-  6,                                      ! Hour 1
-  0,                                      ! Minute 1
-  0,                                      ! Value Until Time 1
-  22,                                     ! Hour 2
-  0,                                      ! Minute 2
-  1,                                      ! Value Until Time 2
-  24,                                     ! Hour 3
-  0,                                      ! Minute 3
-  0.050000000000000003;                   ! Value Until Time 3
+  {7a2a4335-8017-4278-8d87-5dae03ef442a}, !- Handle
+  Small Office Bldg Occ Summer Design Day, !- Name
+  {c50de33e-2a31-403b-929e-8d1c42a993ef}, !- Schedule Type Limits Name
+  No,                                     !- Interpolate to Timestep
+  6,                                      !- Hour 1
+  0,                                      !- Minute 1
+  0,                                      !- Value Until Time 1
+  22,                                     !- Hour 2
+  0,                                      !- Minute 2
+  1,                                      !- Value Until Time 2
+  24,                                     !- Hour 3
+  0,                                      !- Minute 3
+  0.050000000000000003;                   !- Value Until Time 3
 
 OS:Schedule:Day,
-  {8666649e-ef84-4fa3-9d27-31e462680c94}, ! Handle
-  Small Office Bldg Occ Winter Design Day, ! Name
-  {c50de33e-2a31-403b-929e-8d1c42a993ef}, ! Schedule Type Limits Name
-  ,                                       ! Interpolate to Timestep
-  24,                                     ! Hour 1
-  0,                                      ! Minute 1
-  0;                                      ! Value Until Time 1
+  {8666649e-ef84-4fa3-9d27-31e462680c94}, !- Handle
+  Small Office Bldg Occ Winter Design Day, !- Name
+  {c50de33e-2a31-403b-929e-8d1c42a993ef}, !- Schedule Type Limits Name
+  No,                                     !- Interpolate to Timestep
+  24,                                     !- Hour 1
+  0,                                      !- Minute 1
+  0;                                      !- Value Until Time 1
 
 OS:Schedule:Rule,
   {1ec6e3e7-82b4-49e6-8e40-d62233fc0746}, !- Handle
@@ -3996,13 +3996,13 @@ OS:Schedule:Rule,
   31;                                     !- End Day
 
 OS:Schedule:Day,
-  {19df3478-1363-4984-ab4c-55527060e1df}, ! Handle
-  Small Office Bldg Occ Rule 1 Day Schedule, ! Name
-  {c50de33e-2a31-403b-929e-8d1c42a993ef}, ! Schedule Type Limits Name
-  ,                                       ! Interpolate to Timestep
-  24,                                     ! Hour 1
-  0,                                      ! Minute 1
-  0;                                      ! Value Until Time 1
+  {19df3478-1363-4984-ab4c-55527060e1df}, !- Handle
+  Small Office Bldg Occ Rule 1 Day Schedule, !- Name
+  {c50de33e-2a31-403b-929e-8d1c42a993ef}, !- Schedule Type Limits Name
+  No,                                     !- Interpolate to Timestep
+  24,                                     !- Hour 1
+  0,                                      !- Minute 1
+  0;                                      !- Value Until Time 1
 
 OS:Schedule:Rule,
   {c2299737-2fd3-4274-97d6-b3a72f5c6d13}, !- Handle
@@ -4024,25 +4024,25 @@ OS:Schedule:Rule,
   31;                                     !- End Day
 
 OS:Schedule:Day,
-  {174c0756-607e-45cd-a3b3-7ae2e78824dc}, ! Handle
-  Small Office Bldg Occ Rule 2 Day Schedule, ! Name
-  {c50de33e-2a31-403b-929e-8d1c42a993ef}, ! Schedule Type Limits Name
-  ,                                       ! Interpolate to Timestep
-  6,                                      ! Hour 1
-  0,                                      ! Minute 1
-  0,                                      ! Value Until Time 1
-  8,                                      ! Hour 2
-  0,                                      ! Minute 2
-  0.10000000000000001,                    ! Value Until Time 2
-  12,                                     ! Hour 3
-  0,                                      ! Minute 3
-  0.29999999999999999,                    ! Value Until Time 3
-  17,                                     ! Hour 4
-  0,                                      ! Minute 4
-  0.10000000000000001,                    ! Value Until Time 4
-  24,                                     ! Hour 5
-  0,                                      ! Minute 5
-  0;                                      ! Value Until Time 5
+  {174c0756-607e-45cd-a3b3-7ae2e78824dc}, !- Handle
+  Small Office Bldg Occ Rule 2 Day Schedule, !- Name
+  {c50de33e-2a31-403b-929e-8d1c42a993ef}, !- Schedule Type Limits Name
+  No,                                     !- Interpolate to Timestep
+  6,                                      !- Hour 1
+  0,                                      !- Minute 1
+  0,                                      !- Value Until Time 1
+  8,                                      !- Hour 2
+  0,                                      !- Minute 2
+  0.10000000000000001,                    !- Value Until Time 2
+  12,                                     !- Hour 3
+  0,                                      !- Minute 3
+  0.29999999999999999,                    !- Value Until Time 3
+  17,                                     !- Hour 4
+  0,                                      !- Minute 4
+  0.10000000000000001,                    !- Value Until Time 4
+  24,                                     !- Hour 5
+  0,                                      !- Minute 5
+  0;                                      !- Value Until Time 5
 
 OS:Schedule:Ruleset,
   {1b9044e6-e6f8-4202-8332-ec7a44ffc25f}, ! Handle
@@ -4061,31 +4061,31 @@ OS:ScheduleTypeLimits,
   ActivityLevel;                          !- Unit Type
 
 OS:Schedule:Day,
-  {fd75c8bf-f34d-4069-aa95-b2f8cbe5f263}, ! Handle
-  Small Office Activity Default Schedule, ! Name
-  {914fb107-53c7-4ce8-8b3f-d09fe122736e}, ! Schedule Type Limits Name
-  ,                                       ! Interpolate to Timestep
+  {fd75c8bf-f34d-4069-aa95-b2f8cbe5f263}, !- Handle
+  Small Office Activity Default Schedule, !- Name
+  {914fb107-53c7-4ce8-8b3f-d09fe122736e}, !- Schedule Type Limits Name
+  No,                                     !- Interpolate to Timestep
   24,                                     !- Hour 1
   0,                                      !- Minute 1
   120;                                    !- Value Until Time 1
 
 OS:Schedule:Day,
-  {4d39a59f-f101-43c2-b72d-376915ff3813}, ! Handle
-  Small Office Activity Summer Design Day, ! Name
-  {914fb107-53c7-4ce8-8b3f-d09fe122736e}, ! Schedule Type Limits Name
-  ,                                       ! Interpolate to Timestep
-  24,                                     ! Hour 1
-  0,                                      ! Minute 1
-  120;                                    ! Value Until Time 1
+  {4d39a59f-f101-43c2-b72d-376915ff3813}, !- Handle
+  Small Office Activity Summer Design Day, !- Name
+  {914fb107-53c7-4ce8-8b3f-d09fe122736e}, !- Schedule Type Limits Name
+  No,                                     !- Interpolate to Timestep
+  24,                                     !- Hour 1
+  0,                                      !- Minute 1
+  120;                                    !- Value Until Time 1
 
 OS:Schedule:Day,
-  {c2a9eb51-e714-44b9-8895-be4ded0c623b}, ! Handle
-  Small Office Activity Winter Design Day, ! Name
-  {914fb107-53c7-4ce8-8b3f-d09fe122736e}, ! Schedule Type Limits Name
-  ,                                       ! Interpolate to Timestep
-  24,                                     ! Hour 1
-  0,                                      ! Minute 1
-  120;                                    ! Value Until Time 1
+  {c2a9eb51-e714-44b9-8895-be4ded0c623b}, !- Handle
+  Small Office Activity Winter Design Day, !- Name
+  {914fb107-53c7-4ce8-8b3f-d09fe122736e}, !- Schedule Type Limits Name
+  No,                                     !- Interpolate to Timestep
+  24,                                     !- Hour 1
+  0,                                      !- Minute 1
+  120;                                    !- Value Until Time 1
 
 OS:SpaceInfiltration:DesignFlowRate,
   {0d7f8337-f008-494c-b1e2-e07f531bde5f}, !- Handle
@@ -4111,10 +4111,10 @@ OS:Schedule:Ruleset,
   {0cdb6e4e-5756-4f55-81c9-df6360a5015a}; ! Winter Design Day Schedule Name
 
 OS:Schedule:Day,
-  {85b20cd5-89d6-4fb3-8769-658a7d3320d9}, ! Handle
-  Small Office Infil Quarter On Default Schedule, ! Name
-  {c50de33e-2a31-403b-929e-8d1c42a993ef}, ! Schedule Type Limits Name
-  ,                                       ! Interpolate to Timestep
+  {85b20cd5-89d6-4fb3-8769-658a7d3320d9}, !- Handle
+  Small Office Infil Quarter On Default Schedule, !- Name
+  {c50de33e-2a31-403b-929e-8d1c42a993ef}, !- Schedule Type Limits Name
+  No,                                     !- Interpolate to Timestep
   6,                                      !- Hour 1
   0,                                      !- Minute 1
   1,                                      !- Value Until Time 1
@@ -4126,34 +4126,34 @@ OS:Schedule:Day,
   1;                                      !- Value Until Time 3
 
 OS:Schedule:Day,
-  {be94ff78-1a17-4ceb-ad07-e1207299036d}, ! Handle
-  Small Office Infil Quarter On Summer Design Day, ! Name
-  {c50de33e-2a31-403b-929e-8d1c42a993ef}, ! Schedule Type Limits Name
-  ,                                       ! Interpolate to Timestep
-  6,                                      ! Hour 1
-  0,                                      ! Minute 1
-  1,                                      ! Value Until Time 1
-  22,                                     ! Hour 2
-  0,                                      ! Minute 2
-  0.25,                                   ! Value Until Time 2
-  24,                                     ! Hour 3
-  0,                                      ! Minute 3
-  1;                                      ! Value Until Time 3
+  {be94ff78-1a17-4ceb-ad07-e1207299036d}, !- Handle
+  Small Office Infil Quarter On Summer Design Day, !- Name
+  {c50de33e-2a31-403b-929e-8d1c42a993ef}, !- Schedule Type Limits Name
+  No,                                     !- Interpolate to Timestep
+  6,                                      !- Hour 1
+  0,                                      !- Minute 1
+  1,                                      !- Value Until Time 1
+  22,                                     !- Hour 2
+  0,                                      !- Minute 2
+  0.25,                                   !- Value Until Time 2
+  24,                                     !- Hour 3
+  0,                                      !- Minute 3
+  1;                                      !- Value Until Time 3
 
 OS:Schedule:Day,
-  {0cdb6e4e-5756-4f55-81c9-df6360a5015a}, ! Handle
-  Small Office Infil Quarter On Winter Design Day, ! Name
-  {c50de33e-2a31-403b-929e-8d1c42a993ef}, ! Schedule Type Limits Name
-  ,                                       ! Interpolate to Timestep
-  6,                                      ! Hour 1
-  0,                                      ! Minute 1
-  1,                                      ! Value Until Time 1
-  18,                                     ! Hour 2
-  0,                                      ! Minute 2
-  0.25,                                   ! Value Until Time 2
-  24,                                     ! Hour 3
-  0,                                      ! Minute 3
-  1;                                      ! Value Until Time 3
+  {0cdb6e4e-5756-4f55-81c9-df6360a5015a}, !- Handle
+  Small Office Infil Quarter On Winter Design Day, !- Name
+  {c50de33e-2a31-403b-929e-8d1c42a993ef}, !- Schedule Type Limits Name
+  No,                                     !- Interpolate to Timestep
+  6,                                      !- Hour 1
+  0,                                      !- Minute 1
+  1,                                      !- Value Until Time 1
+  18,                                     !- Hour 2
+  0,                                      !- Minute 2
+  0.25,                                   !- Value Until Time 2
+  24,                                     !- Hour 3
+  0,                                      !- Minute 3
+  1;                                      !- Value Until Time 3
 
 OS:Schedule:Rule,
   {5deeb2a0-d918-4a10-aed0-e23a586fea7a}, !- Handle
@@ -4175,13 +4175,13 @@ OS:Schedule:Rule,
   31;                                     !- End Day
 
 OS:Schedule:Day,
-  {fb9a701c-7378-479d-8a7a-6355f1415c37}, ! Handle
-  Small Office Infil Quarter On Rule 1 Day Schedule, ! Name
-  {c50de33e-2a31-403b-929e-8d1c42a993ef}, ! Schedule Type Limits Name
-  ,                                       ! Interpolate to Timestep
-  24,                                     ! Hour 1
-  0,                                      ! Minute 1
-  1;                                      ! Value Until Time 1
+  {fb9a701c-7378-479d-8a7a-6355f1415c37}, !- Handle
+  Small Office Infil Quarter On Rule 1 Day Schedule, !- Name
+  {c50de33e-2a31-403b-929e-8d1c42a993ef}, !- Schedule Type Limits Name
+  No,                                     !- Interpolate to Timestep
+  24,                                     !- Hour 1
+  0,                                      !- Minute 1
+  1;                                      !- Value Until Time 1
 
 OS:Schedule:Rule,
   {a4516d3b-a74d-4b7d-aad5-0330cc643492}, !- Handle
@@ -4203,19 +4203,19 @@ OS:Schedule:Rule,
   31;                                     !- End Day
 
 OS:Schedule:Day,
-  {f5f91d52-1d0d-41ec-a00c-4b4e680a7528}, ! Handle
-  Small Office Infil Quarter On Rule 2 Day Schedule, ! Name
-  {c50de33e-2a31-403b-929e-8d1c42a993ef}, ! Schedule Type Limits Name
-  ,                                       ! Interpolate to Timestep
-  6,                                      ! Hour 1
-  0,                                      ! Minute 1
-  1,                                      ! Value Until Time 1
-  18,                                     ! Hour 2
-  0,                                      ! Minute 2
-  0.25,                                   ! Value Until Time 2
-  24,                                     ! Hour 3
-  0,                                      ! Minute 3
-  1;                                      ! Value Until Time 3
+  {f5f91d52-1d0d-41ec-a00c-4b4e680a7528}, !- Handle
+  Small Office Infil Quarter On Rule 2 Day Schedule, !- Name
+  {c50de33e-2a31-403b-929e-8d1c42a993ef}, !- Schedule Type Limits Name
+  No,                                     !- Interpolate to Timestep
+  6,                                      !- Hour 1
+  0,                                      !- Minute 1
+  1,                                      !- Value Until Time 1
+  18,                                     !- Hour 2
+  0,                                      !- Minute 2
+  0.25,                                   !- Value Until Time 2
+  24,                                     !- Hour 3
+  0,                                      !- Minute 3
+  1;                                      !- Value Until Time 3
 
 OS:ElectricEquipment:Definition,
   {b8b8ed7d-507c-4df3-b72a-3240a935b07b}, !- Handle
@@ -4243,10 +4243,10 @@ OS:Schedule:Ruleset,
   {88c90b58-8ddb-4972-883e-a290c36af0c4}; ! Winter Design Day Schedule Name
 
 OS:Schedule:Day,
-  {9659dece-4a8b-46aa-b94a-efbe6534b6e7}, ! Handle
-  Small Office Bldg Equip Default Schedule, ! Name
-  {c50de33e-2a31-403b-929e-8d1c42a993ef}, ! Schedule Type Limits Name
-  ,                                       ! Interpolate to Timestep
+  {9659dece-4a8b-46aa-b94a-efbe6534b6e7}, !- Handle
+  Small Office Bldg Equip Default Schedule, !- Name
+  {c50de33e-2a31-403b-929e-8d1c42a993ef}, !- Schedule Type Limits Name
+  No,                                     !- Interpolate to Timestep
   8,                                      !- Hour 1
   0,                                      !- Minute 1
   0.4,                                    !- Value Until Time 1
@@ -4267,22 +4267,22 @@ OS:Schedule:Day,
   0.4;                                    !- Value Until Time 6
 
 OS:Schedule:Day,
-  {11efabd5-0ab5-4285-b017-593d1d4ba320}, ! Handle
-  Small Office Bldg Equip Summer Design Day, ! Name
-  {c50de33e-2a31-403b-929e-8d1c42a993ef}, ! Schedule Type Limits Name
-  ,                                       ! Interpolate to Timestep
-  24,                                     ! Hour 1
-  0,                                      ! Minute 1
-  1;                                      ! Value Until Time 1
+  {11efabd5-0ab5-4285-b017-593d1d4ba320}, !- Handle
+  Small Office Bldg Equip Summer Design Day, !- Name
+  {c50de33e-2a31-403b-929e-8d1c42a993ef}, !- Schedule Type Limits Name
+  No,                                     !- Interpolate to Timestep
+  24,                                     !- Hour 1
+  0,                                      !- Minute 1
+  1;                                      !- Value Until Time 1
 
 OS:Schedule:Day,
-  {88c90b58-8ddb-4972-883e-a290c36af0c4}, ! Handle
-  Small Office Bldg Equip Winter Design Day, ! Name
-  {c50de33e-2a31-403b-929e-8d1c42a993ef}, ! Schedule Type Limits Name
-  ,                                       ! Interpolate to Timestep
-  24,                                     ! Hour 1
-  0,                                      ! Minute 1
-  0;                                      ! Value Until Time 1
+  {88c90b58-8ddb-4972-883e-a290c36af0c4}, !- Handle
+  Small Office Bldg Equip Winter Design Day, !- Name
+  {c50de33e-2a31-403b-929e-8d1c42a993ef}, !- Schedule Type Limits Name
+  No,                                     !- Interpolate to Timestep
+  24,                                     !- Hour 1
+  0,                                      !- Minute 1
+  0;                                      !- Value Until Time 1
 
 OS:Schedule:Rule,
   {10be943f-7e03-430c-bc8a-27e75bd212a0}, !- Handle
@@ -4304,13 +4304,13 @@ OS:Schedule:Rule,
   31;                                     !- End Day
 
 OS:Schedule:Day,
-  {16eab646-a742-47ec-a5ba-4a4f77d2f9af}, ! Handle
-  Small Office Bldg Equip Rule 1 Day Schedule, ! Name
-  {c50de33e-2a31-403b-929e-8d1c42a993ef}, ! Schedule Type Limits Name
-  ,                                       ! Interpolate to Timestep
-  24,                                     ! Hour 1
-  0,                                      ! Minute 1
-  0.29999999999999999;                    ! Value Until Time 1
+  {16eab646-a742-47ec-a5ba-4a4f77d2f9af}, !- Handle
+  Small Office Bldg Equip Rule 1 Day Schedule, !- Name
+  {c50de33e-2a31-403b-929e-8d1c42a993ef}, !- Schedule Type Limits Name
+  No,                                     !- Interpolate to Timestep
+  24,                                     !- Hour 1
+  0,                                      !- Minute 1
+  0.29999999999999999;                    !- Value Until Time 1
 
 OS:Schedule:Rule,
   {05df7d2e-cd48-42f6-8b14-8fe684fabc7d}, !- Handle
@@ -4332,25 +4332,25 @@ OS:Schedule:Rule,
   31;                                     !- End Day
 
 OS:Schedule:Day,
-  {b02be6a4-e029-4e6a-87d2-7ba289724c20}, ! Handle
-  Small Office Bldg Equip Rule 2 Day Schedule, ! Name
-  {c50de33e-2a31-403b-929e-8d1c42a993ef}, ! Schedule Type Limits Name
-  ,                                       ! Interpolate to Timestep
-  6,                                      ! Hour 1
-  0,                                      ! Minute 1
-  0.29999999999999999,                    ! Value Until Time 1
-  8,                                      ! Hour 2
-  0,                                      ! Minute 2
-  0.40000000000000002,                    ! Value Until Time 2
-  12,                                     ! Hour 3
-  0,                                      ! Minute 3
-  0.5,                                    ! Value Until Time 3
-  17,                                     ! Hour 4
-  0,                                      ! Minute 4
-  0.34999999999999998,                    ! Value Until Time 4
-  24,                                     ! Hour 5
-  0,                                      ! Minute 5
-  0.29999999999999999;                    ! Value Until Time 5
+  {b02be6a4-e029-4e6a-87d2-7ba289724c20}, !- Handle
+  Small Office Bldg Equip Rule 2 Day Schedule, !- Name
+  {c50de33e-2a31-403b-929e-8d1c42a993ef}, !- Schedule Type Limits Name
+  No,                                     !- Interpolate to Timestep
+  6,                                      !- Hour 1
+  0,                                      !- Minute 1
+  0.29999999999999999,                    !- Value Until Time 1
+  8,                                      !- Hour 2
+  0,                                      !- Minute 2
+  0.40000000000000002,                    !- Value Until Time 2
+  12,                                     !- Hour 3
+  0,                                      !- Minute 3
+  0.5,                                    !- Value Until Time 3
+  17,                                     !- Hour 4
+  0,                                      !- Minute 4
+  0.34999999999999998,                    !- Value Until Time 4
+  24,                                     !- Hour 5
+  0,                                      !- Minute 5
+  0.29999999999999999;                    !- Value Until Time 5
 
 OS:ThermostatSetpoint:DualSetpoint,
   {e106c6fa-6132-4f38-a43a-32fb3807df79}, !- Handle
@@ -4375,10 +4375,10 @@ OS:ScheduleTypeLimits,
   Temperature;                            !- Unit Type
 
 OS:Schedule:Day,
-  {9d76705a-8e2b-483a-a441-8f689de04939}, ! Handle
-  Small Office HtgSetp Default Schedule,  ! Name
-  {d1762d25-1396-48e1-8abb-ba176787040b}, ! Schedule Type Limits Name
-  ,                                       ! Interpolate to Timestep
+  {9d76705a-8e2b-483a-a441-8f689de04939}, !- Handle
+  Small Office HtgSetp Default Schedule,  !- Name
+  {d1762d25-1396-48e1-8abb-ba176787040b}, !- Schedule Type Limits Name
+  No,                                     !- Interpolate to Timestep
   6,                                      !- Hour 1
   0,                                      !- Minute 1
   15.6,                                   !- Value Until Time 1
@@ -4390,22 +4390,22 @@ OS:Schedule:Day,
   15.6;                                   !- Value Until Time 3
 
 OS:Schedule:Day,
-  {1ebaeba9-49fd-428f-99cc-b6aa2f2e4863}, ! Handle
-  Small Office HtgSetp Summer Design Day, ! Name
-  {d1762d25-1396-48e1-8abb-ba176787040b}, ! Schedule Type Limits Name
-  ,                                       ! Interpolate to Timestep
-  24,                                     ! Hour 1
-  0,                                      ! Minute 1
-  15.6;                                   ! Value Until Time 1
+  {1ebaeba9-49fd-428f-99cc-b6aa2f2e4863}, !- Handle
+  Small Office HtgSetp Summer Design Day, !- Name
+  {d1762d25-1396-48e1-8abb-ba176787040b}, !- Schedule Type Limits Name
+  No,                                     !- Interpolate to Timestep
+  24,                                     !- Hour 1
+  0,                                      !- Minute 1
+  15.6;                                   !- Value Until Time 1
 
 OS:Schedule:Day,
-  {d194dcc4-e038-4f97-b885-0ee2067331ed}, ! Handle
-  Small Office HtgSetp Winter Design Day, ! Name
-  {d1762d25-1396-48e1-8abb-ba176787040b}, ! Schedule Type Limits Name
-  ,                                       ! Interpolate to Timestep
-  24,                                     ! Hour 1
-  0,                                      ! Minute 1
-  21;                                     ! Value Until Time 1
+  {d194dcc4-e038-4f97-b885-0ee2067331ed}, !- Handle
+  Small Office HtgSetp Winter Design Day, !- Name
+  {d1762d25-1396-48e1-8abb-ba176787040b}, !- Schedule Type Limits Name
+  No,                                     !- Interpolate to Timestep
+  24,                                     !- Hour 1
+  0,                                      !- Minute 1
+  21;                                     !- Value Until Time 1
 
 OS:Schedule:Rule,
   {792c05aa-ea05-400e-b84a-027aa910f176}, !- Handle
@@ -4427,13 +4427,13 @@ OS:Schedule:Rule,
   31;                                     !- End Day
 
 OS:Schedule:Day,
-  {67b58685-2e51-4ff7-b5f2-db3f5078bf4b}, ! Handle
-  Small Office HtgSetp Rule 1 Day Schedule, ! Name
-  {d1762d25-1396-48e1-8abb-ba176787040b}, ! Schedule Type Limits Name
-  ,                                       ! Interpolate to Timestep
-  24,                                     ! Hour 1
-  0,                                      ! Minute 1
-  15.6;                                   ! Value Until Time 1
+  {67b58685-2e51-4ff7-b5f2-db3f5078bf4b}, !- Handle
+  Small Office HtgSetp Rule 1 Day Schedule, !- Name
+  {d1762d25-1396-48e1-8abb-ba176787040b}, !- Schedule Type Limits Name
+  No,                                     !- Interpolate to Timestep
+  24,                                     !- Hour 1
+  0,                                      !- Minute 1
+  15.6;                                   !- Value Until Time 1
 
 OS:Schedule:Rule,
   {28ed0a78-272a-4fab-935b-e8424dc3c8a0}, !- Handle
@@ -4455,19 +4455,19 @@ OS:Schedule:Rule,
   31;                                     !- End Day
 
 OS:Schedule:Day,
-  {0c9975e7-2cdf-4577-8a4f-e15d71e97c80}, ! Handle
-  Small Office HtgSetp Rule 2 Day Schedule, ! Name
-  {d1762d25-1396-48e1-8abb-ba176787040b}, ! Schedule Type Limits Name
-  ,                                       ! Interpolate to Timestep
-  6,                                      ! Hour 1
-  0,                                      ! Minute 1
-  15.6,                                   ! Value Until Time 1
-  18,                                     ! Hour 2
-  0,                                      ! Minute 2
-  21,                                     ! Value Until Time 2
-  24,                                     ! Hour 3
-  0,                                      ! Minute 3
-  15.6;                                   ! Value Until Time 3
+  {0c9975e7-2cdf-4577-8a4f-e15d71e97c80}, !- Handle
+  Small Office HtgSetp Rule 2 Day Schedule, !- Name
+  {d1762d25-1396-48e1-8abb-ba176787040b}, !- Schedule Type Limits Name
+  No,                                     !- Interpolate to Timestep
+  6,                                      !- Hour 1
+  0,                                      !- Minute 1
+  15.6,                                   !- Value Until Time 1
+  18,                                     !- Hour 2
+  0,                                      !- Minute 2
+  21,                                     !- Value Until Time 2
+  24,                                     !- Hour 3
+  0,                                      !- Minute 3
+  15.6;                                   !- Value Until Time 3
 
 OS:Schedule:Ruleset,
   {6d6b07e6-b80d-494b-b4cf-1e4365d94ea0}, ! Handle
@@ -4486,10 +4486,10 @@ OS:ScheduleTypeLimits,
   Temperature;                            !- Unit Type
 
 OS:Schedule:Day,
-  {88a247a4-417c-4c37-b636-77f3b02a03f0}, ! Handle
-  Small Office ClgSetp Default Schedule,  ! Name
-  {53148dd4-84bd-4672-a23f-d1e6e10976bd}, ! Schedule Type Limits Name
-  ,                                       ! Interpolate to Timestep
+  {88a247a4-417c-4c37-b636-77f3b02a03f0}, !- Handle
+  Small Office ClgSetp Default Schedule,  !- Name
+  {53148dd4-84bd-4672-a23f-d1e6e10976bd}, !- Schedule Type Limits Name
+  No,                                     !- Interpolate to Timestep
   6,                                      !- Hour 1
   0,                                      !- Minute 1
   26.7,                                   !- Value Until Time 1
@@ -4501,28 +4501,28 @@ OS:Schedule:Day,
   26.7;                                   !- Value Until Time 3
 
 OS:Schedule:Day,
-  {62beb2a4-bf80-4523-ba61-ef4a99e0834d}, ! Handle
-  Small Office ClgSetp Summer Design Day, ! Name
-  {53148dd4-84bd-4672-a23f-d1e6e10976bd}, ! Schedule Type Limits Name
-  ,                                       ! Interpolate to Timestep
-  6,                                      ! Hour 1
-  0,                                      ! Minute 1
-  26.699999999999999,                     ! Value Until Time 1
-  22,                                     ! Hour 2
-  0,                                      ! Minute 2
-  24,                                     ! Value Until Time 2
-  24,                                     ! Hour 3
-  0,                                      ! Minute 3
-  26.699999999999999;                     ! Value Until Time 3
+  {62beb2a4-bf80-4523-ba61-ef4a99e0834d}, !- Handle
+  Small Office ClgSetp Summer Design Day, !- Name
+  {53148dd4-84bd-4672-a23f-d1e6e10976bd}, !- Schedule Type Limits Name
+  No,                                     !- Interpolate to Timestep
+  6,                                      !- Hour 1
+  0,                                      !- Minute 1
+  26.699999999999999,                     !- Value Until Time 1
+  22,                                     !- Hour 2
+  0,                                      !- Minute 2
+  24,                                     !- Value Until Time 2
+  24,                                     !- Hour 3
+  0,                                      !- Minute 3
+  26.699999999999999;                     !- Value Until Time 3
 
 OS:Schedule:Day,
-  {2c58ef61-a48b-468d-8496-aa612316b0d5}, ! Handle
-  Small Office ClgSetp Winter Design Day, ! Name
-  {53148dd4-84bd-4672-a23f-d1e6e10976bd}, ! Schedule Type Limits Name
-  ,                                       ! Interpolate to Timestep
-  24,                                     ! Hour 1
-  0,                                      ! Minute 1
-  26.699999999999999;                     ! Value Until Time 1
+  {2c58ef61-a48b-468d-8496-aa612316b0d5}, !- Handle
+  Small Office ClgSetp Winter Design Day, !- Name
+  {53148dd4-84bd-4672-a23f-d1e6e10976bd}, !- Schedule Type Limits Name
+  No,                                     !- Interpolate to Timestep
+  24,                                     !- Hour 1
+  0,                                      !- Minute 1
+  26.699999999999999;                     !- Value Until Time 1
 
 OS:Schedule:Rule,
   {81f510c7-f9ca-455f-9ef3-0903ac443801}, !- Handle
@@ -4544,13 +4544,13 @@ OS:Schedule:Rule,
   31;                                     !- End Day
 
 OS:Schedule:Day,
-  {5cfc6f17-28f4-4afd-9b9e-37e6a045e1a3}, ! Handle
-  Small Office ClgSetp Rule 1 Day Schedule, ! Name
-  {53148dd4-84bd-4672-a23f-d1e6e10976bd}, ! Schedule Type Limits Name
-  ,                                       ! Interpolate to Timestep
-  24,                                     ! Hour 1
-  0,                                      ! Minute 1
-  26.699999999999999;                     ! Value Until Time 1
+  {5cfc6f17-28f4-4afd-9b9e-37e6a045e1a3}, !- Handle
+  Small Office ClgSetp Rule 1 Day Schedule, !- Name
+  {53148dd4-84bd-4672-a23f-d1e6e10976bd}, !- Schedule Type Limits Name
+  No,                                     !- Interpolate to Timestep
+  24,                                     !- Hour 1
+  0,                                      !- Minute 1
+  26.699999999999999;                     !- Value Until Time 1
 
 OS:Schedule:Rule,
   {d836848b-25ff-4e04-af66-bc1103146f33}, !- Handle
@@ -4572,19 +4572,19 @@ OS:Schedule:Rule,
   31;                                     !- End Day
 
 OS:Schedule:Day,
-  {ae941aee-b2d5-474f-a3a6-fe3773c26e9c}, ! Handle
-  Small Office ClgSetp Rule 2 Day Schedule, ! Name
-  {53148dd4-84bd-4672-a23f-d1e6e10976bd}, ! Schedule Type Limits Name
-  ,                                       ! Interpolate to Timestep
-  6,                                      ! Hour 1
-  0,                                      ! Minute 1
-  26.699999999999999,                     ! Value Until Time 1
-  18,                                     ! Hour 2
-  0,                                      ! Minute 2
-  24,                                     ! Value Until Time 2
-  24,                                     ! Hour 3
-  0,                                      ! Minute 3
-  26.699999999999999;                     ! Value Until Time 3
+  {ae941aee-b2d5-474f-a3a6-fe3773c26e9c}, !- Handle
+  Small Office ClgSetp Rule 2 Day Schedule, !- Name
+  {53148dd4-84bd-4672-a23f-d1e6e10976bd}, !- Schedule Type Limits Name
+  No,                                     !- Interpolate to Timestep
+  6,                                      !- Hour 1
+  0,                                      !- Minute 1
+  26.699999999999999,                     !- Value Until Time 1
+  18,                                     !- Hour 2
+  0,                                      !- Minute 2
+  24,                                     !- Value Until Time 2
+  24,                                     !- Hour 3
+  0,                                      !- Minute 3
+  26.699999999999999;                     !- Value Until Time 3
 
 OS:SpaceType,
   {bfb58c62-3673-48e6-9293-2d35cb9cd879}, !- Handle

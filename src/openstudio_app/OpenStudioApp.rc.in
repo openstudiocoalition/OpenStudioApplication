@@ -15,7 +15,7 @@ BEGIN
             VALUE "FileDescription",  "OpenStudio Application for Energy Modeling\0"
             VALUE "FileVersion",      "${OPENSTUDIOAPPLICATION_VERSION}\0"
             VALUE "InternalName",     "OpenStudioApp\0"
-            VALUE "LegalCopyright",   "Copyright (c) 2020-2022, OpenStudio Coalition and other contributors. All rights reserved..\0"
+            VALUE "LegalCopyright",   "Copyright (c) 2020-${CURRENT_YEAR}, OpenStudio Coalition and other contributors. All rights reserved..\0"
             VALUE "LegalTrademarks",  "OpenStudio (TM) is a trademark of NREL\0"
             VALUE "OriginalFilename", "OpenStudioApp.exe\0"
             VALUE "ProductName",      "OpenStudioApplication\0"
