@@ -24,6 +24,8 @@ class ScheduleOthersView : public ModelSubTabView
 
   virtual ~ScheduleOthersView() = default;
 
+  void setCurrentSchedule(const openstudio::model::ModelObject& modelObject);
+
  private:
   static std::vector<std::pair<IddObjectType, std::string>> modelObjectTypesAndNames();
 };
@@ -36,6 +38,8 @@ class ScheduleOthersInspectorView : public ModelObjectInspectorView
   explicit ScheduleOthersInspectorView(const model::Model& model, QWidget* parent = nullptr);
 
   virtual ~ScheduleOthersInspectorView() = default;
+
+  void setCurrentSchedule(const openstudio::model::ModelObject& modelObject);
 
  protected:
   virtual void onClearSelection() override;

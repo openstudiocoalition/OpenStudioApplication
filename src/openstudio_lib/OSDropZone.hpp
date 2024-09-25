@@ -165,6 +165,9 @@ class OSDropZone
   // emitted if item is clicked
   void itemClicked(OSItem* item);
 
+  // emitted if item is right-clicked
+  void itemRightClicked(OSItem* item);
+
   // emitted if item remove is clicked
   void itemRemoveClicked(OSItem* item);
 

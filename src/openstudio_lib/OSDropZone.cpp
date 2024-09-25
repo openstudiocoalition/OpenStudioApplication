@@ -264,6 +264,8 @@ void OSDropZone::setItemIds(const std::vector<OSItemId>& itemIds) {
 
     connect(item, &OSItem::itemClicked, this, &OSDropZone::itemClicked);
 
+    connect(item, &OSItem::itemRightClicked, this, &OSDropZone::itemRightClicked);
+
     connect(item, &OSItem::itemReplacementDropped, this, &OSDropZone::itemReplacementDropped);
 
     item->setDraggable(m_itemsDraggable);

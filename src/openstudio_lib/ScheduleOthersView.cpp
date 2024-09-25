@@ -21,8 +21,12 @@ namespace openstudio {
 
 ScheduleOthersView::ScheduleOthersView(const openstudio::model::Model& model, QWidget* parent)
   : ModelSubTabView(
-    new ModelObjectTypeListView(ScheduleOthersView::modelObjectTypesAndNames(), model, true, OSItemType::CollapsibleListHeader, false, parent),
-    new ScheduleOthersInspectorView(model, parent), false, parent) {}
+      new ModelObjectTypeListView(ScheduleOthersView::modelObjectTypesAndNames(), model, true, OSItemType::CollapsibleListHeader, false, parent),
+      new ScheduleOthersInspectorView(model, parent), false, parent) {}
+
+void ScheduleOthersView::setCurrentSchedule(const openstudio::model::ModelObject& modelObject) {
+  qobject_cast<ScheduleOthersInspectorView*>(modelObjectInspectorView())->setCurrentSchedule(modelObject);
+}
 
 std::vector<std::pair<IddObjectType, std::string>> ScheduleOthersView::modelObjectTypesAndNames() {
   return {{
@@ -61,6 +65,10 @@ void ScheduleOthersInspectorView::onSelectModelObject(const openstudio::model::M
     default:
       showDefaultView();
   }
+}
+
+void ScheduleOthersInspectorView::setCurrentSchedule(const openstudio::model::ModelObject& modelObject) {
+  onSelectModelObject(modelObject);
 }
 
 void ScheduleOthersInspectorView::showScheduleConstantView(const openstudio::model::ModelObject& modelObject) {

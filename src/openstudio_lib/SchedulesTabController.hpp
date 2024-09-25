@@ -27,7 +27,6 @@ namespace model {
 class ScheduleCompact;
 
 }
-
 class DayScheduleScene;
 
 class MainTabView;
@@ -77,6 +76,8 @@ class SchedulesTabController : public MainTabController
   virtual void setSubTab(int index) override;
 
   void toggleUnits(bool displayIP);
+
+  void displaySelectedScheduleInSchedulesTab(const OSItemId& itemId);
 
  private slots:
 

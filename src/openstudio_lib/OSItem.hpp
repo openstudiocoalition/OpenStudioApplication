@@ -125,6 +125,7 @@ class OSItem
 
  signals:
   void itemClicked(OSItem*);
+  void itemRightClicked(OSItem*);
   void itemRemoveClicked(OSItem*);
   void itemReplacementDropped(OSItem* currentItem, const OSItemId& replacementItemId);
 

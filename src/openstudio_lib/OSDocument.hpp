@@ -289,6 +289,8 @@ class OPENSTUDIO_API OSDocument : public OSQObjectController
 
   void weatherFileReset();
 
+  void displaySelectedScheduleInSchedulesTab(const OSItemId& itemId);
+
  private:
   enum fileType
   {

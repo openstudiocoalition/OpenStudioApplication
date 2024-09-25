@@ -480,6 +480,10 @@ void OSItem::mouseReleaseEvent(QMouseEvent* event) {
       emit itemClicked(this);
       m_mouseDown = false;
     }
+  } else if (event->button() == Qt::RightButton) {
+    event->accept();
+    emit itemRightClicked(this);
+    m_mouseDown = false;
   }
 }
 

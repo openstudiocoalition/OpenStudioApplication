@@ -19,6 +19,7 @@
 #include "ScheduleOthersView.hpp"
 #include "SubTabView.hpp"
 
+#include <model/ScheduleCompact.hpp>
 #include <openstudio/model/Model.hpp>
 #include <openstudio/model/Model_Impl.hpp>
 #include <openstudio/model/ScheduleRule.hpp>
@@ -286,6 +287,18 @@ void SchedulesTabController::onItemDropped(const OSItemId& itemId) {
 
         s->clone(m);
       }
+    }
+  }
+}
+
+void SchedulesTabController::displaySelectedScheduleInSchedulesTab(const OSItemId& itemId) {
+  if (auto mo_ = OSAppBase::instance()->currentDocument()->getModelObject(itemId)) {
+    const bool isRuleset = mo_->iddObjectType() == openstudio::IddObjectType("OS_Schedule_Ruleset");
+    setSubTab(isRuleset ? SCHEDULES : SCHEDULESOTHER);
+    if (isRuleset) {
+      qobject_cast<SchedulesView*>(m_currentView)->setCurrentSchedule(mo_->cast<model::ScheduleRuleset>());
+    } else {
+      qobject_cast<ScheduleOthersView*>(m_currentView)->setCurrentSchedule(*mo_);
     }
   }
 }

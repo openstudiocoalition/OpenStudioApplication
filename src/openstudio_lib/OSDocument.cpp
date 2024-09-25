@@ -447,7 +447,7 @@ void OSDocument::createTab(int verticalId) {
 
       connect(this, &OSDocument::toggleUnitsClicked, m_mainTabController.get(), &SchedulesTabController::toggleUnitsClicked);
 
-      connect(m_mainTabController.get(), &SpaceTypesTabController::modelObjectSelected, m_mainRightColumnController.get(),
+      connect(m_mainTabController.get(), &SchedulesTabController::modelObjectSelected, m_mainRightColumnController.get(),
               &MainRightColumnController::inspectModelObject);
 
       connect(m_mainTabController.get(), &SchedulesTabController::downloadComponentsClicked, this, &OSDocument::downloadComponentsClicked);
@@ -1830,6 +1830,31 @@ void OSDocument::on_closeMeasuresBclDlg() {
     OSAppBase::instance()->currentDocument()->enable();
     m_onlineMeasuresBclDialog->setShowNewComponents(false);
   }
+}
+
+void OSDocument::displaySelectedScheduleInSchedulesTab(const OSItemId& itemId) {
+
+  bool isRuleset = true;
+  int subTabIndex = SchedulesTabController::TabID::SCHEDULES;
+
+  auto mo_ = getModelObject(itemId);
+  if (mo_) {
+    isRuleset = mo_->iddObjectType() == openstudio::IddObjectType("OS_Schedule_Ruleset");
+    subTabIndex = isRuleset ? SchedulesTabController::TabID::SCHEDULES : SchedulesTabController::TabID::SCHEDULESOTHER;
+  }
+
+  QTimer::singleShot(0, [this, &mo_, subTabIndex] {
+    m_subTabIds.at(SCHEDULES) = subTabIndex;
+    this->onVerticalTabSelected(SCHEDULES);
+    emit m_mainTabController->modelObjectSelected(mo_, false);
+  });
+
+  // QTimer::singleShot(0, [this, &mo_, isRuleset, &itemId] {
+  //   m_subTabIds.at(SCHEDULES) = isRuleset ? SchedulesTabController::TabID::SCHEDULES : SchedulesTabController::TabID::SCHEDULESOTHER;
+  //   this->onVerticalTabSelected(SCHEDULES);
+  //   emit m_mainTabController->modelObjectSelected(mo_, false);
+  //   qobject_cast<SchedulesTabController*>(m_mainTabController.get())->displaySelectedScheduleInSchedulesTab(itemId);
+  // });
 }
 
 }  // namespace openstudio

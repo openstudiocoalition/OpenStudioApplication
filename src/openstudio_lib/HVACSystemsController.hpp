@@ -319,6 +319,10 @@ class SystemAvailabilityVectorController : public ModelObjectVectorController
 
   void onDropZoneItemClicked(OSItem* item);
 
+  void onDropZoneItemRightClicked(OSItem* item);
+
+  void showContextMenu(const QPoint& pos, const OSItemId& itemId);
+
  protected:
   std::vector<OSItemId> makeVector() override;
 

@@ -128,6 +128,7 @@
 #include <QLabel>
 #include <QLayout>
 #include <QMutex>
+#include <QMenu>
 
 // Switch log Level in one go
 #define LOGLEVEL Trace
@@ -1056,11 +1057,31 @@ void HVACControlsController::update() {
       m_systemAvailabilityDropZone->setAcceptDrops(true);
       m_systemAvailabilityDropZone->setItemsAcceptDrops(true);
       m_systemAvailabilityDropZone->setEnabled(true);
+
+      /*
+      m_systemAvailabilityDropZone->setContextMenuPolicy(Qt::CustomContextMenu);
+      connect(m_systemAvailabilityDropZone, &OSDropZone::customContextMenuRequested, [this, systemAvailabilityVectorController](const QPoint& pos) {
+        systemAvailabilityVectorController->showContextMenu(m_systemAvailabilityDropZone->mapToGlobal(pos));
+      });
+      */
+      // connect(m_systemAvailabilityDropZone, SIGNAL(customContextMenuRequested(const QPoint&)), systemAvailabilityVectorController,
+      //        SLOT(showContextMenu(const QPoint&)));
       m_hvacAirLoopControlsView->hvacOperationViewSwitcher->setView(m_systemAvailabilityDropZone);
 
       // Allow clicking on the Schedule to see it in the right column inspector
       connect(m_systemAvailabilityDropZone.data(), &OSDropZone::itemClicked, systemAvailabilityVectorController,
               &SystemAvailabilityVectorController::onDropZoneItemClicked);
+
+      /*
+      connect(m_systemAvailabilityDropZone.data(), &OSDropZone::itemRightClicked, systemAvailabilityVectorController,
+              &SystemAvailabilityVectorController::onDropZoneItemRightClicked);
+              */
+
+      connect(m_systemAvailabilityDropZone.data(), &OSDropZone::itemRightClicked, [this, systemAvailabilityVectorController](OSItem* item) {
+        if (item) {
+          systemAvailabilityVectorController->showContextMenu(m_systemAvailabilityDropZone->mapToGlobal(QPoint(0, 0)), item->itemId());
+        }
+      });
 
       // Night Cycle Control
 
@@ -1357,7 +1378,6 @@ void HVACControlsController::update() {
 
     // Else if a plantLoop
     else if (boost::optional<model::PlantLoop> t_plantLoop = plantLoop()) {
-
       m_hvacPlantLoopControlsView->setUpdatesEnabled(false);
 
       delete m_systemAvailabilityDropZone;
@@ -1871,6 +1891,19 @@ SupplyAirTempScheduleVectorController::~SupplyAirTempScheduleVectorController() 
 
 void SystemAvailabilityVectorController::onDropZoneItemClicked(OSItem* item) {
   OSAppBase::instance()->currentDocument()->mainRightColumnController()->inspectModelObjectByItem(item, false);
+}
+
+void SystemAvailabilityVectorController::onDropZoneItemRightClicked(OSItem* item) {
+  qDebug() << "onDropZoneItemRightClicked, itemId=" << item->itemId().itemId();
+}
+
+void SystemAvailabilityVectorController::showContextMenu(const QPoint& pos, const OSItemId& itemId) {
+  auto* menu = new QMenu();
+  QAction* myAction = menu->addAction("Show in Schedules Tab");
+  connect(myAction, &QAction::triggered,
+          [this, &itemId]() { OSAppBase::instance()->currentDocument()->displaySelectedScheduleInSchedulesTab(itemId); });
+  // ui->treeWidget_seismic->viewport()->mapToGlobal(pos)
+  menu->popup(pos);
 }
 
 void SupplyAirTempScheduleVectorController::attach(const model::ModelObject& modelObject) {
