@@ -40,9 +40,12 @@
 
 #include <QJsonObject>
 
+class QCheckBox;
 class QCloseEvent;
 class QComboBox;
 class QDoubleValidator;
+class QGridLayout;
+class QLabel;
 class QProcess;
 class QPushButton;
 class QResizeEvent;
@@ -53,12 +56,40 @@ class QWidget;
 
 namespace openstudio {
 
+class OSNonModelObjectQuantityEdit;
+class RemoveButton;
 class TextEditDialog;
 class WorkflowJSON;
 
 namespace measuretab {
 class MeasureStepItem;
 }
+
+class ModelDesignWizardDialog;
+
+class SpaceTypeRatioRow
+{
+
+ public:
+  SpaceTypeRatioRow(ModelDesignWizardDialog* parent, const QString& buildingType = "", const QString& spaceType = "", double ratio = 0.0);
+
+  QComboBox* buildingTypeComboBox;
+  QComboBox* spaceTypeComboBox;
+  openstudio::OSNonModelObjectQuantityEdit* spaceTypeRatioEdit;
+  openstudio::OSNonModelObjectQuantityEdit* spaceTypeFloorAreaEdit;
+  RemoveButton* deleteRowButton;
+  int gridLayoutRowIndex;
+  size_t vectorPos;
+
+  void onUnitSystemChange(bool isIP);
+  void onBuildingTotalFloorAreaChange();
+  void recalculateFloorArea(double totalBuildingFloorArea);
+  // std::string buildingType;
+  // std::string spaceType;
+  // double ratio;
+
+  std::string toArgumentString() const;
+};
 
 class ModelDesignWizardDialog : public OSDialog
 {
@@ -69,7 +100,22 @@ class ModelDesignWizardDialog : public OSDialog
 
   virtual ~ModelDesignWizardDialog();
 
+  QGridLayout* spaceTypeRatiosMainLayout() const;
+  QString selectedPrimaryBuildingType() const;
+  bool isIP() const;
+
   QSize sizeHint() const override;
+
+  void populateBuildingTypeComboBox(QComboBox* comboBox);
+  void populateSpaceTypeComboBox(QComboBox* comboBox, QString buildingType = "");
+
+  double totalBuildingFloorArea() const;
+
+  std::string spaceTypeRatiosString() const;
+
+ public slots:
+  void recalculateTotalBuildingRatio(bool forceToOne);
+  void recalculateSpaceTypeFloorAreas();
 
  protected slots:
 
@@ -111,6 +157,8 @@ class ModelDesignWizardDialog : public OSDialog
 
   void toolsUpdated();
 
+  void onUnitSystemChange(bool isIP);
+
  private:
   REGISTER_LOGGER("openstudio.ModelDesignWizardDialog");
 
@@ -128,9 +176,6 @@ class ModelDesignWizardDialog : public OSDialog
 
   void createWorkingDir();
 
-  void populateBuildingTypeComboBox(QComboBox* comboBox);
-  void populateSpaceTypeComboBox(QComboBox* comboBox, const QString& buildingType);
-
   boost::optional<BCLMeasure> m_bclMeasure;
 
   QSharedPointer<measuretab::MeasureStepItem> m_currentMeasureStepItem;
@@ -142,8 +187,6 @@ class ModelDesignWizardDialog : public OSDialog
   QStackedWidget* m_mainPaneStackedWidget;
 
   QStackedWidget* m_rightPaneStackedWidget;
-
-  QWidget* m_spaceTypeRatiosPageWidget;
 
   QTextEdit* m_argumentsFailedTextEdit;
 
@@ -189,6 +232,21 @@ class ModelDesignWizardDialog : public OSDialog
 
   QDoubleValidator* m_ratioValidator;
   QDoubleValidator* m_positiveDoubleValidator;
+
+  QWidget* m_spaceTypeRatiosPageWidget;
+  QGridLayout* m_spaceTypeRatiosMainLayout;
+  openstudio::OSNonModelObjectQuantityEdit* m_totalBuildingFloorAreaEdit;
+  openstudio::OSNonModelObjectQuantityEdit* m_totalBuildingRatioEdit;
+  double m_totalFloorArea;
+
+  std::vector<SpaceTypeRatioRow*> m_spaceTypeRatioRows;
+
+  void addSpaceTypeRatioRow(const QString& buildingType = "", const QString& spaceType = "", double ratio = 0.0, bool tweakStretch = true);
+  void removeSpaceTypeRatioRow(SpaceTypeRatioRow* row);
+
+  // mimic the settings
+  QCheckBox* m_useIPCheckBox;
+  bool m_isIP = true;
 };
 
 }  // namespace openstudio

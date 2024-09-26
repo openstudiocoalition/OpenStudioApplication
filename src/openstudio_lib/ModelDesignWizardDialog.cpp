@@ -29,12 +29,14 @@
 
 #include "ModelDesignWizardDialog.hpp"
 
+#include "../shared_gui_components/Buttons.hpp"
 #include "../shared_gui_components/BusyWidget.hpp"
 #include "../shared_gui_components/EditController.hpp"
 #include "../shared_gui_components/EditView.hpp"
 #include "../shared_gui_components/LocalLibraryController.hpp"
 #include "../shared_gui_components/LocalLibraryView.hpp"
 #include "../shared_gui_components/MeasureManager.hpp"
+#include "../shared_gui_components/OSQuantityEdit.hpp"
 #include "../shared_gui_components/OSViewSwitcher.hpp"
 #include "../shared_gui_components/TextEditDialog.hpp"
 #include "../shared_gui_components/WorkflowController.hpp"
@@ -55,10 +57,13 @@
 #include <openstudio/utilities/core/RubyException.hpp>
 #include <openstudio/utilities/filetypes/WorkflowJSON.hpp>
 #include <openstudio/utilities/filetypes/WorkflowStep.hpp>
+#include <openstudio/utilities/filetypes/WorkflowStep_Impl.hpp>
 #include <openstudio/utilities/filetypes/WorkflowStepResult.hpp>
 #include <openstudio/utilities/time/DateTime.hpp>
 
 #include <QBoxLayout>
+#include <QCheckBox>
+#include <QComboBox>
 #include <QGridLayout>
 #include <QCloseEvent>
 #include <QFile>
@@ -85,7 +90,10 @@
 
 #include <array>
 #include <fstream>
+#include <vector>
 #include <string_view>
+
+#include <fmt/format.h>
 
 #define FAILED_ARG_TEXT "<FONT COLOR = RED>Failed to Show Arguments<FONT COLOR = BLACK> <br> <br>Reason(s): <br> <br>"
 
@@ -145,6 +153,10 @@ ModelDesignWizardDialog::ModelDesignWizardDialog(QWidget* parent)
   // set a temporary workflow JSON
   m_tempWorkflowJSON = WorkflowJSON();
 
+  m_tempWorkflowJSON.setOswDir(m_workingDir);
+  m_tempWorkflowJSON.saveAs(m_workingDir / toPath("temp.osw"));
+  app->currentModel()->setWorkflowJSON(m_tempWorkflowJSON);
+
   // use the temp model as the seed
   m_tempWorkflowJSON.setSeedFile(app->measureManager().tempModelPath());
 
@@ -168,33 +180,46 @@ ModelDesignWizardDialog::ModelDesignWizardDialog(QWidget* parent)
 
   std::vector<WorkflowStep> steps;
 
-  auto create_bar_ = app->currentDocument()->createBarFromSpaceTypeRatiosMeasure();
-  if (create_bar_) {
+  const std::vector<std::pair<QString, boost::optional<BCLMeasure>>> measuresToAdd{
+    {"Create Bar From Space Type Ratios", app->currentDocument()->createBarFromSpaceTypeRatiosMeasure()},
+    {"Create Typical Building from Model", app->currentDocument()->createTypicalBuildingFromModelMeasure()},
+  };
+
+  for (const auto& [measureName, bclMeasure_] : measuresToAdd) {
+    if (!bclMeasure_) {
+      QMessageBox::warning(parent, tr("Measure Not Found"), tr("Could not find or download ") + QString("'%1'.").arg(measureName));
+      return;
+    }
+    m_tempWorkflowJSON.addMeasurePath(bclMeasure_->directory().parent_path());
     try {
-      std::pair<bool, std::string> result = OSAppBase::instance()->measureManager().updateMeasure(*create_bar_);
+      const std::pair<bool, std::string> result = OSAppBase::instance()->measureManager().updateMeasure(*bclMeasure_);
       if (result.first) {
         // have to reload in case measure manager updated
-        create_bar_ = BCLMeasure::load(create_bar_->directory());
-        OS_ASSERT(create_bar_);
+        auto reloadedBclMeasure_ = BCLMeasure::load(bclMeasure_->directory());
+        OS_ASSERT(reloadedBclMeasure_);
 
-        MeasureStep srmStep(result.second);
+        MeasureStep step(result.second);
         // DLM: moved to WorkflowStepResult
-        //srmStep.setMeasureId(srm->uid());
-        //srmStep.setVersionId(srm->versionId());
-        //std::vector<std::string> tags = srm->tags();
+        //step.setMeasureId(reloadedBclMeasure_->uid());
+        //step.setVersionId(reloadedBclMeasure_->versionId());
+        //std::vector<std::string> tags = reloadedBclMeasure_->tags();
         //if (!tags.empty()){
-        //  srmStep.setTaxonomy(tags[0]);
+        //  step.setTaxonomy(tags[0]);
         //}
-        srmStep.setName(create_bar_->displayName());
-        srmStep.setDescription(create_bar_->description());
-        srmStep.setModelerDescription(create_bar_->modelerDescription());
-        steps.push_back(srmStep);
+        step.setName(reloadedBclMeasure_->displayName());
+        step.setDescription(reloadedBclMeasure_->description());
+        step.setModelerDescription(reloadedBclMeasure_->modelerDescription());
+
+        m_tempWorkflowJSON.addMeasurePath(reloadedBclMeasure_->directory().parent_path());
+
+        steps.push_back(step);
       }
     } catch (const std::exception&) {
-      QMessageBox::warning(parent, "Failed to Compute Arguments", "Could not compute arguments for OpenStudio Results Measure.");
+      QMessageBox::warning(parent, tr("Failed to Compute Arguments"), tr("Could not compute arguments for ") + QString("'%1'.").arg(measureName));
       return;
     }
   }
+
   m_tempWorkflowJSON.setWorkflowSteps(steps);
 
   m_tempWorkflowJSON.saveAs(m_workingDir / toPath("temp.osw"));
@@ -219,7 +244,7 @@ ModelDesignWizardDialog::~ModelDesignWizardDialog() {
 }
 
 QSize ModelDesignWizardDialog::sizeHint() const {
-  return QSize(770, 560);
+  return {770, 560};
 }
 
 QWidget* ModelDesignWizardDialog::createTemplateSelectionPage() {
@@ -284,6 +309,12 @@ QWidget* ModelDesignWizardDialog::createTemplateSelectionPage() {
     }
   }
 
+  ++row;
+  m_useIPCheckBox = new QCheckBox("Use IP Units");
+  mainGridLayout->addWidget(m_useIPCheckBox, row, 0, 1, 1);
+  m_useIPCheckBox->setChecked(m_isIP);
+  connect(m_useIPCheckBox, &QCheckBox::stateChanged, this, [this](int state) { m_isIP = state == Qt::Checked; });
+
   m_standardTypeComboBox->setCurrentText("DOE");
   mainGridLayout->setRowStretch(mainGridLayout->rowCount(), 100);
 
@@ -323,6 +354,7 @@ void ModelDesignWizardDialog::onPrimaryBuildingTypeChanged(const QString& /*text
   const bool disabled = m_targetStandardComboBox->currentText().isEmpty() || m_primaryBuildingTypeComboBox->currentText().isEmpty();
   disableOkButton(disabled);
   if (!disabled) {
+    qDebug() << "Populate Space Type Ratios";
     populateSpaceTypeRatiosPage();
   }
 }
@@ -349,7 +381,7 @@ void ModelDesignWizardDialog::populatePrimaryBuildingTypes() {
   populateBuildingTypeComboBox(m_primaryBuildingTypeComboBox);
 }
 
-void ModelDesignWizardDialog::populateSpaceTypeComboBox(QComboBox* comboBox, const QString& buildingType) {
+void ModelDesignWizardDialog::populateSpaceTypeComboBox(QComboBox* comboBox, QString buildingType) {
 
   comboBox->blockSignals(true);
 
@@ -357,12 +389,20 @@ void ModelDesignWizardDialog::populateSpaceTypeComboBox(QComboBox* comboBox, con
 
   comboBox->addItem("");
 
-  const QString selectedStandardType = m_standardTypeComboBox->currentText();
-  const QString selectedStandard = m_targetStandardComboBox->currentText();
+  if (buildingType.isEmpty()) {
+    buildingType = m_primaryBuildingTypeComboBox->currentText();
+  } else {
+    const QString selectedStandardType = m_standardTypeComboBox->currentText();
+    const QString selectedStandard = m_targetStandardComboBox->currentText();
 
-  for (const QString& temp :
-       m_supportJsonObject[selectedStandardType].toObject()["space_types"].toObject()[selectedStandard].toObject()[buildingType].toObject().keys()) {
-    comboBox->addItem(temp);
+    for (const QString& temp : m_supportJsonObject[selectedStandardType]
+                                 .toObject()["space_types"]
+                                 .toObject()[selectedStandard]
+                                 .toObject()[buildingType]
+                                 .toObject()
+                                 .keys()) {
+      comboBox->addItem(temp);
+    }
   }
 
   comboBox->setCurrentIndex(0);
@@ -370,29 +410,271 @@ void ModelDesignWizardDialog::populateSpaceTypeComboBox(QComboBox* comboBox, con
   comboBox->blockSignals(false);
 }
 
+QGridLayout* ModelDesignWizardDialog::spaceTypeRatiosMainLayout() const {
+  return m_spaceTypeRatiosMainLayout;
+}
+
+QString ModelDesignWizardDialog::selectedPrimaryBuildingType() const {
+  return m_primaryBuildingTypeComboBox->currentText();
+}
+
+bool ModelDesignWizardDialog::isIP() const {
+  return m_isIP;
+}
+
+void ModelDesignWizardDialog::addSpaceTypeRatioRow(const QString& buildingType, const QString& spaceType, double ratio, bool tweakStretch) {
+
+  if (tweakStretch) {
+    m_spaceTypeRatiosMainLayout->setRowMinimumHeight(m_spaceTypeRatiosMainLayout->rowCount() - 1, 0);
+    qDebug() << "addSpaceTypeRatioRow, After setting setRowMinimumHeight at rowCount - 1: " << m_spaceTypeRatiosMainLayout->rowCount();
+    m_spaceTypeRatiosMainLayout->setRowStretch(m_spaceTypeRatiosMainLayout->rowCount() - 1, 0);
+    qDebug() << "addSpaceTypeRatioRow, After setting stretch at rowCount - 1: " << m_spaceTypeRatiosMainLayout->rowCount();
+  }
+
+  qDebug() << "inside: " << m_spaceTypeRatiosMainLayout;
+  qDebug() << "inside: " << m_spaceTypeRatiosMainLayout->rowCount();
+
+  auto* spaceTypeRow = new SpaceTypeRatioRow(this, buildingType, spaceType, ratio);
+  m_spaceTypeRatioRows.push_back(spaceTypeRow);
+  spaceTypeRow->vectorPos = m_spaceTypeRatioRows.size() - 1;
+
+  // populateBuildingTypeComboBox(spaceTypeRow->buildingTypeComboBox);
+  // populateSpaceTypeComboBox(spaceTypeRow->spaceTypeComboBox, buildingType);
+  connect(m_useIPCheckBox, &QCheckBox::stateChanged, spaceTypeRow->spaceTypeFloorAreaEdit,
+          [this, spaceTypeRow](int state) { spaceTypeRow->onUnitSystemChange(static_cast<bool>(state)); });
+
+  connect(m_showAdvancedOutput, &QPushButton::clicked, this, &ModelDesignWizardDialog::showAdvancedOutput);
+
+  connect(spaceTypeRow->deleteRowButton, &QPushButton::clicked, [this, spaceTypeRow]() { removeSpaceTypeRatioRow(spaceTypeRow); });
+
+  if (tweakStretch) {
+    const int rowCount = m_spaceTypeRatiosMainLayout->rowCount();
+
+    m_spaceTypeRatiosMainLayout->setRowMinimumHeight(rowCount, 100);
+    qDebug() << "removeSpaceTypeRatioRow, After setting setRowMinimumHeight at rowCount: " << m_spaceTypeRatiosMainLayout->rowCount();
+    m_spaceTypeRatiosMainLayout->setRowStretch(rowCount, 100);
+    qDebug() << "removeSpaceTypeRatioRow, After setting stretch at rowCount: " << m_spaceTypeRatiosMainLayout->rowCount();
+  }
+}
+
+void ModelDesignWizardDialog::removeSpaceTypeRatioRow(SpaceTypeRatioRow* row) {
+
+  qDebug() << "\nremoveSpaceTypeRatioRow, Original rowCount: " << m_spaceTypeRatiosMainLayout->rowCount();
+
+  qDebug() << "Removing row at gridLayoutRowIndex=" << row->gridLayoutRowIndex << " and vectorPos=" << row->vectorPos;
+  for (int i = 0; auto* spaceTypeRatioRow : m_spaceTypeRatioRows) {
+    qDebug() << "* " << i++ << "gridLayoutRowIndex=" << spaceTypeRatioRow->gridLayoutRowIndex << " and vectorPos=" << spaceTypeRatioRow->vectorPos;
+  }
+  auto it = std::next(m_spaceTypeRatioRows.begin(), row->vectorPos);
+
+#if 1
+
+  //  m_spaceTypeRatiosMainLayout->removeWidget(row->buildingTypeComboBox);
+  m_spaceTypeRatiosMainLayout->removeWidget(row->buildingTypeComboBox);
+  delete row->buildingTypeComboBox;
+  m_spaceTypeRatiosMainLayout->removeWidget(row->spaceTypeComboBox);
+  delete row->spaceTypeComboBox;
+  m_spaceTypeRatiosMainLayout->removeWidget(row->spaceTypeRatioEdit);
+  delete row->spaceTypeRatioEdit;
+  m_spaceTypeRatiosMainLayout->removeWidget(row->spaceTypeFloorAreaEdit);
+  delete row->spaceTypeFloorAreaEdit;
+  m_spaceTypeRatiosMainLayout->removeWidget(row->deleteRowButton);
+  delete row->deleteRowButton;
+
+  m_spaceTypeRatiosMainLayout->setRowMinimumHeight(row->gridLayoutRowIndex, 0);
+  m_spaceTypeRatiosMainLayout->setRowStretch(row->gridLayoutRowIndex, 0);
+
+#elif 0
+  QLayoutItem* child = nullptr;
+
+  while ((child = m_spaceTypeRatiosMainLayout->takeAt(index)) != nullptr) {
+    QWidget* widget = child->widget();
+
+    OS_ASSERT(widget);
+
+    delete widget;
+    // Using deleteLater is actually slower than calling delete directly on the widget
+    // deleteLater also introduces a strange redraw issue where the select all check box
+    // is not redrawn, after being checked.
+    //widget->deleteLater();
+
+    delete child;
+  }
+#endif
+  m_spaceTypeRatioRows.erase(it);
+  qDebug() << "removeSpaceTypeRatioRow, Final rowCount: " << m_spaceTypeRatiosMainLayout->rowCount();
+  for (int i = 0; auto* spaceTypeRatioRow : m_spaceTypeRatioRows) {
+    spaceTypeRatioRow->vectorPos = i++;
+  }
+  recalculateTotalBuildingRatio(true);
+}
+
+SpaceTypeRatioRow::SpaceTypeRatioRow(ModelDesignWizardDialog* parent, const QString& buildingType, const QString& spaceType, double ratio)
+  : buildingTypeComboBox(new QComboBox()),
+    spaceTypeComboBox(new QComboBox()),
+    spaceTypeRatioEdit(new openstudio::OSNonModelObjectQuantityEdit("", "", "", false)),
+    spaceTypeFloorAreaEdit(new openstudio::OSNonModelObjectQuantityEdit("ft^2", "m^2", "ft^2", parent->isIP())),
+    deleteRowButton(new openstudio::RemoveButton()),
+    gridLayoutRowIndex(parent->spaceTypeRatiosMainLayout()->rowCount()) {
+
+  spaceTypeRatioEdit->setFixedPrecision(4);
+  spaceTypeFloorAreaEdit->setFixedPrecision(2);
+
+  int col = 0;
+
+  parent->spaceTypeRatiosMainLayout()->addWidget(buildingTypeComboBox, gridLayoutRowIndex, col++, 1, 1);
+  parent->populateBuildingTypeComboBox(buildingTypeComboBox);
+  buildingTypeComboBox->setCurrentText(buildingType);
+
+  parent->spaceTypeRatiosMainLayout()->addWidget(spaceTypeComboBox, gridLayoutRowIndex, col++, 1, 1);
+  parent->populateSpaceTypeComboBox(spaceTypeComboBox, buildingType);
+  spaceTypeComboBox->setCurrentText(spaceType);
+  const bool isConnected =
+    QComboBox::connect(buildingTypeComboBox, &QComboBox::currentTextChanged, spaceTypeComboBox,
+                       [this, parent](const QString& buildingType) { parent->populateSpaceTypeComboBox(spaceTypeComboBox, buildingType); });
+
+  spaceTypeRatioEdit->setMinimumValue(0.0);
+  spaceTypeRatioEdit->setMaximumValue(1.0);
+  spaceTypeRatioEdit->enableClickFocus();
+  // connect(this, &SpaceTypeRatioRow::onUnitSystemChange, spaceTypeRatioEdit, &OSNonModelObjectQuantityEdit::onUnitSystemChange);
+  // ModelDesignWizardDialog::connect(parent, &ModelDesignWizardDialog::onUnitSystemChange, spaceTypeRatioEdit,
+  //                                 &OSNonModelObjectQuantityEdit::onUnitSystemChange);
+
+  parent->spaceTypeRatiosMainLayout()->addWidget(spaceTypeRatioEdit, gridLayoutRowIndex, col++, 1, 1);
+
+  spaceTypeFloorAreaEdit->setMinimumValue(0.0);
+  // spaceTypeFloorAreaEdit->enableClickFocus();
+  spaceTypeFloorAreaEdit->setLocked(true);
+
+  parent->spaceTypeRatiosMainLayout()->addWidget(spaceTypeFloorAreaEdit, gridLayoutRowIndex, col++, 1, 1);
+  // connect(this, &SpaceTypeRatioRow::onUnitSystemChange, spaceTypeFloorAreaEdit, &OSNonModelObjectQuantityEdit::onUnitSystemChange);
+
+  OSNonModelObjectQuantityEdit::connect(spaceTypeRatioEdit, &OSNonModelObjectQuantityEdit::valueChanged, [this, parent](double newValue) {
+    recalculateFloorArea(parent->totalBuildingFloorArea());
+    parent->recalculateTotalBuildingRatio(false);
+  });
+  parent->spaceTypeRatiosMainLayout()->addWidget(deleteRowButton, gridLayoutRowIndex, col++, 1, 1);
+
+  spaceTypeRatioEdit->setDefault(ratio);
+
+  // const bool isConnected = QObject::connect(buildingTypeComboBox, &QComboBox::currentTextChanged, [this, &spaceTypeComboBox](const QString& text) {
+  //   parent->populateSpaceTypeComboBox(spaceTypeComboBox, text);
+  // });
+}
+
+void ModelDesignWizardDialog::recalculateTotalBuildingRatio(bool forceToOne) {
+  double totalRatio = 0;
+  for (auto* spaceTypeRatioRow : m_spaceTypeRatioRows) {
+    totalRatio += spaceTypeRatioRow->spaceTypeRatioEdit->currentValue();
+  }
+  if (forceToOne) {
+    for (auto* spaceTypeRatioRow : m_spaceTypeRatioRows) {
+      spaceTypeRatioRow->spaceTypeRatioEdit->blockSignals(true);
+      spaceTypeRatioRow->spaceTypeRatioEdit->setCurrentValue(spaceTypeRatioRow->spaceTypeRatioEdit->currentValue() / totalRatio);
+      spaceTypeRatioRow->spaceTypeRatioEdit->blockSignals(false);
+      spaceTypeRatioRow->spaceTypeRatioEdit->refreshTextAndLabel();
+    }
+    totalRatio = 1.0;
+  }
+
+  m_totalBuildingRatioEdit->setCurrentValue(totalRatio);
+}
+
+void ModelDesignWizardDialog::recalculateSpaceTypeFloorAreas() {
+  const double totalFloorArea = m_totalBuildingFloorAreaEdit->currentValue();
+  for (auto* spaceTypeRatioRow : m_spaceTypeRatioRows) {
+    const double ratio = spaceTypeRatioRow->spaceTypeRatioEdit->currentValue();
+    spaceTypeRatioRow->spaceTypeFloorAreaEdit->blockSignals(true);
+    spaceTypeRatioRow->spaceTypeFloorAreaEdit->setCurrentValue(totalFloorArea * ratio);
+    spaceTypeRatioRow->spaceTypeFloorAreaEdit->blockSignals(false);
+  }
+}
+
+double ModelDesignWizardDialog::totalBuildingFloorArea() const {
+  return m_totalBuildingFloorAreaEdit->currentValue();
+}
+
+void SpaceTypeRatioRow::onUnitSystemChange(bool isIP) {
+  // spaceTypeRatioEdit->onUnitSystemChange(isIP);
+  spaceTypeFloorAreaEdit->onUnitSystemChange(isIP);
+}
+
+void SpaceTypeRatioRow::recalculateFloorArea(double totalBuildingFloorArea) {
+  const double floorArea = spaceTypeRatioEdit->currentValue() * totalBuildingFloorArea;
+  spaceTypeFloorAreaEdit->setCurrentValue(floorArea);
+}
+
+std::string SpaceTypeRatioRow::toArgumentString() const {
+  return fmt::format("{} | {} => {}", toString(buildingTypeComboBox->currentText()), toString(spaceTypeComboBox->currentText()),
+                     toString(spaceTypeRatioEdit->currentValue()));
+}
+
+std::string ModelDesignWizardDialog::spaceTypeRatiosString() const {
+  std::vector<std::string> argumentsStrings;
+  argumentsStrings.reserve(m_spaceTypeRatioRows.size());
+  std::transform(m_spaceTypeRatioRows.cbegin(), m_spaceTypeRatioRows.cend(), std::back_inserter(argumentsStrings),
+                 [](const auto& row) { return row->toArgumentString(); });
+
+  return fmt::format("{}", fmt::join(argumentsStrings, ", "));
+}
+
 void ModelDesignWizardDialog::populateSpaceTypeRatiosPage() {
 
-  auto* mainGridLayout = new QGridLayout();
-  mainGridLayout->setContentsMargins(7, 7, 7, 7);
-  mainGridLayout->setSpacing(14);
-  m_spaceTypeRatiosPageWidget->setLayout(mainGridLayout);
+  if (auto* existingLayout = m_spaceTypeRatiosPageWidget->layout()) {
+    // Reparent the layout to a temporary widget, so we can install the new one, and this one will get deleted because we don't have a reference to it anymore
+    QWidget().setLayout(existingLayout);
+  }
 
-  int row = mainGridLayout->rowCount();
+  m_spaceTypeRatiosMainLayout = new QGridLayout();
+  m_spaceTypeRatiosMainLayout->setContentsMargins(7, 7, 7, 7);
+  m_spaceTypeRatiosMainLayout->setSpacing(14);
+  m_spaceTypeRatiosPageWidget->setLayout(m_spaceTypeRatiosMainLayout);
+
+  int row = m_spaceTypeRatiosMainLayout->rowCount();
+  qDebug() << "Original rowCount" << row;
   {
     int col = 0;
 
     {
       auto* totalBuildingFloorAreaLabel = new QLabel("Total Building Floor Area:");
       totalBuildingFloorAreaLabel->setObjectName("H2");
-      mainGridLayout->addWidget(totalBuildingFloorAreaLabel, row, col++, 1, 1);
+      m_spaceTypeRatiosMainLayout->addWidget(totalBuildingFloorAreaLabel, row, col++, 1, 1);
     }
     {
-      auto* totalBuildingFloorAreaEdit = new QLineEdit();
-      totalBuildingFloorAreaEdit->setValidator(m_positiveDoubleValidator);
-      mainGridLayout->addWidget(totalBuildingFloorAreaEdit, row, col++, 1, 1);
-      totalBuildingFloorAreaEdit->setText(QString::number(10000.0));
+      m_totalBuildingFloorAreaEdit = new openstudio::OSNonModelObjectQuantityEdit("ft^2", "m^2", "ft^2", m_isIP);
+      m_totalBuildingFloorAreaEdit->setMinimumValue(0.0);
+      m_totalBuildingFloorAreaEdit->enableClickFocus();
+      m_totalBuildingFloorAreaEdit->setFixedPrecision(2);
+      m_spaceTypeRatiosMainLayout->addWidget(m_totalBuildingFloorAreaEdit, row, col++, 1, 1);
+      connect(m_useIPCheckBox, &QCheckBox::stateChanged, m_totalBuildingFloorAreaEdit, &OSNonModelObjectQuantityEdit::onUnitSystemChange);
+      connect(m_totalBuildingFloorAreaEdit, &OSNonModelObjectQuantityEdit::valueChanged, [this]() { recalculateSpaceTypeFloorAreas(); });
+      m_totalBuildingFloorAreaEdit->setDefault(10000.0);
+    }
+    {
+      auto* totalBuildingRatioLabel = new QLabel("Total Ratio:");
+      totalBuildingRatioLabel->setObjectName("H2");
+      m_spaceTypeRatiosMainLayout->addWidget(totalBuildingRatioLabel, row, col++, 1, 1);
+    }
+    {
+      m_totalBuildingRatioEdit = new openstudio::OSNonModelObjectQuantityEdit("", "", "", m_isIP);
+      m_totalBuildingRatioEdit->setLocked(true);
+      m_totalBuildingRatioEdit->setFixedPrecision(4);
+      m_spaceTypeRatiosMainLayout->addWidget(m_totalBuildingRatioEdit, row, col++, 1, 1);
+    }
+    {
+      auto* normalizeToOneButton = new openstudio::AddButton();  // TODO: replace with another icon
+      m_spaceTypeRatiosMainLayout->addWidget(normalizeToOneButton, row, col++, 1, 1);
+      connect(normalizeToOneButton, &QPushButton::clicked, [this]() { recalculateTotalBuildingRatio(true); });
     }
   }
+
+  ++row;
+
+  auto* addRowButton = new openstudio::AddButton();
+  m_spaceTypeRatiosMainLayout->addWidget(addRowButton, row, 0, 1, 1);
+  connect(addRowButton, &QPushButton::clicked, [this]() { addSpaceTypeRatioRow(); });
+
+  // TODO: add a way to add / delete rows, so one could pick from another building type for eg
 
   ++row;
   {
@@ -400,19 +682,26 @@ void ModelDesignWizardDialog::populateSpaceTypeRatiosPage() {
     {
       auto* buildingTypelabel = new QLabel("Building Type:");
       buildingTypelabel->setObjectName("H2");
-      mainGridLayout->addWidget(buildingTypelabel, row, col++, 1, 1);
+      m_spaceTypeRatiosMainLayout->addWidget(buildingTypelabel, row, col++, 1, 1);
     }
     {
       auto* spaceTypelabel = new QLabel("Space Type:");
       spaceTypelabel->setObjectName("H2");
-      mainGridLayout->addWidget(spaceTypelabel, row, col++, 1, 1);
+      m_spaceTypeRatiosMainLayout->addWidget(spaceTypelabel, row, col++, 1, 1);
     }
     {
       auto* ratioLabel = new QLabel("Ratio:");
       ratioLabel->setObjectName("H2");
-      mainGridLayout->addWidget(ratioLabel, row, col++, 1, 1);
+      m_spaceTypeRatiosMainLayout->addWidget(ratioLabel, row, col++, 1, 1);
+    }
+    {
+      auto* floorAreaLabel = new QLabel("Area:");
+      floorAreaLabel->setObjectName("H2");
+      m_spaceTypeRatiosMainLayout->addWidget(floorAreaLabel, row, col++, 1, 1);
     }
   }
+
+  qDebug() << "rowCount just before inserting spaceTypeRatio rows" << row;
 
   const QString selectedStandardType = m_standardTypeComboBox->currentText();
   const QString selectedStandard = m_targetStandardComboBox->currentText();
@@ -426,33 +715,15 @@ void ModelDesignWizardDialog::populateSpaceTypeRatiosPage() {
   for (QJsonObject::const_iterator it = defaultSpaceTypeRatios.constBegin(); it != defaultSpaceTypeRatios.constEnd(); ++it) {
     ++row;
     {
-      int col = 0;
-
-      auto* buildingTypeComboBox = new QComboBox();
-      mainGridLayout->addWidget(buildingTypeComboBox, row, col++, 1, 1);
-      populateBuildingTypeComboBox(buildingTypeComboBox);
-      buildingTypeComboBox->setCurrentText(selectedPrimaryBuildingType);
-
-      auto* spaceTypeComboBox = new QComboBox();
-      mainGridLayout->addWidget(spaceTypeComboBox, row, col++, 1, 1);
-      populateSpaceTypeComboBox(spaceTypeComboBox, selectedPrimaryBuildingType);
-      spaceTypeComboBox->setCurrentText(it.key());
-
-      auto* spaceTypeRatioEdit = new QLineEdit();
-      spaceTypeRatioEdit->setValidator(m_ratioValidator);
-      mainGridLayout->addWidget(spaceTypeRatioEdit, row, col++, 1, 1);
-
-      spaceTypeRatioEdit->setText(QString::number(it.value().toObject()["ratio"].toDouble()));
-
-      const bool isConnected = connect(buildingTypeComboBox, &QComboBox::currentTextChanged,
-                                       [this, &spaceTypeComboBox](const QString& text) { populateSpaceTypeComboBox(spaceTypeComboBox, text); });
-      OS_ASSERT(isConnected);
+      const QString spaceType = it.key();
+      const double ratio = it.value().toObject()["ratio"].toDouble();
+      qDebug() << "before: " << m_spaceTypeRatiosMainLayout;
+      qDebug() << "before: " << m_spaceTypeRatiosMainLayout->rowCount();
+      addSpaceTypeRatioRow(selectedPrimaryBuildingType, spaceType, ratio, false);
     }
   }
 
-  mainGridLayout->setRowStretch(mainGridLayout->rowCount(), 100);
-
-  // TODO: add a way to add / delete rows, so one could pick from another building type for eg
+  m_spaceTypeRatiosMainLayout->setRowStretch(m_spaceTypeRatiosMainLayout->rowCount(), 100);
 }
 
 QWidget* ModelDesignWizardDialog::createSpaceTypeRatiosPage() {
@@ -740,6 +1011,15 @@ void ModelDesignWizardDialog::on_okButton(bool checked) {
     this->backButton()->setEnabled(true);
     this->okButton()->setText(GENERATE_MODEL);
   } else if (m_mainPaneStackedWidget->currentIndex() == m_spaceTypeRatiosPageIdx) {
+
+    OS_ASSERT(m_tempWorkflowJSON.currentStep());
+    auto step = m_tempWorkflowJSON.workflowSteps().front().cast<openstudio::MeasureStep>();
+    // auto step = m_tempWorkflowJSON.currentStep()->cast<openstudio::MeasureStep>();
+
+    step.setArgument("template", toString(m_targetStandardComboBox->currentText()));
+    step.setArgument("space_type_hash_string", spaceTypeRatiosString());
+    step.setArgument("total_bldg_floor_area", m_totalBuildingFloorAreaEdit->currentValue());
+    m_tempWorkflowJSON.save();
     runMeasure();
   } else if (m_mainPaneStackedWidget->currentIndex() == m_runningPageIdx) {
     // N/A

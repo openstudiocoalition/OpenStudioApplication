@@ -1683,6 +1683,7 @@ void OSDocument::openModelDesignWizardDlg() {
   // needed before we can compute arguments
   OSAppBase::instance()->measureManager().saveTempModel(toPath(m_modelTempDir));
 
+  /*
   WorkflowJSON workflow = m_model.workflowJSON();
   std::vector<WorkflowStep> steps;
 
@@ -1727,6 +1728,7 @@ void OSDocument::openModelDesignWizardDlg() {
 
   workflow.setWorkflowSteps(steps);
 
+  */
   enable();
 
   ModelDesignWizardDialog modelDesignWizardDialog;
