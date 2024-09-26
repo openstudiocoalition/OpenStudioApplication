@@ -224,6 +224,73 @@ class OSQuantityEdit2
 //   REGISTER_LOGGER("openstudio.OSQuantityEdit");
 // };
 
-}  // namespace openstudio
+class OSNonModelObjectQuantityEdit : public QWidget
+{
+  Q_OBJECT
+ public:
+  OSNonModelObjectQuantityEdit(const std::string& modelUnits, const std::string& siUnits, const std::string& ipUnits, bool isIP,
+                               QWidget* parent = nullptr);
 
+  virtual ~OSNonModelObjectQuantityEdit() = default;
+
+  void enableClickFocus();
+
+  void disableClickFocus();
+
+  bool locked() const;
+
+  void setLocked(bool locked);
+
+  QDoubleValidator* doubleValidator();
+  void setMinimumValue(double min);
+  void setMaximumValue(double max);
+
+  bool setDefault(double defaultValue);
+
+  double currentValue() const;
+  bool setCurrentValue(double valueModelUnits);
+
+  void refreshTextAndLabel();
+
+  void setFixedPrecision(int numberDecimals);
+
+ signals:
+
+  void inFocus(bool inFocus, bool hasData);
+  void valueChanged(double valueModelUnits);
+
+ public slots:
+
+  void onUnitSystemChange(bool isIP);
+
+ private slots:
+
+  void onEditingFinished();
+
+ private:
+  bool defaulted() const;
+  void updateStyle();
+
+  QuantityLineEdit* m_lineEdit;
+  QLabel* m_units;
+  QString m_text = "UNINITIALIZED";
+  std::string m_unitsStr;
+  QDoubleValidator* m_doubleValidator;
+  double m_defaultValue = 0.0;
+  boost::optional<double> m_valueModelUnits;
+
+  bool m_isIP;
+  std::string m_modelUnits;
+  std::string m_siUnits;
+  std::string m_ipUnits;
+
+  bool m_isFixedPrecision = false;
+  bool m_isScientific;
+  boost::optional<int> m_precision;
+
+  void setPrecision(const std::string& str);
+};
+
+}  // namespace openstudio
+//
 #endif  // SHAREDGUICOMPONENTS_OSQUANTITYEDIT_HPP

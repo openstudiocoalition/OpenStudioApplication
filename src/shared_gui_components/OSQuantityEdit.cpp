@@ -521,4 +521,251 @@ void QuantityLineEdit::updateStyle() {
   }
 }
 
+OSNonModelObjectQuantityEdit::OSNonModelObjectQuantityEdit(const std::string& modelUnits, const std::string& siUnits, const std::string& ipUnits,
+                                                           bool isIP, QWidget* parent)
+  : QWidget(parent),
+    m_lineEdit(new QuantityLineEdit()),
+    m_units(new QLabel()),
+    m_isIP(isIP),
+    m_modelUnits(modelUnits),
+    m_siUnits(siUnits),
+    m_ipUnits(ipUnits),
+    m_isScientific(false) {
+  connect(m_lineEdit, &QuantityLineEdit::inFocus, this, &OSNonModelObjectQuantityEdit::inFocus);
+
+  connect(m_lineEdit, &QLineEdit::editingFinished, this,
+          &OSNonModelObjectQuantityEdit::onEditingFinished);  // Evan note: would behaviors improve with "textChanged"?
+
+  // do a test conversion to make sure units are ok
+  boost::optional<double> test = convert(1.0, modelUnits, ipUnits);
+  OS_ASSERT(test);
+  test = convert(1.0, modelUnits, siUnits);
+  OS_ASSERT(test);
+
+  this->setAcceptDrops(false);
+  m_lineEdit->setAcceptDrops(false);
+  setEnabled(true);
+
+  auto* hLayout = new QHBoxLayout();
+  setLayout(hLayout);
+  hLayout->setContentsMargins(0, 0, 0, 0);
+  hLayout->addWidget(m_lineEdit);
+  hLayout->addWidget(m_units);
+
+  m_doubleValidator = new QDoubleValidator();
+  // Set the Locale to C, so that "1234.56" is accepted, but not "1234,56", no matter the user's system locale
+  QLocale lo(QLocale::C);
+  m_doubleValidator->setLocale(lo);
+  //m_lineEdit->setValidator(m_doubleValidator);
+
+  m_lineEdit->setMinimumWidth(60);
+
+  setSizePolicy(QSizePolicy::Fixed, QSizePolicy::Fixed);
+  m_units->setSizePolicy(QSizePolicy::Fixed, QSizePolicy::Fixed);
+  m_lineEdit->setSizePolicy(QSizePolicy::Minimum, QSizePolicy::Fixed);
+}
+
+void OSNonModelObjectQuantityEdit::setMinimumValue(double min) {
+  m_doubleValidator->setBottom(min);
+}
+
+void OSNonModelObjectQuantityEdit::setMaximumValue(double max) {
+  m_doubleValidator->setTop(max);
+}
+
+void OSNonModelObjectQuantityEdit::enableClickFocus() {
+  m_lineEdit->enableClickFocus();
+}
+
+bool OSNonModelObjectQuantityEdit::locked() const {
+  return m_lineEdit->locked();
+}
+
+void OSNonModelObjectQuantityEdit::setLocked(bool locked) {
+  m_lineEdit->setLocked(locked);
+}
+
+QDoubleValidator* OSNonModelObjectQuantityEdit::doubleValidator() {
+  return m_doubleValidator;
+}
+
+void OSNonModelObjectQuantityEdit::setFixedPrecision(int numberDecimals) {
+  m_isFixedPrecision = true;
+  m_precision = numberDecimals;
+}
+
+void OSNonModelObjectQuantityEdit::onEditingFinished() {
+
+  qDebug() << "OSNonModelObjectQuantityEdit::onEditingFinished";
+
+  emit inFocus(m_lineEdit->focused(), m_lineEdit->hasData());
+
+  QString text = m_lineEdit->text();
+  if (m_text == text) {
+    return;
+  }
+
+  int pos = 0;
+  QValidator::State state = m_doubleValidator->validate(text, pos);
+  if (state != QValidator::Acceptable) {
+    if (text.isEmpty()) {
+      m_valueModelUnits.reset();
+    }
+    refreshTextAndLabel();
+    return;
+  }
+
+  const std::string str = text.toStdString();
+  bool ok = false;
+  double value = text.toDouble(&ok);
+  if (!ok) {
+    refreshTextAndLabel();
+  }
+
+  if (!m_isFixedPrecision) {
+    setPrecision(str);
+  }
+
+  std::string units;
+  if (m_isIP) {
+    units = m_ipUnits;
+  } else {
+    units = m_siUnits;
+  }
+  m_unitsStr = units;
+
+  boost::optional<double> modelValue = convert(value, units, m_modelUnits);
+  OS_ASSERT(modelValue);
+  m_valueModelUnits = *modelValue;
+  refreshTextAndLabel();
+}
+
+void OSNonModelObjectQuantityEdit::onUnitSystemChange(bool isIP) {
+  m_isIP = isIP;
+  refreshTextAndLabel();
+}
+
+void OSNonModelObjectQuantityEdit::updateStyle() {
+  // will also call m_lineEdit->updateStyle()
+  m_lineEdit->setDefaultedAndAuto(defaulted(), false);
+}
+
+bool OSNonModelObjectQuantityEdit::setDefault(double defaultValue) {
+  if (defaultValue >= m_doubleValidator->bottom() && defaultValue <= m_doubleValidator->top()) {
+    m_defaultValue = defaultValue;
+    refreshTextAndLabel();
+    return true;
+  }
+  return false;
+}
+
+bool OSNonModelObjectQuantityEdit::defaulted() const {
+  return !m_valueModelUnits.has_value();
+}
+
+double OSNonModelObjectQuantityEdit::currentValue() const {
+  return m_valueModelUnits ? *m_valueModelUnits : m_defaultValue;
+}
+
+bool OSNonModelObjectQuantityEdit::setCurrentValue(double valueModelUnits) {
+  if (valueModelUnits >= m_doubleValidator->bottom() && valueModelUnits <= m_doubleValidator->top()) {
+    m_valueModelUnits = valueModelUnits;
+    refreshTextAndLabel();
+    return true;
+  }
+  return false;
+}
+
+void OSNonModelObjectQuantityEdit::refreshTextAndLabel() {
+
+  QString text = m_lineEdit->text();
+
+  std::string units;
+  if (m_isIP) {
+    units = m_ipUnits;
+  } else {
+    units = m_siUnits;
+  }
+
+  //if (m_text == text && m_unitsStr == units) return;
+
+  QString textValue;
+  std::stringstream ss;
+  const double value = m_valueModelUnits ? *m_valueModelUnits : m_defaultValue;
+
+  boost::optional<double> displayValue = convert(value, m_modelUnits, units);
+  OS_ASSERT(displayValue);
+
+  if (m_isScientific) {
+    ss << std::scientific;
+  } else {
+    ss << std::fixed;
+  }
+  if (m_precision) {
+
+    // check if precision is too small to display value
+    const int precision = *m_precision;
+    const double minValue = std::pow(10.0, -precision);
+    if (*displayValue < minValue) {
+      m_precision.reset();
+    }
+
+    if (m_precision) {
+      ss << std::setprecision(*m_precision);
+    }
+  }
+  ss << *displayValue;
+  textValue = QString::fromStdString(ss.str());
+  ss.str("");
+
+  if (m_text != textValue || text != textValue || m_unitsStr != units) {
+    m_text = textValue;
+    m_unitsStr = units;
+    m_lineEdit->blockSignals(true);
+    m_lineEdit->setText(textValue);
+    updateStyle();
+    m_lineEdit->blockSignals(false);
+  }
+
+  ss << units;
+  m_units->blockSignals(true);
+  m_units->setTextFormat(Qt::RichText);
+  // m_units->setText(toQString(formatUnitString(ss.str(), DocumentFormat::XHTML)));
+  m_units->setText(QString::fromStdString(units));
+  m_units->blockSignals(false);
+
+  emit(valueChanged(currentValue()));
+}
+
+void OSNonModelObjectQuantityEdit::setPrecision(const std::string& str) {
+  boost::regex rgx("-?([[:digit:]]*)(\\.)?([[:digit:]]+)([EDed][-\\+]?[[:digit:]]+)?");
+  boost::smatch m;
+  if (boost::regex_match(str, m, rgx)) {
+    std::string sci, prefix, postfix;
+    if (m[1].matched) {
+      prefix = std::string(m[1].first, m[1].second);
+    }
+    if (m[3].matched) {
+      postfix = std::string(m[3].first, m[3].second);
+    }
+    if (m[4].matched) {
+      sci = std::string(m[4].first, m[4].second);
+    }
+    m_isScientific = !sci.empty();
+
+    if (m_isScientific) {
+      m_precision = prefix.size() + postfix.size() - 1;
+    } else {
+      if (m[2].matched) {
+        m_precision = postfix.size();
+      } else {
+        m_precision = 0;
+      }
+    }
+  } else {
+    m_isScientific = false;
+    m_precision.reset();
+  }
+}
+
 }  // namespace openstudio
