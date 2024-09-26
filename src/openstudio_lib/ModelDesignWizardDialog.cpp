@@ -191,33 +191,15 @@ ModelDesignWizardDialog::ModelDesignWizardDialog(QWidget* parent)
       return;
     }
     m_tempWorkflowJSON.addMeasurePath(bclMeasure_->directory().parent_path());
-    try {
-      const std::pair<bool, std::string> result = OSAppBase::instance()->measureManager().updateMeasure(*bclMeasure_);
-      if (result.first) {
-        // have to reload in case measure manager updated
-        auto reloadedBclMeasure_ = BCLMeasure::load(bclMeasure_->directory());
-        OS_ASSERT(reloadedBclMeasure_);
 
-        MeasureStep step(result.second);
-        // DLM: moved to WorkflowStepResult
-        //step.setMeasureId(reloadedBclMeasure_->uid());
-        //step.setVersionId(reloadedBclMeasure_->versionId());
-        //std::vector<std::string> tags = reloadedBclMeasure_->tags();
-        //if (!tags.empty()){
-        //  step.setTaxonomy(tags[0]);
-        //}
-        step.setName(reloadedBclMeasure_->displayName());
-        step.setDescription(reloadedBclMeasure_->description());
-        step.setModelerDescription(reloadedBclMeasure_->modelerDescription());
+    MeasureStep step(toString(getLastLevelDirectoryName(bclMeasure_->directory())));
+    step.setName(bclMeasure_->displayName());
+    step.setDescription(bclMeasure_->description());
+    step.setModelerDescription(bclMeasure_->modelerDescription());
 
-        m_tempWorkflowJSON.addMeasurePath(reloadedBclMeasure_->directory().parent_path());
+    m_tempWorkflowJSON.addMeasurePath(bclMeasure_->directory().parent_path());
 
-        steps.push_back(step);
-      }
-    } catch (const std::exception&) {
-      QMessageBox::warning(parent, tr("Failed to Compute Arguments"), tr("Could not compute arguments for ") + QString("'%1'.").arg(measureName));
-      return;
-    }
+    steps.push_back(step);
   }
 
   m_tempWorkflowJSON.setWorkflowSteps(steps);
