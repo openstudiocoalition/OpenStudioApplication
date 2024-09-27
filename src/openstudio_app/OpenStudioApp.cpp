@@ -1578,7 +1578,8 @@ void OpenStudioApp::loadShoeboxModel() {
 
 void OpenStudioApp::openModelDesignWizardDlg() {
 
-  newModel();
+  // We don't want to initializeWorkflow which will add the standards report measure in a timer
+  // newModel();
 
   m_osDocument->openModelDesignWizardDlg();
 }
