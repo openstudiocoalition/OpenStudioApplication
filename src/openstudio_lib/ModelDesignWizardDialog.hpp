@@ -257,6 +257,8 @@ class ModelDesignWizardDialog : public OSDialog
   QLineEdit* m_numStoriesAboveGradeLineEdit;
   QLineEdit* m_numStoriesBelowGradeLineEdit;
   openstudio::OSNonModelObjectQuantityEdit* m_floorHeightEdit;
+  QPushButton* m_floorMultiplierSwitch;
+  QPushButton* m_midStoryAdiabSwitch;
 
   // mimic the settings
   QCheckBox* m_useIPCheckBox;

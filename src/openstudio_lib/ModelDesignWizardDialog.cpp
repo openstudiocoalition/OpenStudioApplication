@@ -114,7 +114,7 @@ ModelDesignWizardDialog::ModelDesignWizardDialog(bool isIP, QWidget* parent)
     m_timer(nullptr),
     m_showAdvancedOutput(nullptr),
     m_advancedOutputDialog(nullptr) {
-  setWindowTitle("Apply Measure Now");
+  setWindowTitle("Model Design Wizard");
   setWindowModality(Qt::ApplicationModal);
   setSizePolicy(QSizePolicy::Minimum, QSizePolicy::Minimum);
   setSizeGripEnabled(true);
@@ -862,6 +862,57 @@ QWidget* ModelDesignWizardDialog::createOtherBarParamsPage() {
   }
 
   ++row;
+  col = 0;
+  {
+    {
+      auto* floorMultiplierLabel = new QLabel("Use a Floor Multiplier?");
+      floorMultiplierLabel->setObjectName("H2");
+      mainGridLayout->addWidget(floorMultiplierLabel, row, col++, 1, 1);
+    }
+    {
+      m_floorMultiplierSwitch = new QPushButton();
+      m_floorMultiplierSwitch->setAcceptDrops(false);
+      m_floorMultiplierSwitch->setFlat(true);
+      m_floorMultiplierSwitch->setFixedSize(63, 21);
+      m_floorMultiplierSwitch->setCheckable(true);
+      m_floorMultiplierSwitch->setEnabled(false);
+      m_floorMultiplierSwitch->setObjectName("OnOffSliderButton");
+      mainGridLayout->addWidget(m_floorMultiplierSwitch, row, col++, 1, 1);
+    }
+  }
+
+  ++row;
+  col = 0;
+  {
+    {
+      auto* midStoryAdiabLabel = new QLabel("Make Mid Stories adiabatic?");
+      midStoryAdiabLabel->setObjectName("H2");
+      mainGridLayout->addWidget(midStoryAdiabLabel, row, col++, 1, 1);
+    }
+    {
+      m_midStoryAdiabSwitch = new QPushButton();
+      m_midStoryAdiabSwitch->setAcceptDrops(false);
+      m_midStoryAdiabSwitch->setFlat(true);
+      m_midStoryAdiabSwitch->setFixedSize(63, 21);
+      m_midStoryAdiabSwitch->setCheckable(true);
+      m_midStoryAdiabSwitch->setEnabled(false);
+      m_midStoryAdiabSwitch->setObjectName("OnOffSliderButton");
+      mainGridLayout->addWidget(m_midStoryAdiabSwitch, row, col++, 1, 1);
+      // connect(m_midStoryAdiabSwitch, &QPushButton::clicked, [this](bool checked) { m_midStoryAdiab = checked; });
+    }
+  }
+
+  // connect(m_numStoriesAboveGradeLineEdit, &QLineEdit::editingFinished, [this]() {
+  //   bool ok = false;
+  //   int numStoriesAboveGrade = m_numStoriesAboveGradeLineEdit->text().toInt(&ok);
+  //   if (ok) {
+  //     bool enabled = numStoriesAboveGrade > 3;
+  //     m_floorMultiplierSwitch->setEnabled(enabled);
+  //     m_midStoryAdiabSwitch->setEnabled(enabled);
+  //   }
+  // });
+
+  ++row;
   mainGridLayout->setRowStretch(row, 100);
   mainGridLayout->setColumnStretch(col, 100);
   return widget;
@@ -1184,6 +1235,15 @@ void ModelDesignWizardDialog::on_okButton(bool checked) {
     int numStoriesBelowGrade = m_numStoriesBelowGradeLineEdit->text().toInt(&ok);
     OS_ASSERT(ok);
     step.setArgument("num_stories_below_grade", numStoriesBelowGrade);
+
+    if (numStoriesAboveGrade > 3) {
+      const std::string story_multiplier = m_floorMultiplierSwitch->isChecked() ? "Basements Ground Mid Top" : "None";
+      step.setArgument("story_multiplier", story_multiplier);
+
+      step.setArgument("make_mid_story_surfaces_adiabatic", m_midStoryAdiabSwitch->isChecked());
+    }
+
+    // step.setArgument("make_mid_story_surfaces_adiabatic", m_midStoryAdiabCheckBox->checked());
 
     m_tempWorkflowJSON.save();
 
