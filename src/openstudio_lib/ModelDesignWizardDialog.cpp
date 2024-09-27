@@ -1197,6 +1197,10 @@ void ModelDesignWizardDialog::on_okButton(bool checked) {
 }
 
 void ModelDesignWizardDialog::requestReload() {
+
+  // Save a copy of the OSW for inspection of the arguments
+  m_tempWorkflowJSON.clone().saveAs(m_workingFilesDir / "create_bar_in.osw");
+
   // copy any files created in m_workingFilesDir
   std::vector<path> filePaths = m_modelWorkflowJSON.absoluteFilePaths();
   if (!filePaths.empty()) {
