@@ -104,8 +104,9 @@
 
 namespace openstudio {
 
-ModelDesignWizardDialog::ModelDesignWizardDialog(QWidget* parent)
+ModelDesignWizardDialog::ModelDesignWizardDialog(bool isIP, QWidget* parent)
   : OSDialog(false, parent),
+    m_isIP(isIP),
     m_mainPaneStackedWidget(nullptr),
     m_rightPaneStackedWidget(nullptr),
     m_argumentsFailedTextEdit(nullptr),

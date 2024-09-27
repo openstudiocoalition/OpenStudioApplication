@@ -1731,7 +1731,7 @@ void OSDocument::openModelDesignWizardDlg() {
   */
   enable();
 
-  ModelDesignWizardDialog modelDesignWizardDialog;
+  ModelDesignWizardDialog modelDesignWizardDialog(m_mainWindow->displayIP(), nullptr);
   modelDesignWizardDialog.exec();
 }
 

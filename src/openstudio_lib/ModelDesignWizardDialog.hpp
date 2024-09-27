@@ -98,7 +98,7 @@ class ModelDesignWizardDialog : public OSDialog
   Q_OBJECT
 
  public:
-  explicit ModelDesignWizardDialog(QWidget* parent = nullptr);
+  explicit ModelDesignWizardDialog(bool isIP, QWidget* parent = nullptr);
 
   virtual ~ModelDesignWizardDialog();
 
@@ -260,7 +260,7 @@ class ModelDesignWizardDialog : public OSDialog
 
   // mimic the settings
   QCheckBox* m_useIPCheckBox;
-  bool m_isIP = true;
+  bool m_isIP = true;  // OSDialog has a m_isIP already, I'm shadowing it...
 };
 
 }  // namespace openstudio
