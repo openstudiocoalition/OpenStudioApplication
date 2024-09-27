@@ -44,8 +44,10 @@ class QCheckBox;
 class QCloseEvent;
 class QComboBox;
 class QDoubleValidator;
+class QIntValidator;
 class QGridLayout;
 class QLabel;
+class QLineEdit;
 class QProcess;
 class QPushButton;
 class QResizeEvent;
@@ -150,6 +152,7 @@ class ModelDesignWizardDialog : public OSDialog
   void populatePrimaryBuildingTypes();
 
   void populateSpaceTypeRatiosPage();
+  void populateOtherParamsPage();
 
  signals:
 
@@ -165,6 +168,7 @@ class ModelDesignWizardDialog : public OSDialog
   void createWidgets();
   QWidget* createTemplateSelectionPage();
   QWidget* createSpaceTypeRatiosPage();
+  QWidget* createOtherBarParamsPage();
   QWidget* createRunningPage();
   QWidget* createOutputPage();
 
@@ -197,6 +201,8 @@ class ModelDesignWizardDialog : public OSDialog
   int m_templateSelectionPageIdx;
 
   int m_spaceTypeRatiosPageIdx;
+
+  int m_otherBarParamsPageIdx;
 
   int m_runningPageIdx;
 
@@ -232,6 +238,7 @@ class ModelDesignWizardDialog : public OSDialog
 
   QDoubleValidator* m_ratioValidator;
   QDoubleValidator* m_positiveDoubleValidator;
+  QIntValidator* m_positiveIntValidator;
 
   QWidget* m_spaceTypeRatiosPageWidget;
   QGridLayout* m_spaceTypeRatiosMainLayout;
@@ -243,6 +250,13 @@ class ModelDesignWizardDialog : public OSDialog
 
   void addSpaceTypeRatioRow(const QString& buildingType = "", const QString& spaceType = "", double ratio = 0.0, bool tweakStretch = true);
   void removeSpaceTypeRatioRow(SpaceTypeRatioRow* row);
+
+  QWidget* m_otherBarParamsPageWidget;
+  openstudio::OSNonModelObjectQuantityEdit* m_aspectRatioEdit;
+  openstudio::OSNonModelObjectQuantityEdit* m_wwrEdit;
+  QLineEdit* m_numStoriesAboveGradeLineEdit;
+  QLineEdit* m_numStoriesBelowGradeLineEdit;
+  openstudio::OSNonModelObjectQuantityEdit* m_floorHeightEdit;
 
   // mimic the settings
   QCheckBox* m_useIPCheckBox;

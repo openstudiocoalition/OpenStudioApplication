@@ -768,4 +768,9 @@ void OSNonModelObjectQuantityEdit::setPrecision(const std::string& str) {
   }
 }
 
+void OSNonModelObjectQuantityEdit::resetValue() {
+  m_valueModelUnits.reset();
+  refreshTextAndLabel();
+}
+
 }  // namespace openstudio

@@ -86,6 +86,7 @@
 #include <QDebug>
 #include <QLineEdit>
 #include <QDoubleValidator>
+#include <QIntValidator>
 #include <QLocale>
 
 #include <array>
@@ -137,6 +138,10 @@ ModelDesignWizardDialog::ModelDesignWizardDialog(QWidget* parent)
   m_positiveDoubleValidator->setBottom(0.0);
   m_positiveDoubleValidator->setLocale(lo);
 
+  m_positiveIntValidator = new QIntValidator();
+  m_positiveIntValidator->setBottom(0.0);
+  m_positiveIntValidator->setLocale(lo);
+
   createWidgets();
 
   OSAppBase* app = OSAppBase::instance();
@@ -182,7 +187,7 @@ ModelDesignWizardDialog::ModelDesignWizardDialog(QWidget* parent)
 
   const std::vector<std::pair<QString, boost::optional<BCLMeasure>>> measuresToAdd{
     {"Create Bar From Space Type Ratios", app->currentDocument()->createBarFromSpaceTypeRatiosMeasure()},
-    {"Create Typical Building from Model", app->currentDocument()->createTypicalBuildingFromModelMeasure()},
+    // {"Create Typical Building from Model", app->currentDocument()->createTypicalBuildingFromModelMeasure()},
   };
 
   for (const auto& [measureName, bclMeasure_] : measuresToAdd) {
@@ -338,6 +343,7 @@ void ModelDesignWizardDialog::onPrimaryBuildingTypeChanged(const QString& /*text
   if (!disabled) {
     qDebug() << "Populate Space Type Ratios";
     populateSpaceTypeRatiosPage();
+    populateOtherParamsPage();
   }
 }
 
@@ -600,12 +606,47 @@ std::string ModelDesignWizardDialog::spaceTypeRatiosString() const {
   return fmt::format("{}", fmt::join(argumentsStrings, ", "));
 }
 
+void ModelDesignWizardDialog::populateOtherParamsPage() {
+  const QString selectedStandardType = m_standardTypeComboBox->currentText();
+  const QString selectedPrimaryBuildingType = m_primaryBuildingTypeComboBox->currentText();
+
+  const QJsonObject defaultSpaceTypeRatios =
+    m_supportJsonObject[selectedStandardType].toObject()["building_form_defaults"].toObject()[selectedPrimaryBuildingType].toObject();
+
+  if (defaultSpaceTypeRatios.isEmpty()) {
+    qDebug() << "Object is empty";
+    return;
+  }
+
+  // Reset the m_currentValue, and set the new default from JSON
+  m_aspectRatioEdit->resetValue();
+  m_aspectRatioEdit->setDefault(defaultSpaceTypeRatios["aspect_ratio"].toDouble(1.0));
+
+  m_wwrEdit->resetValue();
+  m_wwrEdit->setDefault(defaultSpaceTypeRatios["wwr"].toDouble(0.4));
+
+  m_floorHeightEdit->resetValue();
+  m_floorHeightEdit->setDefault(defaultSpaceTypeRatios["typical_story"].toDouble(10.0));
+}
+
 void ModelDesignWizardDialog::populateSpaceTypeRatiosPage() {
+
+  // TODO: I get a crash when I go back to the templateSelection page and change the PrimaryBuildingType
+  if (m_spaceTypeRatiosMainLayout) {
+    while (QLayoutItem* item = m_spaceTypeRatiosMainLayout->takeAt(0)) {
+      Q_ASSERT(!item->layout());  // otherwise the layout will leak
+      delete item->widget();
+      delete item;
+    }
+    delete m_spaceTypeRatiosMainLayout;
+  }
 
   if (auto* existingLayout = m_spaceTypeRatiosPageWidget->layout()) {
     // Reparent the layout to a temporary widget, so we can install the new one, and this one will get deleted because we don't have a reference to it anymore
     QWidget().setLayout(existingLayout);
   }
+
+  m_spaceTypeRatioRows.clear();
 
   m_spaceTypeRatiosMainLayout = new QGridLayout();
   m_spaceTypeRatiosMainLayout->setContentsMargins(7, 7, 7, 7);
@@ -627,10 +668,10 @@ void ModelDesignWizardDialog::populateSpaceTypeRatiosPage() {
       m_totalBuildingFloorAreaEdit->setMinimumValue(0.0);
       m_totalBuildingFloorAreaEdit->enableClickFocus();
       m_totalBuildingFloorAreaEdit->setFixedPrecision(2);
+      m_totalBuildingFloorAreaEdit->setDefault(10000.0);
       m_spaceTypeRatiosMainLayout->addWidget(m_totalBuildingFloorAreaEdit, row, col++, 1, 1);
       connect(m_useIPCheckBox, &QCheckBox::stateChanged, m_totalBuildingFloorAreaEdit, &OSNonModelObjectQuantityEdit::onUnitSystemChange);
       connect(m_totalBuildingFloorAreaEdit, &OSNonModelObjectQuantityEdit::valueChanged, [this]() { recalculateSpaceTypeFloorAreas(); });
-      m_totalBuildingFloorAreaEdit->setDefault(10000.0);
     }
     {
       auto* totalBuildingRatioLabel = new QLabel("Total Ratio:");
@@ -714,6 +755,117 @@ QWidget* ModelDesignWizardDialog::createSpaceTypeRatiosPage() {
   return m_spaceTypeRatiosPageWidget;
 }
 
+QWidget* ModelDesignWizardDialog::createOtherBarParamsPage() {
+
+  auto* widget = new QWidget();
+  auto* mainGridLayout = new QGridLayout();
+  mainGridLayout->setContentsMargins(7, 7, 7, 7);
+  mainGridLayout->setSpacing(14);
+  widget->setLayout(mainGridLayout);
+
+  int row = mainGridLayout->rowCount();
+  int col = 0;
+
+  {
+    auto* label = new QLabel("Other Create Bar parameters");
+    label->setObjectName("H1");
+    mainGridLayout->addWidget(label, row, col++, 1, 1);
+  }
+
+  ++row;
+  col = 0;
+  {
+    {
+      auto* aspectRatioLabel = new QLabel("Aspect Ratio (length/width):");
+      aspectRatioLabel->setObjectName("H2");
+      mainGridLayout->addWidget(aspectRatioLabel, row, col++, 1, 1);
+    }
+    {
+      m_aspectRatioEdit = new openstudio::OSNonModelObjectQuantityEdit("", "", "", false);
+      m_aspectRatioEdit->setMinimumValue(1.0);
+      m_aspectRatioEdit->enableClickFocus();
+      m_aspectRatioEdit->setFixedPrecision(1);
+      m_aspectRatioEdit->setDefault(1.0);
+      mainGridLayout->addWidget(m_aspectRatioEdit, row, col++, 1, 1);
+    }
+  }
+
+  ++row;
+  col = 0;
+  {
+    {
+      auto* wwrLabel = new QLabel("Window To Wall Ratio:");
+      wwrLabel->setObjectName("H2");
+      mainGridLayout->addWidget(wwrLabel, row, col++, 1, 1);
+    }
+    {
+      m_wwrEdit = new openstudio::OSNonModelObjectQuantityEdit("", "", "", false);
+      m_wwrEdit->setMinimumValue(0.0);
+      m_wwrEdit->setMaximumValue(1.0);
+      m_wwrEdit->enableClickFocus();
+      m_wwrEdit->setFixedPrecision(1);
+      m_wwrEdit->setDefault(0.4);
+      mainGridLayout->addWidget(m_wwrEdit, row, col++, 1, 1);
+    }
+  }
+
+  ++row;
+  col = 0;
+  {
+    {
+      auto* floorHeightLabel = new QLabel("Floor to Floor Height:");
+      floorHeightLabel->setObjectName("H2");
+      mainGridLayout->addWidget(floorHeightLabel, row, col++, 1, 1);
+    }
+
+    {
+      m_floorHeightEdit = new openstudio::OSNonModelObjectQuantityEdit("ft", "m", "ft", m_isIP);
+      m_floorHeightEdit->setMinimumValue(1.0);
+      m_floorHeightEdit->enableClickFocus();
+      m_floorHeightEdit->setFixedPrecision(2);
+      m_floorHeightEdit->setDefault(10.0);
+      mainGridLayout->addWidget(m_floorHeightEdit, row, col++, 1, 1);
+    }
+  }
+
+  ++row;
+  col = 0;
+  {
+    {
+      auto* storiesAboveGradeLabel = new QLabel("Number of Stories Above Grade:");
+      storiesAboveGradeLabel->setObjectName("H2");
+      mainGridLayout->addWidget(storiesAboveGradeLabel, row, col++, 1, 1);
+    }
+    {
+      m_numStoriesAboveGradeLineEdit = new QLineEdit();
+      m_numStoriesAboveGradeLineEdit->setValidator(m_positiveIntValidator);
+      m_numStoriesAboveGradeLineEdit->setText("1");
+      mainGridLayout->addWidget(m_numStoriesAboveGradeLineEdit, row, col++, 1, 1);
+    }
+  }
+
+  ++row;
+  col = 0;
+  {
+    {
+      auto* storiesBelowGradeLabel = new QLabel("Number of Stories Below Grade:");
+      storiesBelowGradeLabel->setObjectName("H2");
+      mainGridLayout->addWidget(storiesBelowGradeLabel, row, col++, 1, 1);
+    }
+    {
+      m_numStoriesBelowGradeLineEdit = new QLineEdit();
+      m_numStoriesBelowGradeLineEdit->setValidator(m_positiveIntValidator);
+      m_numStoriesBelowGradeLineEdit->setText("0");
+      mainGridLayout->addWidget(m_numStoriesBelowGradeLineEdit, row, col++, 1, 1);
+    }
+  }
+
+  ++row;
+  mainGridLayout->setRowStretch(row, 100);
+  mainGridLayout->setColumnStretch(col, 100);
+  return widget;
+}
+
 QWidget* ModelDesignWizardDialog::createRunningPage() {
   auto* widget = new QWidget();
 
@@ -787,6 +939,8 @@ void ModelDesignWizardDialog::createWidgets() {
   m_templateSelectionPageIdx = m_mainPaneStackedWidget->addWidget(createTemplateSelectionPage());
 
   m_spaceTypeRatiosPageIdx = m_mainPaneStackedWidget->addWidget(createSpaceTypeRatiosPage());
+
+  m_otherBarParamsPageIdx = m_mainPaneStackedWidget->addWidget(createOtherBarParamsPage());
 
   // RUNNING
   m_runningPageIdx = m_mainPaneStackedWidget->addWidget(createRunningPage());
@@ -889,7 +1043,7 @@ void ModelDesignWizardDialog::displayResults() {
 
   boost::optional<WorkflowJSON> outWorkflowJSON = WorkflowJSON::load(outWorkflowJSONPath);
 
-  m_jobItemView->update(*m_bclMeasure, outWorkflowJSON, false);
+  m_jobItemView->update("Model Design Wizard", outWorkflowJSON, false);
   m_jobItemView->setExpanded(true);
 
   if (!outWorkflowJSON || !outWorkflowJSON->completedStatus() || outWorkflowJSON->completedStatus().get() != "Success") {
@@ -977,6 +1131,10 @@ void ModelDesignWizardDialog::on_backButton(bool checked) {
     this->backButton()->setEnabled(false);
     this->okButton()->setText(NEXT_PAGE);
     m_mainPaneStackedWidget->setCurrentIndex(m_templateSelectionPageIdx);
+  } else if (m_mainPaneStackedWidget->currentIndex() == m_otherBarParamsPageIdx) {
+    this->backButton()->setEnabled(true);
+    this->okButton()->setText(NEXT_PAGE);
+    m_mainPaneStackedWidget->setCurrentIndex(m_spaceTypeRatiosPageIdx);
   } else if (m_mainPaneStackedWidget->currentIndex() == m_runningPageIdx) {
     // Nothing specific here
   } else if (m_mainPaneStackedWidget->currentIndex() == m_outputPageIdx) {
@@ -991,10 +1149,15 @@ void ModelDesignWizardDialog::on_okButton(bool checked) {
   if (m_mainPaneStackedWidget->currentIndex() == m_templateSelectionPageIdx) {
     m_mainPaneStackedWidget->setCurrentIndex(m_spaceTypeRatiosPageIdx);
     this->backButton()->setEnabled(true);
-    this->okButton()->setText(GENERATE_MODEL);
+    this->okButton()->setText(NEXT_PAGE);
   } else if (m_mainPaneStackedWidget->currentIndex() == m_spaceTypeRatiosPageIdx) {
+    m_mainPaneStackedWidget->setCurrentIndex(m_otherBarParamsPageIdx);
+    this->backButton()->setEnabled(true);
+    this->okButton()->setText(GENERATE_MODEL);
 
-    OS_ASSERT(m_tempWorkflowJSON.currentStep());
+    // Force ratio to be 1.0
+    recalculateTotalBuildingRatio(true);
+
     auto step = m_tempWorkflowJSON.workflowSteps().front().cast<openstudio::MeasureStep>();
     // auto step = m_tempWorkflowJSON.currentStep()->cast<openstudio::MeasureStep>();
 
@@ -1002,6 +1165,27 @@ void ModelDesignWizardDialog::on_okButton(bool checked) {
     step.setArgument("space_type_hash_string", spaceTypeRatiosString());
     step.setArgument("total_bldg_floor_area", m_totalBuildingFloorAreaEdit->currentValue());
     m_tempWorkflowJSON.save();
+
+  } else if (m_mainPaneStackedWidget->currentIndex() == m_otherBarParamsPageIdx) {
+
+    auto step = m_tempWorkflowJSON.workflowSteps().front().cast<openstudio::MeasureStep>();
+    // auto step = m_tempWorkflowJSON.currentStep()->cast<openstudio::MeasureStep>();
+
+    step.setArgument("ns_to_ew_ratio", m_aspectRatioEdit->currentValue());
+    step.setArgument("wwr", m_wwrEdit->currentValue());
+    step.setArgument("floor_height", m_floorHeightEdit->currentValue());
+
+    bool ok = false;
+    int numStoriesAboveGrade = m_numStoriesAboveGradeLineEdit->text().toInt(&ok);
+    step.setArgument("num_stories_above_grade", numStoriesAboveGrade);
+    OS_ASSERT(ok);
+    ok = false;
+    int numStoriesBelowGrade = m_numStoriesBelowGradeLineEdit->text().toInt(&ok);
+    OS_ASSERT(ok);
+    step.setArgument("num_stories_below_grade", numStoriesBelowGrade);
+
+    m_tempWorkflowJSON.save();
+
     runMeasure();
   } else if (m_mainPaneStackedWidget->currentIndex() == m_runningPageIdx) {
     // N/A

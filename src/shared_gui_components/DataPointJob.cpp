@@ -215,9 +215,13 @@ void DataPointJobItemView::paintEvent(QPaintEvent* /*e*/) {
 }
 
 void DataPointJobItemView::update(const BCLMeasure& bclMeasure, const boost::optional<WorkflowJSON>& outWorkflowJSON, bool canceled) {
+  update(bclMeasure.className(), outWorkflowJSON, canceled);
+}
+
+void DataPointJobItemView::update(const std::string& title, const boost::optional<WorkflowJSON>& outWorkflowJSON, bool canceled) {
   OS_ASSERT(m_dataPointJobHeaderView);
 
-  m_dataPointJobHeaderView->setName(bclMeasure.className());
+  m_dataPointJobHeaderView->setName(title);
 
   m_dataPointJobHeaderView->m_na->setText("");
   m_dataPointJobHeaderView->m_warnings->setText("");

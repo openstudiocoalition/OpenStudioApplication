@@ -117,6 +117,8 @@ class DataPointJobItemView : public OSCollapsibleView
 
   void update(const BCLMeasure& bclMeasure, const boost::optional<WorkflowJSON>& outWorkflowJSON, bool canceled);
 
+  void update(const std::string& title, const boost::optional<WorkflowJSON>& outWorkflowJSON, bool canceled);
+
  protected:
   void paintEvent(QPaintEvent* e) override;
 };

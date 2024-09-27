@@ -249,6 +249,7 @@ class OSNonModelObjectQuantityEdit : public QWidget
 
   double currentValue() const;
   bool setCurrentValue(double valueModelUnits);
+  void resetValue();
 
   void refreshTextAndLabel();
 
