@@ -154,6 +154,8 @@ class ModelDesignWizardDialog : public OSDialog
   void populateSpaceTypeRatiosPage();
   void populateOtherParamsPage();
 
+  void displayGeometry();
+
  signals:
 
   void reloadFile(const QString& fileToLoad, bool modified, bool saveCurrentTabs);
@@ -171,6 +173,7 @@ class ModelDesignWizardDialog : public OSDialog
   QWidget* createOtherBarParamsPage();
   QWidget* createRunningPage();
   QWidget* createOutputPage();
+  QWidget* createInspectGeometryPage();
 
   void runMeasure();
 
@@ -190,10 +193,6 @@ class ModelDesignWizardDialog : public OSDialog
 
   QStackedWidget* m_mainPaneStackedWidget;
 
-  QStackedWidget* m_rightPaneStackedWidget;
-
-  QTextEdit* m_argumentsFailedTextEdit;
-
   DataPointJobItemView* m_jobItemView;
 
   QTimer* m_timer;
@@ -208,9 +207,7 @@ class ModelDesignWizardDialog : public OSDialog
 
   int m_outputPageIdx;
 
-  int m_argumentsFailedPageIdx;
-
-  int m_argumentsOkPageIdx;
+  int m_inspectGeometryPageIdx;
 
   QProcess* m_runProcess;
 
@@ -259,6 +256,8 @@ class ModelDesignWizardDialog : public OSDialog
   openstudio::OSNonModelObjectQuantityEdit* m_floorHeightEdit;
   QPushButton* m_floorMultiplierSwitch;
   QPushButton* m_midStoryAdiabSwitch;
+
+  QWidget* m_geometryPreviewWidget = nullptr;
 
   // mimic the settings
   QCheckBox* m_useIPCheckBox;

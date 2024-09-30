@@ -45,6 +45,7 @@
 #include "OSAppBase.hpp"
 #include "OSDocument.hpp"
 #include "OSItem.hpp"
+#include "GeometryPreviewController.hpp"
 #include "../model_editor/Utilities.hpp"
 
 #include <openstudio/model/Model.hpp>
@@ -101,6 +102,7 @@
 #define ACCEPT_CHANGES openstudio::ModelDesignWizardDialog::tr("Accept Changes")
 #define GENERATE_MODEL openstudio::ModelDesignWizardDialog::tr("Generate Model")
 #define NEXT_PAGE openstudio::ModelDesignWizardDialog::tr("Next Page")
+#define INSPECT_GEOMETRY openstudio::ModelDesignWizardDialog::tr("Inspect Geometry")
 
 namespace openstudio {
 
@@ -108,8 +110,6 @@ ModelDesignWizardDialog::ModelDesignWizardDialog(bool isIP, QWidget* parent)
   : OSDialog(false, parent),
     m_isIP(isIP),
     m_mainPaneStackedWidget(nullptr),
-    m_rightPaneStackedWidget(nullptr),
-    m_argumentsFailedTextEdit(nullptr),
     m_jobItemView(nullptr),
     m_timer(nullptr),
     m_showAdvancedOutput(nullptr),
@@ -456,8 +456,6 @@ void ModelDesignWizardDialog::removeSpaceTypeRatioRow(SpaceTypeRatioRow* row) {
   }
   auto it = std::next(m_spaceTypeRatioRows.begin(), row->vectorPos);
 
-#if 1
-
   //  m_spaceTypeRatiosMainLayout->removeWidget(row->buildingTypeComboBox);
   m_spaceTypeRatiosMainLayout->removeWidget(row->buildingTypeComboBox);
   delete row->buildingTypeComboBox;
@@ -473,23 +471,6 @@ void ModelDesignWizardDialog::removeSpaceTypeRatioRow(SpaceTypeRatioRow* row) {
   m_spaceTypeRatiosMainLayout->setRowMinimumHeight(row->gridLayoutRowIndex, 0);
   m_spaceTypeRatiosMainLayout->setRowStretch(row->gridLayoutRowIndex, 0);
 
-#elif 0
-  QLayoutItem* child = nullptr;
-
-  while ((child = m_spaceTypeRatiosMainLayout->takeAt(index)) != nullptr) {
-    QWidget* widget = child->widget();
-
-    OS_ASSERT(widget);
-
-    delete widget;
-    // Using deleteLater is actually slower than calling delete directly on the widget
-    // deleteLater also introduces a strange redraw issue where the select all check box
-    // is not redrawn, after being checked.
-    //widget->deleteLater();
-
-    delete child;
-  }
-#endif
   m_spaceTypeRatioRows.erase(it);
   // qDebug() << "removeSpaceTypeRatioRow, Final rowCount: " << m_spaceTypeRatiosMainLayout->rowCount();
   for (int i = 0; auto* spaceTypeRatioRow : m_spaceTypeRatioRows) {
@@ -634,7 +615,6 @@ void ModelDesignWizardDialog::populateOtherParamsPage() {
 
 void ModelDesignWizardDialog::populateSpaceTypeRatiosPage() {
 
-  // TODO: I get a crash when I go back to the templateSelection page and change the PrimaryBuildingType
   if (m_spaceTypeRatiosMainLayout) {
     while (QLayoutItem* item = m_spaceTypeRatiosMainLayout->takeAt(0)) {
       Q_ASSERT(!item->layout());  // otherwise the layout will leak
@@ -981,6 +961,12 @@ QWidget* ModelDesignWizardDialog::createOutputPage() {
   return scrollArea;
 }
 
+QWidget* ModelDesignWizardDialog::createInspectGeometryPage() {
+  m_geometryPreviewWidget = new QWidget();
+
+  return m_geometryPreviewWidget;
+}
+
 void ModelDesignWizardDialog::createWidgets() {
   openstudio::OSAppBase* app = OSAppBase::instance();
 
@@ -1002,6 +988,8 @@ void ModelDesignWizardDialog::createWidgets() {
   // OUTPUT
 
   m_outputPageIdx = m_mainPaneStackedWidget->addWidget(createOutputPage());
+
+  m_inspectGeometryPageIdx = m_mainPaneStackedWidget->addWidget(createInspectGeometryPage());
 
   // SET CURRENT INDEXES
   m_mainPaneStackedWidget->setCurrentIndex(m_templateSelectionPageIdx);
@@ -1062,7 +1050,7 @@ void ModelDesignWizardDialog::runMeasure() {
             << "--measures_only"
             << "--workflow" << toQString(*tempWorkflowJSONPath);
   LOG(Debug, "openstudioExePath='" << toString(openstudioExePath) << "'");
-  LOG(Debug, "run arguments" << arguments.join(";").toStdString());
+  LOG(Debug, "run arguments: " << arguments.join(";").toStdString());
 
   m_runProcess->start(openstudioExePath, arguments);
 }
@@ -1084,7 +1072,7 @@ void ModelDesignWizardDialog::displayResults() {
   m_mainPaneStackedWidget->setCurrentIndex(m_outputPageIdx);
   m_timer->stop();
 
-  this->okButton()->setText(ACCEPT_CHANGES);
+  this->okButton()->setText(INSPECT_GEOMETRY);
   this->okButton()->show();
   if (boost::filesystem::exists(*m_reloadPath)) {
     this->okButton()->setEnabled(true);
@@ -1193,9 +1181,14 @@ void ModelDesignWizardDialog::on_backButton(bool checked) {
     // Nothing specific here
   } else if (m_mainPaneStackedWidget->currentIndex() == m_outputPageIdx) {
     this->okButton()->setEnabled(true);
-    this->okButton()->setText(ACCEPT_CHANGES);
+    this->okButton()->setText(NEXT_PAGE);
     this->backButton()->setEnabled(false);
     m_mainPaneStackedWidget->setCurrentIndex(m_templateSelectionPageIdx);
+  } else if (m_mainPaneStackedWidget->currentIndex() == m_inspectGeometryPageIdx) {
+    this->okButton()->setEnabled(true);
+    this->okButton()->setText(INSPECT_GEOMETRY);
+    this->backButton()->setEnabled(true);
+    m_mainPaneStackedWidget->setCurrentIndex(m_outputPageIdx);
   }
 }
 
@@ -1254,6 +1247,11 @@ void ModelDesignWizardDialog::on_okButton(bool checked) {
     // N/A
     OS_ASSERT(false);
   } else if (m_mainPaneStackedWidget->currentIndex() == m_outputPageIdx) {
+    m_mainPaneStackedWidget->setCurrentIndex(m_inspectGeometryPageIdx);
+    this->backButton()->setEnabled(true);
+    this->okButton()->setText(ACCEPT_CHANGES);
+    this->displayGeometry();
+  } else if (m_mainPaneStackedWidget->currentIndex() == m_inspectGeometryPageIdx) {
     // reload the model
     requestReload();
   }
@@ -1305,6 +1303,24 @@ void ModelDesignWizardDialog::showAdvancedOutput() {
     m_advancedOutputDialog->exec();
     m_advancedOutputDialog->raise();
   }
+}
+
+void ModelDesignWizardDialog::displayGeometry() {
+
+  if (auto* existingLayout = m_geometryPreviewWidget->layout()) {
+    while (QLayoutItem* item = existingLayout->takeAt(0)) {
+      Q_ASSERT(!item->layout());  // otherwise the layout will leak
+      delete item->widget();
+      delete item;
+    }
+    delete existingLayout;
+  }
+
+  auto tempModel = openstudio::model::Model::load(*m_reloadPath).get();
+  auto* previewController = new GeometryPreviewController(m_isIP, tempModel);
+  auto* layout = new QVBoxLayout();
+  layout->addWidget(previewController->view());
+  m_geometryPreviewWidget->setLayout(layout);
 }
 
 }  // namespace openstudio
