@@ -268,9 +268,9 @@ QWidget* ModelDesignWizardDialog::createTemplateSelectionPage() {
     int col = 0;
     {
       m_standardTypeComboBox = new QComboBox();
-      qDebug() << "m_supportJsonObject.keys()=" << m_supportJsonObject.keys();
+      // qDebug() << "m_supportJsonObject.keys()=" << m_supportJsonObject.keys();
       for (const QString& standardType : m_supportJsonObject.keys()) {
-        qDebug() << "Adding standardType=" << standardType;
+        // qDebug() << "Adding standardType=" << standardType;
 
         m_standardTypeComboBox->addItem(standardType);
       }
@@ -342,7 +342,7 @@ void ModelDesignWizardDialog::onPrimaryBuildingTypeChanged(const QString& /*text
   const bool disabled = m_targetStandardComboBox->currentText().isEmpty() || m_primaryBuildingTypeComboBox->currentText().isEmpty();
   disableOkButton(disabled);
   if (!disabled) {
-    qDebug() << "Populate Space Type Ratios";
+    // qDebug() << "Populate Space Type Ratios";
     populateSpaceTypeRatiosPage();
     populateOtherParamsPage();
   }
@@ -415,13 +415,13 @@ void ModelDesignWizardDialog::addSpaceTypeRatioRow(const QString& buildingType, 
 
   if (tweakStretch) {
     m_spaceTypeRatiosMainLayout->setRowMinimumHeight(m_spaceTypeRatiosMainLayout->rowCount() - 1, 0);
-    qDebug() << "addSpaceTypeRatioRow, After setting setRowMinimumHeight at rowCount - 1: " << m_spaceTypeRatiosMainLayout->rowCount();
+    // qDebug() << "addSpaceTypeRatioRow, After setting setRowMinimumHeight at rowCount - 1: " << m_spaceTypeRatiosMainLayout->rowCount();
     m_spaceTypeRatiosMainLayout->setRowStretch(m_spaceTypeRatiosMainLayout->rowCount() - 1, 0);
-    qDebug() << "addSpaceTypeRatioRow, After setting stretch at rowCount - 1: " << m_spaceTypeRatiosMainLayout->rowCount();
+    // qDebug() << "addSpaceTypeRatioRow, After setting stretch at rowCount - 1: " << m_spaceTypeRatiosMainLayout->rowCount();
   }
 
-  qDebug() << "inside: " << m_spaceTypeRatiosMainLayout;
-  qDebug() << "inside: " << m_spaceTypeRatiosMainLayout->rowCount();
+  // qDebug() << "inside: " << m_spaceTypeRatiosMainLayout;
+  // qDebug() << "inside: " << m_spaceTypeRatiosMainLayout->rowCount();
 
   auto* spaceTypeRow = new SpaceTypeRatioRow(this, buildingType, spaceType, ratio);
   m_spaceTypeRatioRows.push_back(spaceTypeRow);
@@ -440,19 +440,19 @@ void ModelDesignWizardDialog::addSpaceTypeRatioRow(const QString& buildingType, 
     const int rowCount = m_spaceTypeRatiosMainLayout->rowCount();
 
     m_spaceTypeRatiosMainLayout->setRowMinimumHeight(rowCount, 100);
-    qDebug() << "removeSpaceTypeRatioRow, After setting setRowMinimumHeight at rowCount: " << m_spaceTypeRatiosMainLayout->rowCount();
+    // qDebug() << "removeSpaceTypeRatioRow, After setting setRowMinimumHeight at rowCount: " << m_spaceTypeRatiosMainLayout->rowCount();
     m_spaceTypeRatiosMainLayout->setRowStretch(rowCount, 100);
-    qDebug() << "removeSpaceTypeRatioRow, After setting stretch at rowCount: " << m_spaceTypeRatiosMainLayout->rowCount();
+    // qDebug() << "removeSpaceTypeRatioRow, After setting stretch at rowCount: " << m_spaceTypeRatiosMainLayout->rowCount();
   }
 }
 
 void ModelDesignWizardDialog::removeSpaceTypeRatioRow(SpaceTypeRatioRow* row) {
 
-  qDebug() << "\nremoveSpaceTypeRatioRow, Original rowCount: " << m_spaceTypeRatiosMainLayout->rowCount();
+  // qDebug() << "\nremoveSpaceTypeRatioRow, Original rowCount: " << m_spaceTypeRatiosMainLayout->rowCount();
 
-  qDebug() << "Removing row at gridLayoutRowIndex=" << row->gridLayoutRowIndex << " and vectorPos=" << row->vectorPos;
+  // qDebug() << "Removing row at gridLayoutRowIndex=" << row->gridLayoutRowIndex << " and vectorPos=" << row->vectorPos;
   for (int i = 0; auto* spaceTypeRatioRow : m_spaceTypeRatioRows) {
-    qDebug() << "* " << i++ << "gridLayoutRowIndex=" << spaceTypeRatioRow->gridLayoutRowIndex << " and vectorPos=" << spaceTypeRatioRow->vectorPos;
+    // qDebug() << "* " << i++ << "gridLayoutRowIndex=" << spaceTypeRatioRow->gridLayoutRowIndex << " and vectorPos=" << spaceTypeRatioRow->vectorPos;
   }
   auto it = std::next(m_spaceTypeRatioRows.begin(), row->vectorPos);
 
@@ -491,7 +491,7 @@ void ModelDesignWizardDialog::removeSpaceTypeRatioRow(SpaceTypeRatioRow* row) {
   }
 #endif
   m_spaceTypeRatioRows.erase(it);
-  qDebug() << "removeSpaceTypeRatioRow, Final rowCount: " << m_spaceTypeRatiosMainLayout->rowCount();
+  // qDebug() << "removeSpaceTypeRatioRow, Final rowCount: " << m_spaceTypeRatiosMainLayout->rowCount();
   for (int i = 0; auto* spaceTypeRatioRow : m_spaceTypeRatioRows) {
     spaceTypeRatioRow->vectorPos = i++;
   }
@@ -617,7 +617,7 @@ void ModelDesignWizardDialog::populateOtherParamsPage() {
     m_supportJsonObject[selectedStandardType].toObject()["building_form_defaults"].toObject()[selectedPrimaryBuildingType].toObject();
 
   if (defaultSpaceTypeRatios.isEmpty()) {
-    qDebug() << "Object is empty";
+    // qDebug() << "Object is empty";
     return;
   }
 
@@ -657,7 +657,7 @@ void ModelDesignWizardDialog::populateSpaceTypeRatiosPage() {
   m_spaceTypeRatiosPageWidget->setLayout(m_spaceTypeRatiosMainLayout);
 
   int row = m_spaceTypeRatiosMainLayout->rowCount();
-  qDebug() << "Original rowCount" << row;
+  // qDebug() << "Original rowCount" << row;
   {
     int col = 0;
 
@@ -727,7 +727,7 @@ void ModelDesignWizardDialog::populateSpaceTypeRatiosPage() {
     }
   }
 
-  qDebug() << "rowCount just before inserting spaceTypeRatio rows" << row;
+  // qDebug() << "rowCount just before inserting spaceTypeRatio rows" << row;
 
   const QString selectedStandardType = m_standardTypeComboBox->currentText();
   const QString selectedStandard = m_targetStandardComboBox->currentText();
@@ -743,8 +743,8 @@ void ModelDesignWizardDialog::populateSpaceTypeRatiosPage() {
     {
       const QString spaceType = it.key();
       const double ratio = it.value().toObject()["ratio"].toDouble();
-      qDebug() << "before: " << m_spaceTypeRatiosMainLayout;
-      qDebug() << "before: " << m_spaceTypeRatiosMainLayout->rowCount();
+      // qDebug() << "before: " << m_spaceTypeRatiosMainLayout;
+      // qDebug() << "before: " << m_spaceTypeRatiosMainLayout->rowCount();
       addSpaceTypeRatioRow(selectedPrimaryBuildingType, spaceType, ratio, false);
     }
   }
@@ -1059,8 +1059,8 @@ void ModelDesignWizardDialog::runMeasure() {
 
   QStringList arguments;
   arguments << "run"
-            << "-m"
-            << "-w" << toQString(*tempWorkflowJSONPath);
+            << "--measures_only"
+            << "--workflow" << toQString(*tempWorkflowJSONPath);
   LOG(Debug, "openstudioExePath='" << toString(openstudioExePath) << "'");
   LOG(Debug, "run arguments" << arguments.join(";").toStdString());
 
