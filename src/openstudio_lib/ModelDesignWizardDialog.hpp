@@ -241,7 +241,7 @@ class ModelDesignWizardDialog : public OSDialog
   QIntValidator* m_positiveIntValidator;
 
   QWidget* m_spaceTypeRatiosPageWidget;
-  QGridLayout* m_spaceTypeRatiosMainLayout;
+  QGridLayout* m_spaceTypeRatiosMainLayout = nullptr;
   openstudio::OSNonModelObjectQuantityEdit* m_totalBuildingFloorAreaEdit;
   openstudio::OSNonModelObjectQuantityEdit* m_totalBuildingRatioEdit;
   double m_totalFloorArea;
