@@ -904,15 +904,15 @@ QWidget* ModelDesignWizardDialog::createOtherBarParamsPage() {
     }
   }
 
-  // connect(m_numStoriesAboveGradeLineEdit, &QLineEdit::editingFinished, [this]() {
-  //   bool ok = false;
-  //   int numStoriesAboveGrade = m_numStoriesAboveGradeLineEdit->text().toInt(&ok);
-  //   if (ok) {
-  //     bool enabled = numStoriesAboveGrade > 3;
-  //     m_floorMultiplierSwitch->setEnabled(enabled);
-  //     m_midStoryAdiabSwitch->setEnabled(enabled);
-  //   }
-  // });
+  connect(m_numStoriesAboveGradeLineEdit, &QLineEdit::editingFinished, [this]() {
+    bool ok = false;
+    int numStoriesAboveGrade = m_numStoriesAboveGradeLineEdit->text().toInt(&ok);
+    if (ok) {
+      bool enabled = numStoriesAboveGrade > 3;
+      m_floorMultiplierSwitch->setEnabled(enabled);
+      m_midStoryAdiabSwitch->setEnabled(enabled);
+    }
+  });
 
   ++row;
   mainGridLayout->setRowStretch(row, 100);
