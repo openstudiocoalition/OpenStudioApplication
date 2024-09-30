@@ -506,6 +506,8 @@ SpaceTypeRatioRow::SpaceTypeRatioRow(ModelDesignWizardDialog* parent, const QStr
     deleteRowButton(new openstudio::RemoveButton()),
     gridLayoutRowIndex(parent->spaceTypeRatiosMainLayout()->rowCount()) {
 
+  deleteRowButton->setToolTip("Remove Row");
+
   spaceTypeRatioEdit->setFixedPrecision(4);
   spaceTypeFloorAreaEdit->setFixedPrecision(2);
 
@@ -686,7 +688,8 @@ void ModelDesignWizardDialog::populateSpaceTypeRatiosPage() {
       m_spaceTypeRatiosMainLayout->addWidget(m_totalBuildingRatioEdit, row, col++, 1, 1);
     }
     {
-      auto* normalizeToOneButton = new openstudio::AddButton();  // TODO: replace with another icon
+      auto* normalizeToOneButton = new openstudio::RecalculateButton();
+      normalizeToOneButton->setToolTip("Normalize Ratio to One");
       m_spaceTypeRatiosMainLayout->addWidget(normalizeToOneButton, row, col++, 1, 1);
       connect(normalizeToOneButton, &QPushButton::clicked, [this]() { recalculateTotalBuildingRatio(true); });
     }
@@ -695,10 +698,9 @@ void ModelDesignWizardDialog::populateSpaceTypeRatiosPage() {
   ++row;
 
   auto* addRowButton = new openstudio::AddButton();
+  addRowButton->setToolTip("Add a new Row");
   m_spaceTypeRatiosMainLayout->addWidget(addRowButton, row, 0, 1, 1);
   connect(addRowButton, &QPushButton::clicked, [this]() { addSpaceTypeRatioRow(); });
-
-  // TODO: add a way to add / delete rows, so one could pick from another building type for eg
 
   ++row;
   {

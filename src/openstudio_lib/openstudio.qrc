@@ -420,6 +420,14 @@
     <file>images/pump_constant@2x.png</file>
     <file>images/pump_variable.png</file>
     <file>images/pump_variable@2x.png</file>
+    <file>images/recalculate_disabled.png</file>
+    <file>images/recalculate_disabled@2x.png</file>
+    <file>images/recalculate_off.png</file>
+    <file>images/recalculate_off@2x.png</file>
+    <file>images/recalculate_over.png</file>
+    <file>images/recalculate_over@2x.png</file>
+    <file>images/recalculate_pressed.png</file>
+    <file>images/recalculate_pressed@2x.png</file>
     <file>images/refrigeration_system.png</file>
     <file>images/refrigeration_system@2x.png</file>
     <file>images/remove_unused_disabled.png</file>

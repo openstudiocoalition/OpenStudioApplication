@@ -232,6 +232,15 @@ class PlayButton : public QPushButton
   Status m_status;
 };
 
+class RecalculateButton : public QPushButton
+{
+  Q_OBJECT
+
+ public:
+  explicit RecalculateButton(QWidget* parent = nullptr);
+  virtual ~RecalculateButton() = default;
+};
+
 }  // namespace openstudio
 
 #endif  // SHAREDGUICOMPONENTS_BUTTONS_HPP

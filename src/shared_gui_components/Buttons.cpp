@@ -225,4 +225,10 @@ void PlayButton::setStatus(const Status& status) {
   m_status = status;
 }
 
+RecalculateButton::RecalculateButton(QWidget* parent) : QPushButton(parent) {
+  setFlat(true);
+  setFixedSize(24, 24);
+  setObjectName("RecalculateButton");
+}
+
 }  // namespace openstudio

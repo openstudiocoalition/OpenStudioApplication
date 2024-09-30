@@ -856,6 +856,26 @@ QPushButton#OneLevelDownButton:pressed {
   background-image: url(":/images/arrow_expand-press.png");
 }
 
+QPushButton#RecalculateButton {
+  border: none;
+  background: transparent;
+  background-image: url(":/images/recalculate_off.png");
+  padding-left: none;
+  padding-right: none;
+}
+
+QPushButton#RecalculateButton:disabled {
+  background-image: url(":/images/recalculate_disabled.png");
+}
+
+QPushButton#RecalculateButton:hover {
+  background-image: url(":/images/recalculate_over.png");
+}
+
+QPushButton#RecalculateButton:pressed {
+  background-image: url(":/images/recalculate_pressed.png");
+}
+
 QRadioButton {
   font-size: 12px;
 }
