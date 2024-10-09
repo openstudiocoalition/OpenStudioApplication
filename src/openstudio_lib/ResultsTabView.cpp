@@ -301,7 +301,6 @@ void ResultsView::populateComboBox(const std::vector<openstudio::path>& reports)
     QString fullPathString = toQString(report);
 
     QFile file(fullPathString);
-    fullPathString.prepend("file:///");
 
     if (openstudio::toString(report.filename()) == "eplustbl.html" || openstudio::toString(report.filename()) == "eplustbl.htm") {
 
@@ -360,7 +359,7 @@ void ResultsView::comboBoxChanged(int index) {
 
   m_progressBar->setError(false);
 
-  QUrl url(filename);
+  QUrl url = QUrl::fromLocalFile(filename);
   m_view->load(url);
 }
 
