@@ -123,7 +123,7 @@ TEST_F(ModelEditorFixture, MorePath_Conversions) {
     QString expectedUrl;
   };
 
-  std::vector<PathTestCase> testCases = { 
+  std::vector<PathTestCase> testCases = {
     {"C:\\Users\\Test\\eplustbl.html", "C:/Users/Test/eplustbl.html", "file:///C:/Users/Test/eplustbl.html"},
     {"C:/Users/Test/eplustbl.html", "C:/Users/Test/eplustbl.html", "file:///C:/Users/Test/eplustbl.html"},
     {"C:\\Users/Test/eplustbl.html", "C:/Users/Test/eplustbl.html", "file:///C:/Users/Test/eplustbl.html"},
@@ -141,8 +141,8 @@ TEST_F(ModelEditorFixture, MorePath_Conversions) {
     EXPECT_EQ(url.toString(QUrl::FullyEncoded), testCase.expectedUrl);
 
     std::cout << "Input: " << testCase.inputPath << ", "
-      << "OS Path: " << osPath << ", "
-      << "QPath: " << qPath.toStdString() << ", "
-      << "Url: " << url.toString().toStdString() << std::endl;
+              << "OS Path: " << osPath << ", "
+              << "QPath: " << qPath.toStdString() << ", "
+              << "Url: " << url.toString().toStdString() << std::endl;
   }
 }
