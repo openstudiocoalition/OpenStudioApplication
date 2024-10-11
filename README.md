@@ -1,7 +1,7 @@
 |                         | Build Status |
 |-------------------------|--------------|
-| master                  | [![C++ CI for OpenStudioApplication - master](https://github.com/openstudiocoalition/OpenStudioApplication/workflows/C++%20CI%20for%20OpenStudioApplication/badge.svg?branch=master)](https://github.com/openstudiocoalition/OpenStudioApplication/actions?query=branch%3Amaster)|
-| develop                 | [![C++ CI for OpenStudioApplication - develop](https://github.com/openstudiocoalition/OpenStudioApplication/workflows/C++%20CI%20for%20OpenStudioApplication/badge.svg?branch=develop)](https://github.com/openstudiocoalition/OpenStudioApplication/actions?query=branch%3Adevelop)      |
+| master                  | [![C++ CI for OpenStudioApplication - master](https://github.com/openstudiocoalition/OpenStudioApplication/actions/workflows/app_build.yml/badge.svg?branch=master)](https://github.com/openstudiocoalition/OpenStudioApplication/actions/workflows/app_build.yml?query=branch%3Amaster)|
+| develop                  | [![C++ CI for OpenStudioApplication - develop](https://github.com/openstudiocoalition/OpenStudioApplication/actions/workflows/app_build.yml/badge.svg?branch=develop)](https://github.com/openstudiocoalition/OpenStudioApplication/actions/workflows/app_build.yml?query=branch%3Adevelop)|
 
 
 # Important!
@@ -13,7 +13,11 @@ For more information about the OpenStudio Coalition, including tutorials and doc
 
 # OpenStudio Application
 
-The **OpenStudio Application** is a fully featured graphical interface to OpenStudio models including envelope, loads, schedules, geometry, HVAC, and OpenStudio Measures.  The **OpenStudio Application** is open source software and is free to use.  The **OpenStudio Application** is built on top of the **[OpenStudio SDK](https://github.com/NREL/OpenStudio)**.  The **OpenStudio Application** can be downloaded for Mac, Linux, and Windows on the [Releases page](https://github.com/openstudiocoalition/OpenStudioApplication/releases).
+The **OpenStudio Application** is a fully featured graphical interface to OpenStudio models including envelope, loads, schedules, geometry, HVAC, and OpenStudio Measures.  The **OpenStudio Application** is open source software and is free to use.  The **OpenStudio Application** is built on top of the **[OpenStudio SDK](https://github.com/NREL/OpenStudio)**.  
+
+## Downloading the OpenStudio Application
+
+The **OpenStudio Application** can be downloaded for Mac, Linux, and Windows by logging in at https://openstudiocoalition.org/app/
 
 ## What is the OpenStudio Software Development Kit (SDK)?
 
