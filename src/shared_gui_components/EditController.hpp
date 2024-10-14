@@ -81,6 +81,8 @@ class InputController : public QObject
 
   void setValue(bool value);
 
+  void setValue(const openstudio::path& p);
+
   void setValueForIndex(int index);
 
  private:

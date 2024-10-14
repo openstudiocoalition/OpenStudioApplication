@@ -501,6 +501,8 @@ void MeasureStepItem::setArgument(const measure::OSArgument& argument) {
       m_step.setArgument(argument.name(), argument.valueAsDouble());
     } else if (argument.type() == measure::OSArgumentType::Integer) {
       m_step.setArgument(argument.name(), argument.valueAsInteger());
+    } else if (argument.type() == measure::OSArgumentType::Path) {
+      m_step.setArgument(argument.name(), openstudio::toString(argument.valueAsPath()));
     } else {
       m_step.setArgument(argument.name(), argument.valueAsString());
     }

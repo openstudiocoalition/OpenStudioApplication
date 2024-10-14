@@ -7,6 +7,7 @@
 #include "EditView.hpp"
 #include "OSViewSwitcher.hpp"
 #include "WorkflowController.hpp"
+#include "../model_editor/Utilities.hpp"
 
 #include <openstudio/utilities/bcl/BCLMeasure.hpp>
 #include <openstudio/utilities/core/Assert.hpp>
@@ -251,6 +252,22 @@ InputController::InputController(EditController* editController, measure::OSArgu
             static_cast<void (InputController::*)(const QString&)>(&InputController::setValue));
 
     inputView = stringInputView;
+  } else if (m_argument.type() == measure::OSArgumentType::Path) {
+    auto* pathInputView = new PathInputView(m_argument.extension(), m_argument.isRead());
+
+    pathInputView->setName(m_argument.displayName(), m_argument.units(), m_argument.description());
+
+    if (m_argument.hasValue()) {
+      pathInputView->lineEdit->setText(QString::fromStdString(m_argument.valueAsString()));
+    } else if (m_argument.hasDefaultValue()) {
+      pathInputView->lineEdit->setText(QString::fromStdString(m_argument.defaultValueAsString()));
+    }
+
+    connect(pathInputView, &PathInputView::selectedPathChanged, this,
+            static_cast<void (InputController::*)(const openstudio::path&)>(&InputController::setValue));
+    connect(pathInputView->lineEdit, &QLineEdit::textEdited, [this](const QString& v) { this->setValue(toPath(v)); });
+
+    inputView = pathInputView;
   } else {
     inputView = new InputView();
   }
@@ -294,6 +311,20 @@ void InputController::setValueForIndex(int index) {
       m_argument.clearValue();
     } else {
       m_argument.setValue(value.toStdString());
+    }
+
+    m_editController->measureStepItem()->setArgument(m_argument);
+
+    inputView->setIncomplete(isArgumentIncomplete());
+  }
+}
+
+void InputController::setValue(const openstudio::path& p) {
+  if (isItOKToClearResults()) {
+    if (p.empty()) {
+      m_argument.clearValue();
+    } else {
+      m_argument.setValue(p);
     }
 
     m_editController->measureStepItem()->setArgument(m_argument);
