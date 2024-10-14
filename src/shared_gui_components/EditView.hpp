@@ -6,14 +6,16 @@
 #ifndef SHAREDGUICOMPONENTS_EDITVIEW_HPP
 #define SHAREDGUICOMPONENTS_EDITVIEW_HPP
 
-#include <QWidget>
-#include <QComboBox>
 #include <QAbstractButton>
+#include <QComboBox>
 #include <QLabel>
+#include <QWidget>
 
 #include <boost/optional.hpp>
+#include <openstudio/utilities/core/Filesystem.hpp>
 
 class QLineEdit;
+class QPushButton;
 class QTextEdit;
 class QVBoxLayout;
 
@@ -27,7 +29,7 @@ class EditNullView : public QWidget
 
  public:
   explicit EditNullView(const QString& text = "Select a Measure to Edit");
-  virtual ~EditNullView() {}
+  virtual ~EditNullView() = default;
 
  protected:
   void paintEvent(QPaintEvent*) override;
@@ -39,7 +41,7 @@ class EditRubyMeasureView : public QWidget
 
  public:
   explicit EditRubyMeasureView(bool applyMeasureNow);
-  virtual ~EditRubyMeasureView() {}
+  virtual ~EditRubyMeasureView() = default;
 
   QLineEdit* nameLineEdit;
 
@@ -77,7 +79,7 @@ class DoubleInputView : public InputView
 
  public:
   DoubleInputView();
-  virtual ~DoubleInputView() {}
+  virtual ~DoubleInputView() = default;
 
   QLineEdit* lineEdit;
 
@@ -97,7 +99,7 @@ class ChoiceInputView : public InputView
 
  public:
   ChoiceInputView();
-  virtual ~ChoiceInputView() {}
+  virtual ~ChoiceInputView() = default;
 
   QComboBox* comboBox;
 
@@ -117,7 +119,7 @@ class BoolInputView : public InputView
 
  public:
   BoolInputView();
-  virtual ~BoolInputView() {}
+  virtual ~BoolInputView() = default;
 
   InputCheckBox* checkBox;
 
@@ -134,7 +136,7 @@ class IntegerInputView : public InputView
 
  public:
   IntegerInputView();
-  virtual ~IntegerInputView() {}
+  virtual ~IntegerInputView() = default;
 
   QLineEdit* lineEdit;
 
@@ -154,7 +156,7 @@ class StringInputView : public InputView
 
  public:
   StringInputView();
-  virtual ~StringInputView() {}
+  virtual ~StringInputView() = default;
 
   QLineEdit* lineEdit;
 
@@ -183,7 +185,7 @@ class InputCheckBox : public QAbstractButton
  public:
   InputCheckBox();
 
-  virtual ~InputCheckBox();
+  virtual ~InputCheckBox() = default;
 
   void setText(const QString& text);
 
@@ -194,6 +196,35 @@ class InputCheckBox : public QAbstractButton
 
  private:
   QLabel* m_label;
+};
+
+class PathInputView : public InputView
+{
+  Q_OBJECT
+
+ public:
+  PathInputView(const std::string& extension, bool isRead);
+  virtual ~PathInputView() = default;
+
+  QLineEdit* lineEdit;
+  QPushButton* selectPathButton;
+
+  void setName(const std::string& name, const boost::optional<std::string>& units, const boost::optional<std::string>& description);
+
+  void setIncomplete(bool incomplete) override;
+
+  void setDisplayValue(const QVariant& value) override;
+
+ signals:
+  void selectedPathChanged(const openstudio::path& p);
+
+ private slots:
+  void onSelectPathButtonClicked();
+
+ private:
+  QLabel* nameLabel;
+  QString m_extension;
+  bool m_isRead;
 };
 
 }  // namespace openstudio
