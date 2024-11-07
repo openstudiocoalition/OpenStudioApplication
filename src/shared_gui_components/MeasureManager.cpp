@@ -607,8 +607,10 @@ boost::optional<measure::OSArgument> MeasureManager::getArgument(const measure::
 
   } else if (type.value() == measure::OSArgumentType::Path) {
 
+    // TODO: aside from the fact that these arguments are weird / incorrectly named, neither the BCL-gem schema nor OS SDK actually handle them so
+    // they are not even inside the measure.xml
     bool isRead = argument.get("is_read", Json::Value(false)).asBool();
-    std::string extension = argument.get("extension", Json::Value("*")).asString();
+    std::string extension = argument.get("extension", Json::Value("All files (*)")).asString();
 
     result = measure::OSArgument::makePathArgument(name, isRead, extension, required, modelDependent);
 
