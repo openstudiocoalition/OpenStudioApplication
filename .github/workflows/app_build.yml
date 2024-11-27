@@ -71,8 +71,8 @@ jobs:
           COMPRESSED_EXT: tar.gz
           BINARY_PKG_PATH: _CPack_Packages/Darwin/IFW
           COMPRESSED_PKG_PATH: _CPack_Packages/Darwin/TGZ
-          MACOSX_DEPLOYMENT_TARGET: 11.0
-          SDKROOT: /Applications/Xcode_15.0.1.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX.sdk
+          MACOSX_DEPLOYMENT_TARGET: 13.0
+          SDKROOT: /Applications/Xcode_15.2.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX.sdk
           QT_OS_NAME: mac
           QT_ARCH: clang_64
           arch: x86_64
@@ -83,8 +83,8 @@ jobs:
           COMPRESSED_EXT: tar.gz
           BINARY_PKG_PATH: _CPack_Packages/Darwin/IFW
           COMPRESSED_PKG_PATH: _CPack_Packages/Darwin/TGZ
-          MACOSX_DEPLOYMENT_TARGET: 12.1
-          SDKROOT: /Applications/Xcode_15.0.1.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX.sdk
+          MACOSX_DEPLOYMENT_TARGET: 13.0
+          SDKROOT: /Applications/Xcode_15.2.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX.sdk
           QT_OS_NAME: mac
           QT_ARCH: arm_64
           arch: arm64
@@ -96,7 +96,7 @@ jobs:
     - uses: actions/setup-python@v5
       if: ${{ !matrix.SELF_HOSTED }}
       with:
-        python-version: '3.8.x'
+        python-version: '3.12.x'
 
     - uses: ruby/setup-ruby@v1
       if: ${{ !matrix.SELF_HOSTED }}
@@ -184,7 +184,7 @@ jobs:
             echo "/Users/irvinemac/Qt/Tools/QtInstallerFramework/4.3/bin/" >> $GITHUB_PATH
           else
             echo "Setting Xcode version"
-            sudo xcode-select -s "/Applications/Xcode_15.0.1.app/Contents/Developer/"
+            sudo xcode-select -s "/Applications/Xcode_15.2.app/Contents/Developer/"
 
             echo "Using brew to install ninja"
             brew install ninja md5sha1sum ccache
@@ -505,27 +505,6 @@ jobs:
           conan install . --output-folder=./build --build=missing -c tools.cmake.cmaketoolchain:generator=Ninja -s compiler.cppstd=20 -s build_type=Release -c tools.build:cxxflags="['-D_LIBCPP_ENABLE_CXX17_REMOVED_UNARY_BINARY_FUNCTION']"
         else
           conan install . --output-folder=./build --build=missing -c tools.cmake.cmaketoolchain:generator=Ninja -s compiler.cppstd=20 -s build_type=Release
-        fi
-
-        if [ "${{ matrix.SELF_HOSTED }}" == "true" ]; then
-          # TODO: temp... this is unfortunate but the OS SDK arm64 rc2 package has a different sha when extracted...
-          # OpenStudio-3.8.0-rc2+af997f4fef-Darwin-x86_64.tar.gz on github, but when extracted it's OpenStudio-3.8.0-rc2+06d9d975e1-Darwin-arm64
-          cmake --preset conan-release -DQT_INSTALL_DIR:PATH=${{ env.QT_INSTALL_DIR }} \
-              -DBUILD_DOCUMENTATION:BOOL=${{ env.BUILD_DOCUMENTATION }} \
-              -DBUILD_PACKAGE:BOOL=${{ env.BUILD_PACKAGE }} \
-              -DCPACK_BINARY_TGZ:BOOL=ON \
-              -DANALYTICS_API_SECRET:STRING=${{ secrets.ANALYTICS_API_SECRET }} \
-              -DANALYTICS_MEASUREMENT_ID:STRING=${{ secrets.ANALYTICS_MEASUREMENT_ID }} || true
-
-          ls $(pwd)/build/OpenStudio-3.8.0 || true
-          OS_DIR=$(find "$(pwd)/build/OpenStudio-3.8.0" -name openstudioConfig.cmake)
-          OS_DIR=$(dirname $OS_DIR)
-          cmake --preset conan-release -DQT_INSTALL_DIR:PATH=${{ env.QT_INSTALL_DIR }} \
-              -DBUILD_DOCUMENTATION:BOOL=${{ env.BUILD_DOCUMENTATION }} \
-              -DBUILD_PACKAGE:BOOL=${{ env.BUILD_PACKAGE }} \
-              -DCPACK_BINARY_TGZ:BOOL=ON \
-              -DANALYTICS_API_SECRET:STRING=${{ secrets.ANALYTICS_API_SECRET }} \
-              -DANALYTICS_MEASUREMENT_ID:STRING=${{ secrets.ANALYTICS_MEASUREMENT_ID }} -Dopenstudio_DIR:PATH=$OS_DIR
         fi
 
         if [ "$RUNNER_OS" == "macOS" ]; then
