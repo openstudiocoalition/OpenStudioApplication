@@ -798,7 +798,7 @@ install(IMPORTED_RUNTIME_ARTIFACTS openstudio::pythonengine DESTINATION ${LIB_DE
 
 # TODO: we should probably just install the **entire** OS SDK bin/ directory...
 if(WIN32)
-  install(PROGRAMS $<$<CONFIG:Debug>:${openstudio_ROOT_DIR}/bin/python38_d.dll>$<$<CONFIG:Release>:${openstudio_ROOT_DIR}/bin/python38.dll>$<$<CONFIG:RelWithDebInfo>:${openstudio_ROOT_DIR}/bin/python38.dll>$<$<CONFIG:MinSizeRel>:${openstudio_ROOT_DIR}/bin/python38.dll> DESTINATION bin COMPONENT "CLI")
+  install(PROGRAMS $<$<CONFIG:Debug>:${openstudio_ROOT_DIR}/bin/python312_d.dll>$<$<CONFIG:Release>:${openstudio_ROOT_DIR}/bin/python312.dll>$<$<CONFIG:RelWithDebInfo>:${openstudio_ROOT_DIR}/bin/python312.dll>$<$<CONFIG:MinSizeRel>:${openstudio_ROOT_DIR}/bin/python312.dll> DESTINATION bin COMPONENT "CLI")
 endif()
 
 # install(PROGRAMS ${OS_CLI_IMPORTED_PATH} DESTINATION bin COMPONENT "CLI" RENAME "${OS_CLI_IMPORTED_NAME}")
