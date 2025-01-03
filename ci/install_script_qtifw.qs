@@ -66,9 +66,9 @@ Controller.prototype.TargetDirectoryPageCallback = function()
 };
 
 // Unused
-//Controller.prototype.ComponentSelectionPageCallback = function() {
-  //console.log("---- COMPONENT SELECTION PAGE");
-  //logCurrentPage();
+Controller.prototype.ComponentSelectionPageCallback = function() {
+  console.log("---- COMPONENT SELECTION PAGE");
+  logCurrentPage();
 
   //var widget = gui.currentPageWidget();
 
@@ -106,8 +106,8 @@ Controller.prototype.TargetDirectoryPageCallback = function()
     //console.log("* " + compName + ": " + installStatus);
   //}
 
-  //gui.clickButton(buttons.NextButton);
-//};
+  gui.clickButton(buttons.NextButton);
+};
 
 Controller.prototype.LicenseAgreementPageCallback = function() {
   console.log("---- LICENSE AGREEMENT PAGE");
@@ -153,6 +153,7 @@ Controller.prototype.PerformInstallationPageCallback = function()
 Controller.prototype.FinishedPageCallback = function() {
   console.log("---- FINISHED PAGE");
   logCurrentPage();
+  gui.currentPageWidget().RunItCheckBox.setChecked(false);
 
   gui.clickButton(buttons.FinishButton);
 };
