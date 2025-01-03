@@ -160,16 +160,6 @@ class MODELEDITOR_API InspectorGadget
    */
   void clear(bool recursive);
 
-  /*! \brief changes the color of widgets
-   *
-   * When widget are built, if the Field is required but there is no value and no default value
-   *(which in a way, is bad idf) the IG will put 0 or 0.0 in there for you, but color it red
-   * to point out that you should address this. Once you set a value, this function is automatically
-   * called for you and sets the color back to black.
-   *
-   */
-  void IGdefaultRemoved(const QString&);
-
   void IGvalueChanged(const QString&);
 
   void IGcommentChanged(const QString&);
