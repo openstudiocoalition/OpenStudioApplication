@@ -100,11 +100,11 @@ endif()
 
 set(FILES_TO_SIGN
   EnergyPlus/ExpandObjects
-  EnergyPlus/energyplus-24.1.0
+  EnergyPlus/energyplus-24.2.0
   EnergyPlus/energyplus.1
-  EnergyPlus/libenergyplusapi.24.1.0.dylib
+  EnergyPlus/libenergyplusapi.24.2.0.dylib
   EnergyPlus/libintl.8.dylib
-  EnergyPlus/libpython3.8.dylib
+  EnergyPlus/libpython3.12.dylib
   Ruby/openstudio.bundle
 
   Radiance/bin/vinfo
@@ -284,8 +284,8 @@ foreach(path ${FILES_TO_SIGN})
   list(APPEND _FULL_PATHS "${CMAKE_INSTALL_PREFIX}/${path}")
 endforeach()
 
-file(GLOB_RECURSE _PYTHON_SOS "${CMAKE_INSTALL_PREFIX}/EnergyPlus/python_standard_lib/**/*.so")
-file(GLOB _numpy_dylibs "${CMAKE_INSTALL_PREFIX}/EnergyPlus/python_standard_lib/numpy/.dylibs/*.dylib")
+file(GLOB_RECURSE _PYTHON_SOS "${CMAKE_INSTALL_PREFIX}/EnergyPlus/python_lib/**/*.so")
+file(GLOB _numpy_dylibs "${CMAKE_INSTALL_PREFIX}/EnergyPlus/python_lib/numpy/.dylibs/*.dylib")
 list (APPEND _PYTHON_SOS ${_numpy_dylibs})
 
 print_relative_paths(PREFIX "FULL_PATHS=" ABSOLUTE_PATHS ${_FULL_PATHS})
