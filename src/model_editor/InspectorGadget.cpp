@@ -789,9 +789,12 @@ void InspectorGadget::layoutComboBox(QVBoxLayout* layout, QWidget* parent, opens
   int idx = combo->findText(curVal.c_str(), Qt::MatchFixedString);
 
   if (-1 == idx) {
+
+    // field is currently set to an invalid value
     idx = 0;
-    connect(combo, static_cast<void (QComboBox::*)(const QString&)>(&QComboBox::currentTextChanged), this, &InspectorGadget::IGdefaultRemoved);
-    //QString errormsg("We have a value:");
+    combo->insertItem(idx, QPixmap(":/images/alert_image.png"), curVal.c_str(), "Invalid");
+
+   //QString errormsg("We have a value:");
     //errormsg += curVal.c_str();
     //errormsg += " that does not match the allowable values in the idd.Name:";
     //errormsg += name.c_str();
@@ -887,13 +890,6 @@ void InspectorGadget::checkRemoveBtn(QPushButton* btn) {
 }
 
 //SLOTS
-void InspectorGadget::IGdefaultRemoved(const QString& /*unused*/) {
-  QObject* source = sender();
-  auto* w = dynamic_cast<QWidget*>(source);
-  w->setStyleSheet("color:black");
-  // using old style disconnect here
-  disconnect(source, nullptr, this, SLOT(IGdefaultRemoved(const QString&)));
-}
 
 void InspectorGadget::IGvalueChanged(const QString& value) {
   OS_ASSERT(m_workspaceObj);

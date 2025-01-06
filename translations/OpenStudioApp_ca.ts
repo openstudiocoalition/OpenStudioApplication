@@ -50,7 +50,7 @@
         <translation>Autocalcular</translation>
     </message>
     <message>
-        <location filename="../src/model_editor/InspectorGadget.cpp" line="856"/>
+        <location filename="../src/model_editor/InspectorGadget.cpp" line="859"/>
         <source>Add/Remove Extensible Groups</source>
         <translation>Afegir/Eliminat Grups Extensibles</translation>
     </message>
@@ -832,24 +832,24 @@ Si voleu que OpeStudioApplication estigui a la vostra llengua, esperem la vostra
 <context>
     <name>openstudio::MeasureManager</name>
     <message>
-        <location filename="../src/shared_gui_components/MeasureManager.cpp" line="974"/>
-        <location filename="../src/shared_gui_components/MeasureManager.cpp" line="990"/>
+        <location filename="../src/shared_gui_components/MeasureManager.cpp" line="976"/>
+        <location filename="../src/shared_gui_components/MeasureManager.cpp" line="992"/>
         <source>Measures Updated</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/shared_gui_components/MeasureManager.cpp" line="974"/>
+        <location filename="../src/shared_gui_components/MeasureManager.cpp" line="976"/>
         <source>All measures are up-to-date.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/shared_gui_components/MeasureManager.cpp" line="977"/>
+        <location filename="../src/shared_gui_components/MeasureManager.cpp" line="979"/>
         <source> measures have been updated on BCL compared to your local BCL directory.
 </source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/shared_gui_components/MeasureManager.cpp" line="978"/>
+        <location filename="../src/shared_gui_components/MeasureManager.cpp" line="980"/>
         <source>Would you like update them?</source>
         <translation type="unfinished"></translation>
     </message>
@@ -1273,6 +1273,24 @@ Would you like to Restore library paths to default values or Open the library se
         <translation>
 
 Voldries Restaurar els valors per defecte dels camins de les llibrerires o Obrir-ne la configuració per canviar-ho manualment?</translation>
+    </message>
+</context>
+<context>
+    <name>openstudio::PathInputView</name>
+    <message>
+        <location filename="../src/shared_gui_components/EditView.cpp" line="466"/>
+        <source>Open Directory</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../src/shared_gui_components/EditView.cpp" line="469"/>
+        <source>Open Read File</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../src/shared_gui_components/EditView.cpp" line="471"/>
+        <source>Select Save File</source>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>
