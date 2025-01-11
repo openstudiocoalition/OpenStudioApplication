@@ -794,7 +794,7 @@ void InspectorGadget::layoutComboBox(QVBoxLayout* layout, QWidget* parent, opens
     idx = 0;
     combo->insertItem(idx, QPixmap(":/images/alert_image.png"), curVal.c_str(), "Invalid");
 
-   //QString errormsg("We have a value:");
+    //QString errormsg("We have a value:");
     //errormsg += curVal.c_str();
     //errormsg += " that does not match the allowable values in the idd.Name:";
     //errormsg += name.c_str();
