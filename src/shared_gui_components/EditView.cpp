@@ -4,6 +4,8 @@
 ***********************************************************************************************************************/
 
 #include "EditView.hpp"
+#include "../model_editor/Utilities.hpp"
+
 #include <QVBoxLayout>
 #include <QHBoxLayout>
 #include <QLabel>
@@ -18,6 +20,8 @@
 #include <QCheckBox>
 #include <QWheelEvent>
 #include <QApplication>
+#include <QPushButton>
+#include <QFileDialog>
 
 #include <openstudio/utilities/core/Assert.hpp>
 
@@ -369,8 +373,6 @@ InputCheckBox::InputCheckBox() : QAbstractButton() {
   setSizePolicy(QSizePolicy::Preferred, QSizePolicy::Fixed);
 }
 
-InputCheckBox::~InputCheckBox() = default;
-
 void InputCheckBox::setText(const QString& text) {
   m_label->setText(text);
 
@@ -397,6 +399,82 @@ void InputCheckBox::setIncomplete(bool incomplete) {
     m_label->setStyleSheet("QLabel { color: #DD0A05;}");
   } else {
     m_label->setStyleSheet("QLabel { color: black;}");
+  }
+}
+
+PathInputView::PathInputView(const std::string& extension, bool isRead)
+  : InputView(), lineEdit(new QLineEdit()), nameLabel(new QLabel()), m_isRead(isRead) {
+  auto* vLayout = new QVBoxLayout();
+  vLayout->setContentsMargins(0, 0, 0, 0);
+  vLayout->setSpacing(5);
+  setLayout(vLayout);
+
+  nameLabel->setOpenExternalLinks(true);
+  nameLabel->setWordWrap(true);
+  vLayout->addWidget(nameLabel);
+
+  auto* hLayout = new QHBoxLayout();
+  hLayout->addWidget(lineEdit);
+
+  selectPathButton = new QPushButton("...");
+  selectPathButton->setFlat(true);
+  selectPathButton->setFixedSize(30, 20);
+  selectPathButton->setObjectName("StandardGrayButton");
+
+  connect(selectPathButton, &QPushButton::clicked, this, &PathInputView::onSelectPathButtonClicked);
+  hLayout->addWidget(selectPathButton);
+
+  vLayout->addLayout(hLayout);
+
+  // TODO: sanitize the input?
+  m_extension = toQString(extension);
+}
+
+void PathInputView::setName(const std::string& name, const boost::optional<std::string>& units, const boost::optional<std::string>& description) {
+  QString text;
+  text += QString::fromStdString(name);
+  if (units) {
+    text += QString::fromStdString(" (" + units.get() + ")");
+  }
+  if (description) {
+    text += QString::fromStdString("<div style=\"font-size:small;margin-top:2px;\">" + description.get() + "</div>");
+  }
+
+  nameLabel->setText(text);
+}
+
+void PathInputView::setIncomplete(bool incomplete) {
+  if (incomplete) {
+    nameLabel->setStyleSheet("QLabel { color: #DD0A05;}");
+  } else {
+    nameLabel->setStyleSheet("QLabel { color: black;}");
+  }
+}
+
+void PathInputView::setDisplayValue(const QVariant& value) {
+  lineEdit->setText(value.toString());
+}
+
+void PathInputView::onSelectPathButtonClicked() {
+  QString lastPath = lineEdit->text();
+
+  QString selectedPath;
+
+  if (m_extension.isEmpty()) {
+    // Assume this is a directory
+    selectedPath =
+      QFileDialog::getExistingDirectory(nullptr, tr("Open Directory"), lastPath, QFileDialog::ShowDirsOnly | QFileDialog::DontResolveSymlinks);
+  } else {
+    if (m_isRead) {
+      selectedPath = QFileDialog::getOpenFileName(nullptr, tr("Open Read File"), lastPath, m_extension);
+    } else {
+      selectedPath = QFileDialog::getSaveFileName(nullptr, tr("Select Save File"), lastPath, m_extension);
+    }
+  }
+
+  if (!selectedPath.isEmpty()) {
+    lineEdit->setText(selectedPath);  // QFileInfo(selectedPath).absoluteFilePath()
+    emit selectedPathChanged(toPath(selectedPath));
   }
 }
 

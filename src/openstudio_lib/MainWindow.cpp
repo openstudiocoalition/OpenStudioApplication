@@ -302,7 +302,10 @@ bool MainWindow::allowAnalytics() const {
 //}
 
 void MainWindow::toggleUnits(bool displayIP) {
-  m_displayIP = displayIP;
+  if (m_displayIP != displayIP) {
+    m_displayIP = displayIP;
+    writeSettings();
+  }
 }
 
 bool MainWindow::verboseOutput() const {
@@ -310,7 +313,10 @@ bool MainWindow::verboseOutput() const {
 }
 
 void MainWindow::toggleVerboseOutput(bool verboseOutput) {
-  m_verboseOutput = verboseOutput;
+  if (m_verboseOutput != verboseOutput) {
+    m_verboseOutput = verboseOutput;
+    writeSettings();
+  }
 }
 
 bool MainWindow::useClassicCLI() const {
@@ -318,7 +324,10 @@ bool MainWindow::useClassicCLI() const {
 }
 
 void MainWindow::toggleUseClassicCLI(bool useClassicCLI) {
-  m_useClassicCLI = useClassicCLI;
+  if (m_useClassicCLI != useClassicCLI) {
+    m_useClassicCLI = useClassicCLI;
+    writeSettings();
+  }
 }
 
 bool MainWindow::geometryDiagnostics() const {
@@ -384,7 +393,10 @@ void MainWindow::onVerticalTabSelected(int verticalTabId) {
 }
 
 void MainWindow::toggleGeometryDiagnostics(bool geometryDiagnostics) {
-  m_geometryDiagnostics = geometryDiagnostics;
+  if (m_geometryDiagnostics != geometryDiagnostics) {
+    m_geometryDiagnostics = geometryDiagnostics;
+    writeSettings();
+  }
 }
 
 void MainWindow::promptAnalytics() {
@@ -414,8 +426,10 @@ void MainWindow::toggleAnalytics(bool allowAnalytics) {
 }
 
 void MainWindow::changeLanguage(const QString& rLanguage) {
-  m_currLang = rLanguage;
-  writeSettings();
+  if (m_currLang != rLanguage) {
+    m_currLang = rLanguage;
+    writeSettings();
+  }
 }
 
 void MainWindow::configureProxyClicked() {
@@ -459,8 +473,10 @@ bool MainWindow::displayAdditionalProps() const {
 }
 
 void MainWindow::toggleDisplayAdditionalProps(bool displayAdditionalProps) {
-  m_displayAdditionalProps = displayAdditionalProps;
-  writeSettings();
+  if (m_displayAdditionalProps != displayAdditionalProps) {
+    m_displayAdditionalProps = displayAdditionalProps;
+    writeSettings();
+  }
 }
 
 }  // namespace openstudio

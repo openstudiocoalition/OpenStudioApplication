@@ -96,7 +96,7 @@ class OpenStudioAppBuildRecipe(ConanFile):
         tc.cache_variables["CPACK_SOURCE_ZIP"] = False
 
         v = sys.version_info
-        if (v.major, v.minor) == (3, 8):
+        if (v.major, v.minor) == (3, 12):
             python_version = f"{v.major}.{v.minor}.{v.micro}"
             self.output.info(
                 f"Setting PYTHON_VERSION and Python_ROOT_DIR from your current python: {python_version}, '{sys.base_prefix}'"
@@ -105,8 +105,8 @@ class OpenStudioAppBuildRecipe(ConanFile):
             tc.cache_variables["Python_ROOT_DIR"] = str(Path(sys.base_prefix))
         else:
             self.output.warning(
-                "Your current python is not in the 3.8.x range, which is what we target.\n"
+                "Your current python is not in the 3.12.x range, which is what we target.\n"
                 "You'll need to pass it properly when configuring CMake\n"
-                "via -DPYTHON_VERSION:STRING='3.8.xx' and -DPython_ROOT_DIR:PATH='/path/to/python3.8/'"
+                "via -DPYTHON_VERSION:STRING='3.12.xx' and -DPython_ROOT_DIR:PATH='/path/to/python3.8/'"
             )
         tc.generate()

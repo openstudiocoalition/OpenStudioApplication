@@ -11,6 +11,7 @@
 #include "../Utilities.hpp"
 
 #include <clocale>
+#include <QUrl>
 
 using openstudio::toPath;
 using openstudio::toQString;
@@ -112,4 +113,36 @@ TEST_F(ModelEditorFixture, Path_Conversions) {
   EXPECT_EQ(t, toString(toQString(toString(p))));
   EXPECT_EQ(t, std::string(toQString(toString(p)).toUtf8()));
   EXPECT_EQ(t, toString(toPath(toQString(toString(p)))));
+}
+
+TEST_F(ModelEditorFixture, MorePath_Conversions) {
+  struct PathTestCase
+  {
+    std::string inputPath;
+    QString expectedPath;
+    QString expectedUrl;
+  };
+
+  std::vector<PathTestCase> testCases = {
+    {"C:\\Users\\Test\\eplustbl.html", "C:/Users/Test/eplustbl.html", "file:///C:/Users/Test/eplustbl.html"},
+    {"C:/Users/Test/eplustbl.html", "C:/Users/Test/eplustbl.html", "file:///C:/Users/Test/eplustbl.html"},
+    {"C:\\Users/Test/eplustbl.html", "C:/Users/Test/eplustbl.html", "file:///C:/Users/Test/eplustbl.html"},
+    {"C:\\Users\\Test# ^\\eplustbl.html", "C:/Users/Test# ^/eplustbl.html", "file:///C:/Users/Test%23%20%5E/eplustbl.html"},
+    {"/home/Test/eplustbl.html", "/home/Test/eplustbl.html", "file:///home/Test/eplustbl.html"},
+    {"/home/Test# ^/eplustbl.html", "/home/Test# ^/eplustbl.html", "file:///home/Test%23%20%5E/eplustbl.html"},
+  };
+
+  // double check the conversions in openstudio_lib/ResultsTabView.cpp
+  for (const auto& testCase : testCases) {
+    openstudio::path osPath = toPath(testCase.inputPath);
+    QString qPath = toQString(osPath);
+    EXPECT_EQ(qPath, testCase.expectedPath);
+    QUrl url = QUrl::fromLocalFile(qPath);
+    EXPECT_EQ(url.toString(QUrl::FullyEncoded), testCase.expectedUrl);
+
+    std::cout << "Input: " << testCase.inputPath << ", "
+              << "OS Path: " << osPath << ", "
+              << "QPath: " << qPath.toStdString() << ", "
+              << "Url: " << url.toString().toStdString() << std::endl;
+  }
 }

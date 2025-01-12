@@ -16,7 +16,7 @@ if(CCACHE_PROGRAM)
   set(CMAKE_C_COMPILER_LAUNCHER ${CCACHE_PROGRAM} CACHE FILEPATH "C compiler cache used")
 endif()
 
-project(OpenStudioApplication VERSION 1.8.0)
+project(OpenStudioApplication VERSION 1.9.0)
 
 # Check system info globally so we can use it everywhere after: Has to be done before FindOpenStudioSDK.cmake
 if(APPLE)
@@ -272,7 +272,7 @@ endif()
 
 # TODO: Modify the more specific variables as needed to indicate prerelease, etc
 # Keep in beta in-between release cycles. Set to empty string (or comment out) for official)
-set(PROJECT_VERSION_PRERELEASE "")
+set(PROJECT_VERSION_PRERELEASE "rc1")
 
 # OpenStudio version: Only include Major.Minor.Patch, eg "3.0.0", even if you have a prerelease tag
 set(OPENSTUDIOAPPLICATION_VERSION "${PROJECT_VERSION_MAJOR}.${PROJECT_VERSION_MINOR}.${PROJECT_VERSION_PATCH}")
@@ -798,7 +798,7 @@ install(IMPORTED_RUNTIME_ARTIFACTS openstudio::pythonengine DESTINATION ${LIB_DE
 
 # TODO: we should probably just install the **entire** OS SDK bin/ directory...
 if(WIN32)
-  install(PROGRAMS $<$<CONFIG:Debug>:${openstudio_ROOT_DIR}/bin/python38_d.dll>$<$<CONFIG:Release>:${openstudio_ROOT_DIR}/bin/python38.dll>$<$<CONFIG:RelWithDebInfo>:${openstudio_ROOT_DIR}/bin/python38.dll>$<$<CONFIG:MinSizeRel>:${openstudio_ROOT_DIR}/bin/python38.dll> DESTINATION bin COMPONENT "CLI")
+  install(PROGRAMS $<$<CONFIG:Debug>:${openstudio_ROOT_DIR}/bin/python312_d.dll>$<$<CONFIG:Release>:${openstudio_ROOT_DIR}/bin/python312.dll>$<$<CONFIG:RelWithDebInfo>:${openstudio_ROOT_DIR}/bin/python312.dll>$<$<CONFIG:MinSizeRel>:${openstudio_ROOT_DIR}/bin/python312.dll> DESTINATION bin COMPONENT "CLI")
 endif()
 
 # install(PROGRAMS ${OS_CLI_IMPORTED_PATH} DESTINATION bin COMPONENT "CLI" RENAME "${OS_CLI_IMPORTED_NAME}")
@@ -863,7 +863,7 @@ elseif(UNIX)
   # set(CPACK_DEBIAN_PACKAGE_DEBUG ON)
 
   # Focal Fossa (20.04) uses libwxgtk3.0-gtk3-0v5, apparently need libxcb-xinerama0 as well
-  set(CPACK_DEBIAN_PACKAGE_DEPENDS "libxcb-xinerama0 (>= 1.13), libwxgtk3.0-0v5 (>= 3.0.0) | libwxgtk3.0-0 (>=3.0.0) | libwxgtk3.0-gtk3-0v5 (>=3.0.0) | libwxgtk3.2-1t64 (>= 3.2.0), libxcb-cursor0")
+  set(CPACK_DEBIAN_PACKAGE_DEPENDS "libxcb-xinerama0 (>= 1.13), libwxgtk3.0-0v5 (>= 3.0.0) | libwxgtk3.0-0 (>=3.0.0) | libwxgtk3.0-gtk3-0v5 (>=3.0.0) | libwxgtk3.2-1t64 (>= 3.2.0) | libwxgtk3.2-1 (>= 3.2.0), libxcb-cursor0")
 
   # These two will set the .deb install path correctly
   set(CPACK_SET_DESTDIR ON)
