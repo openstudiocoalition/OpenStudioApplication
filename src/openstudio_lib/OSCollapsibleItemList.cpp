@@ -112,6 +112,8 @@ void OSCollapsibleItemList::setItemsType(OSItemType type) {
 
 void OSCollapsibleItemList::addCollapsibleItem(OSCollapsibleItem* collapsibleItem) {
   OS_ASSERT(collapsibleItem);
+ 
+  m_collapsibleItems.push_back(collapsibleItem);
 
   collapsibleItem->setItemsDraggable(m_itemsDraggable);
 
@@ -143,6 +145,13 @@ void OSCollapsibleItemList::addCollapsibleItem(OSCollapsibleItem* collapsibleIte
   connect(collapsibleItem, &OSCollapsibleItem::selectionCleared, this, &OSCollapsibleItemList::selectionCleared);
 
   connect(collapsibleItem, &OSCollapsibleItem::openLibDlgClicked, this, &OSCollapsibleItemList::openLibDlgClicked);
+}
+
+void OSCollapsibleItemList::selectFirstCollapsibleItem() {
+  if (!m_collapsibleItems.empty()) {
+    // items are added in order from bottom to top
+    m_collapsibleItems.back()->setSelected(true);
+  }
 }
 
 void OSCollapsibleItemList::addCategoryPlaceholderItem(OSCategoryPlaceholder* categoryPlaceholderItem) {
