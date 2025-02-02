@@ -112,7 +112,7 @@ void OSCollapsibleItemList::setItemsType(OSItemType type) {
 
 void OSCollapsibleItemList::addCollapsibleItem(OSCollapsibleItem* collapsibleItem) {
   OS_ASSERT(collapsibleItem);
- 
+
   m_collapsibleItems.push_back(collapsibleItem);
 
   collapsibleItem->setItemsDraggable(m_itemsDraggable);
