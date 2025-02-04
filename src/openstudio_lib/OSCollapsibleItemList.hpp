@@ -32,6 +32,7 @@ class OSCollapsibleItemList : public OSItemSelector
 
   void addCollapsibleItem(OSCollapsibleItem* collapsibleItem);
   void addCategoryPlaceholderItem(OSCategoryPlaceholder* categoryPlaceholderItem);
+  void selectFirstCollapsibleItem();
 
   OSCollapsibleItem* selectedCollapsibleItem() const;
 
