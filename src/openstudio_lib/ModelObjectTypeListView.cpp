@@ -35,6 +35,7 @@ ModelObjectTypeListView::ModelObjectTypeListView(const std::vector<std::pair<Idd
        ++modelObjectTypeAndName) {
     addModelObjectType(modelObjectTypeAndName->first, modelObjectTypeAndName->second);
   }
+  selectFirstCollapsibleItem();
 }
 
 void ModelObjectTypeListView::addModelObjectType(const IddObjectType& iddObjectType, const std::string& name) {
