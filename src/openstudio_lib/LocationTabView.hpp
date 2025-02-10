@@ -9,7 +9,7 @@
 #include <openstudio/model/Model.hpp>
 #include <openstudio/model/Site.hpp>
 #include <openstudio/model/YearDescription.hpp>
-
+#include <openstudio/model/DesignDay.hpp>
 #include "MainTabView.hpp"
 #include "YearSettingsWidget.hpp"
 
@@ -123,6 +123,10 @@ class LocationView : public QWidget
   void setDstEndDate(const QDate& newdate);
 
   void onWeatherFileBtnClicked();
+
+  void showDesignDaySelectionDialog(const std::vector<model::DesignDay>& days99, const std::vector<model::DesignDay>& days99_6,
+                                    const std::vector<model::DesignDay>& days2, const std::vector<model::DesignDay>& days1,
+                                    const std::vector<model::DesignDay>& days0_4);
 
   void onDesignDayBtnClicked();
 

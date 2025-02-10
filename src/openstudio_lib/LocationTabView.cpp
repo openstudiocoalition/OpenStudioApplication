@@ -52,6 +52,7 @@
 #include <QBoxLayout>
 #include <QComboBox>
 #include <QDateTime>
+#include <QDialogButtonBox>
 #include <QDir>
 #include <QFile>
 #include <QFileDialog>
@@ -625,6 +626,71 @@ void LocationView::onWeatherFileBtnClicked() {
   }
 }
 
+void LocationView::showDesignDaySelectionDialog(const std::vector<model::DesignDay>& days99,
+                                                 const std::vector<model::DesignDay>& days99_6,
+                                                  const std::vector<model::DesignDay>& days2,
+                                                  const std::vector<model::DesignDay>& days1,
+                                                  const std::vector<model::DesignDay>& days0_4) {
+    QDialog dialog(this);
+    dialog.setWindowTitle(tr("Select Design Days"));
+  
+    QVBoxLayout* layout = new QVBoxLayout(&dialog);
+  
+    QRadioButton* radio99 = new QRadioButton(tr("99% Design Days"), &dialog);
+    QRadioButton* radio99_6 = new QRadioButton(tr("99.6% Design Days"), &dialog);
+    QRadioButton* radio2 = new QRadioButton(tr("2% Design Days"), &dialog);
+    QRadioButton* radio1 = new QRadioButton(tr("1% Design Days"), &dialog);
+    QRadioButton* radio0_4 = new QRadioButton(tr("0.4% Design Days"), &dialog);
+  
+    layout->addWidget(radio99);
+    layout->addWidget(radio99_6);
+    layout->addWidget(radio2);
+    layout->addWidget(radio1);
+    layout->addWidget(radio0_4);
+  
+    QDialogButtonBox* buttonBox = new QDialogButtonBox(QDialogButtonBox::Ok | QDialogButtonBox::Cancel, &dialog);
+    layout->addWidget(buttonBox);
+  
+    connect(buttonBox, &QDialogButtonBox::accepted, &dialog, &QDialog::accept);
+    connect(buttonBox, &QDialogButtonBox::rejected, &dialog, &QDialog::reject);
+  
+    if (dialog.exec() == QDialog::Accepted) {
+      if (radio99->isChecked()) {
+        std::vector<openstudio::model::ModelObject> modelObjects(days99.begin(), days99.end());
+        std::vector<openstudio::IdfObject> idfObjectsToInsert;
+        for (const auto& modelObject : modelObjects) {
+          idfObjectsToInsert.push_back(modelObject.idfObject());
+        }
+        m_model.insertObjects(idfObjectsToInsert);
+      } else if (radio99_6->isChecked()) {
+        std::vector<openstudio::model::ModelObject> modelObjects(days99_6.begin(), days99_6.end());
+        std::vector<openstudio::IdfObject> idfObjectsToInsert;
+        for (const auto& modelObject : modelObjects) {
+          idfObjectsToInsert.push_back(modelObject.idfObject());
+        }
+        m_model.insertObjects(idfObjectsToInsert);
+      } else if (radio2->isChecked()) {
+        std::vector<openstudio::IdfObject> idfObjectsToInsert;
+        for (const auto& modelObject : days2) {
+          idfObjectsToInsert.push_back(modelObject.idfObject());
+        }
+        m_model.insertObjects(idfObjectsToInsert);
+      } else if (radio1->isChecked()) {
+        std::vector<openstudio::IdfObject> idfObjectsToInsert;
+        for (const auto& modelObject : days1) {
+          idfObjectsToInsert.push_back(modelObject.idfObject());
+        }
+        m_model.insertObjects(idfObjectsToInsert);
+      } else if (radio0_4->isChecked()) {
+        std::vector<openstudio::IdfObject> idfObjectsToInsert;
+        for (const auto& modelObject : days0_4) {
+          idfObjectsToInsert.push_back(modelObject.idfObject());
+        }
+        m_model.insertObjects(idfObjectsToInsert);
+      }
+    }
+  }
+
 void LocationView::onDesignDayBtnClicked() {
   QString fileTypes("Files (*.ddy)");
 
@@ -718,7 +784,8 @@ void LocationView::onDesignDayBtnClicked() {
         //  sizingPeriod.remove();
         //}
 
-        m_model.insertObjects(ddyModel.objects());
+        //m_model.insertObjects(ddyModel.objects());
+        showDesignDaySelectionDialog(days99, days99_6, days2, days1, days0_4);
 
         m_lastDdyPathOpened = QFileInfo(fileName).absoluteFilePath();
       }
