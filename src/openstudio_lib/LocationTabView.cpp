@@ -637,8 +637,6 @@ void LocationView::showDesignDaySelectionDialog(const std::vector<model::DesignD
                                                 const std::vector<model::DesignDay>& winterDays2,
                                                 const std::vector<model::DesignDay>& winterDays1,
                                                 const std::vector<model::DesignDay>& winterDays0_4) {
-  
-              
   QDialog dialog(this);
   dialog.setWindowTitle(tr("Select Design Days"));
 
@@ -647,32 +645,62 @@ void LocationView::showDesignDaySelectionDialog(const std::vector<model::DesignD
   QLabel* summerLabel = new QLabel(tr("Summer Design Days"), &dialog);
   layout->addWidget(summerLabel);
 
-  QCheckBox* summerCheckBox99 = new QCheckBox(tr("99% Design Days"), &dialog);
-  QCheckBox* summerCheckBox99_6 = new QCheckBox(tr("99.6% Design Days"), &dialog);
-  QCheckBox* summerCheckBox2 = new QCheckBox(tr("2% Design Days"), &dialog);
-  QCheckBox* summerCheckBox1 = new QCheckBox(tr("1% Design Days"), &dialog);
-  QCheckBox* summerCheckBox0_4 = new QCheckBox(tr("0.4% Design Days"), &dialog);
+  QCheckBox* summerCheckBox99 = nullptr;
+  QCheckBox* summerCheckBox99_6 = nullptr;
+  QCheckBox* summerCheckBox2 = nullptr;
+  QCheckBox* summerCheckBox1 = nullptr;
+  QCheckBox* summerCheckBox0_4 = nullptr;
 
-  layout->addWidget(summerCheckBox99);
-  layout->addWidget(summerCheckBox99_6);
-  layout->addWidget(summerCheckBox2);
-  layout->addWidget(summerCheckBox1);
-  layout->addWidget(summerCheckBox0_4);
+  if (!summerDays99.empty()) {
+    summerCheckBox99 = new QCheckBox(tr("99% Design Days"), &dialog);
+    layout->addWidget(summerCheckBox99);
+  }
+  if (!summerDays99_6.empty()) {
+    summerCheckBox99_6 = new QCheckBox(tr("99.6% Design Days"), &dialog);
+    layout->addWidget(summerCheckBox99_6);
+  }
+  if (!summerDays2.empty()) {
+    summerCheckBox2 = new QCheckBox(tr("2% Design Days"), &dialog);
+    layout->addWidget(summerCheckBox2);
+  }
+  if (!summerDays1.empty()) {
+    summerCheckBox1 = new QCheckBox(tr("1% Design Days"), &dialog);
+    layout->addWidget(summerCheckBox1);
+  }
+  if (!summerDays0_4.empty()) {
+    summerCheckBox0_4 = new QCheckBox(tr("0.4% Design Days"), &dialog);
+    layout->addWidget(summerCheckBox0_4);
+  }
 
   QLabel* winterLabel = new QLabel(tr("Winter Design Days"), &dialog);
   layout->addWidget(winterLabel);
 
-  QCheckBox* winterCheckBox99 = new QCheckBox(tr("99% Design Days"), &dialog);
-  QCheckBox* winterCheckBox99_6 = new QCheckBox(tr("99.6% Design Days"), &dialog);
-  QCheckBox* winterCheckBox2 = new QCheckBox(tr("2% Design Days"), &dialog);
-  QCheckBox* winterCheckBox1 = new QCheckBox(tr("1% Design Days"), &dialog);
-  QCheckBox* winterCheckBox0_4 = new QCheckBox(tr("0.4% Design Days"), &dialog);
+  QCheckBox* winterCheckBox99 = nullptr;
+  QCheckBox* winterCheckBox99_6 = nullptr;
+  QCheckBox* winterCheckBox2 = nullptr;
+  QCheckBox* winterCheckBox1 = nullptr;
+  QCheckBox* winterCheckBox0_4 = nullptr;
 
-  layout->addWidget(winterCheckBox99);
-  layout->addWidget(winterCheckBox99_6);
-  layout->addWidget(winterCheckBox2);
-  layout->addWidget(winterCheckBox1);
-  layout->addWidget(winterCheckBox0_4);
+  if (!winterDays99.empty()) {
+    winterCheckBox99 = new QCheckBox(tr("99% Design Days"), &dialog);
+    layout->addWidget(winterCheckBox99);
+  }
+  if (!winterDays99_6.empty()) {
+    winterCheckBox99_6 = new QCheckBox(tr("99.6% Design Days"), &dialog);
+    layout->addWidget(winterCheckBox99_6);
+  }
+  if (!winterDays2.empty()) {
+    winterCheckBox2 = new QCheckBox(tr("2% Design Days"), &dialog);
+    layout->addWidget(winterCheckBox2);
+  }
+  if (!winterDays1.empty()) {
+    winterCheckBox1 = new QCheckBox(tr("1% Design Days"), &dialog);
+    layout->addWidget(winterCheckBox1);
+  }
+  if (!winterDays0_4.empty()) {
+    winterCheckBox0_4 = new QCheckBox(tr("0.4% Design Days"), &dialog);
+    layout->addWidget(winterCheckBox0_4);
+  }
 
   QPushButton* selectAllButton = new QPushButton(tr("Select All"), &dialog);
   layout->addWidget(selectAllButton);
@@ -681,16 +709,16 @@ void LocationView::showDesignDaySelectionDialog(const std::vector<model::DesignD
   layout->addWidget(buttonBox);
 
   connect(selectAllButton, &QPushButton::clicked, [=]() {
-    summerCheckBox99->setChecked(true);
-    summerCheckBox99_6->setChecked(true);
-    summerCheckBox2->setChecked(true);
-    summerCheckBox1->setChecked(true);
-    summerCheckBox0_4->setChecked(true);
-    winterCheckBox99->setChecked(true);
-    winterCheckBox99_6->setChecked(true);
-    winterCheckBox2->setChecked(true);
-    winterCheckBox1->setChecked(true);
-    winterCheckBox0_4->setChecked(true);
+    if (summerCheckBox99) summerCheckBox99->setChecked(true);
+    if (summerCheckBox99_6) summerCheckBox99_6->setChecked(true);
+    if (summerCheckBox2) summerCheckBox2->setChecked(true);
+    if (summerCheckBox1) summerCheckBox1->setChecked(true);
+    if (summerCheckBox0_4) summerCheckBox0_4->setChecked(true);
+    if (winterCheckBox99) winterCheckBox99->setChecked(true);
+    if (winterCheckBox99_6) winterCheckBox99_6->setChecked(true);
+    if (winterCheckBox2) winterCheckBox2->setChecked(true);
+    if (winterCheckBox1) winterCheckBox1->setChecked(true);
+    if (winterCheckBox0_4) winterCheckBox0_4->setChecked(true);
   });
 
   connect(buttonBox, &QDialogButtonBox::accepted, &dialog, &QDialog::accept);
@@ -699,53 +727,53 @@ void LocationView::showDesignDaySelectionDialog(const std::vector<model::DesignD
   if (dialog.exec() == QDialog::Accepted) {
     std::vector<openstudio::IdfObject> idfObjectsToInsert;
 
-    if (summerCheckBox99->isChecked()) {
+    if (summerCheckBox99 && summerCheckBox99->isChecked()) {
       for (const auto& modelObject : summerDays99) {
         idfObjectsToInsert.push_back(modelObject.idfObject());
       }
     }
-    if (summerCheckBox99_6->isChecked()) {
+    if (summerCheckBox99_6 && summerCheckBox99_6->isChecked()) {
       for (const auto& modelObject : summerDays99_6) {
         idfObjectsToInsert.push_back(modelObject.idfObject());
       }
     }
-    if (summerCheckBox2->isChecked()) {
+    if (summerCheckBox2 && summerCheckBox2->isChecked()) {
       for (const auto& modelObject : summerDays2) {
         idfObjectsToInsert.push_back(modelObject.idfObject());
       }
     }
-    if (summerCheckBox1->isChecked()) {
+    if (summerCheckBox1 && summerCheckBox1->isChecked()) {
       for (const auto& modelObject : summerDays1) {
         idfObjectsToInsert.push_back(modelObject.idfObject());
       }
     }
-    if (summerCheckBox0_4->isChecked()) {
+    if (summerCheckBox0_4 && summerCheckBox0_4->isChecked()) {
       for (const auto& modelObject : summerDays0_4) {
         idfObjectsToInsert.push_back(modelObject.idfObject());
       }
     }
 
-    if (winterCheckBox99->isChecked()) {
+    if (winterCheckBox99 && winterCheckBox99->isChecked()) {
       for (const auto& modelObject : winterDays99) {
         idfObjectsToInsert.push_back(modelObject.idfObject());
       }
     }
-    if (winterCheckBox99_6->isChecked()) {
+    if (winterCheckBox99_6 && winterCheckBox99_6->isChecked()) {
       for (const auto& modelObject : winterDays99_6) {
         idfObjectsToInsert.push_back(modelObject.idfObject());
       }
     }
-    if (winterCheckBox2->isChecked()) {
+    if (winterCheckBox2 && winterCheckBox2->isChecked()) {
       for (const auto& modelObject : winterDays2) {
         idfObjectsToInsert.push_back(modelObject.idfObject());
       }
     }
-    if (winterCheckBox1->isChecked()) {
+    if (winterCheckBox1 && winterCheckBox1->isChecked()) {
       for (const auto& modelObject : winterDays1) {
         idfObjectsToInsert.push_back(modelObject.idfObject());
       }
     }
-    if (winterCheckBox0_4->isChecked()) {
+    if (winterCheckBox0_4 && winterCheckBox0_4->isChecked()) {
       for (const auto& modelObject : winterDays0_4) {
         idfObjectsToInsert.push_back(modelObject.idfObject());
       }
