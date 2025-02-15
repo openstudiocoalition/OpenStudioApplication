@@ -656,9 +656,10 @@ void LocationView::showDesignDaySelectionDialog(const std::vector<model::DesignD
       for (const auto& modelObject : designDays) {
         QString dryBulbTemp = QString::number(modelObject.maximumDryBulbTemperature());
         QString wetBulbTemp = modelObject.wetBulbOrDewPointAtMaximumDryBulb() ? QString::number(modelObject.wetBulbOrDewPointAtMaximumDryBulb().get()) : "N/A";
-        QLabel* tempLabel = new QLabel(tr("Dry Bulb: %1, Wet Bulb: %2").arg(dryBulbTemp).arg(wetBulbTemp), &dialog);
+        QString humidityConditionType = QString::fromStdString(modelObject.humidityConditionType());
+        QLabel* tempLabel = new QLabel(tr("Dry Bulb: %1, Wet Bulb: %2, Humidity Condition Type: %3").arg(dryBulbTemp).arg(wetBulbTemp).arg(humidityConditionType), &dialog);
         tempLabel->setObjectName(checkBox->text());
-        layout->addWidget(tempLabel);
+        layout->insertWidget(layout->indexOf(checkBox) + 1, tempLabel);
       }
     } else {
       for (int i = layout->count() - 1; i >= 0; --i) {
@@ -833,10 +834,11 @@ void LocationView::onDesignDayBtnClicked() {
       openstudio::Workspace ddyWorkspace(StrictnessLevel::None, IddFileType::EnergyPlus);
       for (const IdfObject& idfObject : ddyIdfFile->objects()) {
         IddObjectType iddObjectType = idfObject.iddObject().type();
-        if ((iddObjectType == IddObjectType::SizingPeriod_DesignDay) || (iddObjectType == IddObjectType::SizingPeriod_WeatherFileDays)
-            || (iddObjectType == IddObjectType::SizingPeriod_WeatherFileConditionType)) {
-
-          ddyWorkspace.addObject(idfObject);
+        if (iddObjectType == IddObjectType::SizingPeriod_DesignDay) {
+          boost::optional<std::string> name = idfObject.name();
+          if (name && name->find("Ann") != std::string::npos) {
+            ddyWorkspace.addObject(idfObject);
+          }
         }
       }
 
