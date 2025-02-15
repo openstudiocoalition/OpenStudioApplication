@@ -651,25 +651,49 @@ void LocationView::showDesignDaySelectionDialog(const std::vector<model::DesignD
   QCheckBox* summerCheckBox1 = nullptr;
   QCheckBox* summerCheckBox0_4 = nullptr;
 
+  auto addTemperatureLabel = [&](QCheckBox* checkBox, const std::vector<model::DesignDay>& designDays) {
+    if (checkBox && checkBox->isChecked()) {
+      for (const auto& modelObject : designDays) {
+        QString dryBulbTemp = QString::number(modelObject.maximumDryBulbTemperature());
+        QString wetBulbTemp = modelObject.wetBulbOrDewPointAtMaximumDryBulb() ? QString::number(modelObject.wetBulbOrDewPointAtMaximumDryBulb().get()) : "N/A";
+        QLabel* tempLabel = new QLabel(tr("Dry Bulb: %1, Wet Bulb: %2").arg(dryBulbTemp).arg(wetBulbTemp), &dialog);
+        tempLabel->setObjectName(checkBox->text());
+        layout->addWidget(tempLabel);
+      }
+    } else {
+      for (int i = layout->count() - 1; i >= 0; --i) {
+        QWidget* widget = layout->itemAt(i)->widget();
+        if (widget && widget->objectName() == checkBox->text()) {
+          delete widget;
+        }
+      }
+    }
+  };
+
   if (!summerDays99.empty()) {
     summerCheckBox99 = new QCheckBox(tr("99% Design Days"), &dialog);
     layout->addWidget(summerCheckBox99);
+    connect(summerCheckBox99, &QCheckBox::stateChanged, [=]() { addTemperatureLabel(summerCheckBox99, summerDays99); });
   }
   if (!summerDays99_6.empty()) {
     summerCheckBox99_6 = new QCheckBox(tr("99.6% Design Days"), &dialog);
     layout->addWidget(summerCheckBox99_6);
+    connect(summerCheckBox99_6, &QCheckBox::stateChanged, [=]() { addTemperatureLabel(summerCheckBox99_6, summerDays99_6); });
   }
   if (!summerDays2.empty()) {
     summerCheckBox2 = new QCheckBox(tr("2% Design Days"), &dialog);
     layout->addWidget(summerCheckBox2);
+    connect(summerCheckBox2, &QCheckBox::stateChanged, [=]() { addTemperatureLabel(summerCheckBox2, summerDays2); });
   }
   if (!summerDays1.empty()) {
     summerCheckBox1 = new QCheckBox(tr("1% Design Days"), &dialog);
     layout->addWidget(summerCheckBox1);
+    connect(summerCheckBox1, &QCheckBox::stateChanged, [=]() { addTemperatureLabel(summerCheckBox1, summerDays1); });
   }
   if (!summerDays0_4.empty()) {
     summerCheckBox0_4 = new QCheckBox(tr("0.4% Design Days"), &dialog);
     layout->addWidget(summerCheckBox0_4);
+    connect(summerCheckBox0_4, &QCheckBox::stateChanged, [=]() { addTemperatureLabel(summerCheckBox0_4, summerDays0_4); });
   }
 
   QLabel* winterLabel = new QLabel(tr("Winter Design Days"), &dialog);
@@ -684,22 +708,27 @@ void LocationView::showDesignDaySelectionDialog(const std::vector<model::DesignD
   if (!winterDays99.empty()) {
     winterCheckBox99 = new QCheckBox(tr("99% Design Days"), &dialog);
     layout->addWidget(winterCheckBox99);
+    connect(winterCheckBox99, &QCheckBox::stateChanged, [=]() { addTemperatureLabel(winterCheckBox99, winterDays99); });
   }
   if (!winterDays99_6.empty()) {
     winterCheckBox99_6 = new QCheckBox(tr("99.6% Design Days"), &dialog);
     layout->addWidget(winterCheckBox99_6);
+    connect(winterCheckBox99_6, &QCheckBox::stateChanged, [=]() { addTemperatureLabel(winterCheckBox99_6, winterDays99_6); });
   }
   if (!winterDays2.empty()) {
     winterCheckBox2 = new QCheckBox(tr("2% Design Days"), &dialog);
     layout->addWidget(winterCheckBox2);
+    connect(winterCheckBox2, &QCheckBox::stateChanged, [=]() { addTemperatureLabel(winterCheckBox2, winterDays2); });
   }
   if (!winterDays1.empty()) {
     winterCheckBox1 = new QCheckBox(tr("1% Design Days"), &dialog);
     layout->addWidget(winterCheckBox1);
+    connect(winterCheckBox1, &QCheckBox::stateChanged, [=]() { addTemperatureLabel(winterCheckBox1, winterDays1); });
   }
   if (!winterDays0_4.empty()) {
     winterCheckBox0_4 = new QCheckBox(tr("0.4% Design Days"), &dialog);
     layout->addWidget(winterCheckBox0_4);
+    connect(winterCheckBox0_4, &QCheckBox::stateChanged, [=]() { addTemperatureLabel(winterCheckBox0_4, winterDays0_4); });
   }
 
   QPushButton* selectAllButton = new QPushButton(tr("Select All"), &dialog);
@@ -924,7 +953,6 @@ void LocationView::onDesignDayBtnClicked() {
 
         //m_model.insertObjects(ddyModel.objects());
         showDesignDaySelectionDialog(summerdays99, summerdays99_6, summerdays2, summerdays1, summerdays0_4, winterDays99, winterDays99_6, winterDays2, winterDays1, winterDays0_4);
-        //showDesignDaySelectionDialog(summerdays99, summerdays99_6, summerdays2, summerdays1, summerdays0_4, winterDays99, winterDays99_6, winterDays2, winterDays1, winterDays0_4);
 
         m_lastDdyPathOpened = QFileInfo(fileName).absoluteFilePath();
       }
