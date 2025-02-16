@@ -627,37 +627,38 @@ void LocationView::onWeatherFileBtnClicked() {
   }
 }
 
-void LocationView::showDesignDaySelectionDialog(const std::vector<model::DesignDay>& summerDays99,
-                                                const std::vector<model::DesignDay>& summerDays99_6,
-                                                const std::vector<model::DesignDay>& summerDays2,
-                                                const std::vector<model::DesignDay>& summerDays1,
-                                                const std::vector<model::DesignDay>& summerDays0_4,
-                                                const std::vector<model::DesignDay>& winterDays99,
-                                                const std::vector<model::DesignDay>& winterDays99_6,
-                                                const std::vector<model::DesignDay>& winterDays2,
-                                                const std::vector<model::DesignDay>& winterDays1,
-                                                const std::vector<model::DesignDay>& winterDays0_4) {
+void LocationView::showDesignDaySelectionDialog(const std::vector<openstudio::model::DesignDay, std::allocator<openstudio::model::DesignDay>> &summerDays99,
+                                                const std::vector<openstudio::model::DesignDay, std::allocator<openstudio::model::DesignDay>> &summerDays99_6,
+                                                const std::vector<openstudio::model::DesignDay, std::allocator<openstudio::model::DesignDay>> &summerDays2,
+                                                const std::vector<openstudio::model::DesignDay, std::allocator<openstudio::model::DesignDay>> &summerDays1,
+                                                const std::vector<openstudio::model::DesignDay, std::allocator<openstudio::model::DesignDay>> &summerDays0_4,
+                                                const std::vector<openstudio::model::DesignDay, std::allocator<openstudio::model::DesignDay>> &winterDays99,
+                                                const std::vector<openstudio::model::DesignDay, std::allocator<openstudio::model::DesignDay>> &winterDays99_6,
+                                                const std::vector<openstudio::model::DesignDay, std::allocator<openstudio::model::DesignDay>> &winterDays2,
+                                                const std::vector<openstudio::model::DesignDay, std::allocator<openstudio::model::DesignDay>> &winterDays1,
+                                                const std::vector<openstudio::model::DesignDay, std::allocator<openstudio::model::DesignDay>> &winterDays0_4,
+                                                const std::vector<openstudio::model::DesignDay, std::allocator<openstudio::model::DesignDay>> &allNonAnnual) {
   QDialog dialog(this);
   dialog.setWindowTitle(tr("Select Design Days"));
 
   QVBoxLayout* layout = new QVBoxLayout(&dialog);
 
-  QLabel* summerLabel = new QLabel(tr("Summer Design Days"), &dialog);
+  QLabel* summerLabel = new QLabel(tr("Annual Summer Design Days"), &dialog);
   layout->addWidget(summerLabel);
 
-  QCheckBox* summerCheckBox99 = nullptr;
-  QCheckBox* summerCheckBox99_6 = nullptr;
-  QCheckBox* summerCheckBox2 = nullptr;
-  QCheckBox* summerCheckBox1 = nullptr;
-  QCheckBox* summerCheckBox0_4 = nullptr;
-
-  auto addTemperatureLabel = [&](QCheckBox* checkBox, const std::vector<model::DesignDay>& designDays) {
+  auto addTemperatureLabel = [&](QCheckBox* checkBox, const std::vector<model::DesignDay>& designDays, const bool isSummer) {
     if (checkBox && checkBox->isChecked()) {
       for (const auto& modelObject : designDays) {
         QString dryBulbTemp = QString::number(modelObject.maximumDryBulbTemperature());
         QString wetBulbTemp = modelObject.wetBulbOrDewPointAtMaximumDryBulb() ? QString::number(modelObject.wetBulbOrDewPointAtMaximumDryBulb().get()) : "N/A";
         QString humidityConditionType = QString::fromStdString(modelObject.humidityConditionType());
-        QLabel* tempLabel = new QLabel(tr("Dry Bulb: %1, Wet Bulb: %2, Humidity Condition Type: %3").arg(dryBulbTemp).arg(wetBulbTemp).arg(humidityConditionType), &dialog);
+        QLabel* tempLabel;
+        if (isSummer)
+        {
+          tempLabel = new QLabel(tr("Dry Bulb: %1, Wet Bulb: %2, Humidity Condition Type: %3").arg(dryBulbTemp).arg(wetBulbTemp).arg(humidityConditionType), &dialog);
+        } else {
+          tempLabel = new QLabel(tr("Dry Bulb: %1").arg(dryBulbTemp), &dialog);
+        }
         tempLabel->setObjectName(checkBox->text());
         layout->insertWidget(layout->indexOf(checkBox) + 1, tempLabel);
       }
@@ -669,76 +670,123 @@ void LocationView::showDesignDaySelectionDialog(const std::vector<model::DesignD
         }
       }
     }
+    dialog.adjustSize();
   };
 
-  if (!summerDays99.empty()) {
-    summerCheckBox99 = new QCheckBox(tr("99% Design Days"), &dialog);
-    layout->addWidget(summerCheckBox99);
-    connect(summerCheckBox99, &QCheckBox::stateChanged, [=]() { addTemperatureLabel(summerCheckBox99, summerDays99); });
-  }
-  if (!summerDays99_6.empty()) {
-    summerCheckBox99_6 = new QCheckBox(tr("99.6% Design Days"), &dialog);
-    layout->addWidget(summerCheckBox99_6);
-    connect(summerCheckBox99_6, &QCheckBox::stateChanged, [=]() { addTemperatureLabel(summerCheckBox99_6, summerDays99_6); });
-  }
-  if (!summerDays2.empty()) {
-    summerCheckBox2 = new QCheckBox(tr("2% Design Days"), &dialog);
-    layout->addWidget(summerCheckBox2);
-    connect(summerCheckBox2, &QCheckBox::stateChanged, [=]() { addTemperatureLabel(summerCheckBox2, summerDays2); });
-  }
-  if (!summerDays1.empty()) {
-    summerCheckBox1 = new QCheckBox(tr("1% Design Days"), &dialog);
-    layout->addWidget(summerCheckBox1);
-    connect(summerCheckBox1, &QCheckBox::stateChanged, [=]() { addTemperatureLabel(summerCheckBox1, summerDays1); });
-  }
-  if (!summerDays0_4.empty()) {
-    summerCheckBox0_4 = new QCheckBox(tr("0.4% Design Days"), &dialog);
-    layout->addWidget(summerCheckBox0_4);
-    connect(summerCheckBox0_4, &QCheckBox::stateChanged, [=]() { addTemperatureLabel(summerCheckBox0_4, summerDays0_4); });
-  }
-
-  QLabel* winterLabel = new QLabel(tr("Winter Design Days"), &dialog);
-  layout->addWidget(winterLabel);
+  QCheckBox* summerCheckBox99 = nullptr;
+  QCheckBox* summerCheckBox99_6 = nullptr;
+  QCheckBox* summerCheckBox2 = nullptr;
+  QCheckBox* summerCheckBox1 = nullptr;
+  QCheckBox* summerCheckBox0_4 = nullptr;
 
   QCheckBox* winterCheckBox99 = nullptr;
   QCheckBox* winterCheckBox99_6 = nullptr;
   QCheckBox* winterCheckBox2 = nullptr;
   QCheckBox* winterCheckBox1 = nullptr;
   QCheckBox* winterCheckBox0_4 = nullptr;
+  QCheckBox* allNonAnnualCheckBox = nullptr;
+
+  QDialogButtonBox* buttonBox = new QDialogButtonBox(QDialogButtonBox::Ok | QDialogButtonBox::Cancel, &dialog);
+  buttonBox->button(QDialogButtonBox::Ok)->setEnabled(false);
+  layout->addWidget(buttonBox);
+
+  auto updateOkButtonState = [&]() {
+    bool anyChecked = (summerCheckBox99 && summerCheckBox99->isChecked()) ||
+                      (summerCheckBox99_6 && summerCheckBox99_6->isChecked()) ||
+                      (summerCheckBox2 && summerCheckBox2->isChecked()) ||
+                      (summerCheckBox1 && summerCheckBox1->isChecked()) ||
+                      (summerCheckBox0_4 && summerCheckBox0_4->isChecked()) ||
+                      (winterCheckBox99 && winterCheckBox99->isChecked()) ||
+                      (winterCheckBox99_6 && winterCheckBox99_6->isChecked()) ||
+                      (winterCheckBox2 && winterCheckBox2->isChecked()) ||
+                      (winterCheckBox1 && winterCheckBox1->isChecked()) ||
+                      (winterCheckBox0_4 && winterCheckBox0_4->isChecked()) || (allNonAnnualCheckBox && allNonAnnualCheckBox->isChecked());
+    buttonBox->button(QDialogButtonBox::Ok)->setEnabled(anyChecked);
+  };
+
+  if (!summerDays99.empty()) {
+    summerCheckBox99 = new QCheckBox(tr("99% Design Days"), &dialog);
+    layout->addWidget(summerCheckBox99);
+    connect(summerCheckBox99, &QCheckBox::stateChanged, [=]() { addTemperatureLabel(summerCheckBox99, summerDays99, true); updateOkButtonState(); });
+  }
+  if (!summerDays99_6.empty()) {
+    summerCheckBox99_6 = new QCheckBox(tr("99.6% Design Days"), &dialog);
+    layout->addWidget(summerCheckBox99_6);
+    connect(summerCheckBox99_6, &QCheckBox::stateChanged, [=]() { addTemperatureLabel(summerCheckBox99_6, summerDays99_6, true); updateOkButtonState(); });
+  }
+  if (!summerDays2.empty()) {
+    summerCheckBox2 = new QCheckBox(tr("2% Design Days"), &dialog);
+    layout->addWidget(summerCheckBox2);
+    connect(summerCheckBox2, &QCheckBox::stateChanged, [=]() { addTemperatureLabel(summerCheckBox2, summerDays2, true); updateOkButtonState(); });
+  }
+  if (!summerDays1.empty()) {
+    summerCheckBox1 = new QCheckBox(tr("1% Design Days"), &dialog);
+    layout->addWidget(summerCheckBox1);
+    connect(summerCheckBox1, &QCheckBox::stateChanged, [=]() { addTemperatureLabel(summerCheckBox1, summerDays1, true); updateOkButtonState(); });
+  }
+  if (!summerDays0_4.empty()) {
+    summerCheckBox0_4 = new QCheckBox(tr("0.4% Design Days"), &dialog);
+    layout->addWidget(summerCheckBox0_4);
+    connect(summerCheckBox0_4, &QCheckBox::stateChanged, [=]() { addTemperatureLabel(summerCheckBox0_4, summerDays0_4, true); updateOkButtonState(); });
+  }
+
+  QLabel* winterLabel = new QLabel(tr("Annual Winter Design Days"), &dialog);
+  layout->addWidget(winterLabel);
 
   if (!winterDays99.empty()) {
     winterCheckBox99 = new QCheckBox(tr("99% Design Days"), &dialog);
     layout->addWidget(winterCheckBox99);
-    connect(winterCheckBox99, &QCheckBox::stateChanged, [=]() { addTemperatureLabel(winterCheckBox99, winterDays99); });
+    connect(winterCheckBox99, &QCheckBox::stateChanged, [=]() { addTemperatureLabel(winterCheckBox99, winterDays99, false); updateOkButtonState(); });
   }
   if (!winterDays99_6.empty()) {
     winterCheckBox99_6 = new QCheckBox(tr("99.6% Design Days"), &dialog);
     layout->addWidget(winterCheckBox99_6);
-    connect(winterCheckBox99_6, &QCheckBox::stateChanged, [=]() { addTemperatureLabel(winterCheckBox99_6, winterDays99_6); });
+    connect(winterCheckBox99_6, &QCheckBox::stateChanged, [=]() { addTemperatureLabel(winterCheckBox99_6, winterDays99_6, false); updateOkButtonState(); });
   }
   if (!winterDays2.empty()) {
     winterCheckBox2 = new QCheckBox(tr("2% Design Days"), &dialog);
     layout->addWidget(winterCheckBox2);
-    connect(winterCheckBox2, &QCheckBox::stateChanged, [=]() { addTemperatureLabel(winterCheckBox2, winterDays2); });
+    connect(winterCheckBox2, &QCheckBox::stateChanged, [=]() { addTemperatureLabel(winterCheckBox2, winterDays2, false); updateOkButtonState(); });
   }
   if (!winterDays1.empty()) {
     winterCheckBox1 = new QCheckBox(tr("1% Design Days"), &dialog);
     layout->addWidget(winterCheckBox1);
-    connect(winterCheckBox1, &QCheckBox::stateChanged, [=]() { addTemperatureLabel(winterCheckBox1, winterDays1); });
+    connect(winterCheckBox1, &QCheckBox::stateChanged, [=]() { addTemperatureLabel(winterCheckBox1, winterDays1, false); updateOkButtonState(); });
   }
   if (!winterDays0_4.empty()) {
     winterCheckBox0_4 = new QCheckBox(tr("0.4% Design Days"), &dialog);
     layout->addWidget(winterCheckBox0_4);
-    connect(winterCheckBox0_4, &QCheckBox::stateChanged, [=]() { addTemperatureLabel(winterCheckBox0_4, winterDays0_4); });
+    connect(winterCheckBox0_4, &QCheckBox::stateChanged, [=]() { addTemperatureLabel(winterCheckBox0_4, winterDays0_4, false); updateOkButtonState(); });
   }
 
-  QPushButton* selectAllButton = new QPushButton(tr("Select All"), &dialog);
+  if (!allNonAnnual.empty()) {
+    allNonAnnualCheckBox = new QCheckBox(tr("All Non-Annual Design Days"), &dialog);
+    layout->addWidget(allNonAnnualCheckBox);
+    connect(allNonAnnualCheckBox, &QCheckBox::stateChanged, [=]() { updateOkButtonState(); });
+  }
+  QPushButton* selectAllButton = new QPushButton(tr("Select All Design Days"), &dialog);
   layout->addWidget(selectAllButton);
 
-  QDialogButtonBox* buttonBox = new QDialogButtonBox(QDialogButtonBox::Ok | QDialogButtonBox::Cancel, &dialog);
+  buttonBox->button(QDialogButtonBox::Ok)->setEnabled(false);
   layout->addWidget(buttonBox);
 
-  connect(selectAllButton, &QPushButton::clicked, [=]() {
+  if (summerCheckBox99) {
+    connect(summerCheckBox99, &QCheckBox::stateChanged, [=]() { addTemperatureLabel(summerCheckBox99, summerDays99, true); updateOkButtonState(); });
+  }
+  if (summerCheckBox99_6) {
+    connect(summerCheckBox99_6, &QCheckBox::stateChanged, [=]() { addTemperatureLabel(summerCheckBox99_6, summerDays99_6, true); updateOkButtonState(); });
+  }
+  if (summerCheckBox2) {
+    connect(summerCheckBox2, &QCheckBox::stateChanged, [=]() { addTemperatureLabel(summerCheckBox2, summerDays2, true); updateOkButtonState(); });
+  }
+  if (summerCheckBox1) {
+    connect(summerCheckBox1, &QCheckBox::stateChanged, [=]() { addTemperatureLabel(summerCheckBox1, summerDays1, true); updateOkButtonState(); });
+  }
+  if (summerCheckBox0_4) {
+    connect(summerCheckBox0_4, &QCheckBox::stateChanged, [=]() { addTemperatureLabel(summerCheckBox0_4, summerDays0_4, true); updateOkButtonState(); });
+  }
+
+    connect(selectAllButton, &QPushButton::clicked, [=]() -> void {
     if (summerCheckBox99) summerCheckBox99->setChecked(true);
     if (summerCheckBox99_6) summerCheckBox99_6->setChecked(true);
     if (summerCheckBox2) summerCheckBox2->setChecked(true);
@@ -749,6 +797,8 @@ void LocationView::showDesignDaySelectionDialog(const std::vector<model::DesignD
     if (winterCheckBox2) winterCheckBox2->setChecked(true);
     if (winterCheckBox1) winterCheckBox1->setChecked(true);
     if (winterCheckBox0_4) winterCheckBox0_4->setChecked(true);
+    if (allNonAnnualCheckBox) allNonAnnualCheckBox->setChecked(true);
+    updateOkButtonState();
   });
 
   connect(buttonBox, &QDialogButtonBox::accepted, &dialog, &QDialog::accept);
@@ -808,8 +858,14 @@ void LocationView::showDesignDaySelectionDialog(const std::vector<model::DesignD
         idfObjectsToInsert.push_back(modelObject.idfObject());
       }
     }
+    if (allNonAnnualCheckBox && allNonAnnualCheckBox->isChecked()) {
+      for (const auto& modelObject : allNonAnnual) {
+        idfObjectsToInsert.push_back(modelObject.idfObject());
+      }
+    }
 
     m_model.insertObjects(idfObjectsToInsert);
+    QTimer::singleShot(0, this, &LocationView::checkNumDesignDays);
   }
 }
 
@@ -832,17 +888,16 @@ void LocationView::onDesignDayBtnClicked() {
     if (ddyIdfFile) {
 
       openstudio::Workspace ddyWorkspace(StrictnessLevel::None, IddFileType::EnergyPlus);
+  
       for (const IdfObject& idfObject : ddyIdfFile->objects()) {
         IddObjectType iddObjectType = idfObject.iddObject().type();
-        if (iddObjectType == IddObjectType::SizingPeriod_DesignDay) {
-          boost::optional<std::string> name = idfObject.name();
-          if (name && name->find("Ann") != std::string::npos) {
-            ddyWorkspace.addObject(idfObject);
-          }
+        if ((iddObjectType == IddObjectType::SizingPeriod_DesignDay) || (iddObjectType == IddObjectType::SizingPeriod_WeatherFileDays) 
+            || (iddObjectType == IddObjectType::SizingPeriod_WeatherFileConditionType)) {
+              ddyWorkspace.addObject(idfObject);
         }
       }
 
-      energyplus::ReverseTranslator reverseTranslator;
+      openstudio::energyplus::ReverseTranslator reverseTranslator;
       model::Model ddyModel = reverseTranslator.translateWorkspace(ddyWorkspace);
 
       // Use a heuristic based on the ddy files provided by EnergyPlus
@@ -859,6 +914,7 @@ void LocationView::onDesignDayBtnClicked() {
         std::vector<model::DesignDay> winterDays2;
         std::vector<model::DesignDay> winterDays1;
         std::vector<model::DesignDay> winterDays0_4;
+        std::vector<model::DesignDay> allNonAnnual;
 
         bool unknownDay = false;
 
@@ -871,38 +927,43 @@ void LocationView::onDesignDayBtnClicked() {
             QString qname = QString::fromStdString(name.get());
             QString dayType = QString::fromStdString(designDay.dayType());
 
-            if (qname.contains("99%")) {
-              if (dayType.contains("Winter")) {
-                winterDays99.push_back(designDay);
-              } else if (dayType.contains("Summer")) {
-                summerdays99.push_back(designDay);
-              }
-            } else if (qname.contains("99.6%")) {
-              if (dayType.contains("Winter")) {
-                winterDays99_6.push_back(designDay);
-              } else if (dayType.contains("Summer")) {
-                summerdays99_6.push_back(designDay);
-              }
-            } else if (qname.contains("2%")) {
-              if (dayType.contains("Winter")) {
-                winterDays2.push_back(designDay);
-              } else if (dayType.contains("Summer")) {
-                summerdays2.push_back(designDay);
-              }
-            } else if (qname.contains("1%")) {
-              if (dayType.contains("Winter")) {
-                winterDays1.push_back(designDay);
-              } else if (dayType.contains("Summer")) {
-                summerdays1.push_back(designDay);
-              }
-            } else if (qname.contains(".4%")) {
-              if (dayType.contains("Winter")) {
-                winterDays0_4.push_back(designDay);
-              } else if (dayType.contains("Summer")) {
-                summerdays0_4.push_back(designDay);
+            if (qname.toLower().contains("ann"))
+            {
+              if (qname.contains("99%")) {
+                if (dayType.contains("Winter")) {
+                  winterDays99.push_back(designDay);
+                } else if (dayType.contains("Summer")) {
+                  summerdays99.push_back(designDay);
+                }
+              } else if (qname.contains("99.6%")) {
+                if (dayType.contains("Winter")) {
+                  winterDays99_6.push_back(designDay);
+                } else if (dayType.contains("Summer")) {
+                  summerdays99_6.push_back(designDay);
+                }
+              } else if (qname.contains("2%")) {
+                if (dayType.contains("Winter")) {
+                  winterDays2.push_back(designDay);
+                } else if (dayType.contains("Summer")) {
+                  summerdays2.push_back(designDay);
+                }
+              } else if (qname.contains("1%")) {
+                if (dayType.contains("Winter")) {
+                  winterDays1.push_back(designDay);
+                } else if (dayType.contains("Summer")) {
+                  summerdays1.push_back(designDay);
+                }
+              } else if (qname.contains(".4%")) {
+                if (dayType.contains("Winter")) {
+                  winterDays0_4.push_back(designDay);
+                } else if (dayType.contains("Summer")) {
+                  summerdays0_4.push_back(designDay);
+                }
+              } else {
+                unknownDay = true;
               }
             } else {
-              unknownDay = true;
+              allNonAnnual.push_back(designDay);
             }
           }
         }
@@ -954,13 +1015,11 @@ void LocationView::onDesignDayBtnClicked() {
         //}
 
         //m_model.insertObjects(ddyModel.objects());
-        showDesignDaySelectionDialog(summerdays99, summerdays99_6, summerdays2, summerdays1, summerdays0_4, winterDays99, winterDays99_6, winterDays2, winterDays1, winterDays0_4);
+        showDesignDaySelectionDialog(summerdays99, summerdays99_6, summerdays2, summerdays1, summerdays0_4, winterDays99, winterDays99_6, winterDays2, winterDays1, winterDays0_4,allNonAnnual);
 
         m_lastDdyPathOpened = QFileInfo(fileName).absoluteFilePath();
       }
     }
-
-    QTimer::singleShot(0, this, &LocationView::checkNumDesignDays);
   }
 }
 

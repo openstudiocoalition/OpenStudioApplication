@@ -128,7 +128,8 @@ class LocationView : public QWidget
                                     const std::vector<model::DesignDay>& summerDays2, const std::vector<model::DesignDay>& summerDays1,
                                     const std::vector<model::DesignDay>& summerDays0_4, const std::vector<model::DesignDay>& winterDays99,
                                     const std::vector<model::DesignDay>& winterDays99_6, const std::vector<model::DesignDay>& winterDays2,
-                                    const std::vector<model::DesignDay>& winterDays1, const std::vector<model::DesignDay>& winterDays0_4);
+                                    const std::vector<model::DesignDay>& winterDays1, const std::vector<model::DesignDay>& winterDays0_4,
+                                    const std::vector<model::DesignDay>& allNonAnnual);
 
   void onDesignDayBtnClicked();
 
