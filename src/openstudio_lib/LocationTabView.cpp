@@ -627,7 +627,8 @@ void LocationView::onWeatherFileBtnClicked() {
   }
 }
 
-void LocationView::showDesignDaySelectionDialog(const std::vector<openstudio::model::DesignDay, std::allocator<openstudio::model::DesignDay>> &summerDays99,
+std::vector <openstudio::model::DesignDay> LocationView::showDesignDaySelectionDialog(
+                                                const std::vector<openstudio::model::DesignDay, std::allocator<openstudio::model::DesignDay>> &summerDays99,
                                                 const std::vector<openstudio::model::DesignDay, std::allocator<openstudio::model::DesignDay>> &summerDays99_6,
                                                 const std::vector<openstudio::model::DesignDay, std::allocator<openstudio::model::DesignDay>> &summerDays2,
                                                 const std::vector<openstudio::model::DesignDay, std::allocator<openstudio::model::DesignDay>> &summerDays1,
@@ -648,11 +649,19 @@ void LocationView::showDesignDaySelectionDialog(const std::vector<openstudio::mo
   layout->addWidget(summerLabel);
 
   auto addTemperatureLabel = [&](QCheckBox* checkBox, const std::vector<model::DesignDay>& designDays, const bool isSummer) {
+    // Clear existing labels associated with the checkbox
+    for (int i = layout->count() - 1; i >= 0; --i) {
+      QWidget* widget = layout->itemAt(i)->widget();
+      if (widget && widget->objectName() == checkBox->text()) {
+        delete widget;
+      }
+    }
+
     if (checkBox && checkBox->isChecked()) {
-      for (const auto& modelObject : designDays) {
-        QString dryBulbTemp = QString::number(modelObject.maximumDryBulbTemperature());
-        QString wetBulbTemp = modelObject.wetBulbOrDewPointAtMaximumDryBulb() ? QString::number(modelObject.wetBulbOrDewPointAtMaximumDryBulb().get()) : "N/A";
-        QString humidityConditionType = QString::fromStdString(modelObject.humidityConditionType());
+      for (model::DesignDay designDay : designDays) {
+        QString dryBulbTemp = QString::number(designDay.maximumDryBulbTemperature());
+        QString wetBulbTemp = designDay.wetBulbOrDewPointAtMaximumDryBulb() ? QString::number(designDay.wetBulbOrDewPointAtMaximumDryBulb().get()) : "N/A";
+        QString humidityConditionType = QString::fromStdString(designDay.humidityConditionType());
         QLabel* tempLabel;
         if (isSummer)
         {
@@ -662,13 +671,6 @@ void LocationView::showDesignDaySelectionDialog(const std::vector<openstudio::mo
         }
         tempLabel->setObjectName(checkBox->text());
         layout->insertWidget(layout->indexOf(checkBox) + 1, tempLabel);
-      }
-    } else {
-      for (int i = layout->count() - 1; i >= 0; --i) {
-        QWidget* widget = layout->itemAt(i)->widget();
-        if (widget && widget->objectName() == checkBox->text()) {
-          delete widget;
-        }
       }
     }
     dialog.adjustSize();
@@ -806,73 +808,75 @@ void LocationView::showDesignDaySelectionDialog(const std::vector<openstudio::mo
   connect(buttonBox, &QDialogButtonBox::accepted, &dialog, &QDialog::accept);
   connect(buttonBox, &QDialogButtonBox::rejected, &dialog, &QDialog::reject);
 
-  if (dialog.exec() == QDialog::Accepted) {
-    std::vector<openstudio::IdfObject> idfObjectsToInsert;
+  std::vector<openstudio::model::DesignDay> designDaysToInsert;
 
+  if (dialog.exec() == QDialog::Accepted) {
+    
     if (summerCheckBox99 && summerCheckBox99->isChecked()) {
-      for (const auto& modelObject : summerDays99) {
-        idfObjectsToInsert.push_back(modelObject.idfObject());
+      for (model::DesignDay designDay : summerDays99) {
+        
+        designDaysToInsert.push_back(designDay);
       }
     }
     if (summerCheckBox99_6 && summerCheckBox99_6->isChecked()) {
-      for (const auto& modelObject : summerDays99_6) {
-        idfObjectsToInsert.push_back(modelObject.idfObject());
+      for (model::DesignDay designDay : summerDays99_6) {
+        designDaysToInsert.push_back(designDay);
       }
     }
     if (summerCheckBox2 && summerCheckBox2->isChecked()) {
-      for (const auto& modelObject : summerDays2) {
-        idfObjectsToInsert.push_back(modelObject.idfObject());
+      for (model::DesignDay designDay : summerDays2) {
+        designDaysToInsert.push_back(designDay);
       }
     }
     if (summerCheckBox1 && summerCheckBox1->isChecked()) {
-      for (const auto& modelObject : summerDays1) {
-        idfObjectsToInsert.push_back(modelObject.idfObject());
+      for (model::DesignDay designDay : summerDays1) {
+        designDaysToInsert.push_back(designDay);
       }
     }
     if (summerCheckBox0_4 && summerCheckBox0_4->isChecked()) {
-      for (const auto& modelObject : summerDays0_4) {
-        idfObjectsToInsert.push_back(modelObject.idfObject());
+      for (model::DesignDay designDay : summerDays0_4) {
+        designDaysToInsert.push_back(designDay);
       }
     }
 
     if (winterCheckBox99 && winterCheckBox99->isChecked()) {
-      for (const auto& modelObject : winterDays99) {
-        idfObjectsToInsert.push_back(modelObject.idfObject());
+      for (model::DesignDay designDay : winterDays99) {
+        designDaysToInsert.push_back(designDay);
       }
     }
     if (winterCheckBox99_6 && winterCheckBox99_6->isChecked()) {
-      for (const auto& modelObject : winterDays99_6) {
-        idfObjectsToInsert.push_back(modelObject.idfObject());
+      for (model::DesignDay designDay : winterDays99_6) {
+        designDaysToInsert.push_back(designDay);
       }
     }
     if (winterCheckBox2 && winterCheckBox2->isChecked()) {
-      for (const auto& modelObject : winterDays2) {
-        idfObjectsToInsert.push_back(modelObject.idfObject());
+      for (model::DesignDay designDay : winterDays2) {
+        designDaysToInsert.push_back(designDay);
       }
     }
     if (winterCheckBox1 && winterCheckBox1->isChecked()) {
-      for (const auto& modelObject : winterDays1) {
-        idfObjectsToInsert.push_back(modelObject.idfObject());
+      for (model::DesignDay designDay : winterDays1) {
+        designDaysToInsert.push_back(designDay);
       }
     }
     if (winterCheckBox0_4 && winterCheckBox0_4->isChecked()) {
-      for (const auto& modelObject : winterDays0_4) {
-        idfObjectsToInsert.push_back(modelObject.idfObject());
+      for (model::DesignDay designDay : winterDays0_4) {
+        designDaysToInsert.push_back(designDay);
       }
     }
     if (allNonAnnualCheckBox && allNonAnnualCheckBox->isChecked()) {
-      for (const auto& modelObject : allNonAnnual) {
-        idfObjectsToInsert.push_back(modelObject.idfObject());
+      for (model::DesignDay designDay : allNonAnnual) {
+        designDaysToInsert.push_back(designDay);
       }
     }
-
-    m_model.insertObjects(idfObjectsToInsert);
-    QTimer::singleShot(0, this, &LocationView::checkNumDesignDays);
   }
+
+  return designDaysToInsert;
 }
 
 void LocationView::onDesignDayBtnClicked() {
   QString fileTypes("Files (*.ddy)");
+  std::vector<openstudio::model::DesignDay> designDaysToInsert;
 
   QString lastPath = m_lastDdyPathOpened;
   if (lastPath.isEmpty() && m_lastEpwPathOpened.isEmpty()) {
@@ -971,45 +975,45 @@ void LocationView::onDesignDayBtnClicked() {
         }
 
         // Pick only the most stringent design points
-        if (!unknownDay) {
-          if (!summerdays99_6.empty()) {
-            for (model::DesignDay designDay : summerdays99) {
-              designDay.remove();
-            }
-          }
+        // if (!unknownDay) {
+        //   if (!summerdays99_6.empty()) {
+        //     for (model::DesignDay designDay : summerdays99) {
+        //       designDay.remove();
+        //     }
+        //   }
 
-          if (!summerdays0_4.empty()) {
-            for (model::DesignDay designDay : summerdays1) {
-              designDay.remove();
-            }
-            for (model::DesignDay designDay : summerdays2) {
-              designDay.remove();
-            }
-          } else if (!summerdays1.empty()) {
-            for (model::DesignDay designDay : summerdays2) {
-              designDay.remove();
-            }
-          }
+        //   if (!summerdays0_4.empty()) {
+        //     for (model::DesignDay designDay : summerdays1) {
+        //       designDay.remove();
+        //     }
+        //     for (model::DesignDay designDay : summerdays2) {
+        //       designDay.remove();
+        //     }
+        //   } else if (!summerdays1.empty()) {
+        //     for (model::DesignDay designDay : summerdays2) {
+        //       designDay.remove();
+        //     }
+        //   }
 
-          if (!winterDays99_6.empty()) {
-            for (model::DesignDay designDay : winterDays99) {
-              designDay.remove();
-            }
-          }
+        //   if (!winterDays99_6.empty()) {
+        //     for (model::DesignDay designDay : winterDays99) {
+        //       designDay.remove();
+        //     }
+        //   }
 
-          if (!winterDays0_4.empty()) {
-            for (model::DesignDay designDay : winterDays1) {
-              designDay.remove();
-            }
-            for (model::DesignDay designDay : winterDays2) {
-              designDay.remove();
-            }
-          } else if (!winterDays1.empty()) {
-            for (model::DesignDay designDay : winterDays2) {
-              designDay.remove();
-            }
-          }
-        }
+        //   if (!winterDays0_4.empty()) {
+        //     for (model::DesignDay designDay : winterDays1) {
+        //       designDay.remove();
+        //     }
+        //     for (model::DesignDay designDay : winterDays2) {
+        //       designDay.remove();
+        //     }
+        //   } else if (!winterDays1.empty()) {
+        //     for (model::DesignDay designDay : winterDays2) {
+        //       designDay.remove();
+        //     }
+        //   }
+        // }
 
         // Evan note: do not remove existing design days
         //for (model::SizingPeriod sizingPeriod : m_model.getModelObjects<model::SizingPeriod>()){
@@ -1017,7 +1021,16 @@ void LocationView::onDesignDayBtnClicked() {
         //}
 
         //m_model.insertObjects(ddyModel.objects());
-        showDesignDaySelectionDialog(summerdays99, summerdays99_6, summerdays2, summerdays1, summerdays0_4, winterDays99, winterDays99_6, winterDays2, winterDays1, winterDays0_4,allNonAnnual);
+        designDaysToInsert = showDesignDaySelectionDialog(summerdays99, summerdays99_6, summerdays2, summerdays1, summerdays0_4, winterDays99, winterDays99_6, winterDays2, winterDays1, winterDays0_4,allNonAnnual);
+
+        // Remove design days from ddyModel that are not in designDaysToInsert
+        for (auto& designDay : ddyModel.getConcreteModelObjects<model::DesignDay>()) {
+          if (std::find(designDaysToInsert.begin(), designDaysToInsert.end(), designDay) == designDaysToInsert.end()) {
+            designDay.remove();
+          }
+        }
+
+        m_model.insertObjects(ddyModel.objects());
 
         m_lastDdyPathOpened = QFileInfo(fileName).absoluteFilePath();
       }
