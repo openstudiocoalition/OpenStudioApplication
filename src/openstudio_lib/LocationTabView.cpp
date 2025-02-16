@@ -639,11 +639,12 @@ void LocationView::showDesignDaySelectionDialog(const std::vector<openstudio::mo
                                                 const std::vector<openstudio::model::DesignDay, std::allocator<openstudio::model::DesignDay>> &winterDays0_4,
                                                 const std::vector<openstudio::model::DesignDay, std::allocator<openstudio::model::DesignDay>> &allNonAnnual) {
   QDialog dialog(this);
-  dialog.setWindowTitle(tr("Select Design Days"));
+  dialog.setWindowTitle(tr("<b>Select Design Days</b>"));
 
   QVBoxLayout* layout = new QVBoxLayout(&dialog);
 
   QLabel* summerLabel = new QLabel(tr("Annual Summer Design Days"), &dialog);
+  summerLabel->setObjectName("H2");
   layout->addWidget(summerLabel);
 
   auto addTemperatureLabel = [&](QCheckBox* checkBox, const std::vector<model::DesignDay>& designDays, const bool isSummer) {
@@ -731,6 +732,7 @@ void LocationView::showDesignDaySelectionDialog(const std::vector<openstudio::mo
   }
 
   QLabel* winterLabel = new QLabel(tr("Annual Winter Design Days"), &dialog);
+  winterLabel->setObjectName("H2");
   layout->addWidget(winterLabel);
 
   if (!winterDays99.empty()) {
