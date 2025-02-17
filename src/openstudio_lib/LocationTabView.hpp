@@ -125,19 +125,7 @@ class LocationView : public QWidget
   void onWeatherFileBtnClicked();
 
   
-  std::tuple<std::vector<model::DesignDay>, std::vector<model::DesignDay>, std::vector<model::DesignDay>, std::vector<model::DesignDay>, std::vector<model::DesignDay>, std::vector<model::DesignDay>, std::vector<model::DesignDay>, std::vector<model::DesignDay>, std::vector<model::DesignDay>, std::vector<model::DesignDay>, std::vector<model::DesignDay>> sortDesignDays(const model::Model& ddyModel);
-
-  std::vector<openstudio::model::DesignDay> showDesignDaySelectionDialog(const std::vector<openstudio::model::DesignDay, std::allocator<openstudio::model::DesignDay>>& summerDays99,
-                                 const std::vector<openstudio::model::DesignDay, std::allocator<openstudio::model::DesignDay>>& summerDays99_6,
-                                 const std::vector<openstudio::model::DesignDay, std::allocator<openstudio::model::DesignDay>>& summerDays2,
-                                 const std::vector<openstudio::model::DesignDay, std::allocator<openstudio::model::DesignDay>>& summerDays1,
-                                 const std::vector<openstudio::model::DesignDay, std::allocator<openstudio::model::DesignDay>>& summerDays0_4,
-                                 const std::vector<openstudio::model::DesignDay, std::allocator<openstudio::model::DesignDay>>& winterDays99,
-                                 const std::vector<openstudio::model::DesignDay, std::allocator<openstudio::model::DesignDay>>& winterDays99_6,
-                                 const std::vector<openstudio::model::DesignDay, std::allocator<openstudio::model::DesignDay>>& winterDays2,
-                                 const std::vector<openstudio::model::DesignDay, std::allocator<openstudio::model::DesignDay>>& winterDays1,
-                                 const std::vector<openstudio::model::DesignDay, std::allocator<openstudio::model::DesignDay>>& winterDays0_4,
-                                 const std::vector<openstudio::model::DesignDay, std::allocator<openstudio::model::DesignDay>>& allNonAnnual);
+  std::vector<openstudio::model::DesignDay> showDesignDaySelectionDialog(const std::vector<openstudio::model::DesignDay, std::allocator<openstudio::model::DesignDay>>& allNonAnnual);
 
 
   void onDesignDayBtnClicked();
