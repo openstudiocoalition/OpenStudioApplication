@@ -64,6 +64,8 @@
 #include <QScrollArea>
 #include <QSettings>
 #include <QSizePolicy>
+#include <vector>
+#include <tuple>
 
 static constexpr auto NAME("Name: ");
 static constexpr auto LATITUDE("Latitude: ");
@@ -627,18 +629,75 @@ void LocationView::onWeatherFileBtnClicked() {
   }
 }
 
-std::vector <openstudio::model::DesignDay> LocationView::showDesignDaySelectionDialog(
-                                                const std::vector<openstudio::model::DesignDay, std::allocator<openstudio::model::DesignDay>> &summerDays99,
-                                                const std::vector<openstudio::model::DesignDay, std::allocator<openstudio::model::DesignDay>> &summerDays99_6,
-                                                const std::vector<openstudio::model::DesignDay, std::allocator<openstudio::model::DesignDay>> &summerDays2,
-                                                const std::vector<openstudio::model::DesignDay, std::allocator<openstudio::model::DesignDay>> &summerDays1,
-                                                const std::vector<openstudio::model::DesignDay, std::allocator<openstudio::model::DesignDay>> &summerDays0_4,
-                                                const std::vector<openstudio::model::DesignDay, std::allocator<openstudio::model::DesignDay>> &winterDays99,
-                                                const std::vector<openstudio::model::DesignDay, std::allocator<openstudio::model::DesignDay>> &winterDays99_6,
-                                                const std::vector<openstudio::model::DesignDay, std::allocator<openstudio::model::DesignDay>> &winterDays2,
-                                                const std::vector<openstudio::model::DesignDay, std::allocator<openstudio::model::DesignDay>> &winterDays1,
-                                                const std::vector<openstudio::model::DesignDay, std::allocator<openstudio::model::DesignDay>> &winterDays0_4,
-                                                const std::vector<openstudio::model::DesignDay, std::allocator<openstudio::model::DesignDay>> &allNonAnnual) {
+std::tuple<std::vector<model::DesignDay>, std::vector<model::DesignDay>, std::vector<model::DesignDay>, std::vector<model::DesignDay>, std::vector<model::DesignDay>, std::vector<model::DesignDay>, std::vector<model::DesignDay>, std::vector<model::DesignDay>, std::vector<model::DesignDay>, std::vector<model::DesignDay>, std::vector<model::DesignDay>> LocationView::sortDesignDays(const model::Model& ddyModel) {
+  std::vector<model::DesignDay> summerdays99;
+  std::vector<model::DesignDay> summerdays99_6;
+  std::vector<model::DesignDay> summerdays2;
+  std::vector<model::DesignDay> summerdays1;
+  std::vector<model::DesignDay> summerdays0_4;
+  std::vector<model::DesignDay> winterDays99;
+  std::vector<model::DesignDay> winterDays99_6;
+  std::vector<model::DesignDay> winterDays2;
+  std::vector<model::DesignDay> winterDays1;
+  std::vector<model::DesignDay> winterDays0_4;
+  std::vector<model::DesignDay> allNonAnnual;
+
+  for (const model::DesignDay& designDay : ddyModel.getConcreteModelObjects<model::DesignDay>()) {
+    boost::optional<std::string> name = designDay.name();
+
+    if (name) {
+      QString qname = QString::fromStdString(name.get());
+      QString dayType = QString::fromStdString(designDay.dayType());
+
+      if (qname.toLower().contains("ann")) {
+        if (qname.contains("99%")) {
+          if (dayType.contains("Winter")) {
+            winterDays99.push_back(designDay);
+          } else if (dayType.contains("Summer")) {
+            summerdays99.push_back(designDay);
+          }
+        } else if (qname.contains("99.6%")) {
+          if (dayType.contains("Winter")) {
+            winterDays99_6.push_back(designDay);
+          } else if (dayType.contains("Summer")) {
+            summerdays99_6.push_back(designDay);
+          }
+        } else if (qname.contains("2%")) {
+          if (dayType.contains("Winter")) {
+            winterDays2.push_back(designDay);
+          } else if (dayType.contains("Summer")) {
+            summerdays2.push_back(designDay);
+          }
+        } else if (qname.contains("1%")) {
+          if (dayType.contains("Winter")) {
+            winterDays1.push_back(designDay);
+          } else if (dayType.contains("Summer")) {
+            summerdays1.push_back(designDay);
+          }
+        } else if (qname.contains(".4%")) {
+          if (dayType.contains("Winter")) {
+            winterDays0_4.push_back(designDay);
+          } else if (dayType.contains("Summer")) {
+            summerdays0_4.push_back(designDay);
+          }
+        }
+      } else {
+        allNonAnnual.push_back(designDay);
+      }
+    }
+  }
+  return std::make_tuple(
+    summerdays99, summerdays99_6, summerdays2, summerdays1, summerdays0_4, 
+    winterDays99, winterDays99_6, winterDays2, winterDays1, winterDays0_4, 
+    allNonAnnual
+  );
+}
+
+std::vector<openstudio::model::DesignDay> LocationView::showDesignDaySelectionDialog(
+    const std::vector<openstudio::model::DesignDay>& summerDays99, const std::vector<openstudio::model::DesignDay>& summerDays99_6, const std::vector<openstudio::model::DesignDay>& summerDays2,
+    const std::vector<openstudio::model::DesignDay>& summerDays1, const std::vector<openstudio::model::DesignDay>& summerDays0_4, const std::vector<openstudio::model::DesignDay>& winterDays99,
+    const std::vector<openstudio::model::DesignDay>& winterDays99_6, const std::vector<openstudio::model::DesignDay>& winterDays2, const std::vector<openstudio::model::DesignDay>& winterDays1,
+    const std::vector<openstudio::model::DesignDay>& winterDays0_4, const std::vector<openstudio::model::DesignDay>& allNonAnnual) {
   QDialog dialog(this);
   dialog.setWindowTitle(tr("<b>Select Design Days</b>"));
 
@@ -663,8 +722,7 @@ std::vector <openstudio::model::DesignDay> LocationView::showDesignDaySelectionD
         QString wetBulbTemp = designDay.wetBulbOrDewPointAtMaximumDryBulb() ? QString::number(designDay.wetBulbOrDewPointAtMaximumDryBulb().get()) : "N/A";
         QString humidityConditionType = QString::fromStdString(designDay.humidityConditionType());
         QLabel* tempLabel;
-        if (isSummer)
-        {
+        if (isSummer) {
           tempLabel = new QLabel(tr("Dry Bulb: %1, Wet Bulb: %2, Humidity Condition Type: %3").arg(dryBulbTemp).arg(wetBulbTemp).arg(humidityConditionType), &dialog);
         } else {
           tempLabel = new QLabel(tr("Dry Bulb: %1").arg(dryBulbTemp), &dialog);
@@ -730,7 +788,7 @@ std::vector <openstudio::model::DesignDay> LocationView::showDesignDaySelectionD
   if (!summerDays0_4.empty()) {
     summerCheckBox0_4 = new QCheckBox(tr("0.4% Design Days"), &dialog);
     layout->addWidget(summerCheckBox0_4);
-    connect(summerCheckBox0_4, &QCheckBox::stateChanged, [=]() { addTemperatureLabel(summerCheckBox0_4, summerDays0_4, true); updateOkButtonState(); });
+    connect(summerCheckBox0_4, &QCheckBox::stateChanged, [=]() { addTemperatureLabel(summerCheckBox0_4,summerDays0_4, true); updateOkButtonState(); });
   }
 
   QLabel* winterLabel = new QLabel(tr("Annual Winter Design Days"), &dialog);
@@ -745,7 +803,7 @@ std::vector <openstudio::model::DesignDay> LocationView::showDesignDaySelectionD
   if (!winterDays99_6.empty()) {
     winterCheckBox99_6 = new QCheckBox(tr("99.6% Design Days"), &dialog);
     layout->addWidget(winterCheckBox99_6);
-    connect(winterCheckBox99_6, &QCheckBox::stateChanged, [=]() { addTemperatureLabel(winterCheckBox99_6, winterDays99_6, false); updateOkButtonState(); });
+    connect(winterCheckBox99_6, &QCheckBox::stateChanged, [=]() { addTemperatureLabel(winterCheckBox99_6, winterDays99_6 , false); updateOkButtonState(); });
   }
   if (!winterDays2.empty()) {
     winterCheckBox2 = new QCheckBox(tr("2% Design Days"), &dialog);
@@ -760,7 +818,7 @@ std::vector <openstudio::model::DesignDay> LocationView::showDesignDaySelectionD
   if (!winterDays0_4.empty()) {
     winterCheckBox0_4 = new QCheckBox(tr("0.4% Design Days"), &dialog);
     layout->addWidget(winterCheckBox0_4);
-    connect(winterCheckBox0_4, &QCheckBox::stateChanged, [=]() { addTemperatureLabel(winterCheckBox0_4, winterDays0_4, false); updateOkButtonState(); });
+    connect(winterCheckBox0_4, &QCheckBox::stateChanged, [=]() { addTemperatureLabel(winterCheckBox0_4, winterDays0_4 , false); updateOkButtonState(); });
   }
 
   if (!allNonAnnual.empty()) {
@@ -790,7 +848,7 @@ std::vector <openstudio::model::DesignDay> LocationView::showDesignDaySelectionD
     connect(summerCheckBox0_4, &QCheckBox::stateChanged, [=]() { addTemperatureLabel(summerCheckBox0_4, summerDays0_4, true); updateOkButtonState(); });
   }
 
-    connect(selectAllButton, &QPushButton::clicked, [=]() -> void {
+  connect(selectAllButton, &QPushButton::clicked, [=]() -> void {
     if (summerCheckBox99) summerCheckBox99->setChecked(true);
     if (summerCheckBox99_6) summerCheckBox99_6->setChecked(true);
     if (summerCheckBox2) summerCheckBox2->setChecked(true);
@@ -811,10 +869,8 @@ std::vector <openstudio::model::DesignDay> LocationView::showDesignDaySelectionD
   std::vector<openstudio::model::DesignDay> designDaysToInsert;
 
   if (dialog.exec() == QDialog::Accepted) {
-    
     if (summerCheckBox99 && summerCheckBox99->isChecked()) {
       for (model::DesignDay designDay : summerDays99) {
-        
         designDaysToInsert.push_back(designDay);
       }
     }
@@ -909,111 +965,7 @@ void LocationView::onDesignDayBtnClicked() {
       // Use a heuristic based on the ddy files provided by EnergyPlus
       // Filter out the days that are not helpful.
       if (!ddyModel.objects().empty()) {
-        // Containers to hold 99%, 99.6%, 2%, 1%, and 0.4% design points
-        std::vector<model::DesignDay> summerdays99;
-        std::vector<model::DesignDay> summerdays99_6;
-        std::vector<model::DesignDay> summerdays2;
-        std::vector<model::DesignDay> summerdays1;
-        std::vector<model::DesignDay> summerdays0_4;
-        std::vector<model::DesignDay> winterDays99;
-        std::vector<model::DesignDay> winterDays99_6;
-        std::vector<model::DesignDay> winterDays2;
-        std::vector<model::DesignDay> winterDays1;
-        std::vector<model::DesignDay> winterDays0_4;
-        std::vector<model::DesignDay> allNonAnnual;
-
-        bool unknownDay = false;
-
-        for (const model::DesignDay& designDay : ddyModel.getConcreteModelObjects<model::DesignDay>()) {
-          boost::optional<std::string> name;
-          name = designDay.name();
-
-          if (name) {
-
-            QString qname = QString::fromStdString(name.get());
-            QString dayType = QString::fromStdString(designDay.dayType());
-
-            if (qname.toLower().contains("ann"))
-            {
-              if (qname.contains("99%")) {
-                if (dayType.contains("Winter")) {
-                  winterDays99.push_back(designDay);
-                } else if (dayType.contains("Summer")) {
-                  summerdays99.push_back(designDay);
-                }
-              } else if (qname.contains("99.6%")) {
-                if (dayType.contains("Winter")) {
-                  winterDays99_6.push_back(designDay);
-                } else if (dayType.contains("Summer")) {
-                  summerdays99_6.push_back(designDay);
-                }
-              } else if (qname.contains("2%")) {
-                if (dayType.contains("Winter")) {
-                  winterDays2.push_back(designDay);
-                } else if (dayType.contains("Summer")) {
-                  summerdays2.push_back(designDay);
-                }
-              } else if (qname.contains("1%")) {
-                if (dayType.contains("Winter")) {
-                  winterDays1.push_back(designDay);
-                } else if (dayType.contains("Summer")) {
-                  summerdays1.push_back(designDay);
-                }
-              } else if (qname.contains(".4%")) {
-                if (dayType.contains("Winter")) {
-                  winterDays0_4.push_back(designDay);
-                } else if (dayType.contains("Summer")) {
-                  summerdays0_4.push_back(designDay);
-                }
-              } else {
-                unknownDay = true;
-              }
-            } else {
-              allNonAnnual.push_back(designDay);
-            }
-          }
-        }
-
-        // Pick only the most stringent design points
-        // if (!unknownDay) {
-        //   if (!summerdays99_6.empty()) {
-        //     for (model::DesignDay designDay : summerdays99) {
-        //       designDay.remove();
-        //     }
-        //   }
-
-        //   if (!summerdays0_4.empty()) {
-        //     for (model::DesignDay designDay : summerdays1) {
-        //       designDay.remove();
-        //     }
-        //     for (model::DesignDay designDay : summerdays2) {
-        //       designDay.remove();
-        //     }
-        //   } else if (!summerdays1.empty()) {
-        //     for (model::DesignDay designDay : summerdays2) {
-        //       designDay.remove();
-        //     }
-        //   }
-
-        //   if (!winterDays99_6.empty()) {
-        //     for (model::DesignDay designDay : winterDays99) {
-        //       designDay.remove();
-        //     }
-        //   }
-
-        //   if (!winterDays0_4.empty()) {
-        //     for (model::DesignDay designDay : winterDays1) {
-        //       designDay.remove();
-        //     }
-        //     for (model::DesignDay designDay : winterDays2) {
-        //       designDay.remove();
-        //     }
-        //   } else if (!winterDays1.empty()) {
-        //     for (model::DesignDay designDay : winterDays2) {
-        //       designDay.remove();
-        //     }
-        //   }
-        // }
+ 
 
         // Evan note: do not remove existing design days
         //for (model::SizingPeriod sizingPeriod : m_model.getModelObjects<model::SizingPeriod>()){
@@ -1021,7 +973,9 @@ void LocationView::onDesignDayBtnClicked() {
         //}
 
         //m_model.insertObjects(ddyModel.objects());
-        designDaysToInsert = showDesignDaySelectionDialog(summerdays99, summerdays99_6, summerdays2, summerdays1, summerdays0_4, winterDays99, winterDays99_6, winterDays2, winterDays1, winterDays0_4,allNonAnnual);
+        auto [summerDays99, summerDays99_6, summerDays2, summerDays1, summerDays0_4, winterDays99, winterDays99_6, winterDays2, winterDays1, winterDays0_4, allNonAnnual] = sortDesignDays(ddyModel);
+
+        std::vector<openstudio::model::DesignDay> designDaysToInsert = showDesignDaySelectionDialog(summerDays99, summerDays99_6, summerDays2, summerDays1, summerDays0_4, winterDays99, winterDays99_6, winterDays2, winterDays1, winterDays0_4, allNonAnnual);
 
         // Remove design days from ddyModel that are not in designDaysToInsert
         for (auto& designDay : ddyModel.getConcreteModelObjects<model::DesignDay>()) {

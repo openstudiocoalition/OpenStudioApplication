@@ -124,8 +124,10 @@ class LocationView : public QWidget
 
   void onWeatherFileBtnClicked();
 
-  std::vector<openstudio::model::DesignDay>
-    showDesignDaySelectionDialog(const std::vector<openstudio::model::DesignDay, std::allocator<openstudio::model::DesignDay>>& summerDays99,
+  
+  std::tuple<std::vector<model::DesignDay>, std::vector<model::DesignDay>, std::vector<model::DesignDay>, std::vector<model::DesignDay>, std::vector<model::DesignDay>, std::vector<model::DesignDay>, std::vector<model::DesignDay>, std::vector<model::DesignDay>, std::vector<model::DesignDay>, std::vector<model::DesignDay>, std::vector<model::DesignDay>> sortDesignDays(const model::Model& ddyModel);
+
+  std::vector<openstudio::model::DesignDay> showDesignDaySelectionDialog(const std::vector<openstudio::model::DesignDay, std::allocator<openstudio::model::DesignDay>>& summerDays99,
                                  const std::vector<openstudio::model::DesignDay, std::allocator<openstudio::model::DesignDay>>& summerDays99_6,
                                  const std::vector<openstudio::model::DesignDay, std::allocator<openstudio::model::DesignDay>>& summerDays2,
                                  const std::vector<openstudio::model::DesignDay, std::allocator<openstudio::model::DesignDay>>& summerDays1,
