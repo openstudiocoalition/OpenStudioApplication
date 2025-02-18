@@ -669,22 +669,22 @@ std::vector<model::DesignDay> LocationView::showDesignDaySelectionDialogTwo(cons
 
   // Define row labels and percentages
   QStringList rowLabels = {"Heating", "Cooling"};
-  std::vector<std::string> percentages = {"99.6%", "99%", "2%", "1%", "0.4%"};
-
-  // Add percentage labels
-  for (int col = 0; col < percentages.size(); ++col) {
-    QLabel *percentageLabel = new QLabel(QString::fromStdString(percentages[col]));
-    layout->addWidget(percentageLabel, 1, col + 1);
-  }
+  std::vector<std::string> heatingPercentages = {"99.6%", "99%"};
+  std::vector<std::string> coolingPercentages = {"2%", "1%", "0.4%"};
 
   // Populate table for Heating and Cooling
   for (int row = 0; row < rowLabels.size(); ++row) {
     QLabel *rowLabel = new QLabel(rowLabels[row]);
     layout->addWidget(rowLabel, row + 2, 0);
 
+    const auto& percentages = (row == 0) ? heatingPercentages : coolingPercentages;
+
     for (int col = 0; col < percentages.size(); ++col) {
+      QLabel *percentageLabel = new QLabel(QString::fromStdString(percentages[col]));
+      layout->addWidget(percentageLabel, 1, col + 1 + (row == 1 ? heatingPercentages.size() : 0));
+
       QCheckBox *checkBox = new QCheckBox();
-      layout->addWidget(checkBox, row + 2, col + 1);
+      layout->addWidget(checkBox, row + 2, col + 1 + (row == 1 ? heatingPercentages.size() : 0));
 
       connect(checkBox, &QCheckBox::toggled, [=, &designDaysToInsert](bool checked) {
         if (checked) {
