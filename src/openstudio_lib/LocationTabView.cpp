@@ -660,11 +660,11 @@ std::vector<model::DesignDay> LocationView::showDesignDaySelectionDialogTwo(cons
   std::vector<openstudio::model::DesignDay> designDaysToInsert;
 
   QDialog dialog(this);
-  dialog.setWindowTitle(QCoreApplication::translate("LocationView", "<b>Import Design Days</b>"));
+  dialog.setWindowTitle(QCoreApplication::translate("LocationView", "Import Design Days"));
 
   QGridLayout *layout = new QGridLayout(&dialog);
 
-  QLabel *title = new QLabel("<b>Import Design Days</b>");
+  QLabel *title = new QLabel("Import Design Days");
   layout->addWidget(title, 0, 0, 1, 5);
 
   // Define row labels and percentages
@@ -696,14 +696,27 @@ std::vector<model::DesignDay> LocationView::showDesignDaySelectionDialogTwo(cons
     }
   }
 
+  // Add a spacer item to add more space between the checkboxes and the buttons
+  QSpacerItem *spacer = new QSpacerItem(20, 40, QSizePolicy::Minimum, QSizePolicy::Expanding);
+  layout->addItem(spacer, rowLabels.size() + 2, 0, 1, 5);
+
   // Ok and Cancel buttons
   QPushButton *okButton = new QPushButton(tr("Ok"), &dialog);
   QPushButton *cancelButton = new QPushButton(tr("Cancel"), &dialog);
-  layout->addWidget(okButton, rowLabels.size() + 2, 1);
-  layout->addWidget(cancelButton, rowLabels.size() + 2, 2);
+  layout->addWidget(okButton, rowLabels.size() + 3, 1);
+  layout->addWidget(cancelButton, rowLabels.size() + 3, 2);
 
   connect(okButton, &QPushButton::clicked, &dialog, &QDialog::accept);
   connect(cancelButton, &QPushButton::clicked, &dialog, &QDialog::reject);
+
+  // Skip selection and import all DDYs button
+  QPushButton *importAllButton = new QPushButton(tr("Skip selection and import all DDYs"), &dialog);
+  layout->addWidget(importAllButton, rowLabels.size() + 3, 3);
+
+  connect(importAllButton, &QPushButton::clicked, [&dialog, &designDaysToInsert, &allDesignDays]() {
+    designDaysToInsert = allDesignDays;
+    dialog.accept();
+  });
 
   dialog.setLayout(layout);
 
