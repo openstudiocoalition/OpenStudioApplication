@@ -799,7 +799,7 @@ void LocationView::onDesignDayBtnClicked() {
 
         //m_model.insertObjects(ddyModel.objects());
 
-        std::vector<openstudio::model::DesignDay> designDaysToInsert = showDesignDaySelectionDialogTwo(ddyModel.getModelObjects<model::DesignDay>());
+        std::vector<openstudio::model::DesignDay> designDaysToInsert = showDesignDaySelectionDialog(ddyModel.getModelObjects<model::DesignDay>());
 
         // Remove design days from ddyModel that are not in designDaysToInsert
         for (auto& designDay : ddyModel.getConcreteModelObjects<model::DesignDay>()) {
