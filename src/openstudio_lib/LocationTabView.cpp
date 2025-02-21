@@ -649,8 +649,9 @@ std::vector<model::DesignDay> filterDesignDays(const std::vector<model::DesignDa
     }
 
     bool matchesHumidityConditionType = humidityConditionType.empty() || toLowerCase(designDay.humidityConditionType()) == toLowerCase(humidityConditionType);
-    return name && QString::fromStdString(name.get()).contains(QString::fromStdString(percentage)) &&
-           toLowerCase(designDay.dayType()) == toLowerCase(dayType) && matchesHumidityConditionType;
+    bool matchesPercentage = QString::fromStdString(name.get()).contains(QString::fromStdString(percentage)) ||
+                             (percentage == "0.4%" && QString::fromStdString(name.get()).contains(".4%"));
+    return name && matchesPercentage && toLowerCase(designDay.dayType()) == toLowerCase(dayType) && matchesHumidityConditionType;
   });
 
   return filteredDesignDays;
@@ -676,18 +677,22 @@ std::vector<model::DesignDay> LocationView::showDesignDaySelectionDialog(const s
   // Ok and Cancel buttons
   QPushButton *okButton = new QPushButton(tr("Ok"), &dialog);
   QPushButton *cancelButton = new QPushButton(tr("Cancel"), &dialog);
-  layout->addWidget(okButton, rowLabels.size() + 3, 1);
-  layout->addWidget(cancelButton, rowLabels.size() + 3, 2);
+  QPushButton *importAllButton = new QPushButton(tr("Skip selection\nimport all DDYs"), &dialog);
+
+  // Set the same size for all buttons
+  okButton->setSizePolicy(QSizePolicy::Minimum, QSizePolicy::Preferred);
+  cancelButton->setSizePolicy(QSizePolicy::Minimum, QSizePolicy::Preferred);
+  importAllButton->setSizePolicy(QSizePolicy::Minimum, QSizePolicy::Preferred);
+
+  // Adjust the order of the buttons
+  layout->addWidget(importAllButton, rowLabels.size() * 2 + 3, 1);
+  layout->addWidget(okButton, rowLabels.size() * 2 + 3, 2);
+  layout->addWidget(cancelButton, rowLabels.size() * 2 + 3, 3);
 
   okButton->setEnabled(false); // Initially disable the Ok button
 
   connect(okButton, &QPushButton::clicked, &dialog, &QDialog::accept);
   connect(cancelButton, &QPushButton::clicked, &dialog, &QDialog::reject);
-
-  // Skip selection and import all DDYs button
-  QPushButton *importAllButton = new QPushButton(tr("Skip selection and import all DDYs"), &dialog);
-  layout->addWidget(importAllButton, rowLabels.size() + 3, 3);
-
   connect(importAllButton, &QPushButton::clicked, [&dialog, &designDaysToInsert, &allDesignDays]() {
     designDaysToInsert = allDesignDays;
     dialog.accept();
