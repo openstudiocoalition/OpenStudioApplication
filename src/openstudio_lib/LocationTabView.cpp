@@ -673,7 +673,7 @@ std::vector<model::DesignDay> LocationView::showDesignDaySelectionDialog(const s
   // Ok and Cancel buttons
   QPushButton *okButton = new QPushButton(tr("Ok"), &dialog);
   QPushButton *cancelButton = new QPushButton(tr("Cancel"), &dialog);
-  QPushButton *importAllButton = new QPushButton(tr("Skip selection\nimport all DDYs"), &dialog);
+  QPushButton *importAllButton = new QPushButton(tr("Skip\nselection\nimport\nall DDYs"), &dialog);
 
   // Set the same size for all buttons
   okButton->setSizePolicy(QSizePolicy::Minimum, QSizePolicy::Preferred);
@@ -737,6 +737,7 @@ std::vector<model::DesignDay> LocationView::showDesignDaySelectionDialog(const s
   layout->addItem(spacer, rowLabels.size() * 2 + 2, 0, 1, 5);
 
   dialog.setLayout(layout);
+  dialog.setMinimumSize(dialog.sizeHint());
 
   // Execute the dialog and wait for user interaction
   if (dialog.exec() == QDialog::Accepted) {
