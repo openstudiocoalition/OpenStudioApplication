@@ -658,33 +658,6 @@ std::vector<model::DesignDay> filterDesignDays(const std::vector<model::DesignDa
 
 std::vector<model::DesignDay> LocationView::showDesignDaySelectionDialog(const std::vector<openstudio::model::DesignDay>& allDesignDays) {
   std::vector<openstudio::model::DesignDay> designDaysToInsert;
-  // Lambda to add temperatures to the dialog of the design days
-  // auto addTemperatureLabel = [&](QCheckBox* checkBox, const std::vector<model::DesignDay>& designDays, const bool isSummer) {
-  //   // Clear existing labels associated with the checkbox
-  //   for (int i = layout->count() - 1; i >= 0; --i) {
-  //     QWidget* widget = layout->itemAt(i)->widget();
-  //     if (widget && widget->objectName() == checkBox->text()) {
-  //       delete widget;
-  //     }
-  //   }
-
-  //   if (checkBox && checkBox->isChecked()) {
-  //     for (model::DesignDay designDay : designDays) {
-  //       QString dryBulbTemp = QString::number(designDay.maximumDryBulbTemperature());
-  //       QString wetBulbTemp = designDay.wetBulbOrDewPointAtMaximumDryBulb() ? QString::number(designDay.wetBulbOrDewPointAtMaximumDryBulb().get()) : "N/A";
-  //       QString humidityConditionType = QString::fromStdString(designDay.humidityConditionType());
-  //       QLabel* tempLabel;
-  //       if (isSummer) {
-  //         tempLabel = new QLabel(tr("Dry Bulb: %1, Wet Bulb: %2, Humidity Condition Type: %3").arg(dryBulbTemp).arg(wetBulbTemp).arg(humidityConditionType), &dialog);
-  //       } else {
-  //         tempLabel = new QLabel(tr("Dry Bulb: %1").arg(dryBulbTemp), &dialog);
-  //       }
-  //       tempLabel->setObjectName(checkBox->text());
-  //       layout->insertWidget(layout->indexOf(checkBox) + 1, tempLabel);
-  //     }
-  //   }
-  //   dialog.adjustSize();
-  // };
 
   QDialog dialog(this);
   dialog.setWindowTitle(QCoreApplication::translate("LocationView", "Import Design Days"));
@@ -698,6 +671,26 @@ std::vector<model::DesignDay> LocationView::showDesignDaySelectionDialog(const s
   QStringList rowLabels = {"Heating", "Cooling"};
   std::vector<std::string> heatingPercentages = {"99.6%", "99%"};
   std::vector<std::string> coolingPercentages = {"2%", "1%", "0.4%"};
+
+  // Ok and Cancel buttons
+  QPushButton *okButton = new QPushButton(tr("Ok"), &dialog);
+  QPushButton *cancelButton = new QPushButton(tr("Cancel"), &dialog);
+  layout->addWidget(okButton, rowLabels.size() + 3, 1);
+  layout->addWidget(cancelButton, rowLabels.size() + 3, 2);
+
+  okButton->setEnabled(false); // Initially disable the Ok button
+
+  connect(okButton, &QPushButton::clicked, &dialog, &QDialog::accept);
+  connect(cancelButton, &QPushButton::clicked, &dialog, &QDialog::reject);
+
+  // Skip selection and import all DDYs button
+  QPushButton *importAllButton = new QPushButton(tr("Skip selection and import all DDYs"), &dialog);
+  layout->addWidget(importAllButton, rowLabels.size() + 3, 3);
+
+  connect(importAllButton, &QPushButton::clicked, [&dialog, &designDaysToInsert, &allDesignDays]() {
+    designDaysToInsert = allDesignDays;
+    dialog.accept();
+  });
 
   // Populate table for Heating and Cooling
   for (int row = 0; row < rowLabels.size(); ++row) {
@@ -718,7 +711,18 @@ std::vector<model::DesignDay> LocationView::showDesignDaySelectionDialog(const s
           std::string dayType = (row == 0) ? "WinterDesignDay" : "SummerDesignDay";
           std::vector<model::DesignDay> filteredDays = filterDesignDays(allDesignDays, dayType, percentages[col]);
           designDaysToInsert.insert(designDaysToInsert.end(), filteredDays.begin(), filteredDays.end());
+        } else {
+          // Remove unchecked design days
+          std::string dayType = (row == 0) ? "WinterDesignDay" : "SummerDesignDay";
+          std::vector<model::DesignDay> filteredDays = filterDesignDays(allDesignDays, dayType, percentages[col]);
+          for (const auto& day : filteredDays) {
+            auto it = std::find(designDaysToInsert.begin(), designDaysToInsert.end(), day);
+            if (it != designDaysToInsert.end()) {
+              designDaysToInsert.erase(it);
+            }
+          }
         }
+        okButton->setEnabled(!designDaysToInsert.empty());
       });
     }
   }
@@ -726,24 +730,6 @@ std::vector<model::DesignDay> LocationView::showDesignDaySelectionDialog(const s
   // Add a spacer item to add more space between the checkboxes and the buttons
   QSpacerItem *spacer = new QSpacerItem(20, 40, QSizePolicy::Minimum, QSizePolicy::Expanding);
   layout->addItem(spacer, rowLabels.size() + 2, 0, 1, 5);
-
-  // Ok and Cancel buttons
-  QPushButton *okButton = new QPushButton(tr("Ok"), &dialog);
-  QPushButton *cancelButton = new QPushButton(tr("Cancel"), &dialog);
-  layout->addWidget(okButton, rowLabels.size() + 3, 1);
-  layout->addWidget(cancelButton, rowLabels.size() + 3, 2);
-
-  connect(okButton, &QPushButton::clicked, &dialog, &QDialog::accept);
-  connect(cancelButton, &QPushButton::clicked, &dialog, &QDialog::reject);
-
-  // Skip selection and import all DDYs button
-  QPushButton *importAllButton = new QPushButton(tr("Skip selection and import all DDYs"), &dialog);
-  layout->addWidget(importAllButton, rowLabels.size() + 3, 3);
-
-  connect(importAllButton, &QPushButton::clicked, [&dialog, &designDaysToInsert, &allDesignDays]() {
-    designDaysToInsert = allDesignDays;
-    dialog.accept();
-  });
 
   dialog.setLayout(layout);
 
