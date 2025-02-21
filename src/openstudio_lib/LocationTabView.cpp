@@ -664,8 +664,9 @@ std::vector<model::DesignDay> LocationView::showDesignDaySelectionDialog(const s
 
   QGridLayout *layout = new QGridLayout(&dialog);
 
-  QLabel *title = new QLabel("Import Design Days");
-  layout->addWidget(title, 0, 0, 1, 5);
+  // // QLabel *title = new QLabel("Import Design Days");
+  //// title->setAlignment(Qt::AlignCenter);
+  //// layout->addWidget(title, 0, 0, 1, 5, Qt::AlignCenter);
 
   // Define row labels and percentages
   QStringList rowLabels = {"Heating", "Cooling"};
@@ -695,16 +696,16 @@ std::vector<model::DesignDay> LocationView::showDesignDaySelectionDialog(const s
   // Populate table for Heating and Cooling
   for (int row = 0; row < rowLabels.size(); ++row) {
     QLabel *rowLabel = new QLabel(rowLabels[row]);
-    layout->addWidget(rowLabel, row + 2, 0);
+    layout->addWidget(rowLabel, row * 2 + 1, 0, Qt::AlignCenter);
 
     const auto& percentages = (row == 0) ? heatingPercentages : coolingPercentages;
 
     for (int col = 0; col < percentages.size(); ++col) {
       QLabel *percentageLabel = new QLabel(QString::fromStdString(percentages[col]));
-      layout->addWidget(percentageLabel, 1, col + 1 + (row == 1 ? heatingPercentages.size() : 0));
+      layout->addWidget(percentageLabel, row * 2, col + 1, Qt::AlignCenter);
 
       QCheckBox *checkBox = new QCheckBox();
-      layout->addWidget(checkBox, row + 2, col + 1 + (row == 1 ? heatingPercentages.size() : 0));
+      layout->addWidget(checkBox, row * 2 + 1, col + 1, Qt::AlignCenter);
 
       connect(checkBox, &QCheckBox::toggled, [=, &designDaysToInsert](bool checked) {
         if (checked) {
@@ -729,7 +730,7 @@ std::vector<model::DesignDay> LocationView::showDesignDaySelectionDialog(const s
 
   // Add a spacer item to add more space between the checkboxes and the buttons
   QSpacerItem *spacer = new QSpacerItem(20, 40, QSizePolicy::Minimum, QSizePolicy::Expanding);
-  layout->addItem(spacer, rowLabels.size() + 2, 0, 1, 5);
+  layout->addItem(spacer, rowLabels.size() * 2 + 2, 0, 1, 5);
 
   dialog.setLayout(layout);
 
