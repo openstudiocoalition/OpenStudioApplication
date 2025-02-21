@@ -665,10 +665,6 @@ std::vector<model::DesignDay> LocationView::showDesignDaySelectionDialog(const s
 
   QGridLayout *layout = new QGridLayout(&dialog);
 
-  // // QLabel *title = new QLabel("Import Design Days");
-  //// title->setAlignment(Qt::AlignCenter);
-  //// layout->addWidget(title, 0, 0, 1, 5, Qt::AlignCenter);
-
   // Define row labels and percentages
   QStringList rowLabels = {"Heating", "Cooling"};
   std::vector<std::string> heatingPercentages = {"99.6%", "99%"};
@@ -688,6 +684,9 @@ std::vector<model::DesignDay> LocationView::showDesignDaySelectionDialog(const s
   layout->addWidget(importAllButton, rowLabels.size() * 2 + 3, 1);
   layout->addWidget(okButton, rowLabels.size() * 2 + 3, 2);
   layout->addWidget(cancelButton, rowLabels.size() * 2 + 3, 3);
+
+  okButton->setMinimumSize(cancelButton->sizeHint());
+  importAllButton->setMinimumSize(cancelButton->sizeHint());
 
   okButton->setEnabled(false); // Initially disable the Ok button
 
