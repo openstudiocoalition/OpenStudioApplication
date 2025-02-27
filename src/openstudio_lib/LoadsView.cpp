@@ -14,6 +14,7 @@
 #include "SteamEquipmentInspectorView.hpp"
 #include "OtherEquipmentInspectorView.hpp"
 #include "WaterUseEquipmentInspectorView.hpp"
+#include "HotWaterEquipmentInspectorView.hpp"
 
 #include <openstudio/model/Model_Impl.hpp>
 
@@ -50,6 +51,7 @@ std::vector<std::pair<IddObjectType, std::string>> LoadsView::modelObjectTypesAn
   result.push_back(std::make_pair<IddObjectType, std::string>(IddObjectType::OS_OtherEquipment_Definition, "Other Equipment Definitions"));
   result.push_back(std::make_pair<IddObjectType, std::string>(IddObjectType::OS_InternalMass_Definition, "Internal Mass Definitions"));
   result.push_back(std::make_pair<IddObjectType, std::string>(IddObjectType::OS_WaterUse_Equipment_Definition, "Water Use Equipment Definitions"));
+  result.push_back(std::make_pair<IddObjectType, std::string>(IddObjectType::OS_HotWaterEquipment_Definition, "Hot Water Equipment Definitions"));
 
   return result;
 }
@@ -94,6 +96,9 @@ void LoadsInspectorView::onSelectModelObject(const openstudio::model::ModelObjec
       break;
     case IddObjectType::OS_WaterUse_Equipment_Definition:
       this->showWaterUseEquipmentDefinitionsInspector(modelObject);
+      break;
+    case IddObjectType::OS_HotWaterEquipment_Definition:
+      this->showHotWaterEquipmentDefinitionsInspector(modelObject);
       break;
     default:
       showDefaultView();
@@ -197,6 +202,16 @@ void LoadsInspectorView::showInternalMassDefinitionsInspector(const openstudio::
   internalMassDefinitionInspectorView->selectModelObject(modelObject);
 
   this->showInspector(internalMassDefinitionInspectorView);
+}
+
+void LoadsInspectorView::showHotWaterEquipmentDefinitionsInspector(const openstudio::model::ModelObject& modelObject) {
+  auto* hotWaterEquipmentDefinitionInspectorView = new HotWaterEquipmentDefinitionInspectorView(m_isIP, m_model);
+  connect(this, &LoadsInspectorView::toggleUnitsClicked, hotWaterEquipmentDefinitionInspectorView,
+          &HotWaterEquipmentDefinitionInspectorView::toggleUnitsClicked);
+
+  hotWaterEquipmentDefinitionInspectorView->selectModelObject(modelObject);
+
+  showInspector(hotWaterEquipmentDefinitionInspectorView);
 }
 
 void LoadsInspectorView::showDefaultView() {

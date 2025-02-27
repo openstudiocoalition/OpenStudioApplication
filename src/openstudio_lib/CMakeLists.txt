@@ -93,6 +93,8 @@ set(${target_name}_SRC
   GridViewSubTab.hpp
   HorizontalTabWidget.cpp
   HorizontalTabWidget.hpp
+  HotWaterEquipmentInspectorView.cpp
+  HotWaterEquipmentInspectorView.hpp
   HVACSystemsController.cpp
   HVACSystemsController.hpp
   HVACSystemsTabController.cpp
@@ -540,6 +542,7 @@ set(${target_name}_moc
   GridScene.hpp
   GridViewSubTab.hpp
   HorizontalTabWidget.hpp
+  HotWaterEquipmentInspectorView.hpp
   HVACSystemsController.hpp
   HVACSystemsTabController.hpp
   HVACSystemsTabView.hpp
