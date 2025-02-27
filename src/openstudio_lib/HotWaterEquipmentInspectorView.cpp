@@ -102,6 +102,14 @@ HotWaterEquipmentDefinitionInspectorView::HotWaterEquipmentDefinitionInspectorVi
 
   mainGridLayout->setRowStretch(8, 100);
 
+  label =
+    new QLabel("<i>The object models hot water equipment in the zone which consumes district heating, such as cooking equipment or process loads. "
+               "All of the energy consumed by the equipment becomes a heat gain in the zone or is lost (exhausted). "
+               "This object consumes district heating energy directly and does not cause a load on a hot water plant loop or water heater. "
+               "For domestic hot water uses, such as sinks and showers, see WaterUse:Equipment.</i>");
+  label->setWordWrap(true);
+  mainGridLayout->addWidget(label, 9, 0, 1, 4);
+
   mainGridLayout->setColumnStretch(3, 100);
 }
 
