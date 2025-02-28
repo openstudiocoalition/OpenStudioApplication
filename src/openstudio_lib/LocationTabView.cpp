@@ -632,26 +632,20 @@ void LocationView::onWeatherFileBtnClicked() {
   }
 }
 
-std::string toLowerCase(const std::string& str) {
-  std::string lowerStr = str;
-  std::transform(lowerStr.begin(), lowerStr.end(), lowerStr.begin(), [](unsigned char c) { return std::tolower(c); });
-  return lowerStr;
-}
-
 std::vector<model::DesignDay> filterDesignDays(const std::vector<model::DesignDay>& designDays, const std::string& dayType, const std::string& percentage, const std::string& humidityConditionType = "") {
   std::vector<model::DesignDay> filteredDesignDays;
 
   std::copy_if(designDays.begin(), designDays.end(), std::back_inserter(filteredDesignDays), [&](const model::DesignDay& designDay) {
     boost::optional<std::string> name = designDay.name();
 
-    if (!QString::fromStdString(toLowerCase(name.get())).contains("ann")) {
+    if (!QString::fromStdString(boost::to_lower_copy(name.get())).contains("ann")) {
       return false;
     }
 
-    bool matchesHumidityConditionType = humidityConditionType.empty() || toLowerCase(designDay.humidityConditionType()) == toLowerCase(humidityConditionType);
+    bool matchesHumidityConditionType = humidityConditionType.empty() || boost::to_lower_copy(designDay.humidityConditionType()) == boost::to_lower_copy(humidityConditionType);
     bool matchesPercentage = QString::fromStdString(name.get()).contains(QString::fromStdString(percentage)) ||
                              (percentage == "0.4%" && QString::fromStdString(name.get()).contains(".4%"));
-    return name && matchesPercentage && toLowerCase(designDay.dayType()) == toLowerCase(dayType) && matchesHumidityConditionType;
+    return name && matchesPercentage && boost::to_lower_copy(designDay.dayType()) == boost::to_lower_copy(dayType) && matchesHumidityConditionType;
   });
 
   return filteredDesignDays;
