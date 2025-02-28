@@ -636,16 +636,20 @@ std::vector<model::DesignDay> filterDesignDays(const std::vector<model::DesignDa
   std::vector<model::DesignDay> filteredDesignDays;
 
   std::copy_if(designDays.begin(), designDays.end(), std::back_inserter(filteredDesignDays), [&](const model::DesignDay& designDay) {
-    boost::optional<std::string> name = designDay.name();
+  QString nameString = QString::fromStdString(designDay.name().get());
 
-    if (!QString::fromStdString(boost::to_lower_copy(name.get())).contains("ann")) {
+    if (!nameString.contains("ann",Qt::CaseInsensitive))
+    { 
       return false;
     }
 
-    bool matchesHumidityConditionType = humidityConditionType.empty() || boost::to_lower_copy(designDay.humidityConditionType()) == boost::to_lower_copy(humidityConditionType);
-    bool matchesPercentage = QString::fromStdString(name.get()).contains(QString::fromStdString(percentage)) ||
-                             (percentage == "0.4%" && QString::fromStdString(name.get()).contains(".4%"));
-    return name && matchesPercentage && boost::to_lower_copy(designDay.dayType()) == boost::to_lower_copy(dayType) && matchesHumidityConditionType;
+    bool matchesHumidityConditionType = humidityConditionType.empty() || openstudio::istringEqual(designDay.humidityConditionType(),humidityConditionType);
+    bool matchesPercentage = nameString.contains(QString::fromStdString(percentage)) ||
+                             (percentage == "0.4%" && nameString.contains(".4%"));
+
+    bool matchesDesignDay = openstudio::istringEqual(designDay.dayType(), dayType);
+
+    return matchesPercentage && matchesDesignDay && matchesHumidityConditionType;
   });
 
   return filteredDesignDays;
