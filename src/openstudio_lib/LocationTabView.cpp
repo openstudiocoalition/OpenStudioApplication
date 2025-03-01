@@ -655,6 +655,21 @@ std::vector<model::DesignDay> filterDesignDays(const std::vector<model::DesignDa
   return filteredDesignDays;
 }
 
+/**
+ * @brief Displays a dialog for selecting design days from a given list.
+ *
+ * This function creates and displays a modal dialog that allows the user to select specific design days
+ * from a provided list of all available design days which are
+ *  heatingPercentages {"99.6%", "99%"};
+  *  and coolingPercentages = {"2%", "1%", "0.4%"};
+ * 
+ * . The dialog includes options for selecting heating
+ * and cooling design days based on predefined percentages. The user can choose to import all design days,
+ * select specific ones, or cancel the operation.
+ *
+ * @param allDesignDays A vector containing all available design days.
+ * @return A vector of selected design days if the user confirms the selection, or an empty vector if the user cancels.
+ */
 std::vector<model::DesignDay> LocationView::showDesignDaySelectionDialog(const std::vector<openstudio::model::DesignDay>& allDesignDays) {
   std::vector<openstudio::model::DesignDay> designDaysToInsert;
   designDaysToInsert.reserve(allDesignDays.size());  // Reserve space for designDaysToInsert
@@ -664,7 +679,7 @@ std::vector<model::DesignDay> LocationView::showDesignDaySelectionDialog(const s
 
   QGridLayout* layout = new QGridLayout(&dialog);
 
-  // Define row labels and percentages
+  // Define row labels and percentages to present to the user from the DDY
   QStringList rowLabels = {"Heating", "Cooling"};
   std::vector<std::string> heatingPercentages = {"99.6%", "99%"};
   std::vector<std::string> coolingPercentages = {"2%", "1%", "0.4%"};
@@ -687,7 +702,7 @@ std::vector<model::DesignDay> LocationView::showDesignDaySelectionDialog(const s
   okButton->setMinimumSize(cancelButton->sizeHint());
   importAllButton->setMinimumSize(cancelButton->sizeHint());
 
-  okButton->setEnabled(false);  // Initially disable the Ok button
+  okButton->setEnabled(false);  // Initially disable the Ok button until something is checked
 
   connect(okButton, &QPushButton::clicked, [&dialog, &designDaysToInsert, &allDesignDays, rowLabels, heatingPercentages, coolingPercentages]() {
     for (int row = 0; row < rowLabels.size(); ++row) {
@@ -722,7 +737,7 @@ std::vector<model::DesignDay> LocationView::showDesignDaySelectionDialog(const s
       layout->addWidget(percentageLabel, row * 2, col + 1, Qt::AlignCenter);
 
       std::string dayType = (row == 0) ? "WinterDesignDay" : "SummerDesignDay";
-
+      // Only display the checkbox if there are design days to select in the ddy file
       if (filterDesignDays(allDesignDays, dayType, percentages[col]).empty()) {
         continue;
       }
