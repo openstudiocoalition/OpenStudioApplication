@@ -657,6 +657,7 @@ std::vector<model::DesignDay> filterDesignDays(const std::vector<model::DesignDa
 
 std::vector<model::DesignDay> LocationView::showDesignDaySelectionDialog(const std::vector<openstudio::model::DesignDay>& allDesignDays) {
   std::vector<openstudio::model::DesignDay> designDaysToInsert;
+  designDaysToInsert.reserve(allDesignDays.size()); // Reserve space for designDaysToInsert
 
   QDialog dialog(this);
   dialog.setWindowTitle(QCoreApplication::translate("LocationView", "Import Design Days"));
