@@ -755,7 +755,6 @@ std::vector<model::DesignDay> LocationView::showDesignDaySelectionDialog(const s
 
 void LocationView::onDesignDayBtnClicked() {
   QString fileTypes("Files (*.ddy)");
-  std::vector<openstudio::model::DesignDay> designDaysToInsert;
 
   QString lastPath = m_lastDdyPathOpened;
   if (lastPath.isEmpty() && m_lastEpwPathOpened.isEmpty()) {
