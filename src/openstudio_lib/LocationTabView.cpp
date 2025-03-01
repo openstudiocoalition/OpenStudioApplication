@@ -660,8 +660,8 @@ std::vector<model::DesignDay> filterDesignDays(const std::vector<model::DesignDa
  *
  * This function creates and displays a modal dialog that allows the user to select specific design days
  * from a provided list of all available design days which are
- *  heatingPercentages {"99.6%", "99%"};
-  *  and coolingPercentages = {"2%", "1%", "0.4%"};
+ *  heatingPercentages "99.6%", "99%"
+  *  and coolingPercentages "2%", "1%", "0.4%"
  * 
  * . The dialog includes options for selecting heating
  * and cooling design days based on predefined percentages. The user can choose to import all design days,
