@@ -721,6 +721,13 @@ std::vector<model::DesignDay> LocationView::showDesignDaySelectionDialog(const s
       QLabel *percentageLabel = new QLabel(QString::fromStdString(percentages[col]));
       layout->addWidget(percentageLabel, row * 2, col + 1, Qt::AlignCenter);
 
+      std::string dayType = (row == 0) ? "WinterDesignDay" : "SummerDesignDay";
+
+      if (filterDesignDays(allDesignDays, dayType, percentages[col]).empty())
+      {
+        continue;
+      }
+
       QCheckBox *checkBox = new QCheckBox();
       checkBox->setObjectName(QString("checkBox_%1_%2").arg(row).arg(col));
       layout->addWidget(checkBox, row * 2 + 1, col + 1, Qt::AlignCenter);
@@ -731,6 +738,7 @@ std::vector<model::DesignDay> LocationView::showDesignDaySelectionDialog(const s
           return cb->isChecked();
         }));
       });
+
     }
   }
 
