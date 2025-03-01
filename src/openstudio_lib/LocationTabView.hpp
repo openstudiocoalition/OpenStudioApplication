@@ -124,7 +124,8 @@ class LocationView : public QWidget
 
   void onWeatherFileBtnClicked();
 
-  std::vector<openstudio::model::DesignDay> showDesignDaySelectionDialog(const std::vector<openstudio::model::DesignDay, std::allocator<openstudio::model::DesignDay>>& allNonAnnual);
+  std::vector<openstudio::model::DesignDay>
+    showDesignDaySelectionDialog(const std::vector<openstudio::model::DesignDay, std::allocator<openstudio::model::DesignDay>>& allNonAnnual);
 
   void onDesignDayBtnClicked();
 

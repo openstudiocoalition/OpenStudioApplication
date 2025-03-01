@@ -632,20 +632,20 @@ void LocationView::onWeatherFileBtnClicked() {
   }
 }
 
-std::vector<model::DesignDay> filterDesignDays(const std::vector<model::DesignDay>& designDays, const std::string& dayType, const std::string& percentage, const std::string& humidityConditionType = "") {
+std::vector<model::DesignDay> filterDesignDays(const std::vector<model::DesignDay>& designDays, const std::string& dayType,
+                                               const std::string& percentage, const std::string& humidityConditionType = "") {
   std::vector<model::DesignDay> filteredDesignDays;
 
   std::copy_if(designDays.begin(), designDays.end(), std::back_inserter(filteredDesignDays), [&](const model::DesignDay& designDay) {
-  QString nameString = QString::fromStdString(designDay.name().get());
+    QString nameString = QString::fromStdString(designDay.name().get());
 
-    if (!nameString.contains("ann",Qt::CaseInsensitive))
-    { 
+    if (!nameString.contains("ann", Qt::CaseInsensitive)) {
       return false;
     }
 
-    bool matchesHumidityConditionType = humidityConditionType.empty() || openstudio::istringEqual(designDay.humidityConditionType(),humidityConditionType);
-    bool matchesPercentage = nameString.contains(QString::fromStdString(percentage)) ||
-                             (percentage == "0.4%" && nameString.contains(".4%"));
+    bool matchesHumidityConditionType =
+      humidityConditionType.empty() || openstudio::istringEqual(designDay.humidityConditionType(), humidityConditionType);
+    bool matchesPercentage = nameString.contains(QString::fromStdString(percentage)) || (percentage == "0.4%" && nameString.contains(".4%"));
 
     bool matchesDesignDay = openstudio::istringEqual(designDay.dayType(), dayType);
 
@@ -657,12 +657,12 @@ std::vector<model::DesignDay> filterDesignDays(const std::vector<model::DesignDa
 
 std::vector<model::DesignDay> LocationView::showDesignDaySelectionDialog(const std::vector<openstudio::model::DesignDay>& allDesignDays) {
   std::vector<openstudio::model::DesignDay> designDaysToInsert;
-  designDaysToInsert.reserve(allDesignDays.size()); // Reserve space for designDaysToInsert
+  designDaysToInsert.reserve(allDesignDays.size());  // Reserve space for designDaysToInsert
 
   QDialog dialog(this);
   dialog.setWindowTitle(QCoreApplication::translate("LocationView", "Import Design Days"));
 
-  QGridLayout *layout = new QGridLayout(&dialog);
+  QGridLayout* layout = new QGridLayout(&dialog);
 
   // Define row labels and percentages
   QStringList rowLabels = {"Heating", "Cooling"};
@@ -670,9 +670,9 @@ std::vector<model::DesignDay> LocationView::showDesignDaySelectionDialog(const s
   std::vector<std::string> coolingPercentages = {"2%", "1%", "0.4%"};
 
   // Ok and Cancel buttons
-  QPushButton *okButton = new QPushButton(tr("Ok"), &dialog);
-  QPushButton *cancelButton = new QPushButton(tr("Cancel"), &dialog);
-  QPushButton *importAllButton = new QPushButton(tr("Skip\nselection\nimport\nall DDYs"), &dialog);
+  QPushButton* okButton = new QPushButton(tr("Ok"), &dialog);
+  QPushButton* cancelButton = new QPushButton(tr("Cancel"), &dialog);
+  QPushButton* importAllButton = new QPushButton(tr("Skip\nselection\nimport\nall DDYs"), &dialog);
 
   // Set the same size for all buttons
   okButton->setSizePolicy(QSizePolicy::Minimum, QSizePolicy::Preferred);
@@ -687,13 +687,13 @@ std::vector<model::DesignDay> LocationView::showDesignDaySelectionDialog(const s
   okButton->setMinimumSize(cancelButton->sizeHint());
   importAllButton->setMinimumSize(cancelButton->sizeHint());
 
-  okButton->setEnabled(false); // Initially disable the Ok button
+  okButton->setEnabled(false);  // Initially disable the Ok button
 
   connect(okButton, &QPushButton::clicked, [&dialog, &designDaysToInsert, &allDesignDays, rowLabels, heatingPercentages, coolingPercentages]() {
     for (int row = 0; row < rowLabels.size(); ++row) {
       const auto& percentages = (row == 0) ? heatingPercentages : coolingPercentages;
       for (int col = 0; col < percentages.size(); ++col) {
-        QCheckBox *checkBox = dialog.findChild<QCheckBox*>(QString("checkBox_%1_%2").arg(row).arg(col));
+        QCheckBox* checkBox = dialog.findChild<QCheckBox*>(QString("checkBox_%1_%2").arg(row).arg(col));
         if (checkBox && checkBox->isChecked()) {
           std::string dayType = (row == 0) ? "WinterDesignDay" : "SummerDesignDay";
           std::vector<model::DesignDay> filteredDays = filterDesignDays(allDesignDays, dayType, percentages[col]);
@@ -712,38 +712,34 @@ std::vector<model::DesignDay> LocationView::showDesignDaySelectionDialog(const s
 
   // Populate table for Heating and Cooling
   for (int row = 0; row < rowLabels.size(); ++row) {
-    QLabel *rowLabel = new QLabel(rowLabels[row]);
+    QLabel* rowLabel = new QLabel(rowLabels[row]);
     layout->addWidget(rowLabel, row * 2 + 1, 0, Qt::AlignCenter);
 
     const auto& percentages = (row == 0) ? heatingPercentages : coolingPercentages;
 
     for (int col = 0; col < percentages.size(); ++col) {
-      QLabel *percentageLabel = new QLabel(QString::fromStdString(percentages[col]));
+      QLabel* percentageLabel = new QLabel(QString::fromStdString(percentages[col]));
       layout->addWidget(percentageLabel, row * 2, col + 1, Qt::AlignCenter);
 
       std::string dayType = (row == 0) ? "WinterDesignDay" : "SummerDesignDay";
 
-      if (filterDesignDays(allDesignDays, dayType, percentages[col]).empty())
-      {
+      if (filterDesignDays(allDesignDays, dayType, percentages[col]).empty()) {
         continue;
       }
 
-      QCheckBox *checkBox = new QCheckBox();
+      QCheckBox* checkBox = new QCheckBox();
       checkBox->setObjectName(QString("checkBox_%1_%2").arg(row).arg(col));
       layout->addWidget(checkBox, row * 2 + 1, col + 1, Qt::AlignCenter);
 
       connect(checkBox, &QCheckBox::toggled, [=, &dialog](bool checked) {
         auto checkBoxes = dialog.findChildren<QCheckBox*>();
-        okButton->setEnabled(std::any_of(checkBoxes.begin(), checkBoxes.end(), [](QCheckBox* cb) {
-          return cb->isChecked();
-        }));
+        okButton->setEnabled(std::any_of(checkBoxes.begin(), checkBoxes.end(), [](QCheckBox* cb) { return cb->isChecked(); }));
       });
-
     }
   }
 
   // Add a spacer item to add more space between the checkboxes and the buttons
-  QSpacerItem *spacer = new QSpacerItem(20, 40, QSizePolicy::Minimum, QSizePolicy::Expanding);
+  QSpacerItem* spacer = new QSpacerItem(20, 40, QSizePolicy::Minimum, QSizePolicy::Expanding);
   layout->addItem(spacer, rowLabels.size() * 2 + 2, 0, 1, 5);
 
   dialog.setLayout(layout);
@@ -777,12 +773,12 @@ void LocationView::onDesignDayBtnClicked() {
     if (ddyIdfFile) {
 
       openstudio::Workspace ddyWorkspace(StrictnessLevel::None, IddFileType::EnergyPlus);
-  
+
       for (const IdfObject& idfObject : ddyIdfFile->objects()) {
         IddObjectType iddObjectType = idfObject.iddObject().type();
-        if ((iddObjectType == IddObjectType::SizingPeriod_DesignDay) || (iddObjectType == IddObjectType::SizingPeriod_WeatherFileDays) 
+        if ((iddObjectType == IddObjectType::SizingPeriod_DesignDay) || (iddObjectType == IddObjectType::SizingPeriod_WeatherFileDays)
             || (iddObjectType == IddObjectType::SizingPeriod_WeatherFileConditionType)) {
-              ddyWorkspace.addObject(idfObject);
+          ddyWorkspace.addObject(idfObject);
         }
       }
 
@@ -792,7 +788,6 @@ void LocationView::onDesignDayBtnClicked() {
       // Use a heuristic based on the ddy files provided by EnergyPlus
       // Filter out the days that are not helpful.
       if (!ddyModel.objects().empty()) {
- 
 
         // Evan note: do not remove existing design days
         //for (model::SizingPeriod sizingPeriod : m_model.getModelObjects<model::SizingPeriod>()){
