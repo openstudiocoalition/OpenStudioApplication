@@ -689,7 +689,21 @@ std::vector<model::DesignDay> LocationView::showDesignDaySelectionDialog(const s
 
   okButton->setEnabled(false); // Initially disable the Ok button
 
-  connect(okButton, &QPushButton::clicked, &dialog, &QDialog::accept);
+  connect(okButton, &QPushButton::clicked, [&dialog, &designDaysToInsert, &allDesignDays, rowLabels, heatingPercentages, coolingPercentages]() {
+    for (int row = 0; row < rowLabels.size(); ++row) {
+      const auto& percentages = (row == 0) ? heatingPercentages : coolingPercentages;
+      for (int col = 0; col < percentages.size(); ++col) {
+        QCheckBox *checkBox = dialog.findChild<QCheckBox*>(QString("checkBox_%1_%2").arg(row).arg(col));
+        if (checkBox && checkBox->isChecked()) {
+          std::string dayType = (row == 0) ? "WinterDesignDay" : "SummerDesignDay";
+          std::vector<model::DesignDay> filteredDays = filterDesignDays(allDesignDays, dayType, percentages[col]);
+          designDaysToInsert.insert(designDaysToInsert.end(), filteredDays.begin(), filteredDays.end());
+        }
+      }
+    }
+    dialog.accept();
+  });
+
   connect(cancelButton, &QPushButton::clicked, &dialog, &QDialog::reject);
   connect(importAllButton, &QPushButton::clicked, [&dialog, &designDaysToInsert, &allDesignDays]() {
     designDaysToInsert = allDesignDays;
@@ -708,25 +722,14 @@ std::vector<model::DesignDay> LocationView::showDesignDaySelectionDialog(const s
       layout->addWidget(percentageLabel, row * 2, col + 1, Qt::AlignCenter);
 
       QCheckBox *checkBox = new QCheckBox();
+      checkBox->setObjectName(QString("checkBox_%1_%2").arg(row).arg(col));
       layout->addWidget(checkBox, row * 2 + 1, col + 1, Qt::AlignCenter);
 
-      connect(checkBox, &QCheckBox::toggled, [=, &designDaysToInsert](bool checked) {
-        if (checked) {
-          std::string dayType = (row == 0) ? "WinterDesignDay" : "SummerDesignDay";
-          std::vector<model::DesignDay> filteredDays = filterDesignDays(allDesignDays, dayType, percentages[col]);
-          designDaysToInsert.insert(designDaysToInsert.end(), filteredDays.begin(), filteredDays.end());
-        } else {
-          // Remove unchecked design days
-          std::string dayType = (row == 0) ? "WinterDesignDay" : "SummerDesignDay";
-          std::vector<model::DesignDay> filteredDays = filterDesignDays(allDesignDays, dayType, percentages[col]);
-          for (const auto& day : filteredDays) {
-            auto it = std::find(designDaysToInsert.begin(), designDaysToInsert.end(), day);
-            if (it != designDaysToInsert.end()) {
-              designDaysToInsert.erase(it);
-            }
-          }
-        }
-        okButton->setEnabled(!designDaysToInsert.empty());
+      connect(checkBox, &QCheckBox::toggled, [=, &dialog](bool checked) {
+        auto checkBoxes = dialog.findChildren<QCheckBox*>();
+        okButton->setEnabled(std::any_of(checkBoxes.begin(), checkBoxes.end(), [](QCheckBox* cb) {
+          return cb->isChecked();
+        }));
       });
     }
   }
