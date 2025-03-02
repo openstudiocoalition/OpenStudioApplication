@@ -55,6 +55,14 @@
     </message>
 </context>
 <context>
+    <name>LocationView</name>
+    <message>
+        <location filename="../src/openstudio_lib/LocationTabView.cpp" line="663"/>
+        <source>Import Design Days</source>
+        <translation type="unfinished"></translation>
+    </message>
+</context>
+<context>
     <name>ModelObjectSelectorDialog</name>
     <message>
         <location filename="../src/model_editor/ModalDialogs.cpp" line="147"/>
@@ -320,7 +328,7 @@ Pomieszczenie</translation>
 <context>
     <name>openstudio::LocationTabView</name>
     <message>
-        <location filename="../src/openstudio_lib/LocationTabView.cpp" line="78"/>
+        <location filename="../src/openstudio_lib/LocationTabView.cpp" line="85"/>
         <source>Site</source>
         <translation>Teren</translation>
     </message>
@@ -328,108 +336,126 @@ Pomieszczenie</translation>
 <context>
     <name>openstudio::LocationView</name>
     <message>
-        <location filename="../src/openstudio_lib/LocationTabView.cpp" line="159"/>
+        <location filename="../src/openstudio_lib/LocationTabView.cpp" line="166"/>
         <source>Weather File</source>
         <translation>Plik pogodowy</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/LocationTabView.cpp" line="180"/>
+        <location filename="../src/openstudio_lib/LocationTabView.cpp" line="187"/>
         <source>Name: </source>
         <translation>Nazwa: </translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/LocationTabView.cpp" line="195"/>
+        <location filename="../src/openstudio_lib/LocationTabView.cpp" line="202"/>
         <source>Latitude: </source>
         <translation>Szerokość geograficzna: </translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/LocationTabView.cpp" line="198"/>
+        <location filename="../src/openstudio_lib/LocationTabView.cpp" line="205"/>
         <source>Longitude: </source>
         <translation>Długość geograficzna: </translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/LocationTabView.cpp" line="201"/>
+        <location filename="../src/openstudio_lib/LocationTabView.cpp" line="208"/>
         <source>Elevation: </source>
         <translation>Przewyższenie: </translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/LocationTabView.cpp" line="204"/>
+        <location filename="../src/openstudio_lib/LocationTabView.cpp" line="211"/>
         <source>Time Zone: </source>
         <translation>Strefa czasowa: </translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/LocationTabView.cpp" line="208"/>
+        <location filename="../src/openstudio_lib/LocationTabView.cpp" line="215"/>
         <source>Download weather files at &lt;a href=&quot;http://www.energyplus.net/weather&quot;&gt;www.energyplus.net/weather&lt;/a&gt;</source>
         <translation>Pobierz pliki pogodowe z &lt;a href=&quot;http://www.energyplus.net/weather&quot;&gt;www.energyplus.net/weather&lt;/a&gt;</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/LocationTabView.cpp" line="218"/>
+        <location filename="../src/openstudio_lib/LocationTabView.cpp" line="225"/>
         <source>Measure Tags (Optional):</source>
         <translation>Tagi pomiaru (opcjonalnie):</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/LocationTabView.cpp" line="222"/>
+        <location filename="../src/openstudio_lib/LocationTabView.cpp" line="229"/>
         <source>ASHRAE Climate Zone</source>
         <translation>Strefa klimatyczna ASHRAE</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/LocationTabView.cpp" line="255"/>
+        <location filename="../src/openstudio_lib/LocationTabView.cpp" line="262"/>
         <source>CEC Climate Zone</source>
         <translation>Strefa klimatyczna CEC</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/LocationTabView.cpp" line="324"/>
+        <location filename="../src/openstudio_lib/LocationTabView.cpp" line="331"/>
         <source>Design Days</source>
         <translation>Dni projektowe</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/LocationTabView.cpp" line="327"/>
+        <location filename="../src/openstudio_lib/LocationTabView.cpp" line="334"/>
         <source>Import From DDY</source>
         <translation>Importuj z DDY</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/LocationTabView.cpp" line="454"/>
+        <location filename="../src/openstudio_lib/LocationTabView.cpp" line="461"/>
         <source>Change Weather File</source>
         <translation>Zmień plik pogodowy</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/LocationTabView.cpp" line="457"/>
-        <location filename="../src/openstudio_lib/LocationTabView.cpp" line="461"/>
+        <location filename="../src/openstudio_lib/LocationTabView.cpp" line="464"/>
+        <location filename="../src/openstudio_lib/LocationTabView.cpp" line="468"/>
         <source>Set Weather File</source>
         <translation>Ustaw plik pogodowy</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/LocationTabView.cpp" line="510"/>
+        <location filename="../src/openstudio_lib/LocationTabView.cpp" line="517"/>
         <source>EPW Files (*.epw);; All Files (*.*)</source>
         <translation>Pliki EPW (*.epw);; Wszystkie pliki (*.*)</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/LocationTabView.cpp" line="521"/>
+        <location filename="../src/openstudio_lib/LocationTabView.cpp" line="528"/>
         <source>Open Weather File</source>
         <translation>Otwórz plik pogodowy</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/LocationTabView.cpp" line="607"/>
+        <location filename="../src/openstudio_lib/LocationTabView.cpp" line="614"/>
         <source>Failed To Set Weather File</source>
         <translation>Nie udało się ustawić pliku pogody</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/LocationTabView.cpp" line="607"/>
+        <location filename="../src/openstudio_lib/LocationTabView.cpp" line="614"/>
         <source>Failed To Set Weather File To </source>
         <translation>Nie udało się ustawić pliku pogody na </translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/LocationTabView.cpp" line="640"/>
+        <location filename="../src/openstudio_lib/LocationTabView.cpp" line="673"/>
+        <source>Ok</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../src/openstudio_lib/LocationTabView.cpp" line="674"/>
+        <source>Cancel</source>
+        <translation type="unfinished">Anuluj</translation>
+    </message>
+    <message>
+        <location filename="../src/openstudio_lib/LocationTabView.cpp" line="675"/>
+        <source>Skip
+selection
+import
+all DDYs</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../src/openstudio_lib/LocationTabView.cpp" line="768"/>
         <source>Open DDY File</source>
         <translation></translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/LocationTabView.cpp" line="733"/>
+        <location filename="../src/openstudio_lib/LocationTabView.cpp" line="817"/>
         <source>No Design Days in DDY File</source>
         <translation>Brak dni projektowych w pliku DDY</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/LocationTabView.cpp" line="734"/>
+        <location filename="../src/openstudio_lib/LocationTabView.cpp" line="818"/>
         <source>This DDY file does not contain any valid design days.  Check the DDY file itself for errors or omissions.</source>
         <translation>Ten plik DDY nie zawiera poprawnych dni projektowych.  Sprawdź plik DDY pod kątem błędów.</translation>
     </message>

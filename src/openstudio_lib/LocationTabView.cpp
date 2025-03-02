@@ -50,6 +50,7 @@
 #include <boost/smart_ptr.hpp>
 
 #include <QBoxLayout>
+#include <QButtonGroup>
 #include <QComboBox>
 #include <QDateTime>
 #include <QCheckBox>
@@ -57,15 +58,15 @@
 #include <QDir>
 #include <QFile>
 #include <QFileDialog>
+#include <QGridLayout>
 #include <QLabel>
 #include <QLineEdit>
 #include <QMessageBox>
 #include <QPushButton>
+#include <QRegExp>
 #include <QScrollArea>
 #include <QSettings>
 #include <QSizePolicy>
-#include <vector>
-#include <tuple>
 #include <QCoreApplication>
 #include <QObject>
 #include <QPushButton>
@@ -80,6 +81,42 @@ static constexpr auto SETWEATHERFILE("Set Weather File");
 static constexpr auto CHANGEWEATHERFILE("Change Weather File");
 
 namespace openstudio {
+
+SortableDesignDay::SortableDesignDay(const openstudio::model::DesignDay& designDay) : m_designDay(designDay) {
+  QRegExp regex("^.*Ann.*([\\d\\.]+)[\\s]?%.*$", Qt::CaseInsensitive);
+  if (regex.exactMatch(toQString(designDay.nameString())) && regex.captureCount() == 1) {
+    m_permil = qstringToPermil(regex.capturedTexts()[1]);
+    if (m_permil > 500) {
+      m_type = "Heating";
+    } else {
+      m_type = "Cooling";
+    }
+  }
+}
+
+int SortableDesignDay::qstringToPermil(const QString& str) {
+  return (int)(str.toDouble() * 10.0);
+}
+
+QString SortableDesignDay::permilToQString(int permil) {
+  return QString::number((double)permil / 10.0, 'f', 1);
+}
+
+QString SortableDesignDay::key(const QString& type, int sortablePermil) {
+  return type + permilToQString(sortablePermil);
+}
+
+QString SortableDesignDay::type() const {
+  return m_type;
+}
+
+int SortableDesignDay::permil() const {
+  return m_permil;
+}
+
+int SortableDesignDay::sortablePermil() const {
+  return ((m_permil < 500) ? m_permil : 1000 - m_permil);
+}
 
 LocationTabView::LocationTabView(const model::Model& model, const QString& modelTempDir, QWidget* parent)
   : MainTabView(tr("Site"), MainTabView::SUB_TAB, parent) {}
@@ -632,29 +669,6 @@ void LocationView::onWeatherFileBtnClicked() {
   }
 }
 
-std::vector<model::DesignDay> filterDesignDays(const std::vector<model::DesignDay>& designDays, const std::string& dayType,
-                                               const std::string& percentage, const std::string& humidityConditionType = "") {
-  std::vector<model::DesignDay> filteredDesignDays;
-
-  std::copy_if(designDays.begin(), designDays.end(), std::back_inserter(filteredDesignDays), [&](const model::DesignDay& designDay) {
-    QString nameString = QString::fromStdString(designDay.name().get());
-
-    if (!nameString.contains("ann", Qt::CaseInsensitive)) {
-      return false;
-    }
-
-    bool matchesHumidityConditionType =
-      humidityConditionType.empty() || openstudio::istringEqual(designDay.humidityConditionType(), humidityConditionType);
-    bool matchesPercentage = nameString.contains(QString::fromStdString(percentage)) || (percentage == "0.4%" && nameString.contains(".4%"));
-
-    bool matchesDesignDay = openstudio::istringEqual(designDay.dayType(), dayType);
-
-    return matchesPercentage && matchesDesignDay && matchesHumidityConditionType;
-  });
-
-  return filteredDesignDays;
-}
-
 /**
  * @brief Displays a dialog for selecting design days from a given list.
  *
@@ -671,101 +685,124 @@ std::vector<model::DesignDay> filterDesignDays(const std::vector<model::DesignDa
  * @return A vector of selected design days if the user confirms the selection, or an empty vector if the user cancels.
  */
 std::vector<model::DesignDay> LocationView::showDesignDaySelectionDialog(const std::vector<openstudio::model::DesignDay>& allDesignDays) {
-  std::vector<openstudio::model::DesignDay> designDaysToInsert;
-  designDaysToInsert.reserve(allDesignDays.size());  // Reserve space for designDaysToInsert
 
+  std::vector<model::DesignDay> result;
+
+  // parse out the design day names into SortableDesignDays and figure out the column and row names
+  std::vector<SortableDesignDay> sortableDesignDays;
+  std::set<QString> designDayTypes;      // rows
+  std::set<int> sortedDesignDayPermils;  // columns
+
+  // key is designDayType + sortedDesignDayPermil, value is names of dds
+  // each cell in the table has a unique key
+  std::map<QString, QVector<openstudio::model::DesignDay>> designDayMap;
+  for (const auto& dd : allDesignDays) {
+    SortableDesignDay sdd(dd);
+
+    // skip Design Days with unknown type
+    if (sdd.type().isEmpty()) {
+      continue;
+    }
+
+    sortableDesignDays.push_back(sdd);
+    designDayTypes.insert(sdd.type());
+    sortedDesignDayPermils.insert(sdd.sortablePermil());
+    QString key = SortableDesignDay::key(sdd.type(), sdd.sortablePermil());
+    if (!designDayMap.contains(key)) {
+      designDayMap[key] = QVector<openstudio::model::DesignDay>();
+    }
+    designDayMap[key].append(dd);
+  }
+
+  // main dialog
   QDialog dialog(this);
   dialog.setWindowTitle(QCoreApplication::translate("LocationView", "Import Design Days"));
+  dialog.setModal(true);
+  QVBoxLayout* layout = new QVBoxLayout(&dialog);
 
-  QGridLayout* layout = new QGridLayout(&dialog);
+  // grid view for the design day types and permils to import
+  QGridLayout* gridLayout = new QGridLayout();
 
-  // Define row labels and percentages to present to the user from the DDY
-  QStringList rowLabels = {"Heating", "Cooling"};
-  std::vector<std::string> heatingPercentages = {"99.6%", "99%"};
-  std::vector<std::string> coolingPercentages = {"2%", "1%", "0.4%"};
+  // first row is for headers
+  int row = 0;
+  int column = 1;
+  for (const auto& sddp : sortedDesignDayPermils) {
+    QLabel* header = new QLabel(SortableDesignDay::permilToQString(sddp) + "%");
+    gridLayout->addWidget(header, row, column++, Qt::AlignCenter);
+  }
 
-  // Ok and Cancel buttons
+  // one row for each design day type
+  row = 1;
+  QVector<QRadioButton*> allRadioButtons;
+  for (const auto& ddt : designDayTypes) {
+    column = 0;
+    bool checkedFirst = false;
+    QLabel* label = new QLabel(ddt);
+    gridLayout->addWidget(label, row, column++, Qt::AlignCenter);
+
+    QButtonGroup* buttonGroup = new QButtonGroup(gridLayout);
+    for (const auto& sddp : sortedDesignDayPermils) {
+      QString key = SortableDesignDay::key(ddt, sddp);
+      QRadioButton* radioButton = new QRadioButton();
+      allRadioButtons.append(radioButton);
+      if (!designDayMap.contains(key)) {
+        radioButton->setCheckable(false);
+        radioButton->setToolTip(QString::number(0) + " " + tr("Design Days"));
+      } else {
+        radioButton->setCheckable(true);
+        if (!checkedFirst) {
+          radioButton->setChecked(true);
+          checkedFirst = true;
+        }
+        radioButton->setToolTip(QString::number(designDayMap[key].size()) + " " + tr("Design Days"));
+        radioButton->setProperty("designDays", QVariant::fromValue(designDayMap[key]));
+      }
+      buttonGroup->addButton(radioButton);
+      gridLayout->addWidget(radioButton, row, column++, Qt::AlignCenter);
+    }
+    ++row;
+  }
+  layout->addLayout(gridLayout);
+  int columnCount = gridLayout->columnCount();
+  int rowCount = gridLayout->rowCount();
+
+  // ok button only imports the checked design days
   QPushButton* okButton = new QPushButton(tr("Ok"), &dialog);
-  QPushButton* cancelButton = new QPushButton(tr("Cancel"), &dialog);
-  QPushButton* importAllButton = new QPushButton(tr("Skip\nselection\nimport\nall DDYs"), &dialog);
-
-  // Set the same size for all buttons
-  okButton->setSizePolicy(QSizePolicy::Minimum, QSizePolicy::Preferred);
-  cancelButton->setSizePolicy(QSizePolicy::Minimum, QSizePolicy::Preferred);
-  importAllButton->setSizePolicy(QSizePolicy::Minimum, QSizePolicy::Preferred);
-
-  // Adjust the order of the buttons
-  layout->addWidget(importAllButton, rowLabels.size() * 2 + 3, 1);
-  layout->addWidget(okButton, rowLabels.size() * 2 + 3, 2);
-  layout->addWidget(cancelButton, rowLabels.size() * 2 + 3, 3);
-
-  okButton->setMinimumSize(cancelButton->sizeHint());
-  importAllButton->setMinimumSize(cancelButton->sizeHint());
-
-  okButton->setEnabled(false);  // Initially disable the Ok button until something is checked
-
-  connect(okButton, &QPushButton::clicked, [&dialog, &designDaysToInsert, &allDesignDays, rowLabels, heatingPercentages, coolingPercentages]() {
-    for (int row = 0; row < rowLabels.size(); ++row) {
-      const auto& percentages = (row == 0) ? heatingPercentages : coolingPercentages;
-      for (int col = 0; col < percentages.size(); ++col) {
-        QCheckBox* checkBox = dialog.findChild<QCheckBox*>(QString("checkBox_%1_%2").arg(row).arg(col));
-        if (checkBox && checkBox->isChecked()) {
-          std::string dayType = (row == 0) ? "WinterDesignDay" : "SummerDesignDay";
-          std::vector<model::DesignDay> filteredDays = filterDesignDays(allDesignDays, dayType, percentages[col]);
-          designDaysToInsert.insert(designDaysToInsert.end(), filteredDays.begin(), filteredDays.end());
+  connect(okButton, &QPushButton::clicked, [&dialog, &result, &allRadioButtons]() {
+    for (const auto& rb : allRadioButtons) {
+      if (rb->isChecked()) {
+        QVariant variant = rb->property("designDays");
+        if (variant.canConvert<QVector<openstudio::model::DesignDay>>()) {
+          for (const auto& dd : variant.value<QVector<openstudio::model::DesignDay>>()) {
+            result.push_back(dd);
+          }
         }
       }
     }
     dialog.accept();
   });
 
+  // cancel button imports nothing
+  QPushButton* cancelButton = new QPushButton(tr("Cancel"), &dialog);
   connect(cancelButton, &QPushButton::clicked, &dialog, &QDialog::reject);
-  connect(importAllButton, &QPushButton::clicked, [&dialog, &designDaysToInsert, &allDesignDays]() {
-    designDaysToInsert = allDesignDays;
+
+  // import all imports everythig
+  QPushButton* importAllButton = new QPushButton(tr("Import all"), &dialog);
+  connect(importAllButton, &QPushButton::clicked, [&dialog, &result, &allDesignDays]() {
+    result = allDesignDays;
     dialog.accept();
   });
 
-  // Populate table for Heating and Cooling
-  for (int row = 0; row < rowLabels.size(); ++row) {
-    QLabel* rowLabel = new QLabel(rowLabels[row]);
-    layout->addWidget(rowLabel, row * 2 + 1, 0, Qt::AlignCenter);
-
-    const auto& percentages = (row == 0) ? heatingPercentages : coolingPercentages;
-
-    for (int col = 0; col < percentages.size(); ++col) {
-      QLabel* percentageLabel = new QLabel(QString::fromStdString(percentages[col]));
-      layout->addWidget(percentageLabel, row * 2, col + 1, Qt::AlignCenter);
-
-      std::string dayType = (row == 0) ? "WinterDesignDay" : "SummerDesignDay";
-      // Only display the checkbox if there are design days to select in the ddy file
-      if (filterDesignDays(allDesignDays, dayType, percentages[col]).empty()) {
-        continue;
-      }
-
-      QCheckBox* checkBox = new QCheckBox();
-      checkBox->setObjectName(QString("checkBox_%1_%2").arg(row).arg(col));
-      layout->addWidget(checkBox, row * 2 + 1, col + 1, Qt::AlignCenter);
-
-      connect(checkBox, &QCheckBox::toggled, [=, &dialog](bool checked) {
-        auto checkBoxes = dialog.findChildren<QCheckBox*>();
-        okButton->setEnabled(std::any_of(checkBoxes.begin(), checkBoxes.end(), [](QCheckBox* cb) { return cb->isChecked(); }));
-      });
-    }
-  }
-
-  // Add a spacer item to add more space between the checkboxes and the buttons
-  QSpacerItem* spacer = new QSpacerItem(20, 40, QSizePolicy::Minimum, QSizePolicy::Expanding);
-  layout->addItem(spacer, rowLabels.size() * 2 + 2, 0, 1, 5);
-
-  dialog.setLayout(layout);
-  dialog.setMinimumSize(dialog.sizeHint());
+  // add all the buttons in a button box
+  QDialogButtonBox* buttonBox = new QDialogButtonBox(Qt::Horizontal);
+  buttonBox->addButton(okButton, QDialogButtonBox::AcceptRole);
+  buttonBox->addButton(cancelButton, QDialogButtonBox::RejectRole);
+  buttonBox->addButton(importAllButton, QDialogButtonBox::YesRole);
+  layout->addWidget(buttonBox);
 
   // Execute the dialog and wait for user interaction
-  if (dialog.exec() == QDialog::Accepted) {
-    return designDaysToInsert;
-  } else {
-    return {};
-  }
+  dialog.exec();
+  return result;
 }
 
 void LocationView::onDesignDayBtnClicked() {

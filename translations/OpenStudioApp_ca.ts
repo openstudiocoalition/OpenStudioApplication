@@ -56,6 +56,14 @@
     </message>
 </context>
 <context>
+    <name>LocationView</name>
+    <message>
+        <location filename="../src/openstudio_lib/LocationTabView.cpp" line="663"/>
+        <source>Import Design Days</source>
+        <translation type="unfinished"></translation>
+    </message>
+</context>
+<context>
     <name>ModelObjectSelectorDialog</name>
     <message>
         <location filename="../src/model_editor/ModalDialogs.cpp" line="147"/>
@@ -321,7 +329,7 @@ Zona</translation>
 <context>
     <name>openstudio::LocationTabView</name>
     <message>
-        <location filename="../src/openstudio_lib/LocationTabView.cpp" line="78"/>
+        <location filename="../src/openstudio_lib/LocationTabView.cpp" line="85"/>
         <source>Site</source>
         <translation>Lloc</translation>
     </message>
@@ -329,108 +337,126 @@ Zona</translation>
 <context>
     <name>openstudio::LocationView</name>
     <message>
-        <location filename="../src/openstudio_lib/LocationTabView.cpp" line="159"/>
+        <location filename="../src/openstudio_lib/LocationTabView.cpp" line="166"/>
         <source>Weather File</source>
         <translation>Fitxer Climàtic</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/LocationTabView.cpp" line="180"/>
+        <location filename="../src/openstudio_lib/LocationTabView.cpp" line="187"/>
         <source>Name: </source>
         <translation>Nom: </translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/LocationTabView.cpp" line="195"/>
+        <location filename="../src/openstudio_lib/LocationTabView.cpp" line="202"/>
         <source>Latitude: </source>
         <translation>Latitud: </translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/LocationTabView.cpp" line="198"/>
+        <location filename="../src/openstudio_lib/LocationTabView.cpp" line="205"/>
         <source>Longitude: </source>
         <translation>Longitud: </translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/LocationTabView.cpp" line="201"/>
+        <location filename="../src/openstudio_lib/LocationTabView.cpp" line="208"/>
         <source>Elevation: </source>
         <translation>Altitud: </translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/LocationTabView.cpp" line="204"/>
+        <location filename="../src/openstudio_lib/LocationTabView.cpp" line="211"/>
         <source>Time Zone: </source>
         <translation>Zona Horària: </translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/LocationTabView.cpp" line="208"/>
+        <location filename="../src/openstudio_lib/LocationTabView.cpp" line="215"/>
         <source>Download weather files at &lt;a href=&quot;http://www.energyplus.net/weather&quot;&gt;www.energyplus.net/weather&lt;/a&gt;</source>
         <translation>Descarregar fitxers climàtics a &lt;a href=&quot;http://www.energyplus.net/weather&quot;&gt;www.energyplus.net/weather&lt;/a&gt;</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/LocationTabView.cpp" line="218"/>
+        <location filename="../src/openstudio_lib/LocationTabView.cpp" line="225"/>
         <source>Measure Tags (Optional):</source>
         <translation>Etiqueta per les Mesures (Opcional):</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/LocationTabView.cpp" line="222"/>
+        <location filename="../src/openstudio_lib/LocationTabView.cpp" line="229"/>
         <source>ASHRAE Climate Zone</source>
         <translation>Zona Climàtica d&apos;ASHRAE</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/LocationTabView.cpp" line="255"/>
+        <location filename="../src/openstudio_lib/LocationTabView.cpp" line="262"/>
         <source>CEC Climate Zone</source>
         <translation>Zona Climàtica CEC</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/LocationTabView.cpp" line="324"/>
+        <location filename="../src/openstudio_lib/LocationTabView.cpp" line="331"/>
         <source>Design Days</source>
         <translation>Dies de Disseny</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/LocationTabView.cpp" line="327"/>
+        <location filename="../src/openstudio_lib/LocationTabView.cpp" line="334"/>
         <source>Import From DDY</source>
         <translation>Importar des de DDY</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/LocationTabView.cpp" line="454"/>
+        <location filename="../src/openstudio_lib/LocationTabView.cpp" line="461"/>
         <source>Change Weather File</source>
         <translation>Canviar el Fitxer Climàtic</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/LocationTabView.cpp" line="457"/>
-        <location filename="../src/openstudio_lib/LocationTabView.cpp" line="461"/>
+        <location filename="../src/openstudio_lib/LocationTabView.cpp" line="464"/>
+        <location filename="../src/openstudio_lib/LocationTabView.cpp" line="468"/>
         <source>Set Weather File</source>
         <translation>Definir el Fitxer Climàtic</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/LocationTabView.cpp" line="510"/>
+        <location filename="../src/openstudio_lib/LocationTabView.cpp" line="517"/>
         <source>EPW Files (*.epw);; All Files (*.*)</source>
         <translation>EPW Files (*.epw);; All Files (*.*)</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/LocationTabView.cpp" line="521"/>
+        <location filename="../src/openstudio_lib/LocationTabView.cpp" line="528"/>
         <source>Open Weather File</source>
         <translation>Obrir Fitxer Climàtic</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/LocationTabView.cpp" line="607"/>
+        <location filename="../src/openstudio_lib/LocationTabView.cpp" line="614"/>
         <source>Failed To Set Weather File</source>
         <translation>Error al Definir el Fitxer Climàtic</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/LocationTabView.cpp" line="607"/>
+        <location filename="../src/openstudio_lib/LocationTabView.cpp" line="614"/>
         <source>Failed To Set Weather File To </source>
         <translation>Error al Definir el Fitxer Climàtic a </translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/LocationTabView.cpp" line="640"/>
+        <location filename="../src/openstudio_lib/LocationTabView.cpp" line="673"/>
+        <source>Ok</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../src/openstudio_lib/LocationTabView.cpp" line="674"/>
+        <source>Cancel</source>
+        <translation type="unfinished">Cancel·lar</translation>
+    </message>
+    <message>
+        <location filename="../src/openstudio_lib/LocationTabView.cpp" line="675"/>
+        <source>Skip
+selection
+import
+all DDYs</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../src/openstudio_lib/LocationTabView.cpp" line="768"/>
         <source>Open DDY File</source>
         <translation>Obrir Fitxer DDY</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/LocationTabView.cpp" line="733"/>
+        <location filename="../src/openstudio_lib/LocationTabView.cpp" line="817"/>
         <source>No Design Days in DDY File</source>
         <translation>No hi ha Dies de Disseny al fitxer DDY</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/LocationTabView.cpp" line="734"/>
+        <location filename="../src/openstudio_lib/LocationTabView.cpp" line="818"/>
         <source>This DDY file does not contain any valid design days.  Check the DDY file itself for errors or omissions.</source>
         <translation>Aquest fitxer DDY no conté cap dia de disseny vàlid. Comproveu el fitxer DDY.</translation>
     </message>

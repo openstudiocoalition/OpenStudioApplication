@@ -31,6 +31,32 @@ class Site;
 class YearDescription;
 }  // namespace model
 
+/// <summary>
+/// SortableDesignDay is a helper class for sorting DesignDays
+/// </summary>
+class SortableDesignDay
+{
+ public:
+  SortableDesignDay(const openstudio::model::DesignDay& designDay);
+
+  static int qstringToPermil(const QString& str);
+
+  static QString permilToQString(int permil);
+
+  static QString key(const QString& type, int sortablePermil);
+
+  QString type() const;
+
+  int permil() const;
+
+  int sortablePermil() const;
+
+ private:
+  QString m_type;
+  int m_permil{0};  // per thousand, e.g. 0.4% -> 4, 99.6% -> 996
+  openstudio::model::DesignDay m_designDay;
+};
+
 class LocationView : public QWidget
 {
 

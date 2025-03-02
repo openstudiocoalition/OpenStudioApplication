@@ -55,6 +55,14 @@
     </message>
 </context>
 <context>
+    <name>LocationView</name>
+    <message>
+        <location filename="../src/openstudio_lib/LocationTabView.cpp" line="663"/>
+        <source>Import Design Days</source>
+        <translation type="unfinished"></translation>
+    </message>
+</context>
+<context>
     <name>ModelObjectSelectorDialog</name>
     <message>
         <location filename="../src/model_editor/ModalDialogs.cpp" line="147"/>
@@ -319,7 +327,7 @@ Zone</source>
 <context>
     <name>openstudio::LocationTabView</name>
     <message>
-        <location filename="../src/openstudio_lib/LocationTabView.cpp" line="78"/>
+        <location filename="../src/openstudio_lib/LocationTabView.cpp" line="85"/>
         <source>Site</source>
         <translation>Τοποθεσία</translation>
     </message>
@@ -327,108 +335,126 @@ Zone</source>
 <context>
     <name>openstudio::LocationView</name>
     <message>
-        <location filename="../src/openstudio_lib/LocationTabView.cpp" line="159"/>
+        <location filename="../src/openstudio_lib/LocationTabView.cpp" line="166"/>
         <source>Weather File</source>
         <translation>Αρχείο καιρού</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/LocationTabView.cpp" line="180"/>
+        <location filename="../src/openstudio_lib/LocationTabView.cpp" line="187"/>
         <source>Name: </source>
         <translation>Όνομα: </translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/LocationTabView.cpp" line="195"/>
+        <location filename="../src/openstudio_lib/LocationTabView.cpp" line="202"/>
         <source>Latitude: </source>
         <translation>Γεωγραφικό πλάτος: </translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/LocationTabView.cpp" line="198"/>
+        <location filename="../src/openstudio_lib/LocationTabView.cpp" line="205"/>
         <source>Longitude: </source>
         <translation>Γεωγραφικό μήκος: </translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/LocationTabView.cpp" line="201"/>
+        <location filename="../src/openstudio_lib/LocationTabView.cpp" line="208"/>
         <source>Elevation: </source>
         <translation>Υψόμετρο: </translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/LocationTabView.cpp" line="204"/>
+        <location filename="../src/openstudio_lib/LocationTabView.cpp" line="211"/>
         <source>Time Zone: </source>
         <translation>Ζώνη ώρας: </translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/LocationTabView.cpp" line="208"/>
+        <location filename="../src/openstudio_lib/LocationTabView.cpp" line="215"/>
         <source>Download weather files at &lt;a href=&quot;http://www.energyplus.net/weather&quot;&gt;www.energyplus.net/weather&lt;/a&gt;</source>
         <translation>Λήψη αρχείων καιρού στη διεύθυνση &lt;a href=&quot;http://www.energyplus.net/weather&quot;&gt; www.energyplus.net/weather &lt;/a&gt;</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/LocationTabView.cpp" line="218"/>
+        <location filename="../src/openstudio_lib/LocationTabView.cpp" line="225"/>
         <source>Measure Tags (Optional):</source>
         <translation>Ενεργειακά Μέτρα σημείωση (προαιρετικός):</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/LocationTabView.cpp" line="222"/>
+        <location filename="../src/openstudio_lib/LocationTabView.cpp" line="229"/>
         <source>ASHRAE Climate Zone</source>
         <translation>Κλιματική ζώνη ASHRAE</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/LocationTabView.cpp" line="255"/>
+        <location filename="../src/openstudio_lib/LocationTabView.cpp" line="262"/>
         <source>CEC Climate Zone</source>
         <translation>Κλιματική ζώνη CEC</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/LocationTabView.cpp" line="324"/>
+        <location filename="../src/openstudio_lib/LocationTabView.cpp" line="331"/>
         <source>Design Days</source>
         <translation>Ημέρες σχεδιασμού/αξιολόγησης</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/LocationTabView.cpp" line="327"/>
+        <location filename="../src/openstudio_lib/LocationTabView.cpp" line="334"/>
         <source>Import From DDY</source>
         <translation>Εισαγωγή από DDY</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/LocationTabView.cpp" line="454"/>
+        <location filename="../src/openstudio_lib/LocationTabView.cpp" line="461"/>
         <source>Change Weather File</source>
         <translation>Αλλαγή αρχείου καιρού</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/LocationTabView.cpp" line="457"/>
-        <location filename="../src/openstudio_lib/LocationTabView.cpp" line="461"/>
+        <location filename="../src/openstudio_lib/LocationTabView.cpp" line="464"/>
+        <location filename="../src/openstudio_lib/LocationTabView.cpp" line="468"/>
         <source>Set Weather File</source>
         <translation>Ορισμός αρχείου καιρού</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/LocationTabView.cpp" line="510"/>
+        <location filename="../src/openstudio_lib/LocationTabView.cpp" line="517"/>
         <source>EPW Files (*.epw);; All Files (*.*)</source>
         <translation>EPW Files (*.epw);; All Files (*.*)</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/LocationTabView.cpp" line="521"/>
+        <location filename="../src/openstudio_lib/LocationTabView.cpp" line="528"/>
         <source>Open Weather File</source>
         <translation>Άνοιγμα αρχείου καιρού</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/LocationTabView.cpp" line="607"/>
+        <location filename="../src/openstudio_lib/LocationTabView.cpp" line="614"/>
         <source>Failed To Set Weather File</source>
         <translation>Αποτυχία ορισμού αρχείου καιρού</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/LocationTabView.cpp" line="607"/>
+        <location filename="../src/openstudio_lib/LocationTabView.cpp" line="614"/>
         <source>Failed To Set Weather File To </source>
         <translation>Αποτυχία ορισμού αρχείου καιρού σε </translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/LocationTabView.cpp" line="640"/>
+        <location filename="../src/openstudio_lib/LocationTabView.cpp" line="673"/>
+        <source>Ok</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../src/openstudio_lib/LocationTabView.cpp" line="674"/>
+        <source>Cancel</source>
+        <translation type="unfinished">Ακύρωση</translation>
+    </message>
+    <message>
+        <location filename="../src/openstudio_lib/LocationTabView.cpp" line="675"/>
+        <source>Skip
+selection
+import
+all DDYs</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../src/openstudio_lib/LocationTabView.cpp" line="768"/>
         <source>Open DDY File</source>
         <translation>Άνοιγμα αρχείου DDY</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/LocationTabView.cpp" line="733"/>
+        <location filename="../src/openstudio_lib/LocationTabView.cpp" line="817"/>
         <source>No Design Days in DDY File</source>
         <translation>Δεν υπάρχουν ημέρες αξιολόγησης στο αρχείο DDY</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/LocationTabView.cpp" line="734"/>
+        <location filename="../src/openstudio_lib/LocationTabView.cpp" line="818"/>
         <source>This DDY file does not contain any valid design days.  Check the DDY file itself for errors or omissions.</source>
         <translation>Αυτό το αρχείο DDY δεν περιέχει έγκυρες ημέρες σχεδιασμού/αξιολόγησης. Ελέγξτε το ίδιο το αρχείο DDY για σφάλματα ή παραλείψεις.</translation>
     </message>
