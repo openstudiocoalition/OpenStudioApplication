@@ -49,5 +49,4 @@ TEST_F(OpenStudioLibFixture, SortableDesignDay) {
   EXPECT_EQ("Heating", sdd.type());
   EXPECT_EQ(996, sdd.permil());
   EXPECT_EQ(4, sdd.sortablePermil());
-
 }
