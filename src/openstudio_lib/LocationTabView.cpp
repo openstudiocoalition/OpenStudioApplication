@@ -695,7 +695,7 @@ std::vector<model::DesignDay> LocationView::showDesignDaySelectionDialog(const s
 
   // key is designDayType + sortedDesignDayPermil, value is names of dds
   // each cell in the table has a unique key
-  std::map<QString, QVector<openstudio::model::DesignDay>> designDayMap;
+  std::map<QString, std::vector<openstudio::model::DesignDay>> designDayMap;
   for (const auto& dd : allDesignDays) {
     SortableDesignDay sdd(dd);
 
@@ -709,9 +709,9 @@ std::vector<model::DesignDay> LocationView::showDesignDaySelectionDialog(const s
     sortedDesignDayPermils.insert(sdd.sortablePermil());
     QString key = SortableDesignDay::key(sdd.type(), sdd.sortablePermil());
     if (!designDayMap.contains(key)) {
-      designDayMap[key] = QVector<openstudio::model::DesignDay>();
+      designDayMap[key] = std::vector<openstudio::model::DesignDay>();
     }
-    designDayMap[key].append(dd);
+    designDayMap[key].push_back(dd);
   }
 
   // main dialog
@@ -746,16 +746,19 @@ std::vector<model::DesignDay> LocationView::showDesignDaySelectionDialog(const s
       QRadioButton* radioButton = new QRadioButton();
       allRadioButtons.append(radioButton);
       if (!designDayMap.contains(key)) {
+        radioButton->setEnabled(false);
         radioButton->setCheckable(false);
         radioButton->setToolTip(QString::number(0) + " " + tr("Design Days"));
+        radioButton->setProperty("designDayKey", "");
       } else {
+        radioButton->setEnabled(true);
         radioButton->setCheckable(true);
         if (!checkedFirst) {
           radioButton->setChecked(true);
           checkedFirst = true;
         }
         radioButton->setToolTip(QString::number(designDayMap[key].size()) + " " + tr("Design Days"));
-        radioButton->setProperty("designDays", QVariant::fromValue(designDayMap[key]));
+        radioButton->setProperty("designDayKey", key);
       }
       buttonGroup->addButton(radioButton);
       gridLayout->addWidget(radioButton, row, column++, Qt::AlignCenter);
@@ -768,12 +771,12 @@ std::vector<model::DesignDay> LocationView::showDesignDaySelectionDialog(const s
 
   // ok button only imports the checked design days
   QPushButton* okButton = new QPushButton(tr("Ok"), &dialog);
-  connect(okButton, &QPushButton::clicked, [&dialog, &result, &allRadioButtons]() {
+  connect(okButton, &QPushButton::clicked, [&dialog, &result, &allRadioButtons, &designDayMap]() {
     for (const auto& rb : allRadioButtons) {
       if (rb->isChecked()) {
-        QVariant variant = rb->property("designDays");
-        if (variant.canConvert<QVector<openstudio::model::DesignDay>>()) {
-          for (const auto& dd : variant.value<QVector<openstudio::model::DesignDay>>()) {
+        QString key = rb->property("designDayKey").toString();
+        if (!key.isEmpty() && designDayMap.contains(key)) {
+          for (const auto& dd : designDayMap[key]) {
             result.push_back(dd);
           }
         }
