@@ -57,7 +57,7 @@
 <context>
     <name>LocationView</name>
     <message>
-        <location filename="../src/openstudio_lib/LocationTabView.cpp" line="663"/>
+        <location filename="../src/openstudio_lib/LocationTabView.cpp" line="719"/>
         <source>Import Design Days</source>
         <translation type="unfinished"></translation>
     </message>
@@ -328,7 +328,7 @@ Zone</source>
 <context>
     <name>openstudio::LocationTabView</name>
     <message>
-        <location filename="../src/openstudio_lib/LocationTabView.cpp" line="85"/>
+        <location filename="../src/openstudio_lib/LocationTabView.cpp" line="122"/>
         <source>Site</source>
         <translation>敷地</translation>
     </message>
@@ -336,126 +336,125 @@ Zone</source>
 <context>
     <name>openstudio::LocationView</name>
     <message>
-        <location filename="../src/openstudio_lib/LocationTabView.cpp" line="166"/>
+        <location filename="../src/openstudio_lib/LocationTabView.cpp" line="203"/>
         <source>Weather File</source>
         <translation>気象データ</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/LocationTabView.cpp" line="187"/>
+        <location filename="../src/openstudio_lib/LocationTabView.cpp" line="224"/>
         <source>Name: </source>
         <translation>ファイル名： </translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/LocationTabView.cpp" line="202"/>
+        <location filename="../src/openstudio_lib/LocationTabView.cpp" line="239"/>
         <source>Latitude: </source>
         <translation>緯度： </translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/LocationTabView.cpp" line="205"/>
+        <location filename="../src/openstudio_lib/LocationTabView.cpp" line="242"/>
         <source>Longitude: </source>
         <translation>経度： </translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/LocationTabView.cpp" line="208"/>
+        <location filename="../src/openstudio_lib/LocationTabView.cpp" line="245"/>
         <source>Elevation: </source>
         <translation>標高： </translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/LocationTabView.cpp" line="211"/>
+        <location filename="../src/openstudio_lib/LocationTabView.cpp" line="248"/>
         <source>Time Zone: </source>
         <translation>タイムゾーン： </translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/LocationTabView.cpp" line="215"/>
+        <location filename="../src/openstudio_lib/LocationTabView.cpp" line="252"/>
         <source>Download weather files at &lt;a href=&quot;http://www.energyplus.net/weather&quot;&gt;www.energyplus.net/weather&lt;/a&gt;</source>
         <translation>気象データをダウンロード： &lt;a href=&quot;http://www.energyplus.net/weather&quot;&gt;www.energyplus.net/weather&lt;/a&gt;</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/LocationTabView.cpp" line="225"/>
+        <location filename="../src/openstudio_lib/LocationTabView.cpp" line="262"/>
         <source>Measure Tags (Optional):</source>
         <translation>メジャータブ（任意）：</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/LocationTabView.cpp" line="229"/>
+        <location filename="../src/openstudio_lib/LocationTabView.cpp" line="266"/>
         <source>ASHRAE Climate Zone</source>
         <translation>ASHRAE気候帯</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/LocationTabView.cpp" line="262"/>
+        <location filename="../src/openstudio_lib/LocationTabView.cpp" line="299"/>
         <source>CEC Climate Zone</source>
         <translation>CEC気候帯</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/LocationTabView.cpp" line="331"/>
+        <location filename="../src/openstudio_lib/LocationTabView.cpp" line="368"/>
+        <location filename="../src/openstudio_lib/LocationTabView.cpp" line="750"/>
+        <location filename="../src/openstudio_lib/LocationTabView.cpp" line="757"/>
         <source>Design Days</source>
         <translation>気象条件</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/LocationTabView.cpp" line="334"/>
+        <location filename="../src/openstudio_lib/LocationTabView.cpp" line="371"/>
         <source>Import From DDY</source>
         <translation>DDYからインポート</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/LocationTabView.cpp" line="461"/>
+        <location filename="../src/openstudio_lib/LocationTabView.cpp" line="498"/>
         <source>Change Weather File</source>
         <translation>気象データの変更</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/LocationTabView.cpp" line="464"/>
-        <location filename="../src/openstudio_lib/LocationTabView.cpp" line="468"/>
+        <location filename="../src/openstudio_lib/LocationTabView.cpp" line="501"/>
+        <location filename="../src/openstudio_lib/LocationTabView.cpp" line="505"/>
         <source>Set Weather File</source>
         <translation>気象データの選択</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/LocationTabView.cpp" line="517"/>
+        <location filename="../src/openstudio_lib/LocationTabView.cpp" line="554"/>
         <source>EPW Files (*.epw);; All Files (*.*)</source>
         <translation>EPW (*.epw);; すべてのファイル形式(*.*)</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/LocationTabView.cpp" line="528"/>
+        <location filename="../src/openstudio_lib/LocationTabView.cpp" line="565"/>
         <source>Open Weather File</source>
         <translation>気象データを開く</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/LocationTabView.cpp" line="614"/>
+        <location filename="../src/openstudio_lib/LocationTabView.cpp" line="651"/>
         <source>Failed To Set Weather File</source>
         <translation>気象データの選択に失敗しました</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/LocationTabView.cpp" line="614"/>
+        <location filename="../src/openstudio_lib/LocationTabView.cpp" line="651"/>
         <source>Failed To Set Weather File To </source>
         <translation>気象データの選択に失敗しました </translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/LocationTabView.cpp" line="673"/>
+        <location filename="../src/openstudio_lib/LocationTabView.cpp" line="770"/>
         <source>Ok</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/LocationTabView.cpp" line="674"/>
+        <location filename="../src/openstudio_lib/LocationTabView.cpp" line="786"/>
         <source>Cancel</source>
         <translation type="unfinished">キャンセル</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/LocationTabView.cpp" line="675"/>
-        <source>Skip
-selection
-import
-all DDYs</source>
+        <location filename="../src/openstudio_lib/LocationTabView.cpp" line="790"/>
+        <source>Import all</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/LocationTabView.cpp" line="768"/>
+        <location filename="../src/openstudio_lib/LocationTabView.cpp" line="820"/>
         <source>Open DDY File</source>
         <translation>DDYファイルを開く</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/LocationTabView.cpp" line="817"/>
+        <location filename="../src/openstudio_lib/LocationTabView.cpp" line="869"/>
         <source>No Design Days in DDY File</source>
         <translation>DDYファイルに気象条件がありません</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/LocationTabView.cpp" line="818"/>
+        <location filename="../src/openstudio_lib/LocationTabView.cpp" line="870"/>
         <source>This DDY file does not contain any valid design days.  Check the DDY file itself for errors or omissions.</source>
         <translation>DDYファイルに有効な気象条件がありません。ファイルにエラーや欠損がないか確認してください。</translation>
     </message>

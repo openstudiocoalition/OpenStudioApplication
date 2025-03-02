@@ -57,7 +57,7 @@
 <context>
     <name>LocationView</name>
     <message>
-        <location filename="../src/openstudio_lib/LocationTabView.cpp" line="663"/>
+        <location filename="../src/openstudio_lib/LocationTabView.cpp" line="719"/>
         <source>Import Design Days</source>
         <translation type="unfinished"></translation>
     </message>
@@ -326,7 +326,7 @@ Zone</source>
 <context>
     <name>openstudio::LocationTabView</name>
     <message>
-        <location filename="../src/openstudio_lib/LocationTabView.cpp" line="85"/>
+        <location filename="../src/openstudio_lib/LocationTabView.cpp" line="122"/>
         <source>Site</source>
         <translation>स्थल</translation>
     </message>
@@ -334,126 +334,125 @@ Zone</source>
 <context>
     <name>openstudio::LocationView</name>
     <message>
-        <location filename="../src/openstudio_lib/LocationTabView.cpp" line="166"/>
+        <location filename="../src/openstudio_lib/LocationTabView.cpp" line="203"/>
         <source>Weather File</source>
         <translation>मौसम फ़ाइल</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/LocationTabView.cpp" line="187"/>
+        <location filename="../src/openstudio_lib/LocationTabView.cpp" line="224"/>
         <source>Name: </source>
         <translation>नाम: </translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/LocationTabView.cpp" line="202"/>
+        <location filename="../src/openstudio_lib/LocationTabView.cpp" line="239"/>
         <source>Latitude: </source>
         <translation>अक्षांश: </translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/LocationTabView.cpp" line="205"/>
+        <location filename="../src/openstudio_lib/LocationTabView.cpp" line="242"/>
         <source>Longitude: </source>
         <translation>देशान्तर: </translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/LocationTabView.cpp" line="208"/>
+        <location filename="../src/openstudio_lib/LocationTabView.cpp" line="245"/>
         <source>Elevation: </source>
         <translation>ऊंचाई: </translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/LocationTabView.cpp" line="211"/>
+        <location filename="../src/openstudio_lib/LocationTabView.cpp" line="248"/>
         <source>Time Zone: </source>
         <translation>समय क्षेत्र: </translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/LocationTabView.cpp" line="215"/>
+        <location filename="../src/openstudio_lib/LocationTabView.cpp" line="252"/>
         <source>Download weather files at &lt;a href=&quot;http://www.energyplus.net/weather&quot;&gt;www.energyplus.net/weather&lt;/a&gt;</source>
         <translation>मौसम फ़ाइल डाउनलोड करें &lt;a href=&quot;http://www.energyplus.net/weather&quot;&gt;www.energyplus.net</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/LocationTabView.cpp" line="225"/>
+        <location filename="../src/openstudio_lib/LocationTabView.cpp" line="262"/>
         <source>Measure Tags (Optional):</source>
         <translation>उपाय टैग(ऐच्छिक):</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/LocationTabView.cpp" line="229"/>
+        <location filename="../src/openstudio_lib/LocationTabView.cpp" line="266"/>
         <source>ASHRAE Climate Zone</source>
         <translation>ASHRAE जलवायु क्षेत्र</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/LocationTabView.cpp" line="262"/>
+        <location filename="../src/openstudio_lib/LocationTabView.cpp" line="299"/>
         <source>CEC Climate Zone</source>
         <translation>CEC जलवायु क्षेत्र</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/LocationTabView.cpp" line="331"/>
+        <location filename="../src/openstudio_lib/LocationTabView.cpp" line="368"/>
+        <location filename="../src/openstudio_lib/LocationTabView.cpp" line="750"/>
+        <location filename="../src/openstudio_lib/LocationTabView.cpp" line="757"/>
         <source>Design Days</source>
         <translation>डिजाइन के दिन</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/LocationTabView.cpp" line="334"/>
+        <location filename="../src/openstudio_lib/LocationTabView.cpp" line="371"/>
         <source>Import From DDY</source>
         <translation>डीडीवाई से आयात करें</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/LocationTabView.cpp" line="461"/>
+        <location filename="../src/openstudio_lib/LocationTabView.cpp" line="498"/>
         <source>Change Weather File</source>
         <translation>मौसम फ़ाइल बदलें</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/LocationTabView.cpp" line="464"/>
-        <location filename="../src/openstudio_lib/LocationTabView.cpp" line="468"/>
+        <location filename="../src/openstudio_lib/LocationTabView.cpp" line="501"/>
+        <location filename="../src/openstudio_lib/LocationTabView.cpp" line="505"/>
         <source>Set Weather File</source>
         <translation>मौसम फ़ाइल सेट करें</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/LocationTabView.cpp" line="517"/>
+        <location filename="../src/openstudio_lib/LocationTabView.cpp" line="554"/>
         <source>EPW Files (*.epw);; All Files (*.*)</source>
         <translation>ईपीडब्ल्यू फाइलें (*.epw);; सब फाइलें (*.*)</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/LocationTabView.cpp" line="528"/>
+        <location filename="../src/openstudio_lib/LocationTabView.cpp" line="565"/>
         <source>Open Weather File</source>
         <translation>मौसम फ़ाइल खोले</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/LocationTabView.cpp" line="614"/>
+        <location filename="../src/openstudio_lib/LocationTabView.cpp" line="651"/>
         <source>Failed To Set Weather File</source>
         <translation>मौसम फ़ाइल सेट करने में विफल</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/LocationTabView.cpp" line="614"/>
+        <location filename="../src/openstudio_lib/LocationTabView.cpp" line="651"/>
         <source>Failed To Set Weather File To </source>
         <translation>निम्लिखित मौसम फ़ाइल सेट करने में विफल </translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/LocationTabView.cpp" line="673"/>
+        <location filename="../src/openstudio_lib/LocationTabView.cpp" line="770"/>
         <source>Ok</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/LocationTabView.cpp" line="674"/>
+        <location filename="../src/openstudio_lib/LocationTabView.cpp" line="786"/>
         <source>Cancel</source>
         <translation type="unfinished">रद्द करें</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/LocationTabView.cpp" line="675"/>
-        <source>Skip
-selection
-import
-all DDYs</source>
+        <location filename="../src/openstudio_lib/LocationTabView.cpp" line="790"/>
+        <source>Import all</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/LocationTabView.cpp" line="768"/>
+        <location filename="../src/openstudio_lib/LocationTabView.cpp" line="820"/>
         <source>Open DDY File</source>
         <translation>डीडीवाई फ़ाइल खोलें</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/LocationTabView.cpp" line="817"/>
+        <location filename="../src/openstudio_lib/LocationTabView.cpp" line="869"/>
         <source>No Design Days in DDY File</source>
         <translation>डीडीवाई फ़ाइल में कोई डिज़ाइन दिवस नहीं</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/LocationTabView.cpp" line="818"/>
+        <location filename="../src/openstudio_lib/LocationTabView.cpp" line="870"/>
         <source>This DDY file does not contain any valid design days.  Check the DDY file itself for errors or omissions.</source>
         <translation>इस डीडीवाई फ़ाइल में कोई मान्य डिज़ाइन दिवस नहीं है। त्रुटियों या चूक के लिए स्वयं डीडीवाई फ़ाइल की जाँच करें.</translation>
     </message>

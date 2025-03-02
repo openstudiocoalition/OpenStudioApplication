@@ -37,7 +37,7 @@ class YearDescription;
 class SortableDesignDay
 {
  public:
-  SortableDesignDay(const openstudio::model::DesignDay& designDay);
+  explicit SortableDesignDay(const openstudio::model::DesignDay& designDay);
 
   static int qstringToPermil(const QString& str);
 
