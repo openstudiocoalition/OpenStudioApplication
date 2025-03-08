@@ -43,6 +43,7 @@
 
 #include <iostream>
 #include <algorithm>
+#include <bitset>
 #include <map>
 #include <set>
 #include <string>
@@ -63,13 +64,14 @@ OSCellWrapper::OSCellWrapper(OSGridView* gridView, QSharedPointer<BaseConcept> b
   m_layout->setSpacing(0);
   m_layout->setVerticalSpacing(0);
   m_layout->setHorizontalSpacing(0);
-  m_layout->setContentsMargins(0, 0, 1, 1);
   this->setLayout(m_layout);
   this->setAttribute(Qt::WA_StyledBackground);
   this->setObjectName("OSCellWrapper");
-  setStyleSheet("QWidget#OSCellWrapper { border: none; border-right: 1px solid gray; border-bottom: 1px solid gray; }"
-                "QWidget#OSCellWrapper[header=\"true\"]{ border: none; border-top: 1px solid black; border-right: 1px solid gray; border-bottom: 1px "
+  setStyleSheet("QWidget#OSCellWrapper[style=\"01\"] { border: none; border-right: 1px solid gray; border-bottom: 1px solid gray; }" // header = false, visible = true
+                "QWidget#OSCellWrapper[style=\"00\"] { border: none; border-right: none; border-bottom: none; }" // header = false, visible = false
+                "QWidget#OSCellWrapper[style=\"11\"]{ border: none; border-top: 1px solid black; border-right: 1px solid gray; border-bottom: 1px " // header = true, visible = true
                 "solid black; }");
+  updateStyle();
 
   connect(this, &OSCellWrapper::rowNeedsStyle, objectSelector, &OSObjectSelector::onRowNeedsStyle);
 }
@@ -175,6 +177,8 @@ void OSCellWrapper::setCellProperties(const GridCellLocation& location, const Gr
     for (auto* holder : m_holders) {
       holder->setCellProperties(location, info);
     }
+    m_visible = info.isVisible();
+    updateStyle();
   }
 }
 
@@ -570,10 +574,32 @@ void OSCellWrapper::disconnectModelSignals() {
 }
 
 void OSCellWrapper::makeHeader() {
-  m_layout->setContentsMargins(0, 1, 1, 1);
-  setProperty("header", true);
-  this->style()->unpolish(this);
-  this->style()->polish(this);
+  m_header = true;
+  m_visible = true;
+  updateStyle();
+}
+
+void OSCellWrapper::updateStyle() {
+  // Locked, Focused, Defaulted
+  std::bitset<3> style;
+  style[0] = m_header;
+  style[1] = m_visible;
+  QString thisStyle = QString::fromStdString(style.to_string());
+
+  QVariant currentStyle = property("style");
+  if (currentStyle.isNull() || currentStyle.toString() != thisStyle) {
+    if (m_header) {
+      m_layout->setContentsMargins(0, 1, 1, 1);
+    } else if (m_visible) {
+      m_layout->setContentsMargins(0, 0, 1, 1);
+    } else {
+      m_layout->setContentsMargins(0, 0, 0, 0);
+    }
+
+    this->setProperty("style", thisStyle);
+    this->style()->unpolish(this);
+    this->style()->polish(this);
+  }
 }
 
 void OSCellWrapper::onRemoveWorkspaceObject(const WorkspaceObject& object, const openstudio::IddObjectType& iddObjectType,

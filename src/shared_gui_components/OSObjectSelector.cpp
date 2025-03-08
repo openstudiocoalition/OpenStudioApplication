@@ -279,16 +279,29 @@ void OSObjectSelector::setObjectRemoved(const openstudio::Handle& handle) {
   const PropertyChange visible = ChangeToFalse;
   const PropertyChange selected = ChangeToFalse;
   const PropertyChange locked = ChangeToTrue;
+  int numSelected = 0;
+  int numSelectable = 0;
   for (auto* const location : m_selectorCellLocations) {
     GridCellInfo* info = getGridCellInfo(location);
-    if ((info != nullptr) && info->modelObject && info->modelObject->handle() == handle) {
+    if (info == nullptr) {
+      continue;
+    }
+    if (info->modelObject && info->modelObject->handle() == handle) {
       if (location->subrow) {
         setSubrowProperties(location->gridRow, location->subrow.get(), visible, selected, locked);
       } else {
         setRowProperties(location->gridRow, visible, selected, locked);
       }
+    } else {
+      if (info->isSelected()) {
+        ++numSelected;
+      }
+      if (info->isSelectable()) {
+        ++numSelectable;
+      }
     }
   }
+  emit gridRowSelectionChanged(numSelected, numSelectable);
 }
 
 //bool OSObjectSelector::containsObject(const openstudio::model::ModelObject& t_obj) const {
