@@ -67,10 +67,11 @@ OSCellWrapper::OSCellWrapper(OSGridView* gridView, QSharedPointer<BaseConcept> b
   this->setLayout(m_layout);
   this->setAttribute(Qt::WA_StyledBackground);
   this->setObjectName("OSCellWrapper");
-  setStyleSheet("QWidget#OSCellWrapper[style=\"01\"] { border: none; border-right: 1px solid gray; border-bottom: 1px solid gray; }" // header = false, visible = true
-                "QWidget#OSCellWrapper[style=\"00\"] { border: none; border-right: none; border-bottom: none; }" // header = false, visible = false
-                "QWidget#OSCellWrapper[style=\"11\"]{ border: none; border-top: 1px solid black; border-right: 1px solid gray; border-bottom: 1px " // header = true, visible = true
-                "solid black; }");
+  setStyleSheet(
+    "QWidget#OSCellWrapper[style=\"01\"] { border: none; border-right: 1px solid gray; border-bottom: 1px solid gray; }"  // header = false, visible = true
+    "QWidget#OSCellWrapper[style=\"00\"] { border: none; border-right: none; border-bottom: none; }"  // header = false, visible = false
+    "QWidget#OSCellWrapper[style=\"11\"]{ border: none; border-top: 1px solid black; border-right: 1px solid gray; border-bottom: 1px "  // header = true, visible = true
+    "solid black; }");
   updateStyle();
 
   connect(this, &OSCellWrapper::rowNeedsStyle, objectSelector, &OSObjectSelector::onRowNeedsStyle);

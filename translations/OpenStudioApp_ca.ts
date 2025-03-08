@@ -388,8 +388,8 @@ Zona</translation>
     </message>
     <message>
         <location filename="../src/openstudio_lib/LocationTabView.cpp" line="368"/>
-        <location filename="../src/openstudio_lib/LocationTabView.cpp" line="750"/>
-        <location filename="../src/openstudio_lib/LocationTabView.cpp" line="757"/>
+        <location filename="../src/openstudio_lib/LocationTabView.cpp" line="751"/>
+        <location filename="../src/openstudio_lib/LocationTabView.cpp" line="760"/>
         <source>Design Days</source>
         <translation>Dies de Disseny</translation>
     </message>
@@ -430,32 +430,32 @@ Zona</translation>
         <translation>Error al Definir el Fitxer Climàtic a </translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/LocationTabView.cpp" line="770"/>
+        <location filename="../src/openstudio_lib/LocationTabView.cpp" line="773"/>
         <source>Ok</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/LocationTabView.cpp" line="786"/>
+        <location filename="../src/openstudio_lib/LocationTabView.cpp" line="789"/>
         <source>Cancel</source>
         <translation type="unfinished">Cancel·lar</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/LocationTabView.cpp" line="790"/>
+        <location filename="../src/openstudio_lib/LocationTabView.cpp" line="793"/>
         <source>Import all</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/LocationTabView.cpp" line="820"/>
+        <location filename="../src/openstudio_lib/LocationTabView.cpp" line="823"/>
         <source>Open DDY File</source>
         <translation>Obrir Fitxer DDY</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/LocationTabView.cpp" line="869"/>
+        <location filename="../src/openstudio_lib/LocationTabView.cpp" line="872"/>
         <source>No Design Days in DDY File</source>
         <translation>No hi ha Dies de Disseny al fitxer DDY</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/LocationTabView.cpp" line="870"/>
+        <location filename="../src/openstudio_lib/LocationTabView.cpp" line="873"/>
         <source>This DDY file does not contain any valid design days.  Check the DDY file itself for errors or omissions.</source>
         <translation>Aquest fitxer DDY no conté cap dia de disseny vàlid. Comproveu el fitxer DDY.</translation>
     </message>

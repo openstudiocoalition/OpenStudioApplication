@@ -387,8 +387,8 @@ Pomieszczenie</translation>
     </message>
     <message>
         <location filename="../src/openstudio_lib/LocationTabView.cpp" line="368"/>
-        <location filename="../src/openstudio_lib/LocationTabView.cpp" line="750"/>
-        <location filename="../src/openstudio_lib/LocationTabView.cpp" line="757"/>
+        <location filename="../src/openstudio_lib/LocationTabView.cpp" line="751"/>
+        <location filename="../src/openstudio_lib/LocationTabView.cpp" line="760"/>
         <source>Design Days</source>
         <translation>Dni projektowe</translation>
     </message>
@@ -429,32 +429,32 @@ Pomieszczenie</translation>
         <translation>Nie udało się ustawić pliku pogody na </translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/LocationTabView.cpp" line="770"/>
+        <location filename="../src/openstudio_lib/LocationTabView.cpp" line="773"/>
         <source>Ok</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/LocationTabView.cpp" line="786"/>
+        <location filename="../src/openstudio_lib/LocationTabView.cpp" line="789"/>
         <source>Cancel</source>
         <translation type="unfinished">Anuluj</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/LocationTabView.cpp" line="790"/>
+        <location filename="../src/openstudio_lib/LocationTabView.cpp" line="793"/>
         <source>Import all</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/LocationTabView.cpp" line="820"/>
+        <location filename="../src/openstudio_lib/LocationTabView.cpp" line="823"/>
         <source>Open DDY File</source>
         <translation></translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/LocationTabView.cpp" line="869"/>
+        <location filename="../src/openstudio_lib/LocationTabView.cpp" line="872"/>
         <source>No Design Days in DDY File</source>
         <translation>Brak dni projektowych w pliku DDY</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/LocationTabView.cpp" line="870"/>
+        <location filename="../src/openstudio_lib/LocationTabView.cpp" line="873"/>
         <source>This DDY file does not contain any valid design days.  Check the DDY file itself for errors or omissions.</source>
         <translation>Ten plik DDY nie zawiera poprawnych dni projektowych.  Sprawdź plik DDY pod kątem błędów.</translation>
     </message>

@@ -387,8 +387,8 @@ Zone</source>
     </message>
     <message>
         <location filename="../src/openstudio_lib/LocationTabView.cpp" line="368"/>
-        <location filename="../src/openstudio_lib/LocationTabView.cpp" line="750"/>
-        <location filename="../src/openstudio_lib/LocationTabView.cpp" line="757"/>
+        <location filename="../src/openstudio_lib/LocationTabView.cpp" line="751"/>
+        <location filename="../src/openstudio_lib/LocationTabView.cpp" line="760"/>
         <source>Design Days</source>
         <translation>设计日</translation>
     </message>
@@ -429,32 +429,32 @@ Zone</source>
         <translation>设置气候文件失败 </translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/LocationTabView.cpp" line="770"/>
+        <location filename="../src/openstudio_lib/LocationTabView.cpp" line="773"/>
         <source>Ok</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/LocationTabView.cpp" line="786"/>
+        <location filename="../src/openstudio_lib/LocationTabView.cpp" line="789"/>
         <source>Cancel</source>
         <translation type="unfinished">取消</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/LocationTabView.cpp" line="790"/>
+        <location filename="../src/openstudio_lib/LocationTabView.cpp" line="793"/>
         <source>Import all</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/LocationTabView.cpp" line="820"/>
+        <location filename="../src/openstudio_lib/LocationTabView.cpp" line="823"/>
         <source>Open DDY File</source>
         <translation>打开DDY文件</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/LocationTabView.cpp" line="869"/>
+        <location filename="../src/openstudio_lib/LocationTabView.cpp" line="872"/>
         <source>No Design Days in DDY File</source>
         <translation>DDY不含设计日</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/LocationTabView.cpp" line="870"/>
+        <location filename="../src/openstudio_lib/LocationTabView.cpp" line="873"/>
         <source>This DDY file does not contain any valid design days.  Check the DDY file itself for errors or omissions.</source>
         <translation>这个DDY文件不含任何设计日。请检查这个DDY文件是否有误。</translation>
     </message>

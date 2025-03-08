@@ -385,8 +385,8 @@ Zone</source>
     </message>
     <message>
         <location filename="../src/openstudio_lib/LocationTabView.cpp" line="368"/>
-        <location filename="../src/openstudio_lib/LocationTabView.cpp" line="750"/>
-        <location filename="../src/openstudio_lib/LocationTabView.cpp" line="757"/>
+        <location filename="../src/openstudio_lib/LocationTabView.cpp" line="751"/>
+        <location filename="../src/openstudio_lib/LocationTabView.cpp" line="760"/>
         <source>Design Days</source>
         <translation>डिजाइन के दिन</translation>
     </message>
@@ -427,32 +427,32 @@ Zone</source>
         <translation>निम्लिखित मौसम फ़ाइल सेट करने में विफल </translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/LocationTabView.cpp" line="770"/>
+        <location filename="../src/openstudio_lib/LocationTabView.cpp" line="773"/>
         <source>Ok</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/LocationTabView.cpp" line="786"/>
+        <location filename="../src/openstudio_lib/LocationTabView.cpp" line="789"/>
         <source>Cancel</source>
         <translation type="unfinished">रद्द करें</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/LocationTabView.cpp" line="790"/>
+        <location filename="../src/openstudio_lib/LocationTabView.cpp" line="793"/>
         <source>Import all</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/LocationTabView.cpp" line="820"/>
+        <location filename="../src/openstudio_lib/LocationTabView.cpp" line="823"/>
         <source>Open DDY File</source>
         <translation>डीडीवाई फ़ाइल खोलें</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/LocationTabView.cpp" line="869"/>
+        <location filename="../src/openstudio_lib/LocationTabView.cpp" line="872"/>
         <source>No Design Days in DDY File</source>
         <translation>डीडीवाई फ़ाइल में कोई डिज़ाइन दिवस नहीं</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/LocationTabView.cpp" line="870"/>
+        <location filename="../src/openstudio_lib/LocationTabView.cpp" line="873"/>
         <source>This DDY file does not contain any valid design days.  Check the DDY file itself for errors or omissions.</source>
         <translation>इस डीडीवाई फ़ाइल में कोई मान्य डिज़ाइन दिवस नहीं है। त्रुटियों या चूक के लिए स्वयं डीडीवाई फ़ाइल की जाँच करें.</translation>
     </message>
