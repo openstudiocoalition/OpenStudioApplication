@@ -278,7 +278,7 @@ void OSObjectSelector::addObject(const boost::optional<model::ModelObject>& t_ob
   int numSelectable = 0;
   for (const auto& location : m_selectorCellLocations) {
     GridCellInfo* info = getGridCellInfo(location);
-    if (info){
+    if (info) {
       if (info->isSelected()) {
         ++numSelected;
       }
