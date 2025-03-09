@@ -273,6 +273,22 @@ void OSObjectSelector::addObject(const boost::optional<model::ModelObject>& t_ob
   }
 
   m_gridCellLocationToInfoMap.insert(std::make_pair(location, info));
+
+  int numSelected = 0;
+  int numSelectable = 0;
+  for (const auto& location : m_selectorCellLocations) {
+    GridCellInfo* info = getGridCellInfo(location);
+    if (info){
+      if (info->isSelected()) {
+        ++numSelected;
+      }
+      if (info->isSelectable()) {
+        ++numSelectable;
+      }
+    }
+  }
+
+  emit gridRowSelectionChanged(numSelected, numSelectable);
 }
 
 void OSObjectSelector::setObjectRemoved(const openstudio::Handle& handle) {
