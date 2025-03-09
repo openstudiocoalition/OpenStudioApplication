@@ -68,9 +68,9 @@ OSCellWrapper::OSCellWrapper(OSGridView* gridView, QSharedPointer<BaseConcept> b
   this->setAttribute(Qt::WA_StyledBackground);
   this->setObjectName("OSCellWrapper");
   setStyleSheet(
-    "QWidget#OSCellWrapper[style=\"01\"] { border: none; border-right: 1px solid gray; border-bottom: 1px solid gray; }"  // header = false, visible = true
-    "QWidget#OSCellWrapper[style=\"00\"] { border: none; border-right: none; border-bottom: none; }"  // header = false, visible = false
-    "QWidget#OSCellWrapper[style=\"11\"]{ border: none; border-top: 1px solid black; border-right: 1px solid gray; border-bottom: 1px "  // header = true, visible = true
+    "QWidget#OSCellWrapper[style=\"10\"] { border: none; border-right: 1px solid gray; border-bottom: 1px solid gray; }"  // visible = true, header = false
+    "QWidget#OSCellWrapper[style=\"00\"] { border: none; border-right: none; border-bottom: none; }"  // visible = false, header = false
+    "QWidget#OSCellWrapper[style=\"11\"]{ border: none; border-top: 1px solid black; border-right: 1px solid gray; border-bottom: 1px "  // visible = true, header = true
     "solid black; }");
   updateStyle();
 
@@ -582,7 +582,7 @@ void OSCellWrapper::makeHeader() {
 
 void OSCellWrapper::updateStyle() {
   // Locked, Focused, Defaulted
-  std::bitset<3> style;
+  std::bitset<2> style;
   style[0] = m_header;
   style[1] = m_visible;
   QString thisStyle = QString::fromStdString(style.to_string());
