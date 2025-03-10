@@ -260,12 +260,6 @@ void BuildingComponentDialogCentralWidget::setTid(const std::string& filterType,
   emit componentsReady();
 }
 
-// void BuildingComponentDialogCentralWidget::sortResponsesAlphabetically(std::vector<BCLSearchResult>& responses) {
-//   std::sort(responses.begin(), responses.end(), [](const BCLSearchResult& a, const BCLSearchResult& b) {
-//     return a.name < b.name;
-//   });
-// }
-
 ///! Slots
 
 void BuildingComponentDialogCentralWidget::upperPushButtonClicked() {
