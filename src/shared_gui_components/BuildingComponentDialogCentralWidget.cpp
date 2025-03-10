@@ -15,8 +15,7 @@
 
 #include <cstddef>
 #include <openstudio/measure/OSArgument.hpp>
-
-#include <openstudio/utilities/bcl/BCL.hpp>
+#include <openstudio/utilities/bcl/BCL.hpp>  // Ensure this include is present
 #include <openstudio/utilities/bcl/LocalBCL.hpp>
 #include <openstudio/utilities/bcl/RemoteBCL.hpp>
 #include <openstudio/utilities/core/Assert.hpp>
@@ -169,6 +168,34 @@ void BuildingComponentDialogCentralWidget::setTid() {
   requestComponents(m_filterType, m_tid, m_pageIdx, m_searchString);
 }
 
+std::vector<openstudio::BCLSearchResult> BuildingComponentDialogCentralWidget::fetchAndSortResponses(const std::string& filterType, int tid, const QString& searchString) {
+  m_allResponses.clear();
+  RemoteBCL remoteBCL;
+  std::vector<BCLSearchResult> responses;
+  int totalPages = 1;
+  int currentPage = 0;
+
+  // Collect all responses from all pages
+  do {
+    std::vector<BCLSearchResult> pageResponses;
+    if (filterType == "components") {
+      pageResponses = remoteBCL.searchComponentLibrary(searchString.toStdString(), tid, currentPage);
+    } else if (filterType == "measures") {
+      pageResponses = remoteBCL.searchMeasureLibrary(searchString.toStdString(), tid, currentPage);
+    }
+    responses.insert(responses.end(), pageResponses.begin(), pageResponses.end());
+    totalPages = remoteBCL.numResultPages();
+    currentPage++;
+  } while (currentPage < totalPages);
+
+  // Sort responses alphabetically by name
+  std::sort(responses.begin(), responses.end(), [](const BCLSearchResult& a, const BCLSearchResult& b) {
+    return a.name() < b.name();
+  });
+
+  return responses;
+}
+
 // Note: don't call this directly if the "wait" screen is desired
 void BuildingComponentDialogCentralWidget::setTid(const std::string& filterType, int tid, int pageIdx, const QString& title,
                                                   const QString& searchString) {
@@ -190,16 +217,17 @@ void BuildingComponentDialogCentralWidget::setTid(const std::string& filterType,
     delete comp;
   }
 
-  RemoteBCL remoteBCL;
-  remoteBCL.setTimeOutSeconds(m_timeoutSeconds);
-  std::vector<BCLSearchResult> responses;
-  if (filterType == "components") {
-    responses = remoteBCL.searchComponentLibrary(searchString.toStdString(), tid, pageIdx);
-  } else if (filterType == "measures") {
-    responses = remoteBCL.searchMeasureLibrary(searchString.toStdString(), tid, pageIdx);
+  if (pageIdx == 0 || m_allResponses.empty()) {
+    m_allResponses = fetchAndSortResponses(filterType, tid, searchString);
   }
 
-  for (const auto& response : responses) {
+  // Paginate responses
+  int itemsPerPage = 10;  // Assuming 10 items per page
+  int startIdx = pageIdx * itemsPerPage;
+  int endIdx = std::min(startIdx + itemsPerPage, static_cast<int>(m_allResponses.size()));
+  std::vector<BCLSearchResult> paginatedResponses(m_allResponses.begin() + startIdx, m_allResponses.begin() + endIdx);
+
+  for (const auto& response : paginatedResponses) {
     auto* component = new Component(response);
 
     // TODO replace with a componentList owned by m_collapsibleComponentList
@@ -210,11 +238,11 @@ void BuildingComponentDialogCentralWidget::setTid(const std::string& filterType,
   m_collapsibleComponentList->setText(title);
 
   // the total number of results
-  int lastTotalResults = remoteBCL.lastTotalResults();
+  int lastTotalResults = m_allResponses.size();
   m_collapsibleComponentList->setNumResults(lastTotalResults);
 
   // the number of pages of results
-  int numResultPages = remoteBCL.numResultPages();
+  int numResultPages = (lastTotalResults + itemsPerPage - 1) / itemsPerPage;
   m_collapsibleComponentList->setNumPages(numResultPages);
 
   // make sure the header is expanded
@@ -231,6 +259,12 @@ void BuildingComponentDialogCentralWidget::setTid(const std::string& filterType,
 
   emit componentsReady();
 }
+
+// void BuildingComponentDialogCentralWidget::sortResponsesAlphabetically(std::vector<BCLSearchResult>& responses) {
+//   std::sort(responses.begin(), responses.end(), [](const BCLSearchResult& a, const BCLSearchResult& b) {
+//     return a.name < b.name;
+//   });
+// }
 
 ///! Slots
 
