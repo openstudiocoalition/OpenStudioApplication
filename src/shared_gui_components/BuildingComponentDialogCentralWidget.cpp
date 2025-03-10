@@ -15,7 +15,7 @@
 
 #include <cstddef>
 #include <openstudio/measure/OSArgument.hpp>
-#include <openstudio/utilities/bcl/BCL.hpp>  // Ensure this include is present
+#include <openstudio/utilities/bcl/BCL.hpp>
 #include <openstudio/utilities/bcl/LocalBCL.hpp>
 #include <openstudio/utilities/bcl/RemoteBCL.hpp>
 #include <openstudio/utilities/core/Assert.hpp>
