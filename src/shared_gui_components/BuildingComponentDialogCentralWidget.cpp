@@ -185,8 +185,7 @@ std::vector<openstudio::BCLSearchResult> BuildingComponentDialogCentralWidget::f
     }
     responses.insert(responses.end(), pageResponses.begin(), pageResponses.end());
     totalPages = remoteBCL.numResultPages();
-    currentPage++;
-  } while (currentPage < totalPages);
+  } while (++currentPage < totalPages);
 
   // Sort responses alphabetically by name
   std::sort(responses.begin(), responses.end(), [](const BCLSearchResult& a, const BCLSearchResult& b) {
