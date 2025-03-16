@@ -199,31 +199,25 @@ std::vector<openstudio::BCLSearchResult> BuildingComponentDialogCentralWidget::f
 void BuildingComponentDialogCentralWidget::setTid(const std::string& filterType, int tid, int pageIdx, const QString& title,
                                                   const QString& searchString) {
 
-  if (m_tid != tid || m_searchString != searchString) {
+  if (m_tid != tid || m_searchString != searchString || m_filterType != filterType) {
     m_collapsibleComponentList->firstPage();
+    m_allResponses = fetchAndSortResponses(filterType, tid, searchString);
   }
-
-  m_filterType = filterType;
-
-  m_tid = tid;
 
   m_searchString = searchString;
+  m_filterType = filterType;
+  m_tid = tid;
 
-  //std::vector<Component *> components = m_collapsibleComponentList->components();
+  // Clear existing components
   std::vector<Component*> components = m_componentList->components();  // TODO replace with code above
-
   for (auto& comp : components) {
     delete comp;
-  }
-
-  if (pageIdx == 0 || m_allResponses.empty()) {
-    m_allResponses = fetchAndSortResponses(filterType, tid, searchString);
   }
 
   // Paginate responses
   int itemsPerPage = 10;  // Assuming 10 items per page
   size_t startIdx = pageIdx * itemsPerPage;
-  size_t endIdx = std::min(startIdx + itemsPerPage, static_cast<int>(m_allResponses.size()));
+  size_t endIdx = std::min(startIdx + itemsPerPage, m_allResponses.size());
   std::vector<BCLSearchResult> paginatedResponses(m_allResponses.begin() + startIdx, m_allResponses.begin() + endIdx);
 
   for (const auto& response : paginatedResponses) {
