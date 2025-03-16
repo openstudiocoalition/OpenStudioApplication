@@ -222,8 +222,8 @@ void BuildingComponentDialogCentralWidget::setTid(const std::string& filterType,
 
   // Paginate responses
   int itemsPerPage = 10;  // Assuming 10 items per page
-  int startIdx = pageIdx * itemsPerPage;
-  int endIdx = std::min(startIdx + itemsPerPage, static_cast<int>(m_allResponses.size()));
+  size_t startIdx = pageIdx * itemsPerPage;
+  size_t endIdx = std::min(startIdx + itemsPerPage, static_cast<int>(m_allResponses.size()));
   std::vector<BCLSearchResult> paginatedResponses(m_allResponses.begin() + startIdx, m_allResponses.begin() + endIdx);
 
   for (const auto& response : paginatedResponses) {
