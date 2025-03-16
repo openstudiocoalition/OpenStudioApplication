@@ -235,7 +235,7 @@ void BuildingComponentDialogCentralWidget::setTid(const std::string& filterType,
   m_collapsibleComponentList->setNumResults(lastTotalResults);
 
   // the number of pages of results
-  int numResultPages = (lastTotalResults + itemsPerPage - 1) / itemsPerPage;
+  int numResultPages = (lastTotalResults / itemsPerPage) + 1;
   m_collapsibleComponentList->setNumPages(numResultPages);
 
   // make sure the header is expanded
