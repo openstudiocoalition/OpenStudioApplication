@@ -187,10 +187,11 @@ std::vector<openstudio::BCLSearchResult> BuildingComponentDialogCentralWidget::f
     totalPages = remoteBCL.numResultPages();
   } while (++currentPage < totalPages);
 
-  // Sort responses alphabetically by name
-  std::sort(responses.begin(), responses.end(), [](const BCLSearchResult& a, const BCLSearchResult& b) {
-    return a.name() < b.name();
-  });
+  if (!responses.empty()) {
+    std::sort(responses.begin(), responses.end(), [](const BCLSearchResult& a, const BCLSearchResult& b) {
+      return a.name() < b.name();
+    });
+  }
 
   return responses;
 }
@@ -199,8 +200,12 @@ std::vector<openstudio::BCLSearchResult> BuildingComponentDialogCentralWidget::f
 void BuildingComponentDialogCentralWidget::setTid(const std::string& filterType, int tid, int pageIdx, const QString& title,
                                                   const QString& searchString) {
 
-  if (m_tid != tid || m_searchString != searchString || m_filterType != filterType) {
-    m_collapsibleComponentList->firstPage();
+  std::string newKey = std::to_string(tid) + filterType + searchString.toStdString();
+  std::string currentKey = std::to_string(m_tid) + m_filterType + m_searchString.toStdString();
+
+  m_collapsibleComponentList->firstPage();
+
+  if (newKey != currentKey) {
     m_allResponses = fetchAndSortResponses(filterType, tid, searchString);
   }
 
@@ -216,15 +221,18 @@ void BuildingComponentDialogCentralWidget::setTid(const std::string& filterType,
 
   // Paginate responses
   int itemsPerPage = 10;  // Assuming 10 items per page
-  size_t startIdx = pageIdx * itemsPerPage;
-  size_t endIdx = std::min(startIdx + itemsPerPage, m_allResponses.size());
-  std::vector<BCLSearchResult> paginatedResponses(m_allResponses.begin() + startIdx, m_allResponses.begin() + endIdx);
-
-  for (const auto& response : paginatedResponses) {
-    auto* component = new Component(response);
-
-    // TODO replace with a componentList owned by m_collapsibleComponentList
-    m_componentList->addComponent(component);
+  
+  if (!m_allResponses.empty()) {
+    size_t startIdx = pageIdx * itemsPerPage;
+    size_t endIdx = std::min(startIdx + itemsPerPage, m_allResponses.size());
+    std::vector<BCLSearchResult> paginatedResponses(m_allResponses.begin() + startIdx, m_allResponses.begin() + endIdx);
+  
+    for (const auto& response : paginatedResponses) {
+      auto* component = new Component(response);
+  
+      // TODO replace with a componentList owned by m_collapsibleComponentList
+      m_componentList->addComponent(component);
+    }
   }
 
   // the parent taxonomy
@@ -235,8 +243,12 @@ void BuildingComponentDialogCentralWidget::setTid(const std::string& filterType,
   m_collapsibleComponentList->setNumResults(lastTotalResults);
 
   // the number of pages of results
-  int numResultPages = (lastTotalResults / itemsPerPage) + 1;
-  m_collapsibleComponentList->setNumPages(numResultPages);
+  if (lastTotalResults == 0) {
+    m_collapsibleComponentList->setNumPages(0);
+  } else {
+    int numResultPages = (lastTotalResults % itemsPerPage == 0) ? (lastTotalResults / itemsPerPage) : (lastTotalResults / itemsPerPage) + 1;
+    m_collapsibleComponentList->setNumPages(numResultPages);
+  }
 
   // make sure the header is expanded
   if (m_collapsibleComponentList->checkedCollapsibleComponent()) {
