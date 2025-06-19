@@ -400,6 +400,9 @@ if(UNIX)
   # Note: CMAKE_CXX_STANDARD (with no extensions) already sets -std=c++17 (or std=c++1z).
   if(APPLE)
     set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -stdlib=libc++")
+    # TODO: workaround for #5398, remove when updating boost
+    AddCXXFlagIfSupported(-Wno-enum-constexpr-conversion COMPILER_SUPPORTS_enum_constexpr_conversion) # Clang 16.0+ and Apple Clang 15+ only
+    set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -Wno-deprecated-declarations")
   endif()
 endif()
 
