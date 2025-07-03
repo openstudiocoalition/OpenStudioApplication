@@ -770,7 +770,7 @@ std::vector<model::DesignDay> LocationView::showDesignDaySelectionDialog(const s
   int rowCount = gridLayout->rowCount();
 
   // ok button only imports the checked design days
-  QPushButton* okButton = new QPushButton(tr("Ok"), &dialog);
+  QPushButton* okButton = new QPushButton(tr("OK"), &dialog);
   connect(okButton, &QPushButton::clicked, [&dialog, &result, &allRadioButtons, &designDayMap]() {
     for (const auto& rb : allRadioButtons) {
       if (rb->isChecked()) {
@@ -789,7 +789,7 @@ std::vector<model::DesignDay> LocationView::showDesignDaySelectionDialog(const s
   QPushButton* cancelButton = new QPushButton(tr("Cancel"), &dialog);
   connect(cancelButton, &QPushButton::clicked, &dialog, &QDialog::reject);
 
-  // import all imports everythig
+  // import all imports everything
   QPushButton* importAllButton = new QPushButton(tr("Import all"), &dialog);
   connect(importAllButton, &QPushButton::clicked, [&dialog, &result, &allDesignDays]() {
     result = allDesignDays;
