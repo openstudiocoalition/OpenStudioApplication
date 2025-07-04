@@ -453,10 +453,6 @@ Zone</source>
         <translation>OK</translation>
     </message>
     <message>
-        <source>Ok</source>
-        <translation type="vanished">Ok</translation>
-    </message>
-    <message>
         <location filename="../src/openstudio_lib/LocationTabView.cpp" line="814"/>
         <source>Cancel</source>
         <translation>Annuler</translation>
@@ -480,85 +476,6 @@ Zone</source>
         <location filename="../src/openstudio_lib/LocationTabView.cpp" line="899"/>
         <source>This DDY file does not contain any valid design days.  Check the DDY file itself for errors or omissions.</source>
         <translation>Ce fichier DDY ne contient aucun jours de dimensionnement valides. Vérifiez le fichier DDY.</translation>
-    </message>
-</context>
-<context>
-    <name>openstudio::LostCloudConnectionDialog</name>
-    <message>
-        <source>Requirements for cloud:</source>
-        <translation type="vanished">Conditions requises pour l&apos;utilisation du Cloud :</translation>
-    </message>
-    <message>
-        <source>Internet Connection: </source>
-        <translation type="vanished">Connexion Internet : </translation>
-    </message>
-    <message>
-        <source>yes</source>
-        <translation type="vanished">Oui</translation>
-    </message>
-    <message>
-        <source>no</source>
-        <translation type="vanished">Non</translation>
-    </message>
-    <message>
-        <source>Cloud Log-in: </source>
-        <translation type="vanished">Authentification Cloud : </translation>
-    </message>
-    <message>
-        <source>accepted</source>
-        <translation type="vanished">Acceptée</translation>
-    </message>
-    <message>
-        <source>denied</source>
-        <translation type="vanished">Refusée</translation>
-    </message>
-    <message>
-        <source>Cloud Connection: </source>
-        <translation type="vanished">Connexion au Cloud : </translation>
-    </message>
-    <message>
-        <source>reconnected</source>
-        <translation type="vanished">reconnectée</translation>
-    </message>
-    <message>
-        <source>unable to reconnect. </source>
-        <translation type="vanished">Impossible de se reconnecter. </translation>
-    </message>
-    <message>
-        <source>Remember that cloud charges may currently be accruing.</source>
-        <translation type="vanished">Souvenez-vous que des frais d&apos;utilisations du Cloud peuvent s&apos;accumuler.</translation>
-    </message>
-    <message>
-        <source>Options to correct the problem:</source>
-        <translation type="vanished">Options pour corriger le problème :</translation>
-    </message>
-    <message>
-        <source>Try Again Later. </source>
-        <translation type="vanished">Essayez plus tard. </translation>
-    </message>
-    <message>
-        <source>Verify your computer&apos;s internet connection then click &quot;Lost Cloud Connection&quot; to recover the lost cloud session.</source>
-        <translation type="vanished">Vérifiez la connexion Internet de votre ordinateur, puis cliquez sur &quot;Connexion cloud perdue&quot; pour récupérer la session cloud perdue.</translation>
-    </message>
-    <message>
-        <source>Or</source>
-        <translation type="vanished">Ou</translation>
-    </message>
-    <message>
-        <source>Stop Cloud. </source>
-        <translation type="vanished">Arrêter le Cloud. </translation>
-    </message>
-    <message>
-        <source>Disconnect from cloud.  This option will make the failed cloud session unavailable to Pat.  Any data that has not been downloaded to Pat will be lost.  Use the AWS Console to verify that the Amazon service have been completely shutdown.</source>
-        <translation type="vanished">Déconnecter le Cloud. Cet option entraînera que la session cloud abortée sera inaccessible pour PAT. Toute donnée non téléchargée dans PAT sera perdue. Utilisez la cement onsole AWS pour vérifier que le service Amazon a été complètement arrêté.</translation>
-    </message>
-    <message>
-        <source>Launch AWS Console. </source>
-        <translation type="vanished">Lancer la console AWS. </translation>
-    </message>
-    <message>
-        <source>Use the AWS Console to diagnose Amazon services.  You may still attempt to recover the lost cloud session.</source>
-        <translation type="vanished">Utiliser la console AWS pour diagnoster les services Amazon. Vous pourrez toujours tenter de récupérer la session cloud perdue.</translation>
     </message>
 </context>
 <context>
@@ -706,10 +623,6 @@ Zone</source>
         <location filename="../src/openstudio_lib/MainMenu.cpp" line="179"/>
         <source>French</source>
         <translation>Français</translation>
-    </message>
-    <message>
-        <source>Arabic</source>
-        <translation type="vanished">Arabe</translation>
     </message>
     <message>
         <location filename="../src/openstudio_lib/MainMenu.cpp" line="185"/>
@@ -862,10 +775,6 @@ Si vous voulez voir l&apos;Application OpenStudio traduite dans la langue de vot
 <context>
     <name>openstudio::MainWindow</name>
     <message>
-        <source>Restart required</source>
-        <translation type="obsolete">Redémarrage requis</translation>
-    </message>
-    <message>
         <location filename="../src/openstudio_lib/MainWindow.cpp" line="406"/>
         <source>Allow Analytics</source>
         <translation>Autoriser la télémétrie</translation>
@@ -947,10 +856,6 @@ Si vous voulez voir l&apos;Application OpenStudio traduite dans la langue de vot
         <source>Select My Measures Directory</source>
         <translation>Selectionner le dossier &quot;My Measures&quot;</translation>
     </message>
-    <message>
-        <source>Online BCL</source>
-        <translation type="vanished">Online BCL</translation>
-    </message>
 </context>
 <context>
     <name>openstudio::OpenStudioApp</name>
@@ -958,10 +863,6 @@ Si vous voulez voir l&apos;Application OpenStudio traduite dans la langue de vot
         <location filename="../src/openstudio_app/OpenStudioApp.cpp" line="242"/>
         <source>Timeout</source>
         <translation>Délai expiré</translation>
-    </message>
-    <message>
-        <source>Failed to start the Measure Manager. Would you like to retry?</source>
-        <translation type="vanished">Impossible de démarrer le Manager de Measure Voulez-vous réessayer ?</translation>
     </message>
     <message>
         <location filename="../src/openstudio_app/OpenStudioApp.cpp" line="244"/>
@@ -1203,10 +1104,6 @@ Si vous voulez voir l&apos;Application OpenStudio traduite dans la langue de vot
         <translation>Le Manager des Mesures a planté</translation>
     </message>
     <message>
-        <source>About </source>
-        <translation type="vanished">A propos de </translation>
-    </message>
-    <message>
         <location filename="../src/openstudio_app/OpenStudioApp.cpp" line="1020"/>
         <source>Failed to load model</source>
         <translation>Impossible de charger le modèle</translation>
@@ -1273,18 +1170,6 @@ Voulez-vous créer un nouveau modèle ?</translation>
         <location filename="../src/openstudio_app/OpenStudioApp.cpp" line="1199"/>
         <source>Are you sure you want to revert to the last saved version?</source>
         <translation>Etes-vous sûr de vouloir revenir à la dernière version sauvegardée ?</translation>
-    </message>
-    <message>
-        <source>Measure Manager has crashed, attempting to restart
-
-</source>
-        <translation type="vanished">Le Manager des Mesures a planté, tentative de redémarrage
-
-</translation>
-    </message>
-    <message>
-        <source>Measure Manager has crashed</source>
-        <translation type="vanished">Le Manager des Mesures a planté</translation>
     </message>
     <message>
         <location filename="../src/openstudio_app/OpenStudioApp.cpp" line="1422"/>
