@@ -218,6 +218,7 @@ jobs:
 
         # ----- Configure Keychain -----
         KEYCHAIN_PATH=$RUNNER_TEMP/app-signing.keychain-db
+        rm -f $KEYCHAIN_PATH
         security create-keychain -p "${{ secrets.MACOS_KEYCHAIN_PASSWORD }}" $KEYCHAIN_PATH
         # Unlock it for 6 hours
         security set-keychain-settings -lut 21600 $KEYCHAIN_PATH
