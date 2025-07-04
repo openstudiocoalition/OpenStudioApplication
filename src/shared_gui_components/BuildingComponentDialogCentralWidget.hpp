@@ -16,11 +16,11 @@
 #include <openstudio/nano/nano_signal_slot.hpp>  // Signal-Slot replacement
 #include <openstudio/utilities/bcl/BCLComponent.hpp>
 #include <openstudio/utilities/bcl/BCLMeasure.hpp>
+#include <openstudio/utilities/bcl/BCL.hpp>
 
 #include "../shared_gui_components/ProgressBarWithError.hpp"
 
 #include <boost/optional.hpp>
-#include "../../../OpenStudio/src/utilities/bcl/BCL.hpp"
 
 class QTimer;
 
@@ -55,7 +55,7 @@ class BuildingComponentDialogCentralWidget
   void setTid();
   void componentDownloadComplete(const std::string& uid, const boost::optional<BCLComponent>& component);
   void measureDownloadComplete(const std::string& uid, const boost::optional<BCLMeasure>& measure);
-  std::vector<BCLSearchResult> m_allResponses;
+  std::vector<openstudio::BCLSearchResult> m_allResponses;
 
   std::vector<openstudio::BCLSearchResult> fetchAndSortResponses(const std::string& filterType, int tid, const QString& searchString);
 

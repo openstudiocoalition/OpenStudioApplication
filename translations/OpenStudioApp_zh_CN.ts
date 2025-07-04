@@ -818,12 +818,12 @@ If you would like to see the OpenStudioApplication translated in your language o
         <translation type="obsolete">要求重启</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/MainWindow.cpp" line="394"/>
+        <location filename="../src/openstudio_lib/MainWindow.cpp" line="406"/>
         <source>Allow Analytics</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/MainWindow.cpp" line="395"/>
+        <location filename="../src/openstudio_lib/MainWindow.cpp" line="407"/>
         <source>Allow OpenStudio Coalition to collect anonymous usage statistics to help improve the OpenStudio Application? See the &lt;a href=&quot;https://openstudiocoalition.org/about/privacy_policy/&quot;&gt;privacy policy&lt;/a&gt; for more information.</source>
         <translation type="unfinished"></translation>
     </message>

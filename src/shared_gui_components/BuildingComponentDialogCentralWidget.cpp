@@ -170,7 +170,10 @@ void BuildingComponentDialogCentralWidget::setTid() {
 
 std::vector<openstudio::BCLSearchResult> BuildingComponentDialogCentralWidget::fetchAndSortResponses(const std::string& filterType, int tid, const QString& searchString) {
   m_allResponses.clear();
+
   RemoteBCL remoteBCL;
+  remoteBCL.setTimeOutSeconds(m_timeoutSeconds);
+
   std::vector<BCLSearchResult> responses;
   int totalPages = 1;
   int currentPage = 0;
@@ -203,15 +206,15 @@ void BuildingComponentDialogCentralWidget::setTid(const std::string& filterType,
   std::string newKey = std::to_string(tid) + filterType + searchString.toStdString();
   std::string currentKey = std::to_string(m_tid) + m_filterType + m_searchString.toStdString();
 
-  m_collapsibleComponentList->firstPage();
-
-  if (newKey != currentKey) {
-    m_allResponses = fetchAndSortResponses(filterType, tid, searchString);
-  }
-
   m_searchString = searchString;
   m_filterType = filterType;
   m_tid = tid;
+
+  if (newKey != currentKey) {
+    m_allResponses = fetchAndSortResponses(filterType, tid, searchString);
+    m_collapsibleComponentList->firstPage();
+    pageIdx = 0;
+  }
 
   // Clear existing components
   std::vector<Component*> components = m_componentList->components();  // TODO replace with code above
