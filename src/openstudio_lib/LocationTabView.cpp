@@ -696,11 +696,13 @@ std::vector<model::DesignDay> LocationView::showDesignDaySelectionDialog(const s
   // key is designDayType + sortedDesignDayPermil, value is names of dds
   // each cell in the table has a unique key
   std::map<QString, std::vector<openstudio::model::DesignDay>> designDayMap;
+  size_t numUnknownType = 0;
   for (const auto& dd : allDesignDays) {
     SortableDesignDay sdd(dd);
 
     // skip Design Days with unknown type
     if (sdd.type().isEmpty()) {
+      ++numUnknownType;
       continue;
     }
 
@@ -715,30 +717,53 @@ std::vector<model::DesignDay> LocationView::showDesignDaySelectionDialog(const s
   }
 
   // main dialog
-  QDialog dialog(this);
+  QDialog dialog(this, Qt::Dialog | Qt::WindowTitleHint | Qt::WindowCloseButtonHint);
   dialog.setWindowTitle(QCoreApplication::translate("LocationView", "Import Design Days"));
+  dialog.setMinimumWidth(450);
   dialog.setModal(true);
-  QVBoxLayout* layout = new QVBoxLayout(&dialog);
+  dialog.setStyleSheet("background: #E6E6E6;");
+
+  auto* layout = new QVBoxLayout(&dialog);
 
   // grid view for the design day types and permils to import
-  QGridLayout* gridLayout = new QGridLayout();
+  auto* gridLayout = new QGridLayout();
 
   // first row is for headers
   int row = 0;
+
+  auto msg = tr("There are <span style=\"font-weight:bold;\">%1</span> Design Days available for import").arg(QString::number(allDesignDays.size()));
+  if (numUnknownType > 0) {
+    msg += tr(", %1 of which are unknown type").arg(QString::number(numUnknownType));
+  }
+
+  auto* numInfo = new QLabel(msg);
+  gridLayout->addWidget(numInfo, row, 0, 1, -1, Qt::AlignCenter);
+
+  ++row;
   int column = 1;
   for (const auto& sddp : sortedDesignDayPermils) {
     auto* header = new QLabel(SortableDesignDay::permilToQString(sddp) + "%");
+    header->setStyleSheet("font-weight: bold;");
     gridLayout->addWidget(header, row, column++, Qt::AlignCenter);
   }
 
   // one row for each design day type
-  row = 1;
+  ++row;
   QVector<QRadioButton*> allRadioButtons;
   for (const auto& ddt : designDayTypes) {
     column = 0;
     bool checkedFirst = false;
-    auto* label = new QLabel(ddt);
-    gridLayout->addWidget(label, row, column++, Qt::AlignCenter);
+    auto* rowHeader = new QLabel();
+    if (ddt == "Heating") {
+      rowHeader->setText(tr("Heating"));
+      rowHeader->setStyleSheet("font-weight: bold; color: #EF1C21;");
+    } else if (ddt == "Cooling") {
+      rowHeader->setText(tr("Cooling"));
+      rowHeader->setStyleSheet("font-weight: bold; color: #0071BD;");
+    } else {
+      rowHeader->setText(ddt);
+    }
+    gridLayout->addWidget(rowHeader, row, column++, Qt::AlignCenter);
 
     auto* buttonGroup = new QButtonGroup(gridLayout);
     for (const auto& sddp : sortedDesignDayPermils) {
