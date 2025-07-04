@@ -676,7 +676,7 @@ void LocationView::onWeatherFileBtnClicked() {
  * from a provided list of all available design days which are
  *  heatingPercentages "99.6%", "99%"
   *  and coolingPercentages "2%", "1%", "0.4%"
- * 
+ *
  * . The dialog includes options for selecting heating
  * and cooling design days based on predefined percentages. The user can choose to import all design days,
  * select specific ones, or cancel the operation.
@@ -727,7 +727,7 @@ std::vector<model::DesignDay> LocationView::showDesignDaySelectionDialog(const s
   int row = 0;
   int column = 1;
   for (const auto& sddp : sortedDesignDayPermils) {
-    QLabel* header = new QLabel(SortableDesignDay::permilToQString(sddp) + "%");
+    auto* header = new QLabel(SortableDesignDay::permilToQString(sddp) + "%");
     gridLayout->addWidget(header, row, column++, Qt::AlignCenter);
   }
 
@@ -737,13 +737,13 @@ std::vector<model::DesignDay> LocationView::showDesignDaySelectionDialog(const s
   for (const auto& ddt : designDayTypes) {
     column = 0;
     bool checkedFirst = false;
-    QLabel* label = new QLabel(ddt);
+    auto* label = new QLabel(ddt);
     gridLayout->addWidget(label, row, column++, Qt::AlignCenter);
 
-    QButtonGroup* buttonGroup = new QButtonGroup(gridLayout);
+    auto* buttonGroup = new QButtonGroup(gridLayout);
     for (const auto& sddp : sortedDesignDayPermils) {
       QString key = SortableDesignDay::key(ddt, sddp);
-      QRadioButton* radioButton = new QRadioButton();
+      auto* radioButton = new QRadioButton();
       allRadioButtons.append(radioButton);
       if (!designDayMap.contains(key)) {
         radioButton->setEnabled(false);
@@ -770,7 +770,7 @@ std::vector<model::DesignDay> LocationView::showDesignDaySelectionDialog(const s
   int rowCount = gridLayout->rowCount();
 
   // ok button only imports the checked design days
-  QPushButton* okButton = new QPushButton(tr("OK"), &dialog);
+  auto* okButton = new QPushButton(tr("OK"), &dialog);
   connect(okButton, &QPushButton::clicked, [&dialog, &result, &allRadioButtons, &designDayMap]() {
     for (const auto& rb : allRadioButtons) {
       if (rb->isChecked()) {
@@ -786,18 +786,18 @@ std::vector<model::DesignDay> LocationView::showDesignDaySelectionDialog(const s
   });
 
   // cancel button imports nothing
-  QPushButton* cancelButton = new QPushButton(tr("Cancel"), &dialog);
+  auto* cancelButton = new QPushButton(tr("Cancel"), &dialog);
   connect(cancelButton, &QPushButton::clicked, &dialog, &QDialog::reject);
 
   // import all imports everything
-  QPushButton* importAllButton = new QPushButton(tr("Import all"), &dialog);
+  auto* importAllButton = new QPushButton(tr("Import all"), &dialog);
   connect(importAllButton, &QPushButton::clicked, [&dialog, &result, &allDesignDays]() {
     result = allDesignDays;
     dialog.accept();
   });
 
   // add all the buttons in a button box
-  QDialogButtonBox* buttonBox = new QDialogButtonBox(Qt::Horizontal);
+  auto* buttonBox = new QDialogButtonBox(Qt::Horizontal);
   buttonBox->addButton(okButton, QDialogButtonBox::AcceptRole);
   buttonBox->addButton(cancelButton, QDialogButtonBox::RejectRole);
   buttonBox->addButton(importAllButton, QDialogButtonBox::YesRole);
@@ -850,7 +850,8 @@ void LocationView::onDesignDayBtnClicked() {
 
         //m_model.insertObjects(ddyModel.objects());
 
-        std::vector<openstudio::model::DesignDay> designDaysToInsert = showDesignDaySelectionDialog(ddyModel.getModelObjects<model::DesignDay>());
+        std::vector<openstudio::model::DesignDay> designDaysToInsert =
+          showDesignDaySelectionDialog(ddyModel.getConcreteModelObjects<model::DesignDay>());
 
         // Remove design days from ddyModel that are not in designDaysToInsert
         for (auto& designDay : ddyModel.getConcreteModelObjects<model::DesignDay>()) {
