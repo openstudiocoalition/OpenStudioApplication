@@ -57,7 +57,7 @@
 <context>
     <name>LocationView</name>
     <message>
-        <location filename="../src/openstudio_lib/LocationTabView.cpp" line="719"/>
+        <location filename="../src/openstudio_lib/LocationTabView.cpp" line="721"/>
         <source>Import Design Days</source>
         <translation type="unfinished"></translation>
     </message>
@@ -385,8 +385,8 @@ Zone</source>
     </message>
     <message>
         <location filename="../src/openstudio_lib/LocationTabView.cpp" line="368"/>
-        <location filename="../src/openstudio_lib/LocationTabView.cpp" line="751"/>
-        <location filename="../src/openstudio_lib/LocationTabView.cpp" line="760"/>
+        <location filename="../src/openstudio_lib/LocationTabView.cpp" line="776"/>
+        <location filename="../src/openstudio_lib/LocationTabView.cpp" line="785"/>
         <source>Design Days</source>
         <translation>डिजाइन के दिन</translation>
     </message>
@@ -427,32 +427,52 @@ Zone</source>
         <translation>निम्लिखित मौसम फ़ाइल सेट करने में विफल </translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/LocationTabView.cpp" line="773"/>
-        <source>Ok</source>
+        <location filename="../src/openstudio_lib/LocationTabView.cpp" line="734"/>
+        <source>There are &lt;span style=&quot;font-weight:bold;&quot;&gt;%1&lt;/span&gt; Design Days available for import</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/LocationTabView.cpp" line="789"/>
+        <location filename="../src/openstudio_lib/LocationTabView.cpp" line="736"/>
+        <source>, %1 of which are unknown type</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../src/openstudio_lib/LocationTabView.cpp" line="758"/>
+        <source>Heating</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../src/openstudio_lib/LocationTabView.cpp" line="761"/>
+        <source>Cooling</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../src/openstudio_lib/LocationTabView.cpp" line="798"/>
+        <source>OK</source>
+        <translation type="unfinished">ठीक है</translation>
+    </message>
+    <message>
+        <location filename="../src/openstudio_lib/LocationTabView.cpp" line="814"/>
         <source>Cancel</source>
         <translation type="unfinished">रद्द करें</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/LocationTabView.cpp" line="793"/>
+        <location filename="../src/openstudio_lib/LocationTabView.cpp" line="818"/>
         <source>Import all</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/LocationTabView.cpp" line="823"/>
+        <location filename="../src/openstudio_lib/LocationTabView.cpp" line="848"/>
         <source>Open DDY File</source>
         <translation>डीडीवाई फ़ाइल खोलें</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/LocationTabView.cpp" line="872"/>
+        <location filename="../src/openstudio_lib/LocationTabView.cpp" line="898"/>
         <source>No Design Days in DDY File</source>
         <translation>डीडीवाई फ़ाइल में कोई डिज़ाइन दिवस नहीं</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/LocationTabView.cpp" line="873"/>
+        <location filename="../src/openstudio_lib/LocationTabView.cpp" line="899"/>
         <source>This DDY file does not contain any valid design days.  Check the DDY file itself for errors or omissions.</source>
         <translation>इस डीडीवाई फ़ाइल में कोई मान्य डिज़ाइन दिवस नहीं है। त्रुटियों या चूक के लिए स्वयं डीडीवाई फ़ाइल की जाँच करें.</translation>
     </message>
