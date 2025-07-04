@@ -792,6 +792,7 @@ set(${target_name}_test_src
   test/FacilityShading_GTest.cpp
   test/Geometry_GTest.cpp
   test/IconLibrary_GTest.cpp
+  test/LocationTab_GTest.cpp
   test/ObjectSelector_GTest.cpp
   test/OSDropZone_GTest.cpp
   test/OSLineEdit_GTest.cpp

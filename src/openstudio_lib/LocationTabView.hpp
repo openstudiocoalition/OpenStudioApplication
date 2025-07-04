@@ -9,7 +9,7 @@
 #include <openstudio/model/Model.hpp>
 #include <openstudio/model/Site.hpp>
 #include <openstudio/model/YearDescription.hpp>
-
+#include <openstudio/model/DesignDay.hpp>
 #include "MainTabView.hpp"
 #include "YearSettingsWidget.hpp"
 
@@ -30,6 +30,32 @@ class Model;
 class Site;
 class YearDescription;
 }  // namespace model
+
+/// <summary>
+/// SortableDesignDay is a helper class for sorting DesignDays
+/// </summary>
+class SortableDesignDay
+{
+ public:
+  explicit SortableDesignDay(const openstudio::model::DesignDay& designDay);
+
+  static int qstringToPermil(const QString& str);
+
+  static QString permilToQString(int permil);
+
+  static QString key(const QString& type, int sortablePermil);
+
+  QString type() const;
+
+  int permil() const;
+
+  int sortablePermil() const;
+
+ private:
+  QString m_type;
+  int m_permil{0};  // per thousand, e.g. 0.4% -> 4, 99.6% -> 996
+  openstudio::model::DesignDay m_designDay;
+};
 
 class LocationView : public QWidget
 {
@@ -123,6 +149,8 @@ class LocationView : public QWidget
   void setDstEndDate(const QDate& newdate);
 
   void onWeatherFileBtnClicked();
+
+  std::vector<openstudio::model::DesignDay> showDesignDaySelectionDialog(const std::vector<openstudio::model::DesignDay>& allDesignDays);
 
   void onDesignDayBtnClicked();
 
