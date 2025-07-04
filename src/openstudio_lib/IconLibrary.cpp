@@ -350,6 +350,10 @@ IconLibrary::IconLibrary() {
     new QPixmap(":/images/mini_icons/heat_transfer_mini.png");
   m_miniIcons[openstudio::IddObjectType(openstudio::IddObjectType::OS_HeatExchanger_FluidToFluid).value()] =
     new QPixmap(":/images/mini_icons/fluid_hx_mini.png");
+  m_miniIcons[openstudio::IddObjectType(openstudio::IddObjectType::OS_HotWaterEquipment).value()] =
+    new QPixmap(":/images/mini_icons/hotwater_equipment.png");
+  m_miniIcons[openstudio::IddObjectType(openstudio::IddObjectType::OS_HotWaterEquipment_Definition).value()] =
+    new QPixmap(":/images/mini_icons/hotwater_equipment_definition.png");
   m_miniIcons[openstudio::IddObjectType(openstudio::IddObjectType::OS_Humidifier_Steam_Electric).value()] =
     new QPixmap(":/images/mini_icons/mini_electric_humidifier.png");
   m_miniIcons[openstudio::IddObjectType(openstudio::IddObjectType::OS_Humidifier_Steam_Gas).value()] =

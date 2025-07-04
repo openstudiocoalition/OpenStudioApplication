@@ -27,6 +27,8 @@
 #include <openstudio/model/WaterUseEquipmentDefinition_Impl.hpp>
 #include <openstudio/model/PeopleDefinition.hpp>
 #include <openstudio/model/PeopleDefinition_Impl.hpp>
+#include <openstudio/model/HotWaterEquipmentDefinition.hpp>
+#include <openstudio/model/HotWaterEquipmentDefinition_Impl.hpp>
 
 #include <openstudio/utilities/core/Assert.hpp>
 
@@ -72,6 +74,9 @@ void LoadsController::onAddObject(const openstudio::IddObjectType& iddObjectType
       break;
     case IddObjectType::OS_WaterUse_Equipment_Definition:
       openstudio::model::WaterUseEquipmentDefinition(this->model());
+      break;
+    case IddObjectType::OS_HotWaterEquipment_Definition:
+      openstudio::model::HotWaterEquipmentDefinition(this->model());
       break;
     default:
       LOG_FREE(Error, "LoadsController", "Unknown IddObjectType '" << iddObjectType.valueName() << "'");

@@ -146,6 +146,8 @@ TEST_F(OpenStudioLibFixture, IconLibrary_MiniIcon) {
   iddObjectTypes.push_back(IddObjectType::OS_Fan_VariableVolume);
   iddObjectTypes.push_back(IddObjectType::OS_GasEquipment);
   iddObjectTypes.push_back(IddObjectType::OS_GasEquipment_Definition);
+  iddObjectTypes.push_back(IddObjectType::OS_HotWaterEquipment);
+  iddObjectTypes.push_back(IddObjectType::OS_HotWaterEquipment_Definition);
   iddObjectTypes.push_back(IddObjectType::OS_IlluminanceMap);
   iddObjectTypes.push_back(IddObjectType::OS_InteriorPartitionSurfaceGroup);
   iddObjectTypes.push_back(IddObjectType::OS_InteriorPartitionSurfaceGroup);
