@@ -1,7 +1,7 @@
 
 OS:Version,
-  {6831dd28-feea-40f1-828c-913a15e31e69}, !- Handle
-  3.9.0;                                  !- Version Identifier
+  {b91bd01a-6a42-441c-8cbd-78317f4cf7bf}, !- Handle
+  3.10.0;                                 !- Version Identifier
 
 ! Always OnOff Discrete Schedule Type Limits
 OS:ScheduleTypeLimits,
@@ -2416,6 +2416,7 @@ OS:WaterHeater:HeatPump,
   0,                                      !- Off Cycle Parasitic Electric Load {W}
   Outdoors,                               !- Parasitic Heat Rejection Location
   {93c85db1-4601-45e9-aa96-1fa65ef11b9b}, !- Inlet Air Mixer Schedule
+  Simultaneous,                           !- Tank Element Control Logic
   Heater1;                                !- Control Sensor Location In Stratified Tank
 
 OS:Coil:WaterHeating:AirToWaterHeatPump,
@@ -4464,6 +4465,7 @@ OS:GroundHeatExchanger:Vertical,
   ,                                       !- Outlet Node Name
   0.0033,                                 !- Design Flow Rate {m3/s}
   120,                                    !- Number of Bore Holes
+  1,                                      !- Bore Hole Top Depth {m}
   76.2,                                   !- Bore Hole Length {m}
   0.063508,                               !- Bore Hole Radius {m}
   0.692626,                               !- Ground Thermal Conductivity {W/m-K}
@@ -10465,7 +10467,8 @@ OS:ZoneVentilation:DesignFlowRate,
   ,                                       !- Minimum Outdoor Temperature Schedule Name
   100,                                    !- Maximum Outdoor Temperature {C}
   ,                                       !- Maximum Outdoor Temperature Schedule Name
-  40;                                     !- Maximum Wind Speed {m/s}
+  40,                                     !- Maximum Wind Speed {m/s}
+  Outdoor;                                !- Density Basis
 
 OS:ZoneHVAC:Baseboard:RadiantConvective:Electric,
   {32fb7bcc-647c-4d15-af95-8bc628371416}, !- Handle

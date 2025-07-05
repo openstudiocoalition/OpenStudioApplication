@@ -25,6 +25,6 @@ jobs:
       shell: bash
       run: |
         echo "There is a workflow called export_standards_data that you should run first (it's a manual workflow_dispatch workflow)"
-        echo "or run it locally via 'cd developper/ruby && openstudio export_openstudio_standards_libraries.rb'"
+        echo "or run it locally via 'cd developer/ruby && openstudio export_openstudio_standards_libraries.rb'"
         echo ""
-        echo "Then you should use 'openstudio developper/ruby/UpdateOSMVersions.rb' to version translate the rest of the OSM files."
+        echo "Then you should use 'openstudio developer/ruby/UpdateOSMVersions.rb' to version translate the rest of the OSM files."

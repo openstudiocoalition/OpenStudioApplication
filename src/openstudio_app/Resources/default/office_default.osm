@@ -1,7 +1,7 @@
 
 OS:Version,
-  {be751407-3020-483b-af09-ed390a8560bc}, !- Handle
-  3.9.0;                                  !- Version Identifier
+  {00f4caae-80a8-45c6-a2eb-9b4f35da667f}, !- Handle
+  3.10.0;                                 !- Version Identifier
 
 OS:Schedule:Constant,
   {1fe75643-8848-46bb-8327-b84d604dc1cc}, !- Handle
@@ -413,7 +413,8 @@ OS:SpaceInfiltration:DesignFlowRate,
   ,                                       !- Constant Term Coefficient
   ,                                       !- Temperature Term Coefficient
   ,                                       !- Velocity Term Coefficient
-  ;                                       !- Velocity Squared Term Coefficient
+  ,                                       !- Velocity Squared Term Coefficient
+  Outdoor;                                !- Density Basis
 
 OS:Schedule:Ruleset,
   {f3007024-d8b2-4f63-80eb-68d25b3f311b}, ! Handle
@@ -1136,7 +1137,8 @@ OS:SpaceInfiltration:DesignFlowRate,
   ,                                       !- Constant Term Coefficient
   ,                                       !- Temperature Term Coefficient
   ,                                       !- Velocity Term Coefficient
-  ;                                       !- Velocity Squared Term Coefficient
+  ,                                       !- Velocity Squared Term Coefficient
+  Outdoor;                                !- Density Basis
 
 OS:ElectricEquipment:Definition,
   {76dd79c7-3e16-4add-9fcd-d58e3f4eb0b0}, !- Handle
@@ -1256,7 +1258,8 @@ OS:SpaceInfiltration:DesignFlowRate,
   ,                                       !- Constant Term Coefficient
   ,                                       !- Temperature Term Coefficient
   ,                                       !- Velocity Term Coefficient
-  ;                                       !- Velocity Squared Term Coefficient
+  ,                                       !- Velocity Squared Term Coefficient
+  Outdoor;                                !- Density Basis
 
 OS:ElectricEquipment:Definition,
   {6df9f412-3d2b-4a3d-9931-a8ea39c9851a}, !- Handle
@@ -1376,7 +1379,8 @@ OS:SpaceInfiltration:DesignFlowRate,
   ,                                       !- Constant Term Coefficient
   ,                                       !- Temperature Term Coefficient
   ,                                       !- Velocity Term Coefficient
-  ;                                       !- Velocity Squared Term Coefficient
+  ,                                       !- Velocity Squared Term Coefficient
+  Outdoor;                                !- Density Basis
 
 OS:ElectricEquipment:Definition,
   {87fcf9c3-cd46-47e9-a1f2-d899c31ca1a7}, !- Handle
@@ -1474,7 +1478,8 @@ OS:SpaceInfiltration:DesignFlowRate,
   ,                                       !- Constant Term Coefficient
   ,                                       !- Temperature Term Coefficient
   ,                                       !- Velocity Term Coefficient
-  ;                                       !- Velocity Squared Term Coefficient
+  ,                                       !- Velocity Squared Term Coefficient
+  Outdoor;                                !- Density Basis
 
 OS:ElectricEquipment:Definition,
   {030e169d-c316-4dea-b4c4-8cc0a7b258c2}, !- Handle
@@ -1594,7 +1599,8 @@ OS:SpaceInfiltration:DesignFlowRate,
   ,                                       !- Constant Term Coefficient
   ,                                       !- Temperature Term Coefficient
   ,                                       !- Velocity Term Coefficient
-  ;                                       !- Velocity Squared Term Coefficient
+  ,                                       !- Velocity Squared Term Coefficient
+  Outdoor;                                !- Density Basis
 
 OS:ElectricEquipment:Definition,
   {4b027da5-4100-48fb-8eb7-41891e4f3791}, !- Handle
@@ -1714,7 +1720,8 @@ OS:SpaceInfiltration:DesignFlowRate,
   ,                                       !- Constant Term Coefficient
   ,                                       !- Temperature Term Coefficient
   ,                                       !- Velocity Term Coefficient
-  ;                                       !- Velocity Squared Term Coefficient
+  ,                                       !- Velocity Squared Term Coefficient
+  Outdoor;                                !- Density Basis
 
 OS:ElectricEquipment:Definition,
   {0e27137e-b1f9-4169-ba9f-5244845ab5f4}, !- Handle
@@ -1834,7 +1841,8 @@ OS:SpaceInfiltration:DesignFlowRate,
   ,                                       !- Constant Term Coefficient
   ,                                       !- Temperature Term Coefficient
   ,                                       !- Velocity Term Coefficient
-  ;                                       !- Velocity Squared Term Coefficient
+  ,                                       !- Velocity Squared Term Coefficient
+  Outdoor;                                !- Density Basis
 
 OS:ElectricEquipment:Definition,
   {4e2672a1-29ca-4e64-8fa3-e249b6e30add}, !- Handle
@@ -1964,7 +1972,8 @@ OS:SpaceInfiltration:DesignFlowRate,
   ,                                       !- Constant Term Coefficient
   ,                                       !- Temperature Term Coefficient
   ,                                       !- Velocity Term Coefficient
-  ;                                       !- Velocity Squared Term Coefficient
+  ,                                       !- Velocity Squared Term Coefficient
+  Outdoor;                                !- Density Basis
 
 OS:ElectricEquipment:Definition,
   {fa758148-18dd-4f33-a852-d9f823a00812}, !- Handle
@@ -2084,7 +2093,8 @@ OS:SpaceInfiltration:DesignFlowRate,
   ,                                       !- Constant Term Coefficient
   ,                                       !- Temperature Term Coefficient
   ,                                       !- Velocity Term Coefficient
-  ;                                       !- Velocity Squared Term Coefficient
+  ,                                       !- Velocity Squared Term Coefficient
+  Outdoor;                                !- Density Basis
 
 OS:ElectricEquipment:Definition,
   {32b578ed-1d51-417c-b3db-8dc955445ff4}, !- Handle
@@ -2182,7 +2192,8 @@ OS:SpaceInfiltration:DesignFlowRate,
   ,                                       !- Constant Term Coefficient
   ,                                       !- Temperature Term Coefficient
   ,                                       !- Velocity Term Coefficient
-  ;                                       !- Velocity Squared Term Coefficient
+  ,                                       !- Velocity Squared Term Coefficient
+  Outdoor;                                !- Density Basis
 
 OS:ThermostatSetpoint:DualSetpoint,
   {e34a4858-8ca9-4b53-8502-c5073f2911c3}, !- Handle
@@ -2263,7 +2274,8 @@ OS:SpaceInfiltration:DesignFlowRate,
   ,                                       !- Constant Term Coefficient
   ,                                       !- Temperature Term Coefficient
   ,                                       !- Velocity Term Coefficient
-  ;                                       !- Velocity Squared Term Coefficient
+  ,                                       !- Velocity Squared Term Coefficient
+  Outdoor;                                !- Density Basis
 
 OS:ThermostatSetpoint:DualSetpoint,
   {7666b674-d1ef-4103-b26d-0c8dbbbfc8b7}, !- Handle
@@ -2366,7 +2378,8 @@ OS:SpaceInfiltration:DesignFlowRate,
   ,                                       !- Constant Term Coefficient
   ,                                       !- Temperature Term Coefficient
   ,                                       !- Velocity Term Coefficient
-  ;                                       !- Velocity Squared Term Coefficient
+  ,                                       !- Velocity Squared Term Coefficient
+  Outdoor;                                !- Density Basis
 
 OS:ElectricEquipment:Definition,
   {04557d7d-dbd9-43c1-a596-203bb1590a16}, !- Handle
@@ -2799,7 +2812,8 @@ OS:SpaceInfiltration:DesignFlowRate,
   ,                                       !- Constant Term Coefficient
   ,                                       !- Temperature Term Coefficient
   ,                                       !- Velocity Term Coefficient
-  ;                                       !- Velocity Squared Term Coefficient
+  ,                                       !- Velocity Squared Term Coefficient
+  Outdoor;                                !- Density Basis
 
 OS:Schedule:Ruleset,
   {db7f073b-9c2d-43a5-b827-b5b8d6adcaa3}, ! Handle
@@ -3565,7 +3579,8 @@ OS:SpaceInfiltration:DesignFlowRate,
   ,                                       !- Constant Term Coefficient
   ,                                       !- Temperature Term Coefficient
   ,                                       !- Velocity Term Coefficient
-  ;                                       !- Velocity Squared Term Coefficient
+  ,                                       !- Velocity Squared Term Coefficient
+  Outdoor;                                !- Density Basis
 
 OS:Schedule:Ruleset,
   {b2069f4f-b25a-42e8-badd-8d1d6c35c9c1}, ! Handle
@@ -4100,7 +4115,8 @@ OS:SpaceInfiltration:DesignFlowRate,
   ,                                       !- Constant Term Coefficient
   ,                                       !- Temperature Term Coefficient
   ,                                       !- Velocity Term Coefficient
-  ;                                       !- Velocity Squared Term Coefficient
+  ,                                       !- Velocity Squared Term Coefficient
+  Outdoor;                                !- Density Basis
 
 OS:Schedule:Ruleset,
   {ad2bb55c-c030-4caf-910a-5432d42cb8e3}, ! Handle
@@ -4681,7 +4697,8 @@ OS:SpaceInfiltration:DesignFlowRate,
   ,                                       !- Constant Term Coefficient
   ,                                       !- Temperature Term Coefficient
   ,                                       !- Velocity Term Coefficient
-  ;                                       !- Velocity Squared Term Coefficient
+  ,                                       !- Velocity Squared Term Coefficient
+  Outdoor;                                !- Density Basis
 
 OS:ElectricEquipment:Definition,
   {1f0ca437-bd97-4e44-8740-45fdb664c304}, !- Handle
@@ -4801,7 +4818,8 @@ OS:SpaceInfiltration:DesignFlowRate,
   ,                                       !- Constant Term Coefficient
   ,                                       !- Temperature Term Coefficient
   ,                                       !- Velocity Term Coefficient
-  ;                                       !- Velocity Squared Term Coefficient
+  ,                                       !- Velocity Squared Term Coefficient
+  Outdoor;                                !- Density Basis
 
 OS:ElectricEquipment:Definition,
   {352f2658-17a5-498c-abf7-98878c75c5a6}, !- Handle
@@ -4921,7 +4939,8 @@ OS:SpaceInfiltration:DesignFlowRate,
   ,                                       !- Constant Term Coefficient
   ,                                       !- Temperature Term Coefficient
   ,                                       !- Velocity Term Coefficient
-  ;                                       !- Velocity Squared Term Coefficient
+  ,                                       !- Velocity Squared Term Coefficient
+  Outdoor;                                !- Density Basis
 
 OS:ElectricEquipment:Definition,
   {d63c3157-863c-4020-a011-ccabf0a89bb8}, !- Handle
@@ -5041,7 +5060,8 @@ OS:SpaceInfiltration:DesignFlowRate,
   ,                                       !- Constant Term Coefficient
   ,                                       !- Temperature Term Coefficient
   ,                                       !- Velocity Term Coefficient
-  ;                                       !- Velocity Squared Term Coefficient
+  ,                                       !- Velocity Squared Term Coefficient
+  Outdoor;                                !- Density Basis
 
 OS:ElectricEquipment:Definition,
   {2ee5bf1f-af5b-4e3d-9d79-a2abddcc7b55}, !- Handle
@@ -5139,7 +5159,8 @@ OS:SpaceInfiltration:DesignFlowRate,
   ,                                       !- Constant Term Coefficient
   ,                                       !- Temperature Term Coefficient
   ,                                       !- Velocity Term Coefficient
-  ;                                       !- Velocity Squared Term Coefficient
+  ,                                       !- Velocity Squared Term Coefficient
+  Outdoor;                                !- Density Basis
 
 OS:ElectricEquipment:Definition,
   {9f71dcec-4c1e-4b63-8fed-e28e736c6435}, !- Handle
@@ -5259,7 +5280,8 @@ OS:SpaceInfiltration:DesignFlowRate,
   ,                                       !- Constant Term Coefficient
   ,                                       !- Temperature Term Coefficient
   ,                                       !- Velocity Term Coefficient
-  ;                                       !- Velocity Squared Term Coefficient
+  ,                                       !- Velocity Squared Term Coefficient
+  Outdoor;                                !- Density Basis
 
 OS:ElectricEquipment:Definition,
   {377a5705-a05f-4850-b19e-b9742a9310bd}, !- Handle
@@ -5379,7 +5401,8 @@ OS:SpaceInfiltration:DesignFlowRate,
   ,                                       !- Constant Term Coefficient
   ,                                       !- Temperature Term Coefficient
   ,                                       !- Velocity Term Coefficient
-  ;                                       !- Velocity Squared Term Coefficient
+  ,                                       !- Velocity Squared Term Coefficient
+  Outdoor;                                !- Density Basis
 
 OS:ElectricEquipment:Definition,
   {02dca3e4-0d5d-45c7-8219-04140147dae5}, !- Handle
@@ -5499,7 +5522,8 @@ OS:SpaceInfiltration:DesignFlowRate,
   ,                                       !- Constant Term Coefficient
   ,                                       !- Temperature Term Coefficient
   ,                                       !- Velocity Term Coefficient
-  ;                                       !- Velocity Squared Term Coefficient
+  ,                                       !- Velocity Squared Term Coefficient
+  Outdoor;                                !- Density Basis
 
 OS:ElectricEquipment:Definition,
   {463c2de0-323d-4832-a2db-4a81df8ffdbc}, !- Handle
@@ -5619,7 +5643,8 @@ OS:SpaceInfiltration:DesignFlowRate,
   ,                                       !- Constant Term Coefficient
   ,                                       !- Temperature Term Coefficient
   ,                                       !- Velocity Term Coefficient
-  ;                                       !- Velocity Squared Term Coefficient
+  ,                                       !- Velocity Squared Term Coefficient
+  Outdoor;                                !- Density Basis
 
 OS:ElectricEquipment:Definition,
   {6061b0e7-ba26-4cf8-af43-80a81d176b22}, !- Handle
@@ -5739,7 +5764,8 @@ OS:SpaceInfiltration:DesignFlowRate,
   ,                                       !- Constant Term Coefficient
   ,                                       !- Temperature Term Coefficient
   ,                                       !- Velocity Term Coefficient
-  ;                                       !- Velocity Squared Term Coefficient
+  ,                                       !- Velocity Squared Term Coefficient
+  Outdoor;                                !- Density Basis
 
 OS:ElectricEquipment:Definition,
   {4ef9fd48-3e8a-43a0-bdfe-ab83158ed5b1}, !- Handle
@@ -5837,7 +5863,8 @@ OS:SpaceInfiltration:DesignFlowRate,
   ,                                       !- Constant Term Coefficient
   ,                                       !- Temperature Term Coefficient
   ,                                       !- Velocity Term Coefficient
-  ;                                       !- Velocity Squared Term Coefficient
+  ,                                       !- Velocity Squared Term Coefficient
+  Outdoor;                                !- Density Basis
 
 OS:ThermostatSetpoint:DualSetpoint,
   {cbeb2134-d498-4308-a17a-ffee72a00f24}, !- Handle
@@ -5918,7 +5945,8 @@ OS:SpaceInfiltration:DesignFlowRate,
   ,                                       !- Constant Term Coefficient
   ,                                       !- Temperature Term Coefficient
   ,                                       !- Velocity Term Coefficient
-  ;                                       !- Velocity Squared Term Coefficient
+  ,                                       !- Velocity Squared Term Coefficient
+  Outdoor;                                !- Density Basis
 
 OS:ThermostatSetpoint:DualSetpoint,
   {6d30606f-0ebc-467b-8b18-b21980a47277}, !- Handle
@@ -6021,7 +6049,8 @@ OS:SpaceInfiltration:DesignFlowRate,
   ,                                       !- Constant Term Coefficient
   ,                                       !- Temperature Term Coefficient
   ,                                       !- Velocity Term Coefficient
-  ;                                       !- Velocity Squared Term Coefficient
+  ,                                       !- Velocity Squared Term Coefficient
+  Outdoor;                                !- Density Basis
 
 OS:ElectricEquipment:Definition,
   {f29b3e98-398a-4594-9902-c427f11e41a0}, !- Handle
@@ -6141,7 +6170,8 @@ OS:SpaceInfiltration:DesignFlowRate,
   ,                                       !- Constant Term Coefficient
   ,                                       !- Temperature Term Coefficient
   ,                                       !- Velocity Term Coefficient
-  ;                                       !- Velocity Squared Term Coefficient
+  ,                                       !- Velocity Squared Term Coefficient
+  Outdoor;                                !- Density Basis
 
 OS:ElectricEquipment:Definition,
   {9b296f5a-7eb1-43e3-895d-23df7cd3960e}, !- Handle
@@ -6261,7 +6291,8 @@ OS:SpaceInfiltration:DesignFlowRate,
   ,                                       !- Constant Term Coefficient
   ,                                       !- Temperature Term Coefficient
   ,                                       !- Velocity Term Coefficient
-  ;                                       !- Velocity Squared Term Coefficient
+  ,                                       !- Velocity Squared Term Coefficient
+  Outdoor;                                !- Density Basis
 
 OS:ElectricEquipment:Definition,
   {f1a1f164-3792-4119-b27a-1f0560285e4f}, !- Handle
@@ -6381,7 +6412,8 @@ OS:SpaceInfiltration:DesignFlowRate,
   ,                                       !- Constant Term Coefficient
   ,                                       !- Temperature Term Coefficient
   ,                                       !- Velocity Term Coefficient
-  ;                                       !- Velocity Squared Term Coefficient
+  ,                                       !- Velocity Squared Term Coefficient
+  Outdoor;                                !- Density Basis
 
 OS:ElectricEquipment:Definition,
   {e4b7bce2-70b6-495e-95eb-b42b745841a9}, !- Handle
