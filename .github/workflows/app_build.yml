@@ -218,7 +218,7 @@ jobs:
 
         # ----- Configure Keychain -----
         KEYCHAIN_PATH=$RUNNER_TEMP/app-signing.keychain-db
-        if [ -f $KEYCHAIN_PATH ]; then
+        if [[ -f $KEYCHAIN_PATH ]]; then
           echo "Removing previous keychain-db at ${KEYCHAIN_PATH}"
           security delete-keychain $KEYCHAIN_PATH
           rm -f $KEYCHAIN_PATH
