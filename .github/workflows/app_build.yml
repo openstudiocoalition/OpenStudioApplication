@@ -217,8 +217,7 @@ jobs:
         echo "${{ secrets.MACOS_DEVELOPER_ID_INSTALLER_CERTIFICATE_P12_BASE64 }}" | base64 --decode > certificate_installer.p12
 
         # ----- Configure Keychain -----
-        KEYCHAIN_PATH=$RUNNER_TEMP/app-signing.keychain-db
-        security delete-keychain $KEYCHAIN_PATH || true
+        KEYCHAIN_PATH=$RUNNER_TEMP/app-signing-${{ github.run_id }}.keychain-db
         security create-keychain -p "${{ secrets.MACOS_KEYCHAIN_PASSWORD }}" $KEYCHAIN_PATH
         # Unlock it for 6 hours
         security set-keychain-settings -lut 21600 $KEYCHAIN_PATH
