@@ -207,6 +207,7 @@ jobs:
         ccache --zero-stats || true
 
     - name: "Configure for codesigning"
+      id: codesigning
       if: runner.os == 'macOS'
       run: |
         set -x
@@ -218,6 +219,7 @@ jobs:
 
         # ----- Configure Keychain -----
         KEYCHAIN_PATH=$RUNNER_TEMP/app-signing-${{ github.run_id }}.keychain-db
+        echo "KEYCHAIN_PATH=${KEYCHAIN_PATH}" >> $GITHUB_OUTPUT
         security create-keychain -p "${{ secrets.MACOS_KEYCHAIN_PASSWORD }}" $KEYCHAIN_PATH
         # Unlock it for 6 hours
         security set-keychain-settings -lut 21600 $KEYCHAIN_PATH
@@ -681,6 +683,12 @@ jobs:
         /bin/rm OpenStudioApplication-*${{ env.BINARY_EXT }} || true
         ls OpenStudioApplication-* || true
 
+    - name: "Clean up codesigning"
+      if: always() && runner.os == 'macOS'
+      run: |
+        echo "Deleting keychain ${{ steps.codesigning.outputs.KEYCHAIN_PATH }}"
+        security delete-keychain ${{ steps.codesigning.outputs.KEYCHAIN_PATH }} || true
+        rm -f ${{ steps.codesigning.outputs.KEYCHAIN_PATH }}
 
   test_package_macos:
     name: Test Built Package on macOS
