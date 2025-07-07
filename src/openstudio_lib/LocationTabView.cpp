@@ -50,18 +50,26 @@
 #include <boost/smart_ptr.hpp>
 
 #include <QBoxLayout>
+#include <QButtonGroup>
 #include <QComboBox>
 #include <QDateTime>
+#include <QCheckBox>
+#include <QDialogButtonBox>
 #include <QDir>
 #include <QFile>
 #include <QFileDialog>
+#include <QGridLayout>
 #include <QLabel>
 #include <QLineEdit>
 #include <QMessageBox>
 #include <QPushButton>
+#include <QRegExp>
 #include <QScrollArea>
 #include <QSettings>
 #include <QSizePolicy>
+#include <QCoreApplication>
+#include <QObject>
+#include <QPushButton>
 
 static constexpr auto NAME("Name: ");
 static constexpr auto LATITUDE("Latitude: ");
@@ -73,6 +81,42 @@ static constexpr auto SETWEATHERFILE("Set Weather File");
 static constexpr auto CHANGEWEATHERFILE("Change Weather File");
 
 namespace openstudio {
+
+SortableDesignDay::SortableDesignDay(const openstudio::model::DesignDay& designDay) : m_designDay(designDay) {
+  QRegExp regex("^.*Ann.*([\\d\\.]+)[\\s]?%.*$", Qt::CaseInsensitive);
+  if (regex.exactMatch(toQString(designDay.nameString())) && regex.captureCount() == 1) {
+    m_permil = qstringToPermil(regex.capturedTexts()[1]);
+    if (m_permil > 500) {
+      m_type = "Heating";
+    } else {
+      m_type = "Cooling";
+    }
+  }
+}
+
+int SortableDesignDay::qstringToPermil(const QString& str) {
+  return (int)(str.toDouble() * 10.0);
+}
+
+QString SortableDesignDay::permilToQString(int permil) {
+  return QString::number((double)permil / 10.0, 'f', 1);
+}
+
+QString SortableDesignDay::key(const QString& type, int sortablePermil) {
+  return type + permilToQString(sortablePermil);
+}
+
+QString SortableDesignDay::type() const {
+  return m_type;
+}
+
+int SortableDesignDay::permil() const {
+  return m_permil;
+}
+
+int SortableDesignDay::sortablePermil() const {
+  return ((m_permil < 500) ? m_permil : 1000 - m_permil);
+}
 
 LocationTabView::LocationTabView(const model::Model& model, const QString& modelTempDir, QWidget* parent)
   : MainTabView(tr("Site"), MainTabView::SUB_TAB, parent) {}
@@ -625,6 +669,170 @@ void LocationView::onWeatherFileBtnClicked() {
   }
 }
 
+/**
+ * @brief Displays a dialog for selecting design days from a given list.
+ *
+ * This function creates and displays a modal dialog that allows the user to select specific design days
+ * from a provided list of all available design days which are
+ *  heatingPercentages "99.6%", "99%"
+  *  and coolingPercentages "2%", "1%", "0.4%"
+ *
+ * . The dialog includes options for selecting heating
+ * and cooling design days based on predefined percentages. The user can choose to import all design days,
+ * select specific ones, or cancel the operation.
+ *
+ * @param allDesignDays A vector containing all available design days.
+ * @return A vector of selected design days if the user confirms the selection, or an empty vector if the user cancels.
+ */
+std::vector<model::DesignDay> LocationView::showDesignDaySelectionDialog(const std::vector<openstudio::model::DesignDay>& allDesignDays) {
+
+  std::vector<model::DesignDay> result;
+
+  // parse out the design day names into SortableDesignDays and figure out the column and row names
+  std::vector<SortableDesignDay> sortableDesignDays;
+  std::set<QString> designDayTypes;      // rows
+  std::set<int> sortedDesignDayPermils;  // columns
+
+  // key is designDayType + sortedDesignDayPermil, value is names of dds
+  // each cell in the table has a unique key
+  std::map<QString, std::vector<openstudio::model::DesignDay>> designDayMap;
+  size_t numUnknownType = 0;
+  for (const auto& dd : allDesignDays) {
+    SortableDesignDay sdd(dd);
+
+    // skip Design Days with unknown type
+    if (sdd.type().isEmpty()) {
+      ++numUnknownType;
+      continue;
+    }
+
+    sortableDesignDays.push_back(sdd);
+    designDayTypes.insert(sdd.type());
+    sortedDesignDayPermils.insert(sdd.sortablePermil());
+    QString key = SortableDesignDay::key(sdd.type(), sdd.sortablePermil());
+    if (!designDayMap.contains(key)) {
+      designDayMap[key] = std::vector<openstudio::model::DesignDay>();
+    }
+    designDayMap[key].push_back(dd);
+  }
+
+  // main dialog
+  QDialog dialog(this, Qt::Dialog | Qt::WindowTitleHint | Qt::WindowCloseButtonHint);
+  dialog.setWindowTitle(QCoreApplication::translate("LocationView", "Import Design Days"));
+  dialog.setMinimumWidth(450);
+  dialog.setModal(true);
+  dialog.setStyleSheet("background: #E6E6E6;");
+
+  auto* layout = new QVBoxLayout(&dialog);
+
+  // grid view for the design day types and permils to import
+  auto* gridLayout = new QGridLayout();
+
+  // first row is for headers
+  int row = 0;
+
+  auto msg = tr("There are <span style=\"font-weight:bold;\">%1</span> Design Days available for import").arg(QString::number(allDesignDays.size()));
+  if (numUnknownType > 0) {
+    msg += tr(", %1 of which are unknown type").arg(QString::number(numUnknownType));
+  }
+
+  auto* numInfo = new QLabel(msg);
+  gridLayout->addWidget(numInfo, row, 0, 1, -1, Qt::AlignCenter);
+
+  ++row;
+  int column = 1;
+  for (const auto& sddp : sortedDesignDayPermils) {
+    auto* header = new QLabel(SortableDesignDay::permilToQString(sddp) + "%");
+    header->setStyleSheet("font-weight: bold;");
+    gridLayout->addWidget(header, row, column++, Qt::AlignCenter);
+  }
+
+  // one row for each design day type
+  ++row;
+  QVector<QRadioButton*> allRadioButtons;
+  for (const auto& ddt : designDayTypes) {
+    column = 0;
+    bool checkedFirst = false;
+    auto* rowHeader = new QLabel();
+    if (ddt == "Heating") {
+      rowHeader->setText(tr("Heating"));
+      rowHeader->setStyleSheet("font-weight: bold; color: #EF1C21;");
+    } else if (ddt == "Cooling") {
+      rowHeader->setText(tr("Cooling"));
+      rowHeader->setStyleSheet("font-weight: bold; color: #0071BD;");
+    } else {
+      rowHeader->setText(ddt);
+    }
+    gridLayout->addWidget(rowHeader, row, column++, Qt::AlignCenter);
+
+    auto* buttonGroup = new QButtonGroup(gridLayout);
+    for (const auto& sddp : sortedDesignDayPermils) {
+      QString key = SortableDesignDay::key(ddt, sddp);
+      auto* radioButton = new QRadioButton();
+      allRadioButtons.append(radioButton);
+      if (!designDayMap.contains(key)) {
+        radioButton->setEnabled(false);
+        radioButton->setCheckable(false);
+        radioButton->setToolTip(QString::number(0) + " " + tr("Design Days"));
+        radioButton->setProperty("designDayKey", "");
+      } else {
+        radioButton->setEnabled(true);
+        radioButton->setCheckable(true);
+        if (!checkedFirst) {
+          radioButton->setChecked(true);
+          checkedFirst = true;
+        }
+        radioButton->setToolTip(QString::number(designDayMap[key].size()) + " " + tr("Design Days"));
+        radioButton->setProperty("designDayKey", key);
+      }
+      buttonGroup->addButton(radioButton);
+      gridLayout->addWidget(radioButton, row, column++, Qt::AlignCenter);
+    }
+    ++row;
+  }
+  layout->addLayout(gridLayout);
+  int columnCount = gridLayout->columnCount();
+  int rowCount = gridLayout->rowCount();
+
+  // ok button only imports the checked design days
+  auto* okButton = new QPushButton(tr("OK"), &dialog);
+  connect(okButton, &QPushButton::clicked, [&dialog, &result, &allRadioButtons, &designDayMap]() {
+    for (const auto& rb : allRadioButtons) {
+      if (rb->isChecked()) {
+        QString key = rb->property("designDayKey").toString();
+        if (!key.isEmpty() && designDayMap.contains(key)) {
+          for (const auto& dd : designDayMap[key]) {
+            result.push_back(dd);
+          }
+        }
+      }
+    }
+    dialog.accept();
+  });
+
+  // cancel button imports nothing
+  auto* cancelButton = new QPushButton(tr("Cancel"), &dialog);
+  connect(cancelButton, &QPushButton::clicked, &dialog, &QDialog::reject);
+
+  // import all imports everything
+  auto* importAllButton = new QPushButton(tr("Import all"), &dialog);
+  connect(importAllButton, &QPushButton::clicked, [&dialog, &result, &allDesignDays]() {
+    result = allDesignDays;
+    dialog.accept();
+  });
+
+  // add all the buttons in a button box
+  auto* buttonBox = new QDialogButtonBox(Qt::Horizontal);
+  buttonBox->addButton(okButton, QDialogButtonBox::AcceptRole);
+  buttonBox->addButton(cancelButton, QDialogButtonBox::RejectRole);
+  buttonBox->addButton(importAllButton, QDialogButtonBox::YesRole);
+  layout->addWidget(buttonBox);
+
+  // Execute the dialog and wait for user interaction
+  dialog.exec();
+  return result;
+}
+
 void LocationView::onDesignDayBtnClicked() {
   QString fileTypes("Files (*.ddy)");
 
@@ -644,87 +852,44 @@ void LocationView::onDesignDayBtnClicked() {
     if (ddyIdfFile) {
 
       openstudio::Workspace ddyWorkspace(StrictnessLevel::None, IddFileType::EnergyPlus);
+
       for (const IdfObject& idfObject : ddyIdfFile->objects()) {
         IddObjectType iddObjectType = idfObject.iddObject().type();
         if ((iddObjectType == IddObjectType::SizingPeriod_DesignDay) || (iddObjectType == IddObjectType::SizingPeriod_WeatherFileDays)
             || (iddObjectType == IddObjectType::SizingPeriod_WeatherFileConditionType)) {
-
           ddyWorkspace.addObject(idfObject);
         }
       }
 
-      energyplus::ReverseTranslator reverseTranslator;
+      openstudio::energyplus::ReverseTranslator reverseTranslator;
       model::Model ddyModel = reverseTranslator.translateWorkspace(ddyWorkspace);
 
       // Use a heuristic based on the ddy files provided by EnergyPlus
       // Filter out the days that are not helpful.
       if (!ddyModel.objects().empty()) {
-        // Containers to hold 99%, 99.6%, 2%, 1%, and 0.4% design points
-        std::vector<model::DesignDay> days99;
-        std::vector<model::DesignDay> days99_6;
-        std::vector<model::DesignDay> days2;
-        std::vector<model::DesignDay> days1;
-        std::vector<model::DesignDay> days0_4;
-
-        bool unknownDay = false;
-
-        for (const model::DesignDay& designDay : ddyModel.getConcreteModelObjects<model::DesignDay>()) {
-          boost::optional<std::string> name;
-          name = designDay.name();
-
-          if (name) {
-            QString qname = QString::fromStdString(name.get());
-
-            if (qname.contains("99%")) {
-              days99.push_back(designDay);
-            } else if (qname.contains("99.6%")) {
-              days99_6.push_back(designDay);
-            } else if (qname.contains("2%")) {
-              days2.push_back(designDay);
-            } else if (qname.contains("1%")) {
-              days1.push_back(designDay);
-            } else if (qname.contains(".4%")) {
-              days0_4.push_back(designDay);
-            } else {
-              unknownDay = true;
-            }
-          }
-        }
-
-        // Pick only the most stringent design points
-        if (!unknownDay) {
-          if (!days99_6.empty()) {
-            for (model::DesignDay designDay : days99) {
-              designDay.remove();
-            }
-          }
-
-          if (!days0_4.empty()) {
-            for (model::DesignDay designDay : days1) {
-              designDay.remove();
-            }
-            for (model::DesignDay designDay : days2) {
-              designDay.remove();
-            }
-          } else if (!days1.empty()) {
-            for (model::DesignDay designDay : days2) {
-              designDay.remove();
-            }
-          }
-        }
 
         // Evan note: do not remove existing design days
         //for (model::SizingPeriod sizingPeriod : m_model.getModelObjects<model::SizingPeriod>()){
         //  sizingPeriod.remove();
         //}
 
+        //m_model.insertObjects(ddyModel.objects());
+
+        std::vector<openstudio::model::DesignDay> designDaysToInsert =
+          showDesignDaySelectionDialog(ddyModel.getConcreteModelObjects<model::DesignDay>());
+
+        // Remove design days from ddyModel that are not in designDaysToInsert
+        for (auto& designDay : ddyModel.getConcreteModelObjects<model::DesignDay>()) {
+          if (std::find(designDaysToInsert.begin(), designDaysToInsert.end(), designDay) == designDaysToInsert.end()) {
+            designDay.remove();
+          }
+        }
+
         m_model.insertObjects(ddyModel.objects());
 
         m_lastDdyPathOpened = QFileInfo(fileName).absoluteFilePath();
       }
     }
-
-    QTimer::singleShot(0, this, &LocationView::checkNumDesignDays);
   }
 }
 
@@ -785,7 +950,7 @@ void LocationView::setDstStartDayOfWeekAndMonth(int newWeek, int newDay, int new
 void LocationView::setDstStartDate(const QDate& newdate) {
   auto dst = m_model.getUniqueModelObject<model::RunPeriodControlDaylightSavingTime>();
 
-  dst.setStartDate(monthOfYear(newdate.month()), newdate.day());
+  dst.setStartDate(MonthOfYear(newdate.month()), newdate.day());
 }
 
 void LocationView::setDstEndDayOfWeekAndMonth(int newWeek, int newDay, int newMonth) {
@@ -797,7 +962,7 @@ void LocationView::setDstEndDayOfWeekAndMonth(int newWeek, int newDay, int newMo
 void LocationView::setDstEndDate(const QDate& newdate) {
   auto dst = m_model.getUniqueModelObject<model::RunPeriodControlDaylightSavingTime>();
 
-  dst.setEndDate(monthOfYear(newdate.month()), newdate.day());
+  dst.setEndDate(MonthOfYear(newdate.month()), newdate.day());
 }
 
 void LocationView::onSelectItem() {

@@ -84,11 +84,17 @@ def export_openstudio_standards_libraries
     templates = templates - missing_czs
   end
 
+  pkg_dir = "#{__dir__}/pkg"
+  Dir.mkdir(pkg_dir) unless Dir.exist?(pkg_dir)
+  osm_lib_dir = "#{pkg_dir}/libraries"
+  Dir.mkdir(osm_lib_dir) unless Dir.exist?(osm_lib_dir)
+
   # templates = templates_to_climate_zones.keys
   # Make a library model for each template
   # We parallelize this loop, since it takes really long
   # Note: You DO want to use in_processes here, and not in_threads!
   Parallel.each(templates, in_processes: $nproc, progress: 'Exporting openstudio-standards templates') do |template_name|
+  #templates.each do |template_name|
 
     # Wrap each library creation in a begin/rescue because
     # the entire process can take a long time and
@@ -464,10 +470,10 @@ def export_openstudio_standards_libraries
             std_applier.space_type_apply_rendering_color(space_type)
 
             # Loads
-            std_applier.space_type_apply_internal_loads(space_type, true, true, true, true, true, true)
+            std_applier.space_type_apply_internal_loads(space_type, true, true, true, true, true)
 
             # Schedules
-            std_applier.space_type_apply_internal_load_schedules(space_type, true, true, true, true, true, true, true)
+            std_applier.space_type_apply_internal_load_schedules(space_type, true, true, true, true, true, true)
 
           end
         end
@@ -505,10 +511,6 @@ def export_openstudio_standards_libraries
       end
 
       # Save the library
-      pkg_dir = "#{__dir__}/pkg"
-      Dir.mkdir(pkg_dir) unless Dir.exists?(pkg_dir)
-      osm_lib_dir = "#{pkg_dir}/libraries"
-      Dir.mkdir(osm_lib_dir) unless Dir.exists?(osm_lib_dir)
       library_path = "#{osm_lib_dir}/#{template_name.gsub(/\W/,'_')}.osm"
       puts "* Saving library #{library_path}"
       model.save(OpenStudio::Path.new(library_path), true)
@@ -526,7 +528,7 @@ def export_openstudio_standards_libraries
     rescue Exception => exc
       STDERR.puts "\e[0;31;49mERROR creating '#{template_name}', skipping to next template.\e[0m"
       STDERR.puts "#{exc}"
-      STDERR.puts "Backtrace:\n\t#{exc.caller.join("\n\t")}"
+      #STDERR.puts "Backtrace:\n\t#{exc.caller.join("\n\t")}"
       STDERR.puts "Backtrace:\n\t#{exc.backtrace.join("\n\t")}"
 
       # Save the log messages for debugging library creation even on failure

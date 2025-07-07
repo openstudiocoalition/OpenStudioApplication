@@ -15,7 +15,6 @@
 
 #include <cstddef>
 #include <openstudio/measure/OSArgument.hpp>
-
 #include <openstudio/utilities/bcl/BCL.hpp>
 #include <openstudio/utilities/bcl/LocalBCL.hpp>
 #include <openstudio/utilities/bcl/RemoteBCL.hpp>
@@ -169,53 +168,89 @@ void BuildingComponentDialogCentralWidget::setTid() {
   requestComponents(m_filterType, m_tid, m_pageIdx, m_searchString);
 }
 
+std::vector<openstudio::BCLSearchResult> BuildingComponentDialogCentralWidget::fetchAndSortResponses(const std::string& filterType, int tid,
+                                                                                                     const QString& searchString) {
+  m_allResponses.clear();
+
+  RemoteBCL remoteBCL;
+  remoteBCL.setTimeOutSeconds(m_timeoutSeconds);
+
+  std::vector<BCLSearchResult> responses;
+  int totalPages = 1;
+  int currentPage = 0;
+
+  // Collect all responses from all pages
+  do {
+    std::vector<BCLSearchResult> pageResponses;
+    if (filterType == "components") {
+      pageResponses = remoteBCL.searchComponentLibrary(searchString.toStdString(), tid, currentPage);
+    } else if (filterType == "measures") {
+      pageResponses = remoteBCL.searchMeasureLibrary(searchString.toStdString(), tid, currentPage);
+    }
+    responses.insert(responses.end(), pageResponses.begin(), pageResponses.end());
+    totalPages = remoteBCL.numResultPages();
+  } while (++currentPage < totalPages);
+
+  if (!responses.empty()) {
+    std::sort(responses.begin(), responses.end(), [](const BCLSearchResult& a, const BCLSearchResult& b) { return a.name() < b.name(); });
+  }
+
+  return responses;
+}
+
 // Note: don't call this directly if the "wait" screen is desired
 void BuildingComponentDialogCentralWidget::setTid(const std::string& filterType, int tid, int pageIdx, const QString& title,
                                                   const QString& searchString) {
 
-  if (m_tid != tid || m_searchString != searchString) {
-    m_collapsibleComponentList->firstPage();
-  }
-
-  m_filterType = filterType;
-
-  m_tid = tid;
+  std::string newKey = std::to_string(tid) + filterType + searchString.toStdString();
+  std::string currentKey = std::to_string(m_tid) + m_filterType + m_searchString.toStdString();
 
   m_searchString = searchString;
+  m_filterType = filterType;
+  m_tid = tid;
 
-  //std::vector<Component *> components = m_collapsibleComponentList->components();
+  if (newKey != currentKey) {
+    m_allResponses = fetchAndSortResponses(filterType, tid, searchString);
+    m_collapsibleComponentList->firstPage();
+    pageIdx = 0;
+  }
+
+  // Clear existing components
   std::vector<Component*> components = m_componentList->components();  // TODO replace with code above
-
   for (auto& comp : components) {
     delete comp;
   }
 
-  RemoteBCL remoteBCL;
-  remoteBCL.setTimeOutSeconds(m_timeoutSeconds);
-  std::vector<BCLSearchResult> responses;
-  if (filterType == "components") {
-    responses = remoteBCL.searchComponentLibrary(searchString.toStdString(), tid, pageIdx);
-  } else if (filterType == "measures") {
-    responses = remoteBCL.searchMeasureLibrary(searchString.toStdString(), tid, pageIdx);
-  }
+  // Paginate responses
+  int itemsPerPage = 10;  // Assuming 10 items per page
 
-  for (const auto& response : responses) {
-    auto* component = new Component(response);
+  if (!m_allResponses.empty()) {
+    size_t startIdx = pageIdx * itemsPerPage;
+    size_t endIdx = std::min(startIdx + itemsPerPage, m_allResponses.size());
+    std::vector<BCLSearchResult> paginatedResponses(m_allResponses.begin() + startIdx, m_allResponses.begin() + endIdx);
 
-    // TODO replace with a componentList owned by m_collapsibleComponentList
-    m_componentList->addComponent(component);
+    for (const auto& response : paginatedResponses) {
+      auto* component = new Component(response);
+
+      // TODO replace with a componentList owned by m_collapsibleComponentList
+      m_componentList->addComponent(component);
+    }
   }
 
   // the parent taxonomy
   m_collapsibleComponentList->setText(title);
 
   // the total number of results
-  int lastTotalResults = remoteBCL.lastTotalResults();
+  int lastTotalResults = m_allResponses.size();
   m_collapsibleComponentList->setNumResults(lastTotalResults);
 
   // the number of pages of results
-  int numResultPages = remoteBCL.numResultPages();
-  m_collapsibleComponentList->setNumPages(numResultPages);
+  if (lastTotalResults == 0) {
+    m_collapsibleComponentList->setNumPages(0);
+  } else {
+    int numResultPages = (lastTotalResults % itemsPerPage == 0) ? (lastTotalResults / itemsPerPage) : (lastTotalResults / itemsPerPage) + 1;
+    m_collapsibleComponentList->setNumPages(numResultPages);
+  }
 
   // make sure the header is expanded
   if (m_collapsibleComponentList->checkedCollapsibleComponent()) {

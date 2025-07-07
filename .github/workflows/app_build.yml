@@ -207,6 +207,7 @@ jobs:
         ccache --zero-stats || true
 
     - name: "Configure for codesigning"
+      id: codesigning
       if: runner.os == 'macOS'
       run: |
         set -x
@@ -217,7 +218,8 @@ jobs:
         echo "${{ secrets.MACOS_DEVELOPER_ID_INSTALLER_CERTIFICATE_P12_BASE64 }}" | base64 --decode > certificate_installer.p12
 
         # ----- Configure Keychain -----
-        KEYCHAIN_PATH=$RUNNER_TEMP/app-signing.keychain-db
+        KEYCHAIN_PATH=$RUNNER_TEMP/app-signing-${{ github.run_id }}.keychain-db
+        echo "KEYCHAIN_PATH=${KEYCHAIN_PATH}" >> $GITHUB_OUTPUT
         security create-keychain -p "${{ secrets.MACOS_KEYCHAIN_PASSWORD }}" $KEYCHAIN_PATH
         # Unlock it for 6 hours
         security set-keychain-settings -lut 21600 $KEYCHAIN_PATH
@@ -502,7 +504,7 @@ jobs:
         set -x
         if [ "$RUNNER_OS" == "macOS" ]; then
           # Avoid "builtin __has_nothrow_assign is deprecated; use __is_nothrow_assignable instead" in boost/1.78 with recent clang
-          conan install . --output-folder=./build --build=missing -c tools.cmake.cmaketoolchain:generator=Ninja -s compiler.cppstd=20 -s build_type=Release -c tools.build:cxxflags="['-D_LIBCPP_ENABLE_CXX17_REMOVED_UNARY_BINARY_FUNCTION']"
+          conan install . --output-folder=./build --build=missing -c tools.cmake.cmaketoolchain:generator=Ninja -s compiler.cppstd=20 -s build_type=Release -c tools.build:cxxflags="['-D_LIBCPP_ENABLE_CXX17_REMOVED_UNARY_BINARY_FUNCTION', '-Wno-enum-constexpr-conversion']"
         else
           conan install . --output-folder=./build --build=missing -c tools.cmake.cmaketoolchain:generator=Ninja -s compiler.cppstd=20 -s build_type=Release
         fi
@@ -681,6 +683,12 @@ jobs:
         /bin/rm OpenStudioApplication-*${{ env.BINARY_EXT }} || true
         ls OpenStudioApplication-* || true
 
+    - name: "Clean up codesigning"
+      if: always() && runner.os == 'macOS'
+      run: |
+        echo "Deleting keychain ${{ steps.codesigning.outputs.KEYCHAIN_PATH }}"
+        security delete-keychain ${{ steps.codesigning.outputs.KEYCHAIN_PATH }} || true
+        rm -f ${{ steps.codesigning.outputs.KEYCHAIN_PATH }}
 
   test_package_macos:
     name: Test Built Package on macOS

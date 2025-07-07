@@ -75,6 +75,7 @@ class OSCellWrapper : public QWidget
   void connectModelSignals();
   void disconnectModelSignals();
   void makeHeader();
+  void updateStyle();
 
   OSGridView* m_gridView;
   QGridLayout* m_layout;
@@ -86,6 +87,8 @@ class OSCellWrapper : public QWidget
   int m_column = 0;
   bool m_hasSubRows = false;
   int m_refreshCount = 0;
+  bool m_header = false;
+  bool m_visible = true;
 
   // only has these members if not a header cell
   boost::optional<model::ModelObject> m_modelObject;

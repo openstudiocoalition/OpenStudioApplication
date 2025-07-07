@@ -245,6 +245,7 @@ void MainRightColumnController::configureForSchedulesSubTab(int subTabID) {
       myModelList->setItemsDraggable(true);
       myModelList->setItemsRemoveable(false);
 
+      myModelList->addModelObjectType(IddObjectType::OS_Schedule_File, "Schedule File");
       myModelList->addModelObjectType(IddObjectType::OS_Schedule_VariableInterval, "Variable Interval Schedules");
       myModelList->addModelObjectType(IddObjectType::OS_Schedule_FixedInterval, "Fixed Interval Schedules");
       myModelList->addModelObjectType(IddObjectType::OS_Schedule_Year, "Year Schedules");
@@ -261,6 +262,7 @@ void MainRightColumnController::configureForSchedulesSubTab(int subTabID) {
       myLibraryList->setItemsRemoveable(false);
       myLibraryList->setItemsType(OSItemType::LibraryItem);
 
+      myLibraryList->addModelObjectType(IddObjectType::OS_Schedule_File, "Schedule File");
       myLibraryList->addModelObjectType(IddObjectType::OS_Schedule_VariableInterval, "Variable Interval Schedules");
       myLibraryList->addModelObjectType(IddObjectType::OS_Schedule_FixedInterval, "Fixed Interval Schedules");
       myLibraryList->addModelObjectType(IddObjectType::OS_Schedule_Year, "Year Schedules");
@@ -531,6 +533,7 @@ void MainRightColumnController::configureForLoadsSubTab(int subTabID) {
   myModelList->addModelObjectType(IddObjectType::OS_Construction_AirBoundary, "Air Boundary Constructions");
   myModelList->addModelObjectType(IddObjectType::OS_Construction, "Constructions");
   myModelList->addModelObjectCategoryPlaceholder("Constructions");
+  myModelList->addModelObjectType(IddObjectType::OS_Schedule_File, "Schedule File");
   myModelList->addModelObjectType(IddObjectType::OS_Schedule_VariableInterval, "Variable Interval Schedules");
   myModelList->addModelObjectType(IddObjectType::OS_Schedule_FixedInterval, "Fixed Interval Schedules");
   myModelList->addModelObjectType(IddObjectType::OS_Schedule_Year, "Year Schedules");
@@ -566,6 +569,7 @@ void MainRightColumnController::configureForLoadsSubTab(int subTabID) {
   myLibraryList->addModelObjectType(IddObjectType::OS_Lights_Definition, "Lights Definitions");
   myLibraryList->addModelObjectType(IddObjectType::OS_People_Definition, "People Definitions");
   myLibraryList->addModelObjectCategoryPlaceholder("Definitions");
+  myLibraryList->addModelObjectType(IddObjectType::OS_Schedule_File, "Schedule File");
   myLibraryList->addModelObjectType(IddObjectType::OS_Schedule_VariableInterval, "Variable Interval Schedules");
   myLibraryList->addModelObjectType(IddObjectType::OS_Schedule_FixedInterval, "Fixed Interval Schedules");
   myLibraryList->addModelObjectType(IddObjectType::OS_Schedule_Year, "Year Schedules");
@@ -593,6 +597,7 @@ void MainRightColumnController::configureForSpaceTypesSubTab(int subTabID) {
   myModelList->setItemsRemoveable(false);
   myModelList->setItemsType(OSItemType::LibraryItem);
 
+  myModelList->addModelObjectType(IddObjectType::OS_Schedule_File, "Schedule File");
   myModelList->addModelObjectType(IddObjectType::OS_Schedule_VariableInterval, "Variable Interval Schedules");
   myModelList->addModelObjectType(IddObjectType::OS_Schedule_FixedInterval, "Fixed Interval Schedules");
   myModelList->addModelObjectType(IddObjectType::OS_Schedule_Year, "Year Schedules");
@@ -628,6 +633,7 @@ void MainRightColumnController::configureForSpaceTypesSubTab(int subTabID) {
   myLibraryList->setItemsRemoveable(false);
   myLibraryList->setItemsType(OSItemType::LibraryItem);
 
+  myLibraryList->addModelObjectType(IddObjectType::OS_Schedule_File, "Schedule File");
   myLibraryList->addModelObjectType(IddObjectType::OS_Schedule_VariableInterval, "Variable Interval Schedules");
   myLibraryList->addModelObjectType(IddObjectType::OS_Schedule_FixedInterval, "Fixed Interval Schedules");
   myLibraryList->addModelObjectType(IddObjectType::OS_Schedule_Year, "Year Schedules");
@@ -681,6 +687,7 @@ void MainRightColumnController::configureForFacilitySubTab(int subTabID) {
   myModelList->addModelObjectType(IddObjectType::OS_Construction_AirBoundary, "Air Boundary Constructions");
   myModelList->addModelObjectType(IddObjectType::OS_Construction, "Constructions");
   myModelList->addModelObjectCategoryPlaceholder("Constructions");
+  myModelList->addModelObjectType(IddObjectType::OS_Schedule_File, "Schedule File");
   myModelList->addModelObjectType(IddObjectType::OS_Schedule_VariableInterval, "Variable Interval Schedules");
   myModelList->addModelObjectType(IddObjectType::OS_Schedule_FixedInterval, "Fixed Interval Schedules");
   myModelList->addModelObjectType(IddObjectType::OS_Schedule_Year, "Year Schedules");
@@ -738,6 +745,7 @@ void MainRightColumnController::configureForFacilitySubTab(int subTabID) {
   myLibraryList->addModelObjectType(IddObjectType::OS_Construction_AirBoundary, "Air Boundary Constructions");
   myLibraryList->addModelObjectType(IddObjectType::OS_Construction, "Constructions");
   myLibraryList->addModelObjectCategoryPlaceholder("Constructions");
+  myLibraryList->addModelObjectType(IddObjectType::OS_Schedule_File, "Schedule File");
   myLibraryList->addModelObjectType(IddObjectType::OS_Schedule_VariableInterval, "Variable Interval Schedules");
   myLibraryList->addModelObjectType(IddObjectType::OS_Schedule_FixedInterval, "Fixed Interval Schedules");
   myLibraryList->addModelObjectType(IddObjectType::OS_Schedule_Year, "Year Schedules");
@@ -803,6 +811,7 @@ void MainRightColumnController::configureForSpacesSubTab(int subTabID) {
   myModelList->addModelObjectType(IddObjectType::OS_Construction_AirBoundary, "Air Boundary Constructions");
   myModelList->addModelObjectType(IddObjectType::OS_Construction, "Constructions");
   myModelList->addModelObjectCategoryPlaceholder("Constructions");
+  myModelList->addModelObjectType(IddObjectType::OS_Schedule_File, "Schedule File");
   myModelList->addModelObjectType(IddObjectType::OS_Schedule_VariableInterval, "Variable Interval Schedules");
   myModelList->addModelObjectType(IddObjectType::OS_Schedule_FixedInterval, "Fixed Interval Schedules");
   myModelList->addModelObjectType(IddObjectType::OS_Schedule_Year, "Year Schedules");
@@ -863,6 +872,7 @@ void MainRightColumnController::configureForSpacesSubTab(int subTabID) {
   myLibraryList->addModelObjectType(IddObjectType::OS_Construction_AirBoundary, "Air Boundary Constructions");
   myLibraryList->addModelObjectType(IddObjectType::OS_Construction, "Constructions");
   myLibraryList->addModelObjectCategoryPlaceholder("Constructions");
+  myLibraryList->addModelObjectType(IddObjectType::OS_Schedule_File, "Schedule File");
   myLibraryList->addModelObjectType(IddObjectType::OS_Schedule_VariableInterval, "Variable Interval Schedules");
   myLibraryList->addModelObjectType(IddObjectType::OS_Schedule_FixedInterval, "Fixed Interval Schedules");
   myLibraryList->addModelObjectType(IddObjectType::OS_Schedule_Year, "Year Schedules");
@@ -915,6 +925,7 @@ void MainRightColumnController::configureForThermalZonesSubTab(int subTabID) {
   myModelList->addModelObjectType(IddObjectType::OS_WaterHeater_HeatPump, "Water Heater - Heat Pump");
   myModelList->addModelObjectType(IddObjectType::OS_WaterHeater_HeatPump_WrappedCondenser, "Water Heater - Heat Pump - Wrapped Condenser");
   myModelList->addModelObjectCategoryPlaceholder("Water Heaters");
+  myModelList->addModelObjectType(IddObjectType::OS_Schedule_File, "Schedule File");
   myModelList->addModelObjectType(IddObjectType::OS_Schedule_VariableInterval, "Variable Interval Schedules");
   myModelList->addModelObjectType(IddObjectType::OS_Schedule_FixedInterval, "Fixed Interval Schedules");
   myModelList->addModelObjectType(IddObjectType::OS_Schedule_Year, "Year Schedules");
@@ -1032,6 +1043,7 @@ void MainRightColumnController::configureForHVACSystemsSubTab(int subTabID) {
   myModelList->addModelObjectCategoryPlaceholder("Zones");
 
   // Schedules
+  myModelList->addModelObjectType(IddObjectType::OS_Schedule_File, "Schedule File");
   myModelList->addModelObjectType(IddObjectType::OS_Schedule_VariableInterval, "Variable Interval Schedules");
   myModelList->addModelObjectType(IddObjectType::OS_Schedule_FixedInterval, "Fixed Interval Schedules");
   myModelList->addModelObjectType(IddObjectType::OS_Schedule_Year, "Year Schedules");

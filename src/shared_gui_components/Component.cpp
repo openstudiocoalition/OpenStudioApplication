@@ -54,7 +54,7 @@ Component::Component(const BCLMeasure& bclMeasure, bool showAbridgedView, bool s
       setCheckBoxEnabled(false);
       m_updateAvailable = false;
       if (m_msg) {
-        m_msg->setText("This measure requires a newer version of OpenStudio");
+        m_msg->setText("This measure is not compatible with the current version of OpenStudio");
         m_msg->setVisible(true);
       }
     }
@@ -131,7 +131,7 @@ Component::Component(const BCLSearchResult& bclSearchResult, bool showAbridgedVi
         setCheckBoxEnabled(false);
         m_updateAvailable = false;
         if (m_msg) {
-          m_msg->setText("This measure requires a newer version of OpenStudio");
+          m_msg->setText("This measure is not compatible with the current version of OpenStudio");
           m_msg->setVisible(true);
         }
       }

@@ -68,6 +68,8 @@ class LoadsInspectorView : public ModelObjectInspectorView
 
   void showWaterUseEquipmentDefinitionsInspector(const openstudio::model::ModelObject& modelObject);
 
+  void showHotWaterEquipmentDefinitionsInspector(const openstudio::model::ModelObject& modelObject);
+
   void showInspector(QWidget* widget);
 
   void showDefaultView();

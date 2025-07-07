@@ -100,9 +100,9 @@ endif()
 
 set(FILES_TO_SIGN
   EnergyPlus/ExpandObjects
-  EnergyPlus/energyplus-24.2.0
+  EnergyPlus/energyplus-25.1.0
   EnergyPlus/energyplus.1
-  EnergyPlus/libenergyplusapi.24.2.0.dylib
+  EnergyPlus/libenergyplusapi.25.1.0.dylib
   EnergyPlus/libintl.8.dylib
   EnergyPlus/libpython3.12.dylib
   Ruby/openstudio.bundle
