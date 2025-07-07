@@ -71,6 +71,7 @@ class SimSettingsView
   QWidget* createOutputJSONWidget();
   QWidget* createOutputTableSummaryReportsWidget();
   QWidget* createOutputDiagnosticsWidget();
+  QWidget* createOutputControlResilienceSummariesWidget();
 
   void addField(QGridLayout* gridLayout, int row, int column, QString text, OSComboBox2*& comboBox);
 
@@ -110,6 +111,7 @@ class SimSettingsView
   void attachOutputJSON();
   void attachOutputTableSummaryReports();
   void attachOutputDiagnostics();
+  void attachOutputControlResilienceSummaries();
 
   void detachAll();
   void detachRunPeriod();
@@ -131,6 +133,7 @@ class SimSettingsView
   void detachOutputJSON();
   void detachOutputTableSummaryReports();
   void detachOutputDiagnostics();
+  void detachOutputControlResilienceSummaries();
 
   model::Model m_model;
   boost::optional<model::ShadowCalculation> m_shadowCalculation;
@@ -271,6 +274,8 @@ class SimSettingsView
   // These are extensible groups in the SDK, but we care only about common settings
   OSSwitch2* m_table_allSummary;
   OSSwitch2* m_diagnostics_displayExtraWarnings;
+
+  OSComboBox2* m_outputControlResilienceSummaries_heatIndexAlgorithm;
 
  signals:
 
