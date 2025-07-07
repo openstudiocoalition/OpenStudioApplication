@@ -949,6 +949,7 @@ void MainRightColumnController::configureForThermalZonesSubTab(int subTabID) {
   libraryWidget->addModelObjectCategoryPlaceholder("Water Heaters");
   libraryWidget->addModelObjectType(IddObjectType::OS_AirLoopHVAC_UnitarySystem, "Unitary System");
   libraryWidget->addModelObjectCategoryPlaceholder("Unitary Systems");
+  libraryWidget->addModelObjectType(IddObjectType::OS_ZoneHVAC_EvaporativeCoolerUnit, "Evaporative Cooler Unit");
   libraryWidget->addModelObjectType(IddObjectType::OS_ZoneHVAC_CoolingPanel_RadiantConvective_Water, "Cooling Panel Radiant Convective Water");
   libraryWidget->addModelObjectType(IddObjectType::OS_ZoneHVAC_Baseboard_Convective_Electric, "Baseboard Convective Electric");
   libraryWidget->addModelObjectType(IddObjectType::OS_ZoneHVAC_Baseboard_Convective_Water, "Baseboard Convective Water");
