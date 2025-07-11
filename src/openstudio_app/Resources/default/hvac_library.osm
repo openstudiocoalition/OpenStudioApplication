@@ -13068,7 +13068,7 @@ OS:Fan:ConstantVolume,
 OS:Coil:Heating:Gas:MultiStage,
   {3b1fedfa-eb94-4c41-9ff0-eb695f74535d}, !- Handle
   Multi Speed HP Gas Htg Coil,            !- Name
-  {1540674d-a780-43fe-a8dd-b0b23e85b39e}, !- Availability Schedule
+  {9f54092d-a4a8-41b8-a381-c4c332ecb843}, !- Availability Schedule
   ,                                       !- Air Inlet Node
   ,                                       !- Air Outlet Node
   ,                                       !- Part Load Fraction Correlation Curve
@@ -13317,7 +13317,7 @@ OS:AirLoopHVAC:UnitaryHeatPump:AirToAir:MultiSpeed,
   ,                                       !- Controlling Zone or Thermostat Location
   {0f1dd656-a681-48a5-839e-80d7417180c6}, !- Supply Air Fan
   DrawThrough,                            !- Supply Air Fan Placement
-  {1540674d-a780-43fe-a8dd-b0b23e85b39e}, !- Supply Air Fan Operating Mode Schedule
+  {9f54092d-a4a8-41b8-a381-c4c332ecb843}, !- Supply Air Fan Operating Mode Schedule
   {3b1fedfa-eb94-4c41-9ff0-eb695f74535d}, !- Heating Coil
   -8,                                     !- Minimum Outdoor Dry-Bulb Temperature for Compressor Operation {C}
   {a76a42fb-2594-4514-afb9-fd45a05494fc}, !- Cooling Coil
@@ -13341,20 +13341,6 @@ OS:AirLoopHVAC:UnitaryHeatPump:AirToAir:MultiSpeed,
   autosize,                               !- Speed 2 Supply Air Flow Rate During Cooling Operation {m3/s}
   autosize,                               !- Speed 3 Supply Air Flow Rate During Cooling Operation {m3/s}
   autosize;                               !- Speed 4 Supply Air Flow Rate During Cooling Operation {m3/s}
-
-OS:Schedule:Constant,
-  {1540674d-a780-43fe-a8dd-b0b23e85b39e}, !- Handle
-  Always On Discrete,                     !- Name
-  {0dd600d4-b8cb-4c84-8eb6-780de152cd00}, !- Schedule Type Limits Name
-  1;                                      !- Value
-
-OS:ScheduleTypeLimits,
-  {0dd600d4-b8cb-4c84-8eb6-780de152cd00}, !- Handle
-  OnOff 1,                                !- Name
-  0,                                      !- Lower Limit Value
-  1,                                      !- Upper Limit Value
-  Discrete,                               !- Numeric Type
-  Availability;                           !- Unit Type
 
 OS:Coil:Cooling:DX:VariableSpeed,
   {3ef4dbff-bbcf-4645-93ab-fcd09507f984}, !- Handle
@@ -13606,4 +13592,66 @@ OS:Schedule:Day,
   24,                                     !- Hour 1
   0,                                      !- Minute 1
   27;                                     !- Value Until Time 1
+
+OS:ZoneHVAC:EvaporativeCoolerUnit,
+  {d2f28626-5582-4e24-82ed-dfab77b63326}, !- Handle
+  Zone HVAC Evaporative Cooler Unit,      !- Name
+  {9f54092d-a4a8-41b8-a381-c4c332ecb843}, !- Availability Schedule Name
+  ,                                       !- Availability Manager List Name
+  ,                                       !- Outdoor Air Inlet Node Name
+  ,                                       !- Cooler Outlet Node Name
+  ,                                       !- Zone Relief Air Node Name
+  {3247e7b6-3164-4d86-8f4e-a8238615ac29}, !- Supply Air Fan Name
+  autosize,                               !- Design Supply Air Flow Rate {m3/s}
+  BlowThrough,                            !- Fan Placement
+  ZoneTemperatureDeadbandOnOffCycling,    !- Cooler Unit Control Method
+  1,                                      !- Throttling Range Temperature Difference {deltaC}
+  100,                                    !- Cooling Load Control Threshold Heat Transfer Rate {W}
+  {5e5b2500-4e30-4444-914c-39676a69a23b}, !- First Evaporative Cooler
+  ,                                       !- Second Evaporative Cooler
+  ,                                       !- Design Specification ZoneHVAC Sizing
+  100;                                    !- Shut Off Relative Humidity {percent}
+
+OS:Fan:SystemModel,
+  {3247e7b6-3164-4d86-8f4e-a8238615ac29}, !- Handle
+  Zone HVAC Evaporative Cooler Unit FanSystemModel, !- Name
+  {9f54092d-a4a8-41b8-a381-c4c332ecb843}, !- Availability Schedule Name
+  ,                                       !- Air Inlet Node Name
+  ,                                       !- Air Outlet Node Name
+  autosize,                               !- Design Maximum Air Flow Rate {m3/s}
+  Discrete,                               !- Speed Control Method
+  0.2,                                    !- Electric Power Minimum Flow Rate Fraction
+  500,                                    !- Design Pressure Rise {Pa}
+  0.9,                                    !- Motor Efficiency
+  1,                                      !- Motor In Air Stream Fraction
+  autosize,                               !- Design Electric Power Consumption {W}
+  PowerPerFlowPerPressure,                !- Design Power Sizing Method
+  840,                                    !- Electric Power Per Unit Flow Rate {W/(m3/s)}
+  1.66667,                                !- Electric Power Per Unit Flow Rate Per Unit Pressure {W-s/m3-Pa}
+  0.7,                                    !- Fan Total Efficiency
+  ,                                       !- Electric Power Function of Flow Fraction Curve Name
+  ,                                       !- Night Ventilation Mode Pressure Rise {Pa}
+  ,                                       !- Night Ventilation Mode Flow Fraction
+  ,                                       !- Motor Loss Zone Name
+  0,                                      !- Motor Loss Radiative Fraction
+  General;                                !- End-Use Subcategory
+
+OS:EvaporativeCooler:Direct:ResearchSpecial,
+  {5e5b2500-4e30-4444-914c-39676a69a23b}, !- Handle
+  Zone HVAC Evaporative Cooler Unit First Evap Cooler, !- Name
+  {9f54092d-a4a8-41b8-a381-c4c332ecb843}, !- Availability Schedule Name
+  1,                                      !- Cooler Design Effectiveness
+  0,                                      !- Recirculating Water Pump Power Consumption {W}
+  ,                                       !- Primary Air Design Flow Rate {m3/s}
+  ,                                       !- Air Inlet Node Name
+  ,                                       !- Air Outlet Node Name
+  ,                                       !- Sensor Node Name
+  0,                                      !- Drift Loss Fraction
+  0,                                      !- Blowdown Concentration Ratio
+  ,                                       !- Effectiveness Flow Ratio Modifier Curve Name
+  0.1,                                    !- Water Pump Power Sizing Factor {W/(m3/s)}
+  ,                                       !- Water Pump Power Modifier Curve Name
+  16,                                     !- Evaporative Operation Minimum Drybulb Temperature
+  24,                                     !- Evaporative Operation Maximum Limit Wetbulb Temperature
+  28;                                     !- Evaporative Operation Maximum Limit Drybulb Temperature
 

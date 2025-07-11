@@ -99,6 +99,7 @@ TEST_F(OpenStudioLibFixture, IconLibrary_Icon) {
   //iddObjectTypes.push_back(IddObjectType::OS_WindowMaterial_Screen);
   //iddObjectTypes.push_back(IddObjectType::OS_WindowMaterial_Shade);
   //iddObjectTypes.push_back(IddObjectType::OS_WindowMaterial_SimpleGlazingSystem);
+  iddObjectTypes.push_back(IddObjectType::OS_ZoneHVAC_EvaporativeCoolerUnit);
   iddObjectTypes.push_back(IddObjectType::OS_ZoneHVAC_CoolingPanel_RadiantConvective_Water);
   iddObjectTypes.push_back(IddObjectType::OS_ZoneHVAC_PackagedTerminalAirConditioner);
   iddObjectTypes.push_back(IddObjectType::OS_ZoneHVAC_PackagedTerminalHeatPump);
@@ -198,6 +199,7 @@ TEST_F(OpenStudioLibFixture, IconLibrary_MiniIcon) {
   iddObjectTypes.push_back(IddObjectType::OS_WindowMaterial_Screen);
   iddObjectTypes.push_back(IddObjectType::OS_WindowMaterial_Shade);
   iddObjectTypes.push_back(IddObjectType::OS_WindowMaterial_SimpleGlazingSystem);
+  iddObjectTypes.push_back(IddObjectType::OS_ZoneHVAC_EvaporativeCoolerUnit);
   iddObjectTypes.push_back(IddObjectType::OS_ZoneHVAC_CoolingPanel_RadiantConvective_Water);
   iddObjectTypes.push_back(IddObjectType::OS_ZoneHVAC_PackagedTerminalAirConditioner);
   iddObjectTypes.push_back(IddObjectType::OS_ZoneHVAC_PackagedTerminalHeatPump);
