@@ -15,6 +15,8 @@
 
 #include "../shared_gui_components/OSComboBox.hpp"
 #include "../shared_gui_components/OSGridView.hpp"
+#include "../shared_gui_components/OSQuantityEdit.hpp"
+#include "../shared_gui_components/OSSwitch.hpp"
 
 #include "../openstudio_app/OpenStudioApp.hpp"
 
@@ -242,16 +244,13 @@ LocationView::LocationView(bool isIP, const model::Model& model, const QString& 
 
   weatherFileGridLayout->addLayout(hLayout, i++, 0);
 
-  m_latitudeLbl = new QLabel(tr("Latitude: "));
+  m_latitudeLbl = new QLabel(tr(LATITUDE));
   weatherFileGridLayout->addWidget(m_latitudeLbl, i++, 0);
 
-  m_longitudeLbl = new QLabel(tr("Longitude: "));
+  m_longitudeLbl = new QLabel(tr(LONGITUDE));
   weatherFileGridLayout->addWidget(m_longitudeLbl, i++, 0);
 
-  m_elevationLbl = new QLabel(tr("Elevation: "));
-  weatherFileGridLayout->addWidget(m_elevationLbl, i++, 0);
-
-  m_timeZoneLbl = new QLabel(tr("Time Zone: "));
+  m_timeZoneLbl = new QLabel(tr(TIME_ZONE));
   weatherFileGridLayout->addWidget(m_timeZoneLbl, i++, 0);
 
   // ***** Weather File Download Location *****
@@ -272,10 +271,44 @@ LocationView::LocationView(bool isIP, const model::Model& model, const QString& 
 
     int i = 0;
 
+    {
+      label = new QLabel(tr("Keep Site Location Information"));
+      label->setToolTip(tr("If enabled, this will write the Site:Location object that will keep the Elevation change for example."));
+
+      m_keepSiteLocationInfo = new OSSwitch2();
+
+      m_keepSiteLocationInfo->bind(*m_site, BoolGetter([this] { return m_site->keepSiteLocationInformation(); }),
+                                   boost::optional<BoolSetter>([this](bool b) { return m_site->setKeepSiteLocationInformation(b); }),
+                                   boost::optional<NoFailAction>([this] { m_site->resetKeepSiteLocationInformation(); }),
+                                   boost::optional<BasicQuery>([this] { return m_site->isKeepSiteLocationInformationDefaulted(); }));
+
+      siteInfoGridLayout->addWidget(label, i, 0);
+      siteInfoGridLayout->addWidget(m_keepSiteLocationInfo, i++, 1);
+    }
+    {
+      label = new QLabel(tr(ELEVATION));
+      label->setToolTip(tr("Elevation affects the wind speed at the site, and is defaulted to the Weather File's elevation"));
+
+      m_elevation = new OSQuantityEdit2("m", "m", "ft", m_isIP);
+      connect(this, &LocationView::toggleUnitsClicked, m_elevation, &OSQuantityEdit2::onUnitSystemChange);
+      m_elevation->bind(m_isIP, *m_site, DoubleGetter([this] { return m_site->elevation(); }), boost::optional<DoubleSetter>([this](double d) {
+                          m_site->setKeepSiteLocationInformation(true);
+                          return m_site->setElevation(d);
+                        }),
+                        boost::optional<NoFailAction>([this] { m_site->resetElevation(); }),
+                        boost::none,  // autosize
+                        boost::none,  // autocalculate
+                        boost::optional<BasicQuery>([this] { return m_site->isElevationDefaulted(); }));
+
+      m_elevation->setFixedWidth(200);
+
+      siteInfoGridLayout->addWidget(label, i, 0);
+      siteInfoGridLayout->addWidget(m_elevation, i++, 1);
+    }
     // Terrain
     {
       label = new QLabel(tr("Terrain"));
-      label->setToolTip("Terrain affects the wind speed at the site.");
+      label->setToolTip(tr("Terrain affects the wind speed at the site."));
 
       m_terrain = new OSComboBox2();
       m_terrain->bind<std::string>(*m_site, static_cast<std::string (*)(const std::string&)>(&openstudio::toString), &model::Site::validTerrainValues,
@@ -565,11 +598,6 @@ void LocationView::setSiteInfo() {
   info += temp;
   m_longitudeLbl->setText(info);
 
-  info = tr(ELEVATION);
-  temp.setNum(m_site->elevation());
-  info += temp;
-  m_elevationLbl->setText(info);
-
   info = tr(TIME_ZONE);
   temp.setNum(m_site->timeZone());
   info += temp;
@@ -582,8 +610,6 @@ void LocationView::clearSiteInfo() {
   m_latitudeLbl->setText(tr(LATITUDE));
 
   m_longitudeLbl->setText(tr(LONGITUDE));
-
-  m_elevationLbl->setText(tr(ELEVATION));
 
   m_timeZoneLbl->setText(tr(TIME_ZONE));
 }
