@@ -175,6 +175,11 @@ LocationView::LocationView(bool isIP, const model::Model& model, const QString& 
   weatherFileGridLayout->setSpacing(7);
 
   // ***** Measure Tags GridLayout *****
+  auto* siteInfoGridLayout = new QGridLayout();
+  siteInfoGridLayout->setContentsMargins(7, 7, 7, 7);
+  siteInfoGridLayout->setSpacing(7);
+
+  // ***** Measure Tags GridLayout *****
   auto* measureTagsGridLayout = new QGridLayout();
   measureTagsGridLayout->setContentsMargins(7, 7, 7, 7);
   measureTagsGridLayout->setSpacing(7);
@@ -257,6 +262,41 @@ LocationView::LocationView(bool isIP, const model::Model& model, const QString& 
   weatherFileGridLayout->setColumnStretch(i, 10);
   leftVLayout->addLayout(weatherFileGridLayout);
   leftVLayout->addStretch();
+
+  // Site Information
+  {
+    label = new QLabel(tr("Site Information:"));
+    label->setObjectName("H2");
+    leftVLayout->addWidget(label);
+
+    int i = 0;
+
+    // Terrain
+    {
+      label = new QLabel(tr("Terrain"));
+      label->setToolTip("Terrain affects the wind speed at the site.");
+      label->setObjectName("StandardsInfo");
+
+      m_terrain = new QComboBox();
+      m_terrain->setFixedWidth(200);
+
+      siteInfoGridLayout->addWidget(label, i, 0);
+      siteInfoGridLayout->addWidget(m_terrain, i++, 1);
+      for (const std::string& terrain : model::Site::validTerrainValues()) {
+        m_terrain->addItem(toQString(terrain));
+      }
+      std::string terrainValue = m_site->terrain();
+      auto idx = m_terrain->findText(toQString(terrainValue));
+      OS_ASSERT(idx != -1);
+      m_terrain->setCurrentIndex(idx);
+      connect(m_terrain, static_cast<void (QComboBox::*)(const QString&)>(&QComboBox::currentTextChanged), this, &LocationView::onTerrainChanged);
+    }
+
+    // ***** Site Info GridLayout *****
+    siteInfoGridLayout->setColumnStretch(++i, 10);
+    leftVLayout->addLayout(siteInfoGridLayout);
+    leftVLayout->addStretch();
+  }
 
   // ***** Climate Zones *****
   label = new QLabel(tr("Measure Tags (Optional):"));
@@ -898,6 +938,14 @@ void LocationView::checkNumDesignDays() {
     QMessageBox box(QMessageBox::Warning, tr("No Design Days in DDY File"),
                     tr("This DDY file does not contain any valid design days.  Check the DDY file itself for errors or omissions."), QMessageBox::Ok);
     box.exec();
+  }
+}
+
+void LocationView::onTerrainChanged(const QString& terrain) {
+  if (terrain.isEmpty()) {
+    m_site->resetTerrain();
+  } else {
+    m_site->setTerrain(toString(terrain));
   }
 }
 
