@@ -13,6 +13,7 @@
 #include "OSItemSelectorButtons.hpp"
 #include "SchedulesTabController.hpp"
 
+#include "../shared_gui_components/OSComboBox.hpp"
 #include "../shared_gui_components/OSGridView.hpp"
 
 #include "../openstudio_app/OpenStudioApp.hpp"
@@ -275,21 +276,18 @@ LocationView::LocationView(bool isIP, const model::Model& model, const QString& 
     {
       label = new QLabel(tr("Terrain"));
       label->setToolTip("Terrain affects the wind speed at the site.");
-      label->setObjectName("StandardsInfo");
 
-      m_terrain = new QComboBox();
+      m_terrain = new OSComboBox2();
+      m_terrain->bind<std::string>(*m_site, static_cast<std::string (*)(const std::string&)>(&openstudio::toString), &model::Site::validTerrainValues,
+                                   std::bind(&model::Site::terrain, m_site.get_ptr()),
+                                   std::bind(&model::Site::setTerrain, m_site.get_ptr(), std::placeholders::_1),
+                                   boost::optional<NoFailAction>(std::bind(&model::Site::resetTerrain, m_site.get_ptr())),
+                                   boost::optional<BasicQuery>(std::bind(&model::Site::isTerrainDefaulted, m_site.get_ptr())));
+
       m_terrain->setFixedWidth(200);
 
       siteInfoGridLayout->addWidget(label, i, 0);
       siteInfoGridLayout->addWidget(m_terrain, i++, 1);
-      for (const std::string& terrain : model::Site::validTerrainValues()) {
-        m_terrain->addItem(toQString(terrain));
-      }
-      std::string terrainValue = m_site->terrain();
-      auto idx = m_terrain->findText(toQString(terrainValue));
-      OS_ASSERT(idx != -1);
-      m_terrain->setCurrentIndex(idx);
-      connect(m_terrain, static_cast<void (QComboBox::*)(const QString&)>(&QComboBox::currentTextChanged), this, &LocationView::onTerrainChanged);
     }
 
     // ***** Site Info GridLayout *****
@@ -445,6 +443,7 @@ LocationView::LocationView(bool isIP, const model::Model& model, const QString& 
 }
 
 LocationView::~LocationView() {
+  // m_terrain->unbind();  // NOTE: I don't think this is necessary
   saveQSettings();
 }
 
@@ -938,14 +937,6 @@ void LocationView::checkNumDesignDays() {
     QMessageBox box(QMessageBox::Warning, tr("No Design Days in DDY File"),
                     tr("This DDY file does not contain any valid design days.  Check the DDY file itself for errors or omissions."), QMessageBox::Ok);
     box.exec();
-  }
-}
-
-void LocationView::onTerrainChanged(const QString& terrain) {
-  if (terrain.isEmpty()) {
-    m_site->resetTerrain();
-  } else {
-    m_site->setTerrain(toString(terrain));
   }
 }
 

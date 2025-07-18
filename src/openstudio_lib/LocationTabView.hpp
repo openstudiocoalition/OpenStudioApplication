@@ -23,6 +23,7 @@ namespace openstudio {
 
 class EpwFile;
 class DesignDayGridView;
+class OSComboBox2;
 class OSItemSelectorButtons;
 
 namespace model {
@@ -100,7 +101,7 @@ class LocationView : public QWidget
   QString m_modelTempDir = QString();
   QString m_lastEpwPathOpened = QString();
   QString m_lastDdyPathOpened = QString();
-  QComboBox* m_terrain = nullptr;
+  OSComboBox2* m_terrain = nullptr;
   QComboBox* m_ashraeClimateZone = nullptr;
   QComboBox* m_cecClimateZone = nullptr;
   QLineEdit* m_siteName = nullptr;
@@ -154,8 +155,6 @@ class LocationView : public QWidget
   std::vector<openstudio::model::DesignDay> showDesignDaySelectionDialog(const std::vector<openstudio::model::DesignDay>& allDesignDays);
 
   void onDesignDayBtnClicked();
-
-  void onTerrainChanged(const QString& terrain);
 
   void onASHRAEClimateZoneChanged(const QString& climateZone);
 
