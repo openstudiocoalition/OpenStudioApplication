@@ -291,14 +291,8 @@ LocationView::LocationView(bool isIP, const model::Model& model, const QString& 
 
       m_elevation = new OSQuantityEdit2("m", "m", "ft", m_isIP);
       connect(this, &LocationView::toggleUnitsClicked, m_elevation, &OSQuantityEdit2::onUnitSystemChange);
-      m_elevation->bind(m_isIP, *m_site, DoubleGetter([this] { return m_site->elevation(); }), boost::optional<DoubleSetter>([this](double d) {
-                          m_site->setKeepSiteLocationInformation(true);
-                          return m_site->setElevation(d);
-                        }),
-                        boost::optional<NoFailAction>([this] { m_site->resetElevation(); }),
-                        boost::none,  // autosize
-                        boost::none,  // autocalculate
-                        boost::optional<BasicQuery>([this] { return m_site->isElevationDefaulted(); }));
+
+      // Bind is delayed until after update() is called, so that the weatherFileElevation is set correctly.
 
       m_elevation->setFixedWidth(200);
 
@@ -471,6 +465,18 @@ LocationView::LocationView(bool isIP, const model::Model& model, const QString& 
   connect(m_itemSelectorButtons, &OSItemSelectorButtons::purgeClicked, m_designDaysGridView, &DesignDayGridView::onPurgeClicked);
 
   update();
+  {
+    m_elevation->bind(m_isIP, *m_site, DoubleGetter([this] { return m_site->elevation(); }), boost::optional<DoubleSetter>([this](double d) {
+                        m_site->setKeepSiteLocationInformation(true);
+                        return m_site->setElevation(d);
+                      }),
+                      boost::optional<NoFailAction>([this] { m_site->resetElevation(); }),
+                      boost::none,                          // autosize
+                      boost::none,                          // autocalculate
+                      boost::optional<BasicQuery>([this] {  //
+                        return (m_site->isElevationDefaulted() || (std::abs(m_site->elevation() - m_weatherFileElevation) < 0.01));
+                      }));
+  }
 
   onSelectItem();
 }
@@ -568,6 +574,7 @@ void LocationView::update() {
 
     if (fileExists) {
       m_weatherFileBtn->setText(tr("Change Weather File"));
+      m_weatherFileElevation = weatherFile->elevation();
       setSiteInfo();
     } else {
       m_weatherFileBtn->setText(tr("Set Weather File"));
@@ -612,6 +619,8 @@ void LocationView::clearSiteInfo() {
   m_longitudeLbl->setText(tr(LONGITUDE));
 
   m_timeZoneLbl->setText(tr(TIME_ZONE));
+
+  m_weatherFileElevation = 0.0;
 }
 
 // ***** SLOTS *****
@@ -702,6 +711,7 @@ void LocationView::onWeatherFileBtnClicked() {
       m_site->setName(weatherFile->city());
       m_site->setLatitude(weatherFile->latitude());
       m_site->setLongitude(weatherFile->longitude());
+      m_weatherFileElevation = weatherFile->elevation();
       m_site->setElevation(weatherFile->elevation());
       m_site->setTimeZone(weatherFile->timeZone());
 

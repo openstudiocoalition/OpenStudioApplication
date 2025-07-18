@@ -113,6 +113,7 @@ class LocationView : public QWidget
   OSComboBox2* m_terrain = nullptr;
   OSSwitch2* m_keepSiteLocationInfo = nullptr;
   OSQuantityEdit2* m_elevation = nullptr;
+  double m_weatherFileElevation = 0.0;
   QComboBox* m_ashraeClimateZone = nullptr;
   QComboBox* m_cecClimateZone = nullptr;
 
