@@ -270,7 +270,7 @@ LocationView::LocationView(bool isIP, const model::Model& model, const QString& 
     label->setObjectName("H2");
     leftVLayout->addWidget(label);
 
-    int i = 0;
+    i = 0;
 
     {
       label = new QLabel(tr("Keep Site Location Information"));
