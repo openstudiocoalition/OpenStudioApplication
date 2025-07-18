@@ -73,6 +73,7 @@
 #include <QCoreApplication>
 #include <QObject>
 #include <QPushButton>
+#include <span>
 
 static constexpr auto NAME("Name: ");
 static constexpr auto LATITUDE("Latitude: ");
@@ -470,7 +471,13 @@ LocationView::LocationView(bool isIP, const model::Model& model, const QString& 
                         m_site->setKeepSiteLocationInformation(true);
                         return m_site->setElevation(d);
                       }),
-                      boost::optional<NoFailAction>([this] { m_site->resetElevation(); }),
+                      boost::optional<NoFailAction>([this] {
+                        if (std::abs(m_weatherFileElevation) > 0.01) {
+                          m_site->setElevation(m_weatherFileElevation);
+                        } else {
+                          m_site->resetElevation();
+                        }
+                      }),
                       boost::none,                          // autosize
                       boost::none,                          // autocalculate
                       boost::optional<BasicQuery>([this] {  //
