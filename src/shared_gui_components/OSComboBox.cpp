@@ -250,6 +250,14 @@ void OSComboBox2::onModelObjectRemoved(const Handle& handle) {
   unbind();
 }
 
+void OSComboBox2::onActivated(int index) {
+  if (m_choiceConcept) {
+    if (index == this->currentIndex() && m_choiceConcept->isDefaulted()) {
+      this->onCurrentIndexChanged(this->currentText());
+    }
+  }
+}
+
 void OSComboBox2::onCurrentIndexChanged(const QString& text) {
   emit inFocus(m_focused, hasData());
 
@@ -347,6 +355,7 @@ void OSComboBox2::completeBind() {
     m_modelObject->getImpl<openstudio::model::detail::ModelObject_Impl>()
       ->onRemoveFromWorkspace.connect<OSComboBox2, &OSComboBox2::onModelObjectRemoved>(this);
 
+    connect(this, static_cast<void (OSComboBox2::*)(int)>(&OSComboBox2::activated), this, &OSComboBox2::onActivated);
     connect(this, static_cast<void (OSComboBox2::*)(const QString&)>(&OSComboBox2::currentTextChanged), this, &OSComboBox2::onCurrentIndexChanged);
 
     if (isEditable()) {

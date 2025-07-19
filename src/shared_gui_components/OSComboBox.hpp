@@ -180,6 +180,8 @@ class OSComboBox2
 
   void onModelObjectRemoved(const Handle& handle);
 
+  void onActivated(int index);
+
   void onCurrentIndexChanged(const QString& text);
 
   void onEditTextChanged(const QString& text);

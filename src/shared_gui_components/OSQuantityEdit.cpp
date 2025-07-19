@@ -82,6 +82,10 @@ void OSQuantityEdit2::setLocked(bool locked) {
   m_lineEdit->setLocked(locked);
 }
 
+void OSQuantityEdit2::clearCachedText() {
+  m_text = "UNINITIALIZED";
+}
+
 QDoubleValidator* OSQuantityEdit2::doubleValidator() {
   return m_doubleValidator;
 }
