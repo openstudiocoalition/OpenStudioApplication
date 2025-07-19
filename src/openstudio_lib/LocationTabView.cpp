@@ -279,7 +279,31 @@ LocationView::LocationView(bool isIP, const model::Model& model, const QString& 
       m_keepSiteLocationInfo = new OSSwitch2();
 
       m_keepSiteLocationInfo->bind(*m_site, BoolGetter([this] { return m_site->keepSiteLocationInformation(); }),
-                                   boost::optional<BoolSetter>([this](bool b) { return m_site->setKeepSiteLocationInformation(b); }),
+                                   boost::optional<BoolSetter>([this](bool b) {
+                                     bool result = m_site->setKeepSiteLocationInformation(b);
+                                     if (result) {
+
+                                       // force a change to force the style to update
+                                       double elev = m_site->elevation();
+                                       m_site->setElevation((elev > 0) ? elev - 1 : elev + 1);
+                                       if (b) {
+                                         // set elevation if turning on
+                                         if (m_site->isElevationDefaulted()) {
+                                           m_site->setElevation(m_weatherFileElevation);
+                                         } else {
+                                           m_site->setElevation(elev);
+                                         }
+                                       } else {
+                                         // reset elevation if turning off
+                                         if (std::abs(m_weatherFileElevation) > 0.01) {
+                                           m_site->setElevation(m_weatherFileElevation);
+                                         } else {
+                                           m_site->resetElevation();
+                                         }
+                                       }
+                                     }
+                                     return result;
+                                   }),
                                    boost::optional<NoFailAction>([this] { m_site->resetKeepSiteLocationInformation(); }),
                                    boost::optional<BasicQuery>([this] { return m_site->isKeepSiteLocationInformationDefaulted(); }));
 
@@ -468,10 +492,16 @@ LocationView::LocationView(bool isIP, const model::Model& model, const QString& 
   update();
   {
     m_elevation->bind(m_isIP, *m_site, DoubleGetter([this] { return m_site->elevation(); }), boost::optional<DoubleSetter>([this](double d) {
+                        // turn keep site info on
                         m_site->setKeepSiteLocationInformation(true);
                         return m_site->setElevation(d);
                       }),
                       boost::optional<NoFailAction>([this] {
+                        // turn keep site info off
+                        m_site->setKeepSiteLocationInformation(false);
+                        // force a change to force the style to update
+                        double elev = m_site->elevation();
+                        m_site->setElevation((elev > 0) ? elev - 1 : elev + 1);
                         if (std::abs(m_weatherFileElevation) > 0.01) {
                           m_site->setElevation(m_weatherFileElevation);
                         } else {
@@ -481,7 +511,7 @@ LocationView::LocationView(bool isIP, const model::Model& model, const QString& 
                       boost::none,                          // autosize
                       boost::none,                          // autocalculate
                       boost::optional<BasicQuery>([this] {  //
-                        return (m_site->isElevationDefaulted() || (std::abs(m_site->elevation() - m_weatherFileElevation) < 0.01));
+                        return (m_site->isElevationDefaulted() || !m_site->keepSiteLocationInformation());
                       }));
   }
 
@@ -719,7 +749,9 @@ void LocationView::onWeatherFileBtnClicked() {
       m_site->setLatitude(weatherFile->latitude());
       m_site->setLongitude(weatherFile->longitude());
       m_weatherFileElevation = weatherFile->elevation();
+      m_site->setKeepSiteLocationInformation(false);
       m_site->setElevation(weatherFile->elevation());
+      m_site->resetTerrain();
       m_site->setTimeZone(weatherFile->timeZone());
 
       m_lastEpwPathOpened = QFileInfo(fileName).absoluteFilePath();
