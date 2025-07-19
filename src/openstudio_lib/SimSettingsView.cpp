@@ -32,6 +32,8 @@
 #include <openstudio/model/OutputTableSummaryReports_Impl.hpp>
 #include <openstudio/model/OutputDiagnostics.hpp>
 #include <openstudio/model/OutputDiagnostics_Impl.hpp>
+#include <openstudio/model/OutputControlResilienceSummaries_Impl.hpp>
+#include <openstudio/model/OutputControlResilienceSummaries.hpp>
 #include <openstudio/model/OutsideSurfaceConvectionAlgorithm.hpp>
 #include <openstudio/model/OutsideSurfaceConvectionAlgorithm_Impl.hpp>
 #include <openstudio/model/ProgramControl.hpp>
@@ -298,6 +300,10 @@ void SimSettingsView::createWidgets() {
 
   //******************* OS:Output:Diagnostics *******************
   collapsibleInspector = new CollapsibleInspector("Output Diagnostics", createOutputDiagnosticsWidget());
+  mainLayout->addWidget(collapsibleInspector);
+
+  //******************* OS:OutputControl:ResilienceSummaries *******************
+  collapsibleInspector = new CollapsibleInspector("Output Control Resilience Summaries", createOutputControlResilienceSummariesWidget());
   mainLayout->addWidget(collapsibleInspector);
 
   mainLayout->addStretch();
@@ -1135,6 +1141,29 @@ QWidget* SimSettingsView::createOutputDiagnosticsWidget() {
   return widget;
 }
 
+QWidget* SimSettingsView::createOutputControlResilienceSummariesWidget() {
+
+  auto* gridLayout = new QGridLayout();
+  gridLayout->setContentsMargins(7, 7, 7, 7);
+  gridLayout->setSpacing(GRID_LAYOUT_SPACING);
+  gridLayout->setAlignment(Qt::AlignLeft);
+
+  int row = 0;
+  int col = 0;
+
+  addField(gridLayout, row, col, "Heat Index Algorithm", m_outputControlResilienceSummaries_heatIndexAlgorithm);
+  col++;
+  for (const auto& hiAlgo : model::OutputControlResilienceSummaries::heatIndexAlgorithmValues()) {
+    m_json_optionType->addItem(hiAlgo.c_str());
+  }
+
+  auto* widget = new QWidget();
+  widget->setLayout(gridLayout);
+  widget->hide();
+
+  return widget;
+}
+
 void SimSettingsView::addField(QGridLayout* gridLayout, int row, int column, QString text, OSComboBox2*& comboBox) {
   auto* label = new QLabel(text, this);
   label->setFixedWidth(TEXT_FIELD_WIDTH);
@@ -1245,6 +1274,7 @@ void SimSettingsView::attachAll() {
   attachOutputJSON();
   attachOutputTableSummaryReports();
   attachOutputDiagnostics();
+  attachOutputControlResilienceSummaries();
 }
 
 void SimSettingsView::detachAll() {
@@ -1267,6 +1297,7 @@ void SimSettingsView::detachAll() {
   detachOutputJSON();
   detachOutputTableSummaryReports();
   detachOutputDiagnostics();
+  detachOutputControlResilienceSummaries();
 }
 
 void SimSettingsView::attachRunPeriod() {
@@ -1934,6 +1965,19 @@ void SimSettingsView::attachOutputDiagnostics() {
   );
 }
 
+void SimSettingsView::attachOutputControlResilienceSummaries() {
+  // If it wasn't already in the model, it'll be initialized, and the Ctor defaults to "Simplified" which is the same as NOT having it in the model
+  auto mo = m_model.getUniqueModelObject<model::OutputControlResilienceSummaries>();
+
+  m_outputControlResilienceSummaries_heatIndexAlgorithm->bind<std::string>(
+    mo, static_cast<std::string (*)(const std::string&)>(&openstudio::toString), &model::OutputControlResilienceSummaries::heatIndexAlgorithmValues,
+    StringGetter(std::bind(&model::OutputControlResilienceSummaries::heatIndexAlgorithm, mo)),
+    std::bind(&model::OutputControlResilienceSummaries::setHeatIndexAlgorithm, mo, std::placeholders::_1),
+    boost::none,  // No reset
+    boost::none   // No isDefaulted
+  );
+}
+
 void SimSettingsView::detachRunPeriod() {
   m_useWeatherFileHolidaysandSpecialDays->unbind();
   m_useWeatherFileDaylightSavingsPeriod->unbind();
@@ -2063,6 +2107,10 @@ void SimSettingsView::detachOutputTableSummaryReports() {
 
 void SimSettingsView::detachOutputDiagnostics() {
   m_diagnostics_displayExtraWarnings->unbind();
+}
+
+void SimSettingsView::detachOutputControlResilienceSummaries() {
+  m_outputControlResilienceSummaries_heatIndexAlgorithm->unbind();
 }
 
 //***** SLOTS *****

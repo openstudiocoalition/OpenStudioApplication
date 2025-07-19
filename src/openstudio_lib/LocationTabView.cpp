@@ -13,7 +13,10 @@
 #include "OSItemSelectorButtons.hpp"
 #include "SchedulesTabController.hpp"
 
+#include "../shared_gui_components/OSComboBox.hpp"
 #include "../shared_gui_components/OSGridView.hpp"
+#include "../shared_gui_components/OSQuantityEdit.hpp"
+#include "../shared_gui_components/OSSwitch.hpp"
 
 #include "../openstudio_app/OpenStudioApp.hpp"
 
@@ -70,6 +73,7 @@
 #include <QCoreApplication>
 #include <QObject>
 #include <QPushButton>
+#include <span>
 
 static constexpr auto NAME("Name: ");
 static constexpr auto LATITUDE("Latitude: ");
@@ -175,6 +179,11 @@ LocationView::LocationView(bool isIP, const model::Model& model, const QString& 
   weatherFileGridLayout->setSpacing(7);
 
   // ***** Measure Tags GridLayout *****
+  auto* siteInfoGridLayout = new QGridLayout();
+  siteInfoGridLayout->setContentsMargins(7, 7, 7, 7);
+  siteInfoGridLayout->setSpacing(7);
+
+  // ***** Measure Tags GridLayout *****
   auto* measureTagsGridLayout = new QGridLayout();
   measureTagsGridLayout->setContentsMargins(7, 7, 7, 7);
   measureTagsGridLayout->setSpacing(7);
@@ -236,16 +245,13 @@ LocationView::LocationView(bool isIP, const model::Model& model, const QString& 
 
   weatherFileGridLayout->addLayout(hLayout, i++, 0);
 
-  m_latitudeLbl = new QLabel(tr("Latitude: "));
+  m_latitudeLbl = new QLabel(tr(LATITUDE));
   weatherFileGridLayout->addWidget(m_latitudeLbl, i++, 0);
 
-  m_longitudeLbl = new QLabel(tr("Longitude: "));
+  m_longitudeLbl = new QLabel(tr(LONGITUDE));
   weatherFileGridLayout->addWidget(m_longitudeLbl, i++, 0);
 
-  m_elevationLbl = new QLabel(tr("Elevation: "));
-  weatherFileGridLayout->addWidget(m_elevationLbl, i++, 0);
-
-  m_timeZoneLbl = new QLabel(tr("Time Zone: "));
+  m_timeZoneLbl = new QLabel(tr(TIME_ZONE));
   weatherFileGridLayout->addWidget(m_timeZoneLbl, i++, 0);
 
   // ***** Weather File Download Location *****
@@ -257,6 +263,91 @@ LocationView::LocationView(bool isIP, const model::Model& model, const QString& 
   weatherFileGridLayout->setColumnStretch(i, 10);
   leftVLayout->addLayout(weatherFileGridLayout);
   leftVLayout->addStretch();
+
+  // Site Information
+  {
+    label = new QLabel(tr("Site Information:"));
+    label->setObjectName("H2");
+    leftVLayout->addWidget(label);
+
+    i = 0;
+
+    {
+      label = new QLabel(tr("Keep Site Location Information"));
+      label->setToolTip(tr("If enabled, this will write the Site:Location object that will keep the Elevation change for example."));
+
+      m_keepSiteLocationInfo = new OSSwitch2();
+
+      m_keepSiteLocationInfo->bind(*m_site, BoolGetter([this] { return m_site->keepSiteLocationInformation(); }),
+                                   boost::optional<BoolSetter>([this](bool b) {
+                                     bool result = m_site->setKeepSiteLocationInformation(b);
+
+                                     if (result) {
+
+                                       // force the style to update
+                                       m_elevation->clearCachedText();
+
+                                       if (b) {
+                                         // set elevation if turning on
+                                         if (m_site->isElevationDefaulted()) {
+                                           m_site->setElevation(m_weatherFileElevation);
+                                         } else {
+                                           m_site->setElevation(m_site->elevation());
+                                         }
+                                       } else {
+                                         // reset elevation if turning off
+                                         if (std::abs(m_weatherFileElevation) > 0.01) {
+                                           m_site->setElevation(m_weatherFileElevation);
+                                         } else {
+                                           m_site->resetElevation();
+                                         }
+                                       }
+                                     }
+                                     return result;
+                                   }),
+                                   boost::optional<NoFailAction>([this] { m_site->resetKeepSiteLocationInformation(); }),
+                                   boost::optional<BasicQuery>([this] { return m_site->isKeepSiteLocationInformationDefaulted(); }));
+
+      siteInfoGridLayout->addWidget(label, i, 0);
+      siteInfoGridLayout->addWidget(m_keepSiteLocationInfo, i++, 1);
+    }
+    {
+      label = new QLabel(tr(ELEVATION));
+      label->setToolTip(tr("Elevation affects the wind speed at the site, and is defaulted to the Weather File's elevation"));
+
+      m_elevation = new OSQuantityEdit2("m", "m", "ft", m_isIP);
+      connect(this, &LocationView::toggleUnitsClicked, m_elevation, &OSQuantityEdit2::onUnitSystemChange);
+
+      // Bind is delayed until after update() is called, so that the weatherFileElevation is set correctly.
+
+      m_elevation->setFixedWidth(200);
+
+      siteInfoGridLayout->addWidget(label, i, 0);
+      siteInfoGridLayout->addWidget(m_elevation, i++, 1);
+    }
+    // Terrain
+    {
+      label = new QLabel(tr("Terrain"));
+      label->setToolTip(tr("Terrain affects the wind speed at the site."));
+
+      m_terrain = new OSComboBox2();
+      m_terrain->bind<std::string>(*m_site, static_cast<std::string (*)(const std::string&)>(&openstudio::toString), &model::Site::validTerrainValues,
+                                   std::bind(&model::Site::terrain, m_site.get_ptr()),
+                                   std::bind(&model::Site::setTerrain, m_site.get_ptr(), std::placeholders::_1),
+                                   boost::optional<NoFailAction>(std::bind(&model::Site::resetTerrain, m_site.get_ptr())),
+                                   boost::optional<BasicQuery>(std::bind(&model::Site::isTerrainDefaulted, m_site.get_ptr())));
+
+      m_terrain->setFixedWidth(200);
+
+      siteInfoGridLayout->addWidget(label, i, 0);
+      siteInfoGridLayout->addWidget(m_terrain, i++, 1);
+    }
+
+    // ***** Site Info GridLayout *****
+    siteInfoGridLayout->setColumnStretch(++i, 10);
+    leftVLayout->addLayout(siteInfoGridLayout);
+    leftVLayout->addStretch();
+  }
 
   // ***** Climate Zones *****
   label = new QLabel(tr("Measure Tags (Optional):"));
@@ -400,11 +491,37 @@ LocationView::LocationView(bool isIP, const model::Model& model, const QString& 
   connect(m_itemSelectorButtons, &OSItemSelectorButtons::purgeClicked, m_designDaysGridView, &DesignDayGridView::onPurgeClicked);
 
   update();
+  {
+    m_elevation->bind(m_isIP, *m_site, DoubleGetter([this] { return m_site->elevation(); }), boost::optional<DoubleSetter>([this](double d) {
+                        // turn keep site info on
+                        m_site->setKeepSiteLocationInformation(true);
+                        return m_site->setElevation(d);
+                      }),
+                      boost::optional<NoFailAction>([this] {
+                        // turn keep site info off
+                        m_site->setKeepSiteLocationInformation(false);
+
+                        // force the style to update
+                        m_elevation->clearCachedText();
+
+                        if (std::abs(m_weatherFileElevation) > 0.01) {
+                          m_site->setElevation(m_weatherFileElevation);
+                        } else {
+                          m_site->resetElevation();
+                        }
+                      }),
+                      boost::none,                          // autosize
+                      boost::none,                          // autocalculate
+                      boost::optional<BasicQuery>([this] {  //
+                        return (m_site->isElevationDefaulted() || !m_site->keepSiteLocationInformation());
+                      }));
+  }
 
   onSelectItem();
 }
 
 LocationView::~LocationView() {
+  // m_terrain->unbind();  // NOTE: I don't think this is necessary
   saveQSettings();
 }
 
@@ -496,6 +613,7 @@ void LocationView::update() {
 
     if (fileExists) {
       m_weatherFileBtn->setText(tr("Change Weather File"));
+      m_weatherFileElevation = weatherFile->elevation();
       setSiteInfo();
     } else {
       m_weatherFileBtn->setText(tr("Set Weather File"));
@@ -526,11 +644,6 @@ void LocationView::setSiteInfo() {
   info += temp;
   m_longitudeLbl->setText(info);
 
-  info = tr(ELEVATION);
-  temp.setNum(m_site->elevation());
-  info += temp;
-  m_elevationLbl->setText(info);
-
   info = tr(TIME_ZONE);
   temp.setNum(m_site->timeZone());
   info += temp;
@@ -544,9 +657,9 @@ void LocationView::clearSiteInfo() {
 
   m_longitudeLbl->setText(tr(LONGITUDE));
 
-  m_elevationLbl->setText(tr(ELEVATION));
-
   m_timeZoneLbl->setText(tr(TIME_ZONE));
+
+  m_weatherFileElevation = 0.0;
 }
 
 // ***** SLOTS *****
@@ -637,7 +750,10 @@ void LocationView::onWeatherFileBtnClicked() {
       m_site->setName(weatherFile->city());
       m_site->setLatitude(weatherFile->latitude());
       m_site->setLongitude(weatherFile->longitude());
+      m_weatherFileElevation = weatherFile->elevation();
+      m_site->setKeepSiteLocationInformation(false);
       m_site->setElevation(weatherFile->elevation());
+      m_site->resetTerrain();
       m_site->setTimeZone(weatherFile->timeZone());
 
       m_lastEpwPathOpened = QFileInfo(fileName).absoluteFilePath();

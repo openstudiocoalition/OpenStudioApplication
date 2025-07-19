@@ -230,6 +230,8 @@ IconLibrary::IconLibrary() {
   m_icons[openstudio::IddObjectType(openstudio::IddObjectType::OS_ZoneHVAC_Dehumidifier_DX).value()] = new QPixmap(":/images/dehumidifier_dx.png");
   m_icons[openstudio::IddObjectType(openstudio::IddObjectType::OS_ZoneHVAC_EnergyRecoveryVentilator).value()] =
     new QPixmap(":/images/energy_recov_vent.png");
+  m_icons[openstudio::IddObjectType(openstudio::IddObjectType::OS_ZoneHVAC_EvaporativeCoolerUnit).value()] =
+    new QPixmap(":/images/zonehvac_evaporativecoolerunit.png");
   m_icons[openstudio::IddObjectType(openstudio::IddObjectType::OS_Coil_Heating_Water_Baseboard).value()] =
     new QPixmap(":/images/coilheatingwater_baseboard.png");
   m_icons[openstudio::IddObjectType(openstudio::IddObjectType::OS_Coil_Heating_Water_Baseboard_Radiant).value()] =
@@ -701,6 +703,8 @@ IconLibrary::IconLibrary() {
     new QPixmap(":/images/mini_icons/coilheatingwater_baseboard_mini.png");
   m_miniIcons[openstudio::IddObjectType(openstudio::IddObjectType::OS_Coil_Heating_Water_Baseboard_Radiant).value()] =
     new QPixmap(":/images/mini_icons/Coil_Heating_Water_Baseboard_Radiant.png");
+  m_miniIcons[openstudio::IddObjectType(openstudio::IddObjectType::OS_ZoneHVAC_EvaporativeCoolerUnit).value()] =
+    new QPixmap(":/images/mini_icons/zonehvac_evaporativecoolerunit.png");
   m_miniIcons[openstudio::IddObjectType(openstudio::IddObjectType::OS_ZoneHVAC_FourPipeFanCoil).value()] =
     new QPixmap(":/images/mini_single_ducts_constant_vol_4pipe.png");
   m_miniIcons[openstudio::IddObjectType(openstudio::IddObjectType::OS_ZoneHVAC_HighTemperatureRadiant).value()] =

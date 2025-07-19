@@ -23,7 +23,10 @@ namespace openstudio {
 
 class EpwFile;
 class DesignDayGridView;
+class OSComboBox2;
 class OSItemSelectorButtons;
+class OSQuantityEdit2;
+class OSSwitch2;
 
 namespace model {
 class Model;
@@ -97,17 +100,23 @@ class LocationView : public QWidget
   YearSettingsWidget* m_yearSettingsWidget = nullptr;
   DesignDayGridView* m_designDaysGridView = nullptr;
   OSItemSelectorButtons* m_itemSelectorButtons = nullptr;
-  QString m_modelTempDir = QString();
-  QString m_lastEpwPathOpened = QString();
-  QString m_lastDdyPathOpened = QString();
-  QComboBox* m_ashraeClimateZone = nullptr;
-  QComboBox* m_cecClimateZone = nullptr;
+  QString m_modelTempDir;
+  QString m_lastEpwPathOpened;
+  QString m_lastDdyPathOpened;
+
+  QPushButton* m_weatherFileBtn = nullptr;
   QLineEdit* m_siteName = nullptr;
   QLabel* m_latitudeLbl = nullptr;
   QLabel* m_longitudeLbl = nullptr;
-  QLabel* m_elevationLbl = nullptr;
   QLabel* m_timeZoneLbl = nullptr;
-  QPushButton* m_weatherFileBtn = nullptr;
+
+  OSComboBox2* m_terrain = nullptr;
+  OSSwitch2* m_keepSiteLocationInfo = nullptr;
+  OSQuantityEdit2* m_elevation = nullptr;
+  double m_weatherFileElevation = 0.0;
+  QComboBox* m_ashraeClimateZone = nullptr;
+  QComboBox* m_cecClimateZone = nullptr;
+
   bool m_isIP;
 
  signals:

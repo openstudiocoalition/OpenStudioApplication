@@ -430,17 +430,20 @@ void Component::createAbridgedLayout() {
   label = new QLabel(string);
   leftLayout->addWidget(label);
 
+  QString labelString;
+  QString typeString = "Unknown";
+  if (m_componentType == "component") {
+    labelString = "Type: ";
+  } else if (m_componentType == "measure" || m_componentType == "MeasureType") {
+    labelString = "Measure Type: ";
+  }
   for (const Attribute& attribute : m_attributes) {
     string = attribute.name().c_str();
     if (m_componentType == "component") {
       if (string.toStdString() == OPENSTUDIO_TYPE) {
         openstudio::AttributeValueType type = attribute.valueType();
         if (type == AttributeValueType::String) {
-          string = attribute.valueAsString().c_str();
-          QString temp("Type: ");
-          temp += string;
-          label = new QLabel(temp);
-          leftLayout->addWidget(label);
+          typeString = attribute.valueAsString().c_str();
           break;
         }
       }
@@ -448,15 +451,15 @@ void Component::createAbridgedLayout() {
       if (string.toStdString() == "Measure Type") {
         openstudio::AttributeValueType type = attribute.valueType();
         if (type == AttributeValueType::String) {
-          string = attribute.valueAsString().c_str();
-          QString temp("Measure Type: ");
-          temp += string;
-          label = new QLabel(temp);
-          leftLayout->addWidget(label);
+          typeString = attribute.valueAsString().c_str();
         }
       }
     }
   }
+
+  labelString += typeString;
+  label = new QLabel(labelString);
+  leftLayout->addWidget(label);
 
   m_msg = new QLabel(this);
   if (m_error) {
