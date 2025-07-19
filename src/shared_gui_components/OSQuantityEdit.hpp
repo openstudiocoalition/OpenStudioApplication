@@ -84,6 +84,8 @@ class OSQuantityEdit2
 
   void setLocked(bool locked);
 
+  void clearCachedText();
+
   QDoubleValidator* doubleValidator();
 
   void bind(bool isIP, const model::ModelObject& modelObject, DoubleGetter get, boost::optional<DoubleSetter> set = boost::none,

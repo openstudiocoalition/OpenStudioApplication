@@ -281,17 +281,18 @@ LocationView::LocationView(bool isIP, const model::Model& model, const QString& 
       m_keepSiteLocationInfo->bind(*m_site, BoolGetter([this] { return m_site->keepSiteLocationInformation(); }),
                                    boost::optional<BoolSetter>([this](bool b) {
                                      bool result = m_site->setKeepSiteLocationInformation(b);
+
                                      if (result) {
 
-                                       // force a change to force the style to update
-                                       double elev = m_site->elevation();
-                                       m_site->setElevation((elev > 0) ? elev - 1 : elev + 1);
+                                       // force the style to update
+                                       m_elevation->clearCachedText();
+
                                        if (b) {
                                          // set elevation if turning on
                                          if (m_site->isElevationDefaulted()) {
                                            m_site->setElevation(m_weatherFileElevation);
                                          } else {
-                                           m_site->setElevation(elev);
+                                           m_site->setElevation(m_site->elevation());
                                          }
                                        } else {
                                          // reset elevation if turning off
@@ -499,9 +500,10 @@ LocationView::LocationView(bool isIP, const model::Model& model, const QString& 
                       boost::optional<NoFailAction>([this] {
                         // turn keep site info off
                         m_site->setKeepSiteLocationInformation(false);
-                        // force a change to force the style to update
-                        double elev = m_site->elevation();
-                        m_site->setElevation((elev > 0) ? elev - 1 : elev + 1);
+
+                        // force the style to update
+                        m_elevation->clearCachedText();
+
                         if (std::abs(m_weatherFileElevation) > 0.01) {
                           m_site->setElevation(m_weatherFileElevation);
                         } else {
