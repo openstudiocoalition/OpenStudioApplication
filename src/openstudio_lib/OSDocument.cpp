@@ -968,7 +968,6 @@ bool OSDocument::fixWeatherFileInTemp(bool opening) {
 
       // Expected location is companion_folder/files
       epwInUserPath = searchFilesDir / *weatherFilePath;
-      boost::system::error_code ec;
       if (boost::filesystem::exists(epwInUserPath, ec)) {
         epwInUserPathChecksum = checksum(epwInUserPath);
       } else {
