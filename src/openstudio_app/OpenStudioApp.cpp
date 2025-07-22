@@ -171,7 +171,7 @@ OpenStudioApp::OpenStudioApp(int& argc, char** argv)
   std::stringstream webenginePath;
   webenginePath << QCoreApplication::applicationDirPath().toStdString();
   webenginePath << "/../Frameworks/QtWebEngineCore.framework/Versions/A/Helpers/QtWebEngineProcess.app/Contents/MacOS/QtWebEngineProcess";
-  std::error_code ec;
+  boost::system::error_code ec;
   if (filesystem::exists(filesystem::path(webenginePath.str()), ec)) {
     setenv("QTWEBENGINEPROCESS_PATH", webenginePath.str().c_str(), true);
   }
