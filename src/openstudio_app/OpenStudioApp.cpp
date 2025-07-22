@@ -1151,9 +1151,7 @@ void OpenStudioApp::readSettings() {
   setLastPath(settings.value("lastPath", QDir::homePath()).toString());
   setDviewPath(openstudio::toPath(settings.value("dviewPath", "").toString()));
   m_currLang = settings.value("language", "en").toString();
-  LOG_FREE(Debug, "OpenStudioApp",
-           "\n\n\nm_currLang=[" << m_currLang.toStdString() << "]"
-                                << "\n\n\n");
+  LOG_FREE(Debug, "OpenStudioApp", "\n\n\nm_currLang=[" << m_currLang.toStdString() << "]" << "\n\n\n");
   if (m_currLang.isEmpty()) {
     m_currLang = "en";
   }

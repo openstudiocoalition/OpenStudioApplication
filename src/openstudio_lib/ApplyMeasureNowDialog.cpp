@@ -380,9 +380,7 @@ void ApplyMeasureNowDialog::runMeasure() {
   if (OSAppBase::instance()->currentDocument()->mainWindow()->useClassicCLI()) {
     arguments << "classic";
   }
-  arguments << "run"
-            << "-m"
-            << "-w" << toQString(*tempWorkflowJSONPath);
+  arguments << "run" << "-m" << "-w" << toQString(*tempWorkflowJSONPath);
   LOG(Debug, "openstudioExePath='" << toString(openstudioExePath) << "'");
   LOG(Debug, "run arguments" << arguments.join(";").toStdString());
 
