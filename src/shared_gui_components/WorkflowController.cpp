@@ -176,8 +176,9 @@ void MeasureStepController::removeItemForStep(MeasureStep step) {
     // remove the measure
     if (canDeleteMeasure) {
       boost::optional<openstudio::path> measureDir = m_app->currentModel()->workflowJSON().findMeasure(step.measureDirName());
-      if (measureDir && openstudio::filesystem::exists(*measureDir)) {
-        openstudio::filesystem::remove_all(*measureDir);
+      boost::system::error_code ec;
+      if (measureDir && openstudio::filesystem::exists(*measureDir, ec)) {
+        openstudio::filesystem::remove_all(*measureDir, ec);
       }
     }
 

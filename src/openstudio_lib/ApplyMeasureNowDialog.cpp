@@ -408,7 +408,8 @@ void ApplyMeasureNowDialog::displayResults() {
 
   this->okButton()->setText(ACCEPT_CHANGES);
   this->okButton()->show();
-  if (boost::filesystem::exists(*m_reloadPath)) {
+  boost::system::error_code ec;
+  if (boost::filesystem::exists(*m_reloadPath, ec)) {
     this->okButton()->setEnabled(true);
   } else {
     this->okButton()->setEnabled(false);

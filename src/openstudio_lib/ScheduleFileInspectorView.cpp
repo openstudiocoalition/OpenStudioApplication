@@ -424,7 +424,8 @@ void ScheduleFileInspectorView::refreshContent() {
   openstudio::path fpath = m_sch->externalFile().filePath();
   m_contentLines->clear();
 
-  if (openstudio::filesystem::is_regular_file(fpath)) {
+  boost::system::error_code ec;
+  if (openstudio::filesystem::is_regular_file(fpath, ec)) {
     const int rowstoSkipatTop = m_sch->rowstoSkipatTop();
 
     const int colNum = m_sch->columnNumber() - 1;  // Turn 1-indexed to 0-indexed

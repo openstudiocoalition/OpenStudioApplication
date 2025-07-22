@@ -128,9 +128,10 @@ void ScriptItem::saveArgumentsToDb() {
 
 void ScriptItem::deleteDb() {
   m_removed = true;
-  if (openstudio::filesystem::exists(argsDbPath())) {
-    openstudio::filesystem::remove(argsDbPath());
-    openstudio::filesystem::remove(toPath(toString((argsDbPath())) + "-journal"));
+  boost::system::error_code ec;
+  if (openstudio::filesystem::exists(argsDbPath()), ec) {
+    openstudio::filesystem::remove(argsDbPath(), ec);
+    openstudio::filesystem::remove(toPath(toString((argsDbPath())) + "-journal"), ec);
   }
 }
 

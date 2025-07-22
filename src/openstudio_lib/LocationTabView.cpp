@@ -722,6 +722,7 @@ void LocationView::onWeatherFileBtnClicked() {
 
       if (!previousEPWPath.empty()) {
         if (previousEPWPath.filename() != newPath.filename()) {
+          // inside try/catch, allow exception
           if (openstudio::filesystem::exists(previousEPWPath)) {
             openstudio::filesystem::remove_all(previousEPWPath);
           }
@@ -762,7 +763,8 @@ void LocationView::onWeatherFileBtnClicked() {
 
     } catch (...) {
 
-      openstudio::filesystem::remove_all(newPath);
+      boost::system::error_code ec;
+      openstudio::filesystem::remove_all(newPath, ec);
 
       QMessageBox box(QMessageBox::Warning, tr("Failed To Set Weather File"), tr("Failed To Set Weather File To ") + fileName, QMessageBox::Ok);
       box.setDetailedText(toQString(ss.string()));

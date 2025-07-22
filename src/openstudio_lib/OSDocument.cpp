@@ -930,12 +930,13 @@ bool OSDocument::fixWeatherFileInTemp(bool opening) {
     epwPathAbsolute = true;
 
     epwInUserPath = *weatherFilePath;
-    if (boost::filesystem::exists(epwInUserPath)) {
+    boost::system::error_code ec;
+    if (boost::filesystem::exists(epwInUserPath, ec)) {
       epwInUserPathChecksum = checksum(epwInUserPath);
     }
 
     epwInTempPath = tempFilesDir / epwInUserPath.filename();
-    if (boost::filesystem::exists(epwInTempPath)) {
+    if (boost::filesystem::exists(epwInTempPath, ec)) {
       epwInTempPathChecksum = checksum(epwInTempPath);
     }
 
@@ -946,11 +947,12 @@ bool OSDocument::fixWeatherFileInTemp(bool opening) {
 
     // Look in temp model "resources" and "resources/files"
     epwInTempPath = tempResourcesDir / *weatherFilePath;
-    if (boost::filesystem::exists(epwInTempPath)) {
+    boost::system::error_code ec;
+    if (boost::filesystem::exists(epwInTempPath, ec)) {
       epwInTempPathChecksum = checksum(epwInTempPath);
     } else {
       epwInTempPath = tempFilesDir / *weatherFilePath;
-      if (boost::filesystem::exists(epwInTempPath)) {
+      if (boost::filesystem::exists(epwInTempPath, ec)) {
         epwInTempPathChecksum = checksum(epwInTempPath);
       }
     }
@@ -966,12 +968,13 @@ bool OSDocument::fixWeatherFileInTemp(bool opening) {
 
       // Expected location is companion_folder/files
       epwInUserPath = searchFilesDir / *weatherFilePath;
-      if (boost::filesystem::exists(epwInUserPath)) {
+      boost::system::error_code ec;
+      if (boost::filesystem::exists(epwInUserPath, ec)) {
         epwInUserPathChecksum = checksum(epwInUserPath);
       } else {
         // Just in case, we look in the companion_folder
         epwInUserPath = searchCompanionDir / *weatherFilePath;
-        if (boost::filesystem::exists(epwInUserPath)) {
+        if (boost::filesystem::exists(epwInUserPath, ec)) {
           epwInUserPathChecksum = checksum(epwInUserPath);
         }
       }
@@ -1098,7 +1101,8 @@ bool OSDocument::fixWeatherFileInTemp(bool opening) {
 
     if (doCopy) {
       LOG(Debug, "Removing weather file at " << copyDest);
-      boost::filesystem::remove_all(copyDest);
+      boost::system::error_code ec;
+      boost::filesystem::remove_all(copyDest, ec);
       LOG(Debug, "Removing weather file complete");
     }
 
@@ -1510,9 +1514,10 @@ bool OSDocument::saveAs() {
     // remove old model
     if (!m_savePath.isEmpty()) {
       openstudio::path oldModelPath = toPath(m_modelTempDir) / toPath(m_savePath).filename();
-      if (boost::filesystem::exists(oldModelPath)) {
+      boost::system::error_code ec;
+      if (boost::filesystem::exists(oldModelPath, ec)) {
         LOG(Debug, "Removing " << oldModelPath << " starting");
-        boost::filesystem::remove(oldModelPath);
+        boost::filesystem::remove(oldModelPath, ec);
         LOG(Debug, "Removing " << oldModelPath << " complete");
       }
     }
@@ -1631,8 +1636,8 @@ boost::optional<model::Component> OSDocument::getComponent(const OSItemId& itemI
         }
 
 #endif
-
-        //OS_ASSERT(openstudio::filesystem::exists(oscPath));
+        //std::error_code ec;
+        //OS_ASSERT(openstudio::filesystem::exists(oscPath, ec));
 
         osversion::VersionTranslator translator;
         //translator.setAllowNewerVersions(false); // DLM: allow to open newer versions?
