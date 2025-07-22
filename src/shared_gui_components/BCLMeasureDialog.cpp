@@ -176,10 +176,10 @@ boost::optional<openstudio::BCLMeasure> BCLMeasureDialog::createMeasure() {
   openstudio::path measureDir = umd / toPath(folderName);
 
   // prompt user ???
-  std::error_code ec;
-  if (openstudio::filesystem::exists(measureDir), ec) {
+  boost::system::error_code ec;
+  if (openstudio::filesystem::exists(measureDir, ec)) {
     int i = 1;
-    while (openstudio::filesystem::exists(measureDir), ec) {
+    while (openstudio::filesystem::exists(measureDir, ec)) {
       folderName = toQString(lowerClassName).append(" ").append(QString::number(i)).append("/");
       measureDir = umd / toPath(folderName);
       ++i;
