@@ -150,7 +150,8 @@ OSDocument::OSDocument(const openstudio::model::Model& library, const openstudio
   if (!m_savePath.isEmpty()) {
     auto p = toPath(m_savePath);
     modelTempDirPath = model::initializeModel(*model, p);
-    m_mainWindow->setWindowTitle(toQString(p.filename()) + "[*]");
+    m_mainWindow->setWindowFilePath(m_savePath);
+    m_mainWindow->setWindowTitle(m_savePath + "[*]");
   } else {
     modelTempDirPath = model::initializeModel(*model);
     m_mainWindow->setWindowTitle("Untitled[*]");
@@ -1738,9 +1739,7 @@ void OSDocument::updateWindowFilePath() {
   } else {
     // m_mainWindow->setWindowTitle();
     m_mainWindow->setWindowFilePath(m_savePath);
-    QFileInfo fi(m_savePath);
-    QString fileName = fi.fileName();
-    m_mainWindow->setWindowTitle(fileName + "[*]");
+    m_mainWindow->setWindowTitle(m_savePath + "[*]");
   }
 }
 
