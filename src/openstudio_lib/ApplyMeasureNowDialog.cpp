@@ -380,9 +380,7 @@ void ApplyMeasureNowDialog::runMeasure() {
   if (OSAppBase::instance()->currentDocument()->mainWindow()->useClassicCLI()) {
     arguments << "classic";
   }
-  arguments << "run"
-            << "-m"
-            << "-w" << toQString(*tempWorkflowJSONPath);
+  arguments << "run" << "-m" << "-w" << toQString(*tempWorkflowJSONPath);
   LOG(Debug, "openstudioExePath='" << toString(openstudioExePath) << "'");
   LOG(Debug, "run arguments" << arguments.join(";").toStdString());
 
@@ -408,7 +406,8 @@ void ApplyMeasureNowDialog::displayResults() {
 
   this->okButton()->setText(ACCEPT_CHANGES);
   this->okButton()->show();
-  if (boost::filesystem::exists(*m_reloadPath)) {
+  boost::system::error_code ec;
+  if (boost::filesystem::exists(*m_reloadPath, ec)) {
     this->okButton()->setEnabled(true);
   } else {
     this->okButton()->setEnabled(false);

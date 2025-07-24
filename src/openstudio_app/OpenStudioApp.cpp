@@ -171,7 +171,8 @@ OpenStudioApp::OpenStudioApp(int& argc, char** argv)
   std::stringstream webenginePath;
   webenginePath << QCoreApplication::applicationDirPath().toStdString();
   webenginePath << "/../Frameworks/QtWebEngineCore.framework/Versions/A/Helpers/QtWebEngineProcess.app/Contents/MacOS/QtWebEngineProcess";
-  if (filesystem::exists(filesystem::path(webenginePath.str()))) {
+  boost::system::error_code ec;
+  if (filesystem::exists(filesystem::path(webenginePath.str()), ec)) {
     setenv("QTWEBENGINEPROCESS_PATH", webenginePath.str().c_str(), true);
   }
 
@@ -1102,9 +1103,10 @@ void OpenStudioApp::versionUpdateMessageBox(const osversion::VersionTranslator& 
       };
 
       for (const auto& scriptfolder : scriptfolders) {
-        if (openstudio::filesystem::exists(scriptfolder)) {
+        boost::system::error_code ec;
+        if (openstudio::filesystem::exists(scriptfolder, ec)) {
           removedScriptDirs = true;
-          openstudio::filesystem::remove_all(scriptfolder);
+          openstudio::filesystem::remove_all(scriptfolder, ec);
         }
       }
     }
@@ -1149,9 +1151,7 @@ void OpenStudioApp::readSettings() {
   setLastPath(settings.value("lastPath", QDir::homePath()).toString());
   setDviewPath(openstudio::toPath(settings.value("dviewPath", "").toString()));
   m_currLang = settings.value("language", "en").toString();
-  LOG_FREE(Debug, "OpenStudioApp",
-           "\n\n\nm_currLang=[" << m_currLang.toStdString() << "]"
-                                << "\n\n\n");
+  LOG_FREE(Debug, "OpenStudioApp", "\n\n\nm_currLang=[" << m_currLang.toStdString() << "]" << "\n\n\n");
   if (m_currLang.isEmpty()) {
     m_currLang = "en";
   }
@@ -1554,7 +1554,8 @@ void OpenStudioApp::loadShoeboxModel() {
 
   auto filePath = resourcesPath() / toPath("ShoeboxModel/ShoeboxExample.osm");
   boost::optional<openstudio::model::Model> model_;
-  if (openstudio::filesystem::is_regular_file(filePath)) {
+  boost::system::error_code ec;
+  if (openstudio::filesystem::is_regular_file(filePath, ec)) {
     model_ = versionTranslator.loadModel(filePath);
   } else if (isOpenStudioApplicationRunningFromBuildDirectory()) {
     filePath = getOpenStudioCoalitionMeasuresSourceDirectory() / toPath("models/ShoeboxExample.osm");
@@ -1714,7 +1715,8 @@ void OpenStudioApp::setDviewPath(const openstudio::path& t_dviewPath) {
     LOG_FREE(Debug, "OpenStudioApp", "setDViewPath t_dviewPath is not empty.");
 
     // check if exists?
-    if (openstudio::filesystem::exists(t_dviewPath) && !openstudio::filesystem::is_directory(t_dviewPath)) {
+    boost::system::error_code ec;
+    if (openstudio::filesystem::exists(t_dviewPath, ec) && !openstudio::filesystem::is_directory(t_dviewPath, ec)) {
       m_dviewPath = t_dviewPath;
     } else {
       LOG_FREE(Error, "OpenStudioApp", "setDViewPath: t_dviewPath doesn't not appear to be valid: '" << t_dviewPath << "'.");
