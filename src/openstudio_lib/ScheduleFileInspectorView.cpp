@@ -323,9 +323,7 @@ void ScheduleFileInspectorView::attach(openstudio::model::ScheduleFile& sch) {
   m_columnSeparator->bind<std::string>(
     *m_sch, static_cast<std::string (*)(const std::string&)>(&openstudio::toString),
     // ScheduleFile::columnSeparatorValues does not exist: https://github.com/NREL/OpenStudio/issues/5246
-    []() {
-      return std::vector<std::string>{"Comma", "Tab", "Space", "Semicolon"};
-    },
+    []() { return std::vector<std::string>{"Comma", "Tab", "Space", "Semicolon"}; },
     std::bind(&model::ScheduleFile::columnSeparator, m_sch.get_ptr()),
     [this](const std::string& value) -> bool {
       bool result = m_sch->setColumnSeparator(value);
@@ -424,7 +422,8 @@ void ScheduleFileInspectorView::refreshContent() {
   openstudio::path fpath = m_sch->externalFile().filePath();
   m_contentLines->clear();
 
-  if (openstudio::filesystem::is_regular_file(fpath)) {
+  boost::system::error_code ec;
+  if (openstudio::filesystem::is_regular_file(fpath, ec)) {
     const int rowstoSkipatTop = m_sch->rowstoSkipatTop();
 
     const int colNum = m_sch->columnNumber() - 1;  // Turn 1-indexed to 0-indexed

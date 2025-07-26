@@ -15,13 +15,17 @@
 
 /// constructor
 PathWatcher::PathWatcher(const openstudio::path& p, int msec)
-  : m_enabled(true), m_exists(openstudio::filesystem::exists(p)), m_dirty(false), m_checksum(openstudio::checksum(p)), m_path(p), m_msec(msec) {
+  : m_enabled(true), m_exists(false), m_dirty(false), m_checksum(openstudio::checksum(p)), m_path(p), m_msec(msec) {
+
+  boost::system::error_code ec;
+  m_exists = openstudio::filesystem::exists(p, ec);
+
   // make sure a QApplication exists
   openstudio::Application::instance().application(false);
   openstudio::Application::instance().processEvents();
 
   const bool isDirectory =
-    (openstudio::filesystem::is_directory(p) || openstudio::toString(p.filename()) == "." || openstudio::toString(p.filename()) == "/");
+    (openstudio::filesystem::is_directory(p, ec) || openstudio::toString(p.filename()) == "." || openstudio::toString(p.filename()) == "/");
   if (isDirectory) {
 
     LOG_FREE_AND_THROW("openstudio.PathWatcher", "Watching Directory '" << openstudio::toString(p) << "' is not supported");
@@ -71,7 +75,8 @@ bool PathWatcher::dirty() const {
 }
 
 void PathWatcher::clearState() {
-  m_exists = openstudio::filesystem::exists(m_path);
+  boost::system::error_code ec;
+  m_exists = openstudio::filesystem::exists(m_path, ec);
   m_dirty = false;
   m_checksum = openstudio::checksum(m_path);
 }
@@ -87,7 +92,8 @@ void PathWatcher::fileChanged(const QString& path) {
 }
 
 void PathWatcher::checkFile() {
-  bool exists = openstudio::filesystem::exists(m_path);
+  boost::system::error_code ec;
+  bool exists = openstudio::filesystem::exists(m_path, ec);
   std::string checksum = openstudio::checksum(m_path);
 
   if (checksum == "00000000") {

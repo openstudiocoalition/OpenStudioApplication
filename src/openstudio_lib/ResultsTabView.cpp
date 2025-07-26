@@ -194,7 +194,8 @@ void ResultsView::searchForExistingResults(const openstudio::path& t_runDir, con
   std::vector<openstudio::path> reports;
 
   // Check that the directory does exists first
-  if (openstudio::filesystem::is_directory(t_runDir) && openstudio::filesystem::exists(t_runDir)) {
+  boost::system::error_code ec;
+  if (openstudio::filesystem::is_directory(t_runDir, ec) && openstudio::filesystem::exists(t_runDir, ec)) {
     for (openstudio::filesystem::recursive_directory_iterator end, dir(t_runDir); dir != end; ++dir) {
       openstudio::path p = *dir;
       if (openstudio::toString(p.filename()) == "eplusout.sql") {
@@ -210,7 +211,7 @@ void ResultsView::searchForExistingResults(const openstudio::path& t_runDir, con
   LOG(Debug, "Looking for existing results in: " << openstudio::toString(t_reportsDir));
 
   // Check that the directory does exists first
-  if (openstudio::filesystem::is_directory(t_reportsDir) && openstudio::filesystem::exists(t_reportsDir)) {
+  if (openstudio::filesystem::is_directory(t_reportsDir, ec) && openstudio::filesystem::exists(t_reportsDir, ec)) {
     for (openstudio::filesystem::directory_iterator end, dir(t_reportsDir); dir != end; ++dir) {
       openstudio::path p = *dir;
       if (openstudio::toString(p.extension()) == ".html" || openstudio::toString(p.extension()) == ".htm") {
