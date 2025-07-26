@@ -26,6 +26,10 @@
 #include <openstudio/model/ModelObject.hpp>
 #include <openstudio/model/HVACComponent.hpp>
 #include <openstudio/model/HVACComponent_Impl.hpp>
+#include <openstudio/model/WaterHeaterMixed.hpp>
+#include <openstudio/model/WaterHeaterMixed_Impl.hpp>
+#include <openstudio/model/WaterHeaterSizing.hpp>
+#include <openstudio/model/WaterHeaterSizing_Impl.hpp>
 #include <openstudio/model/WaterToAirComponent.hpp>
 #include <openstudio/model/WaterToAirComponent_Impl.hpp>
 #include <openstudio/model/WaterToWaterComponent.hpp>
@@ -799,6 +803,18 @@ void HVACSystemsController::addToModel(AddToModelEnum addToModelEnum) {
     }
     case ADDTOMODEL_SHWLOOP: {
       loop = model::addSHWLoop(m_model);
+
+      // issue #831
+      for (auto component : loop->supplyComponents()) {
+        if (boost::optional<model::WaterHeaterMixed> waterHeader = component.optionalCast<model::WaterHeaterMixed>()) {
+          model::WaterHeaterSizing waterHeaterSizing = waterHeader->waterHeaterSizing(); 
+          if (waterHeaterSizing.designMode() && waterHeaterSizing.designMode().get() == "PeakDraw") {
+            if (!waterHeaterSizing.timeforTankRecovery() || waterHeaterSizing.timeforTankRecovery().get() == 0) {
+              waterHeaterSizing.setTimeforTankRecovery(1); 
+            }
+          }
+        }
+      }
       break;
     }
     case ADDTOMODEL_SYSTEM_TYPE_3: {
