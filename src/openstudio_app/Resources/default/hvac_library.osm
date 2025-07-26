@@ -2387,7 +2387,7 @@ OS:WaterHeater:Sizing,
   {a5780efe-a3d2-4211-a0a1-66f758539f62}, !- WaterHeater Name
   PeakDraw,                               !- Design Mode
   0.538503,                               !- Time Storage Can Meet Peak Draw {hr}
-  0,                                      !- Time for Tank Recovery {hr}
+  1,                                      !- Time for Tank Recovery {hr}
   1;                                      !- Nominal Tank Volume for Autosizing Plant Connections {m3}
 
 OS:WaterHeater:HeatPump,
@@ -2624,7 +2624,7 @@ OS:WaterHeater:Sizing,
   {db2fa640-2a72-4846-9027-769207ea3ebf}, !- WaterHeater Name
   PeakDraw,                               !- Design Mode
   0.538503,                               !- Time Storage Can Meet Peak Draw {hr}
-  0,                                      !- Time for Tank Recovery {hr}
+  1,                                      !- Time for Tank Recovery {hr}
   1;                                      !- Nominal Tank Volume for Autosizing Plant Connections {m3}
 
 OS:WaterHeater:Mixed,
@@ -2677,7 +2677,7 @@ OS:WaterHeater:Sizing,
   {5a6a31ef-f662-4452-925d-855d251337c0}, !- WaterHeater Name
   PeakDraw,                               !- Design Mode
   0.538503,                               !- Time Storage Can Meet Peak Draw {hr}
-  0,                                      !- Time for Tank Recovery {hr}
+  1,                                      !- Time for Tank Recovery {hr}
   1;                                      !- Nominal Tank Volume for Autosizing Plant Connections {m3}
 
 OS:WaterHeater:HeatPump:WrappedCondenser,
@@ -2868,7 +2868,7 @@ OS:WaterHeater:Sizing,
   {488acc4e-9be5-426c-a365-587633e98f6c}, !- WaterHeater Name
   PeakDraw,                               !- Design Mode
   0.538503,                               !- Time Storage Can Meet Peak Draw {hr}
-  0,                                      !- Time for Tank Recovery {hr}
+  1,                                      !- Time for Tank Recovery {hr}
   1;                                      !- Nominal Tank Volume for Autosizing Plant Connections {m3}
 
 OS:Schedule:Ruleset,
