@@ -807,10 +807,10 @@ void HVACSystemsController::addToModel(AddToModelEnum addToModelEnum) {
       // issue #831
       for (auto component : loop->supplyComponents()) {
         if (boost::optional<model::WaterHeaterMixed> waterHeader = component.optionalCast<model::WaterHeaterMixed>()) {
-          model::WaterHeaterSizing waterHeaterSizing = waterHeader->waterHeaterSizing(); 
+          model::WaterHeaterSizing waterHeaterSizing = waterHeader->waterHeaterSizing();
           if (waterHeaterSizing.designMode() && waterHeaterSizing.designMode().get() == "PeakDraw") {
             if (!waterHeaterSizing.timeforTankRecovery() || waterHeaterSizing.timeforTankRecovery().get() == 0) {
-              waterHeaterSizing.setTimeforTankRecovery(1); 
+              waterHeaterSizing.setTimeforTankRecovery(1);
             }
           }
         }
