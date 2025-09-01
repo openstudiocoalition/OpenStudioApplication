@@ -689,7 +689,7 @@ OAResetSPMView::OAResetSPMView(const model::SetpointManagerOutdoorAirReset& spm)
   // Create a JKQTPlotter widget
   JKQTPlotter* plotter = new JKQTPlotter();
   JKQTPDatastore* ds = plotter->getDatastore();
- 
+
   // Generate the data for the plot
   QVector<double> x, y;
 
@@ -709,7 +709,7 @@ OAResetSPMView::OAResetSPMView(const model::SetpointManagerOutdoorAirReset& spm)
   // Add data to the datastore
   size_t columnX = ds->addCopiedColumn(x, "x");
   size_t columnY = ds->addCopiedColumn(y, "y");
- 
+
   JKQTPXYLineGraph* graph = new JKQTPXYLineGraph(plotter);
   graph->setXColumn(columnX);
   graph->setYColumn(columnY);
@@ -745,9 +745,9 @@ SystemNodeResetSPMView::SystemNodeResetSPMView(const model::SetpointManagerSyste
   // Generate the data for the plot
   QVector<double> x, y;
 
-  const auto lowOATemp = spm.lowReferenceTemperature();         // 5
-  const auto highOATemp = spm.highReferenceTemperature();       // 30
-  const auto lowVal = spm.setpointatLowReferenceTemperature();  // 25
+  const auto lowOATemp = spm.lowReferenceTemperature();           // 5
+  const auto highOATemp = spm.highReferenceTemperature();         // 30
+  const auto lowVal = spm.setpointatLowReferenceTemperature();    // 25
   const auto highVal = spm.setpointatHighReferenceTemperature();  // 18
   x.append(lowOATemp - 5);
   y.append(lowVal);
@@ -806,7 +806,7 @@ FollowOATempSPMView::FollowOATempSPMView(const model::SetpointManagerFollowOutdo
     new QLabel(QString("Supply temperature follows the %1 temperature with an offset of %2 C.").arg(refTempType, QString::number(offset)));
   mainVLayout->addWidget(followOATempSPMlabel);
 
- // Create a JKQTPlotter widget
+  // Create a JKQTPlotter widget
   JKQTPlotter* plotter = new JKQTPlotter();
   JKQTPDatastore* ds = plotter->getDatastore();
 
@@ -830,9 +830,9 @@ FollowOATempSPMView::FollowOATempSPMView(const model::SetpointManagerFollowOutdo
   graph1->setYColumn(columnY);
   graph1->setTitle(QObject::tr("Setpoint Follow Outdoor Air Temperature"));
   JKQTPXYLineGraph* graph2 = new JKQTPXYLineGraph(plotter);
-  graph1->setXColumn(columnX);
-  graph1->setYColumn(columnYOA);
-  graph1->setTitle(QObject::tr("Setpoint Follow Outdoor Air Temperature"));
+  graph2->setXColumn(columnX);
+  graph2->setYColumn(columnYOA);
+  graph2->setTitle(QObject::tr("Setpoint Follow Outdoor Air Temperature"));
 
   plotter->getXAxis()->setAxisLabel(QString("%1 Temperature [C]").arg(refTempType));
   plotter->getYAxis()->setAxisLabel("Setpoint Temperature [C]");
@@ -855,7 +855,7 @@ FollowGroundTempSPMView::FollowGroundTempSPMView(const model::SetpointManagerFol
     new QLabel(QString("Supply temperature follows the Ground Temperature with an offset of %2 C.").arg(QString::number(offset)));
   mainVLayout->addWidget(followTempSPMlabel);
 
- // Create a JKQTPlotter widget
+  // Create a JKQTPlotter widget
   JKQTPlotter* plotter = new JKQTPlotter();
   JKQTPDatastore* ds = plotter->getDatastore();
 
@@ -879,9 +879,9 @@ FollowGroundTempSPMView::FollowGroundTempSPMView(const model::SetpointManagerFol
   graph1->setYColumn(columnY);
   graph1->setTitle(QObject::tr("Setpoint Follow Ground Temperature"));
   JKQTPXYLineGraph* graph2 = new JKQTPXYLineGraph(plotter);
-  graph1->setXColumn(columnX);
-  graph1->setYColumn(columnYGround);
-  graph1->setTitle(QObject::tr("Setpoint Follow Ground Temperature"));
+  graph2->setXColumn(columnX);
+  graph2->setYColumn(columnYGround);
+  graph2->setTitle(QObject::tr("Setpoint Follow Ground Temperature"));
 
   plotter->getXAxis()->setAxisLabel("Ground Temperature [C]");
   plotter->getYAxis()->setAxisLabel("Setpoint Temperature [C]");
