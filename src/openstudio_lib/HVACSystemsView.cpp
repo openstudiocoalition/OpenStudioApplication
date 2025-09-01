@@ -35,10 +35,9 @@
 #include <QLabel>
 #include <QButtonGroup>
 
-#include <QChart>
-#include <QChartView>
-#include <QLineSeries>
-#include <QValueAxis>
+#include <jkqtplotter/jkqtplotter.h>
+#include <jkqtplotter/graphs/jkqtpscatter.h>
+
 #include <qnamespace.h>
 
 namespace openstudio {
@@ -687,34 +686,38 @@ OAResetSPMView::OAResetSPMView(const model::SetpointManagerOutdoorAirReset& spm)
   auto* title = new QLabel(text);
   mainVLayout->addWidget(title);
 
-  auto* series = new QLineSeries;
+  // Create a JKQTPlotter widget
+  JKQTPlotter* plotter = new JKQTPlotter();
+  JKQTPDatastore* ds = plotter->getDatastore();
+ 
+  // Generate the data for the plot
+  QVector<double> x, y;
 
   const auto lowOATemp = spm.outdoorLowTemperature();           // 5
   const auto highOATemp = spm.outdoorHighTemperature();         // 30
   const auto lowVal = spm.setpointatOutdoorLowTemperature();    // 25
   const auto highVal = spm.setpointatOutdoorHighTemperature();  // 18
-  series->append(lowOATemp - 5, lowVal);
-  series->append(lowOATemp, lowVal);
-  series->append(highOATemp, highVal);
-  series->append(highOATemp + 5, highVal);
+  x.append(lowOATemp - 5);
+  y.append(lowVal);
+  x.append(lowOATemp);
+  y.append(lowVal);
+  x.append(highOATemp);
+  y.append(highVal);
+  x.append(highOATemp + 5);
+  y.append(highVal);
 
-  auto* chart = new QChart;
-  chart->legend()->hide();
-  chart->addSeries(series);
-  chart->createDefaultAxes();
-  auto* xAxis = chart->axes(Qt::Horizontal)[0];
-  xAxis->setTitleText("Outdoor Air Temperature [C]");
-  auto* yAxis = chart->axes(Qt::Vertical)[0];
-  yAxis->setTitleText("Setpoint Temperature [C]");
-  yAxis->setRange(std::min(lowVal, highVal) - 2, std::max(lowVal, highVal) + 2);
-
-  chart->setTitle("Setpoint Outdoor Air Temp Reset");
-  chart->setAnimationOptions(QChart::SeriesAnimations);
-
-  auto* m_defaultChartView = new QChartView(chart, this);
-  m_defaultChartView->setRenderHint(QPainter::Antialiasing);
-  m_defaultChartView->setMinimumSize(400, 400);
-  mainVLayout->addWidget(m_defaultChartView);
+  // Add data to the datastore
+  size_t columnX = ds->addCopiedColumn(x, "x");
+  size_t columnY = ds->addCopiedColumn(y, "y");
+ 
+  JKQTPXYLineGraph* graph = new JKQTPXYLineGraph(plotter);
+  graph->setXColumn(columnX);
+  graph->setYColumn(columnY);
+  graph->setTitle(QObject::tr("Setpoint Outdoor Air Temp Reset"));
+  plotter->getXAxis()->setAxisLabel("Outdoor Air Temperature [C]");
+  plotter->getYAxis()->setAxisLabel("Setpoint Temperature [C]");
+  plotter->setMinimumSize(400, 400);
+  mainVLayout->addWidget(plotter);
   mainVLayout->addStretch();
 }
 
@@ -735,34 +738,38 @@ SystemNodeResetSPMView::SystemNodeResetSPMView(const model::SetpointManagerSyste
   auto* title = new QLabel(text);
   mainVLayout->addWidget(title);
 
-  auto* series = new QLineSeries;
+  // Create a JKQTPlotter widget
+  JKQTPlotter* plotter = new JKQTPlotter();
+  JKQTPDatastore* ds = plotter->getDatastore();
 
-  const auto lowOATemp = spm.lowReferenceTemperature();           // 5
-  const auto highOATemp = spm.highReferenceTemperature();         // 30
-  const auto lowVal = spm.setpointatLowReferenceTemperature();    // 25
+  // Generate the data for the plot
+  QVector<double> x, y;
+
+  const auto lowOATemp = spm.lowReferenceTemperature();         // 5
+  const auto highOATemp = spm.highReferenceTemperature();       // 30
+  const auto lowVal = spm.setpointatLowReferenceTemperature();  // 25
   const auto highVal = spm.setpointatHighReferenceTemperature();  // 18
-  series->append(lowOATemp - 5, lowVal);
-  series->append(lowOATemp, lowVal);
-  series->append(highOATemp, highVal);
-  series->append(highOATemp + 5, highVal);
+  x.append(lowOATemp - 5);
+  y.append(lowVal);
+  x.append(lowOATemp);
+  y.append(lowVal);
+  x.append(highOATemp);
+  y.append(highVal);
+  x.append(highOATemp + 5);
+  y.append(highVal);
 
-  auto* chart = new QChart;
-  chart->legend()->hide();
-  chart->addSeries(series);
-  chart->createDefaultAxes();
-  auto* xAxis = chart->axes(Qt::Horizontal)[0];
-  xAxis->setTitleText("System Node Temperature [C]");
-  auto* yAxis = chart->axes(Qt::Vertical)[0];
-  yAxis->setTitleText("Setpoint Temperature [C]");
-  yAxis->setRange(std::min(lowVal, highVal) - 2, std::max(lowVal, highVal) + 2);
+  // Add data to the datastore
+  size_t columnX = ds->addCopiedColumn(x, "x");
+  size_t columnY = ds->addCopiedColumn(y, "y");
 
-  chart->setTitle("Setpoint System Node Reset Temperature");
-  chart->setAnimationOptions(QChart::SeriesAnimations);
-
-  auto* m_defaultChartView = new QChartView(chart, this);
-  m_defaultChartView->setRenderHint(QPainter::Antialiasing);
-  m_defaultChartView->setMinimumSize(400, 400);
-  mainVLayout->addWidget(m_defaultChartView);
+  JKQTPXYLineGraph* graph = new JKQTPXYLineGraph(plotter);
+  graph->setXColumn(columnX);
+  graph->setYColumn(columnY);
+  graph->setTitle(QObject::tr("Setpoint System Node Reset Temperature"));
+  plotter->getXAxis()->setAxisLabel("System Node Temperature [C]");
+  plotter->getYAxis()->setAxisLabel("Setpoint Temperature [C]");
+  plotter->setMinimumSize(400, 400);
+  mainVLayout->addWidget(plotter);
   mainVLayout->addStretch();
 }
 
@@ -799,40 +806,38 @@ FollowOATempSPMView::FollowOATempSPMView(const model::SetpointManagerFollowOutdo
     new QLabel(QString("Supply temperature follows the %1 temperature with an offset of %2 C.").arg(refTempType, QString::number(offset)));
   mainVLayout->addWidget(followOATempSPMlabel);
 
-  auto* series = new QLineSeries;
-  series->setName("Setpoint Temperature");
-  auto* seriesOA = new QLineSeries;
-  seriesOA->setName(refTempType);
-  QRgb color1 = qRgb(255, 0, 0);
-  QPen pen1(color1);
-  pen1.setStyle(Qt::DotLine);
-  pen1.setWidth(1);
-  seriesOA->setPen(pen1);
+ // Create a JKQTPlotter widget
+  JKQTPlotter* plotter = new JKQTPlotter();
+  JKQTPDatastore* ds = plotter->getDatastore();
+
+  // Generate the data for the plot
+  QVector<double> x, y, yOA;
 
   std::vector<double> xVals{-20, -15, -10, -5, 0, 5, 10, 15, 20, 25, 30, 35, 40};
-  for (const auto& x : xVals) {
-    double y = std::clamp(x + offset, minVal, maxVal);
-    series->append(x, y);
-    seriesOA->append(x, x);
+  for (const auto& xVal : xVals) {
+    x.append(xVal);
+    y.append(std::clamp(xVal + offset, minVal, maxVal));
+    yOA.append(xVal);
   }
 
-  auto* chart = new QChart;
-  chart->legend()->hide();
-  chart->addSeries(series);
-  chart->addSeries(seriesOA);
-  chart->createDefaultAxes();
-  auto* xAxis = chart->axes(Qt::Horizontal)[0];
-  xAxis->setTitleText(QString("%1 Temperature [C]").arg(refTempType));
-  auto* yAxis = chart->axes(Qt::Vertical)[0];
-  yAxis->setTitleText("Setpoint Temperature [C]");
+  // Add data to the datastore
+  size_t columnX = ds->addCopiedColumn(x, "x");
+  size_t columnY = ds->addCopiedColumn(y, "y");
+  size_t columnYOA = ds->addCopiedColumn(yOA, "yOA");
 
-  chart->setTitle("Setpoint Follow Outdoor Air Temperature");
-  chart->setAnimationOptions(QChart::SeriesAnimations);
+  JKQTPXYLineGraph* graph1 = new JKQTPXYLineGraph(plotter);
+  graph1->setXColumn(columnX);
+  graph1->setYColumn(columnY);
+  graph1->setTitle(QObject::tr("Setpoint Follow Outdoor Air Temperature"));
+  JKQTPXYLineGraph* graph2 = new JKQTPXYLineGraph(plotter);
+  graph1->setXColumn(columnX);
+  graph1->setYColumn(columnYOA);
+  graph1->setTitle(QObject::tr("Setpoint Follow Outdoor Air Temperature"));
 
-  auto* m_defaultChartView = new QChartView(chart, this);
-  m_defaultChartView->setRenderHint(QPainter::Antialiasing);
-  m_defaultChartView->setMinimumSize(400, 400);
-  mainVLayout->addWidget(m_defaultChartView);
+  plotter->getXAxis()->setAxisLabel(QString("%1 Temperature [C]").arg(refTempType));
+  plotter->getYAxis()->setAxisLabel("Setpoint Temperature [C]");
+  plotter->setMinimumSize(400, 400);
+  mainVLayout->addWidget(plotter);
   mainVLayout->addStretch();
 }
 
@@ -850,40 +855,38 @@ FollowGroundTempSPMView::FollowGroundTempSPMView(const model::SetpointManagerFol
     new QLabel(QString("Supply temperature follows the Ground Temperature with an offset of %2 C.").arg(QString::number(offset)));
   mainVLayout->addWidget(followTempSPMlabel);
 
-  auto* series = new QLineSeries;
-  series->setName("Setpoint Temperature");
-  auto* seriesOA = new QLineSeries;
-  seriesOA->setName("Ground Temperature");
-  QRgb color1 = qRgb(255, 0, 0);
-  QPen pen1(color1);
-  pen1.setStyle(Qt::DotLine);
-  pen1.setWidth(1);
-  seriesOA->setPen(pen1);
+ // Create a JKQTPlotter widget
+  JKQTPlotter* plotter = new JKQTPlotter();
+  JKQTPDatastore* ds = plotter->getDatastore();
+
+  // Generate the data for the plot
+  QVector<double> x, y, yGround;
 
   std::vector<double> xVals{-20, -15, -10, -5, 0, 5, 10, 15, 20, 25, 30, 35, 40};
-  for (const auto& x : xVals) {
-    double y = std::clamp(x + offset, minVal, maxVal);
-    series->append(x, y);
-    seriesOA->append(x, x);
+  for (const auto& xVal : xVals) {
+    x.append(xVal);
+    y.append(std::clamp(xVal + offset, minVal, maxVal));
+    yGround.append(xVal);
   }
 
-  auto* chart = new QChart;
-  chart->legend()->hide();
-  chart->addSeries(series);
-  chart->addSeries(seriesOA);
-  chart->createDefaultAxes();
-  auto* xAxis = chart->axes(Qt::Horizontal)[0];
-  xAxis->setTitleText("Ground Temperature [C]");
-  auto* yAxis = chart->axes(Qt::Vertical)[0];
-  yAxis->setTitleText("Setpoint Temperature [C]");
+  // Add data to the datastore
+  size_t columnX = ds->addCopiedColumn(x, "x");
+  size_t columnY = ds->addCopiedColumn(y, "y");
+  size_t columnYGround = ds->addCopiedColumn(yGround, "yGround");
 
-  chart->setTitle("Setpoint Follow Ground Temperature");
-  chart->setAnimationOptions(QChart::SeriesAnimations);
+  JKQTPXYLineGraph* graph1 = new JKQTPXYLineGraph(plotter);
+  graph1->setXColumn(columnX);
+  graph1->setYColumn(columnY);
+  graph1->setTitle(QObject::tr("Setpoint Follow Ground Temperature"));
+  JKQTPXYLineGraph* graph2 = new JKQTPXYLineGraph(plotter);
+  graph1->setXColumn(columnX);
+  graph1->setYColumn(columnYGround);
+  graph1->setTitle(QObject::tr("Setpoint Follow Ground Temperature"));
 
-  auto* m_defaultChartView = new QChartView(chart, this);
-  m_defaultChartView->setRenderHint(QPainter::Antialiasing);
-  m_defaultChartView->setMinimumSize(400, 400);
-  mainVLayout->addWidget(m_defaultChartView);
+  plotter->getXAxis()->setAxisLabel("Ground Temperature [C]");
+  plotter->getYAxis()->setAxisLabel("Setpoint Temperature [C]");
+  plotter->setMinimumSize(400, 400);
+  mainVLayout->addWidget(plotter);
   mainVLayout->addStretch();
 }
 

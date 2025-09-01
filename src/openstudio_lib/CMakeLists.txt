@@ -774,6 +774,8 @@ set(${target_name}_depends
   openstudio::openstudiolib
   ${QT_LIBS}
   ${QT_WEB_LIBS}
+  JKQTCommonSharedLib
+  JKQTPlotterSharedLib
 )
 if(WIN32)
   list(APPEND ${target_name}_depends qtwinmigrate)
