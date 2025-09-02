@@ -670,8 +670,8 @@ FetchContent_Declare(JKQTPlotter
 
 FetchContent_MakeAvailable(JKQTPlotter)
 
-list(APPEND JKQT_LIBS Qt6::WebEngineCore)
-list(APPEND JKQT_LIBS Qt6::WebEngineWidgets)
+list(APPEND JKQT_LIBS JKQTCommonSharedLib)
+list(APPEND JKQT_LIBS JKQTPlotterSharedLib)
 
 set(CMAKE_AUTOMOC OFF)
 
