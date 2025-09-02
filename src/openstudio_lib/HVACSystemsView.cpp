@@ -688,6 +688,7 @@ OAResetSPMView::OAResetSPMView(const model::SetpointManagerOutdoorAirReset& spm)
 
   // Create a JKQTPlotter widget
   JKQTPlotter* plotter = new JKQTPlotter();
+  plotter->setPlotUpdateEnabled(false);
   JKQTPDatastore* ds = plotter->getDatastore();
 
   // Generate the data for the plot
@@ -713,10 +714,25 @@ OAResetSPMView::OAResetSPMView(const model::SetpointManagerOutdoorAirReset& spm)
   JKQTPXYLineGraph* graph = new JKQTPXYLineGraph(plotter);
   graph->setXColumn(columnX);
   graph->setYColumn(columnY);
-  graph->setTitle(QObject::tr("Setpoint Outdoor Air Temp Reset"));
+  graph->setTitle("Setpoint Outdoor Air Temp Reset");
+
   plotter->getXAxis()->setAxisLabel("Outdoor Air Temperature [C]");
   plotter->getYAxis()->setAxisLabel("Setpoint Temperature [C]");
   plotter->setMinimumSize(400, 400);
+  plotter->setMaximumSize(600, 400);
+  plotter->setToolbarEnabled(false);
+  plotter->clearAllMouseWheelActions();
+  plotter->clearAllRegisteredMouseDoubleClickActions();
+  plotter->clearAllRegisteredMouseDragActions();
+  plotter->getPlotter()->setUseAntiAliasingForGraphs(false);
+  plotter->getPlotter()->setUseAntiAliasingForSystem(false);
+  plotter->getPlotter()->setUseAntiAliasingForText(false);
+  plotter->getPlotter()->setPlotLabel("Setpoint Follow Outdoor Air Temperature");
+  plotter->addGraph(graph);
+  plotter->zoomToFit();
+  plotter->setPlotUpdateEnabled(true);
+  plotter->redrawPlot();
+
   mainVLayout->addWidget(plotter);
   mainVLayout->addStretch();
 }
@@ -740,6 +756,7 @@ SystemNodeResetSPMView::SystemNodeResetSPMView(const model::SetpointManagerSyste
 
   // Create a JKQTPlotter widget
   JKQTPlotter* plotter = new JKQTPlotter();
+  plotter->setPlotUpdateEnabled(false);
   JKQTPDatastore* ds = plotter->getDatastore();
 
   // Generate the data for the plot
@@ -765,10 +782,25 @@ SystemNodeResetSPMView::SystemNodeResetSPMView(const model::SetpointManagerSyste
   JKQTPXYLineGraph* graph = new JKQTPXYLineGraph(plotter);
   graph->setXColumn(columnX);
   graph->setYColumn(columnY);
-  graph->setTitle(QObject::tr("Setpoint System Node Reset Temperature"));
+  graph->setTitle("Setpoint System Node Reset Temperature");
+
   plotter->getXAxis()->setAxisLabel("System Node Temperature [C]");
   plotter->getYAxis()->setAxisLabel("Setpoint Temperature [C]");
   plotter->setMinimumSize(400, 400);
+  plotter->setMaximumSize(600, 400);
+  plotter->setToolbarEnabled(false);
+  plotter->clearAllMouseWheelActions();
+  plotter->clearAllRegisteredMouseDoubleClickActions();
+  plotter->clearAllRegisteredMouseDragActions();
+  plotter->getPlotter()->setUseAntiAliasingForGraphs(false);
+  plotter->getPlotter()->setUseAntiAliasingForSystem(false);
+  plotter->getPlotter()->setUseAntiAliasingForText(false);
+  plotter->getPlotter()->setPlotLabel("Setpoint Follow System Node Temperature");
+  plotter->addGraph(graph);
+  plotter->zoomToFit();
+  plotter->setPlotUpdateEnabled(true);
+  plotter->redrawPlot();
+
   mainVLayout->addWidget(plotter);
   mainVLayout->addStretch();
 }
@@ -808,6 +840,7 @@ FollowOATempSPMView::FollowOATempSPMView(const model::SetpointManagerFollowOutdo
 
   // Create a JKQTPlotter widget
   JKQTPlotter* plotter = new JKQTPlotter();
+  plotter->setPlotUpdateEnabled(false);
   JKQTPDatastore* ds = plotter->getDatastore();
 
   // Generate the data for the plot
@@ -828,15 +861,30 @@ FollowOATempSPMView::FollowOATempSPMView(const model::SetpointManagerFollowOutdo
   JKQTPXYLineGraph* graph1 = new JKQTPXYLineGraph(plotter);
   graph1->setXColumn(columnX);
   graph1->setYColumn(columnY);
-  graph1->setTitle(QObject::tr("Setpoint Follow Outdoor Air Temperature"));
+  graph1->setTitle("Setpoint Temperature");
   JKQTPXYLineGraph* graph2 = new JKQTPXYLineGraph(plotter);
   graph2->setXColumn(columnX);
   graph2->setYColumn(columnYOA);
-  graph2->setTitle(QObject::tr("Setpoint Follow Outdoor Air Temperature"));
+  graph2->setTitle(refTempType);
 
   plotter->getXAxis()->setAxisLabel(QString("%1 Temperature [C]").arg(refTempType));
   plotter->getYAxis()->setAxisLabel("Setpoint Temperature [C]");
   plotter->setMinimumSize(400, 400);
+  plotter->setMaximumSize(600, 400);
+  plotter->setToolbarEnabled(false);
+  plotter->clearAllMouseWheelActions();
+  plotter->clearAllRegisteredMouseDoubleClickActions();
+  plotter->clearAllRegisteredMouseDragActions();
+  plotter->getPlotter()->setUseAntiAliasingForGraphs(false);
+  plotter->getPlotter()->setUseAntiAliasingForSystem(false);
+  plotter->getPlotter()->setUseAntiAliasingForText(false);
+  plotter->getPlotter()->setPlotLabel(QString("Setpoint Follow %1 Temperature").arg(refTempType));
+  plotter->addGraph(graph1);
+  plotter->addGraph(graph2);
+  plotter->zoomToFit();
+  plotter->setPlotUpdateEnabled(true);
+  plotter->redrawPlot();
+
   mainVLayout->addWidget(plotter);
   mainVLayout->addStretch();
 }
@@ -857,6 +905,7 @@ FollowGroundTempSPMView::FollowGroundTempSPMView(const model::SetpointManagerFol
 
   // Create a JKQTPlotter widget
   JKQTPlotter* plotter = new JKQTPlotter();
+  plotter->setPlotUpdateEnabled(false);
   JKQTPDatastore* ds = plotter->getDatastore();
 
   // Generate the data for the plot
@@ -877,15 +926,30 @@ FollowGroundTempSPMView::FollowGroundTempSPMView(const model::SetpointManagerFol
   JKQTPXYLineGraph* graph1 = new JKQTPXYLineGraph(plotter);
   graph1->setXColumn(columnX);
   graph1->setYColumn(columnY);
-  graph1->setTitle(QObject::tr("Setpoint Follow Ground Temperature"));
+  graph1->setTitle("Setpoint Follow Ground Temperature");
   JKQTPXYLineGraph* graph2 = new JKQTPXYLineGraph(plotter);
   graph2->setXColumn(columnX);
   graph2->setYColumn(columnYGround);
-  graph2->setTitle(QObject::tr("Setpoint Follow Ground Temperature"));
+  graph2->setTitle("Setpoint Follow Ground Temperature");
 
-  plotter->getXAxis()->setAxisLabel("Ground Temperature [C]");
+  plotter->getXAxis()->setAxisLabel(QString("Ground Temperature [C]"));
   plotter->getYAxis()->setAxisLabel("Setpoint Temperature [C]");
   plotter->setMinimumSize(400, 400);
+  plotter->setMaximumSize(600, 400);
+  plotter->setToolbarEnabled(false);
+  plotter->clearAllMouseWheelActions();
+  plotter->clearAllRegisteredMouseDoubleClickActions();
+  plotter->clearAllRegisteredMouseDragActions();
+  plotter->getPlotter()->setUseAntiAliasingForGraphs(false);
+  plotter->getPlotter()->setUseAntiAliasingForSystem(false);
+  plotter->getPlotter()->setUseAntiAliasingForText(false);
+  plotter->getPlotter()->setPlotLabel("Setpoint Follow Ground Temperature");
+  plotter->addGraph(graph1);
+  plotter->addGraph(graph2);
+  plotter->zoomToFit();
+  plotter->setPlotUpdateEnabled(true);
+  plotter->redrawPlot();
+
   mainVLayout->addWidget(plotter);
   mainVLayout->addStretch();
 }
