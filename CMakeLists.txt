@@ -691,7 +691,7 @@ include_directories("${PROJECT_BINARY_DIR}/src/")
 if(MSVC)
   # treat warnings as errors
   add_definitions(/WX)
-elseif()
+else()
   add_definitions(-Werror)
 endif()
 
