@@ -188,7 +188,7 @@ if( APPLE )
 
 elseif( UNIX )
 
-  foreach(LIB ${QT_LIBS} ${QT_WEB_LIBS})
+  foreach(LIB ${QT_LIBS} ${QT_WEB_LIBS} ${JKQT_LIBS})
     get_property(LIB_LOCATION TARGET ${LIB} PROPERTY LOCATION)
     list(APPEND QT_LIB_LOCATIONS "${LIB_LOCATION}")
   endforeach()
@@ -273,6 +273,14 @@ elseif( WIN32 )
     COMMAND ${CMAKE_COMMAND} -E copy_if_different ${qweb_resources_100} $<TARGET_FILE_DIR:${target_name}>/resources/
     COMMAND ${CMAKE_COMMAND} -E copy_if_different ${qweb_resources_200} $<TARGET_FILE_DIR:${target_name}>/resources/
     #COMMAND ${CMAKE_COMMAND} -E copy_if_different ${qweb_resources_v8_context_snapshot} $<TARGET_FILE_DIR:${target_name}>/resources/
+  )
+
+  add_custom_command(TARGET ${target_name}
+    POST_BUILD
+    COMMAND ${CMAKE_COMMAND} -E copy_if_different $<TARGET_FILE:JKQTCommonSharedLib> $<TARGET_FILE_DIR:${target_name}>/
+    COMMAND ${CMAKE_COMMAND} -E copy_if_different $<TARGET_FILE:JKQTFastPlotterSharedLib> $<TARGET_FILE_DIR:${target_name}>/
+    COMMAND ${CMAKE_COMMAND} -E copy_if_different $<TARGET_FILE:JKQTMathTextSharedLib> $<TARGET_FILE_DIR:${target_name}>/
+    COMMAND ${CMAKE_COMMAND} -E copy_if_different $<TARGET_FILE:JKQTPlotterSharedLib> $<TARGET_FILE_DIR:${target_name}>/
   )
 
   # On Windows, we must copy the DLLs inside the build folder or it won't find them
@@ -387,7 +395,7 @@ if( NOT APPLE )
     install(PROGRAMS $<TARGET_FILE_DIR:${target_name}>/D3Dcompiler_47.dll DESTINATION bin/ COMPONENT OpenStudioApp)
     install(PROGRAMS $<TARGET_FILE_DIR:${target_name}>/opengl32sw.dll DESTINATION bin/ COMPONENT OpenStudioApp)
 
-    foreach(LIB ${QT_LIBS} ${QT_WEB_LIBS})
+    foreach(LIB ${QT_LIBS} ${QT_WEB_LIBS} ${JKQT_LIBS})
       install(PROGRAMS $<TARGET_FILE_DIR:${target_name}>/$<TARGET_FILE_NAME:${LIB}> DESTINATION bin/ COMPONENT OpenStudioApp)
     endforeach()
 
@@ -408,7 +416,7 @@ if( NOT APPLE )
     install(DIRECTORY $<TARGET_FILE_DIR:${target_name}>/xcbglintegrations/ DESTINATION bin/xcbglintegrations/ COMPONENT OpenStudioApp)
     # install(PROGRAMS $<TARGET_FILE_DIR:${target_name}>/xcbglintegrations/$<TARGET_FILE_NAME:Qt6::QXcbGlxIntegrationPlugin> DESTINATION bin/xcbglintegrations/ COMPONENT OpenStudioApp)
 
-    foreach(LIB ${QT_LIBS} ${QT_WEB_LIBS})
+    foreach(LIB ${QT_LIBS} ${QT_WEB_LIBS} ${JKQT_LIBS})
       install(PROGRAMS $<TARGET_FILE_DIR:${target_name}>/$<TARGET_FILE_NAME:${LIB}> DESTINATION bin/ COMPONENT OpenStudioApp)
     endforeach()
 

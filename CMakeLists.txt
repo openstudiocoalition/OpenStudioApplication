@@ -528,6 +528,8 @@ set(QT_VERSION "6.5.2" CACHE STRING "Qt target version, defaults to 6.5.2")
 
 # For AboutBox, but also validates that the version is valid
 string(TIMESTAMP CURRENT_YEAR "%Y")
+string(REGEX MATCH "^([0-9]+)"
+  QT_VERSION_MAJOR ${QT_VERSION})
 string(REGEX MATCH "^([0-9]+\\.[0-9]+)"
   QT_VERSION_MAJOR_MINOR ${QT_VERSION})
 if(NOT QT_VERSION_MAJOR_MINOR)
@@ -544,7 +546,7 @@ message(STATUS "QT_INSTALL_DIR=${QT_INSTALL_DIR}")
 
 find_package(Qt6 ${QT_VERSION} COMPONENTS CoreTools GuiTools WidgetsTools QmlTools WebEngineCoreTools REQUIRED PATHS ${QT_INSTALL_DIR} NO_DEFAULT_PATH)
 
-find_package(Qt6 ${QT_VERSION} COMPONENTS Core Core5Compat Gui Widgets Sql Svg Network Xml Concurrent PrintSupport Quick QuickWidgets Qml WebChannel Positioning WebEngineCore WebEngineWidgets Charts REQUIRED PATHS ${QT_INSTALL_DIR} NO_DEFAULT_PATH)
+find_package(Qt6 ${QT_VERSION} COMPONENTS Core Core5Compat Gui Widgets Sql Svg Network Xml Concurrent OpenGL OpenGLWidgets Positioning PrintSupport Quick QuickWidgets Qml WebChannel WebEngineCore WebEngineWidgets REQUIRED PATHS ${QT_INSTALL_DIR} NO_DEFAULT_PATH)
 
 find_package(Qt6LinguistTools ${QT_VERSION} REQUIRED PATHS ${QT_INSTALL_DIR} NO_DEFAULT_PATH)
 
@@ -563,7 +565,6 @@ find_file(qweb_resources_200 NAMES qtwebengine_resources_200p.pak PATHS "${QT_IN
 # QT_WEB_LIBS are linked by OS App and openstudio_lib but not by openstudio_modeleditor.so or openstudio_modeleditor
 list(APPEND QT_WEB_LIBS Qt6::WebEngineCore)
 list(APPEND QT_WEB_LIBS Qt6::WebEngineWidgets)
-list(APPEND QT_WEB_LIBS Qt6::Charts)
 set_target_properties(${QT_WEB_LIBS} PROPERTIES INTERFACE_LINK_LIBRARIES "")
 
 if(NOT APPLE)
@@ -658,10 +659,23 @@ if(UNIX)
   list(APPEND QT_INCLUDES ${Qt6XcbQpa_INCLUDE_DIRS})
 endif()
 
-set(CMAKE_AUTOMOC OFF)
-
+# Make JKQTPlotter available after finding Qt
 include(FetchContent)
 
+set(JKQtPlotter_BUILD_EXAMPLES OFF)
+
+FetchContent_Declare(JKQTPlotter
+                     GIT_REPOSITORY https://github.com/jkriege2/JKQtPlotter.git
+                     GIT_TAG        v4.0.3)
+
+FetchContent_MakeAvailable(JKQTPlotter)
+
+list(APPEND JKQT_LIBS JKQTCommonSharedLib)
+list(APPEND JKQT_LIBS JKQTPlotterSharedLib)
+
+set(CMAKE_AUTOMOC OFF)
+
+# Get the OpenStudio Coalition Measures repo
 FetchContent_Declare(
   openstudio-coalition-measures
   GIT_REPOSITORY https://github.com/openstudiocoalition/openstudio-coalition-measures.git
