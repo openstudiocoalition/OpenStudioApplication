@@ -8,8 +8,6 @@
 
 #include "ModelEditorAPI.hpp"
 
-#include <openstudio/utilities/core/Singleton.hpp>
-
 #include "QMetaTypes.hpp"
 
 #include <QApplication>
@@ -20,12 +18,17 @@ namespace openstudio {
 
 /** Singleton application wide configuration management.
   */
-class ApplicationSingleton
+class Application
 {
 
-  friend class Singleton<ApplicationSingleton>;
-
  public:
+  static Application& instance();
+
+  Application(const Application& other) = delete;
+  Application(Application&& other) = delete;
+  Application& operator=(const Application&) = delete;
+  Application& operator=(Application&&) = delete;
+
   /// get the QApplication, if no QApplication has been set this will create a default one
   QCoreApplication* application(bool gui = true);
 
@@ -69,11 +72,10 @@ class ApplicationSingleton
   static void setSettingValue(const std::string& key, double value);
   static void setSettingValue(const std::string& key, const std::string& value);
 
-  ~ApplicationSingleton();
-
  private:
   /// private constructor
-  ApplicationSingleton();
+  Application();
+  ~Application();
 
   /// QApplication handle
   QCoreApplication* m_qApplication;
@@ -84,13 +86,6 @@ class ApplicationSingleton
   bool m_defaultInstance;
 };
 
-typedef openstudio::Singleton<ApplicationSingleton> Application;
-
-#if _WIN32 || _MSC_VER
-/// Explicitly instantiate and export ApplicationSingleton Singleton template instance
-/// so that the same instance is shared between the DLL's that link to this dll
-MODELEDITOR_TEMPLATE_EXT template class openstudio::Singleton<ApplicationSingleton>;
-#endif
 }  // namespace openstudio
 
 #endif  // MODELEDITOR_APPLICATION_HPP
