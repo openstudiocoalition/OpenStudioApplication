@@ -774,7 +774,7 @@ set(${target_name}_depends
   openstudio::openstudiolib
   ${QT_LIBS}
   ${QT_WEB_LIBS}
-  ${JKQT_LIBS}
+  JKQTPlotter${QT_VERSION_MAJOR}::JKQTPlotter${QT_VERSION_MAJOR}
 )
 
 if(WIN32)

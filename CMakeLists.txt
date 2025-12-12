@@ -659,19 +659,29 @@ if(UNIX)
   list(APPEND QT_INCLUDES ${Qt6XcbQpa_INCLUDE_DIRS})
 endif()
 
+####################### JKQTPlotter ######################
 # Make JKQTPlotter available after finding Qt
 include(FetchContent)
 
+# Build it statically
+set(OLD_BUILD_SHARED_LIBS ${BUILD_SHARED_LIBS})
+set(BUILD_SHARED_LIBS OFF)
+
 set(JKQtPlotter_BUILD_EXAMPLES OFF)
+set(JKQtPlotter_BUILD_LIB_JKQTFASTPLOTTER OFF)
 
-FetchContent_Declare(JKQTPlotter
-                     GIT_REPOSITORY https://github.com/jkriege2/JKQtPlotter.git
-                     GIT_TAG        v4.0.3)
+# Force finding the same Qt
+find_package(QT NAMES Qt6 COMPONENTS Core Gui Widgets PrintSupport Svg Xml OpenGl REQUIRED PATHS ${QT_INSTALL_DIR} NO_DEFAULT_PATH)
 
-FetchContent_MakeAvailable(JKQTPlotter)
+FetchContent_Declare(JKQTPlotter${QT_VERSION_MAJOR}
+  GIT_REPOSITORY https://github.com/jkriege2/JKQtPlotter.git
+  # GIT_TAG        v5.0.0  # This is unreleased, but FetchContent support was added after v4.0.3
+)
 
-list(APPEND JKQT_LIBS JKQTCommonSharedLib)
-list(APPEND JKQT_LIBS JKQTPlotterSharedLib)
+FetchContent_MakeAvailable(JKQTPlotter${QT_VERSION_MAJOR})
+set(BUILD_SHARED_LIBS ${OLD_BUILD_SHARED_LIBS})
+
+##########################################################
 
 set(CMAKE_AUTOMOC OFF)
 
