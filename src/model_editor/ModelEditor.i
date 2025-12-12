@@ -73,7 +73,6 @@
 %ignore openstudio::LocalBCL;
 %ignore openstudio::WorkspaceWatcher;
 
-%template(Application) openstudio::Singleton<openstudio::ApplicationSingleton>;
 %include <model_editor/Application.hpp>
 
 %feature("director") PathWatcher;
