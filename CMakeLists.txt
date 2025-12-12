@@ -679,6 +679,16 @@ FetchContent_Declare(JKQTPlotter${QT_VERSION_MAJOR}
 )
 
 FetchContent_MakeAvailable(JKQTPlotter${QT_VERSION_MAJOR})
+
+if (MSVC)
+  target_compile_definitions(JKQTPlotter${QT_VERSION_MAJOR} PRIVATE
+    _USE_MATH_DEFINES              # To enable M_PI, M_E,..
+    DNOMINMAX                      # To Prevent Errors with min() and max()
+    _CRT_NO_VA_START_VALIDATION    # To fix error: C2338: va_start argument must not have reference type and must not be parenthesized
+  )
+  target_compile_options(JKQTPlotter${QT_VERSION_MAJOR} PRIVATE /EHsc /wd4018)
+endif()
+
 set(BUILD_SHARED_LIBS ${OLD_BUILD_SHARED_LIBS})
 
 ##########################################################
