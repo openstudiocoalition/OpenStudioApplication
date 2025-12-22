@@ -34,7 +34,7 @@ jobs:
       matrix:
         #os: [ubuntu-22.04, ubuntu-24.04, windows-2022, macos-13, macos-arm64]
         os: [macos-15, macos-15-arm64]
-        include:
+        exclude:
         - os: ubuntu-22.04
           SELF_HOSTED: false
           PLATFORM_NAME: Linux
@@ -65,6 +65,19 @@ jobs:
           QT_OS_NAME: windows
           QT_ARCH: win64_msvc2019_64
           arch: x86_64
+        include:
+        - os: macos-13
+          SELF_HOSTED: false
+          PLATFORM_NAME: Darwin
+          BINARY_EXT: dmg
+          COMPRESSED_EXT: tar.gz
+          BINARY_PKG_PATH: _CPack_Packages/Darwin/IFW
+          COMPRESSED_PKG_PATH: _CPack_Packages/Darwin/TGZ
+          MACOSX_DEPLOYMENT_TARGET: 13.0
+          SDKROOT: 	/Applications/Xcode_15.2.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX.sdk
+          QT_OS_NAME: mac
+          QT_ARCH: clang_64
+          arch: x86_64
         - os: macos-15
           SELF_HOSTED: false
           PLATFORM_NAME: Darwin
@@ -73,19 +86,7 @@ jobs:
           BINARY_PKG_PATH: _CPack_Packages/Darwin/IFW
           COMPRESSED_PKG_PATH: _CPack_Packages/Darwin/TGZ
           MACOSX_DEPLOYMENT_TARGET: 13.0
-          SDKROOT: /Applications/Xcode_15.2.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX.sdk
-          QT_OS_NAME: mac
-          QT_ARCH: clang_64
-          arch: x86_64
-        - os: macos-15-arm64
-          SELF_HOSTED: false
-          PLATFORM_NAME: Darwin
-          BINARY_EXT: dmg
-          COMPRESSED_EXT: tar.gz
-          BINARY_PKG_PATH: _CPack_Packages/Darwin/IFW
-          COMPRESSED_PKG_PATH: _CPack_Packages/Darwin/TGZ
-          MACOSX_DEPLOYMENT_TARGET: 13.0
-          SDKROOT: /Applications/Xcode_15.2.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX.sdk
+          SDKROOT: 	/Applications/Xcode_16.4.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX.sdk
           QT_OS_NAME: mac
           QT_ARCH: arm_64
           arch: arm64
@@ -699,17 +700,16 @@ jobs:
       # fail-fast: Default is true, switch to false to allow one platform to fail and still run others
       fail-fast: false
       matrix:
-        os: [macos-15, macos-15-arm64]
+        os: [macos-13, macos-15]
         include:
-        - os: macos-15
-          binary_os: macos-15
+        - os: macos-13
+          binary_os: macos-13
           SELF_HOSTED: false
           BINARY_EXT: dmg
           COMPRESSED_EXT: tar.gz
           arch: x86_64
-        # This is the GHA hosted one
-        - os: macos-15-arm64
-          binary_os: macos-15-arm64
+        - os: macos-15
+          binary_os: macos-15
           SELF_HOSTED: false
           BINARY_EXT: dmg
           COMPRESSED_EXT: tar.gz
