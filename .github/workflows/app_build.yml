@@ -197,10 +197,12 @@ jobs:
 
             # The openssl@3 package installed on CI adds these files to the pkgconfig directory
             # Remove them here so they aren't found instead of the version of OpenSSL built by Conan
-            ls -alsh /usr/local/lib/pkgconfig/
-            rm -f /usr/local/lib/pkgconfig/libcrypto.pc
-            rm -f /usr/local/lib/pkgconfig/libssl.pc
-            rm -f /usr/local/lib/pkgconfig/openssl.pc
+            if [ -d /usr/local/lib/pkgconfig/ ]; then
+              ls -alsh /usr/local/lib/pkgconfig/
+              rm -f /usr/local/lib/pkgconfig/libcrypto.pc
+              rm -f /usr/local/lib/pkgconfig/libssl.pc
+              rm -f /usr/local/lib/pkgconfig/openssl.pc
+            fi;
           fi;
         fi;
 
@@ -227,9 +229,6 @@ jobs:
         security set-keychain-settings -lut 21600 $KEYCHAIN_PATH
         security unlock-keychain -p "${{ secrets.MACOS_KEYCHAIN_PASSWORD }}" $KEYCHAIN_PATH
 
-        security find-certificate -a -p
-        security find-certificate -a -p $KEYCHAIN_PATH
-
         # ----- Import certificates on Keychain -----
         security import certificate_application.p12 -P '${{ secrets.MACOS_DEVELOPER_ID_APPLICATION_CERTIFICATE_P12_PASSWORD }}' -A -t cert -f pkcs12 -k $KEYCHAIN_PATH
         security import certificate_installer.p12   -P '${{ secrets.MACOS_DEVELOPER_ID_INSTALLER_CERTIFICATE_P12_PASSWORD }}'   -A -t cert -f pkcs12 -k $KEYCHAIN_PATH
@@ -240,8 +239,8 @@ jobs:
         brew list aria2 || brew install aria2
         aria2c https://www.apple.com/certificateauthority/AppleWWDRCAG2.cer
         aria2c https://www.apple.com/certificateauthority/DeveloperIDG2CA.cer
-        security import AppleWWDRCAG2.cer -k $KEYCHAIN_PATH
-        security import DeveloperIDG2CA.cer -k $KEYCHAIN_PATH
+        security import AppleWWDRCAG2.cer -k $KEYCHAIN_PATH || true
+        security import DeveloperIDG2CA.cer -k $KEYCHAIN_PATH  || true
         security find-identity -vvvv $KEYCHAIN_PATH
         security find-identity -v -p codesigning
 
