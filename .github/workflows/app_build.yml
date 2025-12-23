@@ -87,7 +87,7 @@ jobs:
           MACOSX_DEPLOYMENT_TARGET: 13.0
           SDKROOT: 	/Applications/Xcode_16.4.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX.sdk
           QT_OS_NAME: mac
-          QT_ARCH: arm_64
+          QT_ARCH: clang_64
           arch: arm64
 
     steps:
