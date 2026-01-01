@@ -445,7 +445,7 @@ if( APPLE )
 
   install(CODE [[
       execute_process(
-        COMMAND echo "CMAKE_INSTALL_PREFIX = ${CMAKE_INSTALL_PREFIX}"
+        COMMAND "${CMAKE_COMMAND}" -E echo "CMAKE_INSTALL_PREFIX = ${CMAKE_INSTALL_PREFIX}"
 
         COMMAND "${CMAKE_COMMAND}" -E create_symlink
           "../../../../../../../Frameworks"
@@ -470,6 +470,10 @@ if( APPLE )
         COMMAND "${CMAKE_COMMAND}" -E create_symlink
           "../../../lib/$<TARGET_FILE_NAME:openstudio::openstudiolib>"
           "${CMAKE_INSTALL_PREFIX}/OpenStudioApp.app/Contents/Frameworks/$<TARGET_FILE_NAME:openstudio::openstudiolib>"
+
+        COMMAND "${CMAKE_COMMAND}" -E create_symlink
+          "../lib/$<TARGET_FILE_NAME:openstudio::openstudiolib>"
+          "${CMAKE_INSTALL_PREFIX}/Ruby/$<TARGET_FILE_NAME:openstudio::openstudiolib>"
 
         COMMAND "${CMAKE_COMMAND}" -E make_directory "${CMAKE_INSTALL_PREFIX}/bin"
 
