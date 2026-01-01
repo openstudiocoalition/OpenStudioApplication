@@ -444,9 +444,14 @@ if( APPLE )
   # TODO: We can also just symlink libopenstudio.lib into the OpenStudioApp.app/Contents/Frameworks directory instead of copying
 
   install(CODE [[
+      # print the CMAKE_INSTALL_PREFIX for debugging, use separate `execute_process` to avoid broken pipes between commands
       execute_process(
         COMMAND "${CMAKE_COMMAND}" -E echo "CMAKE_INSTALL_PREFIX = ${CMAKE_INSTALL_PREFIX}"
 
+        COMMAND_ECHO STDOUT
+      )
+
+      execute_process(
         COMMAND "${CMAKE_COMMAND}" -E create_symlink
           "../../../../../../../Frameworks"
           "${CMAKE_INSTALL_PREFIX}/OpenStudioApp.app/Contents/Frameworks/QtWebEngineCore.framework/Versions/A/Helpers/QtWebEngineProcess.app/Contents/Frameworks"
@@ -481,7 +486,7 @@ if( APPLE )
         COMMAND_ERROR_IS_FATAL ANY
       )
 
-      # We break it into two `execute_process`es so that there is no race condition between the make_directory above and the create_symlink below
+      # separate `execute_process`es so that there is no race condition between the make_directory above and the create_symlink below
       execute_process(
         COMMAND "${CMAKE_COMMAND}" -E create_symlink
           "../OpenStudioApp.app/Contents/MacOS/$<TARGET_FILE_NAME:openstudio::openstudio>"
