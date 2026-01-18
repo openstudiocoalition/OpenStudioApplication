@@ -12,14 +12,14 @@ on:
 
 jobs:
   export-os-standards:
-    runs-on: ubuntu-24.04
+    runs-on: ubuntu-latest
 
     steps:
     - uses: actions/checkout@v4
 
     - uses: actions/setup-python@v5
       with:
-        python-version: '3.8.x'
+        python-version: '3.12.x'
 
     - name: Extract OS SDK version from FindOpenStudioSDK.cmake
       shell: python

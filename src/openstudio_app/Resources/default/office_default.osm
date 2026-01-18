@@ -1,7 +1,7 @@
 
 OS:Version,
-  {00f4caae-80a8-45c6-a2eb-9b4f35da667f}, !- Handle
-  3.10.0;                                 !- Version Identifier
+  {a9d7732d-fc1f-4255-b322-2202f6fc32d6}, !- Handle
+  3.11.0;                                 !- Version Identifier
 
 OS:Schedule:Constant,
   {1fe75643-8848-46bb-8327-b84d604dc1cc}, !- Handle
@@ -229,6 +229,8 @@ OS:People,
   ,                                       !- Activity Level Schedule Name
   ,                                       !- Surface Name/Angle Factor List Name
   ,                                       !- Work Efficiency Schedule Name
+  ClothingInsulationSchedule,             !- Clothing Insulation Calculation Method
+  ,                                       !- Clothing Insulation Calculation Method Schedule Name
   ,                                       !- Clothing Insulation Schedule Name
   ,                                       !- Air Velocity Schedule Name
   1;                                      !- Multiplier
@@ -984,6 +986,8 @@ OS:People,
   ,                                       !- Activity Level Schedule Name
   ,                                       !- Surface Name/Angle Factor List Name
   ,                                       !- Work Efficiency Schedule Name
+  ClothingInsulationSchedule,             !- Clothing Insulation Calculation Method
+  ,                                       !- Clothing Insulation Calculation Method Schedule Name
   ,                                       !- Clothing Insulation Schedule Name
   ,                                       !- Air Velocity Schedule Name
   1;                                      !- Multiplier
@@ -1241,6 +1245,8 @@ OS:People,
   ,                                       !- Activity Level Schedule Name
   ,                                       !- Surface Name/Angle Factor List Name
   ,                                       !- Work Efficiency Schedule Name
+  ClothingInsulationSchedule,             !- Clothing Insulation Calculation Method
+  ,                                       !- Clothing Insulation Calculation Method Schedule Name
   ,                                       !- Clothing Insulation Schedule Name
   ,                                       !- Air Velocity Schedule Name
   1;                                      !- Multiplier
@@ -1362,6 +1368,8 @@ OS:People,
   ,                                       !- Activity Level Schedule Name
   ,                                       !- Surface Name/Angle Factor List Name
   ,                                       !- Work Efficiency Schedule Name
+  ClothingInsulationSchedule,             !- Clothing Insulation Calculation Method
+  ,                                       !- Clothing Insulation Calculation Method Schedule Name
   ,                                       !- Clothing Insulation Schedule Name
   ,                                       !- Air Velocity Schedule Name
   1;                                      !- Multiplier
@@ -1582,6 +1590,8 @@ OS:People,
   ,                                       !- Activity Level Schedule Name
   ,                                       !- Surface Name/Angle Factor List Name
   ,                                       !- Work Efficiency Schedule Name
+  ClothingInsulationSchedule,             !- Clothing Insulation Calculation Method
+  ,                                       !- Clothing Insulation Calculation Method Schedule Name
   ,                                       !- Clothing Insulation Schedule Name
   ,                                       !- Air Velocity Schedule Name
   1;                                      !- Multiplier
@@ -1703,6 +1713,8 @@ OS:People,
   ,                                       !- Activity Level Schedule Name
   ,                                       !- Surface Name/Angle Factor List Name
   ,                                       !- Work Efficiency Schedule Name
+  ClothingInsulationSchedule,             !- Clothing Insulation Calculation Method
+  ,                                       !- Clothing Insulation Calculation Method Schedule Name
   ,                                       !- Clothing Insulation Schedule Name
   ,                                       !- Air Velocity Schedule Name
   1;                                      !- Multiplier
@@ -1824,6 +1836,8 @@ OS:People,
   ,                                       !- Activity Level Schedule Name
   ,                                       !- Surface Name/Angle Factor List Name
   ,                                       !- Work Efficiency Schedule Name
+  ClothingInsulationSchedule,             !- Clothing Insulation Calculation Method
+  ,                                       !- Clothing Insulation Calculation Method Schedule Name
   ,                                       !- Clothing Insulation Schedule Name
   ,                                       !- Air Velocity Schedule Name
   1;                                      !- Multiplier
@@ -1955,6 +1969,8 @@ OS:People,
   ,                                       !- Activity Level Schedule Name
   ,                                       !- Surface Name/Angle Factor List Name
   ,                                       !- Work Efficiency Schedule Name
+  ClothingInsulationSchedule,             !- Clothing Insulation Calculation Method
+  ,                                       !- Clothing Insulation Calculation Method Schedule Name
   ,                                       !- Clothing Insulation Schedule Name
   ,                                       !- Air Velocity Schedule Name
   1;                                      !- Multiplier
@@ -2076,6 +2092,8 @@ OS:People,
   ,                                       !- Activity Level Schedule Name
   ,                                       !- Surface Name/Angle Factor List Name
   ,                                       !- Work Efficiency Schedule Name
+  ClothingInsulationSchedule,             !- Clothing Insulation Calculation Method
+  ,                                       !- Clothing Insulation Calculation Method Schedule Name
   ,                                       !- Clothing Insulation Schedule Name
   ,                                       !- Air Velocity Schedule Name
   1;                                      !- Multiplier
@@ -2361,6 +2379,8 @@ OS:People,
   ,                                       !- Activity Level Schedule Name
   ,                                       !- Surface Name/Angle Factor List Name
   ,                                       !- Work Efficiency Schedule Name
+  ClothingInsulationSchedule,             !- Clothing Insulation Calculation Method
+  ,                                       !- Clothing Insulation Calculation Method Schedule Name
   ,                                       !- Clothing Insulation Schedule Name
   ,                                       !- Air Velocity Schedule Name
   1;                                      !- Multiplier
@@ -2616,6 +2636,8 @@ OS:People,
   ,                                       !- Activity Level Schedule Name
   ,                                       !- Surface Name/Angle Factor List Name
   ,                                       !- Work Efficiency Schedule Name
+  ClothingInsulationSchedule,             !- Clothing Insulation Calculation Method
+  ,                                       !- Clothing Insulation Calculation Method Schedule Name
   ,                                       !- Clothing Insulation Schedule Name
   ,                                       !- Air Velocity Schedule Name
   1;                                      !- Multiplier
@@ -3383,6 +3405,8 @@ OS:People,
   ,                                       !- Activity Level Schedule Name
   ,                                       !- Surface Name/Angle Factor List Name
   ,                                       !- Work Efficiency Schedule Name
+  ClothingInsulationSchedule,             !- Clothing Insulation Calculation Method
+  ,                                       !- Clothing Insulation Calculation Method Schedule Name
   ,                                       !- Clothing Insulation Schedule Name
   ,                                       !- Air Velocity Schedule Name
   1;                                      !- Multiplier
@@ -3922,6 +3946,8 @@ OS:People,
   ,                                       !- Activity Level Schedule Name
   ,                                       !- Surface Name/Angle Factor List Name
   ,                                       !- Work Efficiency Schedule Name
+  ClothingInsulationSchedule,             !- Clothing Insulation Calculation Method
+  ,                                       !- Clothing Insulation Calculation Method Schedule Name
   ,                                       !- Clothing Insulation Schedule Name
   ,                                       !- Air Velocity Schedule Name
   1;                                      !- Multiplier
@@ -4680,6 +4706,8 @@ OS:People,
   ,                                       !- Activity Level Schedule Name
   ,                                       !- Surface Name/Angle Factor List Name
   ,                                       !- Work Efficiency Schedule Name
+  ClothingInsulationSchedule,             !- Clothing Insulation Calculation Method
+  ,                                       !- Clothing Insulation Calculation Method Schedule Name
   ,                                       !- Clothing Insulation Schedule Name
   ,                                       !- Air Velocity Schedule Name
   1;                                      !- Multiplier
@@ -4801,6 +4829,8 @@ OS:People,
   ,                                       !- Activity Level Schedule Name
   ,                                       !- Surface Name/Angle Factor List Name
   ,                                       !- Work Efficiency Schedule Name
+  ClothingInsulationSchedule,             !- Clothing Insulation Calculation Method
+  ,                                       !- Clothing Insulation Calculation Method Schedule Name
   ,                                       !- Clothing Insulation Schedule Name
   ,                                       !- Air Velocity Schedule Name
   1;                                      !- Multiplier
@@ -4922,6 +4952,8 @@ OS:People,
   ,                                       !- Activity Level Schedule Name
   ,                                       !- Surface Name/Angle Factor List Name
   ,                                       !- Work Efficiency Schedule Name
+  ClothingInsulationSchedule,             !- Clothing Insulation Calculation Method
+  ,                                       !- Clothing Insulation Calculation Method Schedule Name
   ,                                       !- Clothing Insulation Schedule Name
   ,                                       !- Air Velocity Schedule Name
   1;                                      !- Multiplier
@@ -5043,6 +5075,8 @@ OS:People,
   ,                                       !- Activity Level Schedule Name
   ,                                       !- Surface Name/Angle Factor List Name
   ,                                       !- Work Efficiency Schedule Name
+  ClothingInsulationSchedule,             !- Clothing Insulation Calculation Method
+  ,                                       !- Clothing Insulation Calculation Method Schedule Name
   ,                                       !- Clothing Insulation Schedule Name
   ,                                       !- Air Velocity Schedule Name
   1;                                      !- Multiplier
@@ -5263,6 +5297,8 @@ OS:People,
   ,                                       !- Activity Level Schedule Name
   ,                                       !- Surface Name/Angle Factor List Name
   ,                                       !- Work Efficiency Schedule Name
+  ClothingInsulationSchedule,             !- Clothing Insulation Calculation Method
+  ,                                       !- Clothing Insulation Calculation Method Schedule Name
   ,                                       !- Clothing Insulation Schedule Name
   ,                                       !- Air Velocity Schedule Name
   1;                                      !- Multiplier
@@ -5384,6 +5420,8 @@ OS:People,
   ,                                       !- Activity Level Schedule Name
   ,                                       !- Surface Name/Angle Factor List Name
   ,                                       !- Work Efficiency Schedule Name
+  ClothingInsulationSchedule,             !- Clothing Insulation Calculation Method
+  ,                                       !- Clothing Insulation Calculation Method Schedule Name
   ,                                       !- Clothing Insulation Schedule Name
   ,                                       !- Air Velocity Schedule Name
   1;                                      !- Multiplier
@@ -5505,6 +5543,8 @@ OS:People,
   ,                                       !- Activity Level Schedule Name
   ,                                       !- Surface Name/Angle Factor List Name
   ,                                       !- Work Efficiency Schedule Name
+  ClothingInsulationSchedule,             !- Clothing Insulation Calculation Method
+  ,                                       !- Clothing Insulation Calculation Method Schedule Name
   ,                                       !- Clothing Insulation Schedule Name
   ,                                       !- Air Velocity Schedule Name
   1;                                      !- Multiplier
@@ -5626,6 +5666,8 @@ OS:People,
   ,                                       !- Activity Level Schedule Name
   ,                                       !- Surface Name/Angle Factor List Name
   ,                                       !- Work Efficiency Schedule Name
+  ClothingInsulationSchedule,             !- Clothing Insulation Calculation Method
+  ,                                       !- Clothing Insulation Calculation Method Schedule Name
   ,                                       !- Clothing Insulation Schedule Name
   ,                                       !- Air Velocity Schedule Name
   1;                                      !- Multiplier
@@ -5747,6 +5789,8 @@ OS:People,
   ,                                       !- Activity Level Schedule Name
   ,                                       !- Surface Name/Angle Factor List Name
   ,                                       !- Work Efficiency Schedule Name
+  ClothingInsulationSchedule,             !- Clothing Insulation Calculation Method
+  ,                                       !- Clothing Insulation Calculation Method Schedule Name
   ,                                       !- Clothing Insulation Schedule Name
   ,                                       !- Air Velocity Schedule Name
   1;                                      !- Multiplier
@@ -6032,6 +6076,8 @@ OS:People,
   ,                                       !- Activity Level Schedule Name
   ,                                       !- Surface Name/Angle Factor List Name
   ,                                       !- Work Efficiency Schedule Name
+  ClothingInsulationSchedule,             !- Clothing Insulation Calculation Method
+  ,                                       !- Clothing Insulation Calculation Method Schedule Name
   ,                                       !- Clothing Insulation Schedule Name
   ,                                       !- Air Velocity Schedule Name
   1;                                      !- Multiplier
@@ -6153,6 +6199,8 @@ OS:People,
   ,                                       !- Activity Level Schedule Name
   ,                                       !- Surface Name/Angle Factor List Name
   ,                                       !- Work Efficiency Schedule Name
+  ClothingInsulationSchedule,             !- Clothing Insulation Calculation Method
+  ,                                       !- Clothing Insulation Calculation Method Schedule Name
   ,                                       !- Clothing Insulation Schedule Name
   ,                                       !- Air Velocity Schedule Name
   1;                                      !- Multiplier
@@ -6274,6 +6322,8 @@ OS:People,
   ,                                       !- Activity Level Schedule Name
   ,                                       !- Surface Name/Angle Factor List Name
   ,                                       !- Work Efficiency Schedule Name
+  ClothingInsulationSchedule,             !- Clothing Insulation Calculation Method
+  ,                                       !- Clothing Insulation Calculation Method Schedule Name
   ,                                       !- Clothing Insulation Schedule Name
   ,                                       !- Air Velocity Schedule Name
   1;                                      !- Multiplier
@@ -6395,6 +6445,8 @@ OS:People,
   ,                                       !- Activity Level Schedule Name
   ,                                       !- Surface Name/Angle Factor List Name
   ,                                       !- Work Efficiency Schedule Name
+  ClothingInsulationSchedule,             !- Clothing Insulation Calculation Method
+  ,                                       !- Clothing Insulation Calculation Method Schedule Name
   ,                                       !- Clothing Insulation Schedule Name
   ,                                       !- Air Velocity Schedule Name
   1;                                      !- Multiplier
