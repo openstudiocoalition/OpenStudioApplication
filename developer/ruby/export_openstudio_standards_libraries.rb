@@ -470,10 +470,10 @@ def export_openstudio_standards_libraries
             std_applier.space_type_apply_rendering_color(space_type)
 
             # Loads
-            std_applier.space_type_apply_internal_loads(space_type, true, true, true, true, true)
+            std_applier.space_type_apply_internal_loads(space_type)
 
             # Schedules
-            std_applier.space_type_apply_internal_load_schedules(space_type, true, true, true, true, true, true)
+            std_applier.space_type_apply_internal_load_schedules(space_type)
 
           end
         end
@@ -535,6 +535,7 @@ def export_openstudio_standards_libraries
       log_path = "#{osm_lib_dir}/#{template_name.gsub(/\W/,'_')}.log"
       STDERR.puts "* Saving log #{log_path}"
       log_messages_to_file(log_path, debug=false)
+      exit
     end
 
   end

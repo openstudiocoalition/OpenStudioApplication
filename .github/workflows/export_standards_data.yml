@@ -12,7 +12,7 @@ on:
 
 jobs:
   export-os-standards:
-    runs-on: ubuntu-18.04
+    runs-on: ubuntu-24.04
 
     steps:
     - uses: actions/checkout@v4
