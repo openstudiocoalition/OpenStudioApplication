@@ -1,7 +1,7 @@
 
 OS:Version,
-  {b91bd01a-6a42-441c-8cbd-78317f4cf7bf}, !- Handle
-  3.10.0;                                 !- Version Identifier
+  {23f35e4a-9e0f-407a-bb86-d93af65b1363}, !- Handle
+  3.11.0;                                 !- Version Identifier
 
 ! Always OnOff Discrete Schedule Type Limits
 OS:ScheduleTypeLimits,
@@ -851,13 +851,14 @@ OS:EvaporativeFluidCooler:SingleSpeed,
   0.03,                                   !- Design Spray Water Flow Rate {m3/s}
   UFactorTimesAreaAndDesignWaterFlowRate, !- Performance Input Method
   ,                                       !- Outdoor Air Inlet Node Name
+  1.25,                                   !- Heat Rejection Capacity and Nominal Capacity Sizing Ratio
   ,                                       !- Standard Design Capacity {W}
   autosize,                               !- U-factor Times Area Value at Design Air Flow Rate {W/K}
   autosize,                               !- Design Water Flow Rate {m3/s}
   ,                                       !- User Specified Design Capacity {W}
-  ,                                       !- Design Entering Water Temperature {C}
-  ,                                       !- Design Entering Air Temperature {C}
-  ,                                       !- Design Entering Air Wet-bulb Temperature {C}
+  Autosize,                               !- Design Entering Water Temperature {C}
+  35,                                     !- Design Entering Air Temperature {C}
+  25.6,                                   !- Design Entering Air Wet-bulb Temperature {C}
   FanCycling,                             !- Capacity Control
   1,                                      !- Sizing Factor
   SaturatedExit,                          !- Evaporation Loss Mode
@@ -893,9 +894,9 @@ OS:EvaporativeFluidCooler:TwoSpeed,
   ,                                       !- High Speed User Specified Design Capacity {W}
   autosize,                               !- Low Speed User Specified Design Capacity {W}
   0.5,                                    !- Low Speed User Specified Design Capacity Sizing Factor
-  ,                                       !- Design Entering Water Temperature {C}
-  ,                                       !- Design Entering Air Temperature {C}
-  ,                                       !- Design Entering Air Wet-bulb Temperature {C}
+  Autosize,                               !- Design Entering Water Temperature {C}
+  35,                                     !- Design Entering Air Temperature {C}
+  25.6,                                   !- Design Entering Air Wet-bulb Temperature {C}
   1,                                      !- High Speed Sizing Factor
   SaturatedExit,                          !- Evaporation Loss Mode
   ,                                       !- Evaporation Loss Factor {percent/K}
@@ -1837,7 +1838,8 @@ OS:ZoneHVAC:PackagedTerminalHeatPump,
   Autosize,                               !- Maximum Supply Air Temperature from Supplemental Heater {C}
   ,                                       !- Maximum Outdoor Dry-Bulb Temperature for Supplemental Heater Operation {C}
   ,                                       !- Fan Placement
-  {9f54092d-a4a8-41b8-a381-c4c332ecb843}; !- Supply Air Fan Operating Mode Schedule Name
+  {9f54092d-a4a8-41b8-a381-c4c332ecb843}, !- Supply Air Fan Operating Mode Schedule Name
+  1;                                      !- DX Heating Coil Sizing Ratio
 
 OS:Coil:Heating:DX:SingleSpeed,
   {cff8b2af-5e9b-4b82-9e96-35b6084412ca}, !- Handle
@@ -2419,9 +2421,24 @@ OS:WaterHeater:HeatPump,
   Simultaneous,                           !- Tank Element Control Logic
   Heater1;                                !- Control Sensor Location In Stratified Tank
 
+OS:Schedule:Constant,
+  {a3fc4cc6-f700-4c7d-856a-bfef340038b7}, !- Handle
+  Always On Discrete,                     !- Name
+  {4e2b3642-4a48-48d6-879f-e31eb27b3ff4}, !- Schedule Type Limits Name
+  1;                                      !- Value
+
+OS:ScheduleTypeLimits,
+  {4e2b3642-4a48-48d6-879f-e31eb27b3ff4}, !- Handle
+  Always On Discrete Limits,              !- Name
+  0,                                      !- Lower Limit Value
+  1,                                      !- Upper Limit Value
+  Discrete,                               !- Numeric Type
+  Availability;                           !- Unit Type
+
 OS:Coil:WaterHeating:AirToWaterHeatPump,
   {8812d392-ab70-47ea-a32d-1e6030e7cd7e}, !- Handle
   HPWH DX Coil,                           !- Name
+  {a3fc4cc6-f700-4c7d-856a-bfef340038b7}, !- Availability Schedule Name
   4000,                                   !- Rated Heating Capacity {W}
   3.2,                                    !- Rated COP {W/W}
   0.6956,                                 !- Rated Sensible Heat Ratio
@@ -2715,6 +2732,7 @@ OS:WaterHeater:HeatPump:WrappedCondenser,
 OS:Coil:WaterHeating:AirToWaterHeatPump:Wrapped,
   {37684bc6-3ecb-4d0c-8858-aca36abd4a69}, !- Handle
   Coil Water Heating Air To Water Heat Pump Wrapped, !- Name
+  {a3fc4cc6-f700-4c7d-856a-bfef340038b7}, !- Availability Schedule Name
   2349.6,                                 !- Rated Heating Capacity {W}
   2.4,                                    !- Rated COP {W/W}
   0.981,                                  !- Rated Sensible Heat Ratio
@@ -3425,6 +3443,7 @@ OS:Curve:Cubic,
 OS:Coil:Heating:WaterToAirHeatPump:EquationFit,
   {d683b8e6-1a67-4e2b-aa32-8a4aa6cedd5d}, !- Handle
   Wtr-to-Air HP Elec Backup HP Htg Coil,  !- Name
+  {a3fc4cc6-f700-4c7d-856a-bfef340038b7}, !- Availability Schedule Name
   ,                                       !- Water Inlet Node Name
   ,                                       !- Water Outlet Node Name
   ,                                       !- Air Inlet Node Name
@@ -3477,6 +3496,7 @@ OS:Curve:QuadLinear,
 OS:Coil:Cooling:WaterToAirHeatPump:EquationFit,
   {497dcb6a-5e26-44b9-ad01-3a2cee449abb}, !- Handle
   Wtr-to-Air HP Elec Backup HP Clg Coil,  !- Name
+  {a3fc4cc6-f700-4c7d-856a-bfef340038b7}, !- Availability Schedule Name
   ,                                       !- Water Inlet Node Name
   ,                                       !- Water Outlet Node Name
   ,                                       !- Air Inlet Node Name
@@ -3571,6 +3591,7 @@ OS:Fan:OnOff,
 OS:Coil:Heating:WaterToAirHeatPump:EquationFit,
   {3ad65a6c-58cf-4c1f-937d-359611c4d472}, !- Handle
   Wtr-to-Air HP Gas Backup HP Htg Coil,   !- Name
+  {a3fc4cc6-f700-4c7d-856a-bfef340038b7}, !- Availability Schedule Name
   ,                                       !- Water Inlet Node Name
   ,                                       !- Water Outlet Node Name
   ,                                       !- Air Inlet Node Name
@@ -3623,6 +3644,7 @@ OS:Curve:QuadLinear,
 OS:Coil:Cooling:WaterToAirHeatPump:EquationFit,
   {e6f679f1-9fe3-4189-af37-13d8cb88d7d8}, !- Handle
   Wtr-to-Air HP Gas Backup HP Clg Coil,   !- Name
+  {a3fc4cc6-f700-4c7d-856a-bfef340038b7}, !- Availability Schedule Name
   ,                                       !- Water Inlet Node Name
   ,                                       !- Water Outlet Node Name
   ,                                       !- Air Inlet Node Name
@@ -3717,6 +3739,7 @@ OS:Fan:OnOff,
 OS:Coil:Heating:WaterToAirHeatPump:EquationFit,
   {54669793-36af-4393-aafe-d99188dfc46f}, !- Handle
   Wtr-to-Air HP HW Backup HP Htg Coil,    !- Name
+  {a3fc4cc6-f700-4c7d-856a-bfef340038b7}, !- Availability Schedule Name
   ,                                       !- Water Inlet Node Name
   ,                                       !- Water Outlet Node Name
   ,                                       !- Air Inlet Node Name
@@ -3769,6 +3792,7 @@ OS:Curve:QuadLinear,
 OS:Coil:Cooling:WaterToAirHeatPump:EquationFit,
   {7b550b0c-a709-4422-8f21-690b52ad8519}, !- Handle
   Wtr-to-Air HP HW Backup HP Clg Coil,    !- Name
+  {a3fc4cc6-f700-4c7d-856a-bfef340038b7}, !- Availability Schedule Name
   ,                                       !- Water Inlet Node Name
   ,                                       !- Water Outlet Node Name
   ,                                       !- Air Inlet Node Name
@@ -3908,7 +3932,10 @@ OS:ZoneHVAC:WaterToAirHeatPump,
   ,                                       !- Outdoor Dry-Bulb Temperature Sensor Node Name
   ,                                       !- Fan Placement
   ,                                       !- Supply Air Fan Operating Mode Schedule Name
-  ;                                       !- Availability Manager List Name
+  ,                                       !- Availability Manager List Name
+  ,                                       !- Heat Pump Coil Water Flow Mode
+  ,                                       !- Design Specification ZoneHVAC Sizing Object Name
+  1;                                      !- DX Heating Coil Sizing Ratio
 
 OS:Curve:Linear,
   {9b0d1548-c685-4940-9921-42150d66f517}, !- Handle
@@ -3945,7 +3972,10 @@ OS:ZoneHVAC:WaterToAirHeatPump,
   ,                                       !- Outdoor Dry-Bulb Temperature Sensor Node Name
   ,                                       !- Fan Placement
   ,                                       !- Supply Air Fan Operating Mode Schedule Name
-  ;                                       !- Availability Manager List Name
+  ,                                       !- Availability Manager List Name
+  ,                                       !- Heat Pump Coil Water Flow Mode
+  ,                                       !- Design Specification ZoneHVAC Sizing Object Name
+  1;                                      !- DX Heating Coil Sizing Ratio
 
 OS:Curve:Linear,
   {4ee36f17-a9cd-46ed-a4f1-a285e2098b45}, !- Handle
@@ -3982,7 +4012,10 @@ OS:ZoneHVAC:WaterToAirHeatPump,
   ,                                       !- Outdoor Dry-Bulb Temperature Sensor Node Name
   ,                                       !- Fan Placement
   ,                                       !- Supply Air Fan Operating Mode Schedule Name
-  ;                                       !- Availability Manager List Name
+  ,                                       !- Availability Manager List Name
+  ,                                       !- Heat Pump Coil Water Flow Mode
+  ,                                       !- Design Specification ZoneHVAC Sizing Object Name
+  1;                                      !- DX Heating Coil Sizing Ratio
 
 OS:Curve:Linear,
   {ee3b8796-427d-41cb-b097-080c37e32ff7}, !- Handle
@@ -7639,6 +7672,7 @@ OS:Curve:Cubic,
 OS:Coil:Cooling:WaterToAirHeatPump:EquationFit,
   {3fca92a4-d330-424e-b370-5ad77441d416}, !- Handle
   Wtr-to-Air HP Clg Coil 1,               !- Name
+  {a3fc4cc6-f700-4c7d-856a-bfef340038b7}, !- Availability Schedule Name
   ,                                       !- Water Inlet Node Name
   ,                                       !- Water Outlet Node Name
   ,                                       !- Air Inlet Node Name
@@ -7718,6 +7752,7 @@ OS:Curve:QuadLinear,
 OS:Coil:Heating:WaterToAirHeatPump:EquationFit,
   {07468aec-7855-4a75-8aec-93bcb433af35}, !- Handle
   Wtr-to-Air HP Htg Coil 1,               !- Name
+  {a3fc4cc6-f700-4c7d-856a-bfef340038b7}, !- Availability Schedule Name
   ,                                       !- Water Inlet Node Name
   ,                                       !- Water Outlet Node Name
   ,                                       !- Air Inlet Node Name
@@ -10583,7 +10618,7 @@ OS:ThermalStorage:ChilledWater:Stratified,
   2.5,                                    !- Deadband Temperature Difference {deltaC}
   ,                                       !- Temperature Sensor Height {m}
   ,                                       !- Minimum Temperature Limit {C}
-  ,                                       !- Nominal Cooling Capacity {W}
+  0,                                      !- Nominal Cooling Capacity {W}
   Outdoors,                               !- Ambient Temperature Indicator
   {c3199601-9088-4db1-80a2-a72ce5be2376}, !- Ambient Temperature Schedule Name
   ,                                       !- Ambient Temperature Thermal Zone Name
@@ -10617,6 +10652,14 @@ OS:ThermalStorage:ChilledWater:Stratified,
   0,                                      !- Node 8 Additional Loss Coefficient {W/m2-K}
   0,                                      !- Node 9 Additional Loss Coefficient {W/m2-K}
   0;                                      !- Node 10 Additional Loss Coefficient {W/m2-K}
+
+OS:WaterHeater:Sizing,
+  {4c39881e-d342-487b-8728-86c7396bc880}, !- Handle
+  {96287772-bccf-4162-a1d1-593d0c5d91c4}, !- WaterHeater Name
+  PeakDraw,                               !- Design Mode
+  0.538503,                               !- Time Storage Can Meet Peak Draw {hr}
+  0,                                      !- Time for Tank Recovery {hr}
+  1;                                      !- Nominal Tank Volume for Autosizing Plant Connections {m3}
 
 OS:Schedule:Ruleset,
   {c3199601-9088-4db1-80a2-a72ce5be2376}, !- Handle
@@ -13319,7 +13362,7 @@ OS:AirLoopHVAC:UnitaryHeatPump:AirToAir:MultiSpeed,
   DrawThrough,                            !- Supply Air Fan Placement
   {9f54092d-a4a8-41b8-a381-c4c332ecb843}, !- Supply Air Fan Operating Mode Schedule
   {3b1fedfa-eb94-4c41-9ff0-eb695f74535d}, !- Heating Coil
-  -8,                                     !- Minimum Outdoor Dry-Bulb Temperature for Compressor Operation {C}
+  1,                                      !- DX Heating Coil Sizing Ratio
   {a76a42fb-2594-4514-afb9-fd45a05494fc}, !- Cooling Coil
   {696dbe2d-bf31-49c0-833d-58a97afe9b6c}, !- Supplemental Heating Coil
   autosize,                               !- Maximum Supply Air Temperature from Supplemental Heater {C}
@@ -13345,6 +13388,7 @@ OS:AirLoopHVAC:UnitaryHeatPump:AirToAir:MultiSpeed,
 OS:Coil:Cooling:DX:VariableSpeed,
   {3ef4dbff-bbcf-4645-93ab-fcd09507f984}, !- Handle
   Coil Cooling DX Variable Speed - Two Speeds, !- Name
+  {a3fc4cc6-f700-4c7d-856a-bfef340038b7}, !- Availability Schedule Name
   ,                                       !- Indoor Air Inlet Node Name
   ,                                       !- Indoor Air Outlet Node Name
   2,                                      !- Nominal Speed Level {dimensionless}

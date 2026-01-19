@@ -8,7 +8,9 @@
 <p>Copyright &copy; 2020-${CURRENT_YEAR}, OpenStudio Coalition and other contributors. All rights reserved.</p> \
 <p>OpenStudio is a cross-platform tool to support whole building energy and daylight modeling using <a href='http://apps1.eere.energy.gov/buildings/energyplus/'>EnergyPlus</a> and <a href='http://www.radiance-online.org/'>Radiance</a>.</p> \
 <p>OpenStudio uses the following QT modules (version ${QT_VERSION}) that are dynamically linked using GNU Lesser General Public License (LGPL): \
-<font size='2'>Qt6Core, Qt6Core5Compat Qt6Widgets, Qt6Network, Qt6Concurrent, Qt6PrintSupport, Qt6Gui, Qt6Quick, Qt6QuickWidgets, Qt6Qml, Qt6QmlModels, Qt6WebChannel, Qt6Positioning, Qt6WebEngine, Qt6WebEngineWidgets, QtWebEngineCore, Qt6DBus, Qt6Xml, Qt6Svg, Qt6Charts, Qt6OpenGL, Qt6OpenGLWidgets</font> </p> \
+<font size='2'>Qt6Core, Qt6Core5Compat Qt6Widgets, Qt6Network, Qt6Concurrent, Qt6PrintSupport, Qt6Gui, Qt6Quick, Qt6QuickWidgets, Qt6Qml, Qt6QmlModels, Qt6WebChannel, Qt6Positioning, Qt6WebEngine, Qt6WebEngineWidgets, QtWebEngineCore, Qt6DBus, Qt6Xml, Qt6Svg, Qt6OpenGL, Qt6OpenGLWidgets</font> </p> \
+<p>And these Qt modules that are dynamically linked using GNU General Public License (GPL): \
+<font size='2'>Qt6Charts</font> </p> \
 <p> For information on QT, please refer to <a href='${QT_DOC_LINK}'>QT</a></p> \
 <p> A copy of the GPL 3.0 and LGPL 3.0 are included in the root path of your installation directory.</p>"
 #endif  // OPENSTUDIOAPP_ABOUTBOX

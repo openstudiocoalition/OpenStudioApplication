@@ -24,9 +24,14 @@
 
 namespace openstudio {
 
-ApplicationSingleton::ApplicationSingleton() : m_qApplication(nullptr), m_sketchUpWidget(nullptr), m_defaultInstance(false) {}
+Application& Application::instance() {
+  static Application instance;
+  return instance;
+}
 
-ApplicationSingleton::~ApplicationSingleton() {
+Application::Application() : m_qApplication(nullptr), m_sketchUpWidget(nullptr), m_defaultInstance(false) {}
+
+Application::~Application() {
   //if (m_sketchUpWidget){
   //  delete m_sketchUpWidget;
   //}
@@ -37,7 +42,7 @@ ApplicationSingleton::~ApplicationSingleton() {
 }
 
 /// get the QApplication, if no QApplication has been set this will create a default one
-QCoreApplication* ApplicationSingleton::application(bool gui) {
+QCoreApplication* Application::application(bool gui) {
   if (!m_qApplication) {
 
     if (QCoreApplication::instance()) {
@@ -123,11 +128,11 @@ QCoreApplication* ApplicationSingleton::application(bool gui) {
   return m_qApplication;
 }
 
-bool ApplicationSingleton::hasApplication() const {
+bool Application::hasApplication() const {
   return (m_qApplication != nullptr);
 }
 
-bool ApplicationSingleton::hasGUI() const {
+bool Application::hasGUI() const {
   if (hasApplication()) {
     return dynamic_cast<QApplication*>(m_qApplication);
   }
@@ -135,7 +140,7 @@ bool ApplicationSingleton::hasGUI() const {
 }
 
 /// set the QApplication, this should be done before calling application(), no op if it has already been set
-bool ApplicationSingleton::setApplication(QCoreApplication* qApplication) {
+bool Application::setApplication(QCoreApplication* qApplication) {
   if (!m_qApplication) {
     m_qApplication = qApplication;
     return true;
@@ -143,39 +148,39 @@ bool ApplicationSingleton::setApplication(QCoreApplication* qApplication) {
   return false;
 }
 
-QWidget* ApplicationSingleton::sketchUpWidget() {
+QWidget* Application::sketchUpWidget() {
   return m_sketchUpWidget;
 }
 
-void ApplicationSingleton::processEvents() {
+void Application::processEvents() {
   application()->sendPostedEvents();
   application()->processEvents(QEventLoop::AllEvents);
 }
 
-void ApplicationSingleton::processEvents(int maxTime) {
+void Application::processEvents(int maxTime) {
   application()->sendPostedEvents();
   application()->processEvents(QEventLoop::AllEvents, maxTime);
 }
 
-bool ApplicationSingleton::hasSetting(const std::string& key) {
+bool Application::hasSetting(const std::string& key) {
   QString organizationName = QCoreApplication::organizationName();
   QString applicationName = QCoreApplication::applicationName();
   QSettings settings(organizationName, applicationName);
   return settings.contains(toQString(key));
 }
 
-void ApplicationSingleton::removeSetting(const std::string& key) {
+void Application::removeSetting(const std::string& key) {
   QString organizationName = QCoreApplication::organizationName();
   QString applicationName = QCoreApplication::applicationName();
   QSettings settings(organizationName, applicationName);
   settings.remove(toQString(key));
 }
 
-bool ApplicationSingleton::isDefaultInstance() const {
+bool Application::isDefaultInstance() const {
   return m_defaultInstance;
 }
 
-boost::optional<bool> ApplicationSingleton::getSettingValueAsBool(const std::string& key) {
+boost::optional<bool> Application::getSettingValueAsBool(const std::string& key) {
   boost::optional<bool> result;
 
   QString organizationName = QCoreApplication::organizationName();
@@ -196,7 +201,7 @@ boost::optional<bool> ApplicationSingleton::getSettingValueAsBool(const std::str
   return result;
 }
 
-boost::optional<int> ApplicationSingleton::getSettingValueAsInt(const std::string& key) {
+boost::optional<int> Application::getSettingValueAsInt(const std::string& key) {
   boost::optional<int> result;
 
   QString organizationName = QCoreApplication::organizationName();
@@ -217,7 +222,7 @@ boost::optional<int> ApplicationSingleton::getSettingValueAsInt(const std::strin
   return result;
 }
 
-boost::optional<double> ApplicationSingleton::getSettingValueAsDouble(const std::string& key) {
+boost::optional<double> Application::getSettingValueAsDouble(const std::string& key) {
   boost::optional<double> result;
 
   QString organizationName = QCoreApplication::organizationName();
@@ -238,7 +243,7 @@ boost::optional<double> ApplicationSingleton::getSettingValueAsDouble(const std:
   return result;
 }
 
-boost::optional<std::string> ApplicationSingleton::getSettingValueAsString(const std::string& key) {
+boost::optional<std::string> Application::getSettingValueAsString(const std::string& key) {
   boost::optional<std::string> result;
 
   QString organizationName = QCoreApplication::organizationName();
@@ -259,28 +264,28 @@ boost::optional<std::string> ApplicationSingleton::getSettingValueAsString(const
   return result;
 }
 
-void ApplicationSingleton::setSettingValue(const std::string& key, bool value) {
+void Application::setSettingValue(const std::string& key, bool value) {
   QString organizationName = QCoreApplication::organizationName();
   QString applicationName = QCoreApplication::applicationName();
   QSettings settings(organizationName, applicationName);
   settings.setValue(toQString(key), QVariant::fromValue(value));
 }
 
-void ApplicationSingleton::setSettingValue(const std::string& key, int value) {
+void Application::setSettingValue(const std::string& key, int value) {
   QString organizationName = QCoreApplication::organizationName();
   QString applicationName = QCoreApplication::applicationName();
   QSettings settings(organizationName, applicationName);
   settings.setValue(toQString(key), QVariant::fromValue(value));
 }
 
-void ApplicationSingleton::setSettingValue(const std::string& key, double value) {
+void Application::setSettingValue(const std::string& key, double value) {
   QString organizationName = QCoreApplication::organizationName();
   QString applicationName = QCoreApplication::applicationName();
   QSettings settings(organizationName, applicationName);
   settings.setValue(toQString(key), QVariant::fromValue(value));
 }
 
-void ApplicationSingleton::setSettingValue(const std::string& key, const std::string& value) {
+void Application::setSettingValue(const std::string& key, const std::string& value) {
   QString organizationName = QCoreApplication::organizationName();
   QString applicationName = QCoreApplication::applicationName();
   QSettings settings(organizationName, applicationName);
