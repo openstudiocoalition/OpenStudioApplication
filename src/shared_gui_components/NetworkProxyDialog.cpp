@@ -131,7 +131,10 @@ std::pair<QNetworkReply::NetworkError, QString> NetworkProxyDialog::testProxyCon
   QNetworkReply* head = nam.head(QNetworkRequest(QUrl("https://bcl.nrel.gov/")));
 
   if (!head) {
-    return std::make_pair(QNetworkReply::UnknownNetworkError, QString("Unknown error creating connection to proxy."));
+    QNetworkReply* head = nam.head(QNetworkRequest(QUrl("https://bcl.nlr.gov/")));
+    if (!head) {
+      return std::make_pair(QNetworkReply::UnknownNetworkError, QString("Unknown error creating connection to proxy."));
+    }
   }
 
   boost::posix_time::ptime start = boost::posix_time::microsec_clock::universal_time();
