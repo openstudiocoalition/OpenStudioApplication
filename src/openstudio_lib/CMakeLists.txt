@@ -278,6 +278,10 @@ set(${target_name}_SRC
   ServiceWaterScene.hpp
   SimSettingsTabController.cpp
   SimSettingsTabController.hpp
+  SiteGroundTemperatureController.cpp
+  SiteGroundTemperatureController.hpp
+  SiteGroundTemperatureWidget.cpp
+  SiteGroundTemperatureWidget.hpp
   SimSettingsTabView.cpp
   SimSettingsTabView.hpp
   SimSettingsView.cpp
@@ -635,6 +639,8 @@ set(${target_name}_moc
   SimSettingsTabController.hpp
   SimSettingsTabView.hpp
   SimSettingsView.hpp
+  SiteGroundTemperatureController.hpp
+  SiteGroundTemperatureWidget.hpp
   SpaceLoadInstancesWidget.hpp
   SpacesDaylightingGridView.hpp
   SpacesInteriorPartitionsGridView.hpp

@@ -7,6 +7,8 @@
 
 #include "LifeCycleCostsTabView.hpp"
 #include "LocationTabView.hpp"
+#include "SiteGroundTemperatureController.hpp"
+#include "SiteGroundTemperatureWidget.hpp"
 #include "UtilityBillsView.hpp"
 #include "UtilityBillsController.hpp"
 
@@ -29,6 +31,7 @@ LocationTabController::LocationTabController(bool isIP, const model::Model& mode
   mainContentWidget()->addSubTab(tr("Weather File && Design Days"), WEATHER_FILE);
   mainContentWidget()->addSubTab(tr("Life Cycle Costs"), LIFE_CYCLE_COSTS);
   mainContentWidget()->addSubTab(tr("Utility Bills"), UTILITY_BILLS);
+  mainContentWidget()->addSubTab(tr("Ground Temperatures"), GROUND_TEMPERATURES);
 
   // setSubTab(0);
   auto* locationView = new LocationView(m_isIP, m_model, m_modelTempDir);
@@ -98,6 +101,12 @@ void LocationTabController::setSubTab(int index) {
         this->mainContentWidget()->setSubTab(label);
         m_currentView = label;
       }
+      break;
+    }
+    case 3: {
+      auto* groundTemperaturesController = new SiteGroundTemperatureController(m_model);
+      this->mainContentWidget()->setSubTab(groundTemperaturesController->subTabView());
+      m_currentView = groundTemperaturesController->subTabView();
       break;
     }
     default:
