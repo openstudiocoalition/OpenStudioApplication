@@ -38,6 +38,7 @@ LocationTabController::LocationTabController(bool isIP, const model::Model& mode
   this->mainContentWidget()->setSubTab(locationView);
   m_currentView = locationView;
 
+  connect(this, &LocationTabController::toggleUnitsClicked, this, [this](bool isIP) { m_isIP = isIP; });
   connect(this->mainContentWidget(), &MainTabView::tabSelected, this, &LocationTabController::setSubTab);
 }
 
@@ -103,10 +104,10 @@ void LocationTabController::setSubTab(int index) {
       break;
     }
     case 3: {
-      auto* view = new GroundTemperatureView(m_isIP, m_model);
-      connect(this, &LocationTabController::toggleUnitsClicked, view, &GroundTemperatureView::toggleUnitsClicked);
-      this->mainContentWidget()->setSubTab(view);
-      m_currentView = view;
+      auto* gtView = new GroundTemperatureView(m_isIP, m_model);
+      connect(this, &LocationTabController::toggleUnitsClicked, gtView, &GroundTemperatureView::toggleUnitsClicked);
+      this->mainContentWidget()->setSubTab(gtView);
+      m_currentView = gtView;
       break;
     }
     default:
