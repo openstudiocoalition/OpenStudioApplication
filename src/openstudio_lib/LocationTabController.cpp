@@ -7,8 +7,7 @@
 
 #include "LifeCycleCostsTabView.hpp"
 #include "LocationTabView.hpp"
-#include "SiteGroundTemperatureController.hpp"
-#include "SiteGroundTemperatureMonthlyWidget.hpp"
+#include "GroundTemperatureWidget.hpp"
 #include "UtilityBillsView.hpp"
 #include "UtilityBillsController.hpp"
 
@@ -104,10 +103,10 @@ void LocationTabController::setSubTab(int index) {
       break;
     }
     case 3: {
-      auto* groundTemperaturesController = new SiteGroundTemperatureController(m_isIP, m_model);
-      connect(this, &LocationTabController::toggleUnitsClicked, groundTemperaturesController, &SiteGroundTemperatureController::toggleUnitsClicked);
-      this->mainContentWidget()->setSubTab(groundTemperaturesController->subTabView());
-      m_currentView = groundTemperaturesController->subTabView();
+      auto* view = new GroundTemperatureView(m_isIP, m_model);
+      connect(this, &LocationTabController::toggleUnitsClicked, view, &GroundTemperatureView::toggleUnitsClicked);
+      this->mainContentWidget()->setSubTab(view);
+      m_currentView = view;
       break;
     }
     default:
