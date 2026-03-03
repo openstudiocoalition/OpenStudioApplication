@@ -92,6 +92,7 @@ class GroundTemperatureNotPresentView : public QWidget
  private:
   QLabel* m_label = nullptr;
   QPushButton* m_addButton = nullptr;
+  QPushButton* m_importFromEPWButton = nullptr;
   GroundTempType m_type = GroundTempType::BuildingSurface;
   model::Model m_model;
 };

@@ -5,9 +5,16 @@
 
 #include "GroundTemperatureView.hpp"
 
+#include "OSAppBase.hpp"
+#include "OSDocument.hpp"
+#include "../model_editor/Utilities.hpp"
+
 #include <openstudio/model/SiteGroundTemperatureBuildingSurface_Impl.hpp>
 #include <openstudio/model/SiteGroundTemperatureShallow_Impl.hpp>
 #include <openstudio/model/SiteGroundTemperatureDeep_Impl.hpp>
+#include <openstudio/model/WeatherFile.hpp>
+#include <openstudio/utilities/filetypes/EpwFile.hpp>
+#include <openstudio/utilities/core/PathHelpers.hpp>
 
 #include <QEvent>
 #include <QHBoxLayout>
@@ -156,6 +163,11 @@ GroundTemperatureNotPresentView::GroundTemperatureNotPresentView(QWidget* parent
   m_addButton->setMinimumWidth(100);
   layout->addWidget(m_addButton, 0, Qt::AlignLeft);
 
+  m_importFromEPWButton = new QPushButton(tr("Import from EPW"));
+  m_importFromEPWButton->setObjectName("StandardGrayButton");
+  m_importFromEPWButton->setEnabled(false);
+  layout->addWidget(m_importFromEPWButton, 0, Qt::AlignLeft);
+
   layout->addStretch();
 
   connect(m_addButton, &QPushButton::clicked, this, [this]() { emit addClicked(m_type); });
@@ -164,7 +176,111 @@ GroundTemperatureNotPresentView::GroundTemperatureNotPresentView(QWidget* parent
 void GroundTemperatureNotPresentView::setType(GroundTempType type, const QString& typeName, model::Model model) {
   m_type = type;
   m_model = std::move(model);
-  m_label->setText(tr("The %1 Unique ModelObject is not present in this model. Click Add to instantiate it.").arg(typeName));
+
+  disconnect(m_importFromEPWButton, &QPushButton::clicked, nullptr, nullptr);
+
+  QString label = tr("The %1 Unique ModelObject is not present in this model. Click Add to instantiate it.").arg(typeName);
+  if (type == GroundTempType::BuildingSurface) {
+    m_label->setText(label);
+    m_importFromEPWButton->setVisible(false);
+    return;
+  }
+
+  m_importFromEPWButton->setVisible(true);
+
+  boost::optional<model::WeatherFile> weatherFile_ = m_model.weatherFile();
+  if (!weatherFile_) {
+    label.append(tr(" No weather file is associated with the model, so the object will be added with default values."));
+    m_label->setText(label);
+    return;
+  }
+
+  openstudio::path filesDir;
+  {
+    auto companionFolder = toPath(OSAppBase::instance()->currentDocument()->modelTempDir());
+    // auto savePath = OSAppBase::instance()->currentDocument()->savePath();
+    // if (!savePath.isEmpty()) {
+    //  openstudio::path companionFolder = getCompanionFolder(toPath(savePath));
+    filesDir = companionFolder / toPath("resources/files/");
+  }
+
+  boost::optional<EpwFile> epwFile_ = weatherFile_->file(filesDir);
+  if (!epwFile_) {
+
+    label.append(tr(" While a weather file is associated with the model, could not locate the underlying EpwFile, so the object will be added with "
+                    "default values."));
+    m_label->setText(label);
+    return;
+  }
+
+  std::vector<EpwGroundTemperatureDepth> ground_temps = epwFile_->groundTemperatureDepths();
+  if (ground_temps.empty()) {
+    label.append(tr(" The weather file does not contain any ground temperature data, so the object will be added with default values."));
+    m_label->setText(label);
+    return;
+  }
+
+  double target_depth = -999;
+  if (type == GroundTempType::Shallow) {
+    target_depth = 0.5;
+  } else {  // GroundTempType::Deep
+    target_depth = 4.0;
+  }
+  // Now try to find the target_depth in the epw data, allowing for some tolerance since the epw spec doesn't require exact depths
+  const double tolerance = 0.1;
+  auto it = std::find_if(ground_temps.begin(), ground_temps.end(), [target_depth, tolerance](const EpwGroundTemperatureDepth& gtd) {
+    return std::abs(gtd.groundTemperatureDepth() - target_depth) < tolerance;
+  });
+  if (it == ground_temps.end()) {
+    label.append(
+      tr(" The weather file does not contain ground temperature data at the expected depth of %1 m, so the object will be added with default values.")
+        .arg(target_depth));
+    m_label->setText(label);
+    return;
+  }
+
+  label.append(tr(" The weather file contains ground temperature data at a depth of %1 m, so you can choose to import those values or add the object "
+                  "with default values.")
+                 .arg(it->groundTemperatureDepth()));
+
+  m_importFromEPWButton->setEnabled(true);
+  // Connect button to a lambda that creates the object directly and fills up the value
+  connect(m_importFromEPWButton, &QPushButton::clicked, this, [this, type, it]() {
+    if (type == GroundTempType::Shallow) {
+      auto ts = m_model.getUniqueModelObject<model::SiteGroundTemperatureShallow>();
+
+      ts.setJanuarySurfaceGroundTemperature(it->janGroundTemperature());
+      ts.setFebruarySurfaceGroundTemperature(it->febGroundTemperature());
+      ts.setMarchSurfaceGroundTemperature(it->marGroundTemperature());
+      ts.setAprilSurfaceGroundTemperature(it->aprGroundTemperature());
+      ts.setMaySurfaceGroundTemperature(it->mayGroundTemperature());
+      ts.setJuneSurfaceGroundTemperature(it->junGroundTemperature());
+      ts.setJulySurfaceGroundTemperature(it->julGroundTemperature());
+      ts.setAugustSurfaceGroundTemperature(it->augGroundTemperature());
+      ts.setSeptemberSurfaceGroundTemperature(it->sepGroundTemperature());
+      ts.setOctoberSurfaceGroundTemperature(it->octGroundTemperature());
+      ts.setNovemberSurfaceGroundTemperature(it->novGroundTemperature());
+      ts.setDecemberSurfaceGroundTemperature(it->decGroundTemperature());
+    } else {  // GroundTempType::Deep
+      auto td = m_model.getUniqueModelObject<model::SiteGroundTemperatureDeep>();
+
+      td.setJanuaryDeepGroundTemperature(it->janGroundTemperature());
+      td.setFebruaryDeepGroundTemperature(it->febGroundTemperature());
+      td.setMarchDeepGroundTemperature(it->marGroundTemperature());
+      td.setAprilDeepGroundTemperature(it->aprGroundTemperature());
+      td.setMayDeepGroundTemperature(it->mayGroundTemperature());
+      td.setJuneDeepGroundTemperature(it->junGroundTemperature());
+      td.setJulyDeepGroundTemperature(it->julGroundTemperature());
+      td.setAugustDeepGroundTemperature(it->augGroundTemperature());
+      td.setSeptemberDeepGroundTemperature(it->sepGroundTemperature());
+      td.setOctoberDeepGroundTemperature(it->octGroundTemperature());
+      td.setNovemberDeepGroundTemperature(it->novGroundTemperature());
+      td.setDecemberDeepGroundTemperature(it->decGroundTemperature());
+    }
+    emit addClicked(type);
+  });
+
+  m_label->setText(label);
 }
 
 // ─────────────────────────────────────────────────────────
