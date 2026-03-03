@@ -59,6 +59,8 @@ SiteGroundTemperatureMonthlyWidget::SiteGroundTemperatureMonthlyWidget(bool isIP
     gridLayout->addWidget(m_edits[i], i + 1, 1, Qt::AlignLeft);
   }
 
+  connect(this, &SiteGroundTemperatureMonthlyWidget::toggleUnitsClicked, this, [this](bool isIP) { m_isIP = isIP; });
+
   mainLayout->addStretch();
 }
 
