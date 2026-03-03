@@ -7,7 +7,7 @@
 
 #include "LifeCycleCostsTabView.hpp"
 #include "LocationTabView.hpp"
-#include "GroundTemperatureWidget.hpp"
+#include "GroundTemperatureView.hpp"
 #include "UtilityBillsView.hpp"
 #include "UtilityBillsController.hpp"
 

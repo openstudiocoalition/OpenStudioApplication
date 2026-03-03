@@ -3,25 +3,20 @@
 *  See also https://openstudiocoalition.org/about/software_license/
 ***********************************************************************************************************************/
 
-#ifndef OPENSTUDIO_GROUNDTEMPERATUREWIDGET_HPP
-#define OPENSTUDIO_GROUNDTEMPERATUREWIDGET_HPP
+#ifndef OPENSTUDIO_GROUNDTEMPERATUREVIEW_HPP
+#define OPENSTUDIO_GROUNDTEMPERATUREVIEW_HPP
+
+#include "GroundTemperatureMonthlyInspectorView.hpp"
 
 #include <openstudio/model/Model.hpp>
-#include <openstudio/model/ModelObject.hpp>
-#include <openstudio/model/SiteGroundTemperatureBuildingSurface.hpp>
-#include <openstudio/model/SiteGroundTemperatureShallow.hpp>
 
 #include <QWidget>
-
-#include <array>
 
 class QLabel;
 class QPushButton;
 class QStackedWidget;
 
 namespace openstudio {
-
-class OSQuantityEdit2;
 
 enum class GroundTempType
 {
@@ -30,12 +25,12 @@ enum class GroundTempType
 };
 
 /** A single clickable entry in the left-hand list (ScheduleTabDefault style). */
-class SiteGroundTemperatureEntry : public QWidget
+class GroundTemperatureEntry : public QWidget
 {
   Q_OBJECT
 
  public:
-  explicit SiteGroundTemperatureEntry(const QString& label, QWidget* parent = nullptr);
+  explicit GroundTemperatureEntry(const QString& label, QWidget* parent = nullptr);
 
   void setSelected(bool selected);
 
@@ -56,7 +51,7 @@ class SiteGroundTemperatureEntry : public QWidget
   QLabel* m_label = nullptr;
 };
 
-/** Left-hand list: two SiteGroundTemperatureEntry items. */
+/** Left-hand list: one entry per ground-temperature type. */
 class GroundTemperatureListView : public QWidget
 {
   Q_OBJECT
@@ -74,11 +69,11 @@ class GroundTemperatureListView : public QWidget
   void onShallowClicked();
 
  private:
-  SiteGroundTemperatureEntry* m_bsEntry = nullptr;
-  SiteGroundTemperatureEntry* m_shEntry = nullptr;
+  GroundTemperatureEntry* m_bsEntry = nullptr;
+  GroundTemperatureEntry* m_shEntry = nullptr;
 };
 
-/** "Not present" right pane: message label + Add button. */
+/** Right pane shown when the selected object is not yet in the model. */
 class GroundTemperatureNotPresentView : public QWidget
 {
   Q_OBJECT
@@ -96,55 +91,6 @@ class GroundTemperatureNotPresentView : public QWidget
   QPushButton* m_addButton = nullptr;
   GroundTempType m_type = GroundTempType::BuildingSurface;
   model::Model m_model;
-};
-
-/** Abstract base for widgets showing 12 monthly temperature fields. */
-class SiteGroundTemperatureMonthlyWidget : public QWidget
-{
-  Q_OBJECT
-
- public:
-  explicit SiteGroundTemperatureMonthlyWidget(bool isIP, QWidget* parent = nullptr);
-  virtual ~SiteGroundTemperatureMonthlyWidget() = default;
-
-  virtual void attach(const model::ModelObject& obj) = 0;
-  void detach();
-
- signals:
-  void toggleUnitsClicked(bool displayIP);
-
- protected:
-  bool m_isIP;
-  QLabel* m_titleLabel = nullptr;
-  std::array<OSQuantityEdit2*, 12> m_edits{};
-};
-
-/** Concrete: Site:GroundTemperature:BuildingSurface */
-class SiteGroundTemperatureBuildingSurfaceWidget : public SiteGroundTemperatureMonthlyWidget
-{
-  Q_OBJECT
-
- public:
-  explicit SiteGroundTemperatureBuildingSurfaceWidget(bool isIP, QWidget* parent = nullptr);
-
-  void attach(const model::ModelObject& obj) override;
-
- private:
-  boost::optional<model::SiteGroundTemperatureBuildingSurface> m_obj;
-};
-
-/** Concrete: Site:GroundTemperature:Shallow */
-class SiteGroundTemperatureShallowWidget : public SiteGroundTemperatureMonthlyWidget
-{
-  Q_OBJECT
-
- public:
-  explicit SiteGroundTemperatureShallowWidget(bool isIP, QWidget* parent = nullptr);
-
-  void attach(const model::ModelObject& obj) override;
-
- private:
-  boost::optional<model::SiteGroundTemperatureShallow> m_obj;
 };
 
 /** Top-level widget for the Ground Temperatures sub-tab. */
@@ -174,4 +120,4 @@ class GroundTemperatureView : public QWidget
 
 }  // namespace openstudio
 
-#endif  // OPENSTUDIO_GROUNDTEMPERATUREWIDGET_HPP
+#endif  // OPENSTUDIO_GROUNDTEMPERATUREVIEW_HPP
