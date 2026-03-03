@@ -140,6 +140,7 @@ GroundTemperatureNotPresentView::GroundTemperatureNotPresentView(QWidget* parent
 
   m_addButton = new QPushButton(tr("Add"));
   m_addButton->setObjectName("StandardBlueButton");
+  m_addButton->setMinimumWidth(100);
   layout->addWidget(m_addButton, 0, Qt::AlignLeft);
 
   layout->addStretch();
@@ -149,8 +150,8 @@ GroundTemperatureNotPresentView::GroundTemperatureNotPresentView(QWidget* parent
 
 void GroundTemperatureNotPresentView::setType(GroundTempType type, const QString& typeName, model::Model model) {
   m_type = type;
-  m_model = model;
-  m_label->setText(tr("The %1 object is not present in this model. Click Add to create it.").arg(typeName));
+  m_model = std::move(model);
+  m_label->setText(tr("The %1 Unique ModelObject is not present in this model. Click Add to instantiate it.").arg(typeName));
 }
 
 // ─────────────────────────────────────────────────────────
@@ -158,14 +159,16 @@ void GroundTemperatureNotPresentView::setType(GroundTempType type, const QString
 // ─────────────────────────────────────────────────────────
 
 GroundTemperatureView::GroundTemperatureView(bool isIP, const model::Model& model, QWidget* parent) : QWidget(parent), m_model(model), m_isIP(isIP) {
+  setObjectName("GrayWidgetWithLeftTopBorders");
+
   auto* mainLayout = new QHBoxLayout();
-  mainLayout->setContentsMargins(0, 0, 0, 0);
+  mainLayout->setContentsMargins(1, 1, 0, 0);
   mainLayout->setSpacing(0);
   setLayout(mainLayout);
 
-  // Left pane (fixed width)
+  // Left pane (sizes to content; right stack takes remaining space via stretch=1)
   auto* leftPane = new QWidget();
-  leftPane->setFixedWidth(200);
+  leftPane->setFixedWidth(250);
   auto* leftLayout = new QVBoxLayout();
   leftLayout->setContentsMargins(0, 0, 0, 0);
   leftLayout->setSpacing(0);
@@ -176,6 +179,13 @@ GroundTemperatureView::GroundTemperatureView(bool isIP, const model::Model& mode
   leftLayout->addStretch();
 
   mainLayout->addWidget(leftPane);
+
+  // Vertical separator (matches Schedules tab style)
+  auto* vLine = new QWidget();
+  vLine->setObjectName("VLine");
+  vLine->setStyleSheet("QWidget#VLine { background: #445051;}");
+  vLine->setFixedWidth(2);
+  mainLayout->addWidget(vLine);
 
   // Right pane: stacked widget
   m_rightStack = new QStackedWidget();
