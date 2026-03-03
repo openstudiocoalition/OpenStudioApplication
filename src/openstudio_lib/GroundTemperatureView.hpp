@@ -21,7 +21,8 @@ namespace openstudio {
 enum class GroundTempType
 {
   BuildingSurface,
-  Shallow
+  Shallow,
+  Deep
 };
 
 /** A single clickable entry in the left-hand list (ScheduleTabDefault style). */
@@ -67,10 +68,12 @@ class GroundTemperatureListView : public QWidget
  private slots:
   void onBuildingSurfaceClicked();
   void onShallowClicked();
+  void onDeepClicked();
 
  private:
   GroundTemperatureEntry* m_bsEntry = nullptr;
   GroundTemperatureEntry* m_shEntry = nullptr;
+  GroundTemperatureEntry* m_deepEntry = nullptr;
 };
 
 /** Right pane shown when the selected object is not yet in the model. */
@@ -115,6 +118,7 @@ class GroundTemperatureView : public QWidget
   GroundTemperatureNotPresentView* m_notPresentView = nullptr;
   SiteGroundTemperatureBuildingSurfaceWidget* m_bsView = nullptr;
   SiteGroundTemperatureShallowWidget* m_shView = nullptr;
+  SiteGroundTemperatureDeepWidget* m_deepView = nullptr;
   QStackedWidget* m_rightStack = nullptr;
 };
 

@@ -11,6 +11,7 @@
 
 #include <openstudio/model/SiteGroundTemperatureBuildingSurface_Impl.hpp>
 #include <openstudio/model/SiteGroundTemperatureShallow_Impl.hpp>
+#include <openstudio/model/SiteGroundTemperatureDeep_Impl.hpp>
 
 #include <QGridLayout>
 #include <QLabel>
@@ -92,22 +93,78 @@ void SiteGroundTemperatureBuildingSurfaceWidget::attach(const model::ModelObject
   };
 
   static const std::array<MonthBinding, 12> month_binders{{
-    {&BS::januaryGroundTemperature, &BS::setJanuaryGroundTemperature, &BS::resetJanuaryGroundTemperature, &BS::isJanuaryGroundTemperatureDefaulted},
-    {&BS::februaryGroundTemperature, &BS::setFebruaryGroundTemperature, &BS::resetFebruaryGroundTemperature,
-     &BS::isFebruaryGroundTemperatureDefaulted},
-    {&BS::marchGroundTemperature, &BS::setMarchGroundTemperature, &BS::resetMarchGroundTemperature, &BS::isMarchGroundTemperatureDefaulted},
-    {&BS::aprilGroundTemperature, &BS::setAprilGroundTemperature, &BS::resetAprilGroundTemperature, &BS::isAprilGroundTemperatureDefaulted},
-    {&BS::mayGroundTemperature, &BS::setMayGroundTemperature, &BS::resetMayGroundTemperature, &BS::isMayGroundTemperatureDefaulted},
-    {&BS::juneGroundTemperature, &BS::setJuneGroundTemperature, &BS::resetJuneGroundTemperature, &BS::isJuneGroundTemperatureDefaulted},
-    {&BS::julyGroundTemperature, &BS::setJulyGroundTemperature, &BS::resetJulyGroundTemperature, &BS::isJulyGroundTemperatureDefaulted},
-    {&BS::augustGroundTemperature, &BS::setAugustGroundTemperature, &BS::resetAugustGroundTemperature, &BS::isAugustGroundTemperatureDefaulted},
-    {&BS::septemberGroundTemperature, &BS::setSeptemberGroundTemperature, &BS::resetSeptemberGroundTemperature,
-     &BS::isSeptemberGroundTemperatureDefaulted},
-    {&BS::octoberGroundTemperature, &BS::setOctoberGroundTemperature, &BS::resetOctoberGroundTemperature, &BS::isOctoberGroundTemperatureDefaulted},
-    {&BS::novemberGroundTemperature, &BS::setNovemberGroundTemperature, &BS::resetNovemberGroundTemperature,
-     &BS::isNovemberGroundTemperatureDefaulted},
-    {&BS::decemberGroundTemperature, &BS::setDecemberGroundTemperature, &BS::resetDecemberGroundTemperature,
-     &BS::isDecemberGroundTemperatureDefaulted},
+    {
+      &BS::januaryGroundTemperature,
+      &BS::setJanuaryGroundTemperature,
+      &BS::resetJanuaryGroundTemperature,
+      &BS::isJanuaryGroundTemperatureDefaulted,
+    },
+    {
+      &BS::februaryGroundTemperature,
+      &BS::setFebruaryGroundTemperature,
+      &BS::resetFebruaryGroundTemperature,
+      &BS::isFebruaryGroundTemperatureDefaulted,
+    },
+    {
+      &BS::marchGroundTemperature,
+      &BS::setMarchGroundTemperature,
+      &BS::resetMarchGroundTemperature,
+      &BS::isMarchGroundTemperatureDefaulted,
+    },
+    {
+      &BS::aprilGroundTemperature,
+      &BS::setAprilGroundTemperature,
+      &BS::resetAprilGroundTemperature,
+      &BS::isAprilGroundTemperatureDefaulted,
+    },
+    {
+      &BS::mayGroundTemperature,
+      &BS::setMayGroundTemperature,
+      &BS::resetMayGroundTemperature,
+      &BS::isMayGroundTemperatureDefaulted,
+    },
+    {
+      &BS::juneGroundTemperature,
+      &BS::setJuneGroundTemperature,
+      &BS::resetJuneGroundTemperature,
+      &BS::isJuneGroundTemperatureDefaulted,
+    },
+    {
+      &BS::julyGroundTemperature,
+      &BS::setJulyGroundTemperature,
+      &BS::resetJulyGroundTemperature,
+      &BS::isJulyGroundTemperatureDefaulted,
+    },
+    {
+      &BS::augustGroundTemperature,
+      &BS::setAugustGroundTemperature,
+      &BS::resetAugustGroundTemperature,
+      &BS::isAugustGroundTemperatureDefaulted,
+    },
+    {
+      &BS::septemberGroundTemperature,
+      &BS::setSeptemberGroundTemperature,
+      &BS::resetSeptemberGroundTemperature,
+      &BS::isSeptemberGroundTemperatureDefaulted,
+    },
+    {
+      &BS::octoberGroundTemperature,
+      &BS::setOctoberGroundTemperature,
+      &BS::resetOctoberGroundTemperature,
+      &BS::isOctoberGroundTemperatureDefaulted,
+    },
+    {
+      &BS::novemberGroundTemperature,
+      &BS::setNovemberGroundTemperature,
+      &BS::resetNovemberGroundTemperature,
+      &BS::isNovemberGroundTemperatureDefaulted,
+    },
+    {
+      &BS::decemberGroundTemperature,
+      &BS::setDecemberGroundTemperature,
+      &BS::resetDecemberGroundTemperature,
+      &BS::isDecemberGroundTemperatureDefaulted,
+    },
   }};
 
   for (int i = 0; i < 12; ++i) {
@@ -142,30 +199,183 @@ void SiteGroundTemperatureShallowWidget::attach(const model::ModelObject& obj) {
   };
 
   static const std::array<MonthBinding, 12> month_binders{{
-    {&SH::januarySurfaceGroundTemperature, &SH::setJanuarySurfaceGroundTemperature, &SH::resetJanuarySurfaceGroundTemperature,
-     &SH::isJanuarySurfaceGroundTemperatureDefaulted},
-    {&SH::februarySurfaceGroundTemperature, &SH::setFebruarySurfaceGroundTemperature, &SH::resetFebruarySurfaceGroundTemperature,
-     &SH::isFebruarySurfaceGroundTemperatureDefaulted},
-    {&SH::marchSurfaceGroundTemperature, &SH::setMarchSurfaceGroundTemperature, &SH::resetMarchSurfaceGroundTemperature,
-     &SH::isMarchSurfaceGroundTemperatureDefaulted},
-    {&SH::aprilSurfaceGroundTemperature, &SH::setAprilSurfaceGroundTemperature, &SH::resetAprilSurfaceGroundTemperature,
-     &SH::isAprilSurfaceGroundTemperatureDefaulted},
-    {&SH::maySurfaceGroundTemperature, &SH::setMaySurfaceGroundTemperature, &SH::resetMaySurfaceGroundTemperature,
-     &SH::isMaySurfaceGroundTemperatureDefaulted},
-    {&SH::juneSurfaceGroundTemperature, &SH::setJuneSurfaceGroundTemperature, &SH::resetJuneSurfaceGroundTemperature,
-     &SH::isJuneSurfaceGroundTemperatureDefaulted},
-    {&SH::julySurfaceGroundTemperature, &SH::setJulySurfaceGroundTemperature, &SH::resetJulySurfaceGroundTemperature,
-     &SH::isJulySurfaceGroundTemperatureDefaulted},
-    {&SH::augustSurfaceGroundTemperature, &SH::setAugustSurfaceGroundTemperature, &SH::resetAugustSurfaceGroundTemperature,
-     &SH::isAugustSurfaceGroundTemperatureDefaulted},
-    {&SH::septemberSurfaceGroundTemperature, &SH::setSeptemberSurfaceGroundTemperature, &SH::resetSeptemberSurfaceGroundTemperature,
-     &SH::isSeptemberSurfaceGroundTemperatureDefaulted},
-    {&SH::octoberSurfaceGroundTemperature, &SH::setOctoberSurfaceGroundTemperature, &SH::resetOctoberSurfaceGroundTemperature,
-     &SH::isOctoberSurfaceGroundTemperatureDefaulted},
-    {&SH::novemberSurfaceGroundTemperature, &SH::setNovemberSurfaceGroundTemperature, &SH::resetNovemberSurfaceGroundTemperature,
-     &SH::isNovemberSurfaceGroundTemperatureDefaulted},
-    {&SH::decemberSurfaceGroundTemperature, &SH::setDecemberSurfaceGroundTemperature, &SH::resetDecemberSurfaceGroundTemperature,
-     &SH::isDecemberSurfaceGroundTemperatureDefaulted},
+    {
+      &SH::januarySurfaceGroundTemperature,
+      &SH::setJanuarySurfaceGroundTemperature,
+      &SH::resetJanuarySurfaceGroundTemperature,
+      &SH::isJanuarySurfaceGroundTemperatureDefaulted,
+    },
+    {
+      &SH::februarySurfaceGroundTemperature,
+      &SH::setFebruarySurfaceGroundTemperature,
+      &SH::resetFebruarySurfaceGroundTemperature,
+      &SH::isFebruarySurfaceGroundTemperatureDefaulted,
+    },
+    {
+      &SH::marchSurfaceGroundTemperature,
+      &SH::setMarchSurfaceGroundTemperature,
+      &SH::resetMarchSurfaceGroundTemperature,
+      &SH::isMarchSurfaceGroundTemperatureDefaulted,
+    },
+    {
+      &SH::aprilSurfaceGroundTemperature,
+      &SH::setAprilSurfaceGroundTemperature,
+      &SH::resetAprilSurfaceGroundTemperature,
+      &SH::isAprilSurfaceGroundTemperatureDefaulted,
+    },
+    {
+      &SH::maySurfaceGroundTemperature,
+      &SH::setMaySurfaceGroundTemperature,
+      &SH::resetMaySurfaceGroundTemperature,
+      &SH::isMaySurfaceGroundTemperatureDefaulted,
+    },
+    {
+      &SH::juneSurfaceGroundTemperature,
+      &SH::setJuneSurfaceGroundTemperature,
+      &SH::resetJuneSurfaceGroundTemperature,
+      &SH::isJuneSurfaceGroundTemperatureDefaulted,
+    },
+    {
+      &SH::julySurfaceGroundTemperature,
+      &SH::setJulySurfaceGroundTemperature,
+      &SH::resetJulySurfaceGroundTemperature,
+      &SH::isJulySurfaceGroundTemperatureDefaulted,
+    },
+    {
+      &SH::augustSurfaceGroundTemperature,
+      &SH::setAugustSurfaceGroundTemperature,
+      &SH::resetAugustSurfaceGroundTemperature,
+      &SH::isAugustSurfaceGroundTemperatureDefaulted,
+    },
+    {
+      &SH::septemberSurfaceGroundTemperature,
+      &SH::setSeptemberSurfaceGroundTemperature,
+      &SH::resetSeptemberSurfaceGroundTemperature,
+      &SH::isSeptemberSurfaceGroundTemperatureDefaulted,
+    },
+    {
+      &SH::octoberSurfaceGroundTemperature,
+      &SH::setOctoberSurfaceGroundTemperature,
+      &SH::resetOctoberSurfaceGroundTemperature,
+      &SH::isOctoberSurfaceGroundTemperatureDefaulted,
+    },
+    {
+      &SH::novemberSurfaceGroundTemperature,
+      &SH::setNovemberSurfaceGroundTemperature,
+      &SH::resetNovemberSurfaceGroundTemperature,
+      &SH::isNovemberSurfaceGroundTemperatureDefaulted,
+    },
+    {
+      &SH::decemberSurfaceGroundTemperature,
+      &SH::setDecemberSurfaceGroundTemperature,
+      &SH::resetDecemberSurfaceGroundTemperature,
+      &SH::isDecemberSurfaceGroundTemperatureDefaulted,
+    },
+  }};
+
+  for (int i = 0; i < 12; ++i) {
+    const auto& mb = month_binders[i];
+    m_edits[i]->bind(m_isIP, *m_obj, DoubleGetter([this, g = mb.getter]() { return (m_obj.get_ptr()->*g)(); }),
+                     boost::optional<DoubleSetter>([this, s = mb.setter](double v) { return (m_obj.get_ptr()->*s)(v); }),
+                     boost::optional<NoFailAction>([this, r = mb.resetter]() { (m_obj.get_ptr()->*r)(); }), boost::none, boost::none,
+                     boost::optional<BasicQuery>([this, d = mb.defaulted]() { return (m_obj.get_ptr()->*d)(); }));
+  }
+}
+
+// ─────────────────────────────────────────────────────────
+// SiteGroundTemperatureDeepWidget
+// ─────────────────────────────────────────────────────────
+
+SiteGroundTemperatureDeepWidget::SiteGroundTemperatureDeepWidget(bool isIP, QWidget* parent) : SiteGroundTemperatureMonthlyWidget(isIP, parent) {}
+
+void SiteGroundTemperatureDeepWidget::attach(const model::ModelObject& obj) {
+  detach();
+  m_obj = obj.cast<model::SiteGroundTemperatureDeep>();
+  m_titleLabel->setText("Site:GroundTemperature:Deep");
+
+  using DW = model::SiteGroundTemperatureDeep;
+
+  struct MonthBinding
+  {
+    double (DW::*getter)() const;
+    bool (DW::*setter)(double);
+    void (DW::*resetter)();
+    bool (DW::*defaulted)() const;
+  };
+
+  static const std::array<MonthBinding, 12> month_binders{{
+    {
+      &DW::januaryDeepGroundTemperature,
+      &DW::setJanuaryDeepGroundTemperature,
+      &DW::resetJanuaryDeepGroundTemperature,
+      &DW::isJanuaryDeepGroundTemperatureDefaulted,
+    },
+    {
+      &DW::februaryDeepGroundTemperature,
+      &DW::setFebruaryDeepGroundTemperature,
+      &DW::resetFebruaryDeepGroundTemperature,
+      &DW::isFebruaryDeepGroundTemperatureDefaulted,
+    },
+    {
+      &DW::marchDeepGroundTemperature,
+      &DW::setMarchDeepGroundTemperature,
+      &DW::resetMarchDeepGroundTemperature,
+      &DW::isMarchDeepGroundTemperatureDefaulted,
+    },
+    {
+      &DW::aprilDeepGroundTemperature,
+      &DW::setAprilDeepGroundTemperature,
+      &DW::resetAprilDeepGroundTemperature,
+      &DW::isAprilDeepGroundTemperatureDefaulted,
+    },
+    {
+      &DW::mayDeepGroundTemperature,
+      &DW::setMayDeepGroundTemperature,
+      &DW::resetMayDeepGroundTemperature,
+      &DW::isMayDeepGroundTemperatureDefaulted,
+    },
+    {
+      &DW::juneDeepGroundTemperature,
+      &DW::setJuneDeepGroundTemperature,
+      &DW::resetJuneDeepGroundTemperature,
+      &DW::isJuneDeepGroundTemperatureDefaulted,
+    },
+    {
+      &DW::julyDeepGroundTemperature,
+      &DW::setJulyDeepGroundTemperature,
+      &DW::resetJulyDeepGroundTemperature,
+      &DW::isJulyDeepGroundTemperatureDefaulted,
+    },
+    {
+      &DW::augustDeepGroundTemperature,
+      &DW::setAugustDeepGroundTemperature,
+      &DW::resetAugustDeepGroundTemperature,
+      &DW::isAugustDeepGroundTemperatureDefaulted,
+    },
+    {
+      &DW::septemberDeepGroundTemperature,
+      &DW::setSeptemberDeepGroundTemperature,
+      &DW::resetSeptemberDeepGroundTemperature,
+      &DW::isSeptemberDeepGroundTemperatureDefaulted,
+    },
+    {
+      &DW::octoberDeepGroundTemperature,
+      &DW::setOctoberDeepGroundTemperature,
+      &DW::resetOctoberDeepGroundTemperature,
+      &DW::isOctoberDeepGroundTemperatureDefaulted,
+    },
+    {
+      &DW::novemberDeepGroundTemperature,
+      &DW::setNovemberDeepGroundTemperature,
+      &DW::resetNovemberDeepGroundTemperature,
+      &DW::isNovemberDeepGroundTemperatureDefaulted,
+    },
+    {
+      &DW::decemberDeepGroundTemperature,
+      &DW::setDecemberDeepGroundTemperature,
+      &DW::resetDecemberDeepGroundTemperature,
+      &DW::isDecemberDeepGroundTemperatureDefaulted,
+    },
   }};
 
   for (int i = 0; i < 12; ++i) {

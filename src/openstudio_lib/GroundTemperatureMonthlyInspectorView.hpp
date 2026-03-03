@@ -9,6 +9,7 @@
 #include <openstudio/model/ModelObject.hpp>
 #include <openstudio/model/SiteGroundTemperatureBuildingSurface.hpp>
 #include <openstudio/model/SiteGroundTemperatureShallow.hpp>
+#include <openstudio/model/SiteGroundTemperatureDeep.hpp>
 
 #include <QWidget>
 
@@ -67,6 +68,20 @@ class SiteGroundTemperatureShallowWidget : public SiteGroundTemperatureMonthlyWi
 
  private:
   boost::optional<model::SiteGroundTemperatureShallow> m_obj;
+};
+
+/** Inspector for Site:GroundTemperature:Deep — 12 monthly fields. */
+class SiteGroundTemperatureDeepWidget : public SiteGroundTemperatureMonthlyWidget
+{
+  Q_OBJECT
+
+ public:
+  explicit SiteGroundTemperatureDeepWidget(bool isIP, QWidget* parent = nullptr);
+
+  void attach(const model::ModelObject& obj) override;
+
+ private:
+  boost::optional<model::SiteGroundTemperatureDeep> m_obj;
 };
 
 }  // namespace openstudio
