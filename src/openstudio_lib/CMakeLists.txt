@@ -280,8 +280,8 @@ set(${target_name}_SRC
   SimSettingsTabController.hpp
   SiteGroundTemperatureController.cpp
   SiteGroundTemperatureController.hpp
-  SiteGroundTemperatureWidget.cpp
-  SiteGroundTemperatureWidget.hpp
+  SiteGroundTemperatureMonthlyWidget.cpp
+  SiteGroundTemperatureMonthlyWidget.hpp
   SimSettingsTabView.cpp
   SimSettingsTabView.hpp
   SimSettingsView.cpp
@@ -640,7 +640,7 @@ set(${target_name}_moc
   SimSettingsTabView.hpp
   SimSettingsView.hpp
   SiteGroundTemperatureController.hpp
-  SiteGroundTemperatureWidget.hpp
+  SiteGroundTemperatureMonthlyWidget.hpp
   SpaceLoadInstancesWidget.hpp
   SpacesDaylightingGridView.hpp
   SpacesInteriorPartitionsGridView.hpp

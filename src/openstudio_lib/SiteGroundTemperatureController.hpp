@@ -10,12 +10,16 @@
 
 namespace openstudio {
 
+/** Controller for the "Ground Temperatures" sub-tab of the Location tab.
+ *  Manages all Site:GroundTemperature:* object types and delegates to the
+ *  appropriate sub-tab view (e.g. SiteGroundTemperatureMonthlyView for objects
+ *  with 12 monthly values). */
 class SiteGroundTemperatureController : public ModelSubTabController
 {
   Q_OBJECT
 
  public:
-  explicit SiteGroundTemperatureController(const model::Model& model);
+  explicit SiteGroundTemperatureController(bool isIP, const model::Model& model);
 
   virtual ~SiteGroundTemperatureController() = default;
 
@@ -27,6 +31,9 @@ class SiteGroundTemperatureController : public ModelSubTabController
   virtual void onPurgeObjects(const openstudio::IddObjectType& iddObjectType) override;
   virtual void onDrop(const OSItemId& itemId) override;
   virtual void onInspectItem(OSItem* item) override;
+
+ private:
+  bool m_isIP;
 };
 
 }  // namespace openstudio

@@ -5,20 +5,22 @@
 
 #include "SiteGroundTemperatureController.hpp"
 
-#include "SiteGroundTemperatureWidget.hpp"
+#include "SiteGroundTemperatureMonthlyWidget.hpp"
 #include "OSItemSelectorButtons.hpp"
 
 #include <openstudio/model/Model.hpp>
 #include <openstudio/model/Model_Impl.hpp>
 #include <openstudio/model/SiteGroundTemperatureBuildingSurface.hpp>
 #include <openstudio/model/SiteGroundTemperatureBuildingSurface_Impl.hpp>
+#include <openstudio/model/SiteGroundTemperatureShallow.hpp>
+#include <openstudio/model/SiteGroundTemperatureShallow_Impl.hpp>
 
 #include <openstudio/utilities/core/Assert.hpp>
 
 namespace openstudio {
 
-SiteGroundTemperatureController::SiteGroundTemperatureController(const model::Model& model)
-  : ModelSubTabController(new SiteGroundTemperatureView(model), model) {
+SiteGroundTemperatureController::SiteGroundTemperatureController(bool isIP, const model::Model& model)
+  : ModelSubTabController(new SiteGroundTemperatureMonthlyView(isIP, model), model) {
   subTabView()->itemSelectorButtons()->hideAddButton();
   subTabView()->itemSelectorButtons()->hideRemoveButton();
   subTabView()->itemSelectorButtons()->hideCopyButton();
@@ -30,6 +32,8 @@ void SiteGroundTemperatureController::onAddObject(const openstudio::IddObjectTyp
   model::Model model = this->model();
   if (iddObjectType == model::SiteGroundTemperatureBuildingSurface::iddObjectType()) {
     model.getUniqueModelObject<model::SiteGroundTemperatureBuildingSurface>();
+  } else if (iddObjectType == model::SiteGroundTemperatureShallow::iddObjectType()) {
+    model.getUniqueModelObject<model::SiteGroundTemperatureShallow>();
   }
 }
 
