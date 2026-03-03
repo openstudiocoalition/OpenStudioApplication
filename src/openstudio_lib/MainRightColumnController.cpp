@@ -220,6 +220,44 @@ void MainRightColumnController::configureForSiteSubTab(int subTabID) {
 
   if (subTabID == 0) {
     doc->closeSidebar();
+  } else if (subTabID == 3) {  // Ground Temperatures
+    model::Model lib = doc->componentLibrary();
+
+    // my model
+    auto* myModelList = new ModelObjectTypeListView(m_model, true, OSItemType::CollapsibleListHeader, false);
+    myModelList->setItemsType(OSItemType::LibraryItem);
+    myModelList->setItemsDraggable(true);
+    myModelList->setItemsRemoveable(false);
+
+    myModelList->addModelObjectType(IddObjectType::OS_Schedule_File, "Schedule File");
+    myModelList->addModelObjectType(IddObjectType::OS_Schedule_VariableInterval, "Variable Interval Schedules");
+    myModelList->addModelObjectType(IddObjectType::OS_Schedule_FixedInterval, "Fixed Interval Schedules");
+    myModelList->addModelObjectType(IddObjectType::OS_Schedule_Year, "Year Schedules");
+    myModelList->addModelObjectType(IddObjectType::OS_Schedule_Constant, "Constant Schedules");
+    myModelList->addModelObjectType(IddObjectType::OS_Schedule_Compact, "Compact Schedules");
+    myModelList->addModelObjectType(IddObjectType::OS_Schedule_Ruleset, "Ruleset Schedules");
+    myModelList->addModelObjectCategoryPlaceholder("Schedules");
+
+    setMyModelView(myModelList);
+
+    // my library
+    auto* myLibraryList = new ModelObjectTypeListView(lib, true, OSItemType::CollapsibleListHeader, true);
+    myLibraryList->setItemsDraggable(true);
+    myLibraryList->setItemsRemoveable(false);
+    myLibraryList->setItemsType(OSItemType::LibraryItem);
+
+    myLibraryList->addModelObjectType(IddObjectType::OS_Schedule_File, "Schedule File");
+    myLibraryList->addModelObjectType(IddObjectType::OS_Schedule_VariableInterval, "Variable Interval Schedules");
+    myLibraryList->addModelObjectType(IddObjectType::OS_Schedule_FixedInterval, "Fixed Interval Schedules");
+    myLibraryList->addModelObjectType(IddObjectType::OS_Schedule_Year, "Year Schedules");
+    myLibraryList->addModelObjectType(IddObjectType::OS_Schedule_Constant, "Constant Schedules");
+    myLibraryList->addModelObjectType(IddObjectType::OS_Schedule_Compact, "Compact Schedules");
+    myLibraryList->addModelObjectType(IddObjectType::OS_Schedule_Ruleset, "Ruleset Schedules");
+    myLibraryList->addModelObjectCategoryPlaceholder("Schedules");
+
+    setLibraryView(myLibraryList);
+    doc->openSidebar();
+
   } else {
     doc->openSidebar();
   }

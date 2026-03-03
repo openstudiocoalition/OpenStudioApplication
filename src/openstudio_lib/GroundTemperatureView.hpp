@@ -7,6 +7,7 @@
 #define OPENSTUDIO_GROUNDTEMPERATUREVIEW_HPP
 
 #include "GroundTemperatureMonthlyInspectorView.hpp"
+#include "SiteWaterMainsTemperatureWidget.hpp"
 
 #include <openstudio/model/Model.hpp>
 
@@ -22,7 +23,8 @@ enum class GroundTempType
 {
   BuildingSurface,
   Shallow,
-  Deep
+  Deep,
+  WaterMains
 };
 
 /** A single clickable entry in the left-hand list (ScheduleTabDefault style). */
@@ -69,11 +71,13 @@ class GroundTemperatureListView : public QWidget
   void onBuildingSurfaceClicked();
   void onShallowClicked();
   void onDeepClicked();
+  void onWaterMainsClicked();
 
  private:
   GroundTemperatureEntry* m_bsEntry = nullptr;
   GroundTemperatureEntry* m_shEntry = nullptr;
   GroundTemperatureEntry* m_deepEntry = nullptr;
+  GroundTemperatureEntry* m_waterMainsEntry = nullptr;
 };
 
 /** Right pane shown when the selected object is not yet in the model. */
@@ -120,6 +124,7 @@ class GroundTemperatureView : public QWidget
   SiteGroundTemperatureBuildingSurfaceWidget* m_bsView = nullptr;
   SiteGroundTemperatureShallowWidget* m_shView = nullptr;
   SiteGroundTemperatureDeepWidget* m_deepView = nullptr;
+  SiteWaterMainsTemperatureWidget* m_waterMainsView = nullptr;
   QStackedWidget* m_rightStack = nullptr;
 };
 

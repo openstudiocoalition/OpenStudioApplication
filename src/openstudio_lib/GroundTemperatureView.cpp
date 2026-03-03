@@ -12,6 +12,7 @@
 #include <openstudio/model/SiteGroundTemperatureBuildingSurface_Impl.hpp>
 #include <openstudio/model/SiteGroundTemperatureShallow_Impl.hpp>
 #include <openstudio/model/SiteGroundTemperatureDeep_Impl.hpp>
+#include <openstudio/model/SiteWaterMainsTemperature.hpp>
 #include <openstudio/model/WeatherFile.hpp>
 #include <openstudio/utilities/filetypes/EpwFile.hpp>
 #include <openstudio/utilities/core/PathHelpers.hpp>
@@ -108,14 +109,17 @@ GroundTemperatureListView::GroundTemperatureListView(QWidget* parent) : QWidget(
   m_bsEntry = new GroundTemperatureEntry(tr("Building Surface Ground Temperatures"), this);
   m_shEntry = new GroundTemperatureEntry(tr("Shallow Ground Temperatures"), this);
   m_deepEntry = new GroundTemperatureEntry(tr("Deep Ground Temperatures"), this);
+  m_waterMainsEntry = new GroundTemperatureEntry(tr("Water Mains Temperature"), this);
 
   connect(m_bsEntry, &GroundTemperatureEntry::clicked, this, &GroundTemperatureListView::onBuildingSurfaceClicked);
   connect(m_shEntry, &GroundTemperatureEntry::clicked, this, &GroundTemperatureListView::onShallowClicked);
   connect(m_deepEntry, &GroundTemperatureEntry::clicked, this, &GroundTemperatureListView::onDeepClicked);
+  connect(m_waterMainsEntry, &GroundTemperatureEntry::clicked, this, &GroundTemperatureListView::onWaterMainsClicked);
 
   layout->addWidget(m_bsEntry);
   layout->addWidget(m_shEntry);
   layout->addWidget(m_deepEntry);
+  layout->addWidget(m_waterMainsEntry);
   layout->addStretch();
 }
 
@@ -127,6 +131,7 @@ void GroundTemperatureListView::onBuildingSurfaceClicked() {
   m_bsEntry->setSelected(true);
   m_shEntry->setSelected(false);
   m_deepEntry->setSelected(false);
+  m_waterMainsEntry->setSelected(false);
   emit typeSelected(GroundTempType::BuildingSurface);
 }
 
@@ -134,6 +139,7 @@ void GroundTemperatureListView::onShallowClicked() {
   m_bsEntry->setSelected(false);
   m_shEntry->setSelected(true);
   m_deepEntry->setSelected(false);
+  m_waterMainsEntry->setSelected(false);
   emit typeSelected(GroundTempType::Shallow);
 }
 
@@ -141,7 +147,16 @@ void GroundTemperatureListView::onDeepClicked() {
   m_bsEntry->setSelected(false);
   m_shEntry->setSelected(false);
   m_deepEntry->setSelected(true);
+  m_waterMainsEntry->setSelected(false);
   emit typeSelected(GroundTempType::Deep);
+}
+
+void GroundTemperatureListView::onWaterMainsClicked() {
+  m_bsEntry->setSelected(false);
+  m_shEntry->setSelected(false);
+  m_deepEntry->setSelected(false);
+  m_waterMainsEntry->setSelected(true);
+  emit typeSelected(GroundTempType::WaterMains);
 }
 
 // ─────────────────────────────────────────────────────────
@@ -180,7 +195,7 @@ void GroundTemperatureNotPresentView::setType(GroundTempType type, const QString
   disconnect(m_importFromEPWButton, &QPushButton::clicked, nullptr, nullptr);
 
   QString label = tr("The %1 Unique ModelObject is not present in this model. Click Add to instantiate it.").arg(typeName);
-  if (type == GroundTempType::BuildingSurface) {
+  if (type == GroundTempType::BuildingSurface || type == GroundTempType::WaterMains) {
     m_label->setText(label);
     m_importFromEPWButton->setVisible(false);
     return;
@@ -332,6 +347,9 @@ GroundTemperatureView::GroundTemperatureView(bool isIP, const model::Model& mode
   m_deepView = new SiteGroundTemperatureDeepWidget(isIP);
   m_rightStack->addWidget(m_deepView);  // index 3
 
+  m_waterMainsView = new SiteWaterMainsTemperatureWidget(isIP);
+  m_rightStack->addWidget(m_waterMainsView);  // index 4
+
   connect(m_listView, &GroundTemperatureListView::typeSelected, this, &GroundTemperatureView::onTypeSelected);
   connect(m_notPresentView, &GroundTemperatureNotPresentView::addClicked, this, &GroundTemperatureView::onObjectCreated);
 
@@ -339,6 +357,7 @@ GroundTemperatureView::GroundTemperatureView(bool isIP, const model::Model& mode
   connect(this, &GroundTemperatureView::toggleUnitsClicked, m_bsView, &SiteGroundTemperatureBuildingSurfaceWidget::toggleUnitsClicked);
   connect(this, &GroundTemperatureView::toggleUnitsClicked, m_shView, &SiteGroundTemperatureShallowWidget::toggleUnitsClicked);
   connect(this, &GroundTemperatureView::toggleUnitsClicked, m_deepView, &SiteGroundTemperatureDeepWidget::toggleUnitsClicked);
+  connect(this, &GroundTemperatureView::toggleUnitsClicked, m_waterMainsView, &SiteWaterMainsTemperatureWidget::toggleUnitsClicked);
 
   // Auto-select first entry after the event loop starts
   QTimer::singleShot(0, this, [this]() { m_listView->selectFirst(); });
@@ -363,13 +382,22 @@ void GroundTemperatureView::onTypeSelected(GroundTempType type) {
       m_notPresentView->setType(type, tr("Site:GroundTemperature:Shallow"), m_model);
       m_rightStack->setCurrentIndex(0);
     }
-  } else {
+  } else if (type == GroundTempType::Deep) {
     auto opt = m_model.getOptionalUniqueModelObject<model::SiteGroundTemperatureDeep>();
     if (opt) {
       m_deepView->attach(*opt);
       m_rightStack->setCurrentIndex(3);
     } else {
       m_notPresentView->setType(type, tr("Site:GroundTemperature:Deep"), m_model);
+      m_rightStack->setCurrentIndex(0);
+    }
+  } else {
+    auto opt = m_model.siteWaterMainsTemperature();
+    if (opt) {
+      m_waterMainsView->attach(*opt);
+      m_rightStack->setCurrentIndex(4);
+    } else {
+      m_notPresentView->setType(type, tr("OS:Site:WaterMainsTemperature"), m_model);
       m_rightStack->setCurrentIndex(0);
     }
   }
@@ -384,10 +412,14 @@ void GroundTemperatureView::onObjectCreated(GroundTempType type) {
     auto obj = m_model.getUniqueModelObject<model::SiteGroundTemperatureShallow>();
     m_shView->attach(obj);
     m_rightStack->setCurrentIndex(2);
-  } else {
+  } else if (type == GroundTempType::Deep) {
     auto obj = m_model.getUniqueModelObject<model::SiteGroundTemperatureDeep>();
     m_deepView->attach(obj);
     m_rightStack->setCurrentIndex(3);
+  } else {
+    auto obj = m_model.getUniqueModelObject<model::SiteWaterMainsTemperature>();
+    m_waterMainsView->attach(obj);
+    m_rightStack->setCurrentIndex(4);
   }
 }
 
