@@ -278,6 +278,8 @@ set(${target_name}_SRC
   ServiceWaterScene.hpp
   SimSettingsTabController.cpp
   SimSettingsTabController.hpp
+  FoundationKivaSettingsWidget.cpp
+  FoundationKivaSettingsWidget.hpp
   GroundTemperatureMonthlyInspectorView.cpp
   GroundTemperatureMonthlyInspectorView.hpp
   GroundTemperatureView.cpp
@@ -639,6 +641,7 @@ set(${target_name}_moc
   SimSettingsTabController.hpp
   SimSettingsTabView.hpp
   SimSettingsView.hpp
+  FoundationKivaSettingsWidget.hpp
   GroundTemperatureMonthlyInspectorView.hpp
   GroundTemperatureView.hpp
   SpaceLoadInstancesWidget.hpp
