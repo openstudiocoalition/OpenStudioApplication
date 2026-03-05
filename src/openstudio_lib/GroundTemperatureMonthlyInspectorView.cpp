@@ -199,6 +199,8 @@ SiteGroundTemperatureMonthlyWidget::SiteGroundTemperatureMonthlyWidget(bool isIP
 
   auto* chartView = new QChartView(chart);
   chartView->setRenderHint(QPainter::Antialiasing);
+  // Suppress spurious "no target window" touch-event warnings on macOS (Qt 6 / QChartView bug)
+  chartView->viewport()->setAttribute(Qt::WA_AcceptTouchEvents, false);
   chartView->setMinimumHeight(220);
   chartView->setSizePolicy(QSizePolicy::Expanding, QSizePolicy::Expanding);
   mainLayout->addWidget(chartView, 1);
