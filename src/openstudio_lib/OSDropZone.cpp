@@ -561,10 +561,6 @@ bool OSDropZone2::deleteObject() const {
   return m_deleteObject;
 }
 
-void OSDropZone2::setPlaceholderText(const QString& text) {
-  m_placeholderText = text;
-}
-
 void OSDropZone2::refresh() {
 
   boost::optional<model::ModelObject> getterResult = updateGetterResult();
@@ -586,8 +582,8 @@ void OSDropZone2::refresh() {
     //setFixedWidth(width + 10);
   } else {
 
-    if (m_label->text() != m_placeholderText) {
-      m_label->setText(m_placeholderText);
+    if (!m_label->text().isEmpty()) {
+      m_label->setText("");
       m_label->setToolTip("");
     }
   }

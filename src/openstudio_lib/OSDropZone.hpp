@@ -57,7 +57,6 @@ class OSDropZone2
   void setLocked(bool locked);
   void setDeleteObject(bool deleteObject);
   bool deleteObject() const;
-  void setPlaceholderText(const QString& text);
 
   void bind(const model::ModelObject& modelObject, OptionalModelObjectGetter get, ModelObjectSetter set,
             boost::optional<NoFailAction> reset = boost::none, boost::optional<ModelObjectIsDefaulted> isDefaulted = boost::none,
@@ -120,7 +119,6 @@ class OSDropZone2
   OSItem* m_item = nullptr;
   bool m_deleteObject = false;
   QLabel* m_label;
-  QString m_placeholderText;
 };
 
 class OSDropZone
