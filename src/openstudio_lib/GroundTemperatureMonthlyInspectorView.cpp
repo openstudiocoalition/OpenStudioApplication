@@ -125,7 +125,7 @@ SiteGroundTemperatureMonthlyWidget::SiteGroundTemperatureMonthlyWidget(bool isIP
     if (isIP) {
       m_constantValueEdit->setRange(-148.0, 212.0);
       m_constantValueEdit->setSuffix(tr(" °F"));
-      m_constantValueEdit->setValue(val * 9.0 / 5.0 + 32.0);
+      m_constantValueEdit->setValue((val * 9.0 / 5.0) + 32.0);
     } else {
       m_constantValueEdit->setRange(-100.0, 100.0);
       m_constantValueEdit->setSuffix(tr(" °C"));
@@ -153,9 +153,11 @@ SiteGroundTemperatureMonthlyWidget::SiteGroundTemperatureMonthlyWidget(bool isIP
   const QStringList monthAbbrevs = {"Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"};
   auto* axisX = new QBarCategoryAxis;
   axisX->append(monthAbbrevs);
+  axisX->setGridLineVisible(false);
 
   m_chartYAxis = new QValueAxis;
   m_chartYAxis->setTitleText(isIP ? tr("Temperature [°F]") : tr("Temperature [°C]"));
+  m_chartYAxis->setGridLineVisible(false);
 
   // Zero line — uses a hidden numeric x axis so it can span the bar range
   auto* hiddenXAxis = new QValueAxis;
