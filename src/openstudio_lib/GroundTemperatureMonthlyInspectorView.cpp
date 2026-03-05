@@ -144,6 +144,10 @@ void SiteGroundTemperatureBuildingSurfaceWidget::attach(const model::ModelObject
                      boost::optional<NoFailAction>([this, r = mb.resetter]() { (m_obj.get_ptr()->*r)(); }), boost::none, boost::none,
                      boost::optional<BasicQuery>([this, d = mb.defaulted]() { return (m_obj.get_ptr()->*d)(); }));
   }
+
+  // Default value is the January one
+  const double januaryCelsius = (m_obj.get_ptr()->*s_monthBinders[0].getter)();
+  m_constantValueEdit->setValue(m_isIP ? januaryCelsius * 9.0 / 5.0 + 32.0 : januaryCelsius);
 }
 
 void SiteGroundTemperatureBuildingSurfaceWidget::applyConstantValue(double celsius) {
@@ -174,6 +178,9 @@ void SiteGroundTemperatureShallowWidget::attach(const model::ModelObject& obj) {
                      boost::optional<NoFailAction>([this, r = mb.resetter]() { (m_obj.get_ptr()->*r)(); }), boost::none, boost::none,
                      boost::optional<BasicQuery>([this, d = mb.defaulted]() { return (m_obj.get_ptr()->*d)(); }));
   }
+
+  const double januaryCelsius = (m_obj.get_ptr()->*s_monthBinders[0].getter)();
+  m_constantValueEdit->setValue(m_isIP ? januaryCelsius * 9.0 / 5.0 + 32.0 : januaryCelsius);
 }
 
 void SiteGroundTemperatureShallowWidget::applyConstantValue(double celsius) {
@@ -203,6 +210,9 @@ void SiteGroundTemperatureDeepWidget::attach(const model::ModelObject& obj) {
                      boost::optional<NoFailAction>([this, r = mb.resetter]() { (m_obj.get_ptr()->*r)(); }), boost::none, boost::none,
                      boost::optional<BasicQuery>([this, d = mb.defaulted]() { return (m_obj.get_ptr()->*d)(); }));
   }
+
+  const double januaryCelsius = (m_obj.get_ptr()->*s_monthBinders[0].getter)();
+  m_constantValueEdit->setValue(m_isIP ? januaryCelsius * 9.0 / 5.0 + 32.0 : januaryCelsius);
 }
 
 void SiteGroundTemperatureDeepWidget::applyConstantValue(double celsius) {
