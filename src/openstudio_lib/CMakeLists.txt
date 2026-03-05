@@ -278,6 +278,8 @@ set(${target_name}_SRC
   ServiceWaterScene.hpp
   SimSettingsTabController.cpp
   SimSettingsTabController.hpp
+  EpwExplorerView.cpp
+  EpwExplorerView.hpp
   GroundTemperatureMonthlyInspectorView.cpp
   GroundTemperatureMonthlyInspectorView.hpp
   GroundTemperatureView.cpp
@@ -641,6 +643,7 @@ set(${target_name}_moc
   SimSettingsTabController.hpp
   SimSettingsTabView.hpp
   SimSettingsView.hpp
+  EpwExplorerView.hpp
   GroundTemperatureMonthlyInspectorView.hpp
   GroundTemperatureView.hpp
   SiteWaterMainsTemperatureWidget.hpp

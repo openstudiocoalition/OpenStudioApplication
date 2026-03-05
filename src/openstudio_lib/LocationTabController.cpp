@@ -5,6 +5,7 @@
 
 #include "LocationTabController.hpp"
 
+#include "EpwExplorerView.hpp"
 #include "LifeCycleCostsTabView.hpp"
 #include "LocationTabView.hpp"
 #include "GroundTemperatureView.hpp"
@@ -31,6 +32,7 @@ LocationTabController::LocationTabController(bool isIP, const model::Model& mode
   mainContentWidget()->addSubTab(tr("Life Cycle Costs"), LIFE_CYCLE_COSTS);
   mainContentWidget()->addSubTab(tr("Utility Bills"), UTILITY_BILLS);
   mainContentWidget()->addSubTab(tr("Ground Temperatures"), GROUND_TEMPERATURES);
+  mainContentWidget()->addSubTab(tr("Weather File Explorer"), WEATHER_FILE_EXPLORER);
 
   // setSubTab(0);
   auto* locationView = new LocationView(m_isIP, m_model, m_modelTempDir);
@@ -108,6 +110,13 @@ void LocationTabController::setSubTab(int index) {
       connect(this, &LocationTabController::toggleUnitsClicked, gtView, &GroundTemperatureView::toggleUnitsClicked);
       this->mainContentWidget()->setSubTab(gtView);
       m_currentView = gtView;
+      break;
+    }
+    case 4: {
+      auto* epwView = new EpwExplorerView(m_isIP, m_model, m_modelTempDir);
+      connect(this, &LocationTabController::toggleUnitsClicked, epwView, &EpwExplorerView::toggleUnits);
+      this->mainContentWidget()->setSubTab(epwView);
+      m_currentView = epwView;
       break;
     }
     default:

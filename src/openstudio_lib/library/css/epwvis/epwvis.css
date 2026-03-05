@@ -1,0 +1,240 @@
+#xfilterCharts {
+  padding: 10px 0;
+}
+
+.xfilterChart {
+  display: inline-block;
+  height: auto;
+  margin-bottom: 30px;
+}
+
+.reset {
+  padding-left: 1em;
+  font-size: smaller;
+  color: #ccc;
+}
+
+.chart-title-row {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  flex-wrap: nowrap;
+}
+
+.chart-download-btns {
+  white-space: nowrap;
+  flex-shrink: 0;
+}
+
+.chart-download-btns .btn,
+.chart-download-btns .btn-xs {
+  font-size: 9px;
+  padding: 1px 4px;
+  line-height: 1.4;
+  border-radius: 2px;
+}
+
+.vf-range-inputs {
+  display: flex;
+  align-items: center;
+  gap: 2px;
+  font-size: 9px;
+  white-space: nowrap;
+  flex-shrink: 0;
+  color: #555;
+}
+
+.vf-range-inputs .vf-min-input,
+.vf-range-inputs .vf-max-input {
+  width: 52px;
+  font-size: 9px;
+  padding: 1px 3px;
+  height: 22px;
+  line-height: 1.4;
+  border: 1px solid #ccc;
+  border-radius: 2px;
+  box-sizing: border-box;
+  text-align: right;
+}
+
+.background.bar {
+  fill: #ccc;
+}
+
+.foreground.bar {
+  fill: steelblue;
+}
+
+.axis path, .axis line {
+  fill: none;
+  stroke: #000;
+  shape-rendering: crispEdges;
+}
+
+.axis text {
+  font: 13px sans-serif;
+}
+
+.brush rect.extent {
+  fill: steelblue;
+  fill-opacity: .125;
+}
+
+.brush .resize path {
+  fill: #eee;
+  stroke: #666;
+}
+
+#month-chart {
+  width: 210px;
+  height: auto;
+  vertical-align: top;
+}
+
+#hour-chart {
+  width: 210px;
+  height: auto;
+  vertical-align: top;
+}
+
+/* Polar chart tooltip / interaction hint */
+.polar-g .polar-selection {
+  pointer-events: none;
+}
+
+.polar-g .pbg, .polar-g .pfg {
+  stroke: white;
+  stroke-width: 0.5px;
+}
+
+#drybulb-temperature-chart {
+  width: 470px; /*make sure pixel width plus margins matches epwCharts.js*/
+}
+
+#dewpoint-temperature-chart {
+  width: 470px; /*make sure pixel width plus margins matches epwCharts.js*/
+}
+
+#rh-chart {
+  width: 470px; /*make sure pixel width plus margins matches epwCharts.js*/
+}
+
+#wetbulb-temperature-chart {
+  width: 470px; /*make sure pixel width plus margins matches epwCharts.js*/
+}
+
+#enthalpy-chart {
+  width: 470px; /*make sure pixel width plus margins matches epwCharts.js*/
+}
+
+#epwChartDiv {
+  display: flex;
+  align-items: flex-start;
+}
+
+#epwSidebar {
+  position: sticky;
+  top: 0;
+  height: 100vh;
+  overflow-y: auto;
+  width: 490px;
+  flex-shrink: 0;
+  border-right: 1px solid #ddd;
+  padding: 8px 16px 16px 0;
+}
+
+#epwMain {
+  flex: 1;
+  min-width: 0;
+  padding-left: 20px;
+  overflow-x: auto;
+}
+
+.legend text {
+  font: 12px sans-serif;
+}
+
+.legend-header text {
+  font: 14px sans-serif;
+}
+
+.hm-filter-info,
+.tbl-filter-info {
+  font-size: 14px;
+}
+
+/* ---- Timeseries tab ---- */
+.ts-controls-row {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin-bottom: 14px;
+}
+
+.ts-var-label {
+  font-weight: normal;
+  white-space: nowrap;
+  margin: 0;
+}
+
+.ts-var-select {
+  display: inline-block;
+  width: 280px;
+  height: 30px;
+  padding: 2px 8px;
+  font-size: 13px;
+}
+
+.ts-section-header {
+  font-size: 14px;
+  font-weight: normal;
+  margin: 4px 0 6px 0;
+  color: #444;
+}
+
+.ts-legend-hint {
+  font-size: 11px;
+  color: #888;
+  font-weight: normal;
+  margin-left: 10px;
+}
+
+.ts-swatch {
+  display: inline-block;
+  width: 20px;
+  height: 8px;
+  border-radius: 2px;
+  vertical-align: middle;
+  margin-right: 3px;
+}
+
+.ts-swatch-grey { background: #ddd; }
+.ts-swatch-blue { background: steelblue; opacity: 0.6; }
+
+/* ---- Shared tooltip ---- */
+.epw-tooltip {
+    position: fixed;
+    background: rgba(0,0,0,0.78);
+    color: #fff;
+    padding: 6px 10px;
+    border-radius: 4px;
+    font-size: 12px;
+    line-height: 1.5;
+    pointer-events: none;
+    white-space: nowrap;
+    z-index: 9999;
+    display: none;
+}
+
+/* Horizontal scrolling wrapper for the annual timeseries */
+#epwTimeseriesAnnualWrap {
+  overflow-x: auto;
+  width: 100%;
+  margin-bottom: 22px;
+  padding-bottom: 4px;
+}
+
+#epwTimeseriesAnnual svg,
+#epwTimeseriesDailyProfile svg {
+  display: block;
+}
