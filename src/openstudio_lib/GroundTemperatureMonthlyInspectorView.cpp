@@ -134,7 +134,7 @@ SiteGroundTemperatureBuildingSurfaceWidget::SiteGroundTemperatureBuildingSurface
 
 void SiteGroundTemperatureBuildingSurfaceWidget::attach(const model::ModelObject& obj) {
   detach();
-  m_obj = obj.cast<BS>();
+  m_obj = obj.cast<MOType>();
   m_titleLabel->setText("Site:GroundTemperature:BuildingSurface");
 
   for (int i = 0; i < 12; ++i) {
@@ -147,7 +147,9 @@ void SiteGroundTemperatureBuildingSurfaceWidget::attach(const model::ModelObject
 }
 
 void SiteGroundTemperatureBuildingSurfaceWidget::applyConstantValue(double celsius) {
-  if (!m_obj) return;
+  if (!m_obj) {
+    return;
+  }
   for (const auto& mb : s_monthBinders) {
     (m_obj.get_ptr()->*mb.setter)(celsius);
   }
@@ -162,7 +164,7 @@ SiteGroundTemperatureShallowWidget::SiteGroundTemperatureShallowWidget(bool isIP
 
 void SiteGroundTemperatureShallowWidget::attach(const model::ModelObject& obj) {
   detach();
-  m_obj = obj.cast<SH>();
+  m_obj = obj.cast<MOType>();
   m_titleLabel->setText("Site:GroundTemperature:Shallow");
 
   for (int i = 0; i < 12; ++i) {
@@ -191,7 +193,7 @@ SiteGroundTemperatureDeepWidget::SiteGroundTemperatureDeepWidget(bool isIP, QWid
 
 void SiteGroundTemperatureDeepWidget::attach(const model::ModelObject& obj) {
   detach();
-  m_obj = obj.cast<DP>();
+  m_obj = obj.cast<MOType>();
   m_titleLabel->setText("Site:GroundTemperature:Deep");
 
   for (int i = 0; i < 12; ++i) {
@@ -204,7 +206,9 @@ void SiteGroundTemperatureDeepWidget::attach(const model::ModelObject& obj) {
 }
 
 void SiteGroundTemperatureDeepWidget::applyConstantValue(double celsius) {
-  if (!m_obj) return;
+  if (!m_obj) {
+    return;
+  }
   for (const auto& mb : s_monthBinders) {
     (m_obj.get_ptr()->*mb.setter)(celsius);
   }

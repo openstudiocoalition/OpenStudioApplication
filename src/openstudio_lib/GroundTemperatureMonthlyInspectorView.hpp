@@ -60,89 +60,89 @@ class SiteGroundTemperatureBuildingSurfaceWidget : public SiteGroundTemperatureM
   void applyConstantValue(double celsius) override;
 
  private:
-  using BS = model::SiteGroundTemperatureBuildingSurface;
+  using MOType = model::SiteGroundTemperatureBuildingSurface;
   struct MonthBinding
   {
-    double (BS::*getter)() const;   // cppcheck-suppress unusedStructMember
-    bool (BS::*setter)(double);     // cppcheck-suppress unusedStructMember
-    void (BS::*resetter)();         // cppcheck-suppress unusedStructMember
-    bool (BS::*defaulted)() const;  // cppcheck-suppress unusedStructMember
+    double (MOType::*getter)() const;   // cppcheck-suppress unusedStructMember
+    bool (MOType::*setter)(double);     // cppcheck-suppress unusedStructMember
+    void (MOType::*resetter)();         // cppcheck-suppress unusedStructMember
+    bool (MOType::*defaulted)() const;  // cppcheck-suppress unusedStructMember
   };
   inline static const std::array<MonthBinding, 12> s_monthBinders{{
     {
-      &BS::januaryGroundTemperature,
-      &BS::setJanuaryGroundTemperature,
-      &BS::resetJanuaryGroundTemperature,
-      &BS::isJanuaryGroundTemperatureDefaulted,
+      &MOType::januaryGroundTemperature,
+      &MOType::setJanuaryGroundTemperature,
+      &MOType::resetJanuaryGroundTemperature,
+      &MOType::isJanuaryGroundTemperatureDefaulted,
     },
     {
-      &BS::februaryGroundTemperature,
-      &BS::setFebruaryGroundTemperature,
-      &BS::resetFebruaryGroundTemperature,
-      &BS::isFebruaryGroundTemperatureDefaulted,
+      &MOType::februaryGroundTemperature,
+      &MOType::setFebruaryGroundTemperature,
+      &MOType::resetFebruaryGroundTemperature,
+      &MOType::isFebruaryGroundTemperatureDefaulted,
     },
     {
-      &BS::marchGroundTemperature,
-      &BS::setMarchGroundTemperature,
-      &BS::resetMarchGroundTemperature,
-      &BS::isMarchGroundTemperatureDefaulted,
+      &MOType::marchGroundTemperature,
+      &MOType::setMarchGroundTemperature,
+      &MOType::resetMarchGroundTemperature,
+      &MOType::isMarchGroundTemperatureDefaulted,
     },
     {
-      &BS::aprilGroundTemperature,
-      &BS::setAprilGroundTemperature,
-      &BS::resetAprilGroundTemperature,
-      &BS::isAprilGroundTemperatureDefaulted,
+      &MOType::aprilGroundTemperature,
+      &MOType::setAprilGroundTemperature,
+      &MOType::resetAprilGroundTemperature,
+      &MOType::isAprilGroundTemperatureDefaulted,
     },
     {
-      &BS::mayGroundTemperature,
-      &BS::setMayGroundTemperature,
-      &BS::resetMayGroundTemperature,
-      &BS::isMayGroundTemperatureDefaulted,
+      &MOType::mayGroundTemperature,
+      &MOType::setMayGroundTemperature,
+      &MOType::resetMayGroundTemperature,
+      &MOType::isMayGroundTemperatureDefaulted,
     },
     {
-      &BS::juneGroundTemperature,
-      &BS::setJuneGroundTemperature,
-      &BS::resetJuneGroundTemperature,
-      &BS::isJuneGroundTemperatureDefaulted,
+      &MOType::juneGroundTemperature,
+      &MOType::setJuneGroundTemperature,
+      &MOType::resetJuneGroundTemperature,
+      &MOType::isJuneGroundTemperatureDefaulted,
     },
     {
-      &BS::julyGroundTemperature,
-      &BS::setJulyGroundTemperature,
-      &BS::resetJulyGroundTemperature,
-      &BS::isJulyGroundTemperatureDefaulted,
+      &MOType::julyGroundTemperature,
+      &MOType::setJulyGroundTemperature,
+      &MOType::resetJulyGroundTemperature,
+      &MOType::isJulyGroundTemperatureDefaulted,
     },
     {
-      &BS::augustGroundTemperature,
-      &BS::setAugustGroundTemperature,
-      &BS::resetAugustGroundTemperature,
-      &BS::isAugustGroundTemperatureDefaulted,
+      &MOType::augustGroundTemperature,
+      &MOType::setAugustGroundTemperature,
+      &MOType::resetAugustGroundTemperature,
+      &MOType::isAugustGroundTemperatureDefaulted,
     },
     {
-      &BS::septemberGroundTemperature,
-      &BS::setSeptemberGroundTemperature,
-      &BS::resetSeptemberGroundTemperature,
-      &BS::isSeptemberGroundTemperatureDefaulted,
+      &MOType::septemberGroundTemperature,
+      &MOType::setSeptemberGroundTemperature,
+      &MOType::resetSeptemberGroundTemperature,
+      &MOType::isSeptemberGroundTemperatureDefaulted,
     },
     {
-      &BS::octoberGroundTemperature,
-      &BS::setOctoberGroundTemperature,
-      &BS::resetOctoberGroundTemperature,
-      &BS::isOctoberGroundTemperatureDefaulted,
+      &MOType::octoberGroundTemperature,
+      &MOType::setOctoberGroundTemperature,
+      &MOType::resetOctoberGroundTemperature,
+      &MOType::isOctoberGroundTemperatureDefaulted,
     },
     {
-      &BS::novemberGroundTemperature,
-      &BS::setNovemberGroundTemperature,
-      &BS::resetNovemberGroundTemperature,
-      &BS::isNovemberGroundTemperatureDefaulted,
+      &MOType::novemberGroundTemperature,
+      &MOType::setNovemberGroundTemperature,
+      &MOType::resetNovemberGroundTemperature,
+      &MOType::isNovemberGroundTemperatureDefaulted,
     },
     {
-      &BS::decemberGroundTemperature,
-      &BS::setDecemberGroundTemperature,
-      &BS::resetDecemberGroundTemperature,
-      &BS::isDecemberGroundTemperatureDefaulted,
+      &MOType::decemberGroundTemperature,
+      &MOType::setDecemberGroundTemperature,
+      &MOType::resetDecemberGroundTemperature,
+      &MOType::isDecemberGroundTemperatureDefaulted,
     },
   }};
-  boost::optional<BS> m_obj;
+  boost::optional<MOType> m_obj;
 };
 
 /** Inspector for Site:GroundTemperature:Shallow — 12 monthly fields. */
@@ -157,89 +157,89 @@ class SiteGroundTemperatureShallowWidget : public SiteGroundTemperatureMonthlyWi
   void applyConstantValue(double celsius) override;
 
  private:
-  using SH = model::SiteGroundTemperatureShallow;
+  using MOType = model::SiteGroundTemperatureShallow;
   struct MonthBinding
   {
-    double (SH::*getter)() const;   // cppcheck-suppress unusedStructMember
-    bool (SH::*setter)(double);     // cppcheck-suppress unusedStructMember
-    void (SH::*resetter)();         // cppcheck-suppress unusedStructMember
-    bool (SH::*defaulted)() const;  // cppcheck-suppress unusedStructMember
+    double (MOType::*getter)() const;   // cppcheck-suppress unusedStructMember
+    bool (MOType::*setter)(double);     // cppcheck-suppress unusedStructMember
+    void (MOType::*resetter)();         // cppcheck-suppress unusedStructMember
+    bool (MOType::*defaulted)() const;  // cppcheck-suppress unusedStructMember
   };
   inline static const std::array<MonthBinding, 12> s_monthBinders{{
     {
-      &SH::januarySurfaceGroundTemperature,
-      &SH::setJanuarySurfaceGroundTemperature,
-      &SH::resetJanuarySurfaceGroundTemperature,
-      &SH::isJanuarySurfaceGroundTemperatureDefaulted,
+      &MOType::januarySurfaceGroundTemperature,
+      &MOType::setJanuarySurfaceGroundTemperature,
+      &MOType::resetJanuarySurfaceGroundTemperature,
+      &MOType::isJanuarySurfaceGroundTemperatureDefaulted,
     },
     {
-      &SH::februarySurfaceGroundTemperature,
-      &SH::setFebruarySurfaceGroundTemperature,
-      &SH::resetFebruarySurfaceGroundTemperature,
-      &SH::isFebruarySurfaceGroundTemperatureDefaulted,
+      &MOType::februarySurfaceGroundTemperature,
+      &MOType::setFebruarySurfaceGroundTemperature,
+      &MOType::resetFebruarySurfaceGroundTemperature,
+      &MOType::isFebruarySurfaceGroundTemperatureDefaulted,
     },
     {
-      &SH::marchSurfaceGroundTemperature,
-      &SH::setMarchSurfaceGroundTemperature,
-      &SH::resetMarchSurfaceGroundTemperature,
-      &SH::isMarchSurfaceGroundTemperatureDefaulted,
+      &MOType::marchSurfaceGroundTemperature,
+      &MOType::setMarchSurfaceGroundTemperature,
+      &MOType::resetMarchSurfaceGroundTemperature,
+      &MOType::isMarchSurfaceGroundTemperatureDefaulted,
     },
     {
-      &SH::aprilSurfaceGroundTemperature,
-      &SH::setAprilSurfaceGroundTemperature,
-      &SH::resetAprilSurfaceGroundTemperature,
-      &SH::isAprilSurfaceGroundTemperatureDefaulted,
+      &MOType::aprilSurfaceGroundTemperature,
+      &MOType::setAprilSurfaceGroundTemperature,
+      &MOType::resetAprilSurfaceGroundTemperature,
+      &MOType::isAprilSurfaceGroundTemperatureDefaulted,
     },
     {
-      &SH::maySurfaceGroundTemperature,
-      &SH::setMaySurfaceGroundTemperature,
-      &SH::resetMaySurfaceGroundTemperature,
-      &SH::isMaySurfaceGroundTemperatureDefaulted,
+      &MOType::maySurfaceGroundTemperature,
+      &MOType::setMaySurfaceGroundTemperature,
+      &MOType::resetMaySurfaceGroundTemperature,
+      &MOType::isMaySurfaceGroundTemperatureDefaulted,
     },
     {
-      &SH::juneSurfaceGroundTemperature,
-      &SH::setJuneSurfaceGroundTemperature,
-      &SH::resetJuneSurfaceGroundTemperature,
-      &SH::isJuneSurfaceGroundTemperatureDefaulted,
+      &MOType::juneSurfaceGroundTemperature,
+      &MOType::setJuneSurfaceGroundTemperature,
+      &MOType::resetJuneSurfaceGroundTemperature,
+      &MOType::isJuneSurfaceGroundTemperatureDefaulted,
     },
     {
-      &SH::julySurfaceGroundTemperature,
-      &SH::setJulySurfaceGroundTemperature,
-      &SH::resetJulySurfaceGroundTemperature,
-      &SH::isJulySurfaceGroundTemperatureDefaulted,
+      &MOType::julySurfaceGroundTemperature,
+      &MOType::setJulySurfaceGroundTemperature,
+      &MOType::resetJulySurfaceGroundTemperature,
+      &MOType::isJulySurfaceGroundTemperatureDefaulted,
     },
     {
-      &SH::augustSurfaceGroundTemperature,
-      &SH::setAugustSurfaceGroundTemperature,
-      &SH::resetAugustSurfaceGroundTemperature,
-      &SH::isAugustSurfaceGroundTemperatureDefaulted,
+      &MOType::augustSurfaceGroundTemperature,
+      &MOType::setAugustSurfaceGroundTemperature,
+      &MOType::resetAugustSurfaceGroundTemperature,
+      &MOType::isAugustSurfaceGroundTemperatureDefaulted,
     },
     {
-      &SH::septemberSurfaceGroundTemperature,
-      &SH::setSeptemberSurfaceGroundTemperature,
-      &SH::resetSeptemberSurfaceGroundTemperature,
-      &SH::isSeptemberSurfaceGroundTemperatureDefaulted,
+      &MOType::septemberSurfaceGroundTemperature,
+      &MOType::setSeptemberSurfaceGroundTemperature,
+      &MOType::resetSeptemberSurfaceGroundTemperature,
+      &MOType::isSeptemberSurfaceGroundTemperatureDefaulted,
     },
     {
-      &SH::octoberSurfaceGroundTemperature,
-      &SH::setOctoberSurfaceGroundTemperature,
-      &SH::resetOctoberSurfaceGroundTemperature,
-      &SH::isOctoberSurfaceGroundTemperatureDefaulted,
+      &MOType::octoberSurfaceGroundTemperature,
+      &MOType::setOctoberSurfaceGroundTemperature,
+      &MOType::resetOctoberSurfaceGroundTemperature,
+      &MOType::isOctoberSurfaceGroundTemperatureDefaulted,
     },
     {
-      &SH::novemberSurfaceGroundTemperature,
-      &SH::setNovemberSurfaceGroundTemperature,
-      &SH::resetNovemberSurfaceGroundTemperature,
-      &SH::isNovemberSurfaceGroundTemperatureDefaulted,
+      &MOType::novemberSurfaceGroundTemperature,
+      &MOType::setNovemberSurfaceGroundTemperature,
+      &MOType::resetNovemberSurfaceGroundTemperature,
+      &MOType::isNovemberSurfaceGroundTemperatureDefaulted,
     },
     {
-      &SH::decemberSurfaceGroundTemperature,
-      &SH::setDecemberSurfaceGroundTemperature,
-      &SH::resetDecemberSurfaceGroundTemperature,
-      &SH::isDecemberSurfaceGroundTemperatureDefaulted,
+      &MOType::decemberSurfaceGroundTemperature,
+      &MOType::setDecemberSurfaceGroundTemperature,
+      &MOType::resetDecemberSurfaceGroundTemperature,
+      &MOType::isDecemberSurfaceGroundTemperatureDefaulted,
     },
   }};
-  boost::optional<SH> m_obj;
+  boost::optional<MOType> m_obj;
 };
 
 /** Inspector for Site:GroundTemperature:Deep — 12 monthly fields. */
@@ -254,89 +254,89 @@ class SiteGroundTemperatureDeepWidget : public SiteGroundTemperatureMonthlyWidge
   void applyConstantValue(double celsius) override;
 
  private:
-  using DP = model::SiteGroundTemperatureDeep;
+  using MOType = model::SiteGroundTemperatureDeep;
   struct MonthBinding
   {
-    double (DP::*getter)() const;   // cppcheck-suppress unusedStructMember
-    bool (DP::*setter)(double);     // cppcheck-suppress unusedStructMember
-    void (DP::*resetter)();         // cppcheck-suppress unusedStructMember
-    bool (DP::*defaulted)() const;  // cppcheck-suppress unusedStructMember
+    double (MOType::*getter)() const;   // cppcheck-suppress unusedStructMember
+    bool (MOType::*setter)(double);     // cppcheck-suppress unusedStructMember
+    void (MOType::*resetter)();         // cppcheck-suppress unusedStructMember
+    bool (MOType::*defaulted)() const;  // cppcheck-suppress unusedStructMember
   };
   inline static const std::array<MonthBinding, 12> s_monthBinders{{
     {
-      &DP::januaryDeepGroundTemperature,
-      &DP::setJanuaryDeepGroundTemperature,
-      &DP::resetJanuaryDeepGroundTemperature,
-      &DP::isJanuaryDeepGroundTemperatureDefaulted,
+      &MOType::januaryDeepGroundTemperature,
+      &MOType::setJanuaryDeepGroundTemperature,
+      &MOType::resetJanuaryDeepGroundTemperature,
+      &MOType::isJanuaryDeepGroundTemperatureDefaulted,
     },
     {
-      &DP::februaryDeepGroundTemperature,
-      &DP::setFebruaryDeepGroundTemperature,
-      &DP::resetFebruaryDeepGroundTemperature,
-      &DP::isFebruaryDeepGroundTemperatureDefaulted,
+      &MOType::februaryDeepGroundTemperature,
+      &MOType::setFebruaryDeepGroundTemperature,
+      &MOType::resetFebruaryDeepGroundTemperature,
+      &MOType::isFebruaryDeepGroundTemperatureDefaulted,
     },
     {
-      &DP::marchDeepGroundTemperature,
-      &DP::setMarchDeepGroundTemperature,
-      &DP::resetMarchDeepGroundTemperature,
-      &DP::isMarchDeepGroundTemperatureDefaulted,
+      &MOType::marchDeepGroundTemperature,
+      &MOType::setMarchDeepGroundTemperature,
+      &MOType::resetMarchDeepGroundTemperature,
+      &MOType::isMarchDeepGroundTemperatureDefaulted,
     },
     {
-      &DP::aprilDeepGroundTemperature,
-      &DP::setAprilDeepGroundTemperature,
-      &DP::resetAprilDeepGroundTemperature,
-      &DP::isAprilDeepGroundTemperatureDefaulted,
+      &MOType::aprilDeepGroundTemperature,
+      &MOType::setAprilDeepGroundTemperature,
+      &MOType::resetAprilDeepGroundTemperature,
+      &MOType::isAprilDeepGroundTemperatureDefaulted,
     },
     {
-      &DP::mayDeepGroundTemperature,
-      &DP::setMayDeepGroundTemperature,
-      &DP::resetMayDeepGroundTemperature,
-      &DP::isMayDeepGroundTemperatureDefaulted,
+      &MOType::mayDeepGroundTemperature,
+      &MOType::setMayDeepGroundTemperature,
+      &MOType::resetMayDeepGroundTemperature,
+      &MOType::isMayDeepGroundTemperatureDefaulted,
     },
     {
-      &DP::juneDeepGroundTemperature,
-      &DP::setJuneDeepGroundTemperature,
-      &DP::resetJuneDeepGroundTemperature,
-      &DP::isJuneDeepGroundTemperatureDefaulted,
+      &MOType::juneDeepGroundTemperature,
+      &MOType::setJuneDeepGroundTemperature,
+      &MOType::resetJuneDeepGroundTemperature,
+      &MOType::isJuneDeepGroundTemperatureDefaulted,
     },
     {
-      &DP::julyDeepGroundTemperature,
-      &DP::setJulyDeepGroundTemperature,
-      &DP::resetJulyDeepGroundTemperature,
-      &DP::isJulyDeepGroundTemperatureDefaulted,
+      &MOType::julyDeepGroundTemperature,
+      &MOType::setJulyDeepGroundTemperature,
+      &MOType::resetJulyDeepGroundTemperature,
+      &MOType::isJulyDeepGroundTemperatureDefaulted,
     },
     {
-      &DP::augustDeepGroundTemperature,
-      &DP::setAugustDeepGroundTemperature,
-      &DP::resetAugustDeepGroundTemperature,
-      &DP::isAugustDeepGroundTemperatureDefaulted,
+      &MOType::augustDeepGroundTemperature,
+      &MOType::setAugustDeepGroundTemperature,
+      &MOType::resetAugustDeepGroundTemperature,
+      &MOType::isAugustDeepGroundTemperatureDefaulted,
     },
     {
-      &DP::septemberDeepGroundTemperature,
-      &DP::setSeptemberDeepGroundTemperature,
-      &DP::resetSeptemberDeepGroundTemperature,
-      &DP::isSeptemberDeepGroundTemperatureDefaulted,
+      &MOType::septemberDeepGroundTemperature,
+      &MOType::setSeptemberDeepGroundTemperature,
+      &MOType::resetSeptemberDeepGroundTemperature,
+      &MOType::isSeptemberDeepGroundTemperatureDefaulted,
     },
     {
-      &DP::octoberDeepGroundTemperature,
-      &DP::setOctoberDeepGroundTemperature,
-      &DP::resetOctoberDeepGroundTemperature,
-      &DP::isOctoberDeepGroundTemperatureDefaulted,
+      &MOType::octoberDeepGroundTemperature,
+      &MOType::setOctoberDeepGroundTemperature,
+      &MOType::resetOctoberDeepGroundTemperature,
+      &MOType::isOctoberDeepGroundTemperatureDefaulted,
     },
     {
-      &DP::novemberDeepGroundTemperature,
-      &DP::setNovemberDeepGroundTemperature,
-      &DP::resetNovemberDeepGroundTemperature,
-      &DP::isNovemberDeepGroundTemperatureDefaulted,
+      &MOType::novemberDeepGroundTemperature,
+      &MOType::setNovemberDeepGroundTemperature,
+      &MOType::resetNovemberDeepGroundTemperature,
+      &MOType::isNovemberDeepGroundTemperatureDefaulted,
     },
     {
-      &DP::decemberDeepGroundTemperature,
-      &DP::setDecemberDeepGroundTemperature,
-      &DP::resetDecemberDeepGroundTemperature,
-      &DP::isDecemberDeepGroundTemperatureDefaulted,
+      &MOType::decemberDeepGroundTemperature,
+      &MOType::setDecemberDeepGroundTemperature,
+      &MOType::resetDecemberDeepGroundTemperature,
+      &MOType::isDecemberDeepGroundTemperatureDefaulted,
     },
   }};
-  boost::optional<DP> m_obj;
+  boost::optional<MOType> m_obj;
 };
 
 }  // namespace openstudio
