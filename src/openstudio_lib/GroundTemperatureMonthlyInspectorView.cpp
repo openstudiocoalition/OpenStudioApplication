@@ -88,10 +88,10 @@ void SiteGroundTemperatureBuildingSurfaceWidget::attach(const model::ModelObject
 
   struct MonthBinding
   {
-    double (BS::*getter)() const;
-    bool (BS::*setter)(double);
-    void (BS::*resetter)();
-    bool (BS::*defaulted)() const;
+    double (BS::*getter)() const;   // cppcheck-suppress unusedStructMember
+    bool (BS::*setter)(double);     // cppcheck-suppress unusedStructMember
+    void (BS::*resetter)();         // cppcheck-suppress unusedStructMember
+    bool (BS::*defaulted)() const;  // cppcheck-suppress unusedStructMember
   };
 
   static const std::array<MonthBinding, 12> month_binders{{
@@ -194,10 +194,10 @@ void SiteGroundTemperatureShallowWidget::attach(const model::ModelObject& obj) {
 
   struct MonthBinding
   {
-    double (SH::*getter)() const;
-    bool (SH::*setter)(double);
-    void (SH::*resetter)();
-    bool (SH::*defaulted)() const;
+    double (SH::*getter)() const;   // cppcheck-suppress unusedStructMember
+    bool (SH::*setter)(double);     // cppcheck-suppress unusedStructMember
+    void (SH::*resetter)();         // cppcheck-suppress unusedStructMember
+    bool (SH::*defaulted)() const;  // cppcheck-suppress unusedStructMember
   };
 
   static const std::array<MonthBinding, 12> month_binders{{
@@ -295,88 +295,88 @@ void SiteGroundTemperatureDeepWidget::attach(const model::ModelObject& obj) {
   m_obj = obj.cast<model::SiteGroundTemperatureDeep>();
   m_titleLabel->setText("Site:GroundTemperature:Deep");
 
-  using DW = model::SiteGroundTemperatureDeep;
+  using DP = model::SiteGroundTemperatureDeep;
 
   struct MonthBinding
   {
-    double (DW::*getter)() const;
-    bool (DW::*setter)(double);
-    void (DW::*resetter)();
-    bool (DW::*defaulted)() const;
+    double (DP::*getter)() const;   // cppcheck-suppress unusedStructMember
+    bool (DP::*setter)(double);     // cppcheck-suppress unusedStructMember
+    void (DP::*resetter)();         // cppcheck-suppress unusedStructMember
+    bool (DP::*defaulted)() const;  // cppcheck-suppress unusedStructMember
   };
 
   static const std::array<MonthBinding, 12> month_binders{{
     {
-      &DW::januaryDeepGroundTemperature,
-      &DW::setJanuaryDeepGroundTemperature,
-      &DW::resetJanuaryDeepGroundTemperature,
-      &DW::isJanuaryDeepGroundTemperatureDefaulted,
+      &DP::januaryDeepGroundTemperature,
+      &DP::setJanuaryDeepGroundTemperature,
+      &DP::resetJanuaryDeepGroundTemperature,
+      &DP::isJanuaryDeepGroundTemperatureDefaulted,
     },
     {
-      &DW::februaryDeepGroundTemperature,
-      &DW::setFebruaryDeepGroundTemperature,
-      &DW::resetFebruaryDeepGroundTemperature,
-      &DW::isFebruaryDeepGroundTemperatureDefaulted,
+      &DP::februaryDeepGroundTemperature,
+      &DP::setFebruaryDeepGroundTemperature,
+      &DP::resetFebruaryDeepGroundTemperature,
+      &DP::isFebruaryDeepGroundTemperatureDefaulted,
     },
     {
-      &DW::marchDeepGroundTemperature,
-      &DW::setMarchDeepGroundTemperature,
-      &DW::resetMarchDeepGroundTemperature,
-      &DW::isMarchDeepGroundTemperatureDefaulted,
+      &DP::marchDeepGroundTemperature,
+      &DP::setMarchDeepGroundTemperature,
+      &DP::resetMarchDeepGroundTemperature,
+      &DP::isMarchDeepGroundTemperatureDefaulted,
     },
     {
-      &DW::aprilDeepGroundTemperature,
-      &DW::setAprilDeepGroundTemperature,
-      &DW::resetAprilDeepGroundTemperature,
-      &DW::isAprilDeepGroundTemperatureDefaulted,
+      &DP::aprilDeepGroundTemperature,
+      &DP::setAprilDeepGroundTemperature,
+      &DP::resetAprilDeepGroundTemperature,
+      &DP::isAprilDeepGroundTemperatureDefaulted,
     },
     {
-      &DW::mayDeepGroundTemperature,
-      &DW::setMayDeepGroundTemperature,
-      &DW::resetMayDeepGroundTemperature,
-      &DW::isMayDeepGroundTemperatureDefaulted,
+      &DP::mayDeepGroundTemperature,
+      &DP::setMayDeepGroundTemperature,
+      &DP::resetMayDeepGroundTemperature,
+      &DP::isMayDeepGroundTemperatureDefaulted,
     },
     {
-      &DW::juneDeepGroundTemperature,
-      &DW::setJuneDeepGroundTemperature,
-      &DW::resetJuneDeepGroundTemperature,
-      &DW::isJuneDeepGroundTemperatureDefaulted,
+      &DP::juneDeepGroundTemperature,
+      &DP::setJuneDeepGroundTemperature,
+      &DP::resetJuneDeepGroundTemperature,
+      &DP::isJuneDeepGroundTemperatureDefaulted,
     },
     {
-      &DW::julyDeepGroundTemperature,
-      &DW::setJulyDeepGroundTemperature,
-      &DW::resetJulyDeepGroundTemperature,
-      &DW::isJulyDeepGroundTemperatureDefaulted,
+      &DP::julyDeepGroundTemperature,
+      &DP::setJulyDeepGroundTemperature,
+      &DP::resetJulyDeepGroundTemperature,
+      &DP::isJulyDeepGroundTemperatureDefaulted,
     },
     {
-      &DW::augustDeepGroundTemperature,
-      &DW::setAugustDeepGroundTemperature,
-      &DW::resetAugustDeepGroundTemperature,
-      &DW::isAugustDeepGroundTemperatureDefaulted,
+      &DP::augustDeepGroundTemperature,
+      &DP::setAugustDeepGroundTemperature,
+      &DP::resetAugustDeepGroundTemperature,
+      &DP::isAugustDeepGroundTemperatureDefaulted,
     },
     {
-      &DW::septemberDeepGroundTemperature,
-      &DW::setSeptemberDeepGroundTemperature,
-      &DW::resetSeptemberDeepGroundTemperature,
-      &DW::isSeptemberDeepGroundTemperatureDefaulted,
+      &DP::septemberDeepGroundTemperature,
+      &DP::setSeptemberDeepGroundTemperature,
+      &DP::resetSeptemberDeepGroundTemperature,
+      &DP::isSeptemberDeepGroundTemperatureDefaulted,
     },
     {
-      &DW::octoberDeepGroundTemperature,
-      &DW::setOctoberDeepGroundTemperature,
-      &DW::resetOctoberDeepGroundTemperature,
-      &DW::isOctoberDeepGroundTemperatureDefaulted,
+      &DP::octoberDeepGroundTemperature,
+      &DP::setOctoberDeepGroundTemperature,
+      &DP::resetOctoberDeepGroundTemperature,
+      &DP::isOctoberDeepGroundTemperatureDefaulted,
     },
     {
-      &DW::novemberDeepGroundTemperature,
-      &DW::setNovemberDeepGroundTemperature,
-      &DW::resetNovemberDeepGroundTemperature,
-      &DW::isNovemberDeepGroundTemperatureDefaulted,
+      &DP::novemberDeepGroundTemperature,
+      &DP::setNovemberDeepGroundTemperature,
+      &DP::resetNovemberDeepGroundTemperature,
+      &DP::isNovemberDeepGroundTemperatureDefaulted,
     },
     {
-      &DW::decemberDeepGroundTemperature,
-      &DW::setDecemberDeepGroundTemperature,
-      &DW::resetDecemberDeepGroundTemperature,
-      &DW::isDecemberDeepGroundTemperatureDefaulted,
+      &DP::decemberDeepGroundTemperature,
+      &DP::setDecemberDeepGroundTemperature,
+      &DP::resetDecemberDeepGroundTemperature,
+      &DP::isDecemberDeepGroundTemperatureDefaulted,
     },
   }};
 
