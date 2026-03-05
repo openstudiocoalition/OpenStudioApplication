@@ -6,6 +6,7 @@
 #include "SiteWaterMainsTemperatureWidget.hpp"
 
 #include "OSDropZone.hpp"
+#include "ModelObjectItem.hpp"
 
 #include "../shared_gui_components/OSComboBox.hpp"
 #include "../shared_gui_components/OSQuantityEdit.hpp"
@@ -15,12 +16,60 @@
 #include <openstudio/model/Schedule.hpp>
 #include <openstudio/model/Schedule_Impl.hpp>
 
+#include <openstudio/utilities/idd/OS_Site_WaterMainsTemperature_FieldEnums.hxx>
+
 #include <QComboBox>
 #include <QGridLayout>
 #include <QLabel>
 #include <QVBoxLayout>
 
 namespace openstudio {
+
+// TemperatureScheduleVC
+
+void TemperatureScheduleVC::onChangeRelationship(const model::ModelObject& modelObject, int index, Handle /*newHandle*/, Handle /*oldHandle*/) {
+  if (index == OS_Site_WaterMainsTemperatureFields::TemperatureScheduleName) {
+    emit itemIds(makeVector());
+  }
+}
+
+std::vector<OSItemId> TemperatureScheduleVC::makeVector() {
+  std::vector<OSItemId> result;
+  if (m_modelObject) {
+    auto obj = m_modelObject->cast<model::SiteWaterMainsTemperature>();
+    if (auto schedule = obj.temperatureSchedule()) {
+      result.push_back(modelObjectToItemId(*schedule, false));
+    }
+  }
+  return result;
+}
+
+void TemperatureScheduleVC::onRemoveItem(OSItem* /*item*/) {
+  if (m_modelObject) {
+    m_modelObject->cast<model::SiteWaterMainsTemperature>().resetTemperatureSchedule();
+  }
+}
+
+void TemperatureScheduleVC::onReplaceItem(OSItem* /*currentItem*/, const OSItemId& replacementItemId) {
+  onDrop(replacementItemId);
+}
+
+void TemperatureScheduleVC::onDrop(const OSItemId& itemId) {
+  if (m_modelObject) {
+    auto obj = m_modelObject->cast<model::SiteWaterMainsTemperature>();
+    if (auto modelObject = this->getModelObject(itemId)) {
+      if (auto schedule = modelObject->optionalCast<model::Schedule>()) {
+        if (this->fromComponentLibrary(itemId)) {
+          modelObject = modelObject->clone(m_modelObject->model());
+          schedule = modelObject->cast<model::Schedule>();
+        }
+        obj.setTemperatureSchedule(*schedule);
+      }
+    }
+  }
+}
+
+// SiteWaterMainsTemperatureWidget
 
 SiteWaterMainsTemperatureWidget::SiteWaterMainsTemperatureWidget(bool isIP, QWidget* parent) : QWidget(parent), m_isIP(isIP) {
   auto* mainLayout = new QVBoxLayout();
@@ -55,7 +104,11 @@ SiteWaterMainsTemperatureWidget::SiteWaterMainsTemperatureWidget(bool isIP, QWid
   m_scheduleLabel->setObjectName("H2");
   gridLayout->addWidget(m_scheduleLabel, row++, 0, 1, 2);
 
-  m_scheduleDropZone = new OSDropZone2();
+  m_scheduleVC = new TemperatureScheduleVC();
+  m_scheduleDropZone = new OSDropZone(m_scheduleVC);
+  m_scheduleDropZone->setMinItems(0);
+  m_scheduleDropZone->setMaxItems(1);
+  m_scheduleDropZone->setItemsAcceptDrops(true);
   gridLayout->addWidget(m_scheduleDropZone, row++, 0, 1, 2);
 
   // Annual Average Outdoor Air Temperature and Max Diff (visible only when method == "Correlation")
@@ -118,27 +171,8 @@ void SiteWaterMainsTemperatureWidget::attach(const model::ModelObject& obj) {
     // isDefaulted
     boost::none);
 
-  m_scheduleDropZone->bind(
-    // modelObject
-    *m_obj,
-    // get
-    OptionalModelObjectGetter([this]() -> boost::optional<model::ModelObject> {
-      auto opt = m_obj->temperatureSchedule();
-      if (opt) {
-        return boost::optional<model::ModelObject>(opt.get());
-      }
-      return boost::none;
-    }),
-    // set
-    ModelObjectSetter([this](const model::ModelObject& mo) -> bool {
-      auto sch = mo.optionalCast<model::Schedule>();
-      if (!sch) {
-        return false;
-      }
-      return m_obj->setTemperatureSchedule(sch.get());
-    }),
-    // reset
-    boost::optional<NoFailAction>([this]() { m_obj->resetTemperatureSchedule(); }));
+  m_scheduleVC->attach(*m_obj);
+  m_scheduleVC->reportItems();
 
   m_annualAvgTemp->bind(m_isIP, *m_obj, OptionalDoubleGetter([this]() { return m_obj->annualAverageOutdoorAirTemperature(); }),
                         boost::optional<DoubleSetter>([this](double v) { return m_obj->setAnnualAverageOutdoorAirTemperature(v); }),
@@ -160,10 +194,7 @@ void SiteWaterMainsTemperatureWidget::attach(const model::ModelObject& obj) {
 
 void SiteWaterMainsTemperatureWidget::detach() {
   m_calculationMethod->unbind();
-  if (m_obj) {
-    // OSDropZone2::unbind() crashes if it was never bound (no guard on m_modelObject)
-    m_scheduleDropZone->unbind();
-  }
+  m_scheduleVC->detach();
   m_annualAvgTemp->unbind();
   m_maxDiffTemp->unbind();
   m_multiplier->unbind();
