@@ -11,8 +11,9 @@
 
 #include <openstudio/model/ModelObject_Impl.hpp>
 #include <openstudio/model/SiteGroundTemperatureBuildingSurface_Impl.hpp>
-#include <openstudio/model/SiteGroundTemperatureShallow_Impl.hpp>
 #include <openstudio/model/SiteGroundTemperatureDeep_Impl.hpp>
+#include <openstudio/model/SiteGroundTemperatureFCfactorMethod_Impl.hpp>
+#include <openstudio/model/SiteGroundTemperatureShallow_Impl.hpp>
 
 #include <QBarCategoryAxis>
 #include <QBarSeries>
@@ -379,6 +380,48 @@ void SiteGroundTemperatureDeepWidget::attach(const model::ModelObject& obj) {
 }
 
 void SiteGroundTemperatureDeepWidget::applyConstantValue(double celsius) {
+  if (!m_obj) {
+    return;
+  }
+  for (const auto& mb : s_monthBinders) {
+    (m_obj.get_ptr()->*mb.setter)(celsius);
+  }
+}
+
+// ─────────────────────────────────────────────────────────
+// SiteGroundTemperatureFCfactorMethodWidget
+// ─────────────────────────────────────────────────────────
+
+SiteGroundTemperatureFCfactorMethodWidget::SiteGroundTemperatureFCfactorMethodWidget(bool isIP, QWidget* parent)
+  : SiteGroundTemperatureMonthlyWidget(isIP, parent) {}
+
+void SiteGroundTemperatureFCfactorMethodWidget::attach(const model::ModelObject& obj) {
+  detach();
+  m_obj = obj.cast<MOType>();
+  m_titleLabel->setText("Site:GroundTemperature:FCfactorMethod");
+
+  for (int i = 0; i < 12; ++i) {
+    const auto& mb = s_monthBinders[i];
+    m_edits[i]->bind(m_isIP, *m_obj, DoubleGetter([this, g = mb.getter]() { return (m_obj.get_ptr()->*g)(); }),
+                     boost::optional<DoubleSetter>([this, s = mb.setter](double v) { return (m_obj.get_ptr()->*s)(v); }),
+                     boost::optional<NoFailAction>([this, r = mb.resetter]() { (m_obj.get_ptr()->*r)(); }), boost::none, boost::none,
+                     boost::optional<BasicQuery>([this, d = mb.defaulted]() { return (m_obj.get_ptr()->*d)(); }));
+  }
+
+  m_valuesGetter = [this]() {
+    std::array<double, 12> vals{};
+    for (int i = 0; i < 12; ++i) {
+      vals[i] = (m_obj.get_ptr()->*s_monthBinders[i].getter)();
+    }
+    return vals;
+  };
+  const auto vals = m_valuesGetter();
+  setChartValues(vals);
+  m_constantValueEdit->setValue(m_isIP ? vals[0] * 9.0 / 5.0 + 32.0 : vals[0]);
+  connectModelChanges(obj);
+}
+
+void SiteGroundTemperatureFCfactorMethodWidget::applyConstantValue(double celsius) {
   if (!m_obj) {
     return;
   }

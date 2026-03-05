@@ -11,8 +11,9 @@
 #include "../model_editor/Utilities.hpp"
 
 #include <openstudio/model/SiteGroundTemperatureBuildingSurface_Impl.hpp>
-#include <openstudio/model/SiteGroundTemperatureShallow_Impl.hpp>
 #include <openstudio/model/SiteGroundTemperatureDeep_Impl.hpp>
+#include <openstudio/model/SiteGroundTemperatureFCfactorMethod_Impl.hpp>
+#include <openstudio/model/SiteGroundTemperatureShallow_Impl.hpp>
 #include <openstudio/model/SiteWaterMainsTemperature.hpp>
 #include <openstudio/model/WeatherFile.hpp>
 #include <openstudio/utilities/filetypes/EpwFile.hpp>
@@ -92,16 +93,19 @@ GroundTemperatureListView::GroundTemperatureListView(QWidget* parent) : QWidget(
   m_bsEntry = new GroundTemperatureEntry(tr("Building Surface Ground Temperatures"), this);
   m_shEntry = new GroundTemperatureEntry(tr("Shallow Ground Temperatures"), this);
   m_deepEntry = new GroundTemperatureEntry(tr("Deep Ground Temperatures"), this);
+  m_fcEntry = new GroundTemperatureEntry(tr("FCfactorMethod Ground Temperatures"), this);
   m_waterMainsEntry = new GroundTemperatureEntry(tr("Water Mains Temperature"), this);
 
   connect(m_bsEntry, &GroundTemperatureEntry::clicked, this, &GroundTemperatureListView::onBuildingSurfaceClicked);
   connect(m_shEntry, &GroundTemperatureEntry::clicked, this, &GroundTemperatureListView::onShallowClicked);
   connect(m_deepEntry, &GroundTemperatureEntry::clicked, this, &GroundTemperatureListView::onDeepClicked);
+  connect(m_fcEntry, &GroundTemperatureEntry::clicked, this, &GroundTemperatureListView::onFCfactorMethodClicked);
   connect(m_waterMainsEntry, &GroundTemperatureEntry::clicked, this, &GroundTemperatureListView::onWaterMainsClicked);
 
   layout->addWidget(m_bsEntry);
   layout->addWidget(m_shEntry);
   layout->addWidget(m_deepEntry);
+  layout->addWidget(m_fcEntry);
   layout->addWidget(m_waterMainsEntry);
   layout->addStretch();
 }
@@ -114,6 +118,7 @@ void GroundTemperatureListView::onBuildingSurfaceClicked() {
   m_bsEntry->setSelected(true);
   m_shEntry->setSelected(false);
   m_deepEntry->setSelected(false);
+  m_fcEntry->setSelected(false);
   m_waterMainsEntry->setSelected(false);
   emit typeSelected(GroundTempType::BuildingSurface);
 }
@@ -122,6 +127,7 @@ void GroundTemperatureListView::onShallowClicked() {
   m_bsEntry->setSelected(false);
   m_shEntry->setSelected(true);
   m_deepEntry->setSelected(false);
+  m_fcEntry->setSelected(false);
   m_waterMainsEntry->setSelected(false);
   emit typeSelected(GroundTempType::Shallow);
 }
@@ -130,14 +136,25 @@ void GroundTemperatureListView::onDeepClicked() {
   m_bsEntry->setSelected(false);
   m_shEntry->setSelected(false);
   m_deepEntry->setSelected(true);
+  m_fcEntry->setSelected(false);
   m_waterMainsEntry->setSelected(false);
   emit typeSelected(GroundTempType::Deep);
+}
+
+void GroundTemperatureListView::onFCfactorMethodClicked() {
+  m_bsEntry->setSelected(false);
+  m_shEntry->setSelected(false);
+  m_deepEntry->setSelected(false);
+  m_fcEntry->setSelected(true);
+  m_waterMainsEntry->setSelected(false);
+  emit typeSelected(GroundTempType::FCfactorMethod);
 }
 
 void GroundTemperatureListView::onWaterMainsClicked() {
   m_bsEntry->setSelected(false);
   m_shEntry->setSelected(false);
   m_deepEntry->setSelected(false);
+  m_fcEntry->setSelected(false);
   m_waterMainsEntry->setSelected(true);
   emit typeSelected(GroundTempType::WaterMains);
 }
@@ -186,6 +203,8 @@ QString typeNameForGroundTempType(GroundTempType type) {
       return "Site:GroundTemperature:<span style=\"color: #1C7BBF;\">Shallow</span>";
     case GroundTempType::Deep:
       return "Site:GroundTemperature:<span style=\"color: #1C7BBF;\">Deep</span>";
+    case GroundTempType::FCfactorMethod:
+      return "Site:GroundTemperature:<span style=\"color: #1C7BBF;\">FCfactorMethod</span>";
     case GroundTempType::WaterMains:
       return "Site:WaterMainsTemperature";
     default:
@@ -246,7 +265,7 @@ void GroundTemperatureNotPresentView::setType(GroundTempType type, model::Model 
     return;
   }
 
-  const double target_depth = (type == GroundTempType::Shallow) ? 0.5 : 4.0;
+  const double target_depth = (type == GroundTempType::Deep) ? 4.0 : 0.5;  // Shallow and FCfactorMethod both use 0.5m
   // Now try to find the target_depth in the epw data, allowing for some tolerance since the epw spec doesn't require exact depths
   const double tolerance = 0.1;
   auto it = std::find_if(ground_temps.begin(), ground_temps.end(), [target_depth, tolerance](const EpwGroundTemperatureDepth& gtd) {
@@ -284,6 +303,21 @@ void GroundTemperatureNotPresentView::setType(GroundTempType type, model::Model 
       ts.setOctoberSurfaceGroundTemperature(it->octGroundTemperature());
       ts.setNovemberSurfaceGroundTemperature(it->novGroundTemperature());
       ts.setDecemberSurfaceGroundTemperature(it->decGroundTemperature());
+    } else if (type == GroundTempType::FCfactorMethod) {
+      auto tf = m_model.getUniqueModelObject<model::SiteGroundTemperatureFCfactorMethod>();
+
+      tf.setJanuaryGroundTemperature(it->janGroundTemperature());
+      tf.setFebruaryGroundTemperature(it->febGroundTemperature());
+      tf.setMarchGroundTemperature(it->marGroundTemperature());
+      tf.setAprilGroundTemperature(it->aprGroundTemperature());
+      tf.setMayGroundTemperature(it->mayGroundTemperature());
+      tf.setJuneGroundTemperature(it->junGroundTemperature());
+      tf.setJulyGroundTemperature(it->julGroundTemperature());
+      tf.setAugustGroundTemperature(it->augGroundTemperature());
+      tf.setSeptemberGroundTemperature(it->sepGroundTemperature());
+      tf.setOctoberGroundTemperature(it->octGroundTemperature());
+      tf.setNovemberGroundTemperature(it->novGroundTemperature());
+      tf.setDecemberGroundTemperature(it->decGroundTemperature());
     } else {  // GroundTempType::Deep
       auto td = m_model.getUniqueModelObject<model::SiteGroundTemperatureDeep>();
 
@@ -365,6 +399,9 @@ GroundTemperatureView::GroundTemperatureView(bool isIP, const model::Model& mode
   m_waterMainsView = new SiteWaterMainsTemperatureWidget(isIP);
   m_rightStack->addWidget(m_waterMainsView);  // index 4
 
+  m_fcView = new SiteGroundTemperatureFCfactorMethodWidget(isIP);
+  m_rightStack->addWidget(m_fcView);  // index 5
+
   connect(m_listView, &GroundTemperatureListView::typeSelected, this, &GroundTemperatureView::onTypeSelected);
   connect(m_notPresentView, &GroundTemperatureNotPresentView::addClicked, this, &GroundTemperatureView::onObjectCreated);
   connect(m_selectorButtons, &OSItemSelectorButtons::addClicked, this, [this]() { onObjectCreated(m_currentType); });
@@ -374,6 +411,7 @@ GroundTemperatureView::GroundTemperatureView(bool isIP, const model::Model& mode
   connect(this, &GroundTemperatureView::toggleUnitsClicked, m_bsView, &SiteGroundTemperatureBuildingSurfaceWidget::toggleUnitsClicked);
   connect(this, &GroundTemperatureView::toggleUnitsClicked, m_shView, &SiteGroundTemperatureShallowWidget::toggleUnitsClicked);
   connect(this, &GroundTemperatureView::toggleUnitsClicked, m_deepView, &SiteGroundTemperatureDeepWidget::toggleUnitsClicked);
+  connect(this, &GroundTemperatureView::toggleUnitsClicked, m_fcView, &SiteGroundTemperatureFCfactorMethodWidget::toggleUnitsClicked);
   connect(this, &GroundTemperatureView::toggleUnitsClicked, m_waterMainsView, &SiteWaterMainsTemperatureWidget::toggleUnitsClicked);
 
   // Auto-select first entry after the event loop starts
@@ -414,6 +452,16 @@ void GroundTemperatureView::onTypeSelected(GroundTempType type) {
       m_notPresentView->setType(type, m_model);
       m_rightStack->setCurrentIndex(0);
     }
+  } else if (type == GroundTempType::FCfactorMethod) {
+    auto opt = m_model.getOptionalUniqueModelObject<model::SiteGroundTemperatureFCfactorMethod>();
+    if (opt) {
+      objectExists = true;
+      m_fcView->attach(*opt);
+      m_rightStack->setCurrentIndex(5);
+    } else {
+      m_notPresentView->setType(type, m_model);
+      m_rightStack->setCurrentIndex(0);
+    }
   } else {
     auto opt = m_model.siteWaterMainsTemperature();
     if (opt) {
@@ -448,6 +496,10 @@ void GroundTemperatureView::onObjectCreated(GroundTempType type) {
     auto obj = m_model.getUniqueModelObject<model::SiteGroundTemperatureDeep>();
     m_deepView->attach(obj);
     m_rightStack->setCurrentIndex(3);
+  } else if (type == GroundTempType::FCfactorMethod) {
+    auto obj = m_model.getUniqueModelObject<model::SiteGroundTemperatureFCfactorMethod>();
+    m_fcView->attach(obj);
+    m_rightStack->setCurrentIndex(5);
   } else {
     auto obj = m_model.getUniqueModelObject<model::SiteWaterMainsTemperature>();
     m_waterMainsView->attach(obj);
@@ -476,6 +528,13 @@ void GroundTemperatureView::onRemoveClicked() {
     auto opt = m_model.getOptionalUniqueModelObject<model::SiteGroundTemperatureDeep>();
     if (opt) {
       m_deepView->detach();
+      opt->remove();
+    }
+    m_notPresentView->setType(m_currentType, m_model);
+  } else if (m_currentType == GroundTempType::FCfactorMethod) {
+    auto opt = m_model.getOptionalUniqueModelObject<model::SiteGroundTemperatureFCfactorMethod>();
+    if (opt) {
+      m_fcView->detach();
       opt->remove();
     }
     m_notPresentView->setType(m_currentType, m_model);

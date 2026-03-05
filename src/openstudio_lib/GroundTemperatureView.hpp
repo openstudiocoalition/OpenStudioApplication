@@ -26,6 +26,7 @@ enum class GroundTempType
   BuildingSurface,
   Shallow,
   Deep,
+  FCfactorMethod,
   WaterMains
 };
 
@@ -69,12 +70,14 @@ class GroundTemperatureListView : public QWidget
   void onBuildingSurfaceClicked();
   void onShallowClicked();
   void onDeepClicked();
+  void onFCfactorMethodClicked();
   void onWaterMainsClicked();
 
  private:
   GroundTemperatureEntry* m_bsEntry = nullptr;
   GroundTemperatureEntry* m_shEntry = nullptr;
   GroundTemperatureEntry* m_deepEntry = nullptr;
+  GroundTemperatureEntry* m_fcEntry = nullptr;
   GroundTemperatureEntry* m_waterMainsEntry = nullptr;
 };
 
@@ -126,6 +129,7 @@ class GroundTemperatureView : public QWidget
   SiteGroundTemperatureBuildingSurfaceWidget* m_bsView = nullptr;
   SiteGroundTemperatureShallowWidget* m_shView = nullptr;
   SiteGroundTemperatureDeepWidget* m_deepView = nullptr;
+  SiteGroundTemperatureFCfactorMethodWidget* m_fcView = nullptr;
   SiteWaterMainsTemperatureWidget* m_waterMainsView = nullptr;
   QStackedWidget* m_rightStack = nullptr;
 };
