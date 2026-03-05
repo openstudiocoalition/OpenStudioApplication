@@ -12,14 +12,19 @@
 #include <openstudio/utilities/filetypes/EpwFile.hpp>
 
 #include <QFile>
+#include <QFileDialog>
+#include <QFileInfo>
 #include <QJsonArray>
 #include <QJsonDocument>
 #include <QJsonValue>
 #include <QLabel>
 #include <QPixmap>
 #include <QStackedWidget>
+#include <QStandardPaths>
 #include <QUrl>
 #include <QVBoxLayout>
+#include <QWebEngineDownloadRequest>
+#include <QWebEngineProfile>
 #include <QWebEngineSettings>
 #include <QWebEngineView>
 
@@ -46,6 +51,21 @@ EpwExplorerView::EpwExplorerView(bool isIP, const model::Model& model, const QSt
   // Suppress spurious touch-event warnings on macOS
   m_webView->setAttribute(Qt::WA_AcceptTouchEvents, false);
   connect(m_webView, &QWebEngineView::loadFinished, this, &EpwExplorerView::onPageLoadFinished);
+
+  // Handle JS-triggered downloads (blob URLs, data: links with the download attribute)
+  connect(m_webView->page()->profile(), &QWebEngineProfile::downloadRequested, this,
+          [this](QWebEngineDownloadRequest* download) {
+            const QString suggested = download->suggestedFileName();
+            const QString downloadsDir = QStandardPaths::writableLocation(QStandardPaths::DownloadLocation);
+            const QString savePath = QFileDialog::getSaveFileName(this, tr("Save File"), downloadsDir + "/" + suggested);
+            if (savePath.isEmpty()) {
+              download->cancel();
+              return;
+            }
+            download->setDownloadDirectory(QFileInfo(savePath).absolutePath());
+            download->setDownloadFileName(QFileInfo(savePath).fileName());
+            download->accept();
+          });
   m_stack->addWidget(m_webView);  // index 1
 
   loadWeatherFile();
