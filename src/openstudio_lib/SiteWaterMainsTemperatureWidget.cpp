@@ -36,48 +36,60 @@ SiteWaterMainsTemperatureWidget::SiteWaterMainsTemperatureWidget(bool isIP, QWid
   auto* gridLayout = new QGridLayout();
   gridLayout->setContentsMargins(0, 0, 0, 0);
   gridLayout->setSpacing(10);
+  gridLayout->setColumnStretch(0, 1);
   gridLayout->setColumnStretch(1, 1);
   mainLayout->addLayout(gridLayout);
 
   int row = 0;
 
-  // Calculation Method
-  gridLayout->addWidget(new QLabel(tr("Calculation Method")), row, 0);
+  // Calculation Method — label above, combobox left-aligned
+  auto* methodLabel = new QLabel(tr("Calculation Method"));
+  methodLabel->setObjectName("H2");
+  gridLayout->addWidget(methodLabel, row++, 0, 1, 2);
+
   m_calculationMethod = new OSComboBox2();
-  gridLayout->addWidget(m_calculationMethod, row++, 1, Qt::AlignLeft);
+  gridLayout->addWidget(m_calculationMethod, row++, 0, Qt::AlignLeft);
 
   // Temperature Schedule (visible only when method == "Schedule")
   m_scheduleLabel = new QLabel(tr("Temperature Schedule"));
-  gridLayout->addWidget(m_scheduleLabel, row, 0);
-  m_scheduleDropZone = new OSDropZone2();
-  gridLayout->addWidget(m_scheduleDropZone, row++, 1);
+  m_scheduleLabel->setObjectName("H2");
+  gridLayout->addWidget(m_scheduleLabel, row++, 0, 1, 2);
 
-  // Annual Average Outdoor Air Temperature (visible only when method == "Correlation")
+  m_scheduleDropZone = new OSDropZone2();
+  gridLayout->addWidget(m_scheduleDropZone, row++, 0, 1, 2);
+
+  // Annual Average Outdoor Air Temperature and Max Diff (visible only when method == "Correlation")
   m_annualAvgLabel = new QLabel(tr("Annual Average Outdoor Air Temperature"));
+  m_annualAvgLabel->setObjectName("H2");
   gridLayout->addWidget(m_annualAvgLabel, row, 0);
+
+  m_maxDiffLabel = new QLabel(tr("Maximum Difference In Monthly Average\nOutdoor Air Temperatures"));
+  m_maxDiffLabel->setObjectName("H2");
+  gridLayout->addWidget(m_maxDiffLabel, row++, 1);
+
   m_annualAvgTemp = new OSQuantityEdit2("C", "C", "F", m_isIP);
   connect(this, &SiteWaterMainsTemperatureWidget::toggleUnitsClicked, m_annualAvgTemp, &OSQuantityEdit2::onUnitSystemChange);
-  gridLayout->addWidget(m_annualAvgTemp, row++, 1, Qt::AlignLeft);
+  gridLayout->addWidget(m_annualAvgTemp, row, 0);
 
-  // Maximum Difference In Monthly Average Outdoor Air Temperatures (visible only when method == "Correlation")
-  m_maxDiffLabel = new QLabel(tr("Maximum Difference In Monthly Average Outdoor Air Temperatures"));
-  gridLayout->addWidget(m_maxDiffLabel, row, 0);
   m_maxDiffTemp = new OSQuantityEdit2("K", "K", "R", m_isIP);
   connect(this, &SiteWaterMainsTemperatureWidget::toggleUnitsClicked, m_maxDiffTemp, &OSQuantityEdit2::onUnitSystemChange);
-  gridLayout->addWidget(m_maxDiffTemp, row++, 1, Qt::AlignLeft);
+  gridLayout->addWidget(m_maxDiffTemp, row++, 1);
 
-  // Temperature Multiplier (hidden when method == "Schedule")
+  // Temperature Multiplier and Offset (hidden when method == "Schedule")
   m_multiplierLabel = new QLabel(tr("Temperature Multiplier"));
+  m_multiplierLabel->setObjectName("H2");
   gridLayout->addWidget(m_multiplierLabel, row, 0);
-  m_multiplier = new OSQuantityEdit2("", "", "", m_isIP);
-  gridLayout->addWidget(m_multiplier, row++, 1, Qt::AlignLeft);
 
-  // Temperature Offset (hidden when method == "Schedule")
   m_offsetLabel = new QLabel(tr("Temperature Offset"));
-  gridLayout->addWidget(m_offsetLabel, row, 0);
+  m_offsetLabel->setObjectName("H2");
+  gridLayout->addWidget(m_offsetLabel, row++, 1);
+
+  m_multiplier = new OSQuantityEdit2("", "", "", m_isIP);
+  gridLayout->addWidget(m_multiplier, row, 0);
+
   m_offset = new OSQuantityEdit2("K", "K", "R", m_isIP);
   connect(this, &SiteWaterMainsTemperatureWidget::toggleUnitsClicked, m_offset, &OSQuantityEdit2::onUnitSystemChange);
-  gridLayout->addWidget(m_offset, row++, 1, Qt::AlignLeft);
+  gridLayout->addWidget(m_offset, row++, 1);
 
   connect(this, &SiteWaterMainsTemperatureWidget::toggleUnitsClicked, this, [this](bool isIP) { m_isIP = isIP; });
 
