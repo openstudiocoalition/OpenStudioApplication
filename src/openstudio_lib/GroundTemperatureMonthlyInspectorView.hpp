@@ -19,6 +19,7 @@
 class QBarSet;
 class QDoubleSpinBox;
 class QLabel;
+class QLineSeries;
 class QPushButton;
 class QValueAxis;
 
@@ -58,6 +59,7 @@ class SiteGroundTemperatureMonthlyWidget : public QWidget
   void refreshChartDisplay();
 
   QBarSet* m_chartBarSet = nullptr;
+  QLineSeries* m_zeroLine = nullptr;
   QValueAxis* m_chartYAxis = nullptr;
   std::array<double, 12> m_cachedCelsius{};
 };

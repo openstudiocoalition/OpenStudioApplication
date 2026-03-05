@@ -14,11 +14,13 @@
 #include <openstudio/model/SiteGroundTemperatureDeep_Impl.hpp>
 
 #include <QBarCategoryAxis>
-#include <QScrollArea>
 #include <QBarSeries>
 #include <QBarSet>
 #include <QChart>
 #include <QChartView>
+#include <QCursor>
+#include <QLineSeries>
+#include <QScrollArea>
 #include <QDoubleSpinBox>
 #include <QFrame>
 #include <QGridLayout>
@@ -28,6 +30,7 @@
 #include <QPainter>
 #include <QPushButton>
 #include <QStringList>
+#include <QToolTip>
 #include <QValueAxis>
 #include <QVBoxLayout>
 
@@ -155,14 +158,43 @@ SiteGroundTemperatureMonthlyWidget::SiteGroundTemperatureMonthlyWidget(bool isIP
   m_chartYAxis = new QValueAxis;
   m_chartYAxis->setTitleText(isIP ? tr("Temperature [°F]") : tr("Temperature [°C]"));
 
+  // Zero line — uses a hidden numeric x axis so it can span the bar range
+  auto* hiddenXAxis = new QValueAxis;
+  hiddenXAxis->setRange(-0.5, 11.5);
+  hiddenXAxis->setVisible(false);
+
+  m_zeroLine = new QLineSeries;
+  m_zeroLine->append(-0.5, 0.0);
+  m_zeroLine->append(11.5, 0.0);
+  QPen zeroPen(QColor(80, 80, 80));
+  zeroPen.setWidth(1);
+  zeroPen.setStyle(Qt::DashLine);
+  m_zeroLine->setPen(zeroPen);
+  m_zeroLine->setVisible(false);
+
   auto* chart = new QChart;
   chart->legend()->hide();
   chart->addSeries(barSeries);
+  chart->addSeries(m_zeroLine);
   chart->addAxis(axisX, Qt::AlignBottom);
+  chart->addAxis(hiddenXAxis, Qt::AlignBottom);
   chart->addAxis(m_chartYAxis, Qt::AlignLeft);
   barSeries->attachAxis(axisX);
   barSeries->attachAxis(m_chartYAxis);
+  m_zeroLine->attachAxis(hiddenXAxis);
+  m_zeroLine->attachAxis(m_chartYAxis);
   chart->setAnimationOptions(QChart::SeriesAnimations);
+
+  // Hover tooltip
+  connect(m_chartBarSet, &QBarSet::hovered, this, [this, monthNames](bool status, int index) {
+    if (status && index >= 0 && index < 12) {
+      const double display = m_isIP ? m_cachedCelsius[index] * 9.0 / 5.0 + 32.0 : m_cachedCelsius[index];
+      const QString unit = m_isIP ? tr("°F") : tr("°C");
+      QToolTip::showText(QCursor::pos(), QString("%1: %2 %3").arg(monthNames[index]).arg(display, 0, 'f', 1).arg(unit));
+    } else {
+      QToolTip::hideText();
+    }
+  });
 
   auto* chartView = new QChartView(chart);
   chartView->setRenderHint(QPainter::Antialiasing);
@@ -212,6 +244,10 @@ void SiteGroundTemperatureMonthlyWidget::refreshChartDisplay() {
   const double pad = m_isIP ? 3.6 : 2.0;  // ~2°C in °F
   m_chartYAxis->setRange(minVal - pad, maxVal + pad);
   m_chartYAxis->setTitleText(m_isIP ? tr("Temperature [°F]") : tr("Temperature [°C]"));
+
+  if (m_zeroLine) {
+    m_zeroLine->setVisible(minVal < 0.0 && maxVal > 0.0);
+  }
 }
 
 // ─────────────────────────────────────────────────────────
