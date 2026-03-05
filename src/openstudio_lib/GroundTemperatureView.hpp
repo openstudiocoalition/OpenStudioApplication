@@ -44,13 +44,9 @@ class GroundTemperatureEntry : public QWidget
   void paintEvent(QPaintEvent* event) override;
   void mousePressEvent(QMouseEvent* event) override;
   void mouseReleaseEvent(QMouseEvent* event) override;
-  void mouseMoveEvent(QMouseEvent* event) override;
-  void leaveEvent(QEvent* event) override;
 
  private:
   bool m_mouseDown = false;
-  bool m_hovering = false;
-  bool m_selected = false;
   QLabel* m_label = nullptr;
 };
 

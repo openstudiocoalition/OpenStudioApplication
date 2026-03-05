@@ -17,11 +17,9 @@
 #include <openstudio/utilities/filetypes/EpwFile.hpp>
 #include <openstudio/utilities/core/PathHelpers.hpp>
 
-#include <QEvent>
 #include <QHBoxLayout>
 #include <QLabel>
 #include <QMouseEvent>
-#include <QLinearGradient>
 #include <QPainter>
 #include <QPushButton>
 #include <QStackedWidget>
@@ -37,7 +35,12 @@ namespace openstudio {
 
 GroundTemperatureEntry::GroundTemperatureEntry(const QString& label, QWidget* parent) : QWidget(parent) {
   setFixedHeight(50);
-  setMouseTracking(true);
+  setObjectName("GroundTemperatureEntry");
+  setProperty("style", "0");
+  setStyleSheet("QWidget#GroundTemperatureEntry[style=\"0\"]       { background: #CECECE; border-bottom: 1px solid black; }"
+                "QWidget#GroundTemperatureEntry[style=\"0\"]:hover { background: #BEBEBE; border-bottom: 1px solid black; }"
+                "QWidget#GroundTemperatureEntry[style=\"1\"]       { background: qlineargradient(x1:0,y1:0,x2:0,y2:1,"
+                "  stop: 0.0 #636161, stop: 0.10 #636161, stop: 0.15 #A3A3A3, stop: 1.0 #A3A3A3); border-bottom: 1px solid black; }");
 
   auto* layout = new QHBoxLayout();
   layout->setContentsMargins(9, 0, 9, 0);
@@ -46,13 +49,13 @@ GroundTemperatureEntry::GroundTemperatureEntry(const QString& label, QWidget* pa
   m_label = new QLabel(label);
   m_label->setObjectName("H2");
   m_label->setWordWrap(true);
-  m_label->setMouseTracking(true);
   layout->addWidget(m_label);
 }
 
 void GroundTemperatureEntry::setSelected(bool selected) {
-  m_selected = selected;
-  update();
+  setProperty("style", selected ? "1" : "0");
+  style()->unpolish(this);
+  style()->polish(this);
 }
 
 void GroundTemperatureEntry::paintEvent(QPaintEvent* /*event*/) {
@@ -60,25 +63,6 @@ void GroundTemperatureEntry::paintEvent(QPaintEvent* /*event*/) {
   opt.initFrom(this);
   QPainter p(this);
   style()->drawPrimitive(QStyle::PE_Widget, &opt, &p, this);
-
-  const int w = size().width();
-  const int h = size().height();
-
-  if (m_selected) {
-    // Gradient matching OSCollapsibleItemHeader selected state
-    QLinearGradient gradient(0, 0, 0, h);
-    gradient.setColorAt(0.00, QColor(0x63, 0x61, 0x61));
-    gradient.setColorAt(0.10, QColor(0x63, 0x61, 0x61));
-    gradient.setColorAt(0.15, QColor(0xA3, 0xA3, 0xA3));
-    gradient.setColorAt(1.00, QColor(0xA3, 0xA3, 0xA3));
-    p.fillRect(0, 0, w, h, gradient);
-  } else if (m_hovering) {
-    p.fillRect(0, 0, w, h, QColor(0xCE, 0xCE, 0xCE));
-  }
-
-  // Bottom border (matches OSCollapsibleItemHeader border-bottom: 1px solid black)
-  p.setPen(QPen(Qt::black, 1));
-  p.drawLine(0, h - 1, w, h - 1);
 }
 
 void GroundTemperatureEntry::mousePressEvent(QMouseEvent* event) {
@@ -91,19 +75,6 @@ void GroundTemperatureEntry::mouseReleaseEvent(QMouseEvent* event) {
     emit clicked();
   }
   m_mouseDown = false;
-  event->accept();
-}
-
-void GroundTemperatureEntry::mouseMoveEvent(QMouseEvent* event) {
-  m_hovering = true;
-  update();
-  event->accept();
-}
-
-void GroundTemperatureEntry::leaveEvent(QEvent* event) {
-  m_mouseDown = false;
-  m_hovering = false;
-  update();
   event->accept();
 }
 
