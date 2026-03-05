@@ -21,6 +21,7 @@
 #include <QHBoxLayout>
 #include <QLabel>
 #include <QMouseEvent>
+#include <QLinearGradient>
 #include <QPainter>
 #include <QPushButton>
 #include <QStackedWidget>
@@ -35,14 +36,16 @@ namespace openstudio {
 // ─────────────────────────────────────────────────────────
 
 GroundTemperatureEntry::GroundTemperatureEntry(const QString& label, QWidget* parent) : QWidget(parent) {
-  setFixedHeight(25);
+  setFixedHeight(50);
   setMouseTracking(true);
 
   auto* layout = new QHBoxLayout();
-  layout->setContentsMargins(10, 0, 0, 0);
+  layout->setContentsMargins(9, 0, 9, 0);
   setLayout(layout);
 
   m_label = new QLabel(label);
+  m_label->setObjectName("H2");
+  m_label->setWordWrap(true);
   m_label->setMouseTracking(true);
   layout->addWidget(m_label);
 }
@@ -58,16 +61,24 @@ void GroundTemperatureEntry::paintEvent(QPaintEvent* /*event*/) {
   QPainter p(this);
   style()->drawPrimitive(QStyle::PE_Widget, &opt, &p, this);
 
-  if (m_hovering || m_selected) {
-    p.setBrush(QBrush(QColor(207, 207, 207)));
-    p.setPen(Qt::NoPen);
-    p.drawRect(0, 0, size().width() - 1, size().height() - 1);
+  const int w = size().width();
+  const int h = size().height();
+
+  if (m_selected) {
+    // Gradient matching OSCollapsibleItemHeader selected state
+    QLinearGradient gradient(0, 0, 0, h);
+    gradient.setColorAt(0.00, QColor(0x63, 0x61, 0x61));
+    gradient.setColorAt(0.10, QColor(0x63, 0x61, 0x61));
+    gradient.setColorAt(0.15, QColor(0xA3, 0xA3, 0xA3));
+    gradient.setColorAt(1.00, QColor(0xA3, 0xA3, 0xA3));
+    p.fillRect(0, 0, w, h, gradient);
+  } else if (m_hovering) {
+    p.fillRect(0, 0, w, h, QColor(0xCE, 0xCE, 0xCE));
   }
 
-  p.setPen(Qt::SolidLine);
-  p.setBrush(QBrush(QColor(Qt::black)));
-  p.drawLine(0, 0, size().width(), 0);
-  p.drawLine(0, size().height() - 1, size().width(), size().height() - 1);
+  // Bottom border (matches OSCollapsibleItemHeader border-bottom: 1px solid black)
+  p.setPen(QPen(Qt::black, 1));
+  p.drawLine(0, h - 1, w, h - 1);
 }
 
 void GroundTemperatureEntry::mousePressEvent(QMouseEvent* event) {
