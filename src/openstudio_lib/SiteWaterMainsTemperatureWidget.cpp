@@ -6,6 +6,7 @@
 #include "SiteWaterMainsTemperatureWidget.hpp"
 
 #include "OSDropZone.hpp"
+#include "OSItem.hpp"
 
 #include "../shared_gui_components/OSComboBox.hpp"
 #include "../shared_gui_components/OSQuantityEdit.hpp"
@@ -56,6 +57,9 @@ SiteWaterMainsTemperatureWidget::SiteWaterMainsTemperatureWidget(bool isIP, QWid
   gridLayout->addWidget(m_scheduleLabel, row++, 0, 1, 2);
 
   m_scheduleDropZone = new OSDropZone2();
+  m_scheduleDropZone->setPlaceholderText(tr("Drag From Library"));
+  m_scheduleDropZone->setFixedHeight(OSItem::ITEM_HEIGHT);
+  m_scheduleDropZone->setMaximumWidth(OSItem::ITEM_WIDTH + 20);
   gridLayout->addWidget(m_scheduleDropZone, row++, 0, 1, 2);
 
   // Annual Average Outdoor Air Temperature and Max Diff (visible only when method == "Correlation")
