@@ -62,6 +62,7 @@ SiteGroundTemperatureMonthlyWidget::SiteGroundTemperatureMonthlyWidget(bool isIP
     m_edits[i]->setFixedWidth(TEMP_EDIT_WIDTH);
     gridLayout->addWidget(m_edits[i], i + 1, 1, Qt::AlignLeft);
   }
+  gridLayout->setColumnStretch(2, 1);
 
   auto* hRule = new QFrame();
   hRule->setFrameShape(QFrame::HLine);
@@ -133,96 +134,11 @@ SiteGroundTemperatureBuildingSurfaceWidget::SiteGroundTemperatureBuildingSurface
 
 void SiteGroundTemperatureBuildingSurfaceWidget::attach(const model::ModelObject& obj) {
   detach();
-  m_obj = obj.cast<model::SiteGroundTemperatureBuildingSurface>();
+  m_obj = obj.cast<BS>();
   m_titleLabel->setText("Site:GroundTemperature:BuildingSurface");
 
-  using BS = model::SiteGroundTemperatureBuildingSurface;
-
-  struct MonthBinding
-  {
-    double (BS::*getter)() const;   // cppcheck-suppress unusedStructMember
-    bool (BS::*setter)(double);     // cppcheck-suppress unusedStructMember
-    void (BS::*resetter)();         // cppcheck-suppress unusedStructMember
-    bool (BS::*defaulted)() const;  // cppcheck-suppress unusedStructMember
-  };
-
-  static const std::array<MonthBinding, 12> month_binders{{
-    {
-      &BS::januaryGroundTemperature,
-      &BS::setJanuaryGroundTemperature,
-      &BS::resetJanuaryGroundTemperature,
-      &BS::isJanuaryGroundTemperatureDefaulted,
-    },
-    {
-      &BS::februaryGroundTemperature,
-      &BS::setFebruaryGroundTemperature,
-      &BS::resetFebruaryGroundTemperature,
-      &BS::isFebruaryGroundTemperatureDefaulted,
-    },
-    {
-      &BS::marchGroundTemperature,
-      &BS::setMarchGroundTemperature,
-      &BS::resetMarchGroundTemperature,
-      &BS::isMarchGroundTemperatureDefaulted,
-    },
-    {
-      &BS::aprilGroundTemperature,
-      &BS::setAprilGroundTemperature,
-      &BS::resetAprilGroundTemperature,
-      &BS::isAprilGroundTemperatureDefaulted,
-    },
-    {
-      &BS::mayGroundTemperature,
-      &BS::setMayGroundTemperature,
-      &BS::resetMayGroundTemperature,
-      &BS::isMayGroundTemperatureDefaulted,
-    },
-    {
-      &BS::juneGroundTemperature,
-      &BS::setJuneGroundTemperature,
-      &BS::resetJuneGroundTemperature,
-      &BS::isJuneGroundTemperatureDefaulted,
-    },
-    {
-      &BS::julyGroundTemperature,
-      &BS::setJulyGroundTemperature,
-      &BS::resetJulyGroundTemperature,
-      &BS::isJulyGroundTemperatureDefaulted,
-    },
-    {
-      &BS::augustGroundTemperature,
-      &BS::setAugustGroundTemperature,
-      &BS::resetAugustGroundTemperature,
-      &BS::isAugustGroundTemperatureDefaulted,
-    },
-    {
-      &BS::septemberGroundTemperature,
-      &BS::setSeptemberGroundTemperature,
-      &BS::resetSeptemberGroundTemperature,
-      &BS::isSeptemberGroundTemperatureDefaulted,
-    },
-    {
-      &BS::octoberGroundTemperature,
-      &BS::setOctoberGroundTemperature,
-      &BS::resetOctoberGroundTemperature,
-      &BS::isOctoberGroundTemperatureDefaulted,
-    },
-    {
-      &BS::novemberGroundTemperature,
-      &BS::setNovemberGroundTemperature,
-      &BS::resetNovemberGroundTemperature,
-      &BS::isNovemberGroundTemperatureDefaulted,
-    },
-    {
-      &BS::decemberGroundTemperature,
-      &BS::setDecemberGroundTemperature,
-      &BS::resetDecemberGroundTemperature,
-      &BS::isDecemberGroundTemperatureDefaulted,
-    },
-  }};
-
   for (int i = 0; i < 12; ++i) {
-    const auto& mb = month_binders[i];
+    const auto& mb = s_monthBinders[i];
     m_edits[i]->bind(m_isIP, *m_obj, DoubleGetter([this, g = mb.getter]() { return (m_obj.get_ptr()->*g)(); }),
                      boost::optional<DoubleSetter>([this, s = mb.setter](double v) { return (m_obj.get_ptr()->*s)(v); }),
                      boost::optional<NoFailAction>([this, r = mb.resetter]() { (m_obj.get_ptr()->*r)(); }), boost::none, boost::none,
@@ -232,18 +148,9 @@ void SiteGroundTemperatureBuildingSurfaceWidget::attach(const model::ModelObject
 
 void SiteGroundTemperatureBuildingSurfaceWidget::applyConstantValue(double celsius) {
   if (!m_obj) return;
-  m_obj->setJanuaryGroundTemperature(celsius);
-  m_obj->setFebruaryGroundTemperature(celsius);
-  m_obj->setMarchGroundTemperature(celsius);
-  m_obj->setAprilGroundTemperature(celsius);
-  m_obj->setMayGroundTemperature(celsius);
-  m_obj->setJuneGroundTemperature(celsius);
-  m_obj->setJulyGroundTemperature(celsius);
-  m_obj->setAugustGroundTemperature(celsius);
-  m_obj->setSeptemberGroundTemperature(celsius);
-  m_obj->setOctoberGroundTemperature(celsius);
-  m_obj->setNovemberGroundTemperature(celsius);
-  m_obj->setDecemberGroundTemperature(celsius);
+  for (const auto& mb : s_monthBinders) {
+    (m_obj.get_ptr()->*mb.setter)(celsius);
+  }
 }
 
 // ─────────────────────────────────────────────────────────
@@ -255,96 +162,11 @@ SiteGroundTemperatureShallowWidget::SiteGroundTemperatureShallowWidget(bool isIP
 
 void SiteGroundTemperatureShallowWidget::attach(const model::ModelObject& obj) {
   detach();
-  m_obj = obj.cast<model::SiteGroundTemperatureShallow>();
+  m_obj = obj.cast<SH>();
   m_titleLabel->setText("Site:GroundTemperature:Shallow");
 
-  using SH = model::SiteGroundTemperatureShallow;
-
-  struct MonthBinding
-  {
-    double (SH::*getter)() const;   // cppcheck-suppress unusedStructMember
-    bool (SH::*setter)(double);     // cppcheck-suppress unusedStructMember
-    void (SH::*resetter)();         // cppcheck-suppress unusedStructMember
-    bool (SH::*defaulted)() const;  // cppcheck-suppress unusedStructMember
-  };
-
-  static const std::array<MonthBinding, 12> month_binders{{
-    {
-      &SH::januarySurfaceGroundTemperature,
-      &SH::setJanuarySurfaceGroundTemperature,
-      &SH::resetJanuarySurfaceGroundTemperature,
-      &SH::isJanuarySurfaceGroundTemperatureDefaulted,
-    },
-    {
-      &SH::februarySurfaceGroundTemperature,
-      &SH::setFebruarySurfaceGroundTemperature,
-      &SH::resetFebruarySurfaceGroundTemperature,
-      &SH::isFebruarySurfaceGroundTemperatureDefaulted,
-    },
-    {
-      &SH::marchSurfaceGroundTemperature,
-      &SH::setMarchSurfaceGroundTemperature,
-      &SH::resetMarchSurfaceGroundTemperature,
-      &SH::isMarchSurfaceGroundTemperatureDefaulted,
-    },
-    {
-      &SH::aprilSurfaceGroundTemperature,
-      &SH::setAprilSurfaceGroundTemperature,
-      &SH::resetAprilSurfaceGroundTemperature,
-      &SH::isAprilSurfaceGroundTemperatureDefaulted,
-    },
-    {
-      &SH::maySurfaceGroundTemperature,
-      &SH::setMaySurfaceGroundTemperature,
-      &SH::resetMaySurfaceGroundTemperature,
-      &SH::isMaySurfaceGroundTemperatureDefaulted,
-    },
-    {
-      &SH::juneSurfaceGroundTemperature,
-      &SH::setJuneSurfaceGroundTemperature,
-      &SH::resetJuneSurfaceGroundTemperature,
-      &SH::isJuneSurfaceGroundTemperatureDefaulted,
-    },
-    {
-      &SH::julySurfaceGroundTemperature,
-      &SH::setJulySurfaceGroundTemperature,
-      &SH::resetJulySurfaceGroundTemperature,
-      &SH::isJulySurfaceGroundTemperatureDefaulted,
-    },
-    {
-      &SH::augustSurfaceGroundTemperature,
-      &SH::setAugustSurfaceGroundTemperature,
-      &SH::resetAugustSurfaceGroundTemperature,
-      &SH::isAugustSurfaceGroundTemperatureDefaulted,
-    },
-    {
-      &SH::septemberSurfaceGroundTemperature,
-      &SH::setSeptemberSurfaceGroundTemperature,
-      &SH::resetSeptemberSurfaceGroundTemperature,
-      &SH::isSeptemberSurfaceGroundTemperatureDefaulted,
-    },
-    {
-      &SH::octoberSurfaceGroundTemperature,
-      &SH::setOctoberSurfaceGroundTemperature,
-      &SH::resetOctoberSurfaceGroundTemperature,
-      &SH::isOctoberSurfaceGroundTemperatureDefaulted,
-    },
-    {
-      &SH::novemberSurfaceGroundTemperature,
-      &SH::setNovemberSurfaceGroundTemperature,
-      &SH::resetNovemberSurfaceGroundTemperature,
-      &SH::isNovemberSurfaceGroundTemperatureDefaulted,
-    },
-    {
-      &SH::decemberSurfaceGroundTemperature,
-      &SH::setDecemberSurfaceGroundTemperature,
-      &SH::resetDecemberSurfaceGroundTemperature,
-      &SH::isDecemberSurfaceGroundTemperatureDefaulted,
-    },
-  }};
-
   for (int i = 0; i < 12; ++i) {
-    const auto& mb = month_binders[i];
+    const auto& mb = s_monthBinders[i];
     m_edits[i]->bind(m_isIP, *m_obj, DoubleGetter([this, g = mb.getter]() { return (m_obj.get_ptr()->*g)(); }),
                      boost::optional<DoubleSetter>([this, s = mb.setter](double v) { return (m_obj.get_ptr()->*s)(v); }),
                      boost::optional<NoFailAction>([this, r = mb.resetter]() { (m_obj.get_ptr()->*r)(); }), boost::none, boost::none,
@@ -353,19 +175,12 @@ void SiteGroundTemperatureShallowWidget::attach(const model::ModelObject& obj) {
 }
 
 void SiteGroundTemperatureShallowWidget::applyConstantValue(double celsius) {
-  if (!m_obj) return;
-  m_obj->setJanuarySurfaceGroundTemperature(celsius);
-  m_obj->setFebruarySurfaceGroundTemperature(celsius);
-  m_obj->setMarchSurfaceGroundTemperature(celsius);
-  m_obj->setAprilSurfaceGroundTemperature(celsius);
-  m_obj->setMaySurfaceGroundTemperature(celsius);
-  m_obj->setJuneSurfaceGroundTemperature(celsius);
-  m_obj->setJulySurfaceGroundTemperature(celsius);
-  m_obj->setAugustSurfaceGroundTemperature(celsius);
-  m_obj->setSeptemberSurfaceGroundTemperature(celsius);
-  m_obj->setOctoberSurfaceGroundTemperature(celsius);
-  m_obj->setNovemberSurfaceGroundTemperature(celsius);
-  m_obj->setDecemberSurfaceGroundTemperature(celsius);
+  if (!m_obj) {
+    return;
+  }
+  for (const auto& mb : s_monthBinders) {
+    (m_obj.get_ptr()->*mb.setter)(celsius);
+  }
 }
 
 // ─────────────────────────────────────────────────────────
@@ -376,96 +191,11 @@ SiteGroundTemperatureDeepWidget::SiteGroundTemperatureDeepWidget(bool isIP, QWid
 
 void SiteGroundTemperatureDeepWidget::attach(const model::ModelObject& obj) {
   detach();
-  m_obj = obj.cast<model::SiteGroundTemperatureDeep>();
+  m_obj = obj.cast<DP>();
   m_titleLabel->setText("Site:GroundTemperature:Deep");
 
-  using DP = model::SiteGroundTemperatureDeep;
-
-  struct MonthBinding
-  {
-    double (DP::*getter)() const;   // cppcheck-suppress unusedStructMember
-    bool (DP::*setter)(double);     // cppcheck-suppress unusedStructMember
-    void (DP::*resetter)();         // cppcheck-suppress unusedStructMember
-    bool (DP::*defaulted)() const;  // cppcheck-suppress unusedStructMember
-  };
-
-  static const std::array<MonthBinding, 12> month_binders{{
-    {
-      &DP::januaryDeepGroundTemperature,
-      &DP::setJanuaryDeepGroundTemperature,
-      &DP::resetJanuaryDeepGroundTemperature,
-      &DP::isJanuaryDeepGroundTemperatureDefaulted,
-    },
-    {
-      &DP::februaryDeepGroundTemperature,
-      &DP::setFebruaryDeepGroundTemperature,
-      &DP::resetFebruaryDeepGroundTemperature,
-      &DP::isFebruaryDeepGroundTemperatureDefaulted,
-    },
-    {
-      &DP::marchDeepGroundTemperature,
-      &DP::setMarchDeepGroundTemperature,
-      &DP::resetMarchDeepGroundTemperature,
-      &DP::isMarchDeepGroundTemperatureDefaulted,
-    },
-    {
-      &DP::aprilDeepGroundTemperature,
-      &DP::setAprilDeepGroundTemperature,
-      &DP::resetAprilDeepGroundTemperature,
-      &DP::isAprilDeepGroundTemperatureDefaulted,
-    },
-    {
-      &DP::mayDeepGroundTemperature,
-      &DP::setMayDeepGroundTemperature,
-      &DP::resetMayDeepGroundTemperature,
-      &DP::isMayDeepGroundTemperatureDefaulted,
-    },
-    {
-      &DP::juneDeepGroundTemperature,
-      &DP::setJuneDeepGroundTemperature,
-      &DP::resetJuneDeepGroundTemperature,
-      &DP::isJuneDeepGroundTemperatureDefaulted,
-    },
-    {
-      &DP::julyDeepGroundTemperature,
-      &DP::setJulyDeepGroundTemperature,
-      &DP::resetJulyDeepGroundTemperature,
-      &DP::isJulyDeepGroundTemperatureDefaulted,
-    },
-    {
-      &DP::augustDeepGroundTemperature,
-      &DP::setAugustDeepGroundTemperature,
-      &DP::resetAugustDeepGroundTemperature,
-      &DP::isAugustDeepGroundTemperatureDefaulted,
-    },
-    {
-      &DP::septemberDeepGroundTemperature,
-      &DP::setSeptemberDeepGroundTemperature,
-      &DP::resetSeptemberDeepGroundTemperature,
-      &DP::isSeptemberDeepGroundTemperatureDefaulted,
-    },
-    {
-      &DP::octoberDeepGroundTemperature,
-      &DP::setOctoberDeepGroundTemperature,
-      &DP::resetOctoberDeepGroundTemperature,
-      &DP::isOctoberDeepGroundTemperatureDefaulted,
-    },
-    {
-      &DP::novemberDeepGroundTemperature,
-      &DP::setNovemberDeepGroundTemperature,
-      &DP::resetNovemberDeepGroundTemperature,
-      &DP::isNovemberDeepGroundTemperatureDefaulted,
-    },
-    {
-      &DP::decemberDeepGroundTemperature,
-      &DP::setDecemberDeepGroundTemperature,
-      &DP::resetDecemberDeepGroundTemperature,
-      &DP::isDecemberDeepGroundTemperatureDefaulted,
-    },
-  }};
-
   for (int i = 0; i < 12; ++i) {
-    const auto& mb = month_binders[i];
+    const auto& mb = s_monthBinders[i];
     m_edits[i]->bind(m_isIP, *m_obj, DoubleGetter([this, g = mb.getter]() { return (m_obj.get_ptr()->*g)(); }),
                      boost::optional<DoubleSetter>([this, s = mb.setter](double v) { return (m_obj.get_ptr()->*s)(v); }),
                      boost::optional<NoFailAction>([this, r = mb.resetter]() { (m_obj.get_ptr()->*r)(); }), boost::none, boost::none,
@@ -475,18 +205,9 @@ void SiteGroundTemperatureDeepWidget::attach(const model::ModelObject& obj) {
 
 void SiteGroundTemperatureDeepWidget::applyConstantValue(double celsius) {
   if (!m_obj) return;
-  m_obj->setJanuaryDeepGroundTemperature(celsius);
-  m_obj->setFebruaryDeepGroundTemperature(celsius);
-  m_obj->setMarchDeepGroundTemperature(celsius);
-  m_obj->setAprilDeepGroundTemperature(celsius);
-  m_obj->setMayDeepGroundTemperature(celsius);
-  m_obj->setJuneDeepGroundTemperature(celsius);
-  m_obj->setJulyDeepGroundTemperature(celsius);
-  m_obj->setAugustDeepGroundTemperature(celsius);
-  m_obj->setSeptemberDeepGroundTemperature(celsius);
-  m_obj->setOctoberDeepGroundTemperature(celsius);
-  m_obj->setNovemberDeepGroundTemperature(celsius);
-  m_obj->setDecemberDeepGroundTemperature(celsius);
+  for (const auto& mb : s_monthBinders) {
+    (m_obj.get_ptr()->*mb.setter)(celsius);
+  }
 }
 
 }  // namespace openstudio
