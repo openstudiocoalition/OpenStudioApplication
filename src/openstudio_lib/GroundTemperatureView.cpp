@@ -154,12 +154,19 @@ GroundTemperatureNotPresentView::GroundTemperatureNotPresentView(QWidget* parent
 
   m_label = new QLabel();
   m_label->setWordWrap(true);
+  m_label->setTextFormat(Qt::RichText);
   layout->addWidget(m_label);
 
   m_addButton = new QPushButton(tr("Add"));
   m_addButton->setObjectName("StandardBlueButton");
   m_addButton->setMinimumWidth(100);
   layout->addWidget(m_addButton, 0, Qt::AlignLeft);
+
+  m_epwInfoLabel = new QLabel();
+  m_epwInfoLabel->setWordWrap(true);
+  m_epwInfoLabel->setTextFormat(Qt::RichText);
+  m_epwInfoLabel->hide();
+  layout->addWidget(m_epwInfoLabel);
 
   m_importFromEPWButton = new QPushButton(tr("Import from EPW"));
   m_importFromEPWButton->setObjectName("StandardGrayButton");
@@ -171,15 +178,37 @@ GroundTemperatureNotPresentView::GroundTemperatureNotPresentView(QWidget* parent
   connect(m_addButton, &QPushButton::clicked, this, [this]() { emit addClicked(m_type); });
 }
 
-void GroundTemperatureNotPresentView::setType(GroundTempType type, const QString& typeName, model::Model model) {
+QString typeNameForGroundTempType(GroundTempType type) {
+  switch (type) {
+    case GroundTempType::BuildingSurface:
+      return "Site:GroundTemperature:<span style=\"color: #1C7BBF;\">BuildingSurface</span>";
+    case GroundTempType::Shallow:
+      return "Site:GroundTemperature:<span style=\"color: #1C7BBF;\">Shallow</span>";
+    case GroundTempType::Deep:
+      return "Site:GroundTemperature:<span style=\"color: #1C7BBF;\">Deep</span>";
+    case GroundTempType::WaterMains:
+      return "Site:WaterMainsTemperature";
+    default:
+      // raise
+      throw std::runtime_error("Invalid GroundTempType");
+  }
+}
+
+void GroundTemperatureNotPresentView::setType(GroundTempType type, model::Model model) {
   m_type = type;
   m_model = std::move(model);
 
-  disconnect(m_importFromEPWButton, &QPushButton::clicked, nullptr, nullptr);
+  QString typeName = typeNameForGroundTempType(type);
 
-  QString label = tr("The %1 Unique ModelObject is not present in this model. Click Add to instantiate it.").arg(typeName);
+  disconnect(m_importFromEPWButton, &QPushButton::clicked, nullptr, nullptr);
+  m_importFromEPWButton->setEnabled(false);
+
+  m_label->setText(tr("<p>The <b>%1</b> Unique ModelObject is not present in this model.</p>"
+                      "<p>Click Add to instantiate it.</p>")
+                     .arg(typeName));
+
   if (type == GroundTempType::BuildingSurface || type == GroundTempType::WaterMains) {
-    m_label->setText(label);
+    m_epwInfoLabel->hide();
     m_importFromEPWButton->setVisible(false);
     return;
   }
@@ -188,8 +217,8 @@ void GroundTemperatureNotPresentView::setType(GroundTempType type, const QString
 
   boost::optional<model::WeatherFile> weatherFile_ = m_model.weatherFile();
   if (!weatherFile_) {
-    label.append(tr(" No weather file is associated with the model, so the object will be added with default values."));
-    m_label->setText(label);
+    m_epwInfoLabel->setText(tr("No weather file is associated with the model, so the object will be added with default values."));
+    m_epwInfoLabel->show();
     return;
   }
 
@@ -204,42 +233,38 @@ void GroundTemperatureNotPresentView::setType(GroundTempType type, const QString
 
   boost::optional<EpwFile> epwFile_ = weatherFile_->file(filesDir);
   if (!epwFile_) {
-
-    label.append(tr(" While a weather file is associated with the model, could not locate the underlying EpwFile, so the object will be added with "
-                    "default values."));
-    m_label->setText(label);
+    m_epwInfoLabel->setText(tr("While a weather file is associated with the model, could not locate the underlying EpwFile, "
+                               "so the object will be added with default values."));
+    m_epwInfoLabel->show();
     return;
   }
 
   std::vector<EpwGroundTemperatureDepth> ground_temps = epwFile_->groundTemperatureDepths();
   if (ground_temps.empty()) {
-    label.append(tr(" The weather file does not contain any ground temperature data, so the object will be added with default values."));
-    m_label->setText(label);
+    m_epwInfoLabel->setText(tr("The weather file does not contain any ground temperature data, so the object will be added with default values."));
+    m_epwInfoLabel->show();
     return;
   }
 
-  double target_depth = -999;
-  if (type == GroundTempType::Shallow) {
-    target_depth = 0.5;
-  } else {  // GroundTempType::Deep
-    target_depth = 4.0;
-  }
+  const double target_depth = (type == GroundTempType::Shallow) ? 0.5 : 4.0;
   // Now try to find the target_depth in the epw data, allowing for some tolerance since the epw spec doesn't require exact depths
   const double tolerance = 0.1;
   auto it = std::find_if(ground_temps.begin(), ground_temps.end(), [target_depth, tolerance](const EpwGroundTemperatureDepth& gtd) {
     return std::abs(gtd.groundTemperatureDepth() - target_depth) < tolerance;
   });
   if (it == ground_temps.end()) {
-    label.append(
-      tr(" The weather file does not contain ground temperature data at the expected depth of %1 m, so the object will be added with default values.")
-        .arg(target_depth));
-    m_label->setText(label);
+    m_epwInfoLabel->setText(tr("The weather file does not contain ground temperature data at the expected depth of %1 m, "
+                               "so the object will be added with default values.")
+                              .arg(QString::number(target_depth, 'f', 1)));
+    m_epwInfoLabel->show();
     return;
   }
 
-  label.append(tr(" The weather file contains ground temperature data at a depth of %1 m, so you can choose to import those values or add the object "
-                  "with default values.")
-                 .arg(it->groundTemperatureDepth()));
+  m_epwInfoLabel->setText(tr("The weather file contains ground temperature data at a depth of "
+                             "<b><span style=\"color: #1C7BBF;\">%1 m</span></b>, "
+                             "so you can choose to import those values or add the object with default values.")
+                            .arg(QString::number(it->groundTemperatureDepth(), 'f', 1)));
+  m_epwInfoLabel->show();
 
   m_importFromEPWButton->setEnabled(true);
   // Connect button to a lambda that creates the object directly and fills up the value
@@ -277,8 +302,6 @@ void GroundTemperatureNotPresentView::setType(GroundTempType type, const QString
     }
     emit addClicked(type);
   });
-
-  m_label->setText(label);
 }
 
 // ─────────────────────────────────────────────────────────
@@ -368,7 +391,7 @@ void GroundTemperatureView::onTypeSelected(GroundTempType type) {
       m_bsView->attach(*opt);
       m_rightStack->setCurrentIndex(1);
     } else {
-      m_notPresentView->setType(type, tr("Site:GroundTemperature:BuildingSurface"), m_model);
+      m_notPresentView->setType(type, m_model);
       m_rightStack->setCurrentIndex(0);
     }
   } else if (type == GroundTempType::Shallow) {
@@ -378,7 +401,7 @@ void GroundTemperatureView::onTypeSelected(GroundTempType type) {
       m_shView->attach(*opt);
       m_rightStack->setCurrentIndex(2);
     } else {
-      m_notPresentView->setType(type, tr("Site:GroundTemperature:Shallow"), m_model);
+      m_notPresentView->setType(type, m_model);
       m_rightStack->setCurrentIndex(0);
     }
   } else if (type == GroundTempType::Deep) {
@@ -388,7 +411,7 @@ void GroundTemperatureView::onTypeSelected(GroundTempType type) {
       m_deepView->attach(*opt);
       m_rightStack->setCurrentIndex(3);
     } else {
-      m_notPresentView->setType(type, tr("Site:GroundTemperature:Deep"), m_model);
+      m_notPresentView->setType(type, m_model);
       m_rightStack->setCurrentIndex(0);
     }
   } else {
@@ -398,7 +421,7 @@ void GroundTemperatureView::onTypeSelected(GroundTempType type) {
       m_waterMainsView->attach(*opt);
       m_rightStack->setCurrentIndex(4);
     } else {
-      m_notPresentView->setType(type, tr("OS:Site:WaterMainsTemperature"), m_model);
+      m_notPresentView->setType(type, m_model);
       m_rightStack->setCurrentIndex(0);
     }
   }
@@ -441,28 +464,28 @@ void GroundTemperatureView::onRemoveClicked() {
       m_bsView->detach();
       opt->remove();
     }
-    m_notPresentView->setType(m_currentType, tr("Site:GroundTemperature:BuildingSurface"), m_model);
+    m_notPresentView->setType(m_currentType, m_model);
   } else if (m_currentType == GroundTempType::Shallow) {
     auto opt = m_model.getOptionalUniqueModelObject<model::SiteGroundTemperatureShallow>();
     if (opt) {
       m_shView->detach();
       opt->remove();
     }
-    m_notPresentView->setType(m_currentType, tr("Site:GroundTemperature:Shallow"), m_model);
+    m_notPresentView->setType(m_currentType, m_model);
   } else if (m_currentType == GroundTempType::Deep) {
     auto opt = m_model.getOptionalUniqueModelObject<model::SiteGroundTemperatureDeep>();
     if (opt) {
       m_deepView->detach();
       opt->remove();
     }
-    m_notPresentView->setType(m_currentType, tr("Site:GroundTemperature:Deep"), m_model);
+    m_notPresentView->setType(m_currentType, m_model);
   } else {
     auto opt = m_model.siteWaterMainsTemperature();
     if (opt) {
       m_waterMainsView->detach();
       opt->remove();
     }
-    m_notPresentView->setType(m_currentType, tr("OS:Site:WaterMainsTemperature"), m_model);
+    m_notPresentView->setType(m_currentType, m_model);
   }
   m_rightStack->setCurrentIndex(0);
   m_selectorButtons->disableRemoveButton();

@@ -78,7 +78,7 @@ SiteWaterMainsTemperatureWidget::SiteWaterMainsTemperatureWidget(bool isIP, QWid
   mainLayout->setSpacing(20);
   setLayout(mainLayout);
 
-  auto* titleLabel = new QLabel("OS:Site:WaterMainsTemperature");
+  auto* titleLabel = new QLabel("Site:WaterMainsTemperature");
   titleLabel->setObjectName("H2");
   mainLayout->addWidget(titleLabel);
 

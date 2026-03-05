@@ -86,13 +86,14 @@ class GroundTemperatureNotPresentView : public QWidget
  public:
   explicit GroundTemperatureNotPresentView(QWidget* parent = nullptr);
 
-  void setType(GroundTempType type, const QString& typeName, model::Model model);
+  void setType(GroundTempType type, model::Model model);
 
  signals:
   void addClicked(openstudio::GroundTempType type);
 
  private:
   QLabel* m_label = nullptr;
+  QLabel* m_epwInfoLabel = nullptr;
   QPushButton* m_addButton = nullptr;
   QPushButton* m_importFromEPWButton = nullptr;
   GroundTempType m_type = GroundTempType::BuildingSurface;
