@@ -282,6 +282,8 @@ set(${target_name}_SRC
   GroundTemperatureMonthlyInspectorView.hpp
   GroundTemperatureView.cpp
   GroundTemperatureView.hpp
+  SiteWaterMainsTemperatureWidget.cpp
+  SiteWaterMainsTemperatureWidget.hpp
   SimSettingsTabView.cpp
   SimSettingsTabView.hpp
   SimSettingsView.cpp
@@ -641,6 +643,7 @@ set(${target_name}_moc
   SimSettingsView.hpp
   GroundTemperatureMonthlyInspectorView.hpp
   GroundTemperatureView.hpp
+  SiteWaterMainsTemperatureWidget.hpp
   SpaceLoadInstancesWidget.hpp
   SpacesDaylightingGridView.hpp
   SpacesInteriorPartitionsGridView.hpp
