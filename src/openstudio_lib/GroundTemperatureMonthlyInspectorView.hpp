@@ -15,7 +15,9 @@
 
 #include <array>
 
+class QDoubleSpinBox;
 class QLabel;
+class QPushButton;
 
 namespace openstudio {
 
@@ -33,12 +35,16 @@ class SiteGroundTemperatureMonthlyWidget : public QWidget
   virtual void attach(const model::ModelObject& obj) = 0;
   void detach();
 
+  virtual void applyConstantValue(double celsius) = 0;
+
  signals:
   void toggleUnitsClicked(bool displayIP);
 
  protected:
   bool m_isIP;
   QLabel* m_titleLabel = nullptr;
+  QDoubleSpinBox* m_constantValueEdit = nullptr;
+  QPushButton* m_applyConstantButton = nullptr;
   std::array<OSQuantityEdit2*, 12> m_edits{};
 };
 
@@ -51,6 +57,7 @@ class SiteGroundTemperatureBuildingSurfaceWidget : public SiteGroundTemperatureM
   explicit SiteGroundTemperatureBuildingSurfaceWidget(bool isIP, QWidget* parent = nullptr);
 
   void attach(const model::ModelObject& obj) override;
+  void applyConstantValue(double celsius) override;
 
  private:
   boost::optional<model::SiteGroundTemperatureBuildingSurface> m_obj;
@@ -65,6 +72,7 @@ class SiteGroundTemperatureShallowWidget : public SiteGroundTemperatureMonthlyWi
   explicit SiteGroundTemperatureShallowWidget(bool isIP, QWidget* parent = nullptr);
 
   void attach(const model::ModelObject& obj) override;
+  void applyConstantValue(double celsius) override;
 
  private:
   boost::optional<model::SiteGroundTemperatureShallow> m_obj;
@@ -79,6 +87,7 @@ class SiteGroundTemperatureDeepWidget : public SiteGroundTemperatureMonthlyWidge
   explicit SiteGroundTemperatureDeepWidget(bool isIP, QWidget* parent = nullptr);
 
   void attach(const model::ModelObject& obj) override;
+  void applyConstantValue(double celsius) override;
 
  private:
   boost::optional<model::SiteGroundTemperatureDeep> m_obj;
