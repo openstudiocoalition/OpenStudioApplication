@@ -14,10 +14,13 @@
 #include <QWidget>
 
 #include <array>
+#include <functional>
 
+class QBarSet;
 class QDoubleSpinBox;
 class QLabel;
 class QPushButton;
+class QValueAxis;
 
 namespace openstudio {
 
@@ -41,11 +44,22 @@ class SiteGroundTemperatureMonthlyWidget : public QWidget
   void toggleUnitsClicked(bool displayIP);
 
  protected:
+  void setChartValues(const std::array<double, 12>& celsiusValues);
+  void refreshChartFromModel();
+
   bool m_isIP;
+  std::function<std::array<double, 12>()> m_valuesGetter;
   QLabel* m_titleLabel = nullptr;
   QDoubleSpinBox* m_constantValueEdit = nullptr;
   QPushButton* m_applyConstantButton = nullptr;
   std::array<OSQuantityEdit2*, 12> m_edits{};
+
+ private:
+  void refreshChartDisplay();
+
+  QBarSet* m_chartBarSet = nullptr;
+  QValueAxis* m_chartYAxis = nullptr;
+  std::array<double, 12> m_cachedCelsius{};
 };
 
 /** Inspector for Site:GroundTemperature:BuildingSurface — 12 monthly fields. */
