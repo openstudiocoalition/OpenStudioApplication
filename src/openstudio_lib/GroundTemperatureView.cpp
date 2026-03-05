@@ -279,60 +279,64 @@ void GroundTemperatureNotPresentView::setType(GroundTempType type, model::Model 
     return;
   }
 
+  // Capture the EpwGroundTemperatureDepth by value — 'it' is an iterator into a local vector
+  // that goes out of scope when setType() returns, so dereferencing it later is UB.
+  EpwGroundTemperatureDepth gtd = *it;
+
   m_epwInfoLabel->setText(tr("The weather file contains ground temperature data at a depth of "
                              "<b><span style=\"color: #1C7BBF;\">%1 m</span></b>, "
                              "so you can choose to import those values or add the object with default values.")
-                            .arg(QString::number(it->groundTemperatureDepth(), 'f', 1)));
+                            .arg(QString::number(gtd.groundTemperatureDepth(), 'f', 1)));
   m_epwInfoLabel->show();
 
   m_importFromEPWButton->setEnabled(true);
   // Connect button to a lambda that creates the object directly and fills up the value
-  connect(m_importFromEPWButton, &QPushButton::clicked, this, [this, type, it]() {
+  connect(m_importFromEPWButton, &QPushButton::clicked, this, [this, type, gtd]() {
     if (type == GroundTempType::Shallow) {
       auto ts = m_model.getUniqueModelObject<model::SiteGroundTemperatureShallow>();
 
-      ts.setJanuarySurfaceGroundTemperature(it->janGroundTemperature());
-      ts.setFebruarySurfaceGroundTemperature(it->febGroundTemperature());
-      ts.setMarchSurfaceGroundTemperature(it->marGroundTemperature());
-      ts.setAprilSurfaceGroundTemperature(it->aprGroundTemperature());
-      ts.setMaySurfaceGroundTemperature(it->mayGroundTemperature());
-      ts.setJuneSurfaceGroundTemperature(it->junGroundTemperature());
-      ts.setJulySurfaceGroundTemperature(it->julGroundTemperature());
-      ts.setAugustSurfaceGroundTemperature(it->augGroundTemperature());
-      ts.setSeptemberSurfaceGroundTemperature(it->sepGroundTemperature());
-      ts.setOctoberSurfaceGroundTemperature(it->octGroundTemperature());
-      ts.setNovemberSurfaceGroundTemperature(it->novGroundTemperature());
-      ts.setDecemberSurfaceGroundTemperature(it->decGroundTemperature());
+      ts.setJanuarySurfaceGroundTemperature(gtd.janGroundTemperature());
+      ts.setFebruarySurfaceGroundTemperature(gtd.febGroundTemperature());
+      ts.setMarchSurfaceGroundTemperature(gtd.marGroundTemperature());
+      ts.setAprilSurfaceGroundTemperature(gtd.aprGroundTemperature());
+      ts.setMaySurfaceGroundTemperature(gtd.mayGroundTemperature());
+      ts.setJuneSurfaceGroundTemperature(gtd.junGroundTemperature());
+      ts.setJulySurfaceGroundTemperature(gtd.julGroundTemperature());
+      ts.setAugustSurfaceGroundTemperature(gtd.augGroundTemperature());
+      ts.setSeptemberSurfaceGroundTemperature(gtd.sepGroundTemperature());
+      ts.setOctoberSurfaceGroundTemperature(gtd.octGroundTemperature());
+      ts.setNovemberSurfaceGroundTemperature(gtd.novGroundTemperature());
+      ts.setDecemberSurfaceGroundTemperature(gtd.decGroundTemperature());
     } else if (type == GroundTempType::FCfactorMethod) {
       auto tf = m_model.getUniqueModelObject<model::SiteGroundTemperatureFCfactorMethod>();
 
-      tf.setJanuaryGroundTemperature(it->janGroundTemperature());
-      tf.setFebruaryGroundTemperature(it->febGroundTemperature());
-      tf.setMarchGroundTemperature(it->marGroundTemperature());
-      tf.setAprilGroundTemperature(it->aprGroundTemperature());
-      tf.setMayGroundTemperature(it->mayGroundTemperature());
-      tf.setJuneGroundTemperature(it->junGroundTemperature());
-      tf.setJulyGroundTemperature(it->julGroundTemperature());
-      tf.setAugustGroundTemperature(it->augGroundTemperature());
-      tf.setSeptemberGroundTemperature(it->sepGroundTemperature());
-      tf.setOctoberGroundTemperature(it->octGroundTemperature());
-      tf.setNovemberGroundTemperature(it->novGroundTemperature());
-      tf.setDecemberGroundTemperature(it->decGroundTemperature());
+      tf.setJanuaryGroundTemperature(gtd.janGroundTemperature());
+      tf.setFebruaryGroundTemperature(gtd.febGroundTemperature());
+      tf.setMarchGroundTemperature(gtd.marGroundTemperature());
+      tf.setAprilGroundTemperature(gtd.aprGroundTemperature());
+      tf.setMayGroundTemperature(gtd.mayGroundTemperature());
+      tf.setJuneGroundTemperature(gtd.junGroundTemperature());
+      tf.setJulyGroundTemperature(gtd.julGroundTemperature());
+      tf.setAugustGroundTemperature(gtd.augGroundTemperature());
+      tf.setSeptemberGroundTemperature(gtd.sepGroundTemperature());
+      tf.setOctoberGroundTemperature(gtd.octGroundTemperature());
+      tf.setNovemberGroundTemperature(gtd.novGroundTemperature());
+      tf.setDecemberGroundTemperature(gtd.decGroundTemperature());
     } else {  // GroundTempType::Deep
       auto td = m_model.getUniqueModelObject<model::SiteGroundTemperatureDeep>();
 
-      td.setJanuaryDeepGroundTemperature(it->janGroundTemperature());
-      td.setFebruaryDeepGroundTemperature(it->febGroundTemperature());
-      td.setMarchDeepGroundTemperature(it->marGroundTemperature());
-      td.setAprilDeepGroundTemperature(it->aprGroundTemperature());
-      td.setMayDeepGroundTemperature(it->mayGroundTemperature());
-      td.setJuneDeepGroundTemperature(it->junGroundTemperature());
-      td.setJulyDeepGroundTemperature(it->julGroundTemperature());
-      td.setAugustDeepGroundTemperature(it->augGroundTemperature());
-      td.setSeptemberDeepGroundTemperature(it->sepGroundTemperature());
-      td.setOctoberDeepGroundTemperature(it->octGroundTemperature());
-      td.setNovemberDeepGroundTemperature(it->novGroundTemperature());
-      td.setDecemberDeepGroundTemperature(it->decGroundTemperature());
+      td.setJanuaryDeepGroundTemperature(gtd.janGroundTemperature());
+      td.setFebruaryDeepGroundTemperature(gtd.febGroundTemperature());
+      td.setMarchDeepGroundTemperature(gtd.marGroundTemperature());
+      td.setAprilDeepGroundTemperature(gtd.aprGroundTemperature());
+      td.setMayDeepGroundTemperature(gtd.mayGroundTemperature());
+      td.setJuneDeepGroundTemperature(gtd.junGroundTemperature());
+      td.setJulyDeepGroundTemperature(gtd.julGroundTemperature());
+      td.setAugustDeepGroundTemperature(gtd.augGroundTemperature());
+      td.setSeptemberDeepGroundTemperature(gtd.sepGroundTemperature());
+      td.setOctoberDeepGroundTemperature(gtd.octGroundTemperature());
+      td.setNovemberDeepGroundTemperature(gtd.novGroundTemperature());
+      td.setDecemberDeepGroundTemperature(gtd.decGroundTemperature());
     }
     emit addClicked(type);
   });
