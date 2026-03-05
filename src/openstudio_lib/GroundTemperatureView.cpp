@@ -7,6 +7,7 @@
 
 #include "OSAppBase.hpp"
 #include "OSDocument.hpp"
+#include "OSItemSelectorButtons.hpp"
 #include "../model_editor/Utilities.hpp"
 
 #include <openstudio/model/SiteGroundTemperatureBuildingSurface_Impl.hpp>
@@ -302,7 +303,16 @@ GroundTemperatureView::GroundTemperatureView(bool isIP, const model::Model& mode
 
   m_listView = new GroundTemperatureListView(leftPane);
   leftLayout->addWidget(m_listView);
-  leftLayout->addStretch();
+
+  m_selectorButtons = new OSItemSelectorButtons();
+  m_selectorButtons->hideDropZone();
+  m_selectorButtons->showAddButton();
+  m_selectorButtons->disableAddButton();
+  m_selectorButtons->hideCopyButton();
+  m_selectorButtons->hidePurgeButton();
+  m_selectorButtons->showRemoveButton();
+  m_selectorButtons->disableRemoveButton();
+  leftLayout->addWidget(m_selectorButtons);
 
   mainLayout->addWidget(leftPane);
 
@@ -334,6 +344,8 @@ GroundTemperatureView::GroundTemperatureView(bool isIP, const model::Model& mode
 
   connect(m_listView, &GroundTemperatureListView::typeSelected, this, &GroundTemperatureView::onTypeSelected);
   connect(m_notPresentView, &GroundTemperatureNotPresentView::addClicked, this, &GroundTemperatureView::onObjectCreated);
+  connect(m_selectorButtons, &OSItemSelectorButtons::addClicked, this, [this]() { onObjectCreated(m_currentType); });
+  connect(m_selectorButtons, &OSItemSelectorButtons::removeClicked, this, &GroundTemperatureView::onRemoveClicked);
 
   // Forward unit toggle to sub-views (signal-to-signal)
   connect(this, &GroundTemperatureView::toggleUnitsClicked, m_bsView, &SiteGroundTemperatureBuildingSurfaceWidget::toggleUnitsClicked);
@@ -346,9 +358,13 @@ GroundTemperatureView::GroundTemperatureView(bool isIP, const model::Model& mode
 }
 
 void GroundTemperatureView::onTypeSelected(GroundTempType type) {
+  m_currentType = type;
+  bool objectExists = false;
+
   if (type == GroundTempType::BuildingSurface) {
     auto opt = m_model.getOptionalUniqueModelObject<model::SiteGroundTemperatureBuildingSurface>();
     if (opt) {
+      objectExists = true;
       m_bsView->attach(*opt);
       m_rightStack->setCurrentIndex(1);
     } else {
@@ -358,6 +374,7 @@ void GroundTemperatureView::onTypeSelected(GroundTempType type) {
   } else if (type == GroundTempType::Shallow) {
     auto opt = m_model.getOptionalUniqueModelObject<model::SiteGroundTemperatureShallow>();
     if (opt) {
+      objectExists = true;
       m_shView->attach(*opt);
       m_rightStack->setCurrentIndex(2);
     } else {
@@ -367,6 +384,7 @@ void GroundTemperatureView::onTypeSelected(GroundTempType type) {
   } else if (type == GroundTempType::Deep) {
     auto opt = m_model.getOptionalUniqueModelObject<model::SiteGroundTemperatureDeep>();
     if (opt) {
+      objectExists = true;
       m_deepView->attach(*opt);
       m_rightStack->setCurrentIndex(3);
     } else {
@@ -376,12 +394,21 @@ void GroundTemperatureView::onTypeSelected(GroundTempType type) {
   } else {
     auto opt = m_model.siteWaterMainsTemperature();
     if (opt) {
+      objectExists = true;
       m_waterMainsView->attach(*opt);
       m_rightStack->setCurrentIndex(4);
     } else {
       m_notPresentView->setType(type, tr("OS:Site:WaterMainsTemperature"), m_model);
       m_rightStack->setCurrentIndex(0);
     }
+  }
+
+  if (objectExists) {
+    m_selectorButtons->enableRemoveButton();
+    m_selectorButtons->disableAddButton();
+  } else {
+    m_selectorButtons->disableRemoveButton();
+    m_selectorButtons->enableAddButton();
   }
 }
 
@@ -403,6 +430,43 @@ void GroundTemperatureView::onObjectCreated(GroundTempType type) {
     m_waterMainsView->attach(obj);
     m_rightStack->setCurrentIndex(4);
   }
+  m_selectorButtons->enableRemoveButton();
+  m_selectorButtons->disableAddButton();
+}
+
+void GroundTemperatureView::onRemoveClicked() {
+  if (m_currentType == GroundTempType::BuildingSurface) {
+    auto opt = m_model.getOptionalUniqueModelObject<model::SiteGroundTemperatureBuildingSurface>();
+    if (opt) {
+      m_bsView->detach();
+      opt->remove();
+    }
+    m_notPresentView->setType(m_currentType, tr("Site:GroundTemperature:BuildingSurface"), m_model);
+  } else if (m_currentType == GroundTempType::Shallow) {
+    auto opt = m_model.getOptionalUniqueModelObject<model::SiteGroundTemperatureShallow>();
+    if (opt) {
+      m_shView->detach();
+      opt->remove();
+    }
+    m_notPresentView->setType(m_currentType, tr("Site:GroundTemperature:Shallow"), m_model);
+  } else if (m_currentType == GroundTempType::Deep) {
+    auto opt = m_model.getOptionalUniqueModelObject<model::SiteGroundTemperatureDeep>();
+    if (opt) {
+      m_deepView->detach();
+      opt->remove();
+    }
+    m_notPresentView->setType(m_currentType, tr("Site:GroundTemperature:Deep"), m_model);
+  } else {
+    auto opt = m_model.siteWaterMainsTemperature();
+    if (opt) {
+      m_waterMainsView->detach();
+      opt->remove();
+    }
+    m_notPresentView->setType(m_currentType, tr("OS:Site:WaterMainsTemperature"), m_model);
+  }
+  m_rightStack->setCurrentIndex(0);
+  m_selectorButtons->disableRemoveButton();
+  m_selectorButtons->enableAddButton();
 }
 
 }  // namespace openstudio

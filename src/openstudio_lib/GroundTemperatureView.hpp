@@ -19,6 +19,8 @@ class QStackedWidget;
 
 namespace openstudio {
 
+class OSItemSelectorButtons;
+
 enum class GroundTempType
 {
   BuildingSurface,
@@ -111,11 +113,14 @@ class GroundTemperatureView : public QWidget
  private slots:
   void onTypeSelected(openstudio::GroundTempType type);
   void onObjectCreated(openstudio::GroundTempType type);
+  void onRemoveClicked();
 
  private:
   model::Model m_model;
   bool m_isIP;
+  GroundTempType m_currentType = GroundTempType::BuildingSurface;
   GroundTemperatureListView* m_listView = nullptr;
+  OSItemSelectorButtons* m_selectorButtons = nullptr;
   GroundTemperatureNotPresentView* m_notPresentView = nullptr;
   SiteGroundTemperatureBuildingSurfaceWidget* m_bsView = nullptr;
   SiteGroundTemperatureShallowWidget* m_shView = nullptr;
