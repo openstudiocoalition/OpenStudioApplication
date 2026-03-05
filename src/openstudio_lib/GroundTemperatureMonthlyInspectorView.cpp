@@ -9,17 +9,29 @@
 
 #include "../shared_gui_components/OSQuantityEdit.hpp"
 
+#include <openstudio/model/ModelObject_Impl.hpp>
 #include <openstudio/model/SiteGroundTemperatureBuildingSurface_Impl.hpp>
 #include <openstudio/model/SiteGroundTemperatureShallow_Impl.hpp>
 #include <openstudio/model/SiteGroundTemperatureDeep_Impl.hpp>
 
+#include <QBarCategoryAxis>
+#include <QBarSeries>
+#include <QBarSet>
+#include <QChart>
+#include <QChartView>
+#include <QCursor>
+#include <QLineSeries>
+#include <QScrollArea>
 #include <QDoubleSpinBox>
 #include <QFrame>
 #include <QGridLayout>
 #include <QHBoxLayout>
 #include <QLabel>
+#include <QPainter>
 #include <QPushButton>
 #include <QStringList>
+#include <QToolTip>
+#include <QValueAxis>
 #include <QVBoxLayout>
 
 #define TEMP_EDIT_WIDTH 90
@@ -31,11 +43,22 @@ namespace openstudio {
 // ─────────────────────────────────────────────────────────
 
 SiteGroundTemperatureMonthlyWidget::SiteGroundTemperatureMonthlyWidget(bool isIP, QWidget* parent) : QWidget(parent), m_isIP(isIP) {
+  auto* container = new QWidget();
   auto* mainLayout = new QVBoxLayout();
   mainLayout->setAlignment(Qt::AlignLeft | Qt::AlignTop);
   mainLayout->setContentsMargins(10, 10, 10, 10);
   mainLayout->setSpacing(20);
-  setLayout(mainLayout);
+  container->setLayout(mainLayout);
+
+  auto* scrollArea = new QScrollArea(this);
+  scrollArea->setWidgetResizable(true);
+  scrollArea->setWidget(container);
+  scrollArea->setFrameShape(QFrame::NoFrame);
+
+  auto* outerLayout = new QVBoxLayout(this);
+  outerLayout->setContentsMargins(0, 0, 0, 0);
+  outerLayout->addWidget(scrollArea);
+  setLayout(outerLayout);
 
   m_titleLabel = new QLabel();
   m_titleLabel->setObjectName("H2");
@@ -112,9 +135,71 @@ SiteGroundTemperatureMonthlyWidget::SiteGroundTemperatureMonthlyWidget(bool isIP
     const double val = m_constantValueEdit->value();
     const double celsius = m_isIP ? (val - 32.0) * 5.0 / 9.0 : val;
     applyConstantValue(celsius);
+    m_cachedCelsius.fill(celsius);
+    refreshChartDisplay();
   });
 
-  mainLayout->addStretch();
+  // Chart
+  m_chartBarSet = new QBarSet(QString());
+  for (int i = 0; i < 12; ++i) {
+    m_chartBarSet->append(0.0);
+  }
+
+  auto* barSeries = new QBarSeries;
+  barSeries->append(m_chartBarSet);
+
+  const QStringList monthAbbrevs = {"Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"};
+  auto* axisX = new QBarCategoryAxis;
+  axisX->append(monthAbbrevs);
+
+  m_chartYAxis = new QValueAxis;
+  m_chartYAxis->setTitleText(isIP ? tr("Temperature [°F]") : tr("Temperature [°C]"));
+
+  // Zero line — uses a hidden numeric x axis so it can span the bar range
+  auto* hiddenXAxis = new QValueAxis;
+  hiddenXAxis->setRange(-0.5, 11.5);
+  hiddenXAxis->setVisible(false);
+
+  m_zeroLine = new QLineSeries;
+  m_zeroLine->append(-0.5, 0.0);
+  m_zeroLine->append(11.5, 0.0);
+  QPen zeroPen(QColor(80, 80, 80));
+  zeroPen.setWidth(1);
+  zeroPen.setStyle(Qt::DashLine);
+  m_zeroLine->setPen(zeroPen);
+  m_zeroLine->setVisible(false);
+
+  auto* chart = new QChart;
+  chart->legend()->hide();
+  chart->addSeries(barSeries);
+  chart->addSeries(m_zeroLine);
+  chart->addAxis(axisX, Qt::AlignBottom);
+  chart->addAxis(hiddenXAxis, Qt::AlignBottom);
+  chart->addAxis(m_chartYAxis, Qt::AlignLeft);
+  barSeries->attachAxis(axisX);
+  barSeries->attachAxis(m_chartYAxis);
+  m_zeroLine->attachAxis(hiddenXAxis);
+  m_zeroLine->attachAxis(m_chartYAxis);
+  chart->setAnimationOptions(QChart::SeriesAnimations);
+
+  // Hover tooltip
+  connect(m_chartBarSet, &QBarSet::hovered, this, [this, monthNames](bool status, int index) {
+    if (status && index >= 0 && index < 12) {
+      const double display = m_isIP ? m_cachedCelsius[index] * 9.0 / 5.0 + 32.0 : m_cachedCelsius[index];
+      const QString unit = m_isIP ? tr("°F") : tr("°C");
+      QToolTip::showText(QCursor::pos(), QString("%1: %2 %3").arg(monthNames[index]).arg(display, 0, 'f', 1).arg(unit));
+    } else {
+      QToolTip::hideText();
+    }
+  });
+
+  auto* chartView = new QChartView(chart);
+  chartView->setRenderHint(QPainter::Antialiasing);
+  chartView->setMinimumHeight(220);
+  chartView->setSizePolicy(QSizePolicy::Expanding, QSizePolicy::Expanding);
+  mainLayout->addWidget(chartView, 1);
+
+  connect(this, &SiteGroundTemperatureMonthlyWidget::toggleUnitsClicked, this, [this](bool) { refreshChartDisplay(); });
 }
 
 void SiteGroundTemperatureMonthlyWidget::detach() {
@@ -122,6 +207,58 @@ void SiteGroundTemperatureMonthlyWidget::detach() {
     if (edit) {
       edit->unbind();
     }
+  }
+  m_valuesGetter = nullptr;
+  disconnectModelChanges();
+}
+
+void SiteGroundTemperatureMonthlyWidget::refreshChartFromModel() {
+  if (m_valuesGetter) {
+    setChartValues(m_valuesGetter());
+  }
+}
+
+void SiteGroundTemperatureMonthlyWidget::connectModelChanges(const model::ModelObject& obj) {
+  m_connectedModelObj = obj;
+  obj.getImpl<model::detail::ModelObject_Impl>()
+    ->onChange.connect<SiteGroundTemperatureMonthlyWidget, &SiteGroundTemperatureMonthlyWidget::refreshChartFromModel>(this);
+}
+
+void SiteGroundTemperatureMonthlyWidget::disconnectModelChanges() {
+  if (m_connectedModelObj) {
+    m_connectedModelObj->getImpl<model::detail::ModelObject_Impl>()
+      ->onChange.disconnect<SiteGroundTemperatureMonthlyWidget, &SiteGroundTemperatureMonthlyWidget::refreshChartFromModel>(this);
+    m_connectedModelObj = boost::none;
+  }
+}
+
+void SiteGroundTemperatureMonthlyWidget::setChartValues(const std::array<double, 12>& celsiusValues) {
+  m_cachedCelsius = celsiusValues;
+  refreshChartDisplay();
+}
+
+void SiteGroundTemperatureMonthlyWidget::refreshChartDisplay() {
+  if (!m_chartBarSet || !m_chartYAxis) {
+    return;
+  }
+  double minVal = m_isIP ? m_cachedCelsius[0] * 9.0 / 5.0 + 32.0 : m_cachedCelsius[0];
+  double maxVal = minVal;
+  for (int i = 0; i < 12; ++i) {
+    const double val = m_isIP ? m_cachedCelsius[i] * 9.0 / 5.0 + 32.0 : m_cachedCelsius[i];
+    m_chartBarSet->replace(i, val);
+    if (val < minVal) {
+      minVal = val;
+    }
+    if (val > maxVal) {
+      maxVal = val;
+    }
+  }
+  const double pad = m_isIP ? 3.6 : 2.0;  // ~2°C in °F
+  m_chartYAxis->setRange(minVal - pad, maxVal + pad);
+  m_chartYAxis->setTitleText(m_isIP ? tr("Temperature [°F]") : tr("Temperature [°C]"));
+
+  if (m_zeroLine) {
+    m_zeroLine->setVisible(minVal < 0.0 && maxVal > 0.0);
   }
 }
 
@@ -145,9 +282,17 @@ void SiteGroundTemperatureBuildingSurfaceWidget::attach(const model::ModelObject
                      boost::optional<BasicQuery>([this, d = mb.defaulted]() { return (m_obj.get_ptr()->*d)(); }));
   }
 
-  // Default value is the January one
-  const double januaryCelsius = (m_obj.get_ptr()->*s_monthBinders[0].getter)();
-  m_constantValueEdit->setValue(m_isIP ? januaryCelsius * 9.0 / 5.0 + 32.0 : januaryCelsius);
+  m_valuesGetter = [this]() {
+    std::array<double, 12> vals{};
+    for (int i = 0; i < 12; ++i) {
+      vals[i] = (m_obj.get_ptr()->*s_monthBinders[i].getter)();
+    }
+    return vals;
+  };
+  const auto vals = m_valuesGetter();
+  setChartValues(vals);
+  m_constantValueEdit->setValue(m_isIP ? vals[0] * 9.0 / 5.0 + 32.0 : vals[0]);
+  connectModelChanges(obj);
 }
 
 void SiteGroundTemperatureBuildingSurfaceWidget::applyConstantValue(double celsius) {
@@ -179,8 +324,17 @@ void SiteGroundTemperatureShallowWidget::attach(const model::ModelObject& obj) {
                      boost::optional<BasicQuery>([this, d = mb.defaulted]() { return (m_obj.get_ptr()->*d)(); }));
   }
 
-  const double januaryCelsius = (m_obj.get_ptr()->*s_monthBinders[0].getter)();
-  m_constantValueEdit->setValue(m_isIP ? januaryCelsius * 9.0 / 5.0 + 32.0 : januaryCelsius);
+  m_valuesGetter = [this]() {
+    std::array<double, 12> vals{};
+    for (int i = 0; i < 12; ++i) {
+      vals[i] = (m_obj.get_ptr()->*s_monthBinders[i].getter)();
+    }
+    return vals;
+  };
+  const auto vals = m_valuesGetter();
+  setChartValues(vals);
+  m_constantValueEdit->setValue(m_isIP ? vals[0] * 9.0 / 5.0 + 32.0 : vals[0]);
+  connectModelChanges(obj);
 }
 
 void SiteGroundTemperatureShallowWidget::applyConstantValue(double celsius) {
@@ -211,8 +365,17 @@ void SiteGroundTemperatureDeepWidget::attach(const model::ModelObject& obj) {
                      boost::optional<BasicQuery>([this, d = mb.defaulted]() { return (m_obj.get_ptr()->*d)(); }));
   }
 
-  const double januaryCelsius = (m_obj.get_ptr()->*s_monthBinders[0].getter)();
-  m_constantValueEdit->setValue(m_isIP ? januaryCelsius * 9.0 / 5.0 + 32.0 : januaryCelsius);
+  m_valuesGetter = [this]() {
+    std::array<double, 12> vals{};
+    for (int i = 0; i < 12; ++i) {
+      vals[i] = (m_obj.get_ptr()->*s_monthBinders[i].getter)();
+    }
+    return vals;
+  };
+  const auto vals = m_valuesGetter();
+  setChartValues(vals);
+  m_constantValueEdit->setValue(m_isIP ? vals[0] * 9.0 / 5.0 + 32.0 : vals[0]);
+  connectModelChanges(obj);
 }
 
 void SiteGroundTemperatureDeepWidget::applyConstantValue(double celsius) {

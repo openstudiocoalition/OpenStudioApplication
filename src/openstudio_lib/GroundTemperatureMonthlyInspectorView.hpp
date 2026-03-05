@@ -7,6 +7,7 @@
 #define OPENSTUDIO_GROUNDTEMPERATUREMONTHLYINSPECTORVIEW_HPP
 
 #include <openstudio/model/ModelObject.hpp>
+#include <openstudio/nano/nano_signal_slot.hpp>
 #include <openstudio/model/SiteGroundTemperatureBuildingSurface.hpp>
 #include <openstudio/model/SiteGroundTemperatureShallow.hpp>
 #include <openstudio/model/SiteGroundTemperatureDeep.hpp>
@@ -14,17 +15,23 @@
 #include <QWidget>
 
 #include <array>
+#include <functional>
 
+class QBarSet;
 class QDoubleSpinBox;
 class QLabel;
+class QLineSeries;
 class QPushButton;
+class QValueAxis;
 
 namespace openstudio {
 
 class OSQuantityEdit2;
 
 /** Abstract base for inspector widgets that show 12 monthly temperature fields. */
-class SiteGroundTemperatureMonthlyWidget : public QWidget
+class SiteGroundTemperatureMonthlyWidget
+  : public QWidget
+  , public Nano::Observer
 {
   Q_OBJECT
 
@@ -41,11 +48,26 @@ class SiteGroundTemperatureMonthlyWidget : public QWidget
   void toggleUnitsClicked(bool displayIP);
 
  protected:
+  void setChartValues(const std::array<double, 12>& celsiusValues);
+  void refreshChartFromModel();
+  void connectModelChanges(const model::ModelObject& obj);
+  void disconnectModelChanges();
+
   bool m_isIP;
+  std::function<std::array<double, 12>()> m_valuesGetter;
   QLabel* m_titleLabel = nullptr;
   QDoubleSpinBox* m_constantValueEdit = nullptr;
   QPushButton* m_applyConstantButton = nullptr;
   std::array<OSQuantityEdit2*, 12> m_edits{};
+
+ private:
+  void refreshChartDisplay();
+
+  boost::optional<model::ModelObject> m_connectedModelObj;
+  QBarSet* m_chartBarSet = nullptr;
+  QLineSeries* m_zeroLine = nullptr;
+  QValueAxis* m_chartYAxis = nullptr;
+  std::array<double, 12> m_cachedCelsius{};
 };
 
 /** Inspector for Site:GroundTemperature:BuildingSurface — 12 monthly fields. */
