@@ -14,6 +14,7 @@
 #include <openstudio/model/SiteGroundTemperatureDeep_Impl.hpp>
 
 #include <QBarCategoryAxis>
+#include <QScrollArea>
 #include <QBarSeries>
 #include <QBarSet>
 #include <QChart>
@@ -39,11 +40,22 @@ namespace openstudio {
 // ─────────────────────────────────────────────────────────
 
 SiteGroundTemperatureMonthlyWidget::SiteGroundTemperatureMonthlyWidget(bool isIP, QWidget* parent) : QWidget(parent), m_isIP(isIP) {
+  auto* container = new QWidget();
   auto* mainLayout = new QVBoxLayout();
   mainLayout->setAlignment(Qt::AlignLeft | Qt::AlignTop);
   mainLayout->setContentsMargins(10, 10, 10, 10);
   mainLayout->setSpacing(20);
-  setLayout(mainLayout);
+  container->setLayout(mainLayout);
+
+  auto* scrollArea = new QScrollArea(this);
+  scrollArea->setWidgetResizable(true);
+  scrollArea->setWidget(container);
+  scrollArea->setFrameShape(QFrame::NoFrame);
+
+  auto* outerLayout = new QVBoxLayout(this);
+  outerLayout->setContentsMargins(0, 0, 0, 0);
+  outerLayout->addWidget(scrollArea);
+  setLayout(outerLayout);
 
   m_titleLabel = new QLabel();
   m_titleLabel->setObjectName("H2");
