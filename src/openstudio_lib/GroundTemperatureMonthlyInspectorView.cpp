@@ -45,6 +45,7 @@ namespace openstudio {
 
 SiteGroundTemperatureMonthlyWidget::SiteGroundTemperatureMonthlyWidget(bool isIP, QWidget* parent) : QWidget(parent), m_isIP(isIP) {
   auto* container = new QWidget();
+  container->setObjectName("GrayWidget");
   auto* mainLayout = new QVBoxLayout();
   mainLayout->setAlignment(Qt::AlignLeft | Qt::AlignTop);
   mainLayout->setContentsMargins(10, 10, 10, 10);
