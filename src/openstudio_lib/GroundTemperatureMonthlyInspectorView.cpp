@@ -9,6 +9,7 @@
 
 #include "../shared_gui_components/OSQuantityEdit.hpp"
 
+#include <openstudio/model/ModelObject_Impl.hpp>
 #include <openstudio/model/SiteGroundTemperatureBuildingSurface_Impl.hpp>
 #include <openstudio/model/SiteGroundTemperatureShallow_Impl.hpp>
 #include <openstudio/model/SiteGroundTemperatureDeep_Impl.hpp>
@@ -26,7 +27,6 @@
 #include <QGridLayout>
 #include <QHBoxLayout>
 #include <QLabel>
-#include <QLineEdit>
 #include <QPainter>
 #include <QPushButton>
 #include <QStringList>
@@ -82,9 +82,6 @@ SiteGroundTemperatureMonthlyWidget::SiteGroundTemperatureMonthlyWidget(bool isIP
     gridLayout->addWidget(new QLabel(monthNames[i]), i + 1, 0);
     m_edits[i] = new OSQuantityEdit2("C", "C", "F", m_isIP);
     connect(this, &SiteGroundTemperatureMonthlyWidget::toggleUnitsClicked, m_edits[i], &OSQuantityEdit2::onUnitSystemChange);
-    if (auto* lineEdit = m_edits[i]->findChild<QLineEdit*>()) {
-      connect(lineEdit, &QLineEdit::editingFinished, this, &SiteGroundTemperatureMonthlyWidget::refreshChartFromModel);
-    }
     m_edits[i]->setFixedWidth(TEMP_EDIT_WIDTH);
     gridLayout->addWidget(m_edits[i], i + 1, 1, Qt::AlignLeft);
   }
@@ -212,11 +209,26 @@ void SiteGroundTemperatureMonthlyWidget::detach() {
     }
   }
   m_valuesGetter = nullptr;
+  disconnectModelChanges();
 }
 
 void SiteGroundTemperatureMonthlyWidget::refreshChartFromModel() {
   if (m_valuesGetter) {
     setChartValues(m_valuesGetter());
+  }
+}
+
+void SiteGroundTemperatureMonthlyWidget::connectModelChanges(const model::ModelObject& obj) {
+  m_connectedModelObj = obj;
+  obj.getImpl<model::detail::ModelObject_Impl>()
+    ->onChange.connect<SiteGroundTemperatureMonthlyWidget, &SiteGroundTemperatureMonthlyWidget::refreshChartFromModel>(this);
+}
+
+void SiteGroundTemperatureMonthlyWidget::disconnectModelChanges() {
+  if (m_connectedModelObj) {
+    m_connectedModelObj->getImpl<model::detail::ModelObject_Impl>()
+      ->onChange.disconnect<SiteGroundTemperatureMonthlyWidget, &SiteGroundTemperatureMonthlyWidget::refreshChartFromModel>(this);
+    m_connectedModelObj = boost::none;
   }
 }
 
@@ -280,6 +292,7 @@ void SiteGroundTemperatureBuildingSurfaceWidget::attach(const model::ModelObject
   const auto vals = m_valuesGetter();
   setChartValues(vals);
   m_constantValueEdit->setValue(m_isIP ? vals[0] * 9.0 / 5.0 + 32.0 : vals[0]);
+  connectModelChanges(obj);
 }
 
 void SiteGroundTemperatureBuildingSurfaceWidget::applyConstantValue(double celsius) {
@@ -321,6 +334,7 @@ void SiteGroundTemperatureShallowWidget::attach(const model::ModelObject& obj) {
   const auto vals = m_valuesGetter();
   setChartValues(vals);
   m_constantValueEdit->setValue(m_isIP ? vals[0] * 9.0 / 5.0 + 32.0 : vals[0]);
+  connectModelChanges(obj);
 }
 
 void SiteGroundTemperatureShallowWidget::applyConstantValue(double celsius) {
@@ -361,6 +375,7 @@ void SiteGroundTemperatureDeepWidget::attach(const model::ModelObject& obj) {
   const auto vals = m_valuesGetter();
   setChartValues(vals);
   m_constantValueEdit->setValue(m_isIP ? vals[0] * 9.0 / 5.0 + 32.0 : vals[0]);
+  connectModelChanges(obj);
 }
 
 void SiteGroundTemperatureDeepWidget::applyConstantValue(double celsius) {
