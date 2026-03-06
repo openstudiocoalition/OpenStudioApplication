@@ -362,11 +362,6 @@
         <div class="hm-scheme-options" id="hmSchemeOptions"></div>
       </div>
     </div>
-    <span style="color:#555; white-space:nowrap;">Unit System:</span>
-    <div class="btn-group" data-toggle="buttons">
-      <button type="button" class="btn btn-default active" id="buttonIP">IP</button>
-      <button type="button" class="btn btn-default" id="buttonSI">SI</button>
-    </div>
   </div>
 </div>
 
@@ -598,7 +593,7 @@
 <script type="text/javascript">
 
   var epw = {};
-  var unitSystem = "IP";
+  var unitSystem = "SI";
 
   // ---- User appearance settings ----
   window._plotColor = 'steelblue';
@@ -703,13 +698,6 @@
   function readRaw(raw, unitSys) {
     if (unitSys) {
       unitSystem = unitSys;
-      if (unitSystem === 'SI') {
-        $('#buttonSI').addClass('active');
-        $('#buttonIP').removeClass('active');
-      } else {
-        $('#buttonIP').addClass('active');
-        $('#buttonSI').removeClass('active');
-      }
     }
     epw = epw2json(raw);
     document.getElementById('stationName').textContent = "Weather for " + epw.stationLocation;
@@ -733,20 +721,6 @@
     epwDegreeDays(epw);
     // epwValueFilter(epw);
   }
-
-  $("#buttonIP").on("click", function(e) {
-    $(this).toggleClass("active");
-    $("#buttonSI").toggleClass("active");
-    unitSystem = "IP";
-    updateCharts(epw, unitSystem);
-  });
-
-  $("#buttonSI").on("click", function(e) {
-    $(this).toggleClass("active");
-    $("#buttonIP").toggleClass("active");
-    unitSystem = "SI";
-    updateCharts(epw, unitSystem);
-  });
 
   // ---- Export helpers ----
 
