@@ -179,25 +179,7 @@ PreviewWebView::PreviewWebView(bool isIP, const model::Model& model, QWidget* t_
   connect(m_bridge, &GeometryBridge::modelChanged, this, [this]() {
     m_json = QString();
     // Save current view settings and camera state to sessionStorage before the page reload
-    m_view->page()->runJavaScript(
-      "try { "
-      "  sessionStorage.setItem('os_renderBy', (typeof settings !== 'undefined' && settings.renderBy) ? settings.renderBy : ''); "
-      "  sessionStorage.setItem('os_showStory', (typeof settings !== 'undefined' && settings.showStory) ? settings.showStory : ''); "
-      "  if (typeof perspectiveCamera !== 'undefined' && typeof orthographicCamera !== 'undefined') { "
-      "    var _p = perspectiveCamera, _pc = perspectiveControls; "
-      "    var _o = orthographicCamera, _oc = orthographicControls; "
-      "    sessionStorage.setItem('os_cameraState', JSON.stringify({ "
-      "      per_pos: [_p.position.x, _p.position.y, _p.position.z], "
-      "      per_up:  [_p.up.x, _p.up.y, _p.up.z], "
-      "      per_target: [_pc.target.x, _pc.target.y, _pc.target.z], "
-      "      ort_pos: [_o.position.x, _o.position.y, _o.position.z], "
-      "      ort_up:  [_o.up.x, _o.up.y, _o.up.z], "
-      "      ort_target: [_oc.target.x, _oc.target.y, _oc.target.z], "
-      "      ort_zoom: _o.zoom "
-      "    })); "
-      "  } "
-      "} catch(e) {}",
-      [this](const QVariant& /*v*/) { refreshClicked(); });
+    m_view->page()->runJavaScript("saveViewStateToSessionStorage();", [this](const QVariant& /*v*/) { refreshClicked(); });
   });
 
   auto* mainWindow = OSAppBase::instance()->currentDocument()->mainWindow();
