@@ -1985,6 +1985,26 @@ var initDatGui = function () {
  */
 function runFromJSON(data_str, includeGeometryDiagnostics=false) {
   init(data_str, includeGeometryDiagnostics);
+
+  // Restore camera position from sessionStorage if available (after a model mutation refresh)
+  try {
+    var storedCamera = sessionStorage.getItem('os_cameraState');
+    if (storedCamera) {
+      sessionStorage.removeItem('os_cameraState');
+      var cs = JSON.parse(storedCamera);
+      perspectiveCamera.position.set(cs.per_pos[0], cs.per_pos[1], cs.per_pos[2]);
+      perspectiveCamera.up.set(cs.per_up[0], cs.per_up[1], cs.per_up[2]);
+      perspectiveControls.target.set(cs.per_target[0], cs.per_target[1], cs.per_target[2]);
+      perspectiveControls.update();
+      orthographicCamera.position.set(cs.ort_pos[0], cs.ort_pos[1], cs.ort_pos[2]);
+      orthographicCamera.up.set(cs.ort_up[0], cs.ort_up[1], cs.ort_up[2]);
+      orthographicControls.target.set(cs.ort_target[0], cs.ort_target[1], cs.ort_target[2]);
+      orthographicCamera.zoom = cs.ort_zoom;
+      orthographicCamera.updateProjectionMatrix();
+      orthographicControls.update();
+    }
+  } catch(e) {}
+
   animate();
   initDatGui();
 }
