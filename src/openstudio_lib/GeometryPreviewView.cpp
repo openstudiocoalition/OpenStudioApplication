@@ -13,6 +13,8 @@
 #include <openstudio/model/Model_Impl.hpp>
 #include <openstudio/model/PlanarSurface.hpp>
 #include <openstudio/model/PlanarSurface_Impl.hpp>
+#include <openstudio/model/BuildingStory.hpp>
+#include <openstudio/model/BuildingStory_Impl.hpp>
 #include <openstudio/model/ConstructionBase.hpp>
 #include <openstudio/model/ConstructionBase_Impl.hpp>
 #include <openstudio/model/Space.hpp>
@@ -20,6 +22,8 @@
 #include <openstudio/model/SpaceType.hpp>
 #include <openstudio/model/SpaceType_Impl.hpp>
 #include <openstudio/model/Surface.hpp>
+#include <openstudio/model/ThermalZone.hpp>
+#include <openstudio/model/ThermalZone_Impl.hpp>
 #include <openstudio/model/Surface_Impl.hpp>
 #include <openstudio/model/ThreeJSForwardTranslator.hpp>
 
@@ -82,6 +86,28 @@ void GeometryBridge::setConstruction(const QString& surfaceName, const QString& 
       surface->resetConstruction();
     } else if (auto construction = m_model.getModelObjectByName<model::ConstructionBase>(constructionName.toStdString())) {
       surface->setConstruction(*construction);
+    }
+    emit modelChanged();
+  }
+}
+
+void GeometryBridge::setThermalZone(const QString& spaceName, const QString& thermalZoneName) {
+  if (auto space = m_model.getModelObjectByName<model::Space>(spaceName.toStdString())) {
+    if (thermalZoneName.isEmpty()) {
+      space->resetThermalZone();
+    } else if (auto thermalZone = m_model.getModelObjectByName<model::ThermalZone>(thermalZoneName.toStdString())) {
+      space->setThermalZone(*thermalZone);
+    }
+    emit modelChanged();
+  }
+}
+
+void GeometryBridge::setBuildingStory(const QString& spaceName, const QString& buildingStoryName) {
+  if (auto space = m_model.getModelObjectByName<model::Space>(spaceName.toStdString())) {
+    if (buildingStoryName.isEmpty()) {
+      space->resetBuildingStory();
+    } else if (auto story = m_model.getModelObjectByName<model::BuildingStory>(buildingStoryName.toStdString())) {
+      space->setBuildingStory(*story);
     }
     emit modelChanged();
   }
@@ -263,9 +289,24 @@ void PreviewWebView::onLoadFinished(bool ok) {
   }
   const QString constructionNamesJson = QJsonDocument(constructionNamesArray).toJson(QJsonDocument::Compact);
 
+  QJsonArray thermalZoneNamesArray;
+  for (const auto& tz : m_model.getConcreteModelObjects<model::ThermalZone>()) {
+    thermalZoneNamesArray.append(QString::fromStdString(tz.nameString()));
+  }
+  const QString thermalZoneNamesJson = QJsonDocument(thermalZoneNamesArray).toJson(QJsonDocument::Compact);
+
+  QJsonArray buildingStoryNamesArray;
+  for (const auto& bs : m_model.getConcreteModelObjects<model::BuildingStory>()) {
+    buildingStoryNamesArray.append(QString::fromStdString(bs.nameString()));
+  }
+  const QString buildingStoryNamesJson = QJsonDocument(buildingStoryNamesArray).toJson(QJsonDocument::Compact);
+
   // call init and animate
-  const QString javascript = QString("var availableSpaceTypeNames = %1; var availableConstructionNames = %2; runFromJSON(%3, %4);")
-                               .arg(spaceTypeNamesJson, constructionNamesJson, m_json, m_geometryDiagnosticsBox->isChecked() ? "true" : "false");
+  const QString javascript = QString("var availableSpaceTypeNames = %1; var availableConstructionNames = %2;"
+                                     " var availableThermalZoneNames = %3; var availableBuildingStoryNames = %4;"
+                                     " runFromJSON(%5, %6);")
+                               .arg(spaceTypeNamesJson, constructionNamesJson, thermalZoneNamesJson, buildingStoryNamesJson, m_json,
+                                    m_geometryDiagnosticsBox->isChecked() ? "true" : "false");
   m_view->page()->runJavaScript(javascript, [this](const QVariant& v) { onJavaScriptFinished(v); });
 
   //javascript = QString("os_data.metadata.version");

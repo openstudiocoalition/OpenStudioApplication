@@ -196,6 +196,8 @@ var selected_material, unknown_material, dot_material;
 
 var availableSpaceTypeNames = [];
 var availableConstructionNames = [];
+var availableThermalZoneNames = [];
+var availableBuildingStoryNames = [];
 var bridge = null;
 window.addEventListener('load', function() {
   new QWebChannel(qt.webChannelTransport, function(channel) {
@@ -1113,6 +1115,78 @@ function createConstructionSelect(surfaceName, currentConstructionName) {
   return wrapper;
 }
 
+function createThermalZoneSelect(spaceName, currentThermalZoneName) {
+  const wrapper = document.createElement('div');
+  const lbl = document.createElement('span');
+  lbl.className = 'ctx-label';
+  lbl.textContent = 'Thermal Zone';
+  wrapper.appendChild(lbl);
+  const group = document.createElement('div');
+  group.className = 'ctx-btn-group';
+  const select = document.createElement('select');
+  select.className = 'ctx-select';
+  const noneOption = document.createElement('option');
+  noneOption.value = '';
+  noneOption.textContent = '(none)';
+  noneOption.selected = !currentThermalZoneName;
+  select.appendChild(noneOption);
+  for (const name of availableThermalZoneNames) {
+    const option = document.createElement('option');
+    option.value = name;
+    option.textContent = name;
+    option.selected = (name === currentThermalZoneName);
+    select.appendChild(option);
+  }
+  group.appendChild(select);
+  const btn = document.createElement('button');
+  btn.className = 'ctx-action-btn';
+  btn.style.flex = '0 0 auto';
+  btn.textContent = 'Set';
+  btn.addEventListener('click', function() {
+    bridge.setThermalZone(spaceName, select.value);
+    contextMenu.style.display = 'none';
+  });
+  group.appendChild(btn);
+  wrapper.appendChild(group);
+  return wrapper;
+}
+
+function createBuildingStorySelect(spaceName, currentBuildingStoryName) {
+  const wrapper = document.createElement('div');
+  const lbl = document.createElement('span');
+  lbl.className = 'ctx-label';
+  lbl.textContent = 'Building Story';
+  wrapper.appendChild(lbl);
+  const group = document.createElement('div');
+  group.className = 'ctx-btn-group';
+  const select = document.createElement('select');
+  select.className = 'ctx-select';
+  const noneOption = document.createElement('option');
+  noneOption.value = '';
+  noneOption.textContent = '(none)';
+  noneOption.selected = !currentBuildingStoryName;
+  select.appendChild(noneOption);
+  for (const name of availableBuildingStoryNames) {
+    const option = document.createElement('option');
+    option.value = name;
+    option.textContent = name;
+    option.selected = (name === currentBuildingStoryName);
+    select.appendChild(option);
+  }
+  group.appendChild(select);
+  const btn = document.createElement('button');
+  btn.className = 'ctx-action-btn';
+  btn.style.flex = '0 0 auto';
+  btn.textContent = 'Set';
+  btn.addEventListener('click', function() {
+    bridge.setBuildingStory(spaceName, select.value);
+    contextMenu.style.display = 'none';
+  });
+  group.appendChild(btn);
+  wrapper.appendChild(group);
+  return wrapper;
+}
+
 function createSpaceTypeSelect(spaceName, currentSpaceTypeName) {
   const wrapper = document.createElement('div');
   const lbl = document.createElement('span');
@@ -1197,7 +1271,10 @@ function displaySelectedObjectContextMenu() {
         surfaceInfoPanel.appendChild(createConstructionSelect(inter.userData.name, inter.userData.constructionName));
         break;
       case "Thermal Zone":
-        // inter.userData.thermalZoneName
+        if (inter.userData.spaceName) {
+          title.textContent = `Space Name: ${inter.userData.spaceName}`;
+          surfaceInfoPanel.appendChild(createThermalZoneSelect(inter.userData.spaceName, inter.userData.thermalZoneName));
+        }
         break;
       case "Space Type":
         if (inter.userData.spaceName) {
@@ -1206,7 +1283,10 @@ function displaySelectedObjectContextMenu() {
         }
         break;
       case "Building Story":
-        // inter.userData.buildingStoryName
+        if (inter.userData.spaceName) {
+          title.textContent = `Space Name: ${inter.userData.spaceName}`;
+          surfaceInfoPanel.appendChild(createBuildingStorySelect(inter.userData.spaceName, inter.userData.buildingStoryName));
+        }
         break;
       case "Data":
         break;
