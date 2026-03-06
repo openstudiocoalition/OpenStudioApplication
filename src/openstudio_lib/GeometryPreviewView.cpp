@@ -13,6 +13,10 @@
 #include <openstudio/model/Model_Impl.hpp>
 #include <openstudio/model/PlanarSurface.hpp>
 #include <openstudio/model/PlanarSurface_Impl.hpp>
+#include <openstudio/model/Space.hpp>
+#include <openstudio/model/Space_Impl.hpp>
+#include <openstudio/model/SpaceType.hpp>
+#include <openstudio/model/SpaceType_Impl.hpp>
 #include <openstudio/model/Surface.hpp>
 #include <openstudio/model/Surface_Impl.hpp>
 #include <openstudio/model/ThreeJSForwardTranslator.hpp>
@@ -22,6 +26,8 @@
 #include <openstudio/utilities/core/Assert.hpp>
 #include <openstudio/utilities/idd/IddEnums.hxx>
 
+#include <QJsonArray>
+#include <QJsonDocument>
 #include <QStackedWidget>
 #include <QVBoxLayout>
 #include <QLabel>
@@ -64,6 +70,17 @@ void GeometryBridge::setWindExposure(const QString& surfaceName, const QString& 
 void GeometryBridge::setOutsideBoundaryCondition(const QString& surfaceName, const QString& value) {
   if (auto surface = m_model.getModelObjectByName<model::Surface>(surfaceName.toStdString())) {
     surface->setOutsideBoundaryCondition(value.toStdString());
+    emit modelChanged();
+  }
+}
+
+void GeometryBridge::setSpaceType(const QString& spaceName, const QString& spaceTypeName) {
+  if (auto space = m_model.getModelObjectByName<model::Space>(spaceName.toStdString())) {
+    if (spaceTypeName.isEmpty()) {
+      space->resetSpaceType();
+    } else if (auto spaceType = m_model.getModelObjectByName<model::SpaceType>(spaceTypeName.toStdString())) {
+      space->setSpaceType(*spaceType);
+    }
     emit modelChanged();
   }
 }
@@ -220,8 +237,16 @@ void PreviewWebView::onLoadFinished(bool ok) {
   // disable doc
   m_document->disable();
 
+  // build list of available SpaceType names for the JS context menu
+  QJsonArray spaceTypeNamesArray;
+  for (const auto& st : m_model.getConcreteModelObjects<model::SpaceType>()) {
+    spaceTypeNamesArray.append(QString::fromStdString(st.nameString()));
+  }
+  const QString spaceTypeNamesJson = QJsonDocument(spaceTypeNamesArray).toJson(QJsonDocument::Compact);
+
   // call init and animate
-  const QString javascript = QString("runFromJSON(%1, %2);").arg(m_json, m_geometryDiagnosticsBox->isChecked() ? "true" : "false");
+  const QString javascript = QString("var availableSpaceTypeNames = %1; runFromJSON(%2, %3);")
+                               .arg(spaceTypeNamesJson, m_json, m_geometryDiagnosticsBox->isChecked() ? "true" : "false");
   m_view->page()->runJavaScript(javascript, [this](const QVariant& v) { onJavaScriptFinished(v); });
 
   //javascript = QString("os_data.metadata.version");

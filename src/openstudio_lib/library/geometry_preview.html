@@ -194,6 +194,7 @@ var contextMenu;
 var intersected = [];
 var selected_material, unknown_material, dot_material;
 
+var availableSpaceTypeNames = [];
 var bridge = null;
 window.addEventListener('load', function() {
   new QWebChannel(qt.webChannelTransport, function(channel) {
@@ -1075,6 +1076,42 @@ function createOutsideBoundaryConditionSelect(surfaceName, currentValue) {
   return wrapper;
 }
 
+function createSpaceTypeSelect(spaceName, currentSpaceTypeName) {
+  const wrapper = document.createElement('div');
+  const lbl = document.createElement('span');
+  lbl.className = 'ctx-label';
+  lbl.textContent = 'Space Type';
+  wrapper.appendChild(lbl);
+  const group = document.createElement('div');
+  group.className = 'ctx-btn-group';
+  const select = document.createElement('select');
+  select.className = 'ctx-select';
+  const noneOption = document.createElement('option');
+  noneOption.value = '';
+  noneOption.textContent = '(none)';
+  noneOption.selected = !currentSpaceTypeName;
+  select.appendChild(noneOption);
+  for (const name of availableSpaceTypeNames) {
+    const option = document.createElement('option');
+    option.value = name;
+    option.textContent = name;
+    option.selected = (name === currentSpaceTypeName);
+    select.appendChild(option);
+  }
+  group.appendChild(select);
+  const btn = document.createElement('button');
+  btn.className = 'ctx-action-btn';
+  btn.style.flex = '0 0 auto';
+  btn.textContent = 'Set';
+  btn.addEventListener('click', function() {
+    bridge.setSpaceType(spaceName, select.value);
+    contextMenu.style.display = 'none';
+  });
+  group.appendChild(btn);
+  wrapper.appendChild(group);
+  return wrapper;
+}
+
 function createReverseVerticesButton(surfaceName) {
   const btn = document.createElement('button');
   btn.className = 'ctx-action-btn';
@@ -1126,7 +1163,10 @@ function displaySelectedObjectContextMenu() {
         // inter.userData.thermalZoneName
         break;
       case "Space Type":
-        // inter.userData.spaceTypeName
+        if (inter.userData.spaceName) {
+          title.textContent = `Space Name: ${inter.userData.spaceName}`;
+          surfaceInfoPanel.appendChild(createSpaceTypeSelect(inter.userData.spaceName, inter.userData.spaceTypeName));
+        }
         break;
       case "Building Story":
         // inter.userData.buildingStoryName
