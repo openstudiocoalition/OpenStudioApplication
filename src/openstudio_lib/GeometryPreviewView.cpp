@@ -178,7 +178,13 @@ PreviewWebView::PreviewWebView(bool isIP, const model::Model& model, QWidget* t_
   m_page->setWebChannel(channel);
   connect(m_bridge, &GeometryBridge::modelChanged, this, [this]() {
     m_json = QString();
-    refreshClicked();
+    // Save current view settings to sessionStorage before the page reload, so initDatGui() can restore them
+    m_view->page()->runJavaScript(
+      "try { "
+      "  sessionStorage.setItem('os_renderBy', (typeof settings !== 'undefined' && settings.renderBy) ? settings.renderBy : ''); "
+      "  sessionStorage.setItem('os_showStory', (typeof settings !== 'undefined' && settings.showStory) ? settings.showStory : ''); "
+      "} catch(e) {}",
+      [this](const QVariant& /*v*/) { refreshClicked(); });
   });
 
   auto* mainWindow = OSAppBase::instance()->currentDocument()->mainWindow();

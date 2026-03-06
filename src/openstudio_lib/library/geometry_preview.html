@@ -1797,14 +1797,14 @@ var initDatGui = function () {
   if (has_data){
     render_modes.push('Data');
   }
-  gui.add(settings, 'renderBy', render_modes).name('Render By').onChange(function(value) {
+  var renderByController = gui.add(settings, 'renderBy', render_modes).name('Render By').onChange(function(value) {
     removeSelection();
     update(value);
   });
 
   var building_story_names = os_data.metadata.buildingStoryNames;
   building_story_names.unshift('All Stories');
-  gui.add(settings, 'showStory', building_story_names).name('Show Story').onChange(function(value) {
+  var showStoryController = gui.add(settings, 'showStory', building_story_names).name('Show Story').onChange(function(value) {
     removeSelection();
     update(value);
   });
@@ -1960,6 +1960,21 @@ var initDatGui = function () {
     console.log('Z cut: ' + value);
   });
   f2.open();*/
+
+  // Restore settings from sessionStorage if available (after a model mutation refresh)
+  var storedRenderBy = sessionStorage.getItem('os_renderBy');
+  sessionStorage.removeItem('os_renderBy');
+  var storedShowStory = sessionStorage.getItem('os_showStory');
+  sessionStorage.removeItem('os_showStory');
+
+  if (storedRenderBy && render_modes.includes(storedRenderBy)) {
+    settings.renderBy = storedRenderBy;
+    renderByController.updateDisplay();
+  }
+  if (storedShowStory && building_story_names.includes(storedShowStory)) {
+    settings.showStory = storedShowStory;
+    showStoryController.updateDisplay();
+  }
 
   update();
 };
