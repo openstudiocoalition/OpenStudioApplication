@@ -35,6 +35,9 @@ class GeometryBridge : public QObject
 
  public slots:
   Q_INVOKABLE void reverseSurfaceVertices(const QString& surfaceName);
+  Q_INVOKABLE void setSunExposure(const QString& surfaceName, const QString& value);
+  Q_INVOKABLE void setWindExposure(const QString& surfaceName, const QString& value);
+  Q_INVOKABLE void setOutsideBoundaryCondition(const QString& surfaceName, const QString& value);
 
  signals:
   void modelChanged();

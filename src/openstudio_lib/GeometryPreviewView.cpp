@@ -13,6 +13,8 @@
 #include <openstudio/model/Model_Impl.hpp>
 #include <openstudio/model/PlanarSurface.hpp>
 #include <openstudio/model/PlanarSurface_Impl.hpp>
+#include <openstudio/model/Surface.hpp>
+#include <openstudio/model/Surface_Impl.hpp>
 #include <openstudio/model/ThreeJSForwardTranslator.hpp>
 
 #include <algorithm>
@@ -41,6 +43,27 @@ void GeometryBridge::reverseSurfaceVertices(const QString& surfaceName) {
     auto vertices = surface->vertices();
     std::reverse(vertices.begin(), vertices.end());
     surface->setVertices(vertices);
+    emit modelChanged();
+  }
+}
+
+void GeometryBridge::setSunExposure(const QString& surfaceName, const QString& value) {
+  if (auto surface = m_model.getModelObjectByName<model::Surface>(surfaceName.toStdString())) {
+    surface->setSunExposure(value.toStdString());
+    emit modelChanged();
+  }
+}
+
+void GeometryBridge::setWindExposure(const QString& surfaceName, const QString& value) {
+  if (auto surface = m_model.getModelObjectByName<model::Surface>(surfaceName.toStdString())) {
+    surface->setWindExposure(value.toStdString());
+    emit modelChanged();
+  }
+}
+
+void GeometryBridge::setOutsideBoundaryCondition(const QString& surfaceName, const QString& value) {
+  if (auto surface = m_model.getModelObjectByName<model::Surface>(surfaceName.toStdString())) {
+    surface->setOutsideBoundaryCondition(value.toStdString());
     emit modelChanged();
   }
 }

@@ -127,6 +127,49 @@
   box-shadow:inset 0 2px 4px rgba(0,0,0,0.25);
   transform:translateY(1px);
 }
+.ctx-label {
+  color:#555;
+  display:block;
+  font-size:8pt;
+  letter-spacing:0.05em;
+  margin:6px 12px 2px;
+  text-transform:uppercase;
+}
+.ctx-btn-group {
+  display:flex;
+  flex-wrap:wrap;
+  gap:4px;
+  margin:2px 12px 4px;
+}
+.ctx-btn-group .ctx-action-btn {
+  background:linear-gradient(to bottom, #c8c8c8, #b0b0b0);
+  box-shadow:0 1px 2px rgba(0,0,0,0.1);
+  color:#333;
+  cursor:pointer;
+  flex:1;
+  margin:0;
+  width:auto;
+}
+.ctx-btn-group .ctx-action-btn:hover {
+  background:linear-gradient(to bottom, #d8d8d8, #c0c0c0);
+  box-shadow:0 2px 4px rgba(0,0,0,0.15);
+}
+.ctx-btn-group .ctx-action-btn.ctx-action-btn-active {
+  background:linear-gradient(to bottom, #4a90d9, #2f72b8);
+  box-shadow:0 2px 4px rgba(0,0,0,0.2);
+  color:#fff;
+  cursor:default;
+}
+.ctx-select {
+  background-color:#fff;
+  border:1px solid #aaa;
+  border-radius:4px;
+  color:#333;
+  flex:1;
+  font:inherit;
+  font-size:9pt;
+  padding:3px 6px;
+}
 </style>
 
 <script>
@@ -520,7 +563,6 @@ function init(os_data_in, includeGeometryDiagnostics_in) {
   // Context Menu
   contextMenu = document.body.appendChild(document.createElement('div'));
   contextMenu.id = 'context-menu';
-  document.addEventListener('click', function() { contextMenu.style.display = 'none'; }, false);
 
   // Color Bar
   colorBarHeight = 40;
@@ -973,6 +1015,66 @@ function displaySelectedObjectDetails() {
   document.body.style.cursor = 'pointer';
 }
 
+function createToggleButtons(label, surfaceName, values, currentValue, bridgeCall) {
+  const wrapper = document.createElement('div');
+  const lbl = document.createElement('span');
+  lbl.className = 'ctx-label';
+  lbl.textContent = label;
+  wrapper.appendChild(lbl);
+  const group = document.createElement('div');
+  group.className = 'ctx-btn-group';
+  for (const value of values) {
+    const btn = document.createElement('button');
+    btn.className = 'ctx-action-btn' + (value === currentValue ? ' ctx-action-btn-active' : '');
+    btn.textContent = value;
+    btn.addEventListener('click', function() {
+      bridgeCall(surfaceName, value);
+      contextMenu.style.display = 'none';
+    });
+    group.appendChild(btn);
+  }
+  wrapper.appendChild(group);
+  return wrapper;
+}
+
+function createOutsideBoundaryConditionSelect(surfaceName, currentValue) {
+  const OBC_VALUES = [
+    'Adiabatic', 'Surface', 'Outdoors', 'Foundation', 'Ground',
+    'GroundFCfactorMethod', 'OtherSideCoefficients', 'OtherSideConditionsModel',
+    'GroundSlabPreprocessorAverage', 'GroundSlabPreprocessorCore', 'GroundSlabPreprocessorPerimeter',
+    'GroundBasementPreprocessorAverageWall', 'GroundBasementPreprocessorAverageFloor',
+    'GroundBasementPreprocessorUpperWall', 'GroundBasementPreprocessorLowerWall'
+  ];
+  const wrapper = document.createElement('div');
+  const lbl = document.createElement('span');
+  lbl.className = 'ctx-label';
+  lbl.textContent = 'Outside Boundary Condition';
+  wrapper.appendChild(lbl);
+  const group = document.createElement('div');
+  group.className = 'ctx-btn-group';
+  const select = document.createElement('select');
+  select.className = 'ctx-select';
+  for (const value of OBC_VALUES) {
+    const option = document.createElement('option');
+    option.value = value;
+    option.textContent = value;
+    option.selected = (value === currentValue);
+    select.appendChild(option);
+  }
+  group.appendChild(select);
+  const btn = document.createElement('button');
+  btn.className = 'ctx-action-btn';
+  btn.style.flex = '0 0 auto';
+  btn.textContent = 'Set';
+  btn.addEventListener('click', function() {
+    bridge.setOutsideBoundaryCondition(surfaceName, select.value);
+    contextMenu.style.display = 'none';
+  });
+  group.appendChild(btn);
+  wrapper.appendChild(group);
+  return wrapper;
+}
+
 function createReverseVerticesButton(surfaceName) {
   const btn = document.createElement('button');
   btn.className = 'ctx-action-btn';
@@ -1008,9 +1110,14 @@ function displaySelectedObjectContextMenu() {
         surfaceInfoPanel.appendChild(createReverseVerticesButton(surfaceName));
         break;
       case "Boundary":
-        // inter.userData.outsideBoundaryCondition
-        // inter.userData.sunExposure
-        // inter.userData.windExposure
+        surfaceInfoPanel.appendChild(createToggleButtons('Sun Exposure', surfaceName,
+          ['SunExposed', 'NoSun'], inter.userData.sunExposure,
+          (name, val) => bridge.setSunExposure(name, val)));
+        surfaceInfoPanel.appendChild(createToggleButtons('Wind Exposure', surfaceName,
+          ['WindExposed', 'NoWind'], inter.userData.windExposure,
+          (name, val) => bridge.setWindExposure(name, val)));
+        surfaceInfoPanel.appendChild(createOutsideBoundaryConditionSelect(surfaceName,
+          inter.userData.outsideBoundaryCondition));
         break;
       case "Construction":
         // inter.userData.constructionName
