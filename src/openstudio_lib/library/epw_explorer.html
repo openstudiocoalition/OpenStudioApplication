@@ -333,7 +333,6 @@
 <script type="text/javascript" src="./js/epwvis/jquery.min.js"></script>
 <script type="text/javascript" src="./js/epwvis/bootstrap.min.js"></script>
 <script type="text/javascript" src="./js/epwvis/d3.min.js"></script>
-<script type="text/javascript" src="./js/epwvis/crossfilter.min.js"></script>
 <script type="text/javascript" src="./js/epwvis/psychrolib.js"></script>
 <script type="text/javascript" src="./js/epwvis/epw2json.js"></script>
 <script type="text/javascript" src="./js/epwvis/epwCharts.js"></script>
@@ -375,100 +374,6 @@
 
 <div id="epwChartDiv">
 
-    <div id="epwSidebar">
-        <h3 style="margin-top:8px; margin-bottom:4px;">Value Filter
-            <button onclick="resetAll()" class="btn btn-default btn-sm" style="vertical-align:middle;">Reset Filters</button>
-            <span style="display:inline-block; vertical-align:middle;">
-              <div class="hm-checkbox-dropdown" id="vfDropdown">
-                <button type="button" class="btn btn-default btn-sm hm-dropdown-toggle" id="vfDropdownToggle">Select Value Filters <span class="caret"></span></button>
-                <div class="hm-dropdown-menu" id="vfDropdownMenu"></div>
-              </div>
-            </span>
-        </h3>
-        <p style="font-size:smaller; margin-bottom:4px;"><span id="xfilterActive">-</span> of <span id="xfilterTotal">-</span> hours (<span id="xfilterPercent">-</span>) selected.</p>
-        <p id="tempFilterExamples"></p>
-
-        <div id="xfilterCharts">
-          <div id="month-chart" class="xfilterChart">
-            <div class="chart-title-row"><div class="title">Month</div><div class="chart-download-btns"><button class="btn btn-default btn-xs" onclick="downloadSVG('month-chart','month')">&#8659; SVG</button> <button class="btn btn-default btn-xs" onclick="downloadPNG('month-chart','month')">&#8659; PNG</button></div></div>
-          </div>
-          <div id="hour-chart" class="xfilterChart">
-            <div class="chart-title-row"><div class="title">Hour</div><div class="chart-download-btns"><button class="btn btn-default btn-xs" onclick="downloadSVG('hour-chart','hour')">&#8659; SVG</button> <button class="btn btn-default btn-xs" onclick="downloadPNG('hour-chart','hour')">&#8659; PNG</button></div></div>
-          </div>
-          <div id="drybulb-temperature-chart" class="xfilterChart">
-            <div class="chart-title-row"><div class="title">Drybulb Temperature</div><div class="chart-download-btns"><button class="btn btn-default btn-xs" onclick="downloadSVG('drybulb-temperature-chart','drybulb-temperature-filter')">&#8659; SVG</button> <button class="btn btn-default btn-xs" onclick="downloadPNG('drybulb-temperature-chart','drybulb-temperature-filter')">&#8659; PNG</button></div></div>
-          </div>
-          <div id="dewpoint-temperature-chart" class="xfilterChart">
-            <div class="chart-title-row"><div class="title">Dewpoint Temperature</div><div class="chart-download-btns"><button class="btn btn-default btn-xs" onclick="downloadSVG('dewpoint-temperature-chart','dewpoint-temperature-filter')">&#8659; SVG</button> <button class="btn btn-default btn-xs" onclick="downloadPNG('dewpoint-temperature-chart','dewpoint-temperature-filter')">&#8659; PNG</button></div></div>
-          </div>
-          <div id="rh-chart" class="xfilterChart">
-            <div class="chart-title-row"><div class="title">Relative Humidity</div><div class="chart-download-btns"><button class="btn btn-default btn-xs" onclick="downloadSVG('rh-chart','relative-humidity-filter')">&#8659; SVG</button> <button class="btn btn-default btn-xs" onclick="downloadPNG('rh-chart','relative-humidity-filter')">&#8659; PNG</button></div></div>
-          </div>
-          <div id="wetbulb-temperature-chart" class="xfilterChart">
-            <div class="chart-title-row"><div class="title">Wetbulb Temperature</div><div class="chart-download-btns"><button class="btn btn-default btn-xs" onclick="downloadSVG('wetbulb-temperature-chart','wetbulb-temperature-filter')">&#8659; SVG</button> <button class="btn btn-default btn-xs" onclick="downloadPNG('wetbulb-temperature-chart','wetbulb-temperature-filter')">&#8659; PNG</button></div></div>
-          </div>
-          <div id="enthalpy-chart" class="xfilterChart">
-            <div class="chart-title-row"><div class="title">Enthalpy</div><div class="chart-download-btns"><button class="btn btn-default btn-xs" onclick="downloadSVG('enthalpy-chart','enthalpy-filter')">&#8659; SVG</button> <button class="btn btn-default btn-xs" onclick="downloadPNG('enthalpy-chart','enthalpy-filter')">&#8659; PNG</button></div></div>
-          </div>
-          <div id="humidity-ratio-chart" class="xfilterChart">
-            <div class="chart-title-row"><div class="title">Humidity Ratio</div><div class="chart-download-btns"><button class="btn btn-default btn-xs" onclick="downloadSVG('humidity-ratio-chart','humidity-ratio-filter')">&#8659; SVG</button> <button class="btn btn-default btn-xs" onclick="downloadPNG('humidity-ratio-chart','humidity-ratio-filter')">&#8659; PNG</button></div></div>
-          </div>
-          <div id="ghi-chart" class="xfilterChart">
-            <div class="chart-title-row"><div class="title">Global Horiz. Radiation</div><div class="chart-download-btns"><button class="btn btn-default btn-xs" onclick="downloadSVG('ghi-chart','ghi-filter')">&#8659; SVG</button> <button class="btn btn-default btn-xs" onclick="downloadPNG('ghi-chart','ghi-filter')">&#8659; PNG</button></div></div>
-          </div>
-          <div id="dni-chart" class="xfilterChart">
-            <div class="chart-title-row"><div class="title">Direct Normal Radiation</div><div class="chart-download-btns"><button class="btn btn-default btn-xs" onclick="downloadSVG('dni-chart','dni-filter')">&#8659; SVG</button> <button class="btn btn-default btn-xs" onclick="downloadPNG('dni-chart','dni-filter')">&#8659; PNG</button></div></div>
-          </div>
-          <div id="dhi-chart" class="xfilterChart">
-            <div class="chart-title-row"><div class="title">Diffuse Horiz. Radiation</div><div class="chart-download-btns"><button class="btn btn-default btn-xs" onclick="downloadSVG('dhi-chart','dhi-filter')">&#8659; SVG</button> <button class="btn btn-default btn-xs" onclick="downloadPNG('dhi-chart','dhi-filter')">&#8659; PNG</button></div></div>
-          </div>
-          <div id="wind-speed-chart" class="xfilterChart">
-            <div class="chart-title-row"><div class="title">Wind Speed</div><div class="chart-download-btns"><button class="btn btn-default btn-xs" onclick="downloadSVG('wind-speed-chart','wind-speed-filter')">&#8659; SVG</button> <button class="btn btn-default btn-xs" onclick="downloadPNG('wind-speed-chart','wind-speed-filter')">&#8659; PNG</button></div></div>
-          </div>
-          <div id="wind-direction-chart" class="xfilterChart">
-            <div class="chart-title-row"><div class="title">Wind Direction</div><div class="chart-download-btns"><button class="btn btn-default btn-xs" onclick="downloadSVG('wind-direction-chart','wind-direction-filter')">&#8659; SVG</button> <button class="btn btn-default btn-xs" onclick="downloadPNG('wind-direction-chart','wind-direction-filter')">&#8659; PNG</button></div></div>
-          </div>
-          <div id="sky-cover-chart" class="xfilterChart">
-            <div class="chart-title-row"><div class="title">Total Sky Cover</div><div class="chart-download-btns"><button class="btn btn-default btn-xs" onclick="downloadSVG('sky-cover-chart','sky-cover-filter')">&#8659; SVG</button> <button class="btn btn-default btn-xs" onclick="downloadPNG('sky-cover-chart','sky-cover-filter')">&#8659; PNG</button></div></div>
-          </div>
-          <div id="opaque-sky-cover-chart" class="xfilterChart">
-            <div class="chart-title-row"><div class="title">Opaque Sky Cover</div><div class="chart-download-btns"><button class="btn btn-default btn-xs" onclick="downloadSVG('opaque-sky-cover-chart','opaque-sky-cover-filter')">&#8659; SVG</button> <button class="btn btn-default btn-xs" onclick="downloadPNG('opaque-sky-cover-chart','opaque-sky-cover-filter')">&#8659; PNG</button></div></div>
-          </div>
-          <div id="visibility-chart" class="xfilterChart">
-            <div class="chart-title-row"><div class="title">Visibility</div><div class="chart-download-btns"><button class="btn btn-default btn-xs" onclick="downloadSVG('visibility-chart','visibility-filter')">&#8659; SVG</button> <button class="btn btn-default btn-xs" onclick="downloadPNG('visibility-chart','visibility-filter')">&#8659; PNG</button></div></div>
-          </div>
-          <div id="ceiling-height-chart" class="xfilterChart">
-            <div class="chart-title-row"><div class="title">Ceiling Height</div><div class="chart-download-btns"><button class="btn btn-default btn-xs" onclick="downloadSVG('ceiling-height-chart','ceiling-height-filter')">&#8659; SVG</button> <button class="btn btn-default btn-xs" onclick="downloadPNG('ceiling-height-chart','ceiling-height-filter')">&#8659; PNG</button></div></div>
-          </div>
-          <div id="precipitable-water-chart" class="xfilterChart">
-            <div class="chart-title-row"><div class="title">Precipitable Water</div><div class="chart-download-btns"><button class="btn btn-default btn-xs" onclick="downloadSVG('precipitable-water-chart','precipitable-water-filter')">&#8659; SVG</button> <button class="btn btn-default btn-xs" onclick="downloadPNG('precipitable-water-chart','precipitable-water-filter')">&#8659; PNG</button></div></div>
-          </div>
-          <div id="aerosol-optical-depth-chart" class="xfilterChart">
-            <div class="chart-title-row"><div class="title">Aerosol Optical Depth</div><div class="chart-download-btns"><button class="btn btn-default btn-xs" onclick="downloadSVG('aerosol-optical-depth-chart','aerosol-optical-depth-filter')">&#8659; SVG</button> <button class="btn btn-default btn-xs" onclick="downloadPNG('aerosol-optical-depth-chart','aerosol-optical-depth-filter')">&#8659; PNG</button></div></div>
-          </div>
-          <div id="snow-depth-chart" class="xfilterChart">
-            <div class="chart-title-row"><div class="title">Snow Depth</div><div class="chart-download-btns"><button class="btn btn-default btn-xs" onclick="downloadSVG('snow-depth-chart','snow-depth-filter')">&#8659; SVG</button> <button class="btn btn-default btn-xs" onclick="downloadPNG('snow-depth-chart','snow-depth-filter')">&#8659; PNG</button></div></div>
-          </div>
-          <div id="days-since-last-snowfall-chart" class="xfilterChart">
-            <div class="chart-title-row"><div class="title">Days Since Last Snowfall</div><div class="chart-download-btns"><button class="btn btn-default btn-xs" onclick="downloadSVG('days-since-last-snowfall-chart','days-since-last-snowfall-filter')">&#8659; SVG</button> <button class="btn btn-default btn-xs" onclick="downloadPNG('days-since-last-snowfall-chart','days-since-last-snowfall-filter')">&#8659; PNG</button></div></div>
-          </div>
-          <div id="albedo-chart" class="xfilterChart">
-            <div class="chart-title-row"><div class="title">Albedo</div><div class="chart-download-btns"><button class="btn btn-default btn-xs" onclick="downloadSVG('albedo-chart','albedo-filter')">&#8659; SVG</button> <button class="btn btn-default btn-xs" onclick="downloadPNG('albedo-chart','albedo-filter')">&#8659; PNG</button></div></div>
-          </div>
-          <div id="liquid-precip-depth-chart" class="xfilterChart">
-            <div class="chart-title-row"><div class="title">Liquid Precip. Depth</div><div class="chart-download-btns"><button class="btn btn-default btn-xs" onclick="downloadSVG('liquid-precip-depth-chart','liquid-precip-depth-filter')">&#8659; SVG</button> <button class="btn btn-default btn-xs" onclick="downloadPNG('liquid-precip-depth-chart','liquid-precip-depth-filter')">&#8659; PNG</button></div></div>
-          </div>
-          <div id="liquid-precip-qty-chart" class="xfilterChart">
-            <div class="chart-title-row"><div class="title">Liquid Precip. Quantity</div><div class="chart-download-btns"><button class="btn btn-default btn-xs" onclick="downloadSVG('liquid-precip-qty-chart','liquid-precip-qty-filter')">&#8659; SVG</button> <button class="btn btn-default btn-xs" onclick="downloadPNG('liquid-precip-qty-chart','liquid-precip-qty-filter')">&#8659; PNG</button></div></div>
-          </div>
-          <div id="pressure-chart" class="xfilterChart">
-            <div class="chart-title-row"><div class="title">Station Pressure</div><div class="chart-download-btns"><button class="btn btn-default btn-xs" onclick="downloadSVG('pressure-chart','pressure-filter')">&#8659; SVG</button> <button class="btn btn-default btn-xs" onclick="downloadPNG('pressure-chart','pressure-filter')">&#8659; PNG</button></div></div>
-          </div>
-          <div id="pv-ac-chart" class="xfilterChart">
-            <div class="chart-title-row"><div class="title">PV AC Output (W)</div><div class="chart-download-btns"><button class="btn btn-default btn-xs" onclick="downloadSVG('pv-ac-chart','pv-ac-filter')">&#8659; SVG</button> <button class="btn btn-default btn-xs" onclick="downloadPNG('pv-ac-chart','pv-ac-filter')">&#8659; PNG</button></div></div>
-          </div>
-        </div>
-    </div>
 
     <div id="epwMain">
         <!-- Tab navigation -->
@@ -826,7 +731,7 @@
     epwScatterChart(epw);
     epwDurationCurve(epw);
     epwDegreeDays(epw);
-    epwValueFilter(epw);
+    // epwValueFilter(epw);
   }
 
   $("#buttonIP").on("click", function(e) {
