@@ -197,6 +197,7 @@ var selected_material, unknown_material, dot_material;
 var availableSpaceTypeNames = [];
 var availableConstructionNames = [];
 var availableThermalZoneNames = [];
+var surfacesWithSubSurfaces = new Set();
 var availableBuildingStoryNames = [];
 var bridge = null;
 window.addEventListener('load', function() {
@@ -727,6 +728,14 @@ function init(os_data_in, includeGeometryDiagnostics_in) {
     temp[object.userData.handle] = object;
   });
 
+  // surfacesWithSubSurfaces: set of surface names that own at least one sub-surface mesh
+  surfacesWithSubSurfaces = new Set();
+  scene_objects.forEach(function(object) {
+    if (object.userData.surfaceName) {
+      surfacesWithSubSurfaces.add(object.userData.surfaceName);
+    }
+  });
+
   // coincident_objects store references between adjacent objects that are truly coincident, meaning that their vertices are completely the same
   // when an object's coincident object is visible we do not want to show the back object
   coincident_objects = {};
@@ -1255,6 +1264,17 @@ function createReverseVerticesButton(surfaceName) {
   return btn;
 }
 
+function createTriangulateSurfaceButton(surfaceName) {
+  const btn = document.createElement('button');
+  btn.className = 'ctx-action-btn';
+  btn.textContent = 'Triangulate Surface';
+  btn.addEventListener('click', function() {
+    bridge.triangulateSurface(surfaceName);
+    contextMenu.style.display = 'none';
+  });
+  return btn;
+}
+
 function displaySelectedObjectContextMenu() {
 
   contextMenu.innerHTML = '<h2>Actions</h2>';
@@ -1277,6 +1297,9 @@ function displaySelectedObjectContextMenu() {
       case "Surface Type":
       case "Normal":
         surfaceInfoPanel.appendChild(createReverseVerticesButton(surfaceName));
+        if (!surfacesWithSubSurfaces.has(surfaceName)) {
+          surfaceInfoPanel.appendChild(createTriangulateSurfaceButton(surfaceName));
+        }
         break;
       case "Boundary":
         surfaceInfoPanel.appendChild(createToggleButtons('Sun Exposure', surfaceName,

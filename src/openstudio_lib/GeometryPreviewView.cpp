@@ -21,6 +21,7 @@
 #include <openstudio/model/Space_Impl.hpp>
 #include <openstudio/model/SpaceType.hpp>
 #include <openstudio/model/SpaceType_Impl.hpp>
+#include <openstudio/model/SubSurface.hpp>
 #include <openstudio/model/Surface.hpp>
 #include <openstudio/model/ThermalZone.hpp>
 #include <openstudio/model/ThermalZone_Impl.hpp>
@@ -57,6 +58,35 @@ void GeometryBridge::reverseSurfaceVertices(const QString& surfaceName) {
     surface->setVertices(vertices);
     emit modelChanged();
   }
+}
+
+void GeometryBridge::triangulateSurface(const QString& surfaceName) {
+  auto planarSurface_ = m_model.getModelObjectByName<model::PlanarSurface>(surfaceName.toStdString());
+  if (!planarSurface_) {
+    return;
+  }
+
+  // Skip the case where the Surface has SubSurfaces, since we'd have to deal with triangulation of the subSurfaces(s) then intersection etc
+  if (auto surface_ = planarSurface_->optionalCast<model::Surface>()) {
+    if (!surface_->subSurfaces().empty()) {
+      return;
+    }
+  }
+  const auto triangles = planarSurface_->triangulation();
+  if (triangles.size() < 2) {
+    return;
+  }
+
+  const std::string origName = planarSurface_->nameString();
+  for (int i = 0; const auto& points : triangles) {
+    ++i;
+    auto clone = planarSurface_->clone().cast<model::PlanarSurface>();
+    clone.setVertices(points);
+    clone.setName(origName + " (triangulation " + std::to_string(i) + ")");
+  }
+  planarSurface_->remove();
+
+  emit modelChanged();
 }
 
 void GeometryBridge::setSunExposure(const QString& surfaceName, const QString& value) {
