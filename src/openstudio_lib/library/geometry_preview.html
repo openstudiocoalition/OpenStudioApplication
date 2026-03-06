@@ -209,6 +209,7 @@ function saveViewStateToSessionStorage() {
   try {
     sessionStorage.setItem('os_renderBy', (typeof settings !== 'undefined' && settings.renderBy) ? settings.renderBy : '');
     sessionStorage.setItem('os_showStory', (typeof settings !== 'undefined' && settings.showStory) ? settings.showStory : '');
+    sessionStorage.setItem('os_showAirLoop', (typeof settings !== 'undefined' && settings.showAirLoop) ? settings.showAirLoop : '');
     if (typeof perspectiveCamera !== 'undefined' && typeof orthographicCamera !== 'undefined') {
       var _p = perspectiveCamera, _pc = perspectiveControls;
       var _o = orthographicCamera, _oc = orthographicControls;
@@ -1834,10 +1835,11 @@ var initDatGui = function () {
     .filter(objMetaData => objMetaData.iddObjectType === "OS:AirLoopHVAC")
     .map(objMetaData => objMetaData.name)
     .sort();
+  var showAirLoopController = null;
   if (air_loop_names && air_loop_names.length > 0) {
     air_loop_names.unshift("All Loops");
     air_loop_names.unshift("No Loop");
-    gui.add(settings, 'showAirLoop', air_loop_names).name('Show Air Loop').onChange(function (value) {
+    showAirLoopController = gui.add(settings, 'showAirLoop', air_loop_names).name('Show Air Loop').onChange(function (value) {
       removeSelection();
       update(value);
     });
@@ -1986,6 +1988,8 @@ var initDatGui = function () {
   sessionStorage.removeItem('os_renderBy');
   var storedShowStory = sessionStorage.getItem('os_showStory');
   sessionStorage.removeItem('os_showStory');
+  var storedShowAirLoop = sessionStorage.getItem('os_showAirLoop');
+  sessionStorage.removeItem('os_showAirLoop');
 
   if (storedRenderBy && render_modes.includes(storedRenderBy)) {
     settings.renderBy = storedRenderBy;
@@ -1994,6 +1998,10 @@ var initDatGui = function () {
   if (storedShowStory && building_story_names.includes(storedShowStory)) {
     settings.showStory = storedShowStory;
     showStoryController.updateDisplay();
+  }
+  if (storedShowAirLoop && showAirLoopController && air_loop_names.includes(storedShowAirLoop)) {
+    settings.showAirLoop = storedShowAirLoop;
+    showAirLoopController.updateDisplay();
   }
 
   update();
