@@ -39,6 +39,7 @@ class GeometryBridge : public QObject
   Q_INVOKABLE void setWindExposure(const QString& surfaceName, const QString& value);
   Q_INVOKABLE void setOutsideBoundaryCondition(const QString& surfaceName, const QString& value);
   Q_INVOKABLE void setSpaceType(const QString& spaceName, const QString& spaceTypeName);
+  Q_INVOKABLE void setConstruction(const QString& surfaceName, const QString& constructionName);
 
  signals:
   void modelChanged();

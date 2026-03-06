@@ -13,6 +13,8 @@
 #include <openstudio/model/Model_Impl.hpp>
 #include <openstudio/model/PlanarSurface.hpp>
 #include <openstudio/model/PlanarSurface_Impl.hpp>
+#include <openstudio/model/ConstructionBase.hpp>
+#include <openstudio/model/ConstructionBase_Impl.hpp>
 #include <openstudio/model/Space.hpp>
 #include <openstudio/model/Space_Impl.hpp>
 #include <openstudio/model/SpaceType.hpp>
@@ -70,6 +72,17 @@ void GeometryBridge::setWindExposure(const QString& surfaceName, const QString& 
 void GeometryBridge::setOutsideBoundaryCondition(const QString& surfaceName, const QString& value) {
   if (auto surface = m_model.getModelObjectByName<model::Surface>(surfaceName.toStdString())) {
     surface->setOutsideBoundaryCondition(value.toStdString());
+    emit modelChanged();
+  }
+}
+
+void GeometryBridge::setConstruction(const QString& surfaceName, const QString& constructionName) {
+  if (auto surface = m_model.getModelObjectByName<model::PlanarSurface>(surfaceName.toStdString())) {
+    if (constructionName.isEmpty()) {
+      surface->resetConstruction();
+    } else if (auto construction = m_model.getModelObjectByName<model::ConstructionBase>(constructionName.toStdString())) {
+      surface->setConstruction(*construction);
+    }
     emit modelChanged();
   }
 }
@@ -237,16 +250,22 @@ void PreviewWebView::onLoadFinished(bool ok) {
   // disable doc
   m_document->disable();
 
-  // build list of available SpaceType names for the JS context menu
+  // build lists of available names for the JS context menu
   QJsonArray spaceTypeNamesArray;
   for (const auto& st : m_model.getConcreteModelObjects<model::SpaceType>()) {
     spaceTypeNamesArray.append(QString::fromStdString(st.nameString()));
   }
   const QString spaceTypeNamesJson = QJsonDocument(spaceTypeNamesArray).toJson(QJsonDocument::Compact);
 
+  QJsonArray constructionNamesArray;
+  for (const auto& c : m_model.getModelObjects<model::ConstructionBase>()) {
+    constructionNamesArray.append(QString::fromStdString(c.nameString()));
+  }
+  const QString constructionNamesJson = QJsonDocument(constructionNamesArray).toJson(QJsonDocument::Compact);
+
   // call init and animate
-  const QString javascript = QString("var availableSpaceTypeNames = %1; runFromJSON(%2, %3);")
-                               .arg(spaceTypeNamesJson, m_json, m_geometryDiagnosticsBox->isChecked() ? "true" : "false");
+  const QString javascript = QString("var availableSpaceTypeNames = %1; var availableConstructionNames = %2; runFromJSON(%3, %4);")
+                               .arg(spaceTypeNamesJson, constructionNamesJson, m_json, m_geometryDiagnosticsBox->isChecked() ? "true" : "false");
   m_view->page()->runJavaScript(javascript, [this](const QVariant& v) { onJavaScriptFinished(v); });
 
   //javascript = QString("os_data.metadata.version");
