@@ -564,12 +564,10 @@ find_file(qweb_resources_200 NAMES qtwebengine_resources_200p.pak PATHS "${QT_IN
 list(APPEND QT_WEB_LIBS Qt6::WebEngineCore)
 list(APPEND QT_WEB_LIBS Qt6::WebEngineWidgets)
 list(APPEND QT_WEB_LIBS Qt6::Charts)
+list(APPEND QT_WEB_LIBS Qt6::WebChannel)
 set_target_properties(${QT_WEB_LIBS} PROPERTIES INTERFACE_LINK_LIBRARIES "")
 
 if(NOT APPLE)
-
-    find_package(Qt6WebChannel ${QT_VERSION} REQUIRED PATHS ${QT_INSTALL_DIR} NO_DEFAULT_PATH)
-    list(APPEND QT_WEB_LIBS Qt6::WebChannel)
 
     find_package(Qt6Quick ${QT_VERSION} REQUIRED PATHS ${QT_INSTALL_DIR} NO_DEFAULT_PATH)
     list(APPEND QT_WEB_LIBS Qt6::Quick)
