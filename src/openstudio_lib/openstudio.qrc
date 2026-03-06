@@ -1142,23 +1142,25 @@
     <file>library/geometry_editor.css</file>
     <file>library/geometry_editor_start.html</file>
     <file>library/geometry_preview.html</file>
-    <file>library/epw_explorer.html</file>
-    <file>library/js/epwvis/jquery.min.js</file>
-    <file>library/js/epwvis/bootstrap.min.js</file>
-    <file>library/js/epwvis/d3.min.js</file>
-    <file>library/js/epwvis/crossfilter.min.js</file>
-    <file>library/js/epwvis/psychrolib.js</file>
-    <file>library/js/epwvis/epw2json.js</file>
-    <file>library/js/epwvis/epwCharts.js</file>
-    <file>library/js/epwvis/solarPV.js</file>
-    <file>library/js/epwvis/saveSvgAsPng.js</file>
-    <file>library/js/epwvis/jszip.min.js</file>
-    <file>library/css/epwvis/bootstrap.min.css</file>
-    <file>library/css/epwvis/epwvis.css</file>
     <file>library/js/three.r98.min.js</file>
     <file>library/js/three.orbitcontrols.js</file>
     <file>library/js/dat.gui.0.7.9.min.js</file>
     <file>library/js/TweenLite.2.1.3.min.js</file>
+
+    <file>library/epw_explorer.html</file>
+    <file>library/epwvis/js/jquery.min.js</file>
+    <file>library/epwvis/js/bootstrap.min.js</file>
+    <file>library/epwvis/js/d3.min.js</file>
+    <file>library/epwvis/js/crossfilter.min.js</file>
+    <file>library/epwvis/js/psychrolib.js</file>
+    <file>library/epwvis/js/epw2json.js</file>
+    <file>library/epwvis/js/epwCharts.js</file>
+    <file>library/epwvis/js/solarPV.js</file>
+    <file>library/epwvis/js/saveSvgAsPng.js</file>
+    <file>library/epwvis/js/jszip.min.js</file>
+    <file>library/epwvis/css/bootstrap.min.css</file>
+    <file>library/epwvis/css/epwvis.css</file>
+
 
     <file alias="images/add_script_icon.png">../shared_gui_components/images/add_script_icon.png</file>
     <file alias="images/add_script_icon@2x.png">../shared_gui_components/images/add_script_icon@2x.png</file>
