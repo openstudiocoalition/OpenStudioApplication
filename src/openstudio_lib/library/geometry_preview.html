@@ -67,20 +67,44 @@
   transform:rotate(270deg);
 }
 #context-menu {
-  background-color:#fff;
-  border:1px solid #999;
-  border-radius:4px;
-  box-shadow:2px 2px 6px rgba(0,0,0,0.2);
+  background-color:#ddd;
+  border-radius:8px;
   display:none;
+  min-width:160px;
+  opacity:0.9;
+  padding:0 5px 10px;
   position:absolute;
+  text-align:left;
   z-index:20;
 }
-#context-menu div {
-  cursor:pointer;
-  padding:4px 12px;
+#context-menu h3 {
+  border-bottom:1px solid #aaa;
+  font-size:11pt;
+  margin:6px 4px 4px;
+  padding-bottom:4px;
 }
-#context-menu div:hover {
-  background-color:#eee;
+.surface-info-panel {
+  margin-bottom:4px;
+}
+.ctx-action-btn {
+  background-color:#f0f0f0;
+  border:1px solid #999;
+  font:inherit;
+  border-radius:4px;
+  box-shadow:1px 1px 2px rgba(0,0,0,0.15);
+  cursor:pointer;
+  display:inline-block;
+  margin:4px 6px 2px;
+  padding:4px 12px;
+  user-select:none;
+}
+.ctx-action-btn:hover {
+  background-color:#e0e0e0;
+  border-color:#666;
+}
+.ctx-action-btn:active {
+  background-color:#c8c8c8;
+  box-shadow:inset 1px 1px 2px rgba(0,0,0,0.2);
 }
 </style>
 
@@ -297,6 +321,7 @@ function updateBalloon(object) {
 function removeSelection() {
   selectObject(null);
   headsUp.style.display = 'none';
+  contextMenu.style.display = 'none';
   document.body.style.cursor = 'auto';
   document.getElementById('color-bar-selection-line').style.display = 'none';
   document.getElementById('color-bar-selection-text').style.display = 'none';
@@ -469,18 +494,18 @@ function init(os_data_in, includeGeometryDiagnostics_in) {
 
   // Heads Up
   headsUp = document.body.appendChild(document.createElement('div'));
-  headsUp.setAttribute('id', 'heads-up');
+  headsUp.id = 'heads-up';
 
   // Context Menu
   contextMenu = document.body.appendChild(document.createElement('div'));
-  contextMenu.setAttribute('id', 'context-menu');
+  contextMenu.id = 'context-menu';
   document.addEventListener('click', function() { contextMenu.style.display = 'none'; }, false);
 
   // Color Bar
   colorBarHeight = 40;
   colorBarWidth = 256;
   colorBar = document.createElement('canvas');
-  colorBar.setAttribute('id', 'color-bar');
+  colorBar.id = 'color-bar';
   colorBar.setAttribute('height', colorBarHeight);
   colorBar.setAttribute('width', colorBarWidth);
 
@@ -490,7 +515,7 @@ function init(os_data_in, includeGeometryDiagnostics_in) {
   var top = getFloatFromLocalStorage('colorBarTop', 0);
   var left = getFloatFromLocalStorage('colorBarLeft', 0);
   colorBarContainer = document.body.appendChild(document.createElement('div'));
-  colorBarContainer.setAttribute('id', 'color-bar-container');
+  colorBarContainer.id = 'color-bar-container';
   colorBarContainer.setAttribute('draggable', 'true');
   colorBarContainer.setAttribute('ondragstart', 'drag(event)');
   colorBarContainer.style.height = (colorBarHeight + 112) + 'px';
@@ -509,7 +534,7 @@ function init(os_data_in, includeGeometryDiagnostics_in) {
   bar.style.left = 20 + colorBarWidth + 'px';
   colorBarContainer.appendChild(bar);
   bar = bar.cloneNode();
-  bar.setAttribute('id', 'color-bar-selection-line');
+  bar.id = 'color-bar-selection-line';
   bar.style.display = 'none';
   bar.style.bottom = '20px';
   bar.style.height = '56px';
@@ -517,16 +542,16 @@ function init(os_data_in, includeGeometryDiagnostics_in) {
 
   var text = document.createElement('span');
   text.classList.add('color-bar-text');
-  text.setAttribute('id', 'color-bar-min');
+  text.id = 'color-bar-min';
   text.style.bottom = (colorBarHeight + 30) + 'px';
   text.style.left = 10 + 'px';
   colorBarContainer.appendChild(text);
   text = text.cloneNode();
-  text.setAttribute('id', 'color-bar-max');
+  text.id = 'color-bar-max';
   text.style.left = 10 + colorBarWidth + 'px';
   colorBarContainer.appendChild(text);
   text = text.cloneNode();
-  text.setAttribute('id', 'color-bar-selection-text');
+  text.id = 'color-bar-selection-text';
   colorBarContainer.appendChild(text);
 
   renderer = new THREE.WebGLRenderer({
@@ -814,6 +839,33 @@ function onDocumentMouseClick(event) {
   }
 }
 
+function onDocumentContextMenu(event) {
+  // Only act on the mouse click if it was an actual right-click, not a drag to pan the camera
+  if (mouseDownX == event.clientX && mouseDownY == event.clientY) {
+    mouse.x = (event.clientX / renderer.domElement.width) * 2 - 1;
+    mouse.y = -(event.clientY / renderer.domElement.height) * 2 + 1;
+
+    if (settings.orthographic){
+      raycaster.setFromCamera(mouse, orthographicCamera);
+    }else{
+      raycaster.setFromCamera(mouse, perspectiveCamera);
+    }
+
+    // raycaster intersects invisible objects so filter first
+    var pickable = scene_objects.filter(function(x){return x.visible;});
+    intersects = raycaster.intersectObjects(pickable);
+    if (intersects.length) {
+
+      selectObject(intersects[0].object);
+      displaySelectedObjectContextMenu();
+
+    } else {
+      removeSelection();
+    }
+    requestRenderIfNotRequested();
+  }
+}
+
 function colorize_bool(b) {
   return "<span style='color: " + (b ? 'green' : 'red') + ";'>" + b + '</span>'
 }
@@ -900,34 +952,72 @@ function displaySelectedObjectDetails() {
   document.body.style.cursor = 'pointer';
 }
 
-function onDocumentContextMenu(event) {
-  event.preventDefault();
+function createReverseVerticesButton(surfaceName) {
+  const btn = document.createElement('button');
+  btn.className = 'ctx-action-btn';
+  btn.textContent = 'Reverse Vertices';
+  btn.addEventListener('click', function() {
+    bridge.reverseSurfaceVertices(surfaceName);
+    contextMenu.style.display = 'none';
+  });
+  return btn;
+}
 
-  contextMenu.style.display = 'none';
+function displaySelectedObjectContextMenu() {
 
-  mouse.x = (event.clientX / renderer.domElement.width) * 2 - 1;
-  mouse.y = -(event.clientY / renderer.domElement.height) * 2 + 1;
+  contextMenu.innerHTML = '<h2>Actions</h2>';
+  contextMenu.style.left = 10 + 0.5 * window.innerWidth + mouse.x * 0.5 * window.innerWidth + 'px';
+  contextMenu.style.top = -10 + 0.5 * window.innerHeight - mouse.y * 0.5 * window.innerHeight + 'px';
+  contextMenu.style.display = 'block';
 
-  var cam = settings.orthographic ? orthographicCamera : perspectiveCamera;
-  raycaster.setFromCamera(mouse, cam);
-  var pickable = scene_objects.filter(function(x) { return x.visible; });
-  var hits = raycaster.intersectObjects(pickable);
+  let nbDisplayedTiles = 0, maxTiles = 1;
+  intersected.some(inter => {
+    const surfaceName = inter.userData.name;
 
-  if (hits.length && bridge) {
-    var surfaceName = hits[0].object.userData.name;
+    const surfaceInfoPanel = document.createElement('div');
+    surfaceInfoPanel.className = 'surface-info-panel';
+    const title = document.createElement('h3');
+    title.textContent = `Name: ${surfaceName}`;
+    surfaceInfoPanel.appendChild(title);
 
-    contextMenu.innerHTML =
-      '<div id="ctx-reverse">Reverse Vertices: ' + surfaceName + '</div>';
+    // add action buttons depending on chosen renderBy value
+    switch (settings.renderBy) {
+      case "Surface Type":
+      case "Normal":
+        surfaceInfoPanel.appendChild(createReverseVerticesButton(surfaceName));
+        break;
+      case "Boundary":
+        // inter.userData.outsideBoundaryCondition
+        // inter.userData.sunExposure
+        // inter.userData.windExposure
+        break;
+      case "Construction":
+        // inter.userData.constructionName
+        break;
+      case "Thermal Zone":
+        // inter.userData.thermalZoneName
+        break;
+      case "Space Type":
+        // inter.userData.spaceTypeName
+        break;
+      case "Building Story":
+        // inter.userData.buildingStoryName
+        break;
+      case "Data":
+        break;
+    }
 
-    document.getElementById('ctx-reverse').addEventListener('click', function() {
-      bridge.reverseSurfaceVertices(surfaceName);
-      contextMenu.style.display = 'none';
-    });
+    contextMenu.appendChild(surfaceInfoPanel);
+    nbDisplayedTiles += 1;
+    return nbDisplayedTiles >= maxTiles;
+  });
 
-    contextMenu.style.left = event.clientX + 'px';
-    contextMenu.style.top = event.clientY + 'px';
-    contextMenu.style.display = 'block';
+  if (nbDisplayedTiles < intersected.length) {
+    const warning = document.createElement('p');
+    warning.textContent = `Not all matching objects details displayed (max: ${maxTiles})`;
+    contextMenu.appendChild(warning);
   }
+  document.body.style.cursor = 'pointer';
 }
 
 var renderRequested = false;
