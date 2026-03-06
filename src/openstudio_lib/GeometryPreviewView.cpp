@@ -11,7 +11,11 @@
 #include "../model_editor/Application.hpp"
 
 #include <openstudio/model/Model_Impl.hpp>
+#include <openstudio/model/PlanarSurface.hpp>
+#include <openstudio/model/PlanarSurface_Impl.hpp>
 #include <openstudio/model/ThreeJSForwardTranslator.hpp>
+
+#include <algorithm>
 
 #include <openstudio/utilities/core/Assert.hpp>
 #include <openstudio/utilities/idd/IddEnums.hxx>
@@ -22,12 +26,24 @@
 #include <QPushButton>
 #include <QFile>
 #include <QWebEngineScriptCollection>
+#include <QWebChannel>
 #include <QtConcurrent>
 #include <QCheckBox>
 
 using namespace std::placeholders;
 
 namespace openstudio {
+
+GeometryBridge::GeometryBridge(model::Model& model, QObject* parent) : QObject(parent), m_model(model) {}
+
+void GeometryBridge::reverseSurfaceVertices(const QString& surfaceName) {
+  if (auto surface = m_model.getModelObjectByName<model::PlanarSurface>(surfaceName.toStdString())) {
+    auto vertices = surface->vertices();
+    std::reverse(vertices.begin(), vertices.end());
+    surface->setVertices(vertices);
+    emit modelChanged();
+  }
+}
 
 GeometryPreviewView::GeometryPreviewView(bool isIP, const openstudio::model::Model& model, QWidget* parent) : QWidget(parent) {
   // TODO: DLM implement units switching
@@ -76,6 +92,15 @@ PreviewWebView::PreviewWebView(bool isIP, const model::Model& model, QWidget* t_
   m_view = new QWebEngineView(this);
   m_page = new OSWebEnginePage(m_view);
   m_view->setPage(m_page);  // note, view does not take ownership of page
+
+  auto* channel = new QWebChannel(m_page);
+  m_bridge = new GeometryBridge(m_model, this);
+  channel->registerObject(QStringLiteral("bridge"), m_bridge);
+  m_page->setWebChannel(channel);
+  connect(m_bridge, &GeometryBridge::modelChanged, this, [this]() {
+    m_json = QString();
+    refreshClicked();
+  });
 
   auto* mainWindow = OSAppBase::instance()->currentDocument()->mainWindow();
   const bool verboseOutput = mainWindow->geometryDiagnostics();

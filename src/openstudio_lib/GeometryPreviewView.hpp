@@ -14,6 +14,7 @@
 
 #include "../shared_gui_components/ProgressBarWithError.hpp"
 
+#include <QObject>
 #include <QWidget>
 #include <QWebEngineView>
 
@@ -24,6 +25,23 @@ class QPushButton;
 namespace openstudio {
 
 class OSDocument;
+
+class GeometryBridge : public QObject
+{
+  Q_OBJECT
+
+ public:
+  explicit GeometryBridge(model::Model& model, QObject* parent = nullptr);
+
+ public slots:
+  Q_INVOKABLE void reverseSurfaceVertices(const QString& surfaceName);
+
+ signals:
+  void modelChanged();
+
+ private:
+  model::Model& m_model;
+};
 
 class GeometryPreviewView : public QWidget
 {
@@ -75,6 +93,7 @@ class PreviewWebView : public QWidget
   QWebEngineView* m_view;
   OSWebEnginePage* m_page;
   std::shared_ptr<OSDocument> m_document;
+  GeometryBridge* m_bridge;
 
   QString m_json;
 };

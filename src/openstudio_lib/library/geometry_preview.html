@@ -13,6 +13,8 @@
 
     <script src="js/TweenLite.2.1.3.min.js"></script>
 
+    <script src="qrc:///qtwebchannel/qwebchannel.js"></script>
+
   </head>
   <body>
     <style type="text/css">
@@ -64,6 +66,22 @@
 .rotate .color-bar-text {
   transform:rotate(270deg);
 }
+#context-menu {
+  background-color:#fff;
+  border:1px solid #999;
+  border-radius:4px;
+  box-shadow:2px 2px 6px rgba(0,0,0,0.2);
+  display:none;
+  position:absolute;
+  z-index:20;
+}
+#context-menu div {
+  cursor:pointer;
+  padding:4px 12px;
+}
+#context-menu div:hover {
+  background-color:#eee;
+}
 </style>
 
 <script>
@@ -84,8 +102,16 @@ var dragXStart, dragYStart;
 var raycaster;
 var mouse;
 var headsUp;
+var contextMenu;
 var intersected = [];
 var selected_material, unknown_material, dot_material;
+
+var bridge = null;
+window.addEventListener('load', function() {
+  new QWebChannel(qt.webChannelTransport, function(channel) {
+    bridge = channel.objects.bridge;
+  });
+});
 
 var getStringFromLocalStorage = function (key, defaultValue) {
   try {
@@ -445,6 +471,11 @@ function init(os_data_in, includeGeometryDiagnostics_in) {
   headsUp = document.body.appendChild(document.createElement('div'));
   headsUp.setAttribute('id', 'heads-up');
 
+  // Context Menu
+  contextMenu = document.body.appendChild(document.createElement('div'));
+  contextMenu.setAttribute('id', 'context-menu');
+  document.addEventListener('click', function() { contextMenu.style.display = 'none'; }, false);
+
   // Color Bar
   colorBarHeight = 40;
   colorBarWidth = 256;
@@ -646,6 +677,7 @@ function init(os_data_in, includeGeometryDiagnostics_in) {
 
   renderer.domElement.addEventListener('mousedown', onDocumentMouseDown, false);
   renderer.domElement.addEventListener('click', onDocumentMouseClick, false);
+  renderer.domElement.addEventListener('contextmenu', onDocumentContextMenu, false);
 }
 
 function setSelectedMaterial(object) {
@@ -866,6 +898,36 @@ function displaySelectedObjectDetails() {
   }
   headsUp.innerHTML = txt;
   document.body.style.cursor = 'pointer';
+}
+
+function onDocumentContextMenu(event) {
+  event.preventDefault();
+
+  contextMenu.style.display = 'none';
+
+  mouse.x = (event.clientX / renderer.domElement.width) * 2 - 1;
+  mouse.y = -(event.clientY / renderer.domElement.height) * 2 + 1;
+
+  var cam = settings.orthographic ? orthographicCamera : perspectiveCamera;
+  raycaster.setFromCamera(mouse, cam);
+  var pickable = scene_objects.filter(function(x) { return x.visible; });
+  var hits = raycaster.intersectObjects(pickable);
+
+  if (hits.length && bridge) {
+    var surfaceName = hits[0].object.userData.name;
+
+    contextMenu.innerHTML =
+      '<div id="ctx-reverse">Reverse Vertices: ' + surfaceName + '</div>';
+
+    document.getElementById('ctx-reverse').addEventListener('click', function() {
+      bridge.reverseSurfaceVertices(surfaceName);
+      contextMenu.style.display = 'none';
+    });
+
+    contextMenu.style.left = event.clientX + 'px';
+    contextMenu.style.top = event.clientY + 'px';
+    contextMenu.style.display = 'block';
+  }
 }
 
 var renderRequested = false;
