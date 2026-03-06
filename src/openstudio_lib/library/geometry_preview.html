@@ -127,6 +127,13 @@
   box-shadow:inset 0 2px 4px rgba(0,0,0,0.25);
   transform:translateY(1px);
 }
+.ctx-action-btn:disabled {
+  background:linear-gradient(to bottom, #c0c0c0, #a8a8a8);
+  box-shadow:none;
+  color:#787878;
+  cursor:not-allowed;
+  opacity:0.7;
+}
 .ctx-label {
   color:#555;
   display:block;
@@ -1268,10 +1275,15 @@ function createTriangulateSurfaceButton(surfaceName) {
   const btn = document.createElement('button');
   btn.className = 'ctx-action-btn';
   btn.textContent = 'Triangulate Surface';
-  btn.addEventListener('click', function() {
-    bridge.triangulateSurface(surfaceName);
-    contextMenu.style.display = 'none';
-  });
+  if (surfacesWithSubSurfaces.has(surfaceName)) {
+    btn.disabled = true;
+    btn.title = 'Cannot triangulate a surface that has sub-surfaces';
+  } else {
+    btn.addEventListener('click', function() {
+      bridge.triangulateSurface(surfaceName);
+      contextMenu.style.display = 'none';
+    });
+  }
   return btn;
 }
 
@@ -1297,9 +1309,7 @@ function displaySelectedObjectContextMenu() {
       case "Surface Type":
       case "Normal":
         surfaceInfoPanel.appendChild(createReverseVerticesButton(surfaceName));
-        if (!surfacesWithSubSurfaces.has(surfaceName)) {
-          surfaceInfoPanel.appendChild(createTriangulateSurfaceButton(surfaceName));
-        }
+        surfaceInfoPanel.appendChild(createTriangulateSurfaceButton(surfaceName));
         break;
       case "Boundary":
         surfaceInfoPanel.appendChild(createToggleButtons('Sun Exposure', surfaceName,
