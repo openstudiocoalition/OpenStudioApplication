@@ -57,13 +57,12 @@ class OSSimpleProgressBar : public openstudio::ProgressBar
   /// virtual method called every time percentageUpdated fires
   virtual void onPercentageUpdated(double percentage);
 
-private:
-  int m_minimum {0};
-  int m_maximum {1};
-  int m_value {0};
+ private:
+  int m_minimum{0};
+  int m_maximum{1};
+  int m_value{0};
   std::string m_windowTitle;
   bool m_visible{false};
-
 };
 
 #endif  //MODELEDITOR_OSSimpleProgressBar_HPP

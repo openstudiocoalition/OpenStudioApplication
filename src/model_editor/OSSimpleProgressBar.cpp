@@ -65,4 +65,3 @@ void OSSimpleProgressBar::setVisible(bool visible) {
 
 /// virtual method called every time progressUpdated fires
 void OSSimpleProgressBar::onPercentageUpdated(double percentage) {}
-

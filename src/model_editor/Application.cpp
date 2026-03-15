@@ -79,7 +79,6 @@ QCoreApplication* Application::application(bool gui) {
       }
 
       m_defaultInstance = true;
-
     }
   }
 
