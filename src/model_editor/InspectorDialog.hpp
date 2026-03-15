@@ -38,7 +38,7 @@ class ModelObject;
 }  // namespace openstudio
 
 #ifndef Q_MOC_RUN
-OPENSTUDIO_ENUM(InspectorDialogClient, ((AllOpenStudio))((SketchUpPlugin)));
+OPENSTUDIO_ENUM(InspectorDialogClient, ((AllOpenStudio)));
 #endif
 
 class MODELEDITOR_API InspectorDialog
