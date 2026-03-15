@@ -29,9 +29,6 @@ set(${target_name}_depends
   openstudio::openstudiolib
   ${QT_LIBS}
 )
-if(WIN32)
-  list(APPEND ${target_name}_depends qtwinmigrate)
-endif()
 
 add_library(${target_name} ${${target_name}_src})
 target_link_libraries(${target_name} ${${target_name}_depends})

@@ -42,10 +42,6 @@ class Application
   /// no op if it has already been set.  Returns true if set succeeded.
   bool setApplication(QCoreApplication* qApplication);
 
-  /// get the QWidget wrapper around SketchUp window
-  /// initialized by call to application, only implemented for windows
-  QWidget* sketchUpWidget();
-
   /// Process pending Qt events
   void processEvents();
   void processEvents(int maxTime);
@@ -79,9 +75,6 @@ class Application
 
   /// QApplication handle
   QCoreApplication* m_qApplication;
-
-  /// QWidget wrapper around SketchUp window
-  QWidget* m_sketchUpWidget;
 
   bool m_defaultInstance;
 };

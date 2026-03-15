@@ -14,14 +14,6 @@
 
 #include <QSettings>
 
-#if _WIN32 || _MSC_VER
-#  include <QWinWidget>
-#  include <Windows.h>
-#  include <boost/regex.hpp>
-#else
-#  include <dlfcn.h>
-#endif
-
 namespace openstudio {
 
 Application& Application::instance() {
@@ -29,13 +21,9 @@ Application& Application::instance() {
   return instance;
 }
 
-Application::Application() : m_qApplication(nullptr), m_sketchUpWidget(nullptr), m_defaultInstance(false) {}
+Application::Application() : m_qApplication(nullptr), m_defaultInstance(false) {}
 
 Application::~Application() {
-  //if (m_sketchUpWidget){
-  //  delete m_sketchUpWidget;
-  //}
-
   if (m_qApplication) {
     m_qApplication->quit();
   }
@@ -82,7 +70,7 @@ QCoreApplication* Application::application(bool gui) {
       static char* argv[] = {nullptr};
       static int argc = sizeof(argv) / sizeof(char*) - 1;
 
-      // Load the qpa plugin (If SketchUp is loading the OpenStudio plugin, the SketchUp run path will be added to the end of libraryPaths)
+      // Load the qpa plugin
       if (gui) {
         m_qApplication = new QApplication(argc, argv);
         dynamic_cast<QApplication*>(m_qApplication)->setQuitOnLastWindowClosed(false);
@@ -92,36 +80,6 @@ QCoreApplication* Application::application(bool gui) {
 
       m_defaultInstance = true;
 
-// check if we are in a SketchUp process
-#if _WIN32 || _MSC_VER
-      if (gui) {
-        DWORD pId = GetCurrentProcessId();
-        //HMODULE hModule = GetModuleHandle(NULL); // same as hInstance
-        LPTSTR className = new TCHAR[255];
-        LPTSTR typeName = new TCHAR[255];
-        HWND h = GetTopWindow(0);
-        while (h) {
-          DWORD pId2;
-          GetWindowThreadProcessId(h, &pId2);
-
-          if (pId == pId2) {
-
-            GetClassName(h, className, 255);
-            GetWindowText(h, typeName, 255);
-
-            if (boost::regex_match(toString(typeName), boost::regex(".*- SketchUp.*"))) {
-              m_sketchUpWidget = new QWinWidget(h);
-              break;
-            }
-          }
-
-          h = GetNextWindow(h, GW_HWNDNEXT);
-        }
-
-        delete[] className;
-        delete[] typeName;
-      }
-#endif
     }
   }
 
@@ -146,10 +104,6 @@ bool Application::setApplication(QCoreApplication* qApplication) {
     return true;
   }
   return false;
-}
-
-QWidget* Application::sketchUpWidget() {
-  return m_sketchUpWidget;
 }
 
 void Application::processEvents() {

@@ -645,7 +645,6 @@ list(APPEND QT_INCLUDES ${Qt6Widgets_INCLUDE_DIRS})
 list(APPEND QT_INCLUDES ${Qt6Xml_INCLUDE_DIRS})
 list(APPEND QT_INCLUDES ${Qt6Network_INCLUDE_DIRS})
 list(APPEND QT_INCLUDES ${Qt6Gui_INCLUDE_DIRS})
-list(APPEND QT_INCLUDES "${QT_INSTALL_DIR}/include/QtGui/${QT_VERSION}/QtGui") # needed by qtwinmigrate
 list(APPEND QT_INCLUDES ${Qt6PrintSupport_INCLUDE_DIRS})
 
 # DLM: added this, but seems to conflict with idea of a separate set of Qt Web dependencies?
@@ -710,10 +709,6 @@ get_target_property(OS_CLI_IMPORTED_PATH openstudio::openstudio LOCATION)
 # set(OS_CLI_IMPORTED_NAME "openstudio${CMAKE_EXECUTABLE_SUFFIX}")
 get_filename_component(OS_CLI_IMPORTED_NAME ${OS_CLI_IMPORTED_PATH} NAME)
 
-if(WIN32)
-  include_directories("${PROJECT_SOURCE_DIR}/src/qtwinmigrate")
-  list(APPEND project_directories "qtwinmigrate")
-endif()
 list(APPEND project_directories "utilities")
 list(APPEND project_directories "model_editor")
 list(APPEND project_directories "bimserver")
@@ -732,9 +727,6 @@ add_subdirectory("translations")
 #                        E X P O R T    T A R G E T S                         #
 ###############################################################################
 
-if(WIN32)
-  list(APPEND all_lib_targets "qtwinmigrate")
-endif()
 list(APPEND all_lib_targets "openstudio_modeleditor")
 list(APPEND all_lib_targets "openstudio_bimserver")
 list(APPEND all_lib_targets "openstudio_lib")
