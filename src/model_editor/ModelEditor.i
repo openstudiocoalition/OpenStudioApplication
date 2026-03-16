@@ -21,7 +21,7 @@
 #endif
 
 %{
-  #include <model_editor/OSProgressBar.hpp>
+  #include <model_editor/OSSimpleProgressBar.hpp>
   #include <model_editor/Utilities.hpp>
 
   #include <openstudio/model/Model.hpp>
@@ -43,7 +43,7 @@
   }
 %}
 
-%feature("director") OSProgressBar;
-%include <model_editor/OSProgressBar.hpp>
+%feature("director") OSSimpleProgressBar;
+%include <model_editor/OSSimpleProgressBar.hpp>
 
 #endif //MODELEDITOR_LIB_I

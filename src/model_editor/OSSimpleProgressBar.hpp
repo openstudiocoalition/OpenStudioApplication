@@ -25,37 +25,43 @@ class OSSimpleProgressBar : public openstudio::ProgressBar
   virtual ~OSSimpleProgressBar();
 
   /// get min
-  virtual int minimum() const;
+  int minimum() const override;
 
   /// set min
-  virtual void setMinimum(int min);
+  void setMinimum(int min) override;
 
   /// get max
-  virtual int maximum() const;
+  int maximum() const override;
 
   /// set max
-  virtual void setMaximum(int max);
+  void setMaximum(int max) override;
 
   /// get value
-  virtual int value() const;
+  int value() const override;
 
   /// get the window title
-  virtual std::string windowTitle() const;
+  std::string windowTitle() const override;
 
   /// set the window title
-  virtual void setWindowTitle(const std::string& title);
+  void setWindowTitle(const std::string& title) override;
 
   /// get the text
-  virtual std::string text() const;
+  std::string text() const override;
 
   /// get if visible
-  virtual bool isVisible() const;
+  bool isVisible() const override;
 
   /// set if visible
-  virtual void setVisible(bool visible);
+  void setVisible(bool visible) override;
 
   /// virtual method called every time percentageUpdated fires
-  virtual void onPercentageUpdated(double percentage);
+  void onPercentageUpdated(double percentage) override;
+
+  /// set range
+  void setRange(int min, int max) override;
+
+  /// set value
+  void setValue(int value) override;
 
  private:
   int m_minimum{0};
