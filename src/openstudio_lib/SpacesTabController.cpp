@@ -45,7 +45,6 @@ void SpacesTabController::setSubTab(int index) {
   }
 
   if (m_currentView) {
-    m_currentView->disconnect();
     delete m_currentView;
   }
 
