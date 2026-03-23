@@ -54,6 +54,8 @@ OSItemList::OSItemList(OSVectorController* vectorController, bool addScrollArea,
     outerVLayout->addWidget(scrollArea);
     scrollArea->setWidget(outerWidget);
     scrollArea->setWidgetResizable(true);
+    scrollArea->viewport()->setAutoFillBackground(false);
+    outerWidget->setAutoFillBackground(false);
   } else {
     outerVLayout->addWidget(outerWidget);
   }
