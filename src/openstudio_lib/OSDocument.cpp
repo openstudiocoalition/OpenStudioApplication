@@ -659,6 +659,9 @@ void OSDocument::createTab(int verticalId) {
       m_mainTabController = std::shared_ptr<MainTabController>(new ElectricLoadCenterDistributionTabController(m_model));
       m_mainWindow->setView(m_mainTabController->mainContentWidget(), ELECTRIC_LOAD_CENTER);
 
+      connect(m_mainTabController->mainContentWidget(), &MainTabView::tabSelected, m_mainRightColumnController.get(),
+              &MainRightColumnController::configureForElectricLoadCenterSubTab);
+
       connect(m_mainTabController->mainContentWidget(), &MainTabView::tabSelected, this, &OSDocument::updateSubTabSelected);
 
       break;
@@ -1187,7 +1190,7 @@ void OSDocument::onVerticalTabSelected(int verticalId) {
       }
       break;
     case ELECTRIC_LOAD_CENTER:
-      // TODO: stub, to be implemented
+      m_mainRightColumnController->configureForElectricLoadCenterSubTab(m_subTabId);
       break;
     case OUTPUT_VARIABLES:
       m_mainRightColumnController->configureForOutputVariablesSubTab(m_subTabId);

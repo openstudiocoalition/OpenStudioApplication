@@ -1271,6 +1271,96 @@ void MainRightColumnController::configureForHVACSystemsSubTab(int subTabID) {
   doc->openSidebar();
 }
 
+void MainRightColumnController::configureForElectricLoadCenterSubTab(int subTabID) {
+  std::shared_ptr<OSDocument> doc = OSAppBase::instance()->currentDocument();
+
+  setLibraryView(nullptr);
+  setMyModelView(nullptr);
+  setEditView(nullptr);
+
+  // My Model
+  auto* myModelList = new ModelObjectTypeListView(m_model, true, OSItemType::CollapsibleListHeader, false);
+  myModelList->setItemsDraggable(true);
+  myModelList->setItemsRemoveable(false);
+  myModelList->setItemsType(OSItemType::LibraryItem);
+
+  myModelList->addModelObjectType(IddObjectType::OS_Generator_MicroTurbine, "Generator MicroTurbine");
+  myModelList->addModelObjectType(IddObjectType::OS_Generator_Photovoltaic, "Generator Photovoltaic");
+  myModelList->addModelObjectType(IddObjectType::OS_Generator_FuelCell, "Generator FuelCell");
+  myModelList->addModelObjectType(IddObjectType::OS_Generator_WindTurbine, "Generator Wind Turbine");
+  myModelList->addModelObjectType(IddObjectType::OS_Generator_PVWatts, "Generator PVWatts");
+  myModelList->addModelObjectCategoryPlaceholder("Generators");
+
+  myModelList->addModelObjectType(IddObjectType::OS_PhotovoltaicPerformance_Simple, "PV Performance Simple");
+  myModelList->addModelObjectType(IddObjectType::OS_PhotovoltaicPerformance_EquivalentOneDiode, "PV Performance Equivalent One Diode");
+  myModelList->addModelObjectType(IddObjectType::OS_PhotovoltaicPerformance_Sandia, "PV Performance Sandia");
+  myModelList->addModelObjectCategoryPlaceholder("Photovoltaic Performance");
+
+  myModelList->addModelObjectType(IddObjectType::OS_ElectricLoadCenter_Inverter_PVWatts, "Inverter PVWatts");
+  myModelList->addModelObjectType(IddObjectType::OS_ElectricLoadCenter_Inverter_Simple, "Inverter Simple");
+  myModelList->addModelObjectType(IddObjectType::OS_ElectricLoadCenter_Inverter_LookUpTable, "Inverter Look Up Table");
+  myModelList->addModelObjectCategoryPlaceholder("Inverters");
+
+  myModelList->addModelObjectType(IddObjectType::OS_ElectricLoadCenter_Storage_Simple, "Storage Simple");
+  myModelList->addModelObjectType(IddObjectType::OS_ElectricLoadCenter_Storage_LiIonNMCBattery, "Storage Li-Ion NMC Battery");
+  myModelList->addModelObjectCategoryPlaceholder("Electrical Storage");
+
+  myModelList->addModelObjectType(IddObjectType::OS_ElectricLoadCenter_Storage_Converter, "Storage Converter");
+  myModelList->addModelObjectCategoryPlaceholder("Storage Converters");
+
+  myModelList->addModelObjectType(IddObjectType::OS_ElectricLoadCenter_Transformer, "Transformer");
+  myModelList->addModelObjectCategoryPlaceholder("Transformers");
+
+  myModelList->addModelObjectType(IddObjectType::OS_ElectricLoadCenter_Distribution, "Electric Load Center Distribution");
+  myModelList->addModelObjectCategoryPlaceholder("Electric Load Centers");
+
+  setMyModelView(myModelList);
+
+  // Library
+  model::Model lib = doc->componentLibrary();
+
+  auto* libraryWidget = new ModelObjectTypeListView(lib, true, OSItemType::CollapsibleListHeader, true);
+  libraryWidget->setItemsDraggable(true);
+  libraryWidget->setItemsRemoveable(false);
+  libraryWidget->setItemsType(OSItemType::LibraryItem);
+
+  libraryWidget->addModelObjectType(IddObjectType::OS_Generator_MicroTurbine, "Generator MicroTurbine");
+  libraryWidget->addModelObjectType(IddObjectType::OS_Generator_Photovoltaic, "Generator Photovoltaic");
+  libraryWidget->addModelObjectType(IddObjectType::OS_Generator_FuelCell, "Generator FuelCell");
+  libraryWidget->addModelObjectType(IddObjectType::OS_Generator_WindTurbine, "Generator Wind Turbine");
+  libraryWidget->addModelObjectType(IddObjectType::OS_Generator_PVWatts, "Generator PVWatts");
+  libraryWidget->addModelObjectCategoryPlaceholder("Generators");
+
+  libraryWidget->addModelObjectType(IddObjectType::OS_PhotovoltaicPerformance_Simple, "PV Performance Simple");
+  libraryWidget->addModelObjectType(IddObjectType::OS_PhotovoltaicPerformance_EquivalentOneDiode, "PV Performance Equivalent One Diode");
+  libraryWidget->addModelObjectType(IddObjectType::OS_PhotovoltaicPerformance_Sandia, "PV Performance Sandia");
+  libraryWidget->addModelObjectCategoryPlaceholder("Photovoltaic Performance");
+
+  libraryWidget->addModelObjectType(IddObjectType::OS_ElectricLoadCenter_Inverter_PVWatts, "Inverter PVWatts");
+  libraryWidget->addModelObjectType(IddObjectType::OS_ElectricLoadCenter_Inverter_Simple, "Inverter Simple");
+  libraryWidget->addModelObjectType(IddObjectType::OS_ElectricLoadCenter_Inverter_LookUpTable, "Inverter Look Up Table");
+  libraryWidget->addModelObjectCategoryPlaceholder("Inverters");
+
+  libraryWidget->addModelObjectType(IddObjectType::OS_ElectricLoadCenter_Storage_Simple, "Storage Simple");
+  libraryWidget->addModelObjectType(IddObjectType::OS_ElectricLoadCenter_Storage_LiIonNMCBattery, "Storage Li-Ion NMC Battery");
+  libraryWidget->addModelObjectCategoryPlaceholder("Electrical Storage");
+
+  libraryWidget->addModelObjectType(IddObjectType::OS_ElectricLoadCenter_Storage_Converter, "Storage Converter");
+  libraryWidget->addModelObjectCategoryPlaceholder("Storage Converters");
+
+  libraryWidget->addModelObjectType(IddObjectType::OS_ElectricLoadCenter_Transformer, "Transformer");
+  libraryWidget->addModelObjectCategoryPlaceholder("Transformers");
+
+  libraryWidget->addModelObjectType(IddObjectType::OS_ElectricLoadCenter_Distribution, "Electric Load Center Distribution");
+  libraryWidget->addModelObjectCategoryPlaceholder("Electric Load Centers");
+
+  setLibraryView(libraryWidget);
+
+  m_horizontalTabWidget->setCurrentId(LIBRARY);
+
+  doc->openSidebar();
+}
+
 void MainRightColumnController::configureForOutputVariablesSubTab(int subTabID) {
   std::shared_ptr<OSDocument> doc = OSAppBase::instance()->currentDocument();
 
