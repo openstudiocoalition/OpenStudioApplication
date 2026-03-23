@@ -87,7 +87,7 @@ static constexpr auto CHANGEWEATHERFILE("Change Weather File");
 namespace openstudio {
 
 SortableDesignDay::SortableDesignDay(const openstudio::model::DesignDay& designDay) : m_designDay(designDay) {
-  QRegularExpression regex("^.*Ann.*([\\d\\.]+)[\\s]?%.*$", QRegularExpression::CaseInsensitiveOption);
+  QRegularExpression regex(R"(^.*Ann.*?([\d\.]+)[\s]?%.*$)", QRegularExpression::CaseInsensitiveOption);
   if (auto m = regex.match(toQString(designDay.nameString())); m.hasMatch() && regex.captureCount() == 1) {
     m_permil = qstringToPermil(m.captured(1));
     if (m_permil > 500) {
