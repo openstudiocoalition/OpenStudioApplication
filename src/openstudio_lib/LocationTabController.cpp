@@ -7,6 +7,7 @@
 
 #include "LifeCycleCostsTabView.hpp"
 #include "LocationTabView.hpp"
+#include "GroundTemperatureView.hpp"
 #include "UtilityBillsView.hpp"
 #include "UtilityBillsController.hpp"
 
@@ -29,6 +30,7 @@ LocationTabController::LocationTabController(bool isIP, const model::Model& mode
   mainContentWidget()->addSubTab(tr("Weather File && Design Days"), WEATHER_FILE);
   mainContentWidget()->addSubTab(tr("Life Cycle Costs"), LIFE_CYCLE_COSTS);
   mainContentWidget()->addSubTab(tr("Utility Bills"), UTILITY_BILLS);
+  mainContentWidget()->addSubTab(tr("Ground Temperatures"), GROUND_TEMPERATURES);
 
   // setSubTab(0);
   auto* locationView = new LocationView(m_isIP, m_model, m_modelTempDir);
@@ -36,6 +38,7 @@ LocationTabController::LocationTabController(bool isIP, const model::Model& mode
   this->mainContentWidget()->setSubTab(locationView);
   m_currentView = locationView;
 
+  connect(this, &LocationTabController::toggleUnitsClicked, this, [this](bool isIP) { m_isIP = isIP; });
   connect(this->mainContentWidget(), &MainTabView::tabSelected, this, &LocationTabController::setSubTab);
 }
 
@@ -98,6 +101,13 @@ void LocationTabController::setSubTab(int index) {
         this->mainContentWidget()->setSubTab(label);
         m_currentView = label;
       }
+      break;
+    }
+    case 3: {
+      auto* gtView = new GroundTemperatureView(m_isIP, m_model);
+      connect(this, &LocationTabController::toggleUnitsClicked, gtView, &GroundTemperatureView::toggleUnitsClicked);
+      this->mainContentWidget()->setSubTab(gtView);
+      m_currentView = gtView;
       break;
     }
     default:
