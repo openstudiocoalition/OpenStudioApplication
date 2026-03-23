@@ -98,8 +98,8 @@ void EditController::reset() {
   m_measureStepItem = nullptr;
 
   if (editRubyMeasureView != nullptr) {
-    editRubyMeasureView->nameLineEdit->disconnect();
-    editRubyMeasureView->descriptionTextEdit->disconnect();
+    disconnect(editRubyMeasureView->nameLineEdit, &QLineEdit::textEdited, nullptr, nullptr);
+    disconnect(editRubyMeasureView->descriptionTextEdit, &QTextEdit::textChanged, nullptr, nullptr);
   }
 }
 

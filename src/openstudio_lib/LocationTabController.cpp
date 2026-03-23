@@ -71,7 +71,6 @@ void LocationTabController::setSubTab(int index) {
   m_currentIndex = index;
 
   if (m_currentView != nullptr) {
-    m_currentView->disconnect();
     delete m_currentView;
   }
 
