@@ -522,9 +522,9 @@ if(UNIX)
 endif()
 
 # Qt
-# e.g. QT_INSTALL_DIR = C:/Qt/6.5.2/msvc2019_64
+# e.g. QT_INSTALL_DIR = C:/Qt/6.11.0/msvc2019_64
 set(QT_INSTALL_DIR "" CACHE PATH "Path to Qt Install")
-set(QT_VERSION "6.5.2" CACHE STRING "Qt target version, defaults to 6.5.2")
+set(QT_VERSION "6.11.0" CACHE STRING "Qt target version, defaults to 6.11.0")
 
 # For AboutBox, but also validates that the version is valid
 string(TIMESTAMP CURRENT_YEAR "%Y")
