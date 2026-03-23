@@ -522,9 +522,9 @@ if(UNIX)
 endif()
 
 # Qt
-# e.g. QT_INSTALL_DIR = C:/Qt/6.11.0/msvc2019_64
+# e.g. QT_INSTALL_DIR = C:/Qt/6.5.2/msvc2019_64
 set(QT_INSTALL_DIR "" CACHE PATH "Path to Qt Install")
-set(QT_VERSION "6.11.0" CACHE STRING "Qt target version, defaults to 6.11.0")
+set(QT_VERSION "6.5.2" CACHE STRING "Qt target version, defaults to 6.5.2")
 
 # For AboutBox, but also validates that the version is valid
 string(TIMESTAMP CURRENT_YEAR "%Y")
@@ -590,13 +590,19 @@ if(NOT APPLE)
 
       find_library(QT_QXCBQPA NAMES libQt6XcbQpa.so.${QT_VERSION} PATHS "${QT_INSTALL_DIR}/lib" NO_DEFAULT_PATH)
 
-      # Qt 6.5 and earlier bundled ICU in the Qt install dir; Qt 6.6+ uses system ICU.
-      find_library(QT_ICU NAMES icui18n PATHS "${QT_INSTALL_DIR}/lib" NO_DEFAULT_PATH)
-      find_library(QT_ICUDATA NAMES icudata PATHS "${QT_INSTALL_DIR}/lib" NO_DEFAULT_PATH)
-      find_library(QT_ICUUC NAMES icuuc PATHS "${QT_INSTALL_DIR}/lib" NO_DEFAULT_PATH)
-      if(QT_ICU AND QT_ICUDATA AND QT_ICUUC)
-        set(QT_ICU_LIBS ${QT_ICU} ${QT_ICUDATA} ${QT_ICUUC})
-      endif()
+      set(QT_ICU_LIBS
+        "${QT_INSTALL_DIR}/lib/libicui18n.so.73.2"
+        "${QT_INSTALL_DIR}/lib/libicuuc.so.73.2"
+        "${QT_INSTALL_DIR}/lib/libicudata.so.73.2"
+      )
+      # Ensure each ICU library exists
+      foreach(lib IN LISTS QT_ICU_LIBS)
+        if(NOT EXISTS "${lib}")
+          message(FATAL_ERROR "Qt ICU library not found: ${lib}")
+        elseif(IS_SYMLINK "${lib}")
+          message(FATAL_ERROR "Qt ICU library is a symlink, expected a real file: ${lib}")
+        endif()
+      endforeach()
 
       list(APPEND QT_EXTRA_LIBS ${QT_QXCBQPA} ${QT_ICU_LIBS})
     endif()
