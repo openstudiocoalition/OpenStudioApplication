@@ -11,23 +11,148 @@
 #include "../model_editor/Application.hpp"
 
 #include <openstudio/model/Model_Impl.hpp>
+#include <openstudio/model/PlanarSurface.hpp>
+#include <openstudio/model/PlanarSurface_Impl.hpp>
+#include <openstudio/model/BuildingStory.hpp>
+#include <openstudio/model/BuildingStory_Impl.hpp>
+#include <openstudio/model/ConstructionBase.hpp>
+#include <openstudio/model/ConstructionBase_Impl.hpp>
+#include <openstudio/model/Space.hpp>
+#include <openstudio/model/Space_Impl.hpp>
+#include <openstudio/model/SpaceType.hpp>
+#include <openstudio/model/SpaceType_Impl.hpp>
+#include <openstudio/model/SubSurface.hpp>
+#include <openstudio/model/Surface.hpp>
+#include <openstudio/model/ThermalZone.hpp>
+#include <openstudio/model/ThermalZone_Impl.hpp>
+#include <openstudio/model/Surface_Impl.hpp>
 #include <openstudio/model/ThreeJSForwardTranslator.hpp>
+
+#include <algorithm>
 
 #include <openstudio/utilities/core/Assert.hpp>
 #include <openstudio/utilities/idd/IddEnums.hxx>
 
+#include <QJsonArray>
+#include <QJsonDocument>
 #include <QStackedWidget>
 #include <QVBoxLayout>
 #include <QLabel>
 #include <QPushButton>
 #include <QFile>
 #include <QWebEngineScriptCollection>
+#include <QWebChannel>
 #include <QtConcurrent>
 #include <QCheckBox>
 
 using namespace std::placeholders;
 
 namespace openstudio {
+
+GeometryBridge::GeometryBridge(model::Model& model, QObject* parent) : QObject(parent), m_model(model) {}
+
+void GeometryBridge::reverseSurfaceVertices(const QString& surfaceName) {
+  if (auto surface = m_model.getModelObjectByName<model::PlanarSurface>(surfaceName.toStdString())) {
+    auto vertices = surface->vertices();
+    std::reverse(vertices.begin(), vertices.end());
+    surface->setVertices(vertices);
+    emit modelChanged();
+  }
+}
+
+void GeometryBridge::triangulateSurface(const QString& surfaceName) {
+  auto planarSurface_ = m_model.getModelObjectByName<model::PlanarSurface>(surfaceName.toStdString());
+  if (!planarSurface_) {
+    return;
+  }
+
+  // Skip the case where the Surface has SubSurfaces, since we'd have to deal with triangulation of the subSurfaces(s) then intersection etc
+  if (auto surface_ = planarSurface_->optionalCast<model::Surface>()) {
+    if (!surface_->subSurfaces().empty()) {
+      return;
+    }
+  }
+  const auto triangles = planarSurface_->triangulation();
+  if (triangles.size() < 2) {
+    return;
+  }
+
+  const std::string origName = planarSurface_->nameString();
+  for (int i = 0; const auto& points : triangles) {
+    ++i;
+    auto clone = planarSurface_->clone().cast<model::PlanarSurface>();
+    clone.setVertices(points);
+    clone.setName(origName + " (triangulation " + std::to_string(i) + ")");
+  }
+  planarSurface_->remove();
+
+  emit modelChanged();
+}
+
+void GeometryBridge::setSunExposure(const QString& surfaceName, const QString& value) {
+  if (auto surface = m_model.getModelObjectByName<model::Surface>(surfaceName.toStdString())) {
+    surface->setSunExposure(value.toStdString());
+    emit modelChanged();
+  }
+}
+
+void GeometryBridge::setWindExposure(const QString& surfaceName, const QString& value) {
+  if (auto surface = m_model.getModelObjectByName<model::Surface>(surfaceName.toStdString())) {
+    surface->setWindExposure(value.toStdString());
+    emit modelChanged();
+  }
+}
+
+void GeometryBridge::setOutsideBoundaryCondition(const QString& surfaceName, const QString& value) {
+  if (auto surface = m_model.getModelObjectByName<model::Surface>(surfaceName.toStdString())) {
+    surface->setOutsideBoundaryCondition(value.toStdString());
+    emit modelChanged();
+  }
+}
+
+void GeometryBridge::setConstruction(const QString& surfaceName, const QString& constructionName) {
+  if (auto surface = m_model.getModelObjectByName<model::PlanarSurface>(surfaceName.toStdString())) {
+    if (constructionName.isEmpty()) {
+      surface->resetConstruction();
+    } else if (auto construction = m_model.getModelObjectByName<model::ConstructionBase>(constructionName.toStdString())) {
+      surface->setConstruction(*construction);
+    }
+    emit modelChanged();
+  }
+}
+
+void GeometryBridge::setThermalZone(const QString& spaceName, const QString& thermalZoneName) {
+  if (auto space = m_model.getModelObjectByName<model::Space>(spaceName.toStdString())) {
+    if (thermalZoneName.isEmpty()) {
+      space->resetThermalZone();
+    } else if (auto thermalZone = m_model.getModelObjectByName<model::ThermalZone>(thermalZoneName.toStdString())) {
+      space->setThermalZone(*thermalZone);
+    }
+    emit modelChanged();
+  }
+}
+
+void GeometryBridge::setBuildingStory(const QString& spaceName, const QString& buildingStoryName) {
+  if (auto space = m_model.getModelObjectByName<model::Space>(spaceName.toStdString())) {
+    if (buildingStoryName.isEmpty()) {
+      space->resetBuildingStory();
+    } else if (auto story = m_model.getModelObjectByName<model::BuildingStory>(buildingStoryName.toStdString())) {
+      space->setBuildingStory(*story);
+    }
+    emit modelChanged();
+  }
+}
+
+void GeometryBridge::setSpaceType(const QString& spaceName, const QString& spaceTypeName) {
+  if (auto space = m_model.getModelObjectByName<model::Space>(spaceName.toStdString())) {
+    if (spaceTypeName.isEmpty()) {
+      space->resetSpaceType();
+    } else if (auto spaceType = m_model.getModelObjectByName<model::SpaceType>(spaceTypeName.toStdString())) {
+      space->setSpaceType(*spaceType);
+    }
+    emit modelChanged();
+  }
+}
 
 GeometryPreviewView::GeometryPreviewView(bool isIP, const openstudio::model::Model& model, QWidget* parent) : QWidget(parent) {
   // TODO: DLM implement units switching
@@ -76,6 +201,16 @@ PreviewWebView::PreviewWebView(bool isIP, const model::Model& model, QWidget* t_
   m_view = new QWebEngineView(this);
   m_page = new OSWebEnginePage(m_view);
   m_view->setPage(m_page);  // note, view does not take ownership of page
+
+  auto* channel = new QWebChannel(m_page);
+  m_bridge = new GeometryBridge(m_model, this);
+  channel->registerObject(QStringLiteral("bridge"), m_bridge);
+  m_page->setWebChannel(channel);
+  connect(m_bridge, &GeometryBridge::modelChanged, this, [this]() {
+    m_json = QString();
+    // Save current view settings and camera state to sessionStorage before the page reload
+    m_view->page()->runJavaScript("saveViewStateToSessionStorage();", [this](const QVariant& /*v*/) { refreshClicked(); });
+  });
 
   auto* mainWindow = OSAppBase::instance()->currentDocument()->mainWindow();
   const bool verboseOutput = mainWindow->geometryDiagnostics();
@@ -172,8 +307,37 @@ void PreviewWebView::onLoadFinished(bool ok) {
   // disable doc
   m_document->disable();
 
+  // build lists of available names for the JS context menu
+  QJsonArray spaceTypeNamesArray;
+  for (const auto& st : m_model.getConcreteModelObjects<model::SpaceType>()) {
+    spaceTypeNamesArray.append(QString::fromStdString(st.nameString()));
+  }
+  const QString spaceTypeNamesJson = QJsonDocument(spaceTypeNamesArray).toJson(QJsonDocument::Compact);
+
+  QJsonArray constructionNamesArray;
+  for (const auto& c : m_model.getModelObjects<model::ConstructionBase>()) {
+    constructionNamesArray.append(QString::fromStdString(c.nameString()));
+  }
+  const QString constructionNamesJson = QJsonDocument(constructionNamesArray).toJson(QJsonDocument::Compact);
+
+  QJsonArray thermalZoneNamesArray;
+  for (const auto& tz : m_model.getConcreteModelObjects<model::ThermalZone>()) {
+    thermalZoneNamesArray.append(QString::fromStdString(tz.nameString()));
+  }
+  const QString thermalZoneNamesJson = QJsonDocument(thermalZoneNamesArray).toJson(QJsonDocument::Compact);
+
+  QJsonArray buildingStoryNamesArray;
+  for (const auto& bs : m_model.getConcreteModelObjects<model::BuildingStory>()) {
+    buildingStoryNamesArray.append(QString::fromStdString(bs.nameString()));
+  }
+  const QString buildingStoryNamesJson = QJsonDocument(buildingStoryNamesArray).toJson(QJsonDocument::Compact);
+
   // call init and animate
-  const QString javascript = QString("runFromJSON(%1, %2);").arg(m_json, m_geometryDiagnosticsBox->isChecked() ? "true" : "false");
+  const QString javascript = QString("var availableSpaceTypeNames = %1; var availableConstructionNames = %2;"
+                                     " var availableThermalZoneNames = %3; var availableBuildingStoryNames = %4;"
+                                     " runFromJSON(%5, %6);")
+                               .arg(spaceTypeNamesJson, constructionNamesJson, thermalZoneNamesJson, buildingStoryNamesJson, m_json,
+                                    m_geometryDiagnosticsBox->isChecked() ? "true" : "false");
   m_view->page()->runJavaScript(javascript, [this](const QVariant& v) { onJavaScriptFinished(v); });
 
   //javascript = QString("os_data.metadata.version");
