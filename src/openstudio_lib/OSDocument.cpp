@@ -160,7 +160,7 @@ OSDocument::OSDocument(const openstudio::model::Model& library, const openstudio
   m_modelTempDir = toQString(modelTempDirPath);
 
   m_verticalId = 0;
-  m_subTabIds = {0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0};
+  m_subTabIds = {0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0};
   // Make sure that the vector is the same size as the number of tabs
   OS_ASSERT(m_subTabIds.size() == static_cast<unsigned>(RESULTS_SUMMARY + 1));
 
@@ -383,6 +383,9 @@ void OSDocument::createTabButtons() {
   // HVAC Systems
   m_mainWindow->addVerticalTabButton(HVAC_SYSTEMS, "HVAC Systems", ":/images/on_hvac_tab.png", ":/images/off_hvac_tab.png",
                                      ":/images/disabled_hvac_tab.png");
+
+  m_mainWindow->addVerticalTabButton(ELECTRIC_LOAD_CENTER, "Electric Load Center", ":/images/on_elcd_tab.png", ":/images/off_elcd_tab.png",
+                                     ":/images/off_elcd_tab.png");
 
   //******************************************************************************************************
   //
@@ -651,6 +654,11 @@ void OSDocument::createTab(int verticalId) {
 
       break;
 
+    case ELECTRIC_LOAD_CENTER:
+      // Electric Load Center - stub, to be implemented
+      // TODO: replace with ElectricLoadCenterDistributionTabController
+      break;
+
     case OUTPUT_VARIABLES:
       // Variables
 
@@ -779,6 +787,7 @@ void OSDocument::disableTabsDuringRun() {
   m_mainWindow->verticalTabWidget()->enableTabButton(SPACES, m_enableTabsAfterRun);
   m_mainWindow->verticalTabWidget()->enableTabButton(THERMAL_ZONES, m_enableTabsAfterRun);
   m_mainWindow->verticalTabWidget()->enableTabButton(HVAC_SYSTEMS, m_enableTabsAfterRun);
+  m_mainWindow->verticalTabWidget()->enableTabButton(ELECTRIC_LOAD_CENTER, m_enableTabsAfterRun);
   //m_mainWindow->verticalTabWidget()->enableTabButton(BUILDING_SUMMARY, m_enableTabsAfterRun); No Summary tab available
   m_mainWindow->verticalTabWidget()->enableTabButton(OUTPUT_VARIABLES, m_enableTabsAfterRun);
   m_mainWindow->verticalTabWidget()->enableTabButton(SIMULATION_SETTINGS, m_enableTabsAfterRun);
@@ -807,6 +816,7 @@ void OSDocument::enableTabsAfterRun() {
   m_mainWindow->verticalTabWidget()->enableTabButton(SPACES, m_enableTabsAfterRun);
   m_mainWindow->verticalTabWidget()->enableTabButton(THERMAL_ZONES, m_enableTabsAfterRun);
   m_mainWindow->verticalTabWidget()->enableTabButton(HVAC_SYSTEMS, m_enableTabsAfterRun);
+  m_mainWindow->verticalTabWidget()->enableTabButton(ELECTRIC_LOAD_CENTER, m_enableTabsAfterRun);
   //m_mainWindow->verticalTabWidget()->enableTabButton(BUILDING_SUMMARY, m_enableTabsAfterRun); No Summary tab available
   m_mainWindow->verticalTabWidget()->enableTabButton(OUTPUT_VARIABLES, m_enableTabsAfterRun);
   m_mainWindow->verticalTabWidget()->enableTabButton(SIMULATION_SETTINGS, m_enableTabsAfterRun);
@@ -830,6 +840,7 @@ void OSDocument::disable() {
   m_mainWindow->verticalTabWidget()->enableTabButton(SPACES, false);
   m_mainWindow->verticalTabWidget()->enableTabButton(THERMAL_ZONES, false);
   m_mainWindow->verticalTabWidget()->enableTabButton(HVAC_SYSTEMS, false);
+  m_mainWindow->verticalTabWidget()->enableTabButton(ELECTRIC_LOAD_CENTER, false);
   //m_mainWindow->verticalTabWidget()->enableTabButton(BUILDING_SUMMARY, false); No Summary tab available
   m_mainWindow->verticalTabWidget()->enableTabButton(OUTPUT_VARIABLES, false);
   m_mainWindow->verticalTabWidget()->enableTabButton(SIMULATION_SETTINGS, false);
@@ -853,6 +864,7 @@ void OSDocument::enable() {
   m_mainWindow->verticalTabWidget()->enableTabButton(SPACES, true);
   m_mainWindow->verticalTabWidget()->enableTabButton(THERMAL_ZONES, true);
   m_mainWindow->verticalTabWidget()->enableTabButton(HVAC_SYSTEMS, true);
+  m_mainWindow->verticalTabWidget()->enableTabButton(ELECTRIC_LOAD_CENTER, true);
   //m_mainWindow->verticalTabWidget()->enableTabButton(BUILDING_SUMMARY, true); No Summary tab available
   m_mainWindow->verticalTabWidget()->enableTabButton(OUTPUT_VARIABLES, true);
   m_mainWindow->verticalTabWidget()->enableTabButton(SIMULATION_SETTINGS, true);
@@ -1169,6 +1181,9 @@ void OSDocument::onVerticalTabSelected(int verticalId) {
       if (qobject_cast<HVACSystemsTabController*>(m_mainTabController.get())) {
         qobject_cast<HVACSystemsTabController*>(m_mainTabController.get())->clearSceneSelection();
       }
+      break;
+    case ELECTRIC_LOAD_CENTER:
+      // TODO: stub, to be implemented
       break;
     case OUTPUT_VARIABLES:
       m_mainRightColumnController->configureForOutputVariablesSubTab(m_subTabId);

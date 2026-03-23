@@ -369,6 +369,9 @@ void MainWindow::onVerticalTabSelected(int verticalTabId) {
       case OSDocument::HVAC_SYSTEMS:
         contentId = "HVAC Systems";
         break;
+      case OSDocument::ELECTRIC_LOAD_CENTER:
+        contentId = "Electric Load Centers";
+        break;
       case OSDocument::OUTPUT_VARIABLES:
         contentId = "Variables";
         break;
