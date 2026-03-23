@@ -57,8 +57,6 @@ set(${target_name}_SRC
   DesignDayGridView.hpp
   ElectricEquipmentInspectorView.cpp
   ElectricEquipmentInspectorView.hpp
-  ElectricLoadCenterDistributionController.cpp
-  ElectricLoadCenterDistributionController.hpp
   ElectricLoadCenterDistributionGraphicsItems.cpp
   ElectricLoadCenterDistributionGraphicsItems.hpp
   ElectricLoadCenterDistributionScene.cpp
@@ -540,7 +538,6 @@ set(${target_name}_moc
   DefaultConstructionSetsView.hpp
   DesignDayGridView.hpp
   ElectricEquipmentInspectorView.hpp
-  ElectricLoadCenterDistributionController.hpp
   ElectricLoadCenterDistributionGraphicsItems.hpp
   ElectricLoadCenterDistributionScene.hpp
   ElectricLoadCenterDistributionTabController.hpp

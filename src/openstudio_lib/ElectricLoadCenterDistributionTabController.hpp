@@ -7,22 +7,136 @@
 #define OPENSTUDIO_ELECTRICLOADCENTERDISTRIBUTIONTABCONTROLLER_HPP
 
 #include "MainTabController.hpp"
+#include "../shared_gui_components/OSListController.hpp"
+
 #include <openstudio/model/Model.hpp>
+#include <openstudio/model/ElectricLoadCenterDistribution.hpp>
+#include <openstudio/utilities/idf/Handle.hpp>
+
+#include <QPointer>
+#include <QSharedPointer>
+#include <boost/optional.hpp>
+
+class QGraphicsScene;
 
 namespace openstudio {
 
-class ElectricLoadCenterDistributionController;
+class ELCDView;
+class ELCDScene;
+class GridLayoutItem;
+class ELCDListController;
+class OSItemId;
+
+// ─── ElectricLoadCenterDistributionTabController ──────────────────────────────
 
 class ElectricLoadCenterDistributionTabController : public MainTabController
 {
   Q_OBJECT
 
  public:
-  ElectricLoadCenterDistributionTabController(const model::Model& model);
-  virtual ~ElectricLoadCenterDistributionTabController() = default;
+  explicit ElectricLoadCenterDistributionTabController(const model::Model& model);
+  virtual ~ElectricLoadCenterDistributionTabController();
+
+ public slots:
+  void zoomInOnELCD(const Handle& handle);
+  void zoomOutToGridView();
+
+ private slots:
+  void refresh();
+  void refreshNow();
 
  private:
-  std::shared_ptr<ElectricLoadCenterDistributionController> m_controller;
+  model::Model m_model;
+
+  QPointer<ELCDView> m_elcdView;
+  QPointer<GridLayoutItem> m_elcdGridView;
+
+  QSharedPointer<QGraphicsScene> m_gridScene;
+  QPointer<QGraphicsScene> m_detailScene;
+
+  QSharedPointer<ELCDListController> m_listController;
+
+  boost::optional<model::ElectricLoadCenterDistribution> m_currentELCD;
+  bool m_dirty = false;
+};
+
+// ─── ELCDListItem ─────────────────────────────────────────────────────────────
+
+class ELCDListItem : public OSListItem
+{
+  Q_OBJECT
+
+ public:
+  explicit ELCDListItem(const model::ElectricLoadCenterDistribution& elcd, OSListController* listController = nullptr);
+  virtual ~ELCDListItem() = default;
+
+  QString name() const;
+  QString bussType() const;
+  model::ElectricLoadCenterDistribution elcd() const;
+
+ public slots:
+  void remove();
+  void zoomIn();
+
+ private:
+  model::ElectricLoadCenterDistribution m_elcd;
+};
+
+// ─── ELCDListDropZoneItem ─────────────────────────────────────────────────────
+
+class ELCDListDropZoneItem : public OSListItem
+{
+  Q_OBJECT
+
+ public:
+  explicit ELCDListDropZoneItem(OSListController* listController = nullptr);
+  virtual ~ELCDListDropZoneItem() = default;
+};
+
+// ─── ELCDListController ───────────────────────────────────────────────────────
+
+class ELCDListController : public OSListController
+{
+  Q_OBJECT
+
+ public:
+  explicit ELCDListController(ElectricLoadCenterDistributionTabController* tabController);
+
+  ElectricLoadCenterDistributionTabController* tabController() const;
+
+  QSharedPointer<OSListItem> itemAt(int i) override;
+  int count() override;
+
+  void reset();
+
+ signals:
+  void itemInsertedPrivate(int i);
+
+ public slots:
+  void createNewELCD();
+  void addELCDFromDrop(const OSItemId& itemId);
+  void removeELCD(model::ElectricLoadCenterDistribution& elcd);
+
+ private slots:
+  void onModelObjectAdd(const WorkspaceObject& object, const openstudio::IddObjectType& iddObjectType, const openstudio::UUID& handle);
+
+ private:
+  std::vector<model::ElectricLoadCenterDistribution> elcds() const;
+  int elcdIndex(const model::ElectricLoadCenterDistribution& elcd) const;
+
+  QPointer<ElectricLoadCenterDistributionTabController> m_tabController;
+};
+
+// ─── ELCDItemDelegate ─────────────────────────────────────────────────────────
+
+class ELCDItemDelegate : public OSGraphicsItemDelegate
+{
+  Q_OBJECT;
+
+ public:
+  virtual ~ELCDItemDelegate() = default;
+
+  QGraphicsObject* view(QSharedPointer<OSListItem> dataSource) override;
 };
 
 }  // namespace openstudio
