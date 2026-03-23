@@ -158,7 +158,7 @@ struct ResultsPathSorter
     openstudio::path leftParent = left.parent_path().stem();
     openstudio::path rightParent = right.parent_path().stem();
 
-    QRegularExpression regexp(QRegularExpression::anchoredPattern("(\\d)+.*"));
+    QRegularExpression regexp(QRegularExpression::anchoredPattern("(\\d+).*"));
 
     boost::optional<int> leftInt;
     if (auto m = regexp.match(toQString(leftParent)); m.hasMatch()) {
