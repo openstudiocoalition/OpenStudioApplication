@@ -7,6 +7,7 @@
 
 #include "ApplyMeasureNowDialog.hpp"
 #include "ConstructionsTabController.hpp"
+#include "ElectricLoadCenterDistributionTabController.hpp"
 #include "GeometryTabController.hpp"
 #include "FacilityTabController.hpp"
 #include "HorizontalTabWidget.hpp"
@@ -655,8 +656,11 @@ void OSDocument::createTab(int verticalId) {
       break;
 
     case ELECTRIC_LOAD_CENTER:
-      // Electric Load Center - stub, to be implemented
-      // TODO: replace with ElectricLoadCenterDistributionTabController
+      m_mainTabController = std::shared_ptr<MainTabController>(new ElectricLoadCenterDistributionTabController(m_model));
+      m_mainWindow->setView(m_mainTabController->mainContentWidget(), ELECTRIC_LOAD_CENTER);
+
+      connect(m_mainTabController->mainContentWidget(), &MainTabView::tabSelected, this, &OSDocument::updateSubTabSelected);
+
       break;
 
     case OUTPUT_VARIABLES:
