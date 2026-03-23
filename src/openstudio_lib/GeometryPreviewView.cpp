@@ -220,7 +220,7 @@ PreviewWebView::PreviewWebView(bool isIP, const model::Model& model, QWidget* t_
   m_geometryDiagnosticsBox->setToolTip(
     "Enables adjacency issues. Enables checks for Surface/Space Convexity, due to this the ThreeJS export is slightly slower");
   connect(m_geometryDiagnosticsBox, &QCheckBox::clicked, mainWindow, &MainWindow::toggleGeometryDiagnostics);
-  connect(m_geometryDiagnosticsBox, &QCheckBox::stateChanged, [this](int state) {
+  connect(m_geometryDiagnosticsBox, &QCheckBox::checkStateChanged, [this](Qt::CheckState state) {
     if (state == Qt::Checked && !m_includeGeometryDiagnostics) {
       // Old m_json didn't contain the geometry diagnostics, so we need to include it, so we should set m_json to empty so the
       // ThreeJSForwardTranslator is called again

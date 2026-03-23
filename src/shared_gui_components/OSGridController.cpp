@@ -696,10 +696,10 @@ void OSGridController::processNewModelObjects() {
   m_newModelObjects.clear();
 }
 
-void OSGridController::onSelectAllStateChanged(const int newState) const {
+void OSGridController::onSelectAllStateChanged(Qt::CheckState newState) const {
   LOG(Debug, "Select all state changed: " << newState);
 
-  if (newState == 0) {
+  if (newState == Qt::Unchecked) {
     m_objectSelector->clearSelection();
   } else {
     m_objectSelector->selectAll();
