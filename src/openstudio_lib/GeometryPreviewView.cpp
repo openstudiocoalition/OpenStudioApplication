@@ -182,7 +182,7 @@ PreviewWebView::PreviewWebView(bool isIP, const model::Model& model, QWidget* t_
   connect(m_document.get(), &OSDocument::toggleUnitsClicked, this, &PreviewWebView::onUnitSystemChange);
   connect(m_refreshBtn, &QPushButton::clicked, this, &PreviewWebView::refreshClicked);
 
-  auto* hLayout = new QHBoxLayout(this);
+  auto* hLayout = new QHBoxLayout();
   mainLayout->addLayout(hLayout);
 
   hLayout->addStretch();
