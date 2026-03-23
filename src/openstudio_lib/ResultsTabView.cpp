@@ -17,7 +17,7 @@
 #include <QProcess>
 #include <QPushButton>
 #include <QString>
-#include <QRegExp>
+#include <QRegularExpression>
 #include <openstudio/utilities/core/Assert.hpp>
 #include <openstudio/utilities/core/PathHelpers.hpp>
 
@@ -158,20 +158,16 @@ struct ResultsPathSorter
     openstudio::path leftParent = left.parent_path().stem();
     openstudio::path rightParent = right.parent_path().stem();
 
-    QRegExp regexp("^(\\d)+.*");
+    QRegularExpression regexp(QRegularExpression::anchoredPattern("(\\d)+.*"));
 
     boost::optional<int> leftInt;
-    if (regexp.exactMatch(toQString(leftParent))) {
-      QStringList leftParts = regexp.capturedTexts();
-      OS_ASSERT(leftParts.size() == 2);
-      leftInt = leftParts[1].toInt();
+    if (auto m = regexp.match(toQString(leftParent)); m.hasMatch()) {
+      leftInt = m.captured(1).toInt();
     }
 
     boost::optional<int> rightInt;
-    if (regexp.exactMatch(toQString(rightParent))) {
-      QStringList rightParts = regexp.capturedTexts();
-      OS_ASSERT(rightParts.size() == 2);
-      rightInt = rightParts[1].toInt();
+    if (auto m = regexp.match(toQString(rightParent)); m.hasMatch()) {
+      rightInt = m.captured(1).toInt();
     }
 
     if (leftInt && rightInt) {
