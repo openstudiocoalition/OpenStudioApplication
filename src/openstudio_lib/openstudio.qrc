@@ -822,6 +822,8 @@
     <file>images/mini_icons/four_pipe_fan_coil@2x.png</file>
     <file>images/mini_icons/four_pipe_induction_terminal.png</file>
     <file>images/mini_icons/four_pipe_induction_terminal@2x.png</file>
+    <file>images/mini_icons/fuel_cell.png</file>
+    <file>images/mini_icons/fuel_cell@2x.png</file>
     <file>images/mini_icons/furnace.png</file>
     <file>images/mini_icons/furnace@2x.png</file>
     <file>images/mini_icons/gas_equipment.png</file>
@@ -1150,6 +1152,8 @@
     <file>images/mini_icons/window_material_gasmixture@2x.png</file>
     <file>images/mini_icons/window_material_glazing.png</file>
     <file>images/mini_icons/window_material_glazing@2x.png</file>
+    <file>images/mini_icons/wind_turbine.png</file>
+    <file>images/mini_icons/wind_turbine@2x.png</file>
     <file>images/mini_icons/zonehvac_evaporativecoolerunit.png</file>
     <file>images/mini_icons/zonehvac_evaporativecoolerunit@2x.png</file>
     <file>images/mini_icons/zonehvac_low_temperature_radiant_electric.png</file>

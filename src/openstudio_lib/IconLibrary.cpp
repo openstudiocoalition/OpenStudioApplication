@@ -352,14 +352,20 @@ IconLibrary::IconLibrary() {
   m_miniIcons[openstudio::IddObjectType(openstudio::IddObjectType::OS_GasEquipment).value()] = new QPixmap(":/images/mini_icons/gas_equipment.png");
   m_miniIcons[openstudio::IddObjectType(openstudio::IddObjectType::OS_GasEquipment_Definition).value()] =
     new QPixmap(":/images/mini_icons/gas_equipment_definition.png");
+  m_miniIcons[openstudio::IddObjectType(openstudio::IddObjectType::OS_Generator_FuelCell).value()] =
+    new QPixmap(":/images/mini_icons/fuel_cell.png");
   m_miniIcons[openstudio::IddObjectType(openstudio::IddObjectType::OS_Generator_FuelCell_ExhaustGasToWaterHeatExchanger).value()] =
     new QPixmap(":/images/mini_icons/generator_fuelcell_exhaustgastowaterheatexchanger.png");
   m_miniIcons[openstudio::IddObjectType(openstudio::IddObjectType::OS_Generator_MicroTurbine_HeatRecovery).value()] =
+    new QPixmap(":/images/mini_icons/generator_microturbine_heatrecovery.png");
+  m_miniIcons[openstudio::IddObjectType(openstudio::IddObjectType::OS_Generator_MicroTurbine).value()] =
     new QPixmap(":/images/mini_icons/generator_microturbine_heatrecovery.png");
   m_miniIcons[openstudio::IddObjectType(openstudio::IddObjectType::OS_Generator_Photovoltaic).value()] =
     new QPixmap(":/images/mini_icons/pv_panel.png");
   m_miniIcons[openstudio::IddObjectType(openstudio::IddObjectType::OS_Generator_PVWatts).value()] =
     new QPixmap(":/images/mini_icons/pv_panel.png");
+  m_miniIcons[openstudio::IddObjectType(openstudio::IddObjectType::OS_Generator_WindTurbine).value()] =
+    new QPixmap(":/images/mini_icons/wind_turbine.png");
   m_miniIcons[openstudio::IddObjectType(openstudio::IddObjectType::OS_GroundHeatExchanger_HorizontalTrench).value()] =
     new QPixmap(":/images/mini_icons/mini_ground_heat_exchanger_horizontal.png");
   m_miniIcons[openstudio::IddObjectType(openstudio::IddObjectType::OS_GroundHeatExchanger_Vertical).value()] =
