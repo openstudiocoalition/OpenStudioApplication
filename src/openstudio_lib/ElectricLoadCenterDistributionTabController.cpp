@@ -330,15 +330,18 @@ void ElectricLoadCenterDistributionTabController::refreshNow() {
 // ─── buildDetailScene ─────────────────────────────────────────────────────────
 
 void ElectricLoadCenterDistributionTabController::buildDetailScene(const model::ElectricLoadCenterDistribution& elcd) {
-  // Layout constants.
-  // Left-to-right order: [← Main Panel] [LCPC] → [components...] → [Generators]
-  constexpr int kPad = 20;
-  constexpr int kArrow = 30;
-  constexpr int kSlotW = 140;
-  constexpr int kSlotH = 70;
-  constexpr int kSlotStep = kSlotW + kArrow;
+  // ── Layout constants ───────────────────────────────────────────────────────
+  // Energy flows right→left (Generators on right, LCPC/Main Panel on left).
+  constexpr int kPad     = 20;
+  constexpr int kArrow   = 30;
+  constexpr int kSlotW   = 140;
+  constexpr int kSlotH   = 70;
+  constexpr int kSlotStep = kSlotW + kArrow;  // 170
+  constexpr int kSONodeW = 90;   // Storage Operation visual node width
+  constexpr int kBelowGap = 20;  // gap between main-line slot bottom and Storage slot top
+  constexpr int kLaneOff = 50;   // vertical offset from centerY for two-lane (DCwithDCStorage)
 
-  // 1. Clear and recreate scene
+  // ── 1. Clear & recreate scene ──────────────────────────────────────────────
   if (m_detailScene) {
     m_detailScene->clear();
     delete m_detailScene;
@@ -346,169 +349,256 @@ void ElectricLoadCenterDistributionTabController::buildDetailScene(const model::
   m_detailScene = new ELCDScene();
   m_elcdView->graphicsView->setScene(m_detailScene);
 
-  // 2. Determine slot sequence (LCPC first, generators on far right)
   const std::string bussType = elcd.electricalBussType();
-  const bool isDC =
-    (bussType == "DirectCurrentWithInverter" || bussType == "DirectCurrentWithInverterDCStorage" || bussType == "DirectCurrentWithInverterACStorage");
-
-  struct SlotSpec
-  {
-    enum Type
-    {
-      LCPCTransformer,
-      Inverter,
-      Storage,
-      Converter
-    } type;
-  };
-
-  QVector<SlotSpec> slotSequence;
-  if (bussType == "AlternatingCurrent") {
-    slotSequence = {{SlotSpec::LCPCTransformer}};
-  } else if (bussType == "AlternatingCurrentWithStorage") {
-    slotSequence = {{SlotSpec::LCPCTransformer}, {SlotSpec::Converter}, {SlotSpec::Storage}};
-  } else if (bussType == "DirectCurrentWithInverter") {
-    slotSequence = {{SlotSpec::LCPCTransformer}, {SlotSpec::Inverter}};
-  } else if (bussType == "DirectCurrentWithInverterDCStorage") {
-    slotSequence = {{SlotSpec::LCPCTransformer}, {SlotSpec::Inverter}, {SlotSpec::Converter}, {SlotSpec::Storage}};
-  } else if (bussType == "DirectCurrentWithInverterACStorage") {
-    slotSequence = {{SlotSpec::LCPCTransformer}, {SlotSpec::Storage}, {SlotSpec::Inverter}};
-  } else {
-    slotSequence = {{SlotSpec::LCPCTransformer}};
-  }
-
-  // 3. Generators panel X: right of all slots
-  const int numSlots = slotSequence.size();
-  const int kFirstSlotX = kPad;
-  const int kGenX = kFirstSlotX + numSlots * kSlotStep;
-
-  // 4. Create ELCDGeneratorsView on the RIGHT
-  auto* generatorsView = new ELCDGeneratorsView();
-  m_detailScene->addItem(generatorsView);
-  generatorsView->setPos(kGenX, kPad);
-  generatorsView->setGeneratorLabel(isDC ? "Generators (DC)" : "Generators (AC)");
-
-  // 5. Populate generators
-  for (const auto& gen : elcd.generators()) {
-    generatorsView->addGenerator(QString::fromStdString(gen.nameString()), gen.handle());
-  }
-
-  // 6. Connect generator signals
-  connect(generatorsView->dropZone, &OSDropZoneItem::componentDropped, this, &ElectricLoadCenterDistributionTabController::onDetailGeneratorDrop);
-  connect(generatorsView, &ELCDGeneratorsView::generatorRemoveClicked, this, &ElectricLoadCenterDistributionTabController::onDetailGeneratorRemove);
-
-  // 7. Vertical center
-  const int genH = generatorsView->totalHeight();
-  const int centerY = kPad + genH / 2;
-
+  const bool isDC = (bussType == "DirectCurrentWithInverter" || bussType == "DirectCurrentWithInverterDCStorage"
+                     || bussType == "DirectCurrentWithInverterACStorage");
   const QPen arrowPen(QColor(70, 130, 180), 1.5);
 
-  // 8. Build slot views left-to-right
-  ELCDComponentSlotView* inverterSlot = nullptr;
-  ELCDComponentSlotView* storageSlot = nullptr;
+  // ── 2. Slot pointers ───────────────────────────────────────────────────────
+  ELCDComponentSlotView* lcpcSlot      = nullptr;
+  ELCDComponentSlotView* inverterSlot  = nullptr;
+  ELCDComponentSlotView* storageSlot   = nullptr;
   ELCDComponentSlotView* converterSlot = nullptr;
-  ELCDComponentSlotView* lcpcSlot = nullptr;
 
-  int lastSlotRightX = kFirstSlotX;
+  // ── 3. Generators panel (positioned per-case below) ────────────────────────
+  auto* generatorsView = new ELCDGeneratorsView();
+  m_detailScene->addItem(generatorsView);
+  generatorsView->setGeneratorLabel(isDC ? "Generators (DC)" : "Generators (AC)");
+  for (const auto& gen : elcd.generators())
+    generatorsView->addGenerator(QString::fromStdString(gen.nameString()), gen.handle());
+  connect(generatorsView->dropZone, &OSDropZoneItem::componentDropped, this,
+          &ElectricLoadCenterDistributionTabController::onDetailGeneratorDrop);
+  connect(generatorsView, &ELCDGeneratorsView::generatorRemoveClicked, this,
+          &ElectricLoadCenterDistributionTabController::onDetailGeneratorRemove);
 
-  for (int i = 0; i < numSlots; ++i) {
-    const SlotSpec& spec = slotSequence[i];
-    const int slotX = kFirstSlotX + i * kSlotStep;
+  // ── Local helpers ──────────────────────────────────────────────────────────
 
-    QString emptyLabel;
-    QString iconPath;
-    switch (spec.type) {
-      case SlotSpec::LCPCTransformer:
-        emptyLabel = "LCPC Transformer";
-        iconPath = ":/images/mini_icons/transformer.png";
-        break;
-      case SlotSpec::Inverter:
-        emptyLabel = "Drop Inverter";
-        iconPath = {};
-        break;
-      case SlotSpec::Storage:
-        emptyLabel = "Drop Storage";
-        iconPath = {};
-        break;
-      case SlotSpec::Converter:
-        emptyLabel = "Drop Converter";
-        iconPath = {};
-        break;
-    }
+  // Create a slot view and add it to the scene
+  auto makeSlot = [&](const QString& label, const QString& icon) -> ELCDComponentSlotView* {
+    auto* slot = new ELCDComponentSlotView(label, icon);
+    m_detailScene->addItem(slot);
+    return slot;
+  };
 
-    auto* slotView = new ELCDComponentSlotView(emptyLabel, iconPath);
-    m_detailScene->addItem(slotView);
-    slotView->setPos(slotX, centerY - kSlotH / 2);
+  // Add a "Storage Operation" dashed box centered at (cx, cy) with given height
+  auto addStorageOpNode = [&](int cx, int cy, int nodeH) {
+    QPen dp(QColor(100, 130, 180), 1.2, Qt::DashLine);
+    m_detailScene->addRect(cx - kSONodeW / 2, cy - nodeH / 2, kSONodeW, nodeH, dp);
+    auto* t = m_detailScene->addText("Storage\nOperation");
+    QFont f;
+    f.setPointSize(8);
+    t->setFont(f);
+    t->setDefaultTextColor(QColor(60, 80, 120));
+    t->setPos(cx - t->boundingRect().width() / 2, cy - t->boundingRect().height() / 2);
+  };
 
-    // Arrow from previous slot right edge to this slot left edge
-    if (i > 0) {
-      addArrowLine(m_detailScene, slotX - kArrow, centerY, slotX, centerY, arrowPen);
-    }
+  // Bidir horizontal arrow pair (slightly offset in Y to show both directions)
+  auto addBidirH = [&](int x1, int y, int x2) {
+    addArrowLine(m_detailScene, x2, y - 4, x1, y - 4, arrowPen);  // pointing left
+    addArrowLine(m_detailScene, x1, y + 4, x2, y + 4, arrowPen);  // pointing right
+  };
 
-    lastSlotRightX = slotX + kSlotW;
+  // Bidir vertical arrow pair (slightly offset in X)
+  auto addBidirV = [&](int x, int y1, int y2) {
+    addArrowLine(m_detailScene, x - 4, y2, x - 4, y1, arrowPen);  // pointing up
+    addArrowLine(m_detailScene, x + 4, y1, x + 4, y2, arrowPen);  // pointing down
+  };
 
-    switch (spec.type) {
-      case SlotSpec::LCPCTransformer:
-        lcpcSlot = slotView;
-        break;
-      case SlotSpec::Inverter:
-        inverterSlot = slotView;
-        break;
-      case SlotSpec::Storage:
-        storageSlot = slotView;
-        break;
-      case SlotSpec::Converter:
-        converterSlot = slotView;
-        break;
-    }
+  // "← Main Panel" label below the LCPC slot; bidir = show ←→
+  auto addMainPanelLabel = [&](int slotX, int slotBottomY, bool bidir) {
+    auto* lbl = m_detailScene->addSimpleText(bidir ? "\u2190\u2192 Main Panel" : "\u2190 Main Panel");
+    QFont f;
+    f.setPointSize(9);
+    lbl->setFont(f);
+    lbl->setBrush(QColor(60, 80, 120));
+    lbl->setPos(slotX, slotBottomY + 4);
+  };
+
+  // ── 4. Per-buss-type layout ────────────────────────────────────────────────
+
+  if (bussType == "AlternatingCurrent") {
+    // [LCPC] ◄── [Gen]
+    const int kGenX = kPad + kSlotStep;
+    generatorsView->setPos(kGenX, kPad);
+    const int centerY = kPad + generatorsView->totalHeight() / 2;
+
+    lcpcSlot = makeSlot("LCPC Transformer", ":/images/mini_icons/transformer.png");
+    lcpcSlot->setPos(kPad, centerY - kSlotH / 2);
+
+    addArrowLine(m_detailScene, kGenX, centerY, kPad + kSlotW, centerY, arrowPen);
+    addMainPanelLabel(kPad, centerY + kSlotH / 2, /*bidir=*/false);
+
+  } else if (bussType == "AlternatingCurrentWithStorage") {
+    // [LCPC] ◄► [SO] ◄── [Gen]
+    //              ↕
+    //          [Storage]
+    constexpr int kSOH = 60;
+    const int kSOCX  = kPad + kSlotStep + kArrow + kSONodeW / 2;
+    const int kGenX  = kSOCX + kSONodeW / 2 + kArrow;
+    generatorsView->setPos(kGenX, kPad);
+    const int centerY = kPad + generatorsView->totalHeight() / 2;
+
+    lcpcSlot = makeSlot("LCPC Transformer", ":/images/mini_icons/transformer.png");
+    lcpcSlot->setPos(kPad, centerY - kSlotH / 2);
+
+    addStorageOpNode(kSOCX, centerY, kSOH);
+
+    const int storageTopY = centerY + kSOH / 2 + kBelowGap;
+    storageSlot = makeSlot("Drop Storage", {});
+    storageSlot->setPos(kSOCX - kSlotW / 2, storageTopY);
+
+    addBidirH(kPad + kSlotW, centerY, kSOCX - kSONodeW / 2);
+    addArrowLine(m_detailScene, kGenX, centerY, kSOCX + kSONodeW / 2, centerY, arrowPen);
+    addBidirV(kSOCX, centerY + kSOH / 2, storageTopY + kSlotH / 2);
+    addMainPanelLabel(kPad, centerY + kSlotH / 2, /*bidir=*/true);
+
+  } else if (bussType == "DirectCurrentWithInverter") {
+    // [LCPC] ◄── [Inverter] ◄── [Gen]
+    const int kInvX = kPad + kSlotStep;
+    const int kGenX = kInvX + kSlotStep;
+    generatorsView->setPos(kGenX, kPad);
+    const int centerY = kPad + generatorsView->totalHeight() / 2;
+
+    lcpcSlot = makeSlot("LCPC Transformer", ":/images/mini_icons/transformer.png");
+    lcpcSlot->setPos(kPad, centerY - kSlotH / 2);
+
+    inverterSlot = makeSlot("Drop Inverter", {});
+    inverterSlot->setPos(kInvX, centerY - kSlotH / 2);
+
+    addArrowLine(m_detailScene, kInvX, centerY, kPad + kSlotW, centerY, arrowPen);
+    addArrowLine(m_detailScene, kGenX, centerY, kInvX + kSlotW, centerY, arrowPen);
+    addMainPanelLabel(kPad, centerY + kSlotH / 2, /*bidir=*/false);
+
+  } else if (bussType == "DirectCurrentWithInverterDCStorage") {
+    // Two-lane layout:
+    //            ┌── [Inverter] ──┐
+    // [LCPC] ────┤                [SO*] ◄── [Gen]
+    //            └─↔ [Converter] ─┘
+    //                              ↕
+    //                          [Storage]
+    const int kJuncLX = kPad + kSlotW;              // right edge of LCPC = left junction
+    const int kLaneX  = kJuncLX + kArrow;            // left edge of Inverter/Converter slots
+    const int kJuncRX = kLaneX + kSlotW;             // right edge of Inverter/Converter = right junction
+    const int kSOH    = kLaneOff * 2 + 16;           // SO node height spans both lanes
+    const int kSOCX   = kJuncRX + kArrow + kSONodeW / 2;
+    const int kGenX   = kSOCX + kSONodeW / 2 + kArrow;
+
+    generatorsView->setPos(kGenX, kPad);
+    const int genH    = generatorsView->totalHeight();
+    const int centerY = kPad + std::max(genH / 2, kLaneOff + kSlotH / 2 + 10);
+    // Re-center generators panel to align with centerY
+    generatorsView->setPos(kGenX, centerY - genH / 2);
+
+    const int invCY  = centerY - kLaneOff;
+    const int convCY = centerY + kLaneOff;
+    const int storageTopY = std::max(convCY + kSlotH / 2, centerY + kSOH / 2) + kBelowGap;
+    const int storageCX   = kSOCX;
+
+    lcpcSlot = makeSlot("LCPC Transformer", ":/images/mini_icons/transformer.png");
+    lcpcSlot->setPos(kPad, centerY - kSlotH / 2);
+
+    inverterSlot = makeSlot("Drop Inverter", {});
+    inverterSlot->setPos(kLaneX, invCY - kSlotH / 2);
+
+    converterSlot = makeSlot("Drop Converter", {});
+    converterSlot->setPos(kLaneX, convCY - kSlotH / 2);
+
+    storageSlot = makeSlot("Drop Storage", {});
+    storageSlot->setPos(storageCX - kSlotW / 2, storageTopY);
+
+    addStorageOpNode(kSOCX, centerY, kSOH);
+
+    // Left vertical: LCPC right edge spans both lane center Y values
+    m_detailScene->addLine(kJuncLX, invCY, kJuncLX, convCY, arrowPen);
+    // Upper lane: left junction → Inverter (energy flows left, arrow at Inverter end)
+    addArrowLine(m_detailScene, kJuncLX, invCY, kLaneX, invCY, arrowPen);
+    // Lower lane: left junction ↔ Converter (bidirectional)
+    addBidirH(kJuncLX, convCY, kLaneX);
+
+    // Right vertical: Inverter/Converter right edges → SO node
+    m_detailScene->addLine(kJuncRX, invCY, kJuncRX, convCY, arrowPen);
+    addArrowLine(m_detailScene, kJuncRX, invCY, kSOCX - kSONodeW / 2, invCY, arrowPen);
+    addBidirH(kJuncRX, convCY, kSOCX - kSONodeW / 2);
+
+    // SO node → Generators (energy flows into SO from right)
+    addArrowLine(m_detailScene, kGenX, centerY, kSOCX + kSONodeW / 2, centerY, arrowPen);
+
+    // Storage below SO node (bidir vertical)
+    addBidirV(storageCX, centerY + kSOH / 2, storageTopY + kSlotH / 2);
+
+    addMainPanelLabel(kPad, centerY + kSlotH / 2, /*bidir=*/true);
+
+  } else {
+    // DirectCurrentWithInverterACStorage (and fallback)
+    // [LCPC] ◄► [SO] ◄── [Inverter] ◄── [Gen]
+    //               ↕
+    //           [Storage]
+    constexpr int kSOH = 60;
+    const int kSOCX  = kPad + kSlotStep + kArrow + kSONodeW / 2;
+    const int kInvX  = kSOCX + kSONodeW / 2 + kArrow;
+    const int kGenX  = kInvX + kSlotStep;
+    generatorsView->setPos(kGenX, kPad);
+    const int centerY = kPad + generatorsView->totalHeight() / 2;
+
+    lcpcSlot = makeSlot("LCPC Transformer", ":/images/mini_icons/transformer.png");
+    lcpcSlot->setPos(kPad, centerY - kSlotH / 2);
+
+    addStorageOpNode(kSOCX, centerY, kSOH);
+
+    inverterSlot = makeSlot("Drop Inverter", {});
+    inverterSlot->setPos(kInvX, centerY - kSlotH / 2);
+
+    const int storageTopY = centerY + kSOH / 2 + kBelowGap;
+    storageSlot = makeSlot("Drop Storage", {});
+    storageSlot->setPos(kSOCX - kSlotW / 2, storageTopY);
+
+    addBidirH(kPad + kSlotW, centerY, kSOCX - kSONodeW / 2);
+    addArrowLine(m_detailScene, kInvX, centerY, kSOCX + kSONodeW / 2, centerY, arrowPen);
+    addArrowLine(m_detailScene, kGenX, centerY, kInvX + kSlotW, centerY, arrowPen);
+    addBidirV(kSOCX, centerY + kSOH / 2, storageTopY + kSlotH / 2);
+    addMainPanelLabel(kPad, centerY + kSlotH / 2, /*bidir=*/true);
   }
 
-  // 9. Arrow from last slot right edge to generators panel
-  addArrowLine(m_detailScene, lastSlotRightX, centerY, kGenX, centerY, arrowPen);
-
-  // 10. "← Main Panel" label below the LCPC slot
-  auto* mainPanelLabel = m_detailScene->addSimpleText("\u2190 Main Panel");
-  QFont labelFont;
-  labelFont.setPointSize(9);
-  mainPanelLabel->setFont(labelFont);
-  mainPanelLabel->setBrush(QColor(60, 80, 120));
-  mainPanelLabel->setPos(kFirstSlotX, centerY + kSlotH / 2 + 4);
-
-  // 11. Populate slot states and wire signals
+  // ── 5. Populate slot states & wire signals ─────────────────────────────────
   if (lcpcSlot) {
-    if (auto xfmr = elcd.transformer()) {
+    if (auto xfmr = elcd.transformer())
       lcpcSlot->setFilled(true, QString::fromStdString(xfmr->nameString()));
-    }
-    connect(lcpcSlot, &OSDropZoneItem::componentDropped, this, &ElectricLoadCenterDistributionTabController::onDetailLCPCTransformerDrop);
-    connect(lcpcSlot, &ELCDComponentSlotView::removeClicked, this, &ElectricLoadCenterDistributionTabController::onDetailLCPCTransformerRemove);
-    connect(lcpcSlot, &OSDropZoneItem::mouseClicked, this, &ElectricLoadCenterDistributionTabController::onDetailLCPCTransformerClick);
+    connect(lcpcSlot, &OSDropZoneItem::componentDropped, this,
+            &ElectricLoadCenterDistributionTabController::onDetailLCPCTransformerDrop);
+    connect(lcpcSlot, &ELCDComponentSlotView::removeClicked, this,
+            &ElectricLoadCenterDistributionTabController::onDetailLCPCTransformerRemove);
+    connect(lcpcSlot, &OSDropZoneItem::mouseClicked, this,
+            &ElectricLoadCenterDistributionTabController::onDetailLCPCTransformerClick);
   }
-
   if (inverterSlot) {
-    if (auto inv = elcd.inverter()) {
+    if (auto inv = elcd.inverter())
       inverterSlot->setFilled(true, QString::fromStdString(inv->nameString()));
-    }
-    connect(inverterSlot, &OSDropZoneItem::componentDropped, this, &ElectricLoadCenterDistributionTabController::onDetailInverterDrop);
-    connect(inverterSlot, &ELCDComponentSlotView::removeClicked, this, &ElectricLoadCenterDistributionTabController::onDetailInverterRemove);
-    connect(inverterSlot, &OSDropZoneItem::mouseClicked, this, &ElectricLoadCenterDistributionTabController::onDetailInverterClick);
+    connect(inverterSlot, &OSDropZoneItem::componentDropped, this,
+            &ElectricLoadCenterDistributionTabController::onDetailInverterDrop);
+    connect(inverterSlot, &ELCDComponentSlotView::removeClicked, this,
+            &ElectricLoadCenterDistributionTabController::onDetailInverterRemove);
+    connect(inverterSlot, &OSDropZoneItem::mouseClicked, this,
+            &ElectricLoadCenterDistributionTabController::onDetailInverterClick);
   }
-
   if (storageSlot) {
-    if (auto sto = elcd.electricalStorage()) {
+    if (auto sto = elcd.electricalStorage())
       storageSlot->setFilled(true, QString::fromStdString(sto->nameString()));
-    }
-    connect(storageSlot, &OSDropZoneItem::componentDropped, this, &ElectricLoadCenterDistributionTabController::onDetailStorageDrop);
-    connect(storageSlot, &ELCDComponentSlotView::removeClicked, this, &ElectricLoadCenterDistributionTabController::onDetailStorageRemove);
-    connect(storageSlot, &OSDropZoneItem::mouseClicked, this, &ElectricLoadCenterDistributionTabController::onDetailStorageClick);
+    connect(storageSlot, &OSDropZoneItem::componentDropped, this,
+            &ElectricLoadCenterDistributionTabController::onDetailStorageDrop);
+    connect(storageSlot, &ELCDComponentSlotView::removeClicked, this,
+            &ElectricLoadCenterDistributionTabController::onDetailStorageRemove);
+    connect(storageSlot, &OSDropZoneItem::mouseClicked, this,
+            &ElectricLoadCenterDistributionTabController::onDetailStorageClick);
   }
-
   if (converterSlot) {
-    if (auto conv = elcd.storageConverter()) {
+    if (auto conv = elcd.storageConverter())
       converterSlot->setFilled(true, QString::fromStdString(conv->nameString()));
-    }
-    connect(converterSlot, &OSDropZoneItem::componentDropped, this, &ElectricLoadCenterDistributionTabController::onDetailConverterDrop);
-    connect(converterSlot, &ELCDComponentSlotView::removeClicked, this, &ElectricLoadCenterDistributionTabController::onDetailConverterRemove);
-    connect(converterSlot, &OSDropZoneItem::mouseClicked, this, &ElectricLoadCenterDistributionTabController::onDetailConverterClick);
+    connect(converterSlot, &OSDropZoneItem::componentDropped, this,
+            &ElectricLoadCenterDistributionTabController::onDetailConverterDrop);
+    connect(converterSlot, &ELCDComponentSlotView::removeClicked, this,
+            &ElectricLoadCenterDistributionTabController::onDetailConverterRemove);
+    connect(converterSlot, &OSDropZoneItem::mouseClicked, this,
+            &ElectricLoadCenterDistributionTabController::onDetailConverterClick);
   }
 }
 
