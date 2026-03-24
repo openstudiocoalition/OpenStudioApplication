@@ -328,6 +328,8 @@ IconLibrary::IconLibrary() {
     new QPixmap(":/images/mini_icons/electric_equipment.png");
   m_miniIcons[openstudio::IddObjectType(openstudio::IddObjectType::OS_ElectricEquipment_Definition).value()] =
     new QPixmap(":/images/mini_icons/electric_equipment_definition.png");
+  m_miniIcons[openstudio::IddObjectType(openstudio::IddObjectType::OS_ElectricLoadCenter_Distribution).value()] =
+    new QPixmap(":/images/mini_icons/elcd.png");
   m_miniIcons[openstudio::IddObjectType(openstudio::IddObjectType::OS_ElectricLoadCenter_Storage_LiIonNMCBattery).value()] =
     new QPixmap(":/images/mini_icons/elec_storage.png");
   m_miniIcons[openstudio::IddObjectType(openstudio::IddObjectType::OS_ElectricLoadCenter_Storage_Simple).value()] =
@@ -354,6 +356,10 @@ IconLibrary::IconLibrary() {
     new QPixmap(":/images/mini_icons/generator_fuelcell_exhaustgastowaterheatexchanger.png");
   m_miniIcons[openstudio::IddObjectType(openstudio::IddObjectType::OS_Generator_MicroTurbine_HeatRecovery).value()] =
     new QPixmap(":/images/mini_icons/generator_microturbine_heatrecovery.png");
+  m_miniIcons[openstudio::IddObjectType(openstudio::IddObjectType::OS_Generator_Photovoltaic).value()] =
+    new QPixmap(":/images/mini_icons/pv_panel.png");
+  m_miniIcons[openstudio::IddObjectType(openstudio::IddObjectType::OS_Generator_PVWatts).value()] =
+    new QPixmap(":/images/mini_icons/pv_panel.png");
   m_miniIcons[openstudio::IddObjectType(openstudio::IddObjectType::OS_GroundHeatExchanger_HorizontalTrench).value()] =
     new QPixmap(":/images/mini_icons/mini_ground_heat_exchanger_horizontal.png");
   m_miniIcons[openstudio::IddObjectType(openstudio::IddObjectType::OS_GroundHeatExchanger_Vertical).value()] =

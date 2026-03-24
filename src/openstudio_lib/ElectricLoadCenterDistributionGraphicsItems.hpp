@@ -165,7 +165,7 @@ class ELCDDetailContainerItem : public QGraphicsObject
   Q_OBJECT;
 
  public:
-  explicit ELCDDetailContainerItem(const QRectF& rect, const Handle& elcdHandle);
+  explicit ELCDDetailContainerItem(const QRectF& rect, const Handle& elcdHandle, const QString& name);
   QRectF boundingRect() const override;
 
  signals:
@@ -179,6 +179,7 @@ class ELCDDetailContainerItem : public QGraphicsObject
  private:
   QRectF m_rect;
   Handle m_handle;
+  QString m_name;
   bool m_mouseDown{false};
 };
 

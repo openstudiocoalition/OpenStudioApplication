@@ -574,7 +574,7 @@ void ElectricLoadCenterDistributionTabController::buildDetailScene(const model::
     const QRectF containerRect = elcdBounds.adjusted(-kContainerPad, -kContainerPad, kContainerPad, kContainerPad);
 
     // ELCD container (behind all slots/arrows, Z=-1 set in constructor)
-    auto* container = new ELCDDetailContainerItem(containerRect, elcd.handle());
+    auto* container = new ELCDDetailContainerItem(containerRect, elcd.handle(), QString::fromStdString(elcd.nameString()));
     m_detailScene->addItem(container);
 
     // Main Panel block — vertically matches the container

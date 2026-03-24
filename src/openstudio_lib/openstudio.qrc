@@ -786,6 +786,8 @@
     <file>images/mini_icons/districtheating@2x.png</file>
     <file>images/mini_icons/mini_energy_recov_vent.png</file>
     <file>images/mini_icons/mini_energy_recov_vent@2x.png</file>
+    <file>images/mini_icons/elcd.png</file>
+    <file>images/mini_icons/elcd@2x.png</file>
     <file>images/mini_icons/elec_storage.png</file>
     <file>images/mini_icons/elec_storage@2x.png</file>
     <file>images/mini_icons/electric_equipment.png</file>
@@ -1034,6 +1036,8 @@
     <file>images/mini_icons/pump_constant@2x.png</file>
     <file>images/mini_icons/pump_variable.png</file>
     <file>images/mini_icons/pump_variable@2x.png</file>
+    <file>images/mini_icons/pv_panel.png</file>
+    <file>images/mini_icons/pv_panel@2x.png</file>
     <file>images/mini_icons/schedule.png</file>
     <file>images/mini_icons/schedule@2x.png</file>
     <file>images/mini_icons/series_fan_terminal.png</file>

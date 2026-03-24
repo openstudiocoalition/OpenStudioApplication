@@ -367,9 +367,10 @@ void ELCDUtilityGridPanel::paint(QPainter* painter, const QStyleOptionGraphicsIt
   QFont f = painter->font();
   f.setBold(true);
   f.setPointSize(14);
+  f.setCapitalization(QFont::SmallCaps);
   painter->setFont(f);
   painter->setPen(QColor(60, 80, 120));
-  painter->drawText(QRectF(0, 8, kPanelWidth, 20), Qt::AlignCenter, "GRID TRANSFORMERS");
+  painter->drawText(QRectF(0, 8, kPanelWidth, 20), Qt::AlignCenter, "Grid Transformers");
 
   // Labels above drop zones
   QFont lf = painter->font();
@@ -433,13 +434,14 @@ void ELCDMainPanelItem::paint(QPainter* painter, const QStyleOptionGraphicsItem*
   painter->setPen(dashBorder);
   painter->drawRect(2, 2, kPanelWidth - 4, m_height - 4);
 
-  // "MAIN PANEL" title
+  // "Main Panel" title
   QFont f = painter->font();
   f.setBold(true);
   f.setPointSize(14);
+  f.setCapitalization(QFont::SmallCaps);
   painter->setFont(f);
   painter->setPen(QColor(60, 80, 120));
-  painter->drawText(QRectF(0, 8, kPanelWidth, 20), Qt::AlignCenter, "MAIN PANEL");
+  painter->drawText(QRectF(0, 8, kPanelWidth, 20), Qt::AlignCenter, "Main Panel");
 
   // "Building & HVAC Electric Meters" footer with down arrow
   QFont ff = painter->font();
@@ -458,7 +460,8 @@ void ELCDMainPanelItem::paint(QPainter* painter, const QStyleOptionGraphicsItem*
 
 // ─── ELCDDetailContainerItem ─────────────────────────────────────────────────
 
-ELCDDetailContainerItem::ELCDDetailContainerItem(const QRectF& rect, const Handle& elcdHandle) : m_rect(rect), m_handle(elcdHandle) {
+ELCDDetailContainerItem::ELCDDetailContainerItem(const QRectF& rect, const Handle& elcdHandle, const QString& name)
+  : m_rect(rect), m_handle(elcdHandle), m_name(name) {
   setZValue(-1);
 }
 
@@ -484,6 +487,14 @@ void ELCDDetailContainerItem::paint(QPainter* painter, const QStyleOptionGraphic
   painter->setBrush(QColor(235, 242, 252));
   painter->setPen(QPen(QColor(70, 130, 180), 1.5));
   painter->drawRoundedRect(m_rect.adjusted(1, 1, -1, -1), 8, 8);
+
+  QFont f = painter->font();
+  f.setBold(true);
+  f.setPointSize(14);
+  f.setCapitalization(QFont::SmallCaps);
+  painter->setFont(f);
+  painter->setPen(QColor(60, 80, 120));
+  painter->drawText(QRectF(m_rect.left(), m_rect.top() + 6, m_rect.width(), 20), Qt::AlignCenter, m_name);
 }
 
 // ─── ELCDComponentSlotView ───────────────────────────────────────────────────
