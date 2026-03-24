@@ -15,9 +15,11 @@
 
 #include <QPointer>
 #include <QSharedPointer>
+#include <QVector>
 #include <boost/optional.hpp>
 
 class QGraphicsScene;
+class QGraphicsLineItem;
 
 namespace openstudio {
 
@@ -63,6 +65,12 @@ class ElectricLoadCenterDistributionTabController : public MainTabController
 
   boost::optional<model::ElectricLoadCenterDistribution> m_currentELCD;
   bool m_dirty = false;
+
+  // Scene positions (set in constructor, reused in refreshNow)
+  int m_kMainPanelX = 0;
+  int m_kElcdGridX = 0;
+
+  QVector<QGraphicsLineItem*> m_elcdConnectorLines;
 };
 
 // ─── ELCDListItem ─────────────────────────────────────────────────────────────

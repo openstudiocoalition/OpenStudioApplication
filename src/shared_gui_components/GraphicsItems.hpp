@@ -142,6 +142,8 @@ class GridLayoutItem : public QGraphicsObject
 
   void setMargin(int margin);
 
+  void setColumns(int n);
+
  public slots:
 
   void refreshAllItemViews();
@@ -188,6 +190,8 @@ class GridLayoutItem : public QGraphicsObject
   QSizeF m_cellSize;
 
   int m_margin;
+
+  int m_columns = 2;
 };
 
 }  // namespace openstudio

@@ -339,7 +339,11 @@ int GridLayoutItem::rows() const {
 }
 
 int GridLayoutItem::columns() const {
-  return 2;
+  return m_columns;
+}
+
+void GridLayoutItem::setColumns(int n) {
+  m_columns = (n > 0) ? n : 1;
 }
 
 std::pair<int, int> GridLayoutItem::gridPos(int index) {

@@ -125,8 +125,27 @@ class ELCDMainPanelItem : public QGraphicsObject
   ELCDMainPanelItem();
   QRectF boundingRect() const override;
 
+  void setHeight(int h);
+
   static constexpr int kPanelWidth = 160;
-  static constexpr int kPanelHeight = 340;
+
+ protected:
+  void paint(QPainter* painter, const QStyleOptionGraphicsItem* option, QWidget* widget) override;
+
+ private:
+  int m_height = 340;
+};
+
+// ─── ELCDTransformerDropZoneView ─────────────────────────────────────────────
+// Small drop zone for transformer objects; overrides paint() with compact font.
+class ELCDTransformerDropZoneView : public OSDropZoneItem
+{
+  Q_OBJECT;
+
+ public:
+  explicit ELCDTransformerDropZoneView(const QString& label);
+
+  QRectF boundingRect() const override;
 
  protected:
   void paint(QPainter* painter, const QStyleOptionGraphicsItem* option, QWidget* widget) override;
