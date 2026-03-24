@@ -322,6 +322,8 @@
     <file>images/off_elcd_tab@2x.png</file>
     <file>images/power_grid.png</file>
     <file>images/power_grid@2x.png</file>
+    <file>images/transformer.png</file>
+    <file>images/transformer@2x.png</file>
     <file>images/off_hvac_tab.png</file>
     <file>images/off_hvac_tab@2x.png</file>
     <file>images/off_geometry_tab.png</file>
@@ -1106,6 +1108,8 @@
     <file>images/mini_icons/swimming_pool@2x.png</file>
     <file>images/mini_icons/thermal_zone.png</file>
     <file>images/mini_icons/thermal_zone@2x.png</file>
+    <file>images/mini_icons/transformer.png</file>
+    <file>images/mini_icons/transformer@2x.png</file>
     <file>images/mini_icons/user_defined.png</file>
     <file>images/mini_icons/user_defined@2x.png</file>
     <file>images/mini_icons/variable_fan.png</file>

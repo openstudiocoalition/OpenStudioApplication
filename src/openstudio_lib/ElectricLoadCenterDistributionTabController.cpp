@@ -10,17 +10,23 @@
 #include "MainRightColumnController.hpp"
 #include "OSAppBase.hpp"
 #include "OSDocument.hpp"
+#include "OSDropZone.hpp"
 #include "OSItem.hpp"
 
 #include "../shared_gui_components/GraphicsItems.hpp"
 
-#include <openstudio/model/Model_Impl.hpp>
+#include <openstudio/model/Model.hpp>
+#include <openstudio/model/ElectricLoadCenterDistribution.hpp>
 #include <openstudio/model/ElectricLoadCenterDistribution_Impl.hpp>
+#include <openstudio/model/ElectricLoadCenterTransformer.hpp>
+#include <openstudio/model/ElectricLoadCenterTransformer_Impl.hpp>
 #include <openstudio/utilities/core/Assert.hpp>
 
 #include <algorithm>
+#include <openstudio/utilities/core/Compare.hpp>
 
 #include <QGraphicsLineItem>
+#include <QMessageBox>
 #include <QGraphicsScene>
 #include <QGraphicsSimpleTextItem>
 #include <QGraphicsView>
@@ -104,6 +110,18 @@ ElectricLoadCenterDistributionTabController::ElectricLoadCenterDistributionTabCo
   m_utilityGridPanel = new ELCDUtilityGridPanel();
   m_gridScene->addItem(m_utilityGridPanel);
   m_utilityGridPanel->setPos(kUtilityPanelX, 0);
+  connect(m_utilityGridPanel->powerInDropZone, &OSDropZoneItem::componentDropped, this,
+          &ElectricLoadCenterDistributionTabController::onPowerInTransformerDrop);
+  connect(m_utilityGridPanel->powerOutDropZone, &OSDropZoneItem::componentDropped, this,
+          &ElectricLoadCenterDistributionTabController::onPowerOutTransformerDrop);
+  connect(m_utilityGridPanel->powerInDropZone, &OSDropZoneItem::mouseClicked, this,
+          &ElectricLoadCenterDistributionTabController::onPowerInTransformerClick);
+  connect(m_utilityGridPanel->powerOutDropZone, &OSDropZoneItem::mouseClicked, this,
+          &ElectricLoadCenterDistributionTabController::onPowerOutTransformerClick);
+  connect(m_utilityGridPanel->powerInDropZone, &ELCDTransformerDropZoneView::removeClicked, this,
+          &ElectricLoadCenterDistributionTabController::onPowerInTransformerRemove);
+  connect(m_utilityGridPanel->powerOutDropZone, &ELCDTransformerDropZoneView::removeClicked, this,
+          &ElectricLoadCenterDistributionTabController::onPowerOutTransformerRemove);
 
   m_mainPanelItem = new ELCDMainPanelItem();
   m_gridScene->addItem(m_mainPanelItem);
@@ -119,8 +137,8 @@ ElectricLoadCenterDistributionTabController::ElectricLoadCenterDistributionTabCo
   m_gridScene->addLine(kIconColWidth - 20, ELCDUtilityGridPanel::kPowerInCentreY, kUtilityPanelX, ELCDUtilityGridPanel::kPowerInCentreY,
                        connectorPen);
   // PowerOut transformer → icon: arrowhead AT icon right edge
-  addArrowLine(m_gridScene.data(), kUtilityPanelX, ELCDUtilityGridPanel::kPowerOutCentreY, kIconColWidth - 20,
-               ELCDUtilityGridPanel::kPowerOutCentreY, connectorPen);
+  addArrowLine(m_gridScene.data(), kUtilityPanelX, ELCDUtilityGridPanel::kPowerOutCentreY, kIconColWidth - 20, ELCDUtilityGridPanel::kPowerOutCentreY,
+               connectorPen);
   // PowerIn transformer → Main Panel: arrowhead AT Main Panel left edge
   addArrowLine(m_gridScene.data(), kUtilityPanelX + ELCDUtilityGridPanel::kPanelWidth, ELCDUtilityGridPanel::kPowerInCentreY, kMainPanelX,
                ELCDUtilityGridPanel::kPowerInCentreY, connectorPen);
@@ -213,6 +231,21 @@ void ElectricLoadCenterDistributionTabController::refreshNow() {
     m_mainPanelItem->setHeight(panelHeight);
   }
 
+  // Update transformer drop zone display
+  if (m_utilityGridPanel) {
+    boost::optional<model::ElectricLoadCenterTransformer> powerIn_;
+    boost::optional<model::ElectricLoadCenterTransformer> powerOut_;
+    for (const auto& t : m_model.getConcreteModelObjects<model::ElectricLoadCenterTransformer>()) {
+      if (!powerIn_ && openstudio::istringEqual(t.transformerUsage(), "PowerInFromGrid")) {
+        powerIn_ = t;
+      } else if (!powerOut_ && openstudio::istringEqual(t.transformerUsage(), "PowerOutToGrid")) {
+        powerOut_ = t;
+      }
+    }
+    m_utilityGridPanel->powerInDropZone->setFilled(powerIn_.has_value(), powerIn_ ? QString::fromStdString(powerIn_->nameString()) : QString{});
+    m_utilityGridPanel->powerOutDropZone->setFilled(powerOut_.has_value(), powerOut_ ? QString::fromStdString(powerOut_->nameString()) : QString{});
+  }
+
   // Draw one horizontal subpanel connector per ELCD (arrowhead pointing left at Main Panel)
   // Center-y of ELCD i = kMargin + i*(kCellH+kSpacing) + kCellH/2 = 100 + i*190
   const QPen connectorPen(QColor(70, 130, 180), 1.5);
@@ -225,6 +258,106 @@ void ElectricLoadCenterDistributionTabController::refreshNow() {
     m_elcdConnectorItems.append(m_gridScene->addLine(tx, connY, tx + 8.0, connY - 4.0, connectorPen));
     m_elcdConnectorItems.append(m_gridScene->addLine(tx, connY, tx + 8.0, connY + 4.0, connectorPen));
   }
+}
+
+// ─── Transformer drop handlers ─────────────────────────────────────────────────
+
+namespace {
+// Drop a transformer into targetModel for the given slot usage.
+// If from the component library, the object is cloned into targetModel first.
+// If the transformer's usage differs from expectedUsage, the user is asked to confirm.
+// On cancel (or failure), no model change is made.
+void handleTransformerDrop(model::Model& targetModel, const OSItemId& itemId, const std::string& expectedUsage) {
+  auto doc = OSAppBase::instance()->currentDocument();
+  if (!doc) {
+    return;
+  }
+
+  auto mo = doc->getModelObject(itemId);
+  if (!mo) {
+    return;
+  }
+  auto srcTransformer_ = mo->optionalCast<model::ElectricLoadCenterTransformer>();
+  if (!srcTransformer_) {
+    return;
+  }
+
+  const bool isFromLibrary = doc->fromComponentLibrary(itemId);
+  model::ElectricLoadCenterTransformer transformer =
+    isFromLibrary ? srcTransformer_->clone(targetModel).cast<model::ElectricLoadCenterTransformer>() : *srcTransformer_;
+
+  if (!openstudio::istringEqual(transformer.transformerUsage(), expectedUsage)) {
+    const auto reply = QMessageBox::question(nullptr, "Change Transformer Usage",
+                                             QString("Set this transformer's usage to '%1'?").arg(QString::fromStdString(expectedUsage)),
+                                             QMessageBox::Yes | QMessageBox::Cancel);
+    if (reply != QMessageBox::Yes) {
+      if (isFromLibrary) {
+        transformer.remove();
+      }
+      return;
+    }
+    transformer.setTransformerUsage(expectedUsage);
+  }
+}
+}  // namespace
+
+void ElectricLoadCenterDistributionTabController::onPowerInTransformerDrop(const OSItemId& itemId) {
+  handleTransformerDrop(m_model, itemId, "PowerInFromGrid");
+  refresh();
+}
+
+void ElectricLoadCenterDistributionTabController::onPowerOutTransformerDrop(const OSItemId& itemId) {
+  handleTransformerDrop(m_model, itemId, "PowerOutToGrid");
+  refresh();
+}
+
+namespace {
+boost::optional<model::ElectricLoadCenterTransformer> findTransformerByUsage(const model::Model& model, const std::string& usage) {
+  for (const auto& t : model.getConcreteModelObjects<model::ElectricLoadCenterTransformer>()) {
+    if (openstudio::istringEqual(t.transformerUsage(), usage)) {
+      return t;
+    }
+  }
+  return boost::none;
+}
+}  // namespace
+
+void ElectricLoadCenterDistributionTabController::onPowerInTransformerClick() {
+  auto transformer_ = findTransformerByUsage(m_model, "PowerInFromGrid");
+  if (!transformer_) {
+    return;
+  }
+  if (auto doc = OSAppBase::instance()->currentDocument()) {
+    model::OptionalModelObject mo = *transformer_;
+    doc->mainRightColumnController()->inspectModelObject(mo, false);
+  }
+}
+
+void ElectricLoadCenterDistributionTabController::onPowerOutTransformerClick() {
+  auto transformer_ = findTransformerByUsage(m_model, "PowerOutToGrid");
+  if (!transformer_) {
+    return;
+  }
+  if (auto doc = OSAppBase::instance()->currentDocument()) {
+    model::OptionalModelObject mo = *transformer_;
+    doc->mainRightColumnController()->inspectModelObject(mo, false);
+  }
+}
+
+void ElectricLoadCenterDistributionTabController::onPowerInTransformerRemove() {
+  auto transformer_ = findTransformerByUsage(m_model, "PowerInFromGrid");
+  if (transformer_) {
+    transformer_->remove();
+  }
+  refresh();
+}
+
+void ElectricLoadCenterDistributionTabController::onPowerOutTransformerRemove() {
+  auto transformer_ = findTransformerByUsage(m_model, "PowerOutToGrid");
+  if (transformer_) {
+    transformer_->remove();
+  }
+  refresh();
 }
 
 // ─── ELCDListItem ─────────────────────────────────────────────────────────────

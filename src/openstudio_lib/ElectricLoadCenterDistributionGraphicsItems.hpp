@@ -91,6 +91,8 @@ class ELCDSystemMiniView : public QGraphicsObject
   void onZoomInButtonClicked();
 };
 
+class ELCDTransformerDropZoneView;  // forward declaration — defined below
+
 // ─── ELCDUtilityGridPanel ────────────────────────────────────────────────────
 // Left column of the overview: Utility Grid label + two transformer drop zones.
 class ELCDUtilityGridPanel : public QGraphicsObject
@@ -101,8 +103,8 @@ class ELCDUtilityGridPanel : public QGraphicsObject
   ELCDUtilityGridPanel();
   QRectF boundingRect() const override;
 
-  OSDropZoneItem* powerInDropZone{nullptr};   // PowerInFromGrid transformer
-  OSDropZoneItem* powerOutDropZone{nullptr};  // PowerOutToGrid transformer
+  ELCDTransformerDropZoneView* powerInDropZone{nullptr};   // PowerInFromGrid transformer
+  ELCDTransformerDropZoneView* powerOutDropZone{nullptr};  // PowerOutToGrid transformer
 
   // Y-coordinates (panel-local) of each drop zone centre — used by the
   // controller to draw connecting arrows to the Main Panel item.
@@ -147,8 +149,21 @@ class ELCDTransformerDropZoneView : public OSDropZoneItem
 
   QRectF boundingRect() const override;
 
+  // Pass filled=true + the transformer's name when one exists in the model;
+  // filled=false to revert to the "drop here" placeholder.
+  void setFilled(bool filled, const QString& name = {});
+
+  RemoveButtonItem* removeButtonItem{nullptr};
+
+ signals:
+  void removeClicked();
+
  protected:
   void paint(QPainter* painter, const QStyleOptionGraphicsItem* option, QWidget* widget) override;
+
+ private:
+  QString m_placeholderText;
+  bool m_filled{false};
 };
 
 // ─── ELCDDropZoneView ────────────────────────────────────────────────────────

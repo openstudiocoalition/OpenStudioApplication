@@ -48,6 +48,12 @@ class ElectricLoadCenterDistributionTabController : public MainTabController
  private slots:
   void refresh();
   void refreshNow();
+  void onPowerInTransformerDrop(const OSItemId& itemId);
+  void onPowerOutTransformerDrop(const OSItemId& itemId);
+  void onPowerInTransformerClick();
+  void onPowerOutTransformerClick();
+  void onPowerInTransformerRemove();
+  void onPowerOutTransformerRemove();
 
  private:
   model::Model m_model;

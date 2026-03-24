@@ -8,6 +8,7 @@
 
 #include <QPainter>
 #include <QApplication>
+#include <QPixmap>
 #include <cmath>
 #include <QGraphicsView>
 #include <QGraphicsSceneMouseEvent>
@@ -217,10 +218,24 @@ void drawArrow(QPainter* painter, QPointF from, QPointF to) {
 
 // ─── ELCDTransformerDropZoneView ─────────────────────────────────────────────
 
-ELCDTransformerDropZoneView::ELCDTransformerDropZoneView(const QString& label) {
+ELCDTransformerDropZoneView::ELCDTransformerDropZoneView(const QString& label) : m_placeholderText(label) {
   setText(label);
   setSize(165, 70);
   setAcceptDrops(true);
+
+  removeButtonItem = new RemoveButtonItem();
+  removeButtonItem->setParentItem(this);
+  removeButtonItem->setVisible(false);
+  connect(removeButtonItem, &RemoveButtonItem::mouseClicked, this, &ELCDTransformerDropZoneView::removeClicked);
+}
+
+void ELCDTransformerDropZoneView::setFilled(bool filled, const QString& name) {
+  m_filled = filled;
+  setText(filled ? name : m_placeholderText);
+  removeButtonItem->setPos(boundingRect().width() - removeButtonItem->boundingRect().width() - 4,
+                           boundingRect().height() / 2.0 - removeButtonItem->boundingRect().height() / 2.0);
+  removeButtonItem->setVisible(filled);
+  update();
 }
 
 QRectF ELCDTransformerDropZoneView::boundingRect() const {
@@ -229,14 +244,36 @@ QRectF ELCDTransformerDropZoneView::boundingRect() const {
 
 void ELCDTransformerDropZoneView::paint(QPainter* painter, const QStyleOptionGraphicsItem* /*option*/, QWidget* /*widget*/) {
   painter->setRenderHint(QPainter::Antialiasing, true);
-  painter->setBrush(Qt::NoBrush);
-  painter->setPen(QPen(QColor(109, 109, 109), 2, Qt::DashLine, Qt::RoundCap));
+
+  if (m_filled) {
+    painter->setBrush(QColor(220, 234, 250));
+    painter->setPen(QPen(QColor(70, 130, 180), 1.5));
+  } else {
+    painter->setBrush(Qt::NoBrush);
+    painter->setPen(QPen(QColor(109, 109, 109), 2, Qt::DashLine, Qt::RoundCap));
+  }
   painter->drawRect(boundingRect());
+
+  static const QPixmap kIcon = QPixmap(":/images/mini_icons/transformer.png");
+  static constexpr int kIconSize = 24;
+  static constexpr int kIconX = 5;
+
+  if (!kIcon.isNull()) {
+    const QPixmap scaled = kIcon.scaled(kIconSize, kIconSize, Qt::KeepAspectRatio, Qt::SmoothTransformation);
+    const int iconY = static_cast<int>((boundingRect().height() - scaled.height()) / 2.0);
+    painter->drawPixmap(kIconX, iconY, scaled);
+  }
 
   QFont font = painter->font();
   font.setPixelSize(12);
   painter->setFont(font);
-  painter->drawText(boundingRect(), Qt::AlignCenter | Qt::TextWordWrap, m_text);
+  painter->setPen(m_filled ? QColor(40, 60, 100) : QColor(80, 80, 80));
+
+  const int textLeft = kIconX + kIconSize + 4;
+  const qreal removeW = removeButtonItem->boundingRect().width();
+  const qreal textRight = m_filled ? (boundingRect().width() - removeW - 8) : boundingRect().width() - 4;
+  const QRectF textRect(textLeft, 0, textRight - textLeft, boundingRect().height());
+  painter->drawText(textRect, Qt::AlignVCenter | Qt::AlignLeft | Qt::TextWordWrap, m_text);
 }
 
 // ─── ELCDUtilityGridPanel ────────────────────────────────────────────────────

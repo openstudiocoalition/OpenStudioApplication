@@ -328,6 +328,8 @@ IconLibrary::IconLibrary() {
     new QPixmap(":/images/mini_icons/electric_equipment.png");
   m_miniIcons[openstudio::IddObjectType(openstudio::IddObjectType::OS_ElectricEquipment_Definition).value()] =
     new QPixmap(":/images/mini_icons/electric_equipment_definition.png");
+  m_miniIcons[openstudio::IddObjectType(openstudio::IddObjectType::OS_ElectricLoadCenter_Transformer).value()] =
+    new QPixmap(":/images/mini_icons/transformer.png");
   m_miniIcons[openstudio::IddObjectType(openstudio::IddObjectType::OS_Facility).value()] = new QPixmap(":/images/mini_icons/facility.png");
   m_miniIcons[openstudio::IddObjectType(openstudio::IddObjectType::OS_FluidCooler_SingleSpeed).value()] =
     new QPixmap(":/images/mini_icons/mini_fluid_cooler_single.png");
