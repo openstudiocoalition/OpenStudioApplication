@@ -217,7 +217,7 @@ class ELCDGeneratorItemView : public QGraphicsObject
 
   QRectF boundingRect() const override;
 
-  static constexpr int kHeight = 28;
+  static constexpr int kHeight = 36;
 
   RemoveButtonItem* removeButtonItem{nullptr};
 
@@ -261,11 +261,11 @@ class ELCDGeneratorsView : public QGraphicsObject
 
   OSDropZoneItem* dropZone{nullptr};
 
-  static constexpr int kWidth = 240;
-  static constexpr int kHeaderH = 28;
+  static constexpr int kWidth = 280;
+  static constexpr int kHeaderH = 36;
   static constexpr int kItemH = ELCDGeneratorItemView::kHeight;
-  static constexpr int kPad = 4;
-  static constexpr int kDropZoneH = 44;
+  static constexpr int kPad = 6;
+  static constexpr int kDropZoneH = 60;
 
  signals:
   void generatorRemoveClicked(const Handle& handle);
