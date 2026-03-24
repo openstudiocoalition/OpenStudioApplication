@@ -27,6 +27,7 @@ class ELCDView;
 class ELCDScene;
 class ELCDUtilityGridPanel;
 class ELCDMainPanelItem;
+class ELCDDetailContainerItem;
 class GridLayoutItem;
 class ELCDListController;
 class OSItemId;
@@ -75,6 +76,7 @@ class ElectricLoadCenterDistributionTabController : public MainTabController
   void onDetailLCPCTransformerClick();
 
   void onDetailGeneratorClick(const Handle& handle);
+  void onDetailELCDInspect(const Handle& handle);
 
  private:
   void buildDetailScene(const model::ElectricLoadCenterDistribution& elcd);

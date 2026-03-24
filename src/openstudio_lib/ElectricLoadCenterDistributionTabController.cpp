@@ -352,6 +352,8 @@ void ElectricLoadCenterDistributionTabController::buildDetailScene(const model::
   constexpr int kSONodeW = 130;               // Storage Operation visual node width
   constexpr int kBelowGap = 40;               // gap between main-line slot bottom and Storage slot top
   constexpr int kLaneOff = 80;                // vertical offset from centerY for two-lane (DCwithDCStorage)
+  // kBaseX: left edge of the LCPC slot, shifted right to make room for the Main Panel block + arrow gap
+  const int kBaseX = kPad + ELCDMainPanelItem::kPanelWidth + kArrow;
 
   // ── 1. Clear & recreate scene ──────────────────────────────────────────────
   if (m_detailScene) {
@@ -427,30 +429,31 @@ void ElectricLoadCenterDistributionTabController::buildDetailScene(const model::
 
   // ── 4. Per-buss-type layout ────────────────────────────────────────────────
 
+  int centerY = kPad;  // set inside each buss-type branch; used after for Main Panel placement
+
   if (bussType == "AlternatingCurrent") {
-    // [LCPC] ◄── [Gen]
-    const int kGenX = kPad + kSlotStep;
+    // [MainPanel] ←── [LCPC] ◄── [Gen]
+    const int kGenX = kBaseX + kSlotStep;
     generatorsView->setPos(kGenX, kPad);
-    const int centerY = kPad + generatorsView->totalHeight() / 2;
+    centerY = kPad + generatorsView->totalHeight() / 2;
 
     lcpcSlot = makeSlot("LCPC Transformer", ":/images/mini_icons/transformer.png");
-    lcpcSlot->setPos(kPad, centerY - kSlotH / 2);
+    lcpcSlot->setPos(kBaseX, centerY - kSlotH / 2);
 
-    addArrowLine(m_detailScene, kGenX, centerY, kPad + kSlotW, centerY, arrowPen);
-    addMainPanelLabel(kPad, centerY + kSlotH / 2, /*bidir=*/false);
+    addArrowLine(m_detailScene, kGenX, centerY, kBaseX + kSlotW, centerY, arrowPen);
 
   } else if (bussType == "AlternatingCurrentWithStorage") {
-    // [LCPC] ◄► [SO] ◄── [Gen]
-    //              ↕
-    //          [Storage]
+    // [MainPanel] ◄► [LCPC] ◄► [SO] ◄── [Gen]
+    //                               ↕
+    //                           [Storage]
     constexpr int kSOH = 60;
-    const int kSOCX = kPad + kSlotStep + kArrow + kSONodeW / 2;
+    const int kSOCX = kBaseX + kSlotStep + kArrow + kSONodeW / 2;
     const int kGenX = kSOCX + kSONodeW / 2 + kArrow;
     generatorsView->setPos(kGenX, kPad);
-    const int centerY = kPad + generatorsView->totalHeight() / 2;
+    centerY = kPad + generatorsView->totalHeight() / 2;
 
     lcpcSlot = makeSlot("LCPC Transformer", ":/images/mini_icons/transformer.png");
-    lcpcSlot->setPos(kPad, centerY - kSlotH / 2);
+    lcpcSlot->setPos(kBaseX, centerY - kSlotH / 2);
 
     addStorageOpNode(kSOCX, centerY, kSOH);
 
@@ -458,36 +461,34 @@ void ElectricLoadCenterDistributionTabController::buildDetailScene(const model::
     storageSlot = makeSlot("Drop Storage", ":/images/mini_icons/elec_storage.png");
     storageSlot->setPos(kSOCX - kSlotW / 2, storageTopY);
 
-    addBidirH(kPad + kSlotW, centerY, kSOCX - kSONodeW / 2);
+    addBidirH(kBaseX + kSlotW, centerY, kSOCX - kSONodeW / 2);
     addArrowLine(m_detailScene, kGenX, centerY, kSOCX + kSONodeW / 2, centerY, arrowPen);
     addBidirV(kSOCX, centerY + kSOH / 2, storageTopY);
-    addMainPanelLabel(kPad, centerY + kSlotH / 2, /*bidir=*/true);
 
   } else if (bussType == "DirectCurrentWithInverter") {
-    // [LCPC] ◄── [Inverter] ◄── [Gen]
-    const int kInvX = kPad + kSlotStep;
+    // [MainPanel] ←── [LCPC] ◄── [Inverter] ◄── [Gen]
+    const int kInvX = kBaseX + kSlotStep;
     const int kGenX = kInvX + kSlotStep;
     generatorsView->setPos(kGenX, kPad);
-    const int centerY = kPad + generatorsView->totalHeight() / 2;
+    centerY = kPad + generatorsView->totalHeight() / 2;
 
     lcpcSlot = makeSlot("LCPC Transformer", ":/images/mini_icons/transformer.png");
-    lcpcSlot->setPos(kPad, centerY - kSlotH / 2);
+    lcpcSlot->setPos(kBaseX, centerY - kSlotH / 2);
 
     inverterSlot = makeSlot("Drop Inverter", ":/images/mini_icons/ac_left_dc_right.png");
     inverterSlot->setPos(kInvX, centerY - kSlotH / 2);
 
-    addArrowLine(m_detailScene, kInvX, centerY, kPad + kSlotW, centerY, arrowPen);
+    addArrowLine(m_detailScene, kInvX, centerY, kBaseX + kSlotW, centerY, arrowPen);
     addArrowLine(m_detailScene, kGenX, centerY, kInvX + kSlotW, centerY, arrowPen);
-    addMainPanelLabel(kPad, centerY + kSlotH / 2, /*bidir=*/false);
 
   } else if (bussType == "DirectCurrentWithInverterDCStorage") {
     // Two-lane layout:
-    //            <── [Inverter] <──┐
-    // [LCPC] ────┤                [SO*] ◄── [Gen]
-    //            └─> [Converter] >─┘
-    //                              ↕
-    //                          [Storage]
-    const int kJuncLX = kPad + kSlotW;    // right edge of LCPC = left junction
+    //                  <── [Inverter] <──┐
+    // [MainPanel] ◄► [LCPC]────┤        [SO*] ◄── [Gen]
+    //                          └─> [Converter] >─┘
+    //                                            ↕
+    //                                        [Storage]
+    const int kJuncLX = kBaseX + kSlotW;  // right edge of LCPC = left junction
     const int kLaneX = kJuncLX + kArrow;  // left edge of Inverter/Converter slots
     const int kJuncRX = kLaneX + kSlotW;  // right edge of Inverter/Converter = right junction
     const int kSOH = kLaneOff * 2 + 16;   // SO node height spans both lanes
@@ -496,8 +497,7 @@ void ElectricLoadCenterDistributionTabController::buildDetailScene(const model::
 
     generatorsView->setPos(kGenX, kPad);
     const int genH = generatorsView->totalHeight();
-    const int centerY = kPad + std::max(genH / 2, kLaneOff + kSlotH / 2 + 10);
-    // Re-center generators panel to align with centerY
+    centerY = kPad + std::max(genH / 2, kLaneOff + kSlotH / 2 + 10);
     generatorsView->setPos(kGenX, centerY - genH / 2);
 
     const int invCY = centerY - kLaneOff;
@@ -506,7 +506,7 @@ void ElectricLoadCenterDistributionTabController::buildDetailScene(const model::
     const int storageCX = kSOCX;
 
     lcpcSlot = makeSlot("LCPC Transformer", ":/images/mini_icons/transformer.png");
-    lcpcSlot->setPos(kPad, centerY - kSlotH / 2);
+    lcpcSlot->setPos(kBaseX, centerY - kSlotH / 2);
 
     inverterSlot = makeSlot("Drop Inverter", ":/images/mini_icons/ac_left_dc_right.png");
     inverterSlot->setPos(kLaneX, invCY - kSlotH / 2);
@@ -520,49 +520,37 @@ void ElectricLoadCenterDistributionTabController::buildDetailScene(const model::
     addStorageOpNode(kSOCX, centerY, kSOH);
 
     // Left side: L-shaped elbow connectors between LCPC and each lane.
-    // Two connection stubs on the LCPC right side, slightly above/below center.
-    const int kMidX = kJuncLX + kArrow / 2;  // elbow column between LCPC and lanes
-    const int kUpperConnY = centerY - 18;     // upper exit on LCPC right edge (for Inverter)
-    const int kLowerConnY = centerY + 18;     // lower exit on LCPC right edge (for Converter)
+    const int kMidX = kJuncLX + kArrow / 2;
+    const int kUpperConnY = centerY - 18;
+    const int kLowerConnY = centerY + 18;
 
-    // Inverter → LCPC:  [Inv left] ──┐ (elbow down) ──► [LCPC right, arrowhead]
-    m_detailScene->addLine(kLaneX, invCY, kMidX, invCY, arrowPen);         // horizontal from Inv left to elbow
-    m_detailScene->addLine(kMidX, invCY, kMidX, kUpperConnY, arrowPen);    // vertical: invCY → LCPC height
-    addArrowLine(m_detailScene, kMidX, kUpperConnY, kJuncLX, kUpperConnY, arrowPen);  // → LCPC (arrowhead)
+    m_detailScene->addLine(kLaneX, invCY, kMidX, invCY, arrowPen);
+    m_detailScene->addLine(kMidX, invCY, kMidX, kUpperConnY, arrowPen);
+    addArrowLine(m_detailScene, kMidX, kUpperConnY, kJuncLX, kUpperConnY, arrowPen);
 
-    // LCPC → Converter: [LCPC right] ──┐ (elbow down) ──► [Conv left, arrowhead]
-    m_detailScene->addLine(kJuncLX, kLowerConnY, kMidX, kLowerConnY, arrowPen);  // horizontal from LCPC to elbow
-    m_detailScene->addLine(kMidX, kLowerConnY, kMidX, convCY, arrowPen);         // vertical: LCPC height → convCY
-    addArrowLine(m_detailScene, kMidX, convCY, kLaneX, convCY, arrowPen);        // → Converter (arrowhead)
+    m_detailScene->addLine(kJuncLX, kLowerConnY, kMidX, kLowerConnY, arrowPen);
+    m_detailScene->addLine(kMidX, kLowerConnY, kMidX, convCY, arrowPen);
+    addArrowLine(m_detailScene, kMidX, convCY, kLaneX, convCY, arrowPen);
 
-    // Right: direct arrows from slot right edges to SO node left edge
-    // Upper (Inverter): SO → Inverter, arrowhead at Inverter right edge
     addArrowLine(m_detailScene, kSOCX - kSONodeW / 2, invCY, kJuncRX, invCY, arrowPen);
-    // Lower (Converter): Converter → SO, arrowhead at SO left edge
     addArrowLine(m_detailScene, kJuncRX, convCY, kSOCX - kSONodeW / 2, convCY, arrowPen);
-
-    // SO node → Generators (energy flows into SO from right)
     addArrowLine(m_detailScene, kGenX, centerY, kSOCX + kSONodeW / 2, centerY, arrowPen);
-
-    // Storage below SO node (bidir vertical)
     addBidirV(storageCX, centerY + kSOH / 2, storageTopY);
-
-    addMainPanelLabel(kPad, centerY + kSlotH / 2, /*bidir=*/true);
 
   } else {
     // DirectCurrentWithInverterACStorage (and fallback)
-    // [LCPC] ◄► [SO] ◄── [Inverter] ◄── [Gen]
-    //               ↕
-    //           [Storage]
+    // [MainPanel] ◄► [LCPC] ◄► [SO] ◄── [Inverter] ◄── [Gen]
+    //                               ↕
+    //                           [Storage]
     constexpr int kSOH = 60;
-    const int kSOCX = kPad + kSlotStep + kArrow + kSONodeW / 2;
+    const int kSOCX = kBaseX + kSlotStep + kArrow + kSONodeW / 2;
     const int kInvX = kSOCX + kSONodeW / 2 + kArrow;
     const int kGenX = kInvX + kSlotStep;
     generatorsView->setPos(kGenX, kPad);
-    const int centerY = kPad + generatorsView->totalHeight() / 2;
+    centerY = kPad + generatorsView->totalHeight() / 2;
 
     lcpcSlot = makeSlot("LCPC Transformer", ":/images/mini_icons/transformer.png");
-    lcpcSlot->setPos(kPad, centerY - kSlotH / 2);
+    lcpcSlot->setPos(kBaseX, centerY - kSlotH / 2);
 
     addStorageOpNode(kSOCX, centerY, kSOH);
 
@@ -573,11 +561,39 @@ void ElectricLoadCenterDistributionTabController::buildDetailScene(const model::
     storageSlot = makeSlot("Drop Storage", ":/images/mini_icons/elec_storage.png");
     storageSlot->setPos(kSOCX - kSlotW / 2, storageTopY);
 
-    addBidirH(kPad + kSlotW, centerY, kSOCX - kSONodeW / 2);
+    addBidirH(kBaseX + kSlotW, centerY, kSOCX - kSONodeW / 2);
     addArrowLine(m_detailScene, kInvX, centerY, kSOCX + kSONodeW / 2, centerY, arrowPen);
     addArrowLine(m_detailScene, kGenX, centerY, kInvX + kSlotW, centerY, arrowPen);
     addBidirV(kSOCX, centerY + kSOH / 2, storageTopY);
-    addMainPanelLabel(kPad, centerY + kSlotH / 2, /*bidir=*/true);
+  }
+
+  // ── 4b. Main Panel block + ELCD container ──────────────────────────────────
+  {
+    constexpr int kContainerPad = 20;
+    const QRectF elcdBounds = m_detailScene->itemsBoundingRect();
+    const QRectF containerRect = elcdBounds.adjusted(-kContainerPad, -kContainerPad, kContainerPad, kContainerPad);
+
+    // ELCD container (behind all slots/arrows, Z=-1 set in constructor)
+    auto* container = new ELCDDetailContainerItem(containerRect, elcd.handle());
+    m_detailScene->addItem(container);
+
+    // Main Panel block — vertically matches the container
+    auto* mainPanelItem = new ELCDMainPanelItem();
+    mainPanelItem->setHeight(static_cast<int>(containerRect.height()));
+    mainPanelItem->setPos(kPad, containerRect.top());
+    m_detailScene->addItem(mainPanelItem);
+
+    // Arrow(s) between Main Panel right edge and LCPC left edge
+    const int mpRightX = kPad + ELCDMainPanelItem::kPanelWidth;
+    const bool hasStorage = (bussType != "AlternatingCurrent" && bussType != "DirectCurrentWithInverter");
+    if (hasStorage) {
+      addBidirH(mpRightX, centerY, kBaseX);
+    } else {
+      addArrowLine(m_detailScene, kBaseX, centerY, mpRightX, centerY, arrowPen);
+    }
+
+    connect(mainPanelItem, &ELCDMainPanelItem::clicked, this, &ElectricLoadCenterDistributionTabController::zoomOutToGridView);
+    connect(container, &ELCDDetailContainerItem::inspectClicked, this, &ElectricLoadCenterDistributionTabController::onDetailELCDInspect);
   }
 
   // ── 5. Populate slot states & wire signals ─────────────────────────────────
@@ -1118,6 +1134,16 @@ void ElectricLoadCenterDistributionTabController::onDetailGeneratorClick(const H
     //     break;
     //   }
     // }
+  }
+}
+
+void ElectricLoadCenterDistributionTabController::onDetailELCDInspect(const Handle& /*handle*/) {
+  if (!m_currentELCD) {
+    return;
+  }
+  if (auto doc = OSAppBase::instance()->currentDocument()) {
+    model::OptionalModelObject mo = *m_currentELCD;
+    doc->mainRightColumnController()->inspectModelObject(mo, false);
   }
 }
 

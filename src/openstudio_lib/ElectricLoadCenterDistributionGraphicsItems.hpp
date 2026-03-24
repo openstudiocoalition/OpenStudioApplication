@@ -131,6 +131,7 @@ class ELCDUtilityGridPanel : public QGraphicsObject
 
 // ─── ELCDMainPanelItem ───────────────────────────────────────────────────────
 // Centre column of the overview: Main Panel with subpanel connection stubs.
+// In the detail view it also acts as a "Back to overview" clickable button.
 class ELCDMainPanelItem : public QGraphicsObject
 {
   Q_OBJECT;
@@ -143,11 +144,42 @@ class ELCDMainPanelItem : public QGraphicsObject
 
   static constexpr int kPanelWidth = 160;
 
+ signals:
+  void clicked();
+
  protected:
   void paint(QPainter* painter, const QStyleOptionGraphicsItem* option, QWidget* widget) override;
+  void mousePressEvent(QGraphicsSceneMouseEvent* event) override;
+  void mouseReleaseEvent(QGraphicsSceneMouseEvent* event) override;
 
  private:
   int m_height = 340;
+  bool m_mouseDown{false};
+};
+
+// ─── ELCDDetailContainerItem ─────────────────────────────────────────────────
+// Rounded-rect background block wrapping all ELCD components in the detail view.
+// Clicking anywhere on the background (not on a drop zone) opens the ELCD inspector.
+class ELCDDetailContainerItem : public QGraphicsObject
+{
+  Q_OBJECT;
+
+ public:
+  explicit ELCDDetailContainerItem(const QRectF& rect, const Handle& elcdHandle);
+  QRectF boundingRect() const override;
+
+ signals:
+  void inspectClicked(const Handle& handle);
+
+ protected:
+  void paint(QPainter* painter, const QStyleOptionGraphicsItem* option, QWidget* widget) override;
+  void mousePressEvent(QGraphicsSceneMouseEvent* event) override;
+  void mouseReleaseEvent(QGraphicsSceneMouseEvent* event) override;
+
+ private:
+  QRectF m_rect;
+  Handle m_handle;
+  bool m_mouseDown{false};
 };
 
 // ─── ELCDTransformerDropZoneView ─────────────────────────────────────────────

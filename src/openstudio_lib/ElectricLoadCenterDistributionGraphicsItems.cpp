@@ -413,6 +413,19 @@ QRectF ELCDMainPanelItem::boundingRect() const {
   return {0, 0, kPanelWidth, static_cast<double>(m_height)};
 }
 
+void ELCDMainPanelItem::mousePressEvent(QGraphicsSceneMouseEvent* event) {
+  m_mouseDown = true;
+  event->accept();
+}
+
+void ELCDMainPanelItem::mouseReleaseEvent(QGraphicsSceneMouseEvent* event) {
+  if (m_mouseDown && boundingRect().contains(event->pos())) {
+    emit clicked();
+  }
+  m_mouseDown = false;
+  event->accept();
+}
+
 void ELCDMainPanelItem::paint(QPainter* painter, const QStyleOptionGraphicsItem* /*option*/, QWidget* /*widget*/) {
   // Dashed border box
   QPen dashBorder(QColor(100, 120, 160), 1.5, Qt::DashLine);
@@ -441,6 +454,36 @@ void ELCDMainPanelItem::paint(QPainter* painter, const QStyleOptionGraphicsItem*
   painter->setPen(arrowPen2);
   painter->setBrush(QColor(100, 100, 120));
   drawArrow(painter, QPointF(kPanelWidth / 2, m_height - 18), QPointF(kPanelWidth / 2, m_height - 4));
+}
+
+// ─── ELCDDetailContainerItem ─────────────────────────────────────────────────
+
+ELCDDetailContainerItem::ELCDDetailContainerItem(const QRectF& rect, const Handle& elcdHandle) : m_rect(rect), m_handle(elcdHandle) {
+  setZValue(-1);
+}
+
+QRectF ELCDDetailContainerItem::boundingRect() const {
+  return m_rect;
+}
+
+void ELCDDetailContainerItem::mousePressEvent(QGraphicsSceneMouseEvent* event) {
+  m_mouseDown = true;
+  event->accept();
+}
+
+void ELCDDetailContainerItem::mouseReleaseEvent(QGraphicsSceneMouseEvent* event) {
+  if (m_mouseDown && boundingRect().contains(event->pos())) {
+    emit inspectClicked(m_handle);
+  }
+  m_mouseDown = false;
+  event->accept();
+}
+
+void ELCDDetailContainerItem::paint(QPainter* painter, const QStyleOptionGraphicsItem* /*option*/, QWidget* /*widget*/) {
+  painter->setRenderHint(QPainter::Antialiasing, true);
+  painter->setBrush(QColor(235, 242, 252));
+  painter->setPen(QPen(QColor(70, 130, 180), 1.5));
+  painter->drawRoundedRect(m_rect.adjusted(1, 1, -1, -1), 8, 8);
 }
 
 // ─── ELCDComponentSlotView ───────────────────────────────────────────────────
