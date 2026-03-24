@@ -613,25 +613,33 @@ void ElectricLoadCenterDistributionTabController::buildDetailScene(const model::
 
   // ── 5. Populate slot states & wire signals ─────────────────────────────────
   if (lcpcSlot) {
-    if (auto xfmr = elcd.transformer()) lcpcSlot->setFilled(true, QString::fromStdString(xfmr->nameString()));
+    if (auto transformer_ = elcd.transformer()) {
+      lcpcSlot->setFilled(true, QString::fromStdString(transformer_->nameString()));
+    }
     connect(lcpcSlot, &OSDropZoneItem::componentDropped, this, &ElectricLoadCenterDistributionTabController::onDetailLCPCTransformerDrop);
     connect(lcpcSlot, &ELCDComponentSlotView::removeClicked, this, &ElectricLoadCenterDistributionTabController::onDetailLCPCTransformerRemove);
     connect(lcpcSlot, &OSDropZoneItem::mouseClicked, this, &ElectricLoadCenterDistributionTabController::onDetailLCPCTransformerClick);
   }
   if (inverterSlot) {
-    if (auto inv = elcd.inverter()) inverterSlot->setFilled(true, QString::fromStdString(inv->nameString()));
+    if (auto inv_ = elcd.inverter()) {
+      inverterSlot->setFilled(true, QString::fromStdString(inv_->nameString()));
+    }
     connect(inverterSlot, &OSDropZoneItem::componentDropped, this, &ElectricLoadCenterDistributionTabController::onDetailInverterDrop);
     connect(inverterSlot, &ELCDComponentSlotView::removeClicked, this, &ElectricLoadCenterDistributionTabController::onDetailInverterRemove);
     connect(inverterSlot, &OSDropZoneItem::mouseClicked, this, &ElectricLoadCenterDistributionTabController::onDetailInverterClick);
   }
   if (storageSlot) {
-    if (auto sto = elcd.electricalStorage()) storageSlot->setFilled(true, QString::fromStdString(sto->nameString()));
+    if (auto sto_ = elcd.electricalStorage()) {
+      storageSlot->setFilled(true, QString::fromStdString(sto_->nameString()));
+    }
     connect(storageSlot, &OSDropZoneItem::componentDropped, this, &ElectricLoadCenterDistributionTabController::onDetailStorageDrop);
     connect(storageSlot, &ELCDComponentSlotView::removeClicked, this, &ElectricLoadCenterDistributionTabController::onDetailStorageRemove);
     connect(storageSlot, &OSDropZoneItem::mouseClicked, this, &ElectricLoadCenterDistributionTabController::onDetailStorageClick);
   }
   if (converterSlot) {
-    if (auto conv = elcd.storageConverter()) converterSlot->setFilled(true, QString::fromStdString(conv->nameString()));
+    if (auto conv_ = elcd.storageConverter()) {
+      converterSlot->setFilled(true, QString::fromStdString(conv_->nameString()));
+    }
     connect(converterSlot, &OSDropZoneItem::componentDropped, this, &ElectricLoadCenterDistributionTabController::onDetailConverterDrop);
     connect(converterSlot, &ELCDComponentSlotView::removeClicked, this, &ElectricLoadCenterDistributionTabController::onDetailConverterRemove);
     connect(converterSlot, &OSDropZoneItem::mouseClicked, this, &ElectricLoadCenterDistributionTabController::onDetailConverterClick);
@@ -1057,12 +1065,12 @@ void ElectricLoadCenterDistributionTabController::onDetailLCPCTransformerDrop(co
   if (!mo) {
     return;
   }
-  auto xfmr_ = mo->optionalCast<model::ElectricLoadCenterTransformer>();
-  if (!xfmr_) {
+  auto transformer_ = mo->optionalCast<model::ElectricLoadCenterTransformer>();
+  if (!transformer_) {
     return;
   }
   const bool isFromLibrary = doc->fromComponentLibrary(itemId);
-  model::ElectricLoadCenterTransformer transformer = isFromLibrary ? xfmr_->clone(m_model).cast<model::ElectricLoadCenterTransformer>() : *xfmr_;
+  model::ElectricLoadCenterTransformer transformer = isFromLibrary ? transformer_->clone(m_model).cast<model::ElectricLoadCenterTransformer>() : *transformer_;
 
   const std::string expectedUsage = "LoadCenterPowerConditioning";
   if (!openstudio::istringEqual(transformer.transformerUsage(), expectedUsage)) {
@@ -1136,12 +1144,12 @@ void ElectricLoadCenterDistributionTabController::onDetailLCPCTransformerClick()
   if (!m_currentELCD) {
     return;
   }
-  auto xfmr_ = m_currentELCD->transformer();
-  if (!xfmr_) {
+  auto transformer_ = m_currentELCD->transformer();
+  if (!transformer_) {
     return;
   }
   if (auto doc = OSAppBase::instance()->currentDocument()) {
-    model::OptionalModelObject mo = *xfmr_;
+    model::OptionalModelObject mo = *transformer_;
     doc->mainRightColumnController()->inspectModelObject(mo, false);
   }
 }
