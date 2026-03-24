@@ -80,6 +80,7 @@ class ELCDSystemMiniView : public QGraphicsObject
   void setName(const QString& name);
   void setBussType(const QString& bussType);
   void setHandle(const Handle& handle);
+  void setELCDInfo(int numGenerators, int numConverter, int numInverter, int numStorage, int numTransformers);
 
  signals:
   void zoomInClicked(const Handle& handle);
@@ -99,6 +100,11 @@ class ELCDSystemMiniView : public QGraphicsObject
   QString m_name;
   QString m_bussType;
   Handle m_handle;
+  int m_numGenerators = 0;
+  int m_numConverter = 0;
+  int m_numInverter = 0;
+  int m_numStorage = 0;
+  int m_numTransformers = 0;
 
  private slots:
   void onRemoveButtonClicked();

@@ -161,7 +161,7 @@ int ELCDSystemMiniView::headerHeight() {
 }
 
 int ELCDSystemMiniView::cellHeight() {
-  return 160;
+  return 180;
 }
 
 QSize ELCDSystemMiniView::cellSize() {
@@ -215,6 +215,15 @@ void ELCDSystemMiniView::setHandle(const Handle& handle) {
   m_handle = handle;
 }
 
+void ELCDSystemMiniView::setELCDInfo(int numGenerators, int numConverter, int numInverter, int numStorage, int numTransformers) {
+  m_numGenerators = numGenerators;
+  m_numConverter = numConverter;
+  m_numInverter = numInverter;
+  m_numStorage = numStorage;
+  m_numTransformers = numTransformers;
+  update();
+}
+
 void ELCDSystemMiniView::onRemoveButtonClicked() {
   emit removeClicked(m_handle);
 }
@@ -263,6 +272,32 @@ void ELCDSystemMiniView::paint(QPainter* painter, const QStyleOptionGraphicsItem
   const int iconY = static_cast<int>(bussRect.center().y() - (scaled.height() / 2.0));
   /// const int iconY = static_cast<int>((boundingRect().height() - scaled.height()) / 2.0);
   painter->drawPixmap(iconX, iconY, scaled);
+
+  // ELCD info rows with mini_icons and counts
+  struct InfoRow {
+    QString label;
+    int count;
+    QString iconPath;
+  };
+  std::vector<InfoRow> infoRows = {{"Generators", m_numGenerators, ":/images/mini_icons/pv_panel.png"},
+                                   {"Converters", m_numConverter, ":/images/mini_icons/ac_left_dc_right.png"},
+                                   {"Inverters", m_numInverter, ":/images/mini_icons/dc_left_ac_right.png"},
+                                   {"Storage", m_numStorage, ":/images/mini_icons/elec_storage.png"},
+                                   {"Transformers", m_numTransformers, ":/images/mini_icons/transformer.png"}};
+  int numRow = 0;
+  for (const auto& row : infoRows) {
+    if (row.count <= 0) {
+      continue;
+    }
+    const int rowY = static_cast<int>(bussRect.bottom() + 8 + (numRow * 20));
+    // Icon
+    const QPixmap rowIcon = QPixmap(row.iconPath).scaled(kIconSize, kIconSize, Qt::KeepAspectRatio, Qt::SmoothTransformation);
+    painter->drawPixmap(8, rowY, rowIcon);
+    // Text
+    QRectF rowTextRect(8 + kIconSize + 4, rowY, cellWidth() - (8 + kIconSize + 12), 20);
+    painter->drawText(rowTextRect, Qt::AlignVCenter | Qt::AlignLeft, QString("%1: %2").arg(row.label).arg(row.count));
+    ++numRow;
+  }
 }
 
 // ─── ELCDUtilityGridPanel ────────────────────────────────────────────────────

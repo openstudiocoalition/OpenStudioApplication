@@ -1346,6 +1346,15 @@ QGraphicsObject* ELCDItemDelegate::view(QSharedPointer<OSListItem> dataSource) {
     miniView->setName(item->name());
     miniView->setBussType(item->bussType());
     miniView->setHandle(item->elcd().handle());
+    {
+      auto elcd = item->elcd();
+      int numGenerators = static_cast<int>(elcd.generators().size());
+      int numConverter = elcd.storageConverter() ? 1 : 0;
+      int numInverter = elcd.inverter() ? 1 : 0;
+      int numStorage = elcd.electricalStorage() ? 1 : 0;
+      int numTransformers = elcd.transformer() ? 1 : 0;
+      miniView->setELCDInfo(numGenerators, numConverter, numInverter, numStorage, numTransformers);
+    }
 
     connect(miniView, &ELCDSystemMiniView::removeClicked, item, &ELCDListItem::remove);
     connect(miniView, &ELCDSystemMiniView::zoomInClicked, qobject_cast<ELCDListController*>(item->controller())->tabController(),
