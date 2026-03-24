@@ -156,6 +156,7 @@ void OSQuantityEdit2::completeBind(bool isIP, const model::ModelObject& modelObj
   m_isAutosized = isAutosized;
   m_isAutocalculated = isAutocalculated;
 
+  m_lineEdit->setLocked(false);
   setEnabled(true);
 
   connect(m_lineEdit, &QLineEdit::editingFinished, this,
