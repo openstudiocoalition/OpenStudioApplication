@@ -304,10 +304,18 @@ void ELCDUtilityGridPanel::paint(QPainter* painter, const QStyleOptionGraphicsIt
   static constexpr int kPowerOutDropY = kPowerOutCentreY - (kDropH / 2);
   static constexpr int kMidX = kPanelWidth / 2;
 
-  // Panel background + border (no title bar — the power grid icon to the left serves that role)
+  // Panel background + border
   painter->setBrush(QColor(245, 247, 250));
   painter->setPen(QPen(QColor(150, 160, 175), 1));
   painter->drawRect(0, 0, kPanelWidth, kPanelHeight);
+
+  // Title
+  QFont f = painter->font();
+  f.setBold(true);
+  f.setPointSize(14);
+  painter->setFont(f);
+  painter->setPen(QColor(60, 80, 120));
+  painter->drawText(QRectF(0, 8, kPanelWidth, 20), Qt::AlignCenter, "GRID TRANSFORMERS");
 
   // Labels above drop zones
   QFont lf = painter->font();
@@ -317,11 +325,6 @@ void ELCDUtilityGridPanel::paint(QPainter* painter, const QStyleOptionGraphicsIt
   painter->setPen(QColor(60, 60, 80));
   painter->drawText(QRectF(kDropX, kPowerInDropY - 15, kDropW, 14), Qt::AlignVCenter | Qt::AlignLeft, "Power In From Grid:");
   painter->drawText(QRectF(kDropX, kPowerOutDropY - 15, kDropW, 14), Qt::AlignVCenter | Qt::AlignLeft, "Power Out To Grid:");
-
-  // Vertical dashed line connecting the two drop zones
-  QPen dashPen(QColor(130, 140, 160), 1, Qt::DashLine);
-  painter->setPen(dashPen);
-  painter->drawLine(kMidX, kPowerInDropY + kDropH + 4, kMidX, kPowerOutDropY - 4);
 
   QPen arrowPen(QColor(70, 130, 180), 1.5);
   painter->setPen(arrowPen);
