@@ -1771,6 +1771,18 @@
     <rule IddField="Heat Recovery Water Inlet Node Name" Access="HIDDEN" />
     <rule IddField="Heat Recovery Water Outlet Node Name" Access="HIDDEN" />
   </POLICY>
+  <POLICY IddObjectType="OS_ElectricLoadCenter_Distribution">
+    <!-- Relationship fields managed by the detail view drop zones — hide to avoid confusion -->
+    <rule IddField="Generator List Name" Access="HIDDEN" />
+    <rule IddField="Inverter Name" Access="HIDDEN" />
+    <rule IddField="Electrical Storage Object Name" Access="HIDDEN" />
+    <rule IddField="Transformer Object Name" Access="HIDDEN" />
+    <rule IddField="Storage Converter Object Name" Access="HIDDEN" />
+    <!-- Controlled by the Buss Type / Gen Op Scheme combo boxes in the header bar -->
+    <rule IddField="Electrical Buss Type" Access="LOCKED" />
+    <rule IddField="Generator Operation Scheme Type" Access="LOCKED" />
+    <rule IddField="Storage Operation Scheme" Access="LOCKED" />
+  </POLICY>
   <POLICY IddObjectType="OS_PlantComponent_UserDefined">
     <rule IddField="Plant Inlet Node Name" Access="HIDDEN" />
     <rule IddField="Plant Outlet Node Name" Access="HIDDEN" />
