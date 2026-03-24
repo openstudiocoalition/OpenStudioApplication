@@ -91,6 +91,47 @@ class ELCDSystemMiniView : public QGraphicsObject
   void onZoomInButtonClicked();
 };
 
+// ─── ELCDUtilityGridPanel ────────────────────────────────────────────────────
+// Left column of the overview: Utility Grid label + two transformer drop zones.
+class ELCDUtilityGridPanel : public QGraphicsObject
+{
+  Q_OBJECT;
+
+ public:
+  ELCDUtilityGridPanel();
+  QRectF boundingRect() const override;
+
+  OSDropZoneItem* powerInDropZone{nullptr};   // PowerInFromGrid transformer
+  OSDropZoneItem* powerOutDropZone{nullptr};  // PowerOutToGrid transformer
+
+  // Y-coordinates (panel-local) of each drop zone centre — used by the
+  // controller to draw connecting arrows to the Main Panel item.
+  static constexpr int kPowerInCentreY = 90;
+  static constexpr int kPowerOutCentreY = 290;
+  static constexpr int kPanelWidth = 190;
+  static constexpr int kPanelHeight = 340;
+
+ protected:
+  void paint(QPainter* painter, const QStyleOptionGraphicsItem* option, QWidget* widget) override;
+};
+
+// ─── ELCDMainPanelItem ───────────────────────────────────────────────────────
+// Centre column of the overview: Main Panel with subpanel connection stubs.
+class ELCDMainPanelItem : public QGraphicsObject
+{
+  Q_OBJECT;
+
+ public:
+  ELCDMainPanelItem();
+  QRectF boundingRect() const override;
+
+  static constexpr int kPanelWidth = 160;
+  static constexpr int kPanelHeight = 340;
+
+ protected:
+  void paint(QPainter* painter, const QStyleOptionGraphicsItem* option, QWidget* widget) override;
+};
+
 // ─── ELCDDropZoneView ────────────────────────────────────────────────────────
 // "Add / Drop Electric Load Center" placeholder card in overview.
 class ELCDDropZoneView : public OSDropZoneItem

@@ -386,7 +386,7 @@ void OSDocument::createTabButtons() {
                                      ":/images/disabled_hvac_tab.png");
 
   m_mainWindow->addVerticalTabButton(ELECTRIC_LOAD_CENTER, "Electric Load Center", ":/images/on_elcd_tab.png", ":/images/off_elcd_tab.png",
-                                     ":/images/off_elcd_tab.png");
+                                     ":/images/disabled_elcd_tab.png");
 
   //******************************************************************************************************
   //

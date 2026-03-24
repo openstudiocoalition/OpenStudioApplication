@@ -8,6 +8,7 @@
 
 #include <QPainter>
 #include <QApplication>
+#include <cmath>
 #include <QGraphicsView>
 #include <QGraphicsSceneMouseEvent>
 #include <QHBoxLayout>
@@ -194,6 +195,151 @@ void ELCDSystemMiniView::paint(QPainter* painter, const QStyleOptionGraphicsItem
   painter->setFont(contentFont);
   QRectF bussRect(8, headerHeight() + 8, cellWidth() - 16, 20);
   painter->drawText(bussRect, Qt::AlignVCenter | Qt::AlignLeft, "Buss: " + m_bussType);
+}
+
+// ─── ELCDUtilityGridPanel ────────────────────────────────────────────────────
+
+namespace {
+// Draw a line with an open arrowhead (V-shape) at `to`.
+void drawArrow(QPainter* painter, QPointF from, QPointF to) {
+  painter->drawLine(from, to);
+  QPointF dir = to - from;
+  const double len = std::sqrt(dir.x() * dir.x() + dir.y() * dir.y());
+  if (len < 1.0) {
+    return;
+  }
+  dir /= len;
+  const QPointF perp(-dir.y(), dir.x());
+  painter->drawLine(to, to - dir * 8.0 + perp * 4.0);
+  painter->drawLine(to, to - dir * 8.0 - perp * 4.0);
+}
+}  // namespace
+
+ELCDUtilityGridPanel::ELCDUtilityGridPanel() {
+  static constexpr int kDropW = 160;
+  static constexpr int kDropH = 65;
+  static constexpr int kDropX = 15;
+  static constexpr int kPowerInDropY = kPowerInCentreY - kDropH / 2;    // = 57
+  static constexpr int kPowerOutDropY = kPowerOutCentreY - kDropH / 2;  // = 257
+
+  powerInDropZone = new OSDropZoneItem();
+  powerInDropZone->setSize(kDropW, kDropH);
+  powerInDropZone->setText("Drop PowerInFromGrid\nTransformer");
+  powerInDropZone->setParentItem(this);
+  powerInDropZone->setPos(kDropX, kPowerInDropY);
+  powerInDropZone->setAcceptDrops(true);
+
+  powerOutDropZone = new OSDropZoneItem();
+  powerOutDropZone->setSize(kDropW, kDropH);
+  powerOutDropZone->setText("Drop PowerOutToGrid\nTransformer");
+  powerOutDropZone->setParentItem(this);
+  powerOutDropZone->setPos(kDropX, kPowerOutDropY);
+  powerOutDropZone->setAcceptDrops(true);
+}
+
+QRectF ELCDUtilityGridPanel::boundingRect() const {
+  return {0, 0, kPanelWidth, kPanelHeight};
+}
+
+void ELCDUtilityGridPanel::paint(QPainter* painter, const QStyleOptionGraphicsItem* /*option*/, QWidget* /*widget*/) {
+  static constexpr int kDropH = 65;
+  static constexpr int kDropX = 15;
+  static constexpr int kDropW = 160;
+  static constexpr int kPowerInDropY = kPowerInCentreY - kDropH / 2;
+  static constexpr int kPowerOutDropY = kPowerOutCentreY - kDropH / 2;
+  static constexpr int kMidX = kPanelWidth / 2;
+
+  // Panel background + border (no title bar — the power grid icon to the left serves that role)
+  painter->setBrush(QColor(245, 247, 250));
+  painter->setPen(QPen(QColor(150, 160, 175), 1));
+  painter->drawRect(0, 0, kPanelWidth, kPanelHeight);
+
+  // Labels above drop zones
+  QFont lf = painter->font();
+  lf.setBold(false);
+  lf.setPointSize(7);
+  painter->setFont(lf);
+  painter->setPen(QColor(60, 60, 80));
+  painter->drawText(QRectF(kDropX, kPowerInDropY - 15, kDropW, 14), Qt::AlignVCenter | Qt::AlignLeft, "Power In From Grid:");
+  painter->drawText(QRectF(kDropX, kPowerOutDropY - 15, kDropW, 14), Qt::AlignVCenter | Qt::AlignLeft, "Power Out To Grid:");
+
+  // Vertical dashed line connecting the two drop zones
+  QPen dashPen(QColor(130, 140, 160), 1, Qt::DashLine);
+  painter->setPen(dashPen);
+  painter->drawLine(kMidX, kPowerInDropY + kDropH + 4, kMidX, kPowerOutDropY - 4);
+
+  QPen arrowPen(QColor(70, 130, 180), 1.5);
+  painter->setPen(arrowPen);
+  painter->setBrush(QColor(70, 130, 180));
+
+  // Left-edge stubs: connections from the Utility Grid icon (left) to each drop zone
+  // PowerIn: arrow pointing right (→ power flows from grid into transformer)
+  drawArrow(painter, QPointF(0, kPowerInCentreY), QPointF(kDropX - 2, kPowerInCentreY));
+  // PowerOut: arrow pointing left (← power flows from transformer back to grid)
+  drawArrow(painter, QPointF(kDropX - 2, kPowerOutCentreY), QPointF(0, kPowerOutCentreY));
+
+  // Right-edge stubs: connections from each drop zone to the Main Panel (right)
+  // PowerIn: arrow pointing right (→)
+  drawArrow(painter, QPointF(kDropX + kDropW + 4, kPowerInCentreY), QPointF(kPanelWidth, kPowerInCentreY));
+  // PowerOut: arrow pointing left (←)
+  drawArrow(painter, QPointF(kPanelWidth - 1, kPowerOutCentreY), QPointF(kDropX + kDropW + 4, kPowerOutCentreY));
+}
+
+// ─── ELCDMainPanelItem ───────────────────────────────────────────────────────
+
+ELCDMainPanelItem::ELCDMainPanelItem() = default;
+
+QRectF ELCDMainPanelItem::boundingRect() const {
+  return {0, 0, kPanelWidth, kPanelHeight};
+}
+
+void ELCDMainPanelItem::paint(QPainter* painter, const QStyleOptionGraphicsItem* /*option*/, QWidget* /*widget*/) {
+  // Dashed border box
+  QPen dashBorder(QColor(100, 120, 160), 1.5, Qt::DashLine);
+  painter->setBrush(QColor(240, 244, 250));
+  painter->setPen(dashBorder);
+  painter->drawRect(2, 2, kPanelWidth - 4, kPanelHeight - 4);
+
+  // "MAIN PANEL" title
+  QFont f = painter->font();
+  f.setBold(true);
+  f.setPointSize(8);
+  painter->setFont(f);
+  painter->setPen(QColor(60, 80, 120));
+  painter->drawText(QRectF(0, 8, kPanelWidth, 20), Qt::AlignCenter, "MAIN PANEL");
+
+  // Subpanel arrow stubs on the right edge — indicate ELCD subpanel connections
+  // Two representative rows (y=90 and y=280, matching ELCD card row centres)
+  static constexpr int kSubpanelY0 = ELCDUtilityGridPanel::kPowerInCentreY;  // y=90
+  static constexpr int kSubpanelY1 = 280;
+  QPen arrowPen(QColor(70, 130, 180), 1.5);
+  painter->setPen(arrowPen);
+  painter->setBrush(QColor(70, 130, 180));
+  // Arrows pointing left (◀) — ELCD subpanels feed power INTO the Main Panel
+  drawArrow(painter, QPointF(kPanelWidth - 1, kSubpanelY0), QPointF(8, kSubpanelY0));
+  drawArrow(painter, QPointF(kPanelWidth - 1, kSubpanelY1), QPointF(8, kSubpanelY1));
+
+  // "subpanel" labels next to each arrow
+  QFont sf = painter->font();
+  sf.setBold(false);
+  sf.setPointSize(7);
+  painter->setFont(sf);
+  painter->setPen(QColor(80, 100, 140));
+  painter->drawText(QRectF(10, kSubpanelY0 - 14, kPanelWidth - 14, 12), Qt::AlignLeft | Qt::AlignVCenter, "subpanel");
+  painter->drawText(QRectF(10, kSubpanelY1 - 14, kPanelWidth - 14, 12), Qt::AlignLeft | Qt::AlignVCenter, "subpanel");
+
+  // "Building & HVAC Electric Meters" footer with down arrow
+  QFont ff = painter->font();
+  ff.setPointSize(7);
+  painter->setFont(ff);
+  painter->setPen(QColor(60, 60, 80));
+  QRectF footerRect(4, kPanelHeight - 60, kPanelWidth - 8, 40);
+  painter->drawText(footerRect, Qt::AlignCenter | Qt::TextWordWrap, "Building & HVAC\nElectric Meters");
+
+  QPen arrowPen2(QColor(100, 100, 120), 1.5);
+  painter->setPen(arrowPen2);
+  painter->setBrush(QColor(100, 100, 120));
+  drawArrow(painter, QPointF(kPanelWidth / 2, kPanelHeight - 18), QPointF(kPanelWidth / 2, kPanelHeight - 4));
 }
 
 // ─── ELCDDropZoneView ────────────────────────────────────────────────────────

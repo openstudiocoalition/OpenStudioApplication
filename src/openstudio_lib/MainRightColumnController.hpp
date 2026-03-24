@@ -32,7 +32,7 @@ class MainRightColumnController : public OSQObjectController
  public:
   MainRightColumnController(const model::Model& model, const openstudio::path& resourcesPath);
 
-  virtual ~MainRightColumnController(){};
+  virtual ~MainRightColumnController() {};
 
   HorizontalTabWidget* mainRightColumnView() const;
 

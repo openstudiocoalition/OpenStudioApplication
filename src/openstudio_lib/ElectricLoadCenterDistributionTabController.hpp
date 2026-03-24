@@ -23,6 +23,8 @@ namespace openstudio {
 
 class ELCDView;
 class ELCDScene;
+class ELCDUtilityGridPanel;
+class ELCDMainPanelItem;
 class GridLayoutItem;
 class ELCDListController;
 class OSItemId;
@@ -55,6 +57,9 @@ class ElectricLoadCenterDistributionTabController : public MainTabController
   QPointer<QGraphicsScene> m_detailScene;
 
   QSharedPointer<ELCDListController> m_listController;
+
+  QPointer<ELCDUtilityGridPanel> m_utilityGridPanel;
+  QPointer<ELCDMainPanelItem> m_mainPanelItem;
 
   boost::optional<model::ElectricLoadCenterDistribution> m_currentELCD;
   bool m_dirty = false;

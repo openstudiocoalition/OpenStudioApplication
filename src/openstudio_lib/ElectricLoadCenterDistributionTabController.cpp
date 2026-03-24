@@ -20,6 +20,10 @@
 
 #include <QGraphicsScene>
 #include <QGraphicsView>
+#include <QGraphicsLineItem>
+#include <QGraphicsPixmapItem>
+#include <QGraphicsSimpleTextItem>
+#include <QPixmap>
 #include <QPushButton>
 #include <QTimer>
 
@@ -43,7 +47,64 @@ ElectricLoadCenterDistributionTabController::ElectricLoadCenterDistributionTabCo
   m_elcdGridView->setListController(m_listController);
   m_elcdGridView->setDelegate(QSharedPointer<ELCDItemDelegate>(new ELCDItemDelegate()));
 
+  // ── Overview scene layout ──────────────────────────────────────────────────
+  // Column positions:
+  //   x=0:   power_grid icon          (width=100, icon 70×70 centred)
+  //   x=100: ELCDUtilityGridPanel     (width=190)
+  //   x=330: ELCDMainPanelItem        (width=160)
+  //   x=530: ELCD card grid
+  constexpr int kIconColWidth = 100;
+  constexpr int kIconSize = 70;
+  constexpr int kUtilityPanelX = kIconColWidth;                                         // 100
+  constexpr int kMainPanelX = kUtilityPanelX + ELCDUtilityGridPanel::kPanelWidth + 40;  // 330
+  constexpr int kElcdGridX = kMainPanelX + ELCDMainPanelItem::kPanelWidth + 40;         // 530
+
+  // Power grid icon (leftmost element)
+  const QPixmap gridPixmap(":/images/power_grid.png");
+  if (!gridPixmap.isNull()) {
+    const QPixmap scaled = gridPixmap.scaled(kIconSize, kIconSize, Qt::KeepAspectRatio, Qt::SmoothTransformation);
+    auto* iconItem = m_gridScene->addPixmap(scaled);
+    iconItem->setPos((kIconColWidth - scaled.width()) / 2, (ELCDUtilityGridPanel::kPanelHeight - scaled.height()) / 2);
+
+    auto* label = m_gridScene->addSimpleText("Utility Grid");
+    QFont labelFont;
+    labelFont.setPointSize(7);
+    label->setFont(labelFont);
+    label->setBrush(QColor(60, 60, 80));
+    const int labelX = (kIconColWidth - static_cast<int>(label->boundingRect().width())) / 2;
+    label->setPos(labelX, (ELCDUtilityGridPanel::kPanelHeight - scaled.height()) / 2 + scaled.height() + 4);
+  }
+
+  m_utilityGridPanel = new ELCDUtilityGridPanel();
+  m_gridScene->addItem(m_utilityGridPanel);
+  m_utilityGridPanel->setPos(kUtilityPanelX, 0);
+
+  m_mainPanelItem = new ELCDMainPanelItem();
+  m_gridScene->addItem(m_mainPanelItem);
+  m_mainPanelItem->setPos(kMainPanelX, 0);
+
+  m_elcdGridView->setPos(kElcdGridX, 0);
   m_gridScene->addItem(m_elcdGridView);
+
+  // Connecting lines between columns
+  const QPen connectorPen(QColor(70, 130, 180), 1.5);
+  // Icon → PowerIn transformer (left edge of utility panel)
+  m_gridScene->addLine(kIconColWidth - 20, ELCDUtilityGridPanel::kPowerInCentreY, kUtilityPanelX, ELCDUtilityGridPanel::kPowerInCentreY,
+                       connectorPen);
+  // PowerOut transformer → icon (left edge of utility panel)
+  m_gridScene->addLine(kUtilityPanelX, ELCDUtilityGridPanel::kPowerOutCentreY, kIconColWidth - 20, ELCDUtilityGridPanel::kPowerOutCentreY,
+                       connectorPen);
+  // PowerIn transformer → Main Panel
+  m_gridScene->addLine(kUtilityPanelX + ELCDUtilityGridPanel::kPanelWidth, ELCDUtilityGridPanel::kPowerInCentreY, kMainPanelX,
+                       ELCDUtilityGridPanel::kPowerInCentreY, connectorPen);
+  // Main Panel → PowerOut transformer
+  m_gridScene->addLine(kMainPanelX, ELCDUtilityGridPanel::kPowerOutCentreY, kUtilityPanelX + ELCDUtilityGridPanel::kPanelWidth,
+                       ELCDUtilityGridPanel::kPowerOutCentreY, connectorPen);
+  // Subpanel row 0: ELCD grid → Main Panel right edge (y=90)
+  m_gridScene->addLine(kElcdGridX, ELCDUtilityGridPanel::kPowerInCentreY, kMainPanelX + ELCDMainPanelItem::kPanelWidth,
+                       ELCDUtilityGridPanel::kPowerInCentreY, connectorPen);
+  // Subpanel row 1: y=280
+  m_gridScene->addLine(kElcdGridX, 280, kMainPanelX + ELCDMainPanelItem::kPanelWidth, 280, connectorPen);
 
   this->mainContentWidget()->addTabWidget(m_elcdView);
 

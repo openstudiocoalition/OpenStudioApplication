@@ -164,6 +164,8 @@
     <file>images/disabled_building_tab@2x.png</file>
     <file>images/disabled_constructions_tab.png</file>
     <file>images/disabled_constructions_tab@2x.png</file>
+    <file>images/disabled_elcd_tab.png</file>
+    <file>images/disabled_elcd_tab@2x.png</file>
     <file>images/disabled_hvac_tab.png</file>
     <file>images/disabled_hvac_tab@2x.png</file>
     <file>images/disabled_geometry_tab.png</file>
@@ -318,6 +320,8 @@
     <file>images/off_constructions_tab@2x.png</file>
     <file>images/off_elcd_tab.png</file>
     <file>images/off_elcd_tab@2x.png</file>
+    <file>images/power_grid.png</file>
+    <file>images/power_grid@2x.png</file>
     <file>images/off_hvac_tab.png</file>
     <file>images/off_hvac_tab@2x.png</file>
     <file>images/off_geometry_tab.png</file>
