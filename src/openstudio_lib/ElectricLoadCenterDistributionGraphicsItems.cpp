@@ -250,6 +250,19 @@ void ELCDSystemMiniView::paint(QPainter* painter, const QStyleOptionGraphicsItem
   painter->setFont(contentFont);
   QRectF bussRect(8, headerHeight() + 8, cellWidth() - 16, 20);
   painter->drawText(bussRect, Qt::AlignVCenter | Qt::AlignLeft, "Buss: " + m_bussType);
+
+  bool bussTypeExpectsDC = m_bussType == "DirectCurrentWithInverter" || m_bussType == "DirectCurrentWithInverterDCStorage"
+                           || m_bussType == "DirectCurrentWithInverterACStorage";
+
+  const QPixmap kIcon = bussTypeExpectsDC ? QPixmap(":/images/mini_icons/dc_power.png") : QPixmap(":/images/mini_icons/ac_power.png");
+  constexpr int kIconSize = 24;
+
+  const QPixmap scaled = kIcon.scaled(kIconSize, kIconSize, Qt::KeepAspectRatio, Qt::SmoothTransformation);
+  // Display it on the same row as the bussRect, but right aligned
+  const int iconX = static_cast<int>(bussRect.right() - scaled.width());
+  const int iconY = static_cast<int>(bussRect.center().y() - (scaled.height() / 2.0));
+  /// const int iconY = static_cast<int>((boundingRect().height() - scaled.height()) / 2.0);
+  painter->drawPixmap(iconX, iconY, scaled);
 }
 
 // ─── ELCDUtilityGridPanel ────────────────────────────────────────────────────
