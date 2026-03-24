@@ -394,13 +394,13 @@ void ElectricLoadCenterDistributionTabController::buildDetailScene(const model::
   // Add a "Storage Operation" dashed box centered at (cx, cy) with given height
   auto addStorageOpNode = [&](int cx, int cy, int nodeH) {
     QPen dp(QColor(100, 130, 180), 1.2, Qt::DashLine);
-    m_detailScene->addRect(cx - kSONodeW / 2, cy - nodeH / 2, kSONodeW, nodeH, dp);
+    m_detailScene->addRect(cx - (kSONodeW / 2), cy - (nodeH / 2), kSONodeW, nodeH, dp);
     auto* t = m_detailScene->addText("Storage\nOperation");
     QFont f;
     f.setPointSize(8);
     t->setFont(f);
     t->setDefaultTextColor(QColor(60, 80, 120));
-    t->setPos(cx - t->boundingRect().width() / 2, cy - t->boundingRect().height() / 2);
+    t->setPos(cx - (t->boundingRect().width() / 2), cy - (t->boundingRect().height() / 2));
   };
 
   // Bidir horizontal arrow pair (slightly offset in Y to show both directions)
@@ -519,19 +519,26 @@ void ElectricLoadCenterDistributionTabController::buildDetailScene(const model::
 
     addStorageOpNode(kSOCX, centerY, kSOH);
 
-    // Left vertical: LCPC right edge spans both lane center Y values
-    m_detailScene->addLine(kJuncLX, invCY, kJuncLX, convCY, arrowPen);
-    // Upper lane: left junction → Inverter (energy flows left, arrow tip at left junction)
-    addArrowLine(m_detailScene, kLaneX, invCY, kJuncLX, invCY, arrowPen);
+    // Left side: L-shaped elbow connectors between LCPC and each lane.
+    // Two connection stubs on the LCPC right side, slightly above/below center.
+    const int kMidX = kJuncLX + kArrow / 2;  // elbow column between LCPC and lanes
+    const int kUpperConnY = centerY - 10;     // upper exit on LCPC right edge (for Inverter)
+    const int kLowerConnY = centerY + 10;     // lower exit on LCPC right edge (for Converter)
 
-    // Lower lane: left junction LCPC -> Converter (unidirectional right, tip at Converter)
-    addArrowLine(m_detailScene, kJuncLX, convCY, kLaneX, convCY, arrowPen);
+    // Inverter → LCPC:  [Inv left] ──┐ (elbow down) ──► [LCPC right, arrowhead]
+    m_detailScene->addLine(kLaneX, invCY, kMidX, invCY, arrowPen);         // horizontal from Inv left to elbow
+    m_detailScene->addLine(kMidX, invCY, kMidX, kUpperConnY, arrowPen);    // vertical: invCY → LCPC height
+    addArrowLine(m_detailScene, kMidX, kUpperConnY, kJuncLX, kUpperConnY, arrowPen);  // → LCPC (arrowhead)
 
-    // Right vertical: Inverter/Converter right edges → SO node
-    m_detailScene->addLine(kJuncRX, invCY, kJuncRX, convCY, arrowPen);
-    addArrowLine(m_detailScene, kJuncRX, invCY, kSOCX - kSONodeW / 2, invCY, arrowPen);
+    // LCPC → Converter: [LCPC right] ──┐ (elbow down) ──► [Conv left, arrowhead]
+    m_detailScene->addLine(kJuncLX, kLowerConnY, kMidX, kLowerConnY, arrowPen);  // horizontal from LCPC to elbow
+    m_detailScene->addLine(kMidX, kLowerConnY, kMidX, convCY, arrowPen);         // vertical: LCPC height → convCY
+    addArrowLine(m_detailScene, kMidX, convCY, kLaneX, convCY, arrowPen);        // → Converter (arrowhead)
 
-    // NO, this is unidir converter -> SO addBidirH(kJuncRX, convCY, kSOCX - kSONodeW / 2);
+    // Right: direct arrows from slot right edges to SO node left edge
+    // Upper (Inverter): SO → Inverter, arrowhead at Inverter right edge
+    addArrowLine(m_detailScene, kSOCX - kSONodeW / 2, invCY, kJuncRX, invCY, arrowPen);
+    // Lower (Converter): Converter → SO, arrowhead at SO left edge
     addArrowLine(m_detailScene, kJuncRX, convCY, kSOCX - kSONodeW / 2, convCY, arrowPen);
 
     // SO node → Generators (energy flows into SO from right)
