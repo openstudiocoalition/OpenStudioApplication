@@ -15,6 +15,7 @@
 class QGraphicsView;
 class QPushButton;
 class QLabel;
+class QComboBox;
 
 namespace openstudio {
 
@@ -32,6 +33,17 @@ class ELCDView : public QWidget
 
   QPushButton* oneLevelUpButton;
   QLabel* nameLabel;
+
+  // Row 2 controls
+  QComboBox* bussTypeCombo;
+  QComboBox* genOpSchemeCombo;
+  QPushButton* validateButton;
+  QLabel* validityLabel;
+
+ signals:
+  void bussTypeChangeRequested(const QString& bussType);
+  void genOpSchemeChangeRequested(const QString& scheme);
+  void validateRequested();
 
  protected:
   void wheelEvent(QWheelEvent* event) override;
@@ -164,6 +176,99 @@ class ELCDTransformerDropZoneView : public OSDropZoneItem
  private:
   QString m_placeholderText;
   bool m_filled{false};
+};
+
+// ─── ELCDComponentSlotView ───────────────────────────────────────────────────
+// Generic filled/empty component drop zone for the detail view.
+class ELCDComponentSlotView : public OSDropZoneItem
+{
+  Q_OBJECT;
+
+ public:
+  explicit ELCDComponentSlotView(const QString& emptyLabel, const QString& iconPath = {});
+
+  QRectF boundingRect() const override;
+  void setFilled(bool filled, const QString& name = {});
+
+  RemoveButtonItem* removeButtonItem{nullptr};
+
+ signals:
+  void removeClicked();
+
+ protected:
+  void paint(QPainter* painter, const QStyleOptionGraphicsItem* option, QWidget* widget) override;
+
+ private:
+  QString m_placeholderText;
+  QString m_iconPath;
+  bool m_filled{false};
+};
+
+// ─── ELCDGeneratorItemView ────────────────────────────────────────────────────
+// One row in the generator list.
+class ELCDGeneratorsView;  // forward declaration
+
+class ELCDGeneratorItemView : public QGraphicsObject
+{
+  Q_OBJECT;
+
+ public:
+  explicit ELCDGeneratorItemView(const QString& name, const Handle& handle);
+
+  QRectF boundingRect() const override;
+
+  static constexpr int kHeight = 28;
+
+  RemoveButtonItem* removeButtonItem{nullptr};
+
+ signals:
+  void removeClicked(const Handle& handle);
+
+ protected:
+  void paint(QPainter* painter, const QStyleOptionGraphicsItem* option, QWidget* widget) override;
+
+ private:
+  QString m_name;
+  Handle m_handle;
+
+ private slots:
+  void onRemoveButtonClicked();
+};
+
+// ─── ELCDGeneratorsView ──────────────────────────────────────────────────────
+// Generator list panel with dynamic height.
+class ELCDGeneratorsView : public QGraphicsObject
+{
+  Q_OBJECT;
+
+ public:
+  explicit ELCDGeneratorsView();
+
+  QRectF boundingRect() const override;
+
+  void setGeneratorLabel(const QString& label);
+  void clearGenerators();
+  void addGenerator(const QString& name, const Handle& handle);
+  int totalHeight() const;
+
+  OSDropZoneItem* dropZone{nullptr};
+
+  static constexpr int kWidth = 240;
+  static constexpr int kHeaderH = 28;
+  static constexpr int kItemH = ELCDGeneratorItemView::kHeight;
+  static constexpr int kPad = 4;
+  static constexpr int kDropZoneH = 44;
+
+ signals:
+  void generatorRemoveClicked(const Handle& handle);
+
+ protected:
+  void paint(QPainter* painter, const QStyleOptionGraphicsItem* option, QWidget* widget) override;
+
+ private:
+  QString m_generatorLabel{"Generators"};
+  QVector<ELCDGeneratorItemView*> m_generatorItems;
+  void repositionItems();
 };
 
 // ─── ELCDDropZoneView ────────────────────────────────────────────────────────

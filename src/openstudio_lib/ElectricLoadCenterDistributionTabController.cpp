@@ -20,11 +20,22 @@
 #include <openstudio/model/ElectricLoadCenterDistribution_Impl.hpp>
 #include <openstudio/model/ElectricLoadCenterTransformer.hpp>
 #include <openstudio/model/ElectricLoadCenterTransformer_Impl.hpp>
+#include <openstudio/model/Generator.hpp>
+#include <openstudio/model/Generator_Impl.hpp>
+#include <openstudio/model/Inverter.hpp>
+#include <openstudio/model/Inverter_Impl.hpp>
+#include <openstudio/model/ElectricalStorage_Impl.hpp>
+#include <openstudio/model/ElectricalStorage.hpp>
+#include <openstudio/model/ElectricLoadCenterStorageConverter.hpp>
+#include <openstudio/model/ElectricLoadCenterStorageConverter_Impl.hpp>
+
 #include <openstudio/utilities/core/Assert.hpp>
+#include <openstudio/utilities/core/Compare.hpp>
+#include <openstudio/utilities/core/StringStreamLogSink.hpp>
 
 #include <algorithm>
-#include <openstudio/utilities/core/Compare.hpp>
 
+#include <QComboBox>
 #include <QGraphicsLineItem>
 #include <QMessageBox>
 #include <QGraphicsScene>
@@ -32,6 +43,7 @@
 #include <QGraphicsView>
 #include <QPixmap>
 #include <QPushButton>
+#include <QSignalBlocker>
 #include <QTimer>
 
 namespace openstudio {
@@ -63,6 +75,11 @@ ElectricLoadCenterDistributionTabController::ElectricLoadCenterDistributionTabCo
     m_gridScene(new QGraphicsScene()) {
 
   connect(m_elcdView->oneLevelUpButton, &QPushButton::clicked, this, &ElectricLoadCenterDistributionTabController::zoomOutToGridView);
+
+  // Connect detail view header signals
+  connect(m_elcdView, &ELCDView::bussTypeChangeRequested, this, &ElectricLoadCenterDistributionTabController::onBussTypeChangeRequested);
+  connect(m_elcdView, &ELCDView::genOpSchemeChangeRequested, this, &ElectricLoadCenterDistributionTabController::onGenOpSchemeChangeRequested);
+  connect(m_elcdView, &ELCDView::validateRequested, this, &ElectricLoadCenterDistributionTabController::onValidateRequested);
 
   m_elcdGridView->setCellSize(ELCDSystemMiniView::cellSize());
   m_elcdGridView->setMargin(10);
@@ -165,16 +182,26 @@ void ElectricLoadCenterDistributionTabController::zoomInOnELCD(const Handle& han
 
   m_currentELCD = elcd;
 
-  if (m_detailScene) {
-    m_detailScene->deleteLater();
-  }
-  m_detailScene = new ELCDScene();
-
   m_elcdView->nameLabel->setText(QString::fromStdString(elcd->nameString()));
   m_elcdView->header->show();
-  m_elcdView->graphicsView->setScene(m_detailScene);
   m_elcdView->graphicsView->setAlignment(Qt::AlignCenter);
   m_elcdView->resetZoom();
+
+  // Update combos (block signals to avoid triggering model mutations)
+  {
+    QSignalBlocker blocker1(m_elcdView->bussTypeCombo);
+    QSignalBlocker blocker2(m_elcdView->genOpSchemeCombo);
+    const int btIdx = m_elcdView->bussTypeCombo->findText(QString::fromStdString(elcd->electricalBussType()));
+    if (btIdx >= 0) {
+      m_elcdView->bussTypeCombo->setCurrentIndex(btIdx);
+    }
+    const int gsIdx = m_elcdView->genOpSchemeCombo->findText(QString::fromStdString(elcd->generatorOperationSchemeType()));
+    if (gsIdx >= 0) {
+      m_elcdView->genOpSchemeCombo->setCurrentIndex(gsIdx);
+    }
+  }
+
+  buildDetailScene(*elcd);
 }
 
 void ElectricLoadCenterDistributionTabController::zoomOutToGridView() {
@@ -205,6 +232,26 @@ void ElectricLoadCenterDistributionTabController::refreshNow() {
     return;
   }
   m_dirty = false;
+
+  // If in detail view, rebuild the detail scene
+  if (m_currentELCD) {
+    auto elcd_ = m_model.getModelObject<model::ElectricLoadCenterDistribution>(m_currentELCD->handle());
+    if (elcd_) {
+      m_currentELCD = elcd_;
+      buildDetailScene(*elcd_);
+      QSignalBlocker blocker1(m_elcdView->bussTypeCombo);
+      QSignalBlocker blocker2(m_elcdView->genOpSchemeCombo);
+      const int btIdx = m_elcdView->bussTypeCombo->findText(QString::fromStdString(elcd_->electricalBussType()));
+      if (btIdx >= 0) {
+        m_elcdView->bussTypeCombo->setCurrentIndex(btIdx);
+      }
+      const int gsIdx = m_elcdView->genOpSchemeCombo->findText(QString::fromStdString(elcd_->generatorOperationSchemeType()));
+      if (gsIdx >= 0) {
+        m_elcdView->genOpSchemeCombo->setCurrentIndex(gsIdx);
+      }
+    }
+    return;  // don't update overview items when in detail view
+  }
 
   // Clear old dynamic connector items (lines + arrowheads)
   for (QGraphicsItem* item : m_elcdConnectorItems) {
@@ -277,6 +324,191 @@ void ElectricLoadCenterDistributionTabController::refreshNow() {
     m_elcdConnectorItems.append(m_gridScene->addLine(m_kElcdGridX, connY, tx, connY, connectorPen));
     m_elcdConnectorItems.append(m_gridScene->addLine(tx, connY, tx + 8.0, connY - 4.0, connectorPen));
     m_elcdConnectorItems.append(m_gridScene->addLine(tx, connY, tx + 8.0, connY + 4.0, connectorPen));
+  }
+}
+
+// ─── buildDetailScene ─────────────────────────────────────────────────────────
+
+void ElectricLoadCenterDistributionTabController::buildDetailScene(const model::ElectricLoadCenterDistribution& elcd) {
+  // Layout constants.
+  // Left-to-right order: [← Main Panel] [LCPC] → [components...] → [Generators]
+  constexpr int kPad = 20;
+  constexpr int kArrow = 30;
+  constexpr int kSlotW = 140;
+  constexpr int kSlotH = 70;
+  constexpr int kSlotStep = kSlotW + kArrow;
+
+  // 1. Clear and recreate scene
+  if (m_detailScene) {
+    m_detailScene->clear();
+    delete m_detailScene;
+  }
+  m_detailScene = new ELCDScene();
+  m_elcdView->graphicsView->setScene(m_detailScene);
+
+  // 2. Determine slot sequence (LCPC first, generators on far right)
+  const std::string bussType = elcd.electricalBussType();
+  const bool isDC =
+    (bussType == "DirectCurrentWithInverter" || bussType == "DirectCurrentWithInverterDCStorage" || bussType == "DirectCurrentWithInverterACStorage");
+
+  struct SlotSpec
+  {
+    enum Type
+    {
+      LCPCTransformer,
+      Inverter,
+      Storage,
+      Converter
+    } type;
+  };
+
+  QVector<SlotSpec> slotSequence;
+  if (bussType == "AlternatingCurrent") {
+    slotSequence = {{SlotSpec::LCPCTransformer}};
+  } else if (bussType == "AlternatingCurrentWithStorage") {
+    slotSequence = {{SlotSpec::LCPCTransformer}, {SlotSpec::Converter}, {SlotSpec::Storage}};
+  } else if (bussType == "DirectCurrentWithInverter") {
+    slotSequence = {{SlotSpec::LCPCTransformer}, {SlotSpec::Inverter}};
+  } else if (bussType == "DirectCurrentWithInverterDCStorage") {
+    slotSequence = {{SlotSpec::LCPCTransformer}, {SlotSpec::Inverter}, {SlotSpec::Converter}, {SlotSpec::Storage}};
+  } else if (bussType == "DirectCurrentWithInverterACStorage") {
+    slotSequence = {{SlotSpec::LCPCTransformer}, {SlotSpec::Storage}, {SlotSpec::Inverter}};
+  } else {
+    slotSequence = {{SlotSpec::LCPCTransformer}};
+  }
+
+  // 3. Generators panel X: right of all slots
+  const int numSlots = slotSequence.size();
+  const int kFirstSlotX = kPad;
+  const int kGenX = kFirstSlotX + numSlots * kSlotStep;
+
+  // 4. Create ELCDGeneratorsView on the RIGHT
+  auto* generatorsView = new ELCDGeneratorsView();
+  m_detailScene->addItem(generatorsView);
+  generatorsView->setPos(kGenX, kPad);
+  generatorsView->setGeneratorLabel(isDC ? "Generators (DC)" : "Generators (AC)");
+
+  // 5. Populate generators
+  for (const auto& gen : elcd.generators()) {
+    generatorsView->addGenerator(QString::fromStdString(gen.nameString()), gen.handle());
+  }
+
+  // 6. Connect generator signals
+  connect(generatorsView->dropZone, &OSDropZoneItem::componentDropped, this, &ElectricLoadCenterDistributionTabController::onDetailGeneratorDrop);
+  connect(generatorsView, &ELCDGeneratorsView::generatorRemoveClicked, this, &ElectricLoadCenterDistributionTabController::onDetailGeneratorRemove);
+
+  // 7. Vertical center
+  const int genH = generatorsView->totalHeight();
+  const int centerY = kPad + genH / 2;
+
+  const QPen arrowPen(QColor(70, 130, 180), 1.5);
+
+  // 8. Build slot views left-to-right
+  ELCDComponentSlotView* inverterSlot = nullptr;
+  ELCDComponentSlotView* storageSlot = nullptr;
+  ELCDComponentSlotView* converterSlot = nullptr;
+  ELCDComponentSlotView* lcpcSlot = nullptr;
+
+  int lastSlotRightX = kFirstSlotX;
+
+  for (int i = 0; i < numSlots; ++i) {
+    const SlotSpec& spec = slotSequence[i];
+    const int slotX = kFirstSlotX + i * kSlotStep;
+
+    QString emptyLabel;
+    QString iconPath;
+    switch (spec.type) {
+      case SlotSpec::LCPCTransformer:
+        emptyLabel = "LCPC Transformer";
+        iconPath = ":/images/mini_icons/transformer.png";
+        break;
+      case SlotSpec::Inverter:
+        emptyLabel = "Drop Inverter";
+        iconPath = {};
+        break;
+      case SlotSpec::Storage:
+        emptyLabel = "Drop Storage";
+        iconPath = {};
+        break;
+      case SlotSpec::Converter:
+        emptyLabel = "Drop Converter";
+        iconPath = {};
+        break;
+    }
+
+    auto* slotView = new ELCDComponentSlotView(emptyLabel, iconPath);
+    m_detailScene->addItem(slotView);
+    slotView->setPos(slotX, centerY - kSlotH / 2);
+
+    // Arrow from previous slot right edge to this slot left edge
+    if (i > 0) {
+      addArrowLine(m_detailScene, slotX - kArrow, centerY, slotX, centerY, arrowPen);
+    }
+
+    lastSlotRightX = slotX + kSlotW;
+
+    switch (spec.type) {
+      case SlotSpec::LCPCTransformer:
+        lcpcSlot = slotView;
+        break;
+      case SlotSpec::Inverter:
+        inverterSlot = slotView;
+        break;
+      case SlotSpec::Storage:
+        storageSlot = slotView;
+        break;
+      case SlotSpec::Converter:
+        converterSlot = slotView;
+        break;
+    }
+  }
+
+  // 9. Arrow from last slot right edge to generators panel
+  addArrowLine(m_detailScene, lastSlotRightX, centerY, kGenX, centerY, arrowPen);
+
+  // 10. "← Main Panel" label below the LCPC slot
+  auto* mainPanelLabel = m_detailScene->addSimpleText("\u2190 Main Panel");
+  QFont labelFont;
+  labelFont.setPointSize(9);
+  mainPanelLabel->setFont(labelFont);
+  mainPanelLabel->setBrush(QColor(60, 80, 120));
+  mainPanelLabel->setPos(kFirstSlotX, centerY + kSlotH / 2 + 4);
+
+  // 11. Populate slot states and wire signals
+  if (lcpcSlot) {
+    if (auto xfmr = elcd.transformer()) {
+      lcpcSlot->setFilled(true, QString::fromStdString(xfmr->nameString()));
+    }
+    connect(lcpcSlot, &OSDropZoneItem::componentDropped, this, &ElectricLoadCenterDistributionTabController::onDetailLCPCTransformerDrop);
+    connect(lcpcSlot, &ELCDComponentSlotView::removeClicked, this, &ElectricLoadCenterDistributionTabController::onDetailLCPCTransformerRemove);
+    connect(lcpcSlot, &OSDropZoneItem::mouseClicked, this, &ElectricLoadCenterDistributionTabController::onDetailLCPCTransformerClick);
+  }
+
+  if (inverterSlot) {
+    if (auto inv = elcd.inverter()) {
+      inverterSlot->setFilled(true, QString::fromStdString(inv->nameString()));
+    }
+    connect(inverterSlot, &OSDropZoneItem::componentDropped, this, &ElectricLoadCenterDistributionTabController::onDetailInverterDrop);
+    connect(inverterSlot, &ELCDComponentSlotView::removeClicked, this, &ElectricLoadCenterDistributionTabController::onDetailInverterRemove);
+    connect(inverterSlot, &OSDropZoneItem::mouseClicked, this, &ElectricLoadCenterDistributionTabController::onDetailInverterClick);
+  }
+
+  if (storageSlot) {
+    if (auto sto = elcd.electricalStorage()) {
+      storageSlot->setFilled(true, QString::fromStdString(sto->nameString()));
+    }
+    connect(storageSlot, &OSDropZoneItem::componentDropped, this, &ElectricLoadCenterDistributionTabController::onDetailStorageDrop);
+    connect(storageSlot, &ELCDComponentSlotView::removeClicked, this, &ElectricLoadCenterDistributionTabController::onDetailStorageRemove);
+    connect(storageSlot, &OSDropZoneItem::mouseClicked, this, &ElectricLoadCenterDistributionTabController::onDetailStorageClick);
+  }
+
+  if (converterSlot) {
+    if (auto conv = elcd.storageConverter()) {
+      converterSlot->setFilled(true, QString::fromStdString(conv->nameString()));
+    }
+    connect(converterSlot, &OSDropZoneItem::componentDropped, this, &ElectricLoadCenterDistributionTabController::onDetailConverterDrop);
+    connect(converterSlot, &ELCDComponentSlotView::removeClicked, this, &ElectricLoadCenterDistributionTabController::onDetailConverterRemove);
+    connect(converterSlot, &OSDropZoneItem::mouseClicked, this, &ElectricLoadCenterDistributionTabController::onDetailConverterClick);
   }
 }
 
@@ -378,6 +610,361 @@ void ElectricLoadCenterDistributionTabController::onPowerOutTransformerRemove() 
     transformer_->remove();
   }
   refresh();
+}
+
+// ─── Detail view slot implementations ─────────────────────────────────────────
+
+void ElectricLoadCenterDistributionTabController::onBussTypeChangeRequested(const QString& bussType) {
+  if (!m_currentELCD) {
+    return;
+  }
+
+  // Determine incompatible components for the requested buss type
+  const bool hasInverter = m_currentELCD->inverter().has_value();
+  const bool hasStorage = m_currentELCD->electricalStorage().has_value();
+  const bool hasConverter = m_currentELCD->storageConverter().has_value();
+
+  bool inverterIncompat = false;
+  bool storageIncompat = false;
+  bool converterIncompat = false;
+
+  if (bussType == "AlternatingCurrent") {
+    inverterIncompat = hasInverter;
+    storageIncompat = hasStorage;
+    converterIncompat = hasConverter;
+  } else if (bussType == "AlternatingCurrentWithStorage") {
+    inverterIncompat = hasInverter;
+  } else if (bussType == "DirectCurrentWithInverter") {
+    storageIncompat = hasStorage;
+    converterIncompat = hasConverter;
+  } else if (bussType == "DirectCurrentWithInverterDCStorage") {
+    // nothing incompatible
+  } else if (bussType == "DirectCurrentWithInverterACStorage") {
+    converterIncompat = hasConverter;
+  }
+
+  const bool anyIncompat = inverterIncompat || storageIncompat || converterIncompat;
+
+  if (anyIncompat) {
+    // Build incompatible component list string
+    QString incompatList;
+    if (inverterIncompat && m_currentELCD->inverter()) {
+      incompatList += QString("  \u2022 Inverter: '%1'\n").arg(QString::fromStdString(m_currentELCD->inverter()->nameString()));
+    }
+    if (storageIncompat && m_currentELCD->electricalStorage()) {
+      incompatList += QString("  \u2022 Storage: '%1'\n").arg(QString::fromStdString(m_currentELCD->electricalStorage()->nameString()));
+    }
+    if (converterIncompat && m_currentELCD->storageConverter()) {
+      incompatList += QString("  \u2022 Converter: '%1'\n").arg(QString::fromStdString(m_currentELCD->storageConverter()->nameString()));
+    }
+
+    const QString msg = QString("Changing the Electrical Buss Type to '%1' will make the following objects "
+                                "incompatible (they will be ignored during simulation):\n\n%2\n"
+                                "Would you like to remove them from the model now for clarity?")
+                          .arg(bussType)
+                          .arg(incompatList);
+
+    QMessageBox msgBox(nullptr);
+    msgBox.setWindowTitle("Incompatible Components");
+    msgBox.setText(msg);
+    auto* removeBtn = msgBox.addButton("Remove && Switch", QMessageBox::AcceptRole);
+    auto* keepBtn = msgBox.addButton("Keep && Switch", QMessageBox::AcceptRole);
+    auto* cancelBtn = msgBox.addButton("Cancel", QMessageBox::RejectRole);
+    msgBox.setDefaultButton(cancelBtn);
+    msgBox.exec();
+
+    if (msgBox.clickedButton() == cancelBtn) {
+      // Revert combo
+      QSignalBlocker blocker(m_elcdView->bussTypeCombo);
+      const int idx = m_elcdView->bussTypeCombo->findText(QString::fromStdString(m_currentELCD->electricalBussType()));
+      if (idx >= 0) {
+        m_elcdView->bussTypeCombo->setCurrentIndex(idx);
+      }
+      return;
+    }
+
+    if (msgBox.clickedButton() == removeBtn) {
+      if (inverterIncompat) {
+        m_currentELCD->resetInverter();
+      }
+      if (storageIncompat) {
+        m_currentELCD->resetElectricalStorage();
+      }
+      if (converterIncompat) {
+        m_currentELCD->resetStorageConverter();
+      }
+    }
+
+    (void)keepBtn;  // Keep & Switch falls through to setElectricalBussType below
+  }
+
+  m_currentELCD->setElectricalBussType(bussType.toStdString());
+  refresh();
+}
+
+void ElectricLoadCenterDistributionTabController::onGenOpSchemeChangeRequested(const QString& scheme) {
+  if (!m_currentELCD) {
+    return;
+  }
+  m_currentELCD->setGeneratorOperationSchemeType(scheme.toStdString());
+  refresh();
+}
+
+void ElectricLoadCenterDistributionTabController::onValidateRequested() {
+  if (!m_currentELCD) {
+    return;
+  }
+
+  openstudio::StringStreamLogSink sink;
+  sink.setLogLevel(Info);
+  const bool valid = m_currentELCD->validityCheck();
+  const auto msgs = sink.logMessages();
+
+  QString text = valid ? "\u2713 Configuration is valid." : "\u2717 Configuration is invalid.";
+  if (!msgs.empty()) {
+    text += "\n\n";
+    for (const auto& msg : msgs) {
+      const QString level = (msg.logLevel() == Error) ? "[Error]" : (msg.logLevel() == Warn) ? "[Warning]" : "[Info]";
+      text += level + " " + QString::fromStdString(msg.logMessage()) + "\n";
+    }
+  }
+
+  QMessageBox::information(nullptr, "Validation Result", text);
+
+  if (valid) {
+    m_elcdView->validityLabel->setText("\u25CF");
+    m_elcdView->validityLabel->setStyleSheet("color: green;");
+  } else {
+    m_elcdView->validityLabel->setText("\u26A0");
+    m_elcdView->validityLabel->setStyleSheet("color: red;");
+  }
+}
+
+void ElectricLoadCenterDistributionTabController::onDetailGeneratorDrop(const OSItemId& itemId) {
+  if (!m_currentELCD) {
+    return;
+  }
+  auto doc = OSAppBase::instance()->currentDocument();
+  if (!doc) {
+    return;
+  }
+  auto mo = doc->getModelObject(itemId);
+  if (!mo) {
+    return;
+  }
+  auto gen_ = mo->optionalCast<model::Generator>();
+  if (!gen_) {
+    return;
+  }
+  const bool isFromLibrary = doc->fromComponentLibrary(itemId);
+  model::Generator generator = isFromLibrary ? gen_->clone(m_model).cast<model::Generator>() : *gen_;
+  m_currentELCD->addGenerator(generator);
+  refresh();
+}
+
+void ElectricLoadCenterDistributionTabController::onDetailGeneratorRemove(const Handle& handle) {
+  if (!m_currentELCD) {
+    return;
+  }
+  for (auto gen : m_currentELCD->generators()) {
+    if (gen.handle() == handle) {
+      m_currentELCD->removeGenerator(gen);
+      break;
+    }
+  }
+  refresh();
+}
+
+void ElectricLoadCenterDistributionTabController::onDetailInverterDrop(const OSItemId& itemId) {
+  if (!m_currentELCD) {
+    return;
+  }
+  auto doc = OSAppBase::instance()->currentDocument();
+  if (!doc) {
+    return;
+  }
+  auto mo = doc->getModelObject(itemId);
+  if (!mo) {
+    return;
+  }
+  auto inv_ = mo->optionalCast<model::Inverter>();
+  if (!inv_) {
+    return;
+  }
+  const bool isFromLibrary = doc->fromComponentLibrary(itemId);
+  model::Inverter inverter = isFromLibrary ? inv_->clone(m_model).cast<model::Inverter>() : *inv_;
+  m_currentELCD->setInverter(inverter);
+  refresh();
+}
+
+void ElectricLoadCenterDistributionTabController::onDetailInverterRemove() {
+  if (!m_currentELCD) {
+    return;
+  }
+  m_currentELCD->resetInverter();
+  refresh();
+}
+
+void ElectricLoadCenterDistributionTabController::onDetailStorageDrop(const OSItemId& itemId) {
+  if (!m_currentELCD) {
+    return;
+  }
+  auto doc = OSAppBase::instance()->currentDocument();
+  if (!doc) {
+    return;
+  }
+  auto mo = doc->getModelObject(itemId);
+  if (!mo) {
+    return;
+  }
+  auto sto_ = mo->optionalCast<model::ElectricalStorage>();
+  if (!sto_) {
+    return;
+  }
+  const bool isFromLibrary = doc->fromComponentLibrary(itemId);
+  model::ElectricalStorage storage = isFromLibrary ? sto_->clone(m_model).cast<model::ElectricalStorage>() : *sto_;
+  m_currentELCD->setElectricalStorage(storage);
+  refresh();
+}
+
+void ElectricLoadCenterDistributionTabController::onDetailStorageRemove() {
+  if (!m_currentELCD) {
+    return;
+  }
+  m_currentELCD->resetElectricalStorage();
+  refresh();
+}
+
+void ElectricLoadCenterDistributionTabController::onDetailConverterDrop(const OSItemId& itemId) {
+  if (!m_currentELCD) {
+    return;
+  }
+  auto doc = OSAppBase::instance()->currentDocument();
+  if (!doc) {
+    return;
+  }
+  auto mo = doc->getModelObject(itemId);
+  if (!mo) {
+    return;
+  }
+  auto conv_ = mo->optionalCast<model::ElectricLoadCenterStorageConverter>();
+  if (!conv_) {
+    return;
+  }
+  const bool isFromLibrary = doc->fromComponentLibrary(itemId);
+  model::ElectricLoadCenterStorageConverter converter =
+    isFromLibrary ? conv_->clone(m_model).cast<model::ElectricLoadCenterStorageConverter>() : *conv_;
+  m_currentELCD->setStorageConverter(converter);
+  refresh();
+}
+
+void ElectricLoadCenterDistributionTabController::onDetailConverterRemove() {
+  if (!m_currentELCD) {
+    return;
+  }
+  m_currentELCD->resetStorageConverter();
+  refresh();
+}
+
+void ElectricLoadCenterDistributionTabController::onDetailLCPCTransformerDrop(const OSItemId& itemId) {
+  if (!m_currentELCD) {
+    return;
+  }
+  auto doc = OSAppBase::instance()->currentDocument();
+  if (!doc) {
+    return;
+  }
+  auto mo = doc->getModelObject(itemId);
+  if (!mo) {
+    return;
+  }
+  auto xfmr_ = mo->optionalCast<model::ElectricLoadCenterTransformer>();
+  if (!xfmr_) {
+    return;
+  }
+  const bool isFromLibrary = doc->fromComponentLibrary(itemId);
+  model::ElectricLoadCenterTransformer transformer = isFromLibrary ? xfmr_->clone(m_model).cast<model::ElectricLoadCenterTransformer>() : *xfmr_;
+
+  const std::string expectedUsage = "LoadCenterPowerConditioning";
+  if (!openstudio::istringEqual(transformer.transformerUsage(), expectedUsage)) {
+    const auto reply = QMessageBox::question(nullptr, "Change Transformer Usage",
+                                             QString("Set this transformer's usage to '%1'?").arg(QString::fromStdString(expectedUsage)),
+                                             QMessageBox::Yes | QMessageBox::Cancel);
+    if (reply != QMessageBox::Yes) {
+      if (isFromLibrary) {
+        transformer.remove();
+      }
+      return;
+    }
+    transformer.setTransformerUsage(expectedUsage);
+  }
+
+  m_currentELCD->setTransformer(transformer);
+  refresh();
+}
+
+void ElectricLoadCenterDistributionTabController::onDetailLCPCTransformerRemove() {
+  if (!m_currentELCD) {
+    return;
+  }
+  m_currentELCD->resetTransformer();
+  refresh();
+}
+
+void ElectricLoadCenterDistributionTabController::onDetailInverterClick() {
+  if (!m_currentELCD) {
+    return;
+  }
+  auto inv_ = m_currentELCD->inverter();
+  if (!inv_) {
+    return;
+  }
+  if (auto doc = OSAppBase::instance()->currentDocument()) {
+    model::OptionalModelObject mo = *inv_;
+    doc->mainRightColumnController()->inspectModelObject(mo, false);
+  }
+}
+
+void ElectricLoadCenterDistributionTabController::onDetailStorageClick() {
+  if (!m_currentELCD) {
+    return;
+  }
+  auto sto_ = m_currentELCD->electricalStorage();
+  if (!sto_) {
+    return;
+  }
+  if (auto doc = OSAppBase::instance()->currentDocument()) {
+    model::OptionalModelObject mo = *sto_;
+    doc->mainRightColumnController()->inspectModelObject(mo, false);
+  }
+}
+
+void ElectricLoadCenterDistributionTabController::onDetailConverterClick() {
+  if (!m_currentELCD) {
+    return;
+  }
+  auto conv_ = m_currentELCD->storageConverter();
+  if (!conv_) {
+    return;
+  }
+  if (auto doc = OSAppBase::instance()->currentDocument()) {
+    model::OptionalModelObject mo = *conv_;
+    doc->mainRightColumnController()->inspectModelObject(mo, false);
+  }
+}
+
+void ElectricLoadCenterDistributionTabController::onDetailLCPCTransformerClick() {
+  if (!m_currentELCD) {
+    return;
+  }
+  auto xfmr_ = m_currentELCD->transformer();
+  if (!xfmr_) {
+    return;
+  }
+  if (auto doc = OSAppBase::instance()->currentDocument()) {
+    model::OptionalModelObject mo = *xfmr_;
+    doc->mainRightColumnController()->inspectModelObject(mo, false);
+  }
 }
 
 // ─── ELCDListItem ─────────────────────────────────────────────────────────────

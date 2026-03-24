@@ -8,6 +8,7 @@
 
 #include <QPainter>
 #include <QApplication>
+#include <QComboBox>
 #include <QPixmap>
 #include <cmath>
 #include <QGraphicsView>
@@ -23,7 +24,15 @@ namespace openstudio {
 
 // ─── ELCDView ────────────────────────────────────────────────────────────────
 
-ELCDView::ELCDView() : header(new QWidget()), graphicsView(new QGraphicsView()), oneLevelUpButton(new OneLevelUpButton()), nameLabel(new QLabel()) {
+ELCDView::ELCDView()
+  : header(new QWidget()),
+    graphicsView(new QGraphicsView()),
+    oneLevelUpButton(new OneLevelUpButton()),
+    nameLabel(new QLabel()),
+    bussTypeCombo(new QComboBox()),
+    genOpSchemeCombo(new QComboBox()),
+    validateButton(new QPushButton("✓ Validate")),
+    validityLabel(new QLabel("●")) {
   auto* mainVLayout = new QVBoxLayout();
   mainVLayout->setSpacing(0);
   mainVLayout->setContentsMargins(0, 0, 0, 0);
@@ -32,22 +41,67 @@ ELCDView::ELCDView() : header(new QWidget()), graphicsView(new QGraphicsView()),
 
   header->setObjectName("ELCDHeader");
   header->setStyleSheet("QWidget#ELCDHeader { background: #C3C3C3; }");
-  header->setFixedHeight(35);
   mainVLayout->addWidget(header);
 
-  auto* headerLayout = new QHBoxLayout();
-  headerLayout->setContentsMargins(5, 5, 5, 5);
-  headerLayout->setSpacing(0);
-  header->setLayout(headerLayout);
+  auto* headerVLayout = new QVBoxLayout();
+  headerVLayout->setContentsMargins(5, 4, 5, 4);
+  headerVLayout->setSpacing(4);
+  header->setLayout(headerVLayout);
 
-  headerLayout->addWidget(nameLabel);
-  headerLayout->addStretch();
+  // ── Row 1: name label + back button ────────────────────────────────────────
+  auto* row1 = new QHBoxLayout();
+  row1->setSpacing(4);
+  row1->setContentsMargins(0, 0, 0, 0);
+  headerVLayout->addLayout(row1);
+
+  row1->addWidget(nameLabel);
+  row1->addStretch();
 
   auto* backLabel = new QLabel("Back to overview");
-  headerLayout->addWidget(backLabel);
-  headerLayout->addWidget(oneLevelUpButton);
+  row1->addWidget(backLabel);
+  row1->addWidget(oneLevelUpButton);
   oneLevelUpButton->setFixedSize(20, 20);
   oneLevelUpButton->setToolTip("Return to the Electric Load Center overview");
+
+  // ── Row 2: combos + validate ────────────────────────────────────────────────
+  auto* row2 = new QHBoxLayout();
+  row2->setSpacing(4);
+  row2->setContentsMargins(0, 0, 0, 0);
+  headerVLayout->addLayout(row2);
+
+  row2->addWidget(new QLabel("Buss Type:"));
+  row2->addWidget(bussTypeCombo);
+
+  // Buss type items
+  for (const char* item : {"AlternatingCurrent", "AlternatingCurrentWithStorage", "DirectCurrentWithInverter", "DirectCurrentWithInverterDCStorage",
+                           "DirectCurrentWithInverterACStorage"}) {
+    bussTypeCombo->addItem(item);
+  }
+
+  // 10 px spacer
+  row2->addSpacing(10);
+
+  row2->addWidget(new QLabel("Gen Op Scheme:"));
+  row2->addWidget(genOpSchemeCombo);
+
+  // Gen op scheme items
+  for (const char* item :
+       {"Baseload", "DemandLimit", "TrackElectrical", "TrackSchedule", "TrackMeter", "FollowThermal", "FollowThermalLimitElectrical"}) {
+    genOpSchemeCombo->addItem(item);
+  }
+
+  row2->addStretch();
+  row2->addWidget(validateButton);
+
+  validityLabel->setStyleSheet("color: gray;");
+  row2->addWidget(validityLabel);
+
+  // ── Wire combo signals ──────────────────────────────────────────────────────
+  connect(bussTypeCombo, &QComboBox::currentIndexChanged, this,
+          [this](int /*index*/) { emit bussTypeChangeRequested(bussTypeCombo->currentText()); });
+  connect(genOpSchemeCombo, &QComboBox::currentIndexChanged, this,
+          [this](int /*index*/) { emit genOpSchemeChangeRequested(genOpSchemeCombo->currentText()); });
+  connect(validateButton, &QPushButton::clicked, this, &ELCDView::validateRequested);
 
   graphicsView->setObjectName("GrayWidget");
   mainVLayout->addWidget(graphicsView);
@@ -341,6 +395,8 @@ void ELCDUtilityGridPanel::paint(QPainter* painter, const QStyleOptionGraphicsIt
   painter->drawLine(QPointF(kDropX + kDropW + 4, kPowerInCentreY), QPointF(kPanelWidth, kPowerInCentreY));
   // PowerOut: tip AT drop zone (arrowhead is the final tip — power enters from right)
   drawArrow(painter, QPointF(kPanelWidth - 1, kPowerOutCentreY), QPointF(kDropX + kDropW + 4, kPowerOutCentreY));
+
+  (void)kMidX;
 }
 
 // ─── ELCDMainPanelItem ───────────────────────────────────────────────────────
@@ -385,6 +441,184 @@ void ELCDMainPanelItem::paint(QPainter* painter, const QStyleOptionGraphicsItem*
   painter->setPen(arrowPen2);
   painter->setBrush(QColor(100, 100, 120));
   drawArrow(painter, QPointF(kPanelWidth / 2, m_height - 18), QPointF(kPanelWidth / 2, m_height - 4));
+}
+
+// ─── ELCDComponentSlotView ───────────────────────────────────────────────────
+
+ELCDComponentSlotView::ELCDComponentSlotView(const QString& emptyLabel, const QString& iconPath)
+  : m_placeholderText(emptyLabel), m_iconPath(iconPath) {
+  setText(emptyLabel);
+  setSize(140, 70);
+  setAcceptDrops(true);
+
+  removeButtonItem = new RemoveButtonItem();
+  removeButtonItem->setParentItem(this);
+  removeButtonItem->setVisible(false);
+  connect(removeButtonItem, &RemoveButtonItem::mouseClicked, this, &ELCDComponentSlotView::removeClicked);
+}
+
+void ELCDComponentSlotView::setFilled(bool filled, const QString& name) {
+  m_filled = filled;
+  setText(filled ? name : m_placeholderText);
+  removeButtonItem->setPos(boundingRect().width() - removeButtonItem->boundingRect().width() - 4,
+                           boundingRect().height() / 2.0 - removeButtonItem->boundingRect().height() / 2.0);
+  removeButtonItem->setVisible(filled);
+  update();
+}
+
+QRectF ELCDComponentSlotView::boundingRect() const {
+  return {0, 0, 140, 70};
+}
+
+void ELCDComponentSlotView::paint(QPainter* painter, const QStyleOptionGraphicsItem* /*option*/, QWidget* /*widget*/) {
+  painter->setRenderHint(QPainter::Antialiasing, true);
+
+  if (m_filled) {
+    painter->setBrush(QColor(220, 234, 250));
+    painter->setPen(QPen(QColor(70, 130, 180), 1.5));
+  } else {
+    painter->setBrush(QColor(230, 230, 230));
+    painter->setPen(QPen(QColor(109, 109, 109), 2, Qt::DashLine, Qt::RoundCap));
+  }
+  painter->drawRect(boundingRect());
+
+  static constexpr int kIconSize = 24;
+  static constexpr int kIconX = 5;
+
+  int textLeft = 4;
+  if (!m_iconPath.isEmpty()) {
+    const QPixmap icon(m_iconPath);
+    if (!icon.isNull()) {
+      const QPixmap scaled = icon.scaled(kIconSize, kIconSize, Qt::KeepAspectRatio, Qt::SmoothTransformation);
+      const int iconY = static_cast<int>((boundingRect().height() - scaled.height()) / 2.0);
+      painter->drawPixmap(kIconX, iconY, scaled);
+      textLeft = kIconX + kIconSize + 4;
+    }
+  }
+
+  QFont font = painter->font();
+  font.setPixelSize(12);
+  painter->setFont(font);
+  painter->setPen(m_filled ? QColor(40, 60, 100) : QColor(80, 80, 80));
+
+  const qreal removeW = removeButtonItem->boundingRect().width();
+  const qreal textRight = m_filled ? (boundingRect().width() - removeW - 8) : boundingRect().width() - 4;
+  const QRectF textRect(textLeft, 0, textRight - textLeft, boundingRect().height());
+  painter->drawText(textRect, Qt::AlignVCenter | Qt::AlignLeft | Qt::TextWordWrap, m_text);
+}
+
+// ─── ELCDGeneratorItemView ────────────────────────────────────────────────────
+
+ELCDGeneratorItemView::ELCDGeneratorItemView(const QString& name, const Handle& handle) : m_name(name), m_handle(handle) {
+  removeButtonItem = new RemoveButtonItem();
+  removeButtonItem->setParentItem(this);
+  const qreal bx = ELCDGeneratorsView::kWidth - ELCDGeneratorsView::kPad - removeButtonItem->boundingRect().width();
+  const qreal by = (kHeight - removeButtonItem->boundingRect().height()) / 2.0;
+  removeButtonItem->setPos(bx, by);
+  connect(removeButtonItem, &RemoveButtonItem::mouseClicked, this, &ELCDGeneratorItemView::onRemoveButtonClicked);
+}
+
+QRectF ELCDGeneratorItemView::boundingRect() const {
+  return {0, 0, static_cast<double>(ELCDGeneratorsView::kWidth), static_cast<double>(kHeight)};
+}
+
+void ELCDGeneratorItemView::onRemoveButtonClicked() {
+  emit removeClicked(m_handle);
+}
+
+void ELCDGeneratorItemView::paint(QPainter* painter, const QStyleOptionGraphicsItem* /*option*/, QWidget* /*widget*/) {
+  painter->setRenderHint(QPainter::Antialiasing, false);
+
+  painter->setBrush(QColor(235, 240, 248));
+  painter->setPen(QPen(QColor(160, 175, 200), 1));
+  painter->drawRect(boundingRect());
+
+  QFont font = painter->font();
+  font.setPixelSize(11);
+  painter->setFont(font);
+  painter->setPen(QColor(40, 60, 100));
+
+  const qreal removeW = removeButtonItem->boundingRect().width();
+  const QRectF textRect(ELCDGeneratorsView::kPad, 0, boundingRect().width() - removeW - ELCDGeneratorsView::kPad * 2 - 4, kHeight);
+  painter->drawText(textRect, Qt::AlignVCenter | Qt::AlignLeft, m_name);
+}
+
+// ─── ELCDGeneratorsView ──────────────────────────────────────────────────────
+
+ELCDGeneratorsView::ELCDGeneratorsView() {
+  dropZone = new OSDropZoneItem();
+  dropZone->setParentItem(this);
+  dropZone->setSize(kWidth - 2 * kPad, kDropZoneH);
+  dropZone->setText("Drop Generator here");
+  dropZone->setAcceptDrops(true);
+  dropZone->setPos(kPad, kHeaderH + kPad);
+}
+
+int ELCDGeneratorsView::totalHeight() const {
+  return kHeaderH + kPad + static_cast<int>(m_generatorItems.size()) * kItemH + kPad + kDropZoneH + kPad;
+}
+
+QRectF ELCDGeneratorsView::boundingRect() const {
+  return {0, 0, static_cast<double>(kWidth), static_cast<double>(totalHeight())};
+}
+
+void ELCDGeneratorsView::setGeneratorLabel(const QString& label) {
+  m_generatorLabel = label;
+  update();
+}
+
+void ELCDGeneratorsView::clearGenerators() {
+  for (auto* item : m_generatorItems) {
+    delete item;
+  }
+  m_generatorItems.clear();
+  prepareGeometryChange();
+  repositionItems();
+  update();
+}
+
+void ELCDGeneratorsView::addGenerator(const QString& name, const Handle& handle) {
+  auto* item = new ELCDGeneratorItemView(name, handle);
+  item->setParentItem(this);
+  connect(item, &ELCDGeneratorItemView::removeClicked, this, &ELCDGeneratorsView::generatorRemoveClicked);
+  m_generatorItems.append(item);
+  prepareGeometryChange();
+  repositionItems();
+  update();
+}
+
+void ELCDGeneratorsView::repositionItems() {
+  for (int i = 0; i < m_generatorItems.size(); ++i) {
+    m_generatorItems[i]->setPos(kPad, kHeaderH + kPad + i * kItemH);
+  }
+  const int dropY = kHeaderH + kPad + static_cast<int>(m_generatorItems.size()) * kItemH + kPad;
+  dropZone->setPos(kPad, dropY);
+}
+
+void ELCDGeneratorsView::paint(QPainter* painter, const QStyleOptionGraphicsItem* /*option*/, QWidget* /*widget*/) {
+  const int h = totalHeight();
+
+  // Panel background + border
+  painter->setBrush(QColor(240, 245, 255));
+  painter->setPen(QPen(QColor(100, 130, 180), 1));
+  painter->drawRect(0, 0, kWidth, h);
+
+  // Header background
+  painter->setBrush(QColor(70, 130, 180));
+  painter->setPen(Qt::NoPen);
+  painter->drawRect(0, 0, kWidth, kHeaderH);
+
+  // Header text
+  painter->setPen(Qt::white);
+  QFont boldFont = painter->font();
+  boldFont.setBold(true);
+  boldFont.setPixelSize(13);
+  painter->setFont(boldFont);
+  painter->drawText(QRectF(kPad, 0, kWidth - 2 * kPad, kHeaderH), Qt::AlignVCenter | Qt::AlignLeft, m_generatorLabel);
+
+  // Separator line below header
+  painter->setPen(QPen(QColor(100, 130, 180), 1));
+  painter->drawLine(0, kHeaderH, kWidth, kHeaderH);
 }
 
 // ─── ELCDDropZoneView ────────────────────────────────────────────────────────

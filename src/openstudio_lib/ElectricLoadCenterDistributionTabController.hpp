@@ -55,7 +55,28 @@ class ElectricLoadCenterDistributionTabController : public MainTabController
   void onPowerInTransformerRemove();
   void onPowerOutTransformerRemove();
 
+  // Detail view slots
+  void onBussTypeChangeRequested(const QString& bussType);
+  void onGenOpSchemeChangeRequested(const QString& scheme);
+  void onValidateRequested();
+  void onDetailGeneratorDrop(const OSItemId& itemId);
+  void onDetailGeneratorRemove(const Handle& handle);
+  void onDetailInverterDrop(const OSItemId& itemId);
+  void onDetailInverterRemove();
+  void onDetailStorageDrop(const OSItemId& itemId);
+  void onDetailStorageRemove();
+  void onDetailConverterDrop(const OSItemId& itemId);
+  void onDetailConverterRemove();
+  void onDetailLCPCTransformerDrop(const OSItemId& itemId);
+  void onDetailLCPCTransformerRemove();
+  void onDetailInverterClick();
+  void onDetailStorageClick();
+  void onDetailConverterClick();
+  void onDetailLCPCTransformerClick();
+
  private:
+  void buildDetailScene(const model::ElectricLoadCenterDistribution& elcd);
+
   model::Model m_model;
 
   QPointer<ELCDView> m_elcdView;
