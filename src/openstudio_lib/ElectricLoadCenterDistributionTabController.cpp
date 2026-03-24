@@ -460,7 +460,7 @@ void ElectricLoadCenterDistributionTabController::buildDetailScene(const model::
 
     addBidirH(kPad + kSlotW, centerY, kSOCX - kSONodeW / 2);
     addArrowLine(m_detailScene, kGenX, centerY, kSOCX + kSONodeW / 2, centerY, arrowPen);
-    addBidirV(kSOCX, centerY + kSOH / 2, storageTopY + kSlotH / 2);
+    addBidirV(kSOCX, centerY + kSOH / 2, storageTopY);
     addMainPanelLabel(kPad, centerY + kSlotH / 2, /*bidir=*/true);
 
   } else if (bussType == "DirectCurrentWithInverter") {
@@ -473,7 +473,7 @@ void ElectricLoadCenterDistributionTabController::buildDetailScene(const model::
     lcpcSlot = makeSlot("LCPC Transformer", ":/images/mini_icons/transformer.png");
     lcpcSlot->setPos(kPad, centerY - kSlotH / 2);
 
-    inverterSlot = makeSlot("Drop Inverter", {});
+    inverterSlot = makeSlot("Drop Inverter", ":/images/mini_icons/ac_left_dc_right.png");
     inverterSlot->setPos(kInvX, centerY - kSlotH / 2);
 
     addArrowLine(m_detailScene, kInvX, centerY, kPad + kSlotW, centerY, arrowPen);
@@ -482,9 +482,9 @@ void ElectricLoadCenterDistributionTabController::buildDetailScene(const model::
 
   } else if (bussType == "DirectCurrentWithInverterDCStorage") {
     // Two-lane layout:
-    //            ┌── [Inverter] ──┐
+    //            <── [Inverter] <──┐
     // [LCPC] ────┤                [SO*] ◄── [Gen]
-    //            └─↔ [Converter] ─┘
+    //            └─> [Converter] >─┘
     //                              ↕
     //                          [Storage]
     const int kJuncLX = kPad + kSlotW;    // right edge of LCPC = left junction
@@ -508,10 +508,10 @@ void ElectricLoadCenterDistributionTabController::buildDetailScene(const model::
     lcpcSlot = makeSlot("LCPC Transformer", ":/images/mini_icons/transformer.png");
     lcpcSlot->setPos(kPad, centerY - kSlotH / 2);
 
-    inverterSlot = makeSlot("Drop Inverter", {});
+    inverterSlot = makeSlot("Drop Inverter", ":/images/mini_icons/ac_left_dc_right.png");
     inverterSlot->setPos(kLaneX, invCY - kSlotH / 2);
 
-    converterSlot = makeSlot("Drop Converter", {});
+    converterSlot = makeSlot("Drop Converter", ":/images/mini_icons/ac_left_dc_right.png");
     converterSlot->setPos(kLaneX, convCY - kSlotH / 2);
 
     storageSlot = makeSlot("Drop Storage", {});
@@ -521,21 +521,24 @@ void ElectricLoadCenterDistributionTabController::buildDetailScene(const model::
 
     // Left vertical: LCPC right edge spans both lane center Y values
     m_detailScene->addLine(kJuncLX, invCY, kJuncLX, convCY, arrowPen);
-    // Upper lane: left junction → Inverter (energy flows left, arrow at Inverter end)
-    addArrowLine(m_detailScene, kJuncLX, invCY, kLaneX, invCY, arrowPen);
-    // Lower lane: left junction ↔ Converter (bidirectional)
-    addBidirH(kJuncLX, convCY, kLaneX);
+    // Upper lane: left junction → Inverter (energy flows left, arrow tip at left junction)
+    addArrowLine(m_detailScene, kLaneX, invCY, kJuncLX, invCY, arrowPen);
+
+    // Lower lane: left junction LCPC -> Converter (unidirectional right, tip at Converter)
+    addArrowLine(m_detailScene, kJuncLX, convCY, kLaneX, convCY, arrowPen);
 
     // Right vertical: Inverter/Converter right edges → SO node
     m_detailScene->addLine(kJuncRX, invCY, kJuncRX, convCY, arrowPen);
     addArrowLine(m_detailScene, kJuncRX, invCY, kSOCX - kSONodeW / 2, invCY, arrowPen);
-    addBidirH(kJuncRX, convCY, kSOCX - kSONodeW / 2);
+
+    // NO, this is unidir converter -> SO addBidirH(kJuncRX, convCY, kSOCX - kSONodeW / 2);
+    addArrowLine(m_detailScene, kJuncRX, convCY, kSOCX - kSONodeW / 2, convCY, arrowPen);
 
     // SO node → Generators (energy flows into SO from right)
     addArrowLine(m_detailScene, kGenX, centerY, kSOCX + kSONodeW / 2, centerY, arrowPen);
 
     // Storage below SO node (bidir vertical)
-    addBidirV(storageCX, centerY + kSOH / 2, storageTopY + kSlotH / 2);
+    addBidirV(storageCX, centerY + kSOH / 2, storageTopY);
 
     addMainPanelLabel(kPad, centerY + kSlotH / 2, /*bidir=*/true);
 
@@ -556,7 +559,7 @@ void ElectricLoadCenterDistributionTabController::buildDetailScene(const model::
 
     addStorageOpNode(kSOCX, centerY, kSOH);
 
-    inverterSlot = makeSlot("Drop Inverter", {});
+    inverterSlot = makeSlot("Drop Inverter", ":/images/mini_icons/ac_left_dc_right.png");
     inverterSlot->setPos(kInvX, centerY - kSlotH / 2);
 
     const int storageTopY = centerY + kSOH / 2 + kBelowGap;
@@ -566,7 +569,7 @@ void ElectricLoadCenterDistributionTabController::buildDetailScene(const model::
     addBidirH(kPad + kSlotW, centerY, kSOCX - kSONodeW / 2);
     addArrowLine(m_detailScene, kInvX, centerY, kSOCX + kSONodeW / 2, centerY, arrowPen);
     addArrowLine(m_detailScene, kGenX, centerY, kInvX + kSlotW, centerY, arrowPen);
-    addBidirV(kSOCX, centerY + kSOH / 2, storageTopY + kSlotH / 2);
+    addBidirV(kSOCX, centerY + kSOH / 2, storageTopY);
     addMainPanelLabel(kPad, centerY + kSlotH / 2, /*bidir=*/true);
   }
 

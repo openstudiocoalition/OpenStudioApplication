@@ -328,6 +328,14 @@ IconLibrary::IconLibrary() {
     new QPixmap(":/images/mini_icons/electric_equipment.png");
   m_miniIcons[openstudio::IddObjectType(openstudio::IddObjectType::OS_ElectricEquipment_Definition).value()] =
     new QPixmap(":/images/mini_icons/electric_equipment_definition.png");
+  m_miniIcons[openstudio::IddObjectType(openstudio::IddObjectType::OS_ElectricLoadCenter_Storage_Converter).value()] =
+    new QPixmap(":/images/mini_icons/ac_left_dc_right.png");
+  m_miniIcons[openstudio::IddObjectType(openstudio::IddObjectType::OS_ElectricLoadCenter_Inverter_LookUpTable).value()] =
+    new QPixmap(":/images/mini_icons/dc_left_ac_right.png");
+  m_miniIcons[openstudio::IddObjectType(openstudio::IddObjectType::OS_ElectricLoadCenter_Inverter_PVWatts).value()] =
+    new QPixmap(":/images/mini_icons/dc_left_ac_right.png");
+  m_miniIcons[openstudio::IddObjectType(openstudio::IddObjectType::OS_ElectricLoadCenter_Inverter_Simple).value()] =
+    new QPixmap(":/images/mini_icons/dc_left_ac_right.png");
   m_miniIcons[openstudio::IddObjectType(openstudio::IddObjectType::OS_ElectricLoadCenter_Transformer).value()] =
     new QPixmap(":/images/mini_icons/transformer.png");
   m_miniIcons[openstudio::IddObjectType(openstudio::IddObjectType::OS_Facility).value()] = new QPixmap(":/images/mini_icons/facility.png");

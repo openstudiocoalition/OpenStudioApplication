@@ -692,6 +692,10 @@
 
     <file>openstudiolib.qss</file>
 
+    <file>images/mini_icons/ac_left_dc_right.png</file>
+    <file>images/mini_icons/ac_left_dc_right@2x.png</file>
+    <file>images/mini_icons/dc_left_ac_right.png</file>
+    <file>images/mini_icons/dc_left_ac_right@2x.png</file>
     <file>images/mini_icons/baseboard_electric.png</file>
     <file>images/mini_icons/baseboard_electric@2x.png</file>
     <file>images/mini_icons/baseboard_water.png</file>
