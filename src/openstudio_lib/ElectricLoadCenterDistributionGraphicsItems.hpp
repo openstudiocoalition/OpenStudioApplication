@@ -170,6 +170,7 @@ class ELCDDetailContainerItem : public QGraphicsObject
  public:
   explicit ELCDDetailContainerItem(const QRectF& rect, const Handle& elcdHandle, const QString& name);
   QRectF boundingRect() const override;
+  void setName(const QString& name);
 
  signals:
   void inspectClicked(const Handle& handle);
@@ -250,6 +251,7 @@ class ELCDGeneratorItemView : public QGraphicsObject
 
  public:
   explicit ELCDGeneratorItemView(const QString& name, const Handle& handle, const QPixmap& icon = {});
+  void setName(const QString& name);
 
   QRectF boundingRect() const override;
 
@@ -293,7 +295,7 @@ class ELCDGeneratorsView : public QGraphicsObject
 
   void setGeneratorLabel(const QString& label);
   void clearGenerators();
-  void addGenerator(const QString& name, const Handle& handle, const QPixmap& icon = {});
+  ELCDGeneratorItemView* addGenerator(const QString& name, const Handle& handle, const QPixmap& icon = {});
   int totalHeight() const;
 
   OSDropZoneItem* dropZone{nullptr};

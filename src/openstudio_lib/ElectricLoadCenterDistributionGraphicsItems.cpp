@@ -478,6 +478,11 @@ ELCDDetailContainerItem::ELCDDetailContainerItem(const QRectF& rect, const Handl
   setZValue(-1);
 }
 
+void ELCDDetailContainerItem::setName(const QString& name) {
+  m_name = name;
+  update();
+}
+
 QRectF ELCDDetailContainerItem::boundingRect() const {
   return m_rect;
 }
@@ -592,6 +597,11 @@ QRectF ELCDGeneratorItemView::boundingRect() const {
   return {0, 0, static_cast<double>(kItemW), static_cast<double>(kHeight)};
 }
 
+void ELCDGeneratorItemView::setName(const QString& name) {
+  m_name = name;
+  update();
+}
+
 void ELCDGeneratorItemView::onRemoveButtonClicked() {
   emit removeClicked(m_handle);
 }
@@ -684,7 +694,7 @@ void ELCDGeneratorsView::clearGenerators() {
   update();
 }
 
-void ELCDGeneratorsView::addGenerator(const QString& name, const Handle& handle, const QPixmap& icon) {
+ELCDGeneratorItemView* ELCDGeneratorsView::addGenerator(const QString& name, const Handle& handle, const QPixmap& icon) {
   auto* item = new ELCDGeneratorItemView(name, handle, icon);
   item->setParentItem(this);
   connect(item, &ELCDGeneratorItemView::removeClicked, this, &ELCDGeneratorsView::generatorRemoveClicked);
@@ -693,6 +703,7 @@ void ELCDGeneratorsView::addGenerator(const QString& name, const Handle& handle,
   prepareGeometryChange();
   repositionItems();
   update();
+  return item;
 }
 
 void ELCDGeneratorsView::repositionItems() {
