@@ -23,6 +23,7 @@
 #include <openstudio/model/ElectricLoadCenterTransformer_Impl.hpp>
 #include <openstudio/model/Generator.hpp>
 #include <openstudio/model/Generator_Impl.hpp>
+#include <openstudio/model/ModelObject_Impl.hpp>
 #include <openstudio/model/Inverter.hpp>
 #include <openstudio/model/Inverter_Impl.hpp>
 #include <openstudio/model/ElectricalStorage_Impl.hpp>
@@ -238,6 +239,14 @@ void ElectricLoadCenterDistributionTabController::zoomOutToGridView() {
 void ElectricLoadCenterDistributionTabController::refresh() {
   m_dirty = true;
   QTimer::singleShot(0, this, &ElectricLoadCenterDistributionTabController::refreshNow);
+}
+
+void ElectricLoadCenterDistributionTabController::refreshDetailScene() {
+  if (!m_currentELCD) {
+    return;
+  }
+  m_elcdView->nameLabel->setText(QString::fromStdString(m_currentELCD->nameString()));
+  buildDetailScene(*m_currentELCD);
 }
 
 void ElectricLoadCenterDistributionTabController::refreshNow() {
@@ -626,6 +635,20 @@ void ElectricLoadCenterDistributionTabController::buildDetailScene(const model::
     connect(converterSlot, &OSDropZoneItem::componentDropped, this, &ElectricLoadCenterDistributionTabController::onDetailConverterDrop);
     connect(converterSlot, &ELCDComponentSlotView::removeClicked, this, &ElectricLoadCenterDistributionTabController::onDetailConverterRemove);
     connect(converterSlot, &OSDropZoneItem::mouseClicked, this, &ElectricLoadCenterDistributionTabController::onDetailConverterClick);
+  }
+
+  // ── 6. Live-update on name changes ──────────────────────────────────────────
+  // Disconnect first to avoid accumulating connections when the scene is rebuilt.
+  elcd.getImpl<model::detail::ModelObject_Impl>()->detail::IdfObject_Impl::onNameChange
+    .disconnect<ElectricLoadCenterDistributionTabController, &ElectricLoadCenterDistributionTabController::refreshDetailScene>(this);
+  elcd.getImpl<model::detail::ModelObject_Impl>()->detail::IdfObject_Impl::onNameChange
+    .connect<ElectricLoadCenterDistributionTabController, &ElectricLoadCenterDistributionTabController::refreshDetailScene>(this);
+
+  for (const auto& gen : elcd.generators()) {
+    gen.getImpl<model::detail::ModelObject_Impl>()->detail::IdfObject_Impl::onNameChange
+      .disconnect<ElectricLoadCenterDistributionTabController, &ElectricLoadCenterDistributionTabController::refreshDetailScene>(this);
+    gen.getImpl<model::detail::ModelObject_Impl>()->detail::IdfObject_Impl::onNameChange
+      .connect<ElectricLoadCenterDistributionTabController, &ElectricLoadCenterDistributionTabController::refreshDetailScene>(this);
   }
 }
 
@@ -1156,7 +1179,16 @@ void ElectricLoadCenterDistributionTabController::onDetailELCDInspect(const Hand
 // ─── ELCDListItem ─────────────────────────────────────────────────────────────
 
 ELCDListItem::ELCDListItem(const model::ElectricLoadCenterDistribution& elcd, OSListController* listController)
-  : OSListItem(listController), m_elcd(elcd) {}
+  : OSListItem(listController), m_elcd(elcd) {
+  m_elcd.getImpl<model::detail::ModelObject_Impl>()->detail::IdfObject_Impl::onNameChange
+    .connect<ELCDListItem, &ELCDListItem::onNameChanged>(this);
+}
+
+void ELCDListItem::onNameChanged() {
+  if (auto* lc = qobject_cast<ELCDListController*>(controller())) {
+    lc->notifyItemChanged(m_elcd);
+  }
+}
 
 QString ELCDListItem::name() const {
   return QString::fromStdString(m_elcd.nameString());
@@ -1232,6 +1264,13 @@ int ELCDListController::count() {
 
 void ELCDListController::reset() {
   emit modelReset();
+}
+
+void ELCDListController::notifyItemChanged(const model::ElectricLoadCenterDistribution& elcd) {
+  int idx = elcdIndex(elcd);
+  if (idx >= 0) {
+    emit itemChanged(idx);
+  }
 }
 
 void ELCDListController::createNewELCD() {

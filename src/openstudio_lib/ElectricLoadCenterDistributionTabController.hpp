@@ -77,6 +77,7 @@ class ElectricLoadCenterDistributionTabController : public MainTabController
 
   void onDetailGeneratorClick(const Handle& handle);
   void onDetailELCDInspect(const Handle& handle);
+  void refreshDetailScene();
 
  private:
   void buildDetailScene(const model::ElectricLoadCenterDistribution& elcd);
@@ -122,6 +123,9 @@ class ELCDListItem : public OSListItem
   void remove();
   void zoomIn();
 
+ private slots:
+  void onNameChanged();
+
  private:
   model::ElectricLoadCenterDistribution m_elcd;
 };
@@ -155,6 +159,9 @@ class ELCDListController : public OSListController
 
  signals:
   void itemInsertedPrivate(int i);
+
+ public:
+  void notifyItemChanged(const model::ElectricLoadCenterDistribution& elcd);
 
  public slots:
   void createNewELCD();
