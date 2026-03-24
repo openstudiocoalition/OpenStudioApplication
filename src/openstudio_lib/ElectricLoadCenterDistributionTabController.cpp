@@ -63,6 +63,18 @@ void addArrowLine(QGraphicsScene* scene, qreal x1, qreal y1, qreal x2, qreal y2,
   scene->addLine(tip.x(), tip.y(), tip.x() - dir.x() * 8.0 + perp.x() * 4.0, tip.y() - dir.y() * 8.0 + perp.y() * 4.0, pen);
   scene->addLine(tip.x(), tip.y(), tip.x() - dir.x() * 8.0 - perp.x() * 4.0, tip.y() - dir.y() * 8.0 - perp.y() * 4.0, pen);
 }
+
+// Returns true if the generator produces DC power (Photovoltaic / PVWatts).
+bool generatorIsDC(const model::Generator& gen) {
+  const std::string typeName = gen.iddObjectType().valueName();
+  return typeName == "OS_Generator_Photovoltaic" || typeName == "OS_Generator_PVWatts";
+}
+
+// Returns true if the buss type requires DC generators.
+bool bussTypeExpectsDC(const std::string& bussType) {
+  return bussType == "DirectCurrentWithInverter" || bussType == "DirectCurrentWithInverterDCStorage"
+         || bussType == "DirectCurrentWithInverterACStorage";
+}
 }  // namespace
 
 // ─── ElectricLoadCenterDistributionTabController ──────────────────────────────
@@ -332,14 +344,14 @@ void ElectricLoadCenterDistributionTabController::refreshNow() {
 void ElectricLoadCenterDistributionTabController::buildDetailScene(const model::ElectricLoadCenterDistribution& elcd) {
   // ── Layout constants ───────────────────────────────────────────────────────
   // Energy flows right→left (Generators on right, LCPC/Main Panel on left).
-  constexpr int kPad     = 20;
-  constexpr int kArrow   = 30;
-  constexpr int kSlotW   = 140;
-  constexpr int kSlotH   = 70;
+  constexpr int kPad = 20;
+  constexpr int kArrow = 30;
+  constexpr int kSlotW = 140;
+  constexpr int kSlotH = 70;
   constexpr int kSlotStep = kSlotW + kArrow;  // 170
-  constexpr int kSONodeW = 90;   // Storage Operation visual node width
-  constexpr int kBelowGap = 20;  // gap between main-line slot bottom and Storage slot top
-  constexpr int kLaneOff = 50;   // vertical offset from centerY for two-lane (DCwithDCStorage)
+  constexpr int kSONodeW = 90;                // Storage Operation visual node width
+  constexpr int kBelowGap = 20;               // gap between main-line slot bottom and Storage slot top
+  constexpr int kLaneOff = 50;                // vertical offset from centerY for two-lane (DCwithDCStorage)
 
   // ── 1. Clear & recreate scene ──────────────────────────────────────────────
   if (m_detailScene) {
@@ -350,14 +362,13 @@ void ElectricLoadCenterDistributionTabController::buildDetailScene(const model::
   m_elcdView->graphicsView->setScene(m_detailScene);
 
   const std::string bussType = elcd.electricalBussType();
-  const bool isDC = (bussType == "DirectCurrentWithInverter" || bussType == "DirectCurrentWithInverterDCStorage"
-                     || bussType == "DirectCurrentWithInverterACStorage");
+  const bool isDC = bussTypeExpectsDC(bussType);
   const QPen arrowPen(QColor(70, 130, 180), 1.5);
 
   // ── 2. Slot pointers ───────────────────────────────────────────────────────
-  ELCDComponentSlotView* lcpcSlot      = nullptr;
-  ELCDComponentSlotView* inverterSlot  = nullptr;
-  ELCDComponentSlotView* storageSlot   = nullptr;
+  ELCDComponentSlotView* lcpcSlot = nullptr;
+  ELCDComponentSlotView* inverterSlot = nullptr;
+  ELCDComponentSlotView* storageSlot = nullptr;
   ELCDComponentSlotView* converterSlot = nullptr;
 
   // ── 3. Generators panel (positioned per-case below) ────────────────────────
@@ -366,10 +377,8 @@ void ElectricLoadCenterDistributionTabController::buildDetailScene(const model::
   generatorsView->setGeneratorLabel(isDC ? "Generators (DC)" : "Generators (AC)");
   for (const auto& gen : elcd.generators())
     generatorsView->addGenerator(QString::fromStdString(gen.nameString()), gen.handle());
-  connect(generatorsView->dropZone, &OSDropZoneItem::componentDropped, this,
-          &ElectricLoadCenterDistributionTabController::onDetailGeneratorDrop);
-  connect(generatorsView, &ELCDGeneratorsView::generatorRemoveClicked, this,
-          &ElectricLoadCenterDistributionTabController::onDetailGeneratorRemove);
+  connect(generatorsView->dropZone, &OSDropZoneItem::componentDropped, this, &ElectricLoadCenterDistributionTabController::onDetailGeneratorDrop);
+  connect(generatorsView, &ELCDGeneratorsView::generatorRemoveClicked, this, &ElectricLoadCenterDistributionTabController::onDetailGeneratorRemove);
 
   // ── Local helpers ──────────────────────────────────────────────────────────
 
@@ -433,8 +442,8 @@ void ElectricLoadCenterDistributionTabController::buildDetailScene(const model::
     //              ↕
     //          [Storage]
     constexpr int kSOH = 60;
-    const int kSOCX  = kPad + kSlotStep + kArrow + kSONodeW / 2;
-    const int kGenX  = kSOCX + kSONodeW / 2 + kArrow;
+    const int kSOCX = kPad + kSlotStep + kArrow + kSONodeW / 2;
+    const int kGenX = kSOCX + kSONodeW / 2 + kArrow;
     generatorsView->setPos(kGenX, kPad);
     const int centerY = kPad + generatorsView->totalHeight() / 2;
 
@@ -476,23 +485,23 @@ void ElectricLoadCenterDistributionTabController::buildDetailScene(const model::
     //            └─↔ [Converter] ─┘
     //                              ↕
     //                          [Storage]
-    const int kJuncLX = kPad + kSlotW;              // right edge of LCPC = left junction
-    const int kLaneX  = kJuncLX + kArrow;            // left edge of Inverter/Converter slots
-    const int kJuncRX = kLaneX + kSlotW;             // right edge of Inverter/Converter = right junction
-    const int kSOH    = kLaneOff * 2 + 16;           // SO node height spans both lanes
-    const int kSOCX   = kJuncRX + kArrow + kSONodeW / 2;
-    const int kGenX   = kSOCX + kSONodeW / 2 + kArrow;
+    const int kJuncLX = kPad + kSlotW;    // right edge of LCPC = left junction
+    const int kLaneX = kJuncLX + kArrow;  // left edge of Inverter/Converter slots
+    const int kJuncRX = kLaneX + kSlotW;  // right edge of Inverter/Converter = right junction
+    const int kSOH = kLaneOff * 2 + 16;   // SO node height spans both lanes
+    const int kSOCX = kJuncRX + kArrow + kSONodeW / 2;
+    const int kGenX = kSOCX + kSONodeW / 2 + kArrow;
 
     generatorsView->setPos(kGenX, kPad);
-    const int genH    = generatorsView->totalHeight();
+    const int genH = generatorsView->totalHeight();
     const int centerY = kPad + std::max(genH / 2, kLaneOff + kSlotH / 2 + 10);
     // Re-center generators panel to align with centerY
     generatorsView->setPos(kGenX, centerY - genH / 2);
 
-    const int invCY  = centerY - kLaneOff;
+    const int invCY = centerY - kLaneOff;
     const int convCY = centerY + kLaneOff;
     const int storageTopY = std::max(convCY + kSlotH / 2, centerY + kSOH / 2) + kBelowGap;
-    const int storageCX   = kSOCX;
+    const int storageCX = kSOCX;
 
     lcpcSlot = makeSlot("LCPC Transformer", ":/images/mini_icons/transformer.png");
     lcpcSlot->setPos(kPad, centerY - kSlotH / 2);
@@ -534,9 +543,9 @@ void ElectricLoadCenterDistributionTabController::buildDetailScene(const model::
     //               ↕
     //           [Storage]
     constexpr int kSOH = 60;
-    const int kSOCX  = kPad + kSlotStep + kArrow + kSONodeW / 2;
-    const int kInvX  = kSOCX + kSONodeW / 2 + kArrow;
-    const int kGenX  = kInvX + kSlotStep;
+    const int kSOCX = kPad + kSlotStep + kArrow + kSONodeW / 2;
+    const int kInvX = kSOCX + kSONodeW / 2 + kArrow;
+    const int kGenX = kInvX + kSlotStep;
     generatorsView->setPos(kGenX, kPad);
     const int centerY = kPad + generatorsView->totalHeight() / 2;
 
@@ -561,44 +570,28 @@ void ElectricLoadCenterDistributionTabController::buildDetailScene(const model::
 
   // ── 5. Populate slot states & wire signals ─────────────────────────────────
   if (lcpcSlot) {
-    if (auto xfmr = elcd.transformer())
-      lcpcSlot->setFilled(true, QString::fromStdString(xfmr->nameString()));
-    connect(lcpcSlot, &OSDropZoneItem::componentDropped, this,
-            &ElectricLoadCenterDistributionTabController::onDetailLCPCTransformerDrop);
-    connect(lcpcSlot, &ELCDComponentSlotView::removeClicked, this,
-            &ElectricLoadCenterDistributionTabController::onDetailLCPCTransformerRemove);
-    connect(lcpcSlot, &OSDropZoneItem::mouseClicked, this,
-            &ElectricLoadCenterDistributionTabController::onDetailLCPCTransformerClick);
+    if (auto xfmr = elcd.transformer()) lcpcSlot->setFilled(true, QString::fromStdString(xfmr->nameString()));
+    connect(lcpcSlot, &OSDropZoneItem::componentDropped, this, &ElectricLoadCenterDistributionTabController::onDetailLCPCTransformerDrop);
+    connect(lcpcSlot, &ELCDComponentSlotView::removeClicked, this, &ElectricLoadCenterDistributionTabController::onDetailLCPCTransformerRemove);
+    connect(lcpcSlot, &OSDropZoneItem::mouseClicked, this, &ElectricLoadCenterDistributionTabController::onDetailLCPCTransformerClick);
   }
   if (inverterSlot) {
-    if (auto inv = elcd.inverter())
-      inverterSlot->setFilled(true, QString::fromStdString(inv->nameString()));
-    connect(inverterSlot, &OSDropZoneItem::componentDropped, this,
-            &ElectricLoadCenterDistributionTabController::onDetailInverterDrop);
-    connect(inverterSlot, &ELCDComponentSlotView::removeClicked, this,
-            &ElectricLoadCenterDistributionTabController::onDetailInverterRemove);
-    connect(inverterSlot, &OSDropZoneItem::mouseClicked, this,
-            &ElectricLoadCenterDistributionTabController::onDetailInverterClick);
+    if (auto inv = elcd.inverter()) inverterSlot->setFilled(true, QString::fromStdString(inv->nameString()));
+    connect(inverterSlot, &OSDropZoneItem::componentDropped, this, &ElectricLoadCenterDistributionTabController::onDetailInverterDrop);
+    connect(inverterSlot, &ELCDComponentSlotView::removeClicked, this, &ElectricLoadCenterDistributionTabController::onDetailInverterRemove);
+    connect(inverterSlot, &OSDropZoneItem::mouseClicked, this, &ElectricLoadCenterDistributionTabController::onDetailInverterClick);
   }
   if (storageSlot) {
-    if (auto sto = elcd.electricalStorage())
-      storageSlot->setFilled(true, QString::fromStdString(sto->nameString()));
-    connect(storageSlot, &OSDropZoneItem::componentDropped, this,
-            &ElectricLoadCenterDistributionTabController::onDetailStorageDrop);
-    connect(storageSlot, &ELCDComponentSlotView::removeClicked, this,
-            &ElectricLoadCenterDistributionTabController::onDetailStorageRemove);
-    connect(storageSlot, &OSDropZoneItem::mouseClicked, this,
-            &ElectricLoadCenterDistributionTabController::onDetailStorageClick);
+    if (auto sto = elcd.electricalStorage()) storageSlot->setFilled(true, QString::fromStdString(sto->nameString()));
+    connect(storageSlot, &OSDropZoneItem::componentDropped, this, &ElectricLoadCenterDistributionTabController::onDetailStorageDrop);
+    connect(storageSlot, &ELCDComponentSlotView::removeClicked, this, &ElectricLoadCenterDistributionTabController::onDetailStorageRemove);
+    connect(storageSlot, &OSDropZoneItem::mouseClicked, this, &ElectricLoadCenterDistributionTabController::onDetailStorageClick);
   }
   if (converterSlot) {
-    if (auto conv = elcd.storageConverter())
-      converterSlot->setFilled(true, QString::fromStdString(conv->nameString()));
-    connect(converterSlot, &OSDropZoneItem::componentDropped, this,
-            &ElectricLoadCenterDistributionTabController::onDetailConverterDrop);
-    connect(converterSlot, &ELCDComponentSlotView::removeClicked, this,
-            &ElectricLoadCenterDistributionTabController::onDetailConverterRemove);
-    connect(converterSlot, &OSDropZoneItem::mouseClicked, this,
-            &ElectricLoadCenterDistributionTabController::onDetailConverterClick);
+    if (auto conv = elcd.storageConverter()) converterSlot->setFilled(true, QString::fromStdString(conv->nameString()));
+    connect(converterSlot, &OSDropZoneItem::componentDropped, this, &ElectricLoadCenterDistributionTabController::onDetailConverterDrop);
+    connect(converterSlot, &ELCDComponentSlotView::removeClicked, this, &ElectricLoadCenterDistributionTabController::onDetailConverterRemove);
+    connect(converterSlot, &OSDropZoneItem::mouseClicked, this, &ElectricLoadCenterDistributionTabController::onDetailConverterClick);
   }
 }
 
@@ -807,15 +800,37 @@ void ElectricLoadCenterDistributionTabController::onValidateRequested() {
 
   openstudio::StringStreamLogSink sink;
   sink.setLogLevel(Info);
-  const bool valid = m_currentELCD->validityCheck();
+  const bool sdkValid = m_currentELCD->validityCheck();
   const auto msgs = sink.logMessages();
 
+  // Custom check: generator AC/DC compatibility (SDK validityCheck does not catch this)
+  const bool expectsDC = bussTypeExpectsDC(m_currentELCD->electricalBussType());
+  QStringList customErrors;
+  for (const auto& gen : m_currentELCD->generators()) {
+    if (expectsDC != generatorIsDC(gen)) {
+      const QString expected = expectsDC ? "DC" : "AC";
+      const QString actual = generatorIsDC(gen) ? "DC" : "AC";
+      customErrors << QString("[Error] Generator '%1' produces %2 power but this ELCD uses a %3 buss type.")
+                        .arg(QString::fromStdString(gen.nameString()), actual, expected);
+    }
+  }
+
+  const bool valid = sdkValid && customErrors.isEmpty();
   QString text = valid ? "\u2713 Configuration is valid." : "\u2717 Configuration is invalid.";
+
   if (!msgs.empty()) {
     text += "\n\n";
     for (const auto& msg : msgs) {
       const QString level = (msg.logLevel() == Error) ? "[Error]" : (msg.logLevel() == Warn) ? "[Warning]" : "[Info]";
       text += level + " " + QString::fromStdString(msg.logMessage()) + "\n";
+    }
+  }
+  if (!customErrors.isEmpty()) {
+    if (msgs.empty()) {
+      text += "\n\n";
+    }
+    for (const auto& err : customErrors) {
+      text += err + "\n";
     }
   }
 
@@ -848,6 +863,23 @@ void ElectricLoadCenterDistributionTabController::onDetailGeneratorDrop(const OS
   }
   const bool isFromLibrary = doc->fromComponentLibrary(itemId);
   model::Generator generator = isFromLibrary ? gen_->clone(m_model).cast<model::Generator>() : *gen_;
+
+  // Reject if generator AC/DC type does not match the buss type
+  const bool expectsDC = bussTypeExpectsDC(m_currentELCD->electricalBussType());
+  const bool genIsDC = generatorIsDC(generator);
+  if (expectsDC != genIsDC) {
+    const QString expected = expectsDC ? "DC" : "AC";
+    const QString actual = genIsDC ? "DC (Photovoltaic / PVWatts)" : "AC (FuelCell / MicroTurbine / WindTurbine)";
+    QMessageBox::warning(nullptr, "Incompatible Generator Type",
+                         QString("This Electric Load Center uses a %1 buss type, but '%2' is a %3 generator.\n\n"
+                                 "Only %1 generators can be added to this configuration.")
+                           .arg(expected, QString::fromStdString(generator.nameString()), actual));
+    if (isFromLibrary) {
+      generator.remove();
+    }
+    return;
+  }
+
   m_currentELCD->addGenerator(generator);
   refresh();
 }
