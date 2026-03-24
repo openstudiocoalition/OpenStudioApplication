@@ -74,6 +74,8 @@ class ElectricLoadCenterDistributionTabController : public MainTabController
   void onDetailConverterClick();
   void onDetailLCPCTransformerClick();
 
+  void onDetailGeneratorClick(const Handle& handle);
+
  private:
   void buildDetailScene(const model::ElectricLoadCenterDistribution& elcd);
 

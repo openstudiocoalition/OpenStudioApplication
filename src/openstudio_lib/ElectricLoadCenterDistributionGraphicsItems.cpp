@@ -543,6 +543,32 @@ void ELCDGeneratorItemView::paint(QPainter* painter, const QStyleOptionGraphicsI
   painter->drawText(textRect, Qt::AlignVCenter | Qt::AlignLeft, m_name);
 }
 
+void ELCDGeneratorItemView::mousePressEvent(QGraphicsSceneMouseEvent* event) {
+  m_mouseDown = true;
+
+  update();
+
+  event->accept();
+}
+
+void ELCDGeneratorItemView::mouseReleaseEvent(QGraphicsSceneMouseEvent* event) {
+  if (m_mouseDown) {
+    m_mouseDown = false;
+
+    this->update();
+
+    QApplication::processEvents();
+
+    if (shape().contains(event->pos())) {
+      event->accept();
+
+      update();
+
+      emit inspectClicked(m_handle);
+    }
+  }
+}
+
 // ─── ELCDGeneratorsView ──────────────────────────────────────────────────────
 
 ELCDGeneratorsView::ELCDGeneratorsView() {
@@ -581,6 +607,7 @@ void ELCDGeneratorsView::addGenerator(const QString& name, const Handle& handle)
   auto* item = new ELCDGeneratorItemView(name, handle);
   item->setParentItem(this);
   connect(item, &ELCDGeneratorItemView::removeClicked, this, &ELCDGeneratorsView::generatorRemoveClicked);
+  connect(item, &ELCDGeneratorItemView::inspectClicked, this, &ELCDGeneratorsView::generatorInspectClicked);
   m_generatorItems.append(item);
   prepareGeometryChange();
   repositionItems();

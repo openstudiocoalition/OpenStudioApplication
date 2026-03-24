@@ -224,8 +224,16 @@ class ELCDGeneratorItemView : public QGraphicsObject
  signals:
   void removeClicked(const Handle& handle);
 
+  void inspectClicked(const Handle& handle);
+
  protected:
   void paint(QPainter* painter, const QStyleOptionGraphicsItem* option, QWidget* widget) override;
+
+  void mousePressEvent(QGraphicsSceneMouseEvent* event) override;
+
+  void mouseReleaseEvent(QGraphicsSceneMouseEvent* event) override;
+
+  bool m_mouseDown;
 
  private:
   QString m_name;
@@ -261,6 +269,7 @@ class ELCDGeneratorsView : public QGraphicsObject
 
  signals:
   void generatorRemoveClicked(const Handle& handle);
+  void generatorInspectClicked(const Handle& handle);
 
  protected:
   void paint(QPainter* painter, const QStyleOptionGraphicsItem* option, QWidget* widget) override;

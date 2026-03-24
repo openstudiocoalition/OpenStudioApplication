@@ -375,10 +375,12 @@ void ElectricLoadCenterDistributionTabController::buildDetailScene(const model::
   auto* generatorsView = new ELCDGeneratorsView();
   m_detailScene->addItem(generatorsView);
   generatorsView->setGeneratorLabel(isDC ? "Generators (DC)" : "Generators (AC)");
-  for (const auto& gen : elcd.generators())
+  for (const auto& gen : elcd.generators()) {
     generatorsView->addGenerator(QString::fromStdString(gen.nameString()), gen.handle());
+  }
   connect(generatorsView->dropZone, &OSDropZoneItem::componentDropped, this, &ElectricLoadCenterDistributionTabController::onDetailGeneratorDrop);
   connect(generatorsView, &ELCDGeneratorsView::generatorRemoveClicked, this, &ElectricLoadCenterDistributionTabController::onDetailGeneratorRemove);
+  connect(generatorsView, &ELCDGeneratorsView::generatorInspectClicked, this, &ElectricLoadCenterDistributionTabController::onDetailGeneratorClick);
 
   // ── Local helpers ──────────────────────────────────────────────────────────
 
@@ -1086,6 +1088,26 @@ void ElectricLoadCenterDistributionTabController::onDetailLCPCTransformerClick()
   if (auto doc = OSAppBase::instance()->currentDocument()) {
     model::OptionalModelObject mo = *xfmr_;
     doc->mainRightColumnController()->inspectModelObject(mo, false);
+  }
+}
+
+void ElectricLoadCenterDistributionTabController::onDetailGeneratorClick(const Handle& handle) {
+  if (!m_currentELCD) {
+    return;
+  }
+  if (auto doc = OSAppBase::instance()->currentDocument()) {
+    model::OptionalModelObject mo = m_currentELCD->model().getModelObject<model::ModelObject>(handle);
+    doc->mainRightColumnController()->inspectModelObject(mo, false);
+    // Don't think I need to protect here
+    // for (auto gen : m_currentELCD->generators()) {
+    //   if (gen.handle() == handle) {
+    //     if (auto doc = OSAppBase::instance()->currentDocument()) {
+    //       model::OptionalModelObject mo = gen;
+    //       doc->mainRightColumnController()->inspectModelObject(mo, false);
+    //     }
+    //     break;
+    //   }
+    // }
   }
 }
 
