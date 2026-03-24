@@ -333,6 +333,17 @@ void ElectricLoadCenterDistributionTabController::refreshNow() {
     }
     m_utilityGridPanel->powerInDropZone->setFilled(powerIn_.has_value(), powerIn_ ? QString::fromStdString(powerIn_->nameString()) : QString{});
     m_utilityGridPanel->powerOutDropZone->setFilled(powerOut_.has_value(), powerOut_ ? QString::fromStdString(powerOut_->nameString()) : QString{});
+
+    const auto connectOverviewNameChange = [this](const auto& opt_) {
+      if (opt_) {
+        opt_->template getImpl<model::detail::ModelObject_Impl>()->detail::IdfObject_Impl::onNameChange
+          .template disconnect<ElectricLoadCenterDistributionTabController, &ElectricLoadCenterDistributionTabController::refresh>(this);
+        opt_->template getImpl<model::detail::ModelObject_Impl>()->detail::IdfObject_Impl::onNameChange
+          .template connect<ElectricLoadCenterDistributionTabController, &ElectricLoadCenterDistributionTabController::refresh>(this);
+      }
+    };
+    connectOverviewNameChange(powerIn_);
+    connectOverviewNameChange(powerOut_);
   }
 
   // Draw one horizontal subpanel connector per ELCD (arrowhead pointing left at Main Panel)
@@ -658,6 +669,19 @@ void ElectricLoadCenterDistributionTabController::buildDetailScene(const model::
     gen.getImpl<model::detail::ModelObject_Impl>()->detail::IdfObject_Impl::onNameChange
       .connect<ElectricLoadCenterDistributionTabController, &ElectricLoadCenterDistributionTabController::refreshDetailScene>(this);
   }
+
+  const auto connectDetailNameChange = [this](const auto& opt_) {
+    if (opt_) {
+      opt_->template getImpl<model::detail::ModelObject_Impl>()->detail::IdfObject_Impl::onNameChange
+        .template disconnect<ElectricLoadCenterDistributionTabController, &ElectricLoadCenterDistributionTabController::refreshDetailScene>(this);
+      opt_->template getImpl<model::detail::ModelObject_Impl>()->detail::IdfObject_Impl::onNameChange
+        .template connect<ElectricLoadCenterDistributionTabController, &ElectricLoadCenterDistributionTabController::refreshDetailScene>(this);
+    }
+  };
+  connectDetailNameChange(elcd.transformer());
+  connectDetailNameChange(elcd.inverter());
+  connectDetailNameChange(elcd.electricalStorage());
+  connectDetailNameChange(elcd.storageConverter());
 }
 
 // ─── Transformer drop handlers ─────────────────────────────────────────────────
