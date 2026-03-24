@@ -570,8 +570,9 @@ void ElectricLoadCenterDistributionTabController::buildDetailScene(const model::
   // ── 4b. Main Panel block + ELCD container ──────────────────────────────────
   {
     constexpr int kContainerPad = 20;
+    constexpr int kTitleH = 32;  // reserved space for the ELCD name title at the top
     const QRectF elcdBounds = m_detailScene->itemsBoundingRect();
-    const QRectF containerRect = elcdBounds.adjusted(-kContainerPad, -kContainerPad, kContainerPad, kContainerPad);
+    const QRectF containerRect = elcdBounds.adjusted(-kContainerPad, -(kContainerPad + kTitleH), kContainerPad, kContainerPad);
 
     // ELCD container (behind all slots/arrows, Z=-1 set in constructor)
     auto* container = new ELCDDetailContainerItem(containerRect, elcd.handle(), QString::fromStdString(elcd.nameString()));
