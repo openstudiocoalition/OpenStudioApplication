@@ -1284,17 +1284,14 @@ void MainRightColumnController::configureForElectricLoadCenterSubTab(int subTabI
   myModelList->setItemsRemoveable(false);
   myModelList->setItemsType(OSItemType::LibraryItem);
 
-  myModelList->addModelObjectType(IddObjectType::OS_Generator_MicroTurbine, "Generator MicroTurbine");
-  myModelList->addModelObjectType(IddObjectType::OS_Generator_Photovoltaic, "Generator Photovoltaic");
   myModelList->addModelObjectType(IddObjectType::OS_Generator_FuelCell, "Generator FuelCell");
+  myModelList->addModelObjectType(IddObjectType::OS_Generator_MicroTurbine, "Generator MicroTurbine");
   myModelList->addModelObjectType(IddObjectType::OS_Generator_WindTurbine, "Generator Wind Turbine");
-  myModelList->addModelObjectType(IddObjectType::OS_Generator_PVWatts, "Generator PVWatts");
-  myModelList->addModelObjectCategoryPlaceholder("Generators");
+  myModelList->addModelObjectCategoryPlaceholder("AC Generators");
 
-  myModelList->addModelObjectType(IddObjectType::OS_PhotovoltaicPerformance_Simple, "PV Performance Simple");
-  myModelList->addModelObjectType(IddObjectType::OS_PhotovoltaicPerformance_EquivalentOneDiode, "PV Performance Equivalent One Diode");
-  myModelList->addModelObjectType(IddObjectType::OS_PhotovoltaicPerformance_Sandia, "PV Performance Sandia");
-  myModelList->addModelObjectCategoryPlaceholder("Photovoltaic Performance");
+  myModelList->addModelObjectType(IddObjectType::OS_Generator_Photovoltaic, "Generator Photovoltaic");
+  myModelList->addModelObjectType(IddObjectType::OS_Generator_PVWatts, "Generator PVWatts");
+  myModelList->addModelObjectCategoryPlaceholder("DC Generators");
 
   myModelList->addModelObjectType(IddObjectType::OS_ElectricLoadCenter_Inverter_PVWatts, "Inverter PVWatts");
   myModelList->addModelObjectType(IddObjectType::OS_ElectricLoadCenter_Inverter_Simple, "Inverter Simple");
@@ -1324,17 +1321,14 @@ void MainRightColumnController::configureForElectricLoadCenterSubTab(int subTabI
   libraryWidget->setItemsRemoveable(false);
   libraryWidget->setItemsType(OSItemType::LibraryItem);
 
-  libraryWidget->addModelObjectType(IddObjectType::OS_Generator_MicroTurbine, "Generator MicroTurbine");
-  libraryWidget->addModelObjectType(IddObjectType::OS_Generator_Photovoltaic, "Generator Photovoltaic");
   libraryWidget->addModelObjectType(IddObjectType::OS_Generator_FuelCell, "Generator FuelCell");
+  libraryWidget->addModelObjectType(IddObjectType::OS_Generator_MicroTurbine, "Generator MicroTurbine");
   libraryWidget->addModelObjectType(IddObjectType::OS_Generator_WindTurbine, "Generator Wind Turbine");
-  libraryWidget->addModelObjectType(IddObjectType::OS_Generator_PVWatts, "Generator PVWatts");
-  libraryWidget->addModelObjectCategoryPlaceholder("Generators");
+  libraryWidget->addModelObjectCategoryPlaceholder("AC Generators");
 
-  libraryWidget->addModelObjectType(IddObjectType::OS_PhotovoltaicPerformance_Simple, "PV Performance Simple");
-  libraryWidget->addModelObjectType(IddObjectType::OS_PhotovoltaicPerformance_EquivalentOneDiode, "PV Performance Equivalent One Diode");
-  libraryWidget->addModelObjectType(IddObjectType::OS_PhotovoltaicPerformance_Sandia, "PV Performance Sandia");
-  libraryWidget->addModelObjectCategoryPlaceholder("Photovoltaic Performance");
+  libraryWidget->addModelObjectType(IddObjectType::OS_Generator_Photovoltaic, "Generator Photovoltaic");
+  libraryWidget->addModelObjectType(IddObjectType::OS_Generator_PVWatts, "Generator PVWatts");
+  libraryWidget->addModelObjectCategoryPlaceholder("DC Generators");
 
   libraryWidget->addModelObjectType(IddObjectType::OS_ElectricLoadCenter_Inverter_PVWatts, "Inverter PVWatts");
   libraryWidget->addModelObjectType(IddObjectType::OS_ElectricLoadCenter_Inverter_Simple, "Inverter Simple");
