@@ -17,6 +17,8 @@ class QPushButton;
 class QLabel;
 class QComboBox;
 
+#include <QPixmap>
+
 namespace openstudio {
 
 // ─── ELCDView ────────────────────────────────────────────────────────────────
@@ -247,7 +249,7 @@ class ELCDGeneratorItemView : public QGraphicsObject
   Q_OBJECT;
 
  public:
-  explicit ELCDGeneratorItemView(const QString& name, const Handle& handle);
+  explicit ELCDGeneratorItemView(const QString& name, const Handle& handle, const QPixmap& icon = {});
 
   QRectF boundingRect() const override;
 
@@ -272,6 +274,7 @@ class ELCDGeneratorItemView : public QGraphicsObject
  private:
   QString m_name;
   Handle m_handle;
+  QPixmap m_icon;
 
  private slots:
   void onRemoveButtonClicked();
@@ -290,7 +293,7 @@ class ELCDGeneratorsView : public QGraphicsObject
 
   void setGeneratorLabel(const QString& label);
   void clearGenerators();
-  void addGenerator(const QString& name, const Handle& handle);
+  void addGenerator(const QString& name, const Handle& handle, const QPixmap& icon = {});
   int totalHeight() const;
 
   OSDropZoneItem* dropZone{nullptr};

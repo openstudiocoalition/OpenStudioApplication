@@ -10,6 +10,7 @@
 #include "MainRightColumnController.hpp"
 #include "OSAppBase.hpp"
 #include "OSDocument.hpp"
+#include "IconLibrary.hpp"
 #include "OSDropZone.hpp"
 #include "OSItem.hpp"
 
@@ -378,7 +379,11 @@ void ElectricLoadCenterDistributionTabController::buildDetailScene(const model::
   m_detailScene->addItem(generatorsView);
   generatorsView->setGeneratorLabel(isDC ? "Generators (DC)" : "Generators (AC)");
   for (const auto& gen : elcd.generators()) {
-    generatorsView->addGenerator(QString::fromStdString(gen.nameString()), gen.handle());
+    QPixmap icon;
+    if (const QPixmap* p = IconLibrary::Instance().findMiniIcon(gen.iddObjectType().value())) {
+      icon = *p;
+    }
+    generatorsView->addGenerator(QString::fromStdString(gen.nameString()), gen.handle(), icon);
   }
   connect(generatorsView->dropZone, &OSDropZoneItem::componentDropped, this, &ElectricLoadCenterDistributionTabController::onDetailGeneratorDrop);
   connect(generatorsView, &ELCDGeneratorsView::generatorRemoveClicked, this, &ElectricLoadCenterDistributionTabController::onDetailGeneratorRemove);

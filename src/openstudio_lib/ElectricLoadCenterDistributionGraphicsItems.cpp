@@ -576,17 +576,20 @@ void ELCDComponentSlotView::paint(QPainter* painter, const QStyleOptionGraphicsI
 
 // ─── ELCDGeneratorItemView ────────────────────────────────────────────────────
 
-ELCDGeneratorItemView::ELCDGeneratorItemView(const QString& name, const Handle& handle) : m_name(name), m_handle(handle) {
+ELCDGeneratorItemView::ELCDGeneratorItemView(const QString& name, const Handle& handle, const QPixmap& icon)
+  : m_name(name), m_handle(handle), m_icon(icon) {
+  static constexpr int kItemW = ELCDGeneratorsView::kWidth - 2 * ELCDGeneratorsView::kPad;
   removeButtonItem = new RemoveButtonItem();
   removeButtonItem->setParentItem(this);
-  const qreal bx = ELCDGeneratorsView::kWidth - ELCDGeneratorsView::kPad - removeButtonItem->boundingRect().width();
+  const qreal bx = kItemW - ELCDGeneratorsView::kPad - removeButtonItem->boundingRect().width();
   const qreal by = (kHeight - removeButtonItem->boundingRect().height()) / 2.0;
   removeButtonItem->setPos(bx, by);
   connect(removeButtonItem, &RemoveButtonItem::mouseClicked, this, &ELCDGeneratorItemView::onRemoveButtonClicked);
 }
 
 QRectF ELCDGeneratorItemView::boundingRect() const {
-  return {0, 0, static_cast<double>(ELCDGeneratorsView::kWidth), static_cast<double>(kHeight)};
+  static constexpr int kItemW = ELCDGeneratorsView::kWidth - 2 * ELCDGeneratorsView::kPad;
+  return {0, 0, static_cast<double>(kItemW), static_cast<double>(kHeight)};
 }
 
 void ELCDGeneratorItemView::onRemoveButtonClicked() {
@@ -600,13 +603,24 @@ void ELCDGeneratorItemView::paint(QPainter* painter, const QStyleOptionGraphicsI
   painter->setPen(QPen(QColor(160, 175, 200), 1));
   painter->drawRect(boundingRect());
 
+  constexpr int kIconSize = 16;
+  constexpr int kIconPad = 4;
+  qreal textLeft = ELCDGeneratorsView::kPad;
+
+  if (!m_icon.isNull()) {
+    const QPixmap scaled = m_icon.scaled(kIconSize, kIconSize, Qt::KeepAspectRatio, Qt::SmoothTransformation);
+    const qreal iconY = (kHeight - scaled.height()) / 2.0;
+    painter->drawPixmap(QPointF(kIconPad, iconY), scaled);
+    textLeft = kIconPad + kIconSize + kIconPad;
+  }
+
   QFont font = painter->font();
   font.setPixelSize(11);
   painter->setFont(font);
   painter->setPen(QColor(40, 60, 100));
 
   const qreal removeW = removeButtonItem->boundingRect().width();
-  const QRectF textRect(ELCDGeneratorsView::kPad, 0, boundingRect().width() - removeW - ELCDGeneratorsView::kPad * 2 - 4, kHeight);
+  const QRectF textRect(textLeft, 0, boundingRect().width() - textLeft - removeW - ELCDGeneratorsView::kPad - 2, kHeight);
   painter->drawText(textRect, Qt::AlignVCenter | Qt::AlignLeft, m_name);
 }
 
@@ -670,8 +684,8 @@ void ELCDGeneratorsView::clearGenerators() {
   update();
 }
 
-void ELCDGeneratorsView::addGenerator(const QString& name, const Handle& handle) {
-  auto* item = new ELCDGeneratorItemView(name, handle);
+void ELCDGeneratorsView::addGenerator(const QString& name, const Handle& handle, const QPixmap& icon) {
+  auto* item = new ELCDGeneratorItemView(name, handle, icon);
   item->setParentItem(this);
   connect(item, &ELCDGeneratorItemView::removeClicked, this, &ELCDGeneratorsView::generatorRemoveClicked);
   connect(item, &ELCDGeneratorItemView::inspectClicked, this, &ELCDGeneratorsView::generatorInspectClicked);
