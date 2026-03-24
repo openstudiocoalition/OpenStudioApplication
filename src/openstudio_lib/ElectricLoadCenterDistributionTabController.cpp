@@ -235,12 +235,32 @@ void ElectricLoadCenterDistributionTabController::refreshNow() {
   if (m_utilityGridPanel) {
     boost::optional<model::ElectricLoadCenterTransformer> powerIn_;
     boost::optional<model::ElectricLoadCenterTransformer> powerOut_;
+    int powerInCount = 0;
+    int powerOutCount = 0;
     for (const auto& t : m_model.getConcreteModelObjects<model::ElectricLoadCenterTransformer>()) {
-      if (!powerIn_ && openstudio::istringEqual(t.transformerUsage(), "PowerInFromGrid")) {
-        powerIn_ = t;
-      } else if (!powerOut_ && openstudio::istringEqual(t.transformerUsage(), "PowerOutToGrid")) {
-        powerOut_ = t;
+      if (openstudio::istringEqual(t.transformerUsage(), "PowerInFromGrid")) {
+        ++powerInCount;
+        if (!powerIn_) {
+          powerIn_ = t;
+        }
+      } else if (openstudio::istringEqual(t.transformerUsage(), "PowerOutToGrid")) {
+        ++powerOutCount;
+        if (!powerOut_) {
+          powerOut_ = t;
+        }
       }
+    }
+    if (powerInCount > 1) {
+      QMessageBox::warning(nullptr, "Multiple PowerInFromGrid Transformers",
+                           QString("Found %1 transformers with usage 'PowerInFromGrid'. There should be at most one. "
+                                   "Displaying the first one found.")
+                             .arg(powerInCount));
+    }
+    if (powerOutCount > 1) {
+      QMessageBox::warning(nullptr, "Multiple PowerOutToGrid Transformers",
+                           QString("Found %1 transformers with usage 'PowerOutToGrid'. There should be at most one. "
+                                   "Displaying the first one found.")
+                             .arg(powerOutCount));
     }
     m_utilityGridPanel->powerInDropZone->setFilled(powerIn_.has_value(), powerIn_ ? QString::fromStdString(powerIn_->nameString()) : QString{});
     m_utilityGridPanel->powerOutDropZone->setFilled(powerOut_.has_value(), powerOut_ ? QString::fromStdString(powerOut_->nameString()) : QString{});
