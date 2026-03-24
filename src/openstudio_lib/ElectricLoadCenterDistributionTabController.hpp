@@ -19,7 +19,7 @@
 #include <boost/optional.hpp>
 
 class QGraphicsScene;
-class QGraphicsLineItem;
+class QGraphicsItem;
 
 namespace openstudio {
 
@@ -70,7 +70,7 @@ class ElectricLoadCenterDistributionTabController : public MainTabController
   int m_kMainPanelX = 0;
   int m_kElcdGridX = 0;
 
-  QVector<QGraphicsLineItem*> m_elcdConnectorLines;
+  QVector<QGraphicsItem*> m_elcdConnectorItems;
 };
 
 // ─── ELCDListItem ─────────────────────────────────────────────────────────────

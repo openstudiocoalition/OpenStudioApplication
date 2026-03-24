@@ -30,6 +30,23 @@
 
 namespace openstudio {
 
+namespace {
+// Add a line + open-V arrowhead at `to`, matching the drawArrow() style used in paint().
+void addArrowLine(QGraphicsScene* scene, qreal x1, qreal y1, qreal x2, qreal y2, const QPen& pen) {
+  scene->addLine(x1, y1, x2, y2, pen);
+  QPointF dir(x2 - x1, y2 - y1);
+  const double len = std::sqrt(dir.x() * dir.x() + dir.y() * dir.y());
+  if (len < 1.0) {
+    return;
+  }
+  dir /= len;
+  const QPointF perp(-dir.y(), dir.x());
+  const QPointF tip(x2, y2);
+  scene->addLine(tip.x(), tip.y(), tip.x() - dir.x() * 8.0 + perp.x() * 4.0, tip.y() - dir.y() * 8.0 + perp.y() * 4.0, pen);
+  scene->addLine(tip.x(), tip.y(), tip.x() - dir.x() * 8.0 - perp.x() * 4.0, tip.y() - dir.y() * 8.0 - perp.y() * 4.0, pen);
+}
+}  // namespace
+
 // ─── ElectricLoadCenterDistributionTabController ──────────────────────────────
 
 ElectricLoadCenterDistributionTabController::ElectricLoadCenterDistributionTabController(const model::Model& model)
@@ -59,8 +76,8 @@ ElectricLoadCenterDistributionTabController::ElectricLoadCenterDistributionTabCo
   //   x=120: ELCDUtilityGridPanel     (width=190)
   //   x=350: ELCDMainPanelItem        (width=160, dynamic height)
   //   x=550: ELCD card grid (single column)
-  constexpr int kIconColWidth = 120;
-  constexpr int kIconSize = 100;
+  constexpr int kIconColWidth = 220;
+  constexpr int kIconSize = 200;
   constexpr int kUtilityPanelX = kIconColWidth;                                         // 120
   constexpr int kMainPanelX = kUtilityPanelX + ELCDUtilityGridPanel::kPanelWidth + 40;  // 350
   constexpr int kElcdGridX = kMainPanelX + ELCDMainPanelItem::kPanelWidth + 40;         // 550
@@ -96,17 +113,18 @@ ElectricLoadCenterDistributionTabController::ElectricLoadCenterDistributionTabCo
   m_gridScene->addItem(m_elcdGridView);
 
   // Static connecting lines: icon ↔ utility panel ↔ main panel
+  // Arrow tips are at the final destination; panel-internal stubs handle intermediate arrowheads.
   const QPen connectorPen(QColor(70, 130, 180), 1.5);
-  // Icon → PowerIn transformer
+  // Icon → PowerIn transformer: plain line (arrowhead drawn inside panel at drop zone)
   m_gridScene->addLine(kIconColWidth - 20, ELCDUtilityGridPanel::kPowerInCentreY, kUtilityPanelX, ELCDUtilityGridPanel::kPowerInCentreY,
                        connectorPen);
-  // PowerOut transformer → icon
-  m_gridScene->addLine(kUtilityPanelX, ELCDUtilityGridPanel::kPowerOutCentreY, kIconColWidth - 20, ELCDUtilityGridPanel::kPowerOutCentreY,
-                       connectorPen);
-  // PowerIn transformer → Main Panel
-  m_gridScene->addLine(kUtilityPanelX + ELCDUtilityGridPanel::kPanelWidth, ELCDUtilityGridPanel::kPowerInCentreY, kMainPanelX,
-                       ELCDUtilityGridPanel::kPowerInCentreY, connectorPen);
-  // Main Panel → PowerOut transformer
+  // PowerOut transformer → icon: arrowhead AT icon right edge
+  addArrowLine(m_gridScene.data(), kUtilityPanelX, ELCDUtilityGridPanel::kPowerOutCentreY, kIconColWidth - 20,
+               ELCDUtilityGridPanel::kPowerOutCentreY, connectorPen);
+  // PowerIn transformer → Main Panel: arrowhead AT Main Panel left edge
+  addArrowLine(m_gridScene.data(), kUtilityPanelX + ELCDUtilityGridPanel::kPanelWidth, ELCDUtilityGridPanel::kPowerInCentreY, kMainPanelX,
+               ELCDUtilityGridPanel::kPowerInCentreY, connectorPen);
+  // Main Panel → PowerOut transformer: plain line (arrowhead drawn inside panel at drop zone)
   m_gridScene->addLine(kMainPanelX, ELCDUtilityGridPanel::kPowerOutCentreY, kUtilityPanelX + ELCDUtilityGridPanel::kPanelWidth,
                        ELCDUtilityGridPanel::kPowerOutCentreY, connectorPen);
   // Dynamic ELCD subpanel connections are drawn in refreshNow()
@@ -170,14 +188,14 @@ void ElectricLoadCenterDistributionTabController::refreshNow() {
   }
   m_dirty = false;
 
-  // Clear old dynamic connector lines
-  for (QGraphicsLineItem* line : m_elcdConnectorLines) {
-    if (line) {
-      m_gridScene->removeItem(line);
-      delete line;
+  // Clear old dynamic connector items (lines + arrowheads)
+  for (QGraphicsItem* item : m_elcdConnectorItems) {
+    if (item) {
+      m_gridScene->removeItem(item);
+      delete item;
     }
   }
-  m_elcdConnectorLines.clear();
+  m_elcdConnectorItems.clear();
 
   // Recompute Main Panel height to match the ELCD grid
   // GridLayoutItem with 1 column: height = count * (cellH + spacing) - spacing + 2*margin
@@ -195,16 +213,17 @@ void ElectricLoadCenterDistributionTabController::refreshNow() {
     m_mainPanelItem->setHeight(panelHeight);
   }
 
-  // Draw one horizontal subpanel connector per ELCD
-  // Center-y of ELCD i in scene = kMargin + i*(kCellH+kSpacing) + kCellH/2
-  //                             = 10 + i*190 + 90 = 100 + i*190
+  // Draw one horizontal subpanel connector per ELCD (arrowhead pointing left at Main Panel)
+  // Center-y of ELCD i = kMargin + i*(kCellH+kSpacing) + kCellH/2 = 100 + i*190
   const QPen connectorPen(QColor(70, 130, 180), 1.5);
   for (int i = 0; i < elcdCount; ++i) {
-    const int connY = kMargin + i * (kCellH + kSpacing) + kCellH / 2;
-    auto* line = new QGraphicsLineItem(m_kMainPanelX + ELCDMainPanelItem::kPanelWidth, connY, m_kElcdGridX, connY);
-    line->setPen(connectorPen);
-    m_gridScene->addItem(line);
-    m_elcdConnectorLines.append(line);
+    const int connY = kMargin + i * (kCellH + kSpacing) + (kCellH / 2);
+    // Line from ELCD grid left edge → Main Panel right edge, tip at Main Panel
+    // Line from ELCD grid left edge → Main Panel right edge, open-V tip at Main Panel
+    const qreal tx = m_kMainPanelX + ELCDMainPanelItem::kPanelWidth;
+    m_elcdConnectorItems.append(m_gridScene->addLine(m_kElcdGridX, connY, tx, connY, connectorPen));
+    m_elcdConnectorItems.append(m_gridScene->addLine(tx, connY, tx + 8.0, connY - 4.0, connectorPen));
+    m_elcdConnectorItems.append(m_gridScene->addLine(tx, connY, tx + 8.0, connY + 4.0, connectorPen));
   }
 }
 

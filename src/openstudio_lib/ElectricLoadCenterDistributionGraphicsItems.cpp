@@ -290,16 +290,16 @@ void ELCDUtilityGridPanel::paint(QPainter* painter, const QStyleOptionGraphicsIt
   painter->setPen(arrowPen);
   painter->setBrush(QColor(70, 130, 180));
 
-  // Left-edge stubs: connections from the Utility Grid icon (left) to each drop zone
-  // PowerIn: arrow pointing right (→ power flows from grid into transformer)
+  // Left-edge stubs: panel edge ↔ drop zone
+  // PowerIn: tip AT drop zone (arrowhead is the final tip — power enters from left)
   drawArrow(painter, QPointF(0, kPowerInCentreY), QPointF(kDropX - 2, kPowerInCentreY));
-  // PowerOut: arrow pointing left (← power flows from transformer back to grid)
-  drawArrow(painter, QPointF(kDropX - 2, kPowerOutCentreY), QPointF(0, kPowerOutCentreY));
+  // PowerOut: plain line — the arrowhead tip lives on the scene-level line ending at the icon
+  painter->drawLine(QPointF(kDropX - 2, kPowerOutCentreY), QPointF(0, kPowerOutCentreY));
 
-  // Right-edge stubs: connections from each drop zone to the Main Panel (right)
-  // PowerIn: arrow pointing right (→)
-  drawArrow(painter, QPointF(kDropX + kDropW + 4, kPowerInCentreY), QPointF(kPanelWidth, kPowerInCentreY));
-  // PowerOut: arrow pointing left (←)
+  // Right-edge stubs: drop zone ↔ panel edge
+  // PowerIn: plain line — the arrowhead tip lives on the scene-level line ending at Main Panel
+  painter->drawLine(QPointF(kDropX + kDropW + 4, kPowerInCentreY), QPointF(kPanelWidth, kPowerInCentreY));
+  // PowerOut: tip AT drop zone (arrowhead is the final tip — power enters from right)
   drawArrow(painter, QPointF(kPanelWidth - 1, kPowerOutCentreY), QPointF(kDropX + kDropW + 4, kPowerOutCentreY));
 }
 
