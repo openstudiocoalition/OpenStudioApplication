@@ -402,7 +402,7 @@ void ELCDUtilityGridPanel::paint(QPainter* painter, const QStyleOptionGraphicsIt
 
 // ─── ELCDMainPanelItem ───────────────────────────────────────────────────────
 
-ELCDMainPanelItem::ELCDMainPanelItem() = default;
+ELCDMainPanelItem::ELCDMainPanelItem(bool showBackHint) : m_showBackHint(showBackHint) {}
 
 void ELCDMainPanelItem::setHeight(int h) {
   prepareGeometryChange();
@@ -443,16 +443,18 @@ void ELCDMainPanelItem::paint(QPainter* painter, const QStyleOptionGraphicsItem*
   painter->setPen(QColor(60, 80, 120));
   painter->drawText(QRectF(0, 8, kPanelWidth, 20), Qt::AlignCenter, "Main Panel");
 
-  // "← Back to Overview" hint in the middle
-  QFont hf = painter->font();
-  hf.setBold(false);
-  hf.setPointSize(10);
-  hf.setCapitalization(QFont::MixedCase);
-  hf.setItalic(true);
-  painter->setFont(hf);
-  painter->setPen(QColor(100, 120, 160));
-  const int midY = (m_height - 60) / 2;
-  painter->drawText(QRectF(4, midY - 10, kPanelWidth - 8, 20), Qt::AlignCenter, "\u2190 Back to Overview");
+  // "← Back to Overview" hint in the middle (detail view only)
+  if (m_showBackHint) {
+    QFont hf = painter->font();
+    hf.setBold(false);
+    hf.setPointSize(10);
+    hf.setCapitalization(QFont::MixedCase);
+    hf.setItalic(true);
+    painter->setFont(hf);
+    painter->setPen(QColor(100, 120, 160));
+    const int midY = (m_height - 60) / 2;
+    painter->drawText(QRectF(4, midY - 10, kPanelWidth - 8, 20), Qt::AlignCenter, "\u2190 Back to Overview");
+  }
 
   // "Building & HVAC Electric Meters" footer with down arrow
   QFont ff = painter->font();

@@ -137,7 +137,7 @@ class ELCDMainPanelItem : public QGraphicsObject
   Q_OBJECT;
 
  public:
-  ELCDMainPanelItem();
+  explicit ELCDMainPanelItem(bool showBackHint = false);
   QRectF boundingRect() const override;
 
   void setHeight(int h);
@@ -155,6 +155,7 @@ class ELCDMainPanelItem : public QGraphicsObject
  private:
   int m_height = 340;
   bool m_mouseDown{false};
+  bool m_showBackHint;
 };
 
 // ─── ELCDDetailContainerItem ─────────────────────────────────────────────────

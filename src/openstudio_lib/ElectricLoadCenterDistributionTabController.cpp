@@ -579,7 +579,7 @@ void ElectricLoadCenterDistributionTabController::buildDetailScene(const model::
     m_detailScene->addItem(container);
 
     // Main Panel block — vertically matches the container
-    auto* mainPanelItem = new ELCDMainPanelItem();
+    auto* mainPanelItem = new ELCDMainPanelItem(true);
     mainPanelItem->setHeight(static_cast<int>(containerRect.height()));
     mainPanelItem->setPos(kPad, containerRect.top());
     m_detailScene->addItem(mainPanelItem);
