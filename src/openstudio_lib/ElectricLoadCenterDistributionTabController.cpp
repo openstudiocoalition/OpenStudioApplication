@@ -455,7 +455,7 @@ void ElectricLoadCenterDistributionTabController::buildDetailScene(const model::
     addStorageOpNode(kSOCX, centerY, kSOH);
 
     const int storageTopY = centerY + kSOH / 2 + kBelowGap;
-    storageSlot = makeSlot("Drop Storage", {});
+    storageSlot = makeSlot("Drop Storage", ":/images/mini_icons/elec_storage.png");
     storageSlot->setPos(kSOCX - kSlotW / 2, storageTopY);
 
     addBidirH(kPad + kSlotW, centerY, kSOCX - kSONodeW / 2);
@@ -514,7 +514,7 @@ void ElectricLoadCenterDistributionTabController::buildDetailScene(const model::
     converterSlot = makeSlot("Drop Converter", ":/images/mini_icons/ac_left_dc_right.png");
     converterSlot->setPos(kLaneX, convCY - kSlotH / 2);
 
-    storageSlot = makeSlot("Drop Storage", {});
+    storageSlot = makeSlot("Drop Storage", ":/images/mini_icons/elec_storage.png");
     storageSlot->setPos(storageCX - kSlotW / 2, storageTopY);
 
     addStorageOpNode(kSOCX, centerY, kSOH);
@@ -563,7 +563,7 @@ void ElectricLoadCenterDistributionTabController::buildDetailScene(const model::
     inverterSlot->setPos(kInvX, centerY - kSlotH / 2);
 
     const int storageTopY = centerY + kSOH / 2 + kBelowGap;
-    storageSlot = makeSlot("Drop Storage", {});
+    storageSlot = makeSlot("Drop Storage", ":/images/mini_icons/elec_storage.png");
     storageSlot->setPos(kSOCX - kSlotW / 2, storageTopY);
 
     addBidirH(kPad + kSlotW, centerY, kSOCX - kSONodeW / 2);

@@ -328,6 +328,10 @@ IconLibrary::IconLibrary() {
     new QPixmap(":/images/mini_icons/electric_equipment.png");
   m_miniIcons[openstudio::IddObjectType(openstudio::IddObjectType::OS_ElectricEquipment_Definition).value()] =
     new QPixmap(":/images/mini_icons/electric_equipment_definition.png");
+  m_miniIcons[openstudio::IddObjectType(openstudio::IddObjectType::OS_ElectricLoadCenter_Storage_LiIonNMCBattery).value()] =
+    new QPixmap(":/images/mini_icons/elec_storage.png");
+  m_miniIcons[openstudio::IddObjectType(openstudio::IddObjectType::OS_ElectricLoadCenter_Storage_Simple).value()] =
+    new QPixmap(":/images/mini_icons/elec_storage.png");
   m_miniIcons[openstudio::IddObjectType(openstudio::IddObjectType::OS_ElectricLoadCenter_Storage_Converter).value()] =
     new QPixmap(":/images/mini_icons/ac_left_dc_right.png");
   m_miniIcons[openstudio::IddObjectType(openstudio::IddObjectType::OS_ElectricLoadCenter_Inverter_LookUpTable).value()] =

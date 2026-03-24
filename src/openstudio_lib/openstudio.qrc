@@ -1,5 +1,9 @@
 <!DOCTYPE RCC><RCC version="1.0">
   <qresource>
+    <file>images/ac_left_dc_right.png</file>
+    <file>images/ac_left_dc_right@2x.png</file>
+    <file>images/dc_left_ac_right.png</file>
+    <file>images/dc_left_ac_right@2x.png</file>
     <file>images/add-small.png</file>
     <file>images/add-small@2x.png</file>
     <file>images/add.png</file>
@@ -782,6 +786,8 @@
     <file>images/mini_icons/districtheating@2x.png</file>
     <file>images/mini_icons/mini_energy_recov_vent.png</file>
     <file>images/mini_icons/mini_energy_recov_vent@2x.png</file>
+    <file>images/mini_icons/elec_storage.png</file>
+    <file>images/mini_icons/elec_storage@2x.png</file>
     <file>images/mini_icons/electric_equipment.png</file>
     <file>images/mini_icons/electric_equipment@2x.png</file>
     <file>images/mini_icons/electric_equipment_definition.png</file>
