@@ -344,14 +344,14 @@ void ElectricLoadCenterDistributionTabController::refreshNow() {
 void ElectricLoadCenterDistributionTabController::buildDetailScene(const model::ElectricLoadCenterDistribution& elcd) {
   // ── Layout constants ───────────────────────────────────────────────────────
   // Energy flows right→left (Generators on right, LCPC/Main Panel on left).
-  constexpr int kPad = 20;
-  constexpr int kArrow = 30;
-  constexpr int kSlotW = 140;
-  constexpr int kSlotH = 70;
-  constexpr int kSlotStep = kSlotW + kArrow;  // 170
-  constexpr int kSONodeW = 90;                // Storage Operation visual node width
-  constexpr int kBelowGap = 20;               // gap between main-line slot bottom and Storage slot top
-  constexpr int kLaneOff = 50;                // vertical offset from centerY for two-lane (DCwithDCStorage)
+  constexpr int kPad = 40;
+  constexpr int kArrow = 60;
+  constexpr int kSlotW = 200;
+  constexpr int kSlotH = 100;
+  constexpr int kSlotStep = kSlotW + kArrow;  // 260
+  constexpr int kSONodeW = 130;               // Storage Operation visual node width
+  constexpr int kBelowGap = 40;               // gap between main-line slot bottom and Storage slot top
+  constexpr int kLaneOff = 80;                // vertical offset from centerY for two-lane (DCwithDCStorage)
 
   // ── 1. Clear & recreate scene ──────────────────────────────────────────────
   if (m_detailScene) {
@@ -522,8 +522,8 @@ void ElectricLoadCenterDistributionTabController::buildDetailScene(const model::
     // Left side: L-shaped elbow connectors between LCPC and each lane.
     // Two connection stubs on the LCPC right side, slightly above/below center.
     const int kMidX = kJuncLX + kArrow / 2;  // elbow column between LCPC and lanes
-    const int kUpperConnY = centerY - 10;     // upper exit on LCPC right edge (for Inverter)
-    const int kLowerConnY = centerY + 10;     // lower exit on LCPC right edge (for Converter)
+    const int kUpperConnY = centerY - 18;     // upper exit on LCPC right edge (for Inverter)
+    const int kLowerConnY = centerY + 18;     // lower exit on LCPC right edge (for Converter)
 
     // Inverter → LCPC:  [Inv left] ──┐ (elbow down) ──► [LCPC right, arrowhead]
     m_detailScene->addLine(kLaneX, invCY, kMidX, invCY, arrowPen);         // horizontal from Inv left to elbow

@@ -448,7 +448,7 @@ void ELCDMainPanelItem::paint(QPainter* painter, const QStyleOptionGraphicsItem*
 ELCDComponentSlotView::ELCDComponentSlotView(const QString& emptyLabel, const QString& iconPath)
   : m_placeholderText(emptyLabel), m_iconPath(iconPath) {
   setText(emptyLabel);
-  setSize(140, 70);
+  setSize(200, 100);
   setAcceptDrops(true);
 
   removeButtonItem = new RemoveButtonItem();
@@ -467,7 +467,7 @@ void ELCDComponentSlotView::setFilled(bool filled, const QString& name) {
 }
 
 QRectF ELCDComponentSlotView::boundingRect() const {
-  return {0, 0, 140, 70};
+  return {0, 0, 200, 100};
 }
 
 void ELCDComponentSlotView::paint(QPainter* painter, const QStyleOptionGraphicsItem* /*option*/, QWidget* /*widget*/) {
