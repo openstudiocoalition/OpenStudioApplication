@@ -2421,24 +2421,10 @@ OS:WaterHeater:HeatPump,
   Simultaneous,                           !- Tank Element Control Logic
   Heater1;                                !- Control Sensor Location In Stratified Tank
 
-OS:Schedule:Constant,
-  {a3fc4cc6-f700-4c7d-856a-bfef340038b7}, !- Handle
-  Always On Discrete,                     !- Name
-  {4e2b3642-4a48-48d6-879f-e31eb27b3ff4}, !- Schedule Type Limits Name
-  1;                                      !- Value
-
-OS:ScheduleTypeLimits,
-  {4e2b3642-4a48-48d6-879f-e31eb27b3ff4}, !- Handle
-  Always On Discrete Limits,              !- Name
-  0,                                      !- Lower Limit Value
-  1,                                      !- Upper Limit Value
-  Discrete,                               !- Numeric Type
-  Availability;                           !- Unit Type
-
 OS:Coil:WaterHeating:AirToWaterHeatPump,
   {8812d392-ab70-47ea-a32d-1e6030e7cd7e}, !- Handle
   HPWH DX Coil,                           !- Name
-  {a3fc4cc6-f700-4c7d-856a-bfef340038b7}, !- Availability Schedule Name
+  {9f54092d-a4a8-41b8-a381-c4c332ecb843}, !- Availability Schedule Name
   4000,                                   !- Rated Heating Capacity {W}
   3.2,                                    !- Rated COP {W/W}
   0.6956,                                 !- Rated Sensible Heat Ratio
@@ -2732,7 +2718,7 @@ OS:WaterHeater:HeatPump:WrappedCondenser,
 OS:Coil:WaterHeating:AirToWaterHeatPump:Wrapped,
   {37684bc6-3ecb-4d0c-8858-aca36abd4a69}, !- Handle
   Coil Water Heating Air To Water Heat Pump Wrapped, !- Name
-  {a3fc4cc6-f700-4c7d-856a-bfef340038b7}, !- Availability Schedule Name
+  {9f54092d-a4a8-41b8-a381-c4c332ecb843}, !- Availability Schedule Name
   2349.6,                                 !- Rated Heating Capacity {W}
   2.4,                                    !- Rated COP {W/W}
   0.981,                                  !- Rated Sensible Heat Ratio
@@ -3443,7 +3429,7 @@ OS:Curve:Cubic,
 OS:Coil:Heating:WaterToAirHeatPump:EquationFit,
   {d683b8e6-1a67-4e2b-aa32-8a4aa6cedd5d}, !- Handle
   Wtr-to-Air HP Elec Backup HP Htg Coil,  !- Name
-  {a3fc4cc6-f700-4c7d-856a-bfef340038b7}, !- Availability Schedule Name
+  {9f54092d-a4a8-41b8-a381-c4c332ecb843}, !- Availability Schedule Name
   ,                                       !- Water Inlet Node Name
   ,                                       !- Water Outlet Node Name
   ,                                       !- Air Inlet Node Name
@@ -3496,7 +3482,7 @@ OS:Curve:QuadLinear,
 OS:Coil:Cooling:WaterToAirHeatPump:EquationFit,
   {497dcb6a-5e26-44b9-ad01-3a2cee449abb}, !- Handle
   Wtr-to-Air HP Elec Backup HP Clg Coil,  !- Name
-  {a3fc4cc6-f700-4c7d-856a-bfef340038b7}, !- Availability Schedule Name
+  {9f54092d-a4a8-41b8-a381-c4c332ecb843}, !- Availability Schedule Name
   ,                                       !- Water Inlet Node Name
   ,                                       !- Water Outlet Node Name
   ,                                       !- Air Inlet Node Name
@@ -3591,7 +3577,7 @@ OS:Fan:OnOff,
 OS:Coil:Heating:WaterToAirHeatPump:EquationFit,
   {3ad65a6c-58cf-4c1f-937d-359611c4d472}, !- Handle
   Wtr-to-Air HP Gas Backup HP Htg Coil,   !- Name
-  {a3fc4cc6-f700-4c7d-856a-bfef340038b7}, !- Availability Schedule Name
+  {9f54092d-a4a8-41b8-a381-c4c332ecb843}, !- Availability Schedule Name
   ,                                       !- Water Inlet Node Name
   ,                                       !- Water Outlet Node Name
   ,                                       !- Air Inlet Node Name
@@ -3644,7 +3630,7 @@ OS:Curve:QuadLinear,
 OS:Coil:Cooling:WaterToAirHeatPump:EquationFit,
   {e6f679f1-9fe3-4189-af37-13d8cb88d7d8}, !- Handle
   Wtr-to-Air HP Gas Backup HP Clg Coil,   !- Name
-  {a3fc4cc6-f700-4c7d-856a-bfef340038b7}, !- Availability Schedule Name
+  {9f54092d-a4a8-41b8-a381-c4c332ecb843}, !- Availability Schedule Name
   ,                                       !- Water Inlet Node Name
   ,                                       !- Water Outlet Node Name
   ,                                       !- Air Inlet Node Name
@@ -3739,7 +3725,7 @@ OS:Fan:OnOff,
 OS:Coil:Heating:WaterToAirHeatPump:EquationFit,
   {54669793-36af-4393-aafe-d99188dfc46f}, !- Handle
   Wtr-to-Air HP HW Backup HP Htg Coil,    !- Name
-  {a3fc4cc6-f700-4c7d-856a-bfef340038b7}, !- Availability Schedule Name
+  {9f54092d-a4a8-41b8-a381-c4c332ecb843}, !- Availability Schedule Name
   ,                                       !- Water Inlet Node Name
   ,                                       !- Water Outlet Node Name
   ,                                       !- Air Inlet Node Name
@@ -3792,7 +3778,7 @@ OS:Curve:QuadLinear,
 OS:Coil:Cooling:WaterToAirHeatPump:EquationFit,
   {7b550b0c-a709-4422-8f21-690b52ad8519}, !- Handle
   Wtr-to-Air HP HW Backup HP Clg Coil,    !- Name
-  {a3fc4cc6-f700-4c7d-856a-bfef340038b7}, !- Availability Schedule Name
+  {9f54092d-a4a8-41b8-a381-c4c332ecb843}, !- Availability Schedule Name
   ,                                       !- Water Inlet Node Name
   ,                                       !- Water Outlet Node Name
   ,                                       !- Air Inlet Node Name
@@ -7672,7 +7658,7 @@ OS:Curve:Cubic,
 OS:Coil:Cooling:WaterToAirHeatPump:EquationFit,
   {3fca92a4-d330-424e-b370-5ad77441d416}, !- Handle
   Wtr-to-Air HP Clg Coil 1,               !- Name
-  {a3fc4cc6-f700-4c7d-856a-bfef340038b7}, !- Availability Schedule Name
+  {9f54092d-a4a8-41b8-a381-c4c332ecb843}, !- Availability Schedule Name
   ,                                       !- Water Inlet Node Name
   ,                                       !- Water Outlet Node Name
   ,                                       !- Air Inlet Node Name
@@ -7752,7 +7738,7 @@ OS:Curve:QuadLinear,
 OS:Coil:Heating:WaterToAirHeatPump:EquationFit,
   {07468aec-7855-4a75-8aec-93bcb433af35}, !- Handle
   Wtr-to-Air HP Htg Coil 1,               !- Name
-  {a3fc4cc6-f700-4c7d-856a-bfef340038b7}, !- Availability Schedule Name
+  {9f54092d-a4a8-41b8-a381-c4c332ecb843}, !- Availability Schedule Name
   ,                                       !- Water Inlet Node Name
   ,                                       !- Water Outlet Node Name
   ,                                       !- Air Inlet Node Name
@@ -13388,7 +13374,7 @@ OS:AirLoopHVAC:UnitaryHeatPump:AirToAir:MultiSpeed,
 OS:Coil:Cooling:DX:VariableSpeed,
   {3ef4dbff-bbcf-4645-93ab-fcd09507f984}, !- Handle
   Coil Cooling DX Variable Speed - Two Speeds, !- Name
-  {a3fc4cc6-f700-4c7d-856a-bfef340038b7}, !- Availability Schedule Name
+  {9f54092d-a4a8-41b8-a381-c4c332ecb843}, !- Availability Schedule Name
   ,                                       !- Indoor Air Inlet Node Name
   ,                                       !- Indoor Air Outlet Node Name
   2,                                      !- Nominal Speed Level {dimensionless}
@@ -13698,4 +13684,198 @@ OS:EvaporativeCooler:Direct:ResearchSpecial,
   16,                                     !- Evaporative Operation Minimum Drybulb Temperature
   24,                                     !- Evaporative Operation Maximum Limit Wetbulb Temperature
   28;                                     !- Evaporative Operation Maximum Limit Drybulb Temperature
+
+OS:ElectricLoadCenter:Distribution,
+  {f936a104-a3d6-437e-90a2-b07587826d3b}, !- Handle
+  Electric Load Center Distribution,      !- Name
+  {f57e7e2f-05ca-4a01-964c-c1fe6bc3ee13}; !- Generator List Name
+
+OS:ModelObjectList,
+  {f57e7e2f-05ca-4a01-964c-c1fe6bc3ee13}, !- Handle
+  {21576e86-5030-4135-85f2-13511770045f}; !- Name
+
+OS:ElectricLoadCenter:Transformer,
+  {a1e87599-6784-4c4b-ad13-ba260f1143d2}, !- Handle
+  Transformer - Power Out to Grid,        !- Name
+  {9f54092d-a4a8-41b8-a381-c4c332ecb843}, !- Availability Schedule Name
+  PowerOutToGrid,                         !- Transformer Usage
+  ,                                       !- Zone Name
+  ,                                       !- Radiative Fraction
+  15000,                                  !- Rated Capacity {VA}
+  ,                                       !- Phase
+  ,                                       !- Conductor Material
+  ,                                       !- Full Load Temperature Rise {C}
+  ,                                       !- Fraction of Eddy Current Losses
+  NominalEfficiency;                      !- Performance Input Method
+
+OS:ElectricLoadCenter:Transformer,
+  {548c2c47-d20e-47d7-813f-05856c913de2}, !- Handle
+  Transformer - Power In From Grid,       !- Name
+  {9f54092d-a4a8-41b8-a381-c4c332ecb843}, !- Availability Schedule Name
+  PowerInFromGrid,                        !- Transformer Usage
+  ,                                       !- Zone Name
+  ,                                       !- Radiative Fraction
+  15000,                                  !- Rated Capacity {VA}
+  ,                                       !- Phase
+  ,                                       !- Conductor Material
+  ,                                       !- Full Load Temperature Rise {C}
+  ,                                       !- Fraction of Eddy Current Losses
+  NominalEfficiency;                      !- Performance Input Method
+
+OS:ElectricLoadCenter:Transformer,
+  {237d2bbc-232a-4031-9271-38d5f838de68}, !- Handle
+  Transformer - Load Center Power Conditioning, !- Name
+  {9f54092d-a4a8-41b8-a381-c4c332ecb843}, !- Availability Schedule Name
+  LoadCenterPowerConditioning,            !- Transformer Usage
+  ,                                       !- Zone Name
+  ,                                       !- Radiative Fraction
+  15000,                                  !- Rated Capacity {VA}
+  ,                                       !- Phase
+  ,                                       !- Conductor Material
+  ,                                       !- Full Load Temperature Rise {C}
+  ,                                       !- Fraction of Eddy Current Losses
+  NominalEfficiency;                      !- Performance Input Method
+
+OS:ElectricLoadCenter:Inverter:Simple,
+  {be83418d-1149-4986-9e08-f85663680ebe}, !- Handle
+  ELCD Inverter Simple,                   !- Name
+  ,                                       !- Availability Schedule Name
+  ,                                       !- Zone Name
+  ,                                       !- Radiative Fraction
+  ;                                       !- Inverter Efficiency
+
+OS:ElectricLoadCenter:Inverter:PVWatts,
+  {682b3cfb-16fc-494a-ac88-6d9c4e3609b1}, !- Handle
+  ELCD Inverter PVWatts,                  !- Name
+  ,                                       !- DC to AC Size Ratio
+  ;                                       !- Inverter Efficiency
+
+OS:ElectricLoadCenter:Inverter:LookUpTable,
+  {ea854afb-148b-4a51-a806-4267ddba1097}, !- Handle
+  ELCD Inverter LookUpTable,              !- Name
+  ,                                       !- Availability Schedule Name
+  ,                                       !- Zone Name
+  ,                                       !- Radiative Fraction
+  ,                                       !- Rated Maximum Continuous Output Power {W}
+  ,                                       !- Night Tare Loss Power {W}
+  ,                                       !- Nominal Voltage Input {V}
+  ,                                       !- Efficiency at 10% Power and Nominal Voltage
+  ,                                       !- Efficiency at 20% Power and Nominal Voltage
+  ,                                       !- Efficiency at 30% Power and Nominal Voltage
+  ,                                       !- Efficiency at 50% Power and Nominal Voltage
+  ,                                       !- Efficiency at 75% Power and Nominal Voltage
+  ;                                       !- Efficiency at 100% Power and Nominal Voltage
+
+OS:ElectricLoadCenter:Storage:Simple,
+  {c8176b62-7c55-451f-ab8c-0c76e03da450}, !- Handle
+  ELCD Storage Simple,                    !- Name
+  ,                                       !- Availability Schedule Name
+  ,                                       !- Zone Name
+  ,                                       !- Radiative Fraction for Zone Heat Gains
+  0.8,                                    !- Nominal Energetic Efficiency for Charging
+  0.8,                                    !- Nominal Discharging Energetic Efficiency
+  10000000000000,                         !- Maximum Storage Capacity {J}
+  1000000,                                !- Maximum Power for Discharging {W}
+  1000000,                                !- Maximum Power for Charging {W}
+  ;                                       !- Initial State of Charge {J}
+
+OS:ElectricLoadCenter:Storage:Converter,
+  {e73132a9-0557-4b93-ad02-668573415abd}, !- Handle
+  ELCD Storage Converter,                 !- Name
+  ,                                       !- Availability Schedule Name
+  SimpleFixed,                            !- Power Conversion Efficiency Method
+  0.95,                                   !- Simple Fixed Efficiency
+  ,                                       !- Design Maximum Continuous Input Power {W}
+  ,                                       !- Efficiency Function of Power Curve Name
+  ,                                       !- Ancillary Power Consumed In Standby {W}
+  ,                                       !- Zone Name
+  ;                                       !- Radiative Fraction
+
+OS:ElectricLoadCenter:Storage:LiIonNMCBattery,
+  {19a86c2a-5f8c-46cf-89c0-215e34d76122}, !- Handle
+  ELCD Storage LiIonNMCBattery,           !- Name
+  {9f54092d-a4a8-41b8-a381-c4c332ecb843}, !- Availability Schedule Name
+  ,                                       !- Zone Name
+  0,                                      !- Radiative Fraction
+  KandlerSmith,                           !- Lifetime Model
+  139,                                    !- Number of Cells in Series
+  25,                                     !- Number of Strings in Parallel
+  0.5,                                    !- Initial Fractional State of Charge
+  0.95,                                   !- DC to DC Charging Efficiency
+  342,                                    !- Battery Mass {kg}
+  4.26,                                   !- Battery Surface Area {m2}
+  1500,                                   !- Battery Specific Heat Capacity {J/kg-K}
+  7.5,                                    !- Heat Transfer Coefficient Between Battery and Ambient {W/m2-K}
+  4.2,                                    !- Fully Charged Cell Voltage {V}
+  3.53,                                   !- Cell Voltage at End of Exponential Zone {V}
+  3.342,                                  !- Cell Voltage at End of Nominal Zone {V}
+  3.342,                                  !- Default Nominal Cell Voltage {V}
+  3.2,                                    !- Fully Charged Cell Capacity {Ah}
+  0.8075,                                 !- Fraction of Cell Capacity Removed at the End of Exponential Zone
+  0.976875,                               !- Fraction of Cell Capacity Removed at the End of Nominal Zone
+  1,                                      !- Charge Rate at Which Voltage vs Capacity Curve Was Generated
+  0.09;                                   !- Battery Cell Internal Electrical Resistance {ohms}
+
+OS:Generator:WindTurbine,
+  {0de6962d-cf4b-4cdf-9c29-6c50e28e59cf}, !- Handle
+  Generator Wind Turbine,                 !- Name
+  {9f54092d-a4a8-41b8-a381-c4c332ecb843}, !- Availability Schedule Name
+  HorizontalAxisWindTurbine,              !- Rotor Type
+  VariableSpeedVariablePitch,             !- Power Control
+  41,                                     !- Rated Rotor Speed {rev/min}
+  19.2,                                   !- Rotor Diameter {m}
+  30.5,                                   !- Overall Height {m}
+  3,                                      !- Number of Blades
+  55000,                                  !- Rated Power {W}
+  11,                                     !- Rated Wind Speed {m/s}
+  3.5,                                    !- Cut In Wind Speed {m/s}
+  25,                                     !- Cut Out Wind Speed {m/s}
+  0.835,                                  !- Fraction system Efficiency
+  5,                                      !- Maximum Tip Speed Ratio
+  0.25,                                   !- Maximum Power Coefficient
+  ,                                       !- Annual Local Average Wind Speed {m/s}
+  50,                                     !- Height for Local Average Wind Speed {m}
+  2.08,                                   !- Blade Chord Area {m2}
+  0.9,                                    !- Blade Drag Coefficient
+  0.05,                                   !- Blade Lift Coefficient
+  0.5176,                                 !- Power Coefficient C1
+  116,                                    !- Power Coefficient C2
+  0.4,                                    !- Power Coefficient C3
+  0,                                      !- Power Coefficient C4
+  5,                                      !- Power Coefficient C5
+  21;                                     !- Power Coefficient C6
+
+OS:PhotovoltaicPerformance:Simple,
+  {8656b486-1962-4613-83ad-920f3b22a757}, !- Handle
+  Photovoltaic Performance Simple 1,      !- Name
+  ,                                       !- Fraction of Surface Area with Active Solar Cells {dimensionless}
+  Fixed,                                  !- Conversion Efficiency Input Mode
+  0.12,                                   !- Value for Cell Efficiency if Fixed
+  ;                                       !- Efficiency Schedule Name
+
+OS:Generator:Photovoltaic,
+  {a7a84669-5657-43bc-944d-eebb06eb548f}, !- Handle
+  Generator Photovoltaic Simple,          !- Name
+  ,                                       !- Surface Name
+  {8656b486-1962-4613-83ad-920f3b22a757}, !- Module Performance Name
+  ,                                       !- Heat Transfer Integration Mode
+  ,                                       !- Number of Modules in Parallel {dimensionless}
+  ,                                       !- Number of Modules in Series {dimensionless}
+  ,                                       !- Rated Electric Power Output {W}
+  ;                                       !- Availability Schedule Name
+
+OS:PhotovoltaicPerformance:EquivalentOne-Diode,
+  {fdc28241-5db8-4669-be9f-4e178dd81bfb}, !- Handle
+  Photovoltaic Performance Equivalent One-Diode 1; !- Name
+
+OS:Generator:Photovoltaic,
+  {44592961-a983-4d4a-be50-12fb89172618}, !- Handle
+  Generator Photovoltaic Equivalent One Diode, !- Name
+  ,                                       !- Surface Name
+  {fdc28241-5db8-4669-be9f-4e178dd81bfb}, !- Module Performance Name
+  ,                                       !- Heat Transfer Integration Mode
+  ,                                       !- Number of Modules in Parallel {dimensionless}
+  ,                                       !- Number of Modules in Series {dimensionless}
+  ,                                       !- Rated Electric Power Output {W}
+  ;                                       !- Availability Schedule Name
 
