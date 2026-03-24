@@ -544,7 +544,7 @@ message(STATUS "QT_INSTALL_DIR=${QT_INSTALL_DIR}")
 
 find_package(Qt6 ${QT_VERSION} COMPONENTS CoreTools GuiTools WidgetsTools QmlTools WebEngineCoreTools REQUIRED PATHS ${QT_INSTALL_DIR} NO_DEFAULT_PATH)
 
-find_package(Qt6 ${QT_VERSION} COMPONENTS Core Core5Compat Gui Widgets Sql Svg Network Xml Concurrent PrintSupport Quick QuickWidgets Qml WebChannel Positioning WebEngineCore WebEngineWidgets Charts REQUIRED PATHS ${QT_INSTALL_DIR} NO_DEFAULT_PATH)
+find_package(Qt6 ${QT_VERSION} COMPONENTS Core Gui Widgets Sql Svg Network Xml Concurrent PrintSupport Quick QuickWidgets Qml WebChannel Positioning WebEngineCore WebEngineWidgets Charts REQUIRED PATHS ${QT_INSTALL_DIR} NO_DEFAULT_PATH)
 
 find_package(Qt6LinguistTools ${QT_VERSION} REQUIRED PATHS ${QT_INSTALL_DIR} NO_DEFAULT_PATH)
 
@@ -612,7 +612,6 @@ endif()
 
 # QT_LIBS are linked by OS App and by openstudio_modeleditor.so
 list(APPEND QT_LIBS Qt6::Core)
-list(APPEND QT_LIBS Qt6::Core5Compat)
 list(APPEND QT_LIBS Qt6::Widgets)
 list(APPEND QT_LIBS Qt6::Network)
 list(APPEND QT_LIBS Qt6::Xml)

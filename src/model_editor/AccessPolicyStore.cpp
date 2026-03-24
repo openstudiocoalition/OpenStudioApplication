@@ -6,11 +6,7 @@
 #include <iostream>
 #include <sstream>
 
-#include <QXmlDefaultHandler>
-#include <QXmlReader>
-#include <QXmlSimpleReader>
-#include <QXmlInputSource>
-#include <QXmlAttributes>
+#include <QXmlStreamReader>
 
 #include "AccessPolicyStore.hpp"
 
@@ -18,162 +14,9 @@
 #include <openstudio/utilities/core/FilesystemHelpers.hpp>
 #include <openstudio/utilities/idd/IddFileAndFactoryWrapper.hpp>
 
-// TODO: We will have to replace QXmlDefaultHandler at some point, ignore for now
-#if defined(_MSC_VER)
-#  pragma warning(push)
-#  pragma warning(disable : 4996)
-#elif (defined(__GNUC__))
-#  pragma GCC diagnostic push
-#  pragma GCC diagnostic ignored "-Wdeprecated-declarations"
-#endif
-
 namespace openstudio {
 namespace model {
 AccessPolicyStore* AccessPolicyStore::s_instance = nullptr;
-
-//XML Parser
-class AccessParser : public QXmlDefaultHandler
-{
- public:
-  AccessParser();
-
- protected:
-  virtual bool startElement(const QString& namespaceURI, const QString& localName, const QString& qName, const QXmlAttributes& atts) override;
-
-  virtual bool endElement(const QString& namespaceURI, const QString& localName, const QString& qName) override;
-
-  virtual bool error(const QXmlParseException& e) override;
-  virtual bool fatalError(const QXmlParseException& e) override;
-
- private:
-  AccessPolicy* m_curPolicy = nullptr;
-  IddObjectType m_curType;
-  IddFileAndFactoryWrapper m_factory;
-  REGISTER_LOGGER("AccessParser");
-};
-
-AccessParser::AccessParser() : m_curType("Catchall") {}
-
-bool AccessParser::error(const QXmlParseException& e) {
-  std::stringstream s;
-  s << "Error line:" << e.lineNumber() << "\ncolumn:" << e.columnNumber() << "\n" << e.message().toStdString() << "\n";
-  LOG(Debug, s.str());
-  return false;
-}
-bool AccessParser::fatalError(const QXmlParseException& e) {
-  LOG(Debug, "Error line:" << e.lineNumber() << "\ncolumn:" << e.columnNumber() << "\n" << e.message().toStdString() << "\n");
-  return false;
-}
-
-bool AccessParser::startElement(const QString& /*namespaceURI*/, const QString& /*localName*/, const QString& qName, const QXmlAttributes& atts) {
-  if (qName.compare("policy", Qt::CaseInsensitive) == 0) {
-    if (m_curPolicy != nullptr) {
-      LOG(Debug, "parse error, new policy started before old one ended\n");
-      return false;
-    }
-
-    for (int i = 0, iend = atts.length(); i < iend; ++i) {
-      QString name = atts.qName(i);
-      if (name.compare("IddObjectType", Qt::CaseInsensitive) == 0) {
-        QString val = atts.value(i);
-        try {
-          m_curType = IddObjectType(val.toStdString());
-        } catch (...) {
-          LOG(Debug, "IddObjectType failed conversion:" << val.toStdString() << "\n");
-          return false;  //Bad IddObjectType
-        }
-        auto exists = AccessPolicyStore::Instance().m_policyMap.find(m_curType);
-        if (exists != AccessPolicyStore::Instance().m_policyMap.end()) {
-          LOG(Warn, "2 entries of same type found in policy xml. Later entries will obscure previous entires:" << val.toStdString() << "\n");
-          delete exists->second;
-          AccessPolicyStore::Instance().m_policyMap.erase(exists);
-          // DLM: return false?
-          OS_ASSERT(false);
-        }
-        m_curPolicy = new AccessPolicy();
-
-        OptionalIddObject opObj = m_factory.getObject(m_curType);
-        if (opObj) {
-          // initialize here in case there are no rules
-          m_curPolicy->m_numNormalFields = opObj->numFields();
-          m_curPolicy->m_extensibleSize = opObj->properties().numExtensible;
-        }
-
-        AccessPolicyStore::Instance().m_policyMap[m_curType] = m_curPolicy;
-        return true;  //I don't care about any other attributes!
-      }
-    }
-    return false;  //NO IddObjectType!!!!
-  }
-
-  if (qName.compare("rule", Qt::CaseInsensitive) == 0) {
-    if (m_curPolicy == nullptr) {
-      LOG(Debug, "parse error, rule started before a policy is started");
-      return false;
-    }
-    QString fieldName;
-    QString accessRule;
-    for (int i = 0, iend = atts.length(); i < iend; ++i) {
-      QString name = atts.qName(i);
-      if (name.compare("IddField", Qt::CaseInsensitive) == 0) {
-        fieldName = atts.value(i);
-      } else if (name.compare("access", Qt::CaseInsensitive) == 0) {
-        accessRule = atts.value(i);
-      }
-    }
-    if (!fieldName.isEmpty() && !accessRule.isEmpty()) {
-      AccessPolicy::ACCESS_LEVEL level = AccessPolicy::FREE;
-      if (accessRule.compare("locked", Qt::CaseInsensitive) == 0) {
-        level = AccessPolicy::LOCKED;
-      } else if (accessRule.compare("hidden", Qt::CaseInsensitive) == 0) {
-        level = AccessPolicy::HIDDEN;
-      }
-
-      OptionalIddObject opObj = m_factory.getObject(m_curType);
-      if (!opObj) {
-        LOG(Debug, "IddObject not found in factory!!!\n");
-        return true;  //keep going
-      }
-      IddObject obj = *opObj;
-
-      [[maybe_unused]] bool foundInFields = false;
-      for (unsigned int i = 0, iend = obj.numFields(); i < iend; ++i) {
-        openstudio::OptionalIddField f = obj.getField(i);
-        QString fieldName2(f->name().c_str());
-        if (fieldName.compare(fieldName2, Qt::CaseInsensitive) == 0) {
-          m_curPolicy->m_accessMap[i] = level;
-          foundInFields = true;
-          break;
-        }
-      }
-      m_curPolicy->m_numNormalFields = obj.numFields();
-      m_curPolicy->m_extensibleSize = obj.properties().numExtensible;
-      for (unsigned int i = obj.numFields(), iend = obj.properties().numExtensible + obj.numFields(); i < iend && !foundInFields; ++i) {
-        openstudio::OptionalIddField f = obj.getField(i);
-        QString fieldName2(f->name().c_str());
-        if (fieldName.compare(fieldName2, Qt::CaseInsensitive) == 0) {
-          m_curPolicy->m_extensibleAccessMap[i - obj.numFields()] = level;
-          foundInFields = true;
-          break;
-        }
-      }
-
-      // TODO: should we return foundInFields here?
-      return true;
-    } else {
-      LOG(Debug, "Parse error in <rule> need both IddField and Access attribute\n");
-      return true;
-    }
-  }
-  return true;
-}
-
-bool AccessParser::endElement(const QString& /*namespaceURI*/, const QString& /*localName*/, const QString& qName) {
-  if (qName.compare("policy", Qt::CaseInsensitive) == 0) {
-    m_curPolicy = nullptr;
-  }
-  return true;
-}
 
 AccessPolicy::AccessPolicy() : m_numNormalFields(std::numeric_limits<unsigned>::max()), m_extensibleSize(std::numeric_limits<unsigned>::max()) {}
 
@@ -246,18 +89,129 @@ AccessPolicyStore& AccessPolicyStore::Instance() {
 }
 
 bool AccessPolicyStore::loadFile(const QByteArray& data) {
-  QXmlSimpleReader xmlReader;
-  AccessParser ap;
-  xmlReader.setContentHandler(&ap);
+  QXmlStreamReader reader(data);
 
-  QXmlInputSource source;
-  source.setData(data);
-  //LER:: add error handler
-  if (!xmlReader.parse(source)) {
-    LOG(Debug, "xml parse error in AccessPolicyStore::loadFile\n");
+  AccessPolicy* curPolicy = nullptr;
+  IddObjectType curType("Catchall");
+  IddFileAndFactoryWrapper factory;
+
+  while (!reader.atEnd()) {
+    reader.readNext();
+
+    if (reader.isStartElement()) {
+      const QString qName = reader.name().toString();
+
+      if (qName.compare("policy", Qt::CaseInsensitive) == 0) {
+        if (curPolicy != nullptr) {
+          LOG(Debug, "parse error, new policy started before old one ended\n");
+          return false;
+        }
+
+        bool foundType = false;
+        for (const auto& attr : reader.attributes()) {
+          if (attr.qualifiedName().compare("IddObjectType", Qt::CaseInsensitive) == 0) {
+            QString val = attr.value().toString();
+            try {
+              curType = IddObjectType(val.toStdString());
+            } catch (...) {
+              LOG(Debug, "IddObjectType failed conversion:" << val.toStdString() << "\n");
+              return false;
+            }
+            auto exists = Instance().m_policyMap.find(curType);
+            if (exists != Instance().m_policyMap.end()) {
+              LOG(Warn, "2 entries of same type found in policy xml. Later entries will obscure previous entries:" << val.toStdString() << "\n");
+              delete exists->second;
+              Instance().m_policyMap.erase(exists);
+              OS_ASSERT(false);
+            }
+            curPolicy = new AccessPolicy();
+
+            OptionalIddObject opObj = factory.getObject(curType);
+            if (opObj) {
+              curPolicy->m_numNormalFields = opObj->numFields();
+              curPolicy->m_extensibleSize = opObj->properties().numExtensible;
+            }
+
+            Instance().m_policyMap[curType] = curPolicy;
+            foundType = true;
+            break;
+          }
+        }
+        if (!foundType) {
+          LOG(Debug, "NO IddObjectType!!!!\n");
+          return false;
+        }
+
+      } else if (qName.compare("rule", Qt::CaseInsensitive) == 0) {
+        if (curPolicy == nullptr) {
+          LOG(Debug, "parse error, rule started before a policy is started");
+          return false;
+        }
+
+        QString fieldName;
+        QString accessRule;
+        for (const auto& attr : reader.attributes()) {
+          if (attr.qualifiedName().compare("IddField", Qt::CaseInsensitive) == 0) {
+            fieldName = attr.value().toString();
+          } else if (attr.qualifiedName().compare("access", Qt::CaseInsensitive) == 0) {
+            accessRule = attr.value().toString();
+          }
+        }
+
+        if (!fieldName.isEmpty() && !accessRule.isEmpty()) {
+          AccessPolicy::ACCESS_LEVEL level = AccessPolicy::FREE;
+          if (accessRule.compare("locked", Qt::CaseInsensitive) == 0) {
+            level = AccessPolicy::LOCKED;
+          } else if (accessRule.compare("hidden", Qt::CaseInsensitive) == 0) {
+            level = AccessPolicy::HIDDEN;
+          }
+
+          OptionalIddObject opObj = factory.getObject(curType);
+          if (!opObj) {
+            LOG(Debug, "IddObject not found in factory!!!\n");
+            continue;  // keep going
+          }
+          IddObject obj = *opObj;
+
+          [[maybe_unused]] bool foundInFields = false;
+          for (unsigned int i = 0, iend = obj.numFields(); i < iend; ++i) {
+            openstudio::OptionalIddField f = obj.getField(i);
+            QString fieldName2(f->name().c_str());
+            if (fieldName.compare(fieldName2, Qt::CaseInsensitive) == 0) {
+              curPolicy->m_accessMap[i] = level;
+              foundInFields = true;
+              break;
+            }
+          }
+          curPolicy->m_numNormalFields = obj.numFields();
+          curPolicy->m_extensibleSize = obj.properties().numExtensible;
+          for (unsigned int i = obj.numFields(), iend = obj.properties().numExtensible + obj.numFields(); i < iend && !foundInFields; ++i) {
+            openstudio::OptionalIddField f = obj.getField(i);
+            QString fieldName2(f->name().c_str());
+            if (fieldName.compare(fieldName2, Qt::CaseInsensitive) == 0) {
+              curPolicy->m_extensibleAccessMap[i - obj.numFields()] = level;
+              foundInFields = true;
+              break;
+            }
+          }
+        } else {
+          LOG(Debug, "Parse error in <rule> need both IddField and Access attribute\n");
+        }
+      }
+
+    } else if (reader.isEndElement()) {
+      if (reader.name().compare("policy", Qt::CaseInsensitive) == 0) {
+        curPolicy = nullptr;
+      }
+    }
+  }
+
+  if (reader.hasError()) {
+    LOG(Debug, "xml parse error in AccessPolicyStore::loadFile: " << reader.errorString().toStdString() << "\n");
     OS_ASSERT(false);
     return false;
   }
+
   return true;
 }
 
@@ -294,9 +248,3 @@ void AccessPolicyStore::clear() {
 
 }  // namespace model
 }  // namespace openstudio
-
-#if defined(_MSC_VER)
-#  pragma warning(pop)
-#elif (defined(__GNUC__))
-#  pragma GCC diagnostic pop
-#endif
