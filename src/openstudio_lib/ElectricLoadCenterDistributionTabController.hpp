@@ -13,7 +13,6 @@
 #include <openstudio/model/ElectricLoadCenterDistribution.hpp>
 #include <openstudio/utilities/idf/Handle.hpp>
 
-#include <QMap>
 #include <QPointer>
 #include <QSharedPointer>
 #include <QVector>
@@ -29,7 +28,6 @@ class ELCDScene;
 class ELCDUtilityGridPanel;
 class ELCDMainPanelItem;
 class ELCDDetailContainerItem;
-class ELCDGeneratorItemView;
 class GridLayoutItem;
 class ELCDListController;
 class OSItemId;
@@ -79,8 +77,7 @@ class ElectricLoadCenterDistributionTabController : public MainTabController
 
   void onDetailGeneratorClick(const Handle& handle);
   void onDetailELCDInspect(const Handle& handle);
-  void onDetailELCDNameChanged();
-  void onDetailGeneratorNameChanged();
+  void refreshDetailScene();
 
  private:
   void buildDetailScene(const model::ElectricLoadCenterDistribution& elcd);
@@ -101,10 +98,6 @@ class ElectricLoadCenterDistributionTabController : public MainTabController
   boost::optional<model::ElectricLoadCenterDistribution> m_currentELCD;
   bool m_dirty = false;
 
-  // Pointers to live-updatable detail view items (set in buildDetailScene)
-  QPointer<ELCDDetailContainerItem> m_detailContainerItem;
-  QMap<Handle, ELCDGeneratorItemView*> m_detailGeneratorViews;
-
   // Scene positions (set in constructor, reused in refreshNow)
   int m_kMainPanelX = 0;
   int m_kElcdGridX = 0;
@@ -120,7 +113,7 @@ class ELCDListItem : public OSListItem
 
  public:
   explicit ELCDListItem(const model::ElectricLoadCenterDistribution& elcd, OSListController* listController = nullptr);
-  ~ELCDListItem() override;
+  virtual ~ELCDListItem() = default;
 
   QString name() const;
   QString bussType() const;
