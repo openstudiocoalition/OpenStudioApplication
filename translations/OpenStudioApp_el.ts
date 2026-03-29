@@ -4,28 +4,28 @@
 <context>
     <name>InspectorDialog</name>
     <message>
-        <location filename="../src/model_editor/InspectorDialog.cpp" line="495"/>
-        <location filename="../src/model_editor/InspectorDialog.cpp" line="496"/>
+        <location filename="../src/model_editor/InspectorDialog.cpp" line="493"/>
+        <location filename="../src/model_editor/InspectorDialog.cpp" line="494"/>
         <source>OpenStudio Inspector</source>
         <translation>OpenStudio ελεγκτής</translation>
     </message>
     <message>
-        <location filename="../src/model_editor/InspectorDialog.cpp" line="575"/>
+        <location filename="../src/model_editor/InspectorDialog.cpp" line="573"/>
         <source>Add new object</source>
         <translation>Προσθέστε ένα νέο αντικείμενο</translation>
     </message>
     <message>
-        <location filename="../src/model_editor/InspectorDialog.cpp" line="579"/>
+        <location filename="../src/model_editor/InspectorDialog.cpp" line="577"/>
         <source>Copy selected object</source>
         <translation>Αντέγραψε επιλεγμένο αντικειμένο</translation>
     </message>
     <message>
-        <location filename="../src/model_editor/InspectorDialog.cpp" line="583"/>
+        <location filename="../src/model_editor/InspectorDialog.cpp" line="581"/>
         <source>Remove selected objects</source>
         <translation>Αφαιρέσε επιλεγμένα αντικείμενα</translation>
     </message>
     <message>
-        <location filename="../src/model_editor/InspectorDialog.cpp" line="587"/>
+        <location filename="../src/model_editor/InspectorDialog.cpp" line="585"/>
         <source>Purge unused objects</source>
         <translation>Εκκαθάριση αχρησιμοποίητων αντικειμένων</translation>
     </message>
@@ -294,6 +294,77 @@ Zone</source>
     </message>
 </context>
 <context>
+    <name>openstudio::GroundTemperatureListView</name>
+    <message>
+        <location filename="../src/openstudio_lib/GroundTemperatureView.cpp" line="93"/>
+        <source>Building Surface Ground Temperatures</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../src/openstudio_lib/GroundTemperatureView.cpp" line="94"/>
+        <source>Shallow Ground Temperatures</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../src/openstudio_lib/GroundTemperatureView.cpp" line="95"/>
+        <source>Deep Ground Temperatures</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../src/openstudio_lib/GroundTemperatureView.cpp" line="96"/>
+        <source>FCfactorMethod Ground Temperatures</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../src/openstudio_lib/GroundTemperatureView.cpp" line="97"/>
+        <source>Water Mains Temperature</source>
+        <translation type="unfinished"></translation>
+    </message>
+</context>
+<context>
+    <name>openstudio::GroundTemperatureNotPresentView</name>
+    <message>
+        <location filename="../src/openstudio_lib/GroundTemperatureView.cpp" line="177"/>
+        <source>Add</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../src/openstudio_lib/GroundTemperatureView.cpp" line="188"/>
+        <source>Import from EPW</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../src/openstudio_lib/GroundTemperatureView.cpp" line="225"/>
+        <source>&lt;p&gt;The &lt;b&gt;%1&lt;/b&gt; Unique ModelObject is not present in this model.&lt;/p&gt;&lt;p&gt;Click Add to instantiate it.&lt;/p&gt;</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../src/openstudio_lib/GroundTemperatureView.cpp" line="239"/>
+        <source>No weather file is associated with the model, so the object will be added with default values.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../src/openstudio_lib/GroundTemperatureView.cpp" line="255"/>
+        <source>While a weather file is associated with the model, could not locate the underlying EpwFile, so the object will be added with default values.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../src/openstudio_lib/GroundTemperatureView.cpp" line="263"/>
+        <source>The weather file does not contain any ground temperature data, so the object will be added with default values.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../src/openstudio_lib/GroundTemperatureView.cpp" line="275"/>
+        <source>The weather file does not contain ground temperature data at the expected depth of %1 m, so the object will be added with default values.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../src/openstudio_lib/GroundTemperatureView.cpp" line="286"/>
+        <source>The weather file contains ground temperature data at a depth of &lt;b&gt;&lt;span style=&quot;color: #1C7BBF;&quot;&gt;%1 m&lt;/span&gt;&lt;/b&gt;, so you can choose to import those values or add the object with default values.</source>
+        <translation type="unfinished"></translation>
+    </message>
+</context>
+<context>
     <name>openstudio::LibraryDialog</name>
     <message>
         <location filename="../src/openstudio_app/LibraryDialog.cpp" line="68"/>
@@ -309,19 +380,24 @@ Zone</source>
 <context>
     <name>openstudio::LocationTabController</name>
     <message>
-        <location filename="../src/openstudio_lib/LocationTabController.cpp" line="29"/>
+        <location filename="../src/openstudio_lib/LocationTabController.cpp" line="30"/>
         <source>Weather File &amp;&amp; Design Days</source>
         <translation>Αρχείο καιρού &amp; Μέρες αξιολόγησης</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/LocationTabController.cpp" line="30"/>
+        <location filename="../src/openstudio_lib/LocationTabController.cpp" line="31"/>
         <source>Life Cycle Costs</source>
         <translation>Κόστος κύκλου ζωής</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/LocationTabController.cpp" line="31"/>
+        <location filename="../src/openstudio_lib/LocationTabController.cpp" line="32"/>
         <source>Utility Bills</source>
         <translation>Λογαριασμοί κοινής ωφελείας</translation>
+    </message>
+    <message>
+        <location filename="../src/openstudio_lib/LocationTabController.cpp" line="33"/>
+        <source>Ground Temperatures</source>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>
@@ -1397,6 +1473,97 @@ Would you like to Restore library paths to default values or Open the library se
     <message>
         <location filename="../src/openstudio_lib/ScheduleOthersController.cpp" line="42"/>
         <source>All files (*.*);;CSV Files(*.csv);;TSV Files(*.tsv)</source>
+        <translation type="unfinished"></translation>
+    </message>
+</context>
+<context>
+    <name>openstudio::SiteGroundTemperatureMonthlyWidget</name>
+    <message>
+        <location filename="../src/openstudio_lib/GroundTemperatureMonthlyInspectorView.cpp" line="74"/>
+        <source>Month</source>
+        <translation type="unfinished">Μήνας</translation>
+    </message>
+    <message>
+        <location filename="../src/openstudio_lib/GroundTemperatureMonthlyInspectorView.cpp" line="78"/>
+        <source>Temperature</source>
+        <translation type="unfinished">Θερμοκρασία</translation>
+    </message>
+    <message>
+        <location filename="../src/openstudio_lib/GroundTemperatureMonthlyInspectorView.cpp" line="101"/>
+        <source>Set all months to:</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../src/openstudio_lib/GroundTemperatureMonthlyInspectorView.cpp" line="108"/>
+        <location filename="../src/openstudio_lib/GroundTemperatureMonthlyInspectorView.cpp" line="127"/>
+        <source> °F</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../src/openstudio_lib/GroundTemperatureMonthlyInspectorView.cpp" line="111"/>
+        <location filename="../src/openstudio_lib/GroundTemperatureMonthlyInspectorView.cpp" line="131"/>
+        <source> °C</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../src/openstudio_lib/GroundTemperatureMonthlyInspectorView.cpp" line="115"/>
+        <source>Apply</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../src/openstudio_lib/GroundTemperatureMonthlyInspectorView.cpp" line="159"/>
+        <location filename="../src/openstudio_lib/GroundTemperatureMonthlyInspectorView.cpp" line="264"/>
+        <source>Temperature [°F]</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../src/openstudio_lib/GroundTemperatureMonthlyInspectorView.cpp" line="159"/>
+        <location filename="../src/openstudio_lib/GroundTemperatureMonthlyInspectorView.cpp" line="264"/>
+        <source>Temperature [°C]</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../src/openstudio_lib/GroundTemperatureMonthlyInspectorView.cpp" line="193"/>
+        <source>°F</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../src/openstudio_lib/GroundTemperatureMonthlyInspectorView.cpp" line="193"/>
+        <source>°C</source>
+        <translation type="unfinished"></translation>
+    </message>
+</context>
+<context>
+    <name>openstudio::SiteWaterMainsTemperatureWidget</name>
+    <message>
+        <location filename="../src/openstudio_lib/SiteWaterMainsTemperatureWidget.cpp" line="95"/>
+        <source>Calculation Method</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../src/openstudio_lib/SiteWaterMainsTemperatureWidget.cpp" line="103"/>
+        <source>Temperature Schedule</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../src/openstudio_lib/SiteWaterMainsTemperatureWidget.cpp" line="115"/>
+        <source>Annual Average Outdoor Air Temperature</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../src/openstudio_lib/SiteWaterMainsTemperatureWidget.cpp" line="119"/>
+        <source>Maximum Difference In Monthly Average
+Outdoor Air Temperatures</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../src/openstudio_lib/SiteWaterMainsTemperatureWidget.cpp" line="132"/>
+        <source>Temperature Multiplier</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../src/openstudio_lib/SiteWaterMainsTemperatureWidget.cpp" line="136"/>
+        <source>Temperature Offset</source>
         <translation type="unfinished"></translation>
     </message>
 </context>

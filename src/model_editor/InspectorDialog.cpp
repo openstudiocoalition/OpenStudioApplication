@@ -466,8 +466,6 @@ void InspectorDialog::onNeedsSetFocus() {
 
 void InspectorDialog::init(InspectorDialogClient client) {
 
-  const auto toVector = [](const auto& data) { return std::vector<char>(data.begin(), data.end()); };
-
   switch (client.value()) {
     case InspectorDialogClient::AllOpenStudio:
 
