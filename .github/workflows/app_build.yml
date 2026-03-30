@@ -435,7 +435,7 @@ jobs:
           pip3 install aqtinstall
           aqt list-qt ${{ matrix.QT_OS_NAME }} desktop --arch $QT_VERSION
           aqt list-qt ${{ matrix.QT_OS_NAME }} desktop --modules $QT_VERSION ${{ matrix.QT_ARCH }}
-          aqt install-qt --outputdir ./build/Qt-install/ ${{ matrix.QT_OS_NAME }} desktop $QT_VERSION ${{ matrix.QT_ARCH }} -m qtwebchannel qtwebengine qtwebview qt5compat qtpositioning qtcharts
+          aqt install-qt --outputdir ./build/Qt-install/ ${{ matrix.QT_OS_NAME }} desktop $QT_VERSION ${{ matrix.QT_ARCH }} -m qtwebchannel qtwebengine qtwebview qtpositioning qtcharts
         fi
 
         echo "$QT_INSTALL_DIR/bin" >> $GITHUB_PATH

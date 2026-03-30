@@ -23,22 +23,22 @@ if /mswin/.match(RUBY_PLATFORM) or /mingw/.match(RUBY_PLATFORM)
   original_dll_directory = Fiddle::Pointer.malloc(buffer)
   WinAPI.GetDllDirectory(buffer, original_dll_directory)
 
-  qt_dll_path = File.expand_path(File.join(File.dirname(__FILE__), '../bin/'))
+  dll_path = File.expand_path(File.join(File.dirname(__FILE__), '../bin/'))
 
   # if install path fails, try developer paths
-  if !File.exist?(File.join(qt_dll_path, 'Qt6Core.dll'))
+  if !File.exist?(File.join(dll_path, 'OpenStudioApp.exe'))
     release_dll_path = File.expand_path(File.join(File.dirname(__FILE__), '../../Release/'))
     debug_dll_path = File.expand_path(File.join(File.dirname(__FILE__), '../../Debug/'))
-    if File.exist?(File.join(release_dll_path, 'Qt6Core.dll'))
-      qt_dll_path = release_dll_path
-    elsif File.exist?(File.join(debug_dll_path, 'Qt6Core.dll'))
-      qt_dll_path = debug_dll_path
+    if File.exist?(File.join(release_dll_path, 'OpenStudioApp.exe'))
+      dll_path = release_dll_path
+    elsif File.exist?(File.join(debug_dll_path, 'OpenStudioApp.exe'))
+      dll_path = debug_dll_path
     end
   end
 
-  WinAPI.SetDllDirectory(qt_dll_path)
+  WinAPI.SetDllDirectory(dll_path)
 
-  $OPENSTUDIO_APPLICATION_DIR = qt_dll_path
+  $OPENSTUDIO_APPLICATION_DIR = dll_path
 else
 
   # Do something here for Mac OSX environments
@@ -60,9 +60,6 @@ begin
       puts 'Unable to require openstudio'
     end
   end
-
-  # require openstudio_modeleditor.so
-  require_relative 'openstudio_modeleditor.so'
 
   # add this directory to Ruby load path
   $:.unshift(File.expand_path(File.dirname(__FILE__)))
