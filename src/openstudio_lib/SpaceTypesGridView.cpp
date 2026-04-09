@@ -171,9 +171,7 @@ SpaceTypesGridView::SpaceTypesGridView(bool isIP, const model::Model& model, QWi
   m_filters = new QComboBox();
   m_filters->setFixedWidth(1.5 * OSItem::ITEM_WIDTH);
 
-  {
-    m_filters->addItem(SHOWALLLOADS);
-  }
+  { m_filters->addItem(SHOWALLLOADS); }
 
   {
     auto* pixMap = new QPixmap(":/images/mini_icons/internal_mass.png");
