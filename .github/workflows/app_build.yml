@@ -42,7 +42,7 @@ jobs:
           BINARY_PKG_PATH: _CPack_Packages/Linux/DEB
           COMPRESSED_PKG_PATH: _CPack_Packages/Linux/TGZ
           QT_OS_NAME: linux
-          QT_ARCH: gcc_64
+          QT_ARCH: linux_gcc_64
           arch: x86_64
         - os: ubuntu-24.04
           SELF_HOSTED: false
@@ -52,7 +52,7 @@ jobs:
           BINARY_PKG_PATH: _CPack_Packages/Linux/DEB
           COMPRESSED_PKG_PATH: _CPack_Packages/Linux/TGZ
           QT_OS_NAME: linux
-          QT_ARCH: gcc_64
+          QT_ARCH: linux_gcc_64
           arch: x86_64
         - os: windows-2022
           SELF_HOSTED: false
