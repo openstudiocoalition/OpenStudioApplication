@@ -158,7 +158,7 @@ void SpacesSurfacesGridController::addColumns(const QString& category, std::vect
       if (field == SELECTED) {
         auto checkbox = QSharedPointer<OSSelectAllCheckBox>(new OSSelectAllCheckBox());
         checkbox->setToolTip("Check to select all rows");
-        connect(checkbox.data(), &OSSelectAllCheckBox::stateChanged, this, &SpacesSurfacesGridController::onSelectAllStateChanged);
+        connect(checkbox.data(), &OSSelectAllCheckBox::checkStateChanged, this, &SpacesSurfacesGridController::onSelectAllStateChanged);
         connect(this, &SpacesSurfacesGridController::gridRowSelectionChanged, checkbox.data(), &OSSelectAllCheckBox::onGridRowSelectionChanged);
         addSelectColumn(Heading(QString(SELECTED), false, false, checkbox), "Check to select this row", DataSource(allSurfaces, true));
       } else if (field == SURFACENAME) {

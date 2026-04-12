@@ -16,7 +16,7 @@ env:
   BUILD_TESTING: ON
   BUILD_BENCHMARK: ON
   BUILD_PACKAGE: ON
-  QT_VERSION: 6.5.2
+  QT_VERSION: 6.11.0
   QT_DEBUG_PLUGINS: 1
 
 jobs:
@@ -42,7 +42,7 @@ jobs:
           BINARY_PKG_PATH: _CPack_Packages/Linux/DEB
           COMPRESSED_PKG_PATH: _CPack_Packages/Linux/TGZ
           QT_OS_NAME: linux
-          QT_ARCH: gcc_64
+          QT_ARCH: linux_gcc_64
           arch: x86_64
         - os: ubuntu-24.04
           SELF_HOSTED: false
@@ -52,7 +52,7 @@ jobs:
           BINARY_PKG_PATH: _CPack_Packages/Linux/DEB
           COMPRESSED_PKG_PATH: _CPack_Packages/Linux/TGZ
           QT_OS_NAME: linux
-          QT_ARCH: gcc_64
+          QT_ARCH: linux_gcc_64
           arch: x86_64
         - os: windows-2022
           SELF_HOSTED: false
@@ -62,7 +62,7 @@ jobs:
           BINARY_PKG_PATH: _CPack_Packages/win64/IFW
           COMPRESSED_PKG_PATH: _CPack_Packages/win64/ZIP
           QT_OS_NAME: windows
-          QT_ARCH: win64_msvc2019_64
+          QT_ARCH: win64_msvc2022_64
           arch: x86_64
         - os: macos-15-intel
           SELF_HOSTED: false
@@ -418,12 +418,12 @@ jobs:
         cmake -E make_directory ./build
 
         if [ "$RUNNER_OS" == "Windows" ]; then
-          # QT_INSTALL_DIR="$(pwd)/build/Qt-install/$QT_VERSION/msvc2019_64"
-          QT_INSTALL_DIR="$(cmd.exe //c cd)\build\Qt-install\${{ env.QT_VERSION }}\msvc2019_64"
+          # QT_INSTALL_DIR="$(pwd)/build/Qt-install/$QT_VERSION/msvc2022_64"
+          QT_INSTALL_DIR="$(cmd.exe //c cd)\build\Qt-install\${{ env.QT_VERSION }}\msvc2022_64"
         elif [ "$RUNNER_OS" == "macOS" ]; then
           QT_INSTALL_DIR="$(pwd)/build/Qt-install/$QT_VERSION/macos"
         else
-          QT_INSTALL_DIR="$(pwd)/build/Qt-install/$QT_VERSION/${{ matrix.QT_ARCH }}"
+          QT_INSTALL_DIR="$(pwd)/build/Qt-install/$QT_VERSION/gcc_64"
         fi
 
         if [ -d "$QT_INSTALL_DIR" ]; then
@@ -432,7 +432,11 @@ jobs:
           echo "Install aqtinstall, then install Qt $QT_VERSION for ${{ matrix.QT_OS_NAME }} ${{ matrix.QT_ARCH }}"
           pip show setuptools || true
           pip install setuptools --upgrade
-          pip3 install aqtinstall
+          # TODO: temporary, pending a new release after 3.3.0, need to download a fix, download.qt.io changed the directory structure for Qt 6.11.0 on windows:
+          # * Issue: https://github.com/miurahr/aqtinstall/issues/1007
+          # * Fixed via https://github.com/miurahr/aqtinstall/pull/1000
+          # pip install aqtinstall
+          pip install git+https://github.com/miurahr/aqtinstall.git@master
           aqt list-qt ${{ matrix.QT_OS_NAME }} desktop --arch $QT_VERSION
           aqt list-qt ${{ matrix.QT_OS_NAME }} desktop --modules $QT_VERSION ${{ matrix.QT_ARCH }}
           aqt install-qt --outputdir ./build/Qt-install/ ${{ matrix.QT_OS_NAME }} desktop $QT_VERSION ${{ matrix.QT_ARCH }} -m qtwebchannel qtwebengine qtwebview qtpositioning qtcharts

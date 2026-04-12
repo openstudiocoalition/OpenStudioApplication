@@ -1106,7 +1106,7 @@ EditorWebView::EditorWebView(bool isIP, const openstudio::model::Model& model, Q
   connect(m_mergeBtn, &QPushButton::clicked, this, &EditorWebView::mergeClicked);
   connect(m_debugBtn, &QPushButton::clicked, this, &EditorWebView::debugClicked);
 
-  auto* hLayout = new QHBoxLayout(this);
+  auto* hLayout = new QHBoxLayout();
   mainLayout->addLayout(hLayout);
 
   auto* label = new QLabel(this);

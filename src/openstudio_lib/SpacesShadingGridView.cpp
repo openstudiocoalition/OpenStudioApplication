@@ -182,7 +182,7 @@ void SpacesShadingGridController::addColumns(const QString& category, std::vecto
       if (field == SELECTED) {
         auto checkbox = QSharedPointer<OSSelectAllCheckBox>(new OSSelectAllCheckBox());
         checkbox->setToolTip("Check to select all rows");
-        connect(checkbox.data(), &OSSelectAllCheckBox::stateChanged, this, &SpacesShadingGridController::onSelectAllStateChanged);
+        connect(checkbox.data(), &OSSelectAllCheckBox::checkStateChanged, this, &SpacesShadingGridController::onSelectAllStateChanged);
         connect(this, &SpacesShadingGridController::gridRowSelectionChanged, checkbox.data(), &OSSelectAllCheckBox::onGridRowSelectionChanged);
         addSelectColumn(Heading(QString(SELECTED), false, false, checkbox), "Check to select this row", DataSource(allShadingSurfaceGroups, true));
       } else if (field == SHADEDSURFACENAME) {

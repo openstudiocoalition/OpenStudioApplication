@@ -452,7 +452,7 @@ void SpaceTypesGridController::addColumns(const QString& category, std::vector<Q
     } else if (field == SELECTED && category != "Loads") {
       auto checkbox = QSharedPointer<OSSelectAllCheckBox>(new OSSelectAllCheckBox());
       checkbox->setToolTip("Check to select all rows");
-      connect(checkbox.data(), &OSSelectAllCheckBox::stateChanged, this, &SpaceTypesGridController::onSelectAllStateChanged);
+      connect(checkbox.data(), &OSSelectAllCheckBox::checkStateChanged, this, &SpaceTypesGridController::onSelectAllStateChanged);
       connect(this, &SpaceTypesGridController::gridRowSelectionChanged, checkbox.data(), &OSSelectAllCheckBox::onGridRowSelectionChanged);
 
       addSelectColumn(Heading(QString(SELECTED), false, false, checkbox), "Check to select this row");
@@ -1057,7 +1057,7 @@ void SpaceTypesGridController::addColumns(const QString& category, std::vector<Q
       } else if (field == SELECTED) {
         auto checkbox = QSharedPointer<OSSelectAllCheckBox>(new OSSelectAllCheckBox());
         checkbox->setToolTip("Check to select all rows");
-        connect(checkbox.data(), &OSSelectAllCheckBox::stateChanged, this, &SpaceTypesGridController::onSelectAllStateChanged);
+        connect(checkbox.data(), &OSSelectAllCheckBox::checkStateChanged, this, &SpaceTypesGridController::onSelectAllStateChanged);
         connect(this, &SpaceTypesGridController::gridRowSelectionChanged, checkbox.data(), &OSSelectAllCheckBox::onGridRowSelectionChanged);
         addSelectColumn(Heading(QString(SELECTED), false, false, checkbox), "Check to select this row", DataSource(allLoads, true));
       } else if (field == MULTIPLIER) {

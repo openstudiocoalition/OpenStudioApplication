@@ -54,6 +54,8 @@ OSCollapsibleItemList::OSCollapsibleItemList(bool addScrollArea, QWidget* parent
     outerVLayout->addWidget(scrollArea);
     scrollArea->setWidget(outerWidget);
     scrollArea->setWidgetResizable(true);
+    scrollArea->viewport()->setAutoFillBackground(false);
+    outerWidget->setAutoFillBackground(false);
   } else {
     outerVLayout->addWidget(outerWidget);
   }

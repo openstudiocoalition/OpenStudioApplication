@@ -291,15 +291,15 @@ class SimSettingsView
 
   void on_radianceGroupClicked(int idx);
 
-  void on_runSimWeatherFiles(int state);
+  void on_runSimWeatherFiles(Qt::CheckState state);
 
-  void on_runSimDesignDays(int state);
+  void on_runSimDesignDays(Qt::CheckState state);
 
-  void on_performZoneSizing(int state);
+  void on_performZoneSizing(Qt::CheckState state);
 
-  void on_performSystemSizing(int state);
+  void on_performSystemSizing(Qt::CheckState state);
 
-  void on_performPlantSizing(int state);
+  void on_performPlantSizing(Qt::CheckState state);
 
   void toggleUnits(bool displayIP);
 

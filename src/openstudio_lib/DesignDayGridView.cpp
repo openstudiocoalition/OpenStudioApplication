@@ -237,7 +237,7 @@ void DesignDayGridController::addColumns(const QString& /*category*/, std::vecto
     } else if (field == SELECTED) {
       auto checkbox = QSharedPointer<OSSelectAllCheckBox>(new OSSelectAllCheckBox());
       checkbox->setToolTip(tr("Check to select all rows"));
-      connect(checkbox.data(), &OSSelectAllCheckBox::stateChanged, this, &DesignDayGridController::onSelectAllStateChanged);
+      connect(checkbox.data(), &OSSelectAllCheckBox::checkStateChanged, this, &DesignDayGridController::onSelectAllStateChanged);
       connect(this, &DesignDayGridController::gridRowSelectionChanged, checkbox.data(), &OSSelectAllCheckBox::onGridRowSelectionChanged);
       addSelectColumn(Heading(SELECTED, false, false, checkbox), "Check to select this row");
     }
