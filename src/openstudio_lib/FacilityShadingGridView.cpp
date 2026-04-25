@@ -474,7 +474,7 @@ void FacilityShadingGridController::addColumns(const QString& category, std::vec
       if (field == SELECTED) {
         auto checkbox = QSharedPointer<OSSelectAllCheckBox>(new OSSelectAllCheckBox());
         checkbox->setToolTip("Check to select all rows");
-        connect(checkbox.data(), &OSSelectAllCheckBox::stateChanged, this, &FacilityShadingGridController::onSelectAllStateChanged);
+        connect(checkbox.data(), &OSSelectAllCheckBox::checkStateChanged, this, &FacilityShadingGridController::onSelectAllStateChanged);
         connect(this, &FacilityShadingGridController::gridRowSelectionChanged, checkbox.data(), &OSSelectAllCheckBox::onGridRowSelectionChanged);
         addSelectColumn(Heading(QString(SELECTED), false, false, checkbox), "Check to select this row", DataSource(allShadingSurfaces, true));
       } else if (field == SHADINGSURFACENAME) {

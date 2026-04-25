@@ -16,7 +16,7 @@ if(CCACHE_PROGRAM)
   set(CMAKE_C_COMPILER_LAUNCHER ${CCACHE_PROGRAM} CACHE FILEPATH "C compiler cache used")
 endif()
 
-project(OpenStudioApplication VERSION 1.11.0)
+project(OpenStudioApplication VERSION 1.12.0)
 
 # Check system info globally so we can use it everywhere after: Has to be done before FindOpenStudioSDK.cmake
 if(APPLE)
@@ -272,7 +272,7 @@ endif()
 
 # TODO: Modify the more specific variables as needed to indicate prerelease, etc
 # Keep in beta in-between release cycles. Set to empty string (or comment out) for official)
-set(PROJECT_VERSION_PRERELEASE "")
+set(PROJECT_VERSION_PRERELEASE "beta")
 
 # OpenStudio version: Only include Major.Minor.Patch, eg "3.0.0", even if you have a prerelease tag
 set(OPENSTUDIOAPPLICATION_VERSION "${PROJECT_VERSION_MAJOR}.${PROJECT_VERSION_MINOR}.${PROJECT_VERSION_PATCH}")
@@ -522,9 +522,9 @@ if(UNIX)
 endif()
 
 # Qt
-# e.g. QT_INSTALL_DIR = C:/Qt/6.5.2/msvc2019_64
+# e.g. QT_INSTALL_DIR = C:/Qt/6.11.0/msvc2019_64
 set(QT_INSTALL_DIR "" CACHE PATH "Path to Qt Install")
-set(QT_VERSION "6.5.2" CACHE STRING "Qt target version, defaults to 6.5.2")
+set(QT_VERSION "6.11.0" CACHE STRING "Qt target version, defaults to 6.11.0")
 
 # For AboutBox, but also validates that the version is valid
 string(TIMESTAMP CURRENT_YEAR "%Y")
@@ -544,7 +544,7 @@ message(STATUS "QT_INSTALL_DIR=${QT_INSTALL_DIR}")
 
 find_package(Qt6 ${QT_VERSION} COMPONENTS CoreTools GuiTools WidgetsTools QmlTools WebEngineCoreTools REQUIRED PATHS ${QT_INSTALL_DIR} NO_DEFAULT_PATH)
 
-find_package(Qt6 ${QT_VERSION} COMPONENTS Core Core5Compat Gui Widgets Sql Svg Network Xml Concurrent PrintSupport Quick QuickWidgets Qml WebChannel Positioning WebEngineCore WebEngineWidgets Charts REQUIRED PATHS ${QT_INSTALL_DIR} NO_DEFAULT_PATH)
+find_package(Qt6 ${QT_VERSION} COMPONENTS Core Gui Widgets Sql Svg Network Xml Concurrent PrintSupport Quick QuickWidgets Qml WebChannel Positioning WebEngineCore WebEngineWidgets Charts REQUIRED PATHS ${QT_INSTALL_DIR} NO_DEFAULT_PATH)
 
 find_package(Qt6LinguistTools ${QT_VERSION} REQUIRED PATHS ${QT_INSTALL_DIR} NO_DEFAULT_PATH)
 
@@ -558,18 +558,16 @@ find_file(qweb_resources NAMES qtwebengine_resources.pak PATHS "${QT_INSTALL_DIR
 find_file(qweb_resources_devtools NAMES qtwebengine_devtools_resources.pak PATHS "${QT_INSTALL_DIR}/resources/" "${QT_INSTALL_DIR}/lib/QtWebEngineCore.framework/Resources" NO_DEFAULT_PATH)
 find_file(qweb_resources_100 NAMES qtwebengine_resources_100p.pak PATHS "${QT_INSTALL_DIR}/resources/" "${QT_INSTALL_DIR}/lib/QtWebEngineCore.framework/Resources" NO_DEFAULT_PATH)
 find_file(qweb_resources_200 NAMES qtwebengine_resources_200p.pak PATHS "${QT_INSTALL_DIR}/resources/" "${QT_INSTALL_DIR}/lib/QtWebEngineCore.framework/Resources" NO_DEFAULT_PATH)
-#find_file(qweb_resources_v8_context_snapshot NAMES v8_context_snapshot.bin PATHS "${QT_INSTALL_DIR}/resources/" "${QT_INSTALL_DIR}/lib/QtWebEngineCore.framework/Resources" NO_DEFAULT_PATH)
+find_file(qweb_resources_v8_context_snapshot NAMES v8_context_snapshot.bin PATHS "${QT_INSTALL_DIR}/resources/" "${QT_INSTALL_DIR}/lib/QtWebEngineCore.framework/Resources" NO_DEFAULT_PATH)
 
 # QT_WEB_LIBS are linked by OS App and openstudio_lib but not by openstudio_modeleditor.so or openstudio_modeleditor
 list(APPEND QT_WEB_LIBS Qt6::WebEngineCore)
 list(APPEND QT_WEB_LIBS Qt6::WebEngineWidgets)
 list(APPEND QT_WEB_LIBS Qt6::Charts)
+list(APPEND QT_WEB_LIBS Qt6::WebChannel)
 set_target_properties(${QT_WEB_LIBS} PROPERTIES INTERFACE_LINK_LIBRARIES "")
 
 if(NOT APPLE)
-
-    find_package(Qt6WebChannel ${QT_VERSION} REQUIRED PATHS ${QT_INSTALL_DIR} NO_DEFAULT_PATH)
-    list(APPEND QT_WEB_LIBS Qt6::WebChannel)
 
     find_package(Qt6Quick ${QT_VERSION} REQUIRED PATHS ${QT_INSTALL_DIR} NO_DEFAULT_PATH)
     list(APPEND QT_WEB_LIBS Qt6::Quick)
@@ -583,6 +581,17 @@ if(NOT APPLE)
     find_package(Qt6QmlModels ${QT_VERSION} REQUIRED PATHS ${QT_INSTALL_DIR} NO_DEFAULT_PATH)
     list(APPEND QT_WEB_LIBS Qt6::QmlModels)
 
+    # Qt 6.11+ splits QmlMeta and QmlWorkerScript into their own libraries (required by QtWebEngineProcess)
+    find_package(Qt6QmlMeta ${QT_VERSION} QUIET PATHS ${QT_INSTALL_DIR} NO_DEFAULT_PATH)
+    if(Qt6QmlMeta_FOUND)
+      list(APPEND QT_WEB_LIBS Qt6::QmlMeta)
+    endif()
+
+    find_package(Qt6QmlWorkerScript ${QT_VERSION} QUIET PATHS ${QT_INSTALL_DIR} NO_DEFAULT_PATH)
+    if(Qt6QmlWorkerScript_FOUND)
+      list(APPEND QT_WEB_LIBS Qt6::QmlWorkerScript)
+    endif()
+
     find_package(Qt6Positioning ${QT_VERSION} REQUIRED PATHS ${QT_INSTALL_DIR} NO_DEFAULT_PATH)
     list(APPEND QT_WEB_LIBS Qt6::Positioning)
 
@@ -592,14 +601,19 @@ if(NOT APPLE)
 
       find_library(QT_QXCBQPA NAMES libQt6XcbQpa.so.${QT_VERSION} PATHS "${QT_INSTALL_DIR}/lib" NO_DEFAULT_PATH)
 
-      find_library(QT_ICU icui18n REQUIRED PATHS "${QT_INSTALL_DIR}/lib" NO_DEFAULT_PATH)
-      find_library(QT_ICUDATA icudata REQUIRED PATHS "${QT_INSTALL_DIR}/lib" NO_DEFAULT_PATH)
-      find_library(QT_ICUUC icuuc REQUIRED PATHS "${QT_INSTALL_DIR}/lib" NO_DEFAULT_PATH)
       set(QT_ICU_LIBS
-        ${QT_ICU}
-        ${QT_ICUDATA}
-        ${QT_ICUUC}
-        )
+        "${QT_INSTALL_DIR}/lib/libicui18n.so.73.2"
+        "${QT_INSTALL_DIR}/lib/libicuuc.so.73.2"
+        "${QT_INSTALL_DIR}/lib/libicudata.so.73.2"
+      )
+      # Ensure each ICU library exists
+      foreach(lib IN LISTS QT_ICU_LIBS)
+        if(NOT EXISTS "${lib}")
+          message(FATAL_ERROR "Qt ICU library not found: ${lib}")
+        elseif(IS_SYMLINK "${lib}")
+          message(FATAL_ERROR "Qt ICU library is a symlink, expected a real file: ${lib}")
+        endif()
+      endforeach()
 
       list(APPEND QT_EXTRA_LIBS ${QT_QXCBQPA} ${QT_ICU_LIBS})
     endif()
@@ -614,7 +628,6 @@ endif()
 
 # QT_LIBS are linked by OS App and by openstudio_modeleditor.so
 list(APPEND QT_LIBS Qt6::Core)
-list(APPEND QT_LIBS Qt6::Core5Compat)
 list(APPEND QT_LIBS Qt6::Widgets)
 list(APPEND QT_LIBS Qt6::Network)
 list(APPEND QT_LIBS Qt6::Xml)
@@ -645,7 +658,6 @@ list(APPEND QT_INCLUDES ${Qt6Widgets_INCLUDE_DIRS})
 list(APPEND QT_INCLUDES ${Qt6Xml_INCLUDE_DIRS})
 list(APPEND QT_INCLUDES ${Qt6Network_INCLUDE_DIRS})
 list(APPEND QT_INCLUDES ${Qt6Gui_INCLUDE_DIRS})
-list(APPEND QT_INCLUDES "${QT_INSTALL_DIR}/include/QtGui/${QT_VERSION}/QtGui") # needed by qtwinmigrate
 list(APPEND QT_INCLUDES ${Qt6PrintSupport_INCLUDE_DIRS})
 
 # DLM: added this, but seems to conflict with idea of a separate set of Qt Web dependencies?
@@ -710,10 +722,6 @@ get_target_property(OS_CLI_IMPORTED_PATH openstudio::openstudio LOCATION)
 # set(OS_CLI_IMPORTED_NAME "openstudio${CMAKE_EXECUTABLE_SUFFIX}")
 get_filename_component(OS_CLI_IMPORTED_NAME ${OS_CLI_IMPORTED_PATH} NAME)
 
-if(WIN32)
-  include_directories("${PROJECT_SOURCE_DIR}/src/qtwinmigrate")
-  list(APPEND project_directories "qtwinmigrate")
-endif()
 list(APPEND project_directories "utilities")
 list(APPEND project_directories "model_editor")
 list(APPEND project_directories "bimserver")
@@ -732,9 +740,6 @@ add_subdirectory("translations")
 #                        E X P O R T    T A R G E T S                         #
 ###############################################################################
 
-if(WIN32)
-  list(APPEND all_lib_targets "qtwinmigrate")
-endif()
 list(APPEND all_lib_targets "openstudio_modeleditor")
 list(APPEND all_lib_targets "openstudio_bimserver")
 list(APPEND all_lib_targets "openstudio_lib")

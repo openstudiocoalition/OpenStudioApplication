@@ -213,7 +213,7 @@ VariablesList::VariablesList(openstudio::model::Model t_model) : m_model(t_model
   m_searchUseRegex = new QCheckBox();
   m_searchUseRegex->setText(tr("Use Regex"));
   m_searchUseRegex->setChecked(false);
-  connect(m_searchUseRegex, &QCheckBox::stateChanged, [this](int) { this->onSearchTextEdited(this->m_searchText); });
+  connect(m_searchUseRegex, &QCheckBox::checkStateChanged, [this](Qt::CheckState) { this->onSearchTextEdited(this->m_searchText); });
   displayHLayout->addWidget(m_searchUseRegex);
   displayHLayout->addStretch();
   vbox->addLayout(displayHLayout);

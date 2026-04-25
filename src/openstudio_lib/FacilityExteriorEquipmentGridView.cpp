@@ -231,7 +231,7 @@ void FacilityExteriorEquipmentGridController::addColumns(const QString& category
 
       auto checkbox = QSharedPointer<OSSelectAllCheckBox>(new OSSelectAllCheckBox());
       checkbox->setToolTip("Check to select all rows");
-      connect(checkbox.data(), &OSSelectAllCheckBox::stateChanged, this, &FacilityExteriorEquipmentGridController::onSelectAllStateChanged);
+      connect(checkbox.data(), &OSSelectAllCheckBox::checkStateChanged, this, &FacilityExteriorEquipmentGridController::onSelectAllStateChanged);
       connect(this, &FacilityExteriorEquipmentGridController::gridRowSelectionChanged, checkbox.data(),
               &OSSelectAllCheckBox::onGridRowSelectionChanged);
       addSelectColumn(Heading(QString(SELECTED), false, false, checkbox), "Check to select this row");

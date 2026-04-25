@@ -32,6 +32,20 @@ if(APPLE AND CPACK_GENERATOR STREQUAL "IFW")
     message(FATAL_ERROR "CPACK_CODESIGNING_MACOS_IDENTIFIER is required, this should not have happened")
   endif()
 
+  foreach(CPACK_PACKAGE_FILE ${CPACK_PACKAGE_FILES})
+    if(NOT EXISTS "${CPACK_PACKAGE_FILE}")
+      message(STATUS "File does not exist: ${CPACK_PACKAGE_FILE}")
+
+      # wait in case file has not been written to disk yet
+      execute_process(COMMAND ${CMAKE_COMMAND} -E sleep 10)
+
+      if(NOT EXISTS "${CPACK_PACKAGE_FILE}")
+        message(FATAL_ERROR "File still does not exist: ${CPACK_PACKAGE_FILE}")
+      endif()
+
+    endif()
+  endforeach()
+
   codesign_files_macos(
     FILES ${CPACK_PACKAGE_FILES}
     SIGNING_IDENTITY ${CPACK_CODESIGNING_DEVELOPPER_ID_APPLICATION}

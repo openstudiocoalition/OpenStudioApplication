@@ -207,7 +207,7 @@ void SpacesDaylightingGridController::addColumns(const QString& category, std::v
       if (field == SELECTED) {
         auto checkbox = QSharedPointer<OSSelectAllCheckBox>(new OSSelectAllCheckBox());
         checkbox->setToolTip("Check to select all rows");
-        connect(checkbox.data(), &OSSelectAllCheckBox::stateChanged, this, &SpacesDaylightingGridController::onSelectAllStateChanged);
+        connect(checkbox.data(), &OSSelectAllCheckBox::checkStateChanged, this, &SpacesDaylightingGridController::onSelectAllStateChanged);
         connect(this, &SpacesDaylightingGridController::gridRowSelectionChanged, checkbox.data(), &OSSelectAllCheckBox::onGridRowSelectionChanged);
         addSelectColumn(Heading(QString(SELECTED), false, false, checkbox), "Check to select this row");
         //addSelectColumn(Heading(QString(SELECTED), false, false, checkbox), "Check to select this row",

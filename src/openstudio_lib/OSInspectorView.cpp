@@ -49,6 +49,8 @@ OSInspectorView::OSInspectorView(bool addScrollArea, QWidget* parent) : QWidget(
     outerVLayout->addWidget(scrollArea);
     scrollArea->setWidget(m_stackedWidget);
     scrollArea->setWidgetResizable(true);
+    scrollArea->viewport()->setAutoFillBackground(false);
+    m_stackedWidget->setAutoFillBackground(false);
   } else {
     outerVLayout->addWidget(m_stackedWidget);
   }

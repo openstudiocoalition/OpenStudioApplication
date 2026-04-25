@@ -186,7 +186,7 @@ void SpacesInteriorPartitionsGridController::addColumns(const QString& category,
       if (field == SELECTED) {
         auto checkbox = QSharedPointer<OSSelectAllCheckBox>(new OSSelectAllCheckBox());
         checkbox->setToolTip("Check to select all rows");
-        connect(checkbox.data(), &OSSelectAllCheckBox::stateChanged, this, &SpacesInteriorPartitionsGridController::onSelectAllStateChanged);
+        connect(checkbox.data(), &OSSelectAllCheckBox::checkStateChanged, this, &SpacesInteriorPartitionsGridController::onSelectAllStateChanged);
         connect(this, &SpacesInteriorPartitionsGridController::gridRowSelectionChanged, checkbox.data(),
                 &OSSelectAllCheckBox::onGridRowSelectionChanged);
         addSelectColumn(Heading(QString(SELECTED), false, false, checkbox), "Check to select this row",

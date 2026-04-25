@@ -278,6 +278,12 @@ set(${target_name}_SRC
   ServiceWaterScene.hpp
   SimSettingsTabController.cpp
   SimSettingsTabController.hpp
+  GroundTemperatureMonthlyInspectorView.cpp
+  GroundTemperatureMonthlyInspectorView.hpp
+  GroundTemperatureView.cpp
+  GroundTemperatureView.hpp
+  SiteWaterMainsTemperatureWidget.cpp
+  SiteWaterMainsTemperatureWidget.hpp
   SimSettingsTabView.cpp
   SimSettingsTabView.hpp
   SimSettingsView.cpp
@@ -635,6 +641,9 @@ set(${target_name}_moc
   SimSettingsTabController.hpp
   SimSettingsTabView.hpp
   SimSettingsView.hpp
+  GroundTemperatureMonthlyInspectorView.hpp
+  GroundTemperatureView.hpp
+  SiteWaterMainsTemperatureWidget.hpp
   SpaceLoadInstancesWidget.hpp
   SpacesDaylightingGridView.hpp
   SpacesInteriorPartitionsGridView.hpp
@@ -775,9 +784,6 @@ set(${target_name}_depends
   ${QT_LIBS}
   ${QT_WEB_LIBS}
 )
-if(WIN32)
-  list(APPEND ${target_name}_depends qtwinmigrate)
-endif()
 
 target_link_libraries(${target_name} ${${target_name}_depends})
 

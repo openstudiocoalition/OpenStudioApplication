@@ -44,7 +44,6 @@ void GeometryTabController::setSubTab(int index) {
   }
 
   if (m_currentController) {
-    m_currentController->disconnect();
     delete m_currentController;
   }
 
