@@ -140,9 +140,7 @@ TEST_F(ModelEditorFixture, MorePath_Conversions) {
     QUrl url = QUrl::fromLocalFile(qPath);
     EXPECT_EQ(url.toString(QUrl::FullyEncoded), testCase.expectedUrl);
 
-    std::cout << "Input: " << testCase.inputPath << ", "
-              << "OS Path: " << osPath << ", "
-              << "QPath: " << qPath.toStdString() << ", "
+    std::cout << "Input: " << testCase.inputPath << ", " << "OS Path: " << osPath << ", " << "QPath: " << qPath.toStdString() << ", "
               << "Url: " << url.toString().toStdString() << std::endl;
   }
 }

@@ -1413,7 +1413,7 @@ void SystemCenterItem::paint(QPainter* painter, const QStyleOptionGraphicsItem* 
   }
 
   painter->setPen(QPen(Qt::black, 1, Qt::DashLine, Qt::RoundCap));
-  painter->drawLine(0, yOrigin + 50, (m_hLength)*100, yOrigin + 50);
+  painter->drawLine(0, yOrigin + 50, (m_hLength) * 100, yOrigin + 50);
 
   painter->rotate(180);
   painter->drawPixmap(-62, -(yOrigin + 75), 25, 25, QPixmap(":/images/arrow.png"));

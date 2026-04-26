@@ -286,10 +286,7 @@ void RunView::playButtonClicked(bool t_checked) {
       }
       arguments << "-w" << workflowJSONPath;
     } else {
-      arguments << "run"
-                << "--show-stdout"
-                << "--style-stdout"
-                << "-w" << workflowJSONPath;
+      arguments << "run" << "--show-stdout" << "--style-stdout" << "-w" << workflowJSONPath;
     }
     LOG(Debug, "openstudioExePath='" << toString(openstudioExePath) << "'");
     LOG(Debug, "run arguments = " << arguments.join(";").toStdString());
