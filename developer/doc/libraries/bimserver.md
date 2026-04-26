@@ -113,9 +113,7 @@ Blocking variants spin a `QEventLoop` with a `QTimer` for the timeout, making th
 
 | Module | Usage |
 |---|---|
-| `model_editor` | `QMetaTypes` registration, base types |
-| `openstudio_lib` | Links to `openstudio::openstudiolib` for SDK access |
-| `qtwinmigrate` (Win32 only) | MFC/Qt bridge for SketchUp plugin |
+| `openstudio_qt_utils` | `Application` singleton, `Utilities` (string/UUID/path conversions), `QMetaTypes` (SDK metatype registration) |
 
 ---
 

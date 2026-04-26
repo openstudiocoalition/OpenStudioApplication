@@ -15,7 +15,7 @@ set(${target_name}_src
   Utilities.cpp
 )
 
-add_library(${target_name} ${${target_name}_src})
+add_library(${target_name} STATIC ${${target_name}_src})
 
 set(${target_name}_depends
   openstudioapp_utilities
@@ -24,11 +24,5 @@ set(${target_name}_depends
 
 add_dependencies(${target_name} ${${target_name}_depends})
 target_link_libraries(${target_name} PUBLIC ${${target_name}_depends})
-
-if(BUILD_SHARED_LIBS)
-  #target_compile_definitions(${target_name} PUBLIC openstudio_qt_utils_EXPORTS)
-else()
-  target_compile_definitions(${target_name} PUBLIC openstudio_qt_utils_EXPORTS)
-endif()
 
 CREATE_SRC_GROUPS("${${target_name}_src}")

@@ -39,6 +39,7 @@ classDiagram
     +updateMyMeasures()
     +updateBCLMeasures()
     +openBclDlg()
+    +mouseOverInspectorView() bool
     +notify(receiver, event) bool
     slots: addWorkspaceObject, removeWorkspaceObject
     signals: workspaceObjectAdded, workspaceObjectRemoved
@@ -75,6 +76,7 @@ classDiagram
 | `tempDir()` | `optional<path>` | Returns the path to a per-session temporary directory |
 | `currentModel()` | `optional<Model>` | Returns the model from the current document, if one is open |
 | `waitDialog()` | `shared_ptr<WaitDialog>` | Returns the shared "please wait" modal dialog |
+| `mouseOverInspectorView()` | `bool` | Returns whether the mouse cursor is over the inspector view; used by `OSLineEdit2::focusOutEvent` to decide whether to keep focus |
 | `dviewPath()` | `openstudio::path` | Returns the path to the DView results viewer |
 | `notify(receiver, event)` | `bool` | Override of `QApplication::notify` — catches and logs C++ exceptions thrown inside Qt event handlers |
 

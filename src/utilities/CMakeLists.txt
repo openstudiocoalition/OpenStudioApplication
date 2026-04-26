@@ -22,7 +22,7 @@ set(${target_name}_depends
   boost::boost
 )
 
-add_library(${target_name}
+add_library(${target_name} STATIC
   ${${target_name}_src}
 )
 target_link_libraries(${target_name} PUBLIC ${${target_name}_depends} )

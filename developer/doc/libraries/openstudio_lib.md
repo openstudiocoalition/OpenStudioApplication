@@ -51,15 +51,6 @@ classDiagram
     +chooseLibraryTab()
     +chooseEditTab()
   }
-  class OSVectorController {
-    <<abstract>>
-    +reportItems()
-    +removeItem(OSItem*)
-    +drop(OSItemId)
-    +makeNewItem()
-    signals: itemIds, selectedItemId
-  }
-
   OSAppBase "1" *-- "0..1" OSDocument : manages current
   OSDocument "1" *-- "1" MainWindow : owns
   OSDocument "1" *-- "1" MainTabController : owns active
@@ -70,8 +61,6 @@ classDiagram
   MainTabController <|-- SpaceTypesTabController
   MainTabController <|-- FacilityTabController
   MainTabController <|-- RunTabController
-  OSVectorController <|-- ConstructionObjectVectorController
-  OSVectorController <|-- DefaultConstructionSetsController
 ```
 
 ---
@@ -144,7 +133,7 @@ classDiagram
 
 - **MVC triad** — every domain has a `*TabController`, a `*TabView`, and one or more `*InspectorView` classes.
 - **`OSQObjectController`** — `OSDocument` and most controllers extend `OSQObjectController`, which provides a thread-safe `QObject` parent management pattern.
-- **`OPENSTUIDO_API` macro** — applied to classes exported from `openstudio_lib.dll` on Windows.
+- **Static linking** — all internal libraries are built `STATIC`; no DLL export macros are needed.
 - **Analytics** — `AnalyticsHelper` sends anonymized usage pings (configurable via `ANALYTICS_API_SECRET`/`ANALYTICS_MEASUREMENT_ID` build-time secrets).
 
 ---

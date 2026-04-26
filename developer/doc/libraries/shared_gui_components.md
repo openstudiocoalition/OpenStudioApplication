@@ -172,6 +172,7 @@ flowchart TD
 - [BaseApp](../classes/shared_gui_components/BaseApp.md)
 - [OSGridController](../classes/shared_gui_components/OSGridController.md)
 - [OSGridView](../classes/shared_gui_components/OSGridView.md)
+- [OSVectorController](../classes/shared_gui_components/OSVectorController.md)
 - [MeasureManager](../classes/shared_gui_components/MeasureManager.md)
 - [BCLMeasureDialog](../classes/shared_gui_components/BCLMeasureDialog.md)
 - [LocalLibraryController](../classes/shared_gui_components/LocalLibraryController.md)

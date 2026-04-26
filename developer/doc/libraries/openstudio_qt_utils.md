@@ -51,7 +51,6 @@ classDiagram
 
 | File | Description |
 |---|---|
-| `OpenStudioQtUtilsAPI.hpp` | DLL export macro (`OPENSTUDIOQTUTILS_API`) for Windows shared library symbol visibility |
 | `Application.hpp/cpp` | `openstudio::Application` singleton — `QApplication` lifecycle management and `QSettings` read/write |
 | `Utilities.hpp/cpp` | Free functions for converting between `QString`, `std::string`, `std::wstring`, `openstudio::path`, and `openstudio::UUID` |
 | `QMetaTypes.hpp/cpp` | `Q_DECLARE_METATYPE` declarations and `qRegisterMetaType` calls for SDK types used in queued signal/slot connections |

@@ -76,9 +76,8 @@ classDiagram
 
 | Module | Usage |
 |---|---|
-| `openstudio_lib` | `OSAppBase`, `OSDocument`, `MainWindow` — instantiated here |
-| `shared_gui_components` | `BusyWidget`, `OSDialog`, `WaitDialog` — directly compiled into this target |
-| `model_editor` | `QMetaTypes` registration for Qt signal/slot compatibility |
+| `openstudio_lib` | `OSAppBase`, `OSDocument`, `MainWindow` — instantiated here; transitively pulls in `shared_gui_components`, `model_editor`, and `openstudio_qt_utils` |
+| `openstudio_bimserver` | BIMserver import/export integration |
 
 ---
 

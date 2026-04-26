@@ -1,8 +1,8 @@
 # Class: `OSVectorController`
 
-> **Module:** `openstudio_lib`  
-> **Header:** [src/openstudio_lib/OSVectorController.hpp](../../../../src/openstudio_lib/OSVectorController.hpp)  
-> **Library doc:** [libraries/openstudio_lib.md](../../libraries/openstudio_lib.md)
+> **Module:** `shared_gui_components`  
+> **Header:** [src/shared_gui_components/OSVectorController.hpp](../../../../src/shared_gui_components/OSVectorController.hpp)  
+> **Library doc:** [libraries/shared_gui_components.md](../../libraries/shared_gui_components.md)
 
 ## Purpose
 

@@ -31,6 +31,7 @@ classDiagram
     +editController() QSharedPointer~EditController~ = 0
     +tempDir() optional~path~ = 0
     +currentModel() optional~Model~ = 0
+    +mouseOverInspectorView() bool = 0
   }
   class OSAppBase {
     +mainWidget() QWidget*
@@ -61,3 +62,4 @@ classDiagram
 | `editController()` | `QSharedPointer<EditController>` | The right-column edit controller |
 | `tempDir()` | `optional<path>` | Path to the session temporary directory |
 | `currentModel()` | `optional<model::Model>` | The current model, if any |
+| `mouseOverInspectorView()` | `bool` | Returns whether the mouse cursor is currently over the inspector view in the right column |

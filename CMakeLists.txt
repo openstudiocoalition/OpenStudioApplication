@@ -6,6 +6,11 @@ set(CMAKE_CXX_STANDARD_REQUIRED ON)
 # Do not enable compiler specific extensions, for eg on GCC use -std=c++1z (=c++17) and not -std=gnu++17
 set(CMAKE_CXX_EXTENSIONS OFF)
 
+# All internal libraries are static. Qt is always linked dynamically via its own
+# IMPORTED SHARED targets from find_package(Qt6) and is unaffected by this setting.
+# This fulfils the Qt LGPL requirement: Qt shared libraries remain replaceable at runtime.
+set(BUILD_SHARED_LIBS OFF)
+
 # Use ccache if available, has to be before "project()"
 find_program(CCACHE_PROGRAM NAMES ccache sccache)
 if(CCACHE_PROGRAM)

@@ -68,7 +68,7 @@ qt6_wrap_cpp(${target_name}_mocs ${${target_name}_moc})
 qt6_add_resources(${target_name}_qrcs ${${target_name}_qrc})
 
 # make the shared library
-add_library(${target_name}
+add_library(${target_name} STATIC
   ${${target_name}_src}
   ${${target_name}_moc}
   ${${target_name}_mocs}

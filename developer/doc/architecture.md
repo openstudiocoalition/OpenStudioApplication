@@ -64,15 +64,15 @@ C4Container
   title Containers — src/ Module Breakdown
 
   Container(app_exe, "OpenStudioApp", "Executable", "Entry point: main(), application lifecycle, startup screen, version translation")
-  Container(openstudio_lib, "openstudio_lib", "C++ shared library", "All tab controllers, views, HVAC/geometry/schedules/loads GUI. ~200 files. Target: openstudio_lib")
-  Container(shared_gui, "shared_gui_components", "C++ shared library", "Reusable widgets: grid system, form controls, measure manager, BCL dialogs, user settings. Target: openstudio_shared_gui")
-  Container(model_editor, "model_editor", "C++ shared library", "Generic IDD-driven model object inspector; AccessPolicyStore (field-level access policies for IDD objects). Target: openstudio_modeleditor")
-  Container(qt_utils, "openstudio_qt_utils", "C++ shared library", "Qt/OpenStudio primitives: string/UUID/path conversions, Application singleton, OSProgressBar, Qt metatype registration for SDK types. Target: openstudio_qt_utils")
+  Container(openstudio_lib, "openstudio_lib", "C++ static library", "All tab controllers, views, HVAC/geometry/schedules/loads GUI. ~200 files. Target: openstudio_lib")
+  Container(shared_gui, "shared_gui_components", "C++ static library", "Reusable widgets: grid system, form controls, measure manager, BCL dialogs, user settings. Target: openstudio_shared_gui")
+  Container(model_editor, "model_editor", "C++ static library", "Generic IDD-driven model object inspector; AccessPolicyStore (field-level access policies for IDD objects). Target: openstudio_modeleditor")
+  Container(qt_utils, "openstudio_qt_utils", "C++ static library", "Qt/OpenStudio primitives: string/UUID/path conversions, Application singleton, OSProgressBar, Qt metatype registration for SDK types. Target: openstudio_qt_utils")
   Container(utilities, "utilities", "C++ static/header library", "Runtime path resolution for SDK CLI, EnergyPlus, Radiance. Target: openstudioapp_utilities")
 
   Rel(app_exe, openstudio_lib, "Links; creates OSDocument and MainWindow")
   Rel(openstudio_lib, shared_gui, "Links; uses grid widgets, form controls, measure integration")
-  Rel(openstudio_lib, model_editor, "Links; uses InspectorGadget, QMetaTypes")
+  Rel(openstudio_lib, model_editor, "Links; uses InspectorGadget, AccessPolicyStore")
   Rel(shared_gui, qt_utils, "Links; Qt string/UUID conversions, Application singleton, metatype registration")
   Rel(model_editor, qt_utils, "Links; Qt string/UUID conversions, Application singleton, OSProgressBar")
   Rel(qt_utils, utilities, "Links; runtime path resolution for SDK CLI, EnergyPlus, Radiance")
@@ -162,10 +162,10 @@ See [BUILDING.md](../../BUILDING.md) for the complete, platform-specific instruc
 | Target | Type | Description |
 |---|---|---|
 | `OpenStudioApp` | Executable | Main application binary |
-| `openstudio_lib` | Shared library | Tab GUI library |
-| `openstudio_shared_gui` | Shared library | Reusable widget library |
-| `openstudio_modeleditor` | Shared library | Generic IDD-driven model inspector |
-| `openstudio_qt_utils` | Shared library | Qt/OpenStudio primitives: string/UUID/path conversions, `Application` singleton, `OSProgressBar`, Qt metatype registration for SDK types |
+| `openstudio_lib` | Static library | Tab GUI library |
+| `openstudio_shared_gui` | Static library | Reusable widget library |
+| `openstudio_modeleditor` | Static library | Generic IDD-driven model inspector |
+| `openstudio_qt_utils` | Static library | Qt/OpenStudio primitives: string/UUID/path conversions, `Application` singleton, `OSProgressBar`, Qt metatype registration for SDK types |
 | `openstudioapp_utilities` | Static library | Runtime path helpers |
 | `package` | CPack | Platform installer (`.exe`/`.dmg`/`.deb`/`.tar.gz`) |
 

@@ -182,7 +182,7 @@ set(${target_name}_depends
   openstudio_qt_utils
 )
 
-add_library(${target_name} ${${target_name}_src} ${${target_name}_moc_src})
+add_library(${target_name} STATIC ${${target_name}_src} ${${target_name}_moc_src})
 
 target_link_libraries(${target_name} PUBLIC ${${target_name}_depends})
 

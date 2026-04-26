@@ -37,10 +37,10 @@ developer/doc/
 │   ├── openstudio_app.md        ← src/openstudio_app/CMakeLists.txt + headers
 │   ├── openstudio_lib.md        ← src/openstudio_lib/CMakeLists.txt + headers
 │   ├── shared_gui_components.md ← src/shared_gui_components/CMakeLists.txt + headers
+│   ├── openstudio_qt_utils.md   ← src/openstudio_qt_utils/CMakeLists.txt + headers
 │   ├── model_editor.md          ← src/model_editor/CMakeLists.txt + headers
 │   ├── bimserver.md             ← src/bimserver/CMakeLists.txt + headers
-│   ├── utilities.md             ← src/utilities/CMakeLists.txt
-│   └── qtwinmigrate.md          ← src/qtwinmigrate/CMakeLists.txt
+│   └── utilities.md             ← src/utilities/CMakeLists.txt
 ├── classes/
 │   ├── openstudio_app/
 │   │   ├── OpenStudioApp.md     ← src/openstudio_app/OpenStudioApp.hpp/.cpp
@@ -51,7 +51,6 @@ developer/doc/
 │   │   ├── MainWindow.md        ← src/openstudio_lib/MainWindow.hpp
 │   │   ├── MainTabController.md ← src/openstudio_lib/MainTabController.hpp
 │   │   ├── MainRightColumnController.md  ← src/openstudio_lib/MainRightColumnController.hpp
-│   │   ├── OSVectorController.md ← src/openstudio_lib/OSVectorController.hpp
 │   │   ├── OSItem.md            ← src/openstudio_lib/OSItem.hpp
 │   │   ├── OSDropZone.md        ← src/openstudio_lib/OSDropZone.hpp
 │   │   ├── HVACSystemsController.md ← src/openstudio_lib/HVACSystemsController.hpp
@@ -71,6 +70,7 @@ developer/doc/
 │   │   ├── BaseApp.md           ← src/shared_gui_components/BaseApp.hpp
 │   │   ├── OSGridController.md  ← src/shared_gui_components/OSGridController.hpp
 │   │   ├── OSGridView.md        ← src/shared_gui_components/OSGridView.hpp
+│   │   ├── OSVectorController.md ← src/shared_gui_components/OSVectorController.hpp
 │   │   ├── MeasureManager.md   ← src/shared_gui_components/MeasureManager.hpp
 │   │   ├── BCLMeasureDialog.md  ← src/shared_gui_components/BCLMeasureDialog.hpp
 │   │   ├── LocalLibraryController.md ← src/shared_gui_components/LocalLibraryController.hpp
@@ -109,6 +109,7 @@ Update documentation when ANY of the following changes occur:
 | New class added matching library conventions (see §6) | Create new class `.md`; add entry to library `.md` |
 | Class deleted | Delete class `.md`; remove from library `.md` |
 | `CMakeLists.txt` in a module changes (new deps, new targets) | Corresponding library `.md` + `architecture.md` dependency graph |
+| `src/openstudio_qt_utils/` file modified | `libraries/openstudio_qt_utils.md` + any affected class doc |
 | Top-level `CMakeLists.txt` changes (version, new sub-project) | `architecture.md` |
 | `.github/workflows/*.yml` changes | Corresponding `developer/doc/ci/workflows/*.md` + `ci/overview.md` |
 | New workflow added | Create new workflow `.md`; add entry to `ci/overview.md` |
@@ -344,7 +345,7 @@ Follow these steps whenever source code or CI configuration changes:
 ## 7. Class Selection Heuristic
 
 **Document these classes** (already in the doc set or should be added when introduced):
-- Base/abstract classes that define cross-cutting interfaces (`BaseApp`, `OSVectorController`, `OSItem`)
+- Base/abstract classes that define cross-cutting interfaces (`BaseApp`, `OSVectorController` in `shared_gui_components`, `OSItem`)
 - Tab-level controllers that own a UI domain (`HVACSystemsController`, `RunTabController`)
 - View+Controller pairs for complex sub-systems (`HVACSystemsView`, `GeometryEditorController`)
 - Integration point classes that bridge external systems (`BIMserverConnection`, `OSWebEnginePage`)
@@ -365,5 +366,6 @@ Never document the following in `developer/doc/` (they are internal plumbing or 
 
 - Contents of `debug/` or `release/` build directories
 - Files under `signatures/`
+- References to BIMserver as this functionality is to be deprecated
 - Generated files under `src/utilities/` (these are `configure_file` outputs)
 - Contents of `ruby/` Ruby gems or vendored external libraries

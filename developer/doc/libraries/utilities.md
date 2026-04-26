@@ -16,9 +16,8 @@ Because the application is packaged differently on each platform (macOS bundle, 
 
 | File | Description |
 |---|---|
-| `OpenStudioApplicationPathHelpers.hpp` | Public API — declares free functions for locating SDK CLI, EnergyPlus, Radiance, and resource paths |
+| `OpenStudioApplicationPathHelpers.hpp` | Declares free functions for application version strings and runtime path resolution; no DLL export macro (static library) |
 | `OpenStudioApplicationPathHelpers.cxx.in` | CMake template — `configure_file` substitutes the actual install-time paths at build time, producing `OpenStudioApplicationPathHelpers.cxx` |
-| `OpenStudioApplicationUtilitiesAPI.hpp` | DLL export macro (`OPENSDTUDIOAPPLICATIONUTILITIES_API`) for Windows shared library symbol visibility |
 
 ---
 
@@ -26,21 +25,26 @@ Because the application is packaged differently on each platform (macOS bundle, 
 
 ```cpp
 namespace openstudio {
-  // Returns the path to the OpenStudio CLI executable
-  path getOpenStudioCoreCLI();
+  // Version strings
+  std::string openStudioApplicationVersion();             // MAJOR.MINOR.PATCH[-prerelease+sha]
+  std::string openStudioApplicationVersionWithPrerelease(); // MAJOR.MINOR.PATCH[-prerelease]
 
-  // Returns the path to the application's shared resources directory
-  path getOpenStudioApplicationSourceDirectory();
+  // Path resolution
+  path getOpenStudioApplicationPath();        // Path to the running executable
+  path getOpenStudioApplicationDirectory();   // Directory containing the executable
+  path getOpenStudioApplicationSourceDirectory(); // Resources/source directory (build or install)
+  path getOpenStudioApplicationBuildDirectory();  // Build directory (empty in installed builds)
+  path getOpenStudioApplicationModule();      // Path to the OpenStudio SDK shared library
+  path getOpenStudioApplicationModuleDirectory(); // Directory of the SDK shared library
+  path getOpenStudioCoreCLI();                // Path to the OpenStudio CLI executable
 
-  // Returns the path to the EnergyPlus executable (from SDK install layout)
-  boost::optional<path> findEnergyPlus();
-
-  // Returns the path to the Radiance installation (from SDK install layout)
-  boost::optional<path> findRadiance();
+  // Build-tree detection
+  bool isOpenStudioApplicationRunningFromBuildDirectory();
+  bool isOpenStudioApplicationModuleRunningFromBuildDirectory();
 }
 ```
 
-Paths are resolved relative to the running executable (`QCoreApplication::applicationDirPath()`), making them work correctly whether the app is run from a development build tree or an installed package.
+All path functions resolve relative to the running executable, so they work correctly in both development build trees and installed packages on all platforms.
 
 ---
 
@@ -62,4 +66,4 @@ None — this is the lowest-dependency module in the application.
 ## Patterns & Conventions
 
 - **CMake `configure_file`** — the `.cxx.in` file contains `@VARIABLE@` placeholders that CMake fills in at configure time based on install prefix, SDK path, and platform. This is how install-time paths are baked in without hardcoding.
-- **`boost::optional` returns** — EnergyPlus and Radiance are optional; functions return `boost::none` if the expected path does not exist on disk, allowing callers to gracefully degrade.
+- **No DLL export macro** — the target is explicitly `STATIC`; all symbols are directly linked into the executable and require no `__declspec(dllexport)` decoration.
