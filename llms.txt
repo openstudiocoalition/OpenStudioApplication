@@ -45,19 +45,6 @@ OpenStudioApp (exe)
 
 ---
 
-## API macros → library mapping
-
-| Macro | Library target | Header |
-|---|---|---|
-| `MODELEDITOR_API` | `openstudio_modeleditor` | `src/model_editor/ModelEditorAPI.hpp` |
-| `OPENSTUDIO_API` | `openstudio_lib` | `src/openstudio_lib/OpenStudioAPI.hpp` |
-| `OPENSTUDIOQTUTILS_API` | `openstudio_qt_utils` | `src/openstudio_qt_utils/OpenStudioQtUtilsAPI.hpp` |
-| `SHARED_OSAPP_LIBS` | all shared libs | compile-time flag for dllexport/dllimport |
-
-When adding a new class to a library, inherit its `*_API` macro from that library's API header — never from another library's macro.
-
----
-
 ## CMake target → depends (what to add when you need a new dependency)
 
 To use a class from library X in library Y, add X's CMake target to Y's `set(${target_name}_depends ...)` block in `src/Y/CMakeLists.txt`.
@@ -83,7 +70,6 @@ To use a class from library X in library Y, add X's CMake target to Y's `set(${t
 | `Utilities.hpp/.cpp` | `openstudio::toQString()`, `toString()`, `toPath()`, `toUUID()`, etc. |
 | `QMetaTypes.hpp/.cpp` | `Q_DECLARE_METATYPE` + `qRegisterMetaType` for all SDK types (`IddObjectType`, `UUID`, `OSItemId`, etc.) |
 | `OSProgressBar.hpp/.cpp` | `openstudio::OSProgressBar` — Qt progress bar wrapping SDK `ProgressBar` |
-| `OpenStudioQtUtilsAPI.hpp` | `OPENSTUDIOQTUTILS_API` macro |
 
 ### model_editor  (`src/model_editor/`)
 | File | Key class |
@@ -94,7 +80,6 @@ To use a class from library X in library Y, add X's CMake target to Y's `set(${t
 | `PathWatcher.hpp/.cpp` | `openstudio::PathWatcher` — filesystem path change notifications |
 | `GithubReleases.hpp/.cpp` | `openstudio::GithubReleases` — checks GitHub releases API for new versions |
 | `ModalDialogs.hpp/.cpp` | `openstudio::ModelObjectSelectorDialog` — generic model-object picker dialog |
-| `ModelEditorAPI.hpp` | `MODELEDITOR_API` macro; also includes `openstudio_qt_utils/QMetaTypes.hpp` |
 
 ### shared_gui_components  (`src/shared_gui_components/`)
 | File | Key class |
@@ -163,7 +148,6 @@ Example: `mouseOverInspectorView()` was added this way so `OSLineEdit.cpp` (in `
 
 All SDK type metatype registrations live in `src/openstudio_qt_utils/QMetaTypes.hpp/.cpp`.
 `OSItemId` registration is in `src/shared_gui_components/OSGridController.cpp` (requires the type definition from `openstudio_lib`).
-Do NOT add metatype registrations to `model_editor/ModelEditorAPI.hpp` — that header is included everywhere.
 
 ---
 
