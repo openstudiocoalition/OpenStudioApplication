@@ -153,8 +153,8 @@ flowchart TD
 
 | Module | Usage |
 |---|---|
-| `model_editor` | `QMetaTypes` for meta-type registration |
-| `openstudio_lib` | `OSItem`, `OSVectorController` (used in OSGridController) |
+| `openstudio_qt_utils` | `Application` singleton, `Utilities` (string/UUID/path conversions), `QMetaTypes` (SDK metatype registration), `OSProgressBar` |
+| `openstudio_lib` | `OSItem`, `OSVectorController` (used in `OSGridController`) |
 
 ---
 

@@ -41,11 +41,6 @@ OSProgressBar::OSProgressBar(bool visible, QWidget* parent) {
   updatePercentage();
 }
 
-/// constructor from impl
-//OSProgressBar::OSProgressBar(const std::shared_ptr<QProgressBar>& impl)
-//  : m_impl(impl), m_percentage(0.0)
-//{}
-
 /// virtual destructor
 OSProgressBar::~OSProgressBar() {
   m_impl->setVisible(false);
@@ -123,8 +118,3 @@ void OSProgressBar::setValue(int value) {
 void OSProgressBar::setWindowTitle(const QString& windowTitle) {
   m_impl->setWindowTitle(windowTitle);
 }
-
-//std::shared_ptr<QProgressBar> OSProgressBar::impl() const
-//{
-//  return m_impl;
-//}

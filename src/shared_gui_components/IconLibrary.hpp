@@ -3,10 +3,10 @@
 *  See also https://openstudiocoalition.org/about/software_license/
 ***********************************************************************************************************************/
 
-#ifndef OPENSTUDIO_ICONLIBRARY_HPP
-#define OPENSTUDIO_ICONLIBRARY_HPP
+#ifndef SHAREDGUICOMPONENTS_ICONLIBRARY_HPP
+#define SHAREDGUICOMPONENTS_ICONLIBRARY_HPP
 
-#include "OpenStudioAPI.hpp"
+#include "OpenStudioSharedGuiAPI.hpp"
 #include <openstudio/utilities/core/Logger.hpp>
 
 #include <QPixmap>
@@ -22,7 +22,7 @@ namespace openstudio {
  * it, because it might return NULL.
  *
  */
-class OPENSTUDIO_API IconLibrary
+class OPENSTUDIO_SHARED_GUI_API IconLibrary
 {
 
  public:
@@ -55,4 +55,4 @@ class OPENSTUDIO_API IconLibrary
 
 }  // namespace openstudio
 
-#endif  // OPENSTUDIO_ICONLIBRARY_HPP
+#endif  // SHAREDGUICOMPONENTS_ICONLIBRARY_HPP

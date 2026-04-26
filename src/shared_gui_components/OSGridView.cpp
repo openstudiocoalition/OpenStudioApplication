@@ -21,7 +21,7 @@
 #include "OSUnsignedEdit.hpp"
 #include "OSWidgetHolder.hpp"
 
-#include "../model_editor/Application.hpp"
+#include "../openstudio_qt_utils/Application.hpp"
 
 #include "../openstudio_lib/ModelObjectInspectorView.hpp"
 #include "../openstudio_lib/OSDropZone.hpp"

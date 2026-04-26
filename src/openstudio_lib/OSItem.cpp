@@ -6,7 +6,7 @@
 #include "OSItem.hpp"
 
 #include "BCLComponentItem.hpp"
-#include "IconLibrary.hpp"
+#include "../shared_gui_components/IconLibrary.hpp"
 #include "ModelObjectItem.hpp"
 #include "OSAppBase.hpp"
 #include "OSDocument.hpp"
@@ -18,7 +18,7 @@
 #include <openstudio/utilities/bcl/LocalBCL.hpp>
 #include <openstudio/utilities/core/Assert.hpp>
 
-#include "../model_editor/Utilities.hpp"
+#include "../openstudio_qt_utils/Utilities.hpp"
 
 #include <QBoxLayout>
 #include <QDrag>

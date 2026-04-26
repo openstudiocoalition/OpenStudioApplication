@@ -20,7 +20,7 @@
 #include "OSDocument.hpp"
 #include "MainWindow.hpp"
 #include "OSItem.hpp"
-#include "../model_editor/Utilities.hpp"
+#include "../openstudio_qt_utils/Utilities.hpp"
 
 #include <openstudio/model/Model.hpp>
 #include <openstudio/model/Model_Impl.hpp>

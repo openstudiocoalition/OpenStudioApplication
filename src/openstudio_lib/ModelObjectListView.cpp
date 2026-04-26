@@ -18,7 +18,7 @@
 #include <openstudio/model/UtilityBill.hpp>
 #include <openstudio/model/UtilityBill_Impl.hpp>
 
-#include "../model_editor/Utilities.hpp"
+#include "../openstudio_qt_utils/Utilities.hpp"
 
 #include <openstudio/utilities/core/Assert.hpp>
 #include <openstudio/utilities/bcl/LocalBCL.hpp>

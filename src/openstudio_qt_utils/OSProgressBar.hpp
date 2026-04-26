@@ -3,8 +3,8 @@
 *  See also https://openstudiocoalition.org/about/software_license/
 ***********************************************************************************************************************/
 
-#ifndef MODELEDITOR_OSProgressBar_HPP
-#define MODELEDITOR_OSProgressBar_HPP
+#ifndef OPENSTUDIOQTUTILS_OSPROGRESSBAR_HPP
+#define OPENSTUDIOQTUTILS_OSPROGRESSBAR_HPP
 
 #include <openstudio/utilities/plot/ProgressBar.hpp>
 #include <openstudio/utilities/core/Macro.hpp>
@@ -79,13 +79,9 @@ class OSProgressBar : public openstudio::ProgressBar
   /// set window title
   void setWindowTitle(const QString& windowTitle);
 
- protected:
-  /// return the impl
-  //std::shared_ptr<QProgressBar> impl() const;
-
  private:
   /// impl
   std::shared_ptr<QProgressBar> m_impl;
 };
 
-#endif  //MODELEDITOR_OSProgressBar_HPP
+#endif  // OPENSTUDIOQTUTILS_OSPROGRESSBAR_HPP

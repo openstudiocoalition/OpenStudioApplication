@@ -4,7 +4,7 @@
 ***********************************************************************************************************************/
 
 #include "EditView.hpp"
-#include "../model_editor/Utilities.hpp"
+#include "../openstudio_qt_utils/Utilities.hpp"
 
 #include <QVBoxLayout>
 #include <QHBoxLayout>

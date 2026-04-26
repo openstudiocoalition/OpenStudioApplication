@@ -4,7 +4,7 @@
 ***********************************************************************************************************************/
 
 #include "./LibraryDialog.hpp"
-#include "../model_editor/Utilities.hpp"
+#include "../openstudio_qt_utils/Utilities.hpp"
 
 #include <openstudio/utilities/core/Path.hpp>
 #include <QVBoxLayout>

@@ -9,7 +9,7 @@
 #include "OpenStudioAPI.hpp"
 
 #include "../shared_gui_components/OSQObjectController.hpp"
-#include "../model_editor/QMetaTypes.hpp"
+#include "../openstudio_qt_utils/QMetaTypes.hpp"
 
 #include <openstudio/model/Model.hpp>
 #include <openstudio/model/ModelObject.hpp>

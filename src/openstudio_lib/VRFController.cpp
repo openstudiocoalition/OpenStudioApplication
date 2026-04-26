@@ -24,7 +24,7 @@
 #include <openstudio/model/ComponentData.hpp>
 #include <openstudio/model/ComponentData_Impl.hpp>
 
-#include "../model_editor/Utilities.hpp"
+#include "../openstudio_qt_utils/Utilities.hpp"
 #include <boost/optional.hpp>
 
 #include <openstudio/utilities/core/Compare.hpp>

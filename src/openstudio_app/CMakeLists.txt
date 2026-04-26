@@ -16,13 +16,6 @@ set(${target_name}_SRC
   LibraryDialog.cpp
   ExternalToolsDialog.hpp
   ExternalToolsDialog.cpp
-
-  ../shared_gui_components/BusyWidget.cpp
-  ../shared_gui_components/BusyWidget.hpp
-  ../shared_gui_components/OSDialog.cpp
-  ../shared_gui_components/OSDialog.hpp
-  ../shared_gui_components/WaitDialog.cpp
-  ../shared_gui_components/WaitDialog.hpp
 )
 
 # moc files
@@ -32,10 +25,6 @@ set(${target_name}_moc
   StartupMenu.hpp
   LibraryDialog.hpp
   ExternalToolsDialog.hpp
-
-  ../shared_gui_components/BusyWidget.hpp
-  ../shared_gui_components/OSDialog.hpp
-  ../shared_gui_components/WaitDialog.hpp
 )
 
 ## Qt UI generation
@@ -294,10 +283,6 @@ endif()
 set(depends
   openstudio_lib
   openstudio_bimserver
-  openstudio_modeleditor
-  openstudioapp_utilities
-  openstudio::openstudiolib
-  ${QT_WEB_LIBS}
 )
 
 target_link_libraries(${target_name} ${depends})

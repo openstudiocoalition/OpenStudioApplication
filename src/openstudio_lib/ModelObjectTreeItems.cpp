@@ -5,7 +5,7 @@
 
 #include "ModelObjectTreeItems.hpp"
 #include "ModelObjectItem.hpp"
-#include "IconLibrary.hpp"
+#include "../shared_gui_components/IconLibrary.hpp"
 
 #include <openstudio/model/Model.hpp>
 #include <openstudio/model/Model_Impl.hpp>
@@ -63,7 +63,7 @@
 #include <openstudio/model/DesignSpecificationOutdoorAir.hpp>
 #include <openstudio/model/DesignSpecificationOutdoorAir_Impl.hpp>
 
-#include "../model_editor/Utilities.hpp"
+#include "../openstudio_qt_utils/Utilities.hpp"
 
 #include <openstudio/utilities/idd/OS_Building_FieldEnums.hxx>
 #include <openstudio/utilities/idd/OS_BuildingStory_FieldEnums.hxx>

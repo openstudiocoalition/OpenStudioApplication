@@ -10,7 +10,7 @@
 #include <openstudio/nano/nano_signal_slot.hpp>  // Signal-Slot replacement
 
 #include <openstudio/model/Model.hpp>
-#include "../model_editor/QMetaTypes.hpp"
+#include "../openstudio_qt_utils/QMetaTypes.hpp"
 
 class QTreeWidget;
 

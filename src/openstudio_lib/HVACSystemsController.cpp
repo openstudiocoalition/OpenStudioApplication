@@ -118,7 +118,7 @@
 #include <openstudio/model/SwimmingPoolIndoor.hpp>
 #include <openstudio/model/SwimmingPoolIndoor_Impl.hpp>
 
-#include "../model_editor/Utilities.hpp"
+#include "../openstudio_qt_utils/Utilities.hpp"
 
 #include <openstudio/energyplus/ForwardTranslator/ForwardTranslatePlantEquipmentOperationSchemes.hpp>
 

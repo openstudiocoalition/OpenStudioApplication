@@ -6,10 +6,12 @@
 #include "OSAppBase.hpp"
 
 #include "ApplyMeasureNowDialog.hpp"
+#include "InspectorController.hpp"
+#include "InspectorView.hpp"
 #include "MainRightColumnController.hpp"
 #include "MainWindow.hpp"
 #include "OSDocument.hpp"
-#include "../model_editor/Utilities.hpp"
+#include "../openstudio_qt_utils/Utilities.hpp"
 
 #include "../shared_gui_components/EditController.hpp"
 #include "../shared_gui_components/MeasureManager.hpp"
@@ -17,7 +19,7 @@
 #include "../shared_gui_components/LocalLibraryController.hpp"
 #include "../shared_gui_components/WaitDialog.hpp"
 
-#include "../model_editor/UserSettings.hpp"
+#include "../shared_gui_components/UserSettings.hpp"
 
 #include <openstudio/utilities/bcl/LocalBCL.hpp>
 #include <openstudio/utilities/core/PathHelpers.hpp>
@@ -130,6 +132,14 @@ boost::optional<openstudio::model::Model> OSAppBase::currentModel() {
   } else {
     return boost::optional<openstudio::model::Model>();
   }
+}
+
+bool OSAppBase::mouseOverInspectorView() {
+  std::shared_ptr<OSDocument> document = currentDocument();
+  if (document) {
+    return document->mainRightColumnController()->inspectorController()->inspectorView()->mouseOverInspectorView();
+  }
+  return false;
 }
 
 //boost::optional<openstudio::Workspace> OSAppBase::currentWorkspace()

@@ -63,8 +63,8 @@ class LocalLibraryController;
 *
 **/
 #if defined(openstudio_lib_EXPORTS) || defined(COMPILING_FROM_OSAPP)
-#  include "../openstudio_lib/OpenStudioAPI.hpp"
-class OPENSTUDIO_API MeasureManager : public QObject
+#  include "OpenStudioSharedGuiAPI.hpp"
+class OPENSTUDIO_SHARED_GUI_API MeasureManager : public QObject
 #else
 class MeasureManager : public QObject
 #endif

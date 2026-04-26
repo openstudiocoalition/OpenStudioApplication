@@ -5,9 +5,7 @@
 
 #include "Application.hpp"
 
-// TODO: JM 2019-03-28 Do I also need to make a specific version of getOpenStudioModuleDirectory?
 #include <openstudio/utilities/core/ApplicationPathHelpers.hpp>
-
 #include <openstudio/utilities/core/String.hpp>
 
 #include "Utilities.hpp"
@@ -57,15 +55,6 @@ QCoreApplication* Application::application(bool gui) {
 
       openstudioPossibleBinDirPath = openstudioModuleDirPath / openstudio::toPath("../bin/platforms/");
       QCoreApplication::addLibraryPath(toQString(openstudioPossibleBinDirPath));
-
-      // Make the ruby path the default plugin search location
-      //#if defined(Q_OS_DARWIN)
-      //      openstudio::path p = getApplicationRunDirectory().parent_path().parent_path().parent_path() / toPath("Ruby/openstudio");
-      //      QCoreApplication::addLibraryPath(toQString(p));
-      //#elif defined(Q_OS_WIN)
-      //      openstudio::path p = getApplicationRunDirectory().parent_path() / toPath("Ruby/openstudio");
-      //      QCoreApplication::addLibraryPath(toQString(p));
-      //#endif
 
       static char* argv[] = {nullptr};
       static int argc = sizeof(argv) / sizeof(char*) - 1;

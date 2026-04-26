@@ -10,7 +10,7 @@
 #include "OSItem.hpp"
 #include "MainWindow.hpp"
 #include "MainRightColumnController.hpp"
-#include "IconLibrary.hpp"
+#include "../shared_gui_components/IconLibrary.hpp"
 #include <openstudio/model/Model.hpp>
 #include <openstudio/model/Model_Impl.hpp>
 #include <openstudio/model/RefrigerationSystem.hpp>
@@ -34,7 +34,7 @@
 #include <openstudio/model/RefrigerationSubcoolerLiquidSuction.hpp>
 #include <openstudio/model/RefrigerationSubcoolerLiquidSuction_Impl.hpp>
 
-#include "../model_editor/Utilities.hpp"
+#include "../openstudio_qt_utils/Utilities.hpp"
 
 #include <openstudio/utilities/core/Compare.hpp>
 

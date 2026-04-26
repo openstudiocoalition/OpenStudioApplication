@@ -81,7 +81,7 @@
 #include <openstudio/model/SteamEquipmentDefinition_Impl.hpp>
 #include <openstudio/model/SteamEquipment_Impl.hpp>
 
-#include "../model_editor/Utilities.hpp"
+#include "../openstudio_qt_utils/Utilities.hpp"
 
 #include <openstudio/utilities/core/Compare.hpp>
 #include <openstudio/utilities/idd/IddEnums.hxx>

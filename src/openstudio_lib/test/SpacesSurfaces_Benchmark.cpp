@@ -5,7 +5,7 @@
 
 #include <benchmark/benchmark.h>
 
-#include "../../model_editor/Application.hpp"
+#include "../../openstudio_qt_utils/Application.hpp"
 #include "../SpacesSurfacesGridView.hpp"
 
 #include <openstudio/model/Model.hpp>

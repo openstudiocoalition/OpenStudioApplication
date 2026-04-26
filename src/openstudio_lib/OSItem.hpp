@@ -7,6 +7,7 @@
 #define OPENSTUDIO_OSITEM_HPP
 
 #include "../shared_gui_components/LocalLibrary.hpp"
+#include "../shared_gui_components/OSItemId.hpp"
 
 #include <QVariant>
 #include <QWidget>
@@ -17,40 +18,11 @@
 class QDragEnterEvent;
 class QDropEvent;
 class QLabel;
-class QMimeData;
 class QPushButton;
 
 namespace openstudio {
 
 class MeasureBadge;
-
-class OSItemId
-{
- public:
-  static const QString BCL_SOURCE_ID;
-  OSItemId();
-  OSItemId(const QString& itemId, const QString& sourceId, bool isDefaulted, const QString& otherData = "");
-  explicit OSItemId(const QMimeData* mimeData);
-  QString itemId() const;
-  QString sourceId() const;
-  QString otherData() const;
-  QString mimeDataText() const;
-
-  bool isDefaulted() const;
-  void setIsDefaulted(bool isDefaulted);
-
-  boost::optional<int> position() const;
-  void setPosition(int position);
-
-  bool operator==(const OSItemId& other) const;
-
- private:
-  QString m_itemId;
-  QString m_sourceId;
-  QString m_otherData;
-  bool m_isDefaulted;
-  boost::optional<int> m_position_;
-};
 
 class OSItem
   : public QWidget

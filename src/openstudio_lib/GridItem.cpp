@@ -5,7 +5,7 @@
 
 #include "GridItem.hpp"
 #include "ServiceWaterGridItems.hpp"
-#include "IconLibrary.hpp"
+#include "../shared_gui_components/IconLibrary.hpp"
 #include "LoopScene.hpp"
 #include "OSDocument.hpp"
 #include "OSAppBase.hpp"
@@ -95,7 +95,7 @@
 #include <openstudio/model/ZoneHVACTerminalUnitVariableRefrigerantFlow.hpp>
 #include <openstudio/model/ZoneHVACTerminalUnitVariableRefrigerantFlow_Impl.hpp>
 
-#include "../model_editor/Utilities.hpp"
+#include "../openstudio_qt_utils/Utilities.hpp"
 
 #include <openstudio/utilities/idd/IddEnums.hxx>
 

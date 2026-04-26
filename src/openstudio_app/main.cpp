@@ -6,9 +6,9 @@
 #define COMPILING_FROM_OSAPP
 #include "../openstudio_lib/OpenStudioAPI.hpp"
 #include "OpenStudioApp.hpp"
-#include "../model_editor/Application.hpp"
+#include "../openstudio_qt_utils/Application.hpp"
 #include "../model_editor/AccessPolicyStore.hpp"
-#include "../model_editor/Utilities.hpp"
+#include "../openstudio_qt_utils/Utilities.hpp"
 
 #include <openstudio/measure/OSArgument.hpp>
 

@@ -7,7 +7,7 @@
 #define SHAREDGUICOMPONENTS_BASEAPP_HPP
 
 #include <openstudio/utilities/core/Path.hpp>
-#include "../model_editor/QMetaTypes.hpp"
+#include "../openstudio_qt_utils/QMetaTypes.hpp"
 
 #include <QWidget>
 #include <boost/optional.hpp>
@@ -48,6 +48,8 @@ class BaseApp
   virtual boost::optional<openstudio::path> tempDir() = 0;
   virtual boost::optional<openstudio::model::Model> currentModel() = 0;
   //virtual boost::optional<openstudio::Workspace> currentWorkspace() = 0;
+
+  virtual bool mouseOverInspectorView() = 0;
 };
 
 }  // namespace openstudio

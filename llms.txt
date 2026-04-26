@@ -1,0 +1,177 @@
+# OpenStudio Application — LLM Agent Reference
+
+For a human-readable architecture overview see developer/doc/architecture.md.
+This file is optimised for LLM coding agents: dense facts, rules, and quick lookups.
+
+---
+
+## Repo layout
+
+```
+src/
+  openstudio_app/          → executable (OpenStudioApp)
+  openstudio_lib/          → openstudio_lib  (main GUI tab library)
+  shared_gui_components/   → openstudio_shared_gui  (reusable widgets)
+  model_editor/            → openstudio_modeleditor  (IDD-driven inspector)
+  openstudio_qt_utils/     → openstudio_qt_utils  (Qt/OpenStudio primitives)
+  utilities/               → openstudioapp_utilities  (path resolution, static lib)
+  bimserver/               → openstudio_bimserver  (optional BIM server integration)
+developer/doc/             → architecture docs, per-library docs
+resources/                 → runtime resources (icons, policy XML, etc.)
+```
+
+---
+
+## Dependency graph (enforced — do not violate)
+
+```
+OpenStudioApp (exe)
+  └── openstudio_lib
+        ├── openstudio_shared_gui
+        │     └── openstudio_qt_utils
+        │           └── openstudioapp_utilities
+        │                 └── OpenStudio SDK (external)
+        └── openstudio_modeleditor
+              └── openstudio_qt_utils  (same chain as above)
+```
+
+**Hard rules:**
+- `shared_gui_components` MUST NOT include headers from `openstudio_lib` or `model_editor`.
+- `model_editor` MUST NOT include headers from `shared_gui_components` or `openstudio_lib`.
+- `openstudio_qt_utils` MUST NOT include headers from any of the above.
+- `utilities` MUST NOT include Qt headers (it is a static lib with no Qt dependency).
+- Cross-library includes use relative paths: `"../other_lib/Header.hpp"`.
+- SDK headers use angle-bracket includes: `<openstudio/utilities/...>`.
+
+---
+
+## API macros → library mapping
+
+| Macro | Library target | Header |
+|---|---|---|
+| `MODELEDITOR_API` | `openstudio_modeleditor` | `src/model_editor/ModelEditorAPI.hpp` |
+| `OPENSTUDIO_API` | `openstudio_lib` | `src/openstudio_lib/OpenStudioAPI.hpp` |
+| `OPENSTUDIOQTUTILS_API` | `openstudio_qt_utils` | `src/openstudio_qt_utils/OpenStudioQtUtilsAPI.hpp` |
+| `SHARED_OSAPP_LIBS` | all shared libs | compile-time flag for dllexport/dllimport |
+
+When adding a new class to a library, inherit its `*_API` macro from that library's API header — never from another library's macro.
+
+---
+
+## CMake target → depends (what to add when you need a new dependency)
+
+To use a class from library X in library Y, add X's CMake target to Y's `set(${target_name}_depends ...)` block in `src/Y/CMakeLists.txt`.
+
+| You are in | You need | Add to depends |
+|---|---|---|
+| `openstudio_lib` | anything from `model_editor` | `openstudio_modeleditor` |
+| `openstudio_lib` | anything from `shared_gui_components` | `openstudio_shared_gui` |
+| `shared_gui_components` | Qt primitives, Application, QMetaTypes | `openstudio_qt_utils` |
+| `model_editor` | Qt primitives, Application, QMetaTypes | `openstudio_qt_utils` |
+| any library | SDK types | `openstudioapp_utilities` (pulls in SDK transitively) |
+
+`openstudio_qt_utils` already depends on `${QT_LIBS}` and `openstudioapp_utilities`; don't re-add them to higher-level libs.
+
+---
+
+## File-level inventory: where key classes live
+
+### openstudio_qt_utils  (`src/openstudio_qt_utils/`)
+| File | Key class / function |
+|---|---|
+| `Application.hpp/.cpp` | `openstudio::Application` — Qt application singleton, OpenGL format setup |
+| `Utilities.hpp/.cpp` | `openstudio::toQString()`, `toString()`, `toPath()`, `toUUID()`, etc. |
+| `QMetaTypes.hpp/.cpp` | `Q_DECLARE_METATYPE` + `qRegisterMetaType` for all SDK types (`IddObjectType`, `UUID`, `OSItemId`, etc.) |
+| `OSProgressBar.hpp/.cpp` | `openstudio::OSProgressBar` — Qt progress bar wrapping SDK `ProgressBar` |
+| `OpenStudioQtUtilsAPI.hpp` | `OPENSTUDIOQTUTILS_API` macro |
+
+### model_editor  (`src/model_editor/`)
+| File | Key class |
+|---|---|
+| `AccessPolicyStore.hpp/.cpp` | `openstudio::model::AccessPolicy`, `AccessPolicyStore` — field-level access policies (FREE/LOCKED/HIDDEN) for IDD object types; used by InspectorGadget |
+| `InspectorGadget.hpp/.cpp` | `openstudio::InspectorGadget` — IDD-driven field editor widget |
+| `InspectorDialog.hpp/.cpp` | `openstudio::InspectorDialog` — standalone dialog wrapping InspectorGadget |
+| `PathWatcher.hpp/.cpp` | `openstudio::PathWatcher` — filesystem path change notifications |
+| `GithubReleases.hpp/.cpp` | `openstudio::GithubReleases` — checks GitHub releases API for new versions |
+| `ModalDialogs.hpp/.cpp` | `openstudio::ModelObjectSelectorDialog` — generic model-object picker dialog |
+| `ModelEditorAPI.hpp` | `MODELEDITOR_API` macro; also includes `openstudio_qt_utils/QMetaTypes.hpp` |
+
+### shared_gui_components  (`src/shared_gui_components/`)
+| File | Key class |
+|---|---|
+| `BaseApp.hpp` | `openstudio::BaseApp` — pure virtual interface implemented by `OSAppBase`; provides `currentModel()`, `currentDocument()`, `mouseOverInspectorView()`, etc. |
+| `OSGridController.hpp/.cpp` | `openstudio::OSGridController` — base for tabular views; registers `OSItemId` metatype |
+| `OSGridView.hpp/.cpp` | `openstudio::OSGridView` — renders the grid |
+| `OSObjectSelector.hpp/.cpp` | `openstudio::OSObjectSelector` — manages row selection in grids |
+| `OSLineEdit.hpp/.cpp` | `openstudio::OSLineEdit2` — line edit bound to a model object field |
+| `MeasureManager.hpp/.cpp` | `openstudio::MeasureManager` — scans/runs OpenStudio Measures |
+| `UserSettings.hpp/.cpp` | `openstudio::UserSettings` — persistent user preferences |
+
+### openstudio_lib  (`src/openstudio_lib/`)
+| File | Key class |
+|---|---|
+| `OSAppBase.hpp/.cpp` | `openstudio::OSAppBase` — concrete `BaseApp`; app-wide event bus, current document, current model |
+| `OSDocument.hpp/.cpp` | `openstudio::OSDocument` — owns one OSM model, all tab controllers |
+| `InspectorView.hpp/.cpp` | `openstudio::InspectorView` — right-column inspector; overrides `AccessPolicy` fields |
+| `InspectorController.hpp/.cpp` | `openstudio::InspectorController` — mediates between inspector view and model objects |
+| `MainRightColumnController.hpp/.cpp` | `openstudio::MainRightColumnController` — manages the right column (inspector vs. library vs. edit) |
+| `ModelObjectItem.hpp/.cpp` | `openstudio::ModelObjectItem` — OSItem subclass for model objects |
+| `HVACSystemsController.hpp/.cpp` | `openstudio::HVACSystemsController` — HVAC tab |
+| `GeometryEditorView.hpp/.cpp` | `openstudio::GeometryEditorView` — WebEngine-based 3D geometry editor |
+
+---
+
+## Include path conventions
+
+```cpp
+// Within same library — use bare name:
+#include "AccessPolicyStore.hpp"
+
+// From model_editor, reaching into openstudio_qt_utils:
+#include "../openstudio_qt_utils/Application.hpp"
+
+// From openstudio_lib, reaching into model_editor:
+#include "../model_editor/InspectorGadget.hpp"
+
+// From openstudio_lib, reaching into shared_gui_components:
+#include "../shared_gui_components/BaseApp.hpp"
+
+// OpenStudio SDK (always angle-bracket):
+#include <openstudio/utilities/idd/IddObject.hpp>
+#include <openstudio/model/Model.hpp>
+
+// Qt (always angle-bracket):
+#include <QWidget>
+#include <QString>
+```
+
+---
+
+## Interface extension pattern
+
+When `shared_gui_components` needs runtime information that lives in `openstudio_lib` (to avoid a circular dependency):
+
+1. Add a pure virtual method to `BaseApp` in `src/shared_gui_components/BaseApp.hpp`.
+2. Implement it in `OSAppBase` in `src/openstudio_lib/OSAppBase.hpp/.cpp`.
+3. Call it in `shared_gui_components` via `OSAppBase::instance()->theNewMethod()`.
+
+Example: `mouseOverInspectorView()` was added this way so `OSLineEdit.cpp` (in `shared_gui`) could query the inspector without including `InspectorView.hpp`.
+
+---
+
+## Qt metatype registration
+
+All SDK type metatype registrations live in `src/openstudio_qt_utils/QMetaTypes.hpp/.cpp`.
+`OSItemId` registration is in `src/shared_gui_components/OSGridController.cpp` (requires the type definition from `openstudio_lib`).
+Do NOT add metatype registrations to `model_editor/ModelEditorAPI.hpp` — that header is included everywhere.
+
+---
+
+## Common mistakes to avoid
+
+- Do not add `#include "../model_editor/..."` to any file in `shared_gui_components/`.
+- Do not add `#include "../openstudio_lib/..."` to any file in `shared_gui_components/` or `model_editor/`.
+- Do not add `#include "../shared_gui_components/..."` to any file in `model_editor/`.
+- Do not use `MODELEDITOR_API` for classes that live in `openstudio_qt_utils` (use `OPENSTUDIOQTUTILS_API`).
+- Do not call `qRegisterMetaType` at global scope in headers — only in `.cpp` or in `QMetaTypes.cpp`.
+- When moving a class between libraries, update both the source-list in `CMakeLists.txt` AND all `#include` paths in consumers.

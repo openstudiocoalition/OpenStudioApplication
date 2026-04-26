@@ -12,7 +12,7 @@
 #include <openstudio/model/Loop.hpp>
 #include "OSItem.hpp"
 #include "GridScene.hpp"
-#include "../model_editor/QMetaTypes.hpp"
+#include "../openstudio_qt_utils/QMetaTypes.hpp"
 
 namespace openstudio {
 

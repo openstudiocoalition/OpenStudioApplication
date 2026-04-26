@@ -13,8 +13,8 @@
 
 #include "ModelObjectItem.hpp"
 #include "OSDropZone.hpp"
-#include "OSVectorController.hpp"
-#include "../model_editor/Utilities.hpp"
+#include "../shared_gui_components/OSVectorController.hpp"
+#include "../openstudio_qt_utils/Utilities.hpp"
 
 #include <openstudio/model/Building.hpp>
 #include <openstudio/model/Building_Impl.hpp>

@@ -8,7 +8,7 @@
 #include "ModelEditorFixture.hpp"
 
 #include "../GithubReleases.hpp"
-#include "../Application.hpp"
+#include "../../openstudio_qt_utils/Application.hpp"
 
 #include <openstudio/utilities/core/Compare.hpp>
 

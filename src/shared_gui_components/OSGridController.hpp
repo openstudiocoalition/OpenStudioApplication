@@ -8,9 +8,11 @@
 
 #include "OSConcepts.hpp"
 #include "OSObjectSelector.hpp"
-#include "../model_editor/QMetaTypes.hpp"
-#include "../openstudio_lib/OSItem.hpp"
-#include "../openstudio_lib/OSVectorController.hpp"
+#include "OSItemId.hpp"
+#include "OSVectorController.hpp"
+#include "../openstudio_qt_utils/QMetaTypes.hpp"
+Q_DECLARE_METATYPE(openstudio::OSItemId)
+Q_DECLARE_METATYPE(std::vector<openstudio::OSItemId>)
 
 #include <openstudio/model/Model.hpp>
 #include <openstudio/model/ModelObject.hpp>
@@ -31,6 +33,7 @@ class QButtonGroup;
 class QColor;
 class QLabel;
 class OpenStudioLibFixture;
+class OSItem;
 
 namespace openstudio {
 

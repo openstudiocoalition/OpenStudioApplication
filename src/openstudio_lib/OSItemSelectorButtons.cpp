@@ -6,7 +6,7 @@
 #include "OSItemSelectorButtons.hpp"
 #include "OSDropZone.hpp"
 #include "OSItem.hpp"
-#include "OSVectorController.hpp"
+#include "../shared_gui_components/OSVectorController.hpp"
 
 #include <openstudio/utilities/core/Assert.hpp>
 

@@ -3,8 +3,8 @@
 *  See also https://openstudiocoalition.org/about/software_license/
 ***********************************************************************************************************************/
 
-#ifndef MODEL_ACCESSPOLICYSTORE_HPP
-#define MODEL_ACCESSPOLICYSTORE_HPP
+#ifndef MODELEDITOR_ACCESSPOLICYSTORE_HPP
+#define MODELEDITOR_ACCESSPOLICYSTORE_HPP
 
 #include "ModelEditorAPI.hpp"
 

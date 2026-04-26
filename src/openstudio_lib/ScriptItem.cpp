@@ -6,7 +6,7 @@
 #include "ScriptItem.hpp"
 #include "OSAppBase.hpp"
 #include "OSDocument.hpp"
-#include "../model_editor/Utilities.hpp"
+#include "../openstudio_qt_utils/Utilities.hpp"
 
 //#include "../runmanager/lib/RunManager.hpp"
 //#include "../runmanager/lib/RubyJobUtils.hpp"

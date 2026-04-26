@@ -6,7 +6,7 @@
 #include "ResultsTabView.hpp"
 #include "OSDocument.hpp"
 #include "OSAppBase.hpp"
-#include "../model_editor/Utilities.hpp"
+#include "../openstudio_qt_utils/Utilities.hpp"
 
 #include <QFile>
 #include <QBoxLayout>

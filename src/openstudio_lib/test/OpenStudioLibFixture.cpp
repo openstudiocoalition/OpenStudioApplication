@@ -5,7 +5,7 @@
 
 #include "OpenStudioLibFixture.hpp"
 
-#include "../../model_editor/Application.hpp"
+#include "../../openstudio_qt_utils/Application.hpp"
 
 #include "../DesignDayGridView.hpp"
 #include "../GridViewSubTab.hpp"

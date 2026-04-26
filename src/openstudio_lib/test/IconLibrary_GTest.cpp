@@ -7,7 +7,7 @@
 
 #include "OpenStudioLibFixture.hpp"
 
-#include "../IconLibrary.hpp"
+#include "../../shared_gui_components/IconLibrary.hpp"
 
 #include <openstudio/utilities/idd/IddFactory.hxx>
 

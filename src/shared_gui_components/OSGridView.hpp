@@ -9,7 +9,7 @@
 #include <QTimer>
 #include <QWidget>
 
-#include "../openstudio_lib/OSItem.hpp"
+#include "OSItemId.hpp"
 
 #include <openstudio/model/ModelObject.hpp>
 

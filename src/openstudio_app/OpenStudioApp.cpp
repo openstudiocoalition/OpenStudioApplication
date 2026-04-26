@@ -14,7 +14,7 @@
 
 #include "../model_editor/AccessPolicyStore.hpp"
 #include "../model_editor/GithubReleases.hpp"
-#include "../model_editor/Utilities.hpp"
+#include "../openstudio_qt_utils/Utilities.hpp"
 
 #include "../shared_gui_components/WaitDialog.hpp"
 #include "../shared_gui_components/MeasureManager.hpp"

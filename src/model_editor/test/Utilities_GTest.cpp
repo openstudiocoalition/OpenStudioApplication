@@ -8,7 +8,7 @@
 #include <openstudio/resources.hxx>
 
 #include "ModelEditorFixture.hpp"
-#include "../Utilities.hpp"
+#include "../../openstudio_qt_utils/Utilities.hpp"
 
 #include <clocale>
 #include <QUrl>

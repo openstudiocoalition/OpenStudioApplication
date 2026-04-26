@@ -5,6 +5,13 @@
 
 #include "OSGridController.hpp"
 
+// Register OSItemId metatypes for queued signal/slot connections.
+// Q_DECLARE_METATYPE is in OSGridController.hpp; qRegisterMetaType must run at startup.
+namespace {
+  const int __ositemid_type = qRegisterMetaType<openstudio::OSItemId>("OSItemId");
+  const int __ositemid_vector_type = qRegisterMetaType<std::vector<openstudio::OSItemId>>("std::vector<OSItemId>");
+}
+
 #include "OSCellWrapper.hpp"
 #include "OSGridView.hpp"
 #include "OSObjectSelector.hpp"

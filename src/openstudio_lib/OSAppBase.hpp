@@ -9,7 +9,7 @@
 #include "../shared_gui_components/BaseApp.hpp"
 
 #include <openstudio/measure/OSMeasureInfoGetter.hpp>
-#include "../model_editor/QMetaTypes.hpp"
+#include "../openstudio_qt_utils/QMetaTypes.hpp"
 
 #include "OpenStudioAPI.hpp"
 #include <openstudio/utilities/core/Logger.hpp>
@@ -59,6 +59,8 @@ class OPENSTUDIO_API OSAppBase
   boost::shared_ptr<WaitDialog> waitDialog() {
     return m_waitDialog;
   }
+  virtual bool mouseOverInspectorView() override;
+
   virtual openstudio::path dviewPath() const;
   virtual bool notify(QObject* receiver, QEvent* e) override;
 

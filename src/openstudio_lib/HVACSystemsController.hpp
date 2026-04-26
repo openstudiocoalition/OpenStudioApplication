@@ -20,7 +20,7 @@
 #include <QAbstractListModel>
 #include <QPointer>
 #include <openstudio/nano/nano_signal_slot.hpp>  // Signal-Slot replacement
-#include "../model_editor/QMetaTypes.hpp"
+#include "../openstudio_qt_utils/QMetaTypes.hpp"
 
 class QMutex;
 

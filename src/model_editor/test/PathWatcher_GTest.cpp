@@ -10,7 +10,7 @@
 #include "ModelEditorFixture.hpp"
 
 #include "../PathWatcher.hpp"
-#include "../Application.hpp"
+#include "../../openstudio_qt_utils/Application.hpp"
 
 #include <openstudio/utilities/core/Path.hpp>
 #include <openstudio/utilities/core/System.hpp>

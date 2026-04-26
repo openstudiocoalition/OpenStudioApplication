@@ -5,7 +5,7 @@
 
 #include "ServiceWaterGridItems.hpp"
 #include "ServiceWaterScene.hpp"
-#include "IconLibrary.hpp"
+#include "../shared_gui_components/IconLibrary.hpp"
 #include <openstudio/model/WaterUseConnections.hpp>
 #include <openstudio/model/WaterUseConnections_Impl.hpp>
 #include <openstudio/model/WaterUseEquipment.hpp>

@@ -7,11 +7,11 @@
 #define OPENSTUDIO_MODELOBJECTLISTVIEW_HPP
 
 #include "OSItemList.hpp"
-#include "OSVectorController.hpp"
+#include "../shared_gui_components/OSVectorController.hpp"
 
 #include <openstudio/model/Model.hpp>
 #include <openstudio/model/ModelObject.hpp>
-#include "../model_editor/QMetaTypes.hpp"
+#include "../openstudio_qt_utils/QMetaTypes.hpp"
 
 class QMutex;
 

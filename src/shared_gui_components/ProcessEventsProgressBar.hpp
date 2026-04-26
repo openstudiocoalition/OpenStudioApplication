@@ -6,7 +6,7 @@
 #ifndef SHAREDGUICOMPONENTS_PROCESSEVENTSPROGRESSBAR_HPP
 #define SHAREDGUICOMPONENTS_PROCESSEVENTSPROGRESSBAR_HPP
 
-#include "../model_editor/OSProgressBar.hpp"
+#include "../openstudio_qt_utils/OSProgressBar.hpp"
 
 namespace openstudio {
 

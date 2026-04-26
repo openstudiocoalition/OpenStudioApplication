@@ -5,7 +5,7 @@
 
 #include "OSDropZone.hpp"
 
-#include "IconLibrary.hpp"
+#include "../shared_gui_components/IconLibrary.hpp"
 #include "InspectorController.hpp"
 #include "InspectorView.hpp"
 #include "MainRightColumnController.hpp"
@@ -13,7 +13,7 @@
 #include "OSAppBase.hpp"
 #include "OSDocument.hpp"
 #include "OSItem.hpp"
-#include "OSVectorController.hpp"
+#include "../shared_gui_components/OSVectorController.hpp"
 
 #include <openstudio/model/Component.hpp>
 #include <openstudio/model/ComponentData.hpp>

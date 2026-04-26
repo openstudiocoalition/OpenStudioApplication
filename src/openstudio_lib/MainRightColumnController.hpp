@@ -14,6 +14,8 @@
 
 #include <QSharedPointer>
 
+#include "OSItem.hpp"
+
 class QStackedWidget;
 
 namespace openstudio {
@@ -23,7 +25,6 @@ class HorizontalTabWidget;
 class InspectorController;
 class LocalLibraryController;
 class SystemItem;
-class OSItem;
 
 class MainRightColumnController : public OSQObjectController
 {

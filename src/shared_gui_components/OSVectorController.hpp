@@ -3,10 +3,10 @@
 *  See also https://openstudiocoalition.org/about/software_license/
 ***********************************************************************************************************************/
 
-#ifndef OPENSTUDIO_OSVECTORCONTROLLER_HPP
-#define OPENSTUDIO_OSVECTORCONTROLLER_HPP
+#ifndef SHAREDGUICOMPONENTS_OSVECTORCONTROLLER_HPP
+#define SHAREDGUICOMPONENTS_OSVECTORCONTROLLER_HPP
 
-#include "OSItem.hpp"
+#include "OSItemId.hpp"
 
 #include <QWidget>
 #include <openstudio/model/ComponentData.hpp>
@@ -18,6 +18,8 @@
 class QMutex;
 
 namespace openstudio {
+
+class OSItem;
 
 class OSVectorController
   : public QObject
@@ -73,4 +75,4 @@ class OSVectorController
 
 }  // namespace openstudio
 
-#endif  // OPENSTUDIO_OSVECTORCONTROLLER_HPP
+#endif  // SHAREDGUICOMPONENTS_OSVECTORCONTROLLER_HPP

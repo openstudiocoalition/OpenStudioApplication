@@ -13,7 +13,7 @@
 #include <openstudio/model/Material.hpp>
 #include <openstudio/model/Material_Impl.hpp>
 
-#include "../model_editor/Utilities.hpp"
+#include "../openstudio_qt_utils/Utilities.hpp"
 
 #include <openstudio/utilities/core/Assert.hpp>
 

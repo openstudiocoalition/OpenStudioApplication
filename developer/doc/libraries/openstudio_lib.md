@@ -134,8 +134,9 @@ classDiagram
 
 | Module | Usage |
 |---|---|
-| `shared_gui_components` | Grid system, form widgets, `MeasureManager`, `BCLMeasureDialog` |
-| `model_editor` | `InspectorGadget`, `QMetaTypes` |
+| `shared_gui_components` | Grid system, form widgets, `MeasureManager`, `BCLMeasureDialog`, `UserSettings` |
+| `model_editor` | `InspectorGadget`, `QMetaTypes` (for `OSItemId` metatype registration) |
+| `openstudio_qt_utils` | `Application` singleton, `Utilities` (string/UUID/path conversions) |
 
 ---
 

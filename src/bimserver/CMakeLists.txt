@@ -23,20 +23,12 @@ set(${target_name}_swig_src
 )
 
 set(${target_name}_depends
-  ${Boost_LIBRARIES}
-  ${CMAKE_THREAD_LIBS}
-  openstudio_modeleditor
-  openstudio::openstudiolib
-  ${QT_LIBS}
+  openstudio_qt_utils
 )
 
 add_library(${target_name} ${${target_name}_src})
-target_link_libraries(${target_name} ${${target_name}_depends})
+target_link_libraries(${target_name} PUBLIC ${${target_name}_depends})
 AddPCH(${target_name})
-
-if(BUILD_MICRO_PROFILING)
-  target_link_libraries(${target_name} ${MICRO_PROFILER_LIB} )
-endif()
 
 #if(NOT APPLE)
 #install(TARGETS ${target_name}

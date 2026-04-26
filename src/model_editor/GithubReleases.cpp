@@ -4,7 +4,7 @@
 ***********************************************************************************************************************/
 
 #include "GithubReleases.hpp"
-#include "Application.hpp"
+#include "../openstudio_qt_utils/Application.hpp"
 #include "../utilities/OpenStudioApplicationPathHelpers.hpp"
 
 #include <openstudio/utilities/core/Assert.hpp>

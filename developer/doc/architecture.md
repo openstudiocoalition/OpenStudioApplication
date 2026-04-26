@@ -29,7 +29,6 @@ Key user workflows:
 - Configure building geometry, constructions, loads, schedules, and HVAC
 - Apply scripted transformations (OpenStudio Measures) via BCL or local directories
 - Run EnergyPlus simulations and review results
-- Import IFC building data from a BIMserver instance
 
 ---
 
@@ -42,19 +41,16 @@ C4Context
   Person(user, "Energy Modeler", "Uses the GUI to create, configure, and simulate building energy models")
 
   System(app, "OpenStudio Application", "Qt 6 GUI for whole-building energy modeling (.osm files)")
-
+  System_Ext(bcl, "Building Component Library (BCL)", "Remote library of measures and components (NREL hosted)")
   System_Ext(sdk, "OpenStudio SDK", "C++ library providing the model layer, geometry, HVAC objects, workflow execution, Ruby/Python bindings")
   System_Ext(eplus, "EnergyPlus", "Whole-building energy simulation engine (launched as a subprocess by the SDK)")
-  System_Ext(bimserver, "BIMserver", "IFC building model repository (optional integration)")
-  System_Ext(bcl, "Building Component Library (BCL)", "Remote library of measures and components (NREL hosted)")
   System_Ext(radiance, "Radiance", "Daylight simulation engine (optional, invoked by SDK workflows)")
 
   Rel(user, app, "Creates/edits building models, runs simulations")
+  Rel(app, bcl, "HTTPS for measure/component downloads")
   Rel(app, sdk, "Calls SDK C++ API for model manipulation, workflows, version translation")
   Rel(sdk, eplus, "Launches EnergyPlus as subprocess, parses results")
   Rel(sdk, radiance, "Launches Radiance as subprocess for daylight analysis")
-  Rel(app, bimserver, "REST API via cpprestsdk/Qt Network (optional)")
-  Rel(app, bcl, "HTTPS for measure/component downloads")
 ```
 
 ---
@@ -69,18 +65,17 @@ C4Container
 
   Container(app_exe, "OpenStudioApp", "Executable", "Entry point: main(), application lifecycle, startup screen, version translation")
   Container(openstudio_lib, "openstudio_lib", "C++ shared library", "All tab controllers, views, HVAC/geometry/schedules/loads GUI. ~200 files. Target: openstudio_lib")
-  Container(shared_gui, "shared_gui_components", "C++ shared library", "Reusable widgets: grid system, form controls, measure manager, BCL dialogs. Target: openstudio_modeleditor (linked via model_editor)")
-  Container(model_editor, "model_editor", "C++ shared library", "Generic IDD-driven model object inspector. Used by SketchUp plugin and debugging. Target: openstudio_modeleditor")
-  Container(bimserver, "bimserver", "C++ shared library", "BIMserver REST integration: project import/export via IFC. Target: openstudio_bimserver")
-  Container(utilities, "utilities", "C++ static/header library", "Runtime path resolution for SDK CLI, EnergyPlus, Radiance. Target: openstudio_utilities")
-  Container(qtwinmigrate, "qtwinmigrate", "C++ static library (Windows only)", "MFC/Qt bridge for SketchUp plugin embedding. Target: qtwinmigrate")
+  Container(shared_gui, "shared_gui_components", "C++ shared library", "Reusable widgets: grid system, form controls, measure manager, BCL dialogs, user settings. Target: openstudio_shared_gui")
+  Container(model_editor, "model_editor", "C++ shared library", "Generic IDD-driven model object inspector; AccessPolicyStore (field-level access policies for IDD objects). Target: openstudio_modeleditor")
+  Container(qt_utils, "openstudio_qt_utils", "C++ shared library", "Qt/OpenStudio primitives: string/UUID/path conversions, Application singleton, OSProgressBar, Qt metatype registration for SDK types. Target: openstudio_qt_utils")
+  Container(utilities, "utilities", "C++ static/header library", "Runtime path resolution for SDK CLI, EnergyPlus, Radiance. Target: openstudioapp_utilities")
 
   Rel(app_exe, openstudio_lib, "Links; creates OSDocument and MainWindow")
-  Rel(app_exe, shared_gui, "Links; uses MeasureManager, BCL dialogs")
-  Rel(openstudio_lib, shared_gui, "Uses grid widgets, form controls, measure integration")
-  Rel(openstudio_lib, model_editor, "Uses InspectorGadget for generic inspection")
-  Rel(bimserver, model_editor, "Links; uses Qt Network and model types")
-  Rel(bimserver, openstudio_lib, "Links to openstudio SDK via openstudio_lib")
+  Rel(openstudio_lib, shared_gui, "Links; uses grid widgets, form controls, measure integration")
+  Rel(openstudio_lib, model_editor, "Links; uses InspectorGadget, QMetaTypes")
+  Rel(shared_gui, qt_utils, "Links; Qt string/UUID conversions, Application singleton, metatype registration")
+  Rel(model_editor, qt_utils, "Links; Qt string/UUID conversions, Application singleton, OSProgressBar")
+  Rel(qt_utils, utilities, "Links; runtime path resolution for SDK CLI, EnergyPlus, Radiance")
 ```
 
 ---
@@ -93,35 +88,23 @@ flowchart TD
   LIB["openstudio_lib"]
   SHARED["shared_gui_components"]
   ME["model_editor"]
-  BIM["bimserver"]
+  QTUTILS["openstudio_qt_utils"]
   UTIL["utilities"]
-  QTWM["qtwinmigrate (Win32 only)"]
-  SDK["openstudio SDK\n(external)"]
-  QT["Qt 6\n(external)"]
-  BOOST["Boost\n(external)"]
-  CPPREST["cpprestsdk\n(external)"]
+  QTWEB["QT_WEB_LIBS<br>(external)"]
+  QTLIB["QT_LIBS<br>(external)"]
+  OSSDK["OpenStudio SDK<br>(external)"]
+  BOOST["Boost<br>(external)"]
 
   EXE --> LIB
-  EXE --> SHARED
-  EXE --> ME
-  EXE --> BIM
-  EXE --> UTIL
   LIB --> SHARED
   LIB --> ME
-  LIB --> SDK
-  LIB --> QT
-  LIB --> BOOST
-  SHARED --> ME
-  SHARED --> SDK
-  SHARED --> QT
-  ME --> SDK
-  ME --> QT
-  BIM --> ME
-  BIM --> CPPREST
-  BIM --> QT
-  BIM --> SDK
-  QTWM --> QT
-  EXE -. "Win32\nonly" .-> QTWM
+  LIB --> QTWEB
+  SHARED --> QTUTILS
+  ME --> QTUTILS
+  QTUTILS --> UTIL
+  QTUTILS --> QTLIB
+  UTIL --> OSSDK
+  UTIL --> BOOST
 ```
 
 ---
@@ -138,7 +121,6 @@ flowchart TD
 | Scripting | **Python** | 3.x | Measures, CLI scripting, language bindings |
 | Build | **CMake** | ≥3.10.2 + Presets | Build configuration, CPack packaging |
 | Package mgmt | **Conan 2** | 2.x | C++ dependency management |
-| HTTP/REST | **cpprestsdk** | 2.10.19 | BIMserver REST API client |
 | General utils | **Boost** | 1.79 | Optional, smart_ptr, filesystem |
 | XML | **pugixml / libxml2 / libxslt** | system | XML parsing |
 | JSON | **jsoncpp** | 1.9.5 | JSON serialization |
@@ -158,13 +140,18 @@ The project uses **CMake Presets** with **Conan 2** for reproducible builds acro
 
 ```bash
 # 1. Install Conan 2, CMake ≥3.10.2, Qt 6.5.2 (via aqtinstall), compiler
-# 2. Configure Conan profile (C++20, Release)
-conan install . --build=missing -pr:b=default -pr:h=default
+# 2. Add NREL Conan remote
+conan remote add -f nrel-v2 http://conan.openstudio.net/artifactory/api/conan/conan-v2
 
-# 3. Configure CMake using the generated preset
-cmake --preset conan-release
+# 3. Install dependencies
+conan install . --output-folder=../OSApp-build-release --build=missing \
+  -c tools.cmake.cmaketoolchain:generator=Ninja \
+  -s compiler.cppstd=20 -s build_type=Release
 
-# 4. Build
+# 4. Configure CMake using the generated preset
+cmake --preset conan-release -DQT_INSTALL_DIR:PATH=/path/to/Qt/6.x.x/<platform>
+
+# 5. Build
 cmake --build --preset conan-release --target package
 ```
 
@@ -175,9 +162,11 @@ See [BUILDING.md](../../BUILDING.md) for the complete, platform-specific instruc
 | Target | Type | Description |
 |---|---|---|
 | `OpenStudioApp` | Executable | Main application binary |
-| `openstudio_lib` | Shared library | GUI library |
-| `openstudio_modeleditor` | Shared library | Generic model inspector |
-| `openstudio_bimserver` | Shared library | BIMserver integration |
+| `openstudio_lib` | Shared library | Tab GUI library |
+| `openstudio_shared_gui` | Shared library | Reusable widget library |
+| `openstudio_modeleditor` | Shared library | Generic IDD-driven model inspector |
+| `openstudio_qt_utils` | Shared library | Qt/OpenStudio primitives: string/UUID/path conversions, `Application` singleton, `OSProgressBar`, Qt metatype registration for SDK types |
+| `openstudioapp_utilities` | Static library | Runtime path helpers |
 | `package` | CPack | Platform installer (`.exe`/`.dmg`/`.deb`/`.tar.gz`) |
 
 ### Platform Packaging
@@ -192,9 +181,9 @@ See [BUILDING.md](../../BUILDING.md) for the complete, platform-specific instruc
 
 ## 7. Key Architectural Patterns
 
-### 7.1 Tab-Based MVC Triad
+### 7.1 Tab-Based Master-Detail Pattern
 
-Each major domain (HVAC, Schedules, Constructions, Geometry, etc.) follows a three-class pattern:
+Each major domain (HVAC, Schedules, Constructions, Geometry, etc.) follows a three-class pattern. The **Model** role is played by the OpenStudio SDK model objects (`openstudio::model::Model` and its children); the controller mediates between those objects and two views:
 
 ```mermaid
 classDiagram
@@ -210,12 +199,19 @@ classDiagram
   class InspectorWidget {
     +update(ModelObject)
   }
+  class OpenStudio::ModelObject {
+    <<OpenStudio SDK>>
+  }
   MainTabController "1" --> "1" MainTabView : owns
   MainTabController "1" --> "0..1" InspectorWidget : controls
+  MainTabController --> ModelObject : reads / mutates
+  InspectorWidget --> ModelObject : reads / mutates
   note for MainTabController "Each domain derives from MainTabController\ne.g. HVACSystemsTabController"
 ```
 
-The derived tab controller (e.g., `HVACSystemsTabController`) creates the domain-specific view, handles user actions, and coordinates the inspector panel shown in the right column.
+This is a **master-detail** variant of MVC: `MainTabView` is the master (list or primary content area) and `InspectorWidget` is the detail panel shown in the right column when an object is selected. Views do observe model changes — `ModelObjectListView` connects directly to `OSAppBase::workspaceObjectAddedPtr` / `workspaceObjectRemovedPtr`, which are Qt signals re-broadcast from the SDK model. `OSAppBase` acts as a model-change event bus shared across the application.
+
+The derived tab controller (e.g., `HVACSystemsTabController`) creates the domain-specific view, handles user actions, mutates the SDK model objects, and refreshes the inspector panel accordingly.
 
 ### 7.2 OSVectorController / Drop Zone Pattern
 
@@ -268,8 +264,8 @@ See [ci/overview.md](ci/overview.md) for the full CI/CD architecture documentati
 |---|---|---|
 | `src/openstudio_app/` | `OpenStudioApp` (exe) | [libraries/openstudio_app.md](libraries/openstudio_app.md) |
 | `src/openstudio_lib/` | `openstudio_lib` | [libraries/openstudio_lib.md](libraries/openstudio_lib.md) |
-| `src/shared_gui_components/` | linked via model_editor | [libraries/shared_gui_components.md](libraries/shared_gui_components.md) |
-| `src/model_editor/` | `openstudio_modeleditor` | [libraries/model_editor.md](libraries/model_editor.md) |
+| `src/shared_gui_components/` | `openstudio_shared_gui` | [libraries/shared_gui_components.md](libraries/shared_gui_components.md) |
 | `src/bimserver/` | `openstudio_bimserver` | [libraries/bimserver.md](libraries/bimserver.md) |
-| `src/utilities/` | `openstudio_utilities` | [libraries/utilities.md](libraries/utilities.md) |
-| `src/qtwinmigrate/` | `qtwinmigrate` (Win32) | [libraries/qtwinmigrate.md](libraries/qtwinmigrate.md) |
+| `src/model_editor/` | `openstudio_modeleditor` | [libraries/model_editor.md](libraries/model_editor.md) |
+| `src/openstudio_qt_utils/` | `openstudio_qt_utils` | [libraries/openstudio_qt_utils.md](libraries/openstudio_qt_utils.md) |
+| `src/utilities/` | `openstudioapp_utilities` | [libraries/utilities.md](libraries/utilities.md) |

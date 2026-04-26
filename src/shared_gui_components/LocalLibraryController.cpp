@@ -20,8 +20,8 @@
 
 #include "MeasureBadge.hpp"
 
-#include "../model_editor/UserSettings.hpp"
-#include "../model_editor/Utilities.hpp"
+#include "UserSettings.hpp"
+#include "../openstudio_qt_utils/Utilities.hpp"
 
 #include <openstudio/utilities/bcl/LocalBCL.hpp>
 #include <openstudio/utilities/core/Assert.hpp>

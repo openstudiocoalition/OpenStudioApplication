@@ -14,7 +14,7 @@
 #include "VerticalTabWidget.hpp"
 
 #include "../shared_gui_components/NetworkProxyDialog.hpp"
-#include "../model_editor/Utilities.hpp"
+#include "../openstudio_qt_utils/Utilities.hpp"
 
 #include <openstudio/utilities/core/Assert.hpp>
 

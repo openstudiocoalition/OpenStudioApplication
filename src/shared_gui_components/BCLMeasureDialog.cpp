@@ -5,8 +5,8 @@
 
 #include "BCLMeasureDialog.hpp"
 
-#include "../model_editor/UserSettings.hpp"
-#include "../model_editor/Utilities.hpp"
+#include "UserSettings.hpp"
+#include "../openstudio_qt_utils/Utilities.hpp"
 
 // TODO: delete once the Labs CLI is the default
 #include "../openstudio_lib/OSAppBase.hpp"

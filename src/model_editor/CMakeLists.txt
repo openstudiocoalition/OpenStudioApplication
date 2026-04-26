@@ -9,8 +9,6 @@ include_directories(${QT_INCLUDES})
 
 # lib files
 set(${target_name}_src
-  Application.hpp
-  Application.cpp
   AccessPolicyStore.hpp
   AccessPolicyStore.cpp
   BridgeClasses.hpp
@@ -25,22 +23,14 @@ set(${target_name}_src
   ListWidget.cpp
   ModalDialogs.hpp
   ModalDialogs.cpp
-  OSProgressBar.hpp
-  OSProgressBar.cpp
   PathWatcher.hpp
   PathWatcher.cpp
-  QMetaTypes.hpp
-  QMetaTypes.cpp
   TableView.hpp
   TableView.cpp
   TableWidget.hpp
   TableWidget.cpp
   TestButton.hpp
   TestButton.cpp
-  UserSettings.hpp
-  UserSettings.cpp
-  Utilities.hpp
-  Utilities.cpp
   IGLineEdit.hpp
   IGLineEdit.cpp
   IGSpinBoxes.hpp
@@ -88,14 +78,11 @@ add_library(${target_name}
 
 # lib dependencies
 set(${target_name}_depends
-  openstudio::openstudiolib
-  openstudioapp_utilities
-  ${QT_LIBS}
-  #Ruby::Ruby
+  openstudio_qt_utils
 )
 
 add_dependencies(${target_name} ${${target_name}_depends})
-target_link_libraries(${target_name} ${${target_name}_depends})
+target_link_libraries(${target_name} PUBLIC ${${target_name}_depends})
 
 if(BUILD_SHARED_LIBS)
   #target_compile_definitions(${target_name} PUBLIC model_editor_EXPORTS)

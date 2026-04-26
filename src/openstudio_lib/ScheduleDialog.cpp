@@ -11,7 +11,7 @@
 #include <openstudio/model/ScheduleTypeLimits_Impl.hpp>
 #include <openstudio/model/ScheduleDay.hpp>
 
-#include "../model_editor/Utilities.hpp"
+#include "../openstudio_qt_utils/Utilities.hpp"
 
 #include <openstudio/utilities/units/OSOptionalQuantity.hpp>
 #include <openstudio/utilities/units/Quantity.hpp>

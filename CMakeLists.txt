@@ -723,8 +723,10 @@ get_target_property(OS_CLI_IMPORTED_PATH openstudio::openstudio LOCATION)
 get_filename_component(OS_CLI_IMPORTED_NAME ${OS_CLI_IMPORTED_PATH} NAME)
 
 list(APPEND project_directories "utilities")
+list(APPEND project_directories "openstudio_qt_utils")
 list(APPEND project_directories "model_editor")
 list(APPEND project_directories "bimserver")
+list(APPEND project_directories "shared_gui_components")
 list(APPEND project_directories "openstudio_lib")
 list(APPEND project_directories "openstudio_app")
 
@@ -740,8 +742,10 @@ add_subdirectory("translations")
 #                        E X P O R T    T A R G E T S                         #
 ###############################################################################
 
+list(APPEND all_lib_targets "openstudio_qt_utils")
 list(APPEND all_lib_targets "openstudio_modeleditor")
 list(APPEND all_lib_targets "openstudio_bimserver")
+list(APPEND all_lib_targets "openstudio_shared_gui")
 list(APPEND all_lib_targets "openstudio_lib")
 
 list(APPEND all_exe_targets "OpenStudioApp")

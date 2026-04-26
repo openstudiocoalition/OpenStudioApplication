@@ -3,11 +3,10 @@
 *  See also https://openstudiocoalition.org/about/software_license/
 ***********************************************************************************************************************/
 
-#ifndef MODELEDITOR_APPLICATION_HPP
-#define MODELEDITOR_APPLICATION_HPP
+#ifndef OPENSTUDIOQTUTILS_APPLICATION_HPP
+#define OPENSTUDIOQTUTILS_APPLICATION_HPP
 
-#include "ModelEditorAPI.hpp"
-
+#include "OpenStudioQtUtilsAPI.hpp"
 #include "QMetaTypes.hpp"
 
 #include <QApplication>
@@ -81,4 +80,4 @@ class Application
 
 }  // namespace openstudio
 
-#endif  // MODELEDITOR_APPLICATION_HPP
+#endif  // OPENSTUDIOQTUTILS_APPLICATION_HPP

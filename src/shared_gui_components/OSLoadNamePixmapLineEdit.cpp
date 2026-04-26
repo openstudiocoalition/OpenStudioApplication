@@ -7,7 +7,7 @@
 
 #include "OSLineEdit.hpp"
 
-#include "../openstudio_lib/IconLibrary.hpp"
+#include "IconLibrary.hpp"
 #include "../openstudio_lib/OSItem.hpp"
 
 #include <openstudio/model/ModelObject.hpp>

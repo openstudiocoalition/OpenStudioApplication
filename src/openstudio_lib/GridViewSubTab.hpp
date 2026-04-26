@@ -12,6 +12,8 @@
 #include <openstudio/model/Model.hpp>
 #include <openstudio/model/ModelObject.hpp>
 
+#include "OSItem.hpp"
+
 #include <QWidget>
 
 class QScrollArea;

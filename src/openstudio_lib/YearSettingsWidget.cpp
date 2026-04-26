@@ -16,7 +16,7 @@
 #include <openstudio/model/WeatherFile.hpp>
 #include <openstudio/model/WeatherFile_Impl.hpp>
 
-#include "../model_editor/Utilities.hpp"
+#include "../openstudio_qt_utils/Utilities.hpp"
 
 #include <openstudio/utilities/core/Compare.hpp>
 #include <openstudio/utilities/filetypes/EpwFile.hpp>

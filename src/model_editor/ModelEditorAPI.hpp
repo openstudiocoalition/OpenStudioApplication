@@ -3,7 +3,7 @@
 *  See also https://openstudiocoalition.org/about/software_license/
 ***********************************************************************************************************************/
 
-#include "QMetaTypes.hpp"
+#include "../openstudio_qt_utils/QMetaTypes.hpp"
 
 #ifndef MODELEDITOR_MODELEDITORAPI_HPP
 #  define MODELEDITOR_MODELEDITORAPI_HPP

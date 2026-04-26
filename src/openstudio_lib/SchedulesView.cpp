@@ -22,7 +22,7 @@
 #include <openstudio/model/ScheduleTypeLimits.hpp>
 #include <openstudio/model/ScheduleTypeLimits_Impl.hpp>
 
-#include "../model_editor/Utilities.hpp"
+#include "../openstudio_qt_utils/Utilities.hpp"
 
 #include <openstudio/utilities/time/Date.hpp>
 #include <openstudio/utilities/time/Time.hpp>

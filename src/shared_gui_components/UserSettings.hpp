@@ -3,8 +3,8 @@
 *  See also https://openstudiocoalition.org/about/software_license/
 ***********************************************************************************************************************/
 
-#ifndef MODELEDITOR_USERSETTINGS_HPP
-#define MODELEDITOR_USERSETTINGS_HPP
+#ifndef SHAREDGUICOMPONENTS_USERSETTINGS_HPP
+#define SHAREDGUICOMPONENTS_USERSETTINGS_HPP
 
 #include <openstudio/utilities/core/Path.hpp>
 #include <openstudio/utilities/bcl/BCLMeasure.hpp>
@@ -24,4 +24,4 @@ bool setUserMeasuresDir(const openstudio::path& userMeasuresDir);
 /// Clears the path to the user measures directory stored in settings.
 void clearUserMeasuresDir();
 
-#endif  // MODELEDITOR_USERSETTINGS_HPP
+#endif  // SHAREDGUICOMPONENTS_USERSETTINGS_HPP
