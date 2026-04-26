@@ -6,8 +6,6 @@
 #ifndef BIMSERVER_BIMSERVERCONNECTION_HPP
 #define BIMSERVER_BIMSERVERCONNECTION_HPP
 
-#include "BIMserverAPI.hpp"
-
 #include <openstudio/utilities/core/Logger.hpp>
 
 #include <QString>
@@ -30,7 +28,7 @@ class Surface;
 namespace bimserver {
 
 /// This provides utilities to connect to BIMserver
-class BIMSERVER_API BIMserverConnection : public QObject
+class BIMserverConnection : public QObject
 {
   Q_OBJECT
 

@@ -6,8 +6,6 @@
 #ifndef OPENSTUDIO_OSDOCUMENT_HPP
 #define OPENSTUDIO_OSDOCUMENT_HPP
 
-#include "OpenStudioAPI.hpp"
-
 #include "../shared_gui_components/OSQObjectController.hpp"
 #include "../model_editor/QMetaTypes.hpp"
 
@@ -44,7 +42,7 @@ class ApplyMeasureNowDialog;
 
 class Workspace;
 
-class OPENSTUDIO_API OSDocument : public OSQObjectController
+class OSDocument : public OSQObjectController
 {
   Q_OBJECT
 

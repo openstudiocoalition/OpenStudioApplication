@@ -3,8 +3,6 @@
 *  See also https://openstudiocoalition.org/about/software_license/
 ***********************************************************************************************************************/
 
-#define COMPILING_FROM_OSAPP
-#include "../openstudio_lib/OpenStudioAPI.hpp"
 #include "OpenStudioApp.hpp"
 #include "../model_editor/Application.hpp"
 #include "../model_editor/AccessPolicyStore.hpp"

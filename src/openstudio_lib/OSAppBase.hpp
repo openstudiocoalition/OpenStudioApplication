@@ -11,7 +11,6 @@
 #include <openstudio/measure/OSMeasureInfoGetter.hpp>
 #include "../model_editor/QMetaTypes.hpp"
 
-#include "OpenStudioAPI.hpp"
 #include <openstudio/utilities/core/Logger.hpp>
 
 #include <QApplication>
@@ -26,7 +25,7 @@ class OSDocument;
 
 class WaitDialog;
 
-class OPENSTUDIO_API OSAppBase
+class OSAppBase
   : public QApplication
   , public BaseApp
 {

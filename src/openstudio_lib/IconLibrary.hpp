@@ -6,7 +6,6 @@
 #ifndef OPENSTUDIO_ICONLIBRARY_HPP
 #define OPENSTUDIO_ICONLIBRARY_HPP
 
-#include "OpenStudioAPI.hpp"
 #include <openstudio/utilities/core/Logger.hpp>
 
 #include <QPixmap>
@@ -22,7 +21,7 @@ namespace openstudio {
  * it, because it might return NULL.
  *
  */
-class OPENSTUDIO_API IconLibrary
+class IconLibrary
 {
 
  public:

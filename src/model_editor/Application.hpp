@@ -6,8 +6,6 @@
 #ifndef MODELEDITOR_APPLICATION_HPP
 #define MODELEDITOR_APPLICATION_HPP
 
-#include "ModelEditorAPI.hpp"
-
 #include "QMetaTypes.hpp"
 
 #include <QApplication>

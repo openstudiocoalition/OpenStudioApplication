@@ -25,9 +25,6 @@ set(${target_name}_depends
 add_library(${target_name}
   ${${target_name}_src}
 )
-if (NINJA)
-  target_compile_definitions(${target_name} PRIVATE NINJA=1)
-endif()
 target_link_libraries(${target_name} ${${target_name}_depends} )
 
 if(BUILD_MICRO_PROFILING)
@@ -38,4 +35,3 @@ if(BUILD_TESTING)
   CREATE_TEST_TARGETS(${target_name} "${${target_name}_test_src}" "${${target_name}_depends}")
   # add_dependencies("${target_name}_tests" openstudio_energyplus_resources)
 endif()
-

@@ -6,12 +6,11 @@
 #ifndef MODELEDITOR_IGLINEEDIT_HPP
 #define MODELEDITOR_IGLINEEDIT_HPP
 
-#include "ModelEditorAPI.hpp"
 #include "InspectorGadget.hpp"
 
 #include <QLineEdit>
 
-class MODELEDITOR_API IGLineEdit : public QLineEdit
+class IGLineEdit : public QLineEdit
 {
   Q_OBJECT;
 

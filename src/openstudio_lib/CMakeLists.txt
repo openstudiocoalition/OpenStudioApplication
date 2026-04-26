@@ -183,7 +183,6 @@ set(${target_name}_SRC
   ModelSubTabController.hpp
   ModelSubTabView.cpp
   ModelSubTabView.hpp
-  OpenStudioAPI.hpp
   OSAppBase.cpp
   OSAppBase.hpp
   OSCategoryPlaceholder.cpp
@@ -774,10 +773,6 @@ add_library(${target_name}
   ${${target_name}_qrcs}
 )
 
-if (NINJA)
-  target_compile_definitions(${target_name} PRIVATE NINJA=1)
-endif()
-
 set(${target_name}_depends
   openstudio_modeleditor
   openstudio::openstudiolib
@@ -836,5 +831,3 @@ if(BUILD_BENCHMARK)
   endforeach()
 
 endif()
-
-

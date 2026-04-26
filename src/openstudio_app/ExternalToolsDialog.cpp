@@ -7,6 +7,7 @@
 
 #include "../model_editor/Utilities.hpp"
 
+#include <openstudio/utilities/core/Logger.hpp>
 #include <openstudio/utilities/core/Path.hpp>
 
 #include <QGridLayout>

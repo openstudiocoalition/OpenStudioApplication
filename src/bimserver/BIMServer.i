@@ -7,7 +7,6 @@
 
 
 #define UTILITIES_API
-#define BIMSERVER_API
 
 %include <utilities/core/CommonInclude.i>
 %import <utilities/core/CommonImport.i>

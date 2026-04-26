@@ -128,10 +128,6 @@ add_executable(${target_name}
   ${ICON_SRC}
 )
 
-if (NINJA)
-  target_compile_definitions(${target_name} PRIVATE NINJA=1)
-endif()
-
 if(WIN32)
   # increase stack size
   target_link_options(${target_name} PRIVATE /STACK:8388608)
