@@ -111,12 +111,12 @@ classDiagram
 | `OSItem` | Base class for all draggable/selectable model object items |
 | `OSDropZone` | Widget that accepts model object drops |
 | `OSItemList` / `OSCollapsibleItem` | Container widgets for ordered lists of `OSItem`s |
-| `OSVectorController` | Abstract base for list controllers backed by model vectors |
 | `ModelObjectListView` | Generic list view displaying any collection of model objects |
 | `ModelObjectTreeWidget` | Generic tree view for hierarchical model data |
 | `OSWebEnginePage` | `QWebEnginePage` subclass for the geometry JS bridge |
 | `RenderingColorWidget` | Color picker for object rendering colors |
-| `IconLibrary` | Singleton cache of domain icons keyed by IDD object type |
+
+> **Note:** `OSVectorController`, `IconLibrary` have moved to `shared_gui_components`.
 
 ---
 
@@ -134,9 +134,9 @@ classDiagram
 
 | Module | Usage |
 |---|---|
-| `shared_gui_components` | Grid system, form widgets, `MeasureManager`, `BCLMeasureDialog`, `UserSettings` |
-| `model_editor` | `InspectorGadget`, `QMetaTypes` (for `OSItemId` metatype registration) |
-| `openstudio_qt_utils` | `Application` singleton, `Utilities` (string/UUID/path conversions) |
+| `shared_gui_components` | Grid system, form widgets, `MeasureManager`, `BCLMeasureDialog`, `UserSettings`, `OSVectorController`, `IconLibrary` |
+| `model_editor` | `InspectorGadget`, `AccessPolicyStore` |
+| `openstudio_qt_utils` | `Application` singleton, `Utilities` (string/UUID/path conversions), `QMetaTypes` (SDK metatype registration) |
 
 ---
 
@@ -156,7 +156,7 @@ classDiagram
 - [MainWindow](../classes/openstudio_lib/MainWindow.md)
 - [MainTabController](../classes/openstudio_lib/MainTabController.md)
 - [MainRightColumnController](../classes/openstudio_lib/MainRightColumnController.md)
-- [OSVectorController](../classes/openstudio_lib/OSVectorController.md)
+- [OSVectorController](../classes/shared_gui_components/OSVectorController.md)
 - [InspectorController](../classes/openstudio_lib/InspectorController.md)
 - [ModelObjectListView](../classes/openstudio_lib/ModelObjectListView.md)
 - [OSItem](../classes/openstudio_lib/OSItem.md)

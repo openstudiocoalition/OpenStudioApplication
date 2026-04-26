@@ -1,7 +1,7 @@
 # Library: `shared_gui_components` — Shared UI Widgets
 
 > **Source:** `src/shared_gui_components/`  
-> **CMake target:** compiled into `openstudio_modeleditor` and `openstudio_lib`  
+> **CMake target:** `openstudio_shared_gui`  
 > **Back to:** [Architecture Overview](../architecture.md)
 
 ## Purpose
@@ -109,6 +109,8 @@ All typed input widgets follow the same pattern: they read from and write to a `
 | `OSQuantityEdit` / `OSQuantityEdit2` | Dimensional quantity editor with SI/IP toggle |
 | `OSOptionalQuantityEdit` | Optional dimensional quantity (blank = unset) |
 
+> **Note:** `OSVectorController`, `OSItemId`, `IconLibrary`, and `UserSettings` are now part of `shared_gui_components` (previously in `openstudio_lib` or `model_editor`).
+
 The `2` suffix variants use `std::function` callbacks instead of `QObject` signal/slot; they are preferred in newer code.
 
 ---
@@ -154,7 +156,6 @@ flowchart TD
 | Module | Usage |
 |---|---|
 | `openstudio_qt_utils` | `Application` singleton, `Utilities` (string/UUID/path conversions), `QMetaTypes` (SDK metatype registration), `OSProgressBar` |
-| `openstudio_lib` | `OSItem`, `OSVectorController` (used in `OSGridController`) |
 
 ---
 

@@ -1,7 +1,7 @@
 # Library: `utilities` — Path Helpers
 
 > **Source:** `src/utilities/`  
-> **CMake target:** `openstudio_apputils` (header/static)  
+> **CMake target:** `openstudioapp_utilities` (static library)  
 > **Back to:** [Architecture Overview](../architecture.md)
 
 ## Purpose

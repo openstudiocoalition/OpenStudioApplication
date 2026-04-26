@@ -55,7 +55,6 @@ classDiagram
 | `IGWidget` | [InspectorGadget.hpp](../../../src/model_editor/InspectorGadget.hpp) | Lightweight `QWidget` / `Nano::Observer` base used as the scroll area content for the generated controls. |
 | `InspectorDialog` | [InspectorDialog.hpp](../../../src/model_editor/InspectorDialog.hpp) | Modal or modeless dialog that hosts an `InspectorGadget`. Can observe a `Workspace` and keeps the display in sync as objects change. |
 | `AccessPolicyStore` | [AccessPolicyStore.hpp](../../../src/model_editor/AccessPolicyStore.hpp) | Singleton that reads an XML policy file to determine whether each IDD field is `FREE` (editable), `LOCKED` (read-only), or hidden. |
-| `Application` | [Application.hpp](../../../src/model_editor/Application.hpp) | Standalone `QApplication` wrapper for running the model editor outside the main OpenStudio app. |
 | `GithubReleases` | [GithubReleases.hpp](../../../src/model_editor/GithubReleases.hpp) | Checks GitHub releases API for newer application versions. |
 | `BridgeClasses` | [BridgeClasses.hpp](../../../src/model_editor/BridgeClasses.hpp) | Adapts OpenStudio nano signals to Qt slots so workspace change notifications reach Qt-connected widgets. |
 
@@ -88,7 +87,11 @@ classDiagram
 
 ## Internal Dependencies
 
-None — `model_editor` is intentionally the lowest layer of the application stack. It does not depend on `openstudio_lib` or `shared_gui_components`.
+| Module | Usage |
+|---|---|
+| `openstudio_qt_utils` | `Application` singleton, `Utilities` (string/UUID/path conversions), `QMetaTypes` (SDK metatype registration), `OSProgressBar` |
+
+> **Note:** `Application`, `OSProgressBar`, `QMetaTypes`, `Utilities`, and `UserSettings` were previously in `model_editor` and have been moved to `openstudio_qt_utils` and `shared_gui_components` respectively.
 
 ---
 

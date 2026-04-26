@@ -110,7 +110,7 @@ namespace openstudio {
 | `openstudio::OSOptionalQuantity` | `"openstudio::OSOptionalQuantity"` |
 | `std::shared_ptr<WorkspaceObject_Impl>` | _(anonymous)_ |
 
-> **Note:** `OSItemId` and `std::vector<OSItemId>` are registered in `model_editor/QMetaTypes.cpp` since they depend on `openstudio_lib/OSItem.hpp`, which sits above this library in the dependency graph.
+> **Note:** `OSItemId` and `std::vector<OSItemId>` are registered in `shared_gui_components/OSGridController.cpp` (via anonymous-namespace statics), since `OSItemId` is defined in `shared_gui_components` and sits above this library in the dependency graph.
 
 ---
 
