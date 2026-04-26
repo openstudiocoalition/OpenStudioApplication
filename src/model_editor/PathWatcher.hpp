@@ -6,8 +6,6 @@
 #ifndef MODELEDITOR_PATHWATCHER_HPP
 #define MODELEDITOR_PATHWATCHER_HPP
 
-#include "ModelEditorAPI.hpp"
-
 #include <openstudio/utilities/core/Path.hpp>
 
 #include <QObject>
@@ -18,7 +16,7 @@ class QTimer;
 
 /** Class for watching a file for changes, directories are not supported 
   **/
-class MODELEDITOR_API PathWatcher : public QObject
+class PathWatcher : public QObject
 {
 
   Q_OBJECT;

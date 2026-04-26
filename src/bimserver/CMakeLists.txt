@@ -5,7 +5,6 @@ set(CMAKE_INCLUDE_CURRENT_DIR ON)
 include_directories(${QT_INCLUDES})
 
 set(${target_name}_src
-  BIMserverAPI.hpp
   mainpage.hpp
   BIMserverConnection.hpp
   BIMserverConnection.cpp

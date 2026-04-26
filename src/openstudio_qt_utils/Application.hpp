@@ -6,7 +6,6 @@
 #ifndef OPENSTUDIOQTUTILS_APPLICATION_HPP
 #define OPENSTUDIOQTUTILS_APPLICATION_HPP
 
-#include "OpenStudioQtUtilsAPI.hpp"
 #include "QMetaTypes.hpp"
 
 #include <QApplication>

@@ -7,7 +7,6 @@
 
 #define UTILITIES_API
 #define MODEL_API
-#define MODELEDITOR_API
 
 %include <openstudio/utilities/core/CommonInclude.i>
 %import <openstudio/utilities/core/CommonImport.i>

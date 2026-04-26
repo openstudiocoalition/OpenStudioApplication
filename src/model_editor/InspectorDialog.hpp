@@ -6,8 +6,6 @@
 #ifndef MODELEDITOR_INSPECTORDIALOG_HPP
 #define MODELEDITOR_INSPECTORDIALOG_HPP
 
-#include "ModelEditorAPI.hpp"
-
 #include <openstudio/model/Model.hpp>
 
 #include <openstudio/utilities/idd/IddEnums.hpp>
@@ -41,7 +39,7 @@ class ModelObject;
 OPENSTUDIO_ENUM(InspectorDialogClient, ((AllOpenStudio)));
 #endif
 
-class MODELEDITOR_API InspectorDialog
+class InspectorDialog
   : public QMainWindow
   , public Nano::Observer
 {

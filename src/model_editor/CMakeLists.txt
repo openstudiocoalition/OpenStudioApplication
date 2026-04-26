@@ -84,12 +84,6 @@ set(${target_name}_depends
 add_dependencies(${target_name} ${${target_name}_depends})
 target_link_libraries(${target_name} PUBLIC ${${target_name}_depends})
 
-if(BUILD_SHARED_LIBS)
-  #target_compile_definitions(${target_name} PUBLIC model_editor_EXPORTS)
-else()
-  target_compile_definitions(${target_name} PUBLIC model_editor_EXPORTS)
-endif()
-
 set(${target_name}_test_src
   test/ModelEditorFixture.hpp
   test/ModelEditorFixture.cpp

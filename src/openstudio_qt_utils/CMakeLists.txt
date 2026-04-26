@@ -5,7 +5,6 @@ include_directories(${CMAKE_CURRENT_BINARY_DIR})
 include_directories(${QT_INCLUDES})
 
 set(${target_name}_src
-  OpenStudioQtUtilsAPI.hpp
   Application.hpp
   Application.cpp
   OSProgressBar.hpp

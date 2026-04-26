@@ -6,7 +6,6 @@
 #ifndef SHAREDGUICOMPONENTS_ICONLIBRARY_HPP
 #define SHAREDGUICOMPONENTS_ICONLIBRARY_HPP
 
-#include "OpenStudioSharedGuiAPI.hpp"
 #include <openstudio/utilities/core/Logger.hpp>
 
 #include <QPixmap>
@@ -22,7 +21,7 @@ namespace openstudio {
  * it, because it might return NULL.
  *
  */
-class OPENSTUDIO_SHARED_GUI_API IconLibrary
+class IconLibrary
 {
 
  public:

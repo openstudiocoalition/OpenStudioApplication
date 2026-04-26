@@ -6,8 +6,6 @@
 #ifndef MODELEDITOR_ACCESSPOLICYSTORE_HPP
 #define MODELEDITOR_ACCESSPOLICYSTORE_HPP
 
-#include "ModelEditorAPI.hpp"
-
 #include <map>
 
 #include <QString>
@@ -32,7 +30,7 @@ namespace model {
      * data manipulation side of things. The idea is that each program might have its
      * own XML file that tells the AccessPolicy how to display fields.
      */
-class MODELEDITOR_API AccessPolicy
+class AccessPolicy
 {
   friend class AccessPolicyStore;
   friend class openstudio::InspectorView;  // For overriding via setAccess
@@ -74,7 +72,7 @@ class MODELEDITOR_API AccessPolicy
    *
    *
    */
-class MODELEDITOR_API AccessPolicyStore
+class AccessPolicyStore
 {
  public:
   static AccessPolicyStore& Instance();

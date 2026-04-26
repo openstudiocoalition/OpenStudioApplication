@@ -6,7 +6,6 @@
 #ifndef MODELEDITOR_GITHUB_RELEASES_HPP
 #define MODELEDITOR_GITHUB_RELEASES_HPP
 
-#include "ModelEditorAPI.hpp"
 #include <openstudio/utilities/core/Logger.hpp>
 
 #include <string>
@@ -26,7 +25,7 @@ namespace modeleditor {
 
 /** Class to represent a single release on Github.
 **/
-class MODELEDITOR_API GithubRelease
+class GithubRelease
 {
  public:
   GithubRelease(const std::string& tagName, bool preRelease, unsigned numDownloads, const std::string& downloadUrl);
@@ -46,7 +45,7 @@ class MODELEDITOR_API GithubRelease
 
 /** Class for checking releases on Github.
   **/
-class MODELEDITOR_API GithubReleases
+class GithubReleases
 {
 
  public:
@@ -99,8 +98,8 @@ class MODELEDITOR_API GithubReleases
 };
 
 // prints releases and number of downloads
-MODELEDITOR_API std::ostream& operator<<(std::ostream& os, const GithubRelease& release);
-MODELEDITOR_API std::ostream& operator<<(std::ostream& os, const GithubReleases& releases);
+std::ostream& operator<<(std::ostream& os, const GithubRelease& release);
+std::ostream& operator<<(std::ostream& os, const GithubReleases& releases);
 
 }  // namespace modeleditor
 

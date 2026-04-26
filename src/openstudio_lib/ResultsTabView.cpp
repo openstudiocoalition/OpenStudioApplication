@@ -291,7 +291,7 @@ void ResultsView::populateComboBox(const std::vector<openstudio::path>& reports)
   m_comboBox->clear();
   for (const openstudio::path& report : reports) {
 
-    // Here we DO want to call MODELEDITOR_API QString toQString(const path&) overload, which should automatically
+    // Here we DO want to call the QString toQString(const path&) overload, which should automatically
     // convert that to a unix-style path (with forward slashes) which is what we do want here.
     // fullPathString = toQString(report.string()); // This will mix slashes and backslashes (without escaping...) => C:/companion_folder\reports\eplustbl.html
     // (Alternatively, we could just use QUrl::fromLocalFile in comboBoxChanged instead of manually preprending "file:///" here)

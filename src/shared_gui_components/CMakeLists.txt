@@ -5,7 +5,6 @@ include_directories(${CMAKE_CURRENT_BINARY_DIR})
 include_directories(${QT_INCLUDES})
 
 set(${target_name}_src
-  OpenStudioSharedGuiAPI.hpp
   BCLMeasureDialog.cpp
   BCLMeasureDialog.hpp
   BuildingComponentDialog.cpp
@@ -184,10 +183,6 @@ set(${target_name}_depends
 )
 
 add_library(${target_name} ${${target_name}_src} ${${target_name}_moc_src})
-
-if (NINJA)
-  target_compile_definitions(${target_name} PRIVATE NINJA=1)
-endif()
 
 target_link_libraries(${target_name} PUBLIC ${${target_name}_depends})
 

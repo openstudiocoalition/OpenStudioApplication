@@ -6,7 +6,6 @@
 #ifndef MODELEDITOR_IGSPINBOXES_HPP
 #define MODELEDITOR_IGSPINBOXES_HPP
 
-#include "ModelEditorAPI.hpp"
 #include "InspectorGadget.hpp"
 
 #include <QSpinBox>
@@ -14,7 +13,7 @@
 
 class QWheelEvent;
 
-class MODELEDITOR_API IGSpinBox : public QSpinBox
+class IGSpinBox : public QSpinBox
 {
   Q_OBJECT;
 
@@ -27,7 +26,7 @@ class MODELEDITOR_API IGSpinBox : public QSpinBox
   void triggered(bool);  //the radio button got triggered and calls this slot
 };
 
-class MODELEDITOR_API IGDSpinBox : public QDoubleSpinBox
+class IGDSpinBox : public QDoubleSpinBox
 {
   Q_OBJECT;
 
