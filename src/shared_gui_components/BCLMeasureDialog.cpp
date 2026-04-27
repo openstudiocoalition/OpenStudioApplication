@@ -8,10 +8,7 @@
 #include "UserSettings.hpp"
 #include "../openstudio_qt_utils/Utilities.hpp"
 
-// TODO: delete once the Labs CLI is the default
-#include "../openstudio_lib/OSAppBase.hpp"
-#include "../openstudio_lib/OSDocument.hpp"
-#include "../openstudio_lib/MainWindow.hpp"
+#include "BaseApp.hpp"
 
 #include <openstudio/utilities/core/Assert.hpp>
 #include <openstudio/utilities/core/StringHelpers.hpp>
@@ -164,7 +161,8 @@ boost::optional<openstudio::BCLMeasure> BCLMeasureDialog::createMeasure() {
   if (measureLanguageStr == "Python") {
     measureLanguage = MeasureLanguage::Python;
 
-    const bool useClassicCLI = OSAppBase::instance()->currentDocument()->mainWindow()->useClassicCLI();
+    // TODO: remove once the Labs CLI is the default
+    const bool useClassicCLI = BaseApp::instance()->useClassicCLI();
     if (useClassicCLI) {
       QMessageBox::information(
         this, "Python Measures not available in Classic CLI",
@@ -398,7 +396,8 @@ void BCLMeasureDialog::init() {
   tempVLayout->addWidget(label);
   m_measureLanguageComboBox = new QComboBox(this);
   m_measureLanguageComboBox->addItem("Ruby");
-  if (!OSAppBase::instance()->currentDocument()->mainWindow()->useClassicCLI()) {
+  // TODO: remove once the Labs CLI is the default
+  if (!BaseApp::instance()->useClassicCLI()) {
     m_measureLanguageComboBox->addItem("Python");
   }
   m_measureLanguageComboBox->setCurrentIndex(0);

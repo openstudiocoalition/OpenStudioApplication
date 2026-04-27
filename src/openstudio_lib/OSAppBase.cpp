@@ -261,4 +261,52 @@ openstudio::path OSAppBase::dviewPath() const {
 
 void OSAppBase::configureExternalTools() {}
 
+bool OSAppBase::useClassicCLI() const {
+  auto doc = currentDocument();
+  if (doc) {
+    return doc->mainWindow()->useClassicCLI();
+  }
+  return false;
+}
+
+boost::optional<BCLComponent> OSAppBase::getLocalComponent(const std::string& uid, const std::string& versionId) const {
+  auto doc = currentDocument();
+  if (doc) {
+    return doc->getLocalComponent(uid, versionId);
+  }
+  return boost::none;
+}
+
+boost::optional<BCLMeasure> OSAppBase::getLocalMeasure(const std::string& uid, const std::string& versionId) const {
+  auto doc = currentDocument();
+  if (doc) {
+    return doc->getLocalMeasure(uid, versionId);
+  }
+  return boost::none;
+}
+
+std::vector<BCLMeasure> OSAppBase::getLocalMeasures() const {
+  auto doc = currentDocument();
+  if (doc) {
+    return doc->getLocalMeasures();
+  }
+  return {};
+}
+
+std::size_t OSAppBase::removeOutdatedLocalComponents(const std::string& uid, const std::string& currentVersionId) const {
+  auto doc = currentDocument();
+  if (doc) {
+    return doc->removeOutdatedLocalComponents(uid, currentVersionId);
+  }
+  return 0;
+}
+
+std::size_t OSAppBase::removeOutdatedLocalMeasures(const std::string& uid, const std::string& currentVersionId) const {
+  auto doc = currentDocument();
+  if (doc) {
+    return doc->removeOutdatedLocalMeasures(uid, currentVersionId);
+  }
+  return 0;
+}
+
 }  // namespace openstudio

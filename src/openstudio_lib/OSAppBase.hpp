@@ -26,9 +26,25 @@ class OSDocument;
 class WaitDialog;
 
 /**
- * OSAppBase is the abstract base class for the OpenStudio application, implementing the BaseApp
- * interface. It is subclassed by OpenStudioApp (standalone app) and provides common application
- * services: the measure manager, document management, and the current model accessor.
+ * OSAppBase is the abstract base class for the full OpenStudio application. It:
+ *
+ *   1. Owns the Qt event loop by inheriting QApplication — only one instance may exist
+ *      per process, and it must outlive all widgets.
+ *
+ *   2. Implements the BaseApp interface — all virtual methods declared in BaseApp are
+ *      overridden here as `final`, forwarding to the current OSDocument and MainWindow.
+ *      Shared components reach this implementation via static_cast<BaseApp*>(qApp).
+ *
+ *   3. Leaves currentDocument() pure — concrete subclasses (e.g. OpenStudioApp) supply
+ *      the document ownership strategy.
+ *
+ * Separation rationale:
+ *   BaseApp lives in openstudio_shared_gui (lower-level static lib) and knows nothing
+ *   about OSDocument or MainWindow. OSAppBase lives in openstudio_lib and bridges the
+ *   two: it receives calls through the BaseApp interface and dispatches them to the
+ *   real application objects. This one-way dependency prevents the linker errors that
+ *   arise on Linux when a lower-level archive references symbols defined in a
+ *   higher-level archive.
  */
 class OSAppBase
   : public QApplication
@@ -46,24 +62,31 @@ class OSAppBase
 
   static OSAppBase* instance();
 
-  virtual QWidget* mainWidget() override;
-  virtual MeasureManager& measureManager() override;
-  virtual boost::optional<openstudio::path> tempDir() override;
-  virtual boost::optional<openstudio::model::Model> currentModel() override;
-  //virtual boost::optional<openstudio::Workspace> currentWorkspace() override;
-  virtual void updateSelectedMeasureState() override;
-  virtual void addMeasure() override;
-  virtual void duplicateSelectedMeasure() override;
-  virtual void updateMyMeasures() override;
-  virtual void updateBCLMeasures() override;
-  virtual void openBclDlg() override;
-  virtual void chooseHorizontalEditTab() override;
-  virtual void checkForRemoteBCLUpdates() override;
-  virtual QSharedPointer<openstudio::EditController> editController() override;
+  QWidget* mainWidget() final;
+  MeasureManager& measureManager() final;
+  boost::optional<openstudio::path> tempDir() final;
+  boost::optional<openstudio::model::Model> currentModel() final;
+  //boost::optional<openstudio::Workspace> currentWorkspace() final;
+  void updateSelectedMeasureState() final;
+  void addMeasure() final;
+  void duplicateSelectedMeasure() final;
+  void updateMyMeasures() final;
+  void updateBCLMeasures() final;
+  void openBclDlg() final;
+  void chooseHorizontalEditTab() final;
+  void checkForRemoteBCLUpdates() final;
+  QSharedPointer<openstudio::EditController> editController() final;
   boost::shared_ptr<WaitDialog> waitDialog() {
     return m_waitDialog;
   }
-  virtual bool mouseOverInspectorView() override;
+  bool mouseOverInspectorView() final;
+
+  bool useClassicCLI() const final;
+  boost::optional<BCLComponent> getLocalComponent(const std::string& uid, const std::string& versionId = "") const final;
+  boost::optional<BCLMeasure> getLocalMeasure(const std::string& uid, const std::string& versionId = "") const final;
+  std::vector<BCLMeasure> getLocalMeasures() const final;
+  std::size_t removeOutdatedLocalComponents(const std::string& uid, const std::string& currentVersionId) const final;
+  std::size_t removeOutdatedLocalMeasures(const std::string& uid, const std::string& currentVersionId) const final;
 
   virtual openstudio::path dviewPath() const;
   virtual bool notify(QObject* receiver, QEvent* e) override;

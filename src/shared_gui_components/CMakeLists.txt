@@ -5,6 +5,7 @@ include_directories(${CMAKE_CURRENT_BINARY_DIR})
 include_directories(${QT_INCLUDES})
 
 set(${target_name}_src
+  BaseApp.hpp
   BCLMeasureDialog.cpp
   BCLMeasureDialog.hpp
   BuildingComponentDialog.cpp

@@ -6,7 +6,7 @@
 #include "OSLineEdit.hpp"
 
 #include "../openstudio_lib/ModelObjectItem.hpp"
-#include "../openstudio_lib/OSAppBase.hpp"
+#include "BaseApp.hpp"
 #include "../openstudio_lib/OSItem.hpp"
 #include "../openstudio_qt_utils/Utilities.hpp"
 
@@ -347,7 +347,7 @@ void OSLineEdit2::focusOutEvent(QFocusEvent* e) {
 
     emit inFocus(m_focused, false);
 
-    auto mouseOverInspectorView = OSAppBase::instance()->mouseOverInspectorView();
+    auto mouseOverInspectorView = BaseApp::instance()->mouseOverInspectorView();
     if (!mouseOverInspectorView) {
       emit itemClicked(nullptr);
     }

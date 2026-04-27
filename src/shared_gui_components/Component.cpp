@@ -5,12 +5,10 @@
 
 #include "Component.hpp"
 
+#include "BaseApp.hpp"
 #include "../openstudio_qt_utils/Utilities.hpp"
-#include "../openstudio_lib/OSAppBase.hpp"
-#include "../openstudio_lib/OSDocument.hpp"
 
 #include <openstudio/utilities/bcl/BCLMeasure.hpp>
-#include <openstudio/utilities/bcl/LocalBCL.hpp>
 #include <openstudio/utilities/core/Assert.hpp>
 #include <openstudio/utilities/core/Compare.hpp>
 #include <openstudio/utilities/units/Quantity.hpp>
@@ -98,14 +96,14 @@ Component::Component(const BCLSearchResult& bclSearchResult, bool showAbridgedVi
 
   if (bclSearchResult.componentType() == "component") {
     // This component has already been downloaded
-    if (OSAppBase::instance()->currentDocument()->getLocalComponent(this->uid(), this->versionId())) {
+    if (BaseApp::instance()->getLocalComponent(this->uid(), this->versionId())) {
       if (m_checkBox) {
         m_checkBox->setChecked(true);
         setCheckBoxEnabled(false);
         m_updateAvailable = false;
       }
       // This component has an update
-    } else if (OSAppBase::instance()->currentDocument()->getLocalComponent(this->uid())) {
+    } else if (BaseApp::instance()->getLocalComponent(this->uid())) {
       if (m_checkBox) {
         m_checkBox->setChecked(false);
         setCheckBoxUpdateAvailable(true);
@@ -137,14 +135,14 @@ Component::Component(const BCLSearchResult& bclSearchResult, bool showAbridgedVi
       }
     } else {
       // This measure has already been downloaded
-      if (OSAppBase::instance()->currentDocument()->getLocalMeasure(this->uid(), this->versionId())) {
+      if (BaseApp::instance()->getLocalMeasure(this->uid(), this->versionId())) {
         if (m_checkBox) {
           m_checkBox->setChecked(true);
           setCheckBoxEnabled(false);
           m_updateAvailable = false;
         }
         // This measure has an update
-      } else if (OSAppBase::instance()->currentDocument()->getLocalMeasure(this->uid())) {
+      } else if (BaseApp::instance()->getLocalMeasure(this->uid())) {
         if (m_checkBox) {
           m_checkBox->setChecked(false);
           setCheckBoxUpdateAvailable(true);
