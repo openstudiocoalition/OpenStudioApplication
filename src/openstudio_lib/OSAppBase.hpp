@@ -25,6 +25,11 @@ class OSDocument;
 
 class WaitDialog;
 
+/**
+ * OSAppBase is the abstract base class for the OpenStudio application, implementing the BaseApp
+ * interface. It is subclassed by OpenStudioApp (standalone app) and provides common application
+ * services: the measure manager, document management, and the current model accessor.
+ */
 class OSAppBase
   : public QApplication
   , public BaseApp

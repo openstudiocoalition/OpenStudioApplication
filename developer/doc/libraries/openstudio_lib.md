@@ -138,26 +138,6 @@ classDiagram
 
 ---
 
-## Class Documentation
+## Key Classes
 
-- [OSAppBase](../classes/openstudio_lib/OSAppBase.md)
-- [OSDocument](../classes/openstudio_lib/OSDocument.md)
-- [MainWindow](../classes/openstudio_lib/MainWindow.md)
-- [MainTabController](../classes/openstudio_lib/MainTabController.md)
-- [MainRightColumnController](../classes/openstudio_lib/MainRightColumnController.md)
-- [OSVectorController](../classes/shared_gui_components/OSVectorController.md)
-- [InspectorController](../classes/openstudio_lib/InspectorController.md)
-- [ModelObjectListView](../classes/openstudio_lib/ModelObjectListView.md)
-- [OSItem](../classes/openstudio_lib/OSItem.md)
-- [OSDropZone](../classes/openstudio_lib/OSDropZone.md)
-- [HVACSystemsController](../classes/openstudio_lib/HVACSystemsController.md)
-- [HVACSystemsView](../classes/openstudio_lib/HVACSystemsView.md)
-- [GeometryEditorController](../classes/openstudio_lib/GeometryEditorController.md)
-- [ConstructionsController](../classes/openstudio_lib/ConstructionsController.md)
-- [MaterialsController](../classes/openstudio_lib/MaterialsController.md)
-- [SchedulesController](../classes/openstudio_lib/SchedulesController.md)
-- [SpaceTypesController](../classes/openstudio_lib/SpaceTypesController.md)
-- [ThermalZonesController](../classes/openstudio_lib/ThermalZonesController.md)
-- [RunTabController](../classes/openstudio_lib/RunTabController.md)
-- [ResultsTabController](../classes/openstudio_lib/ResultsTabController.md)
-- [OSWebEnginePage](../classes/openstudio_lib/OSWebEnginePage.md)
+Class-level documentation is in the corresponding header files under [`src/openstudio_lib/`](../../../src/openstudio_lib/).

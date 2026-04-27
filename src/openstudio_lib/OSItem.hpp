@@ -24,6 +24,11 @@ namespace openstudio {
 
 class MeasureBadge;
 
+/**
+ * OSItem is the base class for all draggable/selectable items displayed in list views and drop
+ * zones throughout the application. Each OSItem wraps an OSItemId (module + handle pair) and
+ * provides consistent drag-and-drop support, selection highlighting, and remove-button behaviour.
+ */
 class OSItem
   : public QWidget
   , public Nano::Observer

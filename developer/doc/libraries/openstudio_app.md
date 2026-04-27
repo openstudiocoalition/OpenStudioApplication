@@ -90,7 +90,6 @@ classDiagram
 
 ---
 
-## Class Documentation
+## Key Classes
 
-- [OpenStudioApp](../classes/openstudio_app/OpenStudioApp.md)
-- [StartupView](../classes/openstudio_app/StartupView.md)
+Class-level documentation is in the corresponding header files under [`src/openstudio_app/`](../../../src/openstudio_app/).

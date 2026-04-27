@@ -1,3 +1,21 @@
+# Main build pipeline. Builds the OpenStudio Application on 5 platforms (ubuntu-22.04,
+# ubuntu-24.04, windows-2022, macos-15-intel, macos-15 arm64), runs CTest and benchmarks,
+# applies code signing on tag pushes, and uploads installers to GitHub Releases.
+#
+# Two jobs:
+#   build         - matrix over all 5 platforms
+#   test_package_macos - downloads and verifies the signed macOS DMG (macos-15-intel + arm64)
+#
+# Caching: three independent caches keyed by OS + Conan profile + CACHE_KEY secret:
+#   1. ccache (compiler output cache)
+#   2. Conan package cache
+#   3. Qt + OpenStudio SDK download cache
+# Rotate the CACHE_KEY secret to bust all caches immediately.
+#
+# Required secrets: MACOS_DEVELOPER_ID_APPLICATION_CERTIFICATE_P12_BASE64,
+#   MACOS_DEVELOPER_ID_INSTALLER_CERTIFICATE_P12_PASSWORD, MACOS_KEYCHAIN_PASSWORD,
+#   NOTARIZATION_API_KEY, NOTARIZATION_API_TEAM_ID, NOTARIZATION_API_ISSUER_ID,
+#   SIGNPATH_CI_TOKEN, ANALYTICS_API_SECRET, ANALYTICS_MEASUREMENT_ID, CACHE_KEY
 name: C++ CI for OpenStudioApplication
 
 on:

@@ -104,8 +104,6 @@ classDiagram
 
 ---
 
-## Class Documentation
+## Key Classes
 
-- [InspectorGadget](../classes/model_editor/InspectorGadget.md)
-- [InspectorDialog](../classes/model_editor/InspectorDialog.md)
-- [AccessPolicyStore](../classes/model_editor/AccessPolicyStore.md)
+Class-level documentation is in the corresponding header files under [`src/model_editor/`](../../../src/model_editor/).

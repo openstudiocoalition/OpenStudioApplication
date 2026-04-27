@@ -8,6 +8,7 @@
 
 #include <QString>
 #include <boost/optional.hpp>
+#include <QMetaType>
 
 class QMimeData;
 
@@ -42,5 +43,8 @@ class OSItemId
 };
 
 }  // namespace openstudio
+
+Q_DECLARE_METATYPE(openstudio::OSItemId)
+Q_DECLARE_METATYPE(std::vector<openstudio::OSItemId>)
 
 #endif  // SHAREDGUICOMPONENTS_OSITEMID_HPP

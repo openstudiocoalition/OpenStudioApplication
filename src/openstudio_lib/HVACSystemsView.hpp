@@ -39,6 +39,12 @@ class SetpointManagerWarmestTemperatureFlow;
 class SetpointManagerColdest;
 }  // namespace model
 
+/**
+ * HVACSystemsView is the top-level widget for the HVAC Systems tab. It hosts the system selector
+ * toolbar, the tabbed system scenes, and the mechanical ventilation/service water loops panels.
+ * The graphical system scenes are rendered by domain-specific scene widgets hosted in a
+ * QStackedWidget inside this view.
+ */
 class HVACSystemsView : public QWidget
 {
   Q_OBJECT

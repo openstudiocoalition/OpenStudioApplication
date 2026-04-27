@@ -125,7 +125,6 @@ Blocking variants spin a `QEventLoop` with a `QTimer` for the timeout, making th
 
 ---
 
-## Class Documentation
+## Key Classes
 
-- [BIMserverConnection](../classes/bimserver/BIMserverConnection.md)
-- [ProjectImporter](../classes/bimserver/ProjectImporter.md)
+Class-level documentation is in the corresponding header files under [`src/bimserver/`](../../../src/bimserver/).

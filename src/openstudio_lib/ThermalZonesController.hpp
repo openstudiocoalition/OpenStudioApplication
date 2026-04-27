@@ -25,6 +25,12 @@ class ZoneHVACComponent;
 
 class ThermalZonesView;
 
+/**
+ * ThermalZonesController manages the Thermal Zones tab, showing all thermal zone objects in the
+ * model in a grid view. Each row represents one zone; columns expose thermostat types,
+ * humidistats, zone multipliers, cooling/heating ideal air loads, zone equipment, and DOAS
+ * connections.
+ */
 class ThermalZonesController : public ModelSubTabController
 {
   Q_OBJECT

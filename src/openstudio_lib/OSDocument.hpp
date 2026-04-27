@@ -42,6 +42,12 @@ class ApplyMeasureNowDialog;
 
 class Workspace;
 
+/**
+ * OSDocument manages the full lifecycle of an OpenStudio model within the application: loading
+ * from disk, saving, reverting, and closing. It owns all the domain tab controllers and their
+ * views, constructs the complete tab bar layout, and coordinates undo/redo, units (IP/SI), and
+ * weather file management.
+ */
 class OSDocument : public OSQObjectController
 {
   Q_OBJECT

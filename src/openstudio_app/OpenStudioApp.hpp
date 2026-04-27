@@ -71,6 +71,11 @@ class TouchEater : public QObject
   bool eventFilter(QObject* obj, QEvent* event);
 };
 
+/**
+ * OpenStudioApp is the top-level QApplication subclass for the OpenStudio Application. It owns the
+ * OSDocument (model lifecycle), the main window, the measure manager, and coordinates between all
+ * top-level controllers. It implements OSAppBase and therefore BaseApp.
+ */
 class OpenStudioApp : public OSAppBase
 {
 

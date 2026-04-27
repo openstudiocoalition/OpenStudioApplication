@@ -121,6 +121,12 @@ class OSDropZone2
   QLabel* m_label;
 };
 
+/**
+ * OSDropZone is a QWidget that acts as a drop target for OSItems. It accepts drops from the
+ * left-column model object lists, forwards them to an OSVectorController, and visually indicates
+ * the valid/invalid drop state. It also shows the currently "dropped" item and provides a remove
+ * button.
+ */
 class OSDropZone
   : public QWidget
   , public Nano::Observer

@@ -27,7 +27,11 @@ class Surface;
 
 namespace bimserver {
 
-/// This provides utilities to connect to BIMserver
+/**
+ * BIMServerConnection manages the HTTP/JSON communication with a BIMserver instance. It handles
+ * authentication, project listing, IFC export requests, and IFC-to-OpenStudio model import.
+ * All network calls are asynchronous; results are delivered via Qt signals.
+ */
 class BIMserverConnection : public QObject
 {
   Q_OBJECT

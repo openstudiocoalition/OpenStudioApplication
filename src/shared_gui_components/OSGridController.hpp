@@ -11,8 +11,6 @@
 #include "OSItemId.hpp"
 #include "OSVectorController.hpp"
 #include "../openstudio_qt_utils/QMetaTypes.hpp"
-Q_DECLARE_METATYPE(openstudio::OSItemId)
-Q_DECLARE_METATYPE(std::vector<openstudio::OSItemId>)
 
 #include <openstudio/model/Model.hpp>
 #include <openstudio/model/ModelObject.hpp>
@@ -136,6 +134,15 @@ class DataSourceAdapter : public BaseConcept
   QSharedPointer<BaseConcept> m_inner;
 };
 
+/**
+ * OSGridController is the abstract base class for all multi-column tabular model views. It
+ * provides a declarative column-definition API (addCheckBoxColumn, addComboBoxColumn,
+ * addDoubleEditColumn, addDropZoneColumn, addLineEditColumn, addIntegerEditColumn,
+ * addRenderingColorColumn) and manages row-object mapping, selection state, and cell widget
+ * creation on demand. Concrete subclasses declare their columns in their constructor; data is
+ * fetched lazily via std::function getters/setters. Columns can optionally be wrapped in a
+ * DataSource to display stacked sub-object widgets per cell.
+ */
 class OSGridController : public QObject
 {
   Q_OBJECT

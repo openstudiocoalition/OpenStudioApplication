@@ -26,6 +26,12 @@ namespace model {
 class Model;
 }
 
+/**
+ * BaseApp is a pure abstract interface that decouples all shared GUI components from any specific
+ * application implementation. Widgets like MeasureManager, LocalLibraryController, and
+ * BuildingComponentDialog depend only on BaseApp, not on OSAppBase or OpenStudioApp. This isolation
+ * enables the shared components to be hosted in any Qt host without modification.
+ */
 class BaseApp
 {
  public:

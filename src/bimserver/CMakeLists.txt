@@ -17,10 +17,6 @@ set(${target_name}_test_src
   Test/BIMserverFixture.cpp
 )
 
-set(${target_name}_swig_src
-  BIMserver.i
-)
-
 set(${target_name}_depends
   openstudio_qt_utils
 )
@@ -38,7 +34,6 @@ AddPCH(${target_name})
 
 CREATE_SRC_GROUPS("${${target_name}_src}")
 CREATE_SRC_GROUPS("${${target_name}_test_src}")
-CREATE_SRC_GROUPS("${${target_name}_swig_src}")
 
 CREATE_TEST_TARGETS(${target_name} "${${target_name}_test_src}" "${${target_name}_depends}")
 #if(BUILD_TESTING)

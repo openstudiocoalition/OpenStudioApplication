@@ -46,6 +46,11 @@ class ModelObjectListController : public OSVectorController
   void reportItemsImpl();
 };
 
+/**
+ * ModelObjectListView is a scrollable list widget that shows all model objects of a specific
+ * IddObjectType. It listens to model change signals via nano signals and updates the list
+ * incrementally. It emits itemSelected signals that drive the right-column inspector.
+ */
 class ModelObjectListView : public OSItemList
 {
   Q_OBJECT

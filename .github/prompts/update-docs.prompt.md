@@ -41,60 +41,6 @@ developer/doc/
 │   ├── model_editor.md          ← src/model_editor/CMakeLists.txt + headers
 │   ├── bimserver.md             ← src/bimserver/CMakeLists.txt + headers
 │   └── utilities.md             ← src/utilities/CMakeLists.txt
-├── classes/
-│   ├── openstudio_app/
-│   │   ├── OpenStudioApp.md     ← src/openstudio_app/OpenStudioApp.hpp/.cpp
-│   │   └── StartupView.md       ← src/openstudio_app/StartupView.hpp/.cpp
-│   ├── openstudio_lib/
-│   │   ├── OSAppBase.md         ← src/openstudio_lib/OSAppBase.hpp
-│   │   ├── OSDocument.md        ← src/openstudio_lib/OSDocument.hpp
-│   │   ├── MainWindow.md        ← src/openstudio_lib/MainWindow.hpp
-│   │   ├── MainTabController.md ← src/openstudio_lib/MainTabController.hpp
-│   │   ├── MainRightColumnController.md  ← src/openstudio_lib/MainRightColumnController.hpp
-│   │   ├── OSItem.md            ← src/openstudio_lib/OSItem.hpp
-│   │   ├── OSDropZone.md        ← src/openstudio_lib/OSDropZone.hpp
-│   │   ├── HVACSystemsController.md ← src/openstudio_lib/HVACSystemsController.hpp
-│   │   ├── HVACSystemsView.md   ← src/openstudio_lib/HVACSystemsView.hpp
-│   │   ├── GeometryEditorController.md ← src/openstudio_lib/GeometryEditorController.hpp
-│   │   ├── ConstructionsController.md  ← src/openstudio_lib/ConstructionsController.hpp
-│   │   ├── MaterialsController.md ← src/openstudio_lib/MaterialsController.hpp
-│   │   ├── SchedulesController.md ← src/openstudio_lib/SchedulesController.hpp
-│   │   ├── SpaceTypesController.md ← src/openstudio_lib/SpaceTypesController.hpp
-│   │   ├── ThermalZonesController.md ← src/openstudio_lib/ThermalZonesController.hpp
-│   │   ├── RunTabController.md  ← src/openstudio_lib/RunTabController.hpp
-│   │   ├── ResultsTabController.md ← src/openstudio_lib/ResultsTabController.hpp
-│   │   ├── OSWebEnginePage.md   ← src/openstudio_lib/OSWebEnginePage.hpp
-│   │   ├── InspectorController.md ← src/openstudio_lib/InspectorController.hpp
-│   │   └── ModelObjectListView.md ← src/openstudio_lib/ModelObjectListView.hpp
-│   ├── shared_gui_components/
-│   │   ├── BaseApp.md           ← src/shared_gui_components/BaseApp.hpp
-│   │   ├── OSGridController.md  ← src/shared_gui_components/OSGridController.hpp
-│   │   ├── OSGridView.md        ← src/shared_gui_components/OSGridView.hpp
-│   │   ├── OSVectorController.md ← src/shared_gui_components/OSVectorController.hpp
-│   │   ├── MeasureManager.md   ← src/shared_gui_components/MeasureManager.hpp
-│   │   ├── BCLMeasureDialog.md  ← src/shared_gui_components/BCLMeasureDialog.hpp
-│   │   ├── LocalLibraryController.md ← src/shared_gui_components/LocalLibraryController.hpp
-│   │   └── BuildingComponentDialog.md ← src/shared_gui_components/BuildingComponentDialog.hpp
-│   ├── model_editor/
-│   │   ├── InspectorGadget.md   ← src/model_editor/InspectorGadget.hpp
-│   │   ├── InspectorDialog.md   ← src/model_editor/InspectorDialog.hpp
-│   │   └── AccessPolicyStore.md ← src/model_editor/AccessPolicyStore.hpp
-│   └── bimserver/
-│       ├── BIMserverConnection.md ← src/bimserver/BIMserverConnection.hpp
-│       └── ProjectImporter.md   ← src/bimserver/ProjectImporter.hpp
-└── ci/
-    ├── overview.md              ← .github/workflows/*.yml, Jenkinsfile_*, ci/*, CMake/CodeSigning.cmake
-    ├── jenkins.md               ← Jenkinsfile_linux, Jenkinsfile_osx, Jenkinsfile_windows
-    ├── scripts.md               ← ci/* scripts
-    └── workflows/
-        ├── app_build.md         ← .github/workflows/app_build.yml
-        ├── check_osm_versions.md ← .github/workflows/check_osm_versions.yml
-        ├── cla.md               ← .github/workflows/cla.yml
-        ├── clangformat.md       ← .github/workflows/clangformat.yml
-        ├── cppcheck.md          ← .github/workflows/cppcheck.yml
-        ├── export_standards_data.md ← .github/workflows/export_standards_data.yml
-        ├── manual_cli_test.md   ← .github/workflows/manual_cli_test.yml
-        └── release_notes.md     ← .github/workflows/release_notes.yml
 ```
 
 ---
@@ -105,17 +51,9 @@ Update documentation when ANY of the following changes occur:
 
 | Change | Docs to update |
 |---|---|
-| `.hpp` or `.cpp` file modified in a documented class | Corresponding class `.md` in `developer/doc/classes/` |
-| New class added matching library conventions (see §6) | Create new class `.md`; add entry to library `.md` |
-| Class deleted | Delete class `.md`; remove from library `.md` |
 | `CMakeLists.txt` in a module changes (new deps, new targets) | Corresponding library `.md` + `architecture.md` dependency graph |
-| `src/openstudio_qt_utils/` file modified | `libraries/openstudio_qt_utils.md` + any affected class doc |
+| `src/openstudio_qt_utils/` file modified | `libraries/openstudio_qt_utils.md` |
 | Top-level `CMakeLists.txt` changes (version, new sub-project) | `architecture.md` |
-| `.github/workflows/*.yml` changes | Corresponding `developer/doc/ci/workflows/*.md` + `ci/overview.md` |
-| New workflow added | Create new workflow `.md`; add entry to `ci/overview.md` |
-| `Jenkinsfile_*` changes | `developer/doc/ci/jenkins.md` + `ci/overview.md` |
-| `ci/` script changes | `developer/doc/ci/scripts.md` |
-| New secret added to any workflow | `ci/overview.md` secrets table |
 | `conanfile.py` dependency version changes | `architecture.md` tech stack section |
 
 ---
@@ -201,88 +139,9 @@ flowchart LR
 ## Design Notes
 ...
 
-## Class Documentation Index
-- [{ClassName}](../classes/{name}/{ClassName}.md)
-```
+## Key Classes
 
-### 3c. Class Document (`classes/{module}/{ClassName}.md`)
-
-```markdown
-# `{ClassName}`
-
-> **Defined in:** `src/{module}/{ClassName}.hpp`  
-> **Library:** [{module}](../../libraries/{module}.md)
-
-## Role
-One-sentence responsibility statement.
-
-## Class Diagram
-\`\`\`mermaid
-classDiagram
-  class {ClassName} {
-    +key_method()
-    +another_method()
-  }
-  {BaseClass} <|-- {ClassName}
-\`\`\`
-
-## Key Responsibilities
-- ...
-
-## Public API
-
-### `method_name(params)`
-Brief description.
-
-## Signals / Slots (Qt)
-
-| Signal / Slot | Description |
-|---|---|
-
-## Interactions
-\`\`\`mermaid
-sequenceDiagram
-  ...
-\`\`\`
-
-## Usage Example
-\`\`\`cpp
-// ...
-\`\`\`
-
-## Notes
-- ...
-```
-
-### 3d. CI Workflow Document (`ci/workflows/{name}.md`)
-
-```markdown
-# Workflow: `{name}.yml` — {Title}
-
-> **File:** `.github/workflows/{name}.yml`  
-> **Back to:** [CI/CD Overview](../overview.md)
-
-## Purpose
-...
-
-## Trigger
-\`\`\`yaml
-on:
-  ...
-\`\`\`
-
-## Job(s)
-\`\`\`mermaid
-flowchart TD
-  ...
-\`\`\`
-
-## Steps
-...
-
-## Related Files
-| File | Role |
-|---|---|
+Class-level documentation is in the corresponding header files under [`src/{name}/`](../../../src/{name}/).
 ```
 
 ---
@@ -306,11 +165,7 @@ flowchart TD
 
 ## 5. Cross-Linking Rules
 
-- Every library doc must link to each of its class docs in a "Class Documentation Index" section.
-- Every class doc must link back to its library doc in the header.
 - `architecture.md` module index must link to every library doc.
-- `ci/overview.md` workflow table must link to every workflow doc.
-- `ci/overview.md` must link to `jenkins.md` and `scripts.md`.
 - Use **relative Markdown links** only (e.g., `../libraries/openstudio_lib.md`, not absolute paths).
 
 ---
@@ -323,44 +178,70 @@ Follow these steps whenever source code or CI configuration changes:
 
 2. **Map to documentation.** Use the Structure Map (§1) and Trigger Conditions (§2) to determine which `.md` files need updating.
 
-3. **Read the changed source.** Use `read_file` to read the relevant headers and implementation files. Focus on: public API, inheritance, signals/slots, key collaborators.
+3. **Read the changed source.** Use `read_file` to read the relevant headers and CMake files.
 
 4. **Read the existing doc.** Use `read_file` on the current `.md` to understand what is already correct and what has drifted.
 
 5. **Update the doc.** Use `replace_string_in_file` for targeted edits (prefer this over full rewrites). Update:
-   - Class diagram if inheritance or key methods changed
-   - Public API section if method signatures changed
-   - Signals/Slots table if Qt signals/slots were added/removed
-   - Interactions sequence diagram if collaboration pattern changed
-   - Notes section for behavioral changes
+   - Dependency tables and module graphs if CMake targets changed
+   - Tech stack table in `architecture.md` if versions changed
 
-6. **Update cross-links.** If a class was added or removed, update the parent library doc's Class Documentation Index. If a workflow changed its triggers or jobs, update `ci/overview.md`.
+6. **Check for version or dependency changes.** If `CMakeLists.txt` or `conanfile.py` changed dependency versions, update the tech stack table in `architecture.md`.
 
-7. **Check for version or dependency changes.** If `CMakeLists.txt` or `conanfile.py` changed dependency versions, update the tech stack table in `architecture.md`.
-
-8. **Verify Mermaid syntax.** Ensure all diagram blocks are syntactically valid Mermaid. Do not leave unclosed blocks or use unsupported node shapes.
+7. **Verify Mermaid syntax.** Ensure all diagram blocks are syntactically valid Mermaid.
 
 ---
 
-## 7. Class Selection Heuristic
+## 7. Class Documentation
 
-**Document these classes** (already in the doc set or should be added when introduced):
-- Base/abstract classes that define cross-cutting interfaces (`BaseApp`, `OSVectorController` in `shared_gui_components`, `OSItem`)
-- Tab-level controllers that own a UI domain (`HVACSystemsController`, `RunTabController`)
-- View+Controller pairs for complex sub-systems (`HVACSystemsView`, `GeometryEditorController`)
-- Integration point classes that bridge external systems (`BIMserverConnection`, `OSWebEnginePage`)
-- Widely reused components (`OSGridController`, `OSDropZone`, `MeasureManager`)
-
-**Do NOT create docs for:**
-- Concrete derived specializations of documented base classes where the only difference is the domain (e.g., individual inspector row widgets, individual tab view subclasses written purely as template instantiation)
-- SWIG `.i` binding files
-- `*.ui` Qt Designer files
-- Translation `.ts`/`.qm` files
-- CPack / install helper scripts
+Class-level documentation lives in `/** */` doc comments in the header files (`src/**/*.hpp`), not in separate Markdown files. When adding a new significant class (base/abstract classes, major controllers, integration points, widely reused components), add a `/** ... */` doc comment block directly above the class declaration describing its purpose.
 
 ---
 
-## 8. Scope Exclusions
+## 8. Comment Correctness and Completeness Checks
+
+When source files are changed, verify that inline comments remain accurate.
+
+### C++ Header Class Comments (`src/**/*.hpp`)
+
+For every significant class (base/abstract, major controller, integration point, widely reused component) that was added or modified:
+
+1. **Presence** — a `/** */` doc comment must appear directly above the class declaration (not a forward declaration).
+2. **Accuracy** — the comment must reflect the class's current responsibility. Check for:
+   - Purpose description that no longer matches the class's role after a refactor
+   - References to removed methods, renamed signals, or deleted dependencies
+3. **Completeness** — if the class is one of the following types, the comment should describe what it owns, what signals it emits, and how it fits into the broader system:
+   - Abstract base / interface classes
+   - Tab-level controllers (`*Controller` owning a `*View`)
+   - Classes bridging external systems (web engine, BIMserver, CLI, network)
+4. **What to skip** — do not add or require doc comments on:
+   - Forward declarations
+   - Member variables, private methods, or trivial getters/setters (unless they have non-obvious side effects)
+   - Private implementation detail classes nested inside a `.cpp`
+   - Thin wrappers or trivial value types with self-explanatory names
+
+### GitHub Actions Workflow Comments (`.github/workflows/*.yml`)
+
+For every workflow file that was added or modified, verify the file-level comment block at the top:
+
+1. **Presence** — a `#`-prefixed comment block must appear before the `name:` line.
+2. **Accuracy** — check that the comment correctly describes:
+   - The workflow's purpose (what it builds, tests, or enforces)
+   - Trigger conditions (branches, tags, events, manual dispatch)
+   - Any required secrets (add or remove as the `secrets:` block changes)
+   - When to run it manually (for `workflow_dispatch` workflows)
+3. **Completeness** — the comment should be enough for a developer to understand the workflow without reading the full YAML. It does not need to enumerate every step.
+
+### CI Helper Scripts (`ci/*.sh`, `ci/*.py`, `ci/*.qs`)
+
+For every script that was added or modified:
+
+1. **Presence** — a comment header describing the script's purpose must be present near the top of the file.
+2. **Accuracy** — check that usage examples, argument descriptions, and exit-code documentation still match the script's actual behaviour.
+
+---
+
+## 9. Scope Exclusions
 
 Never document the following in `developer/doc/` (they are internal plumbing or generated code):
 

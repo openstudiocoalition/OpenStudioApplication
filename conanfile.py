@@ -41,7 +41,6 @@ class OpenStudioAppBuildRecipe(ConanFile):
         self.requires("cpprestsdk/2.10.19")  # df2f6ac88e47cadd9c9e8e0971e00d89
         self.requires("websocketpp/0.8.2")  # 3fd704c4c5388d9c08b11af86f79f616
         self.requires("geographiclib/1.52")  # 76536a9315a003ef3511919310b2fe37
-        self.requires("swig/4.1.1")  # Pending https://github.com/conan-io/conan-center-index/pull/19058
         self.requires("tinygltf/2.5.0")  # c8b2aca9505e86312bb42aa0e1c639ec
         self.requires("termcap/1.3.1#479400c750a869f77b3d2d3a82e06f7d") # need version with updated minimum cmake
         # self.requires("cli11/2.3.2")  # 8ccdf14fb1ad53532d498c16ae580b4b

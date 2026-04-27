@@ -64,6 +64,11 @@ class RefrigerationGridController;
 class RefrigerationGridView;
 class VRFController;
 
+/**
+ * HVACSystemsController manages the HVAC Systems tab. It maintains a set of scene controllers
+ * (one per HVAC system or loop in the model) and routes user interactions to the appropriate scene.
+ * It also manages the system selector dropdown and the "Add System" toolbar.
+ */
 class HVACSystemsController
   : public QObject
   , public Nano::Observer

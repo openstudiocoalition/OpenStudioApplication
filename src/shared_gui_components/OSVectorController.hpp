@@ -21,6 +21,13 @@ namespace openstudio {
 
 class OSItem;
 
+/**
+ * OSVectorController is the abstract base class for all list/vector controllers in the
+ * application. It manages an ordered list of OSItemIds representing model objects displayed in an
+ * OSItemList or OSDropZone widget. Concrete subclasses implement makeVector() to return the
+ * current item IDs from the model. The base class handles deduplication of re-render requests via
+ * a mutex and routes user interactions (remove, replace, drop, create) through virtual dispatch.
+ */
 class OSVectorController
   : public QObject
   , public Nano::Observer

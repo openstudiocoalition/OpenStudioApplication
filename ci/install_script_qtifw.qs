@@ -1,3 +1,9 @@
+// QtIFW (Qt Installer Framework) controller script for unattended / silent installation in CI.
+// Used by app_build.yml and manual_cli_test.yml to install the produced .exe/.dmg without
+// any user interaction. Implements all installer page callbacks to auto-click through the
+// wizard: Welcome -> License -> Component Selection -> Target Directory -> Install -> Finish.
+// The "Launch after install" checkbox is explicitly disabled in FinishedPageCallback.
+
 function Controller() {
   installer.autoRejectMessageBoxes();
 

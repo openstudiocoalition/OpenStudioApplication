@@ -32,6 +32,13 @@ class OSItem;
 class GridCellLocation;
 class GridCellInfo;
 
+/**
+ * OSGridView is the QWidget that hosts and renders an OSGridController. It manages a QScrollArea
+ * containing a grid of OSCellWrapper widgets arranged in rows and columns. It handles row
+ * selection highlighting and forwards keyboard navigation events to the controller. Domain views
+ * (ThermalZonesGridView, SpaceTypesGridView, etc.) typically subclass OSGridView or compose it
+ * with filter/search bars.
+ */
 class OSGridView : public QWidget
 {
   Q_OBJECT

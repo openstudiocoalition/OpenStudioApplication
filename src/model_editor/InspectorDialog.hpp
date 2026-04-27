@@ -39,6 +39,11 @@ class ModelObject;
 OPENSTUDIO_ENUM(InspectorDialogClient, ((AllOpenStudio)));
 #endif
 
+/**
+ * InspectorDialog is a standalone QMainWindow that hosts an InspectorGadget for viewing and editing
+ * any ModelObject from the OpenStudio model. It is used in the Model Editor tool as the primary
+ * object inspector window.
+ */
 class InspectorDialog
   : public QMainWindow
   , public Nano::Observer

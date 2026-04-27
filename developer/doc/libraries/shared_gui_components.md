@@ -167,13 +167,6 @@ flowchart TD
 
 ---
 
-## Class Documentation
+## Key Classes
 
-- [BaseApp](../classes/shared_gui_components/BaseApp.md)
-- [OSGridController](../classes/shared_gui_components/OSGridController.md)
-- [OSGridView](../classes/shared_gui_components/OSGridView.md)
-- [OSVectorController](../classes/shared_gui_components/OSVectorController.md)
-- [MeasureManager](../classes/shared_gui_components/MeasureManager.md)
-- [BCLMeasureDialog](../classes/shared_gui_components/BCLMeasureDialog.md)
-- [LocalLibraryController](../classes/shared_gui_components/LocalLibraryController.md)
-- [BuildingComponentDialog](../classes/shared_gui_components/BuildingComponentDialog.md)
+Class-level documentation is in the corresponding header files under [`src/shared_gui_components/`](../../../src/shared_gui_components/).
