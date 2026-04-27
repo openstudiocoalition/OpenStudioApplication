@@ -86,7 +86,7 @@ class OpenStudioApp : public OSAppBase
 
   virtual ~OpenStudioApp();
 
-  virtual std::shared_ptr<OSDocument> currentDocument() const override;
+  virtual OSDocument* currentDocument() const override;
 
   static OpenStudioApp* instance();
 

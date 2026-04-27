@@ -3,8 +3,8 @@
 *  See also https://openstudiocoalition.org/about/software_license/
 ***********************************************************************************************************************/
 
-#include "OSItem.hpp"
-#include "OSDropZone.hpp"
+#include "../shared_gui_components/OSItem.hpp"
+#include "../shared_gui_components/OSDropZone.hpp"
 #include "VRFGraphicsItems.hpp"
 #include <openstudio/utilities/core/Assert.hpp>
 #include "../shared_gui_components/Buttons.hpp"

@@ -6,10 +6,10 @@
 #include "UtilityBillAllFuelTypesListView.hpp"
 
 #include "ModelObjectTypeItem.hpp"
-#include "ModelObjectItem.hpp"
+#include "../shared_gui_components/ModelObjectItem.hpp"
 #include "ModelObjectListView.hpp"
 #include "OSCollapsibleItemHeader.hpp"
-#include "OSItem.hpp"
+#include "../shared_gui_components/OSItem.hpp"
 #include "UtilityBillFuelTypeItem.hpp"
 #include "UtilityBillFuelTypeListView.hpp"
 

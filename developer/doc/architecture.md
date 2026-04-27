@@ -265,13 +265,11 @@ OpenStudioApp (exe)
     → openstudio_qt_utils
 ```
 
-**The `BaseApp` interface** (`shared_gui_components/BaseApp.hpp`) is the key boundary between the lower-level `shared_gui_components` library and the upper-level `openstudio_lib` library. All `shared_gui_components` code that needs application-level services must go through `BaseApp`, never through `OSAppBase`, `OSDocument`, or `MainWindow` directly.
+**The `BaseApp` interface** (`shared_gui_components/BaseApp.hpp`) is the key boundary between the lower-level `shared_gui_components` library and the upper-level `openstudio_lib` library. All `shared_gui_components` code that needs application-level services must go through `BaseApp`, never through `OSAppBase`, `OSDocument`, or `MainWindow` directly. Code that needs document-level services (icon lookup, model-object resolution, drop handling) calls `BaseApp::currentDocument()`, which returns a `BaseDocument*` — another interface in `shared_gui_components` implemented by `OSDocument` in `openstudio_lib`. C++ raw pointer covariance means `OSAppBase::currentDocument()` can override `BaseApp::currentDocument()` while returning the more-derived `OSDocument*`, so a single virtual serves both caller audiences.
 
 **Known violations (tracked as tech debt):**
 
-| Violation | Location | Correct Fix |
-|---|---|---|
-| `OSItem`, `OSDropZone`, `ModelObjectItem` live in `openstudio_lib` but are included by `shared_gui_components` code (`OSCellWrapper`, `OSGridView`, `OSWidgetHolder`, `OSLineEdit`, `OSGridController`, `LocalLibraryController`) | `src/openstudio_lib/OSItem.hpp`, `OSDropZone.hpp`, `ModelObjectItem.hpp` | Move these three classes to `shared_gui_components`; they have no `openstudio_lib`-only dependencies. `OSItem` depends only on `OSItemId` and `LocalLibrary.hpp`, both already in `shared_gui_components`. |
+None. All boundary violations have been resolved.
 
 ---
 

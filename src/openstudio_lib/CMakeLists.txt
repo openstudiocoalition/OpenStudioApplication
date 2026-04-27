@@ -163,8 +163,6 @@ set(${target_name}_SRC
   MaterialsView.hpp
   ModelObjectInspectorView.cpp
   ModelObjectInspectorView.hpp
-  ModelObjectItem.cpp
-  ModelObjectItem.hpp
   ModelObjectListView.cpp
   ModelObjectListView.hpp
   ModelObjectTreeItems.cpp
@@ -193,12 +191,8 @@ set(${target_name}_SRC
   OSCollapsibleItemList.hpp
   OSDocument.cpp
   OSDocument.hpp
-  OSDropZone.cpp
-  OSDropZone.hpp
   OSInspectorView.cpp
   OSInspectorView.hpp
-  OSItem.cpp
-  OSItem.hpp
   OSItemList.cpp
   OSItemList.hpp
   OSItemSelector.cpp
@@ -468,7 +462,6 @@ set(${target_name}_moc
   MaterialsController.hpp
   MaterialsView.hpp
   ModelObjectInspectorView.hpp
-  ModelObjectItem.hpp
   ModelObjectListView.hpp
   ModelObjectTreeItems.hpp
   ModelObjectTreeWidget.hpp
@@ -483,9 +476,7 @@ set(${target_name}_moc
   OSCollapsibleItemHeader.hpp
   OSCollapsibleItemList.hpp
   OSDocument.hpp
-  OSDropZone.hpp
   OSInspectorView.hpp
-  OSItem.hpp
   OSItemList.hpp
   OSItemSelector.hpp
   OSItemSelectorButtons.hpp

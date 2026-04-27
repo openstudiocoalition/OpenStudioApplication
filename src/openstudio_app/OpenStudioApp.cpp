@@ -462,8 +462,8 @@ void OpenStudioApp::newFromTemplateSlot(NewFromTemplateEnum newFromTemplateEnum)
   waitDialog()->hide();
 }
 
-std::shared_ptr<OSDocument> OpenStudioApp::currentDocument() const {
-  return m_osDocument;
+OSDocument* OpenStudioApp::currentDocument() const {
+  return m_osDocument.get();
 }
 
 void OpenStudioApp::importIdf() {
@@ -979,7 +979,9 @@ void OpenStudioApp::showAbout() {
   }
   QString details = tr("Measure Manager Server: ") + measureManager().url().toString() + "\n";
   details += tr("Chrome Debugger: http://localhost:") + qgetenv("QTWEBENGINE_REMOTE_DEBUGGING") + "\n";
-  details += tr("Temp Directory: ") + currentDocument()->modelTempDir();
+  if (currentDocument()) {
+    details += tr("Temp Directory: ") + currentDocument()->modelTempDir();
+  }
   QMessageBox about(parent);
   about.setText(OPENSTUDIOAPP_ABOUTBOX);
   about.setDetailedText(details);

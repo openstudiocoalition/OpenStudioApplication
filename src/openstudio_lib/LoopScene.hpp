@@ -10,7 +10,7 @@
 #include <QRectF>
 #include <boost/smart_ptr.hpp>
 #include <openstudio/model/Loop.hpp>
-#include "OSItem.hpp"
+#include "../shared_gui_components/OSItem.hpp"
 #include "GridScene.hpp"
 #include "../openstudio_qt_utils/QMetaTypes.hpp"
 

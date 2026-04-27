@@ -9,7 +9,7 @@
 #include "ModelObjectListView.hpp"
 #include "OSAppBase.hpp"
 #include "OSDocument.hpp"
-#include "OSDropZone.hpp"
+#include "../shared_gui_components/OSDropZone.hpp"
 #include "OSItemSelectorButtons.hpp"
 #include "SchedulesTabController.hpp"
 

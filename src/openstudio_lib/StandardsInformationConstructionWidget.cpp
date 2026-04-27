@@ -5,7 +5,7 @@
 
 #include "StandardsInformationConstructionWidget.hpp"
 
-#include "OSItem.hpp"
+#include "../shared_gui_components/OSItem.hpp"
 
 #include "../openstudio_qt_utils/Utilities.hpp"
 

@@ -7,7 +7,7 @@
 #define OPENSTUDIO_SERVICEWATERSCENE_HPP
 
 #include "GridScene.hpp"
-#include "OSItem.hpp"
+#include "../shared_gui_components/OSItem.hpp"
 #include "../openstudio_qt_utils/QMetaTypes.hpp"
 #include <openstudio/model/Model.hpp>
 #include <openstudio/model/WaterUseConnections.hpp>

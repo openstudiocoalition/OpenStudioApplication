@@ -4,7 +4,7 @@
 ***********************************************************************************************************************/
 
 #include "ModelObjectTreeItems.hpp"
-#include "ModelObjectItem.hpp"
+#include "../shared_gui_components/ModelObjectItem.hpp"
 #include "../shared_gui_components/IconLibrary.hpp"
 
 #include <openstudio/model/Model.hpp>

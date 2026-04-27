@@ -9,7 +9,7 @@
 
 #include "../DesignDayGridView.hpp"
 #include "../GridViewSubTab.hpp"
-#include "../OSDropZone.hpp"
+#include "../../shared_gui_components/OSDropZone.hpp"
 #include "../../shared_gui_components/OSCellWrapper.hpp"
 #include "../../shared_gui_components/OSGridController.hpp"
 #include "../../shared_gui_components/OSGridView.hpp"

@@ -12,7 +12,7 @@
 #include <openstudio/model/Model.hpp>
 #include <openstudio/model/ModelObject.hpp>
 
-#include "OSItem.hpp"
+#include "../shared_gui_components/OSItem.hpp"
 
 #include <QWidget>
 

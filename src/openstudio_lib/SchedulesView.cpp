@@ -8,7 +8,7 @@
 #include "OSAppBase.hpp"
 
 #include "../shared_gui_components/OSCheckBox.hpp"
-#include "OSItem.hpp"
+#include "../shared_gui_components/OSItem.hpp"
 #include "OSItemSelectorButtons.hpp"
 #include "../shared_gui_components/OSLineEdit.hpp"
 #include "../shared_gui_components/ColorPalettes.hpp"

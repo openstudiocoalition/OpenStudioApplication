@@ -7,8 +7,8 @@
 #define OPENSTUDIO_REFRIGERATIONGRAPHICSITEMS_HPP
 
 #include <QGraphicsObject>
-#include "OSItem.hpp"
-#include "OSDropZone.hpp"
+#include "../shared_gui_components/OSItem.hpp"
+#include "../shared_gui_components/OSDropZone.hpp"
 #include "../shared_gui_components/OSListController.hpp"
 #include "../shared_gui_components/GraphicsItems.hpp"
 #include <openstudio/utilities/idf/Handle.hpp>

@@ -10,7 +10,7 @@
 #include "OSDocument.hpp"
 #include "OSAppBase.hpp"
 #include "MainRightColumnController.hpp"
-#include "ModelObjectItem.hpp"
+#include "../shared_gui_components/ModelObjectItem.hpp"
 #include "../shared_gui_components/ColorPalettes.hpp"
 
 #include <openstudio/utilities/core/Assert.hpp>
@@ -1248,7 +1248,7 @@ void HorizontalBranchGroupItem::layout() {
 void HorizontalBranchGroupItem::paint(QPainter* painter, const QStyleOptionGraphicsItem* option, QWidget* widget) {}
 
 SystemItem::SystemItem(const model::Loop& loop, LoopScene* loopScene) : m_loop(loop), m_loopScene(loopScene) {
-  std::shared_ptr<OSDocument> doc = OSAppBase::instance()->currentDocument();
+  OSDocument* doc = OSAppBase::instance()->currentDocument();
   std::shared_ptr<MainRightColumnController> mrc = doc->mainRightColumnController();
   mrc->registerSystemItem(m_loop.handle(), this);
 
@@ -1333,7 +1333,7 @@ SystemItem::SystemItem(const model::Loop& loop, LoopScene* loopScene) : m_loop(l
 }
 
 SystemItem::~SystemItem() {
-  std::shared_ptr<OSDocument> doc = OSAppBase::instance()->currentDocument();
+  OSDocument* doc = OSAppBase::instance()->currentDocument();
   std::shared_ptr<MainRightColumnController> mrc = doc->mainRightColumnController();
   mrc->unregisterSystemItem(m_loop.handle());
 }

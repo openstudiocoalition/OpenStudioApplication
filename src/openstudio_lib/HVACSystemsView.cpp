@@ -5,10 +5,10 @@
 
 #include "HVACSystemsView.hpp"
 #include "../shared_gui_components/OSComboBox.hpp"
-#include "OSItem.hpp"
-#include "OSDropZone.hpp"
+#include "../shared_gui_components/OSItem.hpp"
+#include "../shared_gui_components/OSDropZone.hpp"
 #include "../shared_gui_components/OSSwitch.hpp"
-#include "ModelObjectItem.hpp"
+#include "../shared_gui_components/ModelObjectItem.hpp"
 #include "../shared_gui_components/OSViewSwitcher.hpp"
 #include "../shared_gui_components/Buttons.hpp"
 #include <openstudio/model/SetpointManagerOutdoorAirReset.hpp>

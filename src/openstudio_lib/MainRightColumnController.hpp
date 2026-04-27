@@ -14,7 +14,7 @@
 
 #include <QSharedPointer>
 
-#include "OSItem.hpp"
+#include "../shared_gui_components/OSItem.hpp"
 
 class QStackedWidget;
 

@@ -6,6 +6,7 @@ include_directories(${QT_INCLUDES})
 
 set(${target_name}_src
   BaseApp.hpp
+  BaseDocument.hpp
   BCLMeasureDialog.cpp
   BCLMeasureDialog.hpp
   BuildingComponentDialog.cpp
@@ -72,7 +73,14 @@ set(${target_name}_src
   OSGridController.hpp
   OSGridView.cpp
   OSGridView.hpp
+  OSItem.cpp
+  OSItem.hpp
+  OSItemId.cpp
   OSItemId.hpp
+  OSDropZone.cpp
+  OSDropZone.hpp
+  ModelObjectItem.cpp
+  ModelObjectItem.hpp
   OSIntegerEdit.cpp
   OSIntegerEdit.hpp
   OSLineEdit.cpp
@@ -156,6 +164,9 @@ set(${target_name}_moc
   OSDragableView.hpp
   OSGridController.hpp
   OSGridView.hpp
+  OSItem.hpp
+  OSDropZone.hpp
+  ModelObjectItem.hpp
   OSIntegerEdit.hpp
   OSLineEdit.hpp
   OSListController.hpp

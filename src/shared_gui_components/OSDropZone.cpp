@@ -5,15 +5,11 @@
 
 #include "OSDropZone.hpp"
 
-#include "../shared_gui_components/IconLibrary.hpp"
-#include "InspectorController.hpp"
-#include "InspectorView.hpp"
-#include "MainRightColumnController.hpp"
+#include "BaseApp.hpp"
+#include "IconLibrary.hpp"
 #include "ModelObjectItem.hpp"
-#include "OSAppBase.hpp"
-#include "OSDocument.hpp"
 #include "OSItem.hpp"
-#include "../shared_gui_components/OSVectorController.hpp"
+#include "OSVectorController.hpp"
 
 #include <openstudio/model/Component.hpp>
 #include <openstudio/model/ComponentData.hpp>
@@ -655,7 +651,14 @@ void OSDropZone2::dragEnterEvent(QDragEnterEvent* event) {
 void OSDropZone2::dropEvent(QDropEvent* event) {
   event->accept();
 
-  std::shared_ptr<OSDocument> doc = OSAppBase::instance()->currentDocument();
+  BaseApp* app = BaseApp::instance();
+  if (!app) {
+    return;
+  }
+  BaseDocument* doc = app->currentDocument();
+  if (!doc) {
+    return;
+  }
 
   if ((event->proposedAction() == Qt::CopyAction) && m_modelObject && m_set) {
 
@@ -668,15 +671,16 @@ void OSDropZone2::dropEvent(QDropEvent* event) {
     boost::optional<model::ComponentData> componentData;
 
     // If what you dragged is from the BCL, then VT it and insert it in model
-    // TODO: should we modify OSDocument::getModelObject instead?
-    // DLM: initially thought so but we also want to keep track of the component data as well
     if (doc->fromBCL(itemId)) {
       component = doc->getComponent(itemId);
       if (component) {
         if (component->primaryObject().optionalCast<model::ModelObject>()) {
-          componentData = doc->model().insertComponent(*component);
-          if (componentData) {
-            modelObject = componentData->primaryComponentObject();
+          boost::optional<model::Model> currentModel = app->currentModel();
+          if (currentModel) {
+            componentData = currentModel->insertComponent(*component);
+            if (componentData) {
+              modelObject = componentData->primaryComponentObject();
+            }
           }
         }
       }
@@ -696,7 +700,7 @@ void OSDropZone2::dropEvent(QDropEvent* event) {
         for (const auto& object : componentData->componentObjects()) {
           handlesToRemove.push_back(object.handle());
         }
-        doc->model().removeObjects(handlesToRemove);
+        modelObject->model().removeObjects(handlesToRemove);
         // removing objects in component will remove component data object via component watcher
         //componentData->remove();
         OS_ASSERT(componentData->handle().isNull());
@@ -757,8 +761,7 @@ void OSDropZone2::focusOutEvent(QFocusEvent* e) {
 
     emit inFocus(m_focused, false);
 
-    auto mouseOverInspectorView =
-      OSAppBase::instance()->currentDocument()->mainRightColumnController()->inspectorController()->inspectorView()->mouseOverInspectorView();
+    auto mouseOverInspectorView = BaseApp::instance() && BaseApp::instance()->mouseOverInspectorView();
     if (!mouseOverInspectorView) {
       emit itemClicked(nullptr);
     }

@@ -6,11 +6,12 @@
 #ifndef OPENSTUDIO_OSAPPBASE_HPP
 #define OPENSTUDIO_OSAPPBASE_HPP
 
+#include "OSDocument.hpp"
+
+#include "../openstudio_qt_utils/QMetaTypes.hpp"
 #include "../shared_gui_components/BaseApp.hpp"
 
 #include <openstudio/measure/OSMeasureInfoGetter.hpp>
-#include "../openstudio_qt_utils/QMetaTypes.hpp"
-
 #include <openstudio/utilities/core/Logger.hpp>
 
 #include <QApplication>
@@ -21,7 +22,6 @@ class QEvent;
 
 namespace openstudio {
 
-class OSDocument;
 
 class WaitDialog;
 
@@ -32,8 +32,9 @@ class WaitDialog;
  *      per process, and it must outlive all widgets.
  *
  *   2. Implements the BaseApp interface — all virtual methods declared in BaseApp are
- *      overridden here as `final`, forwarding to the current OSDocument and MainWindow.
- *      Shared components reach this implementation via static_cast<BaseApp*>(qApp).
+ *      overridden here as `final`, except currentDocument() which is left pure virtual
+ *      for the concrete subclass (e.g. OpenStudioApp) to supply.
+ *      Shared components reach this implementation via dynamic_cast<BaseApp*>(qApp).
  *
  *   3. Leaves currentDocument() pure — concrete subclasses (e.g. OpenStudioApp) supply
  *      the document ownership strategy.
@@ -58,7 +59,12 @@ class OSAppBase
 
   virtual ~OSAppBase();
 
-  virtual std::shared_ptr<OSDocument> currentDocument() const = 0;
+  /// Returns the current document as a concrete OSDocument. Covariant override of
+  /// BaseApp::currentDocument() — C++ allows raw pointer covariance, so a single virtual
+  /// serves both openstudio_lib callers (which get OSDocument*) and shared_gui_components
+  /// callers (which receive the BaseDocument* base pointer). Pure virtual — OpenStudioApp
+  /// owns the document and provides the implementation.
+  virtual OSDocument* currentDocument() const = 0;
 
   static OSAppBase* instance();
 
@@ -89,6 +95,8 @@ class OSAppBase
   std::vector<BCLMeasure> getLocalMeasures() const final;
   std::size_t removeOutdatedLocalComponents(const std::string& uid, const std::string& currentVersionId) const final;
   std::size_t removeOutdatedLocalMeasures(const std::string& uid, const std::string& currentVersionId) const final;
+
+  OSItem* makeItem(const OSItemId& itemId, OSItemType osItemType) final;
 
   virtual openstudio::path dviewPath() const;
   virtual bool notify(QObject* receiver, QEvent* e) override;

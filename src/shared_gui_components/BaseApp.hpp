@@ -6,35 +6,34 @@
 #ifndef SHAREDGUICOMPONENTS_BASEAPP_HPP
 #define SHAREDGUICOMPONENTS_BASEAPP_HPP
 
-#include <openstudio/utilities/core/Path.hpp>
-#include <openstudio/utilities/bcl/BCLComponent.hpp>
-#include <openstudio/utilities/bcl/BCLMeasure.hpp>
+#include "BaseDocument.hpp"
+#include "LocalLibrary.hpp"
+#include "OSItemId.hpp"
+
 #include "../openstudio_qt_utils/QMetaTypes.hpp"
 
-#include <QWidget>
+#include <openstudio/utilities/bcl/BCLComponent.hpp>
+#include <openstudio/utilities/bcl/BCLMeasure.hpp>
+#include <openstudio/utilities/core/Path.hpp>
+
 #include <QApplication>
+#include <QWidget>
 #include <boost/optional.hpp>
 //#include "EditController.hpp"
 
+#include <cstddef>
+#include <memory>
 #include <string>
 #include <vector>
-#include <cstddef>
 
 namespace openstudio {
 class MeasureManager;
 class EditController;
+class OSItem;
 class Workspace;
 
-//namespace analysisdriver {
-//  class SimpleProject;
-//}
-
-namespace model {
-class Model;
-}
-
 /**
- * BaseApp is the pure abstract interface through which all shared GUI components access
+ * BaseApp is the **pure virtual interface** through which all shared GUI components access
  * application services. It lives in openstudio_shared_gui (a lower-level library) and
  * deliberately has no dependency on OSAppBase, OSDocument, or any openstudio_lib symbol.
  *
@@ -43,9 +42,9 @@ class Model;
  *     queries, CLI mode flag, inspector focus state, etc.).
  *   - Be reachable process-wide via BaseApp::instance(), which down-casts qApp
  *     (safe because OSAppBase inherits both QApplication and BaseApp).
- *   - Provide safe default implementations for optional capabilities (BCL queries return
- *     empty/none; useClassicCLI returns false) so that lightweight hosts such as test
- *     fixtures do not need to implement every method.
+ *
+ * Every method is pure virtual — OSAppBase (in openstudio_lib) provides all implementations,
+ * each marked `final`.
  *
  * Dependency rule:
  *   shared_gui_components  →  BaseApp  (this file, no openstudio_lib symbols)
@@ -85,32 +84,26 @@ class BaseApp
   virtual bool mouseOverInspectorView() = 0;
 
   /// Whether the application is using the classic (legacy) CLI rather than the Labs CLI.
-  virtual bool useClassicCLI() const {
-    return false;
-  }
+  virtual bool useClassicCLI() const = 0;
 
   /// Disable the document UI (e.g. while a drop operation is in progress).
-  virtual void disableDocument() {}
+  virtual void disableDocument() = 0;
 
   /// Re-enable the document UI after a disable call.
-  virtual void enableDocument() {}
+  virtual void enableDocument() = 0;
 
-  /// BCL document queries — default implementations return empty/none for contexts without a document.
-  virtual boost::optional<BCLComponent> getLocalComponent(const std::string& uid, const std::string& versionId = "") const {
-    return boost::none;
-  }
-  virtual boost::optional<BCLMeasure> getLocalMeasure(const std::string& uid, const std::string& versionId = "") const {
-    return boost::none;
-  }
-  virtual std::vector<BCLMeasure> getLocalMeasures() const {
-    return {};
-  }
-  virtual std::size_t removeOutdatedLocalComponents(const std::string& uid, const std::string& currentVersionId) const {
-    return 0;
-  }
-  virtual std::size_t removeOutdatedLocalMeasures(const std::string& uid, const std::string& currentVersionId) const {
-    return 0;
-  }
+  /// BCL document queries.
+  virtual boost::optional<BCLComponent> getLocalComponent(const std::string& uid, const std::string& versionId = "") const = 0;
+  virtual boost::optional<BCLMeasure> getLocalMeasure(const std::string& uid, const std::string& versionId = "") const = 0;
+  virtual std::vector<BCLMeasure> getLocalMeasures() const = 0;
+  virtual std::size_t removeOutdatedLocalComponents(const std::string& uid, const std::string& currentVersionId) const = 0;
+  virtual std::size_t removeOutdatedLocalMeasures(const std::string& uid, const std::string& currentVersionId) const = 0;
+
+  /// Returns the current document, or nullptr if no document is open.
+  virtual BaseDocument* currentDocument() const = 0;
+
+  /// Factory: create the correct OSItem subclass for a given id.
+  virtual OSItem* makeItem(const OSItemId& itemId, OSItemType osItemType) = 0;
 };
 
 }  // namespace openstudio

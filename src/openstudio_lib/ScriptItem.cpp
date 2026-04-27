@@ -42,7 +42,7 @@ ScriptItem::ScriptItem(const openstudio::path& t_path, OSItemType type, QWidget*
   //  }
   //}
 
-  //std::shared_ptr<OSDocument> osDoc = OSAppBase::instance()->currentDocument();
+  //OSDocument* osDoc = OSAppBase::instance()->currentDocument();
   //connect(this, &ScriptItem::argChanged, osDoc.get(), &OSDocument::markAsModified);
 }
 

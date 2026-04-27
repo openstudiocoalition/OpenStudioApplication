@@ -7,9 +7,9 @@
 #include "VRFGraphicsItems.hpp"
 #include "OSAppBase.hpp"
 #include "OSDocument.hpp"
-#include "OSItem.hpp"
-#include "ModelObjectItem.hpp"
-#include "OSDropZone.hpp"
+#include "../shared_gui_components/OSItem.hpp"
+#include "../shared_gui_components/ModelObjectItem.hpp"
+#include "../shared_gui_components/OSDropZone.hpp"
 #include "MainWindow.hpp"
 #include "MainRightColumnController.hpp"
 #include <openstudio/model/Model.hpp>
@@ -120,7 +120,7 @@ void VRFController::refreshNow() {
 
 void VRFController::onVRFSystemViewDrop(const OSItemId& itemid) {
   OS_ASSERT(m_currentSystem);
-  std::shared_ptr<OSDocument> doc = OSAppBase::instance()->currentDocument();
+  OSDocument* doc = OSAppBase::instance()->currentDocument();
 
   if (doc->fromComponentLibrary(itemid)) {
     if (boost::optional<model::ModelObject> mo = doc->getModelObject(itemid)) {
@@ -161,7 +161,7 @@ void VRFController::onVRFSystemViewDrop(const OSItemId& itemid) {
 
 void VRFController::onVRFSystemViewZoneDrop(const OSItemId& itemid) {
   OS_ASSERT(m_currentSystem);
-  std::shared_ptr<OSDocument> doc = OSAppBase::instance()->currentDocument();
+  OSDocument* doc = OSAppBase::instance()->currentDocument();
 
   if (doc->fromModel(itemid)) {
     boost::optional<model::ModelObject> mo = doc->getModelObject(itemid);
@@ -220,7 +220,7 @@ void VRFController::onVRFTerminalViewDrop(const OSItemId& terminalId, const OSIt
 
 void VRFController::onRemoveZoneClicked(const OSItemId& terminalId) {
   OS_ASSERT(m_currentSystem);
-  std::shared_ptr<OSDocument> doc = OSAppBase::instance()->currentDocument();
+  OSDocument* doc = OSAppBase::instance()->currentDocument();
 
   boost::optional<model::ModelObject> mo = doc->getModelObject(terminalId);
   OS_ASSERT(mo);
@@ -234,7 +234,7 @@ void VRFController::onRemoveZoneClicked(const OSItemId& terminalId) {
 
 void VRFController::onRemoveTerminalClicked(const OSItemId& terminalId) {
   OS_ASSERT(m_currentSystem);
-  std::shared_ptr<OSDocument> doc = OSAppBase::instance()->currentDocument();
+  OSDocument* doc = OSAppBase::instance()->currentDocument();
 
   boost::optional<model::ModelObject> mo = doc->getModelObject(terminalId);
   OS_ASSERT(mo);
@@ -249,7 +249,7 @@ void VRFController::onRemoveTerminalClicked(const OSItemId& terminalId) {
 void VRFController::zoomInOnSystem(const model::AirConditionerVariableRefrigerantFlow& system) {
   m_currentSystem = system;
 
-  std::shared_ptr<OSDocument> doc = OSAppBase::instance()->currentDocument();
+  OSDocument* doc = OSAppBase::instance()->currentDocument();
   model::OptionalModelObject mo;
   doc->mainRightColumnController()->inspectModelObject(mo, false);
 
@@ -271,7 +271,7 @@ void VRFController::zoomOutToSystemGridView() {
   m_currentSystem = boost::none;
 
   model::OptionalModelObject mo;
-  std::shared_ptr<OSDocument> doc = OSAppBase::instance()->currentDocument();
+  OSDocument* doc = OSAppBase::instance()->currentDocument();
   doc->mainRightColumnController()->inspectModelObject(mo, false);
 
   m_vrfSystemListController->reset();
@@ -288,7 +288,7 @@ void VRFController::inspectOSItem(const OSItemId& itemid) {
   OS_ASSERT(m_currentSystem);
   boost::optional<model::ModelObject> mo = m_currentSystem->model().getModelObject<model::ModelObject>(toUUID(itemid.itemId()));
 
-  std::shared_ptr<OSDocument> doc = OSAppBase::instance()->currentDocument();
+  OSDocument* doc = OSAppBase::instance()->currentDocument();
   OS_ASSERT(doc);
   doc->mainRightColumnController()->inspectModelObject(mo, false);
 }

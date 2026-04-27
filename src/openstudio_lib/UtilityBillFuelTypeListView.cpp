@@ -5,7 +5,7 @@
 
 #include "UtilityBillFuelTypeListView.hpp"
 
-#include "ModelObjectItem.hpp"
+#include "../shared_gui_components/ModelObjectItem.hpp"
 #include "OSItemList.hpp"
 #include "OSAppBase.hpp"
 

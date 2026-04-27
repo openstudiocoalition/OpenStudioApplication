@@ -5,7 +5,7 @@
 
 #include "SpacesInteriorPartitionsGridView.hpp"
 
-#include "OSDropZone.hpp"
+#include "../shared_gui_components/OSDropZone.hpp"
 #include "OSItemSelectorButtons.hpp"
 
 #include "../shared_gui_components/OSCheckBox.hpp"

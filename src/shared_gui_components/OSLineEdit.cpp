@@ -5,9 +5,9 @@
 
 #include "OSLineEdit.hpp"
 
-#include "../openstudio_lib/ModelObjectItem.hpp"
+#include "ModelObjectItem.hpp"
 #include "BaseApp.hpp"
-#include "../openstudio_lib/OSItem.hpp"
+#include "OSItem.hpp"
 #include "../openstudio_qt_utils/Utilities.hpp"
 
 #include <openstudio/model/ModelObject.hpp>

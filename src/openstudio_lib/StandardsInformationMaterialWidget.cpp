@@ -5,7 +5,7 @@
 
 #include "StandardsInformationMaterialWidget.hpp"
 
-#include "OSItem.hpp"
+#include "../shared_gui_components/OSItem.hpp"
 
 #include "../shared_gui_components/OSComboBox.hpp"
 #include "../shared_gui_components/OSLineEdit.hpp"

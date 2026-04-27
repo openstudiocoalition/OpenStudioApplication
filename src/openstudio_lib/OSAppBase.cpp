@@ -6,20 +6,22 @@
 #include "OSAppBase.hpp"
 
 #include "ApplyMeasureNowDialog.hpp"
+#include "BCLComponentItem.hpp"
 #include "InspectorController.hpp"
 #include "InspectorView.hpp"
 #include "MainRightColumnController.hpp"
 #include "MainWindow.hpp"
 #include "OSDocument.hpp"
+#include "ScriptItem.hpp"
+
 #include "../openstudio_qt_utils/Utilities.hpp"
-
 #include "../shared_gui_components/EditController.hpp"
-#include "../shared_gui_components/MeasureManager.hpp"
-#include "../shared_gui_components/LocalLibraryView.hpp"
 #include "../shared_gui_components/LocalLibraryController.hpp"
-#include "../shared_gui_components/WaitDialog.hpp"
-
+#include "../shared_gui_components/LocalLibraryView.hpp"
+#include "../shared_gui_components/MeasureManager.hpp"
+#include "../shared_gui_components/ModelObjectItem.hpp"
 #include "../shared_gui_components/UserSettings.hpp"
+#include "../shared_gui_components/WaitDialog.hpp"
 
 #include <openstudio/utilities/bcl/LocalBCL.hpp>
 #include <openstudio/utilities/core/PathHelpers.hpp>
@@ -77,7 +79,7 @@ void OSAppBase::showMeasureUpdateDlg() {
 
 //boost::optional<openstudio::analysisdriver::SimpleProject> OSAppBase::project()
 //{
-//  std::shared_ptr<OSDocument> document = currentDocument();
+//  OSDocument* document = currentDocument();
 //
 //  if (document)
 //  {
@@ -108,7 +110,7 @@ void OSAppBase::removeWorkspaceObjectPtr(std::shared_ptr<openstudio::detail::Wor
 }
 
 QWidget* OSAppBase::mainWidget() {
-  std::shared_ptr<OSDocument> document = currentDocument();
+  OSDocument* document = currentDocument();
 
   if (document) {
     return document->mainWindow();
@@ -118,7 +120,7 @@ QWidget* OSAppBase::mainWidget() {
 }
 
 boost::optional<openstudio::path> OSAppBase::tempDir() {
-  std::shared_ptr<OSDocument> document = currentDocument();
+  OSDocument* document = currentDocument();
   if (document) {
     return toPath(document->modelTempDir());
   }
@@ -126,7 +128,7 @@ boost::optional<openstudio::path> OSAppBase::tempDir() {
 }
 
 boost::optional<openstudio::model::Model> OSAppBase::currentModel() {
-  std::shared_ptr<OSDocument> document = currentDocument();
+  OSDocument* document = currentDocument();
   if (document) {
     return document->model();
   } else {
@@ -135,7 +137,7 @@ boost::optional<openstudio::model::Model> OSAppBase::currentModel() {
 }
 
 bool OSAppBase::mouseOverInspectorView() {
-  std::shared_ptr<OSDocument> document = currentDocument();
+  OSDocument* document = currentDocument();
   if (document) {
     return document->mainRightColumnController()->inspectorController()->inspectorView()->mouseOverInspectorView();
   }
@@ -144,7 +146,7 @@ bool OSAppBase::mouseOverInspectorView() {
 
 //boost::optional<openstudio::Workspace> OSAppBase::currentWorkspace()
 //{
-//  std::shared_ptr<OSDocument> document = currentDocument();
+//  OSDocument* document = currentDocument();
 //  if (document)
 //  {
 //    return document->workspace();
@@ -160,7 +162,7 @@ MeasureManager& OSAppBase::measureManager() {
 void OSAppBase::updateSelectedMeasureState() {
   // DLM: this slot seems out of place here, seems like the connection from the measure list to enabling duplicate buttons, etc
   // should be tighter
-  std::shared_ptr<OSDocument> document = currentDocument();
+  OSDocument* document = currentDocument();
 
   if (document) {
     std::shared_ptr<MainRightColumnController> mainRightColumnController = document->mainRightColumnController();
@@ -194,7 +196,7 @@ void OSAppBase::duplicateSelectedMeasure() {
 }
 
 void OSAppBase::updateMyMeasures() {
-  std::shared_ptr<OSDocument> document = currentDocument();
+  OSDocument* document = currentDocument();
 
   if (document) {
     //boost::optional<analysisdriver::SimpleProject> project = document->project();
@@ -210,7 +212,7 @@ void OSAppBase::updateMyMeasures() {
 }
 
 void OSAppBase::updateBCLMeasures() {
-  std::shared_ptr<OSDocument> document = currentDocument();
+  OSDocument* document = currentDocument();
 
   if (document) {
     //boost::optional<analysisdriver::SimpleProject> project = document->project();
@@ -230,7 +232,7 @@ void OSAppBase::checkForRemoteBCLUpdates() {
 }
 
 void OSAppBase::openBclDlg() {
-  std::shared_ptr<OSDocument> document = currentDocument();
+  OSDocument* document = currentDocument();
 
   if (document) {
     document->openMeasuresBclDlg();
@@ -238,7 +240,7 @@ void OSAppBase::openBclDlg() {
 }
 
 void OSAppBase::chooseHorizontalEditTab() {
-  std::shared_ptr<OSDocument> document = currentDocument();
+  OSDocument* document = currentDocument();
 
   if (document) {
     document->mainRightColumnController()->chooseEditTab();
@@ -246,7 +248,7 @@ void OSAppBase::chooseHorizontalEditTab() {
 }
 
 QSharedPointer<EditController> OSAppBase::editController() {
-  std::shared_ptr<OSDocument> document = currentDocument();
+  OSDocument* document = currentDocument();
 
   if (document) {
     return document->mainRightColumnController()->measuresEditController();
@@ -321,6 +323,34 @@ std::size_t OSAppBase::removeOutdatedLocalMeasures(const std::string& uid, const
     return doc->removeOutdatedLocalMeasures(uid, currentVersionId);
   }
   return 0;
+}
+
+OSItem* OSAppBase::makeItem(const OSItemId& itemId, OSItemType osItemType) {
+  auto doc = currentDocument();
+  if (!doc) {
+    return nullptr;
+  }
+
+  if (itemId.sourceId() == OSItemId::BCL_SOURCE_ID) {
+    boost::optional<BCLComponent> comp = doc->getLocalComponent(itemId.itemId().toStdString());
+    if (comp) {
+      return new BCLComponentItem(comp.get(), osItemType);
+    }
+    return nullptr;
+  }
+
+  boost::optional<model::ModelObject> modelObject = doc->getModelObject(itemId);
+  if (modelObject) {
+    return new ModelObjectItem(*modelObject, itemId.isDefaulted(), osItemType);
+  }
+
+  openstudio::path p = openstudio::toPath(itemId.itemId());
+  boost::system::error_code ec;
+  if (openstudio::filesystem::exists(p, ec)) {
+    return new ScriptItem(p, osItemType);
+  }
+
+  return nullptr;
 }
 
 }  // namespace openstudio

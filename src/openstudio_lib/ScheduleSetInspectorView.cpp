@@ -5,9 +5,9 @@
 
 #include "ScheduleSetInspectorView.hpp"
 
-#include "ModelObjectItem.hpp"
+#include "../shared_gui_components/ModelObjectItem.hpp"
 #include "ModelObjectTypeListView.hpp"
-#include "OSDropZone.hpp"
+#include "../shared_gui_components/OSDropZone.hpp"
 #include "../shared_gui_components/OSLineEdit.hpp"
 
 #include <openstudio/model/DefaultScheduleSet_Impl.hpp>

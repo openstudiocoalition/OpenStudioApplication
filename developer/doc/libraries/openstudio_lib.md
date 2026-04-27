@@ -18,7 +18,7 @@ The module follows a consistent **Controller / View / Inspector triad** per doma
 classDiagram
   class OSAppBase {
     <<abstract, QApplication>>
-    +currentDocument() OSDocument* = 0
+    +currentDocument() OSDocument*
     +measureManager() MeasureManager&
     +instance() OSAppBase*
     signals: workspaceObjectAdded, workspaceObjectRemoved
@@ -97,16 +97,12 @@ classDiagram
 
 | Class | Description |
 |---|---|
-| `OSItem` | Base class for all draggable/selectable model object items |
-| `OSDropZone` | Widget that accepts model object drops |
 | `OSItemList` / `OSCollapsibleItem` | Container widgets for ordered lists of `OSItem`s |
 | `ModelObjectListView` | Generic list view displaying any collection of model objects |
 | `ModelObjectTreeWidget` | Generic tree view for hierarchical model data |
 | `OSWebEnginePage` | `QWebEnginePage` subclass for the geometry JS bridge |
 
-> **Note:** `OSVectorController`, `IconLibrary` have moved to `shared_gui_components`.
->
-> **Boundary note:** `OSItem`, `OSDropZone`, and `ModelObjectItem` are currently in `openstudio_lib` for historical reasons, but `shared_gui_components` code (`OSCellWrapper`, `OSGridView`, `OSWidgetHolder`, `OSLineEdit`, `OSGridController`, `LocalLibraryController`) includes them via backward cross-library `#include` paths. These three classes should be moved to `shared_gui_components` in a future refactor — none of them have dependencies that would prevent the move.
+> **Note:** `OSVectorController`, `IconLibrary`, `OSItem`, `OSDropZone`, `ModelObjectItem`, and `OSItemId` have all moved to `shared_gui_components`.
 
 ---
 

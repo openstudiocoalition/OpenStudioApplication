@@ -5,20 +5,15 @@
 
 #include "OSItem.hpp"
 
-#include "BCLComponentItem.hpp"
-#include "../shared_gui_components/IconLibrary.hpp"
+#include "BaseApp.hpp"
+#include "IconLibrary.hpp"
+#include "MeasureBadge.hpp"
 #include "ModelObjectItem.hpp"
-#include "OSAppBase.hpp"
-#include "OSDocument.hpp"
-#include "OSDropZone.hpp"
-#include "ScriptItem.hpp"
 
-#include "../shared_gui_components/MeasureBadge.hpp"
+#include "../openstudio_qt_utils/Utilities.hpp"
 
 #include <openstudio/utilities/bcl/LocalBCL.hpp>
 #include <openstudio/utilities/core/Assert.hpp>
-
-#include "../openstudio_qt_utils/Utilities.hpp"
 
 #include <QBoxLayout>
 #include <QDrag>
@@ -33,82 +28,6 @@
 #include <QStyleOption>
 
 namespace openstudio {
-
-const QString OSItemId::BCL_SOURCE_ID = QString("BCL");
-
-OSItemId::OSItemId() : m_isDefaulted(false) {}
-
-OSItemId::OSItemId(const QString& itemId, const QString& sourceId, bool isDefaulted, const QString& otherData)
-  : m_itemId(itemId), m_sourceId(sourceId), m_otherData(otherData), m_isDefaulted(isDefaulted) {}
-
-OSItemId::OSItemId(const QMimeData* mimeData) : m_isDefaulted(false) {
-  QStringList strings = mimeData->text().split(",");
-  if (!strings.empty()) {
-    m_itemId = strings[0];
-  }
-  if (strings.size() > 1) {
-    m_sourceId = strings[1];
-  }
-  if (strings.size() > 2) {
-    m_isDefaulted = (strings[2] == "True");
-  }
-  if (strings.size() > 3) {
-    if (strings[3] == "None") {
-      m_position_.reset();
-    } else {
-      m_position_ = strings[3].toInt();
-    }
-  }
-  for (int i = 4; i < strings.size(); ++i) {
-    m_otherData += strings[i];
-    if (i < strings.size() - 1) {
-      m_otherData += ",";
-    }
-  }
-}
-
-QString OSItemId::itemId() const {
-  return m_itemId;
-}
-
-QString OSItemId::sourceId() const {
-  return m_sourceId;
-}
-
-QString OSItemId::otherData() const {
-  return m_otherData;
-}
-
-QString OSItemId::mimeDataText() const {
-  QString isDefaultedString((m_isDefaulted ? "True" : "False"));
-  QString positonString((m_position_ ? QString::number(m_position_.get()) : "None"));
-  QString result = m_itemId + "," + m_sourceId + "," + isDefaultedString + "," + positonString + "," + m_otherData;
-  return result;
-}
-
-bool OSItemId::isDefaulted() const {
-  return m_isDefaulted;
-}
-
-void OSItemId::setIsDefaulted(bool isDefaulted) {
-  m_isDefaulted = isDefaulted;
-}
-
-boost::optional<int> OSItemId::position() const {
-  return m_position_;
-}
-
-void OSItemId::setPosition(int position) {
-  m_position_ = position;
-}
-
-bool OSItemId::operator==(const OSItemId& other) const {
-  bool result = false;
-  if (!this->mimeDataText().isEmpty()) {
-    result = (this->mimeDataText() == other.mimeDataText());
-  }
-  return result;
-}
 
 OSItem::OSItem(const OSItemId& itemId, OSItemType osItemType, QWidget* parent)
   : QWidget(parent),
@@ -137,28 +56,10 @@ OSItem::OSItem(const OSItemId& itemId, OSItemType osItemType, QWidget* parent)
 }
 
 OSItem* OSItem::makeItem(const OSItemId& itemId, OSItemType osItemType) {
-  OSItem* result = nullptr;
-
-  OSAppBase* app = OSAppBase::instance();
-
-  if (itemId.sourceId() == OSItemId::BCL_SOURCE_ID) {
-    boost::optional<BCLComponent> comp = OSAppBase::instance()->currentDocument()->getLocalComponent(itemId.itemId().toStdString());
-    if (comp) {
-      result = new BCLComponentItem(comp.get(), osItemType);
-    }
-  } else {
-    boost::optional<model::ModelObject> modelObject = app->currentDocument()->getModelObject(itemId);
-    if (modelObject) {
-      result = new ModelObjectItem(*modelObject, itemId.isDefaulted(), osItemType);
-    } else {
-      openstudio::path p = openstudio::toPath(itemId.itemId());
-      boost::system::error_code ec;
-      if (openstudio::filesystem::exists(p, ec)) {
-        result = new ScriptItem(p, osItemType);
-      }
-    }
+  if (BaseApp* app = BaseApp::instance()) {
+    return app->makeItem(itemId, osItemType);
   }
-  return result;
+  return nullptr;
 }
 
 void OSItem::createLayout() {
@@ -179,18 +80,19 @@ void OSItem::createLayout() {
 
   mainHLayout->addLayout(leftVBoxLayout);
 
-  std::shared_ptr<OSDocument> doc = OSAppBase::instance()->currentDocument();
-  if (doc) {
-    boost::optional<IddObjectType> iddObjectType = doc->getIddObjectType(m_itemId);
-    if (iddObjectType) {
-      const QPixmap* pixmap = IconLibrary::Instance().findMiniIcon(iddObjectType->value());
-      if (pixmap) {
-        setLeftPixmap(*pixmap);
-      }
+  if (BaseApp* app = BaseApp::instance()) {
+    if (BaseDocument* doc = app->currentDocument()) {
+      boost::optional<IddObjectType> iddObjectType = doc->getIddObjectType(m_itemId);
+      if (iddObjectType) {
+        const QPixmap* pixmap = IconLibrary::Instance().findMiniIcon(iddObjectType->value());
+        if (pixmap) {
+          setLeftPixmap(*pixmap);
+        }
 
-      pixmap = IconLibrary::Instance().findIcon(iddObjectType->value());
-      if (pixmap) {
-        m_largePixmap = *pixmap;
+        pixmap = IconLibrary::Instance().findIcon(iddObjectType->value());
+        if (pixmap) {
+          m_largePixmap = *pixmap;
+        }
       }
     }
   }

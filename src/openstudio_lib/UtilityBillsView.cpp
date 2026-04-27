@@ -5,8 +5,8 @@
 
 #include "UtilityBillsView.hpp"
 
-#include "OSItem.hpp"
-#include "ModelObjectItem.hpp"
+#include "../shared_gui_components/OSItem.hpp"
+#include "../shared_gui_components/ModelObjectItem.hpp"
 #include "UtilityBillFuelTypeListView.hpp"
 #include "UtilityBillAllFuelTypesListView.hpp"
 
@@ -48,8 +48,8 @@ namespace openstudio {
 
 UtilityBillsView::UtilityBillsView(const openstudio::model::Model& model, QWidget* parent)
   : ModelSubTabView(
-    new UtilityBillAllFuelTypesListView(UtilityBillsView::utilityBillFuelTypesAndNames(), model, true, OSItemType::CollapsibleListHeader, parent),
-    new UtilityBillsInspectorView(model, parent), false, parent) {
+      new UtilityBillAllFuelTypesListView(UtilityBillsView::utilityBillFuelTypesAndNames(), model, true, OSItemType::CollapsibleListHeader, parent),
+      new UtilityBillsInspectorView(model, parent), false, parent) {
   connect(dynamic_cast<UtilityBillsInspectorView*>(modelObjectInspectorView()), &UtilityBillsInspectorView::enableAddNewObjectButton, this,
           &UtilityBillsView::enableAddNewObjectButton);
 }

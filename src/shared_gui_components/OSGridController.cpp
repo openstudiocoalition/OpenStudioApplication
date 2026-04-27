@@ -16,8 +16,8 @@ namespace {
 #include "OSGridView.hpp"
 #include "OSObjectSelector.hpp"
 
-#include "../openstudio_lib/ModelObjectItem.hpp"
-#include "../openstudio_lib/OSItem.hpp"
+#include "ModelObjectItem.hpp"
+#include "OSItem.hpp"
 
 #include <QFocusEvent>
 #include <QLabel>

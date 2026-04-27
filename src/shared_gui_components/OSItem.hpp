@@ -6,8 +6,8 @@
 #ifndef OPENSTUDIO_OSITEM_HPP
 #define OPENSTUDIO_OSITEM_HPP
 
-#include "../shared_gui_components/LocalLibrary.hpp"
-#include "../shared_gui_components/OSItemId.hpp"
+#include "LocalLibrary.hpp"
+#include "OSItemId.hpp"
 
 #include <QVariant>
 #include <QWidget>

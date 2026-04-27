@@ -5,7 +5,7 @@
 
 #include "OSCollapsibleItemHeader.hpp"
 
-#include "OSItem.hpp"
+#include "../shared_gui_components/OSItem.hpp"
 #include <openstudio/utilities/core/Assert.hpp>
 
 #include <QBoxLayout>

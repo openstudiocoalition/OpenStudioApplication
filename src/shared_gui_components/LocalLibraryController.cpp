@@ -13,8 +13,6 @@
 #include "OSListView.hpp"
 #include "OSViewSwitcher.hpp"
 
-
-
 #include "MeasureBadge.hpp"
 
 #include "UserSettings.hpp"

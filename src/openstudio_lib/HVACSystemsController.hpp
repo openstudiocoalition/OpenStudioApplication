@@ -9,13 +9,13 @@
 #include <openstudio/model/Model.hpp>
 #include <openstudio/model/ModelObject.hpp>
 #include <openstudio/model/Loop.hpp>
-#include "OSDropZone.hpp"
-#include "ModelObjectItem.hpp"
+#include "../shared_gui_components/OSDropZone.hpp"
+#include "../shared_gui_components/ModelObjectItem.hpp"
 #include "ModelObjectVectorController.hpp"
 #include <boost/smart_ptr.hpp>
 #include "SOConstants.hpp"
 #include "../shared_gui_components/OSQObjectController.hpp"
-#include "OSItem.hpp"
+#include "../shared_gui_components/OSItem.hpp"
 #include "../shared_gui_components/OSComboBox.hpp"
 #include <QAbstractListModel>
 #include <QPointer>

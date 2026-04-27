@@ -19,7 +19,7 @@
 #include "LocationTabView.hpp"
 #include "MainRightColumnController.hpp"
 #include "MainWindow.hpp"
-#include "ModelObjectItem.hpp"
+#include "../shared_gui_components/ModelObjectItem.hpp"
 #include "ModelObjectTypeListView.hpp"
 #include "OSAppBase.hpp"
 #include "ResultsTabController.hpp"

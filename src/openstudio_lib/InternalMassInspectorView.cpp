@@ -6,8 +6,8 @@
 #include "InternalMassInspectorView.hpp"
 #include "../shared_gui_components/OSLineEdit.hpp"
 #include "../shared_gui_components/OSQuantityEdit.hpp"
-#include "OSDropZone.hpp"
-#include "ModelObjectItem.hpp"
+#include "../shared_gui_components/OSDropZone.hpp"
+#include "../shared_gui_components/ModelObjectItem.hpp"
 #include <openstudio/model/InternalMassDefinition.hpp>
 #include <openstudio/model/InternalMassDefinition_Impl.hpp>
 #include <openstudio/model/ConstructionBase.hpp>

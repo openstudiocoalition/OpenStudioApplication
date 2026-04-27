@@ -9,7 +9,7 @@
 #include <openstudio/model/Model.hpp>
 #include <openstudio/model/ModelObject.hpp>
 #include <openstudio/model/Space.hpp>
-#include "OSItem.hpp"
+#include "../shared_gui_components/OSItem.hpp"
 
 #include <QObject>
 #include <QTreeWidgetItem>

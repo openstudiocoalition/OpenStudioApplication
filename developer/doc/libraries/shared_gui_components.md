@@ -30,6 +30,16 @@ classDiagram
     +openBclDlg() = 0
     +tempDir() optional~path~ = 0
     +currentModel() optional~Model~ = 0
+    +currentDocument() BaseDocument*
+    +makeItem(itemId, type) OSItem*
+  }
+  class BaseDocument {
+    <<interface>>
+    +fromBCL(itemId) bool = 0
+    +fromComponentLibrary(itemId) bool = 0
+    +getIddObjectType(itemId) optional~IddObjectType~ = 0
+    +getModelObject(itemId) optional~ModelObject~ = 0
+    +getComponent(itemId) optional~Component~ = 0
   }
   class MeasureManager {
     +url() QUrl
@@ -67,6 +77,7 @@ classDiagram
   }
 
   BaseApp <|.. OSAppBase : implements
+  BaseApp --> BaseDocument : currentDocument()
   MeasureManager --> BaseApp : uses
   OSGridView --> OSGridController : owned by
   LocalLibraryController --> MeasureManager : uses
@@ -109,7 +120,7 @@ All typed input widgets follow the same pattern: they read from and write to a `
 | `OSQuantityEdit` / `OSQuantityEdit2` | Dimensional quantity editor with SI/IP toggle |
 | `OSOptionalQuantityEdit` | Optional dimensional quantity (blank = unset) |
 
-> **Note:** `OSVectorController`, `OSItemId`, `IconLibrary`, and `UserSettings` are now part of `shared_gui_components` (previously in `openstudio_lib` or `model_editor`).
+> **Note:** `OSVectorController`, `OSItemId`, `IconLibrary`, `UserSettings`, `OSItem`, `OSDropZone`, and `ModelObjectItem` are now fully in `shared_gui_components` (previously in `openstudio_lib` or `model_editor`). All document/app operations are routed through `BaseApp` virtual methods.
 
 The `2` suffix variants use `std::function` callbacks instead of `QObject` signal/slot; they are preferred in newer code.
 
@@ -161,18 +172,7 @@ flowchart TD
 
 ## Known Boundary Violations
 
-The following files in `shared_gui_components` currently include headers from `openstudio_lib`, which is a **higher-level** library and violates the intended dependency order. These are tracked as tech debt:
-
-| File | Bad include | Notes |
-|---|---|---|
-| `OSCellWrapper.cpp` | `../openstudio_lib/OSDropZone.hpp` | `OSDropZone` should move to `shared_gui_components` |
-| `OSGridView.cpp` | `../openstudio_lib/OSDropZone.hpp` | Same as above |
-| `OSWidgetHolder.cpp` | `../openstudio_lib/OSDropZone.hpp` | Same as above |
-| `OSLineEdit.cpp` | `../openstudio_lib/OSItem.hpp`, `ModelObjectItem.hpp` | `OSItem` and `ModelObjectItem` should move to `shared_gui_components` |
-| `OSGridController.cpp` | `../openstudio_lib/OSItem.hpp`, `ModelObjectItem.hpp` | Same as above |
-| `LocalLibraryController.cpp` | `../openstudio_lib/OSItem.hpp` | Should use `OSItem` once it moves to `shared_gui_components` |
-
-The correct resolution is to move `OSItem`, `OSDropZone`, and `ModelObjectItem` to `shared_gui_components` (all three have no `openstudio_lib`-only dependencies).
+None. All cross-library includes have been resolved. `OSItem`, `OSDropZone`, and `ModelObjectItem` are fully in `shared_gui_components`; their former dependencies on `OSAppBase`/`OSDocument` are now routed through `BaseApp` virtual methods.
 
 ---
 

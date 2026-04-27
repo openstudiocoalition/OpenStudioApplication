@@ -8,8 +8,8 @@
 #include "OSAppBase.hpp"
 
 #include "../shared_gui_components/IconLibrary.hpp"
-#include "ModelObjectItem.hpp"
-#include "OSDropZone.hpp"
+#include "../shared_gui_components/ModelObjectItem.hpp"
+#include "../shared_gui_components/OSDropZone.hpp"
 #include "../shared_gui_components/OSVectorController.hpp"
 
 #include "../shared_gui_components/OSDoubleEdit.hpp"

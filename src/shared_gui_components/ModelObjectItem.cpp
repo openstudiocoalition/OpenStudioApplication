@@ -5,20 +5,18 @@
 
 #include "ModelObjectItem.hpp"
 
+#include "MeasureBadge.hpp"
 #include "OSItem.hpp"
-
-#include "../shared_gui_components/MeasureBadge.hpp"
-
-#include <openstudio/model/Model_Impl.hpp>
-#include <openstudio/model/ModelObject_Impl.hpp>
-#include <openstudio/model/ComponentData.hpp>
-#include <openstudio/model/ComponentData_Impl.hpp>
 
 #include "../openstudio_qt_utils/Utilities.hpp"
 
-#include <QLabel>
-
+#include <openstudio/model/ComponentData.hpp>
+#include <openstudio/model/ComponentData_Impl.hpp>
+#include <openstudio/model/ModelObject_Impl.hpp>
+#include <openstudio/model/Model_Impl.hpp>
 #include <openstudio/utilities/core/Assert.hpp>
+
+#include <QLabel>
 
 namespace openstudio {
 

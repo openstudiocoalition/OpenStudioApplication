@@ -9,7 +9,7 @@
 #include "OSItem.hpp"
 #include <openstudio/nano/nano_signal_slot.hpp>  // Signal-Slot replacement
 
-#include "../shared_gui_components/FieldMethodTypedefs.hpp"
+#include "FieldMethodTypedefs.hpp"
 
 #include <openstudio/model/Model.hpp>
 #include <openstudio/model/ModelObject.hpp>
