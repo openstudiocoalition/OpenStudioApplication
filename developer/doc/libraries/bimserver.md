@@ -37,18 +37,22 @@ classDiagram
     +loginBlocked(username, password, timeout) bool
     +getAllProjectsBlocked(timeout) optional~QStringList~
     +downloadBlocked(projectID, timeout) optional~QString~
-    signals: loginSuccess, loginFailed
-    signals: allProjectsAvailable(QStringList)
-    signals: osmStringAvailable(QString)
+    +createProjectBlocked(name, timeout) bool
+    +deleteProjectBlocked(projectID, timeout) bool
+    +checkInIFCFileBlocked(projectID, path, timeout) bool
+    +getIFCRevisionListBlocked(projectID, timeout) optional~QStringList~
+    signals: osmStringRetrieved(QString)
+    signals: listAllProjects(QStringList)
+    signals: listAllIFCRevisions(QStringList)
+    signals: operationSucceeded(QString)
     signals: errorOccured(QString)
-    signals: progressUpdated(int)
+    signals: bimserverError()
   }
   class ProjectImporter {
     <<QDialog>>
     -connection: BIMserverConnection*
-    +exec() int
-    +getModel() optional~Model~
-    signals: modelImported(Model)
+    +run() optional~Model~
+    signals: finished()
   }
 
   ProjectImporter "1" --> "1" BIMserverConnection : owns and drives
@@ -72,17 +76,17 @@ sequenceDiagram
   NET->>BIM: HTTP request
   BIM-->>NET: JSON response (token)
   NET-->>CONN: QNetworkReply::finished
-  CONN-->>UI: emit loginSuccess / loginFailed
+  CONN-->>UI: emit operationSucceeded / errorOccured
 
   UI->>CONN: getAllProjects()
   CONN->>NET: POST /json [getAllProjects + token]
   BIM-->>NET: JSON project list
-  CONN-->>UI: emit allProjectsAvailable(QStringList)
+  CONN-->>UI: emit listAllProjects(QStringList)
 
   UI->>CONN: download(revisionID)
   CONN->>NET: POST /json [getFileFromRevision]
   BIM-->>NET: OSM string payload
-  CONN-->>UI: emit osmStringAvailable(osmString)
+  CONN-->>UI: emit osmStringRetrieved(osmString)
 ```
 
 ---
@@ -91,9 +95,13 @@ sequenceDiagram
 
 | Non-blocking (async) | Blocking |
 |---|---|
-| `login(username, password)` → `loginSuccess`/`loginFailed` | `loginBlocked(username, password, timeout) → bool` |
-| `getAllProjects()` → `allProjectsAvailable(QStringList)` | `getAllProjectsBlocked(timeout) → optional<QStringList>` |
-| `download(revisionID)` → `osmStringAvailable(QString)` | `downloadBlocked(projectID, timeout) → optional<QString>` |
+| `login(username, password)` → `operationSucceeded`/`errorOccured` | `loginBlocked(username, password, timeout) → bool` |
+| `getAllProjects()` → `listAllProjects(QStringList)` | `getAllProjectsBlocked(timeout) → optional<QStringList>` |
+| `download(revisionID)` → `osmStringRetrieved(QString)` | `downloadBlocked(projectID, timeout) → optional<QString>` |
+| `createProject(name)` → `operationSucceeded`/`errorOccured` | `createProjectBlocked(name, timeout) → bool` |
+| `deleteProject(projectID)` → `operationSucceeded`/`errorOccured` | `deleteProjectBlocked(projectID, timeout) → bool` |
+| `checkInIFCFile(projectID, path)` → `operationSucceeded`/`errorOccured` | `checkInIFCFileBlocked(projectID, path, timeout) → bool` |
+| `getIFCRevisionList(projectID)` → `listAllIFCRevisions(QStringList)` | `getIFCRevisionListBlocked(projectID, timeout) → optional<QStringList>` |
 
 Blocking variants spin a `QEventLoop` with a `QTimer` for the timeout, making them usable in non-GUI contexts.
 
@@ -119,12 +127,12 @@ Blocking variants spin a `QEventLoop` with a `QTimer` for the timeout, making th
 
 ## Patterns & Conventions
 
-- **Signal-based error handling** — errors from network operations surface via `errorOccured(QString)` rather than exceptions.
-- **Progress reporting** — `progressUpdated(int)` (0–100) for long-running IFC check-in operations.
+- **Signal-based error handling** — errors from network operations surface via `errorOccured(QString)` or `bimserverError()` (emitted when the server is unreachable or misconfigured) rather than exceptions.
+- **Operation success reporting** — `operationSucceeded(QString)` carries a message identifying which operation completed (`"login"`, `"createProject"`, `"checkInIFC"`, etc.).
 - **`boost::optional` returns** — blocking APIs return `boost::none` on timeout/failure.
 
 ---
 
-## Key Classes
+## Source Reference
 
 Class-level documentation is in the corresponding header files under [`src/bimserver/`](../../../src/bimserver/).

@@ -89,6 +89,7 @@ To use a class from library X in library Y, add X's CMake target to Y's `set(${t
 | `OSGridView.hpp/.cpp` | `openstudio::OSGridView` — renders the grid |
 | `OSObjectSelector.hpp/.cpp` | `openstudio::OSObjectSelector` — manages row selection in grids |
 | `OSLineEdit.hpp/.cpp` | `openstudio::OSLineEdit2` — line edit bound to a model object field |
+| `OSItemId.hpp` | `openstudio::OSItemId` — identifies a draggable/droppable item by `itemId`, `sourceId`, and optional `position`; `Q_DECLARE_METATYPE` is in this header |
 | `MeasureManager.hpp/.cpp` | `openstudio::MeasureManager` — scans/runs OpenStudio Measures |
 | `UserSettings.hpp/.cpp` | `openstudio::UserSettings` — persistent user preferences |
 
@@ -147,7 +148,7 @@ Example: `mouseOverInspectorView()` was added this way so `OSLineEdit.cpp` (in `
 ## Qt metatype registration
 
 All SDK type metatype registrations live in `src/openstudio_qt_utils/QMetaTypes.hpp/.cpp`.
-`OSItemId` registration is in `src/shared_gui_components/OSGridController.cpp` (requires the type definition from `openstudio_lib`).
+`OSItemId` is defined in `src/shared_gui_components/OSItemId.hpp`, which also contains the `Q_DECLARE_METATYPE` declarations for `OSItemId` and `std::vector<OSItemId>`. The corresponding `qRegisterMetaType` calls run at startup in `src/shared_gui_components/OSGridController.cpp`.
 
 ---
 

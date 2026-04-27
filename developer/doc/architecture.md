@@ -252,7 +252,6 @@ Two parallel CI systems are used:
 | System | Trigger | Purpose |
 |---|---|---|
 | **GitHub Actions** | PR + push to master/develop + version tags | Full 5-platform build matrix, code signing, release publishing, static analysis, CLA enforcement |
-| **Jenkins** (NREL internal) | PR builds only | Incremental build checks on NREL infrastructure via shared library `cbci_shared_libs` |
 
 See [ci/overview.md](ci/overview.md) for the full CI/CD architecture documentation, or browse individual workflow docs under [ci/workflows/](ci/workflows/).
 

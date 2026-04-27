@@ -14,7 +14,6 @@ applyTo: |
   src/**/*.hpp
   src/**/*.cpp
   .github/workflows/**/*.yml
-  Jenkinsfile_*
   ci/**
   CMakeLists.txt
   src/**/CMakeLists.txt
