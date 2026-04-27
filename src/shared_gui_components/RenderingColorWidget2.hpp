@@ -3,8 +3,8 @@
 *  See also https://openstudiocoalition.org/about/software_license/
 ***********************************************************************************************************************/
 
-#ifndef OPENSTUDIO_RENDERINGCOLORWIDGET2_HPP
-#define OPENSTUDIO_RENDERINGCOLORWIDGET2_HPP
+#ifndef SHAREDGUICOMPONENTS_RENDERINGCOLORWIDGET2_HPP
+#define SHAREDGUICOMPONENTS_RENDERINGCOLORWIDGET2_HPP
 
 #include <openstudio/nano/nano_signal_slot.hpp>  // Signal-Slot replacement
 #include "FieldMethodTypedefs.hpp"
@@ -58,4 +58,4 @@ class RenderingColorWidget2
 
 }  // namespace openstudio
 
-#endif  // OPENSTUDIO_RENDERINGCOLORWIDGET2_HPP
+#endif  // SHAREDGUICOMPONENTS_RENDERINGCOLORWIDGET2_HPP
