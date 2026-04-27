@@ -22,7 +22,6 @@ class QEvent;
 
 namespace openstudio {
 
-
 class WaitDialog;
 
 /**
