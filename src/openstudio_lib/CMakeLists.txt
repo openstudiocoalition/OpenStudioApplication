@@ -281,6 +281,7 @@ set(${target_name}_SRC
   SimSettingsTabView.hpp
   SimSettingsView.cpp
   SimSettingsView.hpp
+  SOConstants.hpp
   SpaceLoadInstancesWidget.cpp
   SpaceLoadInstancesWidget.hpp
   SpacesDaylightingGridView.cpp

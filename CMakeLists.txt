@@ -583,16 +583,11 @@ if(NOT APPLE)
     find_package(Qt6QmlModels ${QT_VERSION} REQUIRED PATHS ${QT_INSTALL_DIR} NO_DEFAULT_PATH)
     list(APPEND QT_WEB_LIBS Qt6::QmlModels)
 
-    # Qt 6.11+ splits QmlMeta and QmlWorkerScript into their own libraries (required by QtWebEngineProcess)
-    find_package(Qt6QmlMeta ${QT_VERSION} QUIET PATHS ${QT_INSTALL_DIR} NO_DEFAULT_PATH)
-    if(Qt6QmlMeta_FOUND)
-      list(APPEND QT_WEB_LIBS Qt6::QmlMeta)
-    endif()
+    find_package(Qt6QmlMeta ${QT_VERSION} REQUIRED PATHS ${QT_INSTALL_DIR} NO_DEFAULT_PATH)
+    list(APPEND QT_WEB_LIBS Qt6::QmlMeta)
 
-    find_package(Qt6QmlWorkerScript ${QT_VERSION} QUIET PATHS ${QT_INSTALL_DIR} NO_DEFAULT_PATH)
-    if(Qt6QmlWorkerScript_FOUND)
-      list(APPEND QT_WEB_LIBS Qt6::QmlWorkerScript)
-    endif()
+    find_package(Qt6QmlWorkerScript ${QT_VERSION} REQUIRED PATHS ${QT_INSTALL_DIR} NO_DEFAULT_PATH)
+    list(APPEND QT_WEB_LIBS Qt6::QmlWorkerScript)
 
     find_package(Qt6Positioning ${QT_VERSION} REQUIRED PATHS ${QT_INSTALL_DIR} NO_DEFAULT_PATH)
     list(APPEND QT_WEB_LIBS Qt6::Positioning)
@@ -744,7 +739,7 @@ add_subdirectory("translations")
 #                        E X P O R T    T A R G E T S                         #
 ###############################################################################
 
-list(APPEND all_lib_targets "openstudioapp_utilities ")
+list(APPEND all_lib_targets "openstudioapp_utilities")
 list(APPEND all_lib_targets "openstudio_qt_utils")
 list(APPEND all_lib_targets "openstudio_modeleditor")
 list(APPEND all_lib_targets "openstudio_bimserver")

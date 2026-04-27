@@ -13,6 +13,7 @@
   <file>images/me_16.png</file>
   <file>images/v_devider_dots.png</file>
   <file>InspectorDialog.qss</file>
+  <file>ModalDialogs.qss</file>
   <file>SketchUpPluginPolicy.xml</file>
   <file alias="openstudio.qss">../../resources/openstudio.qss</file>
 </qresource>

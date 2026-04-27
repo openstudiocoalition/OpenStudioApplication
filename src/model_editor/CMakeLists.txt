@@ -11,6 +11,7 @@ include_directories(${QT_INCLUDES})
 set(${target_name}_src
   AccessPolicyStore.hpp
   AccessPolicyStore.cpp
+  mainpage.hpp
   BridgeClasses.hpp
   BridgeClasses.cpp
   GithubReleases.hpp
