@@ -31,8 +31,6 @@
 #include <openstudio/utilities/filetypes/WorkflowStep.hpp>
 #include <openstudio/utilities/filetypes/WorkflowStep_Impl.hpp>
 
-#include "../openstudio_lib/OSAppBase.hpp"
-#include "../openstudio_lib/OSDocument.hpp"
 #include "../utilities/OpenStudioApplicationPathHelpers.hpp"
 
 #include <json/json.h>

@@ -225,8 +225,6 @@ set(${target_name}_SRC
   RefrigerationGridView.hpp
   RefrigerationScene.cpp
   RefrigerationScene.hpp
-  RenderingColorWidget.cpp
-  RenderingColorWidget.hpp
   ResultsTabController.cpp
   ResultsTabController.hpp
   ResultsTabView.cpp
@@ -500,7 +498,6 @@ set(${target_name}_moc
   RefrigerationGridController.hpp
   RefrigerationGridView.hpp
   RefrigerationScene.hpp
-  RenderingColorWidget.hpp
   ResultsTabController.hpp
   ResultsTabView.hpp
   RunTabController.hpp

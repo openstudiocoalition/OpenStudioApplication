@@ -8,7 +8,6 @@
 #include "OSLineEdit.hpp"
 
 #include "IconLibrary.hpp"
-#include "../openstudio_lib/OSItem.hpp"
 
 #include <openstudio/model/ModelObject.hpp>
 #include <openstudio/model/ModelObject_Impl.hpp>

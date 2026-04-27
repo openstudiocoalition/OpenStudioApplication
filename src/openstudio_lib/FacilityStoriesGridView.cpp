@@ -7,7 +7,7 @@
 
 #include "OSDropZone.hpp"
 #include "OSItemSelectorButtons.hpp"
-#include "RenderingColorWidget.hpp"
+#include "../shared_gui_components/RenderingColorWidget.hpp"
 
 #include "../shared_gui_components/OSCheckBox.hpp"
 #include "../shared_gui_components/OSDoubleEdit.hpp"

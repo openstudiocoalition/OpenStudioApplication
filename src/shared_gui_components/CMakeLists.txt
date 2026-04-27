@@ -50,6 +50,10 @@ set(${target_name}_src
   MeasureManager.hpp
   NetworkProxyDialog.cpp
   NetworkProxyDialog.hpp
+  RenderingColorWidget.cpp
+  RenderingColorWidget.hpp
+  RenderingColorWidget2.cpp
+  RenderingColorWidget2.hpp
   OSCellWrapper.cpp
   OSCellWrapper.hpp
   OSCheckBox.cpp
@@ -142,6 +146,8 @@ set(${target_name}_moc
   MeasureDragData.hpp
   MeasureManager.hpp
   NetworkProxyDialog.hpp
+  RenderingColorWidget.hpp
+  RenderingColorWidget2.hpp
   OSCellWrapper.hpp
   OSCheckBox.hpp
   OSCollapsibleView.hpp

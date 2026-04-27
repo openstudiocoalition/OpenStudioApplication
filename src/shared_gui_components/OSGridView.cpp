@@ -23,9 +23,7 @@
 
 #include "../openstudio_qt_utils/Application.hpp"
 
-#include "../openstudio_lib/ModelObjectInspectorView.hpp"
 #include "../openstudio_lib/OSDropZone.hpp"
-#include "../openstudio_lib/OSItem.hpp"
 
 #include <openstudio/model/Model_Impl.hpp>
 #include <openstudio/model/ModelObject_Impl.hpp>

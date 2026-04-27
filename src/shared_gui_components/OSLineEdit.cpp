@@ -7,7 +7,6 @@
 
 #include "../openstudio_lib/ModelObjectItem.hpp"
 #include "../openstudio_lib/OSAppBase.hpp"
-#include "../openstudio_lib/OSDocument.hpp"
 #include "../openstudio_lib/OSItem.hpp"
 #include "../openstudio_qt_utils/Utilities.hpp"
 
