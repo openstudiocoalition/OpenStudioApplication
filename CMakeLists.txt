@@ -744,6 +744,7 @@ add_subdirectory("translations")
 #                        E X P O R T    T A R G E T S                         #
 ###############################################################################
 
+list(APPEND all_lib_targets "openstudioapp_utilities ")
 list(APPEND all_lib_targets "openstudio_qt_utils")
 list(APPEND all_lib_targets "openstudio_modeleditor")
 list(APPEND all_lib_targets "openstudio_bimserver")

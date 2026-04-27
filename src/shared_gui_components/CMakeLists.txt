@@ -72,6 +72,7 @@ set(${target_name}_src
   OSGridController.hpp
   OSGridView.cpp
   OSGridView.hpp
+  OSItemId.hpp
   OSIntegerEdit.cpp
   OSIntegerEdit.hpp
   OSLineEdit.cpp

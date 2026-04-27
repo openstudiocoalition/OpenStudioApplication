@@ -68,11 +68,14 @@ C4Container
   Container(shared_gui, "shared_gui_components", "C++ static library", "Reusable widgets: grid system, form controls, measure manager, BCL dialogs, user settings. Target: openstudio_shared_gui")
   Container(model_editor, "model_editor", "C++ static library", "Generic IDD-driven model object inspector; AccessPolicyStore (field-level access policies for IDD objects). Target: openstudio_modeleditor")
   Container(qt_utils, "openstudio_qt_utils", "C++ static library", "Qt/OpenStudio primitives: string/UUID/path conversions, Application singleton, OSProgressBar, Qt metatype registration for SDK types. Target: openstudio_qt_utils")
+  Container(bimserver, "bimserver", "C++ static library", "BIMserver connection and project import via cpprestsdk/WebSocket. Target: openstudio_bimserver")
   Container(utilities, "utilities", "C++ static/header library", "Runtime path resolution for SDK CLI, EnergyPlus, Radiance. Target: openstudioapp_utilities")
 
   Rel(app_exe, openstudio_lib, "Links; creates OSDocument and MainWindow")
+  Rel(app_exe, bimserver, "Links; BIMserver import workflow")
   Rel(openstudio_lib, shared_gui, "Links; uses grid widgets, form controls, measure integration")
   Rel(openstudio_lib, model_editor, "Links; uses InspectorGadget, AccessPolicyStore")
+  Rel(bimserver, qt_utils, "Links; Qt string/UUID conversions, Application singleton")
   Rel(shared_gui, qt_utils, "Links; Qt string/UUID conversions, Application singleton, metatype registration")
   Rel(model_editor, qt_utils, "Links; Qt string/UUID conversions, Application singleton, OSProgressBar")
   Rel(qt_utils, utilities, "Links; runtime path resolution for SDK CLI, EnergyPlus, Radiance")
@@ -88,6 +91,7 @@ flowchart TD
   LIB["openstudio_lib"]
   SHARED["shared_gui_components"]
   ME["model_editor"]
+  BIMSERVER["bimserver"]
   QTUTILS["openstudio_qt_utils"]
   UTIL["utilities"]
   QTWEB["QT_WEB_LIBS<br>(external)"]
@@ -96,9 +100,11 @@ flowchart TD
   BOOST["Boost<br>(external)"]
 
   EXE --> LIB
+  EXE --> BIMSERVER
   LIB --> SHARED
   LIB --> ME
   LIB --> QTWEB
+  BIMSERVER --> QTUTILS
   SHARED --> QTUTILS
   ME --> QTUTILS
   QTUTILS --> UTIL

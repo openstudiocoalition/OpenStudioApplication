@@ -22,7 +22,6 @@ set(${target_name}_depends
   ${QT_LIBS}
 )
 
-add_dependencies(${target_name} ${${target_name}_depends})
 target_link_libraries(${target_name} PUBLIC ${${target_name}_depends})
 
 CREATE_SRC_GROUPS("${${target_name}_src}")
