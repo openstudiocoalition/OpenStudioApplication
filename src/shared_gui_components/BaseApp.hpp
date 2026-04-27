@@ -89,6 +89,12 @@ class BaseApp
     return false;
   }
 
+  /// Disable the document UI (e.g. while a drop operation is in progress).
+  virtual void disableDocument() {}
+
+  /// Re-enable the document UI after a disable call.
+  virtual void enableDocument() {}
+
   /// BCL document queries — default implementations return empty/none for contexts without a document.
   virtual boost::optional<BCLComponent> getLocalComponent(const std::string& uid, const std::string& versionId = "") const {
     return boost::none;

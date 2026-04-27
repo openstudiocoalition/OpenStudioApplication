@@ -82,6 +82,8 @@ class OSAppBase
   bool mouseOverInspectorView() final;
 
   bool useClassicCLI() const final;
+  void disableDocument() final;
+  void enableDocument() final;
   boost::optional<BCLComponent> getLocalComponent(const std::string& uid, const std::string& versionId = "") const final;
   boost::optional<BCLMeasure> getLocalMeasure(const std::string& uid, const std::string& versionId = "") const final;
   std::vector<BCLMeasure> getLocalMeasures() const final;

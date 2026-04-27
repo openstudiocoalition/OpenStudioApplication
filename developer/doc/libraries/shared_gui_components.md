@@ -159,9 +159,26 @@ flowchart TD
 
 ---
 
+## Known Boundary Violations
+
+The following files in `shared_gui_components` currently include headers from `openstudio_lib`, which is a **higher-level** library and violates the intended dependency order. These are tracked as tech debt:
+
+| File | Bad include | Notes |
+|---|---|---|
+| `OSCellWrapper.cpp` | `../openstudio_lib/OSDropZone.hpp` | `OSDropZone` should move to `shared_gui_components` |
+| `OSGridView.cpp` | `../openstudio_lib/OSDropZone.hpp` | Same as above |
+| `OSWidgetHolder.cpp` | `../openstudio_lib/OSDropZone.hpp` | Same as above |
+| `OSLineEdit.cpp` | `../openstudio_lib/OSItem.hpp`, `ModelObjectItem.hpp` | `OSItem` and `ModelObjectItem` should move to `shared_gui_components` |
+| `OSGridController.cpp` | `../openstudio_lib/OSItem.hpp`, `ModelObjectItem.hpp` | Same as above |
+| `LocalLibraryController.cpp` | `../openstudio_lib/OSItem.hpp` | Should use `OSItem` once it moves to `shared_gui_components` |
+
+The correct resolution is to move `OSItem`, `OSDropZone`, and `ModelObjectItem` to `shared_gui_components` (all three have no `openstudio_lib`-only dependencies).
+
+---
+
 ## Patterns & Conventions
 
-- **`BaseApp` interface** — all components that need access to the application (e.g., `MeasureManager`) depend only on `BaseApp`, never on `OpenStudioApp` or `OSAppBase` directly. This enables reuse in plugin contexts.
+- **`BaseApp` interface** — all components that need access to the application (e.g., `MeasureManager`, `LocalLibraryController`, `WorkflowController`) use only `BaseApp`, never `OSAppBase`, `OSDocument`, or `MainWindow` directly. `BaseApp` exposes `useClassicCLI()`, `disableDocument()`, and `enableDocument()` so that shared components can call these without depending on `openstudio_lib` types. This keeps the dependency order acyclic.
 - **`add*Column()` DSL** — `OSGridController` subclasses define their columns declaratively in their constructor, producing a clean, readable column specification without procedural layout code.
 - **Thread safety** — `MeasureManager` uses a `QMutex` to protect its measure index; BCL network requests are made on the Qt network thread.
 

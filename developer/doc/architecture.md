@@ -249,6 +249,30 @@ OpenStudio Measures (Ruby or Python scripts that transform models) are managed b
 - Runs measures via the OpenStudio CLI in a background process
 - The `ApplyMeasureNowDialog` provides a modal UI for running a single measure interactively
 
+### 7.6 Library Boundary Rules
+
+The intended dependency order is strict and acyclic:
+
+```
+OpenStudioApp (exe)
+  → openstudio_lib
+    → shared_gui_components
+      → openstudio_qt_utils
+        → openstudioapp_utilities
+  → openstudio_bimserver
+    → openstudio_qt_utils
+  → openstudio_modeleditor
+    → openstudio_qt_utils
+```
+
+**The `BaseApp` interface** (`shared_gui_components/BaseApp.hpp`) is the key boundary between the lower-level `shared_gui_components` library and the upper-level `openstudio_lib` library. All `shared_gui_components` code that needs application-level services must go through `BaseApp`, never through `OSAppBase`, `OSDocument`, or `MainWindow` directly.
+
+**Known violations (tracked as tech debt):**
+
+| Violation | Location | Correct Fix |
+|---|---|---|
+| `OSItem`, `OSDropZone`, `ModelObjectItem` live in `openstudio_lib` but are included by `shared_gui_components` code (`OSCellWrapper`, `OSGridView`, `OSWidgetHolder`, `OSLineEdit`, `OSGridController`, `LocalLibraryController`) | `src/openstudio_lib/OSItem.hpp`, `OSDropZone.hpp`, `ModelObjectItem.hpp` | Move these three classes to `shared_gui_components`; they have no `openstudio_lib`-only dependencies. `OSItem` depends only on `OSItemId` and `LocalLibrary.hpp`, both already in `shared_gui_components`. |
+
 ---
 
 ## 8. CI/CD Overview

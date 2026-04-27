@@ -55,6 +55,7 @@ classDiagram
 | `Utilities.hpp/cpp` | Free functions for converting between `QString`, `std::string`, `std::wstring`, `openstudio::path`, and `openstudio::UUID` |
 | `QMetaTypes.hpp/cpp` | `Q_DECLARE_METATYPE` declarations and `qRegisterMetaType` calls for SDK types used in queued signal/slot connections |
 | `OSProgressBar.hpp/cpp` | `OSProgressBar` — wraps `QProgressBar` and implements the `openstudio::ProgressBar` interface |
+| `PathWatcher.hpp/cpp` | `PathWatcher` — `QTimer`-based file-change watcher; polls a file path at a configurable interval and emits virtual callbacks when the file is added, changed, or removed |
 
 ---
 

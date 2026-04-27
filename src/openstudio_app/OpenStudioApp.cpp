@@ -13,7 +13,7 @@
 #include "../openstudio_lib/OSDocument.hpp"
 
 #include "../model_editor/AccessPolicyStore.hpp"
-#include "../model_editor/GithubReleases.hpp"
+#include "GithubReleases.hpp"
 #include "../openstudio_qt_utils/Utilities.hpp"
 
 #include "../shared_gui_components/WaitDialog.hpp"

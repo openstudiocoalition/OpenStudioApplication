@@ -183,11 +183,14 @@ set(${target_name}_moc
 ## Qt MOC generation
 qt6_wrap_cpp(${target_name}_moc_src ${${target_name}_moc})
 
+set(${target_name}_qrc openstudio_shared_gui.qrc)
+qt6_add_resources(${target_name}_qrcs ${${target_name}_qrc})
+
 set(${target_name}_depends
   openstudio_qt_utils
 )
 
-add_library(${target_name} STATIC ${${target_name}_src} ${${target_name}_moc_src})
+add_library(${target_name} STATIC ${${target_name}_src} ${${target_name}_moc_src} ${${target_name}_qrcs})
 
 target_link_libraries(${target_name} PUBLIC ${${target_name}_depends})
 

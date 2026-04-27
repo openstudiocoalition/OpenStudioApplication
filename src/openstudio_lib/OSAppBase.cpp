@@ -269,6 +269,20 @@ bool OSAppBase::useClassicCLI() const {
   return false;
 }
 
+void OSAppBase::disableDocument() {
+  auto doc = currentDocument();
+  if (doc) {
+    doc->disable();
+  }
+}
+
+void OSAppBase::enableDocument() {
+  auto doc = currentDocument();
+  if (doc) {
+    doc->enable();
+  }
+}
+
 boost::optional<BCLComponent> OSAppBase::getLocalComponent(const std::string& uid, const std::string& versionId) const {
   auto doc = currentDocument();
   if (doc) {

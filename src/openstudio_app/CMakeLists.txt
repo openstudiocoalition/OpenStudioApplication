@@ -8,6 +8,8 @@ set(${target_name}_SRC
   main.cpp
   OpenStudioApp.cpp
   OpenStudioApp.hpp
+  GithubReleases.hpp
+  GithubReleases.cpp
   StartupView.hpp
   StartupView.cpp
   StartupMenu.hpp
@@ -519,6 +521,9 @@ set(${target_name}_test_src
   test/OpenStudioAppFixture.cpp
   test/Resources_GTest.cpp
   test/Units_GTest.cpp
+  test/GithubReleases_GTest.cpp
+  GithubReleases.hpp
+  GithubReleases.cpp
 )
 
 CREATE_SRC_GROUPS("${${target_name}_test_src}")

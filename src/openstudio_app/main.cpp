@@ -92,6 +92,7 @@ void qMessageHandler(QtMsgType type, const QMessageLogContext& context, const QS
 
 int main(int argc, char* argv[]) {
   Q_INIT_RESOURCE(openstudio);
+  Q_INIT_RESOURCE(openstudio_shared_gui);
 
 // DLM: on Windows run with 'OpenStudioApp.exe  > out.log 2>&1' to capture all debug output
 // DLM: set env var 'QT_FATAL_WARNINGS' to error on qt warnings for debugging

@@ -103,9 +103,10 @@ classDiagram
 | `ModelObjectListView` | Generic list view displaying any collection of model objects |
 | `ModelObjectTreeWidget` | Generic tree view for hierarchical model data |
 | `OSWebEnginePage` | `QWebEnginePage` subclass for the geometry JS bridge |
-| `RenderingColorWidget` | Color picker for object rendering colors |
 
 > **Note:** `OSVectorController`, `IconLibrary` have moved to `shared_gui_components`.
+>
+> **Boundary note:** `OSItem`, `OSDropZone`, and `ModelObjectItem` are currently in `openstudio_lib` for historical reasons, but `shared_gui_components` code (`OSCellWrapper`, `OSGridView`, `OSWidgetHolder`, `OSLineEdit`, `OSGridController`, `LocalLibraryController`) includes them via backward cross-library `#include` paths. These three classes should be moved to `shared_gui_components` in a future refactor — none of them have dependencies that would prevent the move.
 
 ---
 

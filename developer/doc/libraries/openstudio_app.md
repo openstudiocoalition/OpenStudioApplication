@@ -59,6 +59,7 @@ classDiagram
 | `StartupMenu` | [StartupMenu.hpp](../../../src/openstudio_app/StartupMenu.hpp) | Minimal menu bar shown during the startup screen (no document-specific items). |
 | `LibraryDialog` | [LibraryDialog.hpp](../../../src/openstudio_app/LibraryDialog.hpp) | Dialog allowing users to select component library `.osm` files to load alongside the project. |
 | `ExternalToolsDialog` | [ExternalToolsDialog.hpp](../../../src/openstudio_app/ExternalToolsDialog.hpp) | Dialog for configuring paths to external tools (EnergyPlus, Radiance, etc.). |
+| `GithubReleases` / `GithubRelease` | [GithubReleases.hpp](../../../src/openstudio_app/GithubReleases.hpp) | Checks the GitHub releases API for new application versions. Called from `OpenStudioApp` at startup. |
 
 ---
 

@@ -14,16 +14,12 @@ set(${target_name}_src
   mainpage.hpp
   BridgeClasses.hpp
   BridgeClasses.cpp
-  GithubReleases.hpp
-  GithubReleases.cpp
   InspectorGadget.hpp
   InspectorGadget.cpp
   ListWidget.hpp
   ListWidget.cpp
   ModalDialogs.hpp
   ModalDialogs.cpp
-  PathWatcher.hpp
-  PathWatcher.cpp
   TableView.hpp
   TableView.cpp
   TableWidget.hpp
@@ -41,7 +37,6 @@ set(${target_name}_moc
   InspectorGadget.hpp
   ListWidget.hpp
   ModalDialogs.hpp
-  PathWatcher.hpp
   TableView.hpp
   TableWidget.hpp
   TestButton.hpp
@@ -87,10 +82,8 @@ set(${target_name}_test_src
   test/ModelEditorFixture.cpp
   test/IGLineEdit_GTest.cpp
   test/ModalDialogs_GTest.cpp
-  test/PathWatcher_GTest.cpp
   test/QMetaTypes_GTest.cpp
   test/Utilities_GTest.cpp
-  test/GithubReleases_GTest.cpp
 )
 
 set(${target_name}_test_depends

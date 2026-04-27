@@ -5,7 +5,7 @@
 
 #include <gtest/gtest.h>
 
-#include "ModelEditorFixture.hpp"
+#include "OpenStudioAppFixture.hpp"
 
 #include "../GithubReleases.hpp"
 #include "../../openstudio_qt_utils/Application.hpp"
@@ -18,7 +18,7 @@
 
 using openstudio::Application;
 
-TEST_F(ModelEditorFixture, GithubRelease_Release) {
+TEST_F(OpenStudioAppFixture, GithubRelease_Release) {
   Application::instance().application(false);
 
   modeleditor::GithubRelease release("v1.0.1", false, 100, "https://github.com/openstudiocoalition/OpenStudioApplication/releases/tag/v1.0.1");
@@ -38,7 +38,7 @@ TEST_F(ModelEditorFixture, GithubRelease_Release) {
   EXPECT_EQ("https://github.com/openstudiocoalition/OpenStudioApplication/releases/tag/v1.0.1", root["url"].asString());
 }
 
-TEST_F(ModelEditorFixture, GithubRelease_Prerelease) {
+TEST_F(OpenStudioAppFixture, GithubRelease_Prerelease) {
   Application::instance().application(false);
 
   modeleditor::GithubRelease release("v1.0.1-pre1", true, 100,
@@ -59,7 +59,7 @@ TEST_F(ModelEditorFixture, GithubRelease_Prerelease) {
   EXPECT_EQ("https://github.com/openstudiocoalition/OpenStudioApplication/releases/tag/v1.0.1-pre1", root["url"].asString());
 }
 
-TEST_F(ModelEditorFixture, GithubReleases) {
+TEST_F(OpenStudioAppFixture, GithubReleases) {
 
   modeleditor::GithubReleases releases("openstudiocoalition", "OpenStudioApplication");
   releases.waitForFinished();

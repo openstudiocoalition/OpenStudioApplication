@@ -4,9 +4,9 @@
 ***********************************************************************************************************************/
 
 #include "PathWatcher.hpp"
-#include "../openstudio_qt_utils/Application.hpp"
+#include "Application.hpp"
 
-#include "../openstudio_qt_utils/Utilities.hpp"
+#include "Utilities.hpp"
 
 #include <openstudio/utilities/core/Checksum.hpp>
 #include <openstudio/utilities/core/Assert.hpp>

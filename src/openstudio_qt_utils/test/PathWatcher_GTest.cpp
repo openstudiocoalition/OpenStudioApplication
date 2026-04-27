@@ -7,10 +7,10 @@
 
 #include <openstudio/resources.hxx>
 
-#include "ModelEditorFixture.hpp"
+#include "QtUtilsFixture.hpp"
 
 #include "../PathWatcher.hpp"
-#include "../../openstudio_qt_utils/Application.hpp"
+#include "../Application.hpp"
 
 #include <openstudio/utilities/core/Path.hpp>
 #include <openstudio/utilities/core/System.hpp>
@@ -57,7 +57,7 @@ void remove_file(const openstudio::path& path) {
   openstudio::filesystem::remove(path);
 }
 
-TEST_F(ModelEditorFixture, PathWatcher_File) {
+TEST_F(QtUtilsFixture, PathWatcher_File) {
   Application::instance().application(false);
 
   openstudio::path path = toPath("./PathWatcher_File");
