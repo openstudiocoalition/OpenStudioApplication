@@ -76,7 +76,6 @@ To use a class from library X in library Y, add X's CMake target to Y's `set(${t
 |---|---|
 | `AccessPolicyStore.hpp/.cpp` | `openstudio::model::AccessPolicy`, `AccessPolicyStore` — field-level access policies (FREE/LOCKED/HIDDEN) for IDD object types; used by InspectorGadget |
 | `InspectorGadget.hpp/.cpp` | `openstudio::InspectorGadget` — IDD-driven field editor widget |
-| `InspectorDialog.hpp/.cpp` | `openstudio::InspectorDialog` — standalone dialog wrapping InspectorGadget |
 | `PathWatcher.hpp/.cpp` | `openstudio::PathWatcher` — filesystem path change notifications |
 | `GithubReleases.hpp/.cpp` | `openstudio::GithubReleases` — checks GitHub releases API for new versions |
 | `ModalDialogs.hpp/.cpp` | `openstudio::ModelObjectSelectorDialog` — generic model-object picker dialog |

@@ -2,35 +2,6 @@
 <!DOCTYPE TS>
 <TS version="2.1" language="fr_FR">
 <context>
-    <name>InspectorDialog</name>
-    <message>
-        <location filename="../src/model_editor/InspectorDialog.cpp" line="493"/>
-        <location filename="../src/model_editor/InspectorDialog.cpp" line="494"/>
-        <source>OpenStudio Inspector</source>
-        <translation>OpenStudio Inspector</translation>
-    </message>
-    <message>
-        <location filename="../src/model_editor/InspectorDialog.cpp" line="573"/>
-        <source>Add new object</source>
-        <translation>Ajouter un nouvel objet</translation>
-    </message>
-    <message>
-        <location filename="../src/model_editor/InspectorDialog.cpp" line="577"/>
-        <source>Copy selected object</source>
-        <translation>Copier les objets sélectionnés</translation>
-    </message>
-    <message>
-        <location filename="../src/model_editor/InspectorDialog.cpp" line="581"/>
-        <source>Remove selected objects</source>
-        <translation>Supprimer les objets selectionnés</translation>
-    </message>
-    <message>
-        <location filename="../src/model_editor/InspectorDialog.cpp" line="585"/>
-        <source>Purge unused objects</source>
-        <translation>Purger les objets inutilisés</translation>
-    </message>
-</context>
-<context>
     <name>InspectorGadget</name>
     <message>
         <location filename="../src/model_editor/InspectorGadget.cpp" line="632"/>

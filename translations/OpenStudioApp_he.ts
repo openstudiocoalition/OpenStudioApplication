@@ -2,35 +2,6 @@
 <!DOCTYPE TS>
 <TS version="2.1" language="he_IL">
 <context>
-    <name>InspectorDialog</name>
-    <message>
-        <location filename="../src/model_editor/InspectorDialog.cpp" line="493"/>
-        <location filename="../src/model_editor/InspectorDialog.cpp" line="494"/>
-        <source>OpenStudio Inspector</source>
-        <translation>מפקח OPENSTUDIO</translation>
-    </message>
-    <message>
-        <location filename="../src/model_editor/InspectorDialog.cpp" line="573"/>
-        <source>Add new object</source>
-        <translation>הוסף אובייקט חדש</translation>
-    </message>
-    <message>
-        <location filename="../src/model_editor/InspectorDialog.cpp" line="577"/>
-        <source>Copy selected object</source>
-        <translation>העתק אובייקט חדש</translation>
-    </message>
-    <message>
-        <location filename="../src/model_editor/InspectorDialog.cpp" line="581"/>
-        <source>Remove selected objects</source>
-        <translation>הסר אובייקטים נבחרים</translation>
-    </message>
-    <message>
-        <location filename="../src/model_editor/InspectorDialog.cpp" line="585"/>
-        <source>Purge unused objects</source>
-        <translation>הסר אובייקטים לא בשימוש</translation>
-    </message>
-</context>
-<context>
     <name>InspectorGadget</name>
     <message>
         <location filename="../src/model_editor/InspectorGadget.cpp" line="632"/>

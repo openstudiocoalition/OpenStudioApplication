@@ -15,8 +15,6 @@ set(${target_name}_src
   BridgeClasses.cpp
   GithubReleases.hpp
   GithubReleases.cpp
-  InspectorDialog.hpp
-  InspectorDialog.cpp
   InspectorGadget.hpp
   InspectorGadget.cpp
   ListWidget.hpp
@@ -39,7 +37,6 @@ set(${target_name}_src
 
 # lib moc files
 set(${target_name}_moc
-  InspectorDialog.hpp
   InspectorGadget.hpp
   ListWidget.hpp
   ModalDialogs.hpp
@@ -88,7 +85,6 @@ set(${target_name}_test_src
   test/ModelEditorFixture.hpp
   test/ModelEditorFixture.cpp
   test/IGLineEdit_GTest.cpp
-  test/InspectorDialog_GTest.cpp
   test/ModalDialogs_GTest.cpp
   test/PathWatcher_GTest.cpp
   test/QMetaTypes_GTest.cpp

@@ -2,35 +2,6 @@
 <!DOCTYPE TS>
 <TS version="2.1" language="ja_JP">
 <context>
-    <name>InspectorDialog</name>
-    <message>
-        <location filename="../src/model_editor/InspectorDialog.cpp" line="493"/>
-        <location filename="../src/model_editor/InspectorDialog.cpp" line="494"/>
-        <source>OpenStudio Inspector</source>
-        <translation>OpenStudio インスペクター</translation>
-    </message>
-    <message>
-        <location filename="../src/model_editor/InspectorDialog.cpp" line="573"/>
-        <source>Add new object</source>
-        <translation>新しいオブジェクトの追加</translation>
-    </message>
-    <message>
-        <location filename="../src/model_editor/InspectorDialog.cpp" line="577"/>
-        <source>Copy selected object</source>
-        <translation>選択されたオブジェクトをコピー</translation>
-    </message>
-    <message>
-        <location filename="../src/model_editor/InspectorDialog.cpp" line="581"/>
-        <source>Remove selected objects</source>
-        <translation>選択されたオブジェクトを削除</translation>
-    </message>
-    <message>
-        <location filename="../src/model_editor/InspectorDialog.cpp" line="585"/>
-        <source>Purge unused objects</source>
-        <translation>未使用オブジェクトをすべて削除</translation>
-    </message>
-</context>
-<context>
     <name>InspectorGadget</name>
     <message>
         <location filename="../src/model_editor/InspectorGadget.cpp" line="632"/>

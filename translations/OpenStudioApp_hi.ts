@@ -2,35 +2,6 @@
 <!DOCTYPE TS>
 <TS version="2.1" language="hi_IN">
 <context>
-    <name>InspectorDialog</name>
-    <message>
-        <location filename="../src/model_editor/InspectorDialog.cpp" line="493"/>
-        <location filename="../src/model_editor/InspectorDialog.cpp" line="494"/>
-        <source>OpenStudio Inspector</source>
-        <translation>ओपेनस्टूडियो निरीक्षक</translation>
-    </message>
-    <message>
-        <location filename="../src/model_editor/InspectorDialog.cpp" line="573"/>
-        <source>Add new object</source>
-        <translation>नया ऑब्जेक्ट जोड़ें</translation>
-    </message>
-    <message>
-        <location filename="../src/model_editor/InspectorDialog.cpp" line="577"/>
-        <source>Copy selected object</source>
-        <translation>चयनित ऑब्जेक्ट की प्रतिलिपि बनाएँ</translation>
-    </message>
-    <message>
-        <location filename="../src/model_editor/InspectorDialog.cpp" line="581"/>
-        <source>Remove selected objects</source>
-        <translation>चयनित ऑब्जेक्ट हटाएं</translation>
-    </message>
-    <message>
-        <location filename="../src/model_editor/InspectorDialog.cpp" line="585"/>
-        <source>Purge unused objects</source>
-        <translation>अप्रयुक्त ऑब्जेक्ट को शुद्ध करें</translation>
-    </message>
-</context>
-<context>
     <name>InspectorGadget</name>
     <message>
         <location filename="../src/model_editor/InspectorGadget.cpp" line="632"/>
