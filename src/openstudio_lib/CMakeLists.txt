@@ -574,8 +574,6 @@ set(${target_name}_moc
 
 )
 
-#include_directories(SYSTEM ${Ruby_INCLUDE_DIRS})
-
 # resource files
 set(${target_name}_qrc
   openstudio.qrc

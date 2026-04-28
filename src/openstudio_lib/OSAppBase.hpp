@@ -63,7 +63,7 @@ class OSAppBase
   /// serves both openstudio_lib callers (which get OSDocument*) and shared_gui_components
   /// callers (which receive the BaseDocument* base pointer). Pure virtual — OpenStudioApp
   /// owns the document and provides the implementation.
-  virtual OSDocument* currentDocument() const = 0;
+  virtual OSDocument* currentDocument() const override = 0;
 
   static OSAppBase* instance();
 

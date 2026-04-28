@@ -5,13 +5,13 @@
 
 #include "SyncMeasuresDialogCentralWidget.hpp"
 
-#include "../shared_gui_components/CollapsibleComponent.hpp"
-#include "../shared_gui_components/CollapsibleComponentHeader.hpp"
-#include "../shared_gui_components/CollapsibleComponentList.hpp"
-#include "../shared_gui_components/Component.hpp"
-#include "../shared_gui_components/ComponentList.hpp"
-#include "../shared_gui_components/MeasureManager.hpp"
-#include "../shared_gui_components/SyncMeasuresDialog.hpp"
+#include "CollapsibleComponent.hpp"
+#include "CollapsibleComponentHeader.hpp"
+#include "CollapsibleComponentList.hpp"
+#include "Component.hpp"
+#include "ComponentList.hpp"
+#include "MeasureManager.hpp"
+#include "SyncMeasuresDialog.hpp"
 
 #include <openstudio/utilities/core/Assert.hpp>
 
