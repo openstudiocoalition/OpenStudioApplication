@@ -165,10 +165,6 @@ set(${target_name}_SRC
   ModelObjectInspectorView.hpp
   ModelObjectListView.cpp
   ModelObjectListView.hpp
-  ModelObjectTreeItems.cpp
-  ModelObjectTreeItems.hpp
-  ModelObjectTreeWidget.cpp
-  ModelObjectTreeWidget.hpp
   ModelObjectTypeItem.cpp
   ModelObjectTypeItem.hpp
   ModelObjectTypeListView.cpp
@@ -383,7 +379,6 @@ set(${target_name}_SRC
   ZoneChooserView.cpp
   ZoneChooserView.hpp
 
-  #"${CMAKE_CURRENT_BINARY_DIR}/SWIGRubyRuntime.h"
 )
 
 # moc files
@@ -463,8 +458,6 @@ set(${target_name}_moc
   MaterialsView.hpp
   ModelObjectInspectorView.hpp
   ModelObjectListView.hpp
-  ModelObjectTreeItems.hpp
-  ModelObjectTreeWidget.hpp
   ModelObjectTypeItem.hpp
   ModelObjectTypeListView.hpp
   ModelObjectVectorController.hpp

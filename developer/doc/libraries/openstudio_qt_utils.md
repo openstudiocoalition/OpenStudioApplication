@@ -83,9 +83,6 @@ namespace openstudio {
   // Retrieve (or lazily create) the QApplication/QCoreApplication
   QCoreApplication* Application::instance().application(bool gui = true);
 
-  // Wrap an existing QApplication created by a host (e.g. SketchUp)
-  Application::instance().setApplication(QCoreApplication*);
-
   // Cross-module QSettings access
   Application::hasSetting(const std::string& key);
   Application::getSettingValueAsBool(const std::string& key);   // → boost::optional<bool>
@@ -136,4 +133,4 @@ namespace openstudio {
 
 - **Singleton via local static** — `Application::instance()` uses a function-local `static Application` for thread-safe lazy initialisation (C++11 magic statics).
 - **Lazy `QApplication` creation** — `application(bool gui)` creates a headless `QCoreApplication` or full `QApplication` only if no `QCoreApplication::instance()` already exists, making it safe to call from both GUI and CLI contexts.
-- **Global metatype registration via namespace-scope statics** — the `int __xxx_type = qRegisterMetaType<T>(...)` variables in `QMetaTypes.cpp` run at shared library load time, ensuring types are registered before any signal/slot connection is made.
+- **Global metatype registration via namespace-scope statics** — the `int __xxx_type = qRegisterMetaType<T>(...)` variables in `QMetaTypes.cpp` are namespace-scope statics that run at executable start-up (before `main()`), ensuring types are registered before any signal/slot connection is made.

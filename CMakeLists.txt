@@ -1045,7 +1045,7 @@ cpack_add_component(Python
 
 cpack_add_component(RubyAPI
   DISPLAY_NAME "Ruby API"
-  DESCRIPTION "The Ruby openstudio modeleditor for Sketchup"
+  DESCRIPTION "The Ruby openstudio modeleditor stub for Sketchup"
 )
 
 cpack_add_component(

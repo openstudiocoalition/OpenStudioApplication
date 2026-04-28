@@ -86,7 +86,7 @@ class OpenStudioApp : public OSAppBase
 
   virtual ~OpenStudioApp();
 
-  virtual OSDocument* currentDocument() const override;
+  virtual OSDocument* currentDocument() const final;
 
   static OpenStudioApp* instance();
 
@@ -101,14 +101,14 @@ class OpenStudioApp : public OSAppBase
 
   // Returns the hard set path (in settings), and or if not set will try to infer it by looking into the current PATH
   // If all fails, ends up returning an empty path (no need to wrap into a boost::optional (with overhead) for this)
-  virtual openstudio::path dviewPath() const override;
+  virtual openstudio::path dviewPath() const final;
 
-  virtual bool notify(QObject* receiver, QEvent* event) override;
+  virtual bool notify(QObject* receiver, QEvent* event) final;
 
  protected:
-  virtual bool event(QEvent* event) override;
+  virtual bool event(QEvent* event) final;
 
-  virtual void childEvent(QChildEvent* event) override;
+  virtual void childEvent(QChildEvent* event) final;
 
  signals:
 
@@ -140,7 +140,7 @@ class OpenStudioApp : public OSAppBase
 
   void showAbout();
 
-  virtual void reloadFile(const QString& osmPath, bool modified, bool saveCurrentTabs) override;
+  virtual void reloadFile(const QString& osmPath, bool modified, bool saveCurrentTabs) final;
 
   void revertToSaved();
 
@@ -159,7 +159,7 @@ class OpenStudioApp : public OSAppBase
   void changeLanguage(const QString& rLanguage);
 
   // Checks what happened in the ExternalToolsDialog preference pane
-  virtual void configureExternalTools() override;
+  virtual void configureExternalTools() final;
 
  private slots:
 

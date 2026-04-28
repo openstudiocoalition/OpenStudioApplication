@@ -28,7 +28,7 @@ Within every `.cpp` and `.hpp`, includes must appear in this order, with a blank
 #include <memory>
 ```
 
-Do not mix groups. When adding a new include, place it in the correct group in the same edit — not as a deferred cleanup.
+Do not mix groups. When adding a new include, place it in the correct group in the same edit — not as a deferred cleanup.  Within each group, sort includes alphabetically by filename.
 
 ---
 

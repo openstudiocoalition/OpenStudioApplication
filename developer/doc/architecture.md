@@ -1,6 +1,5 @@
 # OpenStudio Application — Architecture Overview
 
-> **Version:** 1.11.0  
 > **Audience:** Internal team (C++/Qt familiarity assumed)  
 > **Last updated:** See git log  
 
@@ -133,7 +132,6 @@ flowchart TD
 | Formatting | **fmt** | 9.1.0 | String formatting |
 | Database | **SQLite3** | system | Local results database |
 | 3D geometry | **TinyGLTF** | — | GLTF import/export |
-| Language bindings | **SWIG** | 4.1.1 | Ruby/Python binding generation |
 | Compiler cache | **ccache / sccache** | any | CI build acceleration |
 
 ---
@@ -189,7 +187,7 @@ See [BUILDING.md](../../BUILDING.md) for the complete, platform-specific instruc
 
 ### 7.1 Tab-Based Master-Detail Pattern
 
-Each major domain (HVAC, Schedules, Constructions, Geometry, etc.) follows a three-class pattern. The **Model** role is played by the OpenStudio SDK model objects (`openstudio::model::Model` and its children); the controller mediates between those objects and two views:
+Each major domain (HVAC, Schedules, Constructions, Geometry, etc.) follows a three-class pattern. The **Model** is the OpenStudio SDK — specifically `openstudio::model::Model` and its `ModelObject` subclasses. Controllers read from and mutate these SDK objects directly. Each controller mediates between the SDK model and two views:
 
 ```mermaid
 classDiagram
@@ -259,29 +257,21 @@ OpenStudioApp (exe)
     → shared_gui_components
       → openstudio_qt_utils
         → openstudioapp_utilities
+    → openstudio_modeleditor
+      → openstudio_qt_utils
   → openstudio_bimserver
-    → openstudio_qt_utils
-  → openstudio_modeleditor
     → openstudio_qt_utils
 ```
 
 **The `BaseApp` interface** (`shared_gui_components/BaseApp.hpp`) is the key boundary between the lower-level `shared_gui_components` library and the upper-level `openstudio_lib` library. All `shared_gui_components` code that needs application-level services must go through `BaseApp`, never through `OSAppBase`, `OSDocument`, or `MainWindow` directly. Code that needs document-level services (icon lookup, model-object resolution, drop handling) calls `BaseApp::currentDocument()`, which returns a `BaseDocument*` — another interface in `shared_gui_components` implemented by `OSDocument` in `openstudio_lib`. C++ raw pointer covariance means `OSAppBase::currentDocument()` can override `BaseApp::currentDocument()` while returning the more-derived `OSDocument*`, so a single virtual serves both caller audiences.
 
-**Known violations (tracked as tech debt):**
-
-None. All boundary violations have been resolved.
-
 ---
 
 ## 8. CI/CD Overview
 
-Two parallel CI systems are used:
+**GitHub Actions** is the sole CI system. It triggers on PRs, pushes to `master`/`develop`, and version tags, running a full 5-platform build matrix (Windows, macOS, Ubuntu 22.04, Ubuntu 24.04, and a packaging pass). It also handles code signing, release publishing, static analysis, and CLA enforcement.
 
-| System | Trigger | Purpose |
-|---|---|---|
-| **GitHub Actions** | PR + push to master/develop + version tags | Full 5-platform build matrix, code signing, release publishing, static analysis, CLA enforcement |
-
-See [ci/overview.md](ci/overview.md) for the full CI/CD architecture documentation, or browse individual workflow docs under [ci/workflows/](ci/workflows/).
+Individual workflow files are in [`.github/workflows/`](../../.github/workflows/).
 
 ---
 

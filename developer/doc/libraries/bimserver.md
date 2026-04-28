@@ -24,35 +24,14 @@ The module offers both **non-blocking (async)** and **blocking** APIs for all op
 classDiagram
   class BIMserverConnection {
     <<QObject>>
-    -addr: QString
-    -port: QString
-    -manager: QNetworkAccessManager
     +login(username, password)
-    +getAllProjects()
     +download(revisionID)
-    +createProject(name)
-    +deleteProject(projectID)
-    +checkInIFCFile(projectID, path)
-    +getIFCRevisionList(projectID)
     +loginBlocked(username, password, timeout) bool
-    +getAllProjectsBlocked(timeout) optional~QStringList~
     +downloadBlocked(projectID, timeout) optional~QString~
-    +createProjectBlocked(name, timeout) bool
-    +deleteProjectBlocked(projectID, timeout) bool
-    +checkInIFCFileBlocked(projectID, path, timeout) bool
-    +getIFCRevisionListBlocked(projectID, timeout) optional~QStringList~
-    signals: osmStringRetrieved(QString)
-    signals: listAllProjects(QStringList)
-    signals: listAllIFCRevisions(QStringList)
-    signals: operationSucceeded(QString)
-    signals: errorOccured(QString)
-    signals: bimserverError()
   }
   class ProjectImporter {
     <<QDialog>>
-    -connection: BIMserverConnection*
     +run() optional~Model~
-    signals: finished()
   }
 
   ProjectImporter "1" --> "1" BIMserverConnection : owns and drives

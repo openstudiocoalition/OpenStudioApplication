@@ -5,6 +5,10 @@
 
 #include <gtest/gtest.h>
 
+// IconLibrary is defined in shared_gui_components, but this test lives in openstudio_lib/test/
+// because it reuses OpenStudioLibFixture for QApplication setup and Qt resource initialisation.
+// shared_gui_components has no test target of its own; a lightweight QApplication-only fixture
+// there would suffice if one is ever added.
 #include "OpenStudioLibFixture.hpp"
 
 #include "../../shared_gui_components/IconLibrary.hpp"

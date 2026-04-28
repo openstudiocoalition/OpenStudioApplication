@@ -201,10 +201,7 @@ void MeasureStepController::addItemForDroppedMeasure(QDropEvent* event) {
 
   UUID id = measureDragData.id();
 
-  const bool hasDocument = (m_app != nullptr);
-  if (hasDocument) {
-    m_app->disableDocument();
-  }
+  m_app->disableDocument();
 
   boost::optional<BCLMeasure> projectMeasure;
   try {
@@ -218,9 +215,7 @@ void MeasureStepController::addItemForDroppedMeasure(QDropEvent* event) {
     errorMessage += QString::fromStdString(e.what());
     QMessageBox::information(m_app->mainWidget(), QString("Failed to add measure"), errorMessage);
 
-    if (hasDocument) {
-      m_app->enableDocument();
-    }
+    m_app->enableDocument();
     return;
   }
   OS_ASSERT(projectMeasure);
@@ -229,9 +224,7 @@ void MeasureStepController::addItemForDroppedMeasure(QDropEvent* event) {
     QString errorMessage("Failed to add measure at this workflow location.");
     QMessageBox::information(m_app->mainWidget(), QString("Failed to add measure"), errorMessage);
 
-    if (hasDocument) {
-      m_app->enableDocument();
-    }
+    m_app->enableDocument();
     return;
   }
 
@@ -245,9 +238,7 @@ void MeasureStepController::addItemForDroppedMeasure(QDropEvent* event) {
     errorMessage += QString::fromStdString(e.what());
     QMessageBox::information(m_app->mainWidget(), QString("Failed to add measure"), errorMessage);
 
-    if (hasDocument) {
-      m_app->enableDocument();
-    }
+    m_app->enableDocument();
     return;
   }
 
@@ -274,9 +265,7 @@ void MeasureStepController::addItemForDroppedMeasure(QDropEvent* event) {
 
   //workflowJSON.save();
 
-  if (hasDocument) {
-    m_app->enableDocument();
-  }
+  m_app->enableDocument();
 
   emit modelReset();
 }

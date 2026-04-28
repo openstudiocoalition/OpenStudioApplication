@@ -6,7 +6,7 @@
 
 ## Purpose
 
-`shared_gui_components` provides the reusable Qt widgets and controllers that are shared between the standalone OpenStudio Application and any plugin host (e.g., the SketchUp plugin). It is designed to be independent of the specific application shell, conforming only to the `BaseApp` interface.
+`shared_gui_components` provides the reusable Qt widgets and controllers that are used by the standalone OpenStudio Application. It is designed to be independent of the specific application shell, conforming only to the `BaseApp` interface.
 
 Key responsibilities:
 - **Grid system** — a generic multi-column tabular view for OpenStudio model objects
@@ -120,8 +120,6 @@ All typed input widgets follow the same pattern: they read from and write to a `
 | `OSQuantityEdit` / `OSQuantityEdit2` | Dimensional quantity editor with SI/IP toggle |
 | `OSOptionalQuantityEdit` | Optional dimensional quantity (blank = unset) |
 
-> **Note:** `OSVectorController`, `OSItemId`, `IconLibrary`, `UserSettings`, `OSItem`, `OSDropZone`, and `ModelObjectItem` are now fully in `shared_gui_components` (previously in `openstudio_lib` or `model_editor`). All document/app operations are routed through `BaseApp` virtual methods.
-
 The `2` suffix variants use `std::function` callbacks instead of `QObject` signal/slot; they are preferred in newer code.
 
 ---
@@ -167,12 +165,6 @@ flowchart TD
 | Module | Usage |
 |---|---|
 | `openstudio_qt_utils` | `Application` singleton, `Utilities` (string/UUID/path conversions), `QMetaTypes` (SDK metatype registration), `OSProgressBar` |
-
----
-
-## Known Boundary Violations
-
-None. All cross-library includes have been resolved. `OSItem`, `OSDropZone`, and `ModelObjectItem` are fully in `shared_gui_components`; their former dependencies on `OSAppBase`/`OSDocument` are now routed through `BaseApp` virtual methods.
 
 ---
 

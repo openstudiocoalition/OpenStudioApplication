@@ -6,9 +6,9 @@
 
 ## Purpose
 
-`openstudio_lib` is the largest module (~200+ source files). It implements the complete building model editing GUI: every tab, every inspector view, every drag-and-drop list, and the geometry editor. It also defines the shared base types (`OSAppBase`, `OSDocument`, `MainWindow`) that the executable and the SketchUp plugin both build upon.
+`openstudio_lib` is the largest module (~200+ source files). It implements the complete building model editing GUI: every tab, every inspector view, every drag-and-drop list, and the geometry editor. It also defines the shared base types (`OSAppBase`, `OSDocument`, `MainWindow`) that the OpenStudioApp executable builds upon.
 
-The module follows a consistent **Controller / View / Inspector triad** per domain: a controller manages data access and inter-widget coordination, a tab view provides the domain's layout, and inspector widgets display the selected object's properties.
+The module follows a consistent **Controller / View / Inspector triad** per domain. The **Model** layer is the OpenStudio SDK (`openstudio::model::Model` and its `ModelObject` children) — controllers read from and mutate these SDK objects directly, never through an intermediate layer. The controller manages data access and inter-widget coordination, the tab view provides the domain's primary layout, and inspector widgets display the selected object's editable properties.
 
 ---
 
@@ -55,41 +55,47 @@ classDiagram
   OSDocument "1" *-- "1" MainWindow : owns
   OSDocument "1" *-- "1" MainTabController : owns active
   OSDocument "1" *-- "1" MainRightColumnController : owns
-  MainTabController <|-- HVACSystemsTabController
-  MainTabController <|-- ConstructionsTabController
+  MainTabController <|-- LocationTabController
   MainTabController <|-- SchedulesTabController
+  MainTabController <|-- ConstructionsTabController
+  MainTabController <|-- LoadsTabController
   MainTabController <|-- SpaceTypesTabController
+  MainTabController <|-- GeometryTabController
   MainTabController <|-- FacilityTabController
+  MainTabController <|-- SpacesTabController
+  MainTabController <|-- ThermalZonesTabController
+  MainTabController <|-- HVACSystemsTabController
+  MainTabController <|-- VariablesTabController
+  MainTabController <|-- SimSettingsTabController
+  MainTabController <|-- ScriptsTabController
   MainTabController <|-- RunTabController
+  MainTabController <|-- ResultsTabController
 ```
 
 ---
 
 ## Domain Modules Within `openstudio_lib`
 
-| Domain | Key Controller | Key View | Notes |
+| Domain (VerticalTabID) | Key Controller | Key View | Sub-tabs |
 |---|---|---|---|
-| Application shell | `OSAppBase`, `OSDocument` | `MainWindow` | Foundation for all tabs |
-| Geometry editor | `GeometryEditorController` | `GeometryEditorView` | Qt WebEngine + JS bridge |
-| Geometry preview | `GeometryPreviewController` | `GeometryPreviewView` | Read-only 3D preview |
-| HVAC Systems | `HVACSystemsTabController`, `HVACSystemsController` | `HVACSystemsTabView`, `HVACSystemsView` | Loop/service water/VRF scenes |
-| Refrigeration | `RefrigerationController`, `RefrigerationGridController` | `RefrigerationView`, `RefrigerationScene` | Custom QGraphicsScene |
-| Constructions | `ConstructionsTabController`, `ConstructionsController` | `ConstructionsTabView`, `ConstructionsView` | Many derived inspector views |
-| Materials | `MaterialsController` | `MaterialsView` | Per-material inspector views |
-| Loads | `LoadsController` | `LoadsView` | Equipment, people, lights inspectors |
-| Schedules | `SchedulesTabController`, `SchedulesController` | `SchedulesTabView`, `SchedulesDayView` | Day schedule chart editor |
-| Space Types | `SpaceTypesController` | `SpaceTypesGridView`, `SpaceTypeInspectorView` | Grid view |
-| Thermal Zones | `ThermalZonesController` | `ThermalZonesGridView` | Grid view |
-| Spaces | `SpacesTabController` | Multiple `Spaces*GridView` | Surfaces, loads, shading sub-tabs |
-| Facility | `FacilityTabController` | `FacilityStoriesGridView`, `FacilityShadingGridView` | Building stories, shading |
-| Simulation Settings | `SimSettingsTabController` | `SimSettingsTabView`, `DesignDayGridView` | Run period, design days |
-| Run | `RunTabController` | `RunTabView` | Triggers EnergyPlus |
-| Results | `ResultsTabController` | `ResultsTabView` | Post-run output charts |
-| Variables | `VariablesTabController` | `VariablesTabView` | EnergyPlus output variables |
-| Measures/Scripts | `ScriptsTabController` | `ScriptsTabView` | Measure workflow |
-| Utility Bills | `UtilityBillsController` | `UtilityBillsView` | Calibration data |
-| Inspector (generic) | `InspectorController` | `InspectorView` | Right-column inspector |
-| BCL | — | — | `BCLComponentItem` |
+| Application shell | `OSAppBase`, `OSDocument` | `MainWindow` | — |
+| Site / Location (0) | `LocationTabController` | `LocationTabView` | Weather File & Design Days · Life Cycle Costs · Utility Bills · Ground Temperatures |
+| Schedules (1) | `SchedulesTabController`, `SchedulesController` | `SchedulesTabView`, `SchedulesDayView` | Schedule Sets · Schedules · Other Schedules |
+| Constructions (2) | `ConstructionsTabController`, `ConstructionsController` | `ConstructionsTabView`, `ConstructionsView` | Construction Sets · Constructions · Materials |
+| Loads (3) | `LoadsTabController`, `LoadsController` | `LoadsView` | *(single grid view)* |
+| Space Types (4) | `SpaceTypesTabController`, `SpaceTypesController` | `SpaceTypesGridView`, `SpaceTypeInspectorView` | *(single grid view)* |
+| Geometry (5) | `GeometryTabController` | — | 3D View · Editor |
+| Facility (6) | `FacilityTabController` | `FacilityTabView` | Building · Stories · Shading · Exterior Equipment |
+| Spaces (7) | `SpacesTabController` | Multiple `Spaces*GridView` | Properties · Loads · Surfaces · Subsurfaces · Interior Partitions · Shading |
+| Thermal Zones (8) | `ThermalZonesTabController`, `ThermalZonesController` | `ThermalZonesGridView` | *(single grid view)* |
+| HVAC Systems (9) | `HVACSystemsTabController`, `HVACSystemsController` | `HVACSystemsTabView`, `HVACSystemsView` | *(single view; `RefrigerationController` accessible via HVAC scene)* |
+| Output Variables (10) | `VariablesTabController` | `VariablesTabView` | *(single view)* |
+| Simulation Settings (11) | `SimSettingsTabController` | `SimSettingsTabView`, `DesignDayGridView` | *(single view)* |
+| Measures/Scripts (12) | `ScriptsTabController` | `ScriptsTabView` | *(single view)* |
+| Run (13) | `RunTabController` | `RunTabView` | *(single view)* |
+| Results (14) | `ResultsTabController` | `ResultsTabView` | *(single view)* |
+| Inspector (generic) | `InspectorController` | `InspectorView` | — |
+| BCL | — | — | — |
 
 ---
 
@@ -99,10 +105,7 @@ classDiagram
 |---|---|
 | `OSItemList` / `OSCollapsibleItem` | Container widgets for ordered lists of `OSItem`s |
 | `ModelObjectListView` | Generic list view displaying any collection of model objects |
-| `ModelObjectTreeWidget` | Generic tree view for hierarchical model data |
 | `OSWebEnginePage` | `QWebEnginePage` subclass for the geometry JS bridge |
-
-> **Note:** `OSVectorController`, `IconLibrary`, `OSItem`, `OSDropZone`, `ModelObjectItem`, and `OSItemId` have all moved to `shared_gui_components`.
 
 ---
 
@@ -128,7 +131,7 @@ classDiagram
 
 ## Patterns & Conventions
 
-- **MVC triad** — every domain has a `*TabController`, a `*TabView`, and one or more `*InspectorView` classes.
+- **Master-detail MVC** — every domain has a `*TabController` (controller), a `*TabView` (master), and one or more `*InspectorView` classes (detail).
 - **`OSQObjectController`** — `OSDocument` and most controllers extend `OSQObjectController`, which provides a thread-safe `QObject` parent management pattern.
 - **Static linking** — all internal libraries are built `STATIC`; no DLL export macros are needed.
 - **Analytics** — `AnalyticsHelper` sends anonymized usage pings (configurable via `ANALYTICS_API_SECRET`/`ANALYTICS_MEASUREMENT_ID` build-time secrets).

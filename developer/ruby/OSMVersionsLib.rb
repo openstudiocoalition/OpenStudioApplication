@@ -63,7 +63,7 @@ def find_resource_osms()
   path = File.join(ROOT_DIR, 'src/**/*.osm')
   files = Dir.glob(path)
   # Only keep the one we're interested in
-  files = files.grep(/openstudio_app\/Resources|sketchup_plugin\/resources\/templates|sketchup_plugin\/user_scripts/)
+  files = files.grep(/openstudio_app\/Resources/)
   return files
 
 end

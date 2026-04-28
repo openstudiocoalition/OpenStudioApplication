@@ -931,8 +931,8 @@ void OpenStudioApp::showHelp() {
 void OpenStudioApp::checkForUpdate() {
   QWidget* parent = nullptr;
 
-  if (currentDocument()) {
-    parent = currentDocument()->mainWindow();
+  if (auto* doc = currentDocument()) {
+    parent = doc->mainWindow();
   }
 
   modeleditor::GithubReleases releases("openstudiocoalition", "OpenStudioApplication");
@@ -974,13 +974,13 @@ void OpenStudioApp::debugWebgl() {
 void OpenStudioApp::showAbout() {
   QWidget* parent = nullptr;
 
-  if (currentDocument()) {
-    parent = currentDocument()->mainWindow();
+  if (auto* doc = currentDocument()) {
+    parent = doc->mainWindow();
   }
   QString details = tr("Measure Manager Server: ") + measureManager().url().toString() + "\n";
   details += tr("Chrome Debugger: http://localhost:") + qgetenv("QTWEBENGINE_REMOTE_DEBUGGING") + "\n";
-  if (currentDocument()) {
-    details += tr("Temp Directory: ") + currentDocument()->modelTempDir();
+  if (auto* doc = currentDocument()) {
+    details += tr("Temp Directory: ") + doc->modelTempDir();
   }
   QMessageBox about(parent);
   about.setText(OPENSTUDIOAPP_ABOUTBOX);
