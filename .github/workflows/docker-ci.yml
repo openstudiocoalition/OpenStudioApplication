@@ -37,8 +37,8 @@ jobs:
         context: docker/
         load: true
         tags: osapp2-build:latest
-        cache-from: type=gha,scope=osapp2-build
-        cache-to:   type=gha,scope=osapp2-build,mode=max
+        cache-from: type=gha,scope=osapp2-build-${{ hashFiles('docker/Dockerfile') }}
+        cache-to:   type=gha,scope=osapp2-build-${{ hashFiles('docker/Dockerfile') }},mode=max
 
     # Optional: cache Conan packages between runs to avoid re-building
     # dependencies from source on every PR push.

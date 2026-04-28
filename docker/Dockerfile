@@ -17,6 +17,7 @@ RUN apt-get update && apt-get install -y --no-install-recommends \
         libxcb-shape0 libxkbcommon-x11-0 libxcb-cursor0 \
         patchelf cppcheck ca-certificates lsb-release libglib2.0-0 \
         libfontconfig1-dev libdbus-1-dev \
+        libasound2-dev libnss3-dev libnspr4-dev libxdamage-dev libxcomposite-dev libxrandr-dev libxtst-dev \
     && rm -rf /var/lib/apt/lists/*
 
 # Layer 2: Python tools + Qt 6.11.0
