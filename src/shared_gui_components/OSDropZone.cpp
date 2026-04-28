@@ -688,12 +688,22 @@ void OSDropZone2::dropEvent(QDropEvent* event) {
       modelObject = doc->getModelObject(itemId);
     }
 
-    OS_ASSERT(modelObject);
+    if (!modelObject) {
+      // BCL component lookup failed (getComponent returned none, insertComponent failed,
+      // or the item is no longer in the model). Silently ignore the drop — refreshing the
+      // zone without crashing is the safest fallback.
+      refresh();
+      return;
+    }
 
     bool success = false;
     if (doc->fromBCL(itemId)) {
       // model object already cloned above
-      OS_ASSERT(componentData);
+      if (!componentData) {
+        // insertComponent failed — nothing was inserted, nothing to clean up.
+        refresh();
+        return;
+      }
       success = (*m_set)(modelObject.get());
       if (!success) {
         std::vector<Handle> handlesToRemove;

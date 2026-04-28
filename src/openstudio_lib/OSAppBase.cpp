@@ -332,6 +332,10 @@ OSItem* OSAppBase::makeItem(const OSItemId& itemId, OSItemType osItemType) {
   }
 
   if (itemId.sourceId() == OSItemId::BCL_SOURCE_ID) {
+    // TODO: OSItemId does not carry a versionId — only the uid is stored in itemId.itemId().
+    // If multiple versions of the same component are locally installed, getLocalComponent will
+    // return whichever the BCL finds first. To fix properly, OSItemId should be extended with
+    // a versionId field and BCLComponentItem should populate it on construction.
     boost::optional<BCLComponent> comp = doc->getLocalComponent(itemId.itemId().toStdString());
     if (comp) {
       return new BCLComponentItem(comp.get(), osItemType);
