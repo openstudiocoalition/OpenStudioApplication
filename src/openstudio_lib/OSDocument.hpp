@@ -65,25 +65,40 @@ class OSDocument
   // BaseDocument interface — pure virtual overrides
   // -------------------------------------------------------------------------
 
+  // Returns the model associated with this document.
   model::Model model() override;
+  // Returns true if the document has unsaved changes.
   bool modified() const override;
+  // Returns the string path to the location where the document is saved.
+  // If the document is unsaved an empty string will be returned.
   QString savePath() const override;
+  // Returns the path to the directory where model resources are stored.
   QString modelTempDir() const override;
+  // Returns the component library associated with this document.
   model::Model componentLibrary() const override;
+  // Returns true if OSItemId's source is the model.
   bool fromModel(const OSItemId& itemId) const override;
+  // Returns true if OSItemId's source is the componentLibrary.
   bool fromComponentLibrary(const OSItemId& itemId) const override;
+  // Returns true if OSItemId's source is the BCL.
   bool fromBCL(const OSItemId& itemId) const override;
   std::vector<BCLComponent> componentAttributeSearch(const std::vector<std::pair<std::string, std::string>>& pairs) const override;
+  // Returns IddObjectType from either model, componentLibrary, or BCL.
   boost::optional<IddObjectType> getIddObjectType(const OSItemId& itemId) const override;
+  // Returns the model object from either model or componentLibrary if possible.
+  // Does not return model object from BCL.
   boost::optional<model::ModelObject> getModelObject(const OSItemId& itemId) const override;
+  // Returns the component from BCL identified by itemId.
   boost::optional<model::Component> getComponent(const OSItemId& itemId) const override;
 
   // -------------------------------------------------------------------------
   // OSDocument-specific API
   // -------------------------------------------------------------------------
 
-  // TODO: promote to BaseDocument once MainWindow is extracted into an IMainWindow interface
-  // that lives in shared_gui_components or openstudio_qt_utils (no openstudio_lib dependency).
+  // TODO: create a BaseMainWindow interface in shared_gui_components and change this 
+  // to a virtual method `BaseMainWindow* mainWindow()` in BaseDocument.
+  // This will allow us to split up openstudio_lib into domain-specific libraries
+  // (e.g. constructions_gui, hvac_gui, etc.) which need to call mainWindow().
   MainWindow* mainWindow();
 
   // Sets the model — closes all current windows.
