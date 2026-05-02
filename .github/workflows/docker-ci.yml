@@ -1,6 +1,6 @@
 # Docker-based CI for pull requests.
 #
-# Builds the project inside the osapp2-build Docker image (Ubuntu 22.04 with
+# Builds the project inside the osapp-build Docker image (Ubuntu 22.04 with
 # Qt 6.11.0, OpenStudio SDK 3.11.0, and Conan 2 pre-installed) and runs
 # CTest.  The Docker image layers are cached via the GitHub Actions cache
 # backend so the slow Qt/SDK bake step is only repeated when the Dockerfile
@@ -36,9 +36,9 @@ jobs:
       with:
         context: docker/
         load: true
-        tags: osapp2-build:latest
-        cache-from: type=gha,scope=osapp2-build-${{ hashFiles('docker/Dockerfile') }}
-        cache-to:   type=gha,scope=osapp2-build-${{ hashFiles('docker/Dockerfile') }},mode=max
+        tags: osapp-build:latest
+        cache-from: type=gha,scope=osapp-build-${{ hashFiles('docker/Dockerfile') }}
+        cache-to:   type=gha,scope=osapp-build-${{ hashFiles('docker/Dockerfile') }},mode=max
 
     # Optional: cache Conan packages between runs to avoid re-building
     # dependencies from source on every PR push.

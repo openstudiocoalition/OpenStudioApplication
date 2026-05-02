@@ -12,16 +12,28 @@
 #   make shell        # Drop into an interactive container shell
 # =============================================================================
 
-IMAGE     := osapp2-build
+# ---------------------------------------------------------------------------
+# Git Bash/MSYS2: Prevent unwanted path conversion for Docker
+# If running in Git Bash/MSYS2, export MSYS_NO_PATHCONV=1 to avoid issues with
+# Docker volume and working directory paths. This is a no-op in other shells.
+ifeq ($(shell uname -s | grep -iE 'mingw|msys|cygwin'),)
+else
+export MSYS_NO_PATHCONV=1
+endif
+
+IMAGE     := osapp-build
 TAG       := latest
 BUILD_DIR := build
 
-# Named volumes – persist the Conan package cache and ccache between runs.
-CONAN_VOL  := osapp2-conan-cache
-CCACHE_VOL := osapp2-ccache
+# Named volumes – persist Conan packages, ccache, and build artefacts between runs.
+# The build volume is mounted at /workspace/build inside the container, shadowing
+# any host build/ directory.  This gives Linux-native filesystem performance for
+# incremental Ninja builds and avoids file-ownership noise on Windows hosts.
+CONAN_VOL  := osapp-conan-cache
+CCACHE_VOL := osapp-ccache
+BUILD_VOL  := osapp-build
 
-# TODO: consider making build dir a volume instead of a host mount for performance
-# TODO: figure out how to launch the app from inside the volume (not sure this is possible on Windows)
+# TODO: figure out how to launch the app from inside the build volume on Windows
 # TODO: increase debug and warning verbosity of configure and build steps
 
 # Qt install dir inside the image (matches Dockerfile ENV).
@@ -29,10 +41,13 @@ QT_INSTALL_DIR := /opt/Qt/6.11.0/gcc_64
 
 # ---------------------------------------------------------------------------
 # Base docker run command (non-interactive, workspace mounted as /workspace).
-# Runs as root so build artefacts in build/ have consistent ownership.
+# Runs as root so build artefacts have consistent ownership.
+# The build volume is mounted over /workspace/build so the host never sees
+# raw build output; use 'make shell' to inspect artefacts interactively.
 # ---------------------------------------------------------------------------
 DOCKER_RUN := docker run --rm \
 	-v "$(CURDIR):/workspace" \
+	-v "$(BUILD_VOL):/workspace/build" \
 	-v "$(CONAN_VOL):/conan-cache" \
 	-v "$(CCACHE_VOL):/ccache" \
 	-e CONAN_HOME=/conan-cache \
@@ -41,8 +56,8 @@ DOCKER_RUN := docker run --rm \
 	-w /workspace \
 	$(IMAGE):$(TAG)
 
-.PHONY: all image volumes configure build test cppcheck shell attach \
-        clean image-clean volumes-clean help
+.PHONY: all image volumes configure build test cppcheck run-app shell attach \
+        clean image-clean volumes-clean build-clean help
 
 all: help
 
@@ -53,11 +68,12 @@ image:
 	docker build -t $(IMAGE):$(TAG) docker/
 
 # ---------------------------------------------------------------------------
-# volumes — Ensure named cache volumes exist.
+# volumes — Ensure all named volumes exist.
 # ---------------------------------------------------------------------------
 volumes:
 	docker volume inspect $(CONAN_VOL)  > /dev/null 2>&1 || docker volume create $(CONAN_VOL)
 	docker volume inspect $(CCACHE_VOL) > /dev/null 2>&1 || docker volume create $(CCACHE_VOL)
+	docker volume inspect $(BUILD_VOL)  > /dev/null 2>&1 || docker volume create $(BUILD_VOL)
 
 # ---------------------------------------------------------------------------
 # configure — Bootstrap Conan, symlink SDK, run conan install + cmake.
@@ -73,12 +89,36 @@ build: volumes
 	$(DOCKER_RUN) cmake --build --preset conan-release -j
 
 # ---------------------------------------------------------------------------
-# test — Run CTest inside the build directory (xvfb-run provides a virtual
-#         display for headless Qt tests).
-#         Depends on build so an empty build/ gives a clear error message.
+# test — Run CTest inside the build directory.
+#         Xvfb is started manually so all parallel test processes share the
+#         same display (xvfb-run only wraps a single process, which is
+#         insufficient when ctest spawns many children in parallel).
+#
+#         Per-test timeout notes:
+#           All tests have TIMEOUT 660 set in CTestTestfile.cmake.
+#           ctest --timeout only sets the *default* for tests that have no
+#           timeout property, so it does not override 660.
+#           cmake 3.27+ ctest --test-timeout DOES override per-test timeouts.
+#           We use --test-timeout 120 so no single test can block the suite.
+#
+#         Excluded tests:
+#           GithubRelease* — make live HTTP calls to the GitHub releases API
+#           which hang or fail in a network-sandboxed container.
 # ---------------------------------------------------------------------------
 test: build
-	$(DOCKER_RUN) bash -c "cd build && xvfb-run ctest -j --output-on-failure --timeout 120"
+	$(DOCKER_RUN) bash -c "\
+	  Xvfb :99 -screen 0 1280x1024x24 -ac &\
+	  XVFB_PID=$$! ;\
+	  export DISPLAY=:99 ;\
+	  export QT_QPA_PLATFORM=xcb ;\
+	  sleep 1 ;\
+	  cd build && ctest -j4 \
+	    --output-on-failure \
+	    --test-timeout 120 \
+	    --exclude-regex 'GithubRelease' \
+	  ; CTEST_EXIT=$$? ;\
+	  kill $$XVFB_PID 2>/dev/null || true ;\
+	  exit $$CTEST_EXIT"
 
 # ---------------------------------------------------------------------------
 # cppcheck — Static analysis (matches CI cppcheck.yml flags).
@@ -98,11 +138,95 @@ cppcheck: build
 	    2>&1 | tee build/cppcheck-results.txt"
 
 # ---------------------------------------------------------------------------
-# shell — Interactive bash shell inside the container (workspace mounted).
+# run-app — Launch the compiled OpenStudioApp with GUI forwarded to the host.
+#
+#   Automatically detects the host platform:
+#
+#   WSL2/WSLg (Windows 11):
+#     Uses WSLg's X11 socket (/tmp/.X11-unix) and Wayland runtime
+#     (/mnt/wslg).  No extra software needed.
+#     Override display: make run-app DISPLAY=:1
+#
+#   Linux (native):
+#     Mounts /tmp/.X11-unix and uses the host DISPLAY.  Runs xhost +local:docker
+#     first to grant the container access.
+#     Override display: make run-app DISPLAY=:1
+#
+#   macOS:
+#     Requires XQuartz (https://xquartz.org).  Start XQuartz and run:
+#       xhost + 127.0.0.1
+#     Then: make run-app
+#     DISPLAY is set to host.docker.internal:0 automatically.
+#
+#   If on native Linux and GPU passthrough is unavailable (--device /dev/dri
+#   fails), add: make run-app LIBGL_ALWAYS_SOFTWARE=1
+# ---------------------------------------------------------------------------
+APP_BIN := /workspace/build/Products/OpenStudioApp
+
+# Detect host OS.  'uname -s' is available on Linux, macOS, and WSL.
+# On native Windows (no WSL) this will be empty — unsupported directly.
+_UNAME := $(shell uname -s 2>/dev/null)
+
+# Detect WSL2: /mnt/wslg exists only inside the WSL2 VM.
+_IS_WSL := $(shell test -d /mnt/wslg && echo 1 || echo 0)
+
+ifeq ($(_UNAME),Darwin)
+  # macOS: XQuartz listens on host.docker.internal:0
+  DISPLAY ?= host.docker.internal:0
+  _X11_MOUNTS  :=
+  _WSLG_MOUNTS :=
+  _DRI_DEVICE  :=
+  _DISPLAY_ENV := -e DISPLAY=$(DISPLAY)
+else ifeq ($(_IS_WSL),1)
+  # WSL2 + WSLg: GPU is handled by the WSLg Wayland compositor via /dev/dxg;
+  # no --device /dev/dri needed (that device doesn't exist in the WSL2 VM).
+  DISPLAY ?= :0
+  _X11_MOUNTS  := -v /tmp/.X11-unix:/tmp/.X11-unix
+  _WSLG_MOUNTS := -v /mnt/wslg:/mnt/wslg \
+                  -e WAYLAND_DISPLAY=wayland-0 \
+                  -e XDG_RUNTIME_DIR=/mnt/wslg/runtime-dir \
+                  -e PULSE_SERVER=/mnt/wslg/PulseServer
+  _DRI_DEVICE  :=
+  _DISPLAY_ENV := -e DISPLAY=$(DISPLAY)
+else
+  # Native Linux
+  DISPLAY ?= $(shell echo $$DISPLAY)
+  _X11_MOUNTS  := -v /tmp/.X11-unix:/tmp/.X11-unix
+  _WSLG_MOUNTS :=
+  _DRI_DEVICE  := --device /dev/dri
+  _DISPLAY_ENV := -e DISPLAY=$(DISPLAY)
+endif
+
+run-app: volumes
+ifeq ($(_UNAME),Linux)
+ifneq ($(_IS_WSL),1)
+	xhost +local:docker 2>/dev/null || true
+endif
+endif
+	docker run --rm -it \
+		-v "$(CURDIR):/workspace" \
+		-v "$(BUILD_VOL):/workspace/build" \
+		-v "$(CONAN_VOL):/conan-cache" \
+		-v "$(CCACHE_VOL):/ccache" \
+		$(_X11_MOUNTS) \
+		$(_WSLG_MOUNTS) \
+		$(_DISPLAY_ENV) \
+		$(_DRI_DEVICE) \
+		-e CONAN_HOME=/conan-cache \
+		-e CCACHE_DIR=/ccache \
+		-e QT_INSTALL_DIR=$(QT_INSTALL_DIR) \
+		-e QT_QPA_PLATFORM=xcb \
+		-w /workspace \
+		$(IMAGE):$(TAG) \
+		$(APP_BIN)
+
+# ---------------------------------------------------------------------------
+# shell — Interactive bash shell inside the container (all volumes mounted).
 # ---------------------------------------------------------------------------
 shell: volumes
 	docker run --rm -it \
 		-v "$(CURDIR):/workspace" \
+		-v "$(BUILD_VOL):/workspace/build" \
 		-v "$(CONAN_VOL):/conan-cache" \
 		-v "$(CCACHE_VOL):/ccache" \
 		-e CONAN_HOME=/conan-cache \
@@ -119,9 +243,18 @@ attach:
 	docker run --rm -it $(IMAGE):$(TAG) /bin/sh
 
 # ---------------------------------------------------------------------------
-# clean — Remove the build directory (keeps Conan + ccache volumes).
+# clean — Wipe the build volume (keeps Conan, ccache, and source).
+#          Equivalent to the old 'rm -rf build/'.
+#          Also removes any stale host-side build/ directory if present.
 # ---------------------------------------------------------------------------
-clean:
+clean: build-clean
+
+# ---------------------------------------------------------------------------
+# build-clean — Destroy and recreate the build volume (empty slate).
+# ---------------------------------------------------------------------------
+build-clean:
+	docker volume rm $(BUILD_VOL) || true
+	docker volume create $(BUILD_VOL)
 	rm -rf $(BUILD_DIR)
 
 # ---------------------------------------------------------------------------
@@ -131,10 +264,11 @@ image-clean:
 	docker rmi $(IMAGE):$(TAG) || true
 
 # ---------------------------------------------------------------------------
-# volumes-clean — Destroy the Conan and ccache volumes (forces full rebuild).
+# volumes-clean — Destroy all named volumes (forces complete rebuild).
 # ---------------------------------------------------------------------------
 volumes-clean:
-	docker volume rm $(CONAN_VOL) $(CCACHE_VOL) || true
+	docker volume rm $(BUILD_VOL) $(CONAN_VOL) $(CCACHE_VOL) || true
+	rm -rf $(BUILD_DIR)
 
 # ---------------------------------------------------------------------------
 # help — List all targets.
@@ -147,12 +281,18 @@ help:
 	@echo "  build         Compile the project (incremental)"
 	@echo "  test          Run CTest"
 	@echo "  cppcheck      Static analysis (output -> build/cppcheck-results.txt)"
+	@echo "  run-app       Launch OpenStudioApp GUI (WSLg/Linux/macOS+XQuartz)"
 	@echo "  shell         Interactive bash shell inside the build container"
 	@echo "  attach        /bin/sh in the image with no mounts (debug image contents)"
-	@echo "  clean         Remove build/ directory"
+	@echo "  clean         Wipe the build volume (equivalent to rm -rf build/)"
+	@echo "  build-clean   Alias for clean"
 	@echo "  image-clean   Remove the Docker image"
-	@echo "  volumes-clean Destroy Conan + ccache named volumes"
+	@echo "  volumes-clean Destroy all named volumes (build + Conan + ccache)"
 	@echo ""
 	@echo "Typical first-time workflow:"
 	@echo "  make image && make configure && make build && make test"
+	@echo ""
+	@echo "Note: build artefacts live in the '$(BUILD_VOL)' Docker volume."
+	@echo "      Use 'make shell' to inspect them interactively."
+	@echo "      'make clean' wipes the build volume; Conan/ccache are preserved."
 	@echo ""
