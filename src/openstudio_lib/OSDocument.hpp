@@ -95,7 +95,7 @@ class OSDocument
   // OSDocument-specific API
   // -------------------------------------------------------------------------
 
-  // TODO: create a BaseMainWindow interface in shared_gui_components and change this 
+  // TODO: create a BaseMainWindow interface in shared_gui_components and change this
   // to a virtual method `BaseMainWindow* mainWindow()` in BaseDocument.
   // This will allow us to split up openstudio_lib into domain-specific libraries
   // (e.g. constructions_gui, hvac_gui, etc.) which need to call mainWindow().
