@@ -33,9 +33,6 @@ CONAN_VOL  := osapp-conan-cache
 CCACHE_VOL := osapp-ccache
 BUILD_VOL  := osapp-build
 
-# TODO: figure out how to launch the app from inside the build volume on Windows
-# TODO: increase debug and warning verbosity of configure and build steps
-
 # Qt install dir inside the image (matches Dockerfile ENV).
 QT_INSTALL_DIR := /opt/Qt/6.11.0/gcc_64
 
