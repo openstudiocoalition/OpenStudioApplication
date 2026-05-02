@@ -60,7 +60,7 @@ jobs:
       run: |
         if [ -d "$HOME/.conan2-ci-cache" ] && [ "$(ls -A $HOME/.conan2-ci-cache)" ]; then
           docker run --rm \
-            -v osapp2-conan-cache:/conan-cache \
+            -v osapp-conan-cache:/conan-cache \
             -v "$HOME/.conan2-ci-cache:/host-cache:ro" \
             ubuntu:22.04 \
             bash -c "cp -a /host-cache/. /conan-cache/ 2>/dev/null || true"
@@ -81,7 +81,7 @@ jobs:
       run: |
         mkdir -p "$HOME/.conan2-ci-cache"
         docker run --rm \
-          -v osapp2-conan-cache:/conan-cache:ro \
+          -v osapp-conan-cache:/conan-cache:ro \
           -v "$HOME/.conan2-ci-cache:/host-cache" \
           ubuntu:22.04 \
           bash -c "cp -a /conan-cache/. /host-cache/ 2>/dev/null || true"
@@ -90,7 +90,7 @@ jobs:
       if: always()
       run: |
         docker run --rm \
-          -v osapp2-ccache:/ccache \
+          -v osapp-ccache:/ccache \
           -e CCACHE_DIR=/ccache \
-          osapp2-build:latest \
+          osapp-build:latest \
           ccache --show-stats || true

@@ -8,10 +8,7 @@
 #             4. Run `cmake --preset conan-release` to configure the project.
 set -euo pipefail
 
-# Tee all output to a log file inside the build volume (osapp-build), not the
-# host filesystem. Ensures the full log survives PowerShell Tee-Object SIGPIPE.
 mkdir -p /workspace/build
-exec > >(tee -a /workspace/build/configure-docker.log) 2>&1
 
 # ── Verbose debug header ──────────────────────────────────────────────────────
 echo "================================================================"

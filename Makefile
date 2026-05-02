@@ -9,7 +9,7 @@
 #   make configure    # Install Conan deps + CMake configure
 #   make build        # Compile
 #   make test         # Run CTest
-#   make shell        # Drop into an interactive container shell
+#   make check-build  # Drop into an interactive container shell
 # =============================================================================
 
 # ---------------------------------------------------------------------------
@@ -25,7 +25,7 @@ IMAGE     := osapp-build
 TAG       := latest
 BUILD_DIR := build
 
-# Named volumes – persist Conan packages, ccache, and build artefacts between runs.
+# Named volumes – persist Conan packages, ccache, and build artifacts between runs.
 # The build volume is mounted at /workspace/build inside the container, shadowing
 # any host build/ directory.  This gives Linux-native filesystem performance for
 # incremental Ninja builds and avoids file-ownership noise on Windows hosts.
@@ -38,9 +38,9 @@ QT_INSTALL_DIR := /opt/Qt/6.11.0/gcc_64
 
 # ---------------------------------------------------------------------------
 # Base docker run command (non-interactive, workspace mounted as /workspace).
-# Runs as root so build artefacts have consistent ownership.
+# Runs as root so build artifacts have consistent ownership.
 # The build volume is mounted over /workspace/build so the host never sees
-# raw build output; use 'make shell' to inspect artefacts interactively.
+# raw build output; use 'make check-build' to inspect artifacts interactively.
 # ---------------------------------------------------------------------------
 DOCKER_RUN := docker run --rm \
 	-v "$(CURDIR):/workspace" \
@@ -53,7 +53,7 @@ DOCKER_RUN := docker run --rm \
 	-w /workspace \
 	$(IMAGE):$(TAG)
 
-.PHONY: all image volumes configure build test cppcheck run-app shell attach \
+.PHONY: all image volumes configure build test cppcheck run-app check-build attach \
         clean image-clean volumes-clean build-clean help
 
 all: help
@@ -218,9 +218,9 @@ endif
 		$(APP_BIN)
 
 # ---------------------------------------------------------------------------
-# shell — Interactive bash shell inside the container (all volumes mounted).
+# check-build — Interactive bash shell inside the container (all volumes mounted).
 # ---------------------------------------------------------------------------
-shell: volumes
+check-build: volumes
 	docker run --rm -it \
 		-v "$(CURDIR):/workspace" \
 		-v "$(BUILD_VOL):/workspace/build" \
@@ -279,7 +279,7 @@ help:
 	@echo "  test          Run CTest"
 	@echo "  cppcheck      Static analysis (output -> build/cppcheck-results.txt)"
 	@echo "  run-app       Launch OpenStudioApp GUI (WSLg/Linux/macOS+XQuartz)"
-	@echo "  shell         Interactive bash shell inside the build container"
+	@echo "  check-build   Interactive bash shell inside the build container"
 	@echo "  attach        /bin/sh in the image with no mounts (debug image contents)"
 	@echo "  clean         Wipe the build volume (equivalent to rm -rf build/)"
 	@echo "  build-clean   Alias for clean"
@@ -289,7 +289,7 @@ help:
 	@echo "Typical first-time workflow:"
 	@echo "  make image && make configure && make build && make test"
 	@echo ""
-	@echo "Note: build artefacts live in the '$(BUILD_VOL)' Docker volume."
-	@echo "      Use 'make shell' to inspect them interactively."
+	@echo "Note: build artifacts live in the '$(BUILD_VOL)' Docker volume."
+	@echo "      Use 'make check-build' to inspect them interactively."
 	@echo "      'make clean' wipes the build volume; Conan/ccache are preserved."
 	@echo ""
