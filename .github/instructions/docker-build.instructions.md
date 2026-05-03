@@ -126,7 +126,14 @@ After every logical change (e.g. one item from `developer/doc/refactoring-ideas.
 
 2. **`make build` must exit 0 with zero warnings.** The project builds with `-Werror`; any compiler warning is a build failure.  Fix all warnings before proceeding.
 
-3. **`make test` must exit 0 with no regressions.** All tests that passed before the change must still pass.  `GithubRelease*` tests are excluded by the Makefile and are not part of the baseline.  If `make test` fails, read `build/Testing/Temporary/LastTest.log` to identify which test failed and why before attempting a fix.
+3. **`make test` must exit 0 with no regressions.** All tests that passed before the change must still pass.  The following tests are known baseline failures in the Docker environment and are **not** regressions:
+
+   | Test | Reason |
+   |------|--------|
+   | `ModelEditorFixture.MorePath_Conversions` | Tests Windows-style backslash path conversion; always fails on Linux |
+   | `OpenStudioLibFixture.AnalyticsHelperSecrets` | Requires analytics API secrets injected by CI; always empty in local builds |
+
+   `GithubRelease*` tests are excluded entirely by the Makefile (`--exclude-regex GithubRelease`) and are not part of the baseline.  If `make test` fails, read `build/Testing/Temporary/LastTest.log` to identify which test failed and why before attempting a fix.
 
 4. **Optionally run `make cppcheck`** after any non-trivial structural change (new class, moved logic, changed ownership patterns).  Review `build/cppcheck-results.txt` for new issues introduced by the change.
 

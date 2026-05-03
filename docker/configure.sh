@@ -56,7 +56,7 @@ echo "==> [1/4] Checking OpenStudio SDK ..."
 if [ -d "${SDK_DEST}" ]; then
     echo "    SDK already present at ${SDK_DEST}"
     echo "    SDK contents (top-level):"
-    ls -lh "${SDK_DEST}" | head -20
+    ls -lah "${SDK_DEST}" || true
 else
     echo "    SDK not found — downloading ..."
     mkdir -p "${SDK_DIR}"
@@ -146,7 +146,7 @@ conan install . \
     -s build_type=Release
 echo "    conan install exit code: $?"
 echo "    build/ contents after conan install:"
-ls -lh build/ | grep -v "^total" | head -30
+ls -lah build/ | grep -v "^total" || true
 
 # ── CMake configure ───────────────────────────────────────────────────────────
 echo "==> [4/4] Running cmake configure ..."
