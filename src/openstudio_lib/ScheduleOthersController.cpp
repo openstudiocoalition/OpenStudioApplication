@@ -32,7 +32,7 @@ void ScheduleOthersController::onAddObject(const openstudio::IddObjectType& iddO
     }
     case IddObjectType::OS_Schedule_Compact: {
       QMessageBox message(subTabView());
-      message.setText("Creation of Schedule:Compact is not supported, you should use a ScheduleRuleset instead");
+      message.setText(tr("Creation of Schedule:Compact is not supported, you should use a ScheduleRuleset instead"));
       message.exec();
       return;
     }

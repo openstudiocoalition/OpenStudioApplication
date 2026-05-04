@@ -229,13 +229,13 @@ void MainRightColumnController::configureForSiteSubTab(int subTabID) {
     myModelList->setItemsDraggable(true);
     myModelList->setItemsRemoveable(false);
 
-    myModelList->addModelObjectType(IddObjectType::OS_Schedule_File, "Schedule File");
-    myModelList->addModelObjectType(IddObjectType::OS_Schedule_VariableInterval, "Variable Interval Schedules");
-    myModelList->addModelObjectType(IddObjectType::OS_Schedule_FixedInterval, "Fixed Interval Schedules");
-    myModelList->addModelObjectType(IddObjectType::OS_Schedule_Year, "Year Schedules");
-    myModelList->addModelObjectType(IddObjectType::OS_Schedule_Constant, "Constant Schedules");
-    myModelList->addModelObjectType(IddObjectType::OS_Schedule_Compact, "Compact Schedules");
-    myModelList->addModelObjectType(IddObjectType::OS_Schedule_Ruleset, "Ruleset Schedules");
+    myModelList->addModelObjectType(IddObjectType::OS_Schedule_File, tr("Schedule File").toStdString());
+    myModelList->addModelObjectType(IddObjectType::OS_Schedule_VariableInterval, tr("Variable Interval Schedules").toStdString());
+    myModelList->addModelObjectType(IddObjectType::OS_Schedule_FixedInterval, tr("Fixed Interval Schedules").toStdString());
+    myModelList->addModelObjectType(IddObjectType::OS_Schedule_Year, tr("Year Schedules").toStdString());
+    myModelList->addModelObjectType(IddObjectType::OS_Schedule_Constant, tr("Constant Schedules").toStdString());
+    myModelList->addModelObjectType(IddObjectType::OS_Schedule_Compact, tr("Compact Schedules").toStdString());
+    myModelList->addModelObjectType(IddObjectType::OS_Schedule_Ruleset, tr("Ruleset Schedules").toStdString());
     myModelList->addModelObjectCategoryPlaceholder("Schedules");
 
     setMyModelView(myModelList);
@@ -246,13 +246,13 @@ void MainRightColumnController::configureForSiteSubTab(int subTabID) {
     myLibraryList->setItemsRemoveable(false);
     myLibraryList->setItemsType(OSItemType::LibraryItem);
 
-    myLibraryList->addModelObjectType(IddObjectType::OS_Schedule_File, "Schedule File");
-    myLibraryList->addModelObjectType(IddObjectType::OS_Schedule_VariableInterval, "Variable Interval Schedules");
-    myLibraryList->addModelObjectType(IddObjectType::OS_Schedule_FixedInterval, "Fixed Interval Schedules");
-    myLibraryList->addModelObjectType(IddObjectType::OS_Schedule_Year, "Year Schedules");
-    myLibraryList->addModelObjectType(IddObjectType::OS_Schedule_Constant, "Constant Schedules");
-    myLibraryList->addModelObjectType(IddObjectType::OS_Schedule_Compact, "Compact Schedules");
-    myLibraryList->addModelObjectType(IddObjectType::OS_Schedule_Ruleset, "Ruleset Schedules");
+    myLibraryList->addModelObjectType(IddObjectType::OS_Schedule_File, tr("Schedule File").toStdString());
+    myLibraryList->addModelObjectType(IddObjectType::OS_Schedule_VariableInterval, tr("Variable Interval Schedules").toStdString());
+    myLibraryList->addModelObjectType(IddObjectType::OS_Schedule_FixedInterval, tr("Fixed Interval Schedules").toStdString());
+    myLibraryList->addModelObjectType(IddObjectType::OS_Schedule_Year, tr("Year Schedules").toStdString());
+    myLibraryList->addModelObjectType(IddObjectType::OS_Schedule_Constant, tr("Constant Schedules").toStdString());
+    myLibraryList->addModelObjectType(IddObjectType::OS_Schedule_Compact, tr("Compact Schedules").toStdString());
+    myLibraryList->addModelObjectType(IddObjectType::OS_Schedule_Ruleset, tr("Ruleset Schedules").toStdString());
     myLibraryList->addModelObjectCategoryPlaceholder("Schedules");
 
     setLibraryView(myLibraryList);
@@ -283,13 +283,13 @@ void MainRightColumnController::configureForSchedulesSubTab(int subTabID) {
       myModelList->setItemsDraggable(true);
       myModelList->setItemsRemoveable(false);
 
-      myModelList->addModelObjectType(IddObjectType::OS_Schedule_File, "Schedule File");
-      myModelList->addModelObjectType(IddObjectType::OS_Schedule_VariableInterval, "Variable Interval Schedules");
-      myModelList->addModelObjectType(IddObjectType::OS_Schedule_FixedInterval, "Fixed Interval Schedules");
-      myModelList->addModelObjectType(IddObjectType::OS_Schedule_Year, "Year Schedules");
-      myModelList->addModelObjectType(IddObjectType::OS_Schedule_Constant, "Constant Schedules");
-      myModelList->addModelObjectType(IddObjectType::OS_Schedule_Compact, "Compact Schedules");
-      myModelList->addModelObjectType(IddObjectType::OS_Schedule_Ruleset, "Ruleset Schedules");
+      myModelList->addModelObjectType(IddObjectType::OS_Schedule_File, tr("Schedule File").toStdString());
+      myModelList->addModelObjectType(IddObjectType::OS_Schedule_VariableInterval, tr("Variable Interval Schedules").toStdString());
+      myModelList->addModelObjectType(IddObjectType::OS_Schedule_FixedInterval, tr("Fixed Interval Schedules").toStdString());
+      myModelList->addModelObjectType(IddObjectType::OS_Schedule_Year, tr("Year Schedules").toStdString());
+      myModelList->addModelObjectType(IddObjectType::OS_Schedule_Constant, tr("Constant Schedules").toStdString());
+      myModelList->addModelObjectType(IddObjectType::OS_Schedule_Compact, tr("Compact Schedules").toStdString());
+      myModelList->addModelObjectType(IddObjectType::OS_Schedule_Ruleset, tr("Ruleset Schedules").toStdString());
       myModelList->addModelObjectCategoryPlaceholder("Schedules");
 
       setMyModelView(myModelList);
@@ -300,15 +300,15 @@ void MainRightColumnController::configureForSchedulesSubTab(int subTabID) {
       myLibraryList->setItemsRemoveable(false);
       myLibraryList->setItemsType(OSItemType::LibraryItem);
 
-      myLibraryList->addModelObjectType(IddObjectType::OS_Schedule_File, "Schedule File");
-      myLibraryList->addModelObjectType(IddObjectType::OS_Schedule_VariableInterval, "Variable Interval Schedules");
-      myLibraryList->addModelObjectType(IddObjectType::OS_Schedule_FixedInterval, "Fixed Interval Schedules");
-      myLibraryList->addModelObjectType(IddObjectType::OS_Schedule_Year, "Year Schedules");
-      myLibraryList->addModelObjectType(IddObjectType::OS_Schedule_Constant, "Constant Schedules");
-      myLibraryList->addModelObjectType(IddObjectType::OS_Schedule_Compact, "Compact Schedules");
-      myLibraryList->addModelObjectType(IddObjectType::OS_Schedule_Ruleset, "Ruleset Schedules");
+      myLibraryList->addModelObjectType(IddObjectType::OS_Schedule_File, tr("Schedule File").toStdString());
+      myLibraryList->addModelObjectType(IddObjectType::OS_Schedule_VariableInterval, tr("Variable Interval Schedules").toStdString());
+      myLibraryList->addModelObjectType(IddObjectType::OS_Schedule_FixedInterval, tr("Fixed Interval Schedules").toStdString());
+      myLibraryList->addModelObjectType(IddObjectType::OS_Schedule_Year, tr("Year Schedules").toStdString());
+      myLibraryList->addModelObjectType(IddObjectType::OS_Schedule_Constant, tr("Constant Schedules").toStdString());
+      myLibraryList->addModelObjectType(IddObjectType::OS_Schedule_Compact, tr("Compact Schedules").toStdString());
+      myLibraryList->addModelObjectType(IddObjectType::OS_Schedule_Ruleset, tr("Ruleset Schedules").toStdString());
       myLibraryList->addModelObjectCategoryPlaceholder("Schedules");
-      myLibraryList->addModelObjectType(IddObjectType::OS_DefaultScheduleSet, "Schedule Sets");
+      myLibraryList->addModelObjectType(IddObjectType::OS_DefaultScheduleSet, tr("Schedule Sets").toStdString());
       myLibraryList->addModelObjectCategoryPlaceholder("Schedule Sets");
 
       setLibraryView(myLibraryList);
@@ -326,7 +326,7 @@ void MainRightColumnController::configureForSchedulesSubTab(int subTabID) {
       myLibraryList->setItemsRemoveable(false);
       myLibraryList->setItemsType(OSItemType::LibraryItem);
 
-      myLibraryList->addModelObjectType(IddObjectType::OS_Schedule_Ruleset, "Schedule Rulesets");
+      myLibraryList->addModelObjectType(IddObjectType::OS_Schedule_Ruleset, tr("Schedule Rulesets").toStdString());
       myLibraryList->addModelObjectCategoryPlaceholder("Schedules");
 
       setLibraryView(myLibraryList);
@@ -344,7 +344,7 @@ void MainRightColumnController::configureForSchedulesSubTab(int subTabID) {
       myLibraryList->setItemsRemoveable(false);
       myLibraryList->setItemsType(OSItemType::LibraryItem);
 
-      myLibraryList->addModelObjectType(IddObjectType::OS_Schedule_Constant, "Constant Schedules");
+      myLibraryList->addModelObjectType(IddObjectType::OS_Schedule_Constant, tr("Constant Schedules").toStdString());
       // myLibraryList->addModelObjectType(IddObjectType::OS_Schedule_Compact, "Compact Schedules");
       myLibraryList->addModelObjectCategoryPlaceholder("Schedules");
 
