@@ -2084,4 +2084,557 @@ Outdoor Air Temperatures</source>
 </translation>
     </message>
 </context>
+<context>
+    <name>CalendarSegmentItem</name>
+    <message>
+        <location filename="../src/openstudio_lib/ScheduleDayView.cpp" line="774"/>
+        <source>Double click to cut segment</source>
+        <translation>Doble clic para cortar segmento</translation>
+    </message>
+</context>
+<context>
+    <name>DefaultScheduleDayView</name>
+    <message>
+        <location filename="../src/openstudio_lib/SchedulesView.cpp" line="1369"/>
+        <source>Default day profile.</source>
+        <translation>Perfil del día predeterminado.</translation>
+    </message>
+</context>
+<context>
+    <name>MainRightColumnController</name>
+    <message>
+        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="232"/>
+        <source>Schedule File</source>
+        <translation>Archivo de horario</translation>
+    </message>
+    <message>
+        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="233"/>
+        <source>Variable Interval Schedules</source>
+        <translation>Horarios de intervalo variable</translation>
+    </message>
+    <message>
+        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="234"/>
+        <source>Fixed Interval Schedules</source>
+        <translation>Horarios de intervalo fijo</translation>
+    </message>
+    <message>
+        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="235"/>
+        <source>Year Schedules</source>
+        <translation>Horarios anuales</translation>
+    </message>
+    <message>
+        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="236"/>
+        <source>Constant Schedules</source>
+        <translation>Horarios constantes</translation>
+    </message>
+    <message>
+        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="237"/>
+        <source>Compact Schedules</source>
+        <translation>Horarios compactos</translation>
+    </message>
+    <message>
+        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="238"/>
+        <source>Ruleset Schedules</source>
+        <translation>Horarios de conjunto de reglas</translation>
+    </message>
+    <message>
+        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="311"/>
+        <source>Schedule Sets</source>
+        <translation>Conjuntos de horarios</translation>
+    </message>
+    <message>
+        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="329"/>
+        <source>Schedule Rulesets</source>
+        <translation>Conjuntos de reglas de horario</translation>
+    </message>
+</context>
+<context>
+    <name>MonthView</name>
+    <message>
+        <location filename="../src/openstudio_lib/SchedulesView.cpp" line="1992"/>
+        <source>January</source>
+        <translation>Enero</translation>
+    </message>
+</context>
+<context>
+    <name>NewProfileView</name>
+    <message>
+        <location filename="../src/openstudio_lib/SchedulesView.cpp" line="1252"/>
+        <source>Create a new profile.</source>
+        <translation>Crear un nuevo perfil.</translation>
+    </message>
+    <message>
+        <location filename="../src/openstudio_lib/SchedulesView.cpp" line="1259"/>
+        <source>Make a New Profile Based on:</source>
+        <translation>Crear un nuevo perfil basado en:</translation>
+    </message>
+    <message>
+        <location filename="../src/openstudio_lib/SchedulesView.cpp" line="1267"/>
+        <source>Add</source>
+        <translation>Agregar</translation>
+    </message>
+    <message>
+        <location filename="../src/openstudio_lib/SchedulesView.cpp" line="1306"/>
+        <source>&lt;New Profile&gt;</source>
+        <translation>&lt;Nuevo perfil&gt;</translation>
+    </message>
+    <message>
+        <location filename="../src/openstudio_lib/SchedulesView.cpp" line="1308"/>
+        <source>Default Day Schedule</source>
+        <translation>Horario del día predeterminado</translation>
+    </message>
+    <message>
+        <location filename="../src/openstudio_lib/SchedulesView.cpp" line="1311"/>
+        <source>Summer Design Day Schedule</source>
+        <translation>Horario del día de diseño de verano</translation>
+    </message>
+    <message>
+        <location filename="../src/openstudio_lib/SchedulesView.cpp" line="1315"/>
+        <source>Winter Design Day Schedule</source>
+        <translation>Horario del día de diseño de invierno</translation>
+    </message>
+    <message>
+        <location filename="../src/openstudio_lib/SchedulesView.cpp" line="1319"/>
+        <source>Holiday Design Day Schedule</source>
+        <translation>Horario del día de diseño festivo</translation>
+    </message>
+</context>
+<context>
+    <name>ScheduleCompactInspectorView</name>
+    <message>
+        <location filename="../src/openstudio_lib/ScheduleCompactInspectorView.cpp" line="51"/>
+        <source>Name: </source>
+        <translation>Nombre: </translation>
+    </message>
+    <message>
+        <location filename="../src/openstudio_lib/ScheduleCompactInspectorView.cpp" line="64"/>
+        <source>Content: </source>
+        <translation>Contenido: </translation>
+    </message>
+</context>
+<context>
+    <name>ScheduleConstantInspectorView</name>
+    <message>
+        <location filename="../src/openstudio_lib/ScheduleConstantInspectorView.cpp" line="47"/>
+        <source>Name: </source>
+        <translation>Nombre: </translation>
+    </message>
+    <message>
+        <location filename="../src/openstudio_lib/ScheduleConstantInspectorView.cpp" line="60"/>
+        <source> Value: </source>
+        <translation> Valor: </translation>
+    </message>
+</context>
+<context>
+    <name>ScheduleDayView</name>
+    <message>
+        <location filename="../src/openstudio_lib/ScheduleDayView.cpp" line="114"/>
+        <source>Schedule Day Name:</source>
+        <translation>Nombre del día de horario:</translation>
+    </message>
+    <message>
+        <location filename="../src/openstudio_lib/ScheduleDayView.cpp" line="158"/>
+        <source>Hourly</source>
+        <translation>Por hora</translation>
+    </message>
+    <message>
+        <location filename="../src/openstudio_lib/ScheduleDayView.cpp" line="171"/>
+        <source>15 Minutes</source>
+        <translation>15 minutos</translation>
+    </message>
+    <message>
+        <location filename="../src/openstudio_lib/ScheduleDayView.cpp" line="184"/>
+        <source>1 Minute</source>
+        <translation>1 minuto</translation>
+    </message>
+</context>
+<context>
+    <name>ScheduleDialog</name>
+    <message>
+        <location filename="../src/openstudio_lib/ScheduleDialog.cpp" line="94"/>
+        <source>Apply</source>
+        <translation>Aplicar</translation>
+    </message>
+    <message>
+        <location filename="../src/openstudio_lib/ScheduleDialog.cpp" line="121"/>
+        <source>Define New Schedule</source>
+        <translation>Definir nuevo horario</translation>
+    </message>
+    <message>
+        <location filename="../src/openstudio_lib/ScheduleDialog.cpp" line="139"/>
+        <source>Schedule Type</source>
+        <translation>Tipo de horario</translation>
+    </message>
+    <message>
+        <location filename="../src/openstudio_lib/ScheduleDialog.cpp" line="171"/>
+        <source>Numeric Type: </source>
+        <translation>Tipo numérico: </translation>
+    </message>
+    <message>
+        <location filename="../src/openstudio_lib/ScheduleDialog.cpp" line="189"/>
+        <source>Lower Limit: </source>
+        <translation>Límite inferior: </translation>
+    </message>
+    <message>
+        <location filename="../src/openstudio_lib/ScheduleDialog.cpp" line="207"/>
+        <source>Upper Limit: </source>
+        <translation>Límite superior: </translation>
+    </message>
+    <message>
+        <location filename="../src/openstudio_lib/ScheduleDialog.cpp" line="251"/>
+        <source>unitless</source>
+        <translation>sin unidades</translation>
+    </message>
+    <message>
+        <location filename="../src/openstudio_lib/ScheduleDialog.cpp" line="267"/>
+        <source>None</source>
+        <translation>Ninguno</translation>
+    </message>
+</context>
+<context>
+    <name>ScheduleFileInspectorView</name>
+    <message>
+        <location filename="../src/openstudio_lib/ScheduleFileInspectorView.cpp" line="59"/>
+        <source>Name: </source>
+        <translation>Nombre: </translation>
+    </message>
+    <message>
+        <location filename="../src/openstudio_lib/ScheduleFileInspectorView.cpp" line="71"/>
+        <source>FilePath: </source>
+        <translation>Ruta de archivo: </translation>
+    </message>
+    <message>
+        <location filename="../src/openstudio_lib/ScheduleFileInspectorView.cpp" line="88"/>
+        <source>Column Number: </source>
+        <translation>Número de columna: </translation>
+    </message>
+    <message>
+        <location filename="../src/openstudio_lib/ScheduleFileInspectorView.cpp" line="100"/>
+        <source>Rows to Skip at Top: </source>
+        <translation>Filas a omitir al inicio: </translation>
+    </message>
+    <message>
+        <location filename="../src/openstudio_lib/ScheduleFileInspectorView.cpp" line="117"/>
+        <source>Number of Hours of Data: </source>
+        <translation>Número de horas de datos: </translation>
+    </message>
+    <message>
+        <location filename="../src/openstudio_lib/ScheduleFileInspectorView.cpp" line="129"/>
+        <source>Column Separator: </source>
+        <translation>Separador de columnas: </translation>
+    </message>
+    <message>
+        <location filename="../src/openstudio_lib/ScheduleFileInspectorView.cpp" line="134"/>
+        <source>Comma</source>
+        <translation>Coma</translation>
+    </message>
+    <message>
+        <location filename="../src/openstudio_lib/ScheduleFileInspectorView.cpp" line="135"/>
+        <source>Tab</source>
+        <translation>Tabulador</translation>
+    </message>
+    <message>
+        <location filename="../src/openstudio_lib/ScheduleFileInspectorView.cpp" line="136"/>
+        <source>Space</source>
+        <translation>Espacio</translation>
+    </message>
+    <message>
+        <location filename="../src/openstudio_lib/ScheduleFileInspectorView.cpp" line="137"/>
+        <source>Semicolon</source>
+        <translation>Punto y coma</translation>
+    </message>
+    <message>
+        <location filename="../src/openstudio_lib/ScheduleFileInspectorView.cpp" line="148"/>
+        <source>Interpolate to Timestep: </source>
+        <translation>Interpolar al paso de tiempo: </translation>
+    </message>
+    <message>
+        <location filename="../src/openstudio_lib/ScheduleFileInspectorView.cpp" line="160"/>
+        <source>Minutes per Item: </source>
+        <translation>Minutos por elemento: </translation>
+    </message>
+    <message>
+        <location filename="../src/openstudio_lib/ScheduleFileInspectorView.cpp" line="178"/>
+        <source>Adjust Schedule for Daylight Savings: </source>
+        <translation>Ajustar horario para horario de verano: </translation>
+    </message>
+    <message>
+        <location filename="../src/openstudio_lib/ScheduleFileInspectorView.cpp" line="190"/>
+        <source>Translate File With Relative Path: </source>
+        <translation>Usar ruta relativa para el archivo: </translation>
+    </message>
+    <message>
+        <location filename="../src/openstudio_lib/ScheduleFileInspectorView.cpp" line="207"/>
+        <source>Content: </source>
+        <translation>Contenido: </translation>
+    </message>
+    <message>
+        <location filename="../src/openstudio_lib/ScheduleFileInspectorView.cpp" line="213"/>
+        <source>Number of Lines in file: </source>
+        <translation>Número de líneas en el archivo: </translation>
+    </message>
+    <message>
+        <location filename="../src/openstudio_lib/ScheduleFileInspectorView.cpp" line="228"/>
+        <source>Display All File Content: </source>
+        <translation>Mostrar todo el contenido del archivo: </translation>
+    </message>
+</context>
+<context>
+    <name>ScheduleLimitsView</name>
+    <message>
+        <location filename="../src/openstudio_lib/ScheduleDayView.cpp" line="422"/>
+        <source>Lower Limit: </source>
+        <translation>Límite inferior: </translation>
+    </message>
+    <message>
+        <location filename="../src/openstudio_lib/ScheduleDayView.cpp" line="435"/>
+        <source>Upper Limit: </source>
+        <translation>Límite superior: </translation>
+    </message>
+</context>
+<context>
+    <name>ScheduleOthersController</name>
+    <message>
+        <location filename="../src/openstudio_lib/ScheduleOthersController.cpp" line="35"/>
+        <source>Creation of Schedule:Compact is not supported, you should use a ScheduleRuleset instead</source>
+        <translation>La creación de Schedule:Compact no está soportada, se recomienda usar un ScheduleRuleset en su lugar</translation>
+    </message>
+</context>
+<context>
+    <name>ScheduleOthersView</name>
+    <message>
+        <location filename="../src/openstudio_lib/ScheduleOthersView.cpp" line="29"/>
+        <source>Schedule Constant</source>
+        <translation>Horario constante</translation>
+    </message>
+    <message>
+        <location filename="../src/openstudio_lib/ScheduleOthersView.cpp" line="30"/>
+        <source>Schedule Compact</source>
+        <translation>Horario compacto</translation>
+    </message>
+    <message>
+        <location filename="../src/openstudio_lib/ScheduleOthersView.cpp" line="31"/>
+        <source>Schedule File</source>
+        <translation>Archivo de horario</translation>
+    </message>
+</context>
+<context>
+    <name>ScheduleRuleView</name>
+    <message>
+        <location filename="../src/openstudio_lib/SchedulesView.cpp" line="1558"/>
+        <source>Schedule Rule Name:</source>
+        <translation>Nombre de la regla de horario:</translation>
+    </message>
+    <message>
+        <location filename="../src/openstudio_lib/SchedulesView.cpp" line="1573"/>
+        <source>Date Range:</source>
+        <translation>Rango de fechas:</translation>
+    </message>
+    <message>
+        <location filename="../src/openstudio_lib/SchedulesView.cpp" line="1591"/>
+        <source>Apply to:</source>
+        <translation>Aplicar a:</translation>
+    </message>
+    <message>
+        <location filename="../src/openstudio_lib/SchedulesView.cpp" line="1597"/>
+        <source>S</source>
+        <translatorcomment>Domingo (Sunday) / Sábado (Saturday) — needs disambiguation in source code</translatorcomment>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../src/openstudio_lib/SchedulesView.cpp" line="1605"/>
+        <source>M</source>
+        <translatorcomment>Lunes (Monday)</translatorcomment>
+        <translation>L</translation>
+    </message>
+    <message>
+        <location filename="../src/openstudio_lib/SchedulesView.cpp" line="1613"/>
+        <source>T</source>
+        <translatorcomment>Martes (Tuesday) / Jueves (Thursday) — needs disambiguation in source code</translatorcomment>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../src/openstudio_lib/SchedulesView.cpp" line="1621"/>
+        <source>W</source>
+        <translatorcomment>Miércoles (Wednesday)</translatorcomment>
+        <translation>X</translation>
+    </message>
+    <message>
+        <location filename="../src/openstudio_lib/SchedulesView.cpp" line="1639"/>
+        <source>F</source>
+        <translatorcomment>Viernes (Friday)</translatorcomment>
+        <translation>V</translation>
+    </message>
+</context>
+<context>
+    <name>ScheduleRulesetNameWidget</name>
+    <message>
+        <location filename="../src/openstudio_lib/SchedulesView.cpp" line="1774"/>
+        <source>Schedule Name:</source>
+        <translation>Nombre del horario:</translation>
+    </message>
+    <message>
+        <location filename="../src/openstudio_lib/SchedulesView.cpp" line="1788"/>
+        <source>Schedule Type:</source>
+        <translation>Tipo de horario:</translation>
+    </message>
+</context>
+<context>
+    <name>ScheduleSetInspectorView</name>
+    <message>
+        <location filename="../src/openstudio_lib/ScheduleSetInspectorView.cpp" line="535"/>
+        <source>Name</source>
+        <translation>Nombre</translation>
+    </message>
+    <message>
+        <location filename="../src/openstudio_lib/ScheduleSetInspectorView.cpp" line="564"/>
+        <source>Default Schedules</source>
+        <translation>Horarios predeterminados</translation>
+    </message>
+    <message>
+        <location filename="../src/openstudio_lib/ScheduleSetInspectorView.cpp" line="572"/>
+        <source>Hours of Operation</source>
+        <translation>Horas de operación</translation>
+    </message>
+    <message>
+        <location filename="../src/openstudio_lib/ScheduleSetInspectorView.cpp" line="582"/>
+        <source>Number of People</source>
+        <translation>Número de personas</translation>
+    </message>
+    <message>
+        <location filename="../src/openstudio_lib/ScheduleSetInspectorView.cpp" line="594"/>
+        <source>People Activity</source>
+        <translation>Actividad de personas</translation>
+    </message>
+    <message>
+        <location filename="../src/openstudio_lib/ScheduleSetInspectorView.cpp" line="604"/>
+        <source>Lighting</source>
+        <translation>Iluminación</translation>
+    </message>
+    <message>
+        <location filename="../src/openstudio_lib/ScheduleSetInspectorView.cpp" line="616"/>
+        <source>Electric Equipment</source>
+        <translation>Equipo eléctrico</translation>
+    </message>
+    <message>
+        <location filename="../src/openstudio_lib/ScheduleSetInspectorView.cpp" line="626"/>
+        <source>Gas Equipment</source>
+        <translation>Equipo de gas</translation>
+    </message>
+    <message>
+        <location filename="../src/openstudio_lib/ScheduleSetInspectorView.cpp" line="638"/>
+        <source>Hot Water Equipment</source>
+        <translation>Equipo de agua caliente</translation>
+    </message>
+    <message>
+        <location filename="../src/openstudio_lib/ScheduleSetInspectorView.cpp" line="648"/>
+        <source>Steam Equipment</source>
+        <translation>Equipo de vapor</translation>
+    </message>
+    <message>
+        <location filename="../src/openstudio_lib/ScheduleSetInspectorView.cpp" line="660"/>
+        <source>Other Equipment</source>
+        <translation>Otros equipos</translation>
+    </message>
+    <message>
+        <location filename="../src/openstudio_lib/ScheduleSetInspectorView.cpp" line="670"/>
+        <source>Infiltration</source>
+        <translation>Infiltración</translation>
+    </message>
+</context>
+<context>
+    <name>ScheduleTabContent</name>
+    <message>
+        <location filename="../src/openstudio_lib/SchedulesView.cpp" line="837"/>
+        <source>Special Day Profiles</source>
+        <translation>Perfiles de días especiales</translation>
+    </message>
+    <message>
+        <location filename="../src/openstudio_lib/SchedulesView.cpp" line="865"/>
+        <source>Run Period Profiles</source>
+        <translation>Perfiles del período de ejecución</translation>
+    </message>
+    <message>
+        <location filename="../src/openstudio_lib/SchedulesView.cpp" line="875"/>
+        <source>Click to add new run period profile</source>
+        <translation>Clic para agregar nuevo perfil de período de ejecución</translation>
+    </message>
+</context>
+<context>
+    <name>ScheduleTabDefault</name>
+    <message>
+        <location filename="../src/openstudio_lib/SchedulesView.cpp" line="1086"/>
+        <source>Summer Design Day</source>
+        <translation>Día de diseño de verano</translation>
+    </message>
+    <message>
+        <location filename="../src/openstudio_lib/SchedulesView.cpp" line="1087"/>
+        <source>Click to edit summer design day profile</source>
+        <translation>Clic para editar el perfil del día de diseño de verano</translation>
+    </message>
+    <message>
+        <location filename="../src/openstudio_lib/SchedulesView.cpp" line="1090"/>
+        <source>Winter Design Day</source>
+        <translation>Día de diseño de invierno</translation>
+    </message>
+    <message>
+        <location filename="../src/openstudio_lib/SchedulesView.cpp" line="1091"/>
+        <source>Click to edit winter design day profile</source>
+        <translation>Clic para editar el perfil del día de diseño de invierno</translation>
+    </message>
+    <message>
+        <location filename="../src/openstudio_lib/SchedulesView.cpp" line="1094"/>
+        <source>Holiday</source>
+        <translation>Festivo</translation>
+    </message>
+    <message>
+        <location filename="../src/openstudio_lib/SchedulesView.cpp" line="1095"/>
+        <source>Click to edit holiday profile</source>
+        <translation>Clic para editar el perfil de días festivos</translation>
+    </message>
+    <message>
+        <location filename="../src/openstudio_lib/SchedulesView.cpp" line="1098"/>
+        <source>Default</source>
+        <translation>Predeterminado</translation>
+    </message>
+    <message>
+        <location filename="../src/openstudio_lib/SchedulesView.cpp" line="1099"/>
+        <source>Click to edit default profile</source>
+        <translation>Clic para editar el perfil predeterminado</translation>
+    </message>
+</context>
+<context>
+    <name>ScheduleTypeLimitItem</name>
+    <message>
+        <location filename="../src/openstudio_lib/ScheduleDayView.cpp" line="1150"/>
+        <source>Schedule Type Limit</source>
+        <translation>Límite de tipo de horario</translation>
+    </message>
+</context>
+<context>
+    <name>SpecialScheduleDayView</name>
+    <message>
+        <location filename="../src/openstudio_lib/SchedulesView.cpp" line="1425"/>
+        <source>Summer design day profile.</source>
+        <translation>Perfil del día de diseño de verano.</translation>
+    </message>
+    <message>
+        <location filename="../src/openstudio_lib/SchedulesView.cpp" line="1443"/>
+        <source>Winter design day profile.</source>
+        <translation>Perfil del día de diseño de invierno.</translation>
+    </message>
+    <message>
+        <location filename="../src/openstudio_lib/SchedulesView.cpp" line="1461"/>
+        <source>Holiday profile.</source>
+        <translation>Perfil de días festivos.</translation>
+    </message>
+</context>
+<context>
+    <name>VCalendarSegmentItem</name>
+    <message>
+        <location filename="../src/openstudio_lib/ScheduleDayView.cpp" line="976"/>
+        <source>Double click to delete segment</source>
+        <translation>Doble clic para eliminar segmento</translation>
+    </message>
+</context>
 </TS>

@@ -44,7 +44,7 @@ void ScheduleConstantInspectorView::createLayout() {
 
   // Name
 
-  label = new QLabel("Name: ");
+  label = new QLabel(tr("Name: "));
   label->setObjectName("H2");
   mainGridLayout->addWidget(label, row, 0);
 
@@ -57,7 +57,7 @@ void ScheduleConstantInspectorView::createLayout() {
 
   // Value
 
-  label = new QLabel(" Value: ");
+  label = new QLabel(tr(" Value: "));
   label->setObjectName("H2");
   mainGridLayout->addWidget(label, row++, 0);
 

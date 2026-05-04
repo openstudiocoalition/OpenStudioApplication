@@ -15,6 +15,7 @@
 #include <openstudio/utilities/core/Assert.hpp>
 #include <openstudio/utilities/idd/IddEnums.hxx>
 
+#include <QCoreApplication>
 #include <QStackedWidget>
 
 namespace openstudio {
@@ -26,9 +27,9 @@ ScheduleOthersView::ScheduleOthersView(const openstudio::model::Model& model, QW
 
 std::vector<std::pair<IddObjectType, std::string>> ScheduleOthersView::modelObjectTypesAndNames() {
   return {{
-    {IddObjectType::OS_Schedule_Constant, "Schedule Constant"},
-    {IddObjectType::OS_Schedule_Compact, "Schedule Compact"},
-    {IddObjectType::OS_Schedule_File, "Schedule File"},
+    {IddObjectType::OS_Schedule_Constant, QCoreApplication::translate("ScheduleOthersView", "Schedule Constant").toStdString()},
+    {IddObjectType::OS_Schedule_Compact, QCoreApplication::translate("ScheduleOthersView", "Schedule Compact").toStdString()},
+    {IddObjectType::OS_Schedule_File, QCoreApplication::translate("ScheduleOthersView", "Schedule File").toStdString()},
   }};
 }
 

@@ -56,7 +56,7 @@ void ScheduleFileInspectorView::createLayout() {
 
   // Name
 
-  label = new QLabel("Name: ");
+  label = new QLabel(tr("Name: "));
   label->setObjectName("H2");
   mainGridLayout->addWidget(label, row, 0);
 
@@ -68,7 +68,7 @@ void ScheduleFileInspectorView::createLayout() {
   // FilePath
   ++row;
 
-  label = new QLabel("FilePath: ");
+  label = new QLabel(tr("FilePath: "));
   label->setObjectName("H2");
   mainGridLayout->addWidget(label, row, 0);
 
@@ -85,7 +85,7 @@ void ScheduleFileInspectorView::createLayout() {
   // Column Number
   vLayout = new QVBoxLayout();
 
-  label = new QLabel("Column Number: ");
+  label = new QLabel(tr("Column Number: "));
   label->setObjectName("H2");
   vLayout->addWidget(label);
 
@@ -97,7 +97,7 @@ void ScheduleFileInspectorView::createLayout() {
   // Rows to Skip
   vLayout = new QVBoxLayout();
 
-  label = new QLabel("Rows to Skip at Top: ");
+  label = new QLabel(tr("Rows to Skip at Top: "));
   label->setObjectName("H2");
   vLayout->addWidget(label);
 
@@ -114,7 +114,7 @@ void ScheduleFileInspectorView::createLayout() {
   // Number of Hours of Data
   vLayout = new QVBoxLayout();
 
-  label = new QLabel("Number of Hours of Data: ");
+  label = new QLabel(tr("Number of Hours of Data: "));
   label->setObjectName("H2");
   vLayout->addWidget(label);
 
@@ -126,15 +126,15 @@ void ScheduleFileInspectorView::createLayout() {
   // Column Separator
   vLayout = new QVBoxLayout();
 
-  label = new QLabel("Column Separator: ");
+  label = new QLabel(tr("Column Separator: "));
   label->setObjectName("H2");
   vLayout->addWidget(label);
 
   m_columnSeparator = new OSComboBox2();
-  m_columnSeparator->addItem("Comma");
-  m_columnSeparator->addItem("Tab");
-  m_columnSeparator->addItem("Space");
-  m_columnSeparator->addItem("Semicolon");
+  m_columnSeparator->addItem(tr("Comma"));
+  m_columnSeparator->addItem(tr("Tab"));
+  m_columnSeparator->addItem(tr("Space"));
+  m_columnSeparator->addItem(tr("Semicolon"));
   m_columnSeparator->setEnabled(true);
   vLayout->addWidget(m_columnSeparator);
 
@@ -145,7 +145,7 @@ void ScheduleFileInspectorView::createLayout() {
   // Interpolate
   vLayout = new QVBoxLayout();
 
-  label = new QLabel("Interpolate to Timestep: ");
+  label = new QLabel(tr("Interpolate to Timestep: "));
   label->setObjectName("H2");
   vLayout->addWidget(label);
 
@@ -157,7 +157,7 @@ void ScheduleFileInspectorView::createLayout() {
   // Minutes per Item
   vLayout = new QVBoxLayout();
 
-  label = new QLabel("Minutes per Item: ");
+  label = new QLabel(tr("Minutes per Item: "));
   label->setObjectName("H2");
   vLayout->addWidget(label);
 
@@ -175,7 +175,7 @@ void ScheduleFileInspectorView::createLayout() {
   // Adjust Schedule for Daylight Savings
   vLayout = new QVBoxLayout();
 
-  label = new QLabel("Adjust Schedule for Daylight Savings: ");
+  label = new QLabel(tr("Adjust Schedule for Daylight Savings: "));
   label->setObjectName("H2");
   vLayout->addWidget(label);
 
@@ -187,7 +187,7 @@ void ScheduleFileInspectorView::createLayout() {
   // Translate File With Relative Path
   vLayout = new QVBoxLayout();
 
-  label = new QLabel("Translate File With Relative Path: ");
+  label = new QLabel(tr("Translate File With Relative Path: "));
   label->setObjectName("H2");
   vLayout->addWidget(label);
 
@@ -204,13 +204,13 @@ void ScheduleFileInspectorView::createLayout() {
   mainGridLayout->addWidget(line, row, 0, 1, -1);
   row++;
 
-  label = new QLabel("Content: ");
+  label = new QLabel(tr("Content: "));
   label->setObjectName("H2");
   mainGridLayout->addWidget(label, row, 0);
 
   ++row;
 
-  label = new QLabel("Number of Lines in file: ");
+  label = new QLabel(tr("Number of Lines in file: "));
   label->setObjectName("H3");
   mainGridLayout->addWidget(label, row, 0);
 
@@ -225,7 +225,7 @@ void ScheduleFileInspectorView::createLayout() {
 
   ++row;
 
-  label = new QLabel("Display All File Content: ");
+  label = new QLabel(tr("Display All File Content: "));
   label->setObjectName("H3");
   mainGridLayout->addWidget(label, row, 0);
 
