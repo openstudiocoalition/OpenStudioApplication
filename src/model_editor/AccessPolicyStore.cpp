@@ -221,7 +221,8 @@ bool AccessPolicyStore::loadFile(openstudio::filesystem::ifstream& file) {
     return false;
   }
 
-  return loadFile(openstudio::filesystem::read(file));
+  const auto bytes = openstudio::filesystem::read(file);
+  return loadFile(QByteArray(bytes.data(), static_cast<qsizetype>(bytes.size())));
 }
 
 bool AccessPolicyStore::loadFile(const openstudio::path& path) {
