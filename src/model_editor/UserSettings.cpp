@@ -38,7 +38,7 @@ openstudio::path userMeasuresDir() {
 }
 
 bool setUserMeasuresDir(const openstudio::path& userMeasuresDir) {
-  if (!userMeasuresDir.is_complete()) {
+  if (!userMeasuresDir.is_absolute()) {
     return false;
   }
   if (!exists(userMeasuresDir)) {

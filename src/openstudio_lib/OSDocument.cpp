@@ -925,7 +925,7 @@ bool OSDocument::fixWeatherFileInTemp(bool opening) {
   boost::optional<std::string> epwInTempPathChecksum;
 
   // check if weather file path is absolute
-  if (weatherFilePath->is_complete()) {
+  if (weatherFilePath->is_absolute()) {
 
     // absolute weather file path
     epwPathAbsolute = true;
@@ -1630,7 +1630,7 @@ boost::optional<model::Component> OSDocument::getComponent(const OSItemId& itemI
 #if (defined(_WIN32) || defined(_WIN64))
 
         if (oscPath.string().size() > MAX_PATH) {
-          if (oscPath.is_complete()) {
+          if (oscPath.is_absolute()) {
             oscPath = toPath("\\\\?\\") / oscPath;
           }
         }
