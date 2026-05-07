@@ -1,12 +1,15 @@
+# To update the version, hashes, and SHA in this file, use:
+#   developer/python/update_openstudio_sdk.py --update-cmake --version X.Y.Z --sha <sha> --folder <folder>
+
 set(OPENSTUDIO_VERSION_MAJOR 3)
 set(OPENSTUDIO_VERSION_MINOR 11)
-set(OPENSTUDIO_VERSION_PATCH 0)
+set(OPENSTUDIO_VERSION_PATCH 1)
 set(OPENSTUDIO_VERSION "${OPENSTUDIO_VERSION_MAJOR}.${OPENSTUDIO_VERSION_MINOR}.${OPENSTUDIO_VERSION_PATCH}")
 
 #If this is an official release, leave this "", otherwise put for eg '-rc1'
-set(OPENSTUDIO_VERSION_PRERELEASE "")
+set(OPENSTUDIO_VERSION_PRERELEASE "-alpha")
 # Enter SHA, always, eg "+79857912c4"
-set(OPENSTUDIO_VERSION_SHA "+241b8abb4d")
+set(OPENSTUDIO_VERSION_SHA "+32d4f461a0")
 
 # Paths where the cmake-downloaded archives will be put
 set(OPENSTUDIO_ARCHIVE_DIR "${PROJECT_BINARY_DIR}/OpenStudio-${OPENSTUDIO_VERSION}")
@@ -17,9 +20,9 @@ set(OPENSTUDIO_EXT "tar.gz")
 if(APPLE)
   set(OPENSTUDIO_PLATFORM "Darwin-${ARCH}")
   if(ARCH MATCHES "arm64")
-    set(OPENSTUDIO_EXPECTED_HASH 92145ffe9f13c8fee1df48a0f781e280)
+    set(OPENSTUDIO_EXPECTED_HASH e68742a991e7a8413a7eda8d13ac61b7)  # Darwin-arm64
   else()
-    set(OPENSTUDIO_EXPECTED_HASH 001c938919ef5cbbeed4b3e2411d9796)
+    set(OPENSTUDIO_EXPECTED_HASH 7eeea9d5e826c0f43804ec14481f938d)  # Darwin-x86_64
   endif()
 
 elseif(UNIX)
@@ -27,21 +30,21 @@ elseif(UNIX)
   if(LSB_RELEASE_VERSION_SHORT MATCHES "24.04")
     #set(OPENSTUDIO_PLATFORM "${LSB_RELEASE_ID_SHORT}-22.04-${ARCH}")
     if (ARCH MATCHES "arm64")
-      set(OPENSTUDIO_EXPECTED_HASH 628d58dddf83034866ec38c2ff522736)
+      set(OPENSTUDIO_EXPECTED_HASH a0f2f6597c21e481600aa4ae5237503a)  # Ubuntu-24.04-arm64
     else()
-      set(OPENSTUDIO_EXPECTED_HASH e761fe3678fd906a50e16a54dab10cd1)
+      set(OPENSTUDIO_EXPECTED_HASH 6361cefbe60fcb1c10f7bf080dd1eddd)  # Ubuntu-24.04-x86_64
     endif()
   elseif(LSB_RELEASE_VERSION_SHORT MATCHES "22.04")
     if (ARCH MATCHES "arm64")
-      set(OPENSTUDIO_EXPECTED_HASH 361b01db5caf7086e6730b3b0063f104)
+      set(OPENSTUDIO_EXPECTED_HASH 327faef66229f0807c7f7b0f90027465)  # Ubuntu-22.04-arm64
     else()
-      set(OPENSTUDIO_EXPECTED_HASH 7d4071fe910e5297b66f66ee74754fa6)
+      set(OPENSTUDIO_EXPECTED_HASH 43dbc41d626c02ce65a21603254017d5)  # Ubuntu-22.04-x86_64
     endif()
   elseif(LSB_RELEASE_ID_SHORT MATCHES "AlmaLinux")
     if (ARCH MATCHES "arm64")
       message(FATAL_ERROR "OpenStudio SDK for AlmaLinux is only built for x86_64")
     endif()
-    set(OPENSTUDIO_EXPECTED_HASH a578519e4c7537a7ad730006f1ffeb79)
+    set(OPENSTUDIO_EXPECTED_HASH 95264208eb463efcbff04fc67b57c548)  # AlmaLinux-9.7-x86_64
   else()
     message(FATAL_ERROR "OpenStudio SDK no longer provides packages for Ubuntu 20.04 or older")
   endif()
@@ -76,17 +79,17 @@ else()
     "https://github.com/NREL/OpenStudio/releases/download/v${OPENSTUDIO_VERSION}${OPENSTUDIO_VERSION_PRERELEASE}/"
     CACHE STRING "Base link to where the openstudio archives are hosted" FORCE)
 
-  if (WIN32)
-    set(WIN_SUBFOLDER "/signed")
+  if (WIN32 OR APPLE)
+    set(CI_SIGNED_SUBFOLDER "/signed")
   endif()
   # base link for develop builds. (Using https will fail)
   # Note: this should be set to ""http://openstudio-ci-builds.s3-website-us-west-2.amazonaws.com/develop" for nightly builds
   # Occasionally we can point to a specific PR by using something like ""http://openstudio-ci-builds.s3-website-us-west-2.amazonaws.com/PR-4080"
   set(OPENSTUDIO_BASELINK_CI
-    "http://openstudio-ci-builds.s3-website-us-west-2.amazonaws.com/develop"
+    "http://openstudio-ci-builds.s3-website-us-west-2.amazonaws.com/develop${CI_SIGNED_SUBFOLDER}"
     # TODO: TEMPORARY point to a specific subfolder / PR
-    # "http://openstudio-ci-builds.s3-website-us-west-2.amazonaws.com/PR-4920"
-    # "http://openstudio-ci-builds.s3-website-us-west-2.amazonaws.com/${OPENSTUDIO_VERSION}${OPENSTUDIO_VERSION_PRERELEASE}${WIN_SUBFOLDER}"
+    # "http://openstudio-ci-builds.s3-website-us-west-2.amazonaws.com/PR-4920${CI_SIGNED_SUBFOLDER}"
+    # "http://openstudio-ci-builds.s3-website-us-west-2.amazonaws.com/${OPENSTUDIO_VERSION}${OPENSTUDIO_VERSION_PRERELEASE}${CI_SIGNED_SUBFOLDER}"
 
     CACHE STRING "Base link to where the openstudio develop archives are hosted" FORCE)
 
