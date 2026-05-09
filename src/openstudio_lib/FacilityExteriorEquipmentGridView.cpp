@@ -38,36 +38,39 @@
 #include <QBoxLayout>
 #include <QCheckBox>
 #include <QComboBox>
+#include <QCoreApplication>
 #include <QLabel>
 #include <QScrollArea>
 
 // These defines provide a common area for field display names
 // used on column headers, and other grid widgets
 
-#define NAME "Name"
-#define SELECTED "All"
-#define DISPLAYNAME "Display Name"
-#define CADOBJECTID "CAD Object ID"
+#define TR(s) QCoreApplication::translate("openstudio::FacilityExteriorEquipmentGridController", s)
+
+#define NAME TR("Name")
+#define SELECTED TR("All")
+#define DISPLAYNAME TR("Display Name")
+#define CADOBJECTID TR("CAD Object ID")
 
 // EXTERIOR LIGHTS
-#define EXTERIORLIGHTSDEFINITION "Exterior Lights Definition"
-#define EXTERIORLIGHTSSCHEDULE "Schedule"
-#define EXTERIORLIGHTSCONTROLOPTION "Control Option"
-#define EXTERIORLIGHTSMULTIPLIER "Multiplier"
-#define EXERIORLIGHTSENDUSESUBCATEGORY "End Use Subcategory"
+#define EXTERIORLIGHTSDEFINITION TR("Exterior Lights Definition")
+#define EXTERIORLIGHTSSCHEDULE TR("Schedule")
+#define EXTERIORLIGHTSCONTROLOPTION TR("Control Option")
+#define EXTERIORLIGHTSMULTIPLIER TR("Multiplier")
+#define EXERIORLIGHTSENDUSESUBCATEGORY TR("End Use Subcategory")
 
 // EXTERIOR FUEL EQUIPMENT
-#define EXTERIORFUELEQUIPMENTDEFINITION "Exterior Fuel Equipment Definition"
-#define EXTERIORFUELEQUIPMENTSCHEDULE "Schedule"
-#define EXTERIORFUELEQUIPMENTFUELTYPE "Fuel Type"
-#define EXTERIORFUELEQUIPMENTMULTIPLIER "Multiplier"
-#define EXTERIORFUELEQUIPMENTSUBCATEGORY "End Use Subcategory"
+#define EXTERIORFUELEQUIPMENTDEFINITION TR("Exterior Fuel Equipment Definition")
+#define EXTERIORFUELEQUIPMENTSCHEDULE TR("Schedule")
+#define EXTERIORFUELEQUIPMENTFUELTYPE TR("Fuel Type")
+#define EXTERIORFUELEQUIPMENTMULTIPLIER TR("Multiplier")
+#define EXTERIORFUELEQUIPMENTSUBCATEGORY TR("End Use Subcategory")
 
 // EXTERIOR WATER EQUIPMENT
-#define EXTERIORWATEREQUIPMENTDEFINITION "Exterior Water Equipment Definition"
-#define EXTERIORWATEREQUIPMENTSCHEDULE "Schedule"
-#define EXTERIORWATEREQUIPMENTMULTIPLIER "Multiplier"
-#define EXTERIORWATEREQUIPMENTSUBCATEGORY "End Use Subcategory"
+#define EXTERIORWATEREQUIPMENTDEFINITION TR("Exterior Water Equipment Definition")
+#define EXTERIORWATEREQUIPMENTSCHEDULE TR("Schedule")
+#define EXTERIORWATEREQUIPMENTMULTIPLIER TR("Multiplier")
+#define EXTERIORWATEREQUIPMENTSUBCATEGORY TR("End Use Subcategory")
 
 namespace openstudio {
 
@@ -77,9 +80,9 @@ FacilityExteriorEquipmentGridView::FacilityExteriorEquipmentGridView(bool isIP, 
   auto modelObjects = subsetCastVector<model::ModelObject>(model.getConcreteModelObjects<model::ExteriorLights>());
   std::sort(modelObjects.begin(), modelObjects.end(), openstudio::WorkspaceObjectNameLess());
 
-  m_gridController = new FacilityExteriorEquipmentGridController(isIP, displayAdditionalProps, "Exterior Equipment",
+  m_gridController = new FacilityExteriorEquipmentGridController(isIP, displayAdditionalProps, tr("Exterior Equipment"),
                                                                  IddObjectType::OS_Exterior_Lights, model, modelObjects);
-  auto* gridView = new OSGridView(m_gridController, "Exterior Equipment", "Drop\nExterior Equipment", false, parent);
+  auto* gridView = new OSGridView(m_gridController, tr("Exterior Equipment"), tr("Drop\nExterior Equipment"), false, parent);
 
   setGridController(m_gridController);
   setGridView(gridView);
@@ -155,7 +158,7 @@ void FacilityExteriorEquipmentGridController::setCategoriesAndFields() {
     std::vector<QString> fields{
       EXTERIORLIGHTSDEFINITION, EXTERIORLIGHTSSCHEDULE, EXTERIORLIGHTSCONTROLOPTION, EXTERIORLIGHTSMULTIPLIER, EXERIORLIGHTSENDUSESUBCATEGORY,
     };
-    std::pair<QString, std::vector<QString>> categoryAndFields = std::make_pair(QString("Exterior Lights"), fields);
+    std::pair<QString, std::vector<QString>> categoryAndFields = std::make_pair(TR("Exterior Lights"), fields);
     addCategoryAndFields(categoryAndFields);
   }
 
@@ -164,7 +167,7 @@ void FacilityExteriorEquipmentGridController::setCategoriesAndFields() {
       EXTERIORFUELEQUIPMENTDEFINITION, EXTERIORFUELEQUIPMENTSCHEDULE,    EXTERIORFUELEQUIPMENTFUELTYPE,
       EXTERIORFUELEQUIPMENTMULTIPLIER, EXTERIORFUELEQUIPMENTSUBCATEGORY,
     };
-    std::pair<QString, std::vector<QString>> categoryAndFields = std::make_pair(QString("Exterior Fuel Equipment"), fields);
+    std::pair<QString, std::vector<QString>> categoryAndFields = std::make_pair(TR("Exterior Fuel Equipment"), fields);
     addCategoryAndFields(categoryAndFields);
   }
 
@@ -175,7 +178,7 @@ void FacilityExteriorEquipmentGridController::setCategoriesAndFields() {
       EXTERIORWATEREQUIPMENTMULTIPLIER,
       EXTERIORWATEREQUIPMENTSUBCATEGORY,
     };
-    std::pair<QString, std::vector<QString>> categoryAndFields = std::make_pair(QString("Exterior Water Equipment"), fields);
+    std::pair<QString, std::vector<QString>> categoryAndFields = std::make_pair(TR("Exterior Water Equipment"), fields);
     addCategoryAndFields(categoryAndFields);
   }
 

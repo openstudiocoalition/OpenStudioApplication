@@ -220,7 +220,7 @@ BuildingInspectorView::BuildingInspectorView(bool isIP, bool displayAdditionalPr
   auto* vLayout = new QVBoxLayout();
 
   auto* label = new QLabel();
-  label->setText("Name: ");
+  label->setText(tr("Name: "));
   label->setStyleSheet("QLabel { font: bold; }");
   vLayout->addWidget(label);
 
@@ -232,7 +232,7 @@ BuildingInspectorView::BuildingInspectorView(bool isIP, bool displayAdditionalPr
 
   vLayout = new QVBoxLayout();
   m_displayNamelabel = new QLabel();
-  m_displayNamelabel->setText("Display Name: ");
+  m_displayNamelabel->setText(tr("Display Name: "));
   m_displayNamelabel->setStyleSheet("QLabel { font: bold; }");
   vLayout->addWidget(m_displayNamelabel);
 
@@ -243,7 +243,7 @@ BuildingInspectorView::BuildingInspectorView(bool isIP, bool displayAdditionalPr
 
   vLayout = new QVBoxLayout();
   m_cadObjectIdLabel = new QLabel();
-  m_cadObjectIdLabel->setText("CAD Object Id: ");
+  m_cadObjectIdLabel->setText(tr("CAD Object Id: "));
   m_cadObjectIdLabel->setStyleSheet("QLabel { font: bold; }");
   vLayout->addWidget(m_cadObjectIdLabel);
 
@@ -266,7 +266,7 @@ BuildingInspectorView::BuildingInspectorView(bool isIP, bool displayAdditionalPr
   ++row;
 
   label = new QLabel();
-  label->setText("Measure Tags (Optional):");
+  label->setText(tr("Measure Tags (Optional):"));
   label->setObjectName("H2");
   mainGridLayout->addWidget(label, row, 0);
 
@@ -276,7 +276,7 @@ BuildingInspectorView::BuildingInspectorView(bool isIP, bool displayAdditionalPr
   vLayout = new QVBoxLayout();
 
   label = new QLabel();
-  label->setText("Standards Template: ");
+  label->setText(tr("Standards Template: "));
   label->setObjectName("StandardsInfo");
   vLayout->addWidget(label);
 
@@ -295,7 +295,7 @@ BuildingInspectorView::BuildingInspectorView(bool isIP, bool displayAdditionalPr
   vLayout = new QVBoxLayout();
 
   label = new QLabel();
-  label->setText("Standards Building Type: ");
+  label->setText(tr("Standards Building Type: "));
   label->setObjectName("StandardsInfo");
   vLayout->addWidget(label);
 
@@ -316,7 +316,7 @@ BuildingInspectorView::BuildingInspectorView(bool isIP, bool displayAdditionalPr
   vLayout = new QVBoxLayout();
 
   label = new QLabel();
-  label->setText("Nominal Floor to Ceiling Height: ");
+  label->setText(tr("Nominal Floor to Ceiling Height: "));
   label->setObjectName("StandardsInfo");
   vLayout->addWidget(label);
 
@@ -334,7 +334,7 @@ BuildingInspectorView::BuildingInspectorView(bool isIP, bool displayAdditionalPr
   vLayout = new QVBoxLayout();
 
   label = new QLabel();
-  label->setText("Nominal Floor to Floor Height: ");
+  label->setText(tr("Nominal Floor to Floor Height: "));
   label->setObjectName("StandardsInfo");
   vLayout->addWidget(label);
 
@@ -357,7 +357,7 @@ BuildingInspectorView::BuildingInspectorView(bool isIP, bool displayAdditionalPr
   vLayout = new QVBoxLayout();
 
   label = new QLabel();
-  label->setText("Standards Number of Stories: ");
+  label->setText(tr("Standards Number of Stories: "));
   label->setObjectName("StandardsInfo");
   vLayout->addWidget(label);
 
@@ -374,7 +374,7 @@ BuildingInspectorView::BuildingInspectorView(bool isIP, bool displayAdditionalPr
   vLayout = new QVBoxLayout();
 
   label = new QLabel();
-  label->setText("Standards Number of Above Ground Stories: ");
+  label->setText(tr("Standards Number of Above Ground Stories: "));
   label->setObjectName("StandardsInfo");
   vLayout->addWidget(label);
 
@@ -393,7 +393,7 @@ BuildingInspectorView::BuildingInspectorView(bool isIP, bool displayAdditionalPr
   vLayout = new QVBoxLayout();
 
   label = new QLabel();
-  label->setText("Standards Number of Living Units: ");
+  label->setText(tr("Standards Number of Living Units: "));
   label->setObjectName("StandardsInfo");
   vLayout->addWidget(label);
 
@@ -410,7 +410,7 @@ BuildingInspectorView::BuildingInspectorView(bool isIP, bool displayAdditionalPr
   vLayout = new QVBoxLayout();
 
   label = new QLabel();
-  label->setText("Relocatable: ");
+  label->setText(tr("Relocatable: "));
   label->setObjectName("StandardsInfo");
   vLayout->addWidget(label);
 
@@ -437,7 +437,7 @@ BuildingInspectorView::BuildingInspectorView(bool isIP, bool displayAdditionalPr
   vLayout = new QVBoxLayout();
 
   label = new QLabel();
-  label->setText("North Axis: ");
+  label->setText(tr("North Axis: "));
   label->setStyleSheet("QLabel { font: bold; }");
   vLayout->addWidget(label);
 
@@ -454,7 +454,7 @@ BuildingInspectorView::BuildingInspectorView(bool isIP, bool displayAdditionalPr
   vLayout = new QVBoxLayout();
 
   label = new QLabel();
-  label->setText("Space Type: ");
+  label->setText(tr("Space Type: "));
   label->setStyleSheet("QLabel { font: bold; }");
   vLayout->addWidget(label);
 
@@ -476,7 +476,7 @@ BuildingInspectorView::BuildingInspectorView(bool isIP, bool displayAdditionalPr
   vLayout = new QVBoxLayout();
 
   label = new QLabel();
-  label->setText("Default Construction Set: ");
+  label->setText(tr("Default Construction Set: "));
   label->setStyleSheet("QLabel { font: bold; }");
   vLayout->addWidget(label);
 
@@ -495,7 +495,7 @@ BuildingInspectorView::BuildingInspectorView(bool isIP, bool displayAdditionalPr
   vLayout = new QVBoxLayout();
 
   label = new QLabel();
-  label->setText("Default Schedule Set: ");
+  label->setText(tr("Default Schedule Set: "));
   label->setStyleSheet("QLabel { font: bold; }");
   vLayout->addWidget(label);
 

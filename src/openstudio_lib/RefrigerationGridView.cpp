@@ -36,6 +36,7 @@
 
 #include <QBoxLayout>
 #include <QCheckBox>
+#include <QCoreApplication>
 #include <QLabel>
 #include <QScrollArea>
 #include <QSettings>
@@ -44,7 +45,10 @@
 // These defines provide a common area for field display names
 // used on column headers, and other grid widgets
 
-#define SELECTED "All"
+#define TR_CASE(s) QCoreApplication::translate("openstudio::RefrigerationCaseGridController", s)
+#define TR_WALKIN(s) QCoreApplication::translate("openstudio::RefrigerationWalkInGridController", s)
+
+#define SELECTED TR_CASE("All")
 
 // Display Case Fields
 #define ANTISWEATHEATERCONTROLTYPE "Anti Sweat Heater Control Type"
@@ -57,7 +61,7 @@
 #define CASEDEFROSTSCHEDULE "Case Defrost Schedule"  // TODO this has not yet been implemented
 #define CASEDEFROSTTYPE "Case Defrost Type"          // TODO this has not yet been implemented
 #define CASEHEIGHT "Case Height"                     // TODO this has not yet been implemented
-#define CASELENGTH "Case Length"
+#define CASELENGTH TR_CASE("Case Length")
 #define CASELIGHTINGSCHEDULE "Case Lighting Schedule"
 #define CASEOPERATINGTEMPERATURE "Case Operating Temperature"
 #define DEFROSTENERGYCORRECTIONCURVE "Defrost Energy Correction Curve"  // TODO this has not yet been implemented
@@ -70,7 +74,7 @@
 #define INSTALLEDCASELIGHTINGPOWERPERUNITLENGTH "Installed Case Lighting Power\nper Unit Length"
 #define LATENTCASECREDITCURVETYPE "Latent Case Credit Curve Type"  // TODO this has not yet been implemented
 #define MINIMUMANTISWEATHEATERPOWERPERUNITLENGTH "Minimum Anti Sweat Heater Power\nper Unit Length"
-#define NAME "Name"
+#define NAME TR_CASE("Name")
 #define OPERATINGCASEFANPOWERPERUNITLENGTH "Operating Case Fan Power\nper Unit Length"
 #define RATEDAMBIENTRELATIVEHUMIDITY "Rated Ambient Relative Humidity"  // TODO this has not yet been implemented
 #define RATEDAMBIENTTEMPERATURE \
@@ -81,8 +85,8 @@
 #define REFRIGERATEDCASERESTOCKINGSCHEDULE "Refrigerated Case Restocking Schedule"
 #define STANDARDCASEFANPOWERPERUNITLENGTH "Standard Case Fan Power\nper Unit Length"
 #define STANDARDCASELIGHTINGPOWERPERUNITLENGTH "Standard Case Lighting Power\nper Unit Length"
-#define THERMALZONE "Thermal Zone"
-#define RACK "Rack"
+#define THERMALZONE TR_CASE("Thermal Zone")
+#define RACK TR_CASE("Rack")
 #define UNDERCASEHVACRETURNAIRFRACTION "Under Case HVAC Return Air Fraction"
 
 // Walk In Fields
@@ -97,7 +101,8 @@
 #define INSULATEDFLOORSURFACEAREA "Insulated Floor Surface Area"  // TODO this has not yet been implemented
 #define INSULATEDFLOORUVALUE "Insulated Floor U Value"
 #define LIGHTINGSCHEDULE "Lighting Schedule"  // TODO this has not yet been implemented
-#define NAME "Name"
+#undef NAME
+#define NAME TR_WALKIN("Name")
 #define OPERATINGTEMPERATURE "Operating Temperature"                      // TODO this has not yet been implemented
 #define RATEDCIRCULATIONFANPOWER "Rated Circulation Fan Power"            // TODO this has not yet been implemented
 #define RATEDCOILCOOLINGCAPACITY "Rated Coil Cooling Capacity"            // TODO this has not yet been implemented
@@ -108,7 +113,7 @@
 #define RESTOCKINGSCHEDULE "Restocking Schedule"
 #define TEMPERATURETERMINATIONDEFROSTFRACTIONTOICE "Temperature Termination\nDefrost Fraction to Ice"
 #define ZONEBOUNDARIES "Zone Boundaries"  // TODO this has not yet been implemented
-#define ZONEBOUNDARYTHERMALZONE "Thermal Zone"
+#define ZONEBOUNDARYTHERMALZONE TR_WALKIN("Thermal Zone")
 #define ZONEBOUNDARYTOTALINSULATEDSURFACEAREAFACINGZONE "Total Insulated Surface\nArea Facing Zone"
 #define ZONEBOUNDARYAREAOFGLASSREACHINDOORSFACINGZONE "Area of Glass Reach In\nDoors Facing Zone"
 #define ZONEBOUNDARYHEIGHTOFGLASSREACHINDOORSFACINGZONE "Height of Glass Reach In\nDoors Facing Zone"
@@ -150,8 +155,8 @@ RefrigerationGridView::RefrigerationGridView(bool isIP, const model::Model& mode
   std::vector<model::ModelObject> caseModelObjects = subsetCastVector<model::ModelObject>(refrigerationCases);
 
   auto* refrigerationCaseGridController =
-    new RefrigerationCaseGridController(m_isIP, "Display Cases", IddObjectType::OS_Refrigeration_Case, model, caseModelObjects);
-  auto* caseGridView = new OSGridView(refrigerationCaseGridController, "Display Cases", "Drop\nCase", true, parent);
+    new RefrigerationCaseGridController(m_isIP, tr("Display Cases"), IddObjectType::OS_Refrigeration_Case, model, caseModelObjects);
+  auto* caseGridView = new OSGridView(refrigerationCaseGridController, tr("Display Cases"), tr("Drop\nCase"), true, parent);
 
   connect(caseGridView, &OSGridView::dropZoneItemClicked, this, &RefrigerationGridView::dropZoneItemClicked);
 
@@ -161,8 +166,8 @@ RefrigerationGridView::RefrigerationGridView(bool isIP, const model::Model& mode
   std::vector<model::ModelObject> walkInModelObjects = subsetCastVector<model::ModelObject>(refrigerationWalkIns);
 
   auto* refrigerationWalkInGridController =
-    new RefrigerationWalkInGridController(m_isIP, "Walk Ins", IddObjectType::OS_Refrigeration_WalkIn, model, walkInModelObjects);
-  auto* walkInView = new OSGridView(refrigerationWalkInGridController, "Walk Ins", "Drop\nWalk In", true, parent);
+    new RefrigerationWalkInGridController(m_isIP, tr("Walk Ins"), IddObjectType::OS_Refrigeration_WalkIn, model, walkInModelObjects);
+  auto* walkInView = new OSGridView(refrigerationWalkInGridController, tr("Walk Ins"), tr("Drop\nWalk In"), true, parent);
 
   connect(walkInView, &OSGridView::dropZoneItemClicked, this, &RefrigerationGridView::dropZoneItemClicked);
 
@@ -197,7 +202,7 @@ void RefrigerationCaseGridController::setCategoriesAndFields() {
       THERMALZONE,
       CASELENGTH,
     };
-    std::pair<QString, std::vector<QString>> categoryAndFields = std::make_pair(QString("General"), fields);
+    std::pair<QString, std::vector<QString>> categoryAndFields = std::make_pair(TR_CASE("General"), fields);
     addCategoryAndFields(categoryAndFields);
   }
 
@@ -208,7 +213,7 @@ void RefrigerationCaseGridController::setCategoriesAndFields() {
       DESIGNEVAPORATORTEMPERATUREORBRINEINLETTEMPERATURE,
       RATEDRUNTIMEFRACTION,
     };
-    std::pair<QString, std::vector<QString>> categoryAndFields = std::make_pair(QString("Operation"), fields);
+    std::pair<QString, std::vector<QString>> categoryAndFields = std::make_pair(TR_CASE("Operation"), fields);
     addCategoryAndFields(categoryAndFields);
   }
 
@@ -218,7 +223,7 @@ void RefrigerationCaseGridController::setCategoriesAndFields() {
       CASECREDITFRACTIONSCHEDULE,
       RATEDLATENTHEATRATIO,
     };
-    std::pair<QString, std::vector<QString>> categoryAndFields = std::make_pair(QString("Cooling\nCapacity"), fields);
+    std::pair<QString, std::vector<QString>> categoryAndFields = std::make_pair(TR_CASE("Cooling\nCapacity"), fields);
     addCategoryAndFields(categoryAndFields);
   }
 
@@ -227,7 +232,7 @@ void RefrigerationCaseGridController::setCategoriesAndFields() {
       STANDARDCASEFANPOWERPERUNITLENGTH,
       OPERATINGCASEFANPOWERPERUNITLENGTH,
     };
-    std::pair<QString, std::vector<QString>> categoryAndFields = std::make_pair(QString("Fan"), fields);
+    std::pair<QString, std::vector<QString>> categoryAndFields = std::make_pair(TR_CASE("Fan"), fields);
     addCategoryAndFields(categoryAndFields);
   }
 
@@ -238,7 +243,7 @@ void RefrigerationCaseGridController::setCategoriesAndFields() {
       FRACTIONOFLIGHTINGENERGYTOCASE,
       CASELIGHTINGSCHEDULE,
     };
-    std::pair<QString, std::vector<QString>> categoryAndFields = std::make_pair(QString("Lighting"), fields);
+    std::pair<QString, std::vector<QString>> categoryAndFields = std::make_pair(TR_CASE("Lighting"), fields);
     addCategoryAndFields(categoryAndFields);
   }
 
@@ -248,7 +253,7 @@ void RefrigerationCaseGridController::setCategoriesAndFields() {
       MINIMUMANTISWEATHEATERPOWERPERUNITLENGTH, HUMIDITYATZEROANTISWEATHEATERENERGY,
       FRACTIONOFANTISWEATHEATERENERGYTOCASE,
     };
-    std::pair<QString, std::vector<QString>> categoryAndFields = std::make_pair(QString("Case\nAnti-Sweat\nHeaters"), fields);
+    std::pair<QString, std::vector<QString>> categoryAndFields = std::make_pair(TR_CASE("Case\nAnti-Sweat\nHeaters"), fields);
     addCategoryAndFields(categoryAndFields);
   }
 
@@ -257,7 +262,7 @@ void RefrigerationCaseGridController::setCategoriesAndFields() {
       CASEDEFROSTPOWERPERUNITLENGTH,
       REFRIGERATEDCASERESTOCKINGSCHEDULE,
     };
-    std::pair<QString, std::vector<QString>> categoryAndFields = std::make_pair(QString("Defrost\nAnd\nRestocking"), fields);
+    std::pair<QString, std::vector<QString>> categoryAndFields = std::make_pair(TR_CASE("Defrost\nAnd\nRestocking"), fields);
     addCategoryAndFields(categoryAndFields);
   }
 
@@ -543,7 +548,7 @@ void RefrigerationWalkInGridController::setCategoriesAndFields() {
       RACK,
       ZONEBOUNDARYTHERMALZONE,
     };
-    std::pair<QString, std::vector<QString>> categoryAndFields = std::make_pair(QString("General"), fields);
+    std::pair<QString, std::vector<QString>> categoryAndFields = std::make_pair(TR_WALKIN("General"), fields);
     addCategoryAndFields(categoryAndFields);
   }
 
@@ -552,7 +557,7 @@ void RefrigerationWalkInGridController::setCategoriesAndFields() {
       ZONEBOUNDARYTOTALINSULATEDSURFACEAREAFACINGZONE, ZONEBOUNDARYAREAOFGLASSREACHINDOORSFACINGZONE, ZONEBOUNDARYHEIGHTOFGLASSREACHINDOORSFACINGZONE,
       ZONEBOUNDARYAREAOFSTOCKINGDOORSFACINGZONE,       ZONEBOUNDARYHEIGHTOFSTOCKINGDOORSFACINGZONE,
     };
-    std::pair<QString, std::vector<QString>> categoryAndFields = std::make_pair(QString("Dimensions"), fields);
+    std::pair<QString, std::vector<QString>> categoryAndFields = std::make_pair(TR_WALKIN("Dimensions"), fields);
     addCategoryAndFields(categoryAndFields);
   }
 
@@ -563,7 +568,7 @@ void RefrigerationWalkInGridController::setCategoriesAndFields() {
       ZONEBOUNDARYGLASSREACHINDOORUVALUEFACINGZONE,
       ZONEBOUNDARYSTOCKINGDOORUVALUEFACINGZONE,
     };
-    std::pair<QString, std::vector<QString>> categoryAndFields = std::make_pair(QString("Construction"), fields);
+    std::pair<QString, std::vector<QString>> categoryAndFields = std::make_pair(TR_WALKIN("Construction"), fields);
     addCategoryAndFields(categoryAndFields);
   }
 
@@ -574,7 +579,7 @@ void RefrigerationWalkInGridController::setCategoriesAndFields() {
       RATEDCOOLINGSOURCETEMPERATURE,
       RATEDCOILCOOLINGCAPACITY,
     };
-    std::pair<QString, std::vector<QString>> categoryAndFields = std::make_pair(QString("Operation"), fields);
+    std::pair<QString, std::vector<QString>> categoryAndFields = std::make_pair(TR_WALKIN("Operation"), fields);
     addCategoryAndFields(categoryAndFields);
   }
 
@@ -583,7 +588,7 @@ void RefrigerationWalkInGridController::setCategoriesAndFields() {
       RATEDCOOLINGCOILFANPOWER,
       RATEDCIRCULATIONFANPOWER,
     };
-    std::pair<QString, std::vector<QString>> categoryAndFields = std::make_pair(QString("Fans"), fields);
+    std::pair<QString, std::vector<QString>> categoryAndFields = std::make_pair(TR_WALKIN("Fans"), fields);
     addCategoryAndFields(categoryAndFields);
   }
 
@@ -592,7 +597,7 @@ void RefrigerationWalkInGridController::setCategoriesAndFields() {
       RATEDTOTALLIGHTINGPOWER,
       LIGHTINGSCHEDULE,
     };
-    std::pair<QString, std::vector<QString>> categoryAndFields = std::make_pair(QString("Lighting"), fields);
+    std::pair<QString, std::vector<QString>> categoryAndFields = std::make_pair(TR_WALKIN("Lighting"), fields);
     addCategoryAndFields(categoryAndFields);
   }
 
@@ -601,7 +606,7 @@ void RefrigerationWalkInGridController::setCategoriesAndFields() {
       RATEDTOTALHEATINGPOWER,
       HEATINGPOWERSCHEDULE,
     };
-    std::pair<QString, std::vector<QString>> categoryAndFields = std::make_pair(QString("Heating"), fields);
+    std::pair<QString, std::vector<QString>> categoryAndFields = std::make_pair(TR_WALKIN("Heating"), fields);
     addCategoryAndFields(categoryAndFields);
   }
 
@@ -612,7 +617,7 @@ void RefrigerationWalkInGridController::setCategoriesAndFields() {
       DEFROSTPOWER,
       TEMPERATURETERMINATIONDEFROSTFRACTIONTOICE,
     };
-    std::pair<QString, std::vector<QString>> categoryAndFields = std::make_pair(QString("Defrost"), fields);
+    std::pair<QString, std::vector<QString>> categoryAndFields = std::make_pair(TR_WALKIN("Defrost"), fields);
     addCategoryAndFields(categoryAndFields);
   }
 
@@ -621,7 +626,7 @@ void RefrigerationWalkInGridController::setCategoriesAndFields() {
       RESTOCKINGSCHEDULE,
       ZONEBOUNDARYSTOCKINGDOOROPENINGSCHEDULEFACINGZONE,
     };
-    std::pair<QString, std::vector<QString>> categoryAndFields = std::make_pair(QString("Restocking"), fields);
+    std::pair<QString, std::vector<QString>> categoryAndFields = std::make_pair(TR_WALKIN("Restocking"), fields);
     addCategoryAndFields(categoryAndFields);
   }
 

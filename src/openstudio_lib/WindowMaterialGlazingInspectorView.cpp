@@ -1,4 +1,4 @@
-/***********************************************************************************************************************
+﻿/***********************************************************************************************************************
 *  OpenStudio(R), Copyright (c) OpenStudio Coalition and other contributors.
 *  See also https://openstudiocoalition.org/about/software_license/
 ***********************************************************************************************************************/
@@ -50,7 +50,7 @@ void WindowMaterialGlazingInspectorView::createLayout() {
 
   // Name
 
-  label = new QLabel("Name: ");
+  label = new QLabel(tr("Name: "));
   label->setObjectName("H2");
   mainGridLayout->addWidget(label, row, 0);
 
@@ -69,7 +69,7 @@ void WindowMaterialGlazingInspectorView::createLayout() {
 
   // Optical Data Type
 
-  label = new QLabel("Optical Data Type: ");
+  label = new QLabel(tr("Optical Data Type: "));
   label->setObjectName("H2");
   mainGridLayout->addWidget(label, row++, 0);
 
@@ -80,7 +80,7 @@ void WindowMaterialGlazingInspectorView::createLayout() {
 
   // Window Glass Spectral Data Set Name
 
-  label = new QLabel("Window Glass Spectral Data Set Name: ");
+  label = new QLabel(tr("Window Glass Spectral Data Set Name: "));
   label->setObjectName("H2");
   mainGridLayout->addWidget(label, row++, 0);
 
@@ -89,7 +89,7 @@ void WindowMaterialGlazingInspectorView::createLayout() {
 
   // Thickness
 
-  label = new QLabel("Thickness: ");
+  label = new QLabel(tr("Thickness: "));
   label->setObjectName("H2");
   mainGridLayout->addWidget(label, row++, 0);
 
@@ -99,7 +99,7 @@ void WindowMaterialGlazingInspectorView::createLayout() {
 
   // Solar Transmittance At Normal Incidence
 
-  label = new QLabel("Solar Transmittance At Normal Incidence: ");
+  label = new QLabel(tr("Solar Transmittance At Normal Incidence: "));
   label->setObjectName("H2");
   mainGridLayout->addWidget(label, row++, 0);
 
@@ -109,7 +109,7 @@ void WindowMaterialGlazingInspectorView::createLayout() {
 
   // Front Side Solar Reflectance At Normal Incidence
 
-  label = new QLabel("Front Side Solar Reflectance At Normal Incidence: ");
+  label = new QLabel(tr("Front Side Solar Reflectance At Normal Incidence: "));
   label->setObjectName("H2");
   mainGridLayout->addWidget(label, row++, 0);
 
@@ -120,7 +120,7 @@ void WindowMaterialGlazingInspectorView::createLayout() {
 
   // Back Side Solar Reflectance At Normal Incidence
 
-  label = new QLabel("Back Side Solar Reflectance At Normal Incidence: ");
+  label = new QLabel(tr("Back Side Solar Reflectance At Normal Incidence: "));
   label->setObjectName("H2");
   mainGridLayout->addWidget(label, row++, 0);
 
@@ -131,7 +131,7 @@ void WindowMaterialGlazingInspectorView::createLayout() {
 
   // Visible Transmittance At Normal Incidence
 
-  label = new QLabel("Visible Transmittance At Normal Incidence: ");
+  label = new QLabel(tr("Visible Transmittance At Normal Incidence: "));
   label->setObjectName("H2");
   mainGridLayout->addWidget(label, row++, 0);
 
@@ -142,7 +142,7 @@ void WindowMaterialGlazingInspectorView::createLayout() {
 
   // Front Side Visible Reflectance At Normal Incidence
 
-  label = new QLabel("Front Side Visible Reflectance At Normal Incidence: ");
+  label = new QLabel(tr("Front Side Visible Reflectance At Normal Incidence: "));
   label->setObjectName("H2");
   mainGridLayout->addWidget(label, row++, 0);
 
@@ -153,7 +153,7 @@ void WindowMaterialGlazingInspectorView::createLayout() {
 
   // Back Side Visible Reflectance At Normal Incidence
 
-  label = new QLabel("Back Side Visible Reflectance At Normal Incidence: ");
+  label = new QLabel(tr("Back Side Visible Reflectance At Normal Incidence: "));
   label->setObjectName("H2");
   mainGridLayout->addWidget(label, row++, 0);
 
@@ -164,7 +164,7 @@ void WindowMaterialGlazingInspectorView::createLayout() {
 
   // Infrared Transmittance at Normal Incidence
 
-  label = new QLabel("Infrared Transmittance at Normal Incidence: ");
+  label = new QLabel(tr("Infrared Transmittance at Normal Incidence: "));
   label->setObjectName("H2");
   mainGridLayout->addWidget(label, row++, 0);
 
@@ -175,7 +175,7 @@ void WindowMaterialGlazingInspectorView::createLayout() {
 
   // Front Side Infrared Hemispherical Emissivity
 
-  label = new QLabel("Front Side Infrared Hemispherical Emissivity: ");
+  label = new QLabel(tr("Front Side Infrared Hemispherical Emissivity: "));
   label->setObjectName("H2");
   mainGridLayout->addWidget(label, row++, 0);
 
@@ -186,7 +186,7 @@ void WindowMaterialGlazingInspectorView::createLayout() {
 
   // Back Side Infrared Hemispherical Emissivity
 
-  label = new QLabel("Back Side Infrared Hemispherical Emissivity: ");
+  label = new QLabel(tr("Back Side Infrared Hemispherical Emissivity: "));
   label->setObjectName("H2");
   mainGridLayout->addWidget(label, row++, 0);
 
@@ -197,7 +197,7 @@ void WindowMaterialGlazingInspectorView::createLayout() {
 
   // Conductivity
 
-  label = new QLabel("Conductivity: ");
+  label = new QLabel(tr("Conductivity: "));
   label->setObjectName("H2");
   mainGridLayout->addWidget(label, row++, 0);
 
@@ -207,7 +207,7 @@ void WindowMaterialGlazingInspectorView::createLayout() {
 
   // Dirt Correction Factor For Solar And Visible Transmittance
 
-  label = new QLabel("Dirt Correction Factor For Solar And Visible Transmittance: ");
+  label = new QLabel(tr("Dirt Correction Factor For Solar And Visible Transmittance: "));
   label->setObjectName("H2");
   mainGridLayout->addWidget(label, row++, 0);
 
@@ -218,7 +218,7 @@ void WindowMaterialGlazingInspectorView::createLayout() {
 
   // Solar Diffusing
 
-  label = new QLabel("Solar Diffusing: ");
+  label = new QLabel(tr("Solar Diffusing: "));
   label->setObjectName("H2");
   mainGridLayout->addWidget(label, row++, 0);
 

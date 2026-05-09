@@ -1,4 +1,4 @@
-/***********************************************************************************************************************
+﻿/***********************************************************************************************************************
 *  OpenStudio(R), Copyright (c) OpenStudio Coalition and other contributors.
 *  See also https://openstudiocoalition.org/about/software_license/
 ***********************************************************************************************************************/
@@ -48,7 +48,7 @@ void WindowMaterialGasMixtureInspectorView::createLayout() {
 
   // Name
 
-  label = new QLabel("Name: ");
+  label = new QLabel(tr("Name: "));
   label->setObjectName("H2");
   mainGridLayout->addWidget(label, row, 0);
 
@@ -67,7 +67,7 @@ void WindowMaterialGasMixtureInspectorView::createLayout() {
 
   // Thickness
 
-  label = new QLabel("Thickness: ");
+  label = new QLabel(tr("Thickness: "));
   label->setObjectName("H2");
   mainGridLayout->addWidget(label, row++, 0);
 
@@ -77,7 +77,7 @@ void WindowMaterialGasMixtureInspectorView::createLayout() {
 
   // Number Of Gases In Mixture
 
-  label = new QLabel("Number Of Gases In Mixture: ");
+  label = new QLabel(tr("Number Of Gases In Mixture: "));
   label->setObjectName("H2");
   mainGridLayout->addWidget(label, row++, 0);
 
@@ -88,7 +88,7 @@ void WindowMaterialGasMixtureInspectorView::createLayout() {
 
   // Gas Fraction
 
-  label = new QLabel("Gas 1 Fraction: ");
+  label = new QLabel(tr("Gas 1 Fraction: "));
   label->setObjectName("H2");
   mainGridLayout->addWidget(label, row++, 0);
 
@@ -98,7 +98,7 @@ void WindowMaterialGasMixtureInspectorView::createLayout() {
 
   // Gas Type
 
-  label = new QLabel("Gas 1 Type: ");
+  label = new QLabel(tr("Gas 1 Type: "));
   label->setObjectName("H2");
   mainGridLayout->addWidget(label, row++, 0);
 
@@ -113,7 +113,7 @@ void WindowMaterialGasMixtureInspectorView::createLayout() {
 
   // Gas Fraction
 
-  label = new QLabel("Gas 2 Fraction: ");
+  label = new QLabel(tr("Gas 2 Fraction: "));
   label->setObjectName("H2");
   mainGridLayout->addWidget(label, row++, 0);
 
@@ -123,7 +123,7 @@ void WindowMaterialGasMixtureInspectorView::createLayout() {
 
   // Gas Type
 
-  label = new QLabel("Gas 2 Type: ");
+  label = new QLabel(tr("Gas 2 Type: "));
   label->setObjectName("H2");
   mainGridLayout->addWidget(label, row++, 0);
 
@@ -138,7 +138,7 @@ void WindowMaterialGasMixtureInspectorView::createLayout() {
 
   // Gas Fraction
 
-  label = new QLabel("Gas 3 Fraction: ");
+  label = new QLabel(tr("Gas 3 Fraction: "));
   label->setObjectName("H2");
   mainGridLayout->addWidget(label, row++, 0);
 
@@ -148,7 +148,7 @@ void WindowMaterialGasMixtureInspectorView::createLayout() {
 
   // Gas Type
 
-  label = new QLabel("Gas 3 Type: ");
+  label = new QLabel(tr("Gas 3 Type: "));
   label->setObjectName("H2");
   mainGridLayout->addWidget(label, row++, 0);
 
@@ -163,7 +163,7 @@ void WindowMaterialGasMixtureInspectorView::createLayout() {
 
   // Gas Fraction
 
-  label = new QLabel("Gas 4 Fraction: ");
+  label = new QLabel(tr("Gas 4 Fraction: "));
   label->setObjectName("H2");
   mainGridLayout->addWidget(label, row++, 0);
 
@@ -173,7 +173,7 @@ void WindowMaterialGasMixtureInspectorView::createLayout() {
 
   // Gas Type
 
-  label = new QLabel("Gas 4 Type: ");
+  label = new QLabel(tr("Gas 4 Type: "));
   label->setObjectName("H2");
   mainGridLayout->addWidget(label, row++, 0);
 

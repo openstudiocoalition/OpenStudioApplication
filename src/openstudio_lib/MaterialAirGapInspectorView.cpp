@@ -1,4 +1,4 @@
-/***********************************************************************************************************************
+﻿/***********************************************************************************************************************
 *  OpenStudio(R), Copyright (c) OpenStudio Coalition and other contributors.
 *  See also https://openstudiocoalition.org/about/software_license/
 ***********************************************************************************************************************/
@@ -46,7 +46,7 @@ void MaterialAirGapInspectorView::createLayout() {
 
   // Name
 
-  label = new QLabel("Name: ");
+  label = new QLabel(tr("Name: "));
   label->setObjectName("H2");
   mainGridLayout->addWidget(label, row, 0);
 
@@ -65,7 +65,7 @@ void MaterialAirGapInspectorView::createLayout() {
 
   // Thermal Resistance
 
-  label = new QLabel("Thermal Resistance: ");
+  label = new QLabel(tr("Thermal Resistance: "));
   label->setObjectName("H2");
   mainGridLayout->addWidget(label, row++, 0);
 

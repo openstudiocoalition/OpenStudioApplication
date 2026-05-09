@@ -39,74 +39,77 @@
 #include <openstudio/utilities/idd/OS_Space_FieldEnums.hxx>
 
 #include <QCheckBox>
+#include <QCoreApplication>
+
+#define TR(s) QCoreApplication::translate("openstudio::SpacesSubsurfacesGridController", s)
 
 // These defines provide a common area for field display names
 // used on column headers, and other grid widgets
 
-#define NAME "Space Name"
-#define SELECTED "All"
-#define DISPLAYNAME "Display Name"
-#define CADOBJECTID "CAD Object ID"
+#define NAME TR("Space Name")
+#define SELECTED TR("All")
+#define DISPLAYNAME TR("Display Name")
+#define CADOBJECTID TR("CAD Object ID")
 
 // ALL GRID BUTTONS
-#define SURFACENAME "Parent Surface Name"  // read only
-#define SUBSURFACENAME "Subsurface Name"
+#define SURFACENAME TR("Parent Surface Name")  // read only
+#define SUBSURFACENAME TR("Subsurface Name")
 
 // GENERAL "General"
-#define SUBSURFACETYPE "Subsurface Type"
-#define MULTIPLIER "Multiplier"
-#define CONSTRUCTION "Construction"
-#define OUTSIDEBOUNDARYCONDITIONOBJECT "Outside Boundary Condition Object"  // Dan note: needs model method for suggestions
-#define SHADINGSURFACENAME "Shading Surface Name"                           // read only
+#define SUBSURFACETYPE TR("Subsurface Type")
+#define MULTIPLIER TR("Multiplier")
+#define CONSTRUCTION TR("Construction")
+#define OUTSIDEBOUNDARYCONDITIONOBJECT TR("Outside Boundary Condition Object")  // Dan note: needs model method for suggestions
+#define SHADINGSURFACENAME TR("Shading Surface Name")                           // read only
 
 // SHADINGCONTROLS "Shading Controls"
-#define SHADINGCONTROLNAME "Shading Control"
-#define SHADINGTYPE "Shading Type"
-#define CONSTRUCTIONWITHSHADINGNAME "Construction with Shading Name"
-#define SHADINGDEVICEMATERIALNAME "Shading Device Material Name"
-#define SHADINGCONTROLTYPE "Shading Control Type"
-#define SCHEDULENAME "Schedule Name"
-#define SETPOINT "Setpoint"
-#define SHADINGCONTROLISSCHEDULED "Shading Control Is Scheduled"
-#define GLARECONTROLISACTIVE "Glare Control Is Active"
-#define TYPEOFSLATANGLECONTROLFORBLINDS "Type of Slat Angle Control for Blinds"
-#define SLATANGLESCHEDULENAME "Slat Angle Schedule Name"
-#define SETPOINT2 "Setpoint 2"
+#define SHADINGCONTROLNAME TR("Shading Control")
+#define SHADINGTYPE TR("Shading Type")
+#define CONSTRUCTIONWITHSHADINGNAME TR("Construction with Shading Name")
+#define SHADINGDEVICEMATERIALNAME TR("Shading Device Material Name")
+#define SHADINGCONTROLTYPE TR("Shading Control Type")
+#define SCHEDULENAME TR("Schedule Name")
+#define SETPOINT TR("Setpoint")
+#define SHADINGCONTROLISSCHEDULED TR("Shading Control Is Scheduled")
+#define GLARECONTROLISACTIVE TR("Glare Control Is Active")
+#define TYPEOFSLATANGLECONTROLFORBLINDS TR("Type of Slat Angle Control for Blinds")
+#define SLATANGLESCHEDULENAME TR("Slat Angle Schedule Name")
+#define SETPOINT2 TR("Setpoint 2")
 
 // FRAMEANDDIVIDER "Frame and Divider"
-#define FRAMEANDDIVIDERNAME "Frame and Divider"
-#define FRAMEWIDTH "Frame Width"
-#define FRAMEOUTSIDEPROJECTION "Frame Outside Projection"
-#define FRAMEINSIDEPROJECTION "Frame Inside Projection"
-#define FRAMECONDUCTANCE "Frame Conductance"
-#define FRAMEEDGEGLASSCONDUCTANCETOCENTEROFGLASSCONDUCTANCE "Frame - Edge Glass Conductance to Center - Of - Glass Conductance"
-#define FRAMESOLARABSORPTANCE "Frame Solar Absorptance"
-#define FRAMEVISIBLEABSORPTANCE "Frame Visible Absorptance"
-#define FRAMETHERMALHEMISPHERICALEMISSIVITY "Frame Thermal Hemispherical Emissivity"
-#define DIVIDERTYPE "Divider Type"
-#define DIVIDERWIDTH "Divider Width"
-#define NUMBEROFHORIZONTALDIVIDERS "Number of Horizontal Dividers"
-#define NUMBEROFVERTICALDIVIDERS "Number of Vertical Dividers"
-#define DIVIDEROUTSIDEPROJECTION "Divider Outside Projection"
-#define DIVIDERINSIDEPROJECTION "Divider Inside Projection"
-#define DIVIDERCONDUCTANCE "Divider Conductance"
-#define RATIOOFDIVIDEREDGEGLASSCONDUCTANCETOCENTEROFGLASSCONDUCTANCE "Ratio of Divider - Edge Glass Conductance to Center - Of - Glass Conductance"
-#define DIVIDERSOLARABSORPTANCE "Divider Solar Absorptance"
-#define DIVIDERVISIBLEABSORPTANCE "Divider Visible Absorptance"
-#define DIVIDERTHERMALHEMISPHERICALEMISSIVITY "Divider Thermal Hemispherical Emissivity"
-#define OUTSIDEREVEALDEPTH "Outside Reveal Depth"
-#define OUTSIDEREVEALSOLARABSORPTANCE "Outside Reveal Solar Absorptance"
-#define INSIDESILLDEPTH "Inside Sill Depth"
-#define INSIDESILLSOLARABSORPTANCE "Inside Sill Solar Absorptance"
-#define INSIDEREVEALDEPTH "Inside Reveal Depth"
-#define INSIDEREVEALSOLARABSORPTANCE "Inside Reveal Solar Absorptance"
+#define FRAMEANDDIVIDERNAME TR("Frame and Divider")
+#define FRAMEWIDTH TR("Frame Width")
+#define FRAMEOUTSIDEPROJECTION TR("Frame Outside Projection")
+#define FRAMEINSIDEPROJECTION TR("Frame Inside Projection")
+#define FRAMECONDUCTANCE TR("Frame Conductance")
+#define FRAMEEDGEGLASSCONDUCTANCETOCENTEROFGLASSCONDUCTANCE TR("Frame - Edge Glass Conductance to Center - Of - Glass Conductance")
+#define FRAMESOLARABSORPTANCE TR("Frame Solar Absorptance")
+#define FRAMEVISIBLEABSORPTANCE TR("Frame Visible Absorptance")
+#define FRAMETHERMALHEMISPHERICALEMISSIVITY TR("Frame Thermal Hemispherical Emissivity")
+#define DIVIDERTYPE TR("Divider Type")
+#define DIVIDERWIDTH TR("Divider Width")
+#define NUMBEROFHORIZONTALDIVIDERS TR("Number of Horizontal Dividers")
+#define NUMBEROFVERTICALDIVIDERS TR("Number of Vertical Dividers")
+#define DIVIDEROUTSIDEPROJECTION TR("Divider Outside Projection")
+#define DIVIDERINSIDEPROJECTION TR("Divider Inside Projection")
+#define DIVIDERCONDUCTANCE TR("Divider Conductance")
+#define RATIOOFDIVIDEREDGEGLASSCONDUCTANCETOCENTEROFGLASSCONDUCTANCE TR("Ratio of Divider - Edge Glass Conductance to Center - Of - Glass Conductance")
+#define DIVIDERSOLARABSORPTANCE TR("Divider Solar Absorptance")
+#define DIVIDERVISIBLEABSORPTANCE TR("Divider Visible Absorptance")
+#define DIVIDERTHERMALHEMISPHERICALEMISSIVITY TR("Divider Thermal Hemispherical Emissivity")
+#define OUTSIDEREVEALDEPTH TR("Outside Reveal Depth")
+#define OUTSIDEREVEALSOLARABSORPTANCE TR("Outside Reveal Solar Absorptance")
+#define INSIDESILLDEPTH TR("Inside Sill Depth")
+#define INSIDESILLSOLARABSORPTANCE TR("Inside Sill Solar Absorptance")
+#define INSIDEREVEALDEPTH TR("Inside Reveal Depth")
+#define INSIDEREVEALSOLARABSORPTANCE TR("Inside Reveal Solar Absorptance")
 
 // DAYLIGHTINGSHELVES "Daylighting Shelves"
-#define DAYLIGHTINGSHELFNAME "Daylighting Shelf Name"
-#define WINDOWNAME "Window Name"
-#define INSIDESHELFNAME "Inside Shelf Name"    // Dan note: drop down need a model method for suggestions
-#define OUTSIDESHELFNAME "Outside Shelf Name"  // Dan note: drop down need a model method for suggestions
-#define VIEWFACTORTOOUTSIDESHELF "View Factor to Outside Shelf"
+#define DAYLIGHTINGSHELFNAME TR("Daylighting Shelf Name")
+#define WINDOWNAME TR("Window Name")
+#define INSIDESHELFNAME TR("Inside Shelf Name")    // Dan note: drop down need a model method for suggestions
+#define OUTSIDESHELFNAME TR("Outside Shelf Name")  // Dan note: drop down need a model method for suggestions
+#define VIEWFACTORTOOUTSIDESHELF TR("View Factor to Outside Shelf")
 
 namespace openstudio {
 
@@ -122,8 +125,8 @@ SpacesSubsurfacesGridView::SpacesSubsurfacesGridView(bool isIP, bool displayAddi
   m_filterGridLayout->setRowStretch(m_filterGridLayout->rowCount(), 100);
   m_filterGridLayout->setColumnStretch(m_filterGridLayout->columnCount(), 100);
 
-  m_gridController = new SpacesSubsurfacesGridController(isIP, displayAdditionalProps, "Space", IddObjectType::OS_Space, model, m_spacesModelObjects);
-  m_gridView = new OSGridView(m_gridController, "Space", "Drop\nSpace", false, parent);
+  m_gridController = new SpacesSubsurfacesGridController(isIP, displayAdditionalProps, tr("Space"), IddObjectType::OS_Space, model, m_spacesModelObjects);
+  m_gridView = new OSGridView(m_gridController, tr("Space"), tr("Drop\nSpace"), false, parent);
 
   setGridController(m_gridController);
   setGridView(m_gridView);
@@ -177,7 +180,7 @@ void SpacesSubsurfacesGridController::setCategoriesAndFields() {
       SUBSURFACENAME, SURFACENAME, SUBSURFACETYPE, MULTIPLIER, CONSTRUCTION, OUTSIDEBOUNDARYCONDITIONOBJECT,
       //SHADINGSURFACENAME,
     };
-    std::pair<QString, std::vector<QString>> categoryAndFields = std::make_pair(QString("General"), fields);
+    std::pair<QString, std::vector<QString>> categoryAndFields = std::make_pair(TR("General"), fields);
     addCategoryAndFields(categoryAndFields);
   }
 
@@ -194,7 +197,7 @@ void SpacesSubsurfacesGridController::setCategoriesAndFields() {
       //SLATANGLESCHEDULENAME,           IN IDD, BUT NOT EXPOSED IN MODEL OBJECT
       //SETPOINT2,                       IN IDD, BUT NOT EXPOSED IN MODEL OBJECT
     };
-    std::pair<QString, std::vector<QString>> categoryAndFields = std::make_pair(QString("Shading Controls"), fields);
+    std::pair<QString, std::vector<QString>> categoryAndFields = std::make_pair(TR("Shading Controls"), fields);
     addCategoryAndFields(categoryAndFields);
   }
 
@@ -229,7 +232,7 @@ void SpacesSubsurfacesGridController::setCategoriesAndFields() {
       INSIDEREVEALDEPTH,
       INSIDEREVEALSOLARABSORPTANCE,
     };
-    std::pair<QString, std::vector<QString>> categoryAndFields = std::make_pair(QString("Frame and Divider"), fields);
+    std::pair<QString, std::vector<QString>> categoryAndFields = std::make_pair(TR("Frame and Divider"), fields);
     addCategoryAndFields(categoryAndFields);
   }
 
@@ -243,7 +246,7 @@ void SpacesSubsurfacesGridController::setCategoriesAndFields() {
       OUTSIDESHELFNAME,
       VIEWFACTORTOOUTSIDESHELF,
     };
-    std::pair<QString, std::vector<QString>> categoryAndFields = std::make_pair(QString("Daylighting Shelves"), fields);
+    std::pair<QString, std::vector<QString>> categoryAndFields = std::make_pair(TR("Daylighting Shelves"), fields);
     addCategoryAndFields(categoryAndFields);
   }
 

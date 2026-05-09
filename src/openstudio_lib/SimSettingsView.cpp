@@ -239,71 +239,71 @@ void SimSettingsView::createWidgets() {
   //******************* OS:Timestep *******************
   mainLayout->addWidget(createTimestepWidget());
 
-  collapsibleInspector = new CollapsibleInspector("Advanced RunPeriod Parameters", createRunPeriodAdvancedWidget());
+  collapsibleInspector = new CollapsibleInspector(tr("Advanced RunPeriod Parameters"), createRunPeriodAdvancedWidget());
   mainLayout->addWidget(collapsibleInspector);
 
   //******************* OS:RadianceParameters *******************
-  collapsibleInspector = new CollapsibleInspector("Radiance Parameters", createRadianceParametersWidget());
+  collapsibleInspector = new CollapsibleInspector(tr("Radiance Parameters"), createRadianceParametersWidget());
   mainLayout->addWidget(collapsibleInspector);
 
   //******************* OS:SimulationControl *******************
-  collapsibleInspector = new CollapsibleInspector("Simulation Control", createSimulationControlWidget());
+  collapsibleInspector = new CollapsibleInspector(tr("Simulation Control"), createSimulationControlWidget());
   mainLayout->addWidget(collapsibleInspector);
 
   //******************* OS:ProgramControl *******************
-  collapsibleInspector = new CollapsibleInspector("Program Control", createProgramControlWidget());
+  collapsibleInspector = new CollapsibleInspector(tr("Program Control"), createProgramControlWidget());
   mainLayout->addWidget(collapsibleInspector);
 
   //******************* OS:OutputControl:ReportingTolerances *******************
-  collapsibleInspector = new CollapsibleInspector("Output Control Reporting Tolerances", createOutputControlReportingTolerancesWidget());
+  collapsibleInspector = new CollapsibleInspector(tr("Output Control Reporting Tolerances"), createOutputControlReportingTolerancesWidget());
   mainLayout->addWidget(collapsibleInspector);
 
   //******************* OS:ConvergenceLimits *******************
-  collapsibleInspector = new CollapsibleInspector("Convergence Limits", createConvergenceLimitsWidget());
+  collapsibleInspector = new CollapsibleInspector(tr("Convergence Limits"), createConvergenceLimitsWidget());
   mainLayout->addWidget(collapsibleInspector);
 
   //******************* OS:ShadowCalculation *******************
-  collapsibleInspector = new CollapsibleInspector("Shadow Calculation", createShadowCalculationWidget());
+  collapsibleInspector = new CollapsibleInspector(tr("Shadow Calculation"), createShadowCalculationWidget());
   mainLayout->addWidget(collapsibleInspector);
 
   //******************* OS:SurfaceConvectionAlgorithm:Inside *******************
-  collapsibleInspector = new CollapsibleInspector("Inside Surface Convection Algorithm", createSurfaceConvectionAlgorithmInsideWidget());
+  collapsibleInspector = new CollapsibleInspector(tr("Inside Surface Convection Algorithm"), createSurfaceConvectionAlgorithmInsideWidget());
   mainLayout->addWidget(collapsibleInspector);
 
   //******************* OS:SurfaceConvectionAlgorithm:Outside *******************
-  collapsibleInspector = new CollapsibleInspector("Outside Surface Convection Algorithm", createSurfaceConvectionAlgorithmOutsideWidget());
+  collapsibleInspector = new CollapsibleInspector(tr("Outside Surface Convection Algorithm"), createSurfaceConvectionAlgorithmOutsideWidget());
   mainLayout->addWidget(collapsibleInspector);
 
   //******************* OS:HeatBalanceAlgorithm *******************
-  collapsibleInspector = new CollapsibleInspector("Heat Balance Algorithm", createHeatBalanceAlgorithmWidget());
+  collapsibleInspector = new CollapsibleInspector(tr("Heat Balance Algorithm"), createHeatBalanceAlgorithmWidget());
   mainLayout->addWidget(collapsibleInspector);
 
   //******************* OS:ZoneAirHeatBalanceAlgorithm *******************
-  collapsibleInspector = new CollapsibleInspector("Zone Air Heat Balance Algorithm", createZoneAirHeatBalanceAlgorithmWidget());
+  collapsibleInspector = new CollapsibleInspector(tr("Zone Air Heat Balance Algorithm"), createZoneAirHeatBalanceAlgorithmWidget());
   mainLayout->addWidget(collapsibleInspector);
 
   //******************* OS:ZoneAirContaminantBalance *******************
-  collapsibleInspector = new CollapsibleInspector("Zone Air Contaminant Balance", createZoneAirContaminantBalanceWidget());
+  collapsibleInspector = new CollapsibleInspector(tr("Zone Air Contaminant Balance"), createZoneAirContaminantBalanceWidget());
   mainLayout->addWidget(collapsibleInspector);
 
   //******************* OS:ZoneCapacitanceMultiplier:ResearchSpecial *******************
-  collapsibleInspector = new CollapsibleInspector("Zone Capacitance Multiple Research Special", createZoneCapacitanceMultipleResearchSpecialWidget());
+  collapsibleInspector = new CollapsibleInspector(tr("Zone Capacitance Multiple Research Special"), createZoneCapacitanceMultipleResearchSpecialWidget());
   mainLayout->addWidget(collapsibleInspector);
 
   //******************* OS:Output:JSON *******************
-  collapsibleInspector = new CollapsibleInspector("Output JSON", createOutputJSONWidget());
+  collapsibleInspector = new CollapsibleInspector(tr("Output JSON"), createOutputJSONWidget());
   mainLayout->addWidget(collapsibleInspector);
 
   //******************* OS:Output:Table:SummaryReports *******************
-  collapsibleInspector = new CollapsibleInspector("Output Table Summary Reports", createOutputTableSummaryReportsWidget());
+  collapsibleInspector = new CollapsibleInspector(tr("Output Table Summary Reports"), createOutputTableSummaryReportsWidget());
   mainLayout->addWidget(collapsibleInspector);
 
   //******************* OS:Output:Diagnostics *******************
-  collapsibleInspector = new CollapsibleInspector("Output Diagnostics", createOutputDiagnosticsWidget());
+  collapsibleInspector = new CollapsibleInspector(tr("Output Diagnostics"), createOutputDiagnosticsWidget());
   mainLayout->addWidget(collapsibleInspector);
 
   //******************* OS:OutputControl:ResilienceSummaries *******************
-  collapsibleInspector = new CollapsibleInspector("Output Control Resilience Summaries", createOutputControlResilienceSummariesWidget());
+  collapsibleInspector = new CollapsibleInspector(tr("Output Control Resilience Summaries"), createOutputControlResilienceSummariesWidget());
   mainLayout->addWidget(collapsibleInspector);
 
   mainLayout->addStretch();
@@ -324,7 +324,7 @@ QWidget* SimSettingsView::createRunPeriodWidget() {
 
   QHBoxLayout* hLayout = nullptr;
 
-  label = new QLabel("Run Period");
+  label = new QLabel(tr("Run Period"));
   label->setObjectName("H1");
   mainVLayout->addWidget(label);
 
@@ -392,7 +392,7 @@ QWidget* SimSettingsView::createRunPeriodWidget() {
 
   mainHLayout->addStretch();
 
-  m_dateRangelabel = new QLabel("Date Range");
+  m_dateRangelabel = new QLabel(tr("Date Range"));
   m_dateRangelabel->setObjectName("H2");
   m_dateRangelabel->setEnabled(true);
   vLayout->addWidget(m_dateRangelabel);
@@ -436,27 +436,27 @@ QWidget* SimSettingsView::createRunPeriodAdvancedWidget() {
   int col = 0;
   QSpacerItem* spacerItem = nullptr;
 
-  addField(gridLayout, row, col, "Use Weather File Holidays and Special Days", m_useWeatherFileHolidaysandSpecialDays);
+  addField(gridLayout, row, col, tr("Use Weather File Holidays and Special Days"), m_useWeatherFileHolidaysandSpecialDays);
   col++;
   spacerItem = new QSpacerItem(SPACERITEM_WIDTH, 1, QSizePolicy::Fixed, QSizePolicy::Fixed);
   gridLayout->addItem(spacerItem, row, col++);
-  addField(gridLayout, row, col, "Use Weather File Daylight Savings Period", m_useWeatherFileDaylightSavingsPeriod);
+  addField(gridLayout, row, col, tr("Use Weather File Daylight Savings Period"), m_useWeatherFileDaylightSavingsPeriod);
 
   row = row + 2;
   spacerItem = new QSpacerItem(1, SPACERITEM_HEIGHT, QSizePolicy::Fixed, QSizePolicy::Fixed);
   gridLayout->addItem(spacerItem, row++, 0);
   col = 0;
 
-  addField(gridLayout, row, col, "Use Weather File Rain Indicators", m_useWeatherFileRainIndicators);
+  addField(gridLayout, row, col, tr("Use Weather File Rain Indicators"), m_useWeatherFileRainIndicators);
   col = col + 2;
-  addField(gridLayout, row, col, "Use Weather File Snow Indicators", m_useWeatherFileSnowIndicators);
+  addField(gridLayout, row, col, tr("Use Weather File Snow Indicators"), m_useWeatherFileSnowIndicators);
 
   row = row + 2;
   spacerItem = new QSpacerItem(1, SPACERITEM_HEIGHT, QSizePolicy::Fixed, QSizePolicy::Fixed);
   gridLayout->addItem(spacerItem, row++, 0);
   col = 0;
 
-  addField(gridLayout, row, col, "Apply Weekend Holiday Rule", m_applyWeekendHolidayRule);
+  addField(gridLayout, row, col, tr("Apply Weekend Holiday Rule"), m_applyWeekendHolidayRule);
   col = col + 2;
   // Number of times repeated isn't translated
   // addField(gridLayout,row,col,"Number of Times Runperiod to be Repeate", m_numberTimeRepeat);
@@ -478,7 +478,7 @@ QWidget* SimSettingsView::createRunControlWidget() {
 
   QLabel* label = nullptr;
 
-  label = new QLabel("Run Control");
+  label = new QLabel(tr("Run Control"));
   label->setObjectName("H1");
   mainLayout->addWidget(label);
 
@@ -487,27 +487,27 @@ QWidget* SimSettingsView::createRunControlWidget() {
   layout->setSpacing(0);
   mainLayout->addLayout(layout);
 
-  m_runSimWeatherFiles = new QCheckBox("Run Simulation for Weather File");
+  m_runSimWeatherFiles = new QCheckBox(tr("Run Simulation for Weather File"));
   layout->addWidget(m_runSimWeatherFiles);
 
   connect(m_runSimWeatherFiles, &QCheckBox::checkStateChanged, this, &SimSettingsView::on_runSimWeatherFiles);
 
-  m_runSimDesignDays = new QCheckBox("Run Simulation for Design Days");
+  m_runSimDesignDays = new QCheckBox(tr("Run Simulation for Design Days"));
   layout->addWidget(m_runSimDesignDays);
 
   connect(m_runSimDesignDays, &QCheckBox::checkStateChanged, this, &SimSettingsView::on_runSimDesignDays);
 
-  m_performZoneSizing = new QCheckBox("Perform Zone Sizing");
+  m_performZoneSizing = new QCheckBox(tr("Perform Zone Sizing"));
   layout->addWidget(m_performZoneSizing);
 
   connect(m_performZoneSizing, &QCheckBox::checkStateChanged, this, &SimSettingsView::on_performZoneSizing);
 
-  m_performSystemSizing = new QCheckBox("Perform System Sizing");
+  m_performSystemSizing = new QCheckBox(tr("Perform System Sizing"));
   layout->addWidget(m_performSystemSizing);
 
   connect(m_performSystemSizing, &QCheckBox::checkStateChanged, this, &SimSettingsView::on_performSystemSizing);
 
-  m_performPlantSizing = new QCheckBox("Perform Plant Sizing");
+  m_performPlantSizing = new QCheckBox(tr("Perform Plant Sizing"));
   layout->addWidget(m_performPlantSizing);
 
   connect(m_performPlantSizing, &QCheckBox::checkStateChanged, this, &SimSettingsView::on_performPlantSizing);
@@ -528,56 +528,56 @@ QWidget* SimSettingsView::createSimulationControlWidget() {
   int col = 0;
   QSpacerItem* spacerItem = nullptr;
 
-  addField(gridLayout, row, col, "Do Zone Sizing Calculation", m_doZoneSizingCalculation);
+  addField(gridLayout, row, col, tr("Do Zone Sizing Calculation"), m_doZoneSizingCalculation);
   col++;
   spacerItem = new QSpacerItem(SPACERITEM_WIDTH, 1, QSizePolicy::Fixed, QSizePolicy::Fixed);
   gridLayout->addItem(spacerItem, row, col++);
-  addField(gridLayout, row, col, "Do System Sizing Calculation", m_doSystemSizingCalculation);
+  addField(gridLayout, row, col, tr("Do System Sizing Calculation"), m_doSystemSizingCalculation);
 
   row = row + 2;
   spacerItem = new QSpacerItem(1, SPACERITEM_HEIGHT, QSizePolicy::Fixed, QSizePolicy::Fixed);
   gridLayout->addItem(spacerItem, row++, 0);
   col = 0;
 
-  addField(gridLayout, row, col, "Do Plant Sizing Calculation", m_doPlantSizingCalculation);
+  addField(gridLayout, row, col, tr("Do Plant Sizing Calculation"), m_doPlantSizingCalculation);
   col = col + 2;
-  addField(gridLayout, row, col, "Run Simulation For Sizing Periods", m_runSimulationforSizingPeriods);
+  addField(gridLayout, row, col, tr("Run Simulation For Sizing Periods"), m_runSimulationforSizingPeriods);
 
   row = row + 2;
   spacerItem = new QSpacerItem(1, SPACERITEM_HEIGHT, QSizePolicy::Fixed, QSizePolicy::Fixed);
   gridLayout->addItem(spacerItem, row++, 0);
   col = 0;
 
-  addField(gridLayout, row, col, "Run Simulation For Weather File Run Periods", m_runSimulationforWeatherFileRunPeriods);
+  addField(gridLayout, row, col, tr("Run Simulation For Weather File Run Periods"), m_runSimulationforWeatherFileRunPeriods);
   col = col + 2;
-  addField(gridLayout, row, col, "Maximum Number Of Warmup Days", m_maximumNumberofWarmupDays);
+  addField(gridLayout, row, col, tr("Maximum Number Of Warmup Days"), m_maximumNumberofWarmupDays);
 
   row = row + 2;
   spacerItem = new QSpacerItem(1, SPACERITEM_HEIGHT, QSizePolicy::Fixed, QSizePolicy::Fixed);
   gridLayout->addItem(spacerItem, row++, 0);
   col = 0;
 
-  addField(gridLayout, row, col, "Minimum Number Of Warmup Days", m_minimumNumberofWarmupDays);
+  addField(gridLayout, row, col, tr("Minimum Number Of Warmup Days"), m_minimumNumberofWarmupDays);
   col = col + 2;
-  addField(gridLayout, row, col, "Loads Convergence Tolerance Value", "", "", "", m_loadsConvergenceToleranceValue);
+  addField(gridLayout, row, col, tr("Loads Convergence Tolerance Value"), "", "", "", m_loadsConvergenceToleranceValue);
 
   row = row + 2;
   spacerItem = new QSpacerItem(1, SPACERITEM_HEIGHT, QSizePolicy::Fixed, QSizePolicy::Fixed);
   gridLayout->addItem(spacerItem, row++, 0);
   col = 0;
 
-  addField(gridLayout, row, col, "Temperature Convergence Tolerance Value", "K", "K", "R", m_temperatureConvergenceToleranceValue);
+  addField(gridLayout, row, col, tr("Temperature Convergence Tolerance Value"), "K", "K", "R", m_temperatureConvergenceToleranceValue);
   col = col + 2;
-  addField(gridLayout, row, col, "Solar Distribution", m_solarDistribution);
+  addField(gridLayout, row, col, tr("Solar Distribution"), m_solarDistribution);
 
   row = row + 2;
   spacerItem = new QSpacerItem(1, SPACERITEM_HEIGHT, QSizePolicy::Fixed, QSizePolicy::Fixed);
   gridLayout->addItem(spacerItem, row++, 0);
   col = 0;
 
-  addField(gridLayout, row, col, "Do HVAC Sizing Simulation for Sizing Periods", m_doHVACSizingSimulationforSizingPeriods);
+  addField(gridLayout, row, col, tr("Do HVAC Sizing Simulation for Sizing Periods"), m_doHVACSizingSimulationforSizingPeriods);
   col = col + 2;
-  addField(gridLayout, row, col, "Maximum Number of HVAC Sizing Simulation Passes", m_maximumNumberofHVACSizingSimulationPasses);
+  addField(gridLayout, row, col, tr("Maximum Number of HVAC Sizing Simulation Passes"), m_maximumNumberofHVACSizingSimulationPasses);
 
   std::vector<std::string> validSolarDistributionValues = model::SimulationControl::validSolarDistributionValues();
   for (const std::string& validSolarDistributionValue : validSolarDistributionValues) {
@@ -601,7 +601,7 @@ QWidget* SimSettingsView::createSizingParametersWidget() {
 
   QLabel* label = nullptr;
 
-  label = new QLabel("Sizing Parameters");
+  label = new QLabel(tr("Sizing Parameters"));
   label->setObjectName("H1");
   mainLayout->addWidget(label);
 
@@ -614,11 +614,11 @@ QWidget* SimSettingsView::createSizingParametersWidget() {
   int row = 0;
   int col = 0;
 
-  addField(gridLayout, row, col, "Heating Sizing Factor", "", "", "", m_heatingSizingFactor);
+  addField(gridLayout, row, col, tr("Heating Sizing Factor"), "", "", "", m_heatingSizingFactor);
   row = row + 2;
-  addField(gridLayout, row, col, "Cooling Sizing Factor", "", "", "", m_coolingSizingFactor);
+  addField(gridLayout, row, col, tr("Cooling Sizing Factor"), "", "", "", m_coolingSizingFactor);
   row = row + 2;
-  addField(gridLayout, row, col, "Timesteps In Averaging Window", m_timestepsinAveragingWindow);
+  addField(gridLayout, row, col, tr("Timesteps In Averaging Window"), m_timestepsinAveragingWindow);
 
   auto* widget = new QWidget();
   widget->setLayout(mainLayout);
@@ -635,7 +635,7 @@ QWidget* SimSettingsView::createProgramControlWidget() {
   int row = 0;
   int col = 0;
 
-  addField(gridLayout, row, col, "Number Of Threads Allowed", m_numberOfThreadsAllowed);
+  addField(gridLayout, row, col, tr("Number Of Threads Allowed"), m_numberOfThreadsAllowed);
 
   auto* widget = new QWidget();
   widget->setLayout(gridLayout);
@@ -651,7 +651,7 @@ QWidget* SimSettingsView::createTimestepWidget() {
 
   QLabel* label = nullptr;
 
-  label = new QLabel("Timestep");
+  label = new QLabel(tr("Timestep"));
   label->setObjectName("H1");
   mainLayout->addWidget(label);
 
@@ -664,7 +664,7 @@ QWidget* SimSettingsView::createTimestepWidget() {
   int row = 0;
   int col = 0;
 
-  addField(gridLayout, row, col, "Number Of Timesteps Per Hour", m_numberOfTimestepsPerHour);
+  addField(gridLayout, row, col, tr("Number Of Timesteps Per Hour"), m_numberOfTimestepsPerHour);
 
   auto* widget = new QWidget();
   widget->setLayout(mainLayout);
@@ -682,11 +682,11 @@ QWidget* SimSettingsView::createOutputControlReportingTolerancesWidget() {
   int col = 0;
   QSpacerItem* spacerItem = nullptr;
 
-  addField(gridLayout, row, col, "Tolerance For Time Heating Setpoint Not Met", "K", "K", "R", m_toleranceForTimeHeatingSetpointNotMet);
+  addField(gridLayout, row, col, tr("Tolerance For Time Heating Setpoint Not Met"), "K", "K", "R", m_toleranceForTimeHeatingSetpointNotMet);
   col++;
   spacerItem = new QSpacerItem(SPACERITEM_WIDTH, 1, QSizePolicy::Fixed, QSizePolicy::Fixed);
   gridLayout->addItem(spacerItem, row, col++);
-  addField(gridLayout, row, col, "Tolerance For Time Cooling Setpoint Not Met", "K", "K", "R", m_toleranceForTimeCoolingSetpointNotMet);
+  addField(gridLayout, row, col, tr("Tolerance For Time Cooling Setpoint Not Met"), "K", "K", "R", m_toleranceForTimeCoolingSetpointNotMet);
 
   auto* widget = new QWidget();
   widget->setLayout(gridLayout);
@@ -704,20 +704,20 @@ QWidget* SimSettingsView::createConvergenceLimitsWidget() {
   int col = 0;
   QSpacerItem* spacerItem = nullptr;
 
-  addField(gridLayout, row, col, "Maximum HVAC Iterations", m_maximumHVACIterations);
+  addField(gridLayout, row, col, tr("Maximum HVAC Iterations"), m_maximumHVACIterations);
   col++;
   spacerItem = new QSpacerItem(SPACERITEM_WIDTH, 1, QSizePolicy::Fixed, QSizePolicy::Fixed);
   gridLayout->addItem(spacerItem, row, col++);
-  addField(gridLayout, row, col, "Minimum Plant Iterations", m_minimumPlantIterations);
+  addField(gridLayout, row, col, tr("Minimum Plant Iterations"), m_minimumPlantIterations);
 
   row = row + 2;
   spacerItem = new QSpacerItem(1, SPACERITEM_HEIGHT, QSizePolicy::Fixed, QSizePolicy::Fixed);
   gridLayout->addItem(spacerItem, row++, 0);
   col = 0;
 
-  addField(gridLayout, row, col, "Maximum Plant Iterations", m_maximumPlantIterations);
+  addField(gridLayout, row, col, tr("Maximum Plant Iterations"), m_maximumPlantIterations);
   col = col + 2;
-  addField(gridLayout, row, col, "Minimum System Timestep", m_minimumSystemTimestep);
+  addField(gridLayout, row, col, tr("Minimum System Timestep"), m_minimumSystemTimestep);
 
   gridLayout->setRowStretch(100, 100);
   gridLayout->setColumnStretch(100, 100);
@@ -739,20 +739,20 @@ QWidget* SimSettingsView::createShadowCalculationWidget() {
   int col = 0;
   QSpacerItem* spacerItem = nullptr;
 
-  addField(gridLayout, row, col, "Shading Calculation Update Frequency", m_shadingCalculationUpdateFrequency);
+  addField(gridLayout, row, col, tr("Shading Calculation Update Frequency"), m_shadingCalculationUpdateFrequency);
   col++;
   spacerItem = new QSpacerItem(SPACERITEM_WIDTH, 1, QSizePolicy::Fixed, QSizePolicy::Fixed);
   gridLayout->addItem(spacerItem, row, col++);
-  addField(gridLayout, row, col, "Maximum Figures In Shadow Overlap Calculations", m_maximumFiguresInShadowOverlapCalculations);
+  addField(gridLayout, row, col, tr("Maximum Figures In Shadow Overlap Calculations"), m_maximumFiguresInShadowOverlapCalculations);
 
   row = row + 2;
   spacerItem = new QSpacerItem(1, SPACERITEM_HEIGHT, QSizePolicy::Fixed, QSizePolicy::Fixed);
   gridLayout->addItem(spacerItem, row++, 0);
   col = 0;
 
-  addField(gridLayout, row, col, "Polygon Clipping Algorithm", m_polygonClippingAlgorithm);
+  addField(gridLayout, row, col, tr("Polygon Clipping Algorithm"), m_polygonClippingAlgorithm);
   col = col + 2;
-  addField(gridLayout, row, col, "Sky Diffuse Modeling Algorithm", m_skyDiffuseModelingAlgorithm);
+  addField(gridLayout, row, col, tr("Sky Diffuse Modeling Algorithm"), m_skyDiffuseModelingAlgorithm);
 
   gridLayout->setRowStretch(100, 100);
   gridLayout->setColumnStretch(100, 100);
@@ -773,7 +773,7 @@ QWidget* SimSettingsView::createSurfaceConvectionAlgorithmInsideWidget() {
   int row = 0;
   int col = 0;
 
-  addField(gridLayout, row, col, "Algorithm", m_algorithmSurfaceConvectionInside);
+  addField(gridLayout, row, col, tr("Algorithm"), m_algorithmSurfaceConvectionInside);
 
   auto* widget = new QWidget();
   widget->setLayout(gridLayout);
@@ -791,7 +791,7 @@ QWidget* SimSettingsView::createSurfaceConvectionAlgorithmOutsideWidget() {
   int row = 0;
   int col = 0;
 
-  addField(gridLayout, row, col, "Algorithm", m_algorithmSurfaceConvectionOutside);
+  addField(gridLayout, row, col, tr("Algorithm"), m_algorithmSurfaceConvectionOutside);
 
   auto* widget = new QWidget();
   widget->setLayout(gridLayout);
@@ -809,11 +809,11 @@ QWidget* SimSettingsView::createHeatBalanceAlgorithmWidget() {
   int col = 0;
   QSpacerItem* spacerItem = nullptr;
 
-  addField(gridLayout, row, col, "Surface Temperature Upper Limit", "C", "C", "F", m_surfaceTemperatureUpperLimit);
+  addField(gridLayout, row, col, tr("Surface Temperature Upper Limit"), "C", "C", "F", m_surfaceTemperatureUpperLimit);
   col++;
   spacerItem = new QSpacerItem(SPACERITEM_WIDTH, 1, QSizePolicy::Fixed, QSizePolicy::Fixed);
   gridLayout->addItem(spacerItem, row, col++);
-  addField(gridLayout, row, col, "Minimum Surface Convection Heat Transfer Coefficient Value", "W/m^2*K", "W/m^2*K", "Btu/ft^2*hr*R",
+  addField(gridLayout, row, col, tr("Minimum Surface Convection Heat Transfer Coefficient Value"), "W/m^2*K", "W/m^2*K", "Btu/ft^2*hr*R",
            m_minimumSurfaceConvectionHeatTransferCoefficientValue);
 
   row = row + 2;
@@ -821,10 +821,10 @@ QWidget* SimSettingsView::createHeatBalanceAlgorithmWidget() {
   gridLayout->addItem(spacerItem, row++, 0);
   col = 0;
 
-  addField(gridLayout, row, col, "Maximum Surface Convection Heat Transfer Coefficient Value", "W/m^2*K", "W/m^2*K", "Btu/ft^2*hr*R",
+  addField(gridLayout, row, col, tr("Maximum Surface Convection Heat Transfer Coefficient Value"), "W/m^2*K", "W/m^2*K", "Btu/ft^2*hr*R",
            m_maximumSurfaceConvectionHeatTransferCoefficientValue);
   col = col + 2;
-  addField(gridLayout, row, col, "Algorithm", m_algorithmHeatBalance);
+  addField(gridLayout, row, col, tr("Algorithm"), m_algorithmHeatBalance);
 
   gridLayout->setRowStretch(100, 100);
   gridLayout->setColumnStretch(100, 100);
@@ -845,7 +845,7 @@ QWidget* SimSettingsView::createZoneAirHeatBalanceAlgorithmWidget() {
   int row = 0;
   int col = 0;
 
-  addField(gridLayout, row, col, "Algorithm", m_algorithmZoneAirHeatBalance);
+  addField(gridLayout, row, col, tr("Algorithm"), m_algorithmZoneAirHeatBalance);
 
   auto* widget = new QWidget();
   widget->setLayout(gridLayout);
@@ -863,11 +863,11 @@ QWidget* SimSettingsView::createZoneAirContaminantBalanceWidget() {
   int col = 0;
   QSpacerItem* spacerItem = nullptr;
 
-  addField(gridLayout, row, col, "Carbon Dioxide Concentration", m_carbonDioxideConcentration);
+  addField(gridLayout, row, col, tr("Carbon Dioxide Concentration"), m_carbonDioxideConcentration);
   col++;
   spacerItem = new QSpacerItem(SPACERITEM_WIDTH, 1, QSizePolicy::Fixed, QSizePolicy::Fixed);
   gridLayout->addItem(spacerItem, row, col++);
-  addField(gridLayout, row, col, "Outdoor Carbon Dioxide Schedule Name", m_outdoorCarbonDioxideScheduleName);
+  addField(gridLayout, row, col, tr("Outdoor Carbon Dioxide Schedule Name"), m_outdoorCarbonDioxideScheduleName);
 
   gridLayout->setRowStretch(100, 100);
   gridLayout->setColumnStretch(100, 100);
@@ -889,18 +889,18 @@ QWidget* SimSettingsView::createZoneCapacitanceMultipleResearchSpecialWidget() {
   int col = 0;
   QSpacerItem* spacerItem = nullptr;
 
-  addField(gridLayout, row, col, "Temperature Capacity Multiplier", "", "", "", m_temperatureCapacityMultiplier);
+  addField(gridLayout, row, col, tr("Temperature Capacity Multiplier"), "", "", "", m_temperatureCapacityMultiplier);
   col++;
   spacerItem = new QSpacerItem(SPACERITEM_WIDTH, 1, QSizePolicy::Fixed, QSizePolicy::Fixed);
   gridLayout->addItem(spacerItem, row, col++);
-  addField(gridLayout, row, col, "Humidity Capacity Multiplier", "", "", "", m_humidityCapacityMultiplier);
+  addField(gridLayout, row, col, tr("Humidity Capacity Multiplier"), "", "", "", m_humidityCapacityMultiplier);
 
   row = row + 2;
   spacerItem = new QSpacerItem(1, SPACERITEM_HEIGHT, QSizePolicy::Fixed, QSizePolicy::Fixed);
   gridLayout->addItem(spacerItem, row++, 0);
   col = 0;
 
-  addField(gridLayout, row, col, "Carbon Dioxide Capacity Multiplier", "", "", "", m_carbonDioxideCapacityMultiplier);
+  addField(gridLayout, row, col, tr("Carbon Dioxide Capacity Multiplier"), "", "", "", m_carbonDioxideCapacityMultiplier);
 
   auto* widget = new QWidget();
   widget->setLayout(gridLayout);
@@ -920,15 +920,15 @@ QWidget* SimSettingsView::createRadianceParametersWidget() {
 
   QRadioButton* radioButton = nullptr;
 
-  radioButton = new QRadioButton("Coarse (Fast, less accurate)");
+  radioButton = new QRadioButton(tr("Coarse (Fast, less accurate)"));
   m_radianceGroup->addButton(radioButton, buttonCount++);
   vLayout->addWidget(radioButton);
 
-  radioButton = new QRadioButton("Fine (Slow, more accurate)");
+  radioButton = new QRadioButton(tr("Fine (Slow, more accurate)"));
   m_radianceGroup->addButton(radioButton, buttonCount++);
   vLayout->addWidget(radioButton);
 
-  radioButton = new QRadioButton("Custom");
+  radioButton = new QRadioButton(tr("Custom"));
   m_radianceGroup->addButton(radioButton, buttonCount);
   vLayout->addWidget(radioButton);
 
@@ -940,65 +940,65 @@ QWidget* SimSettingsView::createRadianceParametersWidget() {
   int col = 0;
   QSpacerItem* spacerItem = nullptr;
 
-  addField(gridLayout, row, col, m_accumulatedRaysperRecordLbl, "Accumulated Rays per Record: ", m_accumulatedRaysperRecord);
+  addField(gridLayout, row, col, m_accumulatedRaysperRecordLbl, tr("Accumulated Rays per Record: "), m_accumulatedRaysperRecord);
   col++;
   spacerItem = new QSpacerItem(SPACERITEM_WIDTH, 1, QSizePolicy::Fixed, QSizePolicy::Fixed);
   gridLayout->addItem(spacerItem, row, col++);
-  addField(gridLayout, row, col, m_directThresholdLbl, "Direct Threshold: ", "", "", "", m_directThreshold);
+  addField(gridLayout, row, col, m_directThresholdLbl, tr("Direct Threshold: "), "", "", "", m_directThreshold);
 
   row = row + 2;
   spacerItem = new QSpacerItem(1, SPACERITEM_HEIGHT, QSizePolicy::Fixed, QSizePolicy::Fixed);
   gridLayout->addItem(spacerItem, row++, 0);
   col = 0;
 
-  addField(gridLayout, row, col, m_directCertaintyLbl, "Direct Certainty: ", "", "", "", m_directCertainty);
+  addField(gridLayout, row, col, m_directCertaintyLbl, tr("Direct Certainty: "), "", "", "", m_directCertainty);
   col = col + 2;
-  addField(gridLayout, row, col, m_directJitterLbl, "Direct Jitter: ", "", "", "", m_directJitter);
+  addField(gridLayout, row, col, m_directJitterLbl, tr("Direct Jitter: "), "", "", "", m_directJitter);
 
   row = row + 2;
   spacerItem = new QSpacerItem(1, SPACERITEM_HEIGHT, QSizePolicy::Fixed, QSizePolicy::Fixed);
   gridLayout->addItem(spacerItem, row++, 0);
   col = 0;
 
-  addField(gridLayout, row, col, m_directPretestLbl, "Direct Pretest: ", "", "", "", m_directPretest);
+  addField(gridLayout, row, col, m_directPretestLbl, tr("Direct Pretest: "), "", "", "", m_directPretest);
   col = col + 2;
-  addField(gridLayout, row, col, m_ambientBouncesVMXLbl, "Ambient Bounces VMX: ", m_ambientBouncesVMX);
+  addField(gridLayout, row, col, m_ambientBouncesVMXLbl, tr("Ambient Bounces VMX: "), m_ambientBouncesVMX);
 
   row = row + 2;
   spacerItem = new QSpacerItem(1, SPACERITEM_HEIGHT, QSizePolicy::Fixed, QSizePolicy::Fixed);
   gridLayout->addItem(spacerItem, row++, 0);
   col = 0;
 
-  addField(gridLayout, row, col, m_ambientBouncesDMXLbl, "Ambient Bounces DMX: ", m_ambientBouncesDMX);
+  addField(gridLayout, row, col, m_ambientBouncesDMXLbl, tr("Ambient Bounces DMX: "), m_ambientBouncesDMX);
   col = col + 2;
-  addField(gridLayout, row, col, m_ambientDivisionsVMXLbl, "Ambient Divisions VMX: ", m_ambientDivisionsVMX);
+  addField(gridLayout, row, col, m_ambientDivisionsVMXLbl, tr("Ambient Divisions VMX: "), m_ambientDivisionsVMX);
 
   row = row + 2;
   spacerItem = new QSpacerItem(1, SPACERITEM_HEIGHT, QSizePolicy::Fixed, QSizePolicy::Fixed);
   gridLayout->addItem(spacerItem, row++, 0);
   col = 0;
 
-  addField(gridLayout, row, col, m_ambientDivisionsDMXLbl, "Ambient Divisions DMX: ", m_ambientDivisionsDMX);
+  addField(gridLayout, row, col, m_ambientDivisionsDMXLbl, tr("Ambient Divisions DMX: "), m_ambientDivisionsDMX);
   col = col + 2;
-  addField(gridLayout, row, col, m_ambientSupersamplesLbl, "Ambient Supersamples: ", m_ambientSupersamples);
+  addField(gridLayout, row, col, m_ambientSupersamplesLbl, tr("Ambient Supersamples: "), m_ambientSupersamples);
 
   row = row + 2;
   spacerItem = new QSpacerItem(1, SPACERITEM_HEIGHT, QSizePolicy::Fixed, QSizePolicy::Fixed);
   gridLayout->addItem(spacerItem, row++, 0);
   col = 0;
 
-  addField(gridLayout, row, col, m_limitWeightVMXLbl, "Limit Weight VMX: ", "", "", "", m_limitWeightVMX);
+  addField(gridLayout, row, col, m_limitWeightVMXLbl, tr("Limit Weight VMX: "), "", "", "", m_limitWeightVMX);
   col = col + 2;
-  addField(gridLayout, row, col, m_limitWeightDMXLbl, "Limit Weight DMX: ", "", "", "", m_limitWeightDMX);
+  addField(gridLayout, row, col, m_limitWeightDMXLbl, tr("Limit Weight DMX: "), "", "", "", m_limitWeightDMX);
 
   row = row + 2;
   spacerItem = new QSpacerItem(1, SPACERITEM_HEIGHT, QSizePolicy::Fixed, QSizePolicy::Fixed);
   gridLayout->addItem(spacerItem, row++, 0);
   col = 0;
 
-  addField(gridLayout, row, col, m_klemsSamplingDensityLbl, "Klems Sampling Density: ", m_klemsSamplingDensity);
+  addField(gridLayout, row, col, m_klemsSamplingDensityLbl, tr("Klems Sampling Density: "), m_klemsSamplingDensity);
   col = col + 2;
-  addField(gridLayout, row, col, m_skyDiscretizationResolutionLbl, "Sky Discretization Resolution: ", m_skyDiscretizationResolution);
+  addField(gridLayout, row, col, m_skyDiscretizationResolutionLbl, tr("Sky Discretization Resolution: "), m_skyDiscretizationResolution);
 
   std::vector<std::string> skyDiscretizationResolutionValues = model::RadianceParameters::skyDiscretizationResolutionValues();
   for (const std::string& skyDiscretizationResolutionValue : skyDiscretizationResolutionValues) {
@@ -1073,7 +1073,7 @@ QWidget* SimSettingsView::createOutputJSONWidget() {
   int col = 0;
   QSpacerItem* spacerItem = nullptr;
 
-  addField(gridLayout, row, col, "Option Type", m_json_optionType);
+  addField(gridLayout, row, col, tr("Option Type"), m_json_optionType);
   col++;
   std::vector<std::string> optionValues = model::OutputJSON::optionTypeValues();
   for (const auto& optionValue : optionValues) {
@@ -1082,16 +1082,16 @@ QWidget* SimSettingsView::createOutputJSONWidget() {
 
   spacerItem = new QSpacerItem(SPACERITEM_WIDTH, 1, QSizePolicy::Fixed, QSizePolicy::Fixed);
   gridLayout->addItem(spacerItem, row, col++);
-  addField(gridLayout, row, col, "Output JSON", m_json_outputJSON);
+  addField(gridLayout, row, col, tr("Output JSON"), m_json_outputJSON);
 
   row = row + 2;
   spacerItem = new QSpacerItem(1, SPACERITEM_HEIGHT, QSizePolicy::Fixed, QSizePolicy::Fixed);
   gridLayout->addItem(spacerItem, row++, 0);
   col = 0;
 
-  addField(gridLayout, row, col, "Output CBOR", m_json_outputCBOR);
+  addField(gridLayout, row, col, tr("Output CBOR"), m_json_outputCBOR);
   col = col + 2;
-  addField(gridLayout, row, col, "Output MessagePack", m_json_outputMessagePack);
+  addField(gridLayout, row, col, tr("Output MessagePack"), m_json_outputMessagePack);
 
   gridLayout->setRowStretch(100, 100);
   gridLayout->setColumnStretch(100, 100);
@@ -1113,7 +1113,7 @@ QWidget* SimSettingsView::createOutputTableSummaryReportsWidget() {
   int row = 0;
   int col = 0;
 
-  addField(gridLayout, row, col, "Enable AllSummary Report", m_table_allSummary);
+  addField(gridLayout, row, col, tr("Enable AllSummary Report"), m_table_allSummary);
 
   auto* widget = new QWidget();
   widget->setLayout(gridLayout);
@@ -1132,7 +1132,7 @@ QWidget* SimSettingsView::createOutputDiagnosticsWidget() {
   int row = 0;
   int col = 0;
 
-  addField(gridLayout, row, col, "Enable DisplayExtraWarnings", m_diagnostics_displayExtraWarnings);
+  addField(gridLayout, row, col, tr("Enable DisplayExtraWarnings"), m_diagnostics_displayExtraWarnings);
 
   auto* widget = new QWidget();
   widget->setLayout(gridLayout);
@@ -1151,7 +1151,7 @@ QWidget* SimSettingsView::createOutputControlResilienceSummariesWidget() {
   int row = 0;
   int col = 0;
 
-  addField(gridLayout, row, col, "Heat Index Algorithm", m_outputControlResilienceSummaries_heatIndexAlgorithm);
+  addField(gridLayout, row, col, tr("Heat Index Algorithm"), m_outputControlResilienceSummaries_heatIndexAlgorithm);
   col++;
   for (const auto& hiAlgo : model::OutputControlResilienceSummaries::heatIndexAlgorithmValues()) {
     m_json_optionType->addItem(hiAlgo.c_str());

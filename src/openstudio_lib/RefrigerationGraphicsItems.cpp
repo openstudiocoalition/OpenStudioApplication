@@ -1324,7 +1324,7 @@ void RefrigerationSystemDropZoneView::paint(QPainter* painter, const QStyleOptio
   font.setPixelSize(24);
   painter->setFont(font);
   painter->setPen(QPen(QColor(109, 109, 109), 2, Qt::DashLine, Qt::RoundCap));
-  painter->drawText(boundingRect(), Qt::AlignCenter | Qt::TextWordWrap, "Drop Refrigeration System");
+  painter->drawText(boundingRect(), Qt::AlignCenter | Qt::TextWordWrap, tr("Drop Refrigeration System"));
 }
 
 RefrigerationSystemDetailView::RefrigerationSystemDetailView() : QGraphicsObject() {

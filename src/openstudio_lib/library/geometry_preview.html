@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+﻿<!DOCTYPE html>
 <html>
   <head>
     <title><%=title%></title>
@@ -280,17 +280,74 @@ var setLocalStorage = function (key, value) {
   }
 }
 
+// i18n translation support
+var _translations = {
+  es: {
+    'Surface Type': 'Tipo de superficie',
+    'Normal': 'Normal',
+    'Boundary': 'Limite',
+    'Construction': 'Construccion',
+    'Thermal Zone': 'Zona termica',
+    'Space Type': 'Tipo de espacio',
+    'Building Story': 'Planta',
+    'Data': 'Datos',
+    'All Stories': 'Todas las plantas',
+    'All Loops': 'Todos los bucles',
+    'No Loop': 'Sin bucle',
+    'Surfaces': 'Superficies',
+    'Spaces and Groups': 'Espacios y grupos',
+    'Render By': 'Renderizar por',
+    'Show Story': 'Mostrar planta',
+    'Show Air Loop': 'Mostrar bucle de aire',
+    'Search': 'Buscar',
+    'Search Type': 'Tipo de busqueda',
+    'Search Name': 'Nombre de busqueda',
+    'Surface Filters': 'Filtros de superficie',
+    'Show Floors': 'Mostrar pisos',
+    'Show Walls': 'Mostrar muros',
+    'Show Roofs': 'Mostrar techos',
+    'Show Windows': 'Mostrar ventanas',
+    'Show Doors': 'Mostrar puertas',
+    'Show Shading': 'Mostrar sombreado',
+    'Show Partitions': 'Mostrar particiones',
+    'Show Wireframe': 'Mostrar estructura alambrica',
+    'Diagnostic Tools': 'Herramientas de diagnostico',
+    'Potential Adjacency Issues': 'Posibles problemas de adyacencia',
+    'Enable': 'Activar',
+    'Threshold': 'Umbral',
+    'Surface Level Issues': 'Problemas de superficie',
+    'Non-Convex Surfaces Only': 'Solo superficies no convexas',
+    'Incorrectly Oriented Surfaces Only': 'Solo superficies orientadas incorrectamente',
+    'Space Level Issues': 'Problemas de espacio',
+    'Non-Convex Spaces Only': 'Solo espacios no convexos',
+    'Non-Enclosed Spaces Only': 'Solo espacios no cerrados',
+    'Camera': 'Camara',
+    'Orthographic': 'Ortografica',
+    'X View': 'Vista X',
+    'Y View': 'Vista Y',
+    'Z View': 'Vista Z',
+    'Reset': 'Restablecer',
+    'Close Controls': 'Cerrar controles'
+  }
+};
+function t(key) {
+  var lang = (typeof window !== 'undefined' && window.osLanguage) ? window.osLanguage : 'en';
+  if (_translations[lang] && _translations[lang][key] !== undefined) {
+    return _translations[lang][key];
+  }
+  return key;
+}
 var settings = {
-  renderBy: 'Surface Type',
-  showStory: 'All Stories',
-  showAirLoop: 'All Loops',
+  renderBy: t('Surface Type'),
+  showStory: t('All Stories'),
+  showAirLoop: t('All Loops'),
   findAdjacencyIssues: getBoolFromLocalStorage('findAdjacencyIssues', false),
   findAdjacencyThreshold: getFloatFromLocalStorage('findAdjacencyThreshold', 1),
   showOnlyNonConvexSurfaces: getBoolFromLocalStorage('showOnlyNonConvexSurfaces', false),
   showOnlyNonConvexSpaces: getBoolFromLocalStorage('showOnlyNonConvexSpaces', false),
   showOnlyNonEnclosedSpaces: getBoolFromLocalStorage('showOnlyNonEnclosedSpaces', false),
   showOnlyIncorrectlyOrientedSurfaces: getBoolFromLocalStorage('showOnlyIncorrectlyOrientedSurfaces', false),
-  searchType: getStringFromLocalStorage('searchType', 'Surfaces'),
+  searchType: getStringFromLocalStorage('searchType', t('Surfaces')),
   searchName: getStringFromLocalStorage('searchName', ''),
   showFloors: getBoolFromLocalStorage('showFloors', true),
   showWalls: getBoolFromLocalStorage('showWalls', true),
@@ -988,7 +1045,7 @@ function displaySelectedObjectDetails() {
     txt += '<p>Name: ' + inter.userData.name    + '<br>';
     // render details depending on chosen renderBy value
     switch (settings.renderBy) {
-      case "Surface Type":
+      case t("Surface Type"):
         txt += 'Surface Type: ' + inter.userData.surfaceType + '<br>';
         if (inter.userData.spaceName){
           txt += 'Space Name: ' + inter.userData.spaceName;
@@ -1000,25 +1057,25 @@ function displaySelectedObjectDetails() {
           txt += '<br> Space Enclosed: ' + colorize_bool(inter.userData.spaceEnclosed);
         }
         break;
-      case "Normal":
+      case t("Normal"):
         txt += 'Surface Type: ' + inter.userData.surfaceType + '<br>'
         if (inter.userData.spaceName){
           txt += 'Space Name: ' + inter.userData.spaceName;
         }
         break;
-      case "Boundary":
+      case t("Boundary"):
         if (inter.userData.outsideBoundaryCondition){
           txt += 'Outside Boundary Condition: ' + inter.userData.outsideBoundaryCondition + '<br>';
         }
         txt += 'Sun Exposure: ' + inter.userData.sunExposure + '<br>';
         txt += 'Wind Exposure: ' + inter.userData.windExposure;
         break;
-      case "Construction":
+      case t("Construction"):
         if (inter.userData.constructionName){
           txt += 'Construction Name: ' + inter.userData.constructionName;
         }
         break;
-      case "Thermal Zone":
+      case t("Thermal Zone"):
         if (inter.userData.thermalZoneName){
           txt += 'Thermal Zone: ' + inter.userData.thermalZoneName;
         }
@@ -1028,7 +1085,7 @@ function displaySelectedObjectDetails() {
           txt += 'Space Type: ' + inter.userData.spaceTypeName;
         }
         break;
-      case "Building Story":
+      case t("Building Story"):
         if (inter.userData.buildingStoryName){
           txt += 'Story Name: ' + inter.userData.buildingStoryName;
         }
@@ -1306,12 +1363,12 @@ function displaySelectedObjectContextMenu() {
 
     // add action buttons depending on chosen renderBy value
     switch (settings.renderBy) {
-      case "Surface Type":
-      case "Normal":
+      case t("Surface Type"):
+      case t("Normal"):
         surfaceInfoPanel.appendChild(createReverseVerticesButton(surfaceName));
         surfaceInfoPanel.appendChild(createTriangulateSurfaceButton(surfaceName));
         break;
-      case "Boundary":
+      case t("Boundary"):
         surfaceInfoPanel.appendChild(createToggleButtons('Sun Exposure', surfaceName,
           ['SunExposed', 'NoSun'], inter.userData.sunExposure,
           (name, val) => bridge.setSunExposure(name, val)));
@@ -1321,10 +1378,10 @@ function displaySelectedObjectContextMenu() {
         surfaceInfoPanel.appendChild(createOutsideBoundaryConditionSelect(surfaceName,
           inter.userData.outsideBoundaryCondition));
         break;
-      case "Construction":
+      case t("Construction"):
         surfaceInfoPanel.appendChild(createConstructionSelect(inter.userData.name, inter.userData.constructionName));
         break;
-      case "Thermal Zone":
+      case t("Thermal Zone"):
         if (inter.userData.spaceName) {
           title.textContent = `Space Name: ${inter.userData.spaceName}`;
           surfaceInfoPanel.appendChild(createThermalZoneSelect(inter.userData.spaceName, inter.userData.thermalZoneName));
@@ -1336,7 +1393,7 @@ function displaySelectedObjectContextMenu() {
           surfaceInfoPanel.appendChild(createSpaceTypeSelect(inter.userData.spaceName, inter.userData.spaceTypeName));
         }
         break;
-      case "Building Story":
+      case t("Building Story"):
         if (inter.userData.spaceName) {
           title.textContent = `Space Name: ${inter.userData.spaceName}`;
           surfaceInfoPanel.appendChild(createBuildingStorySelect(inter.userData.spaceName, inter.userData.buildingStoryName));
@@ -1629,12 +1686,12 @@ var update = function (value) {
       }
     }
 
-    if (settings.showStory !== 'All Stories' && settings.showStory !== object.userData.buildingStoryName) {
+    if (settings.showStory !== t('All Stories') && settings.showStory !== object.userData.buildingStoryName) {
       object.visible = false;
     }
-    if ((settings.showAirLoop !== 'All Loops' && !object.userData.airLoopHVACNames.includes(settings.showAirLoop))
+    if ((settings.showAirLoop !== t('All Loops') && !object.userData.airLoopHVACNames.includes(settings.showAirLoop))
         &&
-        (settings.showAirLoop !== 'No Loop' || object.userData.airLoopHVACNames.length !== 0)) {
+        (settings.showAirLoop !== t('No Loop') || object.userData.airLoopHVACNames.length !== 0)) {
       object.visible = false;
     }
 
@@ -1679,7 +1736,7 @@ var update = function (value) {
     var material_double_sided = null;
     var material_back = null;
     switch (renderBy) {
-      case "Surface Type":
+      case t("Surface Type"):
         material = materials[object.userData.surfaceTypeMaterialName];
         material_double_sided = material;
         if (coincident_objects[object.uuid]){
@@ -1688,7 +1745,7 @@ var update = function (value) {
         }
         material_back = materials[object.userData.surfaceTypeMaterialName + '_Int'];
         break;
-      case "Normal":
+      case t("Normal"):
         material = materials.NormalMaterial;
         material_double_sided = material;
         if (coincident_objects[object.uuid]){
@@ -1697,19 +1754,19 @@ var update = function (value) {
         }
         material_back = materials.NormalMaterial_Int;
         break;
-      case "Boundary":
+      case t("Boundary"):
         material = materials[object.userData.boundaryMaterialName];
         break;
-      case "Construction":
+      case t("Construction"):
         material = materials[object.userData.constructionMaterialName];
         break;
-      case "Thermal Zone":
+      case t("Thermal Zone"):
         material = materials[object.userData.thermalZoneMaterialName];
         break;
       case "Space Type":
         material = materials[object.userData.spaceTypeMaterialName];
         break;
-      case "Building Story":
+      case t("Building Story"):
         material = materials[object.userData.buildingStoryMaterialName];
         break;
       case "Data":
@@ -1847,18 +1904,18 @@ var initDatGui = function () {
   };
 
   gui = new dat.GUI();
-  var render_modes = ['Surface Type', 'Normal', 'Boundary', 'Construction', 'Thermal Zone', 'Space Type', 'Building Story'];
+  var render_modes = [t('Surface Type'), t('Normal'), t('Boundary'), t('Construction'), t('Thermal Zone'), t('Space Type'), t('Building Story')];
   if (has_data){
-    render_modes.push('Data');
+    render_modes.push(t('Data'));
   }
-  var renderByController = gui.add(settings, 'renderBy', render_modes).name('Render By').onChange(function(value) {
+  var renderByController = gui.add(settings, 'renderBy', render_modes).name(t('Render By')).onChange(function(value) {
     removeSelection();
     update(value);
   });
 
   var building_story_names = os_data.metadata.buildingStoryNames;
-  building_story_names.unshift('All Stories');
-  var showStoryController = gui.add(settings, 'showStory', building_story_names).name('Show Story').onChange(function(value) {
+  building_story_names.unshift(t('All Stories'));
+  var showStoryController = gui.add(settings, 'showStory', building_story_names).name(t('Show Story')).onChange(function(value) {
     removeSelection();
     update(value);
   });
@@ -1870,65 +1927,65 @@ var initDatGui = function () {
     .sort();
   var showAirLoopController = null;
   if (air_loop_names && air_loop_names.length > 0) {
-    air_loop_names.unshift("All Loops");
-    air_loop_names.unshift("No Loop");
-    showAirLoopController = gui.add(settings, 'showAirLoop', air_loop_names).name('Show Air Loop').onChange(function (value) {
+    air_loop_names.unshift(t("All Loops"));
+    air_loop_names.unshift(t("No Loop"));
+    showAirLoopController = gui.add(settings, 'showAirLoop', air_loop_names).name(t('Show Air Loop')).onChange(function (value) {
       removeSelection();
       update(value);
     });
   }
 
-  var s1 = gui.addFolder('Search');
-  search_types = ['Surfaces', 'Spaces and Groups']
-  s1.add(settings, 'searchType', search_types).name('Search Type').onChange(function (value) {
+  var s1 = gui.addFolder(t('Search'));
+  search_types = [t('Surfaces'), t('Spaces and Groups')]
+  s1.add(settings, 'searchType', search_types).name(t('Search Type')).onChange(function (value) {
     removeSelection();
     setLocalStorage('searchType', value);
     update(value);
   });
-  s1.add(settings, 'searchName', "").name('Search Name').onChange(function (value) {
+  s1.add(settings, 'searchName', "").name(t('Search Name')).onChange(function (value) {
     removeSelection();
     setLocalStorage('searchName', value);
     update(value);
   });
   s1.open();
 
-  var f1 = gui.addFolder('Surface Filters');
-  f1.add(settings, 'showFloors').name('Show Floors').onChange(function(value) {
+  var f1 = gui.addFolder(t('Surface Filters'));
+  f1.add(settings, 'showFloors').name(t('Show Floors')).onChange(function(value) {
     removeSelection();
     setLocalStorage('showFloors', value);
     update(value);
   });
-  f1.add(settings, 'showWalls').name('Show Walls').onChange(function(value) {
+  f1.add(settings, 'showWalls').name(t('Show Walls')).onChange(function(value) {
     removeSelection();
     setLocalStorage('showWalls', value);
     update(value);
   });
-  f1.add(settings, 'showRoofCeilings').name('Show Roofs').onChange(function(value) {
+  f1.add(settings, 'showRoofCeilings').name(t('Show Roofs')).onChange(function(value) {
     removeSelection();
     setLocalStorage('showRoofCeilings', value);
     update(value);
   });
-  f1.add(settings, 'showWindows').name('Show Windows').onChange(function(value) {
+  f1.add(settings, 'showWindows').name(t('Show Windows')).onChange(function(value) {
     removeSelection();
     setLocalStorage('showWindows', value);
     update(value);
   });
-  f1.add(settings, 'showDoors').name('Show Doors').onChange(function(value) {
+  f1.add(settings, 'showDoors').name(t('Show Doors')).onChange(function(value) {
     removeSelection();
     setLocalStorage('showDoors', value);
     update(value);
   });
-  f1.add(settings, 'showShading').name('Show Shading').onChange(function(value) {
+  f1.add(settings, 'showShading').name(t('Show Shading')).onChange(function(value) {
     removeSelection();
     setLocalStorage('showShading', value);
     update(value);
   });
-  f1.add(settings, 'showPartitions').name('Show Partitions').onChange(function(value) {
+  f1.add(settings, 'showPartitions').name(t('Show Partitions')).onChange(function(value) {
     removeSelection();
     setLocalStorage('showPartitions', value);
     update(value);
   });
-  f1.add(settings, 'showWireframe').name('Show Wireframe').onChange(function(value) {
+  f1.add(settings, 'showWireframe').name(t('Show Wireframe')).onChange(function(value) {
     removeSelection();
     setLocalStorage('showWireframe', value);
     update(value);
@@ -1936,16 +1993,16 @@ var initDatGui = function () {
   f1.open();
 
   if(includeGeometryDiagnostics) {
-    var diagnostics = gui.addFolder("Diagnostic Tools")
+    var diagnostics = gui.addFolder(t("Diagnostic Tools"))
     {
-      var adjacencies = diagnostics.addFolder('Potential Adjacency Issues');
-      adjacencies.add(settings, 'findAdjacencyIssues').name('Enable').onChange(value => {
+      var adjacencies = diagnostics.addFolder(t('Potential Adjacency Issues'));
+      adjacencies.add(settings, 'findAdjacencyIssues').name(t('Enable')).onChange(value => {
           removeSelection();
           setLocalStorage('findAdjacencyIssues', value);
           updateAdjacencyIssues();
           update(value);
       });
-      adjacencies.add(settings, 'findAdjacencyThreshold', 0.1, 10, 0.5).name('Threshold').onFinishChange(function (value) {
+      adjacencies.add(settings, 'findAdjacencyThreshold', 0.1, 10, 0.5).name(t('Threshold')).onFinishChange(function (value) {
           if (settings.findAdjacencyIssues) {
               removeSelection();
               setLocalStorage('findAdjacencyThreshold', value);
@@ -1957,13 +2014,13 @@ var initDatGui = function () {
     }
 
     {
-      var surfaceLevelIssues =  diagnostics.addFolder('Surface Level Issues')
-      surfaceLevelIssues.add(settings, 'showOnlyNonConvexSurfaces').name('Non-Convex Surfaces Only').onChange(value => {
+      var surfaceLevelIssues = diagnostics.addFolder(t('Surface Level Issues'))
+      surfaceLevelIssues.add(settings, 'showOnlyNonConvexSurfaces').name(t('Non-Convex Surfaces Only')).onChange(value => {
           removeSelection();
           setLocalStorage('showOnlyNonConvexSurfaces', value);
           update(value);
       });
-      surfaceLevelIssues.add(settings, 'showOnlyIncorrectlyOrientedSurfaces').name('Incorrectly Oriented Surfaces Only').onChange(value => {
+      surfaceLevelIssues.add(settings, 'showOnlyIncorrectlyOrientedSurfaces').name(t('Incorrectly Oriented Surfaces Only')).onChange(value => {
           removeSelection();
           setLocalStorage('showOnlyIncorrectlyOrientedSurfaces', value);
           update(value);
@@ -1971,14 +2028,14 @@ var initDatGui = function () {
       surfaceLevelIssues.open();
     }
     {
-      var spaceLevelIssues =  diagnostics.addFolder('Space Level Issues')
-      spaceLevelIssues.add(settings, 'showOnlyNonConvexSpaces').name('Non-Convex Spaces Only').onChange(value => {
+      var spaceLevelIssues = diagnostics.addFolder(t('Space Level Issues'))
+      spaceLevelIssues.add(settings, 'showOnlyNonConvexSpaces').name(t('Non-Convex Spaces Only')).onChange(value => {
           removeSelection();
           setLocalStorage('showOnlyNonConvexSpaces', value);
           update(value);
       });
 
-      spaceLevelIssues.add(settings, 'showOnlyNonEnclosedSpaces').name('Non-Enclosed Spaces Only').onChange(value => {
+      spaceLevelIssues.add(settings, 'showOnlyNonEnclosedSpaces').name(t('Non-Enclosed Spaces Only')).onChange(value => {
           removeSelection();
           setLocalStorage('showOnlyNonEnclosedSpaces', value);
           update(value);
@@ -1988,13 +2045,13 @@ var initDatGui = function () {
     diagnostics.open();
   }
 
-  var f3 = gui.addFolder('Camera');
+  var f3 = gui.addFolder(t('Camera'));
   [
-    ["orthographic", "Orthographic"],
-    ["xView", "X View"],
-    ["yView", "Y View"],
-    ["zView", "Z View"],
-    ["reset", "Reset"]
+    ["orthographic", t("Orthographic")],
+    ["xView", t("X View")],
+    ["yView", t("Y View")],
+    ["zView", t("Z View")],
+    ["reset", t("Reset")]
   ].forEach(opt => {
     f3.add(settings, opt[0]).name(opt[1]).onChange(function (value) {
       if (opt[0] === "orthographic")

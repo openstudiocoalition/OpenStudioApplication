@@ -28,6 +28,7 @@
 
 #include <openstudio/utilities/idd/IddEnums.hxx>
 
+#include <QCoreApplication>
 #include <QStackedWidget>
 
 namespace openstudio {
@@ -42,26 +43,27 @@ MaterialsView::MaterialsView(bool isIP, const openstudio::model::Model& model, c
 
 std::vector<std::pair<IddObjectType, std::string>> MaterialsView::modelObjectTypesAndNames() {
   std::vector<std::pair<IddObjectType, std::string>> result;
-  result.push_back(std::make_pair<IddObjectType, std::string>(IddObjectType::OS_Material, "Materials"));
-  result.push_back(std::make_pair<IddObjectType, std::string>(IddObjectType::OS_Material_NoMass, "No Mass Materials"));
-  result.push_back(std::make_pair<IddObjectType, std::string>(IddObjectType::OS_Material_AirGap, "Air Gap Materials"));
+  auto tr = [](const char* s) { return QCoreApplication::translate("openstudio::MaterialsView", s).toStdString(); };
+  result.push_back(std::make_pair<IddObjectType, std::string>(IddObjectType::OS_Material, tr("Materials")));
+  result.push_back(std::make_pair<IddObjectType, std::string>(IddObjectType::OS_Material_NoMass, tr("No Mass Materials")));
+  result.push_back(std::make_pair<IddObjectType, std::string>(IddObjectType::OS_Material_AirGap, tr("Air Gap Materials")));
 
   result.push_back(
-    std::make_pair<IddObjectType, std::string>(IddObjectType::OS_WindowMaterial_SimpleGlazingSystem, "Simple Glazing System Window Materials"));
-  result.push_back(std::make_pair<IddObjectType, std::string>(IddObjectType::OS_WindowMaterial_Glazing, "Glazing Window Materials"));
-  result.push_back(std::make_pair<IddObjectType, std::string>(IddObjectType::OS_WindowMaterial_Gas, "Gas Window Materials"));
-  result.push_back(std::make_pair<IddObjectType, std::string>(IddObjectType::OS_WindowMaterial_GasMixture, "Gas Mixture Window Materials"));
-  result.push_back(std::make_pair<IddObjectType, std::string>(IddObjectType::OS_WindowMaterial_Blind, "Blind Window Materials"));
+    std::make_pair<IddObjectType, std::string>(IddObjectType::OS_WindowMaterial_SimpleGlazingSystem, tr("Simple Glazing System Window Materials")));
+  result.push_back(std::make_pair<IddObjectType, std::string>(IddObjectType::OS_WindowMaterial_Glazing, tr("Glazing Window Materials")));
+  result.push_back(std::make_pair<IddObjectType, std::string>(IddObjectType::OS_WindowMaterial_Gas, tr("Gas Window Materials")));
+  result.push_back(std::make_pair<IddObjectType, std::string>(IddObjectType::OS_WindowMaterial_GasMixture, tr("Gas Mixture Window Materials")));
+  result.push_back(std::make_pair<IddObjectType, std::string>(IddObjectType::OS_WindowMaterial_Blind, tr("Blind Window Materials")));
   result.push_back(std::make_pair<IddObjectType, std::string>(IddObjectType::OS_WindowMaterial_DaylightRedirectionDevice,
-                                                              "Daylight Redirection Device Window Materials"));
-  result.push_back(std::make_pair<IddObjectType, std::string>(IddObjectType::OS_WindowMaterial_Screen, "Screen Window Materials"));
-  result.push_back(std::make_pair<IddObjectType, std::string>(IddObjectType::OS_WindowMaterial_Shade, "Shade Window Materials"));
+                                                              tr("Daylight Redirection Device Window Materials")));
+  result.push_back(std::make_pair<IddObjectType, std::string>(IddObjectType::OS_WindowMaterial_Screen, tr("Screen Window Materials")));
+  result.push_back(std::make_pair<IddObjectType, std::string>(IddObjectType::OS_WindowMaterial_Shade, tr("Shade Window Materials")));
 
   // Oddballs to be listed at the bottom of the list
-  result.push_back(std::make_pair<IddObjectType, std::string>(IddObjectType::OS_Material_InfraredTransparent, "Infrared Transparent Materials"));
-  result.push_back(std::make_pair<IddObjectType, std::string>(IddObjectType::OS_Material_RoofVegetation, "Roof Vegetation Materials"));
+  result.push_back(std::make_pair<IddObjectType, std::string>(IddObjectType::OS_Material_InfraredTransparent, tr("Infrared Transparent Materials")));
+  result.push_back(std::make_pair<IddObjectType, std::string>(IddObjectType::OS_Material_RoofVegetation, tr("Roof Vegetation Materials")));
   result.push_back(std::make_pair<IddObjectType, std::string>(IddObjectType::OS_WindowMaterial_Glazing_RefractionExtinctionMethod,
-                                                              "Refraction Extinction Method Glazing Window Materials"));
+                                                              tr("Refraction Extinction Method Glazing Window Materials")));
 
   // TODO: commented out until ThermochromicGlazing is properly wrapped
   // result.push_back(std::make_pair<IddObjectType, std::string>(IddObjectType::OS_WindowMaterial_GlazingGroup_Thermochromic, "Glazing Group Thermochromic Window Materials"));

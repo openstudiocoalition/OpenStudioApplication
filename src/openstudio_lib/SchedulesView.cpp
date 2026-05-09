@@ -1200,10 +1200,8 @@ NewProfileView::NewProfileView(const model::ScheduleRuleset& scheduleRuleset, Sc
   switch (m_type) {
     case SUMMER: {
       auto* label = new QLabel();
-      QString text;
-      text.append("The summer design day profile is not set, therefore the default run period profile will be used.");
-      text.append("  Create a new profile to override the default run period profile.");
-      label->setText(text);
+      label->setText(tr("The summer design day profile is not set, therefore the default run period profile will be used.")
+                     + tr("  Create a new profile to override the default run period profile."));
       label->setWordWrap(true);
       mainVLayout->addWidget(label);
       mainVLayout->addSpacing(10);
@@ -1211,10 +1209,8 @@ NewProfileView::NewProfileView(const model::ScheduleRuleset& scheduleRuleset, Sc
     }
     case WINTER: {
       auto* label = new QLabel();
-      QString text;
-      text.append("The winter design day profile is not set, therefore the default run period profile will be used.");
-      text.append("  Create a new profile to override the default run period profile.");
-      label->setText(text);
+      label->setText(tr("The winter design day profile is not set, therefore the default run period profile will be used.")
+                     + tr("  Create a new profile to override the default run period profile."));
       label->setWordWrap(true);
       mainVLayout->addWidget(label);
       mainVLayout->addSpacing(10);
@@ -1222,10 +1218,8 @@ NewProfileView::NewProfileView(const model::ScheduleRuleset& scheduleRuleset, Sc
     }
     case HOLIDAY: {
       auto* label = new QLabel();
-      QString text;
-      text.append("The holiday profile is not set, therefore the default run period profile will be used.");
-      text.append("  Create a new profile to override the default run period profile.");
-      label->setText(text);
+      label->setText(tr("The holiday profile is not set, therefore the default run period profile will be used.")
+                     + tr("  Create a new profile to override the default run period profile."));
       label->setWordWrap(true);
       mainVLayout->addWidget(label);
       mainVLayout->addSpacing(10);
@@ -2020,9 +2014,10 @@ YearOverview* MonthView::yearOverview() const {
 void MonthView::setMonth(int month) {
   m_month = month;
 
-  std::string monthName = monthOfYear(month).valueName();
-
-  m_monthLabel->setText(QString::fromStdString(monthName));
+  const QStringList monthNames = {tr("January"), tr("February"), tr("March"), tr("April"),
+                                  tr("May"),     tr("June"),     tr("July"),  tr("August"),
+                                  tr("September"), tr("October"), tr("November"), tr("December")};
+  m_monthLabel->setText((month >= 1 && month <= 12) ? monthNames[month - 1] : QString::fromStdString(monthOfYear(month).valueName()));
 
   update();
 }

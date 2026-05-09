@@ -38,6 +38,7 @@
 #include <QBoxLayout>
 #include <QCheckBox>
 #include <QComboBox>
+#include <QCoreApplication>
 #include <QLabel>
 #include <QLineEdit>
 #include <QRegularExpressionValidator>
@@ -45,24 +46,26 @@
 // These defines provide a common area for field display names
 // used on column headers, and other grid widgets
 
-#define NAME "Shading Surface Group Name"
-#define SELECTED "All"
-#define DISPLAYNAME "Display Name"
-#define CADOBJECTID "CAD Object ID"
+#define TR(s) QCoreApplication::translate("openstudio::FacilityShadingGridController", s)
+
+#define NAME TR("Shading Surface Group Name")
+#define SELECTED TR("All")
+#define DISPLAYNAME TR("Display Name")
+#define CADOBJECTID TR("CAD Object ID")
 
 // GENERAL
-#define TYPE "Type"                                // read only
-#define SHADINGSURFACENAME "Shading Surface Name"  // read only
-#define CONSTRUCTIONNAME "Construction Name"
-#define TRANSMITTANCESCHEDULENAME "Transmittance Schedule Name"
+#define TYPE TR("Type")                                // read only
+#define SHADINGSURFACENAME TR("Shading Surface Name")  // read only
+#define CONSTRUCTIONNAME TR("Construction Name")
+#define TRANSMITTANCESCHEDULENAME TR("Transmittance Schedule Name")
 
 // FILTERS
-#define SHADINGSURFACETYPE "Shading Surface Type"
-#define SHADINGSURFACEGROUPNAME "Shading Surface Group Name"
-#define ORIENTATIONGREATERTHAN "Degrees Orientation >"
-#define ORIENTATIONLESSTHAN "Degrees Orientation <"
-#define TILTGREATERTHAN "Degrees Tilt >"
-#define TILTLESSTHAN "Degrees Tilt <"
+#define SHADINGSURFACETYPE TR("Shading Surface Type")
+#define SHADINGSURFACEGROUPNAME TR("Shading Surface Group Name")
+#define ORIENTATIONGREATERTHAN TR("Degrees Orientation >")
+#define ORIENTATIONLESSTHAN TR("Degrees Orientation <")
+#define TILTGREATERTHAN TR("Degrees Tilt >")
+#define TILTLESSTHAN TR("Degrees Tilt <")
 
 namespace openstudio {
 
@@ -78,9 +81,9 @@ FacilityShadingGridView::FacilityShadingGridView(bool isIP, bool displayAddition
   auto modelObjects = subsetCastVector<model::ModelObject>(shadingGroups);
   std::sort(modelObjects.begin(), modelObjects.end(), openstudio::WorkspaceObjectNameLess());
 
-  m_gridController = new FacilityShadingGridController(isIP, displayAdditionalProps, "Shading Surface Group", IddObjectType::OS_ShadingSurfaceGroup,
+  m_gridController = new FacilityShadingGridController(isIP, displayAdditionalProps, tr("Shading Surface Group"), IddObjectType::OS_ShadingSurfaceGroup,
                                                        model, modelObjects);
-  m_gridView = new OSGridView(m_gridController, "Shading Surface Group", "Drop Shading\nSurface Group", false, parent);
+  m_gridView = new OSGridView(m_gridController, tr("Shading Surface Group"), tr("Drop Shading\nSurface Group"), false, parent);
 
   setGridController(m_gridController);
   setGridView(m_gridView);
@@ -96,7 +99,7 @@ FacilityShadingGridView::FacilityShadingGridView(bool isIP, bool displayAddition
   filterGridLayout->setSpacing(5);
 
   label = new QLabel();
-  label->setText("Filters:");
+  label->setText(tr("Filters:"));
   label->setObjectName("H2");
   filterGridLayout->addWidget(label, filterGridLayout->rowCount(), filterGridLayout->columnCount(), Qt::AlignTop | Qt::AlignLeft);
 
@@ -132,11 +135,11 @@ FacilityShadingGridView::FacilityShadingGridView(bool isIP, bool displayAddition
   layout->addWidget(label, Qt::AlignTop | Qt::AlignLeft);
 
   m_typeFilter = new QComboBox();
-  m_typeFilter->addItem("All");
-  m_typeFilter->addItem("Site");
-  m_typeFilter->addItem("Building");
+  m_typeFilter->addItem(tr("All"), QString("All"));
+  m_typeFilter->addItem(tr("Site"), QString("Site"));
+  m_typeFilter->addItem(tr("Building"), QString("Building"));
   // Space-level shading is on the Space's "Shading" subtab
-  //m_typeFilter->addItem("Space");
+  //m_typeFilter->addItem(tr("Space"), QString("Space"));
   m_typeFilter->setFixedWidth(OSItem::ITEM_WIDTH);
   connect(m_typeFilter, &QComboBox::currentTextChanged, this, &openstudio::FacilityShadingGridView::typeFilterChanged);
 
@@ -253,13 +256,13 @@ void FacilityShadingGridView::nameFilterChanged() {
 
 void FacilityShadingGridView::typeFilterChanged(const QString& text) {
   m_objectsFilteredByType.clear();
-  if (m_typeFilter->currentText() == "All") {
+  if (m_typeFilter->currentData().toString() == "All") {
     // Nothing to filter
   } else {
     for (const auto& obj : this->m_gridController->selectableObjects()) {
       auto parent = obj.parent();
       if (parent && parent->iddObjectType() == IddObjectType::OS_ShadingSurfaceGroup) {
-        if (m_typeFilter->currentText() != parent->cast<model::ShadingSurfaceGroup>().shadingSurfaceType().c_str()) {
+        if (m_typeFilter->currentData().toString() != parent->cast<model::ShadingSurfaceGroup>().shadingSurfaceType().c_str()) {
           m_objectsFilteredByType.insert(obj);
         }
       }
@@ -412,7 +415,7 @@ void FacilityShadingGridController::setCategoriesAndFields() {
       TRANSMITTANCESCHEDULENAME,
       CONSTRUCTIONNAME,
     };
-    std::pair<QString, std::vector<QString>> categoryAndFields = std::make_pair(QString("General"), fields);
+    std::pair<QString, std::vector<QString>> categoryAndFields = std::make_pair(TR("General"), fields);
     addCategoryAndFields(categoryAndFields);
   }
 

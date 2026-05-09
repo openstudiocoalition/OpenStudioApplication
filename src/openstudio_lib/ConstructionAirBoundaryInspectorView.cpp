@@ -1,4 +1,4 @@
-/***********************************************************************************************************************
+﻿/***********************************************************************************************************************
 *  OpenStudio(R), Copyright (c) OpenStudio Coalition and other contributors.
 *  See also https://openstudiocoalition.org/about/software_license/
 ***********************************************************************************************************************/
@@ -53,7 +53,7 @@ void ConstructionAirBoundaryInspectorView::createLayout() {
 
   // Name
 
-  label = new QLabel("Name: ");
+  label = new QLabel(tr("Name: "));
   label->setObjectName("H2");
   mainGridLayout->addWidget(label, row, 0);
 
@@ -74,7 +74,7 @@ void ConstructionAirBoundaryInspectorView::createLayout() {
 
   // Air Exchange Method
 
-  label = new QLabel("Air Exchange Method: ");
+  label = new QLabel(tr("Air Exchange Method: "));
   label->setObjectName("H2");
   mainGridLayout->addWidget(label, row, 0);
 
@@ -87,7 +87,7 @@ void ConstructionAirBoundaryInspectorView::createLayout() {
 
   // Simple Mixing Air Changes per Hour
 
-  label = new QLabel("Simple Mixing Air Changes per Hour: ");
+  label = new QLabel(tr("Simple Mixing Air Changes per Hour: "));
   label->setObjectName("H2");
   mainGridLayout->addWidget(label, row, 0);
 
@@ -100,7 +100,7 @@ void ConstructionAirBoundaryInspectorView::createLayout() {
 
   // Simple Mixing Schedule
 
-  //label = new QLabel("Simple Mixing Schedule: ");
+  //label = new QLabel(tr("Simple Mixing Schedule: "));
   //label->setObjectName("H2");
   //mainGridLayout->addWidget(label, row, 0);
 

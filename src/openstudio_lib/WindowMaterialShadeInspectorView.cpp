@@ -1,4 +1,4 @@
-/***********************************************************************************************************************
+﻿/***********************************************************************************************************************
 *  OpenStudio(R), Copyright (c) OpenStudio Coalition and other contributors.
 *  See also https://openstudiocoalition.org/about/software_license/
 ***********************************************************************************************************************/
@@ -46,7 +46,7 @@ void WindowMaterialShadeInspectorView::createLayout() {
 
   // Name
 
-  label = new QLabel("Name: ");
+  label = new QLabel(tr("Name: "));
   label->setObjectName("H2");
   mainGridLayout->addWidget(label, row, 0);
 
@@ -65,7 +65,7 @@ void WindowMaterialShadeInspectorView::createLayout() {
 
   // Solar Transmittance
 
-  label = new QLabel("Solar Transmittance: ");
+  label = new QLabel(tr("Solar Transmittance: "));
   label->setObjectName("H2");
   mainGridLayout->addWidget(label, row++, 0);
 
@@ -75,7 +75,7 @@ void WindowMaterialShadeInspectorView::createLayout() {
 
   // Solar Reflectance
 
-  label = new QLabel("Solar Reflectance: ");
+  label = new QLabel(tr("Solar Reflectance: "));
   label->setObjectName("H2");
   mainGridLayout->addWidget(label, row++, 0);
 
@@ -85,7 +85,7 @@ void WindowMaterialShadeInspectorView::createLayout() {
 
   // Visible Transmittance
 
-  label = new QLabel("Visible Transmittance: ");
+  label = new QLabel(tr("Visible Transmittance: "));
   label->setObjectName("H2");
   mainGridLayout->addWidget(label, row++, 0);
 
@@ -95,7 +95,7 @@ void WindowMaterialShadeInspectorView::createLayout() {
 
   // Visible Reflectance
 
-  label = new QLabel("Visible Reflectance: ");
+  label = new QLabel(tr("Visible Reflectance: "));
   label->setObjectName("H2");
   mainGridLayout->addWidget(label, row++, 0);
 
@@ -105,7 +105,7 @@ void WindowMaterialShadeInspectorView::createLayout() {
 
   // Thermal Hemispherical Emissivity
 
-  label = new QLabel("Thermal Hemispherical Emissivity: ");
+  label = new QLabel(tr("Thermal Hemispherical Emissivity: "));
   label->setObjectName("H2");
   mainGridLayout->addWidget(label, row++, 0);
 
@@ -115,7 +115,7 @@ void WindowMaterialShadeInspectorView::createLayout() {
 
   // Thermal Transmittance
 
-  label = new QLabel("Thermal Transmittance: ");
+  label = new QLabel(tr("Thermal Transmittance: "));
   label->setObjectName("H2");
   mainGridLayout->addWidget(label, row++, 0);
 
@@ -125,7 +125,7 @@ void WindowMaterialShadeInspectorView::createLayout() {
 
   // Thickness
 
-  label = new QLabel("Thickness: ");
+  label = new QLabel(tr("Thickness: "));
   label->setObjectName("H2");
   mainGridLayout->addWidget(label, row++, 0);
 
@@ -135,7 +135,7 @@ void WindowMaterialShadeInspectorView::createLayout() {
 
   // Conductivity
 
-  label = new QLabel("Conductivity: ");
+  label = new QLabel(tr("Conductivity: "));
   label->setObjectName("H2");
   mainGridLayout->addWidget(label, row++, 0);
 
@@ -145,7 +145,7 @@ void WindowMaterialShadeInspectorView::createLayout() {
 
   // Shade To Glass Distance
 
-  label = new QLabel("Shade To Glass Distance: ");
+  label = new QLabel(tr("Shade To Glass Distance: "));
   label->setObjectName("H2");
   mainGridLayout->addWidget(label, row++, 0);
 
@@ -155,7 +155,7 @@ void WindowMaterialShadeInspectorView::createLayout() {
 
   // Top Opening Multiplier
 
-  label = new QLabel("Top Opening Multiplier: ");
+  label = new QLabel(tr("Top Opening Multiplier: "));
   label->setObjectName("H2");
   mainGridLayout->addWidget(label, row++, 0);
 
@@ -165,7 +165,7 @@ void WindowMaterialShadeInspectorView::createLayout() {
 
   // Bottom Opening Multiplier
 
-  label = new QLabel("Bottom Opening Multiplier: ");
+  label = new QLabel(tr("Bottom Opening Multiplier: "));
   label->setObjectName("H2");
   mainGridLayout->addWidget(label, row++, 0);
 
@@ -175,7 +175,7 @@ void WindowMaterialShadeInspectorView::createLayout() {
 
   // Left-Side Opening Multiplier
 
-  label = new QLabel("Left-Side Opening Multiplier: ");
+  label = new QLabel(tr("Left-Side Opening Multiplier: "));
   label->setObjectName("H2");
   mainGridLayout->addWidget(label, row++, 0);
 
@@ -185,7 +185,7 @@ void WindowMaterialShadeInspectorView::createLayout() {
 
   // Right-Side Opening Multiplier
 
-  label = new QLabel("Right-Side Opening Multiplier: ");
+  label = new QLabel(tr("Right-Side Opening Multiplier: "));
   label->setObjectName("H2");
   mainGridLayout->addWidget(label, row++, 0);
 
@@ -195,7 +195,7 @@ void WindowMaterialShadeInspectorView::createLayout() {
 
   // Airflow Permeability
 
-  label = new QLabel("Airflow Permeability: ");
+  label = new QLabel(tr("Airflow Permeability: "));
   label->setObjectName("H2");
   mainGridLayout->addWidget(label, row++, 0);
 

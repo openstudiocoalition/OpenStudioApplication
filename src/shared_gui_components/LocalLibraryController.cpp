@@ -206,7 +206,7 @@ QWidget* LibraryTypeItemDelegate::view(QSharedPointer<OSListItem> dataSource) {
     auto* groupCollapsibleView = new OSCollapsibleView();
 
     auto* header = new DarkGradientHeader();
-    header->label->setText(item->name());
+    header->label->setText(QCoreApplication::translate("TaxonomyCategories", item->name().toUtf8().constData()));
     groupCollapsibleView->setHeader(header);
 
     QSharedPointer<LibraryGroupListController> groupListController = item->libraryGroupListController();
@@ -260,7 +260,7 @@ QWidget* LibraryGroupItemDelegate::view(QSharedPointer<OSListItem> dataSource) {
     auto* groupCollapsibleView = new OSCollapsibleView();
 
     auto* header = new LibraryGroupItemHeader();
-    header->label->setText(item->name());
+    header->label->setText(QCoreApplication::translate("TaxonomyCategories", item->name().toUtf8().constData()));
 
     connect(item->librarySubGroupListController().data(), &LibrarySubGroupListController::libraryItemCountChanged, header,
             &LibraryGroupItemHeader::setCount);
@@ -321,7 +321,7 @@ QWidget* LibrarySubGroupItemDelegate::view(QSharedPointer<OSListItem> dataSource
 
     auto* header = new LibrarySubGroupItemHeader();
 
-    header->label->setText(item->name());
+    header->label->setText(QCoreApplication::translate("TaxonomyCategories", item->name().toUtf8().constData()));
 
     connect(item->libraryListController().data(), &LibraryListController::countChanged, header, &LibrarySubGroupItemHeader::setCount);
 

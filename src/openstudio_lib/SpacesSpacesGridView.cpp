@@ -39,27 +39,30 @@
 #include <openstudio/utilities/idd/OS_Space_FieldEnums.hxx>
 
 #include <QCheckBox>
+#include <QCoreApplication>
+
+#define TR(s) QCoreApplication::translate("openstudio::SpacesSpacesGridController", s)
 
 // These defines provide a common area for field display names
 // used on column headers, and other grid widgets
 
-#define NAME "Space Name"
-#define DISPLAYNAME "Display Name"
-#define CADOBJECTID "CAD Object ID"
-#define SELECTED "All"
+#define NAME TR("Space Name")
+#define DISPLAYNAME TR("Display Name")
+#define CADOBJECTID TR("CAD Object ID")
+#define SELECTED TR("All")
 
 // GENERAL
-#define STORY "Story"
-#define THERMALZONE "Thermal Zone"
-#define SPACETYPE "Space Type"
-#define DEFAULTCONSTRUCTIONSET "Default Construction Set"
-#define DEFAULTSCHEDULESET "Default Schedule Set"
-#define PARTOFTOTALFLOORAREA "Part of Total Floor Area"
+#define STORY TR("Story")
+#define THERMALZONE TR("Thermal Zone")
+#define SPACETYPE TR("Space Type")
+#define DEFAULTCONSTRUCTIONSET TR("Default Construction Set")
+#define DEFAULTSCHEDULESET TR("Default Schedule Set")
+#define PARTOFTOTALFLOORAREA TR("Part of Total Floor Area")
 
 // AIRFLOW
-#define SPACEINFILTRATIONDESIGNFLOWRATES "Space Infiltration Design Flow Rates"
-#define SPACEINFILTRATIONEFFECTIVELEAKAGEAREAS "Space Infiltration Effective Leakage Areas"
-#define DESIGNSPECIFICATIONOUTDOORAIROBJECTNAME "Design Specification Outdoor Air Object Name"
+#define SPACEINFILTRATIONDESIGNFLOWRATES TR("Space Infiltration Design Flow Rates")
+#define SPACEINFILTRATIONEFFECTIVELEAKAGEAREAS TR("Space Infiltration Effective Leakage Areas")
+#define DESIGNSPECIFICATIONOUTDOORAIROBJECTNAME TR("Design Specification Outdoor Air Object Name")
 
 namespace openstudio {
 
@@ -72,8 +75,8 @@ SpacesSpacesGridView::SpacesSpacesGridView(bool isIP, bool displayAdditionalProp
   m_filterGridLayout->setRowStretch(m_filterGridLayout->rowCount(), 100);
   m_filterGridLayout->setColumnStretch(m_filterGridLayout->columnCount(), 100);
 
-  m_gridController = new SpacesSpacesGridController(isIP, displayAdditionalProps, "Space", IddObjectType::OS_Space, model, m_spacesModelObjects);
-  m_gridView = new OSGridView(m_gridController, "Space", "Drop\nSpace", false, parent);
+  m_gridController = new SpacesSpacesGridController(isIP, displayAdditionalProps, tr("Space"), IddObjectType::OS_Space, model, m_spacesModelObjects);
+  m_gridView = new OSGridView(m_gridController, tr("Space"), tr("Drop\nSpace"), false, parent);
 
   setGridController(m_gridController);
   setGridView(m_gridView);
@@ -114,7 +117,7 @@ void SpacesSpacesGridController::setCategoriesAndFields() {
     std::vector<QString> fields{
       STORY, THERMALZONE, SPACETYPE, DEFAULTCONSTRUCTIONSET, DEFAULTSCHEDULESET, PARTOFTOTALFLOORAREA,
     };
-    std::pair<QString, std::vector<QString>> categoryAndFields = std::make_pair(QString("General"), fields);
+    std::pair<QString, std::vector<QString>> categoryAndFields = std::make_pair(TR("General"), fields);
     addCategoryAndFields(categoryAndFields);
   }
 
@@ -124,7 +127,7 @@ void SpacesSpacesGridController::setCategoriesAndFields() {
       SPACEINFILTRATIONDESIGNFLOWRATES,
       SPACEINFILTRATIONEFFECTIVELEAKAGEAREAS,
     };
-    std::pair<QString, std::vector<QString>> categoryAndFields = std::make_pair(QString("Airflow"), fields);
+    std::pair<QString, std::vector<QString>> categoryAndFields = std::make_pair(TR("Airflow"), fields);
     addCategoryAndFields(categoryAndFields);
   }
 

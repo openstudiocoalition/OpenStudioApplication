@@ -44,14 +44,14 @@ namespace measuretab {
 WorkflowController::WorkflowController(BaseApp* t_baseApp) {
   QSharedPointer<WorkflowSectionItem> workflowSectionItem;
 
-  workflowSectionItem = QSharedPointer<WorkflowSectionItem>(new WorkflowSectionItem(MeasureType::ModelMeasure, "OpenStudio Measures", t_baseApp));
+  workflowSectionItem = QSharedPointer<WorkflowSectionItem>(new WorkflowSectionItem(MeasureType::ModelMeasure, tr("OpenStudio Measures"), t_baseApp));
   addItem(workflowSectionItem);
 
   workflowSectionItem =
-    QSharedPointer<WorkflowSectionItem>(new WorkflowSectionItem(MeasureType::EnergyPlusMeasure, "EnergyPlus Measures", t_baseApp));
+    QSharedPointer<WorkflowSectionItem>(new WorkflowSectionItem(MeasureType::EnergyPlusMeasure, tr("EnergyPlus Measures"), t_baseApp));
   addItem(workflowSectionItem);
 
-  workflowSectionItem = QSharedPointer<WorkflowSectionItem>(new WorkflowSectionItem(MeasureType::ReportingMeasure, "Reporting Measures", t_baseApp));
+  workflowSectionItem = QSharedPointer<WorkflowSectionItem>(new WorkflowSectionItem(MeasureType::ReportingMeasure, tr("Reporting Measures"), t_baseApp));
   addItem(workflowSectionItem);
 }
 

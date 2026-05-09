@@ -1,4 +1,4 @@
-/***********************************************************************************************************************
+﻿/***********************************************************************************************************************
 *  OpenStudio(R), Copyright (c) OpenStudio Coalition and other contributors.
 *  See also https://openstudiocoalition.org/about/software_license/
 ***********************************************************************************************************************/
@@ -47,7 +47,7 @@ void WindowMaterialScreenInspectorView::createLayout() {
 
   // Name
 
-  label = new QLabel("Name: ");
+  label = new QLabel(tr("Name: "));
   label->setObjectName("H2");
   mainGridLayout->addWidget(label, row, 0);
 
@@ -66,7 +66,7 @@ void WindowMaterialScreenInspectorView::createLayout() {
 
   // Reflected Beam Transmittance Accounting Method
 
-  label = new QLabel("Reflected Beam Transmittance Accounting Method: ");
+  label = new QLabel(tr("Reflected Beam Transmittance Accounting Method: "));
   label->setObjectName("H2");
   mainGridLayout->addWidget(label, row++, 0);
 
@@ -78,7 +78,7 @@ void WindowMaterialScreenInspectorView::createLayout() {
 
   // Diffuse Solar Reflectance
 
-  label = new QLabel("Diffuse Solar Reflectance: ");
+  label = new QLabel(tr("Diffuse Solar Reflectance: "));
   label->setObjectName("H2");
   mainGridLayout->addWidget(label, row++, 0);
 
@@ -88,7 +88,7 @@ void WindowMaterialScreenInspectorView::createLayout() {
 
   // Diffuse Visible Reflectance
 
-  label = new QLabel("Diffuse Visible Reflectance: ");
+  label = new QLabel(tr("Diffuse Visible Reflectance: "));
   label->setObjectName("H2");
   mainGridLayout->addWidget(label, row++, 0);
 
@@ -98,7 +98,7 @@ void WindowMaterialScreenInspectorView::createLayout() {
 
   // Thermal Hemispherical Emissivity
 
-  label = new QLabel("Thermal Hemispherical Emissivity: ");
+  label = new QLabel(tr("Thermal Hemispherical Emissivity: "));
   label->setObjectName("H2");
   mainGridLayout->addWidget(label, row++, 0);
 
@@ -108,7 +108,7 @@ void WindowMaterialScreenInspectorView::createLayout() {
 
   // Conductivity
 
-  label = new QLabel("Conductivity: ");
+  label = new QLabel(tr("Conductivity: "));
   label->setObjectName("H2");
   mainGridLayout->addWidget(label, row++, 0);
 
@@ -118,7 +118,7 @@ void WindowMaterialScreenInspectorView::createLayout() {
 
   // Screen Material Spacing
 
-  label = new QLabel("Screen Material Spacing: ");
+  label = new QLabel(tr("Screen Material Spacing: "));
   label->setObjectName("H2");
   mainGridLayout->addWidget(label, row++, 0);
 
@@ -128,7 +128,7 @@ void WindowMaterialScreenInspectorView::createLayout() {
 
   // Screen Material Diameter
 
-  label = new QLabel("Screen Material Diameter: ");
+  label = new QLabel(tr("Screen Material Diameter: "));
   label->setObjectName("H2");
   mainGridLayout->addWidget(label, row++, 0);
 
@@ -138,7 +138,7 @@ void WindowMaterialScreenInspectorView::createLayout() {
 
   // Screen To Glass Distance
 
-  label = new QLabel("Screen To Glass Distance: ");
+  label = new QLabel(tr("Screen To Glass Distance: "));
   label->setObjectName("H2");
   mainGridLayout->addWidget(label, row++, 0);
 
@@ -148,7 +148,7 @@ void WindowMaterialScreenInspectorView::createLayout() {
 
   // Top Opening Multiplier
 
-  label = new QLabel("Top Opening Multiplier: ");
+  label = new QLabel(tr("Top Opening Multiplier: "));
   label->setObjectName("H2");
   mainGridLayout->addWidget(label, row++, 0);
 
@@ -158,7 +158,7 @@ void WindowMaterialScreenInspectorView::createLayout() {
 
   // Bottom Opening Multiplier
 
-  label = new QLabel("Bottom Opening Multiplier: ");
+  label = new QLabel(tr("Bottom Opening Multiplier: "));
   label->setObjectName("H2");
   mainGridLayout->addWidget(label, row++, 0);
 
@@ -168,7 +168,7 @@ void WindowMaterialScreenInspectorView::createLayout() {
 
   // Left Side Opening Multiplier
 
-  label = new QLabel("Left Side Opening Multiplier: ");
+  label = new QLabel(tr("Left Side Opening Multiplier: "));
   label->setObjectName("H2");
   mainGridLayout->addWidget(label, row++, 0);
 
@@ -178,7 +178,7 @@ void WindowMaterialScreenInspectorView::createLayout() {
 
   // Right Side Opening Multiplier
 
-  label = new QLabel("Right Side Opening Multiplier: ");
+  label = new QLabel(tr("Right Side Opening Multiplier: "));
   label->setObjectName("H2");
   mainGridLayout->addWidget(label, row++, 0);
 
@@ -188,7 +188,7 @@ void WindowMaterialScreenInspectorView::createLayout() {
 
   // Angle Of Resolution For Screen Transmittance Output Map
 
-  label = new QLabel("Angle Of Resolution For Screen Transmittance Output Map: ");
+  label = new QLabel(tr("Angle Of Resolution For Screen Transmittance Output Map: "));
   label->setObjectName("H2");
   mainGridLayout->addWidget(label, row++, 0);
 

@@ -21,12 +21,12 @@
 namespace openstudio {
 
 GeometryTabController::GeometryTabController(bool isIP, const model::Model& model)
-  : MainTabController(new GeometryTabView(model, "Geometry")), m_model(model), m_isIP(isIP) {
-  this->mainContentWidget()->addSubTab("3D View", VIEW);
+  : MainTabController(new GeometryTabView(model, tr("Geometry"))), m_model(model), m_isIP(isIP) {
+  this->mainContentWidget()->addSubTab(tr("3D View"), VIEW);
 
   // DLM: remove once editor is always enabled
   //if (QProcessEnvironment::systemEnvironment().value("OPENSTUDIO_GEOMETRY_EDITOR") == QString("1")){
-  this->mainContentWidget()->addSubTab("Editor", EDITOR);
+  this->mainContentWidget()->addSubTab(tr("Editor"), EDITOR);
   //}
 
   connect(this->mainContentWidget(), &MainTabView::tabSelected, this, &GeometryTabController::setSubTab);
