@@ -1,4 +1,4 @@
-/***********************************************************************************************************************
+﻿/***********************************************************************************************************************
 *  OpenStudio(R), Copyright (c) OpenStudio Coalition and other contributors.
 *  See also https://openstudiocoalition.org/about/software_license/
 ***********************************************************************************************************************/
@@ -40,7 +40,7 @@ InternalMassDefinitionInspectorView::InternalMassDefinitionInspectorView(bool is
 
   // name
 
-  auto* label = new QLabel("Name: ");
+  auto* label = new QLabel(tr("Name: "));
   label->setObjectName("H2");
   mainGridLayout->addWidget(label, 0, 0);
 
@@ -49,7 +49,7 @@ InternalMassDefinitionInspectorView::InternalMassDefinitionInspectorView(bool is
 
   // Surface Area
 
-  label = new QLabel("Surface Area: ");
+  label = new QLabel(tr("Surface Area: "));
   label->setObjectName("H2");
   mainGridLayout->addWidget(label, 2, 0);
 
@@ -59,7 +59,7 @@ InternalMassDefinitionInspectorView::InternalMassDefinitionInspectorView(bool is
 
   // Surface Area Per Space Floor Area
 
-  label = new QLabel("Surface Area Per Space Floor Area: ");
+  label = new QLabel(tr("Surface Area Per Space Floor Area: "));
   label->setObjectName("H2");
   mainGridLayout->addWidget(label, 2, 1);
 
@@ -69,7 +69,7 @@ InternalMassDefinitionInspectorView::InternalMassDefinitionInspectorView(bool is
 
   // Surface Area Per Person
 
-  label = new QLabel("Surface Area Per Person: ");
+  label = new QLabel(tr("Surface Area Per Person: "));
   label->setObjectName("H2");
   mainGridLayout->addWidget(label, 2, 2);
 
@@ -79,7 +79,7 @@ InternalMassDefinitionInspectorView::InternalMassDefinitionInspectorView(bool is
 
   // Construction
 
-  label = new QLabel("Construction: ");
+  label = new QLabel(tr("Construction: "));
   label->setObjectName("H2");
   mainGridLayout->addWidget(label, 4, 0);
 

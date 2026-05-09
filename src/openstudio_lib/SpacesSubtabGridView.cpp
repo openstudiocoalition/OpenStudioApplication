@@ -62,39 +62,42 @@
 #include <QBoxLayout>
 #include <QCheckBox>
 #include <QComboBox>
+#include <QCoreApplication>
 #include <QLabel>
 #include <QLineEdit>
 
-// FILTERS
-#define STORY "Story"
-#define THERMALZONE "Thermal Zone"
-#define THERMALZONENAME "Thermal Zone Name"
-#define SPACETYPE "Space Type"
-#define SUBSURFACETYPE "SubSurface Type"
-#define SPACENAME "Space Name"
-#define LOADTYPE "Load Type"
-#define WINDEXPOSURE "Wind Exposure"
-#define SUNEXPOSURE "Sun Exposure"
-#define OUTSIDEBOUNDARYCONDITION "Outside Boundary Condition"
-#define SURFACETYPE "Surface Type"
-#define INTERIORPARTITIONGROUP "Interior Partition Group"
+#define TR(s) QCoreApplication::translate("openstudio::SpacesSubtabGridView", s)
 
-#define ALL "All"
-#define UNASSIGNED "Unassigned"
+// FILTERS
+#define STORY TR("Story")
+#define THERMALZONE TR("Thermal Zone")
+#define THERMALZONENAME TR("Thermal Zone Name")
+#define SPACETYPE TR("Space Type")
+#define SUBSURFACETYPE TR("SubSurface Type")
+#define SPACENAME TR("Space Name")
+#define LOADTYPE TR("Load Type")
+#define WINDEXPOSURE TR("Wind Exposure")
+#define SUNEXPOSURE TR("Sun Exposure")
+#define OUTSIDEBOUNDARYCONDITION TR("Outside Boundary Condition")
+#define SURFACETYPE TR("Surface Type")
+#define INTERIORPARTITIONGROUP TR("Interior Partition Group")
+
+#define ALL TR("All")
+#define UNASSIGNED TR("Unassigned")
 
 // LOAD TYPES
-//#define SHOWALLLOADS "Show all loads"
-#define INTERNALMASS "Internal Mass"
-#define PEOPLE "People"
-#define LIGHTS "Lights"
-#define LUMINAIRE "Luminaire"
-#define ELECTRICEQUIPMENT "Electric Equipment"
-#define GASEQUIPMENT "Gas Equipment"
-#define HOTWATEREQUIPMENT "Hot Water Equipment"
-#define STEAMEQUIPMENT "Steam Equipment"
-#define OTHEREQUIPMENT "Other Equipment"
-#define SPACEINFILTRATIONDESIGNFLOWRATE "Space Infiltration Design Flow Rate"
-#define SPACEINFILTRATIONEFFECTIVELEAKAGEAREA "Space Infiltration Effective Leakage Area"
+//#define SHOWALLLOADS TR("Show all loads")
+#define INTERNALMASS TR("Internal Mass")
+#define PEOPLE TR("People")
+#define LIGHTS TR("Lights")
+#define LUMINAIRE TR("Luminaire")
+#define ELECTRICEQUIPMENT TR("Electric Equipment")
+#define GASEQUIPMENT TR("Gas Equipment")
+#define HOTWATEREQUIPMENT TR("Hot Water Equipment")
+#define STEAMEQUIPMENT TR("Steam Equipment")
+#define OTHEREQUIPMENT TR("Other Equipment")
+#define SPACEINFILTRATIONDESIGNFLOWRATE TR("Space Infiltration Design Flow Rate")
+#define SPACEINFILTRATIONEFFECTIVELEAKAGEAREA TR("Space Infiltration Effective Leakage Area")
 
 namespace openstudio {
 
@@ -111,7 +114,7 @@ SpacesSubtabGridView::SpacesSubtabGridView(bool isIP, bool displayAdditionalProp
   m_filterGridLayout->setSpacing(5);
 
   label = new QLabel();
-  label->setText("Filters:");
+  label->setText(tr("Filters:"));
   label->setObjectName("H2");
   m_filterGridLayout->addWidget(label, m_filterGridLayout->rowCount(), m_filterGridLayout->columnCount(), Qt::AlignTop | Qt::AlignLeft);
 }
@@ -364,10 +367,11 @@ void SpacesSubtabGridView::initializeSpaceTypeFilter() {
 
 void SpacesSubtabGridView::initializeSubSurfaceTypeFilter() {
   m_subSurfaceTypeFilter->clear();
-  m_subSurfaceTypeFilter->addItem(ALL);
+  m_subSurfaceTypeFilter->addItem(ALL, QString("All"));
   auto subSurfacetypes = model::SubSurface::validSubSurfaceTypeValues();
   for (const auto& sst : subSurfacetypes) {
-    m_subSurfaceTypeFilter->addItem(sst.c_str());
+    QString key = sst.c_str();
+    m_subSurfaceTypeFilter->addItem(QCoreApplication::translate("openstudio::SpacesSubtabGridView", sst.c_str()), key);
   }
 }
 
@@ -443,34 +447,34 @@ void SpacesSubtabGridView::initializeLoadTypeFilter() {
 }
 
 void SpacesSubtabGridView::initializeWindExposureFilter() {
-  m_windExposureFilter->addItem(ALL);
-
+  m_windExposureFilter->addItem(ALL, QString("All"));
   for (const auto& str : model::Surface::validWindExposureValues()) {
-    m_windExposureFilter->addItem(str.c_str());
+    QString key = str.c_str();
+    m_windExposureFilter->addItem(QCoreApplication::translate("openstudio::SpacesSubtabGridView", str.c_str()), key);
   }
 }
 
 void SpacesSubtabGridView::initializeSunExposureFilter() {
-  m_sunExposureFilter->addItem(ALL);
-
+  m_sunExposureFilter->addItem(ALL, QString("All"));
   for (const auto& str : model::Surface::validSunExposureValues()) {
-    m_sunExposureFilter->addItem(str.c_str());
+    QString key = str.c_str();
+    m_sunExposureFilter->addItem(QCoreApplication::translate("openstudio::SpacesSubtabGridView", str.c_str()), key);
   }
 }
 
 void SpacesSubtabGridView::initializeOutsideBoundaryConditionFilter() {
-  m_outsideBoundaryConditionFilter->addItem(ALL);
-
+  m_outsideBoundaryConditionFilter->addItem(ALL, QString("All"));
   for (const auto& str : model::Surface::validOutsideBoundaryConditionValues()) {
-    m_outsideBoundaryConditionFilter->addItem(str.c_str());
+    QString key = str.c_str();
+    m_outsideBoundaryConditionFilter->addItem(QCoreApplication::translate("openstudio::SpacesSubtabGridView", str.c_str()), key);
   }
 }
 
 void SpacesSubtabGridView::initializeSurfaceTypeFilter() {
-  m_surfaceTypeFilter->addItem(ALL);
-
+  m_surfaceTypeFilter->addItem(ALL, QString("All"));
   for (const auto& str : model::Surface::validSurfaceTypeValues()) {
-    m_surfaceTypeFilter->addItem(str.c_str());
+    QString key = str.c_str();
+    m_surfaceTypeFilter->addItem(QCoreApplication::translate("openstudio::SpacesSubtabGridView", str.c_str()), key);
   }
 }
 
@@ -563,14 +567,14 @@ void SpacesSubtabGridView::spaceTypeFilterChanged(const QString& text) {
 
 void SpacesSubtabGridView::subSurfaceTypeFilterChanged(const QString& text) {
   m_objectsFilteredBySubSurfaceType.clear();
-
-  if (text == ALL) {
+  const QString data = m_subSurfaceTypeFilter->currentData().toString();
+  if (data == "All") {
     // nothing to filter
   } else {
 
     // It's possible that "fixedwindow" might be returned when querying later, instead of "FixedWindow" returned
     // by SubSurface::validSubSurfaceTypes(), so we'll do a case-insensitive string comparison later
-    std::string subSurfaceTypeToKeep = openstudio::toString(text);
+    std::string subSurfaceTypeToKeep = data.toStdString();
 
     // ObjectSelector::m_selectableObjects returns SubSurfaces directly
     for (const auto& obj : this->m_gridController->selectorObjects()) {
@@ -688,12 +692,12 @@ void SpacesSubtabGridView::loadTypeFilterChanged(const QString& text) {
 
 void SpacesSubtabGridView::windExposureFilterChanged(const QString& text) {
   m_objectsFilteredByWindExposure.clear();
-
-  if (text == ALL) {
+  const QString data = m_windExposureFilter->currentData().toString();
+  if (data == "All") {
     // nothing to filter
   } else {
     // For a case-insensitive comparison later
-    std::string windExposureToKeep = openstudio::toString(text);
+    std::string windExposureToKeep = data.toStdString();
 
     // ObjectSelector::m_selectableObjects returns Surfaces directly
     for (const auto& obj : this->m_gridController->selectorObjects()) {
@@ -713,12 +717,12 @@ void SpacesSubtabGridView::windExposureFilterChanged(const QString& text) {
 
 void SpacesSubtabGridView::sunExposureFilterChanged(const QString& text) {
   m_objectsFilteredBySunExposure.clear();
-
-  if (text == ALL) {
+  const QString data = m_sunExposureFilter->currentData().toString();
+  if (data == "All") {
     // nothing to filter
   } else {
     // For a case-insensitive comparison later
-    std::string sunExposureToKeep = openstudio::toString(text);
+    std::string sunExposureToKeep = data.toStdString();
 
     // ObjectSelector::m_selectableObjects returns Surfaces directly
     for (const auto& obj : this->m_gridController->selectorObjects()) {
@@ -738,12 +742,12 @@ void SpacesSubtabGridView::sunExposureFilterChanged(const QString& text) {
 
 void SpacesSubtabGridView::outsideBoundaryConditionFilterChanged(const QString& text) {
   m_objectsFilteredByOutsideBoundaryCondition.clear();
-
-  if (text == ALL) {
+  const QString data = m_outsideBoundaryConditionFilter->currentData().toString();
+  if (data == "All") {
     // nothing to filter
   } else {
     // For a case-insensitive comparison later
-    std::string outsideBoundCondToKeep = openstudio::toString(text);
+    std::string outsideBoundCondToKeep = data.toStdString();
 
     // ObjectSelector::m_selectableObjects returns either Surfaces or SubSurfaces directly, depending on the subtab it's on
     for (const auto& obj : this->m_gridController->selectorObjects()) {
@@ -765,12 +769,12 @@ void SpacesSubtabGridView::outsideBoundaryConditionFilterChanged(const QString& 
 
 void SpacesSubtabGridView::surfaceTypeFilterChanged(const QString& text) {
   m_objectsFilteredBySurfaceType.clear();
-
-  if (text == ALL) {
+  const QString data = m_surfaceTypeFilter->currentData().toString();
+  if (data == "All") {
     // nothing to filter
   } else {
     // For a case-insensitive comparison later
-    std::string surfaceTypeToKeep = openstudio::toString(text);
+    std::string surfaceTypeToKeep = data.toStdString();
 
     // ObjectSelector::m_selectableObjects Surfaces directly
     for (const auto& obj : this->m_gridController->selectorObjects()) {

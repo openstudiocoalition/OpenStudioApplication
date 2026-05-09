@@ -45,6 +45,8 @@
 #include <QIntValidator>
 #include <QLabel>
 #include <QLineEdit>
+#include <QCoreApplication>
+#include <QLocale>
 #include <QPainter>
 #include <QPushButton>
 #include <QRadioButton>
@@ -53,6 +55,30 @@
 #include <QVBoxLayout>
 
 using namespace openstudio;
+
+// Returns "Traducción (Field Name)" when the app locale is non-English and
+// a translation exists in the "IDD" context of the loaded .qm file;
+// otherwise returns the plain English field name.
+//
+// Format rationale: the translated term is shown first for readability in the
+// target language. The original English IDD field name is retained in
+// parentheses because these names are the canonical identifiers used in
+// EnergyPlus documentation, the OpenStudio SDK, and .idf/.osm model files.
+// A Spanish-speaking engineer who needs to cross-reference the EnergyPlus
+// I/O Reference or file a bug report can read the English name without
+// having to switch the application language and reload the model.
+//
+// To add or refine translations: add entries to the IDD context in
+// OpenStudioApp_<lang>.ts and recompile with lrelease — no C++ changes needed.
+static QString iddFieldDisplayName(const std::string& englishName) {
+  const QString qname = QString::fromStdString(englishName);
+  if (QLocale().language() != QLocale::English) {
+    const QString translated = QCoreApplication::translate("IDD", englishName.c_str());
+    if (translated != qname)
+      return translated + " (" + qname + ")";
+  }
+  return qname;
+}
 using namespace openstudio::model;
 
 const char* InspectorGadget::s_indexSlotName = "indexSlot";
@@ -507,7 +533,7 @@ void InspectorGadget::layoutText(QVBoxLayout* layout, QWidget* parent, openstudi
   auto* vbox = new QVBoxLayout();
   frame->setLayout(vbox);
 
-  auto* label = new QLabel(QString(name.c_str()), parent);
+  auto* label = new QLabel(iddFieldDisplayName(name), parent);
   label->setWordWrap(true);
   vbox->addWidget(label);
 
@@ -751,7 +777,7 @@ void InspectorGadget::layoutComboBox(QVBoxLayout* layout, QWidget* parent, opens
   auto* frame = new QFrame(parent);
   auto* vbox = new QVBoxLayout();
   frame->setLayout(vbox);
-  auto* label = new QLabel(QString(name.c_str()), parent);
+  auto* label = new QLabel(iddFieldDisplayName(name), parent);
   label->setWordWrap(true);
 
   QComboBox* combo = new IGComboBox(parent);

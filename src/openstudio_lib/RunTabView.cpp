@@ -73,7 +73,7 @@
 namespace openstudio {
 
 RunTabView::RunTabView(const model::Model& /*model*/, QWidget* parent)
-  : MainTabView("Run Simulation", MainTabView::MAIN_TAB, parent), m_runView(new RunView()) {
+  : MainTabView(tr("Run Simulation"), MainTabView::MAIN_TAB, parent), m_runView(new RunView()) {
   addTabWidget(m_runView);
 }
 
@@ -84,7 +84,7 @@ RunView::RunView() : m_runSocket(nullptr) {
   setLayout(mainLayout);
 
   m_playButton = new QToolButton();
-  m_playButton->setText("Run");
+  m_playButton->setText(tr("Run"));
   m_playButton->setCheckable(true);
   m_playButton->setChecked(false);
   QIcon playbuttonicon(QPixmap(":/images/run_simulation_button.png"));
@@ -111,20 +111,20 @@ RunView::RunView() : m_runSocket(nullptr) {
   auto* mainWindow = OSAppBase::instance()->currentDocument()->mainWindow();
   const bool verboseOutput = mainWindow->verboseOutput();
   m_verboseOutputBox = new QCheckBox();
-  m_verboseOutputBox->setText("Verbose");
+  m_verboseOutputBox->setText(tr("Verbose"));
   m_verboseOutputBox->setChecked(verboseOutput);
   connect(m_verboseOutputBox, &QCheckBox::clicked, mainWindow, &MainWindow::toggleVerboseOutput);
   mainLayout->addWidget(m_verboseOutputBox, 0, 2);
 
   const bool useClassicCLI = mainWindow->useClassicCLI();
   m_useClassicCLIBox = new QCheckBox();
-  m_useClassicCLIBox->setText("Classic CLI");
+  m_useClassicCLIBox->setText(tr("Classic CLI"));
   m_useClassicCLIBox->setChecked(useClassicCLI);
   connect(m_useClassicCLIBox, &QCheckBox::clicked, mainWindow, &MainWindow::toggleUseClassicCLI);
   mainLayout->addWidget(m_useClassicCLIBox, 0, 3);
 
   m_openSimDirButton = new QPushButton();
-  m_openSimDirButton->setText("Show Simulation");
+  m_openSimDirButton->setText(tr("Show Simulation"));
   m_openSimDirButton->setFlat(true);
   m_openSimDirButton->setObjectName("StandardGrayButton");
   connect(m_openSimDirButton, &QPushButton::clicked, this, &RunView::onOpenSimDirClicked);
@@ -169,7 +169,7 @@ void RunView::onOpenSimDirClicked() {
   const auto runDir = getCompanionFolder(toPath(OSAppBase::instance()->currentDocument()->savePath())) / toPath("run");
   const QString qpath = QDir::toNativeSeparators(toQString(runDir));
   if (!QDesktopServices::openUrl(QUrl::fromLocalFile(qpath))) {
-    QMessageBox::critical(this, "Unable to open simulation", "Please save the OpenStudio Model to view the simulation.");
+    QMessageBox::critical(this, tr("Unable to open simulation"), tr("Please save the OpenStudio Model to view the simulation."));
   }
 }
 
@@ -318,9 +318,9 @@ void RunView::playButtonClicked(bool t_checked) {
     if (m_useClassicCLIBox->isChecked() && !m_hasSocketConnection) {
       m_textInfo->setTextColor(Qt::darkRed);
       m_textInfo->setFontPointSize(15);
-      m_textInfo->append("Could not open socket connection to OpenStudio Classic CLI.");
+      m_textInfo->append(tr("Could not open socket connection to OpenStudio Classic CLI."));
       m_textInfo->setFontPointSize(12);
-      m_textInfo->append("Falling back to stdout/stderr parsing, live updates might be slower.");
+      m_textInfo->append(tr("Falling back to stdout/stderr parsing, live updates might be slower."));
       resetFont();
     }
 
@@ -330,7 +330,7 @@ void RunView::playButtonClicked(bool t_checked) {
     LOG(Debug, "Kill Simulation");
     m_textInfo->setTextColor(Qt::darkRed);
     m_textInfo->setFontPointSize(15);
-    m_textInfo->append("Aborted");
+    m_textInfo->append(tr("Aborted"));
     resetFont();
     m_runProcess->blockSignals(true);
     m_runProcess->kill();
@@ -454,7 +454,7 @@ void RunView::processLine(const QString& line, bool fromSocket) {
     case State::stopped:
       test = trimmedLine.indexOf("Starting state initialization", 0, Qt::CaseInsensitive);
       if (trimmedLine.contains("Starting state initialization", Qt::CaseInsensitive)) {
-        appendStateChange("Initializing workflow.");
+        appendStateChange(tr("Initializing workflow."));
         m_state = State::initialization;
         m_progressBar->setValue(m_state);
         return;
@@ -465,7 +465,7 @@ void RunView::processLine(const QString& line, bool fromSocket) {
         // no-op
         return;
       } else if (trimmedLine.contains("command is deprecated and will be removed in a future release", Qt::CaseInsensitive)) {
-        appendWarnText("The classic command is deprecated and will be removed in a future release.");
+        appendWarnText(tr("The classic command is deprecated and will be removed in a future release."));
         return;
       }
 
@@ -482,7 +482,7 @@ void RunView::processLine(const QString& line, bool fromSocket) {
         return;
       } else if (QString::compare(trimmedLine, "Starting state os_measures", Qt::CaseInsensitive) == 0
                  || trimmedLine.contains("Starting State OpenStudioMeasures", Qt::CaseInsensitive)) {
-        appendStateChange("Processing OpenStudio Measures.");
+        appendStateChange(tr("Processing OpenStudio Measures."));
         m_state = State::os_measures;
         m_progressBar->setValue(m_state);
         return;
@@ -495,7 +495,7 @@ void RunView::processLine(const QString& line, bool fromSocket) {
         // no-op
         return;
       } else if (trimmedLine.contains("Starting state translator", Qt::CaseInsensitive)) {
-        appendStateChange("Translating the OpenStudio Model to EnergyPlus.");
+        appendStateChange(tr("Translating the OpenStudio Model to EnergyPlus."));
         m_state = State::translator;
         m_progressBar->setValue(m_state);
         return;
@@ -507,7 +507,7 @@ void RunView::processLine(const QString& line, bool fromSocket) {
         return;
       } else if (QString::compare(trimmedLine, "Starting state ep_measures", Qt::CaseInsensitive) == 0
                  || trimmedLine.contains("Starting state EnergyPlusMeasures", Qt::CaseInsensitive)) {
-        appendStateChange("Processing EnergyPlus Measures.");
+        appendStateChange(tr("Processing EnergyPlus Measures."));
         m_state = State::ep_measures;
         m_progressBar->setValue(m_state);
         return;
@@ -520,7 +520,7 @@ void RunView::processLine(const QString& line, bool fromSocket) {
         // no-op
         return;
       } else if (trimmedLine.contains("Starting state preprocess", Qt::CaseInsensitive)) {
-        appendStateChange("Adding Simulation Output Requests.");
+        appendStateChange(tr("Adding Simulation Output Requests."));
         m_state = State::preprocess;
         m_progressBar->setValue(m_state);
         return;
@@ -532,7 +532,7 @@ void RunView::processLine(const QString& line, bool fromSocket) {
         return;
       } else if (trimmedLine.contains("Starting state simulation", Qt::CaseInsensitive)
                  || trimmedLine.contains("Starting State EnergyPlus", Qt::CaseInsensitive)) {
-        appendStateChange("Starting EnergyPlus Simulation.");
+        appendStateChange(tr("Starting EnergyPlus Simulation."));
         m_state = State::simulation;
         m_progressBar->setValue(m_state);
         return;
@@ -545,7 +545,7 @@ void RunView::processLine(const QString& line, bool fromSocket) {
         return;
       } else if (QString::compare(trimmedLine, "Starting state reporting_measures", Qt::CaseInsensitive) == 0
                  || trimmedLine.contains("Starting State ReportingMeasures", Qt::CaseInsensitive)) {
-        appendStateChange("Processing Reporting Measures.");
+        appendStateChange(tr("Processing Reporting Measures."));
         m_state = State::reporting_measures;
         m_progressBar->setValue(m_state);
         return;
@@ -557,7 +557,7 @@ void RunView::processLine(const QString& line, bool fromSocket) {
         // no-op
         return;
       } else if (trimmedLine.contains("Starting state postprocess", Qt::CaseInsensitive)) {
-        appendStateChange("Gathering Reports.");
+        appendStateChange(tr("Gathering Reports."));
         m_state = State::postprocess;
         m_progressBar->setValue(m_state);
         return;
@@ -603,10 +603,10 @@ void RunView::processLine(const QString& line, bool fromSocket) {
     isMeasure = true;
 
     if (QString::compare(trimmedLine, "Failure", Qt::CaseInsensitive) == 0) {
-      appendErrorResult("Failed.");
+      appendErrorResult(tr("Failed."));
       return;
     } else if (QString::compare(trimmedLine, "Complete", Qt::CaseInsensitive) == 0) {
-      appendResult("Completed.");
+      appendResult(tr("Completed."));
       return;
     } else if (trimmedLine.startsWith("Applying", Qt::CaseInsensitive)) {
       appendResult(trimmedLine);

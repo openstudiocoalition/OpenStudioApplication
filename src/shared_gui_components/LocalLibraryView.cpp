@@ -59,23 +59,23 @@ LocalLibraryView::LocalLibraryView(QWidget* parent) : QWidget(parent) {
   footerVLayout->addLayout(footerHLayout);
 
   duplicateMeasureButton = new DuplicateButton();
-  duplicateMeasureButton->setToolTip("Copy Selected Measure and Add to My Measures");
+  duplicateMeasureButton->setToolTip(tr("Copy Selected Measure and Add to My Measures"));
   footerHLayout->addWidget(duplicateMeasureButton);
   duplicateMeasureButton->setDisabled(true);
 
   addMeasureButton = new AddScriptButton();
-  addMeasureButton->setToolTip("Create a Measure from Template and add to My Measures");
+  addMeasureButton->setToolTip(tr("Create a Measure from Template and add to My Measures"));
   footerHLayout->addWidget(addMeasureButton);
 
   checkForUpdateButton = new CheckForUpdateButton();
-  checkForUpdateButton->setToolTip("Look for BCL measure updates online");
+  checkForUpdateButton->setToolTip(tr("Look for BCL measure updates online"));
   footerHLayout->addWidget(checkForUpdateButton);
 
   // STRETCH
   footerHLayout->addStretch();
 
   myMeasuresFolderButton = new MyMeasuresFolderButton();
-  myMeasuresFolderButton->setToolTip("Open the My Measures Directory");
+  myMeasuresFolderButton->setToolTip(tr("Open the My Measures Directory"));
   footerHLayout->addWidget(myMeasuresFolderButton);
 
   auto* footerHLayout2 = new QHBoxLayout();
@@ -84,8 +84,8 @@ LocalLibraryView::LocalLibraryView(QWidget* parent) : QWidget(parent) {
   footerVLayout->addLayout(footerHLayout2);
 
   addBCLMeasureButton = new GrayButton();
-  addBCLMeasureButton->setText("Find Measures on BCL");
-  addBCLMeasureButton->setToolTip("Connect to Online BCL to Download New Measures and Update Existing Measures to Library");
+  addBCLMeasureButton->setText(tr("Find Measures on BCL"));
+  addBCLMeasureButton->setToolTip(tr("Connect to Online BCL to Download New Measures and Update Existing Measures to Library"));
   footerHLayout2->addWidget(addBCLMeasureButton);
 }
 

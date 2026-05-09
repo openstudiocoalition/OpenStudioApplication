@@ -76,21 +76,24 @@
 #include <openstudio/utilities/idd/OS_Space_FieldEnums.hxx>
 
 #include <QCheckBox>
+#include <QCoreApplication>
+
+#define TR(s) QCoreApplication::translate("openstudio::SpacesLoadsGridController", s)
 
 // These defines provide a common area for field display names
 // used on column headers, and other grid widgets
 
-#define NAME "Space Name"
-#define SELECTED "All"
-#define DISPLAYNAME "Display Name"
-#define CADOBJECTID "CAD Object ID"
+#define NAME TR("Space Name")
+#define SELECTED TR("All")
+#define DISPLAYNAME TR("Display Name")
+#define CADOBJECTID TR("CAD Object ID")
 
 // GENERAL
-#define LOADNAME "Load Name"
-#define MULTIPLIER "Multiplier"
-#define DEFINITION "Definition"
-#define SCHEDULE "Schedule"
-#define ACTIVITYSCHEDULE "Activity Schedule\n(People Only)"
+#define LOADNAME TR("Load Name")
+#define MULTIPLIER TR("Multiplier")
+#define DEFINITION TR("Definition")
+#define SCHEDULE TR("Schedule")
+#define ACTIVITYSCHEDULE TR("Activity Schedule\n(People Only)")
 
 namespace openstudio {
 
@@ -104,8 +107,8 @@ SpacesLoadsGridView::SpacesLoadsGridView(bool isIP, bool displayAdditionalProps,
   m_filterGridLayout->setRowStretch(m_filterGridLayout->rowCount(), 100);
   m_filterGridLayout->setColumnStretch(m_filterGridLayout->columnCount(), 100);
 
-  m_gridController = new SpacesLoadsGridController(isIP, displayAdditionalProps, "Space", IddObjectType::OS_Space, model, m_spacesModelObjects);
-  m_gridView = new OSGridView(m_gridController, "Space", "Drop\nSpace", false, parent);
+  m_gridController = new SpacesLoadsGridController(isIP, displayAdditionalProps, tr("Space"), IddObjectType::OS_Space, model, m_spacesModelObjects);
+  m_gridView = new OSGridView(m_gridController, tr("Space"), tr("Drop\nSpace"), false, parent);
 
   const std::function<bool(const model::ModelObject&)> isLocked([](const model::ModelObject& modelObject) {
     if (modelObject.optionalCast<model::SpaceLoad>()) {
@@ -156,7 +159,7 @@ void SpacesLoadsGridController::setCategoriesAndFields() {
     std::vector<QString> fields{
       LOADNAME, MULTIPLIER, DEFINITION, SCHEDULE, ACTIVITYSCHEDULE,
     };
-    std::pair<QString, std::vector<QString>> categoryAndFields = std::make_pair(QString("General"), fields);
+    std::pair<QString, std::vector<QString>> categoryAndFields = std::make_pair(TR("General"), fields);
     addCategoryAndFields(categoryAndFields);
   }
 

@@ -39,28 +39,31 @@
 #include <QBoxLayout>
 #include <QCheckBox>
 #include <QComboBox>
+#include <QCoreApplication>
 #include <QLabel>
 #include <QRegularExpression>
 
 // These defines provide a common area for field display names
 // used on column headers, and other grid widgets
 
-#define NAME "Story Name"
-#define SELECTED "All"
-#define DISPLAYNAME "Display Name"
-#define CADOBJECTID "CAD Object ID"
+#define TR(s) QCoreApplication::translate("openstudio::FacilityStoriesGridController", s)
+
+#define NAME TR("Story Name")
+#define SELECTED TR("All")
+#define DISPLAYNAME TR("Display Name")
+#define CADOBJECTID TR("CAD Object ID")
 
 // GENERAL
-#define NOMINALZCOORDINATE "Nominal Z Coordinate"
-#define NOMINALFLOORTOFLOORHEIGHT "Nominal Floor to Floor Height"
-#define DEFAULTCONSTRUCTIONSETNAME "Default Construction Set Name"
-#define DEFAULTSCHEDULESETNAME "Default Schedule Set Name"
-#define GROUPRENDERINGNAME "Group Rendering Name"
-#define NOMINALFLOORTOCEILINGHEIGHT "Nominal Floor to Ceiling Height"
+#define NOMINALZCOORDINATE TR("Nominal Z Coordinate")
+#define NOMINALFLOORTOFLOORHEIGHT TR("Nominal Floor to Floor Height")
+#define DEFAULTCONSTRUCTIONSETNAME TR("Default Construction Set Name")
+#define DEFAULTSCHEDULESETNAME TR("Default Schedule Set Name")
+#define GROUPRENDERINGNAME TR("Group Rendering Name")
+#define NOMINALFLOORTOCEILINGHEIGHT TR("Nominal Floor to Ceiling Height")
 
 // FILTERS
-#define NOMINALZCOORDINATEGREATERTHAN "Nominal Z Coordinate >"
-#define NOMINALZCOORDINATELESSTHAN "Nominal Z Coordinate <"
+#define NOMINALZCOORDINATEGREATERTHAN TR("Nominal Z Coordinate >")
+#define NOMINALZCOORDINATELESSTHAN TR("Nominal Z Coordinate <")
 
 namespace openstudio {
 
@@ -70,8 +73,8 @@ FacilityStoriesGridView::FacilityStoriesGridView(bool isIP, bool displayAddition
   std::sort(modelObjects.begin(), modelObjects.end(), openstudio::WorkspaceObjectNameLess());
 
   m_gridController =
-    new FacilityStoriesGridController(isIP, displayAdditionalProps, "Building Stories", IddObjectType::OS_BuildingStory, model, modelObjects);
-  m_gridView = new OSGridView(m_gridController, "Building Stories", "Drop\nStory", false, parent);
+    new FacilityStoriesGridController(isIP, displayAdditionalProps, tr("Building Stories"), IddObjectType::OS_BuildingStory, model, modelObjects);
+  m_gridView = new OSGridView(m_gridController, tr("Building Stories"), tr("Drop\nStory"), false, parent);
 
   setGridController(m_gridController);
   setGridView(m_gridView);
@@ -87,7 +90,7 @@ FacilityStoriesGridView::FacilityStoriesGridView(bool isIP, bool displayAddition
   filterGridLayout->setSpacing(5);
 
   label = new QLabel();
-  label->setText("Filters:");
+  label->setText(tr("Filters:"));
   label->setObjectName("H2");
   filterGridLayout->addWidget(label, filterGridLayout->rowCount(), filterGridLayout->columnCount(), Qt::AlignTop | Qt::AlignLeft);
 
@@ -233,7 +236,7 @@ void FacilityStoriesGridController::setCategoriesAndFields() {
       GROUPRENDERINGNAME,          NOMINALZCOORDINATE,         NOMINALFLOORTOFLOORHEIGHT,
       NOMINALFLOORTOCEILINGHEIGHT, DEFAULTCONSTRUCTIONSETNAME, DEFAULTSCHEDULESETNAME,
     };
-    std::pair<QString, std::vector<QString>> categoryAndFields = std::make_pair(QString("General"), fields);
+    std::pair<QString, std::vector<QString>> categoryAndFields = std::make_pair(TR("General"), fields);
     addCategoryAndFields(categoryAndFields);
   }
 

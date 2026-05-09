@@ -44,52 +44,55 @@
 
 #include <QBoxLayout>
 #include <QCheckBox>
+#include <QCoreApplication>
 #include <QLabel>
 #include <QScrollArea>
 #include <QStackedWidget>
 #include <QSettings>
 #include <QTimer>
 
+#define TR(s) QCoreApplication::translate("openstudio::ThermalZonesGridController", s)
+
 // These defines provide a common area for field display names
 // used on column headers, and other grid widgets
 
-#define NAME "Name"
-#define SELECTED "All"
-#define DISPLAYNAME "Display Name"
-#define CADOBJECTID "CAD Object ID"
+#define NAME TR("Name")
+#define SELECTED TR("All")
+#define DISPLAYNAME TR("Display Name")
+#define CADOBJECTID TR("CAD Object ID")
 
 //HVAC SYSTEMS
-#define RENDERINGCOLOR "Rendering Color"
-#define IDEALAIRLOADS "Turn On\nIdeal\nAir Loads"
-#define AIRLOOPNAME "Air Loop Name"
-#define ZONEEQUIPMENT "Zone Equipment"
-#define COOLINGTHERMOSTATSCHEDULE "Cooling Thermostat\nSchedule"
-#define HEATINGTHERMOSTATSCHEDULE "Heating Thermostat\nSchedule"
-#define HUMIDIFYINGSETPOINTSCHEDULE "Humidifying Setpoint\nSchedule"
-#define DEHUMIDIFYINGSETPOINTSCHEDULE "Dehumidifying Setpoint\nSchedule"
-#define MULTIPLIER "Multiplier"
+#define RENDERINGCOLOR TR("Rendering Color")
+#define IDEALAIRLOADS TR("Turn On\nIdeal\nAir Loads")
+#define AIRLOOPNAME TR("Air Loop Name")
+#define ZONEEQUIPMENT TR("Zone Equipment")
+#define COOLINGTHERMOSTATSCHEDULE TR("Cooling Thermostat\nSchedule")
+#define HEATINGTHERMOSTATSCHEDULE TR("Heating Thermostat\nSchedule")
+#define HUMIDIFYINGSETPOINTSCHEDULE TR("Humidifying Setpoint\nSchedule")
+#define DEHUMIDIFYINGSETPOINTSCHEDULE TR("Dehumidifying Setpoint\nSchedule")
+#define MULTIPLIER TR("Multiplier")
 
 //COOLING SIZING PARAMETERS
-#define ZONECOOLINGDESIGNSUPPLYAIRTEMPERATURE "Zone Cooling\nDesign Supply\nAir Temperature"
-#define ZONECOOLINGDESIGNSUPPLYAIRHUMIDITYRATIO "Zone Cooling\nDesign Supply\nAir Humidity Ratio"
-#define ZONECOOLINGSIZINGFACTOR "Zone Cooling\nSizing Factor"
-#define COOLINGMINIMUMAIRFLOWPERZONEFLOORAREA "Cooling Minimum Air\nFlow per Zone\nFloor Area"
-#define DESIGNZONEAIRDISTRIBUTIONEFFECTIVENESSINCOOLINGMODE "Design Zone Air\nDistribution Effectiveness\nin Cooling Mode"
-#define COOLINGMINIMUMAIRFLOWFRACTION "Cooling Minimum\nAir Flow Fraction"
-#define COOLINGDESIGNAIRFLOWMETHOD "Cooling Design\nAir Flow Method"
-#define COOLINGDESIGNAIRFLOWRATE "Cooling Design\nAir Flow Rate"
-#define COOLINGMINIMUMAIRFLOW "Cooling Minimum\nAir Flow"
+#define ZONECOOLINGDESIGNSUPPLYAIRTEMPERATURE TR("Zone Cooling\nDesign Supply\nAir Temperature")
+#define ZONECOOLINGDESIGNSUPPLYAIRHUMIDITYRATIO TR("Zone Cooling\nDesign Supply\nAir Humidity Ratio")
+#define ZONECOOLINGSIZINGFACTOR TR("Zone Cooling\nSizing Factor")
+#define COOLINGMINIMUMAIRFLOWPERZONEFLOORAREA TR("Cooling Minimum Air\nFlow per Zone\nFloor Area")
+#define DESIGNZONEAIRDISTRIBUTIONEFFECTIVENESSINCOOLINGMODE TR("Design Zone Air\nDistribution Effectiveness\nin Cooling Mode")
+#define COOLINGMINIMUMAIRFLOWFRACTION TR("Cooling Minimum\nAir Flow Fraction")
+#define COOLINGDESIGNAIRFLOWMETHOD TR("Cooling Design\nAir Flow Method")
+#define COOLINGDESIGNAIRFLOWRATE TR("Cooling Design\nAir Flow Rate")
+#define COOLINGMINIMUMAIRFLOW TR("Cooling Minimum\nAir Flow")
 
 //HEATING SIZING PARAMETERS
-#define ZONEHEATINGDESIGNSUPPLYAIRTEMPERATURE "Zone Heating\nDesign Supply\nAir Temperature"
-#define ZONEHEATINGDESIGNSUPPLYAIRHUMIDITYRATIO "Zone Heating\nDesign Supply\nAir Humidity Ratio"
-#define ZONEHEATINGSIZINGFACTOR "Zone Heating\nSizing Factor"
-#define HEATINGMAXIMUMAIRFLOWPERZONEFLOORAREA "Heating Maximum Air\nFlow per Zone\nFloor Area"
-#define DESIGNZONEAIRDISTRIBUTIONEFFECTIVENESSINHEATINGMODE "Design Zone Air\nDistribution Effectiveness\nin Heating Mode"
-#define HEATINGMAXIMUMAIRFLOWFRACTION "Heating Maximum\nAir Flow Fraction"
-#define HEATINGDESIGNAIRFLOWMETHOD "Heating Design\nAir Flow Method"
-#define HEATINGDESIGNAIRFLOWRATE "Heating Design\nAir Flow Rate"
-#define HEATINGMAXIMUMAIRFLOW "Heating Maximum\nAir Flow"
+#define ZONEHEATINGDESIGNSUPPLYAIRTEMPERATURE TR("Zone Heating\nDesign Supply\nAir Temperature")
+#define ZONEHEATINGDESIGNSUPPLYAIRHUMIDITYRATIO TR("Zone Heating\nDesign Supply\nAir Humidity Ratio")
+#define ZONEHEATINGSIZINGFACTOR TR("Zone Heating\nSizing Factor")
+#define HEATINGMAXIMUMAIRFLOWPERZONEFLOORAREA TR("Heating Maximum Air\nFlow per Zone\nFloor Area")
+#define DESIGNZONEAIRDISTRIBUTIONEFFECTIVENESSINHEATINGMODE TR("Design Zone Air\nDistribution Effectiveness\nin Heating Mode")
+#define HEATINGMAXIMUMAIRFLOWFRACTION TR("Heating Maximum\nAir Flow Fraction")
+#define HEATINGDESIGNAIRFLOWMETHOD TR("Heating Design\nAir Flow Method")
+#define HEATINGDESIGNAIRFLOWRATE TR("Heating Design\nAir Flow Rate")
+#define HEATINGMAXIMUMAIRFLOW TR("Heating Maximum\nAir Flow")
 
 namespace openstudio {
 
@@ -106,8 +109,8 @@ ThermalZonesGridView::ThermalZonesGridView(bool isIP, bool displayAdditionalProp
   std::vector<model::ModelObject> thermalZoneModelObjects = subsetCastVector<model::ModelObject>(thermalZones);
 
   m_gridController =
-    new ThermalZonesGridController(m_isIP, m_displayAdditionalProps, "Thermal Zones", IddObjectType::OS_ThermalZone, model, thermalZoneModelObjects);
-  auto* gridView = new OSGridView(m_gridController, "Thermal Zones", "Drop\nZone", false, parent);
+    new ThermalZonesGridController(m_isIP, m_displayAdditionalProps, tr("Thermal Zones"), IddObjectType::OS_ThermalZone, model, thermalZoneModelObjects);
+  auto* gridView = new OSGridView(m_gridController, tr("Thermal Zones"), tr("Drop\nZone"), false, parent);
 
   connect(gridView, &OSGridView::dropZoneItemClicked, this, &ThermalZonesGridView::dropZoneItemClicked);
 
@@ -156,7 +159,7 @@ void ThermalZonesGridController::setCategoriesAndFields() {
       DEHUMIDIFYINGSETPOINTSCHEDULE,
       MULTIPLIER,
     };
-    std::pair<QString, std::vector<QString>> categoryAndFields = std::make_pair(QString("HVAC\nSystems"), fields);
+    std::pair<QString, std::vector<QString>> categoryAndFields = std::make_pair(TR("HVAC\nSystems"), fields);
     addCategoryAndFields(categoryAndFields);
   }
 
@@ -172,7 +175,7 @@ void ThermalZonesGridController::setCategoriesAndFields() {
       COOLINGDESIGNAIRFLOWRATE,
       COOLINGMINIMUMAIRFLOW,
     };
-    std::pair<QString, std::vector<QString>> categoryAndFields = std::make_pair(QString("Cooling\nSizing\nParameters"), fields);
+    std::pair<QString, std::vector<QString>> categoryAndFields = std::make_pair(TR("Cooling\nSizing\nParameters"), fields);
     addCategoryAndFields(categoryAndFields);
   }
 
@@ -188,7 +191,7 @@ void ThermalZonesGridController::setCategoriesAndFields() {
       HEATINGDESIGNAIRFLOWRATE,
       HEATINGMAXIMUMAIRFLOW,
     };
-    std::pair<QString, std::vector<QString>> categoryAndFields = std::make_pair(QString("Heating\nSizing\nParameters"), fields);
+    std::pair<QString, std::vector<QString>> categoryAndFields = std::make_pair(TR("Heating\nSizing\nParameters"), fields);
     addCategoryAndFields(categoryAndFields);
   }
 

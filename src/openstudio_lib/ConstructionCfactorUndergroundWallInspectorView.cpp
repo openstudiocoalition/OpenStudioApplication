@@ -1,4 +1,4 @@
-/***********************************************************************************************************************
+﻿/***********************************************************************************************************************
 *  OpenStudio(R), Copyright (c) OpenStudio Coalition and other contributors.
 *  See also https://openstudiocoalition.org/about/software_license/
 ***********************************************************************************************************************/
@@ -53,7 +53,7 @@ void ConstructionCfactorUndergroundWallInspectorView::createLayout() {
 
   // Name
 
-  label = new QLabel("Name: ");
+  label = new QLabel(tr("Name: "));
   label->setObjectName("H2");
   mainGridLayout->addWidget(label, row, 0);
 
@@ -74,7 +74,7 @@ void ConstructionCfactorUndergroundWallInspectorView::createLayout() {
 
   // C-Factor
 
-  label = new QLabel("C-Factor: ");
+  label = new QLabel(tr("C-Factor: "));
   label->setObjectName("H2");
   mainGridLayout->addWidget(label, row, 0);
 
@@ -88,7 +88,7 @@ void ConstructionCfactorUndergroundWallInspectorView::createLayout() {
 
   // Height
 
-  label = new QLabel("Height: ");
+  label = new QLabel(tr("Height: "));
   label->setObjectName("H2");
   mainGridLayout->addWidget(label, row, 0);
 

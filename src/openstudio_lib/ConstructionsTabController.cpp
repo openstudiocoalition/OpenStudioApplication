@@ -18,10 +18,10 @@
 namespace openstudio {
 
 ConstructionsTabController::ConstructionsTabController(bool isIP, const model::Model& model)
-  : MainTabController(new ConstructionsTabView(model, "Constructions")), m_model(model), m_isIP(isIP) {
-  this->mainContentWidget()->addSubTab("Construction Sets", DEFAULT_CONSTRUCTIONS);
-  this->mainContentWidget()->addSubTab("Constructions", CONSTRUCTIONS);
-  this->mainContentWidget()->addSubTab("Materials", MATERIALS);
+  : MainTabController(new ConstructionsTabView(model, tr("Constructions"))), m_model(model), m_isIP(isIP) {
+  this->mainContentWidget()->addSubTab(tr("Construction Sets"), DEFAULT_CONSTRUCTIONS);
+  this->mainContentWidget()->addSubTab(tr("Constructions"), CONSTRUCTIONS);
+  this->mainContentWidget()->addSubTab(tr("Materials"), MATERIALS);
 
   connect(this->mainContentWidget(), &MainTabView::tabSelected, this, &ConstructionsTabController::setSubTab);
   connect(this, &ConstructionsTabController::toggleUnitsClicked, this, &ConstructionsTabController::toggleUnits);

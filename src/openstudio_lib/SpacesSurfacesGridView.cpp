@@ -28,24 +28,27 @@
 #include <openstudio/utilities/idd/OS_Space_FieldEnums.hxx>
 
 #include <QCheckBox>
+#include <QCoreApplication>
+
+#define TR(s) QCoreApplication::translate("openstudio::SpacesSurfacesGridController", s)
 
 // These defines provide a common area for field display names
 // used on column headers, and other grid widgets
 
-#define NAME "Space Name"
-#define SELECTED "All"
-#define DISPLAYNAME "Display Name"
-#define CADOBJECTID "CAD Object ID"
+#define NAME TR("Space Name")
+#define SELECTED TR("All")
+#define DISPLAYNAME TR("Display Name")
+#define CADOBJECTID TR("CAD Object ID")
 
 // GENERAL
-#define SURFACENAME "Surface Name"
-#define SURFACETYPE "Surface Type"
-#define CONSTRUCTION "Construction"
-#define OUTSIDEBOUNDARYCONDITION "Outside Boundary Condition"               // Dan note: cannot chose Surface if not already surface
-#define OUTSIDEBOUNDARYCONDITIONOBJECT "Outside Boundary Condition Object"  // read only
-#define SUNEXPOSURE "Sun Exposure"
-#define WINDEXPOSURE "Wind Exposure"
-#define SHADINGSURFACENAME "Shading Surface Name"  // read only
+#define SURFACENAME TR("Surface Name")
+#define SURFACETYPE TR("Surface Type")
+#define CONSTRUCTION TR("Construction")
+#define OUTSIDEBOUNDARYCONDITION TR("Outside Boundary Condition")               // Dan note: cannot chose Surface if not already surface
+#define OUTSIDEBOUNDARYCONDITIONOBJECT TR("Outside Boundary Condition Object")  // read only
+#define SUNEXPOSURE TR("Sun Exposure")
+#define WINDEXPOSURE TR("Wind Exposure")
+#define SHADINGSURFACENAME TR("Shading Surface Name")  // read only
 
 namespace openstudio {
 
@@ -62,8 +65,8 @@ SpacesSurfacesGridView::SpacesSurfacesGridView(bool isIP, bool displayAdditional
   m_filterGridLayout->setRowStretch(m_filterGridLayout->rowCount(), 100);
   m_filterGridLayout->setColumnStretch(m_filterGridLayout->columnCount(), 100);
 
-  m_gridController = new SpacesSurfacesGridController(isIP, displayAdditionalProps, "Space", IddObjectType::OS_Space, model, m_spacesModelObjects);
-  m_gridView = new OSGridView(m_gridController, "Space", "Drop\nSpace", false, parent);
+  m_gridController = new SpacesSurfacesGridController(isIP, displayAdditionalProps, tr("Space"), IddObjectType::OS_Space, model, m_spacesModelObjects);
+  m_gridView = new OSGridView(m_gridController, tr("Space"), tr("Drop\nSpace"), false, parent);
 
   setGridController(m_gridController);
   setGridView(m_gridView);
@@ -106,7 +109,7 @@ void SpacesSurfacesGridController::setCategoriesAndFields() {
       SURFACENAME, SURFACETYPE, CONSTRUCTION, OUTSIDEBOUNDARYCONDITION, OUTSIDEBOUNDARYCONDITIONOBJECT, SUNEXPOSURE, WINDEXPOSURE,
       //SHADINGSURFACENAME, // UNDESIRABLE TO SHOW THIS VECTOR IN THIS VIEW
     };
-    std::pair<QString, std::vector<QString>> categoryAndFields = std::make_pair(QString("General"), fields);
+    std::pair<QString, std::vector<QString>> categoryAndFields = std::make_pair(TR("General"), fields);
     addCategoryAndFields(categoryAndFields);
   }
 

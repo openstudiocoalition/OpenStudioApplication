@@ -1392,11 +1392,11 @@ void DaySchedulePlotArea::updateKeyboardPrompt() {
       //}
 
     } else if (dynamic_cast<VCalendarSegmentItem*>(m_currentHoverItem)) {
-      result = "Drag vertical line to adjust";
+      result = tr("Drag vertical line to adjust");
     }
 
   } else {
-    result = "Mouse over horizontal line to set value";
+    result = tr("Mouse over horizontal line to set value");
   }
 
   emit keyboardPromptChanged(result);

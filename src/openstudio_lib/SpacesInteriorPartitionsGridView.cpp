@@ -30,22 +30,25 @@
 #include <openstudio/utilities/idd/OS_Space_FieldEnums.hxx>
 
 #include <QCheckBox>
+#include <QCoreApplication>
+
+#define TR(s) QCoreApplication::translate("openstudio::SpacesInteriorPartitionsGridController", s)
 
 // These defines provide a common area for field display names
 // used on column headers, and other grid widgets
 
-#define NAME "Space Name"
-#define SELECTED "All"
-#define DISPLAYNAME "Display Name"
-#define CADOBJECTID "CAD Object ID"
+#define NAME TR("Space Name")
+#define SELECTED TR("All")
+#define DISPLAYNAME TR("Display Name")
+#define CADOBJECTID TR("CAD Object ID")
 
 // GENERAL
-#define INTERIORPARTITIONGROUPNAME "Interior Partition Group Name"  // read only
-#define INTERIORPARTITIONNAME "Interior Partition Name"
-#define CONSTRUCTIONNAME "Construction Name"
-#define CONVERTTOINTERNALMASS "Convert to Internal Mass"
-#define SURFACEAREA "Surface Area"
-#define DAYLIGHTINGSHELFNAME "Daylighting Shelf Name"  // read only
+#define INTERIORPARTITIONGROUPNAME TR("Interior Partition Group Name")  // read only
+#define INTERIORPARTITIONNAME TR("Interior Partition Name")
+#define CONSTRUCTIONNAME TR("Construction Name")
+#define CONVERTTOINTERNALMASS TR("Convert to Internal Mass")
+#define SURFACEAREA TR("Surface Area")
+#define DAYLIGHTINGSHELFNAME TR("Daylighting Shelf Name")  // read only
 
 namespace openstudio {
 
@@ -60,8 +63,8 @@ SpacesInteriorPartitionsGridView::SpacesInteriorPartitionsGridView(bool isIP, bo
   m_filterGridLayout->setColumnStretch(m_filterGridLayout->columnCount(), 100);
 
   m_gridController =
-    new SpacesInteriorPartitionsGridController(isIP, displayAdditionalProps, "Space", IddObjectType::OS_Space, model, m_spacesModelObjects);
-  m_gridView = new OSGridView(m_gridController, "Space", "Drop\nSpace", false, parent);
+    new SpacesInteriorPartitionsGridController(isIP, displayAdditionalProps, tr("Space"), IddObjectType::OS_Space, model, m_spacesModelObjects);
+  m_gridView = new OSGridView(m_gridController, tr("Space"), tr("Drop\nSpace"), false, parent);
 
   setGridController(m_gridController);
   setGridView(m_gridView);
@@ -105,7 +108,7 @@ void SpacesInteriorPartitionsGridController::setCategoriesAndFields() {
       //SURFACEAREA,
       //DAYLIGHTINGSHELFNAME,
     };
-    std::pair<QString, std::vector<QString>> categoryAndFields = std::make_pair(QString("General"), fields);
+    std::pair<QString, std::vector<QString>> categoryAndFields = std::make_pair(TR("General"), fields);
     addCategoryAndFields(categoryAndFields);
   }
 

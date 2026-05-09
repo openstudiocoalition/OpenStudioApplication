@@ -7,6 +7,6 @@
 
 namespace openstudio {
 
-SpaceTypesTabView::SpaceTypesTabView(QWidget* parent) : MainTabView("Space Types", MainTabView::MAIN_TAB, parent) {}
+SpaceTypesTabView::SpaceTypesTabView(QWidget* parent) : MainTabView(tr("Space Types"), MainTabView::MAIN_TAB, parent) {}
 
 }  // namespace openstudio

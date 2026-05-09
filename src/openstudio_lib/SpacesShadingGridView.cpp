@@ -32,21 +32,24 @@
 #include <openstudio/utilities/idd/OS_Space_FieldEnums.hxx>
 
 #include <QCheckBox>
+#include <QCoreApplication>
+
+#define TR(s) QCoreApplication::translate("openstudio::SpacesShadingGridController", s)
 
 // These defines provide a common area for field display names
 // used on column headers, and other grid widgets
 
-#define NAME "Space Name"
-#define SELECTED "All"
-#define DISPLAYNAME "Display Name"
-#define CADOBJECTID "CAD Object ID"
+#define NAME TR("Space Name")
+#define SELECTED TR("All")
+#define DISPLAYNAME TR("Display Name")
+#define CADOBJECTID TR("CAD Object ID")
 
 // GENERAL
-#define SHADINGSURFACEGROUP "Shading Surface Group"  // read only
-#define CONSTRUCTION "Construction"
-#define TRANSMITTANCESCHEDULE "Transmittance Schedule"
-#define SHADEDSURFACENAME "Shading Surface Name"       // DAN note: need model method for suggestions
-#define DAYLIGHTINGSHELFNAME "Daylighting Shelf Name"  // read only
+#define SHADINGSURFACEGROUP TR("Shading Surface Group")  // read only
+#define CONSTRUCTION TR("Construction")
+#define TRANSMITTANCESCHEDULE TR("Transmittance Schedule")
+#define SHADEDSURFACENAME TR("Shading Surface Name")       // DAN note: need model method for suggestions
+#define DAYLIGHTINGSHELFNAME TR("Daylighting Shelf Name")  // read only
 
 namespace openstudio {
 
@@ -60,8 +63,8 @@ SpacesShadingGridView::SpacesShadingGridView(bool isIP, bool displayAdditionalPr
   m_filterGridLayout->setRowStretch(m_filterGridLayout->rowCount(), 100);
   m_filterGridLayout->setColumnStretch(m_filterGridLayout->columnCount(), 100);
 
-  m_gridController = new SpacesShadingGridController(isIP, displayAdditionalProps, "Space", IddObjectType::OS_Space, model, m_spacesModelObjects);
-  m_gridView = new OSGridView(m_gridController, "Space", "Drop\nSpace", false, parent);
+  m_gridController = new SpacesShadingGridController(isIP, displayAdditionalProps, tr("Space"), IddObjectType::OS_Space, model, m_spacesModelObjects);
+  m_gridView = new OSGridView(m_gridController, tr("Space"), tr("Drop\nSpace"), false, parent);
 
   setGridController(m_gridController);
   setGridView(m_gridView);
@@ -104,7 +107,7 @@ void SpacesShadingGridController::setCategoriesAndFields() {
       SHADEDSURFACENAME, SHADINGSURFACEGROUP, CONSTRUCTION, TRANSMITTANCESCHEDULE,
       //DAYLIGHTINGSHELFNAME,
     };
-    std::pair<QString, std::vector<QString>> categoryAndFields = std::make_pair(QString("General"), fields);
+    std::pair<QString, std::vector<QString>> categoryAndFields = std::make_pair(TR("General"), fields);
     addCategoryAndFields(categoryAndFields);
   }
 

@@ -90,47 +90,49 @@
 #include <QBoxLayout>
 #include <QCheckBox>
 #include <QComboBox>
+#include <QCoreApplication>
 #include <QLabel>
 
 // These defines provide a common area for field display names
 // used on column headers, and other grid widgets
 
-#define NAME "Space Type Name"
-#define SELECTED "All"
+#define TR(s) QCoreApplication::translate("openstudio::SpaceTypesGridController", s)
+#define NAME TR("Space Type Name")
+#define SELECTED TR("All")
 
 // GENERAL
-#define RENDERINGCOLOR "Rendering Color"
-#define DEFAULTCONSTRUCTIONSET "Default Construction Set"
-#define DEFAULTSCHEDULESET "Default Schedule Set"
-#define DESIGNSPECIFICATIONOUTDOORAIR "Design Specification Outdoor Air"
-#define SPACEINFILTRATIONDESIGNFLOWRATES "Space Infiltration Design Flow Rates"
-#define SPACEINFILTRATIONEFFECTIVELEAKAGEAREAS "Space Infiltration Effective Leakage Areas"
+#define RENDERINGCOLOR TR("Rendering Color")
+#define DEFAULTCONSTRUCTIONSET TR("Default Construction Set")
+#define DEFAULTSCHEDULESET TR("Default Schedule Set")
+#define DESIGNSPECIFICATIONOUTDOORAIR TR("Design Specification Outdoor Air")
+#define SPACEINFILTRATIONDESIGNFLOWRATES TR("Space Infiltration Design Flow Rates")
+#define SPACEINFILTRATIONEFFECTIVELEAKAGEAREAS TR("Space Infiltration Effective Leakage Areas")
 
 // LOADS
-#define LOADNAME "Load Name"
-#define MULTIPLIER "Multiplier"
-#define DEFINITION "Definition"
-#define SCHEDULE "Schedule"
-#define ACTIVITYSCHEDULE "Activity Schedule\n(People Only)"
+#define LOADNAME TR("Load Name")
+#define MULTIPLIER TR("Multiplier")
+#define DEFINITION TR("Definition")
+#define SCHEDULE TR("Schedule")
+#define ACTIVITYSCHEDULE TR("Activity Schedule\n(People Only)")
 
 // MEASURE TAGS
-#define STANDARDSTEMPLATE "Standards Template (Optional)"
-#define STANDARDSBUILDINGTYPE "Standards Building Type\n(Optional)"
-#define STANDARDSSPACETYPE "Standards Space Type\n(Optional)"
+#define STANDARDSTEMPLATE TR("Standards Template (Optional)")
+#define STANDARDSBUILDINGTYPE TR("Standards Building Type\n(Optional)")
+#define STANDARDSSPACETYPE TR("Standards Space Type\n(Optional)")
 
 // LOAD TYPES
-#define SHOWALLLOADS "Show all loads"
-#define INTERNALMASS "Internal Mass"
-#define PEOPLE "People"
-#define LIGHTS "Lights"
-#define LUMINAIRE "Luminaire"
-#define ELECTRICEQUIPMENT "Electric Equipment"
-#define GASEQUIPMENT "Gas Equipment"
-#define HOTWATEREQUIPMENT "Hot Water Equipment"
-#define STEAMEQUIPMENT "Steam Equipment"
-#define OTHEREQUIPMENT "Other Equipment"
-#define SPACEINFILTRATIONDESIGNFLOWRATE "Space Infiltration Design Flow Rate"
-#define SPACEINFILTRATIONEFFECTIVELEAKAGEAREA "Space Infiltration Effective Leakage Area"
+#define SHOWALLLOADS TR("Show all loads")
+#define INTERNALMASS TR("Internal Mass")
+#define PEOPLE TR("People")
+#define LIGHTS TR("Lights")
+#define LUMINAIRE TR("Luminaire")
+#define ELECTRICEQUIPMENT TR("Electric Equipment")
+#define GASEQUIPMENT TR("Gas Equipment")
+#define HOTWATEREQUIPMENT TR("Hot Water Equipment")
+#define STEAMEQUIPMENT TR("Steam Equipment")
+#define OTHEREQUIPMENT TR("Other Equipment")
+#define SPACEINFILTRATIONDESIGNFLOWRATE TR("Space Infiltration Design Flow Rate")
+#define SPACEINFILTRATIONEFFECTIVELEAKAGEAREA TR("Space Infiltration Effective Leakage Area")
 
 namespace openstudio {
 
@@ -143,8 +145,8 @@ SpaceTypesGridView::SpaceTypesGridView(bool isIP, const model::Model& model, QWi
   auto spaceTypes = model.getConcreteModelObjects<model::SpaceType>();
   auto spaceTypeModelObjects = subsetCastVector<model::ModelObject>(spaceTypes);
 
-  m_gridController = new SpaceTypesGridController(m_isIP, "Space Types", IddObjectType::OS_SpaceType, model, spaceTypeModelObjects);
-  auto* gridView = new OSGridView(m_gridController, "Space Types", "Drop\nSpace Type", false, parent);
+  m_gridController = new SpaceTypesGridController(m_isIP, tr("Space Types"), IddObjectType::OS_SpaceType, model, spaceTypeModelObjects);
+  auto* gridView = new OSGridView(m_gridController, tr("Space Types"), tr("Drop\nSpace Type"), false, parent);
 
   // Load Filter
 
@@ -157,14 +159,14 @@ SpaceTypesGridView::SpaceTypesGridView(bool isIP, const model::Model& model, QWi
   filterGridLayout->setSpacing(5);
 
   label = new QLabel();
-  label->setText("Filter:");
+  label->setText(tr("Filter:"));
   label->setObjectName("H2");
   filterGridLayout->addWidget(label, filterGridLayout->rowCount(), 0, Qt::AlignTop | Qt::AlignLeft);
 
   layout = new QVBoxLayout();
 
   m_filterLabel = new QLabel();
-  m_filterLabel->setText("Load Type");
+  m_filterLabel->setText(tr("Load Type"));
   m_filterLabel->setObjectName("H3");
   layout->addWidget(m_filterLabel, Qt::AlignTop | Qt::AlignLeft);
 
@@ -304,7 +306,7 @@ void SpaceTypesGridController::setCategoriesAndFields() {
       SPACEINFILTRATIONDESIGNFLOWRATES,
       SPACEINFILTRATIONEFFECTIVELEAKAGEAREAS,
     };
-    std::pair<QString, std::vector<QString>> categoryAndFields = std::make_pair(QString("General"), fields);
+    std::pair<QString, std::vector<QString>> categoryAndFields = std::make_pair(TR("General"), fields);
     addCategoryAndFields(categoryAndFields);
   }
 
@@ -312,7 +314,7 @@ void SpaceTypesGridController::setCategoriesAndFields() {
     std::vector<QString> fields{
       LOADNAME, MULTIPLIER, DEFINITION, SCHEDULE, ACTIVITYSCHEDULE,
     };
-    std::pair<QString, std::vector<QString>> categoryAndFields = std::make_pair(QString("Loads"), fields);
+    std::pair<QString, std::vector<QString>> categoryAndFields = std::make_pair(TR("Loads"), fields);
     addCategoryAndFields(categoryAndFields);
   }
 
@@ -322,7 +324,7 @@ void SpaceTypesGridController::setCategoriesAndFields() {
       STANDARDSBUILDINGTYPE,
       STANDARDSSPACETYPE,
     };
-    std::pair<QString, std::vector<QString>> categoryAndFields = std::make_pair(QString("Measure\nTags"), fields);
+    std::pair<QString, std::vector<QString>> categoryAndFields = std::make_pair(TR("Measure\nTags"), fields);
     addCategoryAndFields(categoryAndFields);
   }
 
@@ -449,13 +451,13 @@ void SpaceTypesGridController::addColumns(const QString& category, std::vector<Q
 
       addParentNameLineEditColumn(Heading(QString(NAME), false, false), false, getter, setter);
 
-    } else if (field == SELECTED && category != "Loads") {
+    } else if (field == SELECTED && category != TR("Loads")) {
       auto checkbox = QSharedPointer<OSSelectAllCheckBox>(new OSSelectAllCheckBox());
-      checkbox->setToolTip("Check to select all rows");
+      checkbox->setToolTip(tr("Check to select all rows"));
       connect(checkbox.data(), &OSSelectAllCheckBox::checkStateChanged, this, &SpaceTypesGridController::onSelectAllStateChanged);
       connect(this, &SpaceTypesGridController::gridRowSelectionChanged, checkbox.data(), &OSSelectAllCheckBox::onGridRowSelectionChanged);
 
-      addSelectColumn(Heading(QString(SELECTED), false, false, checkbox), "Check to select this row");
+      addSelectColumn(Heading(QString(SELECTED), false, false, checkbox), tr("Check to select this row").toStdString());
     } else if (field == LOADNAME || field == MULTIPLIER || field == DEFINITION || field == SCHEDULE || field == ACTIVITYSCHEDULE
                || field == SELECTED) {
       // Create a lambda function that collates all of the loads in a space type
@@ -1056,7 +1058,7 @@ void SpaceTypesGridController::addColumns(const QString& category, std::vector<Q
 
       } else if (field == SELECTED) {
         auto checkbox = QSharedPointer<OSSelectAllCheckBox>(new OSSelectAllCheckBox());
-        checkbox->setToolTip("Check to select all rows");
+        checkbox->setToolTip(tr("Check to select all rows"));
         connect(checkbox.data(), &OSSelectAllCheckBox::checkStateChanged, this, &SpaceTypesGridController::onSelectAllStateChanged);
         connect(this, &SpaceTypesGridController::gridRowSelectionChanged, checkbox.data(), &OSSelectAllCheckBox::onGridRowSelectionChanged);
         addSelectColumn(Heading(QString(SELECTED), false, false, checkbox), "Check to select this row", DataSource(allLoads, true));

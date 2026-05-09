@@ -1,4 +1,4 @@
-/***********************************************************************************************************************
+﻿/***********************************************************************************************************************
 *  OpenStudio(R), Copyright (c) OpenStudio Coalition and other contributors.
 *  See also https://openstudiocoalition.org/about/software_license/
 ***********************************************************************************************************************/
@@ -64,7 +64,7 @@ void ConstructionInternalSourceInspectorView::createLayout() {
 
   // Name
 
-  label = new QLabel("Name: ");
+  label = new QLabel(tr("Name: "));
   label->setObjectName("H2");
   mainGridLayout->addWidget(label, row, 0);
 
@@ -85,20 +85,20 @@ void ConstructionInternalSourceInspectorView::createLayout() {
 
   // Layer
 
-  label = new QLabel("Layer: ");
+  label = new QLabel(tr("Layer: "));
   label->setObjectName("H2");
   mainGridLayout->addWidget(label, row, 0);
 
   ++row;
 
-  label = new QLabel("Outside");
+  label = new QLabel(tr("Outside"));
   label->setObjectName("H2");
   mainGridLayout->addWidget(label, row, 0);
 
   ++row;
 
   m_constructionVC = new ConstructionObjectVectorController(this);
-  m_constructionDZ = new OSDropZone(m_constructionVC, "Drag From Library", QSize(0, 0), false);
+  m_constructionDZ = new OSDropZone(m_constructionVC, tr("Drag From Library"), QSize(0, 0), false);
   m_constructionDZ->setMinItems(0);
   m_constructionDZ->setMaxItems(16);
   m_constructionDZ->setItemsAcceptDrops(true);
@@ -107,7 +107,7 @@ void ConstructionInternalSourceInspectorView::createLayout() {
 
   ++row;
 
-  label = new QLabel("Inside");
+  label = new QLabel(tr("Inside"));
   label->setObjectName("H2");
   mainGridLayout->addWidget(label, row, 0);
 
@@ -115,7 +115,7 @@ void ConstructionInternalSourceInspectorView::createLayout() {
 
   // Source Present After Layer
 
-  label = new QLabel("Source Present After Layer: ");
+  label = new QLabel(tr("Source Present After Layer: "));
   label->setObjectName("H2");
   mainGridLayout->addWidget(label, row, 0);
 
@@ -128,7 +128,7 @@ void ConstructionInternalSourceInspectorView::createLayout() {
 
   // Temperature Calculation Requested After Layer Number
 
-  label = new QLabel("Temperature Calculation Requested After Layer Number: ");
+  label = new QLabel(tr("Temperature Calculation Requested After Layer Number: "));
   label->setObjectName("H2");
   mainGridLayout->addWidget(label, row, 0, 1, 3);
 
@@ -141,7 +141,7 @@ void ConstructionInternalSourceInspectorView::createLayout() {
 
   // Dimensions for the CTF Calculation
 
-  label = new QLabel("Dimensions for the CTF Calculation: ");
+  label = new QLabel(tr("Dimensions for the CTF Calculation: "));
   label->setObjectName("H2");
   mainGridLayout->addWidget(label, row, 0, 1, 3);
 
@@ -154,7 +154,7 @@ void ConstructionInternalSourceInspectorView::createLayout() {
 
   // Tube Spacing
 
-  label = new QLabel("Tube Spacing: ");
+  label = new QLabel(tr("Tube Spacing: "));
   label->setObjectName("H2");
   mainGridLayout->addWidget(label, row, 0);
 

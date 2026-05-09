@@ -115,11 +115,11 @@ VRFSystemView::VRFSystemView()
 
   terminalDropZone->setParentItem(this);
   terminalDropZone->setSize(terminalDropZoneWidth, dropZoneHeight);
-  terminalDropZone->setText("Drop VRF Terminal");
+  terminalDropZone->setText(tr("Drop VRF Terminal"));
 
   zoneDropZone->setParentItem(this);
   zoneDropZone->setSize(zoneDropZoneWidth, dropZoneHeight);
-  zoneDropZone->setText("Drop Thermal Zone");
+  zoneDropZone->setText(tr("Drop Thermal Zone"));
 
   adjustLayout();
 }
@@ -467,7 +467,7 @@ void VRFSystemDropZoneView::paint(QPainter* painter, const QStyleOptionGraphicsI
   font.setPixelSize(24);
   painter->setFont(font);
   painter->setPen(QPen(QColor(109, 109, 109), 2, Qt::DashLine, Qt::RoundCap));
-  painter->drawText(boundingRect(), Qt::AlignCenter | Qt::TextWordWrap, "Drop VRF System");
+  painter->drawText(boundingRect(), Qt::AlignCenter | Qt::TextWordWrap, tr("Drop VRF System"));
 }
 
 }  // namespace openstudio
