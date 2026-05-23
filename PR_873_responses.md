@@ -38,7 +38,14 @@ Status of each review comment thread. Update this file as items change.
 
 ## macumber — `.ts` file comment ("need github actions to detect vanished or unfinished strings")
 
-> Agreed — will open a separate PR for this.
+> Done — added `.github/workflows/translation_check.yml` (commit 7e3be47b).
+>
+> The workflow runs on every PR and push to master/develop. It:
+> 1. Installs Qt6 `lupdate` and runs it against all 18 `.ts` files with `-locations none` (suppresses line-number churn)
+> 2. Runs `git diff translations/` — if lupdate changed any file, strings have drifted
+> 3. `ci/check_translations.py` classifies the diff: new `type="unfinished"` stubs (new `tr()` calls needing translation) vs `type="obsolete"` entries (removed `tr()` calls), and prints actionable fix instructions
+>
+> Using `git diff` rather than inspecting raw file content means the check is sensitive only to *new* drift, not pre-existing empty entries — so CI passes today and only fails when someone adds/removes a `tr()` call without updating translations.
 
 ---
 
