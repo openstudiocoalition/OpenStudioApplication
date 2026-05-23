@@ -1432,7 +1432,7 @@ void EditorWebView::previewExport() {
       errorsAndWarnings += QString::fromStdString(warning.logMessage() + "\n");
     }
     if (!errorsAndWarnings.isEmpty()) {
-      QMessageBox::warning(this, "Merging Models", errorsAndWarnings);
+      QMessageBox::warning(this, tr("Merging Models"), errorsAndWarnings);
     }
 
     // do not update floorplan since this is not a real merge
@@ -1484,7 +1484,7 @@ void EditorWebView::mergeExport() {
       errorsAndWarnings += QString::fromStdString(warning.logMessage() + "\n");
     }
     if (!errorsAndWarnings.isEmpty()) {
-      QMessageBox::warning(this, "Merging Models", errorsAndWarnings);
+      QMessageBox::warning(this, tr("Merging Models"), errorsAndWarnings);
     } else {
       // DLM: print out a better report
       QMessageBox::information(this, tr("Merging Models"), tr("Models Merged"));
