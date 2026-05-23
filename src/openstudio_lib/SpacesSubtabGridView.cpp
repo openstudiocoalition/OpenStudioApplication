@@ -66,38 +66,7 @@
 #include <QLabel>
 #include <QLineEdit>
 
-#define TR(s) QCoreApplication::translate("openstudio::SpacesSubtabGridView", s)
-
-// FILTERS
-#define STORY TR("Story")
-#define THERMALZONE TR("Thermal Zone")
-#define THERMALZONENAME TR("Thermal Zone Name")
-#define SPACETYPE TR("Space Type")
-#define SUBSURFACETYPE TR("SubSurface Type")
-#define SPACENAME TR("Space Name")
-#define LOADTYPE TR("Load Type")
-#define WINDEXPOSURE TR("Wind Exposure")
-#define SUNEXPOSURE TR("Sun Exposure")
-#define OUTSIDEBOUNDARYCONDITION TR("Outside Boundary Condition")
-#define SURFACETYPE TR("Surface Type")
-#define INTERIORPARTITIONGROUP TR("Interior Partition Group")
-
-#define ALL TR("All")
-#define UNASSIGNED TR("Unassigned")
-
-// LOAD TYPES
-//#define SHOWALLLOADS TR("Show all loads")
-#define INTERNALMASS TR("Internal Mass")
-#define PEOPLE TR("People")
-#define LIGHTS TR("Lights")
-#define LUMINAIRE TR("Luminaire")
-#define ELECTRICEQUIPMENT TR("Electric Equipment")
-#define GASEQUIPMENT TR("Gas Equipment")
-#define HOTWATEREQUIPMENT TR("Hot Water Equipment")
-#define STEAMEQUIPMENT TR("Steam Equipment")
-#define OTHEREQUIPMENT TR("Other Equipment")
-#define SPACEINFILTRATIONDESIGNFLOWRATE TR("Space Infiltration Design Flow Rate")
-#define SPACEINFILTRATIONEFFECTIVELEAKAGEAREA TR("Space Infiltration Effective Leakage Area")
+//#define SHOWALLLOADS tr("Show all loads")
 
 namespace openstudio {
 
@@ -123,7 +92,7 @@ void SpacesSubtabGridView::showStoryFilter() {
   auto* layout = new QVBoxLayout();
 
   auto* label = new QLabel();
-  label->setText(STORY);
+  label->setText(tr("Story"));
   label->setObjectName("H3");
   layout->addWidget(label, Qt::AlignTop | Qt::AlignLeft);
 
@@ -141,7 +110,7 @@ void SpacesSubtabGridView::showThermalZoneFilter() {
   auto* layout = new QVBoxLayout();
 
   auto* label = new QLabel();
-  label->setText(THERMALZONE);
+  label->setText(tr("Thermal Zone"));
   label->setObjectName("H3");
   layout->addWidget(label, Qt::AlignTop | Qt::AlignLeft);
 
@@ -159,7 +128,7 @@ void SpacesSubtabGridView::showSpaceTypeFilter() {
   auto* layout = new QVBoxLayout();
 
   auto* label = new QLabel();
-  label->setText(SPACETYPE);
+  label->setText(tr("Space Type"));
   label->setObjectName("H3");
   layout->addWidget(label, Qt::AlignTop | Qt::AlignLeft);
 
@@ -177,7 +146,7 @@ void SpacesSubtabGridView::showSubSurfaceTypeFilter() {
   auto* layout = new QVBoxLayout();
 
   auto* label = new QLabel();
-  label->setText(SUBSURFACETYPE);
+  label->setText(tr("SubSurface Type"));
   label->setObjectName("H3");
   layout->addWidget(label, Qt::AlignTop | Qt::AlignLeft);
 
@@ -195,7 +164,7 @@ void SpacesSubtabGridView::showSpaceNameFilter() {
   auto* layout = new QVBoxLayout();
 
   auto* label = new QLabel();
-  label->setText(SPACENAME);
+  label->setText(tr("Space Name"));
   label->setObjectName("H3");
   layout->addWidget(label, Qt::AlignTop | Qt::AlignLeft);
 
@@ -214,7 +183,7 @@ void SpacesSubtabGridView::showWindExposureFilter() {
   auto* layout = new QVBoxLayout();
 
   auto* label = new QLabel();
-  label->setText(WINDEXPOSURE);
+  label->setText(tr("Wind Exposure"));
   label->setObjectName("H3");
   layout->addWidget(label, Qt::AlignTop | Qt::AlignLeft);
 
@@ -232,7 +201,7 @@ void SpacesSubtabGridView::showSunExposureFilter() {
   auto* layout = new QVBoxLayout();
 
   auto* label = new QLabel();
-  label->setText(SUNEXPOSURE);
+  label->setText(tr("Sun Exposure"));
   label->setObjectName("H3");
   layout->addWidget(label, Qt::AlignTop | Qt::AlignLeft);
 
@@ -250,7 +219,7 @@ void SpacesSubtabGridView::showOutsideBoundaryConditionFilter() {
   auto* layout = new QVBoxLayout();
 
   auto* label = new QLabel();
-  label->setText(OUTSIDEBOUNDARYCONDITION);
+  label->setText(tr("Outside Boundary Condition"));
   label->setObjectName("H3");
   layout->addWidget(label, Qt::AlignTop | Qt::AlignLeft);
 
@@ -269,7 +238,7 @@ void SpacesSubtabGridView::showSurfaceTypeFilter() {
   auto* layout = new QVBoxLayout();
 
   auto* label = new QLabel();
-  label->setText(SURFACETYPE);
+  label->setText(tr("Surface Type"));
   label->setObjectName("H3");
   layout->addWidget(label, Qt::AlignTop | Qt::AlignLeft);
 
@@ -287,7 +256,7 @@ void SpacesSubtabGridView::showInteriorPartitionGroupFilter() {
   auto* layout = new QVBoxLayout();
 
   auto* label = new QLabel();
-  label->setText(INTERIORPARTITIONGROUP);
+  label->setText(tr("Interior Partition Group"));
   label->setObjectName("H3");
   layout->addWidget(label, Qt::AlignTop | Qt::AlignLeft);
 
@@ -306,7 +275,7 @@ void SpacesSubtabGridView::showLoadTypeFilter() {
   auto* layout = new QVBoxLayout();
 
   auto* label = new QLabel();
-  label->setText(LOADTYPE);
+  label->setText(tr("Load Type"));
   label->setObjectName("H3");
   layout->addWidget(label, Qt::AlignTop | Qt::AlignLeft);
 
@@ -322,8 +291,8 @@ void SpacesSubtabGridView::showLoadTypeFilter() {
 
 void SpacesSubtabGridView::initializeStoryFilter() {
   m_storyFilter->clear();
-  m_storyFilter->addItem(ALL);
-  m_storyFilter->addItem(UNASSIGNED);
+  m_storyFilter->addItem(tr("All"));
+  m_storyFilter->addItem(tr("Unassigned"));
   auto buildingStories = this->m_model.getConcreteModelObjects<model::BuildingStory>();
   std::sort(buildingStories.begin(), buildingStories.end(), openstudio::WorkspaceObjectNameLess());
   for (const auto& bd : buildingStories) {
@@ -337,8 +306,8 @@ void SpacesSubtabGridView::initializeStoryFilter() {
 
 void SpacesSubtabGridView::initializeThermalZoneFilter() {
   m_thermalZoneFilter->clear();
-  m_thermalZoneFilter->addItem(ALL);
-  m_thermalZoneFilter->addItem(UNASSIGNED);
+  m_thermalZoneFilter->addItem(tr("All"));
+  m_thermalZoneFilter->addItem(tr("Unassigned"));
   auto thermalZones = this->m_model.getConcreteModelObjects<model::ThermalZone>();
   std::sort(thermalZones.begin(), thermalZones.end(), openstudio::WorkspaceObjectNameLess());
   for (const auto& tz : thermalZones) {
@@ -352,8 +321,8 @@ void SpacesSubtabGridView::initializeThermalZoneFilter() {
 
 void SpacesSubtabGridView::initializeSpaceTypeFilter() {
   m_spaceTypeFilter->clear();
-  m_spaceTypeFilter->addItem(ALL);
-  m_spaceTypeFilter->addItem(UNASSIGNED);
+  m_spaceTypeFilter->addItem(tr("All"));
+  m_spaceTypeFilter->addItem(tr("Unassigned"));
   auto spacetypes = this->m_model.getConcreteModelObjects<model::SpaceType>();
   std::sort(spacetypes.begin(), spacetypes.end(), openstudio::WorkspaceObjectNameLess());
   for (const auto& st : spacetypes) {
@@ -367,7 +336,7 @@ void SpacesSubtabGridView::initializeSpaceTypeFilter() {
 
 void SpacesSubtabGridView::initializeSubSurfaceTypeFilter() {
   m_subSurfaceTypeFilter->clear();
-  m_subSurfaceTypeFilter->addItem(ALL, QString("All"));
+  m_subSurfaceTypeFilter->addItem(tr("All"), QString("All"));
   auto subSurfacetypes = model::SubSurface::validSubSurfaceTypeValues();
   for (const auto& sst : subSurfacetypes) {
     QString key = sst.c_str();
@@ -377,77 +346,79 @@ void SpacesSubtabGridView::initializeSubSurfaceTypeFilter() {
 
 void SpacesSubtabGridView::initializeLoadTypeFilter() {
 
-  { m_loadTypeFilter->addItem(ALL); }
+  {
+    m_loadTypeFilter->addItem(tr("All"));
+  }
 
   {
     auto* pixMap = new QPixmap(":/images/mini_icons/internal_mass.png");
     OS_ASSERT(pixMap);
-    m_loadTypeFilter->addItem(*pixMap, INTERNALMASS);
+    m_loadTypeFilter->addItem(*pixMap, tr("Internal Mass"));
   }
 
   {
     auto* pixMap = new QPixmap(":/images/mini_icons/people.png");
     OS_ASSERT(pixMap);
-    m_loadTypeFilter->addItem(*pixMap, PEOPLE);
+    m_loadTypeFilter->addItem(*pixMap, tr("People"));
   }
 
   {
     auto* pixMap = new QPixmap(":/images/mini_icons/lights.png");
     OS_ASSERT(pixMap);
-    m_loadTypeFilter->addItem(*pixMap, LIGHTS);
+    m_loadTypeFilter->addItem(*pixMap, tr("Lights"));
   }
 
   {
     auto* pixMap = new QPixmap(":/images/mini_icons/luminaire.png");
     OS_ASSERT(pixMap);
-    m_loadTypeFilter->addItem(*pixMap, LUMINAIRE);
+    m_loadTypeFilter->addItem(*pixMap, tr("Luminaire"));
   }
 
   {
     auto* pixMap = new QPixmap(":/images/mini_icons/electric_equipment.png");
     OS_ASSERT(pixMap);
-    m_loadTypeFilter->addItem(*pixMap, ELECTRICEQUIPMENT);
+    m_loadTypeFilter->addItem(*pixMap, tr("Electric Equipment"));
   }
 
   {
     auto* pixMap = new QPixmap(":/images/mini_icons/gas_equipment.png");
     OS_ASSERT(pixMap);
-    m_loadTypeFilter->addItem(*pixMap, GASEQUIPMENT);
+    m_loadTypeFilter->addItem(*pixMap, tr("Gas Equipment"));
   }
 
   {
     auto* pixMap = new QPixmap(":/images/mini_icons/steam_equipment.png");
     OS_ASSERT(pixMap);
-    m_loadTypeFilter->addItem(*pixMap, HOTWATEREQUIPMENT);
+    m_loadTypeFilter->addItem(*pixMap, tr("Hot Water Equipment"));
   }
 
   {
     auto* pixMap = new QPixmap(":/images/mini_icons/steam_equipment.png");
     OS_ASSERT(pixMap);
-    m_loadTypeFilter->addItem(*pixMap, STEAMEQUIPMENT);
+    m_loadTypeFilter->addItem(*pixMap, tr("Steam Equipment"));
   }
 
   {
     auto* pixMap = new QPixmap(":/images/mini_icons/other_equipment.png");
     OS_ASSERT(pixMap);
-    m_loadTypeFilter->addItem(*pixMap, OTHEREQUIPMENT);
+    m_loadTypeFilter->addItem(*pixMap, tr("Other Equipment"));
   }
 
   {
     auto* pixMap = new QPixmap(":/images/mini_icons/infiltration.png");
     OS_ASSERT(pixMap);
-    m_loadTypeFilter->addItem(*pixMap, SPACEINFILTRATIONDESIGNFLOWRATE);
+    m_loadTypeFilter->addItem(*pixMap, tr("Space Infiltration Design Flow Rate"));
   }
 
   {
     auto* pixMap = new QPixmap(":/images/mini_icons/mini_infiltration_leak.png");
     OS_ASSERT(pixMap);
-    m_loadTypeFilter->addItem(*pixMap, SPACEINFILTRATIONEFFECTIVELEAKAGEAREA);
+    m_loadTypeFilter->addItem(*pixMap, tr("Space Infiltration Effective Leakage Area"));
   }
 }
 
 void SpacesSubtabGridView::initializeWindExposureFilter() {
-  m_windExposureFilter->addItem(ALL, QString("All"));
+  m_windExposureFilter->addItem(tr("All"), QString("All"));
   for (const auto& str : model::Surface::validWindExposureValues()) {
     QString key = str.c_str();
     m_windExposureFilter->addItem(QCoreApplication::translate("openstudio::SpacesSubtabGridView", str.c_str()), key);
@@ -455,7 +426,7 @@ void SpacesSubtabGridView::initializeWindExposureFilter() {
 }
 
 void SpacesSubtabGridView::initializeSunExposureFilter() {
-  m_sunExposureFilter->addItem(ALL, QString("All"));
+  m_sunExposureFilter->addItem(tr("All"), QString("All"));
   for (const auto& str : model::Surface::validSunExposureValues()) {
     QString key = str.c_str();
     m_sunExposureFilter->addItem(QCoreApplication::translate("openstudio::SpacesSubtabGridView", str.c_str()), key);
@@ -463,7 +434,7 @@ void SpacesSubtabGridView::initializeSunExposureFilter() {
 }
 
 void SpacesSubtabGridView::initializeOutsideBoundaryConditionFilter() {
-  m_outsideBoundaryConditionFilter->addItem(ALL, QString("All"));
+  m_outsideBoundaryConditionFilter->addItem(tr("All"), QString("All"));
   for (const auto& str : model::Surface::validOutsideBoundaryConditionValues()) {
     QString key = str.c_str();
     m_outsideBoundaryConditionFilter->addItem(QCoreApplication::translate("openstudio::SpacesSubtabGridView", str.c_str()), key);
@@ -471,7 +442,7 @@ void SpacesSubtabGridView::initializeOutsideBoundaryConditionFilter() {
 }
 
 void SpacesSubtabGridView::initializeSurfaceTypeFilter() {
-  m_surfaceTypeFilter->addItem(ALL, QString("All"));
+  m_surfaceTypeFilter->addItem(tr("All"), QString("All"));
   for (const auto& str : model::Surface::validSurfaceTypeValues()) {
     QString key = str.c_str();
     m_surfaceTypeFilter->addItem(QCoreApplication::translate("openstudio::SpacesSubtabGridView", str.c_str()), key);
@@ -480,7 +451,7 @@ void SpacesSubtabGridView::initializeSurfaceTypeFilter() {
 
 void SpacesSubtabGridView::initializeInteriorPartitionGroupFilter() {
   m_interiorPartitionGroupFilter->clear();
-  m_interiorPartitionGroupFilter->addItem(ALL);
+  m_interiorPartitionGroupFilter->addItem(tr("All"));
   auto interiorPartitions = this->m_model.getConcreteModelObjects<model::InteriorPartitionSurface>();
   std::sort(interiorPartitions.begin(), interiorPartitions.end(), openstudio::WorkspaceObjectNameLess());
   for (const auto& ip : interiorPartitions) {
@@ -495,9 +466,9 @@ void SpacesSubtabGridView::initializeInteriorPartitionGroupFilter() {
 void SpacesSubtabGridView::storyFilterChanged(const QString& text) {
   m_objectsFilteredByStory.clear();
 
-  if (text == ALL) {
+  if (text == tr("All")) {
     // nothing to filter
-  } else if (text == UNASSIGNED) {
+  } else if (text == tr("Unassigned")) {
     for (const auto& obj : this->m_gridController->modelObjects()) {
       if (obj.cast<model::Space>().buildingStory()) {
         m_objectsFilteredByStory.insert(obj);
@@ -519,9 +490,9 @@ void SpacesSubtabGridView::storyFilterChanged(const QString& text) {
 void SpacesSubtabGridView::thermalZoneFilterChanged(const QString& text) {
   m_objectsFilteredByThermalZone.clear();
 
-  if (text == ALL) {
+  if (text == tr("All")) {
     // nothing to filter
-  } else if (text == UNASSIGNED) {
+  } else if (text == tr("Unassigned")) {
     for (const auto& obj : this->m_gridController->modelObjects()) {
       if (obj.cast<model::Space>().thermalZone()) {
         m_objectsFilteredByThermalZone.insert(obj);
@@ -543,9 +514,9 @@ void SpacesSubtabGridView::thermalZoneFilterChanged(const QString& text) {
 void SpacesSubtabGridView::spaceTypeFilterChanged(const QString& text) {
   m_objectsFilteredBySpaceType.clear();
 
-  if (text == ALL) {
+  if (text == tr("All")) {
     // nothing to filter
-  } else if (text == UNASSIGNED) {
+  } else if (text == tr("Unassigned")) {
     for (const auto& obj : this->m_gridController->modelObjects()) {
       if (obj.cast<model::Space>().spaceType()) {
         m_objectsFilteredBySpaceType.insert(obj);
@@ -630,53 +601,53 @@ void SpacesSubtabGridView::spaceNameFilterChanged() {
 void SpacesSubtabGridView::loadTypeFilterChanged(const QString& text) {
   m_objectsFilteredByLoadType.clear();
 
-  if (text == ALL) {
+  if (text == tr("All")) {
     // nothing to filter
   } else {
 
     // ObjectSelector::m_selectableObjects returns Load objects directly
     for (const auto& obj : this->m_gridController->selectorObjects()) {
-      if (text == INTERNALMASS) {
+      if (text == tr("Internal Mass")) {
         if (!obj.optionalCast<model::InternalMass>()) {
           m_objectsFilteredByLoadType.insert(obj);
         }
-      } else if (text == PEOPLE) {
+      } else if (text == tr("People")) {
         if (!obj.optionalCast<model::People>()) {
           m_objectsFilteredByLoadType.insert(obj);
         }
-      } else if (text == LIGHTS) {
+      } else if (text == tr("Lights")) {
         if (!obj.optionalCast<model::Lights>()) {
           m_objectsFilteredByLoadType.insert(obj);
         }
-      } else if (text == LUMINAIRE) {
+      } else if (text == tr("Luminaire")) {
         if (!obj.optionalCast<model::Luminaire>()) {
           m_objectsFilteredByLoadType.insert(obj);
         }
-      } else if (text == ELECTRICEQUIPMENT) {
+      } else if (text == tr("Electric Equipment")) {
         if (!obj.optionalCast<model::ElectricEquipment>()) {
           m_objectsFilteredByLoadType.insert(obj);
         }
-      } else if (text == GASEQUIPMENT) {
+      } else if (text == tr("Gas Equipment")) {
         if (!obj.optionalCast<model::GasEquipment>()) {
           m_objectsFilteredByLoadType.insert(obj);
         }
-      } else if (text == HOTWATEREQUIPMENT) {
+      } else if (text == tr("Hot Water Equipment")) {
         if (!obj.optionalCast<model::HotWaterEquipment>()) {
           m_objectsFilteredByLoadType.insert(obj);
         }
-      } else if (text == STEAMEQUIPMENT) {
+      } else if (text == tr("Steam Equipment")) {
         if (!obj.optionalCast<model::SteamEquipment>()) {
           m_objectsFilteredByLoadType.insert(obj);
         }
-      } else if (text == OTHEREQUIPMENT) {
+      } else if (text == tr("Other Equipment")) {
         if (!obj.optionalCast<model::OtherEquipment>()) {
           m_objectsFilteredByLoadType.insert(obj);
         }
-      } else if (text == SPACEINFILTRATIONDESIGNFLOWRATE) {
+      } else if (text == tr("Space Infiltration Design Flow Rate")) {
         if (!obj.optionalCast<model::SpaceInfiltrationDesignFlowRate>()) {
           m_objectsFilteredByLoadType.insert(obj);
         }
-      } else if (text == SPACEINFILTRATIONEFFECTIVELEAKAGEAREA) {
+      } else if (text == tr("Space Infiltration Effective Leakage Area")) {
         if (!obj.optionalCast<model::SpaceInfiltrationEffectiveLeakageArea>()) {
           m_objectsFilteredByLoadType.insert(obj);
         }
@@ -795,7 +766,7 @@ void SpacesSubtabGridView::surfaceTypeFilterChanged(const QString& text) {
 void SpacesSubtabGridView::interiorPartitionGroupFilterChanged(const QString& text) {
   m_objectsFilteredByInteriorPartitionGroup.clear();
 
-  if (m_interiorPartitionGroupFilter->currentText() == ALL) {
+  if (m_interiorPartitionGroupFilter->currentText() == tr("All")) {
     // nothing to filter
   } else {
     for (const auto& obj : this->m_gridController->selectorObjects()) {

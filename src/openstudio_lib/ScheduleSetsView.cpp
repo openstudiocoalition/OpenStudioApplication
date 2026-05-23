@@ -28,9 +28,9 @@ ScheduleSetsView::ScheduleSetsView(const openstudio::model::Model& model, QWidge
   : ModelSubTabView(new ModelObjectListView(IddObjectType::OS_DefaultScheduleSet, model, true, false, parent),
                     new ScheduleSetInspectorView(model, parent), false, parent) {}
 
-std::vector<std::pair<IddObjectType, std::string>> ScheduleSetsView::modelObjectTypesAndNames() {
-  std::vector<std::pair<IddObjectType, std::string>> result;
-  result.push_back(std::make_pair<IddObjectType, std::string>(IddObjectType::OS_DefaultScheduleSet, "ScheduleSets"));
+std::vector<std::pair<IddObjectType, QString>> ScheduleSetsView::modelObjectTypesAndNames() {
+  std::vector<std::pair<IddObjectType, QString>> result;
+  result.push_back(std::make_pair<IddObjectType, QString>(IddObjectType::OS_DefaultScheduleSet, tr("Schedule Sets")));
   return result;
 }
 

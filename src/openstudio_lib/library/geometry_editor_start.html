@@ -3,106 +3,44 @@
 <head>
 <meta charset=utf-8>
 <title>OpenStudio Geometry Editor</title>
-<script>
-var _translations = {
-  'es': {
-    'h2': {
-      'Overview':   'Resumen',
-      'Merge OSM':  'Combinar OSM'
-    },
-    'p': {
-      'p-overview':
-        'Elija un tipo de geometría de la lista de arriba. <a href="#floorspace">FloorspaceJS</a> le permite crear nueva geometría basada en planos de planta 2D. Alternativamente, puede importar geometría existente en formatos <a href="#gbxml">gbXML</a>, <a href="#idf">IDF</a> o <a href="#osm">OSM</a>. Previsualice cómo se verá su geometría después de la conversión al formato OSM usando el botón "Vista Previa OSM". Una vez satisfecho con su geometría, presione el botón "Combinar con OSM Actual" para <a href="#merge">combinar</a> su nueva geometría con su modelo OSM actual. Su modelo OSM actual no se modificará hasta que se presione "Combinar con OSM Actual".',
-      'p-floorspace':
-        '<a href="https://github.com/NREL/floorspace.js">FloorspaceJS</a> es un módulo de software de código abierto que los desarrolladores pueden aprovechar para crear interfaces de modelado energético de edificios que incluyen la creación de geometría. FloorspaceJS está diseñado para cubrir únicamente casos de uso de geometría de edificios simple. La geometría más compleja se desarrolla mejor en una herramienta CAD completa y se exporta a gbXML u otros formatos para el modelado energético. FloorspaceJS está implementado en JavaScript con dependencias mínimas, lo que permite integrarlo en una amplia variedad de aplicaciones, incluida la Aplicación OpenStudio.',
-      'p-gbxml':
-        '<a href="http://gbxml.org/">gbXML</a> es un esquema XML compatible con la industria para compartir información de edificios entre herramientas de Modelado Energético de Edificios (BEM). Muchas herramientas BEM pueden crear archivos gbXML; una lista parcial está disponible en línea en <a href="http://gbxml.org/Software_Tools_that_Support_GreenBuildingXML_gbXML">http://gbxml.org/Software_Tools_that_Support_GreenBuildingXML_gbXML</a>. Un visualizador de gbXML desarrollado por Ladybug Tools, <a href="https://github.com/ladybug-tools/spider-gbxml-tools/tree/develop/gbxml-viewer-basic">https://github.com/ladybug-tools/spider-gbxml-tools/tree/develop/gbxml-viewer-basic</a>, ha sido integrado en la Aplicación OpenStudio para previsualizar gbXML antes de ser convertido a OSM. Ladybug Tools también ha desarrollado una herramienta más completa, con capacidad para inspeccionar y editar archivos gbXML, disponible en <a href="https://www.ladybug.tools/spider/gbxml-viewer">https://www.ladybug.tools/spider/gbxml-viewer</a>.',
-      'p-idf':
-        'El Formato de Datos de Entrada de EnergyPlus (IDF) es el formato de archivo leído por el motor de simulación <a href="https://energyplus.net/">EnergyPlus</a>. Varias herramientas pueden crear archivos IDF; una lista parcial está disponible en línea en <a href="http://www.buildingenergysoftwaretools.com/">http://www.buildingenergysoftwaretools.com/</a>. Se ha implementado un visualizador personalizado que muestra el contenido del archivo IDF en formato epJSON. El ejecutable de EnergyPlus incluido con OpenStudio se utiliza para convertir IDF a formato epJSON. Para mejores resultados, asegúrese de que sus archivos IDF estén actualizados a la versión de EnergyPlus utilizada por esta versión de OpenStudio. Los archivos IDF pueden actualizarse a la última versión usando la utilidad EP-Launch distribuida con el instalador completo de EnergyPlus (no incluida con OpenStudio).',
-      'p-osm':
-        'El formato de archivo del Modelo OpenStudio (OSM) es el formato nativo utilizado por <a href="https://openstudio.net/">OpenStudio</a>. Los archivos OSM creados en flujos de trabajo separados pueden importarse y combinarse con el Modelo OpenStudio actual.',
-      'p-merge':
-        'El SDK de OpenStudio incluye traductores de una variedad de formatos comunes de Modelado Energético de Edificios (BEM) a OSM. La geometría de estos formatos puede convertirse a OSM y usarse como punto de partida para ajustes más detallados del Modelo OpenStudio, como la definición de programas, construcciones y HVAC. Recientemente se añadió una nueva función de combinación al SDK de OpenStudio. Esta función es compatible con flujos de trabajo iterativos en los que:',
-      'li-1': 'La geometría OSM inicial se traduce desde un formato original (p. ej., gbXML, IDF, etc.)',
-      'li-2': 'Se realizan modificaciones no geométricas (p. ej., programas, HVAC, etc.) al OSM',
-      'li-3': 'La geometría actualizada está disponible en el formato original',
-      'p-merge-close':
-        'La función de combinación permite integrar la geometría actualizada con el OSM actual preservando las modificaciones no geométricas.'
-    }
-  }
-};
-
-function tH2(s) {
-  var lang = (window.osLanguage || (navigator.language || 'en').split('-')[0]);
-  var d = (_translations[lang] || {})['h2'] || {};
-  return d[s] || s;
-}
-
-function tP(id) {
-  var lang = (window.osLanguage || (navigator.language || 'en').split('-')[0]);
-  var d = (_translations[lang] || {})['p'] || {};
-  return d[id] || null;
-}
-
-window.addEventListener('DOMContentLoaded', function() {
-  document.querySelectorAll('h2').forEach(function(el) {
-    el.textContent = tH2(el.textContent.trim());
-  });
-  ['p-overview','p-floorspace','p-gbxml','p-idf','p-osm','p-merge','p-merge-close'].forEach(function(id) {
-    var el = document.getElementById(id);
-    if (el) {
-      var text = tP(id);
-      if (text) el.innerHTML = text;
-    }
-  });
-  ['li-1','li-2','li-3'].forEach(function(id) {
-    var el = document.getElementById(id);
-    if (el) {
-      var text = tP(id);
-      if (text) el.textContent = text;
-    }
-  });
-});
-</script>
 </head>
 <body>
 
 <h2>Overview</h2>
 
-<p id="p-overview">Choose a geometry type from the list above.  <a href="#floorspace">FloorspaceJS</a> allows you to create new geometry based on 2D floorplans.  Alternatively, you can import existing geometry in <a href="#gbxml">gbXML</a>, <a href="#idf">IDF</a>, or <a href="#osm">OSM</a> formats.  Preview what your geometry will look like after translation to OSM format using the &ldquo;Preview OSM&rdquo; button.  Once you are satisfied with your geometry, press the &ldquo;Merge with Current OSM&rdquo; button to <a href="#merge">merge</a> your new geometry with your current OSM model.  Your current OSM model will not be changed until &ldquo;Merge with Current OSM&rdquo; is pressed.</p>
+Choose a geometry type from the list above.  <a href="#floorspace">FloorspaceJS</a> allows you to create new geometry based on 2D floorplans.  Alternatively, you can import existing geometry in <a href="#gbxml">gbXML</a>, <a href="#idf">IDF</a>, or <a href="#osm">OSM</a> formats.  Preview what your geometry will look like after translation to OSM format using the "Preview OSM" button.  Once you are satisfied with your geometry, press the "Merge with Current OSM" button to <a href="#merge">merge</a> your new geometry with your current OSM model.  Your current OSM model will not be changed until "Merge with Current OSM" is pressed.
 
 <div id="floorspace"></div>
 <h2>FloorspaceJS</h2>
 
-<p id="p-floorspace"><a href="https://github.com/NREL/floorspace.js">FloorspaceJS</a> is an open source software module that developers can leverage to produce building energy modeling UIs which include geometry creation.  FloorspaceJS is meant to cover simple building geometry use cases only.  More complex building geometry is best developed in a full featured CAD tool and exported to gbXML or other formats for building energy modeling.  FloorspaceJS is implemented in JavaScript with minimal dependencies, allowing it to be integrated into a wide range of applications, including the OpenStudio Application.</p>
+<a href="https://github.com/NREL/floorspace.js">FloorspaceJS</a> is an open source software module that developers can leverage to produce building energy modeling UIs which include geometry creation.  FloorspaceJS is meant to cover simple building geometry use cases only.  More complex building geometry is best developed in a full featured CAD tool and exported to gbXML or other formats for building energy modeling.  FloorspaceJS is implemented in JavaScript with minimal dependencies, allowing it to be integrated into a wide range of applications, including the OpenStudio Application.
 
 <div id="gbxml"></div>
 <h2>gbXML</h2>
 
-<p id="p-gbxml"><a href="http://gbxml.org/">gbXML</a> is an industry supported XML schema for sharing building information between Building Energy Modeling (BEM) tools. Many BEM tools can author gbXML, a partial list is available online at <a href="http://gbxml.org/Software_Tools_that_Support_GreenBuildingXML_gbXML">http://gbxml.org/Software_Tools_that_Support_GreenBuildingXML_gbXML</a>.  A gbXML viewer developed by Ladybug Tools, <a href="https://github.com/ladybug-tools/spider-gbxml-tools/tree/develop/gbxml-viewer-basic">https://github.com/ladybug-tools/spider-gbxml-tools/tree/develop/gbxml-viewer-basic</a>, has been embedded in the OpenStudio Application to preview gbXML before it is translated to OSM.  Ladybug Tools has also developed a more full-featured tool, including the ability to inspect and edit gbXML files, which is available at <a href="https://www.ladybug.tools/spider/gbxml-viewer">https://www.ladybug.tools/spider/gbxml-viewer</a>.</p>
+<a href="http://gbxml.org/">gbXML</a> is an industry supported XML schema for sharing building information between Building Energy Modeling (BEM) tools. Many BEM tools can author gbXML, a partial list is available online at <a href="http://gbxml.org/Software_Tools_that_Support_GreenBuildingXML_gbXML">http://gbxml.org/Software_Tools_that_Support_GreenBuildingXML_gbXML</a>.  A gbXML viewer developed by Ladybug Tools, <a href="https://github.com/ladybug-tools/spider-gbxml-tools/tree/develop/gbxml-viewer-basic">https://github.com/ladybug-tools/spider-gbxml-tools/tree/develop/gbxml-viewer-basic</a>, has been embedded in the OpenStudio Application to preview gbXML before it is translated to OSM.  Ladybug Tools has also developed a more full-featured tool, including the ability to inspect and edit gbXML files, which is available at <a href="https://www.ladybug.tools/spider/gbxml-viewer">https://www.ladybug.tools/spider/gbxml-viewer</a>.
 
 <div id="idf"></div>
 <h2>IDF</h2>
 
-<p id="p-idf">The EnergyPlus Input Data Format (IDF) is the file format read by the <a href="https://energyplus.net/">EnergyPlus</a> simulation engine.  Several tools are available which can author IDF, a partial list is available online at <a href="http://www.buildingenergysoftwaretools.com/">http://www.buildingenergysoftwaretools.com/</a>.  A custom viewer has been implemented which displays the contents of the IDF file in epJSON format.  The EnergyPlus executable shipped with OpenStudio is used to convert IDF to epJSON format.  For best results, please ensure that your IDF files are updated to the version of EnergyPlus used by this version of OpenStudio.  IDF files can be updated to the latest version of EnergyPlus using the EP-Launch utility distributed with the full EnergyPlus installer (it is not included with OpenStudio).</p>
+The EnergyPlus Input Data Format (IDF) is the file format read by the <a href="https://energyplus.net/">EnergyPlus</a> simulation engine.  Several tools are available which can author IDF, a partial list is available online at <a href="http://www.buildingenergysoftwaretools.com/">http://www.buildingenergysoftwaretools.com/</a>.  A custom viewer has been implemented which displays the contents of the IDF file in epJSON format.  The EnergyPlus executable shipped with OpenStudio is used to convert IDF to epJSON format.  For best results, please ensure that your IDF files are updated to the version of EnergyPlus used by this version of OpenStudio.  IDF files can be updated to the latest version of EnergyPlus using the EP-Launch utility distributed with the full EnergyPlus installer (it is not included with OpenStudio).
 
 <div id="osm"></div>
 <h2>OSM</h2>
 
-<p id="p-osm">The OpenStudio Model (OSM) file format is the native file format used by <a href="https://openstudio.net/">OpenStudio</a>.  OSM files authored in separate workflows may be imported and merged with the current OpenStudio Model.</p>
+The OpenStudio Model (OSM) file format is the native file format used by <a href="https://openstudio.net/">OpenStudio</a>.  OSM files authored in separate workflows may be imported and merged with the current OpenStudio Model.
 
 <div id="merge"></div>
 <h2>Merge OSM</h2>
-
-<p id="p-merge">The OpenStudio SDK includes translators from a variety of common Building Energy Modeling (BEM) formats to OSM.  Geometry from these formats can be converted to OSM and used as a starting point for more detailed OpenStudio Model adjustments such as defining schedules, constructions, and HVAC. A new merge feature was recently added to the OpenStudio SDK.  This feature supports iterative workflows where:</p>
+The OpenStudio SDK includes translators from a variety of common Building Energy Modeling (BEM) formats to OSM.  Geometry from these formats can be converted to OSM and used as a starting point for more detailed OpenStudio Model adjustments such as defining schedules, constructions, and HVAC. A new merge feature was recently added to the OpenStudio SDK.  This feature supports iterative workflows where:
 
 <ol>
-  <li id="li-1">Initial OSM geometry is translated from an original format (e.g. gbXML, IDF, etc)</li>
-  <li id="li-2">Non-geometry modifications (e.g. schedules, HVAC, etc) are made to the OSM</li>
-  <li id="li-3">Updated geometry is available in the original format</li>
+  <li>Initial OSM geometry is translated from an original format (e.g. gbXML, IDF, etc)</li>
+  <li>Non-geometry modifications (e.g. schedules, HVAC, etc) are made to the OSM</li>
+  <li>Updated geometry is available in the original format</li>
 </ol>
 
-<p id="p-merge-close">The merge feature allows updated geometry to be merged with the current OSM while also preserving non-geometry modifications.</p>
+The merge feature allows updated geometry to be merged with the current OSM while also preserving non-geometry modifications.
 
 </body>
 </html>

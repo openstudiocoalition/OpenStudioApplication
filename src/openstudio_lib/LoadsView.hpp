@@ -27,7 +27,7 @@ class LoadsView : public ModelSubTabView
   virtual ~LoadsView() {}
 
  private:
-  static std::vector<std::pair<IddObjectType, std::string>> modelObjectTypesAndNames();
+  static std::vector<std::pair<IddObjectType, QString>> modelObjectTypesAndNames();
 
  public slots:
 

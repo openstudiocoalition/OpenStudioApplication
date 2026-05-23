@@ -141,7 +141,8 @@ void ResultsView::openDViewClicked() {
   }
 
   if (!QProcess::startDetached(openstudio::toQString(m_dviewPath), args)) {
-    QMessageBox::critical(this, tr("Unable to launch DView"), tr("DView was not found in the expected location:\n") + openstudio::toQString(m_dviewPath));
+    QMessageBox::critical(this, tr("Unable to launch DView"),
+                          tr("DView was not found in the expected location:\n") + openstudio::toQString(m_dviewPath));
   }
 }
 
@@ -315,7 +316,7 @@ void ResultsView::populateComboBox(const std::vector<openstudio::path>& reports)
         int startingIndex = string.indexOf("<title>");
         int endingIndex = string.indexOf("</title>");
         if ((startingIndex == -1) || (endingIndex == -1) || (startingIndex >= endingIndex)) {
-          m_comboBox->addItem(tr("Custom Report ") + QString::number(num), fullPathString);
+          m_comboBox->addItem(tr("Custom Report %1").arg(num), fullPathString);
         } else {
           // length of "<title>" = 7
           QString title = string.mid(startingIndex + 7, endingIndex - startingIndex - 7);
