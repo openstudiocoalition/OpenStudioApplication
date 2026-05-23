@@ -78,23 +78,6 @@
 #include <QCheckBox>
 #include <QCoreApplication>
 
-#define TR(s) QCoreApplication::translate("openstudio::SpacesLoadsGridController", s)
-
-// These defines provide a common area for field display names
-// used on column headers, and other grid widgets
-
-#define NAME TR("Space Name")
-#define SELECTED TR("All")
-#define DISPLAYNAME TR("Display Name")
-#define CADOBJECTID TR("CAD Object ID")
-
-// GENERAL
-#define LOADNAME TR("Load Name")
-#define MULTIPLIER TR("Multiplier")
-#define DEFINITION TR("Definition")
-#define SCHEDULE TR("Schedule")
-#define ACTIVITYSCHEDULE TR("Activity Schedule\n(People Only)")
-
 namespace openstudio {
 
 SpacesLoadsGridView::SpacesLoadsGridView(bool isIP, bool displayAdditionalProps, const model::Model& model, QWidget* parent)
@@ -157,9 +140,9 @@ SpacesLoadsGridController::SpacesLoadsGridController(bool isIP, bool displayAddi
 void SpacesLoadsGridController::setCategoriesAndFields() {
   {
     std::vector<QString> fields{
-      LOADNAME, MULTIPLIER, DEFINITION, SCHEDULE, ACTIVITYSCHEDULE,
+      tr("Load Name"), tr("Multiplier"), tr("Definition"), tr("Schedule"), tr("Activity Schedule\n(People Only)"),
     };
-    std::pair<QString, std::vector<QString>> categoryAndFields = std::make_pair(TR("General"), fields);
+    std::pair<QString, std::vector<QString>> categoryAndFields = std::make_pair(tr("General"), fields);
     addCategoryAndFields(categoryAndFields);
   }
 
@@ -173,28 +156,28 @@ void SpacesLoadsGridController::onCategorySelected(int index) {
 void SpacesLoadsGridController::addColumns(const QString& category, std::vector<QString>& fields) {
 
   if (isDisplayAdditionalProps()) {
-    fields.insert(fields.begin(), {DISPLAYNAME, CADOBJECTID});
+    fields.insert(fields.begin(), {tr("Display Name"), tr("CAD Object ID")});
   }
   // always show name and selected columns
-  fields.insert(fields.begin(), {NAME, SELECTED});
+  fields.insert(fields.begin(), {tr("Space Name"), tr("All")});
 
   resetBaseConcepts();
 
   for (const auto& field : fields) {
 
-    if (field == NAME) {
+    if (field == tr("Space Name")) {
       const bool isInspectable = false;
-      addParentNameLineEditColumn(Heading(QString(NAME), false, false), isInspectable, CastNullAdapter<model::Space>(&model::Space::name),
+      addParentNameLineEditColumn(Heading(tr("Space Name"), false, false), isInspectable, CastNullAdapter<model::Space>(&model::Space::name),
                                   CastNullAdapter<model::Space>(&model::Space::setName));
-    } else if (field == DISPLAYNAME) {
-      addNameLineEditColumn(Heading(QString(DISPLAYNAME), false, false),                     // heading
+    } else if (field == tr("Display Name")) {
+      addNameLineEditColumn(Heading(tr("Display Name"), false, false),                       // heading
                             false,                                                           // isInspectable
                             false,                                                           // isLocked
                             DisplayNameAdapter<model::Space>(&model::Space::displayName),    // getter
                             DisplayNameAdapter<model::Space>(&model::Space::setDisplayName)  // setter
       );
-    } else if (field == CADOBJECTID) {
-      addNameLineEditColumn(Heading(QString(CADOBJECTID), false, false),                     // heading
+    } else if (field == tr("CAD Object ID")) {
+      addNameLineEditColumn(Heading(tr("CAD Object ID"), false, false),                      // heading
                             false,                                                           // isInspectable
                             false,                                                           // isLocked
                             DisplayNameAdapter<model::Space>(&model::Space::cadObjectId),    // getter
@@ -775,7 +758,7 @@ void SpacesLoadsGridController::addColumns(const QString& category, std::vector<
           return retval;
         });
 
-      if (field == LOADNAME) {
+      if (field == tr("Load Name")) {
 
         // Here we create a NameLineEdit column, but this one includes a "DataSource" object
         // The DataSource object is used in OSGridController::widgetAt to make a list of NameLineEdit widgets
@@ -810,7 +793,7 @@ void SpacesLoadsGridController::addColumns(const QString& category, std::vector<
           }
         });
 
-        addLoadNameColumn(Heading(QString(LOADNAME), true, false), CastNullAdapter<model::SpaceLoad>(&model::SpaceLoad::name),
+        addLoadNameColumn(Heading(tr("Load Name"), true, false), CastNullAdapter<model::SpaceLoad>(&model::SpaceLoad::name),
                           CastNullAdapter<model::SpaceLoad>(&model::SpaceLoad::setName),
                           boost::optional<std::function<void(model::SpaceLoad*)>>(
                             std::function<void(model::SpaceLoad*)>([](model::SpaceLoad* t_sl) { t_sl->remove(); })),
@@ -823,19 +806,19 @@ void SpacesLoadsGridController::addColumns(const QString& category, std::vector<
 
         );
 
-      } else if (field == SELECTED) {
+      } else if (field == tr("All")) {
         auto checkbox = QSharedPointer<OSSelectAllCheckBox>(new OSSelectAllCheckBox());
         checkbox->setToolTip("Check to select all rows");
         connect(checkbox.data(), &OSSelectAllCheckBox::checkStateChanged, this, &SpacesLoadsGridController::onSelectAllStateChanged);
         connect(this, &SpacesLoadsGridController::gridRowSelectionChanged, checkbox.data(), &OSSelectAllCheckBox::onGridRowSelectionChanged);
-        addSelectColumn(Heading(QString(SELECTED), false, false, checkbox), "Check to select this row", DataSource(allLoads, true));
-      } else if (field == MULTIPLIER) {
+        addSelectColumn(Heading(tr("All"), false, false, checkbox), "Check to select this row", DataSource(allLoads, true));
+      } else if (field == tr("Multiplier")) {
 
         // TODO: add isReadOnly to addValueEditColumn
-        addValueEditColumn(Heading(QString(MULTIPLIER)), multiplier, setMultiplier, resetMultiplier, isMultiplierDefaulted,
+        addValueEditColumn(Heading(tr("Multiplier")), multiplier, setMultiplier, resetMultiplier, isMultiplierDefaulted,
                            DataSource(allLoadsWithMultipliers, true));
 
-      } else if (field == DEFINITION) {
+      } else if (field == tr("Definition")) {
         std::function<boost::optional<model::SpaceLoadDefinition>(model::Space*)> getter;
 
         std::function<bool(model::Space*, const model::SpaceLoadDefinition&)> setter(
@@ -902,19 +885,19 @@ void SpacesLoadsGridController::addColumns(const QString& category, std::vector<
           std::function<bool(model::Space*)>([](model::Space* t_space) { return false; }));
 
         addNameLineEditColumn(
-          Heading(QString(DEFINITION), true, false), true, true, CastNullAdapter<model::SpaceLoadDefinition>(&model::SpaceLoadDefinition::name),
+          Heading(tr("Definition"), true, false), true, true, CastNullAdapter<model::SpaceLoadDefinition>(&model::SpaceLoadDefinition::name),
           CastNullAdapter<model::SpaceLoadDefinition>(&model::SpaceLoadDefinition::setName),
           boost::optional<std::function<void(model::SpaceLoadDefinition*)>>(), boost::optional<std::function<bool(model::SpaceLoadDefinition*)>>(),
           DataSource(allDefinitions, false,
                      QSharedPointer<DropZoneConcept>(new DropZoneConceptImpl<model::SpaceLoadDefinition, model::Space>(
-                       Heading(DEFINITION), getter, setter, resetter, isDefaulted, boost::none))));
-      } else if (field == SCHEDULE) {
+                       Heading(tr("Definition")), getter, setter, resetter, isDefaulted, boost::none))));
+      } else if (field == tr("Schedule")) {
 
-        addDropZoneColumn(Heading(QString(SCHEDULE)), schedule, setSchedule, resetSchedule, isScheduleDefaulted, scheduleOtherObjects,
+        addDropZoneColumn(Heading(tr("Schedule")), schedule, setSchedule, resetSchedule, isScheduleDefaulted, scheduleOtherObjects,
                           DataSource(allLoadsWithSchedules, true));
 
-      } else if (field == ACTIVITYSCHEDULE) {
-        addDropZoneColumn(Heading(QString(SCHEDULE)), activityLevelSchedule, setActivityLevelSchedule, resetActivityLevelSchedule,
+      } else if (field == tr("Activity Schedule\n(People Only)")) {
+        addDropZoneColumn(Heading(tr("Schedule")), activityLevelSchedule, setActivityLevelSchedule, resetActivityLevelSchedule,
                           isActivityLevelScheduleDefaulted, activityLevelScheduleOtherObjects, DataSource(allLoadsWithActivityLevelSchedules, true));
       } else {
         // unhandled

@@ -25,7 +25,7 @@ class MaterialsView : public ModelSubTabView
   virtual ~MaterialsView() {}
 
  private:
-  static std::vector<std::pair<IddObjectType, std::string>> modelObjectTypesAndNames();
+  static std::vector<std::pair<IddObjectType, QString>> modelObjectTypesAndNames();
 };
 
 class MaterialsInspectorView : public ModelObjectInspectorView

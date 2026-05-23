@@ -41,75 +41,9 @@
 #include <QCheckBox>
 #include <QCoreApplication>
 
-#define TR(s) QCoreApplication::translate("openstudio::SpacesSubsurfacesGridController", s)
-
-// These defines provide a common area for field display names
-// used on column headers, and other grid widgets
-
-#define NAME TR("Space Name")
-#define SELECTED TR("All")
-#define DISPLAYNAME TR("Display Name")
-#define CADOBJECTID TR("CAD Object ID")
-
-// ALL GRID BUTTONS
-#define SURFACENAME TR("Parent Surface Name")  // read only
-#define SUBSURFACENAME TR("Subsurface Name")
-
-// GENERAL "General"
-#define SUBSURFACETYPE TR("Subsurface Type")
-#define MULTIPLIER TR("Multiplier")
-#define CONSTRUCTION TR("Construction")
-#define OUTSIDEBOUNDARYCONDITIONOBJECT TR("Outside Boundary Condition Object")  // Dan note: needs model method for suggestions
-#define SHADINGSURFACENAME TR("Shading Surface Name")                           // read only
-
 // SHADINGCONTROLS "Shading Controls"
-#define SHADINGCONTROLNAME TR("Shading Control")
-#define SHADINGTYPE TR("Shading Type")
-#define CONSTRUCTIONWITHSHADINGNAME TR("Construction with Shading Name")
-#define SHADINGDEVICEMATERIALNAME TR("Shading Device Material Name")
-#define SHADINGCONTROLTYPE TR("Shading Control Type")
-#define SCHEDULENAME TR("Schedule Name")
-#define SETPOINT TR("Setpoint")
-#define SHADINGCONTROLISSCHEDULED TR("Shading Control Is Scheduled")
-#define GLARECONTROLISACTIVE TR("Glare Control Is Active")
-#define TYPEOFSLATANGLECONTROLFORBLINDS TR("Type of Slat Angle Control for Blinds")
-#define SLATANGLESCHEDULENAME TR("Slat Angle Schedule Name")
-#define SETPOINT2 TR("Setpoint 2")
 
 // FRAMEANDDIVIDER "Frame and Divider"
-#define FRAMEANDDIVIDERNAME TR("Frame and Divider")
-#define FRAMEWIDTH TR("Frame Width")
-#define FRAMEOUTSIDEPROJECTION TR("Frame Outside Projection")
-#define FRAMEINSIDEPROJECTION TR("Frame Inside Projection")
-#define FRAMECONDUCTANCE TR("Frame Conductance")
-#define FRAMEEDGEGLASSCONDUCTANCETOCENTEROFGLASSCONDUCTANCE TR("Frame - Edge Glass Conductance to Center - Of - Glass Conductance")
-#define FRAMESOLARABSORPTANCE TR("Frame Solar Absorptance")
-#define FRAMEVISIBLEABSORPTANCE TR("Frame Visible Absorptance")
-#define FRAMETHERMALHEMISPHERICALEMISSIVITY TR("Frame Thermal Hemispherical Emissivity")
-#define DIVIDERTYPE TR("Divider Type")
-#define DIVIDERWIDTH TR("Divider Width")
-#define NUMBEROFHORIZONTALDIVIDERS TR("Number of Horizontal Dividers")
-#define NUMBEROFVERTICALDIVIDERS TR("Number of Vertical Dividers")
-#define DIVIDEROUTSIDEPROJECTION TR("Divider Outside Projection")
-#define DIVIDERINSIDEPROJECTION TR("Divider Inside Projection")
-#define DIVIDERCONDUCTANCE TR("Divider Conductance")
-#define RATIOOFDIVIDEREDGEGLASSCONDUCTANCETOCENTEROFGLASSCONDUCTANCE TR("Ratio of Divider - Edge Glass Conductance to Center - Of - Glass Conductance")
-#define DIVIDERSOLARABSORPTANCE TR("Divider Solar Absorptance")
-#define DIVIDERVISIBLEABSORPTANCE TR("Divider Visible Absorptance")
-#define DIVIDERTHERMALHEMISPHERICALEMISSIVITY TR("Divider Thermal Hemispherical Emissivity")
-#define OUTSIDEREVEALDEPTH TR("Outside Reveal Depth")
-#define OUTSIDEREVEALSOLARABSORPTANCE TR("Outside Reveal Solar Absorptance")
-#define INSIDESILLDEPTH TR("Inside Sill Depth")
-#define INSIDESILLSOLARABSORPTANCE TR("Inside Sill Solar Absorptance")
-#define INSIDEREVEALDEPTH TR("Inside Reveal Depth")
-#define INSIDEREVEALSOLARABSORPTANCE TR("Inside Reveal Solar Absorptance")
-
-// DAYLIGHTINGSHELVES "Daylighting Shelves"
-#define DAYLIGHTINGSHELFNAME TR("Daylighting Shelf Name")
-#define WINDOWNAME TR("Window Name")
-#define INSIDESHELFNAME TR("Inside Shelf Name")    // Dan note: drop down need a model method for suggestions
-#define OUTSIDESHELFNAME TR("Outside Shelf Name")  // Dan note: drop down need a model method for suggestions
-#define VIEWFACTORTOOUTSIDESHELF TR("View Factor to Outside Shelf")
 
 namespace openstudio {
 
@@ -125,7 +59,8 @@ SpacesSubsurfacesGridView::SpacesSubsurfacesGridView(bool isIP, bool displayAddi
   m_filterGridLayout->setRowStretch(m_filterGridLayout->rowCount(), 100);
   m_filterGridLayout->setColumnStretch(m_filterGridLayout->columnCount(), 100);
 
-  m_gridController = new SpacesSubsurfacesGridController(isIP, displayAdditionalProps, tr("Space"), IddObjectType::OS_Space, model, m_spacesModelObjects);
+  m_gridController =
+    new SpacesSubsurfacesGridController(isIP, displayAdditionalProps, tr("Space"), IddObjectType::OS_Space, model, m_spacesModelObjects);
   m_gridView = new OSGridView(m_gridController, tr("Space"), tr("Drop\nSpace"), false, parent);
 
   setGridController(m_gridController);
@@ -177,76 +112,77 @@ void SpacesSubsurfacesGridView::clearSelection() {
 void SpacesSubsurfacesGridController::setCategoriesAndFields() {
   {
     std::vector<QString> fields{
-      SUBSURFACENAME, SURFACENAME, SUBSURFACETYPE, MULTIPLIER, CONSTRUCTION, OUTSIDEBOUNDARYCONDITIONOBJECT,
-      //SHADINGSURFACENAME,
+      tr("Subsurface Name"), tr("Parent Surface Name"), tr("Subsurface Type"),
+      tr("Multiplier"),      tr("Construction"),        tr("Outside Boundary Condition Object"),
+      //tr("Shading Surface Name"),
     };
-    std::pair<QString, std::vector<QString>> categoryAndFields = std::make_pair(TR("General"), fields);
+    std::pair<QString, std::vector<QString>> categoryAndFields = std::make_pair(tr("General"), fields);
     addCategoryAndFields(categoryAndFields);
   }
 
   {
     std::vector<QString> fields{
-      SUBSURFACENAME, SURFACENAME, SHADINGCONTROLNAME, SHADINGTYPE,
-      //CONSTRUCTIONWITHSHADINGNAME,
-      //SHADINGDEVICEMATERIALNAME,
-      SHADINGCONTROLTYPE, SCHEDULENAME,
-      //SETPOINT,                        IN IDD, BUT NOT EXPOSED IN MODEL OBJECT
-      //SHADINGCONTROLISSCHEDULED,       IN IDD, BUT NOT EXPOSED IN MODEL OBJECT
-      //GLARECONTROLISACTIVE,            IN IDD, BUT NOT EXPOSED IN MODEL OBJECT
-      //TYPEOFSLATANGLECONTROLFORBLINDS, IN IDD, BUT NOT EXPOSED IN MODEL OBJECT
-      //SLATANGLESCHEDULENAME,           IN IDD, BUT NOT EXPOSED IN MODEL OBJECT
+      tr("Subsurface Name"), tr("Parent Surface Name"), tr("Shading Control"), tr("Shading Type"),
+      //tr("Construction with Shading Name"),
+      //tr("Shading Device Material Name"),
+      tr("Shading Control Type"), tr("Schedule Name"),
+      //tr("Setpoint"),                        IN IDD, BUT NOT EXPOSED IN MODEL OBJECT
+      //tr("Shading Control Is Scheduled"),       IN IDD, BUT NOT EXPOSED IN MODEL OBJECT
+      //tr("Glare Control Is Active"),            IN IDD, BUT NOT EXPOSED IN MODEL OBJECT
+      //tr("Type of Slat Angle Control for Blinds"), IN IDD, BUT NOT EXPOSED IN MODEL OBJECT
+      //tr("Slat Angle Schedule Name"),           IN IDD, BUT NOT EXPOSED IN MODEL OBJECT
       //SETPOINT2,                       IN IDD, BUT NOT EXPOSED IN MODEL OBJECT
     };
-    std::pair<QString, std::vector<QString>> categoryAndFields = std::make_pair(TR("Shading Controls"), fields);
+    std::pair<QString, std::vector<QString>> categoryAndFields = std::make_pair(tr("Shading Controls"), fields);
     addCategoryAndFields(categoryAndFields);
   }
 
   {
     std::vector<QString> fields{
-      SUBSURFACENAME,
-      SURFACENAME,
-      FRAMEANDDIVIDERNAME,
-      FRAMEWIDTH,
-      FRAMEOUTSIDEPROJECTION,
-      FRAMEINSIDEPROJECTION,
-      FRAMECONDUCTANCE,
-      FRAMEEDGEGLASSCONDUCTANCETOCENTEROFGLASSCONDUCTANCE,
-      FRAMESOLARABSORPTANCE,
-      FRAMEVISIBLEABSORPTANCE,
-      FRAMETHERMALHEMISPHERICALEMISSIVITY,
-      DIVIDERTYPE,
-      DIVIDERWIDTH,
-      NUMBEROFHORIZONTALDIVIDERS,
-      NUMBEROFVERTICALDIVIDERS,
-      DIVIDEROUTSIDEPROJECTION,
-      DIVIDERINSIDEPROJECTION,
-      DIVIDERCONDUCTANCE,
-      RATIOOFDIVIDEREDGEGLASSCONDUCTANCETOCENTEROFGLASSCONDUCTANCE,
-      DIVIDERSOLARABSORPTANCE,
-      DIVIDERVISIBLEABSORPTANCE,
-      DIVIDERTHERMALHEMISPHERICALEMISSIVITY,
-      OUTSIDEREVEALDEPTH,
-      OUTSIDEREVEALSOLARABSORPTANCE,
-      INSIDESILLDEPTH,
-      INSIDESILLSOLARABSORPTANCE,
-      INSIDEREVEALDEPTH,
-      INSIDEREVEALSOLARABSORPTANCE,
+      tr("Subsurface Name"),
+      tr("Parent Surface Name"),
+      tr("Frame and Divider"),
+      tr("Frame Width"),
+      tr("Frame Outside Projection"),
+      tr("Frame Inside Projection"),
+      tr("Frame Conductance"),
+      tr("Frame - Edge Glass Conductance to Center - Of - Glass Conductance"),
+      tr("Frame Solar Absorptance"),
+      tr("Frame Visible Absorptance"),
+      tr("Frame Thermal Hemispherical Emissivity"),
+      tr("Divider Type"),
+      tr("Divider Width"),
+      tr("Number of Horizontal Dividers"),
+      tr("Number of Vertical Dividers"),
+      tr("Divider Outside Projection"),
+      tr("Divider Inside Projection"),
+      tr("Divider Conductance"),
+      tr("Ratio of Divider - Edge Glass Conductance to Center - Of - Glass Conductance"),
+      tr("Divider Solar Absorptance"),
+      tr("Divider Visible Absorptance"),
+      tr("Divider Thermal Hemispherical Emissivity"),
+      tr("Outside Reveal Depth"),
+      tr("Outside Reveal Solar Absorptance"),
+      tr("Inside Sill Depth"),
+      tr("Inside Sill Solar Absorptance"),
+      tr("Inside Reveal Depth"),
+      tr("Inside Reveal Solar Absorptance"),
     };
-    std::pair<QString, std::vector<QString>> categoryAndFields = std::make_pair(TR("Frame and Divider"), fields);
+    std::pair<QString, std::vector<QString>> categoryAndFields = std::make_pair(tr("Frame and Divider"), fields);
     addCategoryAndFields(categoryAndFields);
   }
 
   {
     std::vector<QString> fields{
-      SUBSURFACENAME,
-      SURFACENAME,
-      DAYLIGHTINGSHELFNAME,
-      //WINDOWNAME,
-      INSIDESHELFNAME,
-      OUTSIDESHELFNAME,
-      VIEWFACTORTOOUTSIDESHELF,
+      tr("Subsurface Name"),
+      tr("Parent Surface Name"),
+      tr("Daylighting Shelf Name"),
+      //tr("Window Name"),
+      tr("Inside Shelf Name"),
+      tr("Outside Shelf Name"),
+      tr("View Factor to Outside Shelf"),
     };
-    std::pair<QString, std::vector<QString>> categoryAndFields = std::make_pair(TR("Daylighting Shelves"), fields);
+    std::pair<QString, std::vector<QString>> categoryAndFields = std::make_pair(tr("Daylighting Shelves"), fields);
     addCategoryAndFields(categoryAndFields);
   }
 
@@ -260,27 +196,27 @@ void SpacesSubsurfacesGridController::onCategorySelected(int index) {
 void SpacesSubsurfacesGridController::addColumns(const QString& category, std::vector<QString>& fields) {
 
   if (isDisplayAdditionalProps()) {
-    fields.insert(fields.begin(), {DISPLAYNAME, CADOBJECTID});
+    fields.insert(fields.begin(), {tr("Display Name"), tr("CAD Object ID")});
   }
   // always show name and selected columns
-  fields.insert(fields.begin(), {NAME, SELECTED});
+  fields.insert(fields.begin(), {tr("Space Name"), tr("All")});
 
   resetBaseConcepts();
 
   for (const auto& field : fields) {
 
-    if (field == NAME) {
-      addParentNameLineEditColumn(Heading(QString(NAME), false, false), false, CastNullAdapter<model::Space>(&model::Space::name),
+    if (field == tr("Space Name")) {
+      addParentNameLineEditColumn(Heading(tr("Space Name"), false, false), false, CastNullAdapter<model::Space>(&model::Space::name),
                                   CastNullAdapter<model::Space>(&model::Space::setName));
-    } else if (field == DISPLAYNAME) {
-      addNameLineEditColumn(Heading(QString(DISPLAYNAME), false, false),                     // heading
+    } else if (field == tr("Display Name")) {
+      addNameLineEditColumn(Heading(tr("Display Name"), false, false),                       // heading
                             false,                                                           // isInspectable
                             false,                                                           // isLocked
                             DisplayNameAdapter<model::Space>(&model::Space::displayName),    // getter
                             DisplayNameAdapter<model::Space>(&model::Space::setDisplayName)  // setter
       );
-    } else if (field == CADOBJECTID) {
-      addNameLineEditColumn(Heading(QString(CADOBJECTID), false, false),                     // heading
+    } else if (field == tr("CAD Object ID")) {
+      addNameLineEditColumn(Heading(tr("CAD Object ID"), false, false),                      // heading
                             false,                                                           // isInspectable
                             false,                                                           // isLocked
                             DisplayNameAdapter<model::Space>(&model::Space::cadObjectId),    // getter
@@ -386,31 +322,30 @@ void SpacesSubsurfacesGridController::addColumns(const QString& category, std::v
           return allModelObjects;
         });
 
-      if (field == SELECTED) {
+      if (field == tr("All")) {
         auto checkbox = QSharedPointer<OSSelectAllCheckBox>(new OSSelectAllCheckBox());
         checkbox->setToolTip("Check to select all rows");
         connect(checkbox.data(), &OSSelectAllCheckBox::checkStateChanged, this, &SpacesSubsurfacesGridController::onSelectAllStateChanged);
         connect(this, &SpacesSubsurfacesGridController::gridRowSelectionChanged, checkbox.data(), &OSSelectAllCheckBox::onGridRowSelectionChanged);
-        addSelectColumn(Heading(QString(SELECTED), false, false, checkbox), "Check to select this row", DataSource(allSubSurfaces, true));
+        addSelectColumn(Heading(tr("All"), false, false, checkbox), "Check to select this row", DataSource(allSubSurfaces, true));
       }
 
-      else if (field == SURFACENAME) {
+      else if (field == tr("Parent Surface Name")) {
         addNameLineEditColumn(
-          Heading(QString(SURFACENAME), true, false), false, false, CastNullAdapter<model::Surface>(&model::Surface::name),
+          Heading(tr("Parent Surface Name"), true, false), false, false, CastNullAdapter<model::Surface>(&model::Surface::name),
           CastNullAdapter<model::Surface>(&model::Surface::setName),
           boost::optional<std::function<void(model::Surface*)>>(std::function<void(model::Surface*)>([](model::Surface* t_s) { t_s->remove(); })),
           boost::optional<std::function<bool(model::Surface*)>>(),  // isDefaulted
           DataSource(allSubsurfaceSurfaces, true));
-      } else if (field == SUBSURFACENAME) {
-        addNameLineEditColumn(Heading(QString(SUBSURFACENAME), true, false), false, false,
-                              CastNullAdapter<model::SubSurface>(&model::SubSurface::name),
+      } else if (field == tr("Subsurface Name")) {
+        addNameLineEditColumn(Heading(tr("Subsurface Name"), true, false), false, false, CastNullAdapter<model::SubSurface>(&model::SubSurface::name),
                               CastNullAdapter<model::SubSurface>(&model::SubSurface::setName),
                               boost::optional<std::function<void(model::SubSurface*)>>(
                                 std::function<void(model::SubSurface*)>([](model::SubSurface* t_s) { t_s->remove(); })),
                               boost::optional<std::function<bool(model::SubSurface*)>>(), DataSource(allSubSurfaces, true));
-      } else if (field == SUBSURFACETYPE) {
+      } else if (field == tr("Subsurface Type")) {
         addComboBoxColumn<std::string, model::SubSurface>(
-          Heading(QString(SUBSURFACETYPE)),
+          Heading(tr("Subsurface Type")),
           std::function<std::string(const std::string&)>(static_cast<std::string (*)(const std::string&)>(&openstudio::toString)),
           std::function<std::vector<std::string>()>(&model::SubSurface::validSubSurfaceTypeValues),
           CastNullAdapter<model::SubSurface>(&model::SubSurface::subSurfaceType),
@@ -420,33 +355,33 @@ void SpacesSubsurfacesGridController::addColumns(const QString& category, std::v
           boost::optional<std::function<bool(model::SubSurface*)>>(
             CastNullAdapter<model::SubSurface>(&model::SubSurface::isSubSurfaceTypeDefaulted)),  // New since 3.1.0
           DataSource(allSubSurfaces, true));
-      } else if (field == MULTIPLIER) {
-        addValueEditColumn(Heading(QString(MULTIPLIER)), NullAdapter(&model::SubSurface::multiplier), NullAdapter(&model::SubSurface::setMultiplier),
+      } else if (field == tr("Multiplier")) {
+        addValueEditColumn(Heading(tr("Multiplier")), NullAdapter(&model::SubSurface::multiplier), NullAdapter(&model::SubSurface::setMultiplier),
                            boost::optional<std::function<void(model::SubSurface*)>>(NullAdapter(&model::SubSurface::resetMultiplier)),
                            boost::optional<std::function<bool(model::SubSurface*)>>(NullAdapter(&model::SubSurface::isMultiplierDefaulted)),
                            DataSource(allSubSurfaces, true));
-      } else if (field == CONSTRUCTION) {
+      } else if (field == tr("Construction")) {
         setConstructionColumn(6);
-        addDropZoneColumn(Heading(QString(CONSTRUCTION)), CastNullAdapter<model::SubSurface>(&model::SubSurface::construction),
+        addDropZoneColumn(Heading(tr("Construction")), CastNullAdapter<model::SubSurface>(&model::SubSurface::construction),
                           CastNullAdapter<model::SubSurface>(&model::SubSurface::setConstruction),
                           boost::optional<std::function<void(model::SubSurface*)>>(NullAdapter(&model::SubSurface::resetConstruction)),
                           boost::optional<std::function<bool(model::SubSurface*)>>(NullAdapter(&model::SubSurface::isConstructionDefaulted)),
                           boost::optional<std::function<std::vector<model::ModelObject>(const model::SubSurface*)>>(),
                           DataSource(allSubSurfaces, true));
-      } else if (field == OUTSIDEBOUNDARYCONDITIONOBJECT) {
+      } else if (field == tr("Outside Boundary Condition Object")) {
         std::function<bool(model::SubSurface*, const model::SubSurface&)> setter([](model::SubSurface* t_subSurface, const model::SubSurface& t_arg) {
           auto copy = t_arg;
           return t_subSurface->setAdjacentSubSurface(copy);
         });
 
         addDropZoneColumn(
-          Heading(QString(OUTSIDEBOUNDARYCONDITIONOBJECT), true, false), CastNullAdapter<model::SubSurface>(&model::SubSurface::adjacentSubSurface),
+          Heading(tr("Outside Boundary Condition Object"), true, false), CastNullAdapter<model::SubSurface>(&model::SubSurface::adjacentSubSurface),
           setter, boost::optional<std::function<void(model::SubSurface*)>>(NullAdapter(&model::SubSurface::resetAdjacentSubSurface)),
           boost::optional<std::function<bool(model::SubSurface*)>>(),
           boost::optional<std::function<std::vector<model::ModelObject>(const model::SubSurface*)>>(), DataSource(allSubSurfaces, true));
-      } else if (field == SHADINGSURFACENAME) {
+      } else if (field == tr("Shading Surface Name")) {
 
-      } else if (field == SHADINGCONTROLNAME) {
+      } else if (field == tr("Shading Control")) {
 
         // TODO: temporary workaround, see Shading Control Enhancements #239
 #if defined(_MSC_VER)
@@ -461,7 +396,7 @@ void SpacesSubsurfacesGridController::addColumns(const QString& category, std::v
             return const_cast<model::ShadingControl&>(t_arg).addSubSurface(*t_surface);
           });
 
-        addDropZoneColumn(Heading(QString(SHADINGCONTROLNAME)), CastNullAdapter<model::SubSurface>(&model::SubSurface::shadingControl), setter,
+        addDropZoneColumn(Heading(tr("Shading Control")), CastNullAdapter<model::SubSurface>(&model::SubSurface::shadingControl), setter,
                           boost::optional<std::function<void(model::SubSurface*)>>(NullAdapter(&model::SubSurface::resetShadingControl)),
                           boost::optional<std::function<bool(model::SubSurface*)>>(),
                           boost::optional<std::function<std::vector<model::ModelObject>(const model::SubSurface*)>>(),
@@ -471,29 +406,29 @@ void SpacesSubsurfacesGridController::addColumns(const QString& category, std::v
 #elif (defined(__GNUC__))
 #  pragma GCC diagnostic pop
 #endif
-      } else if (field == SHADINGTYPE) {
+      } else if (field == tr("Shading Type")) {
         addComboBoxColumn<std::string, model::ShadingControl>(
-          Heading(QString(SHADINGTYPE), true, false), static_cast<std::string (*)(const std::string&)>(&openstudio::toString),
+          Heading(tr("Shading Type"), true, false), static_cast<std::string (*)(const std::string&)>(&openstudio::toString),
           std::function<std::vector<std::string>()>(&model::ShadingControl::shadingTypeValues),
           CastNullAdapter<model::ShadingControl>(&model::ShadingControl::shadingType),
           CastNullAdapter<model::ShadingControl>(&model::ShadingControl::setShadingType),
           boost::optional<std::function<void(model::ShadingControl*)>>(), DataSource(allShadingControls, true));
-      } else if (field == CONSTRUCTIONWITHSHADINGNAME) {
+      } else if (field == tr("Construction with Shading Name")) {
         // ShadingControl
         //boost::optional<Construction> construction() const;
-      } else if (field == SHADINGDEVICEMATERIALNAME) {
+      } else if (field == tr("Shading Device Material Name")) {
         // ShadingControl
         //boost::optional<ShadingMaterial> shadingMaterial() const;
-      } else if (field == SHADINGCONTROLTYPE) {
+      } else if (field == tr("Shading Control Type")) {
         addComboBoxColumn<std::string, model::ShadingControl>(
-          Heading(QString(SHADINGCONTROLTYPE), true, false), static_cast<std::string (*)(const std::string&)>(&openstudio::toString),
+          Heading(tr("Shading Control Type"), true, false), static_cast<std::string (*)(const std::string&)>(&openstudio::toString),
           std::function<std::vector<std::string>()>(&model::ShadingControl::shadingControlTypeValues),
           CastNullAdapter<model::ShadingControl>(&model::ShadingControl::shadingControlType),
           CastNullAdapter<model::ShadingControl>(&model::ShadingControl::setShadingControlType),
           boost::optional<std::function<void(model::ShadingControl*)>>(NullAdapter(&model::ShadingControl::resetShadingControlType)),
           boost::optional<std::function<bool(model::ShadingControl*)>>(NullAdapter(&model::ShadingControl::isShadingControlTypeDefaulted)),
           DataSource(allShadingControls, true));
-      } else if (field == SCHEDULENAME) {
+      } else if (field == tr("Schedule Name")) {
         std::function<bool(model::ShadingControl*, const model::Schedule&)> setter(
           [](model::ShadingControl* t_shadingControl, const model::Schedule& t_arg) {
             auto copy = t_arg;
@@ -501,55 +436,55 @@ void SpacesSubsurfacesGridController::addColumns(const QString& category, std::v
           });
 
         addDropZoneColumn(
-          Heading(QString(SCHEDULENAME), true, false), NullAdapter(&model::ShadingControl::schedule), setter,
+          Heading(tr("Schedule Name"), true, false), NullAdapter(&model::ShadingControl::schedule), setter,
           boost::optional<std::function<void(model::ShadingControl*)>>(CastNullAdapter<model::ShadingControl>(&model::ShadingControl::resetSchedule)),
           boost::optional<std::function<bool(model::ShadingControl*)>>(),
           boost::optional<std::function<std::vector<model::ModelObject>(const model::ShadingControl*)>>(), DataSource(allShadingControls, true));
-      } else if (field == FRAMEANDDIVIDERNAME) {
+      } else if (field == tr("Frame and Divider")) {
         addDropZoneColumn(
-          Heading(QString(FRAMEANDDIVIDERNAME)), CastNullAdapter<model::SubSurface>(&model::SubSurface::windowPropertyFrameAndDivider),
+          Heading(tr("Frame and Divider")), CastNullAdapter<model::SubSurface>(&model::SubSurface::windowPropertyFrameAndDivider),
           CastNullAdapter<model::SubSurface>(&model::SubSurface::setWindowPropertyFrameAndDivider),
           boost::optional<std::function<void(model::SubSurface*)>>(NullAdapter(&model::SubSurface::resetWindowPropertyFrameAndDivider)),
           boost::optional<std::function<bool(model::SubSurface*)>>(),
           boost::optional<std::function<std::vector<model::ModelObject>(const model::SubSurface*)>>(), DataSource(allSubSurfaces, true));
-      } else if (field == FRAMEWIDTH) {
-        addValueEditColumn(Heading(QString(FRAMEWIDTH), true, false), NullAdapter(&model::WindowPropertyFrameAndDivider::frameWidth),
+      } else if (field == tr("Frame Width")) {
+        addValueEditColumn(Heading(tr("Frame Width"), true, false), NullAdapter(&model::WindowPropertyFrameAndDivider::frameWidth),
                            NullAdapter(&model::WindowPropertyFrameAndDivider::setFrameWidth),
                            boost::optional<std::function<void(model::WindowPropertyFrameAndDivider*)>>(
                              CastNullAdapter<model::WindowPropertyFrameAndDivider>(&model::WindowPropertyFrameAndDivider::resetFrameWidth)),
                            boost::optional<std::function<bool(model::WindowPropertyFrameAndDivider*)>>(
                              CastNullAdapter<model::WindowPropertyFrameAndDivider>(&model::WindowPropertyFrameAndDivider::isFrameWidthDefaulted)),
                            DataSource(allWindowPropertyFrameAndDividers, true));
-      } else if (field == FRAMEOUTSIDEPROJECTION) {
+      } else if (field == tr("Frame Outside Projection")) {
         addValueEditColumn(
-          Heading(QString(FRAMEOUTSIDEPROJECTION), true, false), NullAdapter(&model::WindowPropertyFrameAndDivider::frameOutsideProjection),
+          Heading(tr("Frame Outside Projection"), true, false), NullAdapter(&model::WindowPropertyFrameAndDivider::frameOutsideProjection),
           NullAdapter(&model::WindowPropertyFrameAndDivider::setFrameOutsideProjection),
           boost::optional<std::function<void(model::WindowPropertyFrameAndDivider*)>>(
             CastNullAdapter<model::WindowPropertyFrameAndDivider>(&model::WindowPropertyFrameAndDivider::resetFrameOutsideProjection)),
           boost::optional<std::function<bool(model::WindowPropertyFrameAndDivider*)>>(
             CastNullAdapter<model::WindowPropertyFrameAndDivider>(&model::WindowPropertyFrameAndDivider::isInsideRevealSolarAbsorptanceDefaulted)),
           DataSource(allWindowPropertyFrameAndDividers, true));
-      } else if (field == FRAMEINSIDEPROJECTION) {
+      } else if (field == tr("Frame Inside Projection")) {
         addValueEditColumn(
-          Heading(QString(FRAMEINSIDEPROJECTION), true, false), NullAdapter(&model::WindowPropertyFrameAndDivider::frameInsideProjection),
+          Heading(tr("Frame Inside Projection"), true, false), NullAdapter(&model::WindowPropertyFrameAndDivider::frameInsideProjection),
           NullAdapter(&model::WindowPropertyFrameAndDivider::setFrameInsideProjection),
           boost::optional<std::function<void(model::WindowPropertyFrameAndDivider*)>>(
             CastNullAdapter<model::WindowPropertyFrameAndDivider>(&model::WindowPropertyFrameAndDivider::resetFrameInsideProjection)),
           boost::optional<std::function<bool(model::WindowPropertyFrameAndDivider*)>>(
             CastNullAdapter<model::WindowPropertyFrameAndDivider>(&model::WindowPropertyFrameAndDivider::isFrameInsideProjectionDefaulted)),
           DataSource(allWindowPropertyFrameAndDividers, true));
-      } else if (field == FRAMECONDUCTANCE) {
+      } else if (field == tr("Frame Conductance")) {
         addValueEditColumn(
-          Heading(QString(FRAMECONDUCTANCE), true, false), NullAdapter(&model::WindowPropertyFrameAndDivider::frameConductance),
+          Heading(tr("Frame Conductance"), true, false), NullAdapter(&model::WindowPropertyFrameAndDivider::frameConductance),
           NullAdapter(&model::WindowPropertyFrameAndDivider::setFrameConductance),
           boost::optional<std::function<void(model::WindowPropertyFrameAndDivider*)>>(
             CastNullAdapter<model::WindowPropertyFrameAndDivider>(&model::WindowPropertyFrameAndDivider::resetFrameConductance)),
           boost::optional<std::function<bool(model::WindowPropertyFrameAndDivider*)>>(
             CastNullAdapter<model::WindowPropertyFrameAndDivider>(&model::WindowPropertyFrameAndDivider::isFrameConductanceDefaulted)),
           DataSource(allWindowPropertyFrameAndDividers, true));
-      } else if (field == FRAMEEDGEGLASSCONDUCTANCETOCENTEROFGLASSCONDUCTANCE) {
+      } else if (field == tr("Frame - Edge Glass Conductance to Center - Of - Glass Conductance")) {
         addValueEditColumn(
-          Heading(QString(FRAMEEDGEGLASSCONDUCTANCETOCENTEROFGLASSCONDUCTANCE), true, false),
+          Heading(tr("Frame - Edge Glass Conductance to Center - Of - Glass Conductance"), true, false),
           NullAdapter(&model::WindowPropertyFrameAndDivider::ratioOfFrameEdgeGlassConductanceToCenterOfGlassConductance),
           NullAdapter(&model::WindowPropertyFrameAndDivider::setRatioOfFrameEdgeGlassConductanceToCenterOfGlassConductance),
           boost::optional<std::function<void(model::WindowPropertyFrameAndDivider*)>>(CastNullAdapter<model::WindowPropertyFrameAndDivider>(
@@ -557,27 +492,27 @@ void SpacesSubsurfacesGridController::addColumns(const QString& category, std::v
           boost::optional<std::function<bool(model::WindowPropertyFrameAndDivider*)>>(CastNullAdapter<model::WindowPropertyFrameAndDivider>(
             &model::WindowPropertyFrameAndDivider::isRatioOfFrameEdgeGlassConductanceToCenterOfGlassConductanceDefaulted)),
           DataSource(allWindowPropertyFrameAndDividers, true));
-      } else if (field == FRAMESOLARABSORPTANCE) {
+      } else if (field == tr("Frame Solar Absorptance")) {
         addValueEditColumn(
-          Heading(QString(FRAMESOLARABSORPTANCE), true, false), NullAdapter(&model::WindowPropertyFrameAndDivider::insideRevealSolarAbsorptance),
+          Heading(tr("Frame Solar Absorptance"), true, false), NullAdapter(&model::WindowPropertyFrameAndDivider::insideRevealSolarAbsorptance),
           NullAdapter(&model::WindowPropertyFrameAndDivider::setInsideRevealSolarAbsorptance),
           boost::optional<std::function<void(model::WindowPropertyFrameAndDivider*)>>(
             CastNullAdapter<model::WindowPropertyFrameAndDivider>(&model::WindowPropertyFrameAndDivider::resetInsideRevealSolarAbsorptance)),
           boost::optional<std::function<bool(model::WindowPropertyFrameAndDivider*)>>(
             CastNullAdapter<model::WindowPropertyFrameAndDivider>(&model::WindowPropertyFrameAndDivider::isInsideRevealSolarAbsorptanceDefaulted)),
           DataSource(allWindowPropertyFrameAndDividers, true));
-      } else if (field == FRAMEVISIBLEABSORPTANCE) {
+      } else if (field == tr("Frame Visible Absorptance")) {
         addValueEditColumn(
-          Heading(QString(FRAMEVISIBLEABSORPTANCE), true, false), NullAdapter(&model::WindowPropertyFrameAndDivider::frameVisibleAbsorptance),
+          Heading(tr("Frame Visible Absorptance"), true, false), NullAdapter(&model::WindowPropertyFrameAndDivider::frameVisibleAbsorptance),
           NullAdapter(&model::WindowPropertyFrameAndDivider::setFrameVisibleAbsorptance),
           boost::optional<std::function<void(model::WindowPropertyFrameAndDivider*)>>(
             CastNullAdapter<model::WindowPropertyFrameAndDivider>(&model::WindowPropertyFrameAndDivider::resetFrameVisibleAbsorptance)),
           boost::optional<std::function<bool(model::WindowPropertyFrameAndDivider*)>>(
             CastNullAdapter<model::WindowPropertyFrameAndDivider>(&model::WindowPropertyFrameAndDivider::isFrameVisibleAbsorptanceDefaulted)),
           DataSource(allWindowPropertyFrameAndDividers, true));
-      } else if (field == FRAMETHERMALHEMISPHERICALEMISSIVITY) {
+      } else if (field == tr("Frame Thermal Hemispherical Emissivity")) {
         addValueEditColumn(
-          Heading(QString(FRAMETHERMALHEMISPHERICALEMISSIVITY), true, false),
+          Heading(tr("Frame Thermal Hemispherical Emissivity"), true, false),
           NullAdapter(&model::WindowPropertyFrameAndDivider::frameThermalHemisphericalEmissivity),
           NullAdapter(&model::WindowPropertyFrameAndDivider::setFrameThermalHemisphericalEmissivity),
           boost::optional<std::function<void(model::WindowPropertyFrameAndDivider*)>>(
@@ -585,9 +520,9 @@ void SpacesSubsurfacesGridController::addColumns(const QString& category, std::v
           boost::optional<std::function<bool(model::WindowPropertyFrameAndDivider*)>>(CastNullAdapter<model::WindowPropertyFrameAndDivider>(
             &model::WindowPropertyFrameAndDivider::isFrameThermalHemisphericalEmissivityDefaulted)),
           DataSource(allWindowPropertyFrameAndDividers, true));
-      } else if (field == DIVIDERTYPE) {
+      } else if (field == tr("Divider Type")) {
         addComboBoxColumn<std::string, model::WindowPropertyFrameAndDivider>(
-          Heading(QString(DIVIDERTYPE), true, false), static_cast<std::string (*)(const std::string&)>(&openstudio::toString),
+          Heading(tr("Divider Type"), true, false), static_cast<std::string (*)(const std::string&)>(&openstudio::toString),
           std::function<std::vector<std::string>()>(&model::WindowPropertyFrameAndDivider::dividerTypeValues),
           CastNullAdapter<model::WindowPropertyFrameAndDivider>(&model::WindowPropertyFrameAndDivider::dividerType),
           CastNullAdapter<model::WindowPropertyFrameAndDivider>(&model::WindowPropertyFrameAndDivider::setDividerType),
@@ -596,62 +531,62 @@ void SpacesSubsurfacesGridController::addColumns(const QString& category, std::v
           boost::optional<std::function<bool(model::WindowPropertyFrameAndDivider*)>>(
             NullAdapter(&model::WindowPropertyFrameAndDivider::isDividerTypeDefaulted)),
           DataSource(allWindowPropertyFrameAndDividers, true));
-      } else if (field == DIVIDERWIDTH) {
-        addValueEditColumn(Heading(QString(DIVIDERWIDTH), true, false), NullAdapter(&model::WindowPropertyFrameAndDivider::dividerWidth),
+      } else if (field == tr("Divider Width")) {
+        addValueEditColumn(Heading(tr("Divider Width"), true, false), NullAdapter(&model::WindowPropertyFrameAndDivider::dividerWidth),
                            NullAdapter(&model::WindowPropertyFrameAndDivider::setDividerWidth),
                            boost::optional<std::function<void(model::WindowPropertyFrameAndDivider*)>>(
                              CastNullAdapter<model::WindowPropertyFrameAndDivider>(&model::WindowPropertyFrameAndDivider::resetDividerWidth)),
                            boost::optional<std::function<bool(model::WindowPropertyFrameAndDivider*)>>(
                              CastNullAdapter<model::WindowPropertyFrameAndDivider>(&model::WindowPropertyFrameAndDivider::isDividerWidthDefaulted)),
                            DataSource(allWindowPropertyFrameAndDividers, true));
-      } else if (field == NUMBEROFHORIZONTALDIVIDERS) {
+      } else if (field == tr("Number of Horizontal Dividers")) {
         addValueEditColumn(
-          Heading(QString(NUMBEROFHORIZONTALDIVIDERS), true, false), NullAdapter(&model::WindowPropertyFrameAndDivider::numberOfHorizontalDividers),
+          Heading(tr("Number of Horizontal Dividers"), true, false), NullAdapter(&model::WindowPropertyFrameAndDivider::numberOfHorizontalDividers),
           NullAdapter(&model::WindowPropertyFrameAndDivider::setNumberOfHorizontalDividers),
           boost::optional<std::function<void(model::WindowPropertyFrameAndDivider*)>>(
             CastNullAdapter<model::WindowPropertyFrameAndDivider>(&model::WindowPropertyFrameAndDivider::resetNumberOfHorizontalDividers)),
           boost::optional<std::function<bool(model::WindowPropertyFrameAndDivider*)>>(
             CastNullAdapter<model::WindowPropertyFrameAndDivider>(&model::WindowPropertyFrameAndDivider::isNumberOfHorizontalDividersDefaulted)),
           DataSource(allWindowPropertyFrameAndDividers, true));
-      } else if (field == NUMBEROFVERTICALDIVIDERS) {
+      } else if (field == tr("Number of Vertical Dividers")) {
         addValueEditColumn(
-          Heading(QString(NUMBEROFVERTICALDIVIDERS), true, false), NullAdapter(&model::WindowPropertyFrameAndDivider::numberOfVerticalDividers),
+          Heading(tr("Number of Vertical Dividers"), true, false), NullAdapter(&model::WindowPropertyFrameAndDivider::numberOfVerticalDividers),
           NullAdapter(&model::WindowPropertyFrameAndDivider::setNumberOfVerticalDividers),
           boost::optional<std::function<void(model::WindowPropertyFrameAndDivider*)>>(
             CastNullAdapter<model::WindowPropertyFrameAndDivider>(&model::WindowPropertyFrameAndDivider::resetNumberOfVerticalDividers)),
           boost::optional<std::function<bool(model::WindowPropertyFrameAndDivider*)>>(
             CastNullAdapter<model::WindowPropertyFrameAndDivider>(&model::WindowPropertyFrameAndDivider::isNumberOfVerticalDividersDefaulted)),
           DataSource(allWindowPropertyFrameAndDividers, true));
-      } else if (field == DIVIDEROUTSIDEPROJECTION) {
+      } else if (field == tr("Divider Outside Projection")) {
         addValueEditColumn(
-          Heading(QString(DIVIDEROUTSIDEPROJECTION), true, false), NullAdapter(&model::WindowPropertyFrameAndDivider::dividerOutsideProjection),
+          Heading(tr("Divider Outside Projection"), true, false), NullAdapter(&model::WindowPropertyFrameAndDivider::dividerOutsideProjection),
           NullAdapter(&model::WindowPropertyFrameAndDivider::setDividerOutsideProjection),
           boost::optional<std::function<void(model::WindowPropertyFrameAndDivider*)>>(
             CastNullAdapter<model::WindowPropertyFrameAndDivider>(&model::WindowPropertyFrameAndDivider::resetDividerOutsideProjection)),
           boost::optional<std::function<bool(model::WindowPropertyFrameAndDivider*)>>(
             CastNullAdapter<model::WindowPropertyFrameAndDivider>(&model::WindowPropertyFrameAndDivider::isDividerOutsideProjectionDefaulted)),
           DataSource(allWindowPropertyFrameAndDividers, true));
-      } else if (field == DIVIDERINSIDEPROJECTION) {
+      } else if (field == tr("Divider Inside Projection")) {
         addValueEditColumn(
-          Heading(QString(DIVIDERINSIDEPROJECTION), true, false), NullAdapter(&model::WindowPropertyFrameAndDivider::dividerInsideProjection),
+          Heading(tr("Divider Inside Projection"), true, false), NullAdapter(&model::WindowPropertyFrameAndDivider::dividerInsideProjection),
           NullAdapter(&model::WindowPropertyFrameAndDivider::setDividerInsideProjection),
           boost::optional<std::function<void(model::WindowPropertyFrameAndDivider*)>>(
             CastNullAdapter<model::WindowPropertyFrameAndDivider>(&model::WindowPropertyFrameAndDivider::resetDividerInsideProjection)),
           boost::optional<std::function<bool(model::WindowPropertyFrameAndDivider*)>>(
             CastNullAdapter<model::WindowPropertyFrameAndDivider>(&model::WindowPropertyFrameAndDivider::isDividerInsideProjectionDefaulted)),
           DataSource(allWindowPropertyFrameAndDividers, true));
-      } else if (field == DIVIDERCONDUCTANCE) {
+      } else if (field == tr("Divider Conductance")) {
         addValueEditColumn(
-          Heading(QString(DIVIDERCONDUCTANCE), true, false), NullAdapter(&model::WindowPropertyFrameAndDivider::dividerConductance),
+          Heading(tr("Divider Conductance"), true, false), NullAdapter(&model::WindowPropertyFrameAndDivider::dividerConductance),
           NullAdapter(&model::WindowPropertyFrameAndDivider::setDividerConductance),
           boost::optional<std::function<void(model::WindowPropertyFrameAndDivider*)>>(
             CastNullAdapter<model::WindowPropertyFrameAndDivider>(&model::WindowPropertyFrameAndDivider::resetDividerConductance)),
           boost::optional<std::function<bool(model::WindowPropertyFrameAndDivider*)>>(
             CastNullAdapter<model::WindowPropertyFrameAndDivider>(&model::WindowPropertyFrameAndDivider::isDividerConductanceDefaulted)),
           DataSource(allWindowPropertyFrameAndDividers, true));
-      } else if (field == RATIOOFDIVIDEREDGEGLASSCONDUCTANCETOCENTEROFGLASSCONDUCTANCE) {
+      } else if (field == tr("Ratio of Divider - Edge Glass Conductance to Center - Of - Glass Conductance")) {
         addValueEditColumn(
-          Heading(QString(RATIOOFDIVIDEREDGEGLASSCONDUCTANCETOCENTEROFGLASSCONDUCTANCE), true, false),
+          Heading(tr("Ratio of Divider - Edge Glass Conductance to Center - Of - Glass Conductance"), true, false),
           NullAdapter(&model::WindowPropertyFrameAndDivider::ratioOfDividerEdgeGlassConductanceToCenterOfGlassConductance),
           NullAdapter(&model::WindowPropertyFrameAndDivider::setRatioOfDividerEdgeGlassConductanceToCenterOfGlassConductance),
           boost::optional<std::function<void(model::WindowPropertyFrameAndDivider*)>>(CastNullAdapter<model::WindowPropertyFrameAndDivider>(
@@ -659,27 +594,27 @@ void SpacesSubsurfacesGridController::addColumns(const QString& category, std::v
           boost::optional<std::function<bool(model::WindowPropertyFrameAndDivider*)>>(CastNullAdapter<model::WindowPropertyFrameAndDivider>(
             &model::WindowPropertyFrameAndDivider::isRatioOfDividerEdgeGlassConductanceToCenterOfGlassConductanceDefaulted)),
           DataSource(allWindowPropertyFrameAndDividers, true));
-      } else if (field == DIVIDERSOLARABSORPTANCE) {
+      } else if (field == tr("Divider Solar Absorptance")) {
         addValueEditColumn(
-          Heading(QString(DIVIDERSOLARABSORPTANCE), true, false), NullAdapter(&model::WindowPropertyFrameAndDivider::dividerSolarAbsorptance),
+          Heading(tr("Divider Solar Absorptance"), true, false), NullAdapter(&model::WindowPropertyFrameAndDivider::dividerSolarAbsorptance),
           NullAdapter(&model::WindowPropertyFrameAndDivider::setDividerSolarAbsorptance),
           boost::optional<std::function<void(model::WindowPropertyFrameAndDivider*)>>(
             CastNullAdapter<model::WindowPropertyFrameAndDivider>(&model::WindowPropertyFrameAndDivider::resetDividerSolarAbsorptance)),
           boost::optional<std::function<bool(model::WindowPropertyFrameAndDivider*)>>(
             CastNullAdapter<model::WindowPropertyFrameAndDivider>(&model::WindowPropertyFrameAndDivider::isDividerSolarAbsorptanceDefaulted)),
           DataSource(allWindowPropertyFrameAndDividers, true));
-      } else if (field == DIVIDERVISIBLEABSORPTANCE) {
+      } else if (field == tr("Divider Visible Absorptance")) {
         addValueEditColumn(
-          Heading(QString(DIVIDERVISIBLEABSORPTANCE), true, false), NullAdapter(&model::WindowPropertyFrameAndDivider::dividerVisibleAbsorptance),
+          Heading(tr("Divider Visible Absorptance"), true, false), NullAdapter(&model::WindowPropertyFrameAndDivider::dividerVisibleAbsorptance),
           NullAdapter(&model::WindowPropertyFrameAndDivider::setDividerVisibleAbsorptance),
           boost::optional<std::function<void(model::WindowPropertyFrameAndDivider*)>>(
             CastNullAdapter<model::WindowPropertyFrameAndDivider>(&model::WindowPropertyFrameAndDivider::resetDividerVisibleAbsorptance)),
           boost::optional<std::function<bool(model::WindowPropertyFrameAndDivider*)>>(
             CastNullAdapter<model::WindowPropertyFrameAndDivider>(&model::WindowPropertyFrameAndDivider::isDividerVisibleAbsorptanceDefaulted)),
           DataSource(allWindowPropertyFrameAndDividers, true));
-      } else if (field == DIVIDERTHERMALHEMISPHERICALEMISSIVITY) {
+      } else if (field == tr("Divider Thermal Hemispherical Emissivity")) {
         addValueEditColumn(
-          Heading(QString(DIVIDERTHERMALHEMISPHERICALEMISSIVITY), true, false),
+          Heading(tr("Divider Thermal Hemispherical Emissivity"), true, false),
           NullAdapter(&model::WindowPropertyFrameAndDivider::dividerThermalHemisphericalEmissivity),
           NullAdapter(&model::WindowPropertyFrameAndDivider::setDividerThermalHemisphericalEmissivity),
           boost::optional<std::function<void(model::WindowPropertyFrameAndDivider*)>>(
@@ -687,18 +622,18 @@ void SpacesSubsurfacesGridController::addColumns(const QString& category, std::v
           boost::optional<std::function<bool(model::WindowPropertyFrameAndDivider*)>>(CastNullAdapter<model::WindowPropertyFrameAndDivider>(
             &model::WindowPropertyFrameAndDivider::isDividerThermalHemisphericalEmissivityDefaulted)),
           DataSource(allWindowPropertyFrameAndDividers, true));
-      } else if (field == OUTSIDEREVEALDEPTH) {
+      } else if (field == tr("Outside Reveal Depth")) {
         addValueEditColumn(
-          Heading(QString(OUTSIDEREVEALDEPTH), true, false), NullAdapter(&model::WindowPropertyFrameAndDivider::outsideRevealDepth),
+          Heading(tr("Outside Reveal Depth"), true, false), NullAdapter(&model::WindowPropertyFrameAndDivider::outsideRevealDepth),
           NullAdapter(&model::WindowPropertyFrameAndDivider::setOutsideRevealDepth),
           boost::optional<std::function<void(model::WindowPropertyFrameAndDivider*)>>(
             CastNullAdapter<model::WindowPropertyFrameAndDivider>(&model::WindowPropertyFrameAndDivider::resetOutsideRevealDepth)),
           boost::optional<std::function<bool(model::WindowPropertyFrameAndDivider*)>>(
             CastNullAdapter<model::WindowPropertyFrameAndDivider>(&model::WindowPropertyFrameAndDivider::isOutsideRevealDepthDefaulted)),
           DataSource(allWindowPropertyFrameAndDividers, true));
-      } else if (field == OUTSIDEREVEALSOLARABSORPTANCE) {
+      } else if (field == tr("Outside Reveal Solar Absorptance")) {
         addValueEditColumn(
-          Heading(QString(OUTSIDEREVEALSOLARABSORPTANCE), true, false),
+          Heading(tr("Outside Reveal Solar Absorptance"), true, false),
           NullAdapter(&model::WindowPropertyFrameAndDivider::outsideRevealSolarAbsorptance),
           NullAdapter(&model::WindowPropertyFrameAndDivider::setOutsideRevealSolarAbsorptance),
           boost::optional<std::function<void(model::WindowPropertyFrameAndDivider*)>>(
@@ -706,36 +641,36 @@ void SpacesSubsurfacesGridController::addColumns(const QString& category, std::v
           boost::optional<std::function<bool(model::WindowPropertyFrameAndDivider*)>>(
             CastNullAdapter<model::WindowPropertyFrameAndDivider>(&model::WindowPropertyFrameAndDivider::isOutsideRevealSolarAbsorptanceDefaulted)),
           DataSource(allWindowPropertyFrameAndDividers, true));
-      } else if (field == INSIDESILLDEPTH) {
+      } else if (field == tr("Inside Sill Depth")) {
         addValueEditColumn(
-          Heading(QString(INSIDESILLDEPTH), true, false), NullAdapter(&model::WindowPropertyFrameAndDivider::insideSillDepth),
+          Heading(tr("Inside Sill Depth"), true, false), NullAdapter(&model::WindowPropertyFrameAndDivider::insideSillDepth),
           NullAdapter(&model::WindowPropertyFrameAndDivider::setInsideSillDepth),
           boost::optional<std::function<void(model::WindowPropertyFrameAndDivider*)>>(
             CastNullAdapter<model::WindowPropertyFrameAndDivider>(&model::WindowPropertyFrameAndDivider::resetInsideSillDepth)),
           boost::optional<std::function<bool(model::WindowPropertyFrameAndDivider*)>>(
             CastNullAdapter<model::WindowPropertyFrameAndDivider>(&model::WindowPropertyFrameAndDivider::isInsideSillDepthDefaulted)),
           DataSource(allWindowPropertyFrameAndDividers, true));
-      } else if (field == INSIDESILLSOLARABSORPTANCE) {
+      } else if (field == tr("Inside Sill Solar Absorptance")) {
         addValueEditColumn(
-          Heading(QString(INSIDESILLSOLARABSORPTANCE), true, false), NullAdapter(&model::WindowPropertyFrameAndDivider::insideSillSolarAbsorptance),
+          Heading(tr("Inside Sill Solar Absorptance"), true, false), NullAdapter(&model::WindowPropertyFrameAndDivider::insideSillSolarAbsorptance),
           NullAdapter(&model::WindowPropertyFrameAndDivider::setInsideSillSolarAbsorptance),
           boost::optional<std::function<void(model::WindowPropertyFrameAndDivider*)>>(
             CastNullAdapter<model::WindowPropertyFrameAndDivider>(&model::WindowPropertyFrameAndDivider::resetInsideSillSolarAbsorptance)),
           boost::optional<std::function<bool(model::WindowPropertyFrameAndDivider*)>>(
             CastNullAdapter<model::WindowPropertyFrameAndDivider>(&model::WindowPropertyFrameAndDivider::isInsideSillSolarAbsorptanceDefaulted)),
           DataSource(allWindowPropertyFrameAndDividers, true));
-      } else if (field == INSIDEREVEALDEPTH) {
+      } else if (field == tr("Inside Reveal Depth")) {
         addValueEditColumn(
-          Heading(QString(INSIDEREVEALDEPTH), true, false), NullAdapter(&model::WindowPropertyFrameAndDivider::insideRevealDepth),
+          Heading(tr("Inside Reveal Depth"), true, false), NullAdapter(&model::WindowPropertyFrameAndDivider::insideRevealDepth),
           NullAdapter(&model::WindowPropertyFrameAndDivider::setInsideRevealDepth),
           boost::optional<std::function<void(model::WindowPropertyFrameAndDivider*)>>(
             CastNullAdapter<model::WindowPropertyFrameAndDivider>(&model::WindowPropertyFrameAndDivider::resetInsideRevealDepth)),
           boost::optional<std::function<bool(model::WindowPropertyFrameAndDivider*)>>(
             CastNullAdapter<model::WindowPropertyFrameAndDivider>(&model::WindowPropertyFrameAndDivider::isInsideRevealDepthDefaulted)),
           DataSource(allWindowPropertyFrameAndDividers, true));
-      } else if (field == INSIDEREVEALSOLARABSORPTANCE) {
+      } else if (field == tr("Inside Reveal Solar Absorptance")) {
         addValueEditColumn(
-          Heading(QString(INSIDEREVEALSOLARABSORPTANCE), true, false),
+          Heading(tr("Inside Reveal Solar Absorptance"), true, false),
           NullAdapter(&model::WindowPropertyFrameAndDivider::insideRevealSolarAbsorptance),
           NullAdapter(&model::WindowPropertyFrameAndDivider::setInsideRevealSolarAbsorptance),
           boost::optional<std::function<void(model::WindowPropertyFrameAndDivider*)>>(
@@ -743,38 +678,38 @@ void SpacesSubsurfacesGridController::addColumns(const QString& category, std::v
           boost::optional<std::function<bool(model::WindowPropertyFrameAndDivider*)>>(
             CastNullAdapter<model::WindowPropertyFrameAndDivider>(&model::WindowPropertyFrameAndDivider::isInsideRevealSolarAbsorptanceDefaulted)),
           DataSource(allWindowPropertyFrameAndDividers, true));
-      } else if (field == WINDOWNAME) {
-      } else if (field == DAYLIGHTINGSHELFNAME) {
-        addNameLineEditColumn(Heading(QString(DAYLIGHTINGSHELFNAME)), false, false,
+      } else if (field == tr("Window Name")) {
+      } else if (field == tr("Daylighting Shelf Name")) {
+        addNameLineEditColumn(Heading(tr("Daylighting Shelf Name")), false, false,
                               CastNullAdapter<model::DaylightingDeviceShelf>(&model::DaylightingDeviceShelf::name),
                               CastNullAdapter<model::DaylightingDeviceShelf>(&model::DaylightingDeviceShelf::setName),
                               boost::optional<std::function<void(model::DaylightingDeviceShelf*)>>(),
                               boost::optional<std::function<bool(model::DaylightingDeviceShelf*)>>(), DataSource(allDaylightingDeviceShelfs, true));
-      } else if (field == INSIDESHELFNAME) {
+      } else if (field == tr("Inside Shelf Name")) {
 
         std::function<bool(model::DaylightingDeviceShelf*, const model::InteriorPartitionSurface&)> setter(
           [](model::DaylightingDeviceShelf* t_shelf, const model::InteriorPartitionSurface& t_arg) { return t_shelf->setInsideShelf(t_arg); });
 
-        addDropZoneColumn(Heading(QString(INSIDESHELFNAME)),
+        addDropZoneColumn(Heading(tr("Inside Shelf Name")),
                           CastNullAdapter<model::DaylightingDeviceShelf>(&model::DaylightingDeviceShelf::insideShelf), setter,
                           boost::optional<std::function<void(model::DaylightingDeviceShelf*)>>(),
                           boost::optional<std::function<bool(model::DaylightingDeviceShelf*)>>(),
                           boost::optional<std::function<std::vector<model::ModelObject>(const model::DaylightingDeviceShelf*)>>(),
                           DataSource(allDaylightingDeviceShelfs, true));
-      } else if (field == OUTSIDESHELFNAME) {
+      } else if (field == tr("Outside Shelf Name")) {
 
         std::function<bool(model::DaylightingDeviceShelf*, const model::ShadingSurface&)> setter(
           [](model::DaylightingDeviceShelf* t_shelf, const model::ShadingSurface& t_arg) { return t_shelf->setOutsideShelf(t_arg); });
 
-        addDropZoneColumn(Heading(QString(OUTSIDESHELFNAME)),
+        addDropZoneColumn(Heading(tr("Outside Shelf Name")),
                           CastNullAdapter<model::DaylightingDeviceShelf>(&model::DaylightingDeviceShelf::outsideShelf), setter,
                           boost::optional<std::function<void(model::DaylightingDeviceShelf*)>>(),
                           boost::optional<std::function<bool(model::DaylightingDeviceShelf*)>>(),
                           boost::optional<std::function<std::vector<model::ModelObject>(const model::DaylightingDeviceShelf*)>>(),
                           DataSource(allDaylightingDeviceShelfs, true));
-      } else if (field == VIEWFACTORTOOUTSIDESHELF) {
+      } else if (field == tr("View Factor to Outside Shelf")) {
         addValueEditColumn(
-          Heading(QString(VIEWFACTORTOOUTSIDESHELF)), NullAdapter(&model::DaylightingDeviceShelf::viewFactortoOutsideShelf),
+          Heading(tr("View Factor to Outside Shelf")), NullAdapter(&model::DaylightingDeviceShelf::viewFactortoOutsideShelf),
           NullAdapter(&model::DaylightingDeviceShelf::setViewFactortoOutsideShelf),
           //boost::optional<std::function<void(model::DaylightingDeviceShelf*)>>(CastNullAdapter<model::DaylightingDeviceShelf>(&model::DaylightingDeviceShelf::resetViewFactortoOutsideShelf)),
           //boost::optional<std::function<bool(model::DaylightingDeviceShelf *)>>(),

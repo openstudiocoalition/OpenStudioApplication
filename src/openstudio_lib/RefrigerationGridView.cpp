@@ -42,15 +42,6 @@
 #include <QSettings>
 #include <QTimer>
 
-// These defines provide a common area for field display names
-// used on column headers, and other grid widgets
-
-#define TR_CASE(s) QCoreApplication::translate("openstudio::RefrigerationCaseGridController", s)
-#define TR_WALKIN(s) QCoreApplication::translate("openstudio::RefrigerationWalkInGridController", s)
-
-#define SELECTED TR_CASE("All")
-
-// Display Case Fields
 #define ANTISWEATHEATERCONTROLTYPE "Anti Sweat Heater Control Type"
 #define AVAILABILITYSCHEDULE "Availability Schedule"                              // TODO this has not yet been implemented
 #define AVERAGEREFRIGERANTCHARGEINVENTORY "Average Refrigerant Charge Inventory"  // TODO this has not yet been implemented
@@ -61,7 +52,6 @@
 #define CASEDEFROSTSCHEDULE "Case Defrost Schedule"  // TODO this has not yet been implemented
 #define CASEDEFROSTTYPE "Case Defrost Type"          // TODO this has not yet been implemented
 #define CASEHEIGHT "Case Height"                     // TODO this has not yet been implemented
-#define CASELENGTH TR_CASE("Case Length")
 #define CASELIGHTINGSCHEDULE "Case Lighting Schedule"
 #define CASEOPERATINGTEMPERATURE "Case Operating Temperature"
 #define DEFROSTENERGYCORRECTIONCURVE "Defrost Energy Correction Curve"  // TODO this has not yet been implemented
@@ -74,7 +64,6 @@
 #define INSTALLEDCASELIGHTINGPOWERPERUNITLENGTH "Installed Case Lighting Power\nper Unit Length"
 #define LATENTCASECREDITCURVETYPE "Latent Case Credit Curve Type"  // TODO this has not yet been implemented
 #define MINIMUMANTISWEATHEATERPOWERPERUNITLENGTH "Minimum Anti Sweat Heater Power\nper Unit Length"
-#define NAME TR_CASE("Name")
 #define OPERATINGCASEFANPOWERPERUNITLENGTH "Operating Case Fan Power\nper Unit Length"
 #define RATEDAMBIENTRELATIVEHUMIDITY "Rated Ambient Relative Humidity"  // TODO this has not yet been implemented
 #define RATEDAMBIENTTEMPERATURE \
@@ -85,8 +74,6 @@
 #define REFRIGERATEDCASERESTOCKINGSCHEDULE "Refrigerated Case Restocking Schedule"
 #define STANDARDCASEFANPOWERPERUNITLENGTH "Standard Case Fan Power\nper Unit Length"
 #define STANDARDCASELIGHTINGPOWERPERUNITLENGTH "Standard Case Lighting Power\nper Unit Length"
-#define THERMALZONE TR_CASE("Thermal Zone")
-#define RACK TR_CASE("Rack")
 #define UNDERCASEHVACRETURNAIRFRACTION "Under Case HVAC Return Air Fraction"
 
 // Walk In Fields
@@ -100,9 +87,7 @@
 #define HEATINGPOWERSCHEDULE "Heating Power Schedule"
 #define INSULATEDFLOORSURFACEAREA "Insulated Floor Surface Area"  // TODO this has not yet been implemented
 #define INSULATEDFLOORUVALUE "Insulated Floor U Value"
-#define LIGHTINGSCHEDULE "Lighting Schedule"  // TODO this has not yet been implemented
-#undef NAME
-#define NAME TR_WALKIN("Name")
+#define LIGHTINGSCHEDULE "Lighting Schedule"                              // TODO this has not yet been implemented
 #define OPERATINGTEMPERATURE "Operating Temperature"                      // TODO this has not yet been implemented
 #define RATEDCIRCULATIONFANPOWER "Rated Circulation Fan Power"            // TODO this has not yet been implemented
 #define RATEDCOILCOOLINGCAPACITY "Rated Coil Cooling Capacity"            // TODO this has not yet been implemented
@@ -113,7 +98,6 @@
 #define RESTOCKINGSCHEDULE "Restocking Schedule"
 #define TEMPERATURETERMINATIONDEFROSTFRACTIONTOICE "Temperature Termination\nDefrost Fraction to Ice"
 #define ZONEBOUNDARIES "Zone Boundaries"  // TODO this has not yet been implemented
-#define ZONEBOUNDARYTHERMALZONE TR_WALKIN("Thermal Zone")
 #define ZONEBOUNDARYTOTALINSULATEDSURFACEAREAFACINGZONE "Total Insulated Surface\nArea Facing Zone"
 #define ZONEBOUNDARYAREAOFGLASSREACHINDOORSFACINGZONE "Area of Glass Reach In\nDoors Facing Zone"
 #define ZONEBOUNDARYHEIGHTOFGLASSREACHINDOORSFACINGZONE "Height of Glass Reach In\nDoors Facing Zone"
@@ -198,11 +182,11 @@ void RefrigerationCaseGridController::setCategoriesAndFields() {
 
   {
     std::vector<QString> fields{
-      RACK,
-      THERMALZONE,
-      CASELENGTH,
+      tr("Rack"),
+      tr("Thermal Zone"),
+      tr("Case Length"),
     };
-    std::pair<QString, std::vector<QString>> categoryAndFields = std::make_pair(TR_CASE("General"), fields);
+    std::pair<QString, std::vector<QString>> categoryAndFields = std::make_pair(tr("General"), fields);
     addCategoryAndFields(categoryAndFields);
   }
 
@@ -213,7 +197,7 @@ void RefrigerationCaseGridController::setCategoriesAndFields() {
       DESIGNEVAPORATORTEMPERATUREORBRINEINLETTEMPERATURE,
       RATEDRUNTIMEFRACTION,
     };
-    std::pair<QString, std::vector<QString>> categoryAndFields = std::make_pair(TR_CASE("Operation"), fields);
+    std::pair<QString, std::vector<QString>> categoryAndFields = std::make_pair(tr("Operation"), fields);
     addCategoryAndFields(categoryAndFields);
   }
 
@@ -223,7 +207,7 @@ void RefrigerationCaseGridController::setCategoriesAndFields() {
       CASECREDITFRACTIONSCHEDULE,
       RATEDLATENTHEATRATIO,
     };
-    std::pair<QString, std::vector<QString>> categoryAndFields = std::make_pair(TR_CASE("Cooling\nCapacity"), fields);
+    std::pair<QString, std::vector<QString>> categoryAndFields = std::make_pair(tr("Cooling\nCapacity"), fields);
     addCategoryAndFields(categoryAndFields);
   }
 
@@ -232,7 +216,7 @@ void RefrigerationCaseGridController::setCategoriesAndFields() {
       STANDARDCASEFANPOWERPERUNITLENGTH,
       OPERATINGCASEFANPOWERPERUNITLENGTH,
     };
-    std::pair<QString, std::vector<QString>> categoryAndFields = std::make_pair(TR_CASE("Fan"), fields);
+    std::pair<QString, std::vector<QString>> categoryAndFields = std::make_pair(tr("Fan"), fields);
     addCategoryAndFields(categoryAndFields);
   }
 
@@ -243,7 +227,7 @@ void RefrigerationCaseGridController::setCategoriesAndFields() {
       FRACTIONOFLIGHTINGENERGYTOCASE,
       CASELIGHTINGSCHEDULE,
     };
-    std::pair<QString, std::vector<QString>> categoryAndFields = std::make_pair(TR_CASE("Lighting"), fields);
+    std::pair<QString, std::vector<QString>> categoryAndFields = std::make_pair(tr("Lighting"), fields);
     addCategoryAndFields(categoryAndFields);
   }
 
@@ -253,7 +237,7 @@ void RefrigerationCaseGridController::setCategoriesAndFields() {
       MINIMUMANTISWEATHEATERPOWERPERUNITLENGTH, HUMIDITYATZEROANTISWEATHEATERENERGY,
       FRACTIONOFANTISWEATHEATERENERGYTOCASE,
     };
-    std::pair<QString, std::vector<QString>> categoryAndFields = std::make_pair(TR_CASE("Case\nAnti-Sweat\nHeaters"), fields);
+    std::pair<QString, std::vector<QString>> categoryAndFields = std::make_pair(tr("Case\nAnti-Sweat\nHeaters"), fields);
     addCategoryAndFields(categoryAndFields);
   }
 
@@ -262,7 +246,7 @@ void RefrigerationCaseGridController::setCategoriesAndFields() {
       CASEDEFROSTPOWERPERUNITLENGTH,
       REFRIGERATEDCASERESTOCKINGSCHEDULE,
     };
-    std::pair<QString, std::vector<QString>> categoryAndFields = std::make_pair(TR_CASE("Defrost\nAnd\nRestocking"), fields);
+    std::pair<QString, std::vector<QString>> categoryAndFields = std::make_pair(tr("Defrost\nAnd\nRestocking"), fields);
     addCategoryAndFields(categoryAndFields);
   }
 
@@ -271,7 +255,7 @@ void RefrigerationCaseGridController::setCategoriesAndFields() {
 
 void RefrigerationCaseGridController::addColumns(const QString& /*category*/, std::vector<QString>& fields) {
   // always show name column
-  fields.insert(fields.begin(), {NAME, SELECTED});
+  fields.insert(fields.begin(), {tr("Name"), tr("All")});
 
   resetBaseConcepts();
 
@@ -280,12 +264,12 @@ void RefrigerationCaseGridController::addColumns(const QString& /*category*/, st
       addQuantityEditColumn(Heading(QString(RATEDAMBIENTTEMPERATURE)), QString("C"), QString("C"), QString("F"), isIP(),
                             NullAdapter(&model::RefrigerationCase::ratedAmbientTemperature),
                             NullAdapter(&model::RefrigerationCase::setRatedAmbientTemperature));
-    } else if (field == SELECTED) {
+    } else if (field == tr("All")) {
       auto checkbox = QSharedPointer<OSSelectAllCheckBox>(new OSSelectAllCheckBox());
       checkbox->setToolTip("Check to select all rows");
       connect(checkbox.data(), &OSSelectAllCheckBox::checkStateChanged, this, &RefrigerationCaseGridController::onSelectAllStateChanged);
       connect(this, &RefrigerationCaseGridController::gridRowSelectionChanged, checkbox.data(), &OSSelectAllCheckBox::onGridRowSelectionChanged);
-      addSelectColumn(Heading(QString(SELECTED), false, false, checkbox), "Check to select this row");
+      addSelectColumn(Heading(tr("All"), false, false, checkbox), "Check to select this row");
     } else if (field == RATEDAMBIENTRELATIVEHUMIDITY) {
       addValueEditColumn(Heading(QString(RATEDAMBIENTRELATIVEHUMIDITY)), NullAdapter(&model::RefrigerationCase::ratedAmbientRelativeHumidity),
                          NullAdapter(&model::RefrigerationCase::setRatedAmbientRelativeHumidity));
@@ -299,8 +283,8 @@ void RefrigerationCaseGridController::addColumns(const QString& /*category*/, st
     } else if (field == RATEDRUNTIMEFRACTION) {
       addValueEditColumn(Heading(QString(RATEDRUNTIMEFRACTION)), NullAdapter(&model::RefrigerationCase::ratedRuntimeFraction),
                          NullAdapter(&model::RefrigerationCase::setRatedRuntimeFraction));
-    } else if (field == CASELENGTH) {
-      addQuantityEditColumn(Heading(QString(CASELENGTH)), QString("m"), QString("m"), QString("ft"), isIP(),
+    } else if (field == tr("Case Length")) {
+      addQuantityEditColumn(Heading(tr("Case Length")), QString("m"), QString("m"), QString("ft"), isIP(),
                             NullAdapter(&model::RefrigerationCase::caseLength), NullAdapter(&model::RefrigerationCase::setCaseLength));
     } else if (field == CASEOPERATINGTEMPERATURE) {
       addQuantityEditColumn(Heading(QString(CASEOPERATINGTEMPERATURE)), QString("C"), QString("C"), QString("F"), isIP(),
@@ -436,18 +420,18 @@ void RefrigerationCaseGridController::addColumns(const QString& /*category*/, st
                     std::bind(&openstudio::model::getCompatibleSchedules, model(), "RefrigerationCase", "Availability"))),
         NullAdapter(&model::RefrigerationCase::availabilitySchedule), NullAdapter(&model::RefrigerationCase::setAvailabilitySchedule),
         NullAdapter(&model::RefrigerationCase::resetAvailabilitySchedule));
-    } else if (field == THERMALZONE) {
+    } else if (field == tr("Thermal Zone")) {
       addComboBoxColumn<model::ThermalZone, model::RefrigerationCase>(
-        Heading(QString(THERMALZONE)), std::function<std::string(const openstudio::model::ThermalZone&)>(&openstudio::objectName),
+        Heading(tr("Thermal Zone")), std::function<std::string(const openstudio::model::ThermalZone&)>(&openstudio::objectName),
         std::function<std::vector<model::ThermalZone>()>(std::bind(&openstudio::sortByObjectName<model::ThermalZone>,
                                                                    std::bind(&model::Model::getConcreteModelObjects<model::ThermalZone>, model()))),
         CastNullAdapter<model::RefrigerationCase>(&model::RefrigerationCase::thermalZone),
         CastNullAdapter<model::RefrigerationCase>(&model::RefrigerationCase::setThermalZone),
         boost::optional<std::function<void(openstudio::model::RefrigerationCase*)>>(NullAdapter(&model::RefrigerationCase::resetThermalZone)),
         boost::optional<openstudio::DataSource>());
-    } else if (field == RACK) {
+    } else if (field == tr("Rack")) {
       addComboBoxColumn<model::RefrigerationSystem, model::RefrigerationCase>(
-        Heading(QString(RACK)), &openstudio::objectName,
+        Heading(tr("Rack")), &openstudio::objectName,
         std::function<std::vector<model::RefrigerationSystem>()>(
           std::bind(&openstudio::sortByObjectName<model::RefrigerationSystem>,
                     std::bind(&model::Model::getConcreteModelObjects<model::RefrigerationSystem>, model()))),
@@ -455,8 +439,8 @@ void RefrigerationCaseGridController::addColumns(const QString& /*category*/, st
         NullAdapter(&model::RefrigerationCase::removeFromSystem));
     } else if (field == DEFROSTENERGYCORRECTIONCURVE) {
       //boost::optional<CurveCubic> defrostEnergyCorrectionCurve() const; TODO
-    } else if (field == NAME) {
-      addParentNameLineEditColumn(Heading(QString(NAME), false, false), false,
+    } else if (field == tr("Name")) {
+      addParentNameLineEditColumn(Heading(tr("Name"), false, false), false,
                                   CastNullAdapter<model::RefrigerationCase>(&model::RefrigerationCase::name),
                                   CastNullAdapter<model::RefrigerationCase>(&model::RefrigerationCase::setName));
     } else {
@@ -520,12 +504,12 @@ void RefrigerationCaseGridController::refreshModelObjects() {
 }
 
 void RefrigerationCaseGridController::onComboBoxIndexChanged(int index) {
-  // Note: find the correct system color on RACK change,
+  // Note: find the correct system color on tr("Rack") change,
   // but currently unable to know which row changed.
   const auto hh = horizontalHeaders();
   for (unsigned i = 0; i < hh.size(); ++i) {
     auto* horizontalHeaderWidget = qobject_cast<HorizontalHeaderWidget*>(hh.at(i));
-    if (horizontalHeaderWidget->m_label->text() == RACK) {
+    if (horizontalHeaderWidget->m_label->text() == tr("Rack")) {
       // NOTE required due to a race condition
       // Code below commented out due to a very infrequent crash in the bowels of Qt appears to be exasperated by this refresh.
       // A new refresh scheme with finer granularity may eliminate the problem, and restore rack colors.
@@ -545,10 +529,10 @@ void RefrigerationWalkInGridController::setCategoriesAndFields() {
 
   {
     std::vector<QString> fields{
-      RACK,
-      ZONEBOUNDARYTHERMALZONE,
+      tr("Rack"),
+      tr("Thermal Zone"),
     };
-    std::pair<QString, std::vector<QString>> categoryAndFields = std::make_pair(TR_WALKIN("General"), fields);
+    std::pair<QString, std::vector<QString>> categoryAndFields = std::make_pair(tr("General"), fields);
     addCategoryAndFields(categoryAndFields);
   }
 
@@ -557,7 +541,7 @@ void RefrigerationWalkInGridController::setCategoriesAndFields() {
       ZONEBOUNDARYTOTALINSULATEDSURFACEAREAFACINGZONE, ZONEBOUNDARYAREAOFGLASSREACHINDOORSFACINGZONE, ZONEBOUNDARYHEIGHTOFGLASSREACHINDOORSFACINGZONE,
       ZONEBOUNDARYAREAOFSTOCKINGDOORSFACINGZONE,       ZONEBOUNDARYHEIGHTOFSTOCKINGDOORSFACINGZONE,
     };
-    std::pair<QString, std::vector<QString>> categoryAndFields = std::make_pair(TR_WALKIN("Dimensions"), fields);
+    std::pair<QString, std::vector<QString>> categoryAndFields = std::make_pair(tr("Dimensions"), fields);
     addCategoryAndFields(categoryAndFields);
   }
 
@@ -568,7 +552,7 @@ void RefrigerationWalkInGridController::setCategoriesAndFields() {
       ZONEBOUNDARYGLASSREACHINDOORUVALUEFACINGZONE,
       ZONEBOUNDARYSTOCKINGDOORUVALUEFACINGZONE,
     };
-    std::pair<QString, std::vector<QString>> categoryAndFields = std::make_pair(TR_WALKIN("Construction"), fields);
+    std::pair<QString, std::vector<QString>> categoryAndFields = std::make_pair(tr("Construction"), fields);
     addCategoryAndFields(categoryAndFields);
   }
 
@@ -579,7 +563,7 @@ void RefrigerationWalkInGridController::setCategoriesAndFields() {
       RATEDCOOLINGSOURCETEMPERATURE,
       RATEDCOILCOOLINGCAPACITY,
     };
-    std::pair<QString, std::vector<QString>> categoryAndFields = std::make_pair(TR_WALKIN("Operation"), fields);
+    std::pair<QString, std::vector<QString>> categoryAndFields = std::make_pair(tr("Operation"), fields);
     addCategoryAndFields(categoryAndFields);
   }
 
@@ -588,7 +572,7 @@ void RefrigerationWalkInGridController::setCategoriesAndFields() {
       RATEDCOOLINGCOILFANPOWER,
       RATEDCIRCULATIONFANPOWER,
     };
-    std::pair<QString, std::vector<QString>> categoryAndFields = std::make_pair(TR_WALKIN("Fans"), fields);
+    std::pair<QString, std::vector<QString>> categoryAndFields = std::make_pair(tr("Fans"), fields);
     addCategoryAndFields(categoryAndFields);
   }
 
@@ -597,7 +581,7 @@ void RefrigerationWalkInGridController::setCategoriesAndFields() {
       RATEDTOTALLIGHTINGPOWER,
       LIGHTINGSCHEDULE,
     };
-    std::pair<QString, std::vector<QString>> categoryAndFields = std::make_pair(TR_WALKIN("Lighting"), fields);
+    std::pair<QString, std::vector<QString>> categoryAndFields = std::make_pair(tr("Lighting"), fields);
     addCategoryAndFields(categoryAndFields);
   }
 
@@ -606,7 +590,7 @@ void RefrigerationWalkInGridController::setCategoriesAndFields() {
       RATEDTOTALHEATINGPOWER,
       HEATINGPOWERSCHEDULE,
     };
-    std::pair<QString, std::vector<QString>> categoryAndFields = std::make_pair(TR_WALKIN("Heating"), fields);
+    std::pair<QString, std::vector<QString>> categoryAndFields = std::make_pair(tr("Heating"), fields);
     addCategoryAndFields(categoryAndFields);
   }
 
@@ -617,7 +601,7 @@ void RefrigerationWalkInGridController::setCategoriesAndFields() {
       DEFROSTPOWER,
       TEMPERATURETERMINATIONDEFROSTFRACTIONTOICE,
     };
-    std::pair<QString, std::vector<QString>> categoryAndFields = std::make_pair(TR_WALKIN("Defrost"), fields);
+    std::pair<QString, std::vector<QString>> categoryAndFields = std::make_pair(tr("Defrost"), fields);
     addCategoryAndFields(categoryAndFields);
   }
 
@@ -626,7 +610,7 @@ void RefrigerationWalkInGridController::setCategoriesAndFields() {
       RESTOCKINGSCHEDULE,
       ZONEBOUNDARYSTOCKINGDOOROPENINGSCHEDULEFACINGZONE,
     };
-    std::pair<QString, std::vector<QString>> categoryAndFields = std::make_pair(TR_WALKIN("Restocking"), fields);
+    std::pair<QString, std::vector<QString>> categoryAndFields = std::make_pair(tr("Restocking"), fields);
     addCategoryAndFields(categoryAndFields);
   }
 
@@ -635,7 +619,7 @@ void RefrigerationWalkInGridController::setCategoriesAndFields() {
 
 void RefrigerationWalkInGridController::addColumns(const QString& /*category*/, std::vector<QString>& fields) {
   // always show name column
-  fields.insert(fields.begin(), {NAME, SELECTED});
+  fields.insert(fields.begin(), {tr("Name"), tr("All")});
 
   resetBaseConcepts();
 
@@ -647,12 +631,12 @@ void RefrigerationWalkInGridController::addColumns(const QString& /*category*/, 
         CastNullAdapter<model::RefrigerationWalkIn>(&model::RefrigerationWalkIn::defrostType),
         CastNullAdapter<model::RefrigerationWalkIn>(&model::RefrigerationWalkIn::setDefrostType),
         boost::optional<std::function<void(model::RefrigerationWalkIn*)>>(), boost::optional<DataSource>());
-    } else if (field == SELECTED) {
+    } else if (field == tr("All")) {
       auto checkbox = QSharedPointer<OSSelectAllCheckBox>(new OSSelectAllCheckBox());
       checkbox->setToolTip("Check to select all rows");
       connect(checkbox.data(), &OSSelectAllCheckBox::checkStateChanged, this, &RefrigerationWalkInGridController::onSelectAllStateChanged);
       connect(this, &RefrigerationWalkInGridController::gridRowSelectionChanged, checkbox.data(), &OSSelectAllCheckBox::onGridRowSelectionChanged);
-      addSelectColumn(Heading(QString(SELECTED), false, false, checkbox), "Check to select this row");
+      addSelectColumn(Heading(tr("All"), false, false, checkbox), "Check to select this row");
     } else if (field == DEFROSTCONTROLTYPE) {
       addComboBoxColumn<std::string, model::RefrigerationWalkIn>(
         Heading(QString(DEFROSTCONTROLTYPE)), static_cast<std::string (*)(const std::string&)>(&openstudio::toString),
@@ -763,13 +747,13 @@ void RefrigerationWalkInGridController::addColumns(const QString& /*category*/, 
         boost::optional<std::function<void(model::RefrigerationWalkIn*)>>(NullAdapter(&model::RefrigerationWalkIn::resetRestockingSchedule)));
     } else if (field == ZONEBOUNDARIES) {
       //std::vector<RefrigerationWalkInZoneBoundary> zoneBoundaries() const; TODO
-    } else if (field == NAME) {
-      addParentNameLineEditColumn(Heading(QString(NAME), false, false), false,
+    } else if (field == tr("Name")) {
+      addParentNameLineEditColumn(Heading(tr("Name"), false, false), false,
                                   CastNullAdapter<model::RefrigerationWalkIn>(&model::RefrigerationWalkIn::name),
                                   CastNullAdapter<model::RefrigerationWalkIn>(&model::RefrigerationWalkIn::setName));
-    } else if (field == RACK) {
+    } else if (field == tr("Rack")) {
       addComboBoxColumn<model::RefrigerationSystem, model::RefrigerationWalkIn>(
-        Heading(QString(RACK)), &openstudio::objectName,
+        Heading(tr("Rack")), &openstudio::objectName,
 
         std::function<std::vector<model::RefrigerationSystem>()>(
           std::bind(&openstudio::sortByObjectName<model::RefrigerationSystem>,
@@ -777,9 +761,9 @@ void RefrigerationWalkInGridController::addColumns(const QString& /*category*/, 
         NullAdapter(&model::RefrigerationWalkIn::system), NullAdapter(&model::RefrigerationWalkIn::addToSystem),
 
         boost::optional<std::function<void(model::RefrigerationWalkIn*)>>(NullAdapter(&model::RefrigerationWalkIn::removeFromSystem)));
-    } else if (field == ZONEBOUNDARYTHERMALZONE) {
+    } else if (field == tr("Thermal Zone")) {
       addComboBoxColumn<model::ThermalZone, model::RefrigerationWalkIn>(
-        Heading(QString(ZONEBOUNDARYTHERMALZONE)), &openstudio::objectName,
+        Heading(tr("Thermal Zone")), &openstudio::objectName,
         std::function<std::vector<model::ThermalZone>()>(std::bind(&openstudio::sortByObjectName<model::ThermalZone>,
                                                                    std::bind(&model::Model::getConcreteModelObjects<model::ThermalZone>, model()))),
         CastNullAdapter<model::RefrigerationWalkIn>(&model::RefrigerationWalkIn::zoneBoundaryThermalZone),
@@ -888,12 +872,12 @@ void RefrigerationWalkInGridController::refreshModelObjects() {
 }
 
 void RefrigerationWalkInGridController::onComboBoxIndexChanged(int index) {
-  // Note: find the correct system color on RACK change,
+  // Note: find the correct system color on tr("Rack") change,
   // but currently unable to know which row changed.
   const auto hh = horizontalHeaders();
   for (unsigned i = 0; i < hh.size(); ++i) {
     auto* horizontalHeaderWidget = qobject_cast<HorizontalHeaderWidget*>(hh.at(i));
-    if (horizontalHeaderWidget->m_label->text() == RACK) {
+    if (horizontalHeaderWidget->m_label->text() == tr("Rack")) {
       // NOTE required due to a race condition
       // Code below commented out due to a very infrequent crash in the bowels of Qt appears to be exasperated by this refresh.
       // A new refresh scheme with finer granularity may eliminate the problem, and restore rack colors.

@@ -1,4 +1,13 @@
 
+QMenuBar {
+  background-color: white;
+  color: black;
+}
+
+QMenuBar::item:selected {
+  background-color: #E0E0E0;
+}
+
 QAbstractItemView {
   background: #E6E6E6;
 }

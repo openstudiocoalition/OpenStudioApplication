@@ -25,7 +25,7 @@ class ScheduleOthersView : public ModelSubTabView
   virtual ~ScheduleOthersView() = default;
 
  private:
-  static std::vector<std::pair<IddObjectType, std::string>> modelObjectTypesAndNames();
+  static std::vector<std::pair<IddObjectType, QString>> modelObjectTypesAndNames();
 };
 
 class ScheduleOthersInspectorView : public ModelObjectInspectorView

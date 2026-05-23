@@ -27,21 +27,21 @@ class ModelObjectTypeListView : public OSCollapsibleItemList
  public:
   ModelObjectTypeListView(const model::Model& model, bool addScrollArea, OSItemType headerType, bool isLibrary, QWidget* parent = nullptr);
 
-  ModelObjectTypeListView(const std::vector<std::pair<IddObjectType, std::string>>& modelObjectTypesAndNames, const model::Model& model,
+  ModelObjectTypeListView(const std::vector<std::pair<IddObjectType, QString>>& modelObjectTypesAndNames, const model::Model& model,
                           bool addScrollArea, OSItemType headerType, bool isLibrary, QWidget* parent = nullptr);
 
   virtual ~ModelObjectTypeListView() {}
 
-  void addModelObjectType(const IddObjectType& iddObjectType, const std::string& name);
+  void addModelObjectType(const IddObjectType& iddObjectType, const QString& name);
 
-  void addModelObjectCategoryPlaceholder(const std::string& name);
+  void addModelObjectCategoryPlaceholder(const QString& name);
 
   virtual IddObjectType currentIddObjectType() const;
 
   virtual boost::optional<openstudio::model::ModelObject> selectedModelObject() const;
 
  private:
-  std::vector<std::pair<IddObjectType, std::string>> m_modelObjectTypesAndNames;
+  std::vector<std::pair<IddObjectType, QString>> m_modelObjectTypesAndNames;
 
   model::Model m_model;
   OSItemType m_headerType;
