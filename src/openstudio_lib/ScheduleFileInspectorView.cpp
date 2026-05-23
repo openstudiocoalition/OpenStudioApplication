@@ -131,10 +131,6 @@ void ScheduleFileInspectorView::createLayout() {
   vLayout->addWidget(label);
 
   m_columnSeparator = new OSComboBox2();
-  m_columnSeparator->addItem(tr("Comma"));
-  m_columnSeparator->addItem(tr("Tab"));
-  m_columnSeparator->addItem(tr("Space"));
-  m_columnSeparator->addItem(tr("Semicolon"));
   m_columnSeparator->setEnabled(true);
   vLayout->addWidget(m_columnSeparator);
 

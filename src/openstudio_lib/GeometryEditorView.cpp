@@ -1089,7 +1089,7 @@ EditorWebView::EditorWebView(bool isIP, const openstudio::model::Model& model, Q
     m_refreshBtn(new QPushButton(tr("Refresh"))),
     m_previewBtn(new QPushButton(tr("Preview OSM"))),
     m_mergeBtn(new QPushButton(tr("Merge with Current OSM"))),
-    m_debugBtn(new QPushButton("Debug")) {
+    m_debugBtn(new QPushButton(tr("Debug"))) {
   openstudio::OSAppBase* app = OSAppBase::instance();
   OS_ASSERT(app);
   m_document = app->currentDocument();
@@ -1254,9 +1254,10 @@ EditorWebView::~EditorWebView() {
     QString mergeWarnKeyName("geometryMergeWarn");
     bool settingsMergeWarn = settings.value(mergeWarnKeyName, true).toBool();
     if (settingsMergeWarn) {
-      QMessageBox msg(QMessageBox::Question, tr("Unmerged Changes"),
-                      tr("Your geometry may include unmerged changes.  Merge with Current OSM now?  Choose Ignore to skip this message in the future."),
-                      QMessageBox::Yes | QMessageBox::No | QMessageBox::Ignore, this, Qt::Dialog | Qt::MSWindowsFixedSizeDialogHint);
+      QMessageBox msg(
+        QMessageBox::Question, tr("Unmerged Changes"),
+        tr("Your geometry may include unmerged changes.  Merge with Current OSM now?  Choose Ignore to skip this message in the future."),
+        QMessageBox::Yes | QMessageBox::No | QMessageBox::Ignore, this, Qt::Dialog | Qt::MSWindowsFixedSizeDialogHint);
       msg.setDefaultButton(QMessageBox::No);
       msg.setEscapeButton(QMessageBox::No);
       int result = msg.exec();
@@ -1431,7 +1432,7 @@ void EditorWebView::previewExport() {
       errorsAndWarnings += QString::fromStdString(warning.logMessage() + "\n");
     }
     if (!errorsAndWarnings.isEmpty()) {
-      QMessageBox::warning(this, "Merging Models", errorsAndWarnings);
+      QMessageBox::warning(this, tr("Merging Models"), errorsAndWarnings);
     }
 
     // do not update floorplan since this is not a real merge
@@ -1483,7 +1484,7 @@ void EditorWebView::mergeExport() {
       errorsAndWarnings += QString::fromStdString(warning.logMessage() + "\n");
     }
     if (!errorsAndWarnings.isEmpty()) {
-      QMessageBox::warning(this, "Merging Models", errorsAndWarnings);
+      QMessageBox::warning(this, tr("Merging Models"), errorsAndWarnings);
     } else {
       // DLM: print out a better report
       QMessageBox::information(this, tr("Merging Models"), tr("Models Merged"));

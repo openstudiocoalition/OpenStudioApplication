@@ -30,26 +30,6 @@
 #include <QCheckBox>
 #include <QCoreApplication>
 
-#define TR(s) QCoreApplication::translate("openstudio::SpacesSurfacesGridController", s)
-
-// These defines provide a common area for field display names
-// used on column headers, and other grid widgets
-
-#define NAME TR("Space Name")
-#define SELECTED TR("All")
-#define DISPLAYNAME TR("Display Name")
-#define CADOBJECTID TR("CAD Object ID")
-
-// GENERAL
-#define SURFACENAME TR("Surface Name")
-#define SURFACETYPE TR("Surface Type")
-#define CONSTRUCTION TR("Construction")
-#define OUTSIDEBOUNDARYCONDITION TR("Outside Boundary Condition")               // Dan note: cannot chose Surface if not already surface
-#define OUTSIDEBOUNDARYCONDITIONOBJECT TR("Outside Boundary Condition Object")  // read only
-#define SUNEXPOSURE TR("Sun Exposure")
-#define WINDEXPOSURE TR("Wind Exposure")
-#define SHADINGSURFACENAME TR("Shading Surface Name")  // read only
-
 namespace openstudio {
 
 SpacesSurfacesGridView::SpacesSurfacesGridView(bool isIP, bool displayAdditionalProps, const model::Model& model, QWidget* parent)
@@ -65,7 +45,8 @@ SpacesSurfacesGridView::SpacesSurfacesGridView(bool isIP, bool displayAdditional
   m_filterGridLayout->setRowStretch(m_filterGridLayout->rowCount(), 100);
   m_filterGridLayout->setColumnStretch(m_filterGridLayout->columnCount(), 100);
 
-  m_gridController = new SpacesSurfacesGridController(isIP, displayAdditionalProps, tr("Space"), IddObjectType::OS_Space, model, m_spacesModelObjects);
+  m_gridController =
+    new SpacesSurfacesGridController(isIP, displayAdditionalProps, tr("Space"), IddObjectType::OS_Space, model, m_spacesModelObjects);
   m_gridView = new OSGridView(m_gridController, tr("Space"), tr("Drop\nSpace"), false, parent);
 
   setGridController(m_gridController);
@@ -106,10 +87,11 @@ SpacesSurfacesGridController::SpacesSurfacesGridController(bool isIP, bool displ
 void SpacesSurfacesGridController::setCategoriesAndFields() {
   {
     std::vector<QString> fields{
-      SURFACENAME, SURFACETYPE, CONSTRUCTION, OUTSIDEBOUNDARYCONDITION, OUTSIDEBOUNDARYCONDITIONOBJECT, SUNEXPOSURE, WINDEXPOSURE,
-      //SHADINGSURFACENAME, // UNDESIRABLE TO SHOW THIS VECTOR IN THIS VIEW
+      tr("Surface Name"), tr("Surface Type"),  tr("Construction"), tr("Outside Boundary Condition"), tr("Outside Boundary Condition Object"),
+      tr("Sun Exposure"), tr("Wind Exposure"),
+      //tr("Shading Surface Name"), // UNDESIRABLE TO SHOW THIS VECTOR IN THIS VIEW
     };
-    std::pair<QString, std::vector<QString>> categoryAndFields = std::make_pair(TR("General"), fields);
+    std::pair<QString, std::vector<QString>> categoryAndFields = std::make_pair(tr("General"), fields);
     addCategoryAndFields(categoryAndFields);
   }
 
@@ -123,27 +105,27 @@ void SpacesSurfacesGridController::onCategorySelected(int index) {
 void SpacesSurfacesGridController::addColumns(const QString& category, std::vector<QString>& fields) {
 
   if (isDisplayAdditionalProps()) {
-    fields.insert(fields.begin(), {DISPLAYNAME, CADOBJECTID});
+    fields.insert(fields.begin(), {tr("Display Name"), tr("CAD Object ID")});
   }
   // always show name and selected columns
-  fields.insert(fields.begin(), {NAME, SELECTED});
+  fields.insert(fields.begin(), {tr("Space Name"), tr("All")});
 
   resetBaseConcepts();
 
   for (const auto& field : fields) {
 
-    if (field == NAME) {
-      addParentNameLineEditColumn(Heading(QString(NAME), false, false), false, CastNullAdapter<model::Space>(&model::Space::name),
+    if (field == tr("Space Name")) {
+      addParentNameLineEditColumn(Heading(tr("Space Name"), false, false), false, CastNullAdapter<model::Space>(&model::Space::name),
                                   CastNullAdapter<model::Space>(&model::Space::setName));
-    } else if (field == DISPLAYNAME) {
-      addNameLineEditColumn(Heading(QString(DISPLAYNAME), false, false),                     // heading
+    } else if (field == tr("Display Name")) {
+      addNameLineEditColumn(Heading(tr("Display Name"), false, false),                       // heading
                             false,                                                           // isInspectable
                             false,                                                           // isLocked
                             DisplayNameAdapter<model::Space>(&model::Space::displayName),    // getter
                             DisplayNameAdapter<model::Space>(&model::Space::setDisplayName)  // setter
       );
-    } else if (field == CADOBJECTID) {
-      addNameLineEditColumn(Heading(QString(CADOBJECTID), false, false),                     // heading
+    } else if (field == tr("CAD Object ID")) {
+      addNameLineEditColumn(Heading(tr("CAD Object ID"), false, false),                      // heading
                             false,                                                           // isInspectable
                             false,                                                           // isLocked
                             DisplayNameAdapter<model::Space>(&model::Space::cadObjectId),    // getter
@@ -158,22 +140,22 @@ void SpacesSurfacesGridController::addColumns(const QString& category, std::vect
         return allModelObjects;
       });
 
-      if (field == SELECTED) {
+      if (field == tr("All")) {
         auto checkbox = QSharedPointer<OSSelectAllCheckBox>(new OSSelectAllCheckBox());
         checkbox->setToolTip("Check to select all rows");
         connect(checkbox.data(), &OSSelectAllCheckBox::checkStateChanged, this, &SpacesSurfacesGridController::onSelectAllStateChanged);
         connect(this, &SpacesSurfacesGridController::gridRowSelectionChanged, checkbox.data(), &OSSelectAllCheckBox::onGridRowSelectionChanged);
-        addSelectColumn(Heading(QString(SELECTED), false, false, checkbox), "Check to select this row", DataSource(allSurfaces, true));
-      } else if (field == SURFACENAME) {
+        addSelectColumn(Heading(tr("All"), false, false, checkbox), "Check to select this row", DataSource(allSurfaces, true));
+      } else if (field == tr("Surface Name")) {
         addNameLineEditColumn(
-          Heading(QString(NAME), true, false), false, false, CastNullAdapter<model::Surface>(&model::Surface::name),
+          Heading(tr("Space Name"), true, false), false, false, CastNullAdapter<model::Surface>(&model::Surface::name),
           CastNullAdapter<model::Surface>(&model::Surface::setName),
           boost::optional<std::function<void(model::Surface*)>>(std::function<void(model::Surface*)>([](model::Surface* t_s) { t_s->remove(); })),
           boost::optional<std::function<bool(model::Surface*)>>(), DataSource(allSurfaces, true));
-      } else if (field == SURFACETYPE) {
+      } else if (field == tr("Surface Type")) {
 
         addComboBoxColumn<std::string, model::Surface>(  //
-          Heading(QString(SURFACETYPE)),
+          Heading(tr("Surface Type")),
           static_cast<std::string (*)(const std::string&)>(&openstudio::toString),             // toString
           std::function<std::vector<std::string>()>(&model::Surface::validSurfaceTypeValues),  // choices
           CastNullAdapter<model::Surface>(&model::Surface::surfaceType),                       // getter
@@ -183,17 +165,17 @@ void SpacesSurfacesGridController::addColumns(const QString& category, std::vect
           DataSource(allSurfaces, true)                                                        // source
         );
 
-      } else if (field == CONSTRUCTION) {
+      } else if (field == tr("Construction")) {
         setConstructionColumn(4);
-        addDropZoneColumn(Heading(QString(CONSTRUCTION)), CastNullAdapter<model::Surface>(&model::Surface::construction),
+        addDropZoneColumn(Heading(tr("Construction")), CastNullAdapter<model::Surface>(&model::Surface::construction),
                           CastNullAdapter<model::Surface>(&model::Surface::setConstruction),
                           boost::optional<std::function<void(model::Surface*)>>(NullAdapter(&model::Surface::resetConstruction)),
                           boost::optional<std::function<bool(model::Surface*)>>(NullAdapter(&model::Surface::isConstructionDefaulted)),
                           boost::optional<std::function<std::vector<model::ModelObject>(const model::Surface*)>>(), DataSource(allSurfaces, true));
-      } else if (field == OUTSIDEBOUNDARYCONDITION) {
+      } else if (field == tr("Outside Boundary Condition")) {
 
         addComboBoxColumn<std::string, model::Surface>(  //
-          Heading(QString(OUTSIDEBOUNDARYCONDITION)),
+          Heading(tr("Outside Boundary Condition")),
           static_cast<std::string (*)(const std::string&)>(&openstudio::toString),                          // toString
           std::function<std::vector<std::string>()>(&model::Surface::validOutsideBoundaryConditionValues),  // choices
           CastNullAdapter<model::Surface>(&model::Surface::outsideBoundaryCondition),                       // getter
@@ -203,21 +185,21 @@ void SpacesSurfacesGridController::addColumns(const QString& category, std::vect
           DataSource(allSurfaces, true)                                                                     // source
         );
 
-      } else if (field == OUTSIDEBOUNDARYCONDITIONOBJECT) {
+      } else if (field == tr("Outside Boundary Condition Object")) {
         std::function<bool(model::Surface*, const model::Surface&)> setter([](model::Surface* t_surface, const model::Surface& t_arg) {
           auto copy = t_arg;
           return t_surface->setAdjacentSurface(copy);
         });
 
-        addDropZoneColumn(Heading(QString(OUTSIDEBOUNDARYCONDITIONOBJECT), true, false),
+        addDropZoneColumn(Heading(tr("Outside Boundary Condition Object"), true, false),
                           CastNullAdapter<model::Surface>(&model::Surface::adjacentSurface), setter,
                           boost::optional<std::function<void(model::Surface*)>>(NullAdapter(&model::Surface::resetAdjacentSurface)),
                           boost::optional<std::function<bool(model::Surface*)>>(),
                           boost::optional<std::function<std::vector<model::ModelObject>(const model::Surface*)>>(), DataSource(allSurfaces, true));
-      } else if (field == SUNEXPOSURE) {
+      } else if (field == tr("Sun Exposure")) {
 
         addComboBoxColumn<std::string, model::Surface>(  //
-          Heading(QString(SUNEXPOSURE)),
+          Heading(tr("Sun Exposure")),
           static_cast<std::string (*)(const std::string&)>(&openstudio::toString),                                      // toString
           std::function<std::vector<std::string>()>(&model::Surface::validSunExposureValues),                           // choices
           CastNullAdapter<model::Surface>(&model::Surface::sunExposure),                                                // getter
@@ -227,10 +209,10 @@ void SpacesSurfacesGridController::addColumns(const QString& category, std::vect
           DataSource(allSurfaces, true)                                                                                 // source
         );
 
-      } else if (field == WINDEXPOSURE) {
+      } else if (field == tr("Wind Exposure")) {
 
         addComboBoxColumn<std::string, model::Surface>(  //
-          Heading(QString(WINDEXPOSURE)),
+          Heading(tr("Wind Exposure")),
           static_cast<std::string (*)(const std::string&)>(&openstudio::toString),                                       // toString
           std::function<std::vector<std::string>()>(&model::Surface::validWindExposureValues),                           // choices
           CastNullAdapter<model::Surface>(&model::Surface::windExposure),                                                // getter

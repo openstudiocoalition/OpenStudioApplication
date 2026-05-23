@@ -9,11 +9,21 @@
 #include "../../utilities/OpenStudioApplicationPathHelpers.hpp"
 #include "../../model_editor/Utilities.hpp"
 
+#include <openstudio/utilities/idd/IddFactory.hxx>
+#include <openstudio/utilities/idd/IddField.hpp>
+#include <openstudio/utilities/idd/IddObject.hpp>
+#include <openstudio/utilities/idd/IddEnums.hpp>
+
 #include <QCoreApplication>
 #include <QDomDocument>
 #include <QFile>
+#include <QSet>
 #include <QString>
 #include <QTranslator>
+
+#include <algorithm>
+#include <set>
+#include <string>
 
 using namespace openstudio;
 
@@ -138,6 +148,112 @@ TEST_F(Translation_ts, IddContextHasEntries) {
     }
   }
   EXPECT_GT(iddCount, 50) << "IDD context has unexpectedly few entries: " << iddCount;
+}
+
+TEST_F(Translation_ts, IddCoverageAllLanguages) {
+  // Build the canonical set of unique IDD field names from the live SDK.
+  openstudio::IddFile iddFile =
+    openstudio::IddFactory::instance().getIddFile(openstudio::IddFileType::OpenStudio);
+
+  std::set<std::string> allIddFieldNames;
+  for (const auto& iddObject : iddFile.objects()) {
+    const unsigned nFields = iddObject.numFields();
+    for (unsigned i = 0; i < nFields; ++i) {
+      auto field = iddObject.getField(i);
+      if (!field) {
+        continue;
+      }
+      const std::string& name = field->name();
+      if (!name.empty() && name != "Handle") {
+        allIddFieldNames.insert(name);
+      }
+    }
+    // Extensible fields (one representative group per object)
+    const unsigned extSize = iddObject.extensibleGroup().size();
+    for (unsigned i = 0; i < extSize; ++i) {
+      auto field = iddObject.getField(nFields + i);
+      if (!field) {
+        continue;
+      }
+      const std::string& name = field->name();
+      if (!name.empty() && name != "Handle") {
+        allIddFieldNames.insert(name);
+      }
+    }
+  }
+  ASSERT_GT(allIddFieldNames.size(), 100u)
+    << "IDD field enumeration returned unexpectedly few results — IddFactory may not be initialised";
+
+  // Check every OpenStudioApp_*.ts file in the translations directory.
+  openstudio::path tsDir = translationsSourceDir();
+  ASSERT_TRUE(openstudio::filesystem::exists(tsDir)) << "Translations directory not found: " << tsDir;
+
+  int filesChecked = 0;
+
+  for (const auto& entry : openstudio::filesystem::directory_iterator(tsDir)) {
+    const auto& p = entry.path();
+    const std::string filename = openstudio::toString(p.filename());
+
+    if (filename.rfind("OpenStudioApp_", 0) != 0 || p.extension() != openstudio::toPath(".ts")) {
+      continue;
+    }
+    ++filesChecked;
+
+    // Parse the .ts file
+    QFile file(openstudio::toQString(p));
+    if (!file.open(QIODevice::ReadOnly)) {
+      ADD_FAILURE() << "Cannot open: " << filename;
+      continue;
+    }
+    QDomDocument doc;
+    QString errMsg;
+    int errLine = 0;
+    if (!doc.setContent(&file, &errMsg, &errLine)) {
+      ADD_FAILURE() << "XML parse error in " << filename << " at line " << errLine << ": "
+                    << errMsg.toStdString();
+      continue;
+    }
+
+    // Extract source strings from the IDD context of this file
+    QSet<QString> iddSources;
+    QDomNodeList contextNodes = doc.elementsByTagName("context");
+    for (int i = 0; i < contextNodes.count(); ++i) {
+      QDomElement nameEl = contextNodes.at(i).firstChildElement("name");
+      if (!nameEl.isNull() && nameEl.text() == "IDD") {
+        QDomNodeList msgs = contextNodes.at(i).toElement().elementsByTagName("message");
+        for (int j = 0; j < msgs.count(); ++j) {
+          QDomElement src = msgs.at(j).firstChildElement("source");
+          if (!src.isNull()) {
+            iddSources.insert(src.text().trimmed());
+          }
+        }
+        break;
+      }
+    }
+
+    // Report any IDD fields missing from this language file
+    std::vector<std::string> missing;
+    for (const auto& name : allIddFieldNames) {
+      if (!iddSources.contains(QString::fromStdString(name))) {
+        missing.push_back(name);
+      }
+    }
+
+    if (!missing.empty()) {
+      std::sort(missing.begin(), missing.end());
+      std::string msg = filename + ": " + std::to_string(missing.size())
+        + " IDD field name(s) missing from IDD context.\n"
+          "Run add_idd_skeleton.py then translate_skeleton.py to restore coverage.\n"
+          "First 20 missing:\n";
+      const size_t limit = std::min(missing.size(), size_t{20});
+      for (size_t i = 0; i < limit; ++i) {
+        msg += "  - " + missing[i] + "\n";
+      }
+      ADD_FAILURE() << msg;
+    }
+  }
+
+  EXPECT_GT(filesChecked, 0) << "No OpenStudioApp_*.ts files found in " << tsDir;
 }
 
 TEST_F(Translation_ts, OutputVariablesContextHasEntries) {

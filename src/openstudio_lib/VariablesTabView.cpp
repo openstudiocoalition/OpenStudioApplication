@@ -42,24 +42,20 @@ static QString outputVarDisplayName(const std::string& englishName) {
   const QString qname = QString::fromStdString(englishName);
   if (QLocale().language() != QLocale::English) {
     const QString translated = QCoreApplication::translate("OutputVariables", englishName.c_str());
-    if (translated != qname)
-      return translated + " (" + qname + ")";
+    if (translated != qname) return translated + " (" + qname + ")";
   }
   return qname;
 }
 
 static void populateFrequencyComboBox(QComboBox* combo) {
-  // Uses the same context as VariablesList::tr() so existing translations apply.
-  const auto tr = [](const char* s) {
-    return QCoreApplication::translate("openstudio::VariablesList", s);
-  };
-  combo->addItem(tr("Detailed"),  QString("Detailed"));
-  combo->addItem(tr("Timestep"),  QString("Timestep"));
-  combo->addItem(tr("Hourly"),    QString("Hourly"));
-  combo->addItem(tr("Daily"),     QString("Daily"));
-  combo->addItem(tr("Monthly"),   QString("Monthly"));
-  combo->addItem(tr("RunPeriod"), QString("RunPeriod"));
-  combo->addItem(tr("Annual"),    QString("Annual"));
+  static const char ctx[] = "openstudio::VariablesList";
+  combo->addItem(QCoreApplication::translate(ctx, "Detailed"), QString("Detailed"));
+  combo->addItem(QCoreApplication::translate(ctx, "Timestep"), QString("Timestep"));
+  combo->addItem(QCoreApplication::translate(ctx, "Hourly"), QString("Hourly"));
+  combo->addItem(QCoreApplication::translate(ctx, "Daily"), QString("Daily"));
+  combo->addItem(QCoreApplication::translate(ctx, "Monthly"), QString("Monthly"));
+  combo->addItem(QCoreApplication::translate(ctx, "RunPeriod"), QString("RunPeriod"));
+  combo->addItem(QCoreApplication::translate(ctx, "Annual"), QString("Annual"));
 }
 
 VariableListItem::VariableListItem(const std::string& t_name, const std::string& t_keyValue,
@@ -88,7 +84,6 @@ VariableListItem::VariableListItem(const std::string& t_name, const std::string&
   hbox->addStretch(10);
   m_combobox = new OSComboBox2();
   m_combobox->setFixedWidth(200);
-  connect(m_combobox, static_cast<void (OSComboBox2::*)(const QString&)>(&OSComboBox2::currentTextChanged), this, &VariableListItem::indexChanged);
   populateFrequencyComboBox(m_combobox);
   if (m_variable) {
     const int idx = m_combobox->findData(QString::fromStdString(m_variable->reportingFrequency()));
@@ -96,6 +91,7 @@ VariableListItem::VariableListItem(const std::string& t_name, const std::string&
       m_combobox->setCurrentIndex(idx);
     }
   }
+  connect(m_combobox, static_cast<void (OSComboBox2::*)(const QString&)>(&OSComboBox2::currentTextChanged), this, &VariableListItem::indexChanged);
 
   hbox->addWidget(m_combobox);
 

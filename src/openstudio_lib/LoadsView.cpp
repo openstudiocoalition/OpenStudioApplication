@@ -31,8 +31,6 @@
 
 #include <openstudio/utilities/idd/IddEnums.hxx>
 
-#include <QCoreApplication>
-
 namespace openstudio {
 
 LoadsView::LoadsView(bool isIP, const openstudio::model::Model& model, QWidget* parent)
@@ -41,20 +39,19 @@ LoadsView::LoadsView(bool isIP, const openstudio::model::Model& model, QWidget* 
   connect(this, &LoadsView::toggleUnitsClicked, modelObjectInspectorView(), &ModelObjectInspectorView::toggleUnitsClicked);
 }
 
-std::vector<std::pair<IddObjectType, std::string>> LoadsView::modelObjectTypesAndNames() {
-  std::vector<std::pair<IddObjectType, std::string>> result;
+std::vector<std::pair<IddObjectType, QString>> LoadsView::modelObjectTypesAndNames() {
+  std::vector<std::pair<IddObjectType, QString>> result;
 
-  auto tr = [](const char* s) { return QCoreApplication::translate("openstudio::LoadsView", s).toStdString(); };
-  result.push_back(std::make_pair<IddObjectType, std::string>(IddObjectType::OS_People_Definition, tr("People Definitions")));
-  result.push_back(std::make_pair<IddObjectType, std::string>(IddObjectType::OS_Lights_Definition, tr("Lights Definitions")));
-  result.push_back(std::make_pair<IddObjectType, std::string>(IddObjectType::OS_Luminaire_Definition, tr("Luminaire Definitions")));
-  result.push_back(std::make_pair<IddObjectType, std::string>(IddObjectType::OS_ElectricEquipment_Definition, tr("Electric Equipment Definitions")));
-  result.push_back(std::make_pair<IddObjectType, std::string>(IddObjectType::OS_GasEquipment_Definition, tr("Gas Equipment Definitions")));
-  result.push_back(std::make_pair<IddObjectType, std::string>(IddObjectType::OS_SteamEquipment_Definition, tr("Steam Equipment Definitions")));
-  result.push_back(std::make_pair<IddObjectType, std::string>(IddObjectType::OS_OtherEquipment_Definition, tr("Other Equipment Definitions")));
-  result.push_back(std::make_pair<IddObjectType, std::string>(IddObjectType::OS_InternalMass_Definition, tr("Internal Mass Definitions")));
-  result.push_back(std::make_pair<IddObjectType, std::string>(IddObjectType::OS_WaterUse_Equipment_Definition, tr("Water Use Equipment Definitions")));
-  result.push_back(std::make_pair<IddObjectType, std::string>(IddObjectType::OS_HotWaterEquipment_Definition, tr("Hot Water Equipment Definitions")));
+  result.push_back(std::make_pair<IddObjectType, QString>(IddObjectType::OS_People_Definition, tr("People Definitions")));
+  result.push_back(std::make_pair<IddObjectType, QString>(IddObjectType::OS_Lights_Definition, tr("Lights Definitions")));
+  result.push_back(std::make_pair<IddObjectType, QString>(IddObjectType::OS_Luminaire_Definition, tr("Luminaire Definitions")));
+  result.push_back(std::make_pair<IddObjectType, QString>(IddObjectType::OS_ElectricEquipment_Definition, tr("Electric Equipment Definitions")));
+  result.push_back(std::make_pair<IddObjectType, QString>(IddObjectType::OS_GasEquipment_Definition, tr("Gas Equipment Definitions")));
+  result.push_back(std::make_pair<IddObjectType, QString>(IddObjectType::OS_SteamEquipment_Definition, tr("Steam Equipment Definitions")));
+  result.push_back(std::make_pair<IddObjectType, QString>(IddObjectType::OS_OtherEquipment_Definition, tr("Other Equipment Definitions")));
+  result.push_back(std::make_pair<IddObjectType, QString>(IddObjectType::OS_InternalMass_Definition, tr("Internal Mass Definitions")));
+  result.push_back(std::make_pair<IddObjectType, QString>(IddObjectType::OS_WaterUse_Equipment_Definition, tr("Water Use Equipment Definitions")));
+  result.push_back(std::make_pair<IddObjectType, QString>(IddObjectType::OS_HotWaterEquipment_Definition, tr("Hot Water Equipment Definitions")));
 
   return result;
 }
