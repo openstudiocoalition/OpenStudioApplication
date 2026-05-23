@@ -28,6 +28,9 @@ profile/
 
 *.sublime-workspace
 
+# Qt-generated files
+src/openstudio_lib/moc_*.cpp
+
 *.sublime-project
 cmake-build-debug
 
