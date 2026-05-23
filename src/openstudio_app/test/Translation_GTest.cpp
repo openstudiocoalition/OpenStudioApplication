@@ -9,11 +9,21 @@
 #include "../../utilities/OpenStudioApplicationPathHelpers.hpp"
 #include "../../model_editor/Utilities.hpp"
 
+#include <openstudio/utilities/idd/IddFactory.hxx>
+#include <openstudio/utilities/idd/IddField.hpp>
+#include <openstudio/utilities/idd/IddObject.hpp>
+#include <openstudio/utilities/idd/IddEnums.hpp>
+
 #include <QCoreApplication>
 #include <QDomDocument>
 #include <QFile>
+#include <QSet>
 #include <QString>
 #include <QTranslator>
+
+#include <algorithm>
+#include <set>
+#include <string>
 
 using namespace openstudio;
 
@@ -138,6 +148,80 @@ TEST_F(Translation_ts, IddContextHasEntries) {
     }
   }
   EXPECT_GT(iddCount, 50) << "IDD context has unexpectedly few entries: " << iddCount;
+}
+
+TEST_F(Translation_ts, IddCoverageForAllFields) {
+  // Build the set of source strings already present in the IDD context.
+  QSet<QString> iddSources;
+  QDomNodeList contextNodes = m_doc.elementsByTagName("context");
+  for (int i = 0; i < contextNodes.count(); ++i) {
+    QDomElement nameEl = contextNodes.at(i).firstChildElement("name");
+    if (!nameEl.isNull() && nameEl.text() == "IDD") {
+      QDomNodeList msgs = contextNodes.at(i).toElement().elementsByTagName("message");
+      for (int j = 0; j < msgs.count(); ++j) {
+        QDomElement src = msgs.at(j).firstChildElement("source");
+        if (!src.isNull()) {
+          iddSources.insert(src.text().trimmed());
+        }
+      }
+      break;
+    }
+  }
+  ASSERT_GT(iddSources.size(), 0) << "IDD context is empty — check the .ts file";
+
+  // Walk every IddObject in the OpenStudio IDD and collect field names that
+  // have no corresponding source entry in the IDD translation context.
+  openstudio::IddFile iddFile =
+    openstudio::IddFactory::instance().getIddFile(openstudio::IddFileType::OpenStudio);
+
+  std::vector<std::string> missing;
+  std::set<std::string> seen;  // deduplicate — same field name may appear in many objects
+
+  for (const auto& iddObject : iddFile.objects()) {
+    // Non-extensible fields
+    const unsigned nFields = iddObject.numFields();
+    for (unsigned i = 0; i < nFields; ++i) {
+      auto field = iddObject.getField(i);
+      if (!field) {
+        continue;
+      }
+      const std::string& name = field->name();
+      if (name.empty() || name == "Handle") {
+        continue;
+      }
+      if (seen.insert(name).second && !iddSources.contains(QString::fromStdString(name))) {
+        missing.push_back(name);
+      }
+    }
+    // Extensible fields (one representative group)
+    const unsigned extSize = iddObject.extensibleGroup().size();
+    for (unsigned i = 0; i < extSize; ++i) {
+      auto field = iddObject.getField(nFields + i);
+      if (!field) {
+        continue;
+      }
+      const std::string& name = field->name();
+      if (name.empty() || name == "Handle") {
+        continue;
+      }
+      if (seen.insert(name).second && !iddSources.contains(QString::fromStdString(name))) {
+        missing.push_back(name);
+      }
+    }
+  }
+
+  if (!missing.empty()) {
+    std::sort(missing.begin(), missing.end());
+    std::string msg = std::to_string(missing.size())
+      + " IDD field name(s) have no entry in the IDD translation context.\n"
+        "Run add_idd_skeleton.py then translate_skeleton.py to restore coverage.\n"
+        "First 20 missing:\n";
+    const size_t limit = std::min(missing.size(), size_t{20});
+    for (size_t i = 0; i < limit; ++i) {
+      msg += "  - " + missing[i] + "\n";
+    }
+    ADD_FAILURE() << msg;
+  }
 }
 
 TEST_F(Translation_ts, OutputVariablesContextHasEntries) {
