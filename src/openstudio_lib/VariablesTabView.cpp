@@ -48,15 +48,14 @@ static QString outputVarDisplayName(const std::string& englishName) {
 }
 
 static void populateFrequencyComboBox(QComboBox* combo) {
-  // Uses the same context as VariablesList::tr() so existing translations apply.
-  const auto translate = [](const char* s) { return QCoreApplication::translate("openstudio::VariablesList", s); };
-  combo->addItem(translate("Detailed"), QString("Detailed"));
-  combo->addItem(translate("Timestep"), QString("Timestep"));
-  combo->addItem(translate("Hourly"), QString("Hourly"));
-  combo->addItem(translate("Daily"), QString("Daily"));
-  combo->addItem(translate("Monthly"), QString("Monthly"));
-  combo->addItem(translate("RunPeriod"), QString("RunPeriod"));
-  combo->addItem(translate("Annual"), QString("Annual"));
+  static const char ctx[] = "openstudio::VariablesList";
+  combo->addItem(QCoreApplication::translate(ctx, "Detailed"), QString("Detailed"));
+  combo->addItem(QCoreApplication::translate(ctx, "Timestep"), QString("Timestep"));
+  combo->addItem(QCoreApplication::translate(ctx, "Hourly"), QString("Hourly"));
+  combo->addItem(QCoreApplication::translate(ctx, "Daily"), QString("Daily"));
+  combo->addItem(QCoreApplication::translate(ctx, "Monthly"), QString("Monthly"));
+  combo->addItem(QCoreApplication::translate(ctx, "RunPeriod"), QString("RunPeriod"));
+  combo->addItem(QCoreApplication::translate(ctx, "Annual"), QString("Annual"));
 }
 
 VariableListItem::VariableListItem(const std::string& t_name, const std::string& t_keyValue,
