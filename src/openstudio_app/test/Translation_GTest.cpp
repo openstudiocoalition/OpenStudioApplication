@@ -19,6 +19,7 @@
 #include <QFile>
 #include <QSet>
 #include <QString>
+#include <QStringList>
 #include <QTranslator>
 
 #include <algorithm>
