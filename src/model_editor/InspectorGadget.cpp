@@ -266,7 +266,7 @@ void InspectorGadget::layoutItems(QVBoxLayout* masterLayout, QWidget* parent, bo
   hlayout->setContentsMargins(0, 0, 0, 0);
   masterLayout->addLayout(hlayout);
   hlayout->addLayout(layout);
-  layoutText(layout, parent, AccessPolicy::LOCKED, iddObj.type().valueDescription(), -1, comment);
+  layoutHeaderText(layout, parent, iddObj.type().valueDescription(), comment);
 
   const AccessPolicy* pAccessPolicy = AccessPolicyStore::Instance().getPolicy(iddObj.type());
 
@@ -455,8 +455,7 @@ void InspectorGadget::parseItem(QVBoxLayout* layout, QWidget* parent, openstudio
   }
 }
 
-void InspectorGadget::layoutText(QVBoxLayout* layout, QWidget* parent, openstudio::model::AccessPolicy::ACCESS_LEVEL level, const std::string& val,
-                                 int index, const std::string& comment) {
+void InspectorGadget::layoutHeaderText(QVBoxLayout* layout, QWidget* parent, const std::string& val, const std::string& comment) {
   auto* frame = new QFrame(parent);
   frame->setContentsMargins(0, 0, 0, 0);
   auto* hbox = new QHBoxLayout();
@@ -465,42 +464,30 @@ void InspectorGadget::layoutText(QVBoxLayout* layout, QWidget* parent, openstudi
   hbox->setSpacing(0);
   hbox->setContentsMargins(0, 0, 0, 0);
 
-  if (level == AccessPolicy::LOCKED) {
-    // string stripped(val);
-    // std::replace(stripped.begin(), stripped.end(), '_', ' ');  // replace all '_' to ' '
-    auto* label = new QLabel(parent);
-    label->setObjectName("IGHeader");
-    label->setStyleSheet("font: bold");
+  // string stripped(val);
+  // std::replace(stripped.begin(), stripped.end(), '_', ' ');  // replace all '_' to ' '
+  auto* label = new QLabel(parent);
+  label->setObjectName("IGHeader");
+  label->setStyleSheet("font: bold");
 
-    const QString typeName = QString::fromStdString(val);
-    const QString docUrl = iddObjectDocUrl(typeName);
-    if (!docUrl.isEmpty()) {
-      label->setTextFormat(Qt::RichText);
-      label->setOpenExternalLinks(true);
-      label->setText(
-        QStringLiteral(R"(<a href="%1" style="color: #ddeeff; font-weight: bold;">%2</a>)").arg(docUrl, typeName.toHtmlEscaped()));
-    } else {
-      label->setText(typeName);
-    }
-
-    // Qt::Alignment a = Qt::AlignHCenter;
-    hbox->addWidget(label);
-
-    hbox->addStretch();
+  const QString typeName = QString::fromStdString(val);
+  const QString docUrl = iddObjectDocUrl(typeName);
+  if (!docUrl.isEmpty()) {
+    label->setTextFormat(Qt::RichText);
+    label->setOpenExternalLinks(true);
+    label->setText(
+      QStringLiteral(R"(<a href="%1" style="color: #ddeeff; font-weight: bold;">%2</a>)").arg(docUrl, typeName.toHtmlEscaped()));
   } else {
-    //QLineEdit* text = new QLineEdit( QString(val.c_str()), parent  );
-    auto* text = new IGLineEdit(QString(val.c_str()), this, parent);
-    hbox->addWidget(text);
-    text->setProperty(s_indexSlotName, index);
-
-    //connect(text, &IGLineEdit::textEdited, this, &InspectorGadget::IGvalueChanged, Qt::QueuedConnection);
-
-    connect(text, &IGLineEdit::editingFinished, text, &IGLineEdit::editDone);
-    connect(text, &IGLineEdit::newValue, this, &InspectorGadget::IGvalueChanged);
+    label->setText(typeName);
   }
 
+  // Qt::Alignment a = Qt::AlignHCenter;
+  hbox->addWidget(label);
+
+  hbox->addStretch();
+
   auto* commentText = new QLineEdit(QString(comment.c_str()), parent);
-  commentText->setProperty(s_indexSlotName, index);
+  commentText->setProperty(s_indexSlotName, -1);
   connect(commentText, &QLineEdit::textEdited, this, &InspectorGadget::IGcommentChanged);
   if (!m_showComments) {
     commentText->hide();

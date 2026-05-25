@@ -248,8 +248,7 @@ class MODELEDITOR_API InspectorGadget
   void parseItem(QVBoxLayout* layout, QWidget* parent, openstudio::IddField& field, const std::string& name, const std::string& curVal,
                  openstudio::model::AccessPolicy::ACCESS_LEVEL level, int index, const std::string& comment, bool exists);
 
-  void layoutText(QVBoxLayout* layout, QWidget* parent, openstudio::model::AccessPolicy::ACCESS_LEVEL level, const std::string& val, int index,
-                  const std::string& comment);
+  void layoutHeaderText(QVBoxLayout* layout, QWidget* parent, const std::string& val, const std::string& comment);
 
   void layoutText(QVBoxLayout* layout, QWidget* parent, openstudio::IddField& field, openstudio::model::AccessPolicy::ACCESS_LEVEL level,
                   const std::string& name, const std::string& curVal, int index, const std::string& comment, bool exists, bool number,
