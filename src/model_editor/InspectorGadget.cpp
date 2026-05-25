@@ -6,6 +6,7 @@
 #include "InspectorGadget.hpp"
 
 #include "BridgeClasses.hpp"
+#include "IddObjectDocUrl.hpp"
 #include "IGLineEdit.hpp"
 #include "IGSpinBoxes.hpp"
 
@@ -467,9 +468,21 @@ void InspectorGadget::layoutText(QVBoxLayout* layout, QWidget* parent, openstudi
   if (level == AccessPolicy::LOCKED) {
     // string stripped(val);
     // std::replace(stripped.begin(), stripped.end(), '_', ' ');  // replace all '_' to ' '
-    auto* label = new QLabel(QString(val.c_str()), parent);
+    auto* label = new QLabel(parent);
     label->setObjectName("IGHeader");
     label->setStyleSheet("font: bold");
+
+    const QString typeName = QString::fromStdString(val);
+    const QString docUrl = iddObjectDocUrl(typeName);
+    if (!docUrl.isEmpty()) {
+      label->setTextFormat(Qt::RichText);
+      label->setOpenExternalLinks(true);
+      label->setText(
+        QStringLiteral(R"(<a href="%1" style="color: #ddeeff; font-weight: bold;">%2</a>)").arg(docUrl, typeName.toHtmlEscaped()));
+    } else {
+      label->setText(typeName);
+    }
+
     // Qt::Alignment a = Qt::AlignHCenter;
     hbox->addWidget(label);
 
