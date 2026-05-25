@@ -2,10 +2,10 @@ FROM ubuntu:22.04
 
 ARG DEBIAN_FRONTEND=noninteractive
 
-# ── Versions (change here when bumping) ─────────────────────────────────────
+# -- Versions (change here when bumping) -------------------------------------
 ARG QT_VERSION=6.11.0
 ARG QT_ARCH=linux_gcc_64
-# ─────────────────────────────────────────────────────────────────────────────
+# -----------------------------------------------------------------------------
 
 # Layer 1: system packages
 RUN apt-get update && apt-get install -y --no-install-recommends \
@@ -21,7 +21,7 @@ RUN apt-get update && apt-get install -y --no-install-recommends \
     && rm -rf /var/lib/apt/lists/*
 
 # Layer 2: Python tools + Qt 6.11.0
-#   Use the PyPI release of aqtinstall (not git master) — the git+https
+#   Use the PyPI release of aqtinstall (not git master) - the git+https
 #   workaround in app_build.yml is only required for Windows Qt 6.11.0 due to
 #   a directory-structure change (github.com/miurahr/aqtinstall/issues/1007).
 #   Linux is unaffected, so the stable PyPI release works here.

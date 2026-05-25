@@ -1,5 +1,5 @@
 # =============================================================================
-# OpenStudio Application — Docker-based build system
+# OpenStudio Application - Docker-based build system
 #
 # Prerequisites:  Docker (with BuildKit enabled) + GNU make (or WSL/Git Bash
 #                 on Windows).
@@ -25,7 +25,7 @@ IMAGE     := osapp-build
 TAG       := latest
 BUILD_DIR := build
 
-# Named volumes – persist Conan packages, ccache, and build artifacts between runs.
+# Named volumes - persist Conan packages, ccache, and build artifacts between runs.
 # The build volume is mounted at /workspace/build inside the container, shadowing
 # any host build/ directory.  This gives Linux-native filesystem performance for
 # incremental Ninja builds and avoids file-ownership noise on Windows hosts.
@@ -35,6 +35,23 @@ BUILD_VOL  := osapp-build
 
 # Qt install dir inside the image (matches Dockerfile ENV).
 QT_INSTALL_DIR := /opt/Qt/6.11.0/gcc_64
+
+# Extra commands after `make attach` are treated as a command to run in the image.
+# Example: make attach env
+ATTACH_ARGS := $(filter-out attach,$(MAKECMDGOALS))
+CHECK_BUILD_ARGS := $(filter-out check-build,$(MAKECMDGOALS))
+
+# When `attach` or `check-build` is invoked with extra commands (eg:
+# `make attach env` or `make check-build env`), prevent make from treating
+# those commands as unknown targets.
+ifneq (,$(filter attach,$(MAKECMDGOALS)))
+$(foreach goal,$(ATTACH_ARGS),$(eval .PHONY: $(goal)))
+$(foreach goal,$(ATTACH_ARGS),$(eval $(goal): ; @:))
+endif
+ifneq (,$(filter check-build,$(MAKECMDGOALS)))
+$(foreach goal,$(CHECK_BUILD_ARGS),$(eval .PHONY: $(goal)))
+$(foreach goal,$(CHECK_BUILD_ARGS),$(eval $(goal): ; @:))
+endif
 
 # ---------------------------------------------------------------------------
 # Base docker run command (non-interactive, workspace mounted as /workspace).
@@ -59,13 +76,13 @@ DOCKER_RUN := docker run --rm \
 all: help
 
 # ---------------------------------------------------------------------------
-# image — Build the Docker image (slow; only needed when Dockerfile changes).
+# image - Build the Docker image (slow; only needed when Dockerfile changes).
 # ---------------------------------------------------------------------------
 image:
 	docker build -t $(IMAGE):$(TAG) docker/
 
 # ---------------------------------------------------------------------------
-# volumes — Ensure all named volumes exist.
+# volumes - Ensure all named volumes exist.
 # ---------------------------------------------------------------------------
 volumes:
 	docker volume inspect $(CONAN_VOL)  > /dev/null 2>&1 || docker volume create $(CONAN_VOL)
@@ -73,20 +90,20 @@ volumes:
 	docker volume inspect $(BUILD_VOL)  > /dev/null 2>&1 || docker volume create $(BUILD_VOL)
 
 # ---------------------------------------------------------------------------
-# configure — Bootstrap Conan, symlink SDK, run conan install + cmake.
+# configure - Bootstrap Conan, symlink SDK, run conan install + cmake.
 #             Re-run whenever conanfile.py or CMakeLists.txt changes.
 # ---------------------------------------------------------------------------
 configure: volumes
 	$(DOCKER_RUN) bash /workspace/docker/configure.sh
 
 # ---------------------------------------------------------------------------
-# build — Compile (uses Ninja + ccache; incremental).
+# build - Compile (uses Ninja + ccache; incremental).
 # ---------------------------------------------------------------------------
 build: volumes
-	$(DOCKER_RUN) cmake --build --preset conan-release -j
+	$(DOCKER_RUN) cmake --build --preset conan-docker -j
 
 # ---------------------------------------------------------------------------
-# test — Run CTest inside the build directory.
+# test - Run CTest inside the build directory.
 #         Xvfb is started manually so all parallel test processes share the
 #         same display (xvfb-run only wraps a single process, which is
 #         insufficient when ctest spawns many children in parallel).
@@ -99,7 +116,7 @@ build: volumes
 #           We use --test-timeout 120 so no single test can block the suite.
 #
 #         Excluded tests:
-#           GithubRelease* — make live HTTP calls to the GitHub releases API
+#           GithubRelease* - make live HTTP calls to the GitHub releases API
 #           which hang or fail in a network-sandboxed container.
 # ---------------------------------------------------------------------------
 test: build
@@ -118,7 +135,7 @@ test: build
 	  exit $$CTEST_EXIT"
 
 # ---------------------------------------------------------------------------
-# cppcheck — Static analysis (matches CI cppcheck.yml flags).
+# cppcheck - Static analysis (matches CI cppcheck.yml flags).
 #            Requires build/ to exist for compile_commands.json.
 #            Output written to build/cppcheck-results.txt.
 # ---------------------------------------------------------------------------
@@ -135,7 +152,7 @@ cppcheck: build
 	    2>&1 | tee build/cppcheck-results.txt"
 
 # ---------------------------------------------------------------------------
-# run-app — Launch the compiled OpenStudioApp with GUI forwarded to the host.
+# run-app - Launch the compiled OpenStudioApp with GUI forwarded to the host.
 #
 #   Automatically detects the host platform:
 #
@@ -161,7 +178,7 @@ cppcheck: build
 APP_BIN := /workspace/build/Products/OpenStudioApp
 
 # Detect host OS.  'uname -s' is available on Linux, macOS, and WSL.
-# On native Windows (no WSL) this will be empty — unsupported directly.
+# On native Windows (no WSL) this will be empty - unsupported directly.
 _UNAME := $(shell uname -s 2>/dev/null)
 
 # Detect WSL2: /mnt/wslg exists only inside the WSL2 VM.
@@ -218,36 +235,53 @@ endif
 		$(APP_BIN)
 
 # ---------------------------------------------------------------------------
-# check-build — Interactive bash shell inside the container (all volumes mounted).
+# check-build - Interactive bash shell inside the container (all volumes mounted).
 # ---------------------------------------------------------------------------
 check-build: volumes
-	docker run --rm -it \
-		-v "$(CURDIR):/workspace" \
-		-v "$(BUILD_VOL):/workspace/build" \
-		-v "$(CONAN_VOL):/conan-cache" \
-		-v "$(CCACHE_VOL):/ccache" \
-		-e CONAN_HOME=/conan-cache \
-		-e CCACHE_DIR=/ccache \
-		-e QT_INSTALL_DIR=$(QT_INSTALL_DIR) \
-		-w /workspace \
-		$(IMAGE):$(TAG) bash
+	@if [ -n "$(strip $(CHECK_BUILD_ARGS))" ]; then \
+		docker run --rm -i \
+			-v "$(CURDIR):/workspace" \
+			-v "$(BUILD_VOL):/workspace/build" \
+			-v "$(CONAN_VOL):/conan-cache" \
+			-v "$(CCACHE_VOL):/ccache" \
+			-e CONAN_HOME=/conan-cache \
+			-e CCACHE_DIR=/ccache \
+			-e QT_INSTALL_DIR=$(QT_INSTALL_DIR) \
+			-w /workspace \
+			$(IMAGE):$(TAG) /bin/bash -lc "$(CHECK_BUILD_ARGS)" ; \
+	else \
+		docker run --rm -it \
+			-v "$(CURDIR):/workspace" \
+			-v "$(BUILD_VOL):/workspace/build" \
+			-v "$(CONAN_VOL):/conan-cache" \
+			-v "$(CCACHE_VOL):/ccache" \
+			-e CONAN_HOME=/conan-cache \
+			-e CCACHE_DIR=/ccache \
+			-e QT_INSTALL_DIR=$(QT_INSTALL_DIR) \
+			-w /workspace \
+			$(IMAGE):$(TAG) /bin/bash ; \
+	fi
 
 # ---------------------------------------------------------------------------
-# attach — /bin/sh inside the image with NO volume mounts.
+# attach - /bin/bash inside the image with NO volume mounts.
 #          Use this to debug the image itself (inspect /opt/Qt, /opt/openstudio-sdk, etc.)
 # ---------------------------------------------------------------------------
 attach:
-	docker run --rm -it $(IMAGE):$(TAG) /bin/sh
+	@if [ -n "$(strip $(ATTACH_ARGS))" ]; then \
+		docker run --rm -i $(IMAGE):$(TAG) /bin/bash -lc "$(ATTACH_ARGS)" ; \
+	else \
+		docker run --rm -it $(IMAGE):$(TAG) /bin/bash ; \
+	fi
 
 # ---------------------------------------------------------------------------
-# clean — Wipe the build volume (keeps Conan, ccache, and source).
+# clean - Wipe the build volume (keeps Conan, ccache, and source).
 #          Equivalent to the old 'rm -rf build/'.
 #          Also removes any stale host-side build/ directory if present.
 # ---------------------------------------------------------------------------
 clean: build-clean
 
 # ---------------------------------------------------------------------------
-# build-clean — Destroy and recreate the build volume (empty slate).
+# build-clean - Destroy and recreate the build volume (empty slate).
 # ---------------------------------------------------------------------------
 build-clean:
 	docker volume rm $(BUILD_VOL) || true
@@ -255,20 +289,20 @@ build-clean:
 	rm -rf $(BUILD_DIR)
 
 # ---------------------------------------------------------------------------
-# image-clean — Remove the Docker image.
+# image-clean - Remove the Docker image.
 # ---------------------------------------------------------------------------
 image-clean:
 	docker rmi $(IMAGE):$(TAG) || true
 
 # ---------------------------------------------------------------------------
-# volumes-clean — Destroy all named volumes (forces complete rebuild).
+# volumes-clean - Destroy all named volumes (forces complete rebuild).
 # ---------------------------------------------------------------------------
 volumes-clean:
 	docker volume rm $(BUILD_VOL) $(CONAN_VOL) $(CCACHE_VOL) || true
 	rm -rf $(BUILD_DIR)
 
 # ---------------------------------------------------------------------------
-# help — List all targets.
+# help - List all targets.
 # ---------------------------------------------------------------------------
 help:
 	@echo ""
@@ -279,8 +313,8 @@ help:
 	@echo "  test          Run CTest"
 	@echo "  cppcheck      Static analysis (output -> build/cppcheck-results.txt)"
 	@echo "  run-app       Launch OpenStudioApp GUI (WSLg/Linux/macOS+XQuartz)"
-	@echo "  check-build   Interactive bash shell inside the build container"
-	@echo "  attach        /bin/sh in the image with no mounts (debug image contents)"
+	@echo "  check-build   Mounted build shell; run command with: make check-build env"
+	@echo "  attach        Image-only /bin/bash (no mounts); run command with: make attach env"
 	@echo "  clean         Wipe the build volume (equivalent to rm -rf build/)"
 	@echo "  build-clean   Alias for clean"
 	@echo "  image-clean   Remove the Docker image"

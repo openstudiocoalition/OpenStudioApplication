@@ -1,7 +1,6 @@
 # Docker-based CI for pull requests.
 #
-# Builds the project inside the osapp-build Docker image (Ubuntu 22.04 with
-# Qt 6.11.0, OpenStudio SDK 3.11.0, and Conan 2 pre-installed) and runs
+# Builds the project inside the osapp-build Docker image and runs
 # CTest.  The Docker image layers are cached via the GitHub Actions cache
 # backend so the slow Qt/SDK bake step is only repeated when the Dockerfile
 # changes.
@@ -37,34 +36,8 @@ jobs:
         context: docker/
         load: true
         tags: osapp-build:latest
-        cache-from: type=gha,scope=osapp-build-${{ hashFiles('docker/Dockerfile') }}
-        cache-to:   type=gha,scope=osapp-build-${{ hashFiles('docker/Dockerfile') }},mode=max
-
-    # Optional: cache Conan packages between runs to avoid re-building
-    # dependencies from source on every PR push.
-    - name: Cache Conan packages
-      uses: actions/cache@v4
-      with:
-        path: ~/.conan2-ci-cache
-        key: conan-docker-${{ hashFiles('conanfile.py') }}
-        restore-keys: |
-          conan-docker-
-
-    # Create named Docker volumes (idempotent; volumes persist for this job).
-    - name: Create cache volumes
-      run: make volumes
-
-    # Inject the host-side Conan package cache into the named volume so that
-    # previously downloaded packages don't need to be rebuilt.
-    - name: Populate Conan volume from cache
-      run: |
-        if [ -d "$HOME/.conan2-ci-cache" ] && [ "$(ls -A $HOME/.conan2-ci-cache)" ]; then
-          docker run --rm \
-            -v osapp-conan-cache:/conan-cache \
-            -v "$HOME/.conan2-ci-cache:/host-cache:ro" \
-            ubuntu:22.04 \
-            bash -c "cp -a /host-cache/. /conan-cache/ 2>/dev/null || true"
-        fi
+        cache-from: type=gha,scope=osapp-build
+        cache-to:   type=gha,scope=osapp-build,mode=max
 
     - name: Configure (Conan install + CMake configure)
       run: make configure
@@ -75,22 +48,5 @@ jobs:
     - name: Test
       run: make test
 
-    # Persist Conan packages back to the host cache directory for the next run.
-    - name: Save Conan packages to host cache
-      if: always()
-      run: |
-        mkdir -p "$HOME/.conan2-ci-cache"
-        docker run --rm \
-          -v osapp-conan-cache:/conan-cache:ro \
-          -v "$HOME/.conan2-ci-cache:/host-cache" \
-          ubuntu:22.04 \
-          bash -c "cp -a /conan-cache/. /host-cache/ 2>/dev/null || true"
-
-    - name: ccache stats
-      if: always()
-      run: |
-        docker run --rm \
-          -v osapp-ccache:/ccache \
-          -e CCACHE_DIR=/ccache \
-          osapp-build:latest \
-          ccache --show-stats || true
+    - name: CppCheck
+      run: make cppcheck

@@ -1,18 +1,18 @@
 #!/usr/bin/env bash
-# configure.sh — runs inside the build container.
+# configure.sh - runs inside the build container.
 # Called by:  make configure
 # Purpose:    1. Download the OpenStudio SDK into build/ if not already present
 #             2. Bootstrap Conan home (first run only)
 #             3. Run `conan install` to fetch/build dependencies and generate
 #                the CMake toolchain + CMakeUserPresets.json.
-#             4. Run `cmake --preset conan-release` to configure the project.
+#             4. Run `cmake --preset conan-docker` to configure the project.
 set -euo pipefail
 
 mkdir -p /workspace/build
 
-# ── Verbose debug header ──────────────────────────────────────────────────────
+# -- Verbose debug header -----------------------------------------------------
 echo "================================================================"
-echo "  configure.sh  —  $(date -u '+%Y-%m-%d %H:%M:%S UTC')"
+echo "  configure.sh  -  $(date -u '+%Y-%m-%d %H:%M:%S UTC')"
 echo "  Host:     $(uname -a)"
 echo "  User:     $(id)"
 echo "  Workdir:  $(pwd)"
@@ -31,7 +31,7 @@ echo "  ccache: $(ccache --version 2>&1 | head -1 || echo 'not found')"
 echo "  curl:   $(curl --version | head -1)"
 echo "---------------------"
 
-# ── SDK paths (must match FindOpenStudioSDK.cmake) ───────────────────────────
+# -- SDK paths (must match FindOpenStudioSDK.cmake) --------------------------
 SDK_VERSION="3.11.0"
 SDK_SHA="+241b8abb4d"
 SDK_PLATFORM="Ubuntu-22.04-x86_64"   # matches FindOpenStudioSDK.cmake: ${LSB_RELEASE_ID_SHORT}-${LSB_RELEASE_VERSION_SHORT}-${ARCH}
@@ -43,7 +43,7 @@ SDK_URL="https://github.com/NREL/OpenStudio/releases/download/v${SDK_VERSION}/${
 echo "  SDK_DEST: ${SDK_DEST}"
 echo "  SDK_URL:  ${SDK_URL}"
 
-# ── Qt ───────────────────────────────────────────────────────────────────────
+# -- Qt -----------------------------------------------------------------------
 QT_INSTALL_DIR="${QT_INSTALL_DIR:-/opt/Qt/6.11.0/linux_gcc_64}"
 echo "  Qt:       ${QT_INSTALL_DIR}"
 if [ -d "${QT_INSTALL_DIR}" ]; then
@@ -58,7 +58,7 @@ if [ -d "${SDK_DEST}" ]; then
     echo "    SDK contents (top-level):"
     ls -lah "${SDK_DEST}" || true
 else
-    echo "    SDK not found — downloading ..."
+    echo "    SDK not found - downloading ..."
     mkdir -p "${SDK_DIR}"
     echo "    Downloading ${SDK_URL} ..."
     curl -fSL --retry 5 --retry-delay 10 --retry-connrefused \
@@ -70,12 +70,12 @@ else
     echo "    SDK extracted to ${SDK_DEST}"
 fi
 
-# ── Conan first-run bootstrap ─────────────────────────────────────────────────
+# -- Conan first-run bootstrap ------------------------------------------------
 echo "==> [2/4] Bootstrapping Conan ..."
 CONAN_HOME="${CONAN_HOME:-${HOME}/.conan2}"
 echo "    CONAN_HOME resolved to: ${CONAN_HOME}"
 if [ ! -f "${CONAN_HOME}/profiles/default" ]; then
-    echo "    No default profile found — running 'conan profile detect' ..."
+    echo "    No default profile found - running 'conan profile detect' ..."
     conan profile detect --force
     # Enforce C++20 and Release build type in the default profile
     sed -i 's/cppstd=.*$/cppstd=20/'    "${CONAN_HOME}/profiles/default"
@@ -83,7 +83,7 @@ if [ ! -f "${CONAN_HOME}/profiles/default" ]; then
     echo "    Profile after edits:"
     cat "${CONAN_HOME}/profiles/default"
     # NREL custom remote (hosts ruby/3.2.2 and other project packages).
-    # --insecure disables TLS certificate verification — needed while
+    # --insecure disables TLS certificate verification - needed while
     # conan.openstudio.net has an expired certificate.  Remove --insecure once
     # the certificate is renewed.
     conan remote add --force --insecure nrel-v2 \
@@ -94,19 +94,19 @@ else
     cat "${CONAN_HOME}/profiles/default"
 fi
 
-# ── Ensure nrel-v2 remote is registered and insecure ─────────────────────────
+# -- Ensure nrel-v2 remote is registered and insecure ------------------------
 # conan.openstudio.net currently has an expired TLS certificate; --insecure
 # disables cert verification so the build is not blocked.  Remove the
 # --insecure flag (and this comment) once the certificate is renewed.
 echo "    Checking for nrel-v2 remote ..."
 if conan remote list 2>/dev/null | grep -q 'nrel-v2'; then
-    echo "    nrel-v2 remote found — ensuring it is enabled and insecure ..."
+    echo "    nrel-v2 remote found - ensuring it is enabled and insecure ..."
     conan remote enable nrel-v2
     conan remote update nrel-v2 \
         --url https://conan.openstudio.net/artifactory/api/conan/conan-v2 \
         --insecure
 else
-    echo "    nrel-v2 remote not registered — adding with --insecure ..."
+    echo "    nrel-v2 remote not registered - adding with --insecure ..."
     conan remote add --insecure nrel-v2 \
         https://conan.openstudio.net/artifactory/api/conan/conan-v2
 fi
@@ -124,18 +124,18 @@ echo "    Writing ${CONAN_HOME}/global.conf ..."
 echo "    global.conf written:"
 cat "${CONAN_HOME}/global.conf"
 
-# ── ccache setup ──────────────────────────────────────────────────────────────
+# -- ccache setup -------------------------------------------------------------
 if command -v ccache &>/dev/null; then
-    echo "    ccache found — configuring ..."
+    echo "    ccache found - configuring ..."
     ccache --max-size=500M
     ccache --set-config=compression=true
     echo "    ccache stats before build:"
     ccache --show-stats
 else
-    echo "    WARNING: ccache not found — builds will not be cached"
+    echo "    WARNING: ccache not found - builds will not be cached"
 fi
 
-# ── Conan install ─────────────────────────────────────────────────────────────
+# -- Conan install ------------------------------------------------------------
 echo "==> [3/4] Running conan install ..."
 echo "    conanfile.py: $(head -5 conanfile.py 2>/dev/null || echo 'not found')"
 conan install . \
@@ -148,13 +148,48 @@ echo "    conan install exit code: $?"
 echo "    build/ contents after conan install:"
 ls -lah build/ | grep -v "^total" || true
 
-# ── CMake configure ───────────────────────────────────────────────────────────
+DOCKER_PRESET_NAME="conan-docker"
+echo "    Renaming generated preset to: ${DOCKER_PRESET_NAME}"
+python3 - <<'PY'
+import json
+from pathlib import Path
+
+preset_path = Path("build/CMakePresets.json")
+if not preset_path.exists():
+    raise SystemExit("ERROR: build/CMakePresets.json not found after conan install")
+
+with preset_path.open("r", encoding="utf-8") as f:
+    data = json.load(f)
+
+renames = {
+    "conan-release": "conan-docker",
+}
+
+for section in ("configurePresets", "buildPresets", "testPresets", "packagePresets", "workflowPresets"):
+    for entry in data.get(section, []):
+        if isinstance(entry, dict):
+            for key in ("name", "configurePreset", "inherits"):
+                value = entry.get(key)
+                if isinstance(value, str) and value in renames:
+                    entry[key] = renames[value]
+                elif isinstance(value, list):
+                    entry[key] = [renames.get(v, v) if isinstance(v, str) else v for v in value]
+
+with preset_path.open("w", encoding="utf-8") as f:
+    json.dump(data, f, indent=2)
+    f.write("\n")
+PY
+echo "    Updated build/CMakePresets.json preset names:"
+grep -n '"name"\|"configurePreset"' build/CMakePresets.json || true
+
+# -- CMake configure ----------------------------------------------------------
 echo "==> [4/4] Running cmake configure ..."
-echo "    Preset: conan-release"
+echo "    Preset: ${DOCKER_PRESET_NAME}"
 echo "    CMakeUserPresets.json:"
 cat CMakeUserPresets.json 2>/dev/null || echo "    (not found)"
-cmake --preset conan-release \
+cmake --preset "${DOCKER_PRESET_NAME}" \
     -DQT_INSTALL_DIR:PATH="${QT_INSTALL_DIR}" \
+    -DCMAKE_EXPORT_COMPILE_COMMANDS:BOOL=ON \
     -DBUILD_DOCUMENTATION:BOOL=OFF \
     -DBUILD_PACKAGE:BOOL=OFF \
     -DBUILD_TESTING:BOOL=ON \
@@ -164,6 +199,8 @@ echo "    cmake configure exit code: $?"
 echo "    CMakeCache.txt key values:"
 grep -E "^(CMAKE_BUILD_TYPE|CMAKE_CXX_COMPILER|CMAKE_MAKE_PROGRAM|QT_INSTALL_DIR|BUILD_TESTING|BUILD_BENCHMARK)" \
     build/CMakeCache.txt 2>/dev/null | sort || echo "    (CMakeCache.txt not found)"
+grep -E "^CMAKE_EXPORT_COMPILE_COMMANDS" \
+    build/CMakeCache.txt 2>/dev/null | sort || true
 
 echo ""
 echo "================================================================"
