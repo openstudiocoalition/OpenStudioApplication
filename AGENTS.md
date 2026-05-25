@@ -2,7 +2,7 @@
 
 ## Project Overview
 
-Cross-platform (Windows, Mac, Linux) graphical interface for OpenStudio energy models. Built on the [OpenStudio SDK](https://github.com/NREL/OpenStudio) using Qt 6.11.0 and C++20.
+Cross-platform (Windows, Mac, Linux) graphical interface for OpenStudio energy models. Built on the [OpenStudio SDK](https://github.com/NatLabRockies/OpenStudio) using Qt 6.11.0 and C++20.
 
 ## Quick Start
 

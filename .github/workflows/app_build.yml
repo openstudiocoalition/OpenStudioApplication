@@ -780,9 +780,9 @@ jobs:
         begin_group "Running a simulation with python"
         ./test_install/EnergyPlus/energyplus --help
         cur_v=$(python -c "import sys; sys.path.insert(0, './test_install/EnergyPlus'); from pyenergyplus.func import EnergyPlusVersion; v = EnergyPlusVersion(); print(f'{v.ep_version_major}.{v.ep_version_minor}.{v.ep_version_patch}')")
-        aria2c https://raw.githubusercontent.com/NREL/EnergyPlus/v${cur_v}/testfiles/PythonPluginCustomSchedule.py
-        aria2c https://raw.githubusercontent.com/NREL/EnergyPlus/v${cur_v}/testfiles/PythonPluginCustomSchedule.idf
-        aria2c https://raw.githubusercontent.com/NREL/EnergyPlus/v${cur_v}/weather/USA_IL_Chicago-OHare.Intl.AP.725300_TMY3.epw
+        aria2c https://raw.githubusercontent.com/NatLabRockies/EnergyPlus/v${cur_v}/testfiles/PythonPluginCustomSchedule.py
+        aria2c https://raw.githubusercontent.com/NatLabRockies/EnergyPlus/v${cur_v}/testfiles/PythonPluginCustomSchedule.idf
+        aria2c https://raw.githubusercontent.com/NatLabRockies/EnergyPlus/v${cur_v}/weather/USA_IL_Chicago-OHare.Intl.AP.725300_TMY3.epw
         ./test_install/EnergyPlus/energyplus -w USA_IL_Chicago-OHare.Intl.AP.725300_TMY3.epw -d out PythonPluginCustomSchedule.idf
         echo "::endgroup::"
 
