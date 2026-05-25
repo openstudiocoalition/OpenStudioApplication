@@ -83,10 +83,7 @@ if [ ! -f "${CONAN_HOME}/profiles/default" ]; then
     echo "    Profile after edits:"
     cat "${CONAN_HOME}/profiles/default"
     # NREL custom remote (hosts ruby/3.2.2 and other project packages).
-    # --insecure disables TLS certificate verification - needed while
-    # conan.openstudio.net has an expired certificate.  Remove --insecure once
-    # the certificate is renewed.
-    conan remote add --force --insecure nrel-v2 \
+    conan remote add --force nrel-v2 \
         https://conan.openstudio.net/artifactory/api/conan/conan-v2
     echo "    Conan profile created."
 else
@@ -94,20 +91,16 @@ else
     cat "${CONAN_HOME}/profiles/default"
 fi
 
-# -- Ensure nrel-v2 remote is registered and insecure ------------------------
-# conan.openstudio.net currently has an expired TLS certificate; --insecure
-# disables cert verification so the build is not blocked.  Remove the
-# --insecure flag (and this comment) once the certificate is renewed.
+# -- Ensure nrel-v2 remote is registered -------------------------------------
 echo "    Checking for nrel-v2 remote ..."
 if conan remote list 2>/dev/null | grep -q 'nrel-v2'; then
-    echo "    nrel-v2 remote found - ensuring it is enabled and insecure ..."
+    echo "    nrel-v2 remote found - ensuring it is enabled ..."
     conan remote enable nrel-v2
     conan remote update nrel-v2 \
-        --url https://conan.openstudio.net/artifactory/api/conan/conan-v2 \
-        --insecure
+        --url https://conan.openstudio.net/artifactory/api/conan/conan-v2
 else
-    echo "    nrel-v2 remote not registered - adding with --insecure ..."
-    conan remote add --insecure nrel-v2 \
+    echo "    nrel-v2 remote not registered - adding ..."
+    conan remote add nrel-v2 \
         https://conan.openstudio.net/artifactory/api/conan/conan-v2
 fi
 echo "    Active Conan remotes:"
