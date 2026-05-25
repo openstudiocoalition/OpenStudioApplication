@@ -195,7 +195,3 @@ TEST_F(ModelEditorFixture, InspectorDialog_SignalsOnIddObjectTypeChange) {
   EXPECT_FALSE(spaceWatcher.dirty());
   EXPECT_FALSE(thermalZoneWatcher.dirty());
 }
-
-TEST_F(ModelEditorFixture, InspectorDialog_SketchUpPlugin) {
-  std::shared_ptr<InspectorDialog> inspectorDialog(new InspectorDialog(InspectorDialogClient::SketchUpPlugin));
-}

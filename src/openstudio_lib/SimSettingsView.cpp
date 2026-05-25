@@ -490,27 +490,27 @@ QWidget* SimSettingsView::createRunControlWidget() {
   m_runSimWeatherFiles = new QCheckBox("Run Simulation for Weather File");
   layout->addWidget(m_runSimWeatherFiles);
 
-  connect(m_runSimWeatherFiles, &QCheckBox::stateChanged, this, &SimSettingsView::on_runSimWeatherFiles);
+  connect(m_runSimWeatherFiles, &QCheckBox::checkStateChanged, this, &SimSettingsView::on_runSimWeatherFiles);
 
   m_runSimDesignDays = new QCheckBox("Run Simulation for Design Days");
   layout->addWidget(m_runSimDesignDays);
 
-  connect(m_runSimDesignDays, &QCheckBox::stateChanged, this, &SimSettingsView::on_runSimDesignDays);
+  connect(m_runSimDesignDays, &QCheckBox::checkStateChanged, this, &SimSettingsView::on_runSimDesignDays);
 
   m_performZoneSizing = new QCheckBox("Perform Zone Sizing");
   layout->addWidget(m_performZoneSizing);
 
-  connect(m_performZoneSizing, &QCheckBox::stateChanged, this, &SimSettingsView::on_performZoneSizing);
+  connect(m_performZoneSizing, &QCheckBox::checkStateChanged, this, &SimSettingsView::on_performZoneSizing);
 
   m_performSystemSizing = new QCheckBox("Perform System Sizing");
   layout->addWidget(m_performSystemSizing);
 
-  connect(m_performSystemSizing, &QCheckBox::stateChanged, this, &SimSettingsView::on_performSystemSizing);
+  connect(m_performSystemSizing, &QCheckBox::checkStateChanged, this, &SimSettingsView::on_performSystemSizing);
 
   m_performPlantSizing = new QCheckBox("Perform Plant Sizing");
   layout->addWidget(m_performPlantSizing);
 
-  connect(m_performPlantSizing, &QCheckBox::stateChanged, this, &SimSettingsView::on_performPlantSizing);
+  connect(m_performPlantSizing, &QCheckBox::checkStateChanged, this, &SimSettingsView::on_performPlantSizing);
 
   auto* widget = new QWidget();
   widget->setLayout(mainLayout);
@@ -2193,22 +2193,22 @@ void SimSettingsView::on_endDateChanged(const QDate& date) {
   m_runPeriod->setEndDayOfMonth(m_endDateEdit->date().day());
 }
 
-void SimSettingsView::on_runSimWeatherFiles(int state) {
+void SimSettingsView::on_runSimWeatherFiles(Qt::CheckState state) {
   // TODO
 }
-void SimSettingsView::on_runSimDesignDays(int state) {
-  // TODO
-}
-
-void SimSettingsView::on_performZoneSizing(int state) {
+void SimSettingsView::on_runSimDesignDays(Qt::CheckState state) {
   // TODO
 }
 
-void SimSettingsView::on_performSystemSizing(int state) {
+void SimSettingsView::on_performZoneSizing(Qt::CheckState state) {
   // TODO
 }
 
-void SimSettingsView::on_performPlantSizing(int state) {
+void SimSettingsView::on_performSystemSizing(Qt::CheckState state) {
+  // TODO
+}
+
+void SimSettingsView::on_performPlantSizing(Qt::CheckState state) {
   // TODO
 }
 

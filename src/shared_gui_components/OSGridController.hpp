@@ -626,7 +626,7 @@ class OSGridController : public QObject
 
  protected slots:
 
-  void onSelectAllStateChanged(const int newState) const;
+  void onSelectAllStateChanged(Qt::CheckState newState) const;
 
  private slots:
 

@@ -233,7 +233,7 @@ void ThermalZonesGridController::addColumns(const QString& /*category*/, std::ve
     } else if (field == SELECTED) {
       auto checkbox = QSharedPointer<OSSelectAllCheckBox>(new OSSelectAllCheckBox());
       checkbox->setToolTip("Check to select all rows");
-      connect(checkbox.data(), &OSSelectAllCheckBox::stateChanged, this, &ThermalZonesGridController::onSelectAllStateChanged);
+      connect(checkbox.data(), &OSSelectAllCheckBox::checkStateChanged, this, &ThermalZonesGridController::onSelectAllStateChanged);
       connect(this, &ThermalZonesGridController::gridRowSelectionChanged, checkbox.data(), &OSSelectAllCheckBox::onGridRowSelectionChanged);
       addSelectColumn(Heading(QString(SELECTED), false, false, checkbox), "Check to select this row");
     } else if (field == RENDERINGCOLOR) {

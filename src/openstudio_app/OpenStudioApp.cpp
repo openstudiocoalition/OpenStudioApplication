@@ -983,7 +983,6 @@ void OpenStudioApp::showAbout() {
   QMessageBox about(parent);
   about.setText(OPENSTUDIOAPP_ABOUTBOX);
   about.setDetailedText(details);
-  about.setStyleSheet("qproperty-alignment: AlignLeft;");
   about.setWindowTitle("About " + applicationName());
 
   about.setIconPixmap(QPixmap(":/images/os_128.png"));

@@ -22,8 +22,6 @@ class InspectorView;
 
 namespace model {
 
-class AccessParser;
-
 /*! Access Policy will tell ModelObjects witch fields to expose
      *
      * The Policy will restrict your access to ModelObject data.
@@ -36,7 +34,7 @@ class AccessParser;
      */
 class MODELEDITOR_API AccessPolicy
 {
-  friend class AccessParser;
+  friend class AccessPolicyStore;
   friend class openstudio::InspectorView;  // For overriding via setAccess
 
  public:
@@ -78,8 +76,6 @@ class MODELEDITOR_API AccessPolicy
    */
 class MODELEDITOR_API AccessPolicyStore
 {
-  friend class AccessParser;
-
  public:
   static AccessPolicyStore& Instance();
 
