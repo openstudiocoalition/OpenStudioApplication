@@ -1,5 +1,5 @@
 ---
-description: "Use when building, testing, or validating C++ changes. Covers how to compile the project inside the Docker build container using Makefile targets."
+description: "Use when building, compiling, testing, or validating C++ changes; fixing build errors or compilation failures; running make configure, make build, make test, or cppcheck; working with CMake, Conan, Docker, or Makefile; or refactoring C++ code. Covers how to compile and test the project inside the Docker build container."
 applyTo: "src/**/*.cpp,src/**/*.hpp,src/**/CMakeLists.txt,docker/**,Makefile"
 ---
 
