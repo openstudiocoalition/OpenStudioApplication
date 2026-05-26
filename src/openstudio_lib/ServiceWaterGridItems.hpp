@@ -30,6 +30,7 @@ class ServiceWaterItem : public GridItem
 
 class WaterUseConnectionsDetailItem : public GridItem
 {
+  Q_DECLARE_TR_FUNCTIONS(openstudio::WaterUseConnectionsDetailItem)
  public:
   explicit WaterUseConnectionsDetailItem(WaterUseConnectionsDetailScene* waterUseConnectionsDetailScene);
 

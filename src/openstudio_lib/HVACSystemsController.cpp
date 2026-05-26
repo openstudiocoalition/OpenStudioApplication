@@ -1385,16 +1385,16 @@ void HVACControlsController::update() {
       const openstudio::ComponentType plType = t_plantLoop->componentType();
 
       if (plType == openstudio::ComponentType::Both) {
-        m_hvacPlantLoopControlsView->plantLoopTypeLabel->setText("Both");
+        m_hvacPlantLoopControlsView->plantLoopTypeLabel->setText(tr("Both"));
         m_hvacPlantLoopControlsView->plantLoopTypeLabel->setStyleSheet("QLabel { color : orange; }");
       } else if (plType == openstudio::ComponentType::Heating) {
-        m_hvacPlantLoopControlsView->plantLoopTypeLabel->setText("Heating");
+        m_hvacPlantLoopControlsView->plantLoopTypeLabel->setText(tr("Heating"));
         m_hvacPlantLoopControlsView->plantLoopTypeLabel->setStyleSheet("QLabel { color : red; }");
       } else if (plType == openstudio::ComponentType::Cooling) {
-        m_hvacPlantLoopControlsView->plantLoopTypeLabel->setText("Cooling");
+        m_hvacPlantLoopControlsView->plantLoopTypeLabel->setText(tr("Cooling"));
         m_hvacPlantLoopControlsView->plantLoopTypeLabel->setStyleSheet("QLabel { color : blue; }");
       } else if (plType == openstudio::ComponentType::None) {
-        m_hvacPlantLoopControlsView->plantLoopTypeLabel->setText("None");
+        m_hvacPlantLoopControlsView->plantLoopTypeLabel->setText(tr("None"));
         m_hvacPlantLoopControlsView->plantLoopTypeLabel->setStyleSheet("QLabel { color : black; }");
       }
 

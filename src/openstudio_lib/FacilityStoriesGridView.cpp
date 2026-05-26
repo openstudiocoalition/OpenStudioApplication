@@ -257,10 +257,10 @@ void FacilityStoriesGridController::addColumns(const QString& category, std::vec
       );
     } else if (field == tr("All")) {
       auto checkbox = QSharedPointer<OSSelectAllCheckBox>(new OSSelectAllCheckBox());
-      checkbox->setToolTip("Check to select all rows");
+      checkbox->setToolTip(tr("Check to select all rows"));
       connect(checkbox.data(), &OSSelectAllCheckBox::checkStateChanged, this, &FacilityStoriesGridController::onSelectAllStateChanged);
       connect(this, &FacilityStoriesGridController::gridRowSelectionChanged, checkbox.data(), &OSSelectAllCheckBox::onGridRowSelectionChanged);
-      addSelectColumn(Heading(tr("All"), false, false, checkbox), "Check to select this row");
+      addSelectColumn(Heading(tr("All"), false, false, checkbox), tr("Check to select this row").toStdString());
     } else if (field == tr("Nominal Z Coordinate")) {
       addQuantityEditColumn(Heading(tr("Nominal Floor to Floor Height")), QString("m"), QString("m"), QString("ft"), isIP(),
                             NullAdapter(&model::BuildingStory::nominalZCoordinate), NullAdapter(&model::BuildingStory::setNominalZCoordinate));

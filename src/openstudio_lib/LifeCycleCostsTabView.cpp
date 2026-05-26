@@ -58,12 +58,12 @@ void LifeCycleCostsView::createWidgets() {
   vLayout->setSpacing(10);
 
   label = new QLabel();
-  label->setText("Life Cycle Cost Parameters");
+  label->setText(tr("Life Cycle Cost Parameters"));
   label->setObjectName("H2");
   vLayout->addWidget(label);
 
   label = new QLabel();
-  label->setText("Performed using constant dollar methodology.  The base date and service date are assumed to be January 1, 2012.");
+  label->setText(tr("Performed using constant dollar methodology.  The base date and service date are assumed to be January 1, 2012."));
   label->setObjectName("H3");
   vLayout->addWidget(label);
 
@@ -80,7 +80,7 @@ void LifeCycleCostsView::createWidgets() {
   vLayout->setSpacing(5);
 
   label = new QLabel();
-  label->setText("Analysis Type");
+  label->setText(tr("Analysis Type"));
   label->setObjectName("H2");
   vLayout->addWidget(label);
 
@@ -88,11 +88,11 @@ void LifeCycleCostsView::createWidgets() {
 
   connect(m_fempGroup, static_cast<void (QButtonGroup::*)(int)>(&QButtonGroup::idClicked), this, &LifeCycleCostsView::fempGroupClicked);
 
-  radioButton = new QRadioButton("Federal Energy Management Program (FEMP)");
+  radioButton = new QRadioButton(tr("Federal Energy Management Program (FEMP)"));
   m_fempGroup->addButton(radioButton, 0);
   vLayout->addWidget(radioButton);
 
-  radioButton = new QRadioButton("Custom");
+  radioButton = new QRadioButton(tr("Custom"));
   m_fempGroup->addButton(radioButton, 1);
   vLayout->addWidget(radioButton);
 
@@ -108,7 +108,7 @@ void LifeCycleCostsView::createWidgets() {
   vLayout->setSpacing(10);
 
   m_analysisLengthLabel = new QLabel();
-  m_analysisLengthLabel->setText("Analysis Length (Years)");
+  m_analysisLengthLabel->setText(tr("Analysis Length (Years)"));
   m_analysisLengthLabel->setObjectName("H2");
   vLayout->addWidget(m_analysisLengthLabel);
 
@@ -122,7 +122,7 @@ void LifeCycleCostsView::createWidgets() {
   vLayout->setSpacing(5);
 
   m_realDiscountRateLabel = new QLabel();
-  m_realDiscountRateLabel->setText("Real Discount Rate (fraction)");
+  m_realDiscountRateLabel->setText(tr("Real Discount Rate (fraction)"));
   m_realDiscountRateLabel->setObjectName("H2");
   vLayout->addWidget(m_realDiscountRateLabel);
 
@@ -142,7 +142,7 @@ void LifeCycleCostsView::createWidgets() {
   vLayout->setSpacing(5);
 
   label = new QLabel();
-  label->setText("Use National Institute of Standards and Technology (NIST) Fuel Escalation Rates");
+  label->setText(tr("Use National Institute of Standards and Technology (NIST) Fuel Escalation Rates"));
   label->setObjectName("H2");
   vLayout->addWidget(label);
 
@@ -150,11 +150,11 @@ void LifeCycleCostsView::createWidgets() {
 
   connect(m_nistGroup, static_cast<void (QButtonGroup::*)(int)>(&QButtonGroup::idClicked), this, &LifeCycleCostsView::nistGroupClicked);
 
-  radioButton = new QRadioButton("Yes");
+  radioButton = new QRadioButton(tr("Yes"));
   m_nistGroup->addButton(radioButton, 0);
   vLayout->addWidget(radioButton);
 
-  radioButton = new QRadioButton("No");
+  radioButton = new QRadioButton(tr("No"));
   m_nistGroup->addButton(radioButton, 1);
   vLayout->addWidget(radioButton);
 
@@ -187,7 +187,7 @@ QWidget* LifeCycleCostsView::createInflationRatesWidget() {
   vLayout = new QVBoxLayout();
 
   label = new QLabel();
-  label->setText("Inflation Rates (Relative to general inflation)");
+  label->setText(tr("Inflation Rates (Relative to general inflation)"));
   label->setObjectName("H2");
   vLayout->addWidget(label);
 
@@ -202,7 +202,7 @@ QWidget* LifeCycleCostsView::createInflationRatesWidget() {
   vLayout = new QVBoxLayout();
 
   label = new QLabel();
-  label->setText("Electricity (fraction)");
+  label->setText(tr("Electricity (fraction)"));
   vLayout->addWidget(label);
 
   m_electricityDoubleEdit = new OSDoubleEdit2();
@@ -217,7 +217,7 @@ QWidget* LifeCycleCostsView::createInflationRatesWidget() {
   vLayout = new QVBoxLayout();
 
   label = new QLabel();
-  label->setText("Natural Gas (fraction)");
+  label->setText(tr("Natural Gas (fraction)"));
   vLayout->addWidget(label);
 
   m_naturalGasDoubleEdit = new OSDoubleEdit2();
@@ -230,7 +230,7 @@ QWidget* LifeCycleCostsView::createInflationRatesWidget() {
   vLayout = new QVBoxLayout();
 
   label = new QLabel();
-  label->setText("Steam (fraction)");
+  label->setText(tr("Steam (fraction)"));
   vLayout->addWidget(label);
 
   m_steamDoubleEdit = new OSDoubleEdit2();
@@ -243,7 +243,7 @@ QWidget* LifeCycleCostsView::createInflationRatesWidget() {
   vLayout = new QVBoxLayout();
 
   label = new QLabel();
-  label->setText("Gasoline (fraction)");
+  label->setText(tr("Gasoline (fraction)"));
   vLayout->addWidget(label);
 
   m_gasolineDoubleEdit = new OSDoubleEdit2();
@@ -259,7 +259,7 @@ QWidget* LifeCycleCostsView::createInflationRatesWidget() {
   vLayout = new QVBoxLayout();
 
   label = new QLabel();
-  label->setText("Diesel (fraction)");
+  label->setText(tr("Diesel (fraction)"));
   vLayout->addWidget(label);
 
   m_dieselDoubleEdit = new OSDoubleEdit2();
@@ -272,7 +272,7 @@ QWidget* LifeCycleCostsView::createInflationRatesWidget() {
   vLayout = new QVBoxLayout();
 
   label = new QLabel();
-  label->setText("Propane (fraction)");
+  label->setText(tr("Propane (fraction)"));
   vLayout->addWidget(label);
 
   m_propaneDoubleEdit = new OSDoubleEdit2();
@@ -285,7 +285,7 @@ QWidget* LifeCycleCostsView::createInflationRatesWidget() {
   vLayout = new QVBoxLayout();
 
   label = new QLabel();
-  label->setText("Coal (fraction)");
+  label->setText(tr("Coal (fraction)"));
   vLayout->addWidget(label);
 
   m_coalDoubleEdit = new OSDoubleEdit2();
@@ -298,7 +298,7 @@ QWidget* LifeCycleCostsView::createInflationRatesWidget() {
   vLayout = new QVBoxLayout();
 
   label = new QLabel();
-  label->setText("Fuel Oil #1 (fraction)");
+  label->setText(tr("Fuel Oil #1 (fraction)"));
   vLayout->addWidget(label);
 
   m_fuelOil_1DoubleEdit = new OSDoubleEdit2();
@@ -314,7 +314,7 @@ QWidget* LifeCycleCostsView::createInflationRatesWidget() {
   vLayout = new QVBoxLayout();
 
   label = new QLabel();
-  label->setText("Fuel Oil #2 (fraction)");
+  label->setText(tr("Fuel Oil #2 (fraction)"));
   vLayout->addWidget(label);
 
   m_fuelOil_2DoubleEdit = new OSDoubleEdit2();
@@ -327,7 +327,7 @@ QWidget* LifeCycleCostsView::createInflationRatesWidget() {
   vLayout = new QVBoxLayout();
 
   label = new QLabel();
-  label->setText("Water (fraction)");
+  label->setText(tr("Water (fraction)"));
   vLayout->addWidget(label);
 
   m_waterDoubleEdit = new OSDoubleEdit2();
@@ -357,7 +357,7 @@ QWidget* LifeCycleCostsView::createNistWidget() {
   vLayout = new QVBoxLayout();
 
   label = new QLabel();
-  label->setText("NIST Region");
+  label->setText(tr("NIST Region"));
   label->setObjectName("H2");
   vLayout->addWidget(label);
 
@@ -370,7 +370,7 @@ QWidget* LifeCycleCostsView::createNistWidget() {
   vLayout = new QVBoxLayout();
 
   label = new QLabel();
-  label->setText("NIST Sector");
+  label->setText(tr("NIST Sector"));
 
   label->setObjectName("H2");
   vLayout->addWidget(label);

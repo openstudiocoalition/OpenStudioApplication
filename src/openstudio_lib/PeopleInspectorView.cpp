@@ -332,7 +332,7 @@ OSComboBox2* PeopleDefinitionInspectorView::addThermalComfortModelTypeComboBox(i
   lastHBoxLayout = new QHBoxLayout(lastRowWidget);
   m_HBoxLayouts.push_back(lastHBoxLayout);
   // groupIndex is 0-indexed
-  auto* label = new QLabel("Thermal Comfort Model Type " + QString::number(groupIndex + 1));
+  auto* label = new QLabel(tr("Thermal Comfort Model Type") + " " + QString::number(groupIndex + 1));
   label->setObjectName("H2");
   lastHBoxLayout->addWidget(label);
 

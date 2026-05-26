@@ -552,7 +552,7 @@ HotWaterSupplyItem::HotWaterSupplyItem(QGraphicsItem* parent) : GridItem(parent)
 
   m_hotWaterSupplyButton = new ButtonItem(hotWaterSupplyPixmap, hotWaterSupplyPressPixmap, hotWaterSupplyOverPixmap, this);
 
-  m_hotWaterSupplyButton->setToolTip("Go back to hot water supply system");
+  m_hotWaterSupplyButton->setToolTip(tr("Go back to hot water supply system"));
 
   connect(m_hotWaterSupplyButton, &ButtonItem::mouseClicked, this, &HotWaterSupplyItem::onHotWaterSupplyButtonClicked);
 
@@ -779,7 +779,7 @@ MakeupWaterItem::MakeupWaterItem(QGraphicsItem* parent) : GridItem(parent) {
 
   m_hotWaterSupplyButton = new ButtonItem(hotWaterSupplyPixmap, hotWaterSupplyPressPixmap, hotWaterSupplyOverPixmap, this);
 
-  m_hotWaterSupplyButton->setToolTip("Go back to hot water supply system");
+  m_hotWaterSupplyButton->setToolTip(tr("Go back to hot water supply system"));
 
   connect(m_hotWaterSupplyButton, &ButtonItem::mouseClicked, this, &MakeupWaterItem::onHotWaterSupplyButtonClicked);
 

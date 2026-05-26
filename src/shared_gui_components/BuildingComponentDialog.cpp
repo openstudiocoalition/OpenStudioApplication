@@ -50,9 +50,9 @@ BuildingComponentDialog::BuildingComponentDialog(std::string& filterType, bool i
 
 void BuildingComponentDialog::createLayout(bool isBclDlg) {
   if (isBclDlg) {
-    m_dlgTitle = "Online BCL";
+    m_dlgTitle = tr("Online BCL");
   } else {
-    m_dlgTitle = "Local Library";
+    m_dlgTitle = tr("Local Library");
   }
   setWindowTitle(m_dlgTitle);
 
@@ -73,7 +73,7 @@ void BuildingComponentDialog::createLayout(bool isBclDlg) {
   m_lineEdit = new QLineEdit(this);
 
   auto* searchButton = new QPushButton();
-  searchButton->setToolTip("Click to add a search term to the selected category");
+  searchButton->setToolTip(tr("Click to add a search term to the selected category"));
   searchButton->setStyleSheet("QPushButton { border: none; background-image: url(\":/images/searchbox_magnifyingglass.png\"); }");
   searchButton->setFixedSize(24, 24);
 
@@ -84,7 +84,7 @@ void BuildingComponentDialog::createLayout(bool isBclDlg) {
   searchlayout->addWidget(m_lineEdit);
   leftPanelayout->addLayout(searchlayout);
 
-  auto* categoryLabel = new QLabel("Categories");
+  auto* categoryLabel = new QLabel(tr("Categories"));
   categoryLabel->setObjectName("H1");
   leftPanelayout->addWidget(categoryLabel);
 
@@ -173,7 +173,7 @@ void BuildingComponentDialog::createLayout(bool isBclDlg) {
   splitter->addWidget(centralScrollArea);
   splitter->addWidget(m_rightScrollArea);
 
-  auto* busyLabel = new QLabel("Searching BCL...");
+  auto* busyLabel = new QLabel(tr("Searching BCL..."));
   busyLabel->setObjectName("H1");
 
   auto* busyIcon = new BusyWidget();

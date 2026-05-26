@@ -73,8 +73,7 @@ LoopLibraryDialog::LoopLibraryDialog(QWidget* parent) : QDialog(parent) {
 
   newItem(ADDTOMODEL_SYSTEM_TYPE_5, tr("Packaged DX Rooftop VAV \nwith Reheat"), QPixmap(":/images/system_type_5.png"));
 
-  newItem(ADDTOMODEL_SYSTEM_TYPE_6, tr("Packaged Rooftop \nVAV with Parallel Fan \nPower Boxes and reheat"),
-          QPixmap(":/images/system_type_6.png"));
+  newItem(ADDTOMODEL_SYSTEM_TYPE_6, tr("Packaged Rooftop \nVAV with Parallel Fan \nPower Boxes and reheat"), QPixmap(":/images/system_type_6.png"));
 
   newItem(ADDTOMODEL_SYSTEM_TYPE_7, tr("Packaged Rooftop \nVAV with Reheat"), QPixmap(":/images/system_type_7.png"));
 

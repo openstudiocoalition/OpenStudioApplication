@@ -1,5 +1,4 @@
-﻿<?xml version="1.0" encoding="utf-8"?>
-<!DOCTYPE TS>
+<?xml version='1.0' encoding='utf-8'?>
 <TS version="2.1" language="tr">
 <context>
     <name>InspectorDialog</name>
@@ -20,7 +19,7 @@
         <translation>Seçilen nesneleri kaldır</translation>
     </message>
     <message>
-        <location filename="../src/model_editor/InspectorDialog.cpp" line="585"/>
+        <location filename="../src/model_editor/InspectorDialog.cpp" line="585" />
         <source>Purge unused objects</source>
         <translatorcomment>La palabra purgar no tiene el mismo contexto en Español.</translatorcomment>
         <translation>Borrar todos los objetos sin usar</translation>
@@ -359,7 +358,7 @@ Bölgesi</translation>
         <translation>Hava durumu dosyası beklenen %1 m derinliğinde zemin sıcaklığı verisi içermediğinden, nesne varsayılan değerlerle eklenecektir.</translation>
     </message>
     <message>
-        <source>The weather file contains ground temperature data at a depth of &lt;b&gt;&lt;span style=&quot;color: #1C7BBF;&quot;&gt;%1 m&lt;/span&gt;&lt;/b&gt;, so you can choose to import those values or add the object with default values.</source>
+        <source>The weather file contains ground temperature data at a depth of &lt;b&gt;&lt;span style="color: #1C7BBF;"&gt;%1 m&lt;/span&gt;&lt;/b&gt;, so you can choose to import those values or add the object with default values.</source>
         <translation>Hava dosyası &lt;b&gt;&lt;span style="color: #1C7BBF;"&gt;%1 m&lt;/span&gt;&lt;/b&gt; derinliğindeki yer sıcaklığı verilerini içeriyor, bu nedenle bu değerleri içe aktarmayı seçebilir veya nesneyı varsayılan değerlerle ekleyebilirsiniz.</translation>
     </message>
 </context>
@@ -427,7 +426,7 @@ Bölgesi</translation>
         <translation>Saat Dilimi:</translation>
     </message>
     <message>
-        <source>Download weather files at &lt;a href=&quot;http://www.energyplus.net/weather&quot;&gt;www.energyplus.net/weather&lt;/a&gt;</source>
+        <source>Download weather files at &lt;a href="http://www.energyplus.net/weather"&gt;www.energyplus.net/weather&lt;/a&gt;</source>
         <translation>Hava durumu dosyalarını &lt;a href="http://www.energyplus.net/weather"&gt;www.energyplus.net/weather&lt;/a&gt; adresinden indirin</translation>
     </message>
     <message>
@@ -443,7 +442,7 @@ Bölgesi</translation>
         <translation>Etkinleştirilirse, Yükseklik değişikliğini örneğin koruyan Site:Location nesnesini yazacaktır.</translation>
     </message>
     <message>
-        <source>Elevation affects the wind speed at the site, and is defaulted to the Weather File&apos;s elevation</source>
+        <source>Elevation affects the wind speed at the site, and is defaulted to the Weather File's elevation</source>
         <translation>Yükseklik, alandaki rüzgar hızını etkiler ve Hava Dosyası'nın yüksekliğine göre varsayılan olarak ayarlanır</translation>
     </message>
     <message>
@@ -499,7 +498,7 @@ Bölgesi</translation>
         <translation>Hava Dosyası Şu Konuma Ayarlanamadı</translation>
     </message>
     <message>
-        <source>There are &lt;span style=&quot;font-weight:bold;&quot;&gt;%1&lt;/span&gt; Design Days available for import</source>
+        <source>There are &lt;span style="font-weight:bold;"&gt;%1&lt;/span&gt; Design Days available for import</source>
         <translation>İçeri aktarılmaya uygun &lt;span style="font-weight:bold;"&gt;%1&lt;/span&gt; Tasarım Günü vardır</translation>
     </message>
     <message>
@@ -594,7 +593,7 @@ Bölgesi</translation>
         <translation>Daha Sonra Tekrar Deneyin.</translation>
     </message>
     <message>
-        <source>Verify your computer&apos;s internet connection then click &quot;Lost Cloud Connection&quot; to recover the lost cloud session.</source>
+        <source>Verify your computer's internet connection then click "Lost Cloud Connection" to recover the lost cloud session.</source>
         <translation>Bilgisayarınızın internet bağlantısını doğrulayın, ardından kayıp bulut oturumunu kurtarmak için "Bulut Bağlantısı Kesildi" düğmesini tıklayın.</translation>
     </message>
     <message>
@@ -882,7 +881,7 @@ OpenStudioApplication'ın seçtiğiniz dilde çevrilmiş olmasını görmek isti
         <translation>Analitiğe İzin Ver</translation>
     </message>
     <message>
-        <source>Allow OpenStudio Coalition to collect anonymous usage statistics to help improve the OpenStudio Application? See the &lt;a href=&quot;https://openstudiocoalition.org/about/privacy_policy/&quot;&gt;privacy policy&lt;/a&gt; for more information.</source>
+        <source>Allow OpenStudio Coalition to collect anonymous usage statistics to help improve the OpenStudio Application? See the &lt;a href="https://openstudiocoalition.org/about/privacy_policy/"&gt;privacy policy&lt;/a&gt; for more information.</source>
         <translation>OpenStudio Koalisyonu'nun OpenStudio Uygulaması'nı geliştirmeye yardımcı olmak için anonim kullanım istatistikleri toplamasına izin vermek ister misiniz? Daha fazla bilgi için &lt;a href="https://openstudiocoalition.org/about/privacy_policy/"&gt;gizlilik politikası&lt;/a&gt;'na bakınız.</translation>
     </message>
 </context>
@@ -1048,23 +1047,23 @@ OpenStudioApplication'ın seçtiğiniz dilde çevrilmiş olmasını görmek isti
         <translation>(*.idf)</translation>
     </message>
     <message>
-        <source>&apos; while OpenStudio uses a &lt;strong&gt;newer&lt;/strong&gt; EnergyPlus &apos;</source>
+        <source>' while OpenStudio uses a &lt;strong&gt;newer&lt;/strong&gt; EnergyPlus '</source>
         <translation>' OpenStudio &lt;strong&gt;daha yeni&lt;/strong&gt; bir EnergyPlus kullanırken '</translation>
     </message>
     <message>
-        <source>&apos;. Consider using the EnergyPlus Auxiliary program IDFVersionUpdater to update your IDF file.</source>
+        <source>'. Consider using the EnergyPlus Auxiliary program IDFVersionUpdater to update your IDF file.</source>
         <translation>''. EnergyPlus Auxiliary program IDFVersionUpdater kullanarak IDF dosyanızı güncellemeyi düşünün.</translation>
     </message>
     <message>
-        <source>&apos; while OpenStudio uses an &lt;strong&gt;older&lt;/strong&gt; EnergyPlus &apos;</source>
+        <source>' while OpenStudio uses an &lt;strong&gt;older&lt;/strong&gt; EnergyPlus '</source>
         <translation>' OpenStudio &lt;strong&gt;eski&lt;/strong&gt; bir EnergyPlus kullanırken '</translation>
     </message>
     <message>
-        <source>&apos;.</source>
+        <source>'.</source>
         <translation>'</translation>
     </message>
     <message>
-        <source>&apos; which is the &lt;strong&gt;same&lt;/strong&gt; version of EnergyPlus that OpenStudio uses (</source>
+        <source>' which is the &lt;strong&gt;same&lt;/strong&gt; version of EnergyPlus that OpenStudio uses (</source>
         <translation>', bu OpenStudio'nun kullandığı EnergyPlus'ın &lt;strong&gt;aynı&lt;/strong&gt; sürümüdür (</translation>
     </message>
     <message>
@@ -1170,7 +1169,7 @@ OpenStudioApplication'ın seçtiğiniz dilde çevrilmiş olmasını görmek isti
         <translation>(*.osm)</translation>
     </message>
     <message>
-        <source>A new version is available at &lt;a href=&quot;</source>
+        <source>A new version is available at &lt;a href="</source>
         <translation>Yeni sürüm şu adreste mevcut &lt;a href="</translation>
     </message>
     <message>
@@ -1236,11 +1235,11 @@ Ruby betikleri artık desteklenmemekte ve ölçümlerle değiştirilmiştir.</tr
         <translation>Ayarlar dosyası yazılabilir değil</translation>
     </message>
     <message>
-        <source>Your settings file &apos;</source>
+        <source>Your settings file '</source>
         <translation>Ayarlar dosyanız '</translation>
     </message>
     <message>
-        <source>&apos; is not writable. Adjust the file permissions</source>
+        <source>' is not writable. Adjust the file permissions</source>
         <translation>' yazılabilir değil. Dosya izinlerini ayarlayın</translation>
     </message>
     <message>
@@ -2179,7 +2178,7 @@ Etiketleri</translation>
     </message>
     <message>
         <source>Nominal Floor to Floor Height: </source>
-        <translation type="unfinished"></translation>
+        <translation>Nominal Kat Yüksekliği:</translation>
     </message>
     <message>
         <source>Standards Number of Stories: </source>
@@ -5472,7 +5471,7 @@ Parametreleri</translation>
     </message>
     <message>
         <source>Infrared Transmittance at Normal Incidence: </source>
-        <translation type="unfinished"></translation>
+        <translation>Infrared Transmittance at Normal Incidence:</translation>
     </message>
     <message>
         <source>Front Side Infrared Hemispherical Emissivity: </source>
@@ -6146,31 +6145,31 @@ Parametreleri</translation>
         <translation>Uygulanacak yere:</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/SchedulesView.cpp" line="1597"/>
+        <location filename="../src/openstudio_lib/SchedulesView.cpp" line="1597" />
         <source>S</source>
         <translatorcomment>Domingo (Sunday) / Sábado (Saturday) — needs disambiguation in source code</translatorcomment>
-        <translation type="unfinished"></translation>
+        <translation>S</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/SchedulesView.cpp" line="1605"/>
+        <location filename="../src/openstudio_lib/SchedulesView.cpp" line="1605" />
         <source>M</source>
         <translatorcomment>Lunes (Monday)</translatorcomment>
         <translation>L</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/SchedulesView.cpp" line="1613"/>
+        <location filename="../src/openstudio_lib/SchedulesView.cpp" line="1613" />
         <source>T</source>
         <translatorcomment>Martes (Tuesday) / Jueves (Thursday) — needs disambiguation in source code</translatorcomment>
-        <translation type="unfinished"></translation>
+        <translation>J</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/SchedulesView.cpp" line="1621"/>
+        <location filename="../src/openstudio_lib/SchedulesView.cpp" line="1621" />
         <source>W</source>
         <translatorcomment>Miércoles (Wednesday)</translatorcomment>
         <translation>X</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/SchedulesView.cpp" line="1639"/>
+        <location filename="../src/openstudio_lib/SchedulesView.cpp" line="1639" />
         <source>F</source>
         <translatorcomment>Viernes (Friday)</translatorcomment>
         <translation>V</translation>
@@ -6537,7 +6536,7 @@ Parametreleri</translation>
 <context>
     <name>openstudio::AirLoopHVACUnitaryHeatPumpAirToAirControlView</name>
     <message>
-        <source>Supply air temperature is managed by the &quot;AirLoopHVACUnitaryHeatPumpAirToAir&quot; component.</source>
+        <source>Supply air temperature is managed by the "AirLoopHVACUnitaryHeatPumpAirToAir" component.</source>
         <translation>Beslenme hava sıcaklığı, "AirLoopHVACUnitaryHeatPumpAirToAir" bileşeni tarafından yönetilir.</translation>
     </message>
     <message>
@@ -6548,7 +6547,7 @@ Parametreleri</translation>
 <context>
     <name>openstudio::NoSupplyAirTempControlView</name>
     <message>
-        <source>&lt;strong style=&quot;color:red&quot;&gt;Missing supply temperature control&lt;/strong&gt;. Try adding a setpoint manager to the supply outlet node of your system.</source>
+        <source>&lt;strong style="color:red"&gt;Missing supply temperature control&lt;/strong&gt;. Try adding a setpoint manager to the supply outlet node of your system.</source>
         <translation>&lt;strong style="color:red"&gt;Kaynak sıcaklık kontrolü eksik&lt;/strong&gt;. Sisteminizin kaynak çıkış düğümüne bir setpoint yöneticisi eklemeyi deneyin.</translation>
     </message>
 </context>
@@ -6720,7 +6719,7 @@ Elektrik</translation>
 </context>
 <context>
     <name>IDD</name>
-    <!-- Common -->
+    
     <message>
         <source>Name</source>
         <translation>Ad</translation>
@@ -6733,7 +6732,7 @@ Elektrik</translation>
         <source>Part Load Fraction Correlation Curve Name</source>
         <translation>Part Load Fraction Eğri Adı</translation>
     </message>
-    <!-- OS:Schedule:Day -->
+    
     <message>
         <source>Schedule Type Limits Name</source>
         <translation>Zamanlama Türü Sınırları Adı</translation>
@@ -6754,7 +6753,7 @@ Elektrik</translation>
         <source>Value Until Time</source>
         <translation>Zaman Kadar Değer</translation>
     </message>
-    <!-- OS:Controller:OutdoorAir -->
+    
     <message>
         <source>Minimum Outdoor Air Flow Rate</source>
         <translation>Minimum Outdoor Air Flow Rate</translation>
@@ -6809,7 +6808,7 @@ Elektrik</translation>
     </message>
     <message>
         <source>Time of Day Economizer Control Schedule Name</source>
-        <translation type="unfinished"></translation>
+        <translation>Time of Day Economizer Control Schedule Name</translation>
     </message>
     <message>
         <source>Heat Recovery Bypass Control Type</source>
@@ -6819,7 +6818,7 @@ Elektrik</translation>
         <source>Economizer Operation Staging</source>
         <translation>Ekonomizör İşletme Basamaklandırması</translation>
     </message>
-    <!-- OS:Coil:Cooling:DX:SingleSpeed -->
+    
     <message>
         <source>Rated Total Cooling Capacity</source>
         <translation>Nominal Toplam Soğutma Kapasitesi</translation>
@@ -6914,13 +6913,13 @@ Elektrik</translation>
     </message>
     <message>
         <source>Basin Heater Setpoint Temperature</source>
-        <translation type="unfinished"></translation>
+        <translation>Basin Heater Setpoint Temperature</translation>
     </message>
     <message>
         <source>Basin Heater Operating Schedule Name</source>
         <translation>Basin Heater Operating Schedule Name</translation>
     </message>
-    <!-- OS:Coil:Heating:Gas -->
+    
     <message>
         <source>Gas Burner Efficiency</source>
         <translation>Gaz Brülör Verimliliği</translation>
@@ -6941,7 +6940,7 @@ Elektrik</translation>
         <source>Fuel Type</source>
         <translation>Yakıt Türü</translation>
     </message>
-    <!-- OS:Fan:ConstantVolume -->
+    
     <message>
         <source>Fan Total Efficiency</source>
         <translation>Fan Toplam Verimliliği</translation>
@@ -6966,10 +6965,10 @@ Elektrik</translation>
         <source>End-Use Subcategory</source>
         <translation>Son Kullanım Alt Kategorisi</translation>
     </message>
-    <!-- OS:SetpointManager:SingleZone:Reheat -->
+    
     <message>
         <source>Minimum Supply Air Temperature</source>
-        <translation type="unfinished"></translation>
+        <translation>Minimum Supply Air Temperature</translation>
     </message>
     <message>
         <source>Maximum Supply Air Temperature</source>
@@ -6983,12 +6982,12 @@ Elektrik</translation>
         <source>Control Variable</source>
         <translation>Kontrol Değişkeni</translation>
     </message>
-    <!-- OS:AirTerminal:SingleDuct:ConstantVolume:NoReheat -->
+    
     <message>
         <source>Maximum Air Flow Rate</source>
         <translation>Maksimum Hava Akış Hızı</translation>
     </message>
-    <!-- OS:ThermalZone -->
+    
     <message>
         <source>Multiplier</source>
         <translation>Çarpan</translation>
@@ -7009,7 +7008,7 @@ Elektrik</translation>
         <source>Daylighting Controls Availability Schedule Name</source>
         <translation>Daylighting Controls Kullanılabilirlik Programı Adı</translation>
     </message>
-    <!-- OS:Sizing:Zone -->
+    
     <message>
         <source>Zone Cooling Design Supply Air Temperature Input Method</source>
         <translation>Zone Cooling Design Supply Air Temperature Input Method</translation>
@@ -7170,7 +7169,7 @@ Elektrik</translation>
         <source>Maximum Heating Capacity To Cooling Load Sizing Ratio</source>
         <translation>Maksimum Isıtma Kapasitesi Soğutma Yüküne Boyutlandırma Oranı</translation>
     </message>
-    <!-- OS:ZoneHVAC:EquipmentList -->
+    
     <message>
         <source>Load Distribution Scheme</source>
         <translation>Yük Dağıtım Şeması</translation>
@@ -7183,7 +7182,7 @@ Elektrik</translation>
         <source>Zone Equipment Sequential Heating Fraction Schedule Name</source>
         <translation>Bölge Ekipmanı Sıralı Isıtma Fraksiyonu Çizelge Adı</translation>
     </message>
-    <!-- OS:AirLoopHVAC -->
+    
     <message>
         <source>Design Supply Air Flow Rate</source>
         <translation>Tasarım Hava Akış Hızı</translation>
@@ -7200,7 +7199,7 @@ Elektrik</translation>
         <source>Design Return Air Flow Fraction of Supply Air Flow</source>
         <translation>Tasarım Dönüş Hava Akışının Beslemeli Hava Akışına Oranı</translation>
     </message>
-    <!-- OS:Sizing:System -->
+    
     <message>
         <source>Type of Load to Size On</source>
         <translation>Boyutlandırılacak Yük Türü</translation>
@@ -7261,7 +7260,7 @@ Elektrik</translation>
         <source>Zone Maximum Outdoor Air Fraction</source>
         <translation>Bölge Maksimum Dış Hava Fraksiyonu</translation>
     </message>
-    <!-- OS:Coil:Cooling:Water -->
+    
     <message>
         <source>Design Water Flow Rate</source>
         <translation>Tasarım Su Akış Hızı</translation>
@@ -7298,7 +7297,7 @@ Elektrik</translation>
         <source>Heat Exchanger Configuration</source>
         <translation>Isı Değiştiricisi Yapılandırması</translation>
     </message>
-    <!-- OS:Coil:Heating:Water -->
+    
     <message>
         <source>U-Factor Times Area Value</source>
         <translation>U-Faktörü Çarpı Alan Değeri</translation>
@@ -7335,7 +7334,7 @@ Elektrik</translation>
         <source>Rated Ratio for Air and Water Convection</source>
         <translation>Hava ve Su Konveksiyonu için Oransal Değer</translation>
     </message>
-    <!-- OS:Fan:VariableVolume -->
+    
     <message>
         <source>Fan Power Minimum Flow Rate Input Method</source>
         <translation>Fan Gücü Minimum Akış Hızı Giriş Yöntemi</translation>
@@ -7368,12 +7367,12 @@ Elektrik</translation>
         <source>Fan Power Coefficient 5</source>
         <translation>Fan Power Coefficient 5</translation>
     </message>
-    <!-- OS:SetpointManager:Scheduled -->
+    
     <message>
         <source>Schedule Name</source>
         <translation>Çizelge Adı</translation>
     </message>
-    <!-- OS:AirTerminal:SingleDuct:VAV:Reheat -->
+    
     <message>
         <source>Zone Minimum Air Flow Input Method</source>
         <translation>Bölge Minimum Hava Akışı Giriş Yöntemi</translation>
@@ -7418,7 +7417,7 @@ Elektrik</translation>
         <source>Convergence Tolerance</source>
         <translation>Yakınsama Toleransı</translation>
     </message>
-    <!-- OS:Pump:VariableSpeed / OS:Pump:ConstantSpeed -->
+    
     <message>
         <source>Rated Flow Rate</source>
         <translation>Nominal Debi</translation>
@@ -7491,7 +7490,7 @@ Elektrik</translation>
         <source>Skin Loss Radiative Fraction</source>
         <translation>Cilt Kaybı Radyatif Oranı</translation>
     </message>
-    <!-- OS:Chiller:Electric:EIR -->
+    
     <message>
         <source>Reference Capacity</source>
         <translation>Referans Kapasite</translation>
@@ -7568,7 +7567,7 @@ Elektrik</translation>
         <source>Sizing Factor</source>
         <translation>Boyutlandırma Faktörü</translation>
     </message>
-    <!-- OS:PlantLoop -->
+    
     <message>
         <source>Maximum Loop Temperature</source>
         <translation>Maksimum Döngü Sıcaklığı</translation>
@@ -7589,7 +7588,7 @@ Elektrik</translation>
         <source>Pressure Simulation Type</source>
         <translation>Basınç Simülasyon Tipi</translation>
     </message>
-    <!-- OS:Sizing:Plant -->
+    
     <message>
         <source>Loop Type</source>
         <translation>Döngü Türü</translation>
@@ -7602,7 +7601,7 @@ Elektrik</translation>
         <source>Loop Design Temperature Difference</source>
         <translation>Loop Tasarım Sıcaklık Farkı</translation>
     </message>
-    <!-- OS:CoolingTower:SingleSpeed -->
+    
     <message>
         <source>Fan Power at Design Air Flow Rate</source>
         <translation>Tasarım Hava Akış Hızında Fan Gücü</translation>
@@ -7655,7 +7654,7 @@ Elektrik</translation>
         <source>Cell Maximum Water Flow Rate Fraction</source>
         <translation>Hücre Maksimum Su Akış Hızı Oranı</translation>
     </message>
-    <!-- OS:SetpointManager:FollowOutdoorAirTemperature -->
+    
     <message>
         <source>Reference Temperature Type</source>
         <translation>Referans Sıcaklık Türü</translation>
@@ -7670,9 +7669,9 @@ Elektrik</translation>
     </message>
     <message>
         <source>Minimum Setpoint Temperature</source>
-        <translation type="unfinished"></translation>
+        <translation>Minimum Setpoint Temperature</translation>
     </message>
-    <!-- OS:Boiler:HotWater -->
+    
     <message>
         <source>Nominal Thermal Efficiency</source>
         <translation>Nominal Thermal Efficiency</translation>
@@ -7701,7 +7700,7 @@ Elektrik</translation>
         <source>Off Cycle Parasitic Fuel Load</source>
         <translation>Off Cycle Parasitic Fuel Load</translation>
     </message>
-    <!-- OS:WaterHeater:Mixed -->
+    
     <message>
         <source>Tank Volume</source>
         <translation>Depo Hacmi</translation>
@@ -7808,7 +7807,7 @@ Elektrik</translation>
         <source>Indirect Water Heating Recovery Time</source>
         <translation>Dolaylı Su Isıtması İyileşme Süresi</translation>
     </message>
-    <!-- OS:WaterHeater:Stratified -->
+    
     <message>
         <source>Tank Height</source>
         <translation>Tank Yüksekliği</translation>
@@ -7885,7 +7884,7 @@ Elektrik</translation>
         <source>Source Side Outlet Height</source>
         <translation>Kaynak Tarafı Çıkış Yüksekliği</translation>
     </message>
-    <!-- OS:WaterUse:Connections -->
+    
     <message>
         <source>Hot Water Supply Temperature Schedule Name</source>
         <translation>Sıcak Su Besleme Sıcaklığı Programı Adı</translation>
@@ -7906,7 +7905,7 @@ Elektrik</translation>
         <source>Drain Water Heat Exchanger U-Factor Times Area</source>
         <translation>Drenaj Suyu Isı Değiştirici U-Faktörü Çarpı Alan</translation>
     </message>
-    <!-- OS:WaterUse:Equipment -->
+    
     <message>
         <source>Peak Flow Rate</source>
         <translation>Tepe Akış Hızı</translation>
@@ -7931,7 +7930,7 @@ Elektrik</translation>
         <source>Zone Name</source>
         <translation>Bölge Adı</translation>
     </message>
-    <!-- OS:AirConditioner:VariableRefrigerantFlow -->
+    
     <message>
         <source>Cooling COP</source>
         <translation>Soğutma COP</translation>
@@ -8004,7 +8003,7 @@ Elektrik</translation>
         <source>Ratio of Compressor Size to Total Compressor Capacity</source>
         <translation>Kompresör Boyutunun Toplam Kompresör Kapasitesine Oranı</translation>
     </message>
-    <!-- OS:ZoneHVAC:TerminalUnit:VariableRefrigerantFlow -->
+    
     <message>
         <source>Supply Air Flow Rate During Cooling Operation</source>
         <translation>Soğutma İşletmesi Sırasında Beslemeli Hava Akış Hızı</translation>
@@ -8061,7 +8060,7 @@ Yaygın kullanım: **Temel Hava Fan Yerleşimi** veya **İklimlendirme Fan Yerle
 
 En doğal çeviri: **Supply Air Fan Yerleşimi** (teknik terminoloji korunarak)</translation>
     </message>
-    <!-- OS:DefaultScheduleSet -->
+    
     <message>
         <source>Hours of Operation Schedule Name</source>
         <translation>Çalışma Saatleri Programı Adı</translation>
@@ -8102,7 +8101,7 @@ En doğal çeviri: **Supply Air Fan Yerleşimi** (teknik terminoloji korunarak)<
         <source>Other Equipment Schedule Name</source>
         <translation>Diğer Ekipman Çizelgesi Adı</translation>
     </message>
-    <!-- OS:DesignSpecification:OutdoorAir -->
+    
     <message>
         <source>Outdoor Air Method</source>
         <translation>Dış Hava Yöntemi</translation>
@@ -8127,7 +8126,7 @@ En doğal çeviri: **Supply Air Fan Yerleşimi** (teknik terminoloji korunarak)<
         <source>Outdoor Air Flow Rate Fraction Schedule Name</source>
         <translation>Dış Hava Akış Oranı Kesri Çizelge Adı</translation>
     </message>
-    <!-- OS:SpaceInfiltration:DesignFlowRate -->
+    
     <message>
         <source>Space or SpaceType Name</source>
         <translation>Alan veya Alan Türü Adı</translation>
@@ -8172,7 +8171,7 @@ En doğal çeviri: **Supply Air Fan Yerleşimi** (teknik terminoloji korunarak)<
         <source>Density Basis</source>
         <translation>Yoğunluk Temeli</translation>
     </message>
-    <!-- OS:SpaceInfiltration:EffectiveLeakageArea -->
+    
     <message>
         <source>Effective Air Leakage Area</source>
         <translation>Etkili Hava Sızıntısı Alanı</translation>
@@ -8185,7 +8184,7 @@ En doğal çeviri: **Supply Air Fan Yerleşimi** (teknik terminoloji korunarak)<
         <source>Wind Coefficient</source>
         <translation>Rüzgar Katsayısı</translation>
     </message>
-    <!-- OS:People -->
+    
     <message>
         <source>People Definition Name</source>
         <translation>Kişi Tanımı Adı</translation>
@@ -8230,7 +8229,7 @@ En doğal çeviri: **Supply Air Fan Yerleşimi** (teknik terminoloji korunarak)<
         <source>Heat Stress Temperature Threshold</source>
         <translation>Isı Stresi Sıcaklık Eşiği</translation>
     </message>
-    <!-- OS:People:Definition -->
+    
     <message>
         <source>Number of People Calculation Method</source>
         <translation>Kişi Sayısı Hesaplama Yöntemi</translation>
@@ -8271,7 +8270,7 @@ En doğal çeviri: **Supply Air Fan Yerleşimi** (teknik terminoloji korunarak)<
         <source>Thermal Comfort Model Type</source>
         <translation>Termal Konfor Modeli Türü</translation>
     </message>
-    <!-- OS:Schedule:Ruleset -->
+    
     <message>
         <source>Default Day Schedule Name</source>
         <translation>Varsayılan Gün Planı Adı</translation>
@@ -8297,12693 +8296,12693 @@ En doğal çeviri: **Supply Air Fan Yerleşimi** (teknik terminoloji korunarak)<
         <translation>Özel Gün 2 Çizelge Adı</translation>
     </message>
 
-    <!-- === AUTO-GENERATED SKELETON: translate and remove this comment === -->
+    
 
-    <!-- 1 -->
-    <!-- OS:Sizing:System -->
+    
+    
     <message>
         <source>100% Outdoor Air in Cooling</source>
         <translation>Soğutmada %100 Dış Hava</translation>
     </message>
-    <!-- OS:Sizing:System -->
+    
     <message>
         <source>100% Outdoor Air in Heating</source>
         <translation>Isıtmada %100 Dış Hava</translation>
     </message>
 
-    <!-- A -->
-    <!-- OS:AirflowNetworkSimulationControl -->
+    
+    
     <message>
         <source>Absolute Airflow Convergence Tolerance</source>
         <translation>Mutlak Hava Akışı Yakınsama Toleransı</translation>
     </message>
-    <!-- OS:SolarCollectorPerformance:IntegralCollectorStorage -->
+    
     <message>
         <source>Absorptance of Absorber Plate</source>
         <translation>Emici Plaka Emicilik</translation>
     </message>
-    <!-- OS:RadianceParameters -->
+    
     <message>
         <source>Accumulated Rays per Record</source>
         <translation>Kayıt Başına Birikmiş Işınlar</translation>
     </message>
-    <!-- OS:Generator:FuelCell:PowerModule -->
+    
     <message>
         <source>Accumulated Run Time Degradation Coefficient</source>
         <translation>Birikmiş Çalışma Süresi Bozulma Katsayısı</translation>
     </message>
-    <!-- OS:Controller:WaterCoil -->
+    
     <message>
         <source>Action</source>
         <translation>İşlem</translation>
     </message>
-    <!-- OS:PhotovoltaicPerformance:EquivalentOneDiode, OS:PhotovoltaicPerformance:Sandia -->
+    
     <message>
         <source>Active Area</source>
         <translation>Aktif Alan</translation>
     </message>
-    <!-- OS:Coil:Cooling:DX:CurveFit:Speed -->
+    
     <message>
         <source>Active Fraction of Coil Face Area</source>
         <translation>Aktif Bobin Yüz Alanı Oranı</translation>
     </message>
-    <!-- OS:SwimmingPool:Indoor -->
+    
     <message>
         <source>Activity Factor Schedule Name</source>
         <translation>Aktivite Faktörü Programı Adı</translation>
     </message>
-    <!-- OS:Generator:FuelCell:StackCooler -->
+    
     <message>
         <source>Actual Stack Temperature</source>
         <translation>Gerçek Yığın Sıcaklığı</translation>
     </message>
-    <!-- OS:EnergyManagementSystem:Actuator, OS:ExternalInterface:Actuator, OS:ExternalInterface:FunctionalMockupUnitExport:To:Actuator, OS:ExternalInterface:FunctionalMockupUnitImport:To:Actuator -->
+    
     <message>
         <source>Actuated Component Control Type</source>
         <translation>Aktuatörlü Bileşen Kontrol Türü</translation>
     </message>
-    <!-- OS:EnergyManagementSystem:Actuator -->
+    
     <message>
         <source>Actuated Component Name</source>
         <translation>Tetiklemeli Bileşen Adı</translation>
     </message>
-    <!-- OS:EnergyManagementSystem:Actuator, OS:ExternalInterface:Actuator, OS:ExternalInterface:FunctionalMockupUnitExport:To:Actuator, OS:ExternalInterface:FunctionalMockupUnitImport:To:Actuator -->
+    
     <message>
         <source>Actuated Component Type</source>
         <translation>Aktuatörlü Bileşen Türü</translation>
     </message>
-    <!-- OS:ExternalInterface:Actuator, OS:ExternalInterface:FunctionalMockupUnitExport:To:Actuator, OS:ExternalInterface:FunctionalMockupUnitImport:To:Actuator -->
+    
     <message>
         <source>Actuated Component Unique Name</source>
         <translation>Aktüatörlü Bileşen Benzersiz Adı</translation>
     </message>
-    <!-- OS:Output:EnergyManagementSystem -->
+    
     <message>
         <source>Actuator Availability Dictionary Reporting</source>
         <translation>Aktüatör Kullanılabilirlik Sözlüğü Raporlaması</translation>
     </message>
-    <!-- OS:Controller:OutdoorAir, OS:Controller:WaterCoil -->
+    
     <message>
         <source>Actuator Node Name</source>
         <translation>Aktuatör Node Adı</translation>
     </message>
-    <!-- OS:Controller:WaterCoil -->
+    
     <message>
         <source>Actuator Variable</source>
         <translation>Aktüatör Değişkeni</translation>
     </message>
-    <!-- OS:PythonPlugin:SearchPaths -->
+    
     <message>
         <source>Add Current Working Directory to Search Path</source>
         <translation>Geçerli Çalışma Dizinini Arama Yoluna Ekle</translation>
     </message>
-    <!-- OS:PythonPlugin:SearchPaths -->
+    
     <message>
         <source>Add epin Environment Variable to Search Path</source>
         <translation>Arama Yoluna epin Ortam Değişkeni Ekle</translation>
     </message>
-    <!-- OS:PythonPlugin:SearchPaths -->
+    
     <message>
         <source>Add Input File Directory to Search Path</source>
         <translation>Giriş Dosyası Dizinini Arama Yoluna Ekle</translation>
     </message>
-    <!-- OS:DefaultConstructionSet -->
+    
     <message>
         <source>Adiabatic Surface Construction Name</source>
         <translation>Adyabatik Yüzey Yapı Adı</translation>
     </message>
-    <!-- OS:Schedule:File -->
+    
     <message>
         <source>Adjust Schedule for Daylight Savings</source>
         <translation>Gün Işığından Yararlanma Saati için Zamanlamayı Ayarla</translation>
     </message>
-    <!-- OS:ZoneAirMassFlowConservation -->
+    
     <message>
         <source>Adjust Zone Mixing and Return For Air Mass Flow Balance</source>
         <translation>Hava Kütlesi Akış Dengesi İçin Bölge Karışımını ve İadesi Ayarla</translation>
     </message>
-    <!-- OS:UtilityCost:Ratchet -->
+    
     <message>
         <source>Adjustment Source Variable</source>
         <translation>Ayarlama Kaynak Değişkeni</translation>
     </message>
-    <!-- OS:Output:Table:Annual, OS:Output:Table:Monthly -->
+    
     <message>
         <source>Aggregation Type for Variable or Meter</source>
         <translation>Değişken veya Sayaç için Toplama Türü</translation>
     </message>
-    <!-- OS:Coil:UserDefined -->
+    
     <message>
         <source>Air Connection 1 Inlet Node Name</source>
         <translation>Air Connection 1 Inlet Node Name</translation>
     </message>
-    <!-- OS:Coil:UserDefined -->
+    
     <message>
         <source>Air Connection 1 Outlet Node Name</source>
         <translation>Air Connection 1 Çıkış Düğümü Adı</translation>
     </message>
-    <!-- OS:Construction:AirBoundary -->
+    
     <message>
         <source>Air Exchange Method</source>
         <translation>Hava Değişim Yöntemi</translation>
     </message>
-    <!-- OS:ElectricEquipment:ITE:AirCooled:Definition -->
+    
     <message>
         <source>Air Flow Calculation Method</source>
         <translation>Hava Akışı Hesaplama Yöntemi</translation>
     </message>
-    <!-- OS:ElectricEquipment:ITE:AirCooled:Definition -->
+    
     <message>
         <source>Air Flow Function of Loading and Air Temperature Curve Name</source>
         <translation>Yükleme ve Hava Sıcaklığının Hava Akışı Fonksiyonu Eğrisi Adı</translation>
     </message>
-    <!-- OS:AirflowNetworkSpecifiedFlowRate -->
+    
     <message>
         <source>Air Flow Units</source>
         <translation>Hava Akış Birimleri</translation>
     </message>
-    <!-- OS:AirflowNetworkSpecifiedFlowRate -->
+    
     <message>
         <source>Air Flow Value</source>
         <translation>Hava Akış Değeri</translation>
     </message>
-    <!-- OS:AirTerminal:SingleDuct:VAV:HeatAndCool:NoReheat, OS:AirTerminal:SingleDuct:VAV:HeatAndCool:Reheat -->
+    
     <message>
         <source>Air Inlet</source>
         <translation>Hava Girişi</translation>
     </message>
-    <!-- OS:ElectricEquipment:ITE:AirCooled:Definition -->
+    
     <message>
         <source>Air Inlet Connection Type</source>
         <translation>Hava Giriş Bağlantı Türü</translation>
     </message>
-    <!-- OS:AirLoopHVAC:UnitaryHeatCool:VAVChangeoverBypass, OS:AirLoopHVAC:UnitaryHeatPump:AirToAir:MultiSpeed, OS:Coil:Cooling:DX:MultiSpeed, OS:Coil:Heating:Electric:MultiStage, OS:Coil:Heating:Gas:MultiStage, OS:WaterHeater:HeatPump -->
+    
     <message>
         <source>Air Inlet Node</source>
         <translation>Hava Giriş Düğümü</translation>
     </message>
-    <!-- OS:AirLoopHVAC:UnitaryHeatPump:AirToAir, OS:AirLoopHVAC:UnitarySystem, OS:AirTerminal:SingleDuct:ConstantVolume:NoReheat, OS:AirTerminal:SingleDuct:ConstantVolume:Reheat, OS:AirTerminal:SingleDuct:VAV:NoReheat, OS:AirTerminal:SingleDuct:VAV:Reheat, OS:Coil:Cooling:DX:SingleSpeed, OS:Coil:Cooling:DX:TwoSpeed, OS:Coil:Cooling:DX:TwoStageWithHumidityControlMode, OS:Coil:Cooling:Water, OS:Coil:Cooling:WaterToAirHeatPump:EquationFit, OS:Coil:Heating:DX:MultiSpeed, OS:Coil:Heating:DX:SingleSpeed, OS:Coil:Heating:Desuperheater, OS:Coil:Heating:Electric, OS:Coil:Heating:Gas, OS:Coil:Heating:Water, OS:Coil:Heating:WaterToAirHeatPump:EquationFit, OS:CoilSystem:Cooling:DX:HeatExchangerAssisted, OS:CoilSystem:Cooling:Water, OS:CoilSystem:Cooling:Water:HeatExchangerAssisted, OS:CoilSystem:IntegratedHeatPump:AirSource, OS:EvaporativeCooler:Direct:ResearchSpecial, OS:Fan:ComponentModel, OS:Fan:ConstantVolume, OS:Fan:OnOff, OS:Fan:SystemModel, OS:Fan:VariableVolume, OS:Fan:ZoneExhaust, OS:Generator:FuelCell:AirSupply, OS:HeatPump:AirToWater, OS:Humidifier:Steam:Electric, OS:Humidifier:Steam:Gas, OS:Refrigeration:Condenser:EvaporativeCooled, OS:Refrigeration:GasCooler:AirCooled, OS:WaterHeater:HeatPump:WrappedCondenser, OS:ZoneHVAC:Dehumidifier:DX, OS:ZoneHVAC:EnergyRecoveryVentilator, OS:ZoneHVAC:FourPipeFanCoil, OS:ZoneHVAC:PackagedTerminalAirConditioner, OS:ZoneHVAC:PackagedTerminalHeatPump, OS:ZoneHVAC:UnitHeater, OS:ZoneHVAC:UnitVentilator, OS:ZoneHVAC:WaterToAirHeatPump -->
+    
     <message>
         <source>Air Inlet Node Name</source>
         <translation>Hava Giriş Düğüm Adı</translation>
     </message>
-    <!-- OS:Refrigeration:Condenser:AirCooled -->
+    
     <message>
         <source>Air Inlet Zone Name</source>
         <translation>Hava Girişi Bölgesi Adı</translation>
     </message>
-    <!-- OS:Generator:FuelCell:AirSupply -->
+    
     <message>
         <source>Air Intake Heat Recovery Mode</source>
         <translation>Hava Alışım Isı Geri Kazanım Modu</translation>
     </message>
-    <!-- OS:AirLoopHVAC:DedicatedOutdoorAirSystem -->
+    
     <message>
         <source>Air Loop</source>
         <translation>Hava Döngüsü</translation>
     </message>
-    <!-- OS:AirflowNetworkLeak -->
+    
     <message>
         <source>Air Mass Flow Coefficient</source>
         <translation>Hava Kütlesi Akış Katsayısı</translation>
     </message>
-    <!-- OS:AirflowNetworkCrack -->
+    
     <message>
         <source>Air Mass Flow Coefficient at Reference Conditions</source>
         <translation>Referans Koşullarında Hava Kütle Akış Katsayısı</translation>
     </message>
-    <!-- OS:AirflowNetworkReliefAirFlow -->
+    
     <message>
         <source>Air Mass Flow Coefficient When No Outdoor Air Flow at Reference Conditions</source>
         <translation>Referans Koşullarında Dış Hava Akışı Olmadığında Hava Kütle Akış Katsayısı</translation>
     </message>
-    <!-- OS:AirflowNetworkDetailedOpening, OS:AirflowNetworkHorizontalOpening, OS:AirflowNetworkSimpleOpening -->
+    
     <message>
         <source>Air Mass Flow Coefficient When Opening is Closed</source>
         <translation>Açıklık Kapalı Olduğunda Hava Kütlesel Akış Katsayısı</translation>
     </message>
-    <!-- OS:AirflowNetworkCrack, OS:AirflowNetworkEffectiveLeakageArea, OS:AirflowNetworkLeak, OS:AirflowNetworkLeakageRatio -->
+    
     <message>
         <source>Air Mass Flow Exponent</source>
         <translation>Hava Kütle Akış Üssü</translation>
     </message>
-    <!-- OS:AirflowNetworkReliefAirFlow -->
+    
     <message>
         <source>Air Mass Flow Exponent When No Outdoor Air Flow</source>
         <translation>Dış Hava Akışı Olmadığında Hava Kütle Akış Üssü</translation>
     </message>
-    <!-- OS:AirflowNetworkDetailedOpening, OS:AirflowNetworkHorizontalOpening, OS:AirflowNetworkSimpleOpening -->
+    
     <message>
         <source>Air Mass Flow Exponent When Opening is Closed</source>
         <translation>Açıklık Kapalı Olduğunda Hava Kütlesel Akış Üssü</translation>
     </message>
-    <!-- OS:Coil:UserDefined -->
+    
     <message>
         <source>Air Mass Flow Rate Actuator</source>
         <translation>Hava Kütle Akış Hızı Aktüatörü</translation>
     </message>
-    <!-- OS:AirTerminal:SingleDuct:VAV:HeatAndCool:NoReheat, OS:AirTerminal:SingleDuct:VAV:HeatAndCool:Reheat -->
+    
     <message>
         <source>Air Outlet</source>
         <translation>Hava Çıkışı</translation>
     </message>
-    <!-- OS:Coil:UserDefined -->
+    
     <message>
         <source>Air Outlet Humidity Ratio Actuator</source>
         <translation>Hava Çıkışı Nem Oranı Eyleyicisi</translation>
     </message>
-    <!-- OS:AirLoopHVAC:UnitaryHeatCool:VAVChangeoverBypass, OS:AirLoopHVAC:UnitaryHeatPump:AirToAir:MultiSpeed, OS:AirTerminal:DualDuct:ConstantVolume, OS:AirTerminal:DualDuct:VAV, OS:AirTerminal:DualDuct:VAV:OutdoorAir, OS:Coil:Cooling:DX:MultiSpeed, OS:Coil:Heating:Electric:MultiStage, OS:Coil:Heating:Gas:MultiStage, OS:WaterHeater:HeatPump -->
+    
     <message>
         <source>Air Outlet Node</source>
         <translation>Hava Çıkış Düğümü</translation>
     </message>
-    <!-- OS:AirLoopHVAC:UnitaryHeatPump:AirToAir, OS:AirLoopHVAC:UnitarySystem, OS:AirTerminal:SingleDuct:ConstantVolume:FourPipeInduction, OS:AirTerminal:SingleDuct:ConstantVolume:NoReheat, OS:AirTerminal:SingleDuct:ConstantVolume:Reheat, OS:AirTerminal:SingleDuct:VAV:NoReheat, OS:AirTerminal:SingleDuct:VAV:Reheat, OS:Coil:Cooling:DX:SingleSpeed, OS:Coil:Cooling:DX:TwoSpeed, OS:Coil:Cooling:DX:TwoStageWithHumidityControlMode, OS:Coil:Cooling:Water, OS:Coil:Cooling:WaterToAirHeatPump:EquationFit, OS:Coil:Heating:DX:MultiSpeed, OS:Coil:Heating:DX:SingleSpeed, OS:Coil:Heating:Desuperheater, OS:Coil:Heating:Electric, OS:Coil:Heating:Gas, OS:Coil:Heating:Water, OS:Coil:Heating:WaterToAirHeatPump:EquationFit, OS:CoilSystem:Cooling:DX:HeatExchangerAssisted, OS:CoilSystem:Cooling:Water, OS:CoilSystem:Cooling:Water:HeatExchangerAssisted, OS:CoilSystem:IntegratedHeatPump:AirSource, OS:EvaporativeCooler:Direct:ResearchSpecial, OS:Fan:ComponentModel, OS:Fan:ConstantVolume, OS:Fan:OnOff, OS:Fan:SystemModel, OS:Fan:VariableVolume, OS:Fan:ZoneExhaust, OS:HeatPump:AirToWater, OS:Humidifier:Steam:Electric, OS:Humidifier:Steam:Gas, OS:WaterHeater:HeatPump:WrappedCondenser, OS:ZoneHVAC:Dehumidifier:DX, OS:ZoneHVAC:EnergyRecoveryVentilator, OS:ZoneHVAC:FourPipeFanCoil, OS:ZoneHVAC:PackagedTerminalAirConditioner, OS:ZoneHVAC:PackagedTerminalHeatPump, OS:ZoneHVAC:UnitHeater, OS:ZoneHVAC:UnitVentilator, OS:ZoneHVAC:WaterToAirHeatPump -->
+    
     <message>
         <source>Air Outlet Node Name</source>
         <translation>Hava Çıkış Düğümü Adı</translation>
     </message>
-    <!-- OS:Coil:UserDefined -->
+    
     <message>
         <source>Air Outlet Temperature Actuator</source>
         <translation>Hava Çıkış Sıcaklığı Aktuatörü</translation>
     </message>
-    <!-- OS:AirflowNetworkEquivalentDuct -->
+    
     <message>
         <source>Air Path Hydraulic Diameter</source>
         <translation>Hava Yolu Hidrolik Çapı</translation>
     </message>
-    <!-- OS:AirflowNetworkEquivalentDuct -->
+    
     <message>
         <source>Air Path Length</source>
         <translation>Hava Yolu Uzunluğu</translation>
     </message>
-    <!-- OS:Generator:FuelCell:AirSupply -->
+    
     <message>
         <source>Air Rate Air Temperature Coefficient</source>
         <translation>Hava Hızı Hava Sıcaklığı Katsayısı</translation>
     </message>
-    <!-- OS:Generator:FuelCell:AirSupply -->
+    
     <message>
         <source>Air Rate Function of Electric Power Curve Name</source>
         <translation>Elektrik Gücü Eğrisine Bağlı Hava Debisi Fonksiyonu Eğri Adı</translation>
     </message>
-    <!-- OS:Generator:FuelCell:AirSupply -->
+    
     <message>
         <source>Air Rate Function of Fuel Rate Curve Name</source>
         <translation>Yakıt Debisinin Fonksiyonu Olarak Hava Debisi Eğrisi Adı</translation>
     </message>
-    <!-- OS:HeatPump:AirToWater:FuelFired:Cooling, OS:HeatPump:AirToWater:FuelFired:Heating -->
+    
     <message>
         <source>Air Source Node Name</source>
         <translation>Hava Kaynağı Node Adı</translation>
     </message>
-    <!-- OS:Generator:FuelCell:AirSupply -->
+    
     <message>
         <source>Air Supply Constituent Mode</source>
         <translation>Hava Arzı Bileşen Modu</translation>
     </message>
-    <!-- OS:Generator:FuelCell -->
+    
     <message>
         <source>Air Supply Name</source>
         <translation>Hava Kaynağı Adı</translation>
     </message>
-    <!-- OS:Generator:FuelCell:AirSupply -->
+    
     <message>
         <source>Air Supply Rate Calculation Mode</source>
         <translation>Hava Arz Hızı Hesaplama Modu</translation>
     </message>
-    <!-- OS:WindowMaterial:Shade -->
+    
     <message>
         <source>Airflow Permeability</source>
         <translation>Hava Akışı Geçirgenliği</translation>
     </message>
-    <!-- OS:AirflowNetworkSimulationControl -->
+    
     <message>
         <source>AirflowNetwork Control</source>
         <translation>AirflowNetwork Kontrolü</translation>
     </message>
-    <!-- OS:AvailabilityManager:HybridVentilation -->
+    
     <message>
         <source>AirflowNetwork Control Type Schedule</source>
         <translation>AirflowNetwork Kontrol Tipi Çizelgesi</translation>
     </message>
-    <!-- OS:Sizing:System -->
+    
     <message>
         <source>AirLoop Name</source>
         <translation>Hava Döngüsü Adı</translation>
     </message>
-    <!-- OS:HeatBalanceAlgorithm, OS:SurfaceConvectionAlgorithm:Inside, OS:SurfaceConvectionAlgorithm:Outside, OS:ZoneAirHeatBalanceAlgorithm -->
+    
     <message>
         <source>Algorithm</source>
         <translation>Algoritma</translation>
     </message>
-    <!-- OS:AirflowNetworkSimulationControl -->
+    
     <message>
         <source>Allow Unsupported Zone Equipment</source>
         <translation>Desteklenmeyen Bölge Ekipmanına İzin Ver</translation>
     </message>
-    <!-- OS:Coil:Cooling:DX:CurveFit:Performance -->
+    
     <message>
         <source>Alternative Operating Mode 1</source>
         <translation>Alternatif İşletme Modu 1</translation>
     </message>
-    <!-- OS:Coil:Cooling:DX:CurveFit:Performance -->
+    
     <message>
         <source>Alternative Operating Mode 2</source>
         <translation>Alternatif İşletme Modu 2</translation>
     </message>
-    <!-- OS:Pipe:Indoor -->
+    
     <message>
         <source>Ambient Air Velocity Schedule</source>
         <translation>Ambient Hava Hızı Planlaması</translation>
     </message>
-    <!-- OS:RadianceParameters -->
+    
     <message>
         <source>Ambient Bounces DMX</source>
         <translation>Ambient Bounces DMX</translation>
     </message>
-    <!-- OS:RadianceParameters -->
+    
     <message>
         <source>Ambient Bounces VMX</source>
         <translation>Ambient Bounces VMX</translation>
     </message>
-    <!-- OS:RadianceParameters -->
+    
     <message>
         <source>Ambient Divisions DMX</source>
         <translation>Ambient Divisions DMX</translation>
     </message>
-    <!-- OS:RadianceParameters -->
+    
     <message>
         <source>Ambient Divisions VMX</source>
         <translation>Ambient Divisions VMX</translation>
     </message>
-    <!-- OS:RadianceParameters -->
+    
     <message>
         <source>Ambient Supersamples</source>
         <translation>Ortam Süper Örnekleri</translation>
     </message>
-    <!-- OS:CoilSystem:IntegratedHeatPump:AirSource -->
+    
     <message>
         <source>Ambient Temperature Above Which WH Has Higher Priority</source>
         <translation>Sıcak Su Tertibatının Daha Yüksek Önceliğe Sahip Olduğu Ortam Sıcaklığı Üstü</translation>
     </message>
-    <!-- OS:CoilSystem:IntegratedHeatPump:AirSource -->
+    
     <message>
         <source>Ambient Temperature Limit For SCWH Mode</source>
         <translation>Ambient Temperature Limit For SCWH Mode
 
 (SCWH Mode - Sıcak Su Depolama Modu için Ortam Sıcaklığı Limiti)</translation>
     </message>
-    <!-- OS:Pipe:Outdoor -->
+    
     <message>
         <source>Ambient Temperature Outdoor Air Node</source>
         <translation>Ortam Sıcaklığı Dış Hava Düğümü</translation>
     </message>
-    <!-- OS:Chiller:Electric:ASHRAE205, OS:ThermalStorage:ChilledWater:Stratified, OS:WaterHeater:Mixed, OS:WaterHeater:Stratified -->
+    
     <message>
         <source>Ambient Temperature Outdoor Air Node Name</source>
         <translation>Ortam Sıcaklığı Dış Hava Düğüm Adı</translation>
     </message>
-    <!-- OS:Pipe:Indoor -->
+    
     <message>
         <source>Ambient Temperature Schedule</source>
         <translation>Ortam Sıcaklığı Çizelgesi</translation>
     </message>
-    <!-- OS:ThermalStorage:ChilledWater:Stratified, OS:WaterHeater:Mixed, OS:WaterHeater:Stratified -->
+    
     <message>
         <source>Ambient Temperature Thermal Zone Name</source>
         <translation>Ortam Sıcaklığı Termal Bölgesi Adı</translation>
     </message>
-    <!-- OS:Pipe:Indoor -->
+    
     <message>
         <source>Ambient Temperature Zone</source>
         <translation>Ortam Sıcaklığı Bölgesi</translation>
     </message>
-    <!-- OS:Chiller:Electric:ASHRAE205 -->
+    
     <message>
         <source>Ambient Temperature Zone Name</source>
         <translation>Ortam Sıcaklığı Bölgesi Adı</translation>
     </message>
-    <!-- OS:Coil:UserDefined, OS:PlantComponent:UserDefined -->
+    
     <message>
         <source>Ambient Zone Name</source>
         <translation>Ortam Bölgesi Adı</translation>
     </message>
-    <!-- OS:LifeCycleCost:Parameters -->
+    
     <message>
         <source>Analysis Type</source>
         <translation>Analiz Türü</translation>
     </message>
-    <!-- OS:Coil:Cooling:DX:SingleSpeed:ThermalStorage -->
+    
     <message>
         <source>Ancillary Electric Power</source>
         <translation>Yardımcı Elektrik Gücü</translation>
     </message>
-    <!-- OS:Generator:FuelCell:PowerModule -->
+    
     <message>
         <source>Ancillary Electricity Constant Term</source>
         <translation>Yardımcı Elektrik Sabit Terim</translation>
     </message>
-    <!-- OS:Generator:FuelCell:PowerModule -->
+    
     <message>
         <source>Ancillary Electricity Linear Term</source>
         <translation>Yardımcı Elektrik Doğrusal Terimi</translation>
     </message>
-    <!-- OS:CentralHeatPumpSystem -->
+    
     <message>
         <source>Ancillary Operation Schedule Name</source>
         <translation>Yardımcı İşletim Çizelgesi Adı</translation>
     </message>
-    <!-- OS:CentralHeatPumpSystem, OS:Generator:MicroTurbine -->
+    
     <message>
         <source>Ancillary Power</source>
         <translation>Yardımcı Güç</translation>
     </message>
-    <!-- OS:Generator:FuelCell:AuxiliaryHeater -->
+    
     <message>
         <source>Ancillary Power Constant Term</source>
         <translation>Yardımcı Güç Sabit Terimi</translation>
     </message>
-    <!-- OS:ElectricLoadCenter:Storage:Converter -->
+    
     <message>
         <source>Ancillary Power Consumed In Standby</source>
         <translation>Bekleme Modunda Tüketilen Yardımcı Güç</translation>
     </message>
-    <!-- OS:Generator:MicroTurbine -->
+    
     <message>
         <source>Ancillary Power Function of Fuel Input Curve Name</source>
         <translation>Yakıt Giriş Eğrisinin Yardımcı Güç Fonksiyonu Adı</translation>
     </message>
-    <!-- OS:Generator:FuelCell:AuxiliaryHeater -->
+    
     <message>
         <source>Ancillary Power Linear Term</source>
         <translation>Yardımcı Güç Doğrusal Terimi</translation>
     </message>
-    <!-- OS:AirLoopHVAC:UnitarySystem -->
+    
     <message>
         <source>Ancilliary Off-Cycle Electric Power</source>
         <translation>Yardımcı Kapalı Döngü Elektrik Gücü</translation>
     </message>
-    <!-- OS:AirLoopHVAC:UnitarySystem -->
+    
     <message>
         <source>Ancilliary On-Cycle Electric Power</source>
         <translation>Yardımcı Çevrim İçi Elektrik Gücü</translation>
     </message>
-    <!-- OS:WindowMaterial:Screen -->
+    
     <message>
         <source>Angle of Resolution for Screen Transmittance Output Map</source>
         <translation>Ekran Geçirgenliği Çıktı Haritası için Çözünürlük Açısı</translation>
     </message>
-    <!-- OS:Site:WaterMainsTemperature -->
+    
     <message>
         <source>Annual Average Outdoor Air Temperature</source>
         <translation>Yıllık Ortalama Dış Hava Sıcaklığı</translation>
     </message>
-    <!-- OS:Generator:WindTurbine -->
+    
     <message>
         <source>Annual Local Average Wind Speed</source>
         <translation>Yıllık Yerel Ortalama Rüzgar Hızı</translation>
     </message>
-    <!-- OS:Refrigeration:Case -->
+    
     <message>
         <source>Anti-Sweat Heater Control Type</source>
         <translation>Anti-Sweat Heater Kontrol Tipi</translation>
     </message>
-    <!-- OS:AvailabilityManager:NightCycle, OS:AvailabilityManager:NightVentilation, OS:AvailabilityManager:OptimumStart -->
+    
     <message>
         <source>Applicability Schedule</source>
         <translation>Uygulanabilirlik Programı</translation>
     </message>
-    <!-- OS:AvailabilityManager:LowTemperatureTurnOff -->
+    
     <message>
         <source>Applicability Schedule Name</source>
         <translation>Geçerlilik Çizelgesi Adı</translation>
     </message>
-    <!-- OS:Schedule:Rule -->
+    
     <message>
         <source>Apply Friday</source>
         <translation>Cuma Gününü Uygula</translation>
     </message>
-    <!-- OS:Coil:Cooling:DX:CurveFit:OperatingMode, OS:Coil:Cooling:DX:MultiSpeed -->
+    
     <message>
         <source>Apply Latent Degradation to Speeds Greater than 1</source>
         <translation>Latent Degradation'ı 1'den Büyük Hızlara Uygula</translation>
     </message>
-    <!-- OS:Schedule:Rule -->
+    
     <message>
         <source>Apply Monday</source>
         <translation>Pazartesi Günü Uygula</translation>
     </message>
-    <!-- OS:Coil:Cooling:DX:MultiSpeed, OS:Coil:Heating:DX:MultiSpeed -->
+    
     <message>
         <source>Apply Part Load Fraction to Speeds Greater than 1</source>
         <translation>Hız 1'den Büyükse Kısmi Yük Fraksiyonunu Uygula</translation>
     </message>
-    <!-- OS:Schedule:Rule -->
+    
     <message>
         <source>Apply Saturday</source>
         <translation>Cumartesi'yi Uygula</translation>
     </message>
-    <!-- OS:Schedule:Rule -->
+    
     <message>
         <source>Apply Sunday</source>
         <translation>Pazarı Uygula</translation>
     </message>
-    <!-- OS:Schedule:Rule -->
+    
     <message>
         <source>Apply Thursday</source>
         <translation>Perşembeyi Uygula</translation>
     </message>
-    <!-- OS:Schedule:Rule -->
+    
     <message>
         <source>Apply Tuesday</source>
         <translation>Salı Uygulandı</translation>
     </message>
-    <!-- OS:Schedule:Rule -->
+    
     <message>
         <source>Apply Wednesday</source>
         <translation>Çarşamba Günü Uygula</translation>
     </message>
-    <!-- OS:RunPeriod -->
+    
     <message>
         <source>Apply Weekend Holiday Rule</source>
         <translation>Hafta Sonu Tatil Kuralını Uygula</translation>
     </message>
-    <!-- OS:Refrigeration:Condenser:EvaporativeCooled -->
+    
     <message>
         <source>Approach Temperature Coefficient 2</source>
         <translation>Yaklaşma Sıcaklığı Katsayısı 2</translation>
     </message>
-    <!-- OS:Refrigeration:Condenser:EvaporativeCooled -->
+    
     <message>
         <source>Approach Temperature Coefficient 3</source>
         <translation>Yaklaşım Sıcaklığı Katsayısı 3</translation>
     </message>
-    <!-- OS:Refrigeration:Condenser:EvaporativeCooled -->
+    
     <message>
         <source>Approach Temperature Coefficient 4</source>
         <translation>Approach Temperature Coefficient 4</translation>
     </message>
-    <!-- OS:Refrigeration:Condenser:EvaporativeCooled -->
+    
     <message>
         <source>Approach Temperature Constant Term</source>
         <translation>Yaklaşım Sıcaklığı Sabit Terimi</translation>
     </message>
-    <!-- OS:Site:GroundTemperature:Deep -->
+    
     <message>
         <source>April Deep Ground Temperature</source>
         <translation>Nisan Derin Zemin Sıcaklığı</translation>
     </message>
-    <!-- OS:Site:GroundReflectance -->
+    
     <message>
         <source>April Ground Reflectance</source>
         <translation>Nisan Zemin Yansıtma Katsayısı</translation>
     </message>
-    <!-- OS:Site:GroundTemperature:BuildingSurface, OS:Site:GroundTemperature:FCfactorMethod -->
+    
     <message>
         <source>April Ground Temperature</source>
         <translation>Nisan Zemin Sıcaklığı</translation>
     </message>
-    <!-- OS:Site:GroundTemperature:Shallow -->
+    
     <message>
         <source>April Surface Ground Temperature</source>
         <translation>Nisan Yüzey Yer Sıcaklığı</translation>
     </message>
-    <!-- OS:UtilityCost:Variable -->
+    
     <message>
         <source>April Value</source>
         <translation>Nisan Değeri</translation>
     </message>
-    <!-- OS:Construction:FfactorGroundFloor -->
+    
     <message>
         <source>Area</source>
         <translation>Alan</translation>
     </message>
-    <!-- OS:DaylightingDevice:LightWell -->
+    
     <message>
         <source>Area of Bottom of Well</source>
         <translation>Kuyunun Dibi Alanı</translation>
     </message>
-    <!-- OS:Refrigeration:WalkIn:ZoneBoundary -->
+    
     <message>
         <source>Area of Glass Reach In Doors Facing Zone</source>
         <translation>Bölüye Bakan Cam Raf Kapılarının Alanı</translation>
     </message>
-    <!-- OS:Refrigeration:WalkIn:ZoneBoundary -->
+    
     <message>
         <source>Area of Stocking Doors Facing Zone</source>
         <translation>Bölgeye Bakan Stok Kapılarının Alanı</translation>
     </message>
-    <!-- OS:Generator:PVWatts -->
+    
     <message>
         <source>Array Type</source>
         <translation>Dizi Türü</translation>
     </message>
-    <!-- OS:SizingPeriod:DesignDay -->
+    
     <message>
         <source>ASHRAE Clear Sky Optical Depth for Beam Irradiance</source>
         <translation>ASHRAE Açık Gökyüzü Işın İrradyansı için Optik Derinlik</translation>
     </message>
-    <!-- OS:SizingPeriod:DesignDay -->
+    
     <message>
         <source>ASHRAE Clear Sky Optical Depth for Diffuse Irradiance</source>
         <translation>ASHRAE Açık Gökyüzü Yayılı Işınım için Optik Derinlik</translation>
     </message>
-    <!-- OS:SolarCollectorPerformance:IntegralCollectorStorage -->
+    
     <message>
         <source>Aspect Ratio</source>
         <translation>En Boy Oranı</translation>
     </message>
-    <!-- OS:Site:GroundTemperature:Deep -->
+    
     <message>
         <source>August Deep Ground Temperature</source>
         <translation>Ağustos Derin Yer Sıcaklığı</translation>
     </message>
-    <!-- OS:Site:GroundReflectance -->
+    
     <message>
         <source>August Ground Reflectance</source>
         <translation>Ağustos Yer Yansıtıcılığı</translation>
     </message>
-    <!-- OS:Site:GroundTemperature:BuildingSurface, OS:Site:GroundTemperature:FCfactorMethod -->
+    
     <message>
         <source>August Ground Temperature</source>
         <translation>Ağustos Zemin Sıcaklığı</translation>
     </message>
-    <!-- OS:Site:GroundTemperature:Shallow -->
+    
     <message>
         <source>August Surface Ground Temperature</source>
         <translation>Ağustos Yüzey Zemin Sıcaklığı</translation>
     </message>
-    <!-- OS:UtilityCost:Variable -->
+    
     <message>
         <source>August Value</source>
         <translation>Ağustos Değeri</translation>
     </message>
-    <!-- OS:Chiller:Electric:ASHRAE205 -->
+    
     <message>
         <source>Auxiliary Cooling Design Flow Rate</source>
         <translation>Yardımcı Soğutma Tasarım Akış Hızı</translation>
     </message>
-    <!-- OS:HeatPump:AirToWater:FuelFired:Cooling, OS:HeatPump:AirToWater:FuelFired:Heating -->
+    
     <message>
         <source>Auxiliary Electric Energy Input Ratio Function of PLR Curve Name</source>
         <translation>Auxiliary Electric Energy Input Ratio Function of PLR Curve Name</translation>
     </message>
-    <!-- OS:HeatPump:AirToWater:FuelFired:Cooling, OS:HeatPump:AirToWater:FuelFired:Heating -->
+    
     <message>
         <source>Auxiliary Electric Energy Input Ratio Function of Temperature Curve Name</source>
         <translation>Yardımcı Elektrik Enerjisi Giriş Oranı Sıcaklık Eğrisi Adı</translation>
     </message>
-    <!-- OS:Humidifier:Steam:Gas -->
+    
     <message>
         <source>Auxiliary Electric Power</source>
         <translation>Yardımcı Elektrik Gücü</translation>
     </message>
-    <!-- OS:Generator:FuelCell -->
+    
     <message>
         <source>Auxiliary Heater Name</source>
         <translation>Yardımcı Isıtıcı Adı</translation>
     </message>
-    <!-- OS:Chiller:Electric:ASHRAE205 -->
+    
     <message>
         <source>Auxiliary Inlet Node Name</source>
         <translation>Yardımcı Giriş Düğümü Adı</translation>
     </message>
-    <!-- OS:AirLoopHVAC:UnitaryHeatPump:AirToAir:MultiSpeed -->
+    
     <message>
         <source>Auxiliary Off-Cycle Electric Power</source>
         <translation>Yardımcı Kapalı Çevrim Elektrik Gücü</translation>
     </message>
-    <!-- OS:AirLoopHVAC:UnitaryHeatPump:AirToAir:MultiSpeed -->
+    
     <message>
         <source>Auxiliary On-Cycle Electric Power</source>
         <translation>Yardımcı Açık Döngü Elektrik Gücü</translation>
     </message>
-    <!-- OS:Chiller:Electric:ASHRAE205 -->
+    
     <message>
         <source>Auxiliary Outlet Node Name</source>
         <translation>Yardımcı Çıkış Düğümü Adı</translation>
     </message>
-    <!-- OS:AirLoopHVAC, OS:AirLoopHVAC:OutdoorAirSystem, OS:PlantLoop, OS:ZoneHVAC:EnergyRecoveryVentilator, OS:ZoneHVAC:EvaporativeCoolerUnit, OS:ZoneHVAC:TerminalUnit:VariableRefrigerantFlow, OS:ZoneHVAC:UnitHeater, OS:ZoneHVAC:UnitVentilator, OS:ZoneHVAC:WaterToAirHeatPump -->
+    
     <message>
         <source>Availability Manager List Name</source>
         <translation>Kullanılabilirlik Yöneticisi Liste Adı</translation>
     </message>
-    <!-- OS:AvailabilityManagerAssignmentList -->
+    
     <message>
         <source>Availability Manager Name</source>
         <translation>Kullanılabilirlik Yöneticisi Adı</translation>
     </message>
-    <!-- OS:AirConditioner:VariableRefrigerantFlow, OS:AirConditioner:VariableRefrigerantFlow:FluidTemperatureControl, OS:AirConditioner:VariableRefrigerantFlow:FluidTemperatureControl:HR, OS:AirLoopHVAC, OS:AirLoopHVAC:DedicatedOutdoorAirSystem, OS:AirLoopHVAC:UnitaryHeatCool:VAVChangeoverBypass, OS:AirLoopHVAC:UnitaryHeatPump:AirToAir:MultiSpeed, OS:AirTerminal:DualDuct:ConstantVolume, OS:AirTerminal:DualDuct:VAV, OS:AirTerminal:DualDuct:VAV:OutdoorAir, OS:AirTerminal:SingleDuct:VAV:HeatAndCool:NoReheat, OS:AirTerminal:SingleDuct:VAV:HeatAndCool:Reheat, OS:Coil:Cooling:DX, OS:Coil:Cooling:DX:MultiSpeed, OS:Coil:Cooling:DX:SingleSpeed:ThermalStorage, OS:Coil:Cooling:DX:TwoStageWithHumidityControlMode, OS:Coil:Cooling:DX:VariableRefrigerantFlow, OS:Coil:Cooling:DX:VariableRefrigerantFlow:FluidTemperatureControl, OS:Coil:Heating:DX:VariableRefrigerantFlow, OS:Coil:Heating:DX:VariableRefrigerantFlow:FluidTemperatureControl, OS:Coil:Heating:Electric:MultiStage, OS:Coil:Heating:Gas:MultiStage, OS:Controller:MechanicalVentilation, OS:HeatExchanger:AirToAir:SensibleAndLatent, OS:HeatExchanger:Desiccant:BalancedFlow, OS:ThermalStorage:Ice:Detailed, OS:WaterHeater:HeatPump, OS:ZoneHVAC:Baseboard:Convective:Electric -->
+    
     <message>
         <source>Availability Schedule</source>
         <translation>Kullanılabilirlik Takvimi</translation>
     </message>
-    <!-- OS:Site:GroundTemperature:Undisturbed:KusudaAchenbach -->
+    
     <message>
         <source>Average Amplitude of Surface Temperature</source>
         <translation>Yüzey Sıcaklığının Ortalama Genliği</translation>
     </message>
-    <!-- OS:SwimmingPool:Indoor -->
+    
     <message>
         <source>Average Depth</source>
         <translation>Ortalama Derinlik</translation>
     </message>
-    <!-- OS:Refrigeration:AirChiller, OS:Refrigeration:Case, OS:Refrigeration:WalkIn -->
+    
     <message>
         <source>Average Refrigerant Charge Inventory</source>
         <translation>Ortalama Soğutucu Yükü Envanteri</translation>
     </message>
-    <!-- OS:Site:GroundTemperature:Undisturbed:KusudaAchenbach, OS:Site:GroundTemperature:Undisturbed:Xing -->
+    
     <message>
         <source>Average Soil Surface Temperature</source>
         <translation>Ortalama Zemin Yüzeyi Sıcaklığı</translation>
     </message>
-    <!-- OS:Generator:PVWatts -->
+    
     <message>
         <source>Azimuth Angle</source>
         <translation>Azimut Açısı</translation>
     </message>
-    <!-- OS:AirflowNetworkSimulationControl -->
+    
     <message>
         <source>Azimuth Angle of Long Axis of Building</source>
         <translation>Binanın Uzun Ekseninin Azimut Açısı</translation>
     </message>
 
-    <!-- B -->
-    <!-- OS:MaterialProperty:GlazingSpectralData -->
+    
+    
     <message>
         <source>Back Reflectance</source>
         <translation>Arka Yansıtma</translation>
     </message>
-    <!-- OS:WindowMaterial:Glazing -->
+    
     <message>
         <source>Back Side Infrared Hemispherical Emissivity</source>
         <translation>Arka Taraf Kızılötesi Yarımküresel Emisivitesi</translation>
     </message>
-    <!-- OS:WindowMaterial:Blind -->
+    
     <message>
         <source>Back Side Slat Beam Solar Reflectance</source>
         <translation>Arka Yüzey Kaplı Çubuk Güneş Yansıtabilirliği</translation>
     </message>
-    <!-- OS:WindowMaterial:Blind -->
+    
     <message>
         <source>Back Side Slat Beam Visible Reflectance</source>
         <translation>Arka Taraf Yaprakçık Işın Görünür Yansıtıcılığı</translation>
     </message>
-    <!-- OS:WindowMaterial:Blind -->
+    
     <message>
         <source>Back Side Slat Diffuse Solar Reflectance</source>
         <translation>Arka Yüzey Şase Yayılı Güneş Yansıtıcılığı</translation>
     </message>
-    <!-- OS:WindowMaterial:Blind -->
+    
     <message>
         <source>Back Side Slat Diffuse Visible Reflectance</source>
         <translation>Arka Taraf Lameli Difüz Görünür Yansıtabilirlik</translation>
     </message>
-    <!-- OS:WindowMaterial:Blind -->
+    
     <message>
         <source>Back Side Slat Infrared Hemispherical Emissivity</source>
         <translation>Arka Taraf Kanat Kızılötesi Yarıküresel Yayıcılığı</translation>
     </message>
-    <!-- OS:WindowMaterial:Glazing -->
+    
     <message>
         <source>Back Side Solar Reflectance at Normal Incidence</source>
         <translation>Arka Yüzey Normal Işıl Hasılı Güneş Yansıtıcılığı</translation>
     </message>
-    <!-- OS:WindowMaterial:Glazing -->
+    
     <message>
         <source>Back Side Visible Reflectance at Normal Incidence</source>
         <translation>Arka Yüzey Normal Geliş Açısında Görünür Yansıtabilirliği</translation>
     </message>
-    <!-- OS:SolarCollectorPerformance:PhotovoltaicThermal:BIPVT -->
+    
     <message>
         <source>Backing Material Normal Transmittance-Absorptance Product</source>
         <translation>Arka Malzeme Normal Geçirgenlik-Soğurma Çarpımı</translation>
     </message>
-    <!-- OS:Fan:ZoneExhaust -->
+    
     <message>
         <source>Balanced Exhaust Fraction Schedule Name</source>
         <translation>Dengeli Egzoz Fraksiyonu Çizelge Adı</translation>
     </message>
-    <!-- OS:SizingPeriod:DesignDay -->
+    
     <message>
         <source>Barometric Pressure</source>
         <translation>Barometrik Basınç</translation>
     </message>
-    <!-- OS:LifeCycleCost:Parameters -->
+    
     <message>
         <source>Base Date Month</source>
         <translation>Temel Tarih Ayı</translation>
     </message>
-    <!-- OS:LifeCycleCost:Parameters -->
+    
     <message>
         <source>Base Date Year</source>
         <translation>Taban Tarih Yılı</translation>
     </message>
-    <!-- OS:Coil:Cooling:DX:CurveFit:Performance -->
+    
     <message>
         <source>Base Operating Mode</source>
         <translation>Temel İşletme Modu</translation>
     </message>
-    <!-- OS:UtilityCost:Ratchet -->
+    
     <message>
         <source>Baseline Source Variable</source>
         <translation>Temel Kaynak Değişkeni</translation>
     </message>
-    <!-- OS:Coil:Cooling:DX:SingleSpeed:ThermalStorage -->
+    
     <message>
         <source>Basin Heater Availability Schedule</source>
         <translation>Basin Heater Kullanılabilirlik Programı</translation>
     </message>
-    <!-- OS:AirConditioner:VariableRefrigerantFlow, OS:Coil:Cooling:DX:MultiSpeed, OS:Coil:Cooling:DX:TwoStageWithHumidityControlMode, OS:CoolingTower:VariableSpeed -->
+    
     <message>
         <source>Basin Heater Operating Schedule</source>
         <translation>Basin Isıtıcı Çalışma Programı</translation>
     </message>
-    <!-- OS:ElectricLoadCenter:Storage:LiIonNMCBattery -->
+    
     <message>
         <source>Battery Cell Internal Electrical Resistance</source>
         <translation>Pil Hücresi İç Elektriksel Direnci</translation>
     </message>
-    <!-- OS:ElectricLoadCenter:Storage:LiIonNMCBattery -->
+    
     <message>
         <source>Battery Mass</source>
         <translation>Pil Kütlesi</translation>
     </message>
-    <!-- OS:ElectricLoadCenter:Storage:LiIonNMCBattery -->
+    
     <message>
         <source>Battery Specific Heat Capacity</source>
         <translation>Pil Özgül Isı Kapasitesi</translation>
     </message>
-    <!-- OS:ElectricLoadCenter:Storage:LiIonNMCBattery -->
+    
     <message>
         <source>Battery Surface Area</source>
         <translation>Pil Yüzey Alanı</translation>
     </message>
-    <!-- OS:Coil:Cooling:FourPipeBeam -->
+    
     <message>
         <source>Beam Cooling Capacity Air Flow Modification Factor Curve Name</source>
         <translation>Işın Soğutma Kapasitesi Hava Akış Modifikasyon Faktörü Eğrisi Adı</translation>
     </message>
-    <!-- OS:Coil:Cooling:FourPipeBeam -->
+    
     <message>
         <source>Beam Cooling Capacity Chilled Water Flow Modification Factor Curve Name</source>
         <translation>Işın Soğutma Kapasitesi Soğuk Su Akışı Modifikasyon Faktörü Eğri Adı</translation>
     </message>
-    <!-- OS:Coil:Cooling:FourPipeBeam -->
+    
     <message>
         <source>Beam Cooling Capacity Temperature Difference Modification Factor Curve Name</source>
         <translation>Beam Soğutma Kapasitesi Sıcaklık Farkı Değişim Faktörü Eğri Adı</translation>
     </message>
-    <!-- OS:Coil:Heating:FourPipeBeam -->
+    
     <message>
         <source>Beam Heating Capacity Air Flow Modification Factor Curve Name</source>
         <translation>Kirişli Isıtma Kapasitesi Hava Akışı Değişim Faktörü Eğrisi Adı</translation>
     </message>
-    <!-- OS:Coil:Heating:FourPipeBeam -->
+    
     <message>
         <source>Beam Heating Capacity Hot Water Flow Modification Factor Curve Name</source>
         <translation>Işın Isıtma Kapasitesi Sıcak Su Akışı Modifikasyon Faktörü Eğri Adı</translation>
     </message>
-    <!-- OS:Coil:Heating:FourPipeBeam -->
+    
     <message>
         <source>Beam Heating Capacity Temperature Difference Modification Factor Curve Name</source>
         <translation>Işın Isıtma Kapasitesi Sıcaklık Farkı Değişiklik Faktörü Eğri Adı</translation>
     </message>
-    <!-- OS:AirTerminal:SingleDuct:ConstantVolume:CooledBeam -->
+    
     <message>
         <source>Beam Length</source>
         <translation>Işın Uzunluğu</translation>
     </message>
-    <!-- OS:Coil:Cooling:FourPipeBeam -->
+    
     <message>
         <source>Beam Rated Chilled Water Volume Flow Rate per Beam Length</source>
         <translation>Kirişin Nominal Soğuk Su Hacimsel Akış Hızı / Kiriş Uzunluğu</translation>
     </message>
-    <!-- OS:Coil:Cooling:FourPipeBeam -->
+    
     <message>
         <source>Beam Rated Cooling Capacity per Beam Length</source>
         <translation>Işın Başına Nominal Soğutma Kapasitesi</translation>
     </message>
-    <!-- OS:Coil:Cooling:FourPipeBeam -->
+    
     <message>
         <source>Beam Rated Cooling Room Air Chilled Water Temperature Difference</source>
         <translation>Işın Sisteminin Değerlendirilmiş Soğutma Oda Havası Soğuk Su Sıcaklık Farkı</translation>
     </message>
-    <!-- OS:Coil:Heating:FourPipeBeam -->
+    
     <message>
         <source>Beam Rated Heating Capacity per Beam Length</source>
         <translation>Işın Başına Nominal Isıtma Kapasitesi</translation>
     </message>
-    <!-- OS:Coil:Heating:FourPipeBeam -->
+    
     <message>
         <source>Beam Rated Heating Room Air Hot Water Temperature Difference</source>
         <translation>Işın Nominal Isıtma Oda Hava Sıcak Su Sıcaklık Farkı</translation>
     </message>
-    <!-- OS:Coil:Heating:FourPipeBeam -->
+    
     <message>
         <source>Beam Rated Hot Water Volume Flow Rate per Beam Length</source>
         <translation>Işın Başına Rated Sıcak Su Hacimsel Akış Hızı</translation>
     </message>
-    <!-- OS:SizingPeriod:DesignDay -->
+    
     <message>
         <source>Beam Solar Day Schedule Name</source>
         <translation>Işın Güneş Günlük Çizelgesi Adı</translation>
     </message>
-    <!-- OS:RunPeriod, OS:SizingPeriod:WeatherFileDays -->
+    
     <message>
         <source>Begin Day of Month</source>
         <translation>Ayın Başlangıç Günü</translation>
     </message>
-    <!-- OS:SizingPeriod:DesignDay -->
+    
     <message>
         <source>Begin Environment Reset Mode</source>
         <translation>Ortam Sıfırlama Modunu Başlat</translation>
     </message>
-    <!-- OS:RunPeriod, OS:SizingPeriod:WeatherFileDays -->
+    
     <message>
         <source>Begin Month</source>
         <translation>Başlangıç Ayı</translation>
     </message>
-    <!-- OS:Fan:ComponentModel -->
+    
     <message>
         <source>Belt Fractional Torque Transition</source>
         <translation>Kayış Fraksiyonel Tork Geçişi</translation>
     </message>
-    <!-- OS:Fan:ComponentModel -->
+    
     <message>
         <source>Belt Maximum Torque</source>
         <translation>Kayış Maksimum Torku</translation>
     </message>
-    <!-- OS:Fan:ComponentModel -->
+    
     <message>
         <source>Belt Sizing Factor</source>
         <translation>Kayış Boyutlandırma Faktörü</translation>
     </message>
-    <!-- OS:UtilityBill -->
+    
     <message>
         <source>Billing Period Begin Day of Month</source>
         <translation>Fatura Döneminin Başladığı Ayın Günü</translation>
     </message>
-    <!-- OS:UtilityBill -->
+    
     <message>
         <source>Billing Period Begin Month</source>
         <translation>Faturalama Dönemi Başlangıç Ayı</translation>
     </message>
-    <!-- OS:UtilityBill -->
+    
     <message>
         <source>Billing Period Begin Year</source>
         <translation>Fatura Döneminin Başlangıç Yılı</translation>
     </message>
-    <!-- OS:UtilityBill -->
+    
     <message>
         <source>Billing Period Consumption</source>
         <translation>Fatura Dönem Tüketimi</translation>
     </message>
-    <!-- OS:UtilityBill -->
+    
     <message>
         <source>Billing Period Peak Demand</source>
         <translation>Faturalama Dönemi Tepe Talep</translation>
     </message>
-    <!-- OS:UtilityBill -->
+    
     <message>
         <source>Billing Period Total Cost</source>
         <translation>Faturalandırma Dönemi Toplam Maliyeti</translation>
     </message>
-    <!-- OS:Generator:WindTurbine -->
+    
     <message>
         <source>Blade Chord Area</source>
         <translation>Kanat Kord Alanı</translation>
     </message>
-    <!-- OS:Generator:WindTurbine -->
+    
     <message>
         <source>Blade Drag Coefficient</source>
         <translation>Kanat Sürükleme Katsayısı</translation>
     </message>
-    <!-- OS:Generator:WindTurbine -->
+    
     <message>
         <source>Blade Lift Coefficient</source>
         <translation>Kanat Kaldırma Katsayısı</translation>
     </message>
-    <!-- OS:WindowMaterial:Blind -->
+    
     <message>
         <source>Blind Bottom Opening Multiplier</source>
         <translation>Jaluzinin Alt Açıklığı Çarpanı</translation>
     </message>
-    <!-- OS:WindowMaterial:Blind -->
+    
     <message>
         <source>Blind Left Side Opening Multiplier</source>
         <translation>Jaluziler Sol Taraf Açılma Çarpanı</translation>
     </message>
-    <!-- OS:WindowMaterial:Blind -->
+    
     <message>
         <source>Blind Right Side Opening Multiplier</source>
         <translation>Blind Sağ Yan Açılış Çarpanı</translation>
     </message>
-    <!-- OS:WindowMaterial:Blind -->
+    
     <message>
         <source>Blind to Glass Distance</source>
         <translation>Kör ile Cam Arasındaki Mesafe</translation>
     </message>
-    <!-- OS:WindowMaterial:Blind -->
+    
     <message>
         <source>Blind Top Opening Multiplier</source>
         <translation>Stor Üst Açılma Çarpanı</translation>
     </message>
-    <!-- OS:UtilityCost:Charge:Block -->
+    
     <message>
         <source>Block Cost per Unit Value or Variable Name</source>
         <translation>Blok Başına Maliyet Değeri veya Değişken Adı</translation>
     </message>
-    <!-- OS:UtilityCost:Charge:Block -->
+    
     <message>
         <source>Block Size Multiplier Value or Variable Name</source>
         <translation>Blok Boyutu Çarpan Değeri veya Değişken Adı</translation>
     </message>
-    <!-- OS:UtilityCost:Charge:Block -->
+    
     <message>
         <source>Block Size Value or Variable Name</source>
         <translation>Blok Boyutu Değeri veya Değişken Adı</translation>
     </message>
-    <!-- OS:CoolingTower:SingleSpeed, OS:CoolingTower:TwoSpeed, OS:CoolingTower:VariableSpeed, OS:EvaporativeFluidCooler:SingleSpeed, OS:EvaporativeFluidCooler:TwoSpeed -->
+    
     <message>
         <source>Blowdown Calculation Mode</source>
         <translation>Blowdown Hesaplama Modu</translation>
     </message>
-    <!-- OS:CoolingTower:VariableSpeed -->
+    
     <message>
         <source>Blowdown Makeup Water Usage Schedule</source>
         <translation>Blowdown Makeup Water Usage Schedule</translation>
     </message>
-    <!-- OS:CoolingTower:SingleSpeed, OS:CoolingTower:TwoSpeed, OS:EvaporativeFluidCooler:SingleSpeed, OS:EvaporativeFluidCooler:TwoSpeed -->
+    
     <message>
         <source>Blowdown Makeup Water Usage Schedule Name</source>
         <translation>Blowdown Makeup Water Usage Schedule Name (Blowdown Makyöz Su Kullanım Programı Adı)</translation>
     </message>
-    <!-- OS:Generator:FuelCell:AirSupply -->
+    
     <message>
         <source>Blower Heat Loss Factor</source>
         <translation>Blower Isı Kaybı Faktörü</translation>
     </message>
-    <!-- OS:Generator:FuelCell:AirSupply -->
+    
     <message>
         <source>Blower Power Curve Name</source>
         <translation>Blower Güç Eğrisi Adı</translation>
     </message>
-    <!-- OS:Boiler:HotWater -->
+    
     <message>
         <source>Boiler Water Inlet Node Name</source>
         <translation>Kazan Su Giriş Düğümü Adı</translation>
     </message>
-    <!-- OS:Boiler:HotWater -->
+    
     <message>
         <source>Boiler Water Outlet Node Name</source>
         <translation>Kazan Su Çıkış Düğümü Adı</translation>
     </message>
-    <!-- OS:HeatPump:AirToWater:Cooling, OS:HeatPump:AirToWater:Heating -->
+    
     <message>
         <source>Booster Mode On Speed</source>
         <translation>Booster Modu Açık Hızı</translation>
     </message>
-    <!-- OS:GroundHeatExchanger:Vertical -->
+    
     <message>
         <source>Bore Hole Length</source>
         <translation>Sonda Kuyusu Uzunluğu</translation>
     </message>
-    <!-- OS:GroundHeatExchanger:Vertical -->
+    
     <message>
         <source>Bore Hole Radius</source>
         <translation>Sondaj Deliği Yarıçapı</translation>
     </message>
-    <!-- OS:GroundHeatExchanger:Vertical -->
+    
     <message>
         <source>Bore Hole Top Depth</source>
         <translation>Sondaj Deliği Üst Derinliği</translation>
     </message>
-    <!-- OS:SolarCollectorPerformance:IntegralCollectorStorage -->
+    
     <message>
         <source>Bottom Heat Loss Conductance</source>
         <translation>Taban Isı Kaybı İletkenliği</translation>
     </message>
-    <!-- OS:WindowMaterial:Screen, OS:WindowMaterial:Shade -->
+    
     <message>
         <source>Bottom Opening Multiplier</source>
         <translation>Alt Açılma Çarpanı</translation>
     </message>
-    <!-- OS:SolarCollector:IntegralCollectorStorage -->
+    
     <message>
         <source>Bottom Surface Boundary Conditions Type</source>
         <translation>Alt Yüzey Sınır Koşulları Türü</translation>
     </message>
-    <!-- OS:SolarCollector:IntegralCollectorStorage -->
+    
     <message>
         <source>Boundary Condition Model Name</source>
         <translation>Sınır Koşulu Model Adı</translation>
     </message>
-    <!-- OS:SolarCollectorPerformance:PhotovoltaicThermal:BIPVT -->
+    
     <message>
         <source>Boundary Conditions Model Name</source>
         <translation>Sınır Koşulları Model Adı</translation>
     </message>
-    <!-- OS:AirLoopHVAC -->
+    
     <message>
         <source>Branch List Name</source>
         <translation>Şube Listesi Adı</translation>
     </message>
-    <!-- OS:Building -->
+    
     <message>
         <source>Building Sector Type</source>
         <translation>Bina Sektörü Türü</translation>
     </message>
-    <!-- OS:DefaultConstructionSet -->
+    
     <message>
         <source>Building Shading Construction Name</source>
         <translation>Bina Gölgelendirme Yapısı Adı</translation>
     </message>
-    <!-- OS:Space -->
+    
     <message>
         <source>Building Story Name</source>
         <translation>Bina Katı Adı</translation>
     </message>
-    <!-- OS:AirflowNetworkSimulationControl -->
+    
     <message>
         <source>Building Type</source>
         <translation>Bina Türü</translation>
     </message>
-    <!-- OS:Space -->
+    
     <message>
         <source>Building Unit Name</source>
         <translation>Bina Birimi Adı</translation>
     </message>
-    <!-- OS:BuildingUnit -->
+    
     <message>
         <source>Building Unit Type</source>
         <translation>Bina Birim Tipi</translation>
     </message>
-    <!-- OS:GroundHeatExchanger:HorizontalTrench -->
+    
     <message>
         <source>Burial Depth</source>
         <translation>Gömme Derinliği</translation>
     </message>
-    <!-- OS:UtilityCost:Tariff -->
+    
     <message>
         <source>Buy Or Sell</source>
         <translation>Satın Al Veya Sat</translation>
     </message>
-    <!-- OS:AirLoopHVAC:UnitaryHeatCool:VAVChangeoverBypass -->
+    
     <message>
         <source>Bypass Duct Mixer Node</source>
         <translation>Bypass Kanal Karıştırıcı Düğümü</translation>
     </message>
-    <!-- OS:AirLoopHVAC:UnitaryHeatCool:VAVChangeoverBypass -->
+    
     <message>
         <source>Bypass Duct Splitter Node</source>
         <translation>Bypass Kanal Ayırıcı Düğümü</translation>
     </message>
 
-    <!-- C -->
-    <!-- OS:Construction:CfactorUndergroundWall -->
+    
+    
     <message>
         <source>C-Factor</source>
         <translation>C-Faktörü</translation>
     </message>
-    <!-- OS:Site:WaterMainsTemperature -->
+    
     <message>
         <source>Calculation Method</source>
         <translation>Hesaplama Yöntemi</translation>
     </message>
-    <!-- OS:WeatherProperty:SkyTemperature -->
+    
     <message>
         <source>Calculation Type</source>
         <translation>Hesaplama Türü</translation>
     </message>
-    <!-- OS:YearDescription -->
+    
     <message>
         <source>Calendar Year</source>
         <translation>Takvim Yılı</translation>
     </message>
-    <!-- OS:ThermalStorage:Ice:Detailed -->
+    
     <message>
         <source>Capacity</source>
         <translation>Kapasite</translation>
     </message>
-    <!-- OS:CoolingTower:SingleSpeed, OS:EvaporativeFluidCooler:SingleSpeed -->
+    
     <message>
         <source>Capacity Control</source>
         <translation>Kapasite Kontrolü</translation>
     </message>
-    <!-- OS:Coil:Cooling:DX:CurveFit:Performance, OS:ZoneHVAC:FourPipeFanCoil -->
+    
     <message>
         <source>Capacity Control Method</source>
         <translation>Kapasite Kontrol Yöntemi</translation>
     </message>
-    <!-- OS:Refrigeration:AirChiller -->
+    
     <message>
         <source>Capacity Correction Curve Name</source>
         <translation>Kapasite Düzeltme Eğrisi Adı</translation>
     </message>
-    <!-- OS:Refrigeration:AirChiller -->
+    
     <message>
         <source>Capacity Correction Curve Type</source>
         <translation>Kapasite Düzeltme Eğrisi Türü</translation>
     </message>
-    <!-- OS:Chiller:Absorption:Indirect -->
+    
     <message>
         <source>Capacity Correction Function of Chilled Water Temperature Curve</source>
         <translation>Soğuk Su Sıcaklığı Eğrisinin Kapasite Düzeltme Fonksiyonu</translation>
     </message>
-    <!-- OS:Chiller:Absorption:Indirect -->
+    
     <message>
         <source>Capacity Correction Function of Condenser Temperature Curve</source>
         <translation>Kondenser Sıcaklığı Eğrisinin Kapasite Düzeltme Fonksiyonu</translation>
     </message>
-    <!-- OS:Chiller:Absorption:Indirect -->
+    
     <message>
         <source>Capacity Correction Function of Generator Temperature Curve</source>
         <translation>Generator Sıcaklık Eğrisinin Kapasite Düzeltme Fonksiyonu</translation>
     </message>
-    <!-- OS:DistrictCooling, OS:DistrictHeating:Steam, OS:DistrictHeating:Water -->
+    
     <message>
         <source>Capacity Fraction Schedule</source>
         <translation>Kapasite Kesri Çizelgesi</translation>
     </message>
-    <!-- OS:HeatPump:PlantLoop:EIR:Cooling, OS:HeatPump:PlantLoop:EIR:Heating -->
+    
     <message>
         <source>Capacity Modifier Function of Temperature Curve Name</source>
         <translation>Kapasite Değiştiricisi Sıcaklık Eğrisi İşlev Adı</translation>
     </message>
-    <!-- OS:Refrigeration:AirChiller -->
+    
     <message>
         <source>Capacity Rating Type</source>
         <translation>Kapasite Değerlendirme Türü</translation>
     </message>
-    <!-- OS:Refrigeration:Subcooler:Mechanical -->
+    
     <message>
         <source>Capacity-Providing System</source>
         <translation>Kapasite Sağlayan Sistem</translation>
     </message>
-    <!-- OS:ZoneCapacitanceMultiplier:ResearchSpecial -->
+    
     <message>
         <source>Carbon Dioxide Capacity Multiplier</source>
         <translation>Karbon Dioksit Kapasite Çarpanı</translation>
     </message>
-    <!-- OS:ZoneAirContaminantBalance -->
+    
     <message>
         <source>Carbon Dioxide Concentration</source>
         <translation>Karbon Dioksit Konsantrasyonu</translation>
     </message>
-    <!-- OS:ZoneControl:ContaminantController -->
+    
     <message>
         <source>Carbon Dioxide Control Availability Schedule Name</source>
         <translation>Karbon Dioksit Kontrol Kullanılabilirlik Çizelgesi Adı</translation>
     </message>
-    <!-- OS:ZoneControl:ContaminantController -->
+    
     <message>
         <source>Carbon Dioxide Setpoint Schedule Name</source>
         <translation>Karbon Dioksit Ayar Noktası Çizelgesi Adı</translation>
     </message>
-    <!-- OS:Refrigeration:Case -->
+    
     <message>
         <source>Case Anti-Sweat Heater Power per Door</source>
         <translation>Kasa Anti-Terleme Isıtıcı Kapı Başına Güç</translation>
     </message>
-    <!-- OS:Refrigeration:Case -->
+    
     <message>
         <source>Case Anti-Sweat Heater Power per Unit Length</source>
         <translation>Kasa Anti-Terleme Isıtıcı Birim Uzunluğu Başına Gücü</translation>
     </message>
-    <!-- OS:Refrigeration:Case -->
+    
     <message>
         <source>Case Credit Fraction Schedule Name</source>
         <translation>Case Credit Fraction Schedule Name</translation>
     </message>
-    <!-- OS:Refrigeration:Case -->
+    
     <message>
         <source>Case Defrost Cycle Parameters Name</source>
         <translation>Kasa Çözünme Döngüsü Parametreleri Adı</translation>
     </message>
-    <!-- OS:Refrigeration:Case -->
+    
     <message>
         <source>Case Defrost Drip-Down Schedule Name</source>
         <translation>Case Defrost Drip-Down Schedule Name</translation>
     </message>
-    <!-- OS:Refrigeration:Case -->
+    
     <message>
         <source>Case Defrost Power per Door</source>
         <translation>Kap Çözü Gücü Kapı Başına</translation>
     </message>
-    <!-- OS:Refrigeration:Case -->
+    
     <message>
         <source>Case Defrost Power per Unit Length</source>
         <translation>Kasa Çözülme Gücü Birim Uzunluk Başına</translation>
     </message>
-    <!-- OS:Refrigeration:Case -->
+    
     <message>
         <source>Case Defrost Schedule Name</source>
         <translation>Vaka Defrost Programı Adı</translation>
     </message>
-    <!-- OS:Refrigeration:Case -->
+    
     <message>
         <source>Case Defrost Type</source>
         <translation>Case Defrost Type</translation>
     </message>
-    <!-- OS:Refrigeration:Case -->
+    
     <message>
         <source>Case Height</source>
         <translation>Kasa Yüksekliği</translation>
     </message>
-    <!-- OS:Refrigeration:Case -->
+    
     <message>
         <source>Case Length</source>
         <translation>Kasa Uzunluğu</translation>
     </message>
-    <!-- OS:Refrigeration:Case -->
+    
     <message>
         <source>Case Lighting Schedule Name</source>
         <translation>Vitrin Aydınlatması Çizelgesi Adı</translation>
     </message>
-    <!-- OS:Refrigeration:Case -->
+    
     <message>
         <source>Case Operating Temperature</source>
         <translation>Kasa İşletme Sıcaklığı</translation>
     </message>
-    <!-- OS:LifeCycleCost -->
+    
     <message>
         <source>Category</source>
         <translation>Kategori</translation>
     </message>
-    <!-- OS:UtilityCost:Charge:Block, OS:UtilityCost:Charge:Simple -->
+    
     <message>
         <source>Category Variable Name</source>
         <translation>Kategori Değişken Adı</translation>
     </message>
-    <!-- OS:Space, OS:ThermalZone -->
+    
     <message>
         <source>Ceiling Height</source>
         <translation>Tavan Yüksekliği</translation>
     </message>
-    <!-- OS:CoolingTower:SingleSpeed, OS:CoolingTower:TwoSpeed, OS:CoolingTower:VariableSpeed -->
+    
     <message>
         <source>Cell Minimum  Water Flow Rate Fraction</source>
         <translation>Hücre Minimum Su Akış Hızı Fraksiyonu</translation>
     </message>
-    <!-- OS:PhotovoltaicPerformance:EquivalentOneDiode -->
+    
     <message>
         <source>Cell type</source>
         <translation>Hücre türü</translation>
     </message>
-    <!-- OS:ElectricLoadCenter:Storage:LiIonNMCBattery -->
+    
     <message>
         <source>Cell Voltage at End of Exponential Zone</source>
         <translation>Üstel Bölgenin Sonundaki Hücre Gerilimi</translation>
     </message>
-    <!-- OS:ElectricLoadCenter:Storage:LiIonNMCBattery -->
+    
     <message>
         <source>Cell Voltage at End of Nominal Zone</source>
         <translation>Nominal Bölgenin Sonundaki Hücre Voltajı</translation>
     </message>
-    <!-- OS:Sizing:System -->
+    
     <message>
         <source>Central Cooling Capacity Control Method</source>
         <translation>Central Cooling Capacity Control Method</translation>
     </message>
-    <!-- OS:FuelFactors -->
+    
     <message>
         <source>CH4 Emission Factor</source>
         <translation>CH4 Emisyon Faktörü</translation>
     </message>
-    <!-- OS:FuelFactors -->
+    
     <message>
         <source>CH4 Emission Factor Schedule Name</source>
         <translation>CH4 Emisyon Faktörü Çizelge Adı</translation>
     </message>
-    <!-- OS:ZoneHVAC:LowTemperatureRadiant:ConstantFlow, OS:ZoneHVAC:LowTemperatureRadiant:VariableFlow -->
+    
     <message>
         <source>Changeover Delay Time Period Schedule</source>
         <translation>Geçiş Gecikmesi Zaman Periyodu Programı</translation>
     </message>
-    <!-- OS:Coil:Cooling:DX:SingleSpeed:ThermalStorage -->
+    
     <message>
         <source>Charge Only Mode Available</source>
         <translation>Sadece Şarj Modu Kullanılabilir</translation>
     </message>
-    <!-- OS:Coil:Cooling:DX:SingleSpeed:ThermalStorage -->
+    
     <message>
         <source>Charge Only Mode Capacity Sizing Factor</source>
         <translation>Sadece Şarj Modu Kapasitesi Boyutlandırma Faktörü</translation>
     </message>
-    <!-- OS:Coil:Cooling:DX:SingleSpeed:ThermalStorage -->
+    
     <message>
         <source>Charge Only Mode Charging Rated COP</source>
         <translation>Charge Only Mode Charging Rated COP</translation>
     </message>
-    <!-- OS:Coil:Cooling:DX:SingleSpeed:ThermalStorage -->
+    
     <message>
         <source>Charge Only Mode Rated Storage Charging Capacity</source>
         <translation>Charge Only Mode Rated Storage Charging Capacity</translation>
     </message>
-    <!-- OS:Coil:Cooling:DX:SingleSpeed:ThermalStorage -->
+    
     <message>
         <source>Charge Only Mode Storage Charge Capacity Function of Temperature Curve</source>
         <translation>Sadece Şarj Modu Depolama Şarj Kapasitesi Sıcaklık Fonksiyon Eğrisi</translation>
     </message>
-    <!-- OS:Coil:Cooling:DX:SingleSpeed:ThermalStorage -->
+    
     <message>
         <source>Charge Only Mode Storage Energy Input Ratio Function of Temperature Curve</source>
         <translation>Charge Only Mode Storage Energy Input Ratio Function of Temperature Curve</translation>
     </message>
-    <!-- OS:ElectricLoadCenter:Storage:LiIonNMCBattery -->
+    
     <message>
         <source>Charge Rate at Which Voltage vs Capacity Curve Was Generated</source>
         <translation>Voltaj-Kapasite Eğrisinin Oluşturulduğu Şarj Oranı</translation>
     </message>
-    <!-- OS:ThermalStorage:Ice:Detailed -->
+    
     <message>
         <source>Charging Curve</source>
         <translation>Şarj Eğrisi</translation>
     </message>
-    <!-- OS:ThermalStorage:Ice:Detailed -->
+    
     <message>
         <source>Charging Curve Variable Specifications</source>
         <translation>Şarj Eğrisi Değişken Özellikleri</translation>
     </message>
-    <!-- OS:WeatherFile -->
+    
     <message>
         <source>Checksum</source>
         <translation>Sağlama Toplamı</translation>
     </message>
-    <!-- OS:ChillerHeaterPerformance:Electric:EIR -->
+    
     <message>
         <source>Chilled Water Flow Mode Type</source>
         <translation>Soğuk Su Akış Modu Türü</translation>
     </message>
-    <!-- OS:Chiller:Absorption, OS:Chiller:Absorption:Indirect, OS:Chiller:Electric:ASHRAE205, OS:Chiller:Electric:EIR, OS:Chiller:Electric:ReformulatedEIR, OS:Coil:Cooling:CooledBeam, OS:Coil:Cooling:FourPipeBeam, OS:DistrictCooling, OS:HeatPump:AirToWater:Cooling -->
+    
     <message>
         <source>Chilled Water Inlet Node Name</source>
         <translation>Soğutulmuş Su Giriş Düğümü Adı</translation>
     </message>
-    <!-- OS:Chiller:Electric:ASHRAE205 -->
+    
     <message>
         <source>Chilled Water Maximum Requested Flow Rate</source>
         <translation>Soğutulmuş Su Maksimum İstenen Akış Hızı</translation>
     </message>
-    <!-- OS:Chiller:Absorption, OS:Chiller:Absorption:Indirect, OS:Chiller:Electric:ASHRAE205, OS:Chiller:Electric:EIR, OS:Chiller:Electric:ReformulatedEIR, OS:Coil:Cooling:CooledBeam, OS:Coil:Cooling:FourPipeBeam, OS:DistrictCooling, OS:HeatPump:AirToWater:Cooling -->
+    
     <message>
         <source>Chilled Water Outlet Node Name</source>
         <translation>Soğuk Su Çıkış Düğümü Adı</translation>
     </message>
-    <!-- OS:Chiller:Absorption, OS:Chiller:Absorption:Indirect -->
+    
     <message>
         <source>Chilled Water Outlet Temperature Lower Limit</source>
         <translation>Soğutulmuş Su Çıkış Sıcaklığı Alt Sınırı</translation>
     </message>
-    <!-- OS:CentralHeatPumpSystem -->
+    
     <message>
         <source>Chiller Heater Module List Name</source>
         <translation>Soğutucu Isıtıcı Modül Listesi Adı</translation>
     </message>
-    <!-- OS:CentralHeatPumpSystem:Module -->
+    
     <message>
         <source>Chiller Heater Modules Control Schedule Name</source>
         <translation>Chiller Heater Modülleri Kontrol Planı Adı</translation>
     </message>
-    <!-- OS:CentralHeatPumpSystem:Module -->
+    
     <message>
         <source>Chiller Heater Modules Performance Component Name</source>
         <translation>Soğutucu Isıtıcı Modülleri Performans Bileşeni Adı</translation>
     </message>
-    <!-- OS:Generator:FuelCell:ElectricalStorage -->
+    
     <message>
         <source>Choice of Model</source>
         <translation>Model Seçimi</translation>
     </message>
-    <!-- OS:LightingDesignDay -->
+    
     <message>
         <source>CIE Sky Model</source>
         <translation>CIE Sky Model</translation>
     </message>
-    <!-- OS:ZoneHVAC:LowTemperatureRadiant:ConstantFlow, OS:ZoneHVAC:LowTemperatureRadiant:VariableFlow -->
+    
     <message>
         <source>Circuit Length</source>
         <translation>Devre Uzunluğu</translation>
     </message>
-    <!-- OS:Refrigeration:SecondarySystem -->
+    
     <message>
         <source>Circulating Fluid Name</source>
         <translation>Dolaşan Akışkan Adı</translation>
     </message>
-    <!-- OS:WeatherFile -->
+    
     <message>
         <source>City</source>
         <translation>Şehir</translation>
     </message>
-    <!-- OS:SolarCollectorPerformance:PhotovoltaicThermal:BIPVT -->
+    
     <message>
         <source>Cladding Normal Transmittance-Absorptance Product</source>
         <translation>Kaplama Normal Geçirgenlik-Soğurabilirlik Çarpımı</translation>
     </message>
-    <!-- OS:ClimateZones -->
+    
     <message>
         <source>Climate Zone Document Name</source>
         <translation>İklim Bölgesi Belge Adı</translation>
     </message>
-    <!-- OS:ClimateZones -->
+    
     <message>
         <source>Climate Zone Document Year</source>
         <translation>İklim Bölgesi Belgesi Yılı</translation>
     </message>
-    <!-- OS:ClimateZones -->
+    
     <message>
         <source>Climate Zone Institution Name</source>
         <translation>İklim Bölgesi Kurum Adı</translation>
     </message>
-    <!-- OS:ClimateZones -->
+    
     <message>
         <source>Climate Zone Value</source>
         <translation>İklim Bölgesi Değeri</translation>
     </message>
-    <!-- OS:AirflowNetworkOccupantVentilationControl -->
+    
     <message>
         <source>Closing Probability Schedule Name</source>
         <translation>Kapanış Olasılığı Programı Adı</translation>
     </message>
-    <!-- OS:FuelFactors -->
+    
     <message>
         <source>CO Emission Factor</source>
         <translation>CO Emisyon Faktörü</translation>
     </message>
-    <!-- OS:FuelFactors -->
+    
     <message>
         <source>CO Emission Factor Schedule Name</source>
         <translation>CO Emisyon Faktörü Çizelge Adı</translation>
     </message>
-    <!-- OS:FuelFactors -->
+    
     <message>
         <source>CO2 Emission Factor</source>
         <translation>CO2 Emisyon Faktörü</translation>
     </message>
-    <!-- OS:FuelFactors -->
+    
     <message>
         <source>CO2 Emission Factor Schedule Name</source>
         <translation>CO2 Emisyon Faktörü Çizelgesi Adı</translation>
     </message>
-    <!-- OS:LifeCycleCost:Parameters -->
+    
     <message>
         <source>Coal Inflation</source>
         <translation>Kömür Enflasyonu</translation>
     </message>
-    <!-- OS:MaterialProperty:MoisturePenetrationDepth:Settings -->
+    
     <message>
         <source>Coating Layer Thickness</source>
         <translation>Kaplama Tabakası Kalınlığı</translation>
     </message>
-    <!-- OS:MaterialProperty:MoisturePenetrationDepth:Settings -->
+    
     <message>
         <source>Coating Layer Water Vapor Diffusion Resistance Factor</source>
         <translation>Kaplama Tabakası Su Buharı Difüzyon Direnç Faktörü</translation>
     </message>
-    <!-- OS:CoolingTowerPerformance:CoolTools, OS:CoolingTowerPerformance:YorkCalc -->
+    
     <message>
         <source>Coefficient 1</source>
         <translation>Katsayı 1</translation>
     </message>
-    <!-- OS:SolarCollectorPerformance:FlatPlate -->
+    
     <message>
         <source>Coefficient 1 of Efficiency Equation</source>
         <translation>Verimlilik Denklemi Katsayısı 1</translation>
     </message>
-    <!-- OS:Boiler:Steam -->
+    
     <message>
         <source>Coefficient 1 of Fuel Use Function of Part Load Ratio Curve</source>
         <translation>Kısmi Yük Oranı Eğrisinin Yakıt Kullanım Fonksiyonunun Katsayısı 1</translation>
     </message>
-    <!-- OS:Chiller:Absorption -->
+    
     <message>
         <source>Coefficient 1 of the Hot Water or Steam Use Part Load Ratio Curve</source>
         <translation>Sıcak Su veya Buhar Kullanımı Kısmi Yük Oranı Eğrisinin Katsayısı 1</translation>
     </message>
-    <!-- OS:Chiller:Absorption -->
+    
     <message>
         <source>Coefficient 1 of the Pump Electric Use Part Load Ratio Curve</source>
         <translation>Pompa Elektrik Kullanım Kısmi Yük Oranı Eğrisinin Katsayı 1</translation>
     </message>
-    <!-- OS:CoolingTowerPerformance:CoolTools, OS:CoolingTowerPerformance:YorkCalc -->
+    
     <message>
         <source>Coefficient 10</source>
         <translation>Katsayı 10</translation>
     </message>
-    <!-- OS:CoolingTowerPerformance:CoolTools, OS:CoolingTowerPerformance:YorkCalc -->
+    
     <message>
         <source>Coefficient 11</source>
         <translation>Katsayı 11</translation>
     </message>
-    <!-- OS:CoolingTowerPerformance:CoolTools, OS:CoolingTowerPerformance:YorkCalc -->
+    
     <message>
         <source>Coefficient 12</source>
         <translation>Katsayı 12</translation>
     </message>
-    <!-- OS:CoolingTowerPerformance:CoolTools, OS:CoolingTowerPerformance:YorkCalc -->
+    
     <message>
         <source>Coefficient 13</source>
         <translation>Katsayı 13</translation>
     </message>
-    <!-- OS:CoolingTowerPerformance:CoolTools, OS:CoolingTowerPerformance:YorkCalc -->
+    
     <message>
         <source>Coefficient 14</source>
         <translation>Katsayı 14</translation>
     </message>
-    <!-- OS:CoolingTowerPerformance:CoolTools, OS:CoolingTowerPerformance:YorkCalc -->
+    
     <message>
         <source>Coefficient 15</source>
         <translation>Katsayı 15</translation>
     </message>
-    <!-- OS:CoolingTowerPerformance:CoolTools, OS:CoolingTowerPerformance:YorkCalc -->
+    
     <message>
         <source>Coefficient 16</source>
         <translation>Katsayı 16</translation>
     </message>
-    <!-- OS:CoolingTowerPerformance:CoolTools, OS:CoolingTowerPerformance:YorkCalc -->
+    
     <message>
         <source>Coefficient 17</source>
         <translation>Katsayı 17</translation>
     </message>
-    <!-- OS:CoolingTowerPerformance:CoolTools, OS:CoolingTowerPerformance:YorkCalc -->
+    
     <message>
         <source>Coefficient 18</source>
         <translation>Katsayı 18</translation>
     </message>
-    <!-- OS:CoolingTowerPerformance:CoolTools, OS:CoolingTowerPerformance:YorkCalc -->
+    
     <message>
         <source>Coefficient 19</source>
         <translation>Katsayı 19</translation>
     </message>
-    <!-- OS:CoolingTowerPerformance:CoolTools, OS:CoolingTowerPerformance:YorkCalc -->
+    
     <message>
         <source>Coefficient 2</source>
         <translation>Katsayı 2</translation>
     </message>
-    <!-- OS:SolarCollectorPerformance:FlatPlate -->
+    
     <message>
         <source>Coefficient 2 of Efficiency Equation</source>
         <translation>Verimlilik Denklemi Katsayı 2</translation>
     </message>
-    <!-- OS:Boiler:Steam -->
+    
     <message>
         <source>Coefficient 2 of Fuel Use Function of Part Load Ratio Curve</source>
         <translation>Kısmi Yük Oranı Eğrisinin Yakıt Kullanım Fonksiyonunun Katsayı 2</translation>
     </message>
-    <!-- OS:SolarCollectorPerformance:FlatPlate -->
+    
     <message>
         <source>Coefficient 2 of Incident Angle Modifier</source>
         <translation>Olay Açısı Değiştiricisinin Katsayısı 2</translation>
     </message>
-    <!-- OS:Chiller:Absorption -->
+    
     <message>
         <source>Coefficient 2 of the Hot Water or Steam Use Part Load Ratio Curve</source>
         <translation>Sıcak Su veya Buhar Kullanımı Kısmi Yük Oranı Eğrisinin Katsayı 2</translation>
     </message>
-    <!-- OS:Chiller:Absorption -->
+    
     <message>
         <source>Coefficient 2 of the Pump Electric Use Part Load Ratio Curve</source>
         <translation>Pompa Elektrik Kullanım Kısmi Yük Oranı Eğrisinin Katsayı 2</translation>
     </message>
-    <!-- OS:CoolingTowerPerformance:CoolTools, OS:CoolingTowerPerformance:YorkCalc -->
+    
     <message>
         <source>Coefficient 20</source>
         <translation>Katsayı 20</translation>
     </message>
-    <!-- OS:CoolingTowerPerformance:CoolTools, OS:CoolingTowerPerformance:YorkCalc -->
+    
     <message>
         <source>Coefficient 21</source>
         <translation>Katsayı 21</translation>
     </message>
-    <!-- OS:CoolingTowerPerformance:CoolTools, OS:CoolingTowerPerformance:YorkCalc -->
+    
     <message>
         <source>Coefficient 22</source>
         <translation>Katsayı 22</translation>
     </message>
-    <!-- OS:CoolingTowerPerformance:CoolTools, OS:CoolingTowerPerformance:YorkCalc -->
+    
     <message>
         <source>Coefficient 23</source>
         <translation>Katsayı 23</translation>
     </message>
-    <!-- OS:CoolingTowerPerformance:CoolTools, OS:CoolingTowerPerformance:YorkCalc -->
+    
     <message>
         <source>Coefficient 24</source>
         <translation>Katsayı 24</translation>
     </message>
-    <!-- OS:CoolingTowerPerformance:CoolTools, OS:CoolingTowerPerformance:YorkCalc -->
+    
     <message>
         <source>Coefficient 25</source>
         <translation>Katsayı 25</translation>
     </message>
-    <!-- OS:CoolingTowerPerformance:CoolTools, OS:CoolingTowerPerformance:YorkCalc -->
+    
     <message>
         <source>Coefficient 26</source>
         <translation>Katsayı 26</translation>
     </message>
-    <!-- OS:CoolingTowerPerformance:CoolTools, OS:CoolingTowerPerformance:YorkCalc -->
+    
     <message>
         <source>Coefficient 27</source>
         <translation>Katsayı 27</translation>
     </message>
-    <!-- OS:CoolingTowerPerformance:CoolTools -->
+    
     <message>
         <source>Coefficient 28</source>
         <translation>Katsayı 28</translation>
     </message>
-    <!-- OS:CoolingTowerPerformance:CoolTools -->
+    
     <message>
         <source>Coefficient 29</source>
         <translation>Katsayı 29</translation>
     </message>
-    <!-- OS:CoolingTowerPerformance:CoolTools, OS:CoolingTowerPerformance:YorkCalc -->
+    
     <message>
         <source>Coefficient 3</source>
         <translation>Katsayı 3</translation>
     </message>
-    <!-- OS:SolarCollectorPerformance:FlatPlate -->
+    
     <message>
         <source>Coefficient 3 of Efficiency Equation</source>
         <translation>Verimlilik Denklemi Katsayısı 3</translation>
     </message>
-    <!-- OS:Boiler:Steam -->
+    
     <message>
         <source>Coefficient 3 of Fuel Use Function of Part Load Ratio Curve</source>
         <translation>Kısmi Yük Oranı Eğrisinin Yakıt Kullanım Fonksiyonunun 3. Katsayısı</translation>
     </message>
-    <!-- OS:SolarCollectorPerformance:FlatPlate -->
+    
     <message>
         <source>Coefficient 3 of Incident Angle Modifier</source>
         <translation>Olay Açısı Değiştirici Katsayı 3</translation>
     </message>
-    <!-- OS:Chiller:Absorption -->
+    
     <message>
         <source>Coefficient 3 of the Hot Water or Steam Use Part Load Ratio Curve</source>
         <translation>Sıcak Su veya Buhar Kullanımı Kısmi Yük Oranı Eğrisinin Katsayısı 3</translation>
     </message>
-    <!-- OS:Chiller:Absorption -->
+    
     <message>
         <source>Coefficient 3 of the Pump Electric Use Part Load Ratio Curve</source>
         <translation>Pompa Elektrik Kullanımı Kısmi Yük Oranı Eğrisinin Katsayısı 3</translation>
     </message>
-    <!-- OS:CoolingTowerPerformance:CoolTools -->
+    
     <message>
         <source>Coefficient 30</source>
         <translation>Katsayı 30</translation>
     </message>
-    <!-- OS:CoolingTowerPerformance:CoolTools -->
+    
     <message>
         <source>Coefficient 31</source>
         <translation>Katsayı 31</translation>
     </message>
-    <!-- OS:CoolingTowerPerformance:CoolTools -->
+    
     <message>
         <source>Coefficient 32</source>
         <translation>Katsayı 32</translation>
     </message>
-    <!-- OS:CoolingTowerPerformance:CoolTools -->
+    
     <message>
         <source>Coefficient 33</source>
         <translation>Katsayı 33</translation>
     </message>
-    <!-- OS:CoolingTowerPerformance:CoolTools -->
+    
     <message>
         <source>Coefficient 34</source>
         <translation>Katsayı 34</translation>
     </message>
-    <!-- OS:CoolingTowerPerformance:CoolTools -->
+    
     <message>
         <source>Coefficient 35</source>
         <translation>Katsayı 35</translation>
     </message>
-    <!-- OS:CoolingTowerPerformance:CoolTools, OS:CoolingTowerPerformance:YorkCalc -->
+    
     <message>
         <source>Coefficient 4</source>
         <translation>Katsayı 4</translation>
     </message>
-    <!-- OS:CoolingTowerPerformance:CoolTools, OS:CoolingTowerPerformance:YorkCalc -->
+    
     <message>
         <source>Coefficient 5</source>
         <translation>Katsayı 5</translation>
     </message>
-    <!-- OS:CoolingTowerPerformance:CoolTools, OS:CoolingTowerPerformance:YorkCalc -->
+    
     <message>
         <source>Coefficient 6</source>
         <translation>Katsayı 6</translation>
     </message>
-    <!-- OS:CoolingTowerPerformance:CoolTools, OS:CoolingTowerPerformance:YorkCalc -->
+    
     <message>
         <source>Coefficient 7</source>
         <translation>Katsayı 7</translation>
     </message>
-    <!-- OS:CoolingTowerPerformance:CoolTools, OS:CoolingTowerPerformance:YorkCalc -->
+    
     <message>
         <source>Coefficient 8</source>
         <translation>Katsayı 8</translation>
     </message>
-    <!-- OS:CoolingTowerPerformance:CoolTools, OS:CoolingTowerPerformance:YorkCalc -->
+    
     <message>
         <source>Coefficient 9</source>
         <translation>Katsayı 9</translation>
     </message>
-    <!-- OS:AirflowNetworkDuct -->
+    
     <message>
         <source>Coefficient for Local Dynamic Loss Due to Fitting</source>
         <translation>Bağlantı Parçası Nedeniyle Yerel Dinamik Kayıp Katsayısı</translation>
     </message>
-    <!-- OS:AirTerminal:SingleDuct:ConstantVolume:CooledBeam -->
+    
     <message>
         <source>Coefficient of Induction Kin</source>
         <translation>İndüksiyon Katsayısı Kin</translation>
     </message>
-    <!-- OS:Generator:FuelCell:StackCooler -->
+    
     <message>
         <source>Coefficient r0</source>
         <translation>Katsayı r0</translation>
     </message>
-    <!-- OS:Generator:FuelCell:StackCooler -->
+    
     <message>
         <source>Coefficient r1</source>
         <translation>Katsayı r1</translation>
     </message>
-    <!-- OS:Generator:FuelCell:StackCooler -->
+    
     <message>
         <source>Coefficient r2</source>
         <translation>Katsayı r2</translation>
     </message>
-    <!-- OS:Generator:FuelCell:StackCooler -->
+    
     <message>
         <source>Coefficient r3</source>
         <translation>Katsayı r3</translation>
     </message>
-    <!-- OS:Curve:DoubleExponentialDecay, OS:Curve:ExponentialDecay, OS:Curve:ExponentialSkewNormal, OS:Curve:FanPressureRise, OS:Curve:RectangularHyperbola1, OS:Curve:RectangularHyperbola2, OS:Curve:Sigmoid -->
+    
     <message>
         <source>Coefficient1 C1</source>
         <translation>Katsayı1 C1</translation>
     </message>
-    <!-- OS:Curve:Bicubic, OS:Curve:Biquadratic, OS:Curve:Cubic, OS:Curve:Exponent, OS:Curve:Linear, OS:Curve:QuadLinear, OS:Curve:Quadratic, OS:Curve:QuadraticLinear, OS:Curve:Quartic, OS:Curve:QuintLinear, OS:Curve:Triquadratic -->
+    
     <message>
         <source>Coefficient1 Constant</source>
         <translation>Coefficient1 Constant</translation>
     </message>
-    <!-- OS:Curve:Bicubic, OS:Curve:Triquadratic -->
+    
     <message>
         <source>Coefficient10 x*y**2</source>
         <translation>Katsayı10 x*y**2</translation>
     </message>
-    <!-- OS:Curve:Triquadratic -->
+    
     <message>
         <source>Coefficient11 x**2*y</source>
         <translation>Katsayı11 x**2*y</translation>
     </message>
-    <!-- OS:Curve:Triquadratic -->
+    
     <message>
         <source>Coefficient12 x**2*z**2</source>
         <translation>Coefficient12 x**2*z**2</translation>
     </message>
-    <!-- OS:Curve:Triquadratic -->
+    
     <message>
         <source>Coefficient13 x*z</source>
         <translation>Katsayı13 x*z</translation>
     </message>
-    <!-- OS:Curve:Triquadratic -->
+    
     <message>
         <source>Coefficient14 x*z**2</source>
         <translation>Coefficient14 x*z**2</translation>
     </message>
-    <!-- OS:Curve:Triquadratic -->
+    
     <message>
         <source>Coefficient15 x**2*z</source>
         <translation>Katsayı15 x**2*z</translation>
     </message>
-    <!-- OS:Curve:Triquadratic -->
+    
     <message>
         <source>Coefficient16 y**2*z**2</source>
         <translation>Coefficient16 y**2*z**2</translation>
     </message>
-    <!-- OS:Curve:Triquadratic -->
+    
     <message>
         <source>Coefficient17 y*z</source>
         <translation>Katsayı17 y*z</translation>
     </message>
-    <!-- OS:Curve:Triquadratic -->
+    
     <message>
         <source>Coefficient18 y*z**2</source>
         <translation>Coefficient18 y*z**2</translation>
     </message>
-    <!-- OS:Curve:Triquadratic -->
+    
     <message>
         <source>Coefficient19 y**2*z</source>
         <translation>Coefficient19 y**2*z</translation>
     </message>
-    <!-- OS:Curve:DoubleExponentialDecay, OS:Curve:ExponentialDecay, OS:Curve:ExponentialSkewNormal, OS:Curve:FanPressureRise, OS:Curve:RectangularHyperbola1, OS:Curve:RectangularHyperbola2, OS:Curve:Sigmoid -->
+    
     <message>
         <source>Coefficient2 C2</source>
         <translation>Katsayı2 C2</translation>
     </message>
-    <!-- OS:Curve:Exponent -->
+    
     <message>
         <source>Coefficient2 Constant</source>
         <translation>Coefficient2 Sabiti</translation>
     </message>
-    <!-- OS:Curve:QuintLinear -->
+    
     <message>
         <source>Coefficient2 v</source>
         <translation>Katsayı2 v</translation>
     </message>
-    <!-- OS:Curve:QuadLinear -->
+    
     <message>
         <source>Coefficient2 w</source>
         <translation>Katsayı2 w</translation>
     </message>
-    <!-- OS:Curve:Bicubic, OS:Curve:Biquadratic, OS:Curve:Cubic, OS:Curve:Linear, OS:Curve:Quadratic, OS:Curve:QuadraticLinear, OS:Curve:Quartic -->
+    
     <message>
         <source>Coefficient2 x</source>
         <translation>Katsayı2 x</translation>
     </message>
-    <!-- OS:Curve:Triquadratic -->
+    
     <message>
         <source>Coefficient2 x**2</source>
         <translation>Katsayı2 x**2</translation>
     </message>
-    <!-- OS:Curve:Triquadratic -->
+    
     <message>
         <source>Coefficient20 x**2*y**2*z**2</source>
         <translation>Coefficient20 x**2*y**2*z**2</translation>
     </message>
-    <!-- OS:Curve:Triquadratic -->
+    
     <message>
         <source>Coefficient21 x**2*y**2*z</source>
         <translation>Katsayı21 x**2*y**2*z</translation>
     </message>
-    <!-- OS:Curve:Triquadratic -->
+    
     <message>
         <source>Coefficient22 x**2*y*z**2</source>
         <translation>Coefficient22 x**2*y*z**2</translation>
     </message>
-    <!-- OS:Curve:Triquadratic -->
+    
     <message>
         <source>Coefficient23 x*y**2*z**2</source>
         <translation>Coefficient23 x*y**2*z**2</translation>
     </message>
-    <!-- OS:Curve:Triquadratic -->
+    
     <message>
         <source>Coefficient24 x**2*y*z</source>
         <translation>Coefficient24 x**2*y*z</translation>
     </message>
-    <!-- OS:Curve:Triquadratic -->
+    
     <message>
         <source>Coefficient25 x*y**2*z</source>
         <translation>Coefficient25 x*y**2*z</translation>
     </message>
-    <!-- OS:Curve:Triquadratic -->
+    
     <message>
         <source>Coefficient26 x*y*z**2</source>
         <translation>Katsayı26 x*y*z**2</translation>
     </message>
-    <!-- OS:Curve:Triquadratic -->
+    
     <message>
         <source>Coefficient27 x*y*z</source>
         <translation>Katsayı27 x*y*z</translation>
     </message>
-    <!-- OS:Curve:DoubleExponentialDecay, OS:Curve:ExponentialDecay, OS:Curve:ExponentialSkewNormal, OS:Curve:FanPressureRise, OS:Curve:RectangularHyperbola1, OS:Curve:RectangularHyperbola2, OS:Curve:Sigmoid -->
+    
     <message>
         <source>Coefficient3 C3</source>
         <translation>Katsayı3 C3</translation>
     </message>
-    <!-- OS:Curve:Exponent -->
+    
     <message>
         <source>Coefficient3 Constant</source>
         <translation>Katsayı3 Sabit</translation>
     </message>
-    <!-- OS:Curve:QuintLinear -->
+    
     <message>
         <source>Coefficient3 w</source>
         <translation>Katsayı3 w</translation>
     </message>
-    <!-- OS:Curve:QuadLinear, OS:Curve:Triquadratic -->
+    
     <message>
         <source>Coefficient3 x</source>
         <translation>Katsayı3 x</translation>
     </message>
-    <!-- OS:Curve:Bicubic, OS:Curve:Biquadratic, OS:Curve:Cubic, OS:Curve:Quadratic, OS:Curve:QuadraticLinear, OS:Curve:Quartic -->
+    
     <message>
         <source>Coefficient3 x**2</source>
         <translation>Coefficient3 x**2</translation>
     </message>
-    <!-- OS:Curve:DoubleExponentialDecay, OS:Curve:ExponentialSkewNormal, OS:Curve:FanPressureRise, OS:Curve:Sigmoid -->
+    
     <message>
         <source>Coefficient4 C4</source>
         <translation>Katsayı4 C4</translation>
     </message>
-    <!-- OS:Curve:QuintLinear -->
+    
     <message>
         <source>Coefficient4 x</source>
         <translation>Katsayı4 x</translation>
     </message>
-    <!-- OS:Curve:Cubic, OS:Curve:Quartic -->
+    
     <message>
         <source>Coefficient4 x**3</source>
         <translation>Coefficient4 x**3</translation>
     </message>
-    <!-- OS:Curve:Bicubic, OS:Curve:Biquadratic, OS:Curve:QuadLinear, OS:Curve:QuadraticLinear -->
+    
     <message>
         <source>Coefficient4 y</source>
         <translation>Katsayı4 y</translation>
     </message>
-    <!-- OS:Curve:Triquadratic -->
+    
     <message>
         <source>Coefficient4 y**2</source>
         <translation>Coefficient4 y**2</translation>
     </message>
-    <!-- OS:Curve:DoubleExponentialDecay, OS:Curve:Sigmoid -->
+    
     <message>
         <source>Coefficient5 C5</source>
         <translation>Katsayı5 C5</translation>
     </message>
-    <!-- OS:Curve:Quartic -->
+    
     <message>
         <source>Coefficient5 x**4</source>
         <translation>Coefficient5 x**4</translation>
     </message>
-    <!-- OS:Curve:QuadraticLinear -->
+    
     <message>
         <source>Coefficient5 x*y</source>
         <translation>Katsayı5 x*y</translation>
     </message>
-    <!-- OS:Curve:QuintLinear, OS:Curve:Triquadratic -->
+    
     <message>
         <source>Coefficient5 y</source>
         <translation>Katsayı5 y</translation>
     </message>
-    <!-- OS:Curve:Bicubic, OS:Curve:Biquadratic -->
+    
     <message>
         <source>Coefficient5 y**2</source>
         <translation>Katsayı5 y**2</translation>
     </message>
-    <!-- OS:Curve:QuadLinear -->
+    
     <message>
         <source>Coefficient5 z</source>
         <translation>Katsayı5 z</translation>
     </message>
-    <!-- OS:Curve:QuadraticLinear -->
+    
     <message>
         <source>Coefficient6 x**2*y</source>
         <translation>Katsayı6 x**2*y</translation>
     </message>
-    <!-- OS:Curve:Bicubic, OS:Curve:Biquadratic -->
+    
     <message>
         <source>Coefficient6 x*y</source>
         <translation>Katsayı6 x*y</translation>
     </message>
-    <!-- OS:Curve:QuintLinear -->
+    
     <message>
         <source>Coefficient6 z</source>
         <translation>Coefficient6 z</translation>
     </message>
-    <!-- OS:Curve:Triquadratic -->
+    
     <message>
         <source>Coefficient6 z**2</source>
         <translation>Coefficient6 z**2</translation>
     </message>
-    <!-- OS:Curve:Bicubic -->
+    
     <message>
         <source>Coefficient7 x**3</source>
         <translation>Coefficient7 x**3</translation>
     </message>
-    <!-- OS:Curve:Triquadratic -->
+    
     <message>
         <source>Coefficient7 z</source>
         <translation>Katsayı7 z</translation>
     </message>
-    <!-- OS:Curve:Triquadratic -->
+    
     <message>
         <source>Coefficient8 x**2*y**2</source>
         <translation>Coefficient8 x**2*y**2</translation>
     </message>
-    <!-- OS:Curve:Bicubic -->
+    
     <message>
         <source>Coefficient8 y**3</source>
         <translation>Katsayı8 y**3</translation>
     </message>
-    <!-- OS:Curve:Bicubic -->
+    
     <message>
         <source>Coefficient9 x**2*y</source>
         <translation>Coefficient9 x**2*y</translation>
     </message>
-    <!-- OS:Curve:Triquadratic -->
+    
     <message>
         <source>Coefficient9 x*y</source>
         <translation>Katsayı9 x*y</translation>
     </message>
-    <!-- OS:Coil:Cooling:DX:VariableRefrigerantFlow, OS:Coil:Cooling:DX:VariableRefrigerantFlow:FluidTemperatureControl, OS:Coil:Heating:DX:VariableRefrigerantFlow, OS:Coil:Heating:DX:VariableRefrigerantFlow:FluidTemperatureControl -->
+    
     <message>
         <source>Coil Air Inlet Node</source>
         <translation>Bobin Hava Giriş Düğümü</translation>
     </message>
-    <!-- OS:Coil:Cooling:DX:VariableRefrigerantFlow, OS:Coil:Cooling:DX:VariableRefrigerantFlow:FluidTemperatureControl, OS:Coil:Heating:DX:VariableRefrigerantFlow, OS:Coil:Heating:DX:VariableRefrigerantFlow:FluidTemperatureControl -->
+    
     <message>
         <source>Coil Air Outlet Node</source>
         <translation>Coil Air Outlet Node</translation>
     </message>
-    <!-- OS:Refrigeration:AirChiller -->
+    
     <message>
         <source>Coil Material Correction Factor</source>
         <translation>Bobin Malzeme Düzeltme Faktörü</translation>
     </message>
-    <!-- OS:Coil:Cooling:CooledBeam -->
+    
     <message>
         <source>Coil Surface Area per Coil Length</source>
         <translation>Bobin Uzunluğu Başına Bobin Yüzey Alanı</translation>
     </message>
-    <!-- OS:Sizing:Plant -->
+    
     <message>
         <source>Coincident Sizing Factor Mode</source>
         <translation>Eş Zamanlı Boyutlandırma Faktörü Modu</translation>
     </message>
-    <!-- OS:AirTerminal:DualDuct:ConstantVolume, OS:AirTerminal:DualDuct:VAV -->
+    
     <message>
         <source>Cold Air Inlet Node</source>
         <translation>Soğuk Hava Giriş Düğümü</translation>
     </message>
-    <!-- OS:AvailabilityManager:DifferentialThermostat -->
+    
     <message>
         <source>Cold Node</source>
         <translation>Soğuk Düğüm</translation>
     </message>
-    <!-- OS:Coil:Cooling:DX:SingleSpeed:ThermalStorage -->
+    
     <message>
         <source>Cold Weather Operation Ancillary Power</source>
         <translation>Soğuk Hava İşletme Yardımcı Gücü</translation>
     </message>
-    <!-- OS:Coil:Cooling:DX:SingleSpeed:ThermalStorage -->
+    
     <message>
         <source>Cold Weather Operation Minimum Outdoor Air Temperature</source>
         <translation>Soğuk Hava İşletme Minimum Dış Hava Sıcaklığı</translation>
     </message>
-    <!-- OS:SolarCollectorPerformance:IntegralCollectorStorage -->
+    
     <message>
         <source>Collector Side Height</source>
         <translation>Toplayıcı Tarafı Yüksekliği</translation>
     </message>
-    <!-- OS:SolarCollectorPerformance:IntegralCollectorStorage -->
+    
     <message>
         <source>Collector Water Volume</source>
         <translation>Kolektör Su Hacmi</translation>
     </message>
-    <!-- OS:Schedule:File -->
+    
     <message>
         <source>Column Number</source>
         <translation>Sütun Numarası</translation>
     </message>
-    <!-- OS:External:File, OS:OutputControl:Table:Style, OS:Schedule:File -->
+    
     <message>
         <source>Column Separator</source>
         <translation>Sütun Ayırıcı</translation>
     </message>
-    <!-- OS:SurfaceProperty:OtherSideCoefficients -->
+    
     <message>
         <source>Combined Convective/Radiative Film Coefficient</source>
         <translation>Kombine Konvektif/Radyatif Film Katsayısı</translation>
     </message>
-    <!-- OS:Generator:MicroTurbine -->
+    
     <message>
         <source>Combustion Air Inlet Node Name</source>
         <translation>Yanma Hava Giriş Düğümü Adı</translation>
     </message>
-    <!-- OS:Generator:MicroTurbine -->
+    
     <message>
         <source>Combustion Air Outlet Node Name</source>
         <translation>Yanma Havası Çıkış Düğümü Adı</translation>
     </message>
-    <!-- OS:ZoneHVAC:HighTemperatureRadiant -->
+    
     <message>
         <source>Combustion Efficiency</source>
         <translation>Yanma Verimliliği</translation>
     </message>
-    <!-- OS:ComponentCost:Adjustments -->
+    
     <message>
         <source>Commissioning Fee</source>
         <translation>Kontrol ve Ayarlama Ücreti</translation>
     </message>
-    <!-- OS:CoilSystem:Cooling:Water -->
+    
     <message>
         <source>Companion Coil Used For Heat Recovery</source>
         <translation>Isı Geri Kazanımı İçin Kullanılan Eşlik Bobini</translation>
     </message>
-    <!-- OS:HeatPump:AirToWater:FuelFired:Heating, OS:HeatPump:WaterToWater:EquationFit:Heating -->
+    
     <message>
         <source>Companion Cooling Heat Pump Name</source>
         <translation>Eşlik Eden Soğutma Isı Pompası Adı</translation>
     </message>
-    <!-- OS:HeatPump:PlantLoop:EIR:Cooling, OS:HeatPump:PlantLoop:EIR:Heating -->
+    
     <message>
         <source>Companion Heat Pump Name</source>
         <translation>Yardımcı Isı Pompası Adı</translation>
     </message>
-    <!-- OS:HeatPump:AirToWater:FuelFired:Cooling, OS:HeatPump:WaterToWater:EquationFit:Cooling -->
+    
     <message>
         <source>Companion Heating Heat Pump Name</source>
         <translation>Yardımcı Isıtma Isı Pompası Adı</translation>
     </message>
-    <!-- OS:AirflowNetworkDistributionLinkage, OS:AirflowNetworkEquivalentDuct -->
+    
     <message>
         <source>Component Name</source>
         <translation>Bileşen Adı</translation>
     </message>
-    <!-- OS:AirflowNetworkDistributionNode -->
+    
     <message>
         <source>Component Name or Node Name</source>
         <translation>Bileşen Adı veya Düğüm Adı</translation>
     </message>
-    <!-- OS:HeatExchanger:FluidToFluid -->
+    
     <message>
         <source>Component Override Cooling Control Temperature Mode</source>
         <translation>Bileşen Geçersiz Kılma Soğutma Kontrol Sıcaklık Modu</translation>
     </message>
-    <!-- OS:HeatExchanger:FluidToFluid -->
+    
     <message>
         <source>Component Override Loop Demand Side Inlet Node</source>
         <translation>Component Override Loop Demand Side Inlet Node</translation>
     </message>
-    <!-- OS:HeatExchanger:FluidToFluid -->
+    
     <message>
         <source>Component Override Loop Supply Side Inlet Node</source>
         <translation>Bileşen Geçersiz Kılma Döngüsü Besleme Tarafı Giriş Düğümü</translation>
     </message>
-    <!-- OS:PlantLoop -->
+    
     <message>
         <source>Component Setpoint Operation Scheme Schedule</source>
         <translation>Komponent Ayar Noktası İşletme Şeması Programı</translation>
     </message>
-    <!-- OS:StandardsInformation:Material -->
+    
     <message>
         <source>Composite Cavity Insulation</source>
         <translation>Bileşik Boşluk İzolasyonu</translation>
     </message>
-    <!-- OS:StandardsInformation:Material -->
+    
     <message>
         <source>Composite Framing Configuration</source>
         <translation>Composite Framing Konfigürasyonu</translation>
     </message>
-    <!-- OS:StandardsInformation:Material -->
+    
     <message>
         <source>Composite Framing Depth</source>
         <translation>Bileşik Çatı Derinliği</translation>
     </message>
-    <!-- OS:StandardsInformation:Material -->
+    
     <message>
         <source>Composite Framing Material</source>
         <translation>Bileşik Çerçeve Malzemesi</translation>
     </message>
-    <!-- OS:StandardsInformation:Material -->
+    
     <message>
         <source>Composite Framing Size</source>
         <translation>Kompozit Çerçeve Boyutu</translation>
     </message>
-    <!-- OS:WaterHeater:HeatPump -->
+    
     <message>
         <source>Compressor Ambient Temperature Schedule</source>
         <translation>Kompresör Ortam Sıcaklığı Çizelgesi</translation>
     </message>
-    <!-- OS:WaterHeater:HeatPump:WrappedCondenser -->
+    
     <message>
         <source>Compressor Ambient Temperature Schedule Name</source>
         <translation>Kompresör Ortam Sıcaklığı Çizelgesi Adı</translation>
     </message>
-    <!-- OS:AirConditioner:VariableRefrigerantFlow:FluidTemperatureControl:HR -->
+    
     <message>
         <source>Compressor Evaporative Capacity Correction Factor</source>
         <translation>Kompresör Buharlaştırıcı Kapasite Düzeltme Faktörü</translation>
     </message>
-    <!-- OS:Coil:Cooling:DX:CurveFit:Performance -->
+    
     <message>
         <source>Compressor Fuel Type</source>
         <translation>Kompresör Yakıt Türü</translation>
     </message>
-    <!-- OS:Generator:FuelSupply -->
+    
     <message>
         <source>Compressor Heat Loss Factor</source>
         <translation>Kompresör Isı Kaybı Faktörü</translation>
     </message>
-    <!-- OS:AirConditioner:VariableRefrigerantFlow:FluidTemperatureControl:HR -->
+    
     <message>
         <source>Compressor Inverter Efficiency</source>
         <translation>Kompresör İnverter Verimliliği</translation>
     </message>
-    <!-- OS:WaterHeater:HeatPump, OS:WaterHeater:HeatPump:WrappedCondenser -->
+    
     <message>
         <source>Compressor Location</source>
         <translation>Kompresör Konumu</translation>
     </message>
-    <!-- OS:AirConditioner:VariableRefrigerantFlow:FluidTemperatureControl, OS:AirConditioner:VariableRefrigerantFlow:FluidTemperatureControl:HR -->
+    
     <message>
         <source>Compressor Maximum Delta Pressure</source>
         <translation>Kompresör Maksimum Basınç Farkı</translation>
     </message>
-    <!-- OS:ChillerHeaterPerformance:Electric:EIR -->
+    
     <message>
         <source>Compressor Motor Efficiency</source>
         <translation>Kompresör Motor Verimliliği</translation>
     </message>
-    <!-- OS:Generator:FuelSupply -->
+    
     <message>
         <source>Compressor Power Multiplier Function of Fuel Rate Curve Name</source>
         <translation>Kompresör Güç Çarpanı Yakıt Oranı Eğrisi Adı</translation>
     </message>
-    <!-- OS:AirConditioner:VariableRefrigerantFlow:FluidTemperatureControl:LoadingIndex -->
+    
     <message>
         <source>Compressor Power Multiplier Function of Temperature Curve Name</source>
         <translation>Kompresör Güç Çarpanı Sıcaklık Eğrisi Adı</translation>
     </message>
-    <!-- OS:Refrigeration:CompressorRack -->
+    
     <message>
         <source>Compressor Rack COP Function of Temperature Curve Name</source>
         <translation>Kompresör Rafı Sıcaklık Fonksiyonu COP Eğrisi Adı</translation>
     </message>
-    <!-- OS:WaterHeater:HeatPump -->
+    
     <message>
         <source>Compressor Setpoint Temperature Schedule</source>
         <translation>Kompresör Ayar Noktası Sıcaklık Programı</translation>
     </message>
-    <!-- OS:WaterHeater:HeatPump:WrappedCondenser -->
+    
     <message>
         <source>Compressor Setpoint Temperature Schedule Name</source>
         <translation>Kompresör Ayar Noktası Sıcaklık Programı Adı</translation>
     </message>
-    <!-- OS:AirConditioner:VariableRefrigerantFlow:FluidTemperatureControl:LoadingIndex -->
+    
     <message>
         <source>Compressor Speed</source>
         <translation>Kompresör Hızı</translation>
     </message>
-    <!-- OS:Refrigeration:System -->
+    
     <message>
         <source>CompressorList Name</source>
         <translation>Kompresör Listesi Adı</translation>
     </message>
-    <!-- OS:UtilityCost:Computation -->
+    
     <message>
         <source>Compute Step</source>
         <translation>Hesaplama Adımı</translation>
     </message>
-    <!-- OS:Coil:Cooling:DX:MultiSpeed, OS:Coil:Cooling:DX:SingleSpeed:ThermalStorage, OS:Coil:Cooling:DX:TwoStageWithHumidityControlMode -->
+    
     <message>
         <source>Condensate Collection Water Storage Tank</source>
         <translation>Kondensat Toplama Su Depolama Tankı</translation>
     </message>
-    <!-- OS:Coil:Cooling:DX, OS:Coil:Cooling:DX:SingleSpeed, OS:Coil:Cooling:DX:TwoSpeed, OS:Coil:Cooling:DX:VariableSpeed, OS:ZoneHVAC:Dehumidifier:DX -->
+    
     <message>
         <source>Condensate Collection Water Storage Tank Name</source>
         <translation>Kondansat Toplama Su Depolama Tankı Adı</translation>
     </message>
-    <!-- OS:Refrigeration:Condenser:AirCooled, OS:Refrigeration:Condenser:Cascade, OS:Refrigeration:Condenser:EvaporativeCooled, OS:Refrigeration:Condenser:WaterCooled -->
+    
     <message>
         <source>Condensate Piping Refrigerant Inventory</source>
         <translation>Kondansat Borulama Soğutucu Aracı Envanteri</translation>
     </message>
-    <!-- OS:Refrigeration:Condenser:AirCooled, OS:Refrigeration:Condenser:Cascade, OS:Refrigeration:Condenser:EvaporativeCooled, OS:Refrigeration:Condenser:WaterCooled -->
+    
     <message>
         <source>Condensate Receiver Refrigerant Inventory</source>
         <translation>Kondansat Alıcısı Soğutucu Akışkan Envanteri</translation>
     </message>
-    <!-- OS:Coil:Cooling:LowTemperatureRadiant:ConstantFlow, OS:Coil:Cooling:LowTemperatureRadiant:VariableFlow, OS:Coil:Cooling:Water:Panel:Radiant -->
+    
     <message>
         <source>Condensation Control Dewpoint Offset</source>
         <translation>Yoğunlaşma Kontrolü Çiğ Noktası Sapması</translation>
     </message>
-    <!-- OS:Coil:Cooling:LowTemperatureRadiant:ConstantFlow, OS:Coil:Cooling:LowTemperatureRadiant:VariableFlow, OS:Coil:Cooling:Water:Panel:Radiant -->
+    
     <message>
         <source>Condensation Control Type</source>
         <translation>Yoğunlaşma Kontrolü Türü</translation>
     </message>
-    <!-- OS:Coil:Cooling:DX:CurveFit:Speed -->
+    
     <message>
         <source>Condenser Air Flow Rate Fraction</source>
         <translation>Kondenser Hava Akış Hızı Fraksiyonu</translation>
     </message>
-    <!-- OS:Coil:Cooling:DX:SingleSpeed:ThermalStorage -->
+    
     <message>
         <source>Condenser Air Flow Sizing Factor</source>
         <translation>Kondenser Hava Akışı Boyutlandırma Faktörü</translation>
     </message>
-    <!-- OS:Coil:Cooling:DX:MultiSpeed, OS:Coil:Cooling:DX:SingleSpeed:ThermalStorage, OS:CoilPerformance:DX:Cooling -->
+    
     <message>
         <source>Condenser Air Inlet Node</source>
         <translation>Kondenser Hava Giriş Düğümü</translation>
     </message>
-    <!-- OS:Coil:Cooling:DX:SingleSpeed, OS:Coil:Cooling:DX:TwoSpeed, OS:Coil:Cooling:DX:VariableSpeed, OS:Refrigeration:CompressorRack -->
+    
     <message>
         <source>Condenser Air Inlet Node Name</source>
         <translation>Kondenser Hava Giriş Düğümü Adı</translation>
     </message>
-    <!-- OS:Coil:Cooling:DX:SingleSpeed:ThermalStorage -->
+    
     <message>
         <source>Condenser Air Outlet Node</source>
         <translation>Kondenser Hava Çıkış Düğümü</translation>
     </message>
-    <!-- OS:WaterHeater:HeatPump:WrappedCondenser -->
+    
     <message>
         <source>Condenser Bottom Location</source>
         <translation>Kondenser Alt Konumu</translation>
     </message>
-    <!-- OS:Coil:Cooling:DX:SingleSpeed:ThermalStorage -->
+    
     <message>
         <source>Condenser Design Air Flow Rate</source>
         <translation>Kondenser Tasarım Hava Akış Hızı</translation>
     </message>
-    <!-- OS:Refrigeration:CompressorRack -->
+    
     <message>
         <source>Condenser Fan Power Function of Temperature Curve Name</source>
         <translation>Kondenser Fan Gücü Sıcaklık Fonksiyonu Eğri Adı</translation>
     </message>
-    <!-- OS:Refrigeration:Condenser:AirCooled -->
+    
     <message>
         <source>Condenser Fan Speed Control Type</source>
         <translation>Kondenser Fan Hız Kontrolü Türü</translation>
     </message>
-    <!-- OS:Chiller:Electric:EIR, OS:Chiller:Electric:ReformulatedEIR -->
+    
     <message>
         <source>Condenser Flow Control</source>
         <translation>Kondenser Akış Kontrolü</translation>
     </message>
-    <!-- OS:Chiller:Electric:EIR, OS:Chiller:Electric:ReformulatedEIR -->
+    
     <message>
         <source>Condenser Heat Recovery Relative Capacity Fraction</source>
         <translation>Kondenser Isı Geri Kazanım Göreceli Kapasite Oranı</translation>
     </message>
-    <!-- OS:AirConditioner:VariableRefrigerantFlow -->
+    
     <message>
         <source>Condenser Inlet Node</source>
         <translation>Kondenser Giriş Düğümü</translation>
     </message>
-    <!-- OS:Chiller:Absorption, OS:Chiller:Absorption:Indirect, OS:Chiller:Electric:ASHRAE205, OS:Chiller:Electric:EIR, OS:Chiller:Electric:ReformulatedEIR, OS:Coil:Cooling:DX -->
+    
     <message>
         <source>Condenser Inlet Node Name</source>
         <translation>Kondenser Giriş Düğümü Adı</translation>
     </message>
-    <!-- OS:Chiller:Absorption:Indirect -->
+    
     <message>
         <source>Condenser Inlet Temperature Lower Limit</source>
         <translation>Kondenser Giriş Sıcaklığı Alt Sınırı</translation>
     </message>
-    <!-- OS:Chiller:Electric:EIR, OS:Chiller:Electric:ReformulatedEIR -->
+    
     <message>
         <source>Condenser Loop Flow Rate Fraction Function of Loop Part Load Ratio Curve Name</source>
         <translation>Kondenser Döngüsü Akış Hızı Döngü Kısmi Yük Oranı Fonksiyonu Eğri Adı</translation>
     </message>
-    <!-- OS:Chiller:Electric:ASHRAE205 -->
+    
     <message>
         <source>Condenser Maximum Requested Flow Rate</source>
         <translation>Kondenser Maksimum İstenen Akış Hızı</translation>
     </message>
-    <!-- OS:Chiller:Electric:EIR, OS:Chiller:Electric:ReformulatedEIR -->
+    
     <message>
         <source>Condenser Minimum Flow Fraction</source>
         <translation>Kondenser Minimum Akış Fraksiyonu</translation>
     </message>
-    <!-- OS:AirConditioner:VariableRefrigerantFlow -->
+    
     <message>
         <source>Condenser Outlet Node</source>
         <translation>Kondenser Çıkış Düğümü</translation>
     </message>
-    <!-- OS:Chiller:Absorption, OS:Chiller:Absorption:Indirect, OS:Chiller:Electric:ASHRAE205, OS:Chiller:Electric:EIR, OS:Chiller:Electric:ReformulatedEIR, OS:Coil:Cooling:DX -->
+    
     <message>
         <source>Condenser Outlet Node Name</source>
         <translation>Kondenser Çıkış Düğümü Adı</translation>
     </message>
-    <!-- OS:Coil:WaterHeating:AirToWaterHeatPump, OS:Coil:WaterHeating:AirToWaterHeatPump:VariableSpeed -->
+    
     <message>
         <source>Condenser Pump Heat Included in Rated Heating Capacity and Rated COP</source>
         <translation>Kondenser Pompası Ísısı Nominal Ísıtma Kapasitesi ve Nominal COP'ye Dahildir</translation>
     </message>
-    <!-- OS:Coil:WaterHeating:AirToWaterHeatPump, OS:Coil:WaterHeating:AirToWaterHeatPump:VariableSpeed -->
+    
     <message>
         <source>Condenser Pump Power Included in Rated COP</source>
         <translation>Kondenser Pompa Gücü Nominal COP'a Dahil</translation>
     </message>
-    <!-- OS:Refrigeration:Condenser:AirCooled, OS:Refrigeration:Condenser:Cascade, OS:Refrigeration:Condenser:EvaporativeCooled, OS:Refrigeration:Condenser:WaterCooled -->
+    
     <message>
         <source>Condenser Refrigerant Operating Charge Inventory</source>
         <translation>Kondenser Soğutucu Sıvısı İşletme Yükü Envanteri</translation>
     </message>
-    <!-- OS:WaterHeater:HeatPump:WrappedCondenser -->
+    
     <message>
         <source>Condenser Top Location</source>
         <translation>Kondenser Üst Konumu</translation>
     </message>
-    <!-- OS:WaterHeater:HeatPump -->
+    
     <message>
         <source>Condenser Water Flow Rate</source>
         <translation>Kondenser Su Akış Hızı</translation>
     </message>
-    <!-- OS:Coil:WaterHeating:AirToWaterHeatPump -->
+    
     <message>
         <source>Condenser Water Inlet Node</source>
         <translation>Kondenser Su Giriş Düğümü</translation>
     </message>
-    <!-- OS:Coil:WaterHeating:AirToWaterHeatPump:VariableSpeed -->
+    
     <message>
         <source>Condenser Water Inlet Node Name</source>
         <translation>Kondenser Su Giriş Düğümü Adı</translation>
     </message>
-    <!-- OS:Coil:WaterHeating:AirToWaterHeatPump -->
+    
     <message>
         <source>Condenser Water Outlet Node</source>
         <translation>Kondenser Suyu Çıkış Düğümü</translation>
     </message>
-    <!-- OS:Coil:WaterHeating:AirToWaterHeatPump:VariableSpeed -->
+    
     <message>
         <source>Condenser Water Outlet Node Name</source>
         <translation>Kondenser Suyu Çıkış Düğümü Adı</translation>
     </message>
-    <!-- OS:Coil:WaterHeating:AirToWaterHeatPump -->
+    
     <message>
         <source>Condenser Water Pump Power</source>
         <translation>Kondenser Su Pompası Gücü</translation>
     </message>
-    <!-- OS:Coil:Cooling:DX -->
+    
     <message>
         <source>Condenser Zone</source>
         <translation>Kondenser Bölgesi</translation>
     </message>
-    <!-- OS:Refrigeration:Condenser:Cascade -->
+    
     <message>
         <source>Condensing Temperature Control Type</source>
         <translation>Yoğunlaştırma Sıcaklığı Kontrol Türü</translation>
     </message>
-    <!-- OS:Material, OS:WindowMaterial:Glazing, OS:WindowMaterial:Glazing:RefractionExtinctionMethod, OS:WindowMaterial:Screen, OS:WindowMaterial:Shade -->
+    
     <message>
         <source>Conductivity</source>
         <translation>İletkenlik</translation>
     </message>
-    <!-- OS:WindowMaterial:Gas -->
+    
     <message>
         <source>Conductivity Coefficient A</source>
         <translation>İletkenlik Katsayısı A</translation>
     </message>
-    <!-- OS:WindowMaterial:Gas -->
+    
     <message>
         <source>Conductivity Coefficient B</source>
         <translation>İletkenlik Katsayısı B</translation>
     </message>
-    <!-- OS:WindowMaterial:Gas -->
+    
     <message>
         <source>Conductivity Coefficient C</source>
         <translation>İletkenlik Katsayısı C</translation>
     </message>
-    <!-- OS:Material:RoofVegetation -->
+    
     <message>
         <source>Conductivity of Dry Soil</source>
         <translation>Kuru Toprağın Isıl İletkenliği</translation>
     </message>
-    <!-- OS:ElectricLoadCenter:Transformer -->
+    
     <message>
         <source>Conductor Material</source>
         <translation>İletken Malzeme</translation>
     </message>
-    <!-- OS:AirLoopHVAC -->
+    
     <message>
         <source>Connector List Name</source>
         <translation>Bağlantı Listesi Adı</translation>
     </message>
-    <!-- OS:ElectricLoadCenter:Transformer -->
+    
     <message>
         <source>Consider Transformer Loss for Utility Cost</source>
         <translation>Trafo Kaybını Elektrik Maliyetine Dahil Et</translation>
     </message>
-    <!-- OS:Generator:FuelCell:PowerModule -->
+    
     <message>
         <source>Constant Skin Loss Rate</source>
         <translation>Sabit Cilt Kayıp Oranı</translation>
     </message>
-    <!-- OS:AvailabilityManager:OptimumStart -->
+    
     <message>
         <source>Constant Start Time</source>
         <translation>Sabit Başlangıç Saati</translation>
     </message>
-    <!-- OS:SurfaceProperty:OtherSideCoefficients -->
+    
     <message>
         <source>Constant Temperature</source>
         <translation>Sabit Sıcaklık</translation>
     </message>
-    <!-- OS:SurfaceProperty:OtherSideCoefficients -->
+    
     <message>
         <source>Constant Temperature Coefficient</source>
         <translation>Sabit Sıcaklık Katsayısı</translation>
     </message>
-    <!-- OS:AvailabilityManager:OptimumStart -->
+    
     <message>
         <source>Constant Temperature Gradient during Cooling</source>
         <translation>Soğutma Sırasında Sabit Sıcaklık Gradyenti</translation>
     </message>
-    <!-- OS:AvailabilityManager:OptimumStart -->
+    
     <message>
         <source>Constant Temperature Gradient during Heating</source>
         <translation>Isıtma Sırasında Sabit Sıcaklık Gradyenti</translation>
     </message>
-    <!-- OS:SurfaceProperty:OtherSideCoefficients -->
+    
     <message>
         <source>Constant Temperature Schedule Name</source>
         <translation>Sabit Sıcaklık Takvimi Adı</translation>
     </message>
-    <!-- OS:Generator:FuelSupply -->
+    
     <message>
         <source>Constituent Molar Fraction</source>
         <translation>Bileşen Molar Fraksiyonu</translation>
     </message>
-    <!-- OS:Generator:FuelCell:AirSupply, OS:Generator:FuelSupply -->
+    
     <message>
         <source>Constituent Name</source>
         <translation>Bileşen Adı</translation>
     </message>
-    <!-- OS:Pipe:Indoor, OS:Pipe:Outdoor -->
+    
     <message>
         <source>Construction</source>
         <translation>İnşaat</translation>
     </message>
-    <!-- OS:DaylightingDevice:Tubular, OS:InteriorPartitionSurface, OS:InternalMass:Definition, OS:ShadingSurface, OS:StandardsInformation:Construction, OS:SubSurface, OS:Surface -->
+    
     <message>
         <source>Construction Name</source>
         <translation>İnşaat Adı</translation>
     </message>
-    <!-- OS:EnergyManagementSystem:ConstructionIndexVariable -->
+    
     <message>
         <source>Construction Object Name</source>
         <translation>İnşaat Nesnesi Adı</translation>
     </message>
-    <!-- OS:StandardsInformation:Construction -->
+    
     <message>
         <source>Construction Standard</source>
         <translation>İnşaat Standardı</translation>
     </message>
-    <!-- OS:StandardsInformation:Construction -->
+    
     <message>
         <source>Construction Standard Source</source>
         <translation>İnşaat Standardı Kaynağı</translation>
     </message>
-    <!-- OS:ShadingControl -->
+    
     <message>
         <source>Construction with Shading Name</source>
         <translation>Gölgelendirme ile Yapı Adı</translation>
     </message>
-    <!-- OS:UtilityBill -->
+    
     <message>
         <source>Consumption Unit</source>
         <translation>Tüketim Birimi</translation>
     </message>
-    <!-- OS:UtilityBill -->
+    
     <message>
         <source>Consumption Unit Conversion Factor</source>
         <translation>Tüketim Birimi Dönüşüm Faktörü</translation>
     </message>
-    <!-- OS:ComponentCost:Adjustments -->
+    
     <message>
         <source>Contingency</source>
         <translation>Beklenmeyen Maliyetler</translation>
     </message>
-    <!-- OS:ComponentCost:Adjustments -->
+    
     <message>
         <source>Contractor Fee</source>
         <translation>Yüklenici Ücreti</translation>
     </message>
-    <!-- OS:AvailabilityManager:OptimumStart -->
+    
     <message>
         <source>Control Algorithm</source>
         <translation>Kontrol Algoritması</translation>
     </message>
-    <!-- OS:AirTerminal:DualDuct:VAV:OutdoorAir, OS:AirTerminal:SingleDuct:InletSideMixer, OS:AirTerminal:SingleDuct:VAV:NoReheat, OS:AirTerminal:SingleDuct:VAV:Reheat -->
+    
     <message>
         <source>Control For Outdoor Air</source>
         <translation>Dış Hava Kontrolü</translation>
     </message>
-    <!-- OS:Controller:OutdoorAir, OS:ZoneHVAC:EnergyRecoveryVentilator:Controller -->
+    
     <message>
         <source>Control High Indoor Humidity Based on Outdoor Humidity Ratio</source>
         <translation>Dış Hava Nem Oranına Dayalı Yüksek İç Ortam Nemine Karşı Kontrol</translation>
     </message>
-    <!-- OS:CentralHeatPumpSystem -->
+    
     <message>
         <source>Control Method</source>
         <translation>Kontrol Yöntemi</translation>
     </message>
-    <!-- OS:AirflowNetworkPressureController -->
+    
     <message>
         <source>Control Object Name</source>
         <translation>Kontrol Nesnesi Adı</translation>
     </message>
-    <!-- OS:AirflowNetworkPressureController -->
+    
     <message>
         <source>Control Object Type</source>
         <translation>Kontrol Nesne Türü</translation>
     </message>
-    <!-- OS:Exterior:Lights -->
+    
     <message>
         <source>Control Option</source>
         <translation>Kontrol Seçeneği</translation>
     </message>
-    <!-- OS:WaterHeater:HeatPump:WrappedCondenser -->
+    
     <message>
         <source>Control Sensor 1 Height In Stratified Tank</source>
         <translation>Katmanlı Tankta Kontrol Sensörü 1 Yüksekliği</translation>
     </message>
-    <!-- OS:WaterHeater:HeatPump:WrappedCondenser -->
+    
     <message>
         <source>Control Sensor 1 Weight</source>
         <translation>Kontrol Sensörü 1 Ağırlığı</translation>
     </message>
-    <!-- OS:WaterHeater:HeatPump:WrappedCondenser -->
+    
     <message>
         <source>Control Sensor 2 Height In Stratified Tank</source>
         <translation>Tabakalaşmış Tankte Kontrol Sensörü 2 Yüksekliği</translation>
     </message>
-    <!-- OS:WaterHeater:HeatPump -->
+    
     <message>
         <source>Control Sensor Location In Stratified Tank</source>
         <translation>Tabakalı Tankta Kontrol Sensörü Konumu</translation>
     </message>
-    <!-- OS:AirLoopHVAC:UnitarySystem, OS:AvailabilityManager:NightCycle, OS:AvailabilityManager:OptimumStart, OS:Coil:Cooling:Water:Panel:Radiant, OS:EvaporativeCooler:Indirect:ResearchSpecial, OS:HeatExchanger:FluidToFluid, OS:HeatPump:AirToWater, OS:HeatPump:PlantLoop:EIR:Cooling, OS:HeatPump:PlantLoop:EIR:Heating -->
+    
     <message>
         <source>Control Type</source>
         <translation>Kontrol Türü</translation>
     </message>
-    <!-- OS:AvailabilityManager:NightVentilation, OS:AvailabilityManager:OptimumStart -->
+    
     <message>
         <source>Control Zone</source>
         <translation>Kontrol Bölgesi</translation>
     </message>
-    <!-- OS:AvailabilityManager:NightCycle -->
+    
     <message>
         <source>Control Zone or Zone List Name</source>
         <translation>Kontrol Bölgesi veya Bölge Listesi Adı</translation>
     </message>
-    <!-- OS:AvailabilityManager:HybridVentilation -->
+    
     <message>
         <source>Controlled Zone</source>
         <translation>Kontrollü Alan</translation>
     </message>
-    <!-- OS:ZoneControl:ContaminantController -->
+    
     <message>
         <source>Controlled Zone Name</source>
         <translation>Kontrollü Bölge Adı</translation>
     </message>
-    <!-- OS:Controller:WaterCoil -->
+    
     <message>
         <source>Controller Convergence Tolerance</source>
         <translation>Denetleyici Yakınsama Toleransı</translation>
     </message>
-    <!-- OS:AirLoopHVAC -->
+    
     <message>
         <source>Controller List Name</source>
         <translation>Kontrolör Liste Adı</translation>
     </message>
-    <!-- OS:Controller:OutdoorAir -->
+    
     <message>
         <source>Controller Mechanical Ventilation</source>
         <translation>Kontrol Mekanik Ventilasyon</translation>
     </message>
-    <!-- OS:AirLoopHVAC:OutdoorAirSystem, OS:ZoneHVAC:EnergyRecoveryVentilator -->
+    
     <message>
         <source>Controller Name</source>
         <translation>Kontrolör Adı</translation>
     </message>
-    <!-- OS:AirLoopHVAC:UnitaryHeatPump:AirToAir, OS:AirLoopHVAC:UnitaryHeatPump:AirToAir:MultiSpeed, OS:AirLoopHVAC:UnitarySystem, OS:ZoneHVAC:TerminalUnit:VariableRefrigerantFlow -->
+    
     <message>
         <source>Controlling Zone or Thermostat Location</source>
         <translation>Kontrol Bölgesi veya Termostat Konumu</translation>
     </message>
-    <!-- OS:SurfaceProperty:ConvectionCoefficients, OS:SurfaceProperty:ConvectionCoefficients:MultipleSurface -->
+    
     <message>
         <source>Convection Coefficient 1</source>
         <translation>Konveksiyon Katsayısı 1</translation>
     </message>
-    <!-- OS:SurfaceProperty:ConvectionCoefficients, OS:SurfaceProperty:ConvectionCoefficients:MultipleSurface -->
+    
     <message>
         <source>Convection Coefficient 1 Location</source>
         <translation>Konveksiyon Katsayısı 1 Konumu</translation>
     </message>
-    <!-- OS:SurfaceProperty:ConvectionCoefficients, OS:SurfaceProperty:ConvectionCoefficients:MultipleSurface -->
+    
     <message>
         <source>Convection Coefficient 1 Schedule Name</source>
         <translation>Konveksiyon Katsayısı 1 Programı Adı</translation>
     </message>
-    <!-- OS:SurfaceProperty:ConvectionCoefficients, OS:SurfaceProperty:ConvectionCoefficients:MultipleSurface -->
+    
     <message>
         <source>Convection Coefficient 1 Type</source>
         <translation>Konveksiyon Katsayısı 1 Türü</translation>
     </message>
-    <!-- OS:SurfaceProperty:ConvectionCoefficients, OS:SurfaceProperty:ConvectionCoefficients:MultipleSurface -->
+    
     <message>
         <source>Convection Coefficient 1 User Curve Name</source>
         <translation>Konveksiyon Katsayısı 1 Kullanıcı Eğrisi Adı</translation>
     </message>
-    <!-- OS:SurfaceProperty:ConvectionCoefficients, OS:SurfaceProperty:ConvectionCoefficients:MultipleSurface -->
+    
     <message>
         <source>Convection Coefficient 2</source>
         <translation>Konveksiyon Katsayısı 2</translation>
     </message>
-    <!-- OS:SurfaceProperty:ConvectionCoefficients, OS:SurfaceProperty:ConvectionCoefficients:MultipleSurface -->
+    
     <message>
         <source>Convection Coefficient 2 Location</source>
         <translation>Konveksiyon Katsayısı 2 Konumu</translation>
     </message>
-    <!-- OS:SurfaceProperty:ConvectionCoefficients, OS:SurfaceProperty:ConvectionCoefficients:MultipleSurface -->
+    
     <message>
         <source>Convection Coefficient 2 Schedule Name</source>
         <translation>Konveksiyon Katsayısı 2 Çizelge Adı</translation>
     </message>
-    <!-- OS:SurfaceProperty:ConvectionCoefficients, OS:SurfaceProperty:ConvectionCoefficients:MultipleSurface -->
+    
     <message>
         <source>Convection Coefficient 2 Type</source>
         <translation>Konveksiyon Katsayısı 2 Türü</translation>
     </message>
-    <!-- OS:SurfaceProperty:ConvectionCoefficients, OS:SurfaceProperty:ConvectionCoefficients:MultipleSurface -->
+    
     <message>
         <source>Convection Coefficient 2 User Curve Name</source>
         <translation>Konveksiyon Katsayısı 2 Kullanıcı Eğrisi Adı</translation>
     </message>
-    <!-- OS:AirflowNetworkSimulationControl -->
+    
     <message>
         <source>Convergence Acceleration Limit</source>
         <translation>Yakınsama Hızlandırma Sınırı</translation>
     </message>
-    <!-- OS:PhotovoltaicPerformance:Simple -->
+    
     <message>
         <source>Conversion Efficiency Input Mode</source>
         <translation>Dönüşüm Verimliliği Giriş Modu</translation>
     </message>
-    <!-- OS:UtilityCost:Tariff -->
+    
     <message>
         <source>Conversion Factor Choice</source>
         <translation>Dönüştürme Faktörü Seçimi</translation>
     </message>
-    <!-- OS:InteriorPartitionSurface -->
+    
     <message>
         <source>Convert to Internal Mass</source>
         <translation>İç Kütleye Dönüştür</translation>
     </message>
-    <!-- OS:AirTerminal:SingleDuct:ConstantVolume:CooledBeam -->
+    
     <message>
         <source>Cooled Beam Type</source>
         <translation>Soğutmalı Kiriş Türü</translation>
     </message>
-    <!-- OS:EvaporativeCooler:Direct:ResearchSpecial -->
+    
     <message>
         <source>Cooler Design Effectiveness</source>
         <translation>Serinletici Tasarım Etkinliği</translation>
     </message>
-    <!-- OS:EvaporativeCooler:Indirect:ResearchSpecial -->
+    
     <message>
         <source>Cooler Drybulb Design Effectiveness</source>
         <translation>Soğutucunun Kuru Termometre Tasarım Etkinliği</translation>
     </message>
-    <!-- OS:EvaporativeCooler:Indirect:ResearchSpecial -->
+    
     <message>
         <source>Cooler Flow Ratio</source>
         <translation>Soğutucu Akış Oranı</translation>
     </message>
-    <!-- OS:EvaporativeCooler:Indirect:ResearchSpecial -->
+    
     <message>
         <source>Cooler Maximum Effectiveness</source>
         <translation>Soğutucu Maksimum Etkinliği</translation>
     </message>
-    <!-- OS:ZoneHVAC:EvaporativeCoolerUnit -->
+    
     <message>
         <source>Cooler Outlet Node Name</source>
         <translation>Cooler Çıkış Düğümü Adı</translation>
     </message>
-    <!-- OS:ZoneHVAC:EvaporativeCoolerUnit -->
+    
     <message>
         <source>Cooler Unit Control Method</source>
         <translation>Soğutucu Ünitesi Kontrol Yöntemi</translation>
     </message>
-    <!-- OS:Coil:Cooling:DX:SingleSpeed:ThermalStorage -->
+    
     <message>
         <source>Cooling And Charge Mode Available</source>
         <translation>Soğutma ve Şarj Modu Kullanılabilir</translation>
     </message>
-    <!-- OS:Coil:Cooling:DX:SingleSpeed:ThermalStorage -->
+    
     <message>
         <source>Cooling And Charge Mode Capacity Sizing Factor</source>
         <translation>Soğutma ve Şarj Modu Kapasite Boyutlandırma Faktörü</translation>
     </message>
-    <!-- OS:Coil:Cooling:DX:SingleSpeed:ThermalStorage -->
+    
     <message>
         <source>Cooling And Charge Mode Charging Rated COP</source>
         <translation>Soğutma ve Şarj Modu Şarj Edilmiş COP</translation>
     </message>
-    <!-- OS:Coil:Cooling:DX:SingleSpeed:ThermalStorage -->
+    
     <message>
         <source>Cooling And Charge Mode Cooling Rated COP</source>
         <translation>Soğutma ve Şarj Modu Soğutma Nominal COP</translation>
     </message>
-    <!-- OS:Coil:Cooling:DX:SingleSpeed:ThermalStorage -->
+    
     <message>
         <source>Cooling And Charge Mode Evaporator Energy Input Ratio Function of Flow Fraction Curve</source>
         <translation>Soğutma ve Şarj Modu Buharlaştırıcı Enerji Giriş Oranı Akış Fraksiyonu Fonksiyon Eğrisi</translation>
     </message>
-    <!-- OS:Coil:Cooling:DX:SingleSpeed:ThermalStorage -->
+    
     <message>
         <source>Cooling And Charge Mode Evaporator Energy Input Ratio Function of Temperature Curve</source>
         <translation>Soğutma ve Şarj Modu Buharlaştırıcı Enerji Giriş Oranı Sıcaklık Fonksiyonu Eğrisi</translation>
     </message>
-    <!-- OS:Coil:Cooling:DX:SingleSpeed:ThermalStorage -->
+    
     <message>
         <source>Cooling And Charge Mode Evaporator Part Load Fraction Correlation Curve</source>
         <translation>Soğutma ve Şarj Modu Buharlaştırıcı Kısmi Yük Kesri Korelasyon Eğrisi</translation>
     </message>
-    <!-- OS:Coil:Cooling:DX:SingleSpeed:ThermalStorage -->
+    
     <message>
         <source>Cooling And Charge Mode Rated Sensible Heat Ratio</source>
         <translation>Soğutma ve Yükleme Modu Nominal Duyulur Isı Oranı</translation>
     </message>
-    <!-- OS:Coil:Cooling:DX:SingleSpeed:ThermalStorage -->
+    
     <message>
         <source>Cooling And Charge Mode Rated Storage Charging Capacity</source>
         <translation>Soğutma ve Şarj Modu Çalışma Kapasitesi Depo Şarj Kapasitesi</translation>
     </message>
-    <!-- OS:Coil:Cooling:DX:SingleSpeed:ThermalStorage -->
+    
     <message>
         <source>Cooling And Charge Mode Rated Total Evaporator Cooling Capacity</source>
         <translation>Soğutma ve Yükleme Modu Nominal Toplam Buharlaştırıcı Soğutma Kapasitesi</translation>
     </message>
-    <!-- OS:Coil:Cooling:DX:SingleSpeed:ThermalStorage -->
+    
     <message>
         <source>Cooling And Charge Mode Sensible Heat Ratio Function of Flow Fraction Curve</source>
         <translation>Soğutma ve Şarj Modu Duyulur Isı Oranı Akış Fraksiyonu Eğrisi İşlevi</translation>
     </message>
-    <!-- OS:Coil:Cooling:DX:SingleSpeed:ThermalStorage -->
+    
     <message>
         <source>Cooling And Charge Mode Sensible Heat Ratio Function of Temperature Curve</source>
         <translation>Soğutma ve Şarj Modu Duyulur Isı Oranı Sıcaklık Eğrisi Fonksiyonu</translation>
     </message>
-    <!-- OS:Coil:Cooling:DX:SingleSpeed:ThermalStorage -->
+    
     <message>
         <source>Cooling And Charge Mode Storage Capacity Sizing Factor</source>
         <translation>Soğutma ve Şarj Modu Depolama Kapasitesi Boyutlandırma Faktörü</translation>
     </message>
-    <!-- OS:Coil:Cooling:DX:SingleSpeed:ThermalStorage -->
+    
     <message>
         <source>Cooling And Charge Mode Storage Charge Capacity Function of Temperature Curve</source>
         <translation>Soğutma ve Şarj Modu Depolama Şarj Kapasitesi Sıcaklık Fonksiyonu Eğrisi</translation>
     </message>
-    <!-- OS:Coil:Cooling:DX:SingleSpeed:ThermalStorage -->
+    
     <message>
         <source>Cooling And Charge Mode Storage Charge Capacity Function of Total Evaporator PLR Curve</source>
         <translation>Soğutma ve Yükleme Modu Depolama Yükleme Kapasitesi Toplam Evaporatör PLR Eğrisinin Fonksiyonu</translation>
     </message>
-    <!-- OS:Coil:Cooling:DX:SingleSpeed:ThermalStorage -->
+    
     <message>
         <source>Cooling And Charge Mode Storage Energy Input Ratio Function of Flow Fraction Curve</source>
         <translation>Soğutma ve Şarj Modu Depolama Enerjisi Giriş Oranı Akış Kesri Eğrisi Fonksiyonu</translation>
     </message>
-    <!-- OS:Coil:Cooling:DX:SingleSpeed:ThermalStorage -->
+    
     <message>
         <source>Cooling And Charge Mode Storage Energy Input Ratio Function of Temperature Curve</source>
         <translation>Soğutma ve Şarj Modu Depolama Enerjisi Giriş Oranı Sıcaklık Fonksiyonu Eğrisi</translation>
     </message>
-    <!-- OS:Coil:Cooling:DX:SingleSpeed:ThermalStorage -->
+    
     <message>
         <source>Cooling And Charge Mode Storage Energy Part Load Fraction Correlation Curve</source>
         <translation>Soğutma ve Yükleme Modu Depolama Enerjisi Kısmi Yük Kesri Korelasyon Eğrisi</translation>
     </message>
-    <!-- OS:Coil:Cooling:DX:SingleSpeed:ThermalStorage -->
+    
     <message>
         <source>Cooling And Charge Mode Total Evaporator Cooling Capacity Function of Flow Fraction Curve</source>
         <translation>Soğutma ve Şarj Modu Toplam Buharlaştırıcı Soğutma Kapasitesi Akış Kesri Fonksiyon Eğrisi</translation>
     </message>
-    <!-- OS:Coil:Cooling:DX:SingleSpeed:ThermalStorage -->
+    
     <message>
         <source>Cooling And Charge Mode Total Evaporator Cooling Capacity Function of Temperature Curve</source>
         <translation>Soğutma ve Şarj Modu Toplam Buharlaştırıcı Soğutma Kapasitesi Sıcaklık Fonksiyonu Eğrisi</translation>
     </message>
-    <!-- OS:Coil:Cooling:DX:SingleSpeed:ThermalStorage -->
+    
     <message>
         <source>Cooling And Discharge Mode Available</source>
         <translation>Soğutma ve Boşaltma Modu Kullanılabilir</translation>
     </message>
-    <!-- OS:Coil:Cooling:DX:SingleSpeed:ThermalStorage -->
+    
     <message>
         <source>Cooling And Discharge Mode Cooling Rated COP</source>
         <translation>Soğutma ve Deşarj Modunda Soğutma Nominal COP</translation>
     </message>
-    <!-- OS:Coil:Cooling:DX:SingleSpeed:ThermalStorage -->
+    
     <message>
         <source>Cooling And Discharge Mode Discharging Rated COP</source>
         <translation>Soğutma ve Deşarj Modu Deşarj Edilen Nominal COP</translation>
     </message>
-    <!-- OS:Coil:Cooling:DX:SingleSpeed:ThermalStorage -->
+    
     <message>
         <source>Cooling And Discharge Mode Evaporator Capacity Sizing Factor</source>
         <translation>Soğutma ve Deşarj Modu Buharlaştırıcı Kapasite Boyutlandırma Faktörü</translation>
     </message>
-    <!-- OS:Coil:Cooling:DX:SingleSpeed:ThermalStorage -->
+    
     <message>
         <source>Cooling And Discharge Mode Evaporator Energy Input Ratio Function of Flow Fraction Curve</source>
         <translation>Soğutma ve Boşaltım Modu Evaporatör Enerji Giriş Oranı Akış Kesri Fonksiyon Eğrisi</translation>
     </message>
-    <!-- OS:Coil:Cooling:DX:SingleSpeed:ThermalStorage -->
+    
     <message>
         <source>Cooling And Discharge Mode Evaporator Energy Input Ratio Function of Temperature Curve</source>
         <translation>Soğutma Ve Deşarj Modu Buharlaştırıcı Enerji Giriş Oranı Sıcaklık Fonksiyonu Eğrisi</translation>
     </message>
-    <!-- OS:Coil:Cooling:DX:SingleSpeed:ThermalStorage -->
+    
     <message>
         <source>Cooling And Discharge Mode Evaporator Part Load Fraction Correlation Curve</source>
         <translation>Soğutma ve Deşarj Modu Evaporatör Kısmi Yük Kesir Korelasyon Eğrisi</translation>
     </message>
-    <!-- OS:Coil:Cooling:DX:SingleSpeed:ThermalStorage -->
+    
     <message>
         <source>Cooling And Discharge Mode Rated Sensible Heat Ratio</source>
         <translation>Soğutma ve Boşaltma Modu Nominal Duyulur Isı Oranı</translation>
     </message>
-    <!-- OS:Coil:Cooling:DX:SingleSpeed:ThermalStorage -->
+    
     <message>
         <source>Cooling And Discharge Mode Rated Storage Discharging Capacity</source>
         <translation>Soğutma ve Boşaltma Modu Nominal Depolama Boşaltma Kapasitesi</translation>
     </message>
-    <!-- OS:Coil:Cooling:DX:SingleSpeed:ThermalStorage -->
+    
     <message>
         <source>Cooling And Discharge Mode Rated Total Evaporator Cooling Capacity</source>
         <translation>Soğutma Ve Boşaltma Modu Nominal Toplam Evaporatör Soğutma Kapasitesi</translation>
     </message>
-    <!-- OS:Coil:Cooling:DX:SingleSpeed:ThermalStorage -->
+    
     <message>
         <source>Cooling And Discharge Mode Sensible Heat Ratio Function of Flow Fraction Curve</source>
         <translation>Soğutma ve Deşarj Modu Duyulur Isı Oranı Akış Kesri Fonksiyonu Eğrisi</translation>
     </message>
-    <!-- OS:Coil:Cooling:DX:SingleSpeed:ThermalStorage -->
+    
     <message>
         <source>Cooling And Discharge Mode Sensible Heat Ratio Function of Temperature Curve</source>
         <translation>Soğutma ve Boşaltma Modu Duyulur Isı Oranı Sıcaklık Eğrisi İşlevi</translation>
     </message>
-    <!-- OS:Coil:Cooling:DX:SingleSpeed:ThermalStorage -->
+    
     <message>
         <source>Cooling And Discharge Mode Storage Discharge Capacity Function of Flow Fraction Curve</source>
         <translation>Soğutma ve Deşarj Modu Depolama Deşarj Kapasitesi Akış Kesri Fonksiyon Eğrisi</translation>
     </message>
-    <!-- OS:Coil:Cooling:DX:SingleSpeed:ThermalStorage -->
+    
     <message>
         <source>Cooling And Discharge Mode Storage Discharge Capacity Function of Temperature Curve</source>
         <translation>Soğutma ve Deşarj Modu Depolama Deşarj Kapasitesi Sıcaklık Fonksiyonu Eğrisi</translation>
     </message>
-    <!-- OS:Coil:Cooling:DX:SingleSpeed:ThermalStorage -->
+    
     <message>
         <source>Cooling And Discharge Mode Storage Discharge Capacity Function of Total Evaporator PLR Curve</source>
         <translation>Soğutma ve Boşaltma Modu Depolama Boşaltma Kapasitesi Toplam Evaporatör PLR Eğrisi Fonksiyonu</translation>
     </message>
-    <!-- OS:Coil:Cooling:DX:SingleSpeed:ThermalStorage -->
+    
     <message>
         <source>Cooling And Discharge Mode Storage Discharge Capacity Sizing Factor</source>
         <translation>Soğutma ve Deşarj Modu Depolama Deşarj Kapasitesi Boyutlandırma Faktörü</translation>
     </message>
-    <!-- OS:Coil:Cooling:DX:SingleSpeed:ThermalStorage -->
+    
     <message>
         <source>Cooling And Discharge Mode Storage Energy Input Ratio Function of Flow Fraction Curve</source>
         <translation>Soğutma Ve Boşaltma Modu Depolama Enerji Giriş Oranı Akış Fraksiyonu Eğrisi Fonksiyonu</translation>
     </message>
-    <!-- OS:Coil:Cooling:DX:SingleSpeed:ThermalStorage -->
+    
     <message>
         <source>Cooling And Discharge Mode Storage Energy Input Ratio Function of Temperature Curve</source>
         <translation>Soğutma ve Deşarj Modu Depolama Enerji Giriş Oranı Sıcaklık Fonksiyonu Eğrisi</translation>
     </message>
-    <!-- OS:Coil:Cooling:DX:SingleSpeed:ThermalStorage -->
+    
     <message>
         <source>Cooling And Discharge Mode Storage Energy Part Load Fraction Correlation Curve</source>
         <translation>Soğutma ve Deşarj Modu Depolama Enerjisi Kısmi Yük Kesir Korelasyon Eğrisi</translation>
     </message>
-    <!-- OS:Coil:Cooling:DX:SingleSpeed:ThermalStorage -->
+    
     <message>
         <source>Cooling And Discharge Mode Total Evaporator Cooling Capacity Function of Flow Fraction Curve</source>
         <translation>Soğutma ve Boşaltma Modu Toplam Buharlaştırıcı Soğutma Kapasitesi Akış Kesri Fonksiyonu Eğrisi</translation>
     </message>
-    <!-- OS:Coil:Cooling:DX:SingleSpeed:ThermalStorage -->
+    
     <message>
         <source>Cooling And Discharge Mode Total Evaporator Cooling Capacity Function of Temperature Curve</source>
         <translation>Soğutma Ve Boşaltma Modu Toplam Evaporatör Soğutma Kapasitesi Sıcaklık Fonksiyonu Eğrisi</translation>
     </message>
-    <!-- OS:AirTerminal:SingleDuct:ConstantVolume:FourPipeBeam, OS:ZoneHVAC:IdealLoadsAirSystem -->
+    
     <message>
         <source>Cooling Availability Schedule Name</source>
         <translation>Soğutma Kullanılabilirlik Planlama Adı</translation>
     </message>
-    <!-- OS:HeatPump:WaterToWater:EquationFit:Cooling -->
+    
     <message>
         <source>Cooling Capacity Curve Name</source>
         <translation>Soğutma Kapasitesi Eğrisi Adı</translation>
     </message>
-    <!-- OS:Coil:Cooling:DX:VariableRefrigerantFlow -->
+    
     <message>
         <source>Cooling Capacity Modifier Curve Function of Flow Fraction</source>
         <translation>Soğutma Kapasitesi Değiştirici Eğrisi Akış Fraksiyonunun Fonksiyonu</translation>
     </message>
-    <!-- OS:AirConditioner:VariableRefrigerantFlow -->
+    
     <message>
         <source>Cooling Capacity Ratio Boundary Curve Name</source>
         <translation>Soğutma Kapasitesi Oranı Sınır Eğrisi Adı</translation>
     </message>
-    <!-- OS:AirConditioner:VariableRefrigerantFlow -->
+    
     <message>
         <source>Cooling Capacity Ratio Modifier Function of High Temperature Curve Name</source>
         <translation>Soğutma Kapasitesi Oranı Değiştirici Yüksek Sıcaklık Eğrisi Adı İşlevi</translation>
     </message>
-    <!-- OS:AirConditioner:VariableRefrigerantFlow -->
+    
     <message>
         <source>Cooling Capacity Ratio Modifier Function of Low Temperature Curve Name</source>
         <translation>Soğutma Kapasitesi Oranı Değiştirici Düşük Sıcaklık Eğrisi Adı Fonksiyonu</translation>
     </message>
-    <!-- OS:Coil:Cooling:DX:VariableRefrigerantFlow -->
+    
     <message>
         <source>Cooling Capacity Ratio Modifier Function of Temperature Curve</source>
         <translation>Soğutma Kapasitesi Oranı Sıcaklık Eğrisi Düzeltme Fonksiyonu</translation>
     </message>
-    <!-- OS:AirLoopHVAC:UnitaryHeatCool:VAVChangeoverBypass, OS:AirLoopHVAC:UnitaryHeatPump:AirToAir:MultiSpeed, OS:CoilSystem:Cooling:DX:HeatExchangerAssisted, OS:CoilSystem:Cooling:Water, OS:CoilSystem:Cooling:Water:HeatExchangerAssisted, OS:ZoneHVAC:TerminalUnit:VariableRefrigerantFlow -->
+    
     <message>
         <source>Cooling Coil</source>
         <translation>Soğutma Serpentini</translation>
     </message>
-    <!-- OS:AirLoopHVAC:UnitaryCoolOnly, OS:AirLoopHVAC:UnitaryHeatPump:AirToAir, OS:AirLoopHVAC:UnitarySystem, OS:AirTerminal:SingleDuct:ConstantVolume:CooledBeam, OS:AirTerminal:SingleDuct:ConstantVolume:FourPipeBeam, OS:AirTerminal:SingleDuct:ConstantVolume:FourPipeInduction, OS:ZoneHVAC:CoolingPanel:RadiantConvective:Water, OS:ZoneHVAC:FourPipeFanCoil, OS:ZoneHVAC:PackagedTerminalAirConditioner, OS:ZoneHVAC:PackagedTerminalHeatPump, OS:ZoneHVAC:UnitVentilator, OS:ZoneHVAC:WaterToAirHeatPump -->
+    
     <message>
         <source>Cooling Coil Name</source>
         <translation>Soğutma Serpentini Adı</translation>
     </message>
-    <!-- OS:AirLoopHVAC:UnitaryCoolOnly -->
+    
     <message>
         <source>Cooling Coil Object Type</source>
         <translation>Soğutma Serpantini Nesne Türü</translation>
     </message>
-    <!-- OS:AirConditioner:VariableRefrigerantFlow -->
+    
     <message>
         <source>Cooling Combination Ratio Correction Factor Curve Name</source>
         <translation>Soğutma Kombinasyon Oranı Düzeltme Faktörü Eğri Adı</translation>
     </message>
-    <!-- OS:HeatPump:WaterToWater:EquationFit:Cooling -->
+    
     <message>
         <source>Cooling Compressor Power Curve Name</source>
         <translation>Soğutma Kompresörü Güç Eğrisi Adı</translation>
     </message>
-    <!-- OS:Coil:Cooling:LowTemperatureRadiant:VariableFlow, OS:Coil:Cooling:Water:Panel:Radiant -->
+    
     <message>
         <source>Cooling Control Temperature Schedule Name</source>
         <translation>Soğutma Kontrol Sıcaklığı Takvim Adı</translation>
     </message>
-    <!-- OS:Coil:Cooling:LowTemperatureRadiant:VariableFlow, OS:Coil:Cooling:Water:Panel:Radiant -->
+    
     <message>
         <source>Cooling Control Throttling Range</source>
         <translation>Soğutma Kontrolü Kısıtlama Aralığı</translation>
     </message>
-    <!-- OS:AvailabilityManager:NightCycle -->
+    
     <message>
         <source>Cooling Control Zone or Zone List Name</source>
         <translation>Soğutma Kontrol Alanı veya Alan Listesi Adı</translation>
     </message>
-    <!-- OS:AirTerminal:SingleDuct:ConstantVolume:FourPipeInduction, OS:ZoneHVAC:FourPipeFanCoil, OS:ZoneHVAC:PackagedTerminalHeatPump, OS:ZoneHVAC:UnitVentilator -->
+    
     <message>
         <source>Cooling Convergence Tolerance</source>
         <translation>Soğutma Yakınsaklık Toleransı</translation>
     </message>
-    <!-- OS:Coil:Cooling:LowTemperatureRadiant:VariableFlow, OS:Coil:Cooling:Water:Panel:Radiant, OS:Sizing:System -->
+    
     <message>
         <source>Cooling Design Capacity</source>
         <translation>Soğutma Tasarım Kapasitesi</translation>
     </message>
-    <!-- OS:Coil:Cooling:LowTemperatureRadiant:VariableFlow, OS:Coil:Cooling:Water:Panel:Radiant, OS:Sizing:System -->
+    
     <message>
         <source>Cooling Design Capacity Method</source>
         <translation>Soğutma Tasarım Kapasitesi Yöntemi</translation>
     </message>
-    <!-- OS:Coil:Cooling:LowTemperatureRadiant:VariableFlow, OS:Coil:Cooling:Water:Panel:Radiant, OS:Sizing:System -->
+    
     <message>
         <source>Cooling Design Capacity Per Floor Area</source>
         <translation>Soğutma Tasarım Kapasitesi Birim Alan Başına</translation>
     </message>
-    <!-- OS:AirConditioner:VariableRefrigerantFlow -->
+    
     <message>
         <source>Cooling Energy Input Ratio Boundary Curve Name</source>
         <translation>Soğutma Enerji Giriş Oranı Sınır Eğrisi Adı</translation>
     </message>
-    <!-- OS:HeatPump:AirToWater:Cooling:SpeedData -->
+    
     <message>
         <source>Cooling Energy Input Ratio Function of PLR Curve Name</source>
         <translation>Soğutma Enerji Giriş Oranı PLR Eğrisi Adı İşlevi</translation>
     </message>
-    <!-- OS:HeatPump:AirToWater:Cooling:SpeedData -->
+    
     <message>
         <source>Cooling Energy Input Ratio Function of Temperature Curve Name</source>
         <translation>Soğutma Enerji Girişi Sıcaklık Oranı Fonksiyonu Eğri Adı</translation>
     </message>
-    <!-- OS:AirConditioner:VariableRefrigerantFlow -->
+    
     <message>
         <source>Cooling Energy Input Ratio Modifier Function of High Part-Load Ratio Curve Name</source>
         <translation>Soğutma Enerjisi Giriş Oranı Değiştirici Yüksek Kısmi Yük Oranı Eğrisi Adı İşlevi</translation>
     </message>
-    <!-- OS:AirConditioner:VariableRefrigerantFlow -->
+    
     <message>
         <source>Cooling Energy Input Ratio Modifier Function of High Temperature Curve Name</source>
         <translation>Soğutma Enerji Giriş Oranı Değiştirici Yüksek Sıcaklık Eğrisi Adı</translation>
     </message>
-    <!-- OS:AirConditioner:VariableRefrigerantFlow -->
+    
     <message>
         <source>Cooling Energy Input Ratio Modifier Function of Low Part-Load Ratio Curve Name</source>
         <translation>Soğutma Enerji Giriş Oranı Düşük Kısmi Yük Oranı Eğrisi Adı Değiştirme Fonksiyonu</translation>
     </message>
-    <!-- OS:AirConditioner:VariableRefrigerantFlow -->
+    
     <message>
         <source>Cooling Energy Input Ratio Modifier Function of Low Temperature Curve Name</source>
         <translation>Soğutma Enerjisi Giriş Oranı Değiştirici Düşük Sıcaklık Eğrisi Adı</translation>
     </message>
-    <!-- OS:Sizing:System -->
+    
     <message>
         <source>Cooling Fraction of Autosized Cooling Supply Air Flow Rate</source>
         <translation>Otomatik Boyutlandırılmış Soğutma Beslemesi Hava Akış Hızının Soğutma Oranı</translation>
     </message>
-    <!-- OS:ZoneHVAC:IdealLoadsAirSystem -->
+    
     <message>
         <source>Cooling Fuel Efficiency Schedule Name</source>
         <translation>Soğutma Yakıt Verimliliği Programı Adı</translation>
     </message>
-    <!-- OS:ZoneHVAC:IdealLoadsAirSystem -->
+    
     <message>
         <source>Cooling Fuel Type</source>
         <translation>Soğutma Yakıt Türü</translation>
     </message>
-    <!-- OS:Coil:Cooling:LowTemperatureRadiant:ConstantFlow -->
+    
     <message>
         <source>Cooling High Control Temperature Schedule Name</source>
         <translation>Soğutma Yüksek Kontrol Sıcaklığı Çizelge Adı</translation>
     </message>
-    <!-- OS:Coil:Cooling:LowTemperatureRadiant:ConstantFlow -->
+    
     <message>
         <source>Cooling High Water Temperature Schedule Name</source>
         <translation>Soğutma Yüksek Su Sıcaklığı Programı Adı</translation>
     </message>
-    <!-- OS:ZoneHVAC:IdealLoadsAirSystem -->
+    
     <message>
         <source>Cooling Limit</source>
         <translation>Soğutma Limiti</translation>
     </message>
-    <!-- OS:ZoneHVAC:EvaporativeCoolerUnit -->
+    
     <message>
         <source>Cooling Load Control Threshold Heat Transfer Rate</source>
         <translation>Soğutma Yükü Kontrol Eşiği Isı Transfer Hızı</translation>
     </message>
-    <!-- OS:CentralHeatPumpSystem -->
+    
     <message>
         <source>Cooling Loop Inlet Node Name</source>
         <translation>Soğutma Döngüsü Giriş Düğümü Adı</translation>
     </message>
-    <!-- OS:CentralHeatPumpSystem -->
+    
     <message>
         <source>Cooling Loop Outlet Node Name</source>
         <translation>Soğutma Döngüsü Çıkış Düğümü Adı</translation>
     </message>
-    <!-- OS:Coil:Cooling:LowTemperatureRadiant:ConstantFlow -->
+    
     <message>
         <source>Cooling Low Control Temperature Schedule Name</source>
         <translation>Soğutma Düşük Kontrol Sıcaklığı Programı Adı</translation>
     </message>
-    <!-- OS:Coil:Cooling:LowTemperatureRadiant:ConstantFlow -->
+    
     <message>
         <source>Cooling Low Water Temperature Schedule Name</source>
         <translation>Soğutma Düşük Su Sıcaklığı Programı Adı</translation>
     </message>
-    <!-- OS:ChillerHeaterPerformance:Electric:EIR -->
+    
     <message>
         <source>Cooling Mode Cooling Capacity Function of Temperature Curve Name</source>
         <translation>Soğutma Modu Soğutma Kapasitesi Sıcaklık Fonksiyonu Eğri Adı</translation>
     </message>
-    <!-- OS:ChillerHeaterPerformance:Electric:EIR -->
+    
     <message>
         <source>Cooling Mode Cooling Capacity Optimum Part Load Ratio</source>
         <translation>Soğutma Modu Soğutma Kapasitesi Optimal Kısmi Yük Oranı</translation>
     </message>
-    <!-- OS:ChillerHeaterPerformance:Electric:EIR -->
+    
     <message>
         <source>Cooling Mode Electric Input to Cooling Output Ratio Function of Part Load Ratio Curve Name</source>
         <translation>Soğutma Modu Elektrik Girdisi - Soğutma Çıkışı Oranı Kısmi Yük Oranı Eğrisi Adı</translation>
     </message>
-    <!-- OS:ChillerHeaterPerformance:Electric:EIR -->
+    
     <message>
         <source>Cooling Mode Electric Input to Cooling Output Ratio Function of Temperature Curve Name</source>
         <translation>Soğutma Modu Elektrik Girdisi Soğutma Çıktısına Oran Sıcaklık Fonksiyonu Eğri Adı</translation>
     </message>
-    <!-- OS:ChillerHeaterPerformance:Electric:EIR -->
+    
     <message>
         <source>Cooling Mode Temperature Curve Condenser Water Independent Variable</source>
         <translation>Soğutma Modu Sıcaklık Eğrisi Kondenser Suyu Bağımsız Değişkeni</translation>
     </message>
-    <!-- OS:Coil:Cooling:DX:SingleSpeed:ThermalStorage -->
+    
     <message>
         <source>Cooling Only Mode Available</source>
         <translation>Yalnızca Soğutma Modu Kullanılabilir</translation>
     </message>
-    <!-- OS:Coil:Cooling:DX:SingleSpeed:ThermalStorage -->
+    
     <message>
         <source>Cooling Only Mode Energy Input Ratio Function of Flow Fraction Curve</source>
         <translation>Soğutma Sadece Modu Enerji Giriş Oranı Akış Fraksiyonu Eğrisi Fonksiyonu</translation>
     </message>
-    <!-- OS:Coil:Cooling:DX:SingleSpeed:ThermalStorage -->
+    
     <message>
         <source>Cooling Only Mode Energy Input Ratio Function of Temperature Curve</source>
         <translation>Soğutma Yalnızca Modu Sıcaklık Fonksiyonu Enerji Giriş Oranı Eğrisi</translation>
     </message>
-    <!-- OS:Coil:Cooling:DX:SingleSpeed:ThermalStorage -->
+    
     <message>
         <source>Cooling Only Mode Part Load Fraction Correlation Curve</source>
         <translation>Soğutma Yalnızca Modu Kısmi Yük Fraksiyon Korelasyon Eğrisi</translation>
     </message>
-    <!-- OS:Coil:Cooling:DX:SingleSpeed:ThermalStorage -->
+    
     <message>
         <source>Cooling Only Mode Rated COP</source>
         <translation>Sadece Soğutma Modu Nominal COP</translation>
     </message>
-    <!-- OS:Coil:Cooling:DX:SingleSpeed:ThermalStorage -->
+    
     <message>
         <source>Cooling Only Mode Rated Sensible Heat Ratio</source>
         <translation>Soğutma Modu Oranı Açılmış Sensible Isı Oranı</translation>
     </message>
-    <!-- OS:Coil:Cooling:DX:SingleSpeed:ThermalStorage -->
+    
     <message>
         <source>Cooling Only Mode Rated Total Evaporator Cooling Capacity</source>
         <translation>Soğutma Modunda Nominal Toplam Buharlaştırıcı Soğutma Kapasitesi</translation>
     </message>
-    <!-- OS:Coil:Cooling:DX:SingleSpeed:ThermalStorage -->
+    
     <message>
         <source>Cooling Only Mode Sensible Heat Ratio Function of Flow Fraction Curve</source>
         <translation>Sadece Soğutma Modu Duyulur Isı Oranı Akış Kesri Fonksiyonu Eğrisi</translation>
     </message>
-    <!-- OS:Coil:Cooling:DX:SingleSpeed:ThermalStorage -->
+    
     <message>
         <source>Cooling Only Mode Sensible Heat Ratio Function of Temperature Curve</source>
         <translation>Sadece Soğutma Modu Duyulur Isı Oranı Sıcaklık Eğrisi İşlevi</translation>
     </message>
-    <!-- OS:Coil:Cooling:DX:SingleSpeed:ThermalStorage -->
+    
     <message>
         <source>Cooling Only Mode Total Evaporator Cooling Capacity Function of Flow Fraction Curve</source>
         <translation>Cooling Only Mode Total Evaporator Cooling Capacity Function of Flow Fraction Curve</translation>
     </message>
-    <!-- OS:Coil:Cooling:DX:SingleSpeed:ThermalStorage -->
+    
     <message>
         <source>Cooling Only Mode Total Evaporator Cooling Capacity Function of Temperature Curve</source>
         <translation>Soğutma Sadece Modu Toplam Buharlaştırıcı Soğutma Kapasitesi Sıcaklık Eğrisi Fonksiyonu</translation>
     </message>
-    <!-- OS:HeatPump:AirToWater -->
+    
     <message>
         <source>Cooling Operation Mode</source>
         <translation>Soğutma İşletme Modu</translation>
     </message>
-    <!-- OS:AirConditioner:VariableRefrigerantFlow -->
+    
     <message>
         <source>Cooling Part-Load Fraction Correlation Curve Name</source>
         <translation>Soğutma Kısmi Yük Fraksiyonu Korelasyon Eğrisi Adı</translation>
     </message>
-    <!-- OS:Coil:Cooling:WaterToAirHeatPump:EquationFit -->
+    
     <message>
         <source>Cooling Power Consumption Curve Name</source>
         <translation>Soğutma Güç Tüketimi Eğrisi Adı</translation>
     </message>
-    <!-- OS:ZoneHVAC:IdealLoadsAirSystem -->
+    
     <message>
         <source>Cooling Sensible Heat Ratio</source>
         <translation>Soğutma Duysal Isı Oranı</translation>
     </message>
-    <!-- OS:ThermostatSetpoint:DualSetpoint -->
+    
     <message>
         <source>Cooling Setpoint Temperature Schedule Name</source>
         <translation>Soğutma Ayar Sıcaklığı Program Adı</translation>
     </message>
-    <!-- OS:Sizing:Parameters -->
+    
     <message>
         <source>Cooling Sizing Factor</source>
         <translation>Soğutma Boyutlandırma Faktörü</translation>
     </message>
-    <!-- OS:UnitarySystemPerformance:Multispeed -->
+    
     <message>
         <source>Cooling Speed Supply Air Flow Ratio</source>
         <translation>Soğutma Hızı Besleme Hava Akış Oranı</translation>
     </message>
-    <!-- OS:SetpointManager:SingleZone:OneStageCooling -->
+    
     <message>
         <source>Cooling Stage Off Supply Air Setpoint Temperature</source>
         <translation>Soğutma Aşaması Kapalı Iken Besleme Hava Setpoint Sıcaklığı</translation>
     </message>
-    <!-- OS:SetpointManager:SingleZone:OneStageCooling -->
+    
     <message>
         <source>Cooling Stage On Supply Air Setpoint Temperature</source>
         <translation>Soğutma Aşaması Açık Tedarik Hava Ayar Sıcaklığı</translation>
     </message>
-    <!-- OS:Sizing:System -->
+    
     <message>
         <source>Cooling Supply Air Flow Rate Per Floor Area</source>
         <translation>Soğutma Hava Akış Hızı Birim Alan Başına</translation>
     </message>
-    <!-- OS:Sizing:System -->
+    
     <message>
         <source>Cooling Supply Air Flow Rate Per Unit Cooling Capacity</source>
         <translation>Soğutma Kapasitesi Başına Soğutma Besleme Hava Akış Hızı</translation>
     </message>
-    <!-- OS:ZoneControl:Thermostat:StagedDualSetpoint -->
+    
     <message>
         <source>Cooling Temperature Setpoint Base Schedule</source>
         <translation>Soğutma Sıcaklığı Setpoint Temel Takvimi</translation>
     </message>
-    <!-- OS:ZoneControl:Thermostat:StagedDualSetpoint -->
+    
     <message>
         <source>Cooling Throttling Temperature Range</source>
         <translation>Soğutma Kısıtlama Sıcaklık Aralığı</translation>
     </message>
-    <!-- OS:Coil:Cooling:LowTemperatureRadiant:ConstantFlow, OS:Coil:Cooling:LowTemperatureRadiant:VariableFlow -->
+    
     <message>
         <source>Cooling Water Inlet Node Name</source>
         <translation>Soğutma Suyu Giriş Düğüm Adı</translation>
     </message>
-    <!-- OS:Coil:Cooling:LowTemperatureRadiant:ConstantFlow, OS:Coil:Cooling:LowTemperatureRadiant:VariableFlow -->
+    
     <message>
         <source>Cooling Water Outlet Node Name</source>
         <translation>Soğutma Suyu Çıkış Düğümü Adı</translation>
     </message>
-    <!-- OS:Coil:WaterHeating:AirToWaterHeatPump:VariableSpeed:SpeedData -->
+    
     <message>
         <source>COP Function of Air Flow Fraction Curve Name</source>
         <translation>Hava Akış Kesri Eğrisi Adı Başına COP Fonksiyonu</translation>
     </message>
-    <!-- OS:Coil:WaterHeating:AirToWaterHeatPump:VariableSpeed:SpeedData -->
+    
     <message>
         <source>COP Function of Temperature Curve Name</source>
         <translation>Sıcaklık Fonksiyonu Eğrisi Adı</translation>
     </message>
-    <!-- OS:Coil:WaterHeating:AirToWaterHeatPump:VariableSpeed:SpeedData -->
+    
     <message>
         <source>COP Function of Water Flow Fraction Curve Name</source>
         <translation>Su Akış Fraksiyonu COP Fonksiyon Eğrisi Adı</translation>
     </message>
-    <!-- OS:LifeCycleCost -->
+    
     <message>
         <source>Cost</source>
         <translation>Maliyet</translation>
     </message>
-    <!-- OS:UtilityCost:Charge:Simple -->
+    
     <message>
         <source>Cost per Unit Value or Variable Name</source>
         <translation>Birim Başına Maliyet Değeri veya Değişken Adı</translation>
     </message>
-    <!-- OS:LifeCycleCost -->
+    
     <message>
         <source>Cost Units</source>
         <translation>Maliyet Birimleri</translation>
     </message>
-    <!-- OS:WeatherFile -->
+    
     <message>
         <source>Country</source>
         <translation>Ülke</translation>
     </message>
-    <!-- OS:SwimmingPool:Indoor -->
+    
     <message>
         <source>Cover Convection Factor</source>
         <translation>Örtü Konveksiyon Faktörü</translation>
     </message>
-    <!-- OS:SwimmingPool:Indoor -->
+    
     <message>
         <source>Cover Evaporation Factor</source>
         <translation>Kapak Buharlaşma Faktörü</translation>
     </message>
-    <!-- OS:SwimmingPool:Indoor -->
+    
     <message>
         <source>Cover Long-Wavelength Radiation Factor</source>
         <translation>Kapak Uzun Dalga Radyasyonu Faktörü</translation>
     </message>
-    <!-- OS:SwimmingPool:Indoor -->
+    
     <message>
         <source>Cover Schedule Name</source>
         <translation>Örtü Programı Adı</translation>
     </message>
-    <!-- OS:SwimmingPool:Indoor -->
+    
     <message>
         <source>Cover Short-Wavelength Radiation Factor</source>
         <translation>Kaplama Kısa Dalga Boylu Radyasyon Faktörü</translation>
     </message>
-    <!-- OS:SolarCollectorPerformance:IntegralCollectorStorage -->
+    
     <message>
         <source>Cover Spacing</source>
         <translation>Örtü Aralığı</translation>
     </message>
-    <!-- OS:ElectricEquipment:ITE:AirCooled -->
+    
     <message>
         <source>CPU End-Use Subcategory</source>
         <translation>CPU Son Kullanım Alt Kategorisi</translation>
     </message>
-    <!-- OS:ElectricEquipment:ITE:AirCooled -->
+    
     <message>
         <source>CPU Loading Schedule Name</source>
         <translation>CPU Yükleme Çizelgesi Adı</translation>
     </message>
-    <!-- OS:ElectricEquipment:ITE:AirCooled:Definition -->
+    
     <message>
         <source>CPU Power Input Function of Loading and Air Temperature Curve Name</source>
         <translation>CPU Power Input Function of Loading and Air Temperature Curve Name</translation>
     </message>
-    <!-- OS:AirflowNetworkOutdoorAirflow, OS:AirflowNetworkZoneExhaustFan -->
+    
     <message>
         <source>Crack Name</source>
         <translation>Çatlak Adı</translation>
     </message>
-    <!-- OS:ComponentData -->
+    
     <message>
         <source>Creation Timestamp</source>
         <translation>Oluşturma Zaman Damgası</translation>
     </message>
-    <!-- OS:AirflowNetworkDuct -->
+    
     <message>
         <source>Cross Section Area</source>
         <translation>Kesit Alanı</translation>
     </message>
-    <!-- OS:Output:Meter -->
+    
     <message>
         <source>Cumulative</source>
         <translation>Kümülatif</translation>
     </message>
-    <!-- OS:PhotovoltaicPerformance:Sandia -->
+    
     <message>
         <source>Current at Maximum Power Point</source>
         <translation>Maksimum Güç Noktasında Akım</translation>
     </message>
-    <!-- OS:EnergyManagementSystem:CurveOrTableIndexVariable -->
+    
     <message>
         <source>Curve or Table Object Name</source>
         <translation>Eğri veya Tablo Nesne Adı</translation>
     </message>
-    <!-- OS:Table:MultiVariableLookup -->
+    
     <message>
         <source>Curve Type</source>
         <translation>Eğri Türü</translation>
     </message>
-    <!-- OS:Foundation:Kiva -->
+    
     <message>
         <source>Custom Block Depth</source>
         <translation>Özel Blok Derinliği</translation>
     </message>
-    <!-- OS:Foundation:Kiva -->
+    
     <message>
         <source>Custom Block Material Name</source>
         <translation>Özel Blok Malzeme Adı</translation>
     </message>
-    <!-- OS:Foundation:Kiva -->
+    
     <message>
         <source>Custom Block X Position</source>
         <translation>Özel Blok X Konumu</translation>
     </message>
-    <!-- OS:Foundation:Kiva -->
+    
     <message>
         <source>Custom Block Z Position</source>
         <translation>Özel Blok Z Konumu</translation>
     </message>
-    <!-- OS:Schedule:Week -->
+    
     <message>
         <source>CustomDay1 Schedule:Day Name</source>
         <translation>CustomDay1 Schedule:Gün Adı</translation>
     </message>
-    <!-- OS:Schedule:Week -->
+    
     <message>
         <source>CustomDay2 Schedule:Day Name</source>
         <translation>CustomDay2 Schedule:Gün Adı</translation>
     </message>
-    <!-- OS:UtilityCost:Tariff -->
+    
     <message>
         <source>Customer Baseline Load Schedule Name</source>
         <translation>Müşteri Temel Yük Çizelgesi Adı</translation>
     </message>
-    <!-- OS:Generator:WindTurbine -->
+    
     <message>
         <source>Cut In Wind Speed</source>
         <translation>Kesme Rüzgar Hızı</translation>
     </message>
-    <!-- OS:Generator:WindTurbine -->
+    
     <message>
         <source>Cut Out Wind Speed</source>
         <translation>Kesinti Rüzgar Hızı</translation>
     </message>
-    <!-- OS:Generator:FuelCell:PowerModule -->
+    
     <message>
         <source>Cycling Performance Degradation Coefficient</source>
         <translation>Siklit Çalışma Performans Bozulma Katsayısı</translation>
     </message>
-    <!-- OS:HeatPump:AirToWater:FuelFired:Cooling, OS:HeatPump:AirToWater:FuelFired:Heating -->
+    
     <message>
         <source>Cycling Ratio Factor Curve Name</source>
         <translation>Döngü Oranı Faktörü Eğrisi Adı</translation>
     </message>
-    <!-- OS:AvailabilityManager:NightCycle -->
+    
     <message>
         <source>Cycling Run Time</source>
         <translation>Döngü Çalışma Süresi</translation>
     </message>
-    <!-- OS:AvailabilityManager:NightCycle -->
+    
     <message>
         <source>Cycling Run Time Control Type</source>
         <translation>Döngüsel Çalışma Süresi Kontrol Tipi</translation>
     </message>
 
-    <!-- D -->
-    <!-- OS:SizingPeriod:DesignDay -->
+    
+    
     <message>
         <source>Daily Dry-Bulb Temperature Range</source>
         <translation>Günlük Kuru Termometre Sıcaklık Aralığı</translation>
     </message>
-    <!-- OS:SizingPeriod:DesignDay -->
+    
     <message>
         <source>Daily Wet-Bulb Temperature Range</source>
         <translation>Günlük Islak-Bulb Sıcaklık Aralığı</translation>
     </message>
-    <!-- OS:AirTerminal:SingleDuct:VAV:HeatAndCool:Reheat -->
+    
     <message>
         <source>Damper Air Outlet</source>
         <translation>Sürgülü Hava Çıkışı</translation>
     </message>
-    <!-- OS:Table:MultiVariableLookup -->
+    
     <message>
         <source>Data</source>
         <translation>Veri</translation>
     </message>
-    <!-- OS:WeatherFile -->
+    
     <message>
         <source>Data Source</source>
         <translation>Veri Kaynağı</translation>
     </message>
-    <!-- OS:Schedule:Rule -->
+    
     <message>
         <source>Date Specification Type</source>
         <translation>Tarih Belirtim Türü</translation>
     </message>
-    <!-- OS:Schedule:VariableInterval, OS:Schedule:Year -->
+    
     <message>
         <source>Day</source>
         <translation>Gün</translation>
     </message>
-    <!-- OS:LightingDesignDay, OS:SizingPeriod:DesignDay -->
+    
     <message>
         <source>Day of Month</source>
         <translation>Ayın Günü</translation>
     </message>
-    <!-- OS:SizingPeriod:WeatherFileConditionType, OS:SizingPeriod:WeatherFileDays, OS:YearDescription -->
+    
     <message>
         <source>Day of Week for Start Day</source>
         <translation>Başlangıç Günü için Haftanın Günü</translation>
     </message>
-    <!-- OS:Schedule:Rule -->
+    
     <message>
         <source>Day Schedule Name</source>
         <translation>Gün Zamanlaması Adı</translation>
     </message>
-    <!-- OS:SizingPeriod:DesignDay -->
+    
     <message>
         <source>Day Type</source>
         <translation>Gün Tipi</translation>
     </message>
-    <!-- OS:WindowMaterial:DaylightRedirectionDevice -->
+    
     <message>
         <source>Daylight Redirection Device Type</source>
         <translation>Gün Işığı Yönlendirme Cihazı Türü</translation>
     </message>
-    <!-- OS:SizingPeriod:DesignDay -->
+    
     <message>
         <source>Daylight Saving Time Indicator</source>
         <translation>Yaz Saati Göstergesi</translation>
     </message>
-    <!-- OS:Generator:PVWatts -->
+    
     <message>
         <source>DC System Capacity</source>
         <translation>DC Sistem Kapasitesi</translation>
     </message>
-    <!-- OS:ElectricLoadCenter:Inverter:PVWatts -->
+    
     <message>
         <source>DC to AC Size Ratio</source>
         <translation>DC to AC Boyut Oranı</translation>
     </message>
-    <!-- OS:ElectricLoadCenter:Storage:LiIonNMCBattery -->
+    
     <message>
         <source>DC to DC Charging Efficiency</source>
         <translation>DC to DC Şarj Verimliliği</translation>
     </message>
-    <!-- OS:Coil:WaterHeating:Desuperheater, OS:WaterHeater:HeatPump, OS:WaterHeater:HeatPump:WrappedCondenser -->
+    
     <message>
         <source>Dead Band Temperature Difference</source>
         <translation>Ölü Band Sıcaklık Farkı</translation>
     </message>
-    <!-- OS:Site:GroundTemperature:Deep -->
+    
     <message>
         <source>December Deep Ground Temperature</source>
         <translation>Aralık Derin Yer Sıcaklığı</translation>
     </message>
-    <!-- OS:Site:GroundReflectance -->
+    
     <message>
         <source>December Ground Reflectance</source>
         <translation>Aralık Yer Yansıtabilirliği</translation>
     </message>
-    <!-- OS:Site:GroundTemperature:BuildingSurface, OS:Site:GroundTemperature:FCfactorMethod -->
+    
     <message>
         <source>December Ground Temperature</source>
         <translation>Aralık Yer Sıcaklığı</translation>
     </message>
-    <!-- OS:Site:GroundTemperature:Shallow -->
+    
     <message>
         <source>December Surface Ground Temperature</source>
         <translation>Aralık Yüzey Yer Sıcaklığı</translation>
     </message>
-    <!-- OS:UtilityCost:Variable -->
+    
     <message>
         <source>December Value</source>
         <translation>Aralık Değeri</translation>
     </message>
-    <!-- OS:CoilSystem:IntegratedHeatPump:AirSource -->
+    
     <message>
         <source>Dedicated Water Heating Coil</source>
         <translation>Özel Su Isıtma Serpantini</translation>
     </message>
-    <!-- OS:MaterialProperty:MoisturePenetrationDepth:Settings -->
+    
     <message>
         <source>Deep Layer Penetration Depth</source>
         <translation>Derin Katman Penetrasyon Derinliği</translation>
     </message>
-    <!-- OS:Foundation:Kiva:Settings -->
+    
     <message>
         <source>Deep-Ground Boundary Condition</source>
         <translation>Derin Zemin Sınır Koşulu</translation>
     </message>
-    <!-- OS:Foundation:Kiva:Settings -->
+    
     <message>
         <source>Deep-Ground Depth</source>
         <translation>Derin Zemin Derinliği</translation>
     </message>
-    <!-- OS:Building, OS:BuildingStory, OS:Space, OS:SpaceType -->
+    
     <message>
         <source>Default Construction Set Name</source>
         <translation>Varsayılan İnşaat Seti Adı</translation>
     </message>
-    <!-- OS:DefaultConstructionSet -->
+    
     <message>
         <source>Default Exterior SubSurface Constructions Name</source>
         <translation>Varsayılan Dış Alt Yüzey İnşaatları Adı</translation>
     </message>
-    <!-- OS:DefaultConstructionSet -->
+    
     <message>
         <source>Default Exterior Surface Constructions Name</source>
         <translation>Varsayılan Dış Yüzey Yapıları Adı</translation>
     </message>
-    <!-- OS:DefaultConstructionSet -->
+    
     <message>
         <source>Default Ground Contact Surface Constructions Name</source>
         <translation>Varsayılan Zemin Temas Yüzeyi İnşa Adı</translation>
     </message>
-    <!-- OS:DefaultConstructionSet -->
+    
     <message>
         <source>Default Interior SubSurface Constructions Name</source>
         <translation>Varsayılan İç Yüzey Yapıları Adı</translation>
     </message>
-    <!-- OS:DefaultConstructionSet -->
+    
     <message>
         <source>Default Interior Surface Constructions Name</source>
         <translation>Varsayılan İç Yüzey Yapıları Adı</translation>
     </message>
-    <!-- OS:ElectricLoadCenter:Storage:LiIonNMCBattery -->
+    
     <message>
         <source>Default Nominal Cell Voltage</source>
         <translation>Varsayılan Nominal Hücre Gerilimi</translation>
     </message>
-    <!-- OS:Building, OS:BuildingStory, OS:Space, OS:SpaceType -->
+    
     <message>
         <source>Default Schedule Set Name</source>
         <translation>Varsayılan Çizelge Seti Adı</translation>
     </message>
-    <!-- OS:Refrigeration:DefrostCycleParameters -->
+    
     <message>
         <source>Defrost 1 Hour Start Time</source>
         <translation>Çözülme 1 Saat Başlangıç Saati</translation>
     </message>
-    <!-- OS:Refrigeration:DefrostCycleParameters -->
+    
     <message>
         <source>Defrost 1 Minute Start Time</source>
         <translation>Defrost 1 Dakika Başlangıç Saati</translation>
     </message>
-    <!-- OS:Refrigeration:DefrostCycleParameters -->
+    
     <message>
         <source>Defrost 2 Hour Start Time</source>
         <translation>Çözümlendirme 2 Saatlik Başlangıç Saati</translation>
     </message>
-    <!-- OS:Refrigeration:DefrostCycleParameters -->
+    
     <message>
         <source>Defrost 2 Minute Start Time</source>
         <translation>Çözülme 2. Dakika Başlama Saati</translation>
     </message>
-    <!-- OS:Refrigeration:DefrostCycleParameters -->
+    
     <message>
         <source>Defrost 3 Hour Start Time</source>
         <translation>Çözülme 3 Saatlik Başlangıç Saati</translation>
     </message>
-    <!-- OS:Refrigeration:DefrostCycleParameters -->
+    
     <message>
         <source>Defrost 3 Minute Start Time</source>
         <translation>Çözündürme 3 Dakika Başlangıç Saati</translation>
     </message>
-    <!-- OS:Refrigeration:DefrostCycleParameters -->
+    
     <message>
         <source>Defrost 4 Hour Start Time</source>
         <translation>Çözme 4 Saatlik Başlangıç Saati</translation>
     </message>
-    <!-- OS:Refrigeration:DefrostCycleParameters -->
+    
     <message>
         <source>Defrost 4 Minute Start Time</source>
         <translation>Çözülme 4 Dakika Başlangıç Saati</translation>
     </message>
-    <!-- OS:Refrigeration:DefrostCycleParameters -->
+    
     <message>
         <source>Defrost 5 Hour Start Time</source>
         <translation>Defrost 5 Saat Başlangıç Saati</translation>
     </message>
-    <!-- OS:Refrigeration:DefrostCycleParameters -->
+    
     <message>
         <source>Defrost 5 Minute Start Time</source>
         <translation>Buz Çözme 5 Dakika Başlangıç Zamanı</translation>
     </message>
-    <!-- OS:Refrigeration:DefrostCycleParameters -->
+    
     <message>
         <source>Defrost 6 Hour Start Time</source>
         <translation>Çözülme 6 Saatlik Başlangıç Saati</translation>
     </message>
-    <!-- OS:Refrigeration:DefrostCycleParameters -->
+    
     <message>
         <source>Defrost 6 Minute Start Time</source>
         <translation>Defrost 6 Dakika Başlangıç Saati</translation>
     </message>
-    <!-- OS:Refrigeration:DefrostCycleParameters -->
+    
     <message>
         <source>Defrost 7 Hour Start Time</source>
         <translation>Defrost 7 Hour Start Time</translation>
     </message>
-    <!-- OS:Refrigeration:DefrostCycleParameters -->
+    
     <message>
         <source>Defrost 7 Minute Start Time</source>
         <translation>Defrost 7 Dakika Başlangıç Saati</translation>
     </message>
-    <!-- OS:Refrigeration:DefrostCycleParameters -->
+    
     <message>
         <source>Defrost 8 Hour Start Time</source>
         <translation>Çözündürme 8 Saatlik Başlangıç Saati</translation>
     </message>
-    <!-- OS:Refrigeration:DefrostCycleParameters -->
+    
     <message>
         <source>Defrost 8 Minute Start Time</source>
         <translation>Çözülme 8 Dakika Başlangıç Saati</translation>
     </message>
-    <!-- OS:HeatPump:AirToWater:FuelFired:Heating, OS:Refrigeration:AirChiller, OS:Refrigeration:WalkIn -->
+    
     <message>
         <source>Defrost Control Type</source>
         <translation>Buzlanmayı Kaldırma Kontrol Türü</translation>
     </message>
-    <!-- OS:Refrigeration:AirChiller, OS:Refrigeration:WalkIn -->
+    
     <message>
         <source>Defrost Drip-Down Schedule Name</source>
         <translation>Eriyen Buzu Damlama Programı Adı</translation>
     </message>
-    <!-- OS:Refrigeration:Case -->
+    
     <message>
         <source>Defrost Energy Correction Curve Name</source>
         <translation>Defrost Enerji Düzeltme Eğrisi Adı</translation>
     </message>
-    <!-- OS:Refrigeration:Case -->
+    
     <message>
         <source>Defrost Energy Correction Curve Type</source>
         <translation>Defrost Enerji Düzeltme Eğrisi Türü</translation>
     </message>
-    <!-- OS:Coil:Heating:DX:MultiSpeed, OS:Coil:Heating:DX:SingleSpeed, OS:Coil:Heating:DX:VariableSpeed, OS:HeatPump:AirToWater, OS:HeatPump:PlantLoop:EIR:Heating -->
+    
     <message>
         <source>Defrost Energy Input Ratio Function of Temperature Curve Name</source>
         <translation>Çözülme Enerjisi Giriş Oranı Sıcaklık Fonksiyonu Eğrisi Adı</translation>
     </message>
-    <!-- OS:AirConditioner:VariableRefrigerantFlow, OS:AirConditioner:VariableRefrigerantFlow:FluidTemperatureControl, OS:AirConditioner:VariableRefrigerantFlow:FluidTemperatureControl:HR -->
+    
     <message>
         <source>Defrost Energy Input Ratio Modifier Function of Temperature Curve Name</source>
         <translation>Defrost Enerji Giriş Oranı Sıcaklık Fonksiyonu Eğrisi Adı Değiştiricisi</translation>
     </message>
-    <!-- OS:HeatPump:AirToWater:FuelFired:Heating -->
+    
     <message>
         <source>Defrost Operation Time Fraction</source>
         <translation>Çözdürme Çalışması Zaman Fraksiyonu</translation>
     </message>
-    <!-- OS:Refrigeration:AirChiller, OS:Refrigeration:WalkIn -->
+    
     <message>
         <source>Defrost Power</source>
         <translation>Çözün Gücü</translation>
     </message>
-    <!-- OS:Refrigeration:AirChiller, OS:Refrigeration:WalkIn -->
+    
     <message>
         <source>Defrost Schedule Name</source>
         <translation>Çözülme Programı Adı</translation>
     </message>
-    <!-- OS:Refrigeration:AirChiller, OS:Refrigeration:WalkIn -->
+    
     <message>
         <source>Defrost Type</source>
         <translation>Çözülme Tipi</translation>
     </message>
-    <!-- OS:LoadProfile:Plant -->
+    
     <message>
         <source>Degree of Loop SubCooling</source>
         <translation>Döngü Alt-Soğutma Derecesi</translation>
     </message>
-    <!-- OS:LoadProfile:Plant -->
+    
     <message>
         <source>Degree of SubCooling</source>
         <translation>Altsoğutma Derecesi</translation>
     </message>
-    <!-- OS:Chiller:Absorption:Indirect -->
+    
     <message>
         <source>Degree of Subcooling in Steam Condensate Loop</source>
         <translation>Buhar Kondensat Döngüsünde Soğutma Derecesi</translation>
     </message>
-    <!-- OS:Chiller:Absorption, OS:Chiller:Absorption:Indirect -->
+    
     <message>
         <source>Degree of Subcooling in Steam Generator</source>
         <translation>Buhar Jeneratöründe Soğutma Derecesi</translation>
     </message>
-    <!-- OS:AirLoopHVAC:UnitaryCoolOnly, OS:AirLoopHVAC:UnitaryHeatCool:VAVChangeoverBypass, OS:AirLoopHVAC:UnitaryHeatPump:AirToAir, OS:AirLoopHVAC:UnitarySystem, OS:CoilSystem:Cooling:Water, OS:ZoneHVAC:IdealLoadsAirSystem -->
+    
     <message>
         <source>Dehumidification Control Type</source>
         <translation>Nem Alma Kontrolü Tipi</translation>
     </message>
-    <!-- OS:Coil:Cooling:DX:TwoStageWithHumidityControlMode -->
+    
     <message>
         <source>Dehumidification Mode 1 Stage 1 Coil Performance</source>
         <translation>Dehumidifikasyon Modu 1 Kademe 1 Bobin Performansı</translation>
     </message>
-    <!-- OS:Coil:Cooling:DX:TwoStageWithHumidityControlMode -->
+    
     <message>
         <source>Dehumidification Mode 1 Stage 1 Plus 2 Coil Performance</source>
         <translation>Nemlendirme Modu 1 Kademe 1 Plus 2 Serpantin Performansı</translation>
     </message>
-    <!-- OS:ZoneControl:Humidistat -->
+    
     <message>
         <source>Dehumidifying Relative Humidity Setpoint Schedule Name</source>
         <translation>Nem Azaltma Bağıl Nem Setnoktası Çizelgesi Adı</translation>
     </message>
-    <!-- OS:ZoneMixing, OS:ZoneVentilation:DesignFlowRate, OS:ZoneVentilation:WindandStackOpenArea -->
+    
     <message>
         <source>Delta Temperature</source>
         <translation>Sıcaklık Farkı</translation>
     </message>
-    <!-- OS:ZoneMixing, OS:ZoneVentilation:DesignFlowRate, OS:ZoneVentilation:WindandStackOpenArea -->
+    
     <message>
         <source>Delta Temperature Schedule Name</source>
         <translation>Delta Sıcaklık Takvim Adı</translation>
     </message>
-    <!-- OS:Controller:MechanicalVentilation -->
+    
     <message>
         <source>Demand Controlled Ventilation</source>
         <translation>Talep Kontrollü Havalandırma</translation>
     </message>
-    <!-- OS:ZoneHVAC:IdealLoadsAirSystem -->
+    
     <message>
         <source>Demand Controlled Ventilation Type</source>
         <translation>Talep Kontrollü Havalandırma Türü</translation>
     </message>
-    <!-- OS:UtilityCost:Tariff -->
+    
     <message>
         <source>Demand Conversion Factor</source>
         <translation>Talep Dönüştürme Faktörü</translation>
     </message>
-    <!-- OS:ElectricLoadCenter:Distribution -->
+    
     <message>
         <source>Demand Limit Scheme Purchased Electric Demand Limit</source>
         <translation>Talep Limiti Şeması Satın Alınan Elektrik Talep Limiti</translation>
     </message>
-    <!-- OS:AirLoopHVAC, OS:PlantLoop -->
+    
     <message>
         <source>Demand Mixer Name</source>
         <translation>Talep Mikseri Adı</translation>
     </message>
-    <!-- OS:PlantLoop -->
+    
     <message>
         <source>Demand Side Branch List Name</source>
         <translation>Talep Tarafı Şube Listesi Adı</translation>
     </message>
-    <!-- OS:PlantLoop -->
+    
     <message>
         <source>Demand Side Connector List Name</source>
         <translation>Talep Tarafı Konnektör Listesi Adı</translation>
     </message>
-    <!-- OS:AirLoopHVAC -->
+    
     <message>
         <source>Demand Side Inlet Node A</source>
         <translation>Talep Tarafı Giriş Düğümü A</translation>
     </message>
-    <!-- OS:AirLoopHVAC -->
+    
     <message>
         <source>Demand Side Inlet Node B</source>
         <translation>Talep Tarafı Giriş Düğümü B</translation>
     </message>
-    <!-- OS:PlantLoop -->
+    
     <message>
         <source>Demand Side Inlet Node Name</source>
         <translation>Talep Tarafı Giriş Düğümü Adı</translation>
     </message>
-    <!-- OS:AirLoopHVAC, OS:PlantLoop -->
+    
     <message>
         <source>Demand Side Outlet Node Name</source>
         <translation>Talep Tarafı Çıkış Düğümü Adı</translation>
     </message>
-    <!-- OS:AirLoopHVAC -->
+    
     <message>
         <source>Demand Splitter A Name</source>
         <translation>Talep Ayırıcı A Adı</translation>
     </message>
-    <!-- OS:AirLoopHVAC -->
+    
     <message>
         <source>Demand Splitter B Name</source>
         <translation>Talep Bölücü B Adı</translation>
     </message>
-    <!-- OS:PlantLoop -->
+    
     <message>
         <source>Demand Splitter Name</source>
         <translation>Talep Bölücü Adı</translation>
     </message>
-    <!-- OS:UtilityCost:Tariff -->
+    
     <message>
         <source>Demand Window Length</source>
         <translation>Talep Penceresi Uzunluğu</translation>
     </message>
-    <!-- OS:Material -->
+    
     <message>
         <source>Density</source>
         <translation>Yoğunluk</translation>
     </message>
-    <!-- OS:Material:RoofVegetation -->
+    
     <message>
         <source>Density of Dry Soil</source>
         <translation>Kuru Toprağın Yoğunluğu</translation>
     </message>
-    <!-- OS:LifeCycleCost:Parameters -->
+    
     <message>
         <source>Depreciation Method</source>
         <translation>Amortisman Yöntemi</translation>
     </message>
-    <!-- OS:FluidCooler:SingleSpeed -->
+    
     <message>
         <source>Design Air Flow Rate Fan Power</source>
         <translation>Tasarım Hava Akış Hızı Fan Gücü</translation>
     </message>
-    <!-- OS:FluidCooler:SingleSpeed -->
+    
     <message>
         <source>Design Air Flow Rate U-factor Times Area Value</source>
         <translation>Tasarım Hava Akış Hızı U-faktörü Çarpı Alan Değeri</translation>
     </message>
-    <!-- OS:ComponentCost:Adjustments -->
+    
     <message>
         <source>Design and Engineering Fees</source>
         <translation>Tasarım ve Mühendislik Ücretleri</translation>
     </message>
-    <!-- OS:CoolingTower:SingleSpeed, OS:CoolingTower:TwoSpeed, OS:CoolingTower:VariableSpeed -->
+    
     <message>
         <source>Design Approach Temperature</source>
         <translation>Tasarım Yaklaşma Sıcaklığı</translation>
     </message>
-    <!-- OS:Chiller:Absorption, OS:Chiller:Absorption:Indirect, OS:ChillerHeaterPerformance:Electric:EIR -->
+    
     <message>
         <source>Design Chilled Water Flow Rate</source>
         <translation>Tasarım Soğutulmuş Su Debi Oranı</translation>
     </message>
-    <!-- OS:AirTerminal:SingleDuct:ConstantVolume:FourPipeBeam -->
+    
     <message>
         <source>Design Chilled Water Volume Flow Rate</source>
         <translation>Tasarım Soğuk Su Hacimsel Debisi</translation>
     </message>
-    <!-- OS:Refrigeration:CompressorRack -->
+    
     <message>
         <source>Design Compressor Rack COP</source>
         <translation>Design Kompresör Raf COP</translation>
     </message>
-    <!-- OS:Refrigeration:CompressorRack -->
+    
     <message>
         <source>Design Condenser Fan Power</source>
         <translation>Tasarım Kondenser Fan Gücü</translation>
     </message>
-    <!-- OS:Chiller:Absorption, OS:Chiller:Absorption:Indirect -->
+    
     <message>
         <source>Design Condenser Inlet Temperature</source>
         <translation>Tasarım Kondenser Giriş Sıcaklığı</translation>
     </message>
-    <!-- OS:Chiller:Absorption, OS:Chiller:Absorption:Indirect, OS:ChillerHeaterPerformance:Electric:EIR -->
+    
     <message>
         <source>Design Condenser Water Flow Rate</source>
         <translation>Tasarım Kondenser Su Akış Hızı</translation>
     </message>
-    <!-- OS:Fan:SystemModel -->
+    
     <message>
         <source>Design Electric Power Consumption</source>
         <translation>Tasarım Elektrik Gücü Tüketimi</translation>
     </message>
-    <!-- OS:ElectricEquipment:ITE:AirCooled:Definition -->
+    
     <message>
         <source>Design Electric Power Supply Efficiency</source>
         <translation>Tasarım Elektrik Güç Kaynağı Verimliliği</translation>
     </message>
-    <!-- OS:ElectricEquipment:ITE:AirCooled:Definition, OS:EvaporativeFluidCooler:SingleSpeed, OS:EvaporativeFluidCooler:TwoSpeed, OS:FluidCooler:SingleSpeed, OS:FluidCooler:TwoSpeed -->
+    
     <message>
         <source>Design Entering Air Temperature</source>
         <translation>Tasarım Giriş Hava Sıcaklığı</translation>
     </message>
-    <!-- OS:EvaporativeFluidCooler:SingleSpeed, OS:EvaporativeFluidCooler:TwoSpeed, OS:FluidCooler:TwoSpeed -->
+    
     <message>
         <source>Design Entering Air Wet-bulb Temperature</source>
         <translation>Tasarım Giriş Hava Islak-Bulb Sıcaklığı</translation>
     </message>
-    <!-- OS:FluidCooler:SingleSpeed -->
+    
     <message>
         <source>Design Entering Air Wetbulb Temperature</source>
         <translation>Tasarım Giriş Hava Islak Bulb Sıcaklığı</translation>
     </message>
-    <!-- OS:EvaporativeFluidCooler:SingleSpeed, OS:EvaporativeFluidCooler:TwoSpeed, OS:FluidCooler:SingleSpeed, OS:FluidCooler:TwoSpeed -->
+    
     <message>
         <source>Design Entering Water Temperature</source>
         <translation>Tasarım Giriş Suyu Sıcaklığı</translation>
     </message>
-    <!-- OS:Refrigeration:CompressorRack -->
+    
     <message>
         <source>Design Evaporative Condenser Water Pump Power</source>
         <translation>Design Evaporative Condenser Water Pump Power</translation>
     </message>
-    <!-- OS:Refrigeration:Case -->
+    
     <message>
         <source>Design Evaporator Temperature or Brine Inlet Temperature</source>
         <translation>Tasarım Buharlaştırıcı Sıcaklığı veya Tuz Suyu Giriş Sıcaklığı</translation>
     </message>
-    <!-- OS:ElectricEquipment:ITE:AirCooled:Definition -->
+    
     <message>
         <source>Design Fan Air Flow Rate per Power Input</source>
         <translation>Tasarım Fanı Güç Girdisi Başına Hava Akış Hızı</translation>
     </message>
-    <!-- OS:CoolingTower:VariableSpeed -->
+    
     <message>
         <source>Design Fan Power</source>
         <translation>Tasarım Fan Gücü</translation>
     </message>
-    <!-- OS:ElectricEquipment:ITE:AirCooled:Definition -->
+    
     <message>
         <source>Design Fan Power Input Fraction</source>
         <translation>Tasarım Fan Gücü Giriş Fraksiyonu</translation>
     </message>
-    <!-- OS:Chiller:Absorption, OS:Chiller:Absorption:Indirect -->
+    
     <message>
         <source>Design Generator Fluid Flow Rate</source>
         <translation>Tasarım Jeneratör Akışkan Akış Hızı</translation>
     </message>
-    <!-- OS:AirTerminal:SingleDuct:ParallelPIU:Reheat, OS:AirTerminal:SingleDuct:SeriesPIU:Reheat -->
+    
     <message>
         <source>Design Heating Discharge Air Temperature</source>
         <translation>Tasarım Isıtma Çıkış Havası Sıcaklığı</translation>
     </message>
-    <!-- OS:ChillerHeaterPerformance:Electric:EIR -->
+    
     <message>
         <source>Design Hot Water Flow Rate</source>
         <translation>Tasarım Sıcak Su Akış Hızı</translation>
     </message>
-    <!-- OS:AirTerminal:SingleDuct:ConstantVolume:FourPipeBeam -->
+    
     <message>
         <source>Design Hot Water Volume Flow Rate</source>
         <translation>Tasarım Sıcak Su Hacimsel Akış Hızı</translation>
     </message>
-    <!-- OS:CoolingTower:SingleSpeed, OS:CoolingTower:TwoSpeed -->
+    
     <message>
         <source>Design Inlet Air Dry-Bulb Temperature</source>
         <translation>Tasarım Giriş Hava Kuru Ampul Sıcaklığı</translation>
     </message>
-    <!-- OS:CoolingTower:SingleSpeed, OS:CoolingTower:TwoSpeed, OS:CoolingTower:VariableSpeed -->
+    
     <message>
         <source>Design Inlet Air Wet-Bulb Temperature</source>
         <translation>Tasarım Giriş Havası Islak-Ampul Sıcaklığı</translation>
     </message>
-    <!-- OS:ElectricEquipment:Definition, OS:Exterior:FuelEquipment:Definition, OS:Exterior:Lights:Definition, OS:Exterior:WaterEquipment:Definition, OS:GasEquipment:Definition, OS:HotWaterEquipment:Definition, OS:OtherEquipment:Definition, OS:SteamEquipment:Definition -->
+    
     <message>
         <source>Design Level</source>
         <translation>Tasarım Seviyesi</translation>
     </message>
-    <!-- OS:ElectricEquipment:Definition, OS:GasEquipment:Definition, OS:HotWaterEquipment:Definition, OS:InternalMass:Definition, OS:Lights:Definition, OS:OtherEquipment:Definition, OS:SteamEquipment:Definition -->
+    
     <message>
         <source>Design Level Calculation Method</source>
         <translation>Tasarım Seviyesi Hesaplama Yöntemi</translation>
     </message>
-    <!-- OS:Refrigeration:Subcooler:LiquidSuction -->
+    
     <message>
         <source>Design Liquid Inlet Temperature</source>
         <translation>Tasarım Sıvı Giriş Sıcaklığı</translation>
     </message>
-    <!-- OS:Fan:SystemModel -->
+    
     <message>
         <source>Design Maximum Air Flow Rate</source>
         <translation>Tasarım Maksimum Hava Akış Hızı</translation>
     </message>
-    <!-- OS:ElectricLoadCenter:Storage:Converter -->
+    
     <message>
         <source>Design Maximum Continuous Input Power</source>
         <translation>Tasarım Maksimum Sürekli Giriş Gücü</translation>
     </message>
-    <!-- OS:WaterHeater:Sizing -->
+    
     <message>
         <source>Design Mode</source>
         <translation>Tasarım Modu</translation>
     </message>
-    <!-- OS:Boiler:Steam -->
+    
     <message>
         <source>Design Outlet Steam Temperature</source>
         <translation>Tasarım Çıkış Buharı Sıcaklığı</translation>
     </message>
-    <!-- OS:AirTerminal:SingleDuct:ConstantVolume:CooledBeam -->
+    
     <message>
         <source>Design Outlet Water Temperature</source>
         <translation>Tasarım Çıkış Su Sıcaklığı</translation>
     </message>
-    <!-- OS:ElectricEquipment:ITE:AirCooled:Definition -->
+    
     <message>
         <source>Design Power Input Calculation Method</source>
         <translation>Tasarım Gücü Giriş Hesaplama Yöntemi</translation>
     </message>
-    <!-- OS:ElectricEquipment:ITE:AirCooled -->
+    
     <message>
         <source>Design Power Input Schedule Name</source>
         <translation>Tasarım Gücü Giriş Çizelgesi Adı</translation>
     </message>
-    <!-- OS:Fan:SystemModel, OS:HeaderedPumps:ConstantSpeed, OS:HeaderedPumps:VariableSpeed, OS:Pump:ConstantSpeed, OS:Pump:VariableSpeed -->
+    
     <message>
         <source>Design Power Sizing Method</source>
         <translation>Tasarım Gücü Boyutlandırma Yöntemi</translation>
     </message>
-    <!-- OS:Fan:SystemModel -->
+    
     <message>
         <source>Design Pressure Rise</source>
         <translation>Tasarım Basınç Yükselişi</translation>
     </message>
-    <!-- OS:AirTerminal:SingleDuct:ConstantVolume:FourPipeBeam -->
+    
     <message>
         <source>Design Primary Air Volume Flow Rate</source>
         <translation>Tasarım Birincil Hava Hacim Akış Hızı</translation>
     </message>
-    <!-- OS:CoolingTower:SingleSpeed, OS:CoolingTower:TwoSpeed, OS:CoolingTower:VariableSpeed -->
+    
     <message>
         <source>Design Range Temperature</source>
         <translation>Tasarım Aralığı Sıcaklığı</translation>
     </message>
-    <!-- OS:ElectricEquipment:ITE:AirCooled:Definition -->
+    
     <message>
         <source>Design Recirculation Fraction</source>
         <translation>Tasarım Resirkulasyon Oranı</translation>
     </message>
-    <!-- OS:AirLoopHVAC:UnitarySystem -->
+    
     <message>
         <source>Design Specification Multispeed Object Name</source>
         <translation>Tasarım Spesifikasyonu Çok Hızlı Nesne Adı</translation>
     </message>
-    <!-- OS:AirTerminal:DualDuct:VAV, OS:Controller:MechanicalVentilation -->
+    
     <message>
         <source>Design Specification Outdoor Air Object</source>
         <translation>Design Specification Outdoor Air Object</translation>
     </message>
-    <!-- OS:Space, OS:SpaceType, OS:ZoneHVAC:IdealLoadsAirSystem -->
+    
     <message>
         <source>Design Specification Outdoor Air Object Name</source>
         <translation>Tasarım Şartnaması Dış Hava Nesnesi Adı</translation>
     </message>
-    <!-- OS:Controller:MechanicalVentilation -->
+    
     <message>
         <source>Design Specification Zone Air Distribution Object</source>
         <translation>Tasarım Özellikleri Bölge Hava Dağılımı Nesnesi</translation>
     </message>
-    <!-- OS:ZoneHVAC:EvaporativeCoolerUnit -->
+    
     <message>
         <source>Design Specification ZoneHVAC Sizing</source>
         <translation>Design Specification ZoneHVAC Boyutlandırması</translation>
     </message>
-    <!-- OS:ZoneHVAC:IdealLoadsAirSystem, OS:ZoneHVAC:TerminalUnit:VariableRefrigerantFlow, OS:ZoneHVAC:UnitVentilator, OS:ZoneHVAC:WaterToAirHeatPump -->
+    
     <message>
         <source>Design Specification ZoneHVAC Sizing Object Name</source>
         <translation>Design Specification ZoneHVAC Sizing Object Name</translation>
     </message>
-    <!-- OS:EvaporativeFluidCooler:SingleSpeed, OS:EvaporativeFluidCooler:TwoSpeed -->
+    
     <message>
         <source>Design Spray Water Flow Rate</source>
         <translation>Tasarım Sprey Su Akış Hızı</translation>
     </message>
-    <!-- OS:ElectricLoadCenter:Distribution -->
+    
     <message>
         <source>Design Storage Control Charge Power</source>
         <translation>Tasarım Depolama Kontrolü Şarj Gücü</translation>
     </message>
-    <!-- OS:ElectricLoadCenter:Distribution -->
+    
     <message>
         <source>Design Storage Control Discharge Power</source>
         <translation>Tasarım Depolama Kontrol Deşarj Gücü</translation>
     </message>
-    <!-- OS:AirLoopHVAC:UnitarySystem -->
+    
     <message>
         <source>Design Supply Air Flow Rate Per Unit of Capacity During Cooling Operation</source>
         <translation>Soğutma İşlemi Sırasında Kapasite Birimi Başına Tasarım Besleme Hava Akışı Hızı</translation>
     </message>
-    <!-- OS:AirLoopHVAC:UnitarySystem -->
+    
     <message>
         <source>Design Supply Air Flow Rate Per Unit of Capacity During Cooling Operation When No Cooling or Heating is Required</source>
         <translation>Soğutma Gerekli Olmadığında Soğutma İşlemi Sırasında Kapasite Başına Tasarım Hava Akış Hızı</translation>
     </message>
-    <!-- OS:AirLoopHVAC:UnitarySystem -->
+    
     <message>
         <source>Design Supply Air Flow Rate Per Unit of Capacity During Heating Operation</source>
         <translation>Isıtma İşlemi Sırasında Kapasite Başına Tasarım Besleme Hava Akış Hızı</translation>
     </message>
-    <!-- OS:AirLoopHVAC:UnitarySystem -->
+    
     <message>
         <source>Design Supply Air Flow Rate Per Unit of Capacity During Heating Operation When No Cooling or Heating is Required</source>
         <translation>Soğutma veya Isıtma Gerekli Olmadığında Isıtma Çalışması Sırasında Kapasite Başına Tasarım Besleme Hava Akış Hızı</translation>
     </message>
-    <!-- OS:HeatPump:AirToWater:FuelFired:Cooling, OS:HeatPump:AirToWater:FuelFired:Heating -->
+    
     <message>
         <source>Design Supply Temperature</source>
         <translation>Tasarım Enerji Veren Sıcaklığı</translation>
     </message>
-    <!-- OS:HeatPump:AirToWater:FuelFired:Cooling, OS:HeatPump:AirToWater:FuelFired:Heating -->
+    
     <message>
         <source>Design Temperature Lift</source>
         <translation>Tasarım Sıcaklık Yükselişi</translation>
     </message>
-    <!-- OS:Refrigeration:Subcooler:LiquidSuction -->
+    
     <message>
         <source>Design Vapor Inlet Temperature</source>
         <translation>Tasarım Buhar Giriş Sıcaklığı</translation>
     </message>
-    <!-- OS:PlantComponent:TemperatureSource -->
+    
     <message>
         <source>Design Volume Flow Rate</source>
         <translation>Tasarım Hacimsel Akış Hızı</translation>
     </message>
-    <!-- OS:PlantComponent:UserDefined -->
+    
     <message>
         <source>Design Volume Flow Rate Actuator</source>
         <translation>Tasarım Hacimsel Akış Hızı Eyleyeni</translation>
     </message>
-    <!-- OS:EvaporativeCooler:Indirect:ResearchSpecial -->
+    
     <message>
         <source>Dewpoint Effectiveness Factor</source>
         <translation>Çiğ Noktası Etkinlik Faktörü</translation>
     </message>
-    <!-- OS:ZoneHVAC:EnergyRecoveryVentilator:Controller -->
+    
     <message>
         <source>Dewpoint Temperature Limit</source>
         <translation>Çiğ Noktası Sıcaklık Sınırı</translation>
     </message>
-    <!-- OS:PlantEquipmentOperation:OutdoorDewpoint -->
+    
     <message>
         <source>Dewpoint Temperature Range Lower Limit</source>
         <translation>Çiğ Noktası Sıcaklığı Aralığı Alt Limiti</translation>
     </message>
-    <!-- OS:PlantEquipmentOperation:OutdoorDewpoint -->
+    
     <message>
         <source>Dewpoint Temperature Range Upper Limit</source>
         <translation>Çiğ Noktası Sıcaklığı Aralığı Üst Sınırı</translation>
     </message>
-    <!-- OS:Curve:Functional:PressureDrop, OS:DaylightingDevice:Tubular -->
+    
     <message>
         <source>Diameter</source>
         <translation>Çap</translation>
     </message>
-    <!-- OS:AirConditioner:VariableRefrigerantFlow:FluidTemperatureControl -->
+    
     <message>
         <source>Diameter of Main Pipe Connecting Outdoor Unit to the First Branch Joint</source>
         <translation>İlk Dal Birleşim Noktasına Bağlanan Ana Borunun Çapı</translation>
     </message>
-    <!-- OS:AirConditioner:VariableRefrigerantFlow:FluidTemperatureControl:HR -->
+    
     <message>
         <source>Diameter of Main Pipe for Discharge Gas</source>
         <translation>Ana Borusu Çapı - Deşarj Gazı için</translation>
     </message>
-    <!-- OS:AirConditioner:VariableRefrigerantFlow:FluidTemperatureControl:HR -->
+    
     <message>
         <source>Diameter of Main Pipe for Suction Gas</source>
         <translation>Emme Gazı Ana Borusu Çapı</translation>
     </message>
-    <!-- OS:LifeCycleCost:Parameters -->
+    
     <message>
         <source>Diesel Inflation</source>
         <translation>Dizel Enflasyonu</translation>
     </message>
-    <!-- OS:AirConditioner:VariableRefrigerantFlow:FluidTemperatureControl:HR -->
+    
     <message>
         <source>Difference between Outdoor Unit Evaporating Temperature and Outdoor Air Temperature in Heat Recovery Mode</source>
         <translation>Isı Geri Kazanım Modunda Dış Ünite Buharlaşma Sıcaklığı ile Dış Hava Sıcaklığı Arasındaki Fark</translation>
     </message>
-    <!-- OS:SizingPeriod:DesignDay -->
+    
     <message>
         <source>Diffuse Solar Day Schedule Name</source>
         <translation>Yaygın Güneş Günlük Zamanlama Adı</translation>
     </message>
-    <!-- OS:WindowMaterial:Screen -->
+    
     <message>
         <source>Diffuse Solar Reflectance</source>
         <translation>Yayılı Güneş Yansıtıcılığı</translation>
     </message>
-    <!-- OS:WindowMaterial:Screen -->
+    
     <message>
         <source>Diffuse Visible Reflectance</source>
         <translation>Yayılı Görünür Yansıtıcılık</translation>
     </message>
-    <!-- OS:DaylightingDevice:Tubular -->
+    
     <message>
         <source>Diffuser Name</source>
         <translation>Difüzör Adı</translation>
     </message>
-    <!-- OS:Output:Table:Annual, OS:Output:Table:Monthly -->
+    
     <message>
         <source>Digits After Decimal</source>
         <translation>Ondalık Noktadan Sonraki Basamaklar</translation>
     </message>
-    <!-- OS:Generator:FuelCell:PowerModule -->
+    
     <message>
         <source>Dilution Air Flow Rate</source>
         <translation>Seyreltme Hava Akış Hızı</translation>
     </message>
-    <!-- OS:Generator:FuelCell:PowerModule -->
+    
     <message>
         <source>Dilution Inlet Air Node Name</source>
         <translation>Seyreltme Giriş Havanın Düğüm Adı</translation>
     </message>
-    <!-- OS:Generator:FuelCell:PowerModule -->
+    
     <message>
         <source>Dilution Outlet Air Node Name</source>
         <translation>Seyreltme Çıkış Hava Düğümü Adı</translation>
     </message>
-    <!-- OS:Construction:InternalSource -->
+    
     <message>
         <source>Dimensions for the CTF Calculation</source>
         <translation>CTF Hesaplaması için Boyutlar</translation>
     </message>
-    <!-- OS:PhotovoltaicPerformance:Sandia -->
+    
     <message>
         <source>Diode Factor</source>
         <translation>Diyot Faktörü</translation>
     </message>
-    <!-- OS:RadianceParameters -->
+    
     <message>
         <source>Direct Certainty</source>
         <translation>Doğrudan Kesinlik</translation>
     </message>
-    <!-- OS:RadianceParameters -->
+    
     <message>
         <source>Direct Jitter</source>
         <translation>Doğrudan Jitter</translation>
     </message>
-    <!-- OS:RadianceParameters -->
+    
     <message>
         <source>Direct Pretest</source>
         <translation>Doğrudan Ön Test</translation>
     </message>
-    <!-- OS:RadianceParameters -->
+    
     <message>
         <source>Direct Threshold</source>
         <translation>Doğrudan Eşik</translation>
     </message>
-    <!-- OS:InteriorPartitionSurfaceGroup, OS:ShadingSurfaceGroup, OS:Space -->
+    
     <message>
         <source>Direction of Relative North</source>
         <translation>Bağıl Kuzey Yönü</translation>
     </message>
-    <!-- OS:WindowMaterial:Glazing, OS:WindowMaterial:Glazing:RefractionExtinctionMethod -->
+    
     <message>
         <source>Dirt Correction Factor for Solar and Visible Transmittance</source>
         <translation>Güneş ve Görünür Işınım İletim Oranı için Kirlilik Düzeltme Faktörü</translation>
     </message>
-    <!-- OS:ShadowCalculation -->
+    
     <message>
         <source>Disable Self-Shading From Shading Zone Groups to Other Zones</source>
         <translation>Shading Zone Groups'tan Diğer Zonelara Kendi Gölgelendirmesini Devre Dışı Bırak</translation>
     </message>
-    <!-- OS:ShadowCalculation -->
+    
     <message>
         <source>Disable Self-Shading Within Shading Zone Groups</source>
         <translation>Gölgelendirme Bölgesi Grupları İçinde Kendi Kendine Gölgelendirmeyi Devre Dışı Bırak</translation>
     </message>
-    <!-- OS:AirflowNetworkEffectiveLeakageArea, OS:AirflowNetworkHorizontalOpening, OS:AirflowNetworkSimpleOpening -->
+    
     <message>
         <source>Discharge Coefficient</source>
         <translation>Boşaltma Katsayısı</translation>
     </message>
-    <!-- OS:ZoneVentilation:WindandStackOpenArea -->
+    
     <message>
         <source>Discharge Coefficient for Opening</source>
         <translation>Açıklık İçin Boşaltım Katsayısı</translation>
     </message>
-    <!-- OS:AirflowNetworkDetailedOpening -->
+    
     <message>
         <source>Discharge Coefficient for Opening Factor</source>
         <translation>Açıklık Faktörü için Boşalım Katsayısı</translation>
     </message>
-    <!-- OS:Coil:Cooling:DX:SingleSpeed:ThermalStorage -->
+    
     <message>
         <source>Discharge Only Mode Available</source>
         <translation>Sadece Deşarj Modu Kullanılabilir</translation>
     </message>
-    <!-- OS:Coil:Cooling:DX:SingleSpeed:ThermalStorage -->
+    
     <message>
         <source>Discharge Only Mode Capacity Sizing Factor</source>
         <translation>Yalnızca Boşaltma Modu Kapasite Boyutlandırma Faktörü</translation>
     </message>
-    <!-- OS:Coil:Cooling:DX:SingleSpeed:ThermalStorage -->
+    
     <message>
         <source>Discharge Only Mode Energy Input Ratio Function of Flow Fraction Curve</source>
         <translation>Deşarj Sadece Modu Enerji Giriş Oranı Akış Fraksiyonu Eğrisi Fonksiyonu</translation>
     </message>
-    <!-- OS:Coil:Cooling:DX:SingleSpeed:ThermalStorage -->
+    
     <message>
         <source>Discharge Only Mode Energy Input Ratio Function of Temperature Curve</source>
         <translation>Discharge Only Mode Energy Input Ratio Function of Temperature Curve</translation>
     </message>
-    <!-- OS:Coil:Cooling:DX:SingleSpeed:ThermalStorage -->
+    
     <message>
         <source>Discharge Only Mode Part Load Fraction Correlation Curve</source>
         <translation>Deşarj Yalnız Modu Kısmi Yük Kesri Korelasyon Eğrisi</translation>
     </message>
-    <!-- OS:Coil:Cooling:DX:SingleSpeed:ThermalStorage -->
+    
     <message>
         <source>Discharge Only Mode Rated COP</source>
         <translation>Discharge Only Mode Rated COP</translation>
     </message>
-    <!-- OS:Coil:Cooling:DX:SingleSpeed:ThermalStorage -->
+    
     <message>
         <source>Discharge Only Mode Rated Sensible Heat Ratio</source>
         <translation>Deşarj Modu Sadece Nominal Duyulur Isı Oranı</translation>
     </message>
-    <!-- OS:Coil:Cooling:DX:SingleSpeed:ThermalStorage -->
+    
     <message>
         <source>Discharge Only Mode Rated Storage Discharging Capacity</source>
         <translation>Deşarj Yalnızca Modu Nominal Depolama Deşarj Kapasitesi</translation>
     </message>
-    <!-- OS:Coil:Cooling:DX:SingleSpeed:ThermalStorage -->
+    
     <message>
         <source>Discharge Only Mode Sensible Heat Ratio Function of Flow Fraction Curve</source>
         <translation>Deşarj Sadece Modu Duyulur Isı Oranı Akış Fraksiyonu Eğrisi Fonksiyonu</translation>
     </message>
-    <!-- OS:Coil:Cooling:DX:SingleSpeed:ThermalStorage -->
+    
     <message>
         <source>Discharge Only Mode Sensible Heat Ratio Function of Temperature Curve</source>
         <translation>Sadece Boşaltma Modu Duyulur Isı Oranı Sıcaklık Fonksiyonu Eğrisi</translation>
     </message>
-    <!-- OS:Coil:Cooling:DX:SingleSpeed:ThermalStorage -->
+    
     <message>
         <source>Discharge Only Mode Storage Discharge Capacity Function of Flow Fraction Curve</source>
         <translation>Deşarj Yalnızca Modu Depolama Deşarj Kapasitesi Akış Fraksiyonu Eğrisinin Fonksiyonu</translation>
     </message>
-    <!-- OS:Coil:Cooling:DX:SingleSpeed:ThermalStorage -->
+    
     <message>
         <source>Discharge Only Mode Storage Discharge Capacity Function of Temperature Curve</source>
         <translation>Deşarj Sadece Mod Depolama Deşarj Kapasitesi Sıcaklığın Fonksiyonu Eğrisi</translation>
     </message>
-    <!-- OS:ThermalStorage:Ice:Detailed -->
+    
     <message>
         <source>Discharging Curve</source>
         <translation>Deşarj Eğrisi</translation>
     </message>
-    <!-- OS:ThermalStorage:Ice:Detailed -->
+    
     <message>
         <source>Discharging Curve Variable Specifications</source>
         <translation>Deşarj Eğrisi Değişken Özellikleri</translation>
     </message>
-    <!-- OS:LifeCycleCost:Parameters -->
+    
     <message>
         <source>Discounting Convention</source>
         <translation>İskonto Kuralı</translation>
     </message>
-    <!-- OS:Refrigeration:SecondarySystem -->
+    
     <message>
         <source>Distribution Piping Zone Name</source>
         <translation>Dağıtım Borulama Bölgesi Adı</translation>
     </message>
-    <!-- OS:EnvironmentalImpactFactors -->
+    
     <message>
         <source>District Cooling COP</source>
         <translation>District Cooling COP</translation>
     </message>
-    <!-- OS:EnvironmentalImpactFactors -->
+    
     <message>
         <source>District Heating Steam Conversion Efficiency</source>
         <translation>Bölge Isıtması Buhar Dönüşüm Verimliliği</translation>
     </message>
-    <!-- OS:EnvironmentalImpactFactors -->
+    
     <message>
         <source>District Heating Water Efficiency</source>
         <translation>District Heating Water Efficiency</translation>
     </message>
-    <!-- OS:WindowProperty:FrameAndDivider -->
+    
     <message>
         <source>Divider Conductance</source>
         <translation>Bölme İletkenliği</translation>
     </message>
-    <!-- OS:WindowProperty:FrameAndDivider -->
+    
     <message>
         <source>Divider Inside Projection</source>
         <translation>Bölücü İç Çıkıntısı</translation>
     </message>
-    <!-- OS:WindowProperty:FrameAndDivider -->
+    
     <message>
         <source>Divider Outside Projection</source>
         <translation>Bölücü Dış Çıkıntısı</translation>
     </message>
-    <!-- OS:WindowProperty:FrameAndDivider -->
+    
     <message>
         <source>Divider Solar Absorptance</source>
         <translation>Bölücü Güneş Emiciliği</translation>
     </message>
-    <!-- OS:WindowProperty:FrameAndDivider -->
+    
     <message>
         <source>Divider Thermal Hemispherical Emissivity</source>
         <translation>Bölüm Termal Yarımküresel Emisivitesi</translation>
     </message>
-    <!-- OS:WindowProperty:FrameAndDivider -->
+    
     <message>
         <source>Divider Type</source>
         <translation>Ayırıcı Tipi</translation>
     </message>
-    <!-- OS:WindowProperty:FrameAndDivider -->
+    
     <message>
         <source>Divider Visible Absorptance</source>
         <translation>Ayırıcı Görünür Emiciliği</translation>
     </message>
-    <!-- OS:WindowProperty:FrameAndDivider -->
+    
     <message>
         <source>Divider Width</source>
         <translation>Ayırıcı Genişliği</translation>
     </message>
-    <!-- OS:SimulationControl -->
+    
     <message>
         <source>Do HVAC Sizing Simulation for Sizing Periods</source>
         <translation>Boyutlandırma Dönemleri için HVAC Boyutlandırma Simülasyonu Yapın</translation>
     </message>
-    <!-- OS:SimulationControl -->
+    
     <message>
         <source>Do Plant Sizing Calculation</source>
         <translation>Bitki Boyutlandırma Hesaplaması Yap</translation>
     </message>
-    <!-- OS:ZoneAirHeatBalanceAlgorithm -->
+    
     <message>
         <source>Do Space Heat Balance for Simulation</source>
         <translation>Benzetim için Alan Isı Dengesi Hesapla</translation>
     </message>
-    <!-- OS:ZoneAirHeatBalanceAlgorithm -->
+    
     <message>
         <source>Do Space Heat Balance for Sizing</source>
         <translation>Boyutlandırma için Alan Isı Dengesi Hesapla</translation>
     </message>
-    <!-- OS:SimulationControl -->
+    
     <message>
         <source>Do System Sizing Calculation</source>
         <translation>Sistem Boyutlandırma Hesaplamasını Yap</translation>
     </message>
-    <!-- OS:SimulationControl -->
+    
     <message>
         <source>Do Zone Sizing Calculation</source>
         <translation>Bölge Boyutlandırma Hesaplamasını Yap</translation>
     </message>
-    <!-- OS:AirLoopHVAC:UnitarySystem -->
+    
     <message>
         <source>DOAS DX Cooling Coil Leaving Minimum Air Temperature</source>
         <translation>DOAS DX Soğutma Serpantını Terk Eden Minimum Hava Sıcaklığı</translation>
     </message>
-    <!-- OS:DaylightingDevice:Tubular -->
+    
     <message>
         <source>Dome Name</source>
         <translation>Kubbe Adı</translation>
     </message>
-    <!-- OS:DefaultSubSurfaceConstructions -->
+    
     <message>
         <source>Door Construction Name</source>
         <translation>Kapı Yapı Adı</translation>
     </message>
-    <!-- OS:EvaporativeCooler:Direct:ResearchSpecial, OS:EvaporativeCooler:Indirect:ResearchSpecial -->
+    
     <message>
         <source>Drift Loss Fraction</source>
         <translation>Sürükleme Kaybı Kesri</translation>
     </message>
-    <!-- OS:Refrigeration:DefrostCycleParameters -->
+    
     <message>
         <source>Drip Down Time</source>
         <translation>Damla İnme Süresi</translation>
     </message>
-    <!-- OS:HeatPump:PlantLoop:EIR:Heating -->
+    
     <message>
         <source>Dry Outdoor Correction Factor Curve Name</source>
         <translation>Kuru Dış Ortam Düzeltme Faktörü Eğrisi Adı</translation>
     </message>
-    <!-- OS:PlantEquipmentOperation:OutdoorDewpointDifference, OS:PlantEquipmentOperation:OutdoorDryBulbDifference, OS:PlantEquipmentOperation:OutdoorWetBulbDifference -->
+    
     <message>
         <source>Dry-Bulb Temperature Difference Range Lower Limit</source>
         <translation>Kuru Ampul Sıcaklık Farkı Aralığı Alt Sınırı</translation>
     </message>
-    <!-- OS:PlantEquipmentOperation:OutdoorDewpointDifference, OS:PlantEquipmentOperation:OutdoorDryBulbDifference, OS:PlantEquipmentOperation:OutdoorWetBulbDifference -->
+    
     <message>
         <source>Dry-Bulb Temperature Difference Range Upper Limit</source>
         <translation>Kuru Ampul Sıcaklık Farkı Aralığı Üst Sınırı</translation>
     </message>
-    <!-- OS:PlantEquipmentOperation:OutdoorDryBulb -->
+    
     <message>
         <source>Dry-Bulb Temperature Range Lower Limit</source>
         <translation>Kuru Ampul Sıcaklığı Aralığı Alt Sınırı</translation>
     </message>
-    <!-- OS:SizingPeriod:DesignDay -->
+    
     <message>
         <source>Dry-Bulb Temperature Range Modifier Day Schedule Name</source>
         <translation>Kuru Ampul Sıcaklık Aralığı Düzeltici Gün Programı Adı</translation>
     </message>
-    <!-- OS:SizingPeriod:DesignDay -->
+    
     <message>
         <source>Dry-Bulb Temperature Range Modifier Type</source>
         <translation>Kuru Ampul Sıcaklığı Aralığı Değiştirici Türü</translation>
     </message>
-    <!-- OS:PlantEquipmentOperation:OutdoorDryBulb -->
+    
     <message>
         <source>Dry-Bulb Temperature Range Upper Limit</source>
         <translation>Kuru Ampul Sıcaklık Aralığı Üst Sınırı</translation>
     </message>
-    <!-- OS:EvaporativeCooler:Indirect:ResearchSpecial -->
+    
     <message>
         <source>Drybulb Effectiveness Flow Ratio Modifier Curve Name</source>
-        <translation type="unfinished"></translation>
+        <translation>Kuru Termometre Etkinliği Akış Oranı Değiştirici Eğri Adı</translation>
     </message>
-    <!-- OS:AirflowNetworkDuct -->
+    
     <message>
         <source>Duct Length</source>
         <translation>Kanal Uzunluğu</translation>
     </message>
-    <!-- OS:Fan:ComponentModel -->
+    
     <message>
         <source>Duct Static Pressure Reset Curve Name</source>
         <translation>Kanal Statik Basınç Sıfırlama Eğrisi Adı</translation>
     </message>
-    <!-- OS:AirflowNetworkDuctViewFactors -->
+    
     <message>
         <source>Duct Surface Emittance</source>
         <translation>Kanal Yüzey Yayınlılığı</translation>
     </message>
-    <!-- OS:AirflowNetworkDuctViewFactors -->
+    
     <message>
         <source>Duct Surface Exposure Fraction</source>
         <translation>Kanal Yüzey Maruz Kalma Oranı</translation>
     </message>
-    <!-- OS:RunPeriodControl:SpecialDays -->
+    
     <message>
         <source>Duration</source>
         <translation>Süre</translation>
     </message>
-    <!-- OS:Refrigeration:DefrostCycleParameters -->
+    
     <message>
         <source>Duration of Defrost Cycle</source>
         <translation>Çözme Döngüsü Süresi</translation>
     </message>
-    <!-- OS:WaterHeater:HeatPump -->
+    
     <message>
         <source>DX Coil</source>
         <translation>DX Serpantini</translation>
     </message>
-    <!-- OS:WaterHeater:HeatPump:WrappedCondenser -->
+    
     <message>
         <source>DX Coil Name</source>
         <translation>DX Bobini Adı</translation>
     </message>
-    <!-- OS:AirLoopHVAC:UnitaryCoolOnly -->
+    
     <message>
         <source>DX Cooling Coil System Inlet Node Name</source>
         <translation>DX Soğutma Serpentini Sistem Giriş Düğümü Adı</translation>
     </message>
-    <!-- OS:AirLoopHVAC:UnitaryCoolOnly -->
+    
     <message>
         <source>DX Cooling Coil System Outlet Node Name</source>
         <translation>DX Soğutma Serpantını Sistem Çıkış Düğüm Adı</translation>
     </message>
-    <!-- OS:AirLoopHVAC:UnitaryCoolOnly -->
+    
     <message>
         <source>DX Cooling Coil System Sensor Node Name</source>
         <translation>DX Soğutma Serpantını Sistem Sensörü Düğüm Adı</translation>
     </message>
-    <!-- OS:AirLoopHVAC:UnitaryHeatPump:AirToAir, OS:AirLoopHVAC:UnitaryHeatPump:AirToAir:MultiSpeed, OS:AirLoopHVAC:UnitarySystem, OS:ZoneHVAC:PackagedTerminalHeatPump, OS:ZoneHVAC:WaterToAirHeatPump -->
+    
     <message>
         <source>DX Heating Coil Sizing Ratio</source>
         <translation>DX Isıtma Bobini Boyutlandırma Oranı</translation>
     </message>
 
-    <!-- E -->
-    <!-- OS:CoilSystem:Cooling:Water, OS:HeatExchanger:AirToAir:SensibleAndLatent, OS:HeatExchanger:Desiccant:BalancedFlow -->
+    
+    
     <message>
         <source>Economizer Lockout</source>
         <translation>Ekonomizer Kilidi</translation>
     </message>
-    <!-- OS:ZoneVentilation:WindandStackOpenArea -->
+    
     <message>
         <source>Effective Angle</source>
         <translation>Efektif Açı</translation>
     </message>
-    <!-- OS:AirflowNetworkEffectiveLeakageArea -->
+    
     <message>
         <source>Effective Leakage Area</source>
         <translation>Efektif Sızıntı Alanı</translation>
     </message>
-    <!-- OS:AirflowNetworkLeakageRatio -->
+    
     <message>
         <source>Effective Leakage Ratio</source>
         <translation>Etkili Sızıntı Oranı</translation>
     </message>
-    <!-- OS:SolarCollectorPerformance:PhotovoltaicThermal:BIPVT -->
+    
     <message>
         <source>Effective Plenum Gap Thickness Behind PV Modules</source>
         <translation>PV Modülleri Arkasındaki Etkili Boşluk Kalınlığı</translation>
     </message>
-    <!-- OS:DaylightingDevice:Tubular -->
+    
     <message>
         <source>Effective Thermal Resistance</source>
         <translation>Etkili Isıl Direnç</translation>
     </message>
-    <!-- OS:EvaporativeCooler:Direct:ResearchSpecial -->
+    
     <message>
         <source>Effectiveness Flow Ratio Modifier Curve Name</source>
         <translation>Etkinlik Akış Oranı Düzeltici Eğri Adı</translation>
     </message>
-    <!-- OS:Coil:Heating:Electric, OS:Coil:Heating:Electric:MultiStage:StageData, OS:ZoneHVAC:Baseboard:Convective:Electric, OS:ZoneHVAC:Baseboard:RadiantConvective:Electric -->
+    
     <message>
         <source>Efficiency</source>
         <translation>Verimlilik</translation>
     </message>
-    <!-- OS:ElectricLoadCenter:Inverter:LookUpTable -->
+    
     <message>
         <source>Efficiency at 10% Power and Nominal Voltage</source>
         <translation>% 10 Güçte ve Nominal Voltajda Verimlilik</translation>
     </message>
-    <!-- OS:ElectricLoadCenter:Inverter:LookUpTable -->
+    
     <message>
         <source>Efficiency at 100% Power and Nominal Voltage</source>
         <translation>%100 Güç ve Nominal Voltajda Verimlilik</translation>
     </message>
-    <!-- OS:ElectricLoadCenter:Inverter:LookUpTable -->
+    
     <message>
         <source>Efficiency at 20% Power and Nominal Voltage</source>
         <translation>%20 Güçte ve Nominal Voltajda Verimlilik</translation>
     </message>
-    <!-- OS:ElectricLoadCenter:Inverter:LookUpTable -->
+    
     <message>
         <source>Efficiency at 30% Power and Nominal Voltage</source>
         <translation>%30 Güçte ve Nominal Voltajda Verimlilik</translation>
     </message>
-    <!-- OS:ElectricLoadCenter:Inverter:LookUpTable -->
+    
     <message>
         <source>Efficiency at 50% Power and Nominal Voltage</source>
         <translation>%50 Güçte ve Anma Geriliminde Verim</translation>
     </message>
-    <!-- OS:ElectricLoadCenter:Inverter:LookUpTable -->
+    
     <message>
         <source>Efficiency at 75% Power and Nominal Voltage</source>
         <translation>%75 Gücü ve Nominal Voltajda Verim</translation>
     </message>
-    <!-- OS:Generator:FuelCell:PowerModule -->
+    
     <message>
         <source>Efficiency Curve Mode</source>
         <translation>Verimlilik Eğrisi Modu</translation>
     </message>
-    <!-- OS:Generator:FuelCell:PowerModule -->
+    
     <message>
         <source>Efficiency Curve Name</source>
         <translation>Verim Eğrisi Adı</translation>
     </message>
-    <!-- OS:Generator:FuelCell:Inverter -->
+    
     <message>
         <source>Efficiency Function of DC Power Curve Name</source>
         <translation>DC Güç Eğrisi Adı Verimlilik Fonksiyonu</translation>
     </message>
-    <!-- OS:ElectricLoadCenter:Storage:Converter -->
+    
     <message>
         <source>Efficiency Function of Power Curve Name</source>
         <translation>Verimlilik Fonksiyonu Güç Eğrisi Adı</translation>
     </message>
-    <!-- OS:PhotovoltaicPerformance:Simple -->
+    
     <message>
         <source>Efficiency Schedule Name</source>
         <translation>Verimlilik Çizelgesi Adı</translation>
     </message>
-    <!-- OS:ElectricEquipment -->
+    
     <message>
         <source>Electric Equipment Definition Name</source>
         <translation>Elektrik Ekipmanı Tanımı Adı</translation>
     </message>
-    <!-- OS:ElectricEquipment:ITE:AirCooled -->
+    
     <message>
         <source>Electric Equipment ITE AirCooled Definition Name</source>
         <translation>Elektrik Ekipmanı ITE Hava Soğutmalı Tanım Adı</translation>
     </message>
-    <!-- OS:Chiller:Electric:ReformulatedEIR -->
+    
     <message>
         <source>Electric Input to Cooling Output Ratio Function of Part Load Ratio Curve Type</source>
         <translation>Soğutma Çıkışına Elektrik Girdisinin Kısmi Yük Oranı Fonksiyonunun Eğri Türü</translation>
     </message>
-    <!-- OS:HeatPump:PlantLoop:EIR:Cooling, OS:HeatPump:PlantLoop:EIR:Heating -->
+    
     <message>
         <source>Electric Input to Output Ratio Modifier Function of Part Load Ratio Curve Name</source>
         <translation>Electric Input to Output Ratio Modifier Function of Part Load Ratio Curve Name</translation>
     </message>
-    <!-- OS:HeatPump:PlantLoop:EIR:Cooling, OS:HeatPump:PlantLoop:EIR:Heating -->
+    
     <message>
         <source>Electric Input to Output Ratio Modifier Function of Temperature Curve Name</source>
         <translation>Sıcaklığın Fonksiyonu Olarak Elektrik Giriş/Çıkış Oranı Düzenleyici Eğri Adı</translation>
     </message>
-    <!-- OS:Fan:SystemModel -->
+    
     <message>
         <source>Electric Power Function of Flow Fraction Curve Name</source>
         <translation>Akış Fraksiyonu Eğrisi Adına Bağlı Elektrik Gücü Fonksiyonu</translation>
     </message>
-    <!-- OS:Fan:SystemModel -->
+    
     <message>
         <source>Electric Power Minimum Flow Rate Fraction</source>
         <translation>Elektrikli Güç Minimum Akış Oranı Kesri</translation>
     </message>
-    <!-- OS:Fan:SystemModel -->
+    
     <message>
         <source>Electric Power Per Unit Flow Rate</source>
         <translation>Birim Akış Başına Elektrik Gücü</translation>
     </message>
-    <!-- OS:Fan:SystemModel -->
+    
     <message>
         <source>Electric Power Per Unit Flow Rate Per Unit Pressure</source>
         <translation>Birim Akış Hızı ve Birim Basınç Başına Elektrik Gücü</translation>
     </message>
-    <!-- OS:ElectricEquipment:ITE:AirCooled:Definition -->
+    
     <message>
         <source>Electric Power Supply Efficiency Function of Part Load Ratio Curve Name</source>
         <translation>Elektrik Gücü Arz Verimliliği Kısmi Yük Oranı Eğrisi Adı</translation>
     </message>
-    <!-- OS:ElectricEquipment:ITE:AirCooled -->
+    
     <message>
         <source>Electric Power Supply End-Use Subcategory</source>
         <translation>Elektrik Gücü Tedarik Son Kullanım Alt Kategorisi</translation>
     </message>
-    <!-- OS:ElectricLoadCenter:Distribution -->
+    
     <message>
         <source>Electrical Buss Type</source>
         <translation>Elektrik Şebekesi Türü</translation>
     </message>
-    <!-- OS:Generator:MicroTurbine -->
+    
     <message>
         <source>Electrical Efficiency Function of Part Load Ratio Curve Name</source>
         <translation>Elektriksel Verim Kısmi Yük Oranı Eğrisi Adı</translation>
     </message>
-    <!-- OS:Generator:MicroTurbine -->
+    
     <message>
         <source>Electrical Efficiency Function of Temperature Curve Name</source>
         <translation>Sıcaklığın Fonksiyonu Olarak Elektrik Verimliliği Eğri Adı</translation>
     </message>
-    <!-- OS:Generator:MicroTurbine -->
+    
     <message>
         <source>Electrical Power Function of Temperature and Elevation Curve Name</source>
         <translation>Sıcaklık ve Yükseklik Fonksiyonuna Göre Elektrik Gücü Eğrisi Adı</translation>
     </message>
-    <!-- OS:Generator:FuelCell -->
+    
     <message>
         <source>Electrical Storage Name</source>
         <translation>Elektrik Depolama Adı</translation>
     </message>
-    <!-- OS:ElectricLoadCenter:Distribution -->
+    
     <message>
         <source>Electrical Storage Object Name</source>
         <translation>Elektrik Depolama Nesnesi Adı</translation>
     </message>
-    <!-- OS:LifeCycleCost:Parameters -->
+    
     <message>
         <source>Electricity Inflation</source>
         <translation>Elektrik Enflasyonu</translation>
     </message>
-    <!-- OS:Controller:OutdoorAir, OS:ZoneHVAC:EnergyRecoveryVentilator:Controller -->
+    
     <message>
         <source>Electronic Enthalpy Limit Curve Name</source>
         <translation>Elektronik Entalpi Limit Eğrisi Adı</translation>
     </message>
-    <!-- OS:Site, OS:WeatherFile -->
+    
     <message>
         <source>Elevation</source>
         <translation>Yükseklik</translation>
     </message>
-    <!-- OS:SolarCollectorPerformance:IntegralCollectorStorage -->
+    
     <message>
         <source>Emissivity of Absorber Plate</source>
         <translation>Emitör Plakası Işınım Yeteneği</translation>
     </message>
-    <!-- OS:SolarCollectorPerformance:IntegralCollectorStorage -->
+    
     <message>
         <source>Emissivity of Inner Cover</source>
         <translation>İç Kapağın Yayınabilirliği</translation>
     </message>
-    <!-- OS:SolarCollectorPerformance:IntegralCollectorStorage -->
+    
     <message>
         <source>Emissivity of Outer Cover</source>
         <translation>Dış Kaplamanın Yayıcılığı</translation>
     </message>
-    <!-- OS:EnergyManagementSystem:MeteredOutputVariable, OS:EnergyManagementSystem:OutputVariable -->
+    
     <message>
         <source>EMS Program or Subroutine Name</source>
         <translation>EMS Programı veya Alt Rutin Adı</translation>
     </message>
-    <!-- OS:Output:EnergyManagementSystem -->
+    
     <message>
         <source>EMS Runtime Language Debug Output Level</source>
         <translation>EMS Çalışma Zamanı Dili Hata Ayıklama Çıkışı Seviyesi</translation>
     </message>
-    <!-- OS:EnergyManagementSystem:MeteredOutputVariable, OS:EnergyManagementSystem:OutputVariable, OS:EnergyManagementSystem:TrendVariable -->
+    
     <message>
         <source>EMS Variable Name</source>
         <translation>EMS Değişken Adı</translation>
     </message>
-    <!-- OS:RunPeriodControl:DaylightSavingTime -->
+    
     <message>
         <source>End Date</source>
         <translation>Bitiş Tarihi</translation>
     </message>
-    <!-- OS:Schedule:Rule -->
+    
     <message>
         <source>End Day</source>
         <translation>Son Gün</translation>
     </message>
-    <!-- OS:RunPeriod, OS:SizingPeriod:WeatherFileDays -->
+    
     <message>
         <source>End Day of Month</source>
         <translation>Ayın Son Günü</translation>
     </message>
-    <!-- OS:RunPeriod, OS:Schedule:Rule, OS:SizingPeriod:WeatherFileDays -->
+    
     <message>
         <source>End Month</source>
         <translation>Bitiş Ayı</translation>
     </message>
-    <!-- OS:EnergyManagementSystem:MeteredOutputVariable, OS:PythonPlugin:OutputVariable -->
+    
     <message>
         <source>End-Use Category</source>
         <translation>Nihai Kullanım Kategorisi</translation>
     </message>
-    <!-- OS:UtilityCost:Tariff -->
+    
     <message>
         <source>Energy Conversion Factor</source>
         <translation>Enerji Dönüşüm Faktörü</translation>
     </message>
-    <!-- OS:ZoneHVAC:Dehumidifier:DX -->
+    
     <message>
         <source>Energy Factor Curve Name</source>
         <translation>Enerji Faktörü Eğrisi Adı</translation>
     </message>
-    <!-- OS:Coil:Cooling:DX:VariableSpeed:SpeedData, OS:Coil:Cooling:WaterToAirHeatPump:VariableSpeedEquationFit:SpeedData, OS:Coil:Heating:DX:VariableSpeed:SpeedData, OS:Coil:Heating:WaterToAirHeatPump:VariableSpeedEquationFit:SpeedData -->
+    
     <message>
         <source>Energy Input Ratio Function of Air Flow Fraction Curve Name</source>
         <translation>Hava Akış Kesri Fonksiyonu Enerji Giriş Oranı Eğrisi Adı</translation>
     </message>
-    <!-- OS:Coil:Cooling:DX:MultiSpeed:StageData, OS:CoilPerformance:DX:Cooling -->
+    
     <message>
         <source>Energy Input Ratio Function of Flow Fraction Curve</source>
         <translation>Akış Fraksiyonu Eğrisinin Enerji Girişi Oranı Fonksiyonu</translation>
     </message>
-    <!-- OS:Coil:Cooling:DX:MultiSpeed:StageData, OS:CoilPerformance:DX:Cooling -->
+    
     <message>
         <source>Energy Input Ratio Function of Temperature Curve</source>
         <translation>Enerji Giriş Oranı Sıcaklık Fonksiyonu Eğrisi</translation>
     </message>
-    <!-- OS:Coil:Cooling:WaterToAirHeatPump:VariableSpeedEquationFit:SpeedData, OS:Coil:Heating:WaterToAirHeatPump:VariableSpeedEquationFit:SpeedData -->
+    
     <message>
         <source>Energy Input Ratio Function of Water Flow Fraction Curve Name</source>
         <translation>Su Akış Fraksiyonu Eğrisi Adına Göre Enerji Giriş Oranı İşlevi</translation>
     </message>
-    <!-- OS:Coil:Cooling:DX:CurveFit:Speed -->
+    
     <message>
         <source>Energy Input Ratio Modifier Function of Air Flow Fraction Curve</source>
         <translation>Enerji Giriş Oranı Hava Akış Oranı Eğrisi Değiştirici İşlevi</translation>
     </message>
-    <!-- OS:Coil:Cooling:DX:CurveFit:Speed -->
+    
     <message>
         <source>Energy Input Ratio Modifier Function of Temperature Curve</source>
         <translation>Sıcaklık Eğrisinin Enerji Giriş Oranı Değiştirici Fonksiyonu</translation>
     </message>
-    <!-- OS:Coil:Cooling:DX:VariableSpeed, OS:Coil:Cooling:WaterToAirHeatPump:VariableSpeedEquationFit, OS:Coil:Heating:DX:VariableSpeed, OS:Coil:Heating:WaterToAirHeatPump:VariableSpeedEquationFit -->
+    
     <message>
         <source>Energy Part Load Fraction Curve Name</source>
         <translation>Enerji Kısmi Yük Fraksiyonu Eğri Adı</translation>
     </message>
-    <!-- OS:EnergyManagementSystem:ProgramCallingManager -->
+    
     <message>
         <source>EnergyPlus Model Calling Point</source>
         <translation>EnergyPlus Model Çağrı Noktası</translation>
     </message>
-    <!-- OS:MaterialProperty:PhaseChange -->
+    
     <message>
         <source>Enthalpy</source>
         <translation>Entalpi</translation>
     </message>
-    <!-- OS:SizingPeriod:DesignDay -->
+    
     <message>
         <source>Enthalpy at Maximum Dry-Bulb</source>
         <translation>Maksimum Kuru Bulb'ta Entalpi</translation>
     </message>
-    <!-- OS:ZoneHVAC:EnergyRecoveryVentilator:Controller -->
+    
     <message>
         <source>Enthalpy High Limit</source>
         <translation>Entalpi Üst Limiti</translation>
     </message>
-    <!-- OS:Pipe:Indoor -->
+    
     <message>
         <source>Environment Type</source>
         <translation>Ortam Türü</translation>
     </message>
-    <!-- OS:ElectricEquipment:ITE:AirCooled:Definition -->
+    
     <message>
         <source>Environmental Class</source>
         <translation>Çevresel Sınıf</translation>
     </message>
-    <!-- OS:AirConditioner:VariableRefrigerantFlow:FluidTemperatureControl, OS:AirConditioner:VariableRefrigerantFlow:FluidTemperatureControl:HR -->
+    
     <message>
         <source>Equivalent Length of Main Pipe Connecting Outdoor Unit to the First Branch Joint</source>
         <translation>Dış Üniteyi İlk Dallanma Noktasına Bağlayan Ana Borunun Eşdeğer Uzunluğu</translation>
     </message>
-    <!-- OS:AirConditioner:VariableRefrigerantFlow -->
+    
     <message>
         <source>Equivalent Piping Length used for Piping Correction Factor in Cooling Mode</source>
         <translation>Soğutma Modunda Boru Düzeltme Faktörü İçin Kullanılan Eşdeğer Boru Uzunluğu</translation>
     </message>
-    <!-- OS:AirConditioner:VariableRefrigerantFlow -->
+    
     <message>
         <source>Equivalent Piping Length used for Piping Correction Factor in Heating Mode</source>
         <translation>Isıtma Modunda Boru Düzeltme Faktörü için Kullanılan Eşdeğer Boru Uzunluğu</translation>
     </message>
-    <!-- OS:AirflowNetworkSurface -->
+    
     <message>
         <source>Equivalent Rectangle Aspect Ratio</source>
         <translation>Eşdeğer Dikdörtgen En-Boy Oranı</translation>
     </message>
-    <!-- OS:AirflowNetworkSurface -->
+    
     <message>
         <source>Equivalent Rectangle Method</source>
         <translation>Eşdeğer Dikdörtgen Yöntemi</translation>
     </message>
-    <!-- OS:LifeCycleCost:UsePriceEscalation -->
+    
     <message>
         <source>Escalation Start Month</source>
         <translation>Artış Başlangıç Ayı</translation>
     </message>
-    <!-- OS:LifeCycleCost:UsePriceEscalation -->
+    
     <message>
         <source>Escalation Start Year</source>
         <translation>Artış Başlangıç Yılı</translation>
     </message>
-    <!-- OS:Fan:ComponentModel -->
+    
     <message>
         <source>Euler Number at Maximum Fan Static Efficiency</source>
         <translation>Maksimum Fan Statik Verimindeki Euler Numarası</translation>
     </message>
-    <!-- OS:AirConditioner:VariableRefrigerantFlow:FluidTemperatureControl:LoadingIndex -->
+    
     <message>
         <source>Evaporative Capacity Multiplier Function of Temperature Curve Name</source>
         <translation>Evaporatif Kapasite Çarpanı Sıcaklık Eğrisi Adı</translation>
     </message>
-    <!-- OS:Refrigeration:CompressorRack, OS:Refrigeration:Condenser:EvaporativeCooled -->
+    
     <message>
         <source>Evaporative Condenser Availability Schedule Name</source>
         <translation>Buharlaştırmalı Kondenser Kullanılabilirlik Çizelgesi Adı</translation>
     </message>
-    <!-- OS:Coil:Cooling:DX:CurveFit:Performance -->
+    
     <message>
         <source>Evaporative Condenser Basin Heater Capacity</source>
         <translation>Buharlaştırmalı Kondenser Havuz Isıtıcı Kapasitesi</translation>
     </message>
-    <!-- OS:Coil:Cooling:DX:CurveFit:Performance -->
+    
     <message>
         <source>Evaporative Condenser Basin Heater Operating Schedule</source>
         <translation>Buharlaştırıcı Kondenser Havuz Isıtıcı İşletme Takvimi</translation>
     </message>
-    <!-- OS:Coil:Cooling:DX:CurveFit:Performance -->
+    
     <message>
         <source>Evaporative Condenser Basin Heater Setpoint Temperature</source>
         <translation>Buharlaştırmalı Kondenser Havuz Isıtıcı Ayar Sıcaklığı</translation>
     </message>
-    <!-- OS:Coil:Cooling:DX:CurveFit:Speed -->
+    
     <message>
         <source>Evaporative Condenser Pump Power Fraction</source>
         <translation>Buharlaştırmalı Kondenser Pompa Gücü Oranı</translation>
     </message>
-    <!-- OS:Coil:Cooling:DX -->
+    
     <message>
         <source>Evaporative Condenser Supply Water Storage Tank Name</source>
         <translation>Buharlaştırmalı Kondenser Besleme Suyu Depolama Tankı Adı</translation>
     </message>
-    <!-- OS:EvaporativeCooler:Direct:ResearchSpecial -->
+    
     <message>
         <source>Evaporative Operation Maximum Limit Drybulb Temperature</source>
         <translation>Buharlaştırmalı İşletme Maksimum Limit Kuru Termometre Sıcaklığı</translation>
     </message>
-    <!-- OS:EvaporativeCooler:Direct:ResearchSpecial -->
+    
     <message>
         <source>Evaporative Operation Maximum Limit Wetbulb Temperature</source>
         <translation>Buharlaştırmalı İşletme Maksimum Sınır Islak Bulb Sıcaklığı</translation>
     </message>
-    <!-- OS:EvaporativeCooler:Direct:ResearchSpecial -->
+    
     <message>
         <source>Evaporative Operation Minimum Drybulb Temperature</source>
         <translation>Evaporatif İşletme Minimum Kuru Termometre Sıcaklığı</translation>
     </message>
-    <!-- OS:Refrigeration:CompressorRack, OS:Refrigeration:Condenser:EvaporativeCooled -->
+    
     <message>
         <source>Evaporative Water Supply Tank Name</source>
         <translation>Buharlaştırmalı Su Depo Adı</translation>
     </message>
-    <!-- OS:WaterHeater:HeatPump, OS:WaterHeater:HeatPump:WrappedCondenser -->
+    
     <message>
         <source>Evaporator Air Flow Rate</source>
         <translation>Buharlaştırıcı Hava Akış Hızı</translation>
     </message>
-    <!-- OS:Coil:Cooling:DX:CurveFit:Speed -->
+    
     <message>
         <source>Evaporator Air Flow Rate Fraction</source>
         <translation>Buharlaştırıcı Hava Akış Hızı Oranı</translation>
     </message>
-    <!-- OS:Coil:Cooling:DX:SingleSpeed:ThermalStorage -->
+    
     <message>
         <source>Evaporator Air Inlet Node</source>
         <translation>Buharlaştırıcı Hava Giriş Düğümü</translation>
     </message>
-    <!-- OS:Coil:WaterHeating:AirToWaterHeatPump, OS:Coil:WaterHeating:AirToWaterHeatPump:VariableSpeed, OS:Coil:WaterHeating:AirToWaterHeatPump:Wrapped -->
+    
     <message>
         <source>Evaporator Air Inlet Node Name</source>
         <translation>Evaporatör Hava Giriş Düğümü Adı</translation>
     </message>
-    <!-- OS:Coil:Cooling:DX:SingleSpeed:ThermalStorage -->
+    
     <message>
         <source>Evaporator Air Outlet Node</source>
         <translation>Evaporatör Hava Çıkış Düğümü</translation>
     </message>
-    <!-- OS:Coil:WaterHeating:AirToWaterHeatPump, OS:Coil:WaterHeating:AirToWaterHeatPump:VariableSpeed, OS:Coil:WaterHeating:AirToWaterHeatPump:Wrapped -->
+    
     <message>
         <source>Evaporator Air Outlet Node Name</source>
         <translation>Buharlaştırıcı Hava Çıkış Düğümü Adı</translation>
     </message>
-    <!-- OS:Coil:WaterHeating:AirToWaterHeatPump, OS:Coil:WaterHeating:AirToWaterHeatPump:VariableSpeed, OS:Coil:WaterHeating:AirToWaterHeatPump:Wrapped -->
+    
     <message>
         <source>Evaporator Air Temperature Type for Curve Objects</source>
         <translation>Evaparatör Hava Sıcaklığı Türü Eğri Nesneleri için</translation>
     </message>
-    <!-- OS:Refrigeration:SecondarySystem -->
+    
     <message>
         <source>Evaporator Approach Temperature Difference</source>
         <translation>Buharlaştırıcı Yaklaşma Sıcaklık Farkı</translation>
     </message>
-    <!-- OS:Refrigeration:SecondarySystem -->
+    
     <message>
         <source>Evaporator Capacity</source>
         <translation>Evaporatör Kapasitesi</translation>
     </message>
-    <!-- OS:Refrigeration:SecondarySystem -->
+    
     <message>
         <source>Evaporator Evaporating Temperature</source>
         <translation>Buharlaştırıcı Buharlaşma Sıcaklığı</translation>
     </message>
-    <!-- OS:Coil:WaterHeating:AirToWaterHeatPump, OS:Coil:WaterHeating:AirToWaterHeatPump:VariableSpeed, OS:Coil:WaterHeating:AirToWaterHeatPump:Wrapped -->
+    
     <message>
         <source>Evaporator Fan Power Included in Rated COP</source>
         <translation>Buharlaştırıcı Fan Gücü Nominal COP'da Dahil</translation>
     </message>
-    <!-- OS:Refrigeration:SecondarySystem -->
+    
     <message>
         <source>Evaporator Flow Rate for Secondary Fluid</source>
         <translation>Buharlaştırıcı İkincil Akışkan Debisi</translation>
     </message>
-    <!-- OS:Coil:Cooling:DX -->
+    
     <message>
         <source>Evaporator Inlet Node</source>
         <translation>Buharlaştırıcı Giriş Düğümü</translation>
     </message>
-    <!-- OS:Coil:Cooling:DX -->
+    
     <message>
         <source>Evaporator Outlet Node</source>
         <translation>Buharlaştırıcı Çıkış Düğümü</translation>
     </message>
-    <!-- OS:Refrigeration:SecondarySystem -->
+    
     <message>
         <source>Evaporator Range Temperature Difference</source>
         <translation>Buharlaştırıcı Aralık Sıcaklık Farkı</translation>
     </message>
-    <!-- OS:Refrigeration:SecondarySystem -->
+    
     <message>
         <source>Evaporator Refrigerant Inventory</source>
         <translation>Buharlaştırıcı Soğutucu Akışkanı Envanteri</translation>
     </message>
-    <!-- OS:GroundHeatExchanger:HorizontalTrench -->
+    
     <message>
         <source>Evapotranspiration Ground Cover Parameter</source>
         <translation>Buharlaşma-Terleme Yer Örtüsü Parametresi</translation>
     </message>
-    <!-- OS:Generator:FuelCell:AuxiliaryHeater -->
+    
     <message>
         <source>Excess Air Ratio</source>
         <translation>Fazla Hava Oranı</translation>
     </message>
-    <!-- OS:ZoneHVAC:EnergyRecoveryVentilator:Controller -->
+    
     <message>
         <source>Exhaust Air Enthalpy Limit</source>
         <translation>Egzoz Hava Entalpi Limiti</translation>
     </message>
-    <!-- OS:ZoneHVAC:EnergyRecoveryVentilator -->
+    
     <message>
         <source>Exhaust Air Fan Name</source>
         <translation>Egzoz Hava Fanı Adı</translation>
     </message>
-    <!-- OS:ZoneHVAC:EnergyRecoveryVentilator -->
+    
     <message>
         <source>Exhaust Air Flow Rate</source>
         <translation>Egzoz Hava Akış Hızı</translation>
     </message>
-    <!-- OS:Generator:MicroTurbine -->
+    
     <message>
         <source>Exhaust Air Flow Rate Function of Part Load Ratio Curve Name</source>
         <translation>Exhaust Air Flow Rate Function of Part Load Ratio Curve Name</translation>
     </message>
-    <!-- OS:Generator:MicroTurbine -->
+    
     <message>
         <source>Exhaust Air Flow Rate Function of Temperature Curve Name</source>
         <translation>Egzoz Hava Akış Hızı Sıcaklık Fonksiyonu Eğrisi Adı</translation>
     </message>
-    <!-- OS:HeatExchanger:AirToAir:SensibleAndLatent -->
+    
     <message>
         <source>Exhaust Air Inlet Node</source>
         <translation>Egzoz Hava Giriş Düğümü</translation>
     </message>
-    <!-- OS:HeatExchanger:AirToAir:SensibleAndLatent -->
+    
     <message>
         <source>Exhaust Air Outlet Node</source>
         <translation>Egzoz Hava Çıkış Düğümü</translation>
     </message>
-    <!-- OS:Generator:MicroTurbine -->
+    
     <message>
         <source>Exhaust Air Temperature Function of Part Load Ratio Curve Name</source>
         <translation>Kısmi Yük Oranı Eğri Adına Göre Egzoz Hava Sıcaklığı Fonksiyonu</translation>
     </message>
-    <!-- OS:Generator:MicroTurbine -->
+    
     <message>
         <source>Exhaust Air Temperature Function of Temperature Curve Name</source>
         <translation>Egzoz Hava Sıcaklığı Sıcaklık Eğrisi Adı Fonksiyonu</translation>
     </message>
-    <!-- OS:ZoneHVAC:EnergyRecoveryVentilator:Controller -->
+    
     <message>
         <source>Exhaust Air Temperature Limit</source>
         <translation>Egzoz Hava Sıcaklığı Sınırı</translation>
     </message>
-    <!-- OS:Generator:FuelCell:ExhaustGasToWaterHeatExchanger -->
+    
     <message>
         <source>Exhaust Outlet Air Node Name</source>
         <translation>Egzoz Çıkış Hava Düğümü Adı</translation>
     </message>
-    <!-- OS:FuelFactors -->
+    
     <message>
         <source>Existing Fuel Resource Name</source>
         <translation>Mevcut Yakıt Kaynağı Adı</translation>
     </message>
-    <!-- OS:EnergyManagementSystem:GlobalVariable, OS:EnergyManagementSystem:OutputVariable, OS:ExternalInterface:Actuator, OS:ExternalInterface:Schedule, OS:ExternalInterface:Variable, OS:Output:Variable -->
+    
     <message>
         <source>Export To BCVTB</source>
         <translation>BCVTB'ye Aktar</translation>
     </message>
-    <!-- OS:SurfaceProperty:ExposedFoundationPerimeter -->
+    
     <message>
         <source>Exposed Perimeter Calculation Method</source>
         <translation>Açık Çevre Hesaplama Yöntemi</translation>
     </message>
-    <!-- OS:SurfaceProperty:ExposedFoundationPerimeter -->
+    
     <message>
         <source>Exposed Perimeter Fraction</source>
         <translation>Açık Çevre Oranı</translation>
     </message>
-    <!-- OS:Exterior:FuelEquipment -->
+    
     <message>
         <source>Exterior Fuel Equipment Definition Name</source>
         <translation>Dış Yakıt Ekipmanı Tanımı Adı</translation>
     </message>
-    <!-- OS:Foundation:Kiva -->
+    
     <message>
         <source>Exterior Horizontal Insulation Depth</source>
         <translation>Dış Yatay İzolasyon Derinliği</translation>
     </message>
-    <!-- OS:Foundation:Kiva -->
+    
     <message>
         <source>Exterior Horizontal Insulation Material Name</source>
         <translation>Dış Yatay İzolasyon Malzeme Adı</translation>
     </message>
-    <!-- OS:Foundation:Kiva -->
+    
     <message>
         <source>Exterior Horizontal Insulation Width</source>
         <translation>Dış Yatay İzolasyon Genişliği</translation>
     </message>
-    <!-- OS:Exterior:Lights -->
+    
     <message>
         <source>Exterior Lights Definition Name</source>
         <translation>Dış Aydınlatma Tanımı Adı</translation>
     </message>
-    <!-- OS:SurfaceProperty:LocalEnvironment -->
+    
     <message>
         <source>Exterior Surface Name</source>
         <translation>Dış Yüzey Adı</translation>
     </message>
-    <!-- OS:Foundation:Kiva -->
+    
     <message>
         <source>Exterior Vertical Insulation Depth</source>
         <translation>Dış Dikey İzolasyon Derinliği</translation>
     </message>
-    <!-- OS:Foundation:Kiva -->
+    
     <message>
         <source>Exterior Vertical Insulation Material Name</source>
         <translation>Dış Dikey İzolasyon Malzeme Adı</translation>
     </message>
-    <!-- OS:Exterior:WaterEquipment -->
+    
     <message>
         <source>Exterior Water Equipment Definition Name</source>
         <translation>Dış Su Ekipmanı Tanımı Adı</translation>
     </message>
-    <!-- OS:DaylightingDevice:LightWell -->
+    
     <message>
         <source>Exterior Window Name</source>
         <translation>Dış Pencere Adı</translation>
     </message>
-    <!-- OS:SurfaceProperty:OtherSideCoefficients -->
+    
     <message>
         <source>External Dry-Bulb Temperature Coefficient</source>
         <translation>Dış Kuru-Bulb Sıcaklık Katsayısı</translation>
     </message>
-    <!-- OS:Table:IndependentVariable, OS:Table:Lookup -->
+    
     <message>
         <source>External File Column Number</source>
         <translation>Harici Dosya Sütun Numarası</translation>
     </message>
-    <!-- OS:PythonPlugin:Instance, OS:Schedule:File, OS:Table:IndependentVariable, OS:Table:Lookup, OS:Table:MultiVariableLookup -->
+    
     <message>
         <source>External File Name</source>
         <translation>Harici Dosya Adı</translation>
     </message>
-    <!-- OS:Table:IndependentVariable, OS:Table:Lookup -->
+    
     <message>
         <source>External File Starting Row Number</source>
         <translation>Dış Dosya Başlangıç Satır Numarası</translation>
     </message>
-    <!-- OS:AirflowNetworkExternalNode -->
+    
     <message>
         <source>External Node Height</source>
         <translation>Harici Düğüm Yüksekliği</translation>
     </message>
-    <!-- OS:AirflowNetworkSurface -->
+    
     <message>
         <source>External Node Name</source>
         <translation>Harici Düğüm Adı</translation>
     </message>
-    <!-- OS:SurfaceProperty:LocalEnvironment -->
+    
     <message>
         <source>External Shading Fraction Schedule Name</source>
         <translation>Dış Gölgeleme Oranı Çizelgesi Adı</translation>
     </message>
-    <!-- OS:SolarCollectorPerformance:IntegralCollectorStorage -->
+    
     <message>
         <source>Extinction Coefficient Times Thickness of Outer Cover</source>
         <translation>Dış Örtü Kalınlığı Çarpı Soğurma Katsayısı</translation>
     </message>
-    <!-- OS:SolarCollectorPerformance:IntegralCollectorStorage -->
+    
     <message>
         <source>Extinction Coefficient Times Thickness of the inner Cover</source>
         <translation>İç Kaplamanın Soğurma Katsayısı Çarpı Kalınlığı</translation>
     </message>
-    <!-- OS:AirflowNetworkDetailedOpening -->
+    
     <message>
         <source>Extra Crack Length or Height of Pivoting Axis</source>
         <translation>Ekstra Çatlak Uzunluğu veya Döner Eksen Yüksekliği</translation>
     </message>
-    <!-- OS:Table:IndependentVariable -->
+    
     <message>
         <source>Extrapolation Method</source>
         <translation>Ekstrapolasyon Yöntemi</translation>
     </message>
 
-    <!-- F -->
-    <!-- OS:Construction:FfactorGroundFloor -->
+    
+    
     <message>
         <source>F-Factor</source>
         <translation>F-Faktörü</translation>
     </message>
-    <!-- OS:AirflowNetworkZone -->
+    
     <message>
         <source>Facade Width</source>
         <translation>Cephe Genişliği</translation>
     </message>
-    <!-- OS:WaterHeater:HeatPump -->
+    
     <message>
         <source>Fan</source>
         <translation>Fan</translation>
     </message>
-    <!-- OS:AirTerminal:SingleDuct:ParallelPIU:Reheat, OS:AirTerminal:SingleDuct:SeriesPIU:Reheat, OS:ZoneHVAC:UnitHeater -->
+    
     <message>
         <source>Fan Control Type</source>
         <translation>Fan Control Type</translation>
     </message>
-    <!-- OS:Coil:Cooling:DX:VariableSpeed, OS:Coil:Cooling:WaterToAirHeatPump:EquationFit, OS:Coil:Cooling:WaterToAirHeatPump:VariableSpeedEquationFit -->
+    
     <message>
         <source>Fan Delay Time</source>
         <translation>Fan Gecikmesi Süresi</translation>
     </message>
-    <!-- OS:Fan:OnOff -->
+    
     <message>
         <source>Fan Efficiency Ratio Function of Speed Ratio Curve Name</source>
         <translation>Fan Efficiency Ratio Function of Speed Ratio Curve Name</translation>
     </message>
-    <!-- OS:ElectricEquipment:ITE:AirCooled -->
+    
     <message>
         <source>Fan End-Use Subcategory</source>
         <translation>Fan End-Use Subcategory</translation>
     </message>
-    <!-- OS:SetpointManager:MixedAir -->
+    
     <message>
         <source>Fan Inlet Node Name</source>
         <translation>Fan Giriş Düğümü Adı</translation>
     </message>
-    <!-- OS:AirTerminal:SingleDuct:ParallelPIU:Reheat, OS:AirTerminal:SingleDuct:SeriesPIU:Reheat, OS:AirflowNetworkFan, OS:WaterHeater:HeatPump:WrappedCondenser -->
+    
     <message>
         <source>Fan Name</source>
         <translation>Fan Adı</translation>
     </message>
-    <!-- OS:AirTerminal:SingleDuct:ParallelPIU:Reheat -->
+    
     <message>
         <source>Fan On Flow Fraction</source>
         <translation>Fan Açık Akış Oranı</translation>
     </message>
-    <!-- OS:Fan:ComponentModel -->
+    
     <message>
         <source>Fan Outlet Area</source>
         <translation>Fan Outlet Area</translation>
     </message>
-    <!-- OS:SetpointManager:MixedAir -->
+    
     <message>
         <source>Fan Outlet Node Name</source>
         <translation>Fan Çıkış Düğümü Adı</translation>
     </message>
-    <!-- OS:AirLoopHVAC:UnitaryHeatPump:AirToAir, OS:AirLoopHVAC:UnitarySystem, OS:WaterHeater:HeatPump, OS:WaterHeater:HeatPump:WrappedCondenser, OS:ZoneHVAC:EvaporativeCoolerUnit, OS:ZoneHVAC:PackagedTerminalAirConditioner, OS:ZoneHVAC:PackagedTerminalHeatPump, OS:ZoneHVAC:WaterToAirHeatPump -->
+    
     <message>
         <source>Fan Placement</source>
         <translation>Fan Yerleşimi</translation>
     </message>
-    <!-- OS:ElectricEquipment:ITE:AirCooled:Definition -->
+    
     <message>
         <source>Fan Power Input Function of Flow Curve Name</source>
         <translation>Fan Power Input Function of Flow Curve Name</translation>
     </message>
-    <!-- OS:CoolingTower:VariableSpeed -->
+    
     <message>
         <source>Fan Power Ratio Function of Air Flow Rate Ratio Curve</source>
         <translation>Fan Hava Akış Oranı Fonksiyonunun Güç Oranı Eğrisi</translation>
     </message>
-    <!-- OS:Fan:OnOff -->
+    
     <message>
         <source>Fan Power Ratio Function of Speed Ratio Curve Name</source>
         <translation>Fan Power Ratio Function of Speed Ratio Curve Name</translation>
     </message>
-    <!-- OS:ZoneVentilation:DesignFlowRate -->
+    
     <message>
         <source>Fan Pressure Rise</source>
         <translation>Fan Basınç Artışı</translation>
     </message>
-    <!-- OS:Fan:ComponentModel -->
+    
     <message>
         <source>Fan Pressure Rise Curve Name</source>
         <translation>Fan Basınç Artışı Eğrisi Adı</translation>
     </message>
-    <!-- OS:AvailabilityManager:NightCycle, OS:AvailabilityManager:NightVentilation, OS:AvailabilityManager:OptimumStart -->
+    
     <message>
         <source>Fan Schedule</source>
         <translation>Fan Programı</translation>
     </message>
-    <!-- OS:Fan:ComponentModel -->
+    
     <message>
         <source>Fan Sizing Factor</source>
         <translation>Fan Boyutlandırma Faktörü</translation>
     </message>
-    <!-- OS:Refrigeration:AirChiller, OS:Refrigeration:Condenser:EvaporativeCooled -->
+    
     <message>
         <source>Fan Speed Control Type</source>
         <translation>Fan Hızı Kontrol Tipi</translation>
     </message>
-    <!-- OS:Fan:ComponentModel -->
+    
     <message>
         <source>Fan Wheel Diameter</source>
         <translation>Fan Çarkı Çapı</translation>
     </message>
-    <!-- OS:Foundation:Kiva:Settings -->
+    
     <message>
         <source>Far-Field Width</source>
         <translation>Far-Field Genişliği</translation>
     </message>
-    <!-- OS:AdditionalProperties -->
+    
     <message>
         <source>Feature Data Type</source>
         <translation>Özellik Veri Türü</translation>
     </message>
-    <!-- OS:AdditionalProperties -->
+    
     <message>
         <source>Feature Name</source>
         <translation>Özellik Adı</translation>
     </message>
-    <!-- OS:AdditionalProperties -->
+    
     <message>
         <source>Feature Value</source>
         <translation>Özellik Değeri</translation>
     </message>
-    <!-- OS:Site:GroundTemperature:Deep -->
+    
     <message>
         <source>February Deep Ground Temperature</source>
         <translation>Şubat Derin Yer Sıcaklığı</translation>
     </message>
-    <!-- OS:Site:GroundReflectance -->
+    
     <message>
         <source>February Ground Reflectance</source>
         <translation>Şubat Yer Yansıtabilirliği</translation>
     </message>
-    <!-- OS:Site:GroundTemperature:BuildingSurface, OS:Site:GroundTemperature:FCfactorMethod -->
+    
     <message>
         <source>February Ground Temperature</source>
         <translation>Şubat Yer Sıcaklığı</translation>
     </message>
-    <!-- OS:Site:GroundTemperature:Shallow -->
+    
     <message>
         <source>February Surface Ground Temperature</source>
         <translation>Şubat Yüzey Zemin Sıcaklığı</translation>
     </message>
-    <!-- OS:UtilityCost:Variable -->
+    
     <message>
         <source>February Value</source>
         <translation>Şubat Değeri</translation>
     </message>
-    <!-- OS:StandardsInformation:Construction -->
+    
     <message>
         <source>Fenestration Assembly Context</source>
         <translation>Pencere Montajı Bağlamı</translation>
     </message>
-    <!-- OS:StandardsInformation:Construction -->
+    
     <message>
         <source>Fenestration Divider Type</source>
         <translation>Pencere Bölüntü Türü</translation>
     </message>
-    <!-- OS:StandardsInformation:Construction -->
+    
     <message>
         <source>Fenestration Frame Type</source>
         <translation>Pencere Çerçeve Türü</translation>
     </message>
-    <!-- OS:StandardsInformation:Construction -->
+    
     <message>
         <source>Fenestration Gas Fill</source>
         <translation>Pencere Gazı Dolgusu</translation>
     </message>
-    <!-- OS:StandardsInformation:Construction -->
+    
     <message>
         <source>Fenestration Low Emissivity Coating</source>
         <translation>Pencere Düşük Emisivite Kaplaması</translation>
     </message>
-    <!-- OS:StandardsInformation:Construction -->
+    
     <message>
         <source>Fenestration Number of Panes</source>
         <translation>Cam Sayısı</translation>
     </message>
-    <!-- OS:StandardsInformation:Construction -->
+    
     <message>
         <source>Fenestration Tint</source>
         <translation>Pencere Tonu</translation>
     </message>
-    <!-- OS:StandardsInformation:Construction -->
+    
     <message>
         <source>Fenestration Type</source>
         <translation>Pencere Tipi</translation>
     </message>
-    <!-- OS:Schedule:Compact -->
+    
     <message>
         <source>Field</source>
         <translation>Alan</translation>
     </message>
-    <!-- OS:External:File -->
+    
     <message>
         <source>File Name</source>
         <translation>Dosya Adı</translation>
     </message>
-    <!-- OS:Output:Table:Annual -->
+    
     <message>
         <source>Filter</source>
         <translation>Filtre</translation>
     </message>
-    <!-- OS:ZoneHVAC:EvaporativeCoolerUnit -->
+    
     <message>
         <source>First Evaporative Cooler</source>
         <translation>İlk Buharlaştırmalı Soğutmalı</translation>
     </message>
-    <!-- OS:Curve:Functional:PressureDrop -->
+    
     <message>
         <source>Fixed Friction Factor</source>
         <translation>Sabit Sürtünme Faktörü</translation>
     </message>
-    <!-- OS:DefaultSubSurfaceConstructions -->
+    
     <message>
         <source>Fixed Window Construction Name</source>
         <translation>Sabit Pencere Yapı Adı</translation>
     </message>
-    <!-- OS:CoilSystem:IntegratedHeatPump:AirSource -->
+    
     <message>
         <source>Flag to Indicate Load Control In SCWH Mode</source>
         <translation>SCWH Modunda Yük Kontrolünü Belirtmek İçin Bayrak</translation>
     </message>
-    <!-- OS:DefaultSurfaceConstructions -->
+    
     <message>
         <source>Floor Construction Name</source>
         <translation>Zemin İnşaat Adı</translation>
     </message>
-    <!-- OS:SpaceInfiltration:FlowCoefficient -->
+    
     <message>
         <source>Flow Coefficient</source>
         <translation>Akış Katsayısı</translation>
     </message>
-    <!-- OS:Fan:ZoneExhaust -->
+    
     <message>
         <source>Flow Fraction Schedule Name</source>
         <translation>Akış Fraksiyonu Programı Adı</translation>
     </message>
-    <!-- OS:HeatPump:AirToWater:FuelFired:Cooling, OS:HeatPump:AirToWater:FuelFired:Heating, OS:HeatPump:PlantLoop:EIR:Cooling, OS:HeatPump:PlantLoop:EIR:Heating -->
+    
     <message>
         <source>Flow Mode</source>
         <translation>Akış Modu</translation>
     </message>
-    <!-- OS:ZoneMixing -->
+    
     <message>
         <source>Flow Rate per Floor Area</source>
         <translation>Kat Alanı Başına Akış Hızı</translation>
     </message>
-    <!-- OS:ZoneMixing, OS:ZoneVentilation:DesignFlowRate -->
+    
     <message>
         <source>Flow Rate per Person</source>
         <translation>Kişi Başına Akış Hızı</translation>
     </message>
-    <!-- OS:ZoneVentilation:DesignFlowRate -->
+    
     <message>
         <source>Flow Rate per Zone Floor Area</source>
         <translation>Bölge Döşeme Alanına Göre Akış Hızı</translation>
     </message>
-    <!-- OS:HeaderedPumps:ConstantSpeed, OS:HeaderedPumps:VariableSpeed -->
+    
     <message>
         <source>Flow Sequencing Control Scheme</source>
         <translation>Akış Sıralama Kontrol Şeması</translation>
     </message>
-    <!-- OS:Pipe:Indoor, OS:Pipe:Outdoor -->
+    
     <message>
         <source>Fluid Inlet Node</source>
         <translation>Akışkan Giriş Düğümü</translation>
     </message>
-    <!-- OS:Pipe:Indoor, OS:Pipe:Outdoor -->
+    
     <message>
         <source>Fluid Outlet Node</source>
         <translation>Akışkan Çıkış Düğümü</translation>
     </message>
-    <!-- OS:Coil:Cooling:DX:SingleSpeed:ThermalStorage -->
+    
     <message>
         <source>Fluid Storage Tank Rating Temperature</source>
         <translation>Akışkan Depolama Tankı Nominal Sıcaklığı</translation>
     </message>
-    <!-- OS:Coil:Cooling:DX:SingleSpeed:ThermalStorage -->
+    
     <message>
         <source>Fluid Storage Volume</source>
         <translation>Sıvı Depolama Hacmi</translation>
     </message>
-    <!-- OS:ZoneHVAC:LowTemperatureRadiant:ConstantFlow, OS:ZoneHVAC:LowTemperatureRadiant:VariableFlow -->
+    
     <message>
         <source>Fluid to Radiant Surface Heat Transfer Model</source>
         <translation>Akışkan - Radyan Yüzey Isı Transfer Modeli</translation>
     </message>
-    <!-- OS:PlantLoop -->
+    
     <message>
         <source>Fluid Type</source>
         <translation>Akışkan Tipi</translation>
     </message>
-    <!-- OS:ExternalInterface:FunctionalMockupUnitImport, OS:ExternalInterface:FunctionalMockupUnitImport:From:Variable, OS:ExternalInterface:FunctionalMockupUnitImport:To:Actuator, OS:ExternalInterface:FunctionalMockupUnitImport:To:Schedule, OS:ExternalInterface:FunctionalMockupUnitImport:To:Variable -->
+    
     <message>
         <source>FMU File Name</source>
         <translation>FMU Dosya Adı</translation>
     </message>
-    <!-- OS:ExternalInterface:FunctionalMockupUnitImport:From:Variable, OS:ExternalInterface:FunctionalMockupUnitImport:To:Actuator, OS:ExternalInterface:FunctionalMockupUnitImport:To:Schedule, OS:ExternalInterface:FunctionalMockupUnitImport:To:Variable -->
+    
     <message>
         <source>FMU Instance Name</source>
         <translation>FMU Örneği Adı</translation>
     </message>
-    <!-- OS:ExternalInterface:FunctionalMockupUnitImport -->
+    
     <message>
         <source>FMU LoggingOn</source>
         <translation>FMU Günlüğü Açık</translation>
     </message>
-    <!-- OS:ExternalInterface:FunctionalMockupUnitImport -->
+    
     <message>
         <source>FMU Timeout</source>
         <translation>FMU Zaman Aşımı</translation>
     </message>
-    <!-- OS:ExternalInterface:FunctionalMockupUnitExport:From:Variable, OS:ExternalInterface:FunctionalMockupUnitExport:To:Actuator, OS:ExternalInterface:FunctionalMockupUnitExport:To:Schedule, OS:ExternalInterface:FunctionalMockupUnitExport:To:Variable, OS:ExternalInterface:FunctionalMockupUnitImport:From:Variable, OS:ExternalInterface:FunctionalMockupUnitImport:To:Actuator, OS:ExternalInterface:FunctionalMockupUnitImport:To:Schedule, OS:ExternalInterface:FunctionalMockupUnitImport:To:Variable -->
+    
     <message>
         <source>FMU Variable Name</source>
         <translation>FMU Değişken Adı</translation>
     </message>
-    <!-- OS:Foundation:Kiva -->
+    
     <message>
         <source>Footing Depth</source>
         <translation>Temel Derinliği</translation>
     </message>
-    <!-- OS:Foundation:Kiva -->
+    
     <message>
         <source>Footing Material Name</source>
         <translation>Temel Malzeme Adı</translation>
     </message>
-    <!-- OS:Foundation:Kiva -->
+    
     <message>
         <source>Footing Wall Construction Name</source>
         <translation>Temel Duvar İnşaat Adı</translation>
     </message>
-    <!-- OS:ElectricEquipment:Definition, OS:GasEquipment:Definition, OS:HotWaterEquipment:Definition, OS:OtherEquipment:Definition, OS:SteamEquipment:Definition -->
+    
     <message>
         <source>Fraction Latent</source>
         <translation>Gizli Isı Oranı</translation>
     </message>
-    <!-- OS:ElectricEquipment:Definition, OS:GasEquipment:Definition, OS:HotWaterEquipment:Definition, OS:OtherEquipment:Definition, OS:SteamEquipment:Definition -->
+    
     <message>
         <source>Fraction Lost</source>
         <translation>Kayıp Oranı</translation>
     </message>
-    <!-- OS:CoilPerformance:DX:Cooling -->
+    
     <message>
         <source>Fraction of Air Flow Bypassed Around Coil</source>
         <translation>Bobin Etrafından Atlatılan Hava Akışının Oranı</translation>
     </message>
-    <!-- OS:Refrigeration:Case -->
+    
     <message>
         <source>Fraction of Anti-Sweat Heater Energy to Case</source>
         <translation>Kasa İçin Anti-Terleme Isıtıcı Enerjisi Oranı</translation>
     </message>
-    <!-- OS:Coil:Cooling:LowTemperatureRadiant:VariableFlow, OS:Coil:Cooling:Water:Panel:Radiant, OS:Sizing:System -->
+    
     <message>
         <source>Fraction of Autosized Cooling Design Capacity</source>
         <translation>Otomatik Boyutlandırılan Soğutma Tasarım Kapasitesinin Kesri</translation>
     </message>
-    <!-- OS:AirLoopHVAC:UnitarySystem -->
+    
     <message>
         <source>Fraction of Autosized Design Cooling Supply Air Flow Rate</source>
         <translation>Otomatik Boyutlandırılmış Tasarım Soğutma Hava Akış Hızının Kesri</translation>
     </message>
-    <!-- OS:AirLoopHVAC:UnitarySystem -->
+    
     <message>
         <source>Fraction of Autosized Design Cooling Supply Air Flow Rate When No Cooling or Heating is Required</source>
         <translation>Soğutma veya Isıtma Gerekli Olmadığında Otomatik Boyutlandırılan Tasarım Soğutma Hava Akış Hızının Kesri</translation>
     </message>
-    <!-- OS:AirLoopHVAC:UnitarySystem -->
+    
     <message>
         <source>Fraction of Autosized Design Heating Supply Air Flow Rate</source>
         <translation>Otomatik Boyutlandırılan Tasarım Isıtma Beslemesi Hava Akış Hızının Kesri</translation>
     </message>
-    <!-- OS:AirLoopHVAC:UnitarySystem -->
+    
     <message>
         <source>Fraction of Autosized Design Heating Supply Air Flow Rate When No Cooling or Heating is Required</source>
         <translation>Soğutma veya Isıtma Gerekli Olmadığında Otomatik Boyutlandırılan Tasarım Isıtma Hava Akışı Oranının Kesri</translation>
     </message>
-    <!-- OS:Coil:Heating:LowTemperatureRadiant:VariableFlow, OS:Coil:Heating:Water:Baseboard, OS:Coil:Heating:Water:Baseboard:Radiant, OS:Sizing:System, OS:ZoneHVAC:Baseboard:RadiantConvective:Electric -->
+    
     <message>
         <source>Fraction of Autosized Heating Design Capacity</source>
         <translation>Otomatik Boyutlandırılan Isıtma Tasarım Kapasitesinin Kesri</translation>
     </message>
-    <!-- OS:ElectricLoadCenter:Storage:LiIonNMCBattery -->
+    
     <message>
         <source>Fraction of Cell Capacity Removed at the End of Exponential Zone</source>
         <translation>Üstel Bölge Sonunda Çıkarılan Hücre Kapasitesinin Oranı</translation>
     </message>
-    <!-- OS:ElectricLoadCenter:Storage:LiIonNMCBattery -->
+    
     <message>
         <source>Fraction of Cell Capacity Removed at the End of Nominal Zone</source>
         <translation>Nominal Bölgenin Sonunda Çıkarılan Hücre Kapasitesinin Oranı</translation>
     </message>
-    <!-- OS:SolarCollectorPerformance:PhotovoltaicThermal:BIPVT -->
+    
     <message>
         <source>Fraction of Collector Gross Area Covered by PV Module</source>
         <translation>Güneş Kolektörü Brüt Alanının PV Modülü Tarafından Kaplanan Kesri</translation>
     </message>
-    <!-- OS:Coil:WaterHeating:AirToWaterHeatPump, OS:Coil:WaterHeating:AirToWaterHeatPump:VariableSpeed -->
+    
     <message>
         <source>Fraction of Condenser Pump Heat to Water</source>
         <translation>Kondenser Pompa Isısının Suya Olan Kesri</translation>
     </message>
-    <!-- OS:ElectricLoadCenter:Transformer -->
+    
     <message>
         <source>Fraction of Eddy Current Losses</source>
         <translation>Girdap Akımı Kayıplarının Fraksiyonu</translation>
     </message>
-    <!-- OS:ElectricEquipment:ITE:AirCooled:Definition -->
+    
     <message>
         <source>Fraction of Electric Power Supply Losses to Zone</source>
         <translation>Elektrik Güç Kaynağı Kayıplarının Bölgeye Giden Kesri</translation>
     </message>
-    <!-- OS:ZoneHVAC:HighTemperatureRadiant -->
+    
     <message>
         <source>Fraction of Input Converted to Latent Energy</source>
         <translation>Giriş Enerjisinin Gizli Enerjiye Dönüştürülen Kesri</translation>
     </message>
-    <!-- OS:ZoneHVAC:HighTemperatureRadiant -->
+    
     <message>
         <source>Fraction of Input Converted to Radiant Energy</source>
         <translation>Giriş Enerjisinden Işınımsal Enerjiye Dönüştürülen Kesir</translation>
     </message>
-    <!-- OS:ZoneHVAC:HighTemperatureRadiant -->
+    
     <message>
         <source>Fraction of Input that Is Lost</source>
         <translation>Girdi Kaybı Oranı</translation>
     </message>
-    <!-- OS:Refrigeration:Case -->
+    
     <message>
         <source>Fraction of Lighting Energy to Case</source>
         <translation>Aydınlatma Enerjisinin Vitrine Oranı</translation>
     </message>
-    <!-- OS:Coil:WaterHeating:Desuperheater -->
+    
     <message>
         <source>Fraction of Pump Heat to Water</source>
         <translation>Pompanın Suya Aktardığı Isı Oranı</translation>
     </message>
-    <!-- OS:SolarCollectorPerformance:PhotovoltaicThermal:BIPVT -->
+    
     <message>
         <source>Fraction of PV Cell Area to PV Module Area</source>
         <translation>PV Hücre Alanının PV Modül Alanına Oranı</translation>
     </message>
-    <!-- OS:ZoneHVAC:Baseboard:RadiantConvective:Electric, OS:ZoneHVAC:Baseboard:RadiantConvective:Water, OS:ZoneHVAC:CoolingPanel:RadiantConvective:Water, OS:ZoneHVAC:HighTemperatureRadiant -->
+    
     <message>
         <source>Fraction of Radiant Energy Incident on People</source>
         <translation>İnsanlara Düşen Radyant Enerjinin Oranı</translation>
     </message>
-    <!-- OS:PhotovoltaicPerformance:Simple -->
+    
     <message>
         <source>Fraction of Surface Area with Active Solar Cells</source>
         <translation>Aktif Güneş Hücrelerine Sahip Yüzey Alanının Kesri</translation>
     </message>
-    <!-- OS:SolarCollectorPerformance:PhotovoltaicThermal:Simple -->
+    
     <message>
         <source>Fraction of Surface Area with Active Thermal Collector</source>
         <translation>Etkin Termal Kolektör ile Yüzey Alanının Kesri</translation>
     </message>
-    <!-- OS:CoolingTower:VariableSpeed -->
+    
     <message>
         <source>Fraction of Tower Capacity in Free Convection Regime</source>
         <translation>Serbest Konveksiyon Rejiminde Kule Kapasitesinin Kesri</translation>
     </message>
-    <!-- OS:ThermalZone -->
+    
     <message>
         <source>Fraction of Zone Controlled by Primary Daylighting Control</source>
         <translation>Birincil Gün Işığı Kontrolü Tarafından Kontrol Edilen Bölgenin Kesri</translation>
     </message>
-    <!-- OS:ThermalZone -->
+    
     <message>
         <source>Fraction of Zone Controlled by Secondary Daylighting Control</source>
         <translation>İkincil Gün Işığı Kontrolü Tarafından Kontrol Edilen Alan Kesri</translation>
     </message>
-    <!-- OS:Lights, OS:Luminaire -->
+    
     <message>
         <source>Fraction Replaceable</source>
         <translation>Değiştirilebilir Oran</translation>
     </message>
-    <!-- OS:Generator:WindTurbine -->
+    
     <message>
         <source>Fraction system Efficiency</source>
         <translation>Sistem Verimlilik Kesri</translation>
     </message>
-    <!-- OS:Lights:Definition, OS:Luminaire:Definition -->
+    
     <message>
         <source>Fraction Visible</source>
         <translation>Görünür Kesir</translation>
     </message>
-    <!-- OS:SubSurface -->
+    
     <message>
         <source>Frame and Divider Name</source>
         <translation>Çerçeve ve Ayırıcı Adı</translation>
     </message>
-    <!-- OS:WindowProperty:FrameAndDivider -->
+    
     <message>
         <source>Frame Conductance</source>
         <translation>Çerçeve İletkenliği</translation>
     </message>
-    <!-- OS:WindowProperty:FrameAndDivider -->
+    
     <message>
         <source>Frame Inside Projection</source>
         <translation>Çerçeve İç Projeksiyonu</translation>
     </message>
-    <!-- OS:WindowProperty:FrameAndDivider -->
+    
     <message>
         <source>Frame Outside Projection</source>
         <translation>Çerceve Dış Projeksiyon</translation>
     </message>
-    <!-- OS:WindowProperty:FrameAndDivider -->
+    
     <message>
         <source>Frame Solar Absorptance</source>
         <translation>Çerçeve Güneş Emiciliği</translation>
     </message>
-    <!-- OS:WindowProperty:FrameAndDivider -->
+    
     <message>
         <source>Frame Thermal Hemispherical Emissivity</source>
         <translation>Çerçeve Termal Yarımküre Emisivitesi</translation>
     </message>
-    <!-- OS:WindowProperty:FrameAndDivider -->
+    
     <message>
         <source>Frame Visible Absorptance</source>
         <translation>Çerçeve Görünür Soğurma</translation>
     </message>
-    <!-- OS:WindowProperty:FrameAndDivider -->
+    
     <message>
         <source>Frame Width</source>
         <translation>Çerçeve Genişliği</translation>
     </message>
-    <!-- OS:CoolingTower:SingleSpeed -->
+    
     <message>
         <source>Free Convection Air Flow Rate Sizing Factor</source>
         <translation>Serbest Konveksiyon Hava Akış Hızı Boyutlandırma Faktörü</translation>
     </message>
-    <!-- OS:CoolingTower:TwoSpeed -->
+    
     <message>
         <source>Free Convection Nominal Capacity</source>
         <translation>Serbest Konveksiyon Nominal Kapasitesi</translation>
     </message>
-    <!-- OS:CoolingTower:SingleSpeed, OS:CoolingTower:TwoSpeed -->
+    
     <message>
         <source>Free Convection Nominal Capacity Sizing Factor</source>
         <translation>Serbest Konveksiyon Nominal Kapasite Boyutlandırma Faktörü</translation>
     </message>
-    <!-- OS:CoolingTower:TwoSpeed -->
+    
     <message>
         <source>Free Convection Regime Air Flow Rate</source>
         <translation>Serbest Konveksiyon Rejimi Hava Akış Hızı</translation>
     </message>
-    <!-- OS:CoolingTower:TwoSpeed -->
+    
     <message>
         <source>Free Convection Regime Air Flow Rate Sizing Factor</source>
         <translation>Serbest Konveksiyon Rejimi Hava Akış Hızı Boyutlandırma Faktörü</translation>
     </message>
-    <!-- OS:CoolingTower:TwoSpeed -->
+    
     <message>
         <source>Free Convection Regime U-Factor Times Area Value</source>
         <translation>Serbest Konveksiyon Rejimi U-Faktör Çarpı Alan Değeri</translation>
     </message>
-    <!-- OS:CoolingTower:SingleSpeed, OS:CoolingTower:TwoSpeed -->
+    
     <message>
         <source>Free Convection U-Factor Times Area Value Sizing Factor</source>
         <translation>Serbest Konveksiyon U-Faktörü Çarpı Alan Değeri Boyutlandırma Faktörü</translation>
     </message>
-    <!-- OS:ThermalStorage:Ice:Detailed -->
+    
     <message>
         <source>Freezing Temperature of Storage Medium</source>
         <translation>Depolama Ortamının Donma Sıcaklığı</translation>
     </message>
-    <!-- OS:Schedule:Week -->
+    
     <message>
         <source>Friday Schedule:Day Name</source>
         <translation>Cuma Programı:Gün Adı</translation>
     </message>
-    <!-- OS:ZoneProperty:UserViewFactors:BySurfaceName -->
+    
     <message>
         <source>From Surface Name</source>
         <translation>Yüzey Adından</translation>
     </message>
-    <!-- OS:MaterialProperty:GlazingSpectralData -->
+    
     <message>
         <source>Front Reflectance</source>
         <translation>Ön Yansıtıcılık</translation>
     </message>
-    <!-- OS:WindowMaterial:Glazing -->
+    
     <message>
         <source>Front Side Infrared Hemispherical Emissivity</source>
         <translation>Ön Yüz Kızılötesi Hemisferik Yayınabilirliği</translation>
     </message>
-    <!-- OS:WindowMaterial:Blind -->
+    
     <message>
         <source>Front Side Slat Beam Solar Reflectance</source>
         <translation>Front Side Slat Beam Solar Reflectance</translation>
     </message>
-    <!-- OS:WindowMaterial:Blind -->
+    
     <message>
         <source>Front Side Slat Beam Visible Reflectance</source>
         <translation>Ön Taraf Panjur Işını Görünür Yansıtıcılığı</translation>
     </message>
-    <!-- OS:WindowMaterial:Blind -->
+    
     <message>
         <source>Front Side Slat Diffuse Solar Reflectance</source>
         <translation>Front Side Slat Diffuse Solar Reflectance</translation>
     </message>
-    <!-- OS:WindowMaterial:Blind -->
+    
     <message>
         <source>Front Side Slat Diffuse Visible Reflectance</source>
         <translation>Ön Taraf Slat Yayılı Görünür Yansıtıcılığı</translation>
     </message>
-    <!-- OS:WindowMaterial:Blind -->
+    
     <message>
         <source>Front Side Slat Infrared Hemispherical Emissivity</source>
         <translation>Ön Taraf Lamella Kızılötesi Yarıküresel Yayınlılığı</translation>
     </message>
-    <!-- OS:WindowMaterial:Glazing -->
+    
     <message>
         <source>Front Side Solar Reflectance at Normal Incidence</source>
         <translation>Ön Yüzey Normal Gelişte Solar Yansıtabilirliği</translation>
     </message>
-    <!-- OS:WindowMaterial:Glazing -->
+    
     <message>
         <source>Front Side Visible Reflectance at Normal Incidence</source>
         <translation>Ön Yüzey Normal Işıl Saçılması Aydınlanmada Görünür Yansıtabilirliği</translation>
     </message>
-    <!-- OS:SolarCollectorPerformance:PhotovoltaicThermal:Simple -->
+    
     <message>
         <source>Front Surface Emittance</source>
         <translation>Ön Yüzey Yayınlılığı</translation>
     </message>
-    <!-- OS:HeatExchanger:AirToAir:SensibleAndLatent -->
+    
     <message>
         <source>Frost Control Type</source>
         <translation>Donma Kontrolü Türü</translation>
     </message>
-    <!-- OS:Generator:FuelCell:StackCooler -->
+    
     <message>
         <source>Fs-cogen Adjustment Factor</source>
         <translation>Fs-kojenerasyon Ayarlama Faktörü</translation>
     </message>
-    <!-- OS:HeatPump:AirToWater:FuelFired:Heating -->
+    
     <message>
         <source>Fuel Energy Input Ratio Defrost Adjustment Curve Name</source>
         <translation>Yakıt Enerji Giriş Oranı Defrost Ayarı Eğrisi Adı</translation>
     </message>
-    <!-- OS:HeatPump:AirToWater:FuelFired:Cooling, OS:HeatPump:AirToWater:FuelFired:Heating -->
+    
     <message>
         <source>Fuel Energy Input Ratio Function of PLR Curve Name</source>
         <translation>Yakıt Enerji Giriş Oranı PLR Eğrisi Adı İşlevi</translation>
     </message>
-    <!-- OS:HeatPump:AirToWater:FuelFired:Cooling, OS:HeatPump:AirToWater:FuelFired:Heating -->
+    
     <message>
         <source>Fuel Energy Input Ratio Function of Temperature Curve Name</source>
         <translation>Yakıt Enerji Giriş Oranı Sıcaklık Fonksiyonu Eğri Adı</translation>
     </message>
-    <!-- OS:Generator:MicroTurbine -->
+    
     <message>
         <source>Fuel Higher Heating Value</source>
         <translation>Yakıtın Üst Isıl Değeri</translation>
     </message>
-    <!-- OS:Generator:MicroTurbine -->
+    
     <message>
         <source>Fuel Lower Heating Value</source>
         <translation>Yakıtın Alt Isıl Değeri</translation>
     </message>
-    <!-- OS:Generator:FuelCell -->
+    
     <message>
         <source>Fuel Supply Name</source>
         <translation>Yakıt Kaynağı Adı</translation>
     </message>
-    <!-- OS:Generator:FuelSupply -->
+    
     <message>
         <source>Fuel Temperature Modeling Mode</source>
         <translation>Yakıt Sıcaklığı Modelleme Modu</translation>
     </message>
-    <!-- OS:Generator:FuelSupply -->
+    
     <message>
         <source>Fuel Temperature Reference Node Name</source>
         <translation>Yakıt Sıcaklığı Referans Düğüm Adı</translation>
     </message>
-    <!-- OS:Generator:FuelSupply -->
+    
     <message>
         <source>Fuel Temperature Schedule Name</source>
         <translation>Yakıt Sıcaklığı Takvim Adı</translation>
     </message>
-    <!-- OS:Exterior:FuelEquipment -->
+    
     <message>
         <source>Fuel Use Type</source>
         <translation>Yakıt Kullanım Türü</translation>
     </message>
-    <!-- OS:LifeCycleCost:Parameters -->
+    
     <message>
         <source>FuelOil1 Inflation</source>
         <translation>FuelOil1 Enflasyonu</translation>
     </message>
-    <!-- OS:LifeCycleCost:Parameters -->
+    
     <message>
         <source>FuelOil2 Inflation</source>
         <translation>FuelOil2 Enflasyonu</translation>
     </message>
-    <!-- OS:ElectricLoadCenter:Transformer -->
+    
     <message>
         <source>Full Load Temperature Rise</source>
         <translation>Tam Yük Sıcaklık Artışı</translation>
     </message>
-    <!-- OS:ElectricLoadCenter:Storage:LiIonNMCBattery -->
+    
     <message>
         <source>Fully Charged Cell Capacity</source>
         <translation>Tam Dolu Hücre Kapasitesi</translation>
     </message>
-    <!-- OS:ElectricLoadCenter:Storage:LiIonNMCBattery -->
+    
     <message>
         <source>Fully Charged Cell Voltage</source>
         <translation>Tam Şarj Edilmiş Hücre Gerilimi</translation>
     </message>
 
-    <!-- G -->
-    <!-- OS:GroundHeatExchanger:Vertical -->
+    
+    
     <message>
         <source>G-Function G Value</source>
         <translation>G-Fonksiyonu G Değeri</translation>
     </message>
-    <!-- OS:GroundHeatExchanger:Vertical -->
+    
     <message>
         <source>G-Function Ln(T/Ts) Value</source>
         <translation>G-Fonksiyonu Ln(T/Ts) Değeri</translation>
     </message>
-    <!-- OS:GroundHeatExchanger:Vertical -->
+    
     <message>
         <source>G-Function Reference Ratio</source>
         <translation>G-Fonksiyon Referans Oranı</translation>
     </message>
-    <!-- OS:WindowMaterial:GasMixture -->
+    
     <message>
         <source>Gas 1 Fraction</source>
         <translation>Gaz 1 Oranı</translation>
     </message>
-    <!-- OS:WindowMaterial:GasMixture -->
+    
     <message>
         <source>Gas 1 Type</source>
         <translation>Gaz 1 Türü</translation>
     </message>
-    <!-- OS:WindowMaterial:GasMixture -->
+    
     <message>
         <source>Gas 2 Fraction</source>
         <translation>Gas 2 Oranı</translation>
     </message>
-    <!-- OS:WindowMaterial:GasMixture -->
+    
     <message>
         <source>Gas 2 Type</source>
         <translation>Gaz 2 Türü</translation>
     </message>
-    <!-- OS:WindowMaterial:GasMixture -->
+    
     <message>
         <source>Gas 3 Fraction</source>
         <translation>Gas 3 Fraction</translation>
     </message>
-    <!-- OS:WindowMaterial:GasMixture -->
+    
     <message>
         <source>Gas 3 Type</source>
         <translation>Gaz 3 Türü</translation>
     </message>
-    <!-- OS:WindowMaterial:GasMixture -->
+    
     <message>
         <source>Gas 4 Fraction</source>
         <translation>Gaz 4 Fraksiyonu</translation>
     </message>
-    <!-- OS:WindowMaterial:GasMixture -->
+    
     <message>
         <source>Gas 4 Type</source>
         <translation>Gas 4 Türü</translation>
     </message>
-    <!-- OS:Refrigeration:GasCooler:AirCooled -->
+    
     <message>
         <source>Gas Cooler Fan Speed Control Type</source>
         <translation>Gaz Soğutucu Fanı Hız Kontrol Tipi</translation>
     </message>
-    <!-- OS:Refrigeration:GasCooler:AirCooled -->
+    
     <message>
         <source>Gas Cooler Outlet Piping Refrigerant Inventory</source>
         <translation>Gaz Soğutucu Çıkış Borulaması Soğutucu Madde Envanteri</translation>
     </message>
-    <!-- OS:Refrigeration:GasCooler:AirCooled -->
+    
     <message>
         <source>Gas Cooler Receiver Refrigerant Inventory</source>
         <translation>Gaz Soğutucu Alıcı Soğutucu Akışkan Envanteri</translation>
     </message>
-    <!-- OS:Refrigeration:GasCooler:AirCooled -->
+    
     <message>
         <source>Gas Cooler Refrigerant Operating Charge Inventory</source>
         <translation>Gas Cooler Refrigerant Operating Charge Inventory</translation>
     </message>
-    <!-- OS:GasEquipment -->
+    
     <message>
         <source>Gas Equipment Definition Name</source>
         <translation>Gaz Ekipmanı Tanımı Adı</translation>
     </message>
-    <!-- OS:WindowMaterial:Gas -->
+    
     <message>
         <source>Gas Type</source>
         <translation>Gaz Türü</translation>
     </message>
-    <!-- OS:LifeCycleCost:Parameters -->
+    
     <message>
         <source>Gasoline Inflation</source>
         <translation>Benzin Enflasyonu</translation>
     </message>
-    <!-- OS:Chiller:Absorption:Indirect -->
+    
     <message>
         <source>Generator Heat Input Correction Function of Chilled Water Temperature Curve</source>
         <translation>Soğutma Suyu Sıcaklığı Eğrisinin Jeneratör Isı Giriş Düzeltme Fonksiyonu</translation>
     </message>
-    <!-- OS:Chiller:Absorption:Indirect -->
+    
     <message>
         <source>Generator Heat Input Correction Function of Condenser Temperature Curve</source>
         <translation>Jeneratör Isı Giriş Kondenser Sıcaklığı Düzeltme Fonksiyonu Eğrisi</translation>
     </message>
-    <!-- OS:Chiller:Absorption:Indirect -->
+    
     <message>
         <source>Generator Heat Input Function of Part Load Ratio Curve</source>
         <translation>Jeneratör Isı Giriş Fonksiyonu Kısmi Yük Oranı Eğrisi</translation>
     </message>
-    <!-- OS:Chiller:Absorption, OS:Chiller:Absorption:Indirect -->
+    
     <message>
         <source>Generator Heat Source Type</source>
         <translation>Jeneratör Isı Kaynağı Tipi</translation>
     </message>
-    <!-- OS:Chiller:Absorption:Indirect -->
+    
     <message>
         <source>Generator Inlet Node</source>
         <translation>Jeneratör Giriş Düğümü</translation>
     </message>
-    <!-- OS:Chiller:Absorption -->
+    
     <message>
         <source>Generator Inlet Node Name</source>
         <translation>Generator Giriş Düğümü Adı</translation>
     </message>
-    <!-- OS:ElectricLoadCenter:Distribution -->
+    
     <message>
         <source>Generator List Name</source>
         <translation>Jeneratör Listesi Adı</translation>
     </message>
-    <!-- OS:Generator:MicroTurbine -->
+    
     <message>
         <source>Generator MicroTurbine Heat Recovery Name</source>
         <translation>Generator MicroTurbine Heat Recovery Name</translation>
     </message>
-    <!-- OS:ElectricLoadCenter:Distribution -->
+    
     <message>
         <source>Generator Operation Scheme Type</source>
         <translation>Jeneratör İşletme Şeması Türü</translation>
     </message>
-    <!-- OS:Chiller:Absorption:Indirect -->
+    
     <message>
         <source>Generator Outlet Node</source>
         <translation>Jeneratör Çıkış Düğümü</translation>
     </message>
-    <!-- OS:Chiller:Absorption -->
+    
     <message>
         <source>Generator Outlet Node Name</source>
         <translation>Generator Çıkış Düğümü Adı</translation>
     </message>
-    <!-- OS:ZoneControl:ContaminantController -->
+    
     <message>
         <source>Generic Contaminant Control Availability Schedule Name</source>
         <translation>Genel Kirletici Kontrolü Kullanılabilirlik Çizelgesi Adı</translation>
     </message>
-    <!-- OS:ZoneControl:ContaminantController -->
+    
     <message>
         <source>Generic Contaminant Setpoint Schedule Name</source>
         <translation>Genel Kirletici Setpoint Programı Adı</translation>
     </message>
-    <!-- OS:ShadingControl -->
+    
     <message>
         <source>Glare Control Is Active</source>
         <translation>Parlama Kontrolü Aktif</translation>
     </message>
-    <!-- OS:DefaultSubSurfaceConstructions -->
+    
     <message>
         <source>Glass Door Construction Name</source>
         <translation>Cam Kapı İnşaat Adı</translation>
     </message>
-    <!-- OS:SolarCollectorPerformance:PhotovoltaicThermal:BIPVT -->
+    
     <message>
         <source>Glass Extinction Coefficient</source>
         <translation>Cam Soğurma Katsayısı</translation>
     </message>
-    <!-- OS:Refrigeration:WalkIn:ZoneBoundary -->
+    
     <message>
         <source>Glass Reach In Door Opening Schedule Name Facing Zone</source>
         <translation>Cam Raflı Kapı Açılış Programı Adı Karşı Bölge</translation>
     </message>
-    <!-- OS:Refrigeration:WalkIn:ZoneBoundary -->
+    
     <message>
         <source>Glass Reach In Door U Value Facing Zone</source>
         <translation>Glass Reach In Door U Value Facing Zone</translation>
     </message>
-    <!-- OS:SolarCollectorPerformance:PhotovoltaicThermal:BIPVT -->
+    
     <message>
         <source>Glass Refraction Index</source>
         <translation>Cam Kırılma Endeksi</translation>
     </message>
-    <!-- OS:SolarCollectorPerformance:PhotovoltaicThermal:BIPVT -->
+    
     <message>
         <source>Glass Thickness</source>
         <translation>Cam Kalınlığı</translation>
     </message>
-    <!-- OS:Coil:Cooling:DX:SingleSpeed:ThermalStorage, OS:PlantLoop, OS:Refrigeration:SecondarySystem -->
+    
     <message>
         <source>Glycol Concentration</source>
         <translation>Glikol Konsantrasyonu</translation>
     </message>
-    <!-- OS:SolarCollectorPerformance:FlatPlate, OS:SolarCollectorPerformance:IntegralCollectorStorage -->
+    
     <message>
         <source>Gross Area</source>
         <translation>Brüt Alan</translation>
     </message>
-    <!-- OS:Coil:Cooling:DX:CurveFit:Speed -->
+    
     <message>
         <source>Gross Cooling COP</source>
         <translation>Brüt Soğutma COP'u</translation>
     </message>
-    <!-- OS:AirConditioner:VariableRefrigerantFlow, OS:Coil:Cooling:DX:MultiSpeed:StageData, OS:CoilPerformance:DX:Cooling -->
+    
     <message>
         <source>Gross Rated Cooling COP</source>
         <translation>Brüt Nominal Soğutma COP</translation>
     </message>
-    <!-- OS:AirConditioner:VariableRefrigerantFlow, OS:Coil:Heating:DX:MultiSpeed:StageData -->
+    
     <message>
         <source>Gross Rated Heating Capacity</source>
         <translation>Brüt Nominal Isıtma Kapasitesi</translation>
     </message>
-    <!-- OS:Coil:Heating:DX:MultiSpeed:StageData -->
+    
     <message>
         <source>Gross Rated Heating COP</source>
         <translation>Brüt Nominal Isıtma COP</translation>
     </message>
-    <!-- OS:Coil:Cooling:DX:MultiSpeed:StageData, OS:CoilPerformance:DX:Cooling -->
+    
     <message>
         <source>Gross Rated Sensible Heat Ratio</source>
         <translation>Brüt Dereceli Duyulur Isı Oranı</translation>
     </message>
-    <!-- OS:AirConditioner:VariableRefrigerantFlow, OS:Coil:Cooling:DX:MultiSpeed:StageData, OS:CoilPerformance:DX:Cooling -->
+    
     <message>
         <source>Gross Rated Total Cooling Capacity</source>
         <translation>Brüt Nominal Toplam Soğutma Kapasitesi</translation>
     </message>
-    <!-- OS:Coil:Cooling:DX:VariableSpeed, OS:Coil:Cooling:WaterToAirHeatPump:VariableSpeedEquationFit -->
+    
     <message>
         <source>Gross Rated Total Cooling Capacity At Selected Nominal Speed Level</source>
         <translation>Seçilen Nominal Hız Seviyesinde Brüt Dereceli Toplam Soğutma Kapasitesi</translation>
     </message>
-    <!-- OS:Coil:Cooling:DX:CurveFit:Speed -->
+    
     <message>
         <source>Gross Sensible Heat Ratio</source>
         <translation>Brüt Duyarlı Isı Oranı</translation>
     </message>
-    <!-- OS:Coil:Cooling:DX:CurveFit:Speed -->
+    
     <message>
         <source>Gross Total Cooling Capacity Fraction</source>
         <translation>Brüt Toplam Soğutma Kapasitesi Kesri</translation>
     </message>
-    <!-- OS:Generator:PVWatts -->
+    
     <message>
         <source>Ground Coverage Ratio</source>
         <translation>Zemin Kaplama Oranı</translation>
     </message>
-    <!-- OS:Foundation:Kiva:Settings -->
+    
     <message>
         <source>Ground Solar Absorptivity</source>
         <translation>Zemin Güneş Absorptivitesi</translation>
     </message>
-    <!-- OS:SurfaceProperty:GroundSurfaces -->
+    
     <message>
         <source>Ground Surface Name</source>
         <translation>Zemin Yüzeyi Adı</translation>
     </message>
-    <!-- OS:SurfaceProperty:GroundSurfaces -->
+    
     <message>
         <source>Ground Surface Reflectance Schedule Name</source>
         <translation>Zemin Yüzeyi Yansıtabilirlik Programı Adı</translation>
     </message>
-    <!-- OS:Foundation:Kiva:Settings -->
+    
     <message>
         <source>Ground Surface Roughness</source>
         <translation>Zemin Yüzeyi Pürüzlülüğü</translation>
     </message>
-    <!-- OS:SurfaceProperty:GroundSurfaces -->
+    
     <message>
         <source>Ground Surface Temperature Schedule Name</source>
         <translation>Yer Yüzeyi Sıcaklık Programı Adı</translation>
     </message>
-    <!-- OS:SurfaceProperty:GroundSurfaces -->
+    
     <message>
         <source>Ground Surface View Factor</source>
         <translation>Zemin Yüzey Görünüş Faktörü</translation>
     </message>
-    <!-- OS:SurfaceProperty:LocalEnvironment -->
+    
     <message>
         <source>Ground Surfaces Object Name</source>
         <translation>Zemin Yüzeyleri Nesne Adı</translation>
     </message>
-    <!-- OS:GroundHeatExchanger:Vertical -->
+    
     <message>
         <source>Ground Temperature</source>
         <translation>Yer Sıcaklığı</translation>
     </message>
-    <!-- OS:SurfaceProperty:OtherSideCoefficients -->
+    
     <message>
         <source>Ground Temperature Coefficient</source>
         <translation>Yer Sıcaklığı Katsayısı</translation>
     </message>
-    <!-- OS:SurfaceProperty:SurroundingSurfaces -->
+    
     <message>
         <source>Ground Temperature Schedule Name</source>
         <translation>Zemin Sıcaklığı Program Adı</translation>
     </message>
-    <!-- OS:Foundation:Kiva:Settings -->
+    
     <message>
         <source>Ground Thermal Absorptivity</source>
         <translation>Yer Isıl Absorptivitesi</translation>
     </message>
-    <!-- OS:GroundHeatExchanger:Vertical -->
+    
     <message>
         <source>Ground Thermal Conductivity</source>
         <translation>Zemin Isıl İletkenliği</translation>
     </message>
-    <!-- OS:GroundHeatExchanger:Vertical -->
+    
     <message>
         <source>Ground Thermal Heat Capacity</source>
         <translation>Yer Termik Isı Kapasitesi</translation>
     </message>
-    <!-- OS:SurfaceProperty:SurroundingSurfaces -->
+    
     <message>
         <source>Ground View Factor</source>
         <translation>Yer Görüş Faktörü</translation>
     </message>
-    <!-- OS:UtilityCost:Tariff -->
+    
     <message>
         <source>Group Name</source>
         <translation>Grup Adı</translation>
     </message>
-    <!-- OS:BuildingStory, OS:LightingSimulationZone, OS:SpaceType, OS:ThermalZone -->
+    
     <message>
         <source>Group Rendering Name</source>
         <translation>Grup Oluşturma Adı</translation>
     </message>
-    <!-- OS:EnergyManagementSystem:MeteredOutputVariable, OS:PythonPlugin:OutputVariable -->
+    
     <message>
         <source>Group Type</source>
         <translation>Grup Türü</translation>
     </message>
-    <!-- OS:GroundHeatExchanger:Vertical -->
+    
     <message>
         <source>Grout Thermal Conductivity</source>
         <translation>Grout Termal İletkenliği</translation>
     </message>
 
-    <!-- H -->
-    <!-- OS:HeatExchanger:FluidToFluid -->
+    
+    
     <message>
         <source>Heat Exchange Model Type</source>
         <translation>Isı Değişim Modeli Türü</translation>
     </message>
-    <!-- OS:CoilSystem:Cooling:DX:HeatExchangerAssisted, OS:CoilSystem:Cooling:Water:HeatExchangerAssisted -->
+    
     <message>
         <source>Heat Exchanger</source>
         <translation>Isı Değiştirici</translation>
     </message>
-    <!-- OS:Generator:FuelCell:ExhaustGasToWaterHeatExchanger -->
+    
     <message>
         <source>Heat Exchanger Calculation Method</source>
         <translation>Isı Değiştirici Hesaplama Yöntemi</translation>
     </message>
-    <!-- OS:Generator:FuelCell, OS:ZoneHVAC:EnergyRecoveryVentilator -->
+    
     <message>
         <source>Heat Exchanger Name</source>
         <translation>Isı Değiştiricisi Adı</translation>
     </message>
-    <!-- OS:HeatExchanger:Desiccant:BalancedFlow -->
+    
     <message>
         <source>Heat Exchanger Performance</source>
         <translation>Isı Değiştiricisi Performansı</translation>
     </message>
-    <!-- OS:HeatExchanger:FluidToFluid -->
+    
     <message>
         <source>Heat Exchanger Setpoint Node Name</source>
         <translation>Isı Değiştirici Ayar Noktası Düğüm Adı</translation>
     </message>
-    <!-- OS:HeatExchanger:AirToAir:SensibleAndLatent -->
+    
     <message>
         <source>Heat Exchanger Type</source>
         <translation>Isı Değiştirici Tipi</translation>
     </message>
-    <!-- OS:HeatExchanger:FluidToFluid -->
+    
     <message>
         <source>Heat Exchanger U-Factor Times Area Value</source>
         <translation>Isı Değiştiricisi U-Faktörü Çarpı Alan Değeri</translation>
     </message>
-    <!-- OS:OutputControl:ResilienceSummaries -->
+    
     <message>
         <source>Heat Index Algorithm</source>
         <translation>Isı İndeksi Algoritması</translation>
     </message>
-    <!-- OS:ZoneHVAC:WaterToAirHeatPump -->
+    
     <message>
         <source>Heat Pump Coil Water Flow Mode</source>
         <translation>Isı Pompası Bobin Su Akışı Modu</translation>
     </message>
-    <!-- OS:HeatPump:AirToWater, OS:HeatPump:PlantLoop:EIR:Heating -->
+    
     <message>
         <source>Heat Pump Defrost Control</source>
         <translation>Isı Pompası Çözülme Kontrolü</translation>
     </message>
-    <!-- OS:HeatPump:AirToWater, OS:HeatPump:PlantLoop:EIR:Heating -->
+    
     <message>
         <source>Heat Pump Defrost Time Period Fraction</source>
         <translation>Isı Pompası Çözünme Süresi Periyod Oranı</translation>
     </message>
-    <!-- OS:HeatPump:AirToWater -->
+    
     <message>
         <source>Heat Pump Multiplier</source>
         <translation>Isı Pompa Çarpanı</translation>
     </message>
-    <!-- OS:HeatPump:PlantLoop:EIR:Heating -->
+    
     <message>
         <source>Heat Pump Sizing Method</source>
         <translation>Isı Pompası Boyutlandırma Yöntemi</translation>
     </message>
-    <!-- OS:Coil:WaterHeating:Desuperheater -->
+    
     <message>
         <source>Heat Reclaim Efficiency Function of Temperature Curve Name</source>
         <translation>Sıcaklık Eğrisi Adına Göre Isı Geri Kazanım Verimliliği Fonksiyonu</translation>
     </message>
-    <!-- OS:Coil:Heating:Desuperheater -->
+    
     <message>
         <source>Heat Reclaim Recovery Efficiency</source>
         <translation>Isı Geri Kazanım Verim Oranı</translation>
     </message>
-    <!-- OS:HeatPump:PlantLoop:EIR:Cooling, OS:HeatPump:PlantLoop:EIR:Heating -->
+    
     <message>
         <source>Heat Recovery Capacity Modifier Function of Temperature Curve Name</source>
         <translation>Isı Geri Kazanım Kapasitesi Sıcaklık Fonksiyonu Eğri Adı</translation>
     </message>
-    <!-- OS:AirConditioner:VariableRefrigerantFlow -->
+    
     <message>
         <source>Heat Recovery Cooling Capacity Modifier Curve Name</source>
         <translation>Isı Geri Kazanım Soğutma Kapasitesi Modifier Eğri Adı</translation>
     </message>
-    <!-- OS:AirConditioner:VariableRefrigerantFlow, OS:AirConditioner:VariableRefrigerantFlow:FluidTemperatureControl:HR -->
+    
     <message>
         <source>Heat Recovery Cooling Capacity Time Constant</source>
         <translation>Heat Recovery Soğutma Kapasitesi Zaman Sabiti</translation>
     </message>
-    <!-- OS:AirConditioner:VariableRefrigerantFlow -->
+    
     <message>
         <source>Heat Recovery Cooling Energy Modifier Curve Name</source>
         <translation>Isı Geri Kazanım Soğutma Enerjisi Değiştirici Eğrisi Adı</translation>
     </message>
-    <!-- OS:AirConditioner:VariableRefrigerantFlow, OS:AirConditioner:VariableRefrigerantFlow:FluidTemperatureControl:HR -->
+    
     <message>
         <source>Heat Recovery Cooling Energy Time Constant</source>
         <translation>Isı Geri Kazanımı Soğutma Enerjisi Zaman Sabiti</translation>
     </message>
-    <!-- OS:HeatPump:PlantLoop:EIR:Cooling, OS:HeatPump:PlantLoop:EIR:Heating -->
+    
     <message>
         <source>Heat Recovery Electric Input to Output Ratio Modifier Function of Temperature Curve Name</source>
         <translation>Isı Geri Kazanımı Elektrik Giriş-Çıkış Oranı Sıcaklık Fonksiyonu Eğri Adı</translation>
     </message>
-    <!-- OS:AirConditioner:VariableRefrigerantFlow -->
+    
     <message>
         <source>Heat Recovery Heating Capacity Modifier Curve Name</source>
         <translation>Isı Geri Kazanım Isıtma Kapasitesi Değiştirici Eğri Adı</translation>
     </message>
-    <!-- OS:AirConditioner:VariableRefrigerantFlow, OS:AirConditioner:VariableRefrigerantFlow:FluidTemperatureControl:HR -->
+    
     <message>
         <source>Heat Recovery Heating Capacity Time Constant</source>
         <translation>Heat Recovery Isıtma Kapasitesi Zaman Sabiti</translation>
     </message>
-    <!-- OS:AirConditioner:VariableRefrigerantFlow -->
+    
     <message>
         <source>Heat Recovery Heating Energy Modifier Curve Name</source>
         <translation>Isı Geri Kazanım Isıtma Enerjisi Değiştirici Eğri Adı</translation>
     </message>
-    <!-- OS:AirConditioner:VariableRefrigerantFlow, OS:AirConditioner:VariableRefrigerantFlow:FluidTemperatureControl:HR -->
+    
     <message>
         <source>Heat Recovery Heating Energy Time Constant</source>
         <translation>Heat Recovery Heating Energy Time Constant</translation>
     </message>
-    <!-- OS:Chiller:Electric:EIR, OS:Chiller:Electric:ReformulatedEIR -->
+    
     <message>
         <source>Heat Recovery Inlet High Temperature Limit Schedule Name</source>
         <translation>Isı Geri Kazanım Giriş Yüksek Sıcaklık Limiti Zaman Çizelgesi Adı</translation>
     </message>
-    <!-- OS:Chiller:Electric:ASHRAE205, OS:Chiller:Electric:EIR, OS:Chiller:Electric:ReformulatedEIR, OS:HeatPump:PlantLoop:EIR:Cooling, OS:HeatPump:PlantLoop:EIR:Heating -->
+    
     <message>
         <source>Heat Recovery Inlet Node Name</source>
         <translation>Isı Geri Kazanım Giriş Düğümü Adı</translation>
     </message>
-    <!-- OS:Chiller:Electric:EIR, OS:Chiller:Electric:ReformulatedEIR -->
+    
     <message>
         <source>Heat Recovery Leaving Temperature Setpoint Node Name</source>
         <translation>Isı Geri Kazanımı Çıkış Sıcaklığı Setpoint Düğüm Adı</translation>
     </message>
-    <!-- OS:Chiller:Electric:ASHRAE205, OS:Chiller:Electric:EIR, OS:Chiller:Electric:ReformulatedEIR, OS:HeatPump:PlantLoop:EIR:Cooling, OS:HeatPump:PlantLoop:EIR:Heating -->
+    
     <message>
         <source>Heat Recovery Outlet Node Name</source>
         <translation>Isı Geri Kazanım Çıkış Düğümü Adı</translation>
     </message>
-    <!-- OS:Generator:MicroTurbine:HeatRecovery -->
+    
     <message>
         <source>Heat Recovery Rate Function of Inlet Water Temperature Curve Name</source>
         <translation>Giriş Su Sıcaklığının Işı Geri Kazanım Oranı Fonksiyon Eğrisi Adı</translation>
     </message>
-    <!-- OS:Generator:MicroTurbine:HeatRecovery -->
+    
     <message>
         <source>Heat Recovery Rate Function of Part Load Ratio Curve Name</source>
         <translation>Isıl Geri Kazanım Oranı Kısmi Yük Oranı Eğrisi Adı</translation>
     </message>
-    <!-- OS:Generator:MicroTurbine:HeatRecovery -->
+    
     <message>
         <source>Heat Recovery Rate Function of Water Flow Rate Curve Name</source>
         <translation>Isı Geri Kazanım Oranı Su Akış Hızı Eğrisi Adı</translation>
     </message>
-    <!-- OS:HeatPump:PlantLoop:EIR:Cooling, OS:HeatPump:PlantLoop:EIR:Heating -->
+    
     <message>
         <source>Heat Recovery Reference Flow Rate</source>
         <translation>Isı Geri Kazanım Referans Akış Hızı</translation>
     </message>
-    <!-- OS:ZoneHVAC:IdealLoadsAirSystem -->
+    
     <message>
         <source>Heat Recovery Type</source>
         <translation>Isı Geri Kazanım Türü</translation>
     </message>
-    <!-- OS:Generator:MicroTurbine:HeatRecovery -->
+    
     <message>
         <source>Heat Recovery Water Flow Operating Mode</source>
         <translation>Isı Geri Kazanım Su Akışı İşletme Modu</translation>
     </message>
-    <!-- OS:Generator:MicroTurbine:HeatRecovery -->
+    
     <message>
         <source>Heat Recovery Water Flow Rate Function of Temperature and Power Curve Name</source>
         <translation>Isı Geri Kazanım Su Akış Hızı Sıcaklık ve Güç Eğrisi Fonksiyonu Adı</translation>
     </message>
-    <!-- OS:AirLoopHVAC:UnitaryHeatPump:AirToAir:MultiSpeed -->
+    
     <message>
         <source>Heat Recovery Water Inlet Node</source>
         <translation>Isı Geri Kazanım Su Giriş Düğümü</translation>
     </message>
-    <!-- OS:AirLoopHVAC:UnitarySystem, OS:Generator:FuelCell:ExhaustGasToWaterHeatExchanger, OS:Generator:FuelCell:StackCooler, OS:Generator:MicroTurbine:HeatRecovery -->
+    
     <message>
         <source>Heat Recovery Water Inlet Node Name</source>
         <translation>Isı Geri Kazanım Suyu Giriş Düğüm Adı</translation>
     </message>
-    <!-- OS:Generator:FuelCell:ExhaustGasToWaterHeatExchanger -->
+    
     <message>
         <source>Heat Recovery Water Maximum Flow Rate</source>
         <translation>Isı Geri Kazanım Suyu Maksimum Akış Hızı</translation>
     </message>
-    <!-- OS:AirLoopHVAC:UnitaryHeatPump:AirToAir:MultiSpeed -->
+    
     <message>
         <source>Heat Recovery Water Outlet Node</source>
         <translation>Isı Geri Kazanım Su Çıkış Düğümü</translation>
     </message>
-    <!-- OS:AirLoopHVAC:UnitarySystem, OS:Generator:FuelCell:ExhaustGasToWaterHeatExchanger, OS:Generator:FuelCell:StackCooler, OS:Generator:MicroTurbine:HeatRecovery -->
+    
     <message>
         <source>Heat Recovery Water Outlet Node Name</source>
         <translation>Isı Geri Kazanım Su Çıkış Düğüm Adı</translation>
     </message>
-    <!-- OS:CoolingTower:SingleSpeed, OS:CoolingTower:TwoSpeed, OS:EvaporativeFluidCooler:SingleSpeed, OS:EvaporativeFluidCooler:TwoSpeed -->
+    
     <message>
         <source>Heat Rejection Capacity and Nominal Capacity Sizing Ratio</source>
         <translation>Isı Reddeme Kapasitesi ve Nominal Kapasite Boyutlandırma Oranı</translation>
     </message>
-    <!-- OS:Refrigeration:CompressorRack -->
+    
     <message>
         <source>Heat Rejection Location</source>
         <translation>Isı Atış Konumu</translation>
     </message>
-    <!-- OS:Refrigeration:CompressorRack -->
+    
     <message>
         <source>Heat Rejection Zone Name</source>
         <translation>Isı Atış Bölgesi Adı</translation>
     </message>
-    <!-- OS:ElectricLoadCenter:Storage:LiIonNMCBattery -->
+    
     <message>
         <source>Heat Transfer Coefficient Between Battery and Ambient</source>
         <translation>Pil ve Ortam Arasındaki Isı Transfer Katsayısı</translation>
     </message>
-    <!-- OS:Generator:Photovoltaic -->
+    
     <message>
         <source>Heat Transfer Integration Mode</source>
         <translation>Isı Transfer İntegrasyon Modu</translation>
     </message>
-    <!-- OS:HeatExchanger:FluidToFluid -->
+    
     <message>
         <source>Heat Transfer Metering End Use Type</source>
         <translation>Isı Transferi Ölçü Bitişi Kullanım Türü</translation>
     </message>
-    <!-- OS:AirflowNetworkDuct -->
+    
     <message>
         <source>Heat Transmittance Coefficient (U-Factor) for Duct Wall Construction</source>
         <translation>Kanal Duvarı Yapısının Isı Geçiş Katsayısı (U-Faktörü)</translation>
     </message>
-    <!-- OS:WaterHeater:Mixed -->
+    
     <message>
         <source>Heater Ignition Delay</source>
         <translation>Isıtıcı Ateşleme Gecikmesi</translation>
     </message>
-    <!-- OS:WaterHeater:Mixed -->
+    
     <message>
         <source>Heater Ignition Minimum Flow Rate</source>
         <translation>Isıtıcı Ateşleme Minimum Akış Hızı</translation>
     </message>
-    <!-- OS:AirTerminal:SingleDuct:ConstantVolume:FourPipeBeam, OS:ZoneHVAC:IdealLoadsAirSystem -->
+    
     <message>
         <source>Heating Availability Schedule Name</source>
         <translation>Isıtma Kullanılabilirlik Çizelgesi Adı</translation>
     </message>
-    <!-- OS:Coil:Heating:WaterToAirHeatPump:EquationFit, OS:HeatPump:WaterToWater:EquationFit:Heating -->
+    
     <message>
         <source>Heating Capacity Curve Name</source>
         <translation>Isıtma Kapasitesi Eğrisi Adı</translation>
     </message>
-    <!-- OS:Coil:WaterHeating:AirToWaterHeatPump -->
+    
     <message>
         <source>Heating Capacity Function of Air Flow Fraction Curve</source>
         <translation>Isıtma Kapasitesi Hava Akış Oranı Eğrisi</translation>
     </message>
-    <!-- OS:Coil:WaterHeating:AirToWaterHeatPump:Wrapped -->
+    
     <message>
         <source>Heating Capacity Function of Air Flow Fraction Curve Name</source>
         <translation>Isıtma Kapasitesi Hava Akış Fraksiyonu Eğrisi Adı</translation>
     </message>
-    <!-- OS:Coil:Heating:DX:MultiSpeed:StageData -->
+    
     <message>
         <source>Heating Capacity Function of Flow Fraction Curve Name</source>
         <translation>Isıtma Kapasitesi Akış Kesri Eğrisi Adı</translation>
     </message>
-    <!-- OS:Coil:WaterHeating:AirToWaterHeatPump -->
+    
     <message>
         <source>Heating Capacity Function of Temperature Curve</source>
         <translation>Isıtma Kapasitesi Sıcaklık Fonksiyon Eğrisi</translation>
     </message>
-    <!-- OS:Coil:Heating:DX:MultiSpeed:StageData, OS:Coil:Heating:DX:VariableSpeed:SpeedData, OS:Coil:Heating:WaterToAirHeatPump:VariableSpeedEquationFit:SpeedData, OS:Coil:WaterHeating:AirToWaterHeatPump:Wrapped -->
+    
     <message>
         <source>Heating Capacity Function of Temperature Curve Name</source>
         <translation>Isıtma Kapasitesi Sıcaklık Fonksiyonu Eğri Adı</translation>
     </message>
-    <!-- OS:Coil:WaterHeating:AirToWaterHeatPump -->
+    
     <message>
         <source>Heating Capacity Function of Water Flow Fraction Curve</source>
         <translation>Isıtma Kapasitesi Su Akış Fraksiyonu Eğrisi</translation>
     </message>
-    <!-- OS:Coil:Heating:WaterToAirHeatPump:VariableSpeedEquationFit:SpeedData -->
+    
     <message>
         <source>Heating Capacity Function of Water Flow Fraction Curve Name</source>
         <translation>Sıcak Su Akış Fraksiyonu Eğrisi Adına Göre Isıtma Kapasitesi İşlevi</translation>
     </message>
-    <!-- OS:Coil:Heating:DX:VariableRefrigerantFlow -->
+    
     <message>
         <source>Heating Capacity Modifier Function of Flow Fraction Curve</source>
         <translation>Isıtma Kapasitesi Düzeltme Fonksiyonu Akış Kesri Eğrisi</translation>
     </message>
-    <!-- OS:AirConditioner:VariableRefrigerantFlow -->
+    
     <message>
         <source>Heating Capacity Ratio Boundary Curve Name</source>
         <translation>Isıtma Kapasitesi Oranı Sınır Eğrisi Adı</translation>
     </message>
-    <!-- OS:AirConditioner:VariableRefrigerantFlow -->
+    
     <message>
         <source>Heating Capacity Ratio Modifier Function of High Temperature Curve Name</source>
         <translation>Isıtma Kapasitesi Oranı Düzeltme Fonksiyonu Yüksek Sıcaklık Eğrisi Adı</translation>
     </message>
-    <!-- OS:AirConditioner:VariableRefrigerantFlow -->
+    
     <message>
         <source>Heating Capacity Ratio Modifier Function of Low Temperature Curve Name</source>
         <translation>Isıtma Kapasitesi Oranı Değiştiricisi Düşük Sıcaklık Eğrisi Adı İşlevi</translation>
     </message>
-    <!-- OS:Coil:Heating:DX:VariableRefrigerantFlow -->
+    
     <message>
         <source>Heating Capacity Ratio Modifier Function of Temperature Curve</source>
         <translation>Isıtma Kapasitesi Oranı Sıcaklık Eğrisinin Modifier Fonksiyonu</translation>
     </message>
-    <!-- OS:Generator:FuelCell:AuxiliaryHeater -->
+    
     <message>
         <source>Heating Capacity Units</source>
         <translation>Isıtma Kapasitesi Birimleri</translation>
     </message>
-    <!-- OS:AirLoopHVAC:UnitaryHeatCool:VAVChangeoverBypass, OS:AirLoopHVAC:UnitaryHeatPump:AirToAir:MultiSpeed, OS:ZoneHVAC:TerminalUnit:VariableRefrigerantFlow -->
+    
     <message>
         <source>Heating Coil</source>
         <translation>Isıtma Bobini</translation>
     </message>
-    <!-- OS:AirLoopHVAC:UnitaryHeatPump:AirToAir, OS:AirLoopHVAC:UnitarySystem, OS:AirTerminal:SingleDuct:ConstantVolume:FourPipeBeam, OS:AirTerminal:SingleDuct:ConstantVolume:FourPipeInduction, OS:ZoneHVAC:Baseboard:Convective:Water, OS:ZoneHVAC:Baseboard:RadiantConvective:Water, OS:ZoneHVAC:FourPipeFanCoil, OS:ZoneHVAC:PackagedTerminalAirConditioner, OS:ZoneHVAC:PackagedTerminalHeatPump, OS:ZoneHVAC:UnitHeater, OS:ZoneHVAC:UnitVentilator, OS:ZoneHVAC:WaterToAirHeatPump -->
+    
     <message>
         <source>Heating Coil Name</source>
         <translation>Isıtma Serpentini Adı</translation>
     </message>
-    <!-- OS:AirConditioner:VariableRefrigerantFlow -->
+    
     <message>
         <source>Heating Combination Ratio Correction Factor Curve Name</source>
         <translation>Isıtma Kombinasyon Oranı Düzeltme Faktörü Eğri Adı</translation>
     </message>
-    <!-- OS:HeatPump:WaterToWater:EquationFit:Heating -->
+    
     <message>
         <source>Heating Compressor Power Curve Name</source>
         <translation>Isıtma Kompresörü Güç Eğrisi Adı</translation>
     </message>
-    <!-- OS:Coil:Heating:LowTemperatureRadiant:VariableFlow -->
+    
     <message>
         <source>Heating Control Temperature Schedule Name</source>
         <translation>Isıtma Kontrol Sıcaklığı Programı Adı</translation>
     </message>
-    <!-- OS:Coil:Heating:LowTemperatureRadiant:VariableFlow -->
+    
     <message>
         <source>Heating Control Throttling Range</source>
         <translation>Isıtma Kontrolü Azaltma Aralığı</translation>
     </message>
-    <!-- OS:AirTerminal:SingleDuct:ParallelPIU:Reheat, OS:AirTerminal:SingleDuct:SeriesPIU:Reheat -->
+    
     <message>
         <source>Heating Control Type</source>
         <translation>Isıtma Kontrol Tipi</translation>
     </message>
-    <!-- OS:AvailabilityManager:NightCycle -->
+    
     <message>
         <source>Heating Control Zone or Zone List Name</source>
         <translation>Isıtma Kontrol Bölgesi veya Bölge Listesi Adı</translation>
     </message>
-    <!-- OS:AirTerminal:SingleDuct:ConstantVolume:FourPipeInduction, OS:ZoneHVAC:FourPipeFanCoil, OS:ZoneHVAC:PackagedTerminalHeatPump, OS:ZoneHVAC:UnitHeater, OS:ZoneHVAC:UnitVentilator -->
+    
     <message>
         <source>Heating Convergence Tolerance</source>
         <translation>Isıtma Yakınsama Toleransı</translation>
     </message>
-    <!-- OS:Coil:WaterHeating:AirToWaterHeatPump -->
+    
     <message>
         <source>Heating COP Function of Air Flow Fraction Curve</source>
         <translation>Isıtma COP Hava Akışı Kesri Eğrisi</translation>
     </message>
-    <!-- OS:Coil:WaterHeating:AirToWaterHeatPump:Wrapped -->
+    
     <message>
         <source>Heating COP Function of Air Flow Fraction Curve Name</source>
         <translation>Isıtma COP Hava Akış Oranı Fonksiyonu Eğri Adı</translation>
     </message>
-    <!-- OS:Coil:WaterHeating:AirToWaterHeatPump -->
+    
     <message>
         <source>Heating COP Function of Temperature Curve</source>
         <translation>Isıtma COP Sıcaklık Eğrisi Fonksiyonu</translation>
     </message>
-    <!-- OS:Coil:WaterHeating:AirToWaterHeatPump:Wrapped -->
+    
     <message>
         <source>Heating COP Function of Temperature Curve Name</source>
         <translation>Isıtma COP Sıcaklık Fonksiyonu Eğri Adı</translation>
     </message>
-    <!-- OS:Coil:WaterHeating:AirToWaterHeatPump -->
+    
     <message>
         <source>Heating COP Function of Water Flow Fraction Curve</source>
         <translation>Isıtma COP Sıvı Akış Fraksiyonu Eğrisi</translation>
     </message>
-    <!-- OS:Coil:Heating:LowTemperatureRadiant:VariableFlow, OS:Coil:Heating:Water:Baseboard, OS:Coil:Heating:Water:Baseboard:Radiant, OS:Sizing:System, OS:ZoneHVAC:Baseboard:RadiantConvective:Electric -->
+    
     <message>
         <source>Heating Design Capacity</source>
         <translation>Isıtma Tasarım Kapasitesi</translation>
     </message>
-    <!-- OS:Coil:Heating:LowTemperatureRadiant:VariableFlow, OS:Coil:Heating:Water:Baseboard, OS:Coil:Heating:Water:Baseboard:Radiant, OS:Sizing:System, OS:ZoneHVAC:Baseboard:RadiantConvective:Electric -->
+    
     <message>
         <source>Heating Design Capacity Method</source>
         <translation>Isıtma Tasarım Kapasitesi Yöntemi</translation>
     </message>
-    <!-- OS:Coil:Heating:LowTemperatureRadiant:VariableFlow, OS:Coil:Heating:Water:Baseboard, OS:Coil:Heating:Water:Baseboard:Radiant, OS:Sizing:System, OS:ZoneHVAC:Baseboard:RadiantConvective:Electric -->
+    
     <message>
         <source>Heating Design Capacity Per Floor Area</source>
         <translation>Isıtma Tasarım Kapasitesi Birim Alan Başına</translation>
     </message>
-    <!-- OS:AirConditioner:VariableRefrigerantFlow -->
+    
     <message>
         <source>Heating Energy Input Ratio Boundary Curve Name</source>
         <translation>Isıtma Enerji Giriş Oranı Sınır Eğrisi Adı</translation>
     </message>
-    <!-- OS:HeatPump:AirToWater:Heating:SpeedData -->
+    
     <message>
         <source>Heating Energy Input Ratio Function of PLR Curve Name</source>
         <translation>Isıtma Enerji Giriş Oranı PLR Fonksiyonu Eğri Adı</translation>
     </message>
-    <!-- OS:HeatPump:AirToWater:Heating:SpeedData -->
+    
     <message>
         <source>Heating Energy Input Ratio Function of Temperature Curve Name</source>
         <translation>Isıtma Enerji Giriş Oranı Sıcaklık Fonksiyonu Eğrisi Adı</translation>
     </message>
-    <!-- OS:AirConditioner:VariableRefrigerantFlow -->
+    
     <message>
         <source>Heating Energy Input Ratio Modifier Function of High Part-Load Ratio Curve Name</source>
         <translation>Isıtma Enerji Giriş Oranı Değiştirici Yüksek Kısmi Yük Oranı Eğri Adı Fonksiyonu</translation>
     </message>
-    <!-- OS:AirConditioner:VariableRefrigerantFlow -->
+    
     <message>
         <source>Heating Energy Input Ratio Modifier Function of High Temperature Curve Name</source>
         <translation>Isıtma Enerji Giriş Oranı Değiştiricisi Yüksek Sıcaklık Eğrisi Adı Fonksiyonu</translation>
     </message>
-    <!-- OS:AirConditioner:VariableRefrigerantFlow -->
+    
     <message>
         <source>Heating Energy Input Ratio Modifier Function of Low Part-Load Ratio Curve Name</source>
         <translation>Isıtma Enerji Giriş Oranı Değiştiricisi Düşük Kısmi Yük Oranı Eğri Adı</translation>
     </message>
-    <!-- OS:AirConditioner:VariableRefrigerantFlow -->
+    
     <message>
         <source>Heating Energy Input Ratio Modifier Function of Low Temperature Curve Name</source>
         <translation>Isıtma Enerji Giriş Oranı Değiştiricisi Düşük Sıcaklık Eğrisi Adı</translation>
     </message>
-    <!-- OS:Sizing:System -->
+    
     <message>
         <source>Heating Fraction of Autosized Cooling Supply Air Flow Rate</source>
         <translation>Otomatik Boyutlandırılmış Soğutma Besleme Hava Akış Hızının Isıtma Fraksiyonu</translation>
     </message>
-    <!-- OS:Sizing:System -->
+    
     <message>
         <source>Heating Fraction of Autosized Heating Supply Air Flow Rate</source>
         <translation>Otomatik Boyutlandırılmış Isıtma Besleme Hava Akış Hızının Isıtma Kesri</translation>
     </message>
-    <!-- OS:ZoneHVAC:IdealLoadsAirSystem -->
+    
     <message>
         <source>Heating Fuel Efficiency Schedule Name</source>
         <translation>Isıtma Yakıtı Verimlilik Çizelgesi Adı</translation>
     </message>
-    <!-- OS:ZoneHVAC:IdealLoadsAirSystem -->
+    
     <message>
         <source>Heating Fuel Type</source>
         <translation>Isıtma Yakıt Türü</translation>
     </message>
-    <!-- OS:Coil:Heating:LowTemperatureRadiant:ConstantFlow -->
+    
     <message>
         <source>Heating High Control Temperature Schedule Name</source>
         <translation>Isıtma Yüksek Kontrol Sıcaklığı Planı Adı</translation>
     </message>
-    <!-- OS:Coil:Heating:LowTemperatureRadiant:ConstantFlow -->
+    
     <message>
         <source>Heating High Water Temperature Schedule Name</source>
         <translation>Isıtma Yüksek Su Sıcaklığı Program Adı</translation>
     </message>
-    <!-- OS:ZoneHVAC:IdealLoadsAirSystem -->
+    
     <message>
         <source>Heating Limit</source>
         <translation>Isıtma Sınırı</translation>
     </message>
-    <!-- OS:CentralHeatPumpSystem -->
+    
     <message>
         <source>Heating Loop Inlet Node Name</source>
         <translation>Isıtma Döngüsü Giriş Düğümü Adı</translation>
     </message>
-    <!-- OS:CentralHeatPumpSystem -->
+    
     <message>
         <source>Heating Loop Outlet Node Name</source>
         <translation>Isıtma Döngüsü Çıkış Düğümü Adı</translation>
     </message>
-    <!-- OS:Coil:Heating:LowTemperatureRadiant:ConstantFlow -->
+    
     <message>
         <source>Heating Low Control Temperature Schedule Name</source>
         <translation>Isıtma Düşük Kontrol Sıcaklığı Programı Adı</translation>
     </message>
-    <!-- OS:Coil:Heating:LowTemperatureRadiant:ConstantFlow -->
+    
     <message>
         <source>Heating Low Water Temperature Schedule Name</source>
         <translation>Isıtma Düşük Su Sıcaklığı Çizelgesi Adı</translation>
     </message>
-    <!-- OS:ChillerHeaterPerformance:Electric:EIR -->
+    
     <message>
         <source>Heating Mode Cooling Capacity Function of Temperature Curve Name</source>
         <translation>Isıtma Modu Soğutma Kapasitesi Sıcaklık Eğrisi Adı</translation>
     </message>
-    <!-- OS:ChillerHeaterPerformance:Electric:EIR -->
+    
     <message>
         <source>Heating Mode Cooling Capacity Optimum Part Load Ratio</source>
         <translation>Isıtma Modu Soğutma Kapasitesi Optimum Kısmi Yük Oranı</translation>
     </message>
-    <!-- OS:ChillerHeaterPerformance:Electric:EIR -->
+    
     <message>
         <source>Heating Mode Electric Input to Cooling Output Ratio Function of Part Load Ratio Curve Name</source>
         <translation>Isıtma Modu Elektrik Giriş Soğutma Çıkışı Oranı Kısmi Yük Oranı Eğrisi Adı</translation>
     </message>
-    <!-- OS:ChillerHeaterPerformance:Electric:EIR -->
+    
     <message>
         <source>Heating Mode Electric Input to Cooling Output Ratio Function of Temperature Curve Name</source>
         <translation>Isıtma Modu Elektrik Giriş Soğutma Çıkışı Oranı Sıcaklık Eğrisi Adı</translation>
     </message>
-    <!-- OS:ChillerHeaterPerformance:Electric:EIR -->
+    
     <message>
         <source>Heating Mode Entering Chilled Water Temperature Low Limit</source>
         <translation>Isıtma Modu Soğumuş Su Sıcaklığı Düşük Sınırı Girişi</translation>
     </message>
-    <!-- OS:ChillerHeaterPerformance:Electric:EIR -->
+    
     <message>
         <source>Heating Mode Temperature Curve Condenser Water Independent Variable</source>
         <translation>Isıtma Modu Sıcaklık Eğrisi Kondenser Suyu Bağımsız Değişkeni</translation>
     </message>
-    <!-- OS:HeatPump:AirToWater -->
+    
     <message>
         <source>Heating Operation Mode</source>
         <translation>Isıtma Çalışma Modu</translation>
     </message>
-    <!-- OS:AirConditioner:VariableRefrigerantFlow -->
+    
     <message>
         <source>Heating Part-Load Fraction Correlation Curve Name</source>
         <translation>Isıtma Kısmi Yük Kesir Korelasyon Eğrisi Adı</translation>
     </message>
-    <!-- OS:AirConditioner:VariableRefrigerantFlow -->
+    
     <message>
         <source>Heating Performance Curve Outdoor Temperature Type</source>
         <translation>Isıtma Performans Eğrisi Dış Sıcaklık Türü</translation>
     </message>
-    <!-- OS:Coil:Heating:WaterToAirHeatPump:EquationFit -->
+    
     <message>
         <source>Heating Power Consumption Curve Name</source>
         <translation>Isıtma Güç Tüketimi Eğri Adı</translation>
     </message>
-    <!-- OS:Refrigeration:AirChiller, OS:Refrigeration:WalkIn -->
+    
     <message>
         <source>Heating Power Schedule Name</source>
         <translation>Isıtma Gücü Çizelgesi Adı</translation>
     </message>
-    <!-- OS:ThermostatSetpoint:DualSetpoint, OS:ZoneHVAC:HighTemperatureRadiant, OS:ZoneHVAC:LowTemperatureRadiant:Electric -->
+    
     <message>
         <source>Heating Setpoint Temperature Schedule Name</source>
         <translation>Isıtma Ayar Noktası Sıcaklık Programa Adı</translation>
     </message>
-    <!-- OS:Sizing:Parameters -->
+    
     <message>
         <source>Heating Sizing Factor</source>
         <translation>Isıtma Boyutlandırma Faktörü</translation>
     </message>
-    <!-- OS:Coil:Heating:Desuperheater, OS:Coil:WaterHeating:Desuperheater -->
+    
     <message>
         <source>Heating Source Name</source>
         <translation>Isıtma Kaynağı Adı</translation>
     </message>
-    <!-- OS:UnitarySystemPerformance:Multispeed -->
+    
     <message>
         <source>Heating Speed Supply Air Flow Ratio</source>
         <translation>Isıtma Hızı Besleme Hava Akış Oranı</translation>
     </message>
-    <!-- OS:SetpointManager:SingleZone:OneStageHeating -->
+    
     <message>
         <source>Heating Stage Off Supply Air Setpoint Temperature</source>
         <translation>Isıtma Kademesi Kapalı Arz Hava Ayar Sıcaklığı</translation>
     </message>
-    <!-- OS:SetpointManager:SingleZone:OneStageHeating -->
+    
     <message>
         <source>Heating Stage On Supply Air Setpoint Temperature</source>
         <translation>Isıtma Aşaması Açıldığında Tatlı Su Havası Ayar Sıcaklığı</translation>
     </message>
-    <!-- OS:Sizing:System -->
+    
     <message>
         <source>Heating Supply Air Flow Rate Per Floor Area</source>
         <translation>Isıtma Besleme Hava Akış Hızı Birim Alan Başına</translation>
     </message>
-    <!-- OS:Sizing:System -->
+    
     <message>
         <source>Heating Supply Air Flow Rate Per Unit Heating Capacity</source>
         <translation>Isıtma Kapasite Başına Isıtma Besleme Hava Akış Hızı</translation>
     </message>
-    <!-- OS:ZoneControl:Thermostat:StagedDualSetpoint -->
+    
     <message>
         <source>Heating Temperature Setpoint Schedule</source>
         <translation>Isıtma Sıcaklığı Ayar Noktası Programı</translation>
     </message>
-    <!-- OS:ZoneHVAC:HighTemperatureRadiant, OS:ZoneHVAC:LowTemperatureRadiant:Electric -->
+    
     <message>
         <source>Heating Throttling Range</source>
         <translation>Isıtma Daraltma Aralığı</translation>
     </message>
-    <!-- OS:ZoneControl:Thermostat:StagedDualSetpoint -->
+    
     <message>
         <source>Heating Throttling Temperature Range</source>
         <translation>Isıtma Kısıtlama Sıcaklık Aralığı</translation>
     </message>
-    <!-- OS:HeatPump:PlantLoop:EIR:Heating -->
+    
     <message>
         <source>Heating To Cooling Capacity Sizing Ratio</source>
         <translation>Isıtma ile Soğutma Kapasitesi Boyutlandırma Oranı</translation>
     </message>
-    <!-- OS:Coil:Heating:LowTemperatureRadiant:ConstantFlow, OS:Coil:Heating:LowTemperatureRadiant:VariableFlow -->
+    
     <message>
         <source>Heating Water Inlet Node Name</source>
         <translation>Isıtma Suyu Giriş Düğümü Adı</translation>
     </message>
-    <!-- OS:Coil:Heating:LowTemperatureRadiant:ConstantFlow, OS:Coil:Heating:LowTemperatureRadiant:VariableFlow -->
+    
     <message>
         <source>Heating Water Outlet Node Name</source>
         <translation>Isıtma Suyu Çıkış Düğümü Adı</translation>
     </message>
-    <!-- OS:AvailabilityManager:NightCycle -->
+    
     <message>
         <source>Heating Zone Fans Only Zone or Zone List Name</source>
         <translation>Isıtma Bölge Vantilatörleri Yalnızca Bölge veya Bölge Listesi Adı</translation>
     </message>
-    <!-- OS:Construction:CfactorUndergroundWall -->
+    
     <message>
         <source>Height</source>
         <translation>Yükseklik</translation>
     </message>
-    <!-- OS:WaterHeater:Sizing -->
+    
     <message>
         <source>Height Aspect Ratio</source>
         <translation>Yükseklik En-Boy Oranı</translation>
     </message>
-    <!-- OS:AirflowNetworkSimulationControl -->
+    
     <message>
         <source>Height Dependence of External Node Temperature</source>
         <translation>Dış Düğüm Sıcaklığının Yüksekliğe Bağlılığı</translation>
     </message>
-    <!-- OS:ZoneVentilation:WindandStackOpenArea -->
+    
     <message>
         <source>Height Difference</source>
         <translation>Yükseklik Farkı</translation>
     </message>
-    <!-- OS:AirConditioner:VariableRefrigerantFlow:FluidTemperatureControl, OS:AirConditioner:VariableRefrigerantFlow:FluidTemperatureControl:HR -->
+    
     <message>
         <source>Height Difference Between Outdoor Unit and Indoor Units</source>
         <translation>Dış Ünite ile İç Üniteler Arasındaki Yükseklik Farkı</translation>
     </message>
-    <!-- OS:AirflowNetworkDetailedOpening -->
+    
     <message>
         <source>Height Factor for Opening Factor</source>
         <translation>Açıklık Faktörü için Yükseklik Faktörü</translation>
     </message>
-    <!-- OS:Generator:WindTurbine -->
+    
     <message>
         <source>Height for Local Average Wind Speed</source>
         <translation>Yerel Ortalama Rüzgar Hızı Yüksekliği</translation>
     </message>
-    <!-- OS:Refrigeration:WalkIn:ZoneBoundary -->
+    
     <message>
         <source>Height of Glass Reach In Doors Facing Zone</source>
         <translation>Bölüme Bakan Camlı Reach In Kapılarının Yüksekliği</translation>
     </message>
-    <!-- OS:Material:RoofVegetation -->
+    
     <message>
         <source>Height of Plants</source>
         <translation>Bitkilerin Yüksekliği</translation>
     </message>
-    <!-- OS:Refrigeration:WalkIn:ZoneBoundary -->
+    
     <message>
         <source>Height of Stocking Doors Facing Zone</source>
         <translation>Zona ile Karşı Karşıya Olan Depo Kapılarının Yüksekliği</translation>
     </message>
-    <!-- OS:DaylightingDevice:LightWell -->
+    
     <message>
         <source>Height of Well</source>
         <translation>Kuyu Yüksekliği</translation>
     </message>
-    <!-- OS:AirflowNetworkSimulationControl -->
+    
     <message>
         <source>Height Selection for Local Wind Pressure Calculation</source>
         <translation>Yerel Rüzgar Basıncı Hesaplaması için Yükseklik Seçimi</translation>
     </message>
-    <!-- OS:FuelFactors -->
+    
     <message>
         <source>Hg Emission Factor</source>
         <translation>Hg Emisyon Faktörü</translation>
     </message>
-    <!-- OS:FuelFactors -->
+    
     <message>
         <source>Hg Emission Factor Schedule Name</source>
         <translation>Hg Emisyon Faktörü Tarifesi Adı</translation>
     </message>
-    <!-- OS:CoolingTower:TwoSpeed, OS:EvaporativeFluidCooler:TwoSpeed, OS:FluidCooler:TwoSpeed -->
+    
     <message>
         <source>High Fan Speed Air Flow Rate</source>
         <translation>Yüksek Fan Hızı Hava Akış Hızı</translation>
     </message>
-    <!-- OS:CoolingTower:TwoSpeed, OS:EvaporativeFluidCooler:TwoSpeed, OS:FluidCooler:TwoSpeed -->
+    
     <message>
         <source>High Fan Speed Fan Power</source>
         <translation>Yüksek Fan Hızı Fan Gücü</translation>
     </message>
-    <!-- OS:CoolingTower:TwoSpeed -->
+    
     <message>
         <source>High Fan Speed U-Factor Times Area Value</source>
         <translation>Yüksek Fan Hızı U-Faktörü Çarpı Alan Değeri</translation>
     </message>
-    <!-- OS:EvaporativeFluidCooler:TwoSpeed, OS:FluidCooler:TwoSpeed -->
+    
     <message>
         <source>High Fan Speed U-factor Times Area Value</source>
         <translation>Yüksek Fan Hızı U-faktörü Çarpı Alan Değeri</translation>
     </message>
-    <!-- OS:Controller:OutdoorAir -->
+    
     <message>
         <source>High Humidity Control</source>
         <translation>Yüksek Nem Kontrolü</translation>
     </message>
-    <!-- OS:ZoneHVAC:EnergyRecoveryVentilator:Controller -->
+    
     <message>
         <source>High Humidity Control Flag</source>
         <translation>Yüksek Nem Kontrol Bayrağı</translation>
     </message>
-    <!-- OS:Controller:OutdoorAir, OS:ZoneHVAC:EnergyRecoveryVentilator:Controller -->
+    
     <message>
         <source>High Humidity Outdoor Air Flow Ratio</source>
         <translation>Yüksek Nem Dış Hava Akış Oranı</translation>
     </message>
-    <!-- OS:AirTerminal:SingleDuct:ParallelPIU:Reheat, OS:AirTerminal:SingleDuct:SeriesPIU:Reheat -->
+    
     <message>
         <source>High Limit Heating Discharge Air Temperature</source>
         <translation>Yüksek Limit Isıtma Çıkış Hava Sıcaklığı</translation>
     </message>
-    <!-- OS:Refrigeration:TranscriticalSystem -->
+    
     <message>
         <source>High Pressure CompressorList Name</source>
         <translation>Yüksek Basınçlı Kompresör Listesi Adı</translation>
     </message>
-    <!-- OS:SetpointManager:SystemNodeReset:Humidity -->
+    
     <message>
         <source>High Reference Humidity Ratio</source>
         <translation>Yüksek Referans Nem Oranı</translation>
     </message>
-    <!-- OS:SetpointManager:SystemNodeReset:Temperature -->
+    
     <message>
         <source>High Reference Temperature</source>
         <translation>Yüksek Referans Sıcaklığı</translation>
     </message>
-    <!-- OS:SetpointManager:Scheduled:DualSetpoint -->
+    
     <message>
         <source>High Setpoint Schedule Name</source>
         <translation>Yüksek Ayar Noktası Zamanlama Adı</translation>
     </message>
-    <!-- OS:Coil:Cooling:DX:TwoSpeed -->
+    
     <message>
         <source>High Speed Evaporative Condenser Air Flow Rate</source>
         <translation>Yüksek Hızlı Buharlaştırmalı Kondenser Hava Akış Hızı</translation>
     </message>
-    <!-- OS:Coil:Cooling:DX:TwoSpeed -->
+    
     <message>
         <source>High Speed Evaporative Condenser Effectiveness</source>
         <translation>Yüksek Hızlı Buharlaştırmalı Kondenser Etkinliği</translation>
     </message>
-    <!-- OS:Coil:Cooling:DX:TwoSpeed -->
+    
     <message>
         <source>High Speed Evaporative Condenser Pump Rated Power Consumption</source>
         <translation>Yüksek Hızlı Evaporatif Kondenser Pompası Nominal Güç Tüketimi</translation>
     </message>
-    <!-- OS:CoolingTower:TwoSpeed, OS:FluidCooler:TwoSpeed -->
+    
     <message>
         <source>High Speed Nominal Capacity</source>
         <translation>Yüksek Hız Nominal Kapasitesi</translation>
     </message>
-    <!-- OS:EvaporativeFluidCooler:TwoSpeed -->
+    
     <message>
         <source>High Speed Sizing Factor</source>
         <translation>Yüksek Hız Boyutlandırma Faktörü</translation>
     </message>
-    <!-- OS:EvaporativeFluidCooler:TwoSpeed -->
+    
     <message>
         <source>High Speed Standard Design Capacity</source>
         <translation>Yüksek Hız Standart Tasarım Kapasitesi</translation>
     </message>
-    <!-- OS:EvaporativeFluidCooler:TwoSpeed -->
+    
     <message>
         <source>High Speed User Specified Design Capacity</source>
         <translation>Yüksek Hız Kullanıcı Tarafından Belirlenen Tasarım Kapasitesi</translation>
     </message>
-    <!-- OS:MaterialProperty:PhaseChangeHysteresis -->
+    
     <message>
         <source>High Temperature Difference of Freezing Curve</source>
         <translation>Donma Eğrisinin Yüksek Sıcaklık Farkı</translation>
     </message>
-    <!-- OS:MaterialProperty:PhaseChangeHysteresis -->
+    
     <message>
         <source>High Temperature Difference of Melting Curve</source>
         <translation>Erime Eğrisinin Yüksek Sıcaklık Farkı</translation>
     </message>
-    <!-- OS:Refrigeration:System -->
+    
     <message>
         <source>High-Stage CompressorList Name</source>
         <translation>Yüksek-Kademe Kompresör Listesi Adı</translation>
     </message>
-    <!-- OS:Schedule:Week -->
+    
     <message>
         <source>Holiday Schedule:Day Name</source>
         <translation>Tatil Takvimi:Gün Adı</translation>
     </message>
-    <!-- OS:GroundHeatExchanger:HorizontalTrench -->
+    
     <message>
         <source>Horizontal Spacing Between Pipes</source>
         <translation>Borular Arasında Yatay Aralık</translation>
     </message>
-    <!-- OS:AirTerminal:DualDuct:ConstantVolume, OS:AirTerminal:DualDuct:VAV -->
+    
     <message>
         <source>Hot Air Inlet Node</source>
         <translation>Sıcak Hava Giriş Düğümü</translation>
     </message>
-    <!-- OS:AvailabilityManager:DifferentialThermostat -->
+    
     <message>
         <source>Hot Node</source>
         <translation>Sıcak Düğüm</translation>
     </message>
-    <!-- OS:HotWaterEquipment -->
+    
     <message>
         <source>Hot Water Equipment Definition Name</source>
         <translation>Sıcak Su Ekipmanı Tanımı Adı</translation>
     </message>
-    <!-- OS:Coil:Heating:FourPipeBeam, OS:DistrictHeating:Water, OS:HeatPump:AirToWater:Heating -->
+    
     <message>
         <source>Hot Water Inlet Node Name</source>
         <translation>Sıcak Su Giriş Düğümü Adı</translation>
     </message>
-    <!-- OS:Coil:Heating:FourPipeBeam, OS:DistrictHeating:Water, OS:HeatPump:AirToWater:Heating -->
+    
     <message>
         <source>Hot Water Outlet Node Name</source>
         <translation>Sıcak Su Çıkış Düğümü Adı</translation>
     </message>
-    <!-- OS:LightingDesignDay -->
+    
     <message>
         <source>Hour to Simulate</source>
         <translation>Simüle Edilecek Saat</translation>
     </message>
-    <!-- OS:ZoneHVAC:IdealLoadsAirSystem -->
+    
     <message>
         <source>Humidification Control Type</source>
         <translation>Nemlendir Kontrol Tipi</translation>
     </message>
-    <!-- OS:ZoneControl:Humidistat -->
+    
     <message>
         <source>Humidifying Relative Humidity Setpoint Schedule Name</source>
         <translation>Nemlendir Bağıl Nem Ayar Noktası Program Adı</translation>
     </message>
-    <!-- OS:Controller:OutdoorAir -->
+    
     <message>
         <source>Humidistat Control Zone Name</source>
         <translation>Nemcontrol Alanı Adı</translation>
     </message>
-    <!-- OS:ThermalZone -->
+    
     <message>
         <source>Humidistat Name</source>
         <translation>Nemlendiriciye Isıl Kontrol Cihazı Adı</translation>
     </message>
-    <!-- OS:Refrigeration:Case -->
+    
     <message>
         <source>Humidity at Zero Anti-Sweat Heater Energy</source>
         <translation>Sıfır Terleme Önleyici Isıtıcı Enerjisinde Nem Oranı</translation>
     </message>
-    <!-- OS:ZoneCapacitanceMultiplier:ResearchSpecial -->
+    
     <message>
         <source>Humidity Capacity Multiplier</source>
         <translation>Nem Kapasitesi Çarpanı</translation>
     </message>
-    <!-- OS:SizingPeriod:DesignDay -->
+    
     <message>
         <source>Humidity Condition Day Schedule Name</source>
         <translation>Nem Koşulu Gün Planlama Adı</translation>
     </message>
-    <!-- OS:SizingPeriod:DesignDay -->
+    
     <message>
         <source>Humidity Condition Type</source>
         <translation>Nemlilik Koşulu Türü</translation>
     </message>
-    <!-- OS:SizingPeriod:DesignDay -->
+    
     <message>
         <source>Humidity Ratio at Maximum Dry-Bulb</source>
         <translation>Maksimum Kuru Termometre Sıcaklığında Nem Oranı</translation>
     </message>
-    <!-- OS:HeatExchanger:Desiccant:BalancedFlow:PerformanceDataType1 -->
+    
     <message>
         <source>Humidity Ratio Equation Coefficient 1</source>
         <translation>Nem Oranı Denklemi Katsayısı 1</translation>
     </message>
-    <!-- OS:HeatExchanger:Desiccant:BalancedFlow:PerformanceDataType1 -->
+    
     <message>
         <source>Humidity Ratio Equation Coefficient 2</source>
         <translation>Nem Oranı Denklem Katsayısı 2</translation>
     </message>
-    <!-- OS:HeatExchanger:Desiccant:BalancedFlow:PerformanceDataType1 -->
+    
     <message>
         <source>Humidity Ratio Equation Coefficient 3</source>
         <translation>Nem Oranı Denklemi Katsayısı 3</translation>
     </message>
-    <!-- OS:HeatExchanger:Desiccant:BalancedFlow:PerformanceDataType1 -->
+    
     <message>
         <source>Humidity Ratio Equation Coefficient 4</source>
         <translation>Nem Oranı Denklemi Katsayısı 4</translation>
     </message>
-    <!-- OS:HeatExchanger:Desiccant:BalancedFlow:PerformanceDataType1 -->
+    
     <message>
         <source>Humidity Ratio Equation Coefficient 5</source>
         <translation>Nem Oranı Denklemi Katsayısı 5</translation>
     </message>
-    <!-- OS:HeatExchanger:Desiccant:BalancedFlow:PerformanceDataType1 -->
+    
     <message>
         <source>Humidity Ratio Equation Coefficient 6</source>
         <translation>Nem Oranı Denklemi Katsayısı 6</translation>
     </message>
-    <!-- OS:HeatExchanger:Desiccant:BalancedFlow:PerformanceDataType1 -->
+    
     <message>
         <source>Humidity Ratio Equation Coefficient 7</source>
         <translation>Nem Oranı Denklemi Katsayısı 7</translation>
     </message>
-    <!-- OS:HeatExchanger:Desiccant:BalancedFlow:PerformanceDataType1 -->
+    
     <message>
         <source>Humidity Ratio Equation Coefficient 8</source>
         <translation>Nem Oranı Denklemi Katsayısı 8</translation>
     </message>
-    <!-- OS:PortList -->
+    
     <message>
         <source>HVAC Component</source>
         <translation>HVAC Bileşeni</translation>
     </message>
-    <!-- OS:HVACComponentList -->
+    
     <message>
         <source>HVACComponent</source>
         <translation>HVACComponent</translation>
     </message>
-    <!-- OS:AirflowNetworkDuct -->
+    
     <message>
         <source>Hydraulic Diameter</source>
         <translation>Hidrolik Çap</translation>
     </message>
-    <!-- OS:ZoneHVAC:LowTemperatureRadiant:ConstantFlow, OS:ZoneHVAC:LowTemperatureRadiant:VariableFlow -->
+    
     <message>
         <source>Hydronic Tubing Conductivity</source>
         <translation>Hidronik Borusu İletkenliği</translation>
     </message>
-    <!-- OS:ZoneHVAC:LowTemperatureRadiant:ConstantFlow, OS:ZoneHVAC:LowTemperatureRadiant:VariableFlow -->
+    
     <message>
         <source>Hydronic Tubing Inside Diameter</source>
         <translation>Hidronik Boru İç Çapı</translation>
     </message>
-    <!-- OS:ZoneHVAC:LowTemperatureRadiant:ConstantFlow, OS:ZoneHVAC:LowTemperatureRadiant:VariableFlow -->
+    
     <message>
         <source>Hydronic Tubing Length</source>
         <translation>Hidronik Borulama Uzunluğu</translation>
     </message>
-    <!-- OS:ZoneHVAC:LowTemperatureRadiant:ConstantFlow, OS:ZoneHVAC:LowTemperatureRadiant:VariableFlow -->
+    
     <message>
         <source>Hydronic Tubing Outside Diameter</source>
         <translation>Hidronik Boru Dış Çapı</translation>
     </message>
 
-    <!-- I -->
-    <!-- OS:Coil:Cooling:DX:SingleSpeed:ThermalStorage -->
+    
+    
     <message>
         <source>Ice Storage Capacity</source>
         <translation>Buz Depolama Kapasitesi</translation>
     </message>
-    <!-- OS:SolarCollectorPerformance:IntegralCollectorStorage -->
+    
     <message>
         <source>ICS Collector Type</source>
         <translation>ICS Kolektör Türü</translation>
     </message>
-    <!-- OS:Luminaire:Definition -->
+    
     <message>
         <source>IES File Path</source>
         <translation>IES Dosya Yolu</translation>
     </message>
-    <!-- OS:ThermalZone -->
+    
     <message>
         <source>Illuminance Map Name</source>
         <translation>Aydınlık Haritası Adı</translation>
     </message>
-    <!-- OS:Daylighting:Control -->
+    
     <message>
         <source>Illuminance Setpoint</source>
         <translation>Aydınlık Düzeyi Ayar Değeri</translation>
     </message>
-    <!-- OS:Pump:ConstantSpeed, OS:Pump:VariableSpeed -->
+    
     <message>
         <source>Impeller Diameter</source>
         <translation>İtici Çark Çapı</translation>
     </message>
-    <!-- OS:SurfaceProperty:IncidentSolarMultiplier -->
+    
     <message>
         <source>Incident Solar Multiplier</source>
         <translation>Olay Güneş Çarpanı</translation>
     </message>
-    <!-- OS:SurfaceProperty:IncidentSolarMultiplier -->
+    
     <message>
         <source>Incident Solar Multiplier Schedule Name</source>
         <translation>Gelen Güneş Çarpanı Çizelgesi Adı</translation>
     </message>
-    <!-- OS:Table:Lookup -->
+    
     <message>
         <source>Independent Variable List Name</source>
         <translation>Bağımsız Değişken Listesi Adı</translation>
     </message>
-    <!-- OS:WaterHeater:Mixed, OS:WaterHeater:Stratified -->
+    
     <message>
         <source>Indirect Alternate Setpoint Temperature Schedule Name</source>
         <translation>Dolaylı Alternatif Ayar Noktası Sıcaklık Çizelgesi Adı</translation>
     </message>
-    <!-- OS:Coil:Cooling:DX:VariableSpeed, OS:Coil:Cooling:WaterToAirHeatPump:VariableSpeedEquationFit, OS:Coil:Heating:DX:VariableSpeed, OS:Coil:Heating:WaterToAirHeatPump:VariableSpeedEquationFit -->
+    
     <message>
         <source>Indoor Air Inlet Node Name</source>
         <translation>İç Hava Giriş Düğümü Adı</translation>
     </message>
-    <!-- OS:Coil:Cooling:DX:VariableSpeed, OS:Coil:Cooling:WaterToAirHeatPump:VariableSpeedEquationFit, OS:Coil:Heating:DX:VariableSpeed, OS:Coil:Heating:WaterToAirHeatPump:VariableSpeedEquationFit -->
+    
     <message>
         <source>Indoor Air Outlet Node Name</source>
         <translation>İç Hava Çıkış Düğümü Adı</translation>
     </message>
-    <!-- OS:AirflowNetworkSurface, OS:AirflowNetworkZone -->
+    
     <message>
         <source>Indoor and Outdoor Enthalpy Difference Lower Limit For Maximum Venting Open Factor</source>
         <translation>İç ve Dış Entalpi Farkı Maksimum Havalandırma Açıklık Faktörü İçin Alt Sınır</translation>
     </message>
-    <!-- OS:AirflowNetworkSurface, OS:AirflowNetworkZone -->
+    
     <message>
         <source>Indoor and Outdoor Enthalpy Difference Upper Limit for Minimum Venting Open Factor</source>
         <translation>İç ve Dış Entalpi Farkı - Minimum Havalandırma Açık Faktörü için Üst Sınır</translation>
     </message>
-    <!-- OS:AirflowNetworkSurface, OS:AirflowNetworkZone -->
+    
     <message>
         <source>Indoor and Outdoor Temperature Difference Lower Limit For Maximum Venting Open Factor</source>
         <translation>İç ve Dış Sıcaklık Farkı Maksimum Havalandırma Açık Faktörü için Alt Sınır</translation>
     </message>
-    <!-- OS:AirflowNetworkSurface, OS:AirflowNetworkZone -->
+    
     <message>
         <source>Indoor and Outdoor Temperature Difference Upper Limit for Minimum Venting Open Factor</source>
         <translation>Minimum Havalandırma Açık Faktörü için İç ve Dış Sıcaklık Farkı Üst Sınırı</translation>
     </message>
-    <!-- OS:CoilSystem:IntegratedHeatPump:AirSource -->
+    
     <message>
         <source>Indoor Temperature Above Which WH Has Higher Priority</source>
         <translation>İç Sıcaklığı Bu Değerin Üzerinde WH Daha Yüksek Önceliğe Sahip</translation>
     </message>
-    <!-- OS:CoilSystem:IntegratedHeatPump:AirSource -->
+    
     <message>
         <source>Indoor Temperature Limit For SCWH Mode</source>
         <translation>SCWH Modu İçin İç Sıcaklık Limiti</translation>
     </message>
-    <!-- OS:Coil:Heating:DX:VariableRefrigerantFlow:FluidTemperatureControl -->
+    
     <message>
         <source>Indoor Unit Condensing Temperature Function of Subcooling Curve</source>
         <translation>İç Birim Yoğunlaştırma Sıcaklığı Soğutkolu Fonksiyon Eğrisi</translation>
     </message>
-    <!-- OS:Coil:Cooling:DX:VariableRefrigerantFlow:FluidTemperatureControl -->
+    
     <message>
         <source>Indoor Unit Evaporating Temperature Function of Superheating Curve</source>
         <translation>İç Ünite Buharlaşma Sıcaklığı Aşırı Isıtma Eğrisi Fonksiyonu</translation>
     </message>
-    <!-- OS:Coil:Heating:DX:VariableRefrigerantFlow:FluidTemperatureControl -->
+    
     <message>
         <source>Indoor Unit Reference Subcooling</source>
         <translation>İç Ünite Referans Soğutma</translation>
     </message>
-    <!-- OS:Coil:Cooling:DX:VariableRefrigerantFlow:FluidTemperatureControl -->
+    
     <message>
         <source>Indoor Unit Reference Superheating</source>
         <translation>İç Ünite Referans Kızgınlaştırma</translation>
     </message>
-    <!-- OS:AirTerminal:SingleDuct:ConstantVolume:FourPipeInduction -->
+    
     <message>
         <source>Induced Air Inlet Node Name</source>
         <translation>Uyarılan Hava Giriş Düğüm Adı</translation>
     </message>
-    <!-- OS:AirLoopHVAC:ReturnPlenum -->
+    
     <message>
         <source>Induced Air Outlet Port List</source>
         <translation>Induced Air Outlet Port List</translation>
     </message>
-    <!-- OS:AirTerminal:SingleDuct:ConstantVolume:FourPipeInduction -->
+    
     <message>
         <source>Induction Ratio</source>
         <translation>Indüksiyon Oranı</translation>
     </message>
-    <!-- OS:ZoneAirMassFlowConservation -->
+    
     <message>
         <source>Infiltration Balancing Method</source>
         <translation>Hava Sızıntısı Dengeleme Yöntemi</translation>
     </message>
-    <!-- OS:ZoneAirMassFlowConservation -->
+    
     <message>
         <source>Infiltration Balancing Zones</source>
         <translation>İnfiltrasyon Dengeleme Bölgeleri</translation>
     </message>
-    <!-- OS:LifeCycleCost:Parameters -->
+    
     <message>
         <source>Inflation</source>
         <translation>Enflasyon</translation>
     </message>
-    <!-- OS:LifeCycleCost:Parameters -->
+    
     <message>
         <source>Inflation Approach</source>
         <translation>Enflasyon Yaklaşımı</translation>
     </message>
-    <!-- OS:WindowMaterial:Glazing:RefractionExtinctionMethod -->
+    
     <message>
         <source>Infrared Hemispherical Emissivity</source>
         <translation>Kızılötesi Yarıküresel Yayıcılık</translation>
     </message>
-    <!-- OS:WindowMaterial:Glazing, OS:WindowMaterial:Glazing:RefractionExtinctionMethod -->
+    
     <message>
         <source>Infrared Transmittance at Normal Incidence</source>
         <translation>Infrared Geçirgenliği Normal İnsidans Açısında</translation>
     </message>
-    <!-- OS:Generator:FuelCell:ElectricalStorage -->
+    
     <message>
         <source>Initial Charge State</source>
         <translation>İlk Yük Durumu</translation>
     </message>
-    <!-- OS:HeatExchanger:AirToAir:SensibleAndLatent -->
+    
     <message>
         <source>Initial Defrost Time Fraction</source>
         <translation>İlk Çözündürme Süresi Oranı</translation>
     </message>
-    <!-- OS:ElectricLoadCenter:Storage:LiIonNMCBattery -->
+    
     <message>
         <source>Initial Fractional State of Charge</source>
         <translation>İlk Şarj Durumu Kesri</translation>
     </message>
-    <!-- OS:AirConditioner:VariableRefrigerantFlow, OS:AirConditioner:VariableRefrigerantFlow:FluidTemperatureControl:HR -->
+    
     <message>
         <source>Initial Heat Recovery Cooling Capacity Fraction</source>
         <translation>İlk Isı Geri Kazanım Soğutma Kapasitesi Kesri</translation>
     </message>
-    <!-- OS:AirConditioner:VariableRefrigerantFlow, OS:AirConditioner:VariableRefrigerantFlow:FluidTemperatureControl:HR -->
+    
     <message>
         <source>Initial Heat Recovery Cooling Energy Fraction</source>
         <translation>İlk Isı Geri Kazanım Soğutma Enerji Fraksiyonu</translation>
     </message>
-    <!-- OS:AirConditioner:VariableRefrigerantFlow, OS:AirConditioner:VariableRefrigerantFlow:FluidTemperatureControl:HR -->
+    
     <message>
         <source>Initial Heat Recovery Heating Capacity Fraction</source>
         <translation>Başlangıç Isı Geri Kazanımı Isıtma Kapasitesi Oranı</translation>
     </message>
-    <!-- OS:AirConditioner:VariableRefrigerantFlow, OS:AirConditioner:VariableRefrigerantFlow:FluidTemperatureControl:HR -->
+    
     <message>
         <source>Initial Heat Recovery Heating Energy Fraction</source>
         <translation>Initial Heat Recovery Heating Energy Fraction</translation>
     </message>
-    <!-- OS:Foundation:Kiva -->
+    
     <message>
         <source>Initial Indoor Air Temperature</source>
         <translation>İlk İç Hava Sıcaklığı</translation>
     </message>
-    <!-- OS:Coil:Cooling:DX:VariableSpeed, OS:Coil:Cooling:WaterToAirHeatPump:VariableSpeedEquationFit -->
+    
     <message>
         <source>Initial Moisture Evaporation Rate Divided by Steady-State AC Latent Capacity</source>
         <translation>İlk Nemi Buharlaşma Hızı Bölü Sabit Durum AC Gizli Kapasitesi</translation>
     </message>
-    <!-- OS:ElectricLoadCenter:Storage:Simple -->
+    
     <message>
         <source>Initial State of Charge</source>
         <translation>İlk Yük Durumu</translation>
     </message>
-    <!-- OS:AvailabilityManager:OptimumStart -->
+    
     <message>
         <source>Initial Temperature Gradient during Cooling</source>
         <translation>Soğutma Sırasında İlk Sıcaklık Gradyanı</translation>
     </message>
-    <!-- OS:AvailabilityManager:OptimumStart -->
+    
     <message>
         <source>Initial Temperature Gradient during Heating</source>
         <translation>Isıtma Sırasında İlk Sıcaklık Gradyenti</translation>
     </message>
-    <!-- OS:ExternalInterface:FunctionalMockupUnitExport:To:Actuator, OS:ExternalInterface:FunctionalMockupUnitExport:To:Schedule, OS:ExternalInterface:FunctionalMockupUnitExport:To:Variable, OS:ExternalInterface:FunctionalMockupUnitImport:To:Actuator, OS:ExternalInterface:FunctionalMockupUnitImport:To:Schedule, OS:ExternalInterface:FunctionalMockupUnitImport:To:Variable, OS:ExternalInterface:Schedule, OS:ExternalInterface:Variable -->
+    
     <message>
         <source>Initial Value</source>
         <translation>Başlangıç Değeri</translation>
     </message>
-    <!-- OS:Material:RoofVegetation -->
+    
     <message>
         <source>Initial Volumetric Moisture Content of the Soil Layer</source>
         <translation>Toprak Tabakasının Başlangıç Hacimsel Nem İçeriği</translation>
     </message>
-    <!-- OS:Coil:UserDefined -->
+    
     <message>
         <source>Initialization Simulation Program Name</source>
         <translation>Başlatma Simülasyon Programı Adı</translation>
     </message>
-    <!-- OS:AirflowNetworkSimulationControl -->
+    
     <message>
         <source>Initialization Type</source>
         <translation>Başlangıç Türü</translation>
     </message>
-    <!-- OS:WaterHeater:HeatPump, OS:WaterHeater:HeatPump:WrappedCondenser -->
+    
     <message>
         <source>Inlet Air Configuration</source>
         <translation>Giriş Havası Yapılandırması</translation>
     </message>
-    <!-- OS:WaterHeater:HeatPump -->
+    
     <message>
         <source>Inlet Air Humidity Schedule</source>
         <translation>Giriş Hava Nem Programı</translation>
     </message>
-    <!-- OS:WaterHeater:HeatPump:WrappedCondenser -->
+    
     <message>
         <source>Inlet Air Humidity Schedule Name</source>
         <translation>Giriş Hava Nem Programı Adı</translation>
     </message>
-    <!-- OS:WaterHeater:HeatPump -->
+    
     <message>
         <source>Inlet Air Mixer Schedule</source>
         <translation>Giriş Hava Karıştırıcı Programı</translation>
     </message>
-    <!-- OS:WaterHeater:HeatPump:WrappedCondenser -->
+    
     <message>
         <source>Inlet Air Mixer Schedule Name</source>
         <translation>Giriş Hava Karıştırıcı Program Adı</translation>
     </message>
-    <!-- OS:WaterHeater:HeatPump -->
+    
     <message>
         <source>Inlet Air Temperature Schedule</source>
         <translation>Giriş Hava Sıcaklığı Programı</translation>
     </message>
-    <!-- OS:WaterHeater:HeatPump:WrappedCondenser -->
+    
     <message>
         <source>Inlet Air Temperature Schedule Name</source>
         <translation>Giriş Hava Sıcaklığı Çizelgesi Adı</translation>
     </message>
-    <!-- OS:Connector:Mixer, OS:Connector:Splitter -->
+    
     <message>
         <source>Inlet Branch Name</source>
         <translation>Giriş Dalı Adı</translation>
     </message>
-    <!-- OS:ThermalStorage:ChilledWater:Stratified, OS:WaterHeater:Stratified -->
+    
     <message>
         <source>Inlet Mode</source>
         <translation>Giriş Modu</translation>
     </message>
-    <!-- OS:AirLoopHVAC:ReturnPlenum, OS:AirLoopHVAC:SupplyPlenum, OS:Duct, OS:PlantComponent:TemperatureSource -->
+    
     <message>
         <source>Inlet Node</source>
         <translation>Giriş Düğümü</translation>
     </message>
-    <!-- OS:AirLoopHVAC:ZoneMixer, OS:AirLoopHVAC:ZoneSplitter, OS:Coil:Heating:Water:Baseboard:Radiant, OS:GroundHeatExchanger:HorizontalTrench, OS:GroundHeatExchanger:Vertical, OS:HeaderedPumps:ConstantSpeed, OS:HeaderedPumps:VariableSpeed, OS:LoadProfile:Plant, OS:Pipe:Adiabatic, OS:Pump:ConstantSpeed, OS:Pump:VariableSpeed, OS:SolarCollector:FlatPlate:PhotovoltaicThermal, OS:SolarCollector:FlatPlate:Water, OS:SolarCollector:IntegralCollectorStorage, OS:Splitter, OS:TemperingValve, OS:ThermalStorage:Ice:Detailed, OS:WaterUse:Connections -->
+    
     <message>
         <source>Inlet Node Name</source>
         <translation>Giriş Düğümü Adı</translation>
     </message>
-    <!-- OS:Connection, OS:Node -->
+    
     <message>
         <source>Inlet Port</source>
         <translation>Giriş Bağlantı Noktası</translation>
     </message>
-    <!-- OS:Humidifier:Steam:Gas -->
+    
     <message>
         <source>Inlet Water Temperature Option</source>
         <translation>Giriş Su Sıcaklığı Seçeneği</translation>
     </message>
-    <!-- OS:Curve:QuintLinear -->
+    
     <message>
         <source>Input Unit Type for v</source>
         <translation>Input Unit Type for v</translation>
     </message>
-    <!-- OS:Curve:QuadLinear, OS:Curve:QuintLinear -->
+    
     <message>
         <source>Input Unit Type for w</source>
         <translation>w için Giriş Birimi Türü</translation>
     </message>
-    <!-- OS:Curve:Bicubic, OS:Curve:Biquadratic, OS:Curve:Cubic, OS:Curve:Exponent, OS:Curve:Linear, OS:Curve:Quadratic, OS:Curve:QuadraticLinear, OS:Curve:Quartic, OS:Curve:Triquadratic -->
+    
     <message>
         <source>Input Unit Type for X</source>
         <translation>X için Giriş Birim Türü</translation>
     </message>
-    <!-- OS:Curve:DoubleExponentialDecay, OS:Curve:ExponentialDecay, OS:Curve:ExponentialSkewNormal, OS:Curve:QuadLinear, OS:Curve:QuintLinear, OS:Curve:RectangularHyperbola1, OS:Curve:RectangularHyperbola2, OS:Curve:Sigmoid -->
+    
     <message>
         <source>Input Unit Type for x</source>
         <translation>x için Giriş Birim Türü</translation>
     </message>
-    <!-- OS:Table:MultiVariableLookup -->
+    
     <message>
         <source>Input Unit Type for X1</source>
         <translation>X1 için Giriş Birim Türü</translation>
     </message>
-    <!-- OS:Table:MultiVariableLookup -->
+    
     <message>
         <source>Input Unit Type for X2</source>
         <translation>X2 için Giriş Birim Türü</translation>
     </message>
-    <!-- OS:Table:MultiVariableLookup -->
+    
     <message>
         <source>Input Unit Type for X3</source>
         <translation>X3 için Giriş Birim Türü</translation>
     </message>
-    <!-- OS:Table:MultiVariableLookup -->
+    
     <message>
         <source>Input Unit Type for X4</source>
         <translation>X4 için Giriş Birim Türü</translation>
     </message>
-    <!-- OS:Table:MultiVariableLookup -->
+    
     <message>
         <source>Input Unit Type for X5</source>
         <translation>X5 için Giriş Birim Türü</translation>
     </message>
-    <!-- OS:Curve:Bicubic, OS:Curve:Biquadratic, OS:Curve:QuadraticLinear, OS:Curve:Triquadratic -->
+    
     <message>
         <source>Input Unit Type for Y</source>
         <translation>Y için Giriş Birim Türü</translation>
     </message>
-    <!-- OS:Curve:QuadLinear, OS:Curve:QuintLinear -->
+    
     <message>
         <source>Input Unit Type for y</source>
         <translation>Y için Giriş Birim Türü</translation>
     </message>
-    <!-- OS:Curve:QuadLinear, OS:Curve:QuintLinear -->
+    
     <message>
         <source>Input Unit Type for z</source>
         <translation>z için Giriş Birim Türü</translation>
     </message>
-    <!-- OS:Curve:Triquadratic -->
+    
     <message>
         <source>Input Unit Type for Z</source>
         <translation>Z için Giriş Birim Türü</translation>
     </message>
-    <!-- OS:AirflowNetworkDuct -->
+    
     <message>
         <source>Inside Convection Coefficient</source>
         <translation>İç Konveksiyon Katsayısı</translation>
     </message>
-    <!-- OS:WindowProperty:FrameAndDivider -->
+    
     <message>
         <source>Inside Reveal Depth</source>
         <translation>İç Eşik Derinliği</translation>
     </message>
-    <!-- OS:WindowProperty:FrameAndDivider -->
+    
     <message>
         <source>Inside Reveal Solar Absorptance</source>
         <translation>İç Kenar Güneş Soğurma Oranı</translation>
     </message>
-    <!-- OS:DaylightingDevice:Shelf -->
+    
     <message>
         <source>Inside Shelf Name</source>
         <translation>İç Raf Adı</translation>
     </message>
-    <!-- OS:WindowProperty:FrameAndDivider -->
+    
     <message>
         <source>Inside Sill Depth</source>
         <translation>İç Pervaz Derinliği</translation>
     </message>
-    <!-- OS:WindowProperty:FrameAndDivider -->
+    
     <message>
         <source>Inside Sill Solar Absorptance</source>
         <translation>İç Kenar Güneş Absorbansı</translation>
     </message>
-    <!-- OS:Refrigeration:Case -->
+    
     <message>
         <source>Installed Case Lighting Power per Door</source>
         <translation>Kapı Başına Kurulu Vitrin Aydınlatma Gücü</translation>
     </message>
-    <!-- OS:Refrigeration:Case -->
+    
     <message>
         <source>Installed Case Lighting Power per Unit Length</source>
         <translation>Birim Uzunluk Başına Kurulu Kasa Aydınlatma Gücü</translation>
     </message>
-    <!-- OS:Refrigeration:WalkIn -->
+    
     <message>
         <source>Insulated Floor Surface Area</source>
         <translation>İzole Döşeme Yüzey Alanı</translation>
     </message>
-    <!-- OS:Refrigeration:WalkIn -->
+    
     <message>
         <source>Insulated Floor U-Value</source>
         <translation>Yalıtımlı Zemin U-Değeri</translation>
     </message>
-    <!-- OS:Refrigeration:WalkIn:ZoneBoundary -->
+    
     <message>
         <source>Insulated Surface U-Value Facing Zone</source>
         <translation>Yalıtımlı Yüzey U-Değeri Alan'a Bakan</translation>
     </message>
-    <!-- OS:SurfaceControl:MovableInsulation -->
+    
     <message>
         <source>Insulation Type</source>
         <translation>Yalıtım Türü</translation>
     </message>
-    <!-- OS:SolarCollector:IntegralCollectorStorage -->
+    
     <message>
         <source>IntegralCollectorStorageParameters Name</source>
         <translation>IntegralCollectorStorageParameters Adı</translation>
     </message>
-    <!-- OS:StandardsInformation:Construction -->
+    
     <message>
         <source>Intended Surface Type</source>
         <translation>Hedeflenen Yüzey Türü</translation>
     </message>
-    <!-- OS:Refrigeration:System -->
+    
     <message>
         <source>Intercooler Type</source>
         <translation>Ara Soğutucu Türü</translation>
     </message>
-    <!-- OS:Foundation:Kiva -->
+    
     <message>
         <source>Interior Horizontal Insulation Depth</source>
         <translation>İç Yatay İzolasyon Derinliği</translation>
     </message>
-    <!-- OS:Foundation:Kiva -->
+    
     <message>
         <source>Interior Horizontal Insulation Material Name</source>
         <translation>İç Yatay İzolasyon Malzeme Adı</translation>
     </message>
-    <!-- OS:Foundation:Kiva -->
+    
     <message>
         <source>Interior Horizontal Insulation Width</source>
         <translation>İç Yatay İzolasyon Genişliği</translation>
     </message>
-    <!-- OS:DefaultConstructionSet -->
+    
     <message>
         <source>Interior Partition Construction Name</source>
         <translation>İç Bölme Yapısı Adı</translation>
     </message>
-    <!-- OS:InteriorPartitionSurface -->
+    
     <message>
         <source>Interior Partition Surface Group Name</source>
         <translation>İç Bölme Yüzeyi Grup Adı</translation>
     </message>
-    <!-- OS:Foundation:Kiva -->
+    
     <message>
         <source>Interior Vertical Insulation Depth</source>
         <translation>İç Dikey Yalıtım Derinliği</translation>
     </message>
-    <!-- OS:Foundation:Kiva -->
+    
     <message>
         <source>Interior Vertical Insulation Material Name</source>
         <translation>İç Dikey Yalıtım Malzemesi Adı</translation>
     </message>
-    <!-- OS:EnergyManagementSystem:InternalVariable -->
+    
     <message>
         <source>Internal Data Index Key Name</source>
         <translation>İç Veri İndeksi Anahtar Adı</translation>
     </message>
-    <!-- OS:EnergyManagementSystem:InternalVariable -->
+    
     <message>
         <source>Internal Data Type</source>
         <translation>İç Veri Türü</translation>
     </message>
-    <!-- OS:InternalMass -->
+    
     <message>
         <source>Internal Mass Definition Name</source>
         <translation>İç Kütle Tanımı Adı</translation>
     </message>
-    <!-- OS:Output:EnergyManagementSystem -->
+    
     <message>
         <source>Internal Variable Availability Dictionary Reporting</source>
         <translation>İç Değişken Kullanılabilirlik Sözlüğü Raporlaması</translation>
     </message>
-    <!-- OS:Table:IndependentVariable, OS:Table:MultiVariableLookup -->
+    
     <message>
         <source>Interpolation Method</source>
         <translation>İnterpolasyon Yöntemi</translation>
     </message>
-    <!-- OS:Schedule:FixedInterval -->
+    
     <message>
         <source>Interval Length</source>
         <translation>Aralık Uzunluğu</translation>
     </message>
-    <!-- OS:ElectricLoadCenter:Inverter:PVWatts, OS:ElectricLoadCenter:Inverter:Simple, OS:Generator:FuelCell:Inverter -->
+    
     <message>
         <source>Inverter Efficiency</source>
         <translation>Ters Çevirici Verimliği</translation>
     </message>
-    <!-- OS:Generator:FuelCell:Inverter -->
+    
     <message>
         <source>Inverter Efficiency Calculation Mode</source>
         <translation>Inverter Verimlilik Hesaplama Modu</translation>
     </message>
-    <!-- OS:ElectricLoadCenter:Distribution, OS:Generator:FuelCell -->
+    
     <message>
         <source>Inverter Name</source>
         <translation>Inverter Adı</translation>
     </message>
-    <!-- OS:YearDescription -->
+    
     <message>
         <source>Is Leap Year</source>
         <translation>Artık Yıl mı</translation>
     </message>
-    <!-- OS:OutputControl:Timestamp -->
+    
     <message>
         <source>ISO 8601 Format</source>
         <translation>ISO 8601 Formatı</translation>
     </message>
-    <!-- OS:LifeCycleCost -->
+    
     <message>
         <source>Item Name</source>
         <translation>Öğe Adı</translation>
     </message>
-    <!-- OS:LifeCycleCost -->
+    
     <message>
         <source>Item Type</source>
         <translation>Öğe Türü</translation>
     </message>
 
-    <!-- J -->
-    <!-- OS:Site:GroundTemperature:Deep -->
+    
+    
     <message>
         <source>January Deep Ground Temperature</source>
         <translation>Ocak Derin Yer Sıcaklığı</translation>
     </message>
-    <!-- OS:Site:GroundReflectance -->
+    
     <message>
         <source>January Ground Reflectance</source>
         <translation>Ocak Yer Yansıtabilirliği</translation>
     </message>
-    <!-- OS:Site:GroundTemperature:BuildingSurface, OS:Site:GroundTemperature:FCfactorMethod -->
+    
     <message>
         <source>January Ground Temperature</source>
         <translation>Ocak Zemin Sıcaklığı</translation>
     </message>
-    <!-- OS:Site:GroundTemperature:Shallow -->
+    
     <message>
         <source>January Surface Ground Temperature</source>
         <translation>Ocak Yüzey Yer Sıcaklığı</translation>
     </message>
-    <!-- OS:UtilityCost:Variable -->
+    
     <message>
         <source>January Value</source>
         <translation>Ocak Değeri</translation>
     </message>
-    <!-- OS:Site:GroundTemperature:Deep -->
+    
     <message>
         <source>July Deep Ground Temperature</source>
         <translation>Temmuz Derin Yer Sıcaklığı</translation>
     </message>
-    <!-- OS:Site:GroundReflectance -->
+    
     <message>
         <source>July Ground Reflectance</source>
         <translation>Temmuz Yer Yansıtma</translation>
     </message>
-    <!-- OS:Site:GroundTemperature:BuildingSurface, OS:Site:GroundTemperature:FCfactorMethod -->
+    
     <message>
         <source>July Ground Temperature</source>
         <translation>Temmuz Zemin Sıcaklığı</translation>
     </message>
-    <!-- OS:Site:GroundTemperature:Shallow -->
+    
     <message>
         <source>July Surface Ground Temperature</source>
         <translation>Temmuz Yüzey Yer Sıcaklığı</translation>
     </message>
-    <!-- OS:UtilityCost:Variable -->
+    
     <message>
         <source>July Value</source>
         <translation>Temmuz Değeri</translation>
     </message>
-    <!-- OS:Site:GroundTemperature:Deep -->
+    
     <message>
         <source>June Deep Ground Temperature</source>
         <translation>Haziran Derin Yer Sıcaklığı</translation>
     </message>
-    <!-- OS:Site:GroundReflectance -->
+    
     <message>
         <source>June Ground Reflectance</source>
         <translation>Haziran Zemin Yansıtma Oranı</translation>
     </message>
-    <!-- OS:Site:GroundTemperature:BuildingSurface, OS:Site:GroundTemperature:FCfactorMethod -->
+    
     <message>
         <source>June Ground Temperature</source>
         <translation>Haziran Yer Sıcaklığı</translation>
     </message>
-    <!-- OS:Site:GroundTemperature:Shallow -->
+    
     <message>
         <source>June Surface Ground Temperature</source>
         <translation>Haziran Yüzey Zemin Sıcaklığı</translation>
     </message>
-    <!-- OS:UtilityCost:Variable -->
+    
     <message>
         <source>June Value</source>
         <translation>Haziran Değeri</translation>
     </message>
 
-    <!-- K -->
-    <!-- OS:Site -->
+    
+    
     <message>
         <source>Keep Site Location Information</source>
         <translation>Şantiye Konum Bilgisini Koru</translation>
     </message>
-    <!-- OS:Output:Diagnostics -->
+    
     <message>
         <source>Key</source>
         <translation>Anahtar</translation>
     </message>
-    <!-- OS:Output:Schedules -->
+    
     <message>
         <source>Key Field</source>
         <translation>Anahtar Alan</translation>
     </message>
-    <!-- OS:Meter:Custom, OS:Meter:CustomDecrement -->
+    
     <message>
         <source>Key Name</source>
         <translation>Anahtar Adı</translation>
     </message>
-    <!-- OS:Output:Variable -->
+    
     <message>
         <source>Key Value</source>
         <translation>Anahtar Değer</translation>
     </message>
-    <!-- OS:RadianceParameters -->
+    
     <message>
         <source>Klems Sampling Density</source>
         <translation>Klems Örnekleme Yoğunluğu</translation>
     </message>
 
-    <!-- L -->
-    <!-- OS:Refrigeration:Case -->
+    
+    
     <message>
         <source>Latent Case Credit Curve Name</source>
         <translation>Gizli Soğutma Kredisi Eğri Adı</translation>
     </message>
-    <!-- OS:Refrigeration:Case -->
+    
     <message>
         <source>Latent Case Credit Curve Type</source>
         <translation>Gizli Soğutma Kredisi Eğri Türü</translation>
     </message>
-    <!-- OS:HeatExchanger:AirToAir:SensibleAndLatent -->
+    
     <message>
         <source>Latent Effectiveness at 100% Cooling Air Flow</source>
         <translation>Latent Effectiveness at 100% Cooling Air Flow</translation>
     </message>
-    <!-- OS:HeatExchanger:AirToAir:SensibleAndLatent -->
+    
     <message>
         <source>Latent Effectiveness at 100% Heating Air Flow</source>
         <translation>Latent Effectiveness at 100% Heating Air Flow</translation>
     </message>
-    <!-- OS:HeatExchanger:AirToAir:SensibleAndLatent -->
+    
     <message>
         <source>Latent Effectiveness of Cooling Air Flow Curve Name</source>
         <translation>Soğutma Hava Akışı Eğrisinin Gizli Etkinlik Adı</translation>
     </message>
-    <!-- OS:HeatExchanger:AirToAir:SensibleAndLatent -->
+    
     <message>
         <source>Latent Effectiveness of Heating Air Flow Curve Name</source>
         <translation>Isıtma Hava Akışı Eğrisinin Gizli Etkinliği Adı</translation>
     </message>
-    <!-- OS:MaterialProperty:PhaseChangeHysteresis -->
+    
     <message>
         <source>Latent Heat during the Entire Phase Change Process</source>
         <translation>Faz Değişimi Sırasında Gizli Isı</translation>
     </message>
-    <!-- OS:ZoneHVAC:IdealLoadsAirSystem -->
+    
     <message>
         <source>Latent Heat Recovery Effectiveness</source>
         <translation>Gizli Isı Geri Kazanım Verimliliği</translation>
     </message>
-    <!-- OS:AirLoopHVAC:UnitarySystem -->
+    
     <message>
         <source>Latent Load Control</source>
         <translation>Gizli Yük Kontrolü</translation>
     </message>
-    <!-- OS:Site, OS:WeatherFile -->
+    
     <message>
         <source>Latitude</source>
         <translation>Enlem</translation>
     </message>
-    <!-- OS:Construction, OS:Construction:InternalSource -->
+    
     <message>
         <source>Layer</source>
         <translation>Katman</translation>
     </message>
-    <!-- OS:Material:RoofVegetation -->
+    
     <message>
         <source>Leaf Area Index</source>
         <translation>Yaprak Alan İndeksi</translation>
     </message>
-    <!-- OS:Material:RoofVegetation -->
+    
     <message>
         <source>Leaf Emissivity</source>
         <translation>Yaprak Yayınırlığı</translation>
     </message>
-    <!-- OS:Material:RoofVegetation -->
+    
     <message>
         <source>Leaf Reflectivity</source>
         <translation>Yaprak Yansıtıcılığı</translation>
     </message>
-    <!-- OS:AirflowNetworkSurface -->
+    
     <message>
         <source>Leakage Component Name</source>
         <translation>Sızıntı Bileşeni Adı</translation>
     </message>
-    <!-- OS:Coil:Cooling:CooledBeam -->
+    
     <message>
         <source>Leaving Pipe Inside Diameter</source>
         <translation>Çıkış Borusu İç Çapı</translation>
     </message>
-    <!-- OS:WindowMaterial:Screen -->
+    
     <message>
         <source>Left Side Opening Multiplier</source>
         <translation>Sol Taraf Açılış Çarpanı</translation>
     </message>
-    <!-- OS:WindowMaterial:Shade -->
+    
     <message>
         <source>Left-Side Opening Multiplier</source>
         <translation>Sol Taraf Açılış Çarpanı</translation>
     </message>
-    <!-- OS:Curve:Functional:PressureDrop -->
+    
     <message>
         <source>Length</source>
         <translation>Uzunluk</translation>
     </message>
-    <!-- OS:AirConditioner:VariableRefrigerantFlow:FluidTemperatureControl, OS:AirConditioner:VariableRefrigerantFlow:FluidTemperatureControl:HR -->
+    
     <message>
         <source>Length of Main Pipe Connecting Outdoor Unit to the First Branch Joint</source>
         <translation>Ana Boruyu Açık Hava Ünitesinden İlk Dallanma Noktasına Bağlayan Ana Borunun Uzunluğu</translation>
     </message>
-    <!-- OS:LifeCycleCost:Parameters -->
+    
     <message>
         <source>Length of Study Period in Years</source>
         <translation>Çalışma Döneminin Yıl Cinsinden Uzunluğu</translation>
     </message>
-    <!-- OS:ElectricLoadCenter:Storage:LiIonNMCBattery -->
+    
     <message>
         <source>Lifetime Model</source>
         <translation>Ömür Boyu Modeli</translation>
     </message>
-    <!-- OS:Daylighting:Control -->
+    
     <message>
         <source>Lighting Control Type</source>
         <translation>Aydınlatma Kontrol Tipi</translation>
     </message>
-    <!-- OS:Lights:Definition -->
+    
     <message>
         <source>Lighting Level</source>
         <translation>Aydınlatma Seviyesi</translation>
     </message>
-    <!-- OS:Luminaire:Definition -->
+    
     <message>
         <source>Lighting Power</source>
         <translation>Aydınlatma Gücü</translation>
     </message>
-    <!-- OS:Lights -->
+    
     <message>
         <source>Lights Definition Name</source>
         <translation>Aydınlatma Tanımı Adı</translation>
     </message>
-    <!-- OS:RadianceParameters -->
+    
     <message>
         <source>Limit Weight DMX</source>
         <translation>Sınır Ağırlığı DMX</translation>
     </message>
-    <!-- OS:RadianceParameters -->
+    
     <message>
         <source>Limit Weight VMX</source>
         <translation>Sınır Ağırlık VMX</translation>
     </message>
-    <!-- OS:AirflowNetworkDuctViewFactors -->
+    
     <message>
         <source>Linkage Name</source>
         <translation>Bağlantı Adı</translation>
     </message>
-    <!-- OS:Generator:FuelSupply -->
+    
     <message>
         <source>Liquid Generic Fuel CO2 Emission Factor</source>
         <translation>Sıvı Genel Yakıt CO2 Emisyon Faktörü</translation>
     </message>
-    <!-- OS:Generator:FuelSupply -->
+    
     <message>
         <source>Liquid Generic Fuel Higher Heating Value</source>
         <translation>Sıvı Genel Yakıt Yüksek Isıl Değeri</translation>
     </message>
-    <!-- OS:Generator:FuelSupply -->
+    
     <message>
         <source>Liquid Generic Fuel Lower Heating Value</source>
         <translation>Sıvı Jenerik Yakıt Alt Isıl Değeri</translation>
     </message>
-    <!-- OS:Generator:FuelSupply -->
+    
     <message>
         <source>Liquid Generic Fuel Molecular Weight</source>
         <translation>Sıvı Genel Yakıt Moleküler Ağırlığı</translation>
     </message>
-    <!-- OS:MaterialProperty:PhaseChangeHysteresis -->
+    
     <message>
         <source>Liquid State Density</source>
         <translation>Sıvı Hal Yoğunluğu</translation>
     </message>
-    <!-- OS:MaterialProperty:PhaseChangeHysteresis -->
+    
     <message>
         <source>Liquid State Specific Heat</source>
         <translation>Sıvı Hal Özgül Isısı</translation>
     </message>
-    <!-- OS:MaterialProperty:PhaseChangeHysteresis -->
+    
     <message>
         <source>Liquid State Thermal Conductivity</source>
         <translation>Sıvı Hali Isıl İletkenliği</translation>
     </message>
-    <!-- OS:Refrigeration:Subcooler:LiquidSuction -->
+    
     <message>
         <source>Liquid Suction Design Subcooling Temperature Difference</source>
         <translation>Sıvı Emme Tasarım Alt Soğutma Sıcaklık Farkı</translation>
     </message>
-    <!-- OS:Refrigeration:System -->
+    
     <message>
         <source>Liquid Suction Heat Exchanger Subcooler Name</source>
         <translation>Sıvı Emme Isı Değiştirici Subcooler Adı</translation>
     </message>
-    <!-- OS:PlantEquipmentOperation:CoolingLoad, OS:PlantEquipmentOperation:HeatingLoad -->
+    
     <message>
         <source>Load Range Lower Limit</source>
         <translation>Yük Aralığı Alt Sınırı</translation>
     </message>
-    <!-- OS:PlantEquipmentOperation:CoolingLoad, OS:PlantEquipmentOperation:HeatingLoad -->
+    
     <message>
         <source>Load Range Upper Limit</source>
         <translation>Yük Aralığı Üst Sınırı</translation>
     </message>
-    <!-- OS:LoadProfile:Plant -->
+    
     <message>
         <source>Load Schedule Name</source>
         <translation>Yük Programı Adı</translation>
     </message>
-    <!-- OS:HeatPump:PlantLoop:EIR:Cooling, OS:HeatPump:PlantLoop:EIR:Heating, OS:HeatPump:WaterToWater:EquationFit:Cooling, OS:HeatPump:WaterToWater:EquationFit:Heating -->
+    
     <message>
         <source>Load Side Inlet Node Name</source>
         <translation>Yük Tarafı Giriş Düğümü Adı</translation>
     </message>
-    <!-- OS:HeatPump:PlantLoop:EIR:Cooling, OS:HeatPump:PlantLoop:EIR:Heating, OS:HeatPump:WaterToWater:EquationFit:Cooling, OS:HeatPump:WaterToWater:EquationFit:Heating -->
+    
     <message>
         <source>Load Side Outlet Node Name</source>
         <translation>Yük Tarafı Çıkış Düğümü Adı</translation>
     </message>
-    <!-- OS:HeatPump:PlantLoop:EIR:Cooling, OS:HeatPump:PlantLoop:EIR:Heating -->
+    
     <message>
         <source>Load Side Reference Flow Rate</source>
         <translation>Yük Tarafı Referans Akış Hızı</translation>
     </message>
-    <!-- OS:AirConditioner:VariableRefrigerantFlow:FluidTemperatureControl, OS:AirConditioner:VariableRefrigerantFlow:FluidTemperatureControl:HR -->
+    
     <message>
         <source>Loading Index List</source>
         <translation>İndeks Listesi Yükleniyor</translation>
     </message>
-    <!-- OS:SimulationControl -->
+    
     <message>
         <source>Loads Convergence Tolerance Value</source>
         <translation>Yükler Yakınsama Tolerans Değeri</translation>
     </message>
-    <!-- OS:Site, OS:WeatherFile -->
+    
     <message>
         <source>Longitude</source>
         <translation>Boylam</translation>
     </message>
-    <!-- OS:HeatExchanger:FluidToFluid -->
+    
     <message>
         <source>Loop Demand Side Design Flow Rate</source>
         <translation>Halka Talep Tarafı Tasarım Akış Hızı</translation>
     </message>
-    <!-- OS:HeatExchanger:FluidToFluid -->
+    
     <message>
         <source>Loop Demand Side Inlet Node</source>
         <translation>Döngü Talep Tarafı Giriş Düğümü</translation>
     </message>
-    <!-- OS:HeatExchanger:FluidToFluid -->
+    
     <message>
         <source>Loop Demand Side Outlet Node</source>
         <translation>Döngü Talep Tarafı Çıkış Düğümü</translation>
     </message>
-    <!-- OS:HeatExchanger:FluidToFluid -->
+    
     <message>
         <source>Loop Supply Side Design Flow Rate</source>
         <translation>Döngü Besleme Tarafı Tasarım Akış Hızı</translation>
     </message>
-    <!-- OS:HeatExchanger:FluidToFluid -->
+    
     <message>
         <source>Loop Supply Side Inlet Node</source>
         <translation>Halka Besleme Tarafı Giriş Düğümü</translation>
     </message>
-    <!-- OS:HeatExchanger:FluidToFluid -->
+    
     <message>
         <source>Loop Supply Side Outlet Node</source>
         <translation>Döngü Besleme Tarafı Çıkış Düğümü</translation>
     </message>
-    <!-- OS:PlantLoop -->
+    
     <message>
         <source>Loop Temperature Setpoint Node Name</source>
         <translation>Loop Sıcaklık Ayar Değeri Düğüm Adı</translation>
     </message>
-    <!-- OS:CoolingTower:TwoSpeed, OS:EvaporativeFluidCooler:TwoSpeed, OS:FluidCooler:TwoSpeed -->
+    
     <message>
         <source>Low Fan Speed Air Flow Rate</source>
         <translation>Düşük Yelpaze Hızı Hava Akış Hızı</translation>
     </message>
-    <!-- OS:CoolingTower:TwoSpeed, OS:EvaporativeFluidCooler:TwoSpeed, OS:FluidCooler:TwoSpeed -->
+    
     <message>
         <source>Low Fan Speed Air Flow Rate Sizing Factor</source>
         <translation>Düşük Fan Hızı Hava Akış Hızı Boyutlandırma Faktörü</translation>
     </message>
-    <!-- OS:CoolingTower:TwoSpeed, OS:EvaporativeFluidCooler:TwoSpeed, OS:FluidCooler:TwoSpeed -->
+    
     <message>
         <source>Low Fan Speed Fan Power</source>
         <translation>Düşük Fan Hızı Fan Gücü</translation>
     </message>
-    <!-- OS:CoolingTower:TwoSpeed, OS:EvaporativeFluidCooler:TwoSpeed, OS:FluidCooler:TwoSpeed -->
+    
     <message>
         <source>Low Fan Speed Fan Power Sizing Factor</source>
         <translation>Düşük Fan Hızı Fan Güç Boyutlandırma Faktörü</translation>
     </message>
-    <!-- OS:CoolingTower:TwoSpeed, OS:EvaporativeFluidCooler:TwoSpeed, OS:FluidCooler:TwoSpeed -->
+    
     <message>
         <source>Low Fan Speed U-Factor Times Area Sizing Factor</source>
         <translation>Düşük Hız Fan U-Faktörü Çarpı Alan Boyutlandırma Faktörü</translation>
     </message>
-    <!-- OS:CoolingTower:TwoSpeed -->
+    
     <message>
         <source>Low Fan Speed U-Factor Times Area Value</source>
         <translation>Düşük Fan Hızı U-Faktörü Çarpı Alan Değeri</translation>
     </message>
-    <!-- OS:EvaporativeFluidCooler:TwoSpeed, OS:FluidCooler:TwoSpeed -->
+    
     <message>
         <source>Low Fan Speed U-factor Times Area Value</source>
         <translation>Düşük Fan Hızı U-faktörü Çarpı Alan Değeri</translation>
     </message>
-    <!-- OS:Refrigeration:TranscriticalSystem -->
+    
     <message>
         <source>Low Pressure CompressorList Name</source>
         <translation>Düşük Basınçlı Kompresör Listesi Adı</translation>
     </message>
-    <!-- OS:SetpointManager:SystemNodeReset:Humidity -->
+    
     <message>
         <source>Low Reference Humidity Ratio</source>
         <translation>Düşük Referans Nem Oranı</translation>
     </message>
-    <!-- OS:SetpointManager:SystemNodeReset:Temperature -->
+    
     <message>
         <source>Low Reference Temperature</source>
         <translation>Düşük Referans Sıcaklığı</translation>
     </message>
-    <!-- OS:SetpointManager:Scheduled:DualSetpoint -->
+    
     <message>
         <source>Low Setpoint Schedule Name</source>
         <translation>Düşük Ayar Noktası Programı Adı</translation>
     </message>
-    <!-- OS:Coil:Cooling:DX:TwoSpeed -->
+    
     <message>
         <source>Low Speed Energy Input Ratio Function of Temperature Curve Name</source>
         <translation>Düşük Hız Enerji Giriş Oranı Sıcaklık Fonksiyonu Eğri Adı</translation>
     </message>
-    <!-- OS:Coil:Cooling:DX:TwoSpeed -->
+    
     <message>
         <source>Low Speed Evaporative Condenser Air Flow Rate</source>
         <translation>Düşük Hızda Buharlaştırmalı Kondenser Hava Akış Hızı</translation>
     </message>
-    <!-- OS:Coil:Cooling:DX:TwoSpeed -->
+    
     <message>
         <source>Low Speed Evaporative Condenser Effectiveness</source>
         <translation>Düşük Hızlı Buharlaştırmalı Kondenser Etkinliği</translation>
     </message>
-    <!-- OS:Coil:Cooling:DX:TwoSpeed -->
+    
     <message>
         <source>Low Speed Evaporative Condenser Pump Rated Power Consumption</source>
         <translation>Düşük Hızlı Buharlaştırmalı Kondenser Pompası Nominal Güç Tüketimi</translation>
     </message>
-    <!-- OS:CoolingTower:TwoSpeed, OS:FluidCooler:TwoSpeed -->
+    
     <message>
         <source>Low Speed Nominal Capacity</source>
         <translation>Düşük Hız Nominal Kapasitesi</translation>
     </message>
-    <!-- OS:CoolingTower:TwoSpeed, OS:FluidCooler:TwoSpeed -->
+    
     <message>
         <source>Low Speed Nominal Capacity Sizing Factor</source>
         <translation>Düşük Hız Nominal Kapasite Boyutlandırma Faktörü</translation>
     </message>
-    <!-- OS:EvaporativeFluidCooler:TwoSpeed -->
+    
     <message>
         <source>Low Speed Standard Capacity Sizing Factor</source>
         <translation>Düşük Hız Standart Kapasite Boyutlandırma Faktörü</translation>
     </message>
-    <!-- OS:EvaporativeFluidCooler:TwoSpeed -->
+    
     <message>
         <source>Low Speed Standard Design Capacity</source>
         <translation>Düşük Hız Standart Tasarım Kapasitesi</translation>
     </message>
-    <!-- OS:ZoneHVAC:FourPipeFanCoil -->
+    
     <message>
         <source>Low Speed Supply Air Flow Ratio</source>
         <translation>Düşük Hız Besleme Hava Akış Oranı</translation>
     </message>
-    <!-- OS:Coil:Cooling:DX:TwoSpeed -->
+    
     <message>
         <source>Low Speed Total Cooling Capacity Function of Temperature Curve Name</source>
         <translation>Düşük Hız Toplam Soğutma Kapasitesi Sıcaklık Fonksiyonu Eğri Adı</translation>
     </message>
-    <!-- OS:EvaporativeFluidCooler:TwoSpeed -->
+    
     <message>
         <source>Low Speed User Specified Design Capacity</source>
         <translation>Düşük Hız Kullanıcı Tarafından Belirlenen Tasarım Kapasitesi</translation>
     </message>
-    <!-- OS:EvaporativeFluidCooler:TwoSpeed -->
+    
     <message>
         <source>Low Speed User Specified Design Capacity Sizing Factor</source>
         <translation>Düşük Hız Kullanıcı Tanımlı Tasarım Kapasitesi Boyutlandırma Faktörü</translation>
     </message>
-    <!-- OS:ZoneHVAC:LowTemperatureRadiant:ConstantFlow -->
+    
     <message>
         <source>Low Temp Radiant Constant Flow Cooling Coil Name</source>
         <translation>Düşük Sıcaklık Radyant Sabit Akışlı Soğutma Bobini Adı</translation>
     </message>
-    <!-- OS:ZoneHVAC:LowTemperatureRadiant:ConstantFlow -->
+    
     <message>
         <source>Low Temp Radiant Constant Flow Heating Coil Name</source>
         <translation>Düşük Sıcaklık Radyan Sabit Akış Isıtma Bobini Adı</translation>
     </message>
-    <!-- OS:ZoneHVAC:LowTemperatureRadiant:VariableFlow -->
+    
     <message>
         <source>Low Temp Radiant Variable Flow Cooling Coil Name</source>
         <translation>Düşük Sıcaklık Radyant Değişken Akışlı Soğutma Bobini Adı</translation>
     </message>
-    <!-- OS:ZoneHVAC:LowTemperatureRadiant:VariableFlow -->
+    
     <message>
         <source>Low Temp Radiant Variable Flow Heating Coil Name</source>
         <translation>Düşük Sıcaklık Radyan Değişken Akışlı Isıtma Bobini Adı</translation>
     </message>
-    <!-- OS:MaterialProperty:PhaseChangeHysteresis -->
+    
     <message>
         <source>Low Temperature Difference of Freezing Curve</source>
         <translation>Donma Eğrisinin Düşük Sıcaklık Farkı</translation>
     </message>
-    <!-- OS:MaterialProperty:PhaseChangeHysteresis -->
+    
     <message>
         <source>Low Temperature Difference of Melting Curve</source>
         <translation>Erime Eğrisinin Düşük Sıcaklık Farkı</translation>
     </message>
-    <!-- OS:Refrigeration:TranscriticalSystem -->
+    
     <message>
         <source>Low Temperature Refrigerated CaseAndWalkInList Name</source>
         <translation>Düşük Sıcaklık Soğutmalı Vitrin Ve Walk-In Listesi Adı</translation>
     </message>
-    <!-- OS:Refrigeration:TranscriticalSystem -->
+    
     <message>
         <source>Low Temperature Suction Piping Zone Name</source>
         <translation>Düşük Sıcaklık Emme Borulama Bölgesi Adı</translation>
     </message>
-    <!-- OS:ScheduleTypeLimits -->
+    
     <message>
         <source>Lower Limit Value</source>
         <translation>Alt Sınır Değeri</translation>
     </message>
-    <!-- OS:Luminaire -->
+    
     <message>
         <source>Luminaire Definition Name</source>
         <translation>Luminaire Tanımı Adı</translation>
     </message>
 
-    <!-- M -->
-    <!-- OS:PlantComponent:UserDefined -->
+    
+    
     <message>
         <source>Main Model Program Calling Manager Name</source>
         <translation>Ana Model Program Çağrı Yöneticisi Adı</translation>
     </message>
-    <!-- OS:PlantComponent:UserDefined -->
+    
     <message>
         <source>Main Model Program Name</source>
         <translation>Ana Model Program Adı</translation>
     </message>
-    <!-- OS:AirConditioner:VariableRefrigerantFlow:FluidTemperatureControl, OS:AirConditioner:VariableRefrigerantFlow:FluidTemperatureControl:HR -->
+    
     <message>
         <source>Main Pipe Insulation Thermal Conductivity</source>
         <translation>Ana Boru İzolasyonu Termal İletkenliği</translation>
     </message>
-    <!-- OS:AirConditioner:VariableRefrigerantFlow:FluidTemperatureControl, OS:AirConditioner:VariableRefrigerantFlow:FluidTemperatureControl:HR -->
+    
     <message>
         <source>Main Pipe Insulation Thickness</source>
         <translation>Ana Boru İzolasyon Kalınlığı</translation>
     </message>
-    <!-- OS:SwimmingPool:Indoor -->
+    
     <message>
         <source>Make-up Water Supply Schedule Name</source>
         <translation>Makyaj Suyu Temin Çizelgesi Adı</translation>
     </message>
-    <!-- OS:Site:GroundTemperature:Deep -->
+    
     <message>
         <source>March Deep Ground Temperature</source>
         <translation>Mart Derin Zemin Sıcaklığı</translation>
     </message>
-    <!-- OS:Site:GroundReflectance -->
+    
     <message>
         <source>March Ground Reflectance</source>
         <translation>Mart Zemin Yansıtabilirliği</translation>
     </message>
-    <!-- OS:Site:GroundTemperature:BuildingSurface, OS:Site:GroundTemperature:FCfactorMethod -->
+    
     <message>
         <source>March Ground Temperature</source>
         <translation>Mart Yer Sıcaklığı</translation>
     </message>
-    <!-- OS:Site:GroundTemperature:Shallow -->
+    
     <message>
         <source>March Surface Ground Temperature</source>
         <translation>Mart Yüzey Yer Sıcaklığı</translation>
     </message>
-    <!-- OS:UtilityCost:Variable -->
+    
     <message>
         <source>March Value</source>
         <translation>Mart Değeri</translation>
     </message>
-    <!-- OS:PlantComponent:UserDefined -->
+    
     <message>
         <source>Mass Flow Rate Actuator</source>
         <translation>Kütle Akış Hızı Aktüatörü</translation>
     </message>
-    <!-- OS:MaterialProperty:MoisturePenetrationDepth:Settings, OS:MaterialProperty:PhaseChange, OS:MaterialProperty:PhaseChangeHysteresis, OS:StandardsInformation:Material, OS:SurfaceControl:MovableInsulation -->
+    
     <message>
         <source>Material Name</source>
         <translation>Malzeme Adı</translation>
     </message>
-    <!-- OS:StandardsInformation:Material -->
+    
     <message>
         <source>Material Standard</source>
         <translation>Malzeme Standardı</translation>
     </message>
-    <!-- OS:StandardsInformation:Material -->
+    
     <message>
         <source>Material Standard Source</source>
         <translation>Malzeme Standart Kaynağı</translation>
     </message>
-    <!-- OS:PerformancePrecisionTradeoffs -->
+    
     <message>
         <source>MaxAllowedDelTemp</source>
         <translation>MaxAllowedDelTemp</translation>
     </message>
-    <!-- OS:Controller:WaterCoil -->
+    
     <message>
         <source>Maximum Actuated Flow</source>
         <translation>Maksimum Kontrollü Akış</translation>
     </message>
-    <!-- OS:Glare:Sensor -->
+    
     <message>
         <source>Maximum Allowable Daylight Glare Probability</source>
         <translation>Maksimum İzin Verilebilir Gün Işığı Parlaklık Olasılığı</translation>
     </message>
-    <!-- OS:Daylighting:Control -->
+    
     <message>
         <source>Maximum Allowable Discomfort Glare Index</source>
         <translation>Maksimum İzin Verilen Rahatsız Edici Işık Indeksi</translation>
     </message>
-    <!-- OS:Coil:WaterHeating:AirToWaterHeatPump, OS:Coil:WaterHeating:AirToWaterHeatPump:VariableSpeed, OS:Coil:WaterHeating:AirToWaterHeatPump:Wrapped, OS:HeatPump:AirToWater -->
+    
     <message>
         <source>Maximum Ambient Temperature for Crankcase Heater Operation</source>
         <translation>Crankcase Heater Çalışması için Maksimum Ortam Sıcaklığı</translation>
     </message>
-    <!-- OS:CoolingTowerPerformance:CoolTools, OS:CoolingTowerPerformance:YorkCalc -->
+    
     <message>
         <source>Maximum Approach Temperature</source>
         <translation>Maksimum Yaklaşma Sıcaklığı</translation>
     </message>
-    <!-- OS:Fan:ComponentModel -->
+    
     <message>
         <source>Maximum Belt Efficiency Curve Name</source>
         <translation>Maksimum Kayış Verimlilik Eğrisi Adı</translation>
     </message>
-    <!-- OS:Refrigeration:Condenser:EvaporativeCooled -->
+    
     <message>
         <source>Maximum Capacity Factor</source>
         <translation>Maksimum Kapasite Faktörü</translation>
     </message>
-    <!-- OS:Foundation:Kiva:Settings -->
+    
     <message>
         <source>Maximum Cell Growth Coefficient</source>
         <translation>Maksimum Hücre Büyüme Katsayısı</translation>
     </message>
-    <!-- OS:Coil:Cooling:Water:Panel:Radiant -->
+    
     <message>
         <source>Maximum Chilled Water Flow Rate</source>
         <translation>Maksimum Soğutulmuş Su Akış Hızı</translation>
     </message>
-    <!-- OS:Coil:Cooling:LowTemperatureRadiant:VariableFlow -->
+    
     <message>
         <source>Maximum Cold Water Flow</source>
         <translation>Maksimum Soğuk Su Akışı</translation>
     </message>
-    <!-- OS:AirTerminal:SingleDuct:ConstantVolume:FourPipeInduction, OS:ZoneHVAC:FourPipeFanCoil -->
+    
     <message>
         <source>Maximum Cold Water Flow Rate</source>
         <translation>Maksimum Soğuk Su Akış Hızı</translation>
     </message>
-    <!-- OS:ZoneHVAC:IdealLoadsAirSystem -->
+    
     <message>
         <source>Maximum Cooling Air Flow Rate</source>
         <translation>Maksimum Soğutma Hava Akış Hızı</translation>
     </message>
-    <!-- OS:Curve:Bicubic, OS:Curve:Biquadratic, OS:Curve:Cubic, OS:Curve:DoubleExponentialDecay, OS:Curve:Exponent, OS:Curve:ExponentialDecay, OS:Curve:ExponentialSkewNormal, OS:Curve:FanPressureRise, OS:Curve:Linear, OS:Curve:QuadLinear, OS:Curve:Quadratic, OS:Curve:QuadraticLinear, OS:Curve:Quartic, OS:Curve:QuintLinear, OS:Curve:RectangularHyperbola1, OS:Curve:RectangularHyperbola2, OS:Curve:Sigmoid, OS:Curve:Triquadratic -->
+    
     <message>
         <source>Maximum Curve Output</source>
         <translation>Maksimum Eğri Çıkışı</translation>
     </message>
-    <!-- OS:AirTerminal:DualDuct:VAV -->
+    
     <message>
         <source>Maximum Damper Air Flow Rate</source>
         <translation>Maksimum Sönümlendirici Hava Akış Hızı</translation>
     </message>
-    <!-- OS:Site:WaterMainsTemperature -->
+    
     <message>
         <source>Maximum Difference In Monthly Average Outdoor Air Temperatures</source>
         <translation>Aylık Ortalama Dış Hava Sıcaklıklarındaki Maksimum Fark</translation>
     </message>
-    <!-- OS:Fan:ComponentModel -->
+    
     <message>
         <source>Maximum Dimensionless Fan Airflow</source>
         <translation>Maksimum Boyutsuz Fan Hava Akışı</translation>
     </message>
-    <!-- OS:SizingPeriod:DesignDay -->
+    
     <message>
         <source>Maximum Dry-Bulb Temperature</source>
         <translation>Maksimum Kuru Termometre Sıcaklığı</translation>
     </message>
-    <!-- OS:ZoneHVAC:Dehumidifier:DX -->
+    
     <message>
         <source>Maximum Dry-Bulb Temperature for Dehumidifier Operation</source>
         <translation>Dehumidifikatör Çalışması için Maksimum Kuru-Bulb Sıcaklığı</translation>
     </message>
-    <!-- OS:ZoneHVAC:LowTemperatureRadiant:Electric -->
+    
     <message>
         <source>Maximum Electrical Power to Panel</source>
         <translation>Panele Maksimum Elektrik Gücü</translation>
     </message>
-    <!-- OS:Fan:ComponentModel -->
+    
     <message>
         <source>Maximum Fan Static Efficiency</source>
         <translation>Maksimum Fan Statik Verimliliği</translation>
     </message>
-    <!-- OS:ShadowCalculation -->
+    
     <message>
         <source>Maximum Figures in Shadow Overlap Calculations</source>
         <translation>Gölge Çakışması Hesaplamalarında Maksimum Şekil Sayısı</translation>
     </message>
-    <!-- OS:Generator:MicroTurbine -->
+    
     <message>
         <source>Maximum Full Load Electrical Power Output</source>
         <translation>Maksimum Tam Yük Elektrik Gücü Çıkışı</translation>
     </message>
-    <!-- OS:HeatPump:PlantLoop:EIR:Cooling -->
+    
     <message>
         <source>Maximum Heat Recovery Outlet Temperature</source>
         <translation>Maksimum Isı Geri Kazanım Çıkış Sıcaklığı</translation>
     </message>
-    <!-- OS:Generator:MicroTurbine:HeatRecovery -->
+    
     <message>
         <source>Maximum Heat Recovery Water Flow Rate</source>
         <translation>Maksimum Isı Geri Kazanım Su Debisi</translation>
     </message>
-    <!-- OS:Generator:MicroTurbine:HeatRecovery -->
+    
     <message>
         <source>Maximum Heat Recovery Water Temperature</source>
         <translation>Maksimum Isı Geri Kazanım Su Sıcaklığı</translation>
     </message>
-    <!-- OS:ZoneHVAC:IdealLoadsAirSystem -->
+    
     <message>
         <source>Maximum Heating Air Flow Rate</source>
         <translation>Maksimum Isıtma Hava Akış Hızı</translation>
     </message>
-    <!-- OS:Generator:FuelCell:AuxiliaryHeater -->
+    
     <message>
         <source>Maximum Heating Capacity in Kmol per Second</source>
         <translation>Saniye Başına Kilomol Cinsinden Maksimum Isıtma Kapasitesi</translation>
     </message>
-    <!-- OS:Generator:FuelCell:AuxiliaryHeater -->
+    
     <message>
         <source>Maximum Heating Capacity in Watts</source>
         <translation>Maksimum Isıtma Kapasitesi Watt Cinsinden</translation>
     </message>
-    <!-- OS:Sizing:System -->
+    
     <message>
         <source>Maximum Heating Capacity To Cooling Capacity Sizing Ratio</source>
         <translation>Maksimum Isıtma Kapasitesi - Soğutma Kapasitesi Boyutlandırma Oranı</translation>
     </message>
-    <!-- OS:ZoneHVAC:IdealLoadsAirSystem -->
+    
     <message>
         <source>Maximum Heating Supply Air Humidity Ratio</source>
         <translation>Maksimum Isıtma Besleme Hava Nem Oranı</translation>
     </message>
-    <!-- OS:ZoneHVAC:IdealLoadsAirSystem -->
+    
     <message>
         <source>Maximum Heating Supply Air Temperature</source>
         <translation>Maksimum Isıtma Besleme Hava Sıcaklığı</translation>
     </message>
-    <!-- OS:Coil:Heating:LowTemperatureRadiant:VariableFlow -->
+    
     <message>
         <source>Maximum Hot Water Flow</source>
         <translation>Maksimum Sıcak Su Akışı</translation>
     </message>
-    <!-- OS:AirTerminal:SingleDuct:ConstantVolume:FourPipeInduction, OS:ZoneHVAC:FourPipeFanCoil, OS:ZoneHVAC:UnitHeater -->
+    
     <message>
         <source>Maximum Hot Water Flow Rate</source>
         <translation>Maksimum Sıcak Su Akış Hızı</translation>
     </message>
-    <!-- OS:ConvergenceLimits -->
+    
     <message>
         <source>Maximum HVAC Iterations</source>
         <translation>Maksimum HVAC İterasyon Sayısı</translation>
     </message>
-    <!-- OS:ZoneVentilation:DesignFlowRate, OS:ZoneVentilation:WindandStackOpenArea -->
+    
     <message>
         <source>Maximum Indoor Temperature</source>
         <translation>Maksimum İç Sıcaklık</translation>
     </message>
-    <!-- OS:ZoneVentilation:DesignFlowRate, OS:ZoneVentilation:WindandStackOpenArea -->
+    
     <message>
         <source>Maximum Indoor Temperature Schedule Name</source>
         <translation>Maksimum İç Sıcaklık Programı Adı</translation>
     </message>
-    <!-- OS:WaterHeater:HeatPump, OS:WaterHeater:HeatPump:WrappedCondenser -->
+    
     <message>
         <source>Maximum Inlet Air Temperature for Compressor Operation</source>
         <translation>Kompresör İşletimi için Maksimum Giriş Hava Sıcaklığı</translation>
     </message>
-    <!-- OS:CoolingTowerPerformance:CoolTools, OS:CoolingTowerPerformance:YorkCalc -->
+    
     <message>
         <source>Maximum Inlet Air Wet-Bulb Temperature</source>
         <translation>Maksimum Giriş Hava Islak Bulb Sıcaklığı</translation>
     </message>
-    <!-- OS:Coil:WaterHeating:Desuperheater -->
+    
     <message>
         <source>Maximum Inlet Water Temperature for Heat Reclaim</source>
         <translation>Isı Geri Kazanımı için Maksimum Giriş Suyu Sıcaklığı</translation>
     </message>
-    <!-- OS:HeatPump:AirToWater:Cooling, OS:HeatPump:AirToWater:Heating -->
+    
     <message>
         <source>Maximum Leaving Water Temperature Curve Name</source>
         <translation>Maksimum Çıkış Su Sıcaklığı Eğrisi Adı</translation>
     </message>
-    <!-- OS:GroundHeatExchanger:Vertical -->
+    
     <message>
         <source>Maximum Length of Simulation</source>
         <translation>Simülasyonun Maksimum Uzunluğu</translation>
     </message>
-    <!-- OS:SetpointManager:FollowSystemNodeTemperature -->
+    
     <message>
         <source>Maximum Limit Setpoint Temperature</source>
         <translation>Maksimum Limit Setpoint Sıcaklığı</translation>
     </message>
-    <!-- OS:CoolingTowerPerformance:YorkCalc -->
+    
     <message>
         <source>Maximum Liquid to Gas Ratio</source>
         <translation>Maksimum Sıvı-Gaz Oranı</translation>
     </message>
-    <!-- OS:PlantComponent:UserDefined -->
+    
     <message>
         <source>Maximum Loading Capacity Actuator</source>
         <translation>Maksimum Yükleme Kapasitesi Aktüatörü</translation>
     </message>
-    <!-- OS:PlantComponent:UserDefined -->
+    
     <message>
         <source>Maximum Mass Flow Rate Actuator</source>
         <translation>Maksimum Kitle Akış Hızı Eyleyicisi</translation>
     </message>
-    <!-- OS:Fan:ComponentModel -->
+    
     <message>
         <source>Maximum Motor Efficiency Curve Name</source>
         <translation>Maksimum Motor Verimlilik Eğrisi Adı</translation>
     </message>
-    <!-- OS:Fan:ComponentModel -->
+    
     <message>
         <source>Maximum Motor Output Power</source>
         <translation>Maksimum Motor Çıkış Gücü</translation>
     </message>
-    <!-- OS:SimulationControl -->
+    
     <message>
         <source>Maximum Number of HVAC Sizing Simulation Passes</source>
         <translation>HVAC Boyutlandırma Simülasyonunun Maksimum Geçiş Sayısı</translation>
     </message>
-    <!-- OS:AirflowNetworkSimulationControl -->
+    
     <message>
         <source>Maximum Number of Iterations</source>
         <translation>Maksimum İterasyon Sayısı</translation>
     </message>
-    <!-- OS:SwimmingPool:Indoor -->
+    
     <message>
         <source>Maximum Number of People</source>
         <translation>Maksimum İnsan Sayısı</translation>
     </message>
-    <!-- OS:SimulationControl -->
+    
     <message>
         <source>Maximum Number of Warmup Days</source>
         <translation>Maksimum Isınma Gün Sayısı</translation>
     </message>
-    <!-- OS:SizingPeriod:DesignDay -->
+    
     <message>
         <source>Maximum Number Warmup Days</source>
         <translation>Maksimum Isınma Gün Sayısı</translation>
     </message>
-    <!-- OS:Generator:FuelCell:PowerModule -->
+    
     <message>
         <source>Maximum Operating Point</source>
         <translation>Maksimum Çalışma Noktası</translation>
     </message>
-    <!-- OS:Boiler:Steam -->
+    
     <message>
         <source>Maximum Operating Pressure</source>
         <translation>Maksimum İşletme Basıncı</translation>
     </message>
-    <!-- OS:SurfaceProperty:OtherSideCoefficients -->
+    
     <message>
         <source>Maximum Other Side Temperature Limit</source>
         <translation>Maksimum Diğer Taraf Sıcaklık Limiti</translation>
     </message>
-    <!-- OS:ZoneHVAC:UnitVentilator -->
+    
     <message>
         <source>Maximum Outdoor Air Fraction or Temperature Schedule Name</source>
         <translation>Maksimum Dış Hava Oranı veya Sıcaklık Planı Adı</translation>
     </message>
-    <!-- OS:HeatPump:AirToWater:Cooling, OS:HeatPump:AirToWater:Heating -->
+    
     <message>
         <source>Maximum Outdoor Air Temperature</source>
         <translation>Maksimum Dış Hava Sıcaklığı</translation>
     </message>
-    <!-- OS:AirConditioner:VariableRefrigerantFlow:FluidTemperatureControl -->
+    
     <message>
         <source>Maximum Outdoor Air Temperature in Cooling Mode</source>
         <translation>Soğutma Modunda Maksimum Dış Hava Sıcaklığı</translation>
     </message>
-    <!-- OS:AirConditioner:VariableRefrigerantFlow:FluidTemperatureControl:HR -->
+    
     <message>
         <source>Maximum Outdoor Air Temperature in Cooling Only Mode</source>
         <translation>Yalnız Soğutma Modunda Maksimum Dış Hava Sıcaklığı</translation>
     </message>
-    <!-- OS:AirConditioner:VariableRefrigerantFlow:FluidTemperatureControl -->
+    
     <message>
         <source>Maximum Outdoor Air Temperature in Heating Mode</source>
         <translation>Isıtma Modunda Maksimum Dış Hava Sıcaklığı</translation>
     </message>
-    <!-- OS:AirConditioner:VariableRefrigerantFlow:FluidTemperatureControl:HR -->
+    
     <message>
         <source>Maximum Outdoor Air Temperature in Heating Only Mode</source>
         <translation>Sadece Isıtma Modunda Maksimum Dış Hava Sıcaklığı</translation>
     </message>
-    <!-- OS:AvailabilityManager:HybridVentilation -->
+    
     <message>
         <source>Maximum Outdoor Dewpoint</source>
         <translation>Maksimum Dış Hava Çiğ Noktası</translation>
     </message>
-    <!-- OS:HeatPump:AirToWater, OS:HeatPump:PlantLoop:EIR:Heating -->
+    
     <message>
         <source>Maximum Outdoor Dry Bulb Temperature For Defrost Operation</source>
         <translation>Defrost Işlemi için Maksimum Dış Hava Kuru Bulb Sıcaklığı</translation>
     </message>
-    <!-- OS:AirConditioner:VariableRefrigerantFlow -->
+    
     <message>
         <source>Maximum Outdoor Dry-bulb Temperature for Crankcase Heater</source>
         <translation>Crankcase Isıtıcı için Maksimum Dış Ortam Kuru Bulb Sıcaklığı</translation>
     </message>
-    <!-- OS:AirConditioner:VariableRefrigerantFlow:FluidTemperatureControl, OS:AirConditioner:VariableRefrigerantFlow:FluidTemperatureControl:HR -->
+    
     <message>
         <source>Maximum Outdoor Dry-Bulb Temperature for Crankcase Heater</source>
         <translation>Karter Isıtıcısı için Maksimum Dış Kuru Bulb Sıcaklığı</translation>
     </message>
-    <!-- OS:AirConditioner:VariableRefrigerantFlow, OS:AirConditioner:VariableRefrigerantFlow:FluidTemperatureControl, OS:AirConditioner:VariableRefrigerantFlow:FluidTemperatureControl:HR, OS:HeatPump:AirToWater:FuelFired:Heating -->
+    
     <message>
         <source>Maximum Outdoor Dry-bulb Temperature for Defrost Operation</source>
         <translation>Defrost İşlemi için Maksimum Dış Hava Kuru Bulb Sıcaklığı</translation>
     </message>
-    <!-- OS:AirLoopHVAC:UnitaryHeatPump:AirToAir, OS:AirLoopHVAC:UnitaryHeatPump:AirToAir:MultiSpeed, OS:AirLoopHVAC:UnitarySystem, OS:ZoneHVAC:PackagedTerminalHeatPump, OS:ZoneHVAC:TerminalUnit:VariableRefrigerantFlow, OS:ZoneHVAC:WaterToAirHeatPump -->
+    
     <message>
         <source>Maximum Outdoor Dry-Bulb Temperature for Supplemental Heater Operation</source>
         <translation>Ek Isıtıcı Çalışması için Maksimum Dış Hava Kuru Termometre Sıcaklığı</translation>
     </message>
-    <!-- OS:AvailabilityManager:HybridVentilation -->
+    
     <message>
         <source>Maximum Outdoor Enthalpy</source>
         <translation>Maksimum Dış Entalpi</translation>
     </message>
-    <!-- OS:AvailabilityManager:HybridVentilation, OS:ZoneVentilation:DesignFlowRate, OS:ZoneVentilation:WindandStackOpenArea -->
+    
     <message>
         <source>Maximum Outdoor Temperature</source>
         <translation>Maksimum Dış Sıcaklık</translation>
     </message>
-    <!-- OS:AirConditioner:VariableRefrigerantFlow, OS:AirConditioner:VariableRefrigerantFlow:FluidTemperatureControl:HR -->
+    
     <message>
         <source>Maximum Outdoor Temperature in Heat Recovery Mode</source>
         <translation>Isı Geri Kazanım Modunda Maksimum Dış Sıcaklık</translation>
     </message>
-    <!-- OS:ZoneMixing, OS:ZoneVentilation:DesignFlowRate, OS:ZoneVentilation:WindandStackOpenArea -->
+    
     <message>
         <source>Maximum Outdoor Temperature Schedule Name</source>
         <translation>Maksimum Dış Sıcaklık Planlaması Adı</translation>
     </message>
-    <!-- OS:AirLoopHVAC:UnitaryHeatCool:VAVChangeoverBypass -->
+    
     <message>
         <source>Maximum Outlet Air Temperature During Heating Operation</source>
         <translation>Isıtma İşlemi Sırasında Maksimum Çıkış Hava Sıcaklığı</translation>
     </message>
-    <!-- OS:Table:Lookup -->
+    
     <message>
         <source>Maximum Output</source>
         <translation>Maksimum Çıkış</translation>
     </message>
-    <!-- OS:ConvergenceLimits -->
+    
     <message>
         <source>Maximum Plant Iterations</source>
         <translation>Maksimum Tesis İterasyonları</translation>
     </message>
-    <!-- OS:Generator:WindTurbine -->
+    
     <message>
         <source>Maximum Power Coefficient</source>
         <translation>Maksimum Güç Katsayısı</translation>
     </message>
-    <!-- OS:ElectricLoadCenter:Storage:Simple -->
+    
     <message>
         <source>Maximum Power for Charging</source>
         <translation>Şarj için Maksimum Güç</translation>
     </message>
-    <!-- OS:ElectricLoadCenter:Storage:Simple -->
+    
     <message>
         <source>Maximum Power for Discharging</source>
         <translation>Deşarj İçin Maksimum Güç</translation>
     </message>
-    <!-- OS:ZoneHVAC:HighTemperatureRadiant -->
+    
     <message>
         <source>Maximum Power Input</source>
         <translation>Maksimum Giriş Gücü</translation>
     </message>
-    <!-- OS:AirflowNetworkOccupantVentilationControl -->
+    
     <message>
         <source>Maximum Predicted Percentage of Dissatisfied Threshold</source>
         <translation>Maksimum Tahmin Edilen Memnuniyetsiz Yüzde Eşiği</translation>
     </message>
-    <!-- OS:Pump:VariableSpeed -->
+    
     <message>
         <source>Maximum Pressure Schedule</source>
         <translation>Maksimum Basınç Programı</translation>
     </message>
-    <!-- OS:AirTerminal:SingleDuct:ParallelPIU:Reheat, OS:AirTerminal:SingleDuct:SeriesPIU:Reheat -->
+    
     <message>
         <source>Maximum Primary Air Flow Rate</source>
         <translation>Maksimum Birincil Hava Akış Hızı</translation>
     </message>
-    <!-- OS:HeatExchanger:Desiccant:BalancedFlow:PerformanceDataType1 -->
+    
     <message>
         <source>Maximum Process Inlet Air Humidity Ratio for Humidity Ratio Equation</source>
         <translation>Maximum Process Inlet Air Humidity Ratio for Humidity Ratio Equation</translation>
     </message>
-    <!-- OS:HeatExchanger:Desiccant:BalancedFlow:PerformanceDataType1 -->
+    
     <message>
         <source>Maximum Process Inlet Air Humidity Ratio for Temperature Equation</source>
         <translation>Sıcaklık Denklemi için Maksimum İşlem Giriş Havası Nem Oranı</translation>
     </message>
-    <!-- OS:HeatExchanger:Desiccant:BalancedFlow:PerformanceDataType1 -->
+    
     <message>
         <source>Maximum Process Inlet Air Relative Humidity for Humidity Ratio Equation</source>
         <translation>Nem Oranı Denklemi için Maksimum Proses Giriş Havası Bağıl Nemi</translation>
     </message>
-    <!-- OS:HeatExchanger:Desiccant:BalancedFlow:PerformanceDataType1 -->
+    
     <message>
         <source>Maximum Process Inlet Air Relative Humidity for Temperature Equation</source>
         <translation>Sıcaklık Denklemi için Maksimum Proses Giriş Havası Bağıl Nemi</translation>
     </message>
-    <!-- OS:HeatExchanger:Desiccant:BalancedFlow:PerformanceDataType1 -->
+    
     <message>
         <source>Maximum Process Inlet Air Temperature for Humidity Ratio Equation</source>
         <translation>Nem Oranı Denklemi için Maksimum Proses Giriş Hava Sıcaklığı</translation>
     </message>
-    <!-- OS:HeatExchanger:Desiccant:BalancedFlow:PerformanceDataType1 -->
+    
     <message>
         <source>Maximum Process Inlet Air Temperature for Temperature Equation</source>
         <translation>Sıcaklık Denklemi için Maksimum Proses Giriş Hava Sıcaklığı</translation>
     </message>
-    <!-- OS:CoolingTowerPerformance:CoolTools, OS:CoolingTowerPerformance:YorkCalc -->
+    
     <message>
         <source>Maximum Range Temperature</source>
         <translation>Maksimum Aralık Sıcaklığı</translation>
     </message>
-    <!-- OS:ZoneMixing -->
+    
     <message>
         <source>Maximum Receiving Temperature Schedule Name</source>
         <translation>Maksimum Alıcı Sıcaklık Programı Adı</translation>
     </message>
-    <!-- OS:HeatExchanger:Desiccant:BalancedFlow:PerformanceDataType1 -->
+    
     <message>
         <source>Maximum Regeneration Air Velocity for Humidity Ratio Equation</source>
         <translation>Nem Oranı Denklemi için Maksimum Rejenerasyon Hava Hızı</translation>
     </message>
-    <!-- OS:HeatExchanger:Desiccant:BalancedFlow:PerformanceDataType1 -->
+    
     <message>
         <source>Maximum Regeneration Air Velocity for Temperature Equation</source>
         <translation>Sıcaklık Denklemi için Maksimum Rejenerasyon Hava Hızı</translation>
     </message>
-    <!-- OS:HeatExchanger:Desiccant:BalancedFlow:PerformanceDataType1 -->
+    
     <message>
         <source>Maximum Regeneration Inlet Air Humidity Ratio for Humidity Ratio Equation</source>
         <translation>Nem Oranı Denklemi için Maksimum Rejenerasyon Giriş Havası Nem Oranı</translation>
     </message>
-    <!-- OS:HeatExchanger:Desiccant:BalancedFlow:PerformanceDataType1 -->
+    
     <message>
         <source>Maximum Regeneration Inlet Air Humidity Ratio for Temperature Equation</source>
         <translation>Sıcaklık Denklemi için Maksimum Rejenerasyon Giriş Hava Nem Oranı</translation>
     </message>
-    <!-- OS:HeatExchanger:Desiccant:BalancedFlow:PerformanceDataType1 -->
+    
     <message>
         <source>Maximum Regeneration Inlet Air Relative Humidity for Humidity Ratio Equation</source>
         <translation>Nem Oranı Denklemi için Maksimum Rejenerasyon Giriş Havası Bağıl Nemi</translation>
     </message>
-    <!-- OS:HeatExchanger:Desiccant:BalancedFlow:PerformanceDataType1 -->
+    
     <message>
         <source>Maximum Regeneration Inlet Air Relative Humidity for Temperature Equation</source>
         <translation>Sıcaklık Denklemi için Maksimum Rejenerasyon Inlet Havasının Bağıl Nemi</translation>
     </message>
-    <!-- OS:HeatExchanger:Desiccant:BalancedFlow:PerformanceDataType1 -->
+    
     <message>
         <source>Maximum Regeneration Inlet Air Temperature for Humidity Ratio Equation</source>
         <translation>Nem Oranı Denklemi için Maksimum Rejenerasyon Giriş Hava Sıcaklığı</translation>
     </message>
-    <!-- OS:HeatExchanger:Desiccant:BalancedFlow:PerformanceDataType1 -->
+    
     <message>
         <source>Maximum Regeneration Inlet Air Temperature for Temperature Equation</source>
         <translation>Sıcaklık Denklemi için Maksimum Rejenerasyon Giriş Hava Sıcaklığı</translation>
     </message>
-    <!-- OS:HeatExchanger:Desiccant:BalancedFlow:PerformanceDataType1 -->
+    
     <message>
         <source>Maximum Regeneration Outlet Air Humidity Ratio for Humidity Ratio Equation</source>
         <translation>Nem Oranı Denklemi için Maksimum Rejenerasyon Çıkış Hava Nem Oranı</translation>
     </message>
-    <!-- OS:HeatExchanger:Desiccant:BalancedFlow:PerformanceDataType1 -->
+    
     <message>
         <source>Maximum Regeneration Outlet Air Temperature for Temperature Equation</source>
         <translation>Sıcaklık Denklemi için Maksimum Rejenerasyon Çıkış Hava Sıcaklığı</translation>
     </message>
-    <!-- OS:Pump:VariableSpeed -->
+    
     <message>
         <source>Maximum RPM Schedule</source>
         <translation>Maksimum RPM Programı</translation>
     </message>
-    <!-- OS:CoilSystem:IntegratedHeatPump:AirSource -->
+    
     <message>
         <source>Maximum Running Time Before Allowing Electric Resistance Heat Use During SHDWH Mode</source>
         <translation>SHDWH Modu Sırasında Elektrik Direnci Isısı Kullanımına İzin Vermeden Önceki Maksimum Çalışma Süresi</translation>
     </message>
-    <!-- OS:AirTerminal:SingleDuct:ParallelPIU:Reheat -->
+    
     <message>
         <source>Maximum Secondary Air Flow Rate</source>
         <translation>Maksimum İkincil Hava Akış Hızı</translation>
     </message>
-    <!-- OS:ZoneHVAC:IdealLoadsAirSystem -->
+    
     <message>
         <source>Maximum Sensible Heating Capacity</source>
         <translation>Maksimum Duyulur Isıtma Kapasitesi</translation>
     </message>
-    <!-- OS:SetpointManager:MultiZone:Humidity:Maximum, OS:SetpointManager:MultiZone:Humidity:Minimum, OS:SetpointManager:MultiZone:MaximumHumidity:Average, OS:SetpointManager:MultiZone:MinimumHumidity:Average, OS:SetpointManager:OutdoorAirPretreat -->
+    
     <message>
         <source>Maximum Setpoint Humidity Ratio</source>
         <translation>Maksimum Ayar Noktası Nem Oranı</translation>
     </message>
-    <!-- OS:WindowMaterial:Blind -->
+    
     <message>
         <source>Maximum Slat Angle</source>
         <translation>Maksimum Kanat Açısı</translation>
     </message>
-    <!-- OS:HeatPump:PlantLoop:EIR:Cooling, OS:HeatPump:PlantLoop:EIR:Heating -->
+    
     <message>
         <source>Maximum Source Inlet Temperature</source>
         <translation>Maksimum Kaynak Giriş Sıcaklığı</translation>
     </message>
-    <!-- OS:ZoneMixing -->
+    
     <message>
         <source>Maximum Source Temperature Schedule Name</source>
         <translation>Maksimum Kaynak Sıcaklığı Program Adı</translation>
     </message>
-    <!-- OS:ElectricLoadCenter:Storage:Simple -->
+    
     <message>
         <source>Maximum Storage Capacity</source>
         <translation>Maksimum Depolama Kapasitesi</translation>
     </message>
-    <!-- OS:ElectricLoadCenter:Distribution -->
+    
     <message>
         <source>Maximum Storage State of Charge Fraction</source>
         <translation>Maksimum Depolama Şarj Durumu Kesri</translation>
     </message>
-    <!-- OS:ZoneHVAC:FourPipeFanCoil, OS:ZoneHVAC:UnitHeater, OS:ZoneHVAC:UnitVentilator -->
+    
     <message>
         <source>Maximum Supply Air Flow Rate</source>
         <translation>Maksimum Beslenme Hava Akış Oranı</translation>
     </message>
-    <!-- OS:AirLoopHVAC:UnitaryHeatPump:AirToAir, OS:AirLoopHVAC:UnitaryHeatPump:AirToAir:MultiSpeed, OS:ZoneHVAC:PackagedTerminalHeatPump, OS:ZoneHVAC:TerminalUnit:VariableRefrigerantFlow, OS:ZoneHVAC:WaterToAirHeatPump -->
+    
     <message>
         <source>Maximum Supply Air Temperature from Supplemental Heater</source>
         <translation>Ek Isıtıcıdan Maksimum Besleme Hava Sıcaklığı</translation>
     </message>
-    <!-- OS:ZoneHVAC:FourPipeFanCoil -->
+    
     <message>
         <source>Maximum Supply Air Temperature in Heating Mode</source>
         <translation>Isıtma Modunda Maksimum Besleme Hava Sıcaklığı</translation>
     </message>
-    <!-- OS:HeatPump:PlantLoop:EIR:Cooling, OS:HeatPump:PlantLoop:EIR:Heating -->
+    
     <message>
         <source>Maximum Supply Water Temperature Curve Name</source>
         <translation>Maksimum Sıcak Su Sıcaklığı Eğrisi Adı</translation>
     </message>
-    <!-- OS:HeatBalanceAlgorithm -->
+    
     <message>
         <source>Maximum Surface Convection Heat Transfer Coefficient Value</source>
         <translation>Maksimum Yüzey Konveksiyon Isı Transfer Katsayısı Değeri</translation>
     </message>
-    <!-- OS:Table:MultiVariableLookup -->
+    
     <message>
         <source>Maximum Table Output</source>
         <translation>Maksimum Tablo Çıktısı</translation>
     </message>
-    <!-- OS:Refrigeration:AirChiller -->
+    
     <message>
         <source>Maximum Temperature Difference Between Inlet Air and Evaporating Temperature</source>
         <translation>Giriş Hava Sıcaklığı ve Buharlaşma Sıcaklığı Arasındaki Maksimum Sıcaklık Farkı</translation>
     </message>
-    <!-- OS:AirLoopHVAC:UnitaryHeatPump:AirToAir:MultiSpeed, OS:AirLoopHVAC:UnitarySystem -->
+    
     <message>
         <source>Maximum Temperature for Heat Recovery</source>
         <translation>Isı Geri Kazanımı için Maksimum Sıcaklık</translation>
     </message>
-    <!-- OS:AirTerminal:DualDuct:VAV:OutdoorAir -->
+    
     <message>
         <source>Maximum Terminal Air Flow Rate</source>
         <translation>Maksimum Terminal Hava Akış Hızı</translation>
     </message>
-    <!-- OS:Generator:WindTurbine -->
+    
     <message>
         <source>Maximum Tip Speed Ratio</source>
         <translation>Maksimum İpucu Hız Oranı</translation>
     </message>
-    <!-- OS:AirTerminal:SingleDuct:ConstantVolume:FourPipeInduction -->
+    
     <message>
         <source>Maximum Total Air Flow Rate</source>
         <translation>Maksimum Toplam Hava Akış Hızı</translation>
     </message>
-    <!-- OS:AirTerminal:SingleDuct:ConstantVolume:CooledBeam -->
+    
     <message>
         <source>Maximum Total Chilled Water Volumetric Flow Rate</source>
         <translation>Maksimum Toplam Soğutulmuş Su Hacimsel Akış Hızı</translation>
     </message>
-    <!-- OS:ZoneHVAC:IdealLoadsAirSystem -->
+    
     <message>
         <source>Maximum Total Cooling Capacity</source>
         <translation>Maksimum Toplam Soğutma Kapasitesi</translation>
     </message>
-    <!-- OS:Table:IndependentVariable -->
+    
     <message>
         <source>Maximum Value</source>
         <translation>Maksimum Değer</translation>
     </message>
-    <!-- OS:AvailabilityManager:OptimumStart -->
+    
     <message>
         <source>Maximum Value for Optimum Start Time</source>
         <translation>Optimum Başlangıç Zamanı İçin Maksimum Değer</translation>
     </message>
-    <!-- OS:Curve:FanPressureRise -->
+    
     <message>
         <source>Maximum Value of Psm</source>
         <translation>Psm'nin Maksimum Değeri</translation>
     </message>
-    <!-- OS:Curve:FanPressureRise -->
+    
     <message>
         <source>Maximum Value of Qfan</source>
         <translation>Qfan'ın Maksimum Değeri</translation>
     </message>
-    <!-- OS:Curve:QuintLinear -->
+    
     <message>
         <source>Maximum Value of v</source>
         <translation>v'nin Maksimum Değeri</translation>
     </message>
-    <!-- OS:Curve:QuadLinear, OS:Curve:QuintLinear -->
+    
     <message>
         <source>Maximum Value of w</source>
         <translation>w'nin Maksimum Değeri</translation>
     </message>
-    <!-- OS:Curve:Bicubic, OS:Curve:Biquadratic, OS:Curve:Cubic, OS:Curve:DoubleExponentialDecay, OS:Curve:Exponent, OS:Curve:ExponentialDecay, OS:Curve:ExponentialSkewNormal, OS:Curve:Linear, OS:Curve:QuadLinear, OS:Curve:Quadratic, OS:Curve:QuadraticLinear, OS:Curve:Quartic, OS:Curve:QuintLinear, OS:Curve:RectangularHyperbola1, OS:Curve:RectangularHyperbola2, OS:Curve:Sigmoid, OS:Curve:Triquadratic -->
+    
     <message>
         <source>Maximum Value of x</source>
         <translation>x'in Maksimum Değeri</translation>
     </message>
-    <!-- OS:Table:MultiVariableLookup -->
+    
     <message>
         <source>Maximum Value of X1</source>
         <translation>X1'in Maksimum Değeri</translation>
     </message>
-    <!-- OS:Table:MultiVariableLookup -->
+    
     <message>
         <source>Maximum Value of X2</source>
         <translation>X2'nin Maksimum Değeri</translation>
     </message>
-    <!-- OS:Table:MultiVariableLookup -->
+    
     <message>
         <source>Maximum Value of X3</source>
         <translation>X3 Maksimum Değeri</translation>
     </message>
-    <!-- OS:Table:MultiVariableLookup -->
+    
     <message>
         <source>Maximum Value of X4</source>
         <translation>X4'ün Maksimum Değeri</translation>
     </message>
-    <!-- OS:Table:MultiVariableLookup -->
+    
     <message>
         <source>Maximum Value of X5</source>
         <translation>X5'in Maksimum Değeri</translation>
     </message>
-    <!-- OS:Curve:Bicubic, OS:Curve:Biquadratic, OS:Curve:QuadLinear, OS:Curve:QuadraticLinear, OS:Curve:QuintLinear, OS:Curve:Triquadratic -->
+    
     <message>
         <source>Maximum Value of y</source>
         <translation>Maksimum y Değeri</translation>
     </message>
-    <!-- OS:Curve:QuadLinear, OS:Curve:QuintLinear, OS:Curve:Triquadratic -->
+    
     <message>
         <source>Maximum Value of z</source>
         <translation>z'nin Maksimum Değeri</translation>
     </message>
-    <!-- OS:Fan:ComponentModel -->
+    
     <message>
         <source>Maximum VFD Output Power</source>
         <translation>Maksimum VFD Çıkış Gücü</translation>
     </message>
-    <!-- OS:CoolingTowerPerformance:CoolTools, OS:CoolingTowerPerformance:YorkCalc -->
+    
     <message>
         <source>Maximum Water Flow Rate Ratio</source>
         <translation>Maksimum Su Akış Hızı Oranı</translation>
     </message>
-    <!-- OS:CoilSystem:IntegratedHeatPump:AirSource -->
+    
     <message>
         <source>Maximum Water Flow Volume Before Switching From SCDWH To SCWH Mode</source>
         <translation>SCDWH Modundan SCWH Moduna Geçmeden Önceki Maksimum Su Akış Hacmi</translation>
     </message>
-    <!-- OS:AvailabilityManager:HybridVentilation, OS:ZoneVentilation:DesignFlowRate, OS:ZoneVentilation:WindandStackOpenArea -->
+    
     <message>
         <source>Maximum Wind Speed</source>
         <translation>Maksimum Rüzgar Hızı</translation>
     </message>
-    <!-- OS:PerformancePrecisionTradeoffs -->
+    
     <message>
         <source>MaxZoneTempDiff</source>
         <translation>MaxZoneTempDiff</translation>
     </message>
-    <!-- OS:Site:GroundTemperature:Deep -->
+    
     <message>
         <source>May Deep Ground Temperature</source>
         <translation>Mayıs Derin Yer Sıcaklığı</translation>
     </message>
-    <!-- OS:Site:GroundReflectance -->
+    
     <message>
         <source>May Ground Reflectance</source>
         <translation>Mayıs Yer Yansıtıcılığı</translation>
     </message>
-    <!-- OS:Site:GroundTemperature:BuildingSurface, OS:Site:GroundTemperature:FCfactorMethod -->
+    
     <message>
         <source>May Ground Temperature</source>
         <translation>Mayıs Yer Sıcaklığı</translation>
     </message>
-    <!-- OS:Site:GroundTemperature:Shallow -->
+    
     <message>
         <source>May Surface Ground Temperature</source>
         <translation>Mayıs Yüzey Yer Sıcaklığı</translation>
     </message>
-    <!-- OS:UtilityCost:Variable -->
+    
     <message>
         <source>May Value</source>
         <translation>Mayıs Değeri</translation>
     </message>
-    <!-- OS:Refrigeration:System -->
+    
     <message>
         <source>Mechanical Subcooler Name</source>
         <translation>Mekanik Alt Soğutucusu Adı</translation>
     </message>
-    <!-- OS:ZoneHVAC:FourPipeFanCoil -->
+    
     <message>
         <source>Medium Speed Supply Air Flow Ratio</source>
         <translation>Orta Hız Beslemeli Hava Akış Oranı</translation>
     </message>
-    <!-- OS:Refrigeration:TranscriticalSystem -->
+    
     <message>
         <source>Medium Temperature Refrigerated CaseAndWalkInList Name</source>
         <translation>Orta Sıcaklık Soğutmalı Vitrin ve Yürüyüş-İçi Listesi Adı</translation>
     </message>
-    <!-- OS:Refrigeration:TranscriticalSystem -->
+    
     <message>
         <source>Medium Temperature Suction Piping Zone Name</source>
         <translation>Orta Sıcaklık Emme Borusu Bölge Adı</translation>
     </message>
-    <!-- OS:UtilityBill -->
+    
     <message>
         <source>Meter End Use Category</source>
         <translation>Sayaç Son Kullanım Kategorisi</translation>
     </message>
-    <!-- OS:Output:Meter -->
+    
     <message>
         <source>Meter File Only</source>
         <translation>Yalnızca Ölçüm Dosyası</translation>
     </message>
-    <!-- OS:UtilityBill -->
+    
     <message>
         <source>Meter Install Location</source>
         <translation>Sayaç Kurulum Konumu</translation>
     </message>
-    <!-- OS:ElectricLoadCenter:Transformer -->
+    
     <message>
         <source>Meter Name</source>
         <translation>Sayaç Adı</translation>
     </message>
-    <!-- OS:UtilityBill -->
+    
     <message>
         <source>Meter Specific End Use</source>
         <translation>Ölçer Spesifik Son Kullanım</translation>
     </message>
-    <!-- OS:UtilityBill -->
+    
     <message>
         <source>Meter Specific Install Location</source>
         <translation>Sayaç Spesifik Kurulum Konumu</translation>
     </message>
-    <!-- OS:Generator:FuelCell:ExhaustGasToWaterHeatExchanger -->
+    
     <message>
         <source>Method 1 Heat Exchanger Effectiveness</source>
         <translation>Method 1 Isı Değiştirici Etkinliği</translation>
     </message>
-    <!-- OS:Generator:FuelCell:ExhaustGasToWaterHeatExchanger -->
+    
     <message>
         <source>Method 2 Parameter hxs0</source>
         <translation>Method 2 Parameter hxs0</translation>
     </message>
-    <!-- OS:Generator:FuelCell:ExhaustGasToWaterHeatExchanger -->
+    
     <message>
         <source>Method 2 Parameter hxs1</source>
         <translation>Method 2 Parameter hxs1</translation>
     </message>
-    <!-- OS:Generator:FuelCell:ExhaustGasToWaterHeatExchanger -->
+    
     <message>
         <source>Method 2 Parameter hxs2</source>
         <translation>Method 2 Parameter hxs2</translation>
     </message>
-    <!-- OS:Generator:FuelCell:ExhaustGasToWaterHeatExchanger -->
+    
     <message>
         <source>Method 2 Parameter hxs3</source>
         <translation>Yöntem 2 Parametresi hxs3</translation>
     </message>
-    <!-- OS:Generator:FuelCell:ExhaustGasToWaterHeatExchanger -->
+    
     <message>
         <source>Method 2 Parameter hxs4</source>
         <translation>Method 2 Parameter hxs4</translation>
     </message>
-    <!-- OS:Generator:FuelCell:ExhaustGasToWaterHeatExchanger -->
+    
     <message>
         <source>Method 3 F Adjustment Factor</source>
         <translation>Method 3 F Ayarlama Faktörü</translation>
     </message>
-    <!-- OS:Generator:FuelCell:ExhaustGasToWaterHeatExchanger -->
+    
     <message>
         <source>Method 3 Gas Area</source>
         <translation>Method 3 Gas Area</translation>
     </message>
-    <!-- OS:Generator:FuelCell:ExhaustGasToWaterHeatExchanger -->
+    
     <message>
         <source>Method 3 h0 Water Coefficient</source>
         <translation>Method 3 h0 Su Katsayısı</translation>
     </message>
-    <!-- OS:Generator:FuelCell:ExhaustGasToWaterHeatExchanger -->
+    
     <message>
         <source>Method 3 h0Gas Coefficient</source>
         <translation>Method 3 h0Gas Katsayısı</translation>
     </message>
-    <!-- OS:Generator:FuelCell:ExhaustGasToWaterHeatExchanger -->
+    
     <message>
         <source>Method 3 m Coefficient</source>
         <translation>Method 3 m Katsayısı</translation>
     </message>
-    <!-- OS:Generator:FuelCell:ExhaustGasToWaterHeatExchanger -->
+    
     <message>
         <source>Method 3 n Coefficient</source>
         <translation>Method 3 n Katsayısı</translation>
     </message>
-    <!-- OS:Generator:FuelCell:ExhaustGasToWaterHeatExchanger -->
+    
     <message>
         <source>Method 3 N dot Water ref Coefficient</source>
         <translation>Method 3 N dot Water ref Katsayısı</translation>
     </message>
-    <!-- OS:Generator:FuelCell:ExhaustGasToWaterHeatExchanger -->
+    
     <message>
         <source>Method 3 NdotGasRef Coefficient</source>
         <translation>Method 3 NdotGasRef Katsayısı</translation>
     </message>
-    <!-- OS:Generator:FuelCell:ExhaustGasToWaterHeatExchanger -->
+    
     <message>
         <source>Method 3 Water Area</source>
         <translation>Yöntem 3 Su Alanı</translation>
     </message>
-    <!-- OS:Generator:FuelCell:ExhaustGasToWaterHeatExchanger -->
+    
     <message>
         <source>Method 4 Condensation Threshold</source>
         <translation>Method 4 Yoğunlaşma Eşiği</translation>
     </message>
-    <!-- OS:Generator:FuelCell:ExhaustGasToWaterHeatExchanger -->
+    
     <message>
         <source>Method 4 hxl1 Coefficient</source>
         <translation>Method 4 hxl1 Katsayısı</translation>
     </message>
-    <!-- OS:Generator:FuelCell:ExhaustGasToWaterHeatExchanger -->
+    
     <message>
         <source>Method 4 hxl2 Coefficient</source>
         <translation>Method 4 hxl2 Katsayısı</translation>
     </message>
-    <!-- OS:Controller:WaterCoil -->
+    
     <message>
         <source>Minimum Actuated Flow</source>
         <translation>Minimum Actuated Flow</translation>
     </message>
-    <!-- OS:CoolingTower:VariableSpeed -->
+    
     <message>
         <source>Minimum Air Flow Rate Ratio</source>
         <translation>Minimum Air Flow Rate Ratio</translation>
     </message>
-    <!-- OS:AirTerminal:DualDuct:VAV, OS:AirTerminal:SingleDuct:VAV:HeatAndCool:NoReheat, OS:AirTerminal:SingleDuct:VAV:HeatAndCool:Reheat, OS:AirTerminal:SingleDuct:VAV:NoReheat, OS:AirTerminal:SingleDuct:VAV:Reheat -->
+    
     <message>
         <source>Minimum Air Flow Turndown Schedule Name</source>
         <translation>Minimum Air Flow Turndown Schedule Name</translation>
     </message>
-    <!-- OS:CoilSystem:Cooling:Water -->
+    
     <message>
         <source>Minimum Air To Water Temperature Offset</source>
-        <translation type="unfinished"></translation>
+        <translation>Minimum Air To Water Temperature Offset</translation>
     </message>
-    <!-- OS:Refrigeration:Case -->
+    
     <message>
         <source>Minimum Anti-Sweat Heater Power per Door</source>
         <translation>Kapı Başına Minimum Anti-Buğu Isıtıcı Gücü</translation>
     </message>
-    <!-- OS:Refrigeration:Case -->
+    
     <message>
         <source>Minimum Anti-Sweat Heater Power per Unit Length</source>
         <translation>Birim Uzunluğu Başına Minimum Anti-Sweat Isıtıcı Gücü</translation>
     </message>
-    <!-- OS:CoolingTowerPerformance:CoolTools, OS:CoolingTowerPerformance:YorkCalc -->
+    
     <message>
         <source>Minimum Approach Temperature</source>
         <translation>Minimum Approach Temperature</translation>
     </message>
-    <!-- OS:Refrigeration:Condenser:EvaporativeCooled -->
+    
     <message>
         <source>Minimum Capacity Factor</source>
         <translation>Minimum Capacity Factor</translation>
     </message>
-    <!-- OS:ZoneControl:ContaminantController -->
+    
     <message>
         <source>Minimum Carbon Dioxide Concentration Schedule Name</source>
         <translation>Minimum Carbon Dioxide Concentration Schedule Name</translation>
     </message>
-    <!-- OS:Foundation:Kiva:Settings -->
+    
     <message>
         <source>Minimum Cell Dimension</source>
         <translation>Minimum Cell Dimension</translation>
     </message>
-    <!-- OS:AirflowNetworkOccupantVentilationControl -->
+    
     <message>
         <source>Minimum Closing Time</source>
         <translation>Minimum Kapanış Süresi</translation>
     </message>
-    <!-- OS:AirTerminal:SingleDuct:ConstantVolume:FourPipeInduction, OS:ZoneHVAC:FourPipeFanCoil -->
+    
     <message>
         <source>Minimum Cold Water Flow Rate</source>
         <translation>Minimum Cold Water Flow Rate</translation>
     </message>
-    <!-- OS:Refrigeration:GasCooler:AirCooled, OS:Refrigeration:System -->
+    
     <message>
         <source>Minimum Condensing Temperature</source>
         <translation>Minimum Kondensasyon Sıcaklığı</translation>
     </message>
-    <!-- OS:ZoneHVAC:IdealLoadsAirSystem -->
+    
     <message>
         <source>Minimum Cooling Supply Air Humidity Ratio</source>
         <translation>Minimum Cooling Supply Air Humidity Ratio</translation>
     </message>
-    <!-- OS:ZoneHVAC:IdealLoadsAirSystem -->
+    
     <message>
         <source>Minimum Cooling Supply Air Temperature</source>
         <translation>Minimum Cooling Supply Air Temperature</translation>
     </message>
-    <!-- OS:Curve:Bicubic, OS:Curve:Biquadratic, OS:Curve:Cubic, OS:Curve:DoubleExponentialDecay, OS:Curve:Exponent, OS:Curve:ExponentialDecay, OS:Curve:ExponentialSkewNormal, OS:Curve:FanPressureRise, OS:Curve:Linear, OS:Curve:QuadLinear, OS:Curve:Quadratic, OS:Curve:QuadraticLinear, OS:Curve:Quartic, OS:Curve:QuintLinear, OS:Curve:RectangularHyperbola1, OS:Curve:RectangularHyperbola2, OS:Curve:Sigmoid, OS:Curve:Triquadratic -->
+    
     <message>
         <source>Minimum Curve Output</source>
         <translation>Minimum Eğri Çıkışı</translation>
     </message>
-    <!-- OS:AirflowNetworkSimpleOpening -->
+    
     <message>
         <source>Minimum Density Difference for Two-Way Flow</source>
         <translation>İki Yönlü Akış için Minimum Yoğunluk Farkı</translation>
     </message>
-    <!-- OS:ZoneHVAC:Dehumidifier:DX -->
+    
     <message>
         <source>Minimum Dry-Bulb Temperature for Dehumidifier Operation</source>
         <translation>Nemlendirici Çalışması için Minimum Kuru Termometre Sıcaklığı</translation>
     </message>
-    <!-- OS:Refrigeration:AirChiller, OS:Refrigeration:Condenser:AirCooled, OS:Refrigeration:Condenser:EvaporativeCooled, OS:Refrigeration:GasCooler:AirCooled -->
+    
     <message>
         <source>Minimum Fan Air Flow Ratio</source>
         <translation>Minimum Fan Air Flow Ratio</translation>
     </message>
-    <!-- OS:AirTerminal:SingleDuct:ParallelPIU:Reheat, OS:AirTerminal:SingleDuct:SeriesPIU:Reheat -->
+    
     <message>
         <source>Minimum Fan Turn Down Ratio</source>
         <translation>Minimum Fan Turn Down Ratio</translation>
     </message>
-    <!-- OS:HeaderedPumps:VariableSpeed -->
+    
     <message>
         <source>Minimum Flow Rate Fraction</source>
         <translation>Minimum Flow Rate Fraction</translation>
     </message>
-    <!-- OS:Generator:MicroTurbine -->
+    
     <message>
         <source>Minimum Full Load Electrical Power Output</source>
         <translation>Minimum Full Load Electrical Power Output</translation>
     </message>
-    <!-- OS:HeatPump:PlantLoop:EIR:Heating -->
+    
     <message>
         <source>Minimum Heat Recovery Outlet Temperature</source>
         <translation>Minimum Heat Recovery Outlet Temperature</translation>
     </message>
-    <!-- OS:Generator:MicroTurbine:HeatRecovery -->
+    
     <message>
         <source>Minimum Heat Recovery Water Flow Rate</source>
         <translation>Minimum Heat Recovery Water Flow Rate</translation>
     </message>
-    <!-- OS:Generator:FuelCell:AuxiliaryHeater -->
+    
     <message>
         <source>Minimum Heating Capacity in Kmol per Second</source>
         <translation>Saniyede Minimum Isıtma Kapasitesi Kmol cinsinden</translation>
     </message>
-    <!-- OS:Generator:FuelCell:AuxiliaryHeater -->
+    
     <message>
         <source>Minimum Heating Capacity in Watts</source>
         <translation>Minimum Heating Capacity in Watts</translation>
     </message>
-    <!-- OS:AirTerminal:SingleDuct:ConstantVolume:FourPipeInduction, OS:ZoneHVAC:FourPipeFanCoil, OS:ZoneHVAC:UnitHeater -->
+    
     <message>
         <source>Minimum Hot Water Flow Rate</source>
         <translation>Minimum Hot Water Flow Rate</translation>
     </message>
-    <!-- OS:AvailabilityManager:HybridVentilation -->
+    
     <message>
         <source>Minimum HVAC Operation Time</source>
         <translation>Minimum HVAC Operation Time</translation>
     </message>
-    <!-- OS:ZoneVentilation:DesignFlowRate, OS:ZoneVentilation:WindandStackOpenArea -->
+    
     <message>
         <source>Minimum Indoor Temperature</source>
         <translation>Minimum İç Sıcaklık</translation>
     </message>
-    <!-- OS:ZoneVentilation:DesignFlowRate, OS:ZoneVentilation:WindandStackOpenArea -->
+    
     <message>
         <source>Minimum Indoor Temperature Schedule Name</source>
         <translation>Minimum Indoor Temperature Schedule Name</translation>
     </message>
-    <!-- OS:WaterHeater:HeatPump, OS:WaterHeater:HeatPump:WrappedCondenser -->
+    
     <message>
         <source>Minimum Inlet Air Temperature for Compressor Operation</source>
         <translation>Kompresör İşletimi için Minimum Giriş Hava Sıcaklığı</translation>
     </message>
-    <!-- OS:CoolingTowerPerformance:CoolTools, OS:CoolingTowerPerformance:YorkCalc -->
+    
     <message>
         <source>Minimum Inlet Air Wet-Bulb Temperature</source>
         <translation>Minimum Inlet Air Wet-Bulb Temperature</translation>
     </message>
-    <!-- OS:Daylighting:Control -->
+    
     <message>
         <source>Minimum Input Power Fraction for Continuous Dimming Control</source>
         <translation>Sürekli Kararma Kontrolü için Minimum Giriş Gücü Oranı</translation>
     </message>
-    <!-- OS:HeatPump:AirToWater:Cooling, OS:HeatPump:AirToWater:Heating -->
+    
     <message>
         <source>Minimum Leaving Water Temperature Curve Name</source>
         <translation>Minimum Leaving Water Temperature Curve Name</translation>
     </message>
-    <!-- OS:Daylighting:Control -->
+    
     <message>
         <source>Minimum Light Output Fraction for Continuous Dimming Control</source>
         <translation>Sürekli Kısılama Kontrolü için Minimum Işık Çıkış Oranı</translation>
     </message>
-    <!-- OS:SetpointManager:FollowSystemNodeTemperature -->
+    
     <message>
         <source>Minimum Limit Setpoint Temperature</source>
         <translation>Minimum Limit Setpoint Temperature</translation>
     </message>
-    <!-- OS:PlantComponent:UserDefined -->
+    
     <message>
         <source>Minimum Loading Capacity Actuator</source>
         <translation>Minimum Loading Capacity Actuator</translation>
     </message>
-    <!-- OS:PlantComponent:UserDefined -->
+    
     <message>
         <source>Minimum Mass Flow Rate Actuator</source>
         <translation>Minimum Mass Flow Rate Actuator</translation>
     </message>
-    <!-- OS:UtilityCost:Tariff -->
+    
     <message>
         <source>Minimum Monthly Charge or Variable Name</source>
         <translation>Aylık Asgari Ücret veya Değişken Adı</translation>
     </message>
-    <!-- OS:SimulationControl -->
+    
     <message>
         <source>Minimum Number of Warmup Days</source>
-        <translation type="unfinished"></translation>
+        <translation>Minimum Warmup Günü Sayısı</translation>
     </message>
-    <!-- OS:AirflowNetworkOccupantVentilationControl -->
+    
     <message>
         <source>Minimum Opening Time</source>
         <translation>Minimum Opening Time</translation>
     </message>
-    <!-- OS:Generator:FuelCell:PowerModule -->
+    
     <message>
         <source>Minimum Operating Point</source>
         <translation>Minimum Çalışma Noktası</translation>
     </message>
-    <!-- OS:SurfaceProperty:OtherSideCoefficients -->
+    
     <message>
         <source>Minimum Other Side Temperature Limit</source>
         <translation>Minimum Other Side Temperature Limit</translation>
     </message>
-    <!-- OS:HeatPump:AirToWater:Cooling, OS:HeatPump:AirToWater:Heating -->
+    
     <message>
         <source>Minimum Outdoor Air Temperature</source>
         <translation>Minimum Outdoor Air Temperature</translation>
     </message>
-    <!-- OS:AirConditioner:VariableRefrigerantFlow:FluidTemperatureControl -->
+    
     <message>
         <source>Minimum Outdoor Air Temperature in Cooling Mode</source>
         <translation>Soğutma Modunda Minimum Dış Hava Sıcaklığı</translation>
     </message>
-    <!-- OS:AirConditioner:VariableRefrigerantFlow:FluidTemperatureControl:HR -->
+    
     <message>
         <source>Minimum Outdoor Air Temperature in Cooling Only Mode</source>
         <translation>Yalnızca Soğutma Modunda Minimum Dış Hava Sıcaklığı</translation>
     </message>
-    <!-- OS:AirConditioner:VariableRefrigerantFlow:FluidTemperatureControl -->
+    
     <message>
         <source>Minimum Outdoor Air Temperature in Heating Mode</source>
         <translation>Isıtma Modunda Minimum Dış Hava Sıcaklığı</translation>
     </message>
-    <!-- OS:AirConditioner:VariableRefrigerantFlow:FluidTemperatureControl:HR -->
+    
     <message>
         <source>Minimum Outdoor Air Temperature in Heating Only Mode</source>
         <translation>Sadece Isıtma Modunda Minimum Dış Hava Sıcaklığı</translation>
     </message>
-    <!-- OS:AvailabilityManager:HybridVentilation -->
+    
     <message>
         <source>Minimum Outdoor Dewpoint</source>
-        <translation type="unfinished"></translation>
+        <translation>Minimum Outdoor Dewpoint</translation>
     </message>
-    <!-- OS:AvailabilityManager:HybridVentilation -->
+    
     <message>
         <source>Minimum Outdoor Enthalpy</source>
         <translation>Minimum Outdoor Enthalpy</translation>
     </message>
-    <!-- OS:AvailabilityManager:HybridVentilation, OS:ZoneVentilation:DesignFlowRate, OS:ZoneVentilation:WindandStackOpenArea -->
+    
     <message>
         <source>Minimum Outdoor Temperature</source>
         <translation>Minimum Outdoor Temperature</translation>
     </message>
-    <!-- OS:AirConditioner:VariableRefrigerantFlow, OS:AirConditioner:VariableRefrigerantFlow:FluidTemperatureControl:HR -->
+    
     <message>
         <source>Minimum Outdoor Temperature in Heat Recovery Mode</source>
         <translation>Isı Geri Kazanım Modunda Minimum Dış Hava Sıcaklığı</translation>
     </message>
-    <!-- OS:ZoneMixing, OS:ZoneVentilation:DesignFlowRate, OS:ZoneVentilation:WindandStackOpenArea -->
+    
     <message>
         <source>Minimum Outdoor Temperature Schedule Name</source>
         <translation>Minimum Outdoor Temperature Schedule Name</translation>
     </message>
-    <!-- OS:AvailabilityManager:HybridVentilation -->
+    
     <message>
         <source>Minimum Outdoor Ventilation Air Schedule</source>
         <translation>Minimum Outdoor Ventilation Air Schedule</translation>
     </message>
-    <!-- OS:AirLoopHVAC:UnitaryHeatCool:VAVChangeoverBypass -->
+    
     <message>
         <source>Minimum Outlet Air Temperature During Cooling Operation</source>
         <translation>Soğutma İşlemi Sırasında Minimum Çıkış Hava Sıcaklığı</translation>
     </message>
-    <!-- OS:Table:Lookup -->
+    
     <message>
         <source>Minimum Output</source>
         <translation>Minimum Çıkış</translation>
     </message>
-    <!-- OS:ConvergenceLimits -->
+    
     <message>
         <source>Minimum Plant Iterations</source>
         <translation>Minimum Plant Iterations</translation>
     </message>
-    <!-- OS:Pump:VariableSpeed -->
+    
     <message>
         <source>Minimum Pressure Schedule</source>
         <translation>Minimum Basınç Planlaması</translation>
     </message>
-    <!-- OS:AirTerminal:SingleDuct:ParallelPIU:Reheat, OS:AirTerminal:SingleDuct:SeriesPIU:Reheat -->
+    
     <message>
         <source>Minimum Primary Air Flow Fraction</source>
         <translation>Minimum Birincil Hava Akış Oranı</translation>
     </message>
-    <!-- OS:HeatExchanger:Desiccant:BalancedFlow:PerformanceDataType1 -->
+    
     <message>
         <source>Minimum Process Inlet Air Humidity Ratio for Humidity Ratio Equation</source>
         <translation>İşlem Giriş Havası İçin Minimum Nem Oranı - Nem Oranı Denklemi</translation>
     </message>
-    <!-- OS:HeatExchanger:Desiccant:BalancedFlow:PerformanceDataType1 -->
+    
     <message>
         <source>Minimum Process Inlet Air Humidity Ratio for Temperature Equation</source>
         <translation>Sıcaklık Denklemi için Minimum Işlem Giriş Havasının Nem Oranı</translation>
     </message>
-    <!-- OS:HeatExchanger:Desiccant:BalancedFlow:PerformanceDataType1 -->
+    
     <message>
         <source>Minimum Process Inlet Air Relative Humidity for Humidity Ratio Equation</source>
         <translation>Nem Oranı Denklemi için Minimum İşlem Giriş Hava Bağıl Nemi</translation>
     </message>
-    <!-- OS:HeatExchanger:Desiccant:BalancedFlow:PerformanceDataType1 -->
+    
     <message>
         <source>Minimum Process Inlet Air Relative Humidity for Temperature Equation</source>
         <translation>Sıcaklık Denklemi için Minimum Proses Giriş Havası Nispi Nemi</translation>
     </message>
-    <!-- OS:HeatExchanger:Desiccant:BalancedFlow:PerformanceDataType1 -->
+    
     <message>
         <source>Minimum Process Inlet Air Temperature for Humidity Ratio Equation</source>
         <translation>Nem Oranı Denklemi için Minimum İşlem Giriş Hava Sıcaklığı</translation>
     </message>
-    <!-- OS:HeatExchanger:Desiccant:BalancedFlow:PerformanceDataType1 -->
+    
     <message>
         <source>Minimum Process Inlet Air Temperature for Temperature Equation</source>
         <translation>Sıcaklık Denklemi için Minimum Proses Giriş Hava Sıcaklığı</translation>
     </message>
-    <!-- OS:CoolingTowerPerformance:CoolTools, OS:CoolingTowerPerformance:YorkCalc -->
+    
     <message>
         <source>Minimum Range Temperature</source>
         <translation>Minimum Range Temperature</translation>
     </message>
-    <!-- OS:ZoneMixing -->
+    
     <message>
         <source>Minimum Receiving Temperature Schedule Name</source>
         <translation>Minimum Receiving Temperature Schedule Name</translation>
     </message>
-    <!-- OS:HeatExchanger:Desiccant:BalancedFlow:PerformanceDataType1 -->
+    
     <message>
         <source>Minimum Regeneration Air Velocity for Humidity Ratio Equation</source>
         <translation>Nem Oranı Denklemi için Minimum Rejenerasyon Hava Hızı</translation>
     </message>
-    <!-- OS:HeatExchanger:Desiccant:BalancedFlow:PerformanceDataType1 -->
+    
     <message>
         <source>Minimum Regeneration Air Velocity for Temperature Equation</source>
         <translation>Sıcaklık Denklemi İçin Minimum Rejenerasyon Hava Hızı</translation>
     </message>
-    <!-- OS:HeatExchanger:Desiccant:BalancedFlow:PerformanceDataType1 -->
+    
     <message>
         <source>Minimum Regeneration Inlet Air Humidity Ratio for Humidity Ratio Equation</source>
         <translation>Nem Oranı Denklemi için Minimum Rejenerasyon Giriş Hava Nem Oranı</translation>
     </message>
-    <!-- OS:HeatExchanger:Desiccant:BalancedFlow:PerformanceDataType1 -->
+    
     <message>
         <source>Minimum Regeneration Inlet Air Humidity Ratio for Temperature Equation</source>
         <translation>Sıcaklık Denklemi için Minimum Rejenerasyon Giriş Hava Nem Oranı</translation>
     </message>
-    <!-- OS:HeatExchanger:Desiccant:BalancedFlow:PerformanceDataType1 -->
+    
     <message>
         <source>Minimum Regeneration Inlet Air Relative Humidity for Humidity Ratio Equation</source>
         <translation>Nem Oranı Denklemi için Minimum Rejenerasyon Giriş Havası Bağıl Nemi</translation>
     </message>
-    <!-- OS:HeatExchanger:Desiccant:BalancedFlow:PerformanceDataType1 -->
+    
     <message>
         <source>Minimum Regeneration Inlet Air Relative Humidity for Temperature Equation</source>
         <translation>Sıcaklık Denklemi için Minimum Rejenerasyon Giriş Hava Bağıl Nemi</translation>
     </message>
-    <!-- OS:HeatExchanger:Desiccant:BalancedFlow:PerformanceDataType1 -->
+    
     <message>
         <source>Minimum Regeneration Inlet Air Temperature for Humidity Ratio Equation</source>
         <translation>Nem Oranı Denklemi için Minimum Rejenerasyon Giriş Hava Sıcaklığı</translation>
     </message>
-    <!-- OS:HeatExchanger:Desiccant:BalancedFlow:PerformanceDataType1 -->
+    
     <message>
         <source>Minimum Regeneration Inlet Air Temperature for Temperature Equation</source>
         <translation>Sıcaklık Denklemi için Minimum Rejenerasyon Giriş Hava Sıcaklığı</translation>
     </message>
-    <!-- OS:HeatExchanger:Desiccant:BalancedFlow:PerformanceDataType1 -->
+    
     <message>
         <source>Minimum Regeneration Outlet Air Humidity Ratio for Humidity Ratio Equation</source>
         <translation>Nem Oranı Denklemi İçin Minimum Rejenerasyon Çıkış Havası Nem Oranı</translation>
     </message>
-    <!-- OS:HeatExchanger:Desiccant:BalancedFlow:PerformanceDataType1 -->
+    
     <message>
         <source>Minimum Regeneration Outlet Air Temperature for Temperature Equation</source>
         <translation>Sıcaklık Denklemi için Minimum Rejenerasyon Çıkış Hava Sıcaklığı</translation>
     </message>
-    <!-- OS:Pump:VariableSpeed -->
+    
     <message>
         <source>Minimum RPM Schedule</source>
         <translation>Minimum RPM Schedule</translation>
     </message>
-    <!-- OS:AirLoopHVAC:UnitaryHeatCool:VAVChangeoverBypass -->
+    
     <message>
         <source>Minimum Runtime Before Operating Mode Change</source>
         <translation>Operatif Mod Değişikliğinden Önce Minimum Çalışma Süresi</translation>
     </message>
-    <!-- OS:SetpointManager:MultiZone:Humidity:Maximum, OS:SetpointManager:MultiZone:Humidity:Minimum, OS:SetpointManager:MultiZone:MaximumHumidity:Average, OS:SetpointManager:MultiZone:MinimumHumidity:Average, OS:SetpointManager:OutdoorAirPretreat -->
+    
     <message>
         <source>Minimum Setpoint Humidity Ratio</source>
         <translation>Minimum Setpoint Humidity Ratio</translation>
     </message>
-    <!-- OS:WindowMaterial:Blind -->
+    
     <message>
         <source>Minimum Slat Angle</source>
         <translation>Minimum Slat Angle</translation>
     </message>
-    <!-- OS:HeatPump:PlantLoop:EIR:Cooling, OS:HeatPump:PlantLoop:EIR:Heating -->
+    
     <message>
         <source>Minimum Source Inlet Temperature</source>
         <translation>Minimum Kaynak Inlet Sıcaklığı</translation>
     </message>
-    <!-- OS:ZoneMixing -->
+    
     <message>
         <source>Minimum Source Temperature Schedule Name</source>
         <translation>Minimum Source Temperature Schedule Name</translation>
     </message>
-    <!-- OS:CoilSystem:IntegratedHeatPump:AirSource -->
+    
     <message>
         <source>Minimum Speed Level For SCDWH Mode</source>
         <translation>SCDWH Modu İçin Minimum Hız Seviyesi</translation>
     </message>
-    <!-- OS:CoilSystem:IntegratedHeatPump:AirSource -->
+    
     <message>
         <source>Minimum Speed Level For SCWH Mode</source>
         <translation>SCWH Modu İçin Minimum Hız Seviyesi</translation>
     </message>
-    <!-- OS:CoilSystem:IntegratedHeatPump:AirSource -->
+    
     <message>
         <source>Minimum Speed Level For SHDWH Mode</source>
         <translation>Minimum Speed Level For SHDWH Mode</translation>
     </message>
-    <!-- OS:Material:RoofVegetation -->
+    
     <message>
         <source>Minimum Stomatal Resistance</source>
         <translation>Minimum Stomatal Resistance</translation>
     </message>
-    <!-- OS:ElectricLoadCenter:Distribution -->
+    
     <message>
         <source>Minimum Storage State of Charge Fraction</source>
         <translation>Minimum Storage State of Charge Fraction</translation>
     </message>
-    <!-- OS:ZoneHVAC:FourPipeFanCoil -->
+    
     <message>
         <source>Minimum Supply Air Temperature in Cooling Mode</source>
         <translation>Soğutma Modunda Minimum Beslemeli Hava Sıcaklığı</translation>
     </message>
-    <!-- OS:HeatPump:PlantLoop:EIR:Cooling, OS:HeatPump:PlantLoop:EIR:Heating -->
+    
     <message>
         <source>Minimum Supply Water Temperature Curve Name</source>
         <translation>Minimum Supply Water Temperature Curve Name</translation>
     </message>
-    <!-- OS:HeatBalanceAlgorithm -->
+    
     <message>
         <source>Minimum Surface Convection Heat Transfer Coefficient Value</source>
         <translation>Minimum Surface Convection Heat Transfer Coefficient Value</translation>
     </message>
-    <!-- OS:ConvergenceLimits -->
+    
     <message>
         <source>Minimum System Timestep</source>
         <translation>Minimum System Timestep</translation>
     </message>
-    <!-- OS:Table:MultiVariableLookup -->
+    
     <message>
         <source>Minimum Table Output</source>
         <translation>Minimum Tablo Çıkışı</translation>
     </message>
-    <!-- OS:HeatExchanger:FluidToFluid -->
+    
     <message>
         <source>Minimum Temperature Difference to Activate Heat Exchanger</source>
         <translation>Isı Değiştiricisini Etkinleştirmek için Minimum Sıcaklık Farkı</translation>
     </message>
-    <!-- OS:ThermalStorage:ChilledWater:Stratified -->
+    
     <message>
         <source>Minimum Temperature Limit</source>
         <translation>Minimum Temperature Limit</translation>
     </message>
-    <!-- OS:SetpointManager:WarmestTemperatureFlow -->
+    
     <message>
         <source>Minimum Turndown Ratio</source>
         <translation>Minimum Turndown Ratio</translation>
     </message>
-    <!-- OS:Table:IndependentVariable -->
+    
     <message>
         <source>Minimum Value</source>
         <translation>Minimum Değer</translation>
     </message>
-    <!-- OS:Curve:FanPressureRise -->
+    
     <message>
         <source>Minimum Value of Psm</source>
         <translation>Psm'nin Minimum Değeri</translation>
     </message>
-    <!-- OS:Curve:FanPressureRise -->
+    
     <message>
         <source>Minimum Value of Qfan</source>
         <translation>Qfan'ın Minimum Değeri</translation>
     </message>
-    <!-- OS:Curve:QuintLinear -->
+    
     <message>
         <source>Minimum Value of v</source>
         <translation>v'nin Minimum Değeri</translation>
     </message>
-    <!-- OS:Curve:QuadLinear, OS:Curve:QuintLinear -->
+    
     <message>
         <source>Minimum Value of w</source>
         <translation>w'nin Minimum Değeri</translation>
     </message>
-    <!-- OS:Curve:Bicubic, OS:Curve:Biquadratic, OS:Curve:Cubic, OS:Curve:DoubleExponentialDecay, OS:Curve:Exponent, OS:Curve:ExponentialDecay, OS:Curve:ExponentialSkewNormal, OS:Curve:Linear, OS:Curve:QuadLinear, OS:Curve:Quadratic, OS:Curve:QuadraticLinear, OS:Curve:Quartic, OS:Curve:QuintLinear, OS:Curve:RectangularHyperbola1, OS:Curve:RectangularHyperbola2, OS:Curve:Sigmoid, OS:Curve:Triquadratic -->
+    
     <message>
         <source>Minimum Value of x</source>
         <translation>x'in Minimum Değeri</translation>
     </message>
-    <!-- OS:Table:MultiVariableLookup -->
+    
     <message>
         <source>Minimum Value of X1</source>
         <translation>X1'in Minimum Değeri</translation>
     </message>
-    <!-- OS:Table:MultiVariableLookup -->
+    
     <message>
         <source>Minimum Value of X2</source>
         <translation>X2 Minimum Değeri</translation>
     </message>
-    <!-- OS:Table:MultiVariableLookup -->
+    
     <message>
         <source>Minimum Value of X3</source>
         <translation>X3'ün Minimum Değeri</translation>
     </message>
-    <!-- OS:Table:MultiVariableLookup -->
+    
     <message>
         <source>Minimum Value of X4</source>
         <translation>X4'ün Minimum Değeri</translation>
     </message>
-    <!-- OS:Table:MultiVariableLookup -->
+    
     <message>
         <source>Minimum Value of X5</source>
         <translation>X5'in Minimum Değeri</translation>
     </message>
-    <!-- OS:Curve:Bicubic, OS:Curve:Biquadratic, OS:Curve:QuadLinear, OS:Curve:QuadraticLinear, OS:Curve:QuintLinear, OS:Curve:Triquadratic -->
+    
     <message>
         <source>Minimum Value of y</source>
         <translation>y'nin Minimum Değeri</translation>
     </message>
-    <!-- OS:Curve:QuadLinear, OS:Curve:QuintLinear, OS:Curve:Triquadratic -->
+    
     <message>
         <source>Minimum Value of z</source>
         <translation>z'nin Minimum Değeri</translation>
     </message>
-    <!-- OS:AvailabilityManager:HybridVentilation -->
+    
     <message>
         <source>Minimum Ventilation Time</source>
         <translation>Minimum Ventilation Time</translation>
     </message>
-    <!-- OS:AirflowNetworkSurface, OS:AirflowNetworkZone -->
+    
     <message>
         <source>Minimum Venting Open Factor</source>
         <translation>Minimum Venting Open Factor</translation>
     </message>
-    <!-- OS:CoolingTowerPerformance:CoolTools, OS:CoolingTowerPerformance:YorkCalc -->
+    
     <message>
         <source>Minimum Water Flow Rate Ratio</source>
         <translation>Minimum Water Flow Rate Ratio</translation>
     </message>
-    <!-- OS:CoilSystem:Cooling:Water -->
+    
     <message>
         <source>Minimum Water Loop Temperature For Heat Recovery</source>
         <translation>Isı Geri Kazanımı İçin Minimum Su Döngüsü Sıcaklığı</translation>
     </message>
-    <!-- OS:Fan:ZoneExhaust -->
+    
     <message>
         <source>Minimum Zone Temperature Limit Schedule Name</source>
         <translation>Minimum Zone Temperature Limit Schedule Name</translation>
     </message>
-    <!-- OS:Curve:Functional:PressureDrop -->
+    
     <message>
         <source>Minor Loss Coefficient</source>
         <translation>Küçük Kayıp Katsayısı</translation>
     </message>
-    <!-- OS:LightingDesignDay -->
+    
     <message>
         <source>Minute to Simulate</source>
         <translation>Simüle Edilecek Dakika</translation>
     </message>
-    <!-- OS:Schedule:File -->
+    
     <message>
         <source>Minutes per Item</source>
         <translation>Öğe Başına Dakika</translation>
     </message>
-    <!-- OS:ComponentCost:Adjustments -->
+    
     <message>
         <source>Miscellaneous Cost per Conditioned Area</source>
         <translation>Çeşitli Maliyetler (İklimlendirilen Alan Başına)</translation>
     </message>
-    <!-- OS:AirLoopHVAC:OutdoorAirSystem, OS:Controller:OutdoorAir -->
+    
     <message>
         <source>Mixed Air Node Name</source>
         <translation>Karışık Hava Düğümü Adı</translation>
     </message>
-    <!-- OS:SetpointManager:OutdoorAirPretreat -->
+    
     <message>
         <source>Mixed Air Stream Node Name</source>
         <translation>Karışık Hava Akışı Node Adı</translation>
     </message>
-    <!-- OS:Refrigeration:Compressor -->
+    
     <message>
         <source>Mode of Operation</source>
         <translation>İşletme Modu</translation>
     </message>
-    <!-- OS:CoolingTower:VariableSpeed -->
+    
     <message>
         <source>Model Coefficient</source>
         <translation>Model Katsayısı</translation>
     </message>
-    <!-- OS:ModelObjectList -->
+    
     <message>
         <source>Model Object</source>
         <translation>Model Nesnesi</translation>
     </message>
-    <!-- OS:Coil:Cooling:CooledBeam -->
+    
     <message>
         <source>Model Parameter a</source>
         <translation>Model Parametresi a</translation>
     </message>
-    <!-- OS:Coil:Cooling:CooledBeam -->
+    
     <message>
         <source>Model Parameter a0</source>
         <translation>Model Parameter a0</translation>
     </message>
-    <!-- OS:Coil:Cooling:CooledBeam -->
+    
     <message>
         <source>Model Parameter K1</source>
         <translation>Model Parametresi K1</translation>
     </message>
-    <!-- OS:Coil:Cooling:CooledBeam -->
+    
     <message>
         <source>Model Parameter n</source>
         <translation>Model Parametresi n</translation>
     </message>
-    <!-- OS:Coil:Cooling:CooledBeam -->
+    
     <message>
         <source>Model Parameter n1</source>
         <translation>Model Parametresi n1</translation>
     </message>
-    <!-- OS:Coil:Cooling:CooledBeam -->
+    
     <message>
         <source>Model Parameter n2</source>
         <translation>Model Parametresi n2</translation>
     </message>
-    <!-- OS:Coil:Cooling:CooledBeam -->
+    
     <message>
         <source>Model Parameter n3</source>
         <translation>Model Parameter n3</translation>
     </message>
-    <!-- OS:Coil:UserDefined -->
+    
     <message>
         <source>Model Setup and Sizing Program Calling Manager Name</source>
         <translation>Model Setup and Sizing Program Calling Manager Name</translation>
     </message>
-    <!-- OS:CoolingTower:VariableSpeed -->
+    
     <message>
         <source>Model Type</source>
         <translation>Model Türü</translation>
     </message>
-    <!-- OS:PhotovoltaicPerformance:EquivalentOneDiode -->
+    
     <message>
         <source>Module Current at Maximum Power</source>
         <translation>Maksimum Güçte Modül Akımı</translation>
     </message>
-    <!-- OS:PhotovoltaicPerformance:EquivalentOneDiode -->
+    
     <message>
         <source>Module Heat Loss Coefficient</source>
         <translation>Modül Isı Kaybı Katsayısı</translation>
     </message>
-    <!-- OS:Generator:Photovoltaic -->
+    
     <message>
         <source>Module Performance Name</source>
         <translation>Modül Performansı Adı</translation>
     </message>
-    <!-- OS:Generator:PVWatts -->
+    
     <message>
         <source>Module Type</source>
         <translation>Modül Türü</translation>
     </message>
-    <!-- OS:PhotovoltaicPerformance:EquivalentOneDiode -->
+    
     <message>
         <source>Module Voltage at Maximum Power</source>
         <translation>Maksimum Güçte Modül Gerilimi</translation>
     </message>
-    <!-- OS:Material:RoofVegetation -->
+    
     <message>
         <source>Moisture Diffusion Calculation Method</source>
         <translation>Nem Difüzyon Hesaplama Yöntemi</translation>
     </message>
-    <!-- OS:MaterialProperty:MoisturePenetrationDepth:Settings -->
+    
     <message>
         <source>Moisture Equation Coefficient a</source>
         <translation>Nem Denklemi Katsayısı a</translation>
     </message>
-    <!-- OS:MaterialProperty:MoisturePenetrationDepth:Settings -->
+    
     <message>
         <source>Moisture Equation Coefficient b</source>
         <translation>Nem Denklemi Katsayısı b</translation>
     </message>
-    <!-- OS:MaterialProperty:MoisturePenetrationDepth:Settings -->
+    
     <message>
         <source>Moisture Equation Coefficient c</source>
         <translation>Nem Denklemi Katsayısı c</translation>
     </message>
-    <!-- OS:MaterialProperty:MoisturePenetrationDepth:Settings -->
+    
     <message>
         <source>Moisture Equation Coefficient d</source>
         <translation>Nem Denklemi Katsayısı d</translation>
     </message>
-    <!-- OS:Generator:FuelCell:AirSupply -->
+    
     <message>
         <source>Molar Fraction</source>
         <translation>Molar Kütlesi Oranı</translation>
     </message>
-    <!-- OS:WindowMaterial:Gas -->
+    
     <message>
         <source>Molecular Weight</source>
         <translation>Moleküler Ağırlık</translation>
     </message>
-    <!-- OS:Schedule:Week -->
+    
     <message>
         <source>Monday Schedule:Day Name</source>
         <translation>Pazartesi Programı:Gün Adı</translation>
     </message>
-    <!-- OS:CurrencyType -->
+    
     <message>
         <source>Monetary Unit</source>
         <translation>Para Birimi</translation>
     </message>
-    <!-- OS:LightingDesignDay, OS:Schedule:VariableInterval, OS:Schedule:Year, OS:SizingPeriod:DesignDay -->
+    
     <message>
         <source>Month</source>
         <translation>Ay</translation>
     </message>
-    <!-- OS:UtilityCost:Tariff -->
+    
     <message>
         <source>Month Schedule Name</source>
         <translation>Ay Çizelgesi Adı</translation>
     </message>
-    <!-- OS:UtilityCost:Tariff -->
+    
     <message>
         <source>Monthly Charge or Variable Name</source>
         <translation>Aylık Ücret veya Değişken Adı</translation>
     </message>
-    <!-- OS:LifeCycleCost -->
+    
     <message>
         <source>Months from Start</source>
         <translation>Başlangıçtan İtibaren Aylar</translation>
     </message>
-    <!-- OS:Fan:ComponentModel -->
+    
     <message>
         <source>Motor Fan Pulley Ratio</source>
         <translation>Motor Fan Pulley Ratio</translation>
     </message>
-    <!-- OS:Fan:SystemModel -->
+    
     <message>
         <source>Motor In Air Stream Fraction</source>
         <translation>Motor In Air Stream Fraction</translation>
     </message>
-    <!-- OS:Fan:SystemModel -->
+    
     <message>
         <source>Motor Loss Radiative Fraction</source>
         <translation>Motor Loss Radiative Fraction</translation>
     </message>
-    <!-- OS:Fan:SystemModel -->
+    
     <message>
         <source>Motor Loss Zone Name</source>
         <translation>Motor Kaybı Bölgesi Adı</translation>
     </message>
-    <!-- OS:Fan:ComponentModel -->
+    
     <message>
         <source>Motor Maximum Speed</source>
         <translation>Motor Maksimum Hızı</translation>
     </message>
-    <!-- OS:Fan:ComponentModel -->
+    
     <message>
         <source>Motor Sizing Factor</source>
         <translation>Motor Boyutlandırma Faktörü</translation>
     </message>
-    <!-- OS:ShadingControl -->
+    
     <message>
         <source>Multiple Surface Control Type</source>
         <translation>Çoklu Yüzey Kontrol Tipi</translation>
     </message>
-    <!-- OS:UtilityCost:Ratchet -->
+    
     <message>
         <source>Multiplier Value or Variable Name</source>
         <translation>Çarpan Değeri veya Değişken Adı</translation>
     </message>
 
-    <!-- N -->
-    <!-- OS:FuelFactors -->
+    
+    
     <message>
         <source>N2O Emission Factor</source>
         <translation>N2O Emisyon Faktörü</translation>
     </message>
-    <!-- OS:FuelFactors -->
+    
     <message>
         <source>N2O Emission Factor Schedule Name</source>
         <translation>N2O Emisyon Faktörü Çizelge Adı</translation>
     </message>
-    <!-- OS:PythonPlugin:TrendVariable -->
+    
     <message>
         <source>Name of a Python Plugin Variable</source>
         <translation>Python Eklentisi Değişkeninin Adı</translation>
     </message>
-    <!-- OS:ExternalInterface -->
+    
     <message>
         <source>Name of External Interface</source>
         <translation>Dış Arayüz Adı</translation>
     </message>
-    <!-- OS:ComponentData -->
+    
     <message>
         <source>Name of Object</source>
         <translation>Nesne Adı</translation>
     </message>
-    <!-- OS:ElectricLoadCenter:Transformer -->
+    
     <message>
         <source>Nameplate Efficiency</source>
         <translation>Anma Plakası Verimliliği</translation>
     </message>
-    <!-- OS:LifeCycleCost:Parameters -->
+    
     <message>
         <source>NaturalGas Inflation</source>
         <translation>Doğalgaz Enflasyonu</translation>
     </message>
-    <!-- OS:WindowProperty:FrameAndDivider -->
+    
     <message>
         <source>NFRC Product Type for Assembly Calculations</source>
         <translation>NFRC Montaj Hesaplamaları için Ürün Türü</translation>
     </message>
-    <!-- OS:FuelFactors -->
+    
     <message>
         <source>NH3 Emission Factor</source>
         <translation>NH3 Emisyon Faktörü</translation>
     </message>
-    <!-- OS:FuelFactors -->
+    
     <message>
         <source>NH3 Emission Factor Schedule Name</source>
         <translation>NH3 Emisyon Faktörü Programı Adı</translation>
     </message>
-    <!-- OS:ElectricLoadCenter:Inverter:LookUpTable -->
+    
     <message>
         <source>Night Tare Loss Power</source>
         <translation>Gece Boş Yük Kaybı Gücü</translation>
     </message>
-    <!-- OS:Fan:SystemModel -->
+    
     <message>
         <source>Night Ventilation Mode Flow Fraction</source>
         <translation>Gece Havalandırma Modu Akış Fraksiyonu</translation>
     </message>
-    <!-- OS:Fan:SystemModel -->
+    
     <message>
         <source>Night Ventilation Mode Pressure Rise</source>
         <translation>Gece Havalandırması Modu Basınç Artışı</translation>
     </message>
-    <!-- OS:AvailabilityManager:NightVentilation -->
+    
     <message>
         <source>Night Venting Flow Fraction</source>
         <translation>Gece Havalandırması Akış Fraksiyonu</translation>
     </message>
-    <!-- OS:LifeCycleCost:Parameters -->
+    
     <message>
         <source>NIST Region</source>
         <translation>NIST Bölgesi</translation>
     </message>
-    <!-- OS:LifeCycleCost:Parameters -->
+    
     <message>
         <source>NIST Sector</source>
         <translation>NIST Sektörü</translation>
     </message>
-    <!-- OS:FuelFactors -->
+    
     <message>
         <source>NMVOC Emission Factor</source>
         <translation>NMVOC Emisyon Faktörü</translation>
     </message>
-    <!-- OS:FuelFactors -->
+    
     <message>
         <source>NMVOC Emission Factor Schedule Name</source>
         <translation>NMVOC Emisyon Faktörü Programa Adı</translation>
     </message>
-    <!-- OS:AirLoopHVAC:UnitarySystem, OS:ZoneHVAC:PackagedTerminalAirConditioner, OS:ZoneHVAC:PackagedTerminalHeatPump, OS:ZoneHVAC:WaterToAirHeatPump -->
+    
     <message>
         <source>No Load Supply Air Flow Rate Control Set To Low Speed</source>
         <translation>Yüksüz Besleme Hava Akışı Kontrol Ayarı Düşük Hıza Ayarlandı</translation>
     </message>
-    <!-- OS:UnitarySystemPerformance:Multispeed -->
+    
     <message>
         <source>No Load Supply Air Flow Rate Ratio</source>
         <translation>Yüksüz Besleme Hava Akış Oranı</translation>
     </message>
-    <!-- OS:ThermalStorage:ChilledWater:Stratified, OS:WaterHeater:Stratified -->
+    
     <message>
         <source>Node 1 Additional Loss Coefficient</source>
         <translation>Node 1 Ek Kayıp Katsayısı</translation>
     </message>
-    <!-- OS:AirflowNetworkDistributionLinkage -->
+    
     <message>
         <source>Node 1 Name</source>
         <translation>Düğüm 1 Adı</translation>
     </message>
-    <!-- OS:ThermalStorage:ChilledWater:Stratified, OS:WaterHeater:Stratified -->
+    
     <message>
         <source>Node 10 Additional Loss Coefficient</source>
         <translation>Node 10 Ek Kayıp Katsayısı</translation>
     </message>
-    <!-- OS:WaterHeater:Stratified -->
+    
     <message>
         <source>Node 11 Additional Loss Coefficient</source>
         <translation>Node 11 Ek Kayıp Katsayısı</translation>
     </message>
-    <!-- OS:WaterHeater:Stratified -->
+    
     <message>
         <source>Node 12 Additional Loss Coefficient</source>
         <translation>Node 12 Ek Kayıp Katsayısı</translation>
     </message>
-    <!-- OS:ThermalStorage:ChilledWater:Stratified, OS:WaterHeater:Stratified -->
+    
     <message>
         <source>Node 2 Additional Loss Coefficient</source>
         <translation>Node 2 Ek Kayıp Katsayısı</translation>
     </message>
-    <!-- OS:AirflowNetworkDistributionLinkage -->
+    
     <message>
         <source>Node 2 Name</source>
         <translation>Node 2 Adı</translation>
     </message>
-    <!-- OS:ThermalStorage:ChilledWater:Stratified, OS:WaterHeater:Stratified -->
+    
     <message>
         <source>Node 3 Additional Loss Coefficient</source>
         <translation>Node 3 Ek Kayıp Katsayısı</translation>
     </message>
-    <!-- OS:ThermalStorage:ChilledWater:Stratified, OS:WaterHeater:Stratified -->
+    
     <message>
         <source>Node 4 Additional Loss Coefficient</source>
         <translation>Node 4 Ek Kayıp Katsayısı</translation>
     </message>
-    <!-- OS:ThermalStorage:ChilledWater:Stratified, OS:WaterHeater:Stratified -->
+    
     <message>
         <source>Node 5 Additional Loss Coefficient</source>
         <translation>Node 5 Ek Kayıp Katsayısı</translation>
     </message>
-    <!-- OS:ThermalStorage:ChilledWater:Stratified, OS:WaterHeater:Stratified -->
+    
     <message>
         <source>Node 6 Additional Loss Coefficient</source>
         <translation>Node 6 Ek Kayıp Katsayısı</translation>
     </message>
-    <!-- OS:ThermalStorage:ChilledWater:Stratified, OS:WaterHeater:Stratified -->
+    
     <message>
         <source>Node 7 Additional Loss Coefficient</source>
         <translation>Node 7 Ek Kayıp Katsayısı</translation>
     </message>
-    <!-- OS:ThermalStorage:ChilledWater:Stratified, OS:WaterHeater:Stratified -->
+    
     <message>
         <source>Node 8 Additional Loss Coefficient</source>
         <translation>Node 8 Ek Kayıp Katsayısı</translation>
     </message>
-    <!-- OS:ThermalStorage:ChilledWater:Stratified, OS:WaterHeater:Stratified -->
+    
     <message>
         <source>Node 9 Additional Loss Coefficient</source>
         <translation>Node 9 Ek Kayıp Katsayısı</translation>
     </message>
-    <!-- OS:AirflowNetworkDistributionNode -->
+    
     <message>
         <source>Node Height</source>
         <translation>Düğüm Yüksekliği</translation>
     </message>
-    <!-- OS:HeatExchanger:Desiccant:BalancedFlow:PerformanceDataType1 -->
+    
     <message>
         <source>Nominal Air Face Velocity</source>
         <translation>Nominal Hava Yüz Hızı</translation>
     </message>
-    <!-- OS:HeatExchanger:Desiccant:BalancedFlow:PerformanceDataType1 -->
+    
     <message>
         <source>Nominal Air Flow Rate</source>
         <translation>Nominal Hava Akış Hızı</translation>
     </message>
-    <!-- OS:HeatPump:AirToWater:FuelFired:Cooling, OS:HeatPump:AirToWater:FuelFired:Heating -->
+    
     <message>
         <source>Nominal Auxiliary Electric Power</source>
         <translation>Nominal Yardımcı Elektrik Gücü</translation>
     </message>
-    <!-- OS:Generator:FuelCell:ElectricalStorage -->
+    
     <message>
         <source>Nominal Charging Energetic Efficiency</source>
         <translation>Nominal Charging Energetic Efficiency</translation>
     </message>
-    <!-- OS:HeatPump:AirToWater:FuelFired:Cooling, OS:ThermalStorage:ChilledWater:Stratified -->
+    
     <message>
         <source>Nominal Cooling Capacity</source>
         <translation>Nominal Soğutma Kapasitesi</translation>
     </message>
-    <!-- OS:HeatPump:AirToWater:FuelFired:Cooling, OS:HeatPump:AirToWater:FuelFired:Heating -->
+    
     <message>
         <source>Nominal COP</source>
         <translation>Nominal COP</translation>
     </message>
-    <!-- OS:ElectricLoadCenter:Storage:Simple, OS:Generator:FuelCell:ElectricalStorage -->
+    
     <message>
         <source>Nominal Discharging Energetic Efficiency</source>
         <translation>Nominal Discharging Energetic Efficiency</translation>
     </message>
-    <!-- OS:LifeCycleCost:Parameters -->
+    
     <message>
         <source>Nominal Discount Rate</source>
         <translation>Nominal İndirim Oranı</translation>
     </message>
-    <!-- OS:Generator:FuelCell:PowerModule -->
+    
     <message>
         <source>Nominal Efficiency</source>
         <translation>Nominal Verimlilik</translation>
     </message>
-    <!-- OS:HeatExchanger:AirToAir:SensibleAndLatent, OS:HeatExchanger:Desiccant:BalancedFlow:PerformanceDataType1 -->
+    
     <message>
         <source>Nominal Electric Power</source>
         <translation>Nominal Elektrik Gücü</translation>
     </message>
-    <!-- OS:Generator:FuelCell:PowerModule -->
+    
     <message>
         <source>Nominal Electrical Power</source>
         <translation>Nominal Elektrik Gücü</translation>
     </message>
-    <!-- OS:ElectricLoadCenter:Storage:Simple -->
+    
     <message>
         <source>Nominal Energetic Efficiency for Charging</source>
         <translation>Şarj İçin Nominal Enerji Verimliliği</translation>
     </message>
-    <!-- OS:Coil:Cooling:DX:CurveFit:OperatingMode -->
+    
     <message>
         <source>Nominal Evaporative Condenser Pump Power</source>
         <translation>Nominal Evaporatif Kondenser Pompa Gücü</translation>
     </message>
-    <!-- OS:Generator:MicroTurbine -->
+    
     <message>
         <source>Nominal Exhaust Air Outlet Temperature</source>
         <translation>Nominal Egzoz Hava Çıkış Sıcaklığı</translation>
     </message>
-    <!-- OS:Building, OS:BuildingStory -->
+    
     <message>
         <source>Nominal Floor to Ceiling Height</source>
         <translation>Nominal Döşeme ile Tavan Yüksekliği</translation>
     </message>
-    <!-- OS:Building, OS:BuildingStory -->
+    
     <message>
         <source>Nominal Floor to Floor Height</source>
         <translation>Nominal Kat Yüksekliği</translation>
     </message>
-    <!-- OS:HeatPump:AirToWater:FuelFired:Heating -->
+    
     <message>
         <source>Nominal Heating Capacity</source>
         <translation>Nominal Isıtma Kapasitesi</translation>
     </message>
-    <!-- OS:PhotovoltaicPerformance:EquivalentOneDiode -->
+    
     <message>
         <source>Nominal Operating Cell Temperature Test Ambient Temperature</source>
         <translation>Nominal Operating Cell Temperature Test Ambient Temperature</translation>
     </message>
-    <!-- OS:PhotovoltaicPerformance:EquivalentOneDiode -->
+    
     <message>
         <source>Nominal Operating Cell Temperature Test Cell Temperature</source>
         <translation>Nominal Operating Cell Temperature Test Cell Temperature</translation>
     </message>
-    <!-- OS:PhotovoltaicPerformance:EquivalentOneDiode -->
+    
     <message>
         <source>Nominal Operating Cell Temperature Test Insolation</source>
         <translation>Nominal Operating Cell Temperature Test Insolation</translation>
     </message>
-    <!-- OS:Chiller:Absorption, OS:Chiller:Absorption:Indirect -->
+    
     <message>
         <source>Nominal Pumping Power</source>
         <translation>Nominal Pompalama Gücü</translation>
     </message>
-    <!-- OS:Coil:Cooling:DX:VariableSpeed, OS:Coil:Cooling:WaterToAirHeatPump:VariableSpeedEquationFit, OS:Coil:Heating:DX:VariableSpeed, OS:Coil:Heating:WaterToAirHeatPump:VariableSpeedEquationFit, OS:Coil:WaterHeating:AirToWaterHeatPump:VariableSpeed -->
+    
     <message>
         <source>Nominal Speed Level</source>
         <translation>Nominal Hız Seviyesi</translation>
     </message>
-    <!-- OS:Coil:Cooling:DX:CurveFit:OperatingMode -->
+    
     <message>
         <source>Nominal Speed Number</source>
         <translation>Nominal Speed Number</translation>
     </message>
-    <!-- OS:Generator:FuelCell:StackCooler -->
+    
     <message>
         <source>Nominal Stack Temperature</source>
         <translation>Nominal Yığın Sıcaklığı</translation>
     </message>
-    <!-- OS:HeatExchanger:AirToAir:SensibleAndLatent -->
+    
     <message>
         <source>Nominal Supply Air Flow Rate</source>
         <translation>Nominal Beslenme Hava Akış Hızı</translation>
     </message>
-    <!-- OS:WaterHeater:Sizing -->
+    
     <message>
         <source>Nominal Tank Volume for Autosizing Plant Connections</source>
         <translation>Otomatik Boyutlandırma Tesisi Bağlantıları için Nominal Tank Hacmi</translation>
     </message>
-    <!-- OS:Coil:Cooling:DX:VariableSpeed, OS:Coil:Cooling:WaterToAirHeatPump:VariableSpeedEquationFit -->
+    
     <message>
         <source>Nominal Time for Condensate to Begin Leaving the Coil</source>
         <translation>Kondansat Borudan Çıkmaya Başlamak İçin Nominal Zaman</translation>
     </message>
-    <!-- OS:ElectricLoadCenter:Inverter:LookUpTable -->
+    
     <message>
         <source>Nominal Voltage Input</source>
         <translation>Nominal Gerilim Girişi</translation>
     </message>
-    <!-- OS:BuildingStory -->
+    
     <message>
         <source>Nominal Z Coordinate</source>
         <translation>Nominal Z Koordinatı</translation>
     </message>
-    <!-- OS:Coil:Cooling:DX:TwoStageWithHumidityControlMode -->
+    
     <message>
         <source>Normal Mode Stage 1 Coil Performance</source>
         <translation>Normal Mode Stage 1 Coil Performance</translation>
     </message>
-    <!-- OS:Coil:Cooling:DX:TwoStageWithHumidityControlMode -->
+    
     <message>
         <source>Normal Mode Stage 1 Plus 2 Coil Performance</source>
         <translation>Normal Mode Aşama 1 Artı 2 Bobin Performansı</translation>
     </message>
-    <!-- OS:Table:Lookup -->
+    
     <message>
         <source>Normalization Divisor</source>
         <translation>Normalizasyon Böleni</translation>
     </message>
-    <!-- OS:Table:Lookup -->
+    
     <message>
         <source>Normalization Method</source>
         <translation>Normalizasyon Yöntemi</translation>
     </message>
-    <!-- OS:Table:MultiVariableLookup -->
+    
     <message>
         <source>Normalization Reference</source>
         <translation>Normalizasyon Referansı</translation>
     </message>
-    <!-- OS:Table:IndependentVariable -->
+    
     <message>
         <source>Normalization Reference Value</source>
         <translation>Normalizasyon Referans Değeri</translation>
     </message>
-    <!-- OS:Fan:ComponentModel -->
+    
     <message>
         <source>Normalized Belt Efficiency Curve Name - Region 1</source>
         <translation>Normalize Edilmiş Kayış Verimlilik Eğrisi Adı - Bölge 1</translation>
     </message>
-    <!-- OS:Fan:ComponentModel -->
+    
     <message>
         <source>Normalized Belt Efficiency Curve Name - Region 2</source>
         <translation>Normalleştirilmiş Kayış Verimliliği Eğrisi Adı - Bölge 2</translation>
     </message>
-    <!-- OS:Fan:ComponentModel -->
+    
     <message>
         <source>Normalized Belt Efficiency Curve Name - Region 3</source>
         <translation>Normalized Belt Efficiency Curve Name - Region 3</translation>
     </message>
-    <!-- OS:HeatPump:AirToWater:FuelFired:Cooling, OS:HeatPump:AirToWater:FuelFired:Heating -->
+    
     <message>
         <source>Normalized Capacity Function of Temperature Curve Name</source>
         <translation>Sıcaklık Eğrisi Adı İçin Normalize Edilmiş Kapasite Fonksiyonu</translation>
     </message>
-    <!-- OS:HeatPump:AirToWater:Cooling:SpeedData -->
+    
     <message>
         <source>Normalized Cooling Capacity Function of Temperature Curve Name</source>
         <translation>Sıcaklığa Bağlı Normalleştirilmiş Soğutma Kapasitesi Fonksiyonu Eğri Adı</translation>
     </message>
-    <!-- OS:Fan:ComponentModel -->
+    
     <message>
         <source>Normalized Dimensionless Airflow Curve Name-Non-Stall Region</source>
         <translation>Normalleştirilmiş Boyutsuz Hava Akışı Eğrisi Adı-Stall Olmayan Bölge</translation>
     </message>
-    <!-- OS:Fan:ComponentModel -->
+    
     <message>
         <source>Normalized Dimensionless Airflow Curve Name-Stall Region</source>
         <translation>Normalize Edilmiş Boyutsuz Hava Akışı Eğrisi Adı-Kütleme Bölgesi</translation>
     </message>
-    <!-- OS:Fan:ComponentModel -->
+    
     <message>
         <source>Normalized Fan Static Efficiency Curve Name-Non-Stall Region</source>
         <translation>Normalized Fan Static Efficiency Curve Name-Non-Stall Region</translation>
     </message>
-    <!-- OS:Fan:ComponentModel -->
+    
     <message>
         <source>Normalized Fan Static Efficiency Curve Name-Stall Region</source>
         <translation>Normalize Edilmiş Fan Statik Verim Eğrisi Adı-Stol Bölgesi</translation>
     </message>
-    <!-- OS:HeatPump:AirToWater:Heating:SpeedData -->
+    
     <message>
         <source>Normalized Heating Capacity Function of Temperature Curve Name</source>
         <translation>Normalize Edilmiş Isıtma Kapasitesi Sıcaklık Fonksiyonu Eğrisi Adı</translation>
     </message>
-    <!-- OS:Fan:ComponentModel -->
+    
     <message>
         <source>Normalized Motor Efficiency Curve Name</source>
         <translation>Normalleştirilmiş Motor Verimlilik Eğrisi Adı</translation>
     </message>
-    <!-- OS:Building -->
+    
     <message>
         <source>North Axis</source>
         <translation>Kuzey Ekseni</translation>
     </message>
-    <!-- OS:Site:GroundTemperature:Deep -->
+    
     <message>
         <source>November Deep Ground Temperature</source>
         <translation>Kasım Derin Yer Sıcaklığı</translation>
     </message>
-    <!-- OS:Site:GroundReflectance -->
+    
     <message>
         <source>November Ground Reflectance</source>
         <translation>November Zemin Yansıtabilirliği</translation>
     </message>
-    <!-- OS:Site:GroundTemperature:BuildingSurface, OS:Site:GroundTemperature:FCfactorMethod -->
+    
     <message>
         <source>November Ground Temperature</source>
         <translation>Kasım Yer Sıcaklığı</translation>
     </message>
-    <!-- OS:Site:GroundTemperature:Shallow -->
+    
     <message>
         <source>November Surface Ground Temperature</source>
         <translation>Kasım Yüzey Yer Sıcaklığı</translation>
     </message>
-    <!-- OS:UtilityCost:Variable -->
+    
     <message>
         <source>November Value</source>
         <translation>Kasım Değeri</translation>
     </message>
-    <!-- OS:FuelFactors -->
+    
     <message>
         <source>NOx Emission Factor</source>
         <translation>NOx Emisyon Faktörü</translation>
     </message>
-    <!-- OS:FuelFactors -->
+    
     <message>
         <source>NOx Emission Factor Schedule Name</source>
         <translation>NOx Emisyon Faktörü Çizelgesi Adı</translation>
     </message>
-    <!-- OS:FuelFactors -->
+    
     <message>
         <source>Nuclear High Level Emission Factor</source>
         <translation>Nuclear High Level Emission Factor</translation>
     </message>
-    <!-- OS:FuelFactors -->
+    
     <message>
         <source>Nuclear High Level Emission Factor Schedule Name</source>
         <translation>Nuclear Yüksek Seviye Emisyon Faktörü Zamanlama Adı</translation>
     </message>
-    <!-- OS:FuelFactors -->
+    
     <message>
         <source>Nuclear Low Level Emission Factor</source>
         <translation>Nükleer Düşük Seviye Emisyon Faktörü</translation>
     </message>
-    <!-- OS:FuelFactors -->
+    
     <message>
         <source>Nuclear Low Level Emission Factor Schedule Name</source>
         <translation>Nuclear Low Level Emission Factor Schedule Name</translation>
     </message>
-    <!-- OS:WaterHeater:Sizing -->
+    
     <message>
         <source>Number of Bathrooms</source>
         <translation>Banyo Sayısı</translation>
     </message>
-    <!-- OS:AirTerminal:SingleDuct:ConstantVolume:CooledBeam -->
+    
     <message>
         <source>Number of Beams</source>
         <translation>Işın Sayısı</translation>
     </message>
-    <!-- OS:WaterHeater:Sizing -->
+    
     <message>
         <source>Number of Bedrooms</source>
         <translation>Yatak Odası Sayısı</translation>
     </message>
-    <!-- OS:Generator:WindTurbine -->
+    
     <message>
         <source>Number of Blades</source>
         <translation>Kanat Sayısı</translation>
     </message>
-    <!-- OS:GroundHeatExchanger:Vertical -->
+    
     <message>
         <source>Number of Bore Holes</source>
         <translation>Sondaj Deliği Sayısı</translation>
     </message>
-    <!-- OS:Coil:Cooling:DX:TwoStageWithHumidityControlMode -->
+    
     <message>
         <source>Number of Capacity Stages</source>
         <translation>Kapasite Kademesi Sayısı</translation>
     </message>
-    <!-- OS:CoolingTower:SingleSpeed, OS:CoolingTower:TwoSpeed, OS:CoolingTower:VariableSpeed -->
+    
     <message>
         <source>Number of Cells</source>
         <translation>Hücre Sayısı</translation>
     </message>
-    <!-- OS:PhotovoltaicPerformance:Sandia -->
+    
     <message>
         <source>Number of Cells in Parallel</source>
         <translation>Paralel Hücre Sayısı</translation>
     </message>
-    <!-- OS:ElectricLoadCenter:Storage:LiIonNMCBattery, OS:PhotovoltaicPerformance:EquivalentOneDiode, OS:PhotovoltaicPerformance:Sandia -->
+    
     <message>
         <source>Number of Cells in Series</source>
         <translation>Seri Bağlantılı Hücre Sayısı</translation>
     </message>
-    <!-- OS:CentralHeatPumpSystem:Module -->
+    
     <message>
         <source>Number of Chiller Heater Modules</source>
         <translation>Soğutucu Isıtıcı Modül Sayısı</translation>
     </message>
-    <!-- OS:ZoneHVAC:LowTemperatureRadiant:ConstantFlow, OS:ZoneHVAC:LowTemperatureRadiant:VariableFlow -->
+    
     <message>
         <source>Number of Circuits</source>
         <translation>Devre Sayısı</translation>
     </message>
-    <!-- OS:Generator:FuelSupply -->
+    
     <message>
         <source>Number of Constituents in Gaseous Constituent Fuel Supply</source>
         <translation>Gazlı Yakıt Kaynağında Bileşenlerin Sayısı</translation>
     </message>
-    <!-- OS:ZoneControl:Thermostat:StagedDualSetpoint -->
+    
     <message>
         <source>Number of Cooling Stages</source>
         <translation>Soğutma Kademelerinin Sayısı</translation>
     </message>
-    <!-- OS:SolarCollectorPerformance:IntegralCollectorStorage -->
+    
     <message>
         <source>Number of Covers</source>
         <translation>Kapak Sayısı</translation>
     </message>
-    <!-- OS:Daylighting:Control -->
+    
     <message>
         <source>Number of Daylighting Views</source>
         <translation>Daylighting Görüş Sayısı</translation>
     </message>
-    <!-- OS:UtilityBill -->
+    
     <message>
         <source>Number of Days in Billing Period</source>
         <translation>Faturalandırma Dönemindeki Gün Sayısı</translation>
     </message>
-    <!-- OS:Refrigeration:Case -->
+    
     <message>
         <source>Number Of Doors</source>
         <translation>Kapı Sayısı</translation>
     </message>
-    <!-- OS:Coil:Cooling:DX:TwoStageWithHumidityControlMode -->
+    
     <message>
         <source>Number of Enhanced Dehumidification Modes</source>
         <translation>Geliştirilmiş Nem Giderme Modları Sayısı</translation>
     </message>
-    <!-- OS:WindowMaterial:GasMixture -->
+    
     <message>
         <source>Number of Gases in Mixture</source>
         <translation>Karışımdaki Gaz Sayısı</translation>
     </message>
-    <!-- OS:Glare:Sensor -->
+    
     <message>
         <source>Number of Glare View Vectors</source>
         <translation>Parlama Görüş Vektörü Sayısı</translation>
     </message>
-    <!-- OS:ZoneControl:Thermostat:StagedDualSetpoint -->
+    
     <message>
         <source>Number of Heating Stages</source>
         <translation>Isıtma Aşamaları Sayısı</translation>
     </message>
-    <!-- OS:WindowProperty:FrameAndDivider -->
+    
     <message>
         <source>Number of Horizontal Dividers</source>
         <translation>Yatay Bölücü Sayısı</translation>
     </message>
-    <!-- OS:Schedule:File -->
+    
     <message>
         <source>Number of Hours of Data</source>
         <translation>Veri Saat Sayısı</translation>
     </message>
-    <!-- OS:Table:MultiVariableLookup -->
+    
     <message>
         <source>Number of Independent Variables</source>
         <translation>Bağımsız Değişkenlerin Sayısı</translation>
     </message>
-    <!-- OS:Table:MultiVariableLookup -->
+    
     <message>
         <source>Number of Interpolation Points</source>
         <translation>İnterpolasyon Noktalarının Sayısı</translation>
     </message>
-    <!-- OS:Generator:Photovoltaic -->
+    
     <message>
         <source>Number of Modules in Parallel</source>
         <translation>Paralel Bağlı Modül Sayısı</translation>
     </message>
-    <!-- OS:Generator:Photovoltaic -->
+    
     <message>
         <source>Number of Modules in Series</source>
         <translation>Seri Bağlı Modül Sayısı</translation>
     </message>
-    <!-- OS:UtilityCost:Qualify -->
+    
     <message>
         <source>Number of Months</source>
         <translation>Ay Sayısı</translation>
     </message>
-    <!-- OS:AvailabilityManager:OptimumStart -->
+    
     <message>
         <source>Number of Previous Days</source>
         <translation>Önceki Gün Sayısı</translation>
     </message>
-    <!-- OS:HeaderedPumps:ConstantSpeed, OS:HeaderedPumps:VariableSpeed -->
+    
     <message>
         <source>Number of Pumps in Bank</source>
         <translation>Banktaki Pompa Sayısı</translation>
     </message>
-    <!-- OS:Refrigeration:SecondarySystem -->
+    
     <message>
         <source>Number of Pumps in Loop</source>
         <translation>Döngüdeki Pompa Sayısı</translation>
     </message>
-    <!-- OS:Generator:FuelCell:PowerModule -->
+    
     <message>
         <source>Number of Run Hours at Beginning of Simulation</source>
         <translation>Simülasyonun Başlangıcındaki Çalışma Saati Sayısı</translation>
     </message>
-    <!-- OS:AirLoopHVAC:UnitaryHeatPump:AirToAir:MultiSpeed -->
+    
     <message>
         <source>Number of Speeds for Cooling</source>
         <translation>Soğutma için Hız Sayısı</translation>
     </message>
-    <!-- OS:AirLoopHVAC:UnitaryHeatPump:AirToAir:MultiSpeed -->
+    
     <message>
         <source>Number of Speeds for Heating</source>
         <translation>Isıtma için Hız Sayısı</translation>
     </message>
-    <!-- OS:Daylighting:Control -->
+    
     <message>
         <source>Number of Stepped Control Steps</source>
         <translation>Adımlandırılmış Kontrol Adım Sayısı</translation>
     </message>
-    <!-- OS:Generator:FuelCell:PowerModule -->
+    
     <message>
         <source>Number of Stops at Start of Simulation</source>
         <translation>Simülasyonun Başında Durak Sayısı</translation>
     </message>
-    <!-- OS:ElectricLoadCenter:Storage:LiIonNMCBattery -->
+    
     <message>
         <source>Number of Strings in Parallel</source>
         <translation>Paralel Dizilerin Sayısı</translation>
     </message>
-    <!-- OS:ProgramControl -->
+    
     <message>
         <source>Number of Threads Allowed</source>
         <translation>İzin Verilen İş Parçacığı Sayısı</translation>
     </message>
-    <!-- OS:RunPeriod -->
+    
     <message>
         <source>Number of Times Runperiod to be Repeated</source>
         <translation>Koşu Döneminin Kaç Kez Tekrarlanacağının Sayısı</translation>
     </message>
-    <!-- OS:Timestep -->
+    
     <message>
         <source>Number of Timesteps per Hour</source>
         <translation>Saat Başına Zaman Adımı Sayısı</translation>
     </message>
-    <!-- OS:EnergyManagementSystem:TrendVariable, OS:PythonPlugin:TrendVariable -->
+    
     <message>
         <source>Number of Timesteps to be Logged</source>
         <translation>Kaydedilecek Zaman Adımı Sayısı</translation>
     </message>
-    <!-- OS:GroundHeatExchanger:HorizontalTrench -->
+    
     <message>
         <source>Number of Trenches</source>
         <translation>Hendek Sayısı</translation>
     </message>
-    <!-- OS:WaterHeater:Sizing -->
+    
     <message>
         <source>Number of Units</source>
         <translation>Birim Sayısı</translation>
     </message>
-    <!-- OS:Generator:FuelCell:AirSupply -->
+    
     <message>
         <source>Number of UserDefined Constituents</source>
         <translation>Kullanıcı Tanımlı Bileşen Sayısı</translation>
     </message>
-    <!-- OS:WindowProperty:FrameAndDivider -->
+    
     <message>
         <source>Number of Vertical Dividers</source>
         <translation>Dikey Bölücü Sayısı</translation>
     </message>
-    <!-- OS:InteriorPartitionSurface, OS:ShadingSurface, OS:SubSurface, OS:Surface -->
+    
     <message>
         <source>Number of Vertices</source>
         <translation>Köşe Sayısı</translation>
     </message>
-    <!-- OS:IlluminanceMap -->
+    
     <message>
         <source>Number of X Grid Points</source>
         <translation>X Izgara Noktası Sayısı</translation>
     </message>
-    <!-- OS:IlluminanceMap -->
+    
     <message>
         <source>Number of Y Grid Points</source>
         <translation>Y Izgarası Nokta Sayısı</translation>
     </message>
-    <!-- OS:ScheduleTypeLimits -->
+    
     <message>
         <source>Numeric Type</source>
         <translation>Sayısal Tip</translation>
     </message>
 
-    <!-- O -->
-    <!-- OS:AdditionalProperties -->
+    
+    
     <message>
         <source>Object Name</source>
         <translation>Nesne Adı</translation>
     </message>
-    <!-- OS:AirflowNetworkOccupantVentilationControl -->
+    
     <message>
         <source>Occupancy Check</source>
         <translation>İşgal Kontrolü</translation>
     </message>
-    <!-- OS:Sizing:System -->
+    
     <message>
         <source>Occupant Diversity</source>
         <translation>Kullanıcı Çeşitliliği</translation>
     </message>
-    <!-- OS:AirflowNetworkSurface, OS:AirflowNetworkZone -->
+    
     <message>
         <source>Occupant Ventilation Control Name</source>
         <translation>Kullanıcı Havalandırma Kontrolü Adı</translation>
     </message>
-    <!-- OS:Site:GroundTemperature:Deep -->
+    
     <message>
         <source>October Deep Ground Temperature</source>
         <translation>Ekim Derin Yer Sıcaklığı</translation>
     </message>
-    <!-- OS:Site:GroundReflectance -->
+    
     <message>
         <source>October Ground Reflectance</source>
         <translation>Ekim Yer Yansıtıcılığı</translation>
     </message>
-    <!-- OS:Site:GroundTemperature:BuildingSurface, OS:Site:GroundTemperature:FCfactorMethod -->
+    
     <message>
         <source>October Ground Temperature</source>
         <translation>Ekim Yer Sıcaklığı</translation>
     </message>
-    <!-- OS:Site:GroundTemperature:Shallow -->
+    
     <message>
         <source>October Surface Ground Temperature</source>
         <translation>Ekim Yüzey Yer Sıcaklığı</translation>
     </message>
-    <!-- OS:UtilityCost:Variable -->
+    
     <message>
         <source>October Value</source>
         <translation>Ekim Değeri</translation>
     </message>
-    <!-- OS:WaterHeater:Stratified -->
+    
     <message>
         <source>Off Cycle Flue Loss Coefficient to Ambient Temperature</source>
         <translation>Kapalı Döngü Baca Kaybı Katsayısı Ortam Sıcaklığına</translation>
     </message>
-    <!-- OS:WaterHeater:Stratified -->
+    
     <message>
         <source>Off Cycle Flue Loss Fraction to Zone</source>
         <translation>Kapalı Dönem Baca Kaybı Fraksiyonu Bölgeye</translation>
     </message>
-    <!-- OS:WaterHeater:Mixed -->
+    
     <message>
         <source>Off Cycle Loss Fraction to Thermal Zone</source>
         <translation>Dönem Dışı Kayıp Oranı Isıl Bölgeye</translation>
     </message>
-    <!-- OS:WaterHeater:HeatPump, OS:WaterHeater:HeatPump:WrappedCondenser -->
+    
     <message>
         <source>Off Cycle Parasitic Electric Load</source>
         <translation>Off Cycle Parasitic Electric Load</translation>
     </message>
-    <!-- OS:WaterHeater:Stratified -->
+    
     <message>
         <source>Off Cycle Parasitic Height</source>
         <translation>Off Cycle Parasitic Height</translation>
     </message>
-    <!-- OS:Coil:WaterHeating:Desuperheater, OS:ZoneHVAC:Dehumidifier:DX -->
+    
     <message>
         <source>Off-Cycle Parasitic Electric Load</source>
         <translation>Off-Cycle Parasitic Elektrik Yükü</translation>
     </message>
-    <!-- OS:UtilityCost:Ratchet -->
+    
     <message>
         <source>Offset Value or Variable Name</source>
         <translation>Offset Değeri veya Değişken Adı</translation>
     </message>
-    <!-- OS:Chiller:Electric:ASHRAE205 -->
+    
     <message>
         <source>Oil Cooler Design Flow Rate</source>
         <translation>Yağ Soğutucusu Tasarım Akış Hızı</translation>
     </message>
-    <!-- OS:Chiller:Electric:ASHRAE205 -->
+    
     <message>
         <source>Oil Cooler Inlet Node Name</source>
         <translation>Yağ Soğutucusu Giriş Düğümü Adı</translation>
     </message>
-    <!-- OS:Chiller:Electric:ASHRAE205 -->
+    
     <message>
         <source>Oil Cooler Outlet Node Name</source>
         <translation>Yağ Soğutucu Çıkış Düğümü Adı</translation>
     </message>
-    <!-- OS:WaterHeater:Mixed -->
+    
     <message>
         <source>On Cycle Loss Fraction to Thermal Zone</source>
         <translation>Çevrim Sırasında Kaybedilen Isı Bölgesine Giden Fraksiyon</translation>
     </message>
-    <!-- OS:WaterHeater:Stratified -->
+    
     <message>
         <source>On Cycle Parasitic Height</source>
         <translation>Çalışma Döngüsü Parazit Yüksekliği</translation>
     </message>
-    <!-- OS:Coil:WaterHeating:Desuperheater -->
+    
     <message>
         <source>On-Cycle Parasitic Electric Load</source>
         <translation>Çalışma Döngüsü Parazitik Elektrik Yükü</translation>
     </message>
-    <!-- OS:PhotovoltaicPerformance:EquivalentOneDiode, OS:PhotovoltaicPerformance:Sandia -->
+    
     <message>
         <source>Open Circuit Voltage</source>
         <translation>Açık Devre Gerilimi</translation>
     </message>
-    <!-- OS:ZoneVentilation:WindandStackOpenArea -->
+    
     <message>
         <source>Opening Area</source>
         <translation>Açıklık Alanı</translation>
     </message>
-    <!-- OS:ZoneVentilation:WindandStackOpenArea -->
+    
     <message>
         <source>Opening Area Fraction Schedule Name</source>
         <translation>Açılış Alanı Oranı Çizelgesi Adı</translation>
     </message>
-    <!-- OS:ZoneVentilation:WindandStackOpenArea -->
+    
     <message>
         <source>Opening Effectiveness</source>
         <translation>Açıklık Etkinliği</translation>
     </message>
-    <!-- OS:AirflowNetworkDetailedOpening -->
+    
     <message>
         <source>Opening Factor</source>
         <translation>Açıklık Faktörü</translation>
     </message>
-    <!-- OS:AvailabilityManager:HybridVentilation -->
+    
     <message>
         <source>Opening Factor Function of Wind Speed Curve</source>
         <translation>Rüzgar Hızı Eğrisine Göre Açılma Faktörü Fonksiyonu</translation>
     </message>
-    <!-- OS:AirflowNetworkOccupantVentilationControl -->
+    
     <message>
         <source>Opening Probability Schedule Name</source>
         <translation>Açılma Olasılığı Çizelgesi Adı</translation>
     </message>
-    <!-- OS:DefaultSubSurfaceConstructions -->
+    
     <message>
         <source>Operable Window Construction Name</source>
         <translation>Açılabilir Pencere İnşaat Adı</translation>
     </message>
-    <!-- OS:Refrigeration:Case -->
+    
     <message>
         <source>Operating Case Fan Power per Door</source>
         <translation>Kapı Başına Çalışan Kasa Fan Gücü</translation>
     </message>
-    <!-- OS:Refrigeration:Case -->
+    
     <message>
         <source>Operating Case Fan Power per Unit Length</source>
         <translation>İşletim Durumunda Birim Uzunluk Başına Fan Gücü</translation>
     </message>
-    <!-- OS:Coil:Cooling:DX:SingleSpeed:ThermalStorage, OS:HeatPump:AirToWater -->
+    
     <message>
         <source>Operating Mode Control Method</source>
         <translation>İşletme Modu Kontrol Yöntemi</translation>
     </message>
-    <!-- OS:HeatPump:AirToWater -->
+    
     <message>
         <source>Operating Mode Control Option for Multiple Unit</source>
         <translation>Çoklu Ünite için İşletim Modu Kontrol Seçeneği</translation>
     </message>
-    <!-- OS:HeatPump:AirToWater -->
+    
     <message>
         <source>Operating Mode Control Schedule Name</source>
         <translation>İşletme Modu Kontrol Programı Adı</translation>
     </message>
-    <!-- OS:Refrigeration:WalkIn -->
+    
     <message>
         <source>Operating Temperature</source>
         <translation>İşletme Sıcaklığı</translation>
     </message>
-    <!-- OS:HeatExchanger:FluidToFluid -->
+    
     <message>
         <source>Operation Maximum Temperature Limit</source>
         <translation>İşletme Maksimum Sıcaklık Limiti</translation>
     </message>
-    <!-- OS:HeatExchanger:FluidToFluid -->
+    
     <message>
         <source>Operation Minimum Temperature Limit</source>
         <translation>İşletme Minimum Sıcaklık Sınırı</translation>
     </message>
-    <!-- OS:Coil:Cooling:DX:SingleSpeed:ThermalStorage -->
+    
     <message>
         <source>Operation Mode Control Schedule</source>
         <translation>Operasyon Modu Kontrol Programı</translation>
     </message>
-    <!-- OS:WindowMaterial:GlazingGroup:Thermochromic -->
+    
     <message>
         <source>Optical Data Temperature</source>
         <translation>Optik Veri Sıcaklığı</translation>
     </message>
-    <!-- OS:WindowMaterial:Glazing -->
+    
     <message>
         <source>Optical Data Type</source>
         <translation>Optik Veri Türü</translation>
     </message>
-    <!-- OS:PlantComponent:UserDefined -->
+    
     <message>
         <source>Optimal Loading Capacity Actuator</source>
         <translation>Optimal Loading Capacity Actuator</translation>
     </message>
-    <!-- OS:Output:JSON, OS:Output:SQLite -->
+    
     <message>
         <source>Option Type</source>
         <translation>Seçenek Türü</translation>
     </message>
-    <!-- OS:ExternalInterface:Actuator -->
+    
     <message>
         <source>Optional Initial Value</source>
         <translation>İsteğe Bağlı İlk Değer</translation>
     </message>
-    <!-- OS:IlluminanceMap -->
+    
     <message>
         <source>Origin X-Coordinate</source>
         <translation>Origin X-Koordinatı</translation>
     </message>
-    <!-- OS:IlluminanceMap -->
+    
     <message>
         <source>Origin Y-Coordinate</source>
         <translation>Origin Y-Koordinatı</translation>
     </message>
-    <!-- OS:IlluminanceMap -->
+    
     <message>
         <source>Origin Z-Coordinate</source>
         <translation>Origin Z Koordinatı</translation>
     </message>
-    <!-- OS:OtherEquipment -->
+    
     <message>
         <source>Other Equipment Definition Name</source>
         <translation>Diğer Ekipman Tanımı Adı</translation>
     </message>
-    <!-- OS:StandardsInformation:Construction -->
+    
     <message>
         <source>Other Perturbable Layer Type</source>
         <translation>Diğer Bozulabilir Katman Türü</translation>
     </message>
-    <!-- OS:LifeCycleCost:Parameters -->
+    
     <message>
         <source>OtherFuel1 Inflation</source>
         <translation>OtherFuel1 Enflasyonu</translation>
     </message>
-    <!-- OS:LifeCycleCost:Parameters -->
+    
     <message>
         <source>OtherFuel2 Inflation</source>
         <translation>OtherFuel2 Enflasyonu</translation>
     </message>
-    <!-- OS:Schedule:FixedInterval, OS:Schedule:VariableInterval -->
+    
     <message>
         <source>Out Of Range Value</source>
         <translation>Aralık Dışı Değer</translation>
     </message>
-    <!-- OS:ZoneHVAC:UnitVentilator -->
+    
     <message>
         <source>Outdoor Air Control Type</source>
         <translation>Dış Hava Kontrol Türü</translation>
     </message>
-    <!-- OS:ZoneHVAC:IdealLoadsAirSystem -->
+    
     <message>
         <source>Outdoor Air Economizer Type</source>
         <translation>Dış Hava Ekonomizör Türü</translation>
     </message>
-    <!-- OS:AirLoopHVAC:OutdoorAirSystem -->
+    
     <message>
         <source>Outdoor Air Equipment List Name</source>
         <translation>Dış Hava Ekipmanı Listesi Adı</translation>
     </message>
-    <!-- OS:AirLoopHVAC:UnitaryHeatCool:VAVChangeoverBypass -->
+    
     <message>
         <source>Outdoor Air Flow Rate Multiplier Schedule</source>
         <translation>Dış Hava Akış Hızı Çarpanı Programı</translation>
     </message>
-    <!-- OS:AirTerminal:DualDuct:VAV:OutdoorAir, OS:CoolingTower:VariableSpeed, OS:FluidCooler:SingleSpeed, OS:FluidCooler:TwoSpeed -->
+    
     <message>
         <source>Outdoor Air Inlet Node</source>
         <translation>Dış Hava Giriş Düğümü</translation>
     </message>
-    <!-- OS:CoolingTower:SingleSpeed, OS:CoolingTower:TwoSpeed, OS:EvaporativeFluidCooler:SingleSpeed, OS:EvaporativeFluidCooler:TwoSpeed, OS:ZoneHVAC:EvaporativeCoolerUnit -->
+    
     <message>
         <source>Outdoor Air Inlet Node Name</source>
         <translation>Dış Hava Giriş Düğümü Adı</translation>
     </message>
-    <!-- OS:AirLoopHVAC:UnitaryHeatCool:VAVChangeoverBypass -->
+    
     <message>
         <source>Outdoor Air Mixer</source>
         <translation>Dış Hava Karıştırıcısı</translation>
     </message>
-    <!-- OS:ZoneHVAC:FourPipeFanCoil, OS:ZoneHVAC:PackagedTerminalAirConditioner, OS:ZoneHVAC:PackagedTerminalHeatPump, OS:ZoneHVAC:WaterToAirHeatPump -->
+    
     <message>
         <source>Outdoor Air Mixer Name</source>
         <translation>Dış Hava Mikseri Adı</translation>
     </message>
-    <!-- OS:ZoneHVAC:FourPipeFanCoil, OS:ZoneHVAC:PackagedTerminalAirConditioner, OS:ZoneHVAC:PackagedTerminalHeatPump -->
+    
     <message>
         <source>Outdoor Air Mixer Object Type</source>
         <translation>Dış Hava Karıştırıcı Nesne Türü</translation>
     </message>
-    <!-- OS:WaterHeater:HeatPump -->
+    
     <message>
         <source>Outdoor Air Node</source>
         <translation>Dış Hava Düğümü</translation>
     </message>
-    <!-- OS:SurfaceProperty:LocalEnvironment, OS:WaterHeater:HeatPump:WrappedCondenser -->
+    
     <message>
         <source>Outdoor Air Node Name</source>
         <translation>Dış Hava Düğüm Adı</translation>
     </message>
-    <!-- OS:ZoneHVAC:FourPipeFanCoil -->
+    
     <message>
         <source>Outdoor Air Schedule Name</source>
         <translation>Dış Hava Program Adı</translation>
     </message>
-    <!-- OS:AirLoopHVAC:OutdoorAirSystem, OS:SetpointManager:OutdoorAirPretreat -->
+    
     <message>
         <source>Outdoor Air Stream Node Name</source>
         <translation>Dış Hava Akışı Düğüm Adı</translation>
     </message>
-    <!-- OS:AirLoopHVAC:DedicatedOutdoorAirSystem -->
+    
     <message>
         <source>Outdoor Air System</source>
         <translation>Dış Hava Sistemi</translation>
     </message>
-    <!-- OS:HeatPump:AirToWater:FuelFired:Cooling, OS:HeatPump:AirToWater:FuelFired:Heating -->
+    
     <message>
         <source>Outdoor Air Temperature Curve Input Variable</source>
         <translation>Dış Hava Sıcaklığı Eğrisi Giriş Değişkeni</translation>
     </message>
-    <!-- OS:ZoneAirContaminantBalance -->
+    
     <message>
         <source>Outdoor Carbon Dioxide Schedule Name</source>
         <translation>Dış Ortam Karbon Dioksit Planı Adı</translation>
     </message>
-    <!-- OS:AirLoopHVAC:UnitarySystem, OS:ZoneHVAC:WaterToAirHeatPump -->
+    
     <message>
         <source>Outdoor Dry-Bulb Temperature Sensor Node Name</source>
         <translation>Dış Ortam Kuru Termometre Sıcaklığı Sensörü Düğüm Adı</translation>
     </message>
-    <!-- OS:Coil:Heating:DX:MultiSpeed, OS:Coil:Heating:DX:VariableSpeed -->
+    
     <message>
         <source>Outdoor Dry-Bulb Temperature to Turn On Compressor</source>
         <translation>Kompresörü Açmak için Dış Kuru Bulb Sıcaklığı</translation>
     </message>
-    <!-- OS:SetpointManager:OutdoorAirReset -->
+    
     <message>
         <source>Outdoor High Temperature</source>
         <translation>Dış Ortam Yüksek Sıcaklığı</translation>
     </message>
-    <!-- OS:SetpointManager:OutdoorAirReset -->
+    
     <message>
         <source>Outdoor High Temperature 2</source>
         <translation>Dış Ortam Yüksek Sıcaklık 2</translation>
     </message>
-    <!-- OS:SetpointManager:OutdoorAirReset -->
+    
     <message>
         <source>Outdoor Low Temperature</source>
         <translation>Dış Ortam Düşük Sıcaklığı</translation>
     </message>
-    <!-- OS:SetpointManager:OutdoorAirReset -->
+    
     <message>
         <source>Outdoor Low Temperature 2</source>
         <translation>Dış Ortam Düşük Sıcaklık 2</translation>
     </message>
-    <!-- OS:AirConditioner:VariableRefrigerantFlow:FluidTemperatureControl:HR -->
+    
     <message>
         <source>Outdoor Unit Condenser Rated Bypass Factor</source>
         <translation>Dış Ünite Kondenser Nominal Bypass Faktörü</translation>
     </message>
-    <!-- OS:AirConditioner:VariableRefrigerantFlow:FluidTemperatureControl:HR -->
+    
     <message>
         <source>Outdoor Unit Condenser Reference Subcooling</source>
         <translation>Dış Ünite Kondenser Referans Alt Soğutması</translation>
     </message>
-    <!-- OS:AirConditioner:VariableRefrigerantFlow:FluidTemperatureControl, OS:AirConditioner:VariableRefrigerantFlow:FluidTemperatureControl:HR -->
+    
     <message>
         <source>Outdoor Unit Condensing Temperature Function of Subcooling Curve Name</source>
         <translation>Outdoor Unit Kondenzasyon Sıcaklığı, Aşırı Soğutma Eğrisi Adının Fonksiyonu</translation>
     </message>
-    <!-- OS:AirConditioner:VariableRefrigerantFlow:FluidTemperatureControl, OS:AirConditioner:VariableRefrigerantFlow:FluidTemperatureControl:HR -->
+    
     <message>
         <source>Outdoor Unit Evaporating Temperature Function of Superheating Curve Name</source>
         <translation>Dış Ünite Buharlaşma Sıcaklığı Aşırı Isıtma Eğrisi Adı İşlevi</translation>
     </message>
-    <!-- OS:AirConditioner:VariableRefrigerantFlow:FluidTemperatureControl:HR -->
+    
     <message>
         <source>Outdoor Unit Evaporator Rated Bypass Factor</source>
         <translation>Outdoor Unit Evaporator Rated Bypass Factor</translation>
     </message>
-    <!-- OS:AirConditioner:VariableRefrigerantFlow:FluidTemperatureControl:HR -->
+    
     <message>
         <source>Outdoor Unit Evaporator Reference Superheating</source>
         <translation>Dış Ünite Buharlaştırıcı Referans Kızılötesi Üstünü Isıtma</translation>
     </message>
-    <!-- OS:AirConditioner:VariableRefrigerantFlow:FluidTemperatureControl, OS:AirConditioner:VariableRefrigerantFlow:FluidTemperatureControl:HR -->
+    
     <message>
         <source>Outdoor Unit Fan Flow Rate Per Unit of Rated Evaporative Capacity</source>
         <translation>Rated Buharlaştırıcı Kapasitesi Başına Açık Hava Ünitesi Fan Akış Hızı</translation>
     </message>
-    <!-- OS:AirConditioner:VariableRefrigerantFlow:FluidTemperatureControl, OS:AirConditioner:VariableRefrigerantFlow:FluidTemperatureControl:HR -->
+    
     <message>
         <source>Outdoor Unit Fan Power Per Unit of Rated Evaporative Capacity</source>
         <translation>Dış Ünite Fan Gücü / Nominal Buharlaştırma Kapasitesi Birimi</translation>
     </message>
-    <!-- OS:AirConditioner:VariableRefrigerantFlow:FluidTemperatureControl:HR -->
+    
     <message>
         <source>Outdoor Unit Heat Exchanger Capacity Ratio</source>
         <translation>Açık Alan Ünite Isı Değiştiricisi Kapasite Oranı</translation>
     </message>
-    <!-- OS:Connector:Mixer, OS:Connector:Splitter -->
+    
     <message>
         <source>Outlet Branch Name</source>
         <translation>Çıkış Dalı Adı</translation>
     </message>
-    <!-- OS:Refrigeration:Subcooler:Mechanical -->
+    
     <message>
         <source>Outlet Control Temperature</source>
         <translation>Çıkış Kontrol Sıcaklığı</translation>
     </message>
-    <!-- OS:AirLoopHVAC:ReturnPlenum, OS:AirLoopHVAC:SupplyPlenum, OS:AirTerminal:SingleDuct:SeriesPIU:Reheat, OS:Duct, OS:PlantComponent:TemperatureSource -->
+    
     <message>
         <source>Outlet Node</source>
         <translation>Çıkış Düğümü</translation>
     </message>
-    <!-- OS:AirLoopHVAC:ZoneMixer, OS:AirLoopHVAC:ZoneSplitter, OS:AirTerminal:SingleDuct:ParallelPIU:Reheat, OS:Coil:Heating:Water:Baseboard:Radiant, OS:GroundHeatExchanger:HorizontalTrench, OS:GroundHeatExchanger:Vertical, OS:HeaderedPumps:ConstantSpeed, OS:HeaderedPumps:VariableSpeed, OS:LoadProfile:Plant, OS:Pipe:Adiabatic, OS:Pump:ConstantSpeed, OS:Pump:VariableSpeed, OS:SolarCollector:FlatPlate:PhotovoltaicThermal, OS:SolarCollector:FlatPlate:Water, OS:SolarCollector:IntegralCollectorStorage, OS:Splitter, OS:TemperingValve, OS:ThermalStorage:Ice:Detailed, OS:WaterUse:Connections -->
+    
     <message>
         <source>Outlet Node Name</source>
         <translation>Çıkış Düğümü Adı</translation>
     </message>
-    <!-- OS:Connection, OS:Node -->
+    
     <message>
         <source>Outlet Port</source>
         <translation>Çıkış Portu</translation>
     </message>
-    <!-- OS:PlantComponent:UserDefined -->
+    
     <message>
         <source>Outlet Temperature Actuator</source>
         <translation>Çıkış Sıcaklığı Aktüatörü</translation>
     </message>
-    <!-- OS:OutputControl:Files -->
+    
     <message>
         <source>Output AUDIT</source>
         <translation>Çıktı Denetimi</translation>
     </message>
-    <!-- OS:OutputControl:Files -->
+    
     <message>
         <source>Output BND</source>
         <translation>Çıktı BND</translation>
     </message>
-    <!-- OS:Output:JSON -->
+    
     <message>
         <source>Output CBOR</source>
         <translation>Çıktı CBOR</translation>
     </message>
-    <!-- OS:OutputControl:Files -->
+    
     <message>
         <source>Output CSV</source>
         <translation>Çıktı CSV</translation>
     </message>
-    <!-- OS:OutputControl:Files -->
+    
     <message>
         <source>Output DBG</source>
         <translation>Hata Ayıklama Çıktısı</translation>
     </message>
-    <!-- OS:OutputControl:Files -->
+    
     <message>
         <source>Output DelightDFdmp</source>
         <translation>Output DelightDFdmp</translation>
     </message>
-    <!-- OS:OutputControl:Files -->
+    
     <message>
         <source>Output DelightELdmp</source>
         <translation>Output DelightELdmp</translation>
     </message>
-    <!-- OS:OutputControl:Files -->
+    
     <message>
         <source>Output DelightIn</source>
         <translation>Output DelightIn</translation>
     </message>
-    <!-- OS:OutputControl:Files -->
+    
     <message>
         <source>Output DFS</source>
         <translation>Output DFS</translation>
     </message>
-    <!-- OS:OutputControl:Files -->
+    
     <message>
         <source>Output DXF</source>
         <translation>DXF Çıktısı</translation>
     </message>
-    <!-- OS:OutputControl:Files -->
+    
     <message>
         <source>Output EDD</source>
         <translation>Çıkış EDD</translation>
     </message>
-    <!-- OS:OutputControl:Files -->
+    
     <message>
         <source>Output EIO</source>
         <translation>Çıkış EIO</translation>
     </message>
-    <!-- OS:OutputControl:Files -->
+    
     <message>
         <source>Output ESO</source>
         <translation>Output ESO</translation>
     </message>
-    <!-- OS:ShadowCalculation -->
+    
     <message>
         <source>Output External Shading Calculation Results</source>
         <translation>Dış Gölgeleme Hesaplama Sonuçlarını Çıkar</translation>
     </message>
-    <!-- OS:OutputControl:Files -->
+    
     <message>
         <source>Output ExtShd</source>
         <translation>Çıkış ExtShd</translation>
     </message>
-    <!-- OS:OutputControl:Files -->
+    
     <message>
         <source>Output GLHE</source>
         <translation>Output GLHE</translation>
     </message>
-    <!-- OS:Output:JSON, OS:OutputControl:Files -->
+    
     <message>
         <source>Output JSON</source>
         <translation>Çıkış JSON</translation>
     </message>
-    <!-- OS:OutputControl:Files -->
+    
     <message>
         <source>Output MDD</source>
         <translation>Çıktı MDD</translation>
     </message>
-    <!-- OS:Output:JSON -->
+    
     <message>
         <source>Output MessagePack</source>
         <translation>Çıkış MessagePack</translation>
     </message>
-    <!-- OS:UtilityCost:Tariff -->
+    
     <message>
         <source>Output Meter Name</source>
         <translation>Çıkış Sayacı Adı</translation>
     </message>
-    <!-- OS:OutputControl:Files -->
+    
     <message>
         <source>Output MTD</source>
         <translation>Çıktı MTD</translation>
     </message>
-    <!-- OS:OutputControl:Files -->
+    
     <message>
         <source>Output MTR</source>
         <translation>Çıkış MTR</translation>
     </message>
-    <!-- OS:OutputControl:Files -->
+    
     <message>
         <source>Output PerfLog</source>
         <translation>Çıkış PerfLog</translation>
     </message>
-    <!-- OS:OutputControl:Files -->
+    
     <message>
         <source>Output Plant Component Sizing</source>
         <translation>Çıkış Sistem Bileşeni Boyutlandırma</translation>
     </message>
-    <!-- OS:OutputControl:Files -->
+    
     <message>
         <source>Output RDD</source>
         <translation>Çıktı RDD</translation>
     </message>
-    <!-- OS:OutputControl:Files -->
+    
     <message>
         <source>Output SCI</source>
         <translation>Çıktı SCI</translation>
     </message>
-    <!-- OS:OutputControl:Files -->
+    
     <message>
         <source>Output Screen</source>
         <translation>Çıkış Ekranı</translation>
     </message>
-    <!-- OS:OutputControl:Files -->
+    
     <message>
         <source>Output SHD</source>
         <translation>Çıkış SHD</translation>
     </message>
-    <!-- OS:OutputControl:Files -->
+    
     <message>
         <source>Output SLN</source>
         <translation>Çıktı SLN</translation>
     </message>
-    <!-- OS:OutputControl:Files -->
+    
     <message>
         <source>Output Space Sizing</source>
         <translation>Çıkış Alan Boyutlandırması</translation>
     </message>
-    <!-- OS:OutputControl:Files -->
+    
     <message>
         <source>Output SQLite</source>
         <translation>SQLite Çıktısı</translation>
     </message>
-    <!-- OS:OutputControl:Files -->
+    
     <message>
         <source>Output System Sizing</source>
         <translation>Çıkış Sistemi Boyutlandırması</translation>
     </message>
-    <!-- OS:OutputControl:Files -->
+    
     <message>
         <source>Output Tabular</source>
         <translation>Çıktı Tabuler</translation>
     </message>
-    <!-- OS:OutputControl:Files -->
+    
     <message>
         <source>Output Tarcog</source>
         <translation>Çıktı Tarcog</translation>
     </message>
-    <!-- OS:Curve:Bicubic, OS:Curve:Biquadratic, OS:Curve:Cubic, OS:Curve:DoubleExponentialDecay, OS:Curve:Exponent, OS:Curve:ExponentialDecay, OS:Curve:ExponentialSkewNormal, OS:Curve:Linear, OS:Curve:Quadratic, OS:Curve:QuadraticLinear, OS:Curve:Quartic, OS:Curve:RectangularHyperbola1, OS:Curve:RectangularHyperbola2, OS:Curve:Sigmoid, OS:Curve:Triquadratic, OS:Table:Lookup, OS:Table:MultiVariableLookup -->
+    
     <message>
         <source>Output Unit Type</source>
         <translation>Çıkış Birim Tipi</translation>
     </message>
-    <!-- OS:Table:Lookup -->
+    
     <message>
         <source>Output Value</source>
         <translation>Çıkış Değeri</translation>
     </message>
-    <!-- OS:Meter:Custom, OS:Meter:CustomDecrement -->
+    
     <message>
         <source>Output Variable or Meter Name</source>
         <translation>Çıktı Değişkeni veya Ölçer Adı</translation>
     </message>
-    <!-- OS:EnergyManagementSystem:Sensor -->
+    
     <message>
         <source>Output Variable or Output Meter Index Key Name</source>
         <translation>Çıktı Değişkeni veya Çıktı Ölçer İndeks Anahtar Adı</translation>
     </message>
-    <!-- OS:EnergyManagementSystem:Sensor -->
+    
     <message>
         <source>Output Variable or Output Meter Name</source>
         <translation>Çıkış Değişkeni veya Çıkış Ölçer Adı</translation>
     </message>
-    <!-- OS:OutputControl:Files -->
+    
     <message>
         <source>Output WRL</source>
         <translation>WRL Çıktısı</translation>
     </message>
-    <!-- OS:OutputControl:Files -->
+    
     <message>
         <source>Output Zone Sizing</source>
         <translation>Çıkış Bölgesi Boyutlandırması</translation>
     </message>
-    <!-- OS:ExternalInterface:FunctionalMockupUnitExport:From:Variable, OS:ExternalInterface:FunctionalMockupUnitImport:From:Variable -->
+    
     <message>
         <source>Output:Variable Index Key Name</source>
         <translation>Output:Variable İndeks Anahtar Adı</translation>
     </message>
-    <!-- OS:ExternalInterface:FunctionalMockupUnitExport:From:Variable, OS:ExternalInterface:FunctionalMockupUnitImport:From:Variable -->
+    
     <message>
         <source>Output:Variable Name</source>
         <translation>Çıktı:Değişken Adı</translation>
     </message>
-    <!-- OS:ZoneHVAC:TerminalUnit:VariableRefrigerantFlow -->
+    
     <message>
         <source>Outside Air Mixer</source>
         <translation>Dış Hava Karıştırıcı</translation>
     </message>
-    <!-- OS:Surface -->
+    
     <message>
         <source>Outside Boundary Condition</source>
         <translation>Dış Sınır Koşulu</translation>
     </message>
-    <!-- OS:SubSurface, OS:Surface -->
+    
     <message>
         <source>Outside Boundary Condition Object</source>
         <translation>Dış Sınır Koşulu Nesnesi</translation>
     </message>
-    <!-- OS:AirflowNetworkDuct -->
+    
     <message>
         <source>Outside Convection Coefficient</source>
         <translation>Dış Taraf Konveksiyon Katsayısı</translation>
     </message>
-    <!-- OS:WindowProperty:FrameAndDivider -->
+    
     <message>
         <source>Outside Reveal Depth</source>
         <translation>Dış Çıkıntı Derinliği</translation>
     </message>
-    <!-- OS:WindowProperty:FrameAndDivider -->
+    
     <message>
         <source>Outside Reveal Solar Absorptance</source>
         <translation>Dış Çıkıntı Güneş Emicilik</translation>
     </message>
-    <!-- OS:DaylightingDevice:Shelf -->
+    
     <message>
         <source>Outside Shelf Name</source>
         <translation>Dış Raf Adı</translation>
     </message>
-    <!-- OS:Generator:WindTurbine -->
+    
     <message>
         <source>Overall Height</source>
         <translation>Toplam Yükseklik</translation>
     </message>
-    <!-- OS:Coil:UserDefined -->
+    
     <message>
         <source>Overall Model Simulation Program Calling Manager Name</source>
         <translation>Genel Model Simülasyon Programı Çağrı Yöneticisi Adı</translation>
     </message>
-    <!-- OS:AirflowNetworkDuct -->
+    
     <message>
         <source>Overall Moisture Transmittance Coefficient from Air to Air</source>
         <translation>Havanın Havanın Geçişine Karşı Toplam Nem Geçirgenlik Katsayısı</translation>
     </message>
-    <!-- OS:Coil:UserDefined -->
+    
     <message>
         <source>Overall Simulation Program Name</source>
         <translation>Genel Simülasyon Programı Adı</translation>
     </message>
-    <!-- OS:DefaultSubSurfaceConstructions -->
+    
     <message>
         <source>Overhead Door Construction Name</source>
         <translation>Ek Kapı Yapı Adı</translation>
     </message>
-    <!-- OS:PerformancePrecisionTradeoffs -->
+    
     <message>
         <source>Override Mode</source>
         <translation>Geçersiz Kılma Modu</translation>
     </message>
 
-    <!-- P -->
-    <!-- OS:ThermalStorage:Ice:Detailed -->
+    
+    
     <message>
         <source>Parasitic Electric Load During Charging</source>
         <translation>Şarj Sırasında Parazitik Elektrik Yükü</translation>
     </message>
-    <!-- OS:ThermalStorage:Ice:Detailed -->
+    
     <message>
         <source>Parasitic Electric Load During Discharging</source>
         <translation>Deşarj Sırasında Parazitik Elektrik Yükü</translation>
     </message>
-    <!-- OS:WaterHeater:HeatPump, OS:WaterHeater:HeatPump:WrappedCondenser -->
+    
     <message>
         <source>Parasitic Heat Rejection Location</source>
         <translation>Parazit Isı Atma Konumu</translation>
     </message>
-    <!-- OS:WaterHeater:Mixed -->
+    
     <message>
         <source>Part Load Factor Curve Name</source>
         <translation>Part Load Factor Curve Name</translation>
     </message>
-    <!-- OS:Coil:Cooling:DX:CurveFit:Speed, OS:Coil:Cooling:DX:MultiSpeed:StageData, OS:Coil:Heating:Gas:MultiStage, OS:Coil:WaterHeating:AirToWaterHeatPump, OS:CoilPerformance:DX:Cooling -->
+    
     <message>
         <source>Part Load Fraction Correlation Curve</source>
         <translation>Kısmi Yük Kesir Korelasyon Eğrisi</translation>
     </message>
-    <!-- OS:Space -->
+    
     <message>
         <source>Part of Total Floor Area</source>
         <translation>Toplam Dönem Alanının Bir Kısmı</translation>
     </message>
-    <!-- OS:FuelFactors -->
+    
     <message>
         <source>Pb Emission Factor</source>
         <translation>Pb Emisyon Faktörü</translation>
     </message>
-    <!-- OS:FuelFactors -->
+    
     <message>
         <source>Pb Emission Factor Schedule Name</source>
         <translation>Pb Emisyon Faktörü Programı Adı</translation>
     </message>
-    <!-- OS:UtilityBill -->
+    
     <message>
         <source>Peak Demand Unit</source>
         <translation>Tepe Talep Birimi</translation>
     </message>
-    <!-- OS:MaterialProperty:PhaseChangeHysteresis -->
+    
     <message>
         <source>Peak Freezing Temperature</source>
         <translation>Maksimum Donma Sıcaklığı</translation>
     </message>
-    <!-- OS:MaterialProperty:PhaseChangeHysteresis -->
+    
     <message>
         <source>Peak Melting Temperature</source>
         <translation>Tepe Erime Sıcaklığı</translation>
     </message>
-    <!-- OS:WaterHeater:Mixed, OS:WaterHeater:Stratified -->
+    
     <message>
         <source>Peak Use Flow Rate</source>
         <translation>Tepe Kullanım Akış Hızı</translation>
     </message>
-    <!-- OS:SwimmingPool:Indoor -->
+    
     <message>
         <source>People Heat Gain Schedule</source>
         <translation>İnsanlardan Isı Kazancı Çizelgesi</translation>
     </message>
-    <!-- OS:SwimmingPool:Indoor -->
+    
     <message>
         <source>People Schedule</source>
         <translation>Kişi Programı</translation>
     </message>
-    <!-- OS:AirTerminal:DualDuct:VAV:OutdoorAir, OS:AirTerminal:SingleDuct:InletSideMixer -->
+    
     <message>
         <source>Per Person Ventilation Rate Mode</source>
         <translation>Kişi Başına Havalandırma Hızı Modu</translation>
     </message>
-    <!-- OS:ElectricLoadCenter:Transformer -->
+    
     <message>
         <source>Per Unit Load for Maximum Efficiency</source>
         <translation>Maksimum Verimlilik İçin Birim Başına Yük</translation>
     </message>
-    <!-- OS:ElectricLoadCenter:Transformer -->
+    
     <message>
         <source>Per Unit Load for Nameplate Efficiency</source>
         <translation>Adı Geçen Verim için Birim Başına Yük</translation>
     </message>
-    <!-- OS:Chiller:Electric:ASHRAE205 -->
+    
     <message>
         <source>Performance Interpolation Method</source>
         <translation>Performans İnterpolasyon Yöntemi</translation>
     </message>
-    <!-- OS:Coil:Cooling:DX -->
+    
     <message>
         <source>Performance Object</source>
         <translation>Performans Nesnesi</translation>
     </message>
-    <!-- OS:DaylightingDevice:LightWell -->
+    
     <message>
         <source>Perimeter of Bottom of Well</source>
         <translation>Kuyunun Tabanının Çevresi</translation>
     </message>
-    <!-- OS:Construction:FfactorGroundFloor -->
+    
     <message>
         <source>PerimeterExposed</source>
         <translation>PerimeterExposed</translation>
     </message>
-    <!-- OS:SurfaceProperty:OtherSideCoefficients -->
+    
     <message>
         <source>Period of Sinusoidal Variation</source>
         <translation>Sinüzoidal Değişimin Periyodu</translation>
     </message>
-    <!-- OS:SizingPeriod:WeatherFileConditionType -->
+    
     <message>
         <source>Period Selection</source>
         <translation>Dönem Seçimi</translation>
     </message>
-    <!-- OS:ComponentCost:Adjustments -->
+    
     <message>
         <source>Permits Bonding and Insurance</source>
         <translation>İzinler Teminat ve Sigorta</translation>
     </message>
-    <!-- OS:StandardsInformation:Construction -->
+    
     <message>
         <source>Perturbable Layer</source>
         <translation>Pertürbe Edilebilir Katman</translation>
     </message>
-    <!-- OS:StandardsInformation:Construction -->
+    
     <message>
         <source>Perturbable Layer Type</source>
         <translation>Pertürbasyon Uygulanabilir Katman Türü</translation>
     </message>
-    <!-- OS:ElectricLoadCenter:Transformer -->
+    
     <message>
         <source>Phase</source>
         <translation>Faz</translation>
     </message>
-    <!-- OS:Site:GroundTemperature:Undisturbed:KusudaAchenbach -->
+    
     <message>
         <source>Phase Shift of Minimum Surface Temperature</source>
         <translation>Minimum Surface Temperature Phase Shift</translation>
     </message>
-    <!-- OS:Site:GroundTemperature:Undisturbed:Xing -->
+    
     <message>
         <source>Phase Shift of Temperature Amplitude 1</source>
         <translation>Sıcaklık Genliği 1 Faz Kayması</translation>
     </message>
-    <!-- OS:Site:GroundTemperature:Undisturbed:Xing -->
+    
     <message>
         <source>Phase Shift of Temperature Amplitude 2</source>
         <translation>Sıcaklık Genliği Faz Kayması 2</translation>
     </message>
-    <!-- OS:Refrigeration:SecondarySystem -->
+    
     <message>
         <source>PhaseChange Circulating Rate</source>
         <translation>Faz Değişimi Dolaşım Hızı</translation>
     </message>
-    <!-- OS:Daylighting:Control, OS:Glare:Sensor, OS:IlluminanceMap -->
+    
     <message>
         <source>Phi Rotation Around Z-Axis</source>
         <translation>Z-Ekseni Etrafında Phi Dönüşü</translation>
     </message>
-    <!-- OS:Luminaire -->
+    
     <message>
         <source>Phi Rotation Around Z-axis</source>
         <translation>Phi Z-ekseni Etrafında Dönüşü</translation>
     </message>
-    <!-- OS:SolarCollector:FlatPlate:PhotovoltaicThermal -->
+    
     <message>
         <source>Photovoltaic Name</source>
         <translation>Fotovoltaik Adı</translation>
     </message>
-    <!-- OS:SolarCollector:FlatPlate:PhotovoltaicThermal -->
+    
     <message>
         <source>Photovoltaic-Thermal Model Performance Name</source>
         <translation>Fotovoltaik-Termal Model Performans Adı</translation>
     </message>
-    <!-- OS:GroundHeatExchanger:HorizontalTrench -->
+    
     <message>
         <source>Pipe Density</source>
         <translation>Boru Yoğunluğu</translation>
     </message>
-    <!-- OS:GroundHeatExchanger:HorizontalTrench -->
+    
     <message>
         <source>Pipe Inner Diameter</source>
         <translation>Boru İç Çapı</translation>
     </message>
-    <!-- OS:Pipe:Indoor, OS:Pipe:Outdoor -->
+    
     <message>
         <source>Pipe Inside Diameter</source>
         <translation>Boru İç Çapı</translation>
     </message>
-    <!-- OS:Pipe:Indoor, OS:Pipe:Outdoor -->
+    
     <message>
         <source>Pipe Length</source>
         <translation>Boru Uzunluğu</translation>
     </message>
-    <!-- OS:GroundHeatExchanger:Vertical -->
+    
     <message>
         <source>Pipe Out Diameter</source>
         <translation>Boru Çıkış Çapı</translation>
     </message>
-    <!-- OS:GroundHeatExchanger:HorizontalTrench -->
+    
     <message>
         <source>Pipe Outer Diameter</source>
         <translation>Boru Dış Çapı</translation>
     </message>
-    <!-- OS:GroundHeatExchanger:HorizontalTrench -->
+    
     <message>
         <source>Pipe Specific Heat</source>
         <translation>Boru Özgül Isı</translation>
     </message>
-    <!-- OS:GroundHeatExchanger:HorizontalTrench, OS:GroundHeatExchanger:Vertical -->
+    
     <message>
         <source>Pipe Thermal Conductivity</source>
         <translation>Boru Isıl İletkenliği</translation>
     </message>
-    <!-- OS:GroundHeatExchanger:Vertical -->
+    
     <message>
         <source>Pipe Thickness</source>
         <translation>Boru Kalınlığı</translation>
     </message>
-    <!-- OS:AirConditioner:VariableRefrigerantFlow -->
+    
     <message>
         <source>Piping Correction Factor for Height in Cooling Mode Coefficient</source>
         <translation>Soğutma Modu İçin Yükseklik Piping Düzeltme Faktörü Katsayısı</translation>
     </message>
-    <!-- OS:AirConditioner:VariableRefrigerantFlow -->
+    
     <message>
         <source>Piping Correction Factor for Height in Heating Mode Coefficient</source>
         <translation>Isıtma Modunda Yükseklik için Boru Düzeltme Faktörü Katsayısı</translation>
     </message>
-    <!-- OS:AirConditioner:VariableRefrigerantFlow -->
+    
     <message>
         <source>Piping Correction Factor for Length in Cooling Mode Curve Name</source>
         <translation>Soğutma Modu için Uzunluk İçin Borulama Düzeltme Faktörü Eğri Adı</translation>
     </message>
-    <!-- OS:AirConditioner:VariableRefrigerantFlow -->
+    
     <message>
         <source>Piping Correction Factor for Length in Heating Mode Curve Name</source>
         <translation>Isıtma Modunda Uzunluk için Boru Düzeltme Faktörü Eğri Adı</translation>
     </message>
-    <!-- OS:ShadowCalculation -->
+    
     <message>
         <source>Pixel Counting Resolution</source>
         <translation>Piksel Sayma Çözünürlüğü</translation>
     </message>
-    <!-- OS:LightingSimulationZone -->
+    
     <message>
         <source>Planar Surface Group Name</source>
         <translation>Düzlemsel Yüzey Grubu Adı</translation>
     </message>
-    <!-- OS:Coil:UserDefined -->
+    
     <message>
         <source>Plant Connection Inlet Node Name</source>
         <translation>Plant Connection Inlet Node Name</translation>
     </message>
-    <!-- OS:Coil:UserDefined -->
+    
     <message>
         <source>Plant Connection Outlet Node Name</source>
         <translation>Plant Connection Outlet Node Name</translation>
     </message>
-    <!-- OS:Coil:UserDefined -->
+    
     <message>
         <source>Plant Design Volume Flow Rate Actuator</source>
         <translation>Tesisattı Tasarım Hacimsel Akış Hızı Aktüatörü</translation>
     </message>
-    <!-- OS:PlantLoop -->
+    
     <message>
         <source>Plant Equipment Operation Cooling Load</source>
         <translation>Plant Equipment Operation Cooling Load</translation>
     </message>
-    <!-- OS:PlantLoop -->
+    
     <message>
         <source>Plant Equipment Operation Cooling Load Schedule</source>
         <translation>Plant Equipment Operation Cooling Load Schedule</translation>
     </message>
-    <!-- OS:PlantLoop -->
+    
     <message>
         <source>Plant Equipment Operation Heating Load</source>
         <translation>Tesisatı Ekipmanı İşletim Isıtma Yükü</translation>
     </message>
-    <!-- OS:PlantLoop -->
+    
     <message>
         <source>Plant Equipment Operation Heating Load Schedule</source>
         <translation>Plant Equipment Operation Heating Load Schedule</translation>
     </message>
-    <!-- OS:PlantComponent:UserDefined -->
+    
     <message>
         <source>Plant Initialization Program Calling Manager Name</source>
         <translation>Tesisat Başlatma Programı Çağrı Yöneticisi Adı</translation>
     </message>
-    <!-- OS:PlantComponent:UserDefined -->
+    
     <message>
         <source>Plant Initialization Program Name</source>
         <translation>Tesis Başlatma Programı Adı</translation>
     </message>
-    <!-- OS:PlantComponent:UserDefined -->
+    
     <message>
         <source>Plant Inlet Node Name</source>
         <translation>Tesist Giriş Düğümü Adı</translation>
     </message>
-    <!-- OS:PlantComponent:UserDefined -->
+    
     <message>
         <source>Plant Loading Mode</source>
         <translation>Tesisattan Yükleme Modu</translation>
     </message>
-    <!-- OS:PlantLoop -->
+    
     <message>
         <source>Plant Loop Demand Calculation Scheme</source>
         <translation>Plant Loop Talep Hesaplama Şeması</translation>
     </message>
-    <!-- OS:PlantComponent:UserDefined -->
+    
     <message>
         <source>Plant Loop Flow Request Mode</source>
         <translation>Plant Loop Akış İsteği Modu</translation>
     </message>
-    <!-- OS:LoadProfile:Plant -->
+    
     <message>
         <source>Plant Loop Fluid Type</source>
         <translation>Tesisat Döngüsü Akışkan Türü</translation>
     </message>
-    <!-- OS:Coil:UserDefined -->
+    
     <message>
         <source>Plant Mass Flow Rate Actuator</source>
         <translation>Plant Mass Flow Rate Actuator</translation>
     </message>
-    <!-- OS:Coil:UserDefined -->
+    
     <message>
         <source>Plant Maximum Mass Flow Rate Actuator</source>
         <translation>Plant Maksimum Kütle Akış Hızı Aktuatörü</translation>
     </message>
-    <!-- OS:Coil:UserDefined -->
+    
     <message>
         <source>Plant Minimum Mass Flow Rate Actuator</source>
         <translation>Plant Minimum Mass Flow Rate Actuator</translation>
     </message>
-    <!-- OS:Sizing:Plant -->
+    
     <message>
         <source>Plant or Condenser Loop Name</source>
         <translation>Plant veya Kondenser Döngüsü Adı</translation>
     </message>
-    <!-- OS:PlantComponent:UserDefined -->
+    
     <message>
         <source>Plant Outlet Node Name</source>
         <translation>Plant Outlet Node Name</translation>
     </message>
-    <!-- OS:Coil:UserDefined -->
+    
     <message>
         <source>Plant Outlet Temperature Actuator</source>
         <translation>Tesisat Çıkış Sıcaklığı Uygulatıcı</translation>
     </message>
-    <!-- OS:PlantLoop -->
+    
     <message>
         <source>Plant Side Branch List Name</source>
         <translation>Plant Side Branch List Name</translation>
     </message>
-    <!-- OS:PlantLoop -->
+    
     <message>
         <source>Plant Side Inlet Node Name</source>
         <translation>Plant Side Inlet Node Name</translation>
     </message>
-    <!-- OS:PlantLoop -->
+    
     <message>
         <source>Plant Side Outlet Node Name</source>
         <translation>Plant Side Outlet Node Name</translation>
     </message>
-    <!-- OS:PlantComponent:UserDefined -->
+    
     <message>
         <source>Plant Simulation Program Calling Manager Name</source>
         <translation>Plant Simulation Program Calling Manager Name</translation>
     </message>
-    <!-- OS:PlantComponent:UserDefined -->
+    
     <message>
         <source>Plant Simulation Program Name</source>
         <translation>Tesis Simülasyon Programı Adı</translation>
     </message>
-    <!-- OS:AirLoopHVAC:UnitaryHeatCool:VAVChangeoverBypass -->
+    
     <message>
         <source>Plenum or Mixer Inlet Node Name</source>
         <translation>Plenum veya Mikser Inlet Node Adı</translation>
     </message>
-    <!-- OS:PythonPlugin:Instance -->
+    
     <message>
         <source>Plugin Class Name</source>
         <translation>Plugin Sınıf Adı</translation>
     </message>
-    <!-- OS:FuelFactors -->
+    
     <message>
         <source>PM Emission Factor</source>
         <translation>PM Emisyon Faktörü</translation>
     </message>
-    <!-- OS:FuelFactors -->
+    
     <message>
         <source>PM Emission Factor Schedule Name</source>
         <translation>PM Emisyon Faktörü Çizelgesi Adı</translation>
     </message>
-    <!-- OS:FuelFactors -->
+    
     <message>
         <source>PM10 Emission Factor</source>
         <translation>PM10 Emisyon Faktörü</translation>
     </message>
-    <!-- OS:FuelFactors -->
+    
     <message>
         <source>PM10 Emission Factor Schedule Name</source>
         <translation>PM10 Emisyon Faktörü Çizelgesi Adı</translation>
     </message>
-    <!-- OS:FuelFactors -->
+    
     <message>
         <source>PM2.5 Emission Factor</source>
         <translation>PM2.5 Emisyon Faktörü</translation>
     </message>
-    <!-- OS:FuelFactors -->
+    
     <message>
         <source>PM2.5 Emission Factor Schedule Name</source>
         <translation>PM2.5 Emisyon Faktörü Programı Adı</translation>
     </message>
-    <!-- OS:ShadowCalculation -->
+    
     <message>
         <source>Polygon Clipping Algorithm</source>
         <translation>Çokgen Kırpma Algoritması</translation>
     </message>
-    <!-- OS:SwimmingPool:Indoor -->
+    
     <message>
         <source>Pool Heating System Maximum Water Flow Rate</source>
         <translation>Havuz Isıtma Sistemi Maksimum Su Akış Hızı</translation>
     </message>
-    <!-- OS:SwimmingPool:Indoor -->
+    
     <message>
         <source>Pool Miscellaneous Equipment Power</source>
         <translation>Havuz Çeşitli Ekipman Gücü</translation>
     </message>
-    <!-- OS:SwimmingPool:Indoor -->
+    
     <message>
         <source>Pool Water Inlet Node</source>
         <translation>Havuz Su Giriş Düğümü</translation>
     </message>
-    <!-- OS:SwimmingPool:Indoor -->
+    
     <message>
         <source>Pool Water Outlet Node</source>
         <translation>Havuz Su Çıkış Düğümü</translation>
     </message>
-    <!-- OS:PortList -->
+    
     <message>
         <source>Port</source>
         <translation>Port</translation>
     </message>
-    <!-- OS:Daylighting:Control, OS:Glare:Sensor -->
+    
     <message>
         <source>Position X-Coordinate</source>
         <translation>Pozisyon X-Koordinatı</translation>
     </message>
-    <!-- OS:Luminaire -->
+    
     <message>
         <source>Position X-coordinate</source>
         <translation>X Koordinatı Konumu</translation>
     </message>
-    <!-- OS:Daylighting:Control, OS:Glare:Sensor -->
+    
     <message>
         <source>Position Y-Coordinate</source>
         <translation>Y Konumu Koordinatı</translation>
     </message>
-    <!-- OS:Luminaire -->
+    
     <message>
         <source>Position Y-coordinate</source>
         <translation>Y Koordinatı Konumu</translation>
     </message>
-    <!-- OS:Daylighting:Control, OS:Glare:Sensor -->
+    
     <message>
         <source>Position Z-Coordinate</source>
         <translation>Konum Z-Koordinatı</translation>
     </message>
-    <!-- OS:Luminaire -->
+    
     <message>
         <source>Position Z-coordinate</source>
         <translation>Konum Z-koordinatı</translation>
     </message>
-    <!-- OS:Generator:WindTurbine -->
+    
     <message>
         <source>Power Coefficient C1</source>
         <translation>Güç Katsayısı C1</translation>
     </message>
-    <!-- OS:Generator:WindTurbine -->
+    
     <message>
         <source>Power Coefficient C2</source>
         <translation>Power Coefficient C2</translation>
     </message>
-    <!-- OS:Generator:WindTurbine -->
+    
     <message>
         <source>Power Coefficient C3</source>
         <translation>Güç Katsayısı C3</translation>
     </message>
-    <!-- OS:Generator:WindTurbine -->
+    
     <message>
         <source>Power Coefficient C4</source>
         <translation>Güç Katsayısı C4</translation>
     </message>
-    <!-- OS:Generator:WindTurbine -->
+    
     <message>
         <source>Power Coefficient C5</source>
         <translation>Güç Katsayısı C5</translation>
     </message>
-    <!-- OS:Generator:WindTurbine -->
+    
     <message>
         <source>Power Coefficient C6</source>
         <translation>Güç Katsayısı C6</translation>
     </message>
-    <!-- OS:Generator:WindTurbine -->
+    
     <message>
         <source>Power Control</source>
         <translation>Güç Kontrolü</translation>
     </message>
-    <!-- OS:ElectricLoadCenter:Storage:Converter -->
+    
     <message>
         <source>Power Conversion Efficiency Method</source>
         <translation>Güç Dönüşüm Verimlilik Yöntemi</translation>
     </message>
-    <!-- OS:Generator:FuelCell:PowerModule -->
+    
     <message>
         <source>Power Down Transient Limit</source>
         <translation>Güç Kapatma Geçici Limiti</translation>
     </message>
-    <!-- OS:Generator:FuelCell -->
+    
     <message>
         <source>Power Module Name</source>
         <translation>Güç Modülü Adı</translation>
     </message>
-    <!-- OS:Generator:FuelCell:PowerModule -->
+    
     <message>
         <source>Power Up Transient Limit</source>
         <translation>Güç Artışı Geçici Sınırı</translation>
     </message>
-    <!-- OS:Version -->
+    
     <message>
         <source>Prerelease Identifier</source>
         <translation>Ön Sürüm Tanımlayıcısı</translation>
     </message>
-    <!-- OS:AirflowNetworkPressureController -->
+    
     <message>
         <source>Pressure Control Availability Schedule Name</source>
         <translation>Basınç Kontrolü Kullanılabilirlik Çizelgesi Adı</translation>
     </message>
-    <!-- OS:AirflowNetworkConstantPressureDrop -->
+    
     <message>
         <source>Pressure Difference Across the Component</source>
         <translation>Bileşen Üzerindeki Basınç Farkı</translation>
     </message>
-    <!-- OS:SpaceInfiltration:FlowCoefficient -->
+    
     <message>
         <source>Pressure Exponent</source>
         <translation>Basınç Üssü</translation>
     </message>
-    <!-- OS:AirflowNetworkPressureController -->
+    
     <message>
         <source>Pressure Setpoint Schedule Name</source>
         <translation>Basınç Setnoktası Takvim Adı</translation>
     </message>
-    <!-- OS:SurfaceProperty:OtherSideCoefficients -->
+    
     <message>
         <source>Previous Other Side Temperature Coefficient</source>
         <translation>Önceki Diğer Taraf Sıcaklık Katsayısı</translation>
     </message>
-    <!-- OS:AirTerminal:SingleDuct:ConstantVolume:FourPipeBeam -->
+    
     <message>
         <source>Primary Air Availability Schedule Name</source>
         <translation>Birincil Hava Kullanılabilirlik Çizelgesi Adı</translation>
     </message>
-    <!-- OS:EvaporativeCooler:Direct:ResearchSpecial -->
+    
     <message>
         <source>Primary Air Design Flow Rate</source>
         <translation>Birincil Hava Tasarım Akış Hızı</translation>
     </message>
-    <!-- OS:EvaporativeCooler:Indirect:ResearchSpecial -->
+    
     <message>
         <source>Primary Air Inlet Node</source>
         <translation>Birincil Hava Giriş Düğümü</translation>
     </message>
-    <!-- OS:AirTerminal:SingleDuct:ConstantVolume:FourPipeBeam -->
+    
     <message>
         <source>Primary Air Inlet Node Name</source>
         <translation>Birincil Hava Giriş Düğümü Adı</translation>
     </message>
-    <!-- OS:EvaporativeCooler:Indirect:ResearchSpecial -->
+    
     <message>
         <source>Primary Air Outlet Node</source>
         <translation>Birincil Hava Çıkış Düğümü</translation>
     </message>
-    <!-- OS:AirTerminal:SingleDuct:ConstantVolume:FourPipeBeam -->
+    
     <message>
         <source>Primary Air Outlet Node Name</source>
         <translation>Birincil Hava Çıkış Düğümü Adı</translation>
     </message>
-    <!-- OS:ThermalZone -->
+    
     <message>
         <source>Primary Daylighting Control Name</source>
         <translation>Birincil Gün Işığı Kontrol Adı</translation>
     </message>
-    <!-- OS:EvaporativeCooler:Indirect:ResearchSpecial -->
+    
     <message>
         <source>Primary Design Air Flow Rate</source>
         <translation>Birincil Tasarım Hava Akış Hızı</translation>
     </message>
-    <!-- OS:PlantLoop -->
+    
     <message>
         <source>Primary Plant Equipment Operation Scheme</source>
         <translation>Birincil Sistem Ekipmanı İşletme Şeması</translation>
     </message>
-    <!-- OS:PlantLoop -->
+    
     <message>
         <source>Primary Plant Equipment Operation Scheme Schedule</source>
         <translation>Birincil Sistem Ekipmanı İşletme Şeması Programı</translation>
     </message>
-    <!-- OS:AirLoopHVAC:UnitaryHeatCool:VAVChangeoverBypass -->
+    
     <message>
         <source>Priority Control Mode</source>
         <translation>Öncelik Kontrol Modu</translation>
     </message>
-    <!-- OS:Daylighting:Control -->
+    
     <message>
         <source>Probability Lighting will be Reset When Needed in Manual Stepped Control</source>
         <translation>Manuel Adımlı Kontrolde Gerektiğinde Aydınlatmanın Sıfırlanma Olasılığı</translation>
     </message>
-    <!-- OS:HeatExchanger:Desiccant:BalancedFlow -->
+    
     <message>
         <source>Process Air Inlet Node</source>
         <translation>Process Hava Giriş Düğümü</translation>
     </message>
-    <!-- OS:HeatExchanger:Desiccant:BalancedFlow -->
+    
     <message>
         <source>Process Air Outlet Node</source>
         <translation>İşlem Havasının Çıkış Düğümü</translation>
     </message>
-    <!-- OS:EnergyManagementSystem:Program, OS:EnergyManagementSystem:Subroutine -->
+    
     <message>
         <source>Program Line</source>
         <translation>Program Satırı</translation>
     </message>
-    <!-- OS:EnergyManagementSystem:ProgramCallingManager -->
+    
     <message>
         <source>Program Name</source>
         <translation>Program Adı</translation>
     </message>
-    <!-- OS:LifeCycleCost:Parameters -->
+    
     <message>
         <source>Propane Inflation</source>
         <translation>Propan Enflasyonu</translation>
     </message>
-    <!-- OS:Daylighting:Control, OS:Glare:Sensor, OS:IlluminanceMap -->
+    
     <message>
         <source>Psi Rotation Around X-Axis</source>
         <translation>Psi X-Ekseni Etrafında Döndürme</translation>
     </message>
-    <!-- OS:Luminaire -->
+    
     <message>
         <source>Psi Rotation Around X-axis</source>
         <translation>Psi X-ekseni Etrafında Döndürme</translation>
     </message>
-    <!-- OS:Pump:ConstantSpeed -->
+    
     <message>
         <source>Pump Curve</source>
         <translation>Pompa Eğrisi</translation>
     </message>
-    <!-- OS:Pump:VariableSpeed -->
+    
     <message>
         <source>Pump Curve Name</source>
         <translation>Pompa Eğrisi Adı</translation>
     </message>
-    <!-- OS:Refrigeration:SecondarySystem -->
+    
     <message>
         <source>Pump Drive Type</source>
         <translation>Pompa Tahrik Tipi</translation>
     </message>
-    <!-- OS:Chiller:Absorption:Indirect -->
+    
     <message>
         <source>Pump Electric Input Function of Part Load Ratio Curve</source>
         <translation>Pompa Elektrik Giriş Kısmi Yük Oranı Eğrisi</translation>
     </message>
-    <!-- OS:HeaderedPumps:ConstantSpeed, OS:HeaderedPumps:VariableSpeed, OS:Pump:ConstantSpeed -->
+    
     <message>
         <source>Pump Flow Rate Schedule</source>
         <translation>Pompa Akış Hızı Programı</translation>
     </message>
-    <!-- OS:Generator:FuelCell:WaterSupply -->
+    
     <message>
         <source>Pump Heat Loss Factor</source>
         <translation>Pompa Isı Kayıp Faktörü</translation>
     </message>
-    <!-- OS:Refrigeration:SecondarySystem -->
+    
     <message>
         <source>Pump Motor Heat to Fluid</source>
         <translation>Pompa Motoru Isısı Akışkana</translation>
     </message>
-    <!-- OS:TemperingValve -->
+    
     <message>
         <source>Pump Outlet Node</source>
         <translation>Pompa Çıkış Düğümü</translation>
     </message>
-    <!-- OS:Pump:VariableSpeed -->
+    
     <message>
         <source>Pump RPM Schedule Name</source>
         <translation>Pompa Devir Programı Adı</translation>
     </message>
-    <!-- OS:SolarCollectorPerformance:PhotovoltaicThermal:BIPVT -->
+    
     <message>
         <source>PV Cell Normal Transmittance-Absorptance Product</source>
         <translation>PV Hücre Normal İletim-Emicilik Ürünü</translation>
     </message>
-    <!-- OS:SolarCollectorPerformance:PhotovoltaicThermal:BIPVT -->
+    
     <message>
         <source>PV Module Back Longwave Emissivity</source>
         <translation>PV Modülü Arka Uzun Dalga Isıl Yayınma Özelliği</translation>
     </message>
-    <!-- OS:SolarCollectorPerformance:PhotovoltaicThermal:BIPVT -->
+    
     <message>
         <source>PV Module Bottom Thermal Resistance</source>
         <translation>PV Modülü Alt Termal Direnç</translation>
     </message>
-    <!-- OS:SolarCollectorPerformance:PhotovoltaicThermal:BIPVT -->
+    
     <message>
         <source>PV Module Front Longwave Emissivity</source>
         <translation>PV Modülü Ön Yüzey Longwave Yayınız</translation>
     </message>
-    <!-- OS:SolarCollectorPerformance:PhotovoltaicThermal:BIPVT -->
+    
     <message>
         <source>PV Module Top Thermal Resistance</source>
         <translation>PV Modülü Üst Termal Direnci</translation>
     </message>
-    <!-- OS:Generator:PVWatts -->
+    
     <message>
         <source>PVWatts Version</source>
         <translation>PVWatts Sürümü</translation>
     </message>
-    <!-- OS:PythonPlugin:OutputVariable -->
+    
     <message>
         <source>Python Plugin Variable Name</source>
         <translation>Python Eklentisi Değişken Adı</translation>
     </message>
 
-    <!-- Q -->
-    <!-- OS:UtilityCost:Qualify -->
+    
+    
     <message>
         <source>Qualify Type</source>
         <translation>Nitelik Türü</translation>
     </message>
 
-    <!-- R -->
-    <!-- OS:ZoneHVAC:HighTemperatureRadiant, OS:ZoneHVAC:LowTemperatureRadiant:ConstantFlow, OS:ZoneHVAC:LowTemperatureRadiant:Electric, OS:ZoneHVAC:LowTemperatureRadiant:VariableFlow -->
+    
+    
     <message>
         <source>Radiant Surface Type</source>
         <translation>Radyan Yüzey Tipi</translation>
     </message>
-    <!-- OS:ElectricLoadCenter:Inverter:LookUpTable, OS:ElectricLoadCenter:Inverter:Simple, OS:ElectricLoadCenter:Storage:Converter, OS:ElectricLoadCenter:Storage:LiIonNMCBattery, OS:ElectricLoadCenter:Transformer -->
+    
     <message>
         <source>Radiative Fraction</source>
         <translation>Radyatif Kesir</translation>
     </message>
-    <!-- OS:ElectricLoadCenter:Storage:Simple -->
+    
     <message>
         <source>Radiative Fraction for Zone Heat Gains</source>
         <translation>Bölge Isı Kazançları için Radyatif Kesir</translation>
     </message>
-    <!-- OS:SizingPeriod:DesignDay -->
+    
     <message>
         <source>Rain Indicator</source>
         <translation>Yağmur Göstergesi</translation>
     </message>
-    <!-- OS:PlantEquipmentOperation:CoolingLoad, OS:PlantEquipmentOperation:HeatingLoad, OS:PlantEquipmentOperation:OutdoorDewpoint, OS:PlantEquipmentOperation:OutdoorDewpointDifference, OS:PlantEquipmentOperation:OutdoorDryBulb, OS:PlantEquipmentOperation:OutdoorDryBulbDifference, OS:PlantEquipmentOperation:OutdoorRelativeHumidity, OS:PlantEquipmentOperation:OutdoorWetBulb, OS:PlantEquipmentOperation:OutdoorWetBulbDifference -->
+    
     <message>
         <source>Range Equipment List Name</source>
         <translation>Ocak Ekipmanı Listesi Adı</translation>
     </message>
-    <!-- OS:HeatExchanger:AirToAir:SensibleAndLatent -->
+    
     <message>
         <source>Rate of Defrost Time Fraction Increase</source>
         <translation>Buz Çözme Süresi Oranı Artış Hızı</translation>
     </message>
-    <!-- OS:Refrigeration:AirChiller -->
+    
     <message>
         <source>Rated Air Flow</source>
         <translation>Nominal Hava Akışı</translation>
     </message>
-    <!-- OS:Coil:Cooling:DX:VariableSpeed, OS:Coil:Cooling:WaterToAirHeatPump:VariableSpeedEquationFit, OS:Coil:Heating:DX:VariableSpeed, OS:Coil:Heating:WaterToAirHeatPump:VariableSpeedEquationFit -->
+    
     <message>
         <source>Rated Air Flow Rate At Selected Nominal Speed Level</source>
         <translation>Seçilen Nominal Hız Seviyesinde Nominal Hava Akış Hızı</translation>
     </message>
-    <!-- OS:Refrigeration:Case -->
+    
     <message>
         <source>Rated Ambient Relative Humidity</source>
         <translation>Nominal Ortam Bağıl Nemi</translation>
     </message>
-    <!-- OS:Refrigeration:Case -->
+    
     <message>
         <source>Rated Ambient Temperature</source>
         <translation>Nominal Ortam Sıcaklığı</translation>
     </message>
-    <!-- OS:Refrigeration:Condenser:Cascade -->
+    
     <message>
         <source>Rated Approach Temperature Difference</source>
         <translation>Nominal Yaklaşma Sıcaklık Farkı</translation>
     </message>
-    <!-- OS:Coil:Heating:Water:Baseboard:Radiant -->
+    
     <message>
         <source>Rated Average Water Temperature</source>
         <translation>Nominal Ortalama Su Sıcaklığı</translation>
     </message>
-    <!-- OS:Refrigeration:WalkIn -->
+    
     <message>
         <source>Rated Circulation Fan Power</source>
         <translation>Nominal Dolaşım Fanı Gücü</translation>
     </message>
-    <!-- OS:Refrigeration:WalkIn -->
+    
     <message>
         <source>Rated Coil Cooling Capacity</source>
         <translation>Nominal Kabin Soğutma Kapasitesi</translation>
     </message>
-    <!-- OS:AirConditioner:VariableRefrigerantFlow:FluidTemperatureControl, OS:AirConditioner:VariableRefrigerantFlow:FluidTemperatureControl:HR -->
+    
     <message>
         <source>Rated Compressor Power Per Unit of Rated Evaporative Capacity</source>
         <translation>Kompresör Gücü / Buharlaştıcı Kapasitesi Oranı</translation>
     </message>
-    <!-- OS:Coil:Cooling:DX:CurveFit:OperatingMode -->
+    
     <message>
         <source>Rated Condenser Air Flow Rate</source>
         <translation>Nominal Kondenser Hava Akış Hızı</translation>
     </message>
-    <!-- OS:Coil:WaterHeating:AirToWaterHeatPump, OS:Coil:WaterHeating:AirToWaterHeatPump:VariableSpeed -->
+    
     <message>
         <source>Rated Condenser Inlet Water Temperature</source>
         <translation>Değerlendirilen Kondenser Giriş Suyu Sıcaklığı</translation>
     </message>
-    <!-- OS:Coil:WaterHeating:AirToWaterHeatPump, OS:Coil:WaterHeating:AirToWaterHeatPump:VariableSpeed -->
+    
     <message>
         <source>Rated Condenser Water Flow Rate</source>
         <translation>Nominal Kondenser Su Akış Hızı</translation>
     </message>
-    <!-- OS:Coil:WaterHeating:AirToWaterHeatPump:Wrapped -->
+    
     <message>
         <source>Rated Condenser Water Temperature</source>
         <translation>Nominal Kondenser Su Sıcaklığı</translation>
     </message>
-    <!-- OS:Refrigeration:Condenser:Cascade, OS:Refrigeration:Condenser:WaterCooled -->
+    
     <message>
         <source>Rated Condensing Temperature</source>
         <translation>Nominal Kondenzasyon Sıcaklığı</translation>
     </message>
-    <!-- OS:HeatPump:AirToWater:Cooling:SpeedData -->
+    
     <message>
         <source>Rated Cooling Capacity</source>
         <translation>Nominal Soğutma Kapasitesi</translation>
     </message>
-    <!-- OS:Coil:Cooling:WaterToAirHeatPump:EquationFit -->
+    
     <message>
         <source>Rated Cooling Coefficient of Performance</source>
         <translation>Nominal Soğutma Performans Katsayısı</translation>
     </message>
-    <!-- OS:Refrigeration:WalkIn -->
+    
     <message>
         <source>Rated Cooling Coil Fan Power</source>
         <translation>Nominal Soğutma Serpantını Radyatörü Güç
@@ -20992,4668 +20991,4668 @@ or more commonly in technical contexts:
 
 Nominal Soğutma Serpantı Fan Gücü</translation>
     </message>
-    <!-- OS:Refrigeration:AirChiller, OS:Refrigeration:WalkIn -->
+    
     <message>
         <source>Rated Cooling Source Temperature</source>
         <translation>Seçilen Soğutma Kaynağı Sıcaklığı</translation>
     </message>
-    <!-- OS:HeatPump:AirToWater:Cooling:SpeedData -->
+    
     <message>
         <source>Rated COP for Cooling</source>
         <translation>Soğutma için Gücü Belirtilen COP</translation>
     </message>
-    <!-- OS:HeatPump:AirToWater:Heating:SpeedData -->
+    
     <message>
         <source>Rated COP for Heating</source>
         <translation>Isıtma İçin Nominal COP</translation>
     </message>
-    <!-- OS:Refrigeration:Condenser:Cascade, OS:Refrigeration:Condenser:EvaporativeCooled, OS:Refrigeration:Condenser:WaterCooled -->
+    
     <message>
         <source>Rated Effective Total Heat Rejection Rate</source>
         <translation>Nominal Toplam Isı Atma Hızı</translation>
     </message>
-    <!-- OS:Refrigeration:Condenser:AirCooled -->
+    
     <message>
         <source>Rated Effective Total Heat Rejection Rate Curve Name</source>
         <translation>Nominal Etkin Toplam Isı Atma Hızı Eğrisi Adı</translation>
     </message>
-    <!-- OS:Generator:Photovoltaic -->
+    
     <message>
         <source>Rated Electric Power Output</source>
         <translation>Nominal Elektrik Güç Çıkışı</translation>
     </message>
-    <!-- OS:ZoneHVAC:Dehumidifier:DX -->
+    
     <message>
         <source>Rated Energy Factor</source>
         <translation>Nominal Enerji Faktörü</translation>
     </message>
-    <!-- OS:Coil:Cooling:WaterToAirHeatPump:EquationFit, OS:Coil:Heating:WaterToAirHeatPump:EquationFit -->
+    
     <message>
         <source>Rated Entering Air Dry-Bulb Temperature</source>
         <translation>Nominal Giriş Hava Kuru Bulb Sıcaklığı</translation>
     </message>
-    <!-- OS:Coil:Cooling:WaterToAirHeatPump:EquationFit -->
+    
     <message>
         <source>Rated Entering Air Wet-Bulb Temperature</source>
         <translation>Nom Giriş Hava Islak-Bulb Sıcaklığı</translation>
     </message>
-    <!-- OS:Coil:Cooling:WaterToAirHeatPump:EquationFit, OS:Coil:Heating:WaterToAirHeatPump:EquationFit -->
+    
     <message>
         <source>Rated Entering Water Temperature</source>
         <translation>Nominal Giriş Suyu Sıcaklığı</translation>
     </message>
-    <!-- OS:AirConditioner:VariableRefrigerantFlow:FluidTemperatureControl, OS:AirConditioner:VariableRefrigerantFlow:FluidTemperatureControl:HR -->
+    
     <message>
         <source>Rated Evaporative Capacity</source>
         <translation>Nominal Buharlaştırma Kapasitesi</translation>
     </message>
-    <!-- OS:Coil:Cooling:DX:MultiSpeed:StageData -->
+    
     <message>
         <source>Rated Evaporative Condenser Pump Power Consumption</source>
         <translation>Değerlendirilmiş Evaporatif Kondenser Pompa Güç Tüketimi</translation>
     </message>
-    <!-- OS:Coil:Cooling:DX:CurveFit:OperatingMode, OS:Coil:Cooling:DX:SingleSpeed:ThermalStorage, OS:Coil:WaterHeating:AirToWaterHeatPump, OS:Coil:WaterHeating:AirToWaterHeatPump:VariableSpeed, OS:Coil:WaterHeating:AirToWaterHeatPump:Wrapped -->
+    
     <message>
         <source>Rated Evaporator Air Flow Rate</source>
         <translation>Nominal Buharlaştırıcı Hava Akış Hızı</translation>
     </message>
-    <!-- OS:Coil:WaterHeating:AirToWaterHeatPump, OS:Coil:WaterHeating:AirToWaterHeatPump:VariableSpeed, OS:Coil:WaterHeating:AirToWaterHeatPump:Wrapped -->
+    
     <message>
         <source>Rated Evaporator Inlet Air Dry-Bulb Temperature</source>
         <translation>Nominal Evaporatör Giriş Havasının Kuru Termometre Sıcaklığı</translation>
     </message>
-    <!-- OS:Coil:WaterHeating:AirToWaterHeatPump, OS:Coil:WaterHeating:AirToWaterHeatPump:VariableSpeed, OS:Coil:WaterHeating:AirToWaterHeatPump:Wrapped -->
+    
     <message>
         <source>Rated Evaporator Inlet Air Wet-Bulb Temperature</source>
         <translation>Nominal Evaporatör Giriş Hava Islak Bulb Sıcaklığı</translation>
     </message>
-    <!-- OS:Humidifier:Steam:Electric, OS:Humidifier:Steam:Gas, OS:Refrigeration:AirChiller, OS:Refrigeration:Condenser:AirCooled, OS:Refrigeration:Condenser:EvaporativeCooled, OS:Refrigeration:GasCooler:AirCooled -->
+    
     <message>
         <source>Rated Fan Power</source>
         <translation>Nominal Fan Gücü</translation>
     </message>
-    <!-- OS:Humidifier:Steam:Gas -->
+    
     <message>
         <source>Rated Gas Use Rate</source>
         <translation>Nominal Gaz Kullanım Oranı</translation>
     </message>
-    <!-- OS:Coil:Cooling:DX:CurveFit:OperatingMode -->
+    
     <message>
         <source>Rated Gross Total Cooling Capacity</source>
         <translation>Nominal Brüt Toplam Soğutma Kapasitesi</translation>
     </message>
-    <!-- OS:Coil:WaterHeating:Desuperheater -->
+    
     <message>
         <source>Rated Heat Reclaim Recovery Efficiency</source>
         <translation>Nominal Isı Geri Kazanım Verimliği</translation>
     </message>
-    <!-- OS:Coil:Heating:WaterToAirHeatPump:EquationFit, OS:Coil:WaterHeating:AirToWaterHeatPump, OS:Coil:WaterHeating:AirToWaterHeatPump:Wrapped, OS:HeatPump:AirToWater:Heating:SpeedData -->
+    
     <message>
         <source>Rated Heating Capacity</source>
         <translation>Nominal Isıtma Kapasitesi</translation>
     </message>
-    <!-- OS:Coil:Heating:DX:VariableSpeed, OS:Coil:Heating:WaterToAirHeatPump:VariableSpeedEquationFit -->
+    
     <message>
         <source>Rated Heating Capacity At Selected Nominal Speed Level</source>
         <translation>Seçilen Nominal Hız Seviyesinde Dereceli Isıtma Kapasitesi</translation>
     </message>
-    <!-- OS:AirConditioner:VariableRefrigerantFlow -->
+    
     <message>
         <source>Rated Heating Capacity Sizing Ratio</source>
         <translation>Nominal Isıtma Kapasitesi Boyutlandırma Oranı</translation>
     </message>
-    <!-- OS:Coil:Heating:WaterToAirHeatPump:EquationFit -->
+    
     <message>
         <source>Rated Heating Coefficient of Performance</source>
         <translation>Nominal Isıtma Performans Katsayısı</translation>
     </message>
-    <!-- OS:AirConditioner:VariableRefrigerantFlow -->
+    
     <message>
         <source>Rated Heating COP</source>
         <translation>Nominal Isıtma COP</translation>
     </message>
-    <!-- OS:Coil:Cooling:DX:TwoSpeed -->
+    
     <message>
         <source>Rated High Speed Air Flow Rate</source>
         <translation>Nominal Yüksek Hız Hava Akış Hızı</translation>
     </message>
-    <!-- OS:Coil:Cooling:DX:TwoSpeed -->
+    
     <message>
         <source>Rated High Speed COP</source>
         <translation>Değerlendirilmiş Yüksek Hız COP</translation>
     </message>
-    <!-- OS:Coil:Cooling:DX:TwoSpeed -->
+    
     <message>
         <source>Rated High Speed Evaporator Fan Power Per Volume Flow Rate 2017</source>
         <translation>Rated High Speed Evaporator Fan Power Per Volume Flow Rate 2017</translation>
     </message>
-    <!-- OS:Coil:Cooling:DX:TwoSpeed -->
+    
     <message>
         <source>Rated High Speed Evaporator Fan Power Per Volume Flow Rate 2023</source>
         <translation>2023 Yüksek Hız Buharlaştırıcı Fan Gücü Hacimsel Akış Oranına Göre (Nominal)</translation>
     </message>
-    <!-- OS:Coil:Cooling:DX:TwoSpeed -->
+    
     <message>
         <source>Rated High Speed Sensible Heat Ratio</source>
         <translation>Nominal Yüksek Hız Duyulur Isı Oranı</translation>
     </message>
-    <!-- OS:Coil:Cooling:DX:TwoSpeed -->
+    
     <message>
         <source>Rated High Speed Total Cooling Capacity</source>
         <translation>Nominal Yüksek Hız Toplam Soğutma Kapasitesi</translation>
     </message>
-    <!-- OS:Coil:Cooling:Water:Panel:Radiant -->
+    
     <message>
         <source>Rated Inlet Space Temperature</source>
         <translation>Nominal Giriş Ortam Sıcaklığı</translation>
     </message>
-    <!-- OS:Refrigeration:Case -->
+    
     <message>
         <source>Rated Latent Heat Ratio</source>
         <translation>Nominal Gizli Isı Oranı</translation>
     </message>
-    <!-- OS:HeatPump:AirToWater:Cooling, OS:HeatPump:AirToWater:Heating -->
+    
     <message>
         <source>Rated Leaving Water Temperature</source>
         <translation>Nominal Çıkış Suyu Sıcaklığı</translation>
     </message>
-    <!-- OS:Refrigeration:Compressor -->
+    
     <message>
         <source>Rated Liquid Temperature</source>
         <translation>Ölçülü Sıvı Sıcaklığı</translation>
     </message>
-    <!-- OS:ElectricLoadCenter:Transformer -->
+    
     <message>
         <source>Rated Load Loss</source>
         <translation>Nominal Yük Kaybı</translation>
     </message>
-    <!-- OS:Coil:Cooling:DX:TwoSpeed -->
+    
     <message>
         <source>Rated Low Speed Air Flow Rate</source>
         <translation>Nominal Düşük Hız Hava Akış Hızı</translation>
     </message>
-    <!-- OS:Coil:Cooling:DX:TwoSpeed -->
+    
     <message>
         <source>Rated Low Speed COP</source>
         <translation>Nominal Düşük Hız COP</translation>
     </message>
-    <!-- OS:Coil:Cooling:DX:TwoSpeed -->
+    
     <message>
         <source>Rated Low Speed Evaporator Fan Power Per Volume Flow Rate 2017</source>
         <translation>Rated Low Speed Evaporator Fan Power Per Volume Flow Rate 2017</translation>
     </message>
-    <!-- OS:Coil:Cooling:DX:TwoSpeed -->
+    
     <message>
         <source>Rated Low Speed Evaporator Fan Power Per Volume Flow Rate 2023</source>
         <translation>Rated Low Speed Evaporator Fan Power Per Volume Flow Rate 2023</translation>
     </message>
-    <!-- OS:Coil:Cooling:DX:TwoSpeed -->
+    
     <message>
         <source>Rated Low Speed Sensible Heat Ratio</source>
         <translation>Nominal Düşük Hız Duyulur Isı Oranı</translation>
     </message>
-    <!-- OS:Coil:Cooling:DX:TwoSpeed -->
+    
     <message>
         <source>Rated Low Speed Total Cooling Capacity</source>
         <translation>Nominal Düşük Hız Toplam Soğutma Kapasitesi</translation>
     </message>
-    <!-- OS:ElectricLoadCenter:Inverter:LookUpTable -->
+    
     <message>
         <source>Rated Maximum Continuous Output Power</source>
         <translation>Nominal Maksimum Sürekli Çıkış Gücü</translation>
     </message>
-    <!-- OS:ElectricLoadCenter:Transformer -->
+    
     <message>
         <source>Rated No Load Loss</source>
         <translation>Nominal Yüksüz Kaybı</translation>
     </message>
-    <!-- OS:Coil:WaterHeating:Desuperheater -->
+    
     <message>
         <source>Rated Outdoor Air Temperature</source>
         <translation>Nominal Dış Hava Sıcaklığı</translation>
     </message>
-    <!-- OS:Generator:WindTurbine, OS:Humidifier:Steam:Electric -->
+    
     <message>
         <source>Rated Power</source>
         <translation>Nominal Güç</translation>
     </message>
-    <!-- OS:AirTerminal:SingleDuct:ConstantVolume:FourPipeBeam -->
+    
     <message>
         <source>Rated Primary Air Flow Rate per Beam Length</source>
         <translation>Işın Uzunluğu Başına Değerlendirilmiş Birincil Hava Akış Hızı</translation>
     </message>
-    <!-- OS:Refrigeration:AirChiller -->
+    
     <message>
         <source>Rated Relative Humidity</source>
         <translation>Nominal Bağıl Nem</translation>
     </message>
-    <!-- OS:Refrigeration:Compressor -->
+    
     <message>
         <source>Rated Return Gas Temperature</source>
         <translation>Nominal Dönüş Gazı Sıcaklığı</translation>
     </message>
-    <!-- OS:Generator:WindTurbine -->
+    
     <message>
         <source>Rated Rotor Speed</source>
         <translation>Nominal Rotor Hızı</translation>
     </message>
-    <!-- OS:Refrigeration:Case -->
+    
     <message>
         <source>Rated Runtime Fraction</source>
         <translation>Nominal Çalışma Süresi Oranı</translation>
     </message>
-    <!-- OS:Coil:Cooling:WaterToAirHeatPump:EquationFit -->
+    
     <message>
         <source>Rated Sensible Cooling Capacity</source>
         <translation>Nominal Sensible Soğutma Kapasitesi</translation>
     </message>
-    <!-- OS:Refrigeration:Compressor -->
+    
     <message>
         <source>Rated Subcooling</source>
         <translation>Nominal Soğutma Derecesi</translation>
     </message>
-    <!-- OS:Refrigeration:Condenser:AirCooled, OS:Refrigeration:Condenser:EvaporativeCooled, OS:Refrigeration:Condenser:WaterCooled -->
+    
     <message>
         <source>Rated Subcooling Temperature Difference</source>
         <translation>Nominal Soğutma Sıcaklık Farkı</translation>
     </message>
-    <!-- OS:Refrigeration:Compressor -->
+    
     <message>
         <source>Rated Superheat</source>
         <translation>Nominal Isıl Derecesi</translation>
     </message>
-    <!-- OS:Coil:Heating:DX:MultiSpeed:StageData, OS:Coil:Heating:DX:VariableSpeed:SpeedData -->
+    
     <message>
         <source>Rated Supply Air Fan Power Per Volume Flow Rate 2017</source>
         <translation>Nominal Besleme Hava Fanı Gücü Hacim Akış Hızı Başına 2017</translation>
     </message>
-    <!-- OS:Coil:Heating:DX:MultiSpeed:StageData, OS:Coil:Heating:DX:VariableSpeed:SpeedData -->
+    
     <message>
         <source>Rated Supply Air Fan Power Per Volume Flow Rate 2023</source>
         <translation>Tasarımı Yapılan Besleme Hava Fanı Gücü / Hacimsel Akış Hızı 2023</translation>
     </message>
-    <!-- OS:Coil:Heating:DX:SingleSpeed -->
+    
     <message>
         <source>Rated Supply Fan Power Per Volume Flow Rate 2017</source>
         <translation>2017 Oransal Arz Fanı Gücü Birim Hacimsel Debi Başına</translation>
     </message>
-    <!-- OS:Coil:Heating:DX:SingleSpeed -->
+    
     <message>
         <source>Rated Supply Fan Power Per Volume Flow Rate 2023</source>
         <translation>Nominal Kapasite Fanı Gücü Volümetrik Akış Hızı Başına 2023</translation>
     </message>
-    <!-- OS:Refrigeration:AirChiller -->
+    
     <message>
         <source>Rated Temperature Difference DT1</source>
         <translation>Nominal Sıcaklık Farkı DT1</translation>
     </message>
-    <!-- OS:Generator:MicroTurbine:HeatRecovery -->
+    
     <message>
         <source>Rated Thermal to Electrical Power Ratio</source>
         <translation>Derecelendirilmiş Isıl-Elektrik Gücü Oranı</translation>
     </message>
-    <!-- OS:Refrigeration:Case -->
+    
     <message>
         <source>Rated Total Cooling Capacity per Door</source>
         <translation>Kapı Başına Nominal Toplam Soğutma Kapasitesi</translation>
     </message>
-    <!-- OS:Refrigeration:Case -->
+    
     <message>
         <source>Rated Total Cooling Capacity per Unit Length</source>
         <translation>Birim Uzunluğu Başına Nominal Toplam Soğutma Kapasitesi</translation>
     </message>
-    <!-- OS:Refrigeration:GasCooler:AirCooled -->
+    
     <message>
         <source>Rated Total Heat Rejection Rate Curve Name</source>
         <translation>Değerlendirilen Toplam Isı Atma Hızı Eğrisi Adı</translation>
     </message>
-    <!-- OS:Coil:Heating:DX:SingleSpeed, OS:Coil:Heating:DX:VariableRefrigerantFlow, OS:Coil:Heating:DX:VariableRefrigerantFlow:FluidTemperatureControl -->
+    
     <message>
         <source>Rated Total Heating Capacity</source>
         <translation>Nominal Toplam Isıtma Kapasitesi</translation>
     </message>
-    <!-- OS:Refrigeration:AirChiller, OS:Refrigeration:WalkIn -->
+    
     <message>
         <source>Rated Total Heating Power</source>
         <translation>Nominal Toplam Isıtma Gücü</translation>
     </message>
-    <!-- OS:Refrigeration:WalkIn -->
+    
     <message>
         <source>Rated Total Lighting Power</source>
         <translation>Değerlendirilmiş Toplam Aydınlatma Gücü</translation>
     </message>
-    <!-- OS:Refrigeration:AirChiller -->
+    
     <message>
         <source>Rated Unit Load Factor</source>
         <translation>Ölçülü Ünite Yük Faktörü</translation>
     </message>
-    <!-- OS:Coil:Cooling:DX:CurveFit:Speed, OS:Coil:Cooling:DX:MultiSpeed:StageData, OS:Coil:Heating:DX:MultiSpeed:StageData -->
+    
     <message>
         <source>Rated Waste Heat Fraction of Power Input</source>
         <translation>Enerji Girdisinin Nominal Atık Isı Fraksiyonu</translation>
     </message>
-    <!-- OS:Coil:Cooling:WaterToAirHeatPump:EquationFit, OS:Coil:Heating:WaterToAirHeatPump:EquationFit, OS:HeatPump:AirToWater:Cooling, OS:HeatPump:AirToWater:Heating -->
+    
     <message>
         <source>Rated Water Flow Rate</source>
         <translation>Nominal Su Akış Hızı</translation>
     </message>
-    <!-- OS:Coil:Cooling:WaterToAirHeatPump:VariableSpeedEquationFit, OS:Coil:Heating:WaterToAirHeatPump:VariableSpeedEquationFit -->
+    
     <message>
         <source>Rated Water Flow Rate At Selected Nominal Speed Level</source>
         <translation>Seçilen Nominal Hız Seviyesinde Nominal Su Akış Hızı</translation>
     </message>
-    <!-- OS:Coil:WaterHeating:AirToWaterHeatPump:VariableSpeed, OS:Coil:WaterHeating:AirToWaterHeatPump:VariableSpeed:SpeedData -->
+    
     <message>
         <source>Rated Water Heating Capacity</source>
         <translation>Nominal Sıcak Su Isıtma Kapasitesi</translation>
     </message>
-    <!-- OS:Coil:WaterHeating:AirToWaterHeatPump:VariableSpeed:SpeedData -->
+    
     <message>
         <source>Rated Water Heating COP</source>
         <translation>Nominal Su Isıtma COP</translation>
     </message>
-    <!-- OS:Refrigeration:Condenser:WaterCooled -->
+    
     <message>
         <source>Rated Water Inlet Temperature</source>
         <translation>Nominal Su Giriş Sıcaklığı</translation>
     </message>
-    <!-- OS:Coil:Cooling:Water:Panel:Radiant, OS:Coil:Heating:Water:Baseboard:Radiant -->
+    
     <message>
         <source>Rated Water Mass Flow Rate</source>
         <translation>Nominal Su Kütlesel Akış Hızı</translation>
     </message>
-    <!-- OS:Refrigeration:Condenser:EvaporativeCooled -->
+    
     <message>
         <source>Rated Water Pump Power</source>
         <translation>Nominal Su Pompası Gücü</translation>
     </message>
-    <!-- OS:ZoneHVAC:Dehumidifier:DX -->
+    
     <message>
         <source>Rated Water Removal</source>
         <translation>Tasarım Su Giderim</translation>
     </message>
-    <!-- OS:Generator:WindTurbine -->
+    
     <message>
         <source>Rated Wind Speed</source>
         <translation>Nominal Rüzgar Hızı</translation>
     </message>
-    <!-- OS:AirflowNetworkSimulationControl -->
+    
     <message>
         <source>Ratio of Building Width Along Short Axis to Width Along Long Axis</source>
         <translation>Bina Kısa Eksen Boyunca Genişliğinin Uzun Eksen Boyunca Genişliğine Oranı</translation>
     </message>
-    <!-- OS:WindowProperty:FrameAndDivider -->
+    
     <message>
         <source>Ratio of Divider-Edge Glass Conductance to Center-Of-Glass Conductance</source>
         <translation>Bölücü-Kenar Camı İletkenliğinin Camın Merkezi İletkenliğine Oranı</translation>
     </message>
-    <!-- OS:WindowProperty:FrameAndDivider -->
+    
     <message>
         <source>Ratio of Frame-Edge Glass Conductance to Center-Of-Glass Conductance</source>
         <translation>Çerçeve-Kenar Cam İletkenliğinin Cam Merkezine Göre İletkenliğe Oranı</translation>
     </message>
-    <!-- OS:Coil:Heating:WaterToAirHeatPump:EquationFit -->
+    
     <message>
         <source>Ratio of Rated Heating Capacity to Rated Cooling Capacity</source>
         <translation>Nominal Isıtma Kapasitesinin Nominal Soğutma Kapasitesine Oranı</translation>
     </message>
-    <!-- OS:LifeCycleCost:Parameters -->
+    
     <message>
         <source>Real Discount Rate</source>
         <translation>Gerçek İndirim Oranı</translation>
     </message>
-    <!-- OS:UtilityCost:Tariff -->
+    
     <message>
         <source>Real Time Pricing Charge Schedule Name</source>
         <translation>Gerçek Zamanlı Fiyatlandırma Ücret Tarifelı Adı</translation>
     </message>
-    <!-- OS:Refrigeration:TranscriticalSystem -->
+    
     <message>
         <source>Receiver Pressure</source>
         <translation>Alıcı Basıncı</translation>
     </message>
-    <!-- OS:Refrigeration:SecondarySystem -->
+    
     <message>
         <source>Receiver/Separator Zone Name</source>
         <translation>Alıcı/Ayırıcı Bölge Adı</translation>
     </message>
-    <!-- OS:AirTerminal:DualDuct:VAV:OutdoorAir -->
+    
     <message>
         <source>Recirculated Air Inlet Node</source>
-        <translation type="unfinished"></translation>
+        <translation>Dolaşımlı Hava Giriş Düğümü</translation>
     </message>
-    <!-- OS:EvaporativeCooler:Direct:ResearchSpecial, OS:EvaporativeCooler:Indirect:ResearchSpecial -->
+    
     <message>
         <source>Recirculating Water Pump Power Consumption</source>
         <translation>Sirkülasyonlu Su Pompası Güç Tüketimi</translation>
     </message>
-    <!-- OS:ElectricEquipment:ITE:AirCooled:Definition -->
+    
     <message>
         <source>Recirculation Function of Loading and Supply Temperature Curve Name</source>
         <translation>Yeniden Dolaşım Fonksiyonu Yükleme ve Arz Sıcaklığı Eğri Adı</translation>
     </message>
-    <!-- OS:WaterUse:Connections -->
+    
     <message>
         <source>Reclamation Water Storage Tank Name</source>
         <translation>Reclamation Su Depolama Tankı Adı</translation>
     </message>
-    <!-- OS:WaterHeater:Sizing -->
+    
     <message>
         <source>Recovery Capacity per Floor Area</source>
         <translation>Kat Alanı Başına Kurtarma Kapasitesi</translation>
     </message>
-    <!-- OS:WaterHeater:Sizing -->
+    
     <message>
         <source>Recovery Capacity per Person</source>
         <translation>Kişi Başına Geri Kazanım Kapasitesi</translation>
     </message>
-    <!-- OS:WaterHeater:Sizing -->
+    
     <message>
         <source>Recovery Capacity PerUnit</source>
         <translation>Recovery Capacity PerUnit</translation>
     </message>
-    <!-- OS:AirflowNetworkReferenceCrackConditions -->
+    
     <message>
         <source>Reference Barometric Pressure</source>
         <translation>Referans Barometrik Basınç</translation>
     </message>
-    <!-- OS:HeatPump:PlantLoop:EIR:Cooling, OS:HeatPump:PlantLoop:EIR:Heating, OS:HeatPump:WaterToWater:EquationFit:Cooling, OS:HeatPump:WaterToWater:EquationFit:Heating -->
+    
     <message>
         <source>Reference Coefficient of Performance</source>
         <translation>Referans Performans Katsayısı</translation>
     </message>
-    <!-- OS:Generator:MicroTurbine -->
+    
     <message>
         <source>Reference Combustion Air Inlet Humidity Ratio</source>
         <translation>Referans Yanma Havası Giriş Nem Oranı</translation>
     </message>
-    <!-- OS:Generator:MicroTurbine -->
+    
     <message>
         <source>Reference Combustion Air Inlet Temperature</source>
         <translation>Referans Yanma Havası Giriş Sıcaklığı</translation>
     </message>
-    <!-- OS:Chiller:Electric:EIR -->
+    
     <message>
         <source>Reference Condenser Fluid Flow Rate</source>
         <translation>Referans Kondenser Akışkan Debisi</translation>
     </message>
-    <!-- OS:AirConditioner:VariableRefrigerantFlow:FluidTemperatureControl, OS:AirConditioner:VariableRefrigerantFlow:FluidTemperatureControl:HR -->
+    
     <message>
         <source>Reference Condensing Temperature for Indoor Unit</source>
         <translation>İç Ünite için Referans Yoğuşma Sıcaklığı</translation>
     </message>
-    <!-- OS:HeatPump:WaterToWater:EquationFit:Cooling -->
+    
     <message>
         <source>Reference Cooling Capacity</source>
         <translation>Referans Soğutma Kapasitesi</translation>
     </message>
-    <!-- OS:ChillerHeaterPerformance:Electric:EIR -->
+    
     <message>
         <source>Reference Cooling Mode COP</source>
         <translation>Reference Cooling Mode COP</translation>
     </message>
-    <!-- OS:ChillerHeaterPerformance:Electric:EIR -->
+    
     <message>
         <source>Reference Cooling Mode Entering Condenser Fluid Temperature</source>
         <translation>Referans Soğutma Modu Giriş Kondenser Sıvı Sıcaklığı</translation>
     </message>
-    <!-- OS:ChillerHeaterPerformance:Electric:EIR -->
+    
     <message>
         <source>Reference Cooling Mode Evaporator Capacity</source>
         <translation>Referans Soğutma Modu Buharlaştırıcı Kapasitesi</translation>
     </message>
-    <!-- OS:ChillerHeaterPerformance:Electric:EIR -->
+    
     <message>
         <source>Reference Cooling Mode Leaving Chilled Water Temperature</source>
         <translation>Referans Soğutma Modu Çıkış Soğuk Su Sıcaklığı</translation>
     </message>
-    <!-- OS:ChillerHeaterPerformance:Electric:EIR -->
+    
     <message>
         <source>Reference Cooling Mode Leaving Condenser Water Temperature</source>
         <translation>Referans Soğutma Modu Kondenser Su Çıkış Sıcaklığı</translation>
     </message>
-    <!-- OS:HeatPump:WaterToWater:EquationFit:Cooling -->
+    
     <message>
         <source>Reference Cooling Power Consumption</source>
         <translation>Referans Soğutma Gücü Tüketimi</translation>
     </message>
-    <!-- OS:AirflowNetworkCrack, OS:AirflowNetworkReliefAirFlow -->
+    
     <message>
         <source>Reference Crack Conditions</source>
         <translation>Referans Çatlak Koşulları</translation>
     </message>
-    <!-- OS:Generator:MicroTurbine -->
+    
     <message>
         <source>Reference Electrical Efficiency Using Lower Heating Value</source>
         <translation>Referans Elektrik Verimliliği Alt Isıl Değer Kullanılarak</translation>
     </message>
-    <!-- OS:Generator:MicroTurbine -->
+    
     <message>
         <source>Reference Electrical Power Output</source>
         <translation>Referans Elektrik Güç Çıkışı</translation>
     </message>
-    <!-- OS:Generator:MicroTurbine -->
+    
     <message>
         <source>Reference Elevation</source>
         <translation>Referans Yüksekliği</translation>
     </message>
-    <!-- OS:AirConditioner:VariableRefrigerantFlow:FluidTemperatureControl, OS:AirConditioner:VariableRefrigerantFlow:FluidTemperatureControl:HR -->
+    
     <message>
         <source>Reference Evaporating Temperature for Indoor Unit</source>
         <translation>İç Ünite için Referans Buharlaşma Sıcaklığı</translation>
     </message>
-    <!-- OS:Generator:MicroTurbine -->
+    
     <message>
         <source>Reference Exhaust Air Mass Flow Rate</source>
         <translation>Referans Egzoz Hava Kütlesel Akış Hızı</translation>
     </message>
-    <!-- OS:SetpointManager:FollowGroundTemperature -->
+    
     <message>
         <source>Reference Ground Temperature Object Type</source>
         <translation>Referans Yer Sıcaklığı Nesne Türü</translation>
     </message>
-    <!-- OS:Generator:MicroTurbine:HeatRecovery -->
+    
     <message>
         <source>Reference Heat Recovery Water Flow Rate</source>
         <translation>Referans Isı Geri Kazanım Su Akış Hızı</translation>
     </message>
-    <!-- OS:HeatPump:WaterToWater:EquationFit:Heating -->
+    
     <message>
         <source>Reference Heating Capacity</source>
         <translation>Referans Isıtma Kapasitesi</translation>
     </message>
-    <!-- OS:ChillerHeaterPerformance:Electric:EIR -->
+    
     <message>
         <source>Reference Heating Mode Cooling Capacity Ratio</source>
         <translation>Referans Isıtma Modu Soğutma Kapasitesi Oranı</translation>
     </message>
-    <!-- OS:ChillerHeaterPerformance:Electric:EIR -->
+    
     <message>
         <source>Reference Heating Mode Cooling Power Input Ratio</source>
         <translation>Referans Isıtma Modu Soğutma Gücü Giriş Oranı</translation>
     </message>
-    <!-- OS:ChillerHeaterPerformance:Electric:EIR -->
+    
     <message>
         <source>Reference Heating Mode Entering Condenser Fluid Temperature</source>
         <translation>Referans Isıtma Modu Giriş Kondenser Akışkanı Sıcaklığı</translation>
     </message>
-    <!-- OS:ChillerHeaterPerformance:Electric:EIR -->
+    
     <message>
         <source>Reference Heating Mode Leaving Chilled Water Temperature</source>
         <translation>Referans Isıtma Modu Çıkış Soğutulmuş Su Sıcaklığı</translation>
     </message>
-    <!-- OS:ChillerHeaterPerformance:Electric:EIR -->
+    
     <message>
         <source>Reference Heating Mode Leaving Condenser Water Temperature</source>
         <translation>Referans Isıtma Modu Çıkış Kondenser Suyu Sıcaklığı</translation>
     </message>
-    <!-- OS:HeatPump:WaterToWater:EquationFit:Heating -->
+    
     <message>
         <source>Reference Heating Power Consumption</source>
         <translation>Referans Isıtma Gücü Tüketimi</translation>
     </message>
-    <!-- OS:AirflowNetworkReferenceCrackConditions -->
+    
     <message>
         <source>Reference Humidity Ratio</source>
         <translation>Referans Nem Oranı</translation>
     </message>
-    <!-- OS:Generator:MicroTurbine:HeatRecovery -->
+    
     <message>
         <source>Reference Inlet Water Temperature</source>
         <translation>Referans Giriş Suyu Sıcaklığı</translation>
     </message>
-    <!-- OS:PhotovoltaicPerformance:EquivalentOneDiode -->
+    
     <message>
         <source>Reference Insolation</source>
         <translation>Referans Güneş Işınımı</translation>
     </message>
-    <!-- OS:Chiller:Electric:ReformulatedEIR -->
+    
     <message>
         <source>Reference Leaving Condenser Water Temperature</source>
         <translation>Referans Çıkış Kondenser Su Sıcaklığı</translation>
     </message>
-    <!-- OS:HeatPump:WaterToWater:EquationFit:Cooling, OS:HeatPump:WaterToWater:EquationFit:Heating -->
+    
     <message>
         <source>Reference Load Side Flow Rate</source>
         <translation>Referans Yük Tarafı Akış Hızı</translation>
     </message>
-    <!-- OS:SetpointManager:FollowSystemNodeTemperature, OS:SetpointManager:SystemNodeReset:Humidity, OS:SetpointManager:SystemNodeReset:Temperature -->
+    
     <message>
         <source>Reference Node Name</source>
         <translation>Referans Düğüm Adı</translation>
     </message>
-    <!-- OS:AirConditioner:VariableRefrigerantFlow:FluidTemperatureControl -->
+    
     <message>
         <source>Reference Outdoor Unit Subcooling</source>
         <translation>Referans Açık Alan Birimi Soğutma Derecesi</translation>
     </message>
-    <!-- OS:AirConditioner:VariableRefrigerantFlow:FluidTemperatureControl -->
+    
     <message>
         <source>Reference Outdoor Unit Superheating</source>
         <translation>Referans Dış Ünite Aşırı Isıtma</translation>
     </message>
-    <!-- OS:AirflowNetworkEffectiveLeakageArea, OS:AirflowNetworkLeakageRatio -->
+    
     <message>
         <source>Reference Pressure Difference</source>
         <translation>Referans Basınç Farkı</translation>
     </message>
-    <!-- OS:SetpointManager:MixedAir, OS:SetpointManager:OutdoorAirPretreat -->
+    
     <message>
         <source>Reference Setpoint Node Name</source>
         <translation>Referans Ayar Noktası Düğüm Adı</translation>
     </message>
-    <!-- OS:HeatPump:WaterToWater:EquationFit:Cooling, OS:HeatPump:WaterToWater:EquationFit:Heating -->
+    
     <message>
         <source>Reference Source Side Flow Rate</source>
         <translation>Referans Kaynak Tarafı Akış Hızı</translation>
     </message>
-    <!-- OS:AirflowNetworkReferenceCrackConditions, OS:PhotovoltaicPerformance:EquivalentOneDiode -->
+    
     <message>
         <source>Reference Temperature</source>
         <translation>Referans Sıcaklık</translation>
     </message>
-    <!-- OS:ElectricLoadCenter:Transformer -->
+    
     <message>
         <source>Reference Temperature for Nameplate Efficiency</source>
         <translation>Nominal Verimlilik için Referans Sıcaklık</translation>
     </message>
-    <!-- OS:PlantEquipmentOperation:OutdoorDewpointDifference, OS:PlantEquipmentOperation:OutdoorDryBulbDifference, OS:PlantEquipmentOperation:OutdoorWetBulbDifference -->
+    
     <message>
         <source>Reference Temperature Node Name</source>
         <translation>Referans Sıcaklık Düğümü Adı</translation>
     </message>
-    <!-- OS:Generator:MicroTurbine:HeatRecovery -->
+    
     <message>
         <source>Reference Thermal Efficiency Using Lower Heat Value</source>
         <translation>Referans Isıl Verim Kullanarak Düşük Isı Değeri</translation>
     </message>
-    <!-- OS:Coil:Cooling:DX:VariableSpeed:SpeedData, OS:Coil:Cooling:WaterToAirHeatPump:VariableSpeedEquationFit:SpeedData -->
+    
     <message>
         <source>Reference Unit Gross Rated Cooling COP</source>
         <translation>Referans Ünite Brüt Nominal Soğutma COP</translation>
     </message>
-    <!-- OS:Coil:Heating:DX:VariableSpeed:SpeedData, OS:Coil:Heating:WaterToAirHeatPump:VariableSpeedEquationFit:SpeedData -->
+    
     <message>
         <source>Reference Unit Gross Rated Heating Capacity</source>
         <translation>Referans Ünite Brüt Nominal Isıtma Kapasitesi</translation>
     </message>
-    <!-- OS:Coil:Heating:DX:VariableSpeed:SpeedData, OS:Coil:Heating:WaterToAirHeatPump:VariableSpeedEquationFit:SpeedData -->
+    
     <message>
         <source>Reference Unit Gross Rated Heating COP</source>
         <translation>Reference Unit Gross Rated Heating COP</translation>
     </message>
-    <!-- OS:Coil:Cooling:DX:VariableSpeed:SpeedData, OS:Coil:Cooling:WaterToAirHeatPump:VariableSpeedEquationFit:SpeedData -->
+    
     <message>
         <source>Reference Unit Gross Rated Sensible Heat Ratio</source>
         <translation>Reference Unit Kuru Dereceli Duyusal Isı Oranı</translation>
     </message>
-    <!-- OS:Coil:Cooling:DX:VariableSpeed:SpeedData, OS:Coil:Cooling:WaterToAirHeatPump:VariableSpeedEquationFit:SpeedData -->
+    
     <message>
         <source>Reference Unit Gross Rated Total Cooling Capacity</source>
         <translation>Referans Ünitesi Brüt Nominal Toplam Soğutma Kapasitesi</translation>
     </message>
-    <!-- OS:Coil:Heating:WaterToAirHeatPump:VariableSpeedEquationFit:SpeedData -->
+    
     <message>
         <source>Reference Unit Rated Air Flow</source>
         <translation>Referans Birim Nominal Hava Akışı</translation>
     </message>
-    <!-- OS:Coil:Cooling:DX:VariableSpeed:SpeedData, OS:Coil:Cooling:WaterToAirHeatPump:VariableSpeedEquationFit:SpeedData, OS:Coil:Heating:DX:VariableSpeed:SpeedData, OS:Coil:WaterHeating:AirToWaterHeatPump:VariableSpeed:SpeedData -->
+    
     <message>
         <source>Reference Unit Rated Air Flow Rate</source>
         <translation>Referans Birim Nominal Hava Akış Hızı</translation>
     </message>
-    <!-- OS:Coil:Cooling:DX:VariableSpeed:SpeedData -->
+    
     <message>
         <source>Reference Unit Rated Condenser Air Flow Rate</source>
         <translation>Referans Ünite Nominal Yoğunlaştırıcı Hava Akış Hızı</translation>
     </message>
-    <!-- OS:Coil:Cooling:DX:VariableSpeed:SpeedData -->
+    
     <message>
         <source>Reference Unit Rated Pad Effectiveness of Evap Precooling</source>
         <translation>Reference Unit Rated Pad Effectiveness of Evap Precooling</translation>
     </message>
-    <!-- OS:Coil:Cooling:WaterToAirHeatPump:VariableSpeedEquationFit:SpeedData, OS:Coil:Heating:WaterToAirHeatPump:VariableSpeedEquationFit:SpeedData, OS:Coil:WaterHeating:AirToWaterHeatPump:VariableSpeed:SpeedData -->
+    
     <message>
         <source>Reference Unit Rated Water Flow Rate</source>
         <translation>Referans Ünitenin Nominal Su Akış Hızı</translation>
     </message>
-    <!-- OS:Coil:Cooling:WaterToAirHeatPump:VariableSpeedEquationFit:SpeedData, OS:Coil:Heating:WaterToAirHeatPump:VariableSpeedEquationFit:SpeedData -->
+    
     <message>
         <source>Reference Unit Waste Heat Fraction of Input Power At Rated Conditions</source>
         <translation>Referans Ünitesi Giriş Gücünün Nominal Koşullardaki Atık Isı Fraksiyonu</translation>
     </message>
-    <!-- OS:Coil:WaterHeating:AirToWaterHeatPump:VariableSpeed:SpeedData -->
+    
     <message>
         <source>Reference Unit Water Pump Input Power At Rated Conditions</source>
         <translation>Referans Ünitesi Nominal Koşullarda Su Pompası Giriş Gücü</translation>
     </message>
-    <!-- OS:WindowMaterial:Screen -->
+    
     <message>
         <source>Reflected Beam Transmittance Accounting Method</source>
         <translation>Yansıyan Işın İletim Muhasebesi Yöntemi</translation>
     </message>
-    <!-- OS:Generator:FuelCell:WaterSupply -->
+    
     <message>
         <source>Reformer Water Flow Rate Function of Fuel Rate Curve Name</source>
         <translation>Reformer Su Akış Hızı - Yakıt Hızı Eğrisi Adı</translation>
     </message>
-    <!-- OS:Generator:FuelCell:WaterSupply -->
+    
     <message>
         <source>Reformer Water Pump Power Function of Fuel Rate Curve Name</source>
         <translation>Reformer Su Pompası Güç Yakıt Hızı Fonksiyonu Eğri Adı</translation>
     </message>
-    <!-- OS:SolarCollectorPerformance:IntegralCollectorStorage -->
+    
     <message>
         <source>Refractive Index of Inner Cover</source>
         <translation>İç Camın Kırılma İndeksi</translation>
     </message>
-    <!-- OS:SolarCollectorPerformance:IntegralCollectorStorage -->
+    
     <message>
         <source>Refractive Index of Outer Cover</source>
         <translation>Dış Kapak Kırılma Endeksi</translation>
     </message>
-    <!-- OS:Refrigeration:AirChiller -->
+    
     <message>
         <source>Refrigerant Correction Factor</source>
         <translation>Soğutucu Düzeltme Faktörü</translation>
     </message>
-    <!-- OS:AirConditioner:VariableRefrigerantFlow:FluidTemperatureControl, OS:AirConditioner:VariableRefrigerantFlow:FluidTemperatureControl:HR -->
+    
     <message>
         <source>Refrigerant Temperature Control Algorithm for Indoor Unit</source>
         <translation>İç Ünite için Soğutucu Sıcaklık Kontrol Algoritması</translation>
     </message>
-    <!-- OS:AirConditioner:VariableRefrigerantFlow:FluidTemperatureControl, OS:AirConditioner:VariableRefrigerantFlow:FluidTemperatureControl:HR -->
+    
     <message>
         <source>Refrigerant Type</source>
         <translation>Soğutucu Akışkan Türü</translation>
     </message>
-    <!-- OS:Refrigeration:Case -->
+    
     <message>
         <source>Refrigerated Case Restocking Schedule Name</source>
         <translation>Soğutmalı Vitrinde Restock Programı Adı</translation>
     </message>
-    <!-- OS:Refrigeration:CompressorRack, OS:Refrigeration:SecondarySystem, OS:Refrigeration:System -->
+    
     <message>
         <source>Refrigerated CaseAndWalkInList Name</source>
         <translation>Soğutulmuş Vitrin ve Yürüme İçi Listesi Adı</translation>
     </message>
-    <!-- OS:Refrigeration:Compressor -->
+    
     <message>
         <source>Refrigeration Compressor Capacity Curve Name</source>
         <translation>Soğutma Kompresörü Kapasite Eğrisi Adı</translation>
     </message>
-    <!-- OS:Refrigeration:Compressor -->
+    
     <message>
         <source>Refrigeration Compressor Power Curve Name</source>
         <translation>Soğutma Kompresörü Güç Eğrisi Adı</translation>
     </message>
-    <!-- OS:Refrigeration:System -->
+    
     <message>
         <source>Refrigeration Condenser Name</source>
         <translation>Soğutma Kondanseri Adı</translation>
     </message>
-    <!-- OS:Refrigeration:TranscriticalSystem -->
+    
     <message>
         <source>Refrigeration Gas Cooler Name</source>
         <translation>Soğutma Gazı Soğutucusu Adı</translation>
     </message>
-    <!-- OS:Refrigeration:System, OS:Refrigeration:TranscriticalSystem -->
+    
     <message>
         <source>Refrigeration System Working Fluid Type</source>
         <translation>Soğutma Sistemi Çalışma Akışkanı Türü</translation>
     </message>
-    <!-- OS:Refrigeration:System -->
+    
     <message>
         <source>Refrigeration TransferLoad List Name</source>
         <translation>Soğutma Transfer Yükü Listesi Adı</translation>
     </message>
-    <!-- OS:HeatExchanger:Desiccant:BalancedFlow -->
+    
     <message>
         <source>Regeneration Air Inlet Node</source>
         <translation>Rejenerasyon Hava Girişi Düğümü</translation>
     </message>
-    <!-- OS:HeatExchanger:Desiccant:BalancedFlow -->
+    
     <message>
         <source>Regeneration Air Outlet Node</source>
         <translation>Rejenerasyon Hava Çıkış Düğümü</translation>
     </message>
-    <!-- OS:Coil:Heating:DX:MultiSpeed -->
+    
     <message>
         <source>Region number for Calculating HSPF</source>
         <translation>HSPF Hesaplaması için Bölge Numarası</translation>
     </message>
-    <!-- OS:ComponentCost:Adjustments -->
+    
     <message>
         <source>Regional Adjustment Factor</source>
         <translation>Bölgesel Ayarlama Faktörü</translation>
     </message>
-    <!-- OS:AirTerminal:SingleDuct:VAV:HeatAndCool:Reheat -->
+    
     <message>
         <source>Reheat Coil</source>
         <translation>Isıtma Bobini</translation>
     </message>
-    <!-- OS:AirTerminal:SingleDuct:SeriesPIU:Reheat -->
+    
     <message>
         <source>Reheat Coil Air Inlet Node</source>
         <translation>Reheat Bobini Hava Girişi Düğümü</translation>
     </message>
-    <!-- OS:AirTerminal:SingleDuct:ParallelPIU:Reheat -->
+    
     <message>
         <source>Reheat Coil Air Inlet Node Name</source>
         <translation>Yeniden Isıtma Bobini Hava Giriş Düğümü Adı</translation>
     </message>
-    <!-- OS:AirTerminal:SingleDuct:ConstantVolume:Reheat, OS:AirTerminal:SingleDuct:ParallelPIU:Reheat, OS:AirTerminal:SingleDuct:SeriesPIU:Reheat, OS:AirTerminal:SingleDuct:VAV:Reheat -->
+    
     <message>
         <source>Reheat Coil Name</source>
         <translation>Yeniden Isıtma Bobini Adı</translation>
     </message>
-    <!-- OS:AirflowNetworkSimulationControl -->
+    
     <message>
         <source>Relative Airflow Convergence Tolerance</source>
         <translation>Bağıl Hava Akışı Yakınsama Toleransı</translation>
     </message>
-    <!-- OS:PlantEquipmentOperation:OutdoorRelativeHumidity -->
+    
     <message>
         <source>Relative Humidity Range Lower Limit</source>
         <translation>Bağıl Nem Aralığı Alt Sınırı</translation>
     </message>
-    <!-- OS:PlantEquipmentOperation:OutdoorRelativeHumidity -->
+    
     <message>
         <source>Relative Humidity Range Upper Limit</source>
         <translation>Bağıl Nem Aralığı Üst Sınırı</translation>
     </message>
-    <!-- OS:EvaporativeCooler:Indirect:ResearchSpecial -->
+    
     <message>
         <source>Relief Air Inlet Node</source>
         <translation>Tahliye Hava Giriş Düğümü</translation>
     </message>
-    <!-- OS:Controller:OutdoorAir -->
+    
     <message>
         <source>Relief Air Outlet Node Name</source>
         <translation>Tahliye Hava Çıkış Düğümü Adı</translation>
     </message>
-    <!-- OS:AirLoopHVAC:OutdoorAirSystem -->
+    
     <message>
         <source>Relief Air Stream Node Name</source>
         <translation>Tahliye Hava Akışı Node Adı</translation>
     </message>
-    <!-- OS:Building -->
+    
     <message>
         <source>Relocatable</source>
         <translation>Taşınabilir</translation>
     </message>
-    <!-- OS:UtilityCost:Charge:Block -->
+    
     <message>
         <source>Remaining Into Variable</source>
         <translation>Kalan Değeri Değişkene</translation>
     </message>
-    <!-- OS:Rendering:Color -->
+    
     <message>
         <source>Rendering Alpha Value</source>
         <translation>Görüntüleme Alfa Değeri</translation>
     </message>
-    <!-- OS:Rendering:Color -->
+    
     <message>
         <source>Rendering Blue Value</source>
         <translation>Mavi Değer Oluşturma</translation>
     </message>
-    <!-- OS:BuildingUnit -->
+    
     <message>
         <source>Rendering Color</source>
         <translation>Rendeleme Rengi</translation>
     </message>
-    <!-- OS:Rendering:Color -->
+    
     <message>
         <source>Rendering Green Value</source>
         <translation>Yeşil Değer Sunumu</translation>
     </message>
-    <!-- OS:Rendering:Color -->
+    
     <message>
         <source>Rendering Red Value</source>
         <translation>Render Kırmızı Değeri</translation>
     </message>
-    <!-- OS:LifeCycleCost -->
+    
     <message>
         <source>Repeat Period Months</source>
         <translation>Tekrar Süresi Ayları</translation>
     </message>
-    <!-- OS:LifeCycleCost -->
+    
     <message>
         <source>Repeat Period Years</source>
         <translation>Tekrar Periyodu Yıl</translation>
     </message>
-    <!-- OS:Output:Constructions -->
+    
     <message>
         <source>Report Constructions</source>
         <translation>İnşaat Detaylarını Raporla</translation>
     </message>
-    <!-- OS:Output:DebuggingData -->
+    
     <message>
         <source>Report Debugging Data</source>
         <translation>Hata Ayıklama Verilerini Raporla</translation>
     </message>
-    <!-- OS:Output:DebuggingData -->
+    
     <message>
         <source>Report During Warmup</source>
         <translation>Isınma Sırasında Rapor</translation>
     </message>
-    <!-- OS:Output:Constructions -->
+    
     <message>
         <source>Report Materials</source>
         <translation>Malzemeleri Raporla</translation>
     </message>
-    <!-- OS:Output:Table:SummaryReports -->
+    
     <message>
         <source>Report Name</source>
         <translation>Rapor Adı</translation>
     </message>
-    <!-- OS:Output:EnvironmentalImpactFactors, OS:Output:Meter, OS:Output:Variable -->
+    
     <message>
         <source>Reporting Frequency</source>
         <translation>Raporlama Sıklığı</translation>
     </message>
-    <!-- OS:Chiller:Electric:ASHRAE205 -->
+    
     <message>
         <source>Representation File Name</source>
         <translation>Temsil Dosya Adı</translation>
     </message>
-    <!-- OS:Material:RoofVegetation -->
+    
     <message>
         <source>Residual Volumetric Moisture Content of the Soil Layer</source>
         <translation>Toprak Katmanının Kalıntı Hacimsel Nem İçeriği</translation>
     </message>
-    <!-- OS:LifeCycleCost:UsePriceEscalation -->
+    
     <message>
         <source>Resource</source>
         <translation>Kaynak</translation>
     </message>
-    <!-- OS:EnergyManagementSystem:MeteredOutputVariable, OS:PythonPlugin:OutputVariable -->
+    
     <message>
         <source>Resource Type</source>
         <translation>Kaynak Türü</translation>
     </message>
-    <!-- OS:Refrigeration:WalkIn -->
+    
     <message>
         <source>Restocking Schedule Name</source>
         <translation>Restocking Schedule Name</translation>
     </message>
-    <!-- OS:AirLoopHVAC -->
+    
     <message>
         <source>Return Air Bypass Flow Temperature Setpoint Schedule Name</source>
         <translation>Geri Dönen Hava Bypass Akış Sıcaklığı Ayar Noktası Program Adı</translation>
     </message>
-    <!-- OS:Lights:Definition, OS:Luminaire:Definition -->
+    
     <message>
         <source>Return Air Fraction</source>
         <translation>Geri Dönen Hava Oranı</translation>
     </message>
-    <!-- OS:Lights:Definition, OS:Luminaire:Definition -->
+    
     <message>
         <source>Return Air Fraction Calculated from Plenum Temperature</source>
         <translation>Plen Sıcaklığından Hesaplanan Geri Dönen Hava Oranı</translation>
     </message>
-    <!-- OS:Lights:Definition, OS:Luminaire:Definition -->
+    
     <message>
         <source>Return Air Fraction Function of Plenum Temperature Coefficient 1</source>
         <translation>Plen Sıcaklığının Fonksiyonu Olarak Dönüş Havasının Kesri Katsayısı 1</translation>
     </message>
-    <!-- OS:Lights:Definition, OS:Luminaire:Definition -->
+    
     <message>
         <source>Return Air Fraction Function of Plenum Temperature Coefficient 2</source>
         <translation>Return Air Fraction Function of Plenum Temperature Coefficient 2</translation>
     </message>
-    <!-- OS:Controller:OutdoorAir -->
+    
     <message>
         <source>Return Air Node Name</source>
         <translation>İşletme Havası Düğüm Adı</translation>
     </message>
-    <!-- OS:AirLoopHVAC:OutdoorAirSystem, OS:SetpointManager:OutdoorAirPretreat -->
+    
     <message>
         <source>Return Air Stream Node Name</source>
         <translation>İade Hava Akışı Düğüm Adı</translation>
     </message>
-    <!-- OS:ElectricEquipment:ITE:AirCooled:Definition -->
+    
     <message>
         <source>Return Temperature Difference</source>
         <translation>Dönüş Sıcaklık Farkı</translation>
     </message>
-    <!-- OS:ElectricEquipment:ITE:AirCooled:Definition -->
+    
     <message>
         <source>Return Temperature Difference Schedule</source>
         <translation>Dönüş Sıcaklığı Farkı Programı</translation>
     </message>
-    <!-- OS:WindowMaterial:Screen -->
+    
     <message>
         <source>Right Side Opening Multiplier</source>
         <translation>Sağ Taraf Açılış Çarpanı</translation>
     </message>
-    <!-- OS:WindowMaterial:Shade -->
+    
     <message>
         <source>Right-Side Opening Multiplier</source>
         <translation>Sağ Taraf Açılış Çarpanı</translation>
     </message>
-    <!-- OS:DefaultSurfaceConstructions -->
+    
     <message>
         <source>Roof Ceiling Construction Name</source>
         <translation>Çatı Tavan İnşaat Adı</translation>
     </message>
-    <!-- OS:Pump:ConstantSpeed -->
+    
     <message>
         <source>Rotational Speed</source>
         <translation>Dönel Hız</translation>
     </message>
-    <!-- OS:Generator:WindTurbine -->
+    
     <message>
         <source>Rotor Diameter</source>
         <translation>Rotor Çapı</translation>
     </message>
-    <!-- OS:Generator:WindTurbine -->
+    
     <message>
         <source>Rotor Type</source>
         <translation>Rotor Tipi</translation>
     </message>
-    <!-- OS:Curve:Functional:PressureDrop, OS:Material, OS:Material:NoMass, OS:Material:RoofVegetation -->
+    
     <message>
         <source>Roughness</source>
         <translation>Pürüzlülük</translation>
     </message>
-    <!-- OS:Schedule:File -->
+    
     <message>
         <source>Rows to Skip at Top</source>
         <translation>Üstte Atlanacak Satırlar</translation>
     </message>
-    <!-- OS:Schedule:Rule -->
+    
     <message>
         <source>Rule Order</source>
         <translation>Kural Sırası</translation>
     </message>
-    <!-- OS:PythonPlugin:Instance -->
+    
     <message>
         <source>Run During Warmup Days</source>
         <translation>Isınma Günleri Sırasında Çalıştır</translation>
     </message>
-    <!-- OS:AirLoopHVAC:UnitaryCoolOnly, OS:CoilSystem:Cooling:Water -->
+    
     <message>
         <source>Run on Latent Load</source>
         <translation>Gizli Yük Üzerinde Çalıştır</translation>
     </message>
-    <!-- OS:AirLoopHVAC:UnitaryCoolOnly, OS:CoilSystem:Cooling:Water -->
+    
     <message>
         <source>Run on Sensible Load</source>
         <translation>Duyarlı Yük Üzerinde Çalıştır</translation>
     </message>
-    <!-- OS:LightingSimulationControl -->
+    
     <message>
         <source>Run Simulation for Design Days</source>
         <translation>Tasarım Günleri İçin Simülasyonu Çalıştır</translation>
     </message>
-    <!-- OS:SimulationControl -->
+    
     <message>
         <source>Run Simulation for Sizing Periods</source>
         <translation>Boyutlandırma Dönemleri için Simülasyon Çalıştır</translation>
     </message>
-    <!-- OS:LightingSimulationControl, OS:SimulationControl -->
+    
     <message>
         <source>Run Simulation for Weather File Run Periods</source>
         <translation>Hava Durumu Dosyası Çalışma Periyotları için Simülasyon Çalıştır</translation>
     </message>
-    <!-- OS:Generator:FuelCell:PowerModule -->
+    
     <message>
         <source>Run Time Degradation Initiation Time Threshold</source>
         <translation>Çalışma Süresi Degradasyonu Başlatma Zamanı Eşiği</translation>
     </message>
-    <!-- OS:ZoneHVAC:LowTemperatureRadiant:ConstantFlow -->
+    
     <message>
         <source>Running Mean Outdoor Dry-Bulb Temperature Weighting Factor</source>
-        <translation type="unfinished"></translation>
+        <translation>Running Mean Outdoor Dry-Bulb Temperature Weighting Factor</translation>
     </message>
 
-    <!-- S -->
-    <!-- OS:PhotovoltaicPerformance:Sandia -->
+    
+    
     <message>
         <source>Sandia Database Parameter a</source>
         <translation>Sandia Veritabanı Parametresi a</translation>
     </message>
-    <!-- OS:PhotovoltaicPerformance:Sandia -->
+    
     <message>
         <source>Sandia Database Parameter a0</source>
         <translation>Sandia Veritabanı Parametresi a0</translation>
     </message>
-    <!-- OS:PhotovoltaicPerformance:Sandia -->
+    
     <message>
         <source>Sandia Database Parameter a1</source>
         <translation>Sandia Veritabanı Parametresi a1</translation>
     </message>
-    <!-- OS:PhotovoltaicPerformance:Sandia -->
+    
     <message>
         <source>Sandia Database Parameter a2</source>
         <translation>Sandia Veritabanı Parametresi a2</translation>
     </message>
-    <!-- OS:PhotovoltaicPerformance:Sandia -->
+    
     <message>
         <source>Sandia Database Parameter a3</source>
         <translation>Sandia Veritabanı Parametresi a3</translation>
     </message>
-    <!-- OS:PhotovoltaicPerformance:Sandia -->
+    
     <message>
         <source>Sandia Database Parameter a4</source>
         <translation>Sandia Veri Tabanı Parametresi a4</translation>
     </message>
-    <!-- OS:PhotovoltaicPerformance:Sandia -->
+    
     <message>
         <source>Sandia Database Parameter aImp</source>
         <translation>Sandia Veritabanı Parametresi aImp</translation>
     </message>
-    <!-- OS:PhotovoltaicPerformance:Sandia -->
+    
     <message>
         <source>Sandia Database Parameter aIsc</source>
         <translation>Sandia Veritabanı Parametresi aIsc</translation>
     </message>
-    <!-- OS:PhotovoltaicPerformance:Sandia -->
+    
     <message>
         <source>Sandia Database Parameter b</source>
         <translation>Sandia Veritabanı Parametresi b</translation>
     </message>
-    <!-- OS:PhotovoltaicPerformance:Sandia -->
+    
     <message>
         <source>Sandia Database Parameter b0</source>
         <translation>Sandia Database Parametresi b0</translation>
     </message>
-    <!-- OS:PhotovoltaicPerformance:Sandia -->
+    
     <message>
         <source>Sandia Database Parameter b1</source>
         <translation>Sandia Veritabanı Parametresi b1</translation>
     </message>
-    <!-- OS:PhotovoltaicPerformance:Sandia -->
+    
     <message>
         <source>Sandia Database Parameter b2</source>
         <translation>Sandia Veritabanı Parametresi b2</translation>
     </message>
-    <!-- OS:PhotovoltaicPerformance:Sandia -->
+    
     <message>
         <source>Sandia Database Parameter b3</source>
         <translation>Sandia Veritabanı Parametresi b3</translation>
     </message>
-    <!-- OS:PhotovoltaicPerformance:Sandia -->
+    
     <message>
         <source>Sandia Database Parameter b4</source>
         <translation>Sandia Veritabanı Parametresi b4</translation>
     </message>
-    <!-- OS:PhotovoltaicPerformance:Sandia -->
+    
     <message>
         <source>Sandia Database Parameter b5</source>
         <translation>Sandia Veritabanı Parametresi b5</translation>
     </message>
-    <!-- OS:PhotovoltaicPerformance:Sandia -->
+    
     <message>
         <source>Sandia Database Parameter BVmp0</source>
         <translation>Sandia Veritabanı Parametresi BVmp0</translation>
     </message>
-    <!-- OS:PhotovoltaicPerformance:Sandia -->
+    
     <message>
         <source>Sandia Database Parameter BVoc0</source>
         <translation>Sandia Veritabanı Parametresi BVoc0</translation>
     </message>
-    <!-- OS:PhotovoltaicPerformance:Sandia -->
+    
     <message>
         <source>Sandia Database Parameter c0</source>
         <translation>Sandia Veritabanı Parametresi c0</translation>
     </message>
-    <!-- OS:PhotovoltaicPerformance:Sandia -->
+    
     <message>
         <source>Sandia Database Parameter c1</source>
         <translation>Sandia Veritabanı Parametresi c1</translation>
     </message>
-    <!-- OS:PhotovoltaicPerformance:Sandia -->
+    
     <message>
         <source>Sandia Database Parameter c2</source>
         <translation>Sandia Veritabanı Parametresi c2</translation>
     </message>
-    <!-- OS:PhotovoltaicPerformance:Sandia -->
+    
     <message>
         <source>Sandia Database Parameter c3</source>
         <translation>Sandia Veritabanı Parametresi c3</translation>
     </message>
-    <!-- OS:PhotovoltaicPerformance:Sandia -->
+    
     <message>
         <source>Sandia Database Parameter c4</source>
         <translation>Sandia Veritabanı Parametresi c4</translation>
     </message>
-    <!-- OS:PhotovoltaicPerformance:Sandia -->
+    
     <message>
         <source>Sandia Database Parameter c5</source>
         <translation>Sandia Veritabanı Parametresi c5</translation>
     </message>
-    <!-- OS:PhotovoltaicPerformance:Sandia -->
+    
     <message>
         <source>Sandia Database Parameter c6</source>
         <translation>Sandia Veritabanı Parametresi c6</translation>
     </message>
-    <!-- OS:PhotovoltaicPerformance:Sandia -->
+    
     <message>
         <source>Sandia Database Parameter c7</source>
         <translation>Sandia Veri Tabanı Parametresi c7</translation>
     </message>
-    <!-- OS:PhotovoltaicPerformance:Sandia -->
+    
     <message>
         <source>Sandia Database Parameter Delta(Tc)</source>
         <translation>Sandia Veri Tabanı Parametresi Delta(Tc)</translation>
     </message>
-    <!-- OS:PhotovoltaicPerformance:Sandia -->
+    
     <message>
         <source>Sandia Database Parameter fd</source>
         <translation>Sandia Veritabanı Parametresi fd</translation>
     </message>
-    <!-- OS:PhotovoltaicPerformance:Sandia -->
+    
     <message>
         <source>Sandia Database Parameter Ix0</source>
         <translation>Sandia Veri Tabanı Parametresi Ix0</translation>
     </message>
-    <!-- OS:PhotovoltaicPerformance:Sandia -->
+    
     <message>
         <source>Sandia Database Parameter Ixx0</source>
         <translation>Sandia Veritabanı Parametresi Ixx0</translation>
     </message>
-    <!-- OS:PhotovoltaicPerformance:Sandia -->
+    
     <message>
         <source>Sandia Database Parameter mBVmp</source>
         <translation>Sandia Veritabanı Parametresi mBVmp</translation>
     </message>
-    <!-- OS:PhotovoltaicPerformance:Sandia -->
+    
     <message>
         <source>Sandia Database Parameter mBVoc</source>
         <translation>Sandia Database Parameter mBVoc</translation>
     </message>
-    <!-- OS:Material:RoofVegetation -->
+    
     <message>
         <source>Saturation Volumetric Moisture Content of the Soil Layer</source>
         <translation>Toprak Katmanının Doygun Hacimsel Nem İçeriği</translation>
     </message>
-    <!-- OS:Schedule:Week -->
+    
     <message>
         <source>Saturday Schedule:Day Name</source>
         <translation>Cumartesi Programı:Gün Adı</translation>
     </message>
-    <!-- OS:CoilSystem:IntegratedHeatPump:AirSource -->
+    
     <message>
         <source>SCDWH Cooling Coil</source>
         <translation>SCDWH Soğutma Bobini</translation>
     </message>
-    <!-- OS:CoilSystem:IntegratedHeatPump:AirSource -->
+    
     <message>
         <source>SCDWH Water Heating Coil</source>
         <translation>SCDWH Su Isıtma Serpentini</translation>
     </message>
-    <!-- OS:Schedule:Week -->
+    
     <message>
         <source>Schedule Rendering Name</source>
         <translation>Zamanlama Render İsmi</translation>
     </message>
-    <!-- OS:Schedule:Rule -->
+    
     <message>
         <source>Schedule Ruleset Name</source>
         <translation>Zamanlama Kuralı Seti Adı</translation>
     </message>
-    <!-- OS:WindowMaterial:Screen -->
+    
     <message>
         <source>Screen Material Diameter</source>
         <translation>Ekran Malzemesi Çapı</translation>
     </message>
-    <!-- OS:WindowMaterial:Screen -->
+    
     <message>
         <source>Screen Material Spacing</source>
         <translation>Ekran Malzeme Aralığı</translation>
     </message>
-    <!-- OS:WindowMaterial:Screen -->
+    
     <message>
         <source>Screen to Glass Distance</source>
         <translation>Ekran ve Cam Arası Mesafe</translation>
     </message>
-    <!-- OS:CoilSystem:IntegratedHeatPump:AirSource -->
+    
     <message>
         <source>SCWH Coil</source>
         <translation>SCWH Bobini</translation>
     </message>
-    <!-- OS:PythonPlugin:SearchPaths -->
+    
     <message>
         <source>Search Path</source>
         <translation>Arama Yolu</translation>
     </message>
-    <!-- OS:UtilityCost:Charge:Block, OS:UtilityCost:Charge:Simple, OS:UtilityCost:Qualify -->
+    
     <message>
         <source>Season</source>
         <translation>Sezon</translation>
     </message>
-    <!-- OS:UtilityCost:Ratchet -->
+    
     <message>
         <source>Season From</source>
         <translation>Sezon Başlangıcı</translation>
     </message>
-    <!-- OS:UtilityCost:Tariff -->
+    
     <message>
         <source>Season Schedule Name</source>
         <translation>Sezon Programı Adı</translation>
     </message>
-    <!-- OS:UtilityCost:Ratchet -->
+    
     <message>
         <source>Season To</source>
         <translation>Mevsim Bitiş</translation>
     </message>
-    <!-- OS:ZoneHVAC:EvaporativeCoolerUnit -->
+    
     <message>
         <source>Second Evaporative Cooler</source>
         <translation>İkinci Buharlaştırmalı Soğutucu</translation>
     </message>
-    <!-- OS:EvaporativeCooler:Indirect:ResearchSpecial -->
+    
     <message>
         <source>Secondary Air Fan Design Power</source>
         <translation>İkincil Hava Fanı Tasarım Gücü</translation>
     </message>
-    <!-- OS:EvaporativeCooler:Indirect:ResearchSpecial -->
+    
     <message>
         <source>Secondary Air Fan Power Modifier Curve Name</source>
         <translation>İkincil Hava Fanı Güç Modifikatörü Eğri Adı</translation>
     </message>
-    <!-- OS:EvaporativeCooler:Indirect:ResearchSpecial -->
+    
     <message>
         <source>Secondary Air Flow Scaling Factor</source>
         <translation>İkinci Hava Akışı Ölçekleme Faktörü</translation>
     </message>
-    <!-- OS:AirTerminal:SingleDuct:SeriesPIU:Reheat, OS:EvaporativeCooler:Indirect:ResearchSpecial -->
+    
     <message>
         <source>Secondary Air Inlet Node</source>
         <translation>İkincil Hava Giriş Düğümü</translation>
     </message>
-    <!-- OS:AirTerminal:SingleDuct:ParallelPIU:Reheat -->
+    
     <message>
         <source>Secondary Air Inlet Node Name</source>
         <translation>İkincil Hava Giriş Düğümü Adı</translation>
     </message>
-    <!-- OS:ThermalZone -->
+    
     <message>
         <source>Secondary Daylighting Control Name</source>
         <translation>İkincil Gün Işığı Kontrol Adı</translation>
     </message>
-    <!-- OS:EvaporativeCooler:Indirect:ResearchSpecial -->
+    
     <message>
         <source>Secondary Fan Delta Pressure</source>
         <translation>İkincil Fan Basınç Farkı</translation>
     </message>
-    <!-- OS:EvaporativeCooler:Indirect:ResearchSpecial -->
+    
     <message>
         <source>Secondary Fan Flow Rate</source>
         <translation>İkincil Fan Akış Hızı</translation>
     </message>
-    <!-- OS:EvaporativeCooler:Indirect:ResearchSpecial -->
+    
     <message>
         <source>Secondary Fan Total Efficiency</source>
         <translation>İkincil Fan Toplam Verimliliği</translation>
     </message>
-    <!-- OS:PhotovoltaicPerformance:EquivalentOneDiode -->
+    
     <message>
         <source>Semiconductor Bandgap</source>
         <translation>Yarıiletken Bant Aralığı</translation>
     </message>
-    <!-- OS:Coil:Cooling:WaterToAirHeatPump:EquationFit -->
+    
     <message>
         <source>Sensible Cooling Capacity Curve Name</source>
         <translation>Duyarlı Soğutma Kapasitesi Eğrisi Adı</translation>
     </message>
-    <!-- OS:HeatExchanger:AirToAir:SensibleAndLatent -->
+    
     <message>
         <source>Sensible Effectiveness at 100% Cooling Air Flow</source>
         <translation>Soğutma Hava Akışı %100'de Duyulur Etkinlik</translation>
     </message>
-    <!-- OS:HeatExchanger:AirToAir:SensibleAndLatent -->
+    
     <message>
         <source>Sensible Effectiveness at 100% Heating Air Flow</source>
         <translation>Isıtma Hava Akışı %100'de Duyulur Etkinlik</translation>
     </message>
-    <!-- OS:HeatExchanger:AirToAir:SensibleAndLatent -->
+    
     <message>
         <source>Sensible Effectiveness of Cooling Air Flow Curve Name</source>
         <translation>Soğutma Hava Akışı Duyulur Etkinlik Eğrisi Adı</translation>
     </message>
-    <!-- OS:HeatExchanger:AirToAir:SensibleAndLatent -->
+    
     <message>
         <source>Sensible Effectiveness of Heating Air Flow Curve Name</source>
         <translation>Isıtma Hava Akışı Duyulur Etkinlik Eğrisi Adı</translation>
     </message>
-    <!-- OS:CoilPerformance:DX:Cooling -->
+    
     <message>
         <source>Sensible Heat Ratio Function of Flow Fraction Curve</source>
         <translation>Akış Kesri Fonksiyonu Olarak Duyulu Isı Oranı Eğrisi</translation>
     </message>
-    <!-- OS:CoilPerformance:DX:Cooling -->
+    
     <message>
         <source>Sensible Heat Ratio Function of Temperature Curve</source>
         <translation>Sıcaklığın Fonksiyonu Olarak Duyusal Isı Oranı Eğrisi</translation>
     </message>
-    <!-- OS:Coil:Cooling:DX:CurveFit:Speed -->
+    
     <message>
         <source>Sensible Heat Ratio Modifier Function of Flow Fraction Curve</source>
         <translation>Sensible Heat Ratio Modifier Fonksiyonu Akış Fraksiyonunun Eğrisi</translation>
     </message>
-    <!-- OS:Coil:Cooling:DX:CurveFit:Speed -->
+    
     <message>
         <source>Sensible Heat Ratio Modifier Function of Temperature Curve</source>
         <translation>Sensible Heat Ratio Modifier Function of Temperature Curve</translation>
     </message>
-    <!-- OS:ZoneHVAC:IdealLoadsAirSystem -->
+    
     <message>
         <source>Sensible Heat Recovery Effectiveness</source>
         <translation>Duyusal Isı Geri Kazanım Etkinliği</translation>
     </message>
-    <!-- OS:AvailabilityManager:HighTemperatureTurnOff, OS:AvailabilityManager:HighTemperatureTurnOn, OS:AvailabilityManager:LowTemperatureTurnOff, OS:AvailabilityManager:LowTemperatureTurnOn, OS:Controller:WaterCoil, OS:EvaporativeCooler:Direct:ResearchSpecial, OS:EvaporativeCooler:Indirect:ResearchSpecial -->
+    
     <message>
         <source>Sensor Node Name</source>
         <translation>Sensör Düğümü Adı</translation>
     </message>
-    <!-- OS:Site:GroundTemperature:Deep -->
+    
     <message>
         <source>September Deep Ground Temperature</source>
         <translation>September Derin Zemin Sıcaklığı</translation>
     </message>
-    <!-- OS:Site:GroundReflectance -->
+    
     <message>
         <source>September Ground Reflectance</source>
         <translation>Eylül Yer Yansıtabilirliği</translation>
     </message>
-    <!-- OS:Site:GroundTemperature:BuildingSurface, OS:Site:GroundTemperature:FCfactorMethod -->
+    
     <message>
         <source>September Ground Temperature</source>
         <translation>Eylül Yer Sıcaklığı</translation>
     </message>
-    <!-- OS:Site:GroundTemperature:Shallow -->
+    
     <message>
         <source>September Surface Ground Temperature</source>
         <translation>Eylül Yüzey Zemin Sıcaklığı</translation>
     </message>
-    <!-- OS:UtilityCost:Variable -->
+    
     <message>
         <source>September Value</source>
         <translation>Eylül Değeri</translation>
     </message>
-    <!-- OS:LifeCycleCost:Parameters -->
+    
     <message>
         <source>Service Date Month</source>
         <translation>Servis Tarihi Ayı</translation>
     </message>
-    <!-- OS:LifeCycleCost:Parameters -->
+    
     <message>
         <source>Service Date Year</source>
         <translation>Servis Tarihi Yılı</translation>
     </message>
-    <!-- OS:ShadingControl -->
+    
     <message>
         <source>Setpoint</source>
         <translation>Ayar Noktası</translation>
     </message>
-    <!-- OS:ShadingControl -->
+    
     <message>
         <source>Setpoint 2</source>
         <translation>Ayar Noktası 2</translation>
     </message>
-    <!-- OS:SetpointManager:SystemNodeReset:Humidity -->
+    
     <message>
         <source>Setpoint at High Reference Humidity Ratio</source>
         <translation>Yüksek Referans Nemlilik Oranında Ayar Noktası</translation>
     </message>
-    <!-- OS:SetpointManager:SystemNodeReset:Temperature -->
+    
     <message>
         <source>Setpoint at High Reference Temperature</source>
         <translation>Yüksek Referans Sıcaklıkta Setpoint</translation>
     </message>
-    <!-- OS:SetpointManager:SystemNodeReset:Humidity -->
+    
     <message>
         <source>Setpoint at Low Reference Humidity Ratio</source>
         <translation>Düşük Referans Nem Oranında Ayar Noktası</translation>
     </message>
-    <!-- OS:SetpointManager:SystemNodeReset:Temperature -->
+    
     <message>
         <source>Setpoint at Low Reference Temperature</source>
         <translation>Düşük Referans Sıcaklığında Setpoint</translation>
     </message>
-    <!-- OS:SetpointManager:OutdoorAirReset -->
+    
     <message>
         <source>Setpoint at Outdoor High Temperature</source>
         <translation>Dış Yüksek Sıcaklıkta Setpoint</translation>
     </message>
-    <!-- OS:SetpointManager:OutdoorAirReset -->
+    
     <message>
         <source>Setpoint at Outdoor High Temperature 2</source>
         <translation>Dış Yüksek Sıcaklık 2'de Ayar Değeri</translation>
     </message>
-    <!-- OS:SetpointManager:OutdoorAirReset -->
+    
     <message>
         <source>Setpoint at Outdoor Low Temperature</source>
         <translation>Dış Düşük Sıcaklıkta Setpoint</translation>
     </message>
-    <!-- OS:SetpointManager:OutdoorAirReset -->
+    
     <message>
         <source>Setpoint at Outdoor Low Temperature 2</source>
         <translation>Setpoint at Outdoor Low Temperature 2</translation>
     </message>
-    <!-- OS:ZoneHVAC:LowTemperatureRadiant:Electric, OS:ZoneHVAC:LowTemperatureRadiant:VariableFlow -->
+    
     <message>
         <source>Setpoint Control Type</source>
         <translation>Setpoint Kontrol Türü</translation>
     </message>
-    <!-- OS:SetpointManager:Coldest, OS:SetpointManager:FollowGroundTemperature, OS:SetpointManager:FollowOutdoorAirTemperature, OS:SetpointManager:FollowSystemNodeTemperature, OS:SetpointManager:MixedAir, OS:SetpointManager:MultiZone:Cooling:Average, OS:SetpointManager:MultiZone:Heating:Average, OS:SetpointManager:MultiZone:Humidity:Maximum, OS:SetpointManager:MultiZone:Humidity:Minimum, OS:SetpointManager:MultiZone:MaximumHumidity:Average, OS:SetpointManager:MultiZone:MinimumHumidity:Average, OS:SetpointManager:OutdoorAirPretreat, OS:SetpointManager:OutdoorAirReset, OS:SetpointManager:Scheduled, OS:SetpointManager:Scheduled:DualSetpoint, OS:SetpointManager:SingleZone:Cooling, OS:SetpointManager:SingleZone:Heating, OS:SetpointManager:SingleZone:Humidity:Maximum, OS:SetpointManager:SingleZone:Humidity:Minimum, OS:SetpointManager:SingleZone:OneStageCooling, OS:SetpointManager:SingleZone:OneStageHeating, OS:SetpointManager:SingleZone:Reheat, OS:SetpointManager:SystemNodeReset:Humidity, OS:SetpointManager:SystemNodeReset:Temperature, OS:SetpointManager:Warmest, OS:SetpointManager:WarmestTemperatureFlow -->
+    
     <message>
         <source>Setpoint Node or NodeList Name</source>
         <translation>Setpoint Node veya NodeList Adı</translation>
     </message>
-    <!-- OS:SwimmingPool:Indoor -->
+    
     <message>
         <source>Setpoint Temperature Schedule</source>
         <translation>Setpoint Sıcaklığı Programı</translation>
     </message>
-    <!-- OS:WindowMaterial:Shade -->
+    
     <message>
         <source>Shade to Glass Distance</source>
         <translation>Gölgelik ile Cam Arası Mesafe</translation>
     </message>
-    <!-- OS:ShadingSurfaceGroup -->
+    
     <message>
         <source>Shaded Object Name</source>
         <translation>Gölgelenen Nesne Adı</translation>
     </message>
-    <!-- OS:ShadowCalculation -->
+    
     <message>
         <source>Shading Calculation Method</source>
         <translation>Gölgeleme Hesaplama Yöntemi</translation>
     </message>
-    <!-- OS:ShadowCalculation -->
+    
     <message>
         <source>Shading Calculation Update Frequency</source>
         <translation>Gölgeleme Hesaplama Günceleme Sıklığı</translation>
     </message>
-    <!-- OS:ShadowCalculation -->
+    
     <message>
         <source>Shading Calculation Update Frequency Method</source>
         <translation>Gölgelendirme Hesaplaması Güncelleme Sıklığı Yöntemi</translation>
     </message>
-    <!-- OS:ShadingControl -->
+    
     <message>
         <source>Shading Control Is Scheduled</source>
         <translation>Gölgelendirme Kontrolü Planlanmıştır</translation>
     </message>
-    <!-- OS:ShadingControl -->
+    
     <message>
         <source>Shading Control Type</source>
         <translation>Gölgeleme Kontrol Türü</translation>
     </message>
-    <!-- OS:ShadingControl -->
+    
     <message>
         <source>Shading Device Material Name</source>
         <translation>Gölgeleme Cihazı Malzeme Adı</translation>
     </message>
-    <!-- OS:ShadingSurface -->
+    
     <message>
         <source>Shading Surface Group Name</source>
         <translation>Gölgelendirme Yüzeyi Grubu Adı</translation>
     </message>
-    <!-- OS:ShadingSurfaceGroup -->
+    
     <message>
         <source>Shading Surface Type</source>
         <translation>Gölgelendirme Yüzeyi Türü</translation>
     </message>
-    <!-- OS:ShadingControl -->
+    
     <message>
         <source>Shading Type</source>
         <translation>Gölgelendirme Türü</translation>
     </message>
-    <!-- OS:ShadowCalculation -->
+    
     <message>
         <source>Shading Zone Group</source>
         <translation>Gölgeleme Bölge Grubu</translation>
     </message>
-    <!-- OS:CoilSystem:IntegratedHeatPump:AirSource -->
+    
     <message>
         <source>SHDWH Heating Coil</source>
         <translation>SHDWH Isıtma Bobini</translation>
     </message>
-    <!-- OS:CoilSystem:IntegratedHeatPump:AirSource -->
+    
     <message>
         <source>SHDWH Water Heating Coil</source>
         <translation>SHDWH Su Isıtma Bobini</translation>
     </message>
-    <!-- OS:Refrigeration:System -->
+    
     <message>
         <source>Shell-and-Coil Intercooler Effectiveness</source>
         <translation>Shell-and-Coil Ara Soğutucu Etkinliği</translation>
     </message>
-    <!-- OS:SpaceInfiltration:FlowCoefficient -->
+    
     <message>
         <source>Shelter Factor</source>
         <translation>Sığınak Faktörü</translation>
     </message>
-    <!-- OS:PhotovoltaicPerformance:EquivalentOneDiode, OS:PhotovoltaicPerformance:Sandia -->
+    
     <message>
         <source>Short Circuit Current</source>
         <translation>Kısa Devre Akımı</translation>
     </message>
-    <!-- OS:Refrigeration:AirChiller -->
+    
     <message>
         <source>SHR60 Correction Factor</source>
         <translation>SHR60 Düzeltme Faktörü</translation>
     </message>
-    <!-- OS:PhotovoltaicPerformance:EquivalentOneDiode -->
+    
     <message>
         <source>Shunt Resistance</source>
         <translation>Şunt Direnci</translation>
     </message>
-    <!-- OS:Generator:FuelCell:PowerModule -->
+    
     <message>
         <source>Shut Down Electricity Consumption</source>
         <translation>Kapalı Elektrik Tüketimi</translation>
     </message>
-    <!-- OS:Generator:FuelCell:PowerModule -->
+    
     <message>
         <source>Shut Down Fuel</source>
         <translation>Kapatma Yakıtı</translation>
     </message>
-    <!-- OS:Generator:FuelCell:PowerModule -->
+    
     <message>
         <source>Shut Down Time</source>
         <translation>Kapanış Saati</translation>
     </message>
-    <!-- OS:ZoneHVAC:EvaporativeCoolerUnit -->
+    
     <message>
         <source>Shut Off Relative Humidity</source>
         <translation>Kapatma Nispi Nemi</translation>
     </message>
-    <!-- OS:SolarCollectorPerformance:IntegralCollectorStorage -->
+    
     <message>
         <source>Side Heat Loss Conductance</source>
         <translation>Yan Isı Kaybı İletkenliği</translation>
     </message>
-    <!-- OS:AvailabilityManager:HybridVentilation -->
+    
     <message>
         <source>Simple Airflow Control Type Schedule</source>
         <translation>Basit Hava Akışı Kontrol Tipi Programı</translation>
     </message>
-    <!-- OS:ElectricLoadCenter:Storage:Converter -->
+    
     <message>
         <source>Simple Fixed Efficiency</source>
         <translation>Basit Sabit Verimlilik</translation>
     </message>
-    <!-- OS:Generator:FuelCell:ElectricalStorage -->
+    
     <message>
         <source>Simple Maximum Capacity</source>
         <translation>Basit Maksimum Kapasite</translation>
     </message>
-    <!-- OS:Generator:FuelCell:ElectricalStorage -->
+    
     <message>
         <source>Simple Maximum Power Draw</source>
         <translation>Basit Maksimum Güç Çekişi</translation>
     </message>
-    <!-- OS:Generator:FuelCell:ElectricalStorage -->
+    
     <message>
         <source>Simple Maximum Power Store</source>
         <translation>Simple Maximum Power Store</translation>
     </message>
-    <!-- OS:Construction:AirBoundary -->
+    
     <message>
         <source>Simple Mixing Air Changes per Hour</source>
         <translation>Basit Karışım Hava Değişimi Saati Başına</translation>
     </message>
-    <!-- OS:Construction:AirBoundary -->
+    
     <message>
         <source>Simple Mixing Schedule Name</source>
         <translation>Simple Mixing Schedule Name</translation>
     </message>
-    <!-- OS:Foundation:Kiva:Settings -->
+    
     <message>
         <source>Simulation Timestep</source>
         <translation>Simülasyon Zaman Adımı</translation>
     </message>
-    <!-- OS:UnitarySystemPerformance:Multispeed -->
+    
     <message>
         <source>Single Mode Operation</source>
         <translation>Tek Mod İşletme</translation>
     </message>
-    <!-- OS:AirflowNetworkZone -->
+    
     <message>
         <source>Single Sided Wind Pressure Coefficient Algorithm</source>
         <translation>Tek Taraflı Rüzgar Basınç Katsayısı Algoritması</translation>
     </message>
-    <!-- OS:SurfaceProperty:OtherSideCoefficients -->
+    
     <message>
         <source>Sinusoidal Variation of Constant Temperature Coefficient</source>
         <translation>Sabit Sıcaklık Katsayısının Sinüzoidal Değişimi</translation>
     </message>
-    <!-- OS:DefaultConstructionSet -->
+    
     <message>
         <source>Site Shading Construction Name</source>
         <translation>Site Shading Construction Name</translation>
     </message>
-    <!-- OS:Generator:FuelCell:PowerModule -->
+    
     <message>
         <source>Skin Loss Calculation Mode</source>
         <translation>Dış Yüzey Kayıp Hesaplama Modu</translation>
     </message>
-    <!-- OS:Generator:FuelCell:AuxiliaryHeater -->
+    
     <message>
         <source>Skin Loss Destination</source>
         <translation>Cilt Kaybı Hedefi</translation>
     </message>
-    <!-- OS:WaterHeater:Stratified -->
+    
     <message>
         <source>Skin Loss Fraction to Zone</source>
         <translation>Bölgeye Cilt Kaybı Kesri</translation>
     </message>
-    <!-- OS:Generator:FuelCell:PowerModule -->
+    
     <message>
         <source>Skin Loss Quadratic Curve Name</source>
         <translation>Cilt Kaybı İkinci Derece Eğri Adı</translation>
     </message>
-    <!-- OS:Generator:FuelCell:PowerModule -->
+    
     <message>
         <source>Skin Loss U-Factor Times Area Term</source>
         <translation>Cilt Kaybı U-Faktörü Çarpı Alan Terimi</translation>
     </message>
-    <!-- OS:Generator:FuelCell:AuxiliaryHeater -->
+    
     <message>
         <source>Skin Loss U-Factor Times Area Value</source>
         <translation>Skin Loss U-Factor Times Area Value</translation>
     </message>
-    <!-- OS:SizingPeriod:DesignDay -->
+    
     <message>
         <source>Sky Clearness</source>
         <translation>Gökyüzü Berraklığı</translation>
     </message>
-    <!-- OS:ShadowCalculation -->
+    
     <message>
         <source>Sky Diffuse Modeling Algorithm</source>
         <translation>Gökyüzü Yayılı Radyasyon Modelleme Algoritması</translation>
     </message>
-    <!-- OS:RadianceParameters -->
+    
     <message>
         <source>Sky Discretization Resolution</source>
         <translation>Gökyüzü Ayrıştırma Çözünürlüğü</translation>
     </message>
-    <!-- OS:SurfaceProperty:SurroundingSurfaces -->
+    
     <message>
         <source>Sky Temperature Schedule Name</source>
         <translation>Gökyüzü Sıcaklığı Programı Adı</translation>
     </message>
-    <!-- OS:SurfaceProperty:SurroundingSurfaces -->
+    
     <message>
         <source>Sky View Factor</source>
         <translation>Gökyüzü Görüş Faktörü</translation>
     </message>
-    <!-- OS:DefaultSubSurfaceConstructions -->
+    
     <message>
         <source>Skylight Construction Name</source>
         <translation>Çatı Penceresi İnşaat Adı</translation>
     </message>
-    <!-- OS:WindowMaterial:Blind -->
+    
     <message>
         <source>Slat Angle</source>
         <translation>Lameller Açısı</translation>
     </message>
-    <!-- OS:ShadingControl -->
+    
     <message>
         <source>Slat Angle Schedule Name</source>
         <translation>Lamelle Açısı Programı Adı</translation>
     </message>
-    <!-- OS:WindowMaterial:Blind -->
+    
     <message>
         <source>Slat Beam Solar Transmittance</source>
         <translation>Slat Işın Güneş Geçirgenliği</translation>
     </message>
-    <!-- OS:WindowMaterial:Blind -->
+    
     <message>
         <source>Slat Beam Visible Transmittance</source>
         <translation>Slat Kirişi Görünür Geçirgenliği</translation>
     </message>
-    <!-- OS:WindowMaterial:Blind -->
+    
     <message>
         <source>Slat Conductivity</source>
         <translation>Çit İletkenliği</translation>
     </message>
-    <!-- OS:WindowMaterial:Blind -->
+    
     <message>
         <source>Slat Diffuse Solar Transmittance</source>
         <translation>Kanat Yayılı Güneş Geçirgenliği</translation>
     </message>
-    <!-- OS:WindowMaterial:Blind -->
+    
     <message>
         <source>Slat Diffuse Visible Transmittance</source>
         <translation>Slat Yayılı Görünür Geçirgenliği</translation>
     </message>
-    <!-- OS:WindowMaterial:Blind -->
+    
     <message>
         <source>Slat Infrared Hemispherical Transmittance</source>
         <translation>Slat Kızılötesi Hemisferi Geçirgenliği</translation>
     </message>
-    <!-- OS:WindowMaterial:Blind -->
+    
     <message>
         <source>Slat Orientation</source>
         <translation>Şerit Yönelimi</translation>
     </message>
-    <!-- OS:WindowMaterial:Blind -->
+    
     <message>
         <source>Slat Separation</source>
         <translation>Lameller Ayrılığı</translation>
     </message>
-    <!-- OS:WindowMaterial:Blind -->
+    
     <message>
         <source>Slat Thickness</source>
         <translation>Slat Kalınlığı</translation>
     </message>
-    <!-- OS:WindowMaterial:Blind -->
+    
     <message>
         <source>Slat Width</source>
         <translation>Lamella Genişliği</translation>
     </message>
-    <!-- OS:AirflowNetworkHorizontalOpening -->
+    
     <message>
         <source>Sloping Plane Angle</source>
         <translation>Eğim Düzlem Açısı</translation>
     </message>
-    <!-- OS:LightingDesignDay, OS:SizingPeriod:DesignDay -->
+    
     <message>
         <source>Snow Indicator</source>
         <translation>Kar Göstergesi</translation>
     </message>
-    <!-- OS:FuelFactors -->
+    
     <message>
         <source>SO2 Emission Factor</source>
         <translation>SO2 Emisyon Faktörü</translation>
     </message>
-    <!-- OS:FuelFactors -->
+    
     <message>
         <source>SO2 Emission Factor Schedule Name</source>
         <translation>SO2 Emisyon Faktörü Programı Adı</translation>
     </message>
-    <!-- OS:Foundation:Kiva:Settings -->
+    
     <message>
         <source>Soil Conductivity</source>
         <translation>Zemin İletkenliği</translation>
     </message>
-    <!-- OS:Foundation:Kiva:Settings, OS:GroundHeatExchanger:HorizontalTrench, OS:Site:GroundTemperature:Undisturbed:KusudaAchenbach, OS:Site:GroundTemperature:Undisturbed:Xing -->
+    
     <message>
         <source>Soil Density</source>
         <translation>Toprak Yoğunluğu</translation>
     </message>
-    <!-- OS:Material:RoofVegetation -->
+    
     <message>
         <source>Soil Layer Name</source>
         <translation>Toprak Katmanı Adı</translation>
     </message>
-    <!-- OS:GroundHeatExchanger:HorizontalTrench -->
+    
     <message>
         <source>Soil Moisture Content Percent</source>
         <translation>Toprak Nem İçeriği Yüzdesi</translation>
     </message>
-    <!-- OS:GroundHeatExchanger:HorizontalTrench -->
+    
     <message>
         <source>Soil Moisture Content Percent at Saturation</source>
         <translation>Doyma Durumunda Toprak Nemi İçeriği Yüzdesi</translation>
     </message>
-    <!-- OS:Foundation:Kiva:Settings, OS:GroundHeatExchanger:HorizontalTrench, OS:Site:GroundTemperature:Undisturbed:KusudaAchenbach, OS:Site:GroundTemperature:Undisturbed:Xing -->
+    
     <message>
         <source>Soil Specific Heat</source>
         <translation>Toprak Özgül Isısı</translation>
     </message>
-    <!-- OS:Site:GroundTemperature:Undisturbed:Xing -->
+    
     <message>
         <source>Soil Surface Temperature Amplitude 1</source>
         <translation>Zemin Yüzey Sıcaklığı Genliği 1</translation>
     </message>
-    <!-- OS:Site:GroundTemperature:Undisturbed:Xing -->
+    
     <message>
         <source>Soil Surface Temperature Amplitude 2</source>
         <translation>Zemin Yüzey Sıcaklık Genliği 2</translation>
     </message>
-    <!-- OS:GroundHeatExchanger:HorizontalTrench, OS:Site:GroundTemperature:Undisturbed:KusudaAchenbach, OS:Site:GroundTemperature:Undisturbed:Xing -->
+    
     <message>
         <source>Soil Thermal Conductivity</source>
         <translation>Toprak Isıl İletkenliği</translation>
     </message>
-    <!-- OS:Material, OS:Material:NoMass, OS:Material:RoofVegetation -->
+    
     <message>
         <source>Solar Absorptance</source>
         <translation>Güneş Emicilik</translation>
     </message>
-    <!-- OS:WindowMaterial:Glazing, OS:WindowMaterial:Glazing:RefractionExtinctionMethod -->
+    
     <message>
         <source>Solar Diffusing</source>
         <translation>Güneş Difüzyon</translation>
     </message>
-    <!-- OS:SimulationControl -->
+    
     <message>
         <source>Solar Distribution</source>
         <translation>Güneş Dağılımı</translation>
     </message>
-    <!-- OS:WindowMaterial:Glazing:RefractionExtinctionMethod -->
+    
     <message>
         <source>Solar Extinction Coefficient</source>
         <translation>Güneş Soğurma Katsayısı</translation>
     </message>
-    <!-- OS:WindowMaterial:SimpleGlazingSystem -->
+    
     <message>
         <source>Solar Heat Gain Coefficient</source>
         <translation>Güneş Isı Kazanım Katsayısı</translation>
     </message>
-    <!-- OS:WindowMaterial:Glazing:RefractionExtinctionMethod -->
+    
     <message>
         <source>Solar Index of Refraction</source>
         <translation>Güneş Kırılma Endeksi</translation>
     </message>
-    <!-- OS:SizingPeriod:DesignDay -->
+    
     <message>
         <source>Solar Model Indicator</source>
         <translation>Güneş Modeli Göstergesi</translation>
     </message>
-    <!-- OS:WindowMaterial:Shade -->
+    
     <message>
         <source>Solar Reflectance</source>
         <translation>Güneş Yansıtıcılığı</translation>
     </message>
-    <!-- OS:WindowMaterial:Shade -->
+    
     <message>
         <source>Solar Transmittance</source>
         <translation>Güneş Geçirgenliği</translation>
     </message>
-    <!-- OS:WindowMaterial:Glazing -->
+    
     <message>
         <source>Solar Transmittance at Normal Incidence</source>
         <translation>Normal Geliş Açısında Güneş Geçirgenliği</translation>
     </message>
-    <!-- OS:SolarCollector:FlatPlate:Water -->
+    
     <message>
         <source>SolarCollectorPerformance Name</source>
         <translation>SolarCollectorPerformance Adı</translation>
     </message>
-    <!-- OS:MaterialProperty:PhaseChangeHysteresis -->
+    
     <message>
         <source>Solid State Density</source>
         <translation>Katı Madde Yoğunluğu</translation>
     </message>
-    <!-- OS:MaterialProperty:PhaseChangeHysteresis -->
+    
     <message>
         <source>Solid State Specific Heat</source>
         <translation>Katı Hal Özgül Isısı</translation>
     </message>
-    <!-- OS:MaterialProperty:PhaseChangeHysteresis -->
+    
     <message>
         <source>Solid State Thermal Conductivity</source>
         <translation>Katı Hal Isıl İletkenliği</translation>
     </message>
-    <!-- OS:AirflowNetworkSimulationControl -->
+    
     <message>
         <source>Solver</source>
         <translation>Çözücü</translation>
     </message>
-    <!-- OS:FuelFactors -->
+    
     <message>
         <source>Source Energy Factor</source>
         <translation>Kaynak Enerji Faktörü</translation>
     </message>
-    <!-- OS:FuelFactors -->
+    
     <message>
         <source>Source Energy Schedule Name</source>
         <translation>Kaynak Enerji Program Adı</translation>
     </message>
-    <!-- OS:CentralHeatPumpSystem -->
+    
     <message>
         <source>Source Loop Inlet Node Name</source>
         <translation>Kaynak Döngü Giriş Düğümü Adı</translation>
     </message>
-    <!-- OS:CentralHeatPumpSystem -->
+    
     <message>
         <source>Source Loop Outlet Node Name</source>
         <translation>Source Loop Çıkış Düğüm Adı</translation>
     </message>
-    <!-- OS:Meter:CustomDecrement -->
+    
     <message>
         <source>Source Meter Name</source>
         <translation>Kaynak Sayaç Adı</translation>
     </message>
-    <!-- OS:Connection -->
+    
     <message>
         <source>Source Object</source>
         <translation>Kaynak Nesnesi</translation>
     </message>
-    <!-- OS:Construction:InternalSource -->
+    
     <message>
         <source>Source Present After Layer Number</source>
         <translation>Katman Numarasından Sonra Kaynak Mevcut</translation>
     </message>
-    <!-- OS:ThermalStorage:ChilledWater:Stratified -->
+    
     <message>
         <source>Source Side Availability Schedule Name</source>
         <translation>Kaynak Tarafı Kullanılabilirlik Çizelgesi Adı</translation>
     </message>
-    <!-- OS:WaterHeater:Mixed, OS:WaterHeater:Stratified -->
+    
     <message>
         <source>Source Side Flow Control Mode</source>
         <translation>Kaynak Tarafı Akış Kontrol Modu</translation>
     </message>
-    <!-- OS:ThermalStorage:ChilledWater:Stratified -->
+    
     <message>
         <source>Source Side Heat Transfer Effectiveness</source>
         <translation>Kaynak Tarafı Isı Transfer Etkinliği</translation>
     </message>
-    <!-- OS:HeatPump:PlantLoop:EIR:Cooling, OS:HeatPump:PlantLoop:EIR:Heating, OS:HeatPump:WaterToWater:EquationFit:Cooling, OS:HeatPump:WaterToWater:EquationFit:Heating, OS:ThermalStorage:ChilledWater:Stratified, OS:WaterHeater:Mixed, OS:WaterHeater:Stratified -->
+    
     <message>
         <source>Source Side Inlet Node Name</source>
         <translation>Kaynak Tarafı Giriş Düğümü Adı</translation>
     </message>
-    <!-- OS:HeatPump:PlantLoop:EIR:Cooling, OS:HeatPump:PlantLoop:EIR:Heating, OS:HeatPump:WaterToWater:EquationFit:Cooling, OS:HeatPump:WaterToWater:EquationFit:Heating, OS:ThermalStorage:ChilledWater:Stratified, OS:WaterHeater:Mixed, OS:WaterHeater:Stratified -->
+    
     <message>
         <source>Source Side Outlet Node Name</source>
         <translation>Kaynak Tarafı Çıkış Düğümü Adı</translation>
     </message>
-    <!-- OS:HeatPump:PlantLoop:EIR:Cooling, OS:HeatPump:PlantLoop:EIR:Heating -->
+    
     <message>
         <source>Source Side Reference Flow Rate</source>
         <translation>Kaynak Tarafı Referans Akış Hızı</translation>
     </message>
-    <!-- OS:PlantComponent:TemperatureSource -->
+    
     <message>
         <source>Source Temperature</source>
         <translation>Kaynak Sıcaklığı</translation>
     </message>
-    <!-- OS:PlantComponent:TemperatureSource -->
+    
     <message>
         <source>Source Temperature Schedule Name</source>
         <translation>Kaynak Sıcaklığı Program Adı</translation>
     </message>
-    <!-- OS:UtilityCost:Charge:Block, OS:UtilityCost:Charge:Simple -->
+    
     <message>
         <source>Source Variable</source>
         <translation>Kaynak Değişkeni</translation>
     </message>
-    <!-- OS:ZoneMixing -->
+    
     <message>
         <source>Source Zone or Space Name</source>
         <translation>Kaynak Bölgesi veya Alan Adı</translation>
     </message>
-    <!-- OS:CoilSystem:IntegratedHeatPump:AirSource -->
+    
     <message>
         <source>Space Cooling Coil</source>
         <translation>Mekan Soğutma Serpentini</translation>
     </message>
-    <!-- OS:CoilSystem:IntegratedHeatPump:AirSource -->
+    
     <message>
         <source>Space Heating Coil</source>
         <translation>Mekan Isıtma Serpantini</translation>
     </message>
-    <!-- OS:Daylighting:Control, OS:Glare:Sensor, OS:IlluminanceMap, OS:InteriorPartitionSurfaceGroup, OS:ShadingSurfaceGroup, OS:Surface, OS:WaterUse:Equipment -->
+    
     <message>
         <source>Space Name</source>
         <translation>Mekan Adı</translation>
     </message>
-    <!-- OS:DefaultConstructionSet -->
+    
     <message>
         <source>Space Shading Construction Name</source>
         <translation>Alan Gölgelendirme Yapı Adı</translation>
     </message>
-    <!-- OS:Building, OS:Space -->
+    
     <message>
         <source>Space Type Name</source>
         <translation>Alan Tipi Adı</translation>
     </message>
-    <!-- OS:RunPeriodControl:SpecialDays -->
+    
     <message>
         <source>Special Day Type</source>
         <translation>Özel Gün Türü</translation>
     </message>
-    <!-- OS:Schedule:Rule -->
+    
     <message>
         <source>Specific Day</source>
         <translation>Belirli Gün</translation>
     </message>
-    <!-- OS:Material -->
+    
     <message>
         <source>Specific Heat</source>
         <translation>Özgül Isı</translation>
     </message>
-    <!-- OS:WindowMaterial:Gas -->
+    
     <message>
         <source>Specific Heat Coefficient A</source>
         <translation>Özel Isı Katsayısı A</translation>
     </message>
-    <!-- OS:WindowMaterial:Gas -->
+    
     <message>
         <source>Specific Heat Coefficient B</source>
         <translation>Özgül Isı Katsayısı B</translation>
     </message>
-    <!-- OS:WindowMaterial:Gas -->
+    
     <message>
         <source>Specific Heat Coefficient C</source>
         <translation>Özgül Isı Katsayısı C</translation>
     </message>
-    <!-- OS:Material:RoofVegetation -->
+    
     <message>
         <source>Specific Heat of Dry Soil</source>
         <translation>Kuru Toprağın Özgül Isısı</translation>
     </message>
-    <!-- OS:WindowMaterial:Gas -->
+    
     <message>
         <source>Specific Heat Ratio</source>
         <translation>Özgül Isı Oranı</translation>
     </message>
-    <!-- OS:Schedule:Rule -->
+    
     <message>
         <source>Specific Month</source>
         <translation>Belirli Ay</translation>
     </message>
-    <!-- OS:Coil:Cooling:DX:CurveFit:OperatingMode -->
+    
     <message>
         <source>Speed</source>
         <translation>Hız</translation>
     </message>
-    <!-- OS:AirLoopHVAC:UnitaryHeatPump:AirToAir:MultiSpeed -->
+    
     <message>
         <source>Speed 1 Supply Air Flow Rate During Cooling Operation</source>
         <translation>Soğutma Çalışması Sırasında Hız 1 Beslemeli Hava Akış Hızı</translation>
     </message>
-    <!-- OS:AirLoopHVAC:UnitaryHeatPump:AirToAir:MultiSpeed -->
+    
     <message>
         <source>Speed 1 Supply Air Flow Rate During Heating Operation</source>
         <translation>Isıtma Işletimi Sırasında Hız 1 Kaynağı Hava Akış Hızı</translation>
     </message>
-    <!-- OS:AirLoopHVAC:UnitaryHeatPump:AirToAir:MultiSpeed -->
+    
     <message>
         <source>Speed 2 Supply Air Flow Rate During Cooling Operation</source>
         <translation>Speed 2 Soğutma İşlemi Sırasında Arz Hava Akış Hızı</translation>
     </message>
-    <!-- OS:AirLoopHVAC:UnitaryHeatPump:AirToAir:MultiSpeed -->
+    
     <message>
         <source>Speed 2 Supply Air Flow Rate During Heating Operation</source>
         <translation>Isıtma Çalışması Sırasında Hız 2 Temel Hava Akış Hızı</translation>
     </message>
-    <!-- OS:AirLoopHVAC:UnitaryHeatPump:AirToAir:MultiSpeed -->
+    
     <message>
         <source>Speed 3 Supply Air Flow Rate During Cooling Operation</source>
         <translation>Soğutma Çalışması Sırasında Hız 3 Beslemeli Hava Akış Hızı</translation>
     </message>
-    <!-- OS:AirLoopHVAC:UnitaryHeatPump:AirToAir:MultiSpeed -->
+    
     <message>
         <source>Speed 3 Supply Air Flow Rate During Heating Operation</source>
         <translation>Isıtma İşlemi Sırasında Hız 3 Besleme Hava Akış Hızı</translation>
     </message>
-    <!-- OS:AirLoopHVAC:UnitaryHeatPump:AirToAir:MultiSpeed -->
+    
     <message>
         <source>Speed 4 Supply Air Flow Rate During Cooling Operation</source>
         <translation>Soğutma İşlemi Sırasında Hız 4 Besleme Havas Akış Hızı</translation>
     </message>
-    <!-- OS:AirLoopHVAC:UnitaryHeatPump:AirToAir:MultiSpeed -->
+    
     <message>
         <source>Speed 4 Supply Air Flow Rate During Heating Operation</source>
         <translation>Isıtma İşlemi Sırasında 4. Hız Beslemeli Hava Akış Hızı</translation>
     </message>
-    <!-- OS:Fan:SystemModel -->
+    
     <message>
         <source>Speed Control Method</source>
         <translation>Hız Kontrol Yöntemi</translation>
     </message>
-    <!-- OS:Coil:Cooling:DX:VariableSpeed, OS:Coil:Cooling:WaterToAirHeatPump:VariableSpeedEquationFit, OS:Coil:Heating:DX:VariableSpeed, OS:Coil:Heating:WaterToAirHeatPump:VariableSpeedEquationFit, OS:Coil:WaterHeating:AirToWaterHeatPump:VariableSpeed, OS:HeatPump:AirToWater:Cooling, OS:HeatPump:AirToWater:Heating -->
+    
     <message>
         <source>Speed Data List</source>
         <translation>Hız Verileri Listesi</translation>
     </message>
-    <!-- OS:Fan:SystemModel -->
+    
     <message>
         <source>Speed Electric Power Fraction</source>
         <translation>Hız Elektrik Güç Oranı</translation>
     </message>
-    <!-- OS:Fan:SystemModel -->
+    
     <message>
         <source>Speed Flow Fraction</source>
         <translation>Hız Akış Oranı</translation>
     </message>
-    <!-- OS:Generator:FuelCell:StackCooler -->
+    
     <message>
         <source>Stack Air Cooler Fan Coefficient f0</source>
         <translation>Stack Air Cooler Fan Coefficient f0</translation>
     </message>
-    <!-- OS:Generator:FuelCell:StackCooler -->
+    
     <message>
         <source>Stack Air Cooler Fan Coefficient f1</source>
         <translation>Stack Air Cooler Fan Coefficient f1</translation>
     </message>
-    <!-- OS:Generator:FuelCell:StackCooler -->
+    
     <message>
         <source>Stack Air Cooler Fan Coefficient f2</source>
         <translation>Stack Air Cooler Fan Coefficient f2</translation>
     </message>
-    <!-- OS:Generator:FuelCell:StackCooler -->
+    
     <message>
         <source>Stack Cogeneration Exchanger Area</source>
         <translation>Stack Cogeneration Exchanger Area</translation>
     </message>
-    <!-- OS:Generator:FuelCell:StackCooler -->
+    
     <message>
         <source>Stack Cogeneration Exchanger Nominal Flow Rate</source>
         <translation>Stack Cogeneration Exchanger Nominal Flow Rate</translation>
     </message>
-    <!-- OS:Generator:FuelCell:StackCooler -->
+    
     <message>
         <source>Stack Cogeneration Exchanger Nominal Heat Transfer Coefficient</source>
         <translation>Stack Cogeneration Exchanger Nominal Heat Transfer Coefficient</translation>
     </message>
-    <!-- OS:Generator:FuelCell:StackCooler -->
+    
     <message>
         <source>Stack Cogeneration Exchanger Nominal Heat Transfer Coefficient Exponent</source>
         <translation>Stack Cogeneration Exchanger Nominal Heat Transfer Coefficient Exponent</translation>
     </message>
-    <!-- OS:Generator:FuelCell:StackCooler -->
+    
     <message>
         <source>Stack Coolant Flow Rate</source>
         <translation>Stack Soğutucu Akış Hızı</translation>
     </message>
-    <!-- OS:Generator:FuelCell -->
+    
     <message>
         <source>Stack Cooler Name</source>
         <translation>Yığın Soğutucu Adı</translation>
     </message>
-    <!-- OS:Generator:FuelCell:StackCooler -->
+    
     <message>
         <source>Stack Cooler Pump Heat Loss Fraction</source>
         <translation>Stack Cooler Pompası Isı Kaybı Oranı</translation>
     </message>
-    <!-- OS:Generator:FuelCell:StackCooler -->
+    
     <message>
         <source>Stack Cooler Pump Power</source>
         <translation>Stack Cooler Pompa Gücü</translation>
     </message>
-    <!-- OS:Generator:FuelCell:StackCooler -->
+    
     <message>
         <source>Stack Cooler U-Factor Times Area Value</source>
         <translation>Stack Cooler U-Faktörü Çarpı Alan Değeri</translation>
     </message>
-    <!-- OS:Generator:FuelCell:PowerModule -->
+    
     <message>
         <source>Stack Heat loss to Dilution Air</source>
         <translation>Stack Hava Seyreltme Havasına Isı Kaybı</translation>
     </message>
-    <!-- OS:Coil:Cooling:DX:MultiSpeed, OS:Coil:Heating:DX:MultiSpeed, OS:Coil:Heating:Electric:MultiStage, OS:Coil:Heating:Gas:MultiStage -->
+    
     <message>
         <source>Stage</source>
         <translation>Aşama</translation>
     </message>
-    <!-- OS:ZoneControl:Thermostat:StagedDualSetpoint -->
+    
     <message>
         <source>Stage 1 Cooling Temperature Offset</source>
         <translation>Stage 1 Soğutma Sıcaklık Sapması</translation>
     </message>
-    <!-- OS:ZoneControl:Thermostat:StagedDualSetpoint -->
+    
     <message>
         <source>Stage 1 Heating Temperature Offset</source>
         <translation>Aşama 1 Isıtma Sıcaklık Sapması</translation>
     </message>
-    <!-- OS:ZoneControl:Thermostat:StagedDualSetpoint -->
+    
     <message>
         <source>Stage 2 Cooling Temperature Offset</source>
         <translation>Stage 2 Soğutma Sıcaklık Sapması</translation>
     </message>
-    <!-- OS:ZoneControl:Thermostat:StagedDualSetpoint -->
+    
     <message>
         <source>Stage 2 Heating Temperature Offset</source>
         <translation>Sahne 2 Isıtma Sıcaklık Sapması</translation>
     </message>
-    <!-- OS:ZoneControl:Thermostat:StagedDualSetpoint -->
+    
     <message>
         <source>Stage 3 Cooling Temperature Offset</source>
         <translation>Aşama 3 Soğutma Sıcaklık Offset</translation>
     </message>
-    <!-- OS:ZoneControl:Thermostat:StagedDualSetpoint -->
+    
     <message>
         <source>Stage 3 Heating Temperature Offset</source>
         <translation>Aşama 3 Isıtma Sıcaklık Ofset</translation>
     </message>
-    <!-- OS:ZoneControl:Thermostat:StagedDualSetpoint -->
+    
     <message>
         <source>Stage 4 Cooling Temperature Offset</source>
         <translation>Stage 4 Soğutma Sıcaklık Ofseti</translation>
     </message>
-    <!-- OS:ZoneControl:Thermostat:StagedDualSetpoint -->
+    
     <message>
         <source>Stage 4 Heating Temperature Offset</source>
         <translation>Stage 4 Isıtma Sıcaklık Ofset</translation>
     </message>
-    <!-- OS:Refrigeration:Case -->
+    
     <message>
         <source>Standard Case Fan Power per Door</source>
         <translation>Standart Kasa Fanı Güç/Kapı</translation>
     </message>
-    <!-- OS:Refrigeration:Case -->
+    
     <message>
         <source>Standard Case Fan Power per Unit Length</source>
         <translation>Standart Kasa Fanı Birim Uzunluğa Göre Güç</translation>
     </message>
-    <!-- OS:Refrigeration:Case -->
+    
     <message>
         <source>Standard Case Lighting Power per Door</source>
         <translation>Standart Durum Kapı Başına Aydınlatma Gücü</translation>
     </message>
-    <!-- OS:Refrigeration:Case -->
+    
     <message>
         <source>Standard Case Lighting Power per Unit Length</source>
         <translation>Standart Vaka Aydınlatma Gücü Birim Uzunluğa Göre</translation>
     </message>
-    <!-- OS:EvaporativeFluidCooler:SingleSpeed -->
+    
     <message>
         <source>Standard Design Capacity</source>
         <translation>Standart Tasarım Kapasitesi</translation>
     </message>
-    <!-- OS:Building, OS:SpaceType -->
+    
     <message>
         <source>Standards Building Type</source>
         <translation>Standartlar Bina Türü</translation>
     </message>
-    <!-- OS:StandardsInformation:Material -->
+    
     <message>
         <source>Standards Category</source>
         <translation>Standartlar Kategorisi</translation>
     </message>
-    <!-- OS:StandardsInformation:Construction -->
+    
     <message>
         <source>Standards Construction Type</source>
         <translation>Standartlar İnşaat Türü</translation>
     </message>
-    <!-- OS:StandardsInformation:Material -->
+    
     <message>
         <source>Standards Identifier</source>
         <translation>Standartlar Tanımlayıcısı</translation>
     </message>
-    <!-- OS:Building -->
+    
     <message>
         <source>Standards Number of Above Ground Stories</source>
         <translation>Standartlar Zemin Üstü Hikaye Sayısı</translation>
     </message>
-    <!-- OS:Building -->
+    
     <message>
         <source>Standards Number of Living Units</source>
         <translation>Standards Number of Living Units</translation>
     </message>
-    <!-- OS:Building -->
+    
     <message>
         <source>Standards Number of Stories</source>
         <translation>Standartlar Bina Kat Sayısı</translation>
     </message>
-    <!-- OS:SpaceType -->
+    
     <message>
         <source>Standards Space Type</source>
         <translation>Standards Mekan Tipi</translation>
     </message>
-    <!-- OS:Building, OS:SpaceType -->
+    
     <message>
         <source>Standards Template</source>
         <translation>Standartlar Şablonu</translation>
     </message>
-    <!-- OS:HeatPump:AirToWater:FuelFired:Cooling, OS:HeatPump:AirToWater:FuelFired:Heating -->
+    
     <message>
         <source>Standby Electric Power</source>
         <translation>Bekleme Elektrik Gücü</translation>
     </message>
-    <!-- OS:Generator:MicroTurbine, OS:Humidifier:Steam:Electric -->
+    
     <message>
         <source>Standby Power</source>
         <translation>Bekleme Gücü</translation>
     </message>
-    <!-- OS:RunPeriodControl:DaylightSavingTime, OS:RunPeriodControl:SpecialDays -->
+    
     <message>
         <source>Start Date</source>
         <translation>Başlangıç Tarihi</translation>
     </message>
-    <!-- OS:WeatherFile -->
+    
     <message>
         <source>Start Date Actual Year</source>
         <translation>Başlangıç Tarihi Gerçek Yıl</translation>
     </message>
-    <!-- OS:Schedule:FixedInterval, OS:Schedule:Rule, OS:Schedule:VariableInterval -->
+    
     <message>
         <source>Start Day</source>
         <translation>Başlangıç Günü</translation>
     </message>
-    <!-- OS:WeatherFile -->
+    
     <message>
         <source>Start Day of Week</source>
         <translation>Haftanın Başlangıç Günü</translation>
     </message>
-    <!-- OS:AirflowNetworkDetailedOpening -->
+    
     <message>
         <source>Start Height Factor for Opening Factor</source>
         <translation>Açılış Faktörü için Başlangıç Yükseklik Faktörü</translation>
     </message>
-    <!-- OS:Schedule:FixedInterval, OS:Schedule:Rule, OS:Schedule:VariableInterval -->
+    
     <message>
         <source>Start Month</source>
         <translation>Başlangıç Ayı</translation>
     </message>
-    <!-- OS:LifeCycleCost -->
+    
     <message>
         <source>Start of Costs</source>
         <translation>Maliyetlerin Başlangıcı</translation>
     </message>
-    <!-- OS:Generator:FuelCell:PowerModule -->
+    
     <message>
         <source>Start Up Electricity Consumption</source>
         <translation>Başlangıç Elektrik Tüketimi</translation>
     </message>
-    <!-- OS:Generator:FuelCell:PowerModule -->
+    
     <message>
         <source>Start Up Electricity Produced</source>
         <translation>Başlangıç Elektrik Üretimi</translation>
     </message>
-    <!-- OS:Generator:FuelCell:PowerModule -->
+    
     <message>
         <source>Start Up Fuel</source>
         <translation>Başlangıç Yakıtı</translation>
     </message>
-    <!-- OS:Generator:FuelCell:PowerModule -->
+    
     <message>
         <source>Start Up Time</source>
         <translation>Başlangıç Süresi</translation>
     </message>
-    <!-- OS:WeatherFile -->
+    
     <message>
         <source>State Province Region</source>
         <translation>İl/Bölge</translation>
     </message>
-    <!-- OS:SteamEquipment -->
+    
     <message>
         <source>Steam Equipment Definition Name</source>
         <translation>Buhar Ekipmanı Tanımı Adı</translation>
     </message>
-    <!-- OS:LifeCycleCost:Parameters -->
+    
     <message>
         <source>Steam Inflation</source>
         <translation>Buhar Enflasyonu</translation>
     </message>
-    <!-- OS:DistrictHeating:Steam -->
+    
     <message>
         <source>Steam Inlet Node Name</source>
         <translation>Buhar Giriş Düğümü Adı</translation>
     </message>
-    <!-- OS:Boiler:Steam, OS:DistrictHeating:Steam -->
+    
     <message>
         <source>Steam Outlet Node Name</source>
         <translation>Buhar Çıkış Düğümü Adı</translation>
     </message>
-    <!-- OS:Refrigeration:WalkIn:ZoneBoundary -->
+    
     <message>
         <source>Stocking Door Opening Protection Type Facing Zone</source>
         <translation>Stocking Door Opening Protection Type Facing Zone</translation>
     </message>
-    <!-- OS:Refrigeration:WalkIn:ZoneBoundary -->
+    
     <message>
         <source>Stocking Door Opening Schedule Name Facing Zone</source>
         <translation>Stocking Door Opening Schedule Name Facing Zone</translation>
     </message>
-    <!-- OS:Refrigeration:WalkIn:ZoneBoundary -->
+    
     <message>
         <source>Stocking Door U Value Facing Zone</source>
         <translation>Stok Kapısı U Değeri Yapı İçine Bakan Yüzey</translation>
     </message>
-    <!-- OS:Generator:FuelCell:AirSupply -->
+    
     <message>
         <source>Stoichiometric Ratio</source>
         <translation>Stokiyometrik Oran</translation>
     </message>
-    <!-- OS:WaterHeater:Sizing -->
+    
     <message>
         <source>Storage Capacity per Collector Area</source>
         <translation>Kollektor Alanı Başına Depolama Kapasitesi</translation>
     </message>
-    <!-- OS:WaterHeater:Sizing -->
+    
     <message>
         <source>Storage Capacity per Floor Area</source>
         <translation>Depolama Kapasitesi Birim Alan Başına</translation>
     </message>
-    <!-- OS:WaterHeater:Sizing -->
+    
     <message>
         <source>Storage Capacity per Person</source>
         <translation>Kişi Başına Depolama Kapasitesi</translation>
     </message>
-    <!-- OS:WaterHeater:Sizing -->
+    
     <message>
         <source>Storage Capacity per Unit</source>
         <translation>Birim Başına Depolama Kapasitesi</translation>
     </message>
-    <!-- OS:Coil:Cooling:DX:SingleSpeed:ThermalStorage -->
+    
     <message>
         <source>Storage Capacity Sizing Factor</source>
         <translation>Depolama Kapasitesi Boyutlandırma Faktörü</translation>
     </message>
-    <!-- OS:ElectricLoadCenter:Distribution -->
+    
     <message>
         <source>Storage Charge Power Fraction Schedule Name</source>
         <translation>Depolama Şarj Gücü Kesri Zamanlama Adı</translation>
     </message>
-    <!-- OS:ElectricLoadCenter:Distribution -->
+    
     <message>
         <source>Storage Control Track Meter Name</source>
         <translation>Depolama Kontrolü Sayaç Adı İzleme</translation>
     </message>
-    <!-- OS:ElectricLoadCenter:Distribution -->
+    
     <message>
         <source>Storage Control Utility Demand Target</source>
         <translation>Depolama Kontrol Hizmet Talebi Hedefi</translation>
     </message>
-    <!-- OS:ElectricLoadCenter:Distribution -->
+    
     <message>
         <source>Storage Control Utility Demand Target Fraction Schedule Name</source>
         <translation>Depolama Kontrol Elektrik Talep Hedefi Fraksiyon Programı Adı</translation>
     </message>
-    <!-- OS:ElectricLoadCenter:Distribution -->
+    
     <message>
         <source>Storage Converter Object Name</source>
         <translation>Depolama Dönüştürücü Nesne Adı</translation>
     </message>
-    <!-- OS:ElectricLoadCenter:Distribution -->
+    
     <message>
         <source>Storage Discharge Power Fraction Schedule Name</source>
         <translation>Depolama Boşaltma Gücü Oranı Çizelgesi Adı</translation>
     </message>
-    <!-- OS:ElectricLoadCenter:Distribution -->
+    
     <message>
         <source>Storage Operation Scheme</source>
         <translation>Depolama İşletme Şeması</translation>
     </message>
-    <!-- OS:Coil:Cooling:DX:SingleSpeed:ThermalStorage -->
+    
     <message>
         <source>Storage Tank Ambient Temperature Node</source>
         <translation>Depolama Tankı Ortam Sıcaklığı Düğümü</translation>
     </message>
-    <!-- OS:Coil:Cooling:DX:SingleSpeed:ThermalStorage -->
+    
     <message>
         <source>Storage Tank Maximum Operating Limit Fluid Temperature</source>
         <translation>Depolama Tankı Maksimum İşletme Limiti Sıvı Sıcaklığı</translation>
     </message>
-    <!-- OS:Coil:Cooling:DX:SingleSpeed:ThermalStorage -->
+    
     <message>
         <source>Storage Tank Minimum Operating Limit Fluid Temperature</source>
         <translation>Depolama Tankı Minimum İşletme Sınırı Akışkan Sıcaklığı</translation>
     </message>
-    <!-- OS:Coil:Cooling:DX:SingleSpeed:ThermalStorage -->
+    
     <message>
         <source>Storage Tank Plant Connection Design Flow Rate</source>
         <translation>Depolama Tankı Tesis Bağlantısı Tasarım Akış Oranı</translation>
     </message>
-    <!-- OS:Coil:Cooling:DX:SingleSpeed:ThermalStorage -->
+    
     <message>
         <source>Storage Tank Plant Connection Heat Transfer Effectiveness</source>
         <translation>Depolama Tankı Tesisi Bağlantısı Isı Transfer Etkinliği</translation>
     </message>
-    <!-- OS:Coil:Cooling:DX:SingleSpeed:ThermalStorage -->
+    
     <message>
         <source>Storage Tank Plant Connection Inlet Node</source>
         <translation>Depolama Tankı Tesis Bağlantısı Giriş Düğümü</translation>
     </message>
-    <!-- OS:Coil:Cooling:DX:SingleSpeed:ThermalStorage -->
+    
     <message>
         <source>Storage Tank Plant Connection Outlet Node</source>
         <translation>Depolama Tankı Tesisi Bağlantısı Çıkış Düğümü</translation>
     </message>
-    <!-- OS:Coil:Cooling:DX:SingleSpeed:ThermalStorage -->
+    
     <message>
         <source>Storage Tank to Ambient U-value Times Area Heat Transfer Coefficient</source>
         <translation>Depolama Tankı - Ortam Arasında U-değeri Çarpı Alan Isı Transfer Katsayısı</translation>
     </message>
-    <!-- OS:Coil:Cooling:DX:SingleSpeed:ThermalStorage -->
+    
     <message>
         <source>Storage Type</source>
         <translation>Depolama Türü</translation>
     </message>
-    <!-- OS:SetpointManager:Coldest, OS:SetpointManager:Warmest, OS:SetpointManager:WarmestTemperatureFlow -->
+    
     <message>
         <source>Strategy</source>
         <translation>Strateji</translation>
     </message>
-    <!-- OS:TemperingValve -->
+    
     <message>
         <source>Stream 2 Source Node</source>
         <translation>Stream 2 Kaynak Düğümü</translation>
     </message>
-    <!-- OS:ShadingControl -->
+    
     <message>
         <source>Sub Surface Name</source>
         <translation>Alt Yüzey Adı</translation>
     </message>
-    <!-- OS:SubSurface -->
+    
     <message>
         <source>Sub Surface Type</source>
         <translation>Alt Yüzey Tipi</translation>
     </message>
-    <!-- OS:Refrigeration:TranscriticalSystem -->
+    
     <message>
         <source>Subcooler Effectiveness</source>
         <translation>Subcooler Effectiveness</translation>
     </message>
-    <!-- OS:Refrigeration:GasCooler:AirCooled -->
+    
     <message>
         <source>Subcritical Temperature Difference</source>
         <translation>Subkritik Sıcaklık Farkı</translation>
     </message>
-    <!-- OS:Refrigeration:System -->
+    
     <message>
         <source>Suction Piping Zone Name</source>
         <translation>Emme Borusu Bölge Adı</translation>
     </message>
-    <!-- OS:Refrigeration:System -->
+    
     <message>
         <source>Suction Temperature Control Type</source>
         <translation>Emme Sıcaklığı Kontrol Tipi</translation>
     </message>
-    <!-- OS:Refrigeration:SecondarySystem -->
+    
     <message>
         <source>Sum UA Distribution Piping</source>
         <translation>Toplam UA Dağıtım Borusu</translation>
     </message>
-    <!-- OS:Refrigeration:SecondarySystem -->
+    
     <message>
         <source>Sum UA Receiver/Separator Shell</source>
         <translation>Sum UA Alıcı/Ayırıcı Kabuk</translation>
     </message>
-    <!-- OS:Refrigeration:System -->
+    
     <message>
         <source>Sum UA Suction Piping</source>
         <translation>Sum UA Emme Borulu</translation>
     </message>
-    <!-- OS:Refrigeration:TranscriticalSystem -->
+    
     <message>
         <source>Sum UA Suction Piping for Low Temperature Loads</source>
         <translation>Düşük Sıcaklık Yükleri için Toplam UA İmme Borusu</translation>
     </message>
-    <!-- OS:Refrigeration:TranscriticalSystem -->
+    
     <message>
         <source>Sum UA Suction Piping for Medium Temperature Loads</source>
         <translation>Orta Sıcaklık Yükleri için UA Emme Boru Hattı Toplamı</translation>
     </message>
-    <!-- OS:Schedule:Week -->
+    
     <message>
         <source>SummerDesignDay Schedule:Day Name</source>
         <translation>SummerDesignDay Schedule:Day Name</translation>
     </message>
-    <!-- OS:Surface -->
+    
     <message>
         <source>Sun Exposure</source>
         <translation>Güneş Maruziyeti</translation>
     </message>
-    <!-- OS:Schedule:Week -->
+    
     <message>
         <source>Sunday Schedule:Day Name</source>
         <translation>Pazar Programı:Gün Adı</translation>
     </message>
-    <!-- OS:AirLoopHVAC:UnitaryHeatPump:AirToAir:MultiSpeed -->
+    
     <message>
         <source>Supplemental Heating Coil</source>
         <translation>Ek Isıtma Bobini</translation>
     </message>
-    <!-- OS:AirLoopHVAC:UnitaryHeatPump:AirToAir, OS:AirLoopHVAC:UnitarySystem, OS:ZoneHVAC:PackagedTerminalHeatPump, OS:ZoneHVAC:TerminalUnit:VariableRefrigerantFlow, OS:ZoneHVAC:WaterToAirHeatPump -->
+    
     <message>
         <source>Supplemental Heating Coil Name</source>
         <translation>Ek Isıtma Bobini Adı</translation>
     </message>
-    <!-- OS:AirLoopHVAC:UnitaryHeatCool:VAVChangeoverBypass, OS:AirLoopHVAC:UnitaryHeatPump:AirToAir:MultiSpeed, OS:ZoneHVAC:TerminalUnit:VariableRefrigerantFlow -->
+    
     <message>
         <source>Supply Air Fan</source>
         <translation>Besleme Havası Fanı</translation>
     </message>
-    <!-- OS:AirLoopHVAC:UnitaryHeatPump:AirToAir, OS:ZoneHVAC:EnergyRecoveryVentilator, OS:ZoneHVAC:EvaporativeCoolerUnit, OS:ZoneHVAC:FourPipeFanCoil, OS:ZoneHVAC:PackagedTerminalAirConditioner, OS:ZoneHVAC:PackagedTerminalHeatPump, OS:ZoneHVAC:UnitHeater, OS:ZoneHVAC:UnitVentilator, OS:ZoneHVAC:WaterToAirHeatPump -->
+    
     <message>
         <source>Supply Air Fan Name</source>
         <translation>Beslenme Hava Fanı Adı</translation>
     </message>
-    <!-- OS:AirLoopHVAC:UnitaryHeatCool:VAVChangeoverBypass, OS:AirLoopHVAC:UnitaryHeatPump:AirToAir:MultiSpeed, OS:ZoneHVAC:TerminalUnit:VariableRefrigerantFlow -->
+    
     <message>
         <source>Supply Air Fan Operating Mode Schedule</source>
         <translation>Hava Besleme Fanı Çalışma Modu Programı</translation>
     </message>
-    <!-- OS:AirLoopHVAC:UnitaryHeatPump:AirToAir, OS:AirLoopHVAC:UnitarySystem, OS:ZoneHVAC:FourPipeFanCoil, OS:ZoneHVAC:PackagedTerminalAirConditioner, OS:ZoneHVAC:PackagedTerminalHeatPump, OS:ZoneHVAC:UnitVentilator, OS:ZoneHVAC:WaterToAirHeatPump -->
+    
     <message>
         <source>Supply Air Fan Operating Mode Schedule Name</source>
         <translation>Beslenme Havasının Fan Çalışma Modu Takvimi Adı</translation>
     </message>
-    <!-- OS:ZoneHVAC:EnergyRecoveryVentilator -->
+    
     <message>
         <source>Supply Air Flow Rate</source>
         <translation>Kaynaktan Sıcak Su Akış Hızı</translation>
     </message>
-    <!-- OS:AirLoopHVAC:UnitarySystem -->
+    
     <message>
         <source>Supply Air Flow Rate Method During Cooling Operation</source>
         <translation>Soğutma Işletimi Sırasında Besleme Hava Akış Hızı Yöntemi</translation>
     </message>
-    <!-- OS:AirLoopHVAC:UnitarySystem -->
+    
     <message>
         <source>Supply Air Flow Rate Method During Heating Operation</source>
         <translation>Isıtma Işletmesi Sırasında Besleme Hava Akış Hızı Metodu</translation>
     </message>
-    <!-- OS:AirLoopHVAC:UnitarySystem -->
+    
     <message>
         <source>Supply Air Flow Rate Method When No Cooling or Heating is Required</source>
         <translation>Soğutma veya Isıtma Gerekli Olmadığında Beslemeli Hava Akış Hızı Yöntemi</translation>
     </message>
-    <!-- OS:AirLoopHVAC:UnitarySystem -->
+    
     <message>
         <source>Supply Air Flow Rate Per Floor Area During Cooling Operation</source>
         <translation>Soğutma İşlemi Sırasında Zemin Alanı Başına İklimlendirme Hava Akış Hızı</translation>
     </message>
-    <!-- OS:AirLoopHVAC:UnitarySystem -->
+    
     <message>
         <source>Supply Air Flow Rate Per Floor Area during Heating Operation</source>
         <translation>Isıtma Çalışması Sırasında Zemin Alanına Göre İklimlendirme Hava Akış Hızı</translation>
     </message>
-    <!-- OS:AirLoopHVAC:UnitarySystem -->
+    
     <message>
         <source>Supply Air Flow Rate Per Floor Area When No Cooling or Heating is Required</source>
         <translation>Soğutma veya Isıtma Gerekli Olmadığında Birim Alan Başına İklimlendirme Hava Akış Hızı</translation>
     </message>
-    <!-- OS:AirLoopHVAC:UnitaryHeatPump:AirToAir, OS:AirLoopHVAC:UnitaryHeatPump:AirToAir:MultiSpeed, OS:ZoneHVAC:PackagedTerminalAirConditioner, OS:ZoneHVAC:PackagedTerminalHeatPump, OS:ZoneHVAC:WaterToAirHeatPump -->
+    
     <message>
         <source>Supply Air Flow Rate When No Cooling or Heating is Needed</source>
         <translation>Soğutma veya Isıtma Gerekli Olmadığında Besleme Hava Akış Hızı</translation>
     </message>
-    <!-- OS:AirLoopHVAC:UnitarySystem -->
+    
     <message>
         <source>Supply Air Flow Rate When No Cooling or Heating is Required</source>
         <translation>Soğutma veya Isıtma Gerekli Olmadığında Gönderilen Hava Akış Hızı</translation>
     </message>
-    <!-- OS:AirTerminal:SingleDuct:SeriesPIU:Reheat, OS:HeatExchanger:AirToAir:SensibleAndLatent -->
+    
     <message>
         <source>Supply Air Inlet Node</source>
         <translation>Beslenme Hava Giriş Düğümü</translation>
     </message>
-    <!-- OS:AirTerminal:SingleDuct:ConstantVolume:CooledBeam, OS:AirTerminal:SingleDuct:ConstantVolume:FourPipeInduction, OS:AirTerminal:SingleDuct:ParallelPIU:Reheat -->
+    
     <message>
         <source>Supply Air Inlet Node Name</source>
         <translation>Beslenme Hava Giriş Düğümü Adı</translation>
     </message>
-    <!-- OS:HeatExchanger:AirToAir:SensibleAndLatent -->
+    
     <message>
         <source>Supply Air Outlet Node</source>
         <translation>Beslenme Hava Çıkış Düğümü</translation>
     </message>
-    <!-- OS:AirTerminal:SingleDuct:ConstantVolume:CooledBeam -->
+    
     <message>
         <source>Supply Air Outlet Node Name</source>
         <translation>Supply Air Outlet Node Name</translation>
     </message>
-    <!-- OS:HeatExchanger:AirToAir:SensibleAndLatent -->
+    
     <message>
         <source>Supply Air Outlet Temperature Control</source>
         <translation>Beslenme Hava Çıkış Sıcaklığı Kontrolü</translation>
     </message>
-    <!-- OS:AirTerminal:SingleDuct:ConstantVolume:CooledBeam -->
+    
     <message>
         <source>Supply Air Volumetric Flow Rate</source>
         <translation>Beslenme Havası Hacimsel Akış Hızı</translation>
     </message>
-    <!-- OS:AirLoopHVAC:UnitarySystem -->
+    
     <message>
         <source>Supply Fan Name</source>
         <translation>Beslenme Fanı Adı</translation>
     </message>
-    <!-- OS:CoilSystem:IntegratedHeatPump:AirSource -->
+    
     <message>
         <source>Supply Hot Water Flow Sensor Node Name</source>
         <translation>Sıcak Su Tedarik Akışı Sensörü Düğüm Adı</translation>
     </message>
-    <!-- OS:PlantLoop -->
+    
     <message>
         <source>Supply Mixer Name</source>
         <translation>Supply Mixer Name</translation>
     </message>
-    <!-- OS:AirLoopHVAC -->
+    
     <message>
         <source>Supply Side Inlet Node Name</source>
         <translation>Supply Side Inlet Node Name</translation>
     </message>
-    <!-- OS:AirLoopHVAC -->
+    
     <message>
         <source>Supply Side Outlet Node A</source>
         <translation>Tedarik Tarafı Çıkış Düğümü A</translation>
     </message>
-    <!-- OS:AirLoopHVAC -->
+    
     <message>
         <source>Supply Side Outlet Node B</source>
         <translation>Tedarik Tarafı Çıkış Düğümü B</translation>
     </message>
-    <!-- OS:AirLoopHVAC, OS:PlantLoop -->
+    
     <message>
         <source>Supply Splitter Name</source>
         <translation>Beslenme Ayırıcı Adı</translation>
     </message>
-    <!-- OS:ElectricEquipment:ITE:AirCooled:Definition -->
+    
     <message>
         <source>Supply Temperature Difference</source>
         <translation>Beslenme Sıcaklığı Farkı</translation>
     </message>
-    <!-- OS:ElectricEquipment:ITE:AirCooled:Definition -->
+    
     <message>
         <source>Supply Temperature Difference Schedule</source>
         <translation>Sıcaklık Farkı Programı - Beslemesi</translation>
     </message>
-    <!-- OS:AirConditioner:VariableRefrigerantFlow, OS:Coil:Cooling:DX:MultiSpeed, OS:Coil:Cooling:DX:SingleSpeed:ThermalStorage, OS:Coil:Cooling:DX:TwoStageWithHumidityControlMode, OS:CoolingTower:VariableSpeed -->
+    
     <message>
         <source>Supply Water Storage Tank</source>
         <translation>Sıcak Su Depolama Tankı</translation>
     </message>
-    <!-- OS:Coil:Cooling:DX:SingleSpeed, OS:Coil:Cooling:DX:TwoSpeed, OS:Coil:Cooling:DX:VariableSpeed, OS:CoolingTower:TwoSpeed, OS:EvaporativeFluidCooler:SingleSpeed, OS:EvaporativeFluidCooler:TwoSpeed, OS:WaterUse:Connections -->
+    
     <message>
         <source>Supply Water Storage Tank Name</source>
         <translation>Sıcak Su Depolama Tankı Adı</translation>
     </message>
-    <!-- OS:InteriorPartitionSurface, OS:InternalMass:Definition -->
+    
     <message>
         <source>Surface Area</source>
         <translation>Yüzey Alanı</translation>
     </message>
-    <!-- OS:InternalMass:Definition -->
+    
     <message>
         <source>Surface Area per Person</source>
         <translation>Kişi Başına Yüzey Alanı</translation>
     </message>
-    <!-- OS:InternalMass:Definition -->
+    
     <message>
         <source>Surface Area per Space Floor Area</source>
         <translation>Alan Başına Düşen Yüzey Alanı</translation>
     </message>
-    <!-- OS:MaterialProperty:MoisturePenetrationDepth:Settings -->
+    
     <message>
         <source>Surface Layer Penetration Depth</source>
         <translation>Yüzey Katmanı Penetrasyon Derinliği</translation>
     </message>
-    <!-- OS:AirflowNetworkDuctViewFactors, OS:AirflowNetworkSurface, OS:Generator:PVWatts, OS:Generator:Photovoltaic, OS:SolarCollector:FlatPlate:PhotovoltaicThermal, OS:SolarCollector:FlatPlate:Water, OS:SolarCollector:IntegralCollectorStorage, OS:SubSurface, OS:SurfaceControl:MovableInsulation, OS:SurfaceProperty:ConvectionCoefficients, OS:SurfaceProperty:ExposedFoundationPerimeter, OS:SurfaceProperty:IncidentSolarMultiplier, OS:SwimmingPool:Indoor -->
+    
     <message>
         <source>Surface Name</source>
         <translation>Yüzey Adı</translation>
     </message>
-    <!-- OS:Construction, OS:Construction:AirBoundary, OS:Construction:CfactorUndergroundWall, OS:Construction:FfactorGroundFloor, OS:Construction:InternalSource, OS:Construction:WindowDataFile -->
+    
     <message>
         <source>Surface Rendering Name</source>
         <translation>Yüzey İşleme Adı</translation>
     </message>
-    <!-- OS:AirflowNetworkDuct -->
+    
     <message>
         <source>Surface Roughness</source>
         <translation>Yüzey Pürüzlülüğü</translation>
     </message>
-    <!-- OS:SurfaceProperty:ExposedFoundationPerimeter -->
+    
     <message>
         <source>Surface Segment Exposed</source>
         <translation>Yüzey Segmenti Açığa Çıkarılmış</translation>
     </message>
-    <!-- OS:HeatBalanceAlgorithm -->
+    
     <message>
         <source>Surface Temperature Upper Limit</source>
         <translation>Yüzey Sıcaklığı Üst Sınırı</translation>
     </message>
-    <!-- OS:Surface, OS:SurfaceProperty:ConvectionCoefficients:MultipleSurface -->
+    
     <message>
         <source>Surface Type</source>
         <translation>Yüzey Tipi</translation>
     </message>
-    <!-- OS:AirflowNetworkDuctViewFactors -->
+    
     <message>
         <source>Surface View Factor</source>
         <translation>Yüzey Görüş Faktörü</translation>
     </message>
-    <!-- OS:SurfaceProperty:SurroundingSurfaces -->
+    
     <message>
         <source>Surrounding Surface Name</source>
         <translation>Çevreleyen Yüzey Adı</translation>
     </message>
-    <!-- OS:SurfaceProperty:SurroundingSurfaces -->
+    
     <message>
         <source>Surrounding Surface Temperature Schedule Name</source>
         <translation>Çevre Yüzey Sıcaklığı Takvim Adı</translation>
     </message>
-    <!-- OS:SurfaceProperty:SurroundingSurfaces -->
+    
     <message>
         <source>Surrounding Surface View Factor</source>
         <translation>Çevre Yüzey Görüş Faktörü</translation>
     </message>
-    <!-- OS:SurfaceProperty:LocalEnvironment -->
+    
     <message>
         <source>Surrounding Surfaces Object Name</source>
         <translation>Çevreleyen Yüzeyler Nesne Adı</translation>
     </message>
-    <!-- OS:AirflowNetworkExternalNode -->
+    
     <message>
         <source>Symmetric Wind Pressure Coefficient Curve</source>
         <translation>Simetrik Rüzgar Basıncı Katsayısı Eğrisi</translation>
     </message>
-    <!-- OS:AirLoopHVAC:UnitaryHeatCool:VAVChangeoverBypass -->
+    
     <message>
         <source>System Air Flow Rate During Cooling Operation</source>
         <translation>Soğutma İşlemi Sırasında Sistem Hava Akış Oranı</translation>
     </message>
-    <!-- OS:AirLoopHVAC:UnitaryHeatCool:VAVChangeoverBypass -->
+    
     <message>
         <source>System Air Flow Rate During Heating Operation</source>
         <translation>Isıtma İşlemi Sırasında Sistem Hava Akış Hızı</translation>
     </message>
-    <!-- OS:AirLoopHVAC:UnitaryHeatCool:VAVChangeoverBypass -->
+    
     <message>
         <source>System Air Flow Rate When No Cooling or Heating is Needed</source>
         <translation>Soğutma veya Isıtma Gerekmediğinde Sistem Hava Akış Hızı</translation>
     </message>
-    <!-- OS:Fan:ZoneExhaust -->
+    
     <message>
         <source>System Availability Manager Coupling Mode</source>
         <translation>Sistem Kullanılabilirlik Yöneticisi Bağlantı Modu</translation>
     </message>
-    <!-- OS:Generator:PVWatts -->
+    
     <message>
         <source>System Losses</source>
         <translation>Sistem Kayıpları</translation>
     </message>
 
-    <!-- T -->
-    <!-- OS:Table:MultiVariableLookup -->
+    
+    
     <message>
         <source>Table Data Format</source>
         <translation>Tablo Veri Biçimi</translation>
     </message>
-    <!-- OS:WaterHeater:HeatPump -->
+    
     <message>
         <source>Tank</source>
         <translation>Depo</translation>
     </message>
-    <!-- OS:WaterHeater:HeatPump, OS:WaterHeater:HeatPump:WrappedCondenser -->
+    
     <message>
         <source>Tank Element Control Logic</source>
         <translation>Tank Element Control Logic</translation>
     </message>
-    <!-- OS:ThermalStorage:Ice:Detailed -->
+    
     <message>
         <source>Tank Loss Coefficient</source>
         <translation>Tank Loss Coefficient</translation>
     </message>
-    <!-- OS:WaterHeater:HeatPump:WrappedCondenser -->
+    
     <message>
         <source>Tank Name</source>
         <translation>Depo Adı</translation>
     </message>
-    <!-- OS:ThermalStorage:ChilledWater:Stratified -->
+    
     <message>
         <source>Tank Recovery Time</source>
         <translation>Depo Kurtarma Süresi</translation>
     </message>
-    <!-- OS:Connection -->
+    
     <message>
         <source>Target Object</source>
         <translation>Hedef Nesne</translation>
     </message>
-    <!-- OS:UtilityCost:Charge:Block, OS:UtilityCost:Charge:Simple, OS:UtilityCost:Computation, OS:UtilityCost:Qualify, OS:UtilityCost:Ratchet, OS:UtilityCost:Variable -->
+    
     <message>
         <source>Tariff Name</source>
         <translation>Tarife Adı</translation>
     </message>
-    <!-- OS:LifeCycleCost:Parameters -->
+    
     <message>
         <source>Tax Rate</source>
         <translation>Vergi Oranı</translation>
     </message>
-    <!-- OS:AvailabilityManager:HighTemperatureTurnOff, OS:AvailabilityManager:HighTemperatureTurnOn, OS:AvailabilityManager:LowTemperatureTurnOff, OS:AvailabilityManager:LowTemperatureTurnOn, OS:MaterialProperty:PhaseChange -->
+    
     <message>
         <source>Temperature</source>
         <translation>Sıcaklık</translation>
     </message>
-    <!-- OS:Construction:InternalSource -->
+    
     <message>
         <source>Temperature Calculation Requested After Layer Number</source>
         <translation>Tabaka Numarasından Sonra Sıcaklık Hesaplaması İstendi</translation>
     </message>
-    <!-- OS:ZoneCapacitanceMultiplier:ResearchSpecial -->
+    
     <message>
         <source>Temperature Capacity Multiplier</source>
         <translation>Sıcaklık Kapasite Çarpanı</translation>
     </message>
-    <!-- OS:MaterialProperty:PhaseChange -->
+    
     <message>
         <source>Temperature Coefficient for Thermal Conductivity</source>
         <translation>Isıl İletkenlik için Sıcaklık Katsayısı</translation>
     </message>
-    <!-- OS:PhotovoltaicPerformance:EquivalentOneDiode -->
+    
     <message>
         <source>Temperature Coefficient of Open Circuit Voltage</source>
         <translation>Açık Devre Voltajının Sıcaklık Katsayısı</translation>
     </message>
-    <!-- OS:PhotovoltaicPerformance:EquivalentOneDiode -->
+    
     <message>
         <source>Temperature Coefficient of Short Circuit Current</source>
         <translation>Kısa Devre Akımının Sıcaklık Katsayısı</translation>
     </message>
-    <!-- OS:ZoneHVAC:HighTemperatureRadiant, OS:ZoneHVAC:LowTemperatureRadiant:ConstantFlow, OS:ZoneHVAC:LowTemperatureRadiant:Electric, OS:ZoneHVAC:LowTemperatureRadiant:VariableFlow -->
+    
     <message>
         <source>Temperature Control Type</source>
         <translation>Sıcaklık Kontrol Türü</translation>
     </message>
-    <!-- OS:SimulationControl -->
+    
     <message>
         <source>Temperature Convergence Tolerance Value</source>
         <translation>Sıcaklık Yakınsama Tolerans Değeri</translation>
     </message>
-    <!-- OS:Chiller:Electric:EIR, OS:Chiller:Electric:ReformulatedEIR -->
+    
     <message>
         <source>Temperature Difference Across Condenser Schedule Name</source>
         <translation>Kondenser Üzerindeki Sıcaklık Farkı Çizelgesi Adı</translation>
     </message>
-    <!-- OS:ThermostatSetpoint:DualSetpoint -->
+    
     <message>
         <source>Temperature Difference Between Cutout And Setpoint</source>
         <translation>Kesintiye Alma Ve Ayar Noktası Arasındaki Sıcaklık Farkı</translation>
     </message>
-    <!-- OS:AvailabilityManager:DifferentialThermostat -->
+    
     <message>
         <source>Temperature Difference Off Limit</source>
         <translation>Sıcaklık Farkı Kapalı Sınırı</translation>
     </message>
-    <!-- OS:AvailabilityManager:DifferentialThermostat -->
+    
     <message>
         <source>Temperature Difference On Limit</source>
         <translation>Sıcaklık Farkı Limitinde</translation>
     </message>
-    <!-- OS:HeatExchanger:Desiccant:BalancedFlow:PerformanceDataType1 -->
+    
     <message>
         <source>Temperature Equation Coefficient 1</source>
         <translation>Sıcaklık Denklemi Katsayısı 1</translation>
     </message>
-    <!-- OS:HeatExchanger:Desiccant:BalancedFlow:PerformanceDataType1 -->
+    
     <message>
         <source>Temperature Equation Coefficient 2</source>
         <translation>Sıcaklık Denklemi Katsayısı 2</translation>
     </message>
-    <!-- OS:HeatExchanger:Desiccant:BalancedFlow:PerformanceDataType1 -->
+    
     <message>
         <source>Temperature Equation Coefficient 3</source>
         <translation>Sıcaklık Denklemi Katsayısı 3</translation>
     </message>
-    <!-- OS:HeatExchanger:Desiccant:BalancedFlow:PerformanceDataType1 -->
+    
     <message>
         <source>Temperature Equation Coefficient 4</source>
         <translation>Sıcaklık Denklemi Katsayısı 4</translation>
     </message>
-    <!-- OS:HeatExchanger:Desiccant:BalancedFlow:PerformanceDataType1 -->
+    
     <message>
         <source>Temperature Equation Coefficient 5</source>
         <translation>Sıcaklık Denklemi Katsayısı 5</translation>
     </message>
-    <!-- OS:HeatExchanger:Desiccant:BalancedFlow:PerformanceDataType1 -->
+    
     <message>
         <source>Temperature Equation Coefficient 6</source>
         <translation>Sıcaklık Denklemi Katsayısı 6</translation>
     </message>
-    <!-- OS:HeatExchanger:Desiccant:BalancedFlow:PerformanceDataType1 -->
+    
     <message>
         <source>Temperature Equation Coefficient 7</source>
         <translation>Sıcaklık Denklemi Katsayısı 7</translation>
     </message>
-    <!-- OS:HeatExchanger:Desiccant:BalancedFlow:PerformanceDataType1 -->
+    
     <message>
         <source>Temperature Equation Coefficient 8</source>
         <translation>Sıcaklık Denklemi Katsayısı 8</translation>
     </message>
-    <!-- OS:ZoneHVAC:EnergyRecoveryVentilator:Controller -->
+    
     <message>
         <source>Temperature High Limit</source>
         <translation>Sıcaklık Üst Sınırı</translation>
     </message>
-    <!-- OS:ZoneHVAC:EnergyRecoveryVentilator:Controller -->
+    
     <message>
         <source>Temperature Low Limit</source>
         <translation>Sıcaklık Alt Sınırı</translation>
     </message>
-    <!-- OS:Chiller:Absorption:Indirect -->
+    
     <message>
         <source>Temperature Lower Limit Generator Inlet</source>
         <translation>Sıcaklık Alt Sınırı Jeneratör Giriş</translation>
     </message>
-    <!-- OS:Site:WaterMainsTemperature -->
+    
     <message>
         <source>Temperature Multiplier</source>
         <translation>Sıcaklık Çarpanı</translation>
     </message>
-    <!-- OS:Site:WaterMainsTemperature -->
+    
     <message>
         <source>Temperature Offset</source>
         <translation>Sıcaklık Sapması</translation>
     </message>
-    <!-- OS:Site:WaterMainsTemperature -->
+    
     <message>
         <source>Temperature Schedule Name</source>
         <translation>Sıcaklık Programı Adı</translation>
     </message>
-    <!-- OS:ThermalStorage:ChilledWater:Stratified -->
+    
     <message>
         <source>Temperature Sensor Height</source>
         <translation>Sıcaklık Sensörü Yüksekliği</translation>
     </message>
-    <!-- OS:TemperingValve -->
+    
     <message>
         <source>Temperature Setpoint Node</source>
         <translation>Sıcaklık Ayar Noktası Düğümü</translation>
     </message>
-    <!-- OS:Coil:Heating:Electric, OS:Coil:Heating:Gas -->
+    
     <message>
         <source>Temperature Setpoint Node Name</source>
         <translation>Sıcaklık Ayar Noktası Düğüm Adı</translation>
     </message>
-    <!-- OS:PlantComponent:TemperatureSource -->
+    
     <message>
         <source>Temperature Specification Type</source>
         <translation>Sıcaklık Belirleme Türü</translation>
     </message>
-    <!-- OS:Refrigeration:AirChiller, OS:Refrigeration:WalkIn -->
+    
     <message>
         <source>Temperature Termination Defrost Fraction to Ice</source>
         <translation>Sıcaklık Sonlandırma Çözülme Buzlanma Oranı</translation>
     </message>
-    <!-- OS:ZoneHVAC:TerminalUnit:VariableRefrigerantFlow -->
+    
     <message>
         <source>Terminal Unit Air Inlet Node</source>
         <translation>Terminal Unit Air Inlet Node</translation>
     </message>
-    <!-- OS:ZoneHVAC:TerminalUnit:VariableRefrigerantFlow -->
+    
     <message>
         <source>Terminal Unit Air Outlet Node</source>
         <translation>Terminal Unit Air Outlet Node</translation>
     </message>
-    <!-- OS:ZoneHVAC:TerminalUnit:VariableRefrigerantFlow -->
+    
     <message>
         <source>Terminal Unit Availability schedule</source>
         <translation>Terminal Unit Kullanılabilirlik Programı</translation>
     </message>
-    <!-- OS:AirTerminal:SingleDuct:InletSideMixer -->
+    
     <message>
         <source>Terminal Unit Outlet</source>
         <translation>Terminal Unit Çıkışı</translation>
     </message>
-    <!-- OS:AirTerminal:SingleDuct:InletSideMixer -->
+    
     <message>
         <source>Terminal Unit Primary Air Inlet</source>
         <translation>Terminal Ünitesi Birincil Hava Girişi</translation>
     </message>
-    <!-- OS:AirTerminal:SingleDuct:InletSideMixer -->
+    
     <message>
         <source>Terminal Unit Secondary Air Inlet</source>
         <translation>Terminal Unit Secondary Air Inlet</translation>
     </message>
-    <!-- OS:Site -->
+    
     <message>
         <source>Terrain</source>
         <translation>Arazi</translation>
     </message>
-    <!-- OS:SolarCollectorPerformance:FlatPlate -->
+    
     <message>
         <source>Test Correlation Type</source>
         <translation>Test Korelasyon Türü</translation>
     </message>
-    <!-- OS:SolarCollectorPerformance:FlatPlate -->
+    
     <message>
         <source>Test Flow Rate</source>
         <translation>Test Akış Hızı</translation>
     </message>
-    <!-- OS:SolarCollectorPerformance:FlatPlate -->
+    
     <message>
         <source>Test Fluid</source>
         <translation>Test Sıvısı</translation>
     </message>
-    <!-- OS:ThermalStorage:Ice:Detailed -->
+    
     <message>
         <source>Thaw Process Indicator</source>
         <translation>Çözülme İşlemi Göstergesi</translation>
     </message>
-    <!-- OS:Boiler:Steam -->
+    
     <message>
         <source>Theoretical Efficiency</source>
         <translation>Teorik Verim</translation>
     </message>
-    <!-- OS:Material, OS:Material:NoMass, OS:Material:RoofVegetation -->
+    
     <message>
         <source>Thermal Absorptance</source>
         <translation>Termal Absorptans</translation>
     </message>
-    <!-- OS:AirflowNetworkOccupantVentilationControl -->
+    
     <message>
         <source>Thermal Comfort High Temperature Curve Name</source>
         <translation>Isıl Konfor Yüksek Sıcaklık Eğrisi Adı</translation>
     </message>
-    <!-- OS:AirflowNetworkOccupantVentilationControl -->
+    
     <message>
         <source>Thermal Comfort Low Temperature Curve Name</source>
         <translation>Isıl Konfor Düşük Sıcaklık Eğrisi Adı</translation>
     </message>
-    <!-- OS:AirflowNetworkOccupantVentilationControl -->
+    
     <message>
         <source>Thermal Comfort Temperature Boundary Point</source>
         <translation>Termal Konfor Sıcaklık Sınır Noktası</translation>
     </message>
-    <!-- OS:SolarCollectorPerformance:PhotovoltaicThermal:Simple -->
+    
     <message>
         <source>Thermal Conversion Efficiency Input Mode Type</source>
         <translation>Termal Dönüşüm Verimliliği Giriş Modu Tipi</translation>
     </message>
-    <!-- OS:SolarCollectorPerformance:PhotovoltaicThermal:Simple -->
+    
     <message>
         <source>Thermal Conversion Efficiency Schedule Name</source>
         <translation>Isıl Dönüşüm Verimlilik Programı Adı</translation>
     </message>
-    <!-- OS:Humidifier:Steam:Gas -->
+    
     <message>
         <source>Thermal Efficiency</source>
         <translation>Isıl Verim</translation>
     </message>
-    <!-- OS:Generator:MicroTurbine:HeatRecovery -->
+    
     <message>
         <source>Thermal Efficiency Function of Temperature and Elevation Curve Name</source>
         <translation>Sıcaklık ve Yükseklik Fonksiyonu Termal Verimlilik Eğrisi Adı</translation>
     </message>
-    <!-- OS:Humidifier:Steam:Gas -->
+    
     <message>
         <source>Thermal Efficiency Modifier Curve Name</source>
         <translation>Isıl Verim Düzeltici Eğri Adı</translation>
     </message>
-    <!-- OS:WindowMaterial:Screen, OS:WindowMaterial:Shade -->
+    
     <message>
         <source>Thermal Hemispherical Emissivity</source>
         <translation>Termal Hemisferik Emisivite</translation>
     </message>
-    <!-- OS:SolarCollectorPerformance:IntegralCollectorStorage -->
+    
     <message>
         <source>Thermal Mass of Absorber Plate</source>
         <translation>Emici Plakanın Isıl Kütlesi</translation>
     </message>
-    <!-- OS:Material:AirGap, OS:Material:NoMass -->
+    
     <message>
         <source>Thermal Resistance</source>
         <translation>Termal Direnç</translation>
     </message>
-    <!-- OS:WindowMaterial:Shade -->
+    
     <message>
         <source>Thermal Transmittance</source>
         <translation>Isıl Geçirgenlik</translation>
     </message>
-    <!-- OS:AirLoopHVAC:SupplyPlenum, OS:Controller:MechanicalVentilation, OS:HeaderedPumps:ConstantSpeed, OS:HeaderedPumps:VariableSpeed, OS:ZoneHVAC:EquipmentList -->
+    
     <message>
         <source>Thermal Zone</source>
         <translation>Isıl Bölge</translation>
     </message>
-    <!-- OS:AirflowNetworkDistributionLinkage, OS:AirflowNetworkZone, OS:Space, OS:ZoneProperty:UserViewFactors:BySurfaceName -->
+    
     <message>
         <source>Thermal Zone Name</source>
         <translation>Termal Bölge Adı</translation>
     </message>
-    <!-- OS:AirLoopHVAC:ReturnPlenum -->
+    
     <message>
         <source>ThermalZone</source>
         <translation>ThermalZone</translation>
     </message>
-    <!-- OS:Chiller:Electric:EIR, OS:Chiller:Electric:ReformulatedEIR, OS:HeatPump:PlantLoop:EIR:Cooling -->
+    
     <message>
         <source>Thermosiphon Capacity Fraction Curve Name</source>
         <translation>Termosifon Kapasite Fraksiyon Eğrisi Adı</translation>
     </message>
-    <!-- OS:Chiller:Electric:EIR, OS:Chiller:Electric:ReformulatedEIR, OS:HeatPump:PlantLoop:EIR:Cooling -->
+    
     <message>
         <source>Thermosiphon Minimum Temperature Difference</source>
         <translation>Termosifon Minimum Sıcaklık Farkı</translation>
     </message>
-    <!-- OS:ThermalZone -->
+    
     <message>
         <source>Thermostat Name</source>
         <translation>Termostat Adı</translation>
     </message>
-    <!-- OS:AirConditioner:VariableRefrigerantFlow -->
+    
     <message>
         <source>Thermostat Priority Schedule</source>
         <translation>Termostat Öncelik Takvimi</translation>
     </message>
-    <!-- OS:AvailabilityManager:NightCycle -->
+    
     <message>
         <source>Thermostat Tolerance</source>
         <translation>Termostat Toleransı</translation>
     </message>
-    <!-- OS:Daylighting:Control, OS:Glare:Sensor, OS:IlluminanceMap -->
+    
     <message>
         <source>Theta Rotation Around Y-Axis</source>
         <translation>Y Ekseni Etrafında Theta Rotasyonu</translation>
     </message>
-    <!-- OS:Luminaire -->
+    
     <message>
         <source>Theta Rotation Around Y-axis</source>
         <translation>Y Ekseni Etrafında Theta Rotasyonu</translation>
     </message>
-    <!-- OS:Material, OS:Material:RoofVegetation, OS:WindowMaterial:Gas, OS:WindowMaterial:GasMixture, OS:WindowMaterial:Glazing, OS:WindowMaterial:Glazing:RefractionExtinctionMethod, OS:WindowMaterial:Shade -->
+    
     <message>
         <source>Thickness</source>
         <translation>Kalınlık</translation>
     </message>
-    <!-- OS:HeatExchanger:AirToAir:SensibleAndLatent -->
+    
     <message>
         <source>Threshold Temperature</source>
         <translation>Eşik Sıcaklığı</translation>
     </message>
-    <!-- OS:UtilityCost:Qualify -->
+    
     <message>
         <source>Threshold Test</source>
         <translation>Eşik Testi</translation>
     </message>
-    <!-- OS:UtilityCost:Qualify -->
+    
     <message>
         <source>Threshold Value or Variable Name</source>
         <translation>Eşik Değeri veya Değişken Adı</translation>
     </message>
-    <!-- OS:ZoneHVAC:EvaporativeCoolerUnit -->
+    
     <message>
         <source>Throttling Range Temperature Difference</source>
         <translation>Daraltma Aralığı Sıcaklık Farkı</translation>
     </message>
-    <!-- OS:Schedule:Week -->
+    
     <message>
         <source>Thursday Schedule:Day Name</source>
         <translation>Perşembe Programı:Gün Adı</translation>
     </message>
-    <!-- OS:Generator:PVWatts -->
+    
     <message>
         <source>Tilt Angle</source>
         <translation>Eğim Açısı</translation>
     </message>
-    <!-- OS:WaterHeater:Sizing -->
+    
     <message>
         <source>Time for Tank Recovery</source>
         <translation>Depo Iyileştirme Süresi</translation>
     </message>
-    <!-- OS:ZoneHVAC:EnergyRecoveryVentilator:Controller -->
+    
     <message>
         <source>Time of Day Economizer Flow Control Schedule Name</source>
         <translation>Gün Saati Ekonomizer Akış Kontrolü Programı Adı</translation>
     </message>
-    <!-- OS:UtilityCost:Tariff -->
+    
     <message>
         <source>Time of Use Period Schedule Name</source>
         <translation>Kullanım Saati Dönemi Zaman Çizelgesi Adı</translation>
     </message>
-    <!-- OS:WaterHeater:Sizing -->
+    
     <message>
         <source>Time Storage Can Meet Peak Draw</source>
         <translation>Zaman Depolama Pik Çekişi Karşılayabilir</translation>
     </message>
-    <!-- OS:Site, OS:WeatherFile -->
+    
     <message>
         <source>Time Zone</source>
         <translation>Saat Dilimi</translation>
     </message>
-    <!-- OS:HeatPump:PlantLoop:EIR:Heating -->
+    
     <message>
         <source>Timed Empirical Defrost Frequency Curve Name</source>
         <translation>Zamanlı Ampirik Defrost Frekansı Eğrisi Adı</translation>
     </message>
-    <!-- OS:HeatPump:PlantLoop:EIR:Heating -->
+    
     <message>
         <source>Timed Empirical Defrost Heat Input Energy Fraction Curve Name</source>
         <translation>Timed Empirical Defrost Heat Input Energy Fraction Curve Name</translation>
     </message>
-    <!-- OS:HeatPump:PlantLoop:EIR:Heating -->
+    
     <message>
         <source>Timed Empirical Defrost Heat Load Penalty Curve Name</source>
         <translation>Zamanlı Ampirik Çözündürme Isı Yükü Ceza Eğrisi Adı</translation>
     </message>
-    <!-- OS:OutputControl:Timestamp -->
+    
     <message>
         <source>Timestamp at Beginning of Interval</source>
         <translation>Aralığın Başlangıcındaki Zaman Damgası</translation>
     </message>
-    <!-- OS:ThermalStorage:Ice:Detailed -->
+    
     <message>
         <source>Timestep of the Curve Data</source>
         <translation>Eğri Verilerinin Zaman Aralığı</translation>
     </message>
-    <!-- OS:Sizing:Parameters -->
+    
     <message>
         <source>Timesteps in Averaging Window</source>
         <translation>Ortalama Alma Penceresindeki Zaman Adımları</translation>
     </message>
-    <!-- OS:UtilityBill -->
+    
     <message>
         <source>Timesteps in Peak Demand Window</source>
         <translation>Pik Talep Penceresindeki Zaman Adımları</translation>
     </message>
-    <!-- OS:ZoneProperty:UserViewFactors:BySurfaceName -->
+    
     <message>
         <source>To Surface Name</source>
         <translation>Yüzey Adına</translation>
     </message>
-    <!-- OS:OutputControl:ReportingTolerances -->
+    
     <message>
         <source>Tolerance for Time Cooling Setpoint Not Met</source>
         <translation>Saat Soğutma Ayar Değeri Karşılanmadığında Tolerans</translation>
     </message>
-    <!-- OS:OutputControl:ReportingTolerances -->
+    
     <message>
         <source>Tolerance for Time Heating Setpoint Not Met</source>
         <translation>Zaman Isıtma Setpoint'i Karşılanmadığında Tolerans</translation>
     </message>
-    <!-- OS:WindowMaterial:Screen, OS:WindowMaterial:Shade -->
+    
     <message>
         <source>Top Opening Multiplier</source>
         <translation>Üst Açıklık Çarpanı</translation>
     </message>
-    <!-- OS:Coil:Heating:DX:VariableSpeed:SpeedData -->
+    
     <message>
         <source>Total  Heating Capacity Function of Air Flow Fraction Curve Name</source>
         <translation>Toplam Isıtma Kapasitesi Hava Akış Oranı Eğrisi Adı</translation>
     </message>
-    <!-- OS:EnvironmentalImpactFactors -->
+    
     <message>
         <source>Total Carbon Equivalent Emission Factor From CH4</source>
         <translation>CH4'den Toplam Karbon Eşdeğeri Emisyon Faktörü</translation>
     </message>
-    <!-- OS:EnvironmentalImpactFactors -->
+    
     <message>
         <source>Total Carbon Equivalent Emission Factor From CO2</source>
         <translation>Toplam CO2'den Karbon Eşdeğeri Emisyon Faktörü</translation>
     </message>
-    <!-- OS:EnvironmentalImpactFactors -->
+    
     <message>
         <source>Total Carbon Equivalent Emission Factor From N2O</source>
         <translation>N2O'dan Toplam Karbon Eşdeğeri Emisyon Faktörü</translation>
     </message>
-    <!-- OS:Coil:Cooling:WaterToAirHeatPump:EquationFit -->
+    
     <message>
         <source>Total Cooling Capacity Curve Name</source>
         <translation>Toplam Soğutma Kapasitesi Eğrisi Adı</translation>
     </message>
-    <!-- OS:Coil:Cooling:DX:VariableSpeed:SpeedData, OS:Coil:Cooling:WaterToAirHeatPump:VariableSpeedEquationFit:SpeedData -->
+    
     <message>
         <source>Total Cooling Capacity Function of Air Flow Fraction Curve Name</source>
         <translation>Toplam Soğutma Kapasitesi Hava Akışı Kesri Fonksiyon Eğrisi Adı</translation>
     </message>
-    <!-- OS:Coil:Cooling:DX:MultiSpeed:StageData, OS:CoilPerformance:DX:Cooling -->
+    
     <message>
         <source>Total Cooling Capacity Function of Flow Fraction Curve</source>
         <translation>Toplam Soğutma Kapasitesi Akış Kesri Eğrisi İşlevi</translation>
     </message>
-    <!-- OS:Coil:Cooling:DX:MultiSpeed:StageData, OS:CoilPerformance:DX:Cooling -->
+    
     <message>
         <source>Total Cooling Capacity Function of Temperature Curve</source>
         <translation>Toplam Soğutma Kapasitesi Sıcaklık Fonksiyonu Eğrisi</translation>
     </message>
-    <!-- OS:Coil:Cooling:WaterToAirHeatPump:VariableSpeedEquationFit:SpeedData -->
+    
     <message>
         <source>Total Cooling Capacity Function of Water Flow Fraction Curve Name</source>
         <translation>Toplam Soğutma Kapasitesi Su Akış Kesri Eğrisi Adı</translation>
     </message>
-    <!-- OS:Coil:Cooling:DX:CurveFit:Speed -->
+    
     <message>
         <source>Total Cooling Capacity Modifier Function of Air Flow Fraction Curve</source>
         <translation>Toplam Soğutma Kapasitesi Hava Akışı Kesri Fonksiyonu Değiştirici Eğrisi</translation>
     </message>
-    <!-- OS:Coil:Cooling:DX:CurveFit:Speed -->
+    
     <message>
         <source>Total Cooling Capacity Modifier Function of Temperature Curve</source>
         <translation>Sıcaklık Fonksiyonuna Göre Toplam Soğutma Kapasitesi Değiştirici Eğrisi</translation>
     </message>
-    <!-- OS:SurfaceProperty:ExposedFoundationPerimeter -->
+    
     <message>
         <source>Total Exposed Perimeter</source>
         <translation>Toplam Açık Çevre</translation>
     </message>
-    <!-- OS:PhotovoltaicPerformance:EquivalentOneDiode -->
+    
     <message>
         <source>Total Heat Capacity</source>
         <translation>Toplam Isı Kapasitesi</translation>
     </message>
-    <!-- OS:Coil:Heating:WaterToAirHeatPump:VariableSpeedEquationFit:SpeedData -->
+    
     <message>
         <source>Total Heating Capacity Function of Air Flow Fraction Curve Name</source>
         <translation>Toplam Isıtma Kapasitesi Hava Akışı Oranı Eğrisi Adı</translation>
     </message>
-    <!-- OS:Coil:Heating:DX:SingleSpeed -->
+    
     <message>
         <source>Total Heating Capacity Function of Flow Fraction Curve Name</source>
         <translation>Toplam Isıtma Kapasitesi Akış Fraksiyonu Fonksiyonu Eğri Adı</translation>
     </message>
-    <!-- OS:Coil:Heating:DX:SingleSpeed -->
+    
     <message>
         <source>Total Heating Capacity Function of Temperature Curve Name</source>
         <translation>Toplam Isıtma Kapasitesi Sıcaklık Fonksiyonu Eğri Adı</translation>
     </message>
-    <!-- OS:Refrigeration:WalkIn:ZoneBoundary -->
+    
     <message>
         <source>Total Insulated Surface Area Facing Zone</source>
         <translation>Bölgeye Bakan Toplam İzole Yüzey Alanı</translation>
     </message>
-    <!-- OS:DaylightingDevice:Tubular -->
+    
     <message>
         <source>Total Length</source>
         <translation>Toplam Uzunluk</translation>
     </message>
-    <!-- OS:Refrigeration:SecondarySystem -->
+    
     <message>
         <source>Total Pump Flow Rate</source>
         <translation>Toplam Pompa Akış Hızı</translation>
     </message>
-    <!-- OS:Refrigeration:SecondarySystem -->
+    
     <message>
         <source>Total Pump Head</source>
         <translation>Toplam Pompa Basıncı</translation>
     </message>
-    <!-- OS:Refrigeration:SecondarySystem -->
+    
     <message>
         <source>Total Pump Power</source>
         <translation>Toplam Pompa Gücü</translation>
     </message>
-    <!-- OS:HeaderedPumps:ConstantSpeed, OS:HeaderedPumps:VariableSpeed -->
+    
     <message>
         <source>Total Rated Flow Rate</source>
         <translation>Toplam Nominal Akış Hızı</translation>
     </message>
-    <!-- OS:Coil:WaterHeating:AirToWaterHeatPump:VariableSpeed:SpeedData -->
+    
     <message>
         <source>Total Water Heating Capacity Function of Air Flow Fraction Curve Name</source>
         <translation>Toplam Su Isıtma Kapasitesi Hava Akış Oranı Eğri Adı</translation>
     </message>
-    <!-- OS:Coil:WaterHeating:AirToWaterHeatPump:VariableSpeed:SpeedData -->
+    
     <message>
         <source>Total Water Heating Capacity Function of Temperature Curve Name</source>
         <translation>Toplam Su Isıtma Kapasitesi Sıcaklık Fonksiyonu Eğri Adı</translation>
     </message>
-    <!-- OS:Coil:WaterHeating:AirToWaterHeatPump:VariableSpeed:SpeedData -->
+    
     <message>
         <source>Total Water Heating Capacity Function of Water Flow Fraction Curve Name</source>
         <translation>Total Water Heating Capacity Function of Water Flow Fraction Curve Name</translation>
     </message>
-    <!-- OS:ElectricLoadCenter:Distribution -->
+    
     <message>
         <source>Track Meter Scheme Meter Name</source>
         <translation>İzleme Sayacı Şeması Sayaç Adı</translation>
     </message>
-    <!-- OS:ElectricLoadCenter:Distribution -->
+    
     <message>
         <source>Track Schedule Name Scheme Schedule Name</source>
         <translation>Track Schedule Name Scheme Schedule Name</translation>
     </message>
-    <!-- OS:Refrigeration:GasCooler:AirCooled -->
+    
     <message>
         <source>Transcritical Approach Temperature</source>
         <translation>Transkritik Yaklaşım Sıcaklığı</translation>
     </message>
-    <!-- OS:Refrigeration:Compressor -->
+    
     <message>
         <source>Transcritical Compressor Capacity Curve Name</source>
         <translation>Aşırıkritik Kompresör Kapasite Eğrisi Adı</translation>
     </message>
-    <!-- OS:Refrigeration:Compressor -->
+    
     <message>
         <source>Transcritical Compressor Power Curve Name</source>
         <translation>Transdinamik Kompresör Güç Eğrisi Adı</translation>
     </message>
-    <!-- OS:ElectricLoadCenter:Distribution -->
+    
     <message>
         <source>Transformer Object Name</source>
         <translation>Transformatör Nesne Adı</translation>
     </message>
-    <!-- OS:ElectricLoadCenter:Transformer -->
+    
     <message>
         <source>Transformer Usage</source>
         <translation>Transformatör Kullanımı</translation>
     </message>
-    <!-- OS:Refrigeration:GasCooler:AirCooled -->
+    
     <message>
         <source>Transition Temperature</source>
         <translation>Geçiş Sıcaklığı</translation>
     </message>
-    <!-- OS:DaylightingDevice:Tubular -->
+    
     <message>
         <source>Transition Zone Length</source>
         <translation>Geçiş Bölgesi Uzunluğu</translation>
     </message>
-    <!-- OS:DaylightingDevice:Tubular -->
+    
     <message>
         <source>Transition Zone Name</source>
         <translation>Geçiş Bölgesi Adı</translation>
     </message>
-    <!-- OS:Schedule:File -->
+    
     <message>
         <source>Translate File With Relative Path</source>
         <translation>Göreli Yol İle Dosyayı Çevir</translation>
     </message>
-    <!-- OS:Schedule:FixedInterval -->
+    
     <message>
         <source>Translate to Schedule File</source>
         <translation>Zamanlama Dosyasına Çevir</translation>
     </message>
-    <!-- OS:MaterialProperty:GlazingSpectralData -->
+    
     <message>
         <source>Transmittance</source>
         <translation>Geçirgenlik</translation>
     </message>
-    <!-- OS:PhotovoltaicPerformance:EquivalentOneDiode -->
+    
     <message>
         <source>Transmittance Absorptance Product</source>
         <translation>Transmittans Emicilik Çarpımı</translation>
     </message>
-    <!-- OS:ShadingSurface -->
+    
     <message>
         <source>Transmittance Schedule Name</source>
         <translation>Transmitans Programı Adı</translation>
     </message>
-    <!-- OS:GroundHeatExchanger:HorizontalTrench -->
+    
     <message>
         <source>Trench Length in Pipe Axial Direction</source>
         <translation>Boru Eksenel Yönünde Hendek Uzunluğu</translation>
     </message>
-    <!-- OS:Construction:InternalSource -->
+    
     <message>
         <source>Tube Spacing</source>
         <translation>Boru Aralığı</translation>
     </message>
-    <!-- OS:DefaultSubSurfaceConstructions -->
+    
     <message>
         <source>Tubular Daylight Diffuser Construction Name</source>
         <translation>Tübüler Gün Işığı Dağıtıcı Yapı Adı</translation>
     </message>
-    <!-- OS:DefaultSubSurfaceConstructions -->
+    
     <message>
         <source>Tubular Daylight Dome Construction Name</source>
         <translation>Tüp Işık Kubbesi İnşaat Adı</translation>
     </message>
-    <!-- OS:Schedule:Week -->
+    
     <message>
         <source>Tuesday Schedule:Day Name</source>
         <translation>Salı Programı:Gün Adı</translation>
     </message>
-    <!-- OS:Construction:InternalSource -->
+    
     <message>
         <source>Two-Dimensional Temperature Calculation Position</source>
         <translation>İki Boyutlu Sıcaklık Hesaplama Konumu</translation>
     </message>
-    <!-- OS:EnergyManagementSystem:OutputVariable, OS:PythonPlugin:OutputVariable -->
+    
     <message>
         <source>Type of Data in Variable</source>
         <translation>Değişkendeki Veri Türü</translation>
     </message>
-    <!-- OS:SurfaceProperty:OtherSideConditionsModel -->
+    
     <message>
         <source>Type of Modeling</source>
         <translation>Modelleme Türü</translation>
     </message>
-    <!-- OS:AirflowNetworkDetailedOpening -->
+    
     <message>
         <source>Type of Rectangular Large Vertical Opening</source>
         <translation>Dikdörtgen Geniş Dikey Açıklık Türü</translation>
     </message>
-    <!-- OS:ShadingControl -->
+    
     <message>
         <source>Type of Slat Angle Control for Blinds</source>
         <translation>Kör Panjur Slat Açısı Kontrol Türü</translation>
     </message>
 
-    <!-- U -->
-    <!-- OS:WindowMaterial:SimpleGlazingSystem -->
+    
+    
     <message>
         <source>U-Factor</source>
         <translation>U-Faktörü</translation>
     </message>
-    <!-- OS:EvaporativeFluidCooler:SingleSpeed -->
+    
     <message>
         <source>U-factor Times Area Value at Design Air Flow Rate</source>
         <translation>U-faktörü Çarpı Alan Değeri Tasarım Hava Akış Hızında</translation>
     </message>
-    <!-- OS:GroundHeatExchanger:Vertical -->
+    
     <message>
         <source>U-Tube Distance</source>
         <translation>U-Borulu Mesafe</translation>
     </message>
-    <!-- OS:Refrigeration:Case -->
+    
     <message>
         <source>Under Case HVAC Return Air Fraction</source>
         <translation>Under Case HVAC Return Air Fraction</translation>
     </message>
-    <!-- OS:GroundHeatExchanger:HorizontalTrench, OS:GroundHeatExchanger:Vertical -->
+    
     <message>
         <source>Undisturbed Ground Temperature Model</source>
         <translation>Bozulmamış Zemin Sıcaklığı Modeli</translation>
     </message>
-    <!-- OS:OutputControl:Table:Style -->
+    
     <message>
         <source>Unit Conversion</source>
         <translation>Birim Dönüşümü</translation>
     </message>
-    <!-- OS:Output:SQLite -->
+    
     <message>
         <source>Unit Conversion for Tabular Data</source>
         <translation>Tablo Verileri için Birim Dönüşümü</translation>
     </message>
-    <!-- OS:Coil:Cooling:DX:CurveFit:Performance, OS:Coil:Cooling:DX:TwoSpeed -->
+    
     <message>
         <source>Unit Internal Static Air Pressure</source>
         <translation>Birim İç Statik Hava Basıncı</translation>
     </message>
-    <!-- OS:Refrigeration:Case, OS:ScheduleTypeLimits, OS:Table:IndependentVariable -->
+    
     <message>
         <source>Unit Type</source>
         <translation>Birim Tipi</translation>
     </message>
-    <!-- OS:EnergyManagementSystem:MeteredOutputVariable, OS:EnergyManagementSystem:OutputVariable, OS:PythonPlugin:OutputVariable -->
+    
     <message>
         <source>Units</source>
         <translation>Birimler</translation>
     </message>
-    <!-- OS:EnergyManagementSystem:MeteredOutputVariable, OS:EnergyManagementSystem:OutputVariable, OS:PythonPlugin:OutputVariable -->
+    
     <message>
         <source>Update Frequency</source>
         <translation>Güncelleme Sıklığı</translation>
     </message>
-    <!-- OS:ScheduleTypeLimits -->
+    
     <message>
         <source>Upper Limit Value</source>
         <translation>Üst Sınır Değeri</translation>
     </message>
-    <!-- OS:Construction:WindowDataFile, OS:WeatherFile -->
+    
     <message>
         <source>Url</source>
         <translation>URL</translation>
     </message>
-    <!-- OS:PerformancePrecisionTradeoffs -->
+    
     <message>
         <source>Use Coil Direct Solutions</source>
         <translation>Coil Direct Solutions Kullan</translation>
     </message>
-    <!-- OS:AirLoopHVAC:UnitarySystem -->
+    
     <message>
         <source>Use DOAS DX Cooling Coil</source>
         <translation>DOAS DX Soğutma Serpentini Kullan</translation>
     </message>
-    <!-- OS:WaterHeater:Mixed, OS:WaterHeater:Stratified -->
+    
     <message>
         <source>Use Flow Rate Fraction Schedule Name</source>
         <translation>Akış Hızı Kesri Programı Adını Kullan</translation>
     </message>
-    <!-- OS:Coil:Cooling:WaterToAirHeatPump:VariableSpeedEquationFit -->
+    
     <message>
         <source>Use Hot Gas Reheat</source>
         <translation>Sıcak Gaz Isıtmasını Kullan</translation>
     </message>
-    <!-- OS:ThermalZone -->
+    
     <message>
         <source>Use Ideal Air Loads</source>
         <translation>İdeal Hava Yüklerini Kullan</translation>
     </message>
-    <!-- OS:LifeCycleCost:Parameters -->
+    
     <message>
         <source>Use NIST Fuel Escalation Rates</source>
         <translation>NIST Yakıt Fiyat Artış Oranlarını Kullan</translation>
     </message>
-    <!-- OS:PerformancePrecisionTradeoffs -->
+    
     <message>
         <source>Use Representative Surfaces for Calculations</source>
         <translation>Hesaplamalar için Temsilci Yüzeyleri Kullan</translation>
     </message>
-    <!-- OS:ThermalStorage:ChilledWater:Stratified -->
+    
     <message>
         <source>Use Side Availability Schedule Name</source>
         <translation>Yan Kullanılabilirlik Programı Adını Kullan</translation>
     </message>
-    <!-- OS:ThermalStorage:ChilledWater:Stratified -->
+    
     <message>
         <source>Use Side Heat Transfer Effectiveness</source>
         <translation>Yan Isı Transfer Etkinliğini Kullan</translation>
     </message>
-    <!-- OS:ThermalStorage:ChilledWater:Stratified, OS:WaterHeater:Mixed, OS:WaterHeater:Stratified -->
+    
     <message>
         <source>Use Side Inlet Node Name</source>
         <translation>Yan Giriş Düğümü Adını Kullan</translation>
     </message>
-    <!-- OS:ThermalStorage:ChilledWater:Stratified, OS:WaterHeater:Mixed, OS:WaterHeater:Stratified -->
+    
     <message>
         <source>Use Side Outlet Node Name</source>
         <translation>Yan Çıkış Düğümü Adını Kullan</translation>
     </message>
-    <!-- OS:RunPeriod, OS:SizingPeriod:WeatherFileConditionType, OS:SizingPeriod:WeatherFileDays -->
+    
     <message>
         <source>Use Weather File Daylight Saving Period</source>
         <translation>Hava Durumu Dosyasının Yaz Saati Uygulaması Dönemini Kullan</translation>
     </message>
-    <!-- OS:RunPeriod -->
+    
     <message>
         <source>Use Weather File Holidays and Special Days</source>
         <translation>Hava Dosyası Tatillerini ve Özel Günleri Kullan</translation>
     </message>
-    <!-- OS:WeatherProperty:SkyTemperature -->
+    
     <message>
         <source>Use Weather File Horizontal IR</source>
         <translation>Hava Durumu Dosyasından Yatay IR Kullan</translation>
     </message>
-    <!-- OS:SizingPeriod:WeatherFileConditionType, OS:SizingPeriod:WeatherFileDays -->
+    
     <message>
         <source>Use Weather File Rain and Snow Indicators</source>
         <translation>Hava Dosyasının Yağış ve Kar Göstergelerini Kullan</translation>
     </message>
-    <!-- OS:AvailabilityManager:HybridVentilation, OS:RunPeriod -->
+    
     <message>
         <source>Use Weather File Rain Indicators</source>
         <translation>Hava Dosyası Yağış Göstergelerini Kullan</translation>
     </message>
-    <!-- OS:RunPeriod -->
+    
     <message>
         <source>Use Weather File Snow Indicators</source>
         <translation>Hava Dosyası Kar Göstergelerini Kullan</translation>
     </message>
-    <!-- OS:PlantLoop -->
+    
     <message>
         <source>User Defined Fluid Type</source>
         <translation>Kullanıcı Tanımlı Akışkan Türü</translation>
     </message>
-    <!-- OS:EvaporativeFluidCooler:SingleSpeed -->
+    
     <message>
         <source>User Specified Design Capacity</source>
         <translation>Kullanıcı Tarafından Belirtilen Tasarım Kapasitesi</translation>
     </message>
-    <!-- OS:ComponentData -->
+    
     <message>
         <source>UUID</source>
         <translation>UUID</translation>
     </message>
 
-    <!-- V -->
-    <!-- OS:Schedule:Constant, OS:Schedule:FixedInterval, OS:Table:IndependentVariable -->
+    
+    
     <message>
         <source>Value</source>
         <translation>Değer</translation>
     </message>
-    <!-- OS:PhotovoltaicPerformance:Simple -->
+    
     <message>
         <source>Value for Cell Efficiency if Fixed</source>
         <translation>Sabit Ise Hücre Verimi Için Değer</translation>
     </message>
-    <!-- OS:SolarCollectorPerformance:PhotovoltaicThermal:Simple -->
+    
     <message>
         <source>Value for Thermal Conversion Efficiency if Fixed</source>
         <translation>Sabit ise Termal Dönüşüm Verimliliği için Değer</translation>
     </message>
-    <!-- OS:AirConditioner:VariableRefrigerantFlow:FluidTemperatureControl, OS:AirConditioner:VariableRefrigerantFlow:FluidTemperatureControl:HR -->
+    
     <message>
         <source>Variable Condensing Temperature Maximum for Indoor Unit</source>
         <translation>Kapalı Ünite için Değişken Yoğunlaşma Sıcaklığı Maksimumu</translation>
     </message>
-    <!-- OS:AirConditioner:VariableRefrigerantFlow:FluidTemperatureControl, OS:AirConditioner:VariableRefrigerantFlow:FluidTemperatureControl:HR -->
+    
     <message>
         <source>Variable Condensing Temperature Minimum for Indoor Unit</source>
         <translation>İç Ünite için Değişken Yoğunlaştırma Sıcaklığı Minimumu</translation>
     </message>
-    <!-- OS:AirConditioner:VariableRefrigerantFlow:FluidTemperatureControl, OS:AirConditioner:VariableRefrigerantFlow:FluidTemperatureControl:HR -->
+    
     <message>
         <source>Variable Evaporating Temperature Maximum for Indoor Unit</source>
         <translation>Değişken Buharlaşma Sıcaklığı İç Ünite Maksimumu</translation>
     </message>
-    <!-- OS:AirConditioner:VariableRefrigerantFlow:FluidTemperatureControl, OS:AirConditioner:VariableRefrigerantFlow:FluidTemperatureControl:HR -->
+    
     <message>
         <source>Variable Evaporating Temperature Minimum for Indoor Unit</source>
         <translation>İç Ünite için Değişken Buharlaştırma Sıcaklığı Minimum</translation>
     </message>
-    <!-- OS:Output:Variable, OS:UtilityCost:Qualify -->
+    
     <message>
         <source>Variable Name</source>
         <translation>Değişken Adı</translation>
     </message>
-    <!-- OS:Output:Table:Monthly -->
+    
     <message>
         <source>Variable or Meter Name</source>
         <translation>Değişken veya Sayaç Adı</translation>
     </message>
-    <!-- OS:Output:Table:Annual -->
+    
     <message>
         <source>Variable or Meter or EMS Variable or Field Name</source>
         <translation>Değişken veya Sayaç veya EMS Değişkeni veya Alan Adı</translation>
     </message>
-    <!-- OS:Refrigeration:SecondarySystem -->
+    
     <message>
         <source>Variable Speed Pump Cubic Curve Name</source>
         <translation>Değişken Hızlı Pompa Kübik Eğri Adı</translation>
     </message>
-    <!-- OS:UtilityCost:Variable -->
+    
     <message>
         <source>Variable Type</source>
         <translation>Değişken Türü</translation>
     </message>
-    <!-- OS:AirflowNetworkSurface, OS:AirflowNetworkZone -->
+    
     <message>
         <source>Ventilation Control Mode</source>
         <translation>Havalandırma Kontrol Modu</translation>
     </message>
-    <!-- OS:AvailabilityManager:HybridVentilation -->
+    
     <message>
         <source>Ventilation Control Mode Schedule</source>
         <translation>Havalandırma Kontrol Modu Programı</translation>
     </message>
-    <!-- OS:AirflowNetworkSurface, OS:AirflowNetworkZone -->
+    
     <message>
         <source>Ventilation Control Zone Temperature Setpoint Schedule Name</source>
         <translation>Havalandırma Kontrol Bölgesi Sıcaklık Ayar Noktası Programı Adı</translation>
     </message>
-    <!-- OS:ZoneHVAC:EnergyRecoveryVentilator -->
+    
     <message>
         <source>Ventilation Rate per Occupant</source>
         <translation>Kişi Başına Havalandırma Hızı</translation>
     </message>
-    <!-- OS:ZoneHVAC:EnergyRecoveryVentilator -->
+    
     <message>
         <source>Ventilation Rate per Unit Floor Area</source>
         <translation>Birim Taban Alanı Başına Havalandırma Hızı</translation>
     </message>
-    <!-- OS:AvailabilityManager:NightVentilation -->
+    
     <message>
         <source>Ventilation Temperature Difference</source>
         <translation>Havalandırma Sıcaklık Farkı</translation>
     </message>
-    <!-- OS:AvailabilityManager:NightVentilation -->
+    
     <message>
         <source>Ventilation Temperature Low Limit</source>
         <translation>Havalandırma Sıcaklığı Alt Sınırı</translation>
     </message>
-    <!-- OS:AvailabilityManager:NightVentilation -->
+    
     <message>
         <source>Ventilation Temperature Schedule</source>
         <translation>Havalandırma Sıcaklık Programı</translation>
     </message>
-    <!-- OS:ZoneVentilation:DesignFlowRate -->
+    
     <message>
         <source>Ventilation Type</source>
         <translation>Havalandırma Türü</translation>
     </message>
-    <!-- OS:AirflowNetworkSurface, OS:AirflowNetworkZone -->
+    
     <message>
         <source>Venting Availability Schedule Name</source>
         <translation>Havalandırma Kullanılabilirlik Programı Adı</translation>
     </message>
-    <!-- OS:Version -->
+    
     <message>
         <source>Version Identifier</source>
         <translation>Sürüm Tanımlayıcısı</translation>
     </message>
-    <!-- OS:ComponentData -->
+    
     <message>
         <source>Version Timestamp</source>
         <translation>Sürüm Zaman Damgası</translation>
     </message>
-    <!-- OS:ComponentData -->
+    
     <message>
         <source>Version UUID</source>
         <translation>Sürüm UUID</translation>
     </message>
-    <!-- OS:InteriorPartitionSurface, OS:ShadingSurface, OS:SubSurface, OS:Surface -->
+    
     <message>
         <source>Vertex X-coordinate</source>
         <translation>Köşe X-koordinatı</translation>
     </message>
-    <!-- OS:InteriorPartitionSurface, OS:ShadingSurface, OS:SubSurface, OS:Surface -->
+    
     <message>
         <source>Vertex Y-coordinate</source>
         <translation>Vertex Y-koordinatı</translation>
     </message>
-    <!-- OS:InteriorPartitionSurface, OS:ShadingSurface, OS:SubSurface, OS:Surface -->
+    
     <message>
         <source>Vertex Z-coordinate</source>
         <translation>Köşe Z-koordinatı</translation>
     </message>
-    <!-- OS:AirConditioner:VariableRefrigerantFlow -->
+    
     <message>
         <source>Vertical Height used for Piping Correction Factor</source>
         <translation>Boru Düzeltme Faktörü için Kullanılan Dikey Yükseklik</translation>
     </message>
-    <!-- OS:Refrigeration:AirChiller -->
+    
     <message>
         <source>Vertical Location</source>
         <translation>Dikey Konum</translation>
     </message>
-    <!-- OS:Fan:ComponentModel -->
+    
     <message>
         <source>VFD Efficiency Curve Name</source>
         <translation>VFD Verimlilik Eğrisi Adı</translation>
     </message>
-    <!-- OS:Fan:ComponentModel -->
+    
     <message>
         <source>VFD Efficiency Type</source>
         <translation>VFD Verimlilik Türü</translation>
     </message>
-    <!-- OS:Fan:ComponentModel -->
+    
     <message>
         <source>VFD Sizing Factor</source>
         <translation>VFD Boyutlandırma Faktörü</translation>
     </message>
-    <!-- OS:ZoneProperty:UserViewFactors:BySurfaceName -->
+    
     <message>
         <source>View Factor</source>
         <translation>Görüş Faktörü</translation>
     </message>
-    <!-- OS:SubSurface, OS:Surface -->
+    
     <message>
         <source>View Factor to Ground</source>
         <translation>Zemine Görüş Faktörü</translation>
     </message>
-    <!-- OS:DaylightingDevice:Shelf -->
+    
     <message>
         <source>View Factor to Outside Shelf</source>
         <translation>Dış Cepheye Görüş Faktörü</translation>
     </message>
-    <!-- OS:WindowMaterial:Gas -->
+    
     <message>
         <source>Viscosity Coefficient A</source>
         <translation>Viskozite Katsayısı A</translation>
     </message>
-    <!-- OS:WindowMaterial:Gas -->
+    
     <message>
         <source>Viscosity Coefficient B</source>
         <translation>Viskozite Katsayısı B</translation>
     </message>
-    <!-- OS:WindowMaterial:Gas -->
+    
     <message>
         <source>Viscosity Coefficient C</source>
         <translation>Viskozite Katsayısı C</translation>
     </message>
-    <!-- OS:Material, OS:Material:NoMass, OS:Material:RoofVegetation -->
+    
     <message>
         <source>Visible Absorptance</source>
         <translation>Görünür Absorptans</translation>
     </message>
-    <!-- OS:WindowMaterial:Glazing:RefractionExtinctionMethod -->
+    
     <message>
         <source>Visible Extinction Coefficient</source>
         <translation>Görünür Soğurma Katsayısı</translation>
     </message>
-    <!-- OS:WindowMaterial:Glazing:RefractionExtinctionMethod -->
+    
     <message>
         <source>Visible Index of Refraction</source>
         <translation>Görünür Kırılma Indeksi</translation>
     </message>
-    <!-- OS:WindowMaterial:Shade -->
+    
     <message>
         <source>Visible Reflectance</source>
         <translation>Görünür Yansıtıcılık</translation>
     </message>
-    <!-- OS:DaylightingDevice:LightWell -->
+    
     <message>
         <source>Visible Reflectance of Well Walls</source>
         <translation>Kuyu Duvarlarının Görünür Yansıtıcılığı</translation>
     </message>
-    <!-- OS:WindowMaterial:Shade, OS:WindowMaterial:SimpleGlazingSystem -->
+    
     <message>
         <source>Visible Transmittance</source>
         <translation>Görünür Geçirgenlik</translation>
     </message>
-    <!-- OS:WindowMaterial:Glazing -->
+    
     <message>
         <source>Visible Transmittance at Normal Incidence</source>
         <translation>Görünür Işınım İletim Oranı Normal Açıda</translation>
     </message>
-    <!-- OS:PhotovoltaicPerformance:Sandia -->
+    
     <message>
         <source>Voltage at Maximum Power Point</source>
         <translation>Maksimum Güç Noktasında Voltaj</translation>
     </message>
-    <!-- OS:Space, OS:ThermalZone -->
+    
     <message>
         <source>Volume</source>
         <translation>Hacim</translation>
     </message>
 
-    <!-- W -->
-    <!-- OS:Refrigeration:WalkIn -->
+    
+    
     <message>
         <source>WalkIn Defrost Cycle Parameters Name</source>
         <translation>WalkIn Defrost Döngüsü Parametreleri Adı</translation>
     </message>
-    <!-- OS:Refrigeration:WalkIn -->
+    
     <message>
         <source>WalkIn Zone Boundary</source>
         <translation>WalkIn Zone Sınırı</translation>
     </message>
-    <!-- OS:DefaultSurfaceConstructions -->
+    
     <message>
         <source>Wall Construction Name</source>
         <translation>Duvar İnşaat Adı</translation>
     </message>
-    <!-- OS:Foundation:Kiva -->
+    
     <message>
         <source>Wall Depth Below Slab</source>
         <translation>Döşemenin Altındaki Duvar Derinliği</translation>
     </message>
-    <!-- OS:Foundation:Kiva -->
+    
     <message>
         <source>Wall Height Above Grade</source>
         <translation>Zemin Üstü Duvar Yüksekliği</translation>
     </message>
-    <!-- OS:Coil:Cooling:DX:MultiSpeed:StageData -->
+    
     <message>
         <source>Waste Heat Function of Temperature Curve</source>
         <translation>Sıcaklık Eğrisinin Atık Isı Fonksiyonu</translation>
     </message>
-    <!-- OS:Coil:Cooling:WaterToAirHeatPump:VariableSpeedEquationFit:SpeedData, OS:Coil:Heating:DX:MultiSpeed:StageData, OS:Coil:Heating:WaterToAirHeatPump:VariableSpeedEquationFit:SpeedData -->
+    
     <message>
         <source>Waste Heat Function of Temperature Curve Name</source>
         <translation>Atık Isı Sıcaklık Eğrisi Fonksiyon Adı</translation>
     </message>
-    <!-- OS:Coil:Cooling:DX:CurveFit:Speed -->
+    
     <message>
         <source>Waste Heat Modifier Function of Temperature Curve</source>
         <translation>Atık Isı Sıcaklık Eğrisi Değişim İşlevi</translation>
     </message>
-    <!-- OS:Controller:WaterCoil -->
+    
     <message>
         <source>Water Coil Name</source>
         <translation>Su Bobini Adı</translation>
     </message>
-    <!-- OS:AirConditioner:VariableRefrigerantFlow -->
+    
     <message>
         <source>Water Condenser Volume Flow Rate</source>
         <translation>Su Kondenser Hacim Akış Hızı</translation>
     </message>
-    <!-- OS:Refrigeration:Condenser:WaterCooled -->
+    
     <message>
         <source>Water Design Flow Rate</source>
         <translation>Su Tasarım Akış Hızı</translation>
     </message>
-    <!-- OS:FuelFactors -->
+    
     <message>
         <source>Water Emission Factor</source>
         <translation>Su Emisyon Faktörü</translation>
     </message>
-    <!-- OS:FuelFactors -->
+    
     <message>
         <source>Water Emission Factor Schedule Name</source>
         <translation>Su Emisyon Faktörü Çizelge Adı</translation>
     </message>
-    <!-- OS:Coil:WaterHeating:Desuperheater -->
+    
     <message>
         <source>Water Flow Rate</source>
         <translation>Su Akış Hızı</translation>
     </message>
-    <!-- OS:LifeCycleCost:Parameters -->
+    
     <message>
         <source>Water Inflation</source>
         <translation>Su Enflasyonu</translation>
     </message>
-    <!-- OS:CoolingTower:VariableSpeed, OS:FluidCooler:SingleSpeed, OS:FluidCooler:TwoSpeed -->
+    
     <message>
         <source>Water Inlet Node</source>
         <translation>Su Giriş Düğümü</translation>
     </message>
-    <!-- OS:Boiler:Steam, OS:Coil:Cooling:Water, OS:Coil:Cooling:Water:Panel:Radiant, OS:Coil:Cooling:WaterToAirHeatPump:EquationFit, OS:Coil:Heating:Water, OS:Coil:Heating:Water:Baseboard, OS:Coil:Heating:WaterToAirHeatPump:EquationFit, OS:Coil:WaterHeating:Desuperheater, OS:CoolingTower:SingleSpeed, OS:CoolingTower:TwoSpeed, OS:EvaporativeFluidCooler:SingleSpeed, OS:EvaporativeFluidCooler:TwoSpeed, OS:HeatPump:AirToWater:FuelFired:Cooling, OS:HeatPump:AirToWater:FuelFired:Heating, OS:Refrigeration:Condenser:WaterCooled -->
+    
     <message>
         <source>Water Inlet Node Name</source>
         <translation>Su Giriş Düğümü Adı</translation>
     </message>
-    <!-- OS:Refrigeration:Condenser:WaterCooled -->
+    
     <message>
         <source>Water Maximum Flow Rate</source>
         <translation>Su Maksimum Akış Hızı</translation>
     </message>
-    <!-- OS:Refrigeration:Condenser:WaterCooled -->
+    
     <message>
         <source>Water Maximum Water Outlet Temperature</source>
         <translation>Su Maksimum Su Çıkış Sıcaklığı</translation>
     </message>
-    <!-- OS:Refrigeration:Condenser:WaterCooled -->
+    
     <message>
         <source>Water Minimum Water Inlet Temperature</source>
         <translation>Su Minimum Su Giriş Sıcaklığı</translation>
     </message>
-    <!-- OS:CoolingTower:VariableSpeed, OS:FluidCooler:SingleSpeed, OS:FluidCooler:TwoSpeed -->
+    
     <message>
         <source>Water Outlet Node</source>
         <translation>Su Çıkış Düğümü</translation>
     </message>
-    <!-- OS:Coil:Cooling:Water, OS:Coil:Cooling:Water:Panel:Radiant, OS:Coil:Cooling:WaterToAirHeatPump:EquationFit, OS:Coil:Heating:Water, OS:Coil:Heating:Water:Baseboard, OS:Coil:Heating:WaterToAirHeatPump:EquationFit, OS:Coil:WaterHeating:Desuperheater, OS:CoolingTower:SingleSpeed, OS:CoolingTower:TwoSpeed, OS:EvaporativeFluidCooler:SingleSpeed, OS:EvaporativeFluidCooler:TwoSpeed, OS:HeatPump:AirToWater:FuelFired:Cooling, OS:HeatPump:AirToWater:FuelFired:Heating, OS:Refrigeration:Condenser:WaterCooled -->
+    
     <message>
         <source>Water Outlet Node Name</source>
         <translation>Su Çıkış Düğümü Adı</translation>
     </message>
-    <!-- OS:Refrigeration:Condenser:WaterCooled -->
+    
     <message>
         <source>Water Outlet Temperature Schedule Name</source>
         <translation>Su Çıkış Sıcaklığı Programı Adı</translation>
     </message>
-    <!-- OS:Coil:WaterHeating:Desuperheater -->
+    
     <message>
         <source>Water Pump Power</source>
         <translation>Su Pompası Gücü</translation>
     </message>
-    <!-- OS:EvaporativeCooler:Direct:ResearchSpecial, OS:EvaporativeCooler:Indirect:ResearchSpecial -->
+    
     <message>
         <source>Water Pump Power Modifier Curve Name</source>
         <translation>Su Pompası Güç Değiştiricisi Eğri Adı</translation>
     </message>
-    <!-- OS:EvaporativeCooler:Direct:ResearchSpecial, OS:EvaporativeCooler:Indirect:ResearchSpecial -->
+    
     <message>
         <source>Water Pump Power Sizing Factor</source>
         <translation>Su Pompası Güç Boyutlandırma Faktörü</translation>
     </message>
-    <!-- OS:ZoneHVAC:Dehumidifier:DX -->
+    
     <message>
         <source>Water Removal Curve Name</source>
         <translation>Su Çıkarma Eğrisi Adı</translation>
     </message>
-    <!-- OS:Humidifier:Steam:Electric, OS:Humidifier:Steam:Gas -->
+    
     <message>
         <source>Water Storage Tank Name</source>
         <translation>Su Depolama Tankı Adı</translation>
     </message>
-    <!-- OS:Generator:FuelCell -->
+    
     <message>
         <source>Water Supply Name</source>
         <translation>Su Kaynağı Adı</translation>
     </message>
-    <!-- OS:EvaporativeCooler:Indirect:ResearchSpecial -->
+    
     <message>
         <source>Water Supply Storage Tank Name</source>
         <translation>Su Tedarik Depolama Deposu Adı</translation>
     </message>
-    <!-- OS:HeatPump:AirToWater:FuelFired:Cooling, OS:HeatPump:AirToWater:FuelFired:Heating -->
+    
     <message>
         <source>Water Temperature Curve Input Variable</source>
         <translation>Su Sıcaklığı Eğrisi Giriş Değişkeni</translation>
     </message>
-    <!-- OS:Generator:FuelCell:WaterSupply -->
+    
     <message>
         <source>Water Temperature Modeling Mode</source>
         <translation>Su Sıcaklığı Modelleme Modu</translation>
     </message>
-    <!-- OS:Generator:FuelCell:WaterSupply -->
+    
     <message>
         <source>Water Temperature Reference Node Name</source>
         <translation>Su Sıcaklığı Referans Düğümü Adı</translation>
     </message>
-    <!-- OS:Generator:FuelCell:WaterSupply -->
+    
     <message>
         <source>Water Temperature Schedule Name</source>
         <translation>Su Sıcaklığı Çizelgesi Adı</translation>
     </message>
-    <!-- OS:WaterUse:Equipment -->
+    
     <message>
         <source>Water Use Equipment Definition Name</source>
         <translation>Su Kullanım Ekipmanı Tanımı Adı</translation>
     </message>
-    <!-- OS:WaterUse:Connections -->
+    
     <message>
         <source>Water Use Equipment Name</source>
         <translation>Su Kullanım Ekipmanı Adı</translation>
     </message>
-    <!-- OS:MaterialProperty:MoisturePenetrationDepth:Settings -->
+    
     <message>
         <source>Water Vapor Diffusion Resistance Factor</source>
         <translation>Su Buharı Difüzyon Direnci Faktörü</translation>
     </message>
-    <!-- OS:Refrigeration:CompressorRack -->
+    
     <message>
         <source>Water-Cooled Condenser Design Flow Rate</source>
         <translation>Su Soğutmalı Kondenser Tasarım Debi Oranı</translation>
     </message>
-    <!-- OS:Refrigeration:CompressorRack -->
+    
     <message>
         <source>Water-Cooled Condenser Inlet Node Name</source>
         <translation>Su Soğutmalı Kondenser Giriş Düğümü Adı</translation>
     </message>
-    <!-- OS:Refrigeration:CompressorRack -->
+    
     <message>
         <source>Water-Cooled Condenser Maximum Flow Rate</source>
         <translation>Su Soğutmalı Kondenser Maksimum Akış Hızı</translation>
     </message>
-    <!-- OS:Refrigeration:CompressorRack -->
+    
     <message>
         <source>Water-Cooled Condenser Maximum Water Outlet Temperature</source>
         <translation>Su Soğutmalı Kondenser Maksimum Su Çıkış Sıcaklığı</translation>
     </message>
-    <!-- OS:Refrigeration:CompressorRack -->
+    
     <message>
         <source>Water-Cooled Condenser Minimum Water Inlet Temperature</source>
         <translation>Su Soğutmalı Kondenser Minimum Su Giriş Sıcaklığı</translation>
     </message>
-    <!-- OS:Refrigeration:CompressorRack -->
+    
     <message>
         <source>Water-Cooled Condenser Outlet Node Name</source>
         <translation>Su Soğutmalı Kondenser Çıkış Düğümü Adı</translation>
     </message>
-    <!-- OS:Refrigeration:CompressorRack -->
+    
     <message>
         <source>Water-Cooled Condenser Outlet Temperature Schedule Name</source>
         <translation>Su Soğutmalı Kondenser Çıkış Sıcaklığı Program Adı</translation>
     </message>
-    <!-- OS:Refrigeration:CompressorRack, OS:Refrigeration:Condenser:WaterCooled -->
+    
     <message>
         <source>Water-Cooled Loop Flow Type</source>
         <translation>Su Soğutmalı Döngü Akış Tipi</translation>
     </message>
-    <!-- OS:Coil:Cooling:WaterToAirHeatPump:VariableSpeedEquationFit, OS:Coil:Heating:WaterToAirHeatPump:VariableSpeedEquationFit -->
+    
     <message>
         <source>Water-to-Refrigerant HX Water Inlet Node Name</source>
         <translation>Su-Soğutucu Sıvısı HX Su Giriş Düğümü Adı</translation>
     </message>
-    <!-- OS:Coil:Cooling:WaterToAirHeatPump:VariableSpeedEquationFit, OS:Coil:Heating:WaterToAirHeatPump:VariableSpeedEquationFit -->
+    
     <message>
         <source>Water-to-Refrigerant HX Water Outlet Node Name</source>
         <translation>Su-Soğutucu Değiştirici Su Çıkış Düğümü Adı</translation>
     </message>
-    <!-- OS:WaterHeater:Sizing -->
+    
     <message>
         <source>WaterHeater Name</source>
         <translation>Sıcak Su Isıtıcısı Adı</translation>
     </message>
-    <!-- OS:ElectricEquipment:Definition, OS:GasEquipment:Definition, OS:HotWaterEquipment:Definition, OS:Lights:Definition, OS:OtherEquipment:Definition, OS:SteamEquipment:Definition -->
+    
     <message>
         <source>Watts per Person</source>
         <translation>Kişi Başına Watt</translation>
     </message>
-    <!-- OS:ElectricEquipment:Definition, OS:ElectricEquipment:ITE:AirCooled:Definition, OS:GasEquipment:Definition, OS:HotWaterEquipment:Definition, OS:Lights:Definition, OS:OtherEquipment:Definition, OS:SteamEquipment:Definition -->
+    
     <message>
         <source>Watts per Space Floor Area</source>
         <translation>Watt başına Alan</translation>
     </message>
-    <!-- OS:ElectricEquipment:ITE:AirCooled:Definition -->
+    
     <message>
         <source>Watts per Unit</source>
         <translation>Birim Başına Watt</translation>
     </message>
-    <!-- OS:MaterialProperty:GlazingSpectralData -->
+    
     <message>
         <source>Wavelength</source>
         <translation>Dalga Boyu</translation>
     </message>
-    <!-- OS:Schedule:Week -->
+    
     <message>
         <source>Wednesday Schedule:Day Name</source>
         <translation>Çarşamba Programı:Gün Adı</translation>
     </message>
-    <!-- OS:Schedule:Year -->
+    
     <message>
         <source>Week Schedule Until Date</source>
         <translation>Hafta Programı Bitiş Tarihi</translation>
     </message>
-    <!-- OS:PlantEquipmentOperation:OutdoorWetBulb -->
+    
     <message>
         <source>Wet-Bulb Temperature Range Lower Limit</source>
         <translation>Islak Bulb Sıcaklık Aralığı Alt Sınırı</translation>
     </message>
-    <!-- OS:PlantEquipmentOperation:OutdoorWetBulb -->
+    
     <message>
         <source>Wet-Bulb Temperature Range Upper Limit</source>
         <translation>Islak-Bulb Sıcaklık Aralığı Üst Sınırı</translation>
     </message>
-    <!-- OS:EvaporativeCooler:Indirect:ResearchSpecial -->
+    
     <message>
         <source>Wetbulb Effectiveness Flow Ratio Modifier Curve Name</source>
         <translation>Yaş Termometre Etkinlik Akış Oranı Modifikatör Eğrisi Adı</translation>
     </message>
-    <!-- OS:SizingPeriod:DesignDay -->
+    
     <message>
         <source>Wetbulb or DewPoint at Maximum Dry-Bulb</source>
         <translation>Maksimum Kuru Bulb'da Nemli Bulb veya Çiğ Noktası</translation>
     </message>
-    <!-- OS:AirflowNetworkDetailedOpening -->
+    
     <message>
         <source>Width Factor for Opening Factor</source>
         <translation>Açıklık Faktörü için Genişlik Faktörü</translation>
     </message>
-    <!-- OS:AirflowNetworkExternalNode -->
+    
     <message>
         <source>Wind Angle Type</source>
         <translation>Rüzgar Açısı Türü</translation>
     </message>
-    <!-- OS:SizingPeriod:DesignDay -->
+    
     <message>
         <source>Wind Direction</source>
         <translation>Rüzgar Yönü</translation>
     </message>
-    <!-- OS:Surface -->
+    
     <message>
         <source>Wind Exposure</source>
         <translation>Rüzgar Maruziyeti</translation>
     </message>
-    <!-- OS:AirflowNetworkExternalNode -->
+    
     <message>
         <source>Wind Pressure Coefficient Curve Name</source>
         <translation>Rüzgar Basınç Katsayısı Eğrisi Adı</translation>
     </message>
-    <!-- OS:AirflowNetworkSimulationControl -->
+    
     <message>
         <source>Wind Pressure Coefficient Type</source>
         <translation>Rüzgar Basınç Katsayısı Türü</translation>
     </message>
-    <!-- OS:SizingPeriod:DesignDay -->
+    
     <message>
         <source>Wind Speed</source>
         <translation>Rüzgar Hızı</translation>
     </message>
-    <!-- OS:SurfaceProperty:OtherSideCoefficients -->
+    
     <message>
         <source>Wind Speed Coefficient</source>
         <translation>Rüzgar Hızı Katsayısı</translation>
     </message>
-    <!-- OS:WindowMaterial:Glazing -->
+    
     <message>
         <source>Window Glass Spectral Data Set Name</source>
         <translation>Pencere Camı Spektral Veri Seti Adı</translation>
     </message>
-    <!-- OS:WindowMaterial:GlazingGroup:Thermochromic -->
+    
     <message>
         <source>Window Material Glazing Name</source>
         <translation>Pencere Malzemesi Camı Adı</translation>
     </message>
-    <!-- OS:DaylightingDevice:Shelf -->
+    
     <message>
         <source>Window Name</source>
         <translation>Pencere Adı</translation>
     </message>
-    <!-- OS:AirflowNetworkSurface -->
+    
     <message>
         <source>Window/Door Opening Factor or Crack Factor</source>
         <translation>Pencere/Kapı Açılma Faktörü veya Çatlak Faktörü</translation>
     </message>
-    <!-- OS:Schedule:Week -->
+    
     <message>
         <source>WinterDesignDay Schedule:Day Name</source>
         <translation>WinterDesignDay Takvimi:Gün Adı</translation>
     </message>
-    <!-- OS:WeatherFile -->
+    
     <message>
         <source>WMO Number</source>
         <translation>WMO Numarası</translation>
     </message>
 
-    <!-- X -->
-    <!-- OS:IlluminanceMap -->
+    
+    
     <message>
         <source>X Length</source>
         <translation>X Uzunluğu</translation>
     </message>
-    <!-- OS:InteriorPartitionSurfaceGroup, OS:ShadingSurfaceGroup, OS:Space -->
+    
     <message>
         <source>X Origin</source>
         <translation>X Orijini</translation>
     </message>
-    <!-- OS:Table:MultiVariableLookup -->
+    
     <message>
         <source>X1 Sort Order</source>
         <translation>X1 Sıralama Düzeni</translation>
     </message>
-    <!-- OS:Table:MultiVariableLookup -->
+    
     <message>
         <source>X2 Sort Order</source>
         <translation>X2 Sıralama Düzeni</translation>
     </message>
 
-    <!-- Y -->
-    <!-- OS:IlluminanceMap -->
+    
+    
     <message>
         <source>Y Length</source>
         <translation>Y Uzunluğu</translation>
     </message>
-    <!-- OS:InteriorPartitionSurfaceGroup, OS:ShadingSurfaceGroup, OS:Space -->
+    
     <message>
         <source>Y Origin</source>
         <translation>Y Orijini</translation>
     </message>
-    <!-- OS:LifeCycleCost:UsePriceEscalation -->
+    
     <message>
         <source>Year Escalation</source>
         <translation>Yıllık Artış</translation>
     </message>
-    <!-- OS:LifeCycleCost -->
+    
     <message>
         <source>Years from Start</source>
         <translation>Başlangıçtan Itibaren Yıl</translation>
     </message>
 
-    <!-- Z -->
-    <!-- OS:InteriorPartitionSurfaceGroup, OS:ShadingSurfaceGroup, OS:Space -->
+    
+    
     <message>
         <source>Z Origin</source>
         <translation>Z Orijini</translation>
     </message>
-    <!-- OS:Pump:ConstantSpeed -->
+    
     <message>
         <source>Zone</source>
         <translation>Bölge</translation>
     </message>
-    <!-- OS:DesignSpecification:ZoneAirDistribution -->
+    
     <message>
         <source>Zone Air Distribution Effectiveness in Cooling Mode</source>
         <translation>Soğutma Modunda Bölge Hava Dağıtım Etkinliği</translation>
     </message>
-    <!-- OS:DesignSpecification:ZoneAirDistribution -->
+    
     <message>
         <source>Zone Air Distribution Effectiveness in Heating Mode</source>
         <translation>Isıtma Modunda Bölge Hava Dağıtım Etkinliği</translation>
     </message>
-    <!-- OS:DesignSpecification:ZoneAirDistribution -->
+    
     <message>
         <source>Zone Air Distribution Effectiveness Schedule</source>
         <translation>Bölge Hava Dağıtım Etkinliği Çizelgesi</translation>
     </message>
-    <!-- OS:ThermalZone -->
+    
     <message>
         <source>Zone Air Exhaust Port List</source>
         <translation>Bölge Hava Egzoz Bağlantı Noktası Listesi</translation>
     </message>
-    <!-- OS:ThermalZone -->
+    
     <message>
         <source>Zone Air Inlet Port List</source>
         <translation>Bölge Hava Giriş Portu Listesi</translation>
     </message>
-    <!-- OS:ThermalZone -->
+    
     <message>
         <source>Zone Air Node Name</source>
         <translation>Bölge Hava Düğümü Adı</translation>
     </message>
-    <!-- OS:SurfaceProperty:OtherSideCoefficients -->
+    
     <message>
         <source>Zone Air Temperature Coefficient</source>
         <translation>Zon Hava Sıcaklığı Katsayısı</translation>
     </message>
-    <!-- OS:ThermalZone -->
+    
     <message>
         <source>Zone Conditioning Equipment List Name</source>
         <translation>Bölge İklimlendirme Ekipmanı Liste Adı</translation>
     </message>
-    <!-- OS:ZoneHVAC:EquipmentList -->
+    
     <message>
         <source>Zone Equipment</source>
         <translation>Bölge Ekipmanları</translation>
     </message>
-    <!-- OS:ZoneHVAC:EquipmentList -->
+    
     <message>
         <source>Zone Equipment Cooling Sequence</source>
         <translation>Zone Equipment Soğutma Sırası</translation>
     </message>
-    <!-- OS:ZoneHVAC:EquipmentList -->
+    
     <message>
         <source>Zone Equipment Heating or No-Load Sequence</source>
         <translation>Bölge Ekipmanları Isıtma veya Yüksüz Sıra</translation>
     </message>
-    <!-- OS:ZoneHVAC:IdealLoadsAirSystem -->
+    
     <message>
         <source>Zone Exhaust Air Node Name</source>
         <translation>Zon Dışarı Atılan Hava Düğümü Adı</translation>
     </message>
-    <!-- OS:AvailabilityManager:OptimumStart -->
+    
     <message>
         <source>Zone List</source>
         <translation>Bölge Listesi</translation>
     </message>
-    <!-- OS:AirTerminal:DualDuct:VAV, OS:AirTerminal:SingleDuct:VAV:HeatAndCool:NoReheat, OS:AirTerminal:SingleDuct:VAV:HeatAndCool:Reheat -->
+    
     <message>
         <source>Zone Minimum Air Flow Fraction</source>
         <translation>Bölge Minimum Hava Akış Oranı</translation>
     </message>
-    <!-- OS:AirTerminal:SingleDuct:ConstantVolume:FourPipeInduction, OS:AirTerminal:SingleDuct:ParallelPIU:Reheat, OS:AirTerminal:SingleDuct:SeriesPIU:Reheat -->
+    
     <message>
         <source>Zone Mixer Name</source>
         <translation>Bölge Karıştırıcı Adı</translation>
     </message>
-    <!-- OS:AirConditioner:VariableRefrigerantFlow -->
+    
     <message>
         <source>Zone Name for Master Thermostat Location</source>
         <translation>Ana Termostat Konumu İçin Bölge Adı</translation>
     </message>
-    <!-- OS:Generator:FuelCell:AuxiliaryHeater -->
+    
     <message>
         <source>Zone Name to Receive Skin Losses</source>
         <translation>Cilt Kayıplarını Alacak Bölge Adı</translation>
     </message>
-    <!-- OS:EnergyManagementSystem:Actuator, OS:ZoneMixing -->
+    
     <message>
         <source>Zone or Space Name</source>
         <translation>Bölge veya Alan Adı</translation>
     </message>
-    <!-- OS:Sizing:Zone -->
+    
     <message>
         <source>Zone or ZoneList Name</source>
         <translation>Bölge veya Bölge Listesi Adı</translation>
     </message>
-    <!-- OS:PerformancePrecisionTradeoffs -->
+    
     <message>
         <source>Zone Radiant Exchange Algorithm</source>
         <translation>Bölge Radyan Alışveriş Algoritması</translation>
     </message>
-    <!-- OS:ZoneHVAC:EvaporativeCoolerUnit -->
+    
     <message>
         <source>Zone Relief Air Node Name</source>
         <translation>Bölge Tahliye Hava Düğümü Adı</translation>
     </message>
-    <!-- OS:ThermalZone -->
+    
     <message>
         <source>Zone Return Air Port List</source>
         <translation>Bölge Dönüş Hava Bağlantı Noktası Listesi</translation>
     </message>
-    <!-- OS:DesignSpecification:ZoneAirDistribution -->
+    
     <message>
         <source>Zone Secondary Recirculation Fraction</source>
         <translation>Bölge İkincil Dolaşım Oranı</translation>
     </message>
-    <!-- OS:ZoneHVAC:IdealLoadsAirSystem -->
+    
     <message>
         <source>Zone Supply Air Node Name</source>
         <translation>Bölge Beslenme Hava Düğümü Adı</translation>
     </message>
-    <!-- OS:AirConditioner:VariableRefrigerantFlow, OS:AirConditioner:VariableRefrigerantFlow:FluidTemperatureControl, OS:AirConditioner:VariableRefrigerantFlow:FluidTemperatureControl:HR -->
+    
     <message>
         <source>Zone Terminal Unit List</source>
         <translation>Bölge Terminal Cihazı Listesi</translation>
     </message>
-    <!-- OS:Sizing:Plant -->
+    
     <message>
         <source>Zone Timesteps in Averaging Window</source>
         <translation>Zone Timesteps in Averaging Window</translation>
     </message>
-    <!-- OS:AirTerminal:SingleDuct:ConstantVolume:FourPipeBeam -->
+    
     <message>
         <source>Zone Total Beam Length</source>
         <translation>Bölge Toplam Işın Uzunluğu</translation>
     </message>
-    <!-- OS:AvailabilityManager:HybridVentilation -->
+    
     <message>
         <source>ZoneVentilation Object</source>
         <translation>ZoneVentilation Nesnesi</translation>
@@ -26574,7 +26573,7 @@ Yeniden Stoklama</translation>
     </message>
     <message>
         <source>Daylighting Reference Point 1 Glare Index Setpoint Exceeded Time</source>
-        <translation type="unfinished"></translation>
+        <translation>Daylighting Reference Point 1 Glare Index Setpoint Exceeded Time</translation>
     </message>
     <message>
         <source>Daylighting Reference Point 1 Illuminance</source>
@@ -28607,7 +28606,7 @@ Tesisat Kaynağı Tarafı Isıtma Talep Hızı</translation>
     </message>
     <message>
         <source>Zone Air Heat Balance Interzone Air Transfer Rate</source>
-        <translation type="unfinished"></translation>
+        <translation>Bölge Hava Isı Dengesi Bölgeler Arası Hava Transfer Hızı</translation>
     </message>
     <message>
         <source>Zone Air Heat Balance Outdoor Air Transfer Rate</source>
@@ -29343,7 +29342,7 @@ Tesisat Kaynağı Tarafı Isıtma Talep Hızı</translation>
     </message>
     <message>
         <source>Zone Lights Total Heating Energy</source>
-        <translation type="unfinished"></translation>
+        <translation>Zone Lights Total Heating Energy</translation>
     </message>
     <message>
         <source>Zone Lights Total Heating Rate</source>
@@ -29791,7 +29790,7 @@ Tesisat Kaynağı Tarafı Isıtma Talep Hızı</translation>
     </message>
     <message>
         <source>Zone Unit Ventilator Total Cooling Rate</source>
-        <translation type="unfinished"></translation>
+        <translation>Zone Unit Ventilator Total Cooling Rate</translation>
     </message>
     <message>
         <source>Zone VRF Air Terminal Cooling Electricity Energy</source>
@@ -30018,7 +30017,7 @@ Tesisat Kaynağı Tarafı Isıtma Talep Hızı</translation>
         <translation>Zon Pencereleri Toplam İletilen Güneş Radyasyonu Oranı</translation>
     </message>
 
-    <!-- === Non-Zone bare output variable names (auto-derived from Zone entries) === -->
+    
     <message>
         <source>Air CO2 Concentration</source>
         <translation>Hava CO2 Konsantrasyonu</translation>
@@ -30229,7 +30228,7 @@ Tesisat Kaynağı Tarafı Isıtma Talep Hızı</translation>
     </message>
     <message>
         <source>Gas Equipment Latent Gain Rate</source>
-        <translation type="unfinished"></translation>
+        <translation>Gaz Ekipmanı Gizli Isı Kazanç Hızı</translation>
     </message>
     <message>
         <source>Gas Equipment Lost Heat Energy</source>
@@ -31460,7 +31459,7 @@ Pencerelerden Toplam Isı Kaybı Hızı</translation>
         <translation>Pencereler Toplam İletilen Güneş Radyasyonu Hızı</translation>
     </message>
 
-    <!-- === Site / Surface / other non-Zone variables without Zone counterpart === -->
+    
     <message>
         <source>Site Diffuse Solar Radiation Rate per Area</source>
         <translation>Site Diffuse Solar Radiation Rate per Area</translation>
@@ -31526,7 +31525,7 @@ Pencerelerden Toplam Isı Kaybı Hızı</translation>
         <translation>Gün Işığı Penceresi Referans Noktası 2 Görüş Aydınlanması</translation>
     </message>
 
-    <!-- === Additional missing output variables === -->
+    
     <message>
         <source>Cooling Coil Dehumidification Mode</source>
         <translation>Soğutma Serpentini Nem Giderme Modu</translation>

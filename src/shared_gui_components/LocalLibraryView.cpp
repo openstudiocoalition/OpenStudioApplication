@@ -137,7 +137,7 @@ LibraryItemView::LibraryItemView(QWidget* parent) : OSDragableView(parent) {
 
   mainHBoxLayout->addWidget(m_measureBadge, Qt::AlignLeft);
 
-  label = new QLabel("Measure");
+  label = new QLabel(tr("Measure"));
   mainHBoxLayout->addWidget(label, Qt::AlignLeft);
 
   mainHBoxLayout->addStretch();

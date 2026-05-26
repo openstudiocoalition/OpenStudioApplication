@@ -473,7 +473,7 @@ void RefrigerationCasesView::paint(QPainter* painter, const QStyleOptionGraphics
 
   painter->drawText(QRectF(_displayCasesRect.x() + m_displayCasesPixmap.width(), _displayCasesRect.y(),
                            _displayCasesRect.width() - m_displayCasesPixmap.width(), _displayCasesRect.height()),
-                    Qt::AlignCenter | Qt::TextWordWrap, QString::number(m_numberOfDisplayCases) + "\n Display Cases");
+                    Qt::AlignCenter | Qt::TextWordWrap, tr("%1\nDisplay Cases").arg(m_numberOfDisplayCases));
 
   QRectF _walkinRect = walkinCasesRect();
 
@@ -483,7 +483,7 @@ void RefrigerationCasesView::paint(QPainter* painter, const QStyleOptionGraphics
 
   painter->drawText(
     QRectF(_walkinRect.x() + m_walkinPixmap.width(), _walkinRect.y(), _walkinRect.width() - m_walkinPixmap.width(), _walkinRect.height()),
-    Qt::AlignCenter | Qt::TextWordWrap, QString::number(m_numberOfWalkinCases) + "\n Walkin Cases");
+    Qt::AlignCenter | Qt::TextWordWrap, tr("%1\nWalkin Cases").arg(m_numberOfWalkinCases));
 }
 
 QRectF RefrigerationCasesView::displayCasesRect() {
@@ -766,7 +766,7 @@ void RefrigerationCondenserView::paint(QPainter* painter, const QStyleOptionGrap
   QRectF _boudingRect = boundingRect();
 
   if (m_id.itemId().isEmpty()) {
-    painter->drawText(_boudingRect, Qt::AlignCenter | Qt::TextWordWrap, "Drop Condenser");
+    painter->drawText(_boudingRect, Qt::AlignCenter | Qt::TextWordWrap, tr("Drop Condenser"));
 
     painter->drawRoundedRect(_boudingRect, 5, 5);
   } else {
@@ -880,7 +880,7 @@ void RefrigerationCompressorDropZoneView::paint(QPainter* painter, const QStyleO
 
   painter->drawRoundedRect(boundingRect(), 5, 5);
 
-  painter->drawText(boundingRect(), Qt::AlignCenter | Qt::TextWordWrap, "Drag and Drop\nCompressor");
+  painter->drawText(boundingRect(), Qt::AlignCenter | Qt::TextWordWrap, tr("Drag and Drop\nCompressor"));
 }
 
 double RefrigerationCompressorView::height() {
@@ -967,7 +967,7 @@ void RefrigerationCasesDropZoneView::paint(QPainter* painter, const QStyleOption
 
   painter->drawRoundedRect(boundingRect(), 5, 5);
 
-  painter->drawText(boundingRect(), Qt::AlignCenter | Qt::TextWordWrap, "Drag and Drop\nCases");
+  painter->drawText(boundingRect(), Qt::AlignCenter | Qt::TextWordWrap, tr("Drag and Drop\nCases"));
 }
 
 RefrigerationSubCoolerView::RefrigerationSubCoolerView()
@@ -998,7 +998,7 @@ void RefrigerationSubCoolerView::paint(QPainter* painter, const QStyleOptionGrap
   QRectF _boudingRect = boundingRect();
 
   if (m_id.itemId().isEmpty()) {
-    painter->drawText(_boudingRect, Qt::AlignCenter | Qt::TextWordWrap, " Drop Mechanical Sub Cooler ");
+    painter->drawText(_boudingRect, Qt::AlignCenter | Qt::TextWordWrap, tr("Drop Mechanical Sub Cooler"));
 
     painter->drawRoundedRect(_boudingRect, 5, 5);
   } else {
@@ -1093,7 +1093,7 @@ void RefrigerationSHXView::paint(QPainter* painter, const QStyleOptionGraphicsIt
   QRectF _boudingRect = boundingRect();
 
   if (m_id.itemId().isEmpty()) {
-    painter->drawText(_boudingRect, Qt::AlignCenter | Qt::TextWordWrap, " Drop Liquid Suction HX ");
+    painter->drawText(_boudingRect, Qt::AlignCenter | Qt::TextWordWrap, tr("Drop Liquid Suction HX"));
 
     painter->drawRoundedRect(_boudingRect, 5, 5);
   } else {
@@ -1189,7 +1189,7 @@ void SecondaryDropZoneView::paint(QPainter* painter, const QStyleOptionGraphicsI
 
   painter->drawRoundedRect(boundingRect(), 5, 5);
 
-  painter->drawText(boundingRect(), Qt::AlignCenter | Qt::TextWordWrap, "Add Cascade or Secondary System");
+  painter->drawText(boundingRect(), Qt::AlignCenter | Qt::TextWordWrap, tr("Add Cascade or Secondary System"));
 }
 
 SecondaryDetailView::SecondaryDetailView() : QGraphicsObject() {

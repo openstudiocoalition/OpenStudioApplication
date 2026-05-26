@@ -188,14 +188,14 @@ void ThermalZonesGridController::addColumns(const QString& /*category*/, std::ve
   for (const QString& field : fields) {
     if (field == tr("Turn On\nIdeal\nAir Loads")) {
       // We add the "Apply Selected" button to this column by passing 3rd arg, t_showColumnButton=true
-      addCheckBoxColumn(Heading(tr("Turn On\nIdeal\nAir Loads"), true, true), std::string("Check to enable ideal air loads."),
+      addCheckBoxColumn(Heading(tr("Turn On\nIdeal\nAir Loads"), true, true), tr("Check to enable ideal air loads.").toStdString(),
                         NullAdapter(&model::ThermalZone::useIdealAirLoads), NullAdapter(&model::ThermalZone::setUseIdealAirLoads));
     } else if (field == tr("All")) {
       auto checkbox = QSharedPointer<OSSelectAllCheckBox>(new OSSelectAllCheckBox());
-      checkbox->setToolTip("Check to select all rows");
+      checkbox->setToolTip(tr("Check to select all rows"));
       connect(checkbox.data(), &OSSelectAllCheckBox::checkStateChanged, this, &ThermalZonesGridController::onSelectAllStateChanged);
       connect(this, &ThermalZonesGridController::gridRowSelectionChanged, checkbox.data(), &OSSelectAllCheckBox::onGridRowSelectionChanged);
-      addSelectColumn(Heading(tr("All"), false, false, checkbox), "Check to select this row");
+      addSelectColumn(Heading(tr("All"), false, false, checkbox), tr("Check to select this row").toStdString());
     } else if (field == tr("Rendering Color")) {
       addRenderingColorColumn(Heading(tr("Rendering Color"), true, false), CastNullAdapter<model::ThermalZone>(&model::ThermalZone::renderingColor),
                               CastNullAdapter<model::ThermalZone>(&model::ThermalZone::setRenderingColor));

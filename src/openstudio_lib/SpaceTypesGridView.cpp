@@ -132,9 +132,7 @@ SpaceTypesGridView::SpaceTypesGridView(bool isIP, const model::Model& model, QWi
   m_filters = new QComboBox();
   m_filters->setFixedWidth(1.5 * OSItem::ITEM_WIDTH);
 
-  {
-    m_filters->addItem(tr("Show all loads"));
-  }
+  { m_filters->addItem(tr("Show all loads")); }
 
   {
     auto* pixMap = new QPixmap(":/images/mini_icons/internal_mass.png");
@@ -1022,7 +1020,7 @@ void SpaceTypesGridController::addColumns(const QString& category, std::vector<Q
         checkbox->setToolTip(tr("Check to select all rows"));
         connect(checkbox.data(), &OSSelectAllCheckBox::checkStateChanged, this, &SpaceTypesGridController::onSelectAllStateChanged);
         connect(this, &SpaceTypesGridController::gridRowSelectionChanged, checkbox.data(), &OSSelectAllCheckBox::onGridRowSelectionChanged);
-        addSelectColumn(Heading(tr("All"), false, false, checkbox), "Check to select this row", DataSource(allLoads, true));
+        addSelectColumn(Heading(tr("All"), false, false, checkbox), tr("Check to select this row").toStdString(), DataSource(allLoads, true));
       } else if (field == tr("Multiplier")) {
 
         addValueEditColumn(
