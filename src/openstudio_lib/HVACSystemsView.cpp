@@ -4,7 +4,6 @@
 ***********************************************************************************************************************/
 
 #include "HVACSystemsView.hpp"
-#include <QCoreApplication>
 #include "../shared_gui_components/OSComboBox.hpp"
 #include "OSItem.hpp"
 #include "OSDropZone.hpp"
@@ -657,17 +656,14 @@ SingleZoneSPMView::SingleZoneSPMView(const QString& spmType) {
   mainVLayout->setSpacing(10);
   setLayout(mainVLayout);
 
-  auto* singleZoneResetSPTitle = new QLabel(
-    QCoreApplication::translate("openstudio::SingleZoneSPMView",
-                                "Supply temperature is controlled by a <strong>%1</strong> setpoint manager.")
-      .arg(spmType));
+  auto* singleZoneResetSPTitle = new QLabel(tr("Supply temperature is controlled by a <strong>%1</strong> setpoint manager.").arg(spmType));
   mainVLayout->addWidget(singleZoneResetSPTitle);
 
   auto* zoneSelectorHBoxLayout = new QHBoxLayout();
   zoneSelectorHBoxLayout->setSpacing(10);
   zoneSelectorHBoxLayout->setContentsMargins(0, 0, 0, 0);
 
-  auto* controlZoneTitle = new QLabel(QCoreApplication::translate("openstudio::SingleZoneSPMView", "Control Zone"));
+  auto* controlZoneTitle = new QLabel(tr("Control Zone"));
   controlZoneTitle->setObjectName("H2");
   zoneSelectorHBoxLayout->addWidget(controlZoneTitle);
 
@@ -687,8 +683,7 @@ OAResetSPMView::OAResetSPMView(const model::SetpointManagerOutdoorAirReset& spm)
   setLayout(mainVLayout);
 
   QString text;
-  text.append(QCoreApplication::translate("openstudio::OAResetSPMView",
-                                          "Supply temperature is controlled by an outdoor air reset setpoint manager."));
+  text.append(tr("Supply temperature is controlled by an outdoor air reset setpoint manager."));
   auto* title = new QLabel(text);
   mainVLayout->addWidget(title);
 
@@ -777,11 +772,10 @@ ScheduledSPMView::ScheduledSPMView() {
   mainVLayout->setSpacing(10);
   setLayout(mainVLayout);
 
-  auto* scheduledSPMlabel = new QLabel(QCoreApplication::translate("openstudio::ScheduledSPMView",
-                                                                   "Supply temperature is controlled by a scheduled setpoint manager."));
+  auto* scheduledSPMlabel = new QLabel(tr("Supply temperature is controlled by a scheduled setpoint manager."));
   mainVLayout->addWidget(scheduledSPMlabel);
 
-  auto* supplyAirTempScheduleTitle = new QLabel(QCoreApplication::translate("openstudio::ScheduledSPMView", "Supply Temperature Schedule"));
+  auto* supplyAirTempScheduleTitle = new QLabel(tr("Supply Temperature Schedule"));
   supplyAirTempScheduleTitle->setObjectName("H2");
   mainVLayout->addWidget(supplyAirTempScheduleTitle);
 
@@ -927,15 +921,14 @@ AirLoopHVACUnitaryHeatPumpAirToAirControlView::AirLoopHVACUnitaryHeatPumpAirToAi
   mainVLayout->setSpacing(10);
   setLayout(mainVLayout);
 
-  auto* heatPumplabel = new QLabel(QCoreApplication::translate("openstudio::AirLoopHVACUnitaryHeatPumpAirToAirControlView",
-                                                              "Supply air temperature is managed by the \"AirLoopHVACUnitaryHeatPumpAirToAir\" component."));
+  auto* heatPumplabel = new QLabel(tr("Supply air temperature is managed by the \"AirLoopHVACUnitaryHeatPumpAirToAir\" component."));
   mainVLayout->addWidget(heatPumplabel);
 
   auto* zoneSelectorHBoxLayout = new QHBoxLayout();
   zoneSelectorHBoxLayout->setSpacing(10);
   zoneSelectorHBoxLayout->setContentsMargins(0, 0, 0, 0);
 
-  auto* controlZoneTitle = new QLabel(QCoreApplication::translate("openstudio::AirLoopHVACUnitaryHeatPumpAirToAirControlView", "Control Zone"));
+  auto* controlZoneTitle = new QLabel(tr("Control Zone"));
   controlZoneTitle->setObjectName("H2");
   zoneSelectorHBoxLayout->addWidget(controlZoneTitle);
 
@@ -953,9 +946,8 @@ NoSupplyAirTempControlView::NoSupplyAirTempControlView() {
   mainVLayout->setSpacing(10);
   setLayout(mainVLayout);
 
-  auto* label = new QLabel(QCoreApplication::translate("openstudio::NoSupplyAirTempControlView",
-                                                       "<strong style=\"color:red\">Missing supply temperature control</strong>. "
-                                                       "Try adding a setpoint manager to the supply outlet node of your system."));
+  auto* label = new QLabel(tr("<strong style=\"color:red\">Missing supply temperature control</strong>. "
+                              "Try adding a setpoint manager to the supply outlet node of your system."));
   label->setWordWrap(true);
   mainVLayout->addWidget(label);
 }

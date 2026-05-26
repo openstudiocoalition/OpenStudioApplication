@@ -8,6 +8,8 @@
 #include <openstudio/utilities/idd/IddEnums.hpp>
 #include <openstudio/utilities/idd/IddEnums.hxx>
 
+#include <QCoreApplication>
+
 namespace openstudio {
 
 class TIDItem
@@ -106,6 +108,11 @@ QVariant TIDItemModel::data(const QModelIndex& index, int role) const {
   }
 
   auto* item = static_cast<TIDItem*>(index.internalPointer());
+
+  if (index.column() == 0) {
+    QString name = item->data(0).toString();
+    return QCoreApplication::translate("TaxonomyCategories", name.toUtf8().constData());
+  }
 
   return item->data(index.column());
 }

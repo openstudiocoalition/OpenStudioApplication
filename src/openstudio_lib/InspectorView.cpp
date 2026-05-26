@@ -2572,7 +2572,7 @@ void ScheduleRulesetInspectorView::layoutModelObject(model::ModelObject& modelOb
   layout->setContentsMargins(10, 10, 10, 10);
   layout->setSpacing(6);
 
-  label = new QLabel("Name");
+  label = new QLabel(tr("Name"));
   layout->addWidget(label, 0, Qt::AlignTop);
 
   QString text;
@@ -2595,7 +2595,7 @@ void ScheduleRulesetInspectorView::layoutModelObject(model::ModelObject& modelOb
   layout->setContentsMargins(10, 10, 10, 10);
   layout->setSpacing(6);
 
-  label = new QLabel("Please use the Schedules tab to inspect this object.");
+  label = new QLabel(tr("Please use the Schedules tab to inspect this object."));
   label->setObjectName("IDFcomment");
   label->setWordWrap(true);
   layout->addWidget(label, 0, Qt::AlignTop);

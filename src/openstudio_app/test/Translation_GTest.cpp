@@ -44,7 +44,7 @@ static openstudio::path findQmFile(const std::string& language) {
   const std::string filename = "OpenStudioApp_" + language + ".qm";
 
   // 1. Next to the test executable (CTest sets the working directory here)
-  openstudio::path candidates[] = {
+  const openstudio::path candidates[] = {
     toPath("translations") / toPath(filename),
     toPath("../translations") / toPath(filename),
     toPath("../../Products/Release/translations") / toPath(filename),
@@ -71,8 +71,7 @@ class Translation_ts : public OpenStudioAppFixture
 
   void SetUp() override {
     openstudio::path tsPath = translationsSourceDir() / toPath("OpenStudioApp_es.ts");
-    ASSERT_TRUE(openstudio::filesystem::exists(tsPath))
-      << "Translation source file not found: " << tsPath;
+    ASSERT_TRUE(openstudio::filesystem::exists(tsPath)) << "Translation source file not found: " << tsPath;
 
     QFile file(toQString(tsPath));
     ASSERT_TRUE(file.open(QIODevice::ReadOnly)) << "Cannot open OpenStudioApp_es.ts";
@@ -80,8 +79,7 @@ class Translation_ts : public OpenStudioAppFixture
     QString errorMsg;
     int errorLine = 0;
     ASSERT_TRUE(m_doc.setContent(&file, &errorMsg, &errorLine))
-      << "XML parse error in OpenStudioApp_es.ts at line " << errorLine << ": "
-      << errorMsg.toStdString();
+      << "XML parse error in OpenStudioApp_es.ts at line " << errorLine << ": " << errorMsg.toStdString();
   }
 };
 
@@ -118,8 +116,7 @@ TEST_F(Translation_ts, HasExpectedContexts) {
   }
 
   for (const QString& ctx : requiredContexts) {
-    EXPECT_TRUE(foundContexts.contains(ctx))
-      << "Missing translation context: " << ctx.toStdString();
+    EXPECT_TRUE(foundContexts.contains(ctx)) << "Missing translation context: " << ctx.toStdString();
   }
 }
 
@@ -130,8 +127,7 @@ TEST_F(Translation_ts, TranslationCountIsSubstantial) {
   QDomNodeList messages = m_doc.elementsByTagName("message");
   for (int i = 0; i < messages.count(); ++i) {
     QDomElement translation = messages.at(i).firstChildElement("translation");
-    if (!translation.isNull() && translation.attribute("type") != "unfinished"
-        && !translation.text().isEmpty()) {
+    if (!translation.isNull() && translation.attribute("type") != "unfinished" && !translation.text().isEmpty()) {
       ++count;
     }
   }
@@ -153,8 +149,7 @@ TEST_F(Translation_ts, IddContextHasEntries) {
 
 TEST_F(Translation_ts, IddCoverageAllLanguages) {
   // Build the canonical set of unique IDD field names from the live SDK.
-  openstudio::IddFile iddFile =
-    openstudio::IddFactory::instance().getIddFile(openstudio::IddFileType::OpenStudio);
+  openstudio::IddFile iddFile = openstudio::IddFactory::instance().getIddFile(openstudio::IddFileType::OpenStudio);
 
   std::set<std::string> allIddFieldNames;
   for (const auto& iddObject : iddFile.objects()) {
@@ -182,8 +177,7 @@ TEST_F(Translation_ts, IddCoverageAllLanguages) {
       }
     }
   }
-  ASSERT_GT(allIddFieldNames.size(), 100u)
-    << "IDD field enumeration returned unexpectedly few results — IddFactory may not be initialised";
+  ASSERT_GT(allIddFieldNames.size(), 100u) << "IDD field enumeration returned unexpectedly few results — IddFactory may not be initialised";
 
   // Check every OpenStudioApp_*.ts file in the translations directory.
   openstudio::path tsDir = translationsSourceDir();
@@ -210,8 +204,7 @@ TEST_F(Translation_ts, IddCoverageAllLanguages) {
     QString errMsg;
     int errLine = 0;
     if (!doc.setContent(&file, &errMsg, &errLine)) {
-      ADD_FAILURE() << "XML parse error in " << filename << " at line " << errLine << ": "
-                    << errMsg.toStdString();
+      ADD_FAILURE() << "XML parse error in " << filename << " at line " << errLine << ": " << errMsg.toStdString();
       continue;
     }
 
@@ -243,9 +236,9 @@ TEST_F(Translation_ts, IddCoverageAllLanguages) {
     if (!missing.empty()) {
       std::sort(missing.begin(), missing.end());
       std::string msg = filename + ": " + std::to_string(missing.size())
-        + " IDD field name(s) missing from IDD context.\n"
-          "Run add_idd_skeleton.py then translate_skeleton.py to restore coverage.\n"
-          "First 20 missing:\n";
+                        + " IDD field name(s) missing from IDD context.\n"
+                          "Run add_idd_skeleton.py then translate_skeleton.py to restore coverage.\n"
+                          "First 20 missing:\n";
       const size_t limit = std::min(missing.size(), size_t{20});
       for (size_t i = 0; i < limit; ++i) {
         msg += "  - " + missing[i] + "\n";
@@ -326,14 +319,10 @@ TEST_F(Translation_qm, SpanishSimSettingsStringsTranslated) {
   }
 
   // Spot-check a few strings from the Simulation Settings tab
-  EXPECT_EQ(QCoreApplication::translate("openstudio::SimSettingsView", "Run Period"),
-            QString("Período de Ejecución"));
-  EXPECT_EQ(QCoreApplication::translate("openstudio::SimSettingsView", "Timestep"),
-            QString("Paso de Tiempo"));
-  EXPECT_EQ(QCoreApplication::translate("openstudio::SimSettingsView", "Shadow Calculation"),
-            QString("Cálculo de Sombras"));
-  EXPECT_EQ(QCoreApplication::translate("openstudio::SimSettingsView", "Algorithm"),
-            QString("Algoritmo"));
+  EXPECT_EQ(QCoreApplication::translate("openstudio::SimSettingsView", "Run Period"), QString("Período de Ejecución"));
+  EXPECT_EQ(QCoreApplication::translate("openstudio::SimSettingsView", "Timestep"), QString("Paso de Tiempo"));
+  EXPECT_EQ(QCoreApplication::translate("openstudio::SimSettingsView", "Shadow Calculation"), QString("Cálculo de Sombras"));
+  EXPECT_EQ(QCoreApplication::translate("openstudio::SimSettingsView", "Algorithm"), QString("Algoritmo"));
 }
 
 TEST_F(Translation_qm, SpanishRunViewStringsTranslated) {
@@ -343,10 +332,8 @@ TEST_F(Translation_qm, SpanishRunViewStringsTranslated) {
 
   EXPECT_EQ(QCoreApplication::translate("openstudio::RunView", "Run"), QString("Ejecutar"));
   EXPECT_EQ(QCoreApplication::translate("openstudio::RunView", "Verbose"), QString("Detallado"));
-  EXPECT_EQ(QCoreApplication::translate("openstudio::RunView", "Show Simulation"),
-            QString("Mostrar Simulación"));
-  EXPECT_EQ(QCoreApplication::translate("openstudio::RunView", "Initializing workflow."),
-            QString("Inicializando flujo de trabajo."));
+  EXPECT_EQ(QCoreApplication::translate("openstudio::RunView", "Show Simulation"), QString("Mostrar Simulación"));
+  EXPECT_EQ(QCoreApplication::translate("openstudio::RunView", "Initializing workflow."), QString("Inicializando flujo de trabajo."));
 }
 
 TEST_F(Translation_qm, TaxonomyCategoriesTranslated) {
@@ -356,12 +343,9 @@ TEST_F(Translation_qm, TaxonomyCategoriesTranslated) {
 
   EXPECT_EQ(QCoreApplication::translate("TaxonomyCategories", "Envelope"), QString("Envolvente"));
   EXPECT_EQ(QCoreApplication::translate("TaxonomyCategories", "HVAC"), QString("HVAC"));
-  EXPECT_EQ(QCoreApplication::translate("TaxonomyCategories", "Refrigeration"),
-            QString("Refrigeración"));
-  EXPECT_EQ(QCoreApplication::translate("TaxonomyCategories", "Whole Building"),
-            QString("Edificio Completo"));
-  EXPECT_EQ(QCoreApplication::translate("TaxonomyCategories", "Troubleshooting"),
-            QString("Solución de Problemas"));
+  EXPECT_EQ(QCoreApplication::translate("TaxonomyCategories", "Refrigeration"), QString("Refrigeración"));
+  EXPECT_EQ(QCoreApplication::translate("TaxonomyCategories", "Whole Building"), QString("Edificio Completo"));
+  EXPECT_EQ(QCoreApplication::translate("TaxonomyCategories", "Troubleshooting"), QString("Solución de Problemas"));
 }
 
 TEST_F(Translation_qm, OutputVariablesSampleTranslated) {
@@ -370,12 +354,9 @@ TEST_F(Translation_qm, OutputVariablesSampleTranslated) {
   }
 
   // A sampling of output variable names
-  EXPECT_EQ(QCoreApplication::translate("OutputVariables", "Zone Air Temperature"),
-            QString("Temperatura del Aire de la Zona"));
-  EXPECT_EQ(QCoreApplication::translate("OutputVariables", "Fan Electricity Energy"),
-            QString("Energía Eléctrica del Ventilador"));
-  EXPECT_EQ(QCoreApplication::translate("OutputVariables", "Boiler Heating Energy"),
-            QString("Energía de Calefacción de la Caldera"));
+  EXPECT_EQ(QCoreApplication::translate("OutputVariables", "Zone Air Temperature"), QString("Temperatura del Aire de la Zona"));
+  EXPECT_EQ(QCoreApplication::translate("OutputVariables", "Fan Electricity Energy"), QString("Energía Eléctrica del Ventilador"));
+  EXPECT_EQ(QCoreApplication::translate("OutputVariables", "Boiler Heating Energy"), QString("Energía de Calefacción de la Caldera"));
 }
 
 TEST_F(Translation_qm, EnglishStringsReturnedWithoutTranslator) {
@@ -387,8 +368,7 @@ TEST_F(Translation_qm, EnglishStringsReturnedWithoutTranslator) {
   // tr() / translate() must return the source string when no translator is loaded
   EXPECT_EQ(QCoreApplication::translate("openstudio::RunView", "Run"), QString("Run"));
   EXPECT_EQ(QCoreApplication::translate("TaxonomyCategories", "Envelope"), QString("Envelope"));
-  EXPECT_EQ(QCoreApplication::translate("openstudio::SimSettingsView", "Timestep"),
-            QString("Timestep"));
+  EXPECT_EQ(QCoreApplication::translate("openstudio::SimSettingsView", "Timestep"), QString("Timestep"));
 
   // Re-install for TearDown
   if (m_loaded) {

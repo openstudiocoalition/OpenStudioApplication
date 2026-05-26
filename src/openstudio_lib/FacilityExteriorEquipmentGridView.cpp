@@ -202,11 +202,11 @@ void FacilityExteriorEquipmentGridController::addColumns(const QString& category
     } else if (field == tr("All")) {
 
       auto checkbox = QSharedPointer<OSSelectAllCheckBox>(new OSSelectAllCheckBox());
-      checkbox->setToolTip("Check to select all rows");
+      checkbox->setToolTip(tr("Check to select all rows"));
       connect(checkbox.data(), &OSSelectAllCheckBox::checkStateChanged, this, &FacilityExteriorEquipmentGridController::onSelectAllStateChanged);
       connect(this, &FacilityExteriorEquipmentGridController::gridRowSelectionChanged, checkbox.data(),
               &OSSelectAllCheckBox::onGridRowSelectionChanged);
-      addSelectColumn(Heading(tr("All"), false, false, checkbox), "Check to select this row");
+      addSelectColumn(Heading(tr("All"), false, false, checkbox), tr("Check to select this row").toStdString());
 
       // Exterior Lights
     } else if (IddObjectType::OS_Exterior_Lights == iddObjectType().value()) {

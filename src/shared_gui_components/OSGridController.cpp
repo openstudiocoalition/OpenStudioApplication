@@ -873,7 +873,7 @@ HorizontalHeaderWidget::HorizontalHeaderWidget(const QString& fieldName, QWidget
   setLayout(mainLayout);
 
   mainLayout->addWidget(m_checkBox);
-  m_checkBox->setToolTip("Check to add this column to \"Custom\"");
+  m_checkBox->setToolTip(tr("Check to add this column to \"Custom\""));
   m_checkBox->setSizePolicy(QSizePolicy::Expanding, QSizePolicy::Preferred);
   QString style = "\
     QPushButton {\

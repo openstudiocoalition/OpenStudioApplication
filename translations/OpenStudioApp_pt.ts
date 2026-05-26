@@ -1,5 +1,4 @@
-﻿<?xml version="1.0" encoding="utf-8"?>
-<!DOCTYPE TS>
+<?xml version='1.0' encoding='utf-8'?>
 <TS version="2.1" language="pt">
 <context>
     <name>InspectorDialog</name>
@@ -20,7 +19,7 @@
         <translation>Remover objetos selecionados</translation>
     </message>
     <message>
-        <location filename="../src/model_editor/InspectorDialog.cpp" line="585"/>
+        <location filename="../src/model_editor/InspectorDialog.cpp" line="585" />
         <source>Purge unused objects</source>
         <translatorcomment>La palabra purgar no tiene el mismo contexto en Español.</translatorcomment>
         <translation>Borrar todos los objetos sin usar</translation>
@@ -358,7 +357,7 @@ Zone</source>
         <translation>O arquivo de clima não contém dados de temperatura do solo na profundidade esperada de %1 m, portanto o objeto será adicionado com valores padrão.</translation>
     </message>
     <message>
-        <source>The weather file contains ground temperature data at a depth of &lt;b&gt;&lt;span style=&quot;color: #1C7BBF;&quot;&gt;%1 m&lt;/span&gt;&lt;/b&gt;, so you can choose to import those values or add the object with default values.</source>
+        <source>The weather file contains ground temperature data at a depth of &lt;b&gt;&lt;span style="color: #1C7BBF;"&gt;%1 m&lt;/span&gt;&lt;/b&gt;, so you can choose to import those values or add the object with default values.</source>
         <translation>O arquivo meteorológico contém dados de temperatura do solo a uma profundidade de &lt;b&gt;&lt;span style="color: #1C7BBF;"&gt;%1 m&lt;/span&gt;&lt;/b&gt;, portanto você pode optar por importar esses valores ou adicionar o objeto com valores padrão.</translation>
     </message>
 </context>
@@ -426,7 +425,7 @@ Zone</source>
         <translation>Fuso Horário:</translation>
     </message>
     <message>
-        <source>Download weather files at &lt;a href=&quot;http://www.energyplus.net/weather&quot;&gt;www.energyplus.net/weather&lt;/a&gt;</source>
+        <source>Download weather files at &lt;a href="http://www.energyplus.net/weather"&gt;www.energyplus.net/weather&lt;/a&gt;</source>
         <translation>Baixe arquivos de clima em &lt;a href="http://www.energyplus.net/weather"&gt;www.energyplus.net/weather&lt;/a&gt;</translation>
     </message>
     <message>
@@ -442,7 +441,7 @@ Zone</source>
         <translation>Se ativado, isso escreverá o objeto Site:Location que manterá a alteração de Elevação, por exemplo.</translation>
     </message>
     <message>
-        <source>Elevation affects the wind speed at the site, and is defaulted to the Weather File&apos;s elevation</source>
+        <source>Elevation affects the wind speed at the site, and is defaulted to the Weather File's elevation</source>
         <translation>Elevação afeta a velocidade do vento no local e é padrão a elevação do Arquivo Climático</translation>
     </message>
     <message>
@@ -498,7 +497,7 @@ Zone</source>
         <translation>Falha ao Definir Arquivo de Clima Para</translation>
     </message>
     <message>
-        <source>There are &lt;span style=&quot;font-weight:bold;&quot;&gt;%1&lt;/span&gt; Design Days available for import</source>
+        <source>There are &lt;span style="font-weight:bold;"&gt;%1&lt;/span&gt; Design Days available for import</source>
         <translation>Existem &lt;span style="font-weight:bold;"&gt;%1&lt;/span&gt; Dias de Projeto disponíveis para importação</translation>
     </message>
     <message>
@@ -593,7 +592,7 @@ Zone</source>
         <translation>Tente Novamente Mais Tarde.</translation>
     </message>
     <message>
-        <source>Verify your computer&apos;s internet connection then click &quot;Lost Cloud Connection&quot; to recover the lost cloud session.</source>
+        <source>Verify your computer's internet connection then click "Lost Cloud Connection" to recover the lost cloud session.</source>
         <translation>Verifique a conexão com a internet do seu computador e clique em "Lost Cloud Connection" para recuperar a sessão de nuvem perdida.</translation>
     </message>
     <message>
@@ -881,7 +880,7 @@ Se você gostaria de ver o OpenStudioApplication traduzido no seu idioma de esco
         <translation>Permitir Análise</translation>
     </message>
     <message>
-        <source>Allow OpenStudio Coalition to collect anonymous usage statistics to help improve the OpenStudio Application? See the &lt;a href=&quot;https://openstudiocoalition.org/about/privacy_policy/&quot;&gt;privacy policy&lt;/a&gt; for more information.</source>
+        <source>Allow OpenStudio Coalition to collect anonymous usage statistics to help improve the OpenStudio Application? See the &lt;a href="https://openstudiocoalition.org/about/privacy_policy/"&gt;privacy policy&lt;/a&gt; for more information.</source>
         <translation>Permitir que o OpenStudio Coalition colete estatísticas anônimas de uso para ajudar a melhorar o OpenStudio Application? Veja a &lt;a href="https://openstudiocoalition.org/about/privacy_policy/"&gt;política de privacidade&lt;/a&gt; para mais informações.</translation>
     </message>
 </context>
@@ -1047,23 +1046,23 @@ Se você gostaria de ver o OpenStudioApplication traduzido no seu idioma de esco
         <translation>(*.idf)</translation>
     </message>
     <message>
-        <source>&apos; while OpenStudio uses a &lt;strong&gt;newer&lt;/strong&gt; EnergyPlus &apos;</source>
+        <source>' while OpenStudio uses a &lt;strong&gt;newer&lt;/strong&gt; EnergyPlus '</source>
         <translation>' enquanto OpenStudio usa um EnergyPlus &lt;strong&gt;mais recente&lt;/strong&gt; '</translation>
     </message>
     <message>
-        <source>&apos;. Consider using the EnergyPlus Auxiliary program IDFVersionUpdater to update your IDF file.</source>
+        <source>'. Consider using the EnergyPlus Auxiliary program IDFVersionUpdater to update your IDF file.</source>
         <translation>'. Considere usar o programa auxiliar IDFVersionUpdater do EnergyPlus para atualizar seu arquivo IDF.</translation>
     </message>
     <message>
-        <source>&apos; while OpenStudio uses an &lt;strong&gt;older&lt;/strong&gt; EnergyPlus &apos;</source>
+        <source>' while OpenStudio uses an &lt;strong&gt;older&lt;/strong&gt; EnergyPlus '</source>
         <translation>' enquanto OpenStudio usa uma versão &lt;strong&gt;mais antiga&lt;/strong&gt; do EnergyPlus '</translation>
     </message>
     <message>
-        <source>&apos;.</source>
+        <source>'.</source>
         <translation>'</translation>
     </message>
     <message>
-        <source>&apos; which is the &lt;strong&gt;same&lt;/strong&gt; version of EnergyPlus that OpenStudio uses (</source>
+        <source>' which is the &lt;strong&gt;same&lt;/strong&gt; version of EnergyPlus that OpenStudio uses (</source>
         <translation>' que é a versão &lt;strong&gt;mesma&lt;/strong&gt; do EnergyPlus que o OpenStudio usa (</translation>
     </message>
     <message>
@@ -1169,7 +1168,7 @@ Se você gostaria de ver o OpenStudioApplication traduzido no seu idioma de esco
         <translation>(*.osm)</translation>
     </message>
     <message>
-        <source>A new version is available at &lt;a href=&quot;</source>
+        <source>A new version is available at &lt;a href="</source>
         <translation>Uma nova versão está disponível em &lt;a href="</translation>
     </message>
     <message>
@@ -1235,11 +1234,11 @@ Scripts Ruby não são mais suportados e foram substituídos por medidas.</trans
         <translation>Arquivo de configurações não gravável</translation>
     </message>
     <message>
-        <source>Your settings file &apos;</source>
+        <source>Your settings file '</source>
         <translation>Seu arquivo de configurações '</translation>
     </message>
     <message>
-        <source>&apos; is not writable. Adjust the file permissions</source>
+        <source>' is not writable. Adjust the file permissions</source>
         <translation>' não é gravável. Ajuste as permissões do arquivo</translation>
     </message>
     <message>
@@ -6132,31 +6131,31 @@ Aquecimento</translation>
         <translation>Aplicar a:</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/SchedulesView.cpp" line="1597"/>
+        <location filename="../src/openstudio_lib/SchedulesView.cpp" line="1597" />
         <source>S</source>
         <translatorcomment>Domingo (Sunday) / Sábado (Saturday) — needs disambiguation in source code</translatorcomment>
-        <translation type="unfinished"></translation>
+        <translation>S</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/SchedulesView.cpp" line="1605"/>
+        <location filename="../src/openstudio_lib/SchedulesView.cpp" line="1605" />
         <source>M</source>
         <translatorcomment>Lunes (Monday)</translatorcomment>
         <translation>L</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/SchedulesView.cpp" line="1613"/>
+        <location filename="../src/openstudio_lib/SchedulesView.cpp" line="1613" />
         <source>T</source>
         <translatorcomment>Martes (Tuesday) / Jueves (Thursday) — needs disambiguation in source code</translatorcomment>
-        <translation type="unfinished"></translation>
+        <translation>J</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/SchedulesView.cpp" line="1621"/>
+        <location filename="../src/openstudio_lib/SchedulesView.cpp" line="1621" />
         <source>W</source>
         <translatorcomment>Miércoles (Wednesday)</translatorcomment>
         <translation>X</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/SchedulesView.cpp" line="1639"/>
+        <location filename="../src/openstudio_lib/SchedulesView.cpp" line="1639" />
         <source>F</source>
         <translatorcomment>Viernes (Friday)</translatorcomment>
         <translation>V</translation>
@@ -6523,7 +6522,7 @@ Aquecimento</translation>
 <context>
     <name>openstudio::AirLoopHVACUnitaryHeatPumpAirToAirControlView</name>
     <message>
-        <source>Supply air temperature is managed by the &quot;AirLoopHVACUnitaryHeatPumpAirToAir&quot; component.</source>
+        <source>Supply air temperature is managed by the "AirLoopHVACUnitaryHeatPumpAirToAir" component.</source>
         <translation>A temperatura do ar de suprimento é controlada pelo componente "AirLoopHVACUnitaryHeatPumpAirToAir".</translation>
     </message>
     <message>
@@ -6534,7 +6533,7 @@ Aquecimento</translation>
 <context>
     <name>openstudio::NoSupplyAirTempControlView</name>
     <message>
-        <source>&lt;strong style=&quot;color:red&quot;&gt;Missing supply temperature control&lt;/strong&gt;. Try adding a setpoint manager to the supply outlet node of your system.</source>
+        <source>&lt;strong style="color:red"&gt;Missing supply temperature control&lt;/strong&gt;. Try adding a setpoint manager to the supply outlet node of your system.</source>
         <translation>&lt;strong style="color:red"&gt;Controle de temperatura de suprimento ausente&lt;/strong&gt;. Tente adicionar um gerenciador de ponto de ajuste ao nó de saída de suprimento do seu sistema.</translation>
     </message>
 </context>
@@ -6706,7 +6705,7 @@ Elétrico</translation>
 </context>
 <context>
     <name>IDD</name>
-    <!-- Common -->
+    
     <message>
         <source>Name</source>
         <translation>Nome</translation>
@@ -6719,7 +6718,7 @@ Elétrico</translation>
         <source>Part Load Fraction Correlation Curve Name</source>
         <translation>Nome da Curva de Correlação da Fração de Carga Parcial</translation>
     </message>
-    <!-- OS:Schedule:Day -->
+    
     <message>
         <source>Schedule Type Limits Name</source>
         <translation>Nome dos Limites do Tipo de Agendamento</translation>
@@ -6740,7 +6739,7 @@ Elétrico</translation>
         <source>Value Until Time</source>
         <translation>Valor Até Hora</translation>
     </message>
-    <!-- OS:Controller:OutdoorAir -->
+    
     <message>
         <source>Minimum Outdoor Air Flow Rate</source>
         <translation>Vazão Mínima de Ar Exterior</translation>
@@ -6805,7 +6804,7 @@ Elétrico</translation>
         <source>Economizer Operation Staging</source>
         <translation>Escalonamento da Operação do Economizador</translation>
     </message>
-    <!-- OS:Coil:Cooling:DX:SingleSpeed -->
+    
     <message>
         <source>Rated Total Cooling Capacity</source>
         <translation>Capacidade Nominal Total de Resfriamento</translation>
@@ -6906,7 +6905,7 @@ Elétrico</translation>
         <source>Basin Heater Operating Schedule Name</source>
         <translation>Nome da Agenda de Operação do Aquecedor de Bacia</translation>
     </message>
-    <!-- OS:Coil:Heating:Gas -->
+    
     <message>
         <source>Gas Burner Efficiency</source>
         <translation>Eficiência do Queimador a Gás</translation>
@@ -6927,7 +6926,7 @@ Elétrico</translation>
         <source>Fuel Type</source>
         <translation>Tipo de Combustível</translation>
     </message>
-    <!-- OS:Fan:ConstantVolume -->
+    
     <message>
         <source>Fan Total Efficiency</source>
         <translation>Eficiência Total do Ventilador</translation>
@@ -6952,7 +6951,7 @@ Elétrico</translation>
         <source>End-Use Subcategory</source>
         <translation>Subcategoria de Uso Final</translation>
     </message>
-    <!-- OS:SetpointManager:SingleZone:Reheat -->
+    
     <message>
         <source>Minimum Supply Air Temperature</source>
         <translation>Temperatura Mínima do Ar de Suprimento</translation>
@@ -6969,12 +6968,12 @@ Elétrico</translation>
         <source>Control Variable</source>
         <translation>Variável de Controle</translation>
     </message>
-    <!-- OS:AirTerminal:SingleDuct:ConstantVolume:NoReheat -->
+    
     <message>
         <source>Maximum Air Flow Rate</source>
         <translation>Vazão de Ar Máxima</translation>
     </message>
-    <!-- OS:ThermalZone -->
+    
     <message>
         <source>Multiplier</source>
         <translation>Multiplicador</translation>
@@ -6995,7 +6994,7 @@ Elétrico</translation>
         <source>Daylighting Controls Availability Schedule Name</source>
         <translation>Nome do Agendamento de Disponibilidade dos Controles de Iluminação Natural</translation>
     </message>
-    <!-- OS:Sizing:Zone -->
+    
     <message>
         <source>Zone Cooling Design Supply Air Temperature Input Method</source>
         <translation>Método de Entrada da Temperatura de Ar de Suprimento de Projeto de Resfriamento da Zona</translation>
@@ -7156,7 +7155,7 @@ Elétrico</translation>
         <source>Maximum Heating Capacity To Cooling Load Sizing Ratio</source>
         <translation>Razão Máxima de Capacidade de Aquecimento para Dimensionamento de Carga de Resfriamento</translation>
     </message>
-    <!-- OS:ZoneHVAC:EquipmentList -->
+    
     <message>
         <source>Load Distribution Scheme</source>
         <translation>Esquema de Distribuição de Carga</translation>
@@ -7169,7 +7168,7 @@ Elétrico</translation>
         <source>Zone Equipment Sequential Heating Fraction Schedule Name</source>
         <translation>Nome da Agenda de Fração de Aquecimento Sequencial de Equipamentos da Zona</translation>
     </message>
-    <!-- OS:AirLoopHVAC -->
+    
     <message>
         <source>Design Supply Air Flow Rate</source>
         <translation>Taxa de Vazão de Ar de Suprimento no Projeto</translation>
@@ -7186,7 +7185,7 @@ Elétrico</translation>
         <source>Design Return Air Flow Fraction of Supply Air Flow</source>
         <translation>Fração de Vazão de Ar de Retorno de Projeto da Vazão de Ar de Suprimento</translation>
     </message>
-    <!-- OS:Sizing:System -->
+    
     <message>
         <source>Type of Load to Size On</source>
         <translation>Tipo de Carga para Dimensionamento</translation>
@@ -7247,7 +7246,7 @@ Elétrico</translation>
         <source>Zone Maximum Outdoor Air Fraction</source>
         <translation>Fração Máxima de Ar Externo da Zona</translation>
     </message>
-    <!-- OS:Coil:Cooling:Water -->
+    
     <message>
         <source>Design Water Flow Rate</source>
         <translation>Vazão de Água no Projeto</translation>
@@ -7284,7 +7283,7 @@ Elétrico</translation>
         <source>Heat Exchanger Configuration</source>
         <translation>Configuração do Trocador de Calor</translation>
     </message>
-    <!-- OS:Coil:Heating:Water -->
+    
     <message>
         <source>U-Factor Times Area Value</source>
         <translation>Valor de U-Fator Multiplicado pela Área</translation>
@@ -7321,7 +7320,7 @@ Elétrico</translation>
         <source>Rated Ratio for Air and Water Convection</source>
         <translation>Razão Nominal para Convecção de Ar e Água</translation>
     </message>
-    <!-- OS:Fan:VariableVolume -->
+    
     <message>
         <source>Fan Power Minimum Flow Rate Input Method</source>
         <translation>Método de Entrada da Taxa de Fluxo Mínimo da Potência do Ventilador</translation>
@@ -7354,12 +7353,12 @@ Elétrico</translation>
         <source>Fan Power Coefficient 5</source>
         <translation>Coeficiente de Potência do Ventilador 5</translation>
     </message>
-    <!-- OS:SetpointManager:Scheduled -->
+    
     <message>
         <source>Schedule Name</source>
         <translation>Nome da Agenda</translation>
     </message>
-    <!-- OS:AirTerminal:SingleDuct:VAV:Reheat -->
+    
     <message>
         <source>Zone Minimum Air Flow Input Method</source>
         <translation>Método de Entrada de Vazão Mínima de Ar da Zona</translation>
@@ -7404,7 +7403,7 @@ Elétrico</translation>
         <source>Convergence Tolerance</source>
         <translation>Tolerância de Convergência</translation>
     </message>
-    <!-- OS:Pump:VariableSpeed / OS:Pump:ConstantSpeed -->
+    
     <message>
         <source>Rated Flow Rate</source>
         <translation>Taxa de Fluxo Nominal</translation>
@@ -7477,7 +7476,7 @@ Elétrico</translation>
         <source>Skin Loss Radiative Fraction</source>
         <translation>Fração Radiativa de Perda Tegumentar</translation>
     </message>
-    <!-- OS:Chiller:Electric:EIR -->
+    
     <message>
         <source>Reference Capacity</source>
         <translation>Capacidade de Referência</translation>
@@ -7554,7 +7553,7 @@ Elétrico</translation>
         <source>Sizing Factor</source>
         <translation>Fator de Dimensionamento</translation>
     </message>
-    <!-- OS:PlantLoop -->
+    
     <message>
         <source>Maximum Loop Temperature</source>
         <translation>Temperatura Máxima do Circuito</translation>
@@ -7575,7 +7574,7 @@ Elétrico</translation>
         <source>Pressure Simulation Type</source>
         <translation>Tipo de Simulação de Pressão</translation>
     </message>
-    <!-- OS:Sizing:Plant -->
+    
     <message>
         <source>Loop Type</source>
         <translation>Tipo de Circuito</translation>
@@ -7588,7 +7587,7 @@ Elétrico</translation>
         <source>Loop Design Temperature Difference</source>
         <translation>Diferença de Temperatura de Projeto do Loop</translation>
     </message>
-    <!-- OS:CoolingTower:SingleSpeed -->
+    
     <message>
         <source>Fan Power at Design Air Flow Rate</source>
         <translation>Potência do Ventilador na Vazão de Ar de Projeto</translation>
@@ -7641,7 +7640,7 @@ Elétrico</translation>
         <source>Cell Maximum Water Flow Rate Fraction</source>
         <translation>Fração Máxima da Taxa de Fluxo de Água da Célula</translation>
     </message>
-    <!-- OS:SetpointManager:FollowOutdoorAirTemperature -->
+    
     <message>
         <source>Reference Temperature Type</source>
         <translation>Tipo de Temperatura de Referência</translation>
@@ -7658,7 +7657,7 @@ Elétrico</translation>
         <source>Minimum Setpoint Temperature</source>
         <translation>Temperatura Mínima do Setpoint</translation>
     </message>
-    <!-- OS:Boiler:HotWater -->
+    
     <message>
         <source>Nominal Thermal Efficiency</source>
         <translation>Eficiência Térmica Nominal</translation>
@@ -7687,7 +7686,7 @@ Elétrico</translation>
         <source>Off Cycle Parasitic Fuel Load</source>
         <translation>Carga de Combustível Parasita em Ciclo Desligado</translation>
     </message>
-    <!-- OS:WaterHeater:Mixed -->
+    
     <message>
         <source>Tank Volume</source>
         <translation>Volume do Tanque</translation>
@@ -7792,7 +7791,7 @@ Elétrico</translation>
         <source>Indirect Water Heating Recovery Time</source>
         <translation>Tempo de Recuperação do Aquecimento Indireto de Água</translation>
     </message>
-    <!-- OS:WaterHeater:Stratified -->
+    
     <message>
         <source>Tank Height</source>
         <translation>Altura do Tanque</translation>
@@ -7869,7 +7868,7 @@ Elétrico</translation>
         <source>Source Side Outlet Height</source>
         <translation>Altura da Saída do Lado da Fonte</translation>
     </message>
-    <!-- OS:WaterUse:Connections -->
+    
     <message>
         <source>Hot Water Supply Temperature Schedule Name</source>
         <translation>Nome do Cronograma de Temperatura de Fornecimento de Água Quente</translation>
@@ -7890,7 +7889,7 @@ Elétrico</translation>
         <source>Drain Water Heat Exchanger U-Factor Times Area</source>
         <translation>Fator U do Trocador de Calor de Água de Drenagem Vezes Área</translation>
     </message>
-    <!-- OS:WaterUse:Equipment -->
+    
     <message>
         <source>Peak Flow Rate</source>
         <translation>Vazão de Pico</translation>
@@ -7915,7 +7914,7 @@ Elétrico</translation>
         <source>Zone Name</source>
         <translation>Nome da Zona</translation>
     </message>
-    <!-- OS:AirConditioner:VariableRefrigerantFlow -->
+    
     <message>
         <source>Cooling COP</source>
         <translation>COP de Resfriamento</translation>
@@ -7988,7 +7987,7 @@ Elétrico</translation>
         <source>Ratio of Compressor Size to Total Compressor Capacity</source>
         <translation>Razão do Tamanho do Compressor para a Capacidade Total do Compressor</translation>
     </message>
-    <!-- OS:ZoneHVAC:TerminalUnit:VariableRefrigerantFlow -->
+    
     <message>
         <source>Supply Air Flow Rate During Cooling Operation</source>
         <translation>Taxa de Fluxo de Ar de Suprimento Durante Operação de Resfriamento</translation>
@@ -8041,7 +8040,7 @@ Elétrico</translation>
         <source>Supply Air Fan Placement</source>
         <translation>Posicionamento do Ventilador de Ar de Insuflação</translation>
     </message>
-    <!-- OS:DefaultScheduleSet -->
+    
     <message>
         <source>Hours of Operation Schedule Name</source>
         <translation>Nome da Agenda de Horas de Operação</translation>
@@ -8082,7 +8081,7 @@ Elétrico</translation>
         <source>Other Equipment Schedule Name</source>
         <translation>Nome do Calendário de Equipamento Adicional</translation>
     </message>
-    <!-- OS:DesignSpecification:OutdoorAir -->
+    
     <message>
         <source>Outdoor Air Method</source>
         <translation>Método de Ar Exterior</translation>
@@ -8107,7 +8106,7 @@ Elétrico</translation>
         <source>Outdoor Air Flow Rate Fraction Schedule Name</source>
         <translation>Nome da Agenda de Fração de Vazão de Ar Externo</translation>
     </message>
-    <!-- OS:SpaceInfiltration:DesignFlowRate -->
+    
     <message>
         <source>Space or SpaceType Name</source>
         <translation>Nome do Espaço ou Tipo de Espaço</translation>
@@ -8152,7 +8151,7 @@ Elétrico</translation>
         <source>Density Basis</source>
         <translation>Base de Densidade</translation>
     </message>
-    <!-- OS:SpaceInfiltration:EffectiveLeakageArea -->
+    
     <message>
         <source>Effective Air Leakage Area</source>
         <translation>Área Efetiva de Vazamento de Ar</translation>
@@ -8165,7 +8164,7 @@ Elétrico</translation>
         <source>Wind Coefficient</source>
         <translation>Coeficiente de Vento</translation>
     </message>
-    <!-- OS:People -->
+    
     <message>
         <source>People Definition Name</source>
         <translation>Definição de Ocupantes - Nome</translation>
@@ -8210,7 +8209,7 @@ Elétrico</translation>
         <source>Heat Stress Temperature Threshold</source>
         <translation>Limiar de Temperatura de Estresse Térmico</translation>
     </message>
-    <!-- OS:People:Definition -->
+    
     <message>
         <source>Number of People Calculation Method</source>
         <translation>Método de Cálculo do Número de Pessoas</translation>
@@ -8251,7 +8250,7 @@ Elétrico</translation>
         <source>Thermal Comfort Model Type</source>
         <translation>Tipo de Modelo de Conforto Térmico</translation>
     </message>
-    <!-- OS:Schedule:Ruleset -->
+    
     <message>
         <source>Default Day Schedule Name</source>
         <translation>Nome da Programação de Dia Padrão</translation>
@@ -8277,17357 +8276,17357 @@ Elétrico</translation>
         <translation>Nome do Cronograma do Dia Personalizado 2</translation>
     </message>
 
-    <!-- === AUTO-GENERATED SKELETON: translate and remove this comment === -->
+    
 
-    <!-- 1 -->
-    <!-- OS:Sizing:System -->
+    
+    
     <message>
         <source>100% Outdoor Air in Cooling</source>
         <translation>100% Ar Exterior em Resfriamento</translation>
     </message>
-    <!-- OS:Sizing:System -->
+    
     <message>
         <source>100% Outdoor Air in Heating</source>
         <translation>100% Ar Externo no Aquecimento</translation>
     </message>
 
-    <!-- A -->
-    <!-- OS:AirflowNetworkSimulationControl -->
+    
+    
     <message>
         <source>Absolute Airflow Convergence Tolerance</source>
         <translation>Tolerância de Convergência de Fluxo de Ar Absoluto</translation>
     </message>
-    <!-- OS:SolarCollectorPerformance:IntegralCollectorStorage -->
+    
     <message>
         <source>Absorptance of Absorber Plate</source>
         <translation>Absortância da Placa Absorvedora</translation>
     </message>
-    <!-- OS:RadianceParameters -->
+    
     <message>
         <source>Accumulated Rays per Record</source>
         <translation>Raios Acumulados por Registro</translation>
     </message>
-    <!-- OS:Generator:FuelCell:PowerModule -->
+    
     <message>
         <source>Accumulated Run Time Degradation Coefficient</source>
         <translation>Coeficiente de Degradação por Tempo de Funcionamento Acumulado</translation>
     </message>
-    <!-- OS:Controller:WaterCoil -->
+    
     <message>
         <source>Action</source>
         <translation>Ação</translation>
     </message>
-    <!-- OS:PhotovoltaicPerformance:EquivalentOneDiode, OS:PhotovoltaicPerformance:Sandia -->
+    
     <message>
         <source>Active Area</source>
         <translation>Área Ativa</translation>
     </message>
-    <!-- OS:Coil:Cooling:DX:CurveFit:Speed -->
+    
     <message>
         <source>Active Fraction of Coil Face Area</source>
         <translation>Fração Ativa da Área da Face da Bobina</translation>
     </message>
-    <!-- OS:SwimmingPool:Indoor -->
+    
     <message>
         <source>Activity Factor Schedule Name</source>
         <translation>Nome do Cronograma do Fator de Atividade</translation>
     </message>
-    <!-- OS:Generator:FuelCell:StackCooler -->
+    
     <message>
         <source>Actual Stack Temperature</source>
         <translation>Temperatura Real da Chaminé</translation>
     </message>
-    <!-- OS:EnergyManagementSystem:Actuator, OS:ExternalInterface:Actuator, OS:ExternalInterface:FunctionalMockupUnitExport:To:Actuator, OS:ExternalInterface:FunctionalMockupUnitImport:To:Actuator -->
+    
     <message>
         <source>Actuated Component Control Type</source>
         <translation>Tipo de Controle de Componente Atuado</translation>
     </message>
-    <!-- OS:EnergyManagementSystem:Actuator -->
+    
     <message>
         <source>Actuated Component Name</source>
         <translation>Nome do Componente Atuado</translation>
     </message>
-    <!-- OS:EnergyManagementSystem:Actuator, OS:ExternalInterface:Actuator, OS:ExternalInterface:FunctionalMockupUnitExport:To:Actuator, OS:ExternalInterface:FunctionalMockupUnitImport:To:Actuator -->
+    
     <message>
         <source>Actuated Component Type</source>
         <translation>Tipo de Componente Acionado</translation>
     </message>
-    <!-- OS:ExternalInterface:Actuator, OS:ExternalInterface:FunctionalMockupUnitExport:To:Actuator, OS:ExternalInterface:FunctionalMockupUnitImport:To:Actuator -->
+    
     <message>
         <source>Actuated Component Unique Name</source>
         <translation>Nome Único do Componente Acionado</translation>
     </message>
-    <!-- OS:Output:EnergyManagementSystem -->
+    
     <message>
         <source>Actuator Availability Dictionary Reporting</source>
         <translation>Relatório do Dicionário de Disponibilidade do Atuador</translation>
     </message>
-    <!-- OS:Controller:OutdoorAir, OS:Controller:WaterCoil -->
+    
     <message>
         <source>Actuator Node Name</source>
         <translation>Nome do Nó do Atuador</translation>
     </message>
-    <!-- OS:Controller:WaterCoil -->
+    
     <message>
         <source>Actuator Variable</source>
         <translation>Variável do Atuador</translation>
     </message>
-    <!-- OS:PythonPlugin:SearchPaths -->
+    
     <message>
         <source>Add Current Working Directory to Search Path</source>
         <translation>Adicionar Diretório de Trabalho Atual ao Caminho de Pesquisa</translation>
     </message>
-    <!-- OS:PythonPlugin:SearchPaths -->
+    
     <message>
         <source>Add epin Environment Variable to Search Path</source>
         <translation>Adicionar Variável de Ambiente epin ao Caminho de Pesquisa</translation>
     </message>
-    <!-- OS:PythonPlugin:SearchPaths -->
+    
     <message>
         <source>Add Input File Directory to Search Path</source>
         <translation>Adicionar Diretório do Arquivo de Entrada ao Caminho de Pesquisa</translation>
     </message>
-    <!-- OS:DefaultConstructionSet -->
+    
     <message>
         <source>Adiabatic Surface Construction Name</source>
         <translation>Nome da Construção de Superfície Adiabática</translation>
     </message>
-    <!-- OS:Schedule:File -->
+    
     <message>
         <source>Adjust Schedule for Daylight Savings</source>
         <translation>Ajustar Cronograma para Horário de Verão</translation>
     </message>
-    <!-- OS:ZoneAirMassFlowConservation -->
+    
     <message>
         <source>Adjust Zone Mixing and Return For Air Mass Flow Balance</source>
         <translation>Ajustar Mistura de Zona e Retorno Para Equilíbrio de Fluxo de Massa de Ar</translation>
     </message>
-    <!-- OS:UtilityCost:Ratchet -->
+    
     <message>
         <source>Adjustment Source Variable</source>
         <translation>Variável de Origem do Ajuste</translation>
     </message>
-    <!-- OS:Output:Table:Annual, OS:Output:Table:Monthly -->
+    
     <message>
         <source>Aggregation Type for Variable or Meter</source>
         <translation>Tipo de Agregação para Variável ou Medidor</translation>
     </message>
-    <!-- OS:Coil:UserDefined -->
+    
     <message>
         <source>Air Connection 1 Inlet Node Name</source>
         <translation>Nome do Nó de Entrada da Conexão de Ar 1</translation>
     </message>
-    <!-- OS:Coil:UserDefined -->
+    
     <message>
         <source>Air Connection 1 Outlet Node Name</source>
         <translation>Nome do Nó de Saída da Conexão de Ar 1</translation>
     </message>
-    <!-- OS:Construction:AirBoundary -->
+    
     <message>
         <source>Air Exchange Method</source>
         <translation>Método de Troca de Ar</translation>
     </message>
-    <!-- OS:ElectricEquipment:ITE:AirCooled:Definition -->
+    
     <message>
         <source>Air Flow Calculation Method</source>
         <translation>Método de Cálculo do Fluxo de Ar</translation>
     </message>
-    <!-- OS:ElectricEquipment:ITE:AirCooled:Definition -->
+    
     <message>
         <source>Air Flow Function of Loading and Air Temperature Curve Name</source>
         <translation>Nome da Curva da Função de Fluxo de Ar em Relação à Carga e Temperatura do Ar</translation>
     </message>
-    <!-- OS:AirflowNetworkSpecifiedFlowRate -->
+    
     <message>
         <source>Air Flow Units</source>
         <translation>Unidades de Fluxo de Ar</translation>
     </message>
-    <!-- OS:AirflowNetworkSpecifiedFlowRate -->
+    
     <message>
         <source>Air Flow Value</source>
         <translation>Valor do Fluxo de Ar</translation>
     </message>
-    <!-- OS:AirTerminal:SingleDuct:VAV:HeatAndCool:NoReheat, OS:AirTerminal:SingleDuct:VAV:HeatAndCool:Reheat -->
+    
     <message>
         <source>Air Inlet</source>
         <translation>Entrada de Ar</translation>
     </message>
-    <!-- OS:ElectricEquipment:ITE:AirCooled:Definition -->
+    
     <message>
         <source>Air Inlet Connection Type</source>
         <translation>Tipo de Conexão de Entrada de Ar</translation>
     </message>
-    <!-- OS:AirLoopHVAC:UnitaryHeatCool:VAVChangeoverBypass, OS:AirLoopHVAC:UnitaryHeatPump:AirToAir:MultiSpeed, OS:Coil:Cooling:DX:MultiSpeed, OS:Coil:Heating:Electric:MultiStage, OS:Coil:Heating:Gas:MultiStage, OS:WaterHeater:HeatPump -->
+    
     <message>
         <source>Air Inlet Node</source>
         <translation>Nó de Entrada de Ar</translation>
     </message>
-    <!-- OS:AirLoopHVAC:UnitaryHeatPump:AirToAir, OS:AirLoopHVAC:UnitarySystem, OS:AirTerminal:SingleDuct:ConstantVolume:NoReheat, OS:AirTerminal:SingleDuct:ConstantVolume:Reheat, OS:AirTerminal:SingleDuct:VAV:NoReheat, OS:AirTerminal:SingleDuct:VAV:Reheat, OS:Coil:Cooling:DX:SingleSpeed, OS:Coil:Cooling:DX:TwoSpeed, OS:Coil:Cooling:DX:TwoStageWithHumidityControlMode, OS:Coil:Cooling:Water, OS:Coil:Cooling:WaterToAirHeatPump:EquationFit, OS:Coil:Heating:DX:MultiSpeed, OS:Coil:Heating:DX:SingleSpeed, OS:Coil:Heating:Desuperheater, OS:Coil:Heating:Electric, OS:Coil:Heating:Gas, OS:Coil:Heating:Water, OS:Coil:Heating:WaterToAirHeatPump:EquationFit, OS:CoilSystem:Cooling:DX:HeatExchangerAssisted, OS:CoilSystem:Cooling:Water, OS:CoilSystem:Cooling:Water:HeatExchangerAssisted, OS:CoilSystem:IntegratedHeatPump:AirSource, OS:EvaporativeCooler:Direct:ResearchSpecial, OS:Fan:ComponentModel, OS:Fan:ConstantVolume, OS:Fan:OnOff, OS:Fan:SystemModel, OS:Fan:VariableVolume, OS:Fan:ZoneExhaust, OS:Generator:FuelCell:AirSupply, OS:HeatPump:AirToWater, OS:Humidifier:Steam:Electric, OS:Humidifier:Steam:Gas, OS:Refrigeration:Condenser:EvaporativeCooled, OS:Refrigeration:GasCooler:AirCooled, OS:WaterHeater:HeatPump:WrappedCondenser, OS:ZoneHVAC:Dehumidifier:DX, OS:ZoneHVAC:EnergyRecoveryVentilator, OS:ZoneHVAC:FourPipeFanCoil, OS:ZoneHVAC:PackagedTerminalAirConditioner, OS:ZoneHVAC:PackagedTerminalHeatPump, OS:ZoneHVAC:UnitHeater, OS:ZoneHVAC:UnitVentilator, OS:ZoneHVAC:WaterToAirHeatPump -->
+    
     <message>
         <source>Air Inlet Node Name</source>
         <translation>Nome do Nó de Entrada de Ar</translation>
     </message>
-    <!-- OS:Refrigeration:Condenser:AirCooled -->
+    
     <message>
         <source>Air Inlet Zone Name</source>
         <translation>Nome da Zona de Entrada de Ar</translation>
     </message>
-    <!-- OS:Generator:FuelCell:AirSupply -->
+    
     <message>
         <source>Air Intake Heat Recovery Mode</source>
         <translation>Modo de Recuperação de Calor do Ar de Entrada</translation>
     </message>
-    <!-- OS:AirLoopHVAC:DedicatedOutdoorAirSystem -->
+    
     <message>
         <source>Air Loop</source>
         <translation>Circuito de Ar</translation>
     </message>
-    <!-- OS:AirflowNetworkLeak -->
+    
     <message>
         <source>Air Mass Flow Coefficient</source>
         <translation>Coeficiente de Fluxo de Massa de Ar</translation>
     </message>
-    <!-- OS:AirflowNetworkCrack -->
+    
     <message>
         <source>Air Mass Flow Coefficient at Reference Conditions</source>
         <translation>Coeficiente de Fluxo de Massa de Ar nas Condições de Referência</translation>
     </message>
-    <!-- OS:AirflowNetworkReliefAirFlow -->
+    
     <message>
         <source>Air Mass Flow Coefficient When No Outdoor Air Flow at Reference Conditions</source>
         <translation>Coeficiente de Vazão Mássica de Ar Quando Sem Fluxo de Ar Exterior nas Condições de Referência</translation>
     </message>
-    <!-- OS:AirflowNetworkDetailedOpening, OS:AirflowNetworkHorizontalOpening, OS:AirflowNetworkSimpleOpening -->
+    
     <message>
         <source>Air Mass Flow Coefficient When Opening is Closed</source>
         <translation>Coeficiente de Fluxo de Massa de Ar Quando a Abertura está Fechada</translation>
     </message>
-    <!-- OS:AirflowNetworkCrack, OS:AirflowNetworkEffectiveLeakageArea, OS:AirflowNetworkLeak, OS:AirflowNetworkLeakageRatio -->
+    
     <message>
         <source>Air Mass Flow Exponent</source>
         <translation>Expoente de Fluxo de Massa de Ar</translation>
     </message>
-    <!-- OS:AirflowNetworkReliefAirFlow -->
+    
     <message>
         <source>Air Mass Flow Exponent When No Outdoor Air Flow</source>
         <translation>Expoente de Fluxo de Massa de Ar Quando Não Há Fluxo de Ar Externo</translation>
     </message>
-    <!-- OS:AirflowNetworkDetailedOpening, OS:AirflowNetworkHorizontalOpening, OS:AirflowNetworkSimpleOpening -->
+    
     <message>
         <source>Air Mass Flow Exponent When Opening is Closed</source>
         <translation>Expoente de Fluxo de Massa de Ar Quando a Abertura está Fechada</translation>
     </message>
-    <!-- OS:Coil:UserDefined -->
+    
     <message>
         <source>Air Mass Flow Rate Actuator</source>
         <translation>Atuador de Vazão em Massa de Ar</translation>
     </message>
-    <!-- OS:AirTerminal:SingleDuct:VAV:HeatAndCool:NoReheat, OS:AirTerminal:SingleDuct:VAV:HeatAndCool:Reheat -->
+    
     <message>
         <source>Air Outlet</source>
         <translation>Saída de Ar</translation>
     </message>
-    <!-- OS:Coil:UserDefined -->
+    
     <message>
         <source>Air Outlet Humidity Ratio Actuator</source>
         <translation>Atuador de Razão de Umidade da Saída de Ar</translation>
     </message>
-    <!-- OS:AirLoopHVAC:UnitaryHeatCool:VAVChangeoverBypass, OS:AirLoopHVAC:UnitaryHeatPump:AirToAir:MultiSpeed, OS:AirTerminal:DualDuct:ConstantVolume, OS:AirTerminal:DualDuct:VAV, OS:AirTerminal:DualDuct:VAV:OutdoorAir, OS:Coil:Cooling:DX:MultiSpeed, OS:Coil:Heating:Electric:MultiStage, OS:Coil:Heating:Gas:MultiStage, OS:WaterHeater:HeatPump -->
+    
     <message>
         <source>Air Outlet Node</source>
         <translation>Nó de Saída de Ar</translation>
     </message>
-    <!-- OS:AirLoopHVAC:UnitaryHeatPump:AirToAir, OS:AirLoopHVAC:UnitarySystem, OS:AirTerminal:SingleDuct:ConstantVolume:FourPipeInduction, OS:AirTerminal:SingleDuct:ConstantVolume:NoReheat, OS:AirTerminal:SingleDuct:ConstantVolume:Reheat, OS:AirTerminal:SingleDuct:VAV:NoReheat, OS:AirTerminal:SingleDuct:VAV:Reheat, OS:Coil:Cooling:DX:SingleSpeed, OS:Coil:Cooling:DX:TwoSpeed, OS:Coil:Cooling:DX:TwoStageWithHumidityControlMode, OS:Coil:Cooling:Water, OS:Coil:Cooling:WaterToAirHeatPump:EquationFit, OS:Coil:Heating:DX:MultiSpeed, OS:Coil:Heating:DX:SingleSpeed, OS:Coil:Heating:Desuperheater, OS:Coil:Heating:Electric, OS:Coil:Heating:Gas, OS:Coil:Heating:Water, OS:Coil:Heating:WaterToAirHeatPump:EquationFit, OS:CoilSystem:Cooling:DX:HeatExchangerAssisted, OS:CoilSystem:Cooling:Water, OS:CoilSystem:Cooling:Water:HeatExchangerAssisted, OS:CoilSystem:IntegratedHeatPump:AirSource, OS:EvaporativeCooler:Direct:ResearchSpecial, OS:Fan:ComponentModel, OS:Fan:ConstantVolume, OS:Fan:OnOff, OS:Fan:SystemModel, OS:Fan:VariableVolume, OS:Fan:ZoneExhaust, OS:HeatPump:AirToWater, OS:Humidifier:Steam:Electric, OS:Humidifier:Steam:Gas, OS:WaterHeater:HeatPump:WrappedCondenser, OS:ZoneHVAC:Dehumidifier:DX, OS:ZoneHVAC:EnergyRecoveryVentilator, OS:ZoneHVAC:FourPipeFanCoil, OS:ZoneHVAC:PackagedTerminalAirConditioner, OS:ZoneHVAC:PackagedTerminalHeatPump, OS:ZoneHVAC:UnitHeater, OS:ZoneHVAC:UnitVentilator, OS:ZoneHVAC:WaterToAirHeatPump -->
+    
     <message>
         <source>Air Outlet Node Name</source>
         <translation>Nome do Nó de Saída de Ar</translation>
     </message>
-    <!-- OS:Coil:UserDefined -->
+    
     <message>
         <source>Air Outlet Temperature Actuator</source>
         <translation>Atuador de Temperatura da Saída de Ar</translation>
     </message>
-    <!-- OS:AirflowNetworkEquivalentDuct -->
+    
     <message>
         <source>Air Path Hydraulic Diameter</source>
         <translation>Diâmetro Hidráulico do Caminho do Ar</translation>
     </message>
-    <!-- OS:AirflowNetworkEquivalentDuct -->
+    
     <message>
         <source>Air Path Length</source>
         <translation>Comprimento do Caminho de Ar</translation>
     </message>
-    <!-- OS:Generator:FuelCell:AirSupply -->
+    
     <message>
         <source>Air Rate Air Temperature Coefficient</source>
         <translation>Coeficiente de Temperatura do Ar na Taxa de Ar</translation>
     </message>
-    <!-- OS:Generator:FuelCell:AirSupply -->
+    
     <message>
         <source>Air Rate Function of Electric Power Curve Name</source>
         <translation>Nome da Curva de Taxa de Ar em Função da Potência Elétrica</translation>
     </message>
-    <!-- OS:Generator:FuelCell:AirSupply -->
+    
     <message>
         <source>Air Rate Function of Fuel Rate Curve Name</source>
         <translation>Nome da Curva de Taxa de Ar em Função da Taxa de Combustível</translation>
     </message>
-    <!-- OS:HeatPump:AirToWater:FuelFired:Cooling, OS:HeatPump:AirToWater:FuelFired:Heating -->
+    
     <message>
         <source>Air Source Node Name</source>
         <translation>Nome do Nó de Fonte de Ar</translation>
     </message>
-    <!-- OS:Generator:FuelCell:AirSupply -->
+    
     <message>
         <source>Air Supply Constituent Mode</source>
         <translation>Modo de Constituinte de Fornecimento de Ar</translation>
     </message>
-    <!-- OS:Generator:FuelCell -->
+    
     <message>
         <source>Air Supply Name</source>
         <translation>Nome do Fornecimento de Ar</translation>
     </message>
-    <!-- OS:Generator:FuelCell:AirSupply -->
+    
     <message>
         <source>Air Supply Rate Calculation Mode</source>
         <translation>Modo de Cálculo da Taxa de Fornecimento de Ar</translation>
     </message>
-    <!-- OS:WindowMaterial:Shade -->
+    
     <message>
         <source>Airflow Permeability</source>
         <translation>Permeabilidade ao Fluxo de Ar</translation>
     </message>
-    <!-- OS:AirflowNetworkSimulationControl -->
+    
     <message>
         <source>AirflowNetwork Control</source>
         <translation>Controle da Rede de Fluxo de Ar</translation>
     </message>
-    <!-- OS:AvailabilityManager:HybridVentilation -->
+    
     <message>
         <source>AirflowNetwork Control Type Schedule</source>
         <translation>Cronograma de Tipo de Controle da Rede de Fluxo de Ar</translation>
     </message>
-    <!-- OS:Sizing:System -->
+    
     <message>
         <source>AirLoop Name</source>
         <translation>Nome da Malha de Ar</translation>
     </message>
-    <!-- OS:HeatBalanceAlgorithm, OS:SurfaceConvectionAlgorithm:Inside, OS:SurfaceConvectionAlgorithm:Outside, OS:ZoneAirHeatBalanceAlgorithm -->
+    
     <message>
         <source>Algorithm</source>
         <translation>Algoritmo</translation>
     </message>
-    <!-- OS:AirflowNetworkSimulationControl -->
+    
     <message>
         <source>Allow Unsupported Zone Equipment</source>
         <translation>Permitir Equipamentos de Zona Não Suportados</translation>
     </message>
-    <!-- OS:Coil:Cooling:DX:CurveFit:Performance -->
+    
     <message>
         <source>Alternative Operating Mode 1</source>
         <translation>Modo Operacional Alternativo 1</translation>
     </message>
-    <!-- OS:Coil:Cooling:DX:CurveFit:Performance -->
+    
     <message>
         <source>Alternative Operating Mode 2</source>
         <translation>Modo Operacional Alternativo 2</translation>
     </message>
-    <!-- OS:Pipe:Indoor -->
+    
     <message>
         <source>Ambient Air Velocity Schedule</source>
         <translation>Cronograma de Velocidade do Ar Ambiente</translation>
     </message>
-    <!-- OS:RadianceParameters -->
+    
     <message>
         <source>Ambient Bounces DMX</source>
         <translation>Ambient Bounces DMX</translation>
     </message>
-    <!-- OS:RadianceParameters -->
+    
     <message>
         <source>Ambient Bounces VMX</source>
         <translation>Reflexões Ambientes VMX</translation>
     </message>
-    <!-- OS:RadianceParameters -->
+    
     <message>
         <source>Ambient Divisions DMX</source>
         <translation>Divisões DMX do Ambiente</translation>
     </message>
-    <!-- OS:RadianceParameters -->
+    
     <message>
         <source>Ambient Divisions VMX</source>
         <translation>Divisões de Ambiente VMX</translation>
     </message>
-    <!-- OS:RadianceParameters -->
+    
     <message>
         <source>Ambient Supersamples</source>
         <translation>Superamostras de Ambiente</translation>
     </message>
-    <!-- OS:CoilSystem:IntegratedHeatPump:AirSource -->
+    
     <message>
         <source>Ambient Temperature Above Which WH Has Higher Priority</source>
         <translation>Temperatura Ambiente Acima da Qual o WH Tem Prioridade Maior</translation>
     </message>
-    <!-- OS:CoilSystem:IntegratedHeatPump:AirSource -->
+    
     <message>
         <source>Ambient Temperature Limit For SCWH Mode</source>
         <translation>Limite de Temperatura Ambiente para Modo SCWH</translation>
     </message>
-    <!-- OS:Pipe:Outdoor -->
+    
     <message>
         <source>Ambient Temperature Outdoor Air Node</source>
         <translation>Nó de Ar Externo com Temperatura Ambiente</translation>
     </message>
-    <!-- OS:Chiller:Electric:ASHRAE205, OS:ThermalStorage:ChilledWater:Stratified, OS:WaterHeater:Mixed, OS:WaterHeater:Stratified -->
+    
     <message>
         <source>Ambient Temperature Outdoor Air Node Name</source>
         <translation>Nome do Nó de Ar Exterior a Temperatura Ambiente</translation>
     </message>
-    <!-- OS:Pipe:Indoor -->
+    
     <message>
         <source>Ambient Temperature Schedule</source>
         <translation>Cronograma de Temperatura Ambiente</translation>
     </message>
-    <!-- OS:ThermalStorage:ChilledWater:Stratified, OS:WaterHeater:Mixed, OS:WaterHeater:Stratified -->
+    
     <message>
         <source>Ambient Temperature Thermal Zone Name</source>
         <translation>Nome da Zona Térmica de Temperatura Ambiente</translation>
     </message>
-    <!-- OS:Pipe:Indoor -->
+    
     <message>
         <source>Ambient Temperature Zone</source>
         <translation>Zona de Temperatura Ambiente</translation>
     </message>
-    <!-- OS:Chiller:Electric:ASHRAE205 -->
+    
     <message>
         <source>Ambient Temperature Zone Name</source>
         <translation>Nome da Zona de Temperatura Ambiente</translation>
     </message>
-    <!-- OS:Coil:UserDefined, OS:PlantComponent:UserDefined -->
+    
     <message>
         <source>Ambient Zone Name</source>
         <translation>Nome da Zona Ambiente</translation>
     </message>
-    <!-- OS:LifeCycleCost:Parameters -->
+    
     <message>
         <source>Analysis Type</source>
         <translation>Tipo de Análise</translation>
     </message>
-    <!-- OS:Coil:Cooling:DX:SingleSpeed:ThermalStorage -->
+    
     <message>
         <source>Ancillary Electric Power</source>
         <translation>Potência Elétrica Auxiliar</translation>
     </message>
-    <!-- OS:Generator:FuelCell:PowerModule -->
+    
     <message>
         <source>Ancillary Electricity Constant Term</source>
         <translation>Termo Constante de Eletricidade Auxiliar</translation>
     </message>
-    <!-- OS:Generator:FuelCell:PowerModule -->
+    
     <message>
         <source>Ancillary Electricity Linear Term</source>
         <translation>Termo Linear de Eletricidade Auxiliar</translation>
     </message>
-    <!-- OS:CentralHeatPumpSystem -->
+    
     <message>
         <source>Ancillary Operation Schedule Name</source>
         <translation>Nome do Cronograma de Operação Auxiliar</translation>
     </message>
-    <!-- OS:CentralHeatPumpSystem, OS:Generator:MicroTurbine -->
+    
     <message>
         <source>Ancillary Power</source>
         <translation>Potência Auxiliar</translation>
     </message>
-    <!-- OS:Generator:FuelCell:AuxiliaryHeater -->
+    
     <message>
         <source>Ancillary Power Constant Term</source>
         <translation>Termo Constante de Potência Auxiliar</translation>
     </message>
-    <!-- OS:ElectricLoadCenter:Storage:Converter -->
+    
     <message>
         <source>Ancillary Power Consumed In Standby</source>
         <translation>Potência Auxiliar Consumida em Espera</translation>
     </message>
-    <!-- OS:Generator:MicroTurbine -->
+    
     <message>
         <source>Ancillary Power Function of Fuel Input Curve Name</source>
         <translation>Nome da Curva da Função de Potência Auxiliar em Relação à Entrada de Combustível</translation>
     </message>
-    <!-- OS:Generator:FuelCell:AuxiliaryHeater -->
+    
     <message>
         <source>Ancillary Power Linear Term</source>
         <translation>Termo Linear de Potência Auxiliar</translation>
     </message>
-    <!-- OS:AirLoopHVAC:UnitarySystem -->
+    
     <message>
         <source>Ancilliary Off-Cycle Electric Power</source>
         <translation>Potência Elétrica Auxiliar Fora do Ciclo</translation>
     </message>
-    <!-- OS:AirLoopHVAC:UnitarySystem -->
+    
     <message>
         <source>Ancilliary On-Cycle Electric Power</source>
         <translation>Potência Elétrica Auxiliar em Ciclo Ativo</translation>
     </message>
-    <!-- OS:WindowMaterial:Screen -->
+    
     <message>
         <source>Angle of Resolution for Screen Transmittance Output Map</source>
         <translation>Ângulo de Resolução para Mapa de Saída de Transmitância de Tela</translation>
     </message>
-    <!-- OS:Site:WaterMainsTemperature -->
+    
     <message>
         <source>Annual Average Outdoor Air Temperature</source>
         <translation>Temperatura Média Anual do Ar Externo</translation>
     </message>
-    <!-- OS:Generator:WindTurbine -->
+    
     <message>
         <source>Annual Local Average Wind Speed</source>
         <translation>Velocidade Média do Vento Local Anual</translation>
     </message>
-    <!-- OS:Refrigeration:Case -->
+    
     <message>
         <source>Anti-Sweat Heater Control Type</source>
         <translation>Tipo de Controle do Aquecedor Anti-Suor</translation>
     </message>
-    <!-- OS:AvailabilityManager:NightCycle, OS:AvailabilityManager:NightVentilation, OS:AvailabilityManager:OptimumStart -->
+    
     <message>
         <source>Applicability Schedule</source>
         <translation>Cronograma de Aplicabilidade</translation>
     </message>
-    <!-- OS:AvailabilityManager:LowTemperatureTurnOff -->
+    
     <message>
         <source>Applicability Schedule Name</source>
         <translation>Nome da Agenda de Aplicabilidade</translation>
     </message>
-    <!-- OS:Schedule:Rule -->
+    
     <message>
         <source>Apply Friday</source>
         <translation>Aplicar Sexta-feira</translation>
     </message>
-    <!-- OS:Coil:Cooling:DX:CurveFit:OperatingMode, OS:Coil:Cooling:DX:MultiSpeed -->
+    
     <message>
         <source>Apply Latent Degradation to Speeds Greater than 1</source>
         <translation>Aplicar Degradação de Latência em Velocidades Maiores que 1</translation>
     </message>
-    <!-- OS:Schedule:Rule -->
+    
     <message>
         <source>Apply Monday</source>
         <translation>Aplicar Segunda-feira</translation>
     </message>
-    <!-- OS:Coil:Cooling:DX:MultiSpeed, OS:Coil:Heating:DX:MultiSpeed -->
+    
     <message>
         <source>Apply Part Load Fraction to Speeds Greater than 1</source>
         <translation>Aplicar Fração de Carga Parcial a Velocidades Maiores que 1</translation>
     </message>
-    <!-- OS:Schedule:Rule -->
+    
     <message>
         <source>Apply Saturday</source>
         <translation>Aplicar Sábado</translation>
     </message>
-    <!-- OS:Schedule:Rule -->
+    
     <message>
         <source>Apply Sunday</source>
         <translation>Aplicar Domingo</translation>
     </message>
-    <!-- OS:Schedule:Rule -->
+    
     <message>
         <source>Apply Thursday</source>
         <translation>Aplicar quinta-feira</translation>
     </message>
-    <!-- OS:Schedule:Rule -->
+    
     <message>
         <source>Apply Tuesday</source>
         <translation>Aplicar Terça</translation>
     </message>
-    <!-- OS:Schedule:Rule -->
+    
     <message>
         <source>Apply Wednesday</source>
         <translation>Aplicar Quarta-feira</translation>
     </message>
-    <!-- OS:RunPeriod -->
+    
     <message>
         <source>Apply Weekend Holiday Rule</source>
         <translation>Aplicar Regra de Feriado de Fim de Semana</translation>
     </message>
-    <!-- OS:Refrigeration:Condenser:EvaporativeCooled -->
+    
     <message>
         <source>Approach Temperature Coefficient 2</source>
         <translation>Coeficiente de Temperatura de Aproximação 2</translation>
     </message>
-    <!-- OS:Refrigeration:Condenser:EvaporativeCooled -->
+    
     <message>
         <source>Approach Temperature Coefficient 3</source>
         <translation>Coeficiente de Temperatura de Aproximação 3</translation>
     </message>
-    <!-- OS:Refrigeration:Condenser:EvaporativeCooled -->
+    
     <message>
         <source>Approach Temperature Coefficient 4</source>
         <translation>Coeficiente de Temperatura de Aproximação 4</translation>
     </message>
-    <!-- OS:Refrigeration:Condenser:EvaporativeCooled -->
+    
     <message>
         <source>Approach Temperature Constant Term</source>
         <translation>Termo Constante de Temperatura de Aproximação</translation>
     </message>
-    <!-- OS:Site:GroundTemperature:Deep -->
+    
     <message>
         <source>April Deep Ground Temperature</source>
         <translation>Temperatura Profunda do Solo em Abril</translation>
     </message>
-    <!-- OS:Site:GroundReflectance -->
+    
     <message>
         <source>April Ground Reflectance</source>
         <translation>Refletância do Solo em Abril</translation>
     </message>
-    <!-- OS:Site:GroundTemperature:BuildingSurface, OS:Site:GroundTemperature:FCfactorMethod -->
+    
     <message>
         <source>April Ground Temperature</source>
         <translation>Temperatura do Solo em Abril</translation>
     </message>
-    <!-- OS:Site:GroundTemperature:Shallow -->
+    
     <message>
         <source>April Surface Ground Temperature</source>
         <translation>Temperatura de Superfície do Solo em Abril</translation>
     </message>
-    <!-- OS:UtilityCost:Variable -->
+    
     <message>
         <source>April Value</source>
         <translation>Valor de Abril</translation>
     </message>
-    <!-- OS:Construction:FfactorGroundFloor -->
+    
     <message>
         <source>Area</source>
         <translation>Área</translation>
     </message>
-    <!-- OS:DaylightingDevice:LightWell -->
+    
     <message>
         <source>Area of Bottom of Well</source>
         <translation>Área do Fundo do Poço</translation>
     </message>
-    <!-- OS:Refrigeration:WalkIn:ZoneBoundary -->
+    
     <message>
         <source>Area of Glass Reach In Doors Facing Zone</source>
         <translation>Área de Vidro de Portas de Alcance Voltadas para a Zona</translation>
     </message>
-    <!-- OS:Refrigeration:WalkIn:ZoneBoundary -->
+    
     <message>
         <source>Area of Stocking Doors Facing Zone</source>
         <translation>Área de Portas de Estoque Viradas para a Zona</translation>
     </message>
-    <!-- OS:Generator:PVWatts -->
+    
     <message>
         <source>Array Type</source>
         <translation>Tipo de Array</translation>
     </message>
-    <!-- OS:SizingPeriod:DesignDay -->
+    
     <message>
         <source>ASHRAE Clear Sky Optical Depth for Beam Irradiance</source>
         <translation>Profundidade Óptica do Céu Claro ASHRAE para Irradiância Direta</translation>
     </message>
-    <!-- OS:SizingPeriod:DesignDay -->
+    
     <message>
         <source>ASHRAE Clear Sky Optical Depth for Diffuse Irradiance</source>
         <translation>ASHRAE Profundidade Óptica de Céu Claro para Irradiância Difusa</translation>
     </message>
-    <!-- OS:SolarCollectorPerformance:IntegralCollectorStorage -->
+    
     <message>
         <source>Aspect Ratio</source>
         <translation>Proporção de Aspecto</translation>
     </message>
-    <!-- OS:Site:GroundTemperature:Deep -->
+    
     <message>
         <source>August Deep Ground Temperature</source>
         <translation>Temperatura Profunda do Solo em Agosto</translation>
     </message>
-    <!-- OS:Site:GroundReflectance -->
+    
     <message>
         <source>August Ground Reflectance</source>
         <translation>Refletância do Solo em Agosto</translation>
     </message>
-    <!-- OS:Site:GroundTemperature:BuildingSurface, OS:Site:GroundTemperature:FCfactorMethod -->
+    
     <message>
         <source>August Ground Temperature</source>
         <translation>Temperatura do Solo em Agosto</translation>
     </message>
-    <!-- OS:Site:GroundTemperature:Shallow -->
+    
     <message>
         <source>August Surface Ground Temperature</source>
         <translation>Temperatura do Solo na Superfície em Agosto</translation>
     </message>
-    <!-- OS:UtilityCost:Variable -->
+    
     <message>
         <source>August Value</source>
         <translation>Valor de Agosto</translation>
     </message>
-    <!-- OS:Chiller:Electric:ASHRAE205 -->
+    
     <message>
         <source>Auxiliary Cooling Design Flow Rate</source>
         <translation>Vazão de Design do Resfriamento Auxiliar</translation>
     </message>
-    <!-- OS:HeatPump:AirToWater:FuelFired:Cooling, OS:HeatPump:AirToWater:FuelFired:Heating -->
+    
     <message>
         <source>Auxiliary Electric Energy Input Ratio Function of PLR Curve Name</source>
         <translation>Nome da Curva da Razão de Entrada de Energia Elétrica Auxiliar em Função de PLR</translation>
     </message>
-    <!-- OS:HeatPump:AirToWater:FuelFired:Cooling, OS:HeatPump:AirToWater:FuelFired:Heating -->
+    
     <message>
         <source>Auxiliary Electric Energy Input Ratio Function of Temperature Curve Name</source>
         <translation>Nome da Curva da Função da Razão de Entrada de Energia Elétrica Auxiliar em Relação à Temperatura</translation>
     </message>
-    <!-- OS:Humidifier:Steam:Gas -->
+    
     <message>
         <source>Auxiliary Electric Power</source>
         <translation>Potência Elétrica Auxiliar</translation>
     </message>
-    <!-- OS:Generator:FuelCell -->
+    
     <message>
         <source>Auxiliary Heater Name</source>
         <translation>Nome do Aquecedor Auxiliar</translation>
     </message>
-    <!-- OS:Chiller:Electric:ASHRAE205 -->
+    
     <message>
         <source>Auxiliary Inlet Node Name</source>
         <translation>Nome do Nó de Entrada Auxiliar</translation>
     </message>
-    <!-- OS:AirLoopHVAC:UnitaryHeatPump:AirToAir:MultiSpeed -->
+    
     <message>
         <source>Auxiliary Off-Cycle Electric Power</source>
         <translation>Potência Elétrica Auxiliar Fora do Ciclo</translation>
     </message>
-    <!-- OS:AirLoopHVAC:UnitaryHeatPump:AirToAir:MultiSpeed -->
+    
     <message>
         <source>Auxiliary On-Cycle Electric Power</source>
         <translation>Potência Elétrica Auxiliar em Ciclo Ativo</translation>
     </message>
-    <!-- OS:Chiller:Electric:ASHRAE205 -->
+    
     <message>
         <source>Auxiliary Outlet Node Name</source>
         <translation>Nome do Nó da Saída Auxiliar</translation>
     </message>
-    <!-- OS:AirLoopHVAC, OS:AirLoopHVAC:OutdoorAirSystem, OS:PlantLoop, OS:ZoneHVAC:EnergyRecoveryVentilator, OS:ZoneHVAC:EvaporativeCoolerUnit, OS:ZoneHVAC:TerminalUnit:VariableRefrigerantFlow, OS:ZoneHVAC:UnitHeater, OS:ZoneHVAC:UnitVentilator, OS:ZoneHVAC:WaterToAirHeatPump -->
+    
     <message>
         <source>Availability Manager List Name</source>
         <translation>Nome da Lista do Gerenciador de Disponibilidade</translation>
     </message>
-    <!-- OS:AvailabilityManagerAssignmentList -->
+    
     <message>
         <source>Availability Manager Name</source>
         <translation>Nome do Gerenciador de Disponibilidade</translation>
     </message>
-    <!-- OS:AirConditioner:VariableRefrigerantFlow, OS:AirConditioner:VariableRefrigerantFlow:FluidTemperatureControl, OS:AirConditioner:VariableRefrigerantFlow:FluidTemperatureControl:HR, OS:AirLoopHVAC, OS:AirLoopHVAC:DedicatedOutdoorAirSystem, OS:AirLoopHVAC:UnitaryHeatCool:VAVChangeoverBypass, OS:AirLoopHVAC:UnitaryHeatPump:AirToAir:MultiSpeed, OS:AirTerminal:DualDuct:ConstantVolume, OS:AirTerminal:DualDuct:VAV, OS:AirTerminal:DualDuct:VAV:OutdoorAir, OS:AirTerminal:SingleDuct:VAV:HeatAndCool:NoReheat, OS:AirTerminal:SingleDuct:VAV:HeatAndCool:Reheat, OS:Coil:Cooling:DX, OS:Coil:Cooling:DX:MultiSpeed, OS:Coil:Cooling:DX:SingleSpeed:ThermalStorage, OS:Coil:Cooling:DX:TwoStageWithHumidityControlMode, OS:Coil:Cooling:DX:VariableRefrigerantFlow, OS:Coil:Cooling:DX:VariableRefrigerantFlow:FluidTemperatureControl, OS:Coil:Heating:DX:VariableRefrigerantFlow, OS:Coil:Heating:DX:VariableRefrigerantFlow:FluidTemperatureControl, OS:Coil:Heating:Electric:MultiStage, OS:Coil:Heating:Gas:MultiStage, OS:Controller:MechanicalVentilation, OS:HeatExchanger:AirToAir:SensibleAndLatent, OS:HeatExchanger:Desiccant:BalancedFlow, OS:ThermalStorage:Ice:Detailed, OS:WaterHeater:HeatPump, OS:ZoneHVAC:Baseboard:Convective:Electric -->
+    
     <message>
         <source>Availability Schedule</source>
         <translation>Cronograma de Disponibilidade</translation>
     </message>
-    <!-- OS:Site:GroundTemperature:Undisturbed:KusudaAchenbach -->
+    
     <message>
         <source>Average Amplitude of Surface Temperature</source>
         <translation>Amplitude Média da Temperatura da Superfície</translation>
     </message>
-    <!-- OS:SwimmingPool:Indoor -->
+    
     <message>
         <source>Average Depth</source>
         <translation>Profundidade Média</translation>
     </message>
-    <!-- OS:Refrigeration:AirChiller, OS:Refrigeration:Case, OS:Refrigeration:WalkIn -->
+    
     <message>
         <source>Average Refrigerant Charge Inventory</source>
         <translation>Inventário Médio de Carga de Refrigerante</translation>
     </message>
-    <!-- OS:Site:GroundTemperature:Undisturbed:KusudaAchenbach, OS:Site:GroundTemperature:Undisturbed:Xing -->
+    
     <message>
         <source>Average Soil Surface Temperature</source>
         <translation>Temperatura Média da Superfície do Solo</translation>
     </message>
-    <!-- OS:Generator:PVWatts -->
+    
     <message>
         <source>Azimuth Angle</source>
         <translation>Ângulo de Azimute</translation>
     </message>
-    <!-- OS:AirflowNetworkSimulationControl -->
+    
     <message>
         <source>Azimuth Angle of Long Axis of Building</source>
         <translation>Ângulo de Azimute do Eixo Longo do Edifício</translation>
     </message>
 
-    <!-- B -->
-    <!-- OS:MaterialProperty:GlazingSpectralData -->
+    
+    
     <message>
         <source>Back Reflectance</source>
         <translation>Refletância Traseira</translation>
     </message>
-    <!-- OS:WindowMaterial:Glazing -->
+    
     <message>
         <source>Back Side Infrared Hemispherical Emissivity</source>
         <translation>Emissividade Hemisférica Infravermelha do Lado Posterior</translation>
     </message>
-    <!-- OS:WindowMaterial:Blind -->
+    
     <message>
         <source>Back Side Slat Beam Solar Reflectance</source>
         <translation>Refletância Solar de Feixe do Lado Traseiro do Lamelo</translation>
     </message>
-    <!-- OS:WindowMaterial:Blind -->
+    
     <message>
         <source>Back Side Slat Beam Visible Reflectance</source>
         <translation>Refletância Visível do Feixe do Lado Traseiro da Lâmina</translation>
     </message>
-    <!-- OS:WindowMaterial:Blind -->
+    
     <message>
         <source>Back Side Slat Diffuse Solar Reflectance</source>
         <translation>Refletância Solar Difusa do Lado Traseiro das Lâminas</translation>
     </message>
-    <!-- OS:WindowMaterial:Blind -->
+    
     <message>
         <source>Back Side Slat Diffuse Visible Reflectance</source>
         <translation>Refletância Visível Difusa do Lado Traseiro da Lâmina</translation>
     </message>
-    <!-- OS:WindowMaterial:Blind -->
+    
     <message>
         <source>Back Side Slat Infrared Hemispherical Emissivity</source>
         <translation>Emissividade Infravermelha Hemisférica do Lado Posterior da Lâmina</translation>
     </message>
-    <!-- OS:WindowMaterial:Glazing -->
+    
     <message>
         <source>Back Side Solar Reflectance at Normal Incidence</source>
         <translation>Refletância Solar no Lado Posterior em Incidência Normal</translation>
     </message>
-    <!-- OS:WindowMaterial:Glazing -->
+    
     <message>
         <source>Back Side Visible Reflectance at Normal Incidence</source>
         <translation>Refletância Visível do Lado Posterior em Incidência Normal</translation>
     </message>
-    <!-- OS:SolarCollectorPerformance:PhotovoltaicThermal:BIPVT -->
+    
     <message>
         <source>Backing Material Normal Transmittance-Absorptance Product</source>
         <translation>Transmitância-Absortância do Produto do Material de Suporte Normal</translation>
     </message>
-    <!-- OS:Fan:ZoneExhaust -->
+    
     <message>
         <source>Balanced Exhaust Fraction Schedule Name</source>
         <translation>Nome da Agenda de Fração de Exaustão Equilibrada</translation>
     </message>
-    <!-- OS:SizingPeriod:DesignDay -->
+    
     <message>
         <source>Barometric Pressure</source>
         <translation>Pressão Barométrica</translation>
     </message>
-    <!-- OS:LifeCycleCost:Parameters -->
+    
     <message>
         <source>Base Date Month</source>
         <translation>Mês da Data Base</translation>
     </message>
-    <!-- OS:LifeCycleCost:Parameters -->
+    
     <message>
         <source>Base Date Year</source>
         <translation>Ano de Data Base</translation>
     </message>
-    <!-- OS:Coil:Cooling:DX:CurveFit:Performance -->
+    
     <message>
         <source>Base Operating Mode</source>
         <translation>Modo de Operação Base</translation>
     </message>
-    <!-- OS:UtilityCost:Ratchet -->
+    
     <message>
         <source>Baseline Source Variable</source>
         <translation>Variável Fonte de Baseline</translation>
     </message>
-    <!-- OS:Coil:Cooling:DX:SingleSpeed:ThermalStorage -->
+    
     <message>
         <source>Basin Heater Availability Schedule</source>
         <translation>Cronograma de Disponibilidade do Aquecedor de Bacia</translation>
     </message>
-    <!-- OS:AirConditioner:VariableRefrigerantFlow, OS:Coil:Cooling:DX:MultiSpeed, OS:Coil:Cooling:DX:TwoStageWithHumidityControlMode, OS:CoolingTower:VariableSpeed -->
+    
     <message>
         <source>Basin Heater Operating Schedule</source>
         <translation>Cronograma de Operação do Aquecedor de Bacia</translation>
     </message>
-    <!-- OS:ElectricLoadCenter:Storage:LiIonNMCBattery -->
+    
     <message>
         <source>Battery Cell Internal Electrical Resistance</source>
         <translation>Resistência Elétrica Interna da Célula da Bateria</translation>
     </message>
-    <!-- OS:ElectricLoadCenter:Storage:LiIonNMCBattery -->
+    
     <message>
         <source>Battery Mass</source>
         <translation>Massa da Bateria</translation>
     </message>
-    <!-- OS:ElectricLoadCenter:Storage:LiIonNMCBattery -->
+    
     <message>
         <source>Battery Specific Heat Capacity</source>
         <translation>Capacidade Térmica Específica da Bateria</translation>
     </message>
-    <!-- OS:ElectricLoadCenter:Storage:LiIonNMCBattery -->
+    
     <message>
         <source>Battery Surface Area</source>
         <translation>Área de Superfície da Bateria</translation>
     </message>
-    <!-- OS:Coil:Cooling:FourPipeBeam -->
+    
     <message>
         <source>Beam Cooling Capacity Air Flow Modification Factor Curve Name</source>
         <translation>Nome da Curva de Fator de Modificação do Fluxo de Ar na Capacidade de Resfriamento do Feixe</translation>
     </message>
-    <!-- OS:Coil:Cooling:FourPipeBeam -->
+    
     <message>
         <source>Beam Cooling Capacity Chilled Water Flow Modification Factor Curve Name</source>
         <translation>Nome da Curva de Fator de Modificação da Vazão de Água Gelada da Capacidade de Resfriamento do Feixe</translation>
     </message>
-    <!-- OS:Coil:Cooling:FourPipeBeam -->
+    
     <message>
         <source>Beam Cooling Capacity Temperature Difference Modification Factor Curve Name</source>
         <translation>Curva do Fator de Modificação da Diferença de Temperatura da Capacidade de Resfriamento do Feixe</translation>
     </message>
-    <!-- OS:Coil:Heating:FourPipeBeam -->
+    
     <message>
         <source>Beam Heating Capacity Air Flow Modification Factor Curve Name</source>
         <translation>Curva de Fator de Modificação do Fluxo de Ar para Capacidade de Aquecimento Beam</translation>
     </message>
-    <!-- OS:Coil:Heating:FourPipeBeam -->
+    
     <message>
         <source>Beam Heating Capacity Hot Water Flow Modification Factor Curve Name</source>
         <translation>Nome da Curva de Fator de Modificação do Fluxo de Água Quente para Capacidade de Aquecimento de Feixe</translation>
     </message>
-    <!-- OS:Coil:Heating:FourPipeBeam -->
+    
     <message>
         <source>Beam Heating Capacity Temperature Difference Modification Factor Curve Name</source>
         <translation>Nome da Curva de Fator de Modificação da Diferença de Temperatura da Capacidade de Aquecimento de Raio</translation>
     </message>
-    <!-- OS:AirTerminal:SingleDuct:ConstantVolume:CooledBeam -->
+    
     <message>
         <source>Beam Length</source>
         <translation>Comprimento da Viga</translation>
     </message>
-    <!-- OS:Coil:Cooling:FourPipeBeam -->
+    
     <message>
         <source>Beam Rated Chilled Water Volume Flow Rate per Beam Length</source>
         <translation>Taxa de Fluxo Volumétrico de Água Gelada Nominal por Comprimento do Raio</translation>
     </message>
-    <!-- OS:Coil:Cooling:FourPipeBeam -->
+    
     <message>
         <source>Beam Rated Cooling Capacity per Beam Length</source>
         <translation>Capacidade de Resfriamento Nominal do Feixe por Comprimento do Feixe</translation>
     </message>
-    <!-- OS:Coil:Cooling:FourPipeBeam -->
+    
     <message>
         <source>Beam Rated Cooling Room Air Chilled Water Temperature Difference</source>
         <translation>Diferença de Temperatura da Água Resfriada do Ar da Sala com Classificação de Resfriamento do Feixe</translation>
     </message>
-    <!-- OS:Coil:Heating:FourPipeBeam -->
+    
     <message>
         <source>Beam Rated Heating Capacity per Beam Length</source>
         <translation>Capacidade de Aquecimento Nominal por Comprimento do Feixe</translation>
     </message>
-    <!-- OS:Coil:Heating:FourPipeBeam -->
+    
     <message>
         <source>Beam Rated Heating Room Air Hot Water Temperature Difference</source>
         <translation>Diferença de Temperatura da Água Quente do Ar da Sala com Classificação de Feixe para Aquecimento</translation>
     </message>
-    <!-- OS:Coil:Heating:FourPipeBeam -->
+    
     <message>
         <source>Beam Rated Hot Water Volume Flow Rate per Beam Length</source>
         <translation>Vazão Volumétrica de Água Quente Nominal por Comprimento do Feixe</translation>
     </message>
-    <!-- OS:SizingPeriod:DesignDay -->
+    
     <message>
         <source>Beam Solar Day Schedule Name</source>
         <translation>Nome da Programação de Dia de Radiação Solar Direta</translation>
     </message>
-    <!-- OS:RunPeriod, OS:SizingPeriod:WeatherFileDays -->
+    
     <message>
         <source>Begin Day of Month</source>
         <translation>Início do Dia do Mês</translation>
     </message>
-    <!-- OS:SizingPeriod:DesignDay -->
+    
     <message>
         <source>Begin Environment Reset Mode</source>
         <translation>Modo de Reinicialização de Ambiente Inicial</translation>
     </message>
-    <!-- OS:RunPeriod, OS:SizingPeriod:WeatherFileDays -->
+    
     <message>
         <source>Begin Month</source>
         <translation>Mês Inicial</translation>
     </message>
-    <!-- OS:Fan:ComponentModel -->
+    
     <message>
         <source>Belt Fractional Torque Transition</source>
         <translation>Transição de Torque Fracionário da Correia</translation>
     </message>
-    <!-- OS:Fan:ComponentModel -->
+    
     <message>
         <source>Belt Maximum Torque</source>
         <translation>Torque Máximo da Correia</translation>
     </message>
-    <!-- OS:Fan:ComponentModel -->
+    
     <message>
         <source>Belt Sizing Factor</source>
         <translation>Fator de Dimensionamento da Correia</translation>
     </message>
-    <!-- OS:UtilityBill -->
+    
     <message>
         <source>Billing Period Begin Day of Month</source>
         <translation>Dia de Início do Período de Faturamento do Mês</translation>
     </message>
-    <!-- OS:UtilityBill -->
+    
     <message>
         <source>Billing Period Begin Month</source>
         <translation>Mês de Início do Período de Faturamento</translation>
     </message>
-    <!-- OS:UtilityBill -->
+    
     <message>
         <source>Billing Period Begin Year</source>
         <translation>Ano de Início do Período de Faturamento</translation>
     </message>
-    <!-- OS:UtilityBill -->
+    
     <message>
         <source>Billing Period Consumption</source>
         <translation>Consumo do Período de Faturamento</translation>
     </message>
-    <!-- OS:UtilityBill -->
+    
     <message>
         <source>Billing Period Peak Demand</source>
         <translation>Demanda de Pico do Período de Faturamento</translation>
     </message>
-    <!-- OS:UtilityBill -->
+    
     <message>
         <source>Billing Period Total Cost</source>
         <translation>Custo Total do Período de Faturamento</translation>
     </message>
-    <!-- OS:Generator:WindTurbine -->
+    
     <message>
         <source>Blade Chord Area</source>
         <translation>Área de Corda da Pá</translation>
     </message>
-    <!-- OS:Generator:WindTurbine -->
+    
     <message>
         <source>Blade Drag Coefficient</source>
         <translation>Coeficiente de Arrasto da Pá</translation>
     </message>
-    <!-- OS:Generator:WindTurbine -->
+    
     <message>
         <source>Blade Lift Coefficient</source>
         <translation>Coeficiente de Sustentação da Pá</translation>
     </message>
-    <!-- OS:WindowMaterial:Blind -->
+    
     <message>
         <source>Blind Bottom Opening Multiplier</source>
         <translation>Multiplicador de Abertura Inferior da Persiana</translation>
     </message>
-    <!-- OS:WindowMaterial:Blind -->
+    
     <message>
         <source>Blind Left Side Opening Multiplier</source>
         <translation>Multiplicador de Abertura do Lado Esquerdo da Persiana</translation>
     </message>
-    <!-- OS:WindowMaterial:Blind -->
+    
     <message>
         <source>Blind Right Side Opening Multiplier</source>
         <translation>Multiplicador de Abertura do Lado Direito da Persiana</translation>
     </message>
-    <!-- OS:WindowMaterial:Blind -->
+    
     <message>
         <source>Blind to Glass Distance</source>
         <translation>Distância da Persiana ao Vidro</translation>
     </message>
-    <!-- OS:WindowMaterial:Blind -->
+    
     <message>
         <source>Blind Top Opening Multiplier</source>
         <translation>Multiplicador de Abertura Superior da Persiana</translation>
     </message>
-    <!-- OS:UtilityCost:Charge:Block -->
+    
     <message>
         <source>Block Cost per Unit Value or Variable Name</source>
         <translation>Valor de Custo do Bloco por Unidade ou Nome da Variável</translation>
     </message>
-    <!-- OS:UtilityCost:Charge:Block -->
+    
     <message>
         <source>Block Size Multiplier Value or Variable Name</source>
         <translation>Valor do Multiplicador de Tamanho de Bloco ou Nome de Variável</translation>
     </message>
-    <!-- OS:UtilityCost:Charge:Block -->
+    
     <message>
         <source>Block Size Value or Variable Name</source>
         <translation>Valor ou Nome de Variável do Tamanho do Bloco</translation>
     </message>
-    <!-- OS:CoolingTower:SingleSpeed, OS:CoolingTower:TwoSpeed, OS:CoolingTower:VariableSpeed, OS:EvaporativeFluidCooler:SingleSpeed, OS:EvaporativeFluidCooler:TwoSpeed -->
+    
     <message>
         <source>Blowdown Calculation Mode</source>
         <translation>Modo de Cálculo de Purga</translation>
     </message>
-    <!-- OS:CoolingTower:VariableSpeed -->
+    
     <message>
         <source>Blowdown Makeup Water Usage Schedule</source>
         <translation>Agenda de Uso de Água de Reposição por Sangria</translation>
     </message>
-    <!-- OS:CoolingTower:SingleSpeed, OS:CoolingTower:TwoSpeed, OS:EvaporativeFluidCooler:SingleSpeed, OS:EvaporativeFluidCooler:TwoSpeed -->
+    
     <message>
         <source>Blowdown Makeup Water Usage Schedule Name</source>
         <translation>Nome do Cronograma de Uso de Água de Reposição por Purga</translation>
     </message>
-    <!-- OS:Generator:FuelCell:AirSupply -->
+    
     <message>
         <source>Blower Heat Loss Factor</source>
         <translation>Fator de Perda de Calor do Ventilador</translation>
     </message>
-    <!-- OS:Generator:FuelCell:AirSupply -->
+    
     <message>
         <source>Blower Power Curve Name</source>
         <translation>Nome da Curva de Potência do Ventilador</translation>
     </message>
-    <!-- OS:Boiler:HotWater -->
+    
     <message>
         <source>Boiler Water Inlet Node Name</source>
         <translation>Nome do Nó de Entrada de Água da Caldeira</translation>
     </message>
-    <!-- OS:Boiler:HotWater -->
+    
     <message>
         <source>Boiler Water Outlet Node Name</source>
         <translation>Nome do Nó de Saída de Água da Caldeira</translation>
     </message>
-    <!-- OS:HeatPump:AirToWater:Cooling, OS:HeatPump:AirToWater:Heating -->
+    
     <message>
         <source>Booster Mode On Speed</source>
         <translation>Velocidade do Modo Reforço Ativado</translation>
     </message>
-    <!-- OS:GroundHeatExchanger:Vertical -->
+    
     <message>
         <source>Bore Hole Length</source>
         <translation>Comprimento do Poço</translation>
     </message>
-    <!-- OS:GroundHeatExchanger:Vertical -->
+    
     <message>
         <source>Bore Hole Radius</source>
         <translation>Raio do Poço</translation>
     </message>
-    <!-- OS:GroundHeatExchanger:Vertical -->
+    
     <message>
         <source>Bore Hole Top Depth</source>
         <translation>Profundidade do Topo do Poço</translation>
     </message>
-    <!-- OS:SolarCollectorPerformance:IntegralCollectorStorage -->
+    
     <message>
         <source>Bottom Heat Loss Conductance</source>
         <translation>Condutância de Perda de Calor no Fundo</translation>
     </message>
-    <!-- OS:WindowMaterial:Screen, OS:WindowMaterial:Shade -->
+    
     <message>
         <source>Bottom Opening Multiplier</source>
         <translation>Multiplicador de Abertura Inferior</translation>
     </message>
-    <!-- OS:SolarCollector:IntegralCollectorStorage -->
+    
     <message>
         <source>Bottom Surface Boundary Conditions Type</source>
         <translation>Tipo de Condições de Contorno da Superfície Inferior</translation>
     </message>
-    <!-- OS:SolarCollector:IntegralCollectorStorage -->
+    
     <message>
         <source>Boundary Condition Model Name</source>
         <translation>Nome do Modelo de Condição de Contorno</translation>
     </message>
-    <!-- OS:SolarCollectorPerformance:PhotovoltaicThermal:BIPVT -->
+    
     <message>
         <source>Boundary Conditions Model Name</source>
         <translation>Nome do Modelo de Condições de Contorno</translation>
     </message>
-    <!-- OS:AirLoopHVAC -->
+    
     <message>
         <source>Branch List Name</source>
         <translation>Nome da Lista de Ramificações</translation>
     </message>
-    <!-- OS:Building -->
+    
     <message>
         <source>Building Sector Type</source>
         <translation>Tipo de Setor Predial</translation>
     </message>
-    <!-- OS:DefaultConstructionSet -->
+    
     <message>
         <source>Building Shading Construction Name</source>
         <translation>Nome da Construção de Sombreamento do Edifício</translation>
     </message>
-    <!-- OS:Space -->
+    
     <message>
         <source>Building Story Name</source>
         <translation>Nome do Pavimento do Edifício</translation>
     </message>
-    <!-- OS:AirflowNetworkSimulationControl -->
+    
     <message>
         <source>Building Type</source>
         <translation>Tipo de Edifício</translation>
     </message>
-    <!-- OS:Space -->
+    
     <message>
         <source>Building Unit Name</source>
         <translation>Nome da Unidade do Edifício</translation>
     </message>
-    <!-- OS:BuildingUnit -->
+    
     <message>
         <source>Building Unit Type</source>
         <translation>Tipo de Unidade de Edifício</translation>
     </message>
-    <!-- OS:GroundHeatExchanger:HorizontalTrench -->
+    
     <message>
         <source>Burial Depth</source>
         <translation>Profundidade de Enterramento</translation>
     </message>
-    <!-- OS:UtilityCost:Tariff -->
+    
     <message>
         <source>Buy Or Sell</source>
         <translation>Comprar ou Vender</translation>
     </message>
-    <!-- OS:AirLoopHVAC:UnitaryHeatCool:VAVChangeoverBypass -->
+    
     <message>
         <source>Bypass Duct Mixer Node</source>
         <translation>Nó Misturador de Duto de Bypass</translation>
     </message>
-    <!-- OS:AirLoopHVAC:UnitaryHeatCool:VAVChangeoverBypass -->
+    
     <message>
         <source>Bypass Duct Splitter Node</source>
         <translation>Nó Divisor de Duto de Bypass</translation>
     </message>
 
-    <!-- C -->
-    <!-- OS:Construction:CfactorUndergroundWall -->
+    
+    
     <message>
         <source>C-Factor</source>
         <translation>C-Factor</translation>
     </message>
-    <!-- OS:Site:WaterMainsTemperature -->
+    
     <message>
         <source>Calculation Method</source>
         <translation>Método de Cálculo</translation>
     </message>
-    <!-- OS:WeatherProperty:SkyTemperature -->
+    
     <message>
         <source>Calculation Type</source>
         <translation>Tipo de Cálculo</translation>
     </message>
-    <!-- OS:YearDescription -->
+    
     <message>
         <source>Calendar Year</source>
         <translation>Ano Calendário</translation>
     </message>
-    <!-- OS:ThermalStorage:Ice:Detailed -->
+    
     <message>
         <source>Capacity</source>
         <translation>Capacidade</translation>
     </message>
-    <!-- OS:CoolingTower:SingleSpeed, OS:EvaporativeFluidCooler:SingleSpeed -->
+    
     <message>
         <source>Capacity Control</source>
         <translation>Controle de Capacidade</translation>
     </message>
-    <!-- OS:Coil:Cooling:DX:CurveFit:Performance, OS:ZoneHVAC:FourPipeFanCoil -->
+    
     <message>
         <source>Capacity Control Method</source>
         <translation>Método de Controle de Capacidade</translation>
     </message>
-    <!-- OS:Refrigeration:AirChiller -->
+    
     <message>
         <source>Capacity Correction Curve Name</source>
         <translation>Nome da Curva de Correção de Capacidade</translation>
     </message>
-    <!-- OS:Refrigeration:AirChiller -->
+    
     <message>
         <source>Capacity Correction Curve Type</source>
         <translation>Tipo de Curva de Correção de Capacidade</translation>
     </message>
-    <!-- OS:Chiller:Absorption:Indirect -->
+    
     <message>
         <source>Capacity Correction Function of Chilled Water Temperature Curve</source>
         <translation>Curva da Função de Correção de Capacidade em Função da Temperatura da Água Gelada</translation>
     </message>
-    <!-- OS:Chiller:Absorption:Indirect -->
+    
     <message>
         <source>Capacity Correction Function of Condenser Temperature Curve</source>
         <translation>Curva de Função de Correção de Capacidade em Função da Temperatura do Condensador</translation>
     </message>
-    <!-- OS:Chiller:Absorption:Indirect -->
+    
     <message>
         <source>Capacity Correction Function of Generator Temperature Curve</source>
         <translation>Função de Correção de Capacidade da Curva de Temperatura do Gerador</translation>
     </message>
-    <!-- OS:DistrictCooling, OS:DistrictHeating:Steam, OS:DistrictHeating:Water -->
+    
     <message>
         <source>Capacity Fraction Schedule</source>
         <translation>Cronograma de Fração de Capacidade</translation>
     </message>
-    <!-- OS:HeatPump:PlantLoop:EIR:Cooling, OS:HeatPump:PlantLoop:EIR:Heating -->
+    
     <message>
         <source>Capacity Modifier Function of Temperature Curve Name</source>
         <translation>Nome da Curva de Função Modificadora de Capacidade em Relação à Temperatura</translation>
     </message>
-    <!-- OS:Refrigeration:AirChiller -->
+    
     <message>
         <source>Capacity Rating Type</source>
         <translation>Tipo de Classificação de Capacidade</translation>
     </message>
-    <!-- OS:Refrigeration:Subcooler:Mechanical -->
+    
     <message>
         <source>Capacity-Providing System</source>
         <translation>Sistema Provedor de Capacidade</translation>
     </message>
-    <!-- OS:ZoneCapacitanceMultiplier:ResearchSpecial -->
+    
     <message>
         <source>Carbon Dioxide Capacity Multiplier</source>
         <translation>Multiplicador de Capacidade de Dióxido de Carbono</translation>
     </message>
-    <!-- OS:ZoneAirContaminantBalance -->
+    
     <message>
         <source>Carbon Dioxide Concentration</source>
         <translation>Concentração de Dióxido de Carbono</translation>
     </message>
-    <!-- OS:ZoneControl:ContaminantController -->
+    
     <message>
         <source>Carbon Dioxide Control Availability Schedule Name</source>
         <translation>Nome do Cronograma de Disponibilidade de Controle de Dióxido de Carbono</translation>
     </message>
-    <!-- OS:ZoneControl:ContaminantController -->
+    
     <message>
         <source>Carbon Dioxide Setpoint Schedule Name</source>
         <translation>Nome da Agenda de Setpoint de Dióxido de Carbono</translation>
     </message>
-    <!-- OS:Refrigeration:Case -->
+    
     <message>
         <source>Case Anti-Sweat Heater Power per Door</source>
         <translation>Potência do Aquecedor Antiembaçante por Porta</translation>
     </message>
-    <!-- OS:Refrigeration:Case -->
+    
     <message>
         <source>Case Anti-Sweat Heater Power per Unit Length</source>
         <translation>Potência do Aquecedor Anti-Suor do Caso por Unidade de Comprimento</translation>
     </message>
-    <!-- OS:Refrigeration:Case -->
+    
     <message>
         <source>Case Credit Fraction Schedule Name</source>
         <translation>Nome do Agendamento da Fração de Crédito do Gabinete</translation>
     </message>
-    <!-- OS:Refrigeration:Case -->
+    
     <message>
         <source>Case Defrost Cycle Parameters Name</source>
         <translation>Parâmetros do Ciclo de Degelo do Caso - Nome</translation>
     </message>
-    <!-- OS:Refrigeration:Case -->
+    
     <message>
         <source>Case Defrost Drip-Down Schedule Name</source>
         <translation>Nome do Agendamento de Degelo do Caso com Escoamento</translation>
     </message>
-    <!-- OS:Refrigeration:Case -->
+    
     <message>
         <source>Case Defrost Power per Door</source>
         <translation>Potência de Descongelamento por Porta do Gabinete</translation>
     </message>
-    <!-- OS:Refrigeration:Case -->
+    
     <message>
         <source>Case Defrost Power per Unit Length</source>
         <translation>Potência de Descongelamento do Caso por Unidade de Comprimento</translation>
     </message>
-    <!-- OS:Refrigeration:Case -->
+    
     <message>
         <source>Case Defrost Schedule Name</source>
         <translation>Nome da Agenda de Degelo do Gabinete</translation>
     </message>
-    <!-- OS:Refrigeration:Case -->
+    
     <message>
         <source>Case Defrost Type</source>
         <translation>Tipo de Descongelamento da Caixa</translation>
     </message>
-    <!-- OS:Refrigeration:Case -->
+    
     <message>
         <source>Case Height</source>
         <translation>Altura do Gabinete</translation>
     </message>
-    <!-- OS:Refrigeration:Case -->
+    
     <message>
         <source>Case Length</source>
         <translation>Comprimento do Invólucro</translation>
     </message>
-    <!-- OS:Refrigeration:Case -->
+    
     <message>
         <source>Case Lighting Schedule Name</source>
         <translation>Nome do Cronograma de Iluminação da Vitrine</translation>
     </message>
-    <!-- OS:Refrigeration:Case -->
+    
     <message>
         <source>Case Operating Temperature</source>
         <translation>Temperatura de Operação do Gabinete</translation>
     </message>
-    <!-- OS:LifeCycleCost -->
+    
     <message>
         <source>Category</source>
         <translation>Categoria</translation>
     </message>
-    <!-- OS:UtilityCost:Charge:Block, OS:UtilityCost:Charge:Simple -->
+    
     <message>
         <source>Category Variable Name</source>
         <translation>Nome da Variável de Categoria</translation>
     </message>
-    <!-- OS:Space, OS:ThermalZone -->
+    
     <message>
         <source>Ceiling Height</source>
         <translation>Altura do Pé-Direito</translation>
     </message>
-    <!-- OS:CoolingTower:SingleSpeed, OS:CoolingTower:TwoSpeed, OS:CoolingTower:VariableSpeed -->
+    
     <message>
         <source>Cell Minimum  Water Flow Rate Fraction</source>
         <translation>Fração Mínima da Vazão de Água da Célula</translation>
     </message>
-    <!-- OS:PhotovoltaicPerformance:EquivalentOneDiode -->
+    
     <message>
         <source>Cell type</source>
         <translation>Tipo de célula</translation>
     </message>
-    <!-- OS:ElectricLoadCenter:Storage:LiIonNMCBattery -->
+    
     <message>
         <source>Cell Voltage at End of Exponential Zone</source>
         <translation>Tensão da Célula ao Final da Zona Exponencial</translation>
     </message>
-    <!-- OS:ElectricLoadCenter:Storage:LiIonNMCBattery -->
+    
     <message>
         <source>Cell Voltage at End of Nominal Zone</source>
         <translation>Tensão da Célula no Final da Zona Nominal</translation>
     </message>
-    <!-- OS:Sizing:System -->
+    
     <message>
         <source>Central Cooling Capacity Control Method</source>
         <translation>Método de Controle de Capacidade do Resfriamento Central</translation>
     </message>
-    <!-- OS:FuelFactors -->
+    
     <message>
         <source>CH4 Emission Factor</source>
         <translation>Fator de Emissão de CH4</translation>
     </message>
-    <!-- OS:FuelFactors -->
+    
     <message>
         <source>CH4 Emission Factor Schedule Name</source>
         <translation>Nome do Calendário do Fator de Emissão de CH4</translation>
     </message>
-    <!-- OS:ZoneHVAC:LowTemperatureRadiant:ConstantFlow, OS:ZoneHVAC:LowTemperatureRadiant:VariableFlow -->
+    
     <message>
         <source>Changeover Delay Time Period Schedule</source>
         <translation>Cronograma do Período de Atraso na Mudança</translation>
     </message>
-    <!-- OS:Coil:Cooling:DX:SingleSpeed:ThermalStorage -->
+    
     <message>
         <source>Charge Only Mode Available</source>
         <translation>Modo Somente Carregamento Disponível</translation>
     </message>
-    <!-- OS:Coil:Cooling:DX:SingleSpeed:ThermalStorage -->
+    
     <message>
         <source>Charge Only Mode Capacity Sizing Factor</source>
         <translation>Fator de Dimensionamento de Capacidade do Modo Somente Carregamento</translation>
     </message>
-    <!-- OS:Coil:Cooling:DX:SingleSpeed:ThermalStorage -->
+    
     <message>
         <source>Charge Only Mode Charging Rated COP</source>
         <translation>COP de Carregamento Classificado do Modo Somente Carregamento</translation>
     </message>
-    <!-- OS:Coil:Cooling:DX:SingleSpeed:ThermalStorage -->
+    
     <message>
         <source>Charge Only Mode Rated Storage Charging Capacity</source>
         <translation>Capacidade de Carga de Armazenamento Nominal do Modo Apenas Carga</translation>
     </message>
-    <!-- OS:Coil:Cooling:DX:SingleSpeed:ThermalStorage -->
+    
     <message>
         <source>Charge Only Mode Storage Charge Capacity Function of Temperature Curve</source>
         <translation>Função de Capacidade de Carga em Modo Somente Carga - Curva de Temperatura</translation>
     </message>
-    <!-- OS:Coil:Cooling:DX:SingleSpeed:ThermalStorage -->
+    
     <message>
         <source>Charge Only Mode Storage Energy Input Ratio Function of Temperature Curve</source>
         <translation>Razão de Entrada de Energia de Armazenamento em Modo Somente Carregamento em Função da Curva de Temperatura</translation>
     </message>
-    <!-- OS:ElectricLoadCenter:Storage:LiIonNMCBattery -->
+    
     <message>
         <source>Charge Rate at Which Voltage vs Capacity Curve Was Generated</source>
         <translation>Taxa de Carga em Que a Curva Tensão vs Capacidade Foi Gerada</translation>
     </message>
-    <!-- OS:ThermalStorage:Ice:Detailed -->
+    
     <message>
         <source>Charging Curve</source>
         <translation>Curva de Carregamento</translation>
     </message>
-    <!-- OS:ThermalStorage:Ice:Detailed -->
+    
     <message>
         <source>Charging Curve Variable Specifications</source>
         <translation>Especificações de Variáveis da Curva de Carregamento</translation>
     </message>
-    <!-- OS:WeatherFile -->
+    
     <message>
         <source>Checksum</source>
         <translation>Soma de verificação</translation>
     </message>
-    <!-- OS:ChillerHeaterPerformance:Electric:EIR -->
+    
     <message>
         <source>Chilled Water Flow Mode Type</source>
         <translation>Tipo de Modo de Fluxo de Água Gelada</translation>
     </message>
-    <!-- OS:Chiller:Absorption, OS:Chiller:Absorption:Indirect, OS:Chiller:Electric:ASHRAE205, OS:Chiller:Electric:EIR, OS:Chiller:Electric:ReformulatedEIR, OS:Coil:Cooling:CooledBeam, OS:Coil:Cooling:FourPipeBeam, OS:DistrictCooling, OS:HeatPump:AirToWater:Cooling -->
+    
     <message>
         <source>Chilled Water Inlet Node Name</source>
         <translation>Nome do Nó de Entrada de Água Gelada</translation>
     </message>
-    <!-- OS:Chiller:Electric:ASHRAE205 -->
+    
     <message>
         <source>Chilled Water Maximum Requested Flow Rate</source>
         <translation>Taxa de Fluxo Máxima Solicitada de Água Gelada</translation>
     </message>
-    <!-- OS:Chiller:Absorption, OS:Chiller:Absorption:Indirect, OS:Chiller:Electric:ASHRAE205, OS:Chiller:Electric:EIR, OS:Chiller:Electric:ReformulatedEIR, OS:Coil:Cooling:CooledBeam, OS:Coil:Cooling:FourPipeBeam, OS:DistrictCooling, OS:HeatPump:AirToWater:Cooling -->
+    
     <message>
         <source>Chilled Water Outlet Node Name</source>
         <translation>Nome do Nó de Saída de Água Gelada</translation>
     </message>
-    <!-- OS:Chiller:Absorption, OS:Chiller:Absorption:Indirect -->
+    
     <message>
         <source>Chilled Water Outlet Temperature Lower Limit</source>
         <translation>Limite Inferior de Temperatura de Saída de Água Gelada</translation>
     </message>
-    <!-- OS:CentralHeatPumpSystem -->
+    
     <message>
         <source>Chiller Heater Module List Name</source>
         <translation>Nome da Lista de Módulo Chiller Heater</translation>
     </message>
-    <!-- OS:CentralHeatPumpSystem:Module -->
+    
     <message>
         <source>Chiller Heater Modules Control Schedule Name</source>
         <translation>Nome da Agenda de Controle dos Módulos do Resfriador-Aquecedor</translation>
     </message>
-    <!-- OS:CentralHeatPumpSystem:Module -->
+    
     <message>
         <source>Chiller Heater Modules Performance Component Name</source>
         <translation>Nome do Componente de Desempenho dos Módulos Chiller Heater</translation>
     </message>
-    <!-- OS:Generator:FuelCell:ElectricalStorage -->
+    
     <message>
         <source>Choice of Model</source>
         <translation>Escolha do Modelo</translation>
     </message>
-    <!-- OS:LightingDesignDay -->
+    
     <message>
         <source>CIE Sky Model</source>
         <translation>Modelo de Céu CIE</translation>
     </message>
-    <!-- OS:ZoneHVAC:LowTemperatureRadiant:ConstantFlow, OS:ZoneHVAC:LowTemperatureRadiant:VariableFlow -->
+    
     <message>
         <source>Circuit Length</source>
         <translation>Comprimento do Circuito</translation>
     </message>
-    <!-- OS:Refrigeration:SecondarySystem -->
+    
     <message>
         <source>Circulating Fluid Name</source>
         <translation>Nome do Fluido de Circulação</translation>
     </message>
-    <!-- OS:WeatherFile -->
+    
     <message>
         <source>City</source>
         <translation>Cidade</translation>
     </message>
-    <!-- OS:SolarCollectorPerformance:PhotovoltaicThermal:BIPVT -->
+    
     <message>
         <source>Cladding Normal Transmittance-Absorptance Product</source>
         <translation>Produto Transmitância-Absortância Normal do Revestimento</translation>
     </message>
-    <!-- OS:ClimateZones -->
+    
     <message>
         <source>Climate Zone Document Name</source>
         <translation>Nome do Documento da Zona Climática</translation>
     </message>
-    <!-- OS:ClimateZones -->
+    
     <message>
         <source>Climate Zone Document Year</source>
         <translation>Ano do Documento da Zona Climática</translation>
     </message>
-    <!-- OS:ClimateZones -->
+    
     <message>
         <source>Climate Zone Institution Name</source>
         <translation>Nome da Instituição da Zona Climática</translation>
     </message>
-    <!-- OS:ClimateZones -->
+    
     <message>
         <source>Climate Zone Value</source>
         <translation>Valor da Zona Climática</translation>
     </message>
-    <!-- OS:AirflowNetworkOccupantVentilationControl -->
+    
     <message>
         <source>Closing Probability Schedule Name</source>
         <translation>Nome da Agenda de Probabilidade de Fechamento</translation>
     </message>
-    <!-- OS:FuelFactors -->
+    
     <message>
         <source>CO Emission Factor</source>
         <translation>Fator de Emissão de CO</translation>
     </message>
-    <!-- OS:FuelFactors -->
+    
     <message>
         <source>CO Emission Factor Schedule Name</source>
         <translation>Nome do Cronograma do Fator de Emissão de CO</translation>
     </message>
-    <!-- OS:FuelFactors -->
+    
     <message>
         <source>CO2 Emission Factor</source>
         <translation>Fator de Emissão de CO2</translation>
     </message>
-    <!-- OS:FuelFactors -->
+    
     <message>
         <source>CO2 Emission Factor Schedule Name</source>
         <translation>Nome da Agenda do Fator de Emissão de CO2</translation>
     </message>
-    <!-- OS:LifeCycleCost:Parameters -->
+    
     <message>
         <source>Coal Inflation</source>
         <translation>Inflação de Carvão</translation>
     </message>
-    <!-- OS:MaterialProperty:MoisturePenetrationDepth:Settings -->
+    
     <message>
         <source>Coating Layer Thickness</source>
         <translation>Espessura da Camada de Revestimento</translation>
     </message>
-    <!-- OS:MaterialProperty:MoisturePenetrationDepth:Settings -->
+    
     <message>
         <source>Coating Layer Water Vapor Diffusion Resistance Factor</source>
         <translation>Fator de Resistência à Difusão de Vapor de Água da Camada de Revestimento</translation>
     </message>
-    <!-- OS:CoolingTowerPerformance:CoolTools, OS:CoolingTowerPerformance:YorkCalc -->
+    
     <message>
         <source>Coefficient 1</source>
         <translation>Coeficiente 1</translation>
     </message>
-    <!-- OS:SolarCollectorPerformance:FlatPlate -->
+    
     <message>
         <source>Coefficient 1 of Efficiency Equation</source>
         <translation>Coeficiente 1 da Equação de Eficiência</translation>
     </message>
-    <!-- OS:Boiler:Steam -->
+    
     <message>
         <source>Coefficient 1 of Fuel Use Function of Part Load Ratio Curve</source>
         <translation>Coeficiente 1 da Função de Uso de Combustível da Curva de Taxa de Carga Parcial</translation>
     </message>
-    <!-- OS:Chiller:Absorption -->
+    
     <message>
         <source>Coefficient 1 of the Hot Water or Steam Use Part Load Ratio Curve</source>
         <translation>Coeficiente 1 da Curva de Taxa de Carga Parcial de Uso de Água Quente ou Vapor</translation>
     </message>
-    <!-- OS:Chiller:Absorption -->
+    
     <message>
         <source>Coefficient 1 of the Pump Electric Use Part Load Ratio Curve</source>
         <translation>Coeficiente 1 da Curva de Razão de Carga Parcial do Uso Elétrico da Bomba</translation>
     </message>
-    <!-- OS:CoolingTowerPerformance:CoolTools, OS:CoolingTowerPerformance:YorkCalc -->
+    
     <message>
         <source>Coefficient 10</source>
         <translation>Coeficiente 10</translation>
     </message>
-    <!-- OS:CoolingTowerPerformance:CoolTools, OS:CoolingTowerPerformance:YorkCalc -->
+    
     <message>
         <source>Coefficient 11</source>
         <translation>Coeficiente 11</translation>
     </message>
-    <!-- OS:CoolingTowerPerformance:CoolTools, OS:CoolingTowerPerformance:YorkCalc -->
+    
     <message>
         <source>Coefficient 12</source>
         <translation>Coeficiente 12</translation>
     </message>
-    <!-- OS:CoolingTowerPerformance:CoolTools, OS:CoolingTowerPerformance:YorkCalc -->
+    
     <message>
         <source>Coefficient 13</source>
         <translation>Coeficiente 13</translation>
     </message>
-    <!-- OS:CoolingTowerPerformance:CoolTools, OS:CoolingTowerPerformance:YorkCalc -->
+    
     <message>
         <source>Coefficient 14</source>
         <translation>Coeficiente 14</translation>
     </message>
-    <!-- OS:CoolingTowerPerformance:CoolTools, OS:CoolingTowerPerformance:YorkCalc -->
+    
     <message>
         <source>Coefficient 15</source>
         <translation>Coeficiente 15</translation>
     </message>
-    <!-- OS:CoolingTowerPerformance:CoolTools, OS:CoolingTowerPerformance:YorkCalc -->
+    
     <message>
         <source>Coefficient 16</source>
         <translation>Coeficiente 16</translation>
     </message>
-    <!-- OS:CoolingTowerPerformance:CoolTools, OS:CoolingTowerPerformance:YorkCalc -->
+    
     <message>
         <source>Coefficient 17</source>
         <translation>Coeficiente 17</translation>
     </message>
-    <!-- OS:CoolingTowerPerformance:CoolTools, OS:CoolingTowerPerformance:YorkCalc -->
+    
     <message>
         <source>Coefficient 18</source>
         <translation>Coeficiente 18</translation>
     </message>
-    <!-- OS:CoolingTowerPerformance:CoolTools, OS:CoolingTowerPerformance:YorkCalc -->
+    
     <message>
         <source>Coefficient 19</source>
         <translation>Coeficiente 19</translation>
     </message>
-    <!-- OS:CoolingTowerPerformance:CoolTools, OS:CoolingTowerPerformance:YorkCalc -->
+    
     <message>
         <source>Coefficient 2</source>
         <translation>Coeficiente 2</translation>
     </message>
-    <!-- OS:SolarCollectorPerformance:FlatPlate -->
+    
     <message>
         <source>Coefficient 2 of Efficiency Equation</source>
         <translation>Coeficiente 2 da Equação de Eficiência</translation>
     </message>
-    <!-- OS:Boiler:Steam -->
+    
     <message>
         <source>Coefficient 2 of Fuel Use Function of Part Load Ratio Curve</source>
         <translation>Coeficiente 2 da Função de Uso de Combustível da Curva de Taxa de Carga Parcial</translation>
     </message>
-    <!-- OS:SolarCollectorPerformance:FlatPlate -->
+    
     <message>
         <source>Coefficient 2 of Incident Angle Modifier</source>
         <translation>Coeficiente 2 do Modificador de Ângulo de Incidência</translation>
     </message>
-    <!-- OS:Chiller:Absorption -->
+    
     <message>
         <source>Coefficient 2 of the Hot Water or Steam Use Part Load Ratio Curve</source>
         <translation>Coeficiente 2 da Curva de Razão de Carga Parcial de Água Quente ou Vapor</translation>
     </message>
-    <!-- OS:Chiller:Absorption -->
+    
     <message>
         <source>Coefficient 2 of the Pump Electric Use Part Load Ratio Curve</source>
         <translation>Coeficiente 2 da Curva de Taxa de Carga Parcial do Uso Elétrico da Bomba</translation>
     </message>
-    <!-- OS:CoolingTowerPerformance:CoolTools, OS:CoolingTowerPerformance:YorkCalc -->
+    
     <message>
         <source>Coefficient 20</source>
         <translation>Coeficiente 20</translation>
     </message>
-    <!-- OS:CoolingTowerPerformance:CoolTools, OS:CoolingTowerPerformance:YorkCalc -->
+    
     <message>
         <source>Coefficient 21</source>
         <translation>Coeficiente 21</translation>
     </message>
-    <!-- OS:CoolingTowerPerformance:CoolTools, OS:CoolingTowerPerformance:YorkCalc -->
+    
     <message>
         <source>Coefficient 22</source>
         <translation>Coeficiente 22</translation>
     </message>
-    <!-- OS:CoolingTowerPerformance:CoolTools, OS:CoolingTowerPerformance:YorkCalc -->
+    
     <message>
         <source>Coefficient 23</source>
         <translation>Coeficiente 23</translation>
     </message>
-    <!-- OS:CoolingTowerPerformance:CoolTools, OS:CoolingTowerPerformance:YorkCalc -->
+    
     <message>
         <source>Coefficient 24</source>
         <translation>Coeficiente 24</translation>
     </message>
-    <!-- OS:CoolingTowerPerformance:CoolTools, OS:CoolingTowerPerformance:YorkCalc -->
+    
     <message>
         <source>Coefficient 25</source>
         <translation>Coeficiente 25</translation>
     </message>
-    <!-- OS:CoolingTowerPerformance:CoolTools, OS:CoolingTowerPerformance:YorkCalc -->
+    
     <message>
         <source>Coefficient 26</source>
         <translation>Coeficiente 26</translation>
     </message>
-    <!-- OS:CoolingTowerPerformance:CoolTools, OS:CoolingTowerPerformance:YorkCalc -->
+    
     <message>
         <source>Coefficient 27</source>
         <translation>Coeficiente 27</translation>
     </message>
-    <!-- OS:CoolingTowerPerformance:CoolTools -->
+    
     <message>
         <source>Coefficient 28</source>
         <translation>Coeficiente 28</translation>
     </message>
-    <!-- OS:CoolingTowerPerformance:CoolTools -->
+    
     <message>
         <source>Coefficient 29</source>
         <translation>Coeficiente 29</translation>
     </message>
-    <!-- OS:CoolingTowerPerformance:CoolTools, OS:CoolingTowerPerformance:YorkCalc -->
+    
     <message>
         <source>Coefficient 3</source>
         <translation>Coeficiente 3</translation>
     </message>
-    <!-- OS:SolarCollectorPerformance:FlatPlate -->
+    
     <message>
         <source>Coefficient 3 of Efficiency Equation</source>
         <translation>Coeficiente 3 da Equação de Eficiência</translation>
     </message>
-    <!-- OS:Boiler:Steam -->
+    
     <message>
         <source>Coefficient 3 of Fuel Use Function of Part Load Ratio Curve</source>
         <translation>Coeficiente 3 da Função de Uso de Combustível da Curva de Razão de Carga Parcial</translation>
     </message>
-    <!-- OS:SolarCollectorPerformance:FlatPlate -->
+    
     <message>
         <source>Coefficient 3 of Incident Angle Modifier</source>
         <translation>Coeficiente 3 do Modificador de Ângulo de Incidência</translation>
     </message>
-    <!-- OS:Chiller:Absorption -->
+    
     <message>
         <source>Coefficient 3 of the Hot Water or Steam Use Part Load Ratio Curve</source>
         <translation>Coeficiente 3 da Curva de Razão de Carga Parcial do Uso de Água Quente ou Vapor</translation>
     </message>
-    <!-- OS:Chiller:Absorption -->
+    
     <message>
         <source>Coefficient 3 of the Pump Electric Use Part Load Ratio Curve</source>
         <translation>Coeficiente 3 da Curva de Taxa de Carga Parcial de Uso Elétrico da Bomba</translation>
     </message>
-    <!-- OS:CoolingTowerPerformance:CoolTools -->
+    
     <message>
         <source>Coefficient 30</source>
         <translation>Coeficiente 30</translation>
     </message>
-    <!-- OS:CoolingTowerPerformance:CoolTools -->
+    
     <message>
         <source>Coefficient 31</source>
         <translation>Coeficiente 31</translation>
     </message>
-    <!-- OS:CoolingTowerPerformance:CoolTools -->
+    
     <message>
         <source>Coefficient 32</source>
         <translation>Coeficiente 32</translation>
     </message>
-    <!-- OS:CoolingTowerPerformance:CoolTools -->
+    
     <message>
         <source>Coefficient 33</source>
         <translation>Coeficiente 33</translation>
     </message>
-    <!-- OS:CoolingTowerPerformance:CoolTools -->
+    
     <message>
         <source>Coefficient 34</source>
         <translation>Coeficiente 34</translation>
     </message>
-    <!-- OS:CoolingTowerPerformance:CoolTools -->
+    
     <message>
         <source>Coefficient 35</source>
         <translation>Coeficiente 35</translation>
     </message>
-    <!-- OS:CoolingTowerPerformance:CoolTools, OS:CoolingTowerPerformance:YorkCalc -->
+    
     <message>
         <source>Coefficient 4</source>
         <translation>Coeficiente 4</translation>
     </message>
-    <!-- OS:CoolingTowerPerformance:CoolTools, OS:CoolingTowerPerformance:YorkCalc -->
+    
     <message>
         <source>Coefficient 5</source>
         <translation>Coeficiente 5</translation>
     </message>
-    <!-- OS:CoolingTowerPerformance:CoolTools, OS:CoolingTowerPerformance:YorkCalc -->
+    
     <message>
         <source>Coefficient 6</source>
         <translation>Coeficiente 6</translation>
     </message>
-    <!-- OS:CoolingTowerPerformance:CoolTools, OS:CoolingTowerPerformance:YorkCalc -->
+    
     <message>
         <source>Coefficient 7</source>
         <translation>Coeficiente 7</translation>
     </message>
-    <!-- OS:CoolingTowerPerformance:CoolTools, OS:CoolingTowerPerformance:YorkCalc -->
+    
     <message>
         <source>Coefficient 8</source>
         <translation>Coeficiente 8</translation>
     </message>
-    <!-- OS:CoolingTowerPerformance:CoolTools, OS:CoolingTowerPerformance:YorkCalc -->
+    
     <message>
         <source>Coefficient 9</source>
         <translation>Coeficiente 9</translation>
     </message>
-    <!-- OS:AirflowNetworkDuct -->
+    
     <message>
         <source>Coefficient for Local Dynamic Loss Due to Fitting</source>
         <translation>Coeficiente de Perda Dinâmica Local Devido ao Encaixe</translation>
     </message>
-    <!-- OS:AirTerminal:SingleDuct:ConstantVolume:CooledBeam -->
+    
     <message>
         <source>Coefficient of Induction Kin</source>
         <translation>Coeficiente de Indução Kin</translation>
     </message>
-    <!-- OS:Generator:FuelCell:StackCooler -->
+    
     <message>
         <source>Coefficient r0</source>
         <translation>Coeficiente r0</translation>
     </message>
-    <!-- OS:Generator:FuelCell:StackCooler -->
+    
     <message>
         <source>Coefficient r1</source>
         <translation>Coeficiente r1</translation>
     </message>
-    <!-- OS:Generator:FuelCell:StackCooler -->
+    
     <message>
         <source>Coefficient r2</source>
         <translation>Coeficiente r2</translation>
     </message>
-    <!-- OS:Generator:FuelCell:StackCooler -->
+    
     <message>
         <source>Coefficient r3</source>
         <translation>Coeficiente r3</translation>
     </message>
-    <!-- OS:Curve:DoubleExponentialDecay, OS:Curve:ExponentialDecay, OS:Curve:ExponentialSkewNormal, OS:Curve:FanPressureRise, OS:Curve:RectangularHyperbola1, OS:Curve:RectangularHyperbola2, OS:Curve:Sigmoid -->
+    
     <message>
         <source>Coefficient1 C1</source>
         <translation>Coeficiente1 C1</translation>
     </message>
-    <!-- OS:Curve:Bicubic, OS:Curve:Biquadratic, OS:Curve:Cubic, OS:Curve:Exponent, OS:Curve:Linear, OS:Curve:QuadLinear, OS:Curve:Quadratic, OS:Curve:QuadraticLinear, OS:Curve:Quartic, OS:Curve:QuintLinear, OS:Curve:Triquadratic -->
+    
     <message>
         <source>Coefficient1 Constant</source>
         <translation>Coeficiente1 Constante</translation>
     </message>
-    <!-- OS:Curve:Bicubic, OS:Curve:Triquadratic -->
+    
     <message>
         <source>Coefficient10 x*y**2</source>
         <translation>Coeficiente10 x*y**2</translation>
     </message>
-    <!-- OS:Curve:Triquadratic -->
+    
     <message>
         <source>Coefficient11 x**2*y</source>
         <translation>Coeficiente11 x**2*y</translation>
     </message>
-    <!-- OS:Curve:Triquadratic -->
+    
     <message>
         <source>Coefficient12 x**2*z**2</source>
         <translation>Coeficiente12 x**2*z**2</translation>
     </message>
-    <!-- OS:Curve:Triquadratic -->
+    
     <message>
         <source>Coefficient13 x*z</source>
         <translation>Coeficiente13 x*z</translation>
     </message>
-    <!-- OS:Curve:Triquadratic -->
+    
     <message>
         <source>Coefficient14 x*z**2</source>
         <translation>Coeficiente14 x*z**2</translation>
     </message>
-    <!-- OS:Curve:Triquadratic -->
+    
     <message>
         <source>Coefficient15 x**2*z</source>
         <translation>Coeficiente15 x**2*z</translation>
     </message>
-    <!-- OS:Curve:Triquadratic -->
+    
     <message>
         <source>Coefficient16 y**2*z**2</source>
         <translation>Coeficiente16 y**2*z**2</translation>
     </message>
-    <!-- OS:Curve:Triquadratic -->
+    
     <message>
         <source>Coefficient17 y*z</source>
         <translation>Coeficiente17 y*z</translation>
     </message>
-    <!-- OS:Curve:Triquadratic -->
+    
     <message>
         <source>Coefficient18 y*z**2</source>
         <translation>Coeficiente18 y*z**2</translation>
     </message>
-    <!-- OS:Curve:Triquadratic -->
+    
     <message>
         <source>Coefficient19 y**2*z</source>
         <translation>Coefficient19 y**2*z</translation>
     </message>
-    <!-- OS:Curve:DoubleExponentialDecay, OS:Curve:ExponentialDecay, OS:Curve:ExponentialSkewNormal, OS:Curve:FanPressureRise, OS:Curve:RectangularHyperbola1, OS:Curve:RectangularHyperbola2, OS:Curve:Sigmoid -->
+    
     <message>
         <source>Coefficient2 C2</source>
         <translation>Coeficiente2 C2</translation>
     </message>
-    <!-- OS:Curve:Exponent -->
+    
     <message>
         <source>Coefficient2 Constant</source>
         <translation>Coeficiente2 Constante</translation>
     </message>
-    <!-- OS:Curve:QuintLinear -->
+    
     <message>
         <source>Coefficient2 v</source>
         <translation>Coeficiente2 v</translation>
     </message>
-    <!-- OS:Curve:QuadLinear -->
+    
     <message>
         <source>Coefficient2 w</source>
         <translation>Coeficiente2 w</translation>
     </message>
-    <!-- OS:Curve:Bicubic, OS:Curve:Biquadratic, OS:Curve:Cubic, OS:Curve:Linear, OS:Curve:Quadratic, OS:Curve:QuadraticLinear, OS:Curve:Quartic -->
+    
     <message>
         <source>Coefficient2 x</source>
         <translation>Coeficiente2 x</translation>
     </message>
-    <!-- OS:Curve:Triquadratic -->
+    
     <message>
         <source>Coefficient2 x**2</source>
         <translation>Coeficiente2 x**2</translation>
     </message>
-    <!-- OS:Curve:Triquadratic -->
+    
     <message>
         <source>Coefficient20 x**2*y**2*z**2</source>
         <translation>Coeficiente20 x**2*y**2*z**2</translation>
     </message>
-    <!-- OS:Curve:Triquadratic -->
+    
     <message>
         <source>Coefficient21 x**2*y**2*z</source>
         <translation>Coeficiente21 x**2*y**2*z</translation>
     </message>
-    <!-- OS:Curve:Triquadratic -->
+    
     <message>
         <source>Coefficient22 x**2*y*z**2</source>
         <translation>Coeficiente22 x**2*y*z**2</translation>
     </message>
-    <!-- OS:Curve:Triquadratic -->
+    
     <message>
         <source>Coefficient23 x*y**2*z**2</source>
         <translation>Coeficiente23 x*y**2*z**2</translation>
     </message>
-    <!-- OS:Curve:Triquadratic -->
+    
     <message>
         <source>Coefficient24 x**2*y*z</source>
         <translation>Coefficient24 x**2*y*z</translation>
     </message>
-    <!-- OS:Curve:Triquadratic -->
+    
     <message>
         <source>Coefficient25 x*y**2*z</source>
         <translation>Coeficiente25 x*y**2*z</translation>
     </message>
-    <!-- OS:Curve:Triquadratic -->
+    
     <message>
         <source>Coefficient26 x*y*z**2</source>
         <translation>Coeficiente26 x*y*z**2</translation>
     </message>
-    <!-- OS:Curve:Triquadratic -->
+    
     <message>
         <source>Coefficient27 x*y*z</source>
         <translation>Coeficiente27 x*y*z</translation>
     </message>
-    <!-- OS:Curve:DoubleExponentialDecay, OS:Curve:ExponentialDecay, OS:Curve:ExponentialSkewNormal, OS:Curve:FanPressureRise, OS:Curve:RectangularHyperbola1, OS:Curve:RectangularHyperbola2, OS:Curve:Sigmoid -->
+    
     <message>
         <source>Coefficient3 C3</source>
         <translation>Coeficiente3 C3</translation>
     </message>
-    <!-- OS:Curve:Exponent -->
+    
     <message>
         <source>Coefficient3 Constant</source>
         <translation>Coeficiente3 Constante</translation>
     </message>
-    <!-- OS:Curve:QuintLinear -->
+    
     <message>
         <source>Coefficient3 w</source>
         <translation>Coeficiente3 w</translation>
     </message>
-    <!-- OS:Curve:QuadLinear, OS:Curve:Triquadratic -->
+    
     <message>
         <source>Coefficient3 x</source>
         <translation>Coeficiente3 x</translation>
     </message>
-    <!-- OS:Curve:Bicubic, OS:Curve:Biquadratic, OS:Curve:Cubic, OS:Curve:Quadratic, OS:Curve:QuadraticLinear, OS:Curve:Quartic -->
+    
     <message>
         <source>Coefficient3 x**2</source>
         <translation>Coeficiente3 x**2</translation>
     </message>
-    <!-- OS:Curve:DoubleExponentialDecay, OS:Curve:ExponentialSkewNormal, OS:Curve:FanPressureRise, OS:Curve:Sigmoid -->
+    
     <message>
         <source>Coefficient4 C4</source>
         <translation>Coeficiente4 C4</translation>
     </message>
-    <!-- OS:Curve:QuintLinear -->
+    
     <message>
         <source>Coefficient4 x</source>
         <translation>Coeficiente4 x</translation>
     </message>
-    <!-- OS:Curve:Cubic, OS:Curve:Quartic -->
+    
     <message>
         <source>Coefficient4 x**3</source>
         <translation>Coeficiente4 x**3</translation>
     </message>
-    <!-- OS:Curve:Bicubic, OS:Curve:Biquadratic, OS:Curve:QuadLinear, OS:Curve:QuadraticLinear -->
+    
     <message>
         <source>Coefficient4 y</source>
         <translation>Coeficiente4 y</translation>
     </message>
-    <!-- OS:Curve:Triquadratic -->
+    
     <message>
         <source>Coefficient4 y**2</source>
         <translation>Coeficiente4 y**2</translation>
     </message>
-    <!-- OS:Curve:DoubleExponentialDecay, OS:Curve:Sigmoid -->
+    
     <message>
         <source>Coefficient5 C5</source>
         <translation>Coeficiente5 C5</translation>
     </message>
-    <!-- OS:Curve:Quartic -->
+    
     <message>
         <source>Coefficient5 x**4</source>
         <translation>Coeficiente5 x**4</translation>
     </message>
-    <!-- OS:Curve:QuadraticLinear -->
+    
     <message>
         <source>Coefficient5 x*y</source>
         <translation>Coeficiente5 x*y</translation>
     </message>
-    <!-- OS:Curve:QuintLinear, OS:Curve:Triquadratic -->
+    
     <message>
         <source>Coefficient5 y</source>
         <translation>Coeficiente5 y</translation>
     </message>
-    <!-- OS:Curve:Bicubic, OS:Curve:Biquadratic -->
+    
     <message>
         <source>Coefficient5 y**2</source>
         <translation>Coefficient5 y**2</translation>
     </message>
-    <!-- OS:Curve:QuadLinear -->
+    
     <message>
         <source>Coefficient5 z</source>
         <translation>Coeficiente5 z</translation>
     </message>
-    <!-- OS:Curve:QuadraticLinear -->
+    
     <message>
         <source>Coefficient6 x**2*y</source>
         <translation>Coeficiente6 x**2*y</translation>
     </message>
-    <!-- OS:Curve:Bicubic, OS:Curve:Biquadratic -->
+    
     <message>
         <source>Coefficient6 x*y</source>
         <translation>Coeficiente6 x*y</translation>
     </message>
-    <!-- OS:Curve:QuintLinear -->
+    
     <message>
         <source>Coefficient6 z</source>
         <translation>Coeficiente6 z</translation>
     </message>
-    <!-- OS:Curve:Triquadratic -->
+    
     <message>
         <source>Coefficient6 z**2</source>
         <translation>Coeficiente6 z**2</translation>
     </message>
-    <!-- OS:Curve:Bicubic -->
+    
     <message>
         <source>Coefficient7 x**3</source>
         <translation>Coeficiente7 x**3</translation>
     </message>
-    <!-- OS:Curve:Triquadratic -->
+    
     <message>
         <source>Coefficient7 z</source>
         <translation>Coeficiente7 z</translation>
     </message>
-    <!-- OS:Curve:Triquadratic -->
+    
     <message>
         <source>Coefficient8 x**2*y**2</source>
         <translation>Coeficiente8 x**2*y**2</translation>
     </message>
-    <!-- OS:Curve:Bicubic -->
+    
     <message>
         <source>Coefficient8 y**3</source>
         <translation>Coeficiente8 y**3</translation>
     </message>
-    <!-- OS:Curve:Bicubic -->
+    
     <message>
         <source>Coefficient9 x**2*y</source>
         <translation>Coeficiente9 x**2*y</translation>
     </message>
-    <!-- OS:Curve:Triquadratic -->
+    
     <message>
         <source>Coefficient9 x*y</source>
         <translation>Coeficiente9 x*y</translation>
     </message>
-    <!-- OS:Coil:Cooling:DX:VariableRefrigerantFlow, OS:Coil:Cooling:DX:VariableRefrigerantFlow:FluidTemperatureControl, OS:Coil:Heating:DX:VariableRefrigerantFlow, OS:Coil:Heating:DX:VariableRefrigerantFlow:FluidTemperatureControl -->
+    
     <message>
         <source>Coil Air Inlet Node</source>
         <translation>Nó de Entrada de Ar da Bobina</translation>
     </message>
-    <!-- OS:Coil:Cooling:DX:VariableRefrigerantFlow, OS:Coil:Cooling:DX:VariableRefrigerantFlow:FluidTemperatureControl, OS:Coil:Heating:DX:VariableRefrigerantFlow, OS:Coil:Heating:DX:VariableRefrigerantFlow:FluidTemperatureControl -->
+    
     <message>
         <source>Coil Air Outlet Node</source>
         <translation>Nó de Saída de Ar da Bobina</translation>
     </message>
-    <!-- OS:Refrigeration:AirChiller -->
+    
     <message>
         <source>Coil Material Correction Factor</source>
         <translation>Fator de Correção do Material da Bobina</translation>
     </message>
-    <!-- OS:Coil:Cooling:CooledBeam -->
+    
     <message>
         <source>Coil Surface Area per Coil Length</source>
         <translation>Área Superficial da Bobina por Comprimento da Bobina</translation>
     </message>
-    <!-- OS:Sizing:Plant -->
+    
     <message>
         <source>Coincident Sizing Factor Mode</source>
         <translation>Modo de Fator de Dimensionamento Coincidente</translation>
     </message>
-    <!-- OS:AirTerminal:DualDuct:ConstantVolume, OS:AirTerminal:DualDuct:VAV -->
+    
     <message>
         <source>Cold Air Inlet Node</source>
         <translation>Nó de Entrada de Ar Frio</translation>
     </message>
-    <!-- OS:AvailabilityManager:DifferentialThermostat -->
+    
     <message>
         <source>Cold Node</source>
         <translation>Nó Frio</translation>
     </message>
-    <!-- OS:Coil:Cooling:DX:SingleSpeed:ThermalStorage -->
+    
     <message>
         <source>Cold Weather Operation Ancillary Power</source>
         <translation>Potência Auxiliar para Operação em Clima Frio</translation>
     </message>
-    <!-- OS:Coil:Cooling:DX:SingleSpeed:ThermalStorage -->
+    
     <message>
         <source>Cold Weather Operation Minimum Outdoor Air Temperature</source>
         <translation>Temperatura Mínima do Ar Exterior para Operação em Clima Frio</translation>
     </message>
-    <!-- OS:SolarCollectorPerformance:IntegralCollectorStorage -->
+    
     <message>
         <source>Collector Side Height</source>
         <translation>Altura do Lado do Coletor</translation>
     </message>
-    <!-- OS:SolarCollectorPerformance:IntegralCollectorStorage -->
+    
     <message>
         <source>Collector Water Volume</source>
         <translation>Volume de Água do Coletor</translation>
     </message>
-    <!-- OS:Schedule:File -->
+    
     <message>
         <source>Column Number</source>
         <translation>Número da Coluna</translation>
     </message>
-    <!-- OS:External:File, OS:OutputControl:Table:Style, OS:Schedule:File -->
+    
     <message>
         <source>Column Separator</source>
         <translation>Separador de Coluna</translation>
     </message>
-    <!-- OS:SurfaceProperty:OtherSideCoefficients -->
+    
     <message>
         <source>Combined Convective/Radiative Film Coefficient</source>
         <translation>Coeficiente de Filme Convectivo/Radiativo Combinado</translation>
     </message>
-    <!-- OS:Generator:MicroTurbine -->
+    
     <message>
         <source>Combustion Air Inlet Node Name</source>
         <translation>Nome do Nó de Entrada de Ar de Combustão</translation>
     </message>
-    <!-- OS:Generator:MicroTurbine -->
+    
     <message>
         <source>Combustion Air Outlet Node Name</source>
         <translation>Nome do Nó de Saída de Ar de Combustão</translation>
     </message>
-    <!-- OS:ZoneHVAC:HighTemperatureRadiant -->
+    
     <message>
         <source>Combustion Efficiency</source>
         <translation>Eficiência de Combustão</translation>
     </message>
-    <!-- OS:ComponentCost:Adjustments -->
+    
     <message>
         <source>Commissioning Fee</source>
         <translation>Taxa de Comissionamento</translation>
     </message>
-    <!-- OS:CoilSystem:Cooling:Water -->
+    
     <message>
         <source>Companion Coil Used For Heat Recovery</source>
         <translation>Bobina Complementar Usada para Recuperação de Calor</translation>
     </message>
-    <!-- OS:HeatPump:AirToWater:FuelFired:Heating, OS:HeatPump:WaterToWater:EquationFit:Heating -->
+    
     <message>
         <source>Companion Cooling Heat Pump Name</source>
         <translation>Nome da Bomba de Calor de Resfriamento Complementar</translation>
     </message>
-    <!-- OS:HeatPump:PlantLoop:EIR:Cooling, OS:HeatPump:PlantLoop:EIR:Heating -->
+    
     <message>
         <source>Companion Heat Pump Name</source>
         <translation>Nome da Bomba de Calor Complementar</translation>
     </message>
-    <!-- OS:HeatPump:AirToWater:FuelFired:Cooling, OS:HeatPump:WaterToWater:EquationFit:Cooling -->
+    
     <message>
         <source>Companion Heating Heat Pump Name</source>
         <translation>Companion Heating Heat Pump Name</translation>
     </message>
-    <!-- OS:AirflowNetworkDistributionLinkage, OS:AirflowNetworkEquivalentDuct -->
+    
     <message>
         <source>Component Name</source>
         <translation>Nome do Componente</translation>
     </message>
-    <!-- OS:AirflowNetworkDistributionNode -->
+    
     <message>
         <source>Component Name or Node Name</source>
         <translation>Nome do Componente ou Nome do Nó</translation>
     </message>
-    <!-- OS:HeatExchanger:FluidToFluid -->
+    
     <message>
         <source>Component Override Cooling Control Temperature Mode</source>
         <translation>Modo de Temperatura de Controle de Resfriamento com Override de Componente</translation>
     </message>
-    <!-- OS:HeatExchanger:FluidToFluid -->
+    
     <message>
         <source>Component Override Loop Demand Side Inlet Node</source>
         <translation>Nó de Entrada do Lado de Demanda da Malha de Sobrescrita de Componente</translation>
     </message>
-    <!-- OS:HeatExchanger:FluidToFluid -->
+    
     <message>
         <source>Component Override Loop Supply Side Inlet Node</source>
         <translation>Nó de Entrada do Lado de Fornecimento do Loop de Substituição de Componente</translation>
     </message>
-    <!-- OS:PlantLoop -->
+    
     <message>
         <source>Component Setpoint Operation Scheme Schedule</source>
         <translation>Cronograma de Esquema de Operação de Ponto de Ajuste do Componente</translation>
     </message>
-    <!-- OS:StandardsInformation:Material -->
+    
     <message>
         <source>Composite Cavity Insulation</source>
         <translation>Isolamento Composto de Cavidade</translation>
     </message>
-    <!-- OS:StandardsInformation:Material -->
+    
     <message>
         <source>Composite Framing Configuration</source>
         <translation>Configuração de Estrutura Composta</translation>
     </message>
-    <!-- OS:StandardsInformation:Material -->
+    
     <message>
         <source>Composite Framing Depth</source>
         <translation>Profundidade do Sistema Composto</translation>
     </message>
-    <!-- OS:StandardsInformation:Material -->
+    
     <message>
         <source>Composite Framing Material</source>
         <translation>Material de Estrutura Composta</translation>
     </message>
-    <!-- OS:StandardsInformation:Material -->
+    
     <message>
         <source>Composite Framing Size</source>
         <translation>Tamanho da Estrutura Composta</translation>
     </message>
-    <!-- OS:WaterHeater:HeatPump -->
+    
     <message>
         <source>Compressor Ambient Temperature Schedule</source>
         <translation>Cronograma de Temperatura Ambiente do Compressor</translation>
     </message>
-    <!-- OS:WaterHeater:HeatPump:WrappedCondenser -->
+    
     <message>
         <source>Compressor Ambient Temperature Schedule Name</source>
         <translation>Nome do Cronograma de Temperatura Ambiente do Compressor</translation>
     </message>
-    <!-- OS:AirConditioner:VariableRefrigerantFlow:FluidTemperatureControl:HR -->
+    
     <message>
         <source>Compressor Evaporative Capacity Correction Factor</source>
         <translation>Fator de Correção da Capacidade Evaporativa do Compressor</translation>
     </message>
-    <!-- OS:Coil:Cooling:DX:CurveFit:Performance -->
+    
     <message>
         <source>Compressor Fuel Type</source>
         <translation>Tipo de Combustível do Compressor</translation>
     </message>
-    <!-- OS:Generator:FuelSupply -->
+    
     <message>
         <source>Compressor Heat Loss Factor</source>
         <translation>Fator de Perda de Calor do Compressor</translation>
     </message>
-    <!-- OS:AirConditioner:VariableRefrigerantFlow:FluidTemperatureControl:HR -->
+    
     <message>
         <source>Compressor Inverter Efficiency</source>
         <translation>Eficiência do Inversor do Compressor</translation>
     </message>
-    <!-- OS:WaterHeater:HeatPump, OS:WaterHeater:HeatPump:WrappedCondenser -->
+    
     <message>
         <source>Compressor Location</source>
         <translation>Localização do Compressor</translation>
     </message>
-    <!-- OS:AirConditioner:VariableRefrigerantFlow:FluidTemperatureControl, OS:AirConditioner:VariableRefrigerantFlow:FluidTemperatureControl:HR -->
+    
     <message>
         <source>Compressor Maximum Delta Pressure</source>
         <translation>Pressão Delta Máxima do Compressor</translation>
     </message>
-    <!-- OS:ChillerHeaterPerformance:Electric:EIR -->
+    
     <message>
         <source>Compressor Motor Efficiency</source>
         <translation>Eficiência do Motor do Compressor</translation>
     </message>
-    <!-- OS:Generator:FuelSupply -->
+    
     <message>
         <source>Compressor Power Multiplier Function of Fuel Rate Curve Name</source>
         <translation>Nome da Curva da Função Multiplicadora de Potência do Compressor em relação à Taxa de Combustível</translation>
     </message>
-    <!-- OS:AirConditioner:VariableRefrigerantFlow:FluidTemperatureControl:LoadingIndex -->
+    
     <message>
         <source>Compressor Power Multiplier Function of Temperature Curve Name</source>
         <translation>Nome da Curva da Função Multiplicadora de Potência do Compressor em Função da Temperatura</translation>
     </message>
-    <!-- OS:Refrigeration:CompressorRack -->
+    
     <message>
         <source>Compressor Rack COP Function of Temperature Curve Name</source>
         <translation>Compressor Rack COP Function of Temperature Curve Name</translation>
     </message>
-    <!-- OS:WaterHeater:HeatPump -->
+    
     <message>
         <source>Compressor Setpoint Temperature Schedule</source>
         <translation>Cronograma de Temperatura de Ajuste do Compressor</translation>
     </message>
-    <!-- OS:WaterHeater:HeatPump:WrappedCondenser -->
+    
     <message>
         <source>Compressor Setpoint Temperature Schedule Name</source>
         <translation>Nome da Agenda de Temperatura de Setpoint do Compressor</translation>
     </message>
-    <!-- OS:AirConditioner:VariableRefrigerantFlow:FluidTemperatureControl:LoadingIndex -->
+    
     <message>
         <source>Compressor Speed</source>
         <translation>Velocidade do Compressor</translation>
     </message>
-    <!-- OS:Refrigeration:System -->
+    
     <message>
         <source>CompressorList Name</source>
         <translation>Nome da Lista de Compressores</translation>
     </message>
-    <!-- OS:UtilityCost:Computation -->
+    
     <message>
         <source>Compute Step</source>
         <translation>Etapa de Computação</translation>
     </message>
-    <!-- OS:Coil:Cooling:DX:MultiSpeed, OS:Coil:Cooling:DX:SingleSpeed:ThermalStorage, OS:Coil:Cooling:DX:TwoStageWithHumidityControlMode -->
+    
     <message>
         <source>Condensate Collection Water Storage Tank</source>
         <translation>Tanque de Armazenamento de Água de Coleta de Condensado</translation>
     </message>
-    <!-- OS:Coil:Cooling:DX, OS:Coil:Cooling:DX:SingleSpeed, OS:Coil:Cooling:DX:TwoSpeed, OS:Coil:Cooling:DX:VariableSpeed, OS:ZoneHVAC:Dehumidifier:DX -->
+    
     <message>
         <source>Condensate Collection Water Storage Tank Name</source>
         <translation>Nome do Tanque de Armazenamento de Água para Coleta de Condensado</translation>
     </message>
-    <!-- OS:Refrigeration:Condenser:AirCooled, OS:Refrigeration:Condenser:Cascade, OS:Refrigeration:Condenser:EvaporativeCooled, OS:Refrigeration:Condenser:WaterCooled -->
+    
     <message>
         <source>Condensate Piping Refrigerant Inventory</source>
         <translation>Inventário de Refrigerante em Tubulação de Condensado</translation>
     </message>
-    <!-- OS:Refrigeration:Condenser:AirCooled, OS:Refrigeration:Condenser:Cascade, OS:Refrigeration:Condenser:EvaporativeCooled, OS:Refrigeration:Condenser:WaterCooled -->
+    
     <message>
         <source>Condensate Receiver Refrigerant Inventory</source>
         <translation>Inventário de Refrigerante do Receptor de Condensado</translation>
     </message>
-    <!-- OS:Coil:Cooling:LowTemperatureRadiant:ConstantFlow, OS:Coil:Cooling:LowTemperatureRadiant:VariableFlow, OS:Coil:Cooling:Water:Panel:Radiant -->
+    
     <message>
         <source>Condensation Control Dewpoint Offset</source>
         <translation>Deslocamento do Ponto de Orvalho para Controle de Condensação</translation>
     </message>
-    <!-- OS:Coil:Cooling:LowTemperatureRadiant:ConstantFlow, OS:Coil:Cooling:LowTemperatureRadiant:VariableFlow, OS:Coil:Cooling:Water:Panel:Radiant -->
+    
     <message>
         <source>Condensation Control Type</source>
         <translation>Tipo de Controle de Condensação</translation>
     </message>
-    <!-- OS:Coil:Cooling:DX:CurveFit:Speed -->
+    
     <message>
         <source>Condenser Air Flow Rate Fraction</source>
         <translation>Fração da Vazão de Ar do Condensador</translation>
     </message>
-    <!-- OS:Coil:Cooling:DX:SingleSpeed:ThermalStorage -->
+    
     <message>
         <source>Condenser Air Flow Sizing Factor</source>
         <translation>Fator de Dimensionamento do Fluxo de Ar do Condensador</translation>
     </message>
-    <!-- OS:Coil:Cooling:DX:MultiSpeed, OS:Coil:Cooling:DX:SingleSpeed:ThermalStorage, OS:CoilPerformance:DX:Cooling -->
+    
     <message>
         <source>Condenser Air Inlet Node</source>
         <translation>Nó de Entrada de Ar do Condensador</translation>
     </message>
-    <!-- OS:Coil:Cooling:DX:SingleSpeed, OS:Coil:Cooling:DX:TwoSpeed, OS:Coil:Cooling:DX:VariableSpeed, OS:Refrigeration:CompressorRack -->
+    
     <message>
         <source>Condenser Air Inlet Node Name</source>
         <translation>Nome do Nó de Entrada de Ar do Condensador</translation>
     </message>
-    <!-- OS:Coil:Cooling:DX:SingleSpeed:ThermalStorage -->
+    
     <message>
         <source>Condenser Air Outlet Node</source>
         <translation>Nó de Saída de Ar do Condensador</translation>
     </message>
-    <!-- OS:WaterHeater:HeatPump:WrappedCondenser -->
+    
     <message>
         <source>Condenser Bottom Location</source>
         <translation>Localização Inferior do Condensador</translation>
     </message>
-    <!-- OS:Coil:Cooling:DX:SingleSpeed:ThermalStorage -->
+    
     <message>
         <source>Condenser Design Air Flow Rate</source>
         <translation>Taxa de Fluxo de Ar de Projeto do Condensador</translation>
     </message>
-    <!-- OS:Refrigeration:CompressorRack -->
+    
     <message>
         <source>Condenser Fan Power Function of Temperature Curve Name</source>
         <translation>Condenser Fan Power Function of Temperature Curve Name</translation>
     </message>
-    <!-- OS:Refrigeration:Condenser:AirCooled -->
+    
     <message>
         <source>Condenser Fan Speed Control Type</source>
         <translation>Tipo de Controle de Velocidade do Ventilador do Condensador</translation>
     </message>
-    <!-- OS:Chiller:Electric:EIR, OS:Chiller:Electric:ReformulatedEIR -->
+    
     <message>
         <source>Condenser Flow Control</source>
         <translation>Controle de Fluxo do Condensador</translation>
     </message>
-    <!-- OS:Chiller:Electric:EIR, OS:Chiller:Electric:ReformulatedEIR -->
+    
     <message>
         <source>Condenser Heat Recovery Relative Capacity Fraction</source>
         <translation>Fração de Capacidade Relativa de Recuperação de Calor do Condensador</translation>
     </message>
-    <!-- OS:AirConditioner:VariableRefrigerantFlow -->
+    
     <message>
         <source>Condenser Inlet Node</source>
         <translation>Nó de Entrada do Condensador</translation>
     </message>
-    <!-- OS:Chiller:Absorption, OS:Chiller:Absorption:Indirect, OS:Chiller:Electric:ASHRAE205, OS:Chiller:Electric:EIR, OS:Chiller:Electric:ReformulatedEIR, OS:Coil:Cooling:DX -->
+    
     <message>
         <source>Condenser Inlet Node Name</source>
         <translation>Nome do Nó de Entrada do Condensador</translation>
     </message>
-    <!-- OS:Chiller:Absorption:Indirect -->
+    
     <message>
         <source>Condenser Inlet Temperature Lower Limit</source>
         <translation>Limite Inferior da Temperatura de Entrada do Condensador</translation>
     </message>
-    <!-- OS:Chiller:Electric:EIR, OS:Chiller:Electric:ReformulatedEIR -->
+    
     <message>
         <source>Condenser Loop Flow Rate Fraction Function of Loop Part Load Ratio Curve Name</source>
         <translation>Nome da Curva da Fração da Taxa de Vazão do Loop do Condensador em Função da Razão de Carga Parcial do Loop</translation>
     </message>
-    <!-- OS:Chiller:Electric:ASHRAE205 -->
+    
     <message>
         <source>Condenser Maximum Requested Flow Rate</source>
         <translation>Taxa de Fluxo Máxima Solicitada do Condensador</translation>
     </message>
-    <!-- OS:Chiller:Electric:EIR, OS:Chiller:Electric:ReformulatedEIR -->
+    
     <message>
         <source>Condenser Minimum Flow Fraction</source>
         <translation>Fração Mínima de Fluxo do Condensador</translation>
     </message>
-    <!-- OS:AirConditioner:VariableRefrigerantFlow -->
+    
     <message>
         <source>Condenser Outlet Node</source>
         <translation>Nó de Saída do Condensador</translation>
     </message>
-    <!-- OS:Chiller:Absorption, OS:Chiller:Absorption:Indirect, OS:Chiller:Electric:ASHRAE205, OS:Chiller:Electric:EIR, OS:Chiller:Electric:ReformulatedEIR, OS:Coil:Cooling:DX -->
+    
     <message>
         <source>Condenser Outlet Node Name</source>
         <translation>Nome do Nó de Saída do Condensador</translation>
     </message>
-    <!-- OS:Coil:WaterHeating:AirToWaterHeatPump, OS:Coil:WaterHeating:AirToWaterHeatPump:VariableSpeed -->
+    
     <message>
         <source>Condenser Pump Heat Included in Rated Heating Capacity and Rated COP</source>
         <translation>Calor da Bomba do Condensador Incluído na Capacidade de Aquecimento Nominal e no COP Nominal</translation>
     </message>
-    <!-- OS:Coil:WaterHeating:AirToWaterHeatPump, OS:Coil:WaterHeating:AirToWaterHeatPump:VariableSpeed -->
+    
     <message>
         <source>Condenser Pump Power Included in Rated COP</source>
         <translation>Potência da Bomba do Condensador Incluída no COP Nominal</translation>
     </message>
-    <!-- OS:Refrigeration:Condenser:AirCooled, OS:Refrigeration:Condenser:Cascade, OS:Refrigeration:Condenser:EvaporativeCooled, OS:Refrigeration:Condenser:WaterCooled -->
+    
     <message>
         <source>Condenser Refrigerant Operating Charge Inventory</source>
         <translation>Inventário de Carga Refrigerante em Operação do Condensador</translation>
     </message>
-    <!-- OS:WaterHeater:HeatPump:WrappedCondenser -->
+    
     <message>
         <source>Condenser Top Location</source>
         <translation>Localização Superior do Condensador</translation>
     </message>
-    <!-- OS:WaterHeater:HeatPump -->
+    
     <message>
         <source>Condenser Water Flow Rate</source>
         <translation>Vazão de Água do Condensador</translation>
     </message>
-    <!-- OS:Coil:WaterHeating:AirToWaterHeatPump -->
+    
     <message>
         <source>Condenser Water Inlet Node</source>
         <translation>Nó de Entrada de Água do Condensador</translation>
     </message>
-    <!-- OS:Coil:WaterHeating:AirToWaterHeatPump:VariableSpeed -->
+    
     <message>
         <source>Condenser Water Inlet Node Name</source>
         <translation>Nome do Nó de Entrada de Água do Condensador</translation>
     </message>
-    <!-- OS:Coil:WaterHeating:AirToWaterHeatPump -->
+    
     <message>
         <source>Condenser Water Outlet Node</source>
         <translation>Nó de Saída de Água do Condensador</translation>
     </message>
-    <!-- OS:Coil:WaterHeating:AirToWaterHeatPump:VariableSpeed -->
+    
     <message>
         <source>Condenser Water Outlet Node Name</source>
         <translation>Nome do Nó de Saída de Água do Condensador</translation>
     </message>
-    <!-- OS:Coil:WaterHeating:AirToWaterHeatPump -->
+    
     <message>
         <source>Condenser Water Pump Power</source>
         <translation>Potência da Bomba de Água do Condensador</translation>
     </message>
-    <!-- OS:Coil:Cooling:DX -->
+    
     <message>
         <source>Condenser Zone</source>
         <translation>Zona do Condensador</translation>
     </message>
-    <!-- OS:Refrigeration:Condenser:Cascade -->
+    
     <message>
         <source>Condensing Temperature Control Type</source>
         <translation>Tipo de Controle de Temperatura de Condensação</translation>
     </message>
-    <!-- OS:Material, OS:WindowMaterial:Glazing, OS:WindowMaterial:Glazing:RefractionExtinctionMethod, OS:WindowMaterial:Screen, OS:WindowMaterial:Shade -->
+    
     <message>
         <source>Conductivity</source>
         <translation>Condutividade</translation>
     </message>
-    <!-- OS:WindowMaterial:Gas -->
+    
     <message>
         <source>Conductivity Coefficient A</source>
         <translation>Coeficiente de Condutividade A</translation>
     </message>
-    <!-- OS:WindowMaterial:Gas -->
+    
     <message>
         <source>Conductivity Coefficient B</source>
         <translation>Coeficiente de Condutividade B</translation>
     </message>
-    <!-- OS:WindowMaterial:Gas -->
+    
     <message>
         <source>Conductivity Coefficient C</source>
         <translation>Coeficiente de Condutividade C</translation>
     </message>
-    <!-- OS:Material:RoofVegetation -->
+    
     <message>
         <source>Conductivity of Dry Soil</source>
         <translation>Condutividade do Solo Seco</translation>
     </message>
-    <!-- OS:ElectricLoadCenter:Transformer -->
+    
     <message>
         <source>Conductor Material</source>
         <translation>Condutor Material</translation>
     </message>
-    <!-- OS:AirLoopHVAC -->
+    
     <message>
         <source>Connector List Name</source>
         <translation>Nome da Lista de Conectores</translation>
     </message>
-    <!-- OS:ElectricLoadCenter:Transformer -->
+    
     <message>
         <source>Consider Transformer Loss for Utility Cost</source>
         <translation>Considerar Perda no Transformador para Custo de Utilidade</translation>
     </message>
-    <!-- OS:Generator:FuelCell:PowerModule -->
+    
     <message>
         <source>Constant Skin Loss Rate</source>
         <translation>Taxa de Perda de Calor Constante da Envoltória</translation>
     </message>
-    <!-- OS:AvailabilityManager:OptimumStart -->
+    
     <message>
         <source>Constant Start Time</source>
         <translation>Horário de Início Constante</translation>
     </message>
-    <!-- OS:SurfaceProperty:OtherSideCoefficients -->
+    
     <message>
         <source>Constant Temperature</source>
         <translation>Temperatura Constante</translation>
     </message>
-    <!-- OS:SurfaceProperty:OtherSideCoefficients -->
+    
     <message>
         <source>Constant Temperature Coefficient</source>
         <translation>Coeficiente de Temperatura Constante</translation>
     </message>
-    <!-- OS:AvailabilityManager:OptimumStart -->
+    
     <message>
         <source>Constant Temperature Gradient during Cooling</source>
         <translation>Gradiente de Temperatura Constante durante Resfriamento</translation>
     </message>
-    <!-- OS:AvailabilityManager:OptimumStart -->
+    
     <message>
         <source>Constant Temperature Gradient during Heating</source>
         <translation>Gradiente de Temperatura Constante durante Aquecimento</translation>
     </message>
-    <!-- OS:SurfaceProperty:OtherSideCoefficients -->
+    
     <message>
         <source>Constant Temperature Schedule Name</source>
         <translation>Nome do Agendamento de Temperatura Constante</translation>
     </message>
-    <!-- OS:Generator:FuelSupply -->
+    
     <message>
         <source>Constituent Molar Fraction</source>
         <translation>Fração Molar do Constituinte</translation>
     </message>
-    <!-- OS:Generator:FuelCell:AirSupply, OS:Generator:FuelSupply -->
+    
     <message>
         <source>Constituent Name</source>
         <translation>Nome do Constituinte</translation>
     </message>
-    <!-- OS:Pipe:Indoor, OS:Pipe:Outdoor -->
+    
     <message>
         <source>Construction</source>
         <translation>Construção</translation>
     </message>
-    <!-- OS:DaylightingDevice:Tubular, OS:InteriorPartitionSurface, OS:InternalMass:Definition, OS:ShadingSurface, OS:StandardsInformation:Construction, OS:SubSurface, OS:Surface -->
+    
     <message>
         <source>Construction Name</source>
         <translation>Nome da Construção</translation>
     </message>
-    <!-- OS:EnergyManagementSystem:ConstructionIndexVariable -->
+    
     <message>
         <source>Construction Object Name</source>
         <translation>Nome do Objeto de Construção</translation>
     </message>
-    <!-- OS:StandardsInformation:Construction -->
+    
     <message>
         <source>Construction Standard</source>
         <translation>Padrão de Construção</translation>
     </message>
-    <!-- OS:StandardsInformation:Construction -->
+    
     <message>
         <source>Construction Standard Source</source>
         <translation>Fonte de Padrão de Construção</translation>
     </message>
-    <!-- OS:ShadingControl -->
+    
     <message>
         <source>Construction with Shading Name</source>
         <translation>Construction with Shading Name</translation>
     </message>
-    <!-- OS:UtilityBill -->
+    
     <message>
         <source>Consumption Unit</source>
         <translation>Unidade de Consumo</translation>
     </message>
-    <!-- OS:UtilityBill -->
+    
     <message>
         <source>Consumption Unit Conversion Factor</source>
         <translation>Fator de Conversão da Unidade de Consumo</translation>
     </message>
-    <!-- OS:ComponentCost:Adjustments -->
+    
     <message>
         <source>Contingency</source>
         <translation>Contingência</translation>
     </message>
-    <!-- OS:ComponentCost:Adjustments -->
+    
     <message>
         <source>Contractor Fee</source>
         <translation>Taxa do Contratante</translation>
     </message>
-    <!-- OS:AvailabilityManager:OptimumStart -->
+    
     <message>
         <source>Control Algorithm</source>
         <translation>Algoritmo de Controle</translation>
     </message>
-    <!-- OS:AirTerminal:DualDuct:VAV:OutdoorAir, OS:AirTerminal:SingleDuct:InletSideMixer, OS:AirTerminal:SingleDuct:VAV:NoReheat, OS:AirTerminal:SingleDuct:VAV:Reheat -->
+    
     <message>
         <source>Control For Outdoor Air</source>
         <translation>Controle para Ar Externo</translation>
     </message>
-    <!-- OS:Controller:OutdoorAir, OS:ZoneHVAC:EnergyRecoveryVentilator:Controller -->
+    
     <message>
         <source>Control High Indoor Humidity Based on Outdoor Humidity Ratio</source>
         <translation>Controlar Alta Umidade Interna Baseado na Razão de Umidade Externa</translation>
     </message>
-    <!-- OS:CentralHeatPumpSystem -->
+    
     <message>
         <source>Control Method</source>
         <translation>Método de Controle</translation>
     </message>
-    <!-- OS:AirflowNetworkPressureController -->
+    
     <message>
         <source>Control Object Name</source>
         <translation>Nome do Objeto de Controle</translation>
     </message>
-    <!-- OS:AirflowNetworkPressureController -->
+    
     <message>
         <source>Control Object Type</source>
         <translation>Tipo de Objeto de Controle</translation>
     </message>
-    <!-- OS:Exterior:Lights -->
+    
     <message>
         <source>Control Option</source>
         <translation>Opção de Controle</translation>
     </message>
-    <!-- OS:WaterHeater:HeatPump:WrappedCondenser -->
+    
     <message>
         <source>Control Sensor 1 Height In Stratified Tank</source>
         <translation>Altura do Sensor de Controle 1 no Tanque Estratificado</translation>
     </message>
-    <!-- OS:WaterHeater:HeatPump:WrappedCondenser -->
+    
     <message>
         <source>Control Sensor 1 Weight</source>
         <translation>Peso do Sensor de Controle 1</translation>
     </message>
-    <!-- OS:WaterHeater:HeatPump:WrappedCondenser -->
+    
     <message>
         <source>Control Sensor 2 Height In Stratified Tank</source>
         <translation>Altura do Sensor de Controle 2 no Tanque Estratificado</translation>
     </message>
-    <!-- OS:WaterHeater:HeatPump -->
+    
     <message>
         <source>Control Sensor Location In Stratified Tank</source>
         <translation>Localização do Sensor de Controle no Tanque Estratificado</translation>
     </message>
-    <!-- OS:AirLoopHVAC:UnitarySystem, OS:AvailabilityManager:NightCycle, OS:AvailabilityManager:OptimumStart, OS:Coil:Cooling:Water:Panel:Radiant, OS:EvaporativeCooler:Indirect:ResearchSpecial, OS:HeatExchanger:FluidToFluid, OS:HeatPump:AirToWater, OS:HeatPump:PlantLoop:EIR:Cooling, OS:HeatPump:PlantLoop:EIR:Heating -->
+    
     <message>
         <source>Control Type</source>
         <translation>Tipo de Controle</translation>
     </message>
-    <!-- OS:AvailabilityManager:NightVentilation, OS:AvailabilityManager:OptimumStart -->
+    
     <message>
         <source>Control Zone</source>
         <translation>Zona de Controle</translation>
     </message>
-    <!-- OS:AvailabilityManager:NightCycle -->
+    
     <message>
         <source>Control Zone or Zone List Name</source>
         <translation>Nome da Zona de Controle ou Lista de Zonas</translation>
     </message>
-    <!-- OS:AvailabilityManager:HybridVentilation -->
+    
     <message>
         <source>Controlled Zone</source>
         <translation>Zona Controlada</translation>
     </message>
-    <!-- OS:ZoneControl:ContaminantController -->
+    
     <message>
         <source>Controlled Zone Name</source>
         <translation>Nome da Zona Controlada</translation>
     </message>
-    <!-- OS:Controller:WaterCoil -->
+    
     <message>
         <source>Controller Convergence Tolerance</source>
         <translation>Tolerância de Convergência do Controlador</translation>
     </message>
-    <!-- OS:AirLoopHVAC -->
+    
     <message>
         <source>Controller List Name</source>
         <translation>Nome da Lista de Controladores</translation>
     </message>
-    <!-- OS:Controller:OutdoorAir -->
+    
     <message>
         <source>Controller Mechanical Ventilation</source>
         <translation>Controlador de Ventilação Mecânica</translation>
     </message>
-    <!-- OS:AirLoopHVAC:OutdoorAirSystem, OS:ZoneHVAC:EnergyRecoveryVentilator -->
+    
     <message>
         <source>Controller Name</source>
         <translation>Nome do Controlador</translation>
     </message>
-    <!-- OS:AirLoopHVAC:UnitaryHeatPump:AirToAir, OS:AirLoopHVAC:UnitaryHeatPump:AirToAir:MultiSpeed, OS:AirLoopHVAC:UnitarySystem, OS:ZoneHVAC:TerminalUnit:VariableRefrigerantFlow -->
+    
     <message>
         <source>Controlling Zone or Thermostat Location</source>
         <translation>Zona de Controle ou Localização do Termostato</translation>
     </message>
-    <!-- OS:SurfaceProperty:ConvectionCoefficients, OS:SurfaceProperty:ConvectionCoefficients:MultipleSurface -->
+    
     <message>
         <source>Convection Coefficient 1</source>
         <translation>Coeficiente de Convecção 1</translation>
     </message>
-    <!-- OS:SurfaceProperty:ConvectionCoefficients, OS:SurfaceProperty:ConvectionCoefficients:MultipleSurface -->
+    
     <message>
         <source>Convection Coefficient 1 Location</source>
         <translation>Localização do Coeficiente de Convecção 1</translation>
     </message>
-    <!-- OS:SurfaceProperty:ConvectionCoefficients, OS:SurfaceProperty:ConvectionCoefficients:MultipleSurface -->
+    
     <message>
         <source>Convection Coefficient 1 Schedule Name</source>
         <translation>Nome do Cronograma do Coeficiente de Convecção 1</translation>
     </message>
-    <!-- OS:SurfaceProperty:ConvectionCoefficients, OS:SurfaceProperty:ConvectionCoefficients:MultipleSurface -->
+    
     <message>
         <source>Convection Coefficient 1 Type</source>
         <translation>Tipo de Coeficiente de Convecção 1</translation>
     </message>
-    <!-- OS:SurfaceProperty:ConvectionCoefficients, OS:SurfaceProperty:ConvectionCoefficients:MultipleSurface -->
+    
     <message>
         <source>Convection Coefficient 1 User Curve Name</source>
         <translation>Nome da Curva do Usuário do Coeficiente de Convecção 1</translation>
     </message>
-    <!-- OS:SurfaceProperty:ConvectionCoefficients, OS:SurfaceProperty:ConvectionCoefficients:MultipleSurface -->
+    
     <message>
         <source>Convection Coefficient 2</source>
         <translation>Coeficiente de Convecção 2</translation>
     </message>
-    <!-- OS:SurfaceProperty:ConvectionCoefficients, OS:SurfaceProperty:ConvectionCoefficients:MultipleSurface -->
+    
     <message>
         <source>Convection Coefficient 2 Location</source>
         <translation>Localização do Coeficiente de Convecção 2</translation>
     </message>
-    <!-- OS:SurfaceProperty:ConvectionCoefficients, OS:SurfaceProperty:ConvectionCoefficients:MultipleSurface -->
+    
     <message>
         <source>Convection Coefficient 2 Schedule Name</source>
         <translation>Nome do Agendamento do Coeficiente de Convecção 2</translation>
     </message>
-    <!-- OS:SurfaceProperty:ConvectionCoefficients, OS:SurfaceProperty:ConvectionCoefficients:MultipleSurface -->
+    
     <message>
         <source>Convection Coefficient 2 Type</source>
         <translation>Tipo de Coeficiente de Convecção 2</translation>
     </message>
-    <!-- OS:SurfaceProperty:ConvectionCoefficients, OS:SurfaceProperty:ConvectionCoefficients:MultipleSurface -->
+    
     <message>
         <source>Convection Coefficient 2 User Curve Name</source>
         <translation>Nome da Curva do Usuário do Coeficiente de Convecção 2</translation>
     </message>
-    <!-- OS:AirflowNetworkSimulationControl -->
+    
     <message>
         <source>Convergence Acceleration Limit</source>
         <translation>Limite de Aceleração da Convergência</translation>
     </message>
-    <!-- OS:PhotovoltaicPerformance:Simple -->
+    
     <message>
         <source>Conversion Efficiency Input Mode</source>
         <translation>Modo de Entrada de Eficiência de Conversão</translation>
     </message>
-    <!-- OS:UtilityCost:Tariff -->
+    
     <message>
         <source>Conversion Factor Choice</source>
         <translation>Escolha do Fator de Conversão</translation>
     </message>
-    <!-- OS:InteriorPartitionSurface -->
+    
     <message>
         <source>Convert to Internal Mass</source>
         <translation>Converter para Massa Térmica Interna</translation>
     </message>
-    <!-- OS:AirTerminal:SingleDuct:ConstantVolume:CooledBeam -->
+    
     <message>
         <source>Cooled Beam Type</source>
         <translation>Tipo de Viga Resfriada</translation>
     </message>
-    <!-- OS:EvaporativeCooler:Direct:ResearchSpecial -->
+    
     <message>
         <source>Cooler Design Effectiveness</source>
         <translation>Efetividade de Projeto do Resfriador</translation>
     </message>
-    <!-- OS:EvaporativeCooler:Indirect:ResearchSpecial -->
+    
     <message>
         <source>Cooler Drybulb Design Effectiveness</source>
         <translation>Efetividade de Projeto do Bulbo Seco do Resfriador</translation>
     </message>
-    <!-- OS:EvaporativeCooler:Indirect:ResearchSpecial -->
+    
     <message>
         <source>Cooler Flow Ratio</source>
         <translation>Taxa de Fluxo do Resfriador</translation>
     </message>
-    <!-- OS:EvaporativeCooler:Indirect:ResearchSpecial -->
+    
     <message>
         <source>Cooler Maximum Effectiveness</source>
         <translation>Eficácia Máxima do Resfriador</translation>
     </message>
-    <!-- OS:ZoneHVAC:EvaporativeCoolerUnit -->
+    
     <message>
         <source>Cooler Outlet Node Name</source>
         <translation>Nome do Nó de Saída do Resfriador</translation>
     </message>
-    <!-- OS:ZoneHVAC:EvaporativeCoolerUnit -->
+    
     <message>
         <source>Cooler Unit Control Method</source>
         <translation>Método de Controle da Unidade de Resfriamento</translation>
     </message>
-    <!-- OS:Coil:Cooling:DX:SingleSpeed:ThermalStorage -->
+    
     <message>
         <source>Cooling And Charge Mode Available</source>
         <translation>Modo de Resfriamento e Carga Disponível</translation>
     </message>
-    <!-- OS:Coil:Cooling:DX:SingleSpeed:ThermalStorage -->
+    
     <message>
         <source>Cooling And Charge Mode Capacity Sizing Factor</source>
         <translation>Fator de Dimensionamento da Capacidade em Modo de Resfriamento e Carregamento</translation>
     </message>
-    <!-- OS:Coil:Cooling:DX:SingleSpeed:ThermalStorage -->
+    
     <message>
         <source>Cooling And Charge Mode Charging Rated COP</source>
         <translation>Coeficiente de Desempenho Nominal (COP) em Modo de Resfriamento e Carregamento</translation>
     </message>
-    <!-- OS:Coil:Cooling:DX:SingleSpeed:ThermalStorage -->
+    
     <message>
         <source>Cooling And Charge Mode Cooling Rated COP</source>
         <translation>Coeficiente de Desempenho Nominal (COP) de Resfriamento no Modo de Resfriamento e Carga</translation>
     </message>
-    <!-- OS:Coil:Cooling:DX:SingleSpeed:ThermalStorage -->
+    
     <message>
         <source>Cooling And Charge Mode Evaporator Energy Input Ratio Function of Flow Fraction Curve</source>
         <translation>Curva da Razão de Entrada de Energia do Evaporador em Modo de Resfriamento e Carga em Função da Fração de Vazão</translation>
     </message>
-    <!-- OS:Coil:Cooling:DX:SingleSpeed:ThermalStorage -->
+    
     <message>
         <source>Cooling And Charge Mode Evaporator Energy Input Ratio Function of Temperature Curve</source>
         <translation>Função da Razão de Entrada de Energia do Evaporador em Modo de Resfriamento e Carga em Relação à Curva de Temperatura</translation>
     </message>
-    <!-- OS:Coil:Cooling:DX:SingleSpeed:ThermalStorage -->
+    
     <message>
         <source>Cooling And Charge Mode Evaporator Part Load Fraction Correlation Curve</source>
         <translation>Curva de Correlação da Fração de Carga Parcial do Evaporador em Modo de Resfriamento e Carga</translation>
     </message>
-    <!-- OS:Coil:Cooling:DX:SingleSpeed:ThermalStorage -->
+    
     <message>
         <source>Cooling And Charge Mode Rated Sensible Heat Ratio</source>
         <translation>Taxa de Calor Sensível Nominal em Modo de Resfriamento e Carga</translation>
     </message>
-    <!-- OS:Coil:Cooling:DX:SingleSpeed:ThermalStorage -->
+    
     <message>
         <source>Cooling And Charge Mode Rated Storage Charging Capacity</source>
         <translation>Capacidade de Carregamento de Armazenamento Classificada em Modo de Resfriamento e Carregamento</translation>
     </message>
-    <!-- OS:Coil:Cooling:DX:SingleSpeed:ThermalStorage -->
+    
     <message>
         <source>Cooling And Charge Mode Rated Total Evaporator Cooling Capacity</source>
         <translation>Capacidade de Resfriamento Total do Evaporador Nominal em Modo de Resfriamento e Carga</translation>
     </message>
-    <!-- OS:Coil:Cooling:DX:SingleSpeed:ThermalStorage -->
+    
     <message>
         <source>Cooling And Charge Mode Sensible Heat Ratio Function of Flow Fraction Curve</source>
         <translation>Função da Razão de Calor Sensível do Modo de Resfriamento e Carga em relação à Curva de Fração de Fluxo</translation>
     </message>
-    <!-- OS:Coil:Cooling:DX:SingleSpeed:ThermalStorage -->
+    
     <message>
         <source>Cooling And Charge Mode Sensible Heat Ratio Function of Temperature Curve</source>
         <translation>Curva da Função da Taxa de Calor Sensível em Modo de Resfriamento e Carregamento em Função da Temperatura</translation>
     </message>
-    <!-- OS:Coil:Cooling:DX:SingleSpeed:ThermalStorage -->
+    
     <message>
         <source>Cooling And Charge Mode Storage Capacity Sizing Factor</source>
         <translation>Fator de Dimensionamento da Capacidade de Armazenamento em Modo de Resfriamento e Carga</translation>
     </message>
-    <!-- OS:Coil:Cooling:DX:SingleSpeed:ThermalStorage -->
+    
     <message>
         <source>Cooling And Charge Mode Storage Charge Capacity Function of Temperature Curve</source>
         <translation>Função de Capacidade de Carga de Armazenamento em Modo de Resfriamento e Carga em Relação à Temperatura</translation>
     </message>
-    <!-- OS:Coil:Cooling:DX:SingleSpeed:ThermalStorage -->
+    
     <message>
         <source>Cooling And Charge Mode Storage Charge Capacity Function of Total Evaporator PLR Curve</source>
         <translation>Capacidade de Carga de Armazenamento em Modo de Resfriamento e Carga - Curva da Função da PLR Total do Evaporador</translation>
     </message>
-    <!-- OS:Coil:Cooling:DX:SingleSpeed:ThermalStorage -->
+    
     <message>
         <source>Cooling And Charge Mode Storage Energy Input Ratio Function of Flow Fraction Curve</source>
         <translation>Razão de Entrada de Energia de Armazenamento em Modo de Resfriamento e Carga em Função da Curva de Fração de Fluxo</translation>
     </message>
-    <!-- OS:Coil:Cooling:DX:SingleSpeed:ThermalStorage -->
+    
     <message>
         <source>Cooling And Charge Mode Storage Energy Input Ratio Function of Temperature Curve</source>
         <translation>Função da Razão de Entrada de Energia de Armazenamento em Modo de Resfriamento e Carga em Relação à Curva de Temperatura</translation>
     </message>
-    <!-- OS:Coil:Cooling:DX:SingleSpeed:ThermalStorage -->
+    
     <message>
         <source>Cooling And Charge Mode Storage Energy Part Load Fraction Correlation Curve</source>
         <translation>Curva de Correlação da Fração de Carga Parcial da Energia de Armazenamento em Modo de Refrigeração e Carga</translation>
     </message>
-    <!-- OS:Coil:Cooling:DX:SingleSpeed:ThermalStorage -->
+    
     <message>
         <source>Cooling And Charge Mode Total Evaporator Cooling Capacity Function of Flow Fraction Curve</source>
         <translation>Curva da Função de Fração de Fluxo da Capacidade Total de Resfriamento do Evaporador no Modo de Resfriamento e Carga</translation>
     </message>
-    <!-- OS:Coil:Cooling:DX:SingleSpeed:ThermalStorage -->
+    
     <message>
         <source>Cooling And Charge Mode Total Evaporator Cooling Capacity Function of Temperature Curve</source>
         <translation>Função da Curva de Temperatura da Capacidade Total de Refrigeração do Evaporador no Modo de Refrigeração e Carga</translation>
     </message>
-    <!-- OS:Coil:Cooling:DX:SingleSpeed:ThermalStorage -->
+    
     <message>
         <source>Cooling And Discharge Mode Available</source>
         <translation>Modo de Resfriamento e Descarga Disponível</translation>
     </message>
-    <!-- OS:Coil:Cooling:DX:SingleSpeed:ThermalStorage -->
+    
     <message>
         <source>Cooling And Discharge Mode Cooling Rated COP</source>
         <translation>COP Nominal em Modo de Resfriamento e Descarga</translation>
     </message>
-    <!-- OS:Coil:Cooling:DX:SingleSpeed:ThermalStorage -->
+    
     <message>
         <source>Cooling And Discharge Mode Discharging Rated COP</source>
         <translation>Coeficiente de Desempenho Nominal em Modo de Resfriamento e Descarga</translation>
     </message>
-    <!-- OS:Coil:Cooling:DX:SingleSpeed:ThermalStorage -->
+    
     <message>
         <source>Cooling And Discharge Mode Evaporator Capacity Sizing Factor</source>
         <translation>Fator de Dimensionamento da Capacidade do Evaporador em Modo de Resfriamento e Descarga</translation>
     </message>
-    <!-- OS:Coil:Cooling:DX:SingleSpeed:ThermalStorage -->
+    
     <message>
         <source>Cooling And Discharge Mode Evaporator Energy Input Ratio Function of Flow Fraction Curve</source>
         <translation>Razão de Entrada de Energia do Evaporador em Modo de Resfriamento e Descarga em Função da Curva de Fração de Vazão</translation>
     </message>
-    <!-- OS:Coil:Cooling:DX:SingleSpeed:ThermalStorage -->
+    
     <message>
         <source>Cooling And Discharge Mode Evaporator Energy Input Ratio Function of Temperature Curve</source>
         <translation>Função Razão de Entrada de Energia do Evaporador em Modo de Resfriamento e Descarga em Relação à Curva de Temperatura</translation>
     </message>
-    <!-- OS:Coil:Cooling:DX:SingleSpeed:ThermalStorage -->
+    
     <message>
         <source>Cooling And Discharge Mode Evaporator Part Load Fraction Correlation Curve</source>
         <translation>Curva de Correlação da Fração de Carga Parcial do Evaporador em Modo de Resfriamento e Descarga</translation>
     </message>
-    <!-- OS:Coil:Cooling:DX:SingleSpeed:ThermalStorage -->
+    
     <message>
         <source>Cooling And Discharge Mode Rated Sensible Heat Ratio</source>
         <translation>Proporção de Calor Sensível Nominal no Modo de Refrigeração e Descarga</translation>
     </message>
-    <!-- OS:Coil:Cooling:DX:SingleSpeed:ThermalStorage -->
+    
     <message>
         <source>Cooling And Discharge Mode Rated Storage Discharging Capacity</source>
         <translation>Capacidade de Descarga de Armazenamento Classificada em Modo de Resfriamento e Descarga</translation>
     </message>
-    <!-- OS:Coil:Cooling:DX:SingleSpeed:ThermalStorage -->
+    
     <message>
         <source>Cooling And Discharge Mode Rated Total Evaporator Cooling Capacity</source>
         <translation>Capacidade de Resfriamento Total do Evaporador Nominal em Modo de Resfriamento e Descarga</translation>
     </message>
-    <!-- OS:Coil:Cooling:DX:SingleSpeed:ThermalStorage -->
+    
     <message>
         <source>Cooling And Discharge Mode Sensible Heat Ratio Function of Flow Fraction Curve</source>
         <translation>Curva da Razão de Calor Sensível em Função da Fração de Fluxo no Modo de Resfriamento e Descarga</translation>
     </message>
-    <!-- OS:Coil:Cooling:DX:SingleSpeed:ThermalStorage -->
+    
     <message>
         <source>Cooling And Discharge Mode Sensible Heat Ratio Function of Temperature Curve</source>
         <translation>Função da Razão de Calor Sensível do Modo de Resfriamento e Descarga em Relação à Curva de Temperatura</translation>
     </message>
-    <!-- OS:Coil:Cooling:DX:SingleSpeed:ThermalStorage -->
+    
     <message>
         <source>Cooling And Discharge Mode Storage Discharge Capacity Function of Flow Fraction Curve</source>
         <translation>Curva da Função de Capacidade de Descarga do Armazenamento no Modo de Resfriamento e Descarga em Relação à Fração de Fluxo</translation>
     </message>
-    <!-- OS:Coil:Cooling:DX:SingleSpeed:ThermalStorage -->
+    
     <message>
         <source>Cooling And Discharge Mode Storage Discharge Capacity Function of Temperature Curve</source>
         <translation>Curva da Função de Capacidade de Descarga do Armazenamento em Modo de Refrigeração e Descarga versus Temperatura</translation>
     </message>
-    <!-- OS:Coil:Cooling:DX:SingleSpeed:ThermalStorage -->
+    
     <message>
         <source>Cooling And Discharge Mode Storage Discharge Capacity Function of Total Evaporator PLR Curve</source>
         <translation>Curva da Função de Capacidade de Descarga de Armazenamento no Modo de Resfriamento e Descarga em relação ao PLR Total do Evaporador</translation>
     </message>
-    <!-- OS:Coil:Cooling:DX:SingleSpeed:ThermalStorage -->
+    
     <message>
         <source>Cooling And Discharge Mode Storage Discharge Capacity Sizing Factor</source>
         <translation>Fator de Dimensionamento da Capacidade de Descarga do Armazenamento em Modo de Resfriamento e Descarga</translation>
     </message>
-    <!-- OS:Coil:Cooling:DX:SingleSpeed:ThermalStorage -->
+    
     <message>
         <source>Cooling And Discharge Mode Storage Energy Input Ratio Function of Flow Fraction Curve</source>
         <translation>Função da Razão de Entrada de Energia de Armazenamento em Modo de Resfriamento e Descarga em relação à Curva de Fração de Fluxo</translation>
     </message>
-    <!-- OS:Coil:Cooling:DX:SingleSpeed:ThermalStorage -->
+    
     <message>
         <source>Cooling And Discharge Mode Storage Energy Input Ratio Function of Temperature Curve</source>
         <translation>Função Razão de Entrada de Energia de Armazenamento em Modo de Resfriamento e Descarga pela Curva de Temperatura</translation>
     </message>
-    <!-- OS:Coil:Cooling:DX:SingleSpeed:ThermalStorage -->
+    
     <message>
         <source>Cooling And Discharge Mode Storage Energy Part Load Fraction Correlation Curve</source>
         <translation>Curva de Correlação da Fração de Carga Parcial da Energia de Armazenamento em Modo de Resfriamento e Descarga</translation>
     </message>
-    <!-- OS:Coil:Cooling:DX:SingleSpeed:ThermalStorage -->
+    
     <message>
         <source>Cooling And Discharge Mode Total Evaporator Cooling Capacity Function of Flow Fraction Curve</source>
         <translation>Curva de Capacidade de Resfriamento Total do Evaporador em Função da Fração de Vazão no Modo de Resfriamento e Descarga</translation>
     </message>
-    <!-- OS:Coil:Cooling:DX:SingleSpeed:ThermalStorage -->
+    
     <message>
         <source>Cooling And Discharge Mode Total Evaporator Cooling Capacity Function of Temperature Curve</source>
         <translation>Curva da Função da Capacidade Total de Resfriamento do Evaporador no Modo de Resfriamento e Descarga em Relação à Temperatura</translation>
     </message>
-    <!-- OS:AirTerminal:SingleDuct:ConstantVolume:FourPipeBeam, OS:ZoneHVAC:IdealLoadsAirSystem -->
+    
     <message>
         <source>Cooling Availability Schedule Name</source>
         <translation>Nome do Cronograma de Disponibilidade de Resfriamento</translation>
     </message>
-    <!-- OS:HeatPump:WaterToWater:EquationFit:Cooling -->
+    
     <message>
         <source>Cooling Capacity Curve Name</source>
         <translation>Nome da Curva de Capacidade de Resfriamento</translation>
     </message>
-    <!-- OS:Coil:Cooling:DX:VariableRefrigerantFlow -->
+    
     <message>
         <source>Cooling Capacity Modifier Curve Function of Flow Fraction</source>
         <translation>Curva Modificadora da Capacidade de Resfriamento em Função da Fração de Vazão</translation>
     </message>
-    <!-- OS:AirConditioner:VariableRefrigerantFlow -->
+    
     <message>
         <source>Cooling Capacity Ratio Boundary Curve Name</source>
         <translation>Nome da Curva de Limite da Razão de Capacidade de Resfriamento</translation>
     </message>
-    <!-- OS:AirConditioner:VariableRefrigerantFlow -->
+    
     <message>
         <source>Cooling Capacity Ratio Modifier Function of High Temperature Curve Name</source>
         <translation>Nome da Curva da Função Modificadora da Taxa de Capacidade de Resfriamento em Temperatura Alta</translation>
     </message>
-    <!-- OS:AirConditioner:VariableRefrigerantFlow -->
+    
     <message>
         <source>Cooling Capacity Ratio Modifier Function of Low Temperature Curve Name</source>
         <translation>Função Modificadora da Razão de Capacidade de Resfriamento - Nome da Curva de Temperatura Baixa</translation>
     </message>
-    <!-- OS:Coil:Cooling:DX:VariableRefrigerantFlow -->
+    
     <message>
         <source>Cooling Capacity Ratio Modifier Function of Temperature Curve</source>
         <translation>Função Modificadora da Taxa de Capacidade de Resfriamento em Relação à Temperatura</translation>
     </message>
-    <!-- OS:AirLoopHVAC:UnitaryHeatCool:VAVChangeoverBypass, OS:AirLoopHVAC:UnitaryHeatPump:AirToAir:MultiSpeed, OS:CoilSystem:Cooling:DX:HeatExchangerAssisted, OS:CoilSystem:Cooling:Water, OS:CoilSystem:Cooling:Water:HeatExchangerAssisted, OS:ZoneHVAC:TerminalUnit:VariableRefrigerantFlow -->
+    
     <message>
         <source>Cooling Coil</source>
         <translation>Serpentina de Resfriamento</translation>
     </message>
-    <!-- OS:AirLoopHVAC:UnitaryCoolOnly, OS:AirLoopHVAC:UnitaryHeatPump:AirToAir, OS:AirLoopHVAC:UnitarySystem, OS:AirTerminal:SingleDuct:ConstantVolume:CooledBeam, OS:AirTerminal:SingleDuct:ConstantVolume:FourPipeBeam, OS:AirTerminal:SingleDuct:ConstantVolume:FourPipeInduction, OS:ZoneHVAC:CoolingPanel:RadiantConvective:Water, OS:ZoneHVAC:FourPipeFanCoil, OS:ZoneHVAC:PackagedTerminalAirConditioner, OS:ZoneHVAC:PackagedTerminalHeatPump, OS:ZoneHVAC:UnitVentilator, OS:ZoneHVAC:WaterToAirHeatPump -->
+    
     <message>
         <source>Cooling Coil Name</source>
         <translation>Nome da Bobina de Resfriamento</translation>
     </message>
-    <!-- OS:AirLoopHVAC:UnitaryCoolOnly -->
+    
     <message>
         <source>Cooling Coil Object Type</source>
         <translation>Tipo de Objeto de Bobina de Resfriamento</translation>
     </message>
-    <!-- OS:AirConditioner:VariableRefrigerantFlow -->
+    
     <message>
         <source>Cooling Combination Ratio Correction Factor Curve Name</source>
         <translation>Cooling Combination Ratio Correction Factor Curve Name</translation>
     </message>
-    <!-- OS:HeatPump:WaterToWater:EquationFit:Cooling -->
+    
     <message>
         <source>Cooling Compressor Power Curve Name</source>
         <translation>Nome da Curva de Potência do Compressor de Resfriamento</translation>
     </message>
-    <!-- OS:Coil:Cooling:LowTemperatureRadiant:VariableFlow, OS:Coil:Cooling:Water:Panel:Radiant -->
+    
     <message>
         <source>Cooling Control Temperature Schedule Name</source>
         <translation>Nome do Calendário de Temperatura de Controle de Resfriamento</translation>
     </message>
-    <!-- OS:Coil:Cooling:LowTemperatureRadiant:VariableFlow, OS:Coil:Cooling:Water:Panel:Radiant -->
+    
     <message>
         <source>Cooling Control Throttling Range</source>
         <translation>Faixa de Controle de Resfriamento</translation>
     </message>
-    <!-- OS:AvailabilityManager:NightCycle -->
+    
     <message>
         <source>Cooling Control Zone or Zone List Name</source>
         <translation>Nome da Zona de Controle de Resfriamento ou Lista de Zonas</translation>
     </message>
-    <!-- OS:AirTerminal:SingleDuct:ConstantVolume:FourPipeInduction, OS:ZoneHVAC:FourPipeFanCoil, OS:ZoneHVAC:PackagedTerminalHeatPump, OS:ZoneHVAC:UnitVentilator -->
+    
     <message>
         <source>Cooling Convergence Tolerance</source>
         <translation>Tolerância de Convergência de Resfriamento</translation>
     </message>
-    <!-- OS:Coil:Cooling:LowTemperatureRadiant:VariableFlow, OS:Coil:Cooling:Water:Panel:Radiant, OS:Sizing:System -->
+    
     <message>
         <source>Cooling Design Capacity</source>
         <translation>Capacidade de Projeto de Resfriamento</translation>
     </message>
-    <!-- OS:Coil:Cooling:LowTemperatureRadiant:VariableFlow, OS:Coil:Cooling:Water:Panel:Radiant, OS:Sizing:System -->
+    
     <message>
         <source>Cooling Design Capacity Method</source>
         <translation>Método de Capacidade de Design de Resfriamento</translation>
     </message>
-    <!-- OS:Coil:Cooling:LowTemperatureRadiant:VariableFlow, OS:Coil:Cooling:Water:Panel:Radiant, OS:Sizing:System -->
+    
     <message>
         <source>Cooling Design Capacity Per Floor Area</source>
         <translation>Capacidade de Projeto de Resfriamento por Área de Piso</translation>
     </message>
-    <!-- OS:AirConditioner:VariableRefrigerantFlow -->
+    
     <message>
         <source>Cooling Energy Input Ratio Boundary Curve Name</source>
         <translation>Cooling Energy Input Ratio Boundary Curve Name</translation>
     </message>
-    <!-- OS:HeatPump:AirToWater:Cooling:SpeedData -->
+    
     <message>
         <source>Cooling Energy Input Ratio Function of PLR Curve Name</source>
         <translation>Nome da Curva da Função da Taxa de Energia de Entrada de Resfriamento em Relação ao PLR</translation>
     </message>
-    <!-- OS:HeatPump:AirToWater:Cooling:SpeedData -->
+    
     <message>
         <source>Cooling Energy Input Ratio Function of Temperature Curve Name</source>
         <translation>Nome da Curva da Função da Taxa de Entrada de Energia de Resfriamento em relação à Temperatura</translation>
     </message>
-    <!-- OS:AirConditioner:VariableRefrigerantFlow -->
+    
     <message>
         <source>Cooling Energy Input Ratio Modifier Function of High Part-Load Ratio Curve Name</source>
         <translation>Cooling Energy Input Ratio Modifier Function of High Part-Load Ratio Curve Name</translation>
     </message>
-    <!-- OS:AirConditioner:VariableRefrigerantFlow -->
+    
     <message>
         <source>Cooling Energy Input Ratio Modifier Function of High Temperature Curve Name</source>
         <translation>Função Modificadora de Razão de Entrada de Energia de Refrigeração Nome da Curva de Alta Temperatura</translation>
     </message>
-    <!-- OS:AirConditioner:VariableRefrigerantFlow -->
+    
     <message>
         <source>Cooling Energy Input Ratio Modifier Function of Low Part-Load Ratio Curve Name</source>
         <translation>Nome da Curva Modificadora da Razão de Entrada de Energia de Resfriamento em Função da Curva de Razão de Carga Parcial Baixa</translation>
     </message>
-    <!-- OS:AirConditioner:VariableRefrigerantFlow -->
+    
     <message>
         <source>Cooling Energy Input Ratio Modifier Function of Low Temperature Curve Name</source>
         <translation>Nome da Curva do Modificador da Taxa de Entrada de Energia de Resfriamento em Função de Temperatura Baixa</translation>
     </message>
-    <!-- OS:Sizing:System -->
+    
     <message>
         <source>Cooling Fraction of Autosized Cooling Supply Air Flow Rate</source>
         <translation>Fração de Resfriamento da Taxa de Fluxo de Ar de Suprimento de Resfriamento Autodimensionada</translation>
     </message>
-    <!-- OS:ZoneHVAC:IdealLoadsAirSystem -->
+    
     <message>
         <source>Cooling Fuel Efficiency Schedule Name</source>
         <translation>Nome do Cronograma de Eficiência de Combustível de Resfriamento</translation>
     </message>
-    <!-- OS:ZoneHVAC:IdealLoadsAirSystem -->
+    
     <message>
         <source>Cooling Fuel Type</source>
         <translation>Tipo de Combustível para Resfriamento</translation>
     </message>
-    <!-- OS:Coil:Cooling:LowTemperatureRadiant:ConstantFlow -->
+    
     <message>
         <source>Cooling High Control Temperature Schedule Name</source>
         <translation>Nome do Cronograma de Temperatura de Controle Alto de Resfriamento</translation>
     </message>
-    <!-- OS:Coil:Cooling:LowTemperatureRadiant:ConstantFlow -->
+    
     <message>
         <source>Cooling High Water Temperature Schedule Name</source>
         <translation>Nome do Cronograma de Temperatura Alta da Água de Resfriamento</translation>
     </message>
-    <!-- OS:ZoneHVAC:IdealLoadsAirSystem -->
+    
     <message>
         <source>Cooling Limit</source>
         <translation>Limite de Resfriamento</translation>
     </message>
-    <!-- OS:ZoneHVAC:EvaporativeCoolerUnit -->
+    
     <message>
         <source>Cooling Load Control Threshold Heat Transfer Rate</source>
         <translation>Taxa de Transferência de Calor do Limiar de Controle de Carga de Resfriamento</translation>
     </message>
-    <!-- OS:CentralHeatPumpSystem -->
+    
     <message>
         <source>Cooling Loop Inlet Node Name</source>
         <translation>Nome do Nó de Entrada do Circuito de Resfriamento</translation>
     </message>
-    <!-- OS:CentralHeatPumpSystem -->
+    
     <message>
         <source>Cooling Loop Outlet Node Name</source>
         <translation>Nome do Nó de Saída do Loop de Resfriamento</translation>
     </message>
-    <!-- OS:Coil:Cooling:LowTemperatureRadiant:ConstantFlow -->
+    
     <message>
         <source>Cooling Low Control Temperature Schedule Name</source>
         <translation>Nome do Cronograma de Temperatura de Controle Baixo de Resfriamento</translation>
     </message>
-    <!-- OS:Coil:Cooling:LowTemperatureRadiant:ConstantFlow -->
+    
     <message>
         <source>Cooling Low Water Temperature Schedule Name</source>
         <translation>Nome do Cronograma de Temperatura Baixa da Água de Refrigeração</translation>
     </message>
-    <!-- OS:ChillerHeaterPerformance:Electric:EIR -->
+    
     <message>
         <source>Cooling Mode Cooling Capacity Function of Temperature Curve Name</source>
         <translation>Curva de Função de Capacidade de Resfriamento em Modo de Resfriamento em Relação à Temperatura</translation>
     </message>
-    <!-- OS:ChillerHeaterPerformance:Electric:EIR -->
+    
     <message>
         <source>Cooling Mode Cooling Capacity Optimum Part Load Ratio</source>
         <translation>Razão de Carga Parcial Ótima da Capacidade de Resfriamento do Modo de Resfriamento</translation>
     </message>
-    <!-- OS:ChillerHeaterPerformance:Electric:EIR -->
+    
     <message>
         <source>Cooling Mode Electric Input to Cooling Output Ratio Function of Part Load Ratio Curve Name</source>
         <translation>Nome da Curva da Função da Razão de Entrada Elétrica para Saída de Refrigeração em Modo de Resfriamento em Relação à Razão de Carga Parcial</translation>
     </message>
-    <!-- OS:ChillerHeaterPerformance:Electric:EIR -->
+    
     <message>
         <source>Cooling Mode Electric Input to Cooling Output Ratio Function of Temperature Curve Name</source>
         <translation>Curva de Função da Razão entre Entrada Elétrica e Saída de Resfriamento em Modo de Resfriamento em Relação à Temperatura</translation>
     </message>
-    <!-- OS:ChillerHeaterPerformance:Electric:EIR -->
+    
     <message>
         <source>Cooling Mode Temperature Curve Condenser Water Independent Variable</source>
         <translation>Variável Independente da Curva de Temperatura do Modo de Resfriamento da Água do Condensador</translation>
     </message>
-    <!-- OS:Coil:Cooling:DX:SingleSpeed:ThermalStorage -->
+    
     <message>
         <source>Cooling Only Mode Available</source>
         <translation>Modo Apenas Resfriamento Disponível</translation>
     </message>
-    <!-- OS:Coil:Cooling:DX:SingleSpeed:ThermalStorage -->
+    
     <message>
         <source>Cooling Only Mode Energy Input Ratio Function of Flow Fraction Curve</source>
         <translation>Curva da Razão de Entrada de Energia em Modo Somente Resfriamento em Função da Fração de Vazão</translation>
     </message>
-    <!-- OS:Coil:Cooling:DX:SingleSpeed:ThermalStorage -->
+    
     <message>
         <source>Cooling Only Mode Energy Input Ratio Function of Temperature Curve</source>
         <translation>Função da Taxa de Entrada de Energia do Modo Somente Resfriamento em Relação à Temperatura</translation>
     </message>
-    <!-- OS:Coil:Cooling:DX:SingleSpeed:ThermalStorage -->
+    
     <message>
         <source>Cooling Only Mode Part Load Fraction Correlation Curve</source>
         <translation>Curva de Correlação da Fração de Carga Parcial no Modo Somente Resfriamento</translation>
     </message>
-    <!-- OS:Coil:Cooling:DX:SingleSpeed:ThermalStorage -->
+    
     <message>
         <source>Cooling Only Mode Rated COP</source>
         <translation>COP Nominal em Modo Apenas Resfriamento</translation>
     </message>
-    <!-- OS:Coil:Cooling:DX:SingleSpeed:ThermalStorage -->
+    
     <message>
         <source>Cooling Only Mode Rated Sensible Heat Ratio</source>
         <translation>Razão de Calor Sensível Nominal em Modo Somente Resfriamento</translation>
     </message>
-    <!-- OS:Coil:Cooling:DX:SingleSpeed:ThermalStorage -->
+    
     <message>
         <source>Cooling Only Mode Rated Total Evaporator Cooling Capacity</source>
         <translation>Capacidade de Resfriamento Total do Evaporador Nominal em Modo Somente Resfriamento</translation>
     </message>
-    <!-- OS:Coil:Cooling:DX:SingleSpeed:ThermalStorage -->
+    
     <message>
         <source>Cooling Only Mode Sensible Heat Ratio Function of Flow Fraction Curve</source>
         <translation>Curva da Fração de Calor Sensível em Modo Resfriamento Apenas em Função da Fração de Vazão</translation>
     </message>
-    <!-- OS:Coil:Cooling:DX:SingleSpeed:ThermalStorage -->
+    
     <message>
         <source>Cooling Only Mode Sensible Heat Ratio Function of Temperature Curve</source>
         <translation>Curva da Função da Taxa de Calor Sensível do Modo Somente Refrigeração em Função da Temperatura</translation>
     </message>
-    <!-- OS:Coil:Cooling:DX:SingleSpeed:ThermalStorage -->
+    
     <message>
         <source>Cooling Only Mode Total Evaporator Cooling Capacity Function of Flow Fraction Curve</source>
         <translation>Curva da Função da Capacidade Total de Resfriamento do Evaporador no Modo Somente Resfriamento em Relação à Fração de Vazão</translation>
     </message>
-    <!-- OS:Coil:Cooling:DX:SingleSpeed:ThermalStorage -->
+    
     <message>
         <source>Cooling Only Mode Total Evaporator Cooling Capacity Function of Temperature Curve</source>
         <translation>Função de Curva de Capacidade de Resfriamento Total do Evaporador no Modo Somente Resfriamento</translation>
     </message>
-    <!-- OS:HeatPump:AirToWater -->
+    
     <message>
         <source>Cooling Operation Mode</source>
         <translation>Modo de Operação de Resfriamento</translation>
     </message>
-    <!-- OS:AirConditioner:VariableRefrigerantFlow -->
+    
     <message>
         <source>Cooling Part-Load Fraction Correlation Curve Name</source>
         <translation>Nome da Curva de Correlação de Fração de Carga Parcial de Resfriamento</translation>
     </message>
-    <!-- OS:Coil:Cooling:WaterToAirHeatPump:EquationFit -->
+    
     <message>
         <source>Cooling Power Consumption Curve Name</source>
         <translation>Nome da Curva de Consumo de Potência de Refrigeração</translation>
     </message>
-    <!-- OS:ZoneHVAC:IdealLoadsAirSystem -->
+    
     <message>
         <source>Cooling Sensible Heat Ratio</source>
         <translation>Razão de Calor Sensível de Resfriamento</translation>
     </message>
-    <!-- OS:ThermostatSetpoint:DualSetpoint -->
+    
     <message>
         <source>Cooling Setpoint Temperature Schedule Name</source>
         <translation>Nome do Cronograma de Temperatura de Ajuste de Resfriamento</translation>
     </message>
-    <!-- OS:Sizing:Parameters -->
+    
     <message>
         <source>Cooling Sizing Factor</source>
         <translation>Fator de Dimensionamento de Resfriamento</translation>
     </message>
-    <!-- OS:UnitarySystemPerformance:Multispeed -->
+    
     <message>
         <source>Cooling Speed Supply Air Flow Ratio</source>
         <translation>Taxa de Fluxo de Ar de Suprimento em Velocidade de Resfriamento</translation>
     </message>
-    <!-- OS:SetpointManager:SingleZone:OneStageCooling -->
+    
     <message>
         <source>Cooling Stage Off Supply Air Setpoint Temperature</source>
         <translation>Temperatura do Ponto de Ajuste do Ar de Suprimento - Estágio de Resfriamento Desligado</translation>
     </message>
-    <!-- OS:SetpointManager:SingleZone:OneStageCooling -->
+    
     <message>
         <source>Cooling Stage On Supply Air Setpoint Temperature</source>
         <translation>Temperatura de Ponto de Ajuste de Ar de Insuflação no Estágio de Resfriamento Ativado</translation>
     </message>
-    <!-- OS:Sizing:System -->
+    
     <message>
         <source>Cooling Supply Air Flow Rate Per Floor Area</source>
         <translation>Taxa de Fluxo de Ar de Suprimento de Resfriamento por Área de Piso</translation>
     </message>
-    <!-- OS:Sizing:System -->
+    
     <message>
         <source>Cooling Supply Air Flow Rate Per Unit Cooling Capacity</source>
         <translation>Vazão de Ar de Suprimento de Resfriamento Por Unidade de Capacidade de Resfriamento</translation>
     </message>
-    <!-- OS:ZoneControl:Thermostat:StagedDualSetpoint -->
+    
     <message>
         <source>Cooling Temperature Setpoint Base Schedule</source>
         <translation>Cronograma Base do Ponto de Ajuste de Temperatura de Resfriamento</translation>
     </message>
-    <!-- OS:ZoneControl:Thermostat:StagedDualSetpoint -->
+    
     <message>
         <source>Cooling Throttling Temperature Range</source>
         <translation>Intervalo de Temperatura de Estrangulamento de Resfriamento</translation>
     </message>
-    <!-- OS:Coil:Cooling:LowTemperatureRadiant:ConstantFlow, OS:Coil:Cooling:LowTemperatureRadiant:VariableFlow -->
+    
     <message>
         <source>Cooling Water Inlet Node Name</source>
         <translation>Nome do Nó de Entrada de Água de Resfriamento</translation>
     </message>
-    <!-- OS:Coil:Cooling:LowTemperatureRadiant:ConstantFlow, OS:Coil:Cooling:LowTemperatureRadiant:VariableFlow -->
+    
     <message>
         <source>Cooling Water Outlet Node Name</source>
         <translation>Nome do Nó de Saída de Água de Resfriamento</translation>
     </message>
-    <!-- OS:Coil:WaterHeating:AirToWaterHeatPump:VariableSpeed:SpeedData -->
+    
     <message>
         <source>COP Function of Air Flow Fraction Curve Name</source>
         <translation>Nome da Curva de Função COP em Relação à Fração de Vazão de Ar</translation>
     </message>
-    <!-- OS:Coil:WaterHeating:AirToWaterHeatPump:VariableSpeed:SpeedData -->
+    
     <message>
         <source>COP Function of Temperature Curve Name</source>
         <translation>Nome da Curva de Função de COP em Relação à Temperatura</translation>
     </message>
-    <!-- OS:Coil:WaterHeating:AirToWaterHeatPump:VariableSpeed:SpeedData -->
+    
     <message>
         <source>COP Function of Water Flow Fraction Curve Name</source>
         <translation>Nome da Curva de COP em Função da Fração de Vazão de Água</translation>
     </message>
-    <!-- OS:LifeCycleCost -->
+    
     <message>
         <source>Cost</source>
         <translation>Custo</translation>
     </message>
-    <!-- OS:UtilityCost:Charge:Simple -->
+    
     <message>
         <source>Cost per Unit Value or Variable Name</source>
         <translation>Custo por Valor de Unidade ou Nome de Variável</translation>
     </message>
-    <!-- OS:LifeCycleCost -->
+    
     <message>
         <source>Cost Units</source>
         <translation>Unidades de Custo</translation>
     </message>
-    <!-- OS:WeatherFile -->
+    
     <message>
         <source>Country</source>
         <translation>País</translation>
     </message>
-    <!-- OS:SwimmingPool:Indoor -->
+    
     <message>
         <source>Cover Convection Factor</source>
         <translation>Fator de Convecção da Cobertura</translation>
     </message>
-    <!-- OS:SwimmingPool:Indoor -->
+    
     <message>
         <source>Cover Evaporation Factor</source>
         <translation>Fator de Evaporação da Cobertura</translation>
     </message>
-    <!-- OS:SwimmingPool:Indoor -->
+    
     <message>
         <source>Cover Long-Wavelength Radiation Factor</source>
         <translation>Fator de Radiação de Onda Longa da Cobertura</translation>
     </message>
-    <!-- OS:SwimmingPool:Indoor -->
+    
     <message>
         <source>Cover Schedule Name</source>
         <translation>Nome do Cronograma de Cobertura</translation>
     </message>
-    <!-- OS:SwimmingPool:Indoor -->
+    
     <message>
         <source>Cover Short-Wavelength Radiation Factor</source>
         <translation>Fator de Radiação de Onda Curta da Cobertura</translation>
     </message>
-    <!-- OS:SolarCollectorPerformance:IntegralCollectorStorage -->
+    
     <message>
         <source>Cover Spacing</source>
         <translation>Espaçamento de Cobertura</translation>
     </message>
-    <!-- OS:ElectricEquipment:ITE:AirCooled -->
+    
     <message>
         <source>CPU End-Use Subcategory</source>
         <translation>Subcategoria de Uso Final da CPU</translation>
     </message>
-    <!-- OS:ElectricEquipment:ITE:AirCooled -->
+    
     <message>
         <source>CPU Loading Schedule Name</source>
         <translation>Nome da Agenda de Carga da CPU</translation>
     </message>
-    <!-- OS:ElectricEquipment:ITE:AirCooled:Definition -->
+    
     <message>
         <source>CPU Power Input Function of Loading and Air Temperature Curve Name</source>
         <translation>Nome da Curva de Função de Potência de Entrada da CPU em Função da Carga e Temperatura do Ar</translation>
     </message>
-    <!-- OS:AirflowNetworkOutdoorAirflow, OS:AirflowNetworkZoneExhaustFan -->
+    
     <message>
         <source>Crack Name</source>
         <translation>Nome da Fenda</translation>
     </message>
-    <!-- OS:ComponentData -->
+    
     <message>
         <source>Creation Timestamp</source>
         <translation>Carimbo de Data/Hora de Criação</translation>
     </message>
-    <!-- OS:AirflowNetworkDuct -->
+    
     <message>
         <source>Cross Section Area</source>
         <translation>Área da Seção Transversal</translation>
     </message>
-    <!-- OS:Output:Meter -->
+    
     <message>
         <source>Cumulative</source>
         <translation>Cumulativo</translation>
     </message>
-    <!-- OS:PhotovoltaicPerformance:Sandia -->
+    
     <message>
         <source>Current at Maximum Power Point</source>
         <translation>Corrente no Ponto de Potência Máxima</translation>
     </message>
-    <!-- OS:EnergyManagementSystem:CurveOrTableIndexVariable -->
+    
     <message>
         <source>Curve or Table Object Name</source>
         <translation>Nome do Objeto de Curva ou Tabela</translation>
     </message>
-    <!-- OS:Table:MultiVariableLookup -->
+    
     <message>
         <source>Curve Type</source>
         <translation>Tipo de Curva</translation>
     </message>
-    <!-- OS:Foundation:Kiva -->
+    
     <message>
         <source>Custom Block Depth</source>
         <translation>Profundidade de Bloco Personalizado</translation>
     </message>
-    <!-- OS:Foundation:Kiva -->
+    
     <message>
         <source>Custom Block Material Name</source>
         <translation>Nome do Material do Bloco Personalizado</translation>
     </message>
-    <!-- OS:Foundation:Kiva -->
+    
     <message>
         <source>Custom Block X Position</source>
         <translation>Posição X do Bloco Personalizado</translation>
     </message>
-    <!-- OS:Foundation:Kiva -->
+    
     <message>
         <source>Custom Block Z Position</source>
         <translation>Posição Z do Bloco Personalizado</translation>
     </message>
-    <!-- OS:Schedule:Week -->
+    
     <message>
         <source>CustomDay1 Schedule:Day Name</source>
         <translation>CustomDay1 Schedule:Day Name</translation>
     </message>
-    <!-- OS:Schedule:Week -->
+    
     <message>
         <source>CustomDay2 Schedule:Day Name</source>
         <translation>CustomDay2 Schedule:Day Name</translation>
     </message>
-    <!-- OS:UtilityCost:Tariff -->
+    
     <message>
         <source>Customer Baseline Load Schedule Name</source>
         <translation>Nome do Cronograma de Carga de Linha de Base do Cliente</translation>
     </message>
-    <!-- OS:Generator:WindTurbine -->
+    
     <message>
         <source>Cut In Wind Speed</source>
         <translation>Velocidade de Vento de Corte</translation>
     </message>
-    <!-- OS:Generator:WindTurbine -->
+    
     <message>
         <source>Cut Out Wind Speed</source>
         <translation>Velocidade de Corte do Vento</translation>
     </message>
-    <!-- OS:Generator:FuelCell:PowerModule -->
+    
     <message>
         <source>Cycling Performance Degradation Coefficient</source>
         <translation>Coeficiente de Degradação de Desempenho em Ciclos</translation>
     </message>
-    <!-- OS:HeatPump:AirToWater:FuelFired:Cooling, OS:HeatPump:AirToWater:FuelFired:Heating -->
+    
     <message>
         <source>Cycling Ratio Factor Curve Name</source>
         <translation>Cycling Ratio Factor Curve Name</translation>
     </message>
-    <!-- OS:AvailabilityManager:NightCycle -->
+    
     <message>
         <source>Cycling Run Time</source>
         <translation>Tempo de Funcionamento em Ciclo</translation>
     </message>
-    <!-- OS:AvailabilityManager:NightCycle -->
+    
     <message>
         <source>Cycling Run Time Control Type</source>
         <translation>Tipo de Controle de Tempo de Execução em Ciclo</translation>
     </message>
 
-    <!-- D -->
-    <!-- OS:SizingPeriod:DesignDay -->
+    
+    
     <message>
         <source>Daily Dry-Bulb Temperature Range</source>
         <translation>Amplitude Diária de Temperatura de Bulbo Seco</translation>
     </message>
-    <!-- OS:SizingPeriod:DesignDay -->
+    
     <message>
         <source>Daily Wet-Bulb Temperature Range</source>
         <translation>Amplitude Diária da Temperatura de Bulbo Úmido</translation>
     </message>
-    <!-- OS:AirTerminal:SingleDuct:VAV:HeatAndCool:Reheat -->
+    
     <message>
         <source>Damper Air Outlet</source>
         <translation>Saída de Ar do Amortecedor</translation>
     </message>
-    <!-- OS:Table:MultiVariableLookup -->
+    
     <message>
         <source>Data</source>
         <translation>Dados</translation>
     </message>
-    <!-- OS:WeatherFile -->
+    
     <message>
         <source>Data Source</source>
         <translation>Fonte de Dados</translation>
     </message>
-    <!-- OS:Schedule:Rule -->
+    
     <message>
         <source>Date Specification Type</source>
         <translation>Tipo de Especificação de Data</translation>
     </message>
-    <!-- OS:Schedule:VariableInterval, OS:Schedule:Year -->
+    
     <message>
         <source>Day</source>
         <translation>Dia</translation>
     </message>
-    <!-- OS:LightingDesignDay, OS:SizingPeriod:DesignDay -->
+    
     <message>
         <source>Day of Month</source>
         <translation>Dia do Mês</translation>
     </message>
-    <!-- OS:SizingPeriod:WeatherFileConditionType, OS:SizingPeriod:WeatherFileDays, OS:YearDescription -->
+    
     <message>
         <source>Day of Week for Start Day</source>
         <translation>Dia da Semana para Dia de Início</translation>
     </message>
-    <!-- OS:Schedule:Rule -->
+    
     <message>
         <source>Day Schedule Name</source>
         <translation>Nome do Cronograma do Dia</translation>
     </message>
-    <!-- OS:SizingPeriod:DesignDay -->
+    
     <message>
         <source>Day Type</source>
         <translation>Tipo de Dia</translation>
     </message>
-    <!-- OS:WindowMaterial:DaylightRedirectionDevice -->
+    
     <message>
         <source>Daylight Redirection Device Type</source>
         <translation>Tipo de Dispositivo de Redirecionamento de Luz Natural</translation>
     </message>
-    <!-- OS:SizingPeriod:DesignDay -->
+    
     <message>
         <source>Daylight Saving Time Indicator</source>
         <translation>Indicador de Horário de Verão</translation>
     </message>
-    <!-- OS:Generator:PVWatts -->
+    
     <message>
         <source>DC System Capacity</source>
         <translation>Capacidade do Sistema CC</translation>
     </message>
-    <!-- OS:ElectricLoadCenter:Inverter:PVWatts -->
+    
     <message>
         <source>DC to AC Size Ratio</source>
         <translation>Razão de Tamanho CC/CA</translation>
     </message>
-    <!-- OS:ElectricLoadCenter:Storage:LiIonNMCBattery -->
+    
     <message>
         <source>DC to DC Charging Efficiency</source>
         <translation>Eficiência de Carregamento DC para DC</translation>
     </message>
-    <!-- OS:Coil:WaterHeating:Desuperheater, OS:WaterHeater:HeatPump, OS:WaterHeater:HeatPump:WrappedCondenser -->
+    
     <message>
         <source>Dead Band Temperature Difference</source>
         <translation>Diferença de Temperatura de Banda Morta</translation>
     </message>
-    <!-- OS:Site:GroundTemperature:Deep -->
+    
     <message>
         <source>December Deep Ground Temperature</source>
         <translation>Temperatura Profunda do Solo em Dezembro</translation>
     </message>
-    <!-- OS:Site:GroundReflectance -->
+    
     <message>
         <source>December Ground Reflectance</source>
         <translation>Refletância do Solo em Dezembro</translation>
     </message>
-    <!-- OS:Site:GroundTemperature:BuildingSurface, OS:Site:GroundTemperature:FCfactorMethod -->
+    
     <message>
         <source>December Ground Temperature</source>
         <translation>Temperatura do Solo em Dezembro</translation>
     </message>
-    <!-- OS:Site:GroundTemperature:Shallow -->
+    
     <message>
         <source>December Surface Ground Temperature</source>
         <translation>Temperatura do Solo na Superfície em Dezembro</translation>
     </message>
-    <!-- OS:UtilityCost:Variable -->
+    
     <message>
         <source>December Value</source>
         <translation>Valor de Dezembro</translation>
     </message>
-    <!-- OS:CoilSystem:IntegratedHeatPump:AirSource -->
+    
     <message>
         <source>Dedicated Water Heating Coil</source>
         <translation>Serpentina de Aquecimento de Água Dedicada</translation>
     </message>
-    <!-- OS:MaterialProperty:MoisturePenetrationDepth:Settings -->
+    
     <message>
         <source>Deep Layer Penetration Depth</source>
         <translation>Profundidade de Penetração da Camada Profunda</translation>
     </message>
-    <!-- OS:Foundation:Kiva:Settings -->
+    
     <message>
         <source>Deep-Ground Boundary Condition</source>
         <translation>Condição de Contorno em Solo Profundo</translation>
     </message>
-    <!-- OS:Foundation:Kiva:Settings -->
+    
     <message>
         <source>Deep-Ground Depth</source>
         <translation>Profundidade de Solo Profundo</translation>
     </message>
-    <!-- OS:Building, OS:BuildingStory, OS:Space, OS:SpaceType -->
+    
     <message>
         <source>Default Construction Set Name</source>
         <translation>Nome do Conjunto de Construção Padrão</translation>
     </message>
-    <!-- OS:DefaultConstructionSet -->
+    
     <message>
         <source>Default Exterior SubSurface Constructions Name</source>
         <translation>Nome das Construções Padrão de SubSuperfícies Externas</translation>
     </message>
-    <!-- OS:DefaultConstructionSet -->
+    
     <message>
         <source>Default Exterior Surface Constructions Name</source>
         <translation>Nome das Construções de Superfícies Exteriores Padrão</translation>
     </message>
-    <!-- OS:DefaultConstructionSet -->
+    
     <message>
         <source>Default Ground Contact Surface Constructions Name</source>
         <translation>Nome das Construções de Superfície de Contato Padrão com o Solo</translation>
     </message>
-    <!-- OS:DefaultConstructionSet -->
+    
     <message>
         <source>Default Interior SubSurface Constructions Name</source>
         <translation>Nome das Construções Padrão de SubSuperfícies Interiores</translation>
     </message>
-    <!-- OS:DefaultConstructionSet -->
+    
     <message>
         <source>Default Interior Surface Constructions Name</source>
         <translation>Nome das Construções de Superfícies Interiores Padrão</translation>
     </message>
-    <!-- OS:ElectricLoadCenter:Storage:LiIonNMCBattery -->
+    
     <message>
         <source>Default Nominal Cell Voltage</source>
         <translation>Tensão Nominal da Célula Padrão</translation>
     </message>
-    <!-- OS:Building, OS:BuildingStory, OS:Space, OS:SpaceType -->
+    
     <message>
         <source>Default Schedule Set Name</source>
         <translation>Nome do Conjunto de Agenda Padrão</translation>
     </message>
-    <!-- OS:Refrigeration:DefrostCycleParameters -->
+    
     <message>
         <source>Defrost 1 Hour Start Time</source>
         <translation>Hora de Início do Descongelamento 1 Hora</translation>
     </message>
-    <!-- OS:Refrigeration:DefrostCycleParameters -->
+    
     <message>
         <source>Defrost 1 Minute Start Time</source>
         <translation>Hora de Início do Degelo 1 Minuto</translation>
     </message>
-    <!-- OS:Refrigeration:DefrostCycleParameters -->
+    
     <message>
         <source>Defrost 2 Hour Start Time</source>
         <translation>Hora de Início do Degelo 2 Horas</translation>
     </message>
-    <!-- OS:Refrigeration:DefrostCycleParameters -->
+    
     <message>
         <source>Defrost 2 Minute Start Time</source>
         <translation>Tempo de Início do Degelo de 2 Minutos</translation>
     </message>
-    <!-- OS:Refrigeration:DefrostCycleParameters -->
+    
     <message>
         <source>Defrost 3 Hour Start Time</source>
         <translation>Hora de Início do Degelo 3 Horas</translation>
     </message>
-    <!-- OS:Refrigeration:DefrostCycleParameters -->
+    
     <message>
         <source>Defrost 3 Minute Start Time</source>
         <translation>Tempo de Início do Degelo 3 Minutos</translation>
     </message>
-    <!-- OS:Refrigeration:DefrostCycleParameters -->
+    
     <message>
         <source>Defrost 4 Hour Start Time</source>
         <translation>Hora de Início do Degelo a Cada 4 Horas</translation>
     </message>
-    <!-- OS:Refrigeration:DefrostCycleParameters -->
+    
     <message>
         <source>Defrost 4 Minute Start Time</source>
         <translation>Hora de Início do Degelo de 4 Minutos</translation>
     </message>
-    <!-- OS:Refrigeration:DefrostCycleParameters -->
+    
     <message>
         <source>Defrost 5 Hour Start Time</source>
         <translation>Hora de Início do Degelo 5 Horas</translation>
     </message>
-    <!-- OS:Refrigeration:DefrostCycleParameters -->
+    
     <message>
         <source>Defrost 5 Minute Start Time</source>
         <translation>Hora de Início do Degelo de 5 Minutos</translation>
     </message>
-    <!-- OS:Refrigeration:DefrostCycleParameters -->
+    
     <message>
         <source>Defrost 6 Hour Start Time</source>
         <translation>Hora de Início do Degelo 6 Horas</translation>
     </message>
-    <!-- OS:Refrigeration:DefrostCycleParameters -->
+    
     <message>
         <source>Defrost 6 Minute Start Time</source>
         <translation>Hora de Início do Degelo de 6 Minutos</translation>
     </message>
-    <!-- OS:Refrigeration:DefrostCycleParameters -->
+    
     <message>
         <source>Defrost 7 Hour Start Time</source>
         <translation>Hora de Início do Degelo 7 Horas</translation>
     </message>
-    <!-- OS:Refrigeration:DefrostCycleParameters -->
+    
     <message>
         <source>Defrost 7 Minute Start Time</source>
         <translation>Hora de Início do Degelo 7 Minutos</translation>
     </message>
-    <!-- OS:Refrigeration:DefrostCycleParameters -->
+    
     <message>
         <source>Defrost 8 Hour Start Time</source>
         <translation>Hora de Início do Degelo 8 Horas</translation>
     </message>
-    <!-- OS:Refrigeration:DefrostCycleParameters -->
+    
     <message>
         <source>Defrost 8 Minute Start Time</source>
         <translation>Hora de Início do Degelo de 8 Minutos</translation>
     </message>
-    <!-- OS:HeatPump:AirToWater:FuelFired:Heating, OS:Refrigeration:AirChiller, OS:Refrigeration:WalkIn -->
+    
     <message>
         <source>Defrost Control Type</source>
         <translation>Tipo de Controle de Degelo</translation>
     </message>
-    <!-- OS:Refrigeration:AirChiller, OS:Refrigeration:WalkIn -->
+    
     <message>
         <source>Defrost Drip-Down Schedule Name</source>
         <translation>Nome do Cronograma de Escoamento de Degelo</translation>
     </message>
-    <!-- OS:Refrigeration:Case -->
+    
     <message>
         <source>Defrost Energy Correction Curve Name</source>
         <translation>Nome da Curva de Correção de Energia de Degelo</translation>
     </message>
-    <!-- OS:Refrigeration:Case -->
+    
     <message>
         <source>Defrost Energy Correction Curve Type</source>
         <translation>Tipo de Curva de Correção de Energia de Degelo</translation>
     </message>
-    <!-- OS:Coil:Heating:DX:MultiSpeed, OS:Coil:Heating:DX:SingleSpeed, OS:Coil:Heating:DX:VariableSpeed, OS:HeatPump:AirToWater, OS:HeatPump:PlantLoop:EIR:Heating -->
+    
     <message>
         <source>Defrost Energy Input Ratio Function of Temperature Curve Name</source>
         <translation>Defrost Energy Input Ratio Function of Temperature Curve Name</translation>
     </message>
-    <!-- OS:AirConditioner:VariableRefrigerantFlow, OS:AirConditioner:VariableRefrigerantFlow:FluidTemperatureControl, OS:AirConditioner:VariableRefrigerantFlow:FluidTemperatureControl:HR -->
+    
     <message>
         <source>Defrost Energy Input Ratio Modifier Function of Temperature Curve Name</source>
         <translation>Defrost Energy Input Ratio Modifier Function of Temperature Curve Name</translation>
     </message>
-    <!-- OS:HeatPump:AirToWater:FuelFired:Heating -->
+    
     <message>
         <source>Defrost Operation Time Fraction</source>
         <translation>Fração de Tempo de Operação de Degelo</translation>
     </message>
-    <!-- OS:Refrigeration:AirChiller, OS:Refrigeration:WalkIn -->
+    
     <message>
         <source>Defrost Power</source>
         <translation>Potência de Descongelamento</translation>
     </message>
-    <!-- OS:Refrigeration:AirChiller, OS:Refrigeration:WalkIn -->
+    
     <message>
         <source>Defrost Schedule Name</source>
         <translation>Nome do Cronograma de Degelo</translation>
     </message>
-    <!-- OS:Refrigeration:AirChiller, OS:Refrigeration:WalkIn -->
+    
     <message>
         <source>Defrost Type</source>
         <translation>Tipo de Degelo</translation>
     </message>
-    <!-- OS:LoadProfile:Plant -->
+    
     <message>
         <source>Degree of Loop SubCooling</source>
         <translation>Grau de Sub-resfriamento do Loop</translation>
     </message>
-    <!-- OS:LoadProfile:Plant -->
+    
     <message>
         <source>Degree of SubCooling</source>
         <translation>Grau de Sub-resfriamento</translation>
     </message>
-    <!-- OS:Chiller:Absorption:Indirect -->
+    
     <message>
         <source>Degree of Subcooling in Steam Condensate Loop</source>
         <translation>Grau de Sub-resfriamento no Circuito de Condensado de Vapor</translation>
     </message>
-    <!-- OS:Chiller:Absorption, OS:Chiller:Absorption:Indirect -->
+    
     <message>
         <source>Degree of Subcooling in Steam Generator</source>
         <translation>Grau de Subresfriamento no Gerador de Vapor</translation>
     </message>
-    <!-- OS:AirLoopHVAC:UnitaryCoolOnly, OS:AirLoopHVAC:UnitaryHeatCool:VAVChangeoverBypass, OS:AirLoopHVAC:UnitaryHeatPump:AirToAir, OS:AirLoopHVAC:UnitarySystem, OS:CoilSystem:Cooling:Water, OS:ZoneHVAC:IdealLoadsAirSystem -->
+    
     <message>
         <source>Dehumidification Control Type</source>
         <translation>Tipo de Controle de Desumidificação</translation>
     </message>
-    <!-- OS:Coil:Cooling:DX:TwoStageWithHumidityControlMode -->
+    
     <message>
         <source>Dehumidification Mode 1 Stage 1 Coil Performance</source>
         <translation>Desempenho da Serpentina - Modo de Desumidificação 1 Estágio 1</translation>
     </message>
-    <!-- OS:Coil:Cooling:DX:TwoStageWithHumidityControlMode -->
+    
     <message>
         <source>Dehumidification Mode 1 Stage 1 Plus 2 Coil Performance</source>
         <translation>Desempenho da Bobina Estágio 1 Mais 2 do Modo de Desumidificação 1</translation>
     </message>
-    <!-- OS:ZoneControl:Humidistat -->
+    
     <message>
         <source>Dehumidifying Relative Humidity Setpoint Schedule Name</source>
         <translation>Nome da Agenda de Ponto de Ajuste da Umidade Relativa de Desumidificação</translation>
     </message>
-    <!-- OS:ZoneMixing, OS:ZoneVentilation:DesignFlowRate, OS:ZoneVentilation:WindandStackOpenArea -->
+    
     <message>
         <source>Delta Temperature</source>
         <translation>Diferença de Temperatura</translation>
     </message>
-    <!-- OS:ZoneMixing, OS:ZoneVentilation:DesignFlowRate, OS:ZoneVentilation:WindandStackOpenArea -->
+    
     <message>
         <source>Delta Temperature Schedule Name</source>
         <translation>Nome da Agenda de Diferença de Temperatura</translation>
     </message>
-    <!-- OS:Controller:MechanicalVentilation -->
+    
     <message>
         <source>Demand Controlled Ventilation</source>
         <translation>Ventilação Controlada por Demanda</translation>
     </message>
-    <!-- OS:ZoneHVAC:IdealLoadsAirSystem -->
+    
     <message>
         <source>Demand Controlled Ventilation Type</source>
         <translation>Tipo de Ventilação Controlada por Demanda</translation>
     </message>
-    <!-- OS:UtilityCost:Tariff -->
+    
     <message>
         <source>Demand Conversion Factor</source>
         <translation>Fator de Conversão de Demanda</translation>
     </message>
-    <!-- OS:ElectricLoadCenter:Distribution -->
+    
     <message>
         <source>Demand Limit Scheme Purchased Electric Demand Limit</source>
         <translation>Limite de Demanda Elétrica Comprada do Esquema de Limite de Demanda</translation>
     </message>
-    <!-- OS:AirLoopHVAC, OS:PlantLoop -->
+    
     <message>
         <source>Demand Mixer Name</source>
         <translation>Nome do Misturador de Demanda</translation>
     </message>
-    <!-- OS:PlantLoop -->
+    
     <message>
         <source>Demand Side Branch List Name</source>
         <translation>Nome da Lista de Ramo do Lado da Demanda</translation>
     </message>
-    <!-- OS:PlantLoop -->
+    
     <message>
         <source>Demand Side Connector List Name</source>
         <translation>Nome da Lista de Conectores do Lado da Demanda</translation>
     </message>
-    <!-- OS:AirLoopHVAC -->
+    
     <message>
         <source>Demand Side Inlet Node A</source>
         <translation>Nó de Entrada do Lado da Demanda A</translation>
     </message>
-    <!-- OS:AirLoopHVAC -->
+    
     <message>
         <source>Demand Side Inlet Node B</source>
         <translation>Nó de Entrada do Lado da Demanda B</translation>
     </message>
-    <!-- OS:PlantLoop -->
+    
     <message>
         <source>Demand Side Inlet Node Name</source>
         <translation>Nome do Nó de Entrada do Lado da Demanda</translation>
     </message>
-    <!-- OS:AirLoopHVAC, OS:PlantLoop -->
+    
     <message>
         <source>Demand Side Outlet Node Name</source>
         <translation>Nome do Nó de Saída do Lado da Demanda</translation>
     </message>
-    <!-- OS:AirLoopHVAC -->
+    
     <message>
         <source>Demand Splitter A Name</source>
         <translation>Nome do Divisor de Demanda A</translation>
     </message>
-    <!-- OS:AirLoopHVAC -->
+    
     <message>
         <source>Demand Splitter B Name</source>
         <translation>Nome do Divisor de Demanda B</translation>
     </message>
-    <!-- OS:PlantLoop -->
+    
     <message>
         <source>Demand Splitter Name</source>
         <translation>Nome do Divisor de Demanda</translation>
     </message>
-    <!-- OS:UtilityCost:Tariff -->
+    
     <message>
         <source>Demand Window Length</source>
         <translation>Duração da Janela de Demanda</translation>
     </message>
-    <!-- OS:Material -->
+    
     <message>
         <source>Density</source>
         <translation>Densidade</translation>
     </message>
-    <!-- OS:Material:RoofVegetation -->
+    
     <message>
         <source>Density of Dry Soil</source>
         <translation>Densidade do Solo Seco</translation>
     </message>
-    <!-- OS:LifeCycleCost:Parameters -->
+    
     <message>
         <source>Depreciation Method</source>
         <translation>Método de Depreciação</translation>
     </message>
-    <!-- OS:FluidCooler:SingleSpeed -->
+    
     <message>
         <source>Design Air Flow Rate Fan Power</source>
         <translation>Potência do Ventilador na Vazão de Ar de Projeto</translation>
     </message>
-    <!-- OS:FluidCooler:SingleSpeed -->
+    
     <message>
         <source>Design Air Flow Rate U-factor Times Area Value</source>
         <translation>Taxa de Vazão de Ar de Projeto Valor de U-factor Vezes Área</translation>
     </message>
-    <!-- OS:ComponentCost:Adjustments -->
+    
     <message>
         <source>Design and Engineering Fees</source>
         <translation>Honorários de Projeto e Engenharia</translation>
     </message>
-    <!-- OS:CoolingTower:SingleSpeed, OS:CoolingTower:TwoSpeed, OS:CoolingTower:VariableSpeed -->
+    
     <message>
         <source>Design Approach Temperature</source>
         <translation>Temperatura de Aproximação no Projeto</translation>
     </message>
-    <!-- OS:Chiller:Absorption, OS:Chiller:Absorption:Indirect, OS:ChillerHeaterPerformance:Electric:EIR -->
+    
     <message>
         <source>Design Chilled Water Flow Rate</source>
         <translation>Vazão de Água Gelada de Projeto</translation>
     </message>
-    <!-- OS:AirTerminal:SingleDuct:ConstantVolume:FourPipeBeam -->
+    
     <message>
         <source>Design Chilled Water Volume Flow Rate</source>
         <translation>Vazão Volumétrica de Água Gelada em Condições de Projeto</translation>
     </message>
-    <!-- OS:Refrigeration:CompressorRack -->
+    
     <message>
         <source>Design Compressor Rack COP</source>
         <translation>Design Compressor Rack COP</translation>
     </message>
-    <!-- OS:Refrigeration:CompressorRack -->
+    
     <message>
         <source>Design Condenser Fan Power</source>
         <translation>Potência do Ventilador do Condensador no Projeto</translation>
     </message>
-    <!-- OS:Chiller:Absorption, OS:Chiller:Absorption:Indirect -->
+    
     <message>
         <source>Design Condenser Inlet Temperature</source>
         <translation>Temperatura de Entrada do Condensador no Projeto</translation>
     </message>
-    <!-- OS:Chiller:Absorption, OS:Chiller:Absorption:Indirect, OS:ChillerHeaterPerformance:Electric:EIR -->
+    
     <message>
         <source>Design Condenser Water Flow Rate</source>
         <translation>Vazão de Água do Condensador no Projeto</translation>
     </message>
-    <!-- OS:Fan:SystemModel -->
+    
     <message>
         <source>Design Electric Power Consumption</source>
         <translation>Consumo de Energia Elétrica de Projeto</translation>
     </message>
-    <!-- OS:ElectricEquipment:ITE:AirCooled:Definition -->
+    
     <message>
         <source>Design Electric Power Supply Efficiency</source>
         <translation>Eficiência do Fornecimento de Energia Elétrica no Projeto</translation>
     </message>
-    <!-- OS:ElectricEquipment:ITE:AirCooled:Definition, OS:EvaporativeFluidCooler:SingleSpeed, OS:EvaporativeFluidCooler:TwoSpeed, OS:FluidCooler:SingleSpeed, OS:FluidCooler:TwoSpeed -->
+    
     <message>
         <source>Design Entering Air Temperature</source>
         <translation>Temperatura do Ar de Entrada em Projeto</translation>
     </message>
-    <!-- OS:EvaporativeFluidCooler:SingleSpeed, OS:EvaporativeFluidCooler:TwoSpeed, OS:FluidCooler:TwoSpeed -->
+    
     <message>
         <source>Design Entering Air Wet-bulb Temperature</source>
         <translation>Temperatura de Bulbo Úmido do Ar de Entrada no Projeto</translation>
     </message>
-    <!-- OS:FluidCooler:SingleSpeed -->
+    
     <message>
         <source>Design Entering Air Wetbulb Temperature</source>
         <translation>Temperatura de Bulbo Úmido do Ar de Entrada no Projeto</translation>
     </message>
-    <!-- OS:EvaporativeFluidCooler:SingleSpeed, OS:EvaporativeFluidCooler:TwoSpeed, OS:FluidCooler:SingleSpeed, OS:FluidCooler:TwoSpeed -->
+    
     <message>
         <source>Design Entering Water Temperature</source>
         <translation>Temperatura da Água de Entrada no Projeto</translation>
     </message>
-    <!-- OS:Refrigeration:CompressorRack -->
+    
     <message>
         <source>Design Evaporative Condenser Water Pump Power</source>
         <translation>Potência da Bomba de Água do Condensador Evaporativo de Projeto</translation>
     </message>
-    <!-- OS:Refrigeration:Case -->
+    
     <message>
         <source>Design Evaporator Temperature or Brine Inlet Temperature</source>
         <translation>Temperatura do Evaporador de Projeto ou Temperatura de Entrada da Salmoura</translation>
     </message>
-    <!-- OS:ElectricEquipment:ITE:AirCooled:Definition -->
+    
     <message>
         <source>Design Fan Air Flow Rate per Power Input</source>
         <translation>Taxa de Fluxo de Ar do Ventilador de Projeto por Entrada de Potência</translation>
     </message>
-    <!-- OS:CoolingTower:VariableSpeed -->
+    
     <message>
         <source>Design Fan Power</source>
         <translation>Potência do Ventilador de Projeto</translation>
     </message>
-    <!-- OS:ElectricEquipment:ITE:AirCooled:Definition -->
+    
     <message>
         <source>Design Fan Power Input Fraction</source>
         <translation>Fração de Potência de Entrada do Ventilador de Projeto</translation>
     </message>
-    <!-- OS:Chiller:Absorption, OS:Chiller:Absorption:Indirect -->
+    
     <message>
         <source>Design Generator Fluid Flow Rate</source>
         <translation>Vazão de Fluido do Gerador de Projeto</translation>
     </message>
-    <!-- OS:AirTerminal:SingleDuct:ParallelPIU:Reheat, OS:AirTerminal:SingleDuct:SeriesPIU:Reheat -->
+    
     <message>
         <source>Design Heating Discharge Air Temperature</source>
         <translation>Temperatura do Ar de Descarga de Aquecimento do Projeto</translation>
     </message>
-    <!-- OS:ChillerHeaterPerformance:Electric:EIR -->
+    
     <message>
         <source>Design Hot Water Flow Rate</source>
         <translation>Vazão de Água Quente de Projeto</translation>
     </message>
-    <!-- OS:AirTerminal:SingleDuct:ConstantVolume:FourPipeBeam -->
+    
     <message>
         <source>Design Hot Water Volume Flow Rate</source>
         <translation>Vazão Volumétrica de Água Quente do Projeto</translation>
     </message>
-    <!-- OS:CoolingTower:SingleSpeed, OS:CoolingTower:TwoSpeed -->
+    
     <message>
         <source>Design Inlet Air Dry-Bulb Temperature</source>
         <translation>Temperatura de Bulbo Seco do Ar de Entrada no Projeto</translation>
     </message>
-    <!-- OS:CoolingTower:SingleSpeed, OS:CoolingTower:TwoSpeed, OS:CoolingTower:VariableSpeed -->
+    
     <message>
         <source>Design Inlet Air Wet-Bulb Temperature</source>
         <translation>Temperatura de Bulbo Úmido do Ar de Entrada no Projeto</translation>
     </message>
-    <!-- OS:ElectricEquipment:Definition, OS:Exterior:FuelEquipment:Definition, OS:Exterior:Lights:Definition, OS:Exterior:WaterEquipment:Definition, OS:GasEquipment:Definition, OS:HotWaterEquipment:Definition, OS:OtherEquipment:Definition, OS:SteamEquipment:Definition -->
+    
     <message>
         <source>Design Level</source>
         <translation>Nível de Projeto</translation>
     </message>
-    <!-- OS:ElectricEquipment:Definition, OS:GasEquipment:Definition, OS:HotWaterEquipment:Definition, OS:InternalMass:Definition, OS:Lights:Definition, OS:OtherEquipment:Definition, OS:SteamEquipment:Definition -->
+    
     <message>
         <source>Design Level Calculation Method</source>
         <translation>Método de Cálculo do Nível de Projeto</translation>
     </message>
-    <!-- OS:Refrigeration:Subcooler:LiquidSuction -->
+    
     <message>
         <source>Design Liquid Inlet Temperature</source>
         <translation>Temperatura de Entrada do Líquido de Projeto</translation>
     </message>
-    <!-- OS:Fan:SystemModel -->
+    
     <message>
         <source>Design Maximum Air Flow Rate</source>
         <translation>Taxa Máxima de Fluxo de Ar de Projeto</translation>
     </message>
-    <!-- OS:ElectricLoadCenter:Storage:Converter -->
+    
     <message>
         <source>Design Maximum Continuous Input Power</source>
         <translation>Potência de Entrada Contínua Máxima de Projeto</translation>
     </message>
-    <!-- OS:WaterHeater:Sizing -->
+    
     <message>
         <source>Design Mode</source>
         <translation>Modo de Design</translation>
     </message>
-    <!-- OS:Boiler:Steam -->
+    
     <message>
         <source>Design Outlet Steam Temperature</source>
         <translation>Temperatura do Vapor na Saída de Projeto</translation>
     </message>
-    <!-- OS:AirTerminal:SingleDuct:ConstantVolume:CooledBeam -->
+    
     <message>
         <source>Design Outlet Water Temperature</source>
         <translation>Temperatura da Água na Saída de Projeto</translation>
     </message>
-    <!-- OS:ElectricEquipment:ITE:AirCooled:Definition -->
+    
     <message>
         <source>Design Power Input Calculation Method</source>
         <translation>Método de Cálculo da Potência de Entrada no Projeto</translation>
     </message>
-    <!-- OS:ElectricEquipment:ITE:AirCooled -->
+    
     <message>
         <source>Design Power Input Schedule Name</source>
         <translation>Nome da Agenda de Potência de Entrada de Projeto</translation>
     </message>
-    <!-- OS:Fan:SystemModel, OS:HeaderedPumps:ConstantSpeed, OS:HeaderedPumps:VariableSpeed, OS:Pump:ConstantSpeed, OS:Pump:VariableSpeed -->
+    
     <message>
         <source>Design Power Sizing Method</source>
         <translation>Método de Dimensionamento de Potência de Projeto</translation>
     </message>
-    <!-- OS:Fan:SystemModel -->
+    
     <message>
         <source>Design Pressure Rise</source>
         <translation>Aumento de Pressão de Projeto</translation>
     </message>
-    <!-- OS:AirTerminal:SingleDuct:ConstantVolume:FourPipeBeam -->
+    
     <message>
         <source>Design Primary Air Volume Flow Rate</source>
         <translation>Taxa de Fluxo de Ar Primário de Projeto</translation>
     </message>
-    <!-- OS:CoolingTower:SingleSpeed, OS:CoolingTower:TwoSpeed, OS:CoolingTower:VariableSpeed -->
+    
     <message>
         <source>Design Range Temperature</source>
         <translation>Temperatura de Faixa de Projeto</translation>
     </message>
-    <!-- OS:ElectricEquipment:ITE:AirCooled:Definition -->
+    
     <message>
         <source>Design Recirculation Fraction</source>
         <translation>Fração de Recirculação de Projeto</translation>
     </message>
-    <!-- OS:AirLoopHVAC:UnitarySystem -->
+    
     <message>
         <source>Design Specification Multispeed Object Name</source>
         <translation>Nome do Objeto de Especificação de Design Multivelocidade</translation>
     </message>
-    <!-- OS:AirTerminal:DualDuct:VAV, OS:Controller:MechanicalVentilation -->
+    
     <message>
         <source>Design Specification Outdoor Air Object</source>
         <translation>Objeto de Especificação de Design de Ar Externo</translation>
     </message>
-    <!-- OS:Space, OS:SpaceType, OS:ZoneHVAC:IdealLoadsAirSystem -->
+    
     <message>
         <source>Design Specification Outdoor Air Object Name</source>
         <translation>Nome do Objeto de Especificação de Ar Externo de Projeto</translation>
     </message>
-    <!-- OS:Controller:MechanicalVentilation -->
+    
     <message>
         <source>Design Specification Zone Air Distribution Object</source>
         <translation>Objeto de Especificação de Design para Distribuição de Ar na Zona</translation>
     </message>
-    <!-- OS:ZoneHVAC:EvaporativeCoolerUnit -->
+    
     <message>
         <source>Design Specification ZoneHVAC Sizing</source>
         <translation>Especificação de Projeto para Dimensionamento de ZoneHVAC</translation>
     </message>
-    <!-- OS:ZoneHVAC:IdealLoadsAirSystem, OS:ZoneHVAC:TerminalUnit:VariableRefrigerantFlow, OS:ZoneHVAC:UnitVentilator, OS:ZoneHVAC:WaterToAirHeatPump -->
+    
     <message>
         <source>Design Specification ZoneHVAC Sizing Object Name</source>
         <translation>Nome do Objeto de Especificação de Dimensionamento ZoneHVAC</translation>
     </message>
-    <!-- OS:EvaporativeFluidCooler:SingleSpeed, OS:EvaporativeFluidCooler:TwoSpeed -->
+    
     <message>
         <source>Design Spray Water Flow Rate</source>
         <translation>Taxa de Fluxo de Água de Spray do Projeto</translation>
     </message>
-    <!-- OS:ElectricLoadCenter:Distribution -->
+    
     <message>
         <source>Design Storage Control Charge Power</source>
         <translation>Potência de Carga de Controle de Armazenamento de Projeto</translation>
     </message>
-    <!-- OS:ElectricLoadCenter:Distribution -->
+    
     <message>
         <source>Design Storage Control Discharge Power</source>
         <translation>Potência de Descarga do Controle de Armazenamento de Projeto</translation>
     </message>
-    <!-- OS:AirLoopHVAC:UnitarySystem -->
+    
     <message>
         <source>Design Supply Air Flow Rate Per Unit of Capacity During Cooling Operation</source>
         <translation>Taxa de Fluxo de Ar de Suprimento de Projeto Por Unidade de Capacidade Durante Operação de Resfriamento</translation>
     </message>
-    <!-- OS:AirLoopHVAC:UnitarySystem -->
+    
     <message>
         <source>Design Supply Air Flow Rate Per Unit of Capacity During Cooling Operation When No Cooling or Heating is Required</source>
         <translation>Taxa de Fluxo de Ar de Suprimento de Projeto Por Unidade de Capacidade Durante Operação de Resfriamento Quando Nenhum Resfriamento ou Aquecimento é Necessário</translation>
     </message>
-    <!-- OS:AirLoopHVAC:UnitarySystem -->
+    
     <message>
         <source>Design Supply Air Flow Rate Per Unit of Capacity During Heating Operation</source>
         <translation>Taxa de Vazão de Ar de Suprimento de Projeto Por Unidade de Capacidade Durante Operação de Aquecimento</translation>
     </message>
-    <!-- OS:AirLoopHVAC:UnitarySystem -->
+    
     <message>
         <source>Design Supply Air Flow Rate Per Unit of Capacity During Heating Operation When No Cooling or Heating is Required</source>
         <translation>Taxa de Fluxo de Ar de Suprimento de Projeto Por Unidade de Capacidade Durante Operação de Aquecimento Quando Nenhum Resfriamento ou Aquecimento é Necessário</translation>
     </message>
-    <!-- OS:HeatPump:AirToWater:FuelFired:Cooling, OS:HeatPump:AirToWater:FuelFired:Heating -->
+    
     <message>
         <source>Design Supply Temperature</source>
         <translation>Temperatura de Fornecimento de Projeto</translation>
     </message>
-    <!-- OS:HeatPump:AirToWater:FuelFired:Cooling, OS:HeatPump:AirToWater:FuelFired:Heating -->
+    
     <message>
         <source>Design Temperature Lift</source>
         <translation>Elevação de Temperatura de Projeto</translation>
     </message>
-    <!-- OS:Refrigeration:Subcooler:LiquidSuction -->
+    
     <message>
         <source>Design Vapor Inlet Temperature</source>
         <translation>Temperatura de Entrada de Vapor no Projeto</translation>
     </message>
-    <!-- OS:PlantComponent:TemperatureSource -->
+    
     <message>
         <source>Design Volume Flow Rate</source>
         <translation>Taxa de Fluxo de Volume de Projeto</translation>
     </message>
-    <!-- OS:PlantComponent:UserDefined -->
+    
     <message>
         <source>Design Volume Flow Rate Actuator</source>
         <translation>Atuador de Vazão de Design</translation>
     </message>
-    <!-- OS:EvaporativeCooler:Indirect:ResearchSpecial -->
+    
     <message>
         <source>Dewpoint Effectiveness Factor</source>
         <translation>Fator de Efetividade de Ponto de Orvalho</translation>
     </message>
-    <!-- OS:ZoneHVAC:EnergyRecoveryVentilator:Controller -->
+    
     <message>
         <source>Dewpoint Temperature Limit</source>
         <translation>Limite de Temperatura de Ponto de Orvalho</translation>
     </message>
-    <!-- OS:PlantEquipmentOperation:OutdoorDewpoint -->
+    
     <message>
         <source>Dewpoint Temperature Range Lower Limit</source>
         <translation>Limite Inferior da Faixa de Temperatura do Ponto de Orvalho</translation>
     </message>
-    <!-- OS:PlantEquipmentOperation:OutdoorDewpoint -->
+    
     <message>
         <source>Dewpoint Temperature Range Upper Limit</source>
         <translation>Limite Superior da Faixa de Temperatura do Ponto de Orvalho</translation>
     </message>
-    <!-- OS:Curve:Functional:PressureDrop, OS:DaylightingDevice:Tubular -->
+    
     <message>
         <source>Diameter</source>
         <translation>Diâmetro</translation>
     </message>
-    <!-- OS:AirConditioner:VariableRefrigerantFlow:FluidTemperatureControl -->
+    
     <message>
         <source>Diameter of Main Pipe Connecting Outdoor Unit to the First Branch Joint</source>
         <translation>Diâmetro do Tubo Principal Conectando a Unidade Outdoor ao Primeiro Acoplamento de Ramal</translation>
     </message>
-    <!-- OS:AirConditioner:VariableRefrigerantFlow:FluidTemperatureControl:HR -->
+    
     <message>
         <source>Diameter of Main Pipe for Discharge Gas</source>
         <translation>Diâmetro do Tubo Principal para Gás de Descarga</translation>
     </message>
-    <!-- OS:AirConditioner:VariableRefrigerantFlow:FluidTemperatureControl:HR -->
+    
     <message>
         <source>Diameter of Main Pipe for Suction Gas</source>
         <translation>Diâmetro do Tubo Principal para Gás de Sucção</translation>
     </message>
-    <!-- OS:LifeCycleCost:Parameters -->
+    
     <message>
         <source>Diesel Inflation</source>
         <translation>Inflação de Diesel</translation>
     </message>
-    <!-- OS:AirConditioner:VariableRefrigerantFlow:FluidTemperatureControl:HR -->
+    
     <message>
         <source>Difference between Outdoor Unit Evaporating Temperature and Outdoor Air Temperature in Heat Recovery Mode</source>
         <translation>Diferença entre a Temperatura de Evaporação da Unidade Exterior e a Temperatura do Ar Exterior no Modo de Recuperação de Calor</translation>
     </message>
-    <!-- OS:SizingPeriod:DesignDay -->
+    
     <message>
         <source>Diffuse Solar Day Schedule Name</source>
         <translation>Nome do Cronograma de Dia com Radiação Solar Difusa</translation>
     </message>
-    <!-- OS:WindowMaterial:Screen -->
+    
     <message>
         <source>Diffuse Solar Reflectance</source>
         <translation>Refletância Solar Difusa</translation>
     </message>
-    <!-- OS:WindowMaterial:Screen -->
+    
     <message>
         <source>Diffuse Visible Reflectance</source>
         <translation>Refletância Visível Difusa</translation>
     </message>
-    <!-- OS:DaylightingDevice:Tubular -->
+    
     <message>
         <source>Diffuser Name</source>
         <translation>Nome do Difusor</translation>
     </message>
-    <!-- OS:Output:Table:Annual, OS:Output:Table:Monthly -->
+    
     <message>
         <source>Digits After Decimal</source>
         <translation>Dígitos Após a Vírgula</translation>
     </message>
-    <!-- OS:Generator:FuelCell:PowerModule -->
+    
     <message>
         <source>Dilution Air Flow Rate</source>
         <translation>Taxa de Fluxo de Ar de Diluição</translation>
     </message>
-    <!-- OS:Generator:FuelCell:PowerModule -->
+    
     <message>
         <source>Dilution Inlet Air Node Name</source>
         <translation>Nome do Nó de Ar de Entrada de Diluição</translation>
     </message>
-    <!-- OS:Generator:FuelCell:PowerModule -->
+    
     <message>
         <source>Dilution Outlet Air Node Name</source>
         <translation>Nome do Nó de Ar da Saída de Diluição</translation>
     </message>
-    <!-- OS:Construction:InternalSource -->
+    
     <message>
         <source>Dimensions for the CTF Calculation</source>
         <translation>Dimensões para o Cálculo CTF</translation>
     </message>
-    <!-- OS:PhotovoltaicPerformance:Sandia -->
+    
     <message>
         <source>Diode Factor</source>
         <translation>Fator de Diodo</translation>
     </message>
-    <!-- OS:RadianceParameters -->
+    
     <message>
         <source>Direct Certainty</source>
         <translation>Certeza Direta</translation>
     </message>
-    <!-- OS:RadianceParameters -->
+    
     <message>
         <source>Direct Jitter</source>
         <translation>Vibração Direta</translation>
     </message>
-    <!-- OS:RadianceParameters -->
+    
     <message>
         <source>Direct Pretest</source>
         <translation>Pré-teste Direto</translation>
     </message>
-    <!-- OS:RadianceParameters -->
+    
     <message>
         <source>Direct Threshold</source>
         <translation>Limite Direto</translation>
     </message>
-    <!-- OS:InteriorPartitionSurfaceGroup, OS:ShadingSurfaceGroup, OS:Space -->
+    
     <message>
         <source>Direction of Relative North</source>
         <translation>Direção do Norte Relativo</translation>
     </message>
-    <!-- OS:WindowMaterial:Glazing, OS:WindowMaterial:Glazing:RefractionExtinctionMethod -->
+    
     <message>
         <source>Dirt Correction Factor for Solar and Visible Transmittance</source>
         <translation>Fator de Correção de Sujeira para Transmitância Solar e Visível</translation>
     </message>
-    <!-- OS:ShadowCalculation -->
+    
     <message>
         <source>Disable Self-Shading From Shading Zone Groups to Other Zones</source>
         <translation>Desabilitar Auto-Sombreamento de Grupos de Zonas de Sombreamento para Outras Zonas</translation>
     </message>
-    <!-- OS:ShadowCalculation -->
+    
     <message>
         <source>Disable Self-Shading Within Shading Zone Groups</source>
         <translation>Desabilitar Auto-Sombreamento Dentro de Grupos de Zona de Sombreamento</translation>
     </message>
-    <!-- OS:AirflowNetworkEffectiveLeakageArea, OS:AirflowNetworkHorizontalOpening, OS:AirflowNetworkSimpleOpening -->
+    
     <message>
         <source>Discharge Coefficient</source>
         <translation>Coeficiente de Descarga</translation>
     </message>
-    <!-- OS:ZoneVentilation:WindandStackOpenArea -->
+    
     <message>
         <source>Discharge Coefficient for Opening</source>
         <translation>Coeficiente de Descarga para Abertura</translation>
     </message>
-    <!-- OS:AirflowNetworkDetailedOpening -->
+    
     <message>
         <source>Discharge Coefficient for Opening Factor</source>
         <translation>Coeficiente de Descarga para Fator de Abertura</translation>
     </message>
-    <!-- OS:Coil:Cooling:DX:SingleSpeed:ThermalStorage -->
+    
     <message>
         <source>Discharge Only Mode Available</source>
         <translation>Modo Apenas Descarga Disponível</translation>
     </message>
-    <!-- OS:Coil:Cooling:DX:SingleSpeed:ThermalStorage -->
+    
     <message>
         <source>Discharge Only Mode Capacity Sizing Factor</source>
         <translation>Fator de Dimensionamento da Capacidade em Modo de Descarga Apenas</translation>
     </message>
-    <!-- OS:Coil:Cooling:DX:SingleSpeed:ThermalStorage -->
+    
     <message>
         <source>Discharge Only Mode Energy Input Ratio Function of Flow Fraction Curve</source>
         <translation>Curva da Razão de Entrada de Energia do Modo Somente Descarga em Função da Fração de Fluxo</translation>
     </message>
-    <!-- OS:Coil:Cooling:DX:SingleSpeed:ThermalStorage -->
+    
     <message>
         <source>Discharge Only Mode Energy Input Ratio Function of Temperature Curve</source>
         <translation>Função da Curva de Taxa de Entrada de Energia do Modo de Descarga Apenas em relação à Temperatura</translation>
     </message>
-    <!-- OS:Coil:Cooling:DX:SingleSpeed:ThermalStorage -->
+    
     <message>
         <source>Discharge Only Mode Part Load Fraction Correlation Curve</source>
         <translation>Curva de Correlação de Fração de Carga Parcial do Modo Descarga Apenas</translation>
     </message>
-    <!-- OS:Coil:Cooling:DX:SingleSpeed:ThermalStorage -->
+    
     <message>
         <source>Discharge Only Mode Rated COP</source>
         <translation>Coeficiente de Desempenho Nominal do Modo de Descarga Apenas</translation>
     </message>
-    <!-- OS:Coil:Cooling:DX:SingleSpeed:ThermalStorage -->
+    
     <message>
         <source>Discharge Only Mode Rated Sensible Heat Ratio</source>
         <translation>Taxa de Calor Sensível Nominal do Modo Somente Descarga</translation>
     </message>
-    <!-- OS:Coil:Cooling:DX:SingleSpeed:ThermalStorage -->
+    
     <message>
         <source>Discharge Only Mode Rated Storage Discharging Capacity</source>
         <translation>Capacidade de Descarga de Armazenamento Classificada em Modo Apenas Descarga</translation>
     </message>
-    <!-- OS:Coil:Cooling:DX:SingleSpeed:ThermalStorage -->
+    
     <message>
         <source>Discharge Only Mode Sensible Heat Ratio Function of Flow Fraction Curve</source>
         <translation>Curva de Taxa de Calor Sensível do Modo Somente Descarga em Função da Fração de Vazão</translation>
     </message>
-    <!-- OS:Coil:Cooling:DX:SingleSpeed:ThermalStorage -->
+    
     <message>
         <source>Discharge Only Mode Sensible Heat Ratio Function of Temperature Curve</source>
         <translation>Função de Razão de Calor Sensível do Modo Apenas Descarga em Relação à Temperatura</translation>
     </message>
-    <!-- OS:Coil:Cooling:DX:SingleSpeed:ThermalStorage -->
+    
     <message>
         <source>Discharge Only Mode Storage Discharge Capacity Function of Flow Fraction Curve</source>
         <translation>Curva da Função da Capacidade de Descarga de Armazenamento em Modo Somente de Descarga em Relação à Fração de Vazão</translation>
     </message>
-    <!-- OS:Coil:Cooling:DX:SingleSpeed:ThermalStorage -->
+    
     <message>
         <source>Discharge Only Mode Storage Discharge Capacity Function of Temperature Curve</source>
         <translation>Curva da Função da Capacidade de Descarga do Armazenamento em Modo de Descarga Apenas em Função da Temperatura</translation>
     </message>
-    <!-- OS:ThermalStorage:Ice:Detailed -->
+    
     <message>
         <source>Discharging Curve</source>
         <translation>Curva de Descarga</translation>
     </message>
-    <!-- OS:ThermalStorage:Ice:Detailed -->
+    
     <message>
         <source>Discharging Curve Variable Specifications</source>
         <translation>Especificações de Variáveis da Curva de Descarga</translation>
     </message>
-    <!-- OS:LifeCycleCost:Parameters -->
+    
     <message>
         <source>Discounting Convention</source>
         <translation>Convenção de Desconto</translation>
     </message>
-    <!-- OS:Refrigeration:SecondarySystem -->
+    
     <message>
         <source>Distribution Piping Zone Name</source>
         <translation>Nome da Zona de Tubulação de Distribuição</translation>
     </message>
-    <!-- OS:EnvironmentalImpactFactors -->
+    
     <message>
         <source>District Cooling COP</source>
         <translation>COP de Resfriamento Distrital</translation>
     </message>
-    <!-- OS:EnvironmentalImpactFactors -->
+    
     <message>
         <source>District Heating Steam Conversion Efficiency</source>
         <translation>Eficiência de Conversão de Vapor do Aquecimento Distrital</translation>
     </message>
-    <!-- OS:EnvironmentalImpactFactors -->
+    
     <message>
         <source>District Heating Water Efficiency</source>
         <translation>Eficiência da Água de Aquecimento Distrital</translation>
     </message>
-    <!-- OS:WindowProperty:FrameAndDivider -->
+    
     <message>
         <source>Divider Conductance</source>
         <translation>Condutância do Divisor</translation>
     </message>
-    <!-- OS:WindowProperty:FrameAndDivider -->
+    
     <message>
         <source>Divider Inside Projection</source>
         <translation>Projeção Interna do Divisor</translation>
     </message>
-    <!-- OS:WindowProperty:FrameAndDivider -->
+    
     <message>
         <source>Divider Outside Projection</source>
         <translation>Projeção Externa do Divisor</translation>
     </message>
-    <!-- OS:WindowProperty:FrameAndDivider -->
+    
     <message>
         <source>Divider Solar Absorptance</source>
         <translation>Absortância Solar do Divisor</translation>
     </message>
-    <!-- OS:WindowProperty:FrameAndDivider -->
+    
     <message>
         <source>Divider Thermal Hemispherical Emissivity</source>
         <translation>Emissividade Térmica Hemisférica do Divisor</translation>
     </message>
-    <!-- OS:WindowProperty:FrameAndDivider -->
+    
     <message>
         <source>Divider Type</source>
         <translation>Tipo de Divisor</translation>
     </message>
-    <!-- OS:WindowProperty:FrameAndDivider -->
+    
     <message>
         <source>Divider Visible Absorptance</source>
         <translation>Absortância Visível do Divisor</translation>
     </message>
-    <!-- OS:WindowProperty:FrameAndDivider -->
+    
     <message>
         <source>Divider Width</source>
         <translation>Largura do Divisor</translation>
     </message>
-    <!-- OS:SimulationControl -->
+    
     <message>
         <source>Do HVAC Sizing Simulation for Sizing Periods</source>
         <translation>Executar Simulação de Dimensionamento de HVAC para Períodos de Dimensionamento</translation>
     </message>
-    <!-- OS:SimulationControl -->
+    
     <message>
         <source>Do Plant Sizing Calculation</source>
         <translation>Realizar Cálculo de Dimensionamento da Planta</translation>
     </message>
-    <!-- OS:ZoneAirHeatBalanceAlgorithm -->
+    
     <message>
         <source>Do Space Heat Balance for Simulation</source>
         <translation>Fazer Balanço de Calor do Espaço para Simulação</translation>
     </message>
-    <!-- OS:ZoneAirHeatBalanceAlgorithm -->
+    
     <message>
         <source>Do Space Heat Balance for Sizing</source>
         <translation>Calcular Balanço de Calor do Espaço para Dimensionamento</translation>
     </message>
-    <!-- OS:SimulationControl -->
+    
     <message>
         <source>Do System Sizing Calculation</source>
         <translation>Executar Cálculo de Dimensionamento do Sistema</translation>
     </message>
-    <!-- OS:SimulationControl -->
+    
     <message>
         <source>Do Zone Sizing Calculation</source>
         <translation>Fazer Cálculo de Dimensionamento de Zona</translation>
     </message>
-    <!-- OS:AirLoopHVAC:UnitarySystem -->
+    
     <message>
         <source>DOAS DX Cooling Coil Leaving Minimum Air Temperature</source>
         <translation>DOAS Temperatura Mínima do Ar na Saída da Serpentina DX de Resfriamento</translation>
     </message>
-    <!-- OS:DaylightingDevice:Tubular -->
+    
     <message>
         <source>Dome Name</source>
         <translation>Nome da Cúpula</translation>
     </message>
-    <!-- OS:DefaultSubSurfaceConstructions -->
+    
     <message>
         <source>Door Construction Name</source>
         <translation>Nome da Construção da Porta</translation>
     </message>
-    <!-- OS:EvaporativeCooler:Direct:ResearchSpecial, OS:EvaporativeCooler:Indirect:ResearchSpecial -->
+    
     <message>
         <source>Drift Loss Fraction</source>
         <translation>Fração de Perda por Arraste</translation>
     </message>
-    <!-- OS:Refrigeration:DefrostCycleParameters -->
+    
     <message>
         <source>Drip Down Time</source>
         <translation>Tempo de Gotejamento</translation>
     </message>
-    <!-- OS:HeatPump:PlantLoop:EIR:Heating -->
+    
     <message>
         <source>Dry Outdoor Correction Factor Curve Name</source>
         <translation>Dry Bulb Correction Factor Curve Name</translation>
     </message>
-    <!-- OS:PlantEquipmentOperation:OutdoorDewpointDifference, OS:PlantEquipmentOperation:OutdoorDryBulbDifference, OS:PlantEquipmentOperation:OutdoorWetBulbDifference -->
+    
     <message>
         <source>Dry-Bulb Temperature Difference Range Lower Limit</source>
         <translation>Limite Inferior da Faixa de Diferença de Temperatura de Bulbo Seco</translation>
     </message>
-    <!-- OS:PlantEquipmentOperation:OutdoorDewpointDifference, OS:PlantEquipmentOperation:OutdoorDryBulbDifference, OS:PlantEquipmentOperation:OutdoorWetBulbDifference -->
+    
     <message>
         <source>Dry-Bulb Temperature Difference Range Upper Limit</source>
         <translation>Limite Superior da Faixa de Diferença de Temperatura de Bulbo Seco</translation>
     </message>
-    <!-- OS:PlantEquipmentOperation:OutdoorDryBulb -->
+    
     <message>
         <source>Dry-Bulb Temperature Range Lower Limit</source>
         <translation>Limite Inferior da Faixa de Temperatura de Bulbo Seco</translation>
     </message>
-    <!-- OS:SizingPeriod:DesignDay -->
+    
     <message>
         <source>Dry-Bulb Temperature Range Modifier Day Schedule Name</source>
         <translation>Nome da Agenda de Modificador de Intervalo de Temperatura de Bulbo Seco para o Dia</translation>
     </message>
-    <!-- OS:SizingPeriod:DesignDay -->
+    
     <message>
         <source>Dry-Bulb Temperature Range Modifier Type</source>
         <translation>Tipo de Modificador de Faixa de Temperatura de Bulbo Seco</translation>
     </message>
-    <!-- OS:PlantEquipmentOperation:OutdoorDryBulb -->
+    
     <message>
         <source>Dry-Bulb Temperature Range Upper Limit</source>
         <translation>Limite Superior da Faixa de Temperatura de Bulbo Seco</translation>
     </message>
-    <!-- OS:EvaporativeCooler:Indirect:ResearchSpecial -->
+    
     <message>
         <source>Drybulb Effectiveness Flow Ratio Modifier Curve Name</source>
         <translation>Curva Modificadora da Razão de Fluxo de Efetividade de Bulbo Seco</translation>
     </message>
-    <!-- OS:AirflowNetworkDuct -->
+    
     <message>
         <source>Duct Length</source>
         <translation>Comprimento do Duto</translation>
     </message>
-    <!-- OS:Fan:ComponentModel -->
+    
     <message>
         <source>Duct Static Pressure Reset Curve Name</source>
         <translation>Nome da Curva de Reinicialização da Pressão Estática do Duto</translation>
     </message>
-    <!-- OS:AirflowNetworkDuctViewFactors -->
+    
     <message>
         <source>Duct Surface Emittance</source>
         <translation>Emitância de Superfície do Duto</translation>
     </message>
-    <!-- OS:AirflowNetworkDuctViewFactors -->
+    
     <message>
         <source>Duct Surface Exposure Fraction</source>
         <translation>Fração de Exposição da Superfície do Duto</translation>
     </message>
-    <!-- OS:RunPeriodControl:SpecialDays -->
+    
     <message>
         <source>Duration</source>
         <translation>Duração</translation>
     </message>
-    <!-- OS:Refrigeration:DefrostCycleParameters -->
+    
     <message>
         <source>Duration of Defrost Cycle</source>
         <translation>Duração do Ciclo de Descongelamento</translation>
     </message>
-    <!-- OS:WaterHeater:HeatPump -->
+    
     <message>
         <source>DX Coil</source>
         <translation>Bobina DX</translation>
     </message>
-    <!-- OS:WaterHeater:HeatPump:WrappedCondenser -->
+    
     <message>
         <source>DX Coil Name</source>
         <translation>Nome da Bobina DX</translation>
     </message>
-    <!-- OS:AirLoopHVAC:UnitaryCoolOnly -->
+    
     <message>
         <source>DX Cooling Coil System Inlet Node Name</source>
         <translation>Nome do Nó de Entrada do Sistema de Bobina de Resfriamento DX</translation>
     </message>
-    <!-- OS:AirLoopHVAC:UnitaryCoolOnly -->
+    
     <message>
         <source>DX Cooling Coil System Outlet Node Name</source>
         <translation>Nome do Nó de Saída do Sistema de Serpentina de Resfriamento DX</translation>
     </message>
-    <!-- OS:AirLoopHVAC:UnitaryCoolOnly -->
+    
     <message>
         <source>DX Cooling Coil System Sensor Node Name</source>
         <translation>Nome do Nó do Sensor do Sistema da Bobina de Resfriamento DX</translation>
     </message>
-    <!-- OS:AirLoopHVAC:UnitaryHeatPump:AirToAir, OS:AirLoopHVAC:UnitaryHeatPump:AirToAir:MultiSpeed, OS:AirLoopHVAC:UnitarySystem, OS:ZoneHVAC:PackagedTerminalHeatPump, OS:ZoneHVAC:WaterToAirHeatPump -->
+    
     <message>
         <source>DX Heating Coil Sizing Ratio</source>
         <translation>Razão de Dimensionamento da Bobina de Aquecimento DX</translation>
     </message>
 
-    <!-- E -->
-    <!-- OS:CoilSystem:Cooling:Water, OS:HeatExchanger:AirToAir:SensibleAndLatent, OS:HeatExchanger:Desiccant:BalancedFlow -->
+    
+    
     <message>
         <source>Economizer Lockout</source>
         <translation>Bloqueio do Economizador</translation>
     </message>
-    <!-- OS:ZoneVentilation:WindandStackOpenArea -->
+    
     <message>
         <source>Effective Angle</source>
         <translation>Ângulo Efetivo</translation>
     </message>
-    <!-- OS:AirflowNetworkEffectiveLeakageArea -->
+    
     <message>
         <source>Effective Leakage Area</source>
         <translation>Área de Vazamento Efetiva</translation>
     </message>
-    <!-- OS:AirflowNetworkLeakageRatio -->
+    
     <message>
         <source>Effective Leakage Ratio</source>
         <translation>Taxa de Vazamento Efetiva</translation>
     </message>
-    <!-- OS:SolarCollectorPerformance:PhotovoltaicThermal:BIPVT -->
+    
     <message>
         <source>Effective Plenum Gap Thickness Behind PV Modules</source>
         <translation>Espessura Efetiva do Espaço entre o Módulo PV e a Superfície</translation>
     </message>
-    <!-- OS:DaylightingDevice:Tubular -->
+    
     <message>
         <source>Effective Thermal Resistance</source>
         <translation>Resistência Térmica Efetiva</translation>
     </message>
-    <!-- OS:EvaporativeCooler:Direct:ResearchSpecial -->
+    
     <message>
         <source>Effectiveness Flow Ratio Modifier Curve Name</source>
         <translation>Nome da Curva Modificadora da Taxa de Efetividade do Fluxo</translation>
     </message>
-    <!-- OS:Coil:Heating:Electric, OS:Coil:Heating:Electric:MultiStage:StageData, OS:ZoneHVAC:Baseboard:Convective:Electric, OS:ZoneHVAC:Baseboard:RadiantConvective:Electric -->
+    
     <message>
         <source>Efficiency</source>
         <translation>Eficiência</translation>
     </message>
-    <!-- OS:ElectricLoadCenter:Inverter:LookUpTable -->
+    
     <message>
         <source>Efficiency at 10% Power and Nominal Voltage</source>
         <translation>Eficiência a 10% de Potência e Tensão Nominal</translation>
     </message>
-    <!-- OS:ElectricLoadCenter:Inverter:LookUpTable -->
+    
     <message>
         <source>Efficiency at 100% Power and Nominal Voltage</source>
         <translation>Eficiência em 100% de Potência e Tensão Nominal</translation>
     </message>
-    <!-- OS:ElectricLoadCenter:Inverter:LookUpTable -->
+    
     <message>
         <source>Efficiency at 20% Power and Nominal Voltage</source>
         <translation>Eficiência a 20% de Potência e Tensão Nominal</translation>
     </message>
-    <!-- OS:ElectricLoadCenter:Inverter:LookUpTable -->
+    
     <message>
         <source>Efficiency at 30% Power and Nominal Voltage</source>
         <translation>Eficiência em 30% de Potência e Tensão Nominal</translation>
     </message>
-    <!-- OS:ElectricLoadCenter:Inverter:LookUpTable -->
+    
     <message>
         <source>Efficiency at 50% Power and Nominal Voltage</source>
         <translation>Eficiência em 50% de Potência e Tensão Nominal</translation>
     </message>
-    <!-- OS:ElectricLoadCenter:Inverter:LookUpTable -->
+    
     <message>
         <source>Efficiency at 75% Power and Nominal Voltage</source>
         <translation>Eficiência a 75% de Potência e Tensão Nominal</translation>
     </message>
-    <!-- OS:Generator:FuelCell:PowerModule -->
+    
     <message>
         <source>Efficiency Curve Mode</source>
         <translation>Modo de Curva de Eficiência</translation>
     </message>
-    <!-- OS:Generator:FuelCell:PowerModule -->
+    
     <message>
         <source>Efficiency Curve Name</source>
         <translation>Nome da Curva de Eficiência</translation>
     </message>
-    <!-- OS:Generator:FuelCell:Inverter -->
+    
     <message>
         <source>Efficiency Function of DC Power Curve Name</source>
         <translation>Nome da Curva de Potência CC da Função de Eficiência</translation>
     </message>
-    <!-- OS:ElectricLoadCenter:Storage:Converter -->
+    
     <message>
         <source>Efficiency Function of Power Curve Name</source>
         <translation>Nome da Curva de Função de Eficiência de Potência</translation>
     </message>
-    <!-- OS:PhotovoltaicPerformance:Simple -->
+    
     <message>
         <source>Efficiency Schedule Name</source>
         <translation>Nome da Agenda de Eficiência</translation>
     </message>
-    <!-- OS:ElectricEquipment -->
+    
     <message>
         <source>Electric Equipment Definition Name</source>
         <translation>Nome da Definição de Equipamento Elétrico</translation>
     </message>
-    <!-- OS:ElectricEquipment:ITE:AirCooled -->
+    
     <message>
         <source>Electric Equipment ITE AirCooled Definition Name</source>
         <translation>Equipamento Elétrico ITE Resfriado por Ar - Nome da Definição</translation>
     </message>
-    <!-- OS:Chiller:Electric:ReformulatedEIR -->
+    
     <message>
         <source>Electric Input to Cooling Output Ratio Function of Part Load Ratio Curve Type</source>
         <translation>Tipo de Curva da Função da Razão de Entrada Elétrica para Saída de Resfriamento em Relação à Razão de Carga Parcial</translation>
     </message>
-    <!-- OS:HeatPump:PlantLoop:EIR:Cooling, OS:HeatPump:PlantLoop:EIR:Heating -->
+    
     <message>
         <source>Electric Input to Output Ratio Modifier Function of Part Load Ratio Curve Name</source>
         <translation>Curva Modificadora da Razão de Entrada Elétrica para Saída em Função da Razão de Carga Parcial</translation>
     </message>
-    <!-- OS:HeatPump:PlantLoop:EIR:Cooling, OS:HeatPump:PlantLoop:EIR:Heating -->
+    
     <message>
         <source>Electric Input to Output Ratio Modifier Function of Temperature Curve Name</source>
         <translation>Nome da Curva de Função Modificadora da Razão Entrada-Saída Elétrica em Relação à Temperatura</translation>
     </message>
-    <!-- OS:Fan:SystemModel -->
+    
     <message>
         <source>Electric Power Function of Flow Fraction Curve Name</source>
         <translation>Nome da Curva de Função de Potência Elétrica em Relação à Fração de Vazão</translation>
     </message>
-    <!-- OS:Fan:SystemModel -->
+    
     <message>
         <source>Electric Power Minimum Flow Rate Fraction</source>
         <translation>Fração Mínima de Vazão de Potência Elétrica</translation>
     </message>
-    <!-- OS:Fan:SystemModel -->
+    
     <message>
         <source>Electric Power Per Unit Flow Rate</source>
         <translation>Potência Elétrica por Unidade de Vazão</translation>
     </message>
-    <!-- OS:Fan:SystemModel -->
+    
     <message>
         <source>Electric Power Per Unit Flow Rate Per Unit Pressure</source>
         <translation>Potência Elétrica por Unidade de Vazão por Unidade de Pressão</translation>
     </message>
-    <!-- OS:ElectricEquipment:ITE:AirCooled:Definition -->
+    
     <message>
         <source>Electric Power Supply Efficiency Function of Part Load Ratio Curve Name</source>
         <translation>Nome da Curva de Função de Eficiência da Fonte de Alimentação Elétrica em Relação à Razão de Carga Parcial</translation>
     </message>
-    <!-- OS:ElectricEquipment:ITE:AirCooled -->
+    
     <message>
         <source>Electric Power Supply End-Use Subcategory</source>
         <translation>Subcategoria de Uso Final de Fornecimento de Energia Elétrica</translation>
     </message>
-    <!-- OS:ElectricLoadCenter:Distribution -->
+    
     <message>
         <source>Electrical Buss Type</source>
         <translation>Tipo de Barra Elétrica</translation>
     </message>
-    <!-- OS:Generator:MicroTurbine -->
+    
     <message>
         <source>Electrical Efficiency Function of Part Load Ratio Curve Name</source>
         <translation>Nome da Curva da Função de Eficiência Elétrica em Relação à Razão de Carga Parcial</translation>
     </message>
-    <!-- OS:Generator:MicroTurbine -->
+    
     <message>
         <source>Electrical Efficiency Function of Temperature Curve Name</source>
         <translation>Nome da Curva de Função de Eficiência Elétrica em Relação à Temperatura</translation>
     </message>
-    <!-- OS:Generator:MicroTurbine -->
+    
     <message>
         <source>Electrical Power Function of Temperature and Elevation Curve Name</source>
         <translation>Nome da Curva de Função de Potência Elétrica em Relação à Temperatura e Elevação</translation>
     </message>
-    <!-- OS:Generator:FuelCell -->
+    
     <message>
         <source>Electrical Storage Name</source>
         <translation>Nome do Armazenamento Elétrico</translation>
     </message>
-    <!-- OS:ElectricLoadCenter:Distribution -->
+    
     <message>
         <source>Electrical Storage Object Name</source>
         <translation>Nome do Objeto de Armazenamento Elétrico</translation>
     </message>
-    <!-- OS:LifeCycleCost:Parameters -->
+    
     <message>
         <source>Electricity Inflation</source>
         <translation>Inflação de Eletricidade</translation>
     </message>
-    <!-- OS:Controller:OutdoorAir, OS:ZoneHVAC:EnergyRecoveryVentilator:Controller -->
+    
     <message>
         <source>Electronic Enthalpy Limit Curve Name</source>
         <translation>Nome da Curva de Limite de Entalpia Eletrônica</translation>
     </message>
-    <!-- OS:Site, OS:WeatherFile -->
+    
     <message>
         <source>Elevation</source>
         <translation>Elevação</translation>
     </message>
-    <!-- OS:SolarCollectorPerformance:IntegralCollectorStorage -->
+    
     <message>
         <source>Emissivity of Absorber Plate</source>
         <translation>Emissividade da Placa Absorsora</translation>
     </message>
-    <!-- OS:SolarCollectorPerformance:IntegralCollectorStorage -->
+    
     <message>
         <source>Emissivity of Inner Cover</source>
         <translation>Emissividade da Cobertura Interna</translation>
     </message>
-    <!-- OS:SolarCollectorPerformance:IntegralCollectorStorage -->
+    
     <message>
         <source>Emissivity of Outer Cover</source>
         <translation>Emissividade da Cobertura Externa</translation>
     </message>
-    <!-- OS:EnergyManagementSystem:MeteredOutputVariable, OS:EnergyManagementSystem:OutputVariable -->
+    
     <message>
         <source>EMS Program or Subroutine Name</source>
         <translation>Nome do Programa ou Subroutina EMS</translation>
     </message>
-    <!-- OS:Output:EnergyManagementSystem -->
+    
     <message>
         <source>EMS Runtime Language Debug Output Level</source>
         <translation>Nível de Saída de Depuração da Linguagem de Tempo de Execução do EMS</translation>
     </message>
-    <!-- OS:EnergyManagementSystem:MeteredOutputVariable, OS:EnergyManagementSystem:OutputVariable, OS:EnergyManagementSystem:TrendVariable -->
+    
     <message>
         <source>EMS Variable Name</source>
         <translation>Nome da Variável EMS</translation>
     </message>
-    <!-- OS:RunPeriodControl:DaylightSavingTime -->
+    
     <message>
         <source>End Date</source>
         <translation>Data Final</translation>
     </message>
-    <!-- OS:Schedule:Rule -->
+    
     <message>
         <source>End Day</source>
         <translation>Dia Final</translation>
     </message>
-    <!-- OS:RunPeriod, OS:SizingPeriod:WeatherFileDays -->
+    
     <message>
         <source>End Day of Month</source>
         <translation>Dia Final do Mês</translation>
     </message>
-    <!-- OS:RunPeriod, OS:Schedule:Rule, OS:SizingPeriod:WeatherFileDays -->
+    
     <message>
         <source>End Month</source>
         <translation>Mês Final</translation>
     </message>
-    <!-- OS:EnergyManagementSystem:MeteredOutputVariable, OS:PythonPlugin:OutputVariable -->
+    
     <message>
         <source>End-Use Category</source>
         <translation>Categoria de Uso Final</translation>
     </message>
-    <!-- OS:UtilityCost:Tariff -->
+    
     <message>
         <source>Energy Conversion Factor</source>
         <translation>Fator de Conversão de Energia</translation>
     </message>
-    <!-- OS:ZoneHVAC:Dehumidifier:DX -->
+    
     <message>
         <source>Energy Factor Curve Name</source>
         <translation>Nome da Curva de Fator de Energia</translation>
     </message>
-    <!-- OS:Coil:Cooling:DX:VariableSpeed:SpeedData, OS:Coil:Cooling:WaterToAirHeatPump:VariableSpeedEquationFit:SpeedData, OS:Coil:Heating:DX:VariableSpeed:SpeedData, OS:Coil:Heating:WaterToAirHeatPump:VariableSpeedEquationFit:SpeedData -->
+    
     <message>
         <source>Energy Input Ratio Function of Air Flow Fraction Curve Name</source>
         <translation>Nome da Curva da Razão de Entrada de Energia em Função da Fração de Fluxo de Ar</translation>
     </message>
-    <!-- OS:Coil:Cooling:DX:MultiSpeed:StageData, OS:CoilPerformance:DX:Cooling -->
+    
     <message>
         <source>Energy Input Ratio Function of Flow Fraction Curve</source>
         <translation>Função da Razão de Entrada de Energia em Relação à Fração de Fluxo Curva</translation>
     </message>
-    <!-- OS:Coil:Cooling:DX:MultiSpeed:StageData, OS:CoilPerformance:DX:Cooling -->
+    
     <message>
         <source>Energy Input Ratio Function of Temperature Curve</source>
         <translation>Curva da Função da Razão de Entrada de Energia em Relação à Temperatura</translation>
     </message>
-    <!-- OS:Coil:Cooling:WaterToAirHeatPump:VariableSpeedEquationFit:SpeedData, OS:Coil:Heating:WaterToAirHeatPump:VariableSpeedEquationFit:SpeedData -->
+    
     <message>
         <source>Energy Input Ratio Function of Water Flow Fraction Curve Name</source>
         <translation>Curva Nome da Função da Taxa de Entrada de Energia em Função da Fração de Fluxo de Água</translation>
     </message>
-    <!-- OS:Coil:Cooling:DX:CurveFit:Speed -->
+    
     <message>
         <source>Energy Input Ratio Modifier Function of Air Flow Fraction Curve</source>
         <translation>Função Modificadora da Taxa de Entrada de Energia em Função da Fração de Vazão de Ar</translation>
     </message>
-    <!-- OS:Coil:Cooling:DX:CurveFit:Speed -->
+    
     <message>
         <source>Energy Input Ratio Modifier Function of Temperature Curve</source>
         <translation>Função Modificadora da Razão de Entrada de Energia em Função da Temperatura</translation>
     </message>
-    <!-- OS:Coil:Cooling:DX:VariableSpeed, OS:Coil:Cooling:WaterToAirHeatPump:VariableSpeedEquationFit, OS:Coil:Heating:DX:VariableSpeed, OS:Coil:Heating:WaterToAirHeatPump:VariableSpeedEquationFit -->
+    
     <message>
         <source>Energy Part Load Fraction Curve Name</source>
         <translation>Nome da Curva de Fração de Carga Parcial de Energia</translation>
     </message>
-    <!-- OS:EnergyManagementSystem:ProgramCallingManager -->
+    
     <message>
         <source>EnergyPlus Model Calling Point</source>
         <translation>Ponto de Chamada do Modelo EnergyPlus</translation>
     </message>
-    <!-- OS:MaterialProperty:PhaseChange -->
+    
     <message>
         <source>Enthalpy</source>
         <translation>Entalpia</translation>
     </message>
-    <!-- OS:SizingPeriod:DesignDay -->
+    
     <message>
         <source>Enthalpy at Maximum Dry-Bulb</source>
         <translation>Entalpia na Temperatura de Bulbo Seco Máxima</translation>
     </message>
-    <!-- OS:ZoneHVAC:EnergyRecoveryVentilator:Controller -->
+    
     <message>
         <source>Enthalpy High Limit</source>
         <translation>Limite Alto de Entalpia</translation>
     </message>
-    <!-- OS:Pipe:Indoor -->
+    
     <message>
         <source>Environment Type</source>
         <translation>Tipo de Ambiente</translation>
     </message>
-    <!-- OS:ElectricEquipment:ITE:AirCooled:Definition -->
+    
     <message>
         <source>Environmental Class</source>
         <translation>Classe Ambiental</translation>
     </message>
-    <!-- OS:AirConditioner:VariableRefrigerantFlow:FluidTemperatureControl, OS:AirConditioner:VariableRefrigerantFlow:FluidTemperatureControl:HR -->
+    
     <message>
         <source>Equivalent Length of Main Pipe Connecting Outdoor Unit to the First Branch Joint</source>
         <translation>Comprimento Equivalente do Tubo Principal Conectando a Unidade Externa até o Primeiro Acoplamento de Derivação</translation>
     </message>
-    <!-- OS:AirConditioner:VariableRefrigerantFlow -->
+    
     <message>
         <source>Equivalent Piping Length used for Piping Correction Factor in Cooling Mode</source>
         <translation>Comprimento Equivalente da Tubulação Usado para Fator de Correção de Tubulação em Modo de Resfriamento</translation>
     </message>
-    <!-- OS:AirConditioner:VariableRefrigerantFlow -->
+    
     <message>
         <source>Equivalent Piping Length used for Piping Correction Factor in Heating Mode</source>
         <translation>Comprimento de Tubulação Equivalente usado para Fator de Correção de Tubulação no Modo de Aquecimento</translation>
     </message>
-    <!-- OS:AirflowNetworkSurface -->
+    
     <message>
         <source>Equivalent Rectangle Aspect Ratio</source>
         <translation>Proporção de Aspecto do Retângulo Equivalente</translation>
     </message>
-    <!-- OS:AirflowNetworkSurface -->
+    
     <message>
         <source>Equivalent Rectangle Method</source>
         <translation>Método do Retângulo Equivalente</translation>
     </message>
-    <!-- OS:LifeCycleCost:UsePriceEscalation -->
+    
     <message>
         <source>Escalation Start Month</source>
         <translation>Mês Inicial de Escalação</translation>
     </message>
-    <!-- OS:LifeCycleCost:UsePriceEscalation -->
+    
     <message>
         <source>Escalation Start Year</source>
         <translation>Ano de Início da Escalação</translation>
     </message>
-    <!-- OS:Fan:ComponentModel -->
+    
     <message>
         <source>Euler Number at Maximum Fan Static Efficiency</source>
         <translation>Número de Euler na Eficiência Estática Máxima do Ventilador</translation>
     </message>
-    <!-- OS:AirConditioner:VariableRefrigerantFlow:FluidTemperatureControl:LoadingIndex -->
+    
     <message>
         <source>Evaporative Capacity Multiplier Function of Temperature Curve Name</source>
         <translation>Evaporative Capacity Multiplier Function of Temperature Curve Name</translation>
     </message>
-    <!-- OS:Refrigeration:CompressorRack, OS:Refrigeration:Condenser:EvaporativeCooled -->
+    
     <message>
         <source>Evaporative Condenser Availability Schedule Name</source>
         <translation>Nome da Agenda de Disponibilidade do Condensador Evaporativo</translation>
     </message>
-    <!-- OS:Coil:Cooling:DX:CurveFit:Performance -->
+    
     <message>
         <source>Evaporative Condenser Basin Heater Capacity</source>
         <translation>Capacidade do Aquecedor da Bacia do Condensador Evaporativo</translation>
     </message>
-    <!-- OS:Coil:Cooling:DX:CurveFit:Performance -->
+    
     <message>
         <source>Evaporative Condenser Basin Heater Operating Schedule</source>
         <translation>Cronograma de Operação do Aquecedor da Bacia do Condensador Evaporativo</translation>
     </message>
-    <!-- OS:Coil:Cooling:DX:CurveFit:Performance -->
+    
     <message>
         <source>Evaporative Condenser Basin Heater Setpoint Temperature</source>
         <translation>Temperatura de Ajuste do Aquecedor da Bacia do Condensador Evaporativo</translation>
     </message>
-    <!-- OS:Coil:Cooling:DX:CurveFit:Speed -->
+    
     <message>
         <source>Evaporative Condenser Pump Power Fraction</source>
         <translation>Fração de Potência da Bomba do Condensador Evaporativo</translation>
     </message>
-    <!-- OS:Coil:Cooling:DX -->
+    
     <message>
         <source>Evaporative Condenser Supply Water Storage Tank Name</source>
         <translation>Nome do Tanque de Armazenamento de Água de Suprimento do Condensador Evaporativo</translation>
     </message>
-    <!-- OS:EvaporativeCooler:Direct:ResearchSpecial -->
+    
     <message>
         <source>Evaporative Operation Maximum Limit Drybulb Temperature</source>
         <translation>Temperatura de Bulbo Seco de Limite Máximo de Operação Evaporativa</translation>
     </message>
-    <!-- OS:EvaporativeCooler:Direct:ResearchSpecial -->
+    
     <message>
         <source>Evaporative Operation Maximum Limit Wetbulb Temperature</source>
         <translation>Temperatura de Bulbo Úmido Limite Máximo de Operação Evaporativa</translation>
     </message>
-    <!-- OS:EvaporativeCooler:Direct:ResearchSpecial -->
+    
     <message>
         <source>Evaporative Operation Minimum Drybulb Temperature</source>
         <translation>Temperatura de Bulbo Seco Mínima para Operação Evaporativa</translation>
     </message>
-    <!-- OS:Refrigeration:CompressorRack, OS:Refrigeration:Condenser:EvaporativeCooled -->
+    
     <message>
         <source>Evaporative Water Supply Tank Name</source>
         <translation>Nome do Reservatório de Abastecimento de Água Evaporativa</translation>
     </message>
-    <!-- OS:WaterHeater:HeatPump, OS:WaterHeater:HeatPump:WrappedCondenser -->
+    
     <message>
         <source>Evaporator Air Flow Rate</source>
         <translation>Taxa de Fluxo de Ar do Evaporador</translation>
     </message>
-    <!-- OS:Coil:Cooling:DX:CurveFit:Speed -->
+    
     <message>
         <source>Evaporator Air Flow Rate Fraction</source>
         <translation>Taxa de Fluxo de Ar do Evaporador Fração</translation>
     </message>
-    <!-- OS:Coil:Cooling:DX:SingleSpeed:ThermalStorage -->
+    
     <message>
         <source>Evaporator Air Inlet Node</source>
         <translation>Nó de Entrada de Ar do Evaporador</translation>
     </message>
-    <!-- OS:Coil:WaterHeating:AirToWaterHeatPump, OS:Coil:WaterHeating:AirToWaterHeatPump:VariableSpeed, OS:Coil:WaterHeating:AirToWaterHeatPump:Wrapped -->
+    
     <message>
         <source>Evaporator Air Inlet Node Name</source>
         <translation>Nome do Nó de Entrada de Ar do Evaporador</translation>
     </message>
-    <!-- OS:Coil:Cooling:DX:SingleSpeed:ThermalStorage -->
+    
     <message>
         <source>Evaporator Air Outlet Node</source>
         <translation>Nó de Saída de Ar do Evaporador</translation>
     </message>
-    <!-- OS:Coil:WaterHeating:AirToWaterHeatPump, OS:Coil:WaterHeating:AirToWaterHeatPump:VariableSpeed, OS:Coil:WaterHeating:AirToWaterHeatPump:Wrapped -->
+    
     <message>
         <source>Evaporator Air Outlet Node Name</source>
         <translation>Nome do Nó de Saída de Ar do Evaporador</translation>
     </message>
-    <!-- OS:Coil:WaterHeating:AirToWaterHeatPump, OS:Coil:WaterHeating:AirToWaterHeatPump:VariableSpeed, OS:Coil:WaterHeating:AirToWaterHeatPump:Wrapped -->
+    
     <message>
         <source>Evaporator Air Temperature Type for Curve Objects</source>
         <translation>Tipo de Temperatura do Ar do Evaporador para Objetos de Curva</translation>
     </message>
-    <!-- OS:Refrigeration:SecondarySystem -->
+    
     <message>
         <source>Evaporator Approach Temperature Difference</source>
         <translation>Diferença de Temperatura de Aproximação do Evaporador</translation>
     </message>
-    <!-- OS:Refrigeration:SecondarySystem -->
+    
     <message>
         <source>Evaporator Capacity</source>
         <translation>Capacidade do Evaporador</translation>
     </message>
-    <!-- OS:Refrigeration:SecondarySystem -->
+    
     <message>
         <source>Evaporator Evaporating Temperature</source>
         <translation>Temperatura de Evaporação do Evaporador</translation>
     </message>
-    <!-- OS:Coil:WaterHeating:AirToWaterHeatPump, OS:Coil:WaterHeating:AirToWaterHeatPump:VariableSpeed, OS:Coil:WaterHeating:AirToWaterHeatPump:Wrapped -->
+    
     <message>
         <source>Evaporator Fan Power Included in Rated COP</source>
         <translation>Potência do Ventilador do Evaporador Incluída no COP Nominal</translation>
     </message>
-    <!-- OS:Refrigeration:SecondarySystem -->
+    
     <message>
         <source>Evaporator Flow Rate for Secondary Fluid</source>
         <translation>Taxa de Fluxo do Evaporador para Fluido Secundário</translation>
     </message>
-    <!-- OS:Coil:Cooling:DX -->
+    
     <message>
         <source>Evaporator Inlet Node</source>
         <translation>Nó de Entrada do Evaporador</translation>
     </message>
-    <!-- OS:Coil:Cooling:DX -->
+    
     <message>
         <source>Evaporator Outlet Node</source>
         <translation>Nó de Saída do Evaporador</translation>
     </message>
-    <!-- OS:Refrigeration:SecondarySystem -->
+    
     <message>
         <source>Evaporator Range Temperature Difference</source>
         <translation>Diferença de Temperatura da Faixa do Evaporador</translation>
     </message>
-    <!-- OS:Refrigeration:SecondarySystem -->
+    
     <message>
         <source>Evaporator Refrigerant Inventory</source>
         <translation>Inventário de Refrigerante do Evaporador</translation>
     </message>
-    <!-- OS:GroundHeatExchanger:HorizontalTrench -->
+    
     <message>
         <source>Evapotranspiration Ground Cover Parameter</source>
         <translation>Parâmetro de Cobertura do Solo para Evapotranspiração</translation>
     </message>
-    <!-- OS:Generator:FuelCell:AuxiliaryHeater -->
+    
     <message>
         <source>Excess Air Ratio</source>
         <translation>Razão de Ar em Excesso</translation>
     </message>
-    <!-- OS:ZoneHVAC:EnergyRecoveryVentilator:Controller -->
+    
     <message>
         <source>Exhaust Air Enthalpy Limit</source>
         <translation>Limite de Entalpia do Ar de Exaustão</translation>
     </message>
-    <!-- OS:ZoneHVAC:EnergyRecoveryVentilator -->
+    
     <message>
         <source>Exhaust Air Fan Name</source>
         <translation>Nome do Ventilador de Ar de Exaustão</translation>
     </message>
-    <!-- OS:ZoneHVAC:EnergyRecoveryVentilator -->
+    
     <message>
         <source>Exhaust Air Flow Rate</source>
         <translation>Vazão de Ar de Exaustão</translation>
     </message>
-    <!-- OS:Generator:MicroTurbine -->
+    
     <message>
         <source>Exhaust Air Flow Rate Function of Part Load Ratio Curve Name</source>
         <translation>Nome da Curva de Taxa de Fluxo de Ar de Exaustão em Função da Razão de Carga Parcial</translation>
     </message>
-    <!-- OS:Generator:MicroTurbine -->
+    
     <message>
         <source>Exhaust Air Flow Rate Function of Temperature Curve Name</source>
         <translation>Nome da Curva da Função da Taxa de Fluxo de Ar de Exaustão em Relação à Temperatura</translation>
     </message>
-    <!-- OS:HeatExchanger:AirToAir:SensibleAndLatent -->
+    
     <message>
         <source>Exhaust Air Inlet Node</source>
         <translation>Nó de Entrada de Ar Exaurido</translation>
     </message>
-    <!-- OS:HeatExchanger:AirToAir:SensibleAndLatent -->
+    
     <message>
         <source>Exhaust Air Outlet Node</source>
         <translation>Nó de Saída de Ar de Exaustão</translation>
     </message>
-    <!-- OS:Generator:MicroTurbine -->
+    
     <message>
         <source>Exhaust Air Temperature Function of Part Load Ratio Curve Name</source>
         <translation>Nome da Curva de Temperatura do Ar de Exaustão em Função da Razão de Carga Parcial</translation>
     </message>
-    <!-- OS:Generator:MicroTurbine -->
+    
     <message>
         <source>Exhaust Air Temperature Function of Temperature Curve Name</source>
         <translation>Nome da Curva da Função da Temperatura do Ar de Exaustão em Relação à Temperatura</translation>
     </message>
-    <!-- OS:ZoneHVAC:EnergyRecoveryVentilator:Controller -->
+    
     <message>
         <source>Exhaust Air Temperature Limit</source>
         <translation>Limite de Temperatura do Ar de Exaustão</translation>
     </message>
-    <!-- OS:Generator:FuelCell:ExhaustGasToWaterHeatExchanger -->
+    
     <message>
         <source>Exhaust Outlet Air Node Name</source>
         <translation>Nome do Nó do Ar da Saída de Exaustão</translation>
     </message>
-    <!-- OS:FuelFactors -->
+    
     <message>
         <source>Existing Fuel Resource Name</source>
         <translation>Nome do Recurso de Combustível Existente</translation>
     </message>
-    <!-- OS:EnergyManagementSystem:GlobalVariable, OS:EnergyManagementSystem:OutputVariable, OS:ExternalInterface:Actuator, OS:ExternalInterface:Schedule, OS:ExternalInterface:Variable, OS:Output:Variable -->
+    
     <message>
         <source>Export To BCVTB</source>
         <translation>Exportar Para BCVTB</translation>
     </message>
-    <!-- OS:SurfaceProperty:ExposedFoundationPerimeter -->
+    
     <message>
         <source>Exposed Perimeter Calculation Method</source>
         <translation>Método de Cálculo do Perímetro Exposto</translation>
     </message>
-    <!-- OS:SurfaceProperty:ExposedFoundationPerimeter -->
+    
     <message>
         <source>Exposed Perimeter Fraction</source>
         <translation>Fração de Perímetro Exposto</translation>
     </message>
-    <!-- OS:Exterior:FuelEquipment -->
+    
     <message>
         <source>Exterior Fuel Equipment Definition Name</source>
         <translation>Nome da Definição de Equipamento de Combustível Exterior</translation>
     </message>
-    <!-- OS:Foundation:Kiva -->
+    
     <message>
         <source>Exterior Horizontal Insulation Depth</source>
         <translation>Profundidade da Isolação Horizontal Exterior</translation>
     </message>
-    <!-- OS:Foundation:Kiva -->
+    
     <message>
         <source>Exterior Horizontal Insulation Material Name</source>
         <translation>Nome do Material de Isolamento Horizontal Externo</translation>
     </message>
-    <!-- OS:Foundation:Kiva -->
+    
     <message>
         <source>Exterior Horizontal Insulation Width</source>
         <translation>Largura da Isolação Horizontal Exterior</translation>
     </message>
-    <!-- OS:Exterior:Lights -->
+    
     <message>
         <source>Exterior Lights Definition Name</source>
         <translation>Nome da Definição de Luzes Exteriores</translation>
     </message>
-    <!-- OS:SurfaceProperty:LocalEnvironment -->
+    
     <message>
         <source>Exterior Surface Name</source>
         <translation>Nome da Superfície Externa</translation>
     </message>
-    <!-- OS:Foundation:Kiva -->
+    
     <message>
         <source>Exterior Vertical Insulation Depth</source>
         <translation>Profundidade da Isolação Térmica Vertical Exterior</translation>
     </message>
-    <!-- OS:Foundation:Kiva -->
+    
     <message>
         <source>Exterior Vertical Insulation Material Name</source>
         <translation>Nome do Material de Isolamento Vertical Exterior</translation>
     </message>
-    <!-- OS:Exterior:WaterEquipment -->
+    
     <message>
         <source>Exterior Water Equipment Definition Name</source>
         <translation>Nome da Definição de Equipamento de Água Exterior</translation>
     </message>
-    <!-- OS:DaylightingDevice:LightWell -->
+    
     <message>
         <source>Exterior Window Name</source>
         <translation>Nome da Janela Exterior</translation>
     </message>
-    <!-- OS:SurfaceProperty:OtherSideCoefficients -->
+    
     <message>
         <source>External Dry-Bulb Temperature Coefficient</source>
         <translation>Coeficiente de Temperatura de Bulbo Seco Externo</translation>
     </message>
-    <!-- OS:Table:IndependentVariable, OS:Table:Lookup -->
+    
     <message>
         <source>External File Column Number</source>
         <translation>Número da Coluna do Arquivo Externo</translation>
     </message>
-    <!-- OS:PythonPlugin:Instance, OS:Schedule:File, OS:Table:IndependentVariable, OS:Table:Lookup, OS:Table:MultiVariableLookup -->
+    
     <message>
         <source>External File Name</source>
         <translation>Nome do Arquivo Externo</translation>
     </message>
-    <!-- OS:Table:IndependentVariable, OS:Table:Lookup -->
+    
     <message>
         <source>External File Starting Row Number</source>
         <translation>Número da Linha Inicial do Arquivo Externo</translation>
     </message>
-    <!-- OS:AirflowNetworkExternalNode -->
+    
     <message>
         <source>External Node Height</source>
         <translation>Altura do Nó Externo</translation>
     </message>
-    <!-- OS:AirflowNetworkSurface -->
+    
     <message>
         <source>External Node Name</source>
         <translation>Nome do Nó Externo</translation>
     </message>
-    <!-- OS:SurfaceProperty:LocalEnvironment -->
+    
     <message>
         <source>External Shading Fraction Schedule Name</source>
         <translation>Nome da Programação de Fração de Sombreamento Externo</translation>
     </message>
-    <!-- OS:SolarCollectorPerformance:IntegralCollectorStorage -->
+    
     <message>
         <source>Extinction Coefficient Times Thickness of Outer Cover</source>
         <translation>Coeficiente de Extinção Multiplicado pela Espessura da Cobertura Externa</translation>
     </message>
-    <!-- OS:SolarCollectorPerformance:IntegralCollectorStorage -->
+    
     <message>
         <source>Extinction Coefficient Times Thickness of the inner Cover</source>
         <translation>Coeficiente de Extinção Vezes Espessura da Cobertura Interna</translation>
     </message>
-    <!-- OS:AirflowNetworkDetailedOpening -->
+    
     <message>
         <source>Extra Crack Length or Height of Pivoting Axis</source>
         <translation>Comprimento de Fissura Extra ou Altura do Eixo de Pivotamento</translation>
     </message>
-    <!-- OS:Table:IndependentVariable -->
+    
     <message>
         <source>Extrapolation Method</source>
         <translation>Método de Extrapolação</translation>
     </message>
 
-    <!-- F -->
-    <!-- OS:Construction:FfactorGroundFloor -->
+    
+    
     <message>
         <source>F-Factor</source>
         <translation>F-Factor</translation>
     </message>
-    <!-- OS:AirflowNetworkZone -->
+    
     <message>
         <source>Facade Width</source>
         <translation>Largura da Fachada</translation>
     </message>
-    <!-- OS:WaterHeater:HeatPump -->
+    
     <message>
         <source>Fan</source>
         <translation>Ventilador</translation>
     </message>
-    <!-- OS:AirTerminal:SingleDuct:ParallelPIU:Reheat, OS:AirTerminal:SingleDuct:SeriesPIU:Reheat, OS:ZoneHVAC:UnitHeater -->
+    
     <message>
         <source>Fan Control Type</source>
         <translation>Tipo de Controle do Ventilador</translation>
     </message>
-    <!-- OS:Coil:Cooling:DX:VariableSpeed, OS:Coil:Cooling:WaterToAirHeatPump:EquationFit, OS:Coil:Cooling:WaterToAirHeatPump:VariableSpeedEquationFit -->
+    
     <message>
         <source>Fan Delay Time</source>
         <translation>Tempo de Atraso do Ventilador</translation>
     </message>
-    <!-- OS:Fan:OnOff -->
+    
     <message>
         <source>Fan Efficiency Ratio Function of Speed Ratio Curve Name</source>
         <translation>Nome da Curva da Função de Razão de Eficiência do Ventilador em Relação à Razão de Velocidade</translation>
     </message>
-    <!-- OS:ElectricEquipment:ITE:AirCooled -->
+    
     <message>
         <source>Fan End-Use Subcategory</source>
         <translation>Subcategoria de Uso Final do Ventilador</translation>
     </message>
-    <!-- OS:SetpointManager:MixedAir -->
+    
     <message>
         <source>Fan Inlet Node Name</source>
         <translation>Nome do Nó de Entrada do Ventilador</translation>
     </message>
-    <!-- OS:AirTerminal:SingleDuct:ParallelPIU:Reheat, OS:AirTerminal:SingleDuct:SeriesPIU:Reheat, OS:AirflowNetworkFan, OS:WaterHeater:HeatPump:WrappedCondenser -->
+    
     <message>
         <source>Fan Name</source>
         <translation>Nome da Ventoinha</translation>
     </message>
-    <!-- OS:AirTerminal:SingleDuct:ParallelPIU:Reheat -->
+    
     <message>
         <source>Fan On Flow Fraction</source>
         <translation>Fração de Vazão com Ventilador Ligado</translation>
     </message>
-    <!-- OS:Fan:ComponentModel -->
+    
     <message>
         <source>Fan Outlet Area</source>
         <translation>Área de Saída do Ventilador</translation>
     </message>
-    <!-- OS:SetpointManager:MixedAir -->
+    
     <message>
         <source>Fan Outlet Node Name</source>
         <translation>Nome do Nó de Saída do Ventilador</translation>
     </message>
-    <!-- OS:AirLoopHVAC:UnitaryHeatPump:AirToAir, OS:AirLoopHVAC:UnitarySystem, OS:WaterHeater:HeatPump, OS:WaterHeater:HeatPump:WrappedCondenser, OS:ZoneHVAC:EvaporativeCoolerUnit, OS:ZoneHVAC:PackagedTerminalAirConditioner, OS:ZoneHVAC:PackagedTerminalHeatPump, OS:ZoneHVAC:WaterToAirHeatPump -->
+    
     <message>
         <source>Fan Placement</source>
         <translation>Posicionamento do Ventilador</translation>
     </message>
-    <!-- OS:ElectricEquipment:ITE:AirCooled:Definition -->
+    
     <message>
         <source>Fan Power Input Function of Flow Curve Name</source>
         <translation>Fan Power Input Function of Flow Curve Name</translation>
     </message>
-    <!-- OS:CoolingTower:VariableSpeed -->
+    
     <message>
         <source>Fan Power Ratio Function of Air Flow Rate Ratio Curve</source>
         <translation>Curva da Função da Razão de Potência do Ventilador em Relação à Razão da Taxa de Fluxo de Ar</translation>
     </message>
-    <!-- OS:Fan:OnOff -->
+    
     <message>
         <source>Fan Power Ratio Function of Speed Ratio Curve Name</source>
         <translation>Nome da Curva da Função da Razão de Potência do Ventilador em Relação à Razão de Velocidade</translation>
     </message>
-    <!-- OS:ZoneVentilation:DesignFlowRate -->
+    
     <message>
         <source>Fan Pressure Rise</source>
         <translation>Aumento de Pressão do Ventilador</translation>
     </message>
-    <!-- OS:Fan:ComponentModel -->
+    
     <message>
         <source>Fan Pressure Rise Curve Name</source>
         <translation>Nome da Curva de Aumento de Pressão do Ventilador</translation>
     </message>
-    <!-- OS:AvailabilityManager:NightCycle, OS:AvailabilityManager:NightVentilation, OS:AvailabilityManager:OptimumStart -->
+    
     <message>
         <source>Fan Schedule</source>
         <translation>Cronograma do Ventilador</translation>
     </message>
-    <!-- OS:Fan:ComponentModel -->
+    
     <message>
         <source>Fan Sizing Factor</source>
         <translation>Fator de Dimensionamento do Ventilador</translation>
     </message>
-    <!-- OS:Refrigeration:AirChiller, OS:Refrigeration:Condenser:EvaporativeCooled -->
+    
     <message>
         <source>Fan Speed Control Type</source>
         <translation>Tipo de Controle de Velocidade do Ventilador</translation>
     </message>
-    <!-- OS:Fan:ComponentModel -->
+    
     <message>
         <source>Fan Wheel Diameter</source>
         <translation>Diâmetro da Roda do Ventilador</translation>
     </message>
-    <!-- OS:Foundation:Kiva:Settings -->
+    
     <message>
         <source>Far-Field Width</source>
         <translation>Largura do Campo Distante</translation>
     </message>
-    <!-- OS:AdditionalProperties -->
+    
     <message>
         <source>Feature Data Type</source>
         <translation>Tipo de Dados de Recurso</translation>
     </message>
-    <!-- OS:AdditionalProperties -->
+    
     <message>
         <source>Feature Name</source>
         <translation>Nome da Funcionalidade</translation>
     </message>
-    <!-- OS:AdditionalProperties -->
+    
     <message>
         <source>Feature Value</source>
         <translation>Valor da Característica</translation>
     </message>
-    <!-- OS:Site:GroundTemperature:Deep -->
+    
     <message>
         <source>February Deep Ground Temperature</source>
         <translation>Temperatura Profunda do Solo em Fevereiro</translation>
     </message>
-    <!-- OS:Site:GroundReflectance -->
+    
     <message>
         <source>February Ground Reflectance</source>
         <translation>Refletância do Solo em Fevereiro</translation>
     </message>
-    <!-- OS:Site:GroundTemperature:BuildingSurface, OS:Site:GroundTemperature:FCfactorMethod -->
+    
     <message>
         <source>February Ground Temperature</source>
         <translation>Temperatura do Solo em Fevereiro</translation>
     </message>
-    <!-- OS:Site:GroundTemperature:Shallow -->
+    
     <message>
         <source>February Surface Ground Temperature</source>
         <translation>Temperatura da Superfície do Solo em Fevereiro</translation>
     </message>
-    <!-- OS:UtilityCost:Variable -->
+    
     <message>
         <source>February Value</source>
         <translation>Valor de Fevereiro</translation>
     </message>
-    <!-- OS:StandardsInformation:Construction -->
+    
     <message>
         <source>Fenestration Assembly Context</source>
         <translation>Contexto da Assembleia de Envidraçado</translation>
     </message>
-    <!-- OS:StandardsInformation:Construction -->
+    
     <message>
         <source>Fenestration Divider Type</source>
         <translation>Tipo de Divisor de Fenestração</translation>
     </message>
-    <!-- OS:StandardsInformation:Construction -->
+    
     <message>
         <source>Fenestration Frame Type</source>
         <translation>Tipo de Caixilho de Envidraçado</translation>
     </message>
-    <!-- OS:StandardsInformation:Construction -->
+    
     <message>
         <source>Fenestration Gas Fill</source>
         <translation>Preenchimento Gasoso de Envidraçado</translation>
     </message>
-    <!-- OS:StandardsInformation:Construction -->
+    
     <message>
         <source>Fenestration Low Emissivity Coating</source>
         <translation>Revestimento de Baixa Emissividade em Envidraçados</translation>
     </message>
-    <!-- OS:StandardsInformation:Construction -->
+    
     <message>
         <source>Fenestration Number of Panes</source>
         <translation>Número de Painéis de Envidraçamento</translation>
     </message>
-    <!-- OS:StandardsInformation:Construction -->
+    
     <message>
         <source>Fenestration Tint</source>
         <translation>Tonalidade de Envidraçado</translation>
     </message>
-    <!-- OS:StandardsInformation:Construction -->
+    
     <message>
         <source>Fenestration Type</source>
         <translation>Tipo de Envidraçado</translation>
     </message>
-    <!-- OS:Schedule:Compact -->
+    
     <message>
         <source>Field</source>
         <translation>Campo</translation>
     </message>
-    <!-- OS:External:File -->
+    
     <message>
         <source>File Name</source>
         <translation>Nome do Arquivo</translation>
     </message>
-    <!-- OS:Output:Table:Annual -->
+    
     <message>
         <source>Filter</source>
         <translation>Filtro</translation>
     </message>
-    <!-- OS:ZoneHVAC:EvaporativeCoolerUnit -->
+    
     <message>
         <source>First Evaporative Cooler</source>
         <translation>Primeiro Resfriador Evaporativo</translation>
     </message>
-    <!-- OS:Curve:Functional:PressureDrop -->
+    
     <message>
         <source>Fixed Friction Factor</source>
         <translation>Fator de Atrito Fixo</translation>
     </message>
-    <!-- OS:DefaultSubSurfaceConstructions -->
+    
     <message>
         <source>Fixed Window Construction Name</source>
         <translation>Nome da Construção de Janela Fixa</translation>
     </message>
-    <!-- OS:CoilSystem:IntegratedHeatPump:AirSource -->
+    
     <message>
         <source>Flag to Indicate Load Control In SCWH Mode</source>
         <translation>Sinalizador para Indicar Controle de Carga no Modo SCWH</translation>
     </message>
-    <!-- OS:DefaultSurfaceConstructions -->
+    
     <message>
         <source>Floor Construction Name</source>
         <translation>Nome da Construção do Piso</translation>
     </message>
-    <!-- OS:SpaceInfiltration:FlowCoefficient -->
+    
     <message>
         <source>Flow Coefficient</source>
         <translation>Coeficiente de Vazão</translation>
     </message>
-    <!-- OS:Fan:ZoneExhaust -->
+    
     <message>
         <source>Flow Fraction Schedule Name</source>
         <translation>Nome do Agendamento de Fração de Fluxo</translation>
     </message>
-    <!-- OS:HeatPump:AirToWater:FuelFired:Cooling, OS:HeatPump:AirToWater:FuelFired:Heating, OS:HeatPump:PlantLoop:EIR:Cooling, OS:HeatPump:PlantLoop:EIR:Heating -->
+    
     <message>
         <source>Flow Mode</source>
         <translation>Modo de Fluxo</translation>
     </message>
-    <!-- OS:ZoneMixing -->
+    
     <message>
         <source>Flow Rate per Floor Area</source>
         <translation>Taxa de Fluxo por Área de Piso</translation>
     </message>
-    <!-- OS:ZoneMixing, OS:ZoneVentilation:DesignFlowRate -->
+    
     <message>
         <source>Flow Rate per Person</source>
         <translation>Taxa de Fluxo por Pessoa</translation>
     </message>
-    <!-- OS:ZoneVentilation:DesignFlowRate -->
+    
     <message>
         <source>Flow Rate per Zone Floor Area</source>
         <translation>Vazão por Área de Piso da Zona</translation>
     </message>
-    <!-- OS:HeaderedPumps:ConstantSpeed, OS:HeaderedPumps:VariableSpeed -->
+    
     <message>
         <source>Flow Sequencing Control Scheme</source>
         <translation>Esquema de Controle de Sequenciamento de Fluxo</translation>
     </message>
-    <!-- OS:Pipe:Indoor, OS:Pipe:Outdoor -->
+    
     <message>
         <source>Fluid Inlet Node</source>
         <translation>Nó de Entrada do Fluido</translation>
     </message>
-    <!-- OS:Pipe:Indoor, OS:Pipe:Outdoor -->
+    
     <message>
         <source>Fluid Outlet Node</source>
         <translation>Nó de Saída do Fluido</translation>
     </message>
-    <!-- OS:Coil:Cooling:DX:SingleSpeed:ThermalStorage -->
+    
     <message>
         <source>Fluid Storage Tank Rating Temperature</source>
         <translation>Temperatura de Classificação do Tanque de Armazenamento de Fluido</translation>
     </message>
-    <!-- OS:Coil:Cooling:DX:SingleSpeed:ThermalStorage -->
+    
     <message>
         <source>Fluid Storage Volume</source>
         <translation>Volume de Armazenamento de Fluido</translation>
     </message>
-    <!-- OS:ZoneHVAC:LowTemperatureRadiant:ConstantFlow, OS:ZoneHVAC:LowTemperatureRadiant:VariableFlow -->
+    
     <message>
         <source>Fluid to Radiant Surface Heat Transfer Model</source>
         <translation>Modelo de Transferência de Calor do Fluido para Superfície Radiante</translation>
     </message>
-    <!-- OS:PlantLoop -->
+    
     <message>
         <source>Fluid Type</source>
         <translation>Tipo de Fluido</translation>
     </message>
-    <!-- OS:ExternalInterface:FunctionalMockupUnitImport, OS:ExternalInterface:FunctionalMockupUnitImport:From:Variable, OS:ExternalInterface:FunctionalMockupUnitImport:To:Actuator, OS:ExternalInterface:FunctionalMockupUnitImport:To:Schedule, OS:ExternalInterface:FunctionalMockupUnitImport:To:Variable -->
+    
     <message>
         <source>FMU File Name</source>
         <translation>Nome do Arquivo FMU</translation>
     </message>
-    <!-- OS:ExternalInterface:FunctionalMockupUnitImport:From:Variable, OS:ExternalInterface:FunctionalMockupUnitImport:To:Actuator, OS:ExternalInterface:FunctionalMockupUnitImport:To:Schedule, OS:ExternalInterface:FunctionalMockupUnitImport:To:Variable -->
+    
     <message>
         <source>FMU Instance Name</source>
         <translation>Nome da Instância FMU</translation>
     </message>
-    <!-- OS:ExternalInterface:FunctionalMockupUnitImport -->
+    
     <message>
         <source>FMU LoggingOn</source>
         <translation>FMU LoggingOn</translation>
     </message>
-    <!-- OS:ExternalInterface:FunctionalMockupUnitImport -->
+    
     <message>
         <source>FMU Timeout</source>
         <translation>Tempo limite de FMU</translation>
     </message>
-    <!-- OS:ExternalInterface:FunctionalMockupUnitExport:From:Variable, OS:ExternalInterface:FunctionalMockupUnitExport:To:Actuator, OS:ExternalInterface:FunctionalMockupUnitExport:To:Schedule, OS:ExternalInterface:FunctionalMockupUnitExport:To:Variable, OS:ExternalInterface:FunctionalMockupUnitImport:From:Variable, OS:ExternalInterface:FunctionalMockupUnitImport:To:Actuator, OS:ExternalInterface:FunctionalMockupUnitImport:To:Schedule, OS:ExternalInterface:FunctionalMockupUnitImport:To:Variable -->
+    
     <message>
         <source>FMU Variable Name</source>
         <translation>Nome da Variável FMU</translation>
     </message>
-    <!-- OS:Foundation:Kiva -->
+    
     <message>
         <source>Footing Depth</source>
         <translation>Profundidade da Fundação</translation>
     </message>
-    <!-- OS:Foundation:Kiva -->
+    
     <message>
         <source>Footing Material Name</source>
         <translation>Nome do Material da Sapata</translation>
     </message>
-    <!-- OS:Foundation:Kiva -->
+    
     <message>
         <source>Footing Wall Construction Name</source>
         <translation>Nome da Construção da Parede de Fundação</translation>
     </message>
-    <!-- OS:ElectricEquipment:Definition, OS:GasEquipment:Definition, OS:HotWaterEquipment:Definition, OS:OtherEquipment:Definition, OS:SteamEquipment:Definition -->
+    
     <message>
         <source>Fraction Latent</source>
         <translation>Fração Latente</translation>
     </message>
-    <!-- OS:ElectricEquipment:Definition, OS:GasEquipment:Definition, OS:HotWaterEquipment:Definition, OS:OtherEquipment:Definition, OS:SteamEquipment:Definition -->
+    
     <message>
         <source>Fraction Lost</source>
         <translation>Fração Perdida</translation>
     </message>
-    <!-- OS:CoilPerformance:DX:Cooling -->
+    
     <message>
         <source>Fraction of Air Flow Bypassed Around Coil</source>
         <translation>Fração do Fluxo de Ar Desviado ao Redor da Bobina</translation>
     </message>
-    <!-- OS:Refrigeration:Case -->
+    
     <message>
         <source>Fraction of Anti-Sweat Heater Energy to Case</source>
         <translation>Fração da Energia do Aquecedor Anti-Suor para o Gabinete</translation>
     </message>
-    <!-- OS:Coil:Cooling:LowTemperatureRadiant:VariableFlow, OS:Coil:Cooling:Water:Panel:Radiant, OS:Sizing:System -->
+    
     <message>
         <source>Fraction of Autosized Cooling Design Capacity</source>
         <translation>Fração da Capacidade de Design de Resfriamento Autossizado</translation>
     </message>
-    <!-- OS:AirLoopHVAC:UnitarySystem -->
+    
     <message>
         <source>Fraction of Autosized Design Cooling Supply Air Flow Rate</source>
         <translation>Fração da Taxa de Fluxo de Ar de Suprimento de Resfriamento do Projeto Dimensionado Automaticamente</translation>
     </message>
-    <!-- OS:AirLoopHVAC:UnitarySystem -->
+    
     <message>
         <source>Fraction of Autosized Design Cooling Supply Air Flow Rate When No Cooling or Heating is Required</source>
         <translation>Fração da Taxa de Fluxo de Ar de Suprimento de Projeto de Resfriamento com Dimensionamento Automático Quando Nenhum Resfriamento ou Aquecimento é Necessário</translation>
     </message>
-    <!-- OS:AirLoopHVAC:UnitarySystem -->
+    
     <message>
         <source>Fraction of Autosized Design Heating Supply Air Flow Rate</source>
         <translation>Fração da Taxa de Fluxo de Ar de Suprimento de Aquecimento de Projeto Autodimensionada</translation>
     </message>
-    <!-- OS:AirLoopHVAC:UnitarySystem -->
+    
     <message>
         <source>Fraction of Autosized Design Heating Supply Air Flow Rate When No Cooling or Heating is Required</source>
         <translation>Fração da Vazão de Ar de Suprimento de Aquecimento de Projeto Autodimensionada Quando Nenhum Resfriamento ou Aquecimento é Necessário</translation>
     </message>
-    <!-- OS:Coil:Heating:LowTemperatureRadiant:VariableFlow, OS:Coil:Heating:Water:Baseboard, OS:Coil:Heating:Water:Baseboard:Radiant, OS:Sizing:System, OS:ZoneHVAC:Baseboard:RadiantConvective:Electric -->
+    
     <message>
         <source>Fraction of Autosized Heating Design Capacity</source>
         <translation>Fração da Capacidade de Projeto de Aquecimento com Dimensionamento Automático</translation>
     </message>
-    <!-- OS:ElectricLoadCenter:Storage:LiIonNMCBattery -->
+    
     <message>
         <source>Fraction of Cell Capacity Removed at the End of Exponential Zone</source>
         <translation>Fração da Capacidade da Célula Removida ao Final da Zona Exponencial</translation>
     </message>
-    <!-- OS:ElectricLoadCenter:Storage:LiIonNMCBattery -->
+    
     <message>
         <source>Fraction of Cell Capacity Removed at the End of Nominal Zone</source>
         <translation>Fração da Capacidade da Célula Removida no Final da Zona Nominal</translation>
     </message>
-    <!-- OS:SolarCollectorPerformance:PhotovoltaicThermal:BIPVT -->
+    
     <message>
         <source>Fraction of Collector Gross Area Covered by PV Module</source>
         <translation>Fração da Área Bruta do Coletor Coberta por Módulo FV</translation>
     </message>
-    <!-- OS:Coil:WaterHeating:AirToWaterHeatPump, OS:Coil:WaterHeating:AirToWaterHeatPump:VariableSpeed -->
+    
     <message>
         <source>Fraction of Condenser Pump Heat to Water</source>
         <translation>Fração do Calor da Bomba do Condensador para a Água</translation>
     </message>
-    <!-- OS:ElectricLoadCenter:Transformer -->
+    
     <message>
         <source>Fraction of Eddy Current Losses</source>
         <translation>Fração de Perdas por Corrente de Eddy</translation>
     </message>
-    <!-- OS:ElectricEquipment:ITE:AirCooled:Definition -->
+    
     <message>
         <source>Fraction of Electric Power Supply Losses to Zone</source>
         <translation>Fração de Perdas de Fornecimento de Energia Elétrica para a Zona</translation>
     </message>
-    <!-- OS:ZoneHVAC:HighTemperatureRadiant -->
+    
     <message>
         <source>Fraction of Input Converted to Latent Energy</source>
         <translation>Fração da Entrada Convertida em Energia Latente</translation>
     </message>
-    <!-- OS:ZoneHVAC:HighTemperatureRadiant -->
+    
     <message>
         <source>Fraction of Input Converted to Radiant Energy</source>
         <translation>Fração da Entrada Convertida em Energia Radiante</translation>
     </message>
-    <!-- OS:ZoneHVAC:HighTemperatureRadiant -->
+    
     <message>
         <source>Fraction of Input that Is Lost</source>
         <translation>Fração da Entrada que é Perdida</translation>
     </message>
-    <!-- OS:Refrigeration:Case -->
+    
     <message>
         <source>Fraction of Lighting Energy to Case</source>
         <translation>Fração da Energia de Iluminação para o Compartimento</translation>
     </message>
-    <!-- OS:Coil:WaterHeating:Desuperheater -->
+    
     <message>
         <source>Fraction of Pump Heat to Water</source>
         <translation>Fração do Calor da Bomba para Água</translation>
     </message>
-    <!-- OS:SolarCollectorPerformance:PhotovoltaicThermal:BIPVT -->
+    
     <message>
         <source>Fraction of PV Cell Area to PV Module Area</source>
         <translation>Fração da Área da Célula FV para Área do Módulo FV</translation>
     </message>
-    <!-- OS:ZoneHVAC:Baseboard:RadiantConvective:Electric, OS:ZoneHVAC:Baseboard:RadiantConvective:Water, OS:ZoneHVAC:CoolingPanel:RadiantConvective:Water, OS:ZoneHVAC:HighTemperatureRadiant -->
+    
     <message>
         <source>Fraction of Radiant Energy Incident on People</source>
         <translation>Fração de Energia Radiante Incidente nas Pessoas</translation>
     </message>
-    <!-- OS:PhotovoltaicPerformance:Simple -->
+    
     <message>
         <source>Fraction of Surface Area with Active Solar Cells</source>
         <translation>Fração da Área de Superfície com Células Solares Ativas</translation>
     </message>
-    <!-- OS:SolarCollectorPerformance:PhotovoltaicThermal:Simple -->
+    
     <message>
         <source>Fraction of Surface Area with Active Thermal Collector</source>
         <translation>Fração da Área de Superfície com Coletor Térmico Ativo</translation>
     </message>
-    <!-- OS:CoolingTower:VariableSpeed -->
+    
     <message>
         <source>Fraction of Tower Capacity in Free Convection Regime</source>
         <translation>Fração da Capacidade da Torre em Regime de Convecção Livre</translation>
     </message>
-    <!-- OS:ThermalZone -->
+    
     <message>
         <source>Fraction of Zone Controlled by Primary Daylighting Control</source>
         <translation>Fração da Zona Controlada pelo Controle de Iluminação Natural Primária</translation>
     </message>
-    <!-- OS:ThermalZone -->
+    
     <message>
         <source>Fraction of Zone Controlled by Secondary Daylighting Control</source>
         <translation>Fração da Zona Controlada pelo Controle de Iluminação Natural Secundário</translation>
     </message>
-    <!-- OS:Lights, OS:Luminaire -->
+    
     <message>
         <source>Fraction Replaceable</source>
         <translation>Fração Substituível</translation>
     </message>
-    <!-- OS:Generator:WindTurbine -->
+    
     <message>
         <source>Fraction system Efficiency</source>
         <translation>Eficiência Fracionária do Sistema</translation>
     </message>
-    <!-- OS:Lights:Definition, OS:Luminaire:Definition -->
+    
     <message>
         <source>Fraction Visible</source>
         <translation>Fração Visível</translation>
     </message>
-    <!-- OS:SubSurface -->
+    
     <message>
         <source>Frame and Divider Name</source>
         <translation>Nome do Quadro e Divisor</translation>
     </message>
-    <!-- OS:WindowProperty:FrameAndDivider -->
+    
     <message>
         <source>Frame Conductance</source>
         <translation>Condutância da Moldura</translation>
     </message>
-    <!-- OS:WindowProperty:FrameAndDivider -->
+    
     <message>
         <source>Frame Inside Projection</source>
         <translation>Projeção Interna do Perfil</translation>
     </message>
-    <!-- OS:WindowProperty:FrameAndDivider -->
+    
     <message>
         <source>Frame Outside Projection</source>
         <translation>Projeção Externa do Quadro</translation>
     </message>
-    <!-- OS:WindowProperty:FrameAndDivider -->
+    
     <message>
         <source>Frame Solar Absorptance</source>
         <translation>Absortância Solar do Marco</translation>
     </message>
-    <!-- OS:WindowProperty:FrameAndDivider -->
+    
     <message>
         <source>Frame Thermal Hemispherical Emissivity</source>
         <translation>Emissividade Hemisférica Térmica do Marco</translation>
     </message>
-    <!-- OS:WindowProperty:FrameAndDivider -->
+    
     <message>
         <source>Frame Visible Absorptance</source>
         <translation>Absortância Visível do Marco</translation>
     </message>
-    <!-- OS:WindowProperty:FrameAndDivider -->
+    
     <message>
         <source>Frame Width</source>
         <translation>Largura do Quadro</translation>
     </message>
-    <!-- OS:CoolingTower:SingleSpeed -->
+    
     <message>
         <source>Free Convection Air Flow Rate Sizing Factor</source>
         <translation>Fator de Dimensionamento da Taxa de Fluxo de Ar por Convecção Livre</translation>
     </message>
-    <!-- OS:CoolingTower:TwoSpeed -->
+    
     <message>
         <source>Free Convection Nominal Capacity</source>
         <translation>Capacidade Nominal de Convecção Livre</translation>
     </message>
-    <!-- OS:CoolingTower:SingleSpeed, OS:CoolingTower:TwoSpeed -->
+    
     <message>
         <source>Free Convection Nominal Capacity Sizing Factor</source>
         <translation>Fator de Dimensionamento da Capacidade Nominal de Convecção Livre</translation>
     </message>
-    <!-- OS:CoolingTower:TwoSpeed -->
+    
     <message>
         <source>Free Convection Regime Air Flow Rate</source>
         <translation>Taxa de Fluxo de Ar em Regime de Convecção Livre</translation>
     </message>
-    <!-- OS:CoolingTower:TwoSpeed -->
+    
     <message>
         <source>Free Convection Regime Air Flow Rate Sizing Factor</source>
         <translation>Fator de Dimensionamento da Taxa de Fluxo de Ar em Regime de Convecção Livre</translation>
     </message>
-    <!-- OS:CoolingTower:TwoSpeed -->
+    
     <message>
         <source>Free Convection Regime U-Factor Times Area Value</source>
         <translation>Valor de Fator U Vezes Área para Regime de Convecção Livre</translation>
     </message>
-    <!-- OS:CoolingTower:SingleSpeed, OS:CoolingTower:TwoSpeed -->
+    
     <message>
         <source>Free Convection U-Factor Times Area Value Sizing Factor</source>
         <translation>Fator de Dimensionamento do Valor de U-Factor Vezes Área para Convecção Livre</translation>
     </message>
-    <!-- OS:ThermalStorage:Ice:Detailed -->
+    
     <message>
         <source>Freezing Temperature of Storage Medium</source>
         <translation>Temperatura de Congelamento do Meio de Armazenamento</translation>
     </message>
-    <!-- OS:Schedule:Week -->
+    
     <message>
         <source>Friday Schedule:Day Name</source>
         <translation>Cronograma de Sexta-feira: Nome do Dia</translation>
     </message>
-    <!-- OS:ZoneProperty:UserViewFactors:BySurfaceName -->
+    
     <message>
         <source>From Surface Name</source>
         <translation>Nome da Superfície de Origem</translation>
     </message>
-    <!-- OS:MaterialProperty:GlazingSpectralData -->
+    
     <message>
         <source>Front Reflectance</source>
         <translation>Refletância Frontal</translation>
     </message>
-    <!-- OS:WindowMaterial:Glazing -->
+    
     <message>
         <source>Front Side Infrared Hemispherical Emissivity</source>
         <translation>Emissividade Hemisférica Infravermelha do Lado Frontal</translation>
     </message>
-    <!-- OS:WindowMaterial:Blind -->
+    
     <message>
         <source>Front Side Slat Beam Solar Reflectance</source>
         <translation>Refletância Solar de Feixe do Lado Frontal das Lâminas</translation>
     </message>
-    <!-- OS:WindowMaterial:Blind -->
+    
     <message>
         <source>Front Side Slat Beam Visible Reflectance</source>
         <translation>Refletância Visível do Feixe do Lado Frontal da Lâmina</translation>
     </message>
-    <!-- OS:WindowMaterial:Blind -->
+    
     <message>
         <source>Front Side Slat Diffuse Solar Reflectance</source>
         <translation>Refletância Solar Difusa do Lado Frontal da Lâmina</translation>
     </message>
-    <!-- OS:WindowMaterial:Blind -->
+    
     <message>
         <source>Front Side Slat Diffuse Visible Reflectance</source>
         <translation>Refletância Visível Difusa do Lado Frontal da Lâmina</translation>
     </message>
-    <!-- OS:WindowMaterial:Blind -->
+    
     <message>
         <source>Front Side Slat Infrared Hemispherical Emissivity</source>
         <translation>Emissividade Hemisférica Infravermelha do Lado Frontal da Lâmina</translation>
     </message>
-    <!-- OS:WindowMaterial:Glazing -->
+    
     <message>
         <source>Front Side Solar Reflectance at Normal Incidence</source>
         <translation>Refletância Solar no Lado Frontal em Incidência Normal</translation>
     </message>
-    <!-- OS:WindowMaterial:Glazing -->
+    
     <message>
         <source>Front Side Visible Reflectance at Normal Incidence</source>
         <translation>Refletância Visível no Lado Frontal em Incidência Normal</translation>
     </message>
-    <!-- OS:SolarCollectorPerformance:PhotovoltaicThermal:Simple -->
+    
     <message>
         <source>Front Surface Emittance</source>
         <translation>Emitância da Superfície Frontal</translation>
     </message>
-    <!-- OS:HeatExchanger:AirToAir:SensibleAndLatent -->
+    
     <message>
         <source>Frost Control Type</source>
         <translation>Tipo de Controle de Geada</translation>
     </message>
-    <!-- OS:Generator:FuelCell:StackCooler -->
+    
     <message>
         <source>Fs-cogen Adjustment Factor</source>
         <translation>Fator de Ajuste Fs-cogen</translation>
     </message>
-    <!-- OS:HeatPump:AirToWater:FuelFired:Heating -->
+    
     <message>
         <source>Fuel Energy Input Ratio Defrost Adjustment Curve Name</source>
         <translation>Nome da Curva de Ajuste de Degelo da Razão de Entrada de Energia de Combustível</translation>
     </message>
-    <!-- OS:HeatPump:AirToWater:FuelFired:Cooling, OS:HeatPump:AirToWater:FuelFired:Heating -->
+    
     <message>
         <source>Fuel Energy Input Ratio Function of PLR Curve Name</source>
         <translation>Nome da Curva da Função da Taxa de Entrada de Energia do Combustível em relação à PLR</translation>
     </message>
-    <!-- OS:HeatPump:AirToWater:FuelFired:Cooling, OS:HeatPump:AirToWater:FuelFired:Heating -->
+    
     <message>
         <source>Fuel Energy Input Ratio Function of Temperature Curve Name</source>
         <translation>Nome da Curva da Razão de Entrada de Energia do Combustível em Função da Temperatura</translation>
     </message>
-    <!-- OS:Generator:MicroTurbine -->
+    
     <message>
         <source>Fuel Higher Heating Value</source>
         <translation>Poder Calorífico Superior do Combustível</translation>
     </message>
-    <!-- OS:Generator:MicroTurbine -->
+    
     <message>
         <source>Fuel Lower Heating Value</source>
         <translation>Poder Calorífico Inferior do Combustível</translation>
     </message>
-    <!-- OS:Generator:FuelCell -->
+    
     <message>
         <source>Fuel Supply Name</source>
         <translation>Nome do Fornecimento de Combustível</translation>
     </message>
-    <!-- OS:Generator:FuelSupply -->
+    
     <message>
         <source>Fuel Temperature Modeling Mode</source>
         <translation>Modo de Modelagem de Temperatura do Combustível</translation>
     </message>
-    <!-- OS:Generator:FuelSupply -->
+    
     <message>
         <source>Fuel Temperature Reference Node Name</source>
         <translation>Nome do Nó de Referência da Temperatura do Combustível</translation>
     </message>
-    <!-- OS:Generator:FuelSupply -->
+    
     <message>
         <source>Fuel Temperature Schedule Name</source>
         <translation>Nome do Cronograma de Temperatura do Combustível</translation>
     </message>
-    <!-- OS:Exterior:FuelEquipment -->
+    
     <message>
         <source>Fuel Use Type</source>
         <translation>Tipo de Combustível Utilizado</translation>
     </message>
-    <!-- OS:LifeCycleCost:Parameters -->
+    
     <message>
         <source>FuelOil1 Inflation</source>
         <translation>Inflação de Óleo Combustível 1</translation>
     </message>
-    <!-- OS:LifeCycleCost:Parameters -->
+    
     <message>
         <source>FuelOil2 Inflation</source>
         <translation>Inflação de Óleo Combustível 2</translation>
     </message>
-    <!-- OS:ElectricLoadCenter:Transformer -->
+    
     <message>
         <source>Full Load Temperature Rise</source>
         <translation>Aumento de Temperatura em Carga Total</translation>
     </message>
-    <!-- OS:ElectricLoadCenter:Storage:LiIonNMCBattery -->
+    
     <message>
         <source>Fully Charged Cell Capacity</source>
         <translation>Capacidade da Célula Completamente Carregada</translation>
     </message>
-    <!-- OS:ElectricLoadCenter:Storage:LiIonNMCBattery -->
+    
     <message>
         <source>Fully Charged Cell Voltage</source>
         <translation>Tensão de Célula Totalmente Carregada</translation>
     </message>
 
-    <!-- G -->
-    <!-- OS:GroundHeatExchanger:Vertical -->
+    
+    
     <message>
         <source>G-Function G Value</source>
         <translation>Valor G da Função G</translation>
     </message>
-    <!-- OS:GroundHeatExchanger:Vertical -->
+    
     <message>
         <source>G-Function Ln(T/Ts) Value</source>
         <translation>Valor G-Function Ln(T/Ts)</translation>
     </message>
-    <!-- OS:GroundHeatExchanger:Vertical -->
+    
     <message>
         <source>G-Function Reference Ratio</source>
         <translation>Razão de Referência da Função G</translation>
     </message>
-    <!-- OS:WindowMaterial:GasMixture -->
+    
     <message>
         <source>Gas 1 Fraction</source>
         <translation>Fração de Gás 1</translation>
     </message>
-    <!-- OS:WindowMaterial:GasMixture -->
+    
     <message>
         <source>Gas 1 Type</source>
         <translation>Tipo de Gás 1</translation>
     </message>
-    <!-- OS:WindowMaterial:GasMixture -->
+    
     <message>
         <source>Gas 2 Fraction</source>
         <translation>Fração de Gás 2</translation>
     </message>
-    <!-- OS:WindowMaterial:GasMixture -->
+    
     <message>
         <source>Gas 2 Type</source>
         <translation>Tipo de Gás 2</translation>
     </message>
-    <!-- OS:WindowMaterial:GasMixture -->
+    
     <message>
         <source>Gas 3 Fraction</source>
         <translation>Fração de Gás 3</translation>
     </message>
-    <!-- OS:WindowMaterial:GasMixture -->
+    
     <message>
         <source>Gas 3 Type</source>
         <translation>Tipo de Gás 3</translation>
     </message>
-    <!-- OS:WindowMaterial:GasMixture -->
+    
     <message>
         <source>Gas 4 Fraction</source>
         <translation>Fração de Gás 4</translation>
     </message>
-    <!-- OS:WindowMaterial:GasMixture -->
+    
     <message>
         <source>Gas 4 Type</source>
         <translation>Tipo de Gás 4</translation>
     </message>
-    <!-- OS:Refrigeration:GasCooler:AirCooled -->
+    
     <message>
         <source>Gas Cooler Fan Speed Control Type</source>
         <translation>Tipo de Controle de Velocidade do Ventilador do Resfriador a Gás</translation>
     </message>
-    <!-- OS:Refrigeration:GasCooler:AirCooled -->
+    
     <message>
         <source>Gas Cooler Outlet Piping Refrigerant Inventory</source>
         <translation>Inventário de Refrigerante na Tubulação de Saída do Resfriador a Gás</translation>
     </message>
-    <!-- OS:Refrigeration:GasCooler:AirCooled -->
+    
     <message>
         <source>Gas Cooler Receiver Refrigerant Inventory</source>
         <translation>Inventário de Refrigerante do Receptor do Resfriador a Gás</translation>
     </message>
-    <!-- OS:Refrigeration:GasCooler:AirCooled -->
+    
     <message>
         <source>Gas Cooler Refrigerant Operating Charge Inventory</source>
         <translation>Inventário de Carga Operacional de Refrigerante do Resfriador a Gás</translation>
     </message>
-    <!-- OS:GasEquipment -->
+    
     <message>
         <source>Gas Equipment Definition Name</source>
         <translation>Nome da Definição de Equipamento a Gás</translation>
     </message>
-    <!-- OS:WindowMaterial:Gas -->
+    
     <message>
         <source>Gas Type</source>
         <translation>Tipo de Gás</translation>
     </message>
-    <!-- OS:LifeCycleCost:Parameters -->
+    
     <message>
         <source>Gasoline Inflation</source>
         <translation>Inflação de Gasolina</translation>
     </message>
-    <!-- OS:Chiller:Absorption:Indirect -->
+    
     <message>
         <source>Generator Heat Input Correction Function of Chilled Water Temperature Curve</source>
         <translation>Curva de Função de Correção da Entrada de Calor do Gerador em Relação à Temperatura da Água Gelada</translation>
     </message>
-    <!-- OS:Chiller:Absorption:Indirect -->
+    
     <message>
         <source>Generator Heat Input Correction Function of Condenser Temperature Curve</source>
         <translation>Curva de Correção do Calor de Entrada do Gerador em Função da Temperatura do Condensador</translation>
     </message>
-    <!-- OS:Chiller:Absorption:Indirect -->
+    
     <message>
         <source>Generator Heat Input Function of Part Load Ratio Curve</source>
         <translation>Curva da Função de Entrada de Calor do Gerador em Relação à Taxa de Carga Parcial</translation>
     </message>
-    <!-- OS:Chiller:Absorption, OS:Chiller:Absorption:Indirect -->
+    
     <message>
         <source>Generator Heat Source Type</source>
         <translation>Tipo de Fonte de Calor do Gerador</translation>
     </message>
-    <!-- OS:Chiller:Absorption:Indirect -->
+    
     <message>
         <source>Generator Inlet Node</source>
         <translation>Nó de Entrada do Gerador</translation>
     </message>
-    <!-- OS:Chiller:Absorption -->
+    
     <message>
         <source>Generator Inlet Node Name</source>
         <translation>Nome do Nó de Entrada do Gerador</translation>
     </message>
-    <!-- OS:ElectricLoadCenter:Distribution -->
+    
     <message>
         <source>Generator List Name</source>
         <translation>Nome da Lista de Geradores</translation>
     </message>
-    <!-- OS:Generator:MicroTurbine -->
+    
     <message>
         <source>Generator MicroTurbine Heat Recovery Name</source>
         <translation>Nome da Recuperação de Calor da Microturbina Geradora</translation>
     </message>
-    <!-- OS:ElectricLoadCenter:Distribution -->
+    
     <message>
         <source>Generator Operation Scheme Type</source>
         <translation>Tipo de Esquema de Operação do Gerador</translation>
     </message>
-    <!-- OS:Chiller:Absorption:Indirect -->
+    
     <message>
         <source>Generator Outlet Node</source>
         <translation>Nó de Saída do Gerador</translation>
     </message>
-    <!-- OS:Chiller:Absorption -->
+    
     <message>
         <source>Generator Outlet Node Name</source>
         <translation>Nome do Nó de Saída do Gerador</translation>
     </message>
-    <!-- OS:ZoneControl:ContaminantController -->
+    
     <message>
         <source>Generic Contaminant Control Availability Schedule Name</source>
         <translation>Nome do Calendário de Disponibilidade de Controle de Contaminante Genérico</translation>
     </message>
-    <!-- OS:ZoneControl:ContaminantController -->
+    
     <message>
         <source>Generic Contaminant Setpoint Schedule Name</source>
         <translation>Nome da Agenda de Ponto de Ajuste de Contaminante Genérico</translation>
     </message>
-    <!-- OS:ShadingControl -->
+    
     <message>
         <source>Glare Control Is Active</source>
         <translation>Controle de Ofuscamento Ativo</translation>
     </message>
-    <!-- OS:DefaultSubSurfaceConstructions -->
+    
     <message>
         <source>Glass Door Construction Name</source>
         <translation>Nome da Construção da Porta de Vidro</translation>
     </message>
-    <!-- OS:SolarCollectorPerformance:PhotovoltaicThermal:BIPVT -->
+    
     <message>
         <source>Glass Extinction Coefficient</source>
         <translation>Coeficiente de Extinção do Vidro</translation>
     </message>
-    <!-- OS:Refrigeration:WalkIn:ZoneBoundary -->
+    
     <message>
         <source>Glass Reach In Door Opening Schedule Name Facing Zone</source>
         <translation>Nome da Agenda de Abertura da Porta Alcançável de Vidro Voltada para a Zona</translation>
     </message>
-    <!-- OS:Refrigeration:WalkIn:ZoneBoundary -->
+    
     <message>
         <source>Glass Reach In Door U Value Facing Zone</source>
         <translation>Valor U da Porta de Vidro Resfriada (Facing Zone)</translation>
     </message>
-    <!-- OS:SolarCollectorPerformance:PhotovoltaicThermal:BIPVT -->
+    
     <message>
         <source>Glass Refraction Index</source>
         <translation>Índice de Refração do Vidro</translation>
     </message>
-    <!-- OS:SolarCollectorPerformance:PhotovoltaicThermal:BIPVT -->
+    
     <message>
         <source>Glass Thickness</source>
         <translation>Espessura do Vidro</translation>
     </message>
-    <!-- OS:Coil:Cooling:DX:SingleSpeed:ThermalStorage, OS:PlantLoop, OS:Refrigeration:SecondarySystem -->
+    
     <message>
         <source>Glycol Concentration</source>
         <translation>Concentração de Glicol</translation>
     </message>
-    <!-- OS:SolarCollectorPerformance:FlatPlate, OS:SolarCollectorPerformance:IntegralCollectorStorage -->
+    
     <message>
         <source>Gross Area</source>
         <translation>Área Bruta</translation>
     </message>
-    <!-- OS:Coil:Cooling:DX:CurveFit:Speed -->
+    
     <message>
         <source>Gross Cooling COP</source>
         <translation>COP de Resfriamento Bruto</translation>
     </message>
-    <!-- OS:AirConditioner:VariableRefrigerantFlow, OS:Coil:Cooling:DX:MultiSpeed:StageData, OS:CoilPerformance:DX:Cooling -->
+    
     <message>
         <source>Gross Rated Cooling COP</source>
         <translation>Potência de Resfriamento COP Nominal Bruto</translation>
     </message>
-    <!-- OS:AirConditioner:VariableRefrigerantFlow, OS:Coil:Heating:DX:MultiSpeed:StageData -->
+    
     <message>
         <source>Gross Rated Heating Capacity</source>
         <translation>Capacidade de Aquecimento Nominal Bruta</translation>
     </message>
-    <!-- OS:Coil:Heating:DX:MultiSpeed:StageData -->
+    
     <message>
         <source>Gross Rated Heating COP</source>
         <translation>Coeficiente de Desempenho de Aquecimento Nominal Bruto</translation>
     </message>
-    <!-- OS:Coil:Cooling:DX:MultiSpeed:StageData, OS:CoilPerformance:DX:Cooling -->
+    
     <message>
         <source>Gross Rated Sensible Heat Ratio</source>
         <translation>Taxa Sensível de Calor Classificada Bruta</translation>
     </message>
-    <!-- OS:AirConditioner:VariableRefrigerantFlow, OS:Coil:Cooling:DX:MultiSpeed:StageData, OS:CoilPerformance:DX:Cooling -->
+    
     <message>
         <source>Gross Rated Total Cooling Capacity</source>
         <translation>Capacidade Total de Resfriamento Nominal Bruta</translation>
     </message>
-    <!-- OS:Coil:Cooling:DX:VariableSpeed, OS:Coil:Cooling:WaterToAirHeatPump:VariableSpeedEquationFit -->
+    
     <message>
         <source>Gross Rated Total Cooling Capacity At Selected Nominal Speed Level</source>
         <translation>Capacidade Nominal de Resfriamento Total Bruta no Nível de Velocidade Nominal Selecionado</translation>
     </message>
-    <!-- OS:Coil:Cooling:DX:CurveFit:Speed -->
+    
     <message>
         <source>Gross Sensible Heat Ratio</source>
         <translation>Razão de Calor Sensível Bruto</translation>
     </message>
-    <!-- OS:Coil:Cooling:DX:CurveFit:Speed -->
+    
     <message>
         <source>Gross Total Cooling Capacity Fraction</source>
         <translation>Fração da Capacidade Total de Resfriamento Bruta</translation>
     </message>
-    <!-- OS:Generator:PVWatts -->
+    
     <message>
         <source>Ground Coverage Ratio</source>
         <translation>Razão de Cobertura do Solo</translation>
     </message>
-    <!-- OS:Foundation:Kiva:Settings -->
+    
     <message>
         <source>Ground Solar Absorptivity</source>
         <translation>Absorção Solar do Solo</translation>
     </message>
-    <!-- OS:SurfaceProperty:GroundSurfaces -->
+    
     <message>
         <source>Ground Surface Name</source>
         <translation>Nome da Superfície do Solo</translation>
     </message>
-    <!-- OS:SurfaceProperty:GroundSurfaces -->
+    
     <message>
         <source>Ground Surface Reflectance Schedule Name</source>
         <translation>Nome da Agenda de Refletância da Superfície do Solo</translation>
     </message>
-    <!-- OS:Foundation:Kiva:Settings -->
+    
     <message>
         <source>Ground Surface Roughness</source>
         <translation>Rugosidade da Superfície do Solo</translation>
     </message>
-    <!-- OS:SurfaceProperty:GroundSurfaces -->
+    
     <message>
         <source>Ground Surface Temperature Schedule Name</source>
         <translation>Nome da Agenda de Temperatura da Superfície do Solo</translation>
     </message>
-    <!-- OS:SurfaceProperty:GroundSurfaces -->
+    
     <message>
         <source>Ground Surface View Factor</source>
         <translation>Fator de Visão da Superfície do Solo</translation>
     </message>
-    <!-- OS:SurfaceProperty:LocalEnvironment -->
+    
     <message>
         <source>Ground Surfaces Object Name</source>
         <translation>Nome do Objeto de Superfícies do Solo</translation>
     </message>
-    <!-- OS:GroundHeatExchanger:Vertical -->
+    
     <message>
         <source>Ground Temperature</source>
         <translation>Temperatura do Solo</translation>
     </message>
-    <!-- OS:SurfaceProperty:OtherSideCoefficients -->
+    
     <message>
         <source>Ground Temperature Coefficient</source>
         <translation>Coeficiente de Temperatura do Solo</translation>
     </message>
-    <!-- OS:SurfaceProperty:SurroundingSurfaces -->
+    
     <message>
         <source>Ground Temperature Schedule Name</source>
         <translation>Nome da Agenda de Temperatura do Solo</translation>
     </message>
-    <!-- OS:Foundation:Kiva:Settings -->
+    
     <message>
         <source>Ground Thermal Absorptivity</source>
         <translation>Absortividade Térmica do Solo</translation>
     </message>
-    <!-- OS:GroundHeatExchanger:Vertical -->
+    
     <message>
         <source>Ground Thermal Conductivity</source>
         <translation>Condutividade Térmica do Solo</translation>
     </message>
-    <!-- OS:GroundHeatExchanger:Vertical -->
+    
     <message>
         <source>Ground Thermal Heat Capacity</source>
         <translation>Capacidade Térmica do Solo</translation>
     </message>
-    <!-- OS:SurfaceProperty:SurroundingSurfaces -->
+    
     <message>
         <source>Ground View Factor</source>
         <translation>Fator de Visualização do Solo</translation>
     </message>
-    <!-- OS:UtilityCost:Tariff -->
+    
     <message>
         <source>Group Name</source>
         <translation>Nome do Grupo</translation>
     </message>
-    <!-- OS:BuildingStory, OS:LightingSimulationZone, OS:SpaceType, OS:ThermalZone -->
+    
     <message>
         <source>Group Rendering Name</source>
         <translation>Nome de Renderização do Grupo</translation>
     </message>
-    <!-- OS:EnergyManagementSystem:MeteredOutputVariable, OS:PythonPlugin:OutputVariable -->
+    
     <message>
         <source>Group Type</source>
         <translation>Tipo de Grupo</translation>
     </message>
-    <!-- OS:GroundHeatExchanger:Vertical -->
+    
     <message>
         <source>Grout Thermal Conductivity</source>
         <translation>Condutividade Térmica da Calda</translation>
     </message>
 
-    <!-- H -->
-    <!-- OS:HeatExchanger:FluidToFluid -->
+    
+    
     <message>
         <source>Heat Exchange Model Type</source>
         <translation>Tipo de Modelo de Troca de Calor</translation>
     </message>
-    <!-- OS:CoilSystem:Cooling:DX:HeatExchangerAssisted, OS:CoilSystem:Cooling:Water:HeatExchangerAssisted -->
+    
     <message>
         <source>Heat Exchanger</source>
         <translation>Trocador de Calor</translation>
     </message>
-    <!-- OS:Generator:FuelCell:ExhaustGasToWaterHeatExchanger -->
+    
     <message>
         <source>Heat Exchanger Calculation Method</source>
         <translation>Método de Cálculo do Trocador de Calor</translation>
     </message>
-    <!-- OS:Generator:FuelCell, OS:ZoneHVAC:EnergyRecoveryVentilator -->
+    
     <message>
         <source>Heat Exchanger Name</source>
         <translation>Nome do Trocador de Calor</translation>
     </message>
-    <!-- OS:HeatExchanger:Desiccant:BalancedFlow -->
+    
     <message>
         <source>Heat Exchanger Performance</source>
         <translation>Desempenho do Trocador de Calor</translation>
     </message>
-    <!-- OS:HeatExchanger:FluidToFluid -->
+    
     <message>
         <source>Heat Exchanger Setpoint Node Name</source>
         <translation>Nome do Nó de Ponto de Ajuste do Trocador de Calor</translation>
     </message>
-    <!-- OS:HeatExchanger:AirToAir:SensibleAndLatent -->
+    
     <message>
         <source>Heat Exchanger Type</source>
         <translation>Tipo de Trocador de Calor</translation>
     </message>
-    <!-- OS:HeatExchanger:FluidToFluid -->
+    
     <message>
         <source>Heat Exchanger U-Factor Times Area Value</source>
         <translation>Valor do Fator U Vezes Área do Trocador de Calor</translation>
     </message>
-    <!-- OS:OutputControl:ResilienceSummaries -->
+    
     <message>
         <source>Heat Index Algorithm</source>
         <translation>Algoritmo do Índice de Calor</translation>
     </message>
-    <!-- OS:ZoneHVAC:WaterToAirHeatPump -->
+    
     <message>
         <source>Heat Pump Coil Water Flow Mode</source>
         <translation>Modo de Fluxo de Água da Bobina da Bomba de Calor</translation>
     </message>
-    <!-- OS:HeatPump:AirToWater, OS:HeatPump:PlantLoop:EIR:Heating -->
+    
     <message>
         <source>Heat Pump Defrost Control</source>
         <translation>Controle de Descongelamento da Bomba de Calor</translation>
     </message>
-    <!-- OS:HeatPump:AirToWater, OS:HeatPump:PlantLoop:EIR:Heating -->
+    
     <message>
         <source>Heat Pump Defrost Time Period Fraction</source>
         <translation>Fração do Período de Tempo de Descongelamento da Bomba de Calor</translation>
     </message>
-    <!-- OS:HeatPump:AirToWater -->
+    
     <message>
         <source>Heat Pump Multiplier</source>
         <translation>Multiplicador da Bomba de Calor</translation>
     </message>
-    <!-- OS:HeatPump:PlantLoop:EIR:Heating -->
+    
     <message>
         <source>Heat Pump Sizing Method</source>
         <translation>Método de Dimensionamento da Bomba de Calor</translation>
     </message>
-    <!-- OS:Coil:WaterHeating:Desuperheater -->
+    
     <message>
         <source>Heat Reclaim Efficiency Function of Temperature Curve Name</source>
         <translation>Curva de Função de Eficiência de Recuperação de Calor em Relação à Temperatura</translation>
     </message>
-    <!-- OS:Coil:Heating:Desuperheater -->
+    
     <message>
         <source>Heat Reclaim Recovery Efficiency</source>
         <translation>Eficiência de Recuperação de Calor Recirculado</translation>
     </message>
-    <!-- OS:HeatPump:PlantLoop:EIR:Cooling, OS:HeatPump:PlantLoop:EIR:Heating -->
+    
     <message>
         <source>Heat Recovery Capacity Modifier Function of Temperature Curve Name</source>
         <translation>Nome da Curva Modificadora de Capacidade de Recuperação de Calor em Função da Temperatura</translation>
     </message>
-    <!-- OS:AirConditioner:VariableRefrigerantFlow -->
+    
     <message>
         <source>Heat Recovery Cooling Capacity Modifier Curve Name</source>
         <translation>Curva de Modificação da Capacidade de Resfriamento com Recuperação de Calor</translation>
     </message>
-    <!-- OS:AirConditioner:VariableRefrigerantFlow, OS:AirConditioner:VariableRefrigerantFlow:FluidTemperatureControl:HR -->
+    
     <message>
         <source>Heat Recovery Cooling Capacity Time Constant</source>
         <translation>Constante de Tempo da Capacidade de Resfriamento com Recuperação de Calor</translation>
     </message>
-    <!-- OS:AirConditioner:VariableRefrigerantFlow -->
+    
     <message>
         <source>Heat Recovery Cooling Energy Modifier Curve Name</source>
         <translation>Curva de Modificador de Energia de Resfriamento com Recuperação de Calor</translation>
     </message>
-    <!-- OS:AirConditioner:VariableRefrigerantFlow, OS:AirConditioner:VariableRefrigerantFlow:FluidTemperatureControl:HR -->
+    
     <message>
         <source>Heat Recovery Cooling Energy Time Constant</source>
         <translation>Constante de Tempo de Energia de Resfriamento com Recuperação de Calor</translation>
     </message>
-    <!-- OS:HeatPump:PlantLoop:EIR:Cooling, OS:HeatPump:PlantLoop:EIR:Heating -->
+    
     <message>
         <source>Heat Recovery Electric Input to Output Ratio Modifier Function of Temperature Curve Name</source>
         <translation>Função Modificadora da Razão de Entrada Elétrica para Saída de Recuperação de Calor em Relação à Temperatura - Nome da Curva</translation>
     </message>
-    <!-- OS:AirConditioner:VariableRefrigerantFlow -->
+    
     <message>
         <source>Heat Recovery Heating Capacity Modifier Curve Name</source>
         <translation>Nome da Curva Modificadora de Capacidade de Aquecimento de Recuperação de Calor</translation>
     </message>
-    <!-- OS:AirConditioner:VariableRefrigerantFlow, OS:AirConditioner:VariableRefrigerantFlow:FluidTemperatureControl:HR -->
+    
     <message>
         <source>Heat Recovery Heating Capacity Time Constant</source>
         <translation>Constante de Tempo da Capacidade de Aquecimento da Recuperação de Calor</translation>
     </message>
-    <!-- OS:AirConditioner:VariableRefrigerantFlow -->
+    
     <message>
         <source>Heat Recovery Heating Energy Modifier Curve Name</source>
         <translation>Curva Modificadora de Energia de Aquecimento de Recuperação de Calor</translation>
     </message>
-    <!-- OS:AirConditioner:VariableRefrigerantFlow, OS:AirConditioner:VariableRefrigerantFlow:FluidTemperatureControl:HR -->
+    
     <message>
         <source>Heat Recovery Heating Energy Time Constant</source>
         <translation>Constante de Tempo de Energia de Aquecimento de Recuperação de Calor</translation>
     </message>
-    <!-- OS:Chiller:Electric:EIR, OS:Chiller:Electric:ReformulatedEIR -->
+    
     <message>
         <source>Heat Recovery Inlet High Temperature Limit Schedule Name</source>
         <translation>Nome da Agenda de Limite Máximo de Temperatura na Entrada do Recuperador de Calor</translation>
     </message>
-    <!-- OS:Chiller:Electric:ASHRAE205, OS:Chiller:Electric:EIR, OS:Chiller:Electric:ReformulatedEIR, OS:HeatPump:PlantLoop:EIR:Cooling, OS:HeatPump:PlantLoop:EIR:Heating -->
+    
     <message>
         <source>Heat Recovery Inlet Node Name</source>
         <translation>Nome do Nó de Entrada da Recuperação de Calor</translation>
     </message>
-    <!-- OS:Chiller:Electric:EIR, OS:Chiller:Electric:ReformulatedEIR -->
+    
     <message>
         <source>Heat Recovery Leaving Temperature Setpoint Node Name</source>
         <translation>Heat Recovery Leaving Temperature Setpoint Node Name</translation>
     </message>
-    <!-- OS:Chiller:Electric:ASHRAE205, OS:Chiller:Electric:EIR, OS:Chiller:Electric:ReformulatedEIR, OS:HeatPump:PlantLoop:EIR:Cooling, OS:HeatPump:PlantLoop:EIR:Heating -->
+    
     <message>
         <source>Heat Recovery Outlet Node Name</source>
         <translation>Nome do Nó de Saída da Recuperação de Calor</translation>
     </message>
-    <!-- OS:Generator:MicroTurbine:HeatRecovery -->
+    
     <message>
         <source>Heat Recovery Rate Function of Inlet Water Temperature Curve Name</source>
         <translation>Nome da Curva de Função da Taxa de Recuperação de Calor em Relação à Temperatura da Água de Entrada</translation>
     </message>
-    <!-- OS:Generator:MicroTurbine:HeatRecovery -->
+    
     <message>
         <source>Heat Recovery Rate Function of Part Load Ratio Curve Name</source>
         <translation>Nome da Curva de Função da Taxa de Recuperação de Calor em Relação à Razão de Carga Parcial</translation>
     </message>
-    <!-- OS:Generator:MicroTurbine:HeatRecovery -->
+    
     <message>
         <source>Heat Recovery Rate Function of Water Flow Rate Curve Name</source>
         <translation>Nome da Curva da Taxa de Recuperação de Calor em Função da Vazão de Água</translation>
     </message>
-    <!-- OS:HeatPump:PlantLoop:EIR:Cooling, OS:HeatPump:PlantLoop:EIR:Heating -->
+    
     <message>
         <source>Heat Recovery Reference Flow Rate</source>
         <translation>Taxa de Fluxo de Referência da Recuperação de Calor</translation>
     </message>
-    <!-- OS:ZoneHVAC:IdealLoadsAirSystem -->
+    
     <message>
         <source>Heat Recovery Type</source>
         <translation>Tipo de Recuperação de Calor</translation>
     </message>
-    <!-- OS:Generator:MicroTurbine:HeatRecovery -->
+    
     <message>
         <source>Heat Recovery Water Flow Operating Mode</source>
         <translation>Modo de Operação do Fluxo de Água da Recuperação de Calor</translation>
     </message>
-    <!-- OS:Generator:MicroTurbine:HeatRecovery -->
+    
     <message>
         <source>Heat Recovery Water Flow Rate Function of Temperature and Power Curve Name</source>
         <translation>Heat Recovery Water Flow Rate Function of Temperature and Power Curve Name</translation>
     </message>
-    <!-- OS:AirLoopHVAC:UnitaryHeatPump:AirToAir:MultiSpeed -->
+    
     <message>
         <source>Heat Recovery Water Inlet Node</source>
         <translation>Nó de Entrada de Água da Recuperação de Calor</translation>
     </message>
-    <!-- OS:AirLoopHVAC:UnitarySystem, OS:Generator:FuelCell:ExhaustGasToWaterHeatExchanger, OS:Generator:FuelCell:StackCooler, OS:Generator:MicroTurbine:HeatRecovery -->
+    
     <message>
         <source>Heat Recovery Water Inlet Node Name</source>
         <translation>Heat Recovery Water Inlet Node Name</translation>
     </message>
-    <!-- OS:Generator:FuelCell:ExhaustGasToWaterHeatExchanger -->
+    
     <message>
         <source>Heat Recovery Water Maximum Flow Rate</source>
         <translation>Vazão Máxima de Água da Recuperação de Calor</translation>
     </message>
-    <!-- OS:AirLoopHVAC:UnitaryHeatPump:AirToAir:MultiSpeed -->
+    
     <message>
         <source>Heat Recovery Water Outlet Node</source>
         <translation>Nó de Saída de Água de Recuperação de Calor</translation>
     </message>
-    <!-- OS:AirLoopHVAC:UnitarySystem, OS:Generator:FuelCell:ExhaustGasToWaterHeatExchanger, OS:Generator:FuelCell:StackCooler, OS:Generator:MicroTurbine:HeatRecovery -->
+    
     <message>
         <source>Heat Recovery Water Outlet Node Name</source>
         <translation>Nome do Nó de Saída de Água de Recuperação de Calor</translation>
     </message>
-    <!-- OS:CoolingTower:SingleSpeed, OS:CoolingTower:TwoSpeed, OS:EvaporativeFluidCooler:SingleSpeed, OS:EvaporativeFluidCooler:TwoSpeed -->
+    
     <message>
         <source>Heat Rejection Capacity and Nominal Capacity Sizing Ratio</source>
         <translation>Razão de Dimensionamento da Capacidade de Rejeição de Calor e Capacidade Nominal</translation>
     </message>
-    <!-- OS:Refrigeration:CompressorRack -->
+    
     <message>
         <source>Heat Rejection Location</source>
         <translation>Local de Rejeição de Calor</translation>
     </message>
-    <!-- OS:Refrigeration:CompressorRack -->
+    
     <message>
         <source>Heat Rejection Zone Name</source>
         <translation>Nome da Zona de Rejeição de Calor</translation>
     </message>
-    <!-- OS:ElectricLoadCenter:Storage:LiIonNMCBattery -->
+    
     <message>
         <source>Heat Transfer Coefficient Between Battery and Ambient</source>
         <translation>Coeficiente de Transferência de Calor Entre a Bateria e o Ambiente</translation>
     </message>
-    <!-- OS:Generator:Photovoltaic -->
+    
     <message>
         <source>Heat Transfer Integration Mode</source>
         <translation>Modo de Integração de Transferência de Calor</translation>
     </message>
-    <!-- OS:HeatExchanger:FluidToFluid -->
+    
     <message>
         <source>Heat Transfer Metering End Use Type</source>
         <translation>Tipo de Uso Final de Medição de Transferência de Calor</translation>
     </message>
-    <!-- OS:AirflowNetworkDuct -->
+    
     <message>
         <source>Heat Transmittance Coefficient (U-Factor) for Duct Wall Construction</source>
         <translation>Coeficiente de Transmitância de Calor (Fator U) para Construção de Parede de Duto</translation>
     </message>
-    <!-- OS:WaterHeater:Mixed -->
+    
     <message>
         <source>Heater Ignition Delay</source>
         <translation>Atraso de Ignição do Aquecedor</translation>
     </message>
-    <!-- OS:WaterHeater:Mixed -->
+    
     <message>
         <source>Heater Ignition Minimum Flow Rate</source>
         <translation>Vazão Mínima de Ignição do Aquecedor</translation>
     </message>
-    <!-- OS:AirTerminal:SingleDuct:ConstantVolume:FourPipeBeam, OS:ZoneHVAC:IdealLoadsAirSystem -->
+    
     <message>
         <source>Heating Availability Schedule Name</source>
         <translation>Nome da Agenda de Disponibilidade de Aquecimento</translation>
     </message>
-    <!-- OS:Coil:Heating:WaterToAirHeatPump:EquationFit, OS:HeatPump:WaterToWater:EquationFit:Heating -->
+    
     <message>
         <source>Heating Capacity Curve Name</source>
         <translation>Nome da Curva de Capacidade de Aquecimento</translation>
     </message>
-    <!-- OS:Coil:WaterHeating:AirToWaterHeatPump -->
+    
     <message>
         <source>Heating Capacity Function of Air Flow Fraction Curve</source>
         <translation>Curva da Capacidade de Aquecimento em Função da Fração de Vazão de Ar</translation>
     </message>
-    <!-- OS:Coil:WaterHeating:AirToWaterHeatPump:Wrapped -->
+    
     <message>
         <source>Heating Capacity Function of Air Flow Fraction Curve Name</source>
         <translation>Nome da Curva da Função de Capacidade de Aquecimento em Relação à Fração de Vazão de Ar</translation>
     </message>
-    <!-- OS:Coil:Heating:DX:MultiSpeed:StageData -->
+    
     <message>
         <source>Heating Capacity Function of Flow Fraction Curve Name</source>
         <translation>Nome da Curva de Função de Capacidade de Aquecimento em Relação à Fração de Vazão</translation>
     </message>
-    <!-- OS:Coil:WaterHeating:AirToWaterHeatPump -->
+    
     <message>
         <source>Heating Capacity Function of Temperature Curve</source>
         <translation>Curva da Função de Capacidade de Aquecimento em Função da Temperatura</translation>
     </message>
-    <!-- OS:Coil:Heating:DX:MultiSpeed:StageData, OS:Coil:Heating:DX:VariableSpeed:SpeedData, OS:Coil:Heating:WaterToAirHeatPump:VariableSpeedEquationFit:SpeedData, OS:Coil:WaterHeating:AirToWaterHeatPump:Wrapped -->
+    
     <message>
         <source>Heating Capacity Function of Temperature Curve Name</source>
         <translation>Nome da Curva da Função da Capacidade de Aquecimento em Relação à Temperatura</translation>
     </message>
-    <!-- OS:Coil:WaterHeating:AirToWaterHeatPump -->
+    
     <message>
         <source>Heating Capacity Function of Water Flow Fraction Curve</source>
         <translation>Curva da Função de Capacidade de Aquecimento em Relação à Fração de Vazão de Água</translation>
     </message>
-    <!-- OS:Coil:Heating:WaterToAirHeatPump:VariableSpeedEquationFit:SpeedData -->
+    
     <message>
         <source>Heating Capacity Function of Water Flow Fraction Curve Name</source>
         <translation>Nome da Curva da Função de Capacidade de Aquecimento em Relação à Fração de Fluxo de Água</translation>
     </message>
-    <!-- OS:Coil:Heating:DX:VariableRefrigerantFlow -->
+    
     <message>
         <source>Heating Capacity Modifier Function of Flow Fraction Curve</source>
         <translation>Curva Modificadora de Capacidade de Aquecimento em Função da Fração de Vazão</translation>
     </message>
-    <!-- OS:AirConditioner:VariableRefrigerantFlow -->
+    
     <message>
         <source>Heating Capacity Ratio Boundary Curve Name</source>
         <translation>Nome da Curva Limite da Taxa de Capacidade de Aquecimento</translation>
     </message>
-    <!-- OS:AirConditioner:VariableRefrigerantFlow -->
+    
     <message>
         <source>Heating Capacity Ratio Modifier Function of High Temperature Curve Name</source>
         <translation>Função Modificadora da Razão de Capacidade de Aquecimento - Nome da Curva de Alta Temperatura</translation>
     </message>
-    <!-- OS:AirConditioner:VariableRefrigerantFlow -->
+    
     <message>
         <source>Heating Capacity Ratio Modifier Function of Low Temperature Curve Name</source>
         <translation>Função Modificadora da Razão de Capacidade de Aquecimento - Nome da Curva de Temperatura Baixa</translation>
     </message>
-    <!-- OS:Coil:Heating:DX:VariableRefrigerantFlow -->
+    
     <message>
         <source>Heating Capacity Ratio Modifier Function of Temperature Curve</source>
         <translation>Função Modificadora da Taxa de Capacidade de Aquecimento em Relação à Temperatura</translation>
     </message>
-    <!-- OS:Generator:FuelCell:AuxiliaryHeater -->
+    
     <message>
         <source>Heating Capacity Units</source>
         <translation>Unidades de Capacidade de Aquecimento</translation>
     </message>
-    <!-- OS:AirLoopHVAC:UnitaryHeatCool:VAVChangeoverBypass, OS:AirLoopHVAC:UnitaryHeatPump:AirToAir:MultiSpeed, OS:ZoneHVAC:TerminalUnit:VariableRefrigerantFlow -->
+    
     <message>
         <source>Heating Coil</source>
         <translation>Bobina de Aquecimento</translation>
     </message>
-    <!-- OS:AirLoopHVAC:UnitaryHeatPump:AirToAir, OS:AirLoopHVAC:UnitarySystem, OS:AirTerminal:SingleDuct:ConstantVolume:FourPipeBeam, OS:AirTerminal:SingleDuct:ConstantVolume:FourPipeInduction, OS:ZoneHVAC:Baseboard:Convective:Water, OS:ZoneHVAC:Baseboard:RadiantConvective:Water, OS:ZoneHVAC:FourPipeFanCoil, OS:ZoneHVAC:PackagedTerminalAirConditioner, OS:ZoneHVAC:PackagedTerminalHeatPump, OS:ZoneHVAC:UnitHeater, OS:ZoneHVAC:UnitVentilator, OS:ZoneHVAC:WaterToAirHeatPump -->
+    
     <message>
         <source>Heating Coil Name</source>
         <translation>Nome da Bobina de Aquecimento</translation>
     </message>
-    <!-- OS:AirConditioner:VariableRefrigerantFlow -->
+    
     <message>
         <source>Heating Combination Ratio Correction Factor Curve Name</source>
         <translation>Heating Combination Ratio Correction Factor Curve Name</translation>
     </message>
-    <!-- OS:HeatPump:WaterToWater:EquationFit:Heating -->
+    
     <message>
         <source>Heating Compressor Power Curve Name</source>
         <translation>Nome da Curva de Potência do Compressor de Aquecimento</translation>
     </message>
-    <!-- OS:Coil:Heating:LowTemperatureRadiant:VariableFlow -->
+    
     <message>
         <source>Heating Control Temperature Schedule Name</source>
         <translation>Nome do Cronograma de Temperatura de Controle de Aquecimento</translation>
     </message>
-    <!-- OS:Coil:Heating:LowTemperatureRadiant:VariableFlow -->
+    
     <message>
         <source>Heating Control Throttling Range</source>
         <translation>Faixa de Estrangulamento do Controle de Aquecimento</translation>
     </message>
-    <!-- OS:AirTerminal:SingleDuct:ParallelPIU:Reheat, OS:AirTerminal:SingleDuct:SeriesPIU:Reheat -->
+    
     <message>
         <source>Heating Control Type</source>
         <translation>Tipo de Controle de Aquecimento</translation>
     </message>
-    <!-- OS:AvailabilityManager:NightCycle -->
+    
     <message>
         <source>Heating Control Zone or Zone List Name</source>
         <translation>Nome da Zona de Controle de Aquecimento ou Lista de Zonas</translation>
     </message>
-    <!-- OS:AirTerminal:SingleDuct:ConstantVolume:FourPipeInduction, OS:ZoneHVAC:FourPipeFanCoil, OS:ZoneHVAC:PackagedTerminalHeatPump, OS:ZoneHVAC:UnitHeater, OS:ZoneHVAC:UnitVentilator -->
+    
     <message>
         <source>Heating Convergence Tolerance</source>
         <translation>Tolerância de Convergência de Aquecimento</translation>
     </message>
-    <!-- OS:Coil:WaterHeating:AirToWaterHeatPump -->
+    
     <message>
         <source>Heating COP Function of Air Flow Fraction Curve</source>
         <translation>Curva da Função COP de Aquecimento em Relação à Fração de Vazão de Ar</translation>
     </message>
-    <!-- OS:Coil:WaterHeating:AirToWaterHeatPump:Wrapped -->
+    
     <message>
         <source>Heating COP Function of Air Flow Fraction Curve Name</source>
         <translation>Nome da Curva da Função COP de Aquecimento em Relação à Fração de Fluxo de Ar</translation>
     </message>
-    <!-- OS:Coil:WaterHeating:AirToWaterHeatPump -->
+    
     <message>
         <source>Heating COP Function of Temperature Curve</source>
         <translation>Curva de Função do COP de Aquecimento em Função da Temperatura</translation>
     </message>
-    <!-- OS:Coil:WaterHeating:AirToWaterHeatPump:Wrapped -->
+    
     <message>
         <source>Heating COP Function of Temperature Curve Name</source>
         <translation>Curva de Nome da Função COP de Aquecimento em Função da Temperatura</translation>
     </message>
-    <!-- OS:Coil:WaterHeating:AirToWaterHeatPump -->
+    
     <message>
         <source>Heating COP Function of Water Flow Fraction Curve</source>
         <translation>Curva da Função COP de Aquecimento em Relação à Fração de Vazão de Água</translation>
     </message>
-    <!-- OS:Coil:Heating:LowTemperatureRadiant:VariableFlow, OS:Coil:Heating:Water:Baseboard, OS:Coil:Heating:Water:Baseboard:Radiant, OS:Sizing:System, OS:ZoneHVAC:Baseboard:RadiantConvective:Electric -->
+    
     <message>
         <source>Heating Design Capacity</source>
         <translation>Capacidade de Projeto de Aquecimento</translation>
     </message>
-    <!-- OS:Coil:Heating:LowTemperatureRadiant:VariableFlow, OS:Coil:Heating:Water:Baseboard, OS:Coil:Heating:Water:Baseboard:Radiant, OS:Sizing:System, OS:ZoneHVAC:Baseboard:RadiantConvective:Electric -->
+    
     <message>
         <source>Heating Design Capacity Method</source>
         <translation>Método de Capacidade de Aquecimento de Projeto</translation>
     </message>
-    <!-- OS:Coil:Heating:LowTemperatureRadiant:VariableFlow, OS:Coil:Heating:Water:Baseboard, OS:Coil:Heating:Water:Baseboard:Radiant, OS:Sizing:System, OS:ZoneHVAC:Baseboard:RadiantConvective:Electric -->
+    
     <message>
         <source>Heating Design Capacity Per Floor Area</source>
         <translation>Capacidade de Projeto de Aquecimento por Área de Piso</translation>
     </message>
-    <!-- OS:AirConditioner:VariableRefrigerantFlow -->
+    
     <message>
         <source>Heating Energy Input Ratio Boundary Curve Name</source>
         <translation>Heating Energy Input Ratio Boundary Curve Name</translation>
     </message>
-    <!-- OS:HeatPump:AirToWater:Heating:SpeedData -->
+    
     <message>
         <source>Heating Energy Input Ratio Function of PLR Curve Name</source>
         <translation>Nome da Curva da Razão de Entrada de Energia de Aquecimento em Função de PLR</translation>
     </message>
-    <!-- OS:HeatPump:AirToWater:Heating:SpeedData -->
+    
     <message>
         <source>Heating Energy Input Ratio Function of Temperature Curve Name</source>
         <translation>Nome da Curva de Função da Razão de Entrada de Energia de Aquecimento em Relação à Temperatura</translation>
     </message>
-    <!-- OS:AirConditioner:VariableRefrigerantFlow -->
+    
     <message>
         <source>Heating Energy Input Ratio Modifier Function of High Part-Load Ratio Curve Name</source>
         <translation>Nome da Curva de Função Modificadora da Razão de Entrada de Energia de Aquecimento em Relação à Curva de Razão de Carga Parcial Alta</translation>
     </message>
-    <!-- OS:AirConditioner:VariableRefrigerantFlow -->
+    
     <message>
         <source>Heating Energy Input Ratio Modifier Function of High Temperature Curve Name</source>
         <translation>Nome da Curva do Modificador da Taxa de Entrada de Energia de Aquecimento em Função da Temperatura Alta</translation>
     </message>
-    <!-- OS:AirConditioner:VariableRefrigerantFlow -->
+    
     <message>
         <source>Heating Energy Input Ratio Modifier Function of Low Part-Load Ratio Curve Name</source>
         <translation>Função Modificadora da Taxa de Entrada de Energia de Aquecimento em Função do Nome da Curva de Razão Parcial de Carga Baixa</translation>
     </message>
-    <!-- OS:AirConditioner:VariableRefrigerantFlow -->
+    
     <message>
         <source>Heating Energy Input Ratio Modifier Function of Low Temperature Curve Name</source>
         <translation>Heating Energy Input Ratio Modifier Function of Low Temperature Curve Name</translation>
     </message>
-    <!-- OS:Sizing:System -->
+    
     <message>
         <source>Heating Fraction of Autosized Cooling Supply Air Flow Rate</source>
         <translation>Fração de Aquecimento da Taxa de Fluxo de Ar de Fornecimento de Resfriamento Autocalibrada</translation>
     </message>
-    <!-- OS:Sizing:System -->
+    
     <message>
         <source>Heating Fraction of Autosized Heating Supply Air Flow Rate</source>
         <translation>Fração de Aquecimento da Taxa de Fluxo de Ar de Suprimento de Aquecimento Dimensionada Automaticamente</translation>
     </message>
-    <!-- OS:ZoneHVAC:IdealLoadsAirSystem -->
+    
     <message>
         <source>Heating Fuel Efficiency Schedule Name</source>
         <translation>Nome da Agenda de Eficiência de Combustível de Aquecimento</translation>
     </message>
-    <!-- OS:ZoneHVAC:IdealLoadsAirSystem -->
+    
     <message>
         <source>Heating Fuel Type</source>
         <translation>Tipo de Combustível de Aquecimento</translation>
     </message>
-    <!-- OS:Coil:Heating:LowTemperatureRadiant:ConstantFlow -->
+    
     <message>
         <source>Heating High Control Temperature Schedule Name</source>
         <translation>Nome do Cronograma de Temperatura de Controle Alto de Aquecimento</translation>
     </message>
-    <!-- OS:Coil:Heating:LowTemperatureRadiant:ConstantFlow -->
+    
     <message>
         <source>Heating High Water Temperature Schedule Name</source>
         <translation>Nome do Cronograma de Temperatura Alta da Água de Aquecimento</translation>
     </message>
-    <!-- OS:ZoneHVAC:IdealLoadsAirSystem -->
+    
     <message>
         <source>Heating Limit</source>
         <translation>Limite de Aquecimento</translation>
     </message>
-    <!-- OS:CentralHeatPumpSystem -->
+    
     <message>
         <source>Heating Loop Inlet Node Name</source>
         <translation>Nome do Nó de Entrada do Circuito de Aquecimento</translation>
     </message>
-    <!-- OS:CentralHeatPumpSystem -->
+    
     <message>
         <source>Heating Loop Outlet Node Name</source>
         <translation>Nome do Nó de Saída do Circuito de Aquecimento</translation>
     </message>
-    <!-- OS:Coil:Heating:LowTemperatureRadiant:ConstantFlow -->
+    
     <message>
         <source>Heating Low Control Temperature Schedule Name</source>
         <translation>Nome da Agenda de Temperatura de Controle Baixa de Aquecimento</translation>
     </message>
-    <!-- OS:Coil:Heating:LowTemperatureRadiant:ConstantFlow -->
+    
     <message>
         <source>Heating Low Water Temperature Schedule Name</source>
         <translation>Nome da Programação de Temperatura Baixa de Água de Aquecimento</translation>
     </message>
-    <!-- OS:ChillerHeaterPerformance:Electric:EIR -->
+    
     <message>
         <source>Heating Mode Cooling Capacity Function of Temperature Curve Name</source>
         <translation>Heating Mode Cooling Capacity Function of Temperature Curve Name</translation>
     </message>
-    <!-- OS:ChillerHeaterPerformance:Electric:EIR -->
+    
     <message>
         <source>Heating Mode Cooling Capacity Optimum Part Load Ratio</source>
         <translation>Razão de Carga Parcial Ótima da Capacidade de Resfriamento no Modo de Aquecimento</translation>
     </message>
-    <!-- OS:ChillerHeaterPerformance:Electric:EIR -->
+    
     <message>
         <source>Heating Mode Electric Input to Cooling Output Ratio Function of Part Load Ratio Curve Name</source>
         <translation>Curva Nome da Função Taxa de Entrada Elétrica para Saída de Refrigeração em Modo de Aquecimento em Relação à Taxa de Carga Parcial</translation>
     </message>
-    <!-- OS:ChillerHeaterPerformance:Electric:EIR -->
+    
     <message>
         <source>Heating Mode Electric Input to Cooling Output Ratio Function of Temperature Curve Name</source>
         <translation>Nome da Curva da Função da Razão de Entrada Elétrica para Saída de Resfriamento em Modo de Aquecimento</translation>
     </message>
-    <!-- OS:ChillerHeaterPerformance:Electric:EIR -->
+    
     <message>
         <source>Heating Mode Entering Chilled Water Temperature Low Limit</source>
         <translation>Limite Mínimo de Temperatura de Água Gelada ao Entrar no Modo de Aquecimento</translation>
     </message>
-    <!-- OS:ChillerHeaterPerformance:Electric:EIR -->
+    
     <message>
         <source>Heating Mode Temperature Curve Condenser Water Independent Variable</source>
         <translation>Curva de Temperatura do Modo Aquecimento - Variável Independente da Água do Condensador</translation>
     </message>
-    <!-- OS:HeatPump:AirToWater -->
+    
     <message>
         <source>Heating Operation Mode</source>
         <translation>Modo de Operação de Aquecimento</translation>
     </message>
-    <!-- OS:AirConditioner:VariableRefrigerantFlow -->
+    
     <message>
         <source>Heating Part-Load Fraction Correlation Curve Name</source>
         <translation>Nome da Curva de Correlação da Fração de Carga Parcial para Aquecimento</translation>
     </message>
-    <!-- OS:AirConditioner:VariableRefrigerantFlow -->
+    
     <message>
         <source>Heating Performance Curve Outdoor Temperature Type</source>
         <translation>Tipo de Temperatura Exterior da Curva de Desempenho de Aquecimento</translation>
     </message>
-    <!-- OS:Coil:Heating:WaterToAirHeatPump:EquationFit -->
+    
     <message>
         <source>Heating Power Consumption Curve Name</source>
         <translation>Nome da Curva de Consumo de Potência de Aquecimento</translation>
     </message>
-    <!-- OS:Refrigeration:AirChiller, OS:Refrigeration:WalkIn -->
+    
     <message>
         <source>Heating Power Schedule Name</source>
         <translation>Nome da Programação de Potência de Aquecimento</translation>
     </message>
-    <!-- OS:ThermostatSetpoint:DualSetpoint, OS:ZoneHVAC:HighTemperatureRadiant, OS:ZoneHVAC:LowTemperatureRadiant:Electric -->
+    
     <message>
         <source>Heating Setpoint Temperature Schedule Name</source>
         <translation>Nome do Cronograma de Temperatura de Ajuste de Aquecimento</translation>
     </message>
-    <!-- OS:Sizing:Parameters -->
+    
     <message>
         <source>Heating Sizing Factor</source>
         <translation>Fator de Dimensionamento de Aquecimento</translation>
     </message>
-    <!-- OS:Coil:Heating:Desuperheater, OS:Coil:WaterHeating:Desuperheater -->
+    
     <message>
         <source>Heating Source Name</source>
         <translation>Nome da Fonte de Aquecimento</translation>
     </message>
-    <!-- OS:UnitarySystemPerformance:Multispeed -->
+    
     <message>
         <source>Heating Speed Supply Air Flow Ratio</source>
         <translation>Taxa de Fluxo de Ar de Suprimento em Velocidade de Aquecimento</translation>
     </message>
-    <!-- OS:SetpointManager:SingleZone:OneStageHeating -->
+    
     <message>
         <source>Heating Stage Off Supply Air Setpoint Temperature</source>
         <translation>Temperatura de Ponto de Ajuste do Ar de Suprimento com Estágio de Aquecimento Desligado</translation>
     </message>
-    <!-- OS:SetpointManager:SingleZone:OneStageHeating -->
+    
     <message>
         <source>Heating Stage On Supply Air Setpoint Temperature</source>
         <translation>Temperatura de Ponto de Ajuste do Ar de Suprimento em Estágio de Aquecimento</translation>
     </message>
-    <!-- OS:Sizing:System -->
+    
     <message>
         <source>Heating Supply Air Flow Rate Per Floor Area</source>
         <translation>Taxa de Vazão de Ar de Suprimento de Aquecimento por Área de Piso</translation>
     </message>
-    <!-- OS:Sizing:System -->
+    
     <message>
         <source>Heating Supply Air Flow Rate Per Unit Heating Capacity</source>
         <translation>Vazão de Ar de Suprimento de Aquecimento Por Unidade de Capacidade de Aquecimento</translation>
     </message>
-    <!-- OS:ZoneControl:Thermostat:StagedDualSetpoint -->
+    
     <message>
         <source>Heating Temperature Setpoint Schedule</source>
         <translation>Agendamento do Ponto de Ajuste de Temperatura de Aquecimento</translation>
     </message>
-    <!-- OS:ZoneHVAC:HighTemperatureRadiant, OS:ZoneHVAC:LowTemperatureRadiant:Electric -->
+    
     <message>
         <source>Heating Throttling Range</source>
         <translation>Intervalo de Estrangulamento de Aquecimento</translation>
     </message>
-    <!-- OS:ZoneControl:Thermostat:StagedDualSetpoint -->
+    
     <message>
         <source>Heating Throttling Temperature Range</source>
         <translation>Intervalo de Temperatura de Estrangulamento para Aquecimento</translation>
     </message>
-    <!-- OS:HeatPump:PlantLoop:EIR:Heating -->
+    
     <message>
         <source>Heating To Cooling Capacity Sizing Ratio</source>
         <translation>Razão de Dimensionamento da Capacidade de Aquecimento para Resfriamento</translation>
     </message>
-    <!-- OS:Coil:Heating:LowTemperatureRadiant:ConstantFlow, OS:Coil:Heating:LowTemperatureRadiant:VariableFlow -->
+    
     <message>
         <source>Heating Water Inlet Node Name</source>
         <translation>Nome do Nó de Entrada de Água de Aquecimento</translation>
     </message>
-    <!-- OS:Coil:Heating:LowTemperatureRadiant:ConstantFlow, OS:Coil:Heating:LowTemperatureRadiant:VariableFlow -->
+    
     <message>
         <source>Heating Water Outlet Node Name</source>
         <translation>Nome do Nó de Saída de Água de Aquecimento</translation>
     </message>
-    <!-- OS:AvailabilityManager:NightCycle -->
+    
     <message>
         <source>Heating Zone Fans Only Zone or Zone List Name</source>
         <translation>Nome da Zona ou Lista de Zonas para Ventiladores Apenas em Aquecimento</translation>
     </message>
-    <!-- OS:Construction:CfactorUndergroundWall -->
+    
     <message>
         <source>Height</source>
         <translation>Altura</translation>
     </message>
-    <!-- OS:WaterHeater:Sizing -->
+    
     <message>
         <source>Height Aspect Ratio</source>
         <translation>Proporção de Altura</translation>
     </message>
-    <!-- OS:AirflowNetworkSimulationControl -->
+    
     <message>
         <source>Height Dependence of External Node Temperature</source>
         <translation>Dependência de Altura da Temperatura do Nó Externo</translation>
     </message>
-    <!-- OS:ZoneVentilation:WindandStackOpenArea -->
+    
     <message>
         <source>Height Difference</source>
         <translation>Diferença de Altura</translation>
     </message>
-    <!-- OS:AirConditioner:VariableRefrigerantFlow:FluidTemperatureControl, OS:AirConditioner:VariableRefrigerantFlow:FluidTemperatureControl:HR -->
+    
     <message>
         <source>Height Difference Between Outdoor Unit and Indoor Units</source>
         <translation>Diferença de Altura Entre Unidade Externa e Unidades Internas</translation>
     </message>
-    <!-- OS:AirflowNetworkDetailedOpening -->
+    
     <message>
         <source>Height Factor for Opening Factor</source>
         <translation>Fator de Altura para Fator de Abertura</translation>
     </message>
-    <!-- OS:Generator:WindTurbine -->
+    
     <message>
         <source>Height for Local Average Wind Speed</source>
         <translation>Altura para Velocidade Média do Vento Local</translation>
     </message>
-    <!-- OS:Refrigeration:WalkIn:ZoneBoundary -->
+    
     <message>
         <source>Height of Glass Reach In Doors Facing Zone</source>
         <translation>Altura das Portas Basculantes de Vidro Voltadas para a Zona</translation>
     </message>
-    <!-- OS:Material:RoofVegetation -->
+    
     <message>
         <source>Height of Plants</source>
         <translation>Altura das Plantas</translation>
     </message>
-    <!-- OS:Refrigeration:WalkIn:ZoneBoundary -->
+    
     <message>
         <source>Height of Stocking Doors Facing Zone</source>
         <translation>Altura das Portas de Estoque Voltadas para a Zona</translation>
     </message>
-    <!-- OS:DaylightingDevice:LightWell -->
+    
     <message>
         <source>Height of Well</source>
         <translation>Altura do Poço</translation>
     </message>
-    <!-- OS:AirflowNetworkSimulationControl -->
+    
     <message>
         <source>Height Selection for Local Wind Pressure Calculation</source>
         <translation>Seleção de Altura para Cálculo de Pressão do Vento Local</translation>
     </message>
-    <!-- OS:FuelFactors -->
+    
     <message>
         <source>Hg Emission Factor</source>
         <translation>Fator de Emissão de Hg</translation>
     </message>
-    <!-- OS:FuelFactors -->
+    
     <message>
         <source>Hg Emission Factor Schedule Name</source>
         <translation>Nome da Programação do Fator de Emissão de Hg</translation>
     </message>
-    <!-- OS:CoolingTower:TwoSpeed, OS:EvaporativeFluidCooler:TwoSpeed, OS:FluidCooler:TwoSpeed -->
+    
     <message>
         <source>High Fan Speed Air Flow Rate</source>
         <translation>Taxa de Fluxo de Ar em Alta Velocidade de Ventilador</translation>
     </message>
-    <!-- OS:CoolingTower:TwoSpeed, OS:EvaporativeFluidCooler:TwoSpeed, OS:FluidCooler:TwoSpeed -->
+    
     <message>
         <source>High Fan Speed Fan Power</source>
         <translation>Potência do Ventilador em Velocidade Alta</translation>
     </message>
-    <!-- OS:CoolingTower:TwoSpeed -->
+    
     <message>
         <source>High Fan Speed U-Factor Times Area Value</source>
         <translation>Fator U em Alta Velocidade do Ventilador Vezes o Valor da Área</translation>
     </message>
-    <!-- OS:EvaporativeFluidCooler:TwoSpeed, OS:FluidCooler:TwoSpeed -->
+    
     <message>
         <source>High Fan Speed U-factor Times Area Value</source>
         <translation>Fator U em Velocidade Alta do Ventilador Vezes o Valor da Área</translation>
     </message>
-    <!-- OS:Controller:OutdoorAir -->
+    
     <message>
         <source>High Humidity Control</source>
         <translation>Controle de Umidade Elevada</translation>
     </message>
-    <!-- OS:ZoneHVAC:EnergyRecoveryVentilator:Controller -->
+    
     <message>
         <source>High Humidity Control Flag</source>
         <translation>Sinalizador de Controle de Alta Umidade</translation>
     </message>
-    <!-- OS:Controller:OutdoorAir, OS:ZoneHVAC:EnergyRecoveryVentilator:Controller -->
+    
     <message>
         <source>High Humidity Outdoor Air Flow Ratio</source>
         <translation>Proporção de Fluxo de Ar Externo com Umidade Elevada</translation>
     </message>
-    <!-- OS:AirTerminal:SingleDuct:ParallelPIU:Reheat, OS:AirTerminal:SingleDuct:SeriesPIU:Reheat -->
+    
     <message>
         <source>High Limit Heating Discharge Air Temperature</source>
         <translation>Temperatura do Ar de Descarga de Aquecimento - Limite Superior</translation>
     </message>
-    <!-- OS:Refrigeration:TranscriticalSystem -->
+    
     <message>
         <source>High Pressure CompressorList Name</source>
         <translation>Nome da Lista do Compressor de Alta Pressão</translation>
     </message>
-    <!-- OS:SetpointManager:SystemNodeReset:Humidity -->
+    
     <message>
         <source>High Reference Humidity Ratio</source>
         <translation>Razão de Umidade de Referência Alta</translation>
     </message>
-    <!-- OS:SetpointManager:SystemNodeReset:Temperature -->
+    
     <message>
         <source>High Reference Temperature</source>
         <translation>Temperatura de Referência Elevada</translation>
     </message>
-    <!-- OS:SetpointManager:Scheduled:DualSetpoint -->
+    
     <message>
         <source>High Setpoint Schedule Name</source>
         <translation>Nome do Cronograma de Ponto de Ajuste Elevado</translation>
     </message>
-    <!-- OS:Coil:Cooling:DX:TwoSpeed -->
+    
     <message>
         <source>High Speed Evaporative Condenser Air Flow Rate</source>
         <translation>Taxa de Fluxo de Ar do Condensador Evaporativo em Alta Velocidade</translation>
     </message>
-    <!-- OS:Coil:Cooling:DX:TwoSpeed -->
+    
     <message>
         <source>High Speed Evaporative Condenser Effectiveness</source>
         <translation>Efetividade do Condensador Evaporativo de Alta Velocidade</translation>
     </message>
-    <!-- OS:Coil:Cooling:DX:TwoSpeed -->
+    
     <message>
         <source>High Speed Evaporative Condenser Pump Rated Power Consumption</source>
         <translation>Consumo de Energia Nominal da Bomba do Condensador Evaporativo de Alta Velocidade</translation>
     </message>
-    <!-- OS:CoolingTower:TwoSpeed, OS:FluidCooler:TwoSpeed -->
+    
     <message>
         <source>High Speed Nominal Capacity</source>
         <translation>Capacidade Nominal em Alta Velocidade</translation>
     </message>
-    <!-- OS:EvaporativeFluidCooler:TwoSpeed -->
+    
     <message>
         <source>High Speed Sizing Factor</source>
         <translation>Fator de Dimensionamento em Alta Velocidade</translation>
     </message>
-    <!-- OS:EvaporativeFluidCooler:TwoSpeed -->
+    
     <message>
         <source>High Speed Standard Design Capacity</source>
         <translation>Capacidade de Projeto Padrão em Alta Velocidade</translation>
     </message>
-    <!-- OS:EvaporativeFluidCooler:TwoSpeed -->
+    
     <message>
         <source>High Speed User Specified Design Capacity</source>
         <translation>Capacidade de Projeto Especificada pelo Usuário em Alta Velocidade</translation>
     </message>
-    <!-- OS:MaterialProperty:PhaseChangeHysteresis -->
+    
     <message>
         <source>High Temperature Difference of Freezing Curve</source>
         <translation>Diferença de Temperatura Elevada da Curva de Congelamento</translation>
     </message>
-    <!-- OS:MaterialProperty:PhaseChangeHysteresis -->
+    
     <message>
         <source>High Temperature Difference of Melting Curve</source>
         <translation>Diferença de Temperatura Elevada da Curva de Fusão</translation>
     </message>
-    <!-- OS:Refrigeration:System -->
+    
     <message>
         <source>High-Stage CompressorList Name</source>
         <translation>Nome da Lista de Compressores do Estágio Alto</translation>
     </message>
-    <!-- OS:Schedule:Week -->
+    
     <message>
         <source>Holiday Schedule:Day Name</source>
         <translation>Cronograma de Feriado: Nome do Dia</translation>
     </message>
-    <!-- OS:GroundHeatExchanger:HorizontalTrench -->
+    
     <message>
         <source>Horizontal Spacing Between Pipes</source>
         <translation>Espaçamento Horizontal Entre Tubos</translation>
     </message>
-    <!-- OS:AirTerminal:DualDuct:ConstantVolume, OS:AirTerminal:DualDuct:VAV -->
+    
     <message>
         <source>Hot Air Inlet Node</source>
         <translation>Nó de Entrada de Ar Quente</translation>
     </message>
-    <!-- OS:AvailabilityManager:DifferentialThermostat -->
+    
     <message>
         <source>Hot Node</source>
         <translation>Nó Quente</translation>
     </message>
-    <!-- OS:HotWaterEquipment -->
+    
     <message>
         <source>Hot Water Equipment Definition Name</source>
         <translation>Nome da Definição do Equipamento de Água Quente</translation>
     </message>
-    <!-- OS:Coil:Heating:FourPipeBeam, OS:DistrictHeating:Water, OS:HeatPump:AirToWater:Heating -->
+    
     <message>
         <source>Hot Water Inlet Node Name</source>
         <translation>Nome do Nó de Entrada de Água Quente</translation>
     </message>
-    <!-- OS:Coil:Heating:FourPipeBeam, OS:DistrictHeating:Water, OS:HeatPump:AirToWater:Heating -->
+    
     <message>
         <source>Hot Water Outlet Node Name</source>
         <translation>Nome do Nó de Saída de Água Quente</translation>
     </message>
-    <!-- OS:LightingDesignDay -->
+    
     <message>
         <source>Hour to Simulate</source>
         <translation>Hora para Simular</translation>
     </message>
-    <!-- OS:ZoneHVAC:IdealLoadsAirSystem -->
+    
     <message>
         <source>Humidification Control Type</source>
         <translation>Tipo de Controle de Umidificação</translation>
     </message>
-    <!-- OS:ZoneControl:Humidistat -->
+    
     <message>
         <source>Humidifying Relative Humidity Setpoint Schedule Name</source>
         <translation>Nome da Agenda de Ponto de Ajuste de Umidade Relativa para Umidificação</translation>
     </message>
-    <!-- OS:Controller:OutdoorAir -->
+    
     <message>
         <source>Humidistat Control Zone Name</source>
         <translation>Nome da Zona de Controle do Umidistato</translation>
     </message>
-    <!-- OS:ThermalZone -->
+    
     <message>
         <source>Humidistat Name</source>
         <translation>Nome do Umidistato</translation>
     </message>
-    <!-- OS:Refrigeration:Case -->
+    
     <message>
         <source>Humidity at Zero Anti-Sweat Heater Energy</source>
         <translation>Umidade em Energia Zero do Aquecedor Anti-Condensação</translation>
     </message>
-    <!-- OS:ZoneCapacitanceMultiplier:ResearchSpecial -->
+    
     <message>
         <source>Humidity Capacity Multiplier</source>
         <translation>Multiplicador de Capacidade de Umidade</translation>
     </message>
-    <!-- OS:SizingPeriod:DesignDay -->
+    
     <message>
         <source>Humidity Condition Day Schedule Name</source>
         <translation>Nome da Agenda de Dia da Condição de Umidade</translation>
     </message>
-    <!-- OS:SizingPeriod:DesignDay -->
+    
     <message>
         <source>Humidity Condition Type</source>
         <translation>Tipo de Condição de Umidade</translation>
     </message>
-    <!-- OS:SizingPeriod:DesignDay -->
+    
     <message>
         <source>Humidity Ratio at Maximum Dry-Bulb</source>
         <translation>Razão de Umidade na Temperatura de Bulbo Seco Máxima</translation>
     </message>
-    <!-- OS:HeatExchanger:Desiccant:BalancedFlow:PerformanceDataType1 -->
+    
     <message>
         <source>Humidity Ratio Equation Coefficient 1</source>
         <translation>Coeficiente 1 da Equação de Razão de Umidade</translation>
     </message>
-    <!-- OS:HeatExchanger:Desiccant:BalancedFlow:PerformanceDataType1 -->
+    
     <message>
         <source>Humidity Ratio Equation Coefficient 2</source>
         <translation>Coeficiente 2 da Equação de Razão de Umidade</translation>
     </message>
-    <!-- OS:HeatExchanger:Desiccant:BalancedFlow:PerformanceDataType1 -->
+    
     <message>
         <source>Humidity Ratio Equation Coefficient 3</source>
         <translation>Coeficiente 3 da Equação de Razão de Umidade</translation>
     </message>
-    <!-- OS:HeatExchanger:Desiccant:BalancedFlow:PerformanceDataType1 -->
+    
     <message>
         <source>Humidity Ratio Equation Coefficient 4</source>
         <translation>Coeficiente 4 da Equação de Taxa de Umidade</translation>
     </message>
-    <!-- OS:HeatExchanger:Desiccant:BalancedFlow:PerformanceDataType1 -->
+    
     <message>
         <source>Humidity Ratio Equation Coefficient 5</source>
         <translation>Coeficiente 5 da Equação de Razão de Umidade</translation>
     </message>
-    <!-- OS:HeatExchanger:Desiccant:BalancedFlow:PerformanceDataType1 -->
+    
     <message>
         <source>Humidity Ratio Equation Coefficient 6</source>
         <translation>Coeficiente 6 da Equação de Razão de Umidade</translation>
     </message>
-    <!-- OS:HeatExchanger:Desiccant:BalancedFlow:PerformanceDataType1 -->
+    
     <message>
         <source>Humidity Ratio Equation Coefficient 7</source>
         <translation>Coeficiente 7 da Equação de Razão de Umidade</translation>
     </message>
-    <!-- OS:HeatExchanger:Desiccant:BalancedFlow:PerformanceDataType1 -->
+    
     <message>
         <source>Humidity Ratio Equation Coefficient 8</source>
         <translation>Coeficiente 8 da Equação de Razão de Umidade</translation>
     </message>
-    <!-- OS:PortList -->
+    
     <message>
         <source>HVAC Component</source>
         <translation>Componente HVAC</translation>
     </message>
-    <!-- OS:HVACComponentList -->
+    
     <message>
         <source>HVACComponent</source>
         <translation>Componente HVAC</translation>
     </message>
-    <!-- OS:AirflowNetworkDuct -->
+    
     <message>
         <source>Hydraulic Diameter</source>
         <translation>Diâmetro Hidráulico</translation>
     </message>
-    <!-- OS:ZoneHVAC:LowTemperatureRadiant:ConstantFlow, OS:ZoneHVAC:LowTemperatureRadiant:VariableFlow -->
+    
     <message>
         <source>Hydronic Tubing Conductivity</source>
         <translation>Condutividade do Tubo Hidráulico</translation>
     </message>
-    <!-- OS:ZoneHVAC:LowTemperatureRadiant:ConstantFlow, OS:ZoneHVAC:LowTemperatureRadiant:VariableFlow -->
+    
     <message>
         <source>Hydronic Tubing Inside Diameter</source>
         <translation>Diâmetro Interno do Tubo Hidráulico</translation>
     </message>
-    <!-- OS:ZoneHVAC:LowTemperatureRadiant:ConstantFlow, OS:ZoneHVAC:LowTemperatureRadiant:VariableFlow -->
+    
     <message>
         <source>Hydronic Tubing Length</source>
         <translation>Comprimento da Tubulação Hidráulica</translation>
     </message>
-    <!-- OS:ZoneHVAC:LowTemperatureRadiant:ConstantFlow, OS:ZoneHVAC:LowTemperatureRadiant:VariableFlow -->
+    
     <message>
         <source>Hydronic Tubing Outside Diameter</source>
         <translation>Diâmetro Externo do Tubo Hidropônico</translation>
     </message>
 
-    <!-- I -->
-    <!-- OS:Coil:Cooling:DX:SingleSpeed:ThermalStorage -->
+    
+    
     <message>
         <source>Ice Storage Capacity</source>
         <translation>Capacidade de Armazenamento de Gelo</translation>
     </message>
-    <!-- OS:SolarCollectorPerformance:IntegralCollectorStorage -->
+    
     <message>
         <source>ICS Collector Type</source>
         <translation>Tipo de Coletor ICS</translation>
     </message>
-    <!-- OS:Luminaire:Definition -->
+    
     <message>
         <source>IES File Path</source>
         <translation>Caminho do Arquivo IES</translation>
     </message>
-    <!-- OS:ThermalZone -->
+    
     <message>
         <source>Illuminance Map Name</source>
         <translation>Nome do Mapa de Iluminância</translation>
     </message>
-    <!-- OS:Daylighting:Control -->
+    
     <message>
         <source>Illuminance Setpoint</source>
         <translation>Setpoint de Iluminância</translation>
     </message>
-    <!-- OS:Pump:ConstantSpeed, OS:Pump:VariableSpeed -->
+    
     <message>
         <source>Impeller Diameter</source>
         <translation>Diâmetro do Rotor</translation>
     </message>
-    <!-- OS:SurfaceProperty:IncidentSolarMultiplier -->
+    
     <message>
         <source>Incident Solar Multiplier</source>
         <translation>Multiplicador de Radiação Solar Incidente</translation>
     </message>
-    <!-- OS:SurfaceProperty:IncidentSolarMultiplier -->
+    
     <message>
         <source>Incident Solar Multiplier Schedule Name</source>
         <translation>Nome do Cronograma do Multiplicador Solar Incidente</translation>
     </message>
-    <!-- OS:Table:Lookup -->
+    
     <message>
         <source>Independent Variable List Name</source>
         <translation>Nome da Lista de Variável Independente</translation>
     </message>
-    <!-- OS:WaterHeater:Mixed, OS:WaterHeater:Stratified -->
+    
     <message>
         <source>Indirect Alternate Setpoint Temperature Schedule Name</source>
         <translation>Nome do Cronograma de Temperatura de Ponto de Ajuste Alternativo Indireto</translation>
     </message>
-    <!-- OS:Coil:Cooling:DX:VariableSpeed, OS:Coil:Cooling:WaterToAirHeatPump:VariableSpeedEquationFit, OS:Coil:Heating:DX:VariableSpeed, OS:Coil:Heating:WaterToAirHeatPump:VariableSpeedEquationFit -->
+    
     <message>
         <source>Indoor Air Inlet Node Name</source>
         <translation>Nome do Nó de Entrada de Ar Interno</translation>
     </message>
-    <!-- OS:Coil:Cooling:DX:VariableSpeed, OS:Coil:Cooling:WaterToAirHeatPump:VariableSpeedEquationFit, OS:Coil:Heating:DX:VariableSpeed, OS:Coil:Heating:WaterToAirHeatPump:VariableSpeedEquationFit -->
+    
     <message>
         <source>Indoor Air Outlet Node Name</source>
         <translation>Nome do Nó de Saída de Ar Interior</translation>
     </message>
-    <!-- OS:AirflowNetworkSurface, OS:AirflowNetworkZone -->
+    
     <message>
         <source>Indoor and Outdoor Enthalpy Difference Lower Limit For Maximum Venting Open Factor</source>
         <translation>Limite Inferior da Diferença de Entalpia Interna e Externa para o Fator de Abertura Máximo de Ventilação</translation>
     </message>
-    <!-- OS:AirflowNetworkSurface, OS:AirflowNetworkZone -->
+    
     <message>
         <source>Indoor and Outdoor Enthalpy Difference Upper Limit for Minimum Venting Open Factor</source>
         <translation>Limite Superior da Diferença de Entalpia Interna e Externa para Fator de Abertura Mínima de Ventilação</translation>
     </message>
-    <!-- OS:AirflowNetworkSurface, OS:AirflowNetworkZone -->
+    
     <message>
         <source>Indoor and Outdoor Temperature Difference Lower Limit For Maximum Venting Open Factor</source>
         <translation>Limite Inferior da Diferença de Temperatura Interna e Externa para Fator Máximo de Abertura de Ventilação</translation>
     </message>
-    <!-- OS:AirflowNetworkSurface, OS:AirflowNetworkZone -->
+    
     <message>
         <source>Indoor and Outdoor Temperature Difference Upper Limit for Minimum Venting Open Factor</source>
         <translation>Limite Superior da Diferença de Temperatura Interna e Externa para Fator de Abertura Mínimo de Ventilação</translation>
     </message>
-    <!-- OS:CoilSystem:IntegratedHeatPump:AirSource -->
+    
     <message>
         <source>Indoor Temperature Above Which WH Has Higher Priority</source>
         <translation>Temperatura Interna Acima da Qual AQ Tem Prioridade Maior</translation>
     </message>
-    <!-- OS:CoilSystem:IntegratedHeatPump:AirSource -->
+    
     <message>
         <source>Indoor Temperature Limit For SCWH Mode</source>
         <translation>Limite de Temperatura Interna para Modo SCWH</translation>
     </message>
-    <!-- OS:Coil:Heating:DX:VariableRefrigerantFlow:FluidTemperatureControl -->
+    
     <message>
         <source>Indoor Unit Condensing Temperature Function of Subcooling Curve</source>
         <translation>Curva da Função de Temperatura de Condensação da Unidade Interna em Função do Subresfriamento</translation>
     </message>
-    <!-- OS:Coil:Cooling:DX:VariableRefrigerantFlow:FluidTemperatureControl -->
+    
     <message>
         <source>Indoor Unit Evaporating Temperature Function of Superheating Curve</source>
         <translation>Curva da Função de Temperatura de Evaporação da Unidade Interna em Função do Superaquecimento</translation>
     </message>
-    <!-- OS:Coil:Heating:DX:VariableRefrigerantFlow:FluidTemperatureControl -->
+    
     <message>
         <source>Indoor Unit Reference Subcooling</source>
         <translation>Subarrefecimento de Referência da Unidade Interna</translation>
     </message>
-    <!-- OS:Coil:Cooling:DX:VariableRefrigerantFlow:FluidTemperatureControl -->
+    
     <message>
         <source>Indoor Unit Reference Superheating</source>
         <translation>Superaquecimento de Referência da Unidade Interna</translation>
     </message>
-    <!-- OS:AirTerminal:SingleDuct:ConstantVolume:FourPipeInduction -->
+    
     <message>
         <source>Induced Air Inlet Node Name</source>
         <translation>Nome do Nó de Entrada de Ar Induzido</translation>
     </message>
-    <!-- OS:AirLoopHVAC:ReturnPlenum -->
+    
     <message>
         <source>Induced Air Outlet Port List</source>
         <translation>Lista de Portas de Saída de Ar Induzido</translation>
     </message>
-    <!-- OS:AirTerminal:SingleDuct:ConstantVolume:FourPipeInduction -->
+    
     <message>
         <source>Induction Ratio</source>
         <translation>Taxa de Indução</translation>
     </message>
-    <!-- OS:ZoneAirMassFlowConservation -->
+    
     <message>
         <source>Infiltration Balancing Method</source>
         <translation>Método de Balanceamento de Infiltração</translation>
     </message>
-    <!-- OS:ZoneAirMassFlowConservation -->
+    
     <message>
         <source>Infiltration Balancing Zones</source>
         <translation>Zonas de Equilíbrio de Infiltração</translation>
     </message>
-    <!-- OS:LifeCycleCost:Parameters -->
+    
     <message>
         <source>Inflation</source>
         <translation>Inflação</translation>
     </message>
-    <!-- OS:LifeCycleCost:Parameters -->
+    
     <message>
         <source>Inflation Approach</source>
         <translation>Abordagem de Inflação</translation>
     </message>
-    <!-- OS:WindowMaterial:Glazing:RefractionExtinctionMethod -->
+    
     <message>
         <source>Infrared Hemispherical Emissivity</source>
         <translation>Emissividade Hemisférica Infravermelha</translation>
     </message>
-    <!-- OS:WindowMaterial:Glazing, OS:WindowMaterial:Glazing:RefractionExtinctionMethod -->
+    
     <message>
         <source>Infrared Transmittance at Normal Incidence</source>
         <translation>Transmitância no Infravermelho em Incidência Normal</translation>
     </message>
-    <!-- OS:Generator:FuelCell:ElectricalStorage -->
+    
     <message>
         <source>Initial Charge State</source>
         <translation>Estado de Carga Inicial</translation>
     </message>
-    <!-- OS:HeatExchanger:AirToAir:SensibleAndLatent -->
+    
     <message>
         <source>Initial Defrost Time Fraction</source>
         <translation>Fração Inicial de Tempo de Descongelamento</translation>
     </message>
-    <!-- OS:ElectricLoadCenter:Storage:LiIonNMCBattery -->
+    
     <message>
         <source>Initial Fractional State of Charge</source>
         <translation>Estado de Carga Fracionário Inicial</translation>
     </message>
-    <!-- OS:AirConditioner:VariableRefrigerantFlow, OS:AirConditioner:VariableRefrigerantFlow:FluidTemperatureControl:HR -->
+    
     <message>
         <source>Initial Heat Recovery Cooling Capacity Fraction</source>
         <translation>Fração da Capacidade de Resfriamento Inicial da Recuperação de Calor</translation>
     </message>
-    <!-- OS:AirConditioner:VariableRefrigerantFlow, OS:AirConditioner:VariableRefrigerantFlow:FluidTemperatureControl:HR -->
+    
     <message>
         <source>Initial Heat Recovery Cooling Energy Fraction</source>
         <translation>Fração Inicial de Energia de Resfriamento por Recuperação de Calor</translation>
     </message>
-    <!-- OS:AirConditioner:VariableRefrigerantFlow, OS:AirConditioner:VariableRefrigerantFlow:FluidTemperatureControl:HR -->
+    
     <message>
         <source>Initial Heat Recovery Heating Capacity Fraction</source>
         <translation>Fração Inicial da Capacidade de Aquecimento do Recuperador de Calor</translation>
     </message>
-    <!-- OS:AirConditioner:VariableRefrigerantFlow, OS:AirConditioner:VariableRefrigerantFlow:FluidTemperatureControl:HR -->
+    
     <message>
         <source>Initial Heat Recovery Heating Energy Fraction</source>
         <translation>Fração de Energia de Aquecimento Inicial da Recuperação de Calor</translation>
     </message>
-    <!-- OS:Foundation:Kiva -->
+    
     <message>
         <source>Initial Indoor Air Temperature</source>
         <translation>Temperatura Inicial do Ar Interior</translation>
     </message>
-    <!-- OS:Coil:Cooling:DX:VariableSpeed, OS:Coil:Cooling:WaterToAirHeatPump:VariableSpeedEquationFit -->
+    
     <message>
         <source>Initial Moisture Evaporation Rate Divided by Steady-State AC Latent Capacity</source>
         <translation>Taxa de Evaporação de Umidade Inicial Dividida pela Capacidade Latente de CA em Estado Estacionário</translation>
     </message>
-    <!-- OS:ElectricLoadCenter:Storage:Simple -->
+    
     <message>
         <source>Initial State of Charge</source>
         <translation>Estado Inicial de Carga</translation>
     </message>
-    <!-- OS:AvailabilityManager:OptimumStart -->
+    
     <message>
         <source>Initial Temperature Gradient during Cooling</source>
         <translation>Gradiente de Temperatura Inicial durante Resfriamento</translation>
     </message>
-    <!-- OS:AvailabilityManager:OptimumStart -->
+    
     <message>
         <source>Initial Temperature Gradient during Heating</source>
         <translation>Gradiente de Temperatura Inicial durante o Aquecimento</translation>
     </message>
-    <!-- OS:ExternalInterface:FunctionalMockupUnitExport:To:Actuator, OS:ExternalInterface:FunctionalMockupUnitExport:To:Schedule, OS:ExternalInterface:FunctionalMockupUnitExport:To:Variable, OS:ExternalInterface:FunctionalMockupUnitImport:To:Actuator, OS:ExternalInterface:FunctionalMockupUnitImport:To:Schedule, OS:ExternalInterface:FunctionalMockupUnitImport:To:Variable, OS:ExternalInterface:Schedule, OS:ExternalInterface:Variable -->
+    
     <message>
         <source>Initial Value</source>
         <translation>Valor Inicial</translation>
     </message>
-    <!-- OS:Material:RoofVegetation -->
+    
     <message>
         <source>Initial Volumetric Moisture Content of the Soil Layer</source>
         <translation>Conteúdo Volumétrico de Umidade Inicial da Camada de Solo</translation>
     </message>
-    <!-- OS:Coil:UserDefined -->
+    
     <message>
         <source>Initialization Simulation Program Name</source>
         <translation>Nome do Programa de Simulação de Inicialização</translation>
     </message>
-    <!-- OS:AirflowNetworkSimulationControl -->
+    
     <message>
         <source>Initialization Type</source>
         <translation>Tipo de Inicialização</translation>
     </message>
-    <!-- OS:WaterHeater:HeatPump, OS:WaterHeater:HeatPump:WrappedCondenser -->
+    
     <message>
         <source>Inlet Air Configuration</source>
         <translation>Configuração do Ar de Entrada</translation>
     </message>
-    <!-- OS:WaterHeater:HeatPump -->
+    
     <message>
         <source>Inlet Air Humidity Schedule</source>
         <translation>Cronograma de Umidade do Ar de Entrada</translation>
     </message>
-    <!-- OS:WaterHeater:HeatPump:WrappedCondenser -->
+    
     <message>
         <source>Inlet Air Humidity Schedule Name</source>
         <translation>Nome da Agenda de Umidade do Ar de Entrada</translation>
     </message>
-    <!-- OS:WaterHeater:HeatPump -->
+    
     <message>
         <source>Inlet Air Mixer Schedule</source>
         <translation>Cronograma do Misturador de Ar de Entrada</translation>
     </message>
-    <!-- OS:WaterHeater:HeatPump:WrappedCondenser -->
+    
     <message>
         <source>Inlet Air Mixer Schedule Name</source>
         <translation>Nome da Agenda do Misturador de Ar de Entrada</translation>
     </message>
-    <!-- OS:WaterHeater:HeatPump -->
+    
     <message>
         <source>Inlet Air Temperature Schedule</source>
         <translation>Cronograma de Temperatura do Ar de Entrada</translation>
     </message>
-    <!-- OS:WaterHeater:HeatPump:WrappedCondenser -->
+    
     <message>
         <source>Inlet Air Temperature Schedule Name</source>
         <translation>Nome da Agenda de Temperatura do Ar de Entrada</translation>
     </message>
-    <!-- OS:Connector:Mixer, OS:Connector:Splitter -->
+    
     <message>
         <source>Inlet Branch Name</source>
         <translation>Nome do Ramo de Entrada</translation>
     </message>
-    <!-- OS:ThermalStorage:ChilledWater:Stratified, OS:WaterHeater:Stratified -->
+    
     <message>
         <source>Inlet Mode</source>
         <translation>Modo de Entrada</translation>
     </message>
-    <!-- OS:AirLoopHVAC:ReturnPlenum, OS:AirLoopHVAC:SupplyPlenum, OS:Duct, OS:PlantComponent:TemperatureSource -->
+    
     <message>
         <source>Inlet Node</source>
         <translation>Nó de Entrada</translation>
     </message>
-    <!-- OS:AirLoopHVAC:ZoneMixer, OS:AirLoopHVAC:ZoneSplitter, OS:Coil:Heating:Water:Baseboard:Radiant, OS:GroundHeatExchanger:HorizontalTrench, OS:GroundHeatExchanger:Vertical, OS:HeaderedPumps:ConstantSpeed, OS:HeaderedPumps:VariableSpeed, OS:LoadProfile:Plant, OS:Pipe:Adiabatic, OS:Pump:ConstantSpeed, OS:Pump:VariableSpeed, OS:SolarCollector:FlatPlate:PhotovoltaicThermal, OS:SolarCollector:FlatPlate:Water, OS:SolarCollector:IntegralCollectorStorage, OS:Splitter, OS:TemperingValve, OS:ThermalStorage:Ice:Detailed, OS:WaterUse:Connections -->
+    
     <message>
         <source>Inlet Node Name</source>
         <translation>Nome do Nó de Entrada</translation>
     </message>
-    <!-- OS:Connection, OS:Node -->
+    
     <message>
         <source>Inlet Port</source>
         <translation>Porta de Entrada</translation>
     </message>
-    <!-- OS:Humidifier:Steam:Gas -->
+    
     <message>
         <source>Inlet Water Temperature Option</source>
         <translation>Opção de Temperatura da Água de Entrada</translation>
     </message>
-    <!-- OS:Curve:QuintLinear -->
+    
     <message>
         <source>Input Unit Type for v</source>
         <translation>Tipo de Unidade de Entrada para v</translation>
     </message>
-    <!-- OS:Curve:QuadLinear, OS:Curve:QuintLinear -->
+    
     <message>
         <source>Input Unit Type for w</source>
         <translation>Tipo de Unidade de Entrada para w</translation>
     </message>
-    <!-- OS:Curve:Bicubic, OS:Curve:Biquadratic, OS:Curve:Cubic, OS:Curve:Exponent, OS:Curve:Linear, OS:Curve:Quadratic, OS:Curve:QuadraticLinear, OS:Curve:Quartic, OS:Curve:Triquadratic -->
+    
     <message>
         <source>Input Unit Type for X</source>
         <translation>Tipo de Unidade de Entrada para X</translation>
     </message>
-    <!-- OS:Curve:DoubleExponentialDecay, OS:Curve:ExponentialDecay, OS:Curve:ExponentialSkewNormal, OS:Curve:QuadLinear, OS:Curve:QuintLinear, OS:Curve:RectangularHyperbola1, OS:Curve:RectangularHyperbola2, OS:Curve:Sigmoid -->
+    
     <message>
         <source>Input Unit Type for x</source>
         <translation>Tipo de Unidade de Entrada para x</translation>
     </message>
-    <!-- OS:Table:MultiVariableLookup -->
+    
     <message>
         <source>Input Unit Type for X1</source>
         <translation>Tipo de Unidade de Entrada para X1</translation>
     </message>
-    <!-- OS:Table:MultiVariableLookup -->
+    
     <message>
         <source>Input Unit Type for X2</source>
         <translation>Tipo de Unidade de Entrada para X2</translation>
     </message>
-    <!-- OS:Table:MultiVariableLookup -->
+    
     <message>
         <source>Input Unit Type for X3</source>
         <translation>Tipo de Unidade de Entrada para X3</translation>
     </message>
-    <!-- OS:Table:MultiVariableLookup -->
+    
     <message>
         <source>Input Unit Type for X4</source>
         <translation>Tipo de Unidade de Entrada para X4</translation>
     </message>
-    <!-- OS:Table:MultiVariableLookup -->
+    
     <message>
         <source>Input Unit Type for X5</source>
         <translation>Tipo de Unidade de Entrada para X5</translation>
     </message>
-    <!-- OS:Curve:Bicubic, OS:Curve:Biquadratic, OS:Curve:QuadraticLinear, OS:Curve:Triquadratic -->
+    
     <message>
         <source>Input Unit Type for Y</source>
         <translation>Tipo de Unidade de Entrada para Y</translation>
     </message>
-    <!-- OS:Curve:QuadLinear, OS:Curve:QuintLinear -->
+    
     <message>
         <source>Input Unit Type for y</source>
         <translation>Tipo de Unidade de Entrada para y</translation>
     </message>
-    <!-- OS:Curve:QuadLinear, OS:Curve:QuintLinear -->
+    
     <message>
         <source>Input Unit Type for z</source>
         <translation>Tipo de Unidade de Entrada para z</translation>
     </message>
-    <!-- OS:Curve:Triquadratic -->
+    
     <message>
         <source>Input Unit Type for Z</source>
         <translation>Tipo de Unidade de Entrada para Z</translation>
     </message>
-    <!-- OS:AirflowNetworkDuct -->
+    
     <message>
         <source>Inside Convection Coefficient</source>
         <translation>Coeficiente de Convecção Interna</translation>
     </message>
-    <!-- OS:WindowProperty:FrameAndDivider -->
+    
     <message>
         <source>Inside Reveal Depth</source>
         <translation>Profundidade do Revestimento Interno</translation>
     </message>
-    <!-- OS:WindowProperty:FrameAndDivider -->
+    
     <message>
         <source>Inside Reveal Solar Absorptance</source>
         <translation>Absortância Solar da Saliência Interna</translation>
     </message>
-    <!-- OS:DaylightingDevice:Shelf -->
+    
     <message>
         <source>Inside Shelf Name</source>
         <translation>Nome da Prateleira Interna</translation>
     </message>
-    <!-- OS:WindowProperty:FrameAndDivider -->
+    
     <message>
         <source>Inside Sill Depth</source>
         <translation>Profundidade do Peitoril Interno</translation>
     </message>
-    <!-- OS:WindowProperty:FrameAndDivider -->
+    
     <message>
         <source>Inside Sill Solar Absorptance</source>
         <translation>Absortância Solar do Peitoril Interno</translation>
     </message>
-    <!-- OS:Refrigeration:Case -->
+    
     <message>
         <source>Installed Case Lighting Power per Door</source>
         <translation>Potência de Iluminação do Caso Instalada por Porta</translation>
     </message>
-    <!-- OS:Refrigeration:Case -->
+    
     <message>
         <source>Installed Case Lighting Power per Unit Length</source>
         <translation>Potência de Iluminação do Gabinete Instalada por Unidade de Comprimento</translation>
     </message>
-    <!-- OS:Refrigeration:WalkIn -->
+    
     <message>
         <source>Insulated Floor Surface Area</source>
         <translation>Área de Superfície do Piso Isolado</translation>
     </message>
-    <!-- OS:Refrigeration:WalkIn -->
+    
     <message>
         <source>Insulated Floor U-Value</source>
         <translation>Valor U do Piso Isolado</translation>
     </message>
-    <!-- OS:Refrigeration:WalkIn:ZoneBoundary -->
+    
     <message>
         <source>Insulated Surface U-Value Facing Zone</source>
         <translation>Valor U de Superfície Isolada Voltada para Zona</translation>
     </message>
-    <!-- OS:SurfaceControl:MovableInsulation -->
+    
     <message>
         <source>Insulation Type</source>
         <translation>Tipo de Isolamento</translation>
     </message>
-    <!-- OS:SolarCollector:IntegralCollectorStorage -->
+    
     <message>
         <source>IntegralCollectorStorageParameters Name</source>
         <translation>Parâmetros do Coletor com Armazenamento Integrado - Nome</translation>
     </message>
-    <!-- OS:StandardsInformation:Construction -->
+    
     <message>
         <source>Intended Surface Type</source>
         <translation>Tipo de Superfície Pretendido</translation>
     </message>
-    <!-- OS:Refrigeration:System -->
+    
     <message>
         <source>Intercooler Type</source>
         <translation>Tipo de Intercooler</translation>
     </message>
-    <!-- OS:Foundation:Kiva -->
+    
     <message>
         <source>Interior Horizontal Insulation Depth</source>
         <translation>Profundidade da Isolação Horizontal Interior</translation>
     </message>
-    <!-- OS:Foundation:Kiva -->
+    
     <message>
         <source>Interior Horizontal Insulation Material Name</source>
         <translation>Nome do Material de Isolamento Horizontal Interior</translation>
     </message>
-    <!-- OS:Foundation:Kiva -->
+    
     <message>
         <source>Interior Horizontal Insulation Width</source>
         <translation>Largura da Isolação Horizontal Interior</translation>
     </message>
-    <!-- OS:DefaultConstructionSet -->
+    
     <message>
         <source>Interior Partition Construction Name</source>
         <translation>Nome da Construção da Partição Interna</translation>
     </message>
-    <!-- OS:InteriorPartitionSurface -->
+    
     <message>
         <source>Interior Partition Surface Group Name</source>
         <translation>Nome do Grupo de Superfícies de Partição Interna</translation>
     </message>
-    <!-- OS:Foundation:Kiva -->
+    
     <message>
         <source>Interior Vertical Insulation Depth</source>
         <translation>Profundidade da Isolação Vertical Interna</translation>
     </message>
-    <!-- OS:Foundation:Kiva -->
+    
     <message>
         <source>Interior Vertical Insulation Material Name</source>
         <translation>Nome do Material de Isolamento Vertical Interior</translation>
     </message>
-    <!-- OS:EnergyManagementSystem:InternalVariable -->
+    
     <message>
         <source>Internal Data Index Key Name</source>
         <translation>Índice de Nome da Chave de Dados Internos</translation>
     </message>
-    <!-- OS:EnergyManagementSystem:InternalVariable -->
+    
     <message>
         <source>Internal Data Type</source>
         <translation>Tipo de Dados Interno</translation>
     </message>
-    <!-- OS:InternalMass -->
+    
     <message>
         <source>Internal Mass Definition Name</source>
         <translation>Nome da Definição de Massa Interna</translation>
     </message>
-    <!-- OS:Output:EnergyManagementSystem -->
+    
     <message>
         <source>Internal Variable Availability Dictionary Reporting</source>
         <translation>Relatório do Dicionário de Disponibilidade de Variáveis Internas</translation>
     </message>
-    <!-- OS:Table:IndependentVariable, OS:Table:MultiVariableLookup -->
+    
     <message>
         <source>Interpolation Method</source>
         <translation>Método de Interpolação</translation>
     </message>
-    <!-- OS:Schedule:FixedInterval -->
+    
     <message>
         <source>Interval Length</source>
         <translation>Duração do Intervalo</translation>
     </message>
-    <!-- OS:ElectricLoadCenter:Inverter:PVWatts, OS:ElectricLoadCenter:Inverter:Simple, OS:Generator:FuelCell:Inverter -->
+    
     <message>
         <source>Inverter Efficiency</source>
         <translation>Eficiência do Inversor</translation>
     </message>
-    <!-- OS:Generator:FuelCell:Inverter -->
+    
     <message>
         <source>Inverter Efficiency Calculation Mode</source>
         <translation>Modo de Cálculo da Eficiência do Inversor</translation>
     </message>
-    <!-- OS:ElectricLoadCenter:Distribution, OS:Generator:FuelCell -->
+    
     <message>
         <source>Inverter Name</source>
         <translation>Nome do Inversor</translation>
     </message>
-    <!-- OS:YearDescription -->
+    
     <message>
         <source>Is Leap Year</source>
         <translation>É Ano Bissexto</translation>
     </message>
-    <!-- OS:OutputControl:Timestamp -->
+    
     <message>
         <source>ISO 8601 Format</source>
         <translation>Formato ISO 8601</translation>
     </message>
-    <!-- OS:LifeCycleCost -->
+    
     <message>
         <source>Item Name</source>
         <translation>Nome do Item</translation>
     </message>
-    <!-- OS:LifeCycleCost -->
+    
     <message>
         <source>Item Type</source>
         <translation>Tipo de Item</translation>
     </message>
 
-    <!-- J -->
-    <!-- OS:Site:GroundTemperature:Deep -->
+    
+    
     <message>
         <source>January Deep Ground Temperature</source>
         <translation>Temperatura Profunda do Solo em Janeiro</translation>
     </message>
-    <!-- OS:Site:GroundReflectance -->
+    
     <message>
         <source>January Ground Reflectance</source>
         <translation>Refletância do Solo em Janeiro</translation>
     </message>
-    <!-- OS:Site:GroundTemperature:BuildingSurface, OS:Site:GroundTemperature:FCfactorMethod -->
+    
     <message>
         <source>January Ground Temperature</source>
         <translation>Temperatura do Solo em Janeiro</translation>
     </message>
-    <!-- OS:Site:GroundTemperature:Shallow -->
+    
     <message>
         <source>January Surface Ground Temperature</source>
         <translation>Temperatura da Superfície do Solo em Janeiro</translation>
     </message>
-    <!-- OS:UtilityCost:Variable -->
+    
     <message>
         <source>January Value</source>
         <translation>Valor de Janeiro</translation>
     </message>
-    <!-- OS:Site:GroundTemperature:Deep -->
+    
     <message>
         <source>July Deep Ground Temperature</source>
         <translation>Temperatura Profunda do Solo em Julho</translation>
     </message>
-    <!-- OS:Site:GroundReflectance -->
+    
     <message>
         <source>July Ground Reflectance</source>
         <translation>Refletância do Solo em Julho</translation>
     </message>
-    <!-- OS:Site:GroundTemperature:BuildingSurface, OS:Site:GroundTemperature:FCfactorMethod -->
+    
     <message>
         <source>July Ground Temperature</source>
         <translation>Temperatura do Solo em Julho</translation>
     </message>
-    <!-- OS:Site:GroundTemperature:Shallow -->
+    
     <message>
         <source>July Surface Ground Temperature</source>
         <translation>Temperatura Superficial do Solo em Julho</translation>
     </message>
-    <!-- OS:UtilityCost:Variable -->
+    
     <message>
         <source>July Value</source>
         <translation>Valor de Julho</translation>
     </message>
-    <!-- OS:Site:GroundTemperature:Deep -->
+    
     <message>
         <source>June Deep Ground Temperature</source>
         <translation>Temperatura Profunda do Solo em Junho</translation>
     </message>
-    <!-- OS:Site:GroundReflectance -->
+    
     <message>
         <source>June Ground Reflectance</source>
         <translation>Refletância do Solo em Junho</translation>
     </message>
-    <!-- OS:Site:GroundTemperature:BuildingSurface, OS:Site:GroundTemperature:FCfactorMethod -->
+    
     <message>
         <source>June Ground Temperature</source>
         <translation>Temperatura do Solo em Junho</translation>
     </message>
-    <!-- OS:Site:GroundTemperature:Shallow -->
+    
     <message>
         <source>June Surface Ground Temperature</source>
         <translation>Temperatura da Superfície do Solo em Junho</translation>
     </message>
-    <!-- OS:UtilityCost:Variable -->
+    
     <message>
         <source>June Value</source>
         <translation>Valor de Junho</translation>
     </message>
 
-    <!-- K -->
-    <!-- OS:Site -->
+    
+    
     <message>
         <source>Keep Site Location Information</source>
         <translation>Manter Informações de Localização do Local</translation>
     </message>
-    <!-- OS:Output:Diagnostics -->
+    
     <message>
         <source>Key</source>
         <translation>Chave</translation>
     </message>
-    <!-- OS:Output:Schedules -->
+    
     <message>
         <source>Key Field</source>
         <translation>Campo Chave</translation>
     </message>
-    <!-- OS:Meter:Custom, OS:Meter:CustomDecrement -->
+    
     <message>
         <source>Key Name</source>
         <translation>Nome da Chave</translation>
     </message>
-    <!-- OS:Output:Variable -->
+    
     <message>
         <source>Key Value</source>
         <translation>Valor-chave</translation>
     </message>
-    <!-- OS:RadianceParameters -->
+    
     <message>
         <source>Klems Sampling Density</source>
         <translation>Densidade de Amostragem Klems</translation>
     </message>
 
-    <!-- L -->
-    <!-- OS:Refrigeration:Case -->
+    
+    
     <message>
         <source>Latent Case Credit Curve Name</source>
         <translation>Nome da Curva de Crédito de Caso Latente</translation>
     </message>
-    <!-- OS:Refrigeration:Case -->
+    
     <message>
         <source>Latent Case Credit Curve Type</source>
         <translation>Tipo de Curva de Crédito de Caso Latente</translation>
     </message>
-    <!-- OS:HeatExchanger:AirToAir:SensibleAndLatent -->
+    
     <message>
         <source>Latent Effectiveness at 100% Cooling Air Flow</source>
         <translation>Efetividade Latente em 100% de Vazão de Ar de Resfriamento</translation>
     </message>
-    <!-- OS:HeatExchanger:AirToAir:SensibleAndLatent -->
+    
     <message>
         <source>Latent Effectiveness at 100% Heating Air Flow</source>
         <translation>Efetividade Latente no Fluxo de Ar de Aquecimento de 100%</translation>
     </message>
-    <!-- OS:HeatExchanger:AirToAir:SensibleAndLatent -->
+    
     <message>
         <source>Latent Effectiveness of Cooling Air Flow Curve Name</source>
         <translation>Nome da Curva de Efetividade Latente do Fluxo de Ar de Resfriamento</translation>
     </message>
-    <!-- OS:HeatExchanger:AirToAir:SensibleAndLatent -->
+    
     <message>
         <source>Latent Effectiveness of Heating Air Flow Curve Name</source>
         <translation>Curva de Efetividade Latente do Fluxo de Ar de Aquecimento</translation>
     </message>
-    <!-- OS:MaterialProperty:PhaseChangeHysteresis -->
+    
     <message>
         <source>Latent Heat during the Entire Phase Change Process</source>
         <translation>Calor Latente durante todo o Processo de Mudança de Fase</translation>
     </message>
-    <!-- OS:ZoneHVAC:IdealLoadsAirSystem -->
+    
     <message>
         <source>Latent Heat Recovery Effectiveness</source>
         <translation>Efetividade de Recuperação de Calor Latente</translation>
     </message>
-    <!-- OS:AirLoopHVAC:UnitarySystem -->
+    
     <message>
         <source>Latent Load Control</source>
         <translation>Controle de Carga Latente</translation>
     </message>
-    <!-- OS:Site, OS:WeatherFile -->
+    
     <message>
         <source>Latitude</source>
         <translation>Latitude</translation>
     </message>
-    <!-- OS:Construction, OS:Construction:InternalSource -->
+    
     <message>
         <source>Layer</source>
         <translation>Camada</translation>
     </message>
-    <!-- OS:Material:RoofVegetation -->
+    
     <message>
         <source>Leaf Area Index</source>
         <translation>Índice de Área Foliar</translation>
     </message>
-    <!-- OS:Material:RoofVegetation -->
+    
     <message>
         <source>Leaf Emissivity</source>
         <translation>Emissividade da Folha</translation>
     </message>
-    <!-- OS:Material:RoofVegetation -->
+    
     <message>
         <source>Leaf Reflectivity</source>
         <translation>Refletividade das Folhas</translation>
     </message>
-    <!-- OS:AirflowNetworkSurface -->
+    
     <message>
         <source>Leakage Component Name</source>
         <translation>Nome do Componente de Vazamento</translation>
     </message>
-    <!-- OS:Coil:Cooling:CooledBeam -->
+    
     <message>
         <source>Leaving Pipe Inside Diameter</source>
         <translation>Diâmetro Interno do Tubo de Saída</translation>
     </message>
-    <!-- OS:WindowMaterial:Screen -->
+    
     <message>
         <source>Left Side Opening Multiplier</source>
         <translation>Multiplicador de Abertura do Lado Esquerdo</translation>
     </message>
-    <!-- OS:WindowMaterial:Shade -->
+    
     <message>
         <source>Left-Side Opening Multiplier</source>
         <translation>Multiplicador de Abertura do Lado Esquerdo</translation>
     </message>
-    <!-- OS:Curve:Functional:PressureDrop -->
+    
     <message>
         <source>Length</source>
         <translation>Comprimento</translation>
     </message>
-    <!-- OS:AirConditioner:VariableRefrigerantFlow:FluidTemperatureControl, OS:AirConditioner:VariableRefrigerantFlow:FluidTemperatureControl:HR -->
+    
     <message>
         <source>Length of Main Pipe Connecting Outdoor Unit to the First Branch Joint</source>
         <translation>Comprimento do Tubo Principal Conectando a Unidade Externa à Primeira Junta de Ramificação</translation>
     </message>
-    <!-- OS:LifeCycleCost:Parameters -->
+    
     <message>
         <source>Length of Study Period in Years</source>
         <translation>Duração do Período de Estudo em Anos</translation>
     </message>
-    <!-- OS:ElectricLoadCenter:Storage:LiIonNMCBattery -->
+    
     <message>
         <source>Lifetime Model</source>
         <translation>Modelo de Vida Útil</translation>
     </message>
-    <!-- OS:Daylighting:Control -->
+    
     <message>
         <source>Lighting Control Type</source>
         <translation>Tipo de Controle de Iluminação</translation>
     </message>
-    <!-- OS:Lights:Definition -->
+    
     <message>
         <source>Lighting Level</source>
         <translation>Nível de Iluminação</translation>
     </message>
-    <!-- OS:Luminaire:Definition -->
+    
     <message>
         <source>Lighting Power</source>
         <translation>Potência de Iluminação</translation>
     </message>
-    <!-- OS:Lights -->
+    
     <message>
         <source>Lights Definition Name</source>
         <translation>Nome da Definição de Iluminação</translation>
     </message>
-    <!-- OS:RadianceParameters -->
+    
     <message>
         <source>Limit Weight DMX</source>
         <translation>Limite de Peso DMX</translation>
     </message>
-    <!-- OS:RadianceParameters -->
+    
     <message>
         <source>Limit Weight VMX</source>
         <translation>Limite de Peso VMX</translation>
     </message>
-    <!-- OS:AirflowNetworkDuctViewFactors -->
+    
     <message>
         <source>Linkage Name</source>
         <translation>Nome da Ligação</translation>
     </message>
-    <!-- OS:Generator:FuelSupply -->
+    
     <message>
         <source>Liquid Generic Fuel CO2 Emission Factor</source>
         <translation>Fator de Emissão de CO2 de Combustível Genérico Líquido</translation>
     </message>
-    <!-- OS:Generator:FuelSupply -->
+    
     <message>
         <source>Liquid Generic Fuel Higher Heating Value</source>
         <translation>Valor de Aquecimento Superior do Combustível Genérico Líquido</translation>
     </message>
-    <!-- OS:Generator:FuelSupply -->
+    
     <message>
         <source>Liquid Generic Fuel Lower Heating Value</source>
         <translation>Valor Calorífico Inferior do Combustível Genérico Líquido</translation>
     </message>
-    <!-- OS:Generator:FuelSupply -->
+    
     <message>
         <source>Liquid Generic Fuel Molecular Weight</source>
         <translation>Peso Molecular do Combustível Genérico Líquido</translation>
     </message>
-    <!-- OS:MaterialProperty:PhaseChangeHysteresis -->
+    
     <message>
         <source>Liquid State Density</source>
         <translation>Densidade em Estado Líquido</translation>
     </message>
-    <!-- OS:MaterialProperty:PhaseChangeHysteresis -->
+    
     <message>
         <source>Liquid State Specific Heat</source>
         <translation>Calor Específico do Estado Líquido</translation>
     </message>
-    <!-- OS:MaterialProperty:PhaseChangeHysteresis -->
+    
     <message>
         <source>Liquid State Thermal Conductivity</source>
         <translation>Condutividade Térmica no Estado Líquido</translation>
     </message>
-    <!-- OS:Refrigeration:Subcooler:LiquidSuction -->
+    
     <message>
         <source>Liquid Suction Design Subcooling Temperature Difference</source>
         <translation>Diferença de Temperatura de Subresfriamento no Projeto de Sucção Líquida</translation>
     </message>
-    <!-- OS:Refrigeration:System -->
+    
     <message>
         <source>Liquid Suction Heat Exchanger Subcooler Name</source>
         <translation>Nome do Resfriador de Subresfriamento do Trocador de Calor de Sucção Líquida</translation>
     </message>
-    <!-- OS:PlantEquipmentOperation:CoolingLoad, OS:PlantEquipmentOperation:HeatingLoad -->
+    
     <message>
         <source>Load Range Lower Limit</source>
         <translation>Limite Inferior da Faixa de Carga</translation>
     </message>
-    <!-- OS:PlantEquipmentOperation:CoolingLoad, OS:PlantEquipmentOperation:HeatingLoad -->
+    
     <message>
         <source>Load Range Upper Limit</source>
         <translation>Limite Superior do Intervalo de Carga</translation>
     </message>
-    <!-- OS:LoadProfile:Plant -->
+    
     <message>
         <source>Load Schedule Name</source>
         <translation>Nome da Agenda de Carga</translation>
     </message>
-    <!-- OS:HeatPump:PlantLoop:EIR:Cooling, OS:HeatPump:PlantLoop:EIR:Heating, OS:HeatPump:WaterToWater:EquationFit:Cooling, OS:HeatPump:WaterToWater:EquationFit:Heating -->
+    
     <message>
         <source>Load Side Inlet Node Name</source>
         <translation>Nome do Nó de Entrada do Lado de Carga</translation>
     </message>
-    <!-- OS:HeatPump:PlantLoop:EIR:Cooling, OS:HeatPump:PlantLoop:EIR:Heating, OS:HeatPump:WaterToWater:EquationFit:Cooling, OS:HeatPump:WaterToWater:EquationFit:Heating -->
+    
     <message>
         <source>Load Side Outlet Node Name</source>
         <translation>Nome do Nó de Saída do Lado de Carga</translation>
     </message>
-    <!-- OS:HeatPump:PlantLoop:EIR:Cooling, OS:HeatPump:PlantLoop:EIR:Heating -->
+    
     <message>
         <source>Load Side Reference Flow Rate</source>
         <translation>Vazão de Referência do Lado da Carga</translation>
     </message>
-    <!-- OS:AirConditioner:VariableRefrigerantFlow:FluidTemperatureControl, OS:AirConditioner:VariableRefrigerantFlow:FluidTemperatureControl:HR -->
+    
     <message>
         <source>Loading Index List</source>
         <translation>Carregando Lista de Índices</translation>
     </message>
-    <!-- OS:SimulationControl -->
+    
     <message>
         <source>Loads Convergence Tolerance Value</source>
         <translation>Valor de Tolerância de Convergência de Cargas</translation>
     </message>
-    <!-- OS:Site, OS:WeatherFile -->
+    
     <message>
         <source>Longitude</source>
         <translation>Longitude</translation>
     </message>
-    <!-- OS:HeatExchanger:FluidToFluid -->
+    
     <message>
         <source>Loop Demand Side Design Flow Rate</source>
         <translation>Vazão de Projeto do Lado de Demanda do Circuito</translation>
     </message>
-    <!-- OS:HeatExchanger:FluidToFluid -->
+    
     <message>
         <source>Loop Demand Side Inlet Node</source>
         <translation>Nó de Entrada do Lado da Demanda do Loop</translation>
     </message>
-    <!-- OS:HeatExchanger:FluidToFluid -->
+    
     <message>
         <source>Loop Demand Side Outlet Node</source>
         <translation>Nó de Saída do Lado da Demanda do Loop</translation>
     </message>
-    <!-- OS:HeatExchanger:FluidToFluid -->
+    
     <message>
         <source>Loop Supply Side Design Flow Rate</source>
         <translation>Vazão de Projeto do Lado de Alimentação do Circuito</translation>
     </message>
-    <!-- OS:HeatExchanger:FluidToFluid -->
+    
     <message>
         <source>Loop Supply Side Inlet Node</source>
         <translation>Nó de Entrada do Lado de Alimentação do Circuito</translation>
     </message>
-    <!-- OS:HeatExchanger:FluidToFluid -->
+    
     <message>
         <source>Loop Supply Side Outlet Node</source>
         <translation>Nó de Saída do Lado de Suprimento do Loop</translation>
     </message>
-    <!-- OS:PlantLoop -->
+    
     <message>
         <source>Loop Temperature Setpoint Node Name</source>
         <translation>Nome do Nó de Setpoint de Temperatura do Loop</translation>
     </message>
-    <!-- OS:CoolingTower:TwoSpeed, OS:EvaporativeFluidCooler:TwoSpeed, OS:FluidCooler:TwoSpeed -->
+    
     <message>
         <source>Low Fan Speed Air Flow Rate</source>
         <translation>Taxa de Fluxo de Ar em Velocidade Baixa do Ventilador</translation>
     </message>
-    <!-- OS:CoolingTower:TwoSpeed, OS:EvaporativeFluidCooler:TwoSpeed, OS:FluidCooler:TwoSpeed -->
+    
     <message>
         <source>Low Fan Speed Air Flow Rate Sizing Factor</source>
         <translation>Fator de Dimensionamento da Vazão de Ar em Velocidade Baixa do Ventilador</translation>
     </message>
-    <!-- OS:CoolingTower:TwoSpeed, OS:EvaporativeFluidCooler:TwoSpeed, OS:FluidCooler:TwoSpeed -->
+    
     <message>
         <source>Low Fan Speed Fan Power</source>
         <translation>Potência do Ventilador em Velocidade Baixa</translation>
     </message>
-    <!-- OS:CoolingTower:TwoSpeed, OS:EvaporativeFluidCooler:TwoSpeed, OS:FluidCooler:TwoSpeed -->
+    
     <message>
         <source>Low Fan Speed Fan Power Sizing Factor</source>
         <translation>Fator de Dimensionamento da Potência do Ventilador em Velocidade Baixa</translation>
     </message>
-    <!-- OS:CoolingTower:TwoSpeed, OS:EvaporativeFluidCooler:TwoSpeed, OS:FluidCooler:TwoSpeed -->
+    
     <message>
         <source>Low Fan Speed U-Factor Times Area Sizing Factor</source>
         <translation>Fator de Dimensionamento do Produto U-Factor Vezes Área em Velocidade Baixa do Ventilador</translation>
     </message>
-    <!-- OS:CoolingTower:TwoSpeed -->
+    
     <message>
         <source>Low Fan Speed U-Factor Times Area Value</source>
         <translation>Fator U em Velocidade Baixa do Ventilador Vezes Valor da Área</translation>
     </message>
-    <!-- OS:EvaporativeFluidCooler:TwoSpeed, OS:FluidCooler:TwoSpeed -->
+    
     <message>
         <source>Low Fan Speed U-factor Times Area Value</source>
         <translation>Fator U em Velocidade Baixa do Ventilador Vezes Valor de Área</translation>
     </message>
-    <!-- OS:Refrigeration:TranscriticalSystem -->
+    
     <message>
         <source>Low Pressure CompressorList Name</source>
         <translation>Nome da Lista de Compressores de Baixa Pressão</translation>
     </message>
-    <!-- OS:SetpointManager:SystemNodeReset:Humidity -->
+    
     <message>
         <source>Low Reference Humidity Ratio</source>
         <translation>Razão de Umidade de Referência Baixa</translation>
     </message>
-    <!-- OS:SetpointManager:SystemNodeReset:Temperature -->
+    
     <message>
         <source>Low Reference Temperature</source>
         <translation>Temperatura de Referência Baixa</translation>
     </message>
-    <!-- OS:SetpointManager:Scheduled:DualSetpoint -->
+    
     <message>
         <source>Low Setpoint Schedule Name</source>
         <translation>Nome da Programação de Ponto Ajustado Baixo</translation>
     </message>
-    <!-- OS:Coil:Cooling:DX:TwoSpeed -->
+    
     <message>
         <source>Low Speed Energy Input Ratio Function of Temperature Curve Name</source>
         <translation>Nome da Curva de Função da Taxa de Entrada de Energia em Velocidade Baixa em Relação à Temperatura</translation>
     </message>
-    <!-- OS:Coil:Cooling:DX:TwoSpeed -->
+    
     <message>
         <source>Low Speed Evaporative Condenser Air Flow Rate</source>
         <translation>Taxa de Fluxo de Ar do Condensador Evaporativo em Baixa Velocidade</translation>
     </message>
-    <!-- OS:Coil:Cooling:DX:TwoSpeed -->
+    
     <message>
         <source>Low Speed Evaporative Condenser Effectiveness</source>
         <translation>Eficácia do Condensador Evaporativo em Baixa Velocidade</translation>
     </message>
-    <!-- OS:Coil:Cooling:DX:TwoSpeed -->
+    
     <message>
         <source>Low Speed Evaporative Condenser Pump Rated Power Consumption</source>
         <translation>Consumo de Energia Nominal da Bomba do Condensador Evaporativo em Velocidade Baixa</translation>
     </message>
-    <!-- OS:CoolingTower:TwoSpeed, OS:FluidCooler:TwoSpeed -->
+    
     <message>
         <source>Low Speed Nominal Capacity</source>
         <translation>Capacidade Nominal em Baixa Velocidade</translation>
     </message>
-    <!-- OS:CoolingTower:TwoSpeed, OS:FluidCooler:TwoSpeed -->
+    
     <message>
         <source>Low Speed Nominal Capacity Sizing Factor</source>
         <translation>Fator de Dimensionamento da Capacidade Nominal em Baixa Velocidade</translation>
     </message>
-    <!-- OS:EvaporativeFluidCooler:TwoSpeed -->
+    
     <message>
         <source>Low Speed Standard Capacity Sizing Factor</source>
         <translation>Fator de Dimensionamento de Capacidade em Velocidade Baixa Padrão</translation>
     </message>
-    <!-- OS:EvaporativeFluidCooler:TwoSpeed -->
+    
     <message>
         <source>Low Speed Standard Design Capacity</source>
         <translation>Capacidade de Design Padrão em Velocidade Baixa</translation>
     </message>
-    <!-- OS:ZoneHVAC:FourPipeFanCoil -->
+    
     <message>
         <source>Low Speed Supply Air Flow Ratio</source>
         <translation>Razão de Fluxo de Ar de Suprimento em Velocidade Baixa</translation>
     </message>
-    <!-- OS:Coil:Cooling:DX:TwoSpeed -->
+    
     <message>
         <source>Low Speed Total Cooling Capacity Function of Temperature Curve Name</source>
         <translation>Nome da Curva da Função de Capacidade Total de Resfriamento em Baixa Velocidade em Relação à Temperatura</translation>
     </message>
-    <!-- OS:EvaporativeFluidCooler:TwoSpeed -->
+    
     <message>
         <source>Low Speed User Specified Design Capacity</source>
         <translation>Capacidade de Projeto Especificada pelo Usuário em Baixa Velocidade</translation>
     </message>
-    <!-- OS:EvaporativeFluidCooler:TwoSpeed -->
+    
     <message>
         <source>Low Speed User Specified Design Capacity Sizing Factor</source>
         <translation>Fator de Dimensionamento da Capacidade de Design Especificada pelo Usuário em Baixa Velocidade</translation>
     </message>
-    <!-- OS:ZoneHVAC:LowTemperatureRadiant:ConstantFlow -->
+    
     <message>
         <source>Low Temp Radiant Constant Flow Cooling Coil Name</source>
         <translation>Nome da Bobina de Resfriamento de Fluxo Constante Radiante de Baixa Temperatura</translation>
     </message>
-    <!-- OS:ZoneHVAC:LowTemperatureRadiant:ConstantFlow -->
+    
     <message>
         <source>Low Temp Radiant Constant Flow Heating Coil Name</source>
         <translation>Nome da Bobina de Aquecimento de Radiante de Temperatura Baixa com Fluxo Constante</translation>
     </message>
-    <!-- OS:ZoneHVAC:LowTemperatureRadiant:VariableFlow -->
+    
     <message>
         <source>Low Temp Radiant Variable Flow Cooling Coil Name</source>
         <translation>Nome da Bobina de Resfriamento Radiant de Temperatura Baixa com Fluxo Variável</translation>
     </message>
-    <!-- OS:ZoneHVAC:LowTemperatureRadiant:VariableFlow -->
+    
     <message>
         <source>Low Temp Radiant Variable Flow Heating Coil Name</source>
         <translation>Nome da Bobina de Aquecimento de Fluxo Variável Radiante de Baixa Temperatura</translation>
     </message>
-    <!-- OS:MaterialProperty:PhaseChangeHysteresis -->
+    
     <message>
         <source>Low Temperature Difference of Freezing Curve</source>
         <translation>Baixa Diferença de Temperatura da Curva de Congelamento</translation>
     </message>
-    <!-- OS:MaterialProperty:PhaseChangeHysteresis -->
+    
     <message>
         <source>Low Temperature Difference of Melting Curve</source>
         <translation>Baixa Diferença de Temperatura da Curva de Fusão</translation>
     </message>
-    <!-- OS:Refrigeration:TranscriticalSystem -->
+    
     <message>
         <source>Low Temperature Refrigerated CaseAndWalkInList Name</source>
         <translation>Low Temperature Refrigerated CaseAndWalkInList Name</translation>
     </message>
-    <!-- OS:Refrigeration:TranscriticalSystem -->
+    
     <message>
         <source>Low Temperature Suction Piping Zone Name</source>
         <translation>Nome da Zona de Tubulação de Aspiração de Baixa Temperatura</translation>
     </message>
-    <!-- OS:ScheduleTypeLimits -->
+    
     <message>
         <source>Lower Limit Value</source>
         <translation>Valor do Limite Inferior</translation>
     </message>
-    <!-- OS:Luminaire -->
+    
     <message>
         <source>Luminaire Definition Name</source>
         <translation>Nome da Definição de Luminária</translation>
     </message>
 
-    <!-- M -->
-    <!-- OS:PlantComponent:UserDefined -->
+    
+    
     <message>
         <source>Main Model Program Calling Manager Name</source>
         <translation>Nome do Gerenciador de Chamadas do Programa do Modelo Principal</translation>
     </message>
-    <!-- OS:PlantComponent:UserDefined -->
+    
     <message>
         <source>Main Model Program Name</source>
         <translation>Nome do Programa do Modelo Principal</translation>
     </message>
-    <!-- OS:AirConditioner:VariableRefrigerantFlow:FluidTemperatureControl, OS:AirConditioner:VariableRefrigerantFlow:FluidTemperatureControl:HR -->
+    
     <message>
         <source>Main Pipe Insulation Thermal Conductivity</source>
         <translation>Condutividade Térmica do Isolamento do Tubo Principal</translation>
     </message>
-    <!-- OS:AirConditioner:VariableRefrigerantFlow:FluidTemperatureControl, OS:AirConditioner:VariableRefrigerantFlow:FluidTemperatureControl:HR -->
+    
     <message>
         <source>Main Pipe Insulation Thickness</source>
         <translation>Espessura de Isolamento do Tubo Principal</translation>
     </message>
-    <!-- OS:SwimmingPool:Indoor -->
+    
     <message>
         <source>Make-up Water Supply Schedule Name</source>
         <translation>Nome da Agenda de Fornecimento de Água de Reposição</translation>
     </message>
-    <!-- OS:Site:GroundTemperature:Deep -->
+    
     <message>
         <source>March Deep Ground Temperature</source>
         <translation>Temperatura Profunda do Solo em Março</translation>
     </message>
-    <!-- OS:Site:GroundReflectance -->
+    
     <message>
         <source>March Ground Reflectance</source>
         <translation>Refletância do Solo em Março</translation>
     </message>
-    <!-- OS:Site:GroundTemperature:BuildingSurface, OS:Site:GroundTemperature:FCfactorMethod -->
+    
     <message>
         <source>March Ground Temperature</source>
         <translation>Temperatura do Solo em Março</translation>
     </message>
-    <!-- OS:Site:GroundTemperature:Shallow -->
+    
     <message>
         <source>March Surface Ground Temperature</source>
         <translation>Temperatura do Solo da Superfície em Março</translation>
     </message>
-    <!-- OS:UtilityCost:Variable -->
+    
     <message>
         <source>March Value</source>
         <translation>Valor de Março</translation>
     </message>
-    <!-- OS:PlantComponent:UserDefined -->
+    
     <message>
         <source>Mass Flow Rate Actuator</source>
         <translation>Atuador de Taxa de Fluxo de Massa</translation>
     </message>
-    <!-- OS:MaterialProperty:MoisturePenetrationDepth:Settings, OS:MaterialProperty:PhaseChange, OS:MaterialProperty:PhaseChangeHysteresis, OS:StandardsInformation:Material, OS:SurfaceControl:MovableInsulation -->
+    
     <message>
         <source>Material Name</source>
         <translation>Nome do Material</translation>
     </message>
-    <!-- OS:StandardsInformation:Material -->
+    
     <message>
         <source>Material Standard</source>
         <translation>Material Padrão</translation>
     </message>
-    <!-- OS:StandardsInformation:Material -->
+    
     <message>
         <source>Material Standard Source</source>
         <translation>Fonte Padrão de Material</translation>
     </message>
-    <!-- OS:PerformancePrecisionTradeoffs -->
+    
     <message>
         <source>MaxAllowedDelTemp</source>
         <translation>MaxAllowedDelTemp</translation>
     </message>
-    <!-- OS:Controller:WaterCoil -->
+    
     <message>
         <source>Maximum Actuated Flow</source>
         <translation>Fluxo Máximo Atuado</translation>
     </message>
-    <!-- OS:Glare:Sensor -->
+    
     <message>
         <source>Maximum Allowable Daylight Glare Probability</source>
         <translation>Probabilidade Máxima Permitida de Ofuscamento Diurno</translation>
     </message>
-    <!-- OS:Daylighting:Control -->
+    
     <message>
         <source>Maximum Allowable Discomfort Glare Index</source>
         <translation>Índice de Ofuscamento Desconfortável Máximo Permitido</translation>
     </message>
-    <!-- OS:Coil:WaterHeating:AirToWaterHeatPump, OS:Coil:WaterHeating:AirToWaterHeatPump:VariableSpeed, OS:Coil:WaterHeating:AirToWaterHeatPump:Wrapped, OS:HeatPump:AirToWater -->
+    
     <message>
         <source>Maximum Ambient Temperature for Crankcase Heater Operation</source>
         <translation>Temperatura Ambiente Máxima para Operação do Aquecedor do Cárter</translation>
     </message>
-    <!-- OS:CoolingTowerPerformance:CoolTools, OS:CoolingTowerPerformance:YorkCalc -->
+    
     <message>
         <source>Maximum Approach Temperature</source>
         <translation>Temperatura Máxima de Aproximação</translation>
     </message>
-    <!-- OS:Fan:ComponentModel -->
+    
     <message>
         <source>Maximum Belt Efficiency Curve Name</source>
         <translation>Nome da Curva de Eficiência Máxima da Correia</translation>
     </message>
-    <!-- OS:Refrigeration:Condenser:EvaporativeCooled -->
+    
     <message>
         <source>Maximum Capacity Factor</source>
         <translation>Fator de Capacidade Máxima</translation>
     </message>
-    <!-- OS:Foundation:Kiva:Settings -->
+    
     <message>
         <source>Maximum Cell Growth Coefficient</source>
         <translation>Coeficiente Máximo de Crescimento de Célula</translation>
     </message>
-    <!-- OS:Coil:Cooling:Water:Panel:Radiant -->
+    
     <message>
         <source>Maximum Chilled Water Flow Rate</source>
         <translation>Vazão Máxima de Água Gelada</translation>
     </message>
-    <!-- OS:Coil:Cooling:LowTemperatureRadiant:VariableFlow -->
+    
     <message>
         <source>Maximum Cold Water Flow</source>
         <translation>Fluxo de Água Fria Máximo</translation>
     </message>
-    <!-- OS:AirTerminal:SingleDuct:ConstantVolume:FourPipeInduction, OS:ZoneHVAC:FourPipeFanCoil -->
+    
     <message>
         <source>Maximum Cold Water Flow Rate</source>
         <translation>Vazão Máxima de Água Fria</translation>
     </message>
-    <!-- OS:ZoneHVAC:IdealLoadsAirSystem -->
+    
     <message>
         <source>Maximum Cooling Air Flow Rate</source>
         <translation>Taxa Máxima de Fluxo de Ar de Resfriamento</translation>
     </message>
-    <!-- OS:Curve:Bicubic, OS:Curve:Biquadratic, OS:Curve:Cubic, OS:Curve:DoubleExponentialDecay, OS:Curve:Exponent, OS:Curve:ExponentialDecay, OS:Curve:ExponentialSkewNormal, OS:Curve:FanPressureRise, OS:Curve:Linear, OS:Curve:QuadLinear, OS:Curve:Quadratic, OS:Curve:QuadraticLinear, OS:Curve:Quartic, OS:Curve:QuintLinear, OS:Curve:RectangularHyperbola1, OS:Curve:RectangularHyperbola2, OS:Curve:Sigmoid, OS:Curve:Triquadratic -->
+    
     <message>
         <source>Maximum Curve Output</source>
         <translation>Saída Máxima da Curva</translation>
     </message>
-    <!-- OS:AirTerminal:DualDuct:VAV -->
+    
     <message>
         <source>Maximum Damper Air Flow Rate</source>
         <translation>Taxa de Fluxo de Ar Máxima do Amortecedor</translation>
     </message>
-    <!-- OS:Site:WaterMainsTemperature -->
+    
     <message>
         <source>Maximum Difference In Monthly Average Outdoor Air Temperatures</source>
         <translation>Diferença Máxima nas Temperaturas Médias Mensais do Ar Exterior</translation>
     </message>
-    <!-- OS:Fan:ComponentModel -->
+    
     <message>
         <source>Maximum Dimensionless Fan Airflow</source>
         <translation>Vazão de Ar do Ventilador Adimensional Máxima</translation>
     </message>
-    <!-- OS:SizingPeriod:DesignDay -->
+    
     <message>
         <source>Maximum Dry-Bulb Temperature</source>
         <translation>Temperatura de Bulbo Seco Máxima</translation>
     </message>
-    <!-- OS:ZoneHVAC:Dehumidifier:DX -->
+    
     <message>
         <source>Maximum Dry-Bulb Temperature for Dehumidifier Operation</source>
         <translation>Temperatura de Bulbo Seco Máxima para Operação do Desumidificador</translation>
     </message>
-    <!-- OS:ZoneHVAC:LowTemperatureRadiant:Electric -->
+    
     <message>
         <source>Maximum Electrical Power to Panel</source>
         <translation>Potência Elétrica Máxima para o Painel</translation>
     </message>
-    <!-- OS:Fan:ComponentModel -->
+    
     <message>
         <source>Maximum Fan Static Efficiency</source>
         <translation>Eficiência Estática Máxima do Ventilador</translation>
     </message>
-    <!-- OS:ShadowCalculation -->
+    
     <message>
         <source>Maximum Figures in Shadow Overlap Calculations</source>
         <translation>Máximo de Figuras nos Cálculos de Sobreposição de Sombra</translation>
     </message>
-    <!-- OS:Generator:MicroTurbine -->
+    
     <message>
         <source>Maximum Full Load Electrical Power Output</source>
         <translation>Potência Elétrica de Saída Máxima em Plena Carga</translation>
     </message>
-    <!-- OS:HeatPump:PlantLoop:EIR:Cooling -->
+    
     <message>
         <source>Maximum Heat Recovery Outlet Temperature</source>
         <translation>Temperatura Máxima na Saída do Recuperador de Calor</translation>
     </message>
-    <!-- OS:Generator:MicroTurbine:HeatRecovery -->
+    
     <message>
         <source>Maximum Heat Recovery Water Flow Rate</source>
         <translation>Taxa Máxima de Fluxo de Água da Recuperação de Calor</translation>
     </message>
-    <!-- OS:Generator:MicroTurbine:HeatRecovery -->
+    
     <message>
         <source>Maximum Heat Recovery Water Temperature</source>
         <translation>Temperatura Máxima da Água de Recuperação de Calor</translation>
     </message>
-    <!-- OS:ZoneHVAC:IdealLoadsAirSystem -->
+    
     <message>
         <source>Maximum Heating Air Flow Rate</source>
         <translation>Taxa Máxima de Fluxo de Ar de Aquecimento</translation>
     </message>
-    <!-- OS:Generator:FuelCell:AuxiliaryHeater -->
+    
     <message>
         <source>Maximum Heating Capacity in Kmol per Second</source>
         <translation>Capacidade Máxima de Aquecimento em kmol/s</translation>
     </message>
-    <!-- OS:Generator:FuelCell:AuxiliaryHeater -->
+    
     <message>
         <source>Maximum Heating Capacity in Watts</source>
         <translation>Capacidade Máxima de Aquecimento em Watts</translation>
     </message>
-    <!-- OS:Sizing:System -->
+    
     <message>
         <source>Maximum Heating Capacity To Cooling Capacity Sizing Ratio</source>
         <translation>Razão Máxima de Dimensionamento da Capacidade de Aquecimento para Capacidade de Resfriamento</translation>
     </message>
-    <!-- OS:ZoneHVAC:IdealLoadsAirSystem -->
+    
     <message>
         <source>Maximum Heating Supply Air Humidity Ratio</source>
         <translation>Razão de Umidade Máxima do Ar de Suprimento de Aquecimento</translation>
     </message>
-    <!-- OS:ZoneHVAC:IdealLoadsAirSystem -->
+    
     <message>
         <source>Maximum Heating Supply Air Temperature</source>
         <translation>Temperatura Máxima do Ar de Suprimento de Aquecimento</translation>
     </message>
-    <!-- OS:Coil:Heating:LowTemperatureRadiant:VariableFlow -->
+    
     <message>
         <source>Maximum Hot Water Flow</source>
         <translation>Fluxo Máximo de Água Quente</translation>
     </message>
-    <!-- OS:AirTerminal:SingleDuct:ConstantVolume:FourPipeInduction, OS:ZoneHVAC:FourPipeFanCoil, OS:ZoneHVAC:UnitHeater -->
+    
     <message>
         <source>Maximum Hot Water Flow Rate</source>
         <translation>Taxa de Vazão Máxima de Água Quente</translation>
     </message>
-    <!-- OS:ConvergenceLimits -->
+    
     <message>
         <source>Maximum HVAC Iterations</source>
         <translation>Iterações Máximas de HVAC</translation>
     </message>
-    <!-- OS:ZoneVentilation:DesignFlowRate, OS:ZoneVentilation:WindandStackOpenArea -->
+    
     <message>
         <source>Maximum Indoor Temperature</source>
         <translation>Temperatura Interna Máxima</translation>
     </message>
-    <!-- OS:ZoneVentilation:DesignFlowRate, OS:ZoneVentilation:WindandStackOpenArea -->
+    
     <message>
         <source>Maximum Indoor Temperature Schedule Name</source>
         <translation>Nome do Agendamento de Temperatura Máxima Interna</translation>
     </message>
-    <!-- OS:WaterHeater:HeatPump, OS:WaterHeater:HeatPump:WrappedCondenser -->
+    
     <message>
         <source>Maximum Inlet Air Temperature for Compressor Operation</source>
         <translation>Temperatura Máxima de Entrada de Ar para Operação do Compressor</translation>
     </message>
-    <!-- OS:CoolingTowerPerformance:CoolTools, OS:CoolingTowerPerformance:YorkCalc -->
+    
     <message>
         <source>Maximum Inlet Air Wet-Bulb Temperature</source>
         <translation>Temperatura de Bulbo Úmido Máxima do Ar de Entrada</translation>
     </message>
-    <!-- OS:Coil:WaterHeating:Desuperheater -->
+    
     <message>
         <source>Maximum Inlet Water Temperature for Heat Reclaim</source>
         <translation>Temperatura Máxima de Água na Entrada para Recuperação de Calor</translation>
     </message>
-    <!-- OS:HeatPump:AirToWater:Cooling, OS:HeatPump:AirToWater:Heating -->
+    
     <message>
         <source>Maximum Leaving Water Temperature Curve Name</source>
         <translation>Nome da Curva de Temperatura Máxima da Água de Saída</translation>
     </message>
-    <!-- OS:GroundHeatExchanger:Vertical -->
+    
     <message>
         <source>Maximum Length of Simulation</source>
         <translation>Duração Máxima da Simulação</translation>
     </message>
-    <!-- OS:SetpointManager:FollowSystemNodeTemperature -->
+    
     <message>
         <source>Maximum Limit Setpoint Temperature</source>
         <translation>Temperatura do Setpoint de Limite Máximo</translation>
     </message>
-    <!-- OS:CoolingTowerPerformance:YorkCalc -->
+    
     <message>
         <source>Maximum Liquid to Gas Ratio</source>
         <translation>Razão Máxima de Líquido para Gás</translation>
     </message>
-    <!-- OS:PlantComponent:UserDefined -->
+    
     <message>
         <source>Maximum Loading Capacity Actuator</source>
         <translation>Atuador de Capacidade de Carregamento Máxima</translation>
     </message>
-    <!-- OS:PlantComponent:UserDefined -->
+    
     <message>
         <source>Maximum Mass Flow Rate Actuator</source>
         <translation>Atuador de Vazão Mássica Máxima</translation>
     </message>
-    <!-- OS:Fan:ComponentModel -->
+    
     <message>
         <source>Maximum Motor Efficiency Curve Name</source>
         <translation>Nome da Curva de Eficiência Máxima do Motor</translation>
     </message>
-    <!-- OS:Fan:ComponentModel -->
+    
     <message>
         <source>Maximum Motor Output Power</source>
         <translation>Potência Máxima de Saída do Motor</translation>
     </message>
-    <!-- OS:SimulationControl -->
+    
     <message>
         <source>Maximum Number of HVAC Sizing Simulation Passes</source>
         <translation>Número Máximo de Passagens de Simulação de Dimensionamento HVAC</translation>
     </message>
-    <!-- OS:AirflowNetworkSimulationControl -->
+    
     <message>
         <source>Maximum Number of Iterations</source>
         <translation>Número Máximo de Iterações</translation>
     </message>
-    <!-- OS:SwimmingPool:Indoor -->
+    
     <message>
         <source>Maximum Number of People</source>
         <translation>Número Máximo de Pessoas</translation>
     </message>
-    <!-- OS:SimulationControl -->
+    
     <message>
         <source>Maximum Number of Warmup Days</source>
         <translation>Número Máximo de Dias de Aquecimento</translation>
     </message>
-    <!-- OS:SizingPeriod:DesignDay -->
+    
     <message>
         <source>Maximum Number Warmup Days</source>
         <translation>Número Máximo de Dias de Aquecimento</translation>
     </message>
-    <!-- OS:Generator:FuelCell:PowerModule -->
+    
     <message>
         <source>Maximum Operating Point</source>
         <translation>Ponto de Operação Máximo</translation>
     </message>
-    <!-- OS:Boiler:Steam -->
+    
     <message>
         <source>Maximum Operating Pressure</source>
         <translation>Pressão Operacional Máxima</translation>
     </message>
-    <!-- OS:SurfaceProperty:OtherSideCoefficients -->
+    
     <message>
         <source>Maximum Other Side Temperature Limit</source>
         <translation>Limite Máximo de Temperatura do Outro Lado</translation>
     </message>
-    <!-- OS:ZoneHVAC:UnitVentilator -->
+    
     <message>
         <source>Maximum Outdoor Air Fraction or Temperature Schedule Name</source>
         <translation>Nome da Fração Máxima de Ar Externo ou Cronograma de Temperatura</translation>
     </message>
-    <!-- OS:HeatPump:AirToWater:Cooling, OS:HeatPump:AirToWater:Heating -->
+    
     <message>
         <source>Maximum Outdoor Air Temperature</source>
         <translation>Temperatura Máxima do Ar Externo</translation>
     </message>
-    <!-- OS:AirConditioner:VariableRefrigerantFlow:FluidTemperatureControl -->
+    
     <message>
         <source>Maximum Outdoor Air Temperature in Cooling Mode</source>
         <translation>Temperatura Máxima do Ar Externo no Modo de Resfriamento</translation>
     </message>
-    <!-- OS:AirConditioner:VariableRefrigerantFlow:FluidTemperatureControl:HR -->
+    
     <message>
         <source>Maximum Outdoor Air Temperature in Cooling Only Mode</source>
         <translation>Temperatura Máxima do Ar Externo no Modo Apenas Resfriamento</translation>
     </message>
-    <!-- OS:AirConditioner:VariableRefrigerantFlow:FluidTemperatureControl -->
+    
     <message>
         <source>Maximum Outdoor Air Temperature in Heating Mode</source>
         <translation>Temperatura Máxima do Ar Externo em Modo de Aquecimento</translation>
     </message>
-    <!-- OS:AirConditioner:VariableRefrigerantFlow:FluidTemperatureControl:HR -->
+    
     <message>
         <source>Maximum Outdoor Air Temperature in Heating Only Mode</source>
         <translation>Temperatura Máxima do Ar Externo no Modo Apenas Aquecimento</translation>
     </message>
-    <!-- OS:AvailabilityManager:HybridVentilation -->
+    
     <message>
         <source>Maximum Outdoor Dewpoint</source>
         <translation>Ponto de Orvalho Externo Máximo</translation>
     </message>
-    <!-- OS:HeatPump:AirToWater, OS:HeatPump:PlantLoop:EIR:Heating -->
+    
     <message>
         <source>Maximum Outdoor Dry Bulb Temperature For Defrost Operation</source>
         <translation>Temperatura de Bulbo Seco Exterior Máxima para Operação de Degelo</translation>
     </message>
-    <!-- OS:AirConditioner:VariableRefrigerantFlow -->
+    
     <message>
         <source>Maximum Outdoor Dry-bulb Temperature for Crankcase Heater</source>
         <translation>Temperatura Seca Máxima do Ar Externo para Aquecedor do Cárter</translation>
     </message>
-    <!-- OS:AirConditioner:VariableRefrigerantFlow:FluidTemperatureControl, OS:AirConditioner:VariableRefrigerantFlow:FluidTemperatureControl:HR -->
+    
     <message>
         <source>Maximum Outdoor Dry-Bulb Temperature for Crankcase Heater</source>
         <translation>Temperatura de Bulbo Seco Externo Máxima para Aquecedor de Cárter</translation>
     </message>
-    <!-- OS:AirConditioner:VariableRefrigerantFlow, OS:AirConditioner:VariableRefrigerantFlow:FluidTemperatureControl, OS:AirConditioner:VariableRefrigerantFlow:FluidTemperatureControl:HR, OS:HeatPump:AirToWater:FuelFired:Heating -->
+    
     <message>
         <source>Maximum Outdoor Dry-bulb Temperature for Defrost Operation</source>
         <translation>Temperatura Máxima do Bulbo Seco Externo para Operação de Degelo</translation>
     </message>
-    <!-- OS:AirLoopHVAC:UnitaryHeatPump:AirToAir, OS:AirLoopHVAC:UnitaryHeatPump:AirToAir:MultiSpeed, OS:AirLoopHVAC:UnitarySystem, OS:ZoneHVAC:PackagedTerminalHeatPump, OS:ZoneHVAC:TerminalUnit:VariableRefrigerantFlow, OS:ZoneHVAC:WaterToAirHeatPump -->
+    
     <message>
         <source>Maximum Outdoor Dry-Bulb Temperature for Supplemental Heater Operation</source>
         <translation>Temperatura Máxima de Bulbo Seco do Ar Externo para Operação do Aquecedor Suplementar</translation>
     </message>
-    <!-- OS:AvailabilityManager:HybridVentilation -->
+    
     <message>
         <source>Maximum Outdoor Enthalpy</source>
         <translation>Entalpia Máxima do Ar Externo</translation>
     </message>
-    <!-- OS:AvailabilityManager:HybridVentilation, OS:ZoneVentilation:DesignFlowRate, OS:ZoneVentilation:WindandStackOpenArea -->
+    
     <message>
         <source>Maximum Outdoor Temperature</source>
         <translation>Temperatura Externa Máxima</translation>
     </message>
-    <!-- OS:AirConditioner:VariableRefrigerantFlow, OS:AirConditioner:VariableRefrigerantFlow:FluidTemperatureControl:HR -->
+    
     <message>
         <source>Maximum Outdoor Temperature in Heat Recovery Mode</source>
         <translation>Temperatura Máxima do Ar Externo no Modo Recuperação de Calor</translation>
     </message>
-    <!-- OS:ZoneMixing, OS:ZoneVentilation:DesignFlowRate, OS:ZoneVentilation:WindandStackOpenArea -->
+    
     <message>
         <source>Maximum Outdoor Temperature Schedule Name</source>
         <translation>Nome do Agendamento de Temperatura Máxima Exterior</translation>
     </message>
-    <!-- OS:AirLoopHVAC:UnitaryHeatCool:VAVChangeoverBypass -->
+    
     <message>
         <source>Maximum Outlet Air Temperature During Heating Operation</source>
         <translation>Temperatura Máxima do Ar na Saída Durante Operação de Aquecimento</translation>
     </message>
-    <!-- OS:Table:Lookup -->
+    
     <message>
         <source>Maximum Output</source>
         <translation>Saída Máxima</translation>
     </message>
-    <!-- OS:ConvergenceLimits -->
+    
     <message>
         <source>Maximum Plant Iterations</source>
         <translation>Máximo de Iterações da Planta</translation>
     </message>
-    <!-- OS:Generator:WindTurbine -->
+    
     <message>
         <source>Maximum Power Coefficient</source>
         <translation>Coeficiente de Potência Máxima</translation>
     </message>
-    <!-- OS:ElectricLoadCenter:Storage:Simple -->
+    
     <message>
         <source>Maximum Power for Charging</source>
         <translation>Potência Máxima para Carregamento</translation>
     </message>
-    <!-- OS:ElectricLoadCenter:Storage:Simple -->
+    
     <message>
         <source>Maximum Power for Discharging</source>
         <translation>Potência Máxima para Descarga</translation>
     </message>
-    <!-- OS:ZoneHVAC:HighTemperatureRadiant -->
+    
     <message>
         <source>Maximum Power Input</source>
         <translation>Entrada de Potência Máxima</translation>
     </message>
-    <!-- OS:AirflowNetworkOccupantVentilationControl -->
+    
     <message>
         <source>Maximum Predicted Percentage of Dissatisfied Threshold</source>
         <translation>Limite de Máximo Percentual Previsto de Insatisfeitos</translation>
     </message>
-    <!-- OS:Pump:VariableSpeed -->
+    
     <message>
         <source>Maximum Pressure Schedule</source>
         <translation>Cronograma de Pressão Máxima</translation>
     </message>
-    <!-- OS:AirTerminal:SingleDuct:ParallelPIU:Reheat, OS:AirTerminal:SingleDuct:SeriesPIU:Reheat -->
+    
     <message>
         <source>Maximum Primary Air Flow Rate</source>
         <translation>Taxa Máxima de Fluxo de Ar Primário</translation>
     </message>
-    <!-- OS:HeatExchanger:Desiccant:BalancedFlow:PerformanceDataType1 -->
+    
     <message>
         <source>Maximum Process Inlet Air Humidity Ratio for Humidity Ratio Equation</source>
         <translation>Razão de Umidade do Ar de Entrada do Processo Máxima para Equação da Razão de Umidade</translation>
     </message>
-    <!-- OS:HeatExchanger:Desiccant:BalancedFlow:PerformanceDataType1 -->
+    
     <message>
         <source>Maximum Process Inlet Air Humidity Ratio for Temperature Equation</source>
         <translation>Proporção de Umidade Máxima do Ar de Entrada do Processo para Equação de Temperatura</translation>
     </message>
-    <!-- OS:HeatExchanger:Desiccant:BalancedFlow:PerformanceDataType1 -->
+    
     <message>
         <source>Maximum Process Inlet Air Relative Humidity for Humidity Ratio Equation</source>
         <translation>Umidade Relativa Máxima do Ar de Entrada do Processo para Equação de Taxa de Umidade</translation>
     </message>
-    <!-- OS:HeatExchanger:Desiccant:BalancedFlow:PerformanceDataType1 -->
+    
     <message>
         <source>Maximum Process Inlet Air Relative Humidity for Temperature Equation</source>
         <translation>Umidade Relativa Máxima do Ar de Entrada do Processo para Equação de Temperatura</translation>
     </message>
-    <!-- OS:HeatExchanger:Desiccant:BalancedFlow:PerformanceDataType1 -->
+    
     <message>
         <source>Maximum Process Inlet Air Temperature for Humidity Ratio Equation</source>
         <translation>Temperatura Máxima do Ar de Entrada do Processo para Equação da Razão de Umidade</translation>
     </message>
-    <!-- OS:HeatExchanger:Desiccant:BalancedFlow:PerformanceDataType1 -->
+    
     <message>
         <source>Maximum Process Inlet Air Temperature for Temperature Equation</source>
         <translation>Temperatura Máxima de Entrada de Ar do Processo para Equação de Temperatura</translation>
     </message>
-    <!-- OS:CoolingTowerPerformance:CoolTools, OS:CoolingTowerPerformance:YorkCalc -->
+    
     <message>
         <source>Maximum Range Temperature</source>
         <translation>Temperatura Máxima do Intervalo</translation>
     </message>
-    <!-- OS:ZoneMixing -->
+    
     <message>
         <source>Maximum Receiving Temperature Schedule Name</source>
         <translation>Nome da Programação de Temperatura Máxima de Recepção</translation>
     </message>
-    <!-- OS:HeatExchanger:Desiccant:BalancedFlow:PerformanceDataType1 -->
+    
     <message>
         <source>Maximum Regeneration Air Velocity for Humidity Ratio Equation</source>
         <translation>Velocidade Máxima do Ar de Regeneração para Equação da Razão de Umidade</translation>
     </message>
-    <!-- OS:HeatExchanger:Desiccant:BalancedFlow:PerformanceDataType1 -->
+    
     <message>
         <source>Maximum Regeneration Air Velocity for Temperature Equation</source>
         <translation>Velocidade Máxima do Ar de Regeneração para Equação de Temperatura</translation>
     </message>
-    <!-- OS:HeatExchanger:Desiccant:BalancedFlow:PerformanceDataType1 -->
+    
     <message>
         <source>Maximum Regeneration Inlet Air Humidity Ratio for Humidity Ratio Equation</source>
         <translation>Razão de Umidade Máxima do Ar de Entrada da Regeneração para Equação de Razão de Umidade</translation>
     </message>
-    <!-- OS:HeatExchanger:Desiccant:BalancedFlow:PerformanceDataType1 -->
+    
     <message>
         <source>Maximum Regeneration Inlet Air Humidity Ratio for Temperature Equation</source>
         <translation>Razão de Umidade Máxima do Ar de Entrada da Regeneração para Equação de Temperatura</translation>
     </message>
-    <!-- OS:HeatExchanger:Desiccant:BalancedFlow:PerformanceDataType1 -->
+    
     <message>
         <source>Maximum Regeneration Inlet Air Relative Humidity for Humidity Ratio Equation</source>
         <translation>Umidade Relativa Máxima do Ar de Entrada para Regeneração na Equação de Taxa de Umidade</translation>
     </message>
-    <!-- OS:HeatExchanger:Desiccant:BalancedFlow:PerformanceDataType1 -->
+    
     <message>
         <source>Maximum Regeneration Inlet Air Relative Humidity for Temperature Equation</source>
         <translation>Umidade Relativa Máxima do Ar de Entrada da Regeneração para Equação de Temperatura</translation>
     </message>
-    <!-- OS:HeatExchanger:Desiccant:BalancedFlow:PerformanceDataType1 -->
+    
     <message>
         <source>Maximum Regeneration Inlet Air Temperature for Humidity Ratio Equation</source>
         <translation>Temperatura Máxima do Ar de Entrada de Regeneração para Equação de Taxa de Umidade</translation>
     </message>
-    <!-- OS:HeatExchanger:Desiccant:BalancedFlow:PerformanceDataType1 -->
+    
     <message>
         <source>Maximum Regeneration Inlet Air Temperature for Temperature Equation</source>
         <translation>Temperatura Máxima do Ar na Entrada da Regeneração para Equação de Temperatura</translation>
     </message>
-    <!-- OS:HeatExchanger:Desiccant:BalancedFlow:PerformanceDataType1 -->
+    
     <message>
         <source>Maximum Regeneration Outlet Air Humidity Ratio for Humidity Ratio Equation</source>
         <translation>Razão de Umidade Máxima do Ar de Saída da Regeneração para Equação de Razão de Umidade</translation>
     </message>
-    <!-- OS:HeatExchanger:Desiccant:BalancedFlow:PerformanceDataType1 -->
+    
     <message>
         <source>Maximum Regeneration Outlet Air Temperature for Temperature Equation</source>
         <translation>Temperatura Máxima do Ar de Saída da Regeneração para a Equação de Temperatura</translation>
     </message>
-    <!-- OS:Pump:VariableSpeed -->
+    
     <message>
         <source>Maximum RPM Schedule</source>
         <translation>Cronograma de RPM Máximo</translation>
     </message>
-    <!-- OS:CoilSystem:IntegratedHeatPump:AirSource -->
+    
     <message>
         <source>Maximum Running Time Before Allowing Electric Resistance Heat Use During SHDWH Mode</source>
         <translation>Tempo Máximo de Operação Antes de Permitir o Uso de Aquecimento por Resistência Elétrica durante o Modo SHDWH</translation>
     </message>
-    <!-- OS:AirTerminal:SingleDuct:ParallelPIU:Reheat -->
+    
     <message>
         <source>Maximum Secondary Air Flow Rate</source>
         <translation>Taxa Máxima de Fluxo de Ar Secundário</translation>
     </message>
-    <!-- OS:ZoneHVAC:IdealLoadsAirSystem -->
+    
     <message>
         <source>Maximum Sensible Heating Capacity</source>
         <translation>Capacidade Máxima de Aquecimento Sensível</translation>
     </message>
-    <!-- OS:SetpointManager:MultiZone:Humidity:Maximum, OS:SetpointManager:MultiZone:Humidity:Minimum, OS:SetpointManager:MultiZone:MaximumHumidity:Average, OS:SetpointManager:MultiZone:MinimumHumidity:Average, OS:SetpointManager:OutdoorAirPretreat -->
+    
     <message>
         <source>Maximum Setpoint Humidity Ratio</source>
         <translation>Razão de Umidade do Ponto de Ajuste Máximo</translation>
     </message>
-    <!-- OS:WindowMaterial:Blind -->
+    
     <message>
         <source>Maximum Slat Angle</source>
         <translation>Ângulo Máximo das Lâminas</translation>
     </message>
-    <!-- OS:HeatPump:PlantLoop:EIR:Cooling, OS:HeatPump:PlantLoop:EIR:Heating -->
+    
     <message>
         <source>Maximum Source Inlet Temperature</source>
         <translation>Temperatura de Entrada Máxima da Fonte</translation>
     </message>
-    <!-- OS:ZoneMixing -->
+    
     <message>
         <source>Maximum Source Temperature Schedule Name</source>
         <translation>Nome da Agenda de Temperatura Máxima da Fonte</translation>
     </message>
-    <!-- OS:ElectricLoadCenter:Storage:Simple -->
+    
     <message>
         <source>Maximum Storage Capacity</source>
         <translation>Capacidade Máxima de Armazenamento</translation>
     </message>
-    <!-- OS:ElectricLoadCenter:Distribution -->
+    
     <message>
         <source>Maximum Storage State of Charge Fraction</source>
         <translation>Fração Máxima de Carga Armazenada</translation>
     </message>
-    <!-- OS:ZoneHVAC:FourPipeFanCoil, OS:ZoneHVAC:UnitHeater, OS:ZoneHVAC:UnitVentilator -->
+    
     <message>
         <source>Maximum Supply Air Flow Rate</source>
         <translation>Vazão Máxima de Ar de Suprimento</translation>
     </message>
-    <!-- OS:AirLoopHVAC:UnitaryHeatPump:AirToAir, OS:AirLoopHVAC:UnitaryHeatPump:AirToAir:MultiSpeed, OS:ZoneHVAC:PackagedTerminalHeatPump, OS:ZoneHVAC:TerminalUnit:VariableRefrigerantFlow, OS:ZoneHVAC:WaterToAirHeatPump -->
+    
     <message>
         <source>Maximum Supply Air Temperature from Supplemental Heater</source>
         <translation>Temperatura Máxima do Ar de Insuflação do Aquecedor Suplementar</translation>
     </message>
-    <!-- OS:ZoneHVAC:FourPipeFanCoil -->
+    
     <message>
         <source>Maximum Supply Air Temperature in Heating Mode</source>
         <translation>Temperatura Máxima do Ar de Alimentação em Modo de Aquecimento</translation>
     </message>
-    <!-- OS:HeatPump:PlantLoop:EIR:Cooling, OS:HeatPump:PlantLoop:EIR:Heating -->
+    
     <message>
         <source>Maximum Supply Water Temperature Curve Name</source>
         <translation>Nome da Curva de Temperatura Máxima da Água de Alimentação</translation>
     </message>
-    <!-- OS:HeatBalanceAlgorithm -->
+    
     <message>
         <source>Maximum Surface Convection Heat Transfer Coefficient Value</source>
         <translation>Valor Máximo do Coeficiente de Transferência de Calor por Convecção na Superfície</translation>
     </message>
-    <!-- OS:Table:MultiVariableLookup -->
+    
     <message>
         <source>Maximum Table Output</source>
         <translation>Saída Máxima da Tabela</translation>
     </message>
-    <!-- OS:Refrigeration:AirChiller -->
+    
     <message>
         <source>Maximum Temperature Difference Between Inlet Air and Evaporating Temperature</source>
         <translation>Diferença Máxima de Temperatura Entre o Ar de Entrada e a Temperatura de Evaporação</translation>
     </message>
-    <!-- OS:AirLoopHVAC:UnitaryHeatPump:AirToAir:MultiSpeed, OS:AirLoopHVAC:UnitarySystem -->
+    
     <message>
         <source>Maximum Temperature for Heat Recovery</source>
         <translation>Temperatura Máxima para Recuperação de Calor</translation>
     </message>
-    <!-- OS:AirTerminal:DualDuct:VAV:OutdoorAir -->
+    
     <message>
         <source>Maximum Terminal Air Flow Rate</source>
         <translation>Taxa de Fluxo de Ar Terminal Máxima</translation>
     </message>
-    <!-- OS:Generator:WindTurbine -->
+    
     <message>
         <source>Maximum Tip Speed Ratio</source>
         <translation>Razão de Velocidade de Ponta Máxima</translation>
     </message>
-    <!-- OS:AirTerminal:SingleDuct:ConstantVolume:FourPipeInduction -->
+    
     <message>
         <source>Maximum Total Air Flow Rate</source>
         <translation>Taxa Máxima de Fluxo de Ar Total</translation>
     </message>
-    <!-- OS:AirTerminal:SingleDuct:ConstantVolume:CooledBeam -->
+    
     <message>
         <source>Maximum Total Chilled Water Volumetric Flow Rate</source>
         <translation>Vazão Volumétrica Máxima Total de Água Gelada</translation>
     </message>
-    <!-- OS:ZoneHVAC:IdealLoadsAirSystem -->
+    
     <message>
         <source>Maximum Total Cooling Capacity</source>
         <translation>Capacidade Máxima Total de Resfriamento</translation>
     </message>
-    <!-- OS:Table:IndependentVariable -->
+    
     <message>
         <source>Maximum Value</source>
         <translation>Valor Máximo</translation>
     </message>
-    <!-- OS:AvailabilityManager:OptimumStart -->
+    
     <message>
         <source>Maximum Value for Optimum Start Time</source>
         <translation>Valor Máximo para Tempo de Início Ótimo</translation>
     </message>
-    <!-- OS:Curve:FanPressureRise -->
+    
     <message>
         <source>Maximum Value of Psm</source>
         <translation>Valor Máximo de Psm</translation>
     </message>
-    <!-- OS:Curve:FanPressureRise -->
+    
     <message>
         <source>Maximum Value of Qfan</source>
         <translation>Valor Máximo de Qfan</translation>
     </message>
-    <!-- OS:Curve:QuintLinear -->
+    
     <message>
         <source>Maximum Value of v</source>
         <translation>Valor Máximo de v</translation>
     </message>
-    <!-- OS:Curve:QuadLinear, OS:Curve:QuintLinear -->
+    
     <message>
         <source>Maximum Value of w</source>
         <translation>Valor Máximo de w</translation>
     </message>
-    <!-- OS:Curve:Bicubic, OS:Curve:Biquadratic, OS:Curve:Cubic, OS:Curve:DoubleExponentialDecay, OS:Curve:Exponent, OS:Curve:ExponentialDecay, OS:Curve:ExponentialSkewNormal, OS:Curve:Linear, OS:Curve:QuadLinear, OS:Curve:Quadratic, OS:Curve:QuadraticLinear, OS:Curve:Quartic, OS:Curve:QuintLinear, OS:Curve:RectangularHyperbola1, OS:Curve:RectangularHyperbola2, OS:Curve:Sigmoid, OS:Curve:Triquadratic -->
+    
     <message>
         <source>Maximum Value of x</source>
         <translation>Valor Máximo de x</translation>
     </message>
-    <!-- OS:Table:MultiVariableLookup -->
+    
     <message>
         <source>Maximum Value of X1</source>
         <translation>Valor Máximo de X1</translation>
     </message>
-    <!-- OS:Table:MultiVariableLookup -->
+    
     <message>
         <source>Maximum Value of X2</source>
         <translation>Valor Máximo de X2</translation>
     </message>
-    <!-- OS:Table:MultiVariableLookup -->
+    
     <message>
         <source>Maximum Value of X3</source>
         <translation>Valor Máximo de X3</translation>
     </message>
-    <!-- OS:Table:MultiVariableLookup -->
+    
     <message>
         <source>Maximum Value of X4</source>
         <translation>Valor Máximo de X4</translation>
     </message>
-    <!-- OS:Table:MultiVariableLookup -->
+    
     <message>
         <source>Maximum Value of X5</source>
         <translation>Valor Máximo de X5</translation>
     </message>
-    <!-- OS:Curve:Bicubic, OS:Curve:Biquadratic, OS:Curve:QuadLinear, OS:Curve:QuadraticLinear, OS:Curve:QuintLinear, OS:Curve:Triquadratic -->
+    
     <message>
         <source>Maximum Value of y</source>
         <translation>Valor Máximo de y</translation>
     </message>
-    <!-- OS:Curve:QuadLinear, OS:Curve:QuintLinear, OS:Curve:Triquadratic -->
+    
     <message>
         <source>Maximum Value of z</source>
         <translation>Valor Máximo de z</translation>
     </message>
-    <!-- OS:Fan:ComponentModel -->
+    
     <message>
         <source>Maximum VFD Output Power</source>
         <translation>Potência Máxima de Saída do VFD</translation>
     </message>
-    <!-- OS:CoolingTowerPerformance:CoolTools, OS:CoolingTowerPerformance:YorkCalc -->
+    
     <message>
         <source>Maximum Water Flow Rate Ratio</source>
         <translation>Taxa de Fluxo de Água Máxima</translation>
     </message>
-    <!-- OS:CoilSystem:IntegratedHeatPump:AirSource -->
+    
     <message>
         <source>Maximum Water Flow Volume Before Switching From SCDWH To SCWH Mode</source>
         <translation>Volume Máximo de Fluxo de Água Antes de Alternar do Modo SCDWH Para o Modo SCWH</translation>
     </message>
-    <!-- OS:AvailabilityManager:HybridVentilation, OS:ZoneVentilation:DesignFlowRate, OS:ZoneVentilation:WindandStackOpenArea -->
+    
     <message>
         <source>Maximum Wind Speed</source>
         <translation>Velocidade Máxima do Vento</translation>
     </message>
-    <!-- OS:PerformancePrecisionTradeoffs -->
+    
     <message>
         <source>MaxZoneTempDiff</source>
         <translation>MaxZoneTempDiff</translation>
     </message>
-    <!-- OS:Site:GroundTemperature:Deep -->
+    
     <message>
         <source>May Deep Ground Temperature</source>
         <translation>Temperatura Profunda do Solo em Maio</translation>
     </message>
-    <!-- OS:Site:GroundReflectance -->
+    
     <message>
         <source>May Ground Reflectance</source>
         <translation>Refletância do Solo em Maio</translation>
     </message>
-    <!-- OS:Site:GroundTemperature:BuildingSurface, OS:Site:GroundTemperature:FCfactorMethod -->
+    
     <message>
         <source>May Ground Temperature</source>
         <translation>Temperatura do Solo em Maio</translation>
     </message>
-    <!-- OS:Site:GroundTemperature:Shallow -->
+    
     <message>
         <source>May Surface Ground Temperature</source>
         <translation>Temperatura do Solo em Maio</translation>
     </message>
-    <!-- OS:UtilityCost:Variable -->
+    
     <message>
         <source>May Value</source>
         <translation>Valor de Maio</translation>
     </message>
-    <!-- OS:Refrigeration:System -->
+    
     <message>
         <source>Mechanical Subcooler Name</source>
         <translation>Nome do Resfriador Mecânico</translation>
     </message>
-    <!-- OS:ZoneHVAC:FourPipeFanCoil -->
+    
     <message>
         <source>Medium Speed Supply Air Flow Ratio</source>
         <translation>Razão de Fluxo de Ar de Suprimento em Velocidade Média</translation>
     </message>
-    <!-- OS:Refrigeration:TranscriticalSystem -->
+    
     <message>
         <source>Medium Temperature Refrigerated CaseAndWalkInList Name</source>
         <translation>Nome da Lista de Casos Refrigerados e Câmaras Frigoríficas de Média Temperatura</translation>
     </message>
-    <!-- OS:Refrigeration:TranscriticalSystem -->
+    
     <message>
         <source>Medium Temperature Suction Piping Zone Name</source>
         <translation>Nome da Zona do Encanamento de Aspiração de Média Temperatura</translation>
     </message>
-    <!-- OS:UtilityBill -->
+    
     <message>
         <source>Meter End Use Category</source>
         <translation>Categoria de Uso Final do Medidor</translation>
     </message>
-    <!-- OS:Output:Meter -->
+    
     <message>
         <source>Meter File Only</source>
         <translation>Apenas Arquivo de Medidor</translation>
     </message>
-    <!-- OS:UtilityBill -->
+    
     <message>
         <source>Meter Install Location</source>
         <translation>Localização de Instalação do Medidor</translation>
     </message>
-    <!-- OS:ElectricLoadCenter:Transformer -->
+    
     <message>
         <source>Meter Name</source>
         <translation>Nome do Medidor</translation>
     </message>
-    <!-- OS:UtilityBill -->
+    
     <message>
         <source>Meter Specific End Use</source>
         <translation>Uso Final Específico do Medidor</translation>
     </message>
-    <!-- OS:UtilityBill -->
+    
     <message>
         <source>Meter Specific Install Location</source>
         <translation>Localização de Instalação Específica do Medidor</translation>
     </message>
-    <!-- OS:Generator:FuelCell:ExhaustGasToWaterHeatExchanger -->
+    
     <message>
         <source>Method 1 Heat Exchanger Effectiveness</source>
         <translation>Efetividade do Trocador de Calor - Método 1</translation>
     </message>
-    <!-- OS:Generator:FuelCell:ExhaustGasToWaterHeatExchanger -->
+    
     <message>
         <source>Method 2 Parameter hxs0</source>
         <translation>Parâmetro hxs0 do Método 2</translation>
     </message>
-    <!-- OS:Generator:FuelCell:ExhaustGasToWaterHeatExchanger -->
+    
     <message>
         <source>Method 2 Parameter hxs1</source>
         <translation>Parâmetro hxs1 do Método 2</translation>
     </message>
-    <!-- OS:Generator:FuelCell:ExhaustGasToWaterHeatExchanger -->
+    
     <message>
         <source>Method 2 Parameter hxs2</source>
         <translation>Parâmetro do Método 2 hxs2</translation>
     </message>
-    <!-- OS:Generator:FuelCell:ExhaustGasToWaterHeatExchanger -->
+    
     <message>
         <source>Method 2 Parameter hxs3</source>
         <translation>Parâmetro do Método 2 hxs3</translation>
     </message>
-    <!-- OS:Generator:FuelCell:ExhaustGasToWaterHeatExchanger -->
+    
     <message>
         <source>Method 2 Parameter hxs4</source>
         <translation>Method 2 Parameter hxs4</translation>
     </message>
-    <!-- OS:Generator:FuelCell:ExhaustGasToWaterHeatExchanger -->
+    
     <message>
         <source>Method 3 F Adjustment Factor</source>
         <translation>Fator de Ajuste Método 3 F</translation>
     </message>
-    <!-- OS:Generator:FuelCell:ExhaustGasToWaterHeatExchanger -->
+    
     <message>
         <source>Method 3 Gas Area</source>
         <translation>Área do Gás - Método 3</translation>
     </message>
-    <!-- OS:Generator:FuelCell:ExhaustGasToWaterHeatExchanger -->
+    
     <message>
         <source>Method 3 h0 Water Coefficient</source>
         <translation>Coeficiente de Água h0 do Método 3</translation>
     </message>
-    <!-- OS:Generator:FuelCell:ExhaustGasToWaterHeatExchanger -->
+    
     <message>
         <source>Method 3 h0Gas Coefficient</source>
         <translation>Coeficiente de Gás h0 do Método 3</translation>
     </message>
-    <!-- OS:Generator:FuelCell:ExhaustGasToWaterHeatExchanger -->
+    
     <message>
         <source>Method 3 m Coefficient</source>
         <translation>Coeficiente do Método 3 m</translation>
     </message>
-    <!-- OS:Generator:FuelCell:ExhaustGasToWaterHeatExchanger -->
+    
     <message>
         <source>Method 3 n Coefficient</source>
         <translation>Coeficiente do Método 3</translation>
     </message>
-    <!-- OS:Generator:FuelCell:ExhaustGasToWaterHeatExchanger -->
+    
     <message>
         <source>Method 3 N dot Water ref Coefficient</source>
         <translation>Coeficiente de Água Ref N ponto Método 3</translation>
     </message>
-    <!-- OS:Generator:FuelCell:ExhaustGasToWaterHeatExchanger -->
+    
     <message>
         <source>Method 3 NdotGasRef Coefficient</source>
         <translation>Coeficiente NdotGasRef do Método 3</translation>
     </message>
-    <!-- OS:Generator:FuelCell:ExhaustGasToWaterHeatExchanger -->
+    
     <message>
         <source>Method 3 Water Area</source>
         <translation>Método 3 Área de Água</translation>
     </message>
-    <!-- OS:Generator:FuelCell:ExhaustGasToWaterHeatExchanger -->
+    
     <message>
         <source>Method 4 Condensation Threshold</source>
         <translation>Limiar de Condensação - Método 4</translation>
     </message>
-    <!-- OS:Generator:FuelCell:ExhaustGasToWaterHeatExchanger -->
+    
     <message>
         <source>Method 4 hxl1 Coefficient</source>
         <translation>Método 4 hxl1 Coeficiente</translation>
     </message>
-    <!-- OS:Generator:FuelCell:ExhaustGasToWaterHeatExchanger -->
+    
     <message>
         <source>Method 4 hxl2 Coefficient</source>
         <translation>Coeficiente do Método 4 hxl2</translation>
     </message>
-    <!-- OS:Controller:WaterCoil -->
+    
     <message>
         <source>Minimum Actuated Flow</source>
         <translation>Fluxo Mínimo Acionado</translation>
     </message>
-    <!-- OS:CoolingTower:VariableSpeed -->
+    
     <message>
         <source>Minimum Air Flow Rate Ratio</source>
         <translation>Taxa Mínima de Fluxo de Ar</translation>
     </message>
-    <!-- OS:AirTerminal:DualDuct:VAV, OS:AirTerminal:SingleDuct:VAV:HeatAndCool:NoReheat, OS:AirTerminal:SingleDuct:VAV:HeatAndCool:Reheat, OS:AirTerminal:SingleDuct:VAV:NoReheat, OS:AirTerminal:SingleDuct:VAV:Reheat -->
+    
     <message>
         <source>Minimum Air Flow Turndown Schedule Name</source>
         <translation>Nome da Programação de Redução Mínima de Fluxo de Ar</translation>
     </message>
-    <!-- OS:CoilSystem:Cooling:Water -->
+    
     <message>
         <source>Minimum Air To Water Temperature Offset</source>
         <translation>Deslocamento Mínimo da Temperatura Ar-Água</translation>
     </message>
-    <!-- OS:Refrigeration:Case -->
+    
     <message>
         <source>Minimum Anti-Sweat Heater Power per Door</source>
         <translation>Potência Mínima do Aquecedor Antiblocagem por Porta</translation>
     </message>
-    <!-- OS:Refrigeration:Case -->
+    
     <message>
         <source>Minimum Anti-Sweat Heater Power per Unit Length</source>
         <translation>Potência Mínima do Aquecedor Anti-Suor por Unidade de Comprimento</translation>
     </message>
-    <!-- OS:CoolingTowerPerformance:CoolTools, OS:CoolingTowerPerformance:YorkCalc -->
+    
     <message>
         <source>Minimum Approach Temperature</source>
         <translation>Temperatura Mínima de Aproximação</translation>
     </message>
-    <!-- OS:Refrigeration:Condenser:EvaporativeCooled -->
+    
     <message>
         <source>Minimum Capacity Factor</source>
         <translation>Fator Mínimo de Capacidade</translation>
     </message>
-    <!-- OS:ZoneControl:ContaminantController -->
+    
     <message>
         <source>Minimum Carbon Dioxide Concentration Schedule Name</source>
         <translation>Nome do Agendamento de Concentração Mínima de Dióxido de Carbono</translation>
     </message>
-    <!-- OS:Foundation:Kiva:Settings -->
+    
     <message>
         <source>Minimum Cell Dimension</source>
         <translation>Dimensão Mínima da Célula</translation>
     </message>
-    <!-- OS:AirflowNetworkOccupantVentilationControl -->
+    
     <message>
         <source>Minimum Closing Time</source>
         <translation>Tempo Mínimo de Fechamento</translation>
     </message>
-    <!-- OS:AirTerminal:SingleDuct:ConstantVolume:FourPipeInduction, OS:ZoneHVAC:FourPipeFanCoil -->
+    
     <message>
         <source>Minimum Cold Water Flow Rate</source>
         <translation>Vazão Mínima de Água Fria</translation>
     </message>
-    <!-- OS:Refrigeration:GasCooler:AirCooled, OS:Refrigeration:System -->
+    
     <message>
         <source>Minimum Condensing Temperature</source>
         <translation>Temperatura Mínima de Condensação</translation>
     </message>
-    <!-- OS:ZoneHVAC:IdealLoadsAirSystem -->
+    
     <message>
         <source>Minimum Cooling Supply Air Humidity Ratio</source>
         <translation>Razão de Umidade Mínima do Ar de Suprimento de Resfriamento</translation>
     </message>
-    <!-- OS:ZoneHVAC:IdealLoadsAirSystem -->
+    
     <message>
         <source>Minimum Cooling Supply Air Temperature</source>
         <translation>Temperatura Mínima do Ar de Suprimento de Resfriamento</translation>
     </message>
-    <!-- OS:Curve:Bicubic, OS:Curve:Biquadratic, OS:Curve:Cubic, OS:Curve:DoubleExponentialDecay, OS:Curve:Exponent, OS:Curve:ExponentialDecay, OS:Curve:ExponentialSkewNormal, OS:Curve:FanPressureRise, OS:Curve:Linear, OS:Curve:QuadLinear, OS:Curve:Quadratic, OS:Curve:QuadraticLinear, OS:Curve:Quartic, OS:Curve:QuintLinear, OS:Curve:RectangularHyperbola1, OS:Curve:RectangularHyperbola2, OS:Curve:Sigmoid, OS:Curve:Triquadratic -->
+    
     <message>
         <source>Minimum Curve Output</source>
         <translation>Saída Mínima da Curva</translation>
     </message>
-    <!-- OS:AirflowNetworkSimpleOpening -->
+    
     <message>
         <source>Minimum Density Difference for Two-Way Flow</source>
         <translation>Diferença de Densidade Mínima para Fluxo Bidirecional</translation>
     </message>
-    <!-- OS:ZoneHVAC:Dehumidifier:DX -->
+    
     <message>
         <source>Minimum Dry-Bulb Temperature for Dehumidifier Operation</source>
         <translation>Temperatura de Bulbo Seco Mínima para Operação do Desumidificador</translation>
     </message>
-    <!-- OS:Refrigeration:AirChiller, OS:Refrigeration:Condenser:AirCooled, OS:Refrigeration:Condenser:EvaporativeCooled, OS:Refrigeration:GasCooler:AirCooled -->
+    
     <message>
         <source>Minimum Fan Air Flow Ratio</source>
         <translation>Razão Mínima de Fluxo de Ar do Ventilador</translation>
     </message>
-    <!-- OS:AirTerminal:SingleDuct:ParallelPIU:Reheat, OS:AirTerminal:SingleDuct:SeriesPIU:Reheat -->
+    
     <message>
         <source>Minimum Fan Turn Down Ratio</source>
         <translation>Razão Mínima de Redução do Ventilador</translation>
     </message>
-    <!-- OS:HeaderedPumps:VariableSpeed -->
+    
     <message>
         <source>Minimum Flow Rate Fraction</source>
         <translation>Fração de Taxa de Fluxo Mínimo</translation>
     </message>
-    <!-- OS:Generator:MicroTurbine -->
+    
     <message>
         <source>Minimum Full Load Electrical Power Output</source>
         <translation>Potência Elétrica de Saída Mínima em Carga Plena</translation>
     </message>
-    <!-- OS:HeatPump:PlantLoop:EIR:Heating -->
+    
     <message>
         <source>Minimum Heat Recovery Outlet Temperature</source>
         <translation>Temperatura Mínima de Saída da Recuperação de Calor</translation>
     </message>
-    <!-- OS:Generator:MicroTurbine:HeatRecovery -->
+    
     <message>
         <source>Minimum Heat Recovery Water Flow Rate</source>
         <translation>Taxa de Fluxo de Água Mínima de Recuperação de Calor</translation>
     </message>
-    <!-- OS:Generator:FuelCell:AuxiliaryHeater -->
+    
     <message>
         <source>Minimum Heating Capacity in Kmol per Second</source>
         <translation>Capacidade Mínima de Aquecimento em kmol por Segundo</translation>
     </message>
-    <!-- OS:Generator:FuelCell:AuxiliaryHeater -->
+    
     <message>
         <source>Minimum Heating Capacity in Watts</source>
         <translation>Capacidade Mínima de Aquecimento em Watts</translation>
     </message>
-    <!-- OS:AirTerminal:SingleDuct:ConstantVolume:FourPipeInduction, OS:ZoneHVAC:FourPipeFanCoil, OS:ZoneHVAC:UnitHeater -->
+    
     <message>
         <source>Minimum Hot Water Flow Rate</source>
         <translation>Taxa Mínima de Fluxo de Água Quente</translation>
     </message>
-    <!-- OS:AvailabilityManager:HybridVentilation -->
+    
     <message>
         <source>Minimum HVAC Operation Time</source>
         <translation>Tempo Mínimo de Operação HVAC</translation>
     </message>
-    <!-- OS:ZoneVentilation:DesignFlowRate, OS:ZoneVentilation:WindandStackOpenArea -->
+    
     <message>
         <source>Minimum Indoor Temperature</source>
         <translation>Temperatura Interna Mínima</translation>
     </message>
-    <!-- OS:ZoneVentilation:DesignFlowRate, OS:ZoneVentilation:WindandStackOpenArea -->
+    
     <message>
         <source>Minimum Indoor Temperature Schedule Name</source>
         <translation>Nome da Programação de Temperatura Interna Mínima</translation>
     </message>
-    <!-- OS:WaterHeater:HeatPump, OS:WaterHeater:HeatPump:WrappedCondenser -->
+    
     <message>
         <source>Minimum Inlet Air Temperature for Compressor Operation</source>
         <translation>Temperatura Mínima do Ar de Entrada para Operação do Compressor</translation>
     </message>
-    <!-- OS:CoolingTowerPerformance:CoolTools, OS:CoolingTowerPerformance:YorkCalc -->
+    
     <message>
         <source>Minimum Inlet Air Wet-Bulb Temperature</source>
         <translation>Temperatura de Bulbo Úmido do Ar de Entrada Mínima</translation>
     </message>
-    <!-- OS:Daylighting:Control -->
+    
     <message>
         <source>Minimum Input Power Fraction for Continuous Dimming Control</source>
         <translation>Fração de Potência de Entrada Mínima para Controle de Atenuação Contínua</translation>
     </message>
-    <!-- OS:HeatPump:AirToWater:Cooling, OS:HeatPump:AirToWater:Heating -->
+    
     <message>
         <source>Minimum Leaving Water Temperature Curve Name</source>
         <translation>Nome da Curva de Temperatura Mínima de Saída de Água</translation>
     </message>
-    <!-- OS:Daylighting:Control -->
+    
     <message>
         <source>Minimum Light Output Fraction for Continuous Dimming Control</source>
         <translation>Fração Mínima de Saída de Luz para Controle de Atenuação Contínua</translation>
     </message>
-    <!-- OS:SetpointManager:FollowSystemNodeTemperature -->
+    
     <message>
         <source>Minimum Limit Setpoint Temperature</source>
         <translation>Temperatura de Setpoint de Limite Mínimo</translation>
     </message>
-    <!-- OS:PlantComponent:UserDefined -->
+    
     <message>
         <source>Minimum Loading Capacity Actuator</source>
         <translation>Atuador de Capacidade de Carregamento Mínimo</translation>
     </message>
-    <!-- OS:PlantComponent:UserDefined -->
+    
     <message>
         <source>Minimum Mass Flow Rate Actuator</source>
         <translation>Atuador de Taxa de Fluxo Mínimo</translation>
     </message>
-    <!-- OS:UtilityCost:Tariff -->
+    
     <message>
         <source>Minimum Monthly Charge or Variable Name</source>
         <translation>Cobrança Mensal Mínima ou Nome da Variável</translation>
     </message>
-    <!-- OS:SimulationControl -->
+    
     <message>
         <source>Minimum Number of Warmup Days</source>
         <translation>Número Mínimo de Dias de Aquecimento</translation>
     </message>
-    <!-- OS:AirflowNetworkOccupantVentilationControl -->
+    
     <message>
         <source>Minimum Opening Time</source>
         <translation>Tempo Mínimo de Abertura</translation>
     </message>
-    <!-- OS:Generator:FuelCell:PowerModule -->
+    
     <message>
         <source>Minimum Operating Point</source>
         <translation>Ponto Operacional Mínimo</translation>
     </message>
-    <!-- OS:SurfaceProperty:OtherSideCoefficients -->
+    
     <message>
         <source>Minimum Other Side Temperature Limit</source>
         <translation>Limite Mínimo de Temperatura do Outro Lado</translation>
     </message>
-    <!-- OS:HeatPump:AirToWater:Cooling, OS:HeatPump:AirToWater:Heating -->
+    
     <message>
         <source>Minimum Outdoor Air Temperature</source>
         <translation>Temperatura Mínima do Ar Externo</translation>
     </message>
-    <!-- OS:AirConditioner:VariableRefrigerantFlow:FluidTemperatureControl -->
+    
     <message>
         <source>Minimum Outdoor Air Temperature in Cooling Mode</source>
         <translation>Temperatura Mínima do Ar Externo no Modo de Resfriamento</translation>
     </message>
-    <!-- OS:AirConditioner:VariableRefrigerantFlow:FluidTemperatureControl:HR -->
+    
     <message>
         <source>Minimum Outdoor Air Temperature in Cooling Only Mode</source>
         <translation>Temperatura Mínima do Ar Exterior no Modo de Resfriamento Apenas</translation>
     </message>
-    <!-- OS:AirConditioner:VariableRefrigerantFlow:FluidTemperatureControl -->
+    
     <message>
         <source>Minimum Outdoor Air Temperature in Heating Mode</source>
         <translation>Temperatura Mínima do Ar Externo no Modo de Aquecimento</translation>
     </message>
-    <!-- OS:AirConditioner:VariableRefrigerantFlow:FluidTemperatureControl:HR -->
+    
     <message>
         <source>Minimum Outdoor Air Temperature in Heating Only Mode</source>
         <translation>Temperatura Mínima do Ar Externo no Modo Aquecimento Apenas</translation>
     </message>
-    <!-- OS:AvailabilityManager:HybridVentilation -->
+    
     <message>
         <source>Minimum Outdoor Dewpoint</source>
         <translation>Ponto de Orvalho Externo Mínimo</translation>
     </message>
-    <!-- OS:AvailabilityManager:HybridVentilation -->
+    
     <message>
         <source>Minimum Outdoor Enthalpy</source>
         <translation>Entalpia Mínima do Ar Externo</translation>
     </message>
-    <!-- OS:AvailabilityManager:HybridVentilation, OS:ZoneVentilation:DesignFlowRate, OS:ZoneVentilation:WindandStackOpenArea -->
+    
     <message>
         <source>Minimum Outdoor Temperature</source>
         <translation>Temperatura Externa Mínima</translation>
     </message>
-    <!-- OS:AirConditioner:VariableRefrigerantFlow, OS:AirConditioner:VariableRefrigerantFlow:FluidTemperatureControl:HR -->
+    
     <message>
         <source>Minimum Outdoor Temperature in Heat Recovery Mode</source>
         <translation>Temperatura Mínima do Ar Externo no Modo de Recuperação de Calor</translation>
     </message>
-    <!-- OS:ZoneMixing, OS:ZoneVentilation:DesignFlowRate, OS:ZoneVentilation:WindandStackOpenArea -->
+    
     <message>
         <source>Minimum Outdoor Temperature Schedule Name</source>
         <translation>Nome do Cronograma de Temperatura Externa Mínima</translation>
     </message>
-    <!-- OS:AvailabilityManager:HybridVentilation -->
+    
     <message>
         <source>Minimum Outdoor Ventilation Air Schedule</source>
         <translation>Cronograma de Ar de Ventilação Outdoor Mínimo</translation>
     </message>
-    <!-- OS:AirLoopHVAC:UnitaryHeatCool:VAVChangeoverBypass -->
+    
     <message>
         <source>Minimum Outlet Air Temperature During Cooling Operation</source>
         <translation>Temperatura Mínima do Ar na Saída Durante Operação de Resfriamento</translation>
     </message>
-    <!-- OS:Table:Lookup -->
+    
     <message>
         <source>Minimum Output</source>
         <translation>Saída Mínima</translation>
     </message>
-    <!-- OS:ConvergenceLimits -->
+    
     <message>
         <source>Minimum Plant Iterations</source>
         <translation>Iterações Mínimas da Planta</translation>
     </message>
-    <!-- OS:Pump:VariableSpeed -->
+    
     <message>
         <source>Minimum Pressure Schedule</source>
         <translation>Cronograma de Pressão Mínima</translation>
     </message>
-    <!-- OS:AirTerminal:SingleDuct:ParallelPIU:Reheat, OS:AirTerminal:SingleDuct:SeriesPIU:Reheat -->
+    
     <message>
         <source>Minimum Primary Air Flow Fraction</source>
         <translation>Fração Mínima de Fluxo de Ar Primário</translation>
     </message>
-    <!-- OS:HeatExchanger:Desiccant:BalancedFlow:PerformanceDataType1 -->
+    
     <message>
         <source>Minimum Process Inlet Air Humidity Ratio for Humidity Ratio Equation</source>
         <translation>Razão de Umidade Mínima do Ar de Entrada do Processo para Equação de Razão de Umidade</translation>
     </message>
-    <!-- OS:HeatExchanger:Desiccant:BalancedFlow:PerformanceDataType1 -->
+    
     <message>
         <source>Minimum Process Inlet Air Humidity Ratio for Temperature Equation</source>
         <translation>Razão de Umidade do Ar de Entrada do Processo Mínima para Equação de Temperatura</translation>
     </message>
-    <!-- OS:HeatExchanger:Desiccant:BalancedFlow:PerformanceDataType1 -->
+    
     <message>
         <source>Minimum Process Inlet Air Relative Humidity for Humidity Ratio Equation</source>
         <translation>Umidade Relativa Mínima do Ar de Entrada do Processo para Equação de Razão de Umidade</translation>
     </message>
-    <!-- OS:HeatExchanger:Desiccant:BalancedFlow:PerformanceDataType1 -->
+    
     <message>
         <source>Minimum Process Inlet Air Relative Humidity for Temperature Equation</source>
         <translation>Umidade Relativa Mínima do Ar de Entrada do Processo para Equação de Temperatura</translation>
     </message>
-    <!-- OS:HeatExchanger:Desiccant:BalancedFlow:PerformanceDataType1 -->
+    
     <message>
         <source>Minimum Process Inlet Air Temperature for Humidity Ratio Equation</source>
         <translation>Temperatura Mínima do Ar de Entrada do Processo para Equação de Razão de Umidade</translation>
     </message>
-    <!-- OS:HeatExchanger:Desiccant:BalancedFlow:PerformanceDataType1 -->
+    
     <message>
         <source>Minimum Process Inlet Air Temperature for Temperature Equation</source>
         <translation>Temperatura Mínima do Ar de Entrada do Processo para Equação de Temperatura</translation>
     </message>
-    <!-- OS:CoolingTowerPerformance:CoolTools, OS:CoolingTowerPerformance:YorkCalc -->
+    
     <message>
         <source>Minimum Range Temperature</source>
         <translation>Temperatura Mínima da Faixa</translation>
     </message>
-    <!-- OS:ZoneMixing -->
+    
     <message>
         <source>Minimum Receiving Temperature Schedule Name</source>
         <translation>Nome do Cronograma de Temperatura Mínima de Recebimento</translation>
     </message>
-    <!-- OS:HeatExchanger:Desiccant:BalancedFlow:PerformanceDataType1 -->
+    
     <message>
         <source>Minimum Regeneration Air Velocity for Humidity Ratio Equation</source>
         <translation>Velocidade Mínima do Ar de Regeneração para Equação de Razão de Umidade</translation>
     </message>
-    <!-- OS:HeatExchanger:Desiccant:BalancedFlow:PerformanceDataType1 -->
+    
     <message>
         <source>Minimum Regeneration Air Velocity for Temperature Equation</source>
         <translation>Velocidade Mínima do Ar de Regeneração para Equação de Temperatura</translation>
     </message>
-    <!-- OS:HeatExchanger:Desiccant:BalancedFlow:PerformanceDataType1 -->
+    
     <message>
         <source>Minimum Regeneration Inlet Air Humidity Ratio for Humidity Ratio Equation</source>
         <translation>Razão de Umidade do Ar de Entrada Mínimo de Regeneração para Equação de Razão de Umidade</translation>
     </message>
-    <!-- OS:HeatExchanger:Desiccant:BalancedFlow:PerformanceDataType1 -->
+    
     <message>
         <source>Minimum Regeneration Inlet Air Humidity Ratio for Temperature Equation</source>
         <translation>Razão de Umidade do Ar de Entrada de Regeneração Mínima para Equação de Temperatura</translation>
     </message>
-    <!-- OS:HeatExchanger:Desiccant:BalancedFlow:PerformanceDataType1 -->
+    
     <message>
         <source>Minimum Regeneration Inlet Air Relative Humidity for Humidity Ratio Equation</source>
         <translation>Umidade Relativa Mínima do Ar de Entrada da Regeneração para Equação de Razão de Umidade</translation>
     </message>
-    <!-- OS:HeatExchanger:Desiccant:BalancedFlow:PerformanceDataType1 -->
+    
     <message>
         <source>Minimum Regeneration Inlet Air Relative Humidity for Temperature Equation</source>
         <translation>Umidade Relativa Mínima do Ar de Entrada de Regeneração para Equação de Temperatura</translation>
     </message>
-    <!-- OS:HeatExchanger:Desiccant:BalancedFlow:PerformanceDataType1 -->
+    
     <message>
         <source>Minimum Regeneration Inlet Air Temperature for Humidity Ratio Equation</source>
         <translation>Temperatura Mínima do Ar de Entrada da Regeneração para Equação de Razão de Umidade</translation>
     </message>
-    <!-- OS:HeatExchanger:Desiccant:BalancedFlow:PerformanceDataType1 -->
+    
     <message>
         <source>Minimum Regeneration Inlet Air Temperature for Temperature Equation</source>
         <translation>Temperatura Mínima do Ar de Entrada da Regeneração para Equação de Temperatura</translation>
     </message>
-    <!-- OS:HeatExchanger:Desiccant:BalancedFlow:PerformanceDataType1 -->
+    
     <message>
         <source>Minimum Regeneration Outlet Air Humidity Ratio for Humidity Ratio Equation</source>
         <translation>Razão de Umidade Mínima do Ar de Saída da Regeneração para Equação de Razão de Umidade</translation>
     </message>
-    <!-- OS:HeatExchanger:Desiccant:BalancedFlow:PerformanceDataType1 -->
+    
     <message>
         <source>Minimum Regeneration Outlet Air Temperature for Temperature Equation</source>
         <translation>Temperatura Mínima de Saída de Ar de Regeneração para Equação de Temperatura</translation>
     </message>
-    <!-- OS:Pump:VariableSpeed -->
+    
     <message>
         <source>Minimum RPM Schedule</source>
         <translation>Cronograma de RPM Mínimo</translation>
     </message>
-    <!-- OS:AirLoopHVAC:UnitaryHeatCool:VAVChangeoverBypass -->
+    
     <message>
         <source>Minimum Runtime Before Operating Mode Change</source>
         <translation>Tempo Mínimo de Funcionamento Antes de Mudança no Modo de Operação</translation>
     </message>
-    <!-- OS:SetpointManager:MultiZone:Humidity:Maximum, OS:SetpointManager:MultiZone:Humidity:Minimum, OS:SetpointManager:MultiZone:MaximumHumidity:Average, OS:SetpointManager:MultiZone:MinimumHumidity:Average, OS:SetpointManager:OutdoorAirPretreat -->
+    
     <message>
         <source>Minimum Setpoint Humidity Ratio</source>
         <translation>Razão de Umidade do Setpoint Mínimo</translation>
     </message>
-    <!-- OS:WindowMaterial:Blind -->
+    
     <message>
         <source>Minimum Slat Angle</source>
         <translation>Ângulo Mínimo das Lâminas</translation>
     </message>
-    <!-- OS:HeatPump:PlantLoop:EIR:Cooling, OS:HeatPump:PlantLoop:EIR:Heating -->
+    
     <message>
         <source>Minimum Source Inlet Temperature</source>
         <translation>Temperatura Mínima de Entrada da Fonte</translation>
     </message>
-    <!-- OS:ZoneMixing -->
+    
     <message>
         <source>Minimum Source Temperature Schedule Name</source>
         <translation>Nome da Programação de Temperatura Mínima da Fonte</translation>
     </message>
-    <!-- OS:CoilSystem:IntegratedHeatPump:AirSource -->
+    
     <message>
         <source>Minimum Speed Level For SCDWH Mode</source>
         <translation>Nível Mínimo de Velocidade Para Modo SCDWH</translation>
     </message>
-    <!-- OS:CoilSystem:IntegratedHeatPump:AirSource -->
+    
     <message>
         <source>Minimum Speed Level For SCWH Mode</source>
         <translation>Nível Mínimo de Velocidade para Modo SCWH</translation>
     </message>
-    <!-- OS:CoilSystem:IntegratedHeatPump:AirSource -->
+    
     <message>
         <source>Minimum Speed Level For SHDWH Mode</source>
         <translation>Nível Mínimo de Velocidade para Modo SHDWH</translation>
     </message>
-    <!-- OS:Material:RoofVegetation -->
+    
     <message>
         <source>Minimum Stomatal Resistance</source>
         <translation>Resistência Estomatal Mínima</translation>
     </message>
-    <!-- OS:ElectricLoadCenter:Distribution -->
+    
     <message>
         <source>Minimum Storage State of Charge Fraction</source>
         <translation>Fração Mínima de Carga do Estado de Armazenamento</translation>
     </message>
-    <!-- OS:ZoneHVAC:FourPipeFanCoil -->
+    
     <message>
         <source>Minimum Supply Air Temperature in Cooling Mode</source>
         <translation>Temperatura Mínima do Ar de Suprimento no Modo de Resfriamento</translation>
     </message>
-    <!-- OS:HeatPump:PlantLoop:EIR:Cooling, OS:HeatPump:PlantLoop:EIR:Heating -->
+    
     <message>
         <source>Minimum Supply Water Temperature Curve Name</source>
         <translation>Nome da Curva de Temperatura Mínima da Água de Alimentação</translation>
     </message>
-    <!-- OS:HeatBalanceAlgorithm -->
+    
     <message>
         <source>Minimum Surface Convection Heat Transfer Coefficient Value</source>
         <translation>Valor Mínimo do Coeficiente de Transferência de Calor por Convecção de Superfície</translation>
     </message>
-    <!-- OS:ConvergenceLimits -->
+    
     <message>
         <source>Minimum System Timestep</source>
         <translation>Intervalo de Tempo Mínimo do Sistema</translation>
     </message>
-    <!-- OS:Table:MultiVariableLookup -->
+    
     <message>
         <source>Minimum Table Output</source>
         <translation>Saída de Tabela Mínima</translation>
     </message>
-    <!-- OS:HeatExchanger:FluidToFluid -->
+    
     <message>
         <source>Minimum Temperature Difference to Activate Heat Exchanger</source>
         <translation>Diferença Mínima de Temperatura para Ativar o Trocador de Calor</translation>
     </message>
-    <!-- OS:ThermalStorage:ChilledWater:Stratified -->
+    
     <message>
         <source>Minimum Temperature Limit</source>
         <translation>Limite de Temperatura Mínima</translation>
     </message>
-    <!-- OS:SetpointManager:WarmestTemperatureFlow -->
+    
     <message>
         <source>Minimum Turndown Ratio</source>
         <translation>Razão Mínima de Redução</translation>
     </message>
-    <!-- OS:Table:IndependentVariable -->
+    
     <message>
         <source>Minimum Value</source>
         <translation>Valor Mínimo</translation>
     </message>
-    <!-- OS:Curve:FanPressureRise -->
+    
     <message>
         <source>Minimum Value of Psm</source>
         <translation>Valor Mínimo de Psm</translation>
     </message>
-    <!-- OS:Curve:FanPressureRise -->
+    
     <message>
         <source>Minimum Value of Qfan</source>
         <translation>Valor Mínimo de Qfan</translation>
     </message>
-    <!-- OS:Curve:QuintLinear -->
+    
     <message>
         <source>Minimum Value of v</source>
         <translation>Valor Mínimo de v</translation>
     </message>
-    <!-- OS:Curve:QuadLinear, OS:Curve:QuintLinear -->
+    
     <message>
         <source>Minimum Value of w</source>
         <translation>Valor Mínimo de w</translation>
     </message>
-    <!-- OS:Curve:Bicubic, OS:Curve:Biquadratic, OS:Curve:Cubic, OS:Curve:DoubleExponentialDecay, OS:Curve:Exponent, OS:Curve:ExponentialDecay, OS:Curve:ExponentialSkewNormal, OS:Curve:Linear, OS:Curve:QuadLinear, OS:Curve:Quadratic, OS:Curve:QuadraticLinear, OS:Curve:Quartic, OS:Curve:QuintLinear, OS:Curve:RectangularHyperbola1, OS:Curve:RectangularHyperbola2, OS:Curve:Sigmoid, OS:Curve:Triquadratic -->
+    
     <message>
         <source>Minimum Value of x</source>
         <translation>Valor Mínimo de x</translation>
     </message>
-    <!-- OS:Table:MultiVariableLookup -->
+    
     <message>
         <source>Minimum Value of X1</source>
         <translation>Valor Mínimo de X1</translation>
     </message>
-    <!-- OS:Table:MultiVariableLookup -->
+    
     <message>
         <source>Minimum Value of X2</source>
         <translation>Valor Mínimo de X2</translation>
     </message>
-    <!-- OS:Table:MultiVariableLookup -->
+    
     <message>
         <source>Minimum Value of X3</source>
         <translation>Valor Mínimo de X3</translation>
     </message>
-    <!-- OS:Table:MultiVariableLookup -->
+    
     <message>
         <source>Minimum Value of X4</source>
         <translation>Valor Mínimo de X4</translation>
     </message>
-    <!-- OS:Table:MultiVariableLookup -->
+    
     <message>
         <source>Minimum Value of X5</source>
         <translation>Valor Mínimo de X5</translation>
     </message>
-    <!-- OS:Curve:Bicubic, OS:Curve:Biquadratic, OS:Curve:QuadLinear, OS:Curve:QuadraticLinear, OS:Curve:QuintLinear, OS:Curve:Triquadratic -->
+    
     <message>
         <source>Minimum Value of y</source>
         <translation>Valor Mínimo de y</translation>
     </message>
-    <!-- OS:Curve:QuadLinear, OS:Curve:QuintLinear, OS:Curve:Triquadratic -->
+    
     <message>
         <source>Minimum Value of z</source>
         <translation>Valor Mínimo de z</translation>
     </message>
-    <!-- OS:AvailabilityManager:HybridVentilation -->
+    
     <message>
         <source>Minimum Ventilation Time</source>
         <translation>Tempo Mínimo de Ventilação</translation>
     </message>
-    <!-- OS:AirflowNetworkSurface, OS:AirflowNetworkZone -->
+    
     <message>
         <source>Minimum Venting Open Factor</source>
         <translation>Fator Mínimo de Abertura de Ventilação</translation>
     </message>
-    <!-- OS:CoolingTowerPerformance:CoolTools, OS:CoolingTowerPerformance:YorkCalc -->
+    
     <message>
         <source>Minimum Water Flow Rate Ratio</source>
         <translation>Taxa Mínima de Vazão de Água</translation>
     </message>
-    <!-- OS:CoilSystem:Cooling:Water -->
+    
     <message>
         <source>Minimum Water Loop Temperature For Heat Recovery</source>
         <translation>Temperatura Mínima do Loop de Água Para Recuperação de Calor</translation>
     </message>
-    <!-- OS:Fan:ZoneExhaust -->
+    
     <message>
         <source>Minimum Zone Temperature Limit Schedule Name</source>
         <translation>Nome do Cronograma de Limite de Temperatura Mínima da Zona</translation>
     </message>
-    <!-- OS:Curve:Functional:PressureDrop -->
+    
     <message>
         <source>Minor Loss Coefficient</source>
         <translation>Coeficiente de Perda Secundária</translation>
     </message>
-    <!-- OS:LightingDesignDay -->
+    
     <message>
         <source>Minute to Simulate</source>
         <translation>Minuto a Simular</translation>
     </message>
-    <!-- OS:Schedule:File -->
+    
     <message>
         <source>Minutes per Item</source>
         <translation>Minutos por Item</translation>
     </message>
-    <!-- OS:ComponentCost:Adjustments -->
+    
     <message>
         <source>Miscellaneous Cost per Conditioned Area</source>
         <translation>Custo Diverso por Área Condicionada</translation>
     </message>
-    <!-- OS:AirLoopHVAC:OutdoorAirSystem, OS:Controller:OutdoorAir -->
+    
     <message>
         <source>Mixed Air Node Name</source>
         <translation>Nome do Nó de Ar Misto</translation>
     </message>
-    <!-- OS:SetpointManager:OutdoorAirPretreat -->
+    
     <message>
         <source>Mixed Air Stream Node Name</source>
         <translation>Nome do Nó de Fluxo de Ar Misto</translation>
     </message>
-    <!-- OS:Refrigeration:Compressor -->
+    
     <message>
         <source>Mode of Operation</source>
         <translation>Modo de Operação</translation>
     </message>
-    <!-- OS:CoolingTower:VariableSpeed -->
+    
     <message>
         <source>Model Coefficient</source>
         <translation>Coeficiente do Modelo</translation>
     </message>
-    <!-- OS:ModelObjectList -->
+    
     <message>
         <source>Model Object</source>
         <translation>Objeto do Modelo</translation>
     </message>
-    <!-- OS:Coil:Cooling:CooledBeam -->
+    
     <message>
         <source>Model Parameter a</source>
         <translation>Parâmetro de Modelo a</translation>
     </message>
-    <!-- OS:Coil:Cooling:CooledBeam -->
+    
     <message>
         <source>Model Parameter a0</source>
         <translation>Parâmetro do Modelo a0</translation>
     </message>
-    <!-- OS:Coil:Cooling:CooledBeam -->
+    
     <message>
         <source>Model Parameter K1</source>
         <translation>Parâmetro do Modelo K1</translation>
     </message>
-    <!-- OS:Coil:Cooling:CooledBeam -->
+    
     <message>
         <source>Model Parameter n</source>
         <translation>Parâmetro do Modelo n</translation>
     </message>
-    <!-- OS:Coil:Cooling:CooledBeam -->
+    
     <message>
         <source>Model Parameter n1</source>
         <translation>Parâmetro de Modelo n1</translation>
     </message>
-    <!-- OS:Coil:Cooling:CooledBeam -->
+    
     <message>
         <source>Model Parameter n2</source>
         <translation>Parâmetro do Modelo n2</translation>
     </message>
-    <!-- OS:Coil:Cooling:CooledBeam -->
+    
     <message>
         <source>Model Parameter n3</source>
         <translation>Parâmetro do Modelo n3</translation>
     </message>
-    <!-- OS:Coil:UserDefined -->
+    
     <message>
         <source>Model Setup and Sizing Program Calling Manager Name</source>
         <translation>Gerenciador de Chamada do Programa de Configuração e Dimensionamento do Modelo</translation>
     </message>
-    <!-- OS:CoolingTower:VariableSpeed -->
+    
     <message>
         <source>Model Type</source>
         <translation>Tipo de Modelo</translation>
     </message>
-    <!-- OS:PhotovoltaicPerformance:EquivalentOneDiode -->
+    
     <message>
         <source>Module Current at Maximum Power</source>
         <translation>Corrente do Módulo na Potência Máxima</translation>
     </message>
-    <!-- OS:PhotovoltaicPerformance:EquivalentOneDiode -->
+    
     <message>
         <source>Module Heat Loss Coefficient</source>
         <translation>Coeficiente de Perda de Calor do Módulo</translation>
     </message>
-    <!-- OS:Generator:Photovoltaic -->
+    
     <message>
         <source>Module Performance Name</source>
         <translation>Nome de Desempenho do Módulo</translation>
     </message>
-    <!-- OS:Generator:PVWatts -->
+    
     <message>
         <source>Module Type</source>
         <translation>Tipo de Módulo</translation>
     </message>
-    <!-- OS:PhotovoltaicPerformance:EquivalentOneDiode -->
+    
     <message>
         <source>Module Voltage at Maximum Power</source>
         <translation>Tensão do Módulo na Potência Máxima</translation>
     </message>
-    <!-- OS:Material:RoofVegetation -->
+    
     <message>
         <source>Moisture Diffusion Calculation Method</source>
         <translation>Método de Cálculo de Difusão de Umidade</translation>
     </message>
-    <!-- OS:MaterialProperty:MoisturePenetrationDepth:Settings -->
+    
     <message>
         <source>Moisture Equation Coefficient a</source>
         <translation>Coeficiente a da Equação de Umidade</translation>
     </message>
-    <!-- OS:MaterialProperty:MoisturePenetrationDepth:Settings -->
+    
     <message>
         <source>Moisture Equation Coefficient b</source>
         <translation>Coeficiente b da Equação de Umidade</translation>
     </message>
-    <!-- OS:MaterialProperty:MoisturePenetrationDepth:Settings -->
+    
     <message>
         <source>Moisture Equation Coefficient c</source>
         <translation>Coeficiente c da Equação de Umidade</translation>
     </message>
-    <!-- OS:MaterialProperty:MoisturePenetrationDepth:Settings -->
+    
     <message>
         <source>Moisture Equation Coefficient d</source>
         <translation>Coeficiente d da Equação de Umidade</translation>
     </message>
-    <!-- OS:Generator:FuelCell:AirSupply -->
+    
     <message>
         <source>Molar Fraction</source>
         <translation>Fração Molar</translation>
     </message>
-    <!-- OS:WindowMaterial:Gas -->
+    
     <message>
         <source>Molecular Weight</source>
         <translation>Peso Molecular</translation>
     </message>
-    <!-- OS:Schedule:Week -->
+    
     <message>
         <source>Monday Schedule:Day Name</source>
         <translation>Segunda-feira Agendamento:Nome do Dia</translation>
     </message>
-    <!-- OS:CurrencyType -->
+    
     <message>
         <source>Monetary Unit</source>
         <translation>Unidade Monetária</translation>
     </message>
-    <!-- OS:LightingDesignDay, OS:Schedule:VariableInterval, OS:Schedule:Year, OS:SizingPeriod:DesignDay -->
+    
     <message>
         <source>Month</source>
         <translation>Mês</translation>
     </message>
-    <!-- OS:UtilityCost:Tariff -->
+    
     <message>
         <source>Month Schedule Name</source>
         <translation>Nome do Cronograma Mensal</translation>
     </message>
-    <!-- OS:UtilityCost:Tariff -->
+    
     <message>
         <source>Monthly Charge or Variable Name</source>
         <translation>Cobrança Mensal ou Nome da Variável</translation>
     </message>
-    <!-- OS:LifeCycleCost -->
+    
     <message>
         <source>Months from Start</source>
         <translation>Meses desde o Início</translation>
     </message>
-    <!-- OS:Fan:ComponentModel -->
+    
     <message>
         <source>Motor Fan Pulley Ratio</source>
         <translation>Razão de Polias do Ventilador do Motor</translation>
     </message>
-    <!-- OS:Fan:SystemModel -->
+    
     <message>
         <source>Motor In Air Stream Fraction</source>
         <translation>Fração do Motor no Fluxo de Ar</translation>
     </message>
-    <!-- OS:Fan:SystemModel -->
+    
     <message>
         <source>Motor Loss Radiative Fraction</source>
         <translation>Fração Radiativa de Perdas do Motor</translation>
     </message>
-    <!-- OS:Fan:SystemModel -->
+    
     <message>
         <source>Motor Loss Zone Name</source>
         <translation>Nome da Zona de Perda do Motor</translation>
     </message>
-    <!-- OS:Fan:ComponentModel -->
+    
     <message>
         <source>Motor Maximum Speed</source>
         <translation>Velocidade Máxima do Motor</translation>
     </message>
-    <!-- OS:Fan:ComponentModel -->
+    
     <message>
         <source>Motor Sizing Factor</source>
         <translation>Fator de Dimensionamento do Motor</translation>
     </message>
-    <!-- OS:ShadingControl -->
+    
     <message>
         <source>Multiple Surface Control Type</source>
         <translation>Tipo de Controle de Múltiplas Superfícies</translation>
     </message>
-    <!-- OS:UtilityCost:Ratchet -->
+    
     <message>
         <source>Multiplier Value or Variable Name</source>
         <translation>Valor do Multiplicador ou Nome da Variável</translation>
     </message>
 
-    <!-- N -->
-    <!-- OS:FuelFactors -->
+    
+    
     <message>
         <source>N2O Emission Factor</source>
         <translation>Fator de Emissão de N2O</translation>
     </message>
-    <!-- OS:FuelFactors -->
+    
     <message>
         <source>N2O Emission Factor Schedule Name</source>
         <translation>Nome do Cronograma do Fator de Emissão de N2O</translation>
     </message>
-    <!-- OS:PythonPlugin:TrendVariable -->
+    
     <message>
         <source>Name of a Python Plugin Variable</source>
         <translation>Nome de uma Variável de Plugin Python</translation>
     </message>
-    <!-- OS:ExternalInterface -->
+    
     <message>
         <source>Name of External Interface</source>
         <translation>Nome da Interface Externa</translation>
     </message>
-    <!-- OS:ComponentData -->
+    
     <message>
         <source>Name of Object</source>
         <translation>Nome do Objeto</translation>
     </message>
-    <!-- OS:ElectricLoadCenter:Transformer -->
+    
     <message>
         <source>Nameplate Efficiency</source>
         <translation>Eficiência Nominal</translation>
     </message>
-    <!-- OS:LifeCycleCost:Parameters -->
+    
     <message>
         <source>NaturalGas Inflation</source>
         <translation>Inflação de Gás Natural</translation>
     </message>
-    <!-- OS:WindowProperty:FrameAndDivider -->
+    
     <message>
         <source>NFRC Product Type for Assembly Calculations</source>
         <translation>Tipo de Produto NFRC para Cálculos de Conjunto</translation>
     </message>
-    <!-- OS:FuelFactors -->
+    
     <message>
         <source>NH3 Emission Factor</source>
         <translation>Fator de Emissão de NH3</translation>
     </message>
-    <!-- OS:FuelFactors -->
+    
     <message>
         <source>NH3 Emission Factor Schedule Name</source>
         <translation>Nome do Cronograma do Fator de Emissão NH3</translation>
     </message>
-    <!-- OS:ElectricLoadCenter:Inverter:LookUpTable -->
+    
     <message>
         <source>Night Tare Loss Power</source>
         <translation>Potência de Perda de Tara Noturna</translation>
     </message>
-    <!-- OS:Fan:SystemModel -->
+    
     <message>
         <source>Night Ventilation Mode Flow Fraction</source>
         <translation>Fração de Vazão em Modo de Ventilação Noturna</translation>
     </message>
-    <!-- OS:Fan:SystemModel -->
+    
     <message>
         <source>Night Ventilation Mode Pressure Rise</source>
         <translation>Aumento de Pressão do Modo de Ventilação Noturna</translation>
     </message>
-    <!-- OS:AvailabilityManager:NightVentilation -->
+    
     <message>
         <source>Night Venting Flow Fraction</source>
         <translation>Fração de Vazão de Ventilação Noturna</translation>
     </message>
-    <!-- OS:LifeCycleCost:Parameters -->
+    
     <message>
         <source>NIST Region</source>
         <translation>Região NIST</translation>
     </message>
-    <!-- OS:LifeCycleCost:Parameters -->
+    
     <message>
         <source>NIST Sector</source>
         <translation>Setor NIST</translation>
     </message>
-    <!-- OS:FuelFactors -->
+    
     <message>
         <source>NMVOC Emission Factor</source>
         <translation>Fator de Emissão NMVOC</translation>
     </message>
-    <!-- OS:FuelFactors -->
+    
     <message>
         <source>NMVOC Emission Factor Schedule Name</source>
         <translation>Nome do Cronograma do Fator de Emissão de NMVOC</translation>
     </message>
-    <!-- OS:AirLoopHVAC:UnitarySystem, OS:ZoneHVAC:PackagedTerminalAirConditioner, OS:ZoneHVAC:PackagedTerminalHeatPump, OS:ZoneHVAC:WaterToAirHeatPump -->
+    
     <message>
         <source>No Load Supply Air Flow Rate Control Set To Low Speed</source>
         <translation>Controle da Vazão de Ar de Suprimento sem Carga Definido para Velocidade Baixa</translation>
     </message>
-    <!-- OS:UnitarySystemPerformance:Multispeed -->
+    
     <message>
         <source>No Load Supply Air Flow Rate Ratio</source>
         <translation>Taxa da Vazão de Ar de Suprimento sem Carga</translation>
     </message>
-    <!-- OS:ThermalStorage:ChilledWater:Stratified, OS:WaterHeater:Stratified -->
+    
     <message>
         <source>Node 1 Additional Loss Coefficient</source>
         <translation>Coeficiente de Perda Adicional do Nó 1</translation>
     </message>
-    <!-- OS:AirflowNetworkDistributionLinkage -->
+    
     <message>
         <source>Node 1 Name</source>
         <translation>Nome do Nó 1</translation>
     </message>
-    <!-- OS:ThermalStorage:ChilledWater:Stratified, OS:WaterHeater:Stratified -->
+    
     <message>
         <source>Node 10 Additional Loss Coefficient</source>
         <translation>Coeficiente de Perda Adicional do Nó 10</translation>
     </message>
-    <!-- OS:WaterHeater:Stratified -->
+    
     <message>
         <source>Node 11 Additional Loss Coefficient</source>
         <translation>Coeficiente de Perda Adicional do Nó 11</translation>
     </message>
-    <!-- OS:WaterHeater:Stratified -->
+    
     <message>
         <source>Node 12 Additional Loss Coefficient</source>
         <translation>Coeficiente de Perda Adicional do Nó 12</translation>
     </message>
-    <!-- OS:ThermalStorage:ChilledWater:Stratified, OS:WaterHeater:Stratified -->
+    
     <message>
         <source>Node 2 Additional Loss Coefficient</source>
         <translation>Coeficiente de Perda Adicional do Nó 2</translation>
     </message>
-    <!-- OS:AirflowNetworkDistributionLinkage -->
+    
     <message>
         <source>Node 2 Name</source>
         <translation>Nome do Nó 2</translation>
     </message>
-    <!-- OS:ThermalStorage:ChilledWater:Stratified, OS:WaterHeater:Stratified -->
+    
     <message>
         <source>Node 3 Additional Loss Coefficient</source>
         <translation>Coeficiente de Perda Adicional do Nó 3</translation>
     </message>
-    <!-- OS:ThermalStorage:ChilledWater:Stratified, OS:WaterHeater:Stratified -->
+    
     <message>
         <source>Node 4 Additional Loss Coefficient</source>
         <translation>Coeficiente de Perda Adicional do Nó 4</translation>
     </message>
-    <!-- OS:ThermalStorage:ChilledWater:Stratified, OS:WaterHeater:Stratified -->
+    
     <message>
         <source>Node 5 Additional Loss Coefficient</source>
         <translation>Coeficiente de Perda Adicional do Nó 5</translation>
     </message>
-    <!-- OS:ThermalStorage:ChilledWater:Stratified, OS:WaterHeater:Stratified -->
+    
     <message>
         <source>Node 6 Additional Loss Coefficient</source>
         <translation>Coeficiente de Perda Adicional do Nó 6</translation>
     </message>
-    <!-- OS:ThermalStorage:ChilledWater:Stratified, OS:WaterHeater:Stratified -->
+    
     <message>
         <source>Node 7 Additional Loss Coefficient</source>
         <translation>Coeficiente de Perda Adicional do Nó 7</translation>
     </message>
-    <!-- OS:ThermalStorage:ChilledWater:Stratified, OS:WaterHeater:Stratified -->
+    
     <message>
         <source>Node 8 Additional Loss Coefficient</source>
         <translation>Coeficiente de Perda Adicional do Nó 8</translation>
     </message>
-    <!-- OS:ThermalStorage:ChilledWater:Stratified, OS:WaterHeater:Stratified -->
+    
     <message>
         <source>Node 9 Additional Loss Coefficient</source>
         <translation>Coeficiente de Perda Adicional do Nó 9</translation>
     </message>
-    <!-- OS:AirflowNetworkDistributionNode -->
+    
     <message>
         <source>Node Height</source>
         <translation>Altura do Nó</translation>
     </message>
-    <!-- OS:HeatExchanger:Desiccant:BalancedFlow:PerformanceDataType1 -->
+    
     <message>
         <source>Nominal Air Face Velocity</source>
         <translation>Velocidade Nominal do Ar na Face</translation>
     </message>
-    <!-- OS:HeatExchanger:Desiccant:BalancedFlow:PerformanceDataType1 -->
+    
     <message>
         <source>Nominal Air Flow Rate</source>
         <translation>Vazão de Ar Nominal</translation>
     </message>
-    <!-- OS:HeatPump:AirToWater:FuelFired:Cooling, OS:HeatPump:AirToWater:FuelFired:Heating -->
+    
     <message>
         <source>Nominal Auxiliary Electric Power</source>
         <translation>Potência Elétrica Auxiliar Nominal</translation>
     </message>
-    <!-- OS:Generator:FuelCell:ElectricalStorage -->
+    
     <message>
         <source>Nominal Charging Energetic Efficiency</source>
         <translation>Eficiência Energética Nominal de Carregamento</translation>
     </message>
-    <!-- OS:HeatPump:AirToWater:FuelFired:Cooling, OS:ThermalStorage:ChilledWater:Stratified -->
+    
     <message>
         <source>Nominal Cooling Capacity</source>
         <translation>Capacidade Nominal de Resfriamento</translation>
     </message>
-    <!-- OS:HeatPump:AirToWater:FuelFired:Cooling, OS:HeatPump:AirToWater:FuelFired:Heating -->
+    
     <message>
         <source>Nominal COP</source>
         <translation>COP Nominal</translation>
     </message>
-    <!-- OS:ElectricLoadCenter:Storage:Simple, OS:Generator:FuelCell:ElectricalStorage -->
+    
     <message>
         <source>Nominal Discharging Energetic Efficiency</source>
         <translation>Eficiência Energética Nominal de Descarga</translation>
     </message>
-    <!-- OS:LifeCycleCost:Parameters -->
+    
     <message>
         <source>Nominal Discount Rate</source>
         <translation>Taxa de Desconto Nominal</translation>
     </message>
-    <!-- OS:Generator:FuelCell:PowerModule -->
+    
     <message>
         <source>Nominal Efficiency</source>
         <translation>Eficiência Nominal</translation>
     </message>
-    <!-- OS:HeatExchanger:AirToAir:SensibleAndLatent, OS:HeatExchanger:Desiccant:BalancedFlow:PerformanceDataType1 -->
+    
     <message>
         <source>Nominal Electric Power</source>
         <translation>Potência Elétrica Nominal</translation>
     </message>
-    <!-- OS:Generator:FuelCell:PowerModule -->
+    
     <message>
         <source>Nominal Electrical Power</source>
         <translation>Potência Elétrica Nominal</translation>
     </message>
-    <!-- OS:ElectricLoadCenter:Storage:Simple -->
+    
     <message>
         <source>Nominal Energetic Efficiency for Charging</source>
         <translation>Eficiência Energética Nominal para Carregamento</translation>
     </message>
-    <!-- OS:Coil:Cooling:DX:CurveFit:OperatingMode -->
+    
     <message>
         <source>Nominal Evaporative Condenser Pump Power</source>
         <translation>Potência Nominal da Bomba do Condensador Evaporativo</translation>
     </message>
-    <!-- OS:Generator:MicroTurbine -->
+    
     <message>
         <source>Nominal Exhaust Air Outlet Temperature</source>
         <translation>Temperatura Nominal da Saída do Ar Exaurido</translation>
     </message>
-    <!-- OS:Building, OS:BuildingStory -->
+    
     <message>
         <source>Nominal Floor to Ceiling Height</source>
         <translation>Altura Nominal do Piso ao Teto</translation>
     </message>
-    <!-- OS:Building, OS:BuildingStory -->
+    
     <message>
         <source>Nominal Floor to Floor Height</source>
         <translation>Altura Nominal Piso a Piso</translation>
     </message>
-    <!-- OS:HeatPump:AirToWater:FuelFired:Heating -->
+    
     <message>
         <source>Nominal Heating Capacity</source>
         <translation>Capacidade Nominal de Aquecimento</translation>
     </message>
-    <!-- OS:PhotovoltaicPerformance:EquivalentOneDiode -->
+    
     <message>
         <source>Nominal Operating Cell Temperature Test Ambient Temperature</source>
         <translation>Temperatura Ambiente de Teste da Temperatura de Célula em Operação Nominal</translation>
     </message>
-    <!-- OS:PhotovoltaicPerformance:EquivalentOneDiode -->
+    
     <message>
         <source>Nominal Operating Cell Temperature Test Cell Temperature</source>
         <translation>Temperatura de Célula de Teste de Temperatura Nominal de Operação da Célula</translation>
     </message>
-    <!-- OS:PhotovoltaicPerformance:EquivalentOneDiode -->
+    
     <message>
         <source>Nominal Operating Cell Temperature Test Insolation</source>
         <translation>Insolação de Teste de Temperatura Nominal de Célula em Operação</translation>
     </message>
-    <!-- OS:Chiller:Absorption, OS:Chiller:Absorption:Indirect -->
+    
     <message>
         <source>Nominal Pumping Power</source>
         <translation>Potência Nominal da Bomba</translation>
     </message>
-    <!-- OS:Coil:Cooling:DX:VariableSpeed, OS:Coil:Cooling:WaterToAirHeatPump:VariableSpeedEquationFit, OS:Coil:Heating:DX:VariableSpeed, OS:Coil:Heating:WaterToAirHeatPump:VariableSpeedEquationFit, OS:Coil:WaterHeating:AirToWaterHeatPump:VariableSpeed -->
+    
     <message>
         <source>Nominal Speed Level</source>
         <translation>Nível de Velocidade Nominal</translation>
     </message>
-    <!-- OS:Coil:Cooling:DX:CurveFit:OperatingMode -->
+    
     <message>
         <source>Nominal Speed Number</source>
         <translation>Número de Velocidade Nominal</translation>
     </message>
-    <!-- OS:Generator:FuelCell:StackCooler -->
+    
     <message>
         <source>Nominal Stack Temperature</source>
         <translation>Temperatura Nominal da Chaminé</translation>
     </message>
-    <!-- OS:HeatExchanger:AirToAir:SensibleAndLatent -->
+    
     <message>
         <source>Nominal Supply Air Flow Rate</source>
         <translation>Taxa de Vazão de Ar de Suprimento Nominal</translation>
     </message>
-    <!-- OS:WaterHeater:Sizing -->
+    
     <message>
         <source>Nominal Tank Volume for Autosizing Plant Connections</source>
         <translation>Volume Nominal do Tanque para Autossizing de Conexões da Planta</translation>
     </message>
-    <!-- OS:Coil:Cooling:DX:VariableSpeed, OS:Coil:Cooling:WaterToAirHeatPump:VariableSpeedEquationFit -->
+    
     <message>
         <source>Nominal Time for Condensate to Begin Leaving the Coil</source>
         <translation>Tempo Nominal para Início da Saída do Condensado da Bobina</translation>
     </message>
-    <!-- OS:ElectricLoadCenter:Inverter:LookUpTable -->
+    
     <message>
         <source>Nominal Voltage Input</source>
         <translation>Tensão de Entrada Nominal</translation>
     </message>
-    <!-- OS:BuildingStory -->
+    
     <message>
         <source>Nominal Z Coordinate</source>
         <translation>Coordenada Z Nominal</translation>
     </message>
-    <!-- OS:Coil:Cooling:DX:TwoStageWithHumidityControlMode -->
+    
     <message>
         <source>Normal Mode Stage 1 Coil Performance</source>
         <translation>Desempenho da Bobina - Modo Normal Estágio 1</translation>
     </message>
-    <!-- OS:Coil:Cooling:DX:TwoStageWithHumidityControlMode -->
+    
     <message>
         <source>Normal Mode Stage 1 Plus 2 Coil Performance</source>
         <translation>Desempenho da Serpentina Modo Normal Estágio 1 Mais 2</translation>
     </message>
-    <!-- OS:Table:Lookup -->
+    
     <message>
         <source>Normalization Divisor</source>
         <translation>Divisor de Normalização</translation>
     </message>
-    <!-- OS:Table:Lookup -->
+    
     <message>
         <source>Normalization Method</source>
         <translation>Método de Normalização</translation>
     </message>
-    <!-- OS:Table:MultiVariableLookup -->
+    
     <message>
         <source>Normalization Reference</source>
         <translation>Referência de Normalização</translation>
     </message>
-    <!-- OS:Table:IndependentVariable -->
+    
     <message>
         <source>Normalization Reference Value</source>
         <translation>Valor de Referência para Normalização</translation>
     </message>
-    <!-- OS:Fan:ComponentModel -->
+    
     <message>
         <source>Normalized Belt Efficiency Curve Name - Region 1</source>
         <translation>Nome da Curva de Eficiência da Correia Normalizada - Região 1</translation>
     </message>
-    <!-- OS:Fan:ComponentModel -->
+    
     <message>
         <source>Normalized Belt Efficiency Curve Name - Region 2</source>
         <translation>Nome da Curva de Eficiência da Correia Normalizada - Região 2</translation>
     </message>
-    <!-- OS:Fan:ComponentModel -->
+    
     <message>
         <source>Normalized Belt Efficiency Curve Name - Region 3</source>
         <translation>Nome da Curva de Eficiência da Correia Normalizada - Região 3</translation>
     </message>
-    <!-- OS:HeatPump:AirToWater:FuelFired:Cooling, OS:HeatPump:AirToWater:FuelFired:Heating -->
+    
     <message>
         <source>Normalized Capacity Function of Temperature Curve Name</source>
         <translation>Nome da Curva da Função de Capacidade Normalizada em Função da Temperatura</translation>
     </message>
-    <!-- OS:HeatPump:AirToWater:Cooling:SpeedData -->
+    
     <message>
         <source>Normalized Cooling Capacity Function of Temperature Curve Name</source>
         <translation>Nome da Curva da Função de Capacidade de Resfriamento Normalizada em Relação à Temperatura</translation>
     </message>
-    <!-- OS:Fan:ComponentModel -->
+    
     <message>
         <source>Normalized Dimensionless Airflow Curve Name-Non-Stall Region</source>
         <translation>Curva de Fluxo de Ar Adimensional Normalizada - Região Sem Estol</translation>
     </message>
-    <!-- OS:Fan:ComponentModel -->
+    
     <message>
         <source>Normalized Dimensionless Airflow Curve Name-Stall Region</source>
         <translation>Nome da Curva de Fluxo de Ar Adimensional Normalizado - Região de Estol</translation>
     </message>
-    <!-- OS:Fan:ComponentModel -->
+    
     <message>
         <source>Normalized Fan Static Efficiency Curve Name-Non-Stall Region</source>
         <translation>Curva de Eficiência Estática do Ventilador Normalizada - Região Não-Estol</translation>
     </message>
-    <!-- OS:Fan:ComponentModel -->
+    
     <message>
         <source>Normalized Fan Static Efficiency Curve Name-Stall Region</source>
         <translation>Nome da Curva de Eficiência Estática do Ventilador Normalizada - Região de Estol</translation>
     </message>
-    <!-- OS:HeatPump:AirToWater:Heating:SpeedData -->
+    
     <message>
         <source>Normalized Heating Capacity Function of Temperature Curve Name</source>
         <translation>Nome da Curva de Função da Capacidade de Aquecimento Normalizada em Relação à Temperatura</translation>
     </message>
-    <!-- OS:Fan:ComponentModel -->
+    
     <message>
         <source>Normalized Motor Efficiency Curve Name</source>
         <translation>Normalized Motor Efficiency Curve Name</translation>
     </message>
-    <!-- OS:Building -->
+    
     <message>
         <source>North Axis</source>
         <translation>Eixo Norte</translation>
     </message>
-    <!-- OS:Site:GroundTemperature:Deep -->
+    
     <message>
         <source>November Deep Ground Temperature</source>
         <translation>Temperatura Profunda do Solo em Novembro</translation>
     </message>
-    <!-- OS:Site:GroundReflectance -->
+    
     <message>
         <source>November Ground Reflectance</source>
         <translation>Refletância do Solo em Novembro</translation>
     </message>
-    <!-- OS:Site:GroundTemperature:BuildingSurface, OS:Site:GroundTemperature:FCfactorMethod -->
+    
     <message>
         <source>November Ground Temperature</source>
         <translation>Temperatura do Solo em Novembro</translation>
     </message>
-    <!-- OS:Site:GroundTemperature:Shallow -->
+    
     <message>
         <source>November Surface Ground Temperature</source>
         <translation>Temperatura de Superfície do Solo em Novembro</translation>
     </message>
-    <!-- OS:UtilityCost:Variable -->
+    
     <message>
         <source>November Value</source>
         <translation>Valor de Novembro</translation>
     </message>
-    <!-- OS:FuelFactors -->
+    
     <message>
         <source>NOx Emission Factor</source>
         <translation>Fator de Emissão de NOx</translation>
     </message>
-    <!-- OS:FuelFactors -->
+    
     <message>
         <source>NOx Emission Factor Schedule Name</source>
         <translation>NOx Nome da Agenda do Fator de Emissão</translation>
     </message>
-    <!-- OS:FuelFactors -->
+    
     <message>
         <source>Nuclear High Level Emission Factor</source>
         <translation>Fator de Emissão de Alto Nível Nuclear</translation>
     </message>
-    <!-- OS:FuelFactors -->
+    
     <message>
         <source>Nuclear High Level Emission Factor Schedule Name</source>
         <translation>Nome da Agenda de Fator de Emissão de Alto Nível Nuclear</translation>
     </message>
-    <!-- OS:FuelFactors -->
+    
     <message>
         <source>Nuclear Low Level Emission Factor</source>
         <translation>Fator de Emissão de Baixo Nível Nuclear</translation>
     </message>
-    <!-- OS:FuelFactors -->
+    
     <message>
         <source>Nuclear Low Level Emission Factor Schedule Name</source>
         <translation>Nome da Agenda de Fator de Emissão de Baixo Nível Nuclear</translation>
     </message>
-    <!-- OS:WaterHeater:Sizing -->
+    
     <message>
         <source>Number of Bathrooms</source>
         <translation>Número de Banheiros</translation>
     </message>
-    <!-- OS:AirTerminal:SingleDuct:ConstantVolume:CooledBeam -->
+    
     <message>
         <source>Number of Beams</source>
         <translation>Número de Vigas</translation>
     </message>
-    <!-- OS:WaterHeater:Sizing -->
+    
     <message>
         <source>Number of Bedrooms</source>
         <translation>Número de Quartos</translation>
     </message>
-    <!-- OS:Generator:WindTurbine -->
+    
     <message>
         <source>Number of Blades</source>
         <translation>Número de Pás</translation>
     </message>
-    <!-- OS:GroundHeatExchanger:Vertical -->
+    
     <message>
         <source>Number of Bore Holes</source>
         <translation>Número de Furos</translation>
     </message>
-    <!-- OS:Coil:Cooling:DX:TwoStageWithHumidityControlMode -->
+    
     <message>
         <source>Number of Capacity Stages</source>
         <translation>Número de Estágios de Capacidade</translation>
     </message>
-    <!-- OS:CoolingTower:SingleSpeed, OS:CoolingTower:TwoSpeed, OS:CoolingTower:VariableSpeed -->
+    
     <message>
         <source>Number of Cells</source>
         <translation>Número de Células</translation>
     </message>
-    <!-- OS:PhotovoltaicPerformance:Sandia -->
+    
     <message>
         <source>Number of Cells in Parallel</source>
         <translation>Número de Células em Paralelo</translation>
     </message>
-    <!-- OS:ElectricLoadCenter:Storage:LiIonNMCBattery, OS:PhotovoltaicPerformance:EquivalentOneDiode, OS:PhotovoltaicPerformance:Sandia -->
+    
     <message>
         <source>Number of Cells in Series</source>
         <translation>Número de Células em Série</translation>
     </message>
-    <!-- OS:CentralHeatPumpSystem:Module -->
+    
     <message>
         <source>Number of Chiller Heater Modules</source>
         <translation>Número de Módulos de Chiller Aquecedor</translation>
     </message>
-    <!-- OS:ZoneHVAC:LowTemperatureRadiant:ConstantFlow, OS:ZoneHVAC:LowTemperatureRadiant:VariableFlow -->
+    
     <message>
         <source>Number of Circuits</source>
         <translation>Número de Circuitos</translation>
     </message>
-    <!-- OS:Generator:FuelSupply -->
+    
     <message>
         <source>Number of Constituents in Gaseous Constituent Fuel Supply</source>
         <translation>Número de Constituintes no Suprimento de Combustível Constituinte Gasoso</translation>
     </message>
-    <!-- OS:ZoneControl:Thermostat:StagedDualSetpoint -->
+    
     <message>
         <source>Number of Cooling Stages</source>
         <translation>Número de Estágios de Resfriamento</translation>
     </message>
-    <!-- OS:SolarCollectorPerformance:IntegralCollectorStorage -->
+    
     <message>
         <source>Number of Covers</source>
         <translation>Número de Coberturas</translation>
     </message>
-    <!-- OS:Daylighting:Control -->
+    
     <message>
         <source>Number of Daylighting Views</source>
         <translation>Número de Visualizações de Iluminação Natural</translation>
     </message>
-    <!-- OS:UtilityBill -->
+    
     <message>
         <source>Number of Days in Billing Period</source>
         <translation>Número de Dias no Período de Faturamento</translation>
     </message>
-    <!-- OS:Refrigeration:Case -->
+    
     <message>
         <source>Number Of Doors</source>
         <translation>Número de Portas</translation>
     </message>
-    <!-- OS:Coil:Cooling:DX:TwoStageWithHumidityControlMode -->
+    
     <message>
         <source>Number of Enhanced Dehumidification Modes</source>
         <translation>Número de Modos de Desumidificação Aprimorada</translation>
     </message>
-    <!-- OS:WindowMaterial:GasMixture -->
+    
     <message>
         <source>Number of Gases in Mixture</source>
         <translation>Número de Gases na Mistura</translation>
     </message>
-    <!-- OS:Glare:Sensor -->
+    
     <message>
         <source>Number of Glare View Vectors</source>
         <translation>Número de Vetores de Visão de Ofuscação</translation>
     </message>
-    <!-- OS:ZoneControl:Thermostat:StagedDualSetpoint -->
+    
     <message>
         <source>Number of Heating Stages</source>
         <translation>Número de Estágios de Aquecimento</translation>
     </message>
-    <!-- OS:WindowProperty:FrameAndDivider -->
+    
     <message>
         <source>Number of Horizontal Dividers</source>
         <translation>Número de Divisores Horizontais</translation>
     </message>
-    <!-- OS:Schedule:File -->
+    
     <message>
         <source>Number of Hours of Data</source>
         <translation>Número de Horas de Dados</translation>
     </message>
-    <!-- OS:Table:MultiVariableLookup -->
+    
     <message>
         <source>Number of Independent Variables</source>
         <translation>Número de Variáveis Independentes</translation>
     </message>
-    <!-- OS:Table:MultiVariableLookup -->
+    
     <message>
         <source>Number of Interpolation Points</source>
         <translation>Número de Pontos de Interpolação</translation>
     </message>
-    <!-- OS:Generator:Photovoltaic -->
+    
     <message>
         <source>Number of Modules in Parallel</source>
         <translation>Número de Módulos em Paralelo</translation>
     </message>
-    <!-- OS:Generator:Photovoltaic -->
+    
     <message>
         <source>Number of Modules in Series</source>
         <translation>Número de Módulos em Série</translation>
     </message>
-    <!-- OS:UtilityCost:Qualify -->
+    
     <message>
         <source>Number of Months</source>
         <translation>Número de Meses</translation>
     </message>
-    <!-- OS:AvailabilityManager:OptimumStart -->
+    
     <message>
         <source>Number of Previous Days</source>
         <translation>Número de Dias Anteriores</translation>
     </message>
-    <!-- OS:HeaderedPumps:ConstantSpeed, OS:HeaderedPumps:VariableSpeed -->
+    
     <message>
         <source>Number of Pumps in Bank</source>
         <translation>Número de Bombas no Banco</translation>
     </message>
-    <!-- OS:Refrigeration:SecondarySystem -->
+    
     <message>
         <source>Number of Pumps in Loop</source>
         <translation>Número de Bombas no Circuito</translation>
     </message>
-    <!-- OS:Generator:FuelCell:PowerModule -->
+    
     <message>
         <source>Number of Run Hours at Beginning of Simulation</source>
         <translation>Número de Horas de Execução no Início da Simulação</translation>
     </message>
-    <!-- OS:AirLoopHVAC:UnitaryHeatPump:AirToAir:MultiSpeed -->
+    
     <message>
         <source>Number of Speeds for Cooling</source>
         <translation>Número de Velocidades para Resfriamento</translation>
     </message>
-    <!-- OS:AirLoopHVAC:UnitaryHeatPump:AirToAir:MultiSpeed -->
+    
     <message>
         <source>Number of Speeds for Heating</source>
         <translation>Número de Velocidades para Aquecimento</translation>
     </message>
-    <!-- OS:Daylighting:Control -->
+    
     <message>
         <source>Number of Stepped Control Steps</source>
         <translation>Número de Etapas de Controle Escalonado</translation>
     </message>
-    <!-- OS:Generator:FuelCell:PowerModule -->
+    
     <message>
         <source>Number of Stops at Start of Simulation</source>
         <translation>Número de Paradas no Início da Simulação</translation>
     </message>
-    <!-- OS:ElectricLoadCenter:Storage:LiIonNMCBattery -->
+    
     <message>
         <source>Number of Strings in Parallel</source>
         <translation>Número de Strings em Paralelo</translation>
     </message>
-    <!-- OS:ProgramControl -->
+    
     <message>
         <source>Number of Threads Allowed</source>
         <translation>Número de Threads Permitidas</translation>
     </message>
-    <!-- OS:RunPeriod -->
+    
     <message>
         <source>Number of Times Runperiod to be Repeated</source>
         <translation>Número de Vezes que o Período de Simulação Será Repetido</translation>
     </message>
-    <!-- OS:Timestep -->
+    
     <message>
         <source>Number of Timesteps per Hour</source>
         <translation>Número de Passos de Tempo por Hora</translation>
     </message>
-    <!-- OS:EnergyManagementSystem:TrendVariable, OS:PythonPlugin:TrendVariable -->
+    
     <message>
         <source>Number of Timesteps to be Logged</source>
         <translation>Número de Passos de Tempo a serem Registrados</translation>
     </message>
-    <!-- OS:GroundHeatExchanger:HorizontalTrench -->
+    
     <message>
         <source>Number of Trenches</source>
         <translation>Número de Trincheiras</translation>
     </message>
-    <!-- OS:WaterHeater:Sizing -->
+    
     <message>
         <source>Number of Units</source>
         <translation>Número de Unidades</translation>
     </message>
-    <!-- OS:Generator:FuelCell:AirSupply -->
+    
     <message>
         <source>Number of UserDefined Constituents</source>
         <translation>Número de Constituintes Definidos pelo Usuário</translation>
     </message>
-    <!-- OS:WindowProperty:FrameAndDivider -->
+    
     <message>
         <source>Number of Vertical Dividers</source>
         <translation>Número de Divisórias Verticais</translation>
     </message>
-    <!-- OS:InteriorPartitionSurface, OS:ShadingSurface, OS:SubSurface, OS:Surface -->
+    
     <message>
         <source>Number of Vertices</source>
         <translation>Número de Vértices</translation>
     </message>
-    <!-- OS:IlluminanceMap -->
+    
     <message>
         <source>Number of X Grid Points</source>
         <translation>Número de Pontos de Grade X</translation>
     </message>
-    <!-- OS:IlluminanceMap -->
+    
     <message>
         <source>Number of Y Grid Points</source>
         <translation>Número de Pontos da Malha Y</translation>
     </message>
-    <!-- OS:ScheduleTypeLimits -->
+    
     <message>
         <source>Numeric Type</source>
         <translation>Tipo Numérico</translation>
     </message>
 
-    <!-- O -->
-    <!-- OS:AdditionalProperties -->
+    
+    
     <message>
         <source>Object Name</source>
         <translation>Nome do Objeto</translation>
     </message>
-    <!-- OS:AirflowNetworkOccupantVentilationControl -->
+    
     <message>
         <source>Occupancy Check</source>
         <translation>Verificação de Ocupação</translation>
     </message>
-    <!-- OS:Sizing:System -->
+    
     <message>
         <source>Occupant Diversity</source>
         <translation>Diversidade de Ocupantes</translation>
     </message>
-    <!-- OS:AirflowNetworkSurface, OS:AirflowNetworkZone -->
+    
     <message>
         <source>Occupant Ventilation Control Name</source>
         <translation>Nome do Controle de Ventilação do Ocupante</translation>
     </message>
-    <!-- OS:Site:GroundTemperature:Deep -->
+    
     <message>
         <source>October Deep Ground Temperature</source>
         <translation>Temperatura Profunda do Solo em Outubro</translation>
     </message>
-    <!-- OS:Site:GroundReflectance -->
+    
     <message>
         <source>October Ground Reflectance</source>
         <translation>Refletância do Solo em Outubro</translation>
     </message>
-    <!-- OS:Site:GroundTemperature:BuildingSurface, OS:Site:GroundTemperature:FCfactorMethod -->
+    
     <message>
         <source>October Ground Temperature</source>
         <translation>Temperatura do Solo em Outubro</translation>
     </message>
-    <!-- OS:Site:GroundTemperature:Shallow -->
+    
     <message>
         <source>October Surface Ground Temperature</source>
         <translation>Temperatura da Superfície do Solo em Outubro</translation>
     </message>
-    <!-- OS:UtilityCost:Variable -->
+    
     <message>
         <source>October Value</source>
         <translation>Valor de Outubro</translation>
     </message>
-    <!-- OS:WaterHeater:Stratified -->
+    
     <message>
         <source>Off Cycle Flue Loss Coefficient to Ambient Temperature</source>
         <translation>Coeficiente de Perda de Fluxo em Ciclo Desligado para Temperatura Ambiente</translation>
     </message>
-    <!-- OS:WaterHeater:Stratified -->
+    
     <message>
         <source>Off Cycle Flue Loss Fraction to Zone</source>
         <translation>Fração de Perda de Gases de Exaustão em Ciclo Desligado para a Zona</translation>
     </message>
-    <!-- OS:WaterHeater:Mixed -->
+    
     <message>
         <source>Off Cycle Loss Fraction to Thermal Zone</source>
         <translation>Fração de Perda em Ciclo Desligado para a Zona Térmica</translation>
     </message>
-    <!-- OS:WaterHeater:HeatPump, OS:WaterHeater:HeatPump:WrappedCondenser -->
+    
     <message>
         <source>Off Cycle Parasitic Electric Load</source>
         <translation>Carga Elétrica Parasitária em Ciclo Desligado</translation>
     </message>
-    <!-- OS:WaterHeater:Stratified -->
+    
     <message>
         <source>Off Cycle Parasitic Height</source>
         <translation>Altura Parasita em Ciclo Desligado</translation>
     </message>
-    <!-- OS:Coil:WaterHeating:Desuperheater, OS:ZoneHVAC:Dehumidifier:DX -->
+    
     <message>
         <source>Off-Cycle Parasitic Electric Load</source>
         <translation>Carga Elétrica Parasitária Fora do Ciclo</translation>
     </message>
-    <!-- OS:UtilityCost:Ratchet -->
+    
     <message>
         <source>Offset Value or Variable Name</source>
         <translation>Valor de Deslocamento ou Nome da Variável</translation>
     </message>
-    <!-- OS:Chiller:Electric:ASHRAE205 -->
+    
     <message>
         <source>Oil Cooler Design Flow Rate</source>
         <translation>Vazão de Projeto do Resfriador de Óleo</translation>
     </message>
-    <!-- OS:Chiller:Electric:ASHRAE205 -->
+    
     <message>
         <source>Oil Cooler Inlet Node Name</source>
         <translation>Nome do Nó de Entrada do Resfriador de Óleo</translation>
     </message>
-    <!-- OS:Chiller:Electric:ASHRAE205 -->
+    
     <message>
         <source>Oil Cooler Outlet Node Name</source>
         <translation>Nome do Nó de Saída do Resfriador de Óleo</translation>
     </message>
-    <!-- OS:WaterHeater:Mixed -->
+    
     <message>
         <source>On Cycle Loss Fraction to Thermal Zone</source>
         <translation>Fração de Perda em Ciclo para a Zona Térmica</translation>
     </message>
-    <!-- OS:WaterHeater:Stratified -->
+    
     <message>
         <source>On Cycle Parasitic Height</source>
         <translation>Altura Parasita em Ciclo Ligado</translation>
     </message>
-    <!-- OS:Coil:WaterHeating:Desuperheater -->
+    
     <message>
         <source>On-Cycle Parasitic Electric Load</source>
         <translation>Carga Elétrica Parasitária em Operação</translation>
     </message>
-    <!-- OS:PhotovoltaicPerformance:EquivalentOneDiode, OS:PhotovoltaicPerformance:Sandia -->
+    
     <message>
         <source>Open Circuit Voltage</source>
         <translation>Tensão de Circuito Aberto</translation>
     </message>
-    <!-- OS:ZoneVentilation:WindandStackOpenArea -->
+    
     <message>
         <source>Opening Area</source>
         <translation>Área de Abertura</translation>
     </message>
-    <!-- OS:ZoneVentilation:WindandStackOpenArea -->
+    
     <message>
         <source>Opening Area Fraction Schedule Name</source>
         <translation>Nome do Agendamento da Fração de Área de Abertura</translation>
     </message>
-    <!-- OS:ZoneVentilation:WindandStackOpenArea -->
+    
     <message>
         <source>Opening Effectiveness</source>
         <translation>Efetividade da Abertura</translation>
     </message>
-    <!-- OS:AirflowNetworkDetailedOpening -->
+    
     <message>
         <source>Opening Factor</source>
         <translation>Fator de Abertura</translation>
     </message>
-    <!-- OS:AvailabilityManager:HybridVentilation -->
+    
     <message>
         <source>Opening Factor Function of Wind Speed Curve</source>
         <translation>Função do Fator de Abertura em Relação à Velocidade do Vento</translation>
     </message>
-    <!-- OS:AirflowNetworkOccupantVentilationControl -->
+    
     <message>
         <source>Opening Probability Schedule Name</source>
         <translation>Nome da Agenda de Probabilidade de Abertura</translation>
     </message>
-    <!-- OS:DefaultSubSurfaceConstructions -->
+    
     <message>
         <source>Operable Window Construction Name</source>
         <translation>Nome da Construção da Janela Operável</translation>
     </message>
-    <!-- OS:Refrigeration:Case -->
+    
     <message>
         <source>Operating Case Fan Power per Door</source>
         <translation>Potência do Ventilador da Porta em Operação</translation>
     </message>
-    <!-- OS:Refrigeration:Case -->
+    
     <message>
         <source>Operating Case Fan Power per Unit Length</source>
         <translation>Potência do Ventilador do Invólucro em Operação por Unidade de Comprimento</translation>
     </message>
-    <!-- OS:Coil:Cooling:DX:SingleSpeed:ThermalStorage, OS:HeatPump:AirToWater -->
+    
     <message>
         <source>Operating Mode Control Method</source>
         <translation>Método de Controle de Modo Operacional</translation>
     </message>
-    <!-- OS:HeatPump:AirToWater -->
+    
     <message>
         <source>Operating Mode Control Option for Multiple Unit</source>
         <translation>Opção de Controle do Modo de Operação para Unidade Múltipla</translation>
     </message>
-    <!-- OS:HeatPump:AirToWater -->
+    
     <message>
         <source>Operating Mode Control Schedule Name</source>
         <translation>Nome do Cronograma de Controle do Modo de Operação</translation>
     </message>
-    <!-- OS:Refrigeration:WalkIn -->
+    
     <message>
         <source>Operating Temperature</source>
         <translation>Temperatura de Operação</translation>
     </message>
-    <!-- OS:HeatExchanger:FluidToFluid -->
+    
     <message>
         <source>Operation Maximum Temperature Limit</source>
         <translation>Limite Máximo de Temperatura de Operação</translation>
     </message>
-    <!-- OS:HeatExchanger:FluidToFluid -->
+    
     <message>
         <source>Operation Minimum Temperature Limit</source>
         <translation>Limite Mínimo de Temperatura de Operação</translation>
     </message>
-    <!-- OS:Coil:Cooling:DX:SingleSpeed:ThermalStorage -->
+    
     <message>
         <source>Operation Mode Control Schedule</source>
         <translation>Cronograma de Controle do Modo de Operação</translation>
     </message>
-    <!-- OS:WindowMaterial:GlazingGroup:Thermochromic -->
+    
     <message>
         <source>Optical Data Temperature</source>
         <translation>Temperatura de Dados Ópticos</translation>
     </message>
-    <!-- OS:WindowMaterial:Glazing -->
+    
     <message>
         <source>Optical Data Type</source>
         <translation>Tipo de Dados Ópticos</translation>
     </message>
-    <!-- OS:PlantComponent:UserDefined -->
+    
     <message>
         <source>Optimal Loading Capacity Actuator</source>
         <translation>Atuador de Capacidade de Carregamento Ótimo</translation>
     </message>
-    <!-- OS:Output:JSON, OS:Output:SQLite -->
+    
     <message>
         <source>Option Type</source>
         <translation>Tipo de Opção</translation>
     </message>
-    <!-- OS:ExternalInterface:Actuator -->
+    
     <message>
         <source>Optional Initial Value</source>
         <translation>Valor Inicial Opcional</translation>
     </message>
-    <!-- OS:IlluminanceMap -->
+    
     <message>
         <source>Origin X-Coordinate</source>
         <translation>Coordenada X da Origem</translation>
     </message>
-    <!-- OS:IlluminanceMap -->
+    
     <message>
         <source>Origin Y-Coordinate</source>
         <translation>Coordenada Y de Origem</translation>
     </message>
-    <!-- OS:IlluminanceMap -->
+    
     <message>
         <source>Origin Z-Coordinate</source>
         <translation>Coordenada Z da Origem</translation>
     </message>
-    <!-- OS:OtherEquipment -->
+    
     <message>
         <source>Other Equipment Definition Name</source>
         <translation>Nome da Definição de Equipamento Adicional</translation>
     </message>
-    <!-- OS:StandardsInformation:Construction -->
+    
     <message>
         <source>Other Perturbable Layer Type</source>
         <translation>Outro Tipo de Camada Perturbável</translation>
     </message>
-    <!-- OS:LifeCycleCost:Parameters -->
+    
     <message>
         <source>OtherFuel1 Inflation</source>
         <translation>Inflação de Combustível Alternativo 1</translation>
     </message>
-    <!-- OS:LifeCycleCost:Parameters -->
+    
     <message>
         <source>OtherFuel2 Inflation</source>
         <translation>Inflação de Combustível Alternativo 2</translation>
     </message>
-    <!-- OS:Schedule:FixedInterval, OS:Schedule:VariableInterval -->
+    
     <message>
         <source>Out Of Range Value</source>
         <translation>Valor Fora do Intervalo</translation>
     </message>
-    <!-- OS:ZoneHVAC:UnitVentilator -->
+    
     <message>
         <source>Outdoor Air Control Type</source>
         <translation>Tipo de Controle de Ar Externo</translation>
     </message>
-    <!-- OS:ZoneHVAC:IdealLoadsAirSystem -->
+    
     <message>
         <source>Outdoor Air Economizer Type</source>
         <translation>Tipo de Economizador de Ar Externo</translation>
     </message>
-    <!-- OS:AirLoopHVAC:OutdoorAirSystem -->
+    
     <message>
         <source>Outdoor Air Equipment List Name</source>
         <translation>Nome da Lista de Equipamentos de Ar Externo</translation>
     </message>
-    <!-- OS:AirLoopHVAC:UnitaryHeatCool:VAVChangeoverBypass -->
+    
     <message>
         <source>Outdoor Air Flow Rate Multiplier Schedule</source>
         <translation>Agenda do Multiplicador de Taxa de Fluxo de Ar Externo</translation>
     </message>
-    <!-- OS:AirTerminal:DualDuct:VAV:OutdoorAir, OS:CoolingTower:VariableSpeed, OS:FluidCooler:SingleSpeed, OS:FluidCooler:TwoSpeed -->
+    
     <message>
         <source>Outdoor Air Inlet Node</source>
         <translation>Nó de Entrada de Ar Externo</translation>
     </message>
-    <!-- OS:CoolingTower:SingleSpeed, OS:CoolingTower:TwoSpeed, OS:EvaporativeFluidCooler:SingleSpeed, OS:EvaporativeFluidCooler:TwoSpeed, OS:ZoneHVAC:EvaporativeCoolerUnit -->
+    
     <message>
         <source>Outdoor Air Inlet Node Name</source>
         <translation>Nome do Nó de Entrada de Ar Externo</translation>
     </message>
-    <!-- OS:AirLoopHVAC:UnitaryHeatCool:VAVChangeoverBypass -->
+    
     <message>
         <source>Outdoor Air Mixer</source>
         <translation>Misturador de Ar Externo</translation>
     </message>
-    <!-- OS:ZoneHVAC:FourPipeFanCoil, OS:ZoneHVAC:PackagedTerminalAirConditioner, OS:ZoneHVAC:PackagedTerminalHeatPump, OS:ZoneHVAC:WaterToAirHeatPump -->
+    
     <message>
         <source>Outdoor Air Mixer Name</source>
         <translation>Outdoor Air Mixer Name</translation>
     </message>
-    <!-- OS:ZoneHVAC:FourPipeFanCoil, OS:ZoneHVAC:PackagedTerminalAirConditioner, OS:ZoneHVAC:PackagedTerminalHeatPump -->
+    
     <message>
         <source>Outdoor Air Mixer Object Type</source>
         <translation>Tipo de Objeto do Misturador de Ar Exterior</translation>
     </message>
-    <!-- OS:WaterHeater:HeatPump -->
+    
     <message>
         <source>Outdoor Air Node</source>
         <translation>Nó de Ar Externo</translation>
     </message>
-    <!-- OS:SurfaceProperty:LocalEnvironment, OS:WaterHeater:HeatPump:WrappedCondenser -->
+    
     <message>
         <source>Outdoor Air Node Name</source>
         <translation>Nome do Nó de Ar Externo</translation>
     </message>
-    <!-- OS:ZoneHVAC:FourPipeFanCoil -->
+    
     <message>
         <source>Outdoor Air Schedule Name</source>
         <translation>Nome do Cronograma de Ar Externo</translation>
     </message>
-    <!-- OS:AirLoopHVAC:OutdoorAirSystem, OS:SetpointManager:OutdoorAirPretreat -->
+    
     <message>
         <source>Outdoor Air Stream Node Name</source>
         <translation>Nome do Nó do Fluxo de Ar Externo</translation>
     </message>
-    <!-- OS:AirLoopHVAC:DedicatedOutdoorAirSystem -->
+    
     <message>
         <source>Outdoor Air System</source>
         <translation>Sistema de Ar Externo</translation>
     </message>
-    <!-- OS:HeatPump:AirToWater:FuelFired:Cooling, OS:HeatPump:AirToWater:FuelFired:Heating -->
+    
     <message>
         <source>Outdoor Air Temperature Curve Input Variable</source>
         <translation>Variável de Entrada da Curva de Temperatura do Ar Externo</translation>
     </message>
-    <!-- OS:ZoneAirContaminantBalance -->
+    
     <message>
         <source>Outdoor Carbon Dioxide Schedule Name</source>
         <translation>Nome da Agenda de Dióxido de Carbono Externo</translation>
     </message>
-    <!-- OS:AirLoopHVAC:UnitarySystem, OS:ZoneHVAC:WaterToAirHeatPump -->
+    
     <message>
         <source>Outdoor Dry-Bulb Temperature Sensor Node Name</source>
         <translation>Nome do Nó do Sensor de Temperatura de Bulbo Seco Externo</translation>
     </message>
-    <!-- OS:Coil:Heating:DX:MultiSpeed, OS:Coil:Heating:DX:VariableSpeed -->
+    
     <message>
         <source>Outdoor Dry-Bulb Temperature to Turn On Compressor</source>
         <translation>Temperatura de Bulbo Seco Exterior para Ativar o Compressor</translation>
     </message>
-    <!-- OS:SetpointManager:OutdoorAirReset -->
+    
     <message>
         <source>Outdoor High Temperature</source>
         <translation>Temperatura Exterior Elevada</translation>
     </message>
-    <!-- OS:SetpointManager:OutdoorAirReset -->
+    
     <message>
         <source>Outdoor High Temperature 2</source>
         <translation>Temperatura Externa Alta 2</translation>
     </message>
-    <!-- OS:SetpointManager:OutdoorAirReset -->
+    
     <message>
         <source>Outdoor Low Temperature</source>
         <translation>Temperatura Baixa Exterior</translation>
     </message>
-    <!-- OS:SetpointManager:OutdoorAirReset -->
+    
     <message>
         <source>Outdoor Low Temperature 2</source>
         <translation>Temperatura Externa Baixa 2</translation>
     </message>
-    <!-- OS:AirConditioner:VariableRefrigerantFlow:FluidTemperatureControl:HR -->
+    
     <message>
         <source>Outdoor Unit Condenser Rated Bypass Factor</source>
         <translation>Fator de Bypass Nominal do Condensador da Unidade Externa</translation>
     </message>
-    <!-- OS:AirConditioner:VariableRefrigerantFlow:FluidTemperatureControl:HR -->
+    
     <message>
         <source>Outdoor Unit Condenser Reference Subcooling</source>
         <translation>Subcooling de Referência do Condensador da Unidade Externa</translation>
     </message>
-    <!-- OS:AirConditioner:VariableRefrigerantFlow:FluidTemperatureControl, OS:AirConditioner:VariableRefrigerantFlow:FluidTemperatureControl:HR -->
+    
     <message>
         <source>Outdoor Unit Condensing Temperature Function of Subcooling Curve Name</source>
         <translation>Nome da Curva da Função de Temperatura de Condensação da Unidade Externa em Relação ao Subarrefecimento</translation>
     </message>
-    <!-- OS:AirConditioner:VariableRefrigerantFlow:FluidTemperatureControl, OS:AirConditioner:VariableRefrigerantFlow:FluidTemperatureControl:HR -->
+    
     <message>
         <source>Outdoor Unit Evaporating Temperature Function of Superheating Curve Name</source>
         <translation>Nome da Curva da Função de Temperatura de Evaporação da Unidade Externa em Relação ao Superaquecimento</translation>
     </message>
-    <!-- OS:AirConditioner:VariableRefrigerantFlow:FluidTemperatureControl:HR -->
+    
     <message>
         <source>Outdoor Unit Evaporator Rated Bypass Factor</source>
         <translation>Fator de Desvio Nominal do Evaporador da Unidade Externa</translation>
     </message>
-    <!-- OS:AirConditioner:VariableRefrigerantFlow:FluidTemperatureControl:HR -->
+    
     <message>
         <source>Outdoor Unit Evaporator Reference Superheating</source>
         <translation>Superaquecimento de Referência do Evaporador da Unidade Externa</translation>
     </message>
-    <!-- OS:AirConditioner:VariableRefrigerantFlow:FluidTemperatureControl, OS:AirConditioner:VariableRefrigerantFlow:FluidTemperatureControl:HR -->
+    
     <message>
         <source>Outdoor Unit Fan Flow Rate Per Unit of Rated Evaporative Capacity</source>
         <translation>Taxa de Fluxo do Ventilador da Unidade Externa Por Unidade de Capacidade Evaporativa Nominal</translation>
     </message>
-    <!-- OS:AirConditioner:VariableRefrigerantFlow:FluidTemperatureControl, OS:AirConditioner:VariableRefrigerantFlow:FluidTemperatureControl:HR -->
+    
     <message>
         <source>Outdoor Unit Fan Power Per Unit of Rated Evaporative Capacity</source>
         <translation>Potência do Ventilador da Unidade Externa Por Unidade de Capacidade Evaporativa Nominal</translation>
     </message>
-    <!-- OS:AirConditioner:VariableRefrigerantFlow:FluidTemperatureControl:HR -->
+    
     <message>
         <source>Outdoor Unit Heat Exchanger Capacity Ratio</source>
         <translation>Taxa de Capacidade do Trocador de Calor da Unidade Externa</translation>
     </message>
-    <!-- OS:Connector:Mixer, OS:Connector:Splitter -->
+    
     <message>
         <source>Outlet Branch Name</source>
         <translation>Nome do Ramo de Saída</translation>
     </message>
-    <!-- OS:Refrigeration:Subcooler:Mechanical -->
+    
     <message>
         <source>Outlet Control Temperature</source>
         <translation>Temperatura de Controle da Saída</translation>
     </message>
-    <!-- OS:AirLoopHVAC:ReturnPlenum, OS:AirLoopHVAC:SupplyPlenum, OS:AirTerminal:SingleDuct:SeriesPIU:Reheat, OS:Duct, OS:PlantComponent:TemperatureSource -->
+    
     <message>
         <source>Outlet Node</source>
         <translation>Nó de Saída</translation>
     </message>
-    <!-- OS:AirLoopHVAC:ZoneMixer, OS:AirLoopHVAC:ZoneSplitter, OS:AirTerminal:SingleDuct:ParallelPIU:Reheat, OS:Coil:Heating:Water:Baseboard:Radiant, OS:GroundHeatExchanger:HorizontalTrench, OS:GroundHeatExchanger:Vertical, OS:HeaderedPumps:ConstantSpeed, OS:HeaderedPumps:VariableSpeed, OS:LoadProfile:Plant, OS:Pipe:Adiabatic, OS:Pump:ConstantSpeed, OS:Pump:VariableSpeed, OS:SolarCollector:FlatPlate:PhotovoltaicThermal, OS:SolarCollector:FlatPlate:Water, OS:SolarCollector:IntegralCollectorStorage, OS:Splitter, OS:TemperingValve, OS:ThermalStorage:Ice:Detailed, OS:WaterUse:Connections -->
+    
     <message>
         <source>Outlet Node Name</source>
         <translation>Nome do Nó de Saída</translation>
     </message>
-    <!-- OS:Connection, OS:Node -->
+    
     <message>
         <source>Outlet Port</source>
         <translation>Porta de Saída</translation>
     </message>
-    <!-- OS:PlantComponent:UserDefined -->
+    
     <message>
         <source>Outlet Temperature Actuator</source>
         <translation>Atuador de Temperatura de Saída</translation>
     </message>
-    <!-- OS:OutputControl:Files -->
+    
     <message>
         <source>Output AUDIT</source>
         <translation>Saída AUDIT</translation>
     </message>
-    <!-- OS:OutputControl:Files -->
+    
     <message>
         <source>Output BND</source>
         <translation>Output BND</translation>
     </message>
-    <!-- OS:Output:JSON -->
+    
     <message>
         <source>Output CBOR</source>
         <translation>Saída CBOR</translation>
     </message>
-    <!-- OS:OutputControl:Files -->
+    
     <message>
         <source>Output CSV</source>
         <translation>Saída CSV</translation>
     </message>
-    <!-- OS:OutputControl:Files -->
+    
     <message>
         <source>Output DBG</source>
         <translation>Saída DBG</translation>
     </message>
-    <!-- OS:OutputControl:Files -->
+    
     <message>
         <source>Output DelightDFdmp</source>
         <translation>Output DelightDFdmp</translation>
     </message>
-    <!-- OS:OutputControl:Files -->
+    
     <message>
         <source>Output DelightELdmp</source>
         <translation>Saída DelightELdmp</translation>
     </message>
-    <!-- OS:OutputControl:Files -->
+    
     <message>
         <source>Output DelightIn</source>
         <translation>Saída DelightIn</translation>
     </message>
-    <!-- OS:OutputControl:Files -->
+    
     <message>
         <source>Output DFS</source>
         <translation>Saída DFS</translation>
     </message>
-    <!-- OS:OutputControl:Files -->
+    
     <message>
         <source>Output DXF</source>
         <translation>Exportar DXF</translation>
     </message>
-    <!-- OS:OutputControl:Files -->
+    
     <message>
         <source>Output EDD</source>
         <translation>Saída EDD</translation>
     </message>
-    <!-- OS:OutputControl:Files -->
+    
     <message>
         <source>Output EIO</source>
         <translation>Saída EIO</translation>
     </message>
-    <!-- OS:OutputControl:Files -->
+    
     <message>
         <source>Output ESO</source>
         <translation>Saída ESO</translation>
     </message>
-    <!-- OS:ShadowCalculation -->
+    
     <message>
         <source>Output External Shading Calculation Results</source>
         <translation>Resultados de Cálculo de Sombreamento Externo de Saída</translation>
     </message>
-    <!-- OS:OutputControl:Files -->
+    
     <message>
         <source>Output ExtShd</source>
         <translation>Saída ExtShd</translation>
     </message>
-    <!-- OS:OutputControl:Files -->
+    
     <message>
         <source>Output GLHE</source>
         <translation>Saída GLHE</translation>
     </message>
-    <!-- OS:Output:JSON, OS:OutputControl:Files -->
+    
     <message>
         <source>Output JSON</source>
         <translation>Saída JSON</translation>
     </message>
-    <!-- OS:OutputControl:Files -->
+    
     <message>
         <source>Output MDD</source>
         <translation>Saída MDD</translation>
     </message>
-    <!-- OS:Output:JSON -->
+    
     <message>
         <source>Output MessagePack</source>
         <translation>Mensagem de Saída MessagePack</translation>
     </message>
-    <!-- OS:UtilityCost:Tariff -->
+    
     <message>
         <source>Output Meter Name</source>
         <translation>Nome do Medidor de Saída</translation>
     </message>
-    <!-- OS:OutputControl:Files -->
+    
     <message>
         <source>Output MTD</source>
         <translation>Saída MTD</translation>
     </message>
-    <!-- OS:OutputControl:Files -->
+    
     <message>
         <source>Output MTR</source>
         <translation>Saída MTR</translation>
     </message>
-    <!-- OS:OutputControl:Files -->
+    
     <message>
         <source>Output PerfLog</source>
         <translation>Saída de Log de Desempenho</translation>
     </message>
-    <!-- OS:OutputControl:Files -->
+    
     <message>
         <source>Output Plant Component Sizing</source>
         <translation>Dimensionamento do Componente da Planta de Saída</translation>
     </message>
-    <!-- OS:OutputControl:Files -->
+    
     <message>
         <source>Output RDD</source>
         <translation>Saída RDD</translation>
     </message>
-    <!-- OS:OutputControl:Files -->
+    
     <message>
         <source>Output SCI</source>
         <translation>Saída SCI</translation>
     </message>
-    <!-- OS:OutputControl:Files -->
+    
     <message>
         <source>Output Screen</source>
         <translation>Tela de Saída</translation>
     </message>
-    <!-- OS:OutputControl:Files -->
+    
     <message>
         <source>Output SHD</source>
         <translation>Saída SHD</translation>
     </message>
-    <!-- OS:OutputControl:Files -->
+    
     <message>
         <source>Output SLN</source>
         <translation>Saída SLN</translation>
     </message>
-    <!-- OS:OutputControl:Files -->
+    
     <message>
         <source>Output Space Sizing</source>
         <translation>Dimensionamento de Espaço de Saída</translation>
     </message>
-    <!-- OS:OutputControl:Files -->
+    
     <message>
         <source>Output SQLite</source>
         <translation>Output SQLite</translation>
     </message>
-    <!-- OS:OutputControl:Files -->
+    
     <message>
         <source>Output System Sizing</source>
         <translation>Dimensionamento do Sistema de Saída</translation>
     </message>
-    <!-- OS:OutputControl:Files -->
+    
     <message>
         <source>Output Tabular</source>
         <translation>Saída Tabular</translation>
     </message>
-    <!-- OS:OutputControl:Files -->
+    
     <message>
         <source>Output Tarcog</source>
         <translation>Saída Tarcog</translation>
     </message>
-    <!-- OS:Curve:Bicubic, OS:Curve:Biquadratic, OS:Curve:Cubic, OS:Curve:DoubleExponentialDecay, OS:Curve:Exponent, OS:Curve:ExponentialDecay, OS:Curve:ExponentialSkewNormal, OS:Curve:Linear, OS:Curve:Quadratic, OS:Curve:QuadraticLinear, OS:Curve:Quartic, OS:Curve:RectangularHyperbola1, OS:Curve:RectangularHyperbola2, OS:Curve:Sigmoid, OS:Curve:Triquadratic, OS:Table:Lookup, OS:Table:MultiVariableLookup -->
+    
     <message>
         <source>Output Unit Type</source>
         <translation>Tipo de Unidade de Saída</translation>
     </message>
-    <!-- OS:Table:Lookup -->
+    
     <message>
         <source>Output Value</source>
         <translation>Valor de Saída</translation>
     </message>
-    <!-- OS:Meter:Custom, OS:Meter:CustomDecrement -->
+    
     <message>
         <source>Output Variable or Meter Name</source>
         <translation>Nome da Variável de Saída ou Medidor</translation>
     </message>
-    <!-- OS:EnergyManagementSystem:Sensor -->
+    
     <message>
         <source>Output Variable or Output Meter Index Key Name</source>
         <translation>Nome da Chave de Índice de Variável de Saída ou Medidor de Saída</translation>
     </message>
-    <!-- OS:EnergyManagementSystem:Sensor -->
+    
     <message>
         <source>Output Variable or Output Meter Name</source>
         <translation>Nome da Variável de Saída ou Medidor de Saída</translation>
     </message>
-    <!-- OS:OutputControl:Files -->
+    
     <message>
         <source>Output WRL</source>
         <translation>Saída WRL</translation>
     </message>
-    <!-- OS:OutputControl:Files -->
+    
     <message>
         <source>Output Zone Sizing</source>
         <translation>Dimensionamento da Zona de Saída</translation>
     </message>
-    <!-- OS:ExternalInterface:FunctionalMockupUnitExport:From:Variable, OS:ExternalInterface:FunctionalMockupUnitImport:From:Variable -->
+    
     <message>
         <source>Output:Variable Index Key Name</source>
         <translation>Saída:Nome da Chave de Índice da Variável</translation>
     </message>
-    <!-- OS:ExternalInterface:FunctionalMockupUnitExport:From:Variable, OS:ExternalInterface:FunctionalMockupUnitImport:From:Variable -->
+    
     <message>
         <source>Output:Variable Name</source>
         <translation>Saída:Nome da Variável</translation>
     </message>
-    <!-- OS:ZoneHVAC:TerminalUnit:VariableRefrigerantFlow -->
+    
     <message>
         <source>Outside Air Mixer</source>
         <translation>Misturador de Ar Externo</translation>
     </message>
-    <!-- OS:Surface -->
+    
     <message>
         <source>Outside Boundary Condition</source>
         <translation>Condição de Contorno Externa</translation>
     </message>
-    <!-- OS:SubSurface, OS:Surface -->
+    
     <message>
         <source>Outside Boundary Condition Object</source>
         <translation>Objeto da Condição de Contorno Externa</translation>
     </message>
-    <!-- OS:AirflowNetworkDuct -->
+    
     <message>
         <source>Outside Convection Coefficient</source>
         <translation>Coeficiente de Convecção Externa</translation>
     </message>
-    <!-- OS:WindowProperty:FrameAndDivider -->
+    
     <message>
         <source>Outside Reveal Depth</source>
         <translation>Profundidade da Reentrância Externa</translation>
     </message>
-    <!-- OS:WindowProperty:FrameAndDivider -->
+    
     <message>
         <source>Outside Reveal Solar Absorptance</source>
         <translation>Absorvância Solar da Zona Revelada Externa</translation>
     </message>
-    <!-- OS:DaylightingDevice:Shelf -->
+    
     <message>
         <source>Outside Shelf Name</source>
         <translation>Nome da Prateleira Externa</translation>
     </message>
-    <!-- OS:Generator:WindTurbine -->
+    
     <message>
         <source>Overall Height</source>
         <translation>Altura Total</translation>
     </message>
-    <!-- OS:Coil:UserDefined -->
+    
     <message>
         <source>Overall Model Simulation Program Calling Manager Name</source>
         <translation>Nome do Gerenciador de Chamada do Programa de Simulação do Modelo Geral</translation>
     </message>
-    <!-- OS:AirflowNetworkDuct -->
+    
     <message>
         <source>Overall Moisture Transmittance Coefficient from Air to Air</source>
         <translation>Coeficiente Geral de Transmitância de Umidade do Ar para o Ar</translation>
     </message>
-    <!-- OS:Coil:UserDefined -->
+    
     <message>
         <source>Overall Simulation Program Name</source>
         <translation>Nome do Programa de Simulação Geral</translation>
     </message>
-    <!-- OS:DefaultSubSurfaceConstructions -->
+    
     <message>
         <source>Overhead Door Construction Name</source>
         <translation>Nome da Construção de Porta de Garagem</translation>
     </message>
-    <!-- OS:PerformancePrecisionTradeoffs -->
+    
     <message>
         <source>Override Mode</source>
         <translation>Modo de Substituição</translation>
     </message>
 
-    <!-- P -->
-    <!-- OS:ThermalStorage:Ice:Detailed -->
+    
+    
     <message>
         <source>Parasitic Electric Load During Charging</source>
         <translation>Carga Elétrica Parasita Durante o Carregamento</translation>
     </message>
-    <!-- OS:ThermalStorage:Ice:Detailed -->
+    
     <message>
         <source>Parasitic Electric Load During Discharging</source>
         <translation>Carga Elétrica Parasita Durante Descarga</translation>
     </message>
-    <!-- OS:WaterHeater:HeatPump, OS:WaterHeater:HeatPump:WrappedCondenser -->
+    
     <message>
         <source>Parasitic Heat Rejection Location</source>
         <translation>Local de Rejeição de Calor Parasitário</translation>
     </message>
-    <!-- OS:WaterHeater:Mixed -->
+    
     <message>
         <source>Part Load Factor Curve Name</source>
         <translation>Nome da Curva de Fator de Carga Parcial</translation>
     </message>
-    <!-- OS:Coil:Cooling:DX:CurveFit:Speed, OS:Coil:Cooling:DX:MultiSpeed:StageData, OS:Coil:Heating:Gas:MultiStage, OS:Coil:WaterHeating:AirToWaterHeatPump, OS:CoilPerformance:DX:Cooling -->
+    
     <message>
         <source>Part Load Fraction Correlation Curve</source>
         <translation>Curva de Correlação de Fração de Carga Parcial</translation>
     </message>
-    <!-- OS:Space -->
+    
     <message>
         <source>Part of Total Floor Area</source>
         <translation>Parte da Área Total de Piso</translation>
     </message>
-    <!-- OS:FuelFactors -->
+    
     <message>
         <source>Pb Emission Factor</source>
         <translation>Fator de Emissão de Pb</translation>
     </message>
-    <!-- OS:FuelFactors -->
+    
     <message>
         <source>Pb Emission Factor Schedule Name</source>
         <translation>Nome do Cronograma de Fator de Emissão de Pb</translation>
     </message>
-    <!-- OS:UtilityBill -->
+    
     <message>
         <source>Peak Demand Unit</source>
         <translation>Unidade de Demanda de Pico</translation>
     </message>
-    <!-- OS:MaterialProperty:PhaseChangeHysteresis -->
+    
     <message>
         <source>Peak Freezing Temperature</source>
         <translation>Temperatura de Congelamento de Pico</translation>
     </message>
-    <!-- OS:MaterialProperty:PhaseChangeHysteresis -->
+    
     <message>
         <source>Peak Melting Temperature</source>
         <translation>Temperatura de Pico de Fusão</translation>
     </message>
-    <!-- OS:WaterHeater:Mixed, OS:WaterHeater:Stratified -->
+    
     <message>
         <source>Peak Use Flow Rate</source>
         <translation>Taxa de Fluxo de Uso de Pico</translation>
     </message>
-    <!-- OS:SwimmingPool:Indoor -->
+    
     <message>
         <source>People Heat Gain Schedule</source>
         <translation>Cronograma de Ganho de Calor de Pessoas</translation>
     </message>
-    <!-- OS:SwimmingPool:Indoor -->
+    
     <message>
         <source>People Schedule</source>
         <translation>Cronograma de Ocupação</translation>
     </message>
-    <!-- OS:AirTerminal:DualDuct:VAV:OutdoorAir, OS:AirTerminal:SingleDuct:InletSideMixer -->
+    
     <message>
         <source>Per Person Ventilation Rate Mode</source>
         <translation>Modo de Taxa de Ventilação por Pessoa</translation>
     </message>
-    <!-- OS:ElectricLoadCenter:Transformer -->
+    
     <message>
         <source>Per Unit Load for Maximum Efficiency</source>
         <translation>Carga por Unidade para Eficiência Máxima</translation>
     </message>
-    <!-- OS:ElectricLoadCenter:Transformer -->
+    
     <message>
         <source>Per Unit Load for Nameplate Efficiency</source>
         <translation>Carga por Unidade para Eficiência Nominal</translation>
     </message>
-    <!-- OS:Chiller:Electric:ASHRAE205 -->
+    
     <message>
         <source>Performance Interpolation Method</source>
         <translation>Método de Interpolação de Desempenho</translation>
     </message>
-    <!-- OS:Coil:Cooling:DX -->
+    
     <message>
         <source>Performance Object</source>
         <translation>Objeto de Desempenho</translation>
     </message>
-    <!-- OS:DaylightingDevice:LightWell -->
+    
     <message>
         <source>Perimeter of Bottom of Well</source>
         <translation>Perímetro da Base do Poço</translation>
     </message>
-    <!-- OS:Construction:FfactorGroundFloor -->
+    
     <message>
         <source>PerimeterExposed</source>
         <translation>PerimeterExposed</translation>
     </message>
-    <!-- OS:SurfaceProperty:OtherSideCoefficients -->
+    
     <message>
         <source>Period of Sinusoidal Variation</source>
         <translation>Período de Variação Senoidal</translation>
     </message>
-    <!-- OS:SizingPeriod:WeatherFileConditionType -->
+    
     <message>
         <source>Period Selection</source>
         <translation>Seleção de Período</translation>
     </message>
-    <!-- OS:ComponentCost:Adjustments -->
+    
     <message>
         <source>Permits Bonding and Insurance</source>
         <translation>Licenças, Caução e Seguros</translation>
     </message>
-    <!-- OS:StandardsInformation:Construction -->
+    
     <message>
         <source>Perturbable Layer</source>
         <translation>Camada Perturbável</translation>
     </message>
-    <!-- OS:StandardsInformation:Construction -->
+    
     <message>
         <source>Perturbable Layer Type</source>
         <translation>Tipo de Camada Perturbável</translation>
     </message>
-    <!-- OS:ElectricLoadCenter:Transformer -->
+    
     <message>
         <source>Phase</source>
         <translation>Fase</translation>
     </message>
-    <!-- OS:Site:GroundTemperature:Undisturbed:KusudaAchenbach -->
+    
     <message>
         <source>Phase Shift of Minimum Surface Temperature</source>
         <translation>Deslocamento de Fase da Temperatura Mínima da Superfície</translation>
     </message>
-    <!-- OS:Site:GroundTemperature:Undisturbed:Xing -->
+    
     <message>
         <source>Phase Shift of Temperature Amplitude 1</source>
         <translation>Deslocamento de Fase da Amplitude de Temperatura 1</translation>
     </message>
-    <!-- OS:Site:GroundTemperature:Undisturbed:Xing -->
+    
     <message>
         <source>Phase Shift of Temperature Amplitude 2</source>
         <translation>Deslocamento de Fase da Amplitude de Temperatura 2</translation>
     </message>
-    <!-- OS:Refrigeration:SecondarySystem -->
+    
     <message>
         <source>PhaseChange Circulating Rate</source>
         <translation>Taxa de Circulação de Mudança de Fase</translation>
     </message>
-    <!-- OS:Daylighting:Control, OS:Glare:Sensor, OS:IlluminanceMap -->
+    
     <message>
         <source>Phi Rotation Around Z-Axis</source>
         <translation>Rotação Phi Ao Redor do Eixo Z</translation>
     </message>
-    <!-- OS:Luminaire -->
+    
     <message>
         <source>Phi Rotation Around Z-axis</source>
         <translation>Rotação Phi em torno do eixo Z</translation>
     </message>
-    <!-- OS:SolarCollector:FlatPlate:PhotovoltaicThermal -->
+    
     <message>
         <source>Photovoltaic Name</source>
         <translation>Nome do Painel Fotovoltaico</translation>
     </message>
-    <!-- OS:SolarCollector:FlatPlate:PhotovoltaicThermal -->
+    
     <message>
         <source>Photovoltaic-Thermal Model Performance Name</source>
         <translation>Nome de Desempenho do Modelo Fotovoltaico-Térmico</translation>
     </message>
-    <!-- OS:GroundHeatExchanger:HorizontalTrench -->
+    
     <message>
         <source>Pipe Density</source>
         <translation>Densidade do Tubo</translation>
     </message>
-    <!-- OS:GroundHeatExchanger:HorizontalTrench -->
+    
     <message>
         <source>Pipe Inner Diameter</source>
         <translation>Diâmetro Interno do Tubo</translation>
     </message>
-    <!-- OS:Pipe:Indoor, OS:Pipe:Outdoor -->
+    
     <message>
         <source>Pipe Inside Diameter</source>
         <translation>Diâmetro Interno do Tubo</translation>
     </message>
-    <!-- OS:Pipe:Indoor, OS:Pipe:Outdoor -->
+    
     <message>
         <source>Pipe Length</source>
         <translation>Comprimento do Tubo</translation>
     </message>
-    <!-- OS:GroundHeatExchanger:Vertical -->
+    
     <message>
         <source>Pipe Out Diameter</source>
         <translation>Diâmetro Externo do Tubo</translation>
     </message>
-    <!-- OS:GroundHeatExchanger:HorizontalTrench -->
+    
     <message>
         <source>Pipe Outer Diameter</source>
         <translation>Diâmetro Externo do Tubo</translation>
     </message>
-    <!-- OS:GroundHeatExchanger:HorizontalTrench -->
+    
     <message>
         <source>Pipe Specific Heat</source>
         <translation>Calor Específico do Tubo</translation>
     </message>
-    <!-- OS:GroundHeatExchanger:HorizontalTrench, OS:GroundHeatExchanger:Vertical -->
+    
     <message>
         <source>Pipe Thermal Conductivity</source>
         <translation>Condutividade Térmica do Tubo</translation>
     </message>
-    <!-- OS:GroundHeatExchanger:Vertical -->
+    
     <message>
         <source>Pipe Thickness</source>
         <translation>Espessura do Tubo</translation>
     </message>
-    <!-- OS:AirConditioner:VariableRefrigerantFlow -->
+    
     <message>
         <source>Piping Correction Factor for Height in Cooling Mode Coefficient</source>
         <translation>Fator de Correção de Tubulação para Altura em Modo Resfriamento Coeficiente</translation>
     </message>
-    <!-- OS:AirConditioner:VariableRefrigerantFlow -->
+    
     <message>
         <source>Piping Correction Factor for Height in Heating Mode Coefficient</source>
         <translation>Coeficiente do Fator de Correção de Tubulação para Altura em Modo de Aquecimento</translation>
     </message>
-    <!-- OS:AirConditioner:VariableRefrigerantFlow -->
+    
     <message>
         <source>Piping Correction Factor for Length in Cooling Mode Curve Name</source>
         <translation>Fator de Correção da Tubulação para Comprimento no Nome da Curva do Modo de Resfriamento</translation>
     </message>
-    <!-- OS:AirConditioner:VariableRefrigerantFlow -->
+    
     <message>
         <source>Piping Correction Factor for Length in Heating Mode Curve Name</source>
         <translation>Fator de Correção de Encanamento para Comprimento em Nome da Curva do Modo de Aquecimento</translation>
     </message>
-    <!-- OS:ShadowCalculation -->
+    
     <message>
         <source>Pixel Counting Resolution</source>
         <translation>Resolução de Contagem de Pixels</translation>
     </message>
-    <!-- OS:LightingSimulationZone -->
+    
     <message>
         <source>Planar Surface Group Name</source>
         <translation>Nome do Grupo de Superfície Planar</translation>
     </message>
-    <!-- OS:Coil:UserDefined -->
+    
     <message>
         <source>Plant Connection Inlet Node Name</source>
         <translation>Nome do Nó de Entrada da Conexão da Usina</translation>
     </message>
-    <!-- OS:Coil:UserDefined -->
+    
     <message>
         <source>Plant Connection Outlet Node Name</source>
         <translation>Nome do Nó de Saída da Conexão da Unidade</translation>
     </message>
-    <!-- OS:Coil:UserDefined -->
+    
     <message>
         <source>Plant Design Volume Flow Rate Actuator</source>
         <translation>Atuador de Vazão Volumétrica de Projeto da Planta</translation>
     </message>
-    <!-- OS:PlantLoop -->
+    
     <message>
         <source>Plant Equipment Operation Cooling Load</source>
         <translation>Carga de Resfriamento de Operação de Equipamento de Planta</translation>
     </message>
-    <!-- OS:PlantLoop -->
+    
     <message>
         <source>Plant Equipment Operation Cooling Load Schedule</source>
         <translation>Cronograma de Carga de Resfriamento da Operação de Equipamento da Planta</translation>
     </message>
-    <!-- OS:PlantLoop -->
+    
     <message>
         <source>Plant Equipment Operation Heating Load</source>
         <translation>Operação de Equipamento da Planta - Carga de Aquecimento</translation>
     </message>
-    <!-- OS:PlantLoop -->
+    
     <message>
         <source>Plant Equipment Operation Heating Load Schedule</source>
         <translation>Cronograma de Carga de Aquecimento da Operação de Equipamento de Planta</translation>
     </message>
-    <!-- OS:PlantComponent:UserDefined -->
+    
     <message>
         <source>Plant Initialization Program Calling Manager Name</source>
         <translation>Nome do Gerenciador de Chamada do Programa de Inicialização de Planta</translation>
     </message>
-    <!-- OS:PlantComponent:UserDefined -->
+    
     <message>
         <source>Plant Initialization Program Name</source>
         <translation>Nome do Programa de Inicialização da Planta</translation>
     </message>
-    <!-- OS:PlantComponent:UserDefined -->
+    
     <message>
         <source>Plant Inlet Node Name</source>
         <translation>Nome do Nó de Entrada da Planta</translation>
     </message>
-    <!-- OS:PlantComponent:UserDefined -->
+    
     <message>
         <source>Plant Loading Mode</source>
         <translation>Modo de Carregamento da Usina</translation>
     </message>
-    <!-- OS:PlantLoop -->
+    
     <message>
         <source>Plant Loop Demand Calculation Scheme</source>
         <translation>Esquema de Cálculo de Demanda do Loop de Equipamentos</translation>
     </message>
-    <!-- OS:PlantComponent:UserDefined -->
+    
     <message>
         <source>Plant Loop Flow Request Mode</source>
         <translation>Modo de Solicitação de Fluxo do Loop de Planta</translation>
     </message>
-    <!-- OS:LoadProfile:Plant -->
+    
     <message>
         <source>Plant Loop Fluid Type</source>
         <translation>Tipo de Fluido do Circuito Primário</translation>
     </message>
-    <!-- OS:Coil:UserDefined -->
+    
     <message>
         <source>Plant Mass Flow Rate Actuator</source>
         <translation>Atuador de Taxa de Fluxo de Massa do Sistema</translation>
     </message>
-    <!-- OS:Coil:UserDefined -->
+    
     <message>
         <source>Plant Maximum Mass Flow Rate Actuator</source>
         <translation>Atuador de Vazão Mássica Máxima da Planta</translation>
     </message>
-    <!-- OS:Coil:UserDefined -->
+    
     <message>
         <source>Plant Minimum Mass Flow Rate Actuator</source>
         <translation>Atuador de Taxa Mínima de Fluxo de Massa da Planta</translation>
     </message>
-    <!-- OS:Sizing:Plant -->
+    
     <message>
         <source>Plant or Condenser Loop Name</source>
         <translation>Nome do Loop de Planta ou Condensador</translation>
     </message>
-    <!-- OS:PlantComponent:UserDefined -->
+    
     <message>
         <source>Plant Outlet Node Name</source>
         <translation>Nome do Nó de Saída da Planta</translation>
     </message>
-    <!-- OS:Coil:UserDefined -->
+    
     <message>
         <source>Plant Outlet Temperature Actuator</source>
         <translation>Atuador de Temperatura de Saída da Planta</translation>
     </message>
-    <!-- OS:PlantLoop -->
+    
     <message>
         <source>Plant Side Branch List Name</source>
         <translation>Nome da Lista de Ramificações do Lado da Planta</translation>
     </message>
-    <!-- OS:PlantLoop -->
+    
     <message>
         <source>Plant Side Inlet Node Name</source>
         <translation>Nome do Nó de Entrada do Lado da Planta</translation>
     </message>
-    <!-- OS:PlantLoop -->
+    
     <message>
         <source>Plant Side Outlet Node Name</source>
         <translation>Nome do Nó de Saída do Lado da Planta</translation>
     </message>
-    <!-- OS:PlantComponent:UserDefined -->
+    
     <message>
         <source>Plant Simulation Program Calling Manager Name</source>
         <translation>Plant Simulation Program Calling Manager Name</translation>
     </message>
-    <!-- OS:PlantComponent:UserDefined -->
+    
     <message>
         <source>Plant Simulation Program Name</source>
         <translation>Nome do Programa de Simulação de Sistemas Hidráulicos</translation>
     </message>
-    <!-- OS:AirLoopHVAC:UnitaryHeatCool:VAVChangeoverBypass -->
+    
     <message>
         <source>Plenum or Mixer Inlet Node Name</source>
         <translation>Nome do Nó de Entrada do Plenário ou Misturador</translation>
     </message>
-    <!-- OS:PythonPlugin:Instance -->
+    
     <message>
         <source>Plugin Class Name</source>
         <translation>Nome da Classe do Plugin</translation>
     </message>
-    <!-- OS:FuelFactors -->
+    
     <message>
         <source>PM Emission Factor</source>
         <translation>Fator de Emissão de PM</translation>
     </message>
-    <!-- OS:FuelFactors -->
+    
     <message>
         <source>PM Emission Factor Schedule Name</source>
         <translation>PM Schedule Emission Factor Name</translation>
     </message>
-    <!-- OS:FuelFactors -->
+    
     <message>
         <source>PM10 Emission Factor</source>
         <translation>Fator de Emissão PM10</translation>
     </message>
-    <!-- OS:FuelFactors -->
+    
     <message>
         <source>PM10 Emission Factor Schedule Name</source>
         <translation>Nome do Agendamento do Fator de Emissão PM10</translation>
     </message>
-    <!-- OS:FuelFactors -->
+    
     <message>
         <source>PM2.5 Emission Factor</source>
         <translation>Fator de Emissão PM2.5</translation>
     </message>
-    <!-- OS:FuelFactors -->
+    
     <message>
         <source>PM2.5 Emission Factor Schedule Name</source>
         <translation>Nome do Agendamento do Fator de Emissão PM2.5</translation>
     </message>
-    <!-- OS:ShadowCalculation -->
+    
     <message>
         <source>Polygon Clipping Algorithm</source>
         <translation>Algoritmo de Recorte de Polígono</translation>
     </message>
-    <!-- OS:SwimmingPool:Indoor -->
+    
     <message>
         <source>Pool Heating System Maximum Water Flow Rate</source>
         <translation>Taxa de Fluxo Máximo de Água do Sistema de Aquecimento de Piscina</translation>
     </message>
-    <!-- OS:SwimmingPool:Indoor -->
+    
     <message>
         <source>Pool Miscellaneous Equipment Power</source>
         <translation>Potência de Equipamentos Diversos da Piscina</translation>
     </message>
-    <!-- OS:SwimmingPool:Indoor -->
+    
     <message>
         <source>Pool Water Inlet Node</source>
         <translation>Nó de Entrada da Água da Piscina</translation>
     </message>
-    <!-- OS:SwimmingPool:Indoor -->
+    
     <message>
         <source>Pool Water Outlet Node</source>
         <translation>Nó de Saída da Água da Piscina</translation>
     </message>
-    <!-- OS:PortList -->
+    
     <message>
         <source>Port</source>
         <translation>Porta</translation>
     </message>
-    <!-- OS:Daylighting:Control, OS:Glare:Sensor -->
+    
     <message>
         <source>Position X-Coordinate</source>
         <translation>Coordenada X da Posição</translation>
     </message>
-    <!-- OS:Luminaire -->
+    
     <message>
         <source>Position X-coordinate</source>
         <translation>Coordenada X da posição</translation>
     </message>
-    <!-- OS:Daylighting:Control, OS:Glare:Sensor -->
+    
     <message>
         <source>Position Y-Coordinate</source>
         <translation>Coordenada Y da Posição</translation>
     </message>
-    <!-- OS:Luminaire -->
+    
     <message>
         <source>Position Y-coordinate</source>
         <translation>Coordenada Y da Posição</translation>
     </message>
-    <!-- OS:Daylighting:Control, OS:Glare:Sensor -->
+    
     <message>
         <source>Position Z-Coordinate</source>
         <translation>Coordenada Z da Posição</translation>
     </message>
-    <!-- OS:Luminaire -->
+    
     <message>
         <source>Position Z-coordinate</source>
         <translation>Coordenada Z da Posição</translation>
     </message>
-    <!-- OS:Generator:WindTurbine -->
+    
     <message>
         <source>Power Coefficient C1</source>
         <translation>Coeficiente de Potência C1</translation>
     </message>
-    <!-- OS:Generator:WindTurbine -->
+    
     <message>
         <source>Power Coefficient C2</source>
         <translation>Coeficiente de Potência C2</translation>
     </message>
-    <!-- OS:Generator:WindTurbine -->
+    
     <message>
         <source>Power Coefficient C3</source>
         <translation>Coeficiente de Potência C3</translation>
     </message>
-    <!-- OS:Generator:WindTurbine -->
+    
     <message>
         <source>Power Coefficient C4</source>
         <translation>Coeficiente de Potência C4</translation>
     </message>
-    <!-- OS:Generator:WindTurbine -->
+    
     <message>
         <source>Power Coefficient C5</source>
         <translation>Coeficiente de Potência C5</translation>
     </message>
-    <!-- OS:Generator:WindTurbine -->
+    
     <message>
         <source>Power Coefficient C6</source>
         <translation>Coeficiente de Potência C6</translation>
     </message>
-    <!-- OS:Generator:WindTurbine -->
+    
     <message>
         <source>Power Control</source>
         <translation>Controle de Potência</translation>
     </message>
-    <!-- OS:ElectricLoadCenter:Storage:Converter -->
+    
     <message>
         <source>Power Conversion Efficiency Method</source>
         <translation>Método de Eficiência de Conversão de Potência</translation>
     </message>
-    <!-- OS:Generator:FuelCell:PowerModule -->
+    
     <message>
         <source>Power Down Transient Limit</source>
         <translation>Limite de Transiente de Redução de Potência</translation>
     </message>
-    <!-- OS:Generator:FuelCell -->
+    
     <message>
         <source>Power Module Name</source>
         <translation>Nome do Módulo de Potência</translation>
     </message>
-    <!-- OS:Generator:FuelCell:PowerModule -->
+    
     <message>
         <source>Power Up Transient Limit</source>
         <translation>Limite de Transitório de Ligação</translation>
     </message>
-    <!-- OS:Version -->
+    
     <message>
         <source>Prerelease Identifier</source>
         <translation>Identificador de Pré-lançamento</translation>
     </message>
-    <!-- OS:AirflowNetworkPressureController -->
+    
     <message>
         <source>Pressure Control Availability Schedule Name</source>
         <translation>Nome da Agenda de Disponibilidade de Controle de Pressão</translation>
     </message>
-    <!-- OS:AirflowNetworkConstantPressureDrop -->
+    
     <message>
         <source>Pressure Difference Across the Component</source>
         <translation>Diferença de Pressão Através do Componente</translation>
     </message>
-    <!-- OS:SpaceInfiltration:FlowCoefficient -->
+    
     <message>
         <source>Pressure Exponent</source>
         <translation>Expoente de Pressão</translation>
     </message>
-    <!-- OS:AirflowNetworkPressureController -->
+    
     <message>
         <source>Pressure Setpoint Schedule Name</source>
         <translation>Nome do Cronograma de Ponto de Ajuste de Pressão</translation>
     </message>
-    <!-- OS:SurfaceProperty:OtherSideCoefficients -->
+    
     <message>
         <source>Previous Other Side Temperature Coefficient</source>
         <translation>Coeficiente de Temperatura do Outro Lado Anterior</translation>
     </message>
-    <!-- OS:AirTerminal:SingleDuct:ConstantVolume:FourPipeBeam -->
+    
     <message>
         <source>Primary Air Availability Schedule Name</source>
         <translation>Nome da Agenda de Disponibilidade de Ar Primário</translation>
     </message>
-    <!-- OS:EvaporativeCooler:Direct:ResearchSpecial -->
+    
     <message>
         <source>Primary Air Design Flow Rate</source>
         <translation>Vazão de Projeto de Ar Primário</translation>
     </message>
-    <!-- OS:EvaporativeCooler:Indirect:ResearchSpecial -->
+    
     <message>
         <source>Primary Air Inlet Node</source>
         <translation>Nó de Entrada de Ar Primário</translation>
     </message>
-    <!-- OS:AirTerminal:SingleDuct:ConstantVolume:FourPipeBeam -->
+    
     <message>
         <source>Primary Air Inlet Node Name</source>
         <translation>Nome do Nó de Entrada de Ar Primário</translation>
     </message>
-    <!-- OS:EvaporativeCooler:Indirect:ResearchSpecial -->
+    
     <message>
         <source>Primary Air Outlet Node</source>
         <translation>Nó de Saída de Ar Primário</translation>
     </message>
-    <!-- OS:AirTerminal:SingleDuct:ConstantVolume:FourPipeBeam -->
+    
     <message>
         <source>Primary Air Outlet Node Name</source>
         <translation>Nome do Nó de Saída de Ar Primário</translation>
     </message>
-    <!-- OS:ThermalZone -->
+    
     <message>
         <source>Primary Daylighting Control Name</source>
         <translation>Nome do Controle de Iluminação Natural Primária</translation>
     </message>
-    <!-- OS:EvaporativeCooler:Indirect:ResearchSpecial -->
+    
     <message>
         <source>Primary Design Air Flow Rate</source>
         <translation>Vazão de Ar de Projeto Primária</translation>
     </message>
-    <!-- OS:PlantLoop -->
+    
     <message>
         <source>Primary Plant Equipment Operation Scheme</source>
         <translation>Esquema de Operação do Equipamento de Planta Primária</translation>
     </message>
-    <!-- OS:PlantLoop -->
+    
     <message>
         <source>Primary Plant Equipment Operation Scheme Schedule</source>
         <translation>Cronograma de Esquema de Operação de Equipamento Primário da Planta</translation>
     </message>
-    <!-- OS:AirLoopHVAC:UnitaryHeatCool:VAVChangeoverBypass -->
+    
     <message>
         <source>Priority Control Mode</source>
         <translation>Modo de Controle de Prioridade</translation>
     </message>
-    <!-- OS:Daylighting:Control -->
+    
     <message>
         <source>Probability Lighting will be Reset When Needed in Manual Stepped Control</source>
         <translation>Probabilidade de a Iluminação ser Redefinida quando Necessário no Controle Manual Escalonado</translation>
     </message>
-    <!-- OS:HeatExchanger:Desiccant:BalancedFlow -->
+    
     <message>
         <source>Process Air Inlet Node</source>
         <translation>Nó de Entrada de Ar do Processo</translation>
     </message>
-    <!-- OS:HeatExchanger:Desiccant:BalancedFlow -->
+    
     <message>
         <source>Process Air Outlet Node</source>
         <translation>Nó de Saída de Ar do Processo</translation>
     </message>
-    <!-- OS:EnergyManagementSystem:Program, OS:EnergyManagementSystem:Subroutine -->
+    
     <message>
         <source>Program Line</source>
         <translation>Linha de Programa</translation>
     </message>
-    <!-- OS:EnergyManagementSystem:ProgramCallingManager -->
+    
     <message>
         <source>Program Name</source>
         <translation>Nome do Programa</translation>
     </message>
-    <!-- OS:LifeCycleCost:Parameters -->
+    
     <message>
         <source>Propane Inflation</source>
         <translation>Inflação de Propano</translation>
     </message>
-    <!-- OS:Daylighting:Control, OS:Glare:Sensor, OS:IlluminanceMap -->
+    
     <message>
         <source>Psi Rotation Around X-Axis</source>
         <translation>Rotação Psi em torno do Eixo X</translation>
     </message>
-    <!-- OS:Luminaire -->
+    
     <message>
         <source>Psi Rotation Around X-axis</source>
         <translation>Psi - Rotação em torno do eixo X</translation>
     </message>
-    <!-- OS:Pump:ConstantSpeed -->
+    
     <message>
         <source>Pump Curve</source>
         <translation>Curva da Bomba</translation>
     </message>
-    <!-- OS:Pump:VariableSpeed -->
+    
     <message>
         <source>Pump Curve Name</source>
         <translation>Nome da Curva da Bomba</translation>
     </message>
-    <!-- OS:Refrigeration:SecondarySystem -->
+    
     <message>
         <source>Pump Drive Type</source>
         <translation>Tipo de Acionamento da Bomba</translation>
     </message>
-    <!-- OS:Chiller:Absorption:Indirect -->
+    
     <message>
         <source>Pump Electric Input Function of Part Load Ratio Curve</source>
         <translation>Curva de Função de Entrada Elétrica da Bomba em Relação à Taxa de Carga Parcial</translation>
     </message>
-    <!-- OS:HeaderedPumps:ConstantSpeed, OS:HeaderedPumps:VariableSpeed, OS:Pump:ConstantSpeed -->
+    
     <message>
         <source>Pump Flow Rate Schedule</source>
         <translation>Cronograma de Taxa de Vazão da Bomba</translation>
     </message>
-    <!-- OS:Generator:FuelCell:WaterSupply -->
+    
     <message>
         <source>Pump Heat Loss Factor</source>
         <translation>Fator de Perda de Calor da Bomba</translation>
     </message>
-    <!-- OS:Refrigeration:SecondarySystem -->
+    
     <message>
         <source>Pump Motor Heat to Fluid</source>
         <translation>Calor do Motor da Bomba para o Fluido</translation>
     </message>
-    <!-- OS:TemperingValve -->
+    
     <message>
         <source>Pump Outlet Node</source>
         <translation>Nó de Saída da Bomba</translation>
     </message>
-    <!-- OS:Pump:VariableSpeed -->
+    
     <message>
         <source>Pump RPM Schedule Name</source>
         <translation>Nome da Agenda RPM da Bomba</translation>
     </message>
-    <!-- OS:SolarCollectorPerformance:PhotovoltaicThermal:BIPVT -->
+    
     <message>
         <source>PV Cell Normal Transmittance-Absorptance Product</source>
         <translation>Produto Transmitância-Absortância Normal da Célula FV</translation>
     </message>
-    <!-- OS:SolarCollectorPerformance:PhotovoltaicThermal:BIPVT -->
+    
     <message>
         <source>PV Module Back Longwave Emissivity</source>
         <translation>Emissividade Longwave Traseira do Módulo FV</translation>
     </message>
-    <!-- OS:SolarCollectorPerformance:PhotovoltaicThermal:BIPVT -->
+    
     <message>
         <source>PV Module Bottom Thermal Resistance</source>
         <translation>Resistência Térmica Inferior do Módulo FV</translation>
     </message>
-    <!-- OS:SolarCollectorPerformance:PhotovoltaicThermal:BIPVT -->
+    
     <message>
         <source>PV Module Front Longwave Emissivity</source>
         <translation>Emissividade de Onda Longa da Frente do Módulo FV</translation>
     </message>
-    <!-- OS:SolarCollectorPerformance:PhotovoltaicThermal:BIPVT -->
+    
     <message>
         <source>PV Module Top Thermal Resistance</source>
         <translation>Resistência Térmica Superior do Módulo FV</translation>
     </message>
-    <!-- OS:Generator:PVWatts -->
+    
     <message>
         <source>PVWatts Version</source>
         <translation>Versão PVWatts</translation>
     </message>
-    <!-- OS:PythonPlugin:OutputVariable -->
+    
     <message>
         <source>Python Plugin Variable Name</source>
         <translation>Nome da Variável do Plugin Python</translation>
     </message>
 
-    <!-- Q -->
-    <!-- OS:UtilityCost:Qualify -->
+    
+    
     <message>
         <source>Qualify Type</source>
         <translation>Tipo de Qualificação</translation>
     </message>
 
-    <!-- R -->
-    <!-- OS:ZoneHVAC:HighTemperatureRadiant, OS:ZoneHVAC:LowTemperatureRadiant:ConstantFlow, OS:ZoneHVAC:LowTemperatureRadiant:Electric, OS:ZoneHVAC:LowTemperatureRadiant:VariableFlow -->
+    
+    
     <message>
         <source>Radiant Surface Type</source>
         <translation>Tipo de Superfície Radiante</translation>
     </message>
-    <!-- OS:ElectricLoadCenter:Inverter:LookUpTable, OS:ElectricLoadCenter:Inverter:Simple, OS:ElectricLoadCenter:Storage:Converter, OS:ElectricLoadCenter:Storage:LiIonNMCBattery, OS:ElectricLoadCenter:Transformer -->
+    
     <message>
         <source>Radiative Fraction</source>
         <translation>Fração Radiativa</translation>
     </message>
-    <!-- OS:ElectricLoadCenter:Storage:Simple -->
+    
     <message>
         <source>Radiative Fraction for Zone Heat Gains</source>
         <translation>Fração Radiativa para Ganhos de Calor da Zona</translation>
     </message>
-    <!-- OS:SizingPeriod:DesignDay -->
+    
     <message>
         <source>Rain Indicator</source>
         <translation>Indicador de Chuva</translation>
     </message>
-    <!-- OS:PlantEquipmentOperation:CoolingLoad, OS:PlantEquipmentOperation:HeatingLoad, OS:PlantEquipmentOperation:OutdoorDewpoint, OS:PlantEquipmentOperation:OutdoorDewpointDifference, OS:PlantEquipmentOperation:OutdoorDryBulb, OS:PlantEquipmentOperation:OutdoorDryBulbDifference, OS:PlantEquipmentOperation:OutdoorRelativeHumidity, OS:PlantEquipmentOperation:OutdoorWetBulb, OS:PlantEquipmentOperation:OutdoorWetBulbDifference -->
+    
     <message>
         <source>Range Equipment List Name</source>
         <translation>Nome da Lista de Equipamentos de Fogão</translation>
     </message>
-    <!-- OS:HeatExchanger:AirToAir:SensibleAndLatent -->
+    
     <message>
         <source>Rate of Defrost Time Fraction Increase</source>
         <translation>Taxa de Aumento da Fração de Tempo de Degelo</translation>
     </message>
-    <!-- OS:Refrigeration:AirChiller -->
+    
     <message>
         <source>Rated Air Flow</source>
         <translation>Vazão de Ar Nominal</translation>
     </message>
-    <!-- OS:Coil:Cooling:DX:VariableSpeed, OS:Coil:Cooling:WaterToAirHeatPump:VariableSpeedEquationFit, OS:Coil:Heating:DX:VariableSpeed, OS:Coil:Heating:WaterToAirHeatPump:VariableSpeedEquationFit -->
+    
     <message>
         <source>Rated Air Flow Rate At Selected Nominal Speed Level</source>
         <translation>Taxa de Fluxo de Ar Nominal no Nível de Velocidade Nominal Selecionado</translation>
     </message>
-    <!-- OS:Refrigeration:Case -->
+    
     <message>
         <source>Rated Ambient Relative Humidity</source>
         <translation>Umidade Relativa Ambiente Nominal</translation>
     </message>
-    <!-- OS:Refrigeration:Case -->
+    
     <message>
         <source>Rated Ambient Temperature</source>
         <translation>Temperatura Ambiente Nominal</translation>
     </message>
-    <!-- OS:Refrigeration:Condenser:Cascade -->
+    
     <message>
         <source>Rated Approach Temperature Difference</source>
         <translation>Diferença de Temperatura de Aproximação Nominal</translation>
     </message>
-    <!-- OS:Coil:Heating:Water:Baseboard:Radiant -->
+    
     <message>
         <source>Rated Average Water Temperature</source>
         <translation>Temperatura Média da Água em Condições Nominais</translation>
     </message>
-    <!-- OS:Refrigeration:WalkIn -->
+    
     <message>
         <source>Rated Circulation Fan Power</source>
         <translation>Potência Nominal da Bomba de Circulação</translation>
     </message>
-    <!-- OS:Refrigeration:WalkIn -->
+    
     <message>
         <source>Rated Coil Cooling Capacity</source>
         <translation>Capacidade de Resfriamento da Serpentina Nominal</translation>
     </message>
-    <!-- OS:AirConditioner:VariableRefrigerantFlow:FluidTemperatureControl, OS:AirConditioner:VariableRefrigerantFlow:FluidTemperatureControl:HR -->
+    
     <message>
         <source>Rated Compressor Power Per Unit of Rated Evaporative Capacity</source>
         <translation>Potência Nominal do Compressor por Unidade de Capacidade Evaporativa Nominal</translation>
     </message>
-    <!-- OS:Coil:Cooling:DX:CurveFit:OperatingMode -->
+    
     <message>
         <source>Rated Condenser Air Flow Rate</source>
         <translation>Taxa de Fluxo de Ar do Condensador Classificada</translation>
     </message>
-    <!-- OS:Coil:WaterHeating:AirToWaterHeatPump, OS:Coil:WaterHeating:AirToWaterHeatPump:VariableSpeed -->
+    
     <message>
         <source>Rated Condenser Inlet Water Temperature</source>
         <translation>Temperatura da Água de Entrada do Condensador Nominal</translation>
     </message>
-    <!-- OS:Coil:WaterHeating:AirToWaterHeatPump, OS:Coil:WaterHeating:AirToWaterHeatPump:VariableSpeed -->
+    
     <message>
         <source>Rated Condenser Water Flow Rate</source>
         <translation>Vazão de Água do Condensador Nominal</translation>
     </message>
-    <!-- OS:Coil:WaterHeating:AirToWaterHeatPump:Wrapped -->
+    
     <message>
         <source>Rated Condenser Water Temperature</source>
         <translation>Temperatura da Água do Condensador Nominal</translation>
     </message>
-    <!-- OS:Refrigeration:Condenser:Cascade, OS:Refrigeration:Condenser:WaterCooled -->
+    
     <message>
         <source>Rated Condensing Temperature</source>
         <translation>Temperatura de Condensação Nominal</translation>
     </message>
-    <!-- OS:HeatPump:AirToWater:Cooling:SpeedData -->
+    
     <message>
         <source>Rated Cooling Capacity</source>
         <translation>Capacidade de Resfriamento Nominal</translation>
     </message>
-    <!-- OS:Coil:Cooling:WaterToAirHeatPump:EquationFit -->
+    
     <message>
         <source>Rated Cooling Coefficient of Performance</source>
         <translation>Coeficiente de Desempenho de Resfriamento Classificado</translation>
     </message>
-    <!-- OS:Refrigeration:WalkIn -->
+    
     <message>
         <source>Rated Cooling Coil Fan Power</source>
         <translation>Potência da Ventilha da Serpentina de Resfriamento Nominal</translation>
     </message>
-    <!-- OS:Refrigeration:AirChiller, OS:Refrigeration:WalkIn -->
+    
     <message>
         <source>Rated Cooling Source Temperature</source>
         <translation>Temperatura da Fonte de Resfriamento Nominal</translation>
     </message>
-    <!-- OS:HeatPump:AirToWater:Cooling:SpeedData -->
+    
     <message>
         <source>Rated COP for Cooling</source>
         <translation>COP Nominal para Resfriamento</translation>
     </message>
-    <!-- OS:HeatPump:AirToWater:Heating:SpeedData -->
+    
     <message>
         <source>Rated COP for Heating</source>
         <translation>COP Nominal para Aquecimento</translation>
     </message>
-    <!-- OS:Refrigeration:Condenser:Cascade, OS:Refrigeration:Condenser:EvaporativeCooled, OS:Refrigeration:Condenser:WaterCooled -->
+    
     <message>
         <source>Rated Effective Total Heat Rejection Rate</source>
         <translation>Taxa Efetiva de Rejeição de Calor Total Nominal</translation>
     </message>
-    <!-- OS:Refrigeration:Condenser:AirCooled -->
+    
     <message>
         <source>Rated Effective Total Heat Rejection Rate Curve Name</source>
         <translation>Nome da Curva de Taxa de Rejeição de Calor Total Efetivo Nominal</translation>
     </message>
-    <!-- OS:Generator:Photovoltaic -->
+    
     <message>
         <source>Rated Electric Power Output</source>
         <translation>Potência Elétrica de Saída Nominal</translation>
     </message>
-    <!-- OS:ZoneHVAC:Dehumidifier:DX -->
+    
     <message>
         <source>Rated Energy Factor</source>
         <translation>Fator de Energia Nominal</translation>
     </message>
-    <!-- OS:Coil:Cooling:WaterToAirHeatPump:EquationFit, OS:Coil:Heating:WaterToAirHeatPump:EquationFit -->
+    
     <message>
         <source>Rated Entering Air Dry-Bulb Temperature</source>
         <translation>Temperatura de Bulbo Seco do Ar de Entrada Nominal</translation>
     </message>
-    <!-- OS:Coil:Cooling:WaterToAirHeatPump:EquationFit -->
+    
     <message>
         <source>Rated Entering Air Wet-Bulb Temperature</source>
         <translation>Temperatura de Bulbo Úmido do Ar de Entrada Nominal</translation>
     </message>
-    <!-- OS:Coil:Cooling:WaterToAirHeatPump:EquationFit, OS:Coil:Heating:WaterToAirHeatPump:EquationFit -->
+    
     <message>
         <source>Rated Entering Water Temperature</source>
         <translation>Temperatura da Água de Entrada Nominal</translation>
     </message>
-    <!-- OS:AirConditioner:VariableRefrigerantFlow:FluidTemperatureControl, OS:AirConditioner:VariableRefrigerantFlow:FluidTemperatureControl:HR -->
+    
     <message>
         <source>Rated Evaporative Capacity</source>
         <translation>Capacidade Evaporativa Nominal</translation>
     </message>
-    <!-- OS:Coil:Cooling:DX:MultiSpeed:StageData -->
+    
     <message>
         <source>Rated Evaporative Condenser Pump Power Consumption</source>
         <translation>Consumo de Potência da Bomba do Condensador Evaporativo Nominal</translation>
     </message>
-    <!-- OS:Coil:Cooling:DX:CurveFit:OperatingMode, OS:Coil:Cooling:DX:SingleSpeed:ThermalStorage, OS:Coil:WaterHeating:AirToWaterHeatPump, OS:Coil:WaterHeating:AirToWaterHeatPump:VariableSpeed, OS:Coil:WaterHeating:AirToWaterHeatPump:Wrapped -->
+    
     <message>
         <source>Rated Evaporator Air Flow Rate</source>
         <translation>Taxa de Fluxo de Ar do Evaporador Nominal</translation>
     </message>
-    <!-- OS:Coil:WaterHeating:AirToWaterHeatPump, OS:Coil:WaterHeating:AirToWaterHeatPump:VariableSpeed, OS:Coil:WaterHeating:AirToWaterHeatPump:Wrapped -->
+    
     <message>
         <source>Rated Evaporator Inlet Air Dry-Bulb Temperature</source>
         <translation>Temperatura de Bulbo Seco do Ar na Entrada do Evaporador em Condição Nominal</translation>
     </message>
-    <!-- OS:Coil:WaterHeating:AirToWaterHeatPump, OS:Coil:WaterHeating:AirToWaterHeatPump:VariableSpeed, OS:Coil:WaterHeating:AirToWaterHeatPump:Wrapped -->
+    
     <message>
         <source>Rated Evaporator Inlet Air Wet-Bulb Temperature</source>
         <translation>Temperatura de Bulbo Úmido do Ar de Entrada do Evaporador em Condições Nominais</translation>
     </message>
-    <!-- OS:Humidifier:Steam:Electric, OS:Humidifier:Steam:Gas, OS:Refrigeration:AirChiller, OS:Refrigeration:Condenser:AirCooled, OS:Refrigeration:Condenser:EvaporativeCooled, OS:Refrigeration:GasCooler:AirCooled -->
+    
     <message>
         <source>Rated Fan Power</source>
         <translation>Potência Nominal do Ventilador</translation>
     </message>
-    <!-- OS:Humidifier:Steam:Gas -->
+    
     <message>
         <source>Rated Gas Use Rate</source>
         <translation>Taxa de Consumo de Gás Nominal</translation>
     </message>
-    <!-- OS:Coil:Cooling:DX:CurveFit:OperatingMode -->
+    
     <message>
         <source>Rated Gross Total Cooling Capacity</source>
         <translation>Capacidade Total de Resfriamento Bruta Nominal</translation>
     </message>
-    <!-- OS:Coil:WaterHeating:Desuperheater -->
+    
     <message>
         <source>Rated Heat Reclaim Recovery Efficiency</source>
         <translation>Eficiência de Recuperação de Calor Reclamado Nominal</translation>
     </message>
-    <!-- OS:Coil:Heating:WaterToAirHeatPump:EquationFit, OS:Coil:WaterHeating:AirToWaterHeatPump, OS:Coil:WaterHeating:AirToWaterHeatPump:Wrapped, OS:HeatPump:AirToWater:Heating:SpeedData -->
+    
     <message>
         <source>Rated Heating Capacity</source>
         <translation>Capacidade de Aquecimento Nominal</translation>
     </message>
-    <!-- OS:Coil:Heating:DX:VariableSpeed, OS:Coil:Heating:WaterToAirHeatPump:VariableSpeedEquationFit -->
+    
     <message>
         <source>Rated Heating Capacity At Selected Nominal Speed Level</source>
         <translation>Capacidade de Aquecimento Nominal no Nível de Velocidade Nominal Selecionado</translation>
     </message>
-    <!-- OS:AirConditioner:VariableRefrigerantFlow -->
+    
     <message>
         <source>Rated Heating Capacity Sizing Ratio</source>
         <translation>Razão de Dimensionamento da Capacidade de Aquecimento Nominal</translation>
     </message>
-    <!-- OS:Coil:Heating:WaterToAirHeatPump:EquationFit -->
+    
     <message>
         <source>Rated Heating Coefficient of Performance</source>
         <translation>Coeficiente de Desempenho de Aquecimento Classificado</translation>
     </message>
-    <!-- OS:AirConditioner:VariableRefrigerantFlow -->
+    
     <message>
         <source>Rated Heating COP</source>
         <translation>COP de Aquecimento Nominal</translation>
     </message>
-    <!-- OS:Coil:Cooling:DX:TwoSpeed -->
+    
     <message>
         <source>Rated High Speed Air Flow Rate</source>
         <translation>Vazão de Ar em Velocidade Alta Nominal</translation>
     </message>
-    <!-- OS:Coil:Cooling:DX:TwoSpeed -->
+    
     <message>
         <source>Rated High Speed COP</source>
         <translation>COP em Velocidade Máxima Nominal</translation>
     </message>
-    <!-- OS:Coil:Cooling:DX:TwoSpeed -->
+    
     <message>
         <source>Rated High Speed Evaporator Fan Power Per Volume Flow Rate 2017</source>
         <translation>Potência do Ventilador do Evaporador em Velocidade Nominal Alta por Taxa de Fluxo de Volume 2017</translation>
     </message>
-    <!-- OS:Coil:Cooling:DX:TwoSpeed -->
+    
     <message>
         <source>Rated High Speed Evaporator Fan Power Per Volume Flow Rate 2023</source>
         <translation>Potência do Ventilador do Evaporador em Alta Velocidade Nominal por Taxa de Fluxo de Volume 2023</translation>
     </message>
-    <!-- OS:Coil:Cooling:DX:TwoSpeed -->
+    
     <message>
         <source>Rated High Speed Sensible Heat Ratio</source>
         <translation>Taxa de Calor Sensível Nominal em Alta Velocidade</translation>
     </message>
-    <!-- OS:Coil:Cooling:DX:TwoSpeed -->
+    
     <message>
         <source>Rated High Speed Total Cooling Capacity</source>
         <translation>Capacidade Total de Refrigeração em Velocidade Alta Nominal</translation>
     </message>
-    <!-- OS:Coil:Cooling:Water:Panel:Radiant -->
+    
     <message>
         <source>Rated Inlet Space Temperature</source>
         <translation>Temperatura do Espaço de Entrada Nominal</translation>
     </message>
-    <!-- OS:Refrigeration:Case -->
+    
     <message>
         <source>Rated Latent Heat Ratio</source>
         <translation>Razão de Calor Latente Nominal</translation>
     </message>
-    <!-- OS:HeatPump:AirToWater:Cooling, OS:HeatPump:AirToWater:Heating -->
+    
     <message>
         <source>Rated Leaving Water Temperature</source>
         <translation>Temperatura da Água de Saída Nominal</translation>
     </message>
-    <!-- OS:Refrigeration:Compressor -->
+    
     <message>
         <source>Rated Liquid Temperature</source>
         <translation>Temperatura do Líquido Nominal</translation>
     </message>
-    <!-- OS:ElectricLoadCenter:Transformer -->
+    
     <message>
         <source>Rated Load Loss</source>
         <translation>Perda de Carga Nominal</translation>
     </message>
-    <!-- OS:Coil:Cooling:DX:TwoSpeed -->
+    
     <message>
         <source>Rated Low Speed Air Flow Rate</source>
         <translation>Vazão de Ar em Velocidade Baixa Nominal</translation>
     </message>
-    <!-- OS:Coil:Cooling:DX:TwoSpeed -->
+    
     <message>
         <source>Rated Low Speed COP</source>
         <translation>COP Nominal em Baixa Velocidade</translation>
     </message>
-    <!-- OS:Coil:Cooling:DX:TwoSpeed -->
+    
     <message>
         <source>Rated Low Speed Evaporator Fan Power Per Volume Flow Rate 2017</source>
         <translation>Potência do Ventilador do Evaporador em Velocidade Baixa Nominal por Taxa de Fluxo de Volume 2017</translation>
     </message>
-    <!-- OS:Coil:Cooling:DX:TwoSpeed -->
+    
     <message>
         <source>Rated Low Speed Evaporator Fan Power Per Volume Flow Rate 2023</source>
         <translation>Potência do Ventilador do Evaporador em Velocidade Baixa Nominal por Taxa de Fluxo de Volume 2023</translation>
     </message>
-    <!-- OS:Coil:Cooling:DX:TwoSpeed -->
+    
     <message>
         <source>Rated Low Speed Sensible Heat Ratio</source>
         <translation>Razão de Calor Sensível em Velocidade Baixa Nominal</translation>
     </message>
-    <!-- OS:Coil:Cooling:DX:TwoSpeed -->
+    
     <message>
         <source>Rated Low Speed Total Cooling Capacity</source>
         <translation>Capacidade de Resfriamento Total em Baixa Velocidade Nominal</translation>
     </message>
-    <!-- OS:ElectricLoadCenter:Inverter:LookUpTable -->
+    
     <message>
         <source>Rated Maximum Continuous Output Power</source>
         <translation>Potência de Saída Contínua Máxima Nominal</translation>
     </message>
-    <!-- OS:ElectricLoadCenter:Transformer -->
+    
     <message>
         <source>Rated No Load Loss</source>
         <translation>Perda Nominal em Vazio</translation>
     </message>
-    <!-- OS:Coil:WaterHeating:Desuperheater -->
+    
     <message>
         <source>Rated Outdoor Air Temperature</source>
         <translation>Temperatura do Ar Externo Nominal</translation>
     </message>
-    <!-- OS:Generator:WindTurbine, OS:Humidifier:Steam:Electric -->
+    
     <message>
         <source>Rated Power</source>
         <translation>Potência Nominal</translation>
     </message>
-    <!-- OS:AirTerminal:SingleDuct:ConstantVolume:FourPipeBeam -->
+    
     <message>
         <source>Rated Primary Air Flow Rate per Beam Length</source>
         <translation>Vazão de Ar Primário Nominal por Comprimento de Viga</translation>
     </message>
-    <!-- OS:Refrigeration:AirChiller -->
+    
     <message>
         <source>Rated Relative Humidity</source>
         <translation>Umidade Relativa Nominal</translation>
     </message>
-    <!-- OS:Refrigeration:Compressor -->
+    
     <message>
         <source>Rated Return Gas Temperature</source>
         <translation>Temperatura de Retorno de Gás Classificada</translation>
     </message>
-    <!-- OS:Generator:WindTurbine -->
+    
     <message>
         <source>Rated Rotor Speed</source>
         <translation>Velocidade Nominal do Rotor</translation>
     </message>
-    <!-- OS:Refrigeration:Case -->
+    
     <message>
         <source>Rated Runtime Fraction</source>
         <translation>Fração de Tempo de Funcionamento Nominal</translation>
     </message>
-    <!-- OS:Coil:Cooling:WaterToAirHeatPump:EquationFit -->
+    
     <message>
         <source>Rated Sensible Cooling Capacity</source>
         <translation>Capacidade de Resfriamento Sensível Nominal</translation>
     </message>
-    <!-- OS:Refrigeration:Compressor -->
+    
     <message>
         <source>Rated Subcooling</source>
         <translation>Subresfriamento Nominal</translation>
     </message>
-    <!-- OS:Refrigeration:Condenser:AirCooled, OS:Refrigeration:Condenser:EvaporativeCooled, OS:Refrigeration:Condenser:WaterCooled -->
+    
     <message>
         <source>Rated Subcooling Temperature Difference</source>
         <translation>Diferença de Temperatura de Subresfriamento Nominal</translation>
     </message>
-    <!-- OS:Refrigeration:Compressor -->
+    
     <message>
         <source>Rated Superheat</source>
         <translation>Superaquecimento Nominal</translation>
     </message>
-    <!-- OS:Coil:Heating:DX:MultiSpeed:StageData, OS:Coil:Heating:DX:VariableSpeed:SpeedData -->
+    
     <message>
         <source>Rated Supply Air Fan Power Per Volume Flow Rate 2017</source>
         <translation>Potência Nominal do Ventilador de Ar de Insuflação Por Taxa de Vazão 2017</translation>
     </message>
-    <!-- OS:Coil:Heating:DX:MultiSpeed:StageData, OS:Coil:Heating:DX:VariableSpeed:SpeedData -->
+    
     <message>
         <source>Rated Supply Air Fan Power Per Volume Flow Rate 2023</source>
         <translation>Potência Nominal do Ventilador de Ar de Insuflação por Taxa de Fluxo de Volume 2023</translation>
     </message>
-    <!-- OS:Coil:Heating:DX:SingleSpeed -->
+    
     <message>
         <source>Rated Supply Fan Power Per Volume Flow Rate 2017</source>
         <translation>Potência Nominal do Ventilador de Fornecimento Por Taxa de Fluxo de Volume 2017</translation>
     </message>
-    <!-- OS:Coil:Heating:DX:SingleSpeed -->
+    
     <message>
         <source>Rated Supply Fan Power Per Volume Flow Rate 2023</source>
         <translation>Potência do Ventilador de Alimentação Nominal Por Taxa de Fluxo de Volume 2023</translation>
     </message>
-    <!-- OS:Refrigeration:AirChiller -->
+    
     <message>
         <source>Rated Temperature Difference DT1</source>
         <translation>Diferença de Temperatura Nominal DT1</translation>
     </message>
-    <!-- OS:Generator:MicroTurbine:HeatRecovery -->
+    
     <message>
         <source>Rated Thermal to Electrical Power Ratio</source>
         <translation>Razão Nominal de Potência Térmica para Elétrica</translation>
     </message>
-    <!-- OS:Refrigeration:Case -->
+    
     <message>
         <source>Rated Total Cooling Capacity per Door</source>
         <translation>Capacidade Total de Resfriamento Nominal por Porta</translation>
     </message>
-    <!-- OS:Refrigeration:Case -->
+    
     <message>
         <source>Rated Total Cooling Capacity per Unit Length</source>
         <translation>Capacidade de Resfriamento Total Nominal por Unidade de Comprimento</translation>
     </message>
-    <!-- OS:Refrigeration:GasCooler:AirCooled -->
+    
     <message>
         <source>Rated Total Heat Rejection Rate Curve Name</source>
         <translation>Nome da Curva de Taxa de Rejeição de Calor Total Nominal</translation>
     </message>
-    <!-- OS:Coil:Heating:DX:SingleSpeed, OS:Coil:Heating:DX:VariableRefrigerantFlow, OS:Coil:Heating:DX:VariableRefrigerantFlow:FluidTemperatureControl -->
+    
     <message>
         <source>Rated Total Heating Capacity</source>
         <translation>Capacidade Total de Aquecimento Nominal</translation>
     </message>
-    <!-- OS:Refrigeration:AirChiller, OS:Refrigeration:WalkIn -->
+    
     <message>
         <source>Rated Total Heating Power</source>
         <translation>Potência Total de Aquecimento Nominal</translation>
     </message>
-    <!-- OS:Refrigeration:WalkIn -->
+    
     <message>
         <source>Rated Total Lighting Power</source>
         <translation>Potência Total de Iluminação Nominal</translation>
     </message>
-    <!-- OS:Refrigeration:AirChiller -->
+    
     <message>
         <source>Rated Unit Load Factor</source>
         <translation>Fator de Carga Nominal da Unidade</translation>
     </message>
-    <!-- OS:Coil:Cooling:DX:CurveFit:Speed, OS:Coil:Cooling:DX:MultiSpeed:StageData, OS:Coil:Heating:DX:MultiSpeed:StageData -->
+    
     <message>
         <source>Rated Waste Heat Fraction of Power Input</source>
         <translation>Fração de Calor Residual de Potência de Entrada Nominal</translation>
     </message>
-    <!-- OS:Coil:Cooling:WaterToAirHeatPump:EquationFit, OS:Coil:Heating:WaterToAirHeatPump:EquationFit, OS:HeatPump:AirToWater:Cooling, OS:HeatPump:AirToWater:Heating -->
+    
     <message>
         <source>Rated Water Flow Rate</source>
         <translation>Taxa de Fluxo de Água Nominal</translation>
     </message>
-    <!-- OS:Coil:Cooling:WaterToAirHeatPump:VariableSpeedEquationFit, OS:Coil:Heating:WaterToAirHeatPump:VariableSpeedEquationFit -->
+    
     <message>
         <source>Rated Water Flow Rate At Selected Nominal Speed Level</source>
         <translation>Vazão de Água Nominal na Velocidade Nominal Selecionada</translation>
     </message>
-    <!-- OS:Coil:WaterHeating:AirToWaterHeatPump:VariableSpeed, OS:Coil:WaterHeating:AirToWaterHeatPump:VariableSpeed:SpeedData -->
+    
     <message>
         <source>Rated Water Heating Capacity</source>
         <translation>Capacidade Nominal de Aquecimento de Água</translation>
     </message>
-    <!-- OS:Coil:WaterHeating:AirToWaterHeatPump:VariableSpeed:SpeedData -->
+    
     <message>
         <source>Rated Water Heating COP</source>
         <translation>COP Classificado de Aquecimento de Água</translation>
     </message>
-    <!-- OS:Refrigeration:Condenser:WaterCooled -->
+    
     <message>
         <source>Rated Water Inlet Temperature</source>
         <translation>Temperatura da Água Entrada Nominal</translation>
     </message>
-    <!-- OS:Coil:Cooling:Water:Panel:Radiant, OS:Coil:Heating:Water:Baseboard:Radiant -->
+    
     <message>
         <source>Rated Water Mass Flow Rate</source>
         <translation>Taxa de Fluxo Mássico de Água Classificada</translation>
     </message>
-    <!-- OS:Refrigeration:Condenser:EvaporativeCooled -->
+    
     <message>
         <source>Rated Water Pump Power</source>
         <translation>Potência Nominal da Bomba de Água</translation>
     </message>
-    <!-- OS:ZoneHVAC:Dehumidifier:DX -->
+    
     <message>
         <source>Rated Water Removal</source>
         <translation>Remoção de Água Classificada</translation>
     </message>
-    <!-- OS:Generator:WindTurbine -->
+    
     <message>
         <source>Rated Wind Speed</source>
         <translation>Velocidade de Vento Nominal</translation>
     </message>
-    <!-- OS:AirflowNetworkSimulationControl -->
+    
     <message>
         <source>Ratio of Building Width Along Short Axis to Width Along Long Axis</source>
         <translation>Razão entre a Largura do Edifício ao Longo do Eixo Curto e a Largura ao Longo do Eixo Longo</translation>
     </message>
-    <!-- OS:WindowProperty:FrameAndDivider -->
+    
     <message>
         <source>Ratio of Divider-Edge Glass Conductance to Center-Of-Glass Conductance</source>
         <translation>Razão da Condutância do Vidro na Borda do Divisor para a Condutância do Vidro no Centro</translation>
     </message>
-    <!-- OS:WindowProperty:FrameAndDivider -->
+    
     <message>
         <source>Ratio of Frame-Edge Glass Conductance to Center-Of-Glass Conductance</source>
         <translation>Razão entre a Condutância do Vidro de Borda do Caixilho e a Condutância do Vidro no Centro</translation>
     </message>
-    <!-- OS:Coil:Heating:WaterToAirHeatPump:EquationFit -->
+    
     <message>
         <source>Ratio of Rated Heating Capacity to Rated Cooling Capacity</source>
         <translation>Razão entre a Capacidade de Aquecimento Nominal e a Capacidade de Resfriamento Nominal</translation>
     </message>
-    <!-- OS:LifeCycleCost:Parameters -->
+    
     <message>
         <source>Real Discount Rate</source>
         <translation>Taxa de Desconto Real</translation>
     </message>
-    <!-- OS:UtilityCost:Tariff -->
+    
     <message>
         <source>Real Time Pricing Charge Schedule Name</source>
         <translation>Nome do Cronograma de Cobrança de Tarifa em Tempo Real</translation>
     </message>
-    <!-- OS:Refrigeration:TranscriticalSystem -->
+    
     <message>
         <source>Receiver Pressure</source>
         <translation>Pressão do Receptor</translation>
     </message>
-    <!-- OS:Refrigeration:SecondarySystem -->
+    
     <message>
         <source>Receiver/Separator Zone Name</source>
         <translation>Nome da Zona Receptor/Separador</translation>
     </message>
-    <!-- OS:AirTerminal:DualDuct:VAV:OutdoorAir -->
+    
     <message>
         <source>Recirculated Air Inlet Node</source>
         <translation>Nó de Entrada de Ar Recirculado</translation>
     </message>
-    <!-- OS:EvaporativeCooler:Direct:ResearchSpecial, OS:EvaporativeCooler:Indirect:ResearchSpecial -->
+    
     <message>
         <source>Recirculating Water Pump Power Consumption</source>
         <translation>Consumo de Energia da Bomba de Água Recirculante</translation>
     </message>
-    <!-- OS:ElectricEquipment:ITE:AirCooled:Definition -->
+    
     <message>
         <source>Recirculation Function of Loading and Supply Temperature Curve Name</source>
         <translation>Nome da Curva de Função de Recirculação de Temperatura de Carregamento e Fornecimento</translation>
     </message>
-    <!-- OS:WaterUse:Connections -->
+    
     <message>
         <source>Reclamation Water Storage Tank Name</source>
         <translation>Nome do Tanque de Armazenamento de Água de Recirculação</translation>
     </message>
-    <!-- OS:WaterHeater:Sizing -->
+    
     <message>
         <source>Recovery Capacity per Floor Area</source>
         <translation>Capacidade de Recuperação por Área de Piso</translation>
     </message>
-    <!-- OS:WaterHeater:Sizing -->
+    
     <message>
         <source>Recovery Capacity per Person</source>
         <translation>Capacidade de Recuperação por Pessoa</translation>
     </message>
-    <!-- OS:WaterHeater:Sizing -->
+    
     <message>
         <source>Recovery Capacity PerUnit</source>
         <translation>Capacidade de Recuperação por Unidade</translation>
     </message>
-    <!-- OS:AirflowNetworkReferenceCrackConditions -->
+    
     <message>
         <source>Reference Barometric Pressure</source>
         <translation>Pressão Barométrica de Referência</translation>
     </message>
-    <!-- OS:HeatPump:PlantLoop:EIR:Cooling, OS:HeatPump:PlantLoop:EIR:Heating, OS:HeatPump:WaterToWater:EquationFit:Cooling, OS:HeatPump:WaterToWater:EquationFit:Heating -->
+    
     <message>
         <source>Reference Coefficient of Performance</source>
         <translation>Coeficiente de Desempenho de Referência</translation>
     </message>
-    <!-- OS:Generator:MicroTurbine -->
+    
     <message>
         <source>Reference Combustion Air Inlet Humidity Ratio</source>
         <translation>Razão de Umidade do Ar de Combustão de Referência</translation>
     </message>
-    <!-- OS:Generator:MicroTurbine -->
+    
     <message>
         <source>Reference Combustion Air Inlet Temperature</source>
         <translation>Temperatura de Entrada do Ar de Combustão de Referência</translation>
     </message>
-    <!-- OS:Chiller:Electric:EIR -->
+    
     <message>
         <source>Reference Condenser Fluid Flow Rate</source>
         <translation>Vazão de Fluido do Condensador de Referência</translation>
     </message>
-    <!-- OS:AirConditioner:VariableRefrigerantFlow:FluidTemperatureControl, OS:AirConditioner:VariableRefrigerantFlow:FluidTemperatureControl:HR -->
+    
     <message>
         <source>Reference Condensing Temperature for Indoor Unit</source>
         <translation>Temperatura de Condensação de Referência para Unidade Interna</translation>
     </message>
-    <!-- OS:HeatPump:WaterToWater:EquationFit:Cooling -->
+    
     <message>
         <source>Reference Cooling Capacity</source>
         <translation>Capacidade de Resfriamento de Referência</translation>
     </message>
-    <!-- OS:ChillerHeaterPerformance:Electric:EIR -->
+    
     <message>
         <source>Reference Cooling Mode COP</source>
         <translation>COP do Modo de Resfriamento de Referência</translation>
     </message>
-    <!-- OS:ChillerHeaterPerformance:Electric:EIR -->
+    
     <message>
         <source>Reference Cooling Mode Entering Condenser Fluid Temperature</source>
         <translation>Temperatura do Fluido do Condensador de Entrada do Modo de Resfriamento de Referência</translation>
     </message>
-    <!-- OS:ChillerHeaterPerformance:Electric:EIR -->
+    
     <message>
         <source>Reference Cooling Mode Evaporator Capacity</source>
         <translation>Capacidade do Evaporador no Modo de Resfriamento de Referência</translation>
     </message>
-    <!-- OS:ChillerHeaterPerformance:Electric:EIR -->
+    
     <message>
         <source>Reference Cooling Mode Leaving Chilled Water Temperature</source>
         <translation>Temperatura da Água Gelada de Saída no Modo de Resfriamento de Referência</translation>
     </message>
-    <!-- OS:ChillerHeaterPerformance:Electric:EIR -->
+    
     <message>
         <source>Reference Cooling Mode Leaving Condenser Water Temperature</source>
         <translation>Temperatura de Saída da Água do Condensador - Modo de Resfriamento de Referência</translation>
     </message>
-    <!-- OS:HeatPump:WaterToWater:EquationFit:Cooling -->
+    
     <message>
         <source>Reference Cooling Power Consumption</source>
         <translation>Consumo de Potência de Resfriamento de Referência</translation>
     </message>
-    <!-- OS:AirflowNetworkCrack, OS:AirflowNetworkReliefAirFlow -->
+    
     <message>
         <source>Reference Crack Conditions</source>
         <translation>Condições de Referência da Fissura</translation>
     </message>
-    <!-- OS:Generator:MicroTurbine -->
+    
     <message>
         <source>Reference Electrical Efficiency Using Lower Heating Value</source>
         <translation>Eficiência Elétrica de Referência Utilizando Poder Calorífico Inferior</translation>
     </message>
-    <!-- OS:Generator:MicroTurbine -->
+    
     <message>
         <source>Reference Electrical Power Output</source>
         <translation>Potência Elétrica de Saída de Referência</translation>
     </message>
-    <!-- OS:Generator:MicroTurbine -->
+    
     <message>
         <source>Reference Elevation</source>
         <translation>Elevação de Referência</translation>
     </message>
-    <!-- OS:AirConditioner:VariableRefrigerantFlow:FluidTemperatureControl, OS:AirConditioner:VariableRefrigerantFlow:FluidTemperatureControl:HR -->
+    
     <message>
         <source>Reference Evaporating Temperature for Indoor Unit</source>
         <translation>Temperatura de Evaporação de Referência para Unidade Interna</translation>
     </message>
-    <!-- OS:Generator:MicroTurbine -->
+    
     <message>
         <source>Reference Exhaust Air Mass Flow Rate</source>
         <translation>Vazão Mássica de Ar Exaurido de Referência</translation>
     </message>
-    <!-- OS:SetpointManager:FollowGroundTemperature -->
+    
     <message>
         <source>Reference Ground Temperature Object Type</source>
         <translation>Tipo de Objeto de Temperatura de Referência do Solo</translation>
     </message>
-    <!-- OS:Generator:MicroTurbine:HeatRecovery -->
+    
     <message>
         <source>Reference Heat Recovery Water Flow Rate</source>
         <translation>Taxa de Fluxo de Água de Recuperação de Calor de Referência</translation>
     </message>
-    <!-- OS:HeatPump:WaterToWater:EquationFit:Heating -->
+    
     <message>
         <source>Reference Heating Capacity</source>
         <translation>Capacidade de Aquecimento de Referência</translation>
     </message>
-    <!-- OS:ChillerHeaterPerformance:Electric:EIR -->
+    
     <message>
         <source>Reference Heating Mode Cooling Capacity Ratio</source>
         <translation>Razão de Capacidade de Resfriamento no Modo Aquecimento de Referência</translation>
     </message>
-    <!-- OS:ChillerHeaterPerformance:Electric:EIR -->
+    
     <message>
         <source>Reference Heating Mode Cooling Power Input Ratio</source>
         <translation>Razão de Entrada de Potência de Aquecimento de Referência em Modo de Refrigeração</translation>
     </message>
-    <!-- OS:ChillerHeaterPerformance:Electric:EIR -->
+    
     <message>
         <source>Reference Heating Mode Entering Condenser Fluid Temperature</source>
         <translation>Temperatura do Fluido de Entrada do Condensador no Modo de Aquecimento de Referência</translation>
     </message>
-    <!-- OS:ChillerHeaterPerformance:Electric:EIR -->
+    
     <message>
         <source>Reference Heating Mode Leaving Chilled Water Temperature</source>
         <translation>Temperatura da Água Gelada de Saída no Modo de Aquecimento de Referência</translation>
     </message>
-    <!-- OS:ChillerHeaterPerformance:Electric:EIR -->
+    
     <message>
         <source>Reference Heating Mode Leaving Condenser Water Temperature</source>
         <translation>Temperatura de Água de Saída do Condensador em Modo de Aquecimento de Referência</translation>
     </message>
-    <!-- OS:HeatPump:WaterToWater:EquationFit:Heating -->
+    
     <message>
         <source>Reference Heating Power Consumption</source>
         <translation>Consumo de Potência de Aquecimento de Referência</translation>
     </message>
-    <!-- OS:AirflowNetworkReferenceCrackConditions -->
+    
     <message>
         <source>Reference Humidity Ratio</source>
         <translation>Razão de Umidade de Referência</translation>
     </message>
-    <!-- OS:Generator:MicroTurbine:HeatRecovery -->
+    
     <message>
         <source>Reference Inlet Water Temperature</source>
         <translation>Temperatura da Água de Entrada de Referência</translation>
     </message>
-    <!-- OS:PhotovoltaicPerformance:EquivalentOneDiode -->
+    
     <message>
         <source>Reference Insolation</source>
         <translation>Insolação de Referência</translation>
     </message>
-    <!-- OS:Chiller:Electric:ReformulatedEIR -->
+    
     <message>
         <source>Reference Leaving Condenser Water Temperature</source>
         <translation>Temperatura de Água de Saída do Condensador de Referência</translation>
     </message>
-    <!-- OS:HeatPump:WaterToWater:EquationFit:Cooling, OS:HeatPump:WaterToWater:EquationFit:Heating -->
+    
     <message>
         <source>Reference Load Side Flow Rate</source>
         <translation>Vazão Volumétrica de Referência do Lado da Carga</translation>
     </message>
-    <!-- OS:SetpointManager:FollowSystemNodeTemperature, OS:SetpointManager:SystemNodeReset:Humidity, OS:SetpointManager:SystemNodeReset:Temperature -->
+    
     <message>
         <source>Reference Node Name</source>
         <translation>Nome do Nó de Referência</translation>
     </message>
-    <!-- OS:AirConditioner:VariableRefrigerantFlow:FluidTemperatureControl -->
+    
     <message>
         <source>Reference Outdoor Unit Subcooling</source>
         <translation>Subcooling de Unidade Externa de Referência</translation>
     </message>
-    <!-- OS:AirConditioner:VariableRefrigerantFlow:FluidTemperatureControl -->
+    
     <message>
         <source>Reference Outdoor Unit Superheating</source>
         <translation>Superaquecimento da Unidade Exterior de Referência</translation>
     </message>
-    <!-- OS:AirflowNetworkEffectiveLeakageArea, OS:AirflowNetworkLeakageRatio -->
+    
     <message>
         <source>Reference Pressure Difference</source>
         <translation>Diferença de Pressão de Referência</translation>
     </message>
-    <!-- OS:SetpointManager:MixedAir, OS:SetpointManager:OutdoorAirPretreat -->
+    
     <message>
         <source>Reference Setpoint Node Name</source>
         <translation>Nome do Nó de Ponto de Ajuste de Referência</translation>
     </message>
-    <!-- OS:HeatPump:WaterToWater:EquationFit:Cooling, OS:HeatPump:WaterToWater:EquationFit:Heating -->
+    
     <message>
         <source>Reference Source Side Flow Rate</source>
         <translation>Taxa de Vazão do Lado da Fonte de Referência</translation>
     </message>
-    <!-- OS:AirflowNetworkReferenceCrackConditions, OS:PhotovoltaicPerformance:EquivalentOneDiode -->
+    
     <message>
         <source>Reference Temperature</source>
         <translation>Temperatura de Referência</translation>
     </message>
-    <!-- OS:ElectricLoadCenter:Transformer -->
+    
     <message>
         <source>Reference Temperature for Nameplate Efficiency</source>
         <translation>Temperatura de Referência para Eficiência Nominal</translation>
     </message>
-    <!-- OS:PlantEquipmentOperation:OutdoorDewpointDifference, OS:PlantEquipmentOperation:OutdoorDryBulbDifference, OS:PlantEquipmentOperation:OutdoorWetBulbDifference -->
+    
     <message>
         <source>Reference Temperature Node Name</source>
         <translation>Nome do Nó de Temperatura de Referência</translation>
     </message>
-    <!-- OS:Generator:MicroTurbine:HeatRecovery -->
+    
     <message>
         <source>Reference Thermal Efficiency Using Lower Heat Value</source>
         <translation>Eficiência Térmica de Referência Usando Poder Calorífico Inferior</translation>
     </message>
-    <!-- OS:Coil:Cooling:DX:VariableSpeed:SpeedData, OS:Coil:Cooling:WaterToAirHeatPump:VariableSpeedEquationFit:SpeedData -->
+    
     <message>
         <source>Reference Unit Gross Rated Cooling COP</source>
         <translation>COP de Refrigeração Nominal Bruto da Unidade de Referência</translation>
     </message>
-    <!-- OS:Coil:Heating:DX:VariableSpeed:SpeedData, OS:Coil:Heating:WaterToAirHeatPump:VariableSpeedEquationFit:SpeedData -->
+    
     <message>
         <source>Reference Unit Gross Rated Heating Capacity</source>
         <translation>Capacidade de Aquecimento Nominal Bruta da Unidade de Referência</translation>
     </message>
-    <!-- OS:Coil:Heating:DX:VariableSpeed:SpeedData, OS:Coil:Heating:WaterToAirHeatPump:VariableSpeedEquationFit:SpeedData -->
+    
     <message>
         <source>Reference Unit Gross Rated Heating COP</source>
         <translation>COP de Aquecimento Nominal Bruto da Unidade de Referência</translation>
     </message>
-    <!-- OS:Coil:Cooling:DX:VariableSpeed:SpeedData, OS:Coil:Cooling:WaterToAirHeatPump:VariableSpeedEquationFit:SpeedData -->
+    
     <message>
         <source>Reference Unit Gross Rated Sensible Heat Ratio</source>
         <translation>Razão de Calor Sensível Nominal Bruta da Unidade de Referência</translation>
     </message>
-    <!-- OS:Coil:Cooling:DX:VariableSpeed:SpeedData, OS:Coil:Cooling:WaterToAirHeatPump:VariableSpeedEquationFit:SpeedData -->
+    
     <message>
         <source>Reference Unit Gross Rated Total Cooling Capacity</source>
         <translation>Capacidade Total de Refrigeração Nominal Bruta da Unidade de Referência</translation>
     </message>
-    <!-- OS:Coil:Heating:WaterToAirHeatPump:VariableSpeedEquationFit:SpeedData -->
+    
     <message>
         <source>Reference Unit Rated Air Flow</source>
         <translation>Vazão de Ar Nominal da Unidade de Referência</translation>
     </message>
-    <!-- OS:Coil:Cooling:DX:VariableSpeed:SpeedData, OS:Coil:Cooling:WaterToAirHeatPump:VariableSpeedEquationFit:SpeedData, OS:Coil:Heating:DX:VariableSpeed:SpeedData, OS:Coil:WaterHeating:AirToWaterHeatPump:VariableSpeed:SpeedData -->
+    
     <message>
         <source>Reference Unit Rated Air Flow Rate</source>
         <translation>Taxa de Fluxo de Ar Nominal da Unidade de Referência</translation>
     </message>
-    <!-- OS:Coil:Cooling:DX:VariableSpeed:SpeedData -->
+    
     <message>
         <source>Reference Unit Rated Condenser Air Flow Rate</source>
         <translation>Taxa de Fluxo de Ar do Condensador Nominal da Unidade de Referência</translation>
     </message>
-    <!-- OS:Coil:Cooling:DX:VariableSpeed:SpeedData -->
+    
     <message>
         <source>Reference Unit Rated Pad Effectiveness of Evap Precooling</source>
         <translation>Efetividade Nominal do Resfriamento Evaporativo de Pré-resfriamento da Unidade de Referência</translation>
     </message>
-    <!-- OS:Coil:Cooling:WaterToAirHeatPump:VariableSpeedEquationFit:SpeedData, OS:Coil:Heating:WaterToAirHeatPump:VariableSpeedEquationFit:SpeedData, OS:Coil:WaterHeating:AirToWaterHeatPump:VariableSpeed:SpeedData -->
+    
     <message>
         <source>Reference Unit Rated Water Flow Rate</source>
         <translation>Taxa de Fluxo de Água Nominal da Unidade de Referência</translation>
     </message>
-    <!-- OS:Coil:Cooling:WaterToAirHeatPump:VariableSpeedEquationFit:SpeedData, OS:Coil:Heating:WaterToAirHeatPump:VariableSpeedEquationFit:SpeedData -->
+    
     <message>
         <source>Reference Unit Waste Heat Fraction of Input Power At Rated Conditions</source>
         <translation>Fração de Calor Residual da Unidade de Referência da Potência de Entrada em Condições Nominais</translation>
     </message>
-    <!-- OS:Coil:WaterHeating:AirToWaterHeatPump:VariableSpeed:SpeedData -->
+    
     <message>
         <source>Reference Unit Water Pump Input Power At Rated Conditions</source>
         <translation>Potência de Entrada da Bomba de Água da Unidade de Referência em Condições Nominais</translation>
     </message>
-    <!-- OS:WindowMaterial:Screen -->
+    
     <message>
         <source>Reflected Beam Transmittance Accounting Method</source>
         <translation>Método de Contabilização da Transmitância de Raio Refletido</translation>
     </message>
-    <!-- OS:Generator:FuelCell:WaterSupply -->
+    
     <message>
         <source>Reformer Water Flow Rate Function of Fuel Rate Curve Name</source>
         <translation>Reformer Water Flow Rate Function of Fuel Rate Curve Name</translation>
     </message>
-    <!-- OS:Generator:FuelCell:WaterSupply -->
+    
     <message>
         <source>Reformer Water Pump Power Function of Fuel Rate Curve Name</source>
         <translation>Reformador - Nome da Curva de Função de Potência da Bomba de Água em Relação à Taxa de Combustível</translation>
     </message>
-    <!-- OS:SolarCollectorPerformance:IntegralCollectorStorage -->
+    
     <message>
         <source>Refractive Index of Inner Cover</source>
         <translation>Índice de Refração da Cobertura Interna</translation>
     </message>
-    <!-- OS:SolarCollectorPerformance:IntegralCollectorStorage -->
+    
     <message>
         <source>Refractive Index of Outer Cover</source>
         <translation>Índice de Refração da Cobertura Externa</translation>
     </message>
-    <!-- OS:Refrigeration:AirChiller -->
+    
     <message>
         <source>Refrigerant Correction Factor</source>
         <translation>Fator de Correção de Refrigerante</translation>
     </message>
-    <!-- OS:AirConditioner:VariableRefrigerantFlow:FluidTemperatureControl, OS:AirConditioner:VariableRefrigerantFlow:FluidTemperatureControl:HR -->
+    
     <message>
         <source>Refrigerant Temperature Control Algorithm for Indoor Unit</source>
         <translation>Algoritmo de Controle de Temperatura do Refrigerante para Unidade Interna</translation>
     </message>
-    <!-- OS:AirConditioner:VariableRefrigerantFlow:FluidTemperatureControl, OS:AirConditioner:VariableRefrigerantFlow:FluidTemperatureControl:HR -->
+    
     <message>
         <source>Refrigerant Type</source>
         <translation>Tipo de Refrigerante</translation>
     </message>
-    <!-- OS:Refrigeration:Case -->
+    
     <message>
         <source>Refrigerated Case Restocking Schedule Name</source>
         <translation>Nome do Cronograma de Reposição da Vitrine Refrigerada</translation>
     </message>
-    <!-- OS:Refrigeration:CompressorRack, OS:Refrigeration:SecondarySystem, OS:Refrigeration:System -->
+    
     <message>
         <source>Refrigerated CaseAndWalkInList Name</source>
         <translation>Nome da Lista de Vitrines e Câmaras Refrigeradas</translation>
     </message>
-    <!-- OS:Refrigeration:Compressor -->
+    
     <message>
         <source>Refrigeration Compressor Capacity Curve Name</source>
         <translation>Nome da Curva de Capacidade do Compressor de Refrigeração</translation>
     </message>
-    <!-- OS:Refrigeration:Compressor -->
+    
     <message>
         <source>Refrigeration Compressor Power Curve Name</source>
         <translation>Nome da Curva de Potência do Compressor de Refrigeração</translation>
     </message>
-    <!-- OS:Refrigeration:System -->
+    
     <message>
         <source>Refrigeration Condenser Name</source>
         <translation>Nome do Condensador de Refrigeração</translation>
     </message>
-    <!-- OS:Refrigeration:TranscriticalSystem -->
+    
     <message>
         <source>Refrigeration Gas Cooler Name</source>
         <translation>Nome do Resfriador de Gás de Refrigeração</translation>
     </message>
-    <!-- OS:Refrigeration:System, OS:Refrigeration:TranscriticalSystem -->
+    
     <message>
         <source>Refrigeration System Working Fluid Type</source>
         <translation>Tipo de Fluido de Trabalho do Sistema de Refrigeração</translation>
     </message>
-    <!-- OS:Refrigeration:System -->
+    
     <message>
         <source>Refrigeration TransferLoad List Name</source>
         <translation>Nome da Lista de Carga de Transferência de Refrigeração</translation>
     </message>
-    <!-- OS:HeatExchanger:Desiccant:BalancedFlow -->
+    
     <message>
         <source>Regeneration Air Inlet Node</source>
         <translation>Nó de Entrada de Ar de Regeneração</translation>
     </message>
-    <!-- OS:HeatExchanger:Desiccant:BalancedFlow -->
+    
     <message>
         <source>Regeneration Air Outlet Node</source>
         <translation>Nó de Saída de Ar de Regeneração</translation>
     </message>
-    <!-- OS:Coil:Heating:DX:MultiSpeed -->
+    
     <message>
         <source>Region number for Calculating HSPF</source>
         <translation>Número de região para cálculo de HSPF</translation>
     </message>
-    <!-- OS:ComponentCost:Adjustments -->
+    
     <message>
         <source>Regional Adjustment Factor</source>
         <translation>Fator de Ajuste Regional</translation>
     </message>
-    <!-- OS:AirTerminal:SingleDuct:VAV:HeatAndCool:Reheat -->
+    
     <message>
         <source>Reheat Coil</source>
         <translation>Bobina de Reaquecimento</translation>
     </message>
-    <!-- OS:AirTerminal:SingleDuct:SeriesPIU:Reheat -->
+    
     <message>
         <source>Reheat Coil Air Inlet Node</source>
         <translation>Nó de Entrada de Ar da Bobina de Reaquecimento</translation>
     </message>
-    <!-- OS:AirTerminal:SingleDuct:ParallelPIU:Reheat -->
+    
     <message>
         <source>Reheat Coil Air Inlet Node Name</source>
         <translation>Nome do Nó de Entrada de Ar da Bobina de Reaquecimento</translation>
     </message>
-    <!-- OS:AirTerminal:SingleDuct:ConstantVolume:Reheat, OS:AirTerminal:SingleDuct:ParallelPIU:Reheat, OS:AirTerminal:SingleDuct:SeriesPIU:Reheat, OS:AirTerminal:SingleDuct:VAV:Reheat -->
+    
     <message>
         <source>Reheat Coil Name</source>
         <translation>Nome da Bobina de Reaquecimento</translation>
     </message>
-    <!-- OS:AirflowNetworkSimulationControl -->
+    
     <message>
         <source>Relative Airflow Convergence Tolerance</source>
         <translation>Tolerância de Convergência de Fluxo de Ar Relativo</translation>
     </message>
-    <!-- OS:PlantEquipmentOperation:OutdoorRelativeHumidity -->
+    
     <message>
         <source>Relative Humidity Range Lower Limit</source>
         <translation>Limite Inferior da Faixa de Umidade Relativa</translation>
     </message>
-    <!-- OS:PlantEquipmentOperation:OutdoorRelativeHumidity -->
+    
     <message>
         <source>Relative Humidity Range Upper Limit</source>
         <translation>Limite Superior da Faixa de Umidade Relativa</translation>
     </message>
-    <!-- OS:EvaporativeCooler:Indirect:ResearchSpecial -->
+    
     <message>
         <source>Relief Air Inlet Node</source>
         <translation>Nó de Entrada de Ar de Alívio</translation>
     </message>
-    <!-- OS:Controller:OutdoorAir -->
+    
     <message>
         <source>Relief Air Outlet Node Name</source>
         <translation>Nome do Nó de Saída de Ar de Alívio</translation>
     </message>
-    <!-- OS:AirLoopHVAC:OutdoorAirSystem -->
+    
     <message>
         <source>Relief Air Stream Node Name</source>
         <translation>Nome do Nó do Fluxo de Ar de Alívio</translation>
     </message>
-    <!-- OS:Building -->
+    
     <message>
         <source>Relocatable</source>
         <translation>Relocável</translation>
     </message>
-    <!-- OS:UtilityCost:Charge:Block -->
+    
     <message>
         <source>Remaining Into Variable</source>
         <translation>Restante em Variável</translation>
     </message>
-    <!-- OS:Rendering:Color -->
+    
     <message>
         <source>Rendering Alpha Value</source>
         <translation>Valor Alfa de Renderização</translation>
     </message>
-    <!-- OS:Rendering:Color -->
+    
     <message>
         <source>Rendering Blue Value</source>
         <translation>Valor de Renderização Azul</translation>
     </message>
-    <!-- OS:BuildingUnit -->
+    
     <message>
         <source>Rendering Color</source>
         <translation>Cor de Renderização</translation>
     </message>
-    <!-- OS:Rendering:Color -->
+    
     <message>
         <source>Rendering Green Value</source>
         <translation>Valor de Renderização Verde</translation>
     </message>
-    <!-- OS:Rendering:Color -->
+    
     <message>
         <source>Rendering Red Value</source>
         <translation>Valor Vermelho de Renderização</translation>
     </message>
-    <!-- OS:LifeCycleCost -->
+    
     <message>
         <source>Repeat Period Months</source>
         <translation>Meses do Período de Repetição</translation>
     </message>
-    <!-- OS:LifeCycleCost -->
+    
     <message>
         <source>Repeat Period Years</source>
         <translation>Repetir Período em Anos</translation>
     </message>
-    <!-- OS:Output:Constructions -->
+    
     <message>
         <source>Report Constructions</source>
         <translation>Relatório de Construções</translation>
     </message>
-    <!-- OS:Output:DebuggingData -->
+    
     <message>
         <source>Report Debugging Data</source>
         <translation>Relatar Dados de Depuração</translation>
     </message>
-    <!-- OS:Output:DebuggingData -->
+    
     <message>
         <source>Report During Warmup</source>
         <translation>Relatório Durante Aquecimento</translation>
     </message>
-    <!-- OS:Output:Constructions -->
+    
     <message>
         <source>Report Materials</source>
         <translation>Materiais do Relatório</translation>
     </message>
-    <!-- OS:Output:Table:SummaryReports -->
+    
     <message>
         <source>Report Name</source>
         <translation>Nome do Relatório</translation>
     </message>
-    <!-- OS:Output:EnvironmentalImpactFactors, OS:Output:Meter, OS:Output:Variable -->
+    
     <message>
         <source>Reporting Frequency</source>
         <translation>Frequência de Relatório</translation>
     </message>
-    <!-- OS:Chiller:Electric:ASHRAE205 -->
+    
     <message>
         <source>Representation File Name</source>
         <translation>Nome do Arquivo de Representação</translation>
     </message>
-    <!-- OS:Material:RoofVegetation -->
+    
     <message>
         <source>Residual Volumetric Moisture Content of the Soil Layer</source>
         <translation>Umidade Volumétrica Residual da Camada de Solo</translation>
     </message>
-    <!-- OS:LifeCycleCost:UsePriceEscalation -->
+    
     <message>
         <source>Resource</source>
         <translation>Recurso</translation>
     </message>
-    <!-- OS:EnergyManagementSystem:MeteredOutputVariable, OS:PythonPlugin:OutputVariable -->
+    
     <message>
         <source>Resource Type</source>
         <translation>Tipo de Recurso</translation>
     </message>
-    <!-- OS:Refrigeration:WalkIn -->
+    
     <message>
         <source>Restocking Schedule Name</source>
         <translation>Nome do Cronograma de Reabastecimento</translation>
     </message>
-    <!-- OS:AirLoopHVAC -->
+    
     <message>
         <source>Return Air Bypass Flow Temperature Setpoint Schedule Name</source>
         <translation>Nome do Agendamento do Ponto de Ajuste de Temperatura do Fluxo de Ar de Retorno Bypass</translation>
     </message>
-    <!-- OS:Lights:Definition, OS:Luminaire:Definition -->
+    
     <message>
         <source>Return Air Fraction</source>
         <translation>Fração do Ar de Retorno</translation>
     </message>
-    <!-- OS:Lights:Definition, OS:Luminaire:Definition -->
+    
     <message>
         <source>Return Air Fraction Calculated from Plenum Temperature</source>
         <translation>Fração de Ar de Retorno Calculada a partir da Temperatura do Plenum</translation>
     </message>
-    <!-- OS:Lights:Definition, OS:Luminaire:Definition -->
+    
     <message>
         <source>Return Air Fraction Function of Plenum Temperature Coefficient 1</source>
         <translation>Coeficiente 1 da Função de Fração de Ar de Retorno em Função da Temperatura do Plenum</translation>
     </message>
-    <!-- OS:Lights:Definition, OS:Luminaire:Definition -->
+    
     <message>
         <source>Return Air Fraction Function of Plenum Temperature Coefficient 2</source>
         <translation>Coeficiente 2 da Função de Fração de Ar de Retorno em Função da Temperatura do Plenum</translation>
     </message>
-    <!-- OS:Controller:OutdoorAir -->
+    
     <message>
         <source>Return Air Node Name</source>
         <translation>Nome do Nó de Ar de Retorno</translation>
     </message>
-    <!-- OS:AirLoopHVAC:OutdoorAirSystem, OS:SetpointManager:OutdoorAirPretreat -->
+    
     <message>
         <source>Return Air Stream Node Name</source>
         <translation>Nome do Nó do Fluxo de Ar de Retorno</translation>
     </message>
-    <!-- OS:ElectricEquipment:ITE:AirCooled:Definition -->
+    
     <message>
         <source>Return Temperature Difference</source>
         <translation>Diferença de Temperatura de Retorno</translation>
     </message>
-    <!-- OS:ElectricEquipment:ITE:AirCooled:Definition -->
+    
     <message>
         <source>Return Temperature Difference Schedule</source>
         <translation>Cronograma de Diferença de Temperatura de Retorno</translation>
     </message>
-    <!-- OS:WindowMaterial:Screen -->
+    
     <message>
         <source>Right Side Opening Multiplier</source>
         <translation>Multiplicador de Abertura do Lado Direito</translation>
     </message>
-    <!-- OS:WindowMaterial:Shade -->
+    
     <message>
         <source>Right-Side Opening Multiplier</source>
         <translation>Multiplicador de Abertura do Lado Direito</translation>
     </message>
-    <!-- OS:DefaultSurfaceConstructions -->
+    
     <message>
         <source>Roof Ceiling Construction Name</source>
         <translation>Nome da Construção de Teto de Telhado</translation>
     </message>
-    <!-- OS:Pump:ConstantSpeed -->
+    
     <message>
         <source>Rotational Speed</source>
         <translation>Velocidade de Rotação</translation>
     </message>
-    <!-- OS:Generator:WindTurbine -->
+    
     <message>
         <source>Rotor Diameter</source>
         <translation>Diâmetro do Rotor</translation>
     </message>
-    <!-- OS:Generator:WindTurbine -->
+    
     <message>
         <source>Rotor Type</source>
         <translation>Tipo de Rotor</translation>
     </message>
-    <!-- OS:Curve:Functional:PressureDrop, OS:Material, OS:Material:NoMass, OS:Material:RoofVegetation -->
+    
     <message>
         <source>Roughness</source>
         <translation>Rugosidade</translation>
     </message>
-    <!-- OS:Schedule:File -->
+    
     <message>
         <source>Rows to Skip at Top</source>
         <translation>Linhas a Ignorar no Início</translation>
     </message>
-    <!-- OS:Schedule:Rule -->
+    
     <message>
         <source>Rule Order</source>
         <translation>Ordem de Regra</translation>
     </message>
-    <!-- OS:PythonPlugin:Instance -->
+    
     <message>
         <source>Run During Warmup Days</source>
         <translation>Executar Durante Dias de Aquecimento</translation>
     </message>
-    <!-- OS:AirLoopHVAC:UnitaryCoolOnly, OS:CoilSystem:Cooling:Water -->
+    
     <message>
         <source>Run on Latent Load</source>
         <translation>Executar na Carga Latente</translation>
     </message>
-    <!-- OS:AirLoopHVAC:UnitaryCoolOnly, OS:CoilSystem:Cooling:Water -->
+    
     <message>
         <source>Run on Sensible Load</source>
         <translation>Executar em Carga Sensível</translation>
     </message>
-    <!-- OS:LightingSimulationControl -->
+    
     <message>
         <source>Run Simulation for Design Days</source>
         <translation>Executar Simulação para Dias de Projeto</translation>
     </message>
-    <!-- OS:SimulationControl -->
+    
     <message>
         <source>Run Simulation for Sizing Periods</source>
         <translation>Executar Simulação para Períodos de Dimensionamento</translation>
     </message>
-    <!-- OS:LightingSimulationControl, OS:SimulationControl -->
+    
     <message>
         <source>Run Simulation for Weather File Run Periods</source>
         <translation>Executar Simulação para Períodos de Execução do Arquivo Climático</translation>
     </message>
-    <!-- OS:Generator:FuelCell:PowerModule -->
+    
     <message>
         <source>Run Time Degradation Initiation Time Threshold</source>
         <translation>Tempo Limite de Iniciação da Degradação em Tempo de Execução</translation>
     </message>
-    <!-- OS:ZoneHVAC:LowTemperatureRadiant:ConstantFlow -->
+    
     <message>
         <source>Running Mean Outdoor Dry-Bulb Temperature Weighting Factor</source>
         <translation>Fator de Ponderação da Temperatura de Bulbo Seco Exterior Média Móvel</translation>
     </message>
 
-    <!-- S -->
-    <!-- OS:PhotovoltaicPerformance:Sandia -->
+    
+    
     <message>
         <source>Sandia Database Parameter a</source>
         <translation>Parâmetro a do Banco de Dados Sandia</translation>
     </message>
-    <!-- OS:PhotovoltaicPerformance:Sandia -->
+    
     <message>
         <source>Sandia Database Parameter a0</source>
         <translation>Parâmetro Sandia Database a0</translation>
     </message>
-    <!-- OS:PhotovoltaicPerformance:Sandia -->
+    
     <message>
         <source>Sandia Database Parameter a1</source>
         <translation>Parâmetro a1 do Banco de Dados Sandia</translation>
     </message>
-    <!-- OS:PhotovoltaicPerformance:Sandia -->
+    
     <message>
         <source>Sandia Database Parameter a2</source>
         <translation>Parâmetro Sandia Database a2</translation>
     </message>
-    <!-- OS:PhotovoltaicPerformance:Sandia -->
+    
     <message>
         <source>Sandia Database Parameter a3</source>
         <translation>Parâmetro a3 do Banco de Dados Sandia</translation>
     </message>
-    <!-- OS:PhotovoltaicPerformance:Sandia -->
+    
     <message>
         <source>Sandia Database Parameter a4</source>
         <translation>Parâmetro a4 do Banco de Dados Sandia</translation>
     </message>
-    <!-- OS:PhotovoltaicPerformance:Sandia -->
+    
     <message>
         <source>Sandia Database Parameter aImp</source>
         <translation>Parâmetro de Banco de Dados Sandia aImp</translation>
     </message>
-    <!-- OS:PhotovoltaicPerformance:Sandia -->
+    
     <message>
         <source>Sandia Database Parameter aIsc</source>
         <translation>Parâmetro aIsc do Banco de Dados Sandia</translation>
     </message>
-    <!-- OS:PhotovoltaicPerformance:Sandia -->
+    
     <message>
         <source>Sandia Database Parameter b</source>
         <translation>Parâmetro b do Banco de Dados Sandia</translation>
     </message>
-    <!-- OS:PhotovoltaicPerformance:Sandia -->
+    
     <message>
         <source>Sandia Database Parameter b0</source>
         <translation>Parâmetro Sandia Database b0</translation>
     </message>
-    <!-- OS:PhotovoltaicPerformance:Sandia -->
+    
     <message>
         <source>Sandia Database Parameter b1</source>
         <translation>Parâmetro b1 do Banco de Dados Sandia</translation>
     </message>
-    <!-- OS:PhotovoltaicPerformance:Sandia -->
+    
     <message>
         <source>Sandia Database Parameter b2</source>
         <translation>Parâmetro b2 do Banco de Dados Sandia</translation>
     </message>
-    <!-- OS:PhotovoltaicPerformance:Sandia -->
+    
     <message>
         <source>Sandia Database Parameter b3</source>
         <translation>Parâmetro b3 do Banco de Dados Sandia</translation>
     </message>
-    <!-- OS:PhotovoltaicPerformance:Sandia -->
+    
     <message>
         <source>Sandia Database Parameter b4</source>
         <translation>Parâmetro b4 do Banco de Dados Sandia</translation>
     </message>
-    <!-- OS:PhotovoltaicPerformance:Sandia -->
+    
     <message>
         <source>Sandia Database Parameter b5</source>
         <translation>Parâmetro de Banco de Dados Sandia b5</translation>
     </message>
-    <!-- OS:PhotovoltaicPerformance:Sandia -->
+    
     <message>
         <source>Sandia Database Parameter BVmp0</source>
         <translation>Parâmetro de Banco de Dados Sandia BVmp0</translation>
     </message>
-    <!-- OS:PhotovoltaicPerformance:Sandia -->
+    
     <message>
         <source>Sandia Database Parameter BVoc0</source>
         <translation>Parâmetro Sandia Database BVoc0</translation>
     </message>
-    <!-- OS:PhotovoltaicPerformance:Sandia -->
+    
     <message>
         <source>Sandia Database Parameter c0</source>
         <translation>Parâmetro c0 do Banco de Dados Sandia</translation>
     </message>
-    <!-- OS:PhotovoltaicPerformance:Sandia -->
+    
     <message>
         <source>Sandia Database Parameter c1</source>
         <translation>Parâmetro Sandia Database c1</translation>
     </message>
-    <!-- OS:PhotovoltaicPerformance:Sandia -->
+    
     <message>
         <source>Sandia Database Parameter c2</source>
         <translation>Parâmetro Sandia Database c2</translation>
     </message>
-    <!-- OS:PhotovoltaicPerformance:Sandia -->
+    
     <message>
         <source>Sandia Database Parameter c3</source>
         <translation>Parâmetro do Banco de Dados Sandia c3</translation>
     </message>
-    <!-- OS:PhotovoltaicPerformance:Sandia -->
+    
     <message>
         <source>Sandia Database Parameter c4</source>
         <translation>Parâmetro Sandia c4</translation>
     </message>
-    <!-- OS:PhotovoltaicPerformance:Sandia -->
+    
     <message>
         <source>Sandia Database Parameter c5</source>
         <translation>Parâmetro Sandia Database c5</translation>
     </message>
-    <!-- OS:PhotovoltaicPerformance:Sandia -->
+    
     <message>
         <source>Sandia Database Parameter c6</source>
         <translation>Parâmetro c6 da Base de Dados Sandia</translation>
     </message>
-    <!-- OS:PhotovoltaicPerformance:Sandia -->
+    
     <message>
         <source>Sandia Database Parameter c7</source>
         <translation>Parâmetro do Banco de Dados Sandia c7</translation>
     </message>
-    <!-- OS:PhotovoltaicPerformance:Sandia -->
+    
     <message>
         <source>Sandia Database Parameter Delta(Tc)</source>
         <translation>Parâmetro de Banco de Dados Sandia Delta(Tc)</translation>
     </message>
-    <!-- OS:PhotovoltaicPerformance:Sandia -->
+    
     <message>
         <source>Sandia Database Parameter fd</source>
         <translation>Parâmetro fd do Banco de Dados Sandia</translation>
     </message>
-    <!-- OS:PhotovoltaicPerformance:Sandia -->
+    
     <message>
         <source>Sandia Database Parameter Ix0</source>
         <translation>Parâmetro de Banco de Dados Sandia Ix0</translation>
     </message>
-    <!-- OS:PhotovoltaicPerformance:Sandia -->
+    
     <message>
         <source>Sandia Database Parameter Ixx0</source>
         <translation>Parâmetro Sandia Database Ixx0</translation>
     </message>
-    <!-- OS:PhotovoltaicPerformance:Sandia -->
+    
     <message>
         <source>Sandia Database Parameter mBVmp</source>
         <translation>Parâmetro do Banco de Dados Sandia mBVmp</translation>
     </message>
-    <!-- OS:PhotovoltaicPerformance:Sandia -->
+    
     <message>
         <source>Sandia Database Parameter mBVoc</source>
         <translation>Parâmetro mBVoc do Banco de Dados Sandia</translation>
     </message>
-    <!-- OS:Material:RoofVegetation -->
+    
     <message>
         <source>Saturation Volumetric Moisture Content of the Soil Layer</source>
         <translation>Teor de Umidade Volumétrica de Saturação da Camada de Solo</translation>
     </message>
-    <!-- OS:Schedule:Week -->
+    
     <message>
         <source>Saturday Schedule:Day Name</source>
         <translation>Agendamento de Sábado: Nome do Dia</translation>
     </message>
-    <!-- OS:CoilSystem:IntegratedHeatPump:AirSource -->
+    
     <message>
         <source>SCDWH Cooling Coil</source>
         <translation>SCDWH Serpentina de Resfriamento</translation>
     </message>
-    <!-- OS:CoilSystem:IntegratedHeatPump:AirSource -->
+    
     <message>
         <source>SCDWH Water Heating Coil</source>
         <translation>Bobina de Aquecimento de Água SCDWH</translation>
     </message>
-    <!-- OS:Schedule:Week -->
+    
     <message>
         <source>Schedule Rendering Name</source>
         <translation>Nome da Renderização do Cronograma</translation>
     </message>
-    <!-- OS:Schedule:Rule -->
+    
     <message>
         <source>Schedule Ruleset Name</source>
         <translation>Nome do Conjunto de Regras de Agendamento</translation>
     </message>
-    <!-- OS:WindowMaterial:Screen -->
+    
     <message>
         <source>Screen Material Diameter</source>
         <translation>Diâmetro do Material da Tela</translation>
     </message>
-    <!-- OS:WindowMaterial:Screen -->
+    
     <message>
         <source>Screen Material Spacing</source>
         <translation>Espaçamento do Material da Tela</translation>
     </message>
-    <!-- OS:WindowMaterial:Screen -->
+    
     <message>
         <source>Screen to Glass Distance</source>
         <translation>Distância de Tela para Vidro</translation>
     </message>
-    <!-- OS:CoilSystem:IntegratedHeatPump:AirSource -->
+    
     <message>
         <source>SCWH Coil</source>
         <translation>Serpentina SCWH</translation>
     </message>
-    <!-- OS:PythonPlugin:SearchPaths -->
+    
     <message>
         <source>Search Path</source>
         <translation>Caminho de Pesquisa</translation>
     </message>
-    <!-- OS:UtilityCost:Charge:Block, OS:UtilityCost:Charge:Simple, OS:UtilityCost:Qualify -->
+    
     <message>
         <source>Season</source>
         <translation>Estação</translation>
     </message>
-    <!-- OS:UtilityCost:Ratchet -->
+    
     <message>
         <source>Season From</source>
         <translation>Estação De</translation>
     </message>
-    <!-- OS:UtilityCost:Tariff -->
+    
     <message>
         <source>Season Schedule Name</source>
         <translation>Nome da Programação da Estação</translation>
     </message>
-    <!-- OS:UtilityCost:Ratchet -->
+    
     <message>
         <source>Season To</source>
         <translation>Estação Até</translation>
     </message>
-    <!-- OS:ZoneHVAC:EvaporativeCoolerUnit -->
+    
     <message>
         <source>Second Evaporative Cooler</source>
         <translation>Segundo Resfriador Evaporativo</translation>
     </message>
-    <!-- OS:EvaporativeCooler:Indirect:ResearchSpecial -->
+    
     <message>
         <source>Secondary Air Fan Design Power</source>
         <translation>Potência de Projeto do Ventilador de Ar Secundário</translation>
     </message>
-    <!-- OS:EvaporativeCooler:Indirect:ResearchSpecial -->
+    
     <message>
         <source>Secondary Air Fan Power Modifier Curve Name</source>
         <translation>Curva Modificadora de Potência do Ventilador de Ar Secundário</translation>
     </message>
-    <!-- OS:EvaporativeCooler:Indirect:ResearchSpecial -->
+    
     <message>
         <source>Secondary Air Flow Scaling Factor</source>
         <translation>Fator de Escala de Fluxo de Ar Secundário</translation>
     </message>
-    <!-- OS:AirTerminal:SingleDuct:SeriesPIU:Reheat, OS:EvaporativeCooler:Indirect:ResearchSpecial -->
+    
     <message>
         <source>Secondary Air Inlet Node</source>
         <translation>Nó de Entrada de Ar Secundário</translation>
     </message>
-    <!-- OS:AirTerminal:SingleDuct:ParallelPIU:Reheat -->
+    
     <message>
         <source>Secondary Air Inlet Node Name</source>
         <translation>Nome do Nó de Entrada de Ar Secundário</translation>
     </message>
-    <!-- OS:ThermalZone -->
+    
     <message>
         <source>Secondary Daylighting Control Name</source>
         <translation>Nome do Controle de Iluminação Natural Secundária</translation>
     </message>
-    <!-- OS:EvaporativeCooler:Indirect:ResearchSpecial -->
+    
     <message>
         <source>Secondary Fan Delta Pressure</source>
         <translation>Diferencial de Pressão do Ventilador Secundário</translation>
     </message>
-    <!-- OS:EvaporativeCooler:Indirect:ResearchSpecial -->
+    
     <message>
         <source>Secondary Fan Flow Rate</source>
         <translation>Vazão do Ventilador Secundário</translation>
     </message>
-    <!-- OS:EvaporativeCooler:Indirect:ResearchSpecial -->
+    
     <message>
         <source>Secondary Fan Total Efficiency</source>
         <translation>Eficiência Total do Ventilador Secundário</translation>
     </message>
-    <!-- OS:PhotovoltaicPerformance:EquivalentOneDiode -->
+    
     <message>
         <source>Semiconductor Bandgap</source>
         <translation>Banda de Energia do Semicondutor</translation>
     </message>
-    <!-- OS:Coil:Cooling:WaterToAirHeatPump:EquationFit -->
+    
     <message>
         <source>Sensible Cooling Capacity Curve Name</source>
         <translation>Nome da Curva de Capacidade de Resfriamento Sensível</translation>
     </message>
-    <!-- OS:HeatExchanger:AirToAir:SensibleAndLatent -->
+    
     <message>
         <source>Sensible Effectiveness at 100% Cooling Air Flow</source>
         <translation>Efetividade Sensível a 100% de Vazão de Ar de Resfriamento</translation>
     </message>
-    <!-- OS:HeatExchanger:AirToAir:SensibleAndLatent -->
+    
     <message>
         <source>Sensible Effectiveness at 100% Heating Air Flow</source>
         <translation>Efetividade Sensível a 100% da Vazão de Ar de Aquecimento</translation>
     </message>
-    <!-- OS:HeatExchanger:AirToAir:SensibleAndLatent -->
+    
     <message>
         <source>Sensible Effectiveness of Cooling Air Flow Curve Name</source>
         <translation>Sensible Effectiveness of Cooling Air Flow Curve Name</translation>
     </message>
-    <!-- OS:HeatExchanger:AirToAir:SensibleAndLatent -->
+    
     <message>
         <source>Sensible Effectiveness of Heating Air Flow Curve Name</source>
         <translation>Nome da Curva de Efetividade Sensível do Fluxo de Ar de Aquecimento</translation>
     </message>
-    <!-- OS:CoilPerformance:DX:Cooling -->
+    
     <message>
         <source>Sensible Heat Ratio Function of Flow Fraction Curve</source>
         <translation>Curva da Razão de Calor Sensível em Função da Fração de Vazão</translation>
     </message>
-    <!-- OS:CoilPerformance:DX:Cooling -->
+    
     <message>
         <source>Sensible Heat Ratio Function of Temperature Curve</source>
         <translation>Curva da Razão de Calor Sensível em Função da Temperatura</translation>
     </message>
-    <!-- OS:Coil:Cooling:DX:CurveFit:Speed -->
+    
     <message>
         <source>Sensible Heat Ratio Modifier Function of Flow Fraction Curve</source>
         <translation>Função Modificadora da Razão de Calor Sensível em Relação à Curva de Fração de Vazão</translation>
     </message>
-    <!-- OS:Coil:Cooling:DX:CurveFit:Speed -->
+    
     <message>
         <source>Sensible Heat Ratio Modifier Function of Temperature Curve</source>
         <translation>Função Modificadora da Razão de Calor Sensível em Relação à Curva de Temperatura</translation>
     </message>
-    <!-- OS:ZoneHVAC:IdealLoadsAirSystem -->
+    
     <message>
         <source>Sensible Heat Recovery Effectiveness</source>
         <translation>Efetividade de Recuperação de Calor Sensível</translation>
     </message>
-    <!-- OS:AvailabilityManager:HighTemperatureTurnOff, OS:AvailabilityManager:HighTemperatureTurnOn, OS:AvailabilityManager:LowTemperatureTurnOff, OS:AvailabilityManager:LowTemperatureTurnOn, OS:Controller:WaterCoil, OS:EvaporativeCooler:Direct:ResearchSpecial, OS:EvaporativeCooler:Indirect:ResearchSpecial -->
+    
     <message>
         <source>Sensor Node Name</source>
         <translation>Nome do Nó Sensor</translation>
     </message>
-    <!-- OS:Site:GroundTemperature:Deep -->
+    
     <message>
         <source>September Deep Ground Temperature</source>
         <translation>Temperatura Profunda do Solo em Setembro</translation>
     </message>
-    <!-- OS:Site:GroundReflectance -->
+    
     <message>
         <source>September Ground Reflectance</source>
         <translation>Refletância do Solo em Setembro</translation>
     </message>
-    <!-- OS:Site:GroundTemperature:BuildingSurface, OS:Site:GroundTemperature:FCfactorMethod -->
+    
     <message>
         <source>September Ground Temperature</source>
         <translation>Temperatura do Solo em Setembro</translation>
     </message>
-    <!-- OS:Site:GroundTemperature:Shallow -->
+    
     <message>
         <source>September Surface Ground Temperature</source>
         <translation>Temperatura do Solo da Superfície em Setembro</translation>
     </message>
-    <!-- OS:UtilityCost:Variable -->
+    
     <message>
         <source>September Value</source>
         <translation>Valor de Setembro</translation>
     </message>
-    <!-- OS:LifeCycleCost:Parameters -->
+    
     <message>
         <source>Service Date Month</source>
         <translation>Mês de Data de Serviço</translation>
     </message>
-    <!-- OS:LifeCycleCost:Parameters -->
+    
     <message>
         <source>Service Date Year</source>
         <translation>Ano da Data de Serviço</translation>
     </message>
-    <!-- OS:ShadingControl -->
+    
     <message>
         <source>Setpoint</source>
         <translation>Ponto de Consigna</translation>
     </message>
-    <!-- OS:ShadingControl -->
+    
     <message>
         <source>Setpoint 2</source>
         <translation>Ponto de Ajuste 2</translation>
     </message>
-    <!-- OS:SetpointManager:SystemNodeReset:Humidity -->
+    
     <message>
         <source>Setpoint at High Reference Humidity Ratio</source>
         <translation>Ponto de Ajuste na Razão de Umidade de Referência Alta</translation>
     </message>
-    <!-- OS:SetpointManager:SystemNodeReset:Temperature -->
+    
     <message>
         <source>Setpoint at High Reference Temperature</source>
         <translation>Ponto de Ajuste em Temperatura de Referência Alta</translation>
     </message>
-    <!-- OS:SetpointManager:SystemNodeReset:Humidity -->
+    
     <message>
         <source>Setpoint at Low Reference Humidity Ratio</source>
         <translation>Ponto de Referência em Razão de Umidade Baixa</translation>
     </message>
-    <!-- OS:SetpointManager:SystemNodeReset:Temperature -->
+    
     <message>
         <source>Setpoint at Low Reference Temperature</source>
         <translation>Setpoint na Temperatura de Referência Baixa</translation>
     </message>
-    <!-- OS:SetpointManager:OutdoorAirReset -->
+    
     <message>
         <source>Setpoint at Outdoor High Temperature</source>
         <translation>Setpoint em Temperatura Externa Alta</translation>
     </message>
-    <!-- OS:SetpointManager:OutdoorAirReset -->
+    
     <message>
         <source>Setpoint at Outdoor High Temperature 2</source>
         <translation>Setpoint na Temperatura Externa Alta 2</translation>
     </message>
-    <!-- OS:SetpointManager:OutdoorAirReset -->
+    
     <message>
         <source>Setpoint at Outdoor Low Temperature</source>
         <translation>Ponto de Ajuste em Temperatura Exterior Baixa</translation>
     </message>
-    <!-- OS:SetpointManager:OutdoorAirReset -->
+    
     <message>
         <source>Setpoint at Outdoor Low Temperature 2</source>
         <translation>Ponto de Ajuste em Temperatura Externa Baixa 2</translation>
     </message>
-    <!-- OS:ZoneHVAC:LowTemperatureRadiant:Electric, OS:ZoneHVAC:LowTemperatureRadiant:VariableFlow -->
+    
     <message>
         <source>Setpoint Control Type</source>
         <translation>Tipo de Controle de Setpoint</translation>
     </message>
-    <!-- OS:SetpointManager:Coldest, OS:SetpointManager:FollowGroundTemperature, OS:SetpointManager:FollowOutdoorAirTemperature, OS:SetpointManager:FollowSystemNodeTemperature, OS:SetpointManager:MixedAir, OS:SetpointManager:MultiZone:Cooling:Average, OS:SetpointManager:MultiZone:Heating:Average, OS:SetpointManager:MultiZone:Humidity:Maximum, OS:SetpointManager:MultiZone:Humidity:Minimum, OS:SetpointManager:MultiZone:MaximumHumidity:Average, OS:SetpointManager:MultiZone:MinimumHumidity:Average, OS:SetpointManager:OutdoorAirPretreat, OS:SetpointManager:OutdoorAirReset, OS:SetpointManager:Scheduled, OS:SetpointManager:Scheduled:DualSetpoint, OS:SetpointManager:SingleZone:Cooling, OS:SetpointManager:SingleZone:Heating, OS:SetpointManager:SingleZone:Humidity:Maximum, OS:SetpointManager:SingleZone:Humidity:Minimum, OS:SetpointManager:SingleZone:OneStageCooling, OS:SetpointManager:SingleZone:OneStageHeating, OS:SetpointManager:SingleZone:Reheat, OS:SetpointManager:SystemNodeReset:Humidity, OS:SetpointManager:SystemNodeReset:Temperature, OS:SetpointManager:Warmest, OS:SetpointManager:WarmestTemperatureFlow -->
+    
     <message>
         <source>Setpoint Node or NodeList Name</source>
         <translation>Nome do Nó de Ponto de Ajuste ou Nome da Lista de Nós</translation>
     </message>
-    <!-- OS:SwimmingPool:Indoor -->
+    
     <message>
         <source>Setpoint Temperature Schedule</source>
         <translation>Cronograma de Temperatura de Setpoint</translation>
     </message>
-    <!-- OS:WindowMaterial:Shade -->
+    
     <message>
         <source>Shade to Glass Distance</source>
         <translation>Distância do Sombreamento ao Vidro</translation>
     </message>
-    <!-- OS:ShadingSurfaceGroup -->
+    
     <message>
         <source>Shaded Object Name</source>
         <translation>Nome do Objeto com Sombra</translation>
     </message>
-    <!-- OS:ShadowCalculation -->
+    
     <message>
         <source>Shading Calculation Method</source>
         <translation>Método de Cálculo de Sombreamento</translation>
     </message>
-    <!-- OS:ShadowCalculation -->
+    
     <message>
         <source>Shading Calculation Update Frequency</source>
         <translation>Frequência de Atualização do Cálculo de Sombreamento</translation>
     </message>
-    <!-- OS:ShadowCalculation -->
+    
     <message>
         <source>Shading Calculation Update Frequency Method</source>
         <translation>Método de Frequência de Atualização do Cálculo de Sombreamento</translation>
     </message>
-    <!-- OS:ShadingControl -->
+    
     <message>
         <source>Shading Control Is Scheduled</source>
         <translation>Controle de Sombreamento Agendado</translation>
     </message>
-    <!-- OS:ShadingControl -->
+    
     <message>
         <source>Shading Control Type</source>
         <translation>Tipo de Controle de Sombreamento</translation>
     </message>
-    <!-- OS:ShadingControl -->
+    
     <message>
         <source>Shading Device Material Name</source>
         <translation>Nome do Material do Dispositivo de Sombreamento</translation>
     </message>
-    <!-- OS:ShadingSurface -->
+    
     <message>
         <source>Shading Surface Group Name</source>
         <translation>Nome do Grupo de Superfície de Sombreamento</translation>
     </message>
-    <!-- OS:ShadingSurfaceGroup -->
+    
     <message>
         <source>Shading Surface Type</source>
         <translation>Tipo de Superfície de Sombreamento</translation>
     </message>
-    <!-- OS:ShadingControl -->
+    
     <message>
         <source>Shading Type</source>
         <translation>Tipo de Sombreamento</translation>
     </message>
-    <!-- OS:ShadowCalculation -->
+    
     <message>
         <source>Shading Zone Group</source>
         <translation>Grupo de Zona de Sombreamento</translation>
     </message>
-    <!-- OS:CoilSystem:IntegratedHeatPump:AirSource -->
+    
     <message>
         <source>SHDWH Heating Coil</source>
         <translation>Serpentina de Aquecimento SHDWH</translation>
     </message>
-    <!-- OS:CoilSystem:IntegratedHeatPump:AirSource -->
+    
     <message>
         <source>SHDWH Water Heating Coil</source>
         <translation>Bobina de Aquecimento de Água SHDWH</translation>
     </message>
-    <!-- OS:Refrigeration:System -->
+    
     <message>
         <source>Shell-and-Coil Intercooler Effectiveness</source>
         <translation>Efetividade do Intercooler de Carcaça e Bobina</translation>
     </message>
-    <!-- OS:SpaceInfiltration:FlowCoefficient -->
+    
     <message>
         <source>Shelter Factor</source>
         <translation>Fator de Proteção</translation>
     </message>
-    <!-- OS:PhotovoltaicPerformance:EquivalentOneDiode, OS:PhotovoltaicPerformance:Sandia -->
+    
     <message>
         <source>Short Circuit Current</source>
         <translation>Corrente de Curto-Circuito</translation>
     </message>
-    <!-- OS:Refrigeration:AirChiller -->
+    
     <message>
         <source>SHR60 Correction Factor</source>
         <translation>Fator de Correção SHR60</translation>
     </message>
-    <!-- OS:PhotovoltaicPerformance:EquivalentOneDiode -->
+    
     <message>
         <source>Shunt Resistance</source>
         <translation>Resistência de Desvio</translation>
     </message>
-    <!-- OS:Generator:FuelCell:PowerModule -->
+    
     <message>
         <source>Shut Down Electricity Consumption</source>
         <translation>Consumo de Eletricidade em Desligamento</translation>
     </message>
-    <!-- OS:Generator:FuelCell:PowerModule -->
+    
     <message>
         <source>Shut Down Fuel</source>
         <translation>Combustível de Desligamento</translation>
     </message>
-    <!-- OS:Generator:FuelCell:PowerModule -->
+    
     <message>
         <source>Shut Down Time</source>
         <translation>Tempo de Desligamento</translation>
     </message>
-    <!-- OS:ZoneHVAC:EvaporativeCoolerUnit -->
+    
     <message>
         <source>Shut Off Relative Humidity</source>
         <translation>Umidade Relativa de Desligamento</translation>
     </message>
-    <!-- OS:SolarCollectorPerformance:IntegralCollectorStorage -->
+    
     <message>
         <source>Side Heat Loss Conductance</source>
         <translation>Condutância de Perda de Calor Lateral</translation>
     </message>
-    <!-- OS:AvailabilityManager:HybridVentilation -->
+    
     <message>
         <source>Simple Airflow Control Type Schedule</source>
         <translation>Cronograma de Tipo de Controle de Fluxo de Ar Simples</translation>
     </message>
-    <!-- OS:ElectricLoadCenter:Storage:Converter -->
+    
     <message>
         <source>Simple Fixed Efficiency</source>
         <translation>Eficiência Fixa Simples</translation>
     </message>
-    <!-- OS:Generator:FuelCell:ElectricalStorage -->
+    
     <message>
         <source>Simple Maximum Capacity</source>
         <translation>Capacidade Máxima Simples</translation>
     </message>
-    <!-- OS:Generator:FuelCell:ElectricalStorage -->
+    
     <message>
         <source>Simple Maximum Power Draw</source>
         <translation>Consumo Máximo de Potência Simples</translation>
     </message>
-    <!-- OS:Generator:FuelCell:ElectricalStorage -->
+    
     <message>
         <source>Simple Maximum Power Store</source>
         <translation>Armazenamento de Potência Máxima Simples</translation>
     </message>
-    <!-- OS:Construction:AirBoundary -->
+    
     <message>
         <source>Simple Mixing Air Changes per Hour</source>
         <translation>Trocas de Ar Simples por Hora</translation>
     </message>
-    <!-- OS:Construction:AirBoundary -->
+    
     <message>
         <source>Simple Mixing Schedule Name</source>
         <translation>Nome do Agendamento de Mistura Simples</translation>
     </message>
-    <!-- OS:Foundation:Kiva:Settings -->
+    
     <message>
         <source>Simulation Timestep</source>
         <translation>Passo de Tempo de Simulação</translation>
     </message>
-    <!-- OS:UnitarySystemPerformance:Multispeed -->
+    
     <message>
         <source>Single Mode Operation</source>
         <translation>Operação em Modo Único</translation>
     </message>
-    <!-- OS:AirflowNetworkZone -->
+    
     <message>
         <source>Single Sided Wind Pressure Coefficient Algorithm</source>
         <translation>Algoritmo de Coeficiente de Pressão do Vento de Um Lado</translation>
     </message>
-    <!-- OS:SurfaceProperty:OtherSideCoefficients -->
+    
     <message>
         <source>Sinusoidal Variation of Constant Temperature Coefficient</source>
         <translation>Variação Senoidal do Coeficiente de Temperatura Constante</translation>
     </message>
-    <!-- OS:DefaultConstructionSet -->
+    
     <message>
         <source>Site Shading Construction Name</source>
         <translation>Nome da Construção de Sombreamento do Local</translation>
     </message>
-    <!-- OS:Generator:FuelCell:PowerModule -->
+    
     <message>
         <source>Skin Loss Calculation Mode</source>
         <translation>Modo de Cálculo de Perda Através da Envolvente</translation>
     </message>
-    <!-- OS:Generator:FuelCell:AuxiliaryHeater -->
+    
     <message>
         <source>Skin Loss Destination</source>
         <translation>Destino de Perda de Calor pela Envolvente</translation>
     </message>
-    <!-- OS:WaterHeater:Stratified -->
+    
     <message>
         <source>Skin Loss Fraction to Zone</source>
         <translation>Fração de Perda Térmica para a Zona</translation>
     </message>
-    <!-- OS:Generator:FuelCell:PowerModule -->
+    
     <message>
         <source>Skin Loss Quadratic Curve Name</source>
         <translation>Nome da Curva Quadrática de Perda de Calor pela Envolvente</translation>
     </message>
-    <!-- OS:Generator:FuelCell:PowerModule -->
+    
     <message>
         <source>Skin Loss U-Factor Times Area Term</source>
         <translation>Termo de Fator U de Perda Térmica da Envolvente vezes Área</translation>
     </message>
-    <!-- OS:Generator:FuelCell:AuxiliaryHeater -->
+    
     <message>
         <source>Skin Loss U-Factor Times Area Value</source>
         <translation>Valor de Fator U de Perda de Calor da Envolvente Vezes Área</translation>
     </message>
-    <!-- OS:SizingPeriod:DesignDay -->
+    
     <message>
         <source>Sky Clearness</source>
         <translation>Clareza do Céu</translation>
     </message>
-    <!-- OS:ShadowCalculation -->
+    
     <message>
         <source>Sky Diffuse Modeling Algorithm</source>
         <translation>Algoritmo de Modelagem da Radiação Difusa do Céu</translation>
     </message>
-    <!-- OS:RadianceParameters -->
+    
     <message>
         <source>Sky Discretization Resolution</source>
         <translation>Resolução de Discretização do Céu</translation>
     </message>
-    <!-- OS:SurfaceProperty:SurroundingSurfaces -->
+    
     <message>
         <source>Sky Temperature Schedule Name</source>
         <translation>Nome do Cronograma de Temperatura do Céu</translation>
     </message>
-    <!-- OS:SurfaceProperty:SurroundingSurfaces -->
+    
     <message>
         <source>Sky View Factor</source>
         <translation>Fator de Visão do Céu</translation>
     </message>
-    <!-- OS:DefaultSubSurfaceConstructions -->
+    
     <message>
         <source>Skylight Construction Name</source>
         <translation>Nome da Construção do Domo de Luz</translation>
     </message>
-    <!-- OS:WindowMaterial:Blind -->
+    
     <message>
         <source>Slat Angle</source>
         <translation>Ângulo das Lâminas</translation>
     </message>
-    <!-- OS:ShadingControl -->
+    
     <message>
         <source>Slat Angle Schedule Name</source>
         <translation>Nome do Cronograma de Ângulo de Lâmina</translation>
     </message>
-    <!-- OS:WindowMaterial:Blind -->
+    
     <message>
         <source>Slat Beam Solar Transmittance</source>
         <translation>Transmitância Solar do Feixe de Lâmina</translation>
     </message>
-    <!-- OS:WindowMaterial:Blind -->
+    
     <message>
         <source>Slat Beam Visible Transmittance</source>
         <translation>Transmitância Visível do Feixe de Lâmina</translation>
     </message>
-    <!-- OS:WindowMaterial:Blind -->
+    
     <message>
         <source>Slat Conductivity</source>
         <translation>Condutividade do Painel</translation>
     </message>
-    <!-- OS:WindowMaterial:Blind -->
+    
     <message>
         <source>Slat Diffuse Solar Transmittance</source>
         <translation>Transmitância Solar Difusa do Lâmina</translation>
     </message>
-    <!-- OS:WindowMaterial:Blind -->
+    
     <message>
         <source>Slat Diffuse Visible Transmittance</source>
         <translation>Transmitância Visível Difusa das Lâminas</translation>
     </message>
-    <!-- OS:WindowMaterial:Blind -->
+    
     <message>
         <source>Slat Infrared Hemispherical Transmittance</source>
         <translation>Transmitância Hemisférica Infravermelha do Slat</translation>
     </message>
-    <!-- OS:WindowMaterial:Blind -->
+    
     <message>
         <source>Slat Orientation</source>
         <translation>Orientação da Lâmina</translation>
     </message>
-    <!-- OS:WindowMaterial:Blind -->
+    
     <message>
         <source>Slat Separation</source>
         <translation>Espaçamento de Lâminas</translation>
     </message>
-    <!-- OS:WindowMaterial:Blind -->
+    
     <message>
         <source>Slat Thickness</source>
         <translation>Espessura da Lâmina</translation>
     </message>
-    <!-- OS:WindowMaterial:Blind -->
+    
     <message>
         <source>Slat Width</source>
         <translation>Largura da Lâmina</translation>
     </message>
-    <!-- OS:AirflowNetworkHorizontalOpening -->
+    
     <message>
         <source>Sloping Plane Angle</source>
         <translation>Ângulo do Plano Inclinado</translation>
     </message>
-    <!-- OS:LightingDesignDay, OS:SizingPeriod:DesignDay -->
+    
     <message>
         <source>Snow Indicator</source>
         <translation>Indicador de Neve</translation>
     </message>
-    <!-- OS:FuelFactors -->
+    
     <message>
         <source>SO2 Emission Factor</source>
         <translation>Fator de Emissão de SO2</translation>
     </message>
-    <!-- OS:FuelFactors -->
+    
     <message>
         <source>SO2 Emission Factor Schedule Name</source>
         <translation>Nome do Cronograma de Fator de Emissão de SO2</translation>
     </message>
-    <!-- OS:Foundation:Kiva:Settings -->
+    
     <message>
         <source>Soil Conductivity</source>
         <translation>Condutividade do Solo</translation>
     </message>
-    <!-- OS:Foundation:Kiva:Settings, OS:GroundHeatExchanger:HorizontalTrench, OS:Site:GroundTemperature:Undisturbed:KusudaAchenbach, OS:Site:GroundTemperature:Undisturbed:Xing -->
+    
     <message>
         <source>Soil Density</source>
         <translation>Densidade do Solo</translation>
     </message>
-    <!-- OS:Material:RoofVegetation -->
+    
     <message>
         <source>Soil Layer Name</source>
         <translation>Nome da Camada de Solo</translation>
     </message>
-    <!-- OS:GroundHeatExchanger:HorizontalTrench -->
+    
     <message>
         <source>Soil Moisture Content Percent</source>
         <translation>Percentual de Umidade do Solo</translation>
     </message>
-    <!-- OS:GroundHeatExchanger:HorizontalTrench -->
+    
     <message>
         <source>Soil Moisture Content Percent at Saturation</source>
         <translation>Percentual de Umidade do Solo na Saturação</translation>
     </message>
-    <!-- OS:Foundation:Kiva:Settings, OS:GroundHeatExchanger:HorizontalTrench, OS:Site:GroundTemperature:Undisturbed:KusudaAchenbach, OS:Site:GroundTemperature:Undisturbed:Xing -->
+    
     <message>
         <source>Soil Specific Heat</source>
         <translation>Calor Específico do Solo</translation>
     </message>
-    <!-- OS:Site:GroundTemperature:Undisturbed:Xing -->
+    
     <message>
         <source>Soil Surface Temperature Amplitude 1</source>
         <translation>Amplitude 1 da Temperatura da Superfície do Solo</translation>
     </message>
-    <!-- OS:Site:GroundTemperature:Undisturbed:Xing -->
+    
     <message>
         <source>Soil Surface Temperature Amplitude 2</source>
         <translation>Amplitude de Temperatura da Superfície do Solo 2</translation>
     </message>
-    <!-- OS:GroundHeatExchanger:HorizontalTrench, OS:Site:GroundTemperature:Undisturbed:KusudaAchenbach, OS:Site:GroundTemperature:Undisturbed:Xing -->
+    
     <message>
         <source>Soil Thermal Conductivity</source>
         <translation>Condutividade Térmica do Solo</translation>
     </message>
-    <!-- OS:Material, OS:Material:NoMass, OS:Material:RoofVegetation -->
+    
     <message>
         <source>Solar Absorptance</source>
         <translation>Absortância Solar</translation>
     </message>
-    <!-- OS:WindowMaterial:Glazing, OS:WindowMaterial:Glazing:RefractionExtinctionMethod -->
+    
     <message>
         <source>Solar Diffusing</source>
         <translation>Difusão Solar</translation>
     </message>
-    <!-- OS:SimulationControl -->
+    
     <message>
         <source>Solar Distribution</source>
         <translation>Distribuição Solar</translation>
     </message>
-    <!-- OS:WindowMaterial:Glazing:RefractionExtinctionMethod -->
+    
     <message>
         <source>Solar Extinction Coefficient</source>
         <translation>Coeficiente de Extinção Solar</translation>
     </message>
-    <!-- OS:WindowMaterial:SimpleGlazingSystem -->
+    
     <message>
         <source>Solar Heat Gain Coefficient</source>
         <translation>Coeficiente de Ganho de Calor Solar</translation>
     </message>
-    <!-- OS:WindowMaterial:Glazing:RefractionExtinctionMethod -->
+    
     <message>
         <source>Solar Index of Refraction</source>
         <translation>Índice de Refração Solar</translation>
     </message>
-    <!-- OS:SizingPeriod:DesignDay -->
+    
     <message>
         <source>Solar Model Indicator</source>
         <translation>Indicador de Modelo Solar</translation>
     </message>
-    <!-- OS:WindowMaterial:Shade -->
+    
     <message>
         <source>Solar Reflectance</source>
         <translation>Refletância Solar</translation>
     </message>
-    <!-- OS:WindowMaterial:Shade -->
+    
     <message>
         <source>Solar Transmittance</source>
         <translation>Transmitância Solar</translation>
     </message>
-    <!-- OS:WindowMaterial:Glazing -->
+    
     <message>
         <source>Solar Transmittance at Normal Incidence</source>
         <translation>Transmitância Solar na Incidência Normal</translation>
     </message>
-    <!-- OS:SolarCollector:FlatPlate:Water -->
+    
     <message>
         <source>SolarCollectorPerformance Name</source>
         <translation>Nome do Desempenho do Coletor Solar</translation>
     </message>
-    <!-- OS:MaterialProperty:PhaseChangeHysteresis -->
+    
     <message>
         <source>Solid State Density</source>
         <translation>Densidade do Estado Sólido</translation>
     </message>
-    <!-- OS:MaterialProperty:PhaseChangeHysteresis -->
+    
     <message>
         <source>Solid State Specific Heat</source>
         <translation>Calor Específico do Estado Sólido</translation>
     </message>
-    <!-- OS:MaterialProperty:PhaseChangeHysteresis -->
+    
     <message>
         <source>Solid State Thermal Conductivity</source>
         <translation>Condutividade Térmica do Estado Sólido</translation>
     </message>
-    <!-- OS:AirflowNetworkSimulationControl -->
+    
     <message>
         <source>Solver</source>
         <translation>Solver</translation>
     </message>
-    <!-- OS:FuelFactors -->
+    
     <message>
         <source>Source Energy Factor</source>
         <translation>Fator de Energia da Fonte</translation>
     </message>
-    <!-- OS:FuelFactors -->
+    
     <message>
         <source>Source Energy Schedule Name</source>
         <translation>Nome da Agenda de Energia de Fonte</translation>
     </message>
-    <!-- OS:CentralHeatPumpSystem -->
+    
     <message>
         <source>Source Loop Inlet Node Name</source>
         <translation>Nome do Nó de Entrada do Loop de Origem</translation>
     </message>
-    <!-- OS:CentralHeatPumpSystem -->
+    
     <message>
         <source>Source Loop Outlet Node Name</source>
         <translation>Nome do Nó de Saída do Circuito de Origem</translation>
     </message>
-    <!-- OS:Meter:CustomDecrement -->
+    
     <message>
         <source>Source Meter Name</source>
         <translation>Nome do Medidor de Origem</translation>
     </message>
-    <!-- OS:Connection -->
+    
     <message>
         <source>Source Object</source>
         <translation>Objeto de Origem</translation>
     </message>
-    <!-- OS:Construction:InternalSource -->
+    
     <message>
         <source>Source Present After Layer Number</source>
         <translation>Fonte Presente Após Número da Camada</translation>
     </message>
-    <!-- OS:ThermalStorage:ChilledWater:Stratified -->
+    
     <message>
         <source>Source Side Availability Schedule Name</source>
         <translation>Nome do Cronograma de Disponibilidade do Lado da Fonte</translation>
     </message>
-    <!-- OS:WaterHeater:Mixed, OS:WaterHeater:Stratified -->
+    
     <message>
         <source>Source Side Flow Control Mode</source>
         <translation>Modo de Controle de Vazão do Lado da Fonte</translation>
     </message>
-    <!-- OS:ThermalStorage:ChilledWater:Stratified -->
+    
     <message>
         <source>Source Side Heat Transfer Effectiveness</source>
         <translation>Efetividade de Transferência de Calor do Lado da Fonte</translation>
     </message>
-    <!-- OS:HeatPump:PlantLoop:EIR:Cooling, OS:HeatPump:PlantLoop:EIR:Heating, OS:HeatPump:WaterToWater:EquationFit:Cooling, OS:HeatPump:WaterToWater:EquationFit:Heating, OS:ThermalStorage:ChilledWater:Stratified, OS:WaterHeater:Mixed, OS:WaterHeater:Stratified -->
+    
     <message>
         <source>Source Side Inlet Node Name</source>
         <translation>Nome do Nó de Entrada do Lado da Fonte</translation>
     </message>
-    <!-- OS:HeatPump:PlantLoop:EIR:Cooling, OS:HeatPump:PlantLoop:EIR:Heating, OS:HeatPump:WaterToWater:EquationFit:Cooling, OS:HeatPump:WaterToWater:EquationFit:Heating, OS:ThermalStorage:ChilledWater:Stratified, OS:WaterHeater:Mixed, OS:WaterHeater:Stratified -->
+    
     <message>
         <source>Source Side Outlet Node Name</source>
         <translation>Nome do Nó de Saída do Lado da Fonte</translation>
     </message>
-    <!-- OS:HeatPump:PlantLoop:EIR:Cooling, OS:HeatPump:PlantLoop:EIR:Heating -->
+    
     <message>
         <source>Source Side Reference Flow Rate</source>
         <translation>Taxa de Fluxo de Referência do Lado da Fonte</translation>
     </message>
-    <!-- OS:PlantComponent:TemperatureSource -->
+    
     <message>
         <source>Source Temperature</source>
         <translation>Temperatura da Fonte</translation>
     </message>
-    <!-- OS:PlantComponent:TemperatureSource -->
+    
     <message>
         <source>Source Temperature Schedule Name</source>
         <translation>Nome da Agenda de Temperatura da Fonte</translation>
     </message>
-    <!-- OS:UtilityCost:Charge:Block, OS:UtilityCost:Charge:Simple -->
+    
     <message>
         <source>Source Variable</source>
         <translation>Variável de Origem</translation>
     </message>
-    <!-- OS:ZoneMixing -->
+    
     <message>
         <source>Source Zone or Space Name</source>
         <translation>Nome da Zona ou Espaço de Origem</translation>
     </message>
-    <!-- OS:CoilSystem:IntegratedHeatPump:AirSource -->
+    
     <message>
         <source>Space Cooling Coil</source>
         <translation>Bobina de Resfriamento do Espaço</translation>
     </message>
-    <!-- OS:CoilSystem:IntegratedHeatPump:AirSource -->
+    
     <message>
         <source>Space Heating Coil</source>
         <translation>Serpentina de Aquecimento de Espaço</translation>
     </message>
-    <!-- OS:Daylighting:Control, OS:Glare:Sensor, OS:IlluminanceMap, OS:InteriorPartitionSurfaceGroup, OS:ShadingSurfaceGroup, OS:Surface, OS:WaterUse:Equipment -->
+    
     <message>
         <source>Space Name</source>
         <translation>Nome do Espaço</translation>
     </message>
-    <!-- OS:DefaultConstructionSet -->
+    
     <message>
         <source>Space Shading Construction Name</source>
         <translation>Nome da Construção de Sombreamento do Espaço</translation>
     </message>
-    <!-- OS:Building, OS:Space -->
+    
     <message>
         <source>Space Type Name</source>
         <translation>Tipo de Espaço - Nome</translation>
     </message>
-    <!-- OS:RunPeriodControl:SpecialDays -->
+    
     <message>
         <source>Special Day Type</source>
         <translation>Tipo de Dia Especial</translation>
     </message>
-    <!-- OS:Schedule:Rule -->
+    
     <message>
         <source>Specific Day</source>
         <translation>Dia Específico</translation>
     </message>
-    <!-- OS:Material -->
+    
     <message>
         <source>Specific Heat</source>
         <translation>Calor Específico</translation>
     </message>
-    <!-- OS:WindowMaterial:Gas -->
+    
     <message>
         <source>Specific Heat Coefficient A</source>
         <translation>Coeficiente A do Calor Específico</translation>
     </message>
-    <!-- OS:WindowMaterial:Gas -->
+    
     <message>
         <source>Specific Heat Coefficient B</source>
         <translation>Coeficiente B do Calor Específico</translation>
     </message>
-    <!-- OS:WindowMaterial:Gas -->
+    
     <message>
         <source>Specific Heat Coefficient C</source>
         <translation>Coeficiente de Calor Específico C</translation>
     </message>
-    <!-- OS:Material:RoofVegetation -->
+    
     <message>
         <source>Specific Heat of Dry Soil</source>
         <translation>Calor Específico do Solo Seco</translation>
     </message>
-    <!-- OS:WindowMaterial:Gas -->
+    
     <message>
         <source>Specific Heat Ratio</source>
         <translation>Razão de Calor Específico</translation>
     </message>
-    <!-- OS:Schedule:Rule -->
+    
     <message>
         <source>Specific Month</source>
         <translation>Mês Específico</translation>
     </message>
-    <!-- OS:Coil:Cooling:DX:CurveFit:OperatingMode -->
+    
     <message>
         <source>Speed</source>
         <translation>Velocidade</translation>
     </message>
-    <!-- OS:AirLoopHVAC:UnitaryHeatPump:AirToAir:MultiSpeed -->
+    
     <message>
         <source>Speed 1 Supply Air Flow Rate During Cooling Operation</source>
         <translation>Velocidade 1 da Taxa de Fluxo de Ar de Insuflação Durante Operação de Resfriamento</translation>
     </message>
-    <!-- OS:AirLoopHVAC:UnitaryHeatPump:AirToAir:MultiSpeed -->
+    
     <message>
         <source>Speed 1 Supply Air Flow Rate During Heating Operation</source>
         <translation>Vazão de Ar de Insuflação em Velocidade 1 Durante Operação de Aquecimento</translation>
     </message>
-    <!-- OS:AirLoopHVAC:UnitaryHeatPump:AirToAir:MultiSpeed -->
+    
     <message>
         <source>Speed 2 Supply Air Flow Rate During Cooling Operation</source>
         <translation>Vazão de Ar de Suprimento na Velocidade 2 Durante Operação de Resfriamento</translation>
     </message>
-    <!-- OS:AirLoopHVAC:UnitaryHeatPump:AirToAir:MultiSpeed -->
+    
     <message>
         <source>Speed 2 Supply Air Flow Rate During Heating Operation</source>
         <translation>Vazão de Ar de Insuflação na Velocidade 2 Durante Operação de Aquecimento</translation>
     </message>
-    <!-- OS:AirLoopHVAC:UnitaryHeatPump:AirToAir:MultiSpeed -->
+    
     <message>
         <source>Speed 3 Supply Air Flow Rate During Cooling Operation</source>
         <translation>Vazão de Ar de Insuflação - Velocidade 3 Durante Operação de Resfriamento</translation>
     </message>
-    <!-- OS:AirLoopHVAC:UnitaryHeatPump:AirToAir:MultiSpeed -->
+    
     <message>
         <source>Speed 3 Supply Air Flow Rate During Heating Operation</source>
         <translation>Velocidade 3 Taxa de Fluxo de Ar de Insuflação Durante Operação de Aquecimento</translation>
     </message>
-    <!-- OS:AirLoopHVAC:UnitaryHeatPump:AirToAir:MultiSpeed -->
+    
     <message>
         <source>Speed 4 Supply Air Flow Rate During Cooling Operation</source>
         <translation>Vazão de Ar de Insuflamento na Velocidade 4 Durante Operação de Resfriamento</translation>
     </message>
-    <!-- OS:AirLoopHVAC:UnitaryHeatPump:AirToAir:MultiSpeed -->
+    
     <message>
         <source>Speed 4 Supply Air Flow Rate During Heating Operation</source>
         <translation>Velocidade 4 - Taxa de Fluxo de Ar de Suprimento Durante Operação de Aquecimento</translation>
     </message>
-    <!-- OS:Fan:SystemModel -->
+    
     <message>
         <source>Speed Control Method</source>
         <translation>Método de Controle de Velocidade</translation>
     </message>
-    <!-- OS:Coil:Cooling:DX:VariableSpeed, OS:Coil:Cooling:WaterToAirHeatPump:VariableSpeedEquationFit, OS:Coil:Heating:DX:VariableSpeed, OS:Coil:Heating:WaterToAirHeatPump:VariableSpeedEquationFit, OS:Coil:WaterHeating:AirToWaterHeatPump:VariableSpeed, OS:HeatPump:AirToWater:Cooling, OS:HeatPump:AirToWater:Heating -->
+    
     <message>
         <source>Speed Data List</source>
         <translation>Lista de Dados de Velocidade</translation>
     </message>
-    <!-- OS:Fan:SystemModel -->
+    
     <message>
         <source>Speed Electric Power Fraction</source>
         <translation>Fração de Potência Elétrica em Velocidade</translation>
     </message>
-    <!-- OS:Fan:SystemModel -->
+    
     <message>
         <source>Speed Flow Fraction</source>
         <translation>Fração de Vazão em Velocidade</translation>
     </message>
-    <!-- OS:Generator:FuelCell:StackCooler -->
+    
     <message>
         <source>Stack Air Cooler Fan Coefficient f0</source>
         <translation>Coeficiente f0 do Ventilador do Resfriador de Ar por Convecção Natural</translation>
     </message>
-    <!-- OS:Generator:FuelCell:StackCooler -->
+    
     <message>
         <source>Stack Air Cooler Fan Coefficient f1</source>
         <translation>Coeficiente f1 do Ventilador do Resfriador de Ar por Convecção Natural</translation>
     </message>
-    <!-- OS:Generator:FuelCell:StackCooler -->
+    
     <message>
         <source>Stack Air Cooler Fan Coefficient f2</source>
         <translation>Coeficiente f2 do Ventilador do Resfriador de Ar com Convecção Natural</translation>
     </message>
-    <!-- OS:Generator:FuelCell:StackCooler -->
+    
     <message>
         <source>Stack Cogeneration Exchanger Area</source>
         <translation>Área do Trocador de Cogeração em Pilha</translation>
     </message>
-    <!-- OS:Generator:FuelCell:StackCooler -->
+    
     <message>
         <source>Stack Cogeneration Exchanger Nominal Flow Rate</source>
         <translation>Taxa de Fluxo Nominal do Trocador de Calor de Cogeração em Pilha</translation>
     </message>
-    <!-- OS:Generator:FuelCell:StackCooler -->
+    
     <message>
         <source>Stack Cogeneration Exchanger Nominal Heat Transfer Coefficient</source>
         <translation>Coeficiente de Transferência de Calor Nominal do Trocador de Cogeração em Pilha</translation>
     </message>
-    <!-- OS:Generator:FuelCell:StackCooler -->
+    
     <message>
         <source>Stack Cogeneration Exchanger Nominal Heat Transfer Coefficient Exponent</source>
         <translation>Expoente do Coeficiente Nominal de Transferência de Calor do Trocador de Cogeração em Pilha</translation>
     </message>
-    <!-- OS:Generator:FuelCell:StackCooler -->
+    
     <message>
         <source>Stack Coolant Flow Rate</source>
         <translation>Taxa de Fluxo de Refrigerante da Pilha</translation>
     </message>
-    <!-- OS:Generator:FuelCell -->
+    
     <message>
         <source>Stack Cooler Name</source>
         <translation>Nome do Resfriador de Pilha</translation>
     </message>
-    <!-- OS:Generator:FuelCell:StackCooler -->
+    
     <message>
         <source>Stack Cooler Pump Heat Loss Fraction</source>
         <translation>Fração de Perda de Calor da Bomba do Resfriador de Pilha</translation>
     </message>
-    <!-- OS:Generator:FuelCell:StackCooler -->
+    
     <message>
         <source>Stack Cooler Pump Power</source>
         <translation>Potência da Bomba do Resfriador de Pilha</translation>
     </message>
-    <!-- OS:Generator:FuelCell:StackCooler -->
+    
     <message>
         <source>Stack Cooler U-Factor Times Area Value</source>
         <translation>Valor de Fator U Vezes Área do Resfriador de Pilha</translation>
     </message>
-    <!-- OS:Generator:FuelCell:PowerModule -->
+    
     <message>
         <source>Stack Heat loss to Dilution Air</source>
         <translation>Perda de Calor da Chaminé para o Ar de Diluição</translation>
     </message>
-    <!-- OS:Coil:Cooling:DX:MultiSpeed, OS:Coil:Heating:DX:MultiSpeed, OS:Coil:Heating:Electric:MultiStage, OS:Coil:Heating:Gas:MultiStage -->
+    
     <message>
         <source>Stage</source>
         <translation>Estágio</translation>
     </message>
-    <!-- OS:ZoneControl:Thermostat:StagedDualSetpoint -->
+    
     <message>
         <source>Stage 1 Cooling Temperature Offset</source>
         <translation>Deslocamento de Temperatura de Resfriamento Estágio 1</translation>
     </message>
-    <!-- OS:ZoneControl:Thermostat:StagedDualSetpoint -->
+    
     <message>
         <source>Stage 1 Heating Temperature Offset</source>
         <translation>Deslocamento de Temperatura de Aquecimento - Estágio 1</translation>
     </message>
-    <!-- OS:ZoneControl:Thermostat:StagedDualSetpoint -->
+    
     <message>
         <source>Stage 2 Cooling Temperature Offset</source>
         <translation>Compensação de Temperatura de Resfriamento do Estágio 2</translation>
     </message>
-    <!-- OS:ZoneControl:Thermostat:StagedDualSetpoint -->
+    
     <message>
         <source>Stage 2 Heating Temperature Offset</source>
         <translation>Deslocamento de Temperatura de Aquecimento Estágio 2</translation>
     </message>
-    <!-- OS:ZoneControl:Thermostat:StagedDualSetpoint -->
+    
     <message>
         <source>Stage 3 Cooling Temperature Offset</source>
         <translation>Deslocamento de Temperatura de Resfriamento Estágio 3</translation>
     </message>
-    <!-- OS:ZoneControl:Thermostat:StagedDualSetpoint -->
+    
     <message>
         <source>Stage 3 Heating Temperature Offset</source>
         <translation>Deslocamento de Temperatura de Aquecimento do Estágio 3</translation>
     </message>
-    <!-- OS:ZoneControl:Thermostat:StagedDualSetpoint -->
+    
     <message>
         <source>Stage 4 Cooling Temperature Offset</source>
         <translation>Desvio de Temperatura de Resfriamento do Estágio 4</translation>
     </message>
-    <!-- OS:ZoneControl:Thermostat:StagedDualSetpoint -->
+    
     <message>
         <source>Stage 4 Heating Temperature Offset</source>
         <translation>Deslocamento de Temperatura de Aquecimento Estágio 4</translation>
     </message>
-    <!-- OS:Refrigeration:Case -->
+    
     <message>
         <source>Standard Case Fan Power per Door</source>
         <translation>Potência Padrão do Ventilador por Porta</translation>
     </message>
-    <!-- OS:Refrigeration:Case -->
+    
     <message>
         <source>Standard Case Fan Power per Unit Length</source>
         <translation>Potência Padrão do Ventilador por Unidade de Comprimento</translation>
     </message>
-    <!-- OS:Refrigeration:Case -->
+    
     <message>
         <source>Standard Case Lighting Power per Door</source>
         <translation>Potência de Iluminação do Caso Padrão por Porta</translation>
     </message>
-    <!-- OS:Refrigeration:Case -->
+    
     <message>
         <source>Standard Case Lighting Power per Unit Length</source>
         <translation>Potência de Iluminação do Caso Padrão por Unidade de Comprimento</translation>
     </message>
-    <!-- OS:EvaporativeFluidCooler:SingleSpeed -->
+    
     <message>
         <source>Standard Design Capacity</source>
         <translation>Capacidade de Design Padrão</translation>
     </message>
-    <!-- OS:Building, OS:SpaceType -->
+    
     <message>
         <source>Standards Building Type</source>
         <translation>Tipo de Edifício de Referência</translation>
     </message>
-    <!-- OS:StandardsInformation:Material -->
+    
     <message>
         <source>Standards Category</source>
         <translation>Categoria de Normas</translation>
     </message>
-    <!-- OS:StandardsInformation:Construction -->
+    
     <message>
         <source>Standards Construction Type</source>
         <translation>Tipo de Construção de Normas</translation>
     </message>
-    <!-- OS:StandardsInformation:Material -->
+    
     <message>
         <source>Standards Identifier</source>
         <translation>Identificador de Normas</translation>
     </message>
-    <!-- OS:Building -->
+    
     <message>
         <source>Standards Number of Above Ground Stories</source>
         <translation>Número de Pavimentos Acima do Solo Conforme Norma</translation>
     </message>
-    <!-- OS:Building -->
+    
     <message>
         <source>Standards Number of Living Units</source>
         <translation>Número Padrão de Unidades Habitacionais</translation>
     </message>
-    <!-- OS:Building -->
+    
     <message>
         <source>Standards Number of Stories</source>
         <translation>Número de Andares Padrão</translation>
     </message>
-    <!-- OS:SpaceType -->
+    
     <message>
         <source>Standards Space Type</source>
         <translation>Tipo de Espaço Padrão</translation>
     </message>
-    <!-- OS:Building, OS:SpaceType -->
+    
     <message>
         <source>Standards Template</source>
         <translation>Modelo de Padrões</translation>
     </message>
-    <!-- OS:HeatPump:AirToWater:FuelFired:Cooling, OS:HeatPump:AirToWater:FuelFired:Heating -->
+    
     <message>
         <source>Standby Electric Power</source>
         <translation>Potência Elétrica em Espera</translation>
     </message>
-    <!-- OS:Generator:MicroTurbine, OS:Humidifier:Steam:Electric -->
+    
     <message>
         <source>Standby Power</source>
         <translation>Potência em Standby</translation>
     </message>
-    <!-- OS:RunPeriodControl:DaylightSavingTime, OS:RunPeriodControl:SpecialDays -->
+    
     <message>
         <source>Start Date</source>
         <translation>Data de Início</translation>
     </message>
-    <!-- OS:WeatherFile -->
+    
     <message>
         <source>Start Date Actual Year</source>
         <translation>Data Inicial Ano Efetivo</translation>
     </message>
-    <!-- OS:Schedule:FixedInterval, OS:Schedule:Rule, OS:Schedule:VariableInterval -->
+    
     <message>
         <source>Start Day</source>
         <translation>Dia de Início</translation>
     </message>
-    <!-- OS:WeatherFile -->
+    
     <message>
         <source>Start Day of Week</source>
         <translation>Dia da Semana de Início</translation>
     </message>
-    <!-- OS:AirflowNetworkDetailedOpening -->
+    
     <message>
         <source>Start Height Factor for Opening Factor</source>
         <translation>Fator de Altura Inicial para Fator de Abertura</translation>
     </message>
-    <!-- OS:Schedule:FixedInterval, OS:Schedule:Rule, OS:Schedule:VariableInterval -->
+    
     <message>
         <source>Start Month</source>
         <translation>Mês Inicial</translation>
     </message>
-    <!-- OS:LifeCycleCost -->
+    
     <message>
         <source>Start of Costs</source>
         <translation>Início dos Custos</translation>
     </message>
-    <!-- OS:Generator:FuelCell:PowerModule -->
+    
     <message>
         <source>Start Up Electricity Consumption</source>
         <translation>Consumo de Eletricidade na Inicialização</translation>
     </message>
-    <!-- OS:Generator:FuelCell:PowerModule -->
+    
     <message>
         <source>Start Up Electricity Produced</source>
         <translation>Eletricidade Produzida na Inicialização</translation>
     </message>
-    <!-- OS:Generator:FuelCell:PowerModule -->
+    
     <message>
         <source>Start Up Fuel</source>
         <translation>Combustível de Partida</translation>
     </message>
-    <!-- OS:Generator:FuelCell:PowerModule -->
+    
     <message>
         <source>Start Up Time</source>
         <translation>Tempo de Inicialização</translation>
     </message>
-    <!-- OS:WeatherFile -->
+    
     <message>
         <source>State Province Region</source>
         <translation>Estado Província Região</translation>
     </message>
-    <!-- OS:SteamEquipment -->
+    
     <message>
         <source>Steam Equipment Definition Name</source>
         <translation>Nome da Definição de Equipamento de Vapor</translation>
     </message>
-    <!-- OS:LifeCycleCost:Parameters -->
+    
     <message>
         <source>Steam Inflation</source>
         <translation>Inflação de Vapor</translation>
     </message>
-    <!-- OS:DistrictHeating:Steam -->
+    
     <message>
         <source>Steam Inlet Node Name</source>
         <translation>Nome do Nó de Entrada de Vapor</translation>
     </message>
-    <!-- OS:Boiler:Steam, OS:DistrictHeating:Steam -->
+    
     <message>
         <source>Steam Outlet Node Name</source>
         <translation>Nome do Nó de Saída de Vapor</translation>
     </message>
-    <!-- OS:Refrigeration:WalkIn:ZoneBoundary -->
+    
     <message>
         <source>Stocking Door Opening Protection Type Facing Zone</source>
         <translation>Tipo de Proteção contra Abertura de Porta de Estoque Voltado para a Zona</translation>
     </message>
-    <!-- OS:Refrigeration:WalkIn:ZoneBoundary -->
+    
     <message>
         <source>Stocking Door Opening Schedule Name Facing Zone</source>
         <translation>Nome do Agendamento de Abertura da Porta de Estoque da Zona Frontal</translation>
     </message>
-    <!-- OS:Refrigeration:WalkIn:ZoneBoundary -->
+    
     <message>
         <source>Stocking Door U Value Facing Zone</source>
         <translation>Valor U da Porta de Acesso Voltada para a Zona</translation>
     </message>
-    <!-- OS:Generator:FuelCell:AirSupply -->
+    
     <message>
         <source>Stoichiometric Ratio</source>
         <translation>Razão Estequiométrica</translation>
     </message>
-    <!-- OS:WaterHeater:Sizing -->
+    
     <message>
         <source>Storage Capacity per Collector Area</source>
         <translation>Capacidade de Armazenamento por Área de Coletor</translation>
     </message>
-    <!-- OS:WaterHeater:Sizing -->
+    
     <message>
         <source>Storage Capacity per Floor Area</source>
         <translation>Capacidade de Armazenamento por Área de Piso</translation>
     </message>
-    <!-- OS:WaterHeater:Sizing -->
+    
     <message>
         <source>Storage Capacity per Person</source>
         <translation>Capacidade de Armazenamento por Pessoa</translation>
     </message>
-    <!-- OS:WaterHeater:Sizing -->
+    
     <message>
         <source>Storage Capacity per Unit</source>
         <translation>Capacidade de Armazenamento por Unidade</translation>
     </message>
-    <!-- OS:Coil:Cooling:DX:SingleSpeed:ThermalStorage -->
+    
     <message>
         <source>Storage Capacity Sizing Factor</source>
         <translation>Fator de Dimensionamento da Capacidade de Armazenamento</translation>
     </message>
-    <!-- OS:ElectricLoadCenter:Distribution -->
+    
     <message>
         <source>Storage Charge Power Fraction Schedule Name</source>
         <translation>Nome da Agenda de Fração de Potência de Carga do Armazenamento</translation>
     </message>
-    <!-- OS:ElectricLoadCenter:Distribution -->
+    
     <message>
         <source>Storage Control Track Meter Name</source>
         <translation>Nome do Medidor de Rastreamento de Controle de Armazenamento</translation>
     </message>
-    <!-- OS:ElectricLoadCenter:Distribution -->
+    
     <message>
         <source>Storage Control Utility Demand Target</source>
         <translation>Alvo de Demanda de Utilidade de Controle de Armazenamento</translation>
     </message>
-    <!-- OS:ElectricLoadCenter:Distribution -->
+    
     <message>
         <source>Storage Control Utility Demand Target Fraction Schedule Name</source>
         <translation>Nome do Cronograma de Fração Alvo de Demanda de Utilidade de Controle de Armazenamento</translation>
     </message>
-    <!-- OS:ElectricLoadCenter:Distribution -->
+    
     <message>
         <source>Storage Converter Object Name</source>
         <translation>Nome do Objeto Conversor de Armazenamento</translation>
     </message>
-    <!-- OS:ElectricLoadCenter:Distribution -->
+    
     <message>
         <source>Storage Discharge Power Fraction Schedule Name</source>
         <translation>Nome do Cronograma de Fração de Potência de Descarga do Armazenamento</translation>
     </message>
-    <!-- OS:ElectricLoadCenter:Distribution -->
+    
     <message>
         <source>Storage Operation Scheme</source>
         <translation>Esquema de Operação de Armazenamento</translation>
     </message>
-    <!-- OS:Coil:Cooling:DX:SingleSpeed:ThermalStorage -->
+    
     <message>
         <source>Storage Tank Ambient Temperature Node</source>
         <translation>Nó de Temperatura Ambiente do Tanque de Armazenamento</translation>
     </message>
-    <!-- OS:Coil:Cooling:DX:SingleSpeed:ThermalStorage -->
+    
     <message>
         <source>Storage Tank Maximum Operating Limit Fluid Temperature</source>
         <translation>Temperatura Máxima do Fluido no Limite de Operação do Tanque de Armazenamento</translation>
     </message>
-    <!-- OS:Coil:Cooling:DX:SingleSpeed:ThermalStorage -->
+    
     <message>
         <source>Storage Tank Minimum Operating Limit Fluid Temperature</source>
         <translation>Temperatura Mínima do Fluido para Operação do Tanque de Armazenamento</translation>
     </message>
-    <!-- OS:Coil:Cooling:DX:SingleSpeed:ThermalStorage -->
+    
     <message>
         <source>Storage Tank Plant Connection Design Flow Rate</source>
         <translation>Taxa de Fluxo de Projeto da Conexão da Planta do Tanque de Armazenamento</translation>
     </message>
-    <!-- OS:Coil:Cooling:DX:SingleSpeed:ThermalStorage -->
+    
     <message>
         <source>Storage Tank Plant Connection Heat Transfer Effectiveness</source>
         <translation>Efetividade de Transferência de Calor da Conexão do Tanque de Armazenamento à Central</translation>
     </message>
-    <!-- OS:Coil:Cooling:DX:SingleSpeed:ThermalStorage -->
+    
     <message>
         <source>Storage Tank Plant Connection Inlet Node</source>
         <translation>Nó de Entrada da Conexão do Tanque de Armazenamento à Planta</translation>
     </message>
-    <!-- OS:Coil:Cooling:DX:SingleSpeed:ThermalStorage -->
+    
     <message>
         <source>Storage Tank Plant Connection Outlet Node</source>
         <translation>Nó de Saída da Conexão do Tanque de Armazenamento na Planta</translation>
     </message>
-    <!-- OS:Coil:Cooling:DX:SingleSpeed:ThermalStorage -->
+    
     <message>
         <source>Storage Tank to Ambient U-value Times Area Heat Transfer Coefficient</source>
         <translation>Coeficiente de Transferência de Calor - Valor-U vezes Área do Tanque de Armazenamento para Ambiente</translation>
     </message>
-    <!-- OS:Coil:Cooling:DX:SingleSpeed:ThermalStorage -->
+    
     <message>
         <source>Storage Type</source>
         <translation>Tipo de Armazenamento</translation>
     </message>
-    <!-- OS:SetpointManager:Coldest, OS:SetpointManager:Warmest, OS:SetpointManager:WarmestTemperatureFlow -->
+    
     <message>
         <source>Strategy</source>
         <translation>Estratégia</translation>
     </message>
-    <!-- OS:TemperingValve -->
+    
     <message>
         <source>Stream 2 Source Node</source>
         <translation>Nó Fonte do Fluxo 2</translation>
     </message>
-    <!-- OS:ShadingControl -->
+    
     <message>
         <source>Sub Surface Name</source>
         <translation>Nome da Subsuperfície</translation>
     </message>
-    <!-- OS:SubSurface -->
+    
     <message>
         <source>Sub Surface Type</source>
         <translation>Tipo de Sub-superfície</translation>
     </message>
-    <!-- OS:Refrigeration:TranscriticalSystem -->
+    
     <message>
         <source>Subcooler Effectiveness</source>
         <translation>Efetividade do Subarrefecedor</translation>
     </message>
-    <!-- OS:Refrigeration:GasCooler:AirCooled -->
+    
     <message>
         <source>Subcritical Temperature Difference</source>
         <translation>Diferença de Temperatura Subcrítica</translation>
     </message>
-    <!-- OS:Refrigeration:System -->
+    
     <message>
         <source>Suction Piping Zone Name</source>
         <translation>Zona de Tubulação de Sucção</translation>
     </message>
-    <!-- OS:Refrigeration:System -->
+    
     <message>
         <source>Suction Temperature Control Type</source>
         <translation>Tipo de Controle de Temperatura de Sucção</translation>
     </message>
-    <!-- OS:Refrigeration:SecondarySystem -->
+    
     <message>
         <source>Sum UA Distribution Piping</source>
         <translation>Soma UA de Tubulação de Distribuição</translation>
     </message>
-    <!-- OS:Refrigeration:SecondarySystem -->
+    
     <message>
         <source>Sum UA Receiver/Separator Shell</source>
         <translation>Sum UA Receptor/Separador Shell</translation>
     </message>
-    <!-- OS:Refrigeration:System -->
+    
     <message>
         <source>Sum UA Suction Piping</source>
         <translation>Soma UA Tubulação de Sucção</translation>
     </message>
-    <!-- OS:Refrigeration:TranscriticalSystem -->
+    
     <message>
         <source>Sum UA Suction Piping for Low Temperature Loads</source>
         <translation>Soma UA Tubulação de Sucção para Cargas de Baixa Temperatura</translation>
     </message>
-    <!-- OS:Refrigeration:TranscriticalSystem -->
+    
     <message>
         <source>Sum UA Suction Piping for Medium Temperature Loads</source>
         <translation>Soma UA Tubulação de Sucção para Cargas de Temperatura Média</translation>
     </message>
-    <!-- OS:Schedule:Week -->
+    
     <message>
         <source>SummerDesignDay Schedule:Day Name</source>
         <translation>Cronograma do Dia de Projeto de Verão:Nome do Dia</translation>
     </message>
-    <!-- OS:Surface -->
+    
     <message>
         <source>Sun Exposure</source>
         <translation>Exposição Solar</translation>
     </message>
-    <!-- OS:Schedule:Week -->
+    
     <message>
         <source>Sunday Schedule:Day Name</source>
         <translation>Cronograma de Domingo: Nome do Dia</translation>
     </message>
-    <!-- OS:AirLoopHVAC:UnitaryHeatPump:AirToAir:MultiSpeed -->
+    
     <message>
         <source>Supplemental Heating Coil</source>
         <translation>Bobina de Aquecimento Suplementar</translation>
     </message>
-    <!-- OS:AirLoopHVAC:UnitaryHeatPump:AirToAir, OS:AirLoopHVAC:UnitarySystem, OS:ZoneHVAC:PackagedTerminalHeatPump, OS:ZoneHVAC:TerminalUnit:VariableRefrigerantFlow, OS:ZoneHVAC:WaterToAirHeatPump -->
+    
     <message>
         <source>Supplemental Heating Coil Name</source>
         <translation>Nome da Bobina de Aquecimento Suplementar</translation>
     </message>
-    <!-- OS:AirLoopHVAC:UnitaryHeatCool:VAVChangeoverBypass, OS:AirLoopHVAC:UnitaryHeatPump:AirToAir:MultiSpeed, OS:ZoneHVAC:TerminalUnit:VariableRefrigerantFlow -->
+    
     <message>
         <source>Supply Air Fan</source>
         <translation>Ventilador de Ar de Insuflação</translation>
     </message>
-    <!-- OS:AirLoopHVAC:UnitaryHeatPump:AirToAir, OS:ZoneHVAC:EnergyRecoveryVentilator, OS:ZoneHVAC:EvaporativeCoolerUnit, OS:ZoneHVAC:FourPipeFanCoil, OS:ZoneHVAC:PackagedTerminalAirConditioner, OS:ZoneHVAC:PackagedTerminalHeatPump, OS:ZoneHVAC:UnitHeater, OS:ZoneHVAC:UnitVentilator, OS:ZoneHVAC:WaterToAirHeatPump -->
+    
     <message>
         <source>Supply Air Fan Name</source>
         <translation>Nome da Ventiladora de Ar de Suprimento</translation>
     </message>
-    <!-- OS:AirLoopHVAC:UnitaryHeatCool:VAVChangeoverBypass, OS:AirLoopHVAC:UnitaryHeatPump:AirToAir:MultiSpeed, OS:ZoneHVAC:TerminalUnit:VariableRefrigerantFlow -->
+    
     <message>
         <source>Supply Air Fan Operating Mode Schedule</source>
         <translation>Cronograma do Modo de Operação do Ventilador de Ar de Suprimento</translation>
     </message>
-    <!-- OS:AirLoopHVAC:UnitaryHeatPump:AirToAir, OS:AirLoopHVAC:UnitarySystem, OS:ZoneHVAC:FourPipeFanCoil, OS:ZoneHVAC:PackagedTerminalAirConditioner, OS:ZoneHVAC:PackagedTerminalHeatPump, OS:ZoneHVAC:UnitVentilator, OS:ZoneHVAC:WaterToAirHeatPump -->
+    
     <message>
         <source>Supply Air Fan Operating Mode Schedule Name</source>
         <translation>Nome do Calendário do Modo de Operação do Ventilador de Ar de Suprimento</translation>
     </message>
-    <!-- OS:ZoneHVAC:EnergyRecoveryVentilator -->
+    
     <message>
         <source>Supply Air Flow Rate</source>
         <translation>Taxa de Vazão de Ar de Suprimento</translation>
     </message>
-    <!-- OS:AirLoopHVAC:UnitarySystem -->
+    
     <message>
         <source>Supply Air Flow Rate Method During Cooling Operation</source>
         <translation>Método de Taxa de Fluxo de Ar de Suprimento Durante Operação de Resfriamento</translation>
     </message>
-    <!-- OS:AirLoopHVAC:UnitarySystem -->
+    
     <message>
         <source>Supply Air Flow Rate Method During Heating Operation</source>
         <translation>Método de Vazão de Ar de Suprimento Durante Operação de Aquecimento</translation>
     </message>
-    <!-- OS:AirLoopHVAC:UnitarySystem -->
+    
     <message>
         <source>Supply Air Flow Rate Method When No Cooling or Heating is Required</source>
         <translation>Método de Taxa de Fluxo de Ar de Insuflação Quando Nenhum Resfriamento ou Aquecimento é Necessário</translation>
     </message>
-    <!-- OS:AirLoopHVAC:UnitarySystem -->
+    
     <message>
         <source>Supply Air Flow Rate Per Floor Area During Cooling Operation</source>
         <translation>Vazão de Ar de Insuflação por Área do Piso Durante Operação de Resfriamento</translation>
     </message>
-    <!-- OS:AirLoopHVAC:UnitarySystem -->
+    
     <message>
         <source>Supply Air Flow Rate Per Floor Area during Heating Operation</source>
         <translation>Taxa de Vazão do Ar de Insuflação por Área de Piso durante Operação de Aquecimento</translation>
     </message>
-    <!-- OS:AirLoopHVAC:UnitarySystem -->
+    
     <message>
         <source>Supply Air Flow Rate Per Floor Area When No Cooling or Heating is Required</source>
         <translation>Taxa de Vazão de Ar de Insuflação por Área do Pavimento Quando Nenhum Resfriamento ou Aquecimento é Necessário</translation>
     </message>
-    <!-- OS:AirLoopHVAC:UnitaryHeatPump:AirToAir, OS:AirLoopHVAC:UnitaryHeatPump:AirToAir:MultiSpeed, OS:ZoneHVAC:PackagedTerminalAirConditioner, OS:ZoneHVAC:PackagedTerminalHeatPump, OS:ZoneHVAC:WaterToAirHeatPump -->
+    
     <message>
         <source>Supply Air Flow Rate When No Cooling or Heating is Needed</source>
         <translation>Taxa de Fluxo de Ar de Insuflação Quando Nenhum Resfriamento ou Aquecimento é Necessário</translation>
     </message>
-    <!-- OS:AirLoopHVAC:UnitarySystem -->
+    
     <message>
         <source>Supply Air Flow Rate When No Cooling or Heating is Required</source>
         <translation>Taxa de Fluxo de Ar de Insuflação Quando Nenhum Resfriamento ou Aquecimento é Necessário</translation>
     </message>
-    <!-- OS:AirTerminal:SingleDuct:SeriesPIU:Reheat, OS:HeatExchanger:AirToAir:SensibleAndLatent -->
+    
     <message>
         <source>Supply Air Inlet Node</source>
         <translation>Nó de Entrada de Ar de Suprimento</translation>
     </message>
-    <!-- OS:AirTerminal:SingleDuct:ConstantVolume:CooledBeam, OS:AirTerminal:SingleDuct:ConstantVolume:FourPipeInduction, OS:AirTerminal:SingleDuct:ParallelPIU:Reheat -->
+    
     <message>
         <source>Supply Air Inlet Node Name</source>
         <translation>Nome do Nó de Entrada de Ar de Suprimento</translation>
     </message>
-    <!-- OS:HeatExchanger:AirToAir:SensibleAndLatent -->
+    
     <message>
         <source>Supply Air Outlet Node</source>
         <translation>Nó de Saída de Ar de Insuflação</translation>
     </message>
-    <!-- OS:AirTerminal:SingleDuct:ConstantVolume:CooledBeam -->
+    
     <message>
         <source>Supply Air Outlet Node Name</source>
         <translation>Nome do Nó de Saída do Ar de Suprimento</translation>
     </message>
-    <!-- OS:HeatExchanger:AirToAir:SensibleAndLatent -->
+    
     <message>
         <source>Supply Air Outlet Temperature Control</source>
         <translation>Controle de Temperatura de Saída de Ar de Insuflação</translation>
     </message>
-    <!-- OS:AirTerminal:SingleDuct:ConstantVolume:CooledBeam -->
+    
     <message>
         <source>Supply Air Volumetric Flow Rate</source>
         <translation>Vazão Volumétrica do Ar de Suprimento</translation>
     </message>
-    <!-- OS:AirLoopHVAC:UnitarySystem -->
+    
     <message>
         <source>Supply Fan Name</source>
         <translation>Nome do Ventilador de Suprimento</translation>
     </message>
-    <!-- OS:CoilSystem:IntegratedHeatPump:AirSource -->
+    
     <message>
         <source>Supply Hot Water Flow Sensor Node Name</source>
         <translation>Nome do Nó do Sensor de Fluxo de Água Quente de Alimentação</translation>
     </message>
-    <!-- OS:PlantLoop -->
+    
     <message>
         <source>Supply Mixer Name</source>
         <translation>Nome do Misturador de Ar de Insuflação</translation>
     </message>
-    <!-- OS:AirLoopHVAC -->
+    
     <message>
         <source>Supply Side Inlet Node Name</source>
         <translation>Nome do Nó de Entrada do Lado de Fornecimento</translation>
     </message>
-    <!-- OS:AirLoopHVAC -->
+    
     <message>
         <source>Supply Side Outlet Node A</source>
         <translation>Nó de Saída do Lado de Alimentação A</translation>
     </message>
-    <!-- OS:AirLoopHVAC -->
+    
     <message>
         <source>Supply Side Outlet Node B</source>
         <translation>Nó de Saída do Lado de Alimentação B</translation>
     </message>
-    <!-- OS:AirLoopHVAC, OS:PlantLoop -->
+    
     <message>
         <source>Supply Splitter Name</source>
         <translation>Nome do Divisor de Alimentação</translation>
     </message>
-    <!-- OS:ElectricEquipment:ITE:AirCooled:Definition -->
+    
     <message>
         <source>Supply Temperature Difference</source>
         <translation>Diferença de Temperatura de Alimentação</translation>
     </message>
-    <!-- OS:ElectricEquipment:ITE:AirCooled:Definition -->
+    
     <message>
         <source>Supply Temperature Difference Schedule</source>
         <translation>Cronograma de Diferença de Temperatura de Suprimento</translation>
     </message>
-    <!-- OS:AirConditioner:VariableRefrigerantFlow, OS:Coil:Cooling:DX:MultiSpeed, OS:Coil:Cooling:DX:SingleSpeed:ThermalStorage, OS:Coil:Cooling:DX:TwoStageWithHumidityControlMode, OS:CoolingTower:VariableSpeed -->
+    
     <message>
         <source>Supply Water Storage Tank</source>
         <translation>Tanque de Armazenamento de Água de Suprimento</translation>
     </message>
-    <!-- OS:Coil:Cooling:DX:SingleSpeed, OS:Coil:Cooling:DX:TwoSpeed, OS:Coil:Cooling:DX:VariableSpeed, OS:CoolingTower:TwoSpeed, OS:EvaporativeFluidCooler:SingleSpeed, OS:EvaporativeFluidCooler:TwoSpeed, OS:WaterUse:Connections -->
+    
     <message>
         <source>Supply Water Storage Tank Name</source>
         <translation>Nome do Tanque de Armazenamento de Água de Suprimento</translation>
     </message>
-    <!-- OS:InteriorPartitionSurface, OS:InternalMass:Definition -->
+    
     <message>
         <source>Surface Area</source>
         <translation>Área de Superfície</translation>
     </message>
-    <!-- OS:InternalMass:Definition -->
+    
     <message>
         <source>Surface Area per Person</source>
         <translation>Área de Superfície por Pessoa</translation>
     </message>
-    <!-- OS:InternalMass:Definition -->
+    
     <message>
         <source>Surface Area per Space Floor Area</source>
         <translation>Área de Superfície por Área de Piso do Espaço</translation>
     </message>
-    <!-- OS:MaterialProperty:MoisturePenetrationDepth:Settings -->
+    
     <message>
         <source>Surface Layer Penetration Depth</source>
         <translation>Profundidade de Penetração da Camada de Superfície</translation>
     </message>
-    <!-- OS:AirflowNetworkDuctViewFactors, OS:AirflowNetworkSurface, OS:Generator:PVWatts, OS:Generator:Photovoltaic, OS:SolarCollector:FlatPlate:PhotovoltaicThermal, OS:SolarCollector:FlatPlate:Water, OS:SolarCollector:IntegralCollectorStorage, OS:SubSurface, OS:SurfaceControl:MovableInsulation, OS:SurfaceProperty:ConvectionCoefficients, OS:SurfaceProperty:ExposedFoundationPerimeter, OS:SurfaceProperty:IncidentSolarMultiplier, OS:SwimmingPool:Indoor -->
+    
     <message>
         <source>Surface Name</source>
         <translation>Nome da Superfície</translation>
     </message>
-    <!-- OS:Construction, OS:Construction:AirBoundary, OS:Construction:CfactorUndergroundWall, OS:Construction:FfactorGroundFloor, OS:Construction:InternalSource, OS:Construction:WindowDataFile -->
+    
     <message>
         <source>Surface Rendering Name</source>
         <translation>Nome de Renderização da Superfície</translation>
     </message>
-    <!-- OS:AirflowNetworkDuct -->
+    
     <message>
         <source>Surface Roughness</source>
         <translation>Rugosidade da Superfície</translation>
     </message>
-    <!-- OS:SurfaceProperty:ExposedFoundationPerimeter -->
+    
     <message>
         <source>Surface Segment Exposed</source>
         <translation>Segmento de Superfície Exposto</translation>
     </message>
-    <!-- OS:HeatBalanceAlgorithm -->
+    
     <message>
         <source>Surface Temperature Upper Limit</source>
         <translation>Limite Superior de Temperatura da Superfície</translation>
     </message>
-    <!-- OS:Surface, OS:SurfaceProperty:ConvectionCoefficients:MultipleSurface -->
+    
     <message>
         <source>Surface Type</source>
         <translation>Tipo de Superfície</translation>
     </message>
-    <!-- OS:AirflowNetworkDuctViewFactors -->
+    
     <message>
         <source>Surface View Factor</source>
         <translation>Fator de Forma de Superfície</translation>
     </message>
-    <!-- OS:SurfaceProperty:SurroundingSurfaces -->
+    
     <message>
         <source>Surrounding Surface Name</source>
         <translation>Nome da Superfície Envolvente</translation>
     </message>
-    <!-- OS:SurfaceProperty:SurroundingSurfaces -->
+    
     <message>
         <source>Surrounding Surface Temperature Schedule Name</source>
         <translation>Nome do Cronograma de Temperatura da Superfície Circundante</translation>
     </message>
-    <!-- OS:SurfaceProperty:SurroundingSurfaces -->
+    
     <message>
         <source>Surrounding Surface View Factor</source>
         <translation>Fator de Visualização de Superfícies Circundantes</translation>
     </message>
-    <!-- OS:SurfaceProperty:LocalEnvironment -->
+    
     <message>
         <source>Surrounding Surfaces Object Name</source>
         <translation>Nome do Objeto de Superfícies Envolventes</translation>
     </message>
-    <!-- OS:AirflowNetworkExternalNode -->
+    
     <message>
         <source>Symmetric Wind Pressure Coefficient Curve</source>
         <translation>Curva de Coeficiente de Pressão de Vento Simétrica</translation>
     </message>
-    <!-- OS:AirLoopHVAC:UnitaryHeatCool:VAVChangeoverBypass -->
+    
     <message>
         <source>System Air Flow Rate During Cooling Operation</source>
         <translation>Vazão de Ar do Sistema Durante Operação de Resfriamento</translation>
     </message>
-    <!-- OS:AirLoopHVAC:UnitaryHeatCool:VAVChangeoverBypass -->
+    
     <message>
         <source>System Air Flow Rate During Heating Operation</source>
         <translation>Taxa de Fluxo de Ar do Sistema Durante Operação de Aquecimento</translation>
     </message>
-    <!-- OS:AirLoopHVAC:UnitaryHeatCool:VAVChangeoverBypass -->
+    
     <message>
         <source>System Air Flow Rate When No Cooling or Heating is Needed</source>
         <translation>Taxa de Fluxo de Ar do Sistema Quando Nenhum Resfriamento ou Aquecimento é Necessário</translation>
     </message>
-    <!-- OS:Fan:ZoneExhaust -->
+    
     <message>
         <source>System Availability Manager Coupling Mode</source>
         <translation>Modo de Acoplamento do Gerenciador de Disponibilidade do Sistema</translation>
     </message>
-    <!-- OS:Generator:PVWatts -->
+    
     <message>
         <source>System Losses</source>
         <translation>Perdas do Sistema</translation>
     </message>
 
-    <!-- T -->
-    <!-- OS:Table:MultiVariableLookup -->
+    
+    
     <message>
         <source>Table Data Format</source>
         <translation>Formato de Dados da Tabela</translation>
     </message>
-    <!-- OS:WaterHeater:HeatPump -->
+    
     <message>
         <source>Tank</source>
         <translation>Tanque</translation>
     </message>
-    <!-- OS:WaterHeater:HeatPump, OS:WaterHeater:HeatPump:WrappedCondenser -->
+    
     <message>
         <source>Tank Element Control Logic</source>
         <translation>Lógica de Controle do Elemento do Tanque</translation>
     </message>
-    <!-- OS:ThermalStorage:Ice:Detailed -->
+    
     <message>
         <source>Tank Loss Coefficient</source>
         <translation>Coeficiente de Perda do Tanque</translation>
     </message>
-    <!-- OS:WaterHeater:HeatPump:WrappedCondenser -->
+    
     <message>
         <source>Tank Name</source>
         <translation>Nome do Tanque</translation>
     </message>
-    <!-- OS:ThermalStorage:ChilledWater:Stratified -->
+    
     <message>
         <source>Tank Recovery Time</source>
         <translation>Tempo de Recuperação do Tanque</translation>
     </message>
-    <!-- OS:Connection -->
+    
     <message>
         <source>Target Object</source>
         <translation>Objeto Alvo</translation>
     </message>
-    <!-- OS:UtilityCost:Charge:Block, OS:UtilityCost:Charge:Simple, OS:UtilityCost:Computation, OS:UtilityCost:Qualify, OS:UtilityCost:Ratchet, OS:UtilityCost:Variable -->
+    
     <message>
         <source>Tariff Name</source>
         <translation>Nome da Tarifa</translation>
     </message>
-    <!-- OS:LifeCycleCost:Parameters -->
+    
     <message>
         <source>Tax Rate</source>
         <translation>Taxa de Imposto</translation>
     </message>
-    <!-- OS:AvailabilityManager:HighTemperatureTurnOff, OS:AvailabilityManager:HighTemperatureTurnOn, OS:AvailabilityManager:LowTemperatureTurnOff, OS:AvailabilityManager:LowTemperatureTurnOn, OS:MaterialProperty:PhaseChange -->
+    
     <message>
         <source>Temperature</source>
         <translation>Temperatura</translation>
     </message>
-    <!-- OS:Construction:InternalSource -->
+    
     <message>
         <source>Temperature Calculation Requested After Layer Number</source>
         <translation>Cálculo de Temperatura Solicitado Após o Número da Camada</translation>
     </message>
-    <!-- OS:ZoneCapacitanceMultiplier:ResearchSpecial -->
+    
     <message>
         <source>Temperature Capacity Multiplier</source>
         <translation>Multiplicador de Capacidade de Temperatura</translation>
     </message>
-    <!-- OS:MaterialProperty:PhaseChange -->
+    
     <message>
         <source>Temperature Coefficient for Thermal Conductivity</source>
         <translation>Coeficiente de Temperatura para Condutividade Térmica</translation>
     </message>
-    <!-- OS:PhotovoltaicPerformance:EquivalentOneDiode -->
+    
     <message>
         <source>Temperature Coefficient of Open Circuit Voltage</source>
         <translation>Coeficiente de Temperatura da Tensão de Circuito Aberto</translation>
     </message>
-    <!-- OS:PhotovoltaicPerformance:EquivalentOneDiode -->
+    
     <message>
         <source>Temperature Coefficient of Short Circuit Current</source>
         <translation>Coeficiente de Temperatura da Corrente de Curto-Circuito</translation>
     </message>
-    <!-- OS:ZoneHVAC:HighTemperatureRadiant, OS:ZoneHVAC:LowTemperatureRadiant:ConstantFlow, OS:ZoneHVAC:LowTemperatureRadiant:Electric, OS:ZoneHVAC:LowTemperatureRadiant:VariableFlow -->
+    
     <message>
         <source>Temperature Control Type</source>
         <translation>Tipo de Controle de Temperatura</translation>
     </message>
-    <!-- OS:SimulationControl -->
+    
     <message>
         <source>Temperature Convergence Tolerance Value</source>
         <translation>Valor de Tolerância de Convergência de Temperatura</translation>
     </message>
-    <!-- OS:Chiller:Electric:EIR, OS:Chiller:Electric:ReformulatedEIR -->
+    
     <message>
         <source>Temperature Difference Across Condenser Schedule Name</source>
         <translation>Nome da Programação da Diferença de Temperatura ao Longo do Condensador</translation>
     </message>
-    <!-- OS:ThermostatSetpoint:DualSetpoint -->
+    
     <message>
         <source>Temperature Difference Between Cutout And Setpoint</source>
         <translation>Diferença de Temperatura Entre Cutout e Setpoint</translation>
     </message>
-    <!-- OS:AvailabilityManager:DifferentialThermostat -->
+    
     <message>
         <source>Temperature Difference Off Limit</source>
         <translation>Diferença de Temperatura do Limite de Desligamento</translation>
     </message>
-    <!-- OS:AvailabilityManager:DifferentialThermostat -->
+    
     <message>
         <source>Temperature Difference On Limit</source>
         <translation>Diferença de Temperatura no Limite</translation>
     </message>
-    <!-- OS:HeatExchanger:Desiccant:BalancedFlow:PerformanceDataType1 -->
+    
     <message>
         <source>Temperature Equation Coefficient 1</source>
         <translation>Coeficiente 1 da Equação de Temperatura</translation>
     </message>
-    <!-- OS:HeatExchanger:Desiccant:BalancedFlow:PerformanceDataType1 -->
+    
     <message>
         <source>Temperature Equation Coefficient 2</source>
         <translation>Coeficiente 2 da Equação de Temperatura</translation>
     </message>
-    <!-- OS:HeatExchanger:Desiccant:BalancedFlow:PerformanceDataType1 -->
+    
     <message>
         <source>Temperature Equation Coefficient 3</source>
         <translation>Coeficiente 3 da Equação de Temperatura</translation>
     </message>
-    <!-- OS:HeatExchanger:Desiccant:BalancedFlow:PerformanceDataType1 -->
+    
     <message>
         <source>Temperature Equation Coefficient 4</source>
         <translation>Coeficiente da Equação de Temperatura 4</translation>
     </message>
-    <!-- OS:HeatExchanger:Desiccant:BalancedFlow:PerformanceDataType1 -->
+    
     <message>
         <source>Temperature Equation Coefficient 5</source>
         <translation>Coeficiente da Equação de Temperatura 5</translation>
     </message>
-    <!-- OS:HeatExchanger:Desiccant:BalancedFlow:PerformanceDataType1 -->
+    
     <message>
         <source>Temperature Equation Coefficient 6</source>
         <translation>Coeficiente da Equação de Temperatura 6</translation>
     </message>
-    <!-- OS:HeatExchanger:Desiccant:BalancedFlow:PerformanceDataType1 -->
+    
     <message>
         <source>Temperature Equation Coefficient 7</source>
         <translation>Coeficiente 7 da Equação de Temperatura</translation>
     </message>
-    <!-- OS:HeatExchanger:Desiccant:BalancedFlow:PerformanceDataType1 -->
+    
     <message>
         <source>Temperature Equation Coefficient 8</source>
         <translation>Coeficiente 8 da Equação de Temperatura</translation>
     </message>
-    <!-- OS:ZoneHVAC:EnergyRecoveryVentilator:Controller -->
+    
     <message>
         <source>Temperature High Limit</source>
         <translation>Limite Alto de Temperatura</translation>
     </message>
-    <!-- OS:ZoneHVAC:EnergyRecoveryVentilator:Controller -->
+    
     <message>
         <source>Temperature Low Limit</source>
         <translation>Limite Baixo de Temperatura</translation>
     </message>
-    <!-- OS:Chiller:Absorption:Indirect -->
+    
     <message>
         <source>Temperature Lower Limit Generator Inlet</source>
         <translation>Limite Inferior de Temperatura da Entrada do Gerador</translation>
     </message>
-    <!-- OS:Site:WaterMainsTemperature -->
+    
     <message>
         <source>Temperature Multiplier</source>
         <translation>Multiplicador de Temperatura</translation>
     </message>
-    <!-- OS:Site:WaterMainsTemperature -->
+    
     <message>
         <source>Temperature Offset</source>
         <translation>Deslocamento de Temperatura</translation>
     </message>
-    <!-- OS:Site:WaterMainsTemperature -->
+    
     <message>
         <source>Temperature Schedule Name</source>
         <translation>Nome da Agenda de Temperatura</translation>
     </message>
-    <!-- OS:ThermalStorage:ChilledWater:Stratified -->
+    
     <message>
         <source>Temperature Sensor Height</source>
         <translation>Altura do Sensor de Temperatura</translation>
     </message>
-    <!-- OS:TemperingValve -->
+    
     <message>
         <source>Temperature Setpoint Node</source>
         <translation>Nó de Ponto de Ajuste de Temperatura</translation>
     </message>
-    <!-- OS:Coil:Heating:Electric, OS:Coil:Heating:Gas -->
+    
     <message>
         <source>Temperature Setpoint Node Name</source>
         <translation>Nome do Nó de Ponto de Ajuste de Temperatura</translation>
     </message>
-    <!-- OS:PlantComponent:TemperatureSource -->
+    
     <message>
         <source>Temperature Specification Type</source>
         <translation>Tipo de Especificação de Temperatura</translation>
     </message>
-    <!-- OS:Refrigeration:AirChiller, OS:Refrigeration:WalkIn -->
+    
     <message>
         <source>Temperature Termination Defrost Fraction to Ice</source>
         <translation>Fração de Descongelamento de Terminação de Temperatura para Gelo</translation>
     </message>
-    <!-- OS:ZoneHVAC:TerminalUnit:VariableRefrigerantFlow -->
+    
     <message>
         <source>Terminal Unit Air Inlet Node</source>
         <translation>Nó de Entrada de Ar da Unidade Terminal</translation>
     </message>
-    <!-- OS:ZoneHVAC:TerminalUnit:VariableRefrigerantFlow -->
+    
     <message>
         <source>Terminal Unit Air Outlet Node</source>
         <translation>Nó de Saída de Ar da Unidade Terminal</translation>
     </message>
-    <!-- OS:ZoneHVAC:TerminalUnit:VariableRefrigerantFlow -->
+    
     <message>
         <source>Terminal Unit Availability schedule</source>
         <translation>Cronograma de Disponibilidade da Unidade Terminal</translation>
     </message>
-    <!-- OS:AirTerminal:SingleDuct:InletSideMixer -->
+    
     <message>
         <source>Terminal Unit Outlet</source>
         <translation>Terminal Unit Outlet</translation>
     </message>
-    <!-- OS:AirTerminal:SingleDuct:InletSideMixer -->
+    
     <message>
         <source>Terminal Unit Primary Air Inlet</source>
         <translation>Terminal Unit Primary Air Inlet</translation>
     </message>
-    <!-- OS:AirTerminal:SingleDuct:InletSideMixer -->
+    
     <message>
         <source>Terminal Unit Secondary Air Inlet</source>
         <translation>Entrada de Ar Secundário da Unidade Terminal</translation>
     </message>
-    <!-- OS:Site -->
+    
     <message>
         <source>Terrain</source>
         <translation>Terreno</translation>
     </message>
-    <!-- OS:SolarCollectorPerformance:FlatPlate -->
+    
     <message>
         <source>Test Correlation Type</source>
         <translation>Tipo de Correlação de Teste</translation>
     </message>
-    <!-- OS:SolarCollectorPerformance:FlatPlate -->
+    
     <message>
         <source>Test Flow Rate</source>
         <translation>Vazão de Teste</translation>
     </message>
-    <!-- OS:SolarCollectorPerformance:FlatPlate -->
+    
     <message>
         <source>Test Fluid</source>
         <translation>Fluido de Teste</translation>
     </message>
-    <!-- OS:ThermalStorage:Ice:Detailed -->
+    
     <message>
         <source>Thaw Process Indicator</source>
         <translation>Indicador de Processo de Descongelamento</translation>
     </message>
-    <!-- OS:Boiler:Steam -->
+    
     <message>
         <source>Theoretical Efficiency</source>
         <translation>Eficiência Teórica</translation>
     </message>
-    <!-- OS:Material, OS:Material:NoMass, OS:Material:RoofVegetation -->
+    
     <message>
         <source>Thermal Absorptance</source>
         <translation>Absortância Térmica</translation>
     </message>
-    <!-- OS:AirflowNetworkOccupantVentilationControl -->
+    
     <message>
         <source>Thermal Comfort High Temperature Curve Name</source>
         <translation>Nome da Curva de Alta Temperatura de Conforto Térmico</translation>
     </message>
-    <!-- OS:AirflowNetworkOccupantVentilationControl -->
+    
     <message>
         <source>Thermal Comfort Low Temperature Curve Name</source>
-        <translation type="unfinished"></translation>
+        <translation>Nome da Curva de Temperatura Baixa para Conforto Térmico</translation>
     </message>
-    <!-- OS:AirflowNetworkOccupantVentilationControl -->
+    
     <message>
         <source>Thermal Comfort Temperature Boundary Point</source>
         <translation>Ponto Limite de Temperatura de Conforto Térmico</translation>
     </message>
-    <!-- OS:SolarCollectorPerformance:PhotovoltaicThermal:Simple -->
+    
     <message>
         <source>Thermal Conversion Efficiency Input Mode Type</source>
         <translation>Tipo de Modo de Entrada de Eficiência de Conversão Térmica</translation>
     </message>
-    <!-- OS:SolarCollectorPerformance:PhotovoltaicThermal:Simple -->
+    
     <message>
         <source>Thermal Conversion Efficiency Schedule Name</source>
         <translation>Nome da Agenda de Eficiência de Conversão Térmica</translation>
     </message>
-    <!-- OS:Humidifier:Steam:Gas -->
+    
     <message>
         <source>Thermal Efficiency</source>
         <translation>Eficiência Térmica</translation>
     </message>
-    <!-- OS:Generator:MicroTurbine:HeatRecovery -->
+    
     <message>
         <source>Thermal Efficiency Function of Temperature and Elevation Curve Name</source>
         <translation>Nome da Curva de Função de Eficiência Térmica em Relação à Temperatura e Elevação</translation>
     </message>
-    <!-- OS:Humidifier:Steam:Gas -->
+    
     <message>
         <source>Thermal Efficiency Modifier Curve Name</source>
         <translation>Nome da Curva Modificadora de Eficiência Térmica</translation>
     </message>
-    <!-- OS:WindowMaterial:Screen, OS:WindowMaterial:Shade -->
+    
     <message>
         <source>Thermal Hemispherical Emissivity</source>
         <translation>Emissividade Hemisférica Térmica</translation>
     </message>
-    <!-- OS:SolarCollectorPerformance:IntegralCollectorStorage -->
+    
     <message>
         <source>Thermal Mass of Absorber Plate</source>
         <translation>Massa Térmica da Placa Absorvedora</translation>
     </message>
-    <!-- OS:Material:AirGap, OS:Material:NoMass -->
+    
     <message>
         <source>Thermal Resistance</source>
         <translation>Resistência Térmica</translation>
     </message>
-    <!-- OS:WindowMaterial:Shade -->
+    
     <message>
         <source>Thermal Transmittance</source>
         <translation>Transmitância Térmica</translation>
     </message>
-    <!-- OS:AirLoopHVAC:SupplyPlenum, OS:Controller:MechanicalVentilation, OS:HeaderedPumps:ConstantSpeed, OS:HeaderedPumps:VariableSpeed, OS:ZoneHVAC:EquipmentList -->
+    
     <message>
         <source>Thermal Zone</source>
         <translation>Zona Térmica</translation>
     </message>
-    <!-- OS:AirflowNetworkDistributionLinkage, OS:AirflowNetworkZone, OS:Space, OS:ZoneProperty:UserViewFactors:BySurfaceName -->
+    
     <message>
         <source>Thermal Zone Name</source>
         <translation>Nome da Zona Térmica</translation>
     </message>
-    <!-- OS:AirLoopHVAC:ReturnPlenum -->
+    
     <message>
         <source>ThermalZone</source>
         <translation>Zona Térmica</translation>
     </message>
-    <!-- OS:Chiller:Electric:EIR, OS:Chiller:Electric:ReformulatedEIR, OS:HeatPump:PlantLoop:EIR:Cooling -->
+    
     <message>
         <source>Thermosiphon Capacity Fraction Curve Name</source>
         <translation>Nome da Curva de Fração da Capacidade do Termossifão</translation>
     </message>
-    <!-- OS:Chiller:Electric:EIR, OS:Chiller:Electric:ReformulatedEIR, OS:HeatPump:PlantLoop:EIR:Cooling -->
+    
     <message>
         <source>Thermosiphon Minimum Temperature Difference</source>
         <translation>Diferença de Temperatura Mínima do Termossifão</translation>
     </message>
-    <!-- OS:ThermalZone -->
+    
     <message>
         <source>Thermostat Name</source>
         <translation>Nome do Termostato</translation>
     </message>
-    <!-- OS:AirConditioner:VariableRefrigerantFlow -->
+    
     <message>
         <source>Thermostat Priority Schedule</source>
         <translation>Cronograma de Prioridade do Termostato</translation>
     </message>
-    <!-- OS:AvailabilityManager:NightCycle -->
+    
     <message>
         <source>Thermostat Tolerance</source>
         <translation>Tolerância do Termostato</translation>
     </message>
-    <!-- OS:Daylighting:Control, OS:Glare:Sensor, OS:IlluminanceMap -->
+    
     <message>
         <source>Theta Rotation Around Y-Axis</source>
         <translation>Rotação Theta em torno do Eixo Y</translation>
     </message>
-    <!-- OS:Luminaire -->
+    
     <message>
         <source>Theta Rotation Around Y-axis</source>
         <translation>Rotação Theta em torno do eixo Y</translation>
     </message>
-    <!-- OS:Material, OS:Material:RoofVegetation, OS:WindowMaterial:Gas, OS:WindowMaterial:GasMixture, OS:WindowMaterial:Glazing, OS:WindowMaterial:Glazing:RefractionExtinctionMethod, OS:WindowMaterial:Shade -->
+    
     <message>
         <source>Thickness</source>
         <translation>Espessura</translation>
     </message>
-    <!-- OS:HeatExchanger:AirToAir:SensibleAndLatent -->
+    
     <message>
         <source>Threshold Temperature</source>
         <translation>Temperatura Limite</translation>
     </message>
-    <!-- OS:UtilityCost:Qualify -->
+    
     <message>
         <source>Threshold Test</source>
         <translation>Teste de Limite</translation>
     </message>
-    <!-- OS:UtilityCost:Qualify -->
+    
     <message>
         <source>Threshold Value or Variable Name</source>
         <translation>Valor Limite ou Nome da Variável</translation>
     </message>
-    <!-- OS:ZoneHVAC:EvaporativeCoolerUnit -->
+    
     <message>
         <source>Throttling Range Temperature Difference</source>
         <translation>Diferença de Temperatura do Intervalo de Estrangulamento</translation>
     </message>
-    <!-- OS:Schedule:Week -->
+    
     <message>
         <source>Thursday Schedule:Day Name</source>
         <translation>Cronograma de Quinta-feira: Nome do Dia</translation>
     </message>
-    <!-- OS:Generator:PVWatts -->
+    
     <message>
         <source>Tilt Angle</source>
         <translation>Ângulo de Inclinação</translation>
     </message>
-    <!-- OS:WaterHeater:Sizing -->
+    
     <message>
         <source>Time for Tank Recovery</source>
         <translation>Tempo de Recuperação do Tanque</translation>
     </message>
-    <!-- OS:ZoneHVAC:EnergyRecoveryVentilator:Controller -->
+    
     <message>
         <source>Time of Day Economizer Flow Control Schedule Name</source>
         <translation>Nome do Cronograma de Controle de Fluxo do Economizador por Hora do Dia</translation>
     </message>
-    <!-- OS:UtilityCost:Tariff -->
+    
     <message>
         <source>Time of Use Period Schedule Name</source>
         <translation>Nome da Programação do Período de Tarifa por Tempo de Uso</translation>
     </message>
-    <!-- OS:WaterHeater:Sizing -->
+    
     <message>
         <source>Time Storage Can Meet Peak Draw</source>
         <translation>Armazenamento Temporal Pode Atender Pico de Demanda</translation>
     </message>
-    <!-- OS:Site, OS:WeatherFile -->
+    
     <message>
         <source>Time Zone</source>
         <translation>Fuso Horário</translation>
     </message>
-    <!-- OS:HeatPump:PlantLoop:EIR:Heating -->
+    
     <message>
         <source>Timed Empirical Defrost Frequency Curve Name</source>
         <translation>Nome da Curva de Frequência de Degelo Empírico Temporizado</translation>
     </message>
-    <!-- OS:HeatPump:PlantLoop:EIR:Heating -->
+    
     <message>
         <source>Timed Empirical Defrost Heat Input Energy Fraction Curve Name</source>
         <translation>Nome da Curva de Fração de Energia de Entrada de Calor de Descongelamento Empírico Cronometrado</translation>
     </message>
-    <!-- OS:HeatPump:PlantLoop:EIR:Heating -->
+    
     <message>
         <source>Timed Empirical Defrost Heat Load Penalty Curve Name</source>
         <translation>Nome da Curva de Penalidade de Carga Térmica de Descongelamento Empírico Temporizado</translation>
     </message>
-    <!-- OS:OutputControl:Timestamp -->
+    
     <message>
         <source>Timestamp at Beginning of Interval</source>
         <translation>Carimbo de Data/Hora no Início do Intervalo</translation>
     </message>
-    <!-- OS:ThermalStorage:Ice:Detailed -->
+    
     <message>
         <source>Timestep of the Curve Data</source>
         <translation>Intervalo de tempo dos dados da curva</translation>
     </message>
-    <!-- OS:Sizing:Parameters -->
+    
     <message>
         <source>Timesteps in Averaging Window</source>
         <translation>Passos de Tempo na Janela de Média</translation>
     </message>
-    <!-- OS:UtilityBill -->
+    
     <message>
         <source>Timesteps in Peak Demand Window</source>
         <translation>Intervalos de Tempo na Janela de Demanda de Pico</translation>
     </message>
-    <!-- OS:ZoneProperty:UserViewFactors:BySurfaceName -->
+    
     <message>
         <source>To Surface Name</source>
         <translation>Para Nome da Superfície</translation>
     </message>
-    <!-- OS:OutputControl:ReportingTolerances -->
+    
     <message>
         <source>Tolerance for Time Cooling Setpoint Not Met</source>
         <translation>Tolerância para Setpoint de Resfriamento Não Atendido no Período</translation>
     </message>
-    <!-- OS:OutputControl:ReportingTolerances -->
+    
     <message>
         <source>Tolerance for Time Heating Setpoint Not Met</source>
         <translation>Tolerância para Setpoint de Aquecimento Não Atendido</translation>
     </message>
-    <!-- OS:WindowMaterial:Screen, OS:WindowMaterial:Shade -->
+    
     <message>
         <source>Top Opening Multiplier</source>
         <translation>Multiplicador de Abertura Superior</translation>
     </message>
-    <!-- OS:Coil:Heating:DX:VariableSpeed:SpeedData -->
+    
     <message>
         <source>Total  Heating Capacity Function of Air Flow Fraction Curve Name</source>
         <translation>Curva de Fração de Vazão de Ar da Função de Capacidade de Aquecimento Total</translation>
     </message>
-    <!-- OS:EnvironmentalImpactFactors -->
+    
     <message>
         <source>Total Carbon Equivalent Emission Factor From CH4</source>
         <translation>Fator de Emissão Equivalente de Carbono Total do CH4</translation>
     </message>
-    <!-- OS:EnvironmentalImpactFactors -->
+    
     <message>
         <source>Total Carbon Equivalent Emission Factor From CO2</source>
         <translation>Fator de Emissão Equivalente Total de Carbono a partir de CO2</translation>
     </message>
-    <!-- OS:EnvironmentalImpactFactors -->
+    
     <message>
         <source>Total Carbon Equivalent Emission Factor From N2O</source>
         <translation>Fator de Emissão de Equivalente de Carbono Total do N2O</translation>
     </message>
-    <!-- OS:Coil:Cooling:WaterToAirHeatPump:EquationFit -->
+    
     <message>
         <source>Total Cooling Capacity Curve Name</source>
         <translation>Nome da Curva de Capacidade Total de Resfriamento</translation>
     </message>
-    <!-- OS:Coil:Cooling:DX:VariableSpeed:SpeedData, OS:Coil:Cooling:WaterToAirHeatPump:VariableSpeedEquationFit:SpeedData -->
+    
     <message>
         <source>Total Cooling Capacity Function of Air Flow Fraction Curve Name</source>
         <translation>Nome da Curva da Função da Capacidade Total de Resfriamento em Relação à Fração do Fluxo de Ar</translation>
     </message>
-    <!-- OS:Coil:Cooling:DX:MultiSpeed:StageData, OS:CoilPerformance:DX:Cooling -->
+    
     <message>
         <source>Total Cooling Capacity Function of Flow Fraction Curve</source>
         <translation>Curva da Fração de Vazão da Função de Capacidade Total de Resfriamento</translation>
     </message>
-    <!-- OS:Coil:Cooling:DX:MultiSpeed:StageData, OS:CoilPerformance:DX:Cooling -->
+    
     <message>
         <source>Total Cooling Capacity Function of Temperature Curve</source>
         <translation>Curva de Função de Capacidade Total de Resfriamento em Relação à Temperatura</translation>
     </message>
-    <!-- OS:Coil:Cooling:WaterToAirHeatPump:VariableSpeedEquationFit:SpeedData -->
+    
     <message>
         <source>Total Cooling Capacity Function of Water Flow Fraction Curve Name</source>
         <translation>Nome da Curva de Função da Capacidade Total de Resfriamento em Relação à Fração de Vazão de Água</translation>
     </message>
-    <!-- OS:Coil:Cooling:DX:CurveFit:Speed -->
+    
     <message>
         <source>Total Cooling Capacity Modifier Function of Air Flow Fraction Curve</source>
         <translation>Função Modificadora da Capacidade Total de Resfriamento em Relação à Fração de Fluxo de Ar</translation>
     </message>
-    <!-- OS:Coil:Cooling:DX:CurveFit:Speed -->
+    
     <message>
         <source>Total Cooling Capacity Modifier Function of Temperature Curve</source>
         <translation>Função Modificadora da Capacidade Total de Resfriamento em Relação à Temperatura</translation>
     </message>
-    <!-- OS:SurfaceProperty:ExposedFoundationPerimeter -->
+    
     <message>
         <source>Total Exposed Perimeter</source>
         <translation>Perímetro Exposto Total</translation>
     </message>
-    <!-- OS:PhotovoltaicPerformance:EquivalentOneDiode -->
+    
     <message>
         <source>Total Heat Capacity</source>
         <translation>Capacidade Térmica Total</translation>
     </message>
-    <!-- OS:Coil:Heating:WaterToAirHeatPump:VariableSpeedEquationFit:SpeedData -->
+    
     <message>
         <source>Total Heating Capacity Function of Air Flow Fraction Curve Name</source>
         <translation>Nome da Curva de Fração de Fluxo de Ar da Função de Capacidade Total de Aquecimento</translation>
     </message>
-    <!-- OS:Coil:Heating:DX:SingleSpeed -->
+    
     <message>
         <source>Total Heating Capacity Function of Flow Fraction Curve Name</source>
         <translation>Nome da Curva da Função de Capacidade de Aquecimento Total em Relação à Fração de Vazão</translation>
     </message>
-    <!-- OS:Coil:Heating:DX:SingleSpeed -->
+    
     <message>
         <source>Total Heating Capacity Function of Temperature Curve Name</source>
         <translation>Nome da Curva de Função de Capacidade de Aquecimento Total em Relação à Temperatura</translation>
     </message>
-    <!-- OS:Refrigeration:WalkIn:ZoneBoundary -->
+    
     <message>
         <source>Total Insulated Surface Area Facing Zone</source>
         <translation>Área Total de Superfície Isolada Voltada para a Zona</translation>
     </message>
-    <!-- OS:DaylightingDevice:Tubular -->
+    
     <message>
         <source>Total Length</source>
         <translation>Comprimento Total</translation>
     </message>
-    <!-- OS:Refrigeration:SecondarySystem -->
+    
     <message>
         <source>Total Pump Flow Rate</source>
         <translation>Vazão Total da Bomba</translation>
     </message>
-    <!-- OS:Refrigeration:SecondarySystem -->
+    
     <message>
         <source>Total Pump Head</source>
         <translation>Altura Manométrica Total da Bomba</translation>
     </message>
-    <!-- OS:Refrigeration:SecondarySystem -->
+    
     <message>
         <source>Total Pump Power</source>
         <translation>Potência Total da Bomba</translation>
     </message>
-    <!-- OS:HeaderedPumps:ConstantSpeed, OS:HeaderedPumps:VariableSpeed -->
+    
     <message>
         <source>Total Rated Flow Rate</source>
         <translation>Vazão Nominal Total</translation>
     </message>
-    <!-- OS:Coil:WaterHeating:AirToWaterHeatPump:VariableSpeed:SpeedData -->
+    
     <message>
         <source>Total Water Heating Capacity Function of Air Flow Fraction Curve Name</source>
         <translation>Curva do Nome da Função de Capacidade Total de Aquecimento de Água em Relação à Fração de Vazão de Ar</translation>
     </message>
-    <!-- OS:Coil:WaterHeating:AirToWaterHeatPump:VariableSpeed:SpeedData -->
+    
     <message>
         <source>Total Water Heating Capacity Function of Temperature Curve Name</source>
         <translation>Nome da Curva da Função de Capacidade Total de Aquecimento de Água em Relação à Temperatura</translation>
     </message>
-    <!-- OS:Coil:WaterHeating:AirToWaterHeatPump:VariableSpeed:SpeedData -->
+    
     <message>
         <source>Total Water Heating Capacity Function of Water Flow Fraction Curve Name</source>
         <translation>Nome da Curva de Capacidade Total de Aquecimento de Água em Função da Fração de Fluxo de Água</translation>
     </message>
-    <!-- OS:ElectricLoadCenter:Distribution -->
+    
     <message>
         <source>Track Meter Scheme Meter Name</source>
         <translation>Track Meter Scheme Meter Name</translation>
     </message>
-    <!-- OS:ElectricLoadCenter:Distribution -->
+    
     <message>
         <source>Track Schedule Name Scheme Schedule Name</source>
         <translation>Acompanhar Nome do Cronograma Nome do Esquema de Cronograma</translation>
     </message>
-    <!-- OS:Refrigeration:GasCooler:AirCooled -->
+    
     <message>
         <source>Transcritical Approach Temperature</source>
         <translation>Temperatura de Aproximação Transcrítica</translation>
     </message>
-    <!-- OS:Refrigeration:Compressor -->
+    
     <message>
         <source>Transcritical Compressor Capacity Curve Name</source>
         <translation>Nome da Curva de Capacidade do Compressor Transcrítico</translation>
     </message>
-    <!-- OS:Refrigeration:Compressor -->
+    
     <message>
         <source>Transcritical Compressor Power Curve Name</source>
         <translation>Nome da Curva de Potência do Compressor Transcrítico</translation>
     </message>
-    <!-- OS:ElectricLoadCenter:Distribution -->
+    
     <message>
         <source>Transformer Object Name</source>
         <translation>Nome do Objeto Transformador</translation>
     </message>
-    <!-- OS:ElectricLoadCenter:Transformer -->
+    
     <message>
         <source>Transformer Usage</source>
         <translation>Uso do Transformador</translation>
     </message>
-    <!-- OS:Refrigeration:GasCooler:AirCooled -->
+    
     <message>
         <source>Transition Temperature</source>
         <translation>Temperatura de Transição</translation>
     </message>
-    <!-- OS:DaylightingDevice:Tubular -->
+    
     <message>
         <source>Transition Zone Length</source>
         <translation>Comprimento da Zona de Transição</translation>
     </message>
-    <!-- OS:DaylightingDevice:Tubular -->
+    
     <message>
         <source>Transition Zone Name</source>
         <translation>Nome da Zona de Transição</translation>
     </message>
-    <!-- OS:Schedule:File -->
+    
     <message>
         <source>Translate File With Relative Path</source>
         <translation>Traduzir Arquivo Com Caminho Relativo</translation>
     </message>
-    <!-- OS:Schedule:FixedInterval -->
+    
     <message>
         <source>Translate to Schedule File</source>
         <translation>Traduzir para Arquivo de Cronograma</translation>
     </message>
-    <!-- OS:MaterialProperty:GlazingSpectralData -->
+    
     <message>
         <source>Transmittance</source>
         <translation>Transmitância</translation>
     </message>
-    <!-- OS:PhotovoltaicPerformance:EquivalentOneDiode -->
+    
     <message>
         <source>Transmittance Absorptance Product</source>
         <translation>Produto de Transmitância-Absortância</translation>
     </message>
-    <!-- OS:ShadingSurface -->
+    
     <message>
         <source>Transmittance Schedule Name</source>
         <translation>Nome da Agenda de Transmitância</translation>
     </message>
-    <!-- OS:GroundHeatExchanger:HorizontalTrench -->
+    
     <message>
         <source>Trench Length in Pipe Axial Direction</source>
         <translation>Comprimento da Trincheira na Direção Axial do Tubo</translation>
     </message>
-    <!-- OS:Construction:InternalSource -->
+    
     <message>
         <source>Tube Spacing</source>
         <translation>Espaçamento de Tubos</translation>
     </message>
-    <!-- OS:DefaultSubSurfaceConstructions -->
+    
     <message>
         <source>Tubular Daylight Diffuser Construction Name</source>
         <translation>Nome da Construção do Difusor de Luz Natural Tubular</translation>
     </message>
-    <!-- OS:DefaultSubSurfaceConstructions -->
+    
     <message>
         <source>Tubular Daylight Dome Construction Name</source>
         <translation>Nome da Construção do Domo de Luz Natural Tubular</translation>
     </message>
-    <!-- OS:Schedule:Week -->
+    
     <message>
         <source>Tuesday Schedule:Day Name</source>
         <translation>Cronograma de Terça-feira: Nome do Dia</translation>
     </message>
-    <!-- OS:Construction:InternalSource -->
+    
     <message>
         <source>Two-Dimensional Temperature Calculation Position</source>
         <translation>Posição de Cálculo de Temperatura Bidimensional</translation>
     </message>
-    <!-- OS:EnergyManagementSystem:OutputVariable, OS:PythonPlugin:OutputVariable -->
+    
     <message>
         <source>Type of Data in Variable</source>
         <translation>Tipo de Dados na Variável</translation>
     </message>
-    <!-- OS:SurfaceProperty:OtherSideConditionsModel -->
+    
     <message>
         <source>Type of Modeling</source>
         <translation>Tipo de Modelagem</translation>
     </message>
-    <!-- OS:AirflowNetworkDetailedOpening -->
+    
     <message>
         <source>Type of Rectangular Large Vertical Opening</source>
         <translation>Tipo de Abertura Vertical Grande Retangular</translation>
     </message>
-    <!-- OS:ShadingControl -->
+    
     <message>
         <source>Type of Slat Angle Control for Blinds</source>
         <translation>Tipo de Controle de Ângulo das Lâminas para Persianas</translation>
     </message>
 
-    <!-- U -->
-    <!-- OS:WindowMaterial:SimpleGlazingSystem -->
+    
+    
     <message>
         <source>U-Factor</source>
         <translation>Fator U</translation>
     </message>
-    <!-- OS:EvaporativeFluidCooler:SingleSpeed -->
+    
     <message>
         <source>U-factor Times Area Value at Design Air Flow Rate</source>
         <translation>Valor de Fator U Vezes Área na Taxa de Fluxo de Ar de Projeto</translation>
     </message>
-    <!-- OS:GroundHeatExchanger:Vertical -->
+    
     <message>
         <source>U-Tube Distance</source>
         <translation>Distância do Tubo em U</translation>
     </message>
-    <!-- OS:Refrigeration:Case -->
+    
     <message>
         <source>Under Case HVAC Return Air Fraction</source>
         <translation>Fração de Ar de Retorno do HVAC do Caso Inferior</translation>
     </message>
-    <!-- OS:GroundHeatExchanger:HorizontalTrench, OS:GroundHeatExchanger:Vertical -->
+    
     <message>
         <source>Undisturbed Ground Temperature Model</source>
         <translation>Modelo de Temperatura do Solo Inditurbo</translation>
     </message>
-    <!-- OS:OutputControl:Table:Style -->
+    
     <message>
         <source>Unit Conversion</source>
         <translation>Conversão de Unidades</translation>
     </message>
-    <!-- OS:Output:SQLite -->
+    
     <message>
         <source>Unit Conversion for Tabular Data</source>
         <translation>Conversão de Unidades para Dados Tabulares</translation>
     </message>
-    <!-- OS:Coil:Cooling:DX:CurveFit:Performance, OS:Coil:Cooling:DX:TwoSpeed -->
+    
     <message>
         <source>Unit Internal Static Air Pressure</source>
         <translation>Pressão Estática Interna da Unidade</translation>
     </message>
-    <!-- OS:Refrigeration:Case, OS:ScheduleTypeLimits, OS:Table:IndependentVariable -->
+    
     <message>
         <source>Unit Type</source>
         <translation>Tipo de Unidade</translation>
     </message>
-    <!-- OS:EnergyManagementSystem:MeteredOutputVariable, OS:EnergyManagementSystem:OutputVariable, OS:PythonPlugin:OutputVariable -->
+    
     <message>
         <source>Units</source>
         <translation>Unidades</translation>
     </message>
-    <!-- OS:EnergyManagementSystem:MeteredOutputVariable, OS:EnergyManagementSystem:OutputVariable, OS:PythonPlugin:OutputVariable -->
+    
     <message>
         <source>Update Frequency</source>
         <translation>Frequência de Atualização</translation>
     </message>
-    <!-- OS:ScheduleTypeLimits -->
+    
     <message>
         <source>Upper Limit Value</source>
         <translation>Valor do Limite Superior</translation>
     </message>
-    <!-- OS:Construction:WindowDataFile, OS:WeatherFile -->
+    
     <message>
         <source>Url</source>
         <translation>URL</translation>
     </message>
-    <!-- OS:PerformancePrecisionTradeoffs -->
+    
     <message>
         <source>Use Coil Direct Solutions</source>
         <translation>Usar Soluções Diretas da Bobina</translation>
     </message>
-    <!-- OS:AirLoopHVAC:UnitarySystem -->
+    
     <message>
         <source>Use DOAS DX Cooling Coil</source>
         <translation>Usar Serpentina de Resfriamento DX de DOAS</translation>
     </message>
-    <!-- OS:WaterHeater:Mixed, OS:WaterHeater:Stratified -->
+    
     <message>
         <source>Use Flow Rate Fraction Schedule Name</source>
         <translation>Nome do Cronograma da Fração da Taxa de Fluxo</translation>
     </message>
-    <!-- OS:Coil:Cooling:WaterToAirHeatPump:VariableSpeedEquationFit -->
+    
     <message>
         <source>Use Hot Gas Reheat</source>
         <translation>Usar Reaquecimento com Gás Quente</translation>
     </message>
-    <!-- OS:ThermalZone -->
+    
     <message>
         <source>Use Ideal Air Loads</source>
         <translation>Usar Cargas de Ar Ideal</translation>
     </message>
-    <!-- OS:LifeCycleCost:Parameters -->
+    
     <message>
         <source>Use NIST Fuel Escalation Rates</source>
         <translation>Usar Taxas de Escalação de Combustível do NIST</translation>
     </message>
-    <!-- OS:PerformancePrecisionTradeoffs -->
+    
     <message>
         <source>Use Representative Surfaces for Calculations</source>
         <translation>Usar Superfícies Representativas para Cálculos</translation>
     </message>
-    <!-- OS:ThermalStorage:ChilledWater:Stratified -->
+    
     <message>
         <source>Use Side Availability Schedule Name</source>
         <translation>Nome da Agenda de Disponibilidade do Lado</translation>
     </message>
-    <!-- OS:ThermalStorage:ChilledWater:Stratified -->
+    
     <message>
         <source>Use Side Heat Transfer Effectiveness</source>
         <translation>Usar Efetividade de Transferência de Calor Lateral</translation>
     </message>
-    <!-- OS:ThermalStorage:ChilledWater:Stratified, OS:WaterHeater:Mixed, OS:WaterHeater:Stratified -->
+    
     <message>
         <source>Use Side Inlet Node Name</source>
         <translation>Nome do Nó de Entrada Lateral</translation>
     </message>
-    <!-- OS:ThermalStorage:ChilledWater:Stratified, OS:WaterHeater:Mixed, OS:WaterHeater:Stratified -->
+    
     <message>
         <source>Use Side Outlet Node Name</source>
         <translation>Nome do Nó de Saída Lateral</translation>
     </message>
-    <!-- OS:RunPeriod, OS:SizingPeriod:WeatherFileConditionType, OS:SizingPeriod:WeatherFileDays -->
+    
     <message>
         <source>Use Weather File Daylight Saving Period</source>
         <translation>Usar Período de Horário de Verão do Arquivo Climático</translation>
     </message>
-    <!-- OS:RunPeriod -->
+    
     <message>
         <source>Use Weather File Holidays and Special Days</source>
         <translation>Usar Feriados e Dias Especiais do Arquivo Climático</translation>
     </message>
-    <!-- OS:WeatherProperty:SkyTemperature -->
+    
     <message>
         <source>Use Weather File Horizontal IR</source>
         <translation>Usar IR Horizontal do Arquivo Climático</translation>
     </message>
-    <!-- OS:SizingPeriod:WeatherFileConditionType, OS:SizingPeriod:WeatherFileDays -->
+    
     <message>
         <source>Use Weather File Rain and Snow Indicators</source>
         <translation>Usar Indicadores de Chuva e Neve do Arquivo Climático</translation>
     </message>
-    <!-- OS:AvailabilityManager:HybridVentilation, OS:RunPeriod -->
+    
     <message>
         <source>Use Weather File Rain Indicators</source>
         <translation>Usar Indicadores de Chuva do Arquivo Climático</translation>
     </message>
-    <!-- OS:RunPeriod -->
+    
     <message>
         <source>Use Weather File Snow Indicators</source>
         <translation>Usar Indicadores de Neve do Arquivo de Clima</translation>
     </message>
-    <!-- OS:PlantLoop -->
+    
     <message>
         <source>User Defined Fluid Type</source>
         <translation>Tipo de Fluido Definido pelo Usuário</translation>
     </message>
-    <!-- OS:EvaporativeFluidCooler:SingleSpeed -->
+    
     <message>
         <source>User Specified Design Capacity</source>
         <translation>Capacidade de Projeto Especificada pelo Usuário</translation>
     </message>
-    <!-- OS:ComponentData -->
+    
     <message>
         <source>UUID</source>
         <translation>UUID</translation>
     </message>
 
-    <!-- V -->
-    <!-- OS:Schedule:Constant, OS:Schedule:FixedInterval, OS:Table:IndependentVariable -->
+    
+    
     <message>
         <source>Value</source>
         <translation>Valor</translation>
     </message>
-    <!-- OS:PhotovoltaicPerformance:Simple -->
+    
     <message>
         <source>Value for Cell Efficiency if Fixed</source>
         <translation>Valor para Eficiência da Célula se Fixo</translation>
     </message>
-    <!-- OS:SolarCollectorPerformance:PhotovoltaicThermal:Simple -->
+    
     <message>
         <source>Value for Thermal Conversion Efficiency if Fixed</source>
         <translation>Valor para Eficiência de Conversão Térmica se Fixo</translation>
     </message>
-    <!-- OS:AirConditioner:VariableRefrigerantFlow:FluidTemperatureControl, OS:AirConditioner:VariableRefrigerantFlow:FluidTemperatureControl:HR -->
+    
     <message>
         <source>Variable Condensing Temperature Maximum for Indoor Unit</source>
         <translation>Temperatura de Condensação Variável Máxima para Unidade Interna</translation>
     </message>
-    <!-- OS:AirConditioner:VariableRefrigerantFlow:FluidTemperatureControl, OS:AirConditioner:VariableRefrigerantFlow:FluidTemperatureControl:HR -->
+    
     <message>
         <source>Variable Condensing Temperature Minimum for Indoor Unit</source>
         <translation>Temperatura de Condensação Variável Mínima para Unidade Interna</translation>
     </message>
-    <!-- OS:AirConditioner:VariableRefrigerantFlow:FluidTemperatureControl, OS:AirConditioner:VariableRefrigerantFlow:FluidTemperatureControl:HR -->
+    
     <message>
         <source>Variable Evaporating Temperature Maximum for Indoor Unit</source>
         <translation>Temperatura de Evaporação Variável Máxima para Unidade Interna</translation>
     </message>
-    <!-- OS:AirConditioner:VariableRefrigerantFlow:FluidTemperatureControl, OS:AirConditioner:VariableRefrigerantFlow:FluidTemperatureControl:HR -->
+    
     <message>
         <source>Variable Evaporating Temperature Minimum for Indoor Unit</source>
         <translation>Temperatura de Evaporação Variável Mínima para Unidade Interna</translation>
     </message>
-    <!-- OS:Output:Variable, OS:UtilityCost:Qualify -->
+    
     <message>
         <source>Variable Name</source>
         <translation>Nome da Variável</translation>
     </message>
-    <!-- OS:Output:Table:Monthly -->
+    
     <message>
         <source>Variable or Meter Name</source>
         <translation>Nome da Variável ou Medidor</translation>
     </message>
-    <!-- OS:Output:Table:Annual -->
+    
     <message>
         <source>Variable or Meter or EMS Variable or Field Name</source>
         <translation>Nome de Variável ou Medidor ou Variável EMS ou Campo</translation>
     </message>
-    <!-- OS:Refrigeration:SecondarySystem -->
+    
     <message>
         <source>Variable Speed Pump Cubic Curve Name</source>
         <translation>Nome da Curva Cúbica de Bomba de Velocidade Variável</translation>
     </message>
-    <!-- OS:UtilityCost:Variable -->
+    
     <message>
         <source>Variable Type</source>
         <translation>Tipo de Variável</translation>
     </message>
-    <!-- OS:AirflowNetworkSurface, OS:AirflowNetworkZone -->
+    
     <message>
         <source>Ventilation Control Mode</source>
         <translation>Modo de Controle de Ventilação</translation>
     </message>
-    <!-- OS:AvailabilityManager:HybridVentilation -->
+    
     <message>
         <source>Ventilation Control Mode Schedule</source>
         <translation>Cronograma de Modo de Controle de Ventilação</translation>
     </message>
-    <!-- OS:AirflowNetworkSurface, OS:AirflowNetworkZone -->
+    
     <message>
         <source>Ventilation Control Zone Temperature Setpoint Schedule Name</source>
         <translation>Nome do Cronograma de Setpoint de Temperatura da Zona de Controle de Ventilação</translation>
     </message>
-    <!-- OS:ZoneHVAC:EnergyRecoveryVentilator -->
+    
     <message>
         <source>Ventilation Rate per Occupant</source>
         <translation>Vazão de Ventilação por Ocupante</translation>
     </message>
-    <!-- OS:ZoneHVAC:EnergyRecoveryVentilator -->
+    
     <message>
         <source>Ventilation Rate per Unit Floor Area</source>
         <translation>Taxa de Ventilação por Unidade de Área de Piso</translation>
     </message>
-    <!-- OS:AvailabilityManager:NightVentilation -->
+    
     <message>
         <source>Ventilation Temperature Difference</source>
         <translation>Diferença de Temperatura de Ventilação</translation>
     </message>
-    <!-- OS:AvailabilityManager:NightVentilation -->
+    
     <message>
         <source>Ventilation Temperature Low Limit</source>
         <translation>Limite Baixo de Temperatura de Ventilação</translation>
     </message>
-    <!-- OS:AvailabilityManager:NightVentilation -->
+    
     <message>
         <source>Ventilation Temperature Schedule</source>
         <translation>Cronograma de Temperatura de Ventilação</translation>
     </message>
-    <!-- OS:ZoneVentilation:DesignFlowRate -->
+    
     <message>
         <source>Ventilation Type</source>
         <translation>Tipo de Ventilação</translation>
     </message>
-    <!-- OS:AirflowNetworkSurface, OS:AirflowNetworkZone -->
+    
     <message>
         <source>Venting Availability Schedule Name</source>
         <translation>Nome do Cronograma de Disponibilidade de Ventilação</translation>
     </message>
-    <!-- OS:Version -->
+    
     <message>
         <source>Version Identifier</source>
         <translation>Identificador de Versão</translation>
     </message>
-    <!-- OS:ComponentData -->
+    
     <message>
         <source>Version Timestamp</source>
         <translation>Timestamp da Versão</translation>
     </message>
-    <!-- OS:ComponentData -->
+    
     <message>
         <source>Version UUID</source>
         <translation>UUID da Versão</translation>
     </message>
-    <!-- OS:InteriorPartitionSurface, OS:ShadingSurface, OS:SubSurface, OS:Surface -->
+    
     <message>
         <source>Vertex X-coordinate</source>
         <translation>Coordenada X do Vértice</translation>
     </message>
-    <!-- OS:InteriorPartitionSurface, OS:ShadingSurface, OS:SubSurface, OS:Surface -->
+    
     <message>
         <source>Vertex Y-coordinate</source>
         <translation>Coordenada Y do vértice</translation>
     </message>
-    <!-- OS:InteriorPartitionSurface, OS:ShadingSurface, OS:SubSurface, OS:Surface -->
+    
     <message>
         <source>Vertex Z-coordinate</source>
         <translation>Coordenada Z do Vértice</translation>
     </message>
-    <!-- OS:AirConditioner:VariableRefrigerantFlow -->
+    
     <message>
         <source>Vertical Height used for Piping Correction Factor</source>
         <translation>Altura Vertical usada para Fator de Correção de Tubulação</translation>
     </message>
-    <!-- OS:Refrigeration:AirChiller -->
+    
     <message>
         <source>Vertical Location</source>
         <translation>Localização Vertical</translation>
     </message>
-    <!-- OS:Fan:ComponentModel -->
+    
     <message>
         <source>VFD Efficiency Curve Name</source>
         <translation>Nome da Curva de Eficiência do VFD</translation>
     </message>
-    <!-- OS:Fan:ComponentModel -->
+    
     <message>
         <source>VFD Efficiency Type</source>
         <translation>Tipo de Eficiência do VFD</translation>
     </message>
-    <!-- OS:Fan:ComponentModel -->
+    
     <message>
         <source>VFD Sizing Factor</source>
         <translation>Fator de Dimensionamento do VFD</translation>
     </message>
-    <!-- OS:ZoneProperty:UserViewFactors:BySurfaceName -->
+    
     <message>
         <source>View Factor</source>
         <translation>Fator de Visão</translation>
     </message>
-    <!-- OS:SubSurface, OS:Surface -->
+    
     <message>
         <source>View Factor to Ground</source>
         <translation>Fator de Visão para o Solo</translation>
     </message>
-    <!-- OS:DaylightingDevice:Shelf -->
+    
     <message>
         <source>View Factor to Outside Shelf</source>
         <translation>Fator de Visualização para Prateleira Externa</translation>
     </message>
-    <!-- OS:WindowMaterial:Gas -->
+    
     <message>
         <source>Viscosity Coefficient A</source>
         <translation>Coeficiente de Viscosidade A</translation>
     </message>
-    <!-- OS:WindowMaterial:Gas -->
+    
     <message>
         <source>Viscosity Coefficient B</source>
         <translation>Coeficiente de Viscosidade B</translation>
     </message>
-    <!-- OS:WindowMaterial:Gas -->
+    
     <message>
         <source>Viscosity Coefficient C</source>
         <translation>Coeficiente de Viscosidade C</translation>
     </message>
-    <!-- OS:Material, OS:Material:NoMass, OS:Material:RoofVegetation -->
+    
     <message>
         <source>Visible Absorptance</source>
         <translation>Absortância Visível</translation>
     </message>
-    <!-- OS:WindowMaterial:Glazing:RefractionExtinctionMethod -->
+    
     <message>
         <source>Visible Extinction Coefficient</source>
         <translation>Coeficiente de Extinção Visível</translation>
     </message>
-    <!-- OS:WindowMaterial:Glazing:RefractionExtinctionMethod -->
+    
     <message>
         <source>Visible Index of Refraction</source>
         <translation>Índice de Refração Visível</translation>
     </message>
-    <!-- OS:WindowMaterial:Shade -->
+    
     <message>
         <source>Visible Reflectance</source>
         <translation>Refletância Visível</translation>
     </message>
-    <!-- OS:DaylightingDevice:LightWell -->
+    
     <message>
         <source>Visible Reflectance of Well Walls</source>
         <translation>Refletância Visível das Paredes do Poço</translation>
     </message>
-    <!-- OS:WindowMaterial:Shade, OS:WindowMaterial:SimpleGlazingSystem -->
+    
     <message>
         <source>Visible Transmittance</source>
         <translation>Transmitância Luminosa Visível</translation>
     </message>
-    <!-- OS:WindowMaterial:Glazing -->
+    
     <message>
         <source>Visible Transmittance at Normal Incidence</source>
         <translation>Transmitância Visível na Incidência Normal</translation>
     </message>
-    <!-- OS:PhotovoltaicPerformance:Sandia -->
+    
     <message>
         <source>Voltage at Maximum Power Point</source>
         <translation>Tensão no Ponto de Potência Máxima</translation>
     </message>
-    <!-- OS:Space, OS:ThermalZone -->
+    
     <message>
         <source>Volume</source>
         <translation>Volume</translation>
     </message>
 
-    <!-- W -->
-    <!-- OS:Refrigeration:WalkIn -->
+    
+    
     <message>
         <source>WalkIn Defrost Cycle Parameters Name</source>
         <translation>Nome dos Parâmetros do Ciclo de Degelo WalkIn</translation>
     </message>
-    <!-- OS:Refrigeration:WalkIn -->
+    
     <message>
         <source>WalkIn Zone Boundary</source>
         <translation>Limite de Zona WalkIn</translation>
     </message>
-    <!-- OS:DefaultSurfaceConstructions -->
+    
     <message>
         <source>Wall Construction Name</source>
         <translation>Nome da Construção da Parede</translation>
     </message>
-    <!-- OS:Foundation:Kiva -->
+    
     <message>
         <source>Wall Depth Below Slab</source>
         <translation>Profundidade da Parede Abaixo da Laje</translation>
     </message>
-    <!-- OS:Foundation:Kiva -->
+    
     <message>
         <source>Wall Height Above Grade</source>
         <translation>Altura da Parede Acima do Nível do Solo</translation>
     </message>
-    <!-- OS:Coil:Cooling:DX:MultiSpeed:StageData -->
+    
     <message>
         <source>Waste Heat Function of Temperature Curve</source>
         <translation>Curva da Função de Calor Residual em Função da Temperatura</translation>
     </message>
-    <!-- OS:Coil:Cooling:WaterToAirHeatPump:VariableSpeedEquationFit:SpeedData, OS:Coil:Heating:DX:MultiSpeed:StageData, OS:Coil:Heating:WaterToAirHeatPump:VariableSpeedEquationFit:SpeedData -->
+    
     <message>
         <source>Waste Heat Function of Temperature Curve Name</source>
         <translation>Nome da Curva de Função de Calor Residual em Relação à Temperatura</translation>
     </message>
-    <!-- OS:Coil:Cooling:DX:CurveFit:Speed -->
+    
     <message>
         <source>Waste Heat Modifier Function of Temperature Curve</source>
         <translation>Função Modificadora de Calor Residual da Curva de Temperatura</translation>
     </message>
-    <!-- OS:Controller:WaterCoil -->
+    
     <message>
         <source>Water Coil Name</source>
         <translation>Nome da Bobina de Água</translation>
     </message>
-    <!-- OS:AirConditioner:VariableRefrigerantFlow -->
+    
     <message>
         <source>Water Condenser Volume Flow Rate</source>
         <translation>Vazão Volumétrica da Água do Condensador</translation>
     </message>
-    <!-- OS:Refrigeration:Condenser:WaterCooled -->
+    
     <message>
         <source>Water Design Flow Rate</source>
         <translation>Vazão de Projeto da Água</translation>
     </message>
-    <!-- OS:FuelFactors -->
+    
     <message>
         <source>Water Emission Factor</source>
         <translation>Fator de Emissão de Água</translation>
     </message>
-    <!-- OS:FuelFactors -->
+    
     <message>
         <source>Water Emission Factor Schedule Name</source>
         <translation>Nome do Agendamento do Fator de Emissão de Água</translation>
     </message>
-    <!-- OS:Coil:WaterHeating:Desuperheater -->
+    
     <message>
         <source>Water Flow Rate</source>
         <translation>Vazão de Água</translation>
     </message>
-    <!-- OS:LifeCycleCost:Parameters -->
+    
     <message>
         <source>Water Inflation</source>
         <translation>Inflação de Água</translation>
     </message>
-    <!-- OS:CoolingTower:VariableSpeed, OS:FluidCooler:SingleSpeed, OS:FluidCooler:TwoSpeed -->
+    
     <message>
         <source>Water Inlet Node</source>
         <translation>Nó de Entrada de Água</translation>
     </message>
-    <!-- OS:Boiler:Steam, OS:Coil:Cooling:Water, OS:Coil:Cooling:Water:Panel:Radiant, OS:Coil:Cooling:WaterToAirHeatPump:EquationFit, OS:Coil:Heating:Water, OS:Coil:Heating:Water:Baseboard, OS:Coil:Heating:WaterToAirHeatPump:EquationFit, OS:Coil:WaterHeating:Desuperheater, OS:CoolingTower:SingleSpeed, OS:CoolingTower:TwoSpeed, OS:EvaporativeFluidCooler:SingleSpeed, OS:EvaporativeFluidCooler:TwoSpeed, OS:HeatPump:AirToWater:FuelFired:Cooling, OS:HeatPump:AirToWater:FuelFired:Heating, OS:Refrigeration:Condenser:WaterCooled -->
+    
     <message>
         <source>Water Inlet Node Name</source>
         <translation>Nome do Nó de Entrada de Água</translation>
     </message>
-    <!-- OS:Refrigeration:Condenser:WaterCooled -->
+    
     <message>
         <source>Water Maximum Flow Rate</source>
         <translation>Vazão Máxima de Água</translation>
     </message>
-    <!-- OS:Refrigeration:Condenser:WaterCooled -->
+    
     <message>
         <source>Water Maximum Water Outlet Temperature</source>
         <translation>Temperatura Máxima de Saída da Água</translation>
     </message>
-    <!-- OS:Refrigeration:Condenser:WaterCooled -->
+    
     <message>
         <source>Water Minimum Water Inlet Temperature</source>
         <translation>Temperatura Mínima de Entrada de Água</translation>
     </message>
-    <!-- OS:CoolingTower:VariableSpeed, OS:FluidCooler:SingleSpeed, OS:FluidCooler:TwoSpeed -->
+    
     <message>
         <source>Water Outlet Node</source>
         <translation>Nó de Saída de Água</translation>
     </message>
-    <!-- OS:Coil:Cooling:Water, OS:Coil:Cooling:Water:Panel:Radiant, OS:Coil:Cooling:WaterToAirHeatPump:EquationFit, OS:Coil:Heating:Water, OS:Coil:Heating:Water:Baseboard, OS:Coil:Heating:WaterToAirHeatPump:EquationFit, OS:Coil:WaterHeating:Desuperheater, OS:CoolingTower:SingleSpeed, OS:CoolingTower:TwoSpeed, OS:EvaporativeFluidCooler:SingleSpeed, OS:EvaporativeFluidCooler:TwoSpeed, OS:HeatPump:AirToWater:FuelFired:Cooling, OS:HeatPump:AirToWater:FuelFired:Heating, OS:Refrigeration:Condenser:WaterCooled -->
+    
     <message>
         <source>Water Outlet Node Name</source>
         <translation>Nome do Nó de Saída de Água</translation>
     </message>
-    <!-- OS:Refrigeration:Condenser:WaterCooled -->
+    
     <message>
         <source>Water Outlet Temperature Schedule Name</source>
         <translation>Nome do Cronograma de Temperatura de Saída da Água</translation>
     </message>
-    <!-- OS:Coil:WaterHeating:Desuperheater -->
+    
     <message>
         <source>Water Pump Power</source>
         <translation>Potência da Bomba de Água</translation>
     </message>
-    <!-- OS:EvaporativeCooler:Direct:ResearchSpecial, OS:EvaporativeCooler:Indirect:ResearchSpecial -->
+    
     <message>
         <source>Water Pump Power Modifier Curve Name</source>
         <translation>Nome da Curva Modificadora de Potência da Bomba de Água</translation>
     </message>
-    <!-- OS:EvaporativeCooler:Direct:ResearchSpecial, OS:EvaporativeCooler:Indirect:ResearchSpecial -->
+    
     <message>
         <source>Water Pump Power Sizing Factor</source>
         <translation>Fator de Dimensionamento da Potência da Bomba de Água</translation>
     </message>
-    <!-- OS:ZoneHVAC:Dehumidifier:DX -->
+    
     <message>
         <source>Water Removal Curve Name</source>
         <translation>Nome da Curva de Remoção de Água</translation>
     </message>
-    <!-- OS:Humidifier:Steam:Electric, OS:Humidifier:Steam:Gas -->
+    
     <message>
         <source>Water Storage Tank Name</source>
         <translation>Nome do Tanque de Armazenamento de Água</translation>
     </message>
-    <!-- OS:Generator:FuelCell -->
+    
     <message>
         <source>Water Supply Name</source>
         <translation>Nome do Abastecimento de Água</translation>
     </message>
-    <!-- OS:EvaporativeCooler:Indirect:ResearchSpecial -->
+    
     <message>
         <source>Water Supply Storage Tank Name</source>
         <translation>Nome do Tanque de Armazenamento de Água</translation>
     </message>
-    <!-- OS:HeatPump:AirToWater:FuelFired:Cooling, OS:HeatPump:AirToWater:FuelFired:Heating -->
+    
     <message>
         <source>Water Temperature Curve Input Variable</source>
         <translation>Variável de Entrada da Curva de Temperatura da Água</translation>
     </message>
-    <!-- OS:Generator:FuelCell:WaterSupply -->
+    
     <message>
         <source>Water Temperature Modeling Mode</source>
         <translation>Modo de Modelagem de Temperatura da Água</translation>
     </message>
-    <!-- OS:Generator:FuelCell:WaterSupply -->
+    
     <message>
         <source>Water Temperature Reference Node Name</source>
         <translation>Nome do Nó de Referência de Temperatura da Água</translation>
     </message>
-    <!-- OS:Generator:FuelCell:WaterSupply -->
+    
     <message>
         <source>Water Temperature Schedule Name</source>
         <translation>Nome da Programação de Temperatura da Água</translation>
     </message>
-    <!-- OS:WaterUse:Equipment -->
+    
     <message>
         <source>Water Use Equipment Definition Name</source>
         <translation>Nome da Definição de Equipamento de Uso de Água</translation>
     </message>
-    <!-- OS:WaterUse:Connections -->
+    
     <message>
         <source>Water Use Equipment Name</source>
         <translation>Nome do Equipamento de Uso de Água</translation>
     </message>
-    <!-- OS:MaterialProperty:MoisturePenetrationDepth:Settings -->
+    
     <message>
         <source>Water Vapor Diffusion Resistance Factor</source>
         <translation>Fator de Resistência à Difusão de Vapor de Água</translation>
     </message>
-    <!-- OS:Refrigeration:CompressorRack -->
+    
     <message>
         <source>Water-Cooled Condenser Design Flow Rate</source>
         <translation>Vazão de Projeto do Condensador Resfriado a Água</translation>
     </message>
-    <!-- OS:Refrigeration:CompressorRack -->
+    
     <message>
         <source>Water-Cooled Condenser Inlet Node Name</source>
         <translation>Nome do Nó de Entrada do Condensador Resfriado a Água</translation>
     </message>
-    <!-- OS:Refrigeration:CompressorRack -->
+    
     <message>
         <source>Water-Cooled Condenser Maximum Flow Rate</source>
         <translation>Vazão Máxima do Condensador Resfriado a Água</translation>
     </message>
-    <!-- OS:Refrigeration:CompressorRack -->
+    
     <message>
         <source>Water-Cooled Condenser Maximum Water Outlet Temperature</source>
         <translation>Temperatura Máxima da Saída de Água do Condensador Resfriado a Água</translation>
     </message>
-    <!-- OS:Refrigeration:CompressorRack -->
+    
     <message>
         <source>Water-Cooled Condenser Minimum Water Inlet Temperature</source>
         <translation>Temperatura Mínima de Entrada de Água do Condensador Resfriado a Água</translation>
     </message>
-    <!-- OS:Refrigeration:CompressorRack -->
+    
     <message>
         <source>Water-Cooled Condenser Outlet Node Name</source>
         <translation>Nome do Nó de Saída do Condensador Resfriado a Água</translation>
     </message>
-    <!-- OS:Refrigeration:CompressorRack -->
+    
     <message>
         <source>Water-Cooled Condenser Outlet Temperature Schedule Name</source>
         <translation>Nome do Cronograma de Temperatura de Saída do Condensador Resfriado a Água</translation>
     </message>
-    <!-- OS:Refrigeration:CompressorRack, OS:Refrigeration:Condenser:WaterCooled -->
+    
     <message>
         <source>Water-Cooled Loop Flow Type</source>
         <translation>Tipo de Fluxo de Loop Resfriado por Água</translation>
     </message>
-    <!-- OS:Coil:Cooling:WaterToAirHeatPump:VariableSpeedEquationFit, OS:Coil:Heating:WaterToAirHeatPump:VariableSpeedEquationFit -->
+    
     <message>
         <source>Water-to-Refrigerant HX Water Inlet Node Name</source>
         <translation>Nome do Nó de Entrada de Água do Trocador de Calor Água-Refrigerante</translation>
     </message>
-    <!-- OS:Coil:Cooling:WaterToAirHeatPump:VariableSpeedEquationFit, OS:Coil:Heating:WaterToAirHeatPump:VariableSpeedEquationFit -->
+    
     <message>
         <source>Water-to-Refrigerant HX Water Outlet Node Name</source>
         <translation>Water-to-Refrigerant HX Water Outlet Node Name</translation>
     </message>
-    <!-- OS:WaterHeater:Sizing -->
+    
     <message>
         <source>WaterHeater Name</source>
         <translation>Nome do Aquecedor de Água</translation>
     </message>
-    <!-- OS:ElectricEquipment:Definition, OS:GasEquipment:Definition, OS:HotWaterEquipment:Definition, OS:Lights:Definition, OS:OtherEquipment:Definition, OS:SteamEquipment:Definition -->
+    
     <message>
         <source>Watts per Person</source>
         <translation>Watts por Pessoa</translation>
     </message>
-    <!-- OS:ElectricEquipment:Definition, OS:ElectricEquipment:ITE:AirCooled:Definition, OS:GasEquipment:Definition, OS:HotWaterEquipment:Definition, OS:Lights:Definition, OS:OtherEquipment:Definition, OS:SteamEquipment:Definition -->
+    
     <message>
         <source>Watts per Space Floor Area</source>
         <translation>Watts por Área de Piso do Espaço</translation>
     </message>
-    <!-- OS:ElectricEquipment:ITE:AirCooled:Definition -->
+    
     <message>
         <source>Watts per Unit</source>
         <translation>Watts por Unidade</translation>
     </message>
-    <!-- OS:MaterialProperty:GlazingSpectralData -->
+    
     <message>
         <source>Wavelength</source>
         <translation>Comprimento de onda</translation>
     </message>
-    <!-- OS:Schedule:Week -->
+    
     <message>
         <source>Wednesday Schedule:Day Name</source>
         <translation>Horário da Quarta-feira: Nome do Dia</translation>
     </message>
-    <!-- OS:Schedule:Year -->
+    
     <message>
         <source>Week Schedule Until Date</source>
         <translation>Data Final da Programação Semanal</translation>
     </message>
-    <!-- OS:PlantEquipmentOperation:OutdoorWetBulb -->
+    
     <message>
         <source>Wet-Bulb Temperature Range Lower Limit</source>
         <translation>Limite Inferior da Faixa de Temperatura de Bulbo Úmido</translation>
     </message>
-    <!-- OS:PlantEquipmentOperation:OutdoorWetBulb -->
+    
     <message>
         <source>Wet-Bulb Temperature Range Upper Limit</source>
         <translation>Limite Superior da Faixa de Temperatura de Bulbo Úmido</translation>
     </message>
-    <!-- OS:EvaporativeCooler:Indirect:ResearchSpecial -->
+    
     <message>
         <source>Wetbulb Effectiveness Flow Ratio Modifier Curve Name</source>
         <translation>Curva Modificadora da Razão de Efetividade da Temperatura de Bulbo Úmido</translation>
     </message>
-    <!-- OS:SizingPeriod:DesignDay -->
+    
     <message>
         <source>Wetbulb or DewPoint at Maximum Dry-Bulb</source>
         <translation>Bulbo Úmido ou Ponto de Orvalho na Temperatura de Bulbo Seco Máxima</translation>
     </message>
-    <!-- OS:AirflowNetworkDetailedOpening -->
+    
     <message>
         <source>Width Factor for Opening Factor</source>
         <translation>Fator de Largura para Fator de Abertura</translation>
     </message>
-    <!-- OS:AirflowNetworkExternalNode -->
+    
     <message>
         <source>Wind Angle Type</source>
         <translation>Tipo de Ângulo de Vento</translation>
     </message>
-    <!-- OS:SizingPeriod:DesignDay -->
+    
     <message>
         <source>Wind Direction</source>
         <translation>Direção do Vento</translation>
     </message>
-    <!-- OS:Surface -->
+    
     <message>
         <source>Wind Exposure</source>
         <translation>Exposição ao Vento</translation>
     </message>
-    <!-- OS:AirflowNetworkExternalNode -->
+    
     <message>
         <source>Wind Pressure Coefficient Curve Name</source>
         <translation>Nome da Curva de Coeficiente de Pressão do Vento</translation>
     </message>
-    <!-- OS:AirflowNetworkSimulationControl -->
+    
     <message>
         <source>Wind Pressure Coefficient Type</source>
         <translation>Tipo de Coeficiente de Pressão do Vento</translation>
     </message>
-    <!-- OS:SizingPeriod:DesignDay -->
+    
     <message>
         <source>Wind Speed</source>
         <translation>Velocidade do Vento</translation>
     </message>
-    <!-- OS:SurfaceProperty:OtherSideCoefficients -->
+    
     <message>
         <source>Wind Speed Coefficient</source>
         <translation>Coeficiente de Velocidade do Vento</translation>
     </message>
-    <!-- OS:WindowMaterial:Glazing -->
+    
     <message>
         <source>Window Glass Spectral Data Set Name</source>
         <translation>Nome do Conjunto de Dados Espectrais do Vidro da Janela</translation>
     </message>
-    <!-- OS:WindowMaterial:GlazingGroup:Thermochromic -->
+    
     <message>
         <source>Window Material Glazing Name</source>
         <translation>Nome do Material de Vidro da Janela</translation>
     </message>
-    <!-- OS:DaylightingDevice:Shelf -->
+    
     <message>
         <source>Window Name</source>
         <translation>Nome da Janela</translation>
     </message>
-    <!-- OS:AirflowNetworkSurface -->
+    
     <message>
         <source>Window/Door Opening Factor or Crack Factor</source>
         <translation>Fator de Abertura de Janela/Porta ou Fator de Fresta</translation>
     </message>
-    <!-- OS:Schedule:Week -->
+    
     <message>
         <source>WinterDesignDay Schedule:Day Name</source>
         <translation>Agenda do Dia de Projeto de Inverno:Nome do Dia</translation>
     </message>
-    <!-- OS:WeatherFile -->
+    
     <message>
         <source>WMO Number</source>
         <translation>Número WMO</translation>
     </message>
 
-    <!-- X -->
-    <!-- OS:IlluminanceMap -->
+    
+    
     <message>
         <source>X Length</source>
         <translation>Comprimento X</translation>
     </message>
-    <!-- OS:InteriorPartitionSurfaceGroup, OS:ShadingSurfaceGroup, OS:Space -->
+    
     <message>
         <source>X Origin</source>
         <translation>Origem X</translation>
     </message>
-    <!-- OS:Table:MultiVariableLookup -->
+    
     <message>
         <source>X1 Sort Order</source>
         <translation>Ordem de Classificação X1</translation>
     </message>
-    <!-- OS:Table:MultiVariableLookup -->
+    
     <message>
         <source>X2 Sort Order</source>
         <translation>Ordem de Classificação X2</translation>
     </message>
 
-    <!-- Y -->
-    <!-- OS:IlluminanceMap -->
+    
+    
     <message>
         <source>Y Length</source>
         <translation>Comprimento Y</translation>
     </message>
-    <!-- OS:InteriorPartitionSurfaceGroup, OS:ShadingSurfaceGroup, OS:Space -->
+    
     <message>
         <source>Y Origin</source>
         <translation>Origem Y</translation>
     </message>
-    <!-- OS:LifeCycleCost:UsePriceEscalation -->
+    
     <message>
         <source>Year Escalation</source>
         <translation>Escalação Anual</translation>
     </message>
-    <!-- OS:LifeCycleCost -->
+    
     <message>
         <source>Years from Start</source>
         <translation>Anos desde o Início</translation>
     </message>
 
-    <!-- Z -->
-    <!-- OS:InteriorPartitionSurfaceGroup, OS:ShadingSurfaceGroup, OS:Space -->
+    
+    
     <message>
         <source>Z Origin</source>
         <translation>Z Origem</translation>
     </message>
-    <!-- OS:Pump:ConstantSpeed -->
+    
     <message>
         <source>Zone</source>
         <translation>Zona</translation>
     </message>
-    <!-- OS:DesignSpecification:ZoneAirDistribution -->
+    
     <message>
         <source>Zone Air Distribution Effectiveness in Cooling Mode</source>
         <translation>Efetividade da Distribuição de Ar da Zona em Modo de Resfriamento</translation>
     </message>
-    <!-- OS:DesignSpecification:ZoneAirDistribution -->
+    
     <message>
         <source>Zone Air Distribution Effectiveness in Heating Mode</source>
         <translation>Efetividade da Distribuição de Ar da Zona no Modo de Aquecimento</translation>
     </message>
-    <!-- OS:DesignSpecification:ZoneAirDistribution -->
+    
     <message>
         <source>Zone Air Distribution Effectiveness Schedule</source>
         <translation>Cronograma de Eficácia da Distribuição de Ar na Zona</translation>
     </message>
-    <!-- OS:ThermalZone -->
+    
     <message>
         <source>Zone Air Exhaust Port List</source>
         <translation>Lista de Portas de Exaustão do Ar da Zona</translation>
     </message>
-    <!-- OS:ThermalZone -->
+    
     <message>
         <source>Zone Air Inlet Port List</source>
         <translation>Lista de Portas de Entrada de Ar da Zona</translation>
     </message>
-    <!-- OS:ThermalZone -->
+    
     <message>
         <source>Zone Air Node Name</source>
         <translation>Nome do Nó de Ar da Zona</translation>
     </message>
-    <!-- OS:SurfaceProperty:OtherSideCoefficients -->
+    
     <message>
         <source>Zone Air Temperature Coefficient</source>
         <translation>Coeficiente de Temperatura do Ar da Zona</translation>
     </message>
-    <!-- OS:ThermalZone -->
+    
     <message>
         <source>Zone Conditioning Equipment List Name</source>
         <translation>Nome da Lista de Equipamentos de Condicionamento de Zona</translation>
     </message>
-    <!-- OS:ZoneHVAC:EquipmentList -->
+    
     <message>
         <source>Zone Equipment</source>
         <translation>Equipamento de Zona</translation>
     </message>
-    <!-- OS:ZoneHVAC:EquipmentList -->
+    
     <message>
         <source>Zone Equipment Cooling Sequence</source>
         <translation>Sequência de Resfriamento do Equipamento da Zona</translation>
     </message>
-    <!-- OS:ZoneHVAC:EquipmentList -->
+    
     <message>
         <source>Zone Equipment Heating or No-Load Sequence</source>
         <translation>Sequência de Aquecimento ou Sem Carga do Equipamento da Zona</translation>
     </message>
-    <!-- OS:ZoneHVAC:IdealLoadsAirSystem -->
+    
     <message>
         <source>Zone Exhaust Air Node Name</source>
         <translation>Nome do Nó de Ar de Exaustão da Zona</translation>
     </message>
-    <!-- OS:AvailabilityManager:OptimumStart -->
+    
     <message>
         <source>Zone List</source>
         <translation>Lista de Zonas</translation>
     </message>
-    <!-- OS:AirTerminal:DualDuct:VAV, OS:AirTerminal:SingleDuct:VAV:HeatAndCool:NoReheat, OS:AirTerminal:SingleDuct:VAV:HeatAndCool:Reheat -->
+    
     <message>
         <source>Zone Minimum Air Flow Fraction</source>
         <translation>Fração Mínima de Fluxo de Ar da Zona</translation>
     </message>
-    <!-- OS:AirTerminal:SingleDuct:ConstantVolume:FourPipeInduction, OS:AirTerminal:SingleDuct:ParallelPIU:Reheat, OS:AirTerminal:SingleDuct:SeriesPIU:Reheat -->
+    
     <message>
         <source>Zone Mixer Name</source>
         <translation>Nome do Misturador de Zona</translation>
     </message>
-    <!-- OS:AirConditioner:VariableRefrigerantFlow -->
+    
     <message>
         <source>Zone Name for Master Thermostat Location</source>
         <translation>Nome da Zona para Localização do Termostato Mestre</translation>
     </message>
-    <!-- OS:Generator:FuelCell:AuxiliaryHeater -->
+    
     <message>
         <source>Zone Name to Receive Skin Losses</source>
         <translation>Nome da Zona para Receber Perdas de Pele</translation>
     </message>
-    <!-- OS:EnergyManagementSystem:Actuator, OS:ZoneMixing -->
+    
     <message>
         <source>Zone or Space Name</source>
         <translation>Nome da Zona ou Espaço</translation>
     </message>
-    <!-- OS:Sizing:Zone -->
+    
     <message>
         <source>Zone or ZoneList Name</source>
         <translation>Nome da Zona ou Lista de Zonas</translation>
     </message>
-    <!-- OS:PerformancePrecisionTradeoffs -->
+    
     <message>
         <source>Zone Radiant Exchange Algorithm</source>
         <translation>Algoritmo de Troca Radiante da Zona</translation>
     </message>
-    <!-- OS:ZoneHVAC:EvaporativeCoolerUnit -->
+    
     <message>
         <source>Zone Relief Air Node Name</source>
         <translation>Nome do Nó de Ar de Alívio da Zona</translation>
     </message>
-    <!-- OS:ThermalZone -->
+    
     <message>
         <source>Zone Return Air Port List</source>
         <translation>Lista de Portas de Ar de Retorno da Zona</translation>
     </message>
-    <!-- OS:DesignSpecification:ZoneAirDistribution -->
+    
     <message>
         <source>Zone Secondary Recirculation Fraction</source>
         <translation>Fração de Recirculação Secundária da Zona</translation>
     </message>
-    <!-- OS:ZoneHVAC:IdealLoadsAirSystem -->
+    
     <message>
         <source>Zone Supply Air Node Name</source>
         <translation>Nome do Nó de Ar de Alimentação da Zona</translation>
     </message>
-    <!-- OS:AirConditioner:VariableRefrigerantFlow, OS:AirConditioner:VariableRefrigerantFlow:FluidTemperatureControl, OS:AirConditioner:VariableRefrigerantFlow:FluidTemperatureControl:HR -->
+    
     <message>
         <source>Zone Terminal Unit List</source>
         <translation>Lista de Unidades Terminais da Zona</translation>
     </message>
-    <!-- OS:Sizing:Plant -->
+    
     <message>
         <source>Zone Timesteps in Averaging Window</source>
         <translation>Passos de Tempo da Zona na Janela de Média</translation>
     </message>
-    <!-- OS:AirTerminal:SingleDuct:ConstantVolume:FourPipeBeam -->
+    
     <message>
         <source>Zone Total Beam Length</source>
         <translation>Comprimento Total do Feixe da Zona</translation>
     </message>
-    <!-- OS:AvailabilityManager:HybridVentilation -->
+    
     <message>
         <source>ZoneVentilation Object</source>
         <translation>Objeto ZoneVentilation</translation>
@@ -29992,7 +29991,7 @@ Reabastecimento</translation>
         <translation>Taxa de Radiação Solar Total Transmitida pelas Janelas da Zona</translation>
     </message>
 
-    <!-- === Non-Zone bare output variable names (auto-derived from Zone entries) === -->
+    
     <message>
         <source>Air CO2 Concentration</source>
         <translation>Concentração de CO2 no Ar</translation>
@@ -31430,7 +31429,7 @@ Reabastecimento</translation>
         <translation>Taxa de Radiação Solar Transmitida Total pelas Janelas</translation>
     </message>
 
-    <!-- === Site / Surface / other non-Zone variables without Zone counterpart === -->
+    
     <message>
         <source>Site Diffuse Solar Radiation Rate per Area</source>
         <translation>Taxa de Radiação Solar Difusa do Local por Área</translation>
@@ -31496,7 +31495,7 @@ Reabastecimento</translation>
         <translation>Luminância da Vista do Ponto de Referência 2 da Janela de Iluminação Natural</translation>
     </message>
 
-    <!-- === Additional missing output variables === -->
+    
     <message>
         <source>Cooling Coil Dehumidification Mode</source>
         <translation>Modo de Desumidificação da Bobina de Resfriamento</translation>

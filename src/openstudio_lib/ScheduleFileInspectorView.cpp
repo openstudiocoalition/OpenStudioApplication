@@ -131,6 +131,10 @@ void ScheduleFileInspectorView::createLayout() {
   vLayout->addWidget(label);
 
   m_columnSeparator = new OSComboBox2();
+  m_columnSeparator->addItem(tr("Comma"), QString("Comma"));
+  m_columnSeparator->addItem(tr("Tab"), QString("Tab"));
+  m_columnSeparator->addItem(tr("Space"), QString("Space"));
+  m_columnSeparator->addItem(tr("Semicolon"), QString("Semicolon"));
   m_columnSeparator->setEnabled(true);
   vLayout->addWidget(m_columnSeparator);
 
@@ -158,9 +162,6 @@ void ScheduleFileInspectorView::createLayout() {
   vLayout->addWidget(label);
 
   m_minutesperItem = new OSComboBox2();
-  for (const auto& val : model::ScheduleFile::minutesperItemValues()) {
-    m_minutesperItem->addItem(QString::fromStdString(val));
-  }
   m_minutesperItem->setEnabled(true);
   vLayout->addWidget(m_minutesperItem);
 
@@ -314,21 +315,22 @@ void ScheduleFileInspectorView::attach(openstudio::model::ScheduleFile& sch) {
                                 return result;
                               }));
 
-  // OSComboBox2
-
-  m_columnSeparator->bind<std::string>(
-    *m_sch, static_cast<std::string (*)(const std::string&)>(&openstudio::toString),
-    // ScheduleFile::columnSeparatorValues does not exist: https://github.com/NREL/OpenStudio/issues/5246
-    []() { return std::vector<std::string>{"Comma", "Tab", "Space", "Semicolon"}; },
-    std::bind(&model::ScheduleFile::columnSeparator, m_sch.get_ptr()),
-    [this](const std::string& value) -> bool {
-      bool result = m_sch->setColumnSeparator(value);
-      if (result) {
-        refreshContent();
+  // Column separator: use addItem(tr(display), englishValue) so translated text displays
+  // while the English string is used for the model setter via currentData().
+  {
+    const int idx = m_columnSeparator->findData(QString::fromStdString(m_sch->columnSeparator()));
+    if (idx >= 0) {
+      m_columnSeparator->setCurrentIndex(idx);
+    }
+    connect(m_columnSeparator, QOverload<int>::of(&QComboBox::currentIndexChanged), this, [this](int) {
+      if (m_sch) {
+        bool result = m_sch->setColumnSeparator(m_columnSeparator->currentData().toString().toStdString());
+        if (result) {
+          refreshContent();
+        }
       }
-      return result;
-    },
-    boost::none, boost::none);
+    });
+  }
 
   m_minutesperItem->bind<std::string>(
     *m_sch,
@@ -384,7 +386,7 @@ void ScheduleFileInspectorView::detach() {
   m_columnNumber->unbind();
   m_rowstoSkipatTop->unbind();
   m_numberofHoursofData->unbind();
-  m_columnSeparator->unbind();
+  disconnect(m_columnSeparator, nullptr, this, nullptr);
   m_interpolatetoTimestep->unbind();
   m_minutesperItem->unbind();
   m_adjustScheduleforDaylightSavings->unbind();

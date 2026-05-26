@@ -62,7 +62,6 @@
 #include <QBoxLayout>
 #include <QCheckBox>
 #include <QComboBox>
-#include <QCoreApplication>
 #include <QLabel>
 #include <QLineEdit>
 
@@ -340,15 +339,13 @@ void SpacesSubtabGridView::initializeSubSurfaceTypeFilter() {
   auto subSurfacetypes = model::SubSurface::validSubSurfaceTypeValues();
   for (const auto& sst : subSurfacetypes) {
     QString key = sst.c_str();
-    m_subSurfaceTypeFilter->addItem(QCoreApplication::translate("openstudio::SpacesSubtabGridView", sst.c_str()), key);
+    m_subSurfaceTypeFilter->addItem(tr(sst.c_str()), key);
   }
 }
 
 void SpacesSubtabGridView::initializeLoadTypeFilter() {
 
-  {
-    m_loadTypeFilter->addItem(tr("All"));
-  }
+  { m_loadTypeFilter->addItem(tr("All")); }
 
   {
     auto* pixMap = new QPixmap(":/images/mini_icons/internal_mass.png");
@@ -421,7 +418,7 @@ void SpacesSubtabGridView::initializeWindExposureFilter() {
   m_windExposureFilter->addItem(tr("All"), QString("All"));
   for (const auto& str : model::Surface::validWindExposureValues()) {
     QString key = str.c_str();
-    m_windExposureFilter->addItem(QCoreApplication::translate("openstudio::SpacesSubtabGridView", str.c_str()), key);
+    m_windExposureFilter->addItem(tr(str.c_str()), key);
   }
 }
 
@@ -429,7 +426,7 @@ void SpacesSubtabGridView::initializeSunExposureFilter() {
   m_sunExposureFilter->addItem(tr("All"), QString("All"));
   for (const auto& str : model::Surface::validSunExposureValues()) {
     QString key = str.c_str();
-    m_sunExposureFilter->addItem(QCoreApplication::translate("openstudio::SpacesSubtabGridView", str.c_str()), key);
+    m_sunExposureFilter->addItem(tr(str.c_str()), key);
   }
 }
 
@@ -437,7 +434,7 @@ void SpacesSubtabGridView::initializeOutsideBoundaryConditionFilter() {
   m_outsideBoundaryConditionFilter->addItem(tr("All"), QString("All"));
   for (const auto& str : model::Surface::validOutsideBoundaryConditionValues()) {
     QString key = str.c_str();
-    m_outsideBoundaryConditionFilter->addItem(QCoreApplication::translate("openstudio::SpacesSubtabGridView", str.c_str()), key);
+    m_outsideBoundaryConditionFilter->addItem(tr(str.c_str()), key);
   }
 }
 
@@ -445,7 +442,7 @@ void SpacesSubtabGridView::initializeSurfaceTypeFilter() {
   m_surfaceTypeFilter->addItem(tr("All"), QString("All"));
   for (const auto& str : model::Surface::validSurfaceTypeValues()) {
     QString key = str.c_str();
-    m_surfaceTypeFilter->addItem(QCoreApplication::translate("openstudio::SpacesSubtabGridView", str.c_str()), key);
+    m_surfaceTypeFilter->addItem(tr(str.c_str()), key);
   }
 }
 

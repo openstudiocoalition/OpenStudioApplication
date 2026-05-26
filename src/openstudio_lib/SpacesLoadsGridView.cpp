@@ -808,10 +808,10 @@ void SpacesLoadsGridController::addColumns(const QString& category, std::vector<
 
       } else if (field == tr("All")) {
         auto checkbox = QSharedPointer<OSSelectAllCheckBox>(new OSSelectAllCheckBox());
-        checkbox->setToolTip("Check to select all rows");
+        checkbox->setToolTip(tr("Check to select all rows"));
         connect(checkbox.data(), &OSSelectAllCheckBox::checkStateChanged, this, &SpacesLoadsGridController::onSelectAllStateChanged);
         connect(this, &SpacesLoadsGridController::gridRowSelectionChanged, checkbox.data(), &OSSelectAllCheckBox::onGridRowSelectionChanged);
-        addSelectColumn(Heading(tr("All"), false, false, checkbox), "Check to select this row", DataSource(allLoads, true));
+        addSelectColumn(Heading(tr("All"), false, false, checkbox), tr("Check to select this row").toStdString(), DataSource(allLoads, true));
       } else if (field == tr("Multiplier")) {
 
         // TODO: add isReadOnly to addValueEditColumn

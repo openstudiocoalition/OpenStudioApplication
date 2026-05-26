@@ -1,5 +1,4 @@
-﻿<?xml version="1.0" encoding="utf-8"?>
-<!DOCTYPE TS>
+<?xml version='1.0' encoding='utf-8'?>
 <TS version="2.1" language="ko">
 <context>
     <name>InspectorDialog</name>
@@ -20,7 +19,7 @@
         <translation>선택된 객체 제거</translation>
     </message>
     <message>
-        <location filename="../src/model_editor/InspectorDialog.cpp" line="585"/>
+        <location filename="../src/model_editor/InspectorDialog.cpp" line="585" />
         <source>Purge unused objects</source>
         <translatorcomment>La palabra purgar no tiene el mismo contexto en Español.</translatorcomment>
         <translation>Borrar todos los objetos sin usar</translation>
@@ -359,7 +358,7 @@ Zone</source>
         <translation>날씨 파일에 %1 m의 예상 깊이에서 지표면 온도 데이터가 포함되어 있지 않으므로 객체가 기본값으로 추가됩니다.</translation>
     </message>
     <message>
-        <source>The weather file contains ground temperature data at a depth of &lt;b&gt;&lt;span style=&quot;color: #1C7BBF;&quot;&gt;%1 m&lt;/span&gt;&lt;/b&gt;, so you can choose to import those values or add the object with default values.</source>
+        <source>The weather file contains ground temperature data at a depth of &lt;b&gt;&lt;span style="color: #1C7BBF;"&gt;%1 m&lt;/span&gt;&lt;/b&gt;, so you can choose to import those values or add the object with default values.</source>
         <translation>날씨 파일에는 &lt;b&gt;&lt;span style="color: #1C7BBF;"&gt;%1 m&lt;/span&gt;&lt;/b&gt; 깊이의 지표면 온도 데이터가 포함되어 있으므로, 해당 값을 가져오거나 기본값으로 객체를 추가하도록 선택할 수 있습니다.</translation>
     </message>
 </context>
@@ -427,7 +426,7 @@ Zone</source>
         <translation>시간대:</translation>
     </message>
     <message>
-        <source>Download weather files at &lt;a href=&quot;http://www.energyplus.net/weather&quot;&gt;www.energyplus.net/weather&lt;/a&gt;</source>
+        <source>Download weather files at &lt;a href="http://www.energyplus.net/weather"&gt;www.energyplus.net/weather&lt;/a&gt;</source>
         <translation>기상 파일을 &lt;a href="http://www.energyplus.net/weather"&gt;www.energyplus.net/weather&lt;/a&gt;에서 다운로드하세요</translation>
     </message>
     <message>
@@ -443,7 +442,7 @@ Zone</source>
         <translation>활성화되면, 이것은 예를 들어 표고 변화를 유지하는 Site:Location 객체를 작성합니다.</translation>
     </message>
     <message>
-        <source>Elevation affects the wind speed at the site, and is defaulted to the Weather File&apos;s elevation</source>
+        <source>Elevation affects the wind speed at the site, and is defaulted to the Weather File's elevation</source>
         <translation>고도는 현장의 풍속에 영향을 미치며, 기상 파일의 고도로 기본 설정됩니다.</translation>
     </message>
     <message>
@@ -499,7 +498,7 @@ Zone</source>
         <translation>날씨 파일을 다음으로 설정하지 못했습니다.</translation>
     </message>
     <message>
-        <source>There are &lt;span style=&quot;font-weight:bold;&quot;&gt;%1&lt;/span&gt; Design Days available for import</source>
+        <source>There are &lt;span style="font-weight:bold;"&gt;%1&lt;/span&gt; Design Days available for import</source>
         <translation>가져올 수 있는 &lt;span style="font-weight:bold;"&gt;%1&lt;/span&gt;개의 Design Days가 있습니다</translation>
     </message>
     <message>
@@ -594,7 +593,7 @@ Zone</source>
         <translation>나중에 다시 시도하세요.</translation>
     </message>
     <message>
-        <source>Verify your computer&apos;s internet connection then click &quot;Lost Cloud Connection&quot; to recover the lost cloud session.</source>
+        <source>Verify your computer's internet connection then click "Lost Cloud Connection" to recover the lost cloud session.</source>
         <translation>컴퓨터의 인터넷 연결을 확인한 후 "Lost Cloud Connection"을 클릭하여 손실된 클라우드 세션을 복구하세요.</translation>
     </message>
     <message>
@@ -882,7 +881,7 @@ OpenStudioApplication이 선택한 언어로 번역되기를 원하신다면 도
         <translation>분석 허용</translation>
     </message>
     <message>
-        <source>Allow OpenStudio Coalition to collect anonymous usage statistics to help improve the OpenStudio Application? See the &lt;a href=&quot;https://openstudiocoalition.org/about/privacy_policy/&quot;&gt;privacy policy&lt;/a&gt; for more information.</source>
+        <source>Allow OpenStudio Coalition to collect anonymous usage statistics to help improve the OpenStudio Application? See the &lt;a href="https://openstudiocoalition.org/about/privacy_policy/"&gt;privacy policy&lt;/a&gt; for more information.</source>
         <translation>OpenStudio 연합이 OpenStudio 애플리케이션 개선를 위해 익명 사용 통계를 수집하도록 허용하시겠습니까? 자세한 내용은 &lt;a href="https://openstudiocoalition.org/about/privacy_policy/"&gt;개인정보 보호정책&lt;/a&gt;을 참조하세요.</translation>
     </message>
 </context>
@@ -1056,23 +1055,23 @@ Could you provide more context for a more precise translation?</translation>
         <translation>(*.idf)</translation>
     </message>
     <message>
-        <source>&apos; while OpenStudio uses a &lt;strong&gt;newer&lt;/strong&gt; EnergyPlus &apos;</source>
+        <source>' while OpenStudio uses a &lt;strong&gt;newer&lt;/strong&gt; EnergyPlus '</source>
         <translation>' OpenStudio는 최신 EnergyPlus를 사용합니다 '</translation>
     </message>
     <message>
-        <source>&apos;. Consider using the EnergyPlus Auxiliary program IDFVersionUpdater to update your IDF file.</source>
+        <source>'. Consider using the EnergyPlus Auxiliary program IDFVersionUpdater to update your IDF file.</source>
         <translation>'를 사용하십시오. EnergyPlus 보조 프로그램 IDFVersionUpdater를 사용하여 IDF 파일을 업데이트하는 것을 고려하십시오.</translation>
     </message>
     <message>
-        <source>&apos; while OpenStudio uses an &lt;strong&gt;older&lt;/strong&gt; EnergyPlus &apos;</source>
+        <source>' while OpenStudio uses an &lt;strong&gt;older&lt;/strong&gt; EnergyPlus '</source>
         <translation>' OpenStudio가 &lt;strong&gt;구버전&lt;/strong&gt; EnergyPlus를 사용하는 동안 '</translation>
     </message>
     <message>
-        <source>&apos;.</source>
+        <source>'.</source>
         <translation>'.'</translation>
     </message>
     <message>
-        <source>&apos; which is the &lt;strong&gt;same&lt;/strong&gt; version of EnergyPlus that OpenStudio uses (</source>
+        <source>' which is the &lt;strong&gt;same&lt;/strong&gt; version of EnergyPlus that OpenStudio uses (</source>
         <translation>' OpenStudio가 사용하는 EnergyPlus의 동일한 버전입니다 (</translation>
     </message>
     <message>
@@ -1178,7 +1177,7 @@ Could you provide more context for a more precise translation?</translation>
         <translation>(*.osm)</translation>
     </message>
     <message>
-        <source>A new version is available at &lt;a href=&quot;</source>
+        <source>A new version is available at &lt;a href="</source>
         <translation>새 버전을 다음 주소에서 사용할 수 있습니다 &lt;a href="</translation>
     </message>
     <message>
@@ -1244,11 +1243,11 @@ Ruby 스크립트는 더 이상 지원되지 않으며 measures로 대체되었�
         <translation>설정 파일을 쓸 수 없습니다</translation>
     </message>
     <message>
-        <source>Your settings file &apos;</source>
+        <source>Your settings file '</source>
         <translation>설정 파일 '</translation>
     </message>
     <message>
-        <source>&apos; is not writable. Adjust the file permissions</source>
+        <source>' is not writable. Adjust the file permissions</source>
         <translation>'는 쓰기 불가능합니다. 파일 권한을 조정하세요</translation>
     </message>
     <message>
@@ -6155,31 +6154,31 @@ Parameters</source>
         <translation>적용 대상:</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/SchedulesView.cpp" line="1597"/>
+        <location filename="../src/openstudio_lib/SchedulesView.cpp" line="1597" />
         <source>S</source>
         <translatorcomment>Domingo (Sunday) / Sábado (Saturday) — needs disambiguation in source code</translatorcomment>
-        <translation type="unfinished"></translation>
+        <translation>S</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/SchedulesView.cpp" line="1605"/>
+        <location filename="../src/openstudio_lib/SchedulesView.cpp" line="1605" />
         <source>M</source>
         <translatorcomment>Lunes (Monday)</translatorcomment>
         <translation>L</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/SchedulesView.cpp" line="1613"/>
+        <location filename="../src/openstudio_lib/SchedulesView.cpp" line="1613" />
         <source>T</source>
         <translatorcomment>Martes (Tuesday) / Jueves (Thursday) — needs disambiguation in source code</translatorcomment>
-        <translation type="unfinished"></translation>
+        <translation>J</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/SchedulesView.cpp" line="1621"/>
+        <location filename="../src/openstudio_lib/SchedulesView.cpp" line="1621" />
         <source>W</source>
         <translatorcomment>Miércoles (Wednesday)</translatorcomment>
         <translation>X</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/SchedulesView.cpp" line="1639"/>
+        <location filename="../src/openstudio_lib/SchedulesView.cpp" line="1639" />
         <source>F</source>
         <translatorcomment>Viernes (Friday)</translatorcomment>
         <translation>V</translation>
@@ -6546,7 +6545,7 @@ Parameters</source>
 <context>
     <name>openstudio::AirLoopHVACUnitaryHeatPumpAirToAirControlView</name>
     <message>
-        <source>Supply air temperature is managed by the &quot;AirLoopHVACUnitaryHeatPumpAirToAir&quot; component.</source>
+        <source>Supply air temperature is managed by the "AirLoopHVACUnitaryHeatPumpAirToAir" component.</source>
         <translation>공급 공기 온도는 "AirLoopHVACUnitaryHeatPumpAirToAir" 구성 요소에 의해 관리됩니다.</translation>
     </message>
     <message>
@@ -6557,7 +6556,7 @@ Parameters</source>
 <context>
     <name>openstudio::NoSupplyAirTempControlView</name>
     <message>
-        <source>&lt;strong style=&quot;color:red&quot;&gt;Missing supply temperature control&lt;/strong&gt;. Try adding a setpoint manager to the supply outlet node of your system.</source>
+        <source>&lt;strong style="color:red"&gt;Missing supply temperature control&lt;/strong&gt;. Try adding a setpoint manager to the supply outlet node of your system.</source>
         <translation>&lt;strong style="color:red"&gt;공급 온도 제어 누락&lt;/strong&gt;. 시스템의 공급 출구 노드에 설정점 관리자를 추가해 보세요.</translation>
     </message>
 </context>
@@ -6730,7 +6729,7 @@ Electric</source>
 </context>
 <context>
     <name>IDD</name>
-    <!-- Common -->
+    
     <message>
         <source>Name</source>
         <translation>이름</translation>
@@ -6743,7 +6742,7 @@ Electric</source>
         <source>Part Load Fraction Correlation Curve Name</source>
         <translation>부분 부하 분율 상관식 곡선명</translation>
     </message>
-    <!-- OS:Schedule:Day -->
+    
     <message>
         <source>Schedule Type Limits Name</source>
         <translation>스케줄 유형 제한 이름</translation>
@@ -6764,7 +6763,7 @@ Electric</source>
         <source>Value Until Time</source>
         <translation>시간까지의 값</translation>
     </message>
-    <!-- OS:Controller:OutdoorAir -->
+    
     <message>
         <source>Minimum Outdoor Air Flow Rate</source>
         <translation>최소 실외 공기 유량</translation>
@@ -6829,7 +6828,7 @@ Electric</source>
         <source>Economizer Operation Staging</source>
         <translation>이코노마이저 운전 단계</translation>
     </message>
-    <!-- OS:Coil:Cooling:DX:SingleSpeed -->
+    
     <message>
         <source>Rated Total Cooling Capacity</source>
         <translation>정격 총 냉각 용량</translation>
@@ -6930,7 +6929,7 @@ Electric</source>
         <source>Basin Heater Operating Schedule Name</source>
         <translation>분지 히터 운영 스케줄 이름</translation>
     </message>
-    <!-- OS:Coil:Heating:Gas -->
+    
     <message>
         <source>Gas Burner Efficiency</source>
         <translation>가스 버너 효율</translation>
@@ -6951,7 +6950,7 @@ Electric</source>
         <source>Fuel Type</source>
         <translation>연료 종류</translation>
     </message>
-    <!-- OS:Fan:ConstantVolume -->
+    
     <message>
         <source>Fan Total Efficiency</source>
         <translation>팬 전체 효율</translation>
@@ -6976,7 +6975,7 @@ Electric</source>
         <source>End-Use Subcategory</source>
         <translation>최종 용도 세부 범주</translation>
     </message>
-    <!-- OS:SetpointManager:SingleZone:Reheat -->
+    
     <message>
         <source>Minimum Supply Air Temperature</source>
         <translation>최소 급기 온도</translation>
@@ -6993,12 +6992,12 @@ Electric</source>
         <source>Control Variable</source>
         <translation>제어 변수</translation>
     </message>
-    <!-- OS:AirTerminal:SingleDuct:ConstantVolume:NoReheat -->
+    
     <message>
         <source>Maximum Air Flow Rate</source>
         <translation>최대 공기 유량</translation>
     </message>
-    <!-- OS:ThermalZone -->
+    
     <message>
         <source>Multiplier</source>
         <translation>승수</translation>
@@ -7019,7 +7018,7 @@ Electric</source>
         <source>Daylighting Controls Availability Schedule Name</source>
         <translation>주광 제어 가용성 일정 이름</translation>
     </message>
-    <!-- OS:Sizing:Zone -->
+    
     <message>
         <source>Zone Cooling Design Supply Air Temperature Input Method</source>
         <translation>존 냉방 설계 공급 공기 온도 입력 방법</translation>
@@ -7180,7 +7179,7 @@ Electric</source>
         <source>Maximum Heating Capacity To Cooling Load Sizing Ratio</source>
         <translation>최대 난방 용량 대 냉방 부하 크기 조정 비율</translation>
     </message>
-    <!-- OS:ZoneHVAC:EquipmentList -->
+    
     <message>
         <source>Load Distribution Scheme</source>
         <translation>부하 분배 방식</translation>
@@ -7193,7 +7192,7 @@ Electric</source>
         <source>Zone Equipment Sequential Heating Fraction Schedule Name</source>
         <translation>존 장비 순차 난방 분율 스케줄 이름</translation>
     </message>
-    <!-- OS:AirLoopHVAC -->
+    
     <message>
         <source>Design Supply Air Flow Rate</source>
         <translation>설계 공급 공기 유량</translation>
@@ -7210,7 +7209,7 @@ Electric</source>
         <source>Design Return Air Flow Fraction of Supply Air Flow</source>
         <translation>설계 복귀 공기 유량 비율 (공급 공기 유량 기준)</translation>
     </message>
-    <!-- OS:Sizing:System -->
+    
     <message>
         <source>Type of Load to Size On</source>
         <translation>크기 조정 대상 부하 유형</translation>
@@ -7271,7 +7270,7 @@ Electric</source>
         <source>Zone Maximum Outdoor Air Fraction</source>
         <translation>존 최대 외기 비율</translation>
     </message>
-    <!-- OS:Coil:Cooling:Water -->
+    
     <message>
         <source>Design Water Flow Rate</source>
         <translation>설계 급수 유량</translation>
@@ -7308,7 +7307,7 @@ Electric</source>
         <source>Heat Exchanger Configuration</source>
         <translation>열 교환기 구성</translation>
     </message>
-    <!-- OS:Coil:Heating:Water -->
+    
     <message>
         <source>U-Factor Times Area Value</source>
         <translation>U-Factor Times Area Value</translation>
@@ -7345,7 +7344,7 @@ Electric</source>
         <source>Rated Ratio for Air and Water Convection</source>
         <translation>공기 및 물 대류에 대한 정격 비율</translation>
     </message>
-    <!-- OS:Fan:VariableVolume -->
+    
     <message>
         <source>Fan Power Minimum Flow Rate Input Method</source>
         <translation>팬 전력 최소 유량 입력 방법</translation>
@@ -7378,12 +7377,12 @@ Electric</source>
         <source>Fan Power Coefficient 5</source>
         <translation>팬 전력 계수 5</translation>
     </message>
-    <!-- OS:SetpointManager:Scheduled -->
+    
     <message>
         <source>Schedule Name</source>
         <translation>스케줄 이름</translation>
     </message>
-    <!-- OS:AirTerminal:SingleDuct:VAV:Reheat -->
+    
     <message>
         <source>Zone Minimum Air Flow Input Method</source>
         <translation>존 최소 공기 유량 입력 방법</translation>
@@ -7428,7 +7427,7 @@ Electric</source>
         <source>Convergence Tolerance</source>
         <translation>수렴 허용 오차</translation>
     </message>
-    <!-- OS:Pump:VariableSpeed / OS:Pump:ConstantSpeed -->
+    
     <message>
         <source>Rated Flow Rate</source>
         <translation>정격 유량</translation>
@@ -7501,7 +7500,7 @@ Electric</source>
         <source>Skin Loss Radiative Fraction</source>
         <translation>피부 손실 복사 분율</translation>
     </message>
-    <!-- OS:Chiller:Electric:EIR -->
+    
     <message>
         <source>Reference Capacity</source>
         <translation>참조 용량</translation>
@@ -7578,7 +7577,7 @@ Electric</source>
         <source>Sizing Factor</source>
         <translation>크기 조정 계수</translation>
     </message>
-    <!-- OS:PlantLoop -->
+    
     <message>
         <source>Maximum Loop Temperature</source>
         <translation>최대 루프 온도</translation>
@@ -7599,7 +7598,7 @@ Electric</source>
         <source>Pressure Simulation Type</source>
         <translation>압력 시뮬레이션 유형</translation>
     </message>
-    <!-- OS:Sizing:Plant -->
+    
     <message>
         <source>Loop Type</source>
         <translation>루프 유형</translation>
@@ -7612,7 +7611,7 @@ Electric</source>
         <source>Loop Design Temperature Difference</source>
         <translation>루프 설계 온도 차이</translation>
     </message>
-    <!-- OS:CoolingTower:SingleSpeed -->
+    
     <message>
         <source>Fan Power at Design Air Flow Rate</source>
         <translation>설계 공기 유량에서의 팬 전력</translation>
@@ -7665,7 +7664,7 @@ Electric</source>
         <source>Cell Maximum Water Flow Rate Fraction</source>
         <translation>Cell Maximum Water Flow Rate Fraction</translation>
     </message>
-    <!-- OS:SetpointManager:FollowOutdoorAirTemperature -->
+    
     <message>
         <source>Reference Temperature Type</source>
         <translation>참조 온도 유형</translation>
@@ -7682,7 +7681,7 @@ Electric</source>
         <source>Minimum Setpoint Temperature</source>
         <translation>최소 설정온도</translation>
     </message>
-    <!-- OS:Boiler:HotWater -->
+    
     <message>
         <source>Nominal Thermal Efficiency</source>
         <translation>정격 열효율</translation>
@@ -7711,7 +7710,7 @@ Electric</source>
         <source>Off Cycle Parasitic Fuel Load</source>
         <translation>Off Cycle Parasitic Fuel Load</translation>
     </message>
-    <!-- OS:WaterHeater:Mixed -->
+    
     <message>
         <source>Tank Volume</source>
         <translation>탱크 용량</translation>
@@ -7816,7 +7815,7 @@ Electric</source>
         <source>Indirect Water Heating Recovery Time</source>
         <translation>간접 온수 가열 회수 시간</translation>
     </message>
-    <!-- OS:WaterHeater:Stratified -->
+    
     <message>
         <source>Tank Height</source>
         <translation>탱크 높이</translation>
@@ -7893,7 +7892,7 @@ Electric</source>
         <source>Source Side Outlet Height</source>
         <translation>소스 측 출구 높이</translation>
     </message>
-    <!-- OS:WaterUse:Connections -->
+    
     <message>
         <source>Hot Water Supply Temperature Schedule Name</source>
         <translation>온수 공급 온도 스케줄 이름</translation>
@@ -7914,7 +7913,7 @@ Electric</source>
         <source>Drain Water Heat Exchanger U-Factor Times Area</source>
         <translation>드레인 물 열교환기 U-Factor Times Area</translation>
     </message>
-    <!-- OS:WaterUse:Equipment -->
+    
     <message>
         <source>Peak Flow Rate</source>
         <translation>최대 유량</translation>
@@ -7939,7 +7938,7 @@ Electric</source>
         <source>Zone Name</source>
         <translation>영역 이름</translation>
     </message>
-    <!-- OS:AirConditioner:VariableRefrigerantFlow -->
+    
     <message>
         <source>Cooling COP</source>
         <translation>냉각 COP</translation>
@@ -8012,7 +8011,7 @@ Electric</source>
         <source>Ratio of Compressor Size to Total Compressor Capacity</source>
         <translation>압축기 크기와 전체 압축기 용량의 비율</translation>
     </message>
-    <!-- OS:ZoneHVAC:TerminalUnit:VariableRefrigerantFlow -->
+    
     <message>
         <source>Supply Air Flow Rate During Cooling Operation</source>
         <translation>냉각 운전 중 공급 공기 유량</translation>
@@ -8065,7 +8064,7 @@ Electric</source>
         <source>Supply Air Fan Placement</source>
         <translation>공급 공기 팬 배치</translation>
     </message>
-    <!-- OS:DefaultScheduleSet -->
+    
     <message>
         <source>Hours of Operation Schedule Name</source>
         <translation>운영 시간 스케줄 이름</translation>
@@ -8110,7 +8109,7 @@ Electric</source>
 
 기타 장비 스케줄 이름</translation>
     </message>
-    <!-- OS:DesignSpecification:OutdoorAir -->
+    
     <message>
         <source>Outdoor Air Method</source>
         <translation>외기 방법</translation>
@@ -8135,7 +8134,7 @@ Electric</source>
         <source>Outdoor Air Flow Rate Fraction Schedule Name</source>
         <translation>실외공기 유량 분율 스케줄 이름</translation>
     </message>
-    <!-- OS:SpaceInfiltration:DesignFlowRate -->
+    
     <message>
         <source>Space or SpaceType Name</source>
         <translation>Space 또는 SpaceType 이름</translation>
@@ -8180,7 +8179,7 @@ Electric</source>
         <source>Density Basis</source>
         <translation>밀도 기준</translation>
     </message>
-    <!-- OS:SpaceInfiltration:EffectiveLeakageArea -->
+    
     <message>
         <source>Effective Air Leakage Area</source>
         <translation>유효 공기 누기 면적</translation>
@@ -8193,7 +8192,7 @@ Electric</source>
         <source>Wind Coefficient</source>
         <translation>풍압 계수</translation>
     </message>
-    <!-- OS:People -->
+    
     <message>
         <source>People Definition Name</source>
         <translation>사람 정의 이름</translation>
@@ -8238,7 +8237,7 @@ Electric</source>
         <source>Heat Stress Temperature Threshold</source>
         <translation>열 스트레스 온도 임계값</translation>
     </message>
-    <!-- OS:People:Definition -->
+    
     <message>
         <source>Number of People Calculation Method</source>
         <translation>인원 수 계산 방법</translation>
@@ -8279,7 +8278,7 @@ Electric</source>
         <source>Thermal Comfort Model Type</source>
         <translation>열쾌적 모델 유형</translation>
     </message>
-    <!-- OS:Schedule:Ruleset -->
+    
     <message>
         <source>Default Day Schedule Name</source>
         <translation>기본 일일 스케줄 이름</translation>
@@ -8305,8140 +8304,8140 @@ Electric</source>
         <translation>사용자 정의 요일 2 스케줄 이름</translation>
     </message>
 
-    <!-- === AUTO-GENERATED SKELETON: translate and remove this comment === -->
+    
 
-    <!-- 1 -->
-    <!-- OS:Sizing:System -->
+    
+    
     <message>
         <source>100% Outdoor Air in Cooling</source>
         <translation>냉방 시 100% 외기</translation>
     </message>
-    <!-- OS:Sizing:System -->
+    
     <message>
         <source>100% Outdoor Air in Heating</source>
         <translation>난방시 100% 외기</translation>
     </message>
 
-    <!-- A -->
-    <!-- OS:AirflowNetworkSimulationControl -->
+    
+    
     <message>
         <source>Absolute Airflow Convergence Tolerance</source>
         <translation>절대 공기 흐름 수렴 허용차</translation>
     </message>
-    <!-- OS:SolarCollectorPerformance:IntegralCollectorStorage -->
+    
     <message>
         <source>Absorptance of Absorber Plate</source>
         <translation>흡수판의 흡수율</translation>
     </message>
-    <!-- OS:RadianceParameters -->
+    
     <message>
         <source>Accumulated Rays per Record</source>
         <translation>누적 광선(광선 수) per Record</translation>
     </message>
-    <!-- OS:Generator:FuelCell:PowerModule -->
+    
     <message>
         <source>Accumulated Run Time Degradation Coefficient</source>
         <translation>누적 운전 시간 성능 저하 계수</translation>
     </message>
-    <!-- OS:Controller:WaterCoil -->
+    
     <message>
         <source>Action</source>
         <translation>작업</translation>
     </message>
-    <!-- OS:PhotovoltaicPerformance:EquivalentOneDiode, OS:PhotovoltaicPerformance:Sandia -->
+    
     <message>
         <source>Active Area</source>
         <translation>활성 영역</translation>
     </message>
-    <!-- OS:Coil:Cooling:DX:CurveFit:Speed -->
+    
     <message>
         <source>Active Fraction of Coil Face Area</source>
         <translation>코일 면적의 활성 비율</translation>
     </message>
-    <!-- OS:SwimmingPool:Indoor -->
+    
     <message>
         <source>Activity Factor Schedule Name</source>
         <translation>활동 인자 스케줄 이름</translation>
     </message>
-    <!-- OS:Generator:FuelCell:StackCooler -->
+    
     <message>
         <source>Actual Stack Temperature</source>
         <translation>실제 스택 온도</translation>
     </message>
-    <!-- OS:EnergyManagementSystem:Actuator, OS:ExternalInterface:Actuator, OS:ExternalInterface:FunctionalMockupUnitExport:To:Actuator, OS:ExternalInterface:FunctionalMockupUnitImport:To:Actuator -->
+    
     <message>
         <source>Actuated Component Control Type</source>
         <translation>작동식 구성요소 제어 유형</translation>
     </message>
-    <!-- OS:EnergyManagementSystem:Actuator -->
+    
     <message>
         <source>Actuated Component Name</source>
         <translation>액추에이터 컴포넌트 이름</translation>
     </message>
-    <!-- OS:EnergyManagementSystem:Actuator, OS:ExternalInterface:Actuator, OS:ExternalInterface:FunctionalMockupUnitExport:To:Actuator, OS:ExternalInterface:FunctionalMockupUnitImport:To:Actuator -->
+    
     <message>
         <source>Actuated Component Type</source>
         <translation>작동 부품 유형</translation>
     </message>
-    <!-- OS:ExternalInterface:Actuator, OS:ExternalInterface:FunctionalMockupUnitExport:To:Actuator, OS:ExternalInterface:FunctionalMockupUnitImport:To:Actuator -->
+    
     <message>
         <source>Actuated Component Unique Name</source>
         <translation>구동 구성요소 고유 이름</translation>
     </message>
-    <!-- OS:Output:EnergyManagementSystem -->
+    
     <message>
         <source>Actuator Availability Dictionary Reporting</source>
         <translation>액추에이터 가용성 사전 보고</translation>
     </message>
-    <!-- OS:Controller:OutdoorAir, OS:Controller:WaterCoil -->
+    
     <message>
         <source>Actuator Node Name</source>
         <translation>액추에이터 노드 이름</translation>
     </message>
-    <!-- OS:Controller:WaterCoil -->
+    
     <message>
         <source>Actuator Variable</source>
         <translation>액추에이터 변수</translation>
     </message>
-    <!-- OS:PythonPlugin:SearchPaths -->
+    
     <message>
         <source>Add Current Working Directory to Search Path</source>
         <translation>현재 작업 디렉토리를 검색 경로에 추가</translation>
     </message>
-    <!-- OS:PythonPlugin:SearchPaths -->
+    
     <message>
         <source>Add epin Environment Variable to Search Path</source>
         <translation>epin 환경 변수를 검색 경로에 추가</translation>
     </message>
-    <!-- OS:PythonPlugin:SearchPaths -->
+    
     <message>
         <source>Add Input File Directory to Search Path</source>
         <translation>입력 파일 디렉토리를 검색 경로에 추가</translation>
     </message>
-    <!-- OS:DefaultConstructionSet -->
+    
     <message>
         <source>Adiabatic Surface Construction Name</source>
         <translation>단열 표면 구성 이름</translation>
     </message>
-    <!-- OS:Schedule:File -->
+    
     <message>
         <source>Adjust Schedule for Daylight Savings</source>
         <translation>주간 절약 시간에 맞게 스케줄 조정</translation>
     </message>
-    <!-- OS:ZoneAirMassFlowConservation -->
+    
     <message>
         <source>Adjust Zone Mixing and Return For Air Mass Flow Balance</source>
         <translation>공기 질량 유량 균형을 위한 존 혼합 및 복귀 조정</translation>
     </message>
-    <!-- OS:UtilityCost:Ratchet -->
+    
     <message>
         <source>Adjustment Source Variable</source>
         <translation>조정 소스 변수</translation>
     </message>
-    <!-- OS:Output:Table:Annual, OS:Output:Table:Monthly -->
+    
     <message>
         <source>Aggregation Type for Variable or Meter</source>
         <translation>변수 또는 미터의 집계 유형</translation>
     </message>
-    <!-- OS:Coil:UserDefined -->
+    
     <message>
         <source>Air Connection 1 Inlet Node Name</source>
         <translation>Air Connection 1 Inlet Node Name</translation>
     </message>
-    <!-- OS:Coil:UserDefined -->
+    
     <message>
         <source>Air Connection 1 Outlet Node Name</source>
         <translation>공기 연결 1 출구 노드 이름</translation>
     </message>
-    <!-- OS:Construction:AirBoundary -->
+    
     <message>
         <source>Air Exchange Method</source>
         <translation>공기 교환 방법</translation>
     </message>
-    <!-- OS:ElectricEquipment:ITE:AirCooled:Definition -->
+    
     <message>
         <source>Air Flow Calculation Method</source>
         <translation>공기 흐름 계산 방법</translation>
     </message>
-    <!-- OS:ElectricEquipment:ITE:AirCooled:Definition -->
+    
     <message>
         <source>Air Flow Function of Loading and Air Temperature Curve Name</source>
         <translation>공기 흐름 함수(로딩 및 공기 온도 곡선 이름)</translation>
     </message>
-    <!-- OS:AirflowNetworkSpecifiedFlowRate -->
+    
     <message>
         <source>Air Flow Units</source>
         <translation>공기 유량 단위</translation>
     </message>
-    <!-- OS:AirflowNetworkSpecifiedFlowRate -->
+    
     <message>
         <source>Air Flow Value</source>
         <translation>공기 흐름 값</translation>
     </message>
-    <!-- OS:AirTerminal:SingleDuct:VAV:HeatAndCool:NoReheat, OS:AirTerminal:SingleDuct:VAV:HeatAndCool:Reheat -->
+    
     <message>
         <source>Air Inlet</source>
         <translation>공기 흡입구</translation>
     </message>
-    <!-- OS:ElectricEquipment:ITE:AirCooled:Definition -->
+    
     <message>
         <source>Air Inlet Connection Type</source>
         <translation>공기 입구 연결 유형</translation>
     </message>
-    <!-- OS:AirLoopHVAC:UnitaryHeatCool:VAVChangeoverBypass, OS:AirLoopHVAC:UnitaryHeatPump:AirToAir:MultiSpeed, OS:Coil:Cooling:DX:MultiSpeed, OS:Coil:Heating:Electric:MultiStage, OS:Coil:Heating:Gas:MultiStage, OS:WaterHeater:HeatPump -->
+    
     <message>
         <source>Air Inlet Node</source>
         <translation>공기 입구 노드</translation>
     </message>
-    <!-- OS:AirLoopHVAC:UnitaryHeatPump:AirToAir, OS:AirLoopHVAC:UnitarySystem, OS:AirTerminal:SingleDuct:ConstantVolume:NoReheat, OS:AirTerminal:SingleDuct:ConstantVolume:Reheat, OS:AirTerminal:SingleDuct:VAV:NoReheat, OS:AirTerminal:SingleDuct:VAV:Reheat, OS:Coil:Cooling:DX:SingleSpeed, OS:Coil:Cooling:DX:TwoSpeed, OS:Coil:Cooling:DX:TwoStageWithHumidityControlMode, OS:Coil:Cooling:Water, OS:Coil:Cooling:WaterToAirHeatPump:EquationFit, OS:Coil:Heating:DX:MultiSpeed, OS:Coil:Heating:DX:SingleSpeed, OS:Coil:Heating:Desuperheater, OS:Coil:Heating:Electric, OS:Coil:Heating:Gas, OS:Coil:Heating:Water, OS:Coil:Heating:WaterToAirHeatPump:EquationFit, OS:CoilSystem:Cooling:DX:HeatExchangerAssisted, OS:CoilSystem:Cooling:Water, OS:CoilSystem:Cooling:Water:HeatExchangerAssisted, OS:CoilSystem:IntegratedHeatPump:AirSource, OS:EvaporativeCooler:Direct:ResearchSpecial, OS:Fan:ComponentModel, OS:Fan:ConstantVolume, OS:Fan:OnOff, OS:Fan:SystemModel, OS:Fan:VariableVolume, OS:Fan:ZoneExhaust, OS:Generator:FuelCell:AirSupply, OS:HeatPump:AirToWater, OS:Humidifier:Steam:Electric, OS:Humidifier:Steam:Gas, OS:Refrigeration:Condenser:EvaporativeCooled, OS:Refrigeration:GasCooler:AirCooled, OS:WaterHeater:HeatPump:WrappedCondenser, OS:ZoneHVAC:Dehumidifier:DX, OS:ZoneHVAC:EnergyRecoveryVentilator, OS:ZoneHVAC:FourPipeFanCoil, OS:ZoneHVAC:PackagedTerminalAirConditioner, OS:ZoneHVAC:PackagedTerminalHeatPump, OS:ZoneHVAC:UnitHeater, OS:ZoneHVAC:UnitVentilator, OS:ZoneHVAC:WaterToAirHeatPump -->
+    
     <message>
         <source>Air Inlet Node Name</source>
         <translation>공기 입구 노드 이름</translation>
     </message>
-    <!-- OS:Refrigeration:Condenser:AirCooled -->
+    
     <message>
         <source>Air Inlet Zone Name</source>
         <translation>공기 입구 존 이름</translation>
     </message>
-    <!-- OS:Generator:FuelCell:AirSupply -->
+    
     <message>
         <source>Air Intake Heat Recovery Mode</source>
         <translation>공기 흡입 열회수 모드</translation>
     </message>
-    <!-- OS:AirLoopHVAC:DedicatedOutdoorAirSystem -->
+    
     <message>
         <source>Air Loop</source>
         <translation>공기 루프</translation>
     </message>
-    <!-- OS:AirflowNetworkLeak -->
+    
     <message>
         <source>Air Mass Flow Coefficient</source>
         <translation>공기 질량 유량 계수</translation>
     </message>
-    <!-- OS:AirflowNetworkCrack -->
+    
     <message>
         <source>Air Mass Flow Coefficient at Reference Conditions</source>
         <translation>기준 조건에서의 공기 질량 유량 계수</translation>
     </message>
-    <!-- OS:AirflowNetworkReliefAirFlow -->
+    
     <message>
         <source>Air Mass Flow Coefficient When No Outdoor Air Flow at Reference Conditions</source>
         <translation>실외공기 유량 없음 시 기준 조건에서의 공기 질량 유량 계수</translation>
     </message>
-    <!-- OS:AirflowNetworkDetailedOpening, OS:AirflowNetworkHorizontalOpening, OS:AirflowNetworkSimpleOpening -->
+    
     <message>
         <source>Air Mass Flow Coefficient When Opening is Closed</source>
         <translation>개구부가 닫혀 있을 때의 공기 질량 유량 계수</translation>
     </message>
-    <!-- OS:AirflowNetworkCrack, OS:AirflowNetworkEffectiveLeakageArea, OS:AirflowNetworkLeak, OS:AirflowNetworkLeakageRatio -->
+    
     <message>
         <source>Air Mass Flow Exponent</source>
         <translation>공기 질량 유량 지수</translation>
     </message>
-    <!-- OS:AirflowNetworkReliefAirFlow -->
+    
     <message>
         <source>Air Mass Flow Exponent When No Outdoor Air Flow</source>
         <translation>실외 공기 유량 없을 때 공기 질량 유량 지수</translation>
     </message>
-    <!-- OS:AirflowNetworkDetailedOpening, OS:AirflowNetworkHorizontalOpening, OS:AirflowNetworkSimpleOpening -->
+    
     <message>
         <source>Air Mass Flow Exponent When Opening is Closed</source>
         <translation>개구부 폐쇄 시 공기 질량 유량 지수</translation>
     </message>
-    <!-- OS:Coil:UserDefined -->
+    
     <message>
         <source>Air Mass Flow Rate Actuator</source>
         <translation>공기 질량 유량 액추에이터</translation>
     </message>
-    <!-- OS:AirTerminal:SingleDuct:VAV:HeatAndCool:NoReheat, OS:AirTerminal:SingleDuct:VAV:HeatAndCool:Reheat -->
+    
     <message>
         <source>Air Outlet</source>
         <translation>공기 출구</translation>
     </message>
-    <!-- OS:Coil:UserDefined -->
+    
     <message>
         <source>Air Outlet Humidity Ratio Actuator</source>
         <translation>공기 출구 습도비 액추에이터</translation>
     </message>
-    <!-- OS:AirLoopHVAC:UnitaryHeatCool:VAVChangeoverBypass, OS:AirLoopHVAC:UnitaryHeatPump:AirToAir:MultiSpeed, OS:AirTerminal:DualDuct:ConstantVolume, OS:AirTerminal:DualDuct:VAV, OS:AirTerminal:DualDuct:VAV:OutdoorAir, OS:Coil:Cooling:DX:MultiSpeed, OS:Coil:Heating:Electric:MultiStage, OS:Coil:Heating:Gas:MultiStage, OS:WaterHeater:HeatPump -->
+    
     <message>
         <source>Air Outlet Node</source>
         <translation>공기 출구 노드</translation>
     </message>
-    <!-- OS:AirLoopHVAC:UnitaryHeatPump:AirToAir, OS:AirLoopHVAC:UnitarySystem, OS:AirTerminal:SingleDuct:ConstantVolume:FourPipeInduction, OS:AirTerminal:SingleDuct:ConstantVolume:NoReheat, OS:AirTerminal:SingleDuct:ConstantVolume:Reheat, OS:AirTerminal:SingleDuct:VAV:NoReheat, OS:AirTerminal:SingleDuct:VAV:Reheat, OS:Coil:Cooling:DX:SingleSpeed, OS:Coil:Cooling:DX:TwoSpeed, OS:Coil:Cooling:DX:TwoStageWithHumidityControlMode, OS:Coil:Cooling:Water, OS:Coil:Cooling:WaterToAirHeatPump:EquationFit, OS:Coil:Heating:DX:MultiSpeed, OS:Coil:Heating:DX:SingleSpeed, OS:Coil:Heating:Desuperheater, OS:Coil:Heating:Electric, OS:Coil:Heating:Gas, OS:Coil:Heating:Water, OS:Coil:Heating:WaterToAirHeatPump:EquationFit, OS:CoilSystem:Cooling:DX:HeatExchangerAssisted, OS:CoilSystem:Cooling:Water, OS:CoilSystem:Cooling:Water:HeatExchangerAssisted, OS:CoilSystem:IntegratedHeatPump:AirSource, OS:EvaporativeCooler:Direct:ResearchSpecial, OS:Fan:ComponentModel, OS:Fan:ConstantVolume, OS:Fan:OnOff, OS:Fan:SystemModel, OS:Fan:VariableVolume, OS:Fan:ZoneExhaust, OS:HeatPump:AirToWater, OS:Humidifier:Steam:Electric, OS:Humidifier:Steam:Gas, OS:WaterHeater:HeatPump:WrappedCondenser, OS:ZoneHVAC:Dehumidifier:DX, OS:ZoneHVAC:EnergyRecoveryVentilator, OS:ZoneHVAC:FourPipeFanCoil, OS:ZoneHVAC:PackagedTerminalAirConditioner, OS:ZoneHVAC:PackagedTerminalHeatPump, OS:ZoneHVAC:UnitHeater, OS:ZoneHVAC:UnitVentilator, OS:ZoneHVAC:WaterToAirHeatPump -->
+    
     <message>
         <source>Air Outlet Node Name</source>
         <translation>공기 배출구 노드 이름</translation>
     </message>
-    <!-- OS:Coil:UserDefined -->
+    
     <message>
         <source>Air Outlet Temperature Actuator</source>
         <translation>공기 출구 온도 액추에이터</translation>
     </message>
-    <!-- OS:AirflowNetworkEquivalentDuct -->
+    
     <message>
         <source>Air Path Hydraulic Diameter</source>
         <translation>공기 경로 수압 직경</translation>
     </message>
-    <!-- OS:AirflowNetworkEquivalentDuct -->
+    
     <message>
         <source>Air Path Length</source>
         <translation>공기 경로 길이</translation>
     </message>
-    <!-- OS:Generator:FuelCell:AirSupply -->
+    
     <message>
         <source>Air Rate Air Temperature Coefficient</source>
         <translation>공기량 공기 온도 계수</translation>
     </message>
-    <!-- OS:Generator:FuelCell:AirSupply -->
+    
     <message>
         <source>Air Rate Function of Electric Power Curve Name</source>
         <translation>전기 전력 곡선 이름의 공기 유량 함수</translation>
     </message>
-    <!-- OS:Generator:FuelCell:AirSupply -->
+    
     <message>
         <source>Air Rate Function of Fuel Rate Curve Name</source>
         <translation>연료 유량 함수의 공기 유량 곡선 이름</translation>
     </message>
-    <!-- OS:HeatPump:AirToWater:FuelFired:Cooling, OS:HeatPump:AirToWater:FuelFired:Heating -->
+    
     <message>
         <source>Air Source Node Name</source>
         <translation>공기 공급원 노드 이름</translation>
     </message>
-    <!-- OS:Generator:FuelCell:AirSupply -->
+    
     <message>
         <source>Air Supply Constituent Mode</source>
         <translation>공기 공급 구성 모드</translation>
     </message>
-    <!-- OS:Generator:FuelCell -->
+    
     <message>
         <source>Air Supply Name</source>
         <translation>공기 공급 이름</translation>
     </message>
-    <!-- OS:Generator:FuelCell:AirSupply -->
+    
     <message>
         <source>Air Supply Rate Calculation Mode</source>
         <translation>공기 공급량 계산 모드</translation>
     </message>
-    <!-- OS:WindowMaterial:Shade -->
+    
     <message>
         <source>Airflow Permeability</source>
         <translation>공기 투과성</translation>
     </message>
-    <!-- OS:AirflowNetworkSimulationControl -->
+    
     <message>
         <source>AirflowNetwork Control</source>
         <translation>AirflowNetwork Control</translation>
     </message>
-    <!-- OS:AvailabilityManager:HybridVentilation -->
+    
     <message>
         <source>AirflowNetwork Control Type Schedule</source>
         <translation>AirflowNetwork 제어 유형 스케줄</translation>
     </message>
-    <!-- OS:Sizing:System -->
+    
     <message>
         <source>AirLoop Name</source>
         <translation>에어루프 이름</translation>
     </message>
-    <!-- OS:HeatBalanceAlgorithm, OS:SurfaceConvectionAlgorithm:Inside, OS:SurfaceConvectionAlgorithm:Outside, OS:ZoneAirHeatBalanceAlgorithm -->
+    
     <message>
         <source>Algorithm</source>
         <translation>알고리즘</translation>
     </message>
-    <!-- OS:AirflowNetworkSimulationControl -->
+    
     <message>
         <source>Allow Unsupported Zone Equipment</source>
         <translation>지원되지 않는 존 장비 허용</translation>
     </message>
-    <!-- OS:Coil:Cooling:DX:CurveFit:Performance -->
+    
     <message>
         <source>Alternative Operating Mode 1</source>
         <translation>대체 운전 모드 1</translation>
     </message>
-    <!-- OS:Coil:Cooling:DX:CurveFit:Performance -->
+    
     <message>
         <source>Alternative Operating Mode 2</source>
         <translation>대체 운전 모드 2</translation>
     </message>
-    <!-- OS:Pipe:Indoor -->
+    
     <message>
         <source>Ambient Air Velocity Schedule</source>
         <translation>주변 공기 속도 스케줄</translation>
     </message>
-    <!-- OS:RadianceParameters -->
+    
     <message>
         <source>Ambient Bounces DMX</source>
         <translation>Ambient Bounces DMX</translation>
     </message>
-    <!-- OS:RadianceParameters -->
+    
     <message>
         <source>Ambient Bounces VMX</source>
         <translation>Ambient Bounces VMX</translation>
     </message>
-    <!-- OS:RadianceParameters -->
+    
     <message>
         <source>Ambient Divisions DMX</source>
         <translation>Ambient Divisions DMX</translation>
     </message>
-    <!-- OS:RadianceParameters -->
+    
     <message>
         <source>Ambient Divisions VMX</source>
         <translation>Ambient Divisions VMX</translation>
     </message>
-    <!-- OS:RadianceParameters -->
+    
     <message>
         <source>Ambient Supersamples</source>
         <translation>앰비언트 슈퍼샘플</translation>
     </message>
-    <!-- OS:CoilSystem:IntegratedHeatPump:AirSource -->
+    
     <message>
         <source>Ambient Temperature Above Which WH Has Higher Priority</source>
         <translation>온수기가 더 높은 우선순위를 갖는 주변 온도 이상</translation>
     </message>
-    <!-- OS:CoilSystem:IntegratedHeatPump:AirSource -->
+    
     <message>
         <source>Ambient Temperature Limit For SCWH Mode</source>
         <translation>SCWH 모드를 위한 주변 온도 한계</translation>
     </message>
-    <!-- OS:Pipe:Outdoor -->
+    
     <message>
         <source>Ambient Temperature Outdoor Air Node</source>
         <translation>외기 주변 온도 노드</translation>
     </message>
-    <!-- OS:Chiller:Electric:ASHRAE205, OS:ThermalStorage:ChilledWater:Stratified, OS:WaterHeater:Mixed, OS:WaterHeater:Stratified -->
+    
     <message>
         <source>Ambient Temperature Outdoor Air Node Name</source>
         <translation>주변 온도 외기 노드 이름</translation>
     </message>
-    <!-- OS:Pipe:Indoor -->
+    
     <message>
         <source>Ambient Temperature Schedule</source>
         <translation>주변 온도 스케줄</translation>
     </message>
-    <!-- OS:ThermalStorage:ChilledWater:Stratified, OS:WaterHeater:Mixed, OS:WaterHeater:Stratified -->
+    
     <message>
         <source>Ambient Temperature Thermal Zone Name</source>
         <translation>주변 온도 열 영역 이름</translation>
     </message>
-    <!-- OS:Pipe:Indoor -->
+    
     <message>
         <source>Ambient Temperature Zone</source>
         <translation>주변 온도 존(Ambient Temperature Zone)</translation>
     </message>
-    <!-- OS:Chiller:Electric:ASHRAE205 -->
+    
     <message>
         <source>Ambient Temperature Zone Name</source>
         <translation>주변 온도 영역 이름</translation>
     </message>
-    <!-- OS:Coil:UserDefined, OS:PlantComponent:UserDefined -->
+    
     <message>
         <source>Ambient Zone Name</source>
         <translation>주변 존 이름</translation>
     </message>
-    <!-- OS:LifeCycleCost:Parameters -->
+    
     <message>
         <source>Analysis Type</source>
         <translation>분석 유형</translation>
     </message>
-    <!-- OS:Coil:Cooling:DX:SingleSpeed:ThermalStorage -->
+    
     <message>
         <source>Ancillary Electric Power</source>
         <translation>보조 전기 전력</translation>
     </message>
-    <!-- OS:Generator:FuelCell:PowerModule -->
+    
     <message>
         <source>Ancillary Electricity Constant Term</source>
         <translation>보조 전기 상수항</translation>
     </message>
-    <!-- OS:Generator:FuelCell:PowerModule -->
+    
     <message>
         <source>Ancillary Electricity Linear Term</source>
         <translation>보조 전력 선형항</translation>
     </message>
-    <!-- OS:CentralHeatPumpSystem -->
+    
     <message>
         <source>Ancillary Operation Schedule Name</source>
         <translation>보조 운영 스케줄 이름</translation>
     </message>
-    <!-- OS:CentralHeatPumpSystem, OS:Generator:MicroTurbine -->
+    
     <message>
         <source>Ancillary Power</source>
         <translation>보조 전력</translation>
     </message>
-    <!-- OS:Generator:FuelCell:AuxiliaryHeater -->
+    
     <message>
         <source>Ancillary Power Constant Term</source>
         <translation>보조 전력 상수항</translation>
     </message>
-    <!-- OS:ElectricLoadCenter:Storage:Converter -->
+    
     <message>
         <source>Ancillary Power Consumed In Standby</source>
         <translation>대기 중 소비되는 보조 전력</translation>
     </message>
-    <!-- OS:Generator:MicroTurbine -->
+    
     <message>
         <source>Ancillary Power Function of Fuel Input Curve Name</source>
         <translation>보조 동력 연료 입력 곡선 함수명</translation>
     </message>
-    <!-- OS:Generator:FuelCell:AuxiliaryHeater -->
+    
     <message>
         <source>Ancillary Power Linear Term</source>
         <translation>보조 전력 선형항</translation>
     </message>
-    <!-- OS:AirLoopHVAC:UnitarySystem -->
+    
     <message>
         <source>Ancilliary Off-Cycle Electric Power</source>
         <translation>보조 오프-사이클 전력</translation>
     </message>
-    <!-- OS:AirLoopHVAC:UnitarySystem -->
+    
     <message>
         <source>Ancilliary On-Cycle Electric Power</source>
         <translation>보조 온사이클 전력 소비</translation>
     </message>
-    <!-- OS:WindowMaterial:Screen -->
+    
     <message>
         <source>Angle of Resolution for Screen Transmittance Output Map</source>
         <translation>스크린 투과율 출력 맵의 해상도 각도</translation>
     </message>
-    <!-- OS:Site:WaterMainsTemperature -->
+    
     <message>
         <source>Annual Average Outdoor Air Temperature</source>
         <translation>연간 평균 외기 온도</translation>
     </message>
-    <!-- OS:Generator:WindTurbine -->
+    
     <message>
         <source>Annual Local Average Wind Speed</source>
         <translation>연간 지역 평균 풍속</translation>
     </message>
-    <!-- OS:Refrigeration:Case -->
+    
     <message>
         <source>Anti-Sweat Heater Control Type</source>
         <translation>결로 방지 히터 제어 유형</translation>
     </message>
-    <!-- OS:AvailabilityManager:NightCycle, OS:AvailabilityManager:NightVentilation, OS:AvailabilityManager:OptimumStart -->
+    
     <message>
         <source>Applicability Schedule</source>
         <translation>적용 일정</translation>
     </message>
-    <!-- OS:AvailabilityManager:LowTemperatureTurnOff -->
+    
     <message>
         <source>Applicability Schedule Name</source>
         <translation>적용 스케줄 이름</translation>
     </message>
-    <!-- OS:Schedule:Rule -->
+    
     <message>
         <source>Apply Friday</source>
         <translation>금요일 적용</translation>
     </message>
-    <!-- OS:Coil:Cooling:DX:CurveFit:OperatingMode, OS:Coil:Cooling:DX:MultiSpeed -->
+    
     <message>
         <source>Apply Latent Degradation to Speeds Greater than 1</source>
         <translation>1보다 큰 속도에 잠재 성능 저하 적용</translation>
     </message>
-    <!-- OS:Schedule:Rule -->
+    
     <message>
         <source>Apply Monday</source>
         <translation>월요일에 적용</translation>
     </message>
-    <!-- OS:Coil:Cooling:DX:MultiSpeed, OS:Coil:Heating:DX:MultiSpeed -->
+    
     <message>
         <source>Apply Part Load Fraction to Speeds Greater than 1</source>
         <translation>1보다 큰 속도에 부분 부하 분율 적용</translation>
     </message>
-    <!-- OS:Schedule:Rule -->
+    
     <message>
         <source>Apply Saturday</source>
         <translation>토요일 적용</translation>
     </message>
-    <!-- OS:Schedule:Rule -->
+    
     <message>
         <source>Apply Sunday</source>
         <translation>일요일 적용</translation>
     </message>
-    <!-- OS:Schedule:Rule -->
+    
     <message>
         <source>Apply Thursday</source>
         <translation>목요일 적용</translation>
     </message>
-    <!-- OS:Schedule:Rule -->
+    
     <message>
         <source>Apply Tuesday</source>
         <translation>화요일 적용</translation>
     </message>
-    <!-- OS:Schedule:Rule -->
+    
     <message>
         <source>Apply Wednesday</source>
         <translation>수요일 적용</translation>
     </message>
-    <!-- OS:RunPeriod -->
+    
     <message>
         <source>Apply Weekend Holiday Rule</source>
         <translation>주말 휴일 규칙 적용</translation>
     </message>
-    <!-- OS:Refrigeration:Condenser:EvaporativeCooled -->
+    
     <message>
         <source>Approach Temperature Coefficient 2</source>
         <translation>접근 온도 계수 2</translation>
     </message>
-    <!-- OS:Refrigeration:Condenser:EvaporativeCooled -->
+    
     <message>
         <source>Approach Temperature Coefficient 3</source>
         <translation>Approach Temperature Coefficient 3</translation>
     </message>
-    <!-- OS:Refrigeration:Condenser:EvaporativeCooled -->
+    
     <message>
         <source>Approach Temperature Coefficient 4</source>
         <translation>접근 온도 계수 4</translation>
     </message>
-    <!-- OS:Refrigeration:Condenser:EvaporativeCooled -->
+    
     <message>
         <source>Approach Temperature Constant Term</source>
         <translation>접근 온도 상수항</translation>
     </message>
-    <!-- OS:Site:GroundTemperature:Deep -->
+    
     <message>
         <source>April Deep Ground Temperature</source>
         <translation>4월 심층 지반 온도</translation>
     </message>
-    <!-- OS:Site:GroundReflectance -->
+    
     <message>
         <source>April Ground Reflectance</source>
         <translation>4월 지표면 반사율</translation>
     </message>
-    <!-- OS:Site:GroundTemperature:BuildingSurface, OS:Site:GroundTemperature:FCfactorMethod -->
+    
     <message>
         <source>April Ground Temperature</source>
         <translation>4월 지표면 온도</translation>
     </message>
-    <!-- OS:Site:GroundTemperature:Shallow -->
+    
     <message>
         <source>April Surface Ground Temperature</source>
         <translation>4월 지표면 지중 온도</translation>
     </message>
-    <!-- OS:UtilityCost:Variable -->
+    
     <message>
         <source>April Value</source>
         <translation>4월 값</translation>
     </message>
-    <!-- OS:Construction:FfactorGroundFloor -->
+    
     <message>
         <source>Area</source>
         <translation>면적</translation>
     </message>
-    <!-- OS:DaylightingDevice:LightWell -->
+    
     <message>
         <source>Area of Bottom of Well</source>
         <translation>우물 밑면의 면적</translation>
     </message>
-    <!-- OS:Refrigeration:WalkIn:ZoneBoundary -->
+    
     <message>
         <source>Area of Glass Reach In Doors Facing Zone</source>
         <translation>영역을 향하는 유리 도어의 면적</translation>
     </message>
-    <!-- OS:Refrigeration:WalkIn:ZoneBoundary -->
+    
     <message>
         <source>Area of Stocking Doors Facing Zone</source>
         <translation>Zone을 향하는 적재 도어의 면적</translation>
     </message>
-    <!-- OS:Generator:PVWatts -->
+    
     <message>
         <source>Array Type</source>
         <translation>배열 유형</translation>
     </message>
-    <!-- OS:SizingPeriod:DesignDay -->
+    
     <message>
         <source>ASHRAE Clear Sky Optical Depth for Beam Irradiance</source>
         <translation>ASHRAE 맑은 하늘 직달 일사량 광학 깊이</translation>
     </message>
-    <!-- OS:SizingPeriod:DesignDay -->
+    
     <message>
         <source>ASHRAE Clear Sky Optical Depth for Diffuse Irradiance</source>
         <translation>ASHRAE 맑은 하늘 확산 복사량에 대한 광학 깊이</translation>
     </message>
-    <!-- OS:SolarCollectorPerformance:IntegralCollectorStorage -->
+    
     <message>
         <source>Aspect Ratio</source>
         <translation>종횡비</translation>
     </message>
-    <!-- OS:Site:GroundTemperature:Deep -->
+    
     <message>
         <source>August Deep Ground Temperature</source>
         <translation>8월 심층 지반 온도</translation>
     </message>
-    <!-- OS:Site:GroundReflectance -->
+    
     <message>
         <source>August Ground Reflectance</source>
         <translation>8월 지표면 반사율</translation>
     </message>
-    <!-- OS:Site:GroundTemperature:BuildingSurface, OS:Site:GroundTemperature:FCfactorMethod -->
+    
     <message>
         <source>August Ground Temperature</source>
         <translation>8월 지표면 온도</translation>
     </message>
-    <!-- OS:Site:GroundTemperature:Shallow -->
+    
     <message>
         <source>August Surface Ground Temperature</source>
         <translation>8월 지표면 지중온도</translation>
     </message>
-    <!-- OS:UtilityCost:Variable -->
+    
     <message>
         <source>August Value</source>
         <translation>8월 값</translation>
     </message>
-    <!-- OS:Chiller:Electric:ASHRAE205 -->
+    
     <message>
         <source>Auxiliary Cooling Design Flow Rate</source>
         <translation>보조 냉각 설계 유량</translation>
     </message>
-    <!-- OS:HeatPump:AirToWater:FuelFired:Cooling, OS:HeatPump:AirToWater:FuelFired:Heating -->
+    
     <message>
         <source>Auxiliary Electric Energy Input Ratio Function of PLR Curve Name</source>
         <translation>보조 전기 에너지 입력 비율 PLR 함수 곡선 이름</translation>
     </message>
-    <!-- OS:HeatPump:AirToWater:FuelFired:Cooling, OS:HeatPump:AirToWater:FuelFired:Heating -->
+    
     <message>
         <source>Auxiliary Electric Energy Input Ratio Function of Temperature Curve Name</source>
         <translation>보조 전기 에너지 입력 비율 온도 곡선명 함수</translation>
     </message>
-    <!-- OS:Humidifier:Steam:Gas -->
+    
     <message>
         <source>Auxiliary Electric Power</source>
         <translation>보조 전력</translation>
     </message>
-    <!-- OS:Generator:FuelCell -->
+    
     <message>
         <source>Auxiliary Heater Name</source>
         <translation>보조 난방기 이름</translation>
     </message>
-    <!-- OS:Chiller:Electric:ASHRAE205 -->
+    
     <message>
         <source>Auxiliary Inlet Node Name</source>
         <translation>보조 입구 노드 이름</translation>
     </message>
-    <!-- OS:AirLoopHVAC:UnitaryHeatPump:AirToAir:MultiSpeed -->
+    
     <message>
         <source>Auxiliary Off-Cycle Electric Power</source>
         <translation>보조 오프-사이클 전력</translation>
     </message>
-    <!-- OS:AirLoopHVAC:UnitaryHeatPump:AirToAir:MultiSpeed -->
+    
     <message>
         <source>Auxiliary On-Cycle Electric Power</source>
         <translation>보조 운전 중 전력 소비량</translation>
     </message>
-    <!-- OS:Chiller:Electric:ASHRAE205 -->
+    
     <message>
         <source>Auxiliary Outlet Node Name</source>
         <translation>보조 아울렛 노드 이름</translation>
     </message>
-    <!-- OS:AirLoopHVAC, OS:AirLoopHVAC:OutdoorAirSystem, OS:PlantLoop, OS:ZoneHVAC:EnergyRecoveryVentilator, OS:ZoneHVAC:EvaporativeCoolerUnit, OS:ZoneHVAC:TerminalUnit:VariableRefrigerantFlow, OS:ZoneHVAC:UnitHeater, OS:ZoneHVAC:UnitVentilator, OS:ZoneHVAC:WaterToAirHeatPump -->
+    
     <message>
         <source>Availability Manager List Name</source>
         <translation>이용 가능성 관리자 목록 이름</translation>
     </message>
-    <!-- OS:AvailabilityManagerAssignmentList -->
+    
     <message>
         <source>Availability Manager Name</source>
         <translation>가용성 관리자 이름</translation>
     </message>
-    <!-- OS:AirConditioner:VariableRefrigerantFlow, OS:AirConditioner:VariableRefrigerantFlow:FluidTemperatureControl, OS:AirConditioner:VariableRefrigerantFlow:FluidTemperatureControl:HR, OS:AirLoopHVAC, OS:AirLoopHVAC:DedicatedOutdoorAirSystem, OS:AirLoopHVAC:UnitaryHeatCool:VAVChangeoverBypass, OS:AirLoopHVAC:UnitaryHeatPump:AirToAir:MultiSpeed, OS:AirTerminal:DualDuct:ConstantVolume, OS:AirTerminal:DualDuct:VAV, OS:AirTerminal:DualDuct:VAV:OutdoorAir, OS:AirTerminal:SingleDuct:VAV:HeatAndCool:NoReheat, OS:AirTerminal:SingleDuct:VAV:HeatAndCool:Reheat, OS:Coil:Cooling:DX, OS:Coil:Cooling:DX:MultiSpeed, OS:Coil:Cooling:DX:SingleSpeed:ThermalStorage, OS:Coil:Cooling:DX:TwoStageWithHumidityControlMode, OS:Coil:Cooling:DX:VariableRefrigerantFlow, OS:Coil:Cooling:DX:VariableRefrigerantFlow:FluidTemperatureControl, OS:Coil:Heating:DX:VariableRefrigerantFlow, OS:Coil:Heating:DX:VariableRefrigerantFlow:FluidTemperatureControl, OS:Coil:Heating:Electric:MultiStage, OS:Coil:Heating:Gas:MultiStage, OS:Controller:MechanicalVentilation, OS:HeatExchanger:AirToAir:SensibleAndLatent, OS:HeatExchanger:Desiccant:BalancedFlow, OS:ThermalStorage:Ice:Detailed, OS:WaterHeater:HeatPump, OS:ZoneHVAC:Baseboard:Convective:Electric -->
+    
     <message>
         <source>Availability Schedule</source>
         <translation>가용성 스케줄</translation>
     </message>
-    <!-- OS:Site:GroundTemperature:Undisturbed:KusudaAchenbach -->
+    
     <message>
         <source>Average Amplitude of Surface Temperature</source>
         <translation>표면 온도의 평균 진폭</translation>
     </message>
-    <!-- OS:SwimmingPool:Indoor -->
+    
     <message>
         <source>Average Depth</source>
         <translation>평균 깊이</translation>
     </message>
-    <!-- OS:Refrigeration:AirChiller, OS:Refrigeration:Case, OS:Refrigeration:WalkIn -->
+    
     <message>
         <source>Average Refrigerant Charge Inventory</source>
         <translation>평균 냉매 충전량 재고</translation>
     </message>
-    <!-- OS:Site:GroundTemperature:Undisturbed:KusudaAchenbach, OS:Site:GroundTemperature:Undisturbed:Xing -->
+    
     <message>
         <source>Average Soil Surface Temperature</source>
         <translation>평균 토양 표면 온도</translation>
     </message>
-    <!-- OS:Generator:PVWatts -->
+    
     <message>
         <source>Azimuth Angle</source>
         <translation>방위각</translation>
     </message>
-    <!-- OS:AirflowNetworkSimulationControl -->
+    
     <message>
         <source>Azimuth Angle of Long Axis of Building</source>
         <translation>건물의 긴 축 방위각</translation>
     </message>
 
-    <!-- B -->
-    <!-- OS:MaterialProperty:GlazingSpectralData -->
+    
+    
     <message>
         <source>Back Reflectance</source>
         <translation>뒷면 반사율</translation>
     </message>
-    <!-- OS:WindowMaterial:Glazing -->
+    
     <message>
         <source>Back Side Infrared Hemispherical Emissivity</source>
         <translation>뒷면 적외선 반구형 방사율</translation>
     </message>
-    <!-- OS:WindowMaterial:Blind -->
+    
     <message>
         <source>Back Side Slat Beam Solar Reflectance</source>
         <translation>뒷면 슬래트 직달 태양 반사율</translation>
     </message>
-    <!-- OS:WindowMaterial:Blind -->
+    
     <message>
         <source>Back Side Slat Beam Visible Reflectance</source>
         <translation>Back Side Slat Beam Visible Reflectance</translation>
     </message>
-    <!-- OS:WindowMaterial:Blind -->
+    
     <message>
         <source>Back Side Slat Diffuse Solar Reflectance</source>
         <translation>뒷면 슬래트 확산 태양 반사율</translation>
     </message>
-    <!-- OS:WindowMaterial:Blind -->
+    
     <message>
         <source>Back Side Slat Diffuse Visible Reflectance</source>
         <translation>뒷면 슬래트 확산 가시광선 반사율</translation>
     </message>
-    <!-- OS:WindowMaterial:Blind -->
+    
     <message>
         <source>Back Side Slat Infrared Hemispherical Emissivity</source>
         <translation>뒷면 슬릿 적외선 반구 방사율</translation>
     </message>
-    <!-- OS:WindowMaterial:Glazing -->
+    
     <message>
         <source>Back Side Solar Reflectance at Normal Incidence</source>
         <translation>법선 입사 시 뒷면 태양 반사율</translation>
     </message>
-    <!-- OS:WindowMaterial:Glazing -->
+    
     <message>
         <source>Back Side Visible Reflectance at Normal Incidence</source>
         <translation>뒷면 정상 입사각 가시 반사율</translation>
     </message>
-    <!-- OS:SolarCollectorPerformance:PhotovoltaicThermal:BIPVT -->
+    
     <message>
         <source>Backing Material Normal Transmittance-Absorptance Product</source>
         <translation>백킹 재료 정상 투과율-흡수율 곱</translation>
     </message>
-    <!-- OS:Fan:ZoneExhaust -->
+    
     <message>
         <source>Balanced Exhaust Fraction Schedule Name</source>
         <translation>균형 배기 분율 스케줄 이름</translation>
     </message>
-    <!-- OS:SizingPeriod:DesignDay -->
+    
     <message>
         <source>Barometric Pressure</source>
         <translation>기압</translation>
     </message>
-    <!-- OS:LifeCycleCost:Parameters -->
+    
     <message>
         <source>Base Date Month</source>
         <translation>기준 날짜 월</translation>
     </message>
-    <!-- OS:LifeCycleCost:Parameters -->
+    
     <message>
         <source>Base Date Year</source>
         <translation>기준 연도</translation>
     </message>
-    <!-- OS:Coil:Cooling:DX:CurveFit:Performance -->
+    
     <message>
         <source>Base Operating Mode</source>
         <translation>기본 운영 모드</translation>
     </message>
-    <!-- OS:UtilityCost:Ratchet -->
+    
     <message>
         <source>Baseline Source Variable</source>
         <translation>기준 원본 변수</translation>
     </message>
-    <!-- OS:Coil:Cooling:DX:SingleSpeed:ThermalStorage -->
+    
     <message>
         <source>Basin Heater Availability Schedule</source>
         <translation>분지 히터 가용성 스케줄</translation>
     </message>
-    <!-- OS:AirConditioner:VariableRefrigerantFlow, OS:Coil:Cooling:DX:MultiSpeed, OS:Coil:Cooling:DX:TwoStageWithHumidityControlMode, OS:CoolingTower:VariableSpeed -->
+    
     <message>
         <source>Basin Heater Operating Schedule</source>
         <translation>분지 히터 운영 스케줄</translation>
     </message>
-    <!-- OS:ElectricLoadCenter:Storage:LiIonNMCBattery -->
+    
     <message>
         <source>Battery Cell Internal Electrical Resistance</source>
         <translation>배터리 셀 내부 전기 저항</translation>
     </message>
-    <!-- OS:ElectricLoadCenter:Storage:LiIonNMCBattery -->
+    
     <message>
         <source>Battery Mass</source>
         <translation>배터리 질량</translation>
     </message>
-    <!-- OS:ElectricLoadCenter:Storage:LiIonNMCBattery -->
+    
     <message>
         <source>Battery Specific Heat Capacity</source>
         <translation>배터리 비열용량</translation>
     </message>
-    <!-- OS:ElectricLoadCenter:Storage:LiIonNMCBattery -->
+    
     <message>
         <source>Battery Surface Area</source>
         <translation>배터리 표면적</translation>
     </message>
-    <!-- OS:Coil:Cooling:FourPipeBeam -->
+    
     <message>
         <source>Beam Cooling Capacity Air Flow Modification Factor Curve Name</source>
         <translation>빔 냉각 용량 공기 흐름 수정 인자 곡선 이름</translation>
     </message>
-    <!-- OS:Coil:Cooling:FourPipeBeam -->
+    
     <message>
         <source>Beam Cooling Capacity Chilled Water Flow Modification Factor Curve Name</source>
         <translation>Beam Cooling Capacity Chilled Water Flow Modification Factor Curve Name</translation>
     </message>
-    <!-- OS:Coil:Cooling:FourPipeBeam -->
+    
     <message>
         <source>Beam Cooling Capacity Temperature Difference Modification Factor Curve Name</source>
         <translation>Beam Cooling Capacity Temperature Difference Modification Factor Curve Name</translation>
     </message>
-    <!-- OS:Coil:Heating:FourPipeBeam -->
+    
     <message>
         <source>Beam Heating Capacity Air Flow Modification Factor Curve Name</source>
         <translation>빔 난방 용량 공기 유량 수정 계수 곡선 이름</translation>
     </message>
-    <!-- OS:Coil:Heating:FourPipeBeam -->
+    
     <message>
         <source>Beam Heating Capacity Hot Water Flow Modification Factor Curve Name</source>
         <translation>Beam Heating Capacity Hot Water Flow Modification Factor Curve Name</translation>
     </message>
-    <!-- OS:Coil:Heating:FourPipeBeam -->
+    
     <message>
         <source>Beam Heating Capacity Temperature Difference Modification Factor Curve Name</source>
         <translation>Beam Heating Capacity Temperature Difference Modification Factor Curve Name</translation>
     </message>
-    <!-- OS:AirTerminal:SingleDuct:ConstantVolume:CooledBeam -->
+    
     <message>
         <source>Beam Length</source>
         <translation>보 길이</translation>
     </message>
-    <!-- OS:Coil:Cooling:FourPipeBeam -->
+    
     <message>
         <source>Beam Rated Chilled Water Volume Flow Rate per Beam Length</source>
         <translation>Beam Rated Chilled Water Volume Flow Rate per Beam Length</translation>
     </message>
-    <!-- OS:Coil:Cooling:FourPipeBeam -->
+    
     <message>
         <source>Beam Rated Cooling Capacity per Beam Length</source>
         <translation>빔 길이당 정격 냉각 용량</translation>
     </message>
-    <!-- OS:Coil:Cooling:FourPipeBeam -->
+    
     <message>
         <source>Beam Rated Cooling Room Air Chilled Water Temperature Difference</source>
         <translation>Beam Rated Cooling Room Air Chilled Water Temperature Difference</translation>
     </message>
-    <!-- OS:Coil:Heating:FourPipeBeam -->
+    
     <message>
         <source>Beam Rated Heating Capacity per Beam Length</source>
         <translation>빔 길이당 정격 난방 용량</translation>
     </message>
-    <!-- OS:Coil:Heating:FourPipeBeam -->
+    
     <message>
         <source>Beam Rated Heating Room Air Hot Water Temperature Difference</source>
         <translation>빔 정격 가열 실내 공기 온수 온도 차이</translation>
     </message>
-    <!-- OS:Coil:Heating:FourPipeBeam -->
+    
     <message>
         <source>Beam Rated Hot Water Volume Flow Rate per Beam Length</source>
         <translation>Beam Rated Hot Water Volume Flow Rate per Beam Length</translation>
     </message>
-    <!-- OS:SizingPeriod:DesignDay -->
+    
     <message>
         <source>Beam Solar Day Schedule Name</source>
         <translation>직달 태양 일일 일정 이름</translation>
     </message>
-    <!-- OS:RunPeriod, OS:SizingPeriod:WeatherFileDays -->
+    
     <message>
         <source>Begin Day of Month</source>
         <translation>월별 시작 날짜</translation>
     </message>
-    <!-- OS:SizingPeriod:DesignDay -->
+    
     <message>
         <source>Begin Environment Reset Mode</source>
         <translation>환경 초기화 모드 시작</translation>
     </message>
-    <!-- OS:RunPeriod, OS:SizingPeriod:WeatherFileDays -->
+    
     <message>
         <source>Begin Month</source>
         <translation>시작 월</translation>
     </message>
-    <!-- OS:Fan:ComponentModel -->
+    
     <message>
         <source>Belt Fractional Torque Transition</source>
         <translation>Belt Fractional Torque Transition</translation>
     </message>
-    <!-- OS:Fan:ComponentModel -->
+    
     <message>
         <source>Belt Maximum Torque</source>
         <translation>벨트 최대 토크</translation>
     </message>
-    <!-- OS:Fan:ComponentModel -->
+    
     <message>
         <source>Belt Sizing Factor</source>
         <translation>벨트 크기 계수</translation>
     </message>
-    <!-- OS:UtilityBill -->
+    
     <message>
         <source>Billing Period Begin Day of Month</source>
         <translation>청구 기간 시작 일(월간)</translation>
     </message>
-    <!-- OS:UtilityBill -->
+    
     <message>
         <source>Billing Period Begin Month</source>
         <translation>청구 기간 시작 월</translation>
     </message>
-    <!-- OS:UtilityBill -->
+    
     <message>
         <source>Billing Period Begin Year</source>
         <translation>청구 기간 시작 연도</translation>
     </message>
-    <!-- OS:UtilityBill -->
+    
     <message>
         <source>Billing Period Consumption</source>
         <translation>청구 기간 소비량</translation>
     </message>
-    <!-- OS:UtilityBill -->
+    
     <message>
         <source>Billing Period Peak Demand</source>
         <translation>청구 기간 최대 수요</translation>
     </message>
-    <!-- OS:UtilityBill -->
+    
     <message>
         <source>Billing Period Total Cost</source>
         <translation>청구 기간 총 비용</translation>
     </message>
-    <!-- OS:Generator:WindTurbine -->
+    
     <message>
         <source>Blade Chord Area</source>
         <translation>날개 현 영역</translation>
     </message>
-    <!-- OS:Generator:WindTurbine -->
+    
     <message>
         <source>Blade Drag Coefficient</source>
         <translation>블레이드 항력 계수</translation>
     </message>
-    <!-- OS:Generator:WindTurbine -->
+    
     <message>
         <source>Blade Lift Coefficient</source>
         <translation>블레이드 양력 계수</translation>
     </message>
-    <!-- OS:WindowMaterial:Blind -->
+    
     <message>
         <source>Blind Bottom Opening Multiplier</source>
         <translation>블라인드 하단 개구부 승수</translation>
     </message>
-    <!-- OS:WindowMaterial:Blind -->
+    
     <message>
         <source>Blind Left Side Opening Multiplier</source>
         <translation>블라인드 좌측 개구부 승수</translation>
     </message>
-    <!-- OS:WindowMaterial:Blind -->
+    
     <message>
         <source>Blind Right Side Opening Multiplier</source>
         <translation>블라인드 우측 개구부 승수</translation>
     </message>
-    <!-- OS:WindowMaterial:Blind -->
+    
     <message>
         <source>Blind to Glass Distance</source>
         <translation>블라인드와 유리 거리</translation>
     </message>
-    <!-- OS:WindowMaterial:Blind -->
+    
     <message>
         <source>Blind Top Opening Multiplier</source>
         <translation>블라인드 상단 개구 배수</translation>
     </message>
-    <!-- OS:UtilityCost:Charge:Block -->
+    
     <message>
         <source>Block Cost per Unit Value or Variable Name</source>
         <translation>블록 단위당 비용 값 또는 변수 이름</translation>
     </message>
-    <!-- OS:UtilityCost:Charge:Block -->
+    
     <message>
         <source>Block Size Multiplier Value or Variable Name</source>
         <translation>블록 크기 승수 값 또는 변수 이름</translation>
     </message>
-    <!-- OS:UtilityCost:Charge:Block -->
+    
     <message>
         <source>Block Size Value or Variable Name</source>
         <translation>블록 크기 값 또는 변수 이름</translation>
     </message>
-    <!-- OS:CoolingTower:SingleSpeed, OS:CoolingTower:TwoSpeed, OS:CoolingTower:VariableSpeed, OS:EvaporativeFluidCooler:SingleSpeed, OS:EvaporativeFluidCooler:TwoSpeed -->
+    
     <message>
         <source>Blowdown Calculation Mode</source>
         <translation>블로우다운 계산 모드</translation>
     </message>
-    <!-- OS:CoolingTower:VariableSpeed -->
+    
     <message>
         <source>Blowdown Makeup Water Usage Schedule</source>
         <translation>블로우다운 메이크업 수 사용 스케줄</translation>
     </message>
-    <!-- OS:CoolingTower:SingleSpeed, OS:CoolingTower:TwoSpeed, OS:EvaporativeFluidCooler:SingleSpeed, OS:EvaporativeFluidCooler:TwoSpeed -->
+    
     <message>
         <source>Blowdown Makeup Water Usage Schedule Name</source>
         <translation>블로다운 메이크업 수 사용 일정 이름</translation>
     </message>
-    <!-- OS:Generator:FuelCell:AirSupply -->
+    
     <message>
         <source>Blower Heat Loss Factor</source>
         <translation>Blower Heat Loss Factor</translation>
     </message>
-    <!-- OS:Generator:FuelCell:AirSupply -->
+    
     <message>
         <source>Blower Power Curve Name</source>
         <translation>블로워 전력 곡선 이름</translation>
     </message>
-    <!-- OS:Boiler:HotWater -->
+    
     <message>
         <source>Boiler Water Inlet Node Name</source>
         <translation>보일러 급수 입구 노드 이름</translation>
     </message>
-    <!-- OS:Boiler:HotWater -->
+    
     <message>
         <source>Boiler Water Outlet Node Name</source>
         <translation>보일러 물 출구 노드 이름</translation>
     </message>
-    <!-- OS:HeatPump:AirToWater:Cooling, OS:HeatPump:AirToWater:Heating -->
+    
     <message>
         <source>Booster Mode On Speed</source>
         <translation>부스터 모드 켜기 속도</translation>
     </message>
-    <!-- OS:GroundHeatExchanger:Vertical -->
+    
     <message>
         <source>Bore Hole Length</source>
         <translation>보어홀 길이</translation>
     </message>
-    <!-- OS:GroundHeatExchanger:Vertical -->
+    
     <message>
         <source>Bore Hole Radius</source>
         <translation>보어홀 반경</translation>
     </message>
-    <!-- OS:GroundHeatExchanger:Vertical -->
+    
     <message>
         <source>Bore Hole Top Depth</source>
         <translation>지열공 상부 깊이</translation>
     </message>
-    <!-- OS:SolarCollectorPerformance:IntegralCollectorStorage -->
+    
     <message>
         <source>Bottom Heat Loss Conductance</source>
         <translation>바닥 열손실 컨덕턴스</translation>
     </message>
-    <!-- OS:WindowMaterial:Screen, OS:WindowMaterial:Shade -->
+    
     <message>
         <source>Bottom Opening Multiplier</source>
         <translation>하단 개구부 승수</translation>
     </message>
-    <!-- OS:SolarCollector:IntegralCollectorStorage -->
+    
     <message>
         <source>Bottom Surface Boundary Conditions Type</source>
         <translation>하부 표면 경계 조건 유형</translation>
     </message>
-    <!-- OS:SolarCollector:IntegralCollectorStorage -->
+    
     <message>
         <source>Boundary Condition Model Name</source>
         <translation>경계 조건 모델 이름</translation>
     </message>
-    <!-- OS:SolarCollectorPerformance:PhotovoltaicThermal:BIPVT -->
+    
     <message>
         <source>Boundary Conditions Model Name</source>
         <translation>경계 조건 모델 이름</translation>
     </message>
-    <!-- OS:AirLoopHVAC -->
+    
     <message>
         <source>Branch List Name</source>
         <translation>분기 목록 이름</translation>
     </message>
-    <!-- OS:Building -->
+    
     <message>
         <source>Building Sector Type</source>
         <translation>건물 부문 유형</translation>
     </message>
-    <!-- OS:DefaultConstructionSet -->
+    
     <message>
         <source>Building Shading Construction Name</source>
         <translation>건물 음영 구성 이름</translation>
     </message>
-    <!-- OS:Space -->
+    
     <message>
         <source>Building Story Name</source>
         <translation>건물 층 이름</translation>
     </message>
-    <!-- OS:AirflowNetworkSimulationControl -->
+    
     <message>
         <source>Building Type</source>
         <translation>건물 유형</translation>
     </message>
-    <!-- OS:Space -->
+    
     <message>
         <source>Building Unit Name</source>
         <translation>건물 유닛 이름</translation>
     </message>
-    <!-- OS:BuildingUnit -->
+    
     <message>
         <source>Building Unit Type</source>
         <translation>건물 유닛 유형</translation>
     </message>
-    <!-- OS:GroundHeatExchanger:HorizontalTrench -->
+    
     <message>
         <source>Burial Depth</source>
         <translation>매장 깊이</translation>
     </message>
-    <!-- OS:UtilityCost:Tariff -->
+    
     <message>
         <source>Buy Or Sell</source>
         <translation>구매 또는 판매</translation>
     </message>
-    <!-- OS:AirLoopHVAC:UnitaryHeatCool:VAVChangeoverBypass -->
+    
     <message>
         <source>Bypass Duct Mixer Node</source>
         <translation>바이패스 덕트 혼합기 노드</translation>
     </message>
-    <!-- OS:AirLoopHVAC:UnitaryHeatCool:VAVChangeoverBypass -->
+    
     <message>
         <source>Bypass Duct Splitter Node</source>
         <translation>바이패스 덕트 스플리터 노드</translation>
     </message>
 
-    <!-- C -->
-    <!-- OS:Construction:CfactorUndergroundWall -->
+    
+    
     <message>
         <source>C-Factor</source>
         <translation>C-Factor</translation>
     </message>
-    <!-- OS:Site:WaterMainsTemperature -->
+    
     <message>
         <source>Calculation Method</source>
         <translation>계산 방법</translation>
     </message>
-    <!-- OS:WeatherProperty:SkyTemperature -->
+    
     <message>
         <source>Calculation Type</source>
         <translation>계산 방식</translation>
     </message>
-    <!-- OS:YearDescription -->
+    
     <message>
         <source>Calendar Year</source>
         <translation>달력 연도</translation>
     </message>
-    <!-- OS:ThermalStorage:Ice:Detailed -->
+    
     <message>
         <source>Capacity</source>
         <translation>용량</translation>
     </message>
-    <!-- OS:CoolingTower:SingleSpeed, OS:EvaporativeFluidCooler:SingleSpeed -->
+    
     <message>
         <source>Capacity Control</source>
         <translation>용량 제어</translation>
     </message>
-    <!-- OS:Coil:Cooling:DX:CurveFit:Performance, OS:ZoneHVAC:FourPipeFanCoil -->
+    
     <message>
         <source>Capacity Control Method</source>
         <translation>용량 제어 방법</translation>
     </message>
-    <!-- OS:Refrigeration:AirChiller -->
+    
     <message>
         <source>Capacity Correction Curve Name</source>
         <translation>용량 보정 곡선 이름</translation>
     </message>
-    <!-- OS:Refrigeration:AirChiller -->
+    
     <message>
         <source>Capacity Correction Curve Type</source>
         <translation>용량 보정 곡선 종류</translation>
     </message>
-    <!-- OS:Chiller:Absorption:Indirect -->
+    
     <message>
         <source>Capacity Correction Function of Chilled Water Temperature Curve</source>
         <translation>냉수 온도 곡선의 용량 보정 함수</translation>
     </message>
-    <!-- OS:Chiller:Absorption:Indirect -->
+    
     <message>
         <source>Capacity Correction Function of Condenser Temperature Curve</source>
         <translation>응축기 온도 곡선의 용량 보정 함수</translation>
     </message>
-    <!-- OS:Chiller:Absorption:Indirect -->
+    
     <message>
         <source>Capacity Correction Function of Generator Temperature Curve</source>
         <translation>발전기 온도 곡선의 용량 보정 함수</translation>
     </message>
-    <!-- OS:DistrictCooling, OS:DistrictHeating:Steam, OS:DistrictHeating:Water -->
+    
     <message>
         <source>Capacity Fraction Schedule</source>
         <translation>용량 분율 스케줄</translation>
     </message>
-    <!-- OS:HeatPump:PlantLoop:EIR:Cooling, OS:HeatPump:PlantLoop:EIR:Heating -->
+    
     <message>
         <source>Capacity Modifier Function of Temperature Curve Name</source>
         <translation>용량 수정 함수 온도 곡선 이름</translation>
     </message>
-    <!-- OS:Refrigeration:AirChiller -->
+    
     <message>
         <source>Capacity Rating Type</source>
         <translation>용량 정격 유형</translation>
     </message>
-    <!-- OS:Refrigeration:Subcooler:Mechanical -->
+    
     <message>
         <source>Capacity-Providing System</source>
         <translation>용량 제공 시스템</translation>
     </message>
-    <!-- OS:ZoneCapacitanceMultiplier:ResearchSpecial -->
+    
     <message>
         <source>Carbon Dioxide Capacity Multiplier</source>
         <translation>이산화탄소 용량 승수</translation>
     </message>
-    <!-- OS:ZoneAirContaminantBalance -->
+    
     <message>
         <source>Carbon Dioxide Concentration</source>
         <translation>이산화탄소 농도</translation>
     </message>
-    <!-- OS:ZoneControl:ContaminantController -->
+    
     <message>
         <source>Carbon Dioxide Control Availability Schedule Name</source>
         <translation>이산화탄소 제어 가능성 스케줄 이름</translation>
     </message>
-    <!-- OS:ZoneControl:ContaminantController -->
+    
     <message>
         <source>Carbon Dioxide Setpoint Schedule Name</source>
         <translation>이산화탄소 설정값 스케줄 이름</translation>
     </message>
-    <!-- OS:Refrigeration:Case -->
+    
     <message>
         <source>Case Anti-Sweat Heater Power per Door</source>
         <translation>케이스 안티스웨트 히터 도어당 전력</translation>
     </message>
-    <!-- OS:Refrigeration:Case -->
+    
     <message>
         <source>Case Anti-Sweat Heater Power per Unit Length</source>
         <translation>단위 길이당 케이스 방한 히터 전력</translation>
     </message>
-    <!-- OS:Refrigeration:Case -->
+    
     <message>
         <source>Case Credit Fraction Schedule Name</source>
         <translation>케이스 크레딧 비율 스케줄 이름</translation>
     </message>
-    <!-- OS:Refrigeration:Case -->
+    
     <message>
         <source>Case Defrost Cycle Parameters Name</source>
         <translation>Case Defrost Cycle Parameters Name</translation>
     </message>
-    <!-- OS:Refrigeration:Case -->
+    
     <message>
         <source>Case Defrost Drip-Down Schedule Name</source>
         <translation>케이스 디프로스트 드립다운 스케줄 이름</translation>
     </message>
-    <!-- OS:Refrigeration:Case -->
+    
     <message>
         <source>Case Defrost Power per Door</source>
         <translation>문 당 케이스 제상 전력</translation>
     </message>
-    <!-- OS:Refrigeration:Case -->
+    
     <message>
         <source>Case Defrost Power per Unit Length</source>
         <translation>케이스 제상 전력 단위 길이당</translation>
     </message>
-    <!-- OS:Refrigeration:Case -->
+    
     <message>
         <source>Case Defrost Schedule Name</source>
         <translation>케이스 제상 스케줄 이름</translation>
     </message>
-    <!-- OS:Refrigeration:Case -->
+    
     <message>
         <source>Case Defrost Type</source>
         <translation>Case Defrost Type</translation>
     </message>
-    <!-- OS:Refrigeration:Case -->
+    
     <message>
         <source>Case Height</source>
         <translation>케이스 높이</translation>
     </message>
-    <!-- OS:Refrigeration:Case -->
+    
     <message>
         <source>Case Length</source>
         <translation>케이스 길이</translation>
     </message>
-    <!-- OS:Refrigeration:Case -->
+    
     <message>
         <source>Case Lighting Schedule Name</source>
         <translation>케이스 조명 스케줄 이름</translation>
     </message>
-    <!-- OS:Refrigeration:Case -->
+    
     <message>
         <source>Case Operating Temperature</source>
         <translation>케이스 운영 온도</translation>
     </message>
-    <!-- OS:LifeCycleCost -->
+    
     <message>
         <source>Category</source>
         <translation>카테고리</translation>
     </message>
-    <!-- OS:UtilityCost:Charge:Block, OS:UtilityCost:Charge:Simple -->
+    
     <message>
         <source>Category Variable Name</source>
         <translation>범주 변수 이름</translation>
     </message>
-    <!-- OS:Space, OS:ThermalZone -->
+    
     <message>
         <source>Ceiling Height</source>
         <translation>천장 높이</translation>
     </message>
-    <!-- OS:CoolingTower:SingleSpeed, OS:CoolingTower:TwoSpeed, OS:CoolingTower:VariableSpeed -->
+    
     <message>
         <source>Cell Minimum  Water Flow Rate Fraction</source>
         <translation>셀 최소 수유량 분율</translation>
     </message>
-    <!-- OS:PhotovoltaicPerformance:EquivalentOneDiode -->
+    
     <message>
         <source>Cell type</source>
         <translation>셀 타입</translation>
     </message>
-    <!-- OS:ElectricLoadCenter:Storage:LiIonNMCBattery -->
+    
     <message>
         <source>Cell Voltage at End of Exponential Zone</source>
         <translation>지수 영역 끝의 셀 전압</translation>
     </message>
-    <!-- OS:ElectricLoadCenter:Storage:LiIonNMCBattery -->
+    
     <message>
         <source>Cell Voltage at End of Nominal Zone</source>
         <translation>공칭 영역 끝에서의 셀 전압</translation>
     </message>
-    <!-- OS:Sizing:System -->
+    
     <message>
         <source>Central Cooling Capacity Control Method</source>
         <translation>중앙 냉각 용량 제어 방법</translation>
     </message>
-    <!-- OS:FuelFactors -->
+    
     <message>
         <source>CH4 Emission Factor</source>
         <translation>CH4 배출계수</translation>
     </message>
-    <!-- OS:FuelFactors -->
+    
     <message>
         <source>CH4 Emission Factor Schedule Name</source>
         <translation>CH4 배출 계수 스케줄 이름</translation>
     </message>
-    <!-- OS:ZoneHVAC:LowTemperatureRadiant:ConstantFlow, OS:ZoneHVAC:LowTemperatureRadiant:VariableFlow -->
+    
     <message>
         <source>Changeover Delay Time Period Schedule</source>
         <translation>전환 지연 시간 일정</translation>
     </message>
-    <!-- OS:Coil:Cooling:DX:SingleSpeed:ThermalStorage -->
+    
     <message>
         <source>Charge Only Mode Available</source>
         <translation>충전 전용 모드 사용 가능</translation>
     </message>
-    <!-- OS:Coil:Cooling:DX:SingleSpeed:ThermalStorage -->
+    
     <message>
         <source>Charge Only Mode Capacity Sizing Factor</source>
         <translation>충전 전용 모드 용량 크기 조정 계수</translation>
     </message>
-    <!-- OS:Coil:Cooling:DX:SingleSpeed:ThermalStorage -->
+    
     <message>
         <source>Charge Only Mode Charging Rated COP</source>
         <translation>충전 전용 모드 충전 정격 COP</translation>
     </message>
-    <!-- OS:Coil:Cooling:DX:SingleSpeed:ThermalStorage -->
+    
     <message>
         <source>Charge Only Mode Rated Storage Charging Capacity</source>
         <translation>충방전 전용 모드 정격 충전 용량</translation>
     </message>
-    <!-- OS:Coil:Cooling:DX:SingleSpeed:ThermalStorage -->
+    
     <message>
         <source>Charge Only Mode Storage Charge Capacity Function of Temperature Curve</source>
         <translation>Charge Only Mode Storage Charge Capacity Function of Temperature Curve</translation>
     </message>
-    <!-- OS:Coil:Cooling:DX:SingleSpeed:ThermalStorage -->
+    
     <message>
         <source>Charge Only Mode Storage Energy Input Ratio Function of Temperature Curve</source>
         <translation>충전 전용 모드 저장 에너지 입력 비율 온도 함수 곡선</translation>
     </message>
-    <!-- OS:ElectricLoadCenter:Storage:LiIonNMCBattery -->
+    
     <message>
         <source>Charge Rate at Which Voltage vs Capacity Curve Was Generated</source>
         <translation>충전 용량 곡선이 생성된 전압의 충전 속도</translation>
     </message>
-    <!-- OS:ThermalStorage:Ice:Detailed -->
+    
     <message>
         <source>Charging Curve</source>
         <translation>충전 곡선</translation>
     </message>
-    <!-- OS:ThermalStorage:Ice:Detailed -->
+    
     <message>
         <source>Charging Curve Variable Specifications</source>
         <translation>충전 곡선 변수 사양</translation>
     </message>
-    <!-- OS:WeatherFile -->
+    
     <message>
         <source>Checksum</source>
         <translation>체크섬</translation>
     </message>
-    <!-- OS:ChillerHeaterPerformance:Electric:EIR -->
+    
     <message>
         <source>Chilled Water Flow Mode Type</source>
         <translation>냉수 유량 모드 유형</translation>
     </message>
-    <!-- OS:Chiller:Absorption, OS:Chiller:Absorption:Indirect, OS:Chiller:Electric:ASHRAE205, OS:Chiller:Electric:EIR, OS:Chiller:Electric:ReformulatedEIR, OS:Coil:Cooling:CooledBeam, OS:Coil:Cooling:FourPipeBeam, OS:DistrictCooling, OS:HeatPump:AirToWater:Cooling -->
+    
     <message>
         <source>Chilled Water Inlet Node Name</source>
         <translation>냉각수 입구 노드 이름</translation>
     </message>
-    <!-- OS:Chiller:Electric:ASHRAE205 -->
+    
     <message>
         <source>Chilled Water Maximum Requested Flow Rate</source>
         <translation>냉각수 최대 요청 유량</translation>
     </message>
-    <!-- OS:Chiller:Absorption, OS:Chiller:Absorption:Indirect, OS:Chiller:Electric:ASHRAE205, OS:Chiller:Electric:EIR, OS:Chiller:Electric:ReformulatedEIR, OS:Coil:Cooling:CooledBeam, OS:Coil:Cooling:FourPipeBeam, OS:DistrictCooling, OS:HeatPump:AirToWater:Cooling -->
+    
     <message>
         <source>Chilled Water Outlet Node Name</source>
         <translation>냉수 출구 노드 이름</translation>
     </message>
-    <!-- OS:Chiller:Absorption, OS:Chiller:Absorption:Indirect -->
+    
     <message>
         <source>Chilled Water Outlet Temperature Lower Limit</source>
         <translation>냉각수 출구 온도 하한</translation>
     </message>
-    <!-- OS:CentralHeatPumpSystem -->
+    
     <message>
         <source>Chiller Heater Module List Name</source>
         <translation>냉동기 가열기 모듈 목록 이름</translation>
     </message>
-    <!-- OS:CentralHeatPumpSystem:Module -->
+    
     <message>
         <source>Chiller Heater Modules Control Schedule Name</source>
         <translation>칠러 히터 모듈 제어 스케줄 이름</translation>
     </message>
-    <!-- OS:CentralHeatPumpSystem:Module -->
+    
     <message>
         <source>Chiller Heater Modules Performance Component Name</source>
         <translation>Chiller Heater Modules 성능 구성요소 이름</translation>
     </message>
-    <!-- OS:Generator:FuelCell:ElectricalStorage -->
+    
     <message>
         <source>Choice of Model</source>
         <translation>모델 선택</translation>
     </message>
-    <!-- OS:LightingDesignDay -->
+    
     <message>
         <source>CIE Sky Model</source>
         <translation>CIE 하늘 모델</translation>
     </message>
-    <!-- OS:ZoneHVAC:LowTemperatureRadiant:ConstantFlow, OS:ZoneHVAC:LowTemperatureRadiant:VariableFlow -->
+    
     <message>
         <source>Circuit Length</source>
         <translation>회로 길이</translation>
     </message>
-    <!-- OS:Refrigeration:SecondarySystem -->
+    
     <message>
         <source>Circulating Fluid Name</source>
         <translation>순환 유체명</translation>
     </message>
-    <!-- OS:WeatherFile -->
+    
     <message>
         <source>City</source>
         <translation>도시</translation>
     </message>
-    <!-- OS:SolarCollectorPerformance:PhotovoltaicThermal:BIPVT -->
+    
     <message>
         <source>Cladding Normal Transmittance-Absorptance Product</source>
         <translation>Cladding Normal Transmittance-Absorptance Product</translation>
     </message>
-    <!-- OS:ClimateZones -->
+    
     <message>
         <source>Climate Zone Document Name</source>
         <translation>기후 지역 문서 이름</translation>
     </message>
-    <!-- OS:ClimateZones -->
+    
     <message>
         <source>Climate Zone Document Year</source>
         <translation>기후 영역 문서 연도</translation>
     </message>
-    <!-- OS:ClimateZones -->
+    
     <message>
         <source>Climate Zone Institution Name</source>
         <translation>기후대 기관명</translation>
     </message>
-    <!-- OS:ClimateZones -->
+    
     <message>
         <source>Climate Zone Value</source>
         <translation>기후대 값</translation>
     </message>
-    <!-- OS:AirflowNetworkOccupantVentilationControl -->
+    
     <message>
         <source>Closing Probability Schedule Name</source>
         <translation>닫힘 확률 스케줄 이름</translation>
     </message>
-    <!-- OS:FuelFactors -->
+    
     <message>
         <source>CO Emission Factor</source>
         <translation>CO 배출 계수</translation>
     </message>
-    <!-- OS:FuelFactors -->
+    
     <message>
         <source>CO Emission Factor Schedule Name</source>
         <translation>CO 배출 계수 스케줄 이름</translation>
     </message>
-    <!-- OS:FuelFactors -->
+    
     <message>
         <source>CO2 Emission Factor</source>
         <translation>CO2 배출 계수</translation>
     </message>
-    <!-- OS:FuelFactors -->
+    
     <message>
         <source>CO2 Emission Factor Schedule Name</source>
         <translation>CO2 배출 계수 스케줄 이름</translation>
     </message>
-    <!-- OS:LifeCycleCost:Parameters -->
+    
     <message>
         <source>Coal Inflation</source>
         <translation>석탄 인플레이션</translation>
     </message>
-    <!-- OS:MaterialProperty:MoisturePenetrationDepth:Settings -->
+    
     <message>
         <source>Coating Layer Thickness</source>
         <translation>코팅층 두께</translation>
     </message>
-    <!-- OS:MaterialProperty:MoisturePenetrationDepth:Settings -->
+    
     <message>
         <source>Coating Layer Water Vapor Diffusion Resistance Factor</source>
         <translation>코팅층 수증기 확산 저항 계수</translation>
     </message>
-    <!-- OS:CoolingTowerPerformance:CoolTools, OS:CoolingTowerPerformance:YorkCalc -->
+    
     <message>
         <source>Coefficient 1</source>
         <translation>계수 1</translation>
     </message>
-    <!-- OS:SolarCollectorPerformance:FlatPlate -->
+    
     <message>
         <source>Coefficient 1 of Efficiency Equation</source>
         <translation>효율 방정식의 계수 1</translation>
     </message>
-    <!-- OS:Boiler:Steam -->
+    
     <message>
         <source>Coefficient 1 of Fuel Use Function of Part Load Ratio Curve</source>
         <translation>부분 부하 비율 곡선 연료 사용 함수의 계수 1</translation>
     </message>
-    <!-- OS:Chiller:Absorption -->
+    
     <message>
         <source>Coefficient 1 of the Hot Water or Steam Use Part Load Ratio Curve</source>
         <translation>온수 또는 스팀 사용 부분부하비 곡선의 계수 1</translation>
     </message>
-    <!-- OS:Chiller:Absorption -->
+    
     <message>
         <source>Coefficient 1 of the Pump Electric Use Part Load Ratio Curve</source>
         <translation>펌프 전기 사용 부분 부하 비율 곡선의 계수 1</translation>
     </message>
-    <!-- OS:CoolingTowerPerformance:CoolTools, OS:CoolingTowerPerformance:YorkCalc -->
+    
     <message>
         <source>Coefficient 10</source>
         <translation>Coefficient 10</translation>
     </message>
-    <!-- OS:CoolingTowerPerformance:CoolTools, OS:CoolingTowerPerformance:YorkCalc -->
+    
     <message>
         <source>Coefficient 11</source>
         <translation>계수 11</translation>
     </message>
-    <!-- OS:CoolingTowerPerformance:CoolTools, OS:CoolingTowerPerformance:YorkCalc -->
+    
     <message>
         <source>Coefficient 12</source>
         <translation>계수 12</translation>
     </message>
-    <!-- OS:CoolingTowerPerformance:CoolTools, OS:CoolingTowerPerformance:YorkCalc -->
+    
     <message>
         <source>Coefficient 13</source>
         <translation>Coefficient 13</translation>
     </message>
-    <!-- OS:CoolingTowerPerformance:CoolTools, OS:CoolingTowerPerformance:YorkCalc -->
+    
     <message>
         <source>Coefficient 14</source>
         <translation>계수 14</translation>
     </message>
-    <!-- OS:CoolingTowerPerformance:CoolTools, OS:CoolingTowerPerformance:YorkCalc -->
+    
     <message>
         <source>Coefficient 15</source>
         <translation>계수 15</translation>
     </message>
-    <!-- OS:CoolingTowerPerformance:CoolTools, OS:CoolingTowerPerformance:YorkCalc -->
+    
     <message>
         <source>Coefficient 16</source>
         <translation>계수 16</translation>
     </message>
-    <!-- OS:CoolingTowerPerformance:CoolTools, OS:CoolingTowerPerformance:YorkCalc -->
+    
     <message>
         <source>Coefficient 17</source>
         <translation>Coefficient 17</translation>
     </message>
-    <!-- OS:CoolingTowerPerformance:CoolTools, OS:CoolingTowerPerformance:YorkCalc -->
+    
     <message>
         <source>Coefficient 18</source>
         <translation>Coefficient 18</translation>
     </message>
-    <!-- OS:CoolingTowerPerformance:CoolTools, OS:CoolingTowerPerformance:YorkCalc -->
+    
     <message>
         <source>Coefficient 19</source>
         <translation>계수 19</translation>
     </message>
-    <!-- OS:CoolingTowerPerformance:CoolTools, OS:CoolingTowerPerformance:YorkCalc -->
+    
     <message>
         <source>Coefficient 2</source>
         <translation>계수 2</translation>
     </message>
-    <!-- OS:SolarCollectorPerformance:FlatPlate -->
+    
     <message>
         <source>Coefficient 2 of Efficiency Equation</source>
         <translation>효율 방정식의 계수 2</translation>
     </message>
-    <!-- OS:Boiler:Steam -->
+    
     <message>
         <source>Coefficient 2 of Fuel Use Function of Part Load Ratio Curve</source>
         <translation>부분 부하율 곡선의 연료 사용 함수 계수 2</translation>
     </message>
-    <!-- OS:SolarCollectorPerformance:FlatPlate -->
+    
     <message>
         <source>Coefficient 2 of Incident Angle Modifier</source>
         <translation>입사각 수정자의 계수 2</translation>
     </message>
-    <!-- OS:Chiller:Absorption -->
+    
     <message>
         <source>Coefficient 2 of the Hot Water or Steam Use Part Load Ratio Curve</source>
         <translation>온수 또는 스팀 사용 부분 부하 비율 곡선의 계수 2</translation>
     </message>
-    <!-- OS:Chiller:Absorption -->
+    
     <message>
         <source>Coefficient 2 of the Pump Electric Use Part Load Ratio Curve</source>
         <translation>펌프 전기 사용 부분 부하 비율 곡선의 계수 2</translation>
     </message>
-    <!-- OS:CoolingTowerPerformance:CoolTools, OS:CoolingTowerPerformance:YorkCalc -->
+    
     <message>
         <source>Coefficient 20</source>
         <translation>계수 20</translation>
     </message>
-    <!-- OS:CoolingTowerPerformance:CoolTools, OS:CoolingTowerPerformance:YorkCalc -->
+    
     <message>
         <source>Coefficient 21</source>
         <translation>계수 21</translation>
     </message>
-    <!-- OS:CoolingTowerPerformance:CoolTools, OS:CoolingTowerPerformance:YorkCalc -->
+    
     <message>
         <source>Coefficient 22</source>
         <translation>계수 22</translation>
     </message>
-    <!-- OS:CoolingTowerPerformance:CoolTools, OS:CoolingTowerPerformance:YorkCalc -->
+    
     <message>
         <source>Coefficient 23</source>
         <translation>계수 23</translation>
     </message>
-    <!-- OS:CoolingTowerPerformance:CoolTools, OS:CoolingTowerPerformance:YorkCalc -->
+    
     <message>
         <source>Coefficient 24</source>
         <translation>계수 24</translation>
     </message>
-    <!-- OS:CoolingTowerPerformance:CoolTools, OS:CoolingTowerPerformance:YorkCalc -->
+    
     <message>
         <source>Coefficient 25</source>
         <translation>Coefficient 25</translation>
     </message>
-    <!-- OS:CoolingTowerPerformance:CoolTools, OS:CoolingTowerPerformance:YorkCalc -->
+    
     <message>
         <source>Coefficient 26</source>
         <translation>Coefficient 26</translation>
     </message>
-    <!-- OS:CoolingTowerPerformance:CoolTools, OS:CoolingTowerPerformance:YorkCalc -->
+    
     <message>
         <source>Coefficient 27</source>
         <translation>계수 27</translation>
     </message>
-    <!-- OS:CoolingTowerPerformance:CoolTools -->
+    
     <message>
         <source>Coefficient 28</source>
         <translation>계수 28</translation>
     </message>
-    <!-- OS:CoolingTowerPerformance:CoolTools -->
+    
     <message>
         <source>Coefficient 29</source>
         <translation>계수 29</translation>
     </message>
-    <!-- OS:CoolingTowerPerformance:CoolTools, OS:CoolingTowerPerformance:YorkCalc -->
+    
     <message>
         <source>Coefficient 3</source>
         <translation>계수 3</translation>
     </message>
-    <!-- OS:SolarCollectorPerformance:FlatPlate -->
+    
     <message>
         <source>Coefficient 3 of Efficiency Equation</source>
         <translation>효율 방정식의 계수 3</translation>
     </message>
-    <!-- OS:Boiler:Steam -->
+    
     <message>
         <source>Coefficient 3 of Fuel Use Function of Part Load Ratio Curve</source>
         <translation>부분 부하 비율 곡선의 연료 사용 함수 계수 3</translation>
     </message>
-    <!-- OS:SolarCollectorPerformance:FlatPlate -->
+    
     <message>
         <source>Coefficient 3 of Incident Angle Modifier</source>
         <translation>입사각 수정자의 계수 3</translation>
     </message>
-    <!-- OS:Chiller:Absorption -->
+    
     <message>
         <source>Coefficient 3 of the Hot Water or Steam Use Part Load Ratio Curve</source>
         <translation>온수 또는 스팀 사용 부분 부하 비율 곡선의 계수 3</translation>
     </message>
-    <!-- OS:Chiller:Absorption -->
+    
     <message>
         <source>Coefficient 3 of the Pump Electric Use Part Load Ratio Curve</source>
         <translation>펌프 전력 사용 부분부하율 곡선의 계수 3</translation>
     </message>
-    <!-- OS:CoolingTowerPerformance:CoolTools -->
+    
     <message>
         <source>Coefficient 30</source>
         <translation>계수 30</translation>
     </message>
-    <!-- OS:CoolingTowerPerformance:CoolTools -->
+    
     <message>
         <source>Coefficient 31</source>
         <translation>계수 31</translation>
     </message>
-    <!-- OS:CoolingTowerPerformance:CoolTools -->
+    
     <message>
         <source>Coefficient 32</source>
         <translation>계수 32</translation>
     </message>
-    <!-- OS:CoolingTowerPerformance:CoolTools -->
+    
     <message>
         <source>Coefficient 33</source>
         <translation>Coefficient 33</translation>
     </message>
-    <!-- OS:CoolingTowerPerformance:CoolTools -->
+    
     <message>
         <source>Coefficient 34</source>
         <translation>계수 34</translation>
     </message>
-    <!-- OS:CoolingTowerPerformance:CoolTools -->
+    
     <message>
         <source>Coefficient 35</source>
         <translation>계수 35</translation>
     </message>
-    <!-- OS:CoolingTowerPerformance:CoolTools, OS:CoolingTowerPerformance:YorkCalc -->
+    
     <message>
         <source>Coefficient 4</source>
         <translation>Coefficient 4</translation>
     </message>
-    <!-- OS:CoolingTowerPerformance:CoolTools, OS:CoolingTowerPerformance:YorkCalc -->
+    
     <message>
         <source>Coefficient 5</source>
         <translation>계수 5</translation>
     </message>
-    <!-- OS:CoolingTowerPerformance:CoolTools, OS:CoolingTowerPerformance:YorkCalc -->
+    
     <message>
         <source>Coefficient 6</source>
         <translation>계수 6</translation>
     </message>
-    <!-- OS:CoolingTowerPerformance:CoolTools, OS:CoolingTowerPerformance:YorkCalc -->
+    
     <message>
         <source>Coefficient 7</source>
         <translation>Coefficient 7</translation>
     </message>
-    <!-- OS:CoolingTowerPerformance:CoolTools, OS:CoolingTowerPerformance:YorkCalc -->
+    
     <message>
         <source>Coefficient 8</source>
         <translation>계수 8</translation>
     </message>
-    <!-- OS:CoolingTowerPerformance:CoolTools, OS:CoolingTowerPerformance:YorkCalc -->
+    
     <message>
         <source>Coefficient 9</source>
         <translation>계수 9</translation>
     </message>
-    <!-- OS:AirflowNetworkDuct -->
+    
     <message>
         <source>Coefficient for Local Dynamic Loss Due to Fitting</source>
         <translation>피팅으로 인한 국소 동압손실 계수</translation>
     </message>
-    <!-- OS:AirTerminal:SingleDuct:ConstantVolume:CooledBeam -->
+    
     <message>
         <source>Coefficient of Induction Kin</source>
         <translation>유도 계수 Kin</translation>
     </message>
-    <!-- OS:Generator:FuelCell:StackCooler -->
+    
     <message>
         <source>Coefficient r0</source>
         <translation>계수 r0</translation>
     </message>
-    <!-- OS:Generator:FuelCell:StackCooler -->
+    
     <message>
         <source>Coefficient r1</source>
         <translation>계수 r1</translation>
     </message>
-    <!-- OS:Generator:FuelCell:StackCooler -->
+    
     <message>
         <source>Coefficient r2</source>
         <translation>Coefficient r2</translation>
     </message>
-    <!-- OS:Generator:FuelCell:StackCooler -->
+    
     <message>
         <source>Coefficient r3</source>
         <translation>Coefficient r3</translation>
     </message>
-    <!-- OS:Curve:DoubleExponentialDecay, OS:Curve:ExponentialDecay, OS:Curve:ExponentialSkewNormal, OS:Curve:FanPressureRise, OS:Curve:RectangularHyperbola1, OS:Curve:RectangularHyperbola2, OS:Curve:Sigmoid -->
+    
     <message>
         <source>Coefficient1 C1</source>
         <translation>계수1 C1</translation>
     </message>
-    <!-- OS:Curve:Bicubic, OS:Curve:Biquadratic, OS:Curve:Cubic, OS:Curve:Exponent, OS:Curve:Linear, OS:Curve:QuadLinear, OS:Curve:Quadratic, OS:Curve:QuadraticLinear, OS:Curve:Quartic, OS:Curve:QuintLinear, OS:Curve:Triquadratic -->
+    
     <message>
         <source>Coefficient1 Constant</source>
         <translation>Coefficient1 상수</translation>
     </message>
-    <!-- OS:Curve:Bicubic, OS:Curve:Triquadratic -->
+    
     <message>
         <source>Coefficient10 x*y**2</source>
         <translation>Coefficient10 x*y**2</translation>
     </message>
-    <!-- OS:Curve:Triquadratic -->
+    
     <message>
         <source>Coefficient11 x**2*y</source>
         <translation>Coefficient11 x**2*y</translation>
     </message>
-    <!-- OS:Curve:Triquadratic -->
+    
     <message>
         <source>Coefficient12 x**2*z**2</source>
         <translation>Coefficient12 x**2*z**2</translation>
     </message>
-    <!-- OS:Curve:Triquadratic -->
+    
     <message>
         <source>Coefficient13 x*z</source>
         <translation>Coefficient13 x*z</translation>
     </message>
-    <!-- OS:Curve:Triquadratic -->
+    
     <message>
         <source>Coefficient14 x*z**2</source>
         <translation>Coefficient14 x*z**2</translation>
     </message>
-    <!-- OS:Curve:Triquadratic -->
+    
     <message>
         <source>Coefficient15 x**2*z</source>
         <translation>Coefficient15 x**2*z</translation>
     </message>
-    <!-- OS:Curve:Triquadratic -->
+    
     <message>
         <source>Coefficient16 y**2*z**2</source>
         <translation>Coefficient16 y**2*z**2</translation>
     </message>
-    <!-- OS:Curve:Triquadratic -->
+    
     <message>
         <source>Coefficient17 y*z</source>
         <translation>Coefficient17 y*z</translation>
     </message>
-    <!-- OS:Curve:Triquadratic -->
+    
     <message>
         <source>Coefficient18 y*z**2</source>
         <translation>Coefficient18 y*z**2</translation>
     </message>
-    <!-- OS:Curve:Triquadratic -->
+    
     <message>
         <source>Coefficient19 y**2*z</source>
         <translation>Coefficient19 y**2*z</translation>
     </message>
-    <!-- OS:Curve:DoubleExponentialDecay, OS:Curve:ExponentialDecay, OS:Curve:ExponentialSkewNormal, OS:Curve:FanPressureRise, OS:Curve:RectangularHyperbola1, OS:Curve:RectangularHyperbola2, OS:Curve:Sigmoid -->
+    
     <message>
         <source>Coefficient2 C2</source>
         <translation>Coefficient2 C2</translation>
     </message>
-    <!-- OS:Curve:Exponent -->
+    
     <message>
         <source>Coefficient2 Constant</source>
         <translation>Coefficient2 상수</translation>
     </message>
-    <!-- OS:Curve:QuintLinear -->
+    
     <message>
         <source>Coefficient2 v</source>
         <translation>Coefficient2 v</translation>
     </message>
-    <!-- OS:Curve:QuadLinear -->
+    
     <message>
         <source>Coefficient2 w</source>
         <translation>Coefficient2 w</translation>
     </message>
-    <!-- OS:Curve:Bicubic, OS:Curve:Biquadratic, OS:Curve:Cubic, OS:Curve:Linear, OS:Curve:Quadratic, OS:Curve:QuadraticLinear, OS:Curve:Quartic -->
+    
     <message>
         <source>Coefficient2 x</source>
         <translation>계수2 x</translation>
     </message>
-    <!-- OS:Curve:Triquadratic -->
+    
     <message>
         <source>Coefficient2 x**2</source>
         <translation>Coefficient2 x**2</translation>
     </message>
-    <!-- OS:Curve:Triquadratic -->
+    
     <message>
         <source>Coefficient20 x**2*y**2*z**2</source>
         <translation>Coefficient20 x**2*y**2*z**2</translation>
     </message>
-    <!-- OS:Curve:Triquadratic -->
+    
     <message>
         <source>Coefficient21 x**2*y**2*z</source>
         <translation>Coefficient21 x**2*y**2*z</translation>
     </message>
-    <!-- OS:Curve:Triquadratic -->
+    
     <message>
         <source>Coefficient22 x**2*y*z**2</source>
         <translation>Coefficient22 x**2*y*z**2</translation>
     </message>
-    <!-- OS:Curve:Triquadratic -->
+    
     <message>
         <source>Coefficient23 x*y**2*z**2</source>
         <translation>Coefficient23 x*y**2*z**2</translation>
     </message>
-    <!-- OS:Curve:Triquadratic -->
+    
     <message>
         <source>Coefficient24 x**2*y*z</source>
         <translation>Coefficient24 x**2*y*z</translation>
     </message>
-    <!-- OS:Curve:Triquadratic -->
+    
     <message>
         <source>Coefficient25 x*y**2*z</source>
         <translation>Coefficient25 x*y**2*z</translation>
     </message>
-    <!-- OS:Curve:Triquadratic -->
+    
     <message>
         <source>Coefficient26 x*y*z**2</source>
         <translation>Coefficient26 x*y*z**2</translation>
     </message>
-    <!-- OS:Curve:Triquadratic -->
+    
     <message>
         <source>Coefficient27 x*y*z</source>
         <translation>Coefficient27 x*y*z</translation>
     </message>
-    <!-- OS:Curve:DoubleExponentialDecay, OS:Curve:ExponentialDecay, OS:Curve:ExponentialSkewNormal, OS:Curve:FanPressureRise, OS:Curve:RectangularHyperbola1, OS:Curve:RectangularHyperbola2, OS:Curve:Sigmoid -->
+    
     <message>
         <source>Coefficient3 C3</source>
         <translation>Coefficient3 C3</translation>
     </message>
-    <!-- OS:Curve:Exponent -->
+    
     <message>
         <source>Coefficient3 Constant</source>
         <translation>계수3 상수</translation>
     </message>
-    <!-- OS:Curve:QuintLinear -->
+    
     <message>
         <source>Coefficient3 w</source>
         <translation>Coefficient3 w</translation>
     </message>
-    <!-- OS:Curve:QuadLinear, OS:Curve:Triquadratic -->
+    
     <message>
         <source>Coefficient3 x</source>
         <translation>Coefficient3 x</translation>
     </message>
-    <!-- OS:Curve:Bicubic, OS:Curve:Biquadratic, OS:Curve:Cubic, OS:Curve:Quadratic, OS:Curve:QuadraticLinear, OS:Curve:Quartic -->
+    
     <message>
         <source>Coefficient3 x**2</source>
         <translation>Coefficient3 x**2</translation>
     </message>
-    <!-- OS:Curve:DoubleExponentialDecay, OS:Curve:ExponentialSkewNormal, OS:Curve:FanPressureRise, OS:Curve:Sigmoid -->
+    
     <message>
         <source>Coefficient4 C4</source>
         <translation>Coefficient4 C4</translation>
     </message>
-    <!-- OS:Curve:QuintLinear -->
+    
     <message>
         <source>Coefficient4 x</source>
         <translation>Coefficient4 x</translation>
     </message>
-    <!-- OS:Curve:Cubic, OS:Curve:Quartic -->
+    
     <message>
         <source>Coefficient4 x**3</source>
         <translation>Coefficient4 x**3</translation>
     </message>
-    <!-- OS:Curve:Bicubic, OS:Curve:Biquadratic, OS:Curve:QuadLinear, OS:Curve:QuadraticLinear -->
+    
     <message>
         <source>Coefficient4 y</source>
         <translation>Coefficient4 y</translation>
     </message>
-    <!-- OS:Curve:Triquadratic -->
+    
     <message>
         <source>Coefficient4 y**2</source>
         <translation>계수4 y**2</translation>
     </message>
-    <!-- OS:Curve:DoubleExponentialDecay, OS:Curve:Sigmoid -->
+    
     <message>
         <source>Coefficient5 C5</source>
         <translation>계수5 C5</translation>
     </message>
-    <!-- OS:Curve:Quartic -->
+    
     <message>
         <source>Coefficient5 x**4</source>
         <translation>Coefficient5 x**4</translation>
     </message>
-    <!-- OS:Curve:QuadraticLinear -->
+    
     <message>
         <source>Coefficient5 x*y</source>
         <translation>Coefficient5 x*y</translation>
     </message>
-    <!-- OS:Curve:QuintLinear, OS:Curve:Triquadratic -->
+    
     <message>
         <source>Coefficient5 y</source>
         <translation>Coefficient5 y</translation>
     </message>
-    <!-- OS:Curve:Bicubic, OS:Curve:Biquadratic -->
+    
     <message>
         <source>Coefficient5 y**2</source>
         <translation>Coefficient5 y**2</translation>
     </message>
-    <!-- OS:Curve:QuadLinear -->
+    
     <message>
         <source>Coefficient5 z</source>
         <translation>Coefficient5 z</translation>
     </message>
-    <!-- OS:Curve:QuadraticLinear -->
+    
     <message>
         <source>Coefficient6 x**2*y</source>
         <translation>Coefficient6 x**2*y</translation>
     </message>
-    <!-- OS:Curve:Bicubic, OS:Curve:Biquadratic -->
+    
     <message>
         <source>Coefficient6 x*y</source>
         <translation>Coefficient6 x*y</translation>
     </message>
-    <!-- OS:Curve:QuintLinear -->
+    
     <message>
         <source>Coefficient6 z</source>
         <translation>Coefficient6 z</translation>
     </message>
-    <!-- OS:Curve:Triquadratic -->
+    
     <message>
         <source>Coefficient6 z**2</source>
         <translation>Coefficient6 z**2</translation>
     </message>
-    <!-- OS:Curve:Bicubic -->
+    
     <message>
         <source>Coefficient7 x**3</source>
         <translation>Coefficient7 x**3</translation>
     </message>
-    <!-- OS:Curve:Triquadratic -->
+    
     <message>
         <source>Coefficient7 z</source>
         <translation>Coefficient7 z</translation>
     </message>
-    <!-- OS:Curve:Triquadratic -->
+    
     <message>
         <source>Coefficient8 x**2*y**2</source>
         <translation>Coefficient8 x**2*y**2</translation>
     </message>
-    <!-- OS:Curve:Bicubic -->
+    
     <message>
         <source>Coefficient8 y**3</source>
         <translation>Coefficient8 y**3</translation>
     </message>
-    <!-- OS:Curve:Bicubic -->
+    
     <message>
         <source>Coefficient9 x**2*y</source>
         <translation>Coefficient9 x**2*y</translation>
     </message>
-    <!-- OS:Curve:Triquadratic -->
+    
     <message>
         <source>Coefficient9 x*y</source>
         <translation>Coefficient9 x*y</translation>
     </message>
-    <!-- OS:Coil:Cooling:DX:VariableRefrigerantFlow, OS:Coil:Cooling:DX:VariableRefrigerantFlow:FluidTemperatureControl, OS:Coil:Heating:DX:VariableRefrigerantFlow, OS:Coil:Heating:DX:VariableRefrigerantFlow:FluidTemperatureControl -->
+    
     <message>
         <source>Coil Air Inlet Node</source>
         <translation>코일 공기 입구 노드</translation>
     </message>
-    <!-- OS:Coil:Cooling:DX:VariableRefrigerantFlow, OS:Coil:Cooling:DX:VariableRefrigerantFlow:FluidTemperatureControl, OS:Coil:Heating:DX:VariableRefrigerantFlow, OS:Coil:Heating:DX:VariableRefrigerantFlow:FluidTemperatureControl -->
+    
     <message>
         <source>Coil Air Outlet Node</source>
         <translation>코일 공기 출구 노드</translation>
     </message>
-    <!-- OS:Refrigeration:AirChiller -->
+    
     <message>
         <source>Coil Material Correction Factor</source>
         <translation>코일 재질 보정 계수</translation>
     </message>
-    <!-- OS:Coil:Cooling:CooledBeam -->
+    
     <message>
         <source>Coil Surface Area per Coil Length</source>
         <translation>코일 길이당 코일 표면적</translation>
     </message>
-    <!-- OS:Sizing:Plant -->
+    
     <message>
         <source>Coincident Sizing Factor Mode</source>
         <translation>동시 크기 계산 계수 모드</translation>
     </message>
-    <!-- OS:AirTerminal:DualDuct:ConstantVolume, OS:AirTerminal:DualDuct:VAV -->
+    
     <message>
         <source>Cold Air Inlet Node</source>
         <translation>콜드 에어 입구 노드</translation>
     </message>
-    <!-- OS:AvailabilityManager:DifferentialThermostat -->
+    
     <message>
         <source>Cold Node</source>
         <translation>콜드 노드</translation>
     </message>
-    <!-- OS:Coil:Cooling:DX:SingleSpeed:ThermalStorage -->
+    
     <message>
         <source>Cold Weather Operation Ancillary Power</source>
         <translation>Cold Weather Operation Ancillary Power</translation>
     </message>
-    <!-- OS:Coil:Cooling:DX:SingleSpeed:ThermalStorage -->
+    
     <message>
         <source>Cold Weather Operation Minimum Outdoor Air Temperature</source>
         <translation>저온 운전 최소 외기 온도</translation>
     </message>
-    <!-- OS:SolarCollectorPerformance:IntegralCollectorStorage -->
+    
     <message>
         <source>Collector Side Height</source>
         <translation>수집기 측 높이</translation>
     </message>
-    <!-- OS:SolarCollectorPerformance:IntegralCollectorStorage -->
+    
     <message>
         <source>Collector Water Volume</source>
         <translation>집열기 물 용량</translation>
     </message>
-    <!-- OS:Schedule:File -->
+    
     <message>
         <source>Column Number</source>
         <translation>열 번호</translation>
     </message>
-    <!-- OS:External:File, OS:OutputControl:Table:Style, OS:Schedule:File -->
+    
     <message>
         <source>Column Separator</source>
         <translation>열 구분 기호</translation>
     </message>
-    <!-- OS:SurfaceProperty:OtherSideCoefficients -->
+    
     <message>
         <source>Combined Convective/Radiative Film Coefficient</source>
         <translation>대류/복사 통합 막 계수</translation>
     </message>
-    <!-- OS:Generator:MicroTurbine -->
+    
     <message>
         <source>Combustion Air Inlet Node Name</source>
         <translation>연소 공기 입구 노드명</translation>
     </message>
-    <!-- OS:Generator:MicroTurbine -->
+    
     <message>
         <source>Combustion Air Outlet Node Name</source>
         <translation>연소 공기 출구 노드 이름</translation>
     </message>
-    <!-- OS:ZoneHVAC:HighTemperatureRadiant -->
+    
     <message>
         <source>Combustion Efficiency</source>
         <translation>연소 효율</translation>
     </message>
-    <!-- OS:ComponentCost:Adjustments -->
+    
     <message>
         <source>Commissioning Fee</source>
         <translation>커미셔닝 수수료</translation>
     </message>
-    <!-- OS:CoilSystem:Cooling:Water -->
+    
     <message>
         <source>Companion Coil Used For Heat Recovery</source>
         <translation>열 회수용 보조 코일</translation>
     </message>
-    <!-- OS:HeatPump:AirToWater:FuelFired:Heating, OS:HeatPump:WaterToWater:EquationFit:Heating -->
+    
     <message>
         <source>Companion Cooling Heat Pump Name</source>
         <translation>보조 냉방 히트펌프 이름</translation>
     </message>
-    <!-- OS:HeatPump:PlantLoop:EIR:Cooling, OS:HeatPump:PlantLoop:EIR:Heating -->
+    
     <message>
         <source>Companion Heat Pump Name</source>
         <translation>보조 열펌프 이름</translation>
     </message>
-    <!-- OS:HeatPump:AirToWater:FuelFired:Cooling, OS:HeatPump:WaterToWater:EquationFit:Cooling -->
+    
     <message>
         <source>Companion Heating Heat Pump Name</source>
         <translation>보조 가열 히트펌프 이름</translation>
     </message>
-    <!-- OS:AirflowNetworkDistributionLinkage, OS:AirflowNetworkEquivalentDuct -->
+    
     <message>
         <source>Component Name</source>
         <translation>구성 요소 이름</translation>
     </message>
-    <!-- OS:AirflowNetworkDistributionNode -->
+    
     <message>
         <source>Component Name or Node Name</source>
         <translation>컴포넌트 이름 또는 노드 이름</translation>
     </message>
-    <!-- OS:HeatExchanger:FluidToFluid -->
+    
     <message>
         <source>Component Override Cooling Control Temperature Mode</source>
         <translation>구성요소 오버라이드 냉각 제어 온도 모드</translation>
     </message>
-    <!-- OS:HeatExchanger:FluidToFluid -->
+    
     <message>
         <source>Component Override Loop Demand Side Inlet Node</source>
         <translation>구성 요소 무시 루프 수요측 입구 노드</translation>
     </message>
-    <!-- OS:HeatExchanger:FluidToFluid -->
+    
     <message>
         <source>Component Override Loop Supply Side Inlet Node</source>
         <translation>Component Override Loop Supply Side Inlet Node</translation>
     </message>
-    <!-- OS:PlantLoop -->
+    
     <message>
         <source>Component Setpoint Operation Scheme Schedule</source>
         <translation>성분 설정점 운영 스키마 일정</translation>
     </message>
-    <!-- OS:StandardsInformation:Material -->
+    
     <message>
         <source>Composite Cavity Insulation</source>
         <translation>복합 공동 단열재</translation>
     </message>
-    <!-- OS:StandardsInformation:Material -->
+    
     <message>
         <source>Composite Framing Configuration</source>
         <translation>복합 프레이밍 구성</translation>
     </message>
-    <!-- OS:StandardsInformation:Material -->
+    
     <message>
         <source>Composite Framing Depth</source>
         <translation>복합 프레이밍 깊이</translation>
     </message>
-    <!-- OS:StandardsInformation:Material -->
+    
     <message>
         <source>Composite Framing Material</source>
         <translation>복합 프레이밍 재료</translation>
     </message>
-    <!-- OS:StandardsInformation:Material -->
+    
     <message>
         <source>Composite Framing Size</source>
         <translation>합성 프레이밍 크기</translation>
     </message>
-    <!-- OS:WaterHeater:HeatPump -->
+    
     <message>
         <source>Compressor Ambient Temperature Schedule</source>
         <translation>압축기 주변 온도 스케줄</translation>
     </message>
-    <!-- OS:WaterHeater:HeatPump:WrappedCondenser -->
+    
     <message>
         <source>Compressor Ambient Temperature Schedule Name</source>
         <translation>압축기 주변온도 스케줄 이름</translation>
     </message>
-    <!-- OS:AirConditioner:VariableRefrigerantFlow:FluidTemperatureControl:HR -->
+    
     <message>
         <source>Compressor Evaporative Capacity Correction Factor</source>
         <translation>압축기 증발 용량 보정 계수</translation>
     </message>
-    <!-- OS:Coil:Cooling:DX:CurveFit:Performance -->
+    
     <message>
         <source>Compressor Fuel Type</source>
         <translation>압축기 연료 유형</translation>
     </message>
-    <!-- OS:Generator:FuelSupply -->
+    
     <message>
         <source>Compressor Heat Loss Factor</source>
         <translation>압축기 열손실 계수</translation>
     </message>
-    <!-- OS:AirConditioner:VariableRefrigerantFlow:FluidTemperatureControl:HR -->
+    
     <message>
         <source>Compressor Inverter Efficiency</source>
         <translation>컴프레서 인버터 효율</translation>
     </message>
-    <!-- OS:WaterHeater:HeatPump, OS:WaterHeater:HeatPump:WrappedCondenser -->
+    
     <message>
         <source>Compressor Location</source>
         <translation>압축기 위치</translation>
     </message>
-    <!-- OS:AirConditioner:VariableRefrigerantFlow:FluidTemperatureControl, OS:AirConditioner:VariableRefrigerantFlow:FluidTemperatureControl:HR -->
+    
     <message>
         <source>Compressor Maximum Delta Pressure</source>
         <translation>컴프레서 최대 압력 강하</translation>
     </message>
-    <!-- OS:ChillerHeaterPerformance:Electric:EIR -->
+    
     <message>
         <source>Compressor Motor Efficiency</source>
         <translation>압축기 모터 효율</translation>
     </message>
-    <!-- OS:Generator:FuelSupply -->
+    
     <message>
         <source>Compressor Power Multiplier Function of Fuel Rate Curve Name</source>
         <translation>연료 유량 곡선에 따른 압축기 전력 승수 함수 이름</translation>
     </message>
-    <!-- OS:AirConditioner:VariableRefrigerantFlow:FluidTemperatureControl:LoadingIndex -->
+    
     <message>
         <source>Compressor Power Multiplier Function of Temperature Curve Name</source>
         <translation>압축기 전력 온도 곱셈 함수 곡선 이름</translation>
     </message>
-    <!-- OS:Refrigeration:CompressorRack -->
+    
     <message>
         <source>Compressor Rack COP Function of Temperature Curve Name</source>
         <translation>압축기 랙 COP 온도 함수 곡선 이름</translation>
     </message>
-    <!-- OS:WaterHeater:HeatPump -->
+    
     <message>
         <source>Compressor Setpoint Temperature Schedule</source>
         <translation>컴프레서 설정 온도 스케줄</translation>
     </message>
-    <!-- OS:WaterHeater:HeatPump:WrappedCondenser -->
+    
     <message>
         <source>Compressor Setpoint Temperature Schedule Name</source>
         <translation>압축기 설정점 온도 스케줄 이름</translation>
     </message>
-    <!-- OS:AirConditioner:VariableRefrigerantFlow:FluidTemperatureControl:LoadingIndex -->
+    
     <message>
         <source>Compressor Speed</source>
         <translation>압축기 속도</translation>
     </message>
-    <!-- OS:Refrigeration:System -->
+    
     <message>
         <source>CompressorList Name</source>
         <translation>CompressorList Name</translation>
     </message>
-    <!-- OS:UtilityCost:Computation -->
+    
     <message>
         <source>Compute Step</source>
         <translation>계산 단계</translation>
     </message>
-    <!-- OS:Coil:Cooling:DX:MultiSpeed, OS:Coil:Cooling:DX:SingleSpeed:ThermalStorage, OS:Coil:Cooling:DX:TwoStageWithHumidityControlMode -->
+    
     <message>
         <source>Condensate Collection Water Storage Tank</source>
         <translation>응축수 수집 저수 탱크</translation>
     </message>
-    <!-- OS:Coil:Cooling:DX, OS:Coil:Cooling:DX:SingleSpeed, OS:Coil:Cooling:DX:TwoSpeed, OS:Coil:Cooling:DX:VariableSpeed, OS:ZoneHVAC:Dehumidifier:DX -->
+    
     <message>
         <source>Condensate Collection Water Storage Tank Name</source>
         <translation>응축수 집수 물 저장 탱크 이름</translation>
     </message>
-    <!-- OS:Refrigeration:Condenser:AirCooled, OS:Refrigeration:Condenser:Cascade, OS:Refrigeration:Condenser:EvaporativeCooled, OS:Refrigeration:Condenser:WaterCooled -->
+    
     <message>
         <source>Condensate Piping Refrigerant Inventory</source>
         <translation>응축액 배관 냉매 재고</translation>
     </message>
-    <!-- OS:Refrigeration:Condenser:AirCooled, OS:Refrigeration:Condenser:Cascade, OS:Refrigeration:Condenser:EvaporativeCooled, OS:Refrigeration:Condenser:WaterCooled -->
+    
     <message>
         <source>Condensate Receiver Refrigerant Inventory</source>
         <translation>응축액 수신기 냉매 인벤토리</translation>
     </message>
-    <!-- OS:Coil:Cooling:LowTemperatureRadiant:ConstantFlow, OS:Coil:Cooling:LowTemperatureRadiant:VariableFlow, OS:Coil:Cooling:Water:Panel:Radiant -->
+    
     <message>
         <source>Condensation Control Dewpoint Offset</source>
         <translation>결로 제어 노점 오프셋</translation>
     </message>
-    <!-- OS:Coil:Cooling:LowTemperatureRadiant:ConstantFlow, OS:Coil:Cooling:LowTemperatureRadiant:VariableFlow, OS:Coil:Cooling:Water:Panel:Radiant -->
+    
     <message>
         <source>Condensation Control Type</source>
         <translation>응축 제어 유형</translation>
     </message>
-    <!-- OS:Coil:Cooling:DX:CurveFit:Speed -->
+    
     <message>
         <source>Condenser Air Flow Rate Fraction</source>
         <translation>응축기 공기 유량 분율</translation>
     </message>
-    <!-- OS:Coil:Cooling:DX:SingleSpeed:ThermalStorage -->
+    
     <message>
         <source>Condenser Air Flow Sizing Factor</source>
         <translation>응축기 공기 유량 크기 조정 인수</translation>
     </message>
-    <!-- OS:Coil:Cooling:DX:MultiSpeed, OS:Coil:Cooling:DX:SingleSpeed:ThermalStorage, OS:CoilPerformance:DX:Cooling -->
+    
     <message>
         <source>Condenser Air Inlet Node</source>
         <translation>응축기 공기 입구 노드</translation>
     </message>
-    <!-- OS:Coil:Cooling:DX:SingleSpeed, OS:Coil:Cooling:DX:TwoSpeed, OS:Coil:Cooling:DX:VariableSpeed, OS:Refrigeration:CompressorRack -->
+    
     <message>
         <source>Condenser Air Inlet Node Name</source>
         <translation>응축기 공기 입구 노드 이름</translation>
     </message>
-    <!-- OS:Coil:Cooling:DX:SingleSpeed:ThermalStorage -->
+    
     <message>
         <source>Condenser Air Outlet Node</source>
         <translation>콘덴서 공기 출구 노드</translation>
     </message>
-    <!-- OS:WaterHeater:HeatPump:WrappedCondenser -->
+    
     <message>
         <source>Condenser Bottom Location</source>
         <translation>콘덴서 하단 위치</translation>
     </message>
-    <!-- OS:Coil:Cooling:DX:SingleSpeed:ThermalStorage -->
+    
     <message>
         <source>Condenser Design Air Flow Rate</source>
         <translation>응축기 설계 공기 유량</translation>
     </message>
-    <!-- OS:Refrigeration:CompressorRack -->
+    
     <message>
         <source>Condenser Fan Power Function of Temperature Curve Name</source>
         <translation>응축기 팬 전력 온도 함수 곡선 이름</translation>
     </message>
-    <!-- OS:Refrigeration:Condenser:AirCooled -->
+    
     <message>
         <source>Condenser Fan Speed Control Type</source>
         <translation>응축기 팬 속도 제어 유형</translation>
     </message>
-    <!-- OS:Chiller:Electric:EIR, OS:Chiller:Electric:ReformulatedEIR -->
+    
     <message>
         <source>Condenser Flow Control</source>
         <translation>응축기 유량 제어</translation>
     </message>
-    <!-- OS:Chiller:Electric:EIR, OS:Chiller:Electric:ReformulatedEIR -->
+    
     <message>
         <source>Condenser Heat Recovery Relative Capacity Fraction</source>
         <translation>Condenser Heat Recovery 상대 용량 분율</translation>
     </message>
-    <!-- OS:AirConditioner:VariableRefrigerantFlow -->
+    
     <message>
         <source>Condenser Inlet Node</source>
         <translation>응축기 입구 노드</translation>
     </message>
-    <!-- OS:Chiller:Absorption, OS:Chiller:Absorption:Indirect, OS:Chiller:Electric:ASHRAE205, OS:Chiller:Electric:EIR, OS:Chiller:Electric:ReformulatedEIR, OS:Coil:Cooling:DX -->
+    
     <message>
         <source>Condenser Inlet Node Name</source>
         <translation>응축기 입구 노드 이름</translation>
     </message>
-    <!-- OS:Chiller:Absorption:Indirect -->
+    
     <message>
         <source>Condenser Inlet Temperature Lower Limit</source>
         <translation>응축기 입구 온도 하한</translation>
     </message>
-    <!-- OS:Chiller:Electric:EIR, OS:Chiller:Electric:ReformulatedEIR -->
+    
     <message>
         <source>Condenser Loop Flow Rate Fraction Function of Loop Part Load Ratio Curve Name</source>
         <translation>Condenser Loop Flow Rate Fraction Function of Loop Part Load Ratio Curve Name
 
 (또는 한국어 기술 용어로: 응축기 루프 부분 부하 비율 함수의 응축기 루프 유량 분율 곡선 이름)</translation>
     </message>
-    <!-- OS:Chiller:Electric:ASHRAE205 -->
+    
     <message>
         <source>Condenser Maximum Requested Flow Rate</source>
         <translation>응축기 최대 요청 유량</translation>
     </message>
-    <!-- OS:Chiller:Electric:EIR, OS:Chiller:Electric:ReformulatedEIR -->
+    
     <message>
         <source>Condenser Minimum Flow Fraction</source>
         <translation>응축기 최소 유량 분율</translation>
     </message>
-    <!-- OS:AirConditioner:VariableRefrigerantFlow -->
+    
     <message>
         <source>Condenser Outlet Node</source>
         <translation>응축기 출구 노드</translation>
     </message>
-    <!-- OS:Chiller:Absorption, OS:Chiller:Absorption:Indirect, OS:Chiller:Electric:ASHRAE205, OS:Chiller:Electric:EIR, OS:Chiller:Electric:ReformulatedEIR, OS:Coil:Cooling:DX -->
+    
     <message>
         <source>Condenser Outlet Node Name</source>
         <translation>응축기 출구 노드 이름</translation>
     </message>
-    <!-- OS:Coil:WaterHeating:AirToWaterHeatPump, OS:Coil:WaterHeating:AirToWaterHeatPump:VariableSpeed -->
+    
     <message>
         <source>Condenser Pump Heat Included in Rated Heating Capacity and Rated COP</source>
         <translation>정격 난방 용량 및 정격 COP에 포함된 응축기 펌프 열</translation>
     </message>
-    <!-- OS:Coil:WaterHeating:AirToWaterHeatPump, OS:Coil:WaterHeating:AirToWaterHeatPump:VariableSpeed -->
+    
     <message>
         <source>Condenser Pump Power Included in Rated COP</source>
         <translation>정격 COP에 포함된 응축기 펌프 전력</translation>
     </message>
-    <!-- OS:Refrigeration:Condenser:AirCooled, OS:Refrigeration:Condenser:Cascade, OS:Refrigeration:Condenser:EvaporativeCooled, OS:Refrigeration:Condenser:WaterCooled -->
+    
     <message>
         <source>Condenser Refrigerant Operating Charge Inventory</source>
         <translation>냉각제 응축기 충전량 인벤토리</translation>
     </message>
-    <!-- OS:WaterHeater:HeatPump:WrappedCondenser -->
+    
     <message>
         <source>Condenser Top Location</source>
         <translation>콘덴서 상단 위치</translation>
     </message>
-    <!-- OS:WaterHeater:HeatPump -->
+    
     <message>
         <source>Condenser Water Flow Rate</source>
         <translation>응축수 유량</translation>
     </message>
-    <!-- OS:Coil:WaterHeating:AirToWaterHeatPump -->
+    
     <message>
         <source>Condenser Water Inlet Node</source>
         <translation>응축수 입구 노드</translation>
     </message>
-    <!-- OS:Coil:WaterHeating:AirToWaterHeatPump:VariableSpeed -->
+    
     <message>
         <source>Condenser Water Inlet Node Name</source>
         <translation>응축수 입구 노드 이름</translation>
     </message>
-    <!-- OS:Coil:WaterHeating:AirToWaterHeatPump -->
+    
     <message>
         <source>Condenser Water Outlet Node</source>
         <translation>Condenser Water Outlet Node</translation>
     </message>
-    <!-- OS:Coil:WaterHeating:AirToWaterHeatPump:VariableSpeed -->
+    
     <message>
         <source>Condenser Water Outlet Node Name</source>
         <translation>응축수 배출 노드 이름</translation>
     </message>
-    <!-- OS:Coil:WaterHeating:AirToWaterHeatPump -->
+    
     <message>
         <source>Condenser Water Pump Power</source>
         <translation>응축수 펌프 전력</translation>
     </message>
-    <!-- OS:Coil:Cooling:DX -->
+    
     <message>
         <source>Condenser Zone</source>
         <translation>응축기 존(Condenser Zone)</translation>
     </message>
-    <!-- OS:Refrigeration:Condenser:Cascade -->
+    
     <message>
         <source>Condensing Temperature Control Type</source>
         <translation>응축 온도 제어 유형</translation>
     </message>
-    <!-- OS:Material, OS:WindowMaterial:Glazing, OS:WindowMaterial:Glazing:RefractionExtinctionMethod, OS:WindowMaterial:Screen, OS:WindowMaterial:Shade -->
+    
     <message>
         <source>Conductivity</source>
         <translation>열전도율</translation>
     </message>
-    <!-- OS:WindowMaterial:Gas -->
+    
     <message>
         <source>Conductivity Coefficient A</source>
         <translation>전도율 계수 A</translation>
     </message>
-    <!-- OS:WindowMaterial:Gas -->
+    
     <message>
         <source>Conductivity Coefficient B</source>
         <translation>전도율 계수 B</translation>
     </message>
-    <!-- OS:WindowMaterial:Gas -->
+    
     <message>
         <source>Conductivity Coefficient C</source>
         <translation>전도율 계수 C</translation>
     </message>
-    <!-- OS:Material:RoofVegetation -->
+    
     <message>
         <source>Conductivity of Dry Soil</source>
         <translation>건조 토양의 열전도율</translation>
     </message>
-    <!-- OS:ElectricLoadCenter:Transformer -->
+    
     <message>
         <source>Conductor Material</source>
         <translation>도체 재료</translation>
     </message>
-    <!-- OS:AirLoopHVAC -->
+    
     <message>
         <source>Connector List Name</source>
         <translation>커넥터 목록 이름</translation>
     </message>
-    <!-- OS:ElectricLoadCenter:Transformer -->
+    
     <message>
         <source>Consider Transformer Loss for Utility Cost</source>
         <translation>유틸리티 비용에 대한 변압기 손실 고려</translation>
     </message>
-    <!-- OS:Generator:FuelCell:PowerModule -->
+    
     <message>
         <source>Constant Skin Loss Rate</source>
         <translation>상수 표면손실률</translation>
     </message>
-    <!-- OS:AvailabilityManager:OptimumStart -->
+    
     <message>
         <source>Constant Start Time</source>
         <translation>상수 시작 시간</translation>
     </message>
-    <!-- OS:SurfaceProperty:OtherSideCoefficients -->
+    
     <message>
         <source>Constant Temperature</source>
         <translation>일정한 온도 (또는 상수 온도)</translation>
     </message>
-    <!-- OS:SurfaceProperty:OtherSideCoefficients -->
+    
     <message>
         <source>Constant Temperature Coefficient</source>
         <translation>상수 온도 계수</translation>
     </message>
-    <!-- OS:AvailabilityManager:OptimumStart -->
+    
     <message>
         <source>Constant Temperature Gradient during Cooling</source>
         <translation>냉각 중 일정한 온도 구배</translation>
     </message>
-    <!-- OS:AvailabilityManager:OptimumStart -->
+    
     <message>
         <source>Constant Temperature Gradient during Heating</source>
         <translation>난방 중 일정한 온도 구배</translation>
     </message>
-    <!-- OS:SurfaceProperty:OtherSideCoefficients -->
+    
     <message>
         <source>Constant Temperature Schedule Name</source>
         <translation>상수 온도 스케줄 이름</translation>
     </message>
-    <!-- OS:Generator:FuelSupply -->
+    
     <message>
         <source>Constituent Molar Fraction</source>
         <translation>구성 물질 몰 분율</translation>
     </message>
-    <!-- OS:Generator:FuelCell:AirSupply, OS:Generator:FuelSupply -->
+    
     <message>
         <source>Constituent Name</source>
         <translation>구성 성분 이름</translation>
     </message>
-    <!-- OS:Pipe:Indoor, OS:Pipe:Outdoor -->
+    
     <message>
         <source>Construction</source>
         <translation>구성(Construction)</translation>
     </message>
-    <!-- OS:DaylightingDevice:Tubular, OS:InteriorPartitionSurface, OS:InternalMass:Definition, OS:ShadingSurface, OS:StandardsInformation:Construction, OS:SubSurface, OS:Surface -->
+    
     <message>
         <source>Construction Name</source>
         <translation>구성(Construction) 이름</translation>
     </message>
-    <!-- OS:EnergyManagementSystem:ConstructionIndexVariable -->
+    
     <message>
         <source>Construction Object Name</source>
         <translation>구성 객체 이름</translation>
     </message>
-    <!-- OS:StandardsInformation:Construction -->
+    
     <message>
         <source>Construction Standard</source>
         <translation>건설 표준</translation>
     </message>
-    <!-- OS:StandardsInformation:Construction -->
+    
     <message>
         <source>Construction Standard Source</source>
         <translation>건설 표준 소스</translation>
     </message>
-    <!-- OS:ShadingControl -->
+    
     <message>
         <source>Construction with Shading Name</source>
         <translation>셰이딩이 포함된 구성 이름</translation>
     </message>
-    <!-- OS:UtilityBill -->
+    
     <message>
         <source>Consumption Unit</source>
         <translation>소비 단위</translation>
     </message>
-    <!-- OS:UtilityBill -->
+    
     <message>
         <source>Consumption Unit Conversion Factor</source>
         <translation>소비 단위 변환 계수</translation>
     </message>
-    <!-- OS:ComponentCost:Adjustments -->
+    
     <message>
         <source>Contingency</source>
         <translation>예비비</translation>
     </message>
-    <!-- OS:ComponentCost:Adjustments -->
+    
     <message>
         <source>Contractor Fee</source>
         <translation>계약자 수수료</translation>
     </message>
-    <!-- OS:AvailabilityManager:OptimumStart -->
+    
     <message>
         <source>Control Algorithm</source>
         <translation>제어 알고리즘</translation>
     </message>
-    <!-- OS:AirTerminal:DualDuct:VAV:OutdoorAir, OS:AirTerminal:SingleDuct:InletSideMixer, OS:AirTerminal:SingleDuct:VAV:NoReheat, OS:AirTerminal:SingleDuct:VAV:Reheat -->
+    
     <message>
         <source>Control For Outdoor Air</source>
         <translation>외기 제어</translation>
     </message>
-    <!-- OS:Controller:OutdoorAir, OS:ZoneHVAC:EnergyRecoveryVentilator:Controller -->
+    
     <message>
         <source>Control High Indoor Humidity Based on Outdoor Humidity Ratio</source>
         <translation>실외 습도비에 기반한 실내 고습도 제어</translation>
     </message>
-    <!-- OS:CentralHeatPumpSystem -->
+    
     <message>
         <source>Control Method</source>
         <translation>제어 방식</translation>
     </message>
-    <!-- OS:AirflowNetworkPressureController -->
+    
     <message>
         <source>Control Object Name</source>
         <translation>제어 객체 이름</translation>
     </message>
-    <!-- OS:AirflowNetworkPressureController -->
+    
     <message>
         <source>Control Object Type</source>
         <translation>제어 객체 유형</translation>
     </message>
-    <!-- OS:Exterior:Lights -->
+    
     <message>
         <source>Control Option</source>
         <translation>제어 옵션</translation>
     </message>
-    <!-- OS:WaterHeater:HeatPump:WrappedCondenser -->
+    
     <message>
         <source>Control Sensor 1 Height In Stratified Tank</source>
         <translation>층화 탱크의 제어 센서 1 높이</translation>
     </message>
-    <!-- OS:WaterHeater:HeatPump:WrappedCondenser -->
+    
     <message>
         <source>Control Sensor 1 Weight</source>
         <translation>제어 센서 1 가중치</translation>
     </message>
-    <!-- OS:WaterHeater:HeatPump:WrappedCondenser -->
+    
     <message>
         <source>Control Sensor 2 Height In Stratified Tank</source>
         <translation>Control Sensor 2 Height In Stratified Tank</translation>
     </message>
-    <!-- OS:WaterHeater:HeatPump -->
+    
     <message>
         <source>Control Sensor Location In Stratified Tank</source>
         <translation>층화 탱크 내 제어 센서 위치</translation>
     </message>
-    <!-- OS:AirLoopHVAC:UnitarySystem, OS:AvailabilityManager:NightCycle, OS:AvailabilityManager:OptimumStart, OS:Coil:Cooling:Water:Panel:Radiant, OS:EvaporativeCooler:Indirect:ResearchSpecial, OS:HeatExchanger:FluidToFluid, OS:HeatPump:AirToWater, OS:HeatPump:PlantLoop:EIR:Cooling, OS:HeatPump:PlantLoop:EIR:Heating -->
+    
     <message>
         <source>Control Type</source>
         <translation>제어 유형</translation>
     </message>
-    <!-- OS:AvailabilityManager:NightVentilation, OS:AvailabilityManager:OptimumStart -->
+    
     <message>
         <source>Control Zone</source>
         <translation>제어 존(Control Zone)</translation>
     </message>
-    <!-- OS:AvailabilityManager:NightCycle -->
+    
     <message>
         <source>Control Zone or Zone List Name</source>
         <translation>제어 구역 또는 구역 목록 이름</translation>
     </message>
-    <!-- OS:AvailabilityManager:HybridVentilation -->
+    
     <message>
         <source>Controlled Zone</source>
         <translation>제어 구역</translation>
     </message>
-    <!-- OS:ZoneControl:ContaminantController -->
+    
     <message>
         <source>Controlled Zone Name</source>
         <translation>제어 영역 이름</translation>
     </message>
-    <!-- OS:Controller:WaterCoil -->
+    
     <message>
         <source>Controller Convergence Tolerance</source>
         <translation>컨트롤러 수렴 허용오차</translation>
     </message>
-    <!-- OS:AirLoopHVAC -->
+    
     <message>
         <source>Controller List Name</source>
         <translation>제어기 목록 이름</translation>
     </message>
-    <!-- OS:Controller:OutdoorAir -->
+    
     <message>
         <source>Controller Mechanical Ventilation</source>
         <translation>기계 환기 컨트롤러</translation>
     </message>
-    <!-- OS:AirLoopHVAC:OutdoorAirSystem, OS:ZoneHVAC:EnergyRecoveryVentilator -->
+    
     <message>
         <source>Controller Name</source>
         <translation>컨트롤러 이름</translation>
     </message>
-    <!-- OS:AirLoopHVAC:UnitaryHeatPump:AirToAir, OS:AirLoopHVAC:UnitaryHeatPump:AirToAir:MultiSpeed, OS:AirLoopHVAC:UnitarySystem, OS:ZoneHVAC:TerminalUnit:VariableRefrigerantFlow -->
+    
     <message>
         <source>Controlling Zone or Thermostat Location</source>
         <translation>제어 구역 또는 온도조절기 위치</translation>
     </message>
-    <!-- OS:SurfaceProperty:ConvectionCoefficients, OS:SurfaceProperty:ConvectionCoefficients:MultipleSurface -->
+    
     <message>
         <source>Convection Coefficient 1</source>
         <translation>대류 계수 1</translation>
     </message>
-    <!-- OS:SurfaceProperty:ConvectionCoefficients, OS:SurfaceProperty:ConvectionCoefficients:MultipleSurface -->
+    
     <message>
         <source>Convection Coefficient 1 Location</source>
         <translation>대류 계수 1 위치</translation>
     </message>
-    <!-- OS:SurfaceProperty:ConvectionCoefficients, OS:SurfaceProperty:ConvectionCoefficients:MultipleSurface -->
+    
     <message>
         <source>Convection Coefficient 1 Schedule Name</source>
         <translation>대류 계수 1 스케줄 이름</translation>
     </message>
-    <!-- OS:SurfaceProperty:ConvectionCoefficients, OS:SurfaceProperty:ConvectionCoefficients:MultipleSurface -->
+    
     <message>
         <source>Convection Coefficient 1 Type</source>
         <translation>대류 계수 1 유형</translation>
     </message>
-    <!-- OS:SurfaceProperty:ConvectionCoefficients, OS:SurfaceProperty:ConvectionCoefficients:MultipleSurface -->
+    
     <message>
         <source>Convection Coefficient 1 User Curve Name</source>
         <translation>대류 계수 1 사용자 곡선 이름</translation>
     </message>
-    <!-- OS:SurfaceProperty:ConvectionCoefficients, OS:SurfaceProperty:ConvectionCoefficients:MultipleSurface -->
+    
     <message>
         <source>Convection Coefficient 2</source>
         <translation>대류 계수 2</translation>
     </message>
-    <!-- OS:SurfaceProperty:ConvectionCoefficients, OS:SurfaceProperty:ConvectionCoefficients:MultipleSurface -->
+    
     <message>
         <source>Convection Coefficient 2 Location</source>
         <translation>대류 계수 2 위치</translation>
     </message>
-    <!-- OS:SurfaceProperty:ConvectionCoefficients, OS:SurfaceProperty:ConvectionCoefficients:MultipleSurface -->
+    
     <message>
         <source>Convection Coefficient 2 Schedule Name</source>
         <translation>대류 계수 2 스케줄 이름</translation>
     </message>
-    <!-- OS:SurfaceProperty:ConvectionCoefficients, OS:SurfaceProperty:ConvectionCoefficients:MultipleSurface -->
+    
     <message>
         <source>Convection Coefficient 2 Type</source>
         <translation>대류 계수 2 유형</translation>
     </message>
-    <!-- OS:SurfaceProperty:ConvectionCoefficients, OS:SurfaceProperty:ConvectionCoefficients:MultipleSurface -->
+    
     <message>
         <source>Convection Coefficient 2 User Curve Name</source>
         <translation>대류 계수 2 사용자 곡선 이름</translation>
     </message>
-    <!-- OS:AirflowNetworkSimulationControl -->
+    
     <message>
         <source>Convergence Acceleration Limit</source>
         <translation>수렴 가속 한계</translation>
     </message>
-    <!-- OS:PhotovoltaicPerformance:Simple -->
+    
     <message>
         <source>Conversion Efficiency Input Mode</source>
         <translation>변환 효율 입력 모드</translation>
     </message>
-    <!-- OS:UtilityCost:Tariff -->
+    
     <message>
         <source>Conversion Factor Choice</source>
         <translation>변환 계수 선택</translation>
     </message>
-    <!-- OS:InteriorPartitionSurface -->
+    
     <message>
         <source>Convert to Internal Mass</source>
         <translation>내부 열용량으로 변환</translation>
     </message>
-    <!-- OS:AirTerminal:SingleDuct:ConstantVolume:CooledBeam -->
+    
     <message>
         <source>Cooled Beam Type</source>
         <translation>냉동 빔 유형</translation>
     </message>
-    <!-- OS:EvaporativeCooler:Direct:ResearchSpecial -->
+    
     <message>
         <source>Cooler Design Effectiveness</source>
         <translation>냉각기 설계 효율성</translation>
     </message>
-    <!-- OS:EvaporativeCooler:Indirect:ResearchSpecial -->
+    
     <message>
         <source>Cooler Drybulb Design Effectiveness</source>
         <translation>냉각기 건구 설계 효율</translation>
     </message>
-    <!-- OS:EvaporativeCooler:Indirect:ResearchSpecial -->
+    
     <message>
         <source>Cooler Flow Ratio</source>
         <translation>냉각기 유량 비율</translation>
     </message>
-    <!-- OS:EvaporativeCooler:Indirect:ResearchSpecial -->
+    
     <message>
         <source>Cooler Maximum Effectiveness</source>
         <translation>냉각 장치 최대 효율</translation>
     </message>
-    <!-- OS:ZoneHVAC:EvaporativeCoolerUnit -->
+    
     <message>
         <source>Cooler Outlet Node Name</source>
         <translation>냉각기 출구 노드 이름</translation>
     </message>
-    <!-- OS:ZoneHVAC:EvaporativeCoolerUnit -->
+    
     <message>
         <source>Cooler Unit Control Method</source>
         <translation>냉각기 제어 방식</translation>
     </message>
-    <!-- OS:Coil:Cooling:DX:SingleSpeed:ThermalStorage -->
+    
     <message>
         <source>Cooling And Charge Mode Available</source>
         <translation>냉각 및 충전 모드 사용 가능</translation>
     </message>
-    <!-- OS:Coil:Cooling:DX:SingleSpeed:ThermalStorage -->
+    
     <message>
         <source>Cooling And Charge Mode Capacity Sizing Factor</source>
         <translation>냉각 및 충전 모드 용량 크기 조정 계수</translation>
     </message>
-    <!-- OS:Coil:Cooling:DX:SingleSpeed:ThermalStorage -->
+    
     <message>
         <source>Cooling And Charge Mode Charging Rated COP</source>
         <translation>냉각 및 충전 모드 충전 정격 COP</translation>
     </message>
-    <!-- OS:Coil:Cooling:DX:SingleSpeed:ThermalStorage -->
+    
     <message>
         <source>Cooling And Charge Mode Cooling Rated COP</source>
         <translation>냉각 및 충전 모드 냉각 정격 COP</translation>
     </message>
-    <!-- OS:Coil:Cooling:DX:SingleSpeed:ThermalStorage -->
+    
     <message>
         <source>Cooling And Charge Mode Evaporator Energy Input Ratio Function of Flow Fraction Curve</source>
         <translation>냉각 및 충전 모드 증발기 에너지 입력 비율 유량 분율 곡선 함수</translation>
     </message>
-    <!-- OS:Coil:Cooling:DX:SingleSpeed:ThermalStorage -->
+    
     <message>
         <source>Cooling And Charge Mode Evaporator Energy Input Ratio Function of Temperature Curve</source>
         <translation>냉각 및 충전 모드 증발기 에너지 입력 비율 온도 함수 곡선</translation>
     </message>
-    <!-- OS:Coil:Cooling:DX:SingleSpeed:ThermalStorage -->
+    
     <message>
         <source>Cooling And Charge Mode Evaporator Part Load Fraction Correlation Curve</source>
         <translation>냉각 및 충전 모드 증발기 부분 부하 분율 상관관계 곡선</translation>
     </message>
-    <!-- OS:Coil:Cooling:DX:SingleSpeed:ThermalStorage -->
+    
     <message>
         <source>Cooling And Charge Mode Rated Sensible Heat Ratio</source>
         <translation>냉각 및 충전 모드 정격 현열 비율</translation>
     </message>
-    <!-- OS:Coil:Cooling:DX:SingleSpeed:ThermalStorage -->
+    
     <message>
         <source>Cooling And Charge Mode Rated Storage Charging Capacity</source>
         <translation>냉각 및 충전 모드 정격 축열 충전 용량</translation>
     </message>
-    <!-- OS:Coil:Cooling:DX:SingleSpeed:ThermalStorage -->
+    
     <message>
         <source>Cooling And Charge Mode Rated Total Evaporator Cooling Capacity</source>
         <translation>냉각 및 충전 모드 정격 총 증발기 냉각 용량</translation>
     </message>
-    <!-- OS:Coil:Cooling:DX:SingleSpeed:ThermalStorage -->
+    
     <message>
         <source>Cooling And Charge Mode Sensible Heat Ratio Function of Flow Fraction Curve</source>
         <translation>Cooling And Charge Mode Sensible Heat Ratio Function of Flow Fraction Curve</translation>
     </message>
-    <!-- OS:Coil:Cooling:DX:SingleSpeed:ThermalStorage -->
+    
     <message>
         <source>Cooling And Charge Mode Sensible Heat Ratio Function of Temperature Curve</source>
         <translation>냉각 및 충전 모드 현열 비율 대 온도 곡선</translation>
     </message>
-    <!-- OS:Coil:Cooling:DX:SingleSpeed:ThermalStorage -->
+    
     <message>
         <source>Cooling And Charge Mode Storage Capacity Sizing Factor</source>
         <translation>냉방 및 충방 모드 저장 용량 사이징 계수</translation>
     </message>
-    <!-- OS:Coil:Cooling:DX:SingleSpeed:ThermalStorage -->
+    
     <message>
         <source>Cooling And Charge Mode Storage Charge Capacity Function of Temperature Curve</source>
         <translation>Cooling And Charge Mode Storage Charge Capacity Function of Temperature Curve</translation>
     </message>
-    <!-- OS:Coil:Cooling:DX:SingleSpeed:ThermalStorage -->
+    
     <message>
         <source>Cooling And Charge Mode Storage Charge Capacity Function of Total Evaporator PLR Curve</source>
         <translation>냉각 및 충전 모드 저장 충전 용량 총 증발기 PLR 곡선 함수</translation>
     </message>
-    <!-- OS:Coil:Cooling:DX:SingleSpeed:ThermalStorage -->
+    
     <message>
         <source>Cooling And Charge Mode Storage Energy Input Ratio Function of Flow Fraction Curve</source>
         <translation>냉각 및 충전 모드 저장 에너지 입력 비 유량 분율 곡선 함수</translation>
     </message>
-    <!-- OS:Coil:Cooling:DX:SingleSpeed:ThermalStorage -->
+    
     <message>
         <source>Cooling And Charge Mode Storage Energy Input Ratio Function of Temperature Curve</source>
         <translation>냉각 및 충전 모드 저장 에너지 입력 비율 온도 함수 곡선</translation>
     </message>
-    <!-- OS:Coil:Cooling:DX:SingleSpeed:ThermalStorage -->
+    
     <message>
         <source>Cooling And Charge Mode Storage Energy Part Load Fraction Correlation Curve</source>
         <translation>냉각 및 충전 모드 저장 에너지 부분 부하 분율 상관 곡선</translation>
     </message>
-    <!-- OS:Coil:Cooling:DX:SingleSpeed:ThermalStorage -->
+    
     <message>
         <source>Cooling And Charge Mode Total Evaporator Cooling Capacity Function of Flow Fraction Curve</source>
         <translation>냉각 및 충전 모드 전체 증발기 냉각 용량 흐름 분율 곡선 함수</translation>
     </message>
-    <!-- OS:Coil:Cooling:DX:SingleSpeed:ThermalStorage -->
+    
     <message>
         <source>Cooling And Charge Mode Total Evaporator Cooling Capacity Function of Temperature Curve</source>
         <translation>냉각 및 충전 모드 총 증발기 냉각 용량 온도 함수 곡선</translation>
     </message>
-    <!-- OS:Coil:Cooling:DX:SingleSpeed:ThermalStorage -->
+    
     <message>
         <source>Cooling And Discharge Mode Available</source>
         <translation>냉각 및 방전 모드 사용 가능</translation>
     </message>
-    <!-- OS:Coil:Cooling:DX:SingleSpeed:ThermalStorage -->
+    
     <message>
         <source>Cooling And Discharge Mode Cooling Rated COP</source>
         <translation>냉방 및 방전 모드 냉방 정격 COP</translation>
     </message>
-    <!-- OS:Coil:Cooling:DX:SingleSpeed:ThermalStorage -->
+    
     <message>
         <source>Cooling And Discharge Mode Discharging Rated COP</source>
         <translation>냉각 및 방전 모드 방전 정격 COP</translation>
     </message>
-    <!-- OS:Coil:Cooling:DX:SingleSpeed:ThermalStorage -->
+    
     <message>
         <source>Cooling And Discharge Mode Evaporator Capacity Sizing Factor</source>
         <translation>냉각 및 배출 모드 증발기 용량 크기 조정 계수</translation>
     </message>
-    <!-- OS:Coil:Cooling:DX:SingleSpeed:ThermalStorage -->
+    
     <message>
         <source>Cooling And Discharge Mode Evaporator Energy Input Ratio Function of Flow Fraction Curve</source>
         <translation>Cooling And Discharge Mode Evaporator Energy Input Ratio Function of Flow Fraction Curve</translation>
     </message>
-    <!-- OS:Coil:Cooling:DX:SingleSpeed:ThermalStorage -->
+    
     <message>
         <source>Cooling And Discharge Mode Evaporator Energy Input Ratio Function of Temperature Curve</source>
         <translation>냉각 및 방전 모드 증발기 에너지 입력 비율 함수 온도 곡선</translation>
     </message>
-    <!-- OS:Coil:Cooling:DX:SingleSpeed:ThermalStorage -->
+    
     <message>
         <source>Cooling And Discharge Mode Evaporator Part Load Fraction Correlation Curve</source>
         <translation>냉각 및 방전 모드 증발기 부분 부하 분율 상관 곡선</translation>
     </message>
-    <!-- OS:Coil:Cooling:DX:SingleSpeed:ThermalStorage -->
+    
     <message>
         <source>Cooling And Discharge Mode Rated Sensible Heat Ratio</source>
         <translation>냉각 및 토출 모드 정격 현열 비율</translation>
     </message>
-    <!-- OS:Coil:Cooling:DX:SingleSpeed:ThermalStorage -->
+    
     <message>
         <source>Cooling And Discharge Mode Rated Storage Discharging Capacity</source>
         <translation>냉각 및 방전 모드 정격 저장 방전 용량</translation>
     </message>
-    <!-- OS:Coil:Cooling:DX:SingleSpeed:ThermalStorage -->
+    
     <message>
         <source>Cooling And Discharge Mode Rated Total Evaporator Cooling Capacity</source>
         <translation>냉각 및 방전 모드 정격 전체 증발기 냉각 용량</translation>
     </message>
-    <!-- OS:Coil:Cooling:DX:SingleSpeed:ThermalStorage -->
+    
     <message>
         <source>Cooling And Discharge Mode Sensible Heat Ratio Function of Flow Fraction Curve</source>
         <translation>냉각 및 배출 모드 현열 비 유량 분율 함수 곡선</translation>
     </message>
-    <!-- OS:Coil:Cooling:DX:SingleSpeed:ThermalStorage -->
+    
     <message>
         <source>Cooling And Discharge Mode Sensible Heat Ratio Function of Temperature Curve</source>
         <translation>냉각 및 배출 모드 현열 비율의 온도 함수 곡선</translation>
     </message>
-    <!-- OS:Coil:Cooling:DX:SingleSpeed:ThermalStorage -->
+    
     <message>
         <source>Cooling And Discharge Mode Storage Discharge Capacity Function of Flow Fraction Curve</source>
         <translation>냉각 및 방전 모드 저장소 방전 용량 유량 분율 곡선 함수</translation>
     </message>
-    <!-- OS:Coil:Cooling:DX:SingleSpeed:ThermalStorage -->
+    
     <message>
         <source>Cooling And Discharge Mode Storage Discharge Capacity Function of Temperature Curve</source>
         <translation>냉각 및 방전 모드 저장소 방전 용량 온도 함수 곡선</translation>
     </message>
-    <!-- OS:Coil:Cooling:DX:SingleSpeed:ThermalStorage -->
+    
     <message>
         <source>Cooling And Discharge Mode Storage Discharge Capacity Function of Total Evaporator PLR Curve</source>
         <translation>냉각 및 배출 모드 저장소 배출 용량 전체 증발기 PLR 곡선 함수</translation>
     </message>
-    <!-- OS:Coil:Cooling:DX:SingleSpeed:ThermalStorage -->
+    
     <message>
         <source>Cooling And Discharge Mode Storage Discharge Capacity Sizing Factor</source>
         <translation>냉각 및 방전 모드 저장 방전 용량 크기 조정 계수</translation>
     </message>
-    <!-- OS:Coil:Cooling:DX:SingleSpeed:ThermalStorage -->
+    
     <message>
         <source>Cooling And Discharge Mode Storage Energy Input Ratio Function of Flow Fraction Curve</source>
         <translation>냉각 및 방전 모드 저장 에너지 입력 비율 유량 분율 곡선 함수</translation>
     </message>
-    <!-- OS:Coil:Cooling:DX:SingleSpeed:ThermalStorage -->
+    
     <message>
         <source>Cooling And Discharge Mode Storage Energy Input Ratio Function of Temperature Curve</source>
         <translation>냉각 및 방전 모드 축열 에너지 입력 비율 온도 함수 곡선</translation>
     </message>
-    <!-- OS:Coil:Cooling:DX:SingleSpeed:ThermalStorage -->
+    
     <message>
         <source>Cooling And Discharge Mode Storage Energy Part Load Fraction Correlation Curve</source>
         <translation>냉각 및 방전 모드 저장 에너지 부분 부하율 상관 곡선</translation>
     </message>
-    <!-- OS:Coil:Cooling:DX:SingleSpeed:ThermalStorage -->
+    
     <message>
         <source>Cooling And Discharge Mode Total Evaporator Cooling Capacity Function of Flow Fraction Curve</source>
         <translation>냉각 및 방전 모드 총 증발기 냉각 용량 유량 분율 곡선 함수</translation>
     </message>
-    <!-- OS:Coil:Cooling:DX:SingleSpeed:ThermalStorage -->
+    
     <message>
         <source>Cooling And Discharge Mode Total Evaporator Cooling Capacity Function of Temperature Curve</source>
         <translation>냉각 및 방전 모드 총 증발기 냉각 용량 온도 함수 곡선</translation>
     </message>
-    <!-- OS:AirTerminal:SingleDuct:ConstantVolume:FourPipeBeam, OS:ZoneHVAC:IdealLoadsAirSystem -->
+    
     <message>
         <source>Cooling Availability Schedule Name</source>
         <translation>냉각 가용성 일정 이름</translation>
     </message>
-    <!-- OS:HeatPump:WaterToWater:EquationFit:Cooling -->
+    
     <message>
         <source>Cooling Capacity Curve Name</source>
         <translation>냉각 용량 곡선 이름</translation>
     </message>
-    <!-- OS:Coil:Cooling:DX:VariableRefrigerantFlow -->
+    
     <message>
         <source>Cooling Capacity Modifier Curve Function of Flow Fraction</source>
         <translation>냉각 용량 수정 곡선 (유량 분율의 함수)</translation>
     </message>
-    <!-- OS:AirConditioner:VariableRefrigerantFlow -->
+    
     <message>
         <source>Cooling Capacity Ratio Boundary Curve Name</source>
         <translation>냉각 용량 비율 경계 곡선 이름</translation>
     </message>
-    <!-- OS:AirConditioner:VariableRefrigerantFlow -->
+    
     <message>
         <source>Cooling Capacity Ratio Modifier Function of High Temperature Curve Name</source>
         <translation>고온 곡선 이름에 따른 냉각 용량 비율 수정 함수</translation>
     </message>
-    <!-- OS:AirConditioner:VariableRefrigerantFlow -->
+    
     <message>
         <source>Cooling Capacity Ratio Modifier Function of Low Temperature Curve Name</source>
         <translation>냉각 용량 비율 수정자 저온 곡선 함수 이름</translation>
     </message>
-    <!-- OS:Coil:Cooling:DX:VariableRefrigerantFlow -->
+    
     <message>
         <source>Cooling Capacity Ratio Modifier Function of Temperature Curve</source>
         <translation>온도 곡선의 냉각 용량 비 수정 함수</translation>
     </message>
-    <!-- OS:AirLoopHVAC:UnitaryHeatCool:VAVChangeoverBypass, OS:AirLoopHVAC:UnitaryHeatPump:AirToAir:MultiSpeed, OS:CoilSystem:Cooling:DX:HeatExchangerAssisted, OS:CoilSystem:Cooling:Water, OS:CoilSystem:Cooling:Water:HeatExchangerAssisted, OS:ZoneHVAC:TerminalUnit:VariableRefrigerantFlow -->
+    
     <message>
         <source>Cooling Coil</source>
         <translation>냉각 코일</translation>
     </message>
-    <!-- OS:AirLoopHVAC:UnitaryCoolOnly, OS:AirLoopHVAC:UnitaryHeatPump:AirToAir, OS:AirLoopHVAC:UnitarySystem, OS:AirTerminal:SingleDuct:ConstantVolume:CooledBeam, OS:AirTerminal:SingleDuct:ConstantVolume:FourPipeBeam, OS:AirTerminal:SingleDuct:ConstantVolume:FourPipeInduction, OS:ZoneHVAC:CoolingPanel:RadiantConvective:Water, OS:ZoneHVAC:FourPipeFanCoil, OS:ZoneHVAC:PackagedTerminalAirConditioner, OS:ZoneHVAC:PackagedTerminalHeatPump, OS:ZoneHVAC:UnitVentilator, OS:ZoneHVAC:WaterToAirHeatPump -->
+    
     <message>
         <source>Cooling Coil Name</source>
         <translation>냉각 코일 이름</translation>
     </message>
-    <!-- OS:AirLoopHVAC:UnitaryCoolOnly -->
+    
     <message>
         <source>Cooling Coil Object Type</source>
         <translation>냉각 코일 객체 유형</translation>
     </message>
-    <!-- OS:AirConditioner:VariableRefrigerantFlow -->
+    
     <message>
         <source>Cooling Combination Ratio Correction Factor Curve Name</source>
         <translation>냉각 조합 비율 보정 계수 곡선명</translation>
     </message>
-    <!-- OS:HeatPump:WaterToWater:EquationFit:Cooling -->
+    
     <message>
         <source>Cooling Compressor Power Curve Name</source>
         <translation>냉각 압축기 전력 곡선 이름</translation>
     </message>
-    <!-- OS:Coil:Cooling:LowTemperatureRadiant:VariableFlow, OS:Coil:Cooling:Water:Panel:Radiant -->
+    
     <message>
         <source>Cooling Control Temperature Schedule Name</source>
         <translation>냉각 제어 온도 스케줄 이름</translation>
     </message>
-    <!-- OS:Coil:Cooling:LowTemperatureRadiant:VariableFlow, OS:Coil:Cooling:Water:Panel:Radiant -->
+    
     <message>
         <source>Cooling Control Throttling Range</source>
         <translation>냉각 제어 스로틀링 범위</translation>
     </message>
-    <!-- OS:AvailabilityManager:NightCycle -->
+    
     <message>
         <source>Cooling Control Zone or Zone List Name</source>
         <translation>냉각 제어 구역 또는 구역 목록 이름</translation>
     </message>
-    <!-- OS:AirTerminal:SingleDuct:ConstantVolume:FourPipeInduction, OS:ZoneHVAC:FourPipeFanCoil, OS:ZoneHVAC:PackagedTerminalHeatPump, OS:ZoneHVAC:UnitVentilator -->
+    
     <message>
         <source>Cooling Convergence Tolerance</source>
         <translation>냉각 수렴 허용오차</translation>
     </message>
-    <!-- OS:Coil:Cooling:LowTemperatureRadiant:VariableFlow, OS:Coil:Cooling:Water:Panel:Radiant, OS:Sizing:System -->
+    
     <message>
         <source>Cooling Design Capacity</source>
         <translation>냉각 설계 용량</translation>
     </message>
-    <!-- OS:Coil:Cooling:LowTemperatureRadiant:VariableFlow, OS:Coil:Cooling:Water:Panel:Radiant, OS:Sizing:System -->
+    
     <message>
         <source>Cooling Design Capacity Method</source>
         <translation>냉각 설계 용량 방법</translation>
     </message>
-    <!-- OS:Coil:Cooling:LowTemperatureRadiant:VariableFlow, OS:Coil:Cooling:Water:Panel:Radiant, OS:Sizing:System -->
+    
     <message>
         <source>Cooling Design Capacity Per Floor Area</source>
         <translation>냉각 설계 용량(단위 면적당)</translation>
     </message>
-    <!-- OS:AirConditioner:VariableRefrigerantFlow -->
+    
     <message>
         <source>Cooling Energy Input Ratio Boundary Curve Name</source>
         <translation>냉각 에너지 입력 비율 경계 곡선 이름</translation>
     </message>
-    <!-- OS:HeatPump:AirToWater:Cooling:SpeedData -->
+    
     <message>
         <source>Cooling Energy Input Ratio Function of PLR Curve Name</source>
         <translation>냉각 에너지 입력 비 함수 PLR 곡선 이름</translation>
     </message>
-    <!-- OS:HeatPump:AirToWater:Cooling:SpeedData -->
+    
     <message>
         <source>Cooling Energy Input Ratio Function of Temperature Curve Name</source>
         <translation>냉각 에너지 입력 비율 온도 함수 곡선 이름</translation>
     </message>
-    <!-- OS:AirConditioner:VariableRefrigerantFlow -->
+    
     <message>
         <source>Cooling Energy Input Ratio Modifier Function of High Part-Load Ratio Curve Name</source>
         <translation>냉방 에너지 입력 비 수정자 고부분부하비 곡선 이름의 함수</translation>
     </message>
-    <!-- OS:AirConditioner:VariableRefrigerantFlow -->
+    
     <message>
         <source>Cooling Energy Input Ratio Modifier Function of High Temperature Curve Name</source>
         <translation>냉각 에너지 입력 비율 수정자 고온 곡선 이름 함수</translation>
     </message>
-    <!-- OS:AirConditioner:VariableRefrigerantFlow -->
+    
     <message>
         <source>Cooling Energy Input Ratio Modifier Function of Low Part-Load Ratio Curve Name</source>
         <translation>냉각 에너지 입력 비율 수정자 저부분 부하 비율 곡선 이름의 함수</translation>
     </message>
-    <!-- OS:AirConditioner:VariableRefrigerantFlow -->
+    
     <message>
         <source>Cooling Energy Input Ratio Modifier Function of Low Temperature Curve Name</source>
         <translation>냉각 에너지 입력 비율 수정자 저온 곡선 함수 이름</translation>
     </message>
-    <!-- OS:Sizing:System -->
+    
     <message>
         <source>Cooling Fraction of Autosized Cooling Supply Air Flow Rate</source>
         <translation>자동 크기 결정된 냉각 공급 공기 유량의 냉각 분율</translation>
     </message>
-    <!-- OS:ZoneHVAC:IdealLoadsAirSystem -->
+    
     <message>
         <source>Cooling Fuel Efficiency Schedule Name</source>
         <translation>냉각 연료 효율 스케줄 이름</translation>
     </message>
-    <!-- OS:ZoneHVAC:IdealLoadsAirSystem -->
+    
     <message>
         <source>Cooling Fuel Type</source>
         <translation>냉각 연료 유형</translation>
     </message>
-    <!-- OS:Coil:Cooling:LowTemperatureRadiant:ConstantFlow -->
+    
     <message>
         <source>Cooling High Control Temperature Schedule Name</source>
         <translation>냉각 고온 제어 온도 스케줄 이름</translation>
     </message>
-    <!-- OS:Coil:Cooling:LowTemperatureRadiant:ConstantFlow -->
+    
     <message>
         <source>Cooling High Water Temperature Schedule Name</source>
         <translation>냉각 높은 물 온도 스케줄 이름</translation>
     </message>
-    <!-- OS:ZoneHVAC:IdealLoadsAirSystem -->
+    
     <message>
         <source>Cooling Limit</source>
         <translation>냉각 한계</translation>
     </message>
-    <!-- OS:ZoneHVAC:EvaporativeCoolerUnit -->
+    
     <message>
         <source>Cooling Load Control Threshold Heat Transfer Rate</source>
         <translation>냉각 부하 제어 임계값 열전달 속도</translation>
     </message>
-    <!-- OS:CentralHeatPumpSystem -->
+    
     <message>
         <source>Cooling Loop Inlet Node Name</source>
         <translation>냉각 루프 입구 노드 이름</translation>
     </message>
-    <!-- OS:CentralHeatPumpSystem -->
+    
     <message>
         <source>Cooling Loop Outlet Node Name</source>
         <translation>냉각 루프 출구 노드 이름</translation>
     </message>
-    <!-- OS:Coil:Cooling:LowTemperatureRadiant:ConstantFlow -->
+    
     <message>
         <source>Cooling Low Control Temperature Schedule Name</source>
         <translation>냉각 저온 제어 온도 스케줄 이름</translation>
     </message>
-    <!-- OS:Coil:Cooling:LowTemperatureRadiant:ConstantFlow -->
+    
     <message>
         <source>Cooling Low Water Temperature Schedule Name</source>
         <translation>냉각 낮은 물 온도 스케줄 이름</translation>
     </message>
-    <!-- OS:ChillerHeaterPerformance:Electric:EIR -->
+    
     <message>
         <source>Cooling Mode Cooling Capacity Function of Temperature Curve Name</source>
         <translation>냉각 모드 냉각 용량 온도 함수 곡선 이름</translation>
     </message>
-    <!-- OS:ChillerHeaterPerformance:Electric:EIR -->
+    
     <message>
         <source>Cooling Mode Cooling Capacity Optimum Part Load Ratio</source>
         <translation>냉각 모드 냉각 용량 최적 부분 부하 비율</translation>
     </message>
-    <!-- OS:ChillerHeaterPerformance:Electric:EIR -->
+    
     <message>
         <source>Cooling Mode Electric Input to Cooling Output Ratio Function of Part Load Ratio Curve Name</source>
         <translation>냉방 모드 전기 입력 대 냉방 출력 비율 부분 부하율 곡선 함수 곡선 이름</translation>
     </message>
-    <!-- OS:ChillerHeaterPerformance:Electric:EIR -->
+    
     <message>
         <source>Cooling Mode Electric Input to Cooling Output Ratio Function of Temperature Curve Name</source>
         <translation>냉각 모드 전기 입력대 냉각 출력 비율 함수 온도 곡선 이름</translation>
     </message>
-    <!-- OS:ChillerHeaterPerformance:Electric:EIR -->
+    
     <message>
         <source>Cooling Mode Temperature Curve Condenser Water Independent Variable</source>
         <translation>냉방 모드 온도 곡선 응축수 독립 변수</translation>
     </message>
-    <!-- OS:Coil:Cooling:DX:SingleSpeed:ThermalStorage -->
+    
     <message>
         <source>Cooling Only Mode Available</source>
         <translation>냉방 전용 모드 사용 가능</translation>
     </message>
-    <!-- OS:Coil:Cooling:DX:SingleSpeed:ThermalStorage -->
+    
     <message>
         <source>Cooling Only Mode Energy Input Ratio Function of Flow Fraction Curve</source>
         <translation>Cooling Only Mode Energy Input Ratio Function of Flow Fraction Curve</translation>
     </message>
-    <!-- OS:Coil:Cooling:DX:SingleSpeed:ThermalStorage -->
+    
     <message>
         <source>Cooling Only Mode Energy Input Ratio Function of Temperature Curve</source>
         <translation>냉각 전용 모드 에너지 입력 비율 온도 함수 곡선</translation>
     </message>
-    <!-- OS:Coil:Cooling:DX:SingleSpeed:ThermalStorage -->
+    
     <message>
         <source>Cooling Only Mode Part Load Fraction Correlation Curve</source>
         <translation>냉방 전용 모드 부분 부하 분율 상관 곡선</translation>
     </message>
-    <!-- OS:Coil:Cooling:DX:SingleSpeed:ThermalStorage -->
+    
     <message>
         <source>Cooling Only Mode Rated COP</source>
         <translation>냉각 전용 모드 정격 COP</translation>
     </message>
-    <!-- OS:Coil:Cooling:DX:SingleSpeed:ThermalStorage -->
+    
     <message>
         <source>Cooling Only Mode Rated Sensible Heat Ratio</source>
         <translation>냉방 전용 모드 정격 현열 비율</translation>
     </message>
-    <!-- OS:Coil:Cooling:DX:SingleSpeed:ThermalStorage -->
+    
     <message>
         <source>Cooling Only Mode Rated Total Evaporator Cooling Capacity</source>
         <translation>Cooling Only Mode Rated Total Evaporator Cooling Capacity</translation>
     </message>
-    <!-- OS:Coil:Cooling:DX:SingleSpeed:ThermalStorage -->
+    
     <message>
         <source>Cooling Only Mode Sensible Heat Ratio Function of Flow Fraction Curve</source>
         <translation>냉각 전용 모드 현열비 유량분율 함수 곡선</translation>
     </message>
-    <!-- OS:Coil:Cooling:DX:SingleSpeed:ThermalStorage -->
+    
     <message>
         <source>Cooling Only Mode Sensible Heat Ratio Function of Temperature Curve</source>
         <translation>냉각 전용 모드 현열 비율 온도 함수 곡선</translation>
     </message>
-    <!-- OS:Coil:Cooling:DX:SingleSpeed:ThermalStorage -->
+    
     <message>
         <source>Cooling Only Mode Total Evaporator Cooling Capacity Function of Flow Fraction Curve</source>
         <translation>냉방 전용 모드 총 증발기 냉방 용량 유량 분율 곡선 함수</translation>
     </message>
-    <!-- OS:Coil:Cooling:DX:SingleSpeed:ThermalStorage -->
+    
     <message>
         <source>Cooling Only Mode Total Evaporator Cooling Capacity Function of Temperature Curve</source>
         <translation>냉방 전용 모드 총 증발기 냉방 용량 온도 곡선 함수</translation>
     </message>
-    <!-- OS:HeatPump:AirToWater -->
+    
     <message>
         <source>Cooling Operation Mode</source>
         <translation>냉각 운전 모드</translation>
     </message>
-    <!-- OS:AirConditioner:VariableRefrigerantFlow -->
+    
     <message>
         <source>Cooling Part-Load Fraction Correlation Curve Name</source>
         <translation>냉각 부분부하 분율 상관식 곡선 이름</translation>
     </message>
-    <!-- OS:Coil:Cooling:WaterToAirHeatPump:EquationFit -->
+    
     <message>
         <source>Cooling Power Consumption Curve Name</source>
         <translation>냉각 전력 소비 곡선 이름</translation>
     </message>
-    <!-- OS:ZoneHVAC:IdealLoadsAirSystem -->
+    
     <message>
         <source>Cooling Sensible Heat Ratio</source>
         <translation>냉방 현열 비율</translation>
     </message>
-    <!-- OS:ThermostatSetpoint:DualSetpoint -->
+    
     <message>
         <source>Cooling Setpoint Temperature Schedule Name</source>
         <translation>냉각 설정온도 스케줄 이름</translation>
     </message>
-    <!-- OS:Sizing:Parameters -->
+    
     <message>
         <source>Cooling Sizing Factor</source>
         <translation>냉각 용량 산정 계수</translation>
     </message>
-    <!-- OS:UnitarySystemPerformance:Multispeed -->
+    
     <message>
         <source>Cooling Speed Supply Air Flow Ratio</source>
         <translation>냉각 속도 공급 공기 유량 비율</translation>
     </message>
-    <!-- OS:SetpointManager:SingleZone:OneStageCooling -->
+    
     <message>
         <source>Cooling Stage Off Supply Air Setpoint Temperature</source>
         <translation>냉방 스테이지 오프 공급 공기 설정값 온도</translation>
     </message>
-    <!-- OS:SetpointManager:SingleZone:OneStageCooling -->
+    
     <message>
         <source>Cooling Stage On Supply Air Setpoint Temperature</source>
         <translation>냉각 스테이지 온 공급 공기 설정점 온도</translation>
     </message>
-    <!-- OS:Sizing:System -->
+    
     <message>
         <source>Cooling Supply Air Flow Rate Per Floor Area</source>
         <translation>냉방 공급 공기 유량(단위: 바닥 면적당)</translation>
     </message>
-    <!-- OS:Sizing:System -->
+    
     <message>
         <source>Cooling Supply Air Flow Rate Per Unit Cooling Capacity</source>
         <translation>냉각 용량 단위당 냉각 공급 공기 흐름율</translation>
     </message>
-    <!-- OS:ZoneControl:Thermostat:StagedDualSetpoint -->
+    
     <message>
         <source>Cooling Temperature Setpoint Base Schedule</source>
         <translation>냉각 온도 설정값 기본 스케줄</translation>
     </message>
-    <!-- OS:ZoneControl:Thermostat:StagedDualSetpoint -->
+    
     <message>
         <source>Cooling Throttling Temperature Range</source>
         <translation>냉각 스로틀링 온도 범위</translation>
     </message>
-    <!-- OS:Coil:Cooling:LowTemperatureRadiant:ConstantFlow, OS:Coil:Cooling:LowTemperatureRadiant:VariableFlow -->
+    
     <message>
         <source>Cooling Water Inlet Node Name</source>
         <translation>냉각수 입구 노드 이름</translation>
     </message>
-    <!-- OS:Coil:Cooling:LowTemperatureRadiant:ConstantFlow, OS:Coil:Cooling:LowTemperatureRadiant:VariableFlow -->
+    
     <message>
         <source>Cooling Water Outlet Node Name</source>
         <translation>냉각수 출구 노드 이름</translation>
     </message>
-    <!-- OS:Coil:WaterHeating:AirToWaterHeatPump:VariableSpeed:SpeedData -->
+    
     <message>
         <source>COP Function of Air Flow Fraction Curve Name</source>
         <translation>공기 유량 분율 곡선 COP 함수 이름</translation>
     </message>
-    <!-- OS:Coil:WaterHeating:AirToWaterHeatPump:VariableSpeed:SpeedData -->
+    
     <message>
         <source>COP Function of Temperature Curve Name</source>
         <translation>COP 온도 함수 곡선 이름</translation>
     </message>
-    <!-- OS:Coil:WaterHeating:AirToWaterHeatPump:VariableSpeed:SpeedData -->
+    
     <message>
         <source>COP Function of Water Flow Fraction Curve Name</source>
         <translation>물 유량 분율 곡선에 따른 COP 함수 이름</translation>
     </message>
-    <!-- OS:LifeCycleCost -->
+    
     <message>
         <source>Cost</source>
         <translation>비용</translation>
     </message>
-    <!-- OS:UtilityCost:Charge:Simple -->
+    
     <message>
         <source>Cost per Unit Value or Variable Name</source>
         <translation>단위당 비용 값 또는 변수명</translation>
     </message>
-    <!-- OS:LifeCycleCost -->
+    
     <message>
         <source>Cost Units</source>
         <translation>비용 단위</translation>
     </message>
-    <!-- OS:WeatherFile -->
+    
     <message>
         <source>Country</source>
         <translation>국가</translation>
     </message>
-    <!-- OS:SwimmingPool:Indoor -->
+    
     <message>
         <source>Cover Convection Factor</source>
         <translation>덮개 대류 계수</translation>
     </message>
-    <!-- OS:SwimmingPool:Indoor -->
+    
     <message>
         <source>Cover Evaporation Factor</source>
         <translation>커버 증발 계수</translation>
     </message>
-    <!-- OS:SwimmingPool:Indoor -->
+    
     <message>
         <source>Cover Long-Wavelength Radiation Factor</source>
         <translation>덮개 장파 복사 계수</translation>
     </message>
-    <!-- OS:SwimmingPool:Indoor -->
+    
     <message>
         <source>Cover Schedule Name</source>
         <translation>덮개 스케줄 이름</translation>
     </message>
-    <!-- OS:SwimmingPool:Indoor -->
+    
     <message>
         <source>Cover Short-Wavelength Radiation Factor</source>
         <translation>덮개 단파 복사 계수</translation>
     </message>
-    <!-- OS:SolarCollectorPerformance:IntegralCollectorStorage -->
+    
     <message>
         <source>Cover Spacing</source>
         <translation>커버 간격</translation>
     </message>
-    <!-- OS:ElectricEquipment:ITE:AirCooled -->
+    
     <message>
         <source>CPU End-Use Subcategory</source>
         <translation>CPU 최종 용도 세부 범주</translation>
     </message>
-    <!-- OS:ElectricEquipment:ITE:AirCooled -->
+    
     <message>
         <source>CPU Loading Schedule Name</source>
         <translation>CPU 로딩 스케줄 이름</translation>
     </message>
-    <!-- OS:ElectricEquipment:ITE:AirCooled:Definition -->
+    
     <message>
         <source>CPU Power Input Function of Loading and Air Temperature Curve Name</source>
         <translation>CPU 전력 입력 함수 로딩 및 공기 온도 곡선 이름</translation>
     </message>
-    <!-- OS:AirflowNetworkOutdoorAirflow, OS:AirflowNetworkZoneExhaustFan -->
+    
     <message>
         <source>Crack Name</source>
         <translation>균열 이름</translation>
     </message>
-    <!-- OS:ComponentData -->
+    
     <message>
         <source>Creation Timestamp</source>
         <translation>생성 타임스탬프</translation>
     </message>
-    <!-- OS:AirflowNetworkDuct -->
+    
     <message>
         <source>Cross Section Area</source>
         <translation>단면적</translation>
     </message>
-    <!-- OS:Output:Meter -->
+    
     <message>
         <source>Cumulative</source>
         <translation>누적</translation>
     </message>
-    <!-- OS:PhotovoltaicPerformance:Sandia -->
+    
     <message>
         <source>Current at Maximum Power Point</source>
         <translation>최대 전력 지점에서의 전류</translation>
     </message>
-    <!-- OS:EnergyManagementSystem:CurveOrTableIndexVariable -->
+    
     <message>
         <source>Curve or Table Object Name</source>
         <translation>곡선 또는 테이블 객체 이름</translation>
     </message>
-    <!-- OS:Table:MultiVariableLookup -->
+    
     <message>
         <source>Curve Type</source>
         <translation>곡선 유형</translation>
     </message>
-    <!-- OS:Foundation:Kiva -->
+    
     <message>
         <source>Custom Block Depth</source>
         <translation>사용자 지정 블록 깊이</translation>
     </message>
-    <!-- OS:Foundation:Kiva -->
+    
     <message>
         <source>Custom Block Material Name</source>
         <translation>사용자 정의 블록 재료 이름</translation>
     </message>
-    <!-- OS:Foundation:Kiva -->
+    
     <message>
         <source>Custom Block X Position</source>
-        <translation type="unfinished"></translation>
+        <translation>사용자 정의 블록 X 위치</translation>
     </message>
-    <!-- OS:Foundation:Kiva -->
+    
     <message>
         <source>Custom Block Z Position</source>
         <translation>Custom Block Z Position</translation>
     </message>
-    <!-- OS:Schedule:Week -->
+    
     <message>
         <source>CustomDay1 Schedule:Day Name</source>
         <translation>CustomDay1 Schedule:Day Name</translation>
     </message>
-    <!-- OS:Schedule:Week -->
+    
     <message>
         <source>CustomDay2 Schedule:Day Name</source>
         <translation>CustomDay2 Schedule:Day Name</translation>
     </message>
-    <!-- OS:UtilityCost:Tariff -->
+    
     <message>
         <source>Customer Baseline Load Schedule Name</source>
         <translation>고객 기준 부하 일정 이름</translation>
     </message>
-    <!-- OS:Generator:WindTurbine -->
+    
     <message>
         <source>Cut In Wind Speed</source>
         <translation>절단 풍속</translation>
     </message>
-    <!-- OS:Generator:WindTurbine -->
+    
     <message>
         <source>Cut Out Wind Speed</source>
         <translation>차단 풍속</translation>
     </message>
-    <!-- OS:Generator:FuelCell:PowerModule -->
+    
     <message>
         <source>Cycling Performance Degradation Coefficient</source>
         <translation>사이클링 성능 저하 계수</translation>
     </message>
-    <!-- OS:HeatPump:AirToWater:FuelFired:Cooling, OS:HeatPump:AirToWater:FuelFired:Heating -->
+    
     <message>
         <source>Cycling Ratio Factor Curve Name</source>
         <translation>사이클링 비율 계수 곡선 이름</translation>
     </message>
-    <!-- OS:AvailabilityManager:NightCycle -->
+    
     <message>
         <source>Cycling Run Time</source>
         <translation>사이클링 운전 시간</translation>
     </message>
-    <!-- OS:AvailabilityManager:NightCycle -->
+    
     <message>
         <source>Cycling Run Time Control Type</source>
         <translation>순환 운행 시간 제어 유형</translation>
     </message>
 
-    <!-- D -->
-    <!-- OS:SizingPeriod:DesignDay -->
+    
+    
     <message>
         <source>Daily Dry-Bulb Temperature Range</source>
         <translation>일일 건구 온도 범위</translation>
     </message>
-    <!-- OS:SizingPeriod:DesignDay -->
+    
     <message>
         <source>Daily Wet-Bulb Temperature Range</source>
         <translation>일일 습구 온도 범위</translation>
     </message>
-    <!-- OS:AirTerminal:SingleDuct:VAV:HeatAndCool:Reheat -->
+    
     <message>
         <source>Damper Air Outlet</source>
         <translation>댐퍼 공기 출구</translation>
     </message>
-    <!-- OS:Table:MultiVariableLookup -->
+    
     <message>
         <source>Data</source>
         <translation>데이터</translation>
     </message>
-    <!-- OS:WeatherFile -->
+    
     <message>
         <source>Data Source</source>
         <translation>데이터 소스</translation>
     </message>
-    <!-- OS:Schedule:Rule -->
+    
     <message>
         <source>Date Specification Type</source>
         <translation>날짜 지정 유형</translation>
     </message>
-    <!-- OS:Schedule:VariableInterval, OS:Schedule:Year -->
+    
     <message>
         <source>Day</source>
         <translation>일</translation>
     </message>
-    <!-- OS:LightingDesignDay, OS:SizingPeriod:DesignDay -->
+    
     <message>
         <source>Day of Month</source>
         <translation>월의 일(Day of Month)</translation>
     </message>
-    <!-- OS:SizingPeriod:WeatherFileConditionType, OS:SizingPeriod:WeatherFileDays, OS:YearDescription -->
+    
     <message>
         <source>Day of Week for Start Day</source>
         <translation>시작일의 요일</translation>
     </message>
-    <!-- OS:Schedule:Rule -->
+    
     <message>
         <source>Day Schedule Name</source>
         <translation>일일 일정 이름</translation>
     </message>
-    <!-- OS:SizingPeriod:DesignDay -->
+    
     <message>
         <source>Day Type</source>
         <translation>일일 유형</translation>
     </message>
-    <!-- OS:WindowMaterial:DaylightRedirectionDevice -->
+    
     <message>
         <source>Daylight Redirection Device Type</source>
         <translation>주광 리다이렉션 장치 유형</translation>
     </message>
-    <!-- OS:SizingPeriod:DesignDay -->
+    
     <message>
         <source>Daylight Saving Time Indicator</source>
         <translation>일광절약시간 표시기</translation>
     </message>
-    <!-- OS:Generator:PVWatts -->
+    
     <message>
         <source>DC System Capacity</source>
         <translation>DC System Capacity</translation>
     </message>
-    <!-- OS:ElectricLoadCenter:Inverter:PVWatts -->
+    
     <message>
         <source>DC to AC Size Ratio</source>
         <translation>DC to AC 크기 비율</translation>
     </message>
-    <!-- OS:ElectricLoadCenter:Storage:LiIonNMCBattery -->
+    
     <message>
         <source>DC to DC Charging Efficiency</source>
         <translation>DC to DC 충전 효율</translation>
     </message>
-    <!-- OS:Coil:WaterHeating:Desuperheater, OS:WaterHeater:HeatPump, OS:WaterHeater:HeatPump:WrappedCondenser -->
+    
     <message>
         <source>Dead Band Temperature Difference</source>
         <translation>데드밴드 온도 차이</translation>
     </message>
-    <!-- OS:Site:GroundTemperature:Deep -->
+    
     <message>
         <source>December Deep Ground Temperature</source>
         <translation>12월 심층 지반 온도</translation>
     </message>
-    <!-- OS:Site:GroundReflectance -->
+    
     <message>
         <source>December Ground Reflectance</source>
         <translation>12월 지면 반사율</translation>
     </message>
-    <!-- OS:Site:GroundTemperature:BuildingSurface, OS:Site:GroundTemperature:FCfactorMethod -->
+    
     <message>
         <source>December Ground Temperature</source>
         <translation>December 지표면 온도</translation>
     </message>
-    <!-- OS:Site:GroundTemperature:Shallow -->
+    
     <message>
         <source>December Surface Ground Temperature</source>
         <translation>12월 지표면 지중 온도</translation>
     </message>
-    <!-- OS:UtilityCost:Variable -->
+    
     <message>
         <source>December Value</source>
         <translation>12월 값</translation>
     </message>
-    <!-- OS:CoilSystem:IntegratedHeatPump:AirSource -->
+    
     <message>
         <source>Dedicated Water Heating Coil</source>
         <translation>전용 온수 가열 코일</translation>
     </message>
-    <!-- OS:MaterialProperty:MoisturePenetrationDepth:Settings -->
+    
     <message>
         <source>Deep Layer Penetration Depth</source>
         <translation>심층 침투 깊이</translation>
     </message>
-    <!-- OS:Foundation:Kiva:Settings -->
+    
     <message>
         <source>Deep-Ground Boundary Condition</source>
         <translation>심층 지반 경계 조건</translation>
     </message>
-    <!-- OS:Foundation:Kiva:Settings -->
+    
     <message>
         <source>Deep-Ground Depth</source>
         <translation>깊은 지표 깊이</translation>
     </message>
-    <!-- OS:Building, OS:BuildingStory, OS:Space, OS:SpaceType -->
+    
     <message>
         <source>Default Construction Set Name</source>
         <translation>기본 구성 세트 이름</translation>
     </message>
-    <!-- OS:DefaultConstructionSet -->
+    
     <message>
         <source>Default Exterior SubSurface Constructions Name</source>
         <translation>기본 외부 부분 표면 구조 이름</translation>
     </message>
-    <!-- OS:DefaultConstructionSet -->
+    
     <message>
         <source>Default Exterior Surface Constructions Name</source>
         <translation>기본 외부 표면 구성 이름</translation>
     </message>
-    <!-- OS:DefaultConstructionSet -->
+    
     <message>
         <source>Default Ground Contact Surface Constructions Name</source>
         <translation>기본 지면 접촉 표면 구성 이름</translation>
     </message>
-    <!-- OS:DefaultConstructionSet -->
+    
     <message>
         <source>Default Interior SubSurface Constructions Name</source>
         <translation>기본 실내 부표면 구성 이름</translation>
     </message>
-    <!-- OS:DefaultConstructionSet -->
+    
     <message>
         <source>Default Interior Surface Constructions Name</source>
         <translation>기본 내부 표면 구성 이름</translation>
     </message>
-    <!-- OS:ElectricLoadCenter:Storage:LiIonNMCBattery -->
+    
     <message>
         <source>Default Nominal Cell Voltage</source>
         <translation>기본 공칭 셀 전압</translation>
     </message>
-    <!-- OS:Building, OS:BuildingStory, OS:Space, OS:SpaceType -->
+    
     <message>
         <source>Default Schedule Set Name</source>
         <translation>기본 스케줄 세트 이름</translation>
     </message>
-    <!-- OS:Refrigeration:DefrostCycleParameters -->
+    
     <message>
         <source>Defrost 1 Hour Start Time</source>
         <translation>Defrost 1 시간 시작 시간</translation>
     </message>
-    <!-- OS:Refrigeration:DefrostCycleParameters -->
+    
     <message>
         <source>Defrost 1 Minute Start Time</source>
         <translation>제상 1분 시작 시간</translation>
     </message>
-    <!-- OS:Refrigeration:DefrostCycleParameters -->
+    
     <message>
         <source>Defrost 2 Hour Start Time</source>
         <translation>제상 2시간 시작 시간</translation>
     </message>
-    <!-- OS:Refrigeration:DefrostCycleParameters -->
+    
     <message>
         <source>Defrost 2 Minute Start Time</source>
         <translation>디프로스트 2분 시작 시간</translation>
     </message>
-    <!-- OS:Refrigeration:DefrostCycleParameters -->
+    
     <message>
         <source>Defrost 3 Hour Start Time</source>
         <translation>제상 3시간 시작 시간</translation>
     </message>
-    <!-- OS:Refrigeration:DefrostCycleParameters -->
+    
     <message>
         <source>Defrost 3 Minute Start Time</source>
         <translation>제상 3분 시작 시간</translation>
     </message>
-    <!-- OS:Refrigeration:DefrostCycleParameters -->
+    
     <message>
         <source>Defrost 4 Hour Start Time</source>
         <translation>제상 4시간 시작 시간</translation>
     </message>
-    <!-- OS:Refrigeration:DefrostCycleParameters -->
+    
     <message>
         <source>Defrost 4 Minute Start Time</source>
         <translation>제상(Defrost) 4분 시작 시간</translation>
     </message>
-    <!-- OS:Refrigeration:DefrostCycleParameters -->
+    
     <message>
         <source>Defrost 5 Hour Start Time</source>
         <translation>제상 5시간 시작 시간</translation>
     </message>
-    <!-- OS:Refrigeration:DefrostCycleParameters -->
+    
     <message>
         <source>Defrost 5 Minute Start Time</source>
         <translation>제상 5분 시작 시간</translation>
     </message>
-    <!-- OS:Refrigeration:DefrostCycleParameters -->
+    
     <message>
         <source>Defrost 6 Hour Start Time</source>
         <translation>Defrost 6시간 시작 시간</translation>
     </message>
-    <!-- OS:Refrigeration:DefrostCycleParameters -->
+    
     <message>
         <source>Defrost 6 Minute Start Time</source>
         <translation>제상 6분 시작 시간</translation>
     </message>
-    <!-- OS:Refrigeration:DefrostCycleParameters -->
+    
     <message>
         <source>Defrost 7 Hour Start Time</source>
         <translation>Defrost 7시간 시작 시간</translation>
     </message>
-    <!-- OS:Refrigeration:DefrostCycleParameters -->
+    
     <message>
         <source>Defrost 7 Minute Start Time</source>
         <translation>제상 7분 시작 시간</translation>
     </message>
-    <!-- OS:Refrigeration:DefrostCycleParameters -->
+    
     <message>
         <source>Defrost 8 Hour Start Time</source>
         <translation>제상(Defrost) 8시간 시작 시간</translation>
     </message>
-    <!-- OS:Refrigeration:DefrostCycleParameters -->
+    
     <message>
         <source>Defrost 8 Minute Start Time</source>
         <translation>Defrost 8분 시작 시간</translation>
     </message>
-    <!-- OS:HeatPump:AirToWater:FuelFired:Heating, OS:Refrigeration:AirChiller, OS:Refrigeration:WalkIn -->
+    
     <message>
         <source>Defrost Control Type</source>
         <translation>제상 제어 유형</translation>
     </message>
-    <!-- OS:Refrigeration:AirChiller, OS:Refrigeration:WalkIn -->
+    
     <message>
         <source>Defrost Drip-Down Schedule Name</source>
         <translation>제상 드립다운 스케줄 이름</translation>
     </message>
-    <!-- OS:Refrigeration:Case -->
+    
     <message>
         <source>Defrost Energy Correction Curve Name</source>
         <translation>디프로스트 에너지 보정 곡선 이름</translation>
     </message>
-    <!-- OS:Refrigeration:Case -->
+    
     <message>
         <source>Defrost Energy Correction Curve Type</source>
         <translation>제상 에너지 보정 곡선 유형</translation>
     </message>
-    <!-- OS:Coil:Heating:DX:MultiSpeed, OS:Coil:Heating:DX:SingleSpeed, OS:Coil:Heating:DX:VariableSpeed, OS:HeatPump:AirToWater, OS:HeatPump:PlantLoop:EIR:Heating -->
+    
     <message>
         <source>Defrost Energy Input Ratio Function of Temperature Curve Name</source>
         <translation>온도 곡선 기준 제상 에너지 입력 비율 함수 이름</translation>
     </message>
-    <!-- OS:AirConditioner:VariableRefrigerantFlow, OS:AirConditioner:VariableRefrigerantFlow:FluidTemperatureControl, OS:AirConditioner:VariableRefrigerantFlow:FluidTemperatureControl:HR -->
+    
     <message>
         <source>Defrost Energy Input Ratio Modifier Function of Temperature Curve Name</source>
         <translation>제상 에너지 입력 비율 온도 함수 곡선 이름</translation>
     </message>
-    <!-- OS:HeatPump:AirToWater:FuelFired:Heating -->
+    
     <message>
         <source>Defrost Operation Time Fraction</source>
         <translation>제상 운전 시간 비율</translation>
     </message>
-    <!-- OS:Refrigeration:AirChiller, OS:Refrigeration:WalkIn -->
+    
     <message>
         <source>Defrost Power</source>
         <translation>제상 전력</translation>
     </message>
-    <!-- OS:Refrigeration:AirChiller, OS:Refrigeration:WalkIn -->
+    
     <message>
         <source>Defrost Schedule Name</source>
         <translation>제상 스케줄 이름</translation>
     </message>
-    <!-- OS:Refrigeration:AirChiller, OS:Refrigeration:WalkIn -->
+    
     <message>
         <source>Defrost Type</source>
         <translation>제상 유형</translation>
     </message>
-    <!-- OS:LoadProfile:Plant -->
+    
     <message>
         <source>Degree of Loop SubCooling</source>
         <translation>루프 과냉각 정도</translation>
     </message>
-    <!-- OS:LoadProfile:Plant -->
+    
     <message>
         <source>Degree of SubCooling</source>
         <translation>과냉각도</translation>
     </message>
-    <!-- OS:Chiller:Absorption:Indirect -->
+    
     <message>
         <source>Degree of Subcooling in Steam Condensate Loop</source>
         <translation>증기 응축수 루프의 과냉각도</translation>
     </message>
-    <!-- OS:Chiller:Absorption, OS:Chiller:Absorption:Indirect -->
+    
     <message>
         <source>Degree of Subcooling in Steam Generator</source>
         <translation>스팀 생성기의 과냉도 (Degree of Subcooling in Steam Generator)</translation>
     </message>
-    <!-- OS:AirLoopHVAC:UnitaryCoolOnly, OS:AirLoopHVAC:UnitaryHeatCool:VAVChangeoverBypass, OS:AirLoopHVAC:UnitaryHeatPump:AirToAir, OS:AirLoopHVAC:UnitarySystem, OS:CoilSystem:Cooling:Water, OS:ZoneHVAC:IdealLoadsAirSystem -->
+    
     <message>
         <source>Dehumidification Control Type</source>
         <translation>제습 제어 방식</translation>
     </message>
-    <!-- OS:Coil:Cooling:DX:TwoStageWithHumidityControlMode -->
+    
     <message>
         <source>Dehumidification Mode 1 Stage 1 Coil Performance</source>
         <translation>제습 모드 1 스테이지 1 코일 성능</translation>
     </message>
-    <!-- OS:Coil:Cooling:DX:TwoStageWithHumidityControlMode -->
+    
     <message>
         <source>Dehumidification Mode 1 Stage 1 Plus 2 Coil Performance</source>
         <translation>제습 모드 1 스테이지 1 플러스 2 코일 성능</translation>
     </message>
-    <!-- OS:ZoneControl:Humidistat -->
+    
     <message>
         <source>Dehumidifying Relative Humidity Setpoint Schedule Name</source>
         <translation>제습 상대습도 설정값 스케줄 이름</translation>
     </message>
-    <!-- OS:ZoneMixing, OS:ZoneVentilation:DesignFlowRate, OS:ZoneVentilation:WindandStackOpenArea -->
+    
     <message>
         <source>Delta Temperature</source>
         <translation>온도 차이</translation>
     </message>
-    <!-- OS:ZoneMixing, OS:ZoneVentilation:DesignFlowRate, OS:ZoneVentilation:WindandStackOpenArea -->
+    
     <message>
         <source>Delta Temperature Schedule Name</source>
         <translation>델타 온도 스케줄 이름</translation>
     </message>
-    <!-- OS:Controller:MechanicalVentilation -->
+    
     <message>
         <source>Demand Controlled Ventilation</source>
         <translation>수요 제어 환기</translation>
     </message>
-    <!-- OS:ZoneHVAC:IdealLoadsAirSystem -->
+    
     <message>
         <source>Demand Controlled Ventilation Type</source>
         <translation>수요 제어 환기 유형</translation>
     </message>
-    <!-- OS:UtilityCost:Tariff -->
+    
     <message>
         <source>Demand Conversion Factor</source>
         <translation>수요 변환 계수</translation>
     </message>
-    <!-- OS:ElectricLoadCenter:Distribution -->
+    
     <message>
         <source>Demand Limit Scheme Purchased Electric Demand Limit</source>
         <translation>수요 한계 계획 구매 전력 수요 한계</translation>
     </message>
-    <!-- OS:AirLoopHVAC, OS:PlantLoop -->
+    
     <message>
         <source>Demand Mixer Name</source>
         <translation>수요 혼합기 이름</translation>
     </message>
-    <!-- OS:PlantLoop -->
+    
     <message>
         <source>Demand Side Branch List Name</source>
         <translation>수요측 분기 목록 이름</translation>
     </message>
-    <!-- OS:PlantLoop -->
+    
     <message>
         <source>Demand Side Connector List Name</source>
         <translation>수요측 커넥터 목록 이름</translation>
     </message>
-    <!-- OS:AirLoopHVAC -->
+    
     <message>
         <source>Demand Side Inlet Node A</source>
         <translation>수요측 입구 노드 A</translation>
     </message>
-    <!-- OS:AirLoopHVAC -->
+    
     <message>
         <source>Demand Side Inlet Node B</source>
         <translation>수요측 입구 노드 B</translation>
     </message>
-    <!-- OS:PlantLoop -->
+    
     <message>
         <source>Demand Side Inlet Node Name</source>
         <translation>Demand Side Inlet Node Name</translation>
     </message>
-    <!-- OS:AirLoopHVAC, OS:PlantLoop -->
+    
     <message>
         <source>Demand Side Outlet Node Name</source>
         <translation>수요측 출구 노드 이름</translation>
     </message>
-    <!-- OS:AirLoopHVAC -->
+    
     <message>
         <source>Demand Splitter A Name</source>
         <translation>수요 분배기 A 이름</translation>
     </message>
-    <!-- OS:AirLoopHVAC -->
+    
     <message>
         <source>Demand Splitter B Name</source>
         <translation>수요 분배기 B 이름</translation>
     </message>
-    <!-- OS:PlantLoop -->
+    
     <message>
         <source>Demand Splitter Name</source>
         <translation>수요 분배기 이름</translation>
     </message>
-    <!-- OS:UtilityCost:Tariff -->
+    
     <message>
         <source>Demand Window Length</source>
         <translation>수요 창 길이</translation>
     </message>
-    <!-- OS:Material -->
+    
     <message>
         <source>Density</source>
         <translation>밀도</translation>
     </message>
-    <!-- OS:Material:RoofVegetation -->
+    
     <message>
         <source>Density of Dry Soil</source>
         <translation>건조 토양의 밀도</translation>
     </message>
-    <!-- OS:LifeCycleCost:Parameters -->
+    
     <message>
         <source>Depreciation Method</source>
         <translation>감가상각 방법</translation>
     </message>
-    <!-- OS:FluidCooler:SingleSpeed -->
+    
     <message>
         <source>Design Air Flow Rate Fan Power</source>
         <translation>설계 공기 유량 팬 전력</translation>
     </message>
-    <!-- OS:FluidCooler:SingleSpeed -->
+    
     <message>
         <source>Design Air Flow Rate U-factor Times Area Value</source>
         <translation>설계 공기 흐름량 U-factor 곱하기 면적 값</translation>
     </message>
-    <!-- OS:ComponentCost:Adjustments -->
+    
     <message>
         <source>Design and Engineering Fees</source>
         <translation>설계 및 엔지니어링 수수료</translation>
     </message>
-    <!-- OS:CoolingTower:SingleSpeed, OS:CoolingTower:TwoSpeed, OS:CoolingTower:VariableSpeed -->
+    
     <message>
         <source>Design Approach Temperature</source>
         <translation>설계 접근 온도</translation>
     </message>
-    <!-- OS:Chiller:Absorption, OS:Chiller:Absorption:Indirect, OS:ChillerHeaterPerformance:Electric:EIR -->
+    
     <message>
         <source>Design Chilled Water Flow Rate</source>
         <translation>설계 냉각수 유량</translation>
     </message>
-    <!-- OS:AirTerminal:SingleDuct:ConstantVolume:FourPipeBeam -->
+    
     <message>
         <source>Design Chilled Water Volume Flow Rate</source>
         <translation>설계 냉수 체적 유량</translation>
     </message>
-    <!-- OS:Refrigeration:CompressorRack -->
+    
     <message>
         <source>Design Compressor Rack COP</source>
         <translation>설계 압축기 랙 COP</translation>
     </message>
-    <!-- OS:Refrigeration:CompressorRack -->
+    
     <message>
         <source>Design Condenser Fan Power</source>
         <translation>설계 응축기 팬 전력</translation>
     </message>
-    <!-- OS:Chiller:Absorption, OS:Chiller:Absorption:Indirect -->
+    
     <message>
         <source>Design Condenser Inlet Temperature</source>
         <translation>설계 응축기 입구 온도</translation>
     </message>
-    <!-- OS:Chiller:Absorption, OS:Chiller:Absorption:Indirect, OS:ChillerHeaterPerformance:Electric:EIR -->
+    
     <message>
         <source>Design Condenser Water Flow Rate</source>
         <translation>설계 응축기 수 유량</translation>
     </message>
-    <!-- OS:Fan:SystemModel -->
+    
     <message>
         <source>Design Electric Power Consumption</source>
         <translation>설계 전기 전력 소비</translation>
     </message>
-    <!-- OS:ElectricEquipment:ITE:AirCooled:Definition -->
+    
     <message>
         <source>Design Electric Power Supply Efficiency</source>
         <translation>설계 전력 공급 효율</translation>
     </message>
-    <!-- OS:ElectricEquipment:ITE:AirCooled:Definition, OS:EvaporativeFluidCooler:SingleSpeed, OS:EvaporativeFluidCooler:TwoSpeed, OS:FluidCooler:SingleSpeed, OS:FluidCooler:TwoSpeed -->
+    
     <message>
         <source>Design Entering Air Temperature</source>
         <translation>설계 유입공기 온도</translation>
     </message>
-    <!-- OS:EvaporativeFluidCooler:SingleSpeed, OS:EvaporativeFluidCooler:TwoSpeed, OS:FluidCooler:TwoSpeed -->
+    
     <message>
         <source>Design Entering Air Wet-bulb Temperature</source>
         <translation>설계 입구 공기 습구 온도</translation>
     </message>
-    <!-- OS:FluidCooler:SingleSpeed -->
+    
     <message>
         <source>Design Entering Air Wetbulb Temperature</source>
         <translation>설계 진입 공기 습구 온도</translation>
     </message>
-    <!-- OS:EvaporativeFluidCooler:SingleSpeed, OS:EvaporativeFluidCooler:TwoSpeed, OS:FluidCooler:SingleSpeed, OS:FluidCooler:TwoSpeed -->
+    
     <message>
         <source>Design Entering Water Temperature</source>
         <translation>설계 입수 온도</translation>
     </message>
-    <!-- OS:Refrigeration:CompressorRack -->
+    
     <message>
         <source>Design Evaporative Condenser Water Pump Power</source>
         <translation>설계 증발식 응축기 냉각수 펌프 전력</translation>
     </message>
-    <!-- OS:Refrigeration:Case -->
+    
     <message>
         <source>Design Evaporator Temperature or Brine Inlet Temperature</source>
         <translation>설계 증발기 온도 또는 염수 입구 온도</translation>
     </message>
-    <!-- OS:ElectricEquipment:ITE:AirCooled:Definition -->
+    
     <message>
         <source>Design Fan Air Flow Rate per Power Input</source>
         <translation>설계 선풍기 공기 흐름률(전력 입력당)</translation>
     </message>
-    <!-- OS:CoolingTower:VariableSpeed -->
+    
     <message>
         <source>Design Fan Power</source>
         <translation>설계 팬 전력</translation>
     </message>
-    <!-- OS:ElectricEquipment:ITE:AirCooled:Definition -->
+    
     <message>
         <source>Design Fan Power Input Fraction</source>
         <translation>설계 팬 전력 입력 비율</translation>
     </message>
-    <!-- OS:Chiller:Absorption, OS:Chiller:Absorption:Indirect -->
+    
     <message>
         <source>Design Generator Fluid Flow Rate</source>
         <translation>설계 발전기 유체 유량</translation>
     </message>
-    <!-- OS:AirTerminal:SingleDuct:ParallelPIU:Reheat, OS:AirTerminal:SingleDuct:SeriesPIU:Reheat -->
+    
     <message>
         <source>Design Heating Discharge Air Temperature</source>
         <translation>설계 난방 토출 공기 온도</translation>
     </message>
-    <!-- OS:ChillerHeaterPerformance:Electric:EIR -->
+    
     <message>
         <source>Design Hot Water Flow Rate</source>
         <translation>설계 온수 유량</translation>
     </message>
-    <!-- OS:AirTerminal:SingleDuct:ConstantVolume:FourPipeBeam -->
+    
     <message>
         <source>Design Hot Water Volume Flow Rate</source>
         <translation>설계 온수 체적 유량</translation>
     </message>
-    <!-- OS:CoolingTower:SingleSpeed, OS:CoolingTower:TwoSpeed -->
+    
     <message>
         <source>Design Inlet Air Dry-Bulb Temperature</source>
         <translation>설계 흡입 공기 건구 온도</translation>
     </message>
-    <!-- OS:CoolingTower:SingleSpeed, OS:CoolingTower:TwoSpeed, OS:CoolingTower:VariableSpeed -->
+    
     <message>
         <source>Design Inlet Air Wet-Bulb Temperature</source>
         <translation>설계 흡입 공기 습구 온도</translation>
     </message>
-    <!-- OS:ElectricEquipment:Definition, OS:Exterior:FuelEquipment:Definition, OS:Exterior:Lights:Definition, OS:Exterior:WaterEquipment:Definition, OS:GasEquipment:Definition, OS:HotWaterEquipment:Definition, OS:OtherEquipment:Definition, OS:SteamEquipment:Definition -->
+    
     <message>
         <source>Design Level</source>
         <translation>설계 수준</translation>
     </message>
-    <!-- OS:ElectricEquipment:Definition, OS:GasEquipment:Definition, OS:HotWaterEquipment:Definition, OS:InternalMass:Definition, OS:Lights:Definition, OS:OtherEquipment:Definition, OS:SteamEquipment:Definition -->
+    
     <message>
         <source>Design Level Calculation Method</source>
         <translation>설계 수준 계산 방법</translation>
     </message>
-    <!-- OS:Refrigeration:Subcooler:LiquidSuction -->
+    
     <message>
         <source>Design Liquid Inlet Temperature</source>
         <translation>설계 액체 입구 온도</translation>
     </message>
-    <!-- OS:Fan:SystemModel -->
+    
     <message>
         <source>Design Maximum Air Flow Rate</source>
         <translation>설계 최대 공기 유량</translation>
     </message>
-    <!-- OS:ElectricLoadCenter:Storage:Converter -->
+    
     <message>
         <source>Design Maximum Continuous Input Power</source>
         <translation>설계 최대 연속 입력 전력</translation>
     </message>
-    <!-- OS:WaterHeater:Sizing -->
+    
     <message>
         <source>Design Mode</source>
         <translation>설계 모드</translation>
     </message>
-    <!-- OS:Boiler:Steam -->
+    
     <message>
         <source>Design Outlet Steam Temperature</source>
         <translation>설계 출구 스팀 온도</translation>
     </message>
-    <!-- OS:AirTerminal:SingleDuct:ConstantVolume:CooledBeam -->
+    
     <message>
         <source>Design Outlet Water Temperature</source>
         <translation>설계 출수 온도</translation>
     </message>
-    <!-- OS:ElectricEquipment:ITE:AirCooled:Definition -->
+    
     <message>
         <source>Design Power Input Calculation Method</source>
         <translation>설계 전력 입력 계산 방법</translation>
     </message>
-    <!-- OS:ElectricEquipment:ITE:AirCooled -->
+    
     <message>
         <source>Design Power Input Schedule Name</source>
         <translation>설계 입력 전력 스케줄 이름</translation>
     </message>
-    <!-- OS:Fan:SystemModel, OS:HeaderedPumps:ConstantSpeed, OS:HeaderedPumps:VariableSpeed, OS:Pump:ConstantSpeed, OS:Pump:VariableSpeed -->
+    
     <message>
         <source>Design Power Sizing Method</source>
         <translation>설계 전력 크기 결정 방법</translation>
     </message>
-    <!-- OS:Fan:SystemModel -->
+    
     <message>
         <source>Design Pressure Rise</source>
         <translation>설계 압력 상승</translation>
     </message>
-    <!-- OS:AirTerminal:SingleDuct:ConstantVolume:FourPipeBeam -->
+    
     <message>
         <source>Design Primary Air Volume Flow Rate</source>
         <translation>설계 주기류 체적 유량</translation>
     </message>
-    <!-- OS:CoolingTower:SingleSpeed, OS:CoolingTower:TwoSpeed, OS:CoolingTower:VariableSpeed -->
+    
     <message>
         <source>Design Range Temperature</source>
         <translation>설계 범위 온도</translation>
     </message>
-    <!-- OS:ElectricEquipment:ITE:AirCooled:Definition -->
+    
     <message>
         <source>Design Recirculation Fraction</source>
         <translation>설계 재순환 분율</translation>
     </message>
-    <!-- OS:AirLoopHVAC:UnitarySystem -->
+    
     <message>
         <source>Design Specification Multispeed Object Name</source>
         <translation>다중속도 설계 사양 객체 이름</translation>
     </message>
-    <!-- OS:AirTerminal:DualDuct:VAV, OS:Controller:MechanicalVentilation -->
+    
     <message>
         <source>Design Specification Outdoor Air Object</source>
         <translation>설계 명세 실외 공기 객체</translation>
     </message>
-    <!-- OS:Space, OS:SpaceType, OS:ZoneHVAC:IdealLoadsAirSystem -->
+    
     <message>
         <source>Design Specification Outdoor Air Object Name</source>
         <translation>Design Specification Outdoor Air Object Name</translation>
     </message>
-    <!-- OS:Controller:MechanicalVentilation -->
+    
     <message>
         <source>Design Specification Zone Air Distribution Object</source>
         <translation>설계 사양 구역 공기 분배 객체</translation>
     </message>
-    <!-- OS:ZoneHVAC:EvaporativeCoolerUnit -->
+    
     <message>
         <source>Design Specification ZoneHVAC Sizing</source>
         <translation>설계 사양 ZoneHVAC 크기 조정</translation>
     </message>
-    <!-- OS:ZoneHVAC:IdealLoadsAirSystem, OS:ZoneHVAC:TerminalUnit:VariableRefrigerantFlow, OS:ZoneHVAC:UnitVentilator, OS:ZoneHVAC:WaterToAirHeatPump -->
+    
     <message>
         <source>Design Specification ZoneHVAC Sizing Object Name</source>
         <translation>설계 사양 ZoneHVAC 크기 조정 객체 이름</translation>
     </message>
-    <!-- OS:EvaporativeFluidCooler:SingleSpeed, OS:EvaporativeFluidCooler:TwoSpeed -->
+    
     <message>
         <source>Design Spray Water Flow Rate</source>
         <translation>설계 스프레이 수 유량</translation>
     </message>
-    <!-- OS:ElectricLoadCenter:Distribution -->
+    
     <message>
         <source>Design Storage Control Charge Power</source>
         <translation>설계 저장 제어 충전 전력</translation>
     </message>
-    <!-- OS:ElectricLoadCenter:Distribution -->
+    
     <message>
         <source>Design Storage Control Discharge Power</source>
         <translation>설계 축전 제어 방전 전력</translation>
     </message>
-    <!-- OS:AirLoopHVAC:UnitarySystem -->
+    
     <message>
         <source>Design Supply Air Flow Rate Per Unit of Capacity During Cooling Operation</source>
         <translation>냉각 운전 중 용량 단위당 설계 공급 공기 유량</translation>
     </message>
-    <!-- OS:AirLoopHVAC:UnitarySystem -->
+    
     <message>
         <source>Design Supply Air Flow Rate Per Unit of Capacity During Cooling Operation When No Cooling or Heating is Required</source>
         <translation>냉각이나 난방이 필요하지 않을 때 냉각 운영 중 용량 단위당 설계 공급 공기 유량</translation>
     </message>
-    <!-- OS:AirLoopHVAC:UnitarySystem -->
+    
     <message>
         <source>Design Supply Air Flow Rate Per Unit of Capacity During Heating Operation</source>
         <translation>난방 운영 중 용량 단위당 설계 급기 유량</translation>
     </message>
-    <!-- OS:AirLoopHVAC:UnitarySystem -->
+    
     <message>
         <source>Design Supply Air Flow Rate Per Unit of Capacity During Heating Operation When No Cooling or Heating is Required</source>
         <translation>냉난방이 필요하지 않을 때 난방 운전 중 용량 단위당 설계 공급 공기 유량</translation>
     </message>
-    <!-- OS:HeatPump:AirToWater:FuelFired:Cooling, OS:HeatPump:AirToWater:FuelFired:Heating -->
+    
     <message>
         <source>Design Supply Temperature</source>
         <translation>설계 공급 온도</translation>
     </message>
-    <!-- OS:HeatPump:AirToWater:FuelFired:Cooling, OS:HeatPump:AirToWater:FuelFired:Heating -->
+    
     <message>
         <source>Design Temperature Lift</source>
         <translation>설계 온도 상승</translation>
     </message>
-    <!-- OS:Refrigeration:Subcooler:LiquidSuction -->
+    
     <message>
         <source>Design Vapor Inlet Temperature</source>
         <translation>설계 증기 입구 온도</translation>
     </message>
-    <!-- OS:PlantComponent:TemperatureSource -->
+    
     <message>
         <source>Design Volume Flow Rate</source>
         <translation>설계 체적 유량</translation>
     </message>
-    <!-- OS:PlantComponent:UserDefined -->
+    
     <message>
         <source>Design Volume Flow Rate Actuator</source>
         <translation>설계 체적 유량 액추에이터</translation>
     </message>
-    <!-- OS:EvaporativeCooler:Indirect:ResearchSpecial -->
+    
     <message>
         <source>Dewpoint Effectiveness Factor</source>
         <translation>노점 효율 계수</translation>
     </message>
-    <!-- OS:ZoneHVAC:EnergyRecoveryVentilator:Controller -->
+    
     <message>
         <source>Dewpoint Temperature Limit</source>
         <translation>노점 온도 제한</translation>
     </message>
-    <!-- OS:PlantEquipmentOperation:OutdoorDewpoint -->
+    
     <message>
         <source>Dewpoint Temperature Range Lower Limit</source>
         <translation>노점 온도 범위 하한</translation>
     </message>
-    <!-- OS:PlantEquipmentOperation:OutdoorDewpoint -->
+    
     <message>
         <source>Dewpoint Temperature Range Upper Limit</source>
         <translation>노점 온도 범위 상한</translation>
     </message>
-    <!-- OS:Curve:Functional:PressureDrop, OS:DaylightingDevice:Tubular -->
+    
     <message>
         <source>Diameter</source>
         <translation>직경</translation>
     </message>
-    <!-- OS:AirConditioner:VariableRefrigerantFlow:FluidTemperatureControl -->
+    
     <message>
         <source>Diameter of Main Pipe Connecting Outdoor Unit to the First Branch Joint</source>
         <translation>실외기를 첫 번째 분기점에 연결하는 주 배관의 지름</translation>
     </message>
-    <!-- OS:AirConditioner:VariableRefrigerantFlow:FluidTemperatureControl:HR -->
+    
     <message>
         <source>Diameter of Main Pipe for Discharge Gas</source>
         <translation>배출 가스용 주 배관의 지름</translation>
     </message>
-    <!-- OS:AirConditioner:VariableRefrigerantFlow:FluidTemperatureControl:HR -->
+    
     <message>
         <source>Diameter of Main Pipe for Suction Gas</source>
         <translation>흡입 가스 주배관의 직경</translation>
     </message>
-    <!-- OS:LifeCycleCost:Parameters -->
+    
     <message>
         <source>Diesel Inflation</source>
         <translation>디젤 가격 상승</translation>
     </message>
-    <!-- OS:AirConditioner:VariableRefrigerantFlow:FluidTemperatureControl:HR -->
+    
     <message>
         <source>Difference between Outdoor Unit Evaporating Temperature and Outdoor Air Temperature in Heat Recovery Mode</source>
         <translation>히트 회수 모드에서 실외 유닛 증발 온도와 실외 공기 온도의 차이</translation>
     </message>
-    <!-- OS:SizingPeriod:DesignDay -->
+    
     <message>
         <source>Diffuse Solar Day Schedule Name</source>
         <translation>확산 태양 일일 스케줄 이름</translation>
     </message>
-    <!-- OS:WindowMaterial:Screen -->
+    
     <message>
         <source>Diffuse Solar Reflectance</source>
         <translation>확산 태양 반사율</translation>
     </message>
-    <!-- OS:WindowMaterial:Screen -->
+    
     <message>
         <source>Diffuse Visible Reflectance</source>
         <translation>확산 가시광 반사율</translation>
     </message>
-    <!-- OS:DaylightingDevice:Tubular -->
+    
     <message>
         <source>Diffuser Name</source>
         <translation>확산기 이름</translation>
     </message>
-    <!-- OS:Output:Table:Annual, OS:Output:Table:Monthly -->
+    
     <message>
         <source>Digits After Decimal</source>
         <translation>소수점 이하 자릿수</translation>
     </message>
-    <!-- OS:Generator:FuelCell:PowerModule -->
+    
     <message>
         <source>Dilution Air Flow Rate</source>
         <translation>희석 공기 유량</translation>
     </message>
-    <!-- OS:Generator:FuelCell:PowerModule -->
+    
     <message>
         <source>Dilution Inlet Air Node Name</source>
         <translation>희석 입구 공기 노드 이름</translation>
     </message>
-    <!-- OS:Generator:FuelCell:PowerModule -->
+    
     <message>
         <source>Dilution Outlet Air Node Name</source>
         <translation>희석 배출 공기 노드 이름</translation>
     </message>
-    <!-- OS:Construction:InternalSource -->
+    
     <message>
         <source>Dimensions for the CTF Calculation</source>
         <translation>CTF 계산을 위한 치수</translation>
     </message>
-    <!-- OS:PhotovoltaicPerformance:Sandia -->
+    
     <message>
         <source>Diode Factor</source>
         <translation>다이오드 계수</translation>
     </message>
-    <!-- OS:RadianceParameters -->
+    
     <message>
         <source>Direct Certainty</source>
         <translation>직접 확실성</translation>
     </message>
-    <!-- OS:RadianceParameters -->
+    
     <message>
         <source>Direct Jitter</source>
         <translation>직접 지터</translation>
     </message>
-    <!-- OS:RadianceParameters -->
+    
     <message>
         <source>Direct Pretest</source>
         <translation>Direct Pretest</translation>
     </message>
-    <!-- OS:RadianceParameters -->
+    
     <message>
         <source>Direct Threshold</source>
         <translation>직접 임계값</translation>
     </message>
-    <!-- OS:InteriorPartitionSurfaceGroup, OS:ShadingSurfaceGroup, OS:Space -->
+    
     <message>
         <source>Direction of Relative North</source>
         <translation>상대 북쪽 방향</translation>
     </message>
-    <!-- OS:WindowMaterial:Glazing, OS:WindowMaterial:Glazing:RefractionExtinctionMethod -->
+    
     <message>
         <source>Dirt Correction Factor for Solar and Visible Transmittance</source>
         <translation>태양 및 가시광선 투과율에 대한 오염 보정 계수</translation>
     </message>
-    <!-- OS:ShadowCalculation -->
+    
     <message>
         <source>Disable Self-Shading From Shading Zone Groups to Other Zones</source>
         <translation>음영 영역 그룹에서 다른 영역으로의 자기음영 비활성화</translation>
     </message>
-    <!-- OS:ShadowCalculation -->
+    
     <message>
         <source>Disable Self-Shading Within Shading Zone Groups</source>
         <translation>음영 영역 그룹 내 자체 차폐 비활성화</translation>
     </message>
-    <!-- OS:AirflowNetworkEffectiveLeakageArea, OS:AirflowNetworkHorizontalOpening, OS:AirflowNetworkSimpleOpening -->
+    
     <message>
         <source>Discharge Coefficient</source>
         <translation>배출 계수</translation>
     </message>
-    <!-- OS:ZoneVentilation:WindandStackOpenArea -->
+    
     <message>
         <source>Discharge Coefficient for Opening</source>
         <translation>개구부 방출 계수</translation>
     </message>
-    <!-- OS:AirflowNetworkDetailedOpening -->
+    
     <message>
         <source>Discharge Coefficient for Opening Factor</source>
         <translation>개폐 계수에 대한 배출 계수</translation>
     </message>
-    <!-- OS:Coil:Cooling:DX:SingleSpeed:ThermalStorage -->
+    
     <message>
         <source>Discharge Only Mode Available</source>
         <translation>방전 전용 모드 사용 가능</translation>
     </message>
-    <!-- OS:Coil:Cooling:DX:SingleSpeed:ThermalStorage -->
+    
     <message>
         <source>Discharge Only Mode Capacity Sizing Factor</source>
         <translation>배출 전용 모드 용량 크기 조정 계수</translation>
     </message>
-    <!-- OS:Coil:Cooling:DX:SingleSpeed:ThermalStorage -->
+    
     <message>
         <source>Discharge Only Mode Energy Input Ratio Function of Flow Fraction Curve</source>
         <translation>방전 전용 모드 에너지 입력 비 흐름 분율 함수 곡선</translation>
     </message>
-    <!-- OS:Coil:Cooling:DX:SingleSpeed:ThermalStorage -->
+    
     <message>
         <source>Discharge Only Mode Energy Input Ratio Function of Temperature Curve</source>
         <translation>방열 전용 모드 에너지 입력 비율 온도 함수 곡선</translation>
     </message>
-    <!-- OS:Coil:Cooling:DX:SingleSpeed:ThermalStorage -->
+    
     <message>
         <source>Discharge Only Mode Part Load Fraction Correlation Curve</source>
         <translation>방전 전용 모드 부분 부하 분율 상관 곡선</translation>
     </message>
-    <!-- OS:Coil:Cooling:DX:SingleSpeed:ThermalStorage -->
+    
     <message>
         <source>Discharge Only Mode Rated COP</source>
         <translation>방전 전용 모드 정격 COP</translation>
     </message>
-    <!-- OS:Coil:Cooling:DX:SingleSpeed:ThermalStorage -->
+    
     <message>
         <source>Discharge Only Mode Rated Sensible Heat Ratio</source>
         <translation>배출 전용 모드 정격 현열비</translation>
     </message>
-    <!-- OS:Coil:Cooling:DX:SingleSpeed:ThermalStorage -->
+    
     <message>
         <source>Discharge Only Mode Rated Storage Discharging Capacity</source>
         <translation>방전 전용 모드 정격 저장 방전 용량</translation>
     </message>
-    <!-- OS:Coil:Cooling:DX:SingleSpeed:ThermalStorage -->
+    
     <message>
         <source>Discharge Only Mode Sensible Heat Ratio Function of Flow Fraction Curve</source>
         <translation>배출 전용 모드 현열 비율 흐름 분율 함수 곡선</translation>
     </message>
-    <!-- OS:Coil:Cooling:DX:SingleSpeed:ThermalStorage -->
+    
     <message>
         <source>Discharge Only Mode Sensible Heat Ratio Function of Temperature Curve</source>
         <translation>방전 전용 모드 현열 비율 온도 함수 곡선</translation>
     </message>
-    <!-- OS:Coil:Cooling:DX:SingleSpeed:ThermalStorage -->
+    
     <message>
         <source>Discharge Only Mode Storage Discharge Capacity Function of Flow Fraction Curve</source>
         <translation>방전 전용 모드 저장소 방전 용량 유량 분율 곡선의 함수</translation>
     </message>
-    <!-- OS:Coil:Cooling:DX:SingleSpeed:ThermalStorage -->
+    
     <message>
         <source>Discharge Only Mode Storage Discharge Capacity Function of Temperature Curve</source>
         <translation>방전 전용 모드 저장 방전 용량 온도 함수 곡선</translation>
     </message>
-    <!-- OS:ThermalStorage:Ice:Detailed -->
+    
     <message>
         <source>Discharging Curve</source>
         <translation>방전 곡선</translation>
     </message>
-    <!-- OS:ThermalStorage:Ice:Detailed -->
+    
     <message>
         <source>Discharging Curve Variable Specifications</source>
         <translation>방전 곡선 변수 사양</translation>
     </message>
-    <!-- OS:LifeCycleCost:Parameters -->
+    
     <message>
         <source>Discounting Convention</source>
         <translation>할인 규칙</translation>
     </message>
-    <!-- OS:Refrigeration:SecondarySystem -->
+    
     <message>
         <source>Distribution Piping Zone Name</source>
         <translation>배분 배관 존 이름</translation>
     </message>
-    <!-- OS:EnvironmentalImpactFactors -->
+    
     <message>
         <source>District Cooling COP</source>
         <translation>District Cooling COP</translation>
     </message>
-    <!-- OS:EnvironmentalImpactFactors -->
+    
     <message>
         <source>District Heating Steam Conversion Efficiency</source>
         <translation>지역 난방 스팀 변환 효율</translation>
     </message>
-    <!-- OS:EnvironmentalImpactFactors -->
+    
     <message>
         <source>District Heating Water Efficiency</source>
         <translation>지역난방 물 효율</translation>
     </message>
-    <!-- OS:WindowProperty:FrameAndDivider -->
+    
     <message>
         <source>Divider Conductance</source>
         <translation>분할면 전도도</translation>
     </message>
-    <!-- OS:WindowProperty:FrameAndDivider -->
+    
     <message>
         <source>Divider Inside Projection</source>
         <translation>구분선 내부 돌출</translation>
     </message>
-    <!-- OS:WindowProperty:FrameAndDivider -->
+    
     <message>
         <source>Divider Outside Projection</source>
         <translation>분할선 외부 돌출</translation>
     </message>
-    <!-- OS:WindowProperty:FrameAndDivider -->
+    
     <message>
         <source>Divider Solar Absorptance</source>
         <translation>Divider Solar Absorptance</translation>
     </message>
-    <!-- OS:WindowProperty:FrameAndDivider -->
+    
     <message>
         <source>Divider Thermal Hemispherical Emissivity</source>
         <translation>분배기 열 반구 방사율</translation>
     </message>
-    <!-- OS:WindowProperty:FrameAndDivider -->
+    
     <message>
         <source>Divider Type</source>
         <translation>분할기 유형</translation>
     </message>
-    <!-- OS:WindowProperty:FrameAndDivider -->
+    
     <message>
         <source>Divider Visible Absorptance</source>
         <translation>칸막이 가시광선 흡수율</translation>
     </message>
-    <!-- OS:WindowProperty:FrameAndDivider -->
+    
     <message>
         <source>Divider Width</source>
         <translation>분할선 너비</translation>
     </message>
-    <!-- OS:SimulationControl -->
+    
     <message>
         <source>Do HVAC Sizing Simulation for Sizing Periods</source>
         <translation>HVAC 크기 결정 시뮬레이션을 크기 결정 기간에 대해 수행</translation>
     </message>
-    <!-- OS:SimulationControl -->
+    
     <message>
         <source>Do Plant Sizing Calculation</source>
         <translation>플랜트 사이징 계산 실행</translation>
     </message>
-    <!-- OS:ZoneAirHeatBalanceAlgorithm -->
+    
     <message>
         <source>Do Space Heat Balance for Simulation</source>
         <translation>시뮬레이션을 위한 공간 열평형 계산 수행</translation>
     </message>
-    <!-- OS:ZoneAirHeatBalanceAlgorithm -->
+    
     <message>
         <source>Do Space Heat Balance for Sizing</source>
         <translation>크기 조정을 위한 공간 열 균형 수행</translation>
     </message>
-    <!-- OS:SimulationControl -->
+    
     <message>
         <source>Do System Sizing Calculation</source>
         <translation>시스템 크기 조정 계산 수행</translation>
     </message>
-    <!-- OS:SimulationControl -->
+    
     <message>
         <source>Do Zone Sizing Calculation</source>
         <translation>존 크기 조정 계산 수행</translation>
     </message>
-    <!-- OS:AirLoopHVAC:UnitarySystem -->
+    
     <message>
         <source>DOAS DX Cooling Coil Leaving Minimum Air Temperature</source>
         <translation>DOAS DX 냉각 코일 출구 최소 공기 온도</translation>
     </message>
-    <!-- OS:DaylightingDevice:Tubular -->
+    
     <message>
         <source>Dome Name</source>
         <translation>돔 이름</translation>
     </message>
-    <!-- OS:DefaultSubSurfaceConstructions -->
+    
     <message>
         <source>Door Construction Name</source>
         <translation>문 구성 이름</translation>
     </message>
-    <!-- OS:EvaporativeCooler:Direct:ResearchSpecial, OS:EvaporativeCooler:Indirect:ResearchSpecial -->
+    
     <message>
         <source>Drift Loss Fraction</source>
         <translation>드리프트 손실 분율</translation>
     </message>
-    <!-- OS:Refrigeration:DefrostCycleParameters -->
+    
     <message>
         <source>Drip Down Time</source>
         <translation>드립 다운 타임</translation>
     </message>
-    <!-- OS:HeatPump:PlantLoop:EIR:Heating -->
+    
     <message>
         <source>Dry Outdoor Correction Factor Curve Name</source>
         <translation>건조 외기 수정 계수 곡선 이름</translation>
     </message>
-    <!-- OS:PlantEquipmentOperation:OutdoorDewpointDifference, OS:PlantEquipmentOperation:OutdoorDryBulbDifference, OS:PlantEquipmentOperation:OutdoorWetBulbDifference -->
+    
     <message>
         <source>Dry-Bulb Temperature Difference Range Lower Limit</source>
         <translation>건구 온도 차이 범위 하한</translation>
     </message>
-    <!-- OS:PlantEquipmentOperation:OutdoorDewpointDifference, OS:PlantEquipmentOperation:OutdoorDryBulbDifference, OS:PlantEquipmentOperation:OutdoorWetBulbDifference -->
+    
     <message>
         <source>Dry-Bulb Temperature Difference Range Upper Limit</source>
         <translation>건구 온도 차이 범위 상한</translation>
     </message>
-    <!-- OS:PlantEquipmentOperation:OutdoorDryBulb -->
+    
     <message>
         <source>Dry-Bulb Temperature Range Lower Limit</source>
         <translation>건구 온도 범위 하한</translation>
     </message>
-    <!-- OS:SizingPeriod:DesignDay -->
+    
     <message>
         <source>Dry-Bulb Temperature Range Modifier Day Schedule Name</source>
         <translation>Dry-Bulb Temperature Range Modifier Day Schedule Name</translation>
     </message>
-    <!-- OS:SizingPeriod:DesignDay -->
+    
     <message>
         <source>Dry-Bulb Temperature Range Modifier Type</source>
         <translation>건구온도 범위 수정자 유형</translation>
     </message>
-    <!-- OS:PlantEquipmentOperation:OutdoorDryBulb -->
+    
     <message>
         <source>Dry-Bulb Temperature Range Upper Limit</source>
         <translation>건구 온도 범위 상한</translation>
     </message>
-    <!-- OS:EvaporativeCooler:Indirect:ResearchSpecial -->
+    
     <message>
         <source>Drybulb Effectiveness Flow Ratio Modifier Curve Name</source>
         <translation>건구온도 유효성 유량비 수정 곡선명</translation>
     </message>
-    <!-- OS:AirflowNetworkDuct -->
+    
     <message>
         <source>Duct Length</source>
         <translation>덕트 길이</translation>
     </message>
-    <!-- OS:Fan:ComponentModel -->
+    
     <message>
         <source>Duct Static Pressure Reset Curve Name</source>
         <translation>덕트 정적 압력 리셋 곡선 이름</translation>
     </message>
-    <!-- OS:AirflowNetworkDuctViewFactors -->
+    
     <message>
         <source>Duct Surface Emittance</source>
         <translation>덕트 표면 방사율</translation>
     </message>
-    <!-- OS:AirflowNetworkDuctViewFactors -->
+    
     <message>
         <source>Duct Surface Exposure Fraction</source>
         <translation>덕트 표면 노출 분율</translation>
     </message>
-    <!-- OS:RunPeriodControl:SpecialDays -->
+    
     <message>
         <source>Duration</source>
         <translation>기간</translation>
     </message>
-    <!-- OS:Refrigeration:DefrostCycleParameters -->
+    
     <message>
         <source>Duration of Defrost Cycle</source>
         <translation>제상 사이클 지속 시간</translation>
     </message>
-    <!-- OS:WaterHeater:HeatPump -->
+    
     <message>
         <source>DX Coil</source>
         <translation>DX 코일</translation>
     </message>
-    <!-- OS:WaterHeater:HeatPump:WrappedCondenser -->
+    
     <message>
         <source>DX Coil Name</source>
         <translation>DX 코일 이름</translation>
     </message>
-    <!-- OS:AirLoopHVAC:UnitaryCoolOnly -->
+    
     <message>
         <source>DX Cooling Coil System Inlet Node Name</source>
         <translation>DX 냉각 코일 시스템 입구 노드 이름</translation>
     </message>
-    <!-- OS:AirLoopHVAC:UnitaryCoolOnly -->
+    
     <message>
         <source>DX Cooling Coil System Outlet Node Name</source>
         <translation>DX 냉각 코일 시스템 출구 노드 이름</translation>
     </message>
-    <!-- OS:AirLoopHVAC:UnitaryCoolOnly -->
+    
     <message>
         <source>DX Cooling Coil System Sensor Node Name</source>
         <translation>DX 냉각 코일 시스템 센서 노드 이름</translation>
     </message>
-    <!-- OS:AirLoopHVAC:UnitaryHeatPump:AirToAir, OS:AirLoopHVAC:UnitaryHeatPump:AirToAir:MultiSpeed, OS:AirLoopHVAC:UnitarySystem, OS:ZoneHVAC:PackagedTerminalHeatPump, OS:ZoneHVAC:WaterToAirHeatPump -->
+    
     <message>
         <source>DX Heating Coil Sizing Ratio</source>
         <translation>DX 난방 코일 크기 조정 비율</translation>
     </message>
 
-    <!-- E -->
-    <!-- OS:CoilSystem:Cooling:Water, OS:HeatExchanger:AirToAir:SensibleAndLatent, OS:HeatExchanger:Desiccant:BalancedFlow -->
+    
+    
     <message>
         <source>Economizer Lockout</source>
         <translation>경제기기 잠금 (Economizer Lockout)</translation>
     </message>
-    <!-- OS:ZoneVentilation:WindandStackOpenArea -->
+    
     <message>
         <source>Effective Angle</source>
         <translation>유효 각도</translation>
     </message>
-    <!-- OS:AirflowNetworkEffectiveLeakageArea -->
+    
     <message>
         <source>Effective Leakage Area</source>
         <translation>유효 누기 면적</translation>
     </message>
-    <!-- OS:AirflowNetworkLeakageRatio -->
+    
     <message>
         <source>Effective Leakage Ratio</source>
         <translation>유효 누설 비율</translation>
     </message>
-    <!-- OS:SolarCollectorPerformance:PhotovoltaicThermal:BIPVT -->
+    
     <message>
         <source>Effective Plenum Gap Thickness Behind PV Modules</source>
         <translation>PV 모듈 뒤의 유효 공기층 두께</translation>
     </message>
-    <!-- OS:DaylightingDevice:Tubular -->
+    
     <message>
         <source>Effective Thermal Resistance</source>
         <translation>유효 열저항</translation>
     </message>
-    <!-- OS:EvaporativeCooler:Direct:ResearchSpecial -->
+    
     <message>
         <source>Effectiveness Flow Ratio Modifier Curve Name</source>
         <translation>효과성 유량 비 수정 곡선 이름</translation>
     </message>
-    <!-- OS:Coil:Heating:Electric, OS:Coil:Heating:Electric:MultiStage:StageData, OS:ZoneHVAC:Baseboard:Convective:Electric, OS:ZoneHVAC:Baseboard:RadiantConvective:Electric -->
+    
     <message>
         <source>Efficiency</source>
         <translation>효율</translation>
     </message>
-    <!-- OS:ElectricLoadCenter:Inverter:LookUpTable -->
+    
     <message>
         <source>Efficiency at 10% Power and Nominal Voltage</source>
         <translation>10% 전력 및 정격 전압에서의 효율</translation>
     </message>
-    <!-- OS:ElectricLoadCenter:Inverter:LookUpTable -->
+    
     <message>
         <source>Efficiency at 100% Power and Nominal Voltage</source>
         <translation>100% 전력 및 공칭 전압에서의 효율</translation>
     </message>
-    <!-- OS:ElectricLoadCenter:Inverter:LookUpTable -->
+    
     <message>
         <source>Efficiency at 20% Power and Nominal Voltage</source>
         <translation>20% 출력 및 정격 전압에서의 효율</translation>
     </message>
-    <!-- OS:ElectricLoadCenter:Inverter:LookUpTable -->
+    
     <message>
         <source>Efficiency at 30% Power and Nominal Voltage</source>
         <translation>30% 정격 전압에서의 효율</translation>
     </message>
-    <!-- OS:ElectricLoadCenter:Inverter:LookUpTable -->
+    
     <message>
         <source>Efficiency at 50% Power and Nominal Voltage</source>
         <translation>50% 전력 및 정격 전압에서의 효율</translation>
     </message>
-    <!-- OS:ElectricLoadCenter:Inverter:LookUpTable -->
+    
     <message>
         <source>Efficiency at 75% Power and Nominal Voltage</source>
         <translation>75% 전력 및 정격 전압에서의 효율</translation>
     </message>
-    <!-- OS:Generator:FuelCell:PowerModule -->
+    
     <message>
         <source>Efficiency Curve Mode</source>
         <translation>효율 곡선 모드</translation>
     </message>
-    <!-- OS:Generator:FuelCell:PowerModule -->
+    
     <message>
         <source>Efficiency Curve Name</source>
         <translation>효율 곡선 이름</translation>
     </message>
-    <!-- OS:Generator:FuelCell:Inverter -->
+    
     <message>
         <source>Efficiency Function of DC Power Curve Name</source>
         <translation>DC 전력 곡선 이름의 효율 함수</translation>
     </message>
-    <!-- OS:ElectricLoadCenter:Storage:Converter -->
+    
     <message>
         <source>Efficiency Function of Power Curve Name</source>
         <translation>효율 함수 전력 곡선 이름</translation>
     </message>
-    <!-- OS:PhotovoltaicPerformance:Simple -->
+    
     <message>
         <source>Efficiency Schedule Name</source>
         <translation>효율 스케줄 이름</translation>
     </message>
-    <!-- OS:ElectricEquipment -->
+    
     <message>
         <source>Electric Equipment Definition Name</source>
         <translation>전기 장비 정의 이름</translation>
     </message>
-    <!-- OS:ElectricEquipment:ITE:AirCooled -->
+    
     <message>
         <source>Electric Equipment ITE AirCooled Definition Name</source>
         <translation>전자 장비 ITE 공냉식 정의 이름</translation>
     </message>
-    <!-- OS:Chiller:Electric:ReformulatedEIR -->
+    
     <message>
         <source>Electric Input to Cooling Output Ratio Function of Part Load Ratio Curve Type</source>
         <translation>부분부하비 함수의 냉각 출력에 대한 전기 입력 비율 곡선 타입</translation>
     </message>
-    <!-- OS:HeatPump:PlantLoop:EIR:Cooling, OS:HeatPump:PlantLoop:EIR:Heating -->
+    
     <message>
         <source>Electric Input to Output Ratio Modifier Function of Part Load Ratio Curve Name</source>
         <translation>부분 부하 비율 곡선 이름에 따른 전기 입력 출력 비율 수정 함수</translation>
     </message>
-    <!-- OS:HeatPump:PlantLoop:EIR:Cooling, OS:HeatPump:PlantLoop:EIR:Heating -->
+    
     <message>
         <source>Electric Input to Output Ratio Modifier Function of Temperature Curve Name</source>
         <translation>온도 곡선에 따른 전기 입력-출력 비율 수정 함수명</translation>
     </message>
-    <!-- OS:Fan:SystemModel -->
+    
     <message>
         <source>Electric Power Function of Flow Fraction Curve Name</source>
         <translation>전류 분율 곡선에 따른 전력 함수 곡선명</translation>
     </message>
-    <!-- OS:Fan:SystemModel -->
+    
     <message>
         <source>Electric Power Minimum Flow Rate Fraction</source>
         <translation>전기 전력 최소 유량 분율</translation>
     </message>
-    <!-- OS:Fan:SystemModel -->
+    
     <message>
         <source>Electric Power Per Unit Flow Rate</source>
         <translation>전력/유량 비율</translation>
     </message>
-    <!-- OS:Fan:SystemModel -->
+    
     <message>
         <source>Electric Power Per Unit Flow Rate Per Unit Pressure</source>
         <translation>단위 유량당 단위 압력당 전기 전력</translation>
     </message>
-    <!-- OS:ElectricEquipment:ITE:AirCooled:Definition -->
+    
     <message>
         <source>Electric Power Supply Efficiency Function of Part Load Ratio Curve Name</source>
         <translation>부분 부하율 곡선 이름별 전력 공급 효율 함수</translation>
     </message>
-    <!-- OS:ElectricEquipment:ITE:AirCooled -->
+    
     <message>
         <source>Electric Power Supply End-Use Subcategory</source>
         <translation>전기 공급 최종용도 소분류</translation>
     </message>
-    <!-- OS:ElectricLoadCenter:Distribution -->
+    
     <message>
         <source>Electrical Buss Type</source>
         <translation>전기 버스 타입</translation>
     </message>
-    <!-- OS:Generator:MicroTurbine -->
+    
     <message>
         <source>Electrical Efficiency Function of Part Load Ratio Curve Name</source>
         <translation>부분 부하 비율 곡선에 따른 전기 효율 함수 이름</translation>
     </message>
-    <!-- OS:Generator:MicroTurbine -->
+    
     <message>
         <source>Electrical Efficiency Function of Temperature Curve Name</source>
         <translation>온도 곡선 이름에 대한 전기 효율 함수</translation>
     </message>
-    <!-- OS:Generator:MicroTurbine -->
+    
     <message>
         <source>Electrical Power Function of Temperature and Elevation Curve Name</source>
         <translation>온도 및 고도의 전기 전력 함수 곡선 이름</translation>
     </message>
-    <!-- OS:Generator:FuelCell -->
+    
     <message>
         <source>Electrical Storage Name</source>
         <translation>전기 저장 장치 이름</translation>
     </message>
-    <!-- OS:ElectricLoadCenter:Distribution -->
+    
     <message>
         <source>Electrical Storage Object Name</source>
         <translation>전기 저장소 객체 이름</translation>
     </message>
-    <!-- OS:LifeCycleCost:Parameters -->
+    
     <message>
         <source>Electricity Inflation</source>
         <translation>전기 요금 상승률</translation>
     </message>
-    <!-- OS:Controller:OutdoorAir, OS:ZoneHVAC:EnergyRecoveryVentilator:Controller -->
+    
     <message>
         <source>Electronic Enthalpy Limit Curve Name</source>
         <translation>전자 엔탈피 제한 곡선 이름</translation>
     </message>
-    <!-- OS:Site, OS:WeatherFile -->
+    
     <message>
         <source>Elevation</source>
         <translation>높이</translation>
     </message>
-    <!-- OS:SolarCollectorPerformance:IntegralCollectorStorage -->
+    
     <message>
         <source>Emissivity of Absorber Plate</source>
         <translation>흡수판의 방사율</translation>
     </message>
-    <!-- OS:SolarCollectorPerformance:IntegralCollectorStorage -->
+    
     <message>
         <source>Emissivity of Inner Cover</source>
         <translation>내부 덮개의 방사율</translation>
     </message>
-    <!-- OS:SolarCollectorPerformance:IntegralCollectorStorage -->
+    
     <message>
         <source>Emissivity of Outer Cover</source>
         <translation>외부 커버의 방사율</translation>
     </message>
-    <!-- OS:EnergyManagementSystem:MeteredOutputVariable, OS:EnergyManagementSystem:OutputVariable -->
+    
     <message>
         <source>EMS Program or Subroutine Name</source>
         <translation>EMS 프로그램 또는 서브루틴 이름</translation>
     </message>
-    <!-- OS:Output:EnergyManagementSystem -->
+    
     <message>
         <source>EMS Runtime Language Debug Output Level</source>
         <translation>EMS 런타임 언어 디버그 출력 레벨</translation>
     </message>
-    <!-- OS:EnergyManagementSystem:MeteredOutputVariable, OS:EnergyManagementSystem:OutputVariable, OS:EnergyManagementSystem:TrendVariable -->
+    
     <message>
         <source>EMS Variable Name</source>
         <translation>EMS 변수 이름</translation>
     </message>
-    <!-- OS:RunPeriodControl:DaylightSavingTime -->
+    
     <message>
         <source>End Date</source>
         <translation>종료 날짜</translation>
     </message>
-    <!-- OS:Schedule:Rule -->
+    
     <message>
         <source>End Day</source>
         <translation>종료일</translation>
     </message>
-    <!-- OS:RunPeriod, OS:SizingPeriod:WeatherFileDays -->
+    
     <message>
         <source>End Day of Month</source>
         <translation>월말 종료일</translation>
     </message>
-    <!-- OS:RunPeriod, OS:Schedule:Rule, OS:SizingPeriod:WeatherFileDays -->
+    
     <message>
         <source>End Month</source>
         <translation>종료 월</translation>
     </message>
-    <!-- OS:EnergyManagementSystem:MeteredOutputVariable, OS:PythonPlugin:OutputVariable -->
+    
     <message>
         <source>End-Use Category</source>
         <translation>최종 용도 카테고리</translation>
     </message>
-    <!-- OS:UtilityCost:Tariff -->
+    
     <message>
         <source>Energy Conversion Factor</source>
         <translation>에너지 변환 계수</translation>
     </message>
-    <!-- OS:ZoneHVAC:Dehumidifier:DX -->
+    
     <message>
         <source>Energy Factor Curve Name</source>
         <translation>에너지 계수 곡선 이름</translation>
     </message>
-    <!-- OS:Coil:Cooling:DX:VariableSpeed:SpeedData, OS:Coil:Cooling:WaterToAirHeatPump:VariableSpeedEquationFit:SpeedData, OS:Coil:Heating:DX:VariableSpeed:SpeedData, OS:Coil:Heating:WaterToAirHeatPump:VariableSpeedEquationFit:SpeedData -->
+    
     <message>
         <source>Energy Input Ratio Function of Air Flow Fraction Curve Name</source>
         <translation>공기 유량 분율 곡선에 따른 에너지 입력 비율 함수 곡선명</translation>
     </message>
-    <!-- OS:Coil:Cooling:DX:MultiSpeed:StageData, OS:CoilPerformance:DX:Cooling -->
+    
     <message>
         <source>Energy Input Ratio Function of Flow Fraction Curve</source>
         <translation>유량 분율 곡선의 에너지 입력 비율 함수</translation>
     </message>
-    <!-- OS:Coil:Cooling:DX:MultiSpeed:StageData, OS:CoilPerformance:DX:Cooling -->
+    
     <message>
         <source>Energy Input Ratio Function of Temperature Curve</source>
         <translation>에너지 입력 비 함수 온도 곡선</translation>
     </message>
-    <!-- OS:Coil:Cooling:WaterToAirHeatPump:VariableSpeedEquationFit:SpeedData, OS:Coil:Heating:WaterToAirHeatPump:VariableSpeedEquationFit:SpeedData -->
+    
     <message>
         <source>Energy Input Ratio Function of Water Flow Fraction Curve Name</source>
         <translation>물 유량 분율 곡선 에너지 입력비 함수 이름</translation>
     </message>
-    <!-- OS:Coil:Cooling:DX:CurveFit:Speed -->
+    
     <message>
         <source>Energy Input Ratio Modifier Function of Air Flow Fraction Curve</source>
         <translation>에어 플로우 분율 곡선의 에너지 입력 비율 수정자 함수</translation>
     </message>
-    <!-- OS:Coil:Cooling:DX:CurveFit:Speed -->
+    
     <message>
         <source>Energy Input Ratio Modifier Function of Temperature Curve</source>
         <translation>온도 곡선의 에너지 입력 비율 수정자 함수</translation>
     </message>
-    <!-- OS:Coil:Cooling:DX:VariableSpeed, OS:Coil:Cooling:WaterToAirHeatPump:VariableSpeedEquationFit, OS:Coil:Heating:DX:VariableSpeed, OS:Coil:Heating:WaterToAirHeatPump:VariableSpeedEquationFit -->
+    
     <message>
         <source>Energy Part Load Fraction Curve Name</source>
         <translation>부분 부하율 곡선 이름</translation>
     </message>
-    <!-- OS:EnergyManagementSystem:ProgramCallingManager -->
+    
     <message>
         <source>EnergyPlus Model Calling Point</source>
         <translation>EnergyPlus 모델 호출 지점</translation>
     </message>
-    <!-- OS:MaterialProperty:PhaseChange -->
+    
     <message>
         <source>Enthalpy</source>
         <translation>엔탈피</translation>
     </message>
-    <!-- OS:SizingPeriod:DesignDay -->
+    
     <message>
         <source>Enthalpy at Maximum Dry-Bulb</source>
         <translation>최대 건구 온도에서의 엔탈피</translation>
     </message>
-    <!-- OS:ZoneHVAC:EnergyRecoveryVentilator:Controller -->
+    
     <message>
         <source>Enthalpy High Limit</source>
         <translation>엔탈피 상한값</translation>
     </message>
-    <!-- OS:Pipe:Indoor -->
+    
     <message>
         <source>Environment Type</source>
         <translation>환경 유형</translation>
     </message>
-    <!-- OS:ElectricEquipment:ITE:AirCooled:Definition -->
+    
     <message>
         <source>Environmental Class</source>
         <translation>환경 등급</translation>
     </message>
-    <!-- OS:AirConditioner:VariableRefrigerantFlow:FluidTemperatureControl, OS:AirConditioner:VariableRefrigerantFlow:FluidTemperatureControl:HR -->
+    
     <message>
         <source>Equivalent Length of Main Pipe Connecting Outdoor Unit to the First Branch Joint</source>
         <translation>외부 유닛을 첫 번째 분기 조인트에 연결하는 메인 파이프의 등가 길이</translation>
     </message>
-    <!-- OS:AirConditioner:VariableRefrigerantFlow -->
+    
     <message>
         <source>Equivalent Piping Length used for Piping Correction Factor in Cooling Mode</source>
         <translation>냉각 모드에서 배관 보정 계수에 사용되는 등가 배관 길이</translation>
     </message>
-    <!-- OS:AirConditioner:VariableRefrigerantFlow -->
+    
     <message>
         <source>Equivalent Piping Length used for Piping Correction Factor in Heating Mode</source>
         <translation>난방 모드에서 배관 보정 계수에 사용되는 등가 배관 길이</translation>
     </message>
-    <!-- OS:AirflowNetworkSurface -->
+    
     <message>
         <source>Equivalent Rectangle Aspect Ratio</source>
         <translation>등가 직사각형 종횡비</translation>
     </message>
-    <!-- OS:AirflowNetworkSurface -->
+    
     <message>
         <source>Equivalent Rectangle Method</source>
         <translation>등가 직사각형 방법</translation>
     </message>
-    <!-- OS:LifeCycleCost:UsePriceEscalation -->
+    
     <message>
         <source>Escalation Start Month</source>
         <translation>에스컬레이션 시작 월</translation>
     </message>
-    <!-- OS:LifeCycleCost:UsePriceEscalation -->
+    
     <message>
         <source>Escalation Start Year</source>
         <translation>에스컬레이션 시작 연도</translation>
     </message>
-    <!-- OS:Fan:ComponentModel -->
+    
     <message>
         <source>Euler Number at Maximum Fan Static Efficiency</source>
         <translation>최대 팬 정적 효율에서의 오일러 수</translation>
     </message>
-    <!-- OS:AirConditioner:VariableRefrigerantFlow:FluidTemperatureControl:LoadingIndex -->
+    
     <message>
         <source>Evaporative Capacity Multiplier Function of Temperature Curve Name</source>
         <translation>온도 곡선에 따른 증발 용량 승수 함수 이름</translation>
     </message>
-    <!-- OS:Refrigeration:CompressorRack, OS:Refrigeration:Condenser:EvaporativeCooled -->
+    
     <message>
         <source>Evaporative Condenser Availability Schedule Name</source>
         <translation>증발 응축기 가용성 일정 이름</translation>
     </message>
-    <!-- OS:Coil:Cooling:DX:CurveFit:Performance -->
+    
     <message>
         <source>Evaporative Condenser Basin Heater Capacity</source>
         <translation>증발식 응축기 베이신 히터 용량</translation>
     </message>
-    <!-- OS:Coil:Cooling:DX:CurveFit:Performance -->
+    
     <message>
         <source>Evaporative Condenser Basin Heater Operating Schedule</source>
         <translation>증발식 응축기 베이신 히터 운영 스케줄</translation>
     </message>
-    <!-- OS:Coil:Cooling:DX:CurveFit:Performance -->
+    
     <message>
         <source>Evaporative Condenser Basin Heater Setpoint Temperature</source>
         <translation>증발식 응축기 베이신 히터 설정 온도</translation>
     </message>
-    <!-- OS:Coil:Cooling:DX:CurveFit:Speed -->
+    
     <message>
         <source>Evaporative Condenser Pump Power Fraction</source>
         <translation>증발식 응축기 펌프 전력 비율</translation>
     </message>
-    <!-- OS:Coil:Cooling:DX -->
+    
     <message>
         <source>Evaporative Condenser Supply Water Storage Tank Name</source>
         <translation>증발식 응축기 공급수 저장탱크 이름</translation>
     </message>
-    <!-- OS:EvaporativeCooler:Direct:ResearchSpecial -->
+    
     <message>
         <source>Evaporative Operation Maximum Limit Drybulb Temperature</source>
         <translation>증발냉각 운전 최대 한계 건구온도</translation>
     </message>
-    <!-- OS:EvaporativeCooler:Direct:ResearchSpecial -->
+    
     <message>
         <source>Evaporative Operation Maximum Limit Wetbulb Temperature</source>
         <translation>증발식 운전 최대 한계 습구 온도</translation>
     </message>
-    <!-- OS:EvaporativeCooler:Direct:ResearchSpecial -->
+    
     <message>
         <source>Evaporative Operation Minimum Drybulb Temperature</source>
         <translation>증발식 운전 최소 건구 온도</translation>
     </message>
-    <!-- OS:Refrigeration:CompressorRack, OS:Refrigeration:Condenser:EvaporativeCooled -->
+    
     <message>
         <source>Evaporative Water Supply Tank Name</source>
         <translation>증발식 급수 탱크 이름</translation>
     </message>
-    <!-- OS:WaterHeater:HeatPump, OS:WaterHeater:HeatPump:WrappedCondenser -->
+    
     <message>
         <source>Evaporator Air Flow Rate</source>
         <translation>증발기 공기 유량</translation>
     </message>
-    <!-- OS:Coil:Cooling:DX:CurveFit:Speed -->
+    
     <message>
         <source>Evaporator Air Flow Rate Fraction</source>
         <translation>증발기 공기 유량 분율</translation>
     </message>
-    <!-- OS:Coil:Cooling:DX:SingleSpeed:ThermalStorage -->
+    
     <message>
         <source>Evaporator Air Inlet Node</source>
         <translation>증발기 공기 입구 노드</translation>
     </message>
-    <!-- OS:Coil:WaterHeating:AirToWaterHeatPump, OS:Coil:WaterHeating:AirToWaterHeatPump:VariableSpeed, OS:Coil:WaterHeating:AirToWaterHeatPump:Wrapped -->
+    
     <message>
         <source>Evaporator Air Inlet Node Name</source>
         <translation>증발기 공기 입구 노드 이름</translation>
     </message>
-    <!-- OS:Coil:Cooling:DX:SingleSpeed:ThermalStorage -->
+    
     <message>
         <source>Evaporator Air Outlet Node</source>
         <translation>증발기 공기 출구 노드</translation>
     </message>
-    <!-- OS:Coil:WaterHeating:AirToWaterHeatPump, OS:Coil:WaterHeating:AirToWaterHeatPump:VariableSpeed, OS:Coil:WaterHeating:AirToWaterHeatPump:Wrapped -->
+    
     <message>
         <source>Evaporator Air Outlet Node Name</source>
         <translation>에바포레이터 공기 출구 노드 이름</translation>
     </message>
-    <!-- OS:Coil:WaterHeating:AirToWaterHeatPump, OS:Coil:WaterHeating:AirToWaterHeatPump:VariableSpeed, OS:Coil:WaterHeating:AirToWaterHeatPump:Wrapped -->
+    
     <message>
         <source>Evaporator Air Temperature Type for Curve Objects</source>
         <translation>Evaporator Air Temperature Type for Curve Objects의 경우, 다음과 같이 번역합니다:
 
 곡선 객체에 대한 증발기 공기 온도 타입</translation>
     </message>
-    <!-- OS:Refrigeration:SecondarySystem -->
+    
     <message>
         <source>Evaporator Approach Temperature Difference</source>
         <translation>증발기 접근 온도 차이</translation>
     </message>
-    <!-- OS:Refrigeration:SecondarySystem -->
+    
     <message>
         <source>Evaporator Capacity</source>
         <translation>증발기 용량</translation>
     </message>
-    <!-- OS:Refrigeration:SecondarySystem -->
+    
     <message>
         <source>Evaporator Evaporating Temperature</source>
         <translation>증발기 증발 온도</translation>
     </message>
-    <!-- OS:Coil:WaterHeating:AirToWaterHeatPump, OS:Coil:WaterHeating:AirToWaterHeatPump:VariableSpeed, OS:Coil:WaterHeating:AirToWaterHeatPump:Wrapped -->
+    
     <message>
         <source>Evaporator Fan Power Included in Rated COP</source>
         <translation>Evaporator Fan Power Included in Rated COP</translation>
     </message>
-    <!-- OS:Refrigeration:SecondarySystem -->
+    
     <message>
         <source>Evaporator Flow Rate for Secondary Fluid</source>
         <translation>이차 유체의 증발기 유량</translation>
     </message>
-    <!-- OS:Coil:Cooling:DX -->
+    
     <message>
         <source>Evaporator Inlet Node</source>
         <translation>증발기 입구 노드</translation>
     </message>
-    <!-- OS:Coil:Cooling:DX -->
+    
     <message>
         <source>Evaporator Outlet Node</source>
         <translation>증발기 출구 노드</translation>
     </message>
-    <!-- OS:Refrigeration:SecondarySystem -->
+    
     <message>
         <source>Evaporator Range Temperature Difference</source>
         <translation>증발기 범위 온도 차이</translation>
     </message>
-    <!-- OS:Refrigeration:SecondarySystem -->
+    
     <message>
         <source>Evaporator Refrigerant Inventory</source>
         <translation>증발기 냉매 재고량</translation>
     </message>
-    <!-- OS:GroundHeatExchanger:HorizontalTrench -->
+    
     <message>
         <source>Evapotranspiration Ground Cover Parameter</source>
         <translation>증발산 지표피 매개변수</translation>
     </message>
-    <!-- OS:Generator:FuelCell:AuxiliaryHeater -->
+    
     <message>
         <source>Excess Air Ratio</source>
         <translation>과잉 공기 비율</translation>
     </message>
-    <!-- OS:ZoneHVAC:EnergyRecoveryVentilator:Controller -->
+    
     <message>
         <source>Exhaust Air Enthalpy Limit</source>
         <translation>배기 공기 엔탈피 한계</translation>
     </message>
-    <!-- OS:ZoneHVAC:EnergyRecoveryVentilator -->
+    
     <message>
         <source>Exhaust Air Fan Name</source>
         <translation>배기 공기 팬 이름</translation>
     </message>
-    <!-- OS:ZoneHVAC:EnergyRecoveryVentilator -->
+    
     <message>
         <source>Exhaust Air Flow Rate</source>
         <translation>배기 공기 유량</translation>
     </message>
-    <!-- OS:Generator:MicroTurbine -->
+    
     <message>
         <source>Exhaust Air Flow Rate Function of Part Load Ratio Curve Name</source>
         <translation>배기 공기 유량 부하율 함수 곡선 이름</translation>
     </message>
-    <!-- OS:Generator:MicroTurbine -->
+    
     <message>
         <source>Exhaust Air Flow Rate Function of Temperature Curve Name</source>
         <translation>배기 공기 유량 온도 함수 곡선 이름</translation>
     </message>
-    <!-- OS:HeatExchanger:AirToAir:SensibleAndLatent -->
+    
     <message>
         <source>Exhaust Air Inlet Node</source>
         <translation>배기 공기 입구 노드</translation>
     </message>
-    <!-- OS:HeatExchanger:AirToAir:SensibleAndLatent -->
+    
     <message>
         <source>Exhaust Air Outlet Node</source>
         <translation>배기 공기 출구 노드</translation>
     </message>
-    <!-- OS:Generator:MicroTurbine -->
+    
     <message>
         <source>Exhaust Air Temperature Function of Part Load Ratio Curve Name</source>
         <translation>배기 공기 온도 부분 부하 비율 곡선 이름</translation>
     </message>
-    <!-- OS:Generator:MicroTurbine -->
+    
     <message>
         <source>Exhaust Air Temperature Function of Temperature Curve Name</source>
         <translation>배기 공기 온도 함수 온도 곡선 이름</translation>
     </message>
-    <!-- OS:ZoneHVAC:EnergyRecoveryVentilator:Controller -->
+    
     <message>
         <source>Exhaust Air Temperature Limit</source>
         <translation>배기 공기 온도 제한</translation>
     </message>
-    <!-- OS:Generator:FuelCell:ExhaustGasToWaterHeatExchanger -->
+    
     <message>
         <source>Exhaust Outlet Air Node Name</source>
         <translation>배기 출구 공기 노드 이름</translation>
     </message>
-    <!-- OS:FuelFactors -->
+    
     <message>
         <source>Existing Fuel Resource Name</source>
         <translation>기존 연료 자원 이름</translation>
     </message>
-    <!-- OS:EnergyManagementSystem:GlobalVariable, OS:EnergyManagementSystem:OutputVariable, OS:ExternalInterface:Actuator, OS:ExternalInterface:Schedule, OS:ExternalInterface:Variable, OS:Output:Variable -->
+    
     <message>
         <source>Export To BCVTB</source>
         <translation>BCVTB로 내보내기</translation>
     </message>
-    <!-- OS:SurfaceProperty:ExposedFoundationPerimeter -->
+    
     <message>
         <source>Exposed Perimeter Calculation Method</source>
         <translation>노출 둘레 계산 방법</translation>
     </message>
-    <!-- OS:SurfaceProperty:ExposedFoundationPerimeter -->
+    
     <message>
         <source>Exposed Perimeter Fraction</source>
         <translation>노출된 둘레 비율</translation>
     </message>
-    <!-- OS:Exterior:FuelEquipment -->
+    
     <message>
         <source>Exterior Fuel Equipment Definition Name</source>
         <translation>외부 연료 장비 정의 이름</translation>
     </message>
-    <!-- OS:Foundation:Kiva -->
+    
     <message>
         <source>Exterior Horizontal Insulation Depth</source>
         <translation>외부 수평 단열재 깊이</translation>
     </message>
-    <!-- OS:Foundation:Kiva -->
+    
     <message>
         <source>Exterior Horizontal Insulation Material Name</source>
         <translation>외부 수평 단열재 이름</translation>
     </message>
-    <!-- OS:Foundation:Kiva -->
+    
     <message>
         <source>Exterior Horizontal Insulation Width</source>
         <translation>외부 수평 단열 너비</translation>
     </message>
-    <!-- OS:Exterior:Lights -->
+    
     <message>
         <source>Exterior Lights Definition Name</source>
         <translation>외부 조명 정의 이름</translation>
     </message>
-    <!-- OS:SurfaceProperty:LocalEnvironment -->
+    
     <message>
         <source>Exterior Surface Name</source>
         <translation>외부 표면 이름</translation>
     </message>
-    <!-- OS:Foundation:Kiva -->
+    
     <message>
         <source>Exterior Vertical Insulation Depth</source>
         <translation>외부 수직 단열 깊이</translation>
     </message>
-    <!-- OS:Foundation:Kiva -->
+    
     <message>
         <source>Exterior Vertical Insulation Material Name</source>
         <translation>외부 수직 단열재 이름</translation>
     </message>
-    <!-- OS:Exterior:WaterEquipment -->
+    
     <message>
         <source>Exterior Water Equipment Definition Name</source>
         <translation>외부 수장비 정의 이름</translation>
     </message>
-    <!-- OS:DaylightingDevice:LightWell -->
+    
     <message>
         <source>Exterior Window Name</source>
         <translation>외부 창 이름</translation>
     </message>
-    <!-- OS:SurfaceProperty:OtherSideCoefficients -->
+    
     <message>
         <source>External Dry-Bulb Temperature Coefficient</source>
         <translation>외부 건구 온도 계수</translation>
     </message>
-    <!-- OS:Table:IndependentVariable, OS:Table:Lookup -->
+    
     <message>
         <source>External File Column Number</source>
         <translation>외부 파일 열 번호</translation>
     </message>
-    <!-- OS:PythonPlugin:Instance, OS:Schedule:File, OS:Table:IndependentVariable, OS:Table:Lookup, OS:Table:MultiVariableLookup -->
+    
     <message>
         <source>External File Name</source>
         <translation>외부 파일 이름</translation>
     </message>
-    <!-- OS:Table:IndependentVariable, OS:Table:Lookup -->
+    
     <message>
         <source>External File Starting Row Number</source>
         <translation>외부 파일 시작 행 번호</translation>
     </message>
-    <!-- OS:AirflowNetworkExternalNode -->
+    
     <message>
         <source>External Node Height</source>
         <translation>외부 노드 높이</translation>
     </message>
-    <!-- OS:AirflowNetworkSurface -->
+    
     <message>
         <source>External Node Name</source>
         <translation>외부 노드 이름</translation>
     </message>
-    <!-- OS:SurfaceProperty:LocalEnvironment -->
+    
     <message>
         <source>External Shading Fraction Schedule Name</source>
         <translation>외부 차양 비율 스케줄 이름</translation>
     </message>
-    <!-- OS:SolarCollectorPerformance:IntegralCollectorStorage -->
+    
     <message>
         <source>Extinction Coefficient Times Thickness of Outer Cover</source>
         <translation>외부 덮개의 소멸 계수 × 두께</translation>
     </message>
-    <!-- OS:SolarCollectorPerformance:IntegralCollectorStorage -->
+    
     <message>
         <source>Extinction Coefficient Times Thickness of the inner Cover</source>
         <translation>내부 커버의 소멸 계수 × 두께</translation>
     </message>
-    <!-- OS:AirflowNetworkDetailedOpening -->
+    
     <message>
         <source>Extra Crack Length or Height of Pivoting Axis</source>
         <translation>추가 틈새 길이 또는 피벗 축의 높이</translation>
     </message>
-    <!-- OS:Table:IndependentVariable -->
+    
     <message>
         <source>Extrapolation Method</source>
         <translation>외삽 방법</translation>
     </message>
 
-    <!-- F -->
-    <!-- OS:Construction:FfactorGroundFloor -->
+    
+    
     <message>
         <source>F-Factor</source>
         <translation>F-Factor</translation>
     </message>
-    <!-- OS:AirflowNetworkZone -->
+    
     <message>
         <source>Facade Width</source>
         <translation>파사드 너비</translation>
     </message>
-    <!-- OS:WaterHeater:HeatPump -->
+    
     <message>
         <source>Fan</source>
         <translation>팬</translation>
     </message>
-    <!-- OS:AirTerminal:SingleDuct:ParallelPIU:Reheat, OS:AirTerminal:SingleDuct:SeriesPIU:Reheat, OS:ZoneHVAC:UnitHeater -->
+    
     <message>
         <source>Fan Control Type</source>
         <translation>팬 제어 유형</translation>
     </message>
-    <!-- OS:Coil:Cooling:DX:VariableSpeed, OS:Coil:Cooling:WaterToAirHeatPump:EquationFit, OS:Coil:Cooling:WaterToAirHeatPump:VariableSpeedEquationFit -->
+    
     <message>
         <source>Fan Delay Time</source>
         <translation>팬 지연 시간</translation>
     </message>
-    <!-- OS:Fan:OnOff -->
+    
     <message>
         <source>Fan Efficiency Ratio Function of Speed Ratio Curve Name</source>
         <translation>Fan Efficiency Ratio Function of Speed Ratio Curve Name</translation>
     </message>
-    <!-- OS:ElectricEquipment:ITE:AirCooled -->
+    
     <message>
         <source>Fan End-Use Subcategory</source>
         <translation>팬 최종용도 세부분류</translation>
     </message>
-    <!-- OS:SetpointManager:MixedAir -->
+    
     <message>
         <source>Fan Inlet Node Name</source>
         <translation>팬 입구 노드 이름</translation>
     </message>
-    <!-- OS:AirTerminal:SingleDuct:ParallelPIU:Reheat, OS:AirTerminal:SingleDuct:SeriesPIU:Reheat, OS:AirflowNetworkFan, OS:WaterHeater:HeatPump:WrappedCondenser -->
+    
     <message>
         <source>Fan Name</source>
         <translation>팬 이름</translation>
     </message>
-    <!-- OS:AirTerminal:SingleDuct:ParallelPIU:Reheat -->
+    
     <message>
         <source>Fan On Flow Fraction</source>
         <translation>팬 켜짐 유량 분율</translation>
     </message>
-    <!-- OS:Fan:ComponentModel -->
+    
     <message>
         <source>Fan Outlet Area</source>
         <translation>팬 출구 면적</translation>
     </message>
-    <!-- OS:SetpointManager:MixedAir -->
+    
     <message>
         <source>Fan Outlet Node Name</source>
         <translation>팬 출구 노드 이름</translation>
     </message>
-    <!-- OS:AirLoopHVAC:UnitaryHeatPump:AirToAir, OS:AirLoopHVAC:UnitarySystem, OS:WaterHeater:HeatPump, OS:WaterHeater:HeatPump:WrappedCondenser, OS:ZoneHVAC:EvaporativeCoolerUnit, OS:ZoneHVAC:PackagedTerminalAirConditioner, OS:ZoneHVAC:PackagedTerminalHeatPump, OS:ZoneHVAC:WaterToAirHeatPump -->
+    
     <message>
         <source>Fan Placement</source>
         <translation>팬 배치</translation>
     </message>
-    <!-- OS:ElectricEquipment:ITE:AirCooled:Definition -->
+    
     <message>
         <source>Fan Power Input Function of Flow Curve Name</source>
         <translation>팬 전력 입력 유량 곡선 이름</translation>
     </message>
-    <!-- OS:CoolingTower:VariableSpeed -->
+    
     <message>
         <source>Fan Power Ratio Function of Air Flow Rate Ratio Curve</source>
         <translation>공기 유량 비율 곡선에 대한 팬 전력 비율 함수</translation>
     </message>
-    <!-- OS:Fan:OnOff -->
+    
     <message>
         <source>Fan Power Ratio Function of Speed Ratio Curve Name</source>
         <translation>팬 전력 비율 함수 속도 비율 곡선 이름</translation>
     </message>
-    <!-- OS:ZoneVentilation:DesignFlowRate -->
+    
     <message>
         <source>Fan Pressure Rise</source>
         <translation>팬 압력 상승</translation>
     </message>
-    <!-- OS:Fan:ComponentModel -->
+    
     <message>
         <source>Fan Pressure Rise Curve Name</source>
         <translation>팬 압력 상승 곡선 이름</translation>
     </message>
-    <!-- OS:AvailabilityManager:NightCycle, OS:AvailabilityManager:NightVentilation, OS:AvailabilityManager:OptimumStart -->
+    
     <message>
         <source>Fan Schedule</source>
         <translation>팬 스케줄</translation>
     </message>
-    <!-- OS:Fan:ComponentModel -->
+    
     <message>
         <source>Fan Sizing Factor</source>
         <translation>팬 크기 조정 계수</translation>
     </message>
-    <!-- OS:Refrigeration:AirChiller, OS:Refrigeration:Condenser:EvaporativeCooled -->
+    
     <message>
         <source>Fan Speed Control Type</source>
         <translation>팬 속도 제어 타입</translation>
     </message>
-    <!-- OS:Fan:ComponentModel -->
+    
     <message>
         <source>Fan Wheel Diameter</source>
         <translation>팬 휠 지름</translation>
     </message>
-    <!-- OS:Foundation:Kiva:Settings -->
+    
     <message>
         <source>Far-Field Width</source>
-        <translation type="unfinished"></translation>
+        <translation>원거리 폭</translation>
     </message>
-    <!-- OS:AdditionalProperties -->
+    
     <message>
         <source>Feature Data Type</source>
         <translation>기능 데이터 유형</translation>
     </message>
-    <!-- OS:AdditionalProperties -->
+    
     <message>
         <source>Feature Name</source>
         <translation>기능 이름</translation>
     </message>
-    <!-- OS:AdditionalProperties -->
+    
     <message>
         <source>Feature Value</source>
         <translation>기능 값</translation>
     </message>
-    <!-- OS:Site:GroundTemperature:Deep -->
+    
     <message>
         <source>February Deep Ground Temperature</source>
         <translation>2월 심부 지중 온도</translation>
     </message>
-    <!-- OS:Site:GroundReflectance -->
+    
     <message>
         <source>February Ground Reflectance</source>
         <translation>2월 지면 반사율</translation>
     </message>
-    <!-- OS:Site:GroundTemperature:BuildingSurface, OS:Site:GroundTemperature:FCfactorMethod -->
+    
     <message>
         <source>February Ground Temperature</source>
         <translation>2월 지중 온도</translation>
     </message>
-    <!-- OS:Site:GroundTemperature:Shallow -->
+    
     <message>
         <source>February Surface Ground Temperature</source>
         <translation>2월 지표 지중 온도</translation>
     </message>
-    <!-- OS:UtilityCost:Variable -->
+    
     <message>
         <source>February Value</source>
         <translation>2월 값</translation>
     </message>
-    <!-- OS:StandardsInformation:Construction -->
+    
     <message>
         <source>Fenestration Assembly Context</source>
         <translation>창호 어셈블리 컨텍스트</translation>
     </message>
-    <!-- OS:StandardsInformation:Construction -->
+    
     <message>
         <source>Fenestration Divider Type</source>
         <translation>창호 분할 유형</translation>
     </message>
-    <!-- OS:StandardsInformation:Construction -->
+    
     <message>
         <source>Fenestration Frame Type</source>
         <translation>창호 프레임 유형</translation>
     </message>
-    <!-- OS:StandardsInformation:Construction -->
+    
     <message>
         <source>Fenestration Gas Fill</source>
         <translation>창호 가스 충전</translation>
     </message>
-    <!-- OS:StandardsInformation:Construction -->
+    
     <message>
         <source>Fenestration Low Emissivity Coating</source>
         <translation>창호 저방사율 코팅</translation>
     </message>
-    <!-- OS:StandardsInformation:Construction -->
+    
     <message>
         <source>Fenestration Number of Panes</source>
         <translation>창호 판 개수</translation>
     </message>
-    <!-- OS:StandardsInformation:Construction -->
+    
     <message>
         <source>Fenestration Tint</source>
         <translation>창호 틴트</translation>
     </message>
-    <!-- OS:StandardsInformation:Construction -->
+    
     <message>
         <source>Fenestration Type</source>
         <translation>창호 유형</translation>
     </message>
-    <!-- OS:Schedule:Compact -->
+    
     <message>
         <source>Field</source>
         <translation>필드</translation>
     </message>
-    <!-- OS:External:File -->
+    
     <message>
         <source>File Name</source>
         <translation>파일 이름</translation>
     </message>
-    <!-- OS:Output:Table:Annual -->
+    
     <message>
         <source>Filter</source>
         <translation>필터</translation>
     </message>
-    <!-- OS:ZoneHVAC:EvaporativeCoolerUnit -->
+    
     <message>
         <source>First Evaporative Cooler</source>
         <translation>첫 번째 증발식 냉각기</translation>
     </message>
-    <!-- OS:Curve:Functional:PressureDrop -->
+    
     <message>
         <source>Fixed Friction Factor</source>
         <translation>고정 마찰 계수</translation>
     </message>
-    <!-- OS:DefaultSubSurfaceConstructions -->
+    
     <message>
         <source>Fixed Window Construction Name</source>
         <translation>고정 창호 구성 이름</translation>
     </message>
-    <!-- OS:CoilSystem:IntegratedHeatPump:AirSource -->
+    
     <message>
         <source>Flag to Indicate Load Control In SCWH Mode</source>
         <translation>SCWH 모드에서 부하 제어 표시 플래그</translation>
     </message>
-    <!-- OS:DefaultSurfaceConstructions -->
+    
     <message>
         <source>Floor Construction Name</source>
         <translation>바닥 구성 이름</translation>
     </message>
-    <!-- OS:SpaceInfiltration:FlowCoefficient -->
+    
     <message>
         <source>Flow Coefficient</source>
         <translation>유량 계수</translation>
     </message>
-    <!-- OS:Fan:ZoneExhaust -->
+    
     <message>
         <source>Flow Fraction Schedule Name</source>
         <translation>흐름 분율 스케줄 이름</translation>
     </message>
-    <!-- OS:HeatPump:AirToWater:FuelFired:Cooling, OS:HeatPump:AirToWater:FuelFired:Heating, OS:HeatPump:PlantLoop:EIR:Cooling, OS:HeatPump:PlantLoop:EIR:Heating -->
+    
     <message>
         <source>Flow Mode</source>
         <translation>흐름 모드</translation>
     </message>
-    <!-- OS:ZoneMixing -->
+    
     <message>
         <source>Flow Rate per Floor Area</source>
         <translation>층 면적당 유량</translation>
     </message>
-    <!-- OS:ZoneMixing, OS:ZoneVentilation:DesignFlowRate -->
+    
     <message>
         <source>Flow Rate per Person</source>
         <translation>인당 유량</translation>
     </message>
-    <!-- OS:ZoneVentilation:DesignFlowRate -->
+    
     <message>
         <source>Flow Rate per Zone Floor Area</source>
         <translation>존 바닥 면적당 유량</translation>
     </message>
-    <!-- OS:HeaderedPumps:ConstantSpeed, OS:HeaderedPumps:VariableSpeed -->
+    
     <message>
         <source>Flow Sequencing Control Scheme</source>
         <translation>유량 시퀀싱 제어 스킴</translation>
     </message>
-    <!-- OS:Pipe:Indoor, OS:Pipe:Outdoor -->
+    
     <message>
         <source>Fluid Inlet Node</source>
         <translation>유체 입구 노드</translation>
     </message>
-    <!-- OS:Pipe:Indoor, OS:Pipe:Outdoor -->
+    
     <message>
         <source>Fluid Outlet Node</source>
         <translation>유체 출구 노드</translation>
     </message>
-    <!-- OS:Coil:Cooling:DX:SingleSpeed:ThermalStorage -->
+    
     <message>
         <source>Fluid Storage Tank Rating Temperature</source>
         <translation>유체 저장 탱크 정격 온도</translation>
     </message>
-    <!-- OS:Coil:Cooling:DX:SingleSpeed:ThermalStorage -->
+    
     <message>
         <source>Fluid Storage Volume</source>
         <translation>유체 저장 용량</translation>
     </message>
-    <!-- OS:ZoneHVAC:LowTemperatureRadiant:ConstantFlow, OS:ZoneHVAC:LowTemperatureRadiant:VariableFlow -->
+    
     <message>
         <source>Fluid to Radiant Surface Heat Transfer Model</source>
         <translation>유체-복사 표면 열전달 모델</translation>
     </message>
-    <!-- OS:PlantLoop -->
+    
     <message>
         <source>Fluid Type</source>
         <translation>유체 유형</translation>
     </message>
-    <!-- OS:ExternalInterface:FunctionalMockupUnitImport, OS:ExternalInterface:FunctionalMockupUnitImport:From:Variable, OS:ExternalInterface:FunctionalMockupUnitImport:To:Actuator, OS:ExternalInterface:FunctionalMockupUnitImport:To:Schedule, OS:ExternalInterface:FunctionalMockupUnitImport:To:Variable -->
+    
     <message>
         <source>FMU File Name</source>
         <translation>FMU 파일 이름</translation>
     </message>
-    <!-- OS:ExternalInterface:FunctionalMockupUnitImport:From:Variable, OS:ExternalInterface:FunctionalMockupUnitImport:To:Actuator, OS:ExternalInterface:FunctionalMockupUnitImport:To:Schedule, OS:ExternalInterface:FunctionalMockupUnitImport:To:Variable -->
+    
     <message>
         <source>FMU Instance Name</source>
         <translation>FMU 인스턴스 이름</translation>
     </message>
-    <!-- OS:ExternalInterface:FunctionalMockupUnitImport -->
+    
     <message>
         <source>FMU LoggingOn</source>
         <translation>FMU LoggingOn</translation>
     </message>
-    <!-- OS:ExternalInterface:FunctionalMockupUnitImport -->
+    
     <message>
         <source>FMU Timeout</source>
         <translation>FMU 타임아웃</translation>
     </message>
-    <!-- OS:ExternalInterface:FunctionalMockupUnitExport:From:Variable, OS:ExternalInterface:FunctionalMockupUnitExport:To:Actuator, OS:ExternalInterface:FunctionalMockupUnitExport:To:Schedule, OS:ExternalInterface:FunctionalMockupUnitExport:To:Variable, OS:ExternalInterface:FunctionalMockupUnitImport:From:Variable, OS:ExternalInterface:FunctionalMockupUnitImport:To:Actuator, OS:ExternalInterface:FunctionalMockupUnitImport:To:Schedule, OS:ExternalInterface:FunctionalMockupUnitImport:To:Variable -->
+    
     <message>
         <source>FMU Variable Name</source>
         <translation>FMU 변수 이름</translation>
     </message>
-    <!-- OS:Foundation:Kiva -->
+    
     <message>
         <source>Footing Depth</source>
         <translation>기초 깊이</translation>
     </message>
-    <!-- OS:Foundation:Kiva -->
+    
     <message>
         <source>Footing Material Name</source>
         <translation>기초 재료 이름</translation>
     </message>
-    <!-- OS:Foundation:Kiva -->
+    
     <message>
         <source>Footing Wall Construction Name</source>
         <translation>Footing Wall Construction Name</translation>
     </message>
-    <!-- OS:ElectricEquipment:Definition, OS:GasEquipment:Definition, OS:HotWaterEquipment:Definition, OS:OtherEquipment:Definition, OS:SteamEquipment:Definition -->
+    
     <message>
         <source>Fraction Latent</source>
         <translation>잠열 비율</translation>
     </message>
-    <!-- OS:ElectricEquipment:Definition, OS:GasEquipment:Definition, OS:HotWaterEquipment:Definition, OS:OtherEquipment:Definition, OS:SteamEquipment:Definition -->
+    
     <message>
         <source>Fraction Lost</source>
         <translation>손실 비율</translation>
     </message>
-    <!-- OS:CoilPerformance:DX:Cooling -->
+    
     <message>
         <source>Fraction of Air Flow Bypassed Around Coil</source>
         <translation>코일 우회 공기 흐름 분율</translation>
     </message>
-    <!-- OS:Refrigeration:Case -->
+    
     <message>
         <source>Fraction of Anti-Sweat Heater Energy to Case</source>
         <translation>결로 방지 히터 에너지의 케이스로의 분율</translation>
     </message>
-    <!-- OS:Coil:Cooling:LowTemperatureRadiant:VariableFlow, OS:Coil:Cooling:Water:Panel:Radiant, OS:Sizing:System -->
+    
     <message>
         <source>Fraction of Autosized Cooling Design Capacity</source>
         <translation>자동 설계 냉각 용량의 분율</translation>
     </message>
-    <!-- OS:AirLoopHVAC:UnitarySystem -->
+    
     <message>
         <source>Fraction of Autosized Design Cooling Supply Air Flow Rate</source>
         <translation>자동 크기 조정된 냉방 설계 급기 유량의 비율</translation>
     </message>
-    <!-- OS:AirLoopHVAC:UnitarySystem -->
+    
     <message>
         <source>Fraction of Autosized Design Cooling Supply Air Flow Rate When No Cooling or Heating is Required</source>
         <translation>냉난방이 필요 없을 때 자동 설계 냉방 공급 공기 유량의 비율</translation>
     </message>
-    <!-- OS:AirLoopHVAC:UnitarySystem -->
+    
     <message>
         <source>Fraction of Autosized Design Heating Supply Air Flow Rate</source>
         <translation>자동 크기 설정된 설계 난방 공급 공기 유량의 분율</translation>
     </message>
-    <!-- OS:AirLoopHVAC:UnitarySystem -->
+    
     <message>
         <source>Fraction of Autosized Design Heating Supply Air Flow Rate When No Cooling or Heating is Required</source>
         <translation>냉난방이 필요하지 않을 때 자동 계산된 설계 난방 공급 공기 유량의 비율</translation>
     </message>
-    <!-- OS:Coil:Heating:LowTemperatureRadiant:VariableFlow, OS:Coil:Heating:Water:Baseboard, OS:Coil:Heating:Water:Baseboard:Radiant, OS:Sizing:System, OS:ZoneHVAC:Baseboard:RadiantConvective:Electric -->
+    
     <message>
         <source>Fraction of Autosized Heating Design Capacity</source>
         <translation>자동 크기 조정 난방 설계 용량의 비율</translation>
     </message>
-    <!-- OS:ElectricLoadCenter:Storage:LiIonNMCBattery -->
+    
     <message>
         <source>Fraction of Cell Capacity Removed at the End of Exponential Zone</source>
         <translation>지수 영역 끝에서 제거된 셀 용량의 분율</translation>
     </message>
-    <!-- OS:ElectricLoadCenter:Storage:LiIonNMCBattery -->
+    
     <message>
         <source>Fraction of Cell Capacity Removed at the End of Nominal Zone</source>
         <translation>공칭 영역 끝에서 제거된 셀 용량의 비율</translation>
     </message>
-    <!-- OS:SolarCollectorPerformance:PhotovoltaicThermal:BIPVT -->
+    
     <message>
         <source>Fraction of Collector Gross Area Covered by PV Module</source>
         <translation>PV 모듈로 덮인 수집기 총면적의 비율</translation>
     </message>
-    <!-- OS:Coil:WaterHeating:AirToWaterHeatPump, OS:Coil:WaterHeating:AirToWaterHeatPump:VariableSpeed -->
+    
     <message>
         <source>Fraction of Condenser Pump Heat to Water</source>
         <translation>응축기 펌프 열의 물로의 전달 분율</translation>
     </message>
-    <!-- OS:ElectricLoadCenter:Transformer -->
+    
     <message>
         <source>Fraction of Eddy Current Losses</source>
         <translation>와전류 손실의 비율</translation>
     </message>
-    <!-- OS:ElectricEquipment:ITE:AirCooled:Definition -->
+    
     <message>
         <source>Fraction of Electric Power Supply Losses to Zone</source>
         <translation>영역으로의 전기 전력 공급 손실 비율</translation>
     </message>
-    <!-- OS:ZoneHVAC:HighTemperatureRadiant -->
+    
     <message>
         <source>Fraction of Input Converted to Latent Energy</source>
         <translation>잠열 에너지로 변환된 입력의 비율</translation>
     </message>
-    <!-- OS:ZoneHVAC:HighTemperatureRadiant -->
+    
     <message>
         <source>Fraction of Input Converted to Radiant Energy</source>
         <translation>복사 에너지로 변환된 입력 비율</translation>
     </message>
-    <!-- OS:ZoneHVAC:HighTemperatureRadiant -->
+    
     <message>
         <source>Fraction of Input that Is Lost</source>
         <translation>입력의 손실 비율</translation>
     </message>
-    <!-- OS:Refrigeration:Case -->
+    
     <message>
         <source>Fraction of Lighting Energy to Case</source>
         <translation>조명 에너지의 케이스 전달 비율</translation>
     </message>
-    <!-- OS:Coil:WaterHeating:Desuperheater -->
+    
     <message>
         <source>Fraction of Pump Heat to Water</source>
         <translation>펌프 열 대 물의 비율</translation>
     </message>
-    <!-- OS:SolarCollectorPerformance:PhotovoltaicThermal:BIPVT -->
+    
     <message>
         <source>Fraction of PV Cell Area to PV Module Area</source>
         <translation>PV 셀 면적의 PV 모듈 면적에 대한 비율</translation>
     </message>
-    <!-- OS:ZoneHVAC:Baseboard:RadiantConvective:Electric, OS:ZoneHVAC:Baseboard:RadiantConvective:Water, OS:ZoneHVAC:CoolingPanel:RadiantConvective:Water, OS:ZoneHVAC:HighTemperatureRadiant -->
+    
     <message>
         <source>Fraction of Radiant Energy Incident on People</source>
         <translation>사람에게 입사하는 복사 에너지의 분율</translation>
     </message>
-    <!-- OS:PhotovoltaicPerformance:Simple -->
+    
     <message>
         <source>Fraction of Surface Area with Active Solar Cells</source>
         <translation>활성 태양 전지가 있는 표면 영역의 비율</translation>
     </message>
-    <!-- OS:SolarCollectorPerformance:PhotovoltaicThermal:Simple -->
+    
     <message>
         <source>Fraction of Surface Area with Active Thermal Collector</source>
         <translation>활성 열 수집기가 있는 표면 면적의 비율</translation>
     </message>
-    <!-- OS:CoolingTower:VariableSpeed -->
+    
     <message>
         <source>Fraction of Tower Capacity in Free Convection Regime</source>
         <translation>자유 대류 영역의 냉각탑 용량 분율</translation>
     </message>
-    <!-- OS:ThermalZone -->
+    
     <message>
         <source>Fraction of Zone Controlled by Primary Daylighting Control</source>
         <translation>주 채광 제어로 제어되는 존의 비율</translation>
     </message>
-    <!-- OS:ThermalZone -->
+    
     <message>
         <source>Fraction of Zone Controlled by Secondary Daylighting Control</source>
         <translation>2차 채광 제어로 제어되는 존의 비율</translation>
     </message>
-    <!-- OS:Lights, OS:Luminaire -->
+    
     <message>
         <source>Fraction Replaceable</source>
         <translation>교체 가능 비율</translation>
     </message>
-    <!-- OS:Generator:WindTurbine -->
+    
     <message>
         <source>Fraction system Efficiency</source>
         <translation>시스템 효율 분율</translation>
     </message>
-    <!-- OS:Lights:Definition, OS:Luminaire:Definition -->
+    
     <message>
         <source>Fraction Visible</source>
         <translation>가시광선 비율</translation>
     </message>
-    <!-- OS:SubSurface -->
+    
     <message>
         <source>Frame and Divider Name</source>
         <translation>프레임 및 분배기 이름</translation>
     </message>
-    <!-- OS:WindowProperty:FrameAndDivider -->
+    
     <message>
         <source>Frame Conductance</source>
         <translation>프레임 열전도율</translation>
     </message>
-    <!-- OS:WindowProperty:FrameAndDivider -->
+    
     <message>
         <source>Frame Inside Projection</source>
         <translation>프레임 내부 돌출</translation>
     </message>
-    <!-- OS:WindowProperty:FrameAndDivider -->
+    
     <message>
         <source>Frame Outside Projection</source>
         <translation>Frame Outside Projection</translation>
     </message>
-    <!-- OS:WindowProperty:FrameAndDivider -->
+    
     <message>
         <source>Frame Solar Absorptance</source>
         <translation>프레임 태양 흡수율</translation>
     </message>
-    <!-- OS:WindowProperty:FrameAndDivider -->
+    
     <message>
         <source>Frame Thermal Hemispherical Emissivity</source>
         <translation>Frame Thermal Hemispherical Emissivity</translation>
     </message>
-    <!-- OS:WindowProperty:FrameAndDivider -->
+    
     <message>
         <source>Frame Visible Absorptance</source>
         <translation>프레임 가시 흡수율</translation>
     </message>
-    <!-- OS:WindowProperty:FrameAndDivider -->
+    
     <message>
         <source>Frame Width</source>
         <translation>프레임 너비</translation>
     </message>
-    <!-- OS:CoolingTower:SingleSpeed -->
+    
     <message>
         <source>Free Convection Air Flow Rate Sizing Factor</source>
         <translation>자유대류 공기 유량 크기 결정 계수</translation>
     </message>
-    <!-- OS:CoolingTower:TwoSpeed -->
+    
     <message>
         <source>Free Convection Nominal Capacity</source>
         <translation>자유 대류 정격 용량</translation>
     </message>
-    <!-- OS:CoolingTower:SingleSpeed, OS:CoolingTower:TwoSpeed -->
+    
     <message>
         <source>Free Convection Nominal Capacity Sizing Factor</source>
         <translation>자유 대류 정격 용량 크기 조정 계수</translation>
     </message>
-    <!-- OS:CoolingTower:TwoSpeed -->
+    
     <message>
         <source>Free Convection Regime Air Flow Rate</source>
         <translation>자유 대류 영역 공기 유량</translation>
     </message>
-    <!-- OS:CoolingTower:TwoSpeed -->
+    
     <message>
         <source>Free Convection Regime Air Flow Rate Sizing Factor</source>
         <translation>자유 대류 영역 공기 유량 크기 조정 계수</translation>
     </message>
-    <!-- OS:CoolingTower:TwoSpeed -->
+    
     <message>
         <source>Free Convection Regime U-Factor Times Area Value</source>
         <translation>자유 대류 영역 U-인자 × 면적 값</translation>
     </message>
-    <!-- OS:CoolingTower:SingleSpeed, OS:CoolingTower:TwoSpeed -->
+    
     <message>
         <source>Free Convection U-Factor Times Area Value Sizing Factor</source>
         <translation>자유 대류 U-Factor 면적 값 크기 조정 계수</translation>
     </message>
-    <!-- OS:ThermalStorage:Ice:Detailed -->
+    
     <message>
         <source>Freezing Temperature of Storage Medium</source>
         <translation>저장 매질의 동결 온도</translation>
     </message>
-    <!-- OS:Schedule:Week -->
+    
     <message>
         <source>Friday Schedule:Day Name</source>
         <translation>금요일 스케줄:일 이름</translation>
     </message>
-    <!-- OS:ZoneProperty:UserViewFactors:BySurfaceName -->
+    
     <message>
         <source>From Surface Name</source>
         <translation>표면 이름에서</translation>
     </message>
-    <!-- OS:MaterialProperty:GlazingSpectralData -->
+    
     <message>
         <source>Front Reflectance</source>
         <translation>정면 반사율</translation>
     </message>
-    <!-- OS:WindowMaterial:Glazing -->
+    
     <message>
         <source>Front Side Infrared Hemispherical Emissivity</source>
         <translation>전면 적외선 반구형 방사율</translation>
     </message>
-    <!-- OS:WindowMaterial:Blind -->
+    
     <message>
         <source>Front Side Slat Beam Solar Reflectance</source>
         <translation>앞면 슬래트 직달 태양 반사율</translation>
     </message>
-    <!-- OS:WindowMaterial:Blind -->
+    
     <message>
         <source>Front Side Slat Beam Visible Reflectance</source>
         <translation>전면 슬래트 빔 가시 반사율</translation>
     </message>
-    <!-- OS:WindowMaterial:Blind -->
+    
     <message>
         <source>Front Side Slat Diffuse Solar Reflectance</source>
         <translation>Front Side Slat Diffuse Solar Reflectance</translation>
     </message>
-    <!-- OS:WindowMaterial:Blind -->
+    
     <message>
         <source>Front Side Slat Diffuse Visible Reflectance</source>
         <translation>전면 슬래트 확산 가시광선 반사율</translation>
     </message>
-    <!-- OS:WindowMaterial:Blind -->
+    
     <message>
         <source>Front Side Slat Infrared Hemispherical Emissivity</source>
         <translation>전면 슬래트 적외선 반구형 방사율</translation>
     </message>
-    <!-- OS:WindowMaterial:Glazing -->
+    
     <message>
         <source>Front Side Solar Reflectance at Normal Incidence</source>
         <translation>정상 입사각에서의 앞면 태양 반사율</translation>
     </message>
-    <!-- OS:WindowMaterial:Glazing -->
+    
     <message>
         <source>Front Side Visible Reflectance at Normal Incidence</source>
         <translation>법선 입사각에서의 앞면 가시 반사율</translation>
     </message>
-    <!-- OS:SolarCollectorPerformance:PhotovoltaicThermal:Simple -->
+    
     <message>
         <source>Front Surface Emittance</source>
         <translation>전면 방사율</translation>
     </message>
-    <!-- OS:HeatExchanger:AirToAir:SensibleAndLatent -->
+    
     <message>
         <source>Frost Control Type</source>
         <translation>서리 제어 유형</translation>
     </message>
-    <!-- OS:Generator:FuelCell:StackCooler -->
+    
     <message>
         <source>Fs-cogen Adjustment Factor</source>
         <translation>Fs-cogen 조정 계수</translation>
     </message>
-    <!-- OS:HeatPump:AirToWater:FuelFired:Heating -->
+    
     <message>
         <source>Fuel Energy Input Ratio Defrost Adjustment Curve Name</source>
         <translation>연료 에너지 입력 비율 제상 조정 곡선 이름</translation>
     </message>
-    <!-- OS:HeatPump:AirToWater:FuelFired:Cooling, OS:HeatPump:AirToWater:FuelFired:Heating -->
+    
     <message>
         <source>Fuel Energy Input Ratio Function of PLR Curve Name</source>
         <translation>부분부하율(PLR) 곡선 연료 에너지 입력 비율 함수 이름</translation>
     </message>
-    <!-- OS:HeatPump:AirToWater:FuelFired:Cooling, OS:HeatPump:AirToWater:FuelFired:Heating -->
+    
     <message>
         <source>Fuel Energy Input Ratio Function of Temperature Curve Name</source>
         <translation>온도 곡선 이름의 연료 에너지 입력 비율 함수</translation>
     </message>
-    <!-- OS:Generator:MicroTurbine -->
+    
     <message>
         <source>Fuel Higher Heating Value</source>
         <translation>연료 최대 발열량</translation>
     </message>
-    <!-- OS:Generator:MicroTurbine -->
+    
     <message>
         <source>Fuel Lower Heating Value</source>
         <translation>연료 저위발열량</translation>
     </message>
-    <!-- OS:Generator:FuelCell -->
+    
     <message>
         <source>Fuel Supply Name</source>
         <translation>연료 공급 이름</translation>
     </message>
-    <!-- OS:Generator:FuelSupply -->
+    
     <message>
         <source>Fuel Temperature Modeling Mode</source>
         <translation>연료 온도 모델링 모드</translation>
     </message>
-    <!-- OS:Generator:FuelSupply -->
+    
     <message>
         <source>Fuel Temperature Reference Node Name</source>
         <translation>연료 온도 기준 노드 이름</translation>
     </message>
-    <!-- OS:Generator:FuelSupply -->
+    
     <message>
         <source>Fuel Temperature Schedule Name</source>
         <translation>연료 온도 스케줄 이름</translation>
     </message>
-    <!-- OS:Exterior:FuelEquipment -->
+    
     <message>
         <source>Fuel Use Type</source>
         <translation>연료 사용 유형</translation>
     </message>
-    <!-- OS:LifeCycleCost:Parameters -->
+    
     <message>
         <source>FuelOil1 Inflation</source>
         <translation>FuelOil1 인플레이션</translation>
     </message>
-    <!-- OS:LifeCycleCost:Parameters -->
+    
     <message>
         <source>FuelOil2 Inflation</source>
         <translation>FuelOil2 인플레이션</translation>
     </message>
-    <!-- OS:ElectricLoadCenter:Transformer -->
+    
     <message>
         <source>Full Load Temperature Rise</source>
         <translation>정격 부하 온도 상승</translation>
     </message>
-    <!-- OS:ElectricLoadCenter:Storage:LiIonNMCBattery -->
+    
     <message>
         <source>Fully Charged Cell Capacity</source>
         <translation>완전 충전 셀 용량</translation>
     </message>
-    <!-- OS:ElectricLoadCenter:Storage:LiIonNMCBattery -->
+    
     <message>
         <source>Fully Charged Cell Voltage</source>
         <translation>완전 충전된 셀 전압</translation>
     </message>
 
-    <!-- G -->
-    <!-- OS:GroundHeatExchanger:Vertical -->
+    
+    
     <message>
         <source>G-Function G Value</source>
         <translation>G-함수 G 값</translation>
     </message>
-    <!-- OS:GroundHeatExchanger:Vertical -->
+    
     <message>
         <source>G-Function Ln(T/Ts) Value</source>
         <translation>G-Function Ln(T/Ts) 값</translation>
     </message>
-    <!-- OS:GroundHeatExchanger:Vertical -->
+    
     <message>
         <source>G-Function Reference Ratio</source>
         <translation>G-함수 기준 비율</translation>
     </message>
-    <!-- OS:WindowMaterial:GasMixture -->
+    
     <message>
         <source>Gas 1 Fraction</source>
         <translation>가스 1 분율</translation>
     </message>
-    <!-- OS:WindowMaterial:GasMixture -->
+    
     <message>
         <source>Gas 1 Type</source>
         <translation>가스 1 유형</translation>
     </message>
-    <!-- OS:WindowMaterial:GasMixture -->
+    
     <message>
         <source>Gas 2 Fraction</source>
         <translation>Gas 2 Fraction</translation>
     </message>
-    <!-- OS:WindowMaterial:GasMixture -->
+    
     <message>
         <source>Gas 2 Type</source>
         <translation>가스 2 유형</translation>
     </message>
-    <!-- OS:WindowMaterial:GasMixture -->
+    
     <message>
         <source>Gas 3 Fraction</source>
         <translation>가스 3 분율</translation>
     </message>
-    <!-- OS:WindowMaterial:GasMixture -->
+    
     <message>
         <source>Gas 3 Type</source>
         <translation>가스 3 유형</translation>
     </message>
-    <!-- OS:WindowMaterial:GasMixture -->
+    
     <message>
         <source>Gas 4 Fraction</source>
         <translation>가스 4 분율</translation>
     </message>
-    <!-- OS:WindowMaterial:GasMixture -->
+    
     <message>
         <source>Gas 4 Type</source>
         <translation>가스 4 유형</translation>
     </message>
-    <!-- OS:Refrigeration:GasCooler:AirCooled -->
+    
     <message>
         <source>Gas Cooler Fan Speed Control Type</source>
         <translation>가스 냉각기 팬 속도 제어 유형</translation>
     </message>
-    <!-- OS:Refrigeration:GasCooler:AirCooled -->
+    
     <message>
         <source>Gas Cooler Outlet Piping Refrigerant Inventory</source>
         <translation>가스 냉각기 배출 배관 냉매 인벤토리</translation>
     </message>
-    <!-- OS:Refrigeration:GasCooler:AirCooled -->
+    
     <message>
         <source>Gas Cooler Receiver Refrigerant Inventory</source>
         <translation>가스 냉각기 수액기 냉매 재고</translation>
     </message>
-    <!-- OS:Refrigeration:GasCooler:AirCooled -->
+    
     <message>
         <source>Gas Cooler Refrigerant Operating Charge Inventory</source>
         <translation>가스 냉각기 냉매 운전 충전량 인벤토리</translation>
     </message>
-    <!-- OS:GasEquipment -->
+    
     <message>
         <source>Gas Equipment Definition Name</source>
         <translation>가스 장비 정의 이름</translation>
     </message>
-    <!-- OS:WindowMaterial:Gas -->
+    
     <message>
         <source>Gas Type</source>
         <translation>가스 유형</translation>
     </message>
-    <!-- OS:LifeCycleCost:Parameters -->
+    
     <message>
         <source>Gasoline Inflation</source>
         <translation>가솔린 인플레이션</translation>
     </message>
-    <!-- OS:Chiller:Absorption:Indirect -->
+    
     <message>
         <source>Generator Heat Input Correction Function of Chilled Water Temperature Curve</source>
         <translation>냉각수 온도 곡선 발전기 열 입력 보정 함수</translation>
     </message>
-    <!-- OS:Chiller:Absorption:Indirect -->
+    
     <message>
         <source>Generator Heat Input Correction Function of Condenser Temperature Curve</source>
         <translation>Generator Heat Input Correction Function of Condenser Temperature Curve</translation>
     </message>
-    <!-- OS:Chiller:Absorption:Indirect -->
+    
     <message>
         <source>Generator Heat Input Function of Part Load Ratio Curve</source>
         <translation>부분부하율 곡선의 발전기 열 입력 함수</translation>
     </message>
-    <!-- OS:Chiller:Absorption, OS:Chiller:Absorption:Indirect -->
+    
     <message>
         <source>Generator Heat Source Type</source>
         <translation>발전기 열원 유형</translation>
     </message>
-    <!-- OS:Chiller:Absorption:Indirect -->
+    
     <message>
         <source>Generator Inlet Node</source>
         <translation>발전기 입구 노드</translation>
     </message>
-    <!-- OS:Chiller:Absorption -->
+    
     <message>
         <source>Generator Inlet Node Name</source>
         <translation>Generator Inlet Node Name</translation>
     </message>
-    <!-- OS:ElectricLoadCenter:Distribution -->
+    
     <message>
         <source>Generator List Name</source>
         <translation>발전기 목록 이름</translation>
     </message>
-    <!-- OS:Generator:MicroTurbine -->
+    
     <message>
         <source>Generator MicroTurbine Heat Recovery Name</source>
         <translation>발전기 마이크로터빈 폐열회수 이름</translation>
     </message>
-    <!-- OS:ElectricLoadCenter:Distribution -->
+    
     <message>
         <source>Generator Operation Scheme Type</source>
         <translation>발전기 운영 방식 유형</translation>
     </message>
-    <!-- OS:Chiller:Absorption:Indirect -->
+    
     <message>
         <source>Generator Outlet Node</source>
         <translation>발전기 출구 노드</translation>
     </message>
-    <!-- OS:Chiller:Absorption -->
+    
     <message>
         <source>Generator Outlet Node Name</source>
         <translation>발전기 배출 노드 이름</translation>
     </message>
-    <!-- OS:ZoneControl:ContaminantController -->
+    
     <message>
         <source>Generic Contaminant Control Availability Schedule Name</source>
         <translation>제네릭 오염물질 제어 가용성 일정 이름</translation>
     </message>
-    <!-- OS:ZoneControl:ContaminantController -->
+    
     <message>
         <source>Generic Contaminant Setpoint Schedule Name</source>
         <translation>일반 오염물질 설정값 스케줄 이름</translation>
     </message>
-    <!-- OS:ShadingControl -->
+    
     <message>
         <source>Glare Control Is Active</source>
         <translation>글레어 제어가 활성화됨</translation>
     </message>
-    <!-- OS:DefaultSubSurfaceConstructions -->
+    
     <message>
         <source>Glass Door Construction Name</source>
         <translation>유리 문 구성 이름</translation>
     </message>
-    <!-- OS:SolarCollectorPerformance:PhotovoltaicThermal:BIPVT -->
+    
     <message>
         <source>Glass Extinction Coefficient</source>
         <translation>유리 소멸 계수</translation>
     </message>
-    <!-- OS:Refrigeration:WalkIn:ZoneBoundary -->
+    
     <message>
         <source>Glass Reach In Door Opening Schedule Name Facing Zone</source>
         <translation>Glass Reach In Door Opening Schedule Name Facing Zone
 
 (This appears to be a technical IDD field name for EnergyPlus/OpenStudio. It should remain unchanged as it is a field identifier, not user-facing text requiring translation.)</translation>
     </message>
-    <!-- OS:Refrigeration:WalkIn:ZoneBoundary -->
+    
     <message>
         <source>Glass Reach In Door U Value Facing Zone</source>
         <translation>Glass Reach In Door U Value Facing Zone</translation>
     </message>
-    <!-- OS:SolarCollectorPerformance:PhotovoltaicThermal:BIPVT -->
+    
     <message>
         <source>Glass Refraction Index</source>
         <translation>유리 굴절률</translation>
     </message>
-    <!-- OS:SolarCollectorPerformance:PhotovoltaicThermal:BIPVT -->
+    
     <message>
         <source>Glass Thickness</source>
         <translation>유리 두께</translation>
     </message>
-    <!-- OS:Coil:Cooling:DX:SingleSpeed:ThermalStorage, OS:PlantLoop, OS:Refrigeration:SecondarySystem -->
+    
     <message>
         <source>Glycol Concentration</source>
         <translation>글리콜 농도</translation>
     </message>
-    <!-- OS:SolarCollectorPerformance:FlatPlate, OS:SolarCollectorPerformance:IntegralCollectorStorage -->
+    
     <message>
         <source>Gross Area</source>
         <translation>총 면적</translation>
     </message>
-    <!-- OS:Coil:Cooling:DX:CurveFit:Speed -->
+    
     <message>
         <source>Gross Cooling COP</source>
         <translation>냉방 총 COP</translation>
     </message>
-    <!-- OS:AirConditioner:VariableRefrigerantFlow, OS:Coil:Cooling:DX:MultiSpeed:StageData, OS:CoilPerformance:DX:Cooling -->
+    
     <message>
         <source>Gross Rated Cooling COP</source>
         <translation>냉각 정격 COP</translation>
     </message>
-    <!-- OS:AirConditioner:VariableRefrigerantFlow, OS:Coil:Heating:DX:MultiSpeed:StageData -->
+    
     <message>
         <source>Gross Rated Heating Capacity</source>
         <translation>정격 난방 용량</translation>
     </message>
-    <!-- OS:Coil:Heating:DX:MultiSpeed:StageData -->
+    
     <message>
         <source>Gross Rated Heating COP</source>
         <translation>총 정격 난방 COP</translation>
     </message>
-    <!-- OS:Coil:Cooling:DX:MultiSpeed:StageData, OS:CoilPerformance:DX:Cooling -->
+    
     <message>
         <source>Gross Rated Sensible Heat Ratio</source>
         <translation>정격 현열 비율</translation>
     </message>
-    <!-- OS:AirConditioner:VariableRefrigerantFlow, OS:Coil:Cooling:DX:MultiSpeed:StageData, OS:CoilPerformance:DX:Cooling -->
+    
     <message>
         <source>Gross Rated Total Cooling Capacity</source>
         <translation>정격 총 냉각 용량</translation>
     </message>
-    <!-- OS:Coil:Cooling:DX:VariableSpeed, OS:Coil:Cooling:WaterToAirHeatPump:VariableSpeedEquationFit -->
+    
     <message>
         <source>Gross Rated Total Cooling Capacity At Selected Nominal Speed Level</source>
         <translation>선정된 정격 속도 수준에서의 총 냉방 용량</translation>
     </message>
-    <!-- OS:Coil:Cooling:DX:CurveFit:Speed -->
+    
     <message>
         <source>Gross Sensible Heat Ratio</source>
         <translation>총 현열비</translation>
     </message>
-    <!-- OS:Coil:Cooling:DX:CurveFit:Speed -->
+    
     <message>
         <source>Gross Total Cooling Capacity Fraction</source>
         <translation>총 냉각 용량 비율</translation>
     </message>
-    <!-- OS:Generator:PVWatts -->
+    
     <message>
         <source>Ground Coverage Ratio</source>
         <translation>지면 피복 비율</translation>
     </message>
-    <!-- OS:Foundation:Kiva:Settings -->
+    
     <message>
         <source>Ground Solar Absorptivity</source>
         <translation>지표면 태양 흡수율</translation>
     </message>
-    <!-- OS:SurfaceProperty:GroundSurfaces -->
+    
     <message>
         <source>Ground Surface Name</source>
         <translation>지표면 이름</translation>
     </message>
-    <!-- OS:SurfaceProperty:GroundSurfaces -->
+    
     <message>
         <source>Ground Surface Reflectance Schedule Name</source>
         <translation>Ground Surface Reflectance Schedule Name</translation>
     </message>
-    <!-- OS:Foundation:Kiva:Settings -->
+    
     <message>
         <source>Ground Surface Roughness</source>
         <translation>지표면 조도</translation>
     </message>
-    <!-- OS:SurfaceProperty:GroundSurfaces -->
+    
     <message>
         <source>Ground Surface Temperature Schedule Name</source>
         <translation>지표면 온도 스케줄 이름</translation>
     </message>
-    <!-- OS:SurfaceProperty:GroundSurfaces -->
+    
     <message>
         <source>Ground Surface View Factor</source>
         <translation>지면 표면 뷰 팩터</translation>
     </message>
-    <!-- OS:SurfaceProperty:LocalEnvironment -->
+    
     <message>
         <source>Ground Surfaces Object Name</source>
         <translation>지표면 객체 이름</translation>
     </message>
-    <!-- OS:GroundHeatExchanger:Vertical -->
+    
     <message>
         <source>Ground Temperature</source>
         <translation>지표면 온도</translation>
     </message>
-    <!-- OS:SurfaceProperty:OtherSideCoefficients -->
+    
     <message>
         <source>Ground Temperature Coefficient</source>
         <translation>지면 온도 계수</translation>
     </message>
-    <!-- OS:SurfaceProperty:SurroundingSurfaces -->
+    
     <message>
         <source>Ground Temperature Schedule Name</source>
         <translation>지반 온도 스케줄 이름</translation>
     </message>
-    <!-- OS:Foundation:Kiva:Settings -->
+    
     <message>
         <source>Ground Thermal Absorptivity</source>
         <translation>지표면 열 흡수율</translation>
     </message>
-    <!-- OS:GroundHeatExchanger:Vertical -->
+    
     <message>
         <source>Ground Thermal Conductivity</source>
         <translation>지반 열전도율</translation>
     </message>
-    <!-- OS:GroundHeatExchanger:Vertical -->
+    
     <message>
         <source>Ground Thermal Heat Capacity</source>
         <translation>지표면 열용량</translation>
     </message>
-    <!-- OS:SurfaceProperty:SurroundingSurfaces -->
+    
     <message>
         <source>Ground View Factor</source>
         <translation>지표면 뷰 팩터</translation>
     </message>
-    <!-- OS:UtilityCost:Tariff -->
+    
     <message>
         <source>Group Name</source>
         <translation>그룹 이름</translation>
     </message>
-    <!-- OS:BuildingStory, OS:LightingSimulationZone, OS:SpaceType, OS:ThermalZone -->
+    
     <message>
         <source>Group Rendering Name</source>
         <translation>그룹 렌더링 이름</translation>
     </message>
-    <!-- OS:EnergyManagementSystem:MeteredOutputVariable, OS:PythonPlugin:OutputVariable -->
+    
     <message>
         <source>Group Type</source>
         <translation>그룹 유형</translation>
     </message>
-    <!-- OS:GroundHeatExchanger:Vertical -->
+    
     <message>
         <source>Grout Thermal Conductivity</source>
         <translation>그라우트 열전도율</translation>
     </message>
 
-    <!-- H -->
-    <!-- OS:HeatExchanger:FluidToFluid -->
+    
+    
     <message>
         <source>Heat Exchange Model Type</source>
         <translation>열교환 모델 유형</translation>
     </message>
-    <!-- OS:CoilSystem:Cooling:DX:HeatExchangerAssisted, OS:CoilSystem:Cooling:Water:HeatExchangerAssisted -->
+    
     <message>
         <source>Heat Exchanger</source>
         <translation>열 교환기</translation>
     </message>
-    <!-- OS:Generator:FuelCell:ExhaustGasToWaterHeatExchanger -->
+    
     <message>
         <source>Heat Exchanger Calculation Method</source>
         <translation>열교환기 계산 방법</translation>
     </message>
-    <!-- OS:Generator:FuelCell, OS:ZoneHVAC:EnergyRecoveryVentilator -->
+    
     <message>
         <source>Heat Exchanger Name</source>
         <translation>열교환기 이름</translation>
     </message>
-    <!-- OS:HeatExchanger:Desiccant:BalancedFlow -->
+    
     <message>
         <source>Heat Exchanger Performance</source>
         <translation>Heat Exchanger Performance</translation>
     </message>
-    <!-- OS:HeatExchanger:FluidToFluid -->
+    
     <message>
         <source>Heat Exchanger Setpoint Node Name</source>
         <translation>열교환기 설정값 노드 이름</translation>
     </message>
-    <!-- OS:HeatExchanger:AirToAir:SensibleAndLatent -->
+    
     <message>
         <source>Heat Exchanger Type</source>
         <translation>열교환기 유형</translation>
     </message>
-    <!-- OS:HeatExchanger:FluidToFluid -->
+    
     <message>
         <source>Heat Exchanger U-Factor Times Area Value</source>
         <translation>Heat Exchanger U-Factor Times Area Value</translation>
     </message>
-    <!-- OS:OutputControl:ResilienceSummaries -->
+    
     <message>
         <source>Heat Index Algorithm</source>
         <translation>열 지수 알고리즘</translation>
     </message>
-    <!-- OS:ZoneHVAC:WaterToAirHeatPump -->
+    
     <message>
         <source>Heat Pump Coil Water Flow Mode</source>
         <translation>Heat Pump Coil Water Flow Mode의 한국어 번역:
 
 **히트펌프 코일 물 흐름 모드**</translation>
     </message>
-    <!-- OS:HeatPump:AirToWater, OS:HeatPump:PlantLoop:EIR:Heating -->
+    
     <message>
         <source>Heat Pump Defrost Control</source>
         <translation>열펌프 제상 제어</translation>
     </message>
-    <!-- OS:HeatPump:AirToWater, OS:HeatPump:PlantLoop:EIR:Heating -->
+    
     <message>
         <source>Heat Pump Defrost Time Period Fraction</source>
         <translation>히트 펌프 제상 시간 비율</translation>
     </message>
-    <!-- OS:HeatPump:AirToWater -->
+    
     <message>
         <source>Heat Pump Multiplier</source>
         <translation>히트펌프 배수</translation>
     </message>
-    <!-- OS:HeatPump:PlantLoop:EIR:Heating -->
+    
     <message>
         <source>Heat Pump Sizing Method</source>
         <translation>열펌프 크기 결정 방법</translation>
     </message>
-    <!-- OS:Coil:WaterHeating:Desuperheater -->
+    
     <message>
         <source>Heat Reclaim Efficiency Function of Temperature Curve Name</source>
         <translation>Heat Reclaim Efficiency Function of Temperature Curve Name</translation>
     </message>
-    <!-- OS:Coil:Heating:Desuperheater -->
+    
     <message>
         <source>Heat Reclaim Recovery Efficiency</source>
         <translation>열 회수 효율</translation>
     </message>
-    <!-- OS:HeatPump:PlantLoop:EIR:Cooling, OS:HeatPump:PlantLoop:EIR:Heating -->
+    
     <message>
         <source>Heat Recovery Capacity Modifier Function of Temperature Curve Name</source>
         <translation>열 회수 용량 수정자 온도 곡선 이름</translation>
     </message>
-    <!-- OS:AirConditioner:VariableRefrigerantFlow -->
+    
     <message>
         <source>Heat Recovery Cooling Capacity Modifier Curve Name</source>
         <translation>열 회수 냉각 용량 수정 곡선 이름</translation>
     </message>
-    <!-- OS:AirConditioner:VariableRefrigerantFlow, OS:AirConditioner:VariableRefrigerantFlow:FluidTemperatureControl:HR -->
+    
     <message>
         <source>Heat Recovery Cooling Capacity Time Constant</source>
         <translation>열복구 냉각 용량 시간 상수</translation>
     </message>
-    <!-- OS:AirConditioner:VariableRefrigerantFlow -->
+    
     <message>
         <source>Heat Recovery Cooling Energy Modifier Curve Name</source>
         <translation>열 회수 냉각 에너지 수정 곡선 이름</translation>
     </message>
-    <!-- OS:AirConditioner:VariableRefrigerantFlow, OS:AirConditioner:VariableRefrigerantFlow:FluidTemperatureControl:HR -->
+    
     <message>
         <source>Heat Recovery Cooling Energy Time Constant</source>
         <translation>열 회수 냉각 에너지 시간 상수</translation>
     </message>
-    <!-- OS:HeatPump:PlantLoop:EIR:Cooling, OS:HeatPump:PlantLoop:EIR:Heating -->
+    
     <message>
         <source>Heat Recovery Electric Input to Output Ratio Modifier Function of Temperature Curve Name</source>
         <translation>열회수 전기 입력-출력 비율 온도 수정 곡선 이름</translation>
     </message>
-    <!-- OS:AirConditioner:VariableRefrigerantFlow -->
+    
     <message>
         <source>Heat Recovery Heating Capacity Modifier Curve Name</source>
         <translation>열회수 난방 용량 수정 곡선 이름</translation>
     </message>
-    <!-- OS:AirConditioner:VariableRefrigerantFlow, OS:AirConditioner:VariableRefrigerantFlow:FluidTemperatureControl:HR -->
+    
     <message>
         <source>Heat Recovery Heating Capacity Time Constant</source>
         <translation>열 회수 난방 용량 시간 상수</translation>
     </message>
-    <!-- OS:AirConditioner:VariableRefrigerantFlow -->
+    
     <message>
         <source>Heat Recovery Heating Energy Modifier Curve Name</source>
         <translation>Heat Recovery Heating Energy Modifier Curve Name</translation>
     </message>
-    <!-- OS:AirConditioner:VariableRefrigerantFlow, OS:AirConditioner:VariableRefrigerantFlow:FluidTemperatureControl:HR -->
+    
     <message>
         <source>Heat Recovery Heating Energy Time Constant</source>
         <translation>열 회수 난방 에너지 시간 상수</translation>
     </message>
-    <!-- OS:Chiller:Electric:EIR, OS:Chiller:Electric:ReformulatedEIR -->
+    
     <message>
         <source>Heat Recovery Inlet High Temperature Limit Schedule Name</source>
         <translation>열 회수 입구 고온 제한 스케줄 이름</translation>
     </message>
-    <!-- OS:Chiller:Electric:ASHRAE205, OS:Chiller:Electric:EIR, OS:Chiller:Electric:ReformulatedEIR, OS:HeatPump:PlantLoop:EIR:Cooling, OS:HeatPump:PlantLoop:EIR:Heating -->
+    
     <message>
         <source>Heat Recovery Inlet Node Name</source>
         <translation>열 회수 입구 노드 이름</translation>
     </message>
-    <!-- OS:Chiller:Electric:EIR, OS:Chiller:Electric:ReformulatedEIR -->
+    
     <message>
         <source>Heat Recovery Leaving Temperature Setpoint Node Name</source>
         <translation>열 회수 출구 온도 설정점 노드 이름</translation>
     </message>
-    <!-- OS:Chiller:Electric:ASHRAE205, OS:Chiller:Electric:EIR, OS:Chiller:Electric:ReformulatedEIR, OS:HeatPump:PlantLoop:EIR:Cooling, OS:HeatPump:PlantLoop:EIR:Heating -->
+    
     <message>
         <source>Heat Recovery Outlet Node Name</source>
-        <translation type="unfinished"></translation>
+        <translation>열회수 출구 노드 이름</translation>
     </message>
-    <!-- OS:Generator:MicroTurbine:HeatRecovery -->
+    
     <message>
         <source>Heat Recovery Rate Function of Inlet Water Temperature Curve Name</source>
         <translation>입수 온도 함수의 열회수율 곡선 이름</translation>
     </message>
-    <!-- OS:Generator:MicroTurbine:HeatRecovery -->
+    
     <message>
         <source>Heat Recovery Rate Function of Part Load Ratio Curve Name</source>
         <translation>부분 부하율 곡선에 따른 열 회수율 함수 곡선 이름</translation>
     </message>
-    <!-- OS:Generator:MicroTurbine:HeatRecovery -->
+    
     <message>
         <source>Heat Recovery Rate Function of Water Flow Rate Curve Name</source>
         <translation>열 회수율 물 유량 함수 곡선 이름</translation>
     </message>
-    <!-- OS:HeatPump:PlantLoop:EIR:Cooling, OS:HeatPump:PlantLoop:EIR:Heating -->
+    
     <message>
         <source>Heat Recovery Reference Flow Rate</source>
         <translation>열 회수 기준 유량</translation>
     </message>
-    <!-- OS:ZoneHVAC:IdealLoadsAirSystem -->
+    
     <message>
         <source>Heat Recovery Type</source>
         <translation>열회수 유형</translation>
     </message>
-    <!-- OS:Generator:MicroTurbine:HeatRecovery -->
+    
     <message>
         <source>Heat Recovery Water Flow Operating Mode</source>
         <translation>열회수 물 흐름 운영 모드</translation>
     </message>
-    <!-- OS:Generator:MicroTurbine:HeatRecovery -->
+    
     <message>
         <source>Heat Recovery Water Flow Rate Function of Temperature and Power Curve Name</source>
         <translation>열회수 물 유량 온도 및 전력 곡선 함수 이름</translation>
     </message>
-    <!-- OS:AirLoopHVAC:UnitaryHeatPump:AirToAir:MultiSpeed -->
+    
     <message>
         <source>Heat Recovery Water Inlet Node</source>
         <translation>열회수 물 입구 노드</translation>
     </message>
-    <!-- OS:AirLoopHVAC:UnitarySystem, OS:Generator:FuelCell:ExhaustGasToWaterHeatExchanger, OS:Generator:FuelCell:StackCooler, OS:Generator:MicroTurbine:HeatRecovery -->
+    
     <message>
         <source>Heat Recovery Water Inlet Node Name</source>
         <translation>열 회수 수 입구 노드 이름</translation>
     </message>
-    <!-- OS:Generator:FuelCell:ExhaustGasToWaterHeatExchanger -->
+    
     <message>
         <source>Heat Recovery Water Maximum Flow Rate</source>
         <translation>Heat Recovery Water Maximum Flow Rate</translation>
     </message>
-    <!-- OS:AirLoopHVAC:UnitaryHeatPump:AirToAir:MultiSpeed -->
+    
     <message>
         <source>Heat Recovery Water Outlet Node</source>
         <translation>Heat Recovery Water Outlet Node</translation>
     </message>
-    <!-- OS:AirLoopHVAC:UnitarySystem, OS:Generator:FuelCell:ExhaustGasToWaterHeatExchanger, OS:Generator:FuelCell:StackCooler, OS:Generator:MicroTurbine:HeatRecovery -->
+    
     <message>
         <source>Heat Recovery Water Outlet Node Name</source>
         <translation>열 회수 물 출구 노드 이름</translation>
     </message>
-    <!-- OS:CoolingTower:SingleSpeed, OS:CoolingTower:TwoSpeed, OS:EvaporativeFluidCooler:SingleSpeed, OS:EvaporativeFluidCooler:TwoSpeed -->
+    
     <message>
         <source>Heat Rejection Capacity and Nominal Capacity Sizing Ratio</source>
         <translation>열 거부 용량 및 정격 용량 크기 비율</translation>
     </message>
-    <!-- OS:Refrigeration:CompressorRack -->
+    
     <message>
         <source>Heat Rejection Location</source>
         <translation>열 거부 위치</translation>
     </message>
-    <!-- OS:Refrigeration:CompressorRack -->
+    
     <message>
         <source>Heat Rejection Zone Name</source>
         <translation>열 거부 영역 이름</translation>
     </message>
-    <!-- OS:ElectricLoadCenter:Storage:LiIonNMCBattery -->
+    
     <message>
         <source>Heat Transfer Coefficient Between Battery and Ambient</source>
         <translation>배터리와 주변 사이의 열전달 계수</translation>
     </message>
-    <!-- OS:Generator:Photovoltaic -->
+    
     <message>
         <source>Heat Transfer Integration Mode</source>
         <translation>열전달 적분 모드</translation>
     </message>
-    <!-- OS:HeatExchanger:FluidToFluid -->
+    
     <message>
         <source>Heat Transfer Metering End Use Type</source>
         <translation>열전달 계량 최종 사용 유형</translation>
     </message>
-    <!-- OS:AirflowNetworkDuct -->
+    
     <message>
         <source>Heat Transmittance Coefficient (U-Factor) for Duct Wall Construction</source>
         <translation>덕트 벽 구성의 열 전달 계수 (U-Factor)</translation>
     </message>
-    <!-- OS:WaterHeater:Mixed -->
+    
     <message>
         <source>Heater Ignition Delay</source>
         <translation>히터 점화 지연</translation>
     </message>
-    <!-- OS:WaterHeater:Mixed -->
+    
     <message>
         <source>Heater Ignition Minimum Flow Rate</source>
         <translation>가열기 점화 최소 유량</translation>
     </message>
-    <!-- OS:AirTerminal:SingleDuct:ConstantVolume:FourPipeBeam, OS:ZoneHVAC:IdealLoadsAirSystem -->
+    
     <message>
         <source>Heating Availability Schedule Name</source>
         <translation>난방 가용성 스케줄 이름</translation>
     </message>
-    <!-- OS:Coil:Heating:WaterToAirHeatPump:EquationFit, OS:HeatPump:WaterToWater:EquationFit:Heating -->
+    
     <message>
         <source>Heating Capacity Curve Name</source>
         <translation>난방 용량 곡선 이름</translation>
     </message>
-    <!-- OS:Coil:WaterHeating:AirToWaterHeatPump -->
+    
     <message>
         <source>Heating Capacity Function of Air Flow Fraction Curve</source>
         <translation>난방 용량 공기 흐름 분율 곡선 함수</translation>
     </message>
-    <!-- OS:Coil:WaterHeating:AirToWaterHeatPump:Wrapped -->
+    
     <message>
         <source>Heating Capacity Function of Air Flow Fraction Curve Name</source>
         <translation>공기 유량 분율 곡선에 따른 난방 용량 함수 곡선명</translation>
     </message>
-    <!-- OS:Coil:Heating:DX:MultiSpeed:StageData -->
+    
     <message>
         <source>Heating Capacity Function of Flow Fraction Curve Name</source>
         <translation>난방 용량 유량 분율 곡선 이름</translation>
     </message>
-    <!-- OS:Coil:WaterHeating:AirToWaterHeatPump -->
+    
     <message>
         <source>Heating Capacity Function of Temperature Curve</source>
         <translation>난방 용량 온도 함수 곡선</translation>
     </message>
-    <!-- OS:Coil:Heating:DX:MultiSpeed:StageData, OS:Coil:Heating:DX:VariableSpeed:SpeedData, OS:Coil:Heating:WaterToAirHeatPump:VariableSpeedEquationFit:SpeedData, OS:Coil:WaterHeating:AirToWaterHeatPump:Wrapped -->
+    
     <message>
         <source>Heating Capacity Function of Temperature Curve Name</source>
         <translation>온난화 용량 온도 함수 곡선 이름</translation>
     </message>
-    <!-- OS:Coil:WaterHeating:AirToWaterHeatPump -->
+    
     <message>
         <source>Heating Capacity Function of Water Flow Fraction Curve</source>
         <translation>난방 용량 물 유량 분율 곡선 함수</translation>
     </message>
-    <!-- OS:Coil:Heating:WaterToAirHeatPump:VariableSpeedEquationFit:SpeedData -->
+    
     <message>
         <source>Heating Capacity Function of Water Flow Fraction Curve Name</source>
         <translation>수열 유량 비율 곡선 이름별 난방 용량 함수</translation>
     </message>
-    <!-- OS:Coil:Heating:DX:VariableRefrigerantFlow -->
+    
     <message>
         <source>Heating Capacity Modifier Function of Flow Fraction Curve</source>
         <translation>난방 용량 수정 함수 (유량 분율 곡선)</translation>
     </message>
-    <!-- OS:AirConditioner:VariableRefrigerantFlow -->
+    
     <message>
         <source>Heating Capacity Ratio Boundary Curve Name</source>
         <translation>난방 용량 비율 경계 곡선 이름</translation>
     </message>
-    <!-- OS:AirConditioner:VariableRefrigerantFlow -->
+    
     <message>
         <source>Heating Capacity Ratio Modifier Function of High Temperature Curve Name</source>
         <translation>고온 곡선 이름의 난방 용량 비율 수정자 함수</translation>
     </message>
-    <!-- OS:AirConditioner:VariableRefrigerantFlow -->
+    
     <message>
         <source>Heating Capacity Ratio Modifier Function of Low Temperature Curve Name</source>
         <translation>저온 곡선 이름의 난방 용량 비율 수정자 함수</translation>
     </message>
-    <!-- OS:Coil:Heating:DX:VariableRefrigerantFlow -->
+    
     <message>
         <source>Heating Capacity Ratio Modifier Function of Temperature Curve</source>
         <translation>온도 곡선의 난방 용량 비율 수정자 함수</translation>
     </message>
-    <!-- OS:Generator:FuelCell:AuxiliaryHeater -->
+    
     <message>
         <source>Heating Capacity Units</source>
         <translation>난방 용량 단위</translation>
     </message>
-    <!-- OS:AirLoopHVAC:UnitaryHeatCool:VAVChangeoverBypass, OS:AirLoopHVAC:UnitaryHeatPump:AirToAir:MultiSpeed, OS:ZoneHVAC:TerminalUnit:VariableRefrigerantFlow -->
+    
     <message>
         <source>Heating Coil</source>
         <translation>난방 코일</translation>
     </message>
-    <!-- OS:AirLoopHVAC:UnitaryHeatPump:AirToAir, OS:AirLoopHVAC:UnitarySystem, OS:AirTerminal:SingleDuct:ConstantVolume:FourPipeBeam, OS:AirTerminal:SingleDuct:ConstantVolume:FourPipeInduction, OS:ZoneHVAC:Baseboard:Convective:Water, OS:ZoneHVAC:Baseboard:RadiantConvective:Water, OS:ZoneHVAC:FourPipeFanCoil, OS:ZoneHVAC:PackagedTerminalAirConditioner, OS:ZoneHVAC:PackagedTerminalHeatPump, OS:ZoneHVAC:UnitHeater, OS:ZoneHVAC:UnitVentilator, OS:ZoneHVAC:WaterToAirHeatPump -->
+    
     <message>
         <source>Heating Coil Name</source>
         <translation>난방 코일 이름</translation>
     </message>
-    <!-- OS:AirConditioner:VariableRefrigerantFlow -->
+    
     <message>
         <source>Heating Combination Ratio Correction Factor Curve Name</source>
         <translation>난방 혼합 비율 수정 계수 곡선 이름</translation>
     </message>
-    <!-- OS:HeatPump:WaterToWater:EquationFit:Heating -->
+    
     <message>
         <source>Heating Compressor Power Curve Name</source>
         <translation>난방 압축기 전력 곡선 이름</translation>
     </message>
-    <!-- OS:Coil:Heating:LowTemperatureRadiant:VariableFlow -->
+    
     <message>
         <source>Heating Control Temperature Schedule Name</source>
         <translation>난방 제어 온도 스케줄 이름</translation>
     </message>
-    <!-- OS:Coil:Heating:LowTemperatureRadiant:VariableFlow -->
+    
     <message>
         <source>Heating Control Throttling Range</source>
         <translation>난방 제어 스로틀링 범위</translation>
     </message>
-    <!-- OS:AirTerminal:SingleDuct:ParallelPIU:Reheat, OS:AirTerminal:SingleDuct:SeriesPIU:Reheat -->
+    
     <message>
         <source>Heating Control Type</source>
         <translation>난방 제어 유형</translation>
     </message>
-    <!-- OS:AvailabilityManager:NightCycle -->
+    
     <message>
         <source>Heating Control Zone or Zone List Name</source>
         <translation>난방 제어 영역 또는 영역 목록 이름</translation>
     </message>
-    <!-- OS:AirTerminal:SingleDuct:ConstantVolume:FourPipeInduction, OS:ZoneHVAC:FourPipeFanCoil, OS:ZoneHVAC:PackagedTerminalHeatPump, OS:ZoneHVAC:UnitHeater, OS:ZoneHVAC:UnitVentilator -->
+    
     <message>
         <source>Heating Convergence Tolerance</source>
         <translation>난방 수렴 허용오차</translation>
     </message>
-    <!-- OS:Coil:WaterHeating:AirToWaterHeatPump -->
+    
     <message>
         <source>Heating COP Function of Air Flow Fraction Curve</source>
         <translation>난방 COP 공기 유량 분율 곡선 함수</translation>
     </message>
-    <!-- OS:Coil:WaterHeating:AirToWaterHeatPump:Wrapped -->
+    
     <message>
         <source>Heating COP Function of Air Flow Fraction Curve Name</source>
         <translation>난방 COP 공기 유량 분율 곡선 이름</translation>
     </message>
-    <!-- OS:Coil:WaterHeating:AirToWaterHeatPump -->
+    
     <message>
         <source>Heating COP Function of Temperature Curve</source>
         <translation>난방 COP 온도 곡선 함수</translation>
     </message>
-    <!-- OS:Coil:WaterHeating:AirToWaterHeatPump:Wrapped -->
+    
     <message>
         <source>Heating COP Function of Temperature Curve Name</source>
         <translation>난방 COP 함수 온도 곡선 이름</translation>
     </message>
-    <!-- OS:Coil:WaterHeating:AirToWaterHeatPump -->
+    
     <message>
         <source>Heating COP Function of Water Flow Fraction Curve</source>
         <translation>난방 COP 물 유량 분율 곡선 함수</translation>
     </message>
-    <!-- OS:Coil:Heating:LowTemperatureRadiant:VariableFlow, OS:Coil:Heating:Water:Baseboard, OS:Coil:Heating:Water:Baseboard:Radiant, OS:Sizing:System, OS:ZoneHVAC:Baseboard:RadiantConvective:Electric -->
+    
     <message>
         <source>Heating Design Capacity</source>
         <translation>난방 설계 용량</translation>
     </message>
-    <!-- OS:Coil:Heating:LowTemperatureRadiant:VariableFlow, OS:Coil:Heating:Water:Baseboard, OS:Coil:Heating:Water:Baseboard:Radiant, OS:Sizing:System, OS:ZoneHVAC:Baseboard:RadiantConvective:Electric -->
+    
     <message>
         <source>Heating Design Capacity Method</source>
         <translation>난방 설계 용량 방식</translation>
     </message>
-    <!-- OS:Coil:Heating:LowTemperatureRadiant:VariableFlow, OS:Coil:Heating:Water:Baseboard, OS:Coil:Heating:Water:Baseboard:Radiant, OS:Sizing:System, OS:ZoneHVAC:Baseboard:RadiantConvective:Electric -->
+    
     <message>
         <source>Heating Design Capacity Per Floor Area</source>
         <translation>층 면적당 난방 설계 용량</translation>
     </message>
-    <!-- OS:AirConditioner:VariableRefrigerantFlow -->
+    
     <message>
         <source>Heating Energy Input Ratio Boundary Curve Name</source>
         <translation>난방 에너지 입력 비율 경계 곡선 이름</translation>
     </message>
-    <!-- OS:HeatPump:AirToWater:Heating:SpeedData -->
+    
     <message>
         <source>Heating Energy Input Ratio Function of PLR Curve Name</source>
         <translation>난방 에너지 입력 비 PLR 함수 곡선 이름</translation>
     </message>
-    <!-- OS:HeatPump:AirToWater:Heating:SpeedData -->
+    
     <message>
         <source>Heating Energy Input Ratio Function of Temperature Curve Name</source>
         <translation>온도 곡선 이름에 따른 난방 에너지 입력 비율 함수</translation>
     </message>
-    <!-- OS:AirConditioner:VariableRefrigerantFlow -->
+    
     <message>
         <source>Heating Energy Input Ratio Modifier Function of High Part-Load Ratio Curve Name</source>
         <translation>난방 에너지 입력 비율 수정자 고부분부하비율 곡선 이름 함수</translation>
     </message>
-    <!-- OS:AirConditioner:VariableRefrigerantFlow -->
+    
     <message>
         <source>Heating Energy Input Ratio Modifier Function of High Temperature Curve Name</source>
         <translation>난방 에너지 입력비 수정자 고온 곡선 이름 함수</translation>
     </message>
-    <!-- OS:AirConditioner:VariableRefrigerantFlow -->
+    
     <message>
         <source>Heating Energy Input Ratio Modifier Function of Low Part-Load Ratio Curve Name</source>
         <translation>난방 에너지 입력 비율 수정자 저부분 부하율 곡선 이름 함수</translation>
     </message>
-    <!-- OS:AirConditioner:VariableRefrigerantFlow -->
+    
     <message>
         <source>Heating Energy Input Ratio Modifier Function of Low Temperature Curve Name</source>
         <translation>난방 에너지 입력 비율 수정자 저온 곡선 함수명</translation>
     </message>
-    <!-- OS:Sizing:System -->
+    
     <message>
         <source>Heating Fraction of Autosized Cooling Supply Air Flow Rate</source>
         <translation>자동 크기 조정된 냉각 공급 공기 유량의 난방 비율</translation>
     </message>
-    <!-- OS:Sizing:System -->
+    
     <message>
         <source>Heating Fraction of Autosized Heating Supply Air Flow Rate</source>
         <translation>자동설정 난방 공급 공기 유량의 난방 분율</translation>
     </message>
-    <!-- OS:ZoneHVAC:IdealLoadsAirSystem -->
+    
     <message>
         <source>Heating Fuel Efficiency Schedule Name</source>
         <translation>난방 연료 효율 스케줄 이름</translation>
     </message>
-    <!-- OS:ZoneHVAC:IdealLoadsAirSystem -->
+    
     <message>
         <source>Heating Fuel Type</source>
         <translation>난방 연료 종류</translation>
     </message>
-    <!-- OS:Coil:Heating:LowTemperatureRadiant:ConstantFlow -->
+    
     <message>
         <source>Heating High Control Temperature Schedule Name</source>
         <translation>난방 고온 제어 온도 스케줄 이름</translation>
     </message>
-    <!-- OS:Coil:Heating:LowTemperatureRadiant:ConstantFlow -->
+    
     <message>
         <source>Heating High Water Temperature Schedule Name</source>
         <translation>난방 고온수 온도 스케줄 이름</translation>
     </message>
-    <!-- OS:ZoneHVAC:IdealLoadsAirSystem -->
+    
     <message>
         <source>Heating Limit</source>
         <translation>난방 한계</translation>
     </message>
-    <!-- OS:CentralHeatPumpSystem -->
+    
     <message>
         <source>Heating Loop Inlet Node Name</source>
         <translation>난방 루프 입구 노드 이름</translation>
     </message>
-    <!-- OS:CentralHeatPumpSystem -->
+    
     <message>
         <source>Heating Loop Outlet Node Name</source>
         <translation>난방 루프 출구 노드 이름</translation>
     </message>
-    <!-- OS:Coil:Heating:LowTemperatureRadiant:ConstantFlow -->
+    
     <message>
         <source>Heating Low Control Temperature Schedule Name</source>
         <translation>난방 저온 제어 온도 스케줄 이름</translation>
     </message>
-    <!-- OS:Coil:Heating:LowTemperatureRadiant:ConstantFlow -->
+    
     <message>
         <source>Heating Low Water Temperature Schedule Name</source>
         <translation>난방 저온수 온도 스케줄 이름</translation>
     </message>
-    <!-- OS:ChillerHeaterPerformance:Electric:EIR -->
+    
     <message>
         <source>Heating Mode Cooling Capacity Function of Temperature Curve Name</source>
         <translation>난방 모드 냉각 용량 온도 함수 곡선 이름</translation>
     </message>
-    <!-- OS:ChillerHeaterPerformance:Electric:EIR -->
+    
     <message>
         <source>Heating Mode Cooling Capacity Optimum Part Load Ratio</source>
         <translation>난방 모드 냉각 용량 최적 부분 부하 비율</translation>
     </message>
-    <!-- OS:ChillerHeaterPerformance:Electric:EIR -->
+    
     <message>
         <source>Heating Mode Electric Input to Cooling Output Ratio Function of Part Load Ratio Curve Name</source>
         <translation>난방 모드 전기 입력 냉각 출력 비율 부분 부하 비율 곡선 이름</translation>
     </message>
-    <!-- OS:ChillerHeaterPerformance:Electric:EIR -->
+    
     <message>
         <source>Heating Mode Electric Input to Cooling Output Ratio Function of Temperature Curve Name</source>
         <translation>난방 모드 전력 입력 대 냉각 출력 비율 함수 온도 곡선 이름</translation>
     </message>
-    <!-- OS:ChillerHeaterPerformance:Electric:EIR -->
+    
     <message>
         <source>Heating Mode Entering Chilled Water Temperature Low Limit</source>
         <translation>난방 모드 진입 냉수 온도 하한</translation>
     </message>
-    <!-- OS:ChillerHeaterPerformance:Electric:EIR -->
+    
     <message>
         <source>Heating Mode Temperature Curve Condenser Water Independent Variable</source>
         <translation>난방 모드 온도 곡선 응축기 수 독립 변수</translation>
     </message>
-    <!-- OS:HeatPump:AirToWater -->
+    
     <message>
         <source>Heating Operation Mode</source>
         <translation>난방 운영 모드</translation>
     </message>
-    <!-- OS:AirConditioner:VariableRefrigerantFlow -->
+    
     <message>
         <source>Heating Part-Load Fraction Correlation Curve Name</source>
         <translation>난방 부분 부하 분율 상관관계 곡선 이름</translation>
     </message>
-    <!-- OS:AirConditioner:VariableRefrigerantFlow -->
+    
     <message>
         <source>Heating Performance Curve Outdoor Temperature Type</source>
         <translation>난방 성능 곡선 실외 온도 유형</translation>
     </message>
-    <!-- OS:Coil:Heating:WaterToAirHeatPump:EquationFit -->
+    
     <message>
         <source>Heating Power Consumption Curve Name</source>
         <translation>난방 전력 소비 곡선 이름</translation>
     </message>
-    <!-- OS:Refrigeration:AirChiller, OS:Refrigeration:WalkIn -->
+    
     <message>
         <source>Heating Power Schedule Name</source>
         <translation>난방 전력 스케줄 이름</translation>
     </message>
-    <!-- OS:ThermostatSetpoint:DualSetpoint, OS:ZoneHVAC:HighTemperatureRadiant, OS:ZoneHVAC:LowTemperatureRadiant:Electric -->
+    
     <message>
         <source>Heating Setpoint Temperature Schedule Name</source>
         <translation>난방 설정 온도 일정 이름</translation>
     </message>
-    <!-- OS:Sizing:Parameters -->
+    
     <message>
         <source>Heating Sizing Factor</source>
         <translation>난방 설계용량 계수</translation>
     </message>
-    <!-- OS:Coil:Heating:Desuperheater, OS:Coil:WaterHeating:Desuperheater -->
+    
     <message>
         <source>Heating Source Name</source>
         <translation>난방 열원 이름</translation>
     </message>
-    <!-- OS:UnitarySystemPerformance:Multispeed -->
+    
     <message>
         <source>Heating Speed Supply Air Flow Ratio</source>
         <translation>난방 속도 급기 풍량 비율</translation>
     </message>
-    <!-- OS:SetpointManager:SingleZone:OneStageHeating -->
+    
     <message>
         <source>Heating Stage Off Supply Air Setpoint Temperature</source>
         <translation>난방 단계 꺼짐 공급 공기 설정 온도</translation>
     </message>
-    <!-- OS:SetpointManager:SingleZone:OneStageHeating -->
+    
     <message>
         <source>Heating Stage On Supply Air Setpoint Temperature</source>
         <translation>난방 스테이지 온 공급 공기 설정점 온도</translation>
     </message>
-    <!-- OS:Sizing:System -->
+    
     <message>
         <source>Heating Supply Air Flow Rate Per Floor Area</source>
         <translation>난방 공급 공기 유량 (단위 면적당)</translation>
     </message>
-    <!-- OS:Sizing:System -->
+    
     <message>
         <source>Heating Supply Air Flow Rate Per Unit Heating Capacity</source>
         <translation>난방 용량 단위당 난방 공급 공기 유량</translation>
     </message>
-    <!-- OS:ZoneControl:Thermostat:StagedDualSetpoint -->
+    
     <message>
         <source>Heating Temperature Setpoint Schedule</source>
         <translation>난방 온도 설정점 스케줄</translation>
     </message>
-    <!-- OS:ZoneHVAC:HighTemperatureRadiant, OS:ZoneHVAC:LowTemperatureRadiant:Electric -->
+    
     <message>
         <source>Heating Throttling Range</source>
         <translation>난방 스로틀링 범위</translation>
     </message>
-    <!-- OS:ZoneControl:Thermostat:StagedDualSetpoint -->
+    
     <message>
         <source>Heating Throttling Temperature Range</source>
         <translation>난방 스로틀링 온도 범위</translation>
     </message>
-    <!-- OS:HeatPump:PlantLoop:EIR:Heating -->
+    
     <message>
         <source>Heating To Cooling Capacity Sizing Ratio</source>
         <translation>난방-냉방 용량 크기 비율</translation>
     </message>
-    <!-- OS:Coil:Heating:LowTemperatureRadiant:ConstantFlow, OS:Coil:Heating:LowTemperatureRadiant:VariableFlow -->
+    
     <message>
         <source>Heating Water Inlet Node Name</source>
         <translation>난방수 입구 노드 이름</translation>
     </message>
-    <!-- OS:Coil:Heating:LowTemperatureRadiant:ConstantFlow, OS:Coil:Heating:LowTemperatureRadiant:VariableFlow -->
+    
     <message>
         <source>Heating Water Outlet Node Name</source>
         <translation>가열 급수 토출 노드 이름</translation>
     </message>
-    <!-- OS:AvailabilityManager:NightCycle -->
+    
     <message>
         <source>Heating Zone Fans Only Zone or Zone List Name</source>
         <translation>난방 존 팬만 존 또는 존 목록 이름</translation>
     </message>
-    <!-- OS:Construction:CfactorUndergroundWall -->
+    
     <message>
         <source>Height</source>
         <translation>높이</translation>
     </message>
-    <!-- OS:WaterHeater:Sizing -->
+    
     <message>
         <source>Height Aspect Ratio</source>
         <translation>높이 종횡비</translation>
     </message>
-    <!-- OS:AirflowNetworkSimulationControl -->
+    
     <message>
         <source>Height Dependence of External Node Temperature</source>
         <translation>외부 노드 온도의 높이 의존성</translation>
     </message>
-    <!-- OS:ZoneVentilation:WindandStackOpenArea -->
+    
     <message>
         <source>Height Difference</source>
         <translation>높이 차이</translation>
     </message>
-    <!-- OS:AirConditioner:VariableRefrigerantFlow:FluidTemperatureControl, OS:AirConditioner:VariableRefrigerantFlow:FluidTemperatureControl:HR -->
+    
     <message>
         <source>Height Difference Between Outdoor Unit and Indoor Units</source>
         <translation>실외기와 실내기 사이의 높이 차이</translation>
     </message>
-    <!-- OS:AirflowNetworkDetailedOpening -->
+    
     <message>
         <source>Height Factor for Opening Factor</source>
         <translation>개구부 계수에 대한 높이 계수</translation>
     </message>
-    <!-- OS:Generator:WindTurbine -->
+    
     <message>
         <source>Height for Local Average Wind Speed</source>
         <translation>국지 평균 풍속에 대한 높이</translation>
     </message>
-    <!-- OS:Refrigeration:WalkIn:ZoneBoundary -->
+    
     <message>
         <source>Height of Glass Reach In Doors Facing Zone</source>
         <translation>존 방향 글래스 리치인 도어의 높이</translation>
     </message>
-    <!-- OS:Material:RoofVegetation -->
+    
     <message>
         <source>Height of Plants</source>
         <translation>식물의 높이</translation>
     </message>
-    <!-- OS:Refrigeration:WalkIn:ZoneBoundary -->
+    
     <message>
         <source>Height of Stocking Doors Facing Zone</source>
         <translation>존에 면한 적재 도어의 높이</translation>
     </message>
-    <!-- OS:DaylightingDevice:LightWell -->
+    
     <message>
         <source>Height of Well</source>
         <translation>우물의 높이</translation>
     </message>
-    <!-- OS:AirflowNetworkSimulationControl -->
+    
     <message>
         <source>Height Selection for Local Wind Pressure Calculation</source>
         <translation>높이 선택 (국소 풍압 계산용)</translation>
     </message>
-    <!-- OS:FuelFactors -->
+    
     <message>
         <source>Hg Emission Factor</source>
         <translation>Hg 배출 계수</translation>
     </message>
-    <!-- OS:FuelFactors -->
+    
     <message>
         <source>Hg Emission Factor Schedule Name</source>
         <translation>Hg 배출계수 스케줄 이름</translation>
     </message>
-    <!-- OS:CoolingTower:TwoSpeed, OS:EvaporativeFluidCooler:TwoSpeed, OS:FluidCooler:TwoSpeed -->
+    
     <message>
         <source>High Fan Speed Air Flow Rate</source>
         <translation>고속 팬 공기 유량</translation>
     </message>
-    <!-- OS:CoolingTower:TwoSpeed, OS:EvaporativeFluidCooler:TwoSpeed, OS:FluidCooler:TwoSpeed -->
+    
     <message>
         <source>High Fan Speed Fan Power</source>
         <translation>고속 팬 전력</translation>
     </message>
-    <!-- OS:CoolingTower:TwoSpeed -->
+    
     <message>
         <source>High Fan Speed U-Factor Times Area Value</source>
         <translation>고속 팬 U-팩터 × 면적 값</translation>
     </message>
-    <!-- OS:EvaporativeFluidCooler:TwoSpeed, OS:FluidCooler:TwoSpeed -->
+    
     <message>
         <source>High Fan Speed U-factor Times Area Value</source>
         <translation>고 팬 속도 U-factor 면적 값</translation>
     </message>
-    <!-- OS:Controller:OutdoorAir -->
+    
     <message>
         <source>High Humidity Control</source>
         <translation>고습도 제어</translation>
     </message>
-    <!-- OS:ZoneHVAC:EnergyRecoveryVentilator:Controller -->
+    
     <message>
         <source>High Humidity Control Flag</source>
         <translation>고습도 제어 플래그</translation>
     </message>
-    <!-- OS:Controller:OutdoorAir, OS:ZoneHVAC:EnergyRecoveryVentilator:Controller -->
+    
     <message>
         <source>High Humidity Outdoor Air Flow Ratio</source>
         <translation>높은 습도 외기 유량 비율</translation>
     </message>
-    <!-- OS:AirTerminal:SingleDuct:ParallelPIU:Reheat, OS:AirTerminal:SingleDuct:SeriesPIU:Reheat -->
+    
     <message>
         <source>High Limit Heating Discharge Air Temperature</source>
         <translation>고온 제한 난방 배출 공기 온도</translation>
     </message>
-    <!-- OS:Refrigeration:TranscriticalSystem -->
+    
     <message>
         <source>High Pressure CompressorList Name</source>
         <translation>고압 압축기 목록 이름</translation>
     </message>
-    <!-- OS:SetpointManager:SystemNodeReset:Humidity -->
+    
     <message>
         <source>High Reference Humidity Ratio</source>
         <translation>높은 기준 습도비</translation>
     </message>
-    <!-- OS:SetpointManager:SystemNodeReset:Temperature -->
+    
     <message>
         <source>High Reference Temperature</source>
         <translation>고기준 온도</translation>
     </message>
-    <!-- OS:SetpointManager:Scheduled:DualSetpoint -->
+    
     <message>
         <source>High Setpoint Schedule Name</source>
         <translation>고온 설정값 스케줄 이름</translation>
     </message>
-    <!-- OS:Coil:Cooling:DX:TwoSpeed -->
+    
     <message>
         <source>High Speed Evaporative Condenser Air Flow Rate</source>
         <translation>고속 증발식 응축기 공기 유량</translation>
     </message>
-    <!-- OS:Coil:Cooling:DX:TwoSpeed -->
+    
     <message>
         <source>High Speed Evaporative Condenser Effectiveness</source>
         <translation>고속 증발 응축기 효율</translation>
     </message>
-    <!-- OS:Coil:Cooling:DX:TwoSpeed -->
+    
     <message>
         <source>High Speed Evaporative Condenser Pump Rated Power Consumption</source>
         <translation>고속 증발식 응축기 펌프 정격 전력 소비</translation>
     </message>
-    <!-- OS:CoolingTower:TwoSpeed, OS:FluidCooler:TwoSpeed -->
+    
     <message>
         <source>High Speed Nominal Capacity</source>
         <translation>고속 공칭 용량</translation>
     </message>
-    <!-- OS:EvaporativeFluidCooler:TwoSpeed -->
+    
     <message>
         <source>High Speed Sizing Factor</source>
         <translation>고속 크기 조정 계수</translation>
     </message>
-    <!-- OS:EvaporativeFluidCooler:TwoSpeed -->
+    
     <message>
         <source>High Speed Standard Design Capacity</source>
         <translation>고속 표준 설계 용량</translation>
     </message>
-    <!-- OS:EvaporativeFluidCooler:TwoSpeed -->
+    
     <message>
         <source>High Speed User Specified Design Capacity</source>
         <translation>높은 속도 사용자 지정 설계 용량</translation>
     </message>
-    <!-- OS:MaterialProperty:PhaseChangeHysteresis -->
+    
     <message>
         <source>High Temperature Difference of Freezing Curve</source>
         <translation>결빙 곡선의 높은 온도 차이</translation>
     </message>
-    <!-- OS:MaterialProperty:PhaseChangeHysteresis -->
+    
     <message>
         <source>High Temperature Difference of Melting Curve</source>
         <translation>용융 곡선의 높은 온도 차이</translation>
     </message>
-    <!-- OS:Refrigeration:System -->
+    
     <message>
         <source>High-Stage CompressorList Name</source>
         <translation>고단계 압축기 목록 이름</translation>
     </message>
-    <!-- OS:Schedule:Week -->
+    
     <message>
         <source>Holiday Schedule:Day Name</source>
         <translation>휴일 일정:날짜 이름</translation>
     </message>
-    <!-- OS:GroundHeatExchanger:HorizontalTrench -->
+    
     <message>
         <source>Horizontal Spacing Between Pipes</source>
         <translation>파이프 간 수평 간격</translation>
     </message>
-    <!-- OS:AirTerminal:DualDuct:ConstantVolume, OS:AirTerminal:DualDuct:VAV -->
+    
     <message>
         <source>Hot Air Inlet Node</source>
         <translation>핫 에어 인렛 노드</translation>
     </message>
-    <!-- OS:AvailabilityManager:DifferentialThermostat -->
+    
     <message>
         <source>Hot Node</source>
         <translation>핫 노드</translation>
     </message>
-    <!-- OS:HotWaterEquipment -->
+    
     <message>
         <source>Hot Water Equipment Definition Name</source>
         <translation>온수 설비 정의 이름</translation>
     </message>
-    <!-- OS:Coil:Heating:FourPipeBeam, OS:DistrictHeating:Water, OS:HeatPump:AirToWater:Heating -->
+    
     <message>
         <source>Hot Water Inlet Node Name</source>
         <translation>Hot Water Inlet Node Name의 한국어 번역:
 
 **온수 입구 노드 이름**</translation>
     </message>
-    <!-- OS:Coil:Heating:FourPipeBeam, OS:DistrictHeating:Water, OS:HeatPump:AirToWater:Heating -->
+    
     <message>
         <source>Hot Water Outlet Node Name</source>
         <translation>온수 출구 노드 이름</translation>
     </message>
-    <!-- OS:LightingDesignDay -->
+    
     <message>
         <source>Hour to Simulate</source>
         <translation>시뮬레이션할 시간</translation>
     </message>
-    <!-- OS:ZoneHVAC:IdealLoadsAirSystem -->
+    
     <message>
         <source>Humidification Control Type</source>
         <translation>가습 제어 유형</translation>
     </message>
-    <!-- OS:ZoneControl:Humidistat -->
+    
     <message>
         <source>Humidifying Relative Humidity Setpoint Schedule Name</source>
         <translation>가습 상대습도 설정값 일정표 이름</translation>
     </message>
-    <!-- OS:Controller:OutdoorAir -->
+    
     <message>
         <source>Humidistat Control Zone Name</source>
         <translation>습도조절 제어 존 이름</translation>
     </message>
-    <!-- OS:ThermalZone -->
+    
     <message>
         <source>Humidistat Name</source>
         <translation>습도조절기 이름</translation>
     </message>
-    <!-- OS:Refrigeration:Case -->
+    
     <message>
         <source>Humidity at Zero Anti-Sweat Heater Energy</source>
         <translation>방열 히터 에너지가 0일 때의 습도</translation>
     </message>
-    <!-- OS:ZoneCapacitanceMultiplier:ResearchSpecial -->
+    
     <message>
         <source>Humidity Capacity Multiplier</source>
         <translation>습도 용량 승수</translation>
     </message>
-    <!-- OS:SizingPeriod:DesignDay -->
+    
     <message>
         <source>Humidity Condition Day Schedule Name</source>
         <translation>습도 조건 일일 스케줄 이름</translation>
     </message>
-    <!-- OS:SizingPeriod:DesignDay -->
+    
     <message>
         <source>Humidity Condition Type</source>
         <translation>습도 조건 유형</translation>
     </message>
-    <!-- OS:SizingPeriod:DesignDay -->
+    
     <message>
         <source>Humidity Ratio at Maximum Dry-Bulb</source>
         <translation>최대 건구 온도에서의 습도비</translation>
     </message>
-    <!-- OS:HeatExchanger:Desiccant:BalancedFlow:PerformanceDataType1 -->
+    
     <message>
         <source>Humidity Ratio Equation Coefficient 1</source>
         <translation>습도 비율 방정식 계수 1</translation>
     </message>
-    <!-- OS:HeatExchanger:Desiccant:BalancedFlow:PerformanceDataType1 -->
+    
     <message>
         <source>Humidity Ratio Equation Coefficient 2</source>
         <translation>습도비 방정식 계수 2</translation>
     </message>
-    <!-- OS:HeatExchanger:Desiccant:BalancedFlow:PerformanceDataType1 -->
+    
     <message>
         <source>Humidity Ratio Equation Coefficient 3</source>
         <translation>습도비 방정식 계수 3</translation>
     </message>
-    <!-- OS:HeatExchanger:Desiccant:BalancedFlow:PerformanceDataType1 -->
+    
     <message>
         <source>Humidity Ratio Equation Coefficient 4</source>
         <translation>습도비 방정식 계수 4</translation>
     </message>
-    <!-- OS:HeatExchanger:Desiccant:BalancedFlow:PerformanceDataType1 -->
+    
     <message>
         <source>Humidity Ratio Equation Coefficient 5</source>
         <translation>습도비 방정식 계수 5</translation>
     </message>
-    <!-- OS:HeatExchanger:Desiccant:BalancedFlow:PerformanceDataType1 -->
+    
     <message>
         <source>Humidity Ratio Equation Coefficient 6</source>
         <translation>습도비 방정식 계수 6</translation>
     </message>
-    <!-- OS:HeatExchanger:Desiccant:BalancedFlow:PerformanceDataType1 -->
+    
     <message>
         <source>Humidity Ratio Equation Coefficient 7</source>
         <translation>습도비 방정식 계수 7</translation>
     </message>
-    <!-- OS:HeatExchanger:Desiccant:BalancedFlow:PerformanceDataType1 -->
+    
     <message>
         <source>Humidity Ratio Equation Coefficient 8</source>
         <translation>습도비 방정식 계수 8</translation>
     </message>
-    <!-- OS:PortList -->
+    
     <message>
         <source>HVAC Component</source>
         <translation>HVAC 부품</translation>
     </message>
-    <!-- OS:HVACComponentList -->
+    
     <message>
         <source>HVACComponent</source>
         <translation>HVAC 구성요소</translation>
     </message>
-    <!-- OS:AirflowNetworkDuct -->
+    
     <message>
         <source>Hydraulic Diameter</source>
         <translation>수력 직경</translation>
     </message>
-    <!-- OS:ZoneHVAC:LowTemperatureRadiant:ConstantFlow, OS:ZoneHVAC:LowTemperatureRadiant:VariableFlow -->
+    
     <message>
         <source>Hydronic Tubing Conductivity</source>
         <translation>수열 배관 열전도도</translation>
     </message>
-    <!-- OS:ZoneHVAC:LowTemperatureRadiant:ConstantFlow, OS:ZoneHVAC:LowTemperatureRadiant:VariableFlow -->
+    
     <message>
         <source>Hydronic Tubing Inside Diameter</source>
         <translation>수소닉 튜빙 내경</translation>
     </message>
-    <!-- OS:ZoneHVAC:LowTemperatureRadiant:ConstantFlow, OS:ZoneHVAC:LowTemperatureRadiant:VariableFlow -->
+    
     <message>
         <source>Hydronic Tubing Length</source>
         <translation>수열 배관 길이</translation>
     </message>
-    <!-- OS:ZoneHVAC:LowTemperatureRadiant:ConstantFlow, OS:ZoneHVAC:LowTemperatureRadiant:VariableFlow -->
+    
     <message>
         <source>Hydronic Tubing Outside Diameter</source>
         <translation>수열 튜빙 외경</translation>
     </message>
 
-    <!-- I -->
-    <!-- OS:Coil:Cooling:DX:SingleSpeed:ThermalStorage -->
+    
+    
     <message>
         <source>Ice Storage Capacity</source>
         <translation>얼음 저장 용량</translation>
     </message>
-    <!-- OS:SolarCollectorPerformance:IntegralCollectorStorage -->
+    
     <message>
         <source>ICS Collector Type</source>
         <translation>ICS 집열기 타입</translation>
     </message>
-    <!-- OS:Luminaire:Definition -->
+    
     <message>
         <source>IES File Path</source>
         <translation>IES 파일 경로</translation>
     </message>
-    <!-- OS:ThermalZone -->
+    
     <message>
         <source>Illuminance Map Name</source>
         <translation>조도 맵 이름</translation>
     </message>
-    <!-- OS:Daylighting:Control -->
+    
     <message>
         <source>Illuminance Setpoint</source>
         <translation>조도 설정값</translation>
     </message>
-    <!-- OS:Pump:ConstantSpeed, OS:Pump:VariableSpeed -->
+    
     <message>
         <source>Impeller Diameter</source>
         <translation>임펠러 직경</translation>
     </message>
-    <!-- OS:SurfaceProperty:IncidentSolarMultiplier -->
+    
     <message>
         <source>Incident Solar Multiplier</source>
         <translation>입사 태양광 배수</translation>
     </message>
-    <!-- OS:SurfaceProperty:IncidentSolarMultiplier -->
+    
     <message>
         <source>Incident Solar Multiplier Schedule Name</source>
         <translation>입사 태양광 승수 스케줄 이름</translation>
     </message>
-    <!-- OS:Table:Lookup -->
+    
     <message>
         <source>Independent Variable List Name</source>
         <translation>독립 변수 목록 이름</translation>
     </message>
-    <!-- OS:WaterHeater:Mixed, OS:WaterHeater:Stratified -->
+    
     <message>
         <source>Indirect Alternate Setpoint Temperature Schedule Name</source>
         <translation>간접 대체 설정점 온도 스케줄 이름</translation>
     </message>
-    <!-- OS:Coil:Cooling:DX:VariableSpeed, OS:Coil:Cooling:WaterToAirHeatPump:VariableSpeedEquationFit, OS:Coil:Heating:DX:VariableSpeed, OS:Coil:Heating:WaterToAirHeatPump:VariableSpeedEquationFit -->
+    
     <message>
         <source>Indoor Air Inlet Node Name</source>
         <translation>실내 공기 입구 노드 이름</translation>
     </message>
-    <!-- OS:Coil:Cooling:DX:VariableSpeed, OS:Coil:Cooling:WaterToAirHeatPump:VariableSpeedEquationFit, OS:Coil:Heating:DX:VariableSpeed, OS:Coil:Heating:WaterToAirHeatPump:VariableSpeedEquationFit -->
+    
     <message>
         <source>Indoor Air Outlet Node Name</source>
         <translation>실내 공기 출구 노드 이름</translation>
     </message>
-    <!-- OS:AirflowNetworkSurface, OS:AirflowNetworkZone -->
+    
     <message>
         <source>Indoor and Outdoor Enthalpy Difference Lower Limit For Maximum Venting Open Factor</source>
         <translation>실내외 엔탈피 차이 최대 환기 개방 계수 하한값</translation>
     </message>
-    <!-- OS:AirflowNetworkSurface, OS:AirflowNetworkZone -->
+    
     <message>
         <source>Indoor and Outdoor Enthalpy Difference Upper Limit for Minimum Venting Open Factor</source>
         <translation>최소 환기 개방 계수에 대한 실내외 엔탈피 차이 상한값</translation>
     </message>
-    <!-- OS:AirflowNetworkSurface, OS:AirflowNetworkZone -->
+    
     <message>
         <source>Indoor and Outdoor Temperature Difference Lower Limit For Maximum Venting Open Factor</source>
         <translation>최대 환기 개방 계수에 대한 실내외 온도 차 하한선</translation>
     </message>
-    <!-- OS:AirflowNetworkSurface, OS:AirflowNetworkZone -->
+    
     <message>
         <source>Indoor and Outdoor Temperature Difference Upper Limit for Minimum Venting Open Factor</source>
         <translation>최소 환기 개구 계수에 대한 실내외 온도 차이 상한선</translation>
     </message>
-    <!-- OS:CoilSystem:IntegratedHeatPump:AirSource -->
+    
     <message>
         <source>Indoor Temperature Above Which WH Has Higher Priority</source>
         <translation>실내 온도가 이보다 높으면 WH의 우선순위가 높음</translation>
     </message>
-    <!-- OS:CoilSystem:IntegratedHeatPump:AirSource -->
+    
     <message>
         <source>Indoor Temperature Limit For SCWH Mode</source>
         <translation>SCWH 모드의 실내 온도 한계</translation>
     </message>
-    <!-- OS:Coil:Heating:DX:VariableRefrigerantFlow:FluidTemperatureControl -->
+    
     <message>
         <source>Indoor Unit Condensing Temperature Function of Subcooling Curve</source>
         <translation>실내기 응축 온도 과냉각 곡선 함수</translation>
     </message>
-    <!-- OS:Coil:Cooling:DX:VariableRefrigerantFlow:FluidTemperatureControl -->
+    
     <message>
         <source>Indoor Unit Evaporating Temperature Function of Superheating Curve</source>
         <translation>실내 유닛 증발 온도 과열도 곡선 함수</translation>
     </message>
-    <!-- OS:Coil:Heating:DX:VariableRefrigerantFlow:FluidTemperatureControl -->
+    
     <message>
         <source>Indoor Unit Reference Subcooling</source>
         <translation>실내 유닛 참조 과냉각</translation>
     </message>
-    <!-- OS:Coil:Cooling:DX:VariableRefrigerantFlow:FluidTemperatureControl -->
+    
     <message>
         <source>Indoor Unit Reference Superheating</source>
         <translation>실내 유닛 기준 과열도</translation>
     </message>
-    <!-- OS:AirTerminal:SingleDuct:ConstantVolume:FourPipeInduction -->
+    
     <message>
         <source>Induced Air Inlet Node Name</source>
         <translation>유도 공기 입구 노드 이름</translation>
     </message>
-    <!-- OS:AirLoopHVAC:ReturnPlenum -->
+    
     <message>
         <source>Induced Air Outlet Port List</source>
         <translation>유도 공기 출구 포트 목록</translation>
     </message>
-    <!-- OS:AirTerminal:SingleDuct:ConstantVolume:FourPipeInduction -->
+    
     <message>
         <source>Induction Ratio</source>
         <translation>유도 비율</translation>
     </message>
-    <!-- OS:ZoneAirMassFlowConservation -->
+    
     <message>
         <source>Infiltration Balancing Method</source>
         <translation>침기 평형 방법</translation>
     </message>
-    <!-- OS:ZoneAirMassFlowConservation -->
+    
     <message>
         <source>Infiltration Balancing Zones</source>
         <translation>침기 균형 영역</translation>
     </message>
-    <!-- OS:LifeCycleCost:Parameters -->
+    
     <message>
         <source>Inflation</source>
         <translation>인플레이션</translation>
     </message>
-    <!-- OS:LifeCycleCost:Parameters -->
+    
     <message>
         <source>Inflation Approach</source>
         <translation>인플레이션 방식</translation>
     </message>
-    <!-- OS:WindowMaterial:Glazing:RefractionExtinctionMethod -->
+    
     <message>
         <source>Infrared Hemispherical Emissivity</source>
         <translation>적외선 반구형 방사율</translation>
     </message>
-    <!-- OS:WindowMaterial:Glazing, OS:WindowMaterial:Glazing:RefractionExtinctionMethod -->
+    
     <message>
         <source>Infrared Transmittance at Normal Incidence</source>
         <translation>법선 입사각에서의 적외선 투과율</translation>
     </message>
-    <!-- OS:Generator:FuelCell:ElectricalStorage -->
+    
     <message>
         <source>Initial Charge State</source>
         <translation>초기 충전 상태</translation>
     </message>
-    <!-- OS:HeatExchanger:AirToAir:SensibleAndLatent -->
+    
     <message>
         <source>Initial Defrost Time Fraction</source>
         <translation>초기 제상 시간 분율</translation>
     </message>
-    <!-- OS:ElectricLoadCenter:Storage:LiIonNMCBattery -->
+    
     <message>
         <source>Initial Fractional State of Charge</source>
         <translation>초기 충방전 상태 (Initial State of Charge)</translation>
     </message>
-    <!-- OS:AirConditioner:VariableRefrigerantFlow, OS:AirConditioner:VariableRefrigerantFlow:FluidTemperatureControl:HR -->
+    
     <message>
         <source>Initial Heat Recovery Cooling Capacity Fraction</source>
         <translation>초기 열 회수 냉각 용량 분율</translation>
     </message>
-    <!-- OS:AirConditioner:VariableRefrigerantFlow, OS:AirConditioner:VariableRefrigerantFlow:FluidTemperatureControl:HR -->
+    
     <message>
         <source>Initial Heat Recovery Cooling Energy Fraction</source>
         <translation>초기 열회수 냉각 에너지 분율</translation>
     </message>
-    <!-- OS:AirConditioner:VariableRefrigerantFlow, OS:AirConditioner:VariableRefrigerantFlow:FluidTemperatureControl:HR -->
+    
     <message>
         <source>Initial Heat Recovery Heating Capacity Fraction</source>
         <translation>초기 열회수 난방 용량 비율</translation>
     </message>
-    <!-- OS:AirConditioner:VariableRefrigerantFlow, OS:AirConditioner:VariableRefrigerantFlow:FluidTemperatureControl:HR -->
+    
     <message>
         <source>Initial Heat Recovery Heating Energy Fraction</source>
         <translation>초기 열 회수 난방 에너지 분율</translation>
     </message>
-    <!-- OS:Foundation:Kiva -->
+    
     <message>
         <source>Initial Indoor Air Temperature</source>
         <translation>초기 실내 공기 온도</translation>
     </message>
-    <!-- OS:Coil:Cooling:DX:VariableSpeed, OS:Coil:Cooling:WaterToAirHeatPump:VariableSpeedEquationFit -->
+    
     <message>
         <source>Initial Moisture Evaporation Rate Divided by Steady-State AC Latent Capacity</source>
         <translation>초기 수분 증발률을 정상 상태 AC 잠열 용량으로 나눈 값</translation>
     </message>
-    <!-- OS:ElectricLoadCenter:Storage:Simple -->
+    
     <message>
         <source>Initial State of Charge</source>
         <translation>초기 충전 상태</translation>
     </message>
-    <!-- OS:AvailabilityManager:OptimumStart -->
+    
     <message>
         <source>Initial Temperature Gradient during Cooling</source>
         <translation>냉각 중 초기 온도 구배</translation>
     </message>
-    <!-- OS:AvailabilityManager:OptimumStart -->
+    
     <message>
         <source>Initial Temperature Gradient during Heating</source>
         <translation>난방 중 초기 온도 구배</translation>
     </message>
-    <!-- OS:ExternalInterface:FunctionalMockupUnitExport:To:Actuator, OS:ExternalInterface:FunctionalMockupUnitExport:To:Schedule, OS:ExternalInterface:FunctionalMockupUnitExport:To:Variable, OS:ExternalInterface:FunctionalMockupUnitImport:To:Actuator, OS:ExternalInterface:FunctionalMockupUnitImport:To:Schedule, OS:ExternalInterface:FunctionalMockupUnitImport:To:Variable, OS:ExternalInterface:Schedule, OS:ExternalInterface:Variable -->
+    
     <message>
         <source>Initial Value</source>
         <translation>초기값</translation>
     </message>
-    <!-- OS:Material:RoofVegetation -->
+    
     <message>
         <source>Initial Volumetric Moisture Content of the Soil Layer</source>
         <translation>토양층의 초기 체적 수분 함량</translation>
     </message>
-    <!-- OS:Coil:UserDefined -->
+    
     <message>
         <source>Initialization Simulation Program Name</source>
         <translation>초기화 시뮬레이션 프로그램 이름</translation>
     </message>
-    <!-- OS:AirflowNetworkSimulationControl -->
+    
     <message>
         <source>Initialization Type</source>
         <translation>초기화 유형</translation>
     </message>
-    <!-- OS:WaterHeater:HeatPump, OS:WaterHeater:HeatPump:WrappedCondenser -->
+    
     <message>
         <source>Inlet Air Configuration</source>
         <translation>입구 공기 구성</translation>
     </message>
-    <!-- OS:WaterHeater:HeatPump -->
+    
     <message>
         <source>Inlet Air Humidity Schedule</source>
         <translation>입구 공기 습도 스케줄</translation>
     </message>
-    <!-- OS:WaterHeater:HeatPump:WrappedCondenser -->
+    
     <message>
         <source>Inlet Air Humidity Schedule Name</source>
         <translation>입구 공기 습도 스케줄 이름</translation>
     </message>
-    <!-- OS:WaterHeater:HeatPump -->
+    
     <message>
         <source>Inlet Air Mixer Schedule</source>
         <translation>흡입 공기 혼합기 스케줄</translation>
     </message>
-    <!-- OS:WaterHeater:HeatPump:WrappedCondenser -->
+    
     <message>
         <source>Inlet Air Mixer Schedule Name</source>
         <translation>흡입 공기 혼합기 스케줄 이름</translation>
     </message>
-    <!-- OS:WaterHeater:HeatPump -->
+    
     <message>
         <source>Inlet Air Temperature Schedule</source>
         <translation>흡입 공기 온도 스케줄</translation>
     </message>
-    <!-- OS:WaterHeater:HeatPump:WrappedCondenser -->
+    
     <message>
         <source>Inlet Air Temperature Schedule Name</source>
         <translation>입구 공기 온도 스케줄 이름</translation>
     </message>
-    <!-- OS:Connector:Mixer, OS:Connector:Splitter -->
+    
     <message>
         <source>Inlet Branch Name</source>
         <translation>유입 분기 이름</translation>
     </message>
-    <!-- OS:ThermalStorage:ChilledWater:Stratified, OS:WaterHeater:Stratified -->
+    
     <message>
         <source>Inlet Mode</source>
         <translation>입구 모드</translation>
     </message>
-    <!-- OS:AirLoopHVAC:ReturnPlenum, OS:AirLoopHVAC:SupplyPlenum, OS:Duct, OS:PlantComponent:TemperatureSource -->
+    
     <message>
         <source>Inlet Node</source>
         <translation>입구 노드</translation>
     </message>
-    <!-- OS:AirLoopHVAC:ZoneMixer, OS:AirLoopHVAC:ZoneSplitter, OS:Coil:Heating:Water:Baseboard:Radiant, OS:GroundHeatExchanger:HorizontalTrench, OS:GroundHeatExchanger:Vertical, OS:HeaderedPumps:ConstantSpeed, OS:HeaderedPumps:VariableSpeed, OS:LoadProfile:Plant, OS:Pipe:Adiabatic, OS:Pump:ConstantSpeed, OS:Pump:VariableSpeed, OS:SolarCollector:FlatPlate:PhotovoltaicThermal, OS:SolarCollector:FlatPlate:Water, OS:SolarCollector:IntegralCollectorStorage, OS:Splitter, OS:TemperingValve, OS:ThermalStorage:Ice:Detailed, OS:WaterUse:Connections -->
+    
     <message>
         <source>Inlet Node Name</source>
         <translation>입구 노드 이름</translation>
     </message>
-    <!-- OS:Connection, OS:Node -->
+    
     <message>
         <source>Inlet Port</source>
         <translation>입구 포트</translation>
     </message>
-    <!-- OS:Humidifier:Steam:Gas -->
+    
     <message>
         <source>Inlet Water Temperature Option</source>
         <translation>입수 온도 옵션</translation>
     </message>
-    <!-- OS:Curve:QuintLinear -->
+    
     <message>
         <source>Input Unit Type for v</source>
         <translation>v에 대한 입력 단위 유형</translation>
     </message>
-    <!-- OS:Curve:QuadLinear, OS:Curve:QuintLinear -->
+    
     <message>
         <source>Input Unit Type for w</source>
         <translation>w에 대한 입력 단위 유형</translation>
     </message>
-    <!-- OS:Curve:Bicubic, OS:Curve:Biquadratic, OS:Curve:Cubic, OS:Curve:Exponent, OS:Curve:Linear, OS:Curve:Quadratic, OS:Curve:QuadraticLinear, OS:Curve:Quartic, OS:Curve:Triquadratic -->
+    
     <message>
         <source>Input Unit Type for X</source>
         <translation>X에 대한 입력 단위 유형</translation>
     </message>
-    <!-- OS:Curve:DoubleExponentialDecay, OS:Curve:ExponentialDecay, OS:Curve:ExponentialSkewNormal, OS:Curve:QuadLinear, OS:Curve:QuintLinear, OS:Curve:RectangularHyperbola1, OS:Curve:RectangularHyperbola2, OS:Curve:Sigmoid -->
+    
     <message>
         <source>Input Unit Type for x</source>
         <translation>x에 대한 입력 단위 유형</translation>
     </message>
-    <!-- OS:Table:MultiVariableLookup -->
+    
     <message>
         <source>Input Unit Type for X1</source>
         <translation>X1에 대한 입력 단위 유형</translation>
     </message>
-    <!-- OS:Table:MultiVariableLookup -->
+    
     <message>
         <source>Input Unit Type for X2</source>
         <translation>X2에 대한 입력 단위 유형</translation>
     </message>
-    <!-- OS:Table:MultiVariableLookup -->
+    
     <message>
         <source>Input Unit Type for X3</source>
         <translation>X3에 대한 입력 단위 유형</translation>
     </message>
-    <!-- OS:Table:MultiVariableLookup -->
+    
     <message>
         <source>Input Unit Type for X4</source>
         <translation>X4에 대한 입력 단위 유형</translation>
     </message>
-    <!-- OS:Table:MultiVariableLookup -->
+    
     <message>
         <source>Input Unit Type for X5</source>
         <translation>X5의 입력 단위 유형</translation>
     </message>
-    <!-- OS:Curve:Bicubic, OS:Curve:Biquadratic, OS:Curve:QuadraticLinear, OS:Curve:Triquadratic -->
+    
     <message>
         <source>Input Unit Type for Y</source>
         <translation>Y의 입력 단위 유형</translation>
     </message>
-    <!-- OS:Curve:QuadLinear, OS:Curve:QuintLinear -->
+    
     <message>
         <source>Input Unit Type for y</source>
         <translation>y의 입력 단위 유형</translation>
     </message>
-    <!-- OS:Curve:QuadLinear, OS:Curve:QuintLinear -->
+    
     <message>
         <source>Input Unit Type for z</source>
         <translation>z에 대한 입력 단위 유형</translation>
     </message>
-    <!-- OS:Curve:Triquadratic -->
+    
     <message>
         <source>Input Unit Type for Z</source>
         <translation>Z에 대한 입력 단위 유형</translation>
     </message>
-    <!-- OS:AirflowNetworkDuct -->
+    
     <message>
         <source>Inside Convection Coefficient</source>
         <translation>실내 대류 계수</translation>
     </message>
-    <!-- OS:WindowProperty:FrameAndDivider -->
+    
     <message>
         <source>Inside Reveal Depth</source>
         <translation>실내 창턱 깊이</translation>
     </message>
-    <!-- OS:WindowProperty:FrameAndDivider -->
+    
     <message>
         <source>Inside Reveal Solar Absorptance</source>
         <translation>실내 창틀 태양 흡수율</translation>
     </message>
-    <!-- OS:DaylightingDevice:Shelf -->
+    
     <message>
         <source>Inside Shelf Name</source>
         <translation>실내 선반 이름</translation>
     </message>
-    <!-- OS:WindowProperty:FrameAndDivider -->
+    
     <message>
         <source>Inside Sill Depth</source>
         <translation>내부 턱 깊이</translation>
     </message>
-    <!-- OS:WindowProperty:FrameAndDivider -->
+    
     <message>
         <source>Inside Sill Solar Absorptance</source>
         <translation>실내 창틀 태양 흡수율</translation>
     </message>
-    <!-- OS:Refrigeration:Case -->
+    
     <message>
         <source>Installed Case Lighting Power per Door</source>
         <translation>문 당 설치된 케이스 조명 전력</translation>
     </message>
-    <!-- OS:Refrigeration:Case -->
+    
     <message>
         <source>Installed Case Lighting Power per Unit Length</source>
         <translation>설치된 케이스 조명 전력(단위 길이당)</translation>
     </message>
-    <!-- OS:Refrigeration:WalkIn -->
+    
     <message>
         <source>Insulated Floor Surface Area</source>
         <translation>단열된 바닥 표면적</translation>
     </message>
-    <!-- OS:Refrigeration:WalkIn -->
+    
     <message>
         <source>Insulated Floor U-Value</source>
         <translation>단열 바닥 U값</translation>
     </message>
-    <!-- OS:Refrigeration:WalkIn:ZoneBoundary -->
+    
     <message>
         <source>Insulated Surface U-Value Facing Zone</source>
         <translation>단열된 표면 U값 (영역 방향)</translation>
     </message>
-    <!-- OS:SurfaceControl:MovableInsulation -->
+    
     <message>
         <source>Insulation Type</source>
         <translation>단열재 유형</translation>
     </message>
-    <!-- OS:SolarCollector:IntegralCollectorStorage -->
+    
     <message>
         <source>IntegralCollectorStorageParameters Name</source>
         <translation>적분형 집열기 저장소 매개변수 이름</translation>
     </message>
-    <!-- OS:StandardsInformation:Construction -->
+    
     <message>
         <source>Intended Surface Type</source>
         <translation>의도된 표면 유형</translation>
     </message>
-    <!-- OS:Refrigeration:System -->
+    
     <message>
         <source>Intercooler Type</source>
         <translation>중간냉각기 유형</translation>
     </message>
-    <!-- OS:Foundation:Kiva -->
+    
     <message>
         <source>Interior Horizontal Insulation Depth</source>
         <translation>내부 수평 단열 깊이</translation>
     </message>
-    <!-- OS:Foundation:Kiva -->
+    
     <message>
         <source>Interior Horizontal Insulation Material Name</source>
         <translation>내부 수평 단열재 이름</translation>
     </message>
-    <!-- OS:Foundation:Kiva -->
+    
     <message>
         <source>Interior Horizontal Insulation Width</source>
         <translation>내부 수평 단열재 폭</translation>
     </message>
-    <!-- OS:DefaultConstructionSet -->
+    
     <message>
         <source>Interior Partition Construction Name</source>
         <translation>내부 칸막이 구성 이름</translation>
     </message>
-    <!-- OS:InteriorPartitionSurface -->
+    
     <message>
         <source>Interior Partition Surface Group Name</source>
         <translation>내부 칸막이 표면 그룹 이름</translation>
     </message>
-    <!-- OS:Foundation:Kiva -->
+    
     <message>
         <source>Interior Vertical Insulation Depth</source>
         <translation>내부 수직 단열 깊이</translation>
     </message>
-    <!-- OS:Foundation:Kiva -->
+    
     <message>
         <source>Interior Vertical Insulation Material Name</source>
         <translation>내부 수직 단열재 이름</translation>
     </message>
-    <!-- OS:EnergyManagementSystem:InternalVariable -->
+    
     <message>
         <source>Internal Data Index Key Name</source>
         <translation>내부 데이터 인덱스 키 이름</translation>
     </message>
-    <!-- OS:EnergyManagementSystem:InternalVariable -->
+    
     <message>
         <source>Internal Data Type</source>
         <translation>내부 데이터 타입</translation>
     </message>
-    <!-- OS:InternalMass -->
+    
     <message>
         <source>Internal Mass Definition Name</source>
         <translation>내부 질량 정의 이름</translation>
     </message>
-    <!-- OS:Output:EnergyManagementSystem -->
+    
     <message>
         <source>Internal Variable Availability Dictionary Reporting</source>
         <translation>내부 변수 가용성 사전 보고</translation>
     </message>
-    <!-- OS:Table:IndependentVariable, OS:Table:MultiVariableLookup -->
+    
     <message>
         <source>Interpolation Method</source>
         <translation>보간 방법</translation>
     </message>
-    <!-- OS:Schedule:FixedInterval -->
+    
     <message>
         <source>Interval Length</source>
         <translation>간격 길이</translation>
     </message>
-    <!-- OS:ElectricLoadCenter:Inverter:PVWatts, OS:ElectricLoadCenter:Inverter:Simple, OS:Generator:FuelCell:Inverter -->
+    
     <message>
         <source>Inverter Efficiency</source>
         <translation>인버터 효율</translation>
     </message>
-    <!-- OS:Generator:FuelCell:Inverter -->
+    
     <message>
         <source>Inverter Efficiency Calculation Mode</source>
         <translation>인버터 효율 계산 모드</translation>
     </message>
-    <!-- OS:ElectricLoadCenter:Distribution, OS:Generator:FuelCell -->
+    
     <message>
         <source>Inverter Name</source>
         <translation>인버터 이름</translation>
     </message>
-    <!-- OS:YearDescription -->
+    
     <message>
         <source>Is Leap Year</source>
         <translation>윤년 여부</translation>
     </message>
-    <!-- OS:OutputControl:Timestamp -->
+    
     <message>
         <source>ISO 8601 Format</source>
         <translation>ISO 8601 형식</translation>
     </message>
-    <!-- OS:LifeCycleCost -->
+    
     <message>
         <source>Item Name</source>
         <translation>항목 이름</translation>
     </message>
-    <!-- OS:LifeCycleCost -->
+    
     <message>
         <source>Item Type</source>
         <translation>항목 유형</translation>
     </message>
 
-    <!-- J -->
-    <!-- OS:Site:GroundTemperature:Deep -->
+    
+    
     <message>
         <source>January Deep Ground Temperature</source>
         <translation>1월 심층 지표온도</translation>
     </message>
-    <!-- OS:Site:GroundReflectance -->
+    
     <message>
         <source>January Ground Reflectance</source>
         <translation>1월 지면 반사율</translation>
     </message>
-    <!-- OS:Site:GroundTemperature:BuildingSurface, OS:Site:GroundTemperature:FCfactorMethod -->
+    
     <message>
         <source>January Ground Temperature</source>
         <translation>1월 지반 온도</translation>
     </message>
-    <!-- OS:Site:GroundTemperature:Shallow -->
+    
     <message>
         <source>January Surface Ground Temperature</source>
         <translation>January Surface Ground Temperature의 경우, 건물 에너지 모델링 소프트웨어의 문맥에서는 다음과 같이 번역됩니다:
@@ -16449,5278 +16448,5278 @@ Electric</source>
 
 1월 지표면 온도</translation>
     </message>
-    <!-- OS:UtilityCost:Variable -->
+    
     <message>
         <source>January Value</source>
         <translation>1월 값</translation>
     </message>
-    <!-- OS:Site:GroundTemperature:Deep -->
+    
     <message>
         <source>July Deep Ground Temperature</source>
         <translation>7월 심층 지반 온도</translation>
     </message>
-    <!-- OS:Site:GroundReflectance -->
+    
     <message>
         <source>July Ground Reflectance</source>
         <translation>7월 지반 반사율</translation>
     </message>
-    <!-- OS:Site:GroundTemperature:BuildingSurface, OS:Site:GroundTemperature:FCfactorMethod -->
+    
     <message>
         <source>July Ground Temperature</source>
         <translation>7월 지표 온도</translation>
     </message>
-    <!-- OS:Site:GroundTemperature:Shallow -->
+    
     <message>
         <source>July Surface Ground Temperature</source>
         <translation>7월 지표면 지중 온도</translation>
     </message>
-    <!-- OS:UtilityCost:Variable -->
+    
     <message>
         <source>July Value</source>
         <translation>7월 값</translation>
     </message>
-    <!-- OS:Site:GroundTemperature:Deep -->
+    
     <message>
         <source>June Deep Ground Temperature</source>
         <translation>6월 심지층 온도</translation>
     </message>
-    <!-- OS:Site:GroundReflectance -->
+    
     <message>
         <source>June Ground Reflectance</source>
         <translation>6월 지면 반사율</translation>
     </message>
-    <!-- OS:Site:GroundTemperature:BuildingSurface, OS:Site:GroundTemperature:FCfactorMethod -->
+    
     <message>
         <source>June Ground Temperature</source>
         <translation>6월 지표면 온도</translation>
     </message>
-    <!-- OS:Site:GroundTemperature:Shallow -->
+    
     <message>
         <source>June Surface Ground Temperature</source>
         <translation>6월 표면 지표면 온도</translation>
     </message>
-    <!-- OS:UtilityCost:Variable -->
+    
     <message>
         <source>June Value</source>
         <translation>6월 값</translation>
     </message>
 
-    <!-- K -->
-    <!-- OS:Site -->
+    
+    
     <message>
         <source>Keep Site Location Information</source>
         <translation>사이트 위치 정보 유지</translation>
     </message>
-    <!-- OS:Output:Diagnostics -->
+    
     <message>
         <source>Key</source>
         <translation>키</translation>
     </message>
-    <!-- OS:Output:Schedules -->
+    
     <message>
         <source>Key Field</source>
         <translation>핵심 필드</translation>
     </message>
-    <!-- OS:Meter:Custom, OS:Meter:CustomDecrement -->
+    
     <message>
         <source>Key Name</source>
         <translation>키 이름</translation>
     </message>
-    <!-- OS:Output:Variable -->
+    
     <message>
         <source>Key Value</source>
         <translation>키 값</translation>
     </message>
-    <!-- OS:RadianceParameters -->
+    
     <message>
         <source>Klems Sampling Density</source>
         <translation>Klems 샘플링 밀도</translation>
     </message>
 
-    <!-- L -->
-    <!-- OS:Refrigeration:Case -->
+    
+    
     <message>
         <source>Latent Case Credit Curve Name</source>
         <translation>잠재 케이스 크레딧 곡선 이름</translation>
     </message>
-    <!-- OS:Refrigeration:Case -->
+    
     <message>
         <source>Latent Case Credit Curve Type</source>
         <translation>잠재열 케이스 신용 곡선 유형</translation>
     </message>
-    <!-- OS:HeatExchanger:AirToAir:SensibleAndLatent -->
+    
     <message>
         <source>Latent Effectiveness at 100% Cooling Air Flow</source>
         <translation>100% 냉각 공기 유량에서의 잠열 효율</translation>
     </message>
-    <!-- OS:HeatExchanger:AirToAir:SensibleAndLatent -->
+    
     <message>
         <source>Latent Effectiveness at 100% Heating Air Flow</source>
         <translation>100% 난방 공기 유량에서의 잠열 효율</translation>
     </message>
-    <!-- OS:HeatExchanger:AirToAir:SensibleAndLatent -->
+    
     <message>
         <source>Latent Effectiveness of Cooling Air Flow Curve Name</source>
         <translation>냉각 공기 흐름 곡선 현열 효율도 이름</translation>
     </message>
-    <!-- OS:HeatExchanger:AirToAir:SensibleAndLatent -->
+    
     <message>
         <source>Latent Effectiveness of Heating Air Flow Curve Name</source>
         <translation>가열 공기 흐름 곡선의 잠열 효율 이름</translation>
     </message>
-    <!-- OS:MaterialProperty:PhaseChangeHysteresis -->
+    
     <message>
         <source>Latent Heat during the Entire Phase Change Process</source>
         <translation>전체 상변화 과정 동안의 잠열</translation>
     </message>
-    <!-- OS:ZoneHVAC:IdealLoadsAirSystem -->
+    
     <message>
         <source>Latent Heat Recovery Effectiveness</source>
         <translation>잠열 회수 효율</translation>
     </message>
-    <!-- OS:AirLoopHVAC:UnitarySystem -->
+    
     <message>
         <source>Latent Load Control</source>
         <translation>잠열 부하 제어</translation>
     </message>
-    <!-- OS:Site, OS:WeatherFile -->
+    
     <message>
         <source>Latitude</source>
         <translation>위도</translation>
     </message>
-    <!-- OS:Construction, OS:Construction:InternalSource -->
+    
     <message>
         <source>Layer</source>
         <translation>레이어</translation>
     </message>
-    <!-- OS:Material:RoofVegetation -->
+    
     <message>
         <source>Leaf Area Index</source>
         <translation>잎면적지수</translation>
     </message>
-    <!-- OS:Material:RoofVegetation -->
+    
     <message>
         <source>Leaf Emissivity</source>
         <translation>잎 방사율</translation>
     </message>
-    <!-- OS:Material:RoofVegetation -->
+    
     <message>
         <source>Leaf Reflectivity</source>
         <translation>잎 반사율</translation>
     </message>
-    <!-- OS:AirflowNetworkSurface -->
+    
     <message>
         <source>Leakage Component Name</source>
         <translation>누수 부품 이름</translation>
     </message>
-    <!-- OS:Coil:Cooling:CooledBeam -->
+    
     <message>
         <source>Leaving Pipe Inside Diameter</source>
         <translation>나가는 배관 내부 직경</translation>
     </message>
-    <!-- OS:WindowMaterial:Screen -->
+    
     <message>
         <source>Left Side Opening Multiplier</source>
         <translation>좌측 개구부 승수</translation>
     </message>
-    <!-- OS:WindowMaterial:Shade -->
+    
     <message>
         <source>Left-Side Opening Multiplier</source>
         <translation>좌측 개구부 승수</translation>
     </message>
-    <!-- OS:Curve:Functional:PressureDrop -->
+    
     <message>
         <source>Length</source>
         <translation>길이</translation>
     </message>
-    <!-- OS:AirConditioner:VariableRefrigerantFlow:FluidTemperatureControl, OS:AirConditioner:VariableRefrigerantFlow:FluidTemperatureControl:HR -->
+    
     <message>
         <source>Length of Main Pipe Connecting Outdoor Unit to the First Branch Joint</source>
         <translation>실외 유닛에서 첫 번째 분기 연결부까지의 주 배관 길이</translation>
     </message>
-    <!-- OS:LifeCycleCost:Parameters -->
+    
     <message>
         <source>Length of Study Period in Years</source>
         <translation>연구 기간 연수(Length of Study Period in Years)</translation>
     </message>
-    <!-- OS:ElectricLoadCenter:Storage:LiIonNMCBattery -->
+    
     <message>
         <source>Lifetime Model</source>
         <translation>라이프타임 모델</translation>
     </message>
-    <!-- OS:Daylighting:Control -->
+    
     <message>
         <source>Lighting Control Type</source>
         <translation>조명 제어 유형</translation>
     </message>
-    <!-- OS:Lights:Definition -->
+    
     <message>
         <source>Lighting Level</source>
         <translation>조명 레벨</translation>
     </message>
-    <!-- OS:Luminaire:Definition -->
+    
     <message>
         <source>Lighting Power</source>
         <translation>조명 전력</translation>
     </message>
-    <!-- OS:Lights -->
+    
     <message>
         <source>Lights Definition Name</source>
         <translation>조명 정의 이름</translation>
     </message>
-    <!-- OS:RadianceParameters -->
+    
     <message>
         <source>Limit Weight DMX</source>
         <translation>Limit Weight DMX</translation>
     </message>
-    <!-- OS:RadianceParameters -->
+    
     <message>
         <source>Limit Weight VMX</source>
         <translation>Limit Weight VMX</translation>
     </message>
-    <!-- OS:AirflowNetworkDuctViewFactors -->
+    
     <message>
         <source>Linkage Name</source>
         <translation>연계 이름</translation>
     </message>
-    <!-- OS:Generator:FuelSupply -->
+    
     <message>
         <source>Liquid Generic Fuel CO2 Emission Factor</source>
         <translation>액체 일반 연료 CO2 배출 계수</translation>
     </message>
-    <!-- OS:Generator:FuelSupply -->
+    
     <message>
         <source>Liquid Generic Fuel Higher Heating Value</source>
         <translation>액체 일반 연료 고위 발열량</translation>
     </message>
-    <!-- OS:Generator:FuelSupply -->
+    
     <message>
         <source>Liquid Generic Fuel Lower Heating Value</source>
         <translation>액체 일반 연료 낮은 발열량</translation>
     </message>
-    <!-- OS:Generator:FuelSupply -->
+    
     <message>
         <source>Liquid Generic Fuel Molecular Weight</source>
         <translation>액체 일반 연료 분자량</translation>
     </message>
-    <!-- OS:MaterialProperty:PhaseChangeHysteresis -->
+    
     <message>
         <source>Liquid State Density</source>
         <translation>액체 상태 밀도</translation>
     </message>
-    <!-- OS:MaterialProperty:PhaseChangeHysteresis -->
+    
     <message>
         <source>Liquid State Specific Heat</source>
         <translation>액체 상태 비열</translation>
     </message>
-    <!-- OS:MaterialProperty:PhaseChangeHysteresis -->
+    
     <message>
         <source>Liquid State Thermal Conductivity</source>
         <translation>액체 상태 열전도율</translation>
     </message>
-    <!-- OS:Refrigeration:Subcooler:LiquidSuction -->
+    
     <message>
         <source>Liquid Suction Design Subcooling Temperature Difference</source>
         <translation>액체 흡입 설계 과냉각 온도 차이</translation>
     </message>
-    <!-- OS:Refrigeration:System -->
+    
     <message>
         <source>Liquid Suction Heat Exchanger Subcooler Name</source>
         <translation>액체 흡입 열교환기 서브쿨러 이름</translation>
     </message>
-    <!-- OS:PlantEquipmentOperation:CoolingLoad, OS:PlantEquipmentOperation:HeatingLoad -->
+    
     <message>
         <source>Load Range Lower Limit</source>
         <translation>부하 범위 하한</translation>
     </message>
-    <!-- OS:PlantEquipmentOperation:CoolingLoad, OS:PlantEquipmentOperation:HeatingLoad -->
+    
     <message>
         <source>Load Range Upper Limit</source>
         <translation>부하 범위 상한값</translation>
     </message>
-    <!-- OS:LoadProfile:Plant -->
+    
     <message>
         <source>Load Schedule Name</source>
         <translation>부하 스케줄 이름</translation>
     </message>
-    <!-- OS:HeatPump:PlantLoop:EIR:Cooling, OS:HeatPump:PlantLoop:EIR:Heating, OS:HeatPump:WaterToWater:EquationFit:Cooling, OS:HeatPump:WaterToWater:EquationFit:Heating -->
+    
     <message>
         <source>Load Side Inlet Node Name</source>
         <translation>로드측 입구 노드 이름</translation>
     </message>
-    <!-- OS:HeatPump:PlantLoop:EIR:Cooling, OS:HeatPump:PlantLoop:EIR:Heating, OS:HeatPump:WaterToWater:EquationFit:Cooling, OS:HeatPump:WaterToWater:EquationFit:Heating -->
+    
     <message>
         <source>Load Side Outlet Node Name</source>
         <translation>부하측 출구 노드명</translation>
     </message>
-    <!-- OS:HeatPump:PlantLoop:EIR:Cooling, OS:HeatPump:PlantLoop:EIR:Heating -->
+    
     <message>
         <source>Load Side Reference Flow Rate</source>
         <translation>부하측 기준 유량</translation>
     </message>
-    <!-- OS:AirConditioner:VariableRefrigerantFlow:FluidTemperatureControl, OS:AirConditioner:VariableRefrigerantFlow:FluidTemperatureControl:HR -->
+    
     <message>
         <source>Loading Index List</source>
         <translation>인덱스 목록 로딩 중</translation>
     </message>
-    <!-- OS:SimulationControl -->
+    
     <message>
         <source>Loads Convergence Tolerance Value</source>
         <translation>부하 수렴 허용 값</translation>
     </message>
-    <!-- OS:Site, OS:WeatherFile -->
+    
     <message>
         <source>Longitude</source>
         <translation>경도</translation>
     </message>
-    <!-- OS:HeatExchanger:FluidToFluid -->
+    
     <message>
         <source>Loop Demand Side Design Flow Rate</source>
         <translation>루프 수요측 설계 유량</translation>
     </message>
-    <!-- OS:HeatExchanger:FluidToFluid -->
+    
     <message>
         <source>Loop Demand Side Inlet Node</source>
         <translation>루프 수요측 입구 노드</translation>
     </message>
-    <!-- OS:HeatExchanger:FluidToFluid -->
+    
     <message>
         <source>Loop Demand Side Outlet Node</source>
         <translation>루프 수요측 출구 노드</translation>
     </message>
-    <!-- OS:HeatExchanger:FluidToFluid -->
+    
     <message>
         <source>Loop Supply Side Design Flow Rate</source>
         <translation>루프 공급측 설계 유량</translation>
     </message>
-    <!-- OS:HeatExchanger:FluidToFluid -->
+    
     <message>
         <source>Loop Supply Side Inlet Node</source>
         <translation>루프 공급측 입구 노드</translation>
     </message>
-    <!-- OS:HeatExchanger:FluidToFluid -->
+    
     <message>
         <source>Loop Supply Side Outlet Node</source>
         <translation>루프 공급측 출구 노드</translation>
     </message>
-    <!-- OS:PlantLoop -->
+    
     <message>
         <source>Loop Temperature Setpoint Node Name</source>
         <translation>루프 온도 설정값 노드 이름</translation>
     </message>
-    <!-- OS:CoolingTower:TwoSpeed, OS:EvaporativeFluidCooler:TwoSpeed, OS:FluidCooler:TwoSpeed -->
+    
     <message>
         <source>Low Fan Speed Air Flow Rate</source>
         <translation>낮은 팬 속도 공기 유량</translation>
     </message>
-    <!-- OS:CoolingTower:TwoSpeed, OS:EvaporativeFluidCooler:TwoSpeed, OS:FluidCooler:TwoSpeed -->
+    
     <message>
         <source>Low Fan Speed Air Flow Rate Sizing Factor</source>
         <translation>저속 팬 기류량 크기 조정 계수</translation>
     </message>
-    <!-- OS:CoolingTower:TwoSpeed, OS:EvaporativeFluidCooler:TwoSpeed, OS:FluidCooler:TwoSpeed -->
+    
     <message>
         <source>Low Fan Speed Fan Power</source>
         <translation>낮은 선풍기 속도 선풍기 전력</translation>
     </message>
-    <!-- OS:CoolingTower:TwoSpeed, OS:EvaporativeFluidCooler:TwoSpeed, OS:FluidCooler:TwoSpeed -->
+    
     <message>
         <source>Low Fan Speed Fan Power Sizing Factor</source>
         <translation>Low Fan Speed Fan Power Sizing Factor (저속 팬 팬 전력 크기 조정 계수)</translation>
     </message>
-    <!-- OS:CoolingTower:TwoSpeed, OS:EvaporativeFluidCooler:TwoSpeed, OS:FluidCooler:TwoSpeed -->
+    
     <message>
         <source>Low Fan Speed U-Factor Times Area Sizing Factor</source>
         <translation>낮은 팬 속도 U-Factor 곱하기 면적 크기 조정 계수</translation>
     </message>
-    <!-- OS:CoolingTower:TwoSpeed -->
+    
     <message>
         <source>Low Fan Speed U-Factor Times Area Value</source>
         <translation>저속 팬 U-계수 × 면적 값</translation>
     </message>
-    <!-- OS:EvaporativeFluidCooler:TwoSpeed, OS:FluidCooler:TwoSpeed -->
+    
     <message>
         <source>Low Fan Speed U-factor Times Area Value</source>
         <translation>낮은 팬 속도 U-factor 곱하기 면적 값</translation>
     </message>
-    <!-- OS:Refrigeration:TranscriticalSystem -->
+    
     <message>
         <source>Low Pressure CompressorList Name</source>
         <translation>저압 압축기 목록 이름</translation>
     </message>
-    <!-- OS:SetpointManager:SystemNodeReset:Humidity -->
+    
     <message>
         <source>Low Reference Humidity Ratio</source>
         <translation>낮은 기준 습도비</translation>
     </message>
-    <!-- OS:SetpointManager:SystemNodeReset:Temperature -->
+    
     <message>
         <source>Low Reference Temperature</source>
         <translation>낮은 기준 온도</translation>
     </message>
-    <!-- OS:SetpointManager:Scheduled:DualSetpoint -->
+    
     <message>
         <source>Low Setpoint Schedule Name</source>
         <translation>낮은 설정점 스케줄 이름</translation>
     </message>
-    <!-- OS:Coil:Cooling:DX:TwoSpeed -->
+    
     <message>
         <source>Low Speed Energy Input Ratio Function of Temperature Curve Name</source>
         <translation>저속 에너지 입력 비율 온도 함수 곡선 이름</translation>
     </message>
-    <!-- OS:Coil:Cooling:DX:TwoSpeed -->
+    
     <message>
         <source>Low Speed Evaporative Condenser Air Flow Rate</source>
         <translation>저속 증발식 응축기 공기 유량</translation>
     </message>
-    <!-- OS:Coil:Cooling:DX:TwoSpeed -->
+    
     <message>
         <source>Low Speed Evaporative Condenser Effectiveness</source>
         <translation>저속 증발식 응축기 효율</translation>
     </message>
-    <!-- OS:Coil:Cooling:DX:TwoSpeed -->
+    
     <message>
         <source>Low Speed Evaporative Condenser Pump Rated Power Consumption</source>
         <translation>저속 증발식 응축기 펌프 정격 전력 소비량</translation>
     </message>
-    <!-- OS:CoolingTower:TwoSpeed, OS:FluidCooler:TwoSpeed -->
+    
     <message>
         <source>Low Speed Nominal Capacity</source>
         <translation>저속 정격 용량</translation>
     </message>
-    <!-- OS:CoolingTower:TwoSpeed, OS:FluidCooler:TwoSpeed -->
+    
     <message>
         <source>Low Speed Nominal Capacity Sizing Factor</source>
         <translation>저속 정격 용량 크기 조정 계수</translation>
     </message>
-    <!-- OS:EvaporativeFluidCooler:TwoSpeed -->
+    
     <message>
         <source>Low Speed Standard Capacity Sizing Factor</source>
         <translation>저속 표준 용량 크기 조정 계수</translation>
     </message>
-    <!-- OS:EvaporativeFluidCooler:TwoSpeed -->
+    
     <message>
         <source>Low Speed Standard Design Capacity</source>
         <translation>저속 표준 설계 용량</translation>
     </message>
-    <!-- OS:ZoneHVAC:FourPipeFanCoil -->
+    
     <message>
         <source>Low Speed Supply Air Flow Ratio</source>
         <translation>저속 급기 유량 비율</translation>
     </message>
-    <!-- OS:Coil:Cooling:DX:TwoSpeed -->
+    
     <message>
         <source>Low Speed Total Cooling Capacity Function of Temperature Curve Name</source>
         <translation>저속 전체 냉각 용량 온도 함수 곡선 이름</translation>
     </message>
-    <!-- OS:EvaporativeFluidCooler:TwoSpeed -->
+    
     <message>
         <source>Low Speed User Specified Design Capacity</source>
         <translation>저속 사용자 지정 설계 용량</translation>
     </message>
-    <!-- OS:EvaporativeFluidCooler:TwoSpeed -->
+    
     <message>
         <source>Low Speed User Specified Design Capacity Sizing Factor</source>
         <translation>Low Speed 사용자 지정 설계 용량 크기 조정 계수</translation>
     </message>
-    <!-- OS:ZoneHVAC:LowTemperatureRadiant:ConstantFlow -->
+    
     <message>
         <source>Low Temp Radiant Constant Flow Cooling Coil Name</source>
         <translation>저온 복사 정상 유량 냉각 코일 이름</translation>
     </message>
-    <!-- OS:ZoneHVAC:LowTemperatureRadiant:ConstantFlow -->
+    
     <message>
         <source>Low Temp Radiant Constant Flow Heating Coil Name</source>
         <translation>저온 복사 정정 유량 난방 코일 이름</translation>
     </message>
-    <!-- OS:ZoneHVAC:LowTemperatureRadiant:VariableFlow -->
+    
     <message>
         <source>Low Temp Radiant Variable Flow Cooling Coil Name</source>
         <translation>저온 방사식 가변 유량 냉각 코일 이름</translation>
     </message>
-    <!-- OS:ZoneHVAC:LowTemperatureRadiant:VariableFlow -->
+    
     <message>
         <source>Low Temp Radiant Variable Flow Heating Coil Name</source>
         <translation>저온 복사 가변유량 난방 코일 이름</translation>
     </message>
-    <!-- OS:MaterialProperty:PhaseChangeHysteresis -->
+    
     <message>
         <source>Low Temperature Difference of Freezing Curve</source>
         <translation>결빙 곡선의 저온도 차이</translation>
     </message>
-    <!-- OS:MaterialProperty:PhaseChangeHysteresis -->
+    
     <message>
         <source>Low Temperature Difference of Melting Curve</source>
         <translation>융해 곡선의 낮은 온도 차이</translation>
     </message>
-    <!-- OS:Refrigeration:TranscriticalSystem -->
+    
     <message>
         <source>Low Temperature Refrigerated CaseAndWalkInList Name</source>
         <translation>Low Temperature Refrigerated CaseAndWalkInList Name</translation>
     </message>
-    <!-- OS:Refrigeration:TranscriticalSystem -->
+    
     <message>
         <source>Low Temperature Suction Piping Zone Name</source>
         <translation>저온 흡입 배관 존 이름</translation>
     </message>
-    <!-- OS:ScheduleTypeLimits -->
+    
     <message>
         <source>Lower Limit Value</source>
         <translation>하한값</translation>
     </message>
-    <!-- OS:Luminaire -->
+    
     <message>
         <source>Luminaire Definition Name</source>
         <translation>조명기구 정의 이름</translation>
     </message>
 
-    <!-- M -->
-    <!-- OS:PlantComponent:UserDefined -->
+    
+    
     <message>
         <source>Main Model Program Calling Manager Name</source>
         <translation>메인 모델 프로그램 호출 관리자 이름</translation>
     </message>
-    <!-- OS:PlantComponent:UserDefined -->
+    
     <message>
         <source>Main Model Program Name</source>
         <translation>메인 모델 프로그램 이름</translation>
     </message>
-    <!-- OS:AirConditioner:VariableRefrigerantFlow:FluidTemperatureControl, OS:AirConditioner:VariableRefrigerantFlow:FluidTemperatureControl:HR -->
+    
     <message>
         <source>Main Pipe Insulation Thermal Conductivity</source>
         <translation>주 배관 단열재 열전도도</translation>
     </message>
-    <!-- OS:AirConditioner:VariableRefrigerantFlow:FluidTemperatureControl, OS:AirConditioner:VariableRefrigerantFlow:FluidTemperatureControl:HR -->
+    
     <message>
         <source>Main Pipe Insulation Thickness</source>
         <translation>주 배관 단열 두께</translation>
     </message>
-    <!-- OS:SwimmingPool:Indoor -->
+    
     <message>
         <source>Make-up Water Supply Schedule Name</source>
         <translation>보충수 공급 일정 이름</translation>
     </message>
-    <!-- OS:Site:GroundTemperature:Deep -->
+    
     <message>
         <source>March Deep Ground Temperature</source>
         <translation>3월 심층 지중 온도</translation>
     </message>
-    <!-- OS:Site:GroundReflectance -->
+    
     <message>
         <source>March Ground Reflectance</source>
         <translation>3월 지면 반사율</translation>
     </message>
-    <!-- OS:Site:GroundTemperature:BuildingSurface, OS:Site:GroundTemperature:FCfactorMethod -->
+    
     <message>
         <source>March Ground Temperature</source>
         <translation>3월 지표면 온도</translation>
     </message>
-    <!-- OS:Site:GroundTemperature:Shallow -->
+    
     <message>
         <source>March Surface Ground Temperature</source>
         <translation>3월 지표면 온도</translation>
     </message>
-    <!-- OS:UtilityCost:Variable -->
+    
     <message>
         <source>March Value</source>
         <translation>3월 값</translation>
     </message>
-    <!-- OS:PlantComponent:UserDefined -->
+    
     <message>
         <source>Mass Flow Rate Actuator</source>
         <translation>질량 유량 액추에이터</translation>
     </message>
-    <!-- OS:MaterialProperty:MoisturePenetrationDepth:Settings, OS:MaterialProperty:PhaseChange, OS:MaterialProperty:PhaseChangeHysteresis, OS:StandardsInformation:Material, OS:SurfaceControl:MovableInsulation -->
+    
     <message>
         <source>Material Name</source>
         <translation>재료 이름</translation>
     </message>
-    <!-- OS:StandardsInformation:Material -->
+    
     <message>
         <source>Material Standard</source>
         <translation>재료 표준</translation>
     </message>
-    <!-- OS:StandardsInformation:Material -->
+    
     <message>
         <source>Material Standard Source</source>
         <translation>재료 표준 소스</translation>
     </message>
-    <!-- OS:PerformancePrecisionTradeoffs -->
+    
     <message>
         <source>MaxAllowedDelTemp</source>
         <translation>MaxAllowedDelTemp</translation>
     </message>
-    <!-- OS:Controller:WaterCoil -->
+    
     <message>
         <source>Maximum Actuated Flow</source>
         <translation>최대 작동 유량</translation>
     </message>
-    <!-- OS:Glare:Sensor -->
+    
     <message>
         <source>Maximum Allowable Daylight Glare Probability</source>
         <translation>최대 허용 주광 글레어 확률</translation>
     </message>
-    <!-- OS:Daylighting:Control -->
+    
     <message>
         <source>Maximum Allowable Discomfort Glare Index</source>
         <translation>최대 허용 불쾌 글레어 지수</translation>
     </message>
-    <!-- OS:Coil:WaterHeating:AirToWaterHeatPump, OS:Coil:WaterHeating:AirToWaterHeatPump:VariableSpeed, OS:Coil:WaterHeating:AirToWaterHeatPump:Wrapped, OS:HeatPump:AirToWater -->
+    
     <message>
         <source>Maximum Ambient Temperature for Crankcase Heater Operation</source>
         <translation>크랭크케이스 히터 작동의 최대 주변 온도</translation>
     </message>
-    <!-- OS:CoolingTowerPerformance:CoolTools, OS:CoolingTowerPerformance:YorkCalc -->
+    
     <message>
         <source>Maximum Approach Temperature</source>
         <translation>최대 접근 온도</translation>
     </message>
-    <!-- OS:Fan:ComponentModel -->
+    
     <message>
         <source>Maximum Belt Efficiency Curve Name</source>
         <translation>최대 벨트 효율 곡선 이름</translation>
     </message>
-    <!-- OS:Refrigeration:Condenser:EvaporativeCooled -->
+    
     <message>
         <source>Maximum Capacity Factor</source>
         <translation>최대 용량 계수</translation>
     </message>
-    <!-- OS:Foundation:Kiva:Settings -->
+    
     <message>
         <source>Maximum Cell Growth Coefficient</source>
         <translation>최대 셀 성장 계수</translation>
     </message>
-    <!-- OS:Coil:Cooling:Water:Panel:Radiant -->
+    
     <message>
         <source>Maximum Chilled Water Flow Rate</source>
         <translation>최대 냉각수 유량</translation>
     </message>
-    <!-- OS:Coil:Cooling:LowTemperatureRadiant:VariableFlow -->
+    
     <message>
         <source>Maximum Cold Water Flow</source>
         <translation>최대 냉수 유량</translation>
     </message>
-    <!-- OS:AirTerminal:SingleDuct:ConstantVolume:FourPipeInduction, OS:ZoneHVAC:FourPipeFanCoil -->
+    
     <message>
         <source>Maximum Cold Water Flow Rate</source>
         <translation>최대 냉수 유량</translation>
     </message>
-    <!-- OS:ZoneHVAC:IdealLoadsAirSystem -->
+    
     <message>
         <source>Maximum Cooling Air Flow Rate</source>
         <translation>최대 냉방 공기 유량</translation>
     </message>
-    <!-- OS:Curve:Bicubic, OS:Curve:Biquadratic, OS:Curve:Cubic, OS:Curve:DoubleExponentialDecay, OS:Curve:Exponent, OS:Curve:ExponentialDecay, OS:Curve:ExponentialSkewNormal, OS:Curve:FanPressureRise, OS:Curve:Linear, OS:Curve:QuadLinear, OS:Curve:Quadratic, OS:Curve:QuadraticLinear, OS:Curve:Quartic, OS:Curve:QuintLinear, OS:Curve:RectangularHyperbola1, OS:Curve:RectangularHyperbola2, OS:Curve:Sigmoid, OS:Curve:Triquadratic -->
+    
     <message>
         <source>Maximum Curve Output</source>
         <translation>최대 곡선 출력</translation>
     </message>
-    <!-- OS:AirTerminal:DualDuct:VAV -->
+    
     <message>
         <source>Maximum Damper Air Flow Rate</source>
         <translation>최대 댐퍼 공기 유량</translation>
     </message>
-    <!-- OS:Site:WaterMainsTemperature -->
+    
     <message>
         <source>Maximum Difference In Monthly Average Outdoor Air Temperatures</source>
         <translation>월간 평균 외기 온도의 최대 차이</translation>
     </message>
-    <!-- OS:Fan:ComponentModel -->
+    
     <message>
         <source>Maximum Dimensionless Fan Airflow</source>
         <translation>최대 무차원 팬 공기 흐름</translation>
     </message>
-    <!-- OS:SizingPeriod:DesignDay -->
+    
     <message>
         <source>Maximum Dry-Bulb Temperature</source>
         <translation>최대 건구 온도</translation>
     </message>
-    <!-- OS:ZoneHVAC:Dehumidifier:DX -->
+    
     <message>
         <source>Maximum Dry-Bulb Temperature for Dehumidifier Operation</source>
         <translation>제습기 작동을 위한 최대 건구온도</translation>
     </message>
-    <!-- OS:ZoneHVAC:LowTemperatureRadiant:Electric -->
+    
     <message>
         <source>Maximum Electrical Power to Panel</source>
         <translation>패널에 대한 최대 전력</translation>
     </message>
-    <!-- OS:Fan:ComponentModel -->
+    
     <message>
         <source>Maximum Fan Static Efficiency</source>
         <translation>최대 팬 정압 효율</translation>
     </message>
-    <!-- OS:ShadowCalculation -->
+    
     <message>
         <source>Maximum Figures in Shadow Overlap Calculations</source>
         <translation>음영 겹침 계산에서의 최대 도형 수</translation>
     </message>
-    <!-- OS:Generator:MicroTurbine -->
+    
     <message>
         <source>Maximum Full Load Electrical Power Output</source>
         <translation>최대 정격 부하 전기 출력</translation>
     </message>
-    <!-- OS:HeatPump:PlantLoop:EIR:Cooling -->
+    
     <message>
         <source>Maximum Heat Recovery Outlet Temperature</source>
         <translation>최대 열회수 출구 온도</translation>
     </message>
-    <!-- OS:Generator:MicroTurbine:HeatRecovery -->
+    
     <message>
         <source>Maximum Heat Recovery Water Flow Rate</source>
         <translation>최대 열회수 급수 유량</translation>
     </message>
-    <!-- OS:Generator:MicroTurbine:HeatRecovery -->
+    
     <message>
         <source>Maximum Heat Recovery Water Temperature</source>
         <translation>최대 열회수 물 온도</translation>
     </message>
-    <!-- OS:ZoneHVAC:IdealLoadsAirSystem -->
+    
     <message>
         <source>Maximum Heating Air Flow Rate</source>
         <translation>최대 난방 공기 유량</translation>
     </message>
-    <!-- OS:Generator:FuelCell:AuxiliaryHeater -->
+    
     <message>
         <source>Maximum Heating Capacity in Kmol per Second</source>
         <translation>최대 난방 용량 (초당 Kmol)</translation>
     </message>
-    <!-- OS:Generator:FuelCell:AuxiliaryHeater -->
+    
     <message>
         <source>Maximum Heating Capacity in Watts</source>
         <translation>최대 난방 용량(와트)</translation>
     </message>
-    <!-- OS:Sizing:System -->
+    
     <message>
         <source>Maximum Heating Capacity To Cooling Capacity Sizing Ratio</source>
         <translation>최대 난방 용량 대 냉방 용량 크기 비율</translation>
     </message>
-    <!-- OS:ZoneHVAC:IdealLoadsAirSystem -->
+    
     <message>
         <source>Maximum Heating Supply Air Humidity Ratio</source>
         <translation>최대 난방 공급 공기 습도비</translation>
     </message>
-    <!-- OS:ZoneHVAC:IdealLoadsAirSystem -->
+    
     <message>
         <source>Maximum Heating Supply Air Temperature</source>
         <translation>최대 난방 공급 공기 온도</translation>
     </message>
-    <!-- OS:Coil:Heating:LowTemperatureRadiant:VariableFlow -->
+    
     <message>
         <source>Maximum Hot Water Flow</source>
         <translation>최대 온수 유량</translation>
     </message>
-    <!-- OS:AirTerminal:SingleDuct:ConstantVolume:FourPipeInduction, OS:ZoneHVAC:FourPipeFanCoil, OS:ZoneHVAC:UnitHeater -->
+    
     <message>
         <source>Maximum Hot Water Flow Rate</source>
         <translation>최대 온수 유량</translation>
     </message>
-    <!-- OS:ConvergenceLimits -->
+    
     <message>
         <source>Maximum HVAC Iterations</source>
         <translation>최대 HVAC 반복 횟수</translation>
     </message>
-    <!-- OS:ZoneVentilation:DesignFlowRate, OS:ZoneVentilation:WindandStackOpenArea -->
+    
     <message>
         <source>Maximum Indoor Temperature</source>
         <translation>최대 실내 온도</translation>
     </message>
-    <!-- OS:ZoneVentilation:DesignFlowRate, OS:ZoneVentilation:WindandStackOpenArea -->
+    
     <message>
         <source>Maximum Indoor Temperature Schedule Name</source>
         <translation>최대 실내 온도 스케줄 이름</translation>
     </message>
-    <!-- OS:WaterHeater:HeatPump, OS:WaterHeater:HeatPump:WrappedCondenser -->
+    
     <message>
         <source>Maximum Inlet Air Temperature for Compressor Operation</source>
         <translation>컴프레서 작동을 위한 최대 흡입 공기 온도</translation>
     </message>
-    <!-- OS:CoolingTowerPerformance:CoolTools, OS:CoolingTowerPerformance:YorkCalc -->
+    
     <message>
         <source>Maximum Inlet Air Wet-Bulb Temperature</source>
         <translation>최대 입구 공기 습구 온도</translation>
     </message>
-    <!-- OS:Coil:WaterHeating:Desuperheater -->
+    
     <message>
         <source>Maximum Inlet Water Temperature for Heat Reclaim</source>
         <translation>열 회수를 위한 최대 입수 온도</translation>
     </message>
-    <!-- OS:HeatPump:AirToWater:Cooling, OS:HeatPump:AirToWater:Heating -->
+    
     <message>
         <source>Maximum Leaving Water Temperature Curve Name</source>
         <translation>최대 출수 온도 곡선 이름</translation>
     </message>
-    <!-- OS:GroundHeatExchanger:Vertical -->
+    
     <message>
         <source>Maximum Length of Simulation</source>
         <translation>시뮬레이션의 최대 길이</translation>
     </message>
-    <!-- OS:SetpointManager:FollowSystemNodeTemperature -->
+    
     <message>
         <source>Maximum Limit Setpoint Temperature</source>
         <translation>최대 한계 설정점 온도</translation>
     </message>
-    <!-- OS:CoolingTowerPerformance:YorkCalc -->
+    
     <message>
         <source>Maximum Liquid to Gas Ratio</source>
         <translation>액체-가스 최대 비율</translation>
     </message>
-    <!-- OS:PlantComponent:UserDefined -->
+    
     <message>
         <source>Maximum Loading Capacity Actuator</source>
         <translation>최대 로딩 용량 액추에이터</translation>
     </message>
-    <!-- OS:PlantComponent:UserDefined -->
+    
     <message>
         <source>Maximum Mass Flow Rate Actuator</source>
         <translation>최대 질량 유량 구동기</translation>
     </message>
-    <!-- OS:Fan:ComponentModel -->
+    
     <message>
         <source>Maximum Motor Efficiency Curve Name</source>
         <translation>최대 모터 효율 곡선 이름</translation>
     </message>
-    <!-- OS:Fan:ComponentModel -->
+    
     <message>
         <source>Maximum Motor Output Power</source>
         <translation>최대 모터 출력 전력</translation>
     </message>
-    <!-- OS:SimulationControl -->
+    
     <message>
         <source>Maximum Number of HVAC Sizing Simulation Passes</source>
         <translation>HVAC 크기 조정 시뮬레이션 최대 통과 횟수</translation>
     </message>
-    <!-- OS:AirflowNetworkSimulationControl -->
+    
     <message>
         <source>Maximum Number of Iterations</source>
         <translation>최대 반복 횟수</translation>
     </message>
-    <!-- OS:SwimmingPool:Indoor -->
+    
     <message>
         <source>Maximum Number of People</source>
         <translation>최대 인원 수</translation>
     </message>
-    <!-- OS:SimulationControl -->
+    
     <message>
         <source>Maximum Number of Warmup Days</source>
         <translation>최대 워밍업 날수</translation>
     </message>
-    <!-- OS:SizingPeriod:DesignDay -->
+    
     <message>
         <source>Maximum Number Warmup Days</source>
         <translation>최대 워밍업 일수</translation>
     </message>
-    <!-- OS:Generator:FuelCell:PowerModule -->
+    
     <message>
         <source>Maximum Operating Point</source>
         <translation>최대 운전점</translation>
     </message>
-    <!-- OS:Boiler:Steam -->
+    
     <message>
         <source>Maximum Operating Pressure</source>
         <translation>최대 운영 압력</translation>
     </message>
-    <!-- OS:SurfaceProperty:OtherSideCoefficients -->
+    
     <message>
         <source>Maximum Other Side Temperature Limit</source>
         <translation>최대 다른 쪽 온도 제한</translation>
     </message>
-    <!-- OS:ZoneHVAC:UnitVentilator -->
+    
     <message>
         <source>Maximum Outdoor Air Fraction or Temperature Schedule Name</source>
         <translation>최대 실외공기 비율 또는 온도 스케줄 이름</translation>
     </message>
-    <!-- OS:HeatPump:AirToWater:Cooling, OS:HeatPump:AirToWater:Heating -->
+    
     <message>
         <source>Maximum Outdoor Air Temperature</source>
         <translation>최대 실외 공기 온도</translation>
     </message>
-    <!-- OS:AirConditioner:VariableRefrigerantFlow:FluidTemperatureControl -->
+    
     <message>
         <source>Maximum Outdoor Air Temperature in Cooling Mode</source>
         <translation>냉방 모드에서 최대 외기 온도</translation>
     </message>
-    <!-- OS:AirConditioner:VariableRefrigerantFlow:FluidTemperatureControl:HR -->
+    
     <message>
         <source>Maximum Outdoor Air Temperature in Cooling Only Mode</source>
         <translation>냉방 전용 모드에서의 최대 외기 온도</translation>
     </message>
-    <!-- OS:AirConditioner:VariableRefrigerantFlow:FluidTemperatureControl -->
+    
     <message>
         <source>Maximum Outdoor Air Temperature in Heating Mode</source>
         <translation>난방 모드에서 최대 실외 공기 온도</translation>
     </message>
-    <!-- OS:AirConditioner:VariableRefrigerantFlow:FluidTemperatureControl:HR -->
+    
     <message>
         <source>Maximum Outdoor Air Temperature in Heating Only Mode</source>
         <translation>난방 전용 모드에서 최대 실외 공기 온도</translation>
     </message>
-    <!-- OS:AvailabilityManager:HybridVentilation -->
+    
     <message>
         <source>Maximum Outdoor Dewpoint</source>
         <translation>최대 외부 노점</translation>
     </message>
-    <!-- OS:HeatPump:AirToWater, OS:HeatPump:PlantLoop:EIR:Heating -->
+    
     <message>
         <source>Maximum Outdoor Dry Bulb Temperature For Defrost Operation</source>
         <translation>제상 운전을 위한 최대 외기 건구 온도</translation>
     </message>
-    <!-- OS:AirConditioner:VariableRefrigerantFlow -->
+    
     <message>
         <source>Maximum Outdoor Dry-bulb Temperature for Crankcase Heater</source>
         <translation>크랭크케이스 히터의 최대 실외 건구 온도</translation>
     </message>
-    <!-- OS:AirConditioner:VariableRefrigerantFlow:FluidTemperatureControl, OS:AirConditioner:VariableRefrigerantFlow:FluidTemperatureControl:HR -->
+    
     <message>
         <source>Maximum Outdoor Dry-Bulb Temperature for Crankcase Heater</source>
         <translation>크랭크케이스 히터용 최대 외기 건구 온도</translation>
     </message>
-    <!-- OS:AirConditioner:VariableRefrigerantFlow, OS:AirConditioner:VariableRefrigerantFlow:FluidTemperatureControl, OS:AirConditioner:VariableRefrigerantFlow:FluidTemperatureControl:HR, OS:HeatPump:AirToWater:FuelFired:Heating -->
+    
     <message>
         <source>Maximum Outdoor Dry-bulb Temperature for Defrost Operation</source>
         <translation>제상 운전을 위한 최대 외부 건구 온도</translation>
     </message>
-    <!-- OS:AirLoopHVAC:UnitaryHeatPump:AirToAir, OS:AirLoopHVAC:UnitaryHeatPump:AirToAir:MultiSpeed, OS:AirLoopHVAC:UnitarySystem, OS:ZoneHVAC:PackagedTerminalHeatPump, OS:ZoneHVAC:TerminalUnit:VariableRefrigerantFlow, OS:ZoneHVAC:WaterToAirHeatPump -->
+    
     <message>
         <source>Maximum Outdoor Dry-Bulb Temperature for Supplemental Heater Operation</source>
         <translation>보조 가열기 운영을 위한 최대 외기 건구 온도</translation>
     </message>
-    <!-- OS:AvailabilityManager:HybridVentilation -->
+    
     <message>
         <source>Maximum Outdoor Enthalpy</source>
         <translation>최대 외기 엔탈피</translation>
     </message>
-    <!-- OS:AvailabilityManager:HybridVentilation, OS:ZoneVentilation:DesignFlowRate, OS:ZoneVentilation:WindandStackOpenArea -->
+    
     <message>
         <source>Maximum Outdoor Temperature</source>
         <translation>최대 외부 온도</translation>
     </message>
-    <!-- OS:AirConditioner:VariableRefrigerantFlow, OS:AirConditioner:VariableRefrigerantFlow:FluidTemperatureControl:HR -->
+    
     <message>
         <source>Maximum Outdoor Temperature in Heat Recovery Mode</source>
         <translation>열 회수 모드에서의 최대 실외 온도</translation>
     </message>
-    <!-- OS:ZoneMixing, OS:ZoneVentilation:DesignFlowRate, OS:ZoneVentilation:WindandStackOpenArea -->
+    
     <message>
         <source>Maximum Outdoor Temperature Schedule Name</source>
         <translation>최대 실외 온도 스케줄 이름</translation>
     </message>
-    <!-- OS:AirLoopHVAC:UnitaryHeatCool:VAVChangeoverBypass -->
+    
     <message>
         <source>Maximum Outlet Air Temperature During Heating Operation</source>
         <translation>난방 운전 중 최대 출구 공기 온도</translation>
     </message>
-    <!-- OS:Table:Lookup -->
+    
     <message>
         <source>Maximum Output</source>
         <translation>최대 출력</translation>
     </message>
-    <!-- OS:ConvergenceLimits -->
+    
     <message>
         <source>Maximum Plant Iterations</source>
         <translation>최대 플랜트 반복 횟수</translation>
     </message>
-    <!-- OS:Generator:WindTurbine -->
+    
     <message>
         <source>Maximum Power Coefficient</source>
         <translation>최대 전력 계수</translation>
     </message>
-    <!-- OS:ElectricLoadCenter:Storage:Simple -->
+    
     <message>
         <source>Maximum Power for Charging</source>
         <translation>충전을 위한 최대 전력</translation>
     </message>
-    <!-- OS:ElectricLoadCenter:Storage:Simple -->
+    
     <message>
         <source>Maximum Power for Discharging</source>
         <translation>방전 최대 전력</translation>
     </message>
-    <!-- OS:ZoneHVAC:HighTemperatureRadiant -->
+    
     <message>
         <source>Maximum Power Input</source>
         <translation>최대 입력 전력</translation>
     </message>
-    <!-- OS:AirflowNetworkOccupantVentilationControl -->
+    
     <message>
         <source>Maximum Predicted Percentage of Dissatisfied Threshold</source>
         <translation>불만족 예측 최대 퍼센트 임계값</translation>
     </message>
-    <!-- OS:Pump:VariableSpeed -->
+    
     <message>
         <source>Maximum Pressure Schedule</source>
         <translation>최대 압력 스케줄</translation>
     </message>
-    <!-- OS:AirTerminal:SingleDuct:ParallelPIU:Reheat, OS:AirTerminal:SingleDuct:SeriesPIU:Reheat -->
+    
     <message>
         <source>Maximum Primary Air Flow Rate</source>
         <translation>최대 1차 공기 유량</translation>
     </message>
-    <!-- OS:HeatExchanger:Desiccant:BalancedFlow:PerformanceDataType1 -->
+    
     <message>
         <source>Maximum Process Inlet Air Humidity Ratio for Humidity Ratio Equation</source>
         <translation>습도비 방정식을 위한 최대 프로세스 입구 공기 습도비</translation>
     </message>
-    <!-- OS:HeatExchanger:Desiccant:BalancedFlow:PerformanceDataType1 -->
+    
     <message>
         <source>Maximum Process Inlet Air Humidity Ratio for Temperature Equation</source>
         <translation>온도 방정식의 최대 공정 흡입 공기 습도 비</translation>
     </message>
-    <!-- OS:HeatExchanger:Desiccant:BalancedFlow:PerformanceDataType1 -->
+    
     <message>
         <source>Maximum Process Inlet Air Relative Humidity for Humidity Ratio Equation</source>
         <translation>습도 비율 방정식을 위한 최대 공정 입구 공기 상대습도</translation>
     </message>
-    <!-- OS:HeatExchanger:Desiccant:BalancedFlow:PerformanceDataType1 -->
+    
     <message>
         <source>Maximum Process Inlet Air Relative Humidity for Temperature Equation</source>
         <translation>온도 방정식에 대한 최대 프로세스 흡입 공기 상대습도</translation>
     </message>
-    <!-- OS:HeatExchanger:Desiccant:BalancedFlow:PerformanceDataType1 -->
+    
     <message>
         <source>Maximum Process Inlet Air Temperature for Humidity Ratio Equation</source>
         <translation>습도비 방정식을 위한 최대 공정 입구 공기 온도</translation>
     </message>
-    <!-- OS:HeatExchanger:Desiccant:BalancedFlow:PerformanceDataType1 -->
+    
     <message>
         <source>Maximum Process Inlet Air Temperature for Temperature Equation</source>
         <translation>온도 방정식을 위한 최대 공정 입구 공기 온도</translation>
     </message>
-    <!-- OS:CoolingTowerPerformance:CoolTools, OS:CoolingTowerPerformance:YorkCalc -->
+    
     <message>
         <source>Maximum Range Temperature</source>
         <translation>최대 범위 온도</translation>
     </message>
-    <!-- OS:ZoneMixing -->
+    
     <message>
         <source>Maximum Receiving Temperature Schedule Name</source>
         <translation>최대 수신 온도 스케줄 이름</translation>
     </message>
-    <!-- OS:HeatExchanger:Desiccant:BalancedFlow:PerformanceDataType1 -->
+    
     <message>
         <source>Maximum Regeneration Air Velocity for Humidity Ratio Equation</source>
         <translation>습도비 방정식을 위한 최대 재생 공기 속도</translation>
     </message>
-    <!-- OS:HeatExchanger:Desiccant:BalancedFlow:PerformanceDataType1 -->
+    
     <message>
         <source>Maximum Regeneration Air Velocity for Temperature Equation</source>
         <translation>최대 재생 공기 속도 온도 방정식</translation>
     </message>
-    <!-- OS:HeatExchanger:Desiccant:BalancedFlow:PerformanceDataType1 -->
+    
     <message>
         <source>Maximum Regeneration Inlet Air Humidity Ratio for Humidity Ratio Equation</source>
         <translation>습도비 방정식을 위한 최대 재생 흡입 공기 습도비</translation>
     </message>
-    <!-- OS:HeatExchanger:Desiccant:BalancedFlow:PerformanceDataType1 -->
+    
     <message>
         <source>Maximum Regeneration Inlet Air Humidity Ratio for Temperature Equation</source>
         <translation>온도 방정식을 위한 최대 재생 입구 공기 습도비</translation>
     </message>
-    <!-- OS:HeatExchanger:Desiccant:BalancedFlow:PerformanceDataType1 -->
+    
     <message>
         <source>Maximum Regeneration Inlet Air Relative Humidity for Humidity Ratio Equation</source>
         <translation>습도 비 방정식을 위한 최대 재생 입구 공기 상대습도</translation>
     </message>
-    <!-- OS:HeatExchanger:Desiccant:BalancedFlow:PerformanceDataType1 -->
+    
     <message>
         <source>Maximum Regeneration Inlet Air Relative Humidity for Temperature Equation</source>
         <translation>온도 방정식의 최대 재생 입기 상대습도</translation>
     </message>
-    <!-- OS:HeatExchanger:Desiccant:BalancedFlow:PerformanceDataType1 -->
+    
     <message>
         <source>Maximum Regeneration Inlet Air Temperature for Humidity Ratio Equation</source>
         <translation>습도비 방정식을 위한 최대 재생 입구 공기 온도</translation>
     </message>
-    <!-- OS:HeatExchanger:Desiccant:BalancedFlow:PerformanceDataType1 -->
+    
     <message>
         <source>Maximum Regeneration Inlet Air Temperature for Temperature Equation</source>
         <translation>온도 방정식을 위한 최대 재생 입구 공기 온도</translation>
     </message>
-    <!-- OS:HeatExchanger:Desiccant:BalancedFlow:PerformanceDataType1 -->
+    
     <message>
         <source>Maximum Regeneration Outlet Air Humidity Ratio for Humidity Ratio Equation</source>
         <translation>습도비 방정식을 위한 최대 재생 출구 공기 습도비</translation>
     </message>
-    <!-- OS:HeatExchanger:Desiccant:BalancedFlow:PerformanceDataType1 -->
+    
     <message>
         <source>Maximum Regeneration Outlet Air Temperature for Temperature Equation</source>
         <translation>온도 방정식의 최대 재생 출구 공기 온도</translation>
     </message>
-    <!-- OS:Pump:VariableSpeed -->
+    
     <message>
         <source>Maximum RPM Schedule</source>
         <translation>최대 RPM 스케줄</translation>
     </message>
-    <!-- OS:CoilSystem:IntegratedHeatPump:AirSource -->
+    
     <message>
         <source>Maximum Running Time Before Allowing Electric Resistance Heat Use During SHDWH Mode</source>
         <translation>SHDWH 모드 중 전기 저항 난방 사용 허용 전 최대 운전 시간</translation>
     </message>
-    <!-- OS:AirTerminal:SingleDuct:ParallelPIU:Reheat -->
+    
     <message>
         <source>Maximum Secondary Air Flow Rate</source>
         <translation>최대 이차 공기 유량</translation>
     </message>
-    <!-- OS:ZoneHVAC:IdealLoadsAirSystem -->
+    
     <message>
         <source>Maximum Sensible Heating Capacity</source>
         <translation>최대 감각열 가열 용량</translation>
     </message>
-    <!-- OS:SetpointManager:MultiZone:Humidity:Maximum, OS:SetpointManager:MultiZone:Humidity:Minimum, OS:SetpointManager:MultiZone:MaximumHumidity:Average, OS:SetpointManager:MultiZone:MinimumHumidity:Average, OS:SetpointManager:OutdoorAirPretreat -->
+    
     <message>
         <source>Maximum Setpoint Humidity Ratio</source>
         <translation>최대 설정점 습도비</translation>
     </message>
-    <!-- OS:WindowMaterial:Blind -->
+    
     <message>
         <source>Maximum Slat Angle</source>
         <translation>최대 슬랫 각도</translation>
     </message>
-    <!-- OS:HeatPump:PlantLoop:EIR:Cooling, OS:HeatPump:PlantLoop:EIR:Heating -->
+    
     <message>
         <source>Maximum Source Inlet Temperature</source>
         <translation>최대 열원 입구 온도</translation>
     </message>
-    <!-- OS:ZoneMixing -->
+    
     <message>
         <source>Maximum Source Temperature Schedule Name</source>
         <translation>최대 열원 온도 스케줄 이름</translation>
     </message>
-    <!-- OS:ElectricLoadCenter:Storage:Simple -->
+    
     <message>
         <source>Maximum Storage Capacity</source>
         <translation>최대 저장 용량</translation>
     </message>
-    <!-- OS:ElectricLoadCenter:Distribution -->
+    
     <message>
         <source>Maximum Storage State of Charge Fraction</source>
         <translation>최대 저장 충전 상태 분율</translation>
     </message>
-    <!-- OS:ZoneHVAC:FourPipeFanCoil, OS:ZoneHVAC:UnitHeater, OS:ZoneHVAC:UnitVentilator -->
+    
     <message>
         <source>Maximum Supply Air Flow Rate</source>
         <translation>최대 공급 공기 유량</translation>
     </message>
-    <!-- OS:AirLoopHVAC:UnitaryHeatPump:AirToAir, OS:AirLoopHVAC:UnitaryHeatPump:AirToAir:MultiSpeed, OS:ZoneHVAC:PackagedTerminalHeatPump, OS:ZoneHVAC:TerminalUnit:VariableRefrigerantFlow, OS:ZoneHVAC:WaterToAirHeatPump -->
+    
     <message>
         <source>Maximum Supply Air Temperature from Supplemental Heater</source>
         <translation>보조 가열기의 최대 공급 공기 온도</translation>
     </message>
-    <!-- OS:ZoneHVAC:FourPipeFanCoil -->
+    
     <message>
         <source>Maximum Supply Air Temperature in Heating Mode</source>
         <translation>난방 모드에서 최대 공급 공기 온도</translation>
     </message>
-    <!-- OS:HeatPump:PlantLoop:EIR:Cooling, OS:HeatPump:PlantLoop:EIR:Heating -->
+    
     <message>
         <source>Maximum Supply Water Temperature Curve Name</source>
         <translation>최대 공급수 온도 곡선 이름</translation>
     </message>
-    <!-- OS:HeatBalanceAlgorithm -->
+    
     <message>
         <source>Maximum Surface Convection Heat Transfer Coefficient Value</source>
         <translation>최대 표면 대류 열전달 계수 값</translation>
     </message>
-    <!-- OS:Table:MultiVariableLookup -->
+    
     <message>
         <source>Maximum Table Output</source>
         <translation>최대 테이블 출력</translation>
     </message>
-    <!-- OS:Refrigeration:AirChiller -->
+    
     <message>
         <source>Maximum Temperature Difference Between Inlet Air and Evaporating Temperature</source>
         <translation>입구 공기와 증발 온도 간의 최대 온도 차이</translation>
     </message>
-    <!-- OS:AirLoopHVAC:UnitaryHeatPump:AirToAir:MultiSpeed, OS:AirLoopHVAC:UnitarySystem -->
+    
     <message>
         <source>Maximum Temperature for Heat Recovery</source>
         <translation>열 회수 최대 온도</translation>
     </message>
-    <!-- OS:AirTerminal:DualDuct:VAV:OutdoorAir -->
+    
     <message>
         <source>Maximum Terminal Air Flow Rate</source>
         <translation>최대 말단 공기 유량</translation>
     </message>
-    <!-- OS:Generator:WindTurbine -->
+    
     <message>
         <source>Maximum Tip Speed Ratio</source>
         <translation>최대 팁 속도 비율</translation>
     </message>
-    <!-- OS:AirTerminal:SingleDuct:ConstantVolume:FourPipeInduction -->
+    
     <message>
         <source>Maximum Total Air Flow Rate</source>
         <translation>최대 총 공기 유량</translation>
     </message>
-    <!-- OS:AirTerminal:SingleDuct:ConstantVolume:CooledBeam -->
+    
     <message>
         <source>Maximum Total Chilled Water Volumetric Flow Rate</source>
         <translation>최대 총 냉수 용적 유량</translation>
     </message>
-    <!-- OS:ZoneHVAC:IdealLoadsAirSystem -->
+    
     <message>
         <source>Maximum Total Cooling Capacity</source>
         <translation>최대 총 냉방 용량</translation>
     </message>
-    <!-- OS:Table:IndependentVariable -->
+    
     <message>
         <source>Maximum Value</source>
         <translation>최대값</translation>
     </message>
-    <!-- OS:AvailabilityManager:OptimumStart -->
+    
     <message>
         <source>Maximum Value for Optimum Start Time</source>
         <translation>최적 시작 시간의 최대값</translation>
     </message>
-    <!-- OS:Curve:FanPressureRise -->
+    
     <message>
         <source>Maximum Value of Psm</source>
         <translation>최대 Psm 값</translation>
     </message>
-    <!-- OS:Curve:FanPressureRise -->
+    
     <message>
         <source>Maximum Value of Qfan</source>
         <translation>Qfan의 최대값</translation>
     </message>
-    <!-- OS:Curve:QuintLinear -->
+    
     <message>
         <source>Maximum Value of v</source>
         <translation>v의 최대값</translation>
     </message>
-    <!-- OS:Curve:QuadLinear, OS:Curve:QuintLinear -->
+    
     <message>
         <source>Maximum Value of w</source>
         <translation>w의 최댓값</translation>
     </message>
-    <!-- OS:Curve:Bicubic, OS:Curve:Biquadratic, OS:Curve:Cubic, OS:Curve:DoubleExponentialDecay, OS:Curve:Exponent, OS:Curve:ExponentialDecay, OS:Curve:ExponentialSkewNormal, OS:Curve:Linear, OS:Curve:QuadLinear, OS:Curve:Quadratic, OS:Curve:QuadraticLinear, OS:Curve:Quartic, OS:Curve:QuintLinear, OS:Curve:RectangularHyperbola1, OS:Curve:RectangularHyperbola2, OS:Curve:Sigmoid, OS:Curve:Triquadratic -->
+    
     <message>
         <source>Maximum Value of x</source>
         <translation>x의 최댓값</translation>
     </message>
-    <!-- OS:Table:MultiVariableLookup -->
+    
     <message>
         <source>Maximum Value of X1</source>
         <translation>X1의 최대값</translation>
     </message>
-    <!-- OS:Table:MultiVariableLookup -->
+    
     <message>
         <source>Maximum Value of X2</source>
         <translation>X2의 최댓값</translation>
     </message>
-    <!-- OS:Table:MultiVariableLookup -->
+    
     <message>
         <source>Maximum Value of X3</source>
         <translation>X3의 최댓값</translation>
     </message>
-    <!-- OS:Table:MultiVariableLookup -->
+    
     <message>
         <source>Maximum Value of X4</source>
         <translation>X4의 최댓값</translation>
     </message>
-    <!-- OS:Table:MultiVariableLookup -->
+    
     <message>
         <source>Maximum Value of X5</source>
         <translation>X5의 최댓값</translation>
     </message>
-    <!-- OS:Curve:Bicubic, OS:Curve:Biquadratic, OS:Curve:QuadLinear, OS:Curve:QuadraticLinear, OS:Curve:QuintLinear, OS:Curve:Triquadratic -->
+    
     <message>
         <source>Maximum Value of y</source>
         <translation>y의 최대값</translation>
     </message>
-    <!-- OS:Curve:QuadLinear, OS:Curve:QuintLinear, OS:Curve:Triquadratic -->
+    
     <message>
         <source>Maximum Value of z</source>
         <translation>z의 최댓값</translation>
     </message>
-    <!-- OS:Fan:ComponentModel -->
+    
     <message>
         <source>Maximum VFD Output Power</source>
         <translation>VFD 최대 출력 전력</translation>
     </message>
-    <!-- OS:CoolingTowerPerformance:CoolTools, OS:CoolingTowerPerformance:YorkCalc -->
+    
     <message>
         <source>Maximum Water Flow Rate Ratio</source>
         <translation>최대 물 유량비</translation>
     </message>
-    <!-- OS:CoilSystem:IntegratedHeatPump:AirSource -->
+    
     <message>
         <source>Maximum Water Flow Volume Before Switching From SCDWH To SCWH Mode</source>
         <translation>SCDWH에서 SCWH 모드로 전환하기 전의 최대 물 유량</translation>
     </message>
-    <!-- OS:AvailabilityManager:HybridVentilation, OS:ZoneVentilation:DesignFlowRate, OS:ZoneVentilation:WindandStackOpenArea -->
+    
     <message>
         <source>Maximum Wind Speed</source>
         <translation>최대 풍속</translation>
     </message>
-    <!-- OS:PerformancePrecisionTradeoffs -->
+    
     <message>
         <source>MaxZoneTempDiff</source>
         <translation>MaxZoneTempDiff</translation>
     </message>
-    <!-- OS:Site:GroundTemperature:Deep -->
+    
     <message>
         <source>May Deep Ground Temperature</source>
         <translation>5월 심층 지면 온도</translation>
     </message>
-    <!-- OS:Site:GroundReflectance -->
+    
     <message>
         <source>May Ground Reflectance</source>
         <translation>5월 지표면 반사율</translation>
     </message>
-    <!-- OS:Site:GroundTemperature:BuildingSurface, OS:Site:GroundTemperature:FCfactorMethod -->
+    
     <message>
         <source>May Ground Temperature</source>
         <translation>5월 지표면 온도</translation>
     </message>
-    <!-- OS:Site:GroundTemperature:Shallow -->
+    
     <message>
         <source>May Surface Ground Temperature</source>
         <translation>5월 지표면 온도</translation>
     </message>
-    <!-- OS:UtilityCost:Variable -->
+    
     <message>
         <source>May Value</source>
         <translation>5월 값</translation>
     </message>
-    <!-- OS:Refrigeration:System -->
+    
     <message>
         <source>Mechanical Subcooler Name</source>
         <translation>기계식 서브쿨러 이름</translation>
     </message>
-    <!-- OS:ZoneHVAC:FourPipeFanCoil -->
+    
     <message>
         <source>Medium Speed Supply Air Flow Ratio</source>
         <translation>중간 속도 급기 유량 비율</translation>
     </message>
-    <!-- OS:Refrigeration:TranscriticalSystem -->
+    
     <message>
         <source>Medium Temperature Refrigerated CaseAndWalkInList Name</source>
         <translation>중온 온도 냉동 케이스 및 Walk-In 목록 이름</translation>
     </message>
-    <!-- OS:Refrigeration:TranscriticalSystem -->
+    
     <message>
         <source>Medium Temperature Suction Piping Zone Name</source>
         <translation>중온 흡입 배관 존 이름</translation>
     </message>
-    <!-- OS:UtilityBill -->
+    
     <message>
         <source>Meter End Use Category</source>
         <translation>미터 최종 용도 카테고리</translation>
     </message>
-    <!-- OS:Output:Meter -->
+    
     <message>
         <source>Meter File Only</source>
         <translation>미터 파일만</translation>
     </message>
-    <!-- OS:UtilityBill -->
+    
     <message>
         <source>Meter Install Location</source>
         <translation>미터 설치 위치</translation>
     </message>
-    <!-- OS:ElectricLoadCenter:Transformer -->
+    
     <message>
         <source>Meter Name</source>
         <translation>미터 이름</translation>
     </message>
-    <!-- OS:UtilityBill -->
+    
     <message>
         <source>Meter Specific End Use</source>
         <translation>미터 특정 최종 용도</translation>
     </message>
-    <!-- OS:UtilityBill -->
+    
     <message>
         <source>Meter Specific Install Location</source>
         <translation>미터 특정 설치 위치</translation>
     </message>
-    <!-- OS:Generator:FuelCell:ExhaustGasToWaterHeatExchanger -->
+    
     <message>
         <source>Method 1 Heat Exchanger Effectiveness</source>
         <translation>Method 1 열교환기 효율</translation>
     </message>
-    <!-- OS:Generator:FuelCell:ExhaustGasToWaterHeatExchanger -->
+    
     <message>
         <source>Method 2 Parameter hxs0</source>
         <translation>Method 2 Parameter hxs0</translation>
     </message>
-    <!-- OS:Generator:FuelCell:ExhaustGasToWaterHeatExchanger -->
+    
     <message>
         <source>Method 2 Parameter hxs1</source>
         <translation>방법 2 매개변수 hxs1</translation>
     </message>
-    <!-- OS:Generator:FuelCell:ExhaustGasToWaterHeatExchanger -->
+    
     <message>
         <source>Method 2 Parameter hxs2</source>
         <translation>Method 2 Parameter hxs2</translation>
     </message>
-    <!-- OS:Generator:FuelCell:ExhaustGasToWaterHeatExchanger -->
+    
     <message>
         <source>Method 2 Parameter hxs3</source>
         <translation>Method 2 Parameter hxs3</translation>
     </message>
-    <!-- OS:Generator:FuelCell:ExhaustGasToWaterHeatExchanger -->
+    
     <message>
         <source>Method 2 Parameter hxs4</source>
         <translation>Method 2 Parameter hxs4</translation>
     </message>
-    <!-- OS:Generator:FuelCell:ExhaustGasToWaterHeatExchanger -->
+    
     <message>
         <source>Method 3 F Adjustment Factor</source>
         <translation>Method 3 F 조정 계수</translation>
     </message>
-    <!-- OS:Generator:FuelCell:ExhaustGasToWaterHeatExchanger -->
+    
     <message>
         <source>Method 3 Gas Area</source>
         <translation>방법 3 가스 면적</translation>
     </message>
-    <!-- OS:Generator:FuelCell:ExhaustGasToWaterHeatExchanger -->
+    
     <message>
         <source>Method 3 h0 Water Coefficient</source>
         <translation>Method 3 h0 물 계수</translation>
     </message>
-    <!-- OS:Generator:FuelCell:ExhaustGasToWaterHeatExchanger -->
+    
     <message>
         <source>Method 3 h0Gas Coefficient</source>
         <translation>Method 3 h0 가스 계수</translation>
     </message>
-    <!-- OS:Generator:FuelCell:ExhaustGasToWaterHeatExchanger -->
+    
     <message>
         <source>Method 3 m Coefficient</source>
         <translation>Method 3 m 계수</translation>
     </message>
-    <!-- OS:Generator:FuelCell:ExhaustGasToWaterHeatExchanger -->
+    
     <message>
         <source>Method 3 n Coefficient</source>
         <translation>Method 3 n 계수</translation>
     </message>
-    <!-- OS:Generator:FuelCell:ExhaustGasToWaterHeatExchanger -->
+    
     <message>
         <source>Method 3 N dot Water ref Coefficient</source>
         <translation>Method 3 N dot Water ref 계수</translation>
     </message>
-    <!-- OS:Generator:FuelCell:ExhaustGasToWaterHeatExchanger -->
+    
     <message>
         <source>Method 3 NdotGasRef Coefficient</source>
         <translation>Method 3 NdotGasRef 계수</translation>
     </message>
-    <!-- OS:Generator:FuelCell:ExhaustGasToWaterHeatExchanger -->
+    
     <message>
         <source>Method 3 Water Area</source>
         <translation>방법 3 물 표면적</translation>
     </message>
-    <!-- OS:Generator:FuelCell:ExhaustGasToWaterHeatExchanger -->
+    
     <message>
         <source>Method 4 Condensation Threshold</source>
         <translation>Method 4 응축 임계값</translation>
     </message>
-    <!-- OS:Generator:FuelCell:ExhaustGasToWaterHeatExchanger -->
+    
     <message>
         <source>Method 4 hxl1 Coefficient</source>
         <translation>Method 4 hxl1 계수</translation>
     </message>
-    <!-- OS:Generator:FuelCell:ExhaustGasToWaterHeatExchanger -->
+    
     <message>
         <source>Method 4 hxl2 Coefficient</source>
         <translation>Method 4 hxl2 계수</translation>
     </message>
-    <!-- OS:Controller:WaterCoil -->
+    
     <message>
         <source>Minimum Actuated Flow</source>
         <translation>최소 구동 유량</translation>
     </message>
-    <!-- OS:CoolingTower:VariableSpeed -->
+    
     <message>
         <source>Minimum Air Flow Rate Ratio</source>
         <translation>최소 공기 흐름 비율</translation>
     </message>
-    <!-- OS:AirTerminal:DualDuct:VAV, OS:AirTerminal:SingleDuct:VAV:HeatAndCool:NoReheat, OS:AirTerminal:SingleDuct:VAV:HeatAndCool:Reheat, OS:AirTerminal:SingleDuct:VAV:NoReheat, OS:AirTerminal:SingleDuct:VAV:Reheat -->
+    
     <message>
         <source>Minimum Air Flow Turndown Schedule Name</source>
         <translation>최소 공기 유량 감소 일정 이름</translation>
     </message>
-    <!-- OS:CoilSystem:Cooling:Water -->
+    
     <message>
         <source>Minimum Air To Water Temperature Offset</source>
         <translation>최소 공기-물 온도 편차</translation>
     </message>
-    <!-- OS:Refrigeration:Case -->
+    
     <message>
         <source>Minimum Anti-Sweat Heater Power per Door</source>
         <translation>도어당 최소 방한 가열기 전력</translation>
     </message>
-    <!-- OS:Refrigeration:Case -->
+    
     <message>
         <source>Minimum Anti-Sweat Heater Power per Unit Length</source>
         <translation>단위 길이당 최소 제상 히터 전력</translation>
     </message>
-    <!-- OS:CoolingTowerPerformance:CoolTools, OS:CoolingTowerPerformance:YorkCalc -->
+    
     <message>
         <source>Minimum Approach Temperature</source>
         <translation>최소 접근 온도</translation>
     </message>
-    <!-- OS:Refrigeration:Condenser:EvaporativeCooled -->
+    
     <message>
         <source>Minimum Capacity Factor</source>
         <translation>최소 용량 계수</translation>
     </message>
-    <!-- OS:ZoneControl:ContaminantController -->
+    
     <message>
         <source>Minimum Carbon Dioxide Concentration Schedule Name</source>
         <translation>최소 이산화탄소 농도 스케줄 이름</translation>
     </message>
-    <!-- OS:Foundation:Kiva:Settings -->
+    
     <message>
         <source>Minimum Cell Dimension</source>
         <translation>최소 셀 치수</translation>
     </message>
-    <!-- OS:AirflowNetworkOccupantVentilationControl -->
+    
     <message>
         <source>Minimum Closing Time</source>
         <translation>최소 닫힘 시간</translation>
     </message>
-    <!-- OS:AirTerminal:SingleDuct:ConstantVolume:FourPipeInduction, OS:ZoneHVAC:FourPipeFanCoil -->
+    
     <message>
         <source>Minimum Cold Water Flow Rate</source>
         <translation>최소 냉수 유량</translation>
     </message>
-    <!-- OS:Refrigeration:GasCooler:AirCooled, OS:Refrigeration:System -->
+    
     <message>
         <source>Minimum Condensing Temperature</source>
         <translation>최소 응축 온도</translation>
     </message>
-    <!-- OS:ZoneHVAC:IdealLoadsAirSystem -->
+    
     <message>
         <source>Minimum Cooling Supply Air Humidity Ratio</source>
         <translation>최소 냉각 공급 공기 습도비</translation>
     </message>
-    <!-- OS:ZoneHVAC:IdealLoadsAirSystem -->
+    
     <message>
         <source>Minimum Cooling Supply Air Temperature</source>
         <translation>최소 냉방 공급 공기 온도</translation>
     </message>
-    <!-- OS:Curve:Bicubic, OS:Curve:Biquadratic, OS:Curve:Cubic, OS:Curve:DoubleExponentialDecay, OS:Curve:Exponent, OS:Curve:ExponentialDecay, OS:Curve:ExponentialSkewNormal, OS:Curve:FanPressureRise, OS:Curve:Linear, OS:Curve:QuadLinear, OS:Curve:Quadratic, OS:Curve:QuadraticLinear, OS:Curve:Quartic, OS:Curve:QuintLinear, OS:Curve:RectangularHyperbola1, OS:Curve:RectangularHyperbola2, OS:Curve:Sigmoid, OS:Curve:Triquadratic -->
+    
     <message>
         <source>Minimum Curve Output</source>
         <translation>최소 곡선 출력</translation>
     </message>
-    <!-- OS:AirflowNetworkSimpleOpening -->
+    
     <message>
         <source>Minimum Density Difference for Two-Way Flow</source>
         <translation>양방향 흐름을 위한 최소 밀도 차이</translation>
     </message>
-    <!-- OS:ZoneHVAC:Dehumidifier:DX -->
+    
     <message>
         <source>Minimum Dry-Bulb Temperature for Dehumidifier Operation</source>
         <translation>제습기 운전을 위한 최소 건구 온도</translation>
     </message>
-    <!-- OS:Refrigeration:AirChiller, OS:Refrigeration:Condenser:AirCooled, OS:Refrigeration:Condenser:EvaporativeCooled, OS:Refrigeration:GasCooler:AirCooled -->
+    
     <message>
         <source>Minimum Fan Air Flow Ratio</source>
         <translation>최소 팬 공기 유량 비율</translation>
     </message>
-    <!-- OS:AirTerminal:SingleDuct:ParallelPIU:Reheat, OS:AirTerminal:SingleDuct:SeriesPIU:Reheat -->
+    
     <message>
         <source>Minimum Fan Turn Down Ratio</source>
         <translation>최소 팬 감소 비율</translation>
     </message>
-    <!-- OS:HeaderedPumps:VariableSpeed -->
+    
     <message>
         <source>Minimum Flow Rate Fraction</source>
         <translation>최소 유량 분율</translation>
     </message>
-    <!-- OS:Generator:MicroTurbine -->
+    
     <message>
         <source>Minimum Full Load Electrical Power Output</source>
         <translation>최소 정격 전기 출력</translation>
     </message>
-    <!-- OS:HeatPump:PlantLoop:EIR:Heating -->
+    
     <message>
         <source>Minimum Heat Recovery Outlet Temperature</source>
         <translation>열 회수 최소 출구 온도</translation>
     </message>
-    <!-- OS:Generator:MicroTurbine:HeatRecovery -->
+    
     <message>
         <source>Minimum Heat Recovery Water Flow Rate</source>
         <translation>최소 열 회수 물 유량</translation>
     </message>
-    <!-- OS:Generator:FuelCell:AuxiliaryHeater -->
+    
     <message>
         <source>Minimum Heating Capacity in Kmol per Second</source>
         <translation>최소 난방 용량(초당 킬로몰)</translation>
     </message>
-    <!-- OS:Generator:FuelCell:AuxiliaryHeater -->
+    
     <message>
         <source>Minimum Heating Capacity in Watts</source>
         <translation>최소 난방 용량 (와트)</translation>
     </message>
-    <!-- OS:AirTerminal:SingleDuct:ConstantVolume:FourPipeInduction, OS:ZoneHVAC:FourPipeFanCoil, OS:ZoneHVAC:UnitHeater -->
+    
     <message>
         <source>Minimum Hot Water Flow Rate</source>
         <translation>최소 온수 유량</translation>
     </message>
-    <!-- OS:AvailabilityManager:HybridVentilation -->
+    
     <message>
         <source>Minimum HVAC Operation Time</source>
         <translation>최소 HVAC 운영 시간</translation>
     </message>
-    <!-- OS:ZoneVentilation:DesignFlowRate, OS:ZoneVentilation:WindandStackOpenArea -->
+    
     <message>
         <source>Minimum Indoor Temperature</source>
         <translation>최소 실내 온도</translation>
     </message>
-    <!-- OS:ZoneVentilation:DesignFlowRate, OS:ZoneVentilation:WindandStackOpenArea -->
+    
     <message>
         <source>Minimum Indoor Temperature Schedule Name</source>
         <translation>최소 실내 온도 스케줄 이름</translation>
     </message>
-    <!-- OS:WaterHeater:HeatPump, OS:WaterHeater:HeatPump:WrappedCondenser -->
+    
     <message>
         <source>Minimum Inlet Air Temperature for Compressor Operation</source>
         <translation>압축기 운전을 위한 최소 흡입 공기 온도</translation>
     </message>
-    <!-- OS:CoolingTowerPerformance:CoolTools, OS:CoolingTowerPerformance:YorkCalc -->
+    
     <message>
         <source>Minimum Inlet Air Wet-Bulb Temperature</source>
         <translation>최소 입구 공기 습구 온도</translation>
     </message>
-    <!-- OS:Daylighting:Control -->
+    
     <message>
         <source>Minimum Input Power Fraction for Continuous Dimming Control</source>
         <translation>연속 조광 제어를 위한 최소 입력 전력 분수</translation>
     </message>
-    <!-- OS:HeatPump:AirToWater:Cooling, OS:HeatPump:AirToWater:Heating -->
+    
     <message>
         <source>Minimum Leaving Water Temperature Curve Name</source>
         <translation>최소 나가는 물 온도 곡선 이름</translation>
     </message>
-    <!-- OS:Daylighting:Control -->
+    
     <message>
         <source>Minimum Light Output Fraction for Continuous Dimming Control</source>
         <translation>연속 조광 제어를 위한 최소 조명 출력 분율</translation>
     </message>
-    <!-- OS:SetpointManager:FollowSystemNodeTemperature -->
+    
     <message>
         <source>Minimum Limit Setpoint Temperature</source>
         <translation>최소 한계 설정점 온도</translation>
     </message>
-    <!-- OS:PlantComponent:UserDefined -->
+    
     <message>
         <source>Minimum Loading Capacity Actuator</source>
         <translation>최소 로딩 용량 액추에이터</translation>
     </message>
-    <!-- OS:PlantComponent:UserDefined -->
+    
     <message>
         <source>Minimum Mass Flow Rate Actuator</source>
         <translation>최소 질량 유량 액추에이터</translation>
     </message>
-    <!-- OS:UtilityCost:Tariff -->
+    
     <message>
         <source>Minimum Monthly Charge or Variable Name</source>
         <translation>최소 월별 요금 또는 변수명</translation>
     </message>
-    <!-- OS:SimulationControl -->
+    
     <message>
         <source>Minimum Number of Warmup Days</source>
         <translation>최소 워밍업 일 수</translation>
     </message>
-    <!-- OS:AirflowNetworkOccupantVentilationControl -->
+    
     <message>
         <source>Minimum Opening Time</source>
         <translation>최소 개방 시간</translation>
     </message>
-    <!-- OS:Generator:FuelCell:PowerModule -->
+    
     <message>
         <source>Minimum Operating Point</source>
         <translation>최소 운전점</translation>
     </message>
-    <!-- OS:SurfaceProperty:OtherSideCoefficients -->
+    
     <message>
         <source>Minimum Other Side Temperature Limit</source>
         <translation>최소 다른 쪽 온도 제한</translation>
     </message>
-    <!-- OS:HeatPump:AirToWater:Cooling, OS:HeatPump:AirToWater:Heating -->
+    
     <message>
         <source>Minimum Outdoor Air Temperature</source>
         <translation>최소 실외 공기 온도</translation>
     </message>
-    <!-- OS:AirConditioner:VariableRefrigerantFlow:FluidTemperatureControl -->
+    
     <message>
         <source>Minimum Outdoor Air Temperature in Cooling Mode</source>
         <translation>냉각 모드에서의 최소 외기 온도</translation>
     </message>
-    <!-- OS:AirConditioner:VariableRefrigerantFlow:FluidTemperatureControl:HR -->
+    
     <message>
         <source>Minimum Outdoor Air Temperature in Cooling Only Mode</source>
         <translation>냉각 전용 모드에서의 최소 외기 온도</translation>
     </message>
-    <!-- OS:AirConditioner:VariableRefrigerantFlow:FluidTemperatureControl -->
+    
     <message>
         <source>Minimum Outdoor Air Temperature in Heating Mode</source>
         <translation>난방 모드에서의 최소 외부 공기 온도</translation>
     </message>
-    <!-- OS:AirConditioner:VariableRefrigerantFlow:FluidTemperatureControl:HR -->
+    
     <message>
         <source>Minimum Outdoor Air Temperature in Heating Only Mode</source>
         <translation>난방 전용 모드에서의 최소 실외 공기 온도</translation>
     </message>
-    <!-- OS:AvailabilityManager:HybridVentilation -->
+    
     <message>
         <source>Minimum Outdoor Dewpoint</source>
         <translation>최소 실외 노점온도</translation>
     </message>
-    <!-- OS:AvailabilityManager:HybridVentilation -->
+    
     <message>
         <source>Minimum Outdoor Enthalpy</source>
         <translation>최소 외부 공기 엔탈피</translation>
     </message>
-    <!-- OS:AvailabilityManager:HybridVentilation, OS:ZoneVentilation:DesignFlowRate, OS:ZoneVentilation:WindandStackOpenArea -->
+    
     <message>
         <source>Minimum Outdoor Temperature</source>
         <translation>최소 외기 온도</translation>
     </message>
-    <!-- OS:AirConditioner:VariableRefrigerantFlow, OS:AirConditioner:VariableRefrigerantFlow:FluidTemperatureControl:HR -->
+    
     <message>
         <source>Minimum Outdoor Temperature in Heat Recovery Mode</source>
         <translation>열회수 모드에서의 최소 외기 온도</translation>
     </message>
-    <!-- OS:ZoneMixing, OS:ZoneVentilation:DesignFlowRate, OS:ZoneVentilation:WindandStackOpenArea -->
+    
     <message>
         <source>Minimum Outdoor Temperature Schedule Name</source>
         <translation>최소 외기 온도 스케줄 이름</translation>
     </message>
-    <!-- OS:AvailabilityManager:HybridVentilation -->
+    
     <message>
         <source>Minimum Outdoor Ventilation Air Schedule</source>
         <translation>최소 실외 환기 공기 스케줄</translation>
     </message>
-    <!-- OS:AirLoopHVAC:UnitaryHeatCool:VAVChangeoverBypass -->
+    
     <message>
         <source>Minimum Outlet Air Temperature During Cooling Operation</source>
         <translation>냉각 운전 중 최소 출구 공기 온도</translation>
     </message>
-    <!-- OS:Table:Lookup -->
+    
     <message>
         <source>Minimum Output</source>
         <translation>최소 출력</translation>
     </message>
-    <!-- OS:ConvergenceLimits -->
+    
     <message>
         <source>Minimum Plant Iterations</source>
         <translation>최소 플랜트 반복 횟수</translation>
     </message>
-    <!-- OS:Pump:VariableSpeed -->
+    
     <message>
         <source>Minimum Pressure Schedule</source>
         <translation>최소 압력 스케줄</translation>
     </message>
-    <!-- OS:AirTerminal:SingleDuct:ParallelPIU:Reheat, OS:AirTerminal:SingleDuct:SeriesPIU:Reheat -->
+    
     <message>
         <source>Minimum Primary Air Flow Fraction</source>
         <translation>최소 1차 공기 유량 분율</translation>
     </message>
-    <!-- OS:HeatExchanger:Desiccant:BalancedFlow:PerformanceDataType1 -->
+    
     <message>
         <source>Minimum Process Inlet Air Humidity Ratio for Humidity Ratio Equation</source>
         <translation>습도비 방정식을 위한 최소 공정 입구 공기 습도비</translation>
     </message>
-    <!-- OS:HeatExchanger:Desiccant:BalancedFlow:PerformanceDataType1 -->
+    
     <message>
         <source>Minimum Process Inlet Air Humidity Ratio for Temperature Equation</source>
         <translation>온도 방정식을 위한 최소 공정 입구 공기 습도비</translation>
     </message>
-    <!-- OS:HeatExchanger:Desiccant:BalancedFlow:PerformanceDataType1 -->
+    
     <message>
         <source>Minimum Process Inlet Air Relative Humidity for Humidity Ratio Equation</source>
         <translation>습도비 방정식을 위한 최소 공정 입구 공기 상대습도</translation>
     </message>
-    <!-- OS:HeatExchanger:Desiccant:BalancedFlow:PerformanceDataType1 -->
+    
     <message>
         <source>Minimum Process Inlet Air Relative Humidity for Temperature Equation</source>
         <translation>온도 방정식을 위한 최소 프로세스 입구 공기 상대 습도</translation>
     </message>
-    <!-- OS:HeatExchanger:Desiccant:BalancedFlow:PerformanceDataType1 -->
+    
     <message>
         <source>Minimum Process Inlet Air Temperature for Humidity Ratio Equation</source>
         <translation>습도 비율 방정식을 위한 최소 공정 흡입 공기 온도</translation>
     </message>
-    <!-- OS:HeatExchanger:Desiccant:BalancedFlow:PerformanceDataType1 -->
+    
     <message>
         <source>Minimum Process Inlet Air Temperature for Temperature Equation</source>
         <translation>온도 방정식을 위한 최소 공정 입구 공기 온도</translation>
     </message>
-    <!-- OS:CoolingTowerPerformance:CoolTools, OS:CoolingTowerPerformance:YorkCalc -->
+    
     <message>
         <source>Minimum Range Temperature</source>
         <translation>최소 범위 온도</translation>
     </message>
-    <!-- OS:ZoneMixing -->
+    
     <message>
         <source>Minimum Receiving Temperature Schedule Name</source>
         <translation>최소 수신 온도 스케줄 이름</translation>
     </message>
-    <!-- OS:HeatExchanger:Desiccant:BalancedFlow:PerformanceDataType1 -->
+    
     <message>
         <source>Minimum Regeneration Air Velocity for Humidity Ratio Equation</source>
         <translation>습도 비 방정식의 최소 재생 공기 속도</translation>
     </message>
-    <!-- OS:HeatExchanger:Desiccant:BalancedFlow:PerformanceDataType1 -->
+    
     <message>
         <source>Minimum Regeneration Air Velocity for Temperature Equation</source>
         <translation>온도 방정식을 위한 최소 재생 공기 속도</translation>
     </message>
-    <!-- OS:HeatExchanger:Desiccant:BalancedFlow:PerformanceDataType1 -->
+    
     <message>
         <source>Minimum Regeneration Inlet Air Humidity Ratio for Humidity Ratio Equation</source>
         <translation>습도비 방정식을 위한 최소 재생 입구 공기 습도비</translation>
     </message>
-    <!-- OS:HeatExchanger:Desiccant:BalancedFlow:PerformanceDataType1 -->
+    
     <message>
         <source>Minimum Regeneration Inlet Air Humidity Ratio for Temperature Equation</source>
         <translation>온도 방정식을 위한 최소 재생 입구 공기 습도비</translation>
     </message>
-    <!-- OS:HeatExchanger:Desiccant:BalancedFlow:PerformanceDataType1 -->
+    
     <message>
         <source>Minimum Regeneration Inlet Air Relative Humidity for Humidity Ratio Equation</source>
         <translation>습도비 방정식을 위한 최소 재생 입구 공기 상대습도</translation>
     </message>
-    <!-- OS:HeatExchanger:Desiccant:BalancedFlow:PerformanceDataType1 -->
+    
     <message>
         <source>Minimum Regeneration Inlet Air Relative Humidity for Temperature Equation</source>
         <translation>온도 방정식을 위한 최소 재생 흡입 공기 상대습도</translation>
     </message>
-    <!-- OS:HeatExchanger:Desiccant:BalancedFlow:PerformanceDataType1 -->
+    
     <message>
         <source>Minimum Regeneration Inlet Air Temperature for Humidity Ratio Equation</source>
         <translation>습도 비율 방정식을 위한 최소 재생 입구 공기 온도</translation>
     </message>
-    <!-- OS:HeatExchanger:Desiccant:BalancedFlow:PerformanceDataType1 -->
+    
     <message>
         <source>Minimum Regeneration Inlet Air Temperature for Temperature Equation</source>
         <translation>온도 방정식을 위한 최소 재생 입구 공기 온도</translation>
     </message>
-    <!-- OS:HeatExchanger:Desiccant:BalancedFlow:PerformanceDataType1 -->
+    
     <message>
         <source>Minimum Regeneration Outlet Air Humidity Ratio for Humidity Ratio Equation</source>
         <translation>습도비 방정식을 위한 최소 재생 출구 공기 습도비</translation>
     </message>
-    <!-- OS:HeatExchanger:Desiccant:BalancedFlow:PerformanceDataType1 -->
+    
     <message>
         <source>Minimum Regeneration Outlet Air Temperature for Temperature Equation</source>
         <translation>온도 방정식을 위한 최소 재생 출구 공기 온도</translation>
     </message>
-    <!-- OS:Pump:VariableSpeed -->
+    
     <message>
         <source>Minimum RPM Schedule</source>
         <translation>최소 RPM 스케줄</translation>
     </message>
-    <!-- OS:AirLoopHVAC:UnitaryHeatCool:VAVChangeoverBypass -->
+    
     <message>
         <source>Minimum Runtime Before Operating Mode Change</source>
         <translation>작동 모드 변경 전 최소 운전 시간</translation>
     </message>
-    <!-- OS:SetpointManager:MultiZone:Humidity:Maximum, OS:SetpointManager:MultiZone:Humidity:Minimum, OS:SetpointManager:MultiZone:MaximumHumidity:Average, OS:SetpointManager:MultiZone:MinimumHumidity:Average, OS:SetpointManager:OutdoorAirPretreat -->
+    
     <message>
         <source>Minimum Setpoint Humidity Ratio</source>
         <translation>최소 설정점 습도비</translation>
     </message>
-    <!-- OS:WindowMaterial:Blind -->
+    
     <message>
         <source>Minimum Slat Angle</source>
         <translation>슬랫 최소 각도</translation>
     </message>
-    <!-- OS:HeatPump:PlantLoop:EIR:Cooling, OS:HeatPump:PlantLoop:EIR:Heating -->
+    
     <message>
         <source>Minimum Source Inlet Temperature</source>
         <translation>최소 열원 입구 온도</translation>
     </message>
-    <!-- OS:ZoneMixing -->
+    
     <message>
         <source>Minimum Source Temperature Schedule Name</source>
         <translation>최소 소스 온도 스케줄 이름</translation>
     </message>
-    <!-- OS:CoilSystem:IntegratedHeatPump:AirSource -->
+    
     <message>
         <source>Minimum Speed Level For SCDWH Mode</source>
         <translation>SCDWH 모드의 최소 속도 수준</translation>
     </message>
-    <!-- OS:CoilSystem:IntegratedHeatPump:AirSource -->
+    
     <message>
         <source>Minimum Speed Level For SCWH Mode</source>
         <translation>SCWH 모드의 최소 속도 레벨</translation>
     </message>
-    <!-- OS:CoilSystem:IntegratedHeatPump:AirSource -->
+    
     <message>
         <source>Minimum Speed Level For SHDWH Mode</source>
         <translation>SHDWH 모드를 위한 최소 속도 레벨</translation>
     </message>
-    <!-- OS:Material:RoofVegetation -->
+    
     <message>
         <source>Minimum Stomatal Resistance</source>
         <translation>최소 기공 저항</translation>
     </message>
-    <!-- OS:ElectricLoadCenter:Distribution -->
+    
     <message>
         <source>Minimum Storage State of Charge Fraction</source>
         <translation>최소 저장 충전 상태 분율</translation>
     </message>
-    <!-- OS:ZoneHVAC:FourPipeFanCoil -->
+    
     <message>
         <source>Minimum Supply Air Temperature in Cooling Mode</source>
         <translation>냉각 모드에서의 최소 급기 온도</translation>
     </message>
-    <!-- OS:HeatPump:PlantLoop:EIR:Cooling, OS:HeatPump:PlantLoop:EIR:Heating -->
+    
     <message>
         <source>Minimum Supply Water Temperature Curve Name</source>
         <translation>최소 공급수 온도 곡선 이름</translation>
     </message>
-    <!-- OS:HeatBalanceAlgorithm -->
+    
     <message>
         <source>Minimum Surface Convection Heat Transfer Coefficient Value</source>
         <translation>최소 표면 대류 열전달 계수 값</translation>
     </message>
-    <!-- OS:ConvergenceLimits -->
+    
     <message>
         <source>Minimum System Timestep</source>
         <translation>최소 시스템 타임스텝</translation>
     </message>
-    <!-- OS:Table:MultiVariableLookup -->
+    
     <message>
         <source>Minimum Table Output</source>
         <translation>최소 테이블 출력</translation>
     </message>
-    <!-- OS:HeatExchanger:FluidToFluid -->
+    
     <message>
         <source>Minimum Temperature Difference to Activate Heat Exchanger</source>
         <translation>열교환기 활성화를 위한 최소 온도 차이</translation>
     </message>
-    <!-- OS:ThermalStorage:ChilledWater:Stratified -->
+    
     <message>
         <source>Minimum Temperature Limit</source>
         <translation>최소 온도 제한</translation>
     </message>
-    <!-- OS:SetpointManager:WarmestTemperatureFlow -->
+    
     <message>
         <source>Minimum Turndown Ratio</source>
         <translation>최소 턴다운 비율</translation>
     </message>
-    <!-- OS:Table:IndependentVariable -->
+    
     <message>
         <source>Minimum Value</source>
         <translation>최솟값</translation>
     </message>
-    <!-- OS:Curve:FanPressureRise -->
+    
     <message>
         <source>Minimum Value of Psm</source>
         <translation>Psm의 최솟값</translation>
     </message>
-    <!-- OS:Curve:FanPressureRise -->
+    
     <message>
         <source>Minimum Value of Qfan</source>
         <translation>Qfan의 최솟값</translation>
     </message>
-    <!-- OS:Curve:QuintLinear -->
+    
     <message>
         <source>Minimum Value of v</source>
         <translation>v의 최솟값</translation>
     </message>
-    <!-- OS:Curve:QuadLinear, OS:Curve:QuintLinear -->
+    
     <message>
         <source>Minimum Value of w</source>
         <translation>w의 최솟값</translation>
     </message>
-    <!-- OS:Curve:Bicubic, OS:Curve:Biquadratic, OS:Curve:Cubic, OS:Curve:DoubleExponentialDecay, OS:Curve:Exponent, OS:Curve:ExponentialDecay, OS:Curve:ExponentialSkewNormal, OS:Curve:Linear, OS:Curve:QuadLinear, OS:Curve:Quadratic, OS:Curve:QuadraticLinear, OS:Curve:Quartic, OS:Curve:QuintLinear, OS:Curve:RectangularHyperbola1, OS:Curve:RectangularHyperbola2, OS:Curve:Sigmoid, OS:Curve:Triquadratic -->
+    
     <message>
         <source>Minimum Value of x</source>
         <translation>x의 최솟값</translation>
     </message>
-    <!-- OS:Table:MultiVariableLookup -->
+    
     <message>
         <source>Minimum Value of X1</source>
         <translation>X1의 최솟값</translation>
     </message>
-    <!-- OS:Table:MultiVariableLookup -->
+    
     <message>
         <source>Minimum Value of X2</source>
         <translation>X2의 최솟값</translation>
     </message>
-    <!-- OS:Table:MultiVariableLookup -->
+    
     <message>
         <source>Minimum Value of X3</source>
         <translation>X3의 최솟값</translation>
     </message>
-    <!-- OS:Table:MultiVariableLookup -->
+    
     <message>
         <source>Minimum Value of X4</source>
         <translation>X4의 최소값</translation>
     </message>
-    <!-- OS:Table:MultiVariableLookup -->
+    
     <message>
         <source>Minimum Value of X5</source>
         <translation>X5의 최소값</translation>
     </message>
-    <!-- OS:Curve:Bicubic, OS:Curve:Biquadratic, OS:Curve:QuadLinear, OS:Curve:QuadraticLinear, OS:Curve:QuintLinear, OS:Curve:Triquadratic -->
+    
     <message>
         <source>Minimum Value of y</source>
         <translation>y의 최솟값</translation>
     </message>
-    <!-- OS:Curve:QuadLinear, OS:Curve:QuintLinear, OS:Curve:Triquadratic -->
+    
     <message>
         <source>Minimum Value of z</source>
         <translation>z의 최소값</translation>
     </message>
-    <!-- OS:AvailabilityManager:HybridVentilation -->
+    
     <message>
         <source>Minimum Ventilation Time</source>
         <translation>최소 환기 시간</translation>
     </message>
-    <!-- OS:AirflowNetworkSurface, OS:AirflowNetworkZone -->
+    
     <message>
         <source>Minimum Venting Open Factor</source>
         <translation>최소 환기 개방 계수</translation>
     </message>
-    <!-- OS:CoolingTowerPerformance:CoolTools, OS:CoolingTowerPerformance:YorkCalc -->
+    
     <message>
         <source>Minimum Water Flow Rate Ratio</source>
         <translation>최소 물 유량 비율</translation>
     </message>
-    <!-- OS:CoilSystem:Cooling:Water -->
+    
     <message>
         <source>Minimum Water Loop Temperature For Heat Recovery</source>
         <translation>열회수용 최소 물 루프 온도</translation>
     </message>
-    <!-- OS:Fan:ZoneExhaust -->
+    
     <message>
         <source>Minimum Zone Temperature Limit Schedule Name</source>
         <translation>최소 실내 온도 제한 스케줄 이름</translation>
     </message>
-    <!-- OS:Curve:Functional:PressureDrop -->
+    
     <message>
         <source>Minor Loss Coefficient</source>
         <translation>소수 손실 계수</translation>
     </message>
-    <!-- OS:LightingDesignDay -->
+    
     <message>
         <source>Minute to Simulate</source>
         <translation>시뮬레이션할 분</translation>
     </message>
-    <!-- OS:Schedule:File -->
+    
     <message>
         <source>Minutes per Item</source>
         <translation>항목당 분</translation>
     </message>
-    <!-- OS:ComponentCost:Adjustments -->
+    
     <message>
         <source>Miscellaneous Cost per Conditioned Area</source>
         <translation>냉방면적당 기타비용</translation>
     </message>
-    <!-- OS:AirLoopHVAC:OutdoorAirSystem, OS:Controller:OutdoorAir -->
+    
     <message>
         <source>Mixed Air Node Name</source>
         <translation>혼합 공기 노드 이름</translation>
     </message>
-    <!-- OS:SetpointManager:OutdoorAirPretreat -->
+    
     <message>
         <source>Mixed Air Stream Node Name</source>
         <translation>혼합 공기 스트림 노드 이름</translation>
     </message>
-    <!-- OS:Refrigeration:Compressor -->
+    
     <message>
         <source>Mode of Operation</source>
         <translation>운전 모드</translation>
     </message>
-    <!-- OS:CoolingTower:VariableSpeed -->
+    
     <message>
         <source>Model Coefficient</source>
         <translation>모델 계수</translation>
     </message>
-    <!-- OS:ModelObjectList -->
+    
     <message>
         <source>Model Object</source>
         <translation>모델 객체</translation>
     </message>
-    <!-- OS:Coil:Cooling:CooledBeam -->
+    
     <message>
         <source>Model Parameter a</source>
         <translation>모델 매개변수 a</translation>
     </message>
-    <!-- OS:Coil:Cooling:CooledBeam -->
+    
     <message>
         <source>Model Parameter a0</source>
         <translation>모델 파라미터 a0</translation>
     </message>
-    <!-- OS:Coil:Cooling:CooledBeam -->
+    
     <message>
         <source>Model Parameter K1</source>
         <translation>Model Parameter K1</translation>
     </message>
-    <!-- OS:Coil:Cooling:CooledBeam -->
+    
     <message>
         <source>Model Parameter n</source>
         <translation>모델 매개변수 n</translation>
     </message>
-    <!-- OS:Coil:Cooling:CooledBeam -->
+    
     <message>
         <source>Model Parameter n1</source>
         <translation>모델 매개변수 n1</translation>
     </message>
-    <!-- OS:Coil:Cooling:CooledBeam -->
+    
     <message>
         <source>Model Parameter n2</source>
         <translation>모델 파라미터 n2</translation>
     </message>
-    <!-- OS:Coil:Cooling:CooledBeam -->
+    
     <message>
         <source>Model Parameter n3</source>
         <translation>모델 매개변수 n3</translation>
     </message>
-    <!-- OS:Coil:UserDefined -->
+    
     <message>
         <source>Model Setup and Sizing Program Calling Manager Name</source>
         <translation>모델 설정 및 크기 조정 프로그램 호출 관리자 이름</translation>
     </message>
-    <!-- OS:CoolingTower:VariableSpeed -->
+    
     <message>
         <source>Model Type</source>
         <translation>모델 유형</translation>
     </message>
-    <!-- OS:PhotovoltaicPerformance:EquivalentOneDiode -->
+    
     <message>
         <source>Module Current at Maximum Power</source>
         <translation>최대 전력 시 모듈 전류</translation>
     </message>
-    <!-- OS:PhotovoltaicPerformance:EquivalentOneDiode -->
+    
     <message>
         <source>Module Heat Loss Coefficient</source>
         <translation>모듈 열손실 계수</translation>
     </message>
-    <!-- OS:Generator:Photovoltaic -->
+    
     <message>
         <source>Module Performance Name</source>
         <translation>모듈 성능 이름</translation>
     </message>
-    <!-- OS:Generator:PVWatts -->
+    
     <message>
         <source>Module Type</source>
         <translation>모듈 유형</translation>
     </message>
-    <!-- OS:PhotovoltaicPerformance:EquivalentOneDiode -->
+    
     <message>
         <source>Module Voltage at Maximum Power</source>
         <translation>최대 전력 시 모듈 전압</translation>
     </message>
-    <!-- OS:Material:RoofVegetation -->
+    
     <message>
         <source>Moisture Diffusion Calculation Method</source>
         <translation>수분 확산 계산 방법</translation>
     </message>
-    <!-- OS:MaterialProperty:MoisturePenetrationDepth:Settings -->
+    
     <message>
         <source>Moisture Equation Coefficient a</source>
         <translation>수분 방정식 계수 a</translation>
     </message>
-    <!-- OS:MaterialProperty:MoisturePenetrationDepth:Settings -->
+    
     <message>
         <source>Moisture Equation Coefficient b</source>
         <translation>습도 방정식 계수 b</translation>
     </message>
-    <!-- OS:MaterialProperty:MoisturePenetrationDepth:Settings -->
+    
     <message>
         <source>Moisture Equation Coefficient c</source>
         <translation>습기 방정식 계수 c</translation>
     </message>
-    <!-- OS:MaterialProperty:MoisturePenetrationDepth:Settings -->
+    
     <message>
         <source>Moisture Equation Coefficient d</source>
         <translation>수분 방정식 계수 d</translation>
     </message>
-    <!-- OS:Generator:FuelCell:AirSupply -->
+    
     <message>
         <source>Molar Fraction</source>
         <translation>몰 분율</translation>
     </message>
-    <!-- OS:WindowMaterial:Gas -->
+    
     <message>
         <source>Molecular Weight</source>
         <translation>분자량</translation>
     </message>
-    <!-- OS:Schedule:Week -->
+    
     <message>
         <source>Monday Schedule:Day Name</source>
         <translation>월요일 스케줄:요일 이름</translation>
     </message>
-    <!-- OS:CurrencyType -->
+    
     <message>
         <source>Monetary Unit</source>
         <translation>통화 단위</translation>
     </message>
-    <!-- OS:LightingDesignDay, OS:Schedule:VariableInterval, OS:Schedule:Year, OS:SizingPeriod:DesignDay -->
+    
     <message>
         <source>Month</source>
         <translation>월</translation>
     </message>
-    <!-- OS:UtilityCost:Tariff -->
+    
     <message>
         <source>Month Schedule Name</source>
         <translation>월별 일정 이름</translation>
     </message>
-    <!-- OS:UtilityCost:Tariff -->
+    
     <message>
         <source>Monthly Charge or Variable Name</source>
         <translation>월간 요금 또는 변수 이름</translation>
     </message>
-    <!-- OS:LifeCycleCost -->
+    
     <message>
         <source>Months from Start</source>
         <translation>시작으로부터의 개월 수</translation>
     </message>
-    <!-- OS:Fan:ComponentModel -->
+    
     <message>
         <source>Motor Fan Pulley Ratio</source>
         <translation>모터 팬 풀리 비율</translation>
     </message>
-    <!-- OS:Fan:SystemModel -->
+    
     <message>
         <source>Motor In Air Stream Fraction</source>
         <translation>모터 공기흐름 내 분율</translation>
     </message>
-    <!-- OS:Fan:SystemModel -->
+    
     <message>
         <source>Motor Loss Radiative Fraction</source>
         <translation>모터 손실 복사 분율</translation>
     </message>
-    <!-- OS:Fan:SystemModel -->
+    
     <message>
         <source>Motor Loss Zone Name</source>
         <translation>모터 손실 영역 이름</translation>
     </message>
-    <!-- OS:Fan:ComponentModel -->
+    
     <message>
         <source>Motor Maximum Speed</source>
         <translation>모터 최대 속도</translation>
     </message>
-    <!-- OS:Fan:ComponentModel -->
+    
     <message>
         <source>Motor Sizing Factor</source>
         <translation>모터 크기 조정 계수</translation>
     </message>
-    <!-- OS:ShadingControl -->
+    
     <message>
         <source>Multiple Surface Control Type</source>
         <translation>다중 표면 제어 유형</translation>
     </message>
-    <!-- OS:UtilityCost:Ratchet -->
+    
     <message>
         <source>Multiplier Value or Variable Name</source>
         <translation>승수값 또는 변수명</translation>
     </message>
 
-    <!-- N -->
-    <!-- OS:FuelFactors -->
+    
+    
     <message>
         <source>N2O Emission Factor</source>
         <translation>N2O 배출 계수</translation>
     </message>
-    <!-- OS:FuelFactors -->
+    
     <message>
         <source>N2O Emission Factor Schedule Name</source>
         <translation>N2O 배출계수 스케줄 이름</translation>
     </message>
-    <!-- OS:PythonPlugin:TrendVariable -->
+    
     <message>
         <source>Name of a Python Plugin Variable</source>
         <translation>Python 플러그인 변수의 이름</translation>
     </message>
-    <!-- OS:ExternalInterface -->
+    
     <message>
         <source>Name of External Interface</source>
         <translation>외부 인터페이스 이름</translation>
     </message>
-    <!-- OS:ComponentData -->
+    
     <message>
         <source>Name of Object</source>
         <translation>객체 이름</translation>
     </message>
-    <!-- OS:ElectricLoadCenter:Transformer -->
+    
     <message>
         <source>Nameplate Efficiency</source>
         <translation>정격 효율</translation>
     </message>
-    <!-- OS:LifeCycleCost:Parameters -->
+    
     <message>
         <source>NaturalGas Inflation</source>
         <translation>천연가스 인플레이션</translation>
     </message>
-    <!-- OS:WindowProperty:FrameAndDivider -->
+    
     <message>
         <source>NFRC Product Type for Assembly Calculations</source>
         <translation>어셈블리 계산을 위한 NFRC 제품 유형</translation>
     </message>
-    <!-- OS:FuelFactors -->
+    
     <message>
         <source>NH3 Emission Factor</source>
         <translation>NH3 배출 계수</translation>
     </message>
-    <!-- OS:FuelFactors -->
+    
     <message>
         <source>NH3 Emission Factor Schedule Name</source>
         <translation>NH3 배출 계수 스케줄 이름</translation>
     </message>
-    <!-- OS:ElectricLoadCenter:Inverter:LookUpTable -->
+    
     <message>
         <source>Night Tare Loss Power</source>
         <translation>야간 방사 손실 전력</translation>
     </message>
-    <!-- OS:Fan:SystemModel -->
+    
     <message>
         <source>Night Ventilation Mode Flow Fraction</source>
         <translation>야간 환기 모드 유량 분율</translation>
     </message>
-    <!-- OS:Fan:SystemModel -->
+    
     <message>
         <source>Night Ventilation Mode Pressure Rise</source>
         <translation>야간 환기 모드 압력 상승</translation>
     </message>
-    <!-- OS:AvailabilityManager:NightVentilation -->
+    
     <message>
         <source>Night Venting Flow Fraction</source>
         <translation>야간 환기 유량 분율</translation>
     </message>
-    <!-- OS:LifeCycleCost:Parameters -->
+    
     <message>
         <source>NIST Region</source>
         <translation>NIST 지역</translation>
     </message>
-    <!-- OS:LifeCycleCost:Parameters -->
+    
     <message>
         <source>NIST Sector</source>
         <translation>NIST Sector</translation>
     </message>
-    <!-- OS:FuelFactors -->
+    
     <message>
         <source>NMVOC Emission Factor</source>
         <translation>NMVOC 배출계수</translation>
     </message>
-    <!-- OS:FuelFactors -->
+    
     <message>
         <source>NMVOC Emission Factor Schedule Name</source>
         <translation>NMVOC 배출계수 스케줄 이름</translation>
     </message>
-    <!-- OS:AirLoopHVAC:UnitarySystem, OS:ZoneHVAC:PackagedTerminalAirConditioner, OS:ZoneHVAC:PackagedTerminalHeatPump, OS:ZoneHVAC:WaterToAirHeatPump -->
+    
     <message>
         <source>No Load Supply Air Flow Rate Control Set To Low Speed</source>
         <translation>무부하 공급 공기 유량 제어가 저속으로 설정됨</translation>
     </message>
-    <!-- OS:UnitarySystemPerformance:Multispeed -->
+    
     <message>
         <source>No Load Supply Air Flow Rate Ratio</source>
         <translation>무부하 공급 공기 유량 비율</translation>
     </message>
-    <!-- OS:ThermalStorage:ChilledWater:Stratified, OS:WaterHeater:Stratified -->
+    
     <message>
         <source>Node 1 Additional Loss Coefficient</source>
         <translation>Node 1 추가 손실 계수</translation>
     </message>
-    <!-- OS:AirflowNetworkDistributionLinkage -->
+    
     <message>
         <source>Node 1 Name</source>
         <translation>노드 1 이름</translation>
     </message>
-    <!-- OS:ThermalStorage:ChilledWater:Stratified, OS:WaterHeater:Stratified -->
+    
     <message>
         <source>Node 10 Additional Loss Coefficient</source>
         <translation>Node 10 Additional Loss Coefficient</translation>
     </message>
-    <!-- OS:WaterHeater:Stratified -->
+    
     <message>
         <source>Node 11 Additional Loss Coefficient</source>
         <translation>Node 11 추가 손실 계수</translation>
     </message>
-    <!-- OS:WaterHeater:Stratified -->
+    
     <message>
         <source>Node 12 Additional Loss Coefficient</source>
         <translation>Node 12 추가 손실 계수</translation>
     </message>
-    <!-- OS:ThermalStorage:ChilledWater:Stratified, OS:WaterHeater:Stratified -->
+    
     <message>
         <source>Node 2 Additional Loss Coefficient</source>
         <translation>노드 2 추가 손실 계수</translation>
     </message>
-    <!-- OS:AirflowNetworkDistributionLinkage -->
+    
     <message>
         <source>Node 2 Name</source>
         <translation>노드 2 이름</translation>
     </message>
-    <!-- OS:ThermalStorage:ChilledWater:Stratified, OS:WaterHeater:Stratified -->
+    
     <message>
         <source>Node 3 Additional Loss Coefficient</source>
         <translation>노드 3 추가 손실 계수</translation>
     </message>
-    <!-- OS:ThermalStorage:ChilledWater:Stratified, OS:WaterHeater:Stratified -->
+    
     <message>
         <source>Node 4 Additional Loss Coefficient</source>
         <translation>Node 4 추가 손실 계수</translation>
     </message>
-    <!-- OS:ThermalStorage:ChilledWater:Stratified, OS:WaterHeater:Stratified -->
+    
     <message>
         <source>Node 5 Additional Loss Coefficient</source>
         <translation>노드 5 추가 손실 계수</translation>
     </message>
-    <!-- OS:ThermalStorage:ChilledWater:Stratified, OS:WaterHeater:Stratified -->
+    
     <message>
         <source>Node 6 Additional Loss Coefficient</source>
         <translation>노드 6 추가 손실 계수</translation>
     </message>
-    <!-- OS:ThermalStorage:ChilledWater:Stratified, OS:WaterHeater:Stratified -->
+    
     <message>
         <source>Node 7 Additional Loss Coefficient</source>
         <translation>Node 7 추가 손실 계수</translation>
     </message>
-    <!-- OS:ThermalStorage:ChilledWater:Stratified, OS:WaterHeater:Stratified -->
+    
     <message>
         <source>Node 8 Additional Loss Coefficient</source>
         <translation>Node 8 추가 손실 계수</translation>
     </message>
-    <!-- OS:ThermalStorage:ChilledWater:Stratified, OS:WaterHeater:Stratified -->
+    
     <message>
         <source>Node 9 Additional Loss Coefficient</source>
         <translation>Node 9 추가 손실 계수</translation>
     </message>
-    <!-- OS:AirflowNetworkDistributionNode -->
+    
     <message>
         <source>Node Height</source>
         <translation>노드 높이</translation>
     </message>
-    <!-- OS:HeatExchanger:Desiccant:BalancedFlow:PerformanceDataType1 -->
+    
     <message>
         <source>Nominal Air Face Velocity</source>
         <translation>공기 입면 속도(Nominal Air Face Velocity)</translation>
     </message>
-    <!-- OS:HeatExchanger:Desiccant:BalancedFlow:PerformanceDataType1 -->
+    
     <message>
         <source>Nominal Air Flow Rate</source>
         <translation>공칭 공기 유량</translation>
     </message>
-    <!-- OS:HeatPump:AirToWater:FuelFired:Cooling, OS:HeatPump:AirToWater:FuelFired:Heating -->
+    
     <message>
         <source>Nominal Auxiliary Electric Power</source>
         <translation>명목 보조 전력</translation>
     </message>
-    <!-- OS:Generator:FuelCell:ElectricalStorage -->
+    
     <message>
         <source>Nominal Charging Energetic Efficiency</source>
         <translation>공칭 충전 에너지 효율</translation>
     </message>
-    <!-- OS:HeatPump:AirToWater:FuelFired:Cooling, OS:ThermalStorage:ChilledWater:Stratified -->
+    
     <message>
         <source>Nominal Cooling Capacity</source>
         <translation>정격 냉각 용량</translation>
     </message>
-    <!-- OS:HeatPump:AirToWater:FuelFired:Cooling, OS:HeatPump:AirToWater:FuelFired:Heating -->
+    
     <message>
         <source>Nominal COP</source>
         <translation>정격 COP</translation>
     </message>
-    <!-- OS:ElectricLoadCenter:Storage:Simple, OS:Generator:FuelCell:ElectricalStorage -->
+    
     <message>
         <source>Nominal Discharging Energetic Efficiency</source>
         <translation>정격 방전 에너지 효율</translation>
     </message>
-    <!-- OS:LifeCycleCost:Parameters -->
+    
     <message>
         <source>Nominal Discount Rate</source>
         <translation>명목 할인율</translation>
     </message>
-    <!-- OS:Generator:FuelCell:PowerModule -->
+    
     <message>
         <source>Nominal Efficiency</source>
         <translation>정격 효율</translation>
     </message>
-    <!-- OS:HeatExchanger:AirToAir:SensibleAndLatent, OS:HeatExchanger:Desiccant:BalancedFlow:PerformanceDataType1 -->
+    
     <message>
         <source>Nominal Electric Power</source>
         <translation>정격 전력</translation>
     </message>
-    <!-- OS:Generator:FuelCell:PowerModule -->
+    
     <message>
         <source>Nominal Electrical Power</source>
         <translation>정격 전기 전력</translation>
     </message>
-    <!-- OS:ElectricLoadCenter:Storage:Simple -->
+    
     <message>
         <source>Nominal Energetic Efficiency for Charging</source>
         <translation>충전을 위한 공칭 에너지 효율</translation>
     </message>
-    <!-- OS:Coil:Cooling:DX:CurveFit:OperatingMode -->
+    
     <message>
         <source>Nominal Evaporative Condenser Pump Power</source>
         <translation>공칭 증발식 응축기 펌프 전력</translation>
     </message>
-    <!-- OS:Generator:MicroTurbine -->
+    
     <message>
         <source>Nominal Exhaust Air Outlet Temperature</source>
         <translation>명목 배기 공기 출구 온도</translation>
     </message>
-    <!-- OS:Building, OS:BuildingStory -->
+    
     <message>
         <source>Nominal Floor to Ceiling Height</source>
         <translation>바닥에서 천장까지의 공칭 높이</translation>
     </message>
-    <!-- OS:Building, OS:BuildingStory -->
+    
     <message>
         <source>Nominal Floor to Floor Height</source>
         <translation>명목 층고(층간거리)</translation>
     </message>
-    <!-- OS:HeatPump:AirToWater:FuelFired:Heating -->
+    
     <message>
         <source>Nominal Heating Capacity</source>
         <translation>명목 난방 용량</translation>
     </message>
-    <!-- OS:PhotovoltaicPerformance:EquivalentOneDiode -->
+    
     <message>
         <source>Nominal Operating Cell Temperature Test Ambient Temperature</source>
         <translation>정격 작동 셀 온도 시험 주변 온도</translation>
     </message>
-    <!-- OS:PhotovoltaicPerformance:EquivalentOneDiode -->
+    
     <message>
         <source>Nominal Operating Cell Temperature Test Cell Temperature</source>
         <translation>공칭 운전 셀 온도 테스트 셀 온도</translation>
     </message>
-    <!-- OS:PhotovoltaicPerformance:EquivalentOneDiode -->
+    
     <message>
         <source>Nominal Operating Cell Temperature Test Insolation</source>
         <translation>정격 작동 셀 온도 테스트 일사량</translation>
     </message>
-    <!-- OS:Chiller:Absorption, OS:Chiller:Absorption:Indirect -->
+    
     <message>
         <source>Nominal Pumping Power</source>
         <translation>정격 펌프 동력</translation>
     </message>
-    <!-- OS:Coil:Cooling:DX:VariableSpeed, OS:Coil:Cooling:WaterToAirHeatPump:VariableSpeedEquationFit, OS:Coil:Heating:DX:VariableSpeed, OS:Coil:Heating:WaterToAirHeatPump:VariableSpeedEquationFit, OS:Coil:WaterHeating:AirToWaterHeatPump:VariableSpeed -->
+    
     <message>
         <source>Nominal Speed Level</source>
         <translation>정격 속도 레벨</translation>
     </message>
-    <!-- OS:Coil:Cooling:DX:CurveFit:OperatingMode -->
+    
     <message>
         <source>Nominal Speed Number</source>
         <translation>공칭 회전 속도</translation>
     </message>
-    <!-- OS:Generator:FuelCell:StackCooler -->
+    
     <message>
         <source>Nominal Stack Temperature</source>
         <translation>공칭 스택 온도</translation>
     </message>
-    <!-- OS:HeatExchanger:AirToAir:SensibleAndLatent -->
+    
     <message>
         <source>Nominal Supply Air Flow Rate</source>
         <translation>정격 급기 유량</translation>
     </message>
-    <!-- OS:WaterHeater:Sizing -->
+    
     <message>
         <source>Nominal Tank Volume for Autosizing Plant Connections</source>
         <translation>자동 크기 조정 플랜트 연결을 위한 공칭 탱크 용량</translation>
     </message>
-    <!-- OS:Coil:Cooling:DX:VariableSpeed, OS:Coil:Cooling:WaterToAirHeatPump:VariableSpeedEquationFit -->
+    
     <message>
         <source>Nominal Time for Condensate to Begin Leaving the Coil</source>
         <translation>응축수가 코일에서 나가기 시작하는 명목 시간</translation>
     </message>
-    <!-- OS:ElectricLoadCenter:Inverter:LookUpTable -->
+    
     <message>
         <source>Nominal Voltage Input</source>
         <translation>정격 입력 전압</translation>
     </message>
-    <!-- OS:BuildingStory -->
+    
     <message>
         <source>Nominal Z Coordinate</source>
         <translation>공칭 Z 좌표</translation>
     </message>
-    <!-- OS:Coil:Cooling:DX:TwoStageWithHumidityControlMode -->
+    
     <message>
         <source>Normal Mode Stage 1 Coil Performance</source>
         <translation>Normal Mode Stage 1 Coil Performance</translation>
     </message>
-    <!-- OS:Coil:Cooling:DX:TwoStageWithHumidityControlMode -->
+    
     <message>
         <source>Normal Mode Stage 1 Plus 2 Coil Performance</source>
         <translation>일반 모드 스테이지 1 플러스 2 코일 성능</translation>
     </message>
-    <!-- OS:Table:Lookup -->
+    
     <message>
         <source>Normalization Divisor</source>
         <translation>정규화 제수</translation>
     </message>
-    <!-- OS:Table:Lookup -->
+    
     <message>
         <source>Normalization Method</source>
         <translation>정규화 방법</translation>
     </message>
-    <!-- OS:Table:MultiVariableLookup -->
+    
     <message>
         <source>Normalization Reference</source>
         <translation>정규화 참조</translation>
     </message>
-    <!-- OS:Table:IndependentVariable -->
+    
     <message>
         <source>Normalization Reference Value</source>
         <translation>정규화 기준값</translation>
     </message>
-    <!-- OS:Fan:ComponentModel -->
+    
     <message>
         <source>Normalized Belt Efficiency Curve Name - Region 1</source>
         <translation>정규화 벨트 효율 곡선 이름 - 영역 1</translation>
     </message>
-    <!-- OS:Fan:ComponentModel -->
+    
     <message>
         <source>Normalized Belt Efficiency Curve Name - Region 2</source>
         <translation>정규화된 벨트 효율 곡선 이름 - 영역 2</translation>
     </message>
-    <!-- OS:Fan:ComponentModel -->
+    
     <message>
         <source>Normalized Belt Efficiency Curve Name - Region 3</source>
         <translation>정규화된 벨트 효율 곡선 이름 - 영역 3</translation>
     </message>
-    <!-- OS:HeatPump:AirToWater:FuelFired:Cooling, OS:HeatPump:AirToWater:FuelFired:Heating -->
+    
     <message>
         <source>Normalized Capacity Function of Temperature Curve Name</source>
         <translation>정규화 용량 온도 함수 곡선 이름</translation>
     </message>
-    <!-- OS:HeatPump:AirToWater:Cooling:SpeedData -->
+    
     <message>
         <source>Normalized Cooling Capacity Function of Temperature Curve Name</source>
         <translation>정규화된 냉각 용량 함수의 온도 곡선 이름</translation>
     </message>
-    <!-- OS:Fan:ComponentModel -->
+    
     <message>
         <source>Normalized Dimensionless Airflow Curve Name-Non-Stall Region</source>
         <translation>정규화된 무차원 기류 곡선 이름-비실속 영역</translation>
     </message>
-    <!-- OS:Fan:ComponentModel -->
+    
     <message>
         <source>Normalized Dimensionless Airflow Curve Name-Stall Region</source>
         <translation>정규화된 무차원 기류 곡선 이름-실속 영역</translation>
     </message>
-    <!-- OS:Fan:ComponentModel -->
+    
     <message>
         <source>Normalized Fan Static Efficiency Curve Name-Non-Stall Region</source>
         <translation>정규화 팬 정적 효율 곡선 이름-비실속 영역</translation>
     </message>
-    <!-- OS:Fan:ComponentModel -->
+    
     <message>
         <source>Normalized Fan Static Efficiency Curve Name-Stall Region</source>
         <translation>정규화 팬 정적 효율 곡선 이름-실속 영역</translation>
     </message>
-    <!-- OS:HeatPump:AirToWater:Heating:SpeedData -->
+    
     <message>
         <source>Normalized Heating Capacity Function of Temperature Curve Name</source>
         <translation>정규화된 난방 용량 온도 함수 곡선 이름</translation>
     </message>
-    <!-- OS:Fan:ComponentModel -->
+    
     <message>
         <source>Normalized Motor Efficiency Curve Name</source>
         <translation>정규화 모터 효율 곡선 이름</translation>
     </message>
-    <!-- OS:Building -->
+    
     <message>
         <source>North Axis</source>
         <translation>북쪽 축</translation>
     </message>
-    <!-- OS:Site:GroundTemperature:Deep -->
+    
     <message>
         <source>November Deep Ground Temperature</source>
         <translation>11월 심층 지중 온도</translation>
     </message>
-    <!-- OS:Site:GroundReflectance -->
+    
     <message>
         <source>November Ground Reflectance</source>
         <translation>11월 지표 반사율</translation>
     </message>
-    <!-- OS:Site:GroundTemperature:BuildingSurface, OS:Site:GroundTemperature:FCfactorMethod -->
+    
     <message>
         <source>November Ground Temperature</source>
         <translation>11월 지표면 온도</translation>
     </message>
-    <!-- OS:Site:GroundTemperature:Shallow -->
+    
     <message>
         <source>November Surface Ground Temperature</source>
         <translation>11월 지표 지중 온도</translation>
     </message>
-    <!-- OS:UtilityCost:Variable -->
+    
     <message>
         <source>November Value</source>
         <translation>11월 값</translation>
     </message>
-    <!-- OS:FuelFactors -->
+    
     <message>
         <source>NOx Emission Factor</source>
         <translation>NOx 배출 계수</translation>
     </message>
-    <!-- OS:FuelFactors -->
+    
     <message>
         <source>NOx Emission Factor Schedule Name</source>
         <translation>NOx 배출계수 스케줄 이름</translation>
     </message>
-    <!-- OS:FuelFactors -->
+    
     <message>
         <source>Nuclear High Level Emission Factor</source>
         <translation>핵발전 높은 수준 배출 계수</translation>
     </message>
-    <!-- OS:FuelFactors -->
+    
     <message>
         <source>Nuclear High Level Emission Factor Schedule Name</source>
         <translation>핵 고준위 방출 계수 스케줄 이름</translation>
     </message>
-    <!-- OS:FuelFactors -->
+    
     <message>
         <source>Nuclear Low Level Emission Factor</source>
         <translation>핵(Nuclear) 저배출 계수</translation>
     </message>
-    <!-- OS:FuelFactors -->
+    
     <message>
         <source>Nuclear Low Level Emission Factor Schedule Name</source>
         <translation>Nuclear Low Level Emission Factor Schedule Name</translation>
     </message>
-    <!-- OS:WaterHeater:Sizing -->
+    
     <message>
         <source>Number of Bathrooms</source>
         <translation>욕실 개수</translation>
     </message>
-    <!-- OS:AirTerminal:SingleDuct:ConstantVolume:CooledBeam -->
+    
     <message>
         <source>Number of Beams</source>
         <translation>빔의 개수</translation>
     </message>
-    <!-- OS:WaterHeater:Sizing -->
+    
     <message>
         <source>Number of Bedrooms</source>
         <translation>침실 개수</translation>
     </message>
-    <!-- OS:Generator:WindTurbine -->
+    
     <message>
         <source>Number of Blades</source>
         <translation>블레이드 개수</translation>
     </message>
-    <!-- OS:GroundHeatExchanger:Vertical -->
+    
     <message>
         <source>Number of Bore Holes</source>
         <translation>보어홀 개수</translation>
     </message>
-    <!-- OS:Coil:Cooling:DX:TwoStageWithHumidityControlMode -->
+    
     <message>
         <source>Number of Capacity Stages</source>
         <translation>용량 단계 수</translation>
     </message>
-    <!-- OS:CoolingTower:SingleSpeed, OS:CoolingTower:TwoSpeed, OS:CoolingTower:VariableSpeed -->
+    
     <message>
         <source>Number of Cells</source>
         <translation>셀 수</translation>
     </message>
-    <!-- OS:PhotovoltaicPerformance:Sandia -->
+    
     <message>
         <source>Number of Cells in Parallel</source>
         <translation>병렬 셀 개수</translation>
     </message>
-    <!-- OS:ElectricLoadCenter:Storage:LiIonNMCBattery, OS:PhotovoltaicPerformance:EquivalentOneDiode, OS:PhotovoltaicPerformance:Sandia -->
+    
     <message>
         <source>Number of Cells in Series</source>
         <translation>직렬 셀 개수</translation>
     </message>
-    <!-- OS:CentralHeatPumpSystem:Module -->
+    
     <message>
         <source>Number of Chiller Heater Modules</source>
         <translation>칠러 히터 모듈 개수</translation>
     </message>
-    <!-- OS:ZoneHVAC:LowTemperatureRadiant:ConstantFlow, OS:ZoneHVAC:LowTemperatureRadiant:VariableFlow -->
+    
     <message>
         <source>Number of Circuits</source>
         <translation>회로 수</translation>
     </message>
-    <!-- OS:Generator:FuelSupply -->
+    
     <message>
         <source>Number of Constituents in Gaseous Constituent Fuel Supply</source>
         <translation>기체 연료 공급의 구성 성분 개수</translation>
     </message>
-    <!-- OS:ZoneControl:Thermostat:StagedDualSetpoint -->
+    
     <message>
         <source>Number of Cooling Stages</source>
         <translation>냉각 단계 수</translation>
     </message>
-    <!-- OS:SolarCollectorPerformance:IntegralCollectorStorage -->
+    
     <message>
         <source>Number of Covers</source>
         <translation>커버 개수</translation>
     </message>
-    <!-- OS:Daylighting:Control -->
+    
     <message>
         <source>Number of Daylighting Views</source>
         <translation>주광 뷰 수</translation>
     </message>
-    <!-- OS:UtilityBill -->
+    
     <message>
         <source>Number of Days in Billing Period</source>
         <translation>청구 기간의 일수</translation>
     </message>
-    <!-- OS:Refrigeration:Case -->
+    
     <message>
         <source>Number Of Doors</source>
         <translation>문의 개수</translation>
     </message>
-    <!-- OS:Coil:Cooling:DX:TwoStageWithHumidityControlMode -->
+    
     <message>
         <source>Number of Enhanced Dehumidification Modes</source>
         <translation>향상된 제습 모드 수</translation>
     </message>
-    <!-- OS:WindowMaterial:GasMixture -->
+    
     <message>
         <source>Number of Gases in Mixture</source>
         <translation>혼합 가스의 개수</translation>
     </message>
-    <!-- OS:Glare:Sensor -->
+    
     <message>
         <source>Number of Glare View Vectors</source>
         <translation>글레어 뷰 벡터 개수</translation>
     </message>
-    <!-- OS:ZoneControl:Thermostat:StagedDualSetpoint -->
+    
     <message>
         <source>Number of Heating Stages</source>
         <translation>난방 단계 수</translation>
     </message>
-    <!-- OS:WindowProperty:FrameAndDivider -->
+    
     <message>
         <source>Number of Horizontal Dividers</source>
         <translation>수평 구분선의 개수</translation>
     </message>
-    <!-- OS:Schedule:File -->
+    
     <message>
         <source>Number of Hours of Data</source>
         <translation>데이터의 시간 수</translation>
     </message>
-    <!-- OS:Table:MultiVariableLookup -->
+    
     <message>
         <source>Number of Independent Variables</source>
         <translation>독립 변수의 개수</translation>
     </message>
-    <!-- OS:Table:MultiVariableLookup -->
+    
     <message>
         <source>Number of Interpolation Points</source>
         <translation>보간점 개수</translation>
     </message>
-    <!-- OS:Generator:Photovoltaic -->
+    
     <message>
         <source>Number of Modules in Parallel</source>
         <translation>병렬 연결 모듈 개수</translation>
     </message>
-    <!-- OS:Generator:Photovoltaic -->
+    
     <message>
         <source>Number of Modules in Series</source>
         <translation>직렬 모듈 수</translation>
     </message>
-    <!-- OS:UtilityCost:Qualify -->
+    
     <message>
         <source>Number of Months</source>
         <translation>개월 수</translation>
     </message>
-    <!-- OS:AvailabilityManager:OptimumStart -->
+    
     <message>
         <source>Number of Previous Days</source>
         <translation>이전 날짜 수</translation>
     </message>
-    <!-- OS:HeaderedPumps:ConstantSpeed, OS:HeaderedPumps:VariableSpeed -->
+    
     <message>
         <source>Number of Pumps in Bank</source>
         <translation>펌프 뱅크의 펌프 개수</translation>
     </message>
-    <!-- OS:Refrigeration:SecondarySystem -->
+    
     <message>
         <source>Number of Pumps in Loop</source>
         <translation>루프 내 펌프 개수</translation>
     </message>
-    <!-- OS:Generator:FuelCell:PowerModule -->
+    
     <message>
         <source>Number of Run Hours at Beginning of Simulation</source>
         <translation>시뮬레이션 시작 시점의 실행 시간 수</translation>
     </message>
-    <!-- OS:AirLoopHVAC:UnitaryHeatPump:AirToAir:MultiSpeed -->
+    
     <message>
         <source>Number of Speeds for Cooling</source>
         <translation>냉각 속도 개수</translation>
     </message>
-    <!-- OS:AirLoopHVAC:UnitaryHeatPump:AirToAir:MultiSpeed -->
+    
     <message>
         <source>Number of Speeds for Heating</source>
         <translation>난방 속도 개수</translation>
     </message>
-    <!-- OS:Daylighting:Control -->
+    
     <message>
         <source>Number of Stepped Control Steps</source>
         <translation>단계 제어 단계 수</translation>
     </message>
-    <!-- OS:Generator:FuelCell:PowerModule -->
+    
     <message>
         <source>Number of Stops at Start of Simulation</source>
         <translation>시뮬레이션 시작 시 정지점 개수</translation>
     </message>
-    <!-- OS:ElectricLoadCenter:Storage:LiIonNMCBattery -->
+    
     <message>
         <source>Number of Strings in Parallel</source>
         <translation>병렬 문자열 수</translation>
     </message>
-    <!-- OS:ProgramControl -->
+    
     <message>
         <source>Number of Threads Allowed</source>
         <translation>허용되는 스레드 수</translation>
     </message>
-    <!-- OS:RunPeriod -->
+    
     <message>
         <source>Number of Times Runperiod to be Repeated</source>
         <translation>실행 기간 반복 횟수</translation>
     </message>
-    <!-- OS:Timestep -->
+    
     <message>
         <source>Number of Timesteps per Hour</source>
         <translation>시간당 타임스텝 수</translation>
     </message>
-    <!-- OS:EnergyManagementSystem:TrendVariable, OS:PythonPlugin:TrendVariable -->
+    
     <message>
         <source>Number of Timesteps to be Logged</source>
         <translation>기록할 타임스텝 수</translation>
     </message>
-    <!-- OS:GroundHeatExchanger:HorizontalTrench -->
+    
     <message>
         <source>Number of Trenches</source>
         <translation>트렌치 개수</translation>
     </message>
-    <!-- OS:WaterHeater:Sizing -->
+    
     <message>
         <source>Number of Units</source>
         <translation>유닛 개수</translation>
     </message>
-    <!-- OS:Generator:FuelCell:AirSupply -->
+    
     <message>
         <source>Number of UserDefined Constituents</source>
         <translation>사용자 정의 구성 물질의 개수</translation>
     </message>
-    <!-- OS:WindowProperty:FrameAndDivider -->
+    
     <message>
         <source>Number of Vertical Dividers</source>
         <translation>수직 칸막이 수</translation>
     </message>
-    <!-- OS:InteriorPartitionSurface, OS:ShadingSurface, OS:SubSurface, OS:Surface -->
+    
     <message>
         <source>Number of Vertices</source>
         <translation>정점 개수</translation>
     </message>
-    <!-- OS:IlluminanceMap -->
+    
     <message>
         <source>Number of X Grid Points</source>
         <translation>X 격자점 개수</translation>
     </message>
-    <!-- OS:IlluminanceMap -->
+    
     <message>
         <source>Number of Y Grid Points</source>
         <translation>Y 격자점 개수</translation>
     </message>
-    <!-- OS:ScheduleTypeLimits -->
+    
     <message>
         <source>Numeric Type</source>
         <translation>숫자형 타입</translation>
     </message>
 
-    <!-- O -->
-    <!-- OS:AdditionalProperties -->
+    
+    
     <message>
         <source>Object Name</source>
         <translation>객체 이름</translation>
     </message>
-    <!-- OS:AirflowNetworkOccupantVentilationControl -->
+    
     <message>
         <source>Occupancy Check</source>
         <translation>점유율 확인</translation>
     </message>
-    <!-- OS:Sizing:System -->
+    
     <message>
         <source>Occupant Diversity</source>
         <translation>점유자 다양성</translation>
     </message>
-    <!-- OS:AirflowNetworkSurface, OS:AirflowNetworkZone -->
+    
     <message>
         <source>Occupant Ventilation Control Name</source>
         <translation>거주자 환기 제어 이름</translation>
     </message>
-    <!-- OS:Site:GroundTemperature:Deep -->
+    
     <message>
         <source>October Deep Ground Temperature</source>
         <translation>10월 깊은 지층 온도</translation>
     </message>
-    <!-- OS:Site:GroundReflectance -->
+    
     <message>
         <source>October Ground Reflectance</source>
         <translation>October Ground Reflectance 지표 반사율</translation>
     </message>
-    <!-- OS:Site:GroundTemperature:BuildingSurface, OS:Site:GroundTemperature:FCfactorMethod -->
+    
     <message>
         <source>October Ground Temperature</source>
         <translation>10월 지중 온도</translation>
     </message>
-    <!-- OS:Site:GroundTemperature:Shallow -->
+    
     <message>
         <source>October Surface Ground Temperature</source>
         <translation>10월 지표면 지면 온도</translation>
     </message>
-    <!-- OS:UtilityCost:Variable -->
+    
     <message>
         <source>October Value</source>
         <translation>10월 값</translation>
     </message>
-    <!-- OS:WaterHeater:Stratified -->
+    
     <message>
         <source>Off Cycle Flue Loss Coefficient to Ambient Temperature</source>
         <translation>오프 사이클 배기 손실 계수(실내 온도 기준)</translation>
     </message>
-    <!-- OS:WaterHeater:Stratified -->
+    
     <message>
         <source>Off Cycle Flue Loss Fraction to Zone</source>
         <translation>오프 사이클 굴뚝 손실 분율 (구역으로)</translation>
     </message>
-    <!-- OS:WaterHeater:Mixed -->
+    
     <message>
         <source>Off Cycle Loss Fraction to Thermal Zone</source>
         <translation>오프 사이클 손실 분율(열 영역으로)</translation>
     </message>
-    <!-- OS:WaterHeater:HeatPump, OS:WaterHeater:HeatPump:WrappedCondenser -->
+    
     <message>
         <source>Off Cycle Parasitic Electric Load</source>
         <translation>오프 사이클 기생 전기 부하</translation>
     </message>
-    <!-- OS:WaterHeater:Stratified -->
+    
     <message>
         <source>Off Cycle Parasitic Height</source>
         <translation>오프 사이클 기생 높이</translation>
     </message>
-    <!-- OS:Coil:WaterHeating:Desuperheater, OS:ZoneHVAC:Dehumidifier:DX -->
+    
     <message>
         <source>Off-Cycle Parasitic Electric Load</source>
         <translation>Off-Cycle Parasitic Electric Load</translation>
     </message>
-    <!-- OS:UtilityCost:Ratchet -->
+    
     <message>
         <source>Offset Value or Variable Name</source>
         <translation>오프셋 값 또는 변수 이름</translation>
     </message>
-    <!-- OS:Chiller:Electric:ASHRAE205 -->
+    
     <message>
         <source>Oil Cooler Design Flow Rate</source>
         <translation>오일 쿨러 설계 유량</translation>
     </message>
-    <!-- OS:Chiller:Electric:ASHRAE205 -->
+    
     <message>
         <source>Oil Cooler Inlet Node Name</source>
         <translation>오일 쿨러 입구 노드명</translation>
     </message>
-    <!-- OS:Chiller:Electric:ASHRAE205 -->
+    
     <message>
         <source>Oil Cooler Outlet Node Name</source>
         <translation>오일 쿨러 출구 노드 이름</translation>
     </message>
-    <!-- OS:WaterHeater:Mixed -->
+    
     <message>
         <source>On Cycle Loss Fraction to Thermal Zone</source>
         <translation>온 사이클 손실 분율을 열 영역에</translation>
     </message>
-    <!-- OS:WaterHeater:Stratified -->
+    
     <message>
         <source>On Cycle Parasitic Height</source>
         <translation>온 사이클 기생 높이</translation>
     </message>
-    <!-- OS:Coil:WaterHeating:Desuperheater -->
+    
     <message>
         <source>On-Cycle Parasitic Electric Load</source>
         <translation>On-Cycle Parasitic Electric Load 운전 중 기생 전기 부하</translation>
     </message>
-    <!-- OS:PhotovoltaicPerformance:EquivalentOneDiode, OS:PhotovoltaicPerformance:Sandia -->
+    
     <message>
         <source>Open Circuit Voltage</source>
         <translation>개방 회로 전압</translation>
     </message>
-    <!-- OS:ZoneVentilation:WindandStackOpenArea -->
+    
     <message>
         <source>Opening Area</source>
         <translation>개구부 면적</translation>
     </message>
-    <!-- OS:ZoneVentilation:WindandStackOpenArea -->
+    
     <message>
         <source>Opening Area Fraction Schedule Name</source>
         <translation>개구부 면적 비율 스케줄 이름</translation>
     </message>
-    <!-- OS:ZoneVentilation:WindandStackOpenArea -->
+    
     <message>
         <source>Opening Effectiveness</source>
         <translation>개구부 효율</translation>
     </message>
-    <!-- OS:AirflowNetworkDetailedOpening -->
+    
     <message>
         <source>Opening Factor</source>
         <translation>개방 계수</translation>
     </message>
-    <!-- OS:AvailabilityManager:HybridVentilation -->
+    
     <message>
         <source>Opening Factor Function of Wind Speed Curve</source>
         <translation>풍속 곡선 개방 인자 함수</translation>
     </message>
-    <!-- OS:AirflowNetworkOccupantVentilationControl -->
+    
     <message>
         <source>Opening Probability Schedule Name</source>
         <translation>개구부 확률 스케줄 이름</translation>
     </message>
-    <!-- OS:DefaultSubSurfaceConstructions -->
+    
     <message>
         <source>Operable Window Construction Name</source>
         <translation>개방 가능한 창 구성 이름</translation>
     </message>
-    <!-- OS:Refrigeration:Case -->
+    
     <message>
         <source>Operating Case Fan Power per Door</source>
         <translation>문 당 작동 케이스 팬 전력</translation>
     </message>
-    <!-- OS:Refrigeration:Case -->
+    
     <message>
         <source>Operating Case Fan Power per Unit Length</source>
         <translation>단위 길이당 작동 케이스 팬 전력</translation>
     </message>
-    <!-- OS:Coil:Cooling:DX:SingleSpeed:ThermalStorage, OS:HeatPump:AirToWater -->
+    
     <message>
         <source>Operating Mode Control Method</source>
         <translation>운영 모드 제어 방법</translation>
     </message>
-    <!-- OS:HeatPump:AirToWater -->
+    
     <message>
         <source>Operating Mode Control Option for Multiple Unit</source>
         <translation>복수 유닛을 위한 운영 모드 제어 옵션</translation>
     </message>
-    <!-- OS:HeatPump:AirToWater -->
+    
     <message>
         <source>Operating Mode Control Schedule Name</source>
         <translation>운영 모드 제어 스케줄 이름</translation>
     </message>
-    <!-- OS:Refrigeration:WalkIn -->
+    
     <message>
         <source>Operating Temperature</source>
         <translation>운전 온도</translation>
     </message>
-    <!-- OS:HeatExchanger:FluidToFluid -->
+    
     <message>
         <source>Operation Maximum Temperature Limit</source>
         <translation>운전 최대 온도 제한</translation>
     </message>
-    <!-- OS:HeatExchanger:FluidToFluid -->
+    
     <message>
         <source>Operation Minimum Temperature Limit</source>
         <translation>운전 최소 온도 제한</translation>
     </message>
-    <!-- OS:Coil:Cooling:DX:SingleSpeed:ThermalStorage -->
+    
     <message>
         <source>Operation Mode Control Schedule</source>
         <translation>운전 모드 제어 스케줄</translation>
     </message>
-    <!-- OS:WindowMaterial:GlazingGroup:Thermochromic -->
+    
     <message>
         <source>Optical Data Temperature</source>
         <translation>광학 데이터 온도</translation>
     </message>
-    <!-- OS:WindowMaterial:Glazing -->
+    
     <message>
         <source>Optical Data Type</source>
         <translation>광학 데이터 유형</translation>
     </message>
-    <!-- OS:PlantComponent:UserDefined -->
+    
     <message>
         <source>Optimal Loading Capacity Actuator</source>
         <translation>최적 로딩 용량 액추에이터</translation>
     </message>
-    <!-- OS:Output:JSON, OS:Output:SQLite -->
+    
     <message>
         <source>Option Type</source>
         <translation>옵션 유형</translation>
     </message>
-    <!-- OS:ExternalInterface:Actuator -->
+    
     <message>
         <source>Optional Initial Value</source>
         <translation>선택적 초기값</translation>
     </message>
-    <!-- OS:IlluminanceMap -->
+    
     <message>
         <source>Origin X-Coordinate</source>
         <translation>원점 X 좌표</translation>
     </message>
-    <!-- OS:IlluminanceMap -->
+    
     <message>
         <source>Origin Y-Coordinate</source>
         <translation>Origin Y-Coordinate</translation>
     </message>
-    <!-- OS:IlluminanceMap -->
+    
     <message>
         <source>Origin Z-Coordinate</source>
         <translation>원점 Z 좌표</translation>
     </message>
-    <!-- OS:OtherEquipment -->
+    
     <message>
         <source>Other Equipment Definition Name</source>
         <translation>기타 장비 정의 이름</translation>
     </message>
-    <!-- OS:StandardsInformation:Construction -->
+    
     <message>
         <source>Other Perturbable Layer Type</source>
         <translation>기타 교란 가능 층 유형</translation>
     </message>
-    <!-- OS:LifeCycleCost:Parameters -->
+    
     <message>
         <source>OtherFuel1 Inflation</source>
         <translation>OtherFuel1 인플레이션</translation>
     </message>
-    <!-- OS:LifeCycleCost:Parameters -->
+    
     <message>
         <source>OtherFuel2 Inflation</source>
         <translation>OtherFuel2 인상률</translation>
     </message>
-    <!-- OS:Schedule:FixedInterval, OS:Schedule:VariableInterval -->
+    
     <message>
         <source>Out Of Range Value</source>
         <translation>범위를 벗어난 값</translation>
     </message>
-    <!-- OS:ZoneHVAC:UnitVentilator -->
+    
     <message>
         <source>Outdoor Air Control Type</source>
         <translation>실외공기 제어 유형</translation>
     </message>
-    <!-- OS:ZoneHVAC:IdealLoadsAirSystem -->
+    
     <message>
         <source>Outdoor Air Economizer Type</source>
         <translation>실외 공기 경제장치 유형</translation>
     </message>
-    <!-- OS:AirLoopHVAC:OutdoorAirSystem -->
+    
     <message>
         <source>Outdoor Air Equipment List Name</source>
         <translation>외부 공기 장비 목록 이름</translation>
     </message>
-    <!-- OS:AirLoopHVAC:UnitaryHeatCool:VAVChangeoverBypass -->
+    
     <message>
         <source>Outdoor Air Flow Rate Multiplier Schedule</source>
         <translation>외부공기 유량 승수 스케줄</translation>
     </message>
-    <!-- OS:AirTerminal:DualDuct:VAV:OutdoorAir, OS:CoolingTower:VariableSpeed, OS:FluidCooler:SingleSpeed, OS:FluidCooler:TwoSpeed -->
+    
     <message>
         <source>Outdoor Air Inlet Node</source>
         <translation>외부 공기 입구 노드</translation>
     </message>
-    <!-- OS:CoolingTower:SingleSpeed, OS:CoolingTower:TwoSpeed, OS:EvaporativeFluidCooler:SingleSpeed, OS:EvaporativeFluidCooler:TwoSpeed, OS:ZoneHVAC:EvaporativeCoolerUnit -->
+    
     <message>
         <source>Outdoor Air Inlet Node Name</source>
         <translation>외부 공기 입구 노드명</translation>
     </message>
-    <!-- OS:AirLoopHVAC:UnitaryHeatCool:VAVChangeoverBypass -->
+    
     <message>
         <source>Outdoor Air Mixer</source>
         <translation>외기 믹서</translation>
     </message>
-    <!-- OS:ZoneHVAC:FourPipeFanCoil, OS:ZoneHVAC:PackagedTerminalAirConditioner, OS:ZoneHVAC:PackagedTerminalHeatPump, OS:ZoneHVAC:WaterToAirHeatPump -->
+    
     <message>
         <source>Outdoor Air Mixer Name</source>
         <translation>외부공기 믹서 이름</translation>
     </message>
-    <!-- OS:ZoneHVAC:FourPipeFanCoil, OS:ZoneHVAC:PackagedTerminalAirConditioner, OS:ZoneHVAC:PackagedTerminalHeatPump -->
+    
     <message>
         <source>Outdoor Air Mixer Object Type</source>
         <translation>외부공기 믹서 객체 타입</translation>
     </message>
-    <!-- OS:WaterHeater:HeatPump -->
+    
     <message>
         <source>Outdoor Air Node</source>
         <translation>실외 공기 노드</translation>
     </message>
-    <!-- OS:SurfaceProperty:LocalEnvironment, OS:WaterHeater:HeatPump:WrappedCondenser -->
+    
     <message>
         <source>Outdoor Air Node Name</source>
         <translation>외부 공기 노드 이름</translation>
     </message>
-    <!-- OS:ZoneHVAC:FourPipeFanCoil -->
+    
     <message>
         <source>Outdoor Air Schedule Name</source>
         <translation>실외공기 스케줄 이름</translation>
     </message>
-    <!-- OS:AirLoopHVAC:OutdoorAirSystem, OS:SetpointManager:OutdoorAirPretreat -->
+    
     <message>
         <source>Outdoor Air Stream Node Name</source>
         <translation>실외공기 스트림 노드 이름</translation>
     </message>
-    <!-- OS:AirLoopHVAC:DedicatedOutdoorAirSystem -->
+    
     <message>
         <source>Outdoor Air System</source>
         <translation>외부공기 시스템</translation>
     </message>
-    <!-- OS:HeatPump:AirToWater:FuelFired:Cooling, OS:HeatPump:AirToWater:FuelFired:Heating -->
+    
     <message>
         <source>Outdoor Air Temperature Curve Input Variable</source>
         <translation>실외 공기 온도 곡선 입력 변수</translation>
     </message>
-    <!-- OS:ZoneAirContaminantBalance -->
+    
     <message>
         <source>Outdoor Carbon Dioxide Schedule Name</source>
         <translation>실외 이산화탄소 스케줄 이름</translation>
     </message>
-    <!-- OS:AirLoopHVAC:UnitarySystem, OS:ZoneHVAC:WaterToAirHeatPump -->
+    
     <message>
         <source>Outdoor Dry-Bulb Temperature Sensor Node Name</source>
         <translation>실외 건구 온도 센서 노드 이름</translation>
     </message>
-    <!-- OS:Coil:Heating:DX:MultiSpeed, OS:Coil:Heating:DX:VariableSpeed -->
+    
     <message>
         <source>Outdoor Dry-Bulb Temperature to Turn On Compressor</source>
         <translation>압축기 작동 시작 외기 건구 온도</translation>
     </message>
-    <!-- OS:SetpointManager:OutdoorAirReset -->
+    
     <message>
         <source>Outdoor High Temperature</source>
         <translation>외부 고온</translation>
     </message>
-    <!-- OS:SetpointManager:OutdoorAirReset -->
+    
     <message>
         <source>Outdoor High Temperature 2</source>
         <translation>외부 고온 2</translation>
     </message>
-    <!-- OS:SetpointManager:OutdoorAirReset -->
+    
     <message>
         <source>Outdoor Low Temperature</source>
         <translation>실외 저온</translation>
     </message>
-    <!-- OS:SetpointManager:OutdoorAirReset -->
+    
     <message>
         <source>Outdoor Low Temperature 2</source>
         <translation>실외 저온 2</translation>
     </message>
-    <!-- OS:AirConditioner:VariableRefrigerantFlow:FluidTemperatureControl:HR -->
+    
     <message>
         <source>Outdoor Unit Condenser Rated Bypass Factor</source>
         <translation>실외기 응축기 정격 바이패스 계수</translation>
     </message>
-    <!-- OS:AirConditioner:VariableRefrigerantFlow:FluidTemperatureControl:HR -->
+    
     <message>
         <source>Outdoor Unit Condenser Reference Subcooling</source>
         <translation>실외기 응축기 레퍼런스 과냉각</translation>
     </message>
-    <!-- OS:AirConditioner:VariableRefrigerantFlow:FluidTemperatureControl, OS:AirConditioner:VariableRefrigerantFlow:FluidTemperatureControl:HR -->
+    
     <message>
         <source>Outdoor Unit Condensing Temperature Function of Subcooling Curve Name</source>
         <translation>서브쿨링 곡선에 따른 실외 응축 온도 함수 곡선명</translation>
     </message>
-    <!-- OS:AirConditioner:VariableRefrigerantFlow:FluidTemperatureControl, OS:AirConditioner:VariableRefrigerantFlow:FluidTemperatureControl:HR -->
+    
     <message>
         <source>Outdoor Unit Evaporating Temperature Function of Superheating Curve Name</source>
         <translation>외부 유닛 증발 온도 과열도 곡선 이름 함수</translation>
     </message>
-    <!-- OS:AirConditioner:VariableRefrigerantFlow:FluidTemperatureControl:HR -->
+    
     <message>
         <source>Outdoor Unit Evaporator Rated Bypass Factor</source>
         <translation>Outdoor Unit Evaporator Rated Bypass Factor</translation>
     </message>
-    <!-- OS:AirConditioner:VariableRefrigerantFlow:FluidTemperatureControl:HR -->
+    
     <message>
         <source>Outdoor Unit Evaporator Reference Superheating</source>
         <translation>실외기 증발기 기준 과열도</translation>
     </message>
-    <!-- OS:AirConditioner:VariableRefrigerantFlow:FluidTemperatureControl, OS:AirConditioner:VariableRefrigerantFlow:FluidTemperatureControl:HR -->
+    
     <message>
         <source>Outdoor Unit Fan Flow Rate Per Unit of Rated Evaporative Capacity</source>
         <translation>정격 증발 용량 단위당 실외기 팬 유량</translation>
     </message>
-    <!-- OS:AirConditioner:VariableRefrigerantFlow:FluidTemperatureControl, OS:AirConditioner:VariableRefrigerantFlow:FluidTemperatureControl:HR -->
+    
     <message>
         <source>Outdoor Unit Fan Power Per Unit of Rated Evaporative Capacity</source>
         <translation>정격 증발 용량 단위당 실외기 팬 전력</translation>
     </message>
-    <!-- OS:AirConditioner:VariableRefrigerantFlow:FluidTemperatureControl:HR -->
+    
     <message>
         <source>Outdoor Unit Heat Exchanger Capacity Ratio</source>
         <translation>실외기 열교환기 용량 비율</translation>
     </message>
-    <!-- OS:Connector:Mixer, OS:Connector:Splitter -->
+    
     <message>
         <source>Outlet Branch Name</source>
         <translation>출구 분기 이름</translation>
     </message>
-    <!-- OS:Refrigeration:Subcooler:Mechanical -->
+    
     <message>
         <source>Outlet Control Temperature</source>
         <translation>출구 제어 온도</translation>
     </message>
-    <!-- OS:AirLoopHVAC:ReturnPlenum, OS:AirLoopHVAC:SupplyPlenum, OS:AirTerminal:SingleDuct:SeriesPIU:Reheat, OS:Duct, OS:PlantComponent:TemperatureSource -->
+    
     <message>
         <source>Outlet Node</source>
         <translation>출구 노드</translation>
     </message>
-    <!-- OS:AirLoopHVAC:ZoneMixer, OS:AirLoopHVAC:ZoneSplitter, OS:AirTerminal:SingleDuct:ParallelPIU:Reheat, OS:Coil:Heating:Water:Baseboard:Radiant, OS:GroundHeatExchanger:HorizontalTrench, OS:GroundHeatExchanger:Vertical, OS:HeaderedPumps:ConstantSpeed, OS:HeaderedPumps:VariableSpeed, OS:LoadProfile:Plant, OS:Pipe:Adiabatic, OS:Pump:ConstantSpeed, OS:Pump:VariableSpeed, OS:SolarCollector:FlatPlate:PhotovoltaicThermal, OS:SolarCollector:FlatPlate:Water, OS:SolarCollector:IntegralCollectorStorage, OS:Splitter, OS:TemperingValve, OS:ThermalStorage:Ice:Detailed, OS:WaterUse:Connections -->
+    
     <message>
         <source>Outlet Node Name</source>
         <translation>출구 노드 이름</translation>
     </message>
-    <!-- OS:Connection, OS:Node -->
+    
     <message>
         <source>Outlet Port</source>
         <translation>출구 포트</translation>
     </message>
-    <!-- OS:PlantComponent:UserDefined -->
+    
     <message>
         <source>Outlet Temperature Actuator</source>
         <translation>출구 온도 작동기</translation>
     </message>
-    <!-- OS:OutputControl:Files -->
+    
     <message>
         <source>Output AUDIT</source>
         <translation>감사 출력</translation>
     </message>
-    <!-- OS:OutputControl:Files -->
+    
     <message>
         <source>Output BND</source>
         <translation>출력 BND</translation>
     </message>
-    <!-- OS:Output:JSON -->
+    
     <message>
         <source>Output CBOR</source>
         <translation>출력 CBOR</translation>
     </message>
-    <!-- OS:OutputControl:Files -->
+    
     <message>
         <source>Output CSV</source>
         <translation>CSV 출력</translation>
     </message>
-    <!-- OS:OutputControl:Files -->
+    
     <message>
         <source>Output DBG</source>
         <translation>출력 DBG</translation>
     </message>
-    <!-- OS:OutputControl:Files -->
+    
     <message>
         <source>Output DelightDFdmp</source>
         <translation>Output DelightDFdmp</translation>
     </message>
-    <!-- OS:OutputControl:Files -->
+    
     <message>
         <source>Output DelightELdmp</source>
         <translation>Output DelightELdmp</translation>
     </message>
-    <!-- OS:OutputControl:Files -->
+    
     <message>
         <source>Output DelightIn</source>
         <translation>Output DelightIn</translation>
     </message>
-    <!-- OS:OutputControl:Files -->
+    
     <message>
         <source>Output DFS</source>
         <translation>출력 DFS</translation>
     </message>
-    <!-- OS:OutputControl:Files -->
+    
     <message>
         <source>Output DXF</source>
         <translation>DXF 출력</translation>
     </message>
-    <!-- OS:OutputControl:Files -->
+    
     <message>
         <source>Output EDD</source>
         <translation>Output EDD</translation>
     </message>
-    <!-- OS:OutputControl:Files -->
+    
     <message>
         <source>Output EIO</source>
         <translation>출력 EIO</translation>
     </message>
-    <!-- OS:OutputControl:Files -->
+    
     <message>
         <source>Output ESO</source>
         <translation>Output ESO</translation>
     </message>
-    <!-- OS:ShadowCalculation -->
+    
     <message>
         <source>Output External Shading Calculation Results</source>
         <translation>외부 음영 계산 결과 출력</translation>
     </message>
-    <!-- OS:OutputControl:Files -->
+    
     <message>
         <source>Output ExtShd</source>
         <translation>출력 외부 음영</translation>
     </message>
-    <!-- OS:OutputControl:Files -->
+    
     <message>
         <source>Output GLHE</source>
         <translation>Output GLHE (지중열 교환기 출력)</translation>
     </message>
-    <!-- OS:Output:JSON, OS:OutputControl:Files -->
+    
     <message>
         <source>Output JSON</source>
         <translation>출력 JSON</translation>
     </message>
-    <!-- OS:OutputControl:Files -->
+    
     <message>
         <source>Output MDD</source>
         <translation>출력 MDD</translation>
     </message>
-    <!-- OS:Output:JSON -->
+    
     <message>
         <source>Output MessagePack</source>
         <translation>출력 MessagePack</translation>
     </message>
-    <!-- OS:UtilityCost:Tariff -->
+    
     <message>
         <source>Output Meter Name</source>
         <translation>출력 미터 이름</translation>
     </message>
-    <!-- OS:OutputControl:Files -->
+    
     <message>
         <source>Output MTD</source>
         <translation>출력 MTD</translation>
     </message>
-    <!-- OS:OutputControl:Files -->
+    
     <message>
         <source>Output MTR</source>
         <translation>출력 MTR</translation>
     </message>
-    <!-- OS:OutputControl:Files -->
+    
     <message>
         <source>Output PerfLog</source>
         <translation>출력 PerfLog</translation>
     </message>
-    <!-- OS:OutputControl:Files -->
+    
     <message>
         <source>Output Plant Component Sizing</source>
         <translation>출력 플랜트 구성요소 규모 결정</translation>
     </message>
-    <!-- OS:OutputControl:Files -->
+    
     <message>
         <source>Output RDD</source>
         <translation>출력 RDD</translation>
     </message>
-    <!-- OS:OutputControl:Files -->
+    
     <message>
         <source>Output SCI</source>
         <translation>출력 SCI</translation>
     </message>
-    <!-- OS:OutputControl:Files -->
+    
     <message>
         <source>Output Screen</source>
         <translation>출력 화면</translation>
     </message>
-    <!-- OS:OutputControl:Files -->
+    
     <message>
         <source>Output SHD</source>
         <translation>출력 SHD</translation>
     </message>
-    <!-- OS:OutputControl:Files -->
+    
     <message>
         <source>Output SLN</source>
         <translation>출력 SLN</translation>
     </message>
-    <!-- OS:OutputControl:Files -->
+    
     <message>
         <source>Output Space Sizing</source>
         <translation>출력 공간 크기 조정</translation>
     </message>
-    <!-- OS:OutputControl:Files -->
+    
     <message>
         <source>Output SQLite</source>
         <translation>출력 SQLite</translation>
     </message>
-    <!-- OS:OutputControl:Files -->
+    
     <message>
         <source>Output System Sizing</source>
         <translation>출력 시스템 크기 조정</translation>
     </message>
-    <!-- OS:OutputControl:Files -->
+    
     <message>
         <source>Output Tabular</source>
         <translation>출력 표 형식</translation>
     </message>
-    <!-- OS:OutputControl:Files -->
+    
     <message>
         <source>Output Tarcog</source>
         <translation>Output Tarcog</translation>
     </message>
-    <!-- OS:Curve:Bicubic, OS:Curve:Biquadratic, OS:Curve:Cubic, OS:Curve:DoubleExponentialDecay, OS:Curve:Exponent, OS:Curve:ExponentialDecay, OS:Curve:ExponentialSkewNormal, OS:Curve:Linear, OS:Curve:Quadratic, OS:Curve:QuadraticLinear, OS:Curve:Quartic, OS:Curve:RectangularHyperbola1, OS:Curve:RectangularHyperbola2, OS:Curve:Sigmoid, OS:Curve:Triquadratic, OS:Table:Lookup, OS:Table:MultiVariableLookup -->
+    
     <message>
         <source>Output Unit Type</source>
         <translation>출력 단위 유형</translation>
     </message>
-    <!-- OS:Table:Lookup -->
+    
     <message>
         <source>Output Value</source>
         <translation>출력값</translation>
     </message>
-    <!-- OS:Meter:Custom, OS:Meter:CustomDecrement -->
+    
     <message>
         <source>Output Variable or Meter Name</source>
         <translation>출력 변수 또는 미터 이름</translation>
     </message>
-    <!-- OS:EnergyManagementSystem:Sensor -->
+    
     <message>
         <source>Output Variable or Output Meter Index Key Name</source>
         <translation>출력 변수 또는 출력 미터 인덱스 키 이름</translation>
     </message>
-    <!-- OS:EnergyManagementSystem:Sensor -->
+    
     <message>
         <source>Output Variable or Output Meter Name</source>
         <translation>출력 변수 또는 출력 미터 이름</translation>
     </message>
-    <!-- OS:OutputControl:Files -->
+    
     <message>
         <source>Output WRL</source>
         <translation>출력 WRL</translation>
     </message>
-    <!-- OS:OutputControl:Files -->
+    
     <message>
         <source>Output Zone Sizing</source>
         <translation>출력 존 크기 조정</translation>
     </message>
-    <!-- OS:ExternalInterface:FunctionalMockupUnitExport:From:Variable, OS:ExternalInterface:FunctionalMockupUnitImport:From:Variable -->
+    
     <message>
         <source>Output:Variable Index Key Name</source>
         <translation>출력:변수 인덱스 키 이름</translation>
     </message>
-    <!-- OS:ExternalInterface:FunctionalMockupUnitExport:From:Variable, OS:ExternalInterface:FunctionalMockupUnitImport:From:Variable -->
+    
     <message>
         <source>Output:Variable Name</source>
         <translation>출력:변수 이름</translation>
     </message>
-    <!-- OS:ZoneHVAC:TerminalUnit:VariableRefrigerantFlow -->
+    
     <message>
         <source>Outside Air Mixer</source>
         <translation>외부 공기 믹서</translation>
     </message>
-    <!-- OS:Surface -->
+    
     <message>
         <source>Outside Boundary Condition</source>
         <translation>외부 경계 조건</translation>
     </message>
-    <!-- OS:SubSurface, OS:Surface -->
+    
     <message>
         <source>Outside Boundary Condition Object</source>
         <translation>외부 경계 조건 객체</translation>
     </message>
-    <!-- OS:AirflowNetworkDuct -->
+    
     <message>
         <source>Outside Convection Coefficient</source>
         <translation>외부 대류 계수</translation>
     </message>
-    <!-- OS:WindowProperty:FrameAndDivider -->
+    
     <message>
         <source>Outside Reveal Depth</source>
         <translation>외부 리브 깊이</translation>
     </message>
-    <!-- OS:WindowProperty:FrameAndDivider -->
+    
     <message>
         <source>Outside Reveal Solar Absorptance</source>
         <translation>외부 리빌 태양 흡수율</translation>
     </message>
-    <!-- OS:DaylightingDevice:Shelf -->
+    
     <message>
         <source>Outside Shelf Name</source>
         <translation>외부 선반 이름</translation>
     </message>
-    <!-- OS:Generator:WindTurbine -->
+    
     <message>
         <source>Overall Height</source>
         <translation>전체 높이</translation>
     </message>
-    <!-- OS:Coil:UserDefined -->
+    
     <message>
         <source>Overall Model Simulation Program Calling Manager Name</source>
         <translation>전체 모델 시뮬레이션 프로그램 호출 관리자 이름</translation>
     </message>
-    <!-- OS:AirflowNetworkDuct -->
+    
     <message>
         <source>Overall Moisture Transmittance Coefficient from Air to Air</source>
         <translation>공기-공기 전체 수분 투과 계수</translation>
     </message>
-    <!-- OS:Coil:UserDefined -->
+    
     <message>
         <source>Overall Simulation Program Name</source>
         <translation>전체 시뮬레이션 프로그램 이름</translation>
     </message>
-    <!-- OS:DefaultSubSurfaceConstructions -->
+    
     <message>
         <source>Overhead Door Construction Name</source>
         <translation>오버헤드 도어 구조 이름</translation>
     </message>
-    <!-- OS:PerformancePrecisionTradeoffs -->
+    
     <message>
         <source>Override Mode</source>
         <translation>재정의 모드</translation>
     </message>
 
-    <!-- P -->
-    <!-- OS:ThermalStorage:Ice:Detailed -->
+    
+    
     <message>
         <source>Parasitic Electric Load During Charging</source>
         <translation>충전 중 기생 전기 부하</translation>
     </message>
-    <!-- OS:ThermalStorage:Ice:Detailed -->
+    
     <message>
         <source>Parasitic Electric Load During Discharging</source>
         <translation>방전 중 기생 전기 부하</translation>
     </message>
-    <!-- OS:WaterHeater:HeatPump, OS:WaterHeater:HeatPump:WrappedCondenser -->
+    
     <message>
         <source>Parasitic Heat Rejection Location</source>
         <translation>기생열 거부 위치</translation>
     </message>
-    <!-- OS:WaterHeater:Mixed -->
+    
     <message>
         <source>Part Load Factor Curve Name</source>
         <translation>부분 부하 계수 곡선 이름</translation>
     </message>
-    <!-- OS:Coil:Cooling:DX:CurveFit:Speed, OS:Coil:Cooling:DX:MultiSpeed:StageData, OS:Coil:Heating:Gas:MultiStage, OS:Coil:WaterHeating:AirToWaterHeatPump, OS:CoilPerformance:DX:Cooling -->
+    
     <message>
         <source>Part Load Fraction Correlation Curve</source>
         <translation>부분 부하 분율 상관관계 곡선</translation>
     </message>
-    <!-- OS:Space -->
+    
     <message>
         <source>Part of Total Floor Area</source>
         <translation>총 바닥 면적의 일부</translation>
     </message>
-    <!-- OS:FuelFactors -->
+    
     <message>
         <source>Pb Emission Factor</source>
         <translation>Pb 배출계수</translation>
     </message>
-    <!-- OS:FuelFactors -->
+    
     <message>
         <source>Pb Emission Factor Schedule Name</source>
         <translation>Pb 배출 계수 스케줄 이름</translation>
     </message>
-    <!-- OS:UtilityBill -->
+    
     <message>
         <source>Peak Demand Unit</source>
         <translation>피크 수요 단위</translation>
     </message>
-    <!-- OS:MaterialProperty:PhaseChangeHysteresis -->
+    
     <message>
         <source>Peak Freezing Temperature</source>
         <translation>최고 동결 온도</translation>
     </message>
-    <!-- OS:MaterialProperty:PhaseChangeHysteresis -->
+    
     <message>
         <source>Peak Melting Temperature</source>
         <translation>피크 용융 온도</translation>
     </message>
-    <!-- OS:WaterHeater:Mixed, OS:WaterHeater:Stratified -->
+    
     <message>
         <source>Peak Use Flow Rate</source>
         <translation>최대 사용 유량</translation>
     </message>
-    <!-- OS:SwimmingPool:Indoor -->
+    
     <message>
         <source>People Heat Gain Schedule</source>
         <translation>사람 열 발생 스케줄</translation>
     </message>
-    <!-- OS:SwimmingPool:Indoor -->
+    
     <message>
         <source>People Schedule</source>
         <translation>사람 일정</translation>
     </message>
-    <!-- OS:AirTerminal:DualDuct:VAV:OutdoorAir, OS:AirTerminal:SingleDuct:InletSideMixer -->
+    
     <message>
         <source>Per Person Ventilation Rate Mode</source>
         <translation>인당 환기량 모드</translation>
     </message>
-    <!-- OS:ElectricLoadCenter:Transformer -->
+    
     <message>
         <source>Per Unit Load for Maximum Efficiency</source>
         <translation>최대 효율을 위한 단위 부하</translation>
     </message>
-    <!-- OS:ElectricLoadCenter:Transformer -->
+    
     <message>
         <source>Per Unit Load for Nameplate Efficiency</source>
         <translation>명판 효율당 단위 부하</translation>
     </message>
-    <!-- OS:Chiller:Electric:ASHRAE205 -->
+    
     <message>
         <source>Performance Interpolation Method</source>
         <translation>성능 보간 방법</translation>
     </message>
-    <!-- OS:Coil:Cooling:DX -->
+    
     <message>
         <source>Performance Object</source>
         <translation>성능 객체</translation>
     </message>
-    <!-- OS:DaylightingDevice:LightWell -->
+    
     <message>
         <source>Perimeter of Bottom of Well</source>
         <translation>우물 밑의 둘레</translation>
     </message>
-    <!-- OS:Construction:FfactorGroundFloor -->
+    
     <message>
         <source>PerimeterExposed</source>
         <translation>외부노출둘레 (PerimeterExposed)</translation>
     </message>
-    <!-- OS:SurfaceProperty:OtherSideCoefficients -->
+    
     <message>
         <source>Period of Sinusoidal Variation</source>
         <translation>정현파 변동의 주기</translation>
     </message>
-    <!-- OS:SizingPeriod:WeatherFileConditionType -->
+    
     <message>
         <source>Period Selection</source>
         <translation>기간 선택</translation>
     </message>
-    <!-- OS:ComponentCost:Adjustments -->
+    
     <message>
         <source>Permits Bonding and Insurance</source>
         <translation>허가, 담보 및 보험</translation>
     </message>
-    <!-- OS:StandardsInformation:Construction -->
+    
     <message>
         <source>Perturbable Layer</source>
         <translation>교란 가능한 레이어</translation>
     </message>
-    <!-- OS:StandardsInformation:Construction -->
+    
     <message>
         <source>Perturbable Layer Type</source>
         <translation>교란 가능 레이어 유형</translation>
     </message>
-    <!-- OS:ElectricLoadCenter:Transformer -->
+    
     <message>
         <source>Phase</source>
         <translation>상(相)</translation>
     </message>
-    <!-- OS:Site:GroundTemperature:Undisturbed:KusudaAchenbach -->
+    
     <message>
         <source>Phase Shift of Minimum Surface Temperature</source>
         <translation>최소 표면 온도의 위상 편이</translation>
     </message>
-    <!-- OS:Site:GroundTemperature:Undisturbed:Xing -->
+    
     <message>
         <source>Phase Shift of Temperature Amplitude 1</source>
         <translation>온도 진폭 1의 위상 이동</translation>
     </message>
-    <!-- OS:Site:GroundTemperature:Undisturbed:Xing -->
+    
     <message>
         <source>Phase Shift of Temperature Amplitude 2</source>
         <translation>온도 진폭 2의 위상 편이</translation>
     </message>
-    <!-- OS:Refrigeration:SecondarySystem -->
+    
     <message>
         <source>PhaseChange Circulating Rate</source>
         <translation>상변화 순환 속도</translation>
     </message>
-    <!-- OS:Daylighting:Control, OS:Glare:Sensor, OS:IlluminanceMap -->
+    
     <message>
         <source>Phi Rotation Around Z-Axis</source>
         <translation>Z축 주위의 Phi 회전</translation>
     </message>
-    <!-- OS:Luminaire -->
+    
     <message>
         <source>Phi Rotation Around Z-axis</source>
         <translation>Z축 주위의 Phi 회전</translation>
     </message>
-    <!-- OS:SolarCollector:FlatPlate:PhotovoltaicThermal -->
+    
     <message>
         <source>Photovoltaic Name</source>
         <translation>태양광 이름</translation>
     </message>
-    <!-- OS:SolarCollector:FlatPlate:PhotovoltaicThermal -->
+    
     <message>
         <source>Photovoltaic-Thermal Model Performance Name</source>
         <translation>태양광-열 모델 성능 이름</translation>
     </message>
-    <!-- OS:GroundHeatExchanger:HorizontalTrench -->
+    
     <message>
         <source>Pipe Density</source>
         <translation>파이프 밀도</translation>
     </message>
-    <!-- OS:GroundHeatExchanger:HorizontalTrench -->
+    
     <message>
         <source>Pipe Inner Diameter</source>
         <translation>파이프 내경</translation>
     </message>
-    <!-- OS:Pipe:Indoor, OS:Pipe:Outdoor -->
+    
     <message>
         <source>Pipe Inside Diameter</source>
         <translation>배관 내경</translation>
     </message>
-    <!-- OS:Pipe:Indoor, OS:Pipe:Outdoor -->
+    
     <message>
         <source>Pipe Length</source>
         <translation>배관 길이</translation>
     </message>
-    <!-- OS:GroundHeatExchanger:Vertical -->
+    
     <message>
         <source>Pipe Out Diameter</source>
         <translation>배관 출구 지름</translation>
     </message>
-    <!-- OS:GroundHeatExchanger:HorizontalTrench -->
+    
     <message>
         <source>Pipe Outer Diameter</source>
         <translation>파이프 외경</translation>
     </message>
-    <!-- OS:GroundHeatExchanger:HorizontalTrench -->
+    
     <message>
         <source>Pipe Specific Heat</source>
         <translation>파이프 비열</translation>
     </message>
-    <!-- OS:GroundHeatExchanger:HorizontalTrench, OS:GroundHeatExchanger:Vertical -->
+    
     <message>
         <source>Pipe Thermal Conductivity</source>
         <translation>파이프 열전도율</translation>
     </message>
-    <!-- OS:GroundHeatExchanger:Vertical -->
+    
     <message>
         <source>Pipe Thickness</source>
         <translation>파이프 두께</translation>
     </message>
-    <!-- OS:AirConditioner:VariableRefrigerantFlow -->
+    
     <message>
         <source>Piping Correction Factor for Height in Cooling Mode Coefficient</source>
         <translation>냉각 모드에서의 높이에 대한 배관 보정 계수</translation>
     </message>
-    <!-- OS:AirConditioner:VariableRefrigerantFlow -->
+    
     <message>
         <source>Piping Correction Factor for Height in Heating Mode Coefficient</source>
         <translation>난방 모드에서 높이에 대한 배관 보정 계수</translation>
     </message>
-    <!-- OS:AirConditioner:VariableRefrigerantFlow -->
+    
     <message>
         <source>Piping Correction Factor for Length in Cooling Mode Curve Name</source>
         <translation>냉방 모드 배관 길이 보정 계수 곡선 이름</translation>
     </message>
-    <!-- OS:AirConditioner:VariableRefrigerantFlow -->
+    
     <message>
         <source>Piping Correction Factor for Length in Heating Mode Curve Name</source>
         <translation>난방 모드 곡선의 길이에 대한 배관 보정 계수 곡선명</translation>
     </message>
-    <!-- OS:ShadowCalculation -->
+    
     <message>
         <source>Pixel Counting Resolution</source>
         <translation>픽셀 계산 해상도</translation>
     </message>
-    <!-- OS:LightingSimulationZone -->
+    
     <message>
         <source>Planar Surface Group Name</source>
         <translation>평면 표면 그룹 이름</translation>
     </message>
-    <!-- OS:Coil:UserDefined -->
+    
     <message>
         <source>Plant Connection Inlet Node Name</source>
         <translation>Plant Connection Inlet Node Name</translation>
     </message>
-    <!-- OS:Coil:UserDefined -->
+    
     <message>
         <source>Plant Connection Outlet Node Name</source>
         <translation>Plant Connection Outlet Node Name</translation>
     </message>
-    <!-- OS:Coil:UserDefined -->
+    
     <message>
         <source>Plant Design Volume Flow Rate Actuator</source>
         <translation>플랜트 설계 체적 유량 액추에이터</translation>
     </message>
-    <!-- OS:PlantLoop -->
+    
     <message>
         <source>Plant Equipment Operation Cooling Load</source>
         <translation>플랜트 장비 운영 냉각 부하</translation>
     </message>
-    <!-- OS:PlantLoop -->
+    
     <message>
         <source>Plant Equipment Operation Cooling Load Schedule</source>
         <translation>냉각 부하 스케줄을 위한 설비 운영</translation>
     </message>
-    <!-- OS:PlantLoop -->
+    
     <message>
         <source>Plant Equipment Operation Heating Load</source>
         <translation>플랜트 기기 운영 난방 부하</translation>
     </message>
-    <!-- OS:PlantLoop -->
+    
     <message>
         <source>Plant Equipment Operation Heating Load Schedule</source>
         <translation>플랜트 장비 운전 난방 부하 스케줄</translation>
     </message>
-    <!-- OS:PlantComponent:UserDefined -->
+    
     <message>
         <source>Plant Initialization Program Calling Manager Name</source>
         <translation>플랜트 초기화 프로그램 호출 관리자 이름</translation>
     </message>
-    <!-- OS:PlantComponent:UserDefined -->
+    
     <message>
         <source>Plant Initialization Program Name</source>
         <translation>플랜트 초기화 프로그램 이름</translation>
     </message>
-    <!-- OS:PlantComponent:UserDefined -->
+    
     <message>
         <source>Plant Inlet Node Name</source>
         <translation>플랜트 입구 노드 이름</translation>
     </message>
-    <!-- OS:PlantComponent:UserDefined -->
+    
     <message>
         <source>Plant Loading Mode</source>
         <translation>플랜트 로딩 모드</translation>
     </message>
-    <!-- OS:PlantLoop -->
+    
     <message>
         <source>Plant Loop Demand Calculation Scheme</source>
         <translation>Plant Loop Demand Calculation Scheme</translation>
     </message>
-    <!-- OS:PlantComponent:UserDefined -->
+    
     <message>
         <source>Plant Loop Flow Request Mode</source>
         <translation>플랜트 루프 유량 요청 모드</translation>
     </message>
-    <!-- OS:LoadProfile:Plant -->
+    
     <message>
         <source>Plant Loop Fluid Type</source>
         <translation>플랜트 루프 유체 유형</translation>
     </message>
-    <!-- OS:Coil:UserDefined -->
+    
     <message>
         <source>Plant Mass Flow Rate Actuator</source>
         <translation>Plant Mass Flow Rate Actuator</translation>
     </message>
-    <!-- OS:Coil:UserDefined -->
+    
     <message>
         <source>Plant Maximum Mass Flow Rate Actuator</source>
         <translation>Plant Maximum Mass Flow Rate Actuator</translation>
     </message>
-    <!-- OS:Coil:UserDefined -->
+    
     <message>
         <source>Plant Minimum Mass Flow Rate Actuator</source>
         <translation>Plant Minimum Mass Flow Rate Actuator</translation>
     </message>
-    <!-- OS:Sizing:Plant -->
+    
     <message>
         <source>Plant or Condenser Loop Name</source>
         <translation>플랜트 또는 응축기 루프 이름</translation>
     </message>
-    <!-- OS:PlantComponent:UserDefined -->
+    
     <message>
         <source>Plant Outlet Node Name</source>
         <translation>플랜트 출구 노드 이름</translation>
     </message>
-    <!-- OS:Coil:UserDefined -->
+    
     <message>
         <source>Plant Outlet Temperature Actuator</source>
         <translation>플랜트 출구 온도 작동기</translation>
     </message>
-    <!-- OS:PlantLoop -->
+    
     <message>
         <source>Plant Side Branch List Name</source>
         <translation>Plant Side Branch List Name</translation>
     </message>
-    <!-- OS:PlantLoop -->
+    
     <message>
         <source>Plant Side Inlet Node Name</source>
         <translation>Plant Side Inlet Node Name 플랜트 측 입구 노드 이름</translation>
     </message>
-    <!-- OS:PlantLoop -->
+    
     <message>
         <source>Plant Side Outlet Node Name</source>
         <translation>Plant Side Outlet Node Name</translation>
     </message>
-    <!-- OS:PlantComponent:UserDefined -->
+    
     <message>
         <source>Plant Simulation Program Calling Manager Name</source>
         <translation>Plant Simulation Program Calling Manager Name</translation>
     </message>
-    <!-- OS:PlantComponent:UserDefined -->
+    
     <message>
         <source>Plant Simulation Program Name</source>
         <translation>플랜트 시뮬레이션 프로그램 이름</translation>
     </message>
-    <!-- OS:AirLoopHVAC:UnitaryHeatCool:VAVChangeoverBypass -->
+    
     <message>
         <source>Plenum or Mixer Inlet Node Name</source>
         <translation>플레넘 또는 믹서 입구 노드 이름</translation>
     </message>
-    <!-- OS:PythonPlugin:Instance -->
+    
     <message>
         <source>Plugin Class Name</source>
         <translation>플러그인 클래스 이름</translation>
     </message>
-    <!-- OS:FuelFactors -->
+    
     <message>
         <source>PM Emission Factor</source>
         <translation>PM 배출 계수</translation>
     </message>
-    <!-- OS:FuelFactors -->
+    
     <message>
         <source>PM Emission Factor Schedule Name</source>
         <translation>PM 배출 계수 스케줄 이름</translation>
     </message>
-    <!-- OS:FuelFactors -->
+    
     <message>
         <source>PM10 Emission Factor</source>
         <translation>PM10 배출 계수</translation>
     </message>
-    <!-- OS:FuelFactors -->
+    
     <message>
         <source>PM10 Emission Factor Schedule Name</source>
         <translation>PM10 배출계수 스케줄 이름</translation>
     </message>
-    <!-- OS:FuelFactors -->
+    
     <message>
         <source>PM2.5 Emission Factor</source>
         <translation>PM2.5 배출 계수</translation>
     </message>
-    <!-- OS:FuelFactors -->
+    
     <message>
         <source>PM2.5 Emission Factor Schedule Name</source>
         <translation>PM2.5 배출 계수 스케줄 이름</translation>
     </message>
-    <!-- OS:ShadowCalculation -->
+    
     <message>
         <source>Polygon Clipping Algorithm</source>
         <translation>다각형 클리핑 알고리즘</translation>
     </message>
-    <!-- OS:SwimmingPool:Indoor -->
+    
     <message>
         <source>Pool Heating System Maximum Water Flow Rate</source>
         <translation>수영장 난방 시스템 최대 물 유량</translation>
     </message>
-    <!-- OS:SwimmingPool:Indoor -->
+    
     <message>
         <source>Pool Miscellaneous Equipment Power</source>
         <translation>풀 기타 장비 전력</translation>
     </message>
-    <!-- OS:SwimmingPool:Indoor -->
+    
     <message>
         <source>Pool Water Inlet Node</source>
         <translation>풀 물 입구 노드</translation>
     </message>
-    <!-- OS:SwimmingPool:Indoor -->
+    
     <message>
         <source>Pool Water Outlet Node</source>
         <translation>풀 물 출구 노드</translation>
     </message>
-    <!-- OS:PortList -->
+    
     <message>
         <source>Port</source>
         <translation>포트</translation>
     </message>
-    <!-- OS:Daylighting:Control, OS:Glare:Sensor -->
+    
     <message>
         <source>Position X-Coordinate</source>
         <translation>X좌표 위치</translation>
     </message>
-    <!-- OS:Luminaire -->
+    
     <message>
         <source>Position X-coordinate</source>
         <translation>X 좌표 위치</translation>
     </message>
-    <!-- OS:Daylighting:Control, OS:Glare:Sensor -->
+    
     <message>
         <source>Position Y-Coordinate</source>
         <translation>Y 좌표 위치</translation>
     </message>
-    <!-- OS:Luminaire -->
+    
     <message>
         <source>Position Y-coordinate</source>
         <translation>Y좌표 위치</translation>
     </message>
-    <!-- OS:Daylighting:Control, OS:Glare:Sensor -->
+    
     <message>
         <source>Position Z-Coordinate</source>
         <translation>Z좌표 위치</translation>
     </message>
-    <!-- OS:Luminaire -->
+    
     <message>
         <source>Position Z-coordinate</source>
         <translation>Z 좌표 위치</translation>
     </message>
-    <!-- OS:Generator:WindTurbine -->
+    
     <message>
         <source>Power Coefficient C1</source>
         <translation>Power Coefficient C1</translation>
     </message>
-    <!-- OS:Generator:WindTurbine -->
+    
     <message>
         <source>Power Coefficient C2</source>
         <translation>Power Coefficient C2</translation>
     </message>
-    <!-- OS:Generator:WindTurbine -->
+    
     <message>
         <source>Power Coefficient C3</source>
         <translation>Power Coefficient C3</translation>
     </message>
-    <!-- OS:Generator:WindTurbine -->
+    
     <message>
         <source>Power Coefficient C4</source>
         <translation>전력 계수 C4</translation>
     </message>
-    <!-- OS:Generator:WindTurbine -->
+    
     <message>
         <source>Power Coefficient C5</source>
         <translation>Power Coefficient C5</translation>
     </message>
-    <!-- OS:Generator:WindTurbine -->
+    
     <message>
         <source>Power Coefficient C6</source>
         <translation>Power Coefficient C6</translation>
     </message>
-    <!-- OS:Generator:WindTurbine -->
+    
     <message>
         <source>Power Control</source>
         <translation>전력 제어</translation>
     </message>
-    <!-- OS:ElectricLoadCenter:Storage:Converter -->
+    
     <message>
         <source>Power Conversion Efficiency Method</source>
         <translation>전력 변환 효율 방법</translation>
     </message>
-    <!-- OS:Generator:FuelCell:PowerModule -->
+    
     <message>
         <source>Power Down Transient Limit</source>
         <translation>Power Down Transient Limit</translation>
     </message>
-    <!-- OS:Generator:FuelCell -->
+    
     <message>
         <source>Power Module Name</source>
         <translation>전력 모듈 이름</translation>
     </message>
-    <!-- OS:Generator:FuelCell:PowerModule -->
+    
     <message>
         <source>Power Up Transient Limit</source>
         <translation>전원 투입 과도 제한</translation>
     </message>
-    <!-- OS:Version -->
+    
     <message>
         <source>Prerelease Identifier</source>
         <translation>시험판 식별자</translation>
     </message>
-    <!-- OS:AirflowNetworkPressureController -->
+    
     <message>
         <source>Pressure Control Availability Schedule Name</source>
         <translation>압력 제어 가용성 일정 이름</translation>
     </message>
-    <!-- OS:AirflowNetworkConstantPressureDrop -->
+    
     <message>
         <source>Pressure Difference Across the Component</source>
         <translation>성분 양측의 압력 차이</translation>
     </message>
-    <!-- OS:SpaceInfiltration:FlowCoefficient -->
+    
     <message>
         <source>Pressure Exponent</source>
         <translation>압력 지수</translation>
     </message>
-    <!-- OS:AirflowNetworkPressureController -->
+    
     <message>
         <source>Pressure Setpoint Schedule Name</source>
         <translation>압력 설정점 스케줄 이름</translation>
     </message>
-    <!-- OS:SurfaceProperty:OtherSideCoefficients -->
+    
     <message>
         <source>Previous Other Side Temperature Coefficient</source>
         <translation>이전 다른 쪽 온도 계수</translation>
     </message>
-    <!-- OS:AirTerminal:SingleDuct:ConstantVolume:FourPipeBeam -->
+    
     <message>
         <source>Primary Air Availability Schedule Name</source>
         <translation>주 공기 가용성 스케줄 이름</translation>
     </message>
-    <!-- OS:EvaporativeCooler:Direct:ResearchSpecial -->
+    
     <message>
         <source>Primary Air Design Flow Rate</source>
         <translation>기본 공기 설계 유량</translation>
     </message>
-    <!-- OS:EvaporativeCooler:Indirect:ResearchSpecial -->
+    
     <message>
         <source>Primary Air Inlet Node</source>
         <translation>기본 공기 입구 노드</translation>
     </message>
-    <!-- OS:AirTerminal:SingleDuct:ConstantVolume:FourPipeBeam -->
+    
     <message>
         <source>Primary Air Inlet Node Name</source>
         <translation>기본 공기 흡입 노드 이름</translation>
     </message>
-    <!-- OS:EvaporativeCooler:Indirect:ResearchSpecial -->
+    
     <message>
         <source>Primary Air Outlet Node</source>
         <translation>주기 공기 출구 노드</translation>
     </message>
-    <!-- OS:AirTerminal:SingleDuct:ConstantVolume:FourPipeBeam -->
+    
     <message>
         <source>Primary Air Outlet Node Name</source>
         <translation>주 공기 배출구 노드 이름</translation>
     </message>
-    <!-- OS:ThermalZone -->
+    
     <message>
         <source>Primary Daylighting Control Name</source>
         <translation>주 채광 제어 이름</translation>
     </message>
-    <!-- OS:EvaporativeCooler:Indirect:ResearchSpecial -->
+    
     <message>
         <source>Primary Design Air Flow Rate</source>
         <translation>기본 설계 공기 유량</translation>
     </message>
-    <!-- OS:PlantLoop -->
+    
     <message>
         <source>Primary Plant Equipment Operation Scheme</source>
         <translation>Primary Plant Equipment Operation Scheme</translation>
     </message>
-    <!-- OS:PlantLoop -->
+    
     <message>
         <source>Primary Plant Equipment Operation Scheme Schedule</source>
         <translation>기본 플랜트 장비 운영 계획 일정표</translation>
     </message>
-    <!-- OS:AirLoopHVAC:UnitaryHeatCool:VAVChangeoverBypass -->
+    
     <message>
         <source>Priority Control Mode</source>
         <translation>우선순위 제어 모드</translation>
     </message>
-    <!-- OS:Daylighting:Control -->
+    
     <message>
         <source>Probability Lighting will be Reset When Needed in Manual Stepped Control</source>
         <translation>수동 단계 제어에서 필요시 조명이 재설정될 확률</translation>
     </message>
-    <!-- OS:HeatExchanger:Desiccant:BalancedFlow -->
+    
     <message>
         <source>Process Air Inlet Node</source>
         <translation>공정 공기 입구 노드</translation>
     </message>
-    <!-- OS:HeatExchanger:Desiccant:BalancedFlow -->
+    
     <message>
         <source>Process Air Outlet Node</source>
         <translation>공정 공기 출구 노드</translation>
     </message>
-    <!-- OS:EnergyManagementSystem:Program, OS:EnergyManagementSystem:Subroutine -->
+    
     <message>
         <source>Program Line</source>
         <translation>프로그램 라인</translation>
     </message>
-    <!-- OS:EnergyManagementSystem:ProgramCallingManager -->
+    
     <message>
         <source>Program Name</source>
         <translation>프로그램 이름</translation>
     </message>
-    <!-- OS:LifeCycleCost:Parameters -->
+    
     <message>
         <source>Propane Inflation</source>
         <translation>프로판 인플레이션</translation>
     </message>
-    <!-- OS:Daylighting:Control, OS:Glare:Sensor, OS:IlluminanceMap -->
+    
     <message>
         <source>Psi Rotation Around X-Axis</source>
         <translation>Psi X축 회전</translation>
     </message>
-    <!-- OS:Luminaire -->
+    
     <message>
         <source>Psi Rotation Around X-axis</source>
         <translation>Psi X축 회전</translation>
     </message>
-    <!-- OS:Pump:ConstantSpeed -->
+    
     <message>
         <source>Pump Curve</source>
         <translation>펌프 곡선</translation>
     </message>
-    <!-- OS:Pump:VariableSpeed -->
+    
     <message>
         <source>Pump Curve Name</source>
         <translation>펌프 곡선 이름</translation>
     </message>
-    <!-- OS:Refrigeration:SecondarySystem -->
+    
     <message>
         <source>Pump Drive Type</source>
         <translation>펌프 드라이브 타입</translation>
     </message>
-    <!-- OS:Chiller:Absorption:Indirect -->
+    
     <message>
         <source>Pump Electric Input Function of Part Load Ratio Curve</source>
         <translation>펌프 전기입력 부분부하비율 곡선 함수</translation>
     </message>
-    <!-- OS:HeaderedPumps:ConstantSpeed, OS:HeaderedPumps:VariableSpeed, OS:Pump:ConstantSpeed -->
+    
     <message>
         <source>Pump Flow Rate Schedule</source>
         <translation>펌프 유량 스케줄</translation>
     </message>
-    <!-- OS:Generator:FuelCell:WaterSupply -->
+    
     <message>
         <source>Pump Heat Loss Factor</source>
         <translation>펌프 열손실 계수</translation>
     </message>
-    <!-- OS:Refrigeration:SecondarySystem -->
+    
     <message>
         <source>Pump Motor Heat to Fluid</source>
         <translation>펌프 모터 열을 유체로</translation>
     </message>
-    <!-- OS:TemperingValve -->
+    
     <message>
         <source>Pump Outlet Node</source>
         <translation>펌프 출구 노드</translation>
     </message>
-    <!-- OS:Pump:VariableSpeed -->
+    
     <message>
         <source>Pump RPM Schedule Name</source>
         <translation>펌프 RPM 스케줄 이름</translation>
     </message>
-    <!-- OS:SolarCollectorPerformance:PhotovoltaicThermal:BIPVT -->
+    
     <message>
         <source>PV Cell Normal Transmittance-Absorptance Product</source>
         <translation>PV 셀 법선 투과율-흡수율 곱</translation>
     </message>
-    <!-- OS:SolarCollectorPerformance:PhotovoltaicThermal:BIPVT -->
+    
     <message>
         <source>PV Module Back Longwave Emissivity</source>
         <translation>PV 모듈 후면 장파 방사율</translation>
     </message>
-    <!-- OS:SolarCollectorPerformance:PhotovoltaicThermal:BIPVT -->
+    
     <message>
         <source>PV Module Bottom Thermal Resistance</source>
         <translation>PV 모듈 하부 열 저항</translation>
     </message>
-    <!-- OS:SolarCollectorPerformance:PhotovoltaicThermal:BIPVT -->
+    
     <message>
         <source>PV Module Front Longwave Emissivity</source>
         <translation>PV 모듈 전면 장파 방사율</translation>
     </message>
-    <!-- OS:SolarCollectorPerformance:PhotovoltaicThermal:BIPVT -->
+    
     <message>
         <source>PV Module Top Thermal Resistance</source>
         <translation>PV 모듈 상단 열저항</translation>
     </message>
-    <!-- OS:Generator:PVWatts -->
+    
     <message>
         <source>PVWatts Version</source>
         <translation>PVWatts 버전</translation>
     </message>
-    <!-- OS:PythonPlugin:OutputVariable -->
+    
     <message>
         <source>Python Plugin Variable Name</source>
         <translation>Python 플러그인 변수 이름</translation>
     </message>
 
-    <!-- Q -->
-    <!-- OS:UtilityCost:Qualify -->
+    
+    
     <message>
         <source>Qualify Type</source>
         <translation>적격 유형</translation>
     </message>
 
-    <!-- R -->
-    <!-- OS:ZoneHVAC:HighTemperatureRadiant, OS:ZoneHVAC:LowTemperatureRadiant:ConstantFlow, OS:ZoneHVAC:LowTemperatureRadiant:Electric, OS:ZoneHVAC:LowTemperatureRadiant:VariableFlow -->
+    
+    
     <message>
         <source>Radiant Surface Type</source>
         <translation>복사 표면 유형</translation>
     </message>
-    <!-- OS:ElectricLoadCenter:Inverter:LookUpTable, OS:ElectricLoadCenter:Inverter:Simple, OS:ElectricLoadCenter:Storage:Converter, OS:ElectricLoadCenter:Storage:LiIonNMCBattery, OS:ElectricLoadCenter:Transformer -->
+    
     <message>
         <source>Radiative Fraction</source>
         <translation>복사 분율</translation>
     </message>
-    <!-- OS:ElectricLoadCenter:Storage:Simple -->
+    
     <message>
         <source>Radiative Fraction for Zone Heat Gains</source>
         <translation>Zone Heat Gains의 복사열 분율</translation>
     </message>
-    <!-- OS:SizingPeriod:DesignDay -->
+    
     <message>
         <source>Rain Indicator</source>
         <translation>강우 지시기</translation>
     </message>
-    <!-- OS:PlantEquipmentOperation:CoolingLoad, OS:PlantEquipmentOperation:HeatingLoad, OS:PlantEquipmentOperation:OutdoorDewpoint, OS:PlantEquipmentOperation:OutdoorDewpointDifference, OS:PlantEquipmentOperation:OutdoorDryBulb, OS:PlantEquipmentOperation:OutdoorDryBulbDifference, OS:PlantEquipmentOperation:OutdoorRelativeHumidity, OS:PlantEquipmentOperation:OutdoorWetBulb, OS:PlantEquipmentOperation:OutdoorWetBulbDifference -->
+    
     <message>
         <source>Range Equipment List Name</source>
         <translation>레인지 장비 목록 이름</translation>
     </message>
-    <!-- OS:HeatExchanger:AirToAir:SensibleAndLatent -->
+    
     <message>
         <source>Rate of Defrost Time Fraction Increase</source>
         <translation>제상 시간 비율 증가율</translation>
     </message>
-    <!-- OS:Refrigeration:AirChiller -->
+    
     <message>
         <source>Rated Air Flow</source>
         <translation>정격 공기 유량</translation>
     </message>
-    <!-- OS:Coil:Cooling:DX:VariableSpeed, OS:Coil:Cooling:WaterToAirHeatPump:VariableSpeedEquationFit, OS:Coil:Heating:DX:VariableSpeed, OS:Coil:Heating:WaterToAirHeatPump:VariableSpeedEquationFit -->
+    
     <message>
         <source>Rated Air Flow Rate At Selected Nominal Speed Level</source>
         <translation>선정된 정격 속도 레벨에서의 정격 공기 유량</translation>
     </message>
-    <!-- OS:Refrigeration:Case -->
+    
     <message>
         <source>Rated Ambient Relative Humidity</source>
         <translation>정격 주변 상대습도</translation>
     </message>
-    <!-- OS:Refrigeration:Case -->
+    
     <message>
         <source>Rated Ambient Temperature</source>
         <translation>정격 주변 온도</translation>
     </message>
-    <!-- OS:Refrigeration:Condenser:Cascade -->
+    
     <message>
         <source>Rated Approach Temperature Difference</source>
         <translation>정격 접근 온도 차</translation>
     </message>
-    <!-- OS:Coil:Heating:Water:Baseboard:Radiant -->
+    
     <message>
         <source>Rated Average Water Temperature</source>
         <translation>정격 평균 수온</translation>
     </message>
-    <!-- OS:Refrigeration:WalkIn -->
+    
     <message>
         <source>Rated Circulation Fan Power</source>
         <translation>순환 팬 정격 전력</translation>
     </message>
-    <!-- OS:Refrigeration:WalkIn -->
+    
     <message>
         <source>Rated Coil Cooling Capacity</source>
         <translation>정격 코일 냉각 용량</translation>
     </message>
-    <!-- OS:AirConditioner:VariableRefrigerantFlow:FluidTemperatureControl, OS:AirConditioner:VariableRefrigerantFlow:FluidTemperatureControl:HR -->
+    
     <message>
         <source>Rated Compressor Power Per Unit of Rated Evaporative Capacity</source>
         <translation>정격 증발 용량 단위당 정격 압축기 전력</translation>
     </message>
-    <!-- OS:Coil:Cooling:DX:CurveFit:OperatingMode -->
+    
     <message>
         <source>Rated Condenser Air Flow Rate</source>
         <translation>정격 응축기 공기 유량</translation>
     </message>
-    <!-- OS:Coil:WaterHeating:AirToWaterHeatPump, OS:Coil:WaterHeating:AirToWaterHeatPump:VariableSpeed -->
+    
     <message>
         <source>Rated Condenser Inlet Water Temperature</source>
         <translation>정격 응축기 입구 물 온도</translation>
     </message>
-    <!-- OS:Coil:WaterHeating:AirToWaterHeatPump, OS:Coil:WaterHeating:AirToWaterHeatPump:VariableSpeed -->
+    
     <message>
         <source>Rated Condenser Water Flow Rate</source>
         <translation>정격 응축기 냉각수 유량</translation>
     </message>
-    <!-- OS:Coil:WaterHeating:AirToWaterHeatPump:Wrapped -->
+    
     <message>
         <source>Rated Condenser Water Temperature</source>
         <translation>정격 응축수 온도</translation>
     </message>
-    <!-- OS:Refrigeration:Condenser:Cascade, OS:Refrigeration:Condenser:WaterCooled -->
+    
     <message>
         <source>Rated Condensing Temperature</source>
         <translation>정격 응축 온도</translation>
     </message>
-    <!-- OS:HeatPump:AirToWater:Cooling:SpeedData -->
+    
     <message>
         <source>Rated Cooling Capacity</source>
         <translation>정격 냉각 용량</translation>
     </message>
-    <!-- OS:Coil:Cooling:WaterToAirHeatPump:EquationFit -->
+    
     <message>
         <source>Rated Cooling Coefficient of Performance</source>
         <translation>정격 냉방 성능계수</translation>
     </message>
-    <!-- OS:Refrigeration:WalkIn -->
+    
     <message>
         <source>Rated Cooling Coil Fan Power</source>
         <translation>정격 냉각 코일 팬 전력</translation>
     </message>
-    <!-- OS:Refrigeration:AirChiller, OS:Refrigeration:WalkIn -->
+    
     <message>
         <source>Rated Cooling Source Temperature</source>
         <translation>정격 냉각 열원 온도</translation>
     </message>
-    <!-- OS:HeatPump:AirToWater:Cooling:SpeedData -->
+    
     <message>
         <source>Rated COP for Cooling</source>
         <translation>냉각 정격 COP</translation>
     </message>
-    <!-- OS:HeatPump:AirToWater:Heating:SpeedData -->
+    
     <message>
         <source>Rated COP for Heating</source>
         <translation>난방 정격 COP</translation>
     </message>
-    <!-- OS:Refrigeration:Condenser:Cascade, OS:Refrigeration:Condenser:EvaporativeCooled, OS:Refrigeration:Condenser:WaterCooled -->
+    
     <message>
         <source>Rated Effective Total Heat Rejection Rate</source>
         <translation>정격 유효 총 열 거부율</translation>
     </message>
-    <!-- OS:Refrigeration:Condenser:AirCooled -->
+    
     <message>
         <source>Rated Effective Total Heat Rejection Rate Curve Name</source>
         <translation>정격 유효 전체 열 거부율 곡선 이름</translation>
     </message>
-    <!-- OS:Generator:Photovoltaic -->
+    
     <message>
         <source>Rated Electric Power Output</source>
         <translation>정격 전기 출력</translation>
     </message>
-    <!-- OS:ZoneHVAC:Dehumidifier:DX -->
+    
     <message>
         <source>Rated Energy Factor</source>
         <translation>정격 에너지 팩터</translation>
     </message>
-    <!-- OS:Coil:Cooling:WaterToAirHeatPump:EquationFit, OS:Coil:Heating:WaterToAirHeatPump:EquationFit -->
+    
     <message>
         <source>Rated Entering Air Dry-Bulb Temperature</source>
         <translation>정격 입입 공기 건구온도</translation>
     </message>
-    <!-- OS:Coil:Cooling:WaterToAirHeatPump:EquationFit -->
+    
     <message>
         <source>Rated Entering Air Wet-Bulb Temperature</source>
         <translation>정격 유입 공기 습구 온도</translation>
     </message>
-    <!-- OS:Coil:Cooling:WaterToAirHeatPump:EquationFit, OS:Coil:Heating:WaterToAirHeatPump:EquationFit -->
+    
     <message>
         <source>Rated Entering Water Temperature</source>
         <translation>정격 입수 온도</translation>
     </message>
-    <!-- OS:AirConditioner:VariableRefrigerantFlow:FluidTemperatureControl, OS:AirConditioner:VariableRefrigerantFlow:FluidTemperatureControl:HR -->
+    
     <message>
         <source>Rated Evaporative Capacity</source>
         <translation>정격 증발 용량</translation>
     </message>
-    <!-- OS:Coil:Cooling:DX:MultiSpeed:StageData -->
+    
     <message>
         <source>Rated Evaporative Condenser Pump Power Consumption</source>
         <translation>정격 증발식 응축기 펌프 전력 소비</translation>
     </message>
-    <!-- OS:Coil:Cooling:DX:CurveFit:OperatingMode, OS:Coil:Cooling:DX:SingleSpeed:ThermalStorage, OS:Coil:WaterHeating:AirToWaterHeatPump, OS:Coil:WaterHeating:AirToWaterHeatPump:VariableSpeed, OS:Coil:WaterHeating:AirToWaterHeatPump:Wrapped -->
+    
     <message>
         <source>Rated Evaporator Air Flow Rate</source>
         <translation>정격 증발기 공기 유량</translation>
     </message>
-    <!-- OS:Coil:WaterHeating:AirToWaterHeatPump, OS:Coil:WaterHeating:AirToWaterHeatPump:VariableSpeed, OS:Coil:WaterHeating:AirToWaterHeatPump:Wrapped -->
+    
     <message>
         <source>Rated Evaporator Inlet Air Dry-Bulb Temperature</source>
         <translation>정격 증발기 입구 공기 건구 온도</translation>
     </message>
-    <!-- OS:Coil:WaterHeating:AirToWaterHeatPump, OS:Coil:WaterHeating:AirToWaterHeatPump:VariableSpeed, OS:Coil:WaterHeating:AirToWaterHeatPump:Wrapped -->
+    
     <message>
         <source>Rated Evaporator Inlet Air Wet-Bulb Temperature</source>
         <translation>정격 증발기 입구 공기 습구온도</translation>
     </message>
-    <!-- OS:Humidifier:Steam:Electric, OS:Humidifier:Steam:Gas, OS:Refrigeration:AirChiller, OS:Refrigeration:Condenser:AirCooled, OS:Refrigeration:Condenser:EvaporativeCooled, OS:Refrigeration:GasCooler:AirCooled -->
+    
     <message>
         <source>Rated Fan Power</source>
         <translation>정격 팬 전력</translation>
     </message>
-    <!-- OS:Humidifier:Steam:Gas -->
+    
     <message>
         <source>Rated Gas Use Rate</source>
         <translation>정격 가스 사용량</translation>
     </message>
-    <!-- OS:Coil:Cooling:DX:CurveFit:OperatingMode -->
+    
     <message>
         <source>Rated Gross Total Cooling Capacity</source>
         <translation>정격 총 냉각 용량</translation>
     </message>
-    <!-- OS:Coil:WaterHeating:Desuperheater -->
+    
     <message>
         <source>Rated Heat Reclaim Recovery Efficiency</source>
         <translation>정격 열 회수 효율</translation>
     </message>
-    <!-- OS:Coil:Heating:WaterToAirHeatPump:EquationFit, OS:Coil:WaterHeating:AirToWaterHeatPump, OS:Coil:WaterHeating:AirToWaterHeatPump:Wrapped, OS:HeatPump:AirToWater:Heating:SpeedData -->
+    
     <message>
         <source>Rated Heating Capacity</source>
         <translation>정격 난방 용량</translation>
     </message>
-    <!-- OS:Coil:Heating:DX:VariableSpeed, OS:Coil:Heating:WaterToAirHeatPump:VariableSpeedEquationFit -->
+    
     <message>
         <source>Rated Heating Capacity At Selected Nominal Speed Level</source>
         <translation>선정된 공칭 속도 수준에서의 정격 난방 용량</translation>
     </message>
-    <!-- OS:AirConditioner:VariableRefrigerantFlow -->
+    
     <message>
         <source>Rated Heating Capacity Sizing Ratio</source>
         <translation>정격 난방 용량 크기 조정 비율</translation>
     </message>
-    <!-- OS:Coil:Heating:WaterToAirHeatPump:EquationFit -->
+    
     <message>
         <source>Rated Heating Coefficient of Performance</source>
         <translation>정격 난방 성능계수</translation>
     </message>
-    <!-- OS:AirConditioner:VariableRefrigerantFlow -->
+    
     <message>
         <source>Rated Heating COP</source>
         <translation>정격 난방 COP</translation>
     </message>
-    <!-- OS:Coil:Cooling:DX:TwoSpeed -->
+    
     <message>
         <source>Rated High Speed Air Flow Rate</source>
         <translation>정격 고속 공기 유량</translation>
     </message>
-    <!-- OS:Coil:Cooling:DX:TwoSpeed -->
+    
     <message>
         <source>Rated High Speed COP</source>
         <translation>정격 고속 COP</translation>
     </message>
-    <!-- OS:Coil:Cooling:DX:TwoSpeed -->
+    
     <message>
         <source>Rated High Speed Evaporator Fan Power Per Volume Flow Rate 2017</source>
         <translation>Rated High Speed Evaporator Fan Power Per Volume Flow Rate 2017</translation>
     </message>
-    <!-- OS:Coil:Cooling:DX:TwoSpeed -->
+    
     <message>
         <source>Rated High Speed Evaporator Fan Power Per Volume Flow Rate 2023</source>
         <translation>Rated High Speed Evaporator Fan Power Per Volume Flow Rate 2023</translation>
     </message>
-    <!-- OS:Coil:Cooling:DX:TwoSpeed -->
+    
     <message>
         <source>Rated High Speed Sensible Heat Ratio</source>
         <translation>정격 고속 현열비</translation>
     </message>
-    <!-- OS:Coil:Cooling:DX:TwoSpeed -->
+    
     <message>
         <source>Rated High Speed Total Cooling Capacity</source>
         <translation>정격 고속 냉각 총 용량</translation>
     </message>
-    <!-- OS:Coil:Cooling:Water:Panel:Radiant -->
+    
     <message>
         <source>Rated Inlet Space Temperature</source>
         <translation>정격 흡입 공간 온도</translation>
     </message>
-    <!-- OS:Refrigeration:Case -->
+    
     <message>
         <source>Rated Latent Heat Ratio</source>
         <translation>정격 잠열비</translation>
     </message>
-    <!-- OS:HeatPump:AirToWater:Cooling, OS:HeatPump:AirToWater:Heating -->
+    
     <message>
         <source>Rated Leaving Water Temperature</source>
         <translation>정격 출수 온도</translation>
     </message>
-    <!-- OS:Refrigeration:Compressor -->
+    
     <message>
         <source>Rated Liquid Temperature</source>
         <translation>정격 액체 온도</translation>
     </message>
-    <!-- OS:ElectricLoadCenter:Transformer -->
+    
     <message>
         <source>Rated Load Loss</source>
         <translation>정격 부하 손실</translation>
     </message>
-    <!-- OS:Coil:Cooling:DX:TwoSpeed -->
+    
     <message>
         <source>Rated Low Speed Air Flow Rate</source>
         <translation>정격 저속 공기 유량</translation>
     </message>
-    <!-- OS:Coil:Cooling:DX:TwoSpeed -->
+    
     <message>
         <source>Rated Low Speed COP</source>
         <translation>정격 저속 COP</translation>
     </message>
-    <!-- OS:Coil:Cooling:DX:TwoSpeed -->
+    
     <message>
         <source>Rated Low Speed Evaporator Fan Power Per Volume Flow Rate 2017</source>
         <translation>정격 저속 증발기 팬 전력/체적 유량 2017</translation>
     </message>
-    <!-- OS:Coil:Cooling:DX:TwoSpeed -->
+    
     <message>
         <source>Rated Low Speed Evaporator Fan Power Per Volume Flow Rate 2023</source>
         <translation>정격 저속 증발기 팬 파워 (용적 유량당) 2023</translation>
     </message>
-    <!-- OS:Coil:Cooling:DX:TwoSpeed -->
+    
     <message>
         <source>Rated Low Speed Sensible Heat Ratio</source>
         <translation>정격 저속 현열 비율</translation>
     </message>
-    <!-- OS:Coil:Cooling:DX:TwoSpeed -->
+    
     <message>
         <source>Rated Low Speed Total Cooling Capacity</source>
         <translation>정격 저속 총 냉각 용량</translation>
     </message>
-    <!-- OS:ElectricLoadCenter:Inverter:LookUpTable -->
+    
     <message>
         <source>Rated Maximum Continuous Output Power</source>
         <translation>정격 최대 연속 출력 전력</translation>
     </message>
-    <!-- OS:ElectricLoadCenter:Transformer -->
+    
     <message>
         <source>Rated No Load Loss</source>
         <translation>정격 무부하 손실</translation>
     </message>
-    <!-- OS:Coil:WaterHeating:Desuperheater -->
+    
     <message>
         <source>Rated Outdoor Air Temperature</source>
         <translation>정격 외기 온도</translation>
     </message>
-    <!-- OS:Generator:WindTurbine, OS:Humidifier:Steam:Electric -->
+    
     <message>
         <source>Rated Power</source>
         <translation>정격 전력</translation>
     </message>
-    <!-- OS:AirTerminal:SingleDuct:ConstantVolume:FourPipeBeam -->
+    
     <message>
         <source>Rated Primary Air Flow Rate per Beam Length</source>
         <translation>빔 길이당 정격 1차 공기 유량</translation>
     </message>
-    <!-- OS:Refrigeration:AirChiller -->
+    
     <message>
         <source>Rated Relative Humidity</source>
         <translation>정격 상대습도</translation>
     </message>
-    <!-- OS:Refrigeration:Compressor -->
+    
     <message>
         <source>Rated Return Gas Temperature</source>
         <translation>정격 환기 가스 온도</translation>
     </message>
-    <!-- OS:Generator:WindTurbine -->
+    
     <message>
         <source>Rated Rotor Speed</source>
         <translation>정격 로터 속도</translation>
     </message>
-    <!-- OS:Refrigeration:Case -->
+    
     <message>
         <source>Rated Runtime Fraction</source>
         <translation>정격 운전 시간 비율</translation>
     </message>
-    <!-- OS:Coil:Cooling:WaterToAirHeatPump:EquationFit -->
+    
     <message>
         <source>Rated Sensible Cooling Capacity</source>
         <translation>정격 현열 냉각 용량</translation>
     </message>
-    <!-- OS:Refrigeration:Compressor -->
+    
     <message>
         <source>Rated Subcooling</source>
         <translation>정격 과냉각</translation>
     </message>
-    <!-- OS:Refrigeration:Condenser:AirCooled, OS:Refrigeration:Condenser:EvaporativeCooled, OS:Refrigeration:Condenser:WaterCooled -->
+    
     <message>
         <source>Rated Subcooling Temperature Difference</source>
         <translation>정격 과냉각 온도 차이</translation>
     </message>
-    <!-- OS:Refrigeration:Compressor -->
+    
     <message>
         <source>Rated Superheat</source>
         <translation>정격 과열도</translation>
     </message>
-    <!-- OS:Coil:Heating:DX:MultiSpeed:StageData, OS:Coil:Heating:DX:VariableSpeed:SpeedData -->
+    
     <message>
         <source>Rated Supply Air Fan Power Per Volume Flow Rate 2017</source>
         <translation>정격 급기 팬 전력 용량 유량당 2017</translation>
     </message>
-    <!-- OS:Coil:Heating:DX:MultiSpeed:StageData, OS:Coil:Heating:DX:VariableSpeed:SpeedData -->
+    
     <message>
         <source>Rated Supply Air Fan Power Per Volume Flow Rate 2023</source>
         <translation>정격 급기 팬 전력 단위 체적 유량(2023)</translation>
     </message>
-    <!-- OS:Coil:Heating:DX:SingleSpeed -->
+    
     <message>
         <source>Rated Supply Fan Power Per Volume Flow Rate 2017</source>
         <translation>정격 급기 팬 전력 / 체적 유량 2017</translation>
     </message>
-    <!-- OS:Coil:Heating:DX:SingleSpeed -->
+    
     <message>
         <source>Rated Supply Fan Power Per Volume Flow Rate 2023</source>
         <translation>정격 공급 팬 전력 단위 체적 유량 2023</translation>
     </message>
-    <!-- OS:Refrigeration:AirChiller -->
+    
     <message>
         <source>Rated Temperature Difference DT1</source>
         <translation>정격 온도차 DT1</translation>
     </message>
-    <!-- OS:Generator:MicroTurbine:HeatRecovery -->
+    
     <message>
         <source>Rated Thermal to Electrical Power Ratio</source>
         <translation>정격 열전력-전기전력 비율</translation>
     </message>
-    <!-- OS:Refrigeration:Case -->
+    
     <message>
         <source>Rated Total Cooling Capacity per Door</source>
         <translation>문 당 정격 총 냉각 용량</translation>
     </message>
-    <!-- OS:Refrigeration:Case -->
+    
     <message>
         <source>Rated Total Cooling Capacity per Unit Length</source>
         <translation>단위 길이당 정격 총 냉각 용량</translation>
     </message>
-    <!-- OS:Refrigeration:GasCooler:AirCooled -->
+    
     <message>
         <source>Rated Total Heat Rejection Rate Curve Name</source>
         <translation>정격 전체 열 거부율 곡선 이름</translation>
     </message>
-    <!-- OS:Coil:Heating:DX:SingleSpeed, OS:Coil:Heating:DX:VariableRefrigerantFlow, OS:Coil:Heating:DX:VariableRefrigerantFlow:FluidTemperatureControl -->
+    
     <message>
         <source>Rated Total Heating Capacity</source>
         <translation>정격 총 난방 용량</translation>
     </message>
-    <!-- OS:Refrigeration:AirChiller, OS:Refrigeration:WalkIn -->
+    
     <message>
         <source>Rated Total Heating Power</source>
         <translation>정격 총 난방 용량</translation>
     </message>
-    <!-- OS:Refrigeration:WalkIn -->
+    
     <message>
         <source>Rated Total Lighting Power</source>
         <translation>정격 총 조명 전력</translation>
     </message>
-    <!-- OS:Refrigeration:AirChiller -->
+    
     <message>
         <source>Rated Unit Load Factor</source>
         <translation>정격 단위 부하 계수</translation>
     </message>
-    <!-- OS:Coil:Cooling:DX:CurveFit:Speed, OS:Coil:Cooling:DX:MultiSpeed:StageData, OS:Coil:Heating:DX:MultiSpeed:StageData -->
+    
     <message>
         <source>Rated Waste Heat Fraction of Power Input</source>
         <translation>정격 폐열 전력 입력 비율</translation>
     </message>
-    <!-- OS:Coil:Cooling:WaterToAirHeatPump:EquationFit, OS:Coil:Heating:WaterToAirHeatPump:EquationFit, OS:HeatPump:AirToWater:Cooling, OS:HeatPump:AirToWater:Heating -->
+    
     <message>
         <source>Rated Water Flow Rate</source>
         <translation>정격 수량</translation>
     </message>
-    <!-- OS:Coil:Cooling:WaterToAirHeatPump:VariableSpeedEquationFit, OS:Coil:Heating:WaterToAirHeatPump:VariableSpeedEquationFit -->
+    
     <message>
         <source>Rated Water Flow Rate At Selected Nominal Speed Level</source>
         <translation>선정된 정격 속도 수준에서의 정격 물 흐름량</translation>
     </message>
-    <!-- OS:Coil:WaterHeating:AirToWaterHeatPump:VariableSpeed, OS:Coil:WaterHeating:AirToWaterHeatPump:VariableSpeed:SpeedData -->
+    
     <message>
         <source>Rated Water Heating Capacity</source>
         <translation>정격 온수 난방 용량</translation>
     </message>
-    <!-- OS:Coil:WaterHeating:AirToWaterHeatPump:VariableSpeed:SpeedData -->
+    
     <message>
         <source>Rated Water Heating COP</source>
         <translation>정격 온수 난방 COP</translation>
     </message>
-    <!-- OS:Refrigeration:Condenser:WaterCooled -->
+    
     <message>
         <source>Rated Water Inlet Temperature</source>
         <translation>정격 물 입구 온도</translation>
     </message>
-    <!-- OS:Coil:Cooling:Water:Panel:Radiant, OS:Coil:Heating:Water:Baseboard:Radiant -->
+    
     <message>
         <source>Rated Water Mass Flow Rate</source>
         <translation>정격 물 질량 유량</translation>
     </message>
-    <!-- OS:Refrigeration:Condenser:EvaporativeCooled -->
+    
     <message>
         <source>Rated Water Pump Power</source>
         <translation>정격 급수 펌프 동력</translation>
     </message>
-    <!-- OS:ZoneHVAC:Dehumidifier:DX -->
+    
     <message>
         <source>Rated Water Removal</source>
         <translation>정격 제수량</translation>
     </message>
-    <!-- OS:Generator:WindTurbine -->
+    
     <message>
         <source>Rated Wind Speed</source>
         <translation>정격 풍속</translation>
     </message>
-    <!-- OS:AirflowNetworkSimulationControl -->
+    
     <message>
         <source>Ratio of Building Width Along Short Axis to Width Along Long Axis</source>
         <translation>단축 방향 건물 폭과 장축 방향 건물 폭의 비율</translation>
     </message>
-    <!-- OS:WindowProperty:FrameAndDivider -->
+    
     <message>
         <source>Ratio of Divider-Edge Glass Conductance to Center-Of-Glass Conductance</source>
         <translation>디바이더-엣지 글래스 전도도 대 글래스 중심부 전도도 비율</translation>
     </message>
-    <!-- OS:WindowProperty:FrameAndDivider -->
+    
     <message>
         <source>Ratio of Frame-Edge Glass Conductance to Center-Of-Glass Conductance</source>
         <translation>프레임-엣지 글래스 열전도율 대 중앙 글래스 열전도율의 비</translation>
     </message>
-    <!-- OS:Coil:Heating:WaterToAirHeatPump:EquationFit -->
+    
     <message>
         <source>Ratio of Rated Heating Capacity to Rated Cooling Capacity</source>
         <translation>정격 난방 용량 대 정격 냉각 용량의 비율</translation>
     </message>
-    <!-- OS:LifeCycleCost:Parameters -->
+    
     <message>
         <source>Real Discount Rate</source>
         <translation>실질 할인율</translation>
     </message>
-    <!-- OS:UtilityCost:Tariff -->
+    
     <message>
         <source>Real Time Pricing Charge Schedule Name</source>
         <translation>실시간 요금 부과 일정 이름</translation>
     </message>
-    <!-- OS:Refrigeration:TranscriticalSystem -->
+    
     <message>
         <source>Receiver Pressure</source>
         <translation>수신기 압력</translation>
     </message>
-    <!-- OS:Refrigeration:SecondarySystem -->
+    
     <message>
         <source>Receiver/Separator Zone Name</source>
         <translation>수신기/분리기 존 이름</translation>
     </message>
-    <!-- OS:AirTerminal:DualDuct:VAV:OutdoorAir -->
+    
     <message>
         <source>Recirculated Air Inlet Node</source>
         <translation>재순환 공기 입구 노드</translation>
     </message>
-    <!-- OS:EvaporativeCooler:Direct:ResearchSpecial, OS:EvaporativeCooler:Indirect:ResearchSpecial -->
+    
     <message>
         <source>Recirculating Water Pump Power Consumption</source>
         <translation>순환수 펌프 전력 소비</translation>
     </message>
-    <!-- OS:ElectricEquipment:ITE:AirCooled:Definition -->
+    
     <message>
         <source>Recirculation Function of Loading and Supply Temperature Curve Name</source>
         <translation>재순환 기능 로딩 및 공급 온도 곡선 이름</translation>
     </message>
-    <!-- OS:WaterUse:Connections -->
+    
     <message>
         <source>Reclamation Water Storage Tank Name</source>
         <translation>재생수 저수조 이름</translation>
     </message>
-    <!-- OS:WaterHeater:Sizing -->
+    
     <message>
         <source>Recovery Capacity per Floor Area</source>
         <translation>층면적당 회복 용량</translation>
     </message>
-    <!-- OS:WaterHeater:Sizing -->
+    
     <message>
         <source>Recovery Capacity per Person</source>
         <translation>인당 회복 용량</translation>
     </message>
-    <!-- OS:WaterHeater:Sizing -->
+    
     <message>
         <source>Recovery Capacity PerUnit</source>
         <translation>Recovery Capacity PerUnit</translation>
     </message>
-    <!-- OS:AirflowNetworkReferenceCrackConditions -->
+    
     <message>
         <source>Reference Barometric Pressure</source>
         <translation>기준 기압</translation>
     </message>
-    <!-- OS:HeatPump:PlantLoop:EIR:Cooling, OS:HeatPump:PlantLoop:EIR:Heating, OS:HeatPump:WaterToWater:EquationFit:Cooling, OS:HeatPump:WaterToWater:EquationFit:Heating -->
+    
     <message>
         <source>Reference Coefficient of Performance</source>
         <translation>참조 성능계수</translation>
     </message>
-    <!-- OS:Generator:MicroTurbine -->
+    
     <message>
         <source>Reference Combustion Air Inlet Humidity Ratio</source>
         <translation>참조 연소 공기 입구 습도비</translation>
     </message>
-    <!-- OS:Generator:MicroTurbine -->
+    
     <message>
         <source>Reference Combustion Air Inlet Temperature</source>
         <translation>기준 연소 공기 입구 온도</translation>
     </message>
-    <!-- OS:Chiller:Electric:EIR -->
+    
     <message>
         <source>Reference Condenser Fluid Flow Rate</source>
         <translation>참조 응축기 유체 유량</translation>
     </message>
-    <!-- OS:AirConditioner:VariableRefrigerantFlow:FluidTemperatureControl, OS:AirConditioner:VariableRefrigerantFlow:FluidTemperatureControl:HR -->
+    
     <message>
         <source>Reference Condensing Temperature for Indoor Unit</source>
         <translation>실내 유닛의 기준 응축 온도</translation>
     </message>
-    <!-- OS:HeatPump:WaterToWater:EquationFit:Cooling -->
+    
     <message>
         <source>Reference Cooling Capacity</source>
         <translation>기준 냉방 용량</translation>
     </message>
-    <!-- OS:ChillerHeaterPerformance:Electric:EIR -->
+    
     <message>
         <source>Reference Cooling Mode COP</source>
         <translation>참조 냉각 모드 COP</translation>
     </message>
-    <!-- OS:ChillerHeaterPerformance:Electric:EIR -->
+    
     <message>
         <source>Reference Cooling Mode Entering Condenser Fluid Temperature</source>
         <translation>참조 냉각 모드 진입 응축기 유체 온도</translation>
     </message>
-    <!-- OS:ChillerHeaterPerformance:Electric:EIR -->
+    
     <message>
         <source>Reference Cooling Mode Evaporator Capacity</source>
         <translation>참조 냉각 모드 증발기 용량</translation>
     </message>
-    <!-- OS:ChillerHeaterPerformance:Electric:EIR -->
+    
     <message>
         <source>Reference Cooling Mode Leaving Chilled Water Temperature</source>
         <translation>기준 냉각 모드 나가는 냉수 온도</translation>
     </message>
-    <!-- OS:ChillerHeaterPerformance:Electric:EIR -->
+    
     <message>
         <source>Reference Cooling Mode Leaving Condenser Water Temperature</source>
         <translation>참조 냉각 모드 나가는 응축기 물 온도</translation>
     </message>
-    <!-- OS:HeatPump:WaterToWater:EquationFit:Cooling -->
+    
     <message>
         <source>Reference Cooling Power Consumption</source>
         <translation>참조 냉각 전력 소비</translation>
     </message>
-    <!-- OS:AirflowNetworkCrack, OS:AirflowNetworkReliefAirFlow -->
+    
     <message>
         <source>Reference Crack Conditions</source>
         <translation>기준 균열 조건</translation>
     </message>
-    <!-- OS:Generator:MicroTurbine -->
+    
     <message>
         <source>Reference Electrical Efficiency Using Lower Heating Value</source>
         <translation>저급 발열량을 이용한 기준 전기 효율</translation>
     </message>
-    <!-- OS:Generator:MicroTurbine -->
+    
     <message>
         <source>Reference Electrical Power Output</source>
         <translation>참조 전기 출력</translation>
     </message>
-    <!-- OS:Generator:MicroTurbine -->
+    
     <message>
         <source>Reference Elevation</source>
         <translation>기준 높이</translation>
     </message>
-    <!-- OS:AirConditioner:VariableRefrigerantFlow:FluidTemperatureControl, OS:AirConditioner:VariableRefrigerantFlow:FluidTemperatureControl:HR -->
+    
     <message>
         <source>Reference Evaporating Temperature for Indoor Unit</source>
         <translation>실내 유닛을 위한 기준 증발 온도</translation>
     </message>
-    <!-- OS:Generator:MicroTurbine -->
+    
     <message>
         <source>Reference Exhaust Air Mass Flow Rate</source>
         <translation>참조 배기 공기 질량 유량</translation>
     </message>
-    <!-- OS:SetpointManager:FollowGroundTemperature -->
+    
     <message>
         <source>Reference Ground Temperature Object Type</source>
         <translation>Reference Ground Temperature Object Type</translation>
     </message>
-    <!-- OS:Generator:MicroTurbine:HeatRecovery -->
+    
     <message>
         <source>Reference Heat Recovery Water Flow Rate</source>
         <translation>참조 열 회수 물 흐름 속도</translation>
     </message>
-    <!-- OS:HeatPump:WaterToWater:EquationFit:Heating -->
+    
     <message>
         <source>Reference Heating Capacity</source>
         <translation>참조 난방 용량</translation>
     </message>
-    <!-- OS:ChillerHeaterPerformance:Electric:EIR -->
+    
     <message>
         <source>Reference Heating Mode Cooling Capacity Ratio</source>
         <translation>참조 난방 모드 냉각 용량 비율</translation>
     </message>
-    <!-- OS:ChillerHeaterPerformance:Electric:EIR -->
+    
     <message>
         <source>Reference Heating Mode Cooling Power Input Ratio</source>
         <translation>참조 난방 모드 냉각 전력 입력 비율</translation>
     </message>
-    <!-- OS:ChillerHeaterPerformance:Electric:EIR -->
+    
     <message>
         <source>Reference Heating Mode Entering Condenser Fluid Temperature</source>
         <translation>기준 난방 모드 응축기 유체 입구 온도</translation>
     </message>
-    <!-- OS:ChillerHeaterPerformance:Electric:EIR -->
+    
     <message>
         <source>Reference Heating Mode Leaving Chilled Water Temperature</source>
         <translation>참조 난방 모드 나가는 냉수 온도</translation>
     </message>
-    <!-- OS:ChillerHeaterPerformance:Electric:EIR -->
+    
     <message>
         <source>Reference Heating Mode Leaving Condenser Water Temperature</source>
         <translation>기준 난방 모드 나가는 응축수 온도</translation>
     </message>
-    <!-- OS:HeatPump:WaterToWater:EquationFit:Heating -->
+    
     <message>
         <source>Reference Heating Power Consumption</source>
         <translation>기준 난방 전력 소비</translation>
     </message>
-    <!-- OS:AirflowNetworkReferenceCrackConditions -->
+    
     <message>
         <source>Reference Humidity Ratio</source>
         <translation>기준 습도비</translation>
     </message>
-    <!-- OS:Generator:MicroTurbine:HeatRecovery -->
+    
     <message>
         <source>Reference Inlet Water Temperature</source>
         <translation>참조 입수 온도</translation>
     </message>
-    <!-- OS:PhotovoltaicPerformance:EquivalentOneDiode -->
+    
     <message>
         <source>Reference Insolation</source>
         <translation>참조 일사량</translation>
     </message>
-    <!-- OS:Chiller:Electric:ReformulatedEIR -->
+    
     <message>
         <source>Reference Leaving Condenser Water Temperature</source>
         <translation>응축기 출수 기준 온도</translation>
     </message>
-    <!-- OS:HeatPump:WaterToWater:EquationFit:Cooling, OS:HeatPump:WaterToWater:EquationFit:Heating -->
+    
     <message>
         <source>Reference Load Side Flow Rate</source>
         <translation>기준 부하측 유량</translation>
     </message>
-    <!-- OS:SetpointManager:FollowSystemNodeTemperature, OS:SetpointManager:SystemNodeReset:Humidity, OS:SetpointManager:SystemNodeReset:Temperature -->
+    
     <message>
         <source>Reference Node Name</source>
         <translation>기준 노드 이름</translation>
     </message>
-    <!-- OS:AirConditioner:VariableRefrigerantFlow:FluidTemperatureControl -->
+    
     <message>
         <source>Reference Outdoor Unit Subcooling</source>
         <translation>실외기 기준 서브쿨링</translation>
     </message>
-    <!-- OS:AirConditioner:VariableRefrigerantFlow:FluidTemperatureControl -->
+    
     <message>
         <source>Reference Outdoor Unit Superheating</source>
         <translation>기준 실외기 과열도</translation>
     </message>
-    <!-- OS:AirflowNetworkEffectiveLeakageArea, OS:AirflowNetworkLeakageRatio -->
+    
     <message>
         <source>Reference Pressure Difference</source>
         <translation>기준 압력차</translation>
     </message>
-    <!-- OS:SetpointManager:MixedAir, OS:SetpointManager:OutdoorAirPretreat -->
+    
     <message>
         <source>Reference Setpoint Node Name</source>
         <translation>참조 설정점 노드 이름</translation>
     </message>
-    <!-- OS:HeatPump:WaterToWater:EquationFit:Cooling, OS:HeatPump:WaterToWater:EquationFit:Heating -->
+    
     <message>
         <source>Reference Source Side Flow Rate</source>
         <translation>참조 열원 측 유량</translation>
     </message>
-    <!-- OS:AirflowNetworkReferenceCrackConditions, OS:PhotovoltaicPerformance:EquivalentOneDiode -->
+    
     <message>
         <source>Reference Temperature</source>
         <translation>기준 온도</translation>
     </message>
-    <!-- OS:ElectricLoadCenter:Transformer -->
+    
     <message>
         <source>Reference Temperature for Nameplate Efficiency</source>
         <translation>정격 효율 기준 온도</translation>
     </message>
-    <!-- OS:PlantEquipmentOperation:OutdoorDewpointDifference, OS:PlantEquipmentOperation:OutdoorDryBulbDifference, OS:PlantEquipmentOperation:OutdoorWetBulbDifference -->
+    
     <message>
         <source>Reference Temperature Node Name</source>
         <translation>기준 온도 노드 이름</translation>
     </message>
-    <!-- OS:Generator:MicroTurbine:HeatRecovery -->
+    
     <message>
         <source>Reference Thermal Efficiency Using Lower Heat Value</source>
         <translation>저열량을 사용한 참조 열효율</translation>
     </message>
-    <!-- OS:Coil:Cooling:DX:VariableSpeed:SpeedData, OS:Coil:Cooling:WaterToAirHeatPump:VariableSpeedEquationFit:SpeedData -->
+    
     <message>
         <source>Reference Unit Gross Rated Cooling COP</source>
         <translation>참조 유닛 정격 냉각 COP</translation>
     </message>
-    <!-- OS:Coil:Heating:DX:VariableSpeed:SpeedData, OS:Coil:Heating:WaterToAirHeatPump:VariableSpeedEquationFit:SpeedData -->
+    
     <message>
         <source>Reference Unit Gross Rated Heating Capacity</source>
         <translation>참조 유닛 정격 난방 용량</translation>
     </message>
-    <!-- OS:Coil:Heating:DX:VariableSpeed:SpeedData, OS:Coil:Heating:WaterToAirHeatPump:VariableSpeedEquationFit:SpeedData -->
+    
     <message>
         <source>Reference Unit Gross Rated Heating COP</source>
         <translation>참조 유닛 총정격 난방 COP</translation>
     </message>
-    <!-- OS:Coil:Cooling:DX:VariableSpeed:SpeedData, OS:Coil:Cooling:WaterToAirHeatPump:VariableSpeedEquationFit:SpeedData -->
+    
     <message>
         <source>Reference Unit Gross Rated Sensible Heat Ratio</source>
         <translation>기준 장치 총 정격 현열비</translation>
     </message>
-    <!-- OS:Coil:Cooling:DX:VariableSpeed:SpeedData, OS:Coil:Cooling:WaterToAirHeatPump:VariableSpeedEquationFit:SpeedData -->
+    
     <message>
         <source>Reference Unit Gross Rated Total Cooling Capacity</source>
         <translation>참조 유닛 정격 총 냉각 용량</translation>
     </message>
-    <!-- OS:Coil:Heating:WaterToAirHeatPump:VariableSpeedEquationFit:SpeedData -->
+    
     <message>
         <source>Reference Unit Rated Air Flow</source>
         <translation>참조 유닛 정격 공기 유량</translation>
     </message>
-    <!-- OS:Coil:Cooling:DX:VariableSpeed:SpeedData, OS:Coil:Cooling:WaterToAirHeatPump:VariableSpeedEquationFit:SpeedData, OS:Coil:Heating:DX:VariableSpeed:SpeedData, OS:Coil:WaterHeating:AirToWaterHeatPump:VariableSpeed:SpeedData -->
+    
     <message>
         <source>Reference Unit Rated Air Flow Rate</source>
         <translation>참조 유닛 정격 공기 유량</translation>
     </message>
-    <!-- OS:Coil:Cooling:DX:VariableSpeed:SpeedData -->
+    
     <message>
         <source>Reference Unit Rated Condenser Air Flow Rate</source>
         <translation>Reference Unit Rated Condenser Air Flow Rate를 한국어로 번역하면:
@@ -21731,172 +21730,172 @@ Electric</source>
 
 **기준 유닛 정격 응축기 풍량**</translation>
     </message>
-    <!-- OS:Coil:Cooling:DX:VariableSpeed:SpeedData -->
+    
     <message>
         <source>Reference Unit Rated Pad Effectiveness of Evap Precooling</source>
         <translation>참조 유닛 정격 증발식 사전냉각 패드 효율</translation>
     </message>
-    <!-- OS:Coil:Cooling:WaterToAirHeatPump:VariableSpeedEquationFit:SpeedData, OS:Coil:Heating:WaterToAirHeatPump:VariableSpeedEquationFit:SpeedData, OS:Coil:WaterHeating:AirToWaterHeatPump:VariableSpeed:SpeedData -->
+    
     <message>
         <source>Reference Unit Rated Water Flow Rate</source>
         <translation>기준 유닛 정격 물 유량</translation>
     </message>
-    <!-- OS:Coil:Cooling:WaterToAirHeatPump:VariableSpeedEquationFit:SpeedData, OS:Coil:Heating:WaterToAirHeatPump:VariableSpeedEquationFit:SpeedData -->
+    
     <message>
         <source>Reference Unit Waste Heat Fraction of Input Power At Rated Conditions</source>
         <translation>Reference Unit Waste Heat Fraction of Input Power At Rated Conditions</translation>
     </message>
-    <!-- OS:Coil:WaterHeating:AirToWaterHeatPump:VariableSpeed:SpeedData -->
+    
     <message>
         <source>Reference Unit Water Pump Input Power At Rated Conditions</source>
         <translation>정격 조건에서의 기준 단위 급수 펌프 입력 전력</translation>
     </message>
-    <!-- OS:WindowMaterial:Screen -->
+    
     <message>
         <source>Reflected Beam Transmittance Accounting Method</source>
         <translation>반사 빔 투과율 계산 방법</translation>
     </message>
-    <!-- OS:Generator:FuelCell:WaterSupply -->
+    
     <message>
         <source>Reformer Water Flow Rate Function of Fuel Rate Curve Name</source>
         <translation>연료 유량에 따른 개질기 물 유량 함수 곡선 이름</translation>
     </message>
-    <!-- OS:Generator:FuelCell:WaterSupply -->
+    
     <message>
         <source>Reformer Water Pump Power Function of Fuel Rate Curve Name</source>
         <translation>개질기 물 펌프 전력 연료 비율 함수 곡선 이름</translation>
     </message>
-    <!-- OS:SolarCollectorPerformance:IntegralCollectorStorage -->
+    
     <message>
         <source>Refractive Index of Inner Cover</source>
         <translation>내부 커버의 굴절률</translation>
     </message>
-    <!-- OS:SolarCollectorPerformance:IntegralCollectorStorage -->
+    
     <message>
         <source>Refractive Index of Outer Cover</source>
         <translation>외부 덮개의 굴절률</translation>
     </message>
-    <!-- OS:Refrigeration:AirChiller -->
+    
     <message>
         <source>Refrigerant Correction Factor</source>
         <translation>냉매 보정 계수</translation>
     </message>
-    <!-- OS:AirConditioner:VariableRefrigerantFlow:FluidTemperatureControl, OS:AirConditioner:VariableRefrigerantFlow:FluidTemperatureControl:HR -->
+    
     <message>
         <source>Refrigerant Temperature Control Algorithm for Indoor Unit</source>
         <translation>실내기 냉매 온도 제어 알고리즘</translation>
     </message>
-    <!-- OS:AirConditioner:VariableRefrigerantFlow:FluidTemperatureControl, OS:AirConditioner:VariableRefrigerantFlow:FluidTemperatureControl:HR -->
+    
     <message>
         <source>Refrigerant Type</source>
         <translation>냉매 유형</translation>
     </message>
-    <!-- OS:Refrigeration:Case -->
+    
     <message>
         <source>Refrigerated Case Restocking Schedule Name</source>
         <translation>냉동 케이스 재고 공급 스케줄 이름</translation>
     </message>
-    <!-- OS:Refrigeration:CompressorRack, OS:Refrigeration:SecondarySystem, OS:Refrigeration:System -->
+    
     <message>
         <source>Refrigerated CaseAndWalkInList Name</source>
         <translation>냉동 케이스 및 워크인 목록 이름</translation>
     </message>
-    <!-- OS:Refrigeration:Compressor -->
+    
     <message>
         <source>Refrigeration Compressor Capacity Curve Name</source>
         <translation>냉동 압축기 용량 곡선 이름</translation>
     </message>
-    <!-- OS:Refrigeration:Compressor -->
+    
     <message>
         <source>Refrigeration Compressor Power Curve Name</source>
         <translation>냉동 압축기 전력 곡선 이름</translation>
     </message>
-    <!-- OS:Refrigeration:System -->
+    
     <message>
         <source>Refrigeration Condenser Name</source>
         <translation>냉동 응축기 이름</translation>
     </message>
-    <!-- OS:Refrigeration:TranscriticalSystem -->
+    
     <message>
         <source>Refrigeration Gas Cooler Name</source>
         <translation>냉동 가스 쿨러 이름</translation>
     </message>
-    <!-- OS:Refrigeration:System, OS:Refrigeration:TranscriticalSystem -->
+    
     <message>
         <source>Refrigeration System Working Fluid Type</source>
         <translation>냉동 시스템 작동 유체 유형</translation>
     </message>
-    <!-- OS:Refrigeration:System -->
+    
     <message>
         <source>Refrigeration TransferLoad List Name</source>
         <translation>냉동 전열 부하 목록 이름</translation>
     </message>
-    <!-- OS:HeatExchanger:Desiccant:BalancedFlow -->
+    
     <message>
         <source>Regeneration Air Inlet Node</source>
         <translation>재생 공기 입구 노드</translation>
     </message>
-    <!-- OS:HeatExchanger:Desiccant:BalancedFlow -->
+    
     <message>
         <source>Regeneration Air Outlet Node</source>
         <translation>재생 공기 출구 노드</translation>
     </message>
-    <!-- OS:Coil:Heating:DX:MultiSpeed -->
+    
     <message>
         <source>Region number for Calculating HSPF</source>
         <translation>HSPF 계산을 위한 영역 번호</translation>
     </message>
-    <!-- OS:ComponentCost:Adjustments -->
+    
     <message>
         <source>Regional Adjustment Factor</source>
         <translation>지역 조정 계수</translation>
     </message>
-    <!-- OS:AirTerminal:SingleDuct:VAV:HeatAndCool:Reheat -->
+    
     <message>
         <source>Reheat Coil</source>
         <translation>재열 코일</translation>
     </message>
-    <!-- OS:AirTerminal:SingleDuct:SeriesPIU:Reheat -->
+    
     <message>
         <source>Reheat Coil Air Inlet Node</source>
         <translation>재열 코일 공기 입구 노드</translation>
     </message>
-    <!-- OS:AirTerminal:SingleDuct:ParallelPIU:Reheat -->
+    
     <message>
         <source>Reheat Coil Air Inlet Node Name</source>
         <translation>재열 코일 공기 입구 노드 이름</translation>
     </message>
-    <!-- OS:AirTerminal:SingleDuct:ConstantVolume:Reheat, OS:AirTerminal:SingleDuct:ParallelPIU:Reheat, OS:AirTerminal:SingleDuct:SeriesPIU:Reheat, OS:AirTerminal:SingleDuct:VAV:Reheat -->
+    
     <message>
         <source>Reheat Coil Name</source>
         <translation>재열 코일 이름</translation>
     </message>
-    <!-- OS:AirflowNetworkSimulationControl -->
+    
     <message>
         <source>Relative Airflow Convergence Tolerance</source>
         <translation>상대 기류 수렴 허용오차</translation>
     </message>
-    <!-- OS:PlantEquipmentOperation:OutdoorRelativeHumidity -->
+    
     <message>
         <source>Relative Humidity Range Lower Limit</source>
         <translation>상대습도 범위 하한</translation>
     </message>
-    <!-- OS:PlantEquipmentOperation:OutdoorRelativeHumidity -->
+    
     <message>
         <source>Relative Humidity Range Upper Limit</source>
         <translation>상대습도 범위 상한선</translation>
     </message>
-    <!-- OS:EvaporativeCooler:Indirect:ResearchSpecial -->
+    
     <message>
         <source>Relief Air Inlet Node</source>
         <translation>누기 공기 유입 노드</translation>
     </message>
-    <!-- OS:Controller:OutdoorAir -->
+    
     <message>
         <source>Relief Air Outlet Node Name</source>
         <translation>완화 공기 배출 노드 이름</translation>
     </message>
-    <!-- OS:AirLoopHVAC:OutdoorAirSystem -->
+    
     <message>
         <source>Relief Air Stream Node Name</source>
         <translation>Relief Air Stream Node Name으로 번역하겠습니다.
@@ -21913,854 +21912,854 @@ The most standard technical translation is:
 
 **배기 공기 스트림 노드 이름**</translation>
     </message>
-    <!-- OS:Building -->
+    
     <message>
         <source>Relocatable</source>
         <translation>이동 가능한</translation>
     </message>
-    <!-- OS:UtilityCost:Charge:Block -->
+    
     <message>
         <source>Remaining Into Variable</source>
         <translation>남은 금액을 변수로</translation>
     </message>
-    <!-- OS:Rendering:Color -->
+    
     <message>
         <source>Rendering Alpha Value</source>
         <translation>렌더링 알파 값</translation>
     </message>
-    <!-- OS:Rendering:Color -->
+    
     <message>
         <source>Rendering Blue Value</source>
         <translation>렌더링 파랑 값</translation>
     </message>
-    <!-- OS:BuildingUnit -->
+    
     <message>
         <source>Rendering Color</source>
         <translation>렌더링 색상</translation>
     </message>
-    <!-- OS:Rendering:Color -->
+    
     <message>
         <source>Rendering Green Value</source>
         <translation>렌더링 녹색 값</translation>
     </message>
-    <!-- OS:Rendering:Color -->
+    
     <message>
         <source>Rendering Red Value</source>
         <translation>렌더링 빨강 값</translation>
     </message>
-    <!-- OS:LifeCycleCost -->
+    
     <message>
         <source>Repeat Period Months</source>
         <translation>반복 기간 월</translation>
     </message>
-    <!-- OS:LifeCycleCost -->
+    
     <message>
         <source>Repeat Period Years</source>
         <translation>반복 기간 연도</translation>
     </message>
-    <!-- OS:Output:Constructions -->
+    
     <message>
         <source>Report Constructions</source>
         <translation>구성 보고</translation>
     </message>
-    <!-- OS:Output:DebuggingData -->
+    
     <message>
         <source>Report Debugging Data</source>
         <translation>디버깅 데이터 보고</translation>
     </message>
-    <!-- OS:Output:DebuggingData -->
+    
     <message>
         <source>Report During Warmup</source>
         <translation>예열 중 보고</translation>
     </message>
-    <!-- OS:Output:Constructions -->
+    
     <message>
         <source>Report Materials</source>
         <translation>보고서 재료</translation>
     </message>
-    <!-- OS:Output:Table:SummaryReports -->
+    
     <message>
         <source>Report Name</source>
         <translation>보고서 이름</translation>
     </message>
-    <!-- OS:Output:EnvironmentalImpactFactors, OS:Output:Meter, OS:Output:Variable -->
+    
     <message>
         <source>Reporting Frequency</source>
         <translation>보고 빈도</translation>
     </message>
-    <!-- OS:Chiller:Electric:ASHRAE205 -->
+    
     <message>
         <source>Representation File Name</source>
         <translation>표현 파일 이름</translation>
     </message>
-    <!-- OS:Material:RoofVegetation -->
+    
     <message>
         <source>Residual Volumetric Moisture Content of the Soil Layer</source>
         <translation>토양층의 잔존 체적 함수량</translation>
     </message>
-    <!-- OS:LifeCycleCost:UsePriceEscalation -->
+    
     <message>
         <source>Resource</source>
         <translation>리소스</translation>
     </message>
-    <!-- OS:EnergyManagementSystem:MeteredOutputVariable, OS:PythonPlugin:OutputVariable -->
+    
     <message>
         <source>Resource Type</source>
         <translation>리소스 유형</translation>
     </message>
-    <!-- OS:Refrigeration:WalkIn -->
+    
     <message>
         <source>Restocking Schedule Name</source>
         <translation>재입고 일정 이름</translation>
     </message>
-    <!-- OS:AirLoopHVAC -->
+    
     <message>
         <source>Return Air Bypass Flow Temperature Setpoint Schedule Name</source>
         <translation>반환 공기 바이패스 흐름 온도 설정값 스케줄 이름</translation>
     </message>
-    <!-- OS:Lights:Definition, OS:Luminaire:Definition -->
+    
     <message>
         <source>Return Air Fraction</source>
         <translation>반환 공기 비율</translation>
     </message>
-    <!-- OS:Lights:Definition, OS:Luminaire:Definition -->
+    
     <message>
         <source>Return Air Fraction Calculated from Plenum Temperature</source>
         <translation>Return Air Fraction Calculated from Plenum Temperature</translation>
     </message>
-    <!-- OS:Lights:Definition, OS:Luminaire:Definition -->
+    
     <message>
         <source>Return Air Fraction Function of Plenum Temperature Coefficient 1</source>
         <translation>반환 공기 분율 플레넘 온도 함수 계수 1</translation>
     </message>
-    <!-- OS:Lights:Definition, OS:Luminaire:Definition -->
+    
     <message>
         <source>Return Air Fraction Function of Plenum Temperature Coefficient 2</source>
         <translation>Return Air Fraction Function of Plenum Temperature Coefficient 2</translation>
     </message>
-    <!-- OS:Controller:OutdoorAir -->
+    
     <message>
         <source>Return Air Node Name</source>
         <translation>반환 공기 노드 이름</translation>
     </message>
-    <!-- OS:AirLoopHVAC:OutdoorAirSystem, OS:SetpointManager:OutdoorAirPretreat -->
+    
     <message>
         <source>Return Air Stream Node Name</source>
         <translation>반환 공기 스트림 노드 이름</translation>
     </message>
-    <!-- OS:ElectricEquipment:ITE:AirCooled:Definition -->
+    
     <message>
         <source>Return Temperature Difference</source>
         <translation>복귀 온도 차이</translation>
     </message>
-    <!-- OS:ElectricEquipment:ITE:AirCooled:Definition -->
+    
     <message>
         <source>Return Temperature Difference Schedule</source>
         <translation>반환 온도 차이 스케줄</translation>
     </message>
-    <!-- OS:WindowMaterial:Screen -->
+    
     <message>
         <source>Right Side Opening Multiplier</source>
         <translation>우측 개구부 승수</translation>
     </message>
-    <!-- OS:WindowMaterial:Shade -->
+    
     <message>
         <source>Right-Side Opening Multiplier</source>
         <translation>우측 개구부 승수</translation>
     </message>
-    <!-- OS:DefaultSurfaceConstructions -->
+    
     <message>
         <source>Roof Ceiling Construction Name</source>
         <translation>지붕 천장 구성 이름</translation>
     </message>
-    <!-- OS:Pump:ConstantSpeed -->
+    
     <message>
         <source>Rotational Speed</source>
         <translation>회전 속도</translation>
     </message>
-    <!-- OS:Generator:WindTurbine -->
+    
     <message>
         <source>Rotor Diameter</source>
         <translation>로터 지름</translation>
     </message>
-    <!-- OS:Generator:WindTurbine -->
+    
     <message>
         <source>Rotor Type</source>
         <translation>로터 타입</translation>
     </message>
-    <!-- OS:Curve:Functional:PressureDrop, OS:Material, OS:Material:NoMass, OS:Material:RoofVegetation -->
+    
     <message>
         <source>Roughness</source>
         <translation>거칠기</translation>
     </message>
-    <!-- OS:Schedule:File -->
+    
     <message>
         <source>Rows to Skip at Top</source>
         <translation>상단에서 건너뛸 행 수</translation>
     </message>
-    <!-- OS:Schedule:Rule -->
+    
     <message>
         <source>Rule Order</source>
         <translation>규칙 순서</translation>
     </message>
-    <!-- OS:PythonPlugin:Instance -->
+    
     <message>
         <source>Run During Warmup Days</source>
         <translation>워밍업 일 동안 실행</translation>
     </message>
-    <!-- OS:AirLoopHVAC:UnitaryCoolOnly, OS:CoilSystem:Cooling:Water -->
+    
     <message>
         <source>Run on Latent Load</source>
         <translation>잠열 부하에서 실행</translation>
     </message>
-    <!-- OS:AirLoopHVAC:UnitaryCoolOnly, OS:CoilSystem:Cooling:Water -->
+    
     <message>
         <source>Run on Sensible Load</source>
         <translation>현열 부하에서 실행</translation>
     </message>
-    <!-- OS:LightingSimulationControl -->
+    
     <message>
         <source>Run Simulation for Design Days</source>
         <translation>설계일 시뮬레이션 실행</translation>
     </message>
-    <!-- OS:SimulationControl -->
+    
     <message>
         <source>Run Simulation for Sizing Periods</source>
         <translation>크기 결정 기간에 대한 시뮬레이션 실행</translation>
     </message>
-    <!-- OS:LightingSimulationControl, OS:SimulationControl -->
+    
     <message>
         <source>Run Simulation for Weather File Run Periods</source>
         <translation>기상 파일 실행 기간에 대한 시뮬레이션 실행</translation>
     </message>
-    <!-- OS:Generator:FuelCell:PowerModule -->
+    
     <message>
         <source>Run Time Degradation Initiation Time Threshold</source>
         <translation>실행 시간 열화 개시 시간 임계값</translation>
     </message>
-    <!-- OS:ZoneHVAC:LowTemperatureRadiant:ConstantFlow -->
+    
     <message>
         <source>Running Mean Outdoor Dry-Bulb Temperature Weighting Factor</source>
         <translation>실행 평균 외부 건구 온도 가중치 계수</translation>
     </message>
 
-    <!-- S -->
-    <!-- OS:PhotovoltaicPerformance:Sandia -->
+    
+    
     <message>
         <source>Sandia Database Parameter a</source>
         <translation>Sandia 데이터베이스 매개변수 a</translation>
     </message>
-    <!-- OS:PhotovoltaicPerformance:Sandia -->
+    
     <message>
         <source>Sandia Database Parameter a0</source>
         <translation>Sandia 데이터베이스 매개변수 a0</translation>
     </message>
-    <!-- OS:PhotovoltaicPerformance:Sandia -->
+    
     <message>
         <source>Sandia Database Parameter a1</source>
         <translation>Sandia Database Parameter a1</translation>
     </message>
-    <!-- OS:PhotovoltaicPerformance:Sandia -->
+    
     <message>
         <source>Sandia Database Parameter a2</source>
         <translation>Sandia 데이터베이스 매개변수 a2</translation>
     </message>
-    <!-- OS:PhotovoltaicPerformance:Sandia -->
+    
     <message>
         <source>Sandia Database Parameter a3</source>
         <translation>Sandia Database Parameter a3</translation>
     </message>
-    <!-- OS:PhotovoltaicPerformance:Sandia -->
+    
     <message>
         <source>Sandia Database Parameter a4</source>
         <translation>Sandia 데이터베이스 매개변수 a4</translation>
     </message>
-    <!-- OS:PhotovoltaicPerformance:Sandia -->
+    
     <message>
         <source>Sandia Database Parameter aImp</source>
         <translation>Sandia 데이터베이스 매개변수 aImp</translation>
     </message>
-    <!-- OS:PhotovoltaicPerformance:Sandia -->
+    
     <message>
         <source>Sandia Database Parameter aIsc</source>
         <translation>Sandia Database Parameter aIsc</translation>
     </message>
-    <!-- OS:PhotovoltaicPerformance:Sandia -->
+    
     <message>
         <source>Sandia Database Parameter b</source>
         <translation>Sandia Database Parameter b</translation>
     </message>
-    <!-- OS:PhotovoltaicPerformance:Sandia -->
+    
     <message>
         <source>Sandia Database Parameter b0</source>
         <translation>Sandia Database Parameter b0</translation>
     </message>
-    <!-- OS:PhotovoltaicPerformance:Sandia -->
+    
     <message>
         <source>Sandia Database Parameter b1</source>
         <translation>Sandia 데이터베이스 파라미터 b1</translation>
     </message>
-    <!-- OS:PhotovoltaicPerformance:Sandia -->
+    
     <message>
         <source>Sandia Database Parameter b2</source>
         <translation>Sandia 데이터베이스 매개변수 b2</translation>
     </message>
-    <!-- OS:PhotovoltaicPerformance:Sandia -->
+    
     <message>
         <source>Sandia Database Parameter b3</source>
         <translation>Sandia Database Parameter b3</translation>
     </message>
-    <!-- OS:PhotovoltaicPerformance:Sandia -->
+    
     <message>
         <source>Sandia Database Parameter b4</source>
         <translation>Sandia 데이터베이스 파라미터 b4</translation>
     </message>
-    <!-- OS:PhotovoltaicPerformance:Sandia -->
+    
     <message>
         <source>Sandia Database Parameter b5</source>
         <translation>Sandia 데이터베이스 매개변수 b5</translation>
     </message>
-    <!-- OS:PhotovoltaicPerformance:Sandia -->
+    
     <message>
         <source>Sandia Database Parameter BVmp0</source>
         <translation>Sandia Database Parameter BVmp0</translation>
     </message>
-    <!-- OS:PhotovoltaicPerformance:Sandia -->
+    
     <message>
         <source>Sandia Database Parameter BVoc0</source>
         <translation>Sandia 데이터베이스 매개변수 BVoc0</translation>
     </message>
-    <!-- OS:PhotovoltaicPerformance:Sandia -->
+    
     <message>
         <source>Sandia Database Parameter c0</source>
         <translation>Sandia 데이터베이스 파라미터 c0</translation>
     </message>
-    <!-- OS:PhotovoltaicPerformance:Sandia -->
+    
     <message>
         <source>Sandia Database Parameter c1</source>
         <translation>Sandia 데이터베이스 매개변수 c1</translation>
     </message>
-    <!-- OS:PhotovoltaicPerformance:Sandia -->
+    
     <message>
         <source>Sandia Database Parameter c2</source>
         <translation>Sandia 데이터베이스 파라미터 c2</translation>
     </message>
-    <!-- OS:PhotovoltaicPerformance:Sandia -->
+    
     <message>
         <source>Sandia Database Parameter c3</source>
         <translation>Sandia 데이터베이스 파라미터 c3</translation>
     </message>
-    <!-- OS:PhotovoltaicPerformance:Sandia -->
+    
     <message>
         <source>Sandia Database Parameter c4</source>
         <translation>Sandia 데이터베이스 매개변수 c4</translation>
     </message>
-    <!-- OS:PhotovoltaicPerformance:Sandia -->
+    
     <message>
         <source>Sandia Database Parameter c5</source>
         <translation>Sandia 데이터베이스 매개변수 c5</translation>
     </message>
-    <!-- OS:PhotovoltaicPerformance:Sandia -->
+    
     <message>
         <source>Sandia Database Parameter c6</source>
         <translation>Sandia Database Parameter c6</translation>
     </message>
-    <!-- OS:PhotovoltaicPerformance:Sandia -->
+    
     <message>
         <source>Sandia Database Parameter c7</source>
         <translation>Sandia Database Parameter c7</translation>
     </message>
-    <!-- OS:PhotovoltaicPerformance:Sandia -->
+    
     <message>
         <source>Sandia Database Parameter Delta(Tc)</source>
         <translation>Sandia 데이터베이스 파라미터 Delta(Tc)</translation>
     </message>
-    <!-- OS:PhotovoltaicPerformance:Sandia -->
+    
     <message>
         <source>Sandia Database Parameter fd</source>
         <translation>Sandia 데이터베이스 매개변수 fd</translation>
     </message>
-    <!-- OS:PhotovoltaicPerformance:Sandia -->
+    
     <message>
         <source>Sandia Database Parameter Ix0</source>
         <translation>Sandia Database Parameter Ix0</translation>
     </message>
-    <!-- OS:PhotovoltaicPerformance:Sandia -->
+    
     <message>
         <source>Sandia Database Parameter Ixx0</source>
         <translation>Sandia Database Parameter Ixx0</translation>
     </message>
-    <!-- OS:PhotovoltaicPerformance:Sandia -->
+    
     <message>
         <source>Sandia Database Parameter mBVmp</source>
         <translation>Sandia 데이터베이스 매개변수 mBVmp</translation>
     </message>
-    <!-- OS:PhotovoltaicPerformance:Sandia -->
+    
     <message>
         <source>Sandia Database Parameter mBVoc</source>
         <translation>Sandia 데이터베이스 매개변수 mBVoc</translation>
     </message>
-    <!-- OS:Material:RoofVegetation -->
+    
     <message>
         <source>Saturation Volumetric Moisture Content of the Soil Layer</source>
         <translation>토양층의 포화 체적함수량</translation>
     </message>
-    <!-- OS:Schedule:Week -->
+    
     <message>
         <source>Saturday Schedule:Day Name</source>
         <translation>토요일 스케줄:요일 이름</translation>
     </message>
-    <!-- OS:CoilSystem:IntegratedHeatPump:AirSource -->
+    
     <message>
         <source>SCDWH Cooling Coil</source>
         <translation>SCDWH 냉각 코일</translation>
     </message>
-    <!-- OS:CoilSystem:IntegratedHeatPump:AirSource -->
+    
     <message>
         <source>SCDWH Water Heating Coil</source>
         <translation>SCDWH 온수 가열 코일</translation>
     </message>
-    <!-- OS:Schedule:Week -->
+    
     <message>
         <source>Schedule Rendering Name</source>
         <translation>일정 렌더링 이름</translation>
     </message>
-    <!-- OS:Schedule:Rule -->
+    
     <message>
         <source>Schedule Ruleset Name</source>
         <translation>스케줄 규칙 집합 이름</translation>
     </message>
-    <!-- OS:WindowMaterial:Screen -->
+    
     <message>
         <source>Screen Material Diameter</source>
         <translation>스크린 재질 직경</translation>
     </message>
-    <!-- OS:WindowMaterial:Screen -->
+    
     <message>
         <source>Screen Material Spacing</source>
         <translation>스크린 소재 간격</translation>
     </message>
-    <!-- OS:WindowMaterial:Screen -->
+    
     <message>
         <source>Screen to Glass Distance</source>
         <translation>스크린과 유리 간 거리</translation>
     </message>
-    <!-- OS:CoilSystem:IntegratedHeatPump:AirSource -->
+    
     <message>
         <source>SCWH Coil</source>
         <translation>SCWH 코일</translation>
     </message>
-    <!-- OS:PythonPlugin:SearchPaths -->
+    
     <message>
         <source>Search Path</source>
         <translation>검색 경로</translation>
     </message>
-    <!-- OS:UtilityCost:Charge:Block, OS:UtilityCost:Charge:Simple, OS:UtilityCost:Qualify -->
+    
     <message>
         <source>Season</source>
         <translation>계절</translation>
     </message>
-    <!-- OS:UtilityCost:Ratchet -->
+    
     <message>
         <source>Season From</source>
         <translation>시즌 시작</translation>
     </message>
-    <!-- OS:UtilityCost:Tariff -->
+    
     <message>
         <source>Season Schedule Name</source>
         <translation>계절 스케줄 이름</translation>
     </message>
-    <!-- OS:UtilityCost:Ratchet -->
+    
     <message>
         <source>Season To</source>
         <translation>계절 종료</translation>
     </message>
-    <!-- OS:ZoneHVAC:EvaporativeCoolerUnit -->
+    
     <message>
         <source>Second Evaporative Cooler</source>
         <translation>두 번째 증발식 냉각기</translation>
     </message>
-    <!-- OS:EvaporativeCooler:Indirect:ResearchSpecial -->
+    
     <message>
         <source>Secondary Air Fan Design Power</source>
         <translation>보조 공기 팬 설계 전력</translation>
     </message>
-    <!-- OS:EvaporativeCooler:Indirect:ResearchSpecial -->
+    
     <message>
         <source>Secondary Air Fan Power Modifier Curve Name</source>
         <translation>보조 공기 팬 전력 수정 곡선 이름</translation>
     </message>
-    <!-- OS:EvaporativeCooler:Indirect:ResearchSpecial -->
+    
     <message>
         <source>Secondary Air Flow Scaling Factor</source>
         <translation>이차 공기 흐름 스케일링 계수</translation>
     </message>
-    <!-- OS:AirTerminal:SingleDuct:SeriesPIU:Reheat, OS:EvaporativeCooler:Indirect:ResearchSpecial -->
+    
     <message>
         <source>Secondary Air Inlet Node</source>
         <translation>Secondary Air Inlet Node</translation>
     </message>
-    <!-- OS:AirTerminal:SingleDuct:ParallelPIU:Reheat -->
+    
     <message>
         <source>Secondary Air Inlet Node Name</source>
         <translation>보조 공기 입구 노드 이름</translation>
     </message>
-    <!-- OS:ThermalZone -->
+    
     <message>
         <source>Secondary Daylighting Control Name</source>
         <translation>보조 자연채광 제어 이름</translation>
     </message>
-    <!-- OS:EvaporativeCooler:Indirect:ResearchSpecial -->
+    
     <message>
         <source>Secondary Fan Delta Pressure</source>
         <translation>보조 팬 차압</translation>
     </message>
-    <!-- OS:EvaporativeCooler:Indirect:ResearchSpecial -->
+    
     <message>
         <source>Secondary Fan Flow Rate</source>
         <translation>이차 팬 유량</translation>
     </message>
-    <!-- OS:EvaporativeCooler:Indirect:ResearchSpecial -->
+    
     <message>
         <source>Secondary Fan Total Efficiency</source>
         <translation>보조 팬 총 효율</translation>
     </message>
-    <!-- OS:PhotovoltaicPerformance:EquivalentOneDiode -->
+    
     <message>
         <source>Semiconductor Bandgap</source>
         <translation>반도체 밴드갭</translation>
     </message>
-    <!-- OS:Coil:Cooling:WaterToAirHeatPump:EquationFit -->
+    
     <message>
         <source>Sensible Cooling Capacity Curve Name</source>
         <translation>현열 냉각 용량 곡선 이름</translation>
     </message>
-    <!-- OS:HeatExchanger:AirToAir:SensibleAndLatent -->
+    
     <message>
         <source>Sensible Effectiveness at 100% Cooling Air Flow</source>
         <translation>100% 냉각 공기 유량에서의 현열 효율</translation>
     </message>
-    <!-- OS:HeatExchanger:AirToAir:SensibleAndLatent -->
+    
     <message>
         <source>Sensible Effectiveness at 100% Heating Air Flow</source>
         <translation>100% 난방 공기 흐름에서의 현열 효율</translation>
     </message>
-    <!-- OS:HeatExchanger:AirToAir:SensibleAndLatent -->
+    
     <message>
         <source>Sensible Effectiveness of Cooling Air Flow Curve Name</source>
         <translation>냉각 공기 흐름 현열 효율 곡선 이름</translation>
     </message>
-    <!-- OS:HeatExchanger:AirToAir:SensibleAndLatent -->
+    
     <message>
         <source>Sensible Effectiveness of Heating Air Flow Curve Name</source>
         <translation>난방 공기 흐름 현열 효율 곡선 이름</translation>
     </message>
-    <!-- OS:CoilPerformance:DX:Cooling -->
+    
     <message>
         <source>Sensible Heat Ratio Function of Flow Fraction Curve</source>
         <translation>유량분율 함수의 현열비 곡선</translation>
     </message>
-    <!-- OS:CoilPerformance:DX:Cooling -->
+    
     <message>
         <source>Sensible Heat Ratio Function of Temperature Curve</source>
         <translation>온도 함수 현열비 곡선</translation>
     </message>
-    <!-- OS:Coil:Cooling:DX:CurveFit:Speed -->
+    
     <message>
         <source>Sensible Heat Ratio Modifier Function of Flow Fraction Curve</source>
         <translation>Sensible Heat Ratio Modifier Function of Flow Fraction Curve</translation>
     </message>
-    <!-- OS:Coil:Cooling:DX:CurveFit:Speed -->
+    
     <message>
         <source>Sensible Heat Ratio Modifier Function of Temperature Curve</source>
         <translation>온도 곡선의 현열 열 비율 수정 함수</translation>
     </message>
-    <!-- OS:ZoneHVAC:IdealLoadsAirSystem -->
+    
     <message>
         <source>Sensible Heat Recovery Effectiveness</source>
         <translation>현열 회수 효율</translation>
     </message>
-    <!-- OS:AvailabilityManager:HighTemperatureTurnOff, OS:AvailabilityManager:HighTemperatureTurnOn, OS:AvailabilityManager:LowTemperatureTurnOff, OS:AvailabilityManager:LowTemperatureTurnOn, OS:Controller:WaterCoil, OS:EvaporativeCooler:Direct:ResearchSpecial, OS:EvaporativeCooler:Indirect:ResearchSpecial -->
+    
     <message>
         <source>Sensor Node Name</source>
         <translation>센서 노드 이름</translation>
     </message>
-    <!-- OS:Site:GroundTemperature:Deep -->
+    
     <message>
         <source>September Deep Ground Temperature</source>
         <translation>9월 심층 지반 온도</translation>
     </message>
-    <!-- OS:Site:GroundReflectance -->
+    
     <message>
         <source>September Ground Reflectance</source>
         <translation>9월 지면 반사율</translation>
     </message>
-    <!-- OS:Site:GroundTemperature:BuildingSurface, OS:Site:GroundTemperature:FCfactorMethod -->
+    
     <message>
         <source>September Ground Temperature</source>
         <translation>9월 지표면 온도</translation>
     </message>
-    <!-- OS:Site:GroundTemperature:Shallow -->
+    
     <message>
         <source>September Surface Ground Temperature</source>
         <translation>9월 지표면 지온</translation>
     </message>
-    <!-- OS:UtilityCost:Variable -->
+    
     <message>
         <source>September Value</source>
         <translation>9월 값</translation>
     </message>
-    <!-- OS:LifeCycleCost:Parameters -->
+    
     <message>
         <source>Service Date Month</source>
         <translation>서비스 날짜 월</translation>
     </message>
-    <!-- OS:LifeCycleCost:Parameters -->
+    
     <message>
         <source>Service Date Year</source>
         <translation>서비스 연도</translation>
     </message>
-    <!-- OS:ShadingControl -->
+    
     <message>
         <source>Setpoint</source>
         <translation>설정값</translation>
     </message>
-    <!-- OS:ShadingControl -->
+    
     <message>
         <source>Setpoint 2</source>
         <translation>Setpoint 2</translation>
     </message>
-    <!-- OS:SetpointManager:SystemNodeReset:Humidity -->
+    
     <message>
         <source>Setpoint at High Reference Humidity Ratio</source>
         <translation>높은 기준 습도비에서의 설정값</translation>
     </message>
-    <!-- OS:SetpointManager:SystemNodeReset:Temperature -->
+    
     <message>
         <source>Setpoint at High Reference Temperature</source>
         <translation>고온 기준 온도에서의 설정값</translation>
     </message>
-    <!-- OS:SetpointManager:SystemNodeReset:Humidity -->
+    
     <message>
         <source>Setpoint at Low Reference Humidity Ratio</source>
         <translation>저습도 기준 습도비에서의 설정값</translation>
     </message>
-    <!-- OS:SetpointManager:SystemNodeReset:Temperature -->
+    
     <message>
         <source>Setpoint at Low Reference Temperature</source>
         <translation>저온 기준 온도에서의 설정값</translation>
     </message>
-    <!-- OS:SetpointManager:OutdoorAirReset -->
+    
     <message>
         <source>Setpoint at Outdoor High Temperature</source>
         <translation>실외 고온에서의 설정값</translation>
     </message>
-    <!-- OS:SetpointManager:OutdoorAirReset -->
+    
     <message>
         <source>Setpoint at Outdoor High Temperature 2</source>
         <translation>야외 고온도 2에서의 설정점</translation>
     </message>
-    <!-- OS:SetpointManager:OutdoorAirReset -->
+    
     <message>
         <source>Setpoint at Outdoor Low Temperature</source>
         <translation>실외 저온에서의 설정값</translation>
     </message>
-    <!-- OS:SetpointManager:OutdoorAirReset -->
+    
     <message>
         <source>Setpoint at Outdoor Low Temperature 2</source>
         <translation>실외 저온 2에서의 설정값</translation>
     </message>
-    <!-- OS:ZoneHVAC:LowTemperatureRadiant:Electric, OS:ZoneHVAC:LowTemperatureRadiant:VariableFlow -->
+    
     <message>
         <source>Setpoint Control Type</source>
         <translation>설정값 제어 유형</translation>
     </message>
-    <!-- OS:SetpointManager:Coldest, OS:SetpointManager:FollowGroundTemperature, OS:SetpointManager:FollowOutdoorAirTemperature, OS:SetpointManager:FollowSystemNodeTemperature, OS:SetpointManager:MixedAir, OS:SetpointManager:MultiZone:Cooling:Average, OS:SetpointManager:MultiZone:Heating:Average, OS:SetpointManager:MultiZone:Humidity:Maximum, OS:SetpointManager:MultiZone:Humidity:Minimum, OS:SetpointManager:MultiZone:MaximumHumidity:Average, OS:SetpointManager:MultiZone:MinimumHumidity:Average, OS:SetpointManager:OutdoorAirPretreat, OS:SetpointManager:OutdoorAirReset, OS:SetpointManager:Scheduled, OS:SetpointManager:Scheduled:DualSetpoint, OS:SetpointManager:SingleZone:Cooling, OS:SetpointManager:SingleZone:Heating, OS:SetpointManager:SingleZone:Humidity:Maximum, OS:SetpointManager:SingleZone:Humidity:Minimum, OS:SetpointManager:SingleZone:OneStageCooling, OS:SetpointManager:SingleZone:OneStageHeating, OS:SetpointManager:SingleZone:Reheat, OS:SetpointManager:SystemNodeReset:Humidity, OS:SetpointManager:SystemNodeReset:Temperature, OS:SetpointManager:Warmest, OS:SetpointManager:WarmestTemperatureFlow -->
+    
     <message>
         <source>Setpoint Node or NodeList Name</source>
         <translation>설정점 노드 또는 노드 목록 이름</translation>
     </message>
-    <!-- OS:SwimmingPool:Indoor -->
+    
     <message>
         <source>Setpoint Temperature Schedule</source>
         <translation>설정 온도 스케줄</translation>
     </message>
-    <!-- OS:WindowMaterial:Shade -->
+    
     <message>
         <source>Shade to Glass Distance</source>
         <translation>가림막에서 유리까지의 거리</translation>
     </message>
-    <!-- OS:ShadingSurfaceGroup -->
+    
     <message>
         <source>Shaded Object Name</source>
         <translation>음영 객체 이름</translation>
     </message>
-    <!-- OS:ShadowCalculation -->
+    
     <message>
         <source>Shading Calculation Method</source>
         <translation>음영 계산 방법</translation>
     </message>
-    <!-- OS:ShadowCalculation -->
+    
     <message>
         <source>Shading Calculation Update Frequency</source>
         <translation>음영 계산 업데이트 빈도</translation>
     </message>
-    <!-- OS:ShadowCalculation -->
+    
     <message>
         <source>Shading Calculation Update Frequency Method</source>
         <translation>음영 계산 업데이트 빈도 방법</translation>
     </message>
-    <!-- OS:ShadingControl -->
+    
     <message>
         <source>Shading Control Is Scheduled</source>
         <translation>음영 제어가 스케줄됨</translation>
     </message>
-    <!-- OS:ShadingControl -->
+    
     <message>
         <source>Shading Control Type</source>
         <translation>차광 제어 유형</translation>
     </message>
-    <!-- OS:ShadingControl -->
+    
     <message>
         <source>Shading Device Material Name</source>
         <translation>음영 장치 재료 이름</translation>
     </message>
-    <!-- OS:ShadingSurface -->
+    
     <message>
         <source>Shading Surface Group Name</source>
         <translation>음영 표면 그룹 이름</translation>
     </message>
-    <!-- OS:ShadingSurfaceGroup -->
+    
     <message>
         <source>Shading Surface Type</source>
         <translation>음영 표면 유형</translation>
     </message>
-    <!-- OS:ShadingControl -->
+    
     <message>
         <source>Shading Type</source>
         <translation>음영 유형</translation>
     </message>
-    <!-- OS:ShadowCalculation -->
+    
     <message>
         <source>Shading Zone Group</source>
         <translation>음영 영역 그룹</translation>
     </message>
-    <!-- OS:CoilSystem:IntegratedHeatPump:AirSource -->
+    
     <message>
         <source>SHDWH Heating Coil</source>
         <translation>SHDWH 난방 코일</translation>
     </message>
-    <!-- OS:CoilSystem:IntegratedHeatPump:AirSource -->
+    
     <message>
         <source>SHDWH Water Heating Coil</source>
         <translation>SHDWH 온수 난방 코일</translation>
     </message>
-    <!-- OS:Refrigeration:System -->
+    
     <message>
         <source>Shell-and-Coil Intercooler Effectiveness</source>
         <translation>Shell-and-Coil Intercooler 효율</translation>
     </message>
-    <!-- OS:SpaceInfiltration:FlowCoefficient -->
+    
     <message>
         <source>Shelter Factor</source>
         <translation>차폐 계수</translation>
     </message>
-    <!-- OS:PhotovoltaicPerformance:EquivalentOneDiode, OS:PhotovoltaicPerformance:Sandia -->
+    
     <message>
         <source>Short Circuit Current</source>
         <translation>단락 전류</translation>
     </message>
-    <!-- OS:Refrigeration:AirChiller -->
+    
     <message>
         <source>SHR60 Correction Factor</source>
         <translation>SHR60 보정 계수</translation>
     </message>
-    <!-- OS:PhotovoltaicPerformance:EquivalentOneDiode -->
+    
     <message>
         <source>Shunt Resistance</source>
         <translation>션트 저항</translation>
     </message>
-    <!-- OS:Generator:FuelCell:PowerModule -->
+    
     <message>
         <source>Shut Down Electricity Consumption</source>
         <translation>종료 시 전력 소비</translation>
     </message>
-    <!-- OS:Generator:FuelCell:PowerModule -->
+    
     <message>
         <source>Shut Down Fuel</source>
         <translation>종료 연료</translation>
     </message>
-    <!-- OS:Generator:FuelCell:PowerModule -->
+    
     <message>
         <source>Shut Down Time</source>
         <translation>종료 시간</translation>
     </message>
-    <!-- OS:ZoneHVAC:EvaporativeCoolerUnit -->
+    
     <message>
         <source>Shut Off Relative Humidity</source>
         <translation>상대습도 차단</translation>
     </message>
-    <!-- OS:SolarCollectorPerformance:IntegralCollectorStorage -->
+    
     <message>
         <source>Side Heat Loss Conductance</source>
         <translation>측면 열손실 전도율</translation>
     </message>
-    <!-- OS:AvailabilityManager:HybridVentilation -->
+    
     <message>
         <source>Simple Airflow Control Type Schedule</source>
         <translation>간단한 기류 제어 유형 스케줄</translation>
     </message>
-    <!-- OS:ElectricLoadCenter:Storage:Converter -->
+    
     <message>
         <source>Simple Fixed Efficiency</source>
         <translation>단순 고정 효율</translation>
     </message>
-    <!-- OS:Generator:FuelCell:ElectricalStorage -->
+    
     <message>
         <source>Simple Maximum Capacity</source>
         <translation>간단한 최대 용량</translation>
     </message>
-    <!-- OS:Generator:FuelCell:ElectricalStorage -->
+    
     <message>
         <source>Simple Maximum Power Draw</source>
         <translation>최대 전력 소비(단순)</translation>
     </message>
-    <!-- OS:Generator:FuelCell:ElectricalStorage -->
+    
     <message>
         <source>Simple Maximum Power Store</source>
         <translation>단순 최대 전력 저장</translation>
     </message>
-    <!-- OS:Construction:AirBoundary -->
+    
     <message>
         <source>Simple Mixing Air Changes per Hour</source>
         <translation>단순 혼합 시간당 공기 변화량</translation>
     </message>
-    <!-- OS:Construction:AirBoundary -->
+    
     <message>
         <source>Simple Mixing Schedule Name</source>
         <translation>간단한 혼합 일정 이름</translation>
     </message>
-    <!-- OS:Foundation:Kiva:Settings -->
+    
     <message>
         <source>Simulation Timestep</source>
         <translation>시뮬레이션 타임스텝</translation>
     </message>
-    <!-- OS:UnitarySystemPerformance:Multispeed -->
+    
     <message>
         <source>Single Mode Operation</source>
         <translation>단일 모드 작동</translation>
     </message>
-    <!-- OS:AirflowNetworkZone -->
+    
     <message>
         <source>Single Sided Wind Pressure Coefficient Algorithm</source>
         <translation>단측 풍압계수 알고리즘</translation>
     </message>
-    <!-- OS:SurfaceProperty:OtherSideCoefficients -->
+    
     <message>
         <source>Sinusoidal Variation of Constant Temperature Coefficient</source>
         <translation>상수 온도 계수의 정현 변동</translation>
     </message>
-    <!-- OS:DefaultConstructionSet -->
+    
     <message>
         <source>Site Shading Construction Name</source>
         <translation>Site Shading Construction Name의 경우, "부지 음영 구조 이름" 또는 "부지 차양 구조 이름"으로 번역됩니다.
@@ -22775,647 +22774,647 @@ The most standard technical translation is:
 
 이 맞습니다.</translation>
     </message>
-    <!-- OS:Generator:FuelCell:PowerModule -->
+    
     <message>
         <source>Skin Loss Calculation Mode</source>
         <translation>피부 손실 계산 모드</translation>
     </message>
-    <!-- OS:Generator:FuelCell:AuxiliaryHeater -->
+    
     <message>
         <source>Skin Loss Destination</source>
         <translation>스킨 손실 목적지</translation>
     </message>
-    <!-- OS:WaterHeater:Stratified -->
+    
     <message>
         <source>Skin Loss Fraction to Zone</source>
         <translation>존에 대한 피부 손실 분율</translation>
     </message>
-    <!-- OS:Generator:FuelCell:PowerModule -->
+    
     <message>
         <source>Skin Loss Quadratic Curve Name</source>
         <translation>스킨 손실 이차 곡선 이름</translation>
     </message>
-    <!-- OS:Generator:FuelCell:PowerModule -->
+    
     <message>
         <source>Skin Loss U-Factor Times Area Term</source>
         <translation>피부 손실 U-인자 × 면적 항</translation>
     </message>
-    <!-- OS:Generator:FuelCell:AuxiliaryHeater -->
+    
     <message>
         <source>Skin Loss U-Factor Times Area Value</source>
         <translation>피부 손실 U-Factor 곱하기 면적 값</translation>
     </message>
-    <!-- OS:SizingPeriod:DesignDay -->
+    
     <message>
         <source>Sky Clearness</source>
         <translation>하늘 맑음도</translation>
     </message>
-    <!-- OS:ShadowCalculation -->
+    
     <message>
         <source>Sky Diffuse Modeling Algorithm</source>
         <translation>하늘 확산 모델링 알고리즘</translation>
     </message>
-    <!-- OS:RadianceParameters -->
+    
     <message>
         <source>Sky Discretization Resolution</source>
         <translation>Sky Discretization Resolution</translation>
     </message>
-    <!-- OS:SurfaceProperty:SurroundingSurfaces -->
+    
     <message>
         <source>Sky Temperature Schedule Name</source>
         <translation>Sky Temperature Schedule Name</translation>
     </message>
-    <!-- OS:SurfaceProperty:SurroundingSurfaces -->
+    
     <message>
         <source>Sky View Factor</source>
         <translation>하늘 시야 계수</translation>
     </message>
-    <!-- OS:DefaultSubSurfaceConstructions -->
+    
     <message>
         <source>Skylight Construction Name</source>
         <translation>스카이라이트 구성 이름</translation>
     </message>
-    <!-- OS:WindowMaterial:Blind -->
+    
     <message>
         <source>Slat Angle</source>
         <translation>슬래트 각도</translation>
     </message>
-    <!-- OS:ShadingControl -->
+    
     <message>
         <source>Slat Angle Schedule Name</source>
         <translation>슬랫 각도 스케줄 이름</translation>
     </message>
-    <!-- OS:WindowMaterial:Blind -->
+    
     <message>
         <source>Slat Beam Solar Transmittance</source>
         <translation>Slat Beam Solar Transmittance</translation>
     </message>
-    <!-- OS:WindowMaterial:Blind -->
+    
     <message>
         <source>Slat Beam Visible Transmittance</source>
         <translation>Slat Beam Visible Transmittance</translation>
     </message>
-    <!-- OS:WindowMaterial:Blind -->
+    
     <message>
         <source>Slat Conductivity</source>
         <translation>슬랫 열전도도</translation>
     </message>
-    <!-- OS:WindowMaterial:Blind -->
+    
     <message>
         <source>Slat Diffuse Solar Transmittance</source>
         <translation>슬랫 확산 태양광 투과율</translation>
     </message>
-    <!-- OS:WindowMaterial:Blind -->
+    
     <message>
         <source>Slat Diffuse Visible Transmittance</source>
         <translation>슬랫 난반사 가시광선 투과율</translation>
     </message>
-    <!-- OS:WindowMaterial:Blind -->
+    
     <message>
         <source>Slat Infrared Hemispherical Transmittance</source>
         <translation>슬랫 적외선 반구형 투과율</translation>
     </message>
-    <!-- OS:WindowMaterial:Blind -->
+    
     <message>
         <source>Slat Orientation</source>
         <translation>슬릿 방향</translation>
     </message>
-    <!-- OS:WindowMaterial:Blind -->
+    
     <message>
         <source>Slat Separation</source>
         <translation>슬래트 간격</translation>
     </message>
-    <!-- OS:WindowMaterial:Blind -->
+    
     <message>
         <source>Slat Thickness</source>
         <translation>슬릿 두께</translation>
     </message>
-    <!-- OS:WindowMaterial:Blind -->
+    
     <message>
         <source>Slat Width</source>
         <translation>슬래트 너비</translation>
     </message>
-    <!-- OS:AirflowNetworkHorizontalOpening -->
+    
     <message>
         <source>Sloping Plane Angle</source>
         <translation>경사면 각도</translation>
     </message>
-    <!-- OS:LightingDesignDay, OS:SizingPeriod:DesignDay -->
+    
     <message>
         <source>Snow Indicator</source>
         <translation>눈 표시기</translation>
     </message>
-    <!-- OS:FuelFactors -->
+    
     <message>
         <source>SO2 Emission Factor</source>
         <translation>SO2 배출 계수</translation>
     </message>
-    <!-- OS:FuelFactors -->
+    
     <message>
         <source>SO2 Emission Factor Schedule Name</source>
         <translation>SO2 배출 계수 스케줄 이름</translation>
     </message>
-    <!-- OS:Foundation:Kiva:Settings -->
+    
     <message>
         <source>Soil Conductivity</source>
         <translation>토양 열전도율</translation>
     </message>
-    <!-- OS:Foundation:Kiva:Settings, OS:GroundHeatExchanger:HorizontalTrench, OS:Site:GroundTemperature:Undisturbed:KusudaAchenbach, OS:Site:GroundTemperature:Undisturbed:Xing -->
+    
     <message>
         <source>Soil Density</source>
         <translation>토양 밀도</translation>
     </message>
-    <!-- OS:Material:RoofVegetation -->
+    
     <message>
         <source>Soil Layer Name</source>
         <translation>흙 층 이름</translation>
     </message>
-    <!-- OS:GroundHeatExchanger:HorizontalTrench -->
+    
     <message>
         <source>Soil Moisture Content Percent</source>
         <translation>토양 수분 함량 퍼센트</translation>
     </message>
-    <!-- OS:GroundHeatExchanger:HorizontalTrench -->
+    
     <message>
         <source>Soil Moisture Content Percent at Saturation</source>
         <translation>포화 상태에서의 토양 함수율 (%)</translation>
     </message>
-    <!-- OS:Foundation:Kiva:Settings, OS:GroundHeatExchanger:HorizontalTrench, OS:Site:GroundTemperature:Undisturbed:KusudaAchenbach, OS:Site:GroundTemperature:Undisturbed:Xing -->
+    
     <message>
         <source>Soil Specific Heat</source>
         <translation>토양 비열</translation>
     </message>
-    <!-- OS:Site:GroundTemperature:Undisturbed:Xing -->
+    
     <message>
         <source>Soil Surface Temperature Amplitude 1</source>
         <translation>토양 표면 온도 진폭 1</translation>
     </message>
-    <!-- OS:Site:GroundTemperature:Undisturbed:Xing -->
+    
     <message>
         <source>Soil Surface Temperature Amplitude 2</source>
         <translation>토양 표면 온도 진폭 2</translation>
     </message>
-    <!-- OS:GroundHeatExchanger:HorizontalTrench, OS:Site:GroundTemperature:Undisturbed:KusudaAchenbach, OS:Site:GroundTemperature:Undisturbed:Xing -->
+    
     <message>
         <source>Soil Thermal Conductivity</source>
         <translation>토양 열전도율</translation>
     </message>
-    <!-- OS:Material, OS:Material:NoMass, OS:Material:RoofVegetation -->
+    
     <message>
         <source>Solar Absorptance</source>
         <translation>태양 흡수율</translation>
     </message>
-    <!-- OS:WindowMaterial:Glazing, OS:WindowMaterial:Glazing:RefractionExtinctionMethod -->
+    
     <message>
         <source>Solar Diffusing</source>
         <translation>태양 확산</translation>
     </message>
-    <!-- OS:SimulationControl -->
+    
     <message>
         <source>Solar Distribution</source>
         <translation>태양열 분배</translation>
     </message>
-    <!-- OS:WindowMaterial:Glazing:RefractionExtinctionMethod -->
+    
     <message>
         <source>Solar Extinction Coefficient</source>
         <translation>태양 소멸 계수</translation>
     </message>
-    <!-- OS:WindowMaterial:SimpleGlazingSystem -->
+    
     <message>
         <source>Solar Heat Gain Coefficient</source>
         <translation>태양 열 취득 계수</translation>
     </message>
-    <!-- OS:WindowMaterial:Glazing:RefractionExtinctionMethod -->
+    
     <message>
         <source>Solar Index of Refraction</source>
         <translation>태양 굴절률 지수</translation>
     </message>
-    <!-- OS:SizingPeriod:DesignDay -->
+    
     <message>
         <source>Solar Model Indicator</source>
         <translation>태양 모델 표시기</translation>
     </message>
-    <!-- OS:WindowMaterial:Shade -->
+    
     <message>
         <source>Solar Reflectance</source>
         <translation>태양 반사율</translation>
     </message>
-    <!-- OS:WindowMaterial:Shade -->
+    
     <message>
         <source>Solar Transmittance</source>
         <translation>태양광 투과율</translation>
     </message>
-    <!-- OS:WindowMaterial:Glazing -->
+    
     <message>
         <source>Solar Transmittance at Normal Incidence</source>
         <translation>법선 입사각에서의 태양 투과율</translation>
     </message>
-    <!-- OS:SolarCollector:FlatPlate:Water -->
+    
     <message>
         <source>SolarCollectorPerformance Name</source>
         <translation>SolarCollectorPerformance Name</translation>
     </message>
-    <!-- OS:MaterialProperty:PhaseChangeHysteresis -->
+    
     <message>
         <source>Solid State Density</source>
         <translation>고체 밀도</translation>
     </message>
-    <!-- OS:MaterialProperty:PhaseChangeHysteresis -->
+    
     <message>
         <source>Solid State Specific Heat</source>
         <translation>고체 비열</translation>
     </message>
-    <!-- OS:MaterialProperty:PhaseChangeHysteresis -->
+    
     <message>
         <source>Solid State Thermal Conductivity</source>
         <translation>고체 열전도도</translation>
     </message>
-    <!-- OS:AirflowNetworkSimulationControl -->
+    
     <message>
         <source>Solver</source>
         <translation>솔버</translation>
     </message>
-    <!-- OS:FuelFactors -->
+    
     <message>
         <source>Source Energy Factor</source>
         <translation>원전 에너지 계수</translation>
     </message>
-    <!-- OS:FuelFactors -->
+    
     <message>
         <source>Source Energy Schedule Name</source>
         <translation>원본 에너지 스케줄 이름</translation>
     </message>
-    <!-- OS:CentralHeatPumpSystem -->
+    
     <message>
         <source>Source Loop Inlet Node Name</source>
         <translation>소스 루프 입구 노드 이름</translation>
     </message>
-    <!-- OS:CentralHeatPumpSystem -->
+    
     <message>
         <source>Source Loop Outlet Node Name</source>
         <translation>Source Loop Outlet Node Name</translation>
     </message>
-    <!-- OS:Meter:CustomDecrement -->
+    
     <message>
         <source>Source Meter Name</source>
         <translation>소스 계량기 이름</translation>
     </message>
-    <!-- OS:Connection -->
+    
     <message>
         <source>Source Object</source>
         <translation>소스 객체</translation>
     </message>
-    <!-- OS:Construction:InternalSource -->
+    
     <message>
         <source>Source Present After Layer Number</source>
         <translation>레이어 번호 이후 소스 존재</translation>
     </message>
-    <!-- OS:ThermalStorage:ChilledWater:Stratified -->
+    
     <message>
         <source>Source Side Availability Schedule Name</source>
         <translation>열원측 가용성 스케줄 이름</translation>
     </message>
-    <!-- OS:WaterHeater:Mixed, OS:WaterHeater:Stratified -->
+    
     <message>
         <source>Source Side Flow Control Mode</source>
         <translation>열원측 유량 제어 모드</translation>
     </message>
-    <!-- OS:ThermalStorage:ChilledWater:Stratified -->
+    
     <message>
         <source>Source Side Heat Transfer Effectiveness</source>
         <translation>소스측 열전달 효율</translation>
     </message>
-    <!-- OS:HeatPump:PlantLoop:EIR:Cooling, OS:HeatPump:PlantLoop:EIR:Heating, OS:HeatPump:WaterToWater:EquationFit:Cooling, OS:HeatPump:WaterToWater:EquationFit:Heating, OS:ThermalStorage:ChilledWater:Stratified, OS:WaterHeater:Mixed, OS:WaterHeater:Stratified -->
+    
     <message>
         <source>Source Side Inlet Node Name</source>
         <translation>원천측 입구 노드명</translation>
     </message>
-    <!-- OS:HeatPump:PlantLoop:EIR:Cooling, OS:HeatPump:PlantLoop:EIR:Heating, OS:HeatPump:WaterToWater:EquationFit:Cooling, OS:HeatPump:WaterToWater:EquationFit:Heating, OS:ThermalStorage:ChilledWater:Stratified, OS:WaterHeater:Mixed, OS:WaterHeater:Stratified -->
+    
     <message>
         <source>Source Side Outlet Node Name</source>
         <translation>Source Side Outlet Node Name</translation>
     </message>
-    <!-- OS:HeatPump:PlantLoop:EIR:Cooling, OS:HeatPump:PlantLoop:EIR:Heating -->
+    
     <message>
         <source>Source Side Reference Flow Rate</source>
         <translation>소스 측 기준 유량</translation>
     </message>
-    <!-- OS:PlantComponent:TemperatureSource -->
+    
     <message>
         <source>Source Temperature</source>
         <translation>열원 온도</translation>
     </message>
-    <!-- OS:PlantComponent:TemperatureSource -->
+    
     <message>
         <source>Source Temperature Schedule Name</source>
         <translation>소스 온도 일정표 이름</translation>
     </message>
-    <!-- OS:UtilityCost:Charge:Block, OS:UtilityCost:Charge:Simple -->
+    
     <message>
         <source>Source Variable</source>
         <translation>소스 변수</translation>
     </message>
-    <!-- OS:ZoneMixing -->
+    
     <message>
         <source>Source Zone or Space Name</source>
         <translation>소스 영역 또는 공간 이름</translation>
     </message>
-    <!-- OS:CoilSystem:IntegratedHeatPump:AirSource -->
+    
     <message>
         <source>Space Cooling Coil</source>
         <translation>공간 냉각 코일</translation>
     </message>
-    <!-- OS:CoilSystem:IntegratedHeatPump:AirSource -->
+    
     <message>
         <source>Space Heating Coil</source>
         <translation>공간 난방 코일</translation>
     </message>
-    <!-- OS:Daylighting:Control, OS:Glare:Sensor, OS:IlluminanceMap, OS:InteriorPartitionSurfaceGroup, OS:ShadingSurfaceGroup, OS:Surface, OS:WaterUse:Equipment -->
+    
     <message>
         <source>Space Name</source>
         <translation>공간 이름</translation>
     </message>
-    <!-- OS:DefaultConstructionSet -->
+    
     <message>
         <source>Space Shading Construction Name</source>
         <translation>공간 음영 구성 이름</translation>
     </message>
-    <!-- OS:Building, OS:Space -->
+    
     <message>
         <source>Space Type Name</source>
         <translation>공간 유형 이름</translation>
     </message>
-    <!-- OS:RunPeriodControl:SpecialDays -->
+    
     <message>
         <source>Special Day Type</source>
         <translation>특별 날짜 유형</translation>
     </message>
-    <!-- OS:Schedule:Rule -->
+    
     <message>
         <source>Specific Day</source>
         <translation>특정 날짜</translation>
     </message>
-    <!-- OS:Material -->
+    
     <message>
         <source>Specific Heat</source>
         <translation>비열</translation>
     </message>
-    <!-- OS:WindowMaterial:Gas -->
+    
     <message>
         <source>Specific Heat Coefficient A</source>
         <translation>비열 계수 A</translation>
     </message>
-    <!-- OS:WindowMaterial:Gas -->
+    
     <message>
         <source>Specific Heat Coefficient B</source>
         <translation>비열 계수 B</translation>
     </message>
-    <!-- OS:WindowMaterial:Gas -->
+    
     <message>
         <source>Specific Heat Coefficient C</source>
         <translation>비열 계수 C</translation>
     </message>
-    <!-- OS:Material:RoofVegetation -->
+    
     <message>
         <source>Specific Heat of Dry Soil</source>
         <translation>건조 토양의 비열</translation>
     </message>
-    <!-- OS:WindowMaterial:Gas -->
+    
     <message>
         <source>Specific Heat Ratio</source>
         <translation>비열비</translation>
     </message>
-    <!-- OS:Schedule:Rule -->
+    
     <message>
         <source>Specific Month</source>
         <translation>특정 월</translation>
     </message>
-    <!-- OS:Coil:Cooling:DX:CurveFit:OperatingMode -->
+    
     <message>
         <source>Speed</source>
         <translation>속도</translation>
     </message>
-    <!-- OS:AirLoopHVAC:UnitaryHeatPump:AirToAir:MultiSpeed -->
+    
     <message>
         <source>Speed 1 Supply Air Flow Rate During Cooling Operation</source>
         <translation>냉각 운전 중 Speed 1 급기 유량</translation>
     </message>
-    <!-- OS:AirLoopHVAC:UnitaryHeatPump:AirToAir:MultiSpeed -->
+    
     <message>
         <source>Speed 1 Supply Air Flow Rate During Heating Operation</source>
         <translation>난방 운전 중 속도 1 공급 공기 유량</translation>
     </message>
-    <!-- OS:AirLoopHVAC:UnitaryHeatPump:AirToAir:MultiSpeed -->
+    
     <message>
         <source>Speed 2 Supply Air Flow Rate During Cooling Operation</source>
         <translation>냉각 운전 중 속도 2 공급 공기 유량</translation>
     </message>
-    <!-- OS:AirLoopHVAC:UnitaryHeatPump:AirToAir:MultiSpeed -->
+    
     <message>
         <source>Speed 2 Supply Air Flow Rate During Heating Operation</source>
         <translation>난방 작동 중 속도 2 공급 공기 유량</translation>
     </message>
-    <!-- OS:AirLoopHVAC:UnitaryHeatPump:AirToAir:MultiSpeed -->
+    
     <message>
         <source>Speed 3 Supply Air Flow Rate During Cooling Operation</source>
         <translation>냉각 운전 중 속도 3 급기 유량</translation>
     </message>
-    <!-- OS:AirLoopHVAC:UnitaryHeatPump:AirToAir:MultiSpeed -->
+    
     <message>
         <source>Speed 3 Supply Air Flow Rate During Heating Operation</source>
         <translation>난방 운전 중 속도 3 급기 유량</translation>
     </message>
-    <!-- OS:AirLoopHVAC:UnitaryHeatPump:AirToAir:MultiSpeed -->
+    
     <message>
         <source>Speed 4 Supply Air Flow Rate During Cooling Operation</source>
         <translation>냉방 운전 중 속도 4 급기 유량</translation>
     </message>
-    <!-- OS:AirLoopHVAC:UnitaryHeatPump:AirToAir:MultiSpeed -->
+    
     <message>
         <source>Speed 4 Supply Air Flow Rate During Heating Operation</source>
         <translation>난방 운전 중 속도 4 공급 공기 유량</translation>
     </message>
-    <!-- OS:Fan:SystemModel -->
+    
     <message>
         <source>Speed Control Method</source>
         <translation>속도 제어 방법</translation>
     </message>
-    <!-- OS:Coil:Cooling:DX:VariableSpeed, OS:Coil:Cooling:WaterToAirHeatPump:VariableSpeedEquationFit, OS:Coil:Heating:DX:VariableSpeed, OS:Coil:Heating:WaterToAirHeatPump:VariableSpeedEquationFit, OS:Coil:WaterHeating:AirToWaterHeatPump:VariableSpeed, OS:HeatPump:AirToWater:Cooling, OS:HeatPump:AirToWater:Heating -->
+    
     <message>
         <source>Speed Data List</source>
         <translation>속도 데이터 목록</translation>
     </message>
-    <!-- OS:Fan:SystemModel -->
+    
     <message>
         <source>Speed Electric Power Fraction</source>
         <translation>속도 전기 전력 분율</translation>
     </message>
-    <!-- OS:Fan:SystemModel -->
+    
     <message>
         <source>Speed Flow Fraction</source>
         <translation>속도 유량 분율</translation>
     </message>
-    <!-- OS:Generator:FuelCell:StackCooler -->
+    
     <message>
         <source>Stack Air Cooler Fan Coefficient f0</source>
         <translation>Stack Air Cooler Fan Coefficient f0</translation>
     </message>
-    <!-- OS:Generator:FuelCell:StackCooler -->
+    
     <message>
         <source>Stack Air Cooler Fan Coefficient f1</source>
         <translation>Stack Air Cooler Fan Coefficient f1</translation>
     </message>
-    <!-- OS:Generator:FuelCell:StackCooler -->
+    
     <message>
         <source>Stack Air Cooler Fan Coefficient f2</source>
         <translation>스택 공기 냉각기 팬 계수 f2</translation>
     </message>
-    <!-- OS:Generator:FuelCell:StackCooler -->
+    
     <message>
         <source>Stack Cogeneration Exchanger Area</source>
         <translation>스택 코제너레이션 열교환기 면적</translation>
     </message>
-    <!-- OS:Generator:FuelCell:StackCooler -->
+    
     <message>
         <source>Stack Cogeneration Exchanger Nominal Flow Rate</source>
         <translation>스택 코제너레이션 열교환기 공칭 유량</translation>
     </message>
-    <!-- OS:Generator:FuelCell:StackCooler -->
+    
     <message>
         <source>Stack Cogeneration Exchanger Nominal Heat Transfer Coefficient</source>
         <translation>스택 열병합 열교환기 공칭 열전달 계수</translation>
     </message>
-    <!-- OS:Generator:FuelCell:StackCooler -->
+    
     <message>
         <source>Stack Cogeneration Exchanger Nominal Heat Transfer Coefficient Exponent</source>
         <translation>스택 열병합 발전 열교환기 공칭 열전달 계수 지수</translation>
     </message>
-    <!-- OS:Generator:FuelCell:StackCooler -->
+    
     <message>
         <source>Stack Coolant Flow Rate</source>
         <translation>스택 냉각액 유량</translation>
     </message>
-    <!-- OS:Generator:FuelCell -->
+    
     <message>
         <source>Stack Cooler Name</source>
         <translation>스택 쿨러 이름</translation>
     </message>
-    <!-- OS:Generator:FuelCell:StackCooler -->
+    
     <message>
         <source>Stack Cooler Pump Heat Loss Fraction</source>
         <translation>스택 쿨러 펌프 열손실 비율</translation>
     </message>
-    <!-- OS:Generator:FuelCell:StackCooler -->
+    
     <message>
         <source>Stack Cooler Pump Power</source>
         <translation>스택 냉각기 펌프 전력</translation>
     </message>
-    <!-- OS:Generator:FuelCell:StackCooler -->
+    
     <message>
         <source>Stack Cooler U-Factor Times Area Value</source>
-        <translation type="unfinished"></translation>
+        <translation>스택 쿨러 U-팩터 × 면적 값</translation>
     </message>
-    <!-- OS:Generator:FuelCell:PowerModule -->
+    
     <message>
         <source>Stack Heat loss to Dilution Air</source>
         <translation>스택 열 손실(희석 공기로)</translation>
     </message>
-    <!-- OS:Coil:Cooling:DX:MultiSpeed, OS:Coil:Heating:DX:MultiSpeed, OS:Coil:Heating:Electric:MultiStage, OS:Coil:Heating:Gas:MultiStage -->
+    
     <message>
         <source>Stage</source>
         <translation>단계</translation>
     </message>
-    <!-- OS:ZoneControl:Thermostat:StagedDualSetpoint -->
+    
     <message>
         <source>Stage 1 Cooling Temperature Offset</source>
         <translation>Stage 1 냉각 온도 오프셋</translation>
     </message>
-    <!-- OS:ZoneControl:Thermostat:StagedDualSetpoint -->
+    
     <message>
         <source>Stage 1 Heating Temperature Offset</source>
         <translation>1단계 난방 온도 오프셋</translation>
     </message>
-    <!-- OS:ZoneControl:Thermostat:StagedDualSetpoint -->
+    
     <message>
         <source>Stage 2 Cooling Temperature Offset</source>
         <translation>2단계 냉각 온도 오프셋</translation>
     </message>
-    <!-- OS:ZoneControl:Thermostat:StagedDualSetpoint -->
+    
     <message>
         <source>Stage 2 Heating Temperature Offset</source>
         <translation>스테이지 2 난방 온도 오프셋</translation>
     </message>
-    <!-- OS:ZoneControl:Thermostat:StagedDualSetpoint -->
+    
     <message>
         <source>Stage 3 Cooling Temperature Offset</source>
         <translation>3단계 냉각 온도 오프셋</translation>
     </message>
-    <!-- OS:ZoneControl:Thermostat:StagedDualSetpoint -->
+    
     <message>
         <source>Stage 3 Heating Temperature Offset</source>
         <translation>스테이지 3 난방 온도 오프셋</translation>
     </message>
-    <!-- OS:ZoneControl:Thermostat:StagedDualSetpoint -->
+    
     <message>
         <source>Stage 4 Cooling Temperature Offset</source>
         <translation>Stage 4 냉각 온도 오프셋</translation>
     </message>
-    <!-- OS:ZoneControl:Thermostat:StagedDualSetpoint -->
+    
     <message>
         <source>Stage 4 Heating Temperature Offset</source>
         <translation>스테이지 4 난방 온도 오프셋</translation>
     </message>
-    <!-- OS:Refrigeration:Case -->
+    
     <message>
         <source>Standard Case Fan Power per Door</source>
         <translation>Standard Case Fan Power per Door</translation>
     </message>
-    <!-- OS:Refrigeration:Case -->
+    
     <message>
         <source>Standard Case Fan Power per Unit Length</source>
         <translation>단위 길이당 표준 케이스 팬 전력</translation>
     </message>
-    <!-- OS:Refrigeration:Case -->
+    
     <message>
         <source>Standard Case Lighting Power per Door</source>
         <translation>표준 케이스 조명 전력(도어당)</translation>
     </message>
-    <!-- OS:Refrigeration:Case -->
+    
     <message>
         <source>Standard Case Lighting Power per Unit Length</source>
         <translation>표준 케이스 조명 단위 길이당 전력</translation>
     </message>
-    <!-- OS:EvaporativeFluidCooler:SingleSpeed -->
+    
     <message>
         <source>Standard Design Capacity</source>
         <translation>표준 설계 용량</translation>
     </message>
-    <!-- OS:Building, OS:SpaceType -->
+    
     <message>
         <source>Standards Building Type</source>
         <translation>표준 건물 유형</translation>
     </message>
-    <!-- OS:StandardsInformation:Material -->
+    
     <message>
         <source>Standards Category</source>
         <translation>기준 범주</translation>
     </message>
-    <!-- OS:StandardsInformation:Construction -->
+    
     <message>
         <source>Standards Construction Type</source>
         <translation>표준 건설 유형</translation>
     </message>
-    <!-- OS:StandardsInformation:Material -->
+    
     <message>
         <source>Standards Identifier</source>
         <translation>기준 식별자</translation>
     </message>
-    <!-- OS:Building -->
+    
     <message>
         <source>Standards Number of Above Ground Stories</source>
         <translation>지상층 기준 수</translation>
     </message>
-    <!-- OS:Building -->
+    
     <message>
         <source>Standards Number of Living Units</source>
         <translation>Standards Number of Living Units는 건축 에너지 모델링 맥락에서:
@@ -23426,851 +23425,851 @@ The most standard technical translation is:
 
 **표준 거주 단위 수**</translation>
     </message>
-    <!-- OS:Building -->
+    
     <message>
         <source>Standards Number of Stories</source>
         <translation>표준 층수</translation>
     </message>
-    <!-- OS:SpaceType -->
+    
     <message>
         <source>Standards Space Type</source>
         <translation>표준 공간 유형</translation>
     </message>
-    <!-- OS:Building, OS:SpaceType -->
+    
     <message>
         <source>Standards Template</source>
         <translation>표준 템플릿</translation>
     </message>
-    <!-- OS:HeatPump:AirToWater:FuelFired:Cooling, OS:HeatPump:AirToWater:FuelFired:Heating -->
+    
     <message>
         <source>Standby Electric Power</source>
         <translation>대기 전력</translation>
     </message>
-    <!-- OS:Generator:MicroTurbine, OS:Humidifier:Steam:Electric -->
+    
     <message>
         <source>Standby Power</source>
         <translation>대기 전력</translation>
     </message>
-    <!-- OS:RunPeriodControl:DaylightSavingTime, OS:RunPeriodControl:SpecialDays -->
+    
     <message>
         <source>Start Date</source>
         <translation>시작 날짜</translation>
     </message>
-    <!-- OS:WeatherFile -->
+    
     <message>
         <source>Start Date Actual Year</source>
         <translation>시작 날짜 실제 연도</translation>
     </message>
-    <!-- OS:Schedule:FixedInterval, OS:Schedule:Rule, OS:Schedule:VariableInterval -->
+    
     <message>
         <source>Start Day</source>
         <translation>시작 일자</translation>
     </message>
-    <!-- OS:WeatherFile -->
+    
     <message>
         <source>Start Day of Week</source>
         <translation>주의 시작 요일</translation>
     </message>
-    <!-- OS:AirflowNetworkDetailedOpening -->
+    
     <message>
         <source>Start Height Factor for Opening Factor</source>
         <translation>개구부 계수의 시작 높이 계수</translation>
     </message>
-    <!-- OS:Schedule:FixedInterval, OS:Schedule:Rule, OS:Schedule:VariableInterval -->
+    
     <message>
         <source>Start Month</source>
         <translation>시작 월</translation>
     </message>
-    <!-- OS:LifeCycleCost -->
+    
     <message>
         <source>Start of Costs</source>
         <translation>비용 시작</translation>
     </message>
-    <!-- OS:Generator:FuelCell:PowerModule -->
+    
     <message>
         <source>Start Up Electricity Consumption</source>
         <translation>시작 전력 소비</translation>
     </message>
-    <!-- OS:Generator:FuelCell:PowerModule -->
+    
     <message>
         <source>Start Up Electricity Produced</source>
         <translation>시작 시 생산된 전력</translation>
     </message>
-    <!-- OS:Generator:FuelCell:PowerModule -->
+    
     <message>
         <source>Start Up Fuel</source>
         <translation>시동 연료</translation>
     </message>
-    <!-- OS:Generator:FuelCell:PowerModule -->
+    
     <message>
         <source>Start Up Time</source>
         <translation>시작 시간</translation>
     </message>
-    <!-- OS:WeatherFile -->
+    
     <message>
         <source>State Province Region</source>
         <translation>주/도/지역</translation>
     </message>
-    <!-- OS:SteamEquipment -->
+    
     <message>
         <source>Steam Equipment Definition Name</source>
         <translation>증기 장비 정의 이름</translation>
     </message>
-    <!-- OS:LifeCycleCost:Parameters -->
+    
     <message>
         <source>Steam Inflation</source>
         <translation>스팀 가압(Steam Inflation)</translation>
     </message>
-    <!-- OS:DistrictHeating:Steam -->
+    
     <message>
         <source>Steam Inlet Node Name</source>
         <translation>스팀 입구 노드 이름</translation>
     </message>
-    <!-- OS:Boiler:Steam, OS:DistrictHeating:Steam -->
+    
     <message>
         <source>Steam Outlet Node Name</source>
         <translation>증기 출구 노드 이름</translation>
     </message>
-    <!-- OS:Refrigeration:WalkIn:ZoneBoundary -->
+    
     <message>
         <source>Stocking Door Opening Protection Type Facing Zone</source>
         <translation>환기 도어 개방 방지 유형 인접 구역</translation>
     </message>
-    <!-- OS:Refrigeration:WalkIn:ZoneBoundary -->
+    
     <message>
         <source>Stocking Door Opening Schedule Name Facing Zone</source>
         <translation>스톡킹 도어 개방 일정 이름 대면 구역</translation>
     </message>
-    <!-- OS:Refrigeration:WalkIn:ZoneBoundary -->
+    
     <message>
         <source>Stocking Door U Value Facing Zone</source>
         <translation>재킷 도어 U값 대면 존</translation>
     </message>
-    <!-- OS:Generator:FuelCell:AirSupply -->
+    
     <message>
         <source>Stoichiometric Ratio</source>
         <translation>화학량론적 비율</translation>
     </message>
-    <!-- OS:WaterHeater:Sizing -->
+    
     <message>
         <source>Storage Capacity per Collector Area</source>
         <translation>수집기 면적당 저장 용량</translation>
     </message>
-    <!-- OS:WaterHeater:Sizing -->
+    
     <message>
         <source>Storage Capacity per Floor Area</source>
         <translation>층별 저장 용량</translation>
     </message>
-    <!-- OS:WaterHeater:Sizing -->
+    
     <message>
         <source>Storage Capacity per Person</source>
         <translation>인당 저장 용량</translation>
     </message>
-    <!-- OS:WaterHeater:Sizing -->
+    
     <message>
         <source>Storage Capacity per Unit</source>
         <translation>단위당 저장 용량</translation>
     </message>
-    <!-- OS:Coil:Cooling:DX:SingleSpeed:ThermalStorage -->
+    
     <message>
         <source>Storage Capacity Sizing Factor</source>
         <translation>저장 용량 크기 조정 계수</translation>
     </message>
-    <!-- OS:ElectricLoadCenter:Distribution -->
+    
     <message>
         <source>Storage Charge Power Fraction Schedule Name</source>
         <translation>저장소 충전 전력 분율 스케줄 이름</translation>
     </message>
-    <!-- OS:ElectricLoadCenter:Distribution -->
+    
     <message>
         <source>Storage Control Track Meter Name</source>
         <translation>저장소 제어 추적 계량기 이름</translation>
     </message>
-    <!-- OS:ElectricLoadCenter:Distribution -->
+    
     <message>
         <source>Storage Control Utility Demand Target</source>
         <translation>저장소 제어 유틸리티 수요 목표</translation>
     </message>
-    <!-- OS:ElectricLoadCenter:Distribution -->
+    
     <message>
         <source>Storage Control Utility Demand Target Fraction Schedule Name</source>
         <translation>Storage Control Utility Demand Target Fraction Schedule Name</translation>
     </message>
-    <!-- OS:ElectricLoadCenter:Distribution -->
+    
     <message>
         <source>Storage Converter Object Name</source>
         <translation>저장 변환기 객체 이름</translation>
     </message>
-    <!-- OS:ElectricLoadCenter:Distribution -->
+    
     <message>
         <source>Storage Discharge Power Fraction Schedule Name</source>
         <translation>축열 방전 전력 분율 스케줄 이름</translation>
     </message>
-    <!-- OS:ElectricLoadCenter:Distribution -->
+    
     <message>
         <source>Storage Operation Scheme</source>
         <translation>저장소 운영 체계</translation>
     </message>
-    <!-- OS:Coil:Cooling:DX:SingleSpeed:ThermalStorage -->
+    
     <message>
         <source>Storage Tank Ambient Temperature Node</source>
         <translation>저장 탱크 주변 온도 노드</translation>
     </message>
-    <!-- OS:Coil:Cooling:DX:SingleSpeed:ThermalStorage -->
+    
     <message>
         <source>Storage Tank Maximum Operating Limit Fluid Temperature</source>
         <translation>저장 탱크 최대 작동 제한 유체 온도</translation>
     </message>
-    <!-- OS:Coil:Cooling:DX:SingleSpeed:ThermalStorage -->
+    
     <message>
         <source>Storage Tank Minimum Operating Limit Fluid Temperature</source>
         <translation>저장 탱크 최소 운영 한계 유체 온도</translation>
     </message>
-    <!-- OS:Coil:Cooling:DX:SingleSpeed:ThermalStorage -->
+    
     <message>
         <source>Storage Tank Plant Connection Design Flow Rate</source>
         <translation>저장 탱크 플랜트 연결 설계 유량</translation>
     </message>
-    <!-- OS:Coil:Cooling:DX:SingleSpeed:ThermalStorage -->
+    
     <message>
         <source>Storage Tank Plant Connection Heat Transfer Effectiveness</source>
         <translation>저장 탱크 플랜트 연결 열전달 효율</translation>
     </message>
-    <!-- OS:Coil:Cooling:DX:SingleSpeed:ThermalStorage -->
+    
     <message>
         <source>Storage Tank Plant Connection Inlet Node</source>
         <translation>저수조 플랜트 연결 입구 노드</translation>
     </message>
-    <!-- OS:Coil:Cooling:DX:SingleSpeed:ThermalStorage -->
+    
     <message>
         <source>Storage Tank Plant Connection Outlet Node</source>
         <translation>저장 탱크 플랜트 연결 출구 노드</translation>
     </message>
-    <!-- OS:Coil:Cooling:DX:SingleSpeed:ThermalStorage -->
+    
     <message>
         <source>Storage Tank to Ambient U-value Times Area Heat Transfer Coefficient</source>
         <translation>저장 탱크에서 외기로의 U값 × 면적 열전달 계수</translation>
     </message>
-    <!-- OS:Coil:Cooling:DX:SingleSpeed:ThermalStorage -->
+    
     <message>
         <source>Storage Type</source>
         <translation>저장소 유형</translation>
     </message>
-    <!-- OS:SetpointManager:Coldest, OS:SetpointManager:Warmest, OS:SetpointManager:WarmestTemperatureFlow -->
+    
     <message>
         <source>Strategy</source>
         <translation>전략</translation>
     </message>
-    <!-- OS:TemperingValve -->
+    
     <message>
         <source>Stream 2 Source Node</source>
         <translation>Stream 2 Source Node</translation>
     </message>
-    <!-- OS:ShadingControl -->
+    
     <message>
         <source>Sub Surface Name</source>
         <translation>서브 표면 이름</translation>
     </message>
-    <!-- OS:SubSurface -->
+    
     <message>
         <source>Sub Surface Type</source>
         <translation>부분 표면 유형</translation>
     </message>
-    <!-- OS:Refrigeration:TranscriticalSystem -->
+    
     <message>
         <source>Subcooler Effectiveness</source>
         <translation>서브쿨러 효율</translation>
     </message>
-    <!-- OS:Refrigeration:GasCooler:AirCooled -->
+    
     <message>
         <source>Subcritical Temperature Difference</source>
         <translation>준임계 온도 차이</translation>
     </message>
-    <!-- OS:Refrigeration:System -->
+    
     <message>
         <source>Suction Piping Zone Name</source>
         <translation>흡입 배관 존 이름</translation>
     </message>
-    <!-- OS:Refrigeration:System -->
+    
     <message>
         <source>Suction Temperature Control Type</source>
         <translation>흡입 온도 제어 유형</translation>
     </message>
-    <!-- OS:Refrigeration:SecondarySystem -->
+    
     <message>
         <source>Sum UA Distribution Piping</source>
         <translation>합계 UA 배분 배관</translation>
     </message>
-    <!-- OS:Refrigeration:SecondarySystem -->
+    
     <message>
         <source>Sum UA Receiver/Separator Shell</source>
         <translation>Sum UA Receiver/Separator Shell</translation>
     </message>
-    <!-- OS:Refrigeration:System -->
+    
     <message>
         <source>Sum UA Suction Piping</source>
         <translation>흡입 배관 UA 합계</translation>
     </message>
-    <!-- OS:Refrigeration:TranscriticalSystem -->
+    
     <message>
         <source>Sum UA Suction Piping for Low Temperature Loads</source>
         <translation>낮은 온도 부하에 대한 흡입 배관의 합계 UA</translation>
     </message>
-    <!-- OS:Refrigeration:TranscriticalSystem -->
+    
     <message>
         <source>Sum UA Suction Piping for Medium Temperature Loads</source>
         <translation>Sum UA Suction Piping for Medium Temperature Loads의 한국어 번역:
 
 **중온도 부하를 위한 흡입 배관 합계 UA**</translation>
     </message>
-    <!-- OS:Schedule:Week -->
+    
     <message>
         <source>SummerDesignDay Schedule:Day Name</source>
         <translation>SummerDesignDay 일정:일 이름</translation>
     </message>
-    <!-- OS:Surface -->
+    
     <message>
         <source>Sun Exposure</source>
         <translation>태양 노출</translation>
     </message>
-    <!-- OS:Schedule:Week -->
+    
     <message>
         <source>Sunday Schedule:Day Name</source>
         <translation>일요일 일정:요일 이름</translation>
     </message>
-    <!-- OS:AirLoopHVAC:UnitaryHeatPump:AirToAir:MultiSpeed -->
+    
     <message>
         <source>Supplemental Heating Coil</source>
         <translation>보조 난방 코일</translation>
     </message>
-    <!-- OS:AirLoopHVAC:UnitaryHeatPump:AirToAir, OS:AirLoopHVAC:UnitarySystem, OS:ZoneHVAC:PackagedTerminalHeatPump, OS:ZoneHVAC:TerminalUnit:VariableRefrigerantFlow, OS:ZoneHVAC:WaterToAirHeatPump -->
+    
     <message>
         <source>Supplemental Heating Coil Name</source>
         <translation>보조 난방 코일 이름</translation>
     </message>
-    <!-- OS:AirLoopHVAC:UnitaryHeatCool:VAVChangeoverBypass, OS:AirLoopHVAC:UnitaryHeatPump:AirToAir:MultiSpeed, OS:ZoneHVAC:TerminalUnit:VariableRefrigerantFlow -->
+    
     <message>
         <source>Supply Air Fan</source>
         <translation>급기 팬</translation>
     </message>
-    <!-- OS:AirLoopHVAC:UnitaryHeatPump:AirToAir, OS:ZoneHVAC:EnergyRecoveryVentilator, OS:ZoneHVAC:EvaporativeCoolerUnit, OS:ZoneHVAC:FourPipeFanCoil, OS:ZoneHVAC:PackagedTerminalAirConditioner, OS:ZoneHVAC:PackagedTerminalHeatPump, OS:ZoneHVAC:UnitHeater, OS:ZoneHVAC:UnitVentilator, OS:ZoneHVAC:WaterToAirHeatPump -->
+    
     <message>
         <source>Supply Air Fan Name</source>
         <translation>공급 공기 팬 이름</translation>
     </message>
-    <!-- OS:AirLoopHVAC:UnitaryHeatCool:VAVChangeoverBypass, OS:AirLoopHVAC:UnitaryHeatPump:AirToAir:MultiSpeed, OS:ZoneHVAC:TerminalUnit:VariableRefrigerantFlow -->
+    
     <message>
         <source>Supply Air Fan Operating Mode Schedule</source>
         <translation>공급 공기 팬 운영 모드 스케줄</translation>
     </message>
-    <!-- OS:AirLoopHVAC:UnitaryHeatPump:AirToAir, OS:AirLoopHVAC:UnitarySystem, OS:ZoneHVAC:FourPipeFanCoil, OS:ZoneHVAC:PackagedTerminalAirConditioner, OS:ZoneHVAC:PackagedTerminalHeatPump, OS:ZoneHVAC:UnitVentilator, OS:ZoneHVAC:WaterToAirHeatPump -->
+    
     <message>
         <source>Supply Air Fan Operating Mode Schedule Name</source>
         <translation>공급 공기 팬 운영 모드 스케줄 이름</translation>
     </message>
-    <!-- OS:ZoneHVAC:EnergyRecoveryVentilator -->
+    
     <message>
         <source>Supply Air Flow Rate</source>
         <translation>공급 공기 유량</translation>
     </message>
-    <!-- OS:AirLoopHVAC:UnitarySystem -->
+    
     <message>
         <source>Supply Air Flow Rate Method During Cooling Operation</source>
         <translation>냉방 운전 중 공급 공기 유량 방식</translation>
     </message>
-    <!-- OS:AirLoopHVAC:UnitarySystem -->
+    
     <message>
         <source>Supply Air Flow Rate Method During Heating Operation</source>
         <translation>난방 운전 중 공급 공기 유량 방법</translation>
     </message>
-    <!-- OS:AirLoopHVAC:UnitarySystem -->
+    
     <message>
         <source>Supply Air Flow Rate Method When No Cooling or Heating is Required</source>
         <translation>냉난방이 필요 없을 때의 급기 유량 방법</translation>
     </message>
-    <!-- OS:AirLoopHVAC:UnitarySystem -->
+    
     <message>
         <source>Supply Air Flow Rate Per Floor Area During Cooling Operation</source>
         <translation>냉방 운전 중 바닥 면적당 공급 공기 유량</translation>
     </message>
-    <!-- OS:AirLoopHVAC:UnitarySystem -->
+    
     <message>
         <source>Supply Air Flow Rate Per Floor Area during Heating Operation</source>
         <translation>난방 운영 중 바닥 면적당 공급 공기 유량</translation>
     </message>
-    <!-- OS:AirLoopHVAC:UnitarySystem -->
+    
     <message>
         <source>Supply Air Flow Rate Per Floor Area When No Cooling or Heating is Required</source>
         <translation>냉난방이 필요하지 않을 때 층 면적당 공급 공기 유량</translation>
     </message>
-    <!-- OS:AirLoopHVAC:UnitaryHeatPump:AirToAir, OS:AirLoopHVAC:UnitaryHeatPump:AirToAir:MultiSpeed, OS:ZoneHVAC:PackagedTerminalAirConditioner, OS:ZoneHVAC:PackagedTerminalHeatPump, OS:ZoneHVAC:WaterToAirHeatPump -->
+    
     <message>
         <source>Supply Air Flow Rate When No Cooling or Heating is Needed</source>
         <translation>냉난방이 필요하지 않을 때의 공급 공기 흐름률</translation>
     </message>
-    <!-- OS:AirLoopHVAC:UnitarySystem -->
+    
     <message>
         <source>Supply Air Flow Rate When No Cooling or Heating is Required</source>
         <translation>냉방 또는 난방이 필요하지 않을 때의 공급 공기 유량</translation>
     </message>
-    <!-- OS:AirTerminal:SingleDuct:SeriesPIU:Reheat, OS:HeatExchanger:AirToAir:SensibleAndLatent -->
+    
     <message>
         <source>Supply Air Inlet Node</source>
         <translation>공급 공기 유입 노드</translation>
     </message>
-    <!-- OS:AirTerminal:SingleDuct:ConstantVolume:CooledBeam, OS:AirTerminal:SingleDuct:ConstantVolume:FourPipeInduction, OS:AirTerminal:SingleDuct:ParallelPIU:Reheat -->
+    
     <message>
         <source>Supply Air Inlet Node Name</source>
         <translation>급기 입구 노드 이름</translation>
     </message>
-    <!-- OS:HeatExchanger:AirToAir:SensibleAndLatent -->
+    
     <message>
         <source>Supply Air Outlet Node</source>
         <translation>공급 공기 출구 노드</translation>
     </message>
-    <!-- OS:AirTerminal:SingleDuct:ConstantVolume:CooledBeam -->
+    
     <message>
         <source>Supply Air Outlet Node Name</source>
         <translation>공급 공기 출구 노드 이름</translation>
     </message>
-    <!-- OS:HeatExchanger:AirToAir:SensibleAndLatent -->
+    
     <message>
         <source>Supply Air Outlet Temperature Control</source>
         <translation>공급 공기 출구 온도 제어</translation>
     </message>
-    <!-- OS:AirTerminal:SingleDuct:ConstantVolume:CooledBeam -->
+    
     <message>
         <source>Supply Air Volumetric Flow Rate</source>
         <translation>공급 공기 체적 유량</translation>
     </message>
-    <!-- OS:AirLoopHVAC:UnitarySystem -->
+    
     <message>
         <source>Supply Fan Name</source>
         <translation>공급 팬 이름</translation>
     </message>
-    <!-- OS:CoilSystem:IntegratedHeatPump:AirSource -->
+    
     <message>
         <source>Supply Hot Water Flow Sensor Node Name</source>
         <translation>공급 온수 유량 센서 노드 이름</translation>
     </message>
-    <!-- OS:PlantLoop -->
+    
     <message>
         <source>Supply Mixer Name</source>
         <translation>공급 혼합기 이름</translation>
     </message>
-    <!-- OS:AirLoopHVAC -->
+    
     <message>
         <source>Supply Side Inlet Node Name</source>
         <translation>공급측 입구 노드 이름</translation>
     </message>
-    <!-- OS:AirLoopHVAC -->
+    
     <message>
         <source>Supply Side Outlet Node A</source>
         <translation>공급 측 출구 노드 A</translation>
     </message>
-    <!-- OS:AirLoopHVAC -->
+    
     <message>
         <source>Supply Side Outlet Node B</source>
         <translation>공급측 출구 노드 B</translation>
     </message>
-    <!-- OS:AirLoopHVAC, OS:PlantLoop -->
+    
     <message>
         <source>Supply Splitter Name</source>
         <translation>공급 분기기 이름</translation>
     </message>
-    <!-- OS:ElectricEquipment:ITE:AirCooled:Definition -->
+    
     <message>
         <source>Supply Temperature Difference</source>
         <translation>공급 온도 차이</translation>
     </message>
-    <!-- OS:ElectricEquipment:ITE:AirCooled:Definition -->
+    
     <message>
         <source>Supply Temperature Difference Schedule</source>
         <translation>공급 온도 차이 스케줄</translation>
     </message>
-    <!-- OS:AirConditioner:VariableRefrigerantFlow, OS:Coil:Cooling:DX:MultiSpeed, OS:Coil:Cooling:DX:SingleSpeed:ThermalStorage, OS:Coil:Cooling:DX:TwoStageWithHumidityControlMode, OS:CoolingTower:VariableSpeed -->
+    
     <message>
         <source>Supply Water Storage Tank</source>
         <translation>급수 저장 탱크</translation>
     </message>
-    <!-- OS:Coil:Cooling:DX:SingleSpeed, OS:Coil:Cooling:DX:TwoSpeed, OS:Coil:Cooling:DX:VariableSpeed, OS:CoolingTower:TwoSpeed, OS:EvaporativeFluidCooler:SingleSpeed, OS:EvaporativeFluidCooler:TwoSpeed, OS:WaterUse:Connections -->
+    
     <message>
         <source>Supply Water Storage Tank Name</source>
         <translation>급수 저수조 이름</translation>
     </message>
-    <!-- OS:InteriorPartitionSurface, OS:InternalMass:Definition -->
+    
     <message>
         <source>Surface Area</source>
         <translation>표면적</translation>
     </message>
-    <!-- OS:InternalMass:Definition -->
+    
     <message>
         <source>Surface Area per Person</source>
         <translation>인당 표면적</translation>
     </message>
-    <!-- OS:InternalMass:Definition -->
+    
     <message>
         <source>Surface Area per Space Floor Area</source>
         <translation>공간 바닥 면적당 표면 면적</translation>
     </message>
-    <!-- OS:MaterialProperty:MoisturePenetrationDepth:Settings -->
+    
     <message>
         <source>Surface Layer Penetration Depth</source>
         <translation>표면층 침투 깊이</translation>
     </message>
-    <!-- OS:AirflowNetworkDuctViewFactors, OS:AirflowNetworkSurface, OS:Generator:PVWatts, OS:Generator:Photovoltaic, OS:SolarCollector:FlatPlate:PhotovoltaicThermal, OS:SolarCollector:FlatPlate:Water, OS:SolarCollector:IntegralCollectorStorage, OS:SubSurface, OS:SurfaceControl:MovableInsulation, OS:SurfaceProperty:ConvectionCoefficients, OS:SurfaceProperty:ExposedFoundationPerimeter, OS:SurfaceProperty:IncidentSolarMultiplier, OS:SwimmingPool:Indoor -->
+    
     <message>
         <source>Surface Name</source>
         <translation>표면 이름</translation>
     </message>
-    <!-- OS:Construction, OS:Construction:AirBoundary, OS:Construction:CfactorUndergroundWall, OS:Construction:FfactorGroundFloor, OS:Construction:InternalSource, OS:Construction:WindowDataFile -->
+    
     <message>
         <source>Surface Rendering Name</source>
         <translation>표면 렌더링 이름</translation>
     </message>
-    <!-- OS:AirflowNetworkDuct -->
+    
     <message>
         <source>Surface Roughness</source>
         <translation>표면 조도</translation>
     </message>
-    <!-- OS:SurfaceProperty:ExposedFoundationPerimeter -->
+    
     <message>
         <source>Surface Segment Exposed</source>
         <translation>표면 세그먼트 노출</translation>
     </message>
-    <!-- OS:HeatBalanceAlgorithm -->
+    
     <message>
         <source>Surface Temperature Upper Limit</source>
         <translation>표면 온도 상한값</translation>
     </message>
-    <!-- OS:Surface, OS:SurfaceProperty:ConvectionCoefficients:MultipleSurface -->
+    
     <message>
         <source>Surface Type</source>
         <translation>표면 유형</translation>
     </message>
-    <!-- OS:AirflowNetworkDuctViewFactors -->
+    
     <message>
         <source>Surface View Factor</source>
         <translation>표면 뷰 팩터</translation>
     </message>
-    <!-- OS:SurfaceProperty:SurroundingSurfaces -->
+    
     <message>
         <source>Surrounding Surface Name</source>
         <translation>주변 표면 이름</translation>
     </message>
-    <!-- OS:SurfaceProperty:SurroundingSurfaces -->
+    
     <message>
         <source>Surrounding Surface Temperature Schedule Name</source>
         <translation>주변 표면 온도 스케줄 이름</translation>
     </message>
-    <!-- OS:SurfaceProperty:SurroundingSurfaces -->
+    
     <message>
         <source>Surrounding Surface View Factor</source>
         <translation>주변 표면 뷰 팩터</translation>
     </message>
-    <!-- OS:SurfaceProperty:LocalEnvironment -->
+    
     <message>
         <source>Surrounding Surfaces Object Name</source>
         <translation>주변 표면 객체 이름</translation>
     </message>
-    <!-- OS:AirflowNetworkExternalNode -->
+    
     <message>
         <source>Symmetric Wind Pressure Coefficient Curve</source>
         <translation>대칭 풍압 계수 곡선</translation>
     </message>
-    <!-- OS:AirLoopHVAC:UnitaryHeatCool:VAVChangeoverBypass -->
+    
     <message>
         <source>System Air Flow Rate During Cooling Operation</source>
         <translation>냉각 운전 중 시스템 공기 유량</translation>
     </message>
-    <!-- OS:AirLoopHVAC:UnitaryHeatCool:VAVChangeoverBypass -->
+    
     <message>
         <source>System Air Flow Rate During Heating Operation</source>
         <translation>난방 운전 중 시스템 공기 유량</translation>
     </message>
-    <!-- OS:AirLoopHVAC:UnitaryHeatCool:VAVChangeoverBypass -->
+    
     <message>
         <source>System Air Flow Rate When No Cooling or Heating is Needed</source>
         <translation>냉난방이 필요하지 않을 때의 시스템 공기 유량</translation>
     </message>
-    <!-- OS:Fan:ZoneExhaust -->
+    
     <message>
         <source>System Availability Manager Coupling Mode</source>
         <translation>시스템 가용성 관리자 결합 모드</translation>
     </message>
-    <!-- OS:Generator:PVWatts -->
+    
     <message>
         <source>System Losses</source>
         <translation>시스템 손실</translation>
     </message>
 
-    <!-- T -->
-    <!-- OS:Table:MultiVariableLookup -->
+    
+    
     <message>
         <source>Table Data Format</source>
         <translation>표 데이터 형식</translation>
     </message>
-    <!-- OS:WaterHeater:HeatPump -->
+    
     <message>
         <source>Tank</source>
         <translation>탱크</translation>
     </message>
-    <!-- OS:WaterHeater:HeatPump, OS:WaterHeater:HeatPump:WrappedCondenser -->
+    
     <message>
         <source>Tank Element Control Logic</source>
         <translation>탱크 요소 제어 로직</translation>
     </message>
-    <!-- OS:ThermalStorage:Ice:Detailed -->
+    
     <message>
         <source>Tank Loss Coefficient</source>
         <translation>탱크 손실 계수</translation>
     </message>
-    <!-- OS:WaterHeater:HeatPump:WrappedCondenser -->
+    
     <message>
         <source>Tank Name</source>
         <translation>탱크 이름</translation>
     </message>
-    <!-- OS:ThermalStorage:ChilledWater:Stratified -->
+    
     <message>
         <source>Tank Recovery Time</source>
         <translation>탱크 복구 시간</translation>
     </message>
-    <!-- OS:Connection -->
+    
     <message>
         <source>Target Object</source>
         <translation>대상 객체</translation>
     </message>
-    <!-- OS:UtilityCost:Charge:Block, OS:UtilityCost:Charge:Simple, OS:UtilityCost:Computation, OS:UtilityCost:Qualify, OS:UtilityCost:Ratchet, OS:UtilityCost:Variable -->
+    
     <message>
         <source>Tariff Name</source>
         <translation>요금 이름</translation>
     </message>
-    <!-- OS:LifeCycleCost:Parameters -->
+    
     <message>
         <source>Tax Rate</source>
         <translation>세금률</translation>
     </message>
-    <!-- OS:AvailabilityManager:HighTemperatureTurnOff, OS:AvailabilityManager:HighTemperatureTurnOn, OS:AvailabilityManager:LowTemperatureTurnOff, OS:AvailabilityManager:LowTemperatureTurnOn, OS:MaterialProperty:PhaseChange -->
+    
     <message>
         <source>Temperature</source>
         <translation>온도</translation>
     </message>
-    <!-- OS:Construction:InternalSource -->
+    
     <message>
         <source>Temperature Calculation Requested After Layer Number</source>
         <translation>레이어 번호 이후 온도 계산 요청됨</translation>
     </message>
-    <!-- OS:ZoneCapacitanceMultiplier:ResearchSpecial -->
+    
     <message>
         <source>Temperature Capacity Multiplier</source>
         <translation>온도 용량 승수</translation>
     </message>
-    <!-- OS:MaterialProperty:PhaseChange -->
+    
     <message>
         <source>Temperature Coefficient for Thermal Conductivity</source>
         <translation>열전도율 온도 계수</translation>
     </message>
-    <!-- OS:PhotovoltaicPerformance:EquivalentOneDiode -->
+    
     <message>
         <source>Temperature Coefficient of Open Circuit Voltage</source>
         <translation>개방 회로 전압의 온도 계수</translation>
     </message>
-    <!-- OS:PhotovoltaicPerformance:EquivalentOneDiode -->
+    
     <message>
         <source>Temperature Coefficient of Short Circuit Current</source>
         <translation>단락 전류의 온도 계수</translation>
     </message>
-    <!-- OS:ZoneHVAC:HighTemperatureRadiant, OS:ZoneHVAC:LowTemperatureRadiant:ConstantFlow, OS:ZoneHVAC:LowTemperatureRadiant:Electric, OS:ZoneHVAC:LowTemperatureRadiant:VariableFlow -->
+    
     <message>
         <source>Temperature Control Type</source>
         <translation>온도 제어 유형</translation>
     </message>
-    <!-- OS:SimulationControl -->
+    
     <message>
         <source>Temperature Convergence Tolerance Value</source>
         <translation>온도 수렴 허용차 값</translation>
     </message>
-    <!-- OS:Chiller:Electric:EIR, OS:Chiller:Electric:ReformulatedEIR -->
+    
     <message>
         <source>Temperature Difference Across Condenser Schedule Name</source>
         <translation>응축기 양단 온도 차이 스케줄 이름</translation>
     </message>
-    <!-- OS:ThermostatSetpoint:DualSetpoint -->
+    
     <message>
         <source>Temperature Difference Between Cutout And Setpoint</source>
         <translation>차단 및 설정점 간 온도 차이</translation>
     </message>
-    <!-- OS:AvailabilityManager:DifferentialThermostat -->
+    
     <message>
         <source>Temperature Difference Off Limit</source>
         <translation>온도 차이 오프 제한</translation>
     </message>
-    <!-- OS:AvailabilityManager:DifferentialThermostat -->
+    
     <message>
         <source>Temperature Difference On Limit</source>
         <translation>온도 차이 제한값</translation>
     </message>
-    <!-- OS:HeatExchanger:Desiccant:BalancedFlow:PerformanceDataType1 -->
+    
     <message>
         <source>Temperature Equation Coefficient 1</source>
         <translation>온도 방정식 계수 1</translation>
     </message>
-    <!-- OS:HeatExchanger:Desiccant:BalancedFlow:PerformanceDataType1 -->
+    
     <message>
         <source>Temperature Equation Coefficient 2</source>
         <translation>온도 방정식 계수 2</translation>
     </message>
-    <!-- OS:HeatExchanger:Desiccant:BalancedFlow:PerformanceDataType1 -->
+    
     <message>
         <source>Temperature Equation Coefficient 3</source>
         <translation>온도 방정식 계수 3</translation>
     </message>
-    <!-- OS:HeatExchanger:Desiccant:BalancedFlow:PerformanceDataType1 -->
+    
     <message>
         <source>Temperature Equation Coefficient 4</source>
         <translation>온도 방정식 계수 4</translation>
     </message>
-    <!-- OS:HeatExchanger:Desiccant:BalancedFlow:PerformanceDataType1 -->
+    
     <message>
         <source>Temperature Equation Coefficient 5</source>
         <translation>온도 방정식 계수 5</translation>
     </message>
-    <!-- OS:HeatExchanger:Desiccant:BalancedFlow:PerformanceDataType1 -->
+    
     <message>
         <source>Temperature Equation Coefficient 6</source>
         <translation>온도 방정식 계수 6</translation>
     </message>
-    <!-- OS:HeatExchanger:Desiccant:BalancedFlow:PerformanceDataType1 -->
+    
     <message>
         <source>Temperature Equation Coefficient 7</source>
         <translation>온도 방정식 계수 7</translation>
     </message>
-    <!-- OS:HeatExchanger:Desiccant:BalancedFlow:PerformanceDataType1 -->
+    
     <message>
         <source>Temperature Equation Coefficient 8</source>
         <translation>온도 방정식 계수 8</translation>
     </message>
-    <!-- OS:ZoneHVAC:EnergyRecoveryVentilator:Controller -->
+    
     <message>
         <source>Temperature High Limit</source>
         <translation>온도 상한선</translation>
     </message>
-    <!-- OS:ZoneHVAC:EnergyRecoveryVentilator:Controller -->
+    
     <message>
         <source>Temperature Low Limit</source>
         <translation>온도 하한값</translation>
     </message>
-    <!-- OS:Chiller:Absorption:Indirect -->
+    
     <message>
         <source>Temperature Lower Limit Generator Inlet</source>
         <translation>온도 하한 생성기 입구</translation>
     </message>
-    <!-- OS:Site:WaterMainsTemperature -->
+    
     <message>
         <source>Temperature Multiplier</source>
         <translation>온도 승수</translation>
     </message>
-    <!-- OS:Site:WaterMainsTemperature -->
+    
     <message>
         <source>Temperature Offset</source>
         <translation>온도 오프셋</translation>
     </message>
-    <!-- OS:Site:WaterMainsTemperature -->
+    
     <message>
         <source>Temperature Schedule Name</source>
         <translation>온도 일정 이름</translation>
     </message>
-    <!-- OS:ThermalStorage:ChilledWater:Stratified -->
+    
     <message>
         <source>Temperature Sensor Height</source>
         <translation>온도 센서 높이</translation>
     </message>
-    <!-- OS:TemperingValve -->
+    
     <message>
         <source>Temperature Setpoint Node</source>
         <translation>온도 설정점 노드</translation>
     </message>
-    <!-- OS:Coil:Heating:Electric, OS:Coil:Heating:Gas -->
+    
     <message>
         <source>Temperature Setpoint Node Name</source>
         <translation>온도 설정점 노드 이름</translation>
     </message>
-    <!-- OS:PlantComponent:TemperatureSource -->
+    
     <message>
         <source>Temperature Specification Type</source>
         <translation>온도 명시 유형</translation>
     </message>
-    <!-- OS:Refrigeration:AirChiller, OS:Refrigeration:WalkIn -->
+    
     <message>
         <source>Temperature Termination Defrost Fraction to Ice</source>
         <translation>온도 종료 제상 빙결 분율</translation>
     </message>
-    <!-- OS:ZoneHVAC:TerminalUnit:VariableRefrigerantFlow -->
+    
     <message>
         <source>Terminal Unit Air Inlet Node</source>
         <translation>터미널 유닛 공기 입구 노드</translation>
     </message>
-    <!-- OS:ZoneHVAC:TerminalUnit:VariableRefrigerantFlow -->
+    
     <message>
         <source>Terminal Unit Air Outlet Node</source>
         <translation>터미널 유닛 공기 출구 노드</translation>
     </message>
-    <!-- OS:ZoneHVAC:TerminalUnit:VariableRefrigerantFlow -->
+    
     <message>
         <source>Terminal Unit Availability schedule</source>
         <translation>터미널 유닛 가용성 스케줄</translation>
     </message>
-    <!-- OS:AirTerminal:SingleDuct:InletSideMixer -->
+    
     <message>
         <source>Terminal Unit Outlet</source>
         <translation>터미널 유닛 출구</translation>
     </message>
-    <!-- OS:AirTerminal:SingleDuct:InletSideMixer -->
+    
     <message>
         <source>Terminal Unit Primary Air Inlet</source>
         <translation>터미널 유닛 1차 공기 입구</translation>
     </message>
-    <!-- OS:AirTerminal:SingleDuct:InletSideMixer -->
+    
     <message>
         <source>Terminal Unit Secondary Air Inlet</source>
         <translation>터미널 유닛 이차 공기 입구</translation>
     </message>
-    <!-- OS:Site -->
+    
     <message>
         <source>Terrain</source>
         <translation>지형</translation>
     </message>
-    <!-- OS:SolarCollectorPerformance:FlatPlate -->
+    
     <message>
         <source>Test Correlation Type</source>
         <translation>테스트 상관관계 유형</translation>
     </message>
-    <!-- OS:SolarCollectorPerformance:FlatPlate -->
+    
     <message>
         <source>Test Flow Rate</source>
         <translation>테스트 유량</translation>
     </message>
-    <!-- OS:SolarCollectorPerformance:FlatPlate -->
+    
     <message>
         <source>Test Fluid</source>
         <translation>테스트 유체</translation>
     </message>
-    <!-- OS:ThermalStorage:Ice:Detailed -->
+    
     <message>
         <source>Thaw Process Indicator</source>
         <translation>해동 공정 표시기</translation>
     </message>
-    <!-- OS:Boiler:Steam -->
+    
     <message>
         <source>Theoretical Efficiency</source>
         <translation>이론적 효율</translation>
     </message>
-    <!-- OS:Material, OS:Material:NoMass, OS:Material:RoofVegetation -->
+    
     <message>
         <source>Thermal Absorptance</source>
         <translation>열 흡수율</translation>
     </message>
-    <!-- OS:AirflowNetworkOccupantVentilationControl -->
+    
     <message>
         <source>Thermal Comfort High Temperature Curve Name</source>
         <translation>높은 온도 곡선 이름 (Thermal Comfort)
@@ -24279,1100 +24278,1100 @@ or more precisely for technical context:
 
 열 쾌적성 높은 온도 곡선 이름</translation>
     </message>
-    <!-- OS:AirflowNetworkOccupantVentilationControl -->
+    
     <message>
         <source>Thermal Comfort Low Temperature Curve Name</source>
         <translation>열쾌적성 저온 곡선 이름</translation>
     </message>
-    <!-- OS:AirflowNetworkOccupantVentilationControl -->
+    
     <message>
         <source>Thermal Comfort Temperature Boundary Point</source>
         <translation>열적 쾌적성 온도 경계점</translation>
     </message>
-    <!-- OS:SolarCollectorPerformance:PhotovoltaicThermal:Simple -->
+    
     <message>
         <source>Thermal Conversion Efficiency Input Mode Type</source>
         <translation>열 변환 효율 입력 모드 유형</translation>
     </message>
-    <!-- OS:SolarCollectorPerformance:PhotovoltaicThermal:Simple -->
+    
     <message>
         <source>Thermal Conversion Efficiency Schedule Name</source>
         <translation>열 변환 효율 일정 이름</translation>
     </message>
-    <!-- OS:Humidifier:Steam:Gas -->
+    
     <message>
         <source>Thermal Efficiency</source>
         <translation>열 효율</translation>
     </message>
-    <!-- OS:Generator:MicroTurbine:HeatRecovery -->
+    
     <message>
         <source>Thermal Efficiency Function of Temperature and Elevation Curve Name</source>
         <translation>온도 및 높이의 열효율 함수 곡선 이름</translation>
     </message>
-    <!-- OS:Humidifier:Steam:Gas -->
+    
     <message>
         <source>Thermal Efficiency Modifier Curve Name</source>
         <translation>열효율 수정 곡선 이름</translation>
     </message>
-    <!-- OS:WindowMaterial:Screen, OS:WindowMaterial:Shade -->
+    
     <message>
         <source>Thermal Hemispherical Emissivity</source>
         <translation>열 반구형 방사율</translation>
     </message>
-    <!-- OS:SolarCollectorPerformance:IntegralCollectorStorage -->
+    
     <message>
         <source>Thermal Mass of Absorber Plate</source>
         <translation>흡수판의 열 질량</translation>
     </message>
-    <!-- OS:Material:AirGap, OS:Material:NoMass -->
+    
     <message>
         <source>Thermal Resistance</source>
         <translation>열저항</translation>
     </message>
-    <!-- OS:WindowMaterial:Shade -->
+    
     <message>
         <source>Thermal Transmittance</source>
         <translation>열관류율</translation>
     </message>
-    <!-- OS:AirLoopHVAC:SupplyPlenum, OS:Controller:MechanicalVentilation, OS:HeaderedPumps:ConstantSpeed, OS:HeaderedPumps:VariableSpeed, OS:ZoneHVAC:EquipmentList -->
+    
     <message>
         <source>Thermal Zone</source>
         <translation>열 영역</translation>
     </message>
-    <!-- OS:AirflowNetworkDistributionLinkage, OS:AirflowNetworkZone, OS:Space, OS:ZoneProperty:UserViewFactors:BySurfaceName -->
+    
     <message>
         <source>Thermal Zone Name</source>
         <translation>열 영역 이름</translation>
     </message>
-    <!-- OS:AirLoopHVAC:ReturnPlenum -->
+    
     <message>
         <source>ThermalZone</source>
         <translation>열영역</translation>
     </message>
-    <!-- OS:Chiller:Electric:EIR, OS:Chiller:Electric:ReformulatedEIR, OS:HeatPump:PlantLoop:EIR:Cooling -->
+    
     <message>
         <source>Thermosiphon Capacity Fraction Curve Name</source>
         <translation>Thermosiphon 용량 분율 곡선 이름</translation>
     </message>
-    <!-- OS:Chiller:Electric:EIR, OS:Chiller:Electric:ReformulatedEIR, OS:HeatPump:PlantLoop:EIR:Cooling -->
+    
     <message>
         <source>Thermosiphon Minimum Temperature Difference</source>
         <translation>Thermosiphon 최소 온도 차이</translation>
     </message>
-    <!-- OS:ThermalZone -->
+    
     <message>
         <source>Thermostat Name</source>
         <translation>온도조절기 이름</translation>
     </message>
-    <!-- OS:AirConditioner:VariableRefrigerantFlow -->
+    
     <message>
         <source>Thermostat Priority Schedule</source>
         <translation>온도조절기 우선순위 스케줄</translation>
     </message>
-    <!-- OS:AvailabilityManager:NightCycle -->
+    
     <message>
         <source>Thermostat Tolerance</source>
         <translation>온도조절기 허용차</translation>
     </message>
-    <!-- OS:Daylighting:Control, OS:Glare:Sensor, OS:IlluminanceMap -->
+    
     <message>
         <source>Theta Rotation Around Y-Axis</source>
         <translation>Y축 주위 회전 각도</translation>
     </message>
-    <!-- OS:Luminaire -->
+    
     <message>
         <source>Theta Rotation Around Y-axis</source>
         <translation>Y축 주위 회전 각도 (Theta Rotation)</translation>
     </message>
-    <!-- OS:Material, OS:Material:RoofVegetation, OS:WindowMaterial:Gas, OS:WindowMaterial:GasMixture, OS:WindowMaterial:Glazing, OS:WindowMaterial:Glazing:RefractionExtinctionMethod, OS:WindowMaterial:Shade -->
+    
     <message>
         <source>Thickness</source>
         <translation>두께</translation>
     </message>
-    <!-- OS:HeatExchanger:AirToAir:SensibleAndLatent -->
+    
     <message>
         <source>Threshold Temperature</source>
         <translation>기준 온도</translation>
     </message>
-    <!-- OS:UtilityCost:Qualify -->
+    
     <message>
         <source>Threshold Test</source>
         <translation>임계값 테스트</translation>
     </message>
-    <!-- OS:UtilityCost:Qualify -->
+    
     <message>
         <source>Threshold Value or Variable Name</source>
         <translation>임계값 또는 변수명</translation>
     </message>
-    <!-- OS:ZoneHVAC:EvaporativeCoolerUnit -->
+    
     <message>
         <source>Throttling Range Temperature Difference</source>
         <translation>스로틀링 범위 온도 차이</translation>
     </message>
-    <!-- OS:Schedule:Week -->
+    
     <message>
         <source>Thursday Schedule:Day Name</source>
         <translation>목요일 일정:요일 이름</translation>
     </message>
-    <!-- OS:Generator:PVWatts -->
+    
     <message>
         <source>Tilt Angle</source>
         <translation>기울기 각도</translation>
     </message>
-    <!-- OS:WaterHeater:Sizing -->
+    
     <message>
         <source>Time for Tank Recovery</source>
         <translation>탱크 회복 시간</translation>
     </message>
-    <!-- OS:ZoneHVAC:EnergyRecoveryVentilator:Controller -->
+    
     <message>
         <source>Time of Day Economizer Flow Control Schedule Name</source>
         <translation>시간별 이코노마이저 유량 제어 스케줄 이름</translation>
     </message>
-    <!-- OS:UtilityCost:Tariff -->
+    
     <message>
         <source>Time of Use Period Schedule Name</source>
         <translation>시간대별 사용 기간 스케줄 이름</translation>
     </message>
-    <!-- OS:WaterHeater:Sizing -->
+    
     <message>
         <source>Time Storage Can Meet Peak Draw</source>
         <translation>시간별 저장 용량이 최대 부하를 충족할 수 있음</translation>
     </message>
-    <!-- OS:Site, OS:WeatherFile -->
+    
     <message>
         <source>Time Zone</source>
         <translation>시간대</translation>
     </message>
-    <!-- OS:HeatPump:PlantLoop:EIR:Heating -->
+    
     <message>
         <source>Timed Empirical Defrost Frequency Curve Name</source>
         <translation>타이밍 경험식 제상 주기 곡선 이름</translation>
     </message>
-    <!-- OS:HeatPump:PlantLoop:EIR:Heating -->
+    
     <message>
         <source>Timed Empirical Defrost Heat Input Energy Fraction Curve Name</source>
         <translation>Timed Empirical Defrost Heat Input Energy Fraction Curve Name의 한국어 번역:
 
 **시간 경험식 제상 열 입력 에너지 분율 곡선 이름**</translation>
     </message>
-    <!-- OS:HeatPump:PlantLoop:EIR:Heating -->
+    
     <message>
         <source>Timed Empirical Defrost Heat Load Penalty Curve Name</source>
         <translation>타이밍 경험적 결로제거 열부하 페널티 곡선 이름</translation>
     </message>
-    <!-- OS:OutputControl:Timestamp -->
+    
     <message>
         <source>Timestamp at Beginning of Interval</source>
         <translation>구간 시작 시점</translation>
     </message>
-    <!-- OS:ThermalStorage:Ice:Detailed -->
+    
     <message>
         <source>Timestep of the Curve Data</source>
         <translation>곡선 데이터의 시간 간격</translation>
     </message>
-    <!-- OS:Sizing:Parameters -->
+    
     <message>
         <source>Timesteps in Averaging Window</source>
         <translation>평균화 윈도우의 타임스텝</translation>
     </message>
-    <!-- OS:UtilityBill -->
+    
     <message>
         <source>Timesteps in Peak Demand Window</source>
         <translation>피크 수요 윈도우의 타임스텝</translation>
     </message>
-    <!-- OS:ZoneProperty:UserViewFactors:BySurfaceName -->
+    
     <message>
         <source>To Surface Name</source>
         <translation>대상 표면 이름</translation>
     </message>
-    <!-- OS:OutputControl:ReportingTolerances -->
+    
     <message>
         <source>Tolerance for Time Cooling Setpoint Not Met</source>
         <translation>냉방 설정값 미충족 시간 허용오차</translation>
     </message>
-    <!-- OS:OutputControl:ReportingTolerances -->
+    
     <message>
         <source>Tolerance for Time Heating Setpoint Not Met</source>
         <translation>난방 설정점 미충족 시간 허용 오차</translation>
     </message>
-    <!-- OS:WindowMaterial:Screen, OS:WindowMaterial:Shade -->
+    
     <message>
         <source>Top Opening Multiplier</source>
         <translation>상단 개구부 승수</translation>
     </message>
-    <!-- OS:Coil:Heating:DX:VariableSpeed:SpeedData -->
+    
     <message>
         <source>Total  Heating Capacity Function of Air Flow Fraction Curve Name</source>
         <translation>총 난방 용량 공기 유량 분율 곡선 이름</translation>
     </message>
-    <!-- OS:EnvironmentalImpactFactors -->
+    
     <message>
         <source>Total Carbon Equivalent Emission Factor From CH4</source>
         <translation>CH4로부터의 총 탄소 동등물 배출 계수</translation>
     </message>
-    <!-- OS:EnvironmentalImpactFactors -->
+    
     <message>
         <source>Total Carbon Equivalent Emission Factor From CO2</source>
         <translation>CO2의 총 탄소 등가 배출 계수</translation>
     </message>
-    <!-- OS:EnvironmentalImpactFactors -->
+    
     <message>
         <source>Total Carbon Equivalent Emission Factor From N2O</source>
         <translation>N2O로부터의 총 탄소 동등 배출 계수</translation>
     </message>
-    <!-- OS:Coil:Cooling:WaterToAirHeatPump:EquationFit -->
+    
     <message>
         <source>Total Cooling Capacity Curve Name</source>
         <translation>총 냉각 용량 곡선 이름</translation>
     </message>
-    <!-- OS:Coil:Cooling:DX:VariableSpeed:SpeedData, OS:Coil:Cooling:WaterToAirHeatPump:VariableSpeedEquationFit:SpeedData -->
+    
     <message>
         <source>Total Cooling Capacity Function of Air Flow Fraction Curve Name</source>
         <translation>공기 유량 분율 곡선에 대한 총 냉각 용량 함수 곡선명</translation>
     </message>
-    <!-- OS:Coil:Cooling:DX:MultiSpeed:StageData, OS:CoilPerformance:DX:Cooling -->
+    
     <message>
         <source>Total Cooling Capacity Function of Flow Fraction Curve</source>
         <translation>냉각 용량 유량 분율 함수 곡선</translation>
     </message>
-    <!-- OS:Coil:Cooling:DX:MultiSpeed:StageData, OS:CoilPerformance:DX:Cooling -->
+    
     <message>
         <source>Total Cooling Capacity Function of Temperature Curve</source>
         <translation>온도 곡선의 총 냉방 용량 함수</translation>
     </message>
-    <!-- OS:Coil:Cooling:WaterToAirHeatPump:VariableSpeedEquationFit:SpeedData -->
+    
     <message>
         <source>Total Cooling Capacity Function of Water Flow Fraction Curve Name</source>
         <translation>총 냉각 용량 물 흐름 분율 곡선 이름</translation>
     </message>
-    <!-- OS:Coil:Cooling:DX:CurveFit:Speed -->
+    
     <message>
         <source>Total Cooling Capacity Modifier Function of Air Flow Fraction Curve</source>
         <translation>공기 유량 분율 곡선의 총 냉각 용량 수정 함수</translation>
     </message>
-    <!-- OS:Coil:Cooling:DX:CurveFit:Speed -->
+    
     <message>
         <source>Total Cooling Capacity Modifier Function of Temperature Curve</source>
         <translation>온도 곡선에 따른 총 냉각 용량 수정자 함수</translation>
     </message>
-    <!-- OS:SurfaceProperty:ExposedFoundationPerimeter -->
+    
     <message>
         <source>Total Exposed Perimeter</source>
         <translation>총 노출 둘레</translation>
     </message>
-    <!-- OS:PhotovoltaicPerformance:EquivalentOneDiode -->
+    
     <message>
         <source>Total Heat Capacity</source>
         <translation>총 열용량</translation>
     </message>
-    <!-- OS:Coil:Heating:WaterToAirHeatPump:VariableSpeedEquationFit:SpeedData -->
+    
     <message>
         <source>Total Heating Capacity Function of Air Flow Fraction Curve Name</source>
         <translation>공기 유량 분율 곡선에 따른 총 난방 용량 함수 곡선명</translation>
     </message>
-    <!-- OS:Coil:Heating:DX:SingleSpeed -->
+    
     <message>
         <source>Total Heating Capacity Function of Flow Fraction Curve Name</source>
         <translation>전체 가열 용량 흐름 분율 곡선 함수명</translation>
     </message>
-    <!-- OS:Coil:Heating:DX:SingleSpeed -->
+    
     <message>
         <source>Total Heating Capacity Function of Temperature Curve Name</source>
         <translation>총 난방 용량 온도 함수 곡선 이름</translation>
     </message>
-    <!-- OS:Refrigeration:WalkIn:ZoneBoundary -->
+    
     <message>
         <source>Total Insulated Surface Area Facing Zone</source>
         <translation>존에 면한 단열 표면의 총 면적</translation>
     </message>
-    <!-- OS:DaylightingDevice:Tubular -->
+    
     <message>
         <source>Total Length</source>
         <translation>전체 길이</translation>
     </message>
-    <!-- OS:Refrigeration:SecondarySystem -->
+    
     <message>
         <source>Total Pump Flow Rate</source>
         <translation>펌프 총 유량</translation>
     </message>
-    <!-- OS:Refrigeration:SecondarySystem -->
+    
     <message>
         <source>Total Pump Head</source>
         <translation>펌프 총 양정</translation>
     </message>
-    <!-- OS:Refrigeration:SecondarySystem -->
+    
     <message>
         <source>Total Pump Power</source>
         <translation>총 펌프 전력</translation>
     </message>
-    <!-- OS:HeaderedPumps:ConstantSpeed, OS:HeaderedPumps:VariableSpeed -->
+    
     <message>
         <source>Total Rated Flow Rate</source>
         <translation>정격 총 유량</translation>
     </message>
-    <!-- OS:Coil:WaterHeating:AirToWaterHeatPump:VariableSpeed:SpeedData -->
+    
     <message>
         <source>Total Water Heating Capacity Function of Air Flow Fraction Curve Name</source>
         <translation>전체 온수 난방 용량 공기 유량 분율 곡선 이름</translation>
     </message>
-    <!-- OS:Coil:WaterHeating:AirToWaterHeatPump:VariableSpeed:SpeedData -->
+    
     <message>
         <source>Total Water Heating Capacity Function of Temperature Curve Name</source>
         <translation>온수 난방 용량 총 함수 온도 곡선 이름</translation>
     </message>
-    <!-- OS:Coil:WaterHeating:AirToWaterHeatPump:VariableSpeed:SpeedData -->
+    
     <message>
         <source>Total Water Heating Capacity Function of Water Flow Fraction Curve Name</source>
         <translation>전체 온수 가열 용량 물 유량 분율 곡선 이름</translation>
     </message>
-    <!-- OS:ElectricLoadCenter:Distribution -->
+    
     <message>
         <source>Track Meter Scheme Meter Name</source>
         <translation>트래킹 미터 스킴 미터 이름</translation>
     </message>
-    <!-- OS:ElectricLoadCenter:Distribution -->
+    
     <message>
         <source>Track Schedule Name Scheme Schedule Name</source>
         <translation>Track Schedule Name Scheme Schedule Name</translation>
     </message>
-    <!-- OS:Refrigeration:GasCooler:AirCooled -->
+    
     <message>
         <source>Transcritical Approach Temperature</source>
         <translation>초임계 접근 온도</translation>
     </message>
-    <!-- OS:Refrigeration:Compressor -->
+    
     <message>
         <source>Transcritical Compressor Capacity Curve Name</source>
         <translation>초임계 압축기 용량 곡선 이름</translation>
     </message>
-    <!-- OS:Refrigeration:Compressor -->
+    
     <message>
         <source>Transcritical Compressor Power Curve Name</source>
         <translation>초임계 압축기 성능곡선 이름</translation>
     </message>
-    <!-- OS:ElectricLoadCenter:Distribution -->
+    
     <message>
         <source>Transformer Object Name</source>
         <translation>변압기 객체 이름</translation>
     </message>
-    <!-- OS:ElectricLoadCenter:Transformer -->
+    
     <message>
         <source>Transformer Usage</source>
         <translation>변압기 사용</translation>
     </message>
-    <!-- OS:Refrigeration:GasCooler:AirCooled -->
+    
     <message>
         <source>Transition Temperature</source>
         <translation>전이 온도</translation>
     </message>
-    <!-- OS:DaylightingDevice:Tubular -->
+    
     <message>
         <source>Transition Zone Length</source>
         <translation>Transition Zone Length</translation>
     </message>
-    <!-- OS:DaylightingDevice:Tubular -->
+    
     <message>
         <source>Transition Zone Name</source>
         <translation>과도 존 이름</translation>
     </message>
-    <!-- OS:Schedule:File -->
+    
     <message>
         <source>Translate File With Relative Path</source>
         <translation>상대 경로로 파일 변환</translation>
     </message>
-    <!-- OS:Schedule:FixedInterval -->
+    
     <message>
         <source>Translate to Schedule File</source>
         <translation>일정을 파일로 변환</translation>
     </message>
-    <!-- OS:MaterialProperty:GlazingSpectralData -->
+    
     <message>
         <source>Transmittance</source>
         <translation>투과율</translation>
     </message>
-    <!-- OS:PhotovoltaicPerformance:EquivalentOneDiode -->
+    
     <message>
         <source>Transmittance Absorptance Product</source>
         <translation>투과율 흡수율 곱</translation>
     </message>
-    <!-- OS:ShadingSurface -->
+    
     <message>
         <source>Transmittance Schedule Name</source>
         <translation>투과율 스케줄 이름</translation>
     </message>
-    <!-- OS:GroundHeatExchanger:HorizontalTrench -->
+    
     <message>
         <source>Trench Length in Pipe Axial Direction</source>
         <translation>파이프 축 방향의 트렌치 길이</translation>
     </message>
-    <!-- OS:Construction:InternalSource -->
+    
     <message>
         <source>Tube Spacing</source>
         <translation>튜브 간격</translation>
     </message>
-    <!-- OS:DefaultSubSurfaceConstructions -->
+    
     <message>
         <source>Tubular Daylight Diffuser Construction Name</source>
         <translation>튜블러 채광 확산기 구성 이름</translation>
     </message>
-    <!-- OS:DefaultSubSurfaceConstructions -->
+    
     <message>
         <source>Tubular Daylight Dome Construction Name</source>
         <translation>튜블형 채광돔 구성 이름</translation>
     </message>
-    <!-- OS:Schedule:Week -->
+    
     <message>
         <source>Tuesday Schedule:Day Name</source>
         <translation>화요일 스케줄:요일 이름</translation>
     </message>
-    <!-- OS:Construction:InternalSource -->
+    
     <message>
         <source>Two-Dimensional Temperature Calculation Position</source>
         <translation>2차원 온도 계산 위치</translation>
     </message>
-    <!-- OS:EnergyManagementSystem:OutputVariable, OS:PythonPlugin:OutputVariable -->
+    
     <message>
         <source>Type of Data in Variable</source>
         <translation>변수의 데이터 유형</translation>
     </message>
-    <!-- OS:SurfaceProperty:OtherSideConditionsModel -->
+    
     <message>
         <source>Type of Modeling</source>
         <translation>모델링 유형</translation>
     </message>
-    <!-- OS:AirflowNetworkDetailedOpening -->
+    
     <message>
         <source>Type of Rectangular Large Vertical Opening</source>
         <translation>직사각형 대형 수직 개구부의 유형</translation>
     </message>
-    <!-- OS:ShadingControl -->
+    
     <message>
         <source>Type of Slat Angle Control for Blinds</source>
         <translation>블라인드 슬랫 각도 제어 유형</translation>
     </message>
 
-    <!-- U -->
-    <!-- OS:WindowMaterial:SimpleGlazingSystem -->
+    
+    
     <message>
         <source>U-Factor</source>
         <translation>U-Factor</translation>
     </message>
-    <!-- OS:EvaporativeFluidCooler:SingleSpeed -->
+    
     <message>
         <source>U-factor Times Area Value at Design Air Flow Rate</source>
         <translation>설계 공기 유량에서의 U-인수 곱하기 면적 값</translation>
     </message>
-    <!-- OS:GroundHeatExchanger:Vertical -->
+    
     <message>
         <source>U-Tube Distance</source>
         <translation>U자형 튜브 거리</translation>
     </message>
-    <!-- OS:Refrigeration:Case -->
+    
     <message>
         <source>Under Case HVAC Return Air Fraction</source>
         <translation>Under Case HVAC Return Air Fraction</translation>
     </message>
-    <!-- OS:GroundHeatExchanger:HorizontalTrench, OS:GroundHeatExchanger:Vertical -->
+    
     <message>
         <source>Undisturbed Ground Temperature Model</source>
         <translation>미교란 지반 온도 모델</translation>
     </message>
-    <!-- OS:OutputControl:Table:Style -->
+    
     <message>
         <source>Unit Conversion</source>
         <translation>단위 변환</translation>
     </message>
-    <!-- OS:Output:SQLite -->
+    
     <message>
         <source>Unit Conversion for Tabular Data</source>
         <translation>표 데이터의 단위 변환</translation>
     </message>
-    <!-- OS:Coil:Cooling:DX:CurveFit:Performance, OS:Coil:Cooling:DX:TwoSpeed -->
+    
     <message>
         <source>Unit Internal Static Air Pressure</source>
         <translation>단위 내부 정적 공기 압력</translation>
     </message>
-    <!-- OS:Refrigeration:Case, OS:ScheduleTypeLimits, OS:Table:IndependentVariable -->
+    
     <message>
         <source>Unit Type</source>
         <translation>단위 종류</translation>
     </message>
-    <!-- OS:EnergyManagementSystem:MeteredOutputVariable, OS:EnergyManagementSystem:OutputVariable, OS:PythonPlugin:OutputVariable -->
+    
     <message>
         <source>Units</source>
         <translation>단위</translation>
     </message>
-    <!-- OS:EnergyManagementSystem:MeteredOutputVariable, OS:EnergyManagementSystem:OutputVariable, OS:PythonPlugin:OutputVariable -->
+    
     <message>
         <source>Update Frequency</source>
         <translation>업데이트 빈도</translation>
     </message>
-    <!-- OS:ScheduleTypeLimits -->
+    
     <message>
         <source>Upper Limit Value</source>
         <translation>상한값</translation>
     </message>
-    <!-- OS:Construction:WindowDataFile, OS:WeatherFile -->
+    
     <message>
         <source>Url</source>
         <translation>URL</translation>
     </message>
-    <!-- OS:PerformancePrecisionTradeoffs -->
+    
     <message>
         <source>Use Coil Direct Solutions</source>
         <translation>코일 직접 솔루션 사용</translation>
     </message>
-    <!-- OS:AirLoopHVAC:UnitarySystem -->
+    
     <message>
         <source>Use DOAS DX Cooling Coil</source>
         <translation>DOAS DX 냉각 코일 사용</translation>
     </message>
-    <!-- OS:WaterHeater:Mixed, OS:WaterHeater:Stratified -->
+    
     <message>
         <source>Use Flow Rate Fraction Schedule Name</source>
         <translation>유량 분율 일정표 이름 사용</translation>
     </message>
-    <!-- OS:Coil:Cooling:WaterToAirHeatPump:VariableSpeedEquationFit -->
+    
     <message>
         <source>Use Hot Gas Reheat</source>
         <translation>핫 가스 재열 사용</translation>
     </message>
-    <!-- OS:ThermalZone -->
+    
     <message>
         <source>Use Ideal Air Loads</source>
         <translation>이상적 공기 부하 사용</translation>
     </message>
-    <!-- OS:LifeCycleCost:Parameters -->
+    
     <message>
         <source>Use NIST Fuel Escalation Rates</source>
         <translation>NIST 연료 할증률 사용</translation>
     </message>
-    <!-- OS:PerformancePrecisionTradeoffs -->
+    
     <message>
         <source>Use Representative Surfaces for Calculations</source>
         <translation>계산에 대표 표면 사용</translation>
     </message>
-    <!-- OS:ThermalStorage:ChilledWater:Stratified -->
+    
     <message>
         <source>Use Side Availability Schedule Name</source>
         <translation>Use Side Availability Schedule Name</translation>
     </message>
-    <!-- OS:ThermalStorage:ChilledWater:Stratified -->
+    
     <message>
         <source>Use Side Heat Transfer Effectiveness</source>
         <translation>측면 열 전달 효율성 사용</translation>
     </message>
-    <!-- OS:ThermalStorage:ChilledWater:Stratified, OS:WaterHeater:Mixed, OS:WaterHeater:Stratified -->
+    
     <message>
         <source>Use Side Inlet Node Name</source>
         <translation>측면 입구 노드 이름 사용</translation>
     </message>
-    <!-- OS:ThermalStorage:ChilledWater:Stratified, OS:WaterHeater:Mixed, OS:WaterHeater:Stratified -->
+    
     <message>
         <source>Use Side Outlet Node Name</source>
         <translation>측면 출구 노드 이름 사용</translation>
     </message>
-    <!-- OS:RunPeriod, OS:SizingPeriod:WeatherFileConditionType, OS:SizingPeriod:WeatherFileDays -->
+    
     <message>
         <source>Use Weather File Daylight Saving Period</source>
         <translation>날씨 파일 일광절약 기간 사용</translation>
     </message>
-    <!-- OS:RunPeriod -->
+    
     <message>
         <source>Use Weather File Holidays and Special Days</source>
         <translation>날씨 파일의 휴일 및 특별한 날 사용</translation>
     </message>
-    <!-- OS:WeatherProperty:SkyTemperature -->
+    
     <message>
         <source>Use Weather File Horizontal IR</source>
         <translation>기상 파일 수평 IR 사용</translation>
     </message>
-    <!-- OS:SizingPeriod:WeatherFileConditionType, OS:SizingPeriod:WeatherFileDays -->
+    
     <message>
         <source>Use Weather File Rain and Snow Indicators</source>
         <translation>날씨 파일 강우 및 강설 지시자 사용</translation>
     </message>
-    <!-- OS:AvailabilityManager:HybridVentilation, OS:RunPeriod -->
+    
     <message>
         <source>Use Weather File Rain Indicators</source>
         <translation>날씨 파일 강우 지시자 사용</translation>
     </message>
-    <!-- OS:RunPeriod -->
+    
     <message>
         <source>Use Weather File Snow Indicators</source>
         <translation>기상 파일 눈 지표 사용</translation>
     </message>
-    <!-- OS:PlantLoop -->
+    
     <message>
         <source>User Defined Fluid Type</source>
         <translation>사용자 정의 유체 타입</translation>
     </message>
-    <!-- OS:EvaporativeFluidCooler:SingleSpeed -->
+    
     <message>
         <source>User Specified Design Capacity</source>
         <translation>사용자 지정 설계 용량</translation>
     </message>
-    <!-- OS:ComponentData -->
+    
     <message>
         <source>UUID</source>
         <translation>UUID</translation>
     </message>
 
-    <!-- V -->
-    <!-- OS:Schedule:Constant, OS:Schedule:FixedInterval, OS:Table:IndependentVariable -->
+    
+    
     <message>
         <source>Value</source>
         <translation>값</translation>
     </message>
-    <!-- OS:PhotovoltaicPerformance:Simple -->
+    
     <message>
         <source>Value for Cell Efficiency if Fixed</source>
         <translation>고정된 경우 셀 효율 값</translation>
     </message>
-    <!-- OS:SolarCollectorPerformance:PhotovoltaicThermal:Simple -->
+    
     <message>
         <source>Value for Thermal Conversion Efficiency if Fixed</source>
         <translation>고정된 경우 열 변환 효율 값</translation>
     </message>
-    <!-- OS:AirConditioner:VariableRefrigerantFlow:FluidTemperatureControl, OS:AirConditioner:VariableRefrigerantFlow:FluidTemperatureControl:HR -->
+    
     <message>
         <source>Variable Condensing Temperature Maximum for Indoor Unit</source>
         <translation>실내 유닛을 위한 가변 응축 온도 최대값</translation>
     </message>
-    <!-- OS:AirConditioner:VariableRefrigerantFlow:FluidTemperatureControl, OS:AirConditioner:VariableRefrigerantFlow:FluidTemperatureControl:HR -->
+    
     <message>
         <source>Variable Condensing Temperature Minimum for Indoor Unit</source>
         <translation>실내 유닛의 변수 응축 온도 최소값</translation>
     </message>
-    <!-- OS:AirConditioner:VariableRefrigerantFlow:FluidTemperatureControl, OS:AirConditioner:VariableRefrigerantFlow:FluidTemperatureControl:HR -->
+    
     <message>
         <source>Variable Evaporating Temperature Maximum for Indoor Unit</source>
         <translation>실내 유닛의 변수 증발 온도 최대값</translation>
     </message>
-    <!-- OS:AirConditioner:VariableRefrigerantFlow:FluidTemperatureControl, OS:AirConditioner:VariableRefrigerantFlow:FluidTemperatureControl:HR -->
+    
     <message>
         <source>Variable Evaporating Temperature Minimum for Indoor Unit</source>
         <translation>실내 유닛을 위한 변수 증발 온도 최소값</translation>
     </message>
-    <!-- OS:Output:Variable, OS:UtilityCost:Qualify -->
+    
     <message>
         <source>Variable Name</source>
         <translation>변수명</translation>
     </message>
-    <!-- OS:Output:Table:Monthly -->
+    
     <message>
         <source>Variable or Meter Name</source>
         <translation>변수 또는 미터 이름</translation>
     </message>
-    <!-- OS:Output:Table:Annual -->
+    
     <message>
         <source>Variable or Meter or EMS Variable or Field Name</source>
         <translation>변수 또는 미터 또는 EMS 변수 또는 필드 이름</translation>
     </message>
-    <!-- OS:Refrigeration:SecondarySystem -->
+    
     <message>
         <source>Variable Speed Pump Cubic Curve Name</source>
         <translation>변수 속도 펌프 3차 곡선 이름</translation>
     </message>
-    <!-- OS:UtilityCost:Variable -->
+    
     <message>
         <source>Variable Type</source>
         <translation>변수 타입</translation>
     </message>
-    <!-- OS:AirflowNetworkSurface, OS:AirflowNetworkZone -->
+    
     <message>
         <source>Ventilation Control Mode</source>
         <translation>환기 제어 모드</translation>
     </message>
-    <!-- OS:AvailabilityManager:HybridVentilation -->
+    
     <message>
         <source>Ventilation Control Mode Schedule</source>
         <translation>환기 제어 모드 스케줄</translation>
     </message>
-    <!-- OS:AirflowNetworkSurface, OS:AirflowNetworkZone -->
+    
     <message>
         <source>Ventilation Control Zone Temperature Setpoint Schedule Name</source>
         <translation>환기 제어 구역 온도 설정값 스케줄 이름</translation>
     </message>
-    <!-- OS:ZoneHVAC:EnergyRecoveryVentilator -->
+    
     <message>
         <source>Ventilation Rate per Occupant</source>
         <translation>인당 환기율</translation>
     </message>
-    <!-- OS:ZoneHVAC:EnergyRecoveryVentilator -->
+    
     <message>
         <source>Ventilation Rate per Unit Floor Area</source>
         <translation>단위 바닥 면적당 환기량</translation>
     </message>
-    <!-- OS:AvailabilityManager:NightVentilation -->
+    
     <message>
         <source>Ventilation Temperature Difference</source>
         <translation>환기 온도 차이</translation>
     </message>
-    <!-- OS:AvailabilityManager:NightVentilation -->
+    
     <message>
         <source>Ventilation Temperature Low Limit</source>
         <translation>환기 온도 하한</translation>
     </message>
-    <!-- OS:AvailabilityManager:NightVentilation -->
+    
     <message>
         <source>Ventilation Temperature Schedule</source>
         <translation>환기 온도 스케줄</translation>
     </message>
-    <!-- OS:ZoneVentilation:DesignFlowRate -->
+    
     <message>
         <source>Ventilation Type</source>
         <translation>환기 유형</translation>
     </message>
-    <!-- OS:AirflowNetworkSurface, OS:AirflowNetworkZone -->
+    
     <message>
         <source>Venting Availability Schedule Name</source>
         <translation>환기 가용성 스케줄 이름</translation>
     </message>
-    <!-- OS:Version -->
+    
     <message>
         <source>Version Identifier</source>
         <translation>버전 식별자</translation>
     </message>
-    <!-- OS:ComponentData -->
+    
     <message>
         <source>Version Timestamp</source>
         <translation>버전 타임스탐프</translation>
     </message>
-    <!-- OS:ComponentData -->
+    
     <message>
         <source>Version UUID</source>
         <translation>버전 UUID</translation>
     </message>
-    <!-- OS:InteriorPartitionSurface, OS:ShadingSurface, OS:SubSurface, OS:Surface -->
+    
     <message>
         <source>Vertex X-coordinate</source>
         <translation>꼭짓점 X좌표</translation>
     </message>
-    <!-- OS:InteriorPartitionSurface, OS:ShadingSurface, OS:SubSurface, OS:Surface -->
+    
     <message>
         <source>Vertex Y-coordinate</source>
         <translation>꼭짓점 Y좌표</translation>
     </message>
-    <!-- OS:InteriorPartitionSurface, OS:ShadingSurface, OS:SubSurface, OS:Surface -->
+    
     <message>
         <source>Vertex Z-coordinate</source>
         <translation>꼭짓점 Z좌표</translation>
     </message>
-    <!-- OS:AirConditioner:VariableRefrigerantFlow -->
+    
     <message>
         <source>Vertical Height used for Piping Correction Factor</source>
         <translation>배관 보정 계수에 사용되는 수직 높이</translation>
     </message>
-    <!-- OS:Refrigeration:AirChiller -->
+    
     <message>
         <source>Vertical Location</source>
         <translation>수직 위치</translation>
     </message>
-    <!-- OS:Fan:ComponentModel -->
+    
     <message>
         <source>VFD Efficiency Curve Name</source>
         <translation>VFD 효율 곡선 이름</translation>
     </message>
-    <!-- OS:Fan:ComponentModel -->
+    
     <message>
         <source>VFD Efficiency Type</source>
         <translation>VFD 효율 유형</translation>
     </message>
-    <!-- OS:Fan:ComponentModel -->
+    
     <message>
         <source>VFD Sizing Factor</source>
         <translation>VFD 크기 조정 계수</translation>
     </message>
-    <!-- OS:ZoneProperty:UserViewFactors:BySurfaceName -->
+    
     <message>
         <source>View Factor</source>
         <translation>뷰 팩터</translation>
     </message>
-    <!-- OS:SubSurface, OS:Surface -->
+    
     <message>
         <source>View Factor to Ground</source>
         <translation>지면에 대한 시야 계수</translation>
     </message>
-    <!-- OS:DaylightingDevice:Shelf -->
+    
     <message>
         <source>View Factor to Outside Shelf</source>
         <translation>외부 선반에 대한 View Factor</translation>
     </message>
-    <!-- OS:WindowMaterial:Gas -->
+    
     <message>
         <source>Viscosity Coefficient A</source>
         <translation>점도 계수 A</translation>
     </message>
-    <!-- OS:WindowMaterial:Gas -->
+    
     <message>
         <source>Viscosity Coefficient B</source>
         <translation>점도 계수 B</translation>
     </message>
-    <!-- OS:WindowMaterial:Gas -->
+    
     <message>
         <source>Viscosity Coefficient C</source>
         <translation>점도 계수 C</translation>
     </message>
-    <!-- OS:Material, OS:Material:NoMass, OS:Material:RoofVegetation -->
+    
     <message>
         <source>Visible Absorptance</source>
         <translation>가시광 흡수율</translation>
     </message>
-    <!-- OS:WindowMaterial:Glazing:RefractionExtinctionMethod -->
+    
     <message>
         <source>Visible Extinction Coefficient</source>
         <translation>가시광선 소멸 계수</translation>
     </message>
-    <!-- OS:WindowMaterial:Glazing:RefractionExtinctionMethod -->
+    
     <message>
         <source>Visible Index of Refraction</source>
         <translation>가시 광선 굴절률 지수</translation>
     </message>
-    <!-- OS:WindowMaterial:Shade -->
+    
     <message>
         <source>Visible Reflectance</source>
         <translation>가시광선 반사율</translation>
     </message>
-    <!-- OS:DaylightingDevice:LightWell -->
+    
     <message>
         <source>Visible Reflectance of Well Walls</source>
         <translation>우물 벽의 가시광선 반사율</translation>
     </message>
-    <!-- OS:WindowMaterial:Shade, OS:WindowMaterial:SimpleGlazingSystem -->
+    
     <message>
         <source>Visible Transmittance</source>
         <translation>가시광선 투과율</translation>
     </message>
-    <!-- OS:WindowMaterial:Glazing -->
+    
     <message>
         <source>Visible Transmittance at Normal Incidence</source>
         <translation>정상 입사시 가시광 투과율</translation>
     </message>
-    <!-- OS:PhotovoltaicPerformance:Sandia -->
+    
     <message>
         <source>Voltage at Maximum Power Point</source>
         <translation>최대 전력 지점 전압</translation>
     </message>
-    <!-- OS:Space, OS:ThermalZone -->
+    
     <message>
         <source>Volume</source>
         <translation>체적</translation>
     </message>
 
-    <!-- W -->
-    <!-- OS:Refrigeration:WalkIn -->
+    
+    
     <message>
         <source>WalkIn Defrost Cycle Parameters Name</source>
         <translation>WalkIn 제상 사이클 파라미터 이름</translation>
     </message>
-    <!-- OS:Refrigeration:WalkIn -->
+    
     <message>
         <source>WalkIn Zone Boundary</source>
         <translation>WalkIn 존 경계</translation>
     </message>
-    <!-- OS:DefaultSurfaceConstructions -->
+    
     <message>
         <source>Wall Construction Name</source>
         <translation>벽체 구성 이름</translation>
     </message>
-    <!-- OS:Foundation:Kiva -->
+    
     <message>
         <source>Wall Depth Below Slab</source>
         <translation>슬래브 아래 벽 깊이</translation>
     </message>
-    <!-- OS:Foundation:Kiva -->
+    
     <message>
         <source>Wall Height Above Grade</source>
         <translation>지면 위의 벽 높이</translation>
     </message>
-    <!-- OS:Coil:Cooling:DX:MultiSpeed:StageData -->
+    
     <message>
         <source>Waste Heat Function of Temperature Curve</source>
         <translation>폐열 온도 곡선 함수</translation>
     </message>
-    <!-- OS:Coil:Cooling:WaterToAirHeatPump:VariableSpeedEquationFit:SpeedData, OS:Coil:Heating:DX:MultiSpeed:StageData, OS:Coil:Heating:WaterToAirHeatPump:VariableSpeedEquationFit:SpeedData -->
+    
     <message>
         <source>Waste Heat Function of Temperature Curve Name</source>
         <translation>폐열 함수 온도 곡선 이름</translation>
     </message>
-    <!-- OS:Coil:Cooling:DX:CurveFit:Speed -->
+    
     <message>
         <source>Waste Heat Modifier Function of Temperature Curve</source>
         <translation>온도 곡선의 폐열 수정자 함수</translation>
     </message>
-    <!-- OS:Controller:WaterCoil -->
+    
     <message>
         <source>Water Coil Name</source>
         <translation>물 코일 이름</translation>
     </message>
-    <!-- OS:AirConditioner:VariableRefrigerantFlow -->
+    
     <message>
         <source>Water Condenser Volume Flow Rate</source>
         <translation>물 응축기 체적 유량</translation>
     </message>
-    <!-- OS:Refrigeration:Condenser:WaterCooled -->
+    
     <message>
         <source>Water Design Flow Rate</source>
         <translation>물 설계 유량</translation>
     </message>
-    <!-- OS:FuelFactors -->
+    
     <message>
         <source>Water Emission Factor</source>
         <translation>물 배출 계수</translation>
     </message>
-    <!-- OS:FuelFactors -->
+    
     <message>
         <source>Water Emission Factor Schedule Name</source>
         <translation>물 배출 계수 스케줄 이름</translation>
     </message>
-    <!-- OS:Coil:WaterHeating:Desuperheater -->
+    
     <message>
         <source>Water Flow Rate</source>
         <translation>물 유량</translation>
     </message>
-    <!-- OS:LifeCycleCost:Parameters -->
+    
     <message>
         <source>Water Inflation</source>
         <translation>수자 인플레이션</translation>
     </message>
-    <!-- OS:CoolingTower:VariableSpeed, OS:FluidCooler:SingleSpeed, OS:FluidCooler:TwoSpeed -->
+    
     <message>
         <source>Water Inlet Node</source>
         <translation>물 입구 노드</translation>
     </message>
-    <!-- OS:Boiler:Steam, OS:Coil:Cooling:Water, OS:Coil:Cooling:Water:Panel:Radiant, OS:Coil:Cooling:WaterToAirHeatPump:EquationFit, OS:Coil:Heating:Water, OS:Coil:Heating:Water:Baseboard, OS:Coil:Heating:WaterToAirHeatPump:EquationFit, OS:Coil:WaterHeating:Desuperheater, OS:CoolingTower:SingleSpeed, OS:CoolingTower:TwoSpeed, OS:EvaporativeFluidCooler:SingleSpeed, OS:EvaporativeFluidCooler:TwoSpeed, OS:HeatPump:AirToWater:FuelFired:Cooling, OS:HeatPump:AirToWater:FuelFired:Heating, OS:Refrigeration:Condenser:WaterCooled -->
+    
     <message>
         <source>Water Inlet Node Name</source>
         <translation>물 입구 노드 이름</translation>
     </message>
-    <!-- OS:Refrigeration:Condenser:WaterCooled -->
+    
     <message>
         <source>Water Maximum Flow Rate</source>
         <translation>물 최대 유량</translation>
     </message>
-    <!-- OS:Refrigeration:Condenser:WaterCooled -->
+    
     <message>
         <source>Water Maximum Water Outlet Temperature</source>
         <translation>물 최대 물 출구 온도</translation>
     </message>
-    <!-- OS:Refrigeration:Condenser:WaterCooled -->
+    
     <message>
         <source>Water Minimum Water Inlet Temperature</source>
         <translation>물 최소 물 입구 온도</translation>
     </message>
-    <!-- OS:CoolingTower:VariableSpeed, OS:FluidCooler:SingleSpeed, OS:FluidCooler:TwoSpeed -->
+    
     <message>
         <source>Water Outlet Node</source>
         <translation>물 출구 노드</translation>
     </message>
-    <!-- OS:Coil:Cooling:Water, OS:Coil:Cooling:Water:Panel:Radiant, OS:Coil:Cooling:WaterToAirHeatPump:EquationFit, OS:Coil:Heating:Water, OS:Coil:Heating:Water:Baseboard, OS:Coil:Heating:WaterToAirHeatPump:EquationFit, OS:Coil:WaterHeating:Desuperheater, OS:CoolingTower:SingleSpeed, OS:CoolingTower:TwoSpeed, OS:EvaporativeFluidCooler:SingleSpeed, OS:EvaporativeFluidCooler:TwoSpeed, OS:HeatPump:AirToWater:FuelFired:Cooling, OS:HeatPump:AirToWater:FuelFired:Heating, OS:Refrigeration:Condenser:WaterCooled -->
+    
     <message>
         <source>Water Outlet Node Name</source>
         <translation>물 출구 노드 이름</translation>
     </message>
-    <!-- OS:Refrigeration:Condenser:WaterCooled -->
+    
     <message>
         <source>Water Outlet Temperature Schedule Name</source>
         <translation>급수 출구 온도 스케줄 이름</translation>
     </message>
-    <!-- OS:Coil:WaterHeating:Desuperheater -->
+    
     <message>
         <source>Water Pump Power</source>
         <translation>물 펌프 전력</translation>
     </message>
-    <!-- OS:EvaporativeCooler:Direct:ResearchSpecial, OS:EvaporativeCooler:Indirect:ResearchSpecial -->
+    
     <message>
         <source>Water Pump Power Modifier Curve Name</source>
         <translation>물 펌프 전력 수정 곡선 이름</translation>
     </message>
-    <!-- OS:EvaporativeCooler:Direct:ResearchSpecial, OS:EvaporativeCooler:Indirect:ResearchSpecial -->
+    
     <message>
         <source>Water Pump Power Sizing Factor</source>
         <translation>물펌프 전력 크기 조정 계수</translation>
     </message>
-    <!-- OS:ZoneHVAC:Dehumidifier:DX -->
+    
     <message>
         <source>Water Removal Curve Name</source>
         <translation>제거 곡선명</translation>
     </message>
-    <!-- OS:Humidifier:Steam:Electric, OS:Humidifier:Steam:Gas -->
+    
     <message>
         <source>Water Storage Tank Name</source>
         <translation>물 저장 탱크 이름</translation>
     </message>
-    <!-- OS:Generator:FuelCell -->
+    
     <message>
         <source>Water Supply Name</source>
         <translation>급수 이름</translation>
     </message>
-    <!-- OS:EvaporativeCooler:Indirect:ResearchSpecial -->
+    
     <message>
         <source>Water Supply Storage Tank Name</source>
         <translation>수급수 저장 탱크 이름</translation>
     </message>
-    <!-- OS:HeatPump:AirToWater:FuelFired:Cooling, OS:HeatPump:AirToWater:FuelFired:Heating -->
+    
     <message>
         <source>Water Temperature Curve Input Variable</source>
         <translation>물 온도 곡선 입력 변수</translation>
     </message>
-    <!-- OS:Generator:FuelCell:WaterSupply -->
+    
     <message>
         <source>Water Temperature Modeling Mode</source>
         <translation>물 온도 모델링 모드</translation>
     </message>
-    <!-- OS:Generator:FuelCell:WaterSupply -->
+    
     <message>
         <source>Water Temperature Reference Node Name</source>
         <translation>물 온도 기준 노드 이름</translation>
     </message>
-    <!-- OS:Generator:FuelCell:WaterSupply -->
+    
     <message>
         <source>Water Temperature Schedule Name</source>
         <translation>물 온도 스케줄 이름</translation>
     </message>
-    <!-- OS:WaterUse:Equipment -->
+    
     <message>
         <source>Water Use Equipment Definition Name</source>
         <translation>물 사용 장비 정의 이름</translation>
     </message>
-    <!-- OS:WaterUse:Connections -->
+    
     <message>
         <source>Water Use Equipment Name</source>
         <translation>물 사용 장비 이름</translation>
     </message>
-    <!-- OS:MaterialProperty:MoisturePenetrationDepth:Settings -->
+    
     <message>
         <source>Water Vapor Diffusion Resistance Factor</source>
         <translation>수증기 확산 저항 계수</translation>
     </message>
-    <!-- OS:Refrigeration:CompressorRack -->
+    
     <message>
         <source>Water-Cooled Condenser Design Flow Rate</source>
         <translation>수냉식 응축기 설계 유량</translation>
     </message>
-    <!-- OS:Refrigeration:CompressorRack -->
+    
     <message>
         <source>Water-Cooled Condenser Inlet Node Name</source>
         <translation>물 냉각 응축기 입구 노드 이름</translation>
     </message>
-    <!-- OS:Refrigeration:CompressorRack -->
+    
     <message>
         <source>Water-Cooled Condenser Maximum Flow Rate</source>
         <translation>수냉식 응축기 최대 유량</translation>
     </message>
-    <!-- OS:Refrigeration:CompressorRack -->
+    
     <message>
         <source>Water-Cooled Condenser Maximum Water Outlet Temperature</source>
         <translation>수냉식 응축기 최대 물 출구 온도</translation>
     </message>
-    <!-- OS:Refrigeration:CompressorRack -->
+    
     <message>
         <source>Water-Cooled Condenser Minimum Water Inlet Temperature</source>
         <translation>수냉식 응축기 최소 물 입구 온도</translation>
     </message>
-    <!-- OS:Refrigeration:CompressorRack -->
+    
     <message>
         <source>Water-Cooled Condenser Outlet Node Name</source>
         <translation>Water-Cooled Condenser Outlet Node Name
@@ -25381,268 +25380,268 @@ or more precisely for technical context:
 
 Note: Since this is a technical IDD field name in building energy modeling software, it's commonly kept in English in Korean technical documentation. However, if a Korean translation is required: **수냉식 응축기 출구 노드명**</translation>
     </message>
-    <!-- OS:Refrigeration:CompressorRack -->
+    
     <message>
         <source>Water-Cooled Condenser Outlet Temperature Schedule Name</source>
         <translation>수냉식 응축기 출구 온도 일정표 이름</translation>
     </message>
-    <!-- OS:Refrigeration:CompressorRack, OS:Refrigeration:Condenser:WaterCooled -->
+    
     <message>
         <source>Water-Cooled Loop Flow Type</source>
         <translation>수냉식 루프 유동 유형</translation>
     </message>
-    <!-- OS:Coil:Cooling:WaterToAirHeatPump:VariableSpeedEquationFit, OS:Coil:Heating:WaterToAirHeatPump:VariableSpeedEquationFit -->
+    
     <message>
         <source>Water-to-Refrigerant HX Water Inlet Node Name</source>
         <translation>Water-to-Refrigerant HX Water Inlet Node Name</translation>
     </message>
-    <!-- OS:Coil:Cooling:WaterToAirHeatPump:VariableSpeedEquationFit, OS:Coil:Heating:WaterToAirHeatPump:VariableSpeedEquationFit -->
+    
     <message>
         <source>Water-to-Refrigerant HX Water Outlet Node Name</source>
         <translation>물-냉매 HX 물 출구 노드 이름</translation>
     </message>
-    <!-- OS:WaterHeater:Sizing -->
+    
     <message>
         <source>WaterHeater Name</source>
         <translation>온수기 이름</translation>
     </message>
-    <!-- OS:ElectricEquipment:Definition, OS:GasEquipment:Definition, OS:HotWaterEquipment:Definition, OS:Lights:Definition, OS:OtherEquipment:Definition, OS:SteamEquipment:Definition -->
+    
     <message>
         <source>Watts per Person</source>
         <translation>인당 와트</translation>
     </message>
-    <!-- OS:ElectricEquipment:Definition, OS:ElectricEquipment:ITE:AirCooled:Definition, OS:GasEquipment:Definition, OS:HotWaterEquipment:Definition, OS:Lights:Definition, OS:OtherEquipment:Definition, OS:SteamEquipment:Definition -->
+    
     <message>
         <source>Watts per Space Floor Area</source>
         <translation>공간 바닥 면적당 와트</translation>
     </message>
-    <!-- OS:ElectricEquipment:ITE:AirCooled:Definition -->
+    
     <message>
         <source>Watts per Unit</source>
         <translation>단위당 와트</translation>
     </message>
-    <!-- OS:MaterialProperty:GlazingSpectralData -->
+    
     <message>
         <source>Wavelength</source>
         <translation>파장</translation>
     </message>
-    <!-- OS:Schedule:Week -->
+    
     <message>
         <source>Wednesday Schedule:Day Name</source>
         <translation>수요일 스케줄:날짜 이름</translation>
     </message>
-    <!-- OS:Schedule:Year -->
+    
     <message>
         <source>Week Schedule Until Date</source>
         <translation>주간 스케줄 종료 날짜</translation>
     </message>
-    <!-- OS:PlantEquipmentOperation:OutdoorWetBulb -->
+    
     <message>
         <source>Wet-Bulb Temperature Range Lower Limit</source>
         <translation>습구온도 범위 하한</translation>
     </message>
-    <!-- OS:PlantEquipmentOperation:OutdoorWetBulb -->
+    
     <message>
         <source>Wet-Bulb Temperature Range Upper Limit</source>
         <translation>습구온도 범위 상한</translation>
     </message>
-    <!-- OS:EvaporativeCooler:Indirect:ResearchSpecial -->
+    
     <message>
         <source>Wetbulb Effectiveness Flow Ratio Modifier Curve Name</source>
         <translation>습구 유효성 유량비 수정 곡선명</translation>
     </message>
-    <!-- OS:SizingPeriod:DesignDay -->
+    
     <message>
         <source>Wetbulb or DewPoint at Maximum Dry-Bulb</source>
         <translation>최대 건구온도에서의 습구 또는 노점</translation>
     </message>
-    <!-- OS:AirflowNetworkDetailedOpening -->
+    
     <message>
         <source>Width Factor for Opening Factor</source>
         <translation>개구부 계수에 대한 너비 계수</translation>
     </message>
-    <!-- OS:AirflowNetworkExternalNode -->
+    
     <message>
         <source>Wind Angle Type</source>
         <translation>바람 각도 유형</translation>
     </message>
-    <!-- OS:SizingPeriod:DesignDay -->
+    
     <message>
         <source>Wind Direction</source>
         <translation>풍향</translation>
     </message>
-    <!-- OS:Surface -->
+    
     <message>
         <source>Wind Exposure</source>
         <translation>바람 노출</translation>
     </message>
-    <!-- OS:AirflowNetworkExternalNode -->
+    
     <message>
         <source>Wind Pressure Coefficient Curve Name</source>
         <translation>풍압계수 곡선 이름</translation>
     </message>
-    <!-- OS:AirflowNetworkSimulationControl -->
+    
     <message>
         <source>Wind Pressure Coefficient Type</source>
         <translation>풍압 계수 유형</translation>
     </message>
-    <!-- OS:SizingPeriod:DesignDay -->
+    
     <message>
         <source>Wind Speed</source>
         <translation>풍속</translation>
     </message>
-    <!-- OS:SurfaceProperty:OtherSideCoefficients -->
+    
     <message>
         <source>Wind Speed Coefficient</source>
         <translation>풍속 계수</translation>
     </message>
-    <!-- OS:WindowMaterial:Glazing -->
+    
     <message>
         <source>Window Glass Spectral Data Set Name</source>
         <translation>창 유리 분광 데이터 세트 이름</translation>
     </message>
-    <!-- OS:WindowMaterial:GlazingGroup:Thermochromic -->
+    
     <message>
         <source>Window Material Glazing Name</source>
         <translation>창 재료 유약칠 이름</translation>
     </message>
-    <!-- OS:DaylightingDevice:Shelf -->
+    
     <message>
         <source>Window Name</source>
         <translation>창 이름</translation>
     </message>
-    <!-- OS:AirflowNetworkSurface -->
+    
     <message>
         <source>Window/Door Opening Factor or Crack Factor</source>
         <translation>창/문 개구부 계수 또는 틈새 계수</translation>
     </message>
-    <!-- OS:Schedule:Week -->
+    
     <message>
         <source>WinterDesignDay Schedule:Day Name</source>
         <translation>WinterDesignDay Schedule:Day Name</translation>
     </message>
-    <!-- OS:WeatherFile -->
+    
     <message>
         <source>WMO Number</source>
         <translation>WMO 번호</translation>
     </message>
 
-    <!-- X -->
-    <!-- OS:IlluminanceMap -->
+    
+    
     <message>
         <source>X Length</source>
         <translation>X 길이</translation>
     </message>
-    <!-- OS:InteriorPartitionSurfaceGroup, OS:ShadingSurfaceGroup, OS:Space -->
+    
     <message>
         <source>X Origin</source>
         <translation>X 원점</translation>
     </message>
-    <!-- OS:Table:MultiVariableLookup -->
+    
     <message>
         <source>X1 Sort Order</source>
         <translation>X1 정렬 순서</translation>
     </message>
-    <!-- OS:Table:MultiVariableLookup -->
+    
     <message>
         <source>X2 Sort Order</source>
         <translation>X2 정렬 순서</translation>
     </message>
 
-    <!-- Y -->
-    <!-- OS:IlluminanceMap -->
+    
+    
     <message>
         <source>Y Length</source>
         <translation>Y 길이</translation>
     </message>
-    <!-- OS:InteriorPartitionSurfaceGroup, OS:ShadingSurfaceGroup, OS:Space -->
+    
     <message>
         <source>Y Origin</source>
         <translation>Y 원점</translation>
     </message>
-    <!-- OS:LifeCycleCost:UsePriceEscalation -->
+    
     <message>
         <source>Year Escalation</source>
         <translation>연간 가격상승</translation>
     </message>
-    <!-- OS:LifeCycleCost -->
+    
     <message>
         <source>Years from Start</source>
         <translation>시작 후 년수</translation>
     </message>
 
-    <!-- Z -->
-    <!-- OS:InteriorPartitionSurfaceGroup, OS:ShadingSurfaceGroup, OS:Space -->
+    
+    
     <message>
         <source>Z Origin</source>
         <translation>Z 원점</translation>
     </message>
-    <!-- OS:Pump:ConstantSpeed -->
+    
     <message>
         <source>Zone</source>
         <translation>영역</translation>
     </message>
-    <!-- OS:DesignSpecification:ZoneAirDistribution -->
+    
     <message>
         <source>Zone Air Distribution Effectiveness in Cooling Mode</source>
         <translation>냉방 모드에서 영역 공기 분배 효율</translation>
     </message>
-    <!-- OS:DesignSpecification:ZoneAirDistribution -->
+    
     <message>
         <source>Zone Air Distribution Effectiveness in Heating Mode</source>
         <translation>난방 모드에서의 구역 공기 분배 효율성</translation>
     </message>
-    <!-- OS:DesignSpecification:ZoneAirDistribution -->
+    
     <message>
         <source>Zone Air Distribution Effectiveness Schedule</source>
         <translation>존 공기 분배 효율성 스케줄</translation>
     </message>
-    <!-- OS:ThermalZone -->
+    
     <message>
         <source>Zone Air Exhaust Port List</source>
         <translation>Zone Air Exhaust Port List</translation>
     </message>
-    <!-- OS:ThermalZone -->
+    
     <message>
         <source>Zone Air Inlet Port List</source>
         <translation>존 공기 유입 포트 목록</translation>
     </message>
-    <!-- OS:ThermalZone -->
+    
     <message>
         <source>Zone Air Node Name</source>
         <translation>존(Zone) 공기 노드 이름</translation>
     </message>
-    <!-- OS:SurfaceProperty:OtherSideCoefficients -->
+    
     <message>
         <source>Zone Air Temperature Coefficient</source>
         <translation>존 실내 온도 계수</translation>
     </message>
-    <!-- OS:ThermalZone -->
+    
     <message>
         <source>Zone Conditioning Equipment List Name</source>
         <translation>구역 냉난방 장비 목록 이름</translation>
     </message>
-    <!-- OS:ZoneHVAC:EquipmentList -->
+    
     <message>
         <source>Zone Equipment</source>
         <translation>존 장비</translation>
     </message>
-    <!-- OS:ZoneHVAC:EquipmentList -->
+    
     <message>
         <source>Zone Equipment Cooling Sequence</source>
         <translation>Zone Equipment Cooling Sequence</translation>
     </message>
-    <!-- OS:ZoneHVAC:EquipmentList -->
+    
     <message>
         <source>Zone Equipment Heating or No-Load Sequence</source>
         <translation>존 장비 난방 또는 무부하 순서</translation>
     </message>
-    <!-- OS:ZoneHVAC:IdealLoadsAirSystem -->
+    
     <message>
         <source>Zone Exhaust Air Node Name</source>
         <translation>존 배기 공기 노드 이름</translation>
     </message>
-    <!-- OS:AvailabilityManager:OptimumStart -->
+    
     <message>
         <source>Zone List</source>
         <translation>Zone List (구역 목록) 또는 Zone List (존 목록)
@@ -25651,77 +25650,77 @@ In building energy modeling context, the most common translation would be:
 
 **존 목록** (Zone List)</translation>
     </message>
-    <!-- OS:AirTerminal:DualDuct:VAV, OS:AirTerminal:SingleDuct:VAV:HeatAndCool:NoReheat, OS:AirTerminal:SingleDuct:VAV:HeatAndCool:Reheat -->
+    
     <message>
         <source>Zone Minimum Air Flow Fraction</source>
         <translation>존 최소 공기 유량 비율</translation>
     </message>
-    <!-- OS:AirTerminal:SingleDuct:ConstantVolume:FourPipeInduction, OS:AirTerminal:SingleDuct:ParallelPIU:Reheat, OS:AirTerminal:SingleDuct:SeriesPIU:Reheat -->
+    
     <message>
         <source>Zone Mixer Name</source>
         <translation>Zone Mixer 이름</translation>
     </message>
-    <!-- OS:AirConditioner:VariableRefrigerantFlow -->
+    
     <message>
         <source>Zone Name for Master Thermostat Location</source>
         <translation>마스터 온도조절기 위치의 존(Zone) 이름</translation>
     </message>
-    <!-- OS:Generator:FuelCell:AuxiliaryHeater -->
+    
     <message>
         <source>Zone Name to Receive Skin Losses</source>
         <translation>스킨 손실을 받을 존 이름</translation>
     </message>
-    <!-- OS:EnergyManagementSystem:Actuator, OS:ZoneMixing -->
+    
     <message>
         <source>Zone or Space Name</source>
         <translation>존 또는 공간 이름</translation>
     </message>
-    <!-- OS:Sizing:Zone -->
+    
     <message>
         <source>Zone or ZoneList Name</source>
         <translation>존(Zone) 또는 존 목록(ZoneList) 이름</translation>
     </message>
-    <!-- OS:PerformancePrecisionTradeoffs -->
+    
     <message>
         <source>Zone Radiant Exchange Algorithm</source>
         <translation>영역 복사 교환 알고리즘</translation>
     </message>
-    <!-- OS:ZoneHVAC:EvaporativeCoolerUnit -->
+    
     <message>
         <source>Zone Relief Air Node Name</source>
         <translation>존 릴리프 공기 노드 이름</translation>
     </message>
-    <!-- OS:ThermalZone -->
+    
     <message>
         <source>Zone Return Air Port List</source>
         <translation>영역 환기 공기 포트 목록</translation>
     </message>
-    <!-- OS:DesignSpecification:ZoneAirDistribution -->
+    
     <message>
         <source>Zone Secondary Recirculation Fraction</source>
         <translation>구역 2차 재순환 분율</translation>
     </message>
-    <!-- OS:ZoneHVAC:IdealLoadsAirSystem -->
+    
     <message>
         <source>Zone Supply Air Node Name</source>
         <translation>구역 공급 공기 노드 이름</translation>
     </message>
-    <!-- OS:AirConditioner:VariableRefrigerantFlow, OS:AirConditioner:VariableRefrigerantFlow:FluidTemperatureControl, OS:AirConditioner:VariableRefrigerantFlow:FluidTemperatureControl:HR -->
+    
     <message>
         <source>Zone Terminal Unit List</source>
         <translation>존 터미널 유닛 목록</translation>
     </message>
-    <!-- OS:Sizing:Plant -->
+    
     <message>
         <source>Zone Timesteps in Averaging Window</source>
         <translation>Zone Timesteps in Averaging Window</translation>
     </message>
-    <!-- OS:AirTerminal:SingleDuct:ConstantVolume:FourPipeBeam -->
+    
     <message>
         <source>Zone Total Beam Length</source>
         <translation>존 전체 직진 길이</translation>
     </message>
-    <!-- OS:AvailabilityManager:HybridVentilation -->
+    
     <message>
         <source>ZoneVentilation Object</source>
         <translation>ZoneVentilation 객체</translation>
@@ -26859,7 +26858,7 @@ Note: In building energy modeling context, "Construction" typically refers to "�
     </message>
     <message>
         <source>Generator Ancillary Electricity Energy</source>
-        <translation type="unfinished"></translation>
+        <translation>Generator Ancillary Electricity Energy</translation>
     </message>
     <message>
         <source>Generator Ancillary Electricity Rate</source>
@@ -27401,7 +27400,7 @@ Note: In building energy modeling context, "Construction" typically refers to "�
     </message>
     <message>
         <source>Plant Solver Half Loop Calls Count</source>
-        <translation type="unfinished"></translation>
+        <translation>플랜트 솔버 반 루프 호출 횟수</translation>
     </message>
     <message>
         <source>Plant Solver Sub Iteration Count</source>
@@ -28797,7 +28796,7 @@ Note: In building energy modeling context, "Construction" typically refers to "�
     </message>
     <message>
         <source>Zone Dehumidifier Sensible Heating Energy</source>
-        <translation type="unfinished"></translation>
+        <translation>Zone Dehumidifier Sensible Heating Energy</translation>
     </message>
     <message>
         <source>Zone Dehumidifier Sensible Heating Rate</source>
@@ -28829,7 +28828,7 @@ Note: In building energy modeling context, "Construction" typically refers to "�
     </message>
     <message>
         <source>Zone Electric Equipment Lost Heat Energy</source>
-        <translation type="unfinished"></translation>
+        <translation>영역 전기 장비 손실 열 에너지</translation>
     </message>
     <message>
         <source>Zone Electric Equipment Lost Heat Rate</source>
@@ -29111,11 +29110,11 @@ Note: In building energy modeling context, "Construction" typically refers to "�
     </message>
     <message>
         <source>Zone Ideal Loads Heat Recovery Total Cooling Energy</source>
-        <translation type="unfinished"></translation>
+        <translation>Zone Ideal Loads Heat Recovery Total Cooling Energy</translation>
     </message>
     <message>
         <source>Zone Ideal Loads Heat Recovery Total Cooling Rate</source>
-        <translation type="unfinished"></translation>
+        <translation>존 이상적 부하 열회수 총 냉각 속도</translation>
     </message>
     <message>
         <source>Zone Ideal Loads Heat Recovery Total Heating Energy</source>
@@ -29163,7 +29162,7 @@ Note: In building energy modeling context, "Construction" typically refers to "�
     </message>
     <message>
         <source>Zone Ideal Loads Outdoor Air Sensible Heating Rate</source>
-        <translation type="unfinished"></translation>
+        <translation>존 이상 부하 외기 감각 가열률</translation>
     </message>
     <message>
         <source>Zone Ideal Loads Outdoor Air Standard Density Volume Flow Rate</source>
@@ -29303,7 +29302,7 @@ Note: In building energy modeling context, "Construction" typically refers to "�
     </message>
     <message>
         <source>Zone Ideal Loads Zone Sensible Heating Rate</source>
-        <translation type="unfinished"></translation>
+        <translation>공간 이상 부하 공간 현열 난방율</translation>
     </message>
     <message>
         <source>Zone Ideal Loads Zone Total Cooling Energy</source>
@@ -29351,7 +29350,7 @@ Note: In building energy modeling context, "Construction" typically refers to "�
     </message>
     <message>
         <source>Zone Infiltration Outdoor Density Air Change Rate</source>
-        <translation type="unfinished"></translation>
+        <translation>Zone Infiltration Outdoor Density Air Change Rate</translation>
     </message>
     <message>
         <source>Zone Infiltration Outdoor Density Volume Flow Rate</source>
@@ -29631,7 +29630,7 @@ Note: In building energy modeling context, "Construction" typically refers to "�
     </message>
     <message>
         <source>Zone Predicted Moisture Load to Humidifying Setpoint Moisture Transfer Rate</source>
-        <translation type="unfinished"></translation>
+        <translation>존(Zone) 예측 습도 부하에서 가습 설정점 습도 이동율</translation>
     </message>
     <message>
         <source>Zone Predicted Sensible Load to Cooling Setpoint Heat Transfer Rate</source>
@@ -30120,7 +30119,7 @@ Zone VRF Air Terminal 잠열 냉각 에너지</translation>
         <translation>존(Zone) 창문 총 투과 태양 복사 강도</translation>
     </message>
 
-    <!-- === Non-Zone bare output variable names (auto-derived from Zone entries) === -->
+    
     <message>
         <source>Air CO2 Concentration</source>
         <translation>공기 CO2 농도</translation>
@@ -30689,7 +30688,7 @@ Zone VRF Air Terminal 잠열 냉각 에너지</translation>
     </message>
     <message>
         <source>Ideal Loads Supply Air Total Cooling Fuel Energy Rate</source>
-        <translation type="unfinished"></translation>
+        <translation>이상적 부하 공급 공기 총 냉각 연료 에너지율</translation>
     </message>
     <message>
         <source>Ideal Loads Supply Air Total Cooling Rate</source>
@@ -30741,7 +30740,7 @@ Zone VRF Air Terminal 잠열 냉각 에너지</translation>
     </message>
     <message>
         <source>Ideal Loads Zone Latent Heating Rate</source>
-        <translation type="unfinished"></translation>
+        <translation>이상적 부하 존 잠열 가열 율</translation>
     </message>
     <message>
         <source>Ideal Loads Zone Sensible Cooling Energy</source>
@@ -31564,7 +31563,7 @@ Zone VRF Air Terminal 잠열 냉각 에너지</translation>
         <translation>윈도우 총 투과 태양 복사 비율</translation>
     </message>
 
-    <!-- === Site / Surface / other non-Zone variables without Zone counterpart === -->
+    
     <message>
         <source>Site Diffuse Solar Radiation Rate per Area</source>
         <translation>부지 확산 태양 복사량(단위 면적당)</translation>
@@ -31630,7 +31629,7 @@ Zone VRF Air Terminal 잠열 냉각 에너지</translation>
         <translation>채광 창 기준점 2 시야 휘도</translation>
     </message>
 
-    <!-- === Additional missing output variables === -->
+    
     <message>
         <source>Cooling Coil Dehumidification Mode</source>
         <translation>냉각 코일 제습 모드</translation>

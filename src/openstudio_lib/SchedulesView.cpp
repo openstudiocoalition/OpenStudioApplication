@@ -1588,7 +1588,7 @@ ScheduleRuleView::ScheduleRuleView(bool isIP, const model::ScheduleRule& schedul
   weekHLayout->addStretch();
 
   m_sundayButton = new OSGreyCheckBox2();
-  m_sundayButton->setText(tr("S"));
+  m_sundayButton->setText(tr("S", "Sunday abbreviation"));
   m_sundayButton->bind(m_scheduleRule, std::bind(&model::ScheduleRule::applySunday, &m_scheduleRule),
                        boost::optional<BoolSetter>(std::bind(&model::ScheduleRule::setApplySundayNoFail, &m_scheduleRule, std::placeholders::_1)));
   weekHLayout->addWidget(m_sundayButton);
@@ -1596,7 +1596,7 @@ ScheduleRuleView::ScheduleRuleView(bool isIP, const model::ScheduleRule& schedul
   weekHLayout->addSpacing(10);
 
   m_mondayButton = new OSGreyCheckBox2();
-  m_mondayButton->setText(tr("M"));
+  m_mondayButton->setText(tr("M", "Monday abbreviation"));
   m_mondayButton->bind(m_scheduleRule, std::bind(&model::ScheduleRule::applyMonday, &m_scheduleRule),
                        boost::optional<BoolSetter>(std::bind(&model::ScheduleRule::setApplyMondayNoFail, &m_scheduleRule, std::placeholders::_1)));
   weekHLayout->addWidget(m_mondayButton);
@@ -1604,7 +1604,7 @@ ScheduleRuleView::ScheduleRuleView(bool isIP, const model::ScheduleRule& schedul
   weekHLayout->addSpacing(10);
 
   m_tuesdayButton = new OSGreyCheckBox2();
-  m_tuesdayButton->setText(tr("T"));
+  m_tuesdayButton->setText(tr("T", "Tuesday abbreviation"));
   m_tuesdayButton->bind(m_scheduleRule, std::bind(&model::ScheduleRule::applyTuesday, &m_scheduleRule),
                         boost::optional<BoolSetter>(std::bind(&model::ScheduleRule::setApplyTuesdayNoFail, &m_scheduleRule, std::placeholders::_1)));
   weekHLayout->addWidget(m_tuesdayButton);
@@ -1612,7 +1612,7 @@ ScheduleRuleView::ScheduleRuleView(bool isIP, const model::ScheduleRule& schedul
   weekHLayout->addSpacing(10);
 
   m_wednesdayButton = new OSGreyCheckBox2();
-  m_wednesdayButton->setText(tr("W"));
+  m_wednesdayButton->setText(tr("W", "Wednesday abbreviation"));
   m_wednesdayButton->bind(
     m_scheduleRule, std::bind(&model::ScheduleRule::applyWednesday, &m_scheduleRule),
     boost::optional<BoolSetter>(std::bind(&model::ScheduleRule::setApplyWednesdayNoFail, &m_scheduleRule, std::placeholders::_1)));
@@ -1621,7 +1621,7 @@ ScheduleRuleView::ScheduleRuleView(bool isIP, const model::ScheduleRule& schedul
   weekHLayout->addSpacing(10);
 
   m_thursdayButton = new OSGreyCheckBox2();
-  m_thursdayButton->setText(tr("T"));
+  m_thursdayButton->setText(tr("T", "Thursday abbreviation"));
   m_thursdayButton->bind(
     m_scheduleRule, std::bind(&model::ScheduleRule::applyThursday, &m_scheduleRule),
     boost::optional<BoolSetter>(std::bind(&model::ScheduleRule::setApplyThursdayNoFail, &m_scheduleRule, std::placeholders::_1)));
@@ -1630,7 +1630,7 @@ ScheduleRuleView::ScheduleRuleView(bool isIP, const model::ScheduleRule& schedul
   weekHLayout->addSpacing(10);
 
   m_fridayButton = new OSGreyCheckBox2();
-  m_fridayButton->setText(tr("F"));
+  m_fridayButton->setText(tr("F", "Friday abbreviation"));
   m_fridayButton->bind(m_scheduleRule, std::bind(&model::ScheduleRule::applyFriday, &m_scheduleRule),
                        boost::optional<BoolSetter>(std::bind(&model::ScheduleRule::setApplyFridayNoFail, &m_scheduleRule, std::placeholders::_1)));
   weekHLayout->addWidget(m_fridayButton);
@@ -1638,7 +1638,7 @@ ScheduleRuleView::ScheduleRuleView(bool isIP, const model::ScheduleRule& schedul
   weekHLayout->addSpacing(10);
 
   m_saturdayButton = new OSGreyCheckBox2();
-  m_saturdayButton->setText(tr("S"));
+  m_saturdayButton->setText(tr("S", "Saturday abbreviation"));
   m_saturdayButton->bind(
     m_scheduleRule, std::bind(&model::ScheduleRule::applySaturday, &m_scheduleRule),
     boost::optional<BoolSetter>(std::bind(&model::ScheduleRule::setApplySaturdayNoFail, &m_scheduleRule, std::placeholders::_1)));
@@ -2014,9 +2014,8 @@ YearOverview* MonthView::yearOverview() const {
 void MonthView::setMonth(int month) {
   m_month = month;
 
-  const QStringList monthNames = {tr("January"), tr("February"), tr("March"), tr("April"),
-                                  tr("May"),     tr("June"),     tr("July"),  tr("August"),
-                                  tr("September"), tr("October"), tr("November"), tr("December")};
+  const QStringList monthNames = {tr("January"), tr("February"), tr("March"),     tr("April"),   tr("May"),      tr("June"),
+                                  tr("July"),    tr("August"),   tr("September"), tr("October"), tr("November"), tr("December")};
   m_monthLabel->setText((month >= 1 && month <= 12) ? monthNames[month - 1] : QString::fromStdString(monthOfYear(month).valueName()));
 
   update();

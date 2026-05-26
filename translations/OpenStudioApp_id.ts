@@ -1,5 +1,4 @@
-﻿<?xml version="1.0" encoding="utf-8"?>
-<!DOCTYPE TS>
+<?xml version='1.0' encoding='utf-8'?>
 <TS version="2.1" language="id">
 <context>
     <name>InspectorDialog</name>
@@ -20,7 +19,7 @@
         <translation>Hapus objek yang dipilih</translation>
     </message>
     <message>
-        <location filename="../src/model_editor/InspectorDialog.cpp" line="585"/>
+        <location filename="../src/model_editor/InspectorDialog.cpp" line="585" />
         <source>Purge unused objects</source>
         <translatorcomment>La palabra purgar no tiene el mismo contexto en Español.</translatorcomment>
         <translation>Borrar todos los objetos sin usar</translation>
@@ -358,7 +357,7 @@ Zone</source>
         <translation>File cuaca tidak mengandung data suhu tanah pada kedalaman yang diharapkan sebesar %1 m, sehingga objek akan ditambahkan dengan nilai default.</translation>
     </message>
     <message>
-        <source>The weather file contains ground temperature data at a depth of &lt;b&gt;&lt;span style=&quot;color: #1C7BBF;&quot;&gt;%1 m&lt;/span&gt;&lt;/b&gt;, so you can choose to import those values or add the object with default values.</source>
+        <source>The weather file contains ground temperature data at a depth of &lt;b&gt;&lt;span style="color: #1C7BBF;"&gt;%1 m&lt;/span&gt;&lt;/b&gt;, so you can choose to import those values or add the object with default values.</source>
         <translation>File cuaca berisi data suhu tanah pada kedalaman %1 m, sehingga Anda dapat memilih untuk mengimpor nilai-nilai tersebut atau menambahkan objek dengan nilai default.</translation>
     </message>
 </context>
@@ -426,7 +425,7 @@ Zone</source>
         <translation>Zona Waktu:</translation>
     </message>
     <message>
-        <source>Download weather files at &lt;a href=&quot;http://www.energyplus.net/weather&quot;&gt;www.energyplus.net/weather&lt;/a&gt;</source>
+        <source>Download weather files at &lt;a href="http://www.energyplus.net/weather"&gt;www.energyplus.net/weather&lt;/a&gt;</source>
         <translation>Unduh file cuaca di &lt;a href="http://www.energyplus.net/weather"&gt;www.energyplus.net/weather&lt;/a&gt;</translation>
     </message>
     <message>
@@ -442,7 +441,7 @@ Zone</source>
         <translation>Jika diaktifkan, ini akan menulis objek Site:Location yang akan mempertahankan perubahan Elevasi misalnya.</translation>
     </message>
     <message>
-        <source>Elevation affects the wind speed at the site, and is defaulted to the Weather File&apos;s elevation</source>
+        <source>Elevation affects the wind speed at the site, and is defaulted to the Weather File's elevation</source>
         <translation>Elevasi mempengaruhi kecepatan angin di lokasi, dan diatur ke nilai default dari elevasi File Cuaca</translation>
     </message>
     <message>
@@ -498,7 +497,7 @@ Zone</source>
         <translation>Gagal Menetapkan File Cuaca Ke</translation>
     </message>
     <message>
-        <source>There are &lt;span style=&quot;font-weight:bold;&quot;&gt;%1&lt;/span&gt; Design Days available for import</source>
+        <source>There are &lt;span style="font-weight:bold;"&gt;%1&lt;/span&gt; Design Days available for import</source>
         <translation>Ada &lt;span style="font-weight:bold;"&gt;%1&lt;/span&gt; Design Days tersedia untuk impor</translation>
     </message>
     <message>
@@ -593,7 +592,7 @@ Zone</source>
         <translation>Coba Lagi Nanti.</translation>
     </message>
     <message>
-        <source>Verify your computer&apos;s internet connection then click &quot;Lost Cloud Connection&quot; to recover the lost cloud session.</source>
+        <source>Verify your computer's internet connection then click "Lost Cloud Connection" to recover the lost cloud session.</source>
         <translation>Verifikasi koneksi internet komputer Anda kemudian klik "Koneksi Cloud Hilang" untuk memulihkan sesi cloud yang hilang.</translation>
     </message>
     <message>
@@ -881,7 +880,7 @@ Jika Anda ingin melihat OpenStudioApplication diterjemahkan dalam bahasa pilihan
         <translation>Izinkan Analitik</translation>
     </message>
     <message>
-        <source>Allow OpenStudio Coalition to collect anonymous usage statistics to help improve the OpenStudio Application? See the &lt;a href=&quot;https://openstudiocoalition.org/about/privacy_policy/&quot;&gt;privacy policy&lt;/a&gt; for more information.</source>
+        <source>Allow OpenStudio Coalition to collect anonymous usage statistics to help improve the OpenStudio Application? See the &lt;a href="https://openstudiocoalition.org/about/privacy_policy/"&gt;privacy policy&lt;/a&gt; for more information.</source>
         <translation>Izinkan OpenStudio Coalition untuk mengumpulkan statistik penggunaan anonim guna membantu meningkatkan Aplikasi OpenStudio? Lihat &lt;a href="https://openstudiocoalition.org/about/privacy_policy/"&gt;kebijakan privasi&lt;/a&gt; untuk informasi lebih lanjut.</translation>
     </message>
 </context>
@@ -1047,23 +1046,23 @@ Jika Anda ingin melihat OpenStudioApplication diterjemahkan dalam bahasa pilihan
         <translation>(*.idf)</translation>
     </message>
     <message>
-        <source>&apos; while OpenStudio uses a &lt;strong&gt;newer&lt;/strong&gt; EnergyPlus &apos;</source>
+        <source>' while OpenStudio uses a &lt;strong&gt;newer&lt;/strong&gt; EnergyPlus '</source>
         <translation>' sementara OpenStudio menggunakan EnergyPlus yang &lt;strong&gt;lebih baru&lt;/strong&gt; '</translation>
     </message>
     <message>
-        <source>&apos;. Consider using the EnergyPlus Auxiliary program IDFVersionUpdater to update your IDF file.</source>
+        <source>'. Consider using the EnergyPlus Auxiliary program IDFVersionUpdater to update your IDF file.</source>
         <translation>'. Pertimbangkan menggunakan program Auxiliary EnergyPlus IDFVersionUpdater untuk memperbarui file IDF Anda.</translation>
     </message>
     <message>
-        <source>&apos; while OpenStudio uses an &lt;strong&gt;older&lt;/strong&gt; EnergyPlus &apos;</source>
+        <source>' while OpenStudio uses an &lt;strong&gt;older&lt;/strong&gt; EnergyPlus '</source>
         <translation>' sementara OpenStudio menggunakan versi lama EnergyPlus '</translation>
     </message>
     <message>
-        <source>&apos;.</source>
+        <source>'.</source>
         <translation>'</translation>
     </message>
     <message>
-        <source>&apos; which is the &lt;strong&gt;same&lt;/strong&gt; version of EnergyPlus that OpenStudio uses (</source>
+        <source>' which is the &lt;strong&gt;same&lt;/strong&gt; version of EnergyPlus that OpenStudio uses (</source>
         <translation>' yang merupakan versi &lt;strong&gt;sama&lt;/strong&gt; dari EnergyPlus yang digunakan OpenStudio (</translation>
     </message>
     <message>
@@ -1169,7 +1168,7 @@ Jika Anda ingin melihat OpenStudioApplication diterjemahkan dalam bahasa pilihan
         <translation>(*.osm)</translation>
     </message>
     <message>
-        <source>A new version is available at &lt;a href=&quot;</source>
+        <source>A new version is available at &lt;a href="</source>
         <translation>Versi baru tersedia di &lt;a href="</translation>
     </message>
     <message>
@@ -1235,11 +1234,11 @@ Skrip Ruby tidak lagi didukung dan telah diganti oleh measures.</translation>
         <translation>File pengaturan tidak dapat ditulis</translation>
     </message>
     <message>
-        <source>Your settings file &apos;</source>
+        <source>Your settings file '</source>
         <translation>Berkas pengaturan Anda '</translation>
     </message>
     <message>
-        <source>&apos; is not writable. Adjust the file permissions</source>
+        <source>' is not writable. Adjust the file permissions</source>
         <translation>' tidak dapat ditulis. Sesuaikan izin file</translation>
     </message>
     <message>
@@ -6129,31 +6128,31 @@ Pemanasan</translation>
         <translation>Terapkan ke:</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/SchedulesView.cpp" line="1597"/>
+        <location filename="../src/openstudio_lib/SchedulesView.cpp" line="1597" />
         <source>S</source>
         <translatorcomment>Domingo (Sunday) / Sábado (Saturday) — needs disambiguation in source code</translatorcomment>
-        <translation type="unfinished"></translation>
+        <translation>S</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/SchedulesView.cpp" line="1605"/>
+        <location filename="../src/openstudio_lib/SchedulesView.cpp" line="1605" />
         <source>M</source>
         <translatorcomment>Lunes (Monday)</translatorcomment>
         <translation>L</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/SchedulesView.cpp" line="1613"/>
+        <location filename="../src/openstudio_lib/SchedulesView.cpp" line="1613" />
         <source>T</source>
         <translatorcomment>Martes (Tuesday) / Jueves (Thursday) — needs disambiguation in source code</translatorcomment>
-        <translation type="unfinished"></translation>
+        <translation>J</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/SchedulesView.cpp" line="1621"/>
+        <location filename="../src/openstudio_lib/SchedulesView.cpp" line="1621" />
         <source>W</source>
         <translatorcomment>Miércoles (Wednesday)</translatorcomment>
         <translation>X</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/SchedulesView.cpp" line="1639"/>
+        <location filename="../src/openstudio_lib/SchedulesView.cpp" line="1639" />
         <source>F</source>
         <translatorcomment>Viernes (Friday)</translatorcomment>
         <translation>V</translation>
@@ -6520,7 +6519,7 @@ Pemanasan</translation>
 <context>
     <name>openstudio::AirLoopHVACUnitaryHeatPumpAirToAirControlView</name>
     <message>
-        <source>Supply air temperature is managed by the &quot;AirLoopHVACUnitaryHeatPumpAirToAir&quot; component.</source>
+        <source>Supply air temperature is managed by the "AirLoopHVACUnitaryHeatPumpAirToAir" component.</source>
         <translation>Suhu udara pasokan dikelola oleh komponen "AirLoopHVACUnitaryHeatPumpAirToAir".</translation>
     </message>
     <message>
@@ -6531,7 +6530,7 @@ Pemanasan</translation>
 <context>
     <name>openstudio::NoSupplyAirTempControlView</name>
     <message>
-        <source>&lt;strong style=&quot;color:red&quot;&gt;Missing supply temperature control&lt;/strong&gt;. Try adding a setpoint manager to the supply outlet node of your system.</source>
+        <source>&lt;strong style="color:red"&gt;Missing supply temperature control&lt;/strong&gt;. Try adding a setpoint manager to the supply outlet node of your system.</source>
         <translation>&lt;strong style="color:red"&gt;Kontrol temperatur supply hilang&lt;/strong&gt;. Coba tambahkan setpoint manager ke node outlet supply sistem Anda.</translation>
     </message>
 </context>
@@ -6701,7 +6700,7 @@ Listrik</translation>
 </context>
 <context>
     <name>IDD</name>
-    <!-- Common -->
+    
     <message>
         <source>Name</source>
         <translation>Nama</translation>
@@ -6714,7 +6713,7 @@ Listrik</translation>
         <source>Part Load Fraction Correlation Curve Name</source>
         <translation>Nama Kurva Korelasi Fraksi Beban Parsial</translation>
     </message>
-    <!-- OS:Schedule:Day -->
+    
     <message>
         <source>Schedule Type Limits Name</source>
         <translation>Nama Batas Jenis Jadwal</translation>
@@ -6735,7 +6734,7 @@ Listrik</translation>
         <source>Value Until Time</source>
         <translation>Nilai Hingga Waktu</translation>
     </message>
-    <!-- OS:Controller:OutdoorAir -->
+    
     <message>
         <source>Minimum Outdoor Air Flow Rate</source>
         <translation>Laju Aliran Udara Luar Minimum</translation>
@@ -6800,7 +6799,7 @@ Listrik</translation>
         <source>Economizer Operation Staging</source>
         <translation>Pementasan Operasi Economizer</translation>
     </message>
-    <!-- OS:Coil:Cooling:DX:SingleSpeed -->
+    
     <message>
         <source>Rated Total Cooling Capacity</source>
         <translation>Kapasitas Pendinginan Total Terpilih</translation>
@@ -6901,7 +6900,7 @@ Listrik</translation>
         <source>Basin Heater Operating Schedule Name</source>
         <translation>Nama Jadwal Operasi Pemanas Bak</translation>
     </message>
-    <!-- OS:Coil:Heating:Gas -->
+    
     <message>
         <source>Gas Burner Efficiency</source>
         <translation>Efisiensi Pembakar Gas</translation>
@@ -6922,7 +6921,7 @@ Listrik</translation>
         <source>Fuel Type</source>
         <translation>Jenis Bahan Bakar</translation>
     </message>
-    <!-- OS:Fan:ConstantVolume -->
+    
     <message>
         <source>Fan Total Efficiency</source>
         <translation>Efisiensi Total Kipas</translation>
@@ -6947,7 +6946,7 @@ Listrik</translation>
         <source>End-Use Subcategory</source>
         <translation>Subkategori Penggunaan Akhir</translation>
     </message>
-    <!-- OS:SetpointManager:SingleZone:Reheat -->
+    
     <message>
         <source>Minimum Supply Air Temperature</source>
         <translation>Temperatur Udara Suplai Minimum</translation>
@@ -6964,12 +6963,12 @@ Listrik</translation>
         <source>Control Variable</source>
         <translation>Variabel Kontrol</translation>
     </message>
-    <!-- OS:AirTerminal:SingleDuct:ConstantVolume:NoReheat -->
+    
     <message>
         <source>Maximum Air Flow Rate</source>
         <translation>Laju Aliran Udara Maksimum</translation>
     </message>
-    <!-- OS:ThermalZone -->
+    
     <message>
         <source>Multiplier</source>
         <translation>Pengali</translation>
@@ -6990,7 +6989,7 @@ Listrik</translation>
         <source>Daylighting Controls Availability Schedule Name</source>
         <translation>Nama Jadwal Ketersediaan Kontrol Penerangan Alami</translation>
     </message>
-    <!-- OS:Sizing:Zone -->
+    
     <message>
         <source>Zone Cooling Design Supply Air Temperature Input Method</source>
         <translation>Metode Input Temperatur Udara Pasokan Desain Pendinginan Zona</translation>
@@ -7151,7 +7150,7 @@ Listrik</translation>
         <source>Maximum Heating Capacity To Cooling Load Sizing Ratio</source>
         <translation>Rasio Maksimum Kapasitas Pemanas terhadap Beban Pendinginan untuk Penentuan Ukuran</translation>
     </message>
-    <!-- OS:ZoneHVAC:EquipmentList -->
+    
     <message>
         <source>Load Distribution Scheme</source>
         <translation>Skema Distribusi Beban</translation>
@@ -7164,7 +7163,7 @@ Listrik</translation>
         <source>Zone Equipment Sequential Heating Fraction Schedule Name</source>
         <translation>Nama Jadwal Fraksi Pemanasan Sekuensial Peralatan Zona</translation>
     </message>
-    <!-- OS:AirLoopHVAC -->
+    
     <message>
         <source>Design Supply Air Flow Rate</source>
         <translation>Laju Aliran Udara Pasokan Desain</translation>
@@ -7181,7 +7180,7 @@ Listrik</translation>
         <source>Design Return Air Flow Fraction of Supply Air Flow</source>
         <translation>Fraksi Aliran Udara Kembali Desain dari Aliran Udara Pasokan</translation>
     </message>
-    <!-- OS:Sizing:System -->
+    
     <message>
         <source>Type of Load to Size On</source>
         <translation>Jenis Beban untuk Penentuan Ukuran</translation>
@@ -7242,7 +7241,7 @@ Listrik</translation>
         <source>Zone Maximum Outdoor Air Fraction</source>
         <translation>Fraksi Udara Luar Maksimum Zona</translation>
     </message>
-    <!-- OS:Coil:Cooling:Water -->
+    
     <message>
         <source>Design Water Flow Rate</source>
         <translation>Laju Aliran Air Desain</translation>
@@ -7279,7 +7278,7 @@ Listrik</translation>
         <source>Heat Exchanger Configuration</source>
         <translation>Konfigurasi Heat Exchanger</translation>
     </message>
-    <!-- OS:Coil:Heating:Water -->
+    
     <message>
         <source>U-Factor Times Area Value</source>
         <translation>Nilai U-Factor Dikali Luas</translation>
@@ -7316,7 +7315,7 @@ Listrik</translation>
         <source>Rated Ratio for Air and Water Convection</source>
         <translation>Rasio Terukur untuk Konveksi Udara dan Air</translation>
     </message>
-    <!-- OS:Fan:VariableVolume -->
+    
     <message>
         <source>Fan Power Minimum Flow Rate Input Method</source>
         <translation>Metode Masukan Laju Aliran Minimum Daya Kipas</translation>
@@ -7349,12 +7348,12 @@ Listrik</translation>
         <source>Fan Power Coefficient 5</source>
         <translation>Koefisien Daya Kipas 5</translation>
     </message>
-    <!-- OS:SetpointManager:Scheduled -->
+    
     <message>
         <source>Schedule Name</source>
         <translation>Nama Jadwal</translation>
     </message>
-    <!-- OS:AirTerminal:SingleDuct:VAV:Reheat -->
+    
     <message>
         <source>Zone Minimum Air Flow Input Method</source>
         <translation>Metode Input Aliran Udara Minimum Zona</translation>
@@ -7399,7 +7398,7 @@ Listrik</translation>
         <source>Convergence Tolerance</source>
         <translation>Toleransi Konvergensi</translation>
     </message>
-    <!-- OS:Pump:VariableSpeed / OS:Pump:ConstantSpeed -->
+    
     <message>
         <source>Rated Flow Rate</source>
         <translation>Laju Aliran Terpilih</translation>
@@ -7472,7 +7471,7 @@ Listrik</translation>
         <source>Skin Loss Radiative Fraction</source>
         <translation>Fraksi Radiasi Kehilangan Kulit</translation>
     </message>
-    <!-- OS:Chiller:Electric:EIR -->
+    
     <message>
         <source>Reference Capacity</source>
         <translation>Kapasitas Referensi</translation>
@@ -7549,7 +7548,7 @@ Listrik</translation>
         <source>Sizing Factor</source>
         <translation>Faktor Penentuan Ukuran</translation>
     </message>
-    <!-- OS:PlantLoop -->
+    
     <message>
         <source>Maximum Loop Temperature</source>
         <translation>Suhu Loop Maksimum</translation>
@@ -7570,7 +7569,7 @@ Listrik</translation>
         <source>Pressure Simulation Type</source>
         <translation>Tipe Simulasi Tekanan</translation>
     </message>
-    <!-- OS:Sizing:Plant -->
+    
     <message>
         <source>Loop Type</source>
         <translation>Tipe Loop</translation>
@@ -7583,7 +7582,7 @@ Listrik</translation>
         <source>Loop Design Temperature Difference</source>
         <translation>Perbedaan Suhu Desain Loop</translation>
     </message>
-    <!-- OS:CoolingTower:SingleSpeed -->
+    
     <message>
         <source>Fan Power at Design Air Flow Rate</source>
         <translation>Daya Kipas pada Laju Aliran Udara Desain</translation>
@@ -7636,7 +7635,7 @@ Listrik</translation>
         <source>Cell Maximum Water Flow Rate Fraction</source>
         <translation>Fraksi Laju Aliran Air Maksimum Sel</translation>
     </message>
-    <!-- OS:SetpointManager:FollowOutdoorAirTemperature -->
+    
     <message>
         <source>Reference Temperature Type</source>
         <translation>Jenis Suhu Referensi</translation>
@@ -7653,7 +7652,7 @@ Listrik</translation>
         <source>Minimum Setpoint Temperature</source>
         <translation>Suhu Titik Atur Minimum</translation>
     </message>
-    <!-- OS:Boiler:HotWater -->
+    
     <message>
         <source>Nominal Thermal Efficiency</source>
         <translation>Efisiensi Termal Nominal</translation>
@@ -7682,7 +7681,7 @@ Listrik</translation>
         <source>Off Cycle Parasitic Fuel Load</source>
         <translation>Beban Bahan Bakar Parasit Siklus Mati</translation>
     </message>
-    <!-- OS:WaterHeater:Mixed -->
+    
     <message>
         <source>Tank Volume</source>
         <translation>Volume Tangki</translation>
@@ -7787,7 +7786,7 @@ Listrik</translation>
         <source>Indirect Water Heating Recovery Time</source>
         <translation>Waktu Pemulihan Pemanasan Air Tidak Langsung</translation>
     </message>
-    <!-- OS:WaterHeater:Stratified -->
+    
     <message>
         <source>Tank Height</source>
         <translation>Tinggi Tangki</translation>
@@ -7864,7 +7863,7 @@ Listrik</translation>
         <source>Source Side Outlet Height</source>
         <translation>Tinggi Outlet Sisi Sumber</translation>
     </message>
-    <!-- OS:WaterUse:Connections -->
+    
     <message>
         <source>Hot Water Supply Temperature Schedule Name</source>
         <translation>Nama Jadwal Suhu Pasokan Air Panas</translation>
@@ -7885,7 +7884,7 @@ Listrik</translation>
         <source>Drain Water Heat Exchanger U-Factor Times Area</source>
         <translation>Faktor-U Penukar Kalor Air Drainase Kali Luas</translation>
     </message>
-    <!-- OS:WaterUse:Equipment -->
+    
     <message>
         <source>Peak Flow Rate</source>
         <translation>Laju Aliran Puncak</translation>
@@ -7910,7 +7909,7 @@ Listrik</translation>
         <source>Zone Name</source>
         <translation>Nama Zona</translation>
     </message>
-    <!-- OS:AirConditioner:VariableRefrigerantFlow -->
+    
     <message>
         <source>Cooling COP</source>
         <translation>COP Pendinginan</translation>
@@ -7983,7 +7982,7 @@ Listrik</translation>
         <source>Ratio of Compressor Size to Total Compressor Capacity</source>
         <translation>Rasio Ukuran Kompresor terhadap Kapasitas Kompresor Total</translation>
     </message>
-    <!-- OS:ZoneHVAC:TerminalUnit:VariableRefrigerantFlow -->
+    
     <message>
         <source>Supply Air Flow Rate During Cooling Operation</source>
         <translation>Laju Aliran Udara Pasokan Selama Operasi Pendinginan</translation>
@@ -8036,7 +8035,7 @@ Listrik</translation>
         <source>Supply Air Fan Placement</source>
         <translation>Penempatan Fan Udara Pasokan</translation>
     </message>
-    <!-- OS:DefaultScheduleSet -->
+    
     <message>
         <source>Hours of Operation Schedule Name</source>
         <translation>Nama Jadwal Jam Operasional</translation>
@@ -8077,7 +8076,7 @@ Listrik</translation>
         <source>Other Equipment Schedule Name</source>
         <translation>Nama Jadwal Peralatan Lainnya</translation>
     </message>
-    <!-- OS:DesignSpecification:OutdoorAir -->
+    
     <message>
         <source>Outdoor Air Method</source>
         <translation>Metode Udara Luar</translation>
@@ -8102,7 +8101,7 @@ Listrik</translation>
         <source>Outdoor Air Flow Rate Fraction Schedule Name</source>
         <translation>Nama Jadwal Fraksi Laju Aliran Udara Luar</translation>
     </message>
-    <!-- OS:SpaceInfiltration:DesignFlowRate -->
+    
     <message>
         <source>Space or SpaceType Name</source>
         <translation>Nama Ruang atau Tipe Ruang</translation>
@@ -8147,7 +8146,7 @@ Listrik</translation>
         <source>Density Basis</source>
         <translation>Basis Kepadatan</translation>
     </message>
-    <!-- OS:SpaceInfiltration:EffectiveLeakageArea -->
+    
     <message>
         <source>Effective Air Leakage Area</source>
         <translation>Luas Celah Kebocoran Udara Efektif</translation>
@@ -8160,7 +8159,7 @@ Listrik</translation>
         <source>Wind Coefficient</source>
         <translation>Koefisien Angin</translation>
     </message>
-    <!-- OS:People -->
+    
     <message>
         <source>People Definition Name</source>
         <translation>Nama Definisi Orang</translation>
@@ -8205,7 +8204,7 @@ Listrik</translation>
         <source>Heat Stress Temperature Threshold</source>
         <translation>Ambang Suhu Tekanan Panas</translation>
     </message>
-    <!-- OS:People:Definition -->
+    
     <message>
         <source>Number of People Calculation Method</source>
         <translation>Metode Perhitungan Jumlah Orang</translation>
@@ -8246,7 +8245,7 @@ Listrik</translation>
         <source>Thermal Comfort Model Type</source>
         <translation>Tipe Model Kenyamanan Termal</translation>
     </message>
-    <!-- OS:Schedule:Ruleset -->
+    
     <message>
         <source>Default Day Schedule Name</source>
         <translation>Nama Jadwal Hari Default</translation>
@@ -8272,17357 +8271,17357 @@ Listrik</translation>
         <translation>Nama Jadwal Hari Khusus 2</translation>
     </message>
 
-    <!-- === AUTO-GENERATED SKELETON: translate and remove this comment === -->
+    
 
-    <!-- 1 -->
-    <!-- OS:Sizing:System -->
+    
+    
     <message>
         <source>100% Outdoor Air in Cooling</source>
         <translation>100% Udara Luar dalam Pendinginan</translation>
     </message>
-    <!-- OS:Sizing:System -->
+    
     <message>
         <source>100% Outdoor Air in Heating</source>
         <translation>100% Udara Luar dalam Pemanasan</translation>
     </message>
 
-    <!-- A -->
-    <!-- OS:AirflowNetworkSimulationControl -->
+    
+    
     <message>
         <source>Absolute Airflow Convergence Tolerance</source>
         <translation>Toleransi Konvergensi Aliran Udara Absolut</translation>
     </message>
-    <!-- OS:SolarCollectorPerformance:IntegralCollectorStorage -->
+    
     <message>
         <source>Absorptance of Absorber Plate</source>
         <translation>Absorptansi Pelat Absorber</translation>
     </message>
-    <!-- OS:RadianceParameters -->
+    
     <message>
         <source>Accumulated Rays per Record</source>
         <translation>Sinar Terakumulasi per Catatan</translation>
     </message>
-    <!-- OS:Generator:FuelCell:PowerModule -->
+    
     <message>
         <source>Accumulated Run Time Degradation Coefficient</source>
         <translation>Koefisien Degradasi Waktu Operasi Kumulatif</translation>
     </message>
-    <!-- OS:Controller:WaterCoil -->
+    
     <message>
         <source>Action</source>
         <translation>Tindakan</translation>
     </message>
-    <!-- OS:PhotovoltaicPerformance:EquivalentOneDiode, OS:PhotovoltaicPerformance:Sandia -->
+    
     <message>
         <source>Active Area</source>
         <translation>Luas Aktif</translation>
     </message>
-    <!-- OS:Coil:Cooling:DX:CurveFit:Speed -->
+    
     <message>
         <source>Active Fraction of Coil Face Area</source>
         <translation>Fraksi Aktif Luas Permukaan Coil</translation>
     </message>
-    <!-- OS:SwimmingPool:Indoor -->
+    
     <message>
         <source>Activity Factor Schedule Name</source>
         <translation>Nama Jadwal Faktor Aktivitas</translation>
     </message>
-    <!-- OS:Generator:FuelCell:StackCooler -->
+    
     <message>
         <source>Actual Stack Temperature</source>
         <translation>Suhu Stack Aktual</translation>
     </message>
-    <!-- OS:EnergyManagementSystem:Actuator, OS:ExternalInterface:Actuator, OS:ExternalInterface:FunctionalMockupUnitExport:To:Actuator, OS:ExternalInterface:FunctionalMockupUnitImport:To:Actuator -->
+    
     <message>
         <source>Actuated Component Control Type</source>
         <translation>Tipe Kontrol Komponen Teraktuasi</translation>
     </message>
-    <!-- OS:EnergyManagementSystem:Actuator -->
+    
     <message>
         <source>Actuated Component Name</source>
         <translation>Nama Komponen Teraktuasi</translation>
     </message>
-    <!-- OS:EnergyManagementSystem:Actuator, OS:ExternalInterface:Actuator, OS:ExternalInterface:FunctionalMockupUnitExport:To:Actuator, OS:ExternalInterface:FunctionalMockupUnitImport:To:Actuator -->
+    
     <message>
         <source>Actuated Component Type</source>
         <translation>Jenis Komponen Teraktuasi</translation>
     </message>
-    <!-- OS:ExternalInterface:Actuator, OS:ExternalInterface:FunctionalMockupUnitExport:To:Actuator, OS:ExternalInterface:FunctionalMockupUnitImport:To:Actuator -->
+    
     <message>
         <source>Actuated Component Unique Name</source>
         <translation>Nama Unik Komponen Teraktuasi</translation>
     </message>
-    <!-- OS:Output:EnergyManagementSystem -->
+    
     <message>
         <source>Actuator Availability Dictionary Reporting</source>
         <translation>Pelaporan Kamus Ketersediaan Aktuator</translation>
     </message>
-    <!-- OS:Controller:OutdoorAir, OS:Controller:WaterCoil -->
+    
     <message>
         <source>Actuator Node Name</source>
         <translation>Nama Node Aktuator</translation>
     </message>
-    <!-- OS:Controller:WaterCoil -->
+    
     <message>
         <source>Actuator Variable</source>
         <translation>Variabel Aktuator</translation>
     </message>
-    <!-- OS:PythonPlugin:SearchPaths -->
+    
     <message>
         <source>Add Current Working Directory to Search Path</source>
         <translation>Tambahkan Direktori Kerja Saat Ini ke Jalur Pencarian</translation>
     </message>
-    <!-- OS:PythonPlugin:SearchPaths -->
+    
     <message>
         <source>Add epin Environment Variable to Search Path</source>
         <translation>Tambahkan Variabel Lingkungan epin ke Jalur Pencarian</translation>
     </message>
-    <!-- OS:PythonPlugin:SearchPaths -->
+    
     <message>
         <source>Add Input File Directory to Search Path</source>
         <translation>Tambahkan Direktori File Input ke Jalur Pencarian</translation>
     </message>
-    <!-- OS:DefaultConstructionSet -->
+    
     <message>
         <source>Adiabatic Surface Construction Name</source>
         <translation>Nama Konstruksi Permukaan Adiabatik</translation>
     </message>
-    <!-- OS:Schedule:File -->
+    
     <message>
         <source>Adjust Schedule for Daylight Savings</source>
         <translation>Sesuaikan Jadwal untuk Penyimpanan Cahaya Siang</translation>
     </message>
-    <!-- OS:ZoneAirMassFlowConservation -->
+    
     <message>
         <source>Adjust Zone Mixing and Return For Air Mass Flow Balance</source>
         <translation>Sesuaikan Pencampuran Zona dan Pengembalian untuk Keseimbangan Aliran Massa Udara</translation>
     </message>
-    <!-- OS:UtilityCost:Ratchet -->
+    
     <message>
         <source>Adjustment Source Variable</source>
         <translation>Variabel Sumber Penyesuaian</translation>
     </message>
-    <!-- OS:Output:Table:Annual, OS:Output:Table:Monthly -->
+    
     <message>
         <source>Aggregation Type for Variable or Meter</source>
         <translation>Jenis Agregasi untuk Variabel atau Meter</translation>
     </message>
-    <!-- OS:Coil:UserDefined -->
+    
     <message>
         <source>Air Connection 1 Inlet Node Name</source>
         <translation>Nama Node Inlet Koneksi Udara 1</translation>
     </message>
-    <!-- OS:Coil:UserDefined -->
+    
     <message>
         <source>Air Connection 1 Outlet Node Name</source>
         <translation>Nama Node Outlet Koneksi Udara 1</translation>
     </message>
-    <!-- OS:Construction:AirBoundary -->
+    
     <message>
         <source>Air Exchange Method</source>
         <translation>Metode Pertukaran Udara</translation>
     </message>
-    <!-- OS:ElectricEquipment:ITE:AirCooled:Definition -->
+    
     <message>
         <source>Air Flow Calculation Method</source>
         <translation>Metode Perhitungan Aliran Udara</translation>
     </message>
-    <!-- OS:ElectricEquipment:ITE:AirCooled:Definition -->
+    
     <message>
         <source>Air Flow Function of Loading and Air Temperature Curve Name</source>
         <translation>Nama Kurva Fungsi Aliran Udara dari Beban dan Suhu Udara</translation>
     </message>
-    <!-- OS:AirflowNetworkSpecifiedFlowRate -->
+    
     <message>
         <source>Air Flow Units</source>
         <translation>Satuan Aliran Udara</translation>
     </message>
-    <!-- OS:AirflowNetworkSpecifiedFlowRate -->
+    
     <message>
         <source>Air Flow Value</source>
         <translation>Nilai Aliran Udara</translation>
     </message>
-    <!-- OS:AirTerminal:SingleDuct:VAV:HeatAndCool:NoReheat, OS:AirTerminal:SingleDuct:VAV:HeatAndCool:Reheat -->
+    
     <message>
         <source>Air Inlet</source>
         <translation>Inlet Udara</translation>
     </message>
-    <!-- OS:ElectricEquipment:ITE:AirCooled:Definition -->
+    
     <message>
         <source>Air Inlet Connection Type</source>
         <translation>Jenis Koneksi Inlet Udara</translation>
     </message>
-    <!-- OS:AirLoopHVAC:UnitaryHeatCool:VAVChangeoverBypass, OS:AirLoopHVAC:UnitaryHeatPump:AirToAir:MultiSpeed, OS:Coil:Cooling:DX:MultiSpeed, OS:Coil:Heating:Electric:MultiStage, OS:Coil:Heating:Gas:MultiStage, OS:WaterHeater:HeatPump -->
+    
     <message>
         <source>Air Inlet Node</source>
         <translation>Node Inlet Udara</translation>
     </message>
-    <!-- OS:AirLoopHVAC:UnitaryHeatPump:AirToAir, OS:AirLoopHVAC:UnitarySystem, OS:AirTerminal:SingleDuct:ConstantVolume:NoReheat, OS:AirTerminal:SingleDuct:ConstantVolume:Reheat, OS:AirTerminal:SingleDuct:VAV:NoReheat, OS:AirTerminal:SingleDuct:VAV:Reheat, OS:Coil:Cooling:DX:SingleSpeed, OS:Coil:Cooling:DX:TwoSpeed, OS:Coil:Cooling:DX:TwoStageWithHumidityControlMode, OS:Coil:Cooling:Water, OS:Coil:Cooling:WaterToAirHeatPump:EquationFit, OS:Coil:Heating:DX:MultiSpeed, OS:Coil:Heating:DX:SingleSpeed, OS:Coil:Heating:Desuperheater, OS:Coil:Heating:Electric, OS:Coil:Heating:Gas, OS:Coil:Heating:Water, OS:Coil:Heating:WaterToAirHeatPump:EquationFit, OS:CoilSystem:Cooling:DX:HeatExchangerAssisted, OS:CoilSystem:Cooling:Water, OS:CoilSystem:Cooling:Water:HeatExchangerAssisted, OS:CoilSystem:IntegratedHeatPump:AirSource, OS:EvaporativeCooler:Direct:ResearchSpecial, OS:Fan:ComponentModel, OS:Fan:ConstantVolume, OS:Fan:OnOff, OS:Fan:SystemModel, OS:Fan:VariableVolume, OS:Fan:ZoneExhaust, OS:Generator:FuelCell:AirSupply, OS:HeatPump:AirToWater, OS:Humidifier:Steam:Electric, OS:Humidifier:Steam:Gas, OS:Refrigeration:Condenser:EvaporativeCooled, OS:Refrigeration:GasCooler:AirCooled, OS:WaterHeater:HeatPump:WrappedCondenser, OS:ZoneHVAC:Dehumidifier:DX, OS:ZoneHVAC:EnergyRecoveryVentilator, OS:ZoneHVAC:FourPipeFanCoil, OS:ZoneHVAC:PackagedTerminalAirConditioner, OS:ZoneHVAC:PackagedTerminalHeatPump, OS:ZoneHVAC:UnitHeater, OS:ZoneHVAC:UnitVentilator, OS:ZoneHVAC:WaterToAirHeatPump -->
+    
     <message>
         <source>Air Inlet Node Name</source>
         <translation>Nama Node Saluran Masuk Udara</translation>
     </message>
-    <!-- OS:Refrigeration:Condenser:AirCooled -->
+    
     <message>
         <source>Air Inlet Zone Name</source>
         <translation>Nama Zona Inlet Udara</translation>
     </message>
-    <!-- OS:Generator:FuelCell:AirSupply -->
+    
     <message>
         <source>Air Intake Heat Recovery Mode</source>
         <translation>Mode Pemulihan Panas Asupan Udara</translation>
     </message>
-    <!-- OS:AirLoopHVAC:DedicatedOutdoorAirSystem -->
+    
     <message>
         <source>Air Loop</source>
         <translation>Jalur Udara</translation>
     </message>
-    <!-- OS:AirflowNetworkLeak -->
+    
     <message>
         <source>Air Mass Flow Coefficient</source>
         <translation>Koefisien Laju Aliran Massa Udara</translation>
     </message>
-    <!-- OS:AirflowNetworkCrack -->
+    
     <message>
         <source>Air Mass Flow Coefficient at Reference Conditions</source>
         <translation>Koefisien Aliran Udara Masif pada Kondisi Referensi</translation>
     </message>
-    <!-- OS:AirflowNetworkReliefAirFlow -->
+    
     <message>
         <source>Air Mass Flow Coefficient When No Outdoor Air Flow at Reference Conditions</source>
         <translation>Koefisien Aliran Massa Udara Saat Tidak Ada Aliran Udara Luar pada Kondisi Referensi</translation>
     </message>
-    <!-- OS:AirflowNetworkDetailedOpening, OS:AirflowNetworkHorizontalOpening, OS:AirflowNetworkSimpleOpening -->
+    
     <message>
         <source>Air Mass Flow Coefficient When Opening is Closed</source>
         <translation>Koefisien Aliran Massa Udara Saat Pembukaan Tertutup</translation>
     </message>
-    <!-- OS:AirflowNetworkCrack, OS:AirflowNetworkEffectiveLeakageArea, OS:AirflowNetworkLeak, OS:AirflowNetworkLeakageRatio -->
+    
     <message>
         <source>Air Mass Flow Exponent</source>
         <translation>Eksponen Laju Aliran Massa Udara</translation>
     </message>
-    <!-- OS:AirflowNetworkReliefAirFlow -->
+    
     <message>
         <source>Air Mass Flow Exponent When No Outdoor Air Flow</source>
         <translation>Eksponen Laju Aliran Massa Udara Saat Tidak Ada Aliran Udara Luar</translation>
     </message>
-    <!-- OS:AirflowNetworkDetailedOpening, OS:AirflowNetworkHorizontalOpening, OS:AirflowNetworkSimpleOpening -->
+    
     <message>
         <source>Air Mass Flow Exponent When Opening is Closed</source>
         <translation>Eksponen Laju Aliran Massa Udara Saat Bukaan Tertutup</translation>
     </message>
-    <!-- OS:Coil:UserDefined -->
+    
     <message>
         <source>Air Mass Flow Rate Actuator</source>
         <translation>Aktuator Laju Aliran Massa Udara</translation>
     </message>
-    <!-- OS:AirTerminal:SingleDuct:VAV:HeatAndCool:NoReheat, OS:AirTerminal:SingleDuct:VAV:HeatAndCool:Reheat -->
+    
     <message>
         <source>Air Outlet</source>
         <translation>Outlet Udara</translation>
     </message>
-    <!-- OS:Coil:UserDefined -->
+    
     <message>
         <source>Air Outlet Humidity Ratio Actuator</source>
         <translation>Aktuator Rasio Kelembaban Outlet Udara</translation>
     </message>
-    <!-- OS:AirLoopHVAC:UnitaryHeatCool:VAVChangeoverBypass, OS:AirLoopHVAC:UnitaryHeatPump:AirToAir:MultiSpeed, OS:AirTerminal:DualDuct:ConstantVolume, OS:AirTerminal:DualDuct:VAV, OS:AirTerminal:DualDuct:VAV:OutdoorAir, OS:Coil:Cooling:DX:MultiSpeed, OS:Coil:Heating:Electric:MultiStage, OS:Coil:Heating:Gas:MultiStage, OS:WaterHeater:HeatPump -->
+    
     <message>
         <source>Air Outlet Node</source>
         <translation>Node Outlet Udara</translation>
     </message>
-    <!-- OS:AirLoopHVAC:UnitaryHeatPump:AirToAir, OS:AirLoopHVAC:UnitarySystem, OS:AirTerminal:SingleDuct:ConstantVolume:FourPipeInduction, OS:AirTerminal:SingleDuct:ConstantVolume:NoReheat, OS:AirTerminal:SingleDuct:ConstantVolume:Reheat, OS:AirTerminal:SingleDuct:VAV:NoReheat, OS:AirTerminal:SingleDuct:VAV:Reheat, OS:Coil:Cooling:DX:SingleSpeed, OS:Coil:Cooling:DX:TwoSpeed, OS:Coil:Cooling:DX:TwoStageWithHumidityControlMode, OS:Coil:Cooling:Water, OS:Coil:Cooling:WaterToAirHeatPump:EquationFit, OS:Coil:Heating:DX:MultiSpeed, OS:Coil:Heating:DX:SingleSpeed, OS:Coil:Heating:Desuperheater, OS:Coil:Heating:Electric, OS:Coil:Heating:Gas, OS:Coil:Heating:Water, OS:Coil:Heating:WaterToAirHeatPump:EquationFit, OS:CoilSystem:Cooling:DX:HeatExchangerAssisted, OS:CoilSystem:Cooling:Water, OS:CoilSystem:Cooling:Water:HeatExchangerAssisted, OS:CoilSystem:IntegratedHeatPump:AirSource, OS:EvaporativeCooler:Direct:ResearchSpecial, OS:Fan:ComponentModel, OS:Fan:ConstantVolume, OS:Fan:OnOff, OS:Fan:SystemModel, OS:Fan:VariableVolume, OS:Fan:ZoneExhaust, OS:HeatPump:AirToWater, OS:Humidifier:Steam:Electric, OS:Humidifier:Steam:Gas, OS:WaterHeater:HeatPump:WrappedCondenser, OS:ZoneHVAC:Dehumidifier:DX, OS:ZoneHVAC:EnergyRecoveryVentilator, OS:ZoneHVAC:FourPipeFanCoil, OS:ZoneHVAC:PackagedTerminalAirConditioner, OS:ZoneHVAC:PackagedTerminalHeatPump, OS:ZoneHVAC:UnitHeater, OS:ZoneHVAC:UnitVentilator, OS:ZoneHVAC:WaterToAirHeatPump -->
+    
     <message>
         <source>Air Outlet Node Name</source>
         <translation>Nama Node Outlet Udara</translation>
     </message>
-    <!-- OS:Coil:UserDefined -->
+    
     <message>
         <source>Air Outlet Temperature Actuator</source>
         <translation>Aktuator Suhu Outlet Udara</translation>
     </message>
-    <!-- OS:AirflowNetworkEquivalentDuct -->
+    
     <message>
         <source>Air Path Hydraulic Diameter</source>
         <translation>Diameter Hidraulik Lintasan Udara</translation>
     </message>
-    <!-- OS:AirflowNetworkEquivalentDuct -->
+    
     <message>
         <source>Air Path Length</source>
         <translation>Panjang Jalur Udara</translation>
     </message>
-    <!-- OS:Generator:FuelCell:AirSupply -->
+    
     <message>
         <source>Air Rate Air Temperature Coefficient</source>
         <translation>Koefisien Suhu Udara Laju Aliran</translation>
     </message>
-    <!-- OS:Generator:FuelCell:AirSupply -->
+    
     <message>
         <source>Air Rate Function of Electric Power Curve Name</source>
         <translation>Nama Kurva Fungsi Laju Udara terhadap Daya Listrik</translation>
     </message>
-    <!-- OS:Generator:FuelCell:AirSupply -->
+    
     <message>
         <source>Air Rate Function of Fuel Rate Curve Name</source>
         <translation>Nama Kurva Fungsi Laju Udara terhadap Laju Bahan Bakar</translation>
     </message>
-    <!-- OS:HeatPump:AirToWater:FuelFired:Cooling, OS:HeatPump:AirToWater:FuelFired:Heating -->
+    
     <message>
         <source>Air Source Node Name</source>
         <translation>Nama Node Sumber Udara</translation>
     </message>
-    <!-- OS:Generator:FuelCell:AirSupply -->
+    
     <message>
         <source>Air Supply Constituent Mode</source>
         <translation>Mode Konstituen Suplai Udara</translation>
     </message>
-    <!-- OS:Generator:FuelCell -->
+    
     <message>
         <source>Air Supply Name</source>
         <translation>Nama Pasokan Udara</translation>
     </message>
-    <!-- OS:Generator:FuelCell:AirSupply -->
+    
     <message>
         <source>Air Supply Rate Calculation Mode</source>
         <translation>Mode Perhitungan Laju Pasokan Udara</translation>
     </message>
-    <!-- OS:WindowMaterial:Shade -->
+    
     <message>
         <source>Airflow Permeability</source>
         <translation>Permeabilitas Aliran Udara</translation>
     </message>
-    <!-- OS:AirflowNetworkSimulationControl -->
+    
     <message>
         <source>AirflowNetwork Control</source>
         <translation>Kontrol Jaringan Aliran Udara</translation>
     </message>
-    <!-- OS:AvailabilityManager:HybridVentilation -->
+    
     <message>
         <source>AirflowNetwork Control Type Schedule</source>
         <translation>Jadwal Tipe Kontrol AirflowNetwork</translation>
     </message>
-    <!-- OS:Sizing:System -->
+    
     <message>
         <source>AirLoop Name</source>
         <translation>Nama AirLoop</translation>
     </message>
-    <!-- OS:HeatBalanceAlgorithm, OS:SurfaceConvectionAlgorithm:Inside, OS:SurfaceConvectionAlgorithm:Outside, OS:ZoneAirHeatBalanceAlgorithm -->
+    
     <message>
         <source>Algorithm</source>
         <translation>Algoritma</translation>
     </message>
-    <!-- OS:AirflowNetworkSimulationControl -->
+    
     <message>
         <source>Allow Unsupported Zone Equipment</source>
         <translation>Izinkan Peralatan Zona yang Tidak Didukung</translation>
     </message>
-    <!-- OS:Coil:Cooling:DX:CurveFit:Performance -->
+    
     <message>
         <source>Alternative Operating Mode 1</source>
         <translation>Mode Operasi Alternatif 1</translation>
     </message>
-    <!-- OS:Coil:Cooling:DX:CurveFit:Performance -->
+    
     <message>
         <source>Alternative Operating Mode 2</source>
         <translation>Mode Operasi Alternatif 2</translation>
     </message>
-    <!-- OS:Pipe:Indoor -->
+    
     <message>
         <source>Ambient Air Velocity Schedule</source>
         <translation>Jadwal Kecepatan Udara Ambien</translation>
     </message>
-    <!-- OS:RadianceParameters -->
+    
     <message>
         <source>Ambient Bounces DMX</source>
         <translation>Ambient Bounces DMX</translation>
     </message>
-    <!-- OS:RadianceParameters -->
+    
     <message>
         <source>Ambient Bounces VMX</source>
         <translation>Ambient Bounces VMX</translation>
     </message>
-    <!-- OS:RadianceParameters -->
+    
     <message>
         <source>Ambient Divisions DMX</source>
         <translation>Divisi Ambient DMX</translation>
     </message>
-    <!-- OS:RadianceParameters -->
+    
     <message>
         <source>Ambient Divisions VMX</source>
         <translation>Ambient Divisions VMX</translation>
     </message>
-    <!-- OS:RadianceParameters -->
+    
     <message>
         <source>Ambient Supersamples</source>
         <translation>Ambient Supersamples</translation>
     </message>
-    <!-- OS:CoilSystem:IntegratedHeatPump:AirSource -->
+    
     <message>
         <source>Ambient Temperature Above Which WH Has Higher Priority</source>
         <translation>Suhu Ambient di Atas Mana WH Memiliki Prioritas Lebih Tinggi</translation>
     </message>
-    <!-- OS:CoilSystem:IntegratedHeatPump:AirSource -->
+    
     <message>
         <source>Ambient Temperature Limit For SCWH Mode</source>
         <translation>Batas Suhu Ambien untuk Mode SCWH</translation>
     </message>
-    <!-- OS:Pipe:Outdoor -->
+    
     <message>
         <source>Ambient Temperature Outdoor Air Node</source>
         <translation>Node Udara Luar Suhu Ambien</translation>
     </message>
-    <!-- OS:Chiller:Electric:ASHRAE205, OS:ThermalStorage:ChilledWater:Stratified, OS:WaterHeater:Mixed, OS:WaterHeater:Stratified -->
+    
     <message>
         <source>Ambient Temperature Outdoor Air Node Name</source>
         <translation>Nama Node Udara Luar Suhu Lingkungan</translation>
     </message>
-    <!-- OS:Pipe:Indoor -->
+    
     <message>
         <source>Ambient Temperature Schedule</source>
         <translation>Jadwal Temperatur Lingkungan</translation>
     </message>
-    <!-- OS:ThermalStorage:ChilledWater:Stratified, OS:WaterHeater:Mixed, OS:WaterHeater:Stratified -->
+    
     <message>
         <source>Ambient Temperature Thermal Zone Name</source>
         <translation>Nama Zona Termal Suhu Ambien</translation>
     </message>
-    <!-- OS:Pipe:Indoor -->
+    
     <message>
         <source>Ambient Temperature Zone</source>
         <translation>Zona Temperatur Ambien</translation>
     </message>
-    <!-- OS:Chiller:Electric:ASHRAE205 -->
+    
     <message>
         <source>Ambient Temperature Zone Name</source>
         <translation>Nama Zona Temperatur Ambien</translation>
     </message>
-    <!-- OS:Coil:UserDefined, OS:PlantComponent:UserDefined -->
+    
     <message>
         <source>Ambient Zone Name</source>
         <translation>Nama Zona Sekitar</translation>
     </message>
-    <!-- OS:LifeCycleCost:Parameters -->
+    
     <message>
         <source>Analysis Type</source>
         <translation>Jenis Analisis</translation>
     </message>
-    <!-- OS:Coil:Cooling:DX:SingleSpeed:ThermalStorage -->
+    
     <message>
         <source>Ancillary Electric Power</source>
         <translation>Daya Listrik Tambahan</translation>
     </message>
-    <!-- OS:Generator:FuelCell:PowerModule -->
+    
     <message>
         <source>Ancillary Electricity Constant Term</source>
         <translation>Konstante Listrik Auxiliary (Suku Konstan)</translation>
     </message>
-    <!-- OS:Generator:FuelCell:PowerModule -->
+    
     <message>
         <source>Ancillary Electricity Linear Term</source>
         <translation>Istilah Linear Listrik Pendukung</translation>
     </message>
-    <!-- OS:CentralHeatPumpSystem -->
+    
     <message>
         <source>Ancillary Operation Schedule Name</source>
         <translation>Nama Jadwal Operasi Tambahan</translation>
     </message>
-    <!-- OS:CentralHeatPumpSystem, OS:Generator:MicroTurbine -->
+    
     <message>
         <source>Ancillary Power</source>
         <translation>Daya Tambahan</translation>
     </message>
-    <!-- OS:Generator:FuelCell:AuxiliaryHeater -->
+    
     <message>
         <source>Ancillary Power Constant Term</source>
         <translation>Suku Konstan Daya Tambahan</translation>
     </message>
-    <!-- OS:ElectricLoadCenter:Storage:Converter -->
+    
     <message>
         <source>Ancillary Power Consumed In Standby</source>
         <translation>Daya Tambahan yang Dikonsumsi dalam Mode Siaga</translation>
     </message>
-    <!-- OS:Generator:MicroTurbine -->
+    
     <message>
         <source>Ancillary Power Function of Fuel Input Curve Name</source>
         <translation>Nama Kurva Fungsi Daya Ancillary dari Input Bahan Bakar</translation>
     </message>
-    <!-- OS:Generator:FuelCell:AuxiliaryHeater -->
+    
     <message>
         <source>Ancillary Power Linear Term</source>
         <translation>Istilah Linear Daya Tambahan</translation>
     </message>
-    <!-- OS:AirLoopHVAC:UnitarySystem -->
+    
     <message>
         <source>Ancilliary Off-Cycle Electric Power</source>
         <translation>Daya Listrik Tambahan Saat Off-Cycle</translation>
     </message>
-    <!-- OS:AirLoopHVAC:UnitarySystem -->
+    
     <message>
         <source>Ancilliary On-Cycle Electric Power</source>
         <translation>Daya Listrik Tambahan Saat Siklus Aktif</translation>
     </message>
-    <!-- OS:WindowMaterial:Screen -->
+    
     <message>
         <source>Angle of Resolution for Screen Transmittance Output Map</source>
         <translation>Sudut Resolusi untuk Peta Output Transmitansi Layar</translation>
     </message>
-    <!-- OS:Site:WaterMainsTemperature -->
+    
     <message>
         <source>Annual Average Outdoor Air Temperature</source>
         <translation>Temperatur Udara Luar Rata-rata Tahunan</translation>
     </message>
-    <!-- OS:Generator:WindTurbine -->
+    
     <message>
         <source>Annual Local Average Wind Speed</source>
         <translation>Kecepatan Angin Rata-rata Lokal Tahunan</translation>
     </message>
-    <!-- OS:Refrigeration:Case -->
+    
     <message>
         <source>Anti-Sweat Heater Control Type</source>
         <translation>Jenis Kontrol Pemanas Anti-Keringat</translation>
     </message>
-    <!-- OS:AvailabilityManager:NightCycle, OS:AvailabilityManager:NightVentilation, OS:AvailabilityManager:OptimumStart -->
+    
     <message>
         <source>Applicability Schedule</source>
         <translation>Jadwal Penerapan</translation>
     </message>
-    <!-- OS:AvailabilityManager:LowTemperatureTurnOff -->
+    
     <message>
         <source>Applicability Schedule Name</source>
         <translation>Nama Jadwal Penerapan</translation>
     </message>
-    <!-- OS:Schedule:Rule -->
+    
     <message>
         <source>Apply Friday</source>
         <translation>Terapkan Jumat</translation>
     </message>
-    <!-- OS:Coil:Cooling:DX:CurveFit:OperatingMode, OS:Coil:Cooling:DX:MultiSpeed -->
+    
     <message>
         <source>Apply Latent Degradation to Speeds Greater than 1</source>
         <translation>Terapkan Penurunan Laten pada Kecepatan Lebih Besar dari 1</translation>
     </message>
-    <!-- OS:Schedule:Rule -->
+    
     <message>
         <source>Apply Monday</source>
         <translation>Terapkan Senin</translation>
     </message>
-    <!-- OS:Coil:Cooling:DX:MultiSpeed, OS:Coil:Heating:DX:MultiSpeed -->
+    
     <message>
         <source>Apply Part Load Fraction to Speeds Greater than 1</source>
         <translation>Terapkan Fraksi Beban Parsial ke Kecepatan Lebih dari 1</translation>
     </message>
-    <!-- OS:Schedule:Rule -->
+    
     <message>
         <source>Apply Saturday</source>
         <translation>Terapkan Sabtu</translation>
     </message>
-    <!-- OS:Schedule:Rule -->
+    
     <message>
         <source>Apply Sunday</source>
         <translation>Terapkan Minggu</translation>
     </message>
-    <!-- OS:Schedule:Rule -->
+    
     <message>
         <source>Apply Thursday</source>
         <translation>Terapkan Kamis</translation>
     </message>
-    <!-- OS:Schedule:Rule -->
+    
     <message>
         <source>Apply Tuesday</source>
         <translation>Terapkan Selasa</translation>
     </message>
-    <!-- OS:Schedule:Rule -->
+    
     <message>
         <source>Apply Wednesday</source>
         <translation>Terapkan Rabu</translation>
     </message>
-    <!-- OS:RunPeriod -->
+    
     <message>
         <source>Apply Weekend Holiday Rule</source>
         <translation>Terapkan Aturan Hari Libur Akhir Pekan</translation>
     </message>
-    <!-- OS:Refrigeration:Condenser:EvaporativeCooled -->
+    
     <message>
         <source>Approach Temperature Coefficient 2</source>
         <translation>Koefisien Suhu Pendekatan 2</translation>
     </message>
-    <!-- OS:Refrigeration:Condenser:EvaporativeCooled -->
+    
     <message>
         <source>Approach Temperature Coefficient 3</source>
         <translation>Koefisien Temperatur Pendekatan 3</translation>
     </message>
-    <!-- OS:Refrigeration:Condenser:EvaporativeCooled -->
+    
     <message>
         <source>Approach Temperature Coefficient 4</source>
         <translation>Koefisien Temperatur Pendekatan 4</translation>
     </message>
-    <!-- OS:Refrigeration:Condenser:EvaporativeCooled -->
+    
     <message>
         <source>Approach Temperature Constant Term</source>
         <translation>Pendekatan Suhu Suku Konstanta</translation>
     </message>
-    <!-- OS:Site:GroundTemperature:Deep -->
+    
     <message>
         <source>April Deep Ground Temperature</source>
         <translation>Suhu Tanah Dalam April</translation>
     </message>
-    <!-- OS:Site:GroundReflectance -->
+    
     <message>
         <source>April Ground Reflectance</source>
         <translation>April Ground Reflectance</translation>
     </message>
-    <!-- OS:Site:GroundTemperature:BuildingSurface, OS:Site:GroundTemperature:FCfactorMethod -->
+    
     <message>
         <source>April Ground Temperature</source>
         <translation>Suhu Tanah April</translation>
     </message>
-    <!-- OS:Site:GroundTemperature:Shallow -->
+    
     <message>
         <source>April Surface Ground Temperature</source>
         <translation>Suhu Permukaan Tanah April</translation>
     </message>
-    <!-- OS:UtilityCost:Variable -->
+    
     <message>
         <source>April Value</source>
         <translation>Nilai April</translation>
     </message>
-    <!-- OS:Construction:FfactorGroundFloor -->
+    
     <message>
         <source>Area</source>
         <translation>Luas</translation>
     </message>
-    <!-- OS:DaylightingDevice:LightWell -->
+    
     <message>
         <source>Area of Bottom of Well</source>
         <translation>Luas Dasar Sumur</translation>
     </message>
-    <!-- OS:Refrigeration:WalkIn:ZoneBoundary -->
+    
     <message>
         <source>Area of Glass Reach In Doors Facing Zone</source>
         <translation>Luas Kaca Pintu Reach In yang Menghadap Zona</translation>
     </message>
-    <!-- OS:Refrigeration:WalkIn:ZoneBoundary -->
+    
     <message>
         <source>Area of Stocking Doors Facing Zone</source>
         <translation>Luas Pintu Penyimpanan yang Menghadap Zona</translation>
     </message>
-    <!-- OS:Generator:PVWatts -->
+    
     <message>
         <source>Array Type</source>
         <translation>Jenis Array</translation>
     </message>
-    <!-- OS:SizingPeriod:DesignDay -->
+    
     <message>
         <source>ASHRAE Clear Sky Optical Depth for Beam Irradiance</source>
         <translation>ASHRAE Clear Sky Optical Depth for Beam Irradiance</translation>
     </message>
-    <!-- OS:SizingPeriod:DesignDay -->
+    
     <message>
         <source>ASHRAE Clear Sky Optical Depth for Diffuse Irradiance</source>
         <translation>ASHRAE Clear Sky Optical Depth for Diffuse Irradiance</translation>
     </message>
-    <!-- OS:SolarCollectorPerformance:IntegralCollectorStorage -->
+    
     <message>
         <source>Aspect Ratio</source>
         <translation>Rasio Aspek</translation>
     </message>
-    <!-- OS:Site:GroundTemperature:Deep -->
+    
     <message>
         <source>August Deep Ground Temperature</source>
         <translation>Suhu Tanah Dalam Agustus</translation>
     </message>
-    <!-- OS:Site:GroundReflectance -->
+    
     <message>
         <source>August Ground Reflectance</source>
         <translation>Reflektansi Tanah Agustus</translation>
     </message>
-    <!-- OS:Site:GroundTemperature:BuildingSurface, OS:Site:GroundTemperature:FCfactorMethod -->
+    
     <message>
         <source>August Ground Temperature</source>
         <translation>Temperatur Tanah Agustus</translation>
     </message>
-    <!-- OS:Site:GroundTemperature:Shallow -->
+    
     <message>
         <source>August Surface Ground Temperature</source>
         <translation>Suhu Tanah Permukaan Agustus</translation>
     </message>
-    <!-- OS:UtilityCost:Variable -->
+    
     <message>
         <source>August Value</source>
         <translation>Nilai Agustus</translation>
     </message>
-    <!-- OS:Chiller:Electric:ASHRAE205 -->
+    
     <message>
         <source>Auxiliary Cooling Design Flow Rate</source>
         <translation>Laju Aliran Desain Pendingin Tambahan</translation>
     </message>
-    <!-- OS:HeatPump:AirToWater:FuelFired:Cooling, OS:HeatPump:AirToWater:FuelFired:Heating -->
+    
     <message>
         <source>Auxiliary Electric Energy Input Ratio Function of PLR Curve Name</source>
         <translation>Nama Kurva Fungsi Rasio Input Energi Listrik Tambahan terhadap PLR</translation>
     </message>
-    <!-- OS:HeatPump:AirToWater:FuelFired:Cooling, OS:HeatPump:AirToWater:FuelFired:Heating -->
+    
     <message>
         <source>Auxiliary Electric Energy Input Ratio Function of Temperature Curve Name</source>
         <translation>Nama Kurva Fungsi Rasio Masukan Energi Listrik Tambahan terhadap Suhu</translation>
     </message>
-    <!-- OS:Humidifier:Steam:Gas -->
+    
     <message>
         <source>Auxiliary Electric Power</source>
         <translation>Daya Listrik Bantu</translation>
     </message>
-    <!-- OS:Generator:FuelCell -->
+    
     <message>
         <source>Auxiliary Heater Name</source>
         <translation>Nama Pemanas Bantu</translation>
     </message>
-    <!-- OS:Chiller:Electric:ASHRAE205 -->
+    
     <message>
         <source>Auxiliary Inlet Node Name</source>
         <translation>Nama Node Inlet Tambahan</translation>
     </message>
-    <!-- OS:AirLoopHVAC:UnitaryHeatPump:AirToAir:MultiSpeed -->
+    
     <message>
         <source>Auxiliary Off-Cycle Electric Power</source>
         <translation>Daya Listrik Auxiliary Saat Siklus Off</translation>
     </message>
-    <!-- OS:AirLoopHVAC:UnitaryHeatPump:AirToAir:MultiSpeed -->
+    
     <message>
         <source>Auxiliary On-Cycle Electric Power</source>
         <translation>Daya Listrik Auxiliary Saat Siklus Hidup</translation>
     </message>
-    <!-- OS:Chiller:Electric:ASHRAE205 -->
+    
     <message>
         <source>Auxiliary Outlet Node Name</source>
         <translation>Nama Node Outlet Tambahan</translation>
     </message>
-    <!-- OS:AirLoopHVAC, OS:AirLoopHVAC:OutdoorAirSystem, OS:PlantLoop, OS:ZoneHVAC:EnergyRecoveryVentilator, OS:ZoneHVAC:EvaporativeCoolerUnit, OS:ZoneHVAC:TerminalUnit:VariableRefrigerantFlow, OS:ZoneHVAC:UnitHeater, OS:ZoneHVAC:UnitVentilator, OS:ZoneHVAC:WaterToAirHeatPump -->
+    
     <message>
         <source>Availability Manager List Name</source>
         <translation>Nama Daftar Manajer Ketersediaan</translation>
     </message>
-    <!-- OS:AvailabilityManagerAssignmentList -->
+    
     <message>
         <source>Availability Manager Name</source>
         <translation>Nama Pengelola Ketersediaan</translation>
     </message>
-    <!-- OS:AirConditioner:VariableRefrigerantFlow, OS:AirConditioner:VariableRefrigerantFlow:FluidTemperatureControl, OS:AirConditioner:VariableRefrigerantFlow:FluidTemperatureControl:HR, OS:AirLoopHVAC, OS:AirLoopHVAC:DedicatedOutdoorAirSystem, OS:AirLoopHVAC:UnitaryHeatCool:VAVChangeoverBypass, OS:AirLoopHVAC:UnitaryHeatPump:AirToAir:MultiSpeed, OS:AirTerminal:DualDuct:ConstantVolume, OS:AirTerminal:DualDuct:VAV, OS:AirTerminal:DualDuct:VAV:OutdoorAir, OS:AirTerminal:SingleDuct:VAV:HeatAndCool:NoReheat, OS:AirTerminal:SingleDuct:VAV:HeatAndCool:Reheat, OS:Coil:Cooling:DX, OS:Coil:Cooling:DX:MultiSpeed, OS:Coil:Cooling:DX:SingleSpeed:ThermalStorage, OS:Coil:Cooling:DX:TwoStageWithHumidityControlMode, OS:Coil:Cooling:DX:VariableRefrigerantFlow, OS:Coil:Cooling:DX:VariableRefrigerantFlow:FluidTemperatureControl, OS:Coil:Heating:DX:VariableRefrigerantFlow, OS:Coil:Heating:DX:VariableRefrigerantFlow:FluidTemperatureControl, OS:Coil:Heating:Electric:MultiStage, OS:Coil:Heating:Gas:MultiStage, OS:Controller:MechanicalVentilation, OS:HeatExchanger:AirToAir:SensibleAndLatent, OS:HeatExchanger:Desiccant:BalancedFlow, OS:ThermalStorage:Ice:Detailed, OS:WaterHeater:HeatPump, OS:ZoneHVAC:Baseboard:Convective:Electric -->
+    
     <message>
         <source>Availability Schedule</source>
         <translation>Jadwal Ketersediaan</translation>
     </message>
-    <!-- OS:Site:GroundTemperature:Undisturbed:KusudaAchenbach -->
+    
     <message>
         <source>Average Amplitude of Surface Temperature</source>
         <translation>Rata-rata Amplitudo Suhu Permukaan</translation>
     </message>
-    <!-- OS:SwimmingPool:Indoor -->
+    
     <message>
         <source>Average Depth</source>
         <translation>Kedalaman Rata-rata</translation>
     </message>
-    <!-- OS:Refrigeration:AirChiller, OS:Refrigeration:Case, OS:Refrigeration:WalkIn -->
+    
     <message>
         <source>Average Refrigerant Charge Inventory</source>
         <translation>Inventaris Muatan Refrigeran Rata-rata</translation>
     </message>
-    <!-- OS:Site:GroundTemperature:Undisturbed:KusudaAchenbach, OS:Site:GroundTemperature:Undisturbed:Xing -->
+    
     <message>
         <source>Average Soil Surface Temperature</source>
         <translation>Suhu Permukaan Tanah Rata-rata</translation>
     </message>
-    <!-- OS:Generator:PVWatts -->
+    
     <message>
         <source>Azimuth Angle</source>
         <translation>Sudut Azimut</translation>
     </message>
-    <!-- OS:AirflowNetworkSimulationControl -->
+    
     <message>
         <source>Azimuth Angle of Long Axis of Building</source>
         <translation>Sudut Azimuth Sumbu Panjang Bangunan</translation>
     </message>
 
-    <!-- B -->
-    <!-- OS:MaterialProperty:GlazingSpectralData -->
+    
+    
     <message>
         <source>Back Reflectance</source>
         <translation>Reflektansi Belakang</translation>
     </message>
-    <!-- OS:WindowMaterial:Glazing -->
+    
     <message>
         <source>Back Side Infrared Hemispherical Emissivity</source>
         <translation>Emitivitas Hemisferikal Inframerah Sisi Belakang</translation>
     </message>
-    <!-- OS:WindowMaterial:Blind -->
+    
     <message>
         <source>Back Side Slat Beam Solar Reflectance</source>
         <translation>Reflektansi Sinar Matahari Bilah Sisi Belakang</translation>
     </message>
-    <!-- OS:WindowMaterial:Blind -->
+    
     <message>
         <source>Back Side Slat Beam Visible Reflectance</source>
         <translation>Reflektansi Berkas Terlihat Sisi Belakang Slat</translation>
     </message>
-    <!-- OS:WindowMaterial:Blind -->
+    
     <message>
         <source>Back Side Slat Diffuse Solar Reflectance</source>
         <translation>Reflektansi Difus Surya Sisi Belakang Slat</translation>
     </message>
-    <!-- OS:WindowMaterial:Blind -->
+    
     <message>
         <source>Back Side Slat Diffuse Visible Reflectance</source>
         <translation>Reflektansi Difus Cahaya Tampak Sisi Belakang Slat</translation>
     </message>
-    <!-- OS:WindowMaterial:Blind -->
+    
     <message>
         <source>Back Side Slat Infrared Hemispherical Emissivity</source>
         <translation>Emitivitas Hemisferik Inframerah Sisi Belakang Slat</translation>
     </message>
-    <!-- OS:WindowMaterial:Glazing -->
+    
     <message>
         <source>Back Side Solar Reflectance at Normal Incidence</source>
         <translation>Reflektansi Surya Sisi Belakang pada Insidensi Normal</translation>
     </message>
-    <!-- OS:WindowMaterial:Glazing -->
+    
     <message>
         <source>Back Side Visible Reflectance at Normal Incidence</source>
         <translation>Reflektansi Sisi Belakang yang Terlihat pada Sudut Kejadian Normal</translation>
     </message>
-    <!-- OS:SolarCollectorPerformance:PhotovoltaicThermal:BIPVT -->
+    
     <message>
         <source>Backing Material Normal Transmittance-Absorptance Product</source>
         <translation>Produk Transmitansi-Absorptansi Normal Material Backing</translation>
     </message>
-    <!-- OS:Fan:ZoneExhaust -->
+    
     <message>
         <source>Balanced Exhaust Fraction Schedule Name</source>
         <translation>Nama Jadwal Fraksi Exhaust Seimbang</translation>
     </message>
-    <!-- OS:SizingPeriod:DesignDay -->
+    
     <message>
         <source>Barometric Pressure</source>
         <translation>Tekanan Barometrik</translation>
     </message>
-    <!-- OS:LifeCycleCost:Parameters -->
+    
     <message>
         <source>Base Date Month</source>
         <translation>Bulan Tanggal Dasar</translation>
     </message>
-    <!-- OS:LifeCycleCost:Parameters -->
+    
     <message>
         <source>Base Date Year</source>
         <translation>Tahun Tanggal Dasar</translation>
     </message>
-    <!-- OS:Coil:Cooling:DX:CurveFit:Performance -->
+    
     <message>
         <source>Base Operating Mode</source>
         <translation>Mode Operasi Dasar</translation>
     </message>
-    <!-- OS:UtilityCost:Ratchet -->
+    
     <message>
         <source>Baseline Source Variable</source>
         <translation>Variabel Sumber Garis Dasar</translation>
     </message>
-    <!-- OS:Coil:Cooling:DX:SingleSpeed:ThermalStorage -->
+    
     <message>
         <source>Basin Heater Availability Schedule</source>
         <translation>Jadwal Ketersediaan Pemanas Bak</translation>
     </message>
-    <!-- OS:AirConditioner:VariableRefrigerantFlow, OS:Coil:Cooling:DX:MultiSpeed, OS:Coil:Cooling:DX:TwoStageWithHumidityControlMode, OS:CoolingTower:VariableSpeed -->
+    
     <message>
         <source>Basin Heater Operating Schedule</source>
         <translation>Jadwal Operasi Pemanas Basin</translation>
     </message>
-    <!-- OS:ElectricLoadCenter:Storage:LiIonNMCBattery -->
+    
     <message>
         <source>Battery Cell Internal Electrical Resistance</source>
         <translation>Resistansi Listrik Internal Sel Baterai</translation>
     </message>
-    <!-- OS:ElectricLoadCenter:Storage:LiIonNMCBattery -->
+    
     <message>
         <source>Battery Mass</source>
         <translation>Massa Baterai</translation>
     </message>
-    <!-- OS:ElectricLoadCenter:Storage:LiIonNMCBattery -->
+    
     <message>
         <source>Battery Specific Heat Capacity</source>
         <translation>Kapasitas Panas Spesifik Baterai</translation>
     </message>
-    <!-- OS:ElectricLoadCenter:Storage:LiIonNMCBattery -->
+    
     <message>
         <source>Battery Surface Area</source>
         <translation>Luas Permukaan Baterai</translation>
     </message>
-    <!-- OS:Coil:Cooling:FourPipeBeam -->
+    
     <message>
         <source>Beam Cooling Capacity Air Flow Modification Factor Curve Name</source>
         <translation>Nama Kurva Faktor Modifikasi Aliran Udara Kapasitas Pendinginan Berkas</translation>
     </message>
-    <!-- OS:Coil:Cooling:FourPipeBeam -->
+    
     <message>
         <source>Beam Cooling Capacity Chilled Water Flow Modification Factor Curve Name</source>
         <translation>Nama Kurva Faktor Modifikasi Aliran Air Pendingin Kapasitas Pendinginan Balok</translation>
     </message>
-    <!-- OS:Coil:Cooling:FourPipeBeam -->
+    
     <message>
         <source>Beam Cooling Capacity Temperature Difference Modification Factor Curve Name</source>
         <translation>Nama Kurva Faktor Modifikasi Perbedaan Suhu Kapasitas Pendinginan Balok</translation>
     </message>
-    <!-- OS:Coil:Heating:FourPipeBeam -->
+    
     <message>
         <source>Beam Heating Capacity Air Flow Modification Factor Curve Name</source>
         <translation>Nama Kurva Faktor Modifikasi Aliran Udara Kapasitas Pemanasan Beam</translation>
     </message>
-    <!-- OS:Coil:Heating:FourPipeBeam -->
+    
     <message>
         <source>Beam Heating Capacity Hot Water Flow Modification Factor Curve Name</source>
         <translation>Nama Kurva Faktor Modifikasi Aliran Air Panas Kapasitas Pemanasan Beam</translation>
     </message>
-    <!-- OS:Coil:Heating:FourPipeBeam -->
+    
     <message>
         <source>Beam Heating Capacity Temperature Difference Modification Factor Curve Name</source>
         <translation>Nama Kurva Faktor Modifikasi Selisih Suhu Kapasitas Pemanas Berkas</translation>
     </message>
-    <!-- OS:AirTerminal:SingleDuct:ConstantVolume:CooledBeam -->
+    
     <message>
         <source>Beam Length</source>
         <translation>Panjang Balok</translation>
     </message>
-    <!-- OS:Coil:Cooling:FourPipeBeam -->
+    
     <message>
         <source>Beam Rated Chilled Water Volume Flow Rate per Beam Length</source>
         <translation>Laju Aliran Volume Air Berpendingin Berperingkat per Panjang Balok</translation>
     </message>
-    <!-- OS:Coil:Cooling:FourPipeBeam -->
+    
     <message>
         <source>Beam Rated Cooling Capacity per Beam Length</source>
         <translation>Kapasitas Pendinginan Rated Beam per Panjang Beam</translation>
     </message>
-    <!-- OS:Coil:Cooling:FourPipeBeam -->
+    
     <message>
         <source>Beam Rated Cooling Room Air Chilled Water Temperature Difference</source>
         <translation>Perbedaan Suhu Air Pendingin Ruangan Beam Rated Cooling</translation>
     </message>
-    <!-- OS:Coil:Heating:FourPipeBeam -->
+    
     <message>
         <source>Beam Rated Heating Capacity per Beam Length</source>
         <translation>Kapasitas Pemanasan Terpilih per Panjang Beam</translation>
     </message>
-    <!-- OS:Coil:Heating:FourPipeBeam -->
+    
     <message>
         <source>Beam Rated Heating Room Air Hot Water Temperature Difference</source>
         <translation>Perbedaan Suhu Air Panas Ruangan Pemanas Berperingkat Beam</translation>
     </message>
-    <!-- OS:Coil:Heating:FourPipeBeam -->
+    
     <message>
         <source>Beam Rated Hot Water Volume Flow Rate per Beam Length</source>
         <translation>Laju Aliran Volume Air Panas Terpilih per Panjang Beam</translation>
     </message>
-    <!-- OS:SizingPeriod:DesignDay -->
+    
     <message>
         <source>Beam Solar Day Schedule Name</source>
         <translation>Nama Jadwal Hari Matahari Beam</translation>
     </message>
-    <!-- OS:RunPeriod, OS:SizingPeriod:WeatherFileDays -->
+    
     <message>
         <source>Begin Day of Month</source>
         <translation>Hari Awal Bulan</translation>
     </message>
-    <!-- OS:SizingPeriod:DesignDay -->
+    
     <message>
         <source>Begin Environment Reset Mode</source>
         <translation>Mode Reset Lingkungan Awal</translation>
     </message>
-    <!-- OS:RunPeriod, OS:SizingPeriod:WeatherFileDays -->
+    
     <message>
         <source>Begin Month</source>
         <translation>Bulan Mulai</translation>
     </message>
-    <!-- OS:Fan:ComponentModel -->
+    
     <message>
         <source>Belt Fractional Torque Transition</source>
         <translation>Transisi Torsi Fungsional Sabuk</translation>
     </message>
-    <!-- OS:Fan:ComponentModel -->
+    
     <message>
         <source>Belt Maximum Torque</source>
         <translation>Torsi Maksimum Sabuk</translation>
     </message>
-    <!-- OS:Fan:ComponentModel -->
+    
     <message>
         <source>Belt Sizing Factor</source>
         <translation>Faktor Ukuran Sabuk</translation>
     </message>
-    <!-- OS:UtilityBill -->
+    
     <message>
         <source>Billing Period Begin Day of Month</source>
         <translation>Hari Pertama Periode Penagihan dalam Bulan</translation>
     </message>
-    <!-- OS:UtilityBill -->
+    
     <message>
         <source>Billing Period Begin Month</source>
         <translation>Bulan Awal Periode Tagihan</translation>
     </message>
-    <!-- OS:UtilityBill -->
+    
     <message>
         <source>Billing Period Begin Year</source>
         <translation>Tahun Awal Periode Penagihan</translation>
     </message>
-    <!-- OS:UtilityBill -->
+    
     <message>
         <source>Billing Period Consumption</source>
         <translation>Konsumsi Periode Penagihan</translation>
     </message>
-    <!-- OS:UtilityBill -->
+    
     <message>
         <source>Billing Period Peak Demand</source>
         <translation>Permintaan Puncak Periode Tagihan</translation>
     </message>
-    <!-- OS:UtilityBill -->
+    
     <message>
         <source>Billing Period Total Cost</source>
         <translation>Biaya Total Periode Tagihan</translation>
     </message>
-    <!-- OS:Generator:WindTurbine -->
+    
     <message>
         <source>Blade Chord Area</source>
         <translation>Luas Chord Blade</translation>
     </message>
-    <!-- OS:Generator:WindTurbine -->
+    
     <message>
         <source>Blade Drag Coefficient</source>
         <translation>Koefisien Drag Bilah</translation>
     </message>
-    <!-- OS:Generator:WindTurbine -->
+    
     <message>
         <source>Blade Lift Coefficient</source>
         <translation>Koefisien Angkat Bilah</translation>
     </message>
-    <!-- OS:WindowMaterial:Blind -->
+    
     <message>
         <source>Blind Bottom Opening Multiplier</source>
         <translation>Pengali Pembukaan Bawah Blind</translation>
     </message>
-    <!-- OS:WindowMaterial:Blind -->
+    
     <message>
         <source>Blind Left Side Opening Multiplier</source>
         <translation>Pengali Pembukaan Sisi Kiri Blind</translation>
     </message>
-    <!-- OS:WindowMaterial:Blind -->
+    
     <message>
         <source>Blind Right Side Opening Multiplier</source>
         <translation>Pengali Pembukaan Sisi Kanan Blind</translation>
     </message>
-    <!-- OS:WindowMaterial:Blind -->
+    
     <message>
         <source>Blind to Glass Distance</source>
         <translation>Jarak Blind ke Kaca</translation>
     </message>
-    <!-- OS:WindowMaterial:Blind -->
+    
     <message>
         <source>Blind Top Opening Multiplier</source>
         <translation>Pengali Pembukaan Atas Blind</translation>
     </message>
-    <!-- OS:UtilityCost:Charge:Block -->
+    
     <message>
         <source>Block Cost per Unit Value or Variable Name</source>
         <translation>Nilai Biaya Blok per Unit atau Nama Variabel</translation>
     </message>
-    <!-- OS:UtilityCost:Charge:Block -->
+    
     <message>
         <source>Block Size Multiplier Value or Variable Name</source>
         <translation>Nilai Pengganda Ukuran Blok atau Nama Variabel</translation>
     </message>
-    <!-- OS:UtilityCost:Charge:Block -->
+    
     <message>
         <source>Block Size Value or Variable Name</source>
         <translation>Nilai Ukuran Blok atau Nama Variabel</translation>
     </message>
-    <!-- OS:CoolingTower:SingleSpeed, OS:CoolingTower:TwoSpeed, OS:CoolingTower:VariableSpeed, OS:EvaporativeFluidCooler:SingleSpeed, OS:EvaporativeFluidCooler:TwoSpeed -->
+    
     <message>
         <source>Blowdown Calculation Mode</source>
         <translation>Mode Perhitungan Blowdown</translation>
     </message>
-    <!-- OS:CoolingTower:VariableSpeed -->
+    
     <message>
         <source>Blowdown Makeup Water Usage Schedule</source>
         <translation>Jadwal Penggunaan Air Makeup Blowdown</translation>
     </message>
-    <!-- OS:CoolingTower:SingleSpeed, OS:CoolingTower:TwoSpeed, OS:EvaporativeFluidCooler:SingleSpeed, OS:EvaporativeFluidCooler:TwoSpeed -->
+    
     <message>
         <source>Blowdown Makeup Water Usage Schedule Name</source>
         <translation>Nama Jadwal Penggunaan Air Makeup Blowdown</translation>
     </message>
-    <!-- OS:Generator:FuelCell:AirSupply -->
+    
     <message>
         <source>Blower Heat Loss Factor</source>
         <translation>Faktor Kehilangan Panas Blower</translation>
     </message>
-    <!-- OS:Generator:FuelCell:AirSupply -->
+    
     <message>
         <source>Blower Power Curve Name</source>
         <translation>Nama Kurva Daya Blower</translation>
     </message>
-    <!-- OS:Boiler:HotWater -->
+    
     <message>
         <source>Boiler Water Inlet Node Name</source>
         <translation>Nama Node Inlet Air Boiler</translation>
     </message>
-    <!-- OS:Boiler:HotWater -->
+    
     <message>
         <source>Boiler Water Outlet Node Name</source>
         <translation>Nama Node Outlet Air Boiler</translation>
     </message>
-    <!-- OS:HeatPump:AirToWater:Cooling, OS:HeatPump:AirToWater:Heating -->
+    
     <message>
         <source>Booster Mode On Speed</source>
         <translation>Kecepatan Mode Booster Aktif</translation>
     </message>
-    <!-- OS:GroundHeatExchanger:Vertical -->
+    
     <message>
         <source>Bore Hole Length</source>
         <translation>Panjang Lubang Bor</translation>
     </message>
-    <!-- OS:GroundHeatExchanger:Vertical -->
+    
     <message>
         <source>Bore Hole Radius</source>
         <translation>Jari-jari Lubang Bor</translation>
     </message>
-    <!-- OS:GroundHeatExchanger:Vertical -->
+    
     <message>
         <source>Bore Hole Top Depth</source>
         <translation>Kedalaman Puncak Sumur Bor</translation>
     </message>
-    <!-- OS:SolarCollectorPerformance:IntegralCollectorStorage -->
+    
     <message>
         <source>Bottom Heat Loss Conductance</source>
         <translation>Konduktansi Kehilangan Panas Bawah</translation>
     </message>
-    <!-- OS:WindowMaterial:Screen, OS:WindowMaterial:Shade -->
+    
     <message>
         <source>Bottom Opening Multiplier</source>
         <translation>Pengali Bukaan Bawah</translation>
     </message>
-    <!-- OS:SolarCollector:IntegralCollectorStorage -->
+    
     <message>
         <source>Bottom Surface Boundary Conditions Type</source>
         <translation>Jenis Kondisi Batas Permukaan Bawah</translation>
     </message>
-    <!-- OS:SolarCollector:IntegralCollectorStorage -->
+    
     <message>
         <source>Boundary Condition Model Name</source>
         <translation>Nama Model Kondisi Batas</translation>
     </message>
-    <!-- OS:SolarCollectorPerformance:PhotovoltaicThermal:BIPVT -->
+    
     <message>
         <source>Boundary Conditions Model Name</source>
         <translation>Nama Model Kondisi Batas</translation>
     </message>
-    <!-- OS:AirLoopHVAC -->
+    
     <message>
         <source>Branch List Name</source>
         <translation>Nama Daftar Cabang</translation>
     </message>
-    <!-- OS:Building -->
+    
     <message>
         <source>Building Sector Type</source>
         <translation>Jenis Sektor Bangunan</translation>
     </message>
-    <!-- OS:DefaultConstructionSet -->
+    
     <message>
         <source>Building Shading Construction Name</source>
         <translation>Nama Konstruksi Penyejuk Bangunan</translation>
     </message>
-    <!-- OS:Space -->
+    
     <message>
         <source>Building Story Name</source>
         <translation>Nama Lantai Bangunan</translation>
     </message>
-    <!-- OS:AirflowNetworkSimulationControl -->
+    
     <message>
         <source>Building Type</source>
         <translation>Jenis Bangunan</translation>
     </message>
-    <!-- OS:Space -->
+    
     <message>
         <source>Building Unit Name</source>
         <translation>Nama Unit Bangunan</translation>
     </message>
-    <!-- OS:BuildingUnit -->
+    
     <message>
         <source>Building Unit Type</source>
         <translation>Tipe Unit Bangunan</translation>
     </message>
-    <!-- OS:GroundHeatExchanger:HorizontalTrench -->
+    
     <message>
         <source>Burial Depth</source>
         <translation>Kedalaman Penguburan</translation>
     </message>
-    <!-- OS:UtilityCost:Tariff -->
+    
     <message>
         <source>Buy Or Sell</source>
         <translation>Beli Atau Jual</translation>
     </message>
-    <!-- OS:AirLoopHVAC:UnitaryHeatCool:VAVChangeoverBypass -->
+    
     <message>
         <source>Bypass Duct Mixer Node</source>
         <translation>Node Mixer Saluran Bypass</translation>
     </message>
-    <!-- OS:AirLoopHVAC:UnitaryHeatCool:VAVChangeoverBypass -->
+    
     <message>
         <source>Bypass Duct Splitter Node</source>
         <translation>Nodus Pembagi Saluran Bypass</translation>
     </message>
 
-    <!-- C -->
-    <!-- OS:Construction:CfactorUndergroundWall -->
+    
+    
     <message>
         <source>C-Factor</source>
         <translation>C-Factor</translation>
     </message>
-    <!-- OS:Site:WaterMainsTemperature -->
+    
     <message>
         <source>Calculation Method</source>
         <translation>Metode Perhitungan</translation>
     </message>
-    <!-- OS:WeatherProperty:SkyTemperature -->
+    
     <message>
         <source>Calculation Type</source>
         <translation>Jenis Perhitungan</translation>
     </message>
-    <!-- OS:YearDescription -->
+    
     <message>
         <source>Calendar Year</source>
         <translation>Tahun Kalender</translation>
     </message>
-    <!-- OS:ThermalStorage:Ice:Detailed -->
+    
     <message>
         <source>Capacity</source>
         <translation>Kapasitas</translation>
     </message>
-    <!-- OS:CoolingTower:SingleSpeed, OS:EvaporativeFluidCooler:SingleSpeed -->
+    
     <message>
         <source>Capacity Control</source>
         <translation>Kontrol Kapasitas</translation>
     </message>
-    <!-- OS:Coil:Cooling:DX:CurveFit:Performance, OS:ZoneHVAC:FourPipeFanCoil -->
+    
     <message>
         <source>Capacity Control Method</source>
         <translation>Metode Kontrol Kapasitas</translation>
     </message>
-    <!-- OS:Refrigeration:AirChiller -->
+    
     <message>
         <source>Capacity Correction Curve Name</source>
         <translation>Nama Kurva Koreksi Kapasitas</translation>
     </message>
-    <!-- OS:Refrigeration:AirChiller -->
+    
     <message>
         <source>Capacity Correction Curve Type</source>
         <translation>Tipe Kurva Koreksi Kapasitas</translation>
     </message>
-    <!-- OS:Chiller:Absorption:Indirect -->
+    
     <message>
         <source>Capacity Correction Function of Chilled Water Temperature Curve</source>
         <translation>Kurva Fungsi Koreksi Kapasitas Berdasarkan Suhu Air Chiller</translation>
     </message>
-    <!-- OS:Chiller:Absorption:Indirect -->
+    
     <message>
         <source>Capacity Correction Function of Condenser Temperature Curve</source>
         <translation>Kurva Fungsi Koreksi Kapasitas terhadap Temperatur Kondenser</translation>
     </message>
-    <!-- OS:Chiller:Absorption:Indirect -->
+    
     <message>
         <source>Capacity Correction Function of Generator Temperature Curve</source>
         <translation>Fungsi Koreksi Kapasitas Kurva Suhu Generator</translation>
     </message>
-    <!-- OS:DistrictCooling, OS:DistrictHeating:Steam, OS:DistrictHeating:Water -->
+    
     <message>
         <source>Capacity Fraction Schedule</source>
         <translation>Jadwal Fraksi Kapasitas</translation>
     </message>
-    <!-- OS:HeatPump:PlantLoop:EIR:Cooling, OS:HeatPump:PlantLoop:EIR:Heating -->
+    
     <message>
         <source>Capacity Modifier Function of Temperature Curve Name</source>
         <translation>Nama Kurva Fungsi Modifier Kapasitas terhadap Suhu</translation>
     </message>
-    <!-- OS:Refrigeration:AirChiller -->
+    
     <message>
         <source>Capacity Rating Type</source>
         <translation>Jenis Rating Kapasitas</translation>
     </message>
-    <!-- OS:Refrigeration:Subcooler:Mechanical -->
+    
     <message>
         <source>Capacity-Providing System</source>
         <translation>Sistem Penyedia Kapasitas</translation>
     </message>
-    <!-- OS:ZoneCapacitanceMultiplier:ResearchSpecial -->
+    
     <message>
         <source>Carbon Dioxide Capacity Multiplier</source>
         <translation>Pengali Kapasitas Dioksida Karbon</translation>
     </message>
-    <!-- OS:ZoneAirContaminantBalance -->
+    
     <message>
         <source>Carbon Dioxide Concentration</source>
         <translation>Konsentrasi Karbon Dioksida</translation>
     </message>
-    <!-- OS:ZoneControl:ContaminantController -->
+    
     <message>
         <source>Carbon Dioxide Control Availability Schedule Name</source>
         <translation>Nama Jadwal Ketersediaan Kontrol Karbon Dioksida</translation>
     </message>
-    <!-- OS:ZoneControl:ContaminantController -->
+    
     <message>
         <source>Carbon Dioxide Setpoint Schedule Name</source>
         <translation>Nama Jadwal Setpoint Dioksida Karbon</translation>
     </message>
-    <!-- OS:Refrigeration:Case -->
+    
     <message>
         <source>Case Anti-Sweat Heater Power per Door</source>
         <translation>Daya Anti-Sweat Heater per Pintu Lemari</translation>
     </message>
-    <!-- OS:Refrigeration:Case -->
+    
     <message>
         <source>Case Anti-Sweat Heater Power per Unit Length</source>
         <translation>Daya Pemanas Anti-Keringat Kasing per Satuan Panjang</translation>
     </message>
-    <!-- OS:Refrigeration:Case -->
+    
     <message>
         <source>Case Credit Fraction Schedule Name</source>
         <translation>Nama Jadwal Fraksi Kredit Kasus</translation>
     </message>
-    <!-- OS:Refrigeration:Case -->
+    
     <message>
         <source>Case Defrost Cycle Parameters Name</source>
         <translation>Parameter Nama Siklus Defrost Kasus</translation>
     </message>
-    <!-- OS:Refrigeration:Case -->
+    
     <message>
         <source>Case Defrost Drip-Down Schedule Name</source>
         <translation>Nama Jadwal Pengeringan Defrost Kasing</translation>
     </message>
-    <!-- OS:Refrigeration:Case -->
+    
     <message>
         <source>Case Defrost Power per Door</source>
         <translation>Daya Defrost Kasus per Pintu</translation>
     </message>
-    <!-- OS:Refrigeration:Case -->
+    
     <message>
         <source>Case Defrost Power per Unit Length</source>
         <translation>Daya Defrost Lemari per Satuan Panjang</translation>
     </message>
-    <!-- OS:Refrigeration:Case -->
+    
     <message>
         <source>Case Defrost Schedule Name</source>
         <translation>Nama Jadwal Defrost Kasus</translation>
     </message>
-    <!-- OS:Refrigeration:Case -->
+    
     <message>
         <source>Case Defrost Type</source>
         <translation>Tipe Defrost Kasus</translation>
     </message>
-    <!-- OS:Refrigeration:Case -->
+    
     <message>
         <source>Case Height</source>
         <translation>Tinggi Kasus</translation>
     </message>
-    <!-- OS:Refrigeration:Case -->
+    
     <message>
         <source>Case Length</source>
         <translation>Panjang Kasing</translation>
     </message>
-    <!-- OS:Refrigeration:Case -->
+    
     <message>
         <source>Case Lighting Schedule Name</source>
         <translation>Nama Jadwal Pencahayaan Etalase</translation>
     </message>
-    <!-- OS:Refrigeration:Case -->
+    
     <message>
         <source>Case Operating Temperature</source>
         <translation>Suhu Operasi Case</translation>
     </message>
-    <!-- OS:LifeCycleCost -->
+    
     <message>
         <source>Category</source>
         <translation>Kategori</translation>
     </message>
-    <!-- OS:UtilityCost:Charge:Block, OS:UtilityCost:Charge:Simple -->
+    
     <message>
         <source>Category Variable Name</source>
         <translation>Nama Variabel Kategori</translation>
     </message>
-    <!-- OS:Space, OS:ThermalZone -->
+    
     <message>
         <source>Ceiling Height</source>
         <translation>Tinggi Plafon</translation>
     </message>
-    <!-- OS:CoolingTower:SingleSpeed, OS:CoolingTower:TwoSpeed, OS:CoolingTower:VariableSpeed -->
+    
     <message>
         <source>Cell Minimum  Water Flow Rate Fraction</source>
         <translation>Fraksi Laju Aliran Air Minimum Sel</translation>
     </message>
-    <!-- OS:PhotovoltaicPerformance:EquivalentOneDiode -->
+    
     <message>
         <source>Cell type</source>
         <translation>Jenis sel</translation>
     </message>
-    <!-- OS:ElectricLoadCenter:Storage:LiIonNMCBattery -->
+    
     <message>
         <source>Cell Voltage at End of Exponential Zone</source>
         <translation>Tegangan Sel pada Akhir Zona Eksponensial</translation>
     </message>
-    <!-- OS:ElectricLoadCenter:Storage:LiIonNMCBattery -->
+    
     <message>
         <source>Cell Voltage at End of Nominal Zone</source>
         <translation>Tegangan Sel pada Akhir Zona Nominal</translation>
     </message>
-    <!-- OS:Sizing:System -->
+    
     <message>
         <source>Central Cooling Capacity Control Method</source>
         <translation>Metode Kontrol Kapasitas Pendinginan Pusat</translation>
     </message>
-    <!-- OS:FuelFactors -->
+    
     <message>
         <source>CH4 Emission Factor</source>
         <translation>Faktor Emisi CH4</translation>
     </message>
-    <!-- OS:FuelFactors -->
+    
     <message>
         <source>CH4 Emission Factor Schedule Name</source>
         <translation>Nama Jadwal Faktor Emisi CH4</translation>
     </message>
-    <!-- OS:ZoneHVAC:LowTemperatureRadiant:ConstantFlow, OS:ZoneHVAC:LowTemperatureRadiant:VariableFlow -->
+    
     <message>
         <source>Changeover Delay Time Period Schedule</source>
         <translation>Jadwal Periode Waktu Tunda Peralihan</translation>
     </message>
-    <!-- OS:Coil:Cooling:DX:SingleSpeed:ThermalStorage -->
+    
     <message>
         <source>Charge Only Mode Available</source>
         <translation>Mode Pengisian Saja Tersedia</translation>
     </message>
-    <!-- OS:Coil:Cooling:DX:SingleSpeed:ThermalStorage -->
+    
     <message>
         <source>Charge Only Mode Capacity Sizing Factor</source>
         <translation>Faktor Penentuan Ukuran Kapasitas Mode Pengisian Saja</translation>
     </message>
-    <!-- OS:Coil:Cooling:DX:SingleSpeed:ThermalStorage -->
+    
     <message>
         <source>Charge Only Mode Charging Rated COP</source>
         <translation>Koefisien Performa Pengisian Tertinggi Mode Pengisian Saja</translation>
     </message>
-    <!-- OS:Coil:Cooling:DX:SingleSpeed:ThermalStorage -->
+    
     <message>
         <source>Charge Only Mode Rated Storage Charging Capacity</source>
         <translation>Kapasitas Charging Penyimpanan Terhitung Mode Charge Only</translation>
     </message>
-    <!-- OS:Coil:Cooling:DX:SingleSpeed:ThermalStorage -->
+    
     <message>
         <source>Charge Only Mode Storage Charge Capacity Function of Temperature Curve</source>
         <translation>Fungsi Kurva Kapasitas Muatan Penyimpanan Mode Charge Only terhadap Temperatur</translation>
     </message>
-    <!-- OS:Coil:Cooling:DX:SingleSpeed:ThermalStorage -->
+    
     <message>
         <source>Charge Only Mode Storage Energy Input Ratio Function of Temperature Curve</source>
         <translation>Kurva Fungsi Rasio Input Energi Penyimpanan Mode Pengisian Saja Terhadap Suhu</translation>
     </message>
-    <!-- OS:ElectricLoadCenter:Storage:LiIonNMCBattery -->
+    
     <message>
         <source>Charge Rate at Which Voltage vs Capacity Curve Was Generated</source>
         <translation>Laju Pengisian pada Saat Kurva Tegangan versus Kapasitas Dibuat</translation>
     </message>
-    <!-- OS:ThermalStorage:Ice:Detailed -->
+    
     <message>
         <source>Charging Curve</source>
         <translation>Kurva Pengisian</translation>
     </message>
-    <!-- OS:ThermalStorage:Ice:Detailed -->
+    
     <message>
         <source>Charging Curve Variable Specifications</source>
         <translation>Spesifikasi Variabel Kurva Pengisian</translation>
     </message>
-    <!-- OS:WeatherFile -->
+    
     <message>
         <source>Checksum</source>
         <translation>Checksum</translation>
     </message>
-    <!-- OS:ChillerHeaterPerformance:Electric:EIR -->
+    
     <message>
         <source>Chilled Water Flow Mode Type</source>
         <translation>Jenis Mode Aliran Air Chiller</translation>
     </message>
-    <!-- OS:Chiller:Absorption, OS:Chiller:Absorption:Indirect, OS:Chiller:Electric:ASHRAE205, OS:Chiller:Electric:EIR, OS:Chiller:Electric:ReformulatedEIR, OS:Coil:Cooling:CooledBeam, OS:Coil:Cooling:FourPipeBeam, OS:DistrictCooling, OS:HeatPump:AirToWater:Cooling -->
+    
     <message>
         <source>Chilled Water Inlet Node Name</source>
         <translation>Nama Node Inlet Air Berpendingin</translation>
     </message>
-    <!-- OS:Chiller:Electric:ASHRAE205 -->
+    
     <message>
         <source>Chilled Water Maximum Requested Flow Rate</source>
         <translation>Laju Aliran Maksimum Air Berpendingin yang Diminta</translation>
     </message>
-    <!-- OS:Chiller:Absorption, OS:Chiller:Absorption:Indirect, OS:Chiller:Electric:ASHRAE205, OS:Chiller:Electric:EIR, OS:Chiller:Electric:ReformulatedEIR, OS:Coil:Cooling:CooledBeam, OS:Coil:Cooling:FourPipeBeam, OS:DistrictCooling, OS:HeatPump:AirToWater:Cooling -->
+    
     <message>
         <source>Chilled Water Outlet Node Name</source>
         <translation>Nama Node Outlet Air Berpendingin</translation>
     </message>
-    <!-- OS:Chiller:Absorption, OS:Chiller:Absorption:Indirect -->
+    
     <message>
         <source>Chilled Water Outlet Temperature Lower Limit</source>
         <translation>Batas Bawah Suhu Outlet Air Dingin</translation>
     </message>
-    <!-- OS:CentralHeatPumpSystem -->
+    
     <message>
         <source>Chiller Heater Module List Name</source>
         <translation>Nama Daftar Modul Pendingin Pemanas</translation>
     </message>
-    <!-- OS:CentralHeatPumpSystem:Module -->
+    
     <message>
         <source>Chiller Heater Modules Control Schedule Name</source>
         <translation>Nama Jadwal Kontrol Modul Chiller Heater</translation>
     </message>
-    <!-- OS:CentralHeatPumpSystem:Module -->
+    
     <message>
         <source>Chiller Heater Modules Performance Component Name</source>
         <translation>Nama Komponen Kinerja Modul Chiller Heater</translation>
     </message>
-    <!-- OS:Generator:FuelCell:ElectricalStorage -->
+    
     <message>
         <source>Choice of Model</source>
         <translation>Pilihan Model</translation>
     </message>
-    <!-- OS:LightingDesignDay -->
+    
     <message>
         <source>CIE Sky Model</source>
         <translation>Model Langit CIE</translation>
     </message>
-    <!-- OS:ZoneHVAC:LowTemperatureRadiant:ConstantFlow, OS:ZoneHVAC:LowTemperatureRadiant:VariableFlow -->
+    
     <message>
         <source>Circuit Length</source>
         <translation>Panjang Sirkuit</translation>
     </message>
-    <!-- OS:Refrigeration:SecondarySystem -->
+    
     <message>
         <source>Circulating Fluid Name</source>
         <translation>Nama Fluida Sirkulasi</translation>
     </message>
-    <!-- OS:WeatherFile -->
+    
     <message>
         <source>City</source>
         <translation>Kota</translation>
     </message>
-    <!-- OS:SolarCollectorPerformance:PhotovoltaicThermal:BIPVT -->
+    
     <message>
         <source>Cladding Normal Transmittance-Absorptance Product</source>
         <translation>Produk Transmitansi-Absorptansi Normal Cladding</translation>
     </message>
-    <!-- OS:ClimateZones -->
+    
     <message>
         <source>Climate Zone Document Name</source>
         <translation>Nama Dokumen Zona Iklim</translation>
     </message>
-    <!-- OS:ClimateZones -->
+    
     <message>
         <source>Climate Zone Document Year</source>
         <translation>Tahun Dokumen Zona Iklim</translation>
     </message>
-    <!-- OS:ClimateZones -->
+    
     <message>
         <source>Climate Zone Institution Name</source>
         <translation>Nama Lembaga Zona Iklim</translation>
     </message>
-    <!-- OS:ClimateZones -->
+    
     <message>
         <source>Climate Zone Value</source>
         <translation>Nilai Zona Iklim</translation>
     </message>
-    <!-- OS:AirflowNetworkOccupantVentilationControl -->
+    
     <message>
         <source>Closing Probability Schedule Name</source>
         <translation>Nama Jadwal Probabilitas Penutupan</translation>
     </message>
-    <!-- OS:FuelFactors -->
+    
     <message>
         <source>CO Emission Factor</source>
         <translation>Faktor Emisi CO</translation>
     </message>
-    <!-- OS:FuelFactors -->
+    
     <message>
         <source>CO Emission Factor Schedule Name</source>
         <translation>Nama Jadwal Faktor Emisi CO</translation>
     </message>
-    <!-- OS:FuelFactors -->
+    
     <message>
         <source>CO2 Emission Factor</source>
         <translation>Faktor Emisi CO2</translation>
     </message>
-    <!-- OS:FuelFactors -->
+    
     <message>
         <source>CO2 Emission Factor Schedule Name</source>
         <translation>Nama Jadwal Faktor Emisi CO2</translation>
     </message>
-    <!-- OS:LifeCycleCost:Parameters -->
+    
     <message>
         <source>Coal Inflation</source>
         <translation>Inflasi Batu Bara</translation>
     </message>
-    <!-- OS:MaterialProperty:MoisturePenetrationDepth:Settings -->
+    
     <message>
         <source>Coating Layer Thickness</source>
         <translation>Ketebalan Lapisan Pelapisan</translation>
     </message>
-    <!-- OS:MaterialProperty:MoisturePenetrationDepth:Settings -->
+    
     <message>
         <source>Coating Layer Water Vapor Diffusion Resistance Factor</source>
         <translation>Faktor Perlawanan Difusi Uap Air Lapisan Pelapis</translation>
     </message>
-    <!-- OS:CoolingTowerPerformance:CoolTools, OS:CoolingTowerPerformance:YorkCalc -->
+    
     <message>
         <source>Coefficient 1</source>
         <translation>Koefisien 1</translation>
     </message>
-    <!-- OS:SolarCollectorPerformance:FlatPlate -->
+    
     <message>
         <source>Coefficient 1 of Efficiency Equation</source>
         <translation>Koefisien 1 Persamaan Efisiensi</translation>
     </message>
-    <!-- OS:Boiler:Steam -->
+    
     <message>
         <source>Coefficient 1 of Fuel Use Function of Part Load Ratio Curve</source>
         <translation>Koefisien 1 Kurva Fungsi Penggunaan Bahan Bakar terhadap Rasio Beban Parsial</translation>
     </message>
-    <!-- OS:Chiller:Absorption -->
+    
     <message>
         <source>Coefficient 1 of the Hot Water or Steam Use Part Load Ratio Curve</source>
         <translation>Koefisien 1 dari Kurva Rasio Beban Parsial Penggunaan Air Panas atau Uap</translation>
     </message>
-    <!-- OS:Chiller:Absorption -->
+    
     <message>
         <source>Coefficient 1 of the Pump Electric Use Part Load Ratio Curve</source>
         <translation>Koefisien 1 dari Kurva Rasio Beban Parsial Penggunaan Listrik Pompa</translation>
     </message>
-    <!-- OS:CoolingTowerPerformance:CoolTools, OS:CoolingTowerPerformance:YorkCalc -->
+    
     <message>
         <source>Coefficient 10</source>
         <translation>Koefisien 10</translation>
     </message>
-    <!-- OS:CoolingTowerPerformance:CoolTools, OS:CoolingTowerPerformance:YorkCalc -->
+    
     <message>
         <source>Coefficient 11</source>
         <translation>Koefisien 11</translation>
     </message>
-    <!-- OS:CoolingTowerPerformance:CoolTools, OS:CoolingTowerPerformance:YorkCalc -->
+    
     <message>
         <source>Coefficient 12</source>
         <translation>Koefisien 12</translation>
     </message>
-    <!-- OS:CoolingTowerPerformance:CoolTools, OS:CoolingTowerPerformance:YorkCalc -->
+    
     <message>
         <source>Coefficient 13</source>
         <translation>Koefisien 13</translation>
     </message>
-    <!-- OS:CoolingTowerPerformance:CoolTools, OS:CoolingTowerPerformance:YorkCalc -->
+    
     <message>
         <source>Coefficient 14</source>
         <translation>Koefisien 14</translation>
     </message>
-    <!-- OS:CoolingTowerPerformance:CoolTools, OS:CoolingTowerPerformance:YorkCalc -->
+    
     <message>
         <source>Coefficient 15</source>
         <translation>Koefisien 15</translation>
     </message>
-    <!-- OS:CoolingTowerPerformance:CoolTools, OS:CoolingTowerPerformance:YorkCalc -->
+    
     <message>
         <source>Coefficient 16</source>
         <translation>Koefisien 16</translation>
     </message>
-    <!-- OS:CoolingTowerPerformance:CoolTools, OS:CoolingTowerPerformance:YorkCalc -->
+    
     <message>
         <source>Coefficient 17</source>
         <translation>Koefisien 17</translation>
     </message>
-    <!-- OS:CoolingTowerPerformance:CoolTools, OS:CoolingTowerPerformance:YorkCalc -->
+    
     <message>
         <source>Coefficient 18</source>
         <translation>Koefisien 18</translation>
     </message>
-    <!-- OS:CoolingTowerPerformance:CoolTools, OS:CoolingTowerPerformance:YorkCalc -->
+    
     <message>
         <source>Coefficient 19</source>
         <translation>Koefisien 19</translation>
     </message>
-    <!-- OS:CoolingTowerPerformance:CoolTools, OS:CoolingTowerPerformance:YorkCalc -->
+    
     <message>
         <source>Coefficient 2</source>
         <translation>Koefisien 2</translation>
     </message>
-    <!-- OS:SolarCollectorPerformance:FlatPlate -->
+    
     <message>
         <source>Coefficient 2 of Efficiency Equation</source>
         <translation>Koefisien 2 Persamaan Efisiensi</translation>
     </message>
-    <!-- OS:Boiler:Steam -->
+    
     <message>
         <source>Coefficient 2 of Fuel Use Function of Part Load Ratio Curve</source>
         <translation>Koefisien 2 dari Fungsi Penggunaan Bahan Bakar Kurva Rasio Beban Parsial</translation>
     </message>
-    <!-- OS:SolarCollectorPerformance:FlatPlate -->
+    
     <message>
         <source>Coefficient 2 of Incident Angle Modifier</source>
         <translation>Koefisien 2 Pengubah Sudut Insiden</translation>
     </message>
-    <!-- OS:Chiller:Absorption -->
+    
     <message>
         <source>Coefficient 2 of the Hot Water or Steam Use Part Load Ratio Curve</source>
         <translation>Koefisien 2 dari Kurva Rasio Beban Parsial Penggunaan Air Panas atau Uap</translation>
     </message>
-    <!-- OS:Chiller:Absorption -->
+    
     <message>
         <source>Coefficient 2 of the Pump Electric Use Part Load Ratio Curve</source>
         <translation>Koefisien 2 Kurva Rasio Beban Sebagian Penggunaan Listrik Pompa</translation>
     </message>
-    <!-- OS:CoolingTowerPerformance:CoolTools, OS:CoolingTowerPerformance:YorkCalc -->
+    
     <message>
         <source>Coefficient 20</source>
         <translation>Koefisien 20</translation>
     </message>
-    <!-- OS:CoolingTowerPerformance:CoolTools, OS:CoolingTowerPerformance:YorkCalc -->
+    
     <message>
         <source>Coefficient 21</source>
         <translation>Koefisien 21</translation>
     </message>
-    <!-- OS:CoolingTowerPerformance:CoolTools, OS:CoolingTowerPerformance:YorkCalc -->
+    
     <message>
         <source>Coefficient 22</source>
         <translation>Koefisien 22</translation>
     </message>
-    <!-- OS:CoolingTowerPerformance:CoolTools, OS:CoolingTowerPerformance:YorkCalc -->
+    
     <message>
         <source>Coefficient 23</source>
         <translation>Koefisien 23</translation>
     </message>
-    <!-- OS:CoolingTowerPerformance:CoolTools, OS:CoolingTowerPerformance:YorkCalc -->
+    
     <message>
         <source>Coefficient 24</source>
         <translation>Koefisien 24</translation>
     </message>
-    <!-- OS:CoolingTowerPerformance:CoolTools, OS:CoolingTowerPerformance:YorkCalc -->
+    
     <message>
         <source>Coefficient 25</source>
         <translation>Koefisien 25</translation>
     </message>
-    <!-- OS:CoolingTowerPerformance:CoolTools, OS:CoolingTowerPerformance:YorkCalc -->
+    
     <message>
         <source>Coefficient 26</source>
         <translation>Koefisien 26</translation>
     </message>
-    <!-- OS:CoolingTowerPerformance:CoolTools, OS:CoolingTowerPerformance:YorkCalc -->
+    
     <message>
         <source>Coefficient 27</source>
         <translation>Koefisien 27</translation>
     </message>
-    <!-- OS:CoolingTowerPerformance:CoolTools -->
+    
     <message>
         <source>Coefficient 28</source>
         <translation>Koefisien 28</translation>
     </message>
-    <!-- OS:CoolingTowerPerformance:CoolTools -->
+    
     <message>
         <source>Coefficient 29</source>
         <translation>Koefisien 29</translation>
     </message>
-    <!-- OS:CoolingTowerPerformance:CoolTools, OS:CoolingTowerPerformance:YorkCalc -->
+    
     <message>
         <source>Coefficient 3</source>
         <translation>Koefisien 3</translation>
     </message>
-    <!-- OS:SolarCollectorPerformance:FlatPlate -->
+    
     <message>
         <source>Coefficient 3 of Efficiency Equation</source>
         <translation>Koefisien 3 dari Persamaan Efisiensi</translation>
     </message>
-    <!-- OS:Boiler:Steam -->
+    
     <message>
         <source>Coefficient 3 of Fuel Use Function of Part Load Ratio Curve</source>
         <translation>Koefisien 3 Fungsi Penggunaan Bahan Bakar Kurva Rasio Beban Parsial</translation>
     </message>
-    <!-- OS:SolarCollectorPerformance:FlatPlate -->
+    
     <message>
         <source>Coefficient 3 of Incident Angle Modifier</source>
         <translation>Koefisien 3 Pengubah Sudut Insiden</translation>
     </message>
-    <!-- OS:Chiller:Absorption -->
+    
     <message>
         <source>Coefficient 3 of the Hot Water or Steam Use Part Load Ratio Curve</source>
         <translation>Koefisien 3 dari Kurva Rasio Beban Parsial Penggunaan Air Panas atau Uap</translation>
     </message>
-    <!-- OS:Chiller:Absorption -->
+    
     <message>
         <source>Coefficient 3 of the Pump Electric Use Part Load Ratio Curve</source>
         <translation>Koefisien 3 dari Kurva Rasio Beban Sebagian Penggunaan Listrik Pompa</translation>
     </message>
-    <!-- OS:CoolingTowerPerformance:CoolTools -->
+    
     <message>
         <source>Coefficient 30</source>
         <translation>Koefisien 30</translation>
     </message>
-    <!-- OS:CoolingTowerPerformance:CoolTools -->
+    
     <message>
         <source>Coefficient 31</source>
         <translation>Koefisien 31</translation>
     </message>
-    <!-- OS:CoolingTowerPerformance:CoolTools -->
+    
     <message>
         <source>Coefficient 32</source>
         <translation>Koefisien 32</translation>
     </message>
-    <!-- OS:CoolingTowerPerformance:CoolTools -->
+    
     <message>
         <source>Coefficient 33</source>
         <translation>Koefisien 33</translation>
     </message>
-    <!-- OS:CoolingTowerPerformance:CoolTools -->
+    
     <message>
         <source>Coefficient 34</source>
         <translation>Koefisien 34</translation>
     </message>
-    <!-- OS:CoolingTowerPerformance:CoolTools -->
+    
     <message>
         <source>Coefficient 35</source>
         <translation>Koefisien 35</translation>
     </message>
-    <!-- OS:CoolingTowerPerformance:CoolTools, OS:CoolingTowerPerformance:YorkCalc -->
+    
     <message>
         <source>Coefficient 4</source>
         <translation>Koefisien 4</translation>
     </message>
-    <!-- OS:CoolingTowerPerformance:CoolTools, OS:CoolingTowerPerformance:YorkCalc -->
+    
     <message>
         <source>Coefficient 5</source>
         <translation>Koefisien 5</translation>
     </message>
-    <!-- OS:CoolingTowerPerformance:CoolTools, OS:CoolingTowerPerformance:YorkCalc -->
+    
     <message>
         <source>Coefficient 6</source>
         <translation>Koefisien 6</translation>
     </message>
-    <!-- OS:CoolingTowerPerformance:CoolTools, OS:CoolingTowerPerformance:YorkCalc -->
+    
     <message>
         <source>Coefficient 7</source>
         <translation>Koefisien 7</translation>
     </message>
-    <!-- OS:CoolingTowerPerformance:CoolTools, OS:CoolingTowerPerformance:YorkCalc -->
+    
     <message>
         <source>Coefficient 8</source>
         <translation>Koefisien 8</translation>
     </message>
-    <!-- OS:CoolingTowerPerformance:CoolTools, OS:CoolingTowerPerformance:YorkCalc -->
+    
     <message>
         <source>Coefficient 9</source>
         <translation>Koefisien 9</translation>
     </message>
-    <!-- OS:AirflowNetworkDuct -->
+    
     <message>
         <source>Coefficient for Local Dynamic Loss Due to Fitting</source>
         <translation>Koefisien untuk Kehilangan Dinamis Lokal Akibat Fitting</translation>
     </message>
-    <!-- OS:AirTerminal:SingleDuct:ConstantVolume:CooledBeam -->
+    
     <message>
         <source>Coefficient of Induction Kin</source>
         <translation>Koefisien Induksi Kin</translation>
     </message>
-    <!-- OS:Generator:FuelCell:StackCooler -->
+    
     <message>
         <source>Coefficient r0</source>
         <translation>Koefisien r0</translation>
     </message>
-    <!-- OS:Generator:FuelCell:StackCooler -->
+    
     <message>
         <source>Coefficient r1</source>
         <translation>Koefisien r1</translation>
     </message>
-    <!-- OS:Generator:FuelCell:StackCooler -->
+    
     <message>
         <source>Coefficient r2</source>
         <translation>Koefisien r2</translation>
     </message>
-    <!-- OS:Generator:FuelCell:StackCooler -->
+    
     <message>
         <source>Coefficient r3</source>
         <translation>Koefisien r3</translation>
     </message>
-    <!-- OS:Curve:DoubleExponentialDecay, OS:Curve:ExponentialDecay, OS:Curve:ExponentialSkewNormal, OS:Curve:FanPressureRise, OS:Curve:RectangularHyperbola1, OS:Curve:RectangularHyperbola2, OS:Curve:Sigmoid -->
+    
     <message>
         <source>Coefficient1 C1</source>
         <translation>Koefisien1 C1</translation>
     </message>
-    <!-- OS:Curve:Bicubic, OS:Curve:Biquadratic, OS:Curve:Cubic, OS:Curve:Exponent, OS:Curve:Linear, OS:Curve:QuadLinear, OS:Curve:Quadratic, OS:Curve:QuadraticLinear, OS:Curve:Quartic, OS:Curve:QuintLinear, OS:Curve:Triquadratic -->
+    
     <message>
         <source>Coefficient1 Constant</source>
         <translation>Koefisien1 Konstanta</translation>
     </message>
-    <!-- OS:Curve:Bicubic, OS:Curve:Triquadratic -->
+    
     <message>
         <source>Coefficient10 x*y**2</source>
         <translation>Koefisien10 x*y**2</translation>
     </message>
-    <!-- OS:Curve:Triquadratic -->
+    
     <message>
         <source>Coefficient11 x**2*y</source>
         <translation>Koefisien11 x**2*y</translation>
     </message>
-    <!-- OS:Curve:Triquadratic -->
+    
     <message>
         <source>Coefficient12 x**2*z**2</source>
         <translation>Koefisien12 x**2*z**2</translation>
     </message>
-    <!-- OS:Curve:Triquadratic -->
+    
     <message>
         <source>Coefficient13 x*z</source>
         <translation>Koefisien13 x*z</translation>
     </message>
-    <!-- OS:Curve:Triquadratic -->
+    
     <message>
         <source>Coefficient14 x*z**2</source>
         <translation>Koefisien14 x*z**2</translation>
     </message>
-    <!-- OS:Curve:Triquadratic -->
+    
     <message>
         <source>Coefficient15 x**2*z</source>
         <translation>Koefisien15 x**2*z</translation>
     </message>
-    <!-- OS:Curve:Triquadratic -->
+    
     <message>
         <source>Coefficient16 y**2*z**2</source>
         <translation>Koefisien16 y**2*z**2</translation>
     </message>
-    <!-- OS:Curve:Triquadratic -->
+    
     <message>
         <source>Coefficient17 y*z</source>
         <translation>Koefisien17 y*z</translation>
     </message>
-    <!-- OS:Curve:Triquadratic -->
+    
     <message>
         <source>Coefficient18 y*z**2</source>
         <translation>Koefisien18 y*z**2</translation>
     </message>
-    <!-- OS:Curve:Triquadratic -->
+    
     <message>
         <source>Coefficient19 y**2*z</source>
         <translation>Koefisien19 y**2*z</translation>
     </message>
-    <!-- OS:Curve:DoubleExponentialDecay, OS:Curve:ExponentialDecay, OS:Curve:ExponentialSkewNormal, OS:Curve:FanPressureRise, OS:Curve:RectangularHyperbola1, OS:Curve:RectangularHyperbola2, OS:Curve:Sigmoid -->
+    
     <message>
         <source>Coefficient2 C2</source>
         <translation>Koefisien2 C2</translation>
     </message>
-    <!-- OS:Curve:Exponent -->
+    
     <message>
         <source>Coefficient2 Constant</source>
         <translation>Koefisien2 Konstan</translation>
     </message>
-    <!-- OS:Curve:QuintLinear -->
+    
     <message>
         <source>Coefficient2 v</source>
         <translation>Koefisien2 v</translation>
     </message>
-    <!-- OS:Curve:QuadLinear -->
+    
     <message>
         <source>Coefficient2 w</source>
         <translation>Koefisien2 w</translation>
     </message>
-    <!-- OS:Curve:Bicubic, OS:Curve:Biquadratic, OS:Curve:Cubic, OS:Curve:Linear, OS:Curve:Quadratic, OS:Curve:QuadraticLinear, OS:Curve:Quartic -->
+    
     <message>
         <source>Coefficient2 x</source>
         <translation>Koefisien2 x</translation>
     </message>
-    <!-- OS:Curve:Triquadratic -->
+    
     <message>
         <source>Coefficient2 x**2</source>
         <translation>Koefisien2 x**2</translation>
     </message>
-    <!-- OS:Curve:Triquadratic -->
+    
     <message>
         <source>Coefficient20 x**2*y**2*z**2</source>
         <translation>Koefisien20 x**2*y**2*z**2</translation>
     </message>
-    <!-- OS:Curve:Triquadratic -->
+    
     <message>
         <source>Coefficient21 x**2*y**2*z</source>
         <translation>Koefisien21 x**2*y**2*z</translation>
     </message>
-    <!-- OS:Curve:Triquadratic -->
+    
     <message>
         <source>Coefficient22 x**2*y*z**2</source>
         <translation>Coefficient22 x**2*y*z**2</translation>
     </message>
-    <!-- OS:Curve:Triquadratic -->
+    
     <message>
         <source>Coefficient23 x*y**2*z**2</source>
         <translation>Koefisien23 x*y**2*z**2</translation>
     </message>
-    <!-- OS:Curve:Triquadratic -->
+    
     <message>
         <source>Coefficient24 x**2*y*z</source>
         <translation>Koefisien24 x**2*y*z</translation>
     </message>
-    <!-- OS:Curve:Triquadratic -->
+    
     <message>
         <source>Coefficient25 x*y**2*z</source>
         <translation>Koefisien25 x*y**2*z</translation>
     </message>
-    <!-- OS:Curve:Triquadratic -->
+    
     <message>
         <source>Coefficient26 x*y*z**2</source>
         <translation>Coefficient26 x*y*z**2</translation>
     </message>
-    <!-- OS:Curve:Triquadratic -->
+    
     <message>
         <source>Coefficient27 x*y*z</source>
         <translation>Koefisien27 x*y*z</translation>
     </message>
-    <!-- OS:Curve:DoubleExponentialDecay, OS:Curve:ExponentialDecay, OS:Curve:ExponentialSkewNormal, OS:Curve:FanPressureRise, OS:Curve:RectangularHyperbola1, OS:Curve:RectangularHyperbola2, OS:Curve:Sigmoid -->
+    
     <message>
         <source>Coefficient3 C3</source>
         <translation>Koefisien3 C3</translation>
     </message>
-    <!-- OS:Curve:Exponent -->
+    
     <message>
         <source>Coefficient3 Constant</source>
         <translation>Koefisien3 Konstanta</translation>
     </message>
-    <!-- OS:Curve:QuintLinear -->
+    
     <message>
         <source>Coefficient3 w</source>
         <translation>Koefisien3 w</translation>
     </message>
-    <!-- OS:Curve:QuadLinear, OS:Curve:Triquadratic -->
+    
     <message>
         <source>Coefficient3 x</source>
         <translation>Koefisien3 x</translation>
     </message>
-    <!-- OS:Curve:Bicubic, OS:Curve:Biquadratic, OS:Curve:Cubic, OS:Curve:Quadratic, OS:Curve:QuadraticLinear, OS:Curve:Quartic -->
+    
     <message>
         <source>Coefficient3 x**2</source>
         <translation>Koefisien3 x**2</translation>
     </message>
-    <!-- OS:Curve:DoubleExponentialDecay, OS:Curve:ExponentialSkewNormal, OS:Curve:FanPressureRise, OS:Curve:Sigmoid -->
+    
     <message>
         <source>Coefficient4 C4</source>
         <translation>Koefisien4 C4</translation>
     </message>
-    <!-- OS:Curve:QuintLinear -->
+    
     <message>
         <source>Coefficient4 x</source>
         <translation>Koefisien4 x</translation>
     </message>
-    <!-- OS:Curve:Cubic, OS:Curve:Quartic -->
+    
     <message>
         <source>Coefficient4 x**3</source>
         <translation>Koefisien4 x**3</translation>
     </message>
-    <!-- OS:Curve:Bicubic, OS:Curve:Biquadratic, OS:Curve:QuadLinear, OS:Curve:QuadraticLinear -->
+    
     <message>
         <source>Coefficient4 y</source>
         <translation>Koefisien4 y</translation>
     </message>
-    <!-- OS:Curve:Triquadratic -->
+    
     <message>
         <source>Coefficient4 y**2</source>
         <translation>Koefisien4 y**2</translation>
     </message>
-    <!-- OS:Curve:DoubleExponentialDecay, OS:Curve:Sigmoid -->
+    
     <message>
         <source>Coefficient5 C5</source>
         <translation>Koefisien5 C5</translation>
     </message>
-    <!-- OS:Curve:Quartic -->
+    
     <message>
         <source>Coefficient5 x**4</source>
         <translation>Koefisien5 x**4</translation>
     </message>
-    <!-- OS:Curve:QuadraticLinear -->
+    
     <message>
         <source>Coefficient5 x*y</source>
         <translation>Koefisien5 x*y</translation>
     </message>
-    <!-- OS:Curve:QuintLinear, OS:Curve:Triquadratic -->
+    
     <message>
         <source>Coefficient5 y</source>
         <translation>Koefisien5 y</translation>
     </message>
-    <!-- OS:Curve:Bicubic, OS:Curve:Biquadratic -->
+    
     <message>
         <source>Coefficient5 y**2</source>
         <translation>Koefisien5 y**2</translation>
     </message>
-    <!-- OS:Curve:QuadLinear -->
+    
     <message>
         <source>Coefficient5 z</source>
         <translation>Koefisien5 z</translation>
     </message>
-    <!-- OS:Curve:QuadraticLinear -->
+    
     <message>
         <source>Coefficient6 x**2*y</source>
         <translation>Koefisien6 x**2*y</translation>
     </message>
-    <!-- OS:Curve:Bicubic, OS:Curve:Biquadratic -->
+    
     <message>
         <source>Coefficient6 x*y</source>
         <translation>Coefficient6 x*y</translation>
     </message>
-    <!-- OS:Curve:QuintLinear -->
+    
     <message>
         <source>Coefficient6 z</source>
         <translation>Koefisien6 z</translation>
     </message>
-    <!-- OS:Curve:Triquadratic -->
+    
     <message>
         <source>Coefficient6 z**2</source>
         <translation>Koefisien6 z**2</translation>
     </message>
-    <!-- OS:Curve:Bicubic -->
+    
     <message>
         <source>Coefficient7 x**3</source>
         <translation>Koefisien7 x**3</translation>
     </message>
-    <!-- OS:Curve:Triquadratic -->
+    
     <message>
         <source>Coefficient7 z</source>
         <translation>Koefisien7 z</translation>
     </message>
-    <!-- OS:Curve:Triquadratic -->
+    
     <message>
         <source>Coefficient8 x**2*y**2</source>
         <translation>Koefisien8 x**2*y**2</translation>
     </message>
-    <!-- OS:Curve:Bicubic -->
+    
     <message>
         <source>Coefficient8 y**3</source>
         <translation>Koefisien8 y**3</translation>
     </message>
-    <!-- OS:Curve:Bicubic -->
+    
     <message>
         <source>Coefficient9 x**2*y</source>
         <translation>Koefisien9 x**2*y</translation>
     </message>
-    <!-- OS:Curve:Triquadratic -->
+    
     <message>
         <source>Coefficient9 x*y</source>
         <translation>Koefisien9 x*y</translation>
     </message>
-    <!-- OS:Coil:Cooling:DX:VariableRefrigerantFlow, OS:Coil:Cooling:DX:VariableRefrigerantFlow:FluidTemperatureControl, OS:Coil:Heating:DX:VariableRefrigerantFlow, OS:Coil:Heating:DX:VariableRefrigerantFlow:FluidTemperatureControl -->
+    
     <message>
         <source>Coil Air Inlet Node</source>
         <translation>Node Inlet Udara Kumparan</translation>
     </message>
-    <!-- OS:Coil:Cooling:DX:VariableRefrigerantFlow, OS:Coil:Cooling:DX:VariableRefrigerantFlow:FluidTemperatureControl, OS:Coil:Heating:DX:VariableRefrigerantFlow, OS:Coil:Heating:DX:VariableRefrigerantFlow:FluidTemperatureControl -->
+    
     <message>
         <source>Coil Air Outlet Node</source>
         <translation>Node Outlet Udara Koil</translation>
     </message>
-    <!-- OS:Refrigeration:AirChiller -->
+    
     <message>
         <source>Coil Material Correction Factor</source>
         <translation>Faktor Koreksi Material Kumparan</translation>
     </message>
-    <!-- OS:Coil:Cooling:CooledBeam -->
+    
     <message>
         <source>Coil Surface Area per Coil Length</source>
         <translation>Luas Permukaan Coil per Panjang Coil</translation>
     </message>
-    <!-- OS:Sizing:Plant -->
+    
     <message>
         <source>Coincident Sizing Factor Mode</source>
         <translation>Mode Faktor Ukuran Bertepatan</translation>
     </message>
-    <!-- OS:AirTerminal:DualDuct:ConstantVolume, OS:AirTerminal:DualDuct:VAV -->
+    
     <message>
         <source>Cold Air Inlet Node</source>
         <translation>Simpul Saluran Udara Dingin</translation>
     </message>
-    <!-- OS:AvailabilityManager:DifferentialThermostat -->
+    
     <message>
         <source>Cold Node</source>
         <translation>Node Dingin</translation>
     </message>
-    <!-- OS:Coil:Cooling:DX:SingleSpeed:ThermalStorage -->
+    
     <message>
         <source>Cold Weather Operation Ancillary Power</source>
         <translation>Daya Bantu Operasi Cuaca Dingin</translation>
     </message>
-    <!-- OS:Coil:Cooling:DX:SingleSpeed:ThermalStorage -->
+    
     <message>
         <source>Cold Weather Operation Minimum Outdoor Air Temperature</source>
         <translation>Temperatur Outdoor Minimum untuk Operasi Cuaca Dingin</translation>
     </message>
-    <!-- OS:SolarCollectorPerformance:IntegralCollectorStorage -->
+    
     <message>
         <source>Collector Side Height</source>
         <translation>Tinggi Sisi Kolektor</translation>
     </message>
-    <!-- OS:SolarCollectorPerformance:IntegralCollectorStorage -->
+    
     <message>
         <source>Collector Water Volume</source>
         <translation>Volume Air Kolektor</translation>
     </message>
-    <!-- OS:Schedule:File -->
+    
     <message>
         <source>Column Number</source>
         <translation>Nomor Kolom</translation>
     </message>
-    <!-- OS:External:File, OS:OutputControl:Table:Style, OS:Schedule:File -->
+    
     <message>
         <source>Column Separator</source>
         <translation>Pemisah Kolom</translation>
     </message>
-    <!-- OS:SurfaceProperty:OtherSideCoefficients -->
+    
     <message>
         <source>Combined Convective/Radiative Film Coefficient</source>
         <translation>Koefisien Film Konvektif/Radiatif Gabungan</translation>
     </message>
-    <!-- OS:Generator:MicroTurbine -->
+    
     <message>
         <source>Combustion Air Inlet Node Name</source>
         <translation>Nama Node Inlet Udara Pembakaran</translation>
     </message>
-    <!-- OS:Generator:MicroTurbine -->
+    
     <message>
         <source>Combustion Air Outlet Node Name</source>
         <translation>Nama Node Outlet Udara Pembakaran</translation>
     </message>
-    <!-- OS:ZoneHVAC:HighTemperatureRadiant -->
+    
     <message>
         <source>Combustion Efficiency</source>
         <translation>Efisiensi Pembakaran</translation>
     </message>
-    <!-- OS:ComponentCost:Adjustments -->
+    
     <message>
         <source>Commissioning Fee</source>
         <translation>Biaya Commissioning</translation>
     </message>
-    <!-- OS:CoilSystem:Cooling:Water -->
+    
     <message>
         <source>Companion Coil Used For Heat Recovery</source>
         <translation>Kumpulan Pendamping yang Digunakan untuk Pemulihan Panas</translation>
     </message>
-    <!-- OS:HeatPump:AirToWater:FuelFired:Heating, OS:HeatPump:WaterToWater:EquationFit:Heating -->
+    
     <message>
         <source>Companion Cooling Heat Pump Name</source>
         <translation>Nama Heat Pump Pendingin Pendamping</translation>
     </message>
-    <!-- OS:HeatPump:PlantLoop:EIR:Cooling, OS:HeatPump:PlantLoop:EIR:Heating -->
+    
     <message>
         <source>Companion Heat Pump Name</source>
         <translation>Nama Heat Pump Pendamping</translation>
     </message>
-    <!-- OS:HeatPump:AirToWater:FuelFired:Cooling, OS:HeatPump:WaterToWater:EquationFit:Cooling -->
+    
     <message>
         <source>Companion Heating Heat Pump Name</source>
         <translation>Nama Heat Pump Pemanas Pendamping</translation>
     </message>
-    <!-- OS:AirflowNetworkDistributionLinkage, OS:AirflowNetworkEquivalentDuct -->
+    
     <message>
         <source>Component Name</source>
         <translation>Nama Komponen</translation>
     </message>
-    <!-- OS:AirflowNetworkDistributionNode -->
+    
     <message>
         <source>Component Name or Node Name</source>
         <translation>Nama Komponen atau Nama Node</translation>
     </message>
-    <!-- OS:HeatExchanger:FluidToFluid -->
+    
     <message>
         <source>Component Override Cooling Control Temperature Mode</source>
         <translation>Mode Kontrol Suhu Pendinginan Penimpaan Komponen</translation>
     </message>
-    <!-- OS:HeatExchanger:FluidToFluid -->
+    
     <message>
         <source>Component Override Loop Demand Side Inlet Node</source>
         <translation>Simpul Inlet Sisi Permintaan Override Loop Komponen</translation>
     </message>
-    <!-- OS:HeatExchanger:FluidToFluid -->
+    
     <message>
         <source>Component Override Loop Supply Side Inlet Node</source>
         <translation>Simpul Inlet Sisi Pasokan Lingkaran Ganti Komponen</translation>
     </message>
-    <!-- OS:PlantLoop -->
+    
     <message>
         <source>Component Setpoint Operation Scheme Schedule</source>
         <translation>Jadwal Skema Operasi Setpoint Komponen</translation>
     </message>
-    <!-- OS:StandardsInformation:Material -->
+    
     <message>
         <source>Composite Cavity Insulation</source>
         <translation>Isolasi Rongga Komposit</translation>
     </message>
-    <!-- OS:StandardsInformation:Material -->
+    
     <message>
         <source>Composite Framing Configuration</source>
         <translation>Konfigurasi Framing Komposit</translation>
     </message>
-    <!-- OS:StandardsInformation:Material -->
+    
     <message>
         <source>Composite Framing Depth</source>
         <translation>Kedalaman Framing Komposit</translation>
     </message>
-    <!-- OS:StandardsInformation:Material -->
+    
     <message>
         <source>Composite Framing Material</source>
         <translation>Bahan Framing Komposit</translation>
     </message>
-    <!-- OS:StandardsInformation:Material -->
+    
     <message>
         <source>Composite Framing Size</source>
         <translation>Ukuran Framing Komposit</translation>
     </message>
-    <!-- OS:WaterHeater:HeatPump -->
+    
     <message>
         <source>Compressor Ambient Temperature Schedule</source>
         <translation>Jadwal Suhu Ambien Kompresor</translation>
     </message>
-    <!-- OS:WaterHeater:HeatPump:WrappedCondenser -->
+    
     <message>
         <source>Compressor Ambient Temperature Schedule Name</source>
         <translation>Nama Jadwal Suhu Sekitar Kompresor</translation>
     </message>
-    <!-- OS:AirConditioner:VariableRefrigerantFlow:FluidTemperatureControl:HR -->
+    
     <message>
         <source>Compressor Evaporative Capacity Correction Factor</source>
         <translation>Faktor Koreksi Kapasitas Evaporatif Kompresor</translation>
     </message>
-    <!-- OS:Coil:Cooling:DX:CurveFit:Performance -->
+    
     <message>
         <source>Compressor Fuel Type</source>
         <translation>Jenis Bahan Bakar Kompresor</translation>
     </message>
-    <!-- OS:Generator:FuelSupply -->
+    
     <message>
         <source>Compressor Heat Loss Factor</source>
         <translation>Faktor Kehilangan Panas Kompresor</translation>
     </message>
-    <!-- OS:AirConditioner:VariableRefrigerantFlow:FluidTemperatureControl:HR -->
+    
     <message>
         <source>Compressor Inverter Efficiency</source>
         <translation>Efisiensi Inverter Kompresor</translation>
     </message>
-    <!-- OS:WaterHeater:HeatPump, OS:WaterHeater:HeatPump:WrappedCondenser -->
+    
     <message>
         <source>Compressor Location</source>
         <translation>Lokasi Kompresor</translation>
     </message>
-    <!-- OS:AirConditioner:VariableRefrigerantFlow:FluidTemperatureControl, OS:AirConditioner:VariableRefrigerantFlow:FluidTemperatureControl:HR -->
+    
     <message>
         <source>Compressor Maximum Delta Pressure</source>
         <translation>Tekanan Delta Maksimum Kompresor</translation>
     </message>
-    <!-- OS:ChillerHeaterPerformance:Electric:EIR -->
+    
     <message>
         <source>Compressor Motor Efficiency</source>
         <translation>Efisiensi Motor Kompresor</translation>
     </message>
-    <!-- OS:Generator:FuelSupply -->
+    
     <message>
         <source>Compressor Power Multiplier Function of Fuel Rate Curve Name</source>
         <translation>Nama Kurva Fungsi Pengali Daya Kompresor terhadap Laju Bahan Bakar</translation>
     </message>
-    <!-- OS:AirConditioner:VariableRefrigerantFlow:FluidTemperatureControl:LoadingIndex -->
+    
     <message>
         <source>Compressor Power Multiplier Function of Temperature Curve Name</source>
         <translation>Nama Kurva Fungsi Pengali Daya Kompresor terhadap Temperatur</translation>
     </message>
-    <!-- OS:Refrigeration:CompressorRack -->
+    
     <message>
         <source>Compressor Rack COP Function of Temperature Curve Name</source>
         <translation>Nama Kurva Fungsi COP Rak Kompressor terhadap Temperatur</translation>
     </message>
-    <!-- OS:WaterHeater:HeatPump -->
+    
     <message>
         <source>Compressor Setpoint Temperature Schedule</source>
         <translation>Jadwal Suhu Setpoint Kompresor</translation>
     </message>
-    <!-- OS:WaterHeater:HeatPump:WrappedCondenser -->
+    
     <message>
         <source>Compressor Setpoint Temperature Schedule Name</source>
         <translation>Nama Jadwal Suhu Setpoint Kompresor</translation>
     </message>
-    <!-- OS:AirConditioner:VariableRefrigerantFlow:FluidTemperatureControl:LoadingIndex -->
+    
     <message>
         <source>Compressor Speed</source>
         <translation>Kecepatan Kompresor</translation>
     </message>
-    <!-- OS:Refrigeration:System -->
+    
     <message>
         <source>CompressorList Name</source>
         <translation>Nama Daftar Kompresor</translation>
     </message>
-    <!-- OS:UtilityCost:Computation -->
+    
     <message>
         <source>Compute Step</source>
         <translation>Langkah Komputasi</translation>
     </message>
-    <!-- OS:Coil:Cooling:DX:MultiSpeed, OS:Coil:Cooling:DX:SingleSpeed:ThermalStorage, OS:Coil:Cooling:DX:TwoStageWithHumidityControlMode -->
+    
     <message>
         <source>Condensate Collection Water Storage Tank</source>
         <translation>Tangki Penyimpanan Air Koleksi Kondensat</translation>
     </message>
-    <!-- OS:Coil:Cooling:DX, OS:Coil:Cooling:DX:SingleSpeed, OS:Coil:Cooling:DX:TwoSpeed, OS:Coil:Cooling:DX:VariableSpeed, OS:ZoneHVAC:Dehumidifier:DX -->
+    
     <message>
         <source>Condensate Collection Water Storage Tank Name</source>
         <translation>Nama Tangki Penyimpanan Air Koleksi Kondensat</translation>
     </message>
-    <!-- OS:Refrigeration:Condenser:AirCooled, OS:Refrigeration:Condenser:Cascade, OS:Refrigeration:Condenser:EvaporativeCooled, OS:Refrigeration:Condenser:WaterCooled -->
+    
     <message>
         <source>Condensate Piping Refrigerant Inventory</source>
         <translation>Inventaris Refrigeran Pipa Kondensasi</translation>
     </message>
-    <!-- OS:Refrigeration:Condenser:AirCooled, OS:Refrigeration:Condenser:Cascade, OS:Refrigeration:Condenser:EvaporativeCooled, OS:Refrigeration:Condenser:WaterCooled -->
+    
     <message>
         <source>Condensate Receiver Refrigerant Inventory</source>
         <translation>Inventaris Refrigeran Penerima Kondensat</translation>
     </message>
-    <!-- OS:Coil:Cooling:LowTemperatureRadiant:ConstantFlow, OS:Coil:Cooling:LowTemperatureRadiant:VariableFlow, OS:Coil:Cooling:Water:Panel:Radiant -->
+    
     <message>
         <source>Condensation Control Dewpoint Offset</source>
         <translation>Offset Titik Embun Kontrol Kondensasi</translation>
     </message>
-    <!-- OS:Coil:Cooling:LowTemperatureRadiant:ConstantFlow, OS:Coil:Cooling:LowTemperatureRadiant:VariableFlow, OS:Coil:Cooling:Water:Panel:Radiant -->
+    
     <message>
         <source>Condensation Control Type</source>
         <translation>Tipe Kontrol Kondensasi</translation>
     </message>
-    <!-- OS:Coil:Cooling:DX:CurveFit:Speed -->
+    
     <message>
         <source>Condenser Air Flow Rate Fraction</source>
         <translation>Fraksi Laju Aliran Udara Kondenser</translation>
     </message>
-    <!-- OS:Coil:Cooling:DX:SingleSpeed:ThermalStorage -->
+    
     <message>
         <source>Condenser Air Flow Sizing Factor</source>
         <translation>Faktor Sizing Aliran Udara Kondenser</translation>
     </message>
-    <!-- OS:Coil:Cooling:DX:MultiSpeed, OS:Coil:Cooling:DX:SingleSpeed:ThermalStorage, OS:CoilPerformance:DX:Cooling -->
+    
     <message>
         <source>Condenser Air Inlet Node</source>
         <translation>Node Inlet Udara Kondenser</translation>
     </message>
-    <!-- OS:Coil:Cooling:DX:SingleSpeed, OS:Coil:Cooling:DX:TwoSpeed, OS:Coil:Cooling:DX:VariableSpeed, OS:Refrigeration:CompressorRack -->
+    
     <message>
         <source>Condenser Air Inlet Node Name</source>
         <translation>Nama Node Inlet Udara Kondenser</translation>
     </message>
-    <!-- OS:Coil:Cooling:DX:SingleSpeed:ThermalStorage -->
+    
     <message>
         <source>Condenser Air Outlet Node</source>
         <translation>Node Outlet Udara Kondenser</translation>
     </message>
-    <!-- OS:WaterHeater:HeatPump:WrappedCondenser -->
+    
     <message>
         <source>Condenser Bottom Location</source>
         <translation>Lokasi Bawah Kondenser</translation>
     </message>
-    <!-- OS:Coil:Cooling:DX:SingleSpeed:ThermalStorage -->
+    
     <message>
         <source>Condenser Design Air Flow Rate</source>
         <translation>Laju Aliran Udara Desain Kondenser</translation>
     </message>
-    <!-- OS:Refrigeration:CompressorRack -->
+    
     <message>
         <source>Condenser Fan Power Function of Temperature Curve Name</source>
         <translation>Nama Kurva Fungsi Daya Kipas Kondenser terhadap Suhu</translation>
     </message>
-    <!-- OS:Refrigeration:Condenser:AirCooled -->
+    
     <message>
         <source>Condenser Fan Speed Control Type</source>
         <translation>Jenis Kontrol Kecepatan Kipas Kondensor</translation>
     </message>
-    <!-- OS:Chiller:Electric:EIR, OS:Chiller:Electric:ReformulatedEIR -->
+    
     <message>
         <source>Condenser Flow Control</source>
         <translation>Kontrol Aliran Kondenser</translation>
     </message>
-    <!-- OS:Chiller:Electric:EIR, OS:Chiller:Electric:ReformulatedEIR -->
+    
     <message>
         <source>Condenser Heat Recovery Relative Capacity Fraction</source>
         <translation>Fraksi Kapasitas Relatif Pemulihan Panas Kondenser</translation>
     </message>
-    <!-- OS:AirConditioner:VariableRefrigerantFlow -->
+    
     <message>
         <source>Condenser Inlet Node</source>
         <translation>Node Masuk Kondenser</translation>
     </message>
-    <!-- OS:Chiller:Absorption, OS:Chiller:Absorption:Indirect, OS:Chiller:Electric:ASHRAE205, OS:Chiller:Electric:EIR, OS:Chiller:Electric:ReformulatedEIR, OS:Coil:Cooling:DX -->
+    
     <message>
         <source>Condenser Inlet Node Name</source>
         <translation>Nama Node Inlet Kondenser</translation>
     </message>
-    <!-- OS:Chiller:Absorption:Indirect -->
+    
     <message>
         <source>Condenser Inlet Temperature Lower Limit</source>
         <translation>Batas Bawah Temperatur Inlet Kondenser</translation>
     </message>
-    <!-- OS:Chiller:Electric:EIR, OS:Chiller:Electric:ReformulatedEIR -->
+    
     <message>
         <source>Condenser Loop Flow Rate Fraction Function of Loop Part Load Ratio Curve Name</source>
         <translation>Nama Kurva Fungsi Fraksi Laju Aliran Loop Kondenser terhadap Rasio Beban Parsial Loop</translation>
     </message>
-    <!-- OS:Chiller:Electric:ASHRAE205 -->
+    
     <message>
         <source>Condenser Maximum Requested Flow Rate</source>
         <translation>Laju Aliran Maksimum yang Diminta Kondensor</translation>
     </message>
-    <!-- OS:Chiller:Electric:EIR, OS:Chiller:Electric:ReformulatedEIR -->
+    
     <message>
         <source>Condenser Minimum Flow Fraction</source>
         <translation>Fraksi Aliran Minimum Kondenser</translation>
     </message>
-    <!-- OS:AirConditioner:VariableRefrigerantFlow -->
+    
     <message>
         <source>Condenser Outlet Node</source>
         <translation>Simpul Outlet Kondenser</translation>
     </message>
-    <!-- OS:Chiller:Absorption, OS:Chiller:Absorption:Indirect, OS:Chiller:Electric:ASHRAE205, OS:Chiller:Electric:EIR, OS:Chiller:Electric:ReformulatedEIR, OS:Coil:Cooling:DX -->
+    
     <message>
         <source>Condenser Outlet Node Name</source>
         <translation>Nama Node Outlet Kondenser</translation>
     </message>
-    <!-- OS:Coil:WaterHeating:AirToWaterHeatPump, OS:Coil:WaterHeating:AirToWaterHeatPump:VariableSpeed -->
+    
     <message>
         <source>Condenser Pump Heat Included in Rated Heating Capacity and Rated COP</source>
         <translation>Pompa Kondenser Termasuk dalam Kapasitas Pemanasan Terukur dan COP Terukur</translation>
     </message>
-    <!-- OS:Coil:WaterHeating:AirToWaterHeatPump, OS:Coil:WaterHeating:AirToWaterHeatPump:VariableSpeed -->
+    
     <message>
         <source>Condenser Pump Power Included in Rated COP</source>
         <translation>Daya Pompa Kondenser Termasuk dalam COP Rated</translation>
     </message>
-    <!-- OS:Refrigeration:Condenser:AirCooled, OS:Refrigeration:Condenser:Cascade, OS:Refrigeration:Condenser:EvaporativeCooled, OS:Refrigeration:Condenser:WaterCooled -->
+    
     <message>
         <source>Condenser Refrigerant Operating Charge Inventory</source>
         <translation>Inventaris Muatan Operasi Pendingin Kondenser</translation>
     </message>
-    <!-- OS:WaterHeater:HeatPump:WrappedCondenser -->
+    
     <message>
         <source>Condenser Top Location</source>
         <translation>Lokasi Puncak Kondenser</translation>
     </message>
-    <!-- OS:WaterHeater:HeatPump -->
+    
     <message>
         <source>Condenser Water Flow Rate</source>
         <translation>Laju Aliran Air Kondenser</translation>
     </message>
-    <!-- OS:Coil:WaterHeating:AirToWaterHeatPump -->
+    
     <message>
         <source>Condenser Water Inlet Node</source>
         <translation>Simpul Inlet Air Pendingin</translation>
     </message>
-    <!-- OS:Coil:WaterHeating:AirToWaterHeatPump:VariableSpeed -->
+    
     <message>
         <source>Condenser Water Inlet Node Name</source>
         <translation>Nama Node Inlet Air Pendingin</translation>
     </message>
-    <!-- OS:Coil:WaterHeating:AirToWaterHeatPump -->
+    
     <message>
         <source>Condenser Water Outlet Node</source>
         <translation>Simpul Keluaran Air Kondensor</translation>
     </message>
-    <!-- OS:Coil:WaterHeating:AirToWaterHeatPump:VariableSpeed -->
+    
     <message>
         <source>Condenser Water Outlet Node Name</source>
         <translation>Nama Node Outlet Air Pendingin</translation>
     </message>
-    <!-- OS:Coil:WaterHeating:AirToWaterHeatPump -->
+    
     <message>
         <source>Condenser Water Pump Power</source>
         <translation>Daya Pompa Air Kondensor</translation>
     </message>
-    <!-- OS:Coil:Cooling:DX -->
+    
     <message>
         <source>Condenser Zone</source>
         <translation>Zona Kondenser</translation>
     </message>
-    <!-- OS:Refrigeration:Condenser:Cascade -->
+    
     <message>
         <source>Condensing Temperature Control Type</source>
         <translation>Tipe Kontrol Temperatur Kondensasi</translation>
     </message>
-    <!-- OS:Material, OS:WindowMaterial:Glazing, OS:WindowMaterial:Glazing:RefractionExtinctionMethod, OS:WindowMaterial:Screen, OS:WindowMaterial:Shade -->
+    
     <message>
         <source>Conductivity</source>
         <translation>Konduktivitas</translation>
     </message>
-    <!-- OS:WindowMaterial:Gas -->
+    
     <message>
         <source>Conductivity Coefficient A</source>
         <translation>Koefisien Konduktivitas A</translation>
     </message>
-    <!-- OS:WindowMaterial:Gas -->
+    
     <message>
         <source>Conductivity Coefficient B</source>
         <translation>Koefisien Konduktivitas B</translation>
     </message>
-    <!-- OS:WindowMaterial:Gas -->
+    
     <message>
         <source>Conductivity Coefficient C</source>
         <translation>Koefisien Konduktivitas C</translation>
     </message>
-    <!-- OS:Material:RoofVegetation -->
+    
     <message>
         <source>Conductivity of Dry Soil</source>
         <translation>Konduktivitas Tanah Kering</translation>
     </message>
-    <!-- OS:ElectricLoadCenter:Transformer -->
+    
     <message>
         <source>Conductor Material</source>
         <translation>Material Konduktor</translation>
     </message>
-    <!-- OS:AirLoopHVAC -->
+    
     <message>
         <source>Connector List Name</source>
         <translation>Nama Daftar Konektor</translation>
     </message>
-    <!-- OS:ElectricLoadCenter:Transformer -->
+    
     <message>
         <source>Consider Transformer Loss for Utility Cost</source>
         <translation>Pertimbangkan Kehilangan Transformer untuk Biaya Utilitas</translation>
     </message>
-    <!-- OS:Generator:FuelCell:PowerModule -->
+    
     <message>
         <source>Constant Skin Loss Rate</source>
         <translation>Laju Kehilangan Kulit Konstan</translation>
     </message>
-    <!-- OS:AvailabilityManager:OptimumStart -->
+    
     <message>
         <source>Constant Start Time</source>
         <translation>Waktu Mulai Konstan</translation>
     </message>
-    <!-- OS:SurfaceProperty:OtherSideCoefficients -->
+    
     <message>
         <source>Constant Temperature</source>
         <translation>Suhu Konstan</translation>
     </message>
-    <!-- OS:SurfaceProperty:OtherSideCoefficients -->
+    
     <message>
         <source>Constant Temperature Coefficient</source>
         <translation>Koefisien Temperatur Konstan</translation>
     </message>
-    <!-- OS:AvailabilityManager:OptimumStart -->
+    
     <message>
         <source>Constant Temperature Gradient during Cooling</source>
         <translation>Gradien Suhu Konstan selama Pendinginan</translation>
     </message>
-    <!-- OS:AvailabilityManager:OptimumStart -->
+    
     <message>
         <source>Constant Temperature Gradient during Heating</source>
         <translation>Gradien Suhu Konstan selama Pemanasan</translation>
     </message>
-    <!-- OS:SurfaceProperty:OtherSideCoefficients -->
+    
     <message>
         <source>Constant Temperature Schedule Name</source>
         <translation>Nama Jadwal Suhu Konstan</translation>
     </message>
-    <!-- OS:Generator:FuelSupply -->
+    
     <message>
         <source>Constituent Molar Fraction</source>
         <translation>Fraksi Molar Konstituen</translation>
     </message>
-    <!-- OS:Generator:FuelCell:AirSupply, OS:Generator:FuelSupply -->
+    
     <message>
         <source>Constituent Name</source>
         <translation>Nama Konstituen</translation>
     </message>
-    <!-- OS:Pipe:Indoor, OS:Pipe:Outdoor -->
+    
     <message>
         <source>Construction</source>
         <translation>Konstruksi</translation>
     </message>
-    <!-- OS:DaylightingDevice:Tubular, OS:InteriorPartitionSurface, OS:InternalMass:Definition, OS:ShadingSurface, OS:StandardsInformation:Construction, OS:SubSurface, OS:Surface -->
+    
     <message>
         <source>Construction Name</source>
         <translation>Nama Konstruksi</translation>
     </message>
-    <!-- OS:EnergyManagementSystem:ConstructionIndexVariable -->
+    
     <message>
         <source>Construction Object Name</source>
         <translation>Nama Objek Konstruksi</translation>
     </message>
-    <!-- OS:StandardsInformation:Construction -->
+    
     <message>
         <source>Construction Standard</source>
         <translation>Standar Konstruksi</translation>
     </message>
-    <!-- OS:StandardsInformation:Construction -->
+    
     <message>
         <source>Construction Standard Source</source>
         <translation>Sumber Standar Konstruksi</translation>
     </message>
-    <!-- OS:ShadingControl -->
+    
     <message>
         <source>Construction with Shading Name</source>
         <translation>Nama Konstruksi dengan Peneduhan</translation>
     </message>
-    <!-- OS:UtilityBill -->
+    
     <message>
         <source>Consumption Unit</source>
         <translation>Satuan Konsumsi</translation>
     </message>
-    <!-- OS:UtilityBill -->
+    
     <message>
         <source>Consumption Unit Conversion Factor</source>
         <translation>Faktor Konversi Unit Konsumsi</translation>
     </message>
-    <!-- OS:ComponentCost:Adjustments -->
+    
     <message>
         <source>Contingency</source>
         <translation>Kontingensi</translation>
     </message>
-    <!-- OS:ComponentCost:Adjustments -->
+    
     <message>
         <source>Contractor Fee</source>
         <translation>Biaya Kontraktor</translation>
     </message>
-    <!-- OS:AvailabilityManager:OptimumStart -->
+    
     <message>
         <source>Control Algorithm</source>
         <translation>Algoritma Kontrol</translation>
     </message>
-    <!-- OS:AirTerminal:DualDuct:VAV:OutdoorAir, OS:AirTerminal:SingleDuct:InletSideMixer, OS:AirTerminal:SingleDuct:VAV:NoReheat, OS:AirTerminal:SingleDuct:VAV:Reheat -->
+    
     <message>
         <source>Control For Outdoor Air</source>
         <translation>Kontrol Udara Luar</translation>
     </message>
-    <!-- OS:Controller:OutdoorAir, OS:ZoneHVAC:EnergyRecoveryVentilator:Controller -->
+    
     <message>
         <source>Control High Indoor Humidity Based on Outdoor Humidity Ratio</source>
         <translation>Kontrol Kelembaban Udara Dalam Ruangan Tinggi Berdasarkan Rasio Kelembaban Udara Luar</translation>
     </message>
-    <!-- OS:CentralHeatPumpSystem -->
+    
     <message>
         <source>Control Method</source>
         <translation>Metode Kontrol</translation>
     </message>
-    <!-- OS:AirflowNetworkPressureController -->
+    
     <message>
         <source>Control Object Name</source>
         <translation>Nama Objek Kontrol</translation>
     </message>
-    <!-- OS:AirflowNetworkPressureController -->
+    
     <message>
         <source>Control Object Type</source>
         <translation>Tipe Objek Kontrol</translation>
     </message>
-    <!-- OS:Exterior:Lights -->
+    
     <message>
         <source>Control Option</source>
         <translation>Opsi Kontrol</translation>
     </message>
-    <!-- OS:WaterHeater:HeatPump:WrappedCondenser -->
+    
     <message>
         <source>Control Sensor 1 Height In Stratified Tank</source>
         <translation>Ketinggian Sensor Kontrol 1 di Tangki Berlapis</translation>
     </message>
-    <!-- OS:WaterHeater:HeatPump:WrappedCondenser -->
+    
     <message>
         <source>Control Sensor 1 Weight</source>
         <translation>Bobot Sensor Kontrol 1</translation>
     </message>
-    <!-- OS:WaterHeater:HeatPump:WrappedCondenser -->
+    
     <message>
         <source>Control Sensor 2 Height In Stratified Tank</source>
         <translation>Tinggi Sensor Kontrol 2 Dalam Tangki Bertingkat</translation>
     </message>
-    <!-- OS:WaterHeater:HeatPump -->
+    
     <message>
         <source>Control Sensor Location In Stratified Tank</source>
         <translation>Lokasi Sensor Kontrol di Tangki Berlapis Strata</translation>
     </message>
-    <!-- OS:AirLoopHVAC:UnitarySystem, OS:AvailabilityManager:NightCycle, OS:AvailabilityManager:OptimumStart, OS:Coil:Cooling:Water:Panel:Radiant, OS:EvaporativeCooler:Indirect:ResearchSpecial, OS:HeatExchanger:FluidToFluid, OS:HeatPump:AirToWater, OS:HeatPump:PlantLoop:EIR:Cooling, OS:HeatPump:PlantLoop:EIR:Heating -->
+    
     <message>
         <source>Control Type</source>
         <translation>Tipe Kontrol</translation>
     </message>
-    <!-- OS:AvailabilityManager:NightVentilation, OS:AvailabilityManager:OptimumStart -->
+    
     <message>
         <source>Control Zone</source>
         <translation>Zona Kontrol</translation>
     </message>
-    <!-- OS:AvailabilityManager:NightCycle -->
+    
     <message>
         <source>Control Zone or Zone List Name</source>
         <translation>Nama Zona Kontrol atau Daftar Zona</translation>
     </message>
-    <!-- OS:AvailabilityManager:HybridVentilation -->
+    
     <message>
         <source>Controlled Zone</source>
         <translation>Zona Terkontrol</translation>
     </message>
-    <!-- OS:ZoneControl:ContaminantController -->
+    
     <message>
         <source>Controlled Zone Name</source>
         <translation>Nama Zona Terkontrol</translation>
     </message>
-    <!-- OS:Controller:WaterCoil -->
+    
     <message>
         <source>Controller Convergence Tolerance</source>
         <translation>Toleransi Konvergensi Pengontrol</translation>
     </message>
-    <!-- OS:AirLoopHVAC -->
+    
     <message>
         <source>Controller List Name</source>
         <translation>Nama Daftar Pengontrol</translation>
     </message>
-    <!-- OS:Controller:OutdoorAir -->
+    
     <message>
         <source>Controller Mechanical Ventilation</source>
         <translation>Pengontrol Ventilasi Mekanik</translation>
     </message>
-    <!-- OS:AirLoopHVAC:OutdoorAirSystem, OS:ZoneHVAC:EnergyRecoveryVentilator -->
+    
     <message>
         <source>Controller Name</source>
         <translation>Nama Pengontrol</translation>
     </message>
-    <!-- OS:AirLoopHVAC:UnitaryHeatPump:AirToAir, OS:AirLoopHVAC:UnitaryHeatPump:AirToAir:MultiSpeed, OS:AirLoopHVAC:UnitarySystem, OS:ZoneHVAC:TerminalUnit:VariableRefrigerantFlow -->
+    
     <message>
         <source>Controlling Zone or Thermostat Location</source>
         <translation>Lokasi Zona Kontrol atau Termostat</translation>
     </message>
-    <!-- OS:SurfaceProperty:ConvectionCoefficients, OS:SurfaceProperty:ConvectionCoefficients:MultipleSurface -->
+    
     <message>
         <source>Convection Coefficient 1</source>
         <translation>Koefisien Konveksi 1</translation>
     </message>
-    <!-- OS:SurfaceProperty:ConvectionCoefficients, OS:SurfaceProperty:ConvectionCoefficients:MultipleSurface -->
+    
     <message>
         <source>Convection Coefficient 1 Location</source>
         <translation>Lokasi Koefisien Konveksi 1</translation>
     </message>
-    <!-- OS:SurfaceProperty:ConvectionCoefficients, OS:SurfaceProperty:ConvectionCoefficients:MultipleSurface -->
+    
     <message>
         <source>Convection Coefficient 1 Schedule Name</source>
         <translation>Nama Jadwal Koefisien Konveksi 1</translation>
     </message>
-    <!-- OS:SurfaceProperty:ConvectionCoefficients, OS:SurfaceProperty:ConvectionCoefficients:MultipleSurface -->
+    
     <message>
         <source>Convection Coefficient 1 Type</source>
         <translation>Tipe Koefisien Konveksi 1</translation>
     </message>
-    <!-- OS:SurfaceProperty:ConvectionCoefficients, OS:SurfaceProperty:ConvectionCoefficients:MultipleSurface -->
+    
     <message>
         <source>Convection Coefficient 1 User Curve Name</source>
         <translation>Nama Kurva Pengguna Koefisien Konveksi 1</translation>
     </message>
-    <!-- OS:SurfaceProperty:ConvectionCoefficients, OS:SurfaceProperty:ConvectionCoefficients:MultipleSurface -->
+    
     <message>
         <source>Convection Coefficient 2</source>
         <translation>Koefisien Konveksi 2</translation>
     </message>
-    <!-- OS:SurfaceProperty:ConvectionCoefficients, OS:SurfaceProperty:ConvectionCoefficients:MultipleSurface -->
+    
     <message>
         <source>Convection Coefficient 2 Location</source>
         <translation>Lokasi Koefisien Konveksi 2</translation>
     </message>
-    <!-- OS:SurfaceProperty:ConvectionCoefficients, OS:SurfaceProperty:ConvectionCoefficients:MultipleSurface -->
+    
     <message>
         <source>Convection Coefficient 2 Schedule Name</source>
         <translation>Nama Jadwal Koefisien Konveksi 2</translation>
     </message>
-    <!-- OS:SurfaceProperty:ConvectionCoefficients, OS:SurfaceProperty:ConvectionCoefficients:MultipleSurface -->
+    
     <message>
         <source>Convection Coefficient 2 Type</source>
         <translation>Tipe Koefisien Konveksi 2</translation>
     </message>
-    <!-- OS:SurfaceProperty:ConvectionCoefficients, OS:SurfaceProperty:ConvectionCoefficients:MultipleSurface -->
+    
     <message>
         <source>Convection Coefficient 2 User Curve Name</source>
         <translation>Nama Kurva Pengguna Koefisien Konveksi 2</translation>
     </message>
-    <!-- OS:AirflowNetworkSimulationControl -->
+    
     <message>
         <source>Convergence Acceleration Limit</source>
         <translation>Batas Akselerasi Konvergensi</translation>
     </message>
-    <!-- OS:PhotovoltaicPerformance:Simple -->
+    
     <message>
         <source>Conversion Efficiency Input Mode</source>
         <translation>Mode Input Efisiensi Konversi</translation>
     </message>
-    <!-- OS:UtilityCost:Tariff -->
+    
     <message>
         <source>Conversion Factor Choice</source>
         <translation>Pilihan Faktor Konversi</translation>
     </message>
-    <!-- OS:InteriorPartitionSurface -->
+    
     <message>
         <source>Convert to Internal Mass</source>
         <translation>Konversi ke Internal Mass</translation>
     </message>
-    <!-- OS:AirTerminal:SingleDuct:ConstantVolume:CooledBeam -->
+    
     <message>
         <source>Cooled Beam Type</source>
         <translation>Tipe Beam Berpendingin</translation>
     </message>
-    <!-- OS:EvaporativeCooler:Direct:ResearchSpecial -->
+    
     <message>
         <source>Cooler Design Effectiveness</source>
         <translation>Efektivitas Desain Pendingin</translation>
     </message>
-    <!-- OS:EvaporativeCooler:Indirect:ResearchSpecial -->
+    
     <message>
         <source>Cooler Drybulb Design Effectiveness</source>
         <translation>Efektivitas Desain Bola Kering Pendingin</translation>
     </message>
-    <!-- OS:EvaporativeCooler:Indirect:ResearchSpecial -->
+    
     <message>
         <source>Cooler Flow Ratio</source>
         <translation>Rasio Aliran Pendingin</translation>
     </message>
-    <!-- OS:EvaporativeCooler:Indirect:ResearchSpecial -->
+    
     <message>
         <source>Cooler Maximum Effectiveness</source>
         <translation>Efektivitas Maksimum Cooler</translation>
     </message>
-    <!-- OS:ZoneHVAC:EvaporativeCoolerUnit -->
+    
     <message>
         <source>Cooler Outlet Node Name</source>
         <translation>Nama Node Outlet Pendingin</translation>
     </message>
-    <!-- OS:ZoneHVAC:EvaporativeCoolerUnit -->
+    
     <message>
         <source>Cooler Unit Control Method</source>
         <translation>Metode Kontrol Unit Pendingin</translation>
     </message>
-    <!-- OS:Coil:Cooling:DX:SingleSpeed:ThermalStorage -->
+    
     <message>
         <source>Cooling And Charge Mode Available</source>
         <translation>Mode Pendinginan dan Pengisian Tersedia</translation>
     </message>
-    <!-- OS:Coil:Cooling:DX:SingleSpeed:ThermalStorage -->
+    
     <message>
         <source>Cooling And Charge Mode Capacity Sizing Factor</source>
         <translation>Faktor Penentuan Kapasitas Mode Pendinginan dan Pengisian</translation>
     </message>
-    <!-- OS:Coil:Cooling:DX:SingleSpeed:ThermalStorage -->
+    
     <message>
         <source>Cooling And Charge Mode Charging Rated COP</source>
         <translation>Cooling And Charge Mode Charging Rated COP</translation>
     </message>
-    <!-- OS:Coil:Cooling:DX:SingleSpeed:ThermalStorage -->
+    
     <message>
         <source>Cooling And Charge Mode Cooling Rated COP</source>
         <translation>Cooling And Charge Mode Cooling Rated COP</translation>
     </message>
-    <!-- OS:Coil:Cooling:DX:SingleSpeed:ThermalStorage -->
+    
     <message>
         <source>Cooling And Charge Mode Evaporator Energy Input Ratio Function of Flow Fraction Curve</source>
         <translation>Kurva Fungsi Rasio Input Energi Evaporator Mode Pendinginan dan Pengisian dari Fraksi Aliran</translation>
     </message>
-    <!-- OS:Coil:Cooling:DX:SingleSpeed:ThermalStorage -->
+    
     <message>
         <source>Cooling And Charge Mode Evaporator Energy Input Ratio Function of Temperature Curve</source>
         <translation>Cooling And Charge Mode Evaporator Energy Input Ratio Function of Temperature Curve</translation>
     </message>
-    <!-- OS:Coil:Cooling:DX:SingleSpeed:ThermalStorage -->
+    
     <message>
         <source>Cooling And Charge Mode Evaporator Part Load Fraction Correlation Curve</source>
         <translation>Kurva Korelasi Fraksi Beban Parsial Evaporator Mode Pendinginan dan Pengisian</translation>
     </message>
-    <!-- OS:Coil:Cooling:DX:SingleSpeed:ThermalStorage -->
+    
     <message>
         <source>Cooling And Charge Mode Rated Sensible Heat Ratio</source>
         <translation>Rasio Panas Sensibel Terpilih Mode Pendinginan dan Pengisian</translation>
     </message>
-    <!-- OS:Coil:Cooling:DX:SingleSpeed:ThermalStorage -->
+    
     <message>
         <source>Cooling And Charge Mode Rated Storage Charging Capacity</source>
         <translation>Kapasitas Pengisian Penyimpanan Berperingkat Mode Pendinginan dan Pengisian</translation>
     </message>
-    <!-- OS:Coil:Cooling:DX:SingleSpeed:ThermalStorage -->
+    
     <message>
         <source>Cooling And Charge Mode Rated Total Evaporator Cooling Capacity</source>
         <translation>Kapasitas Pendinginan Total Evaporator Terukur dalam Mode Pendinginan dan Pengisian</translation>
     </message>
-    <!-- OS:Coil:Cooling:DX:SingleSpeed:ThermalStorage -->
+    
     <message>
         <source>Cooling And Charge Mode Sensible Heat Ratio Function of Flow Fraction Curve</source>
         <translation>Kurva Rasio Panas Terasa Mode Pendinginan dan Pengisian sebagai Fungsi Fraksi Aliran</translation>
     </message>
-    <!-- OS:Coil:Cooling:DX:SingleSpeed:ThermalStorage -->
+    
     <message>
         <source>Cooling And Charge Mode Sensible Heat Ratio Function of Temperature Curve</source>
         <translation>Kurva Fungsi Rasio Panas Sensibel Mode Pendinginan dan Pengisian Daya terhadap Suhu</translation>
     </message>
-    <!-- OS:Coil:Cooling:DX:SingleSpeed:ThermalStorage -->
+    
     <message>
         <source>Cooling And Charge Mode Storage Capacity Sizing Factor</source>
         <translation>Faktor Penentuan Ukuran Kapasitas Penyimpanan Mode Pendinginan dan Pengisian</translation>
     </message>
-    <!-- OS:Coil:Cooling:DX:SingleSpeed:ThermalStorage -->
+    
     <message>
         <source>Cooling And Charge Mode Storage Charge Capacity Function of Temperature Curve</source>
         <translation>Fungsi Kurva Kapasitas Pengisian Mode Pendinginan dan Pengisian Berdasarkan Suhu</translation>
     </message>
-    <!-- OS:Coil:Cooling:DX:SingleSpeed:ThermalStorage -->
+    
     <message>
         <source>Cooling And Charge Mode Storage Charge Capacity Function of Total Evaporator PLR Curve</source>
         <translation>Fungsi Kapasitas Pengisian Penyimpanan Mode Pendinginan Dan Pengisian terhadap Kurva PLR Total Evaporator</translation>
     </message>
-    <!-- OS:Coil:Cooling:DX:SingleSpeed:ThermalStorage -->
+    
     <message>
         <source>Cooling And Charge Mode Storage Energy Input Ratio Function of Flow Fraction Curve</source>
         <translation>Rasio Input Energi Penyimpanan Mode Pendinginan dan Pengisian Fungsi Kurva Fraksi Aliran</translation>
     </message>
-    <!-- OS:Coil:Cooling:DX:SingleSpeed:ThermalStorage -->
+    
     <message>
         <source>Cooling And Charge Mode Storage Energy Input Ratio Function of Temperature Curve</source>
         <translation>Rasio Input Energi Penyimpanan Mode Pendinginan dan Pengisian Fungsi Kurva Suhu</translation>
     </message>
-    <!-- OS:Coil:Cooling:DX:SingleSpeed:ThermalStorage -->
+    
     <message>
         <source>Cooling And Charge Mode Storage Energy Part Load Fraction Correlation Curve</source>
         <translation>Kurva Korelasi Fraksi Beban Parsial Energi Penyimpanan Mode Pendinginan dan Pengisian</translation>
     </message>
-    <!-- OS:Coil:Cooling:DX:SingleSpeed:ThermalStorage -->
+    
     <message>
         <source>Cooling And Charge Mode Total Evaporator Cooling Capacity Function of Flow Fraction Curve</source>
         <translation>Kurva Fungsi Fraksi Aliran dari Kapasitas Pendinginan Evaporator Total Mode Pendinginan dan Pengisian</translation>
     </message>
-    <!-- OS:Coil:Cooling:DX:SingleSpeed:ThermalStorage -->
+    
     <message>
         <source>Cooling And Charge Mode Total Evaporator Cooling Capacity Function of Temperature Curve</source>
         <translation>Fungsi Kapasitas Pendinginan Evaporator Total Mode Pendinginan dan Pengisian terhadap Kurva Suhu</translation>
     </message>
-    <!-- OS:Coil:Cooling:DX:SingleSpeed:ThermalStorage -->
+    
     <message>
         <source>Cooling And Discharge Mode Available</source>
         <translation>Mode Pendinginan dan Pelepasan Tersedia</translation>
     </message>
-    <!-- OS:Coil:Cooling:DX:SingleSpeed:ThermalStorage -->
+    
     <message>
         <source>Cooling And Discharge Mode Cooling Rated COP</source>
         <translation>Cooling And Discharge Mode Cooling Rated COP</translation>
     </message>
-    <!-- OS:Coil:Cooling:DX:SingleSpeed:ThermalStorage -->
+    
     <message>
         <source>Cooling And Discharge Mode Discharging Rated COP</source>
         <translation>Cooling And Discharge Mode Discharging Rated COP</translation>
     </message>
-    <!-- OS:Coil:Cooling:DX:SingleSpeed:ThermalStorage -->
+    
     <message>
         <source>Cooling And Discharge Mode Evaporator Capacity Sizing Factor</source>
         <translation>Faktor Pengubahan Ukuran Kapasitas Evaporator Mode Pendinginan dan Pembuangan</translation>
     </message>
-    <!-- OS:Coil:Cooling:DX:SingleSpeed:ThermalStorage -->
+    
     <message>
         <source>Cooling And Discharge Mode Evaporator Energy Input Ratio Function of Flow Fraction Curve</source>
         <translation>Kurva Rasio Input Energi Evaporator Mode Pendinginan dan Pembuangan sebagai Fungsi Fraksi Aliran</translation>
     </message>
-    <!-- OS:Coil:Cooling:DX:SingleSpeed:ThermalStorage -->
+    
     <message>
         <source>Cooling And Discharge Mode Evaporator Energy Input Ratio Function of Temperature Curve</source>
         <translation>Rasio Input Energi Evaporator Mode Pendinginan dan Pembuangan Fungsi Kurva Suhu</translation>
     </message>
-    <!-- OS:Coil:Cooling:DX:SingleSpeed:ThermalStorage -->
+    
     <message>
         <source>Cooling And Discharge Mode Evaporator Part Load Fraction Correlation Curve</source>
         <translation>Kurva Korelasi Fraksi Beban Parsial Evaporator Mode Pendinginan dan Pembuangan</translation>
     </message>
-    <!-- OS:Coil:Cooling:DX:SingleSpeed:ThermalStorage -->
+    
     <message>
         <source>Cooling And Discharge Mode Rated Sensible Heat Ratio</source>
         <translation>Rasio Panas Sensibel Rated Mode Pendinginan Dan Pembuangan</translation>
     </message>
-    <!-- OS:Coil:Cooling:DX:SingleSpeed:ThermalStorage -->
+    
     <message>
         <source>Cooling And Discharge Mode Rated Storage Discharging Capacity</source>
         <translation>Kapasitas Pengosongan Penyimpanan Terpasang Mode Pendinginan dan Pengosongan</translation>
     </message>
-    <!-- OS:Coil:Cooling:DX:SingleSpeed:ThermalStorage -->
+    
     <message>
         <source>Cooling And Discharge Mode Rated Total Evaporator Cooling Capacity</source>
         <translation>Kapasitas Pendinginan Total Evaporator Terpilih Saat Mode Pendinginan dan Pembuangan</translation>
     </message>
-    <!-- OS:Coil:Cooling:DX:SingleSpeed:ThermalStorage -->
+    
     <message>
         <source>Cooling And Discharge Mode Sensible Heat Ratio Function of Flow Fraction Curve</source>
         <translation>Kurva Fungsi Rasio Panas Sensibel Mode Pendinginan dan Pembuangan terhadap Fraksi Aliran</translation>
     </message>
-    <!-- OS:Coil:Cooling:DX:SingleSpeed:ThermalStorage -->
+    
     <message>
         <source>Cooling And Discharge Mode Sensible Heat Ratio Function of Temperature Curve</source>
         <translation>Kurva Fungsi Rasio Panas Sensibel Mode Pendinginan dan Discharge terhadap Suhu</translation>
     </message>
-    <!-- OS:Coil:Cooling:DX:SingleSpeed:ThermalStorage -->
+    
     <message>
         <source>Cooling And Discharge Mode Storage Discharge Capacity Function of Flow Fraction Curve</source>
         <translation>Kurva Fungsi Kapasitas Pembongkaran Mode Pendinginan dan Pembongkaran terhadap Fraksi Aliran</translation>
     </message>
-    <!-- OS:Coil:Cooling:DX:SingleSpeed:ThermalStorage -->
+    
     <message>
         <source>Cooling And Discharge Mode Storage Discharge Capacity Function of Temperature Curve</source>
         <translation>Kurva Fungsi Kapasitas Discharge Penyimpanan Mode Pendinginan dan Discharge terhadap Temperatur</translation>
     </message>
-    <!-- OS:Coil:Cooling:DX:SingleSpeed:ThermalStorage -->
+    
     <message>
         <source>Cooling And Discharge Mode Storage Discharge Capacity Function of Total Evaporator PLR Curve</source>
         <translation>Kurva Fungsi Kapasitas Pembuangan Mode Pendinginan dan Pembuangan terhadap Total Evaporator PLR</translation>
     </message>
-    <!-- OS:Coil:Cooling:DX:SingleSpeed:ThermalStorage -->
+    
     <message>
         <source>Cooling And Discharge Mode Storage Discharge Capacity Sizing Factor</source>
         <translation>Faktor Penentuan Ukuran Kapasitas Penyaliran Mode Pendinginan dan Penyaliran</translation>
     </message>
-    <!-- OS:Coil:Cooling:DX:SingleSpeed:ThermalStorage -->
+    
     <message>
         <source>Cooling And Discharge Mode Storage Energy Input Ratio Function of Flow Fraction Curve</source>
         <translation>Rasio Input Energi Penyimpanan Mode Pendinginan dan Pembuangan Fungsi Kurva Fraksi Aliran</translation>
     </message>
-    <!-- OS:Coil:Cooling:DX:SingleSpeed:ThermalStorage -->
+    
     <message>
         <source>Cooling And Discharge Mode Storage Energy Input Ratio Function of Temperature Curve</source>
         <translation>Rasio Input Energi Mode Pendinginan dan Pembuangan Fungsi Kurva Suhu</translation>
     </message>
-    <!-- OS:Coil:Cooling:DX:SingleSpeed:ThermalStorage -->
+    
     <message>
         <source>Cooling And Discharge Mode Storage Energy Part Load Fraction Correlation Curve</source>
         <translation>Kurva Korelasi Fraksi Beban Parsial Energi Penyimpanan Mode Pendinginan dan Pembuangan</translation>
     </message>
-    <!-- OS:Coil:Cooling:DX:SingleSpeed:ThermalStorage -->
+    
     <message>
         <source>Cooling And Discharge Mode Total Evaporator Cooling Capacity Function of Flow Fraction Curve</source>
         <translation>Kurva Fungsi Fraksi Aliran Kapasitas Pendinginan Evaporator Total Mode Pendinginan dan Pembuangan</translation>
     </message>
-    <!-- OS:Coil:Cooling:DX:SingleSpeed:ThermalStorage -->
+    
     <message>
         <source>Cooling And Discharge Mode Total Evaporator Cooling Capacity Function of Temperature Curve</source>
         <translation>Fungsi Kurva Kapasitas Pendinginan Evaporator Total Mode Pendinginan dan Pembuangan terhadap Temperatur</translation>
     </message>
-    <!-- OS:AirTerminal:SingleDuct:ConstantVolume:FourPipeBeam, OS:ZoneHVAC:IdealLoadsAirSystem -->
+    
     <message>
         <source>Cooling Availability Schedule Name</source>
         <translation>Nama Jadwal Ketersediaan Pendinginan</translation>
     </message>
-    <!-- OS:HeatPump:WaterToWater:EquationFit:Cooling -->
+    
     <message>
         <source>Cooling Capacity Curve Name</source>
         <translation>Nama Kurva Kapasitas Pendinginan</translation>
     </message>
-    <!-- OS:Coil:Cooling:DX:VariableRefrigerantFlow -->
+    
     <message>
         <source>Cooling Capacity Modifier Curve Function of Flow Fraction</source>
         <translation>Kurva Pengubah Kapasitas Pendinginan Berdasarkan Fraksi Aliran</translation>
     </message>
-    <!-- OS:AirConditioner:VariableRefrigerantFlow -->
+    
     <message>
         <source>Cooling Capacity Ratio Boundary Curve Name</source>
         <translation>Nama Kurva Batas Rasio Kapasitas Pendinginan</translation>
     </message>
-    <!-- OS:AirConditioner:VariableRefrigerantFlow -->
+    
     <message>
         <source>Cooling Capacity Ratio Modifier Function of High Temperature Curve Name</source>
         <translation>Nama Fungsi Kurva Pengubah Rasio Kapasitas Pendinginan Temperatur Tinggi</translation>
     </message>
-    <!-- OS:AirConditioner:VariableRefrigerantFlow -->
+    
     <message>
         <source>Cooling Capacity Ratio Modifier Function of Low Temperature Curve Name</source>
         <translation>Nama Kurva Fungsi Modifikasi Rasio Kapasitas Pendinginan pada Suhu Rendah</translation>
     </message>
-    <!-- OS:Coil:Cooling:DX:VariableRefrigerantFlow -->
+    
     <message>
         <source>Cooling Capacity Ratio Modifier Function of Temperature Curve</source>
         <translation>Fungsi Kurva Pengubah Rasio Kapasitas Pendinginan Terhadap Suhu</translation>
     </message>
-    <!-- OS:AirLoopHVAC:UnitaryHeatCool:VAVChangeoverBypass, OS:AirLoopHVAC:UnitaryHeatPump:AirToAir:MultiSpeed, OS:CoilSystem:Cooling:DX:HeatExchangerAssisted, OS:CoilSystem:Cooling:Water, OS:CoilSystem:Cooling:Water:HeatExchangerAssisted, OS:ZoneHVAC:TerminalUnit:VariableRefrigerantFlow -->
+    
     <message>
         <source>Cooling Coil</source>
         <translation>Kumparan Pendingin</translation>
     </message>
-    <!-- OS:AirLoopHVAC:UnitaryCoolOnly, OS:AirLoopHVAC:UnitaryHeatPump:AirToAir, OS:AirLoopHVAC:UnitarySystem, OS:AirTerminal:SingleDuct:ConstantVolume:CooledBeam, OS:AirTerminal:SingleDuct:ConstantVolume:FourPipeBeam, OS:AirTerminal:SingleDuct:ConstantVolume:FourPipeInduction, OS:ZoneHVAC:CoolingPanel:RadiantConvective:Water, OS:ZoneHVAC:FourPipeFanCoil, OS:ZoneHVAC:PackagedTerminalAirConditioner, OS:ZoneHVAC:PackagedTerminalHeatPump, OS:ZoneHVAC:UnitVentilator, OS:ZoneHVAC:WaterToAirHeatPump -->
+    
     <message>
         <source>Cooling Coil Name</source>
         <translation>Nama Kumparan Pendingin</translation>
     </message>
-    <!-- OS:AirLoopHVAC:UnitaryCoolOnly -->
+    
     <message>
         <source>Cooling Coil Object Type</source>
         <translation>Jenis Objek Kumparan Pendingin</translation>
     </message>
-    <!-- OS:AirConditioner:VariableRefrigerantFlow -->
+    
     <message>
         <source>Cooling Combination Ratio Correction Factor Curve Name</source>
         <translation>Nama Kurva Faktor Koreksi Rasio Kombinasi Pendingin</translation>
     </message>
-    <!-- OS:HeatPump:WaterToWater:EquationFit:Cooling -->
+    
     <message>
         <source>Cooling Compressor Power Curve Name</source>
         <translation>Nama Kurva Daya Kompresor Pendinginan</translation>
     </message>
-    <!-- OS:Coil:Cooling:LowTemperatureRadiant:VariableFlow, OS:Coil:Cooling:Water:Panel:Radiant -->
+    
     <message>
         <source>Cooling Control Temperature Schedule Name</source>
         <translation>Nama Jadwal Temperatur Kontrol Pendinginan</translation>
     </message>
-    <!-- OS:Coil:Cooling:LowTemperatureRadiant:VariableFlow, OS:Coil:Cooling:Water:Panel:Radiant -->
+    
     <message>
         <source>Cooling Control Throttling Range</source>
         <translation>Rentang Pembatasan Kontrol Pendinginan</translation>
     </message>
-    <!-- OS:AvailabilityManager:NightCycle -->
+    
     <message>
         <source>Cooling Control Zone or Zone List Name</source>
         <translation>Nama Zona Kontrol Pendinginan atau Daftar Zona</translation>
     </message>
-    <!-- OS:AirTerminal:SingleDuct:ConstantVolume:FourPipeInduction, OS:ZoneHVAC:FourPipeFanCoil, OS:ZoneHVAC:PackagedTerminalHeatPump, OS:ZoneHVAC:UnitVentilator -->
+    
     <message>
         <source>Cooling Convergence Tolerance</source>
         <translation>Toleransi Konvergensi Pendinginan</translation>
     </message>
-    <!-- OS:Coil:Cooling:LowTemperatureRadiant:VariableFlow, OS:Coil:Cooling:Water:Panel:Radiant, OS:Sizing:System -->
+    
     <message>
         <source>Cooling Design Capacity</source>
         <translation>Kapasitas Desain Pendinginan</translation>
     </message>
-    <!-- OS:Coil:Cooling:LowTemperatureRadiant:VariableFlow, OS:Coil:Cooling:Water:Panel:Radiant, OS:Sizing:System -->
+    
     <message>
         <source>Cooling Design Capacity Method</source>
         <translation>Metode Kapasitas Desain Pendinginan</translation>
     </message>
-    <!-- OS:Coil:Cooling:LowTemperatureRadiant:VariableFlow, OS:Coil:Cooling:Water:Panel:Radiant, OS:Sizing:System -->
+    
     <message>
         <source>Cooling Design Capacity Per Floor Area</source>
         <translation>Kapasitas Desain Pendinginan Per Luas Lantai</translation>
     </message>
-    <!-- OS:AirConditioner:VariableRefrigerantFlow -->
+    
     <message>
         <source>Cooling Energy Input Ratio Boundary Curve Name</source>
         <translation>Nama Kurva Batas Rasio Input Energi Pendinginan</translation>
     </message>
-    <!-- OS:HeatPump:AirToWater:Cooling:SpeedData -->
+    
     <message>
         <source>Cooling Energy Input Ratio Function of PLR Curve Name</source>
         <translation>Nama Kurva Fungsi Rasio Masukan Energi Pendingin terhadap PLR</translation>
     </message>
-    <!-- OS:HeatPump:AirToWater:Cooling:SpeedData -->
+    
     <message>
         <source>Cooling Energy Input Ratio Function of Temperature Curve Name</source>
         <translation>Nama Kurva Fungsi Rasio Input Energi Pendingin terhadap Temperatur</translation>
     </message>
-    <!-- OS:AirConditioner:VariableRefrigerantFlow -->
+    
     <message>
         <source>Cooling Energy Input Ratio Modifier Function of High Part-Load Ratio Curve Name</source>
         <translation>Nama Kurva Fungsi Pengubah Rasio Input Energi Pendinginan terhadap Rasio Beban Parsial Tinggi</translation>
     </message>
-    <!-- OS:AirConditioner:VariableRefrigerantFlow -->
+    
     <message>
         <source>Cooling Energy Input Ratio Modifier Function of High Temperature Curve Name</source>
         <translation>Nama Kurva Fungsi Pengubah Rasio Masukan Energi Pendinginan pada Suhu Tinggi</translation>
     </message>
-    <!-- OS:AirConditioner:VariableRefrigerantFlow -->
+    
     <message>
         <source>Cooling Energy Input Ratio Modifier Function of Low Part-Load Ratio Curve Name</source>
         <translation>Nama Kurva Fungsi Modifikasi Rasio Input Energi Pendinginan terhadap Rasio Beban Parsial Rendah</translation>
     </message>
-    <!-- OS:AirConditioner:VariableRefrigerantFlow -->
+    
     <message>
         <source>Cooling Energy Input Ratio Modifier Function of Low Temperature Curve Name</source>
         <translation>Nama Kurva Pengubah Rasio Masukan Energi Pendinginan Fungsi Suhu Rendah</translation>
     </message>
-    <!-- OS:Sizing:System -->
+    
     <message>
         <source>Cooling Fraction of Autosized Cooling Supply Air Flow Rate</source>
         <translation>Fraksi Pendinginan dari Laju Aliran Udara Pasokan Pendinginan yang Diukur Otomatis</translation>
     </message>
-    <!-- OS:ZoneHVAC:IdealLoadsAirSystem -->
+    
     <message>
         <source>Cooling Fuel Efficiency Schedule Name</source>
         <translation>Nama Jadwal Efisiensi Bahan Bakar Pendinginan</translation>
     </message>
-    <!-- OS:ZoneHVAC:IdealLoadsAirSystem -->
+    
     <message>
         <source>Cooling Fuel Type</source>
         <translation>Jenis Bahan Bakar Pendingin</translation>
     </message>
-    <!-- OS:Coil:Cooling:LowTemperatureRadiant:ConstantFlow -->
+    
     <message>
         <source>Cooling High Control Temperature Schedule Name</source>
         <translation>Nama Jadwal Suhu Kontrol Pendinginan Tinggi</translation>
     </message>
-    <!-- OS:Coil:Cooling:LowTemperatureRadiant:ConstantFlow -->
+    
     <message>
         <source>Cooling High Water Temperature Schedule Name</source>
         <translation>Nama Jadwal Temperatur Air Pendingin Tinggi</translation>
     </message>
-    <!-- OS:ZoneHVAC:IdealLoadsAirSystem -->
+    
     <message>
         <source>Cooling Limit</source>
         <translation>Batas Pendinginan</translation>
     </message>
-    <!-- OS:ZoneHVAC:EvaporativeCoolerUnit -->
+    
     <message>
         <source>Cooling Load Control Threshold Heat Transfer Rate</source>
         <translation>Laju Transfer Panas Ambang Kontrol Beban Pendinginan</translation>
     </message>
-    <!-- OS:CentralHeatPumpSystem -->
+    
     <message>
         <source>Cooling Loop Inlet Node Name</source>
         <translation>Nama Node Inlet Loop Pendingin</translation>
     </message>
-    <!-- OS:CentralHeatPumpSystem -->
+    
     <message>
         <source>Cooling Loop Outlet Node Name</source>
         <translation>Nama Node Outlet Loop Pendinginan</translation>
     </message>
-    <!-- OS:Coil:Cooling:LowTemperatureRadiant:ConstantFlow -->
+    
     <message>
         <source>Cooling Low Control Temperature Schedule Name</source>
         <translation>Nama Jadwal Suhu Kontrol Rendah Pendingin</translation>
     </message>
-    <!-- OS:Coil:Cooling:LowTemperatureRadiant:ConstantFlow -->
+    
     <message>
         <source>Cooling Low Water Temperature Schedule Name</source>
         <translation>Nama Jadwal Temperatur Air Pendingin Rendah</translation>
     </message>
-    <!-- OS:ChillerHeaterPerformance:Electric:EIR -->
+    
     <message>
         <source>Cooling Mode Cooling Capacity Function of Temperature Curve Name</source>
         <translation>Nama Kurva Fungsi Kapasitas Pendinginan Mode Pendinginan</translation>
     </message>
-    <!-- OS:ChillerHeaterPerformance:Electric:EIR -->
+    
     <message>
         <source>Cooling Mode Cooling Capacity Optimum Part Load Ratio</source>
         <translation>Rasio Beban Sebagian Optimal Kapasitas Pendingin Mode Pendingin</translation>
     </message>
-    <!-- OS:ChillerHeaterPerformance:Electric:EIR -->
+    
     <message>
         <source>Cooling Mode Electric Input to Cooling Output Ratio Function of Part Load Ratio Curve Name</source>
         <translation>Nama Kurva Fungsi Rasio Input Listrik ke Output Pendingin Terhadap Rasio Beban Parsial Mode Pendinginan</translation>
     </message>
-    <!-- OS:ChillerHeaterPerformance:Electric:EIR -->
+    
     <message>
         <source>Cooling Mode Electric Input to Cooling Output Ratio Function of Temperature Curve Name</source>
         <translation>Nama Kurva Fungsi Rasio Input Listrik terhadap Output Pendingin dalam Mode Pendinginan berdasarkan Temperatur</translation>
     </message>
-    <!-- OS:ChillerHeaterPerformance:Electric:EIR -->
+    
     <message>
         <source>Cooling Mode Temperature Curve Condenser Water Independent Variable</source>
         <translation>Kurva Suhu Mode Pendinginan Variabel Independen Air Kondensor</translation>
     </message>
-    <!-- OS:Coil:Cooling:DX:SingleSpeed:ThermalStorage -->
+    
     <message>
         <source>Cooling Only Mode Available</source>
         <translation>Mode Pendinginan Saja Tersedia</translation>
     </message>
-    <!-- OS:Coil:Cooling:DX:SingleSpeed:ThermalStorage -->
+    
     <message>
         <source>Cooling Only Mode Energy Input Ratio Function of Flow Fraction Curve</source>
         <translation>Kurva Fungsi Rasio Masukan Energi Mode Pendinginan Saja terhadap Fraksi Aliran</translation>
     </message>
-    <!-- OS:Coil:Cooling:DX:SingleSpeed:ThermalStorage -->
+    
     <message>
         <source>Cooling Only Mode Energy Input Ratio Function of Temperature Curve</source>
         <translation>Kurva Fungsi Rasio Input Energi Mode Pendinginan Saja terhadap Suhu</translation>
     </message>
-    <!-- OS:Coil:Cooling:DX:SingleSpeed:ThermalStorage -->
+    
     <message>
         <source>Cooling Only Mode Part Load Fraction Correlation Curve</source>
         <translation>Kurva Korelasi Fraksi Beban Sebagian Mode Pendinginan Saja</translation>
     </message>
-    <!-- OS:Coil:Cooling:DX:SingleSpeed:ThermalStorage -->
+    
     <message>
         <source>Cooling Only Mode Rated COP</source>
         <translation>Cooling Only Mode Rated COP</translation>
     </message>
-    <!-- OS:Coil:Cooling:DX:SingleSpeed:ThermalStorage -->
+    
     <message>
         <source>Cooling Only Mode Rated Sensible Heat Ratio</source>
         <translation>Rasio Panas Sensibel Rated Mode Pendinginan Saja</translation>
     </message>
-    <!-- OS:Coil:Cooling:DX:SingleSpeed:ThermalStorage -->
+    
     <message>
         <source>Cooling Only Mode Rated Total Evaporator Cooling Capacity</source>
         <translation>Kapasitas Pendinginan Total Evaporator Terhitung Mode Pendinginan Saja</translation>
     </message>
-    <!-- OS:Coil:Cooling:DX:SingleSpeed:ThermalStorage -->
+    
     <message>
         <source>Cooling Only Mode Sensible Heat Ratio Function of Flow Fraction Curve</source>
         <translation>Kurva Fungsi Rasio Panas Sensibel Mode Pendinginan Saja terhadap Fraksi Aliran</translation>
     </message>
-    <!-- OS:Coil:Cooling:DX:SingleSpeed:ThermalStorage -->
+    
     <message>
         <source>Cooling Only Mode Sensible Heat Ratio Function of Temperature Curve</source>
         <translation>Fungsi Rasio Panas Sensibel Mode Pendinginan Saja terhadap Kurva Suhu</translation>
     </message>
-    <!-- OS:Coil:Cooling:DX:SingleSpeed:ThermalStorage -->
+    
     <message>
         <source>Cooling Only Mode Total Evaporator Cooling Capacity Function of Flow Fraction Curve</source>
         <translation>Kurva Fungsi Kapasitas Pendinginan Evaporator Total Mode Pendinginan Saja terhadap Fraksi Aliran</translation>
     </message>
-    <!-- OS:Coil:Cooling:DX:SingleSpeed:ThermalStorage -->
+    
     <message>
         <source>Cooling Only Mode Total Evaporator Cooling Capacity Function of Temperature Curve</source>
         <translation>Kurva Fungsi Kapasitas Pendinginan Evaporator Total Mode Pendinginan Saja</translation>
     </message>
-    <!-- OS:HeatPump:AirToWater -->
+    
     <message>
         <source>Cooling Operation Mode</source>
         <translation>Mode Operasi Pendinginan</translation>
     </message>
-    <!-- OS:AirConditioner:VariableRefrigerantFlow -->
+    
     <message>
         <source>Cooling Part-Load Fraction Correlation Curve Name</source>
         <translation>Nama Kurva Korelasi Fraksi Beban Parsial Pendingin</translation>
     </message>
-    <!-- OS:Coil:Cooling:WaterToAirHeatPump:EquationFit -->
+    
     <message>
         <source>Cooling Power Consumption Curve Name</source>
         <translation>Nama Kurva Konsumsi Daya Pendinginan</translation>
     </message>
-    <!-- OS:ZoneHVAC:IdealLoadsAirSystem -->
+    
     <message>
         <source>Cooling Sensible Heat Ratio</source>
         <translation>Rasio Panas Sensibel Pendinginan</translation>
     </message>
-    <!-- OS:ThermostatSetpoint:DualSetpoint -->
+    
     <message>
         <source>Cooling Setpoint Temperature Schedule Name</source>
         <translation>Nama Jadwal Temperatur Setpoint Pendinginan</translation>
     </message>
-    <!-- OS:Sizing:Parameters -->
+    
     <message>
         <source>Cooling Sizing Factor</source>
         <translation>Faktor Penentuan Ukuran Pendinginan</translation>
     </message>
-    <!-- OS:UnitarySystemPerformance:Multispeed -->
+    
     <message>
         <source>Cooling Speed Supply Air Flow Ratio</source>
         <translation>Rasio Aliran Udara Pasokan Kecepatan Pendinginan</translation>
     </message>
-    <!-- OS:SetpointManager:SingleZone:OneStageCooling -->
+    
     <message>
         <source>Cooling Stage Off Supply Air Setpoint Temperature</source>
         <translation>Suhu Titik Atur Udara Suplai Panggung Pendingin Mati</translation>
     </message>
-    <!-- OS:SetpointManager:SingleZone:OneStageCooling -->
+    
     <message>
         <source>Cooling Stage On Supply Air Setpoint Temperature</source>
         <translation>Suhu Titik Setel Udara Pasokan pada Stadium Pendinginan Aktif</translation>
     </message>
-    <!-- OS:Sizing:System -->
+    
     <message>
         <source>Cooling Supply Air Flow Rate Per Floor Area</source>
         <translation>Laju Aliran Udara Pasokan Pendinginan per Luas Lantai</translation>
     </message>
-    <!-- OS:Sizing:System -->
+    
     <message>
         <source>Cooling Supply Air Flow Rate Per Unit Cooling Capacity</source>
         <translation>Laju Aliran Udara Pasokan Pendingin Per Unit Kapasitas Pendingin</translation>
     </message>
-    <!-- OS:ZoneControl:Thermostat:StagedDualSetpoint -->
+    
     <message>
         <source>Cooling Temperature Setpoint Base Schedule</source>
         <translation>Jadwal Dasar Titik Acuan Suhu Pendingin</translation>
     </message>
-    <!-- OS:ZoneControl:Thermostat:StagedDualSetpoint -->
+    
     <message>
         <source>Cooling Throttling Temperature Range</source>
         <translation>Rentang Suhu Throttling Pendinginan</translation>
     </message>
-    <!-- OS:Coil:Cooling:LowTemperatureRadiant:ConstantFlow, OS:Coil:Cooling:LowTemperatureRadiant:VariableFlow -->
+    
     <message>
         <source>Cooling Water Inlet Node Name</source>
         <translation>Nama Node Inlet Air Pendingin</translation>
     </message>
-    <!-- OS:Coil:Cooling:LowTemperatureRadiant:ConstantFlow, OS:Coil:Cooling:LowTemperatureRadiant:VariableFlow -->
+    
     <message>
         <source>Cooling Water Outlet Node Name</source>
         <translation>Nama Node Outlet Air Pendingin</translation>
     </message>
-    <!-- OS:Coil:WaterHeating:AirToWaterHeatPump:VariableSpeed:SpeedData -->
+    
     <message>
         <source>COP Function of Air Flow Fraction Curve Name</source>
         <translation>Nama Kurva Fungsi COP terhadap Fraksi Aliran Udara</translation>
     </message>
-    <!-- OS:Coil:WaterHeating:AirToWaterHeatPump:VariableSpeed:SpeedData -->
+    
     <message>
         <source>COP Function of Temperature Curve Name</source>
         <translation>Nama Kurva Fungsi COP terhadap Suhu</translation>
     </message>
-    <!-- OS:Coil:WaterHeating:AirToWaterHeatPump:VariableSpeed:SpeedData -->
+    
     <message>
         <source>COP Function of Water Flow Fraction Curve Name</source>
         <translation>Nama Kurva Fungsi COP terhadap Fraksi Aliran Air</translation>
     </message>
-    <!-- OS:LifeCycleCost -->
+    
     <message>
         <source>Cost</source>
         <translation>Biaya</translation>
     </message>
-    <!-- OS:UtilityCost:Charge:Simple -->
+    
     <message>
         <source>Cost per Unit Value or Variable Name</source>
         <translation>Nilai Biaya per Unit atau Nama Variabel</translation>
     </message>
-    <!-- OS:LifeCycleCost -->
+    
     <message>
         <source>Cost Units</source>
         <translation>Satuan Biaya</translation>
     </message>
-    <!-- OS:WeatherFile -->
+    
     <message>
         <source>Country</source>
         <translation>Negara</translation>
     </message>
-    <!-- OS:SwimmingPool:Indoor -->
+    
     <message>
         <source>Cover Convection Factor</source>
         <translation>Faktor Konveksi Penutup</translation>
     </message>
-    <!-- OS:SwimmingPool:Indoor -->
+    
     <message>
         <source>Cover Evaporation Factor</source>
         <translation>Faktor Penguapan Penutup</translation>
     </message>
-    <!-- OS:SwimmingPool:Indoor -->
+    
     <message>
         <source>Cover Long-Wavelength Radiation Factor</source>
         <translation>Faktor Radiasi Gelombang Panjang Penutup</translation>
     </message>
-    <!-- OS:SwimmingPool:Indoor -->
+    
     <message>
         <source>Cover Schedule Name</source>
         <translation>Nama Jadwal Penutup</translation>
     </message>
-    <!-- OS:SwimmingPool:Indoor -->
+    
     <message>
         <source>Cover Short-Wavelength Radiation Factor</source>
         <translation>Faktor Radiasi Gelombang Pendek Penutup</translation>
     </message>
-    <!-- OS:SolarCollectorPerformance:IntegralCollectorStorage -->
+    
     <message>
         <source>Cover Spacing</source>
         <translation>Jarak Penutup</translation>
     </message>
-    <!-- OS:ElectricEquipment:ITE:AirCooled -->
+    
     <message>
         <source>CPU End-Use Subcategory</source>
         <translation>Subkategori Penggunaan Akhir CPU</translation>
     </message>
-    <!-- OS:ElectricEquipment:ITE:AirCooled -->
+    
     <message>
         <source>CPU Loading Schedule Name</source>
         <translation>Nama Jadwal Beban CPU</translation>
     </message>
-    <!-- OS:ElectricEquipment:ITE:AirCooled:Definition -->
+    
     <message>
         <source>CPU Power Input Function of Loading and Air Temperature Curve Name</source>
         <translation>Nama Kurva Fungsi Input Daya CPU terhadap Beban dan Suhu Udara</translation>
     </message>
-    <!-- OS:AirflowNetworkOutdoorAirflow, OS:AirflowNetworkZoneExhaustFan -->
+    
     <message>
         <source>Crack Name</source>
         <translation>Nama Celah</translation>
     </message>
-    <!-- OS:ComponentData -->
+    
     <message>
         <source>Creation Timestamp</source>
         <translation>Stempel Waktu Pembuatan</translation>
     </message>
-    <!-- OS:AirflowNetworkDuct -->
+    
     <message>
         <source>Cross Section Area</source>
         <translation>Luas Penampang Silang</translation>
     </message>
-    <!-- OS:Output:Meter -->
+    
     <message>
         <source>Cumulative</source>
         <translation>Kumulatif</translation>
     </message>
-    <!-- OS:PhotovoltaicPerformance:Sandia -->
+    
     <message>
         <source>Current at Maximum Power Point</source>
         <translation>Arus pada Titik Daya Maksimum</translation>
     </message>
-    <!-- OS:EnergyManagementSystem:CurveOrTableIndexVariable -->
+    
     <message>
         <source>Curve or Table Object Name</source>
         <translation>Nama Objek Kurva atau Tabel</translation>
     </message>
-    <!-- OS:Table:MultiVariableLookup -->
+    
     <message>
         <source>Curve Type</source>
         <translation>Jenis Kurva</translation>
     </message>
-    <!-- OS:Foundation:Kiva -->
+    
     <message>
         <source>Custom Block Depth</source>
         <translation>Kedalaman Blok Kustom</translation>
     </message>
-    <!-- OS:Foundation:Kiva -->
+    
     <message>
         <source>Custom Block Material Name</source>
         <translation>Nama Material Blok Kustom</translation>
     </message>
-    <!-- OS:Foundation:Kiva -->
+    
     <message>
         <source>Custom Block X Position</source>
         <translation>Posisi Blok Kustom X</translation>
     </message>
-    <!-- OS:Foundation:Kiva -->
+    
     <message>
         <source>Custom Block Z Position</source>
         <translation>Posisi Z Blok Kustom</translation>
     </message>
-    <!-- OS:Schedule:Week -->
+    
     <message>
         <source>CustomDay1 Schedule:Day Name</source>
         <translation>CustomDay1 Schedule:Nama Hari</translation>
     </message>
-    <!-- OS:Schedule:Week -->
+    
     <message>
         <source>CustomDay2 Schedule:Day Name</source>
         <translation>CustomDay2 Schedule:Nama Hari</translation>
     </message>
-    <!-- OS:UtilityCost:Tariff -->
+    
     <message>
         <source>Customer Baseline Load Schedule Name</source>
         <translation>Nama Jadwal Beban Dasar Pelanggan</translation>
     </message>
-    <!-- OS:Generator:WindTurbine -->
+    
     <message>
         <source>Cut In Wind Speed</source>
         <translation>Kecepatan Angin Cut In</translation>
     </message>
-    <!-- OS:Generator:WindTurbine -->
+    
     <message>
         <source>Cut Out Wind Speed</source>
         <translation>Kecepatan Angin Cutout</translation>
     </message>
-    <!-- OS:Generator:FuelCell:PowerModule -->
+    
     <message>
         <source>Cycling Performance Degradation Coefficient</source>
         <translation>Koefisien Degradasi Kinerja Siklus</translation>
     </message>
-    <!-- OS:HeatPump:AirToWater:FuelFired:Cooling, OS:HeatPump:AirToWater:FuelFired:Heating -->
+    
     <message>
         <source>Cycling Ratio Factor Curve Name</source>
         <translation>Nama Kurva Faktor Rasio Siklus</translation>
     </message>
-    <!-- OS:AvailabilityManager:NightCycle -->
+    
     <message>
         <source>Cycling Run Time</source>
         <translation>Waktu Operasi Siklis</translation>
     </message>
-    <!-- OS:AvailabilityManager:NightCycle -->
+    
     <message>
         <source>Cycling Run Time Control Type</source>
         <translation>Jenis Kontrol Waktu Berjalan Siklis</translation>
     </message>
 
-    <!-- D -->
-    <!-- OS:SizingPeriod:DesignDay -->
+    
+    
     <message>
         <source>Daily Dry-Bulb Temperature Range</source>
         <translation>Rentang Temperatur Bola Kering Harian</translation>
     </message>
-    <!-- OS:SizingPeriod:DesignDay -->
+    
     <message>
         <source>Daily Wet-Bulb Temperature Range</source>
         <translation>Kisaran Suhu Bola Basah Harian</translation>
     </message>
-    <!-- OS:AirTerminal:SingleDuct:VAV:HeatAndCool:Reheat -->
+    
     <message>
         <source>Damper Air Outlet</source>
         <translation>Outlet Udara Damper</translation>
     </message>
-    <!-- OS:Table:MultiVariableLookup -->
+    
     <message>
         <source>Data</source>
         <translation>Data</translation>
     </message>
-    <!-- OS:WeatherFile -->
+    
     <message>
         <source>Data Source</source>
         <translation>Sumber Data</translation>
     </message>
-    <!-- OS:Schedule:Rule -->
+    
     <message>
         <source>Date Specification Type</source>
         <translation>Tipe Spesifikasi Tanggal</translation>
     </message>
-    <!-- OS:Schedule:VariableInterval, OS:Schedule:Year -->
+    
     <message>
         <source>Day</source>
         <translation>Hari</translation>
     </message>
-    <!-- OS:LightingDesignDay, OS:SizingPeriod:DesignDay -->
+    
     <message>
         <source>Day of Month</source>
         <translation>Hari dalam Bulan</translation>
     </message>
-    <!-- OS:SizingPeriod:WeatherFileConditionType, OS:SizingPeriod:WeatherFileDays, OS:YearDescription -->
+    
     <message>
         <source>Day of Week for Start Day</source>
         <translation>Hari dalam Minggu untuk Hari Mulai</translation>
     </message>
-    <!-- OS:Schedule:Rule -->
+    
     <message>
         <source>Day Schedule Name</source>
         <translation>Nama Jadwal Hari</translation>
     </message>
-    <!-- OS:SizingPeriod:DesignDay -->
+    
     <message>
         <source>Day Type</source>
         <translation>Jenis Hari</translation>
     </message>
-    <!-- OS:WindowMaterial:DaylightRedirectionDevice -->
+    
     <message>
         <source>Daylight Redirection Device Type</source>
         <translation>Jenis Perangkat Pengalihan Cahaya Siang</translation>
     </message>
-    <!-- OS:SizingPeriod:DesignDay -->
+    
     <message>
         <source>Daylight Saving Time Indicator</source>
         <translation>Indikator Waktu Musiman Siang Hari</translation>
     </message>
-    <!-- OS:Generator:PVWatts -->
+    
     <message>
         <source>DC System Capacity</source>
         <translation>Kapasitas Sistem DC</translation>
     </message>
-    <!-- OS:ElectricLoadCenter:Inverter:PVWatts -->
+    
     <message>
         <source>DC to AC Size Ratio</source>
         <translation>Rasio Ukuran DC ke AC</translation>
     </message>
-    <!-- OS:ElectricLoadCenter:Storage:LiIonNMCBattery -->
+    
     <message>
         <source>DC to DC Charging Efficiency</source>
         <translation>DC to DC Charging Efficiency</translation>
     </message>
-    <!-- OS:Coil:WaterHeating:Desuperheater, OS:WaterHeater:HeatPump, OS:WaterHeater:HeatPump:WrappedCondenser -->
+    
     <message>
         <source>Dead Band Temperature Difference</source>
         <translation>Perbedaan Suhu Dead Band</translation>
     </message>
-    <!-- OS:Site:GroundTemperature:Deep -->
+    
     <message>
         <source>December Deep Ground Temperature</source>
         <translation>Suhu Tanah Dalam Desember</translation>
     </message>
-    <!-- OS:Site:GroundReflectance -->
+    
     <message>
         <source>December Ground Reflectance</source>
         <translation>Reflektansi Tanah Desember</translation>
     </message>
-    <!-- OS:Site:GroundTemperature:BuildingSurface, OS:Site:GroundTemperature:FCfactorMethod -->
+    
     <message>
         <source>December Ground Temperature</source>
         <translation>Suhu Tanah Desember</translation>
     </message>
-    <!-- OS:Site:GroundTemperature:Shallow -->
+    
     <message>
         <source>December Surface Ground Temperature</source>
         <translation>Suhu Tanah Permukaan Desember</translation>
     </message>
-    <!-- OS:UtilityCost:Variable -->
+    
     <message>
         <source>December Value</source>
         <translation>Nilai Desember</translation>
     </message>
-    <!-- OS:CoilSystem:IntegratedHeatPump:AirSource -->
+    
     <message>
         <source>Dedicated Water Heating Coil</source>
         <translation>Kumparan Pemanas Air Khusus</translation>
     </message>
-    <!-- OS:MaterialProperty:MoisturePenetrationDepth:Settings -->
+    
     <message>
         <source>Deep Layer Penetration Depth</source>
         <translation>Kedalaman Penetrasi Lapisan Dalam</translation>
     </message>
-    <!-- OS:Foundation:Kiva:Settings -->
+    
     <message>
         <source>Deep-Ground Boundary Condition</source>
         <translation>Kondisi Batas Tanah Dalam</translation>
     </message>
-    <!-- OS:Foundation:Kiva:Settings -->
+    
     <message>
         <source>Deep-Ground Depth</source>
         <translation>Kedalaman Tanah Dalam</translation>
     </message>
-    <!-- OS:Building, OS:BuildingStory, OS:Space, OS:SpaceType -->
+    
     <message>
         <source>Default Construction Set Name</source>
         <translation>Nama Set Konstruksi Default</translation>
     </message>
-    <!-- OS:DefaultConstructionSet -->
+    
     <message>
         <source>Default Exterior SubSurface Constructions Name</source>
         <translation>Nama Konstruksi SubSurface Eksterior Default</translation>
     </message>
-    <!-- OS:DefaultConstructionSet -->
+    
     <message>
         <source>Default Exterior Surface Constructions Name</source>
         <translation>Nama Konstruksi Permukaan Eksterior Default</translation>
     </message>
-    <!-- OS:DefaultConstructionSet -->
+    
     <message>
         <source>Default Ground Contact Surface Constructions Name</source>
         <translation>Nama Konstruksi Permukaan Kontak Tanah Default</translation>
     </message>
-    <!-- OS:DefaultConstructionSet -->
+    
     <message>
         <source>Default Interior SubSurface Constructions Name</source>
         <translation>Nama Konstruksi SubSurface Interior Default</translation>
     </message>
-    <!-- OS:DefaultConstructionSet -->
+    
     <message>
         <source>Default Interior Surface Constructions Name</source>
         <translation>Nama Konstruksi Permukaan Interior Default</translation>
     </message>
-    <!-- OS:ElectricLoadCenter:Storage:LiIonNMCBattery -->
+    
     <message>
         <source>Default Nominal Cell Voltage</source>
         <translation>Tegangan Sel Nominal Default</translation>
     </message>
-    <!-- OS:Building, OS:BuildingStory, OS:Space, OS:SpaceType -->
+    
     <message>
         <source>Default Schedule Set Name</source>
         <translation>Nama Set Jadwal Default</translation>
     </message>
-    <!-- OS:Refrigeration:DefrostCycleParameters -->
+    
     <message>
         <source>Defrost 1 Hour Start Time</source>
         <translation>Waktu Mulai Defrost 1 Jam</translation>
     </message>
-    <!-- OS:Refrigeration:DefrostCycleParameters -->
+    
     <message>
         <source>Defrost 1 Minute Start Time</source>
         <translation>Waktu Mulai Defrost 1 Menit</translation>
     </message>
-    <!-- OS:Refrigeration:DefrostCycleParameters -->
+    
     <message>
         <source>Defrost 2 Hour Start Time</source>
         <translation>Waktu Mulai Defrost 2 Jam</translation>
     </message>
-    <!-- OS:Refrigeration:DefrostCycleParameters -->
+    
     <message>
         <source>Defrost 2 Minute Start Time</source>
         <translation>Waktu Mulai Pencairan 2 Menit</translation>
     </message>
-    <!-- OS:Refrigeration:DefrostCycleParameters -->
+    
     <message>
         <source>Defrost 3 Hour Start Time</source>
         <translation>Waktu Mulai Defrost 3 Jam</translation>
     </message>
-    <!-- OS:Refrigeration:DefrostCycleParameters -->
+    
     <message>
         <source>Defrost 3 Minute Start Time</source>
         <translation>Waktu Mulai Defrost 3 Menit</translation>
     </message>
-    <!-- OS:Refrigeration:DefrostCycleParameters -->
+    
     <message>
         <source>Defrost 4 Hour Start Time</source>
         <translation>Waktu Mulai Defrost 4 Jam</translation>
     </message>
-    <!-- OS:Refrigeration:DefrostCycleParameters -->
+    
     <message>
         <source>Defrost 4 Minute Start Time</source>
         <translation>Waktu Mulai Defrost 4 Menit</translation>
     </message>
-    <!-- OS:Refrigeration:DefrostCycleParameters -->
+    
     <message>
         <source>Defrost 5 Hour Start Time</source>
         <translation>Waktu Mulai Defrost 5 Jam</translation>
     </message>
-    <!-- OS:Refrigeration:DefrostCycleParameters -->
+    
     <message>
         <source>Defrost 5 Minute Start Time</source>
         <translation>Waktu Mulai Defrost 5 Menit</translation>
     </message>
-    <!-- OS:Refrigeration:DefrostCycleParameters -->
+    
     <message>
         <source>Defrost 6 Hour Start Time</source>
         <translation>Waktu Mulai Defrost 6 Jam</translation>
     </message>
-    <!-- OS:Refrigeration:DefrostCycleParameters -->
+    
     <message>
         <source>Defrost 6 Minute Start Time</source>
         <translation>Waktu Mulai Defrost 6 Menit</translation>
     </message>
-    <!-- OS:Refrigeration:DefrostCycleParameters -->
+    
     <message>
         <source>Defrost 7 Hour Start Time</source>
         <translation>Waktu Mulai Defrost 7 Jam</translation>
     </message>
-    <!-- OS:Refrigeration:DefrostCycleParameters -->
+    
     <message>
         <source>Defrost 7 Minute Start Time</source>
         <translation>Waktu Mulai Defrost 7 Menit</translation>
     </message>
-    <!-- OS:Refrigeration:DefrostCycleParameters -->
+    
     <message>
         <source>Defrost 8 Hour Start Time</source>
         <translation>Waktu Mulai Defrost 8 Jam</translation>
     </message>
-    <!-- OS:Refrigeration:DefrostCycleParameters -->
+    
     <message>
         <source>Defrost 8 Minute Start Time</source>
         <translation>Waktu Mulai Defrost 8 Menit</translation>
     </message>
-    <!-- OS:HeatPump:AirToWater:FuelFired:Heating, OS:Refrigeration:AirChiller, OS:Refrigeration:WalkIn -->
+    
     <message>
         <source>Defrost Control Type</source>
         <translation>Jenis Kontrol Defrost</translation>
     </message>
-    <!-- OS:Refrigeration:AirChiller, OS:Refrigeration:WalkIn -->
+    
     <message>
         <source>Defrost Drip-Down Schedule Name</source>
         <translation>Nama Jadwal Defrost Drip-Down</translation>
     </message>
-    <!-- OS:Refrigeration:Case -->
+    
     <message>
         <source>Defrost Energy Correction Curve Name</source>
         <translation>Nama Kurva Koreksi Energi Defrost</translation>
     </message>
-    <!-- OS:Refrigeration:Case -->
+    
     <message>
         <source>Defrost Energy Correction Curve Type</source>
         <translation>Jenis Kurva Koreksi Energi Defrost</translation>
     </message>
-    <!-- OS:Coil:Heating:DX:MultiSpeed, OS:Coil:Heating:DX:SingleSpeed, OS:Coil:Heating:DX:VariableSpeed, OS:HeatPump:AirToWater, OS:HeatPump:PlantLoop:EIR:Heating -->
+    
     <message>
         <source>Defrost Energy Input Ratio Function of Temperature Curve Name</source>
         <translation>Nama Kurva Fungsi Rasio Input Energi Defrost terhadap Suhu</translation>
     </message>
-    <!-- OS:AirConditioner:VariableRefrigerantFlow, OS:AirConditioner:VariableRefrigerantFlow:FluidTemperatureControl, OS:AirConditioner:VariableRefrigerantFlow:FluidTemperatureControl:HR -->
+    
     <message>
         <source>Defrost Energy Input Ratio Modifier Function of Temperature Curve Name</source>
         <translation>Nama Kurva Fungsi Modifier Rasio Input Energi Defrost terhadap Suhu</translation>
     </message>
-    <!-- OS:HeatPump:AirToWater:FuelFired:Heating -->
+    
     <message>
         <source>Defrost Operation Time Fraction</source>
         <translation>Fraksi Waktu Operasi Defrost</translation>
     </message>
-    <!-- OS:Refrigeration:AirChiller, OS:Refrigeration:WalkIn -->
+    
     <message>
         <source>Defrost Power</source>
         <translation>Daya Pencairan</translation>
     </message>
-    <!-- OS:Refrigeration:AirChiller, OS:Refrigeration:WalkIn -->
+    
     <message>
         <source>Defrost Schedule Name</source>
         <translation>Nama Jadwal Pencairan</translation>
     </message>
-    <!-- OS:Refrigeration:AirChiller, OS:Refrigeration:WalkIn -->
+    
     <message>
         <source>Defrost Type</source>
         <translation>Jenis Defrost</translation>
     </message>
-    <!-- OS:LoadProfile:Plant -->
+    
     <message>
         <source>Degree of Loop SubCooling</source>
         <translation>Derajat SubPendinginan Loop</translation>
     </message>
-    <!-- OS:LoadProfile:Plant -->
+    
     <message>
         <source>Degree of SubCooling</source>
         <translation>Derajat SubPendinginan</translation>
     </message>
-    <!-- OS:Chiller:Absorption:Indirect -->
+    
     <message>
         <source>Degree of Subcooling in Steam Condensate Loop</source>
         <translation>Derajat Pendinginan Lanjut dalam Loop Kondensat Uap</translation>
     </message>
-    <!-- OS:Chiller:Absorption, OS:Chiller:Absorption:Indirect -->
+    
     <message>
         <source>Degree of Subcooling in Steam Generator</source>
         <translation>Derajat Pendinginan Lanjut di Generator Uap</translation>
     </message>
-    <!-- OS:AirLoopHVAC:UnitaryCoolOnly, OS:AirLoopHVAC:UnitaryHeatCool:VAVChangeoverBypass, OS:AirLoopHVAC:UnitaryHeatPump:AirToAir, OS:AirLoopHVAC:UnitarySystem, OS:CoilSystem:Cooling:Water, OS:ZoneHVAC:IdealLoadsAirSystem -->
+    
     <message>
         <source>Dehumidification Control Type</source>
         <translation>Tipe Kontrol Dehumidifikasi</translation>
     </message>
-    <!-- OS:Coil:Cooling:DX:TwoStageWithHumidityControlMode -->
+    
     <message>
         <source>Dehumidification Mode 1 Stage 1 Coil Performance</source>
         <translation>Performa Koil Mode Dehumidifikasi 1 Tahap 1</translation>
     </message>
-    <!-- OS:Coil:Cooling:DX:TwoStageWithHumidityControlMode -->
+    
     <message>
         <source>Dehumidification Mode 1 Stage 1 Plus 2 Coil Performance</source>
         <translation>Performa Koil Mode Dehumidifikasi 1 Tahap 1 Plus 2</translation>
     </message>
-    <!-- OS:ZoneControl:Humidistat -->
+    
     <message>
         <source>Dehumidifying Relative Humidity Setpoint Schedule Name</source>
         <translation>Nama Jadwal Titik Setel Kelembaban Relatif Penghilangan Kelembaban</translation>
     </message>
-    <!-- OS:ZoneMixing, OS:ZoneVentilation:DesignFlowRate, OS:ZoneVentilation:WindandStackOpenArea -->
+    
     <message>
         <source>Delta Temperature</source>
         <translation>Selisih Suhu</translation>
     </message>
-    <!-- OS:ZoneMixing, OS:ZoneVentilation:DesignFlowRate, OS:ZoneVentilation:WindandStackOpenArea -->
+    
     <message>
         <source>Delta Temperature Schedule Name</source>
         <translation>Nama Jadwal Delta Temperatur</translation>
     </message>
-    <!-- OS:Controller:MechanicalVentilation -->
+    
     <message>
         <source>Demand Controlled Ventilation</source>
         <translation>Ventilasi Terkontrol Permintaan</translation>
     </message>
-    <!-- OS:ZoneHVAC:IdealLoadsAirSystem -->
+    
     <message>
         <source>Demand Controlled Ventilation Type</source>
         <translation>Tipe Ventilasi Terkontrol Permintaan</translation>
     </message>
-    <!-- OS:UtilityCost:Tariff -->
+    
     <message>
         <source>Demand Conversion Factor</source>
         <translation>Faktor Konversi Permintaan</translation>
     </message>
-    <!-- OS:ElectricLoadCenter:Distribution -->
+    
     <message>
         <source>Demand Limit Scheme Purchased Electric Demand Limit</source>
         <translation>Batas Permintaan Listrik Beli Skema Batas Permintaan</translation>
     </message>
-    <!-- OS:AirLoopHVAC, OS:PlantLoop -->
+    
     <message>
         <source>Demand Mixer Name</source>
         <translation>Nama Demand Mixer</translation>
     </message>
-    <!-- OS:PlantLoop -->
+    
     <message>
         <source>Demand Side Branch List Name</source>
         <translation>Nama Daftar Cabang Sisi Permintaan</translation>
     </message>
-    <!-- OS:PlantLoop -->
+    
     <message>
         <source>Demand Side Connector List Name</source>
         <translation>Nama Daftar Konektor Sisi Permintaan</translation>
     </message>
-    <!-- OS:AirLoopHVAC -->
+    
     <message>
         <source>Demand Side Inlet Node A</source>
         <translation>Node Inlet Sisi Permintaan A</translation>
     </message>
-    <!-- OS:AirLoopHVAC -->
+    
     <message>
         <source>Demand Side Inlet Node B</source>
         <translation>Node Inlet Sisi Permintaan B</translation>
     </message>
-    <!-- OS:PlantLoop -->
+    
     <message>
         <source>Demand Side Inlet Node Name</source>
         <translation>Nama Node Inlet Sisi Permintaan</translation>
     </message>
-    <!-- OS:AirLoopHVAC, OS:PlantLoop -->
+    
     <message>
         <source>Demand Side Outlet Node Name</source>
         <translation>Nama Node Outlet Sisi Permintaan</translation>
     </message>
-    <!-- OS:AirLoopHVAC -->
+    
     <message>
         <source>Demand Splitter A Name</source>
         <translation>Nama Pemisah Permintaan A</translation>
     </message>
-    <!-- OS:AirLoopHVAC -->
+    
     <message>
         <source>Demand Splitter B Name</source>
         <translation>Nama Demand Splitter B</translation>
     </message>
-    <!-- OS:PlantLoop -->
+    
     <message>
         <source>Demand Splitter Name</source>
         <translation>Nama Demand Splitter</translation>
     </message>
-    <!-- OS:UtilityCost:Tariff -->
+    
     <message>
         <source>Demand Window Length</source>
         <translation>Panjang Jendela Permintaan</translation>
     </message>
-    <!-- OS:Material -->
+    
     <message>
         <source>Density</source>
         <translation>Kepadatan</translation>
     </message>
-    <!-- OS:Material:RoofVegetation -->
+    
     <message>
         <source>Density of Dry Soil</source>
         <translation>Kerapatan Tanah Kering</translation>
     </message>
-    <!-- OS:LifeCycleCost:Parameters -->
+    
     <message>
         <source>Depreciation Method</source>
         <translation>Metode Penyusutan</translation>
     </message>
-    <!-- OS:FluidCooler:SingleSpeed -->
+    
     <message>
         <source>Design Air Flow Rate Fan Power</source>
         <translation>Design Air Flow Rate Fan Power</translation>
     </message>
-    <!-- OS:FluidCooler:SingleSpeed -->
+    
     <message>
         <source>Design Air Flow Rate U-factor Times Area Value</source>
         <translation>Nilai U-factor Kali Luas Laju Aliran Udara Desain</translation>
     </message>
-    <!-- OS:ComponentCost:Adjustments -->
+    
     <message>
         <source>Design and Engineering Fees</source>
         <translation>Biaya Desain dan Teknik</translation>
     </message>
-    <!-- OS:CoolingTower:SingleSpeed, OS:CoolingTower:TwoSpeed, OS:CoolingTower:VariableSpeed -->
+    
     <message>
         <source>Design Approach Temperature</source>
         <translation>Temperatura Pendekatan Desain</translation>
     </message>
-    <!-- OS:Chiller:Absorption, OS:Chiller:Absorption:Indirect, OS:ChillerHeaterPerformance:Electric:EIR -->
+    
     <message>
         <source>Design Chilled Water Flow Rate</source>
         <translation>Laju Aliran Air Dingin Desain</translation>
     </message>
-    <!-- OS:AirTerminal:SingleDuct:ConstantVolume:FourPipeBeam -->
+    
     <message>
         <source>Design Chilled Water Volume Flow Rate</source>
         <translation>Laju Aliran Volume Air Dingin Desain</translation>
     </message>
-    <!-- OS:Refrigeration:CompressorRack -->
+    
     <message>
         <source>Design Compressor Rack COP</source>
         <translation>Design Compressor Rack COP</translation>
     </message>
-    <!-- OS:Refrigeration:CompressorRack -->
+    
     <message>
         <source>Design Condenser Fan Power</source>
         <translation>Daya Kipas Kondenser Desain</translation>
     </message>
-    <!-- OS:Chiller:Absorption, OS:Chiller:Absorption:Indirect -->
+    
     <message>
         <source>Design Condenser Inlet Temperature</source>
         <translation>Suhu Inlet Kondenser Desain</translation>
     </message>
-    <!-- OS:Chiller:Absorption, OS:Chiller:Absorption:Indirect, OS:ChillerHeaterPerformance:Electric:EIR -->
+    
     <message>
         <source>Design Condenser Water Flow Rate</source>
         <translation>Laju Aliran Air Kondenser Desain</translation>
     </message>
-    <!-- OS:Fan:SystemModel -->
+    
     <message>
         <source>Design Electric Power Consumption</source>
         <translation>Konsumsi Daya Listrik Desain</translation>
     </message>
-    <!-- OS:ElectricEquipment:ITE:AirCooled:Definition -->
+    
     <message>
         <source>Design Electric Power Supply Efficiency</source>
         <translation>Efisiensi Pasokan Daya Listrik Desain</translation>
     </message>
-    <!-- OS:ElectricEquipment:ITE:AirCooled:Definition, OS:EvaporativeFluidCooler:SingleSpeed, OS:EvaporativeFluidCooler:TwoSpeed, OS:FluidCooler:SingleSpeed, OS:FluidCooler:TwoSpeed -->
+    
     <message>
         <source>Design Entering Air Temperature</source>
         <translation>Temperatur Udara Masuk Desain</translation>
     </message>
-    <!-- OS:EvaporativeFluidCooler:SingleSpeed, OS:EvaporativeFluidCooler:TwoSpeed, OS:FluidCooler:TwoSpeed -->
+    
     <message>
         <source>Design Entering Air Wet-bulb Temperature</source>
         <translation>Temperatur Bola Basah Udara Masuk Desain</translation>
     </message>
-    <!-- OS:FluidCooler:SingleSpeed -->
+    
     <message>
         <source>Design Entering Air Wetbulb Temperature</source>
         <translation>Suhu Bola Basah Udara Masuk Desain</translation>
     </message>
-    <!-- OS:EvaporativeFluidCooler:SingleSpeed, OS:EvaporativeFluidCooler:TwoSpeed, OS:FluidCooler:SingleSpeed, OS:FluidCooler:TwoSpeed -->
+    
     <message>
         <source>Design Entering Water Temperature</source>
         <translation>Suhu Air Masuk Desain</translation>
     </message>
-    <!-- OS:Refrigeration:CompressorRack -->
+    
     <message>
         <source>Design Evaporative Condenser Water Pump Power</source>
         <translation>Daya Pompa Air Kondenser Evaporatif Desain</translation>
     </message>
-    <!-- OS:Refrigeration:Case -->
+    
     <message>
         <source>Design Evaporator Temperature or Brine Inlet Temperature</source>
         <translation>Suhu Evaporator Desain atau Suhu Inlet Brine</translation>
     </message>
-    <!-- OS:ElectricEquipment:ITE:AirCooled:Definition -->
+    
     <message>
         <source>Design Fan Air Flow Rate per Power Input</source>
         <translation>Laju Aliran Udara Desain per Input Daya</translation>
     </message>
-    <!-- OS:CoolingTower:VariableSpeed -->
+    
     <message>
         <source>Design Fan Power</source>
         <translation>Daya Kipas Desain</translation>
     </message>
-    <!-- OS:ElectricEquipment:ITE:AirCooled:Definition -->
+    
     <message>
         <source>Design Fan Power Input Fraction</source>
         <translation>Fraksi Input Daya Fan Desain</translation>
     </message>
-    <!-- OS:Chiller:Absorption, OS:Chiller:Absorption:Indirect -->
+    
     <message>
         <source>Design Generator Fluid Flow Rate</source>
         <translation>Laju Aliran Fluida Generator Desain</translation>
     </message>
-    <!-- OS:AirTerminal:SingleDuct:ParallelPIU:Reheat, OS:AirTerminal:SingleDuct:SeriesPIU:Reheat -->
+    
     <message>
         <source>Design Heating Discharge Air Temperature</source>
         <translation>Temperatur Udara Discharge Desain Pemanas</translation>
     </message>
-    <!-- OS:ChillerHeaterPerformance:Electric:EIR -->
+    
     <message>
         <source>Design Hot Water Flow Rate</source>
         <translation>Laju Aliran Air Panas Desain</translation>
     </message>
-    <!-- OS:AirTerminal:SingleDuct:ConstantVolume:FourPipeBeam -->
+    
     <message>
         <source>Design Hot Water Volume Flow Rate</source>
         <translation>Laju Aliran Volume Air Panas Desain</translation>
     </message>
-    <!-- OS:CoolingTower:SingleSpeed, OS:CoolingTower:TwoSpeed -->
+    
     <message>
         <source>Design Inlet Air Dry-Bulb Temperature</source>
         <translation>Suhu Bola Kering Udara Inlet Desain</translation>
     </message>
-    <!-- OS:CoolingTower:SingleSpeed, OS:CoolingTower:TwoSpeed, OS:CoolingTower:VariableSpeed -->
+    
     <message>
         <source>Design Inlet Air Wet-Bulb Temperature</source>
         <translation>Desain Suhu Bola Basah Udara Masuk</translation>
     </message>
-    <!-- OS:ElectricEquipment:Definition, OS:Exterior:FuelEquipment:Definition, OS:Exterior:Lights:Definition, OS:Exterior:WaterEquipment:Definition, OS:GasEquipment:Definition, OS:HotWaterEquipment:Definition, OS:OtherEquipment:Definition, OS:SteamEquipment:Definition -->
+    
     <message>
         <source>Design Level</source>
         <translation>Tingkat Desain</translation>
     </message>
-    <!-- OS:ElectricEquipment:Definition, OS:GasEquipment:Definition, OS:HotWaterEquipment:Definition, OS:InternalMass:Definition, OS:Lights:Definition, OS:OtherEquipment:Definition, OS:SteamEquipment:Definition -->
+    
     <message>
         <source>Design Level Calculation Method</source>
         <translation>Metode Perhitungan Tingkat Desain</translation>
     </message>
-    <!-- OS:Refrigeration:Subcooler:LiquidSuction -->
+    
     <message>
         <source>Design Liquid Inlet Temperature</source>
         <translation>Suhu Inlet Cairan Desain</translation>
     </message>
-    <!-- OS:Fan:SystemModel -->
+    
     <message>
         <source>Design Maximum Air Flow Rate</source>
         <translation>Laju Aliran Udara Maksimum Desain</translation>
     </message>
-    <!-- OS:ElectricLoadCenter:Storage:Converter -->
+    
     <message>
         <source>Design Maximum Continuous Input Power</source>
         <translation>Daya Input Kontinu Maksimum Desain</translation>
     </message>
-    <!-- OS:WaterHeater:Sizing -->
+    
     <message>
         <source>Design Mode</source>
         <translation>Mode Desain</translation>
     </message>
-    <!-- OS:Boiler:Steam -->
+    
     <message>
         <source>Design Outlet Steam Temperature</source>
         <translation>Temperatur Uap Outlet Desain</translation>
     </message>
-    <!-- OS:AirTerminal:SingleDuct:ConstantVolume:CooledBeam -->
+    
     <message>
         <source>Design Outlet Water Temperature</source>
         <translation>Suhu Air Outlet Desain</translation>
     </message>
-    <!-- OS:ElectricEquipment:ITE:AirCooled:Definition -->
+    
     <message>
         <source>Design Power Input Calculation Method</source>
         <translation>Metode Perhitungan Masukan Daya Desain</translation>
     </message>
-    <!-- OS:ElectricEquipment:ITE:AirCooled -->
+    
     <message>
         <source>Design Power Input Schedule Name</source>
         <translation>Nama Jadwal Input Daya Desain</translation>
     </message>
-    <!-- OS:Fan:SystemModel, OS:HeaderedPumps:ConstantSpeed, OS:HeaderedPumps:VariableSpeed, OS:Pump:ConstantSpeed, OS:Pump:VariableSpeed -->
+    
     <message>
         <source>Design Power Sizing Method</source>
         <translation>Metode Penetapan Ukuran Daya Desain</translation>
     </message>
-    <!-- OS:Fan:SystemModel -->
+    
     <message>
         <source>Design Pressure Rise</source>
         <translation>Kenaikan Tekanan Desain</translation>
     </message>
-    <!-- OS:AirTerminal:SingleDuct:ConstantVolume:FourPipeBeam -->
+    
     <message>
         <source>Design Primary Air Volume Flow Rate</source>
         <translation>Laju Aliran Volume Udara Primer Desain</translation>
     </message>
-    <!-- OS:CoolingTower:SingleSpeed, OS:CoolingTower:TwoSpeed, OS:CoolingTower:VariableSpeed -->
+    
     <message>
         <source>Design Range Temperature</source>
         <translation>Rentang Suhu Desain</translation>
     </message>
-    <!-- OS:ElectricEquipment:ITE:AirCooled:Definition -->
+    
     <message>
         <source>Design Recirculation Fraction</source>
         <translation>Fraksi Resirkulasi Desain</translation>
     </message>
-    <!-- OS:AirLoopHVAC:UnitarySystem -->
+    
     <message>
         <source>Design Specification Multispeed Object Name</source>
         <translation>Nama Objek Spesifikasi Desain Kecepatan Ganda</translation>
     </message>
-    <!-- OS:AirTerminal:DualDuct:VAV, OS:Controller:MechanicalVentilation -->
+    
     <message>
         <source>Design Specification Outdoor Air Object</source>
         <translation>Objek Spesifikasi Desain Udara Luar</translation>
     </message>
-    <!-- OS:Space, OS:SpaceType, OS:ZoneHVAC:IdealLoadsAirSystem -->
+    
     <message>
         <source>Design Specification Outdoor Air Object Name</source>
         <translation>Nama Objek Spesifikasi Udara Luar Desain</translation>
     </message>
-    <!-- OS:Controller:MechanicalVentilation -->
+    
     <message>
         <source>Design Specification Zone Air Distribution Object</source>
         <translation>Spesifikasi Desain Objek Distribusi Udara Zona</translation>
     </message>
-    <!-- OS:ZoneHVAC:EvaporativeCoolerUnit -->
+    
     <message>
         <source>Design Specification ZoneHVAC Sizing</source>
         <translation>Spesifikasi Desain Penentuan Ukuran ZoneHVAC</translation>
     </message>
-    <!-- OS:ZoneHVAC:IdealLoadsAirSystem, OS:ZoneHVAC:TerminalUnit:VariableRefrigerantFlow, OS:ZoneHVAC:UnitVentilator, OS:ZoneHVAC:WaterToAirHeatPump -->
+    
     <message>
         <source>Design Specification ZoneHVAC Sizing Object Name</source>
         <translation>Nama Objek Spesifikasi Desain Ukuran ZoneHVAC</translation>
     </message>
-    <!-- OS:EvaporativeFluidCooler:SingleSpeed, OS:EvaporativeFluidCooler:TwoSpeed -->
+    
     <message>
         <source>Design Spray Water Flow Rate</source>
         <translation>Laju Aliran Air Semprotan Desain</translation>
     </message>
-    <!-- OS:ElectricLoadCenter:Distribution -->
+    
     <message>
         <source>Design Storage Control Charge Power</source>
         <translation>Daya Pengisian Kontrol Penyimpanan Desain</translation>
     </message>
-    <!-- OS:ElectricLoadCenter:Distribution -->
+    
     <message>
         <source>Design Storage Control Discharge Power</source>
         <translation>Daya Pembuangan Kontrol Penyimpanan Desain</translation>
     </message>
-    <!-- OS:AirLoopHVAC:UnitarySystem -->
+    
     <message>
         <source>Design Supply Air Flow Rate Per Unit of Capacity During Cooling Operation</source>
         <translation>Laju Aliran Udara Pasokan Desain Per Satuan Kapasitas Selama Operasi Pendinginan</translation>
     </message>
-    <!-- OS:AirLoopHVAC:UnitarySystem -->
+    
     <message>
         <source>Design Supply Air Flow Rate Per Unit of Capacity During Cooling Operation When No Cooling or Heating is Required</source>
         <translation>Laju Aliran Udara Pasokan Desain Per Satuan Kapasitas Selama Operasi Pendinginan Ketika Tidak Ada Pendinginan atau Pemanasan yang Diperlukan</translation>
     </message>
-    <!-- OS:AirLoopHVAC:UnitarySystem -->
+    
     <message>
         <source>Design Supply Air Flow Rate Per Unit of Capacity During Heating Operation</source>
         <translation>Laju Aliran Udara Pasokan Desain Per Unit Kapasitas Selama Operasi Pemanasan</translation>
     </message>
-    <!-- OS:AirLoopHVAC:UnitarySystem -->
+    
     <message>
         <source>Design Supply Air Flow Rate Per Unit of Capacity During Heating Operation When No Cooling or Heating is Required</source>
         <translation>Laju Aliran Udara Suplai Desain Per Unit Kapasitas Selama Operasi Pemanasan Ketika Tidak Ada Pendinginan atau Pemanasan yang Diperlukan</translation>
     </message>
-    <!-- OS:HeatPump:AirToWater:FuelFired:Cooling, OS:HeatPump:AirToWater:FuelFired:Heating -->
+    
     <message>
         <source>Design Supply Temperature</source>
         <translation>Suhu Pasokan Desain</translation>
     </message>
-    <!-- OS:HeatPump:AirToWater:FuelFired:Cooling, OS:HeatPump:AirToWater:FuelFired:Heating -->
+    
     <message>
         <source>Design Temperature Lift</source>
         <translation>Perbedaan Suhu Desain</translation>
     </message>
-    <!-- OS:Refrigeration:Subcooler:LiquidSuction -->
+    
     <message>
         <source>Design Vapor Inlet Temperature</source>
         <translation>Temperatur Inlet Uap Desain</translation>
     </message>
-    <!-- OS:PlantComponent:TemperatureSource -->
+    
     <message>
         <source>Design Volume Flow Rate</source>
         <translation>Laju Aliran Volume Desain</translation>
     </message>
-    <!-- OS:PlantComponent:UserDefined -->
+    
     <message>
         <source>Design Volume Flow Rate Actuator</source>
         <translation>Aktuator Laju Aliran Volume Desain</translation>
     </message>
-    <!-- OS:EvaporativeCooler:Indirect:ResearchSpecial -->
+    
     <message>
         <source>Dewpoint Effectiveness Factor</source>
         <translation>Faktor Efektivitas Titik Embun</translation>
     </message>
-    <!-- OS:ZoneHVAC:EnergyRecoveryVentilator:Controller -->
+    
     <message>
         <source>Dewpoint Temperature Limit</source>
         <translation>Batas Temperatur Titik Embun</translation>
     </message>
-    <!-- OS:PlantEquipmentOperation:OutdoorDewpoint -->
+    
     <message>
         <source>Dewpoint Temperature Range Lower Limit</source>
         <translation>Batas Bawah Rentang Temperatur Titik Embun</translation>
     </message>
-    <!-- OS:PlantEquipmentOperation:OutdoorDewpoint -->
+    
     <message>
         <source>Dewpoint Temperature Range Upper Limit</source>
         <translation>Batas Atas Rentang Suhu Titik Embun</translation>
     </message>
-    <!-- OS:Curve:Functional:PressureDrop, OS:DaylightingDevice:Tubular -->
+    
     <message>
         <source>Diameter</source>
         <translation>Diameter</translation>
     </message>
-    <!-- OS:AirConditioner:VariableRefrigerantFlow:FluidTemperatureControl -->
+    
     <message>
         <source>Diameter of Main Pipe Connecting Outdoor Unit to the First Branch Joint</source>
         <translation>Diameter Pipa Utama yang Menghubungkan Unit Luar ke Sambungan Cabang Pertama</translation>
     </message>
-    <!-- OS:AirConditioner:VariableRefrigerantFlow:FluidTemperatureControl:HR -->
+    
     <message>
         <source>Diameter of Main Pipe for Discharge Gas</source>
         <translation>Diameter Pipa Utama untuk Gas Discharge</translation>
     </message>
-    <!-- OS:AirConditioner:VariableRefrigerantFlow:FluidTemperatureControl:HR -->
+    
     <message>
         <source>Diameter of Main Pipe for Suction Gas</source>
         <translation>Diameter Pipa Utama untuk Gas Hisap</translation>
     </message>
-    <!-- OS:LifeCycleCost:Parameters -->
+    
     <message>
         <source>Diesel Inflation</source>
         <translation>Inflasi Diesel</translation>
     </message>
-    <!-- OS:AirConditioner:VariableRefrigerantFlow:FluidTemperatureControl:HR -->
+    
     <message>
         <source>Difference between Outdoor Unit Evaporating Temperature and Outdoor Air Temperature in Heat Recovery Mode</source>
         <translation>Perbedaan antara Suhu Penguapan Unit Outdoor dan Suhu Udara Outdoor dalam Mode Pemulihan Panas</translation>
     </message>
-    <!-- OS:SizingPeriod:DesignDay -->
+    
     <message>
         <source>Diffuse Solar Day Schedule Name</source>
         <translation>Nama Jadwal Hari Matahari Difus</translation>
     </message>
-    <!-- OS:WindowMaterial:Screen -->
+    
     <message>
         <source>Diffuse Solar Reflectance</source>
         <translation>Reflektansi Surya Difus</translation>
     </message>
-    <!-- OS:WindowMaterial:Screen -->
+    
     <message>
         <source>Diffuse Visible Reflectance</source>
         <translation>Reflektansi Visible Difus</translation>
     </message>
-    <!-- OS:DaylightingDevice:Tubular -->
+    
     <message>
         <source>Diffuser Name</source>
         <translation>Nama Diffuser</translation>
     </message>
-    <!-- OS:Output:Table:Annual, OS:Output:Table:Monthly -->
+    
     <message>
         <source>Digits After Decimal</source>
         <translation>Angka Setelah Desimal</translation>
     </message>
-    <!-- OS:Generator:FuelCell:PowerModule -->
+    
     <message>
         <source>Dilution Air Flow Rate</source>
         <translation>Laju Aliran Udara Pengenceran</translation>
     </message>
-    <!-- OS:Generator:FuelCell:PowerModule -->
+    
     <message>
         <source>Dilution Inlet Air Node Name</source>
         <translation>Nama Node Udara Inlet Pengenceran</translation>
     </message>
-    <!-- OS:Generator:FuelCell:PowerModule -->
+    
     <message>
         <source>Dilution Outlet Air Node Name</source>
         <translation>Nama Node Udara Outlet Pengenceran</translation>
     </message>
-    <!-- OS:Construction:InternalSource -->
+    
     <message>
         <source>Dimensions for the CTF Calculation</source>
         <translation>Dimensi untuk Perhitungan CTF</translation>
     </message>
-    <!-- OS:PhotovoltaicPerformance:Sandia -->
+    
     <message>
         <source>Diode Factor</source>
         <translation>Faktor Dioda</translation>
     </message>
-    <!-- OS:RadianceParameters -->
+    
     <message>
         <source>Direct Certainty</source>
         <translation>Kepastian Langsung</translation>
     </message>
-    <!-- OS:RadianceParameters -->
+    
     <message>
         <source>Direct Jitter</source>
         <translation>Jitter Langsung</translation>
     </message>
-    <!-- OS:RadianceParameters -->
+    
     <message>
         <source>Direct Pretest</source>
         <translation>Uji Pendahuluan Langsung</translation>
     </message>
-    <!-- OS:RadianceParameters -->
+    
     <message>
         <source>Direct Threshold</source>
         <translation>Ambang Langsung</translation>
     </message>
-    <!-- OS:InteriorPartitionSurfaceGroup, OS:ShadingSurfaceGroup, OS:Space -->
+    
     <message>
         <source>Direction of Relative North</source>
         <translation>Arah Utara Relatif</translation>
     </message>
-    <!-- OS:WindowMaterial:Glazing, OS:WindowMaterial:Glazing:RefractionExtinctionMethod -->
+    
     <message>
         <source>Dirt Correction Factor for Solar and Visible Transmittance</source>
         <translation>Faktor Koreksi Kotoran untuk Transmitansi Solar dan Cahaya Tampak</translation>
     </message>
-    <!-- OS:ShadowCalculation -->
+    
     <message>
         <source>Disable Self-Shading From Shading Zone Groups to Other Zones</source>
         <translation>Nonaktifkan Shading Mandiri Dari Kelompok Zona Shading ke Zona Lain</translation>
     </message>
-    <!-- OS:ShadowCalculation -->
+    
     <message>
         <source>Disable Self-Shading Within Shading Zone Groups</source>
         <translation>Nonaktifkan Bayang-Bayang Diri Dalam Grup Zona Bayang-Bayang</translation>
     </message>
-    <!-- OS:AirflowNetworkEffectiveLeakageArea, OS:AirflowNetworkHorizontalOpening, OS:AirflowNetworkSimpleOpening -->
+    
     <message>
         <source>Discharge Coefficient</source>
         <translation>Koefisien Debit</translation>
     </message>
-    <!-- OS:ZoneVentilation:WindandStackOpenArea -->
+    
     <message>
         <source>Discharge Coefficient for Opening</source>
         <translation>Koefisien Debit untuk Pembukaan</translation>
     </message>
-    <!-- OS:AirflowNetworkDetailedOpening -->
+    
     <message>
         <source>Discharge Coefficient for Opening Factor</source>
         <translation>Koefisien Pelepasan untuk Faktor Pembukaan</translation>
     </message>
-    <!-- OS:Coil:Cooling:DX:SingleSpeed:ThermalStorage -->
+    
     <message>
         <source>Discharge Only Mode Available</source>
         <translation>Mode Pengosongan Saja Tersedia</translation>
     </message>
-    <!-- OS:Coil:Cooling:DX:SingleSpeed:ThermalStorage -->
+    
     <message>
         <source>Discharge Only Mode Capacity Sizing Factor</source>
         <translation>Faktor Penyesuaian Kapasitas Mode Pembuangan Saja</translation>
     </message>
-    <!-- OS:Coil:Cooling:DX:SingleSpeed:ThermalStorage -->
+    
     <message>
         <source>Discharge Only Mode Energy Input Ratio Function of Flow Fraction Curve</source>
         <translation>Kurva Fungsi Rasio Input Energi Mode Lepas Muatan Saja terhadap Fraksi Aliran</translation>
     </message>
-    <!-- OS:Coil:Cooling:DX:SingleSpeed:ThermalStorage -->
+    
     <message>
         <source>Discharge Only Mode Energy Input Ratio Function of Temperature Curve</source>
         <translation>Kurva Fungsi Rasio Input Energi Mode Pelepasan Saja Terhadap Suhu</translation>
     </message>
-    <!-- OS:Coil:Cooling:DX:SingleSpeed:ThermalStorage -->
+    
     <message>
         <source>Discharge Only Mode Part Load Fraction Correlation Curve</source>
         <translation>Kurva Korelasi Fraksi Beban Sebagian Mode Discharge Saja</translation>
     </message>
-    <!-- OS:Coil:Cooling:DX:SingleSpeed:ThermalStorage -->
+    
     <message>
         <source>Discharge Only Mode Rated COP</source>
         <translation>Discharge Only Mode Rated COP</translation>
     </message>
-    <!-- OS:Coil:Cooling:DX:SingleSpeed:ThermalStorage -->
+    
     <message>
         <source>Discharge Only Mode Rated Sensible Heat Ratio</source>
         <translation>Rasio Panas Sensibel Tertaraf Mode Discharge Only</translation>
     </message>
-    <!-- OS:Coil:Cooling:DX:SingleSpeed:ThermalStorage -->
+    
     <message>
         <source>Discharge Only Mode Rated Storage Discharging Capacity</source>
         <translation>Kapasitas Pengosongan Penyimpanan Terpilih Mode Hanya Pengosongan</translation>
     </message>
-    <!-- OS:Coil:Cooling:DX:SingleSpeed:ThermalStorage -->
+    
     <message>
         <source>Discharge Only Mode Sensible Heat Ratio Function of Flow Fraction Curve</source>
         <translation>Kurva Fungsi Rasio Panas Sensibel Mode Hanya Pembuangan terhadap Fraksi Aliran</translation>
     </message>
-    <!-- OS:Coil:Cooling:DX:SingleSpeed:ThermalStorage -->
+    
     <message>
         <source>Discharge Only Mode Sensible Heat Ratio Function of Temperature Curve</source>
         <translation>Fungsi Rasio Panas Sensibel Mode Pembuangan Saja terhadap Kurva Suhu</translation>
     </message>
-    <!-- OS:Coil:Cooling:DX:SingleSpeed:ThermalStorage -->
+    
     <message>
         <source>Discharge Only Mode Storage Discharge Capacity Function of Flow Fraction Curve</source>
         <translation>Kurva Fungsi Kapasitas Pengosongan Mode Pengosongan Saja terhadap Fraksi Aliran</translation>
     </message>
-    <!-- OS:Coil:Cooling:DX:SingleSpeed:ThermalStorage -->
+    
     <message>
         <source>Discharge Only Mode Storage Discharge Capacity Function of Temperature Curve</source>
         <translation>Kurva Fungsi Kapasitas Discharge Penyimpanan Mode Discharge Saja terhadap Suhu</translation>
     </message>
-    <!-- OS:ThermalStorage:Ice:Detailed -->
+    
     <message>
         <source>Discharging Curve</source>
         <translation>Kurva Pengosongan</translation>
     </message>
-    <!-- OS:ThermalStorage:Ice:Detailed -->
+    
     <message>
         <source>Discharging Curve Variable Specifications</source>
         <translation>Spesifikasi Variabel Kurva Pengosongan</translation>
     </message>
-    <!-- OS:LifeCycleCost:Parameters -->
+    
     <message>
         <source>Discounting Convention</source>
         <translation>Konvensi Diskonto</translation>
     </message>
-    <!-- OS:Refrigeration:SecondarySystem -->
+    
     <message>
         <source>Distribution Piping Zone Name</source>
         <translation>Nama Zona Pipa Distribusi</translation>
     </message>
-    <!-- OS:EnvironmentalImpactFactors -->
+    
     <message>
         <source>District Cooling COP</source>
         <translation>COP Pendinginan Distrik</translation>
     </message>
-    <!-- OS:EnvironmentalImpactFactors -->
+    
     <message>
         <source>District Heating Steam Conversion Efficiency</source>
         <translation>Efisiensi Konversi Uap Pemanasan Distrik</translation>
     </message>
-    <!-- OS:EnvironmentalImpactFactors -->
+    
     <message>
         <source>District Heating Water Efficiency</source>
         <translation>Efisiensi Air Pemanas Distrik</translation>
     </message>
-    <!-- OS:WindowProperty:FrameAndDivider -->
+    
     <message>
         <source>Divider Conductance</source>
         <translation>Konduktansi Pembagi</translation>
     </message>
-    <!-- OS:WindowProperty:FrameAndDivider -->
+    
     <message>
         <source>Divider Inside Projection</source>
         <translation>Proyeksi Pemisah Dalam</translation>
     </message>
-    <!-- OS:WindowProperty:FrameAndDivider -->
+    
     <message>
         <source>Divider Outside Projection</source>
         <translation>Proyeksi Luar Pembagi</translation>
     </message>
-    <!-- OS:WindowProperty:FrameAndDivider -->
+    
     <message>
         <source>Divider Solar Absorptance</source>
         <translation>Penyerap Surya Pembagi</translation>
     </message>
-    <!-- OS:WindowProperty:FrameAndDivider -->
+    
     <message>
         <source>Divider Thermal Hemispherical Emissivity</source>
         <translation>Emissivitas Hemisferik Termal Pemisah</translation>
     </message>
-    <!-- OS:WindowProperty:FrameAndDivider -->
+    
     <message>
         <source>Divider Type</source>
         <translation>Jenis Pembagi</translation>
     </message>
-    <!-- OS:WindowProperty:FrameAndDivider -->
+    
     <message>
         <source>Divider Visible Absorptance</source>
         <translation>Absorptansi Divider Terlihat</translation>
     </message>
-    <!-- OS:WindowProperty:FrameAndDivider -->
+    
     <message>
         <source>Divider Width</source>
         <translation>Lebar Pembagi</translation>
     </message>
-    <!-- OS:SimulationControl -->
+    
     <message>
         <source>Do HVAC Sizing Simulation for Sizing Periods</source>
         <translation>Lakukan Simulasi Penentuan Ukuran HVAC untuk Periode Penentuan Ukuran</translation>
     </message>
-    <!-- OS:SimulationControl -->
+    
     <message>
         <source>Do Plant Sizing Calculation</source>
         <translation>Lakukan Perhitungan Penentuan Ukuran Tanaman</translation>
     </message>
-    <!-- OS:ZoneAirHeatBalanceAlgorithm -->
+    
     <message>
         <source>Do Space Heat Balance for Simulation</source>
         <translation>Lakukan Keseimbangan Panas Ruangan untuk Simulasi</translation>
     </message>
-    <!-- OS:ZoneAirHeatBalanceAlgorithm -->
+    
     <message>
         <source>Do Space Heat Balance for Sizing</source>
         <translation>Lakukan Keseimbangan Panas Ruang untuk Penentuan Ukuran</translation>
     </message>
-    <!-- OS:SimulationControl -->
+    
     <message>
         <source>Do System Sizing Calculation</source>
         <translation>Lakukan Perhitungan Ukuran Sistem</translation>
     </message>
-    <!-- OS:SimulationControl -->
+    
     <message>
         <source>Do Zone Sizing Calculation</source>
         <translation>Lakukan Perhitungan Sizing Zona</translation>
     </message>
-    <!-- OS:AirLoopHVAC:UnitarySystem -->
+    
     <message>
         <source>DOAS DX Cooling Coil Leaving Minimum Air Temperature</source>
         <translation>DOAS Koil Pendingin DX Suhu Udara Keluar Minimum</translation>
     </message>
-    <!-- OS:DaylightingDevice:Tubular -->
+    
     <message>
         <source>Dome Name</source>
         <translation>Nama Kubah</translation>
     </message>
-    <!-- OS:DefaultSubSurfaceConstructions -->
+    
     <message>
         <source>Door Construction Name</source>
         <translation>Nama Konstruksi Pintu</translation>
     </message>
-    <!-- OS:EvaporativeCooler:Direct:ResearchSpecial, OS:EvaporativeCooler:Indirect:ResearchSpecial -->
+    
     <message>
         <source>Drift Loss Fraction</source>
         <translation>Fraksi Kehilangan Drift</translation>
     </message>
-    <!-- OS:Refrigeration:DefrostCycleParameters -->
+    
     <message>
         <source>Drip Down Time</source>
         <translation>Waktu Penetesan</translation>
     </message>
-    <!-- OS:HeatPump:PlantLoop:EIR:Heating -->
+    
     <message>
         <source>Dry Outdoor Correction Factor Curve Name</source>
         <translation>Nama Kurva Faktor Koreksi Udara Luar Kering</translation>
     </message>
-    <!-- OS:PlantEquipmentOperation:OutdoorDewpointDifference, OS:PlantEquipmentOperation:OutdoorDryBulbDifference, OS:PlantEquipmentOperation:OutdoorWetBulbDifference -->
+    
     <message>
         <source>Dry-Bulb Temperature Difference Range Lower Limit</source>
         <translation>Batas Bawah Rentang Perbedaan Suhu Bola Kering</translation>
     </message>
-    <!-- OS:PlantEquipmentOperation:OutdoorDewpointDifference, OS:PlantEquipmentOperation:OutdoorDryBulbDifference, OS:PlantEquipmentOperation:OutdoorWetBulbDifference -->
+    
     <message>
         <source>Dry-Bulb Temperature Difference Range Upper Limit</source>
         <translation>Batas Atas Rentang Selisih Suhu Bola Kering</translation>
     </message>
-    <!-- OS:PlantEquipmentOperation:OutdoorDryBulb -->
+    
     <message>
         <source>Dry-Bulb Temperature Range Lower Limit</source>
         <translation>Batas Bawah Rentang Suhu Bola Kering</translation>
     </message>
-    <!-- OS:SizingPeriod:DesignDay -->
+    
     <message>
         <source>Dry-Bulb Temperature Range Modifier Day Schedule Name</source>
         <translation>Nama Jadwal Hari Pengubah Rentang Suhu Bola Kering</translation>
     </message>
-    <!-- OS:SizingPeriod:DesignDay -->
+    
     <message>
         <source>Dry-Bulb Temperature Range Modifier Type</source>
         <translation>Tipe Pengubah Rentang Suhu Bola Kering</translation>
     </message>
-    <!-- OS:PlantEquipmentOperation:OutdoorDryBulb -->
+    
     <message>
         <source>Dry-Bulb Temperature Range Upper Limit</source>
         <translation>Batas Atas Rentang Suhu Bola Kering</translation>
     </message>
-    <!-- OS:EvaporativeCooler:Indirect:ResearchSpecial -->
+    
     <message>
         <source>Drybulb Effectiveness Flow Ratio Modifier Curve Name</source>
         <translation>Nama Kurva Pengubah Rasio Aliran Efektivitas Drybulb</translation>
     </message>
-    <!-- OS:AirflowNetworkDuct -->
+    
     <message>
         <source>Duct Length</source>
         <translation>Panjang Saluran</translation>
     </message>
-    <!-- OS:Fan:ComponentModel -->
+    
     <message>
         <source>Duct Static Pressure Reset Curve Name</source>
         <translation>Nama Kurva Reset Tekanan Statis Saluran</translation>
     </message>
-    <!-- OS:AirflowNetworkDuctViewFactors -->
+    
     <message>
         <source>Duct Surface Emittance</source>
         <translation>Emitansi Permukaan Saluran</translation>
     </message>
-    <!-- OS:AirflowNetworkDuctViewFactors -->
+    
     <message>
         <source>Duct Surface Exposure Fraction</source>
         <translation>Fraksi Eksposur Permukaan Saluran</translation>
     </message>
-    <!-- OS:RunPeriodControl:SpecialDays -->
+    
     <message>
         <source>Duration</source>
         <translation>Durasi</translation>
     </message>
-    <!-- OS:Refrigeration:DefrostCycleParameters -->
+    
     <message>
         <source>Duration of Defrost Cycle</source>
         <translation>Durasi Siklus Defrost</translation>
     </message>
-    <!-- OS:WaterHeater:HeatPump -->
+    
     <message>
         <source>DX Coil</source>
         <translation>DX Coil</translation>
     </message>
-    <!-- OS:WaterHeater:HeatPump:WrappedCondenser -->
+    
     <message>
         <source>DX Coil Name</source>
         <translation>Nama Coil DX</translation>
     </message>
-    <!-- OS:AirLoopHVAC:UnitaryCoolOnly -->
+    
     <message>
         <source>DX Cooling Coil System Inlet Node Name</source>
         <translation>Nama Node Inlet Sistem Coil Pendingin DX</translation>
     </message>
-    <!-- OS:AirLoopHVAC:UnitaryCoolOnly -->
+    
     <message>
         <source>DX Cooling Coil System Outlet Node Name</source>
         <translation>Nama Node Outlet Sistem Kumparan Pendingin DX</translation>
     </message>
-    <!-- OS:AirLoopHVAC:UnitaryCoolOnly -->
+    
     <message>
         <source>DX Cooling Coil System Sensor Node Name</source>
         <translation>Nama Node Sensor Sistem Kumparan Pendingin DX</translation>
     </message>
-    <!-- OS:AirLoopHVAC:UnitaryHeatPump:AirToAir, OS:AirLoopHVAC:UnitaryHeatPump:AirToAir:MultiSpeed, OS:AirLoopHVAC:UnitarySystem, OS:ZoneHVAC:PackagedTerminalHeatPump, OS:ZoneHVAC:WaterToAirHeatPump -->
+    
     <message>
         <source>DX Heating Coil Sizing Ratio</source>
         <translation>Rasio Ukuran Kumparan Pemanas DX</translation>
     </message>
 
-    <!-- E -->
-    <!-- OS:CoilSystem:Cooling:Water, OS:HeatExchanger:AirToAir:SensibleAndLatent, OS:HeatExchanger:Desiccant:BalancedFlow -->
+    
+    
     <message>
         <source>Economizer Lockout</source>
         <translation>Kunci Economizer</translation>
     </message>
-    <!-- OS:ZoneVentilation:WindandStackOpenArea -->
+    
     <message>
         <source>Effective Angle</source>
         <translation>Sudut Efektif</translation>
     </message>
-    <!-- OS:AirflowNetworkEffectiveLeakageArea -->
+    
     <message>
         <source>Effective Leakage Area</source>
         <translation>Luas Kebocoran Efektif</translation>
     </message>
-    <!-- OS:AirflowNetworkLeakageRatio -->
+    
     <message>
         <source>Effective Leakage Ratio</source>
         <translation>Rasio Kebocoran Efektif</translation>
     </message>
-    <!-- OS:SolarCollectorPerformance:PhotovoltaicThermal:BIPVT -->
+    
     <message>
         <source>Effective Plenum Gap Thickness Behind PV Modules</source>
         <translation>Ketebalan Celah Plenum Efektif di Belakang Modul PV</translation>
     </message>
-    <!-- OS:DaylightingDevice:Tubular -->
+    
     <message>
         <source>Effective Thermal Resistance</source>
         <translation>Ketahanan Termal Efektif</translation>
     </message>
-    <!-- OS:EvaporativeCooler:Direct:ResearchSpecial -->
+    
     <message>
         <source>Effectiveness Flow Ratio Modifier Curve Name</source>
         <translation>Nama Kurva Pengubah Rasio Aliran Efektivitas</translation>
     </message>
-    <!-- OS:Coil:Heating:Electric, OS:Coil:Heating:Electric:MultiStage:StageData, OS:ZoneHVAC:Baseboard:Convective:Electric, OS:ZoneHVAC:Baseboard:RadiantConvective:Electric -->
+    
     <message>
         <source>Efficiency</source>
         <translation>Efisiensi</translation>
     </message>
-    <!-- OS:ElectricLoadCenter:Inverter:LookUpTable -->
+    
     <message>
         <source>Efficiency at 10% Power and Nominal Voltage</source>
         <translation>Efisiensi pada 10% Daya dan Tegangan Nominal</translation>
     </message>
-    <!-- OS:ElectricLoadCenter:Inverter:LookUpTable -->
+    
     <message>
         <source>Efficiency at 100% Power and Nominal Voltage</source>
         <translation>Efisiensi pada 100% Daya dan Tegangan Nominal</translation>
     </message>
-    <!-- OS:ElectricLoadCenter:Inverter:LookUpTable -->
+    
     <message>
         <source>Efficiency at 20% Power and Nominal Voltage</source>
         <translation>Efisiensi pada 20% Daya dan Tegangan Nominal</translation>
     </message>
-    <!-- OS:ElectricLoadCenter:Inverter:LookUpTable -->
+    
     <message>
         <source>Efficiency at 30% Power and Nominal Voltage</source>
         <translation>Efisiensi pada Daya 30% dan Tegangan Nominal</translation>
     </message>
-    <!-- OS:ElectricLoadCenter:Inverter:LookUpTable -->
+    
     <message>
         <source>Efficiency at 50% Power and Nominal Voltage</source>
         <translation>Efisiensi pada 50% Daya dan Tegangan Nominal</translation>
     </message>
-    <!-- OS:ElectricLoadCenter:Inverter:LookUpTable -->
+    
     <message>
         <source>Efficiency at 75% Power and Nominal Voltage</source>
         <translation>Efisiensi pada 75% Daya dan Tegangan Nominal</translation>
     </message>
-    <!-- OS:Generator:FuelCell:PowerModule -->
+    
     <message>
         <source>Efficiency Curve Mode</source>
         <translation>Mode Kurva Efisiensi</translation>
     </message>
-    <!-- OS:Generator:FuelCell:PowerModule -->
+    
     <message>
         <source>Efficiency Curve Name</source>
         <translation>Nama Kurva Efisiensi</translation>
     </message>
-    <!-- OS:Generator:FuelCell:Inverter -->
+    
     <message>
         <source>Efficiency Function of DC Power Curve Name</source>
         <translation>Nama Kurva Daya DC Fungsi Efisiensi</translation>
     </message>
-    <!-- OS:ElectricLoadCenter:Storage:Converter -->
+    
     <message>
         <source>Efficiency Function of Power Curve Name</source>
         <translation>Nama Kurva Daya Fungsi Efisiensi</translation>
     </message>
-    <!-- OS:PhotovoltaicPerformance:Simple -->
+    
     <message>
         <source>Efficiency Schedule Name</source>
         <translation>Nama Jadwal Efisiensi</translation>
     </message>
-    <!-- OS:ElectricEquipment -->
+    
     <message>
         <source>Electric Equipment Definition Name</source>
         <translation>Nama Definisi Peralatan Listrik</translation>
     </message>
-    <!-- OS:ElectricEquipment:ITE:AirCooled -->
+    
     <message>
         <source>Electric Equipment ITE AirCooled Definition Name</source>
         <translation>Nama Definisi Peralatan Listrik ITE Pendingin Udara</translation>
     </message>
-    <!-- OS:Chiller:Electric:ReformulatedEIR -->
+    
     <message>
         <source>Electric Input to Cooling Output Ratio Function of Part Load Ratio Curve Type</source>
         <translation>Jenis Kurva Fungsi Rasio Input Listrik terhadap Output Pendinginan berdasarkan Rasio Beban Parsial</translation>
     </message>
-    <!-- OS:HeatPump:PlantLoop:EIR:Cooling, OS:HeatPump:PlantLoop:EIR:Heating -->
+    
     <message>
         <source>Electric Input to Output Ratio Modifier Function of Part Load Ratio Curve Name</source>
         <translation>Nama Kurva Fungsi Pengubah Rasio Input Listrik ke Output Berdasarkan Rasio Beban Parsial</translation>
     </message>
-    <!-- OS:HeatPump:PlantLoop:EIR:Cooling, OS:HeatPump:PlantLoop:EIR:Heating -->
+    
     <message>
         <source>Electric Input to Output Ratio Modifier Function of Temperature Curve Name</source>
         <translation>Nama Kurva Fungsi Pengubah Rasio Input-Output Listrik terhadap Suhu</translation>
     </message>
-    <!-- OS:Fan:SystemModel -->
+    
     <message>
         <source>Electric Power Function of Flow Fraction Curve Name</source>
         <translation>Nama Kurva Fungsi Daya Listrik Fraksi Aliran</translation>
     </message>
-    <!-- OS:Fan:SystemModel -->
+    
     <message>
         <source>Electric Power Minimum Flow Rate Fraction</source>
         <translation>Fraksi Laju Aliran Minimum Daya Listrik</translation>
     </message>
-    <!-- OS:Fan:SystemModel -->
+    
     <message>
         <source>Electric Power Per Unit Flow Rate</source>
         <translation>Daya Listrik Per Unit Laju Aliran</translation>
     </message>
-    <!-- OS:Fan:SystemModel -->
+    
     <message>
         <source>Electric Power Per Unit Flow Rate Per Unit Pressure</source>
         <translation>Daya Listrik Per Laju Aliran Satuan Per Satuan Tekanan</translation>
     </message>
-    <!-- OS:ElectricEquipment:ITE:AirCooled:Definition -->
+    
     <message>
         <source>Electric Power Supply Efficiency Function of Part Load Ratio Curve Name</source>
         <translation>Nama Kurva Fungsi Efisiensi Pasokan Daya Listrik dari Rasio Beban Parsial</translation>
     </message>
-    <!-- OS:ElectricEquipment:ITE:AirCooled -->
+    
     <message>
         <source>Electric Power Supply End-Use Subcategory</source>
         <translation>Subkategori Penggunaan Akhir Pasokan Daya Listrik</translation>
     </message>
-    <!-- OS:ElectricLoadCenter:Distribution -->
+    
     <message>
         <source>Electrical Buss Type</source>
         <translation>Tipe Bus Listrik</translation>
     </message>
-    <!-- OS:Generator:MicroTurbine -->
+    
     <message>
         <source>Electrical Efficiency Function of Part Load Ratio Curve Name</source>
         <translation>Nama Kurva Fungsi Efisiensi Listrik terhadap Rasio Beban Parsial</translation>
     </message>
-    <!-- OS:Generator:MicroTurbine -->
+    
     <message>
         <source>Electrical Efficiency Function of Temperature Curve Name</source>
         <translation>Nama Kurva Fungsi Efisiensi Listrik terhadap Suhu</translation>
     </message>
-    <!-- OS:Generator:MicroTurbine -->
+    
     <message>
         <source>Electrical Power Function of Temperature and Elevation Curve Name</source>
         <translation>Nama Kurva Fungsi Daya Listrik terhadap Suhu dan Elevasi</translation>
     </message>
-    <!-- OS:Generator:FuelCell -->
+    
     <message>
         <source>Electrical Storage Name</source>
         <translation>Nama Penyimpanan Listrik</translation>
     </message>
-    <!-- OS:ElectricLoadCenter:Distribution -->
+    
     <message>
         <source>Electrical Storage Object Name</source>
         <translation>Nama Objek Penyimpanan Listrik</translation>
     </message>
-    <!-- OS:LifeCycleCost:Parameters -->
+    
     <message>
         <source>Electricity Inflation</source>
         <translation>Inflasi Listrik</translation>
     </message>
-    <!-- OS:Controller:OutdoorAir, OS:ZoneHVAC:EnergyRecoveryVentilator:Controller -->
+    
     <message>
         <source>Electronic Enthalpy Limit Curve Name</source>
         <translation>Nama Kurva Batas Entalpi Elektronik</translation>
     </message>
-    <!-- OS:Site, OS:WeatherFile -->
+    
     <message>
         <source>Elevation</source>
         <translation>Elevasi</translation>
     </message>
-    <!-- OS:SolarCollectorPerformance:IntegralCollectorStorage -->
+    
     <message>
         <source>Emissivity of Absorber Plate</source>
         <translation>Emisivitas Pelat Penyerap</translation>
     </message>
-    <!-- OS:SolarCollectorPerformance:IntegralCollectorStorage -->
+    
     <message>
         <source>Emissivity of Inner Cover</source>
         <translation>Emissivitas Penutup Dalam</translation>
     </message>
-    <!-- OS:SolarCollectorPerformance:IntegralCollectorStorage -->
+    
     <message>
         <source>Emissivity of Outer Cover</source>
         <translation>Emisivitas Penutup Luar</translation>
     </message>
-    <!-- OS:EnergyManagementSystem:MeteredOutputVariable, OS:EnergyManagementSystem:OutputVariable -->
+    
     <message>
         <source>EMS Program or Subroutine Name</source>
         <translation>Nama Program atau Subroutine EMS</translation>
     </message>
-    <!-- OS:Output:EnergyManagementSystem -->
+    
     <message>
         <source>EMS Runtime Language Debug Output Level</source>
         <translation>EMS Runtime Language Debug Output Level</translation>
     </message>
-    <!-- OS:EnergyManagementSystem:MeteredOutputVariable, OS:EnergyManagementSystem:OutputVariable, OS:EnergyManagementSystem:TrendVariable -->
+    
     <message>
         <source>EMS Variable Name</source>
         <translation>Nama Variabel EMS</translation>
     </message>
-    <!-- OS:RunPeriodControl:DaylightSavingTime -->
+    
     <message>
         <source>End Date</source>
         <translation>Tanggal Akhir</translation>
     </message>
-    <!-- OS:Schedule:Rule -->
+    
     <message>
         <source>End Day</source>
         <translation>Hari Akhir</translation>
     </message>
-    <!-- OS:RunPeriod, OS:SizingPeriod:WeatherFileDays -->
+    
     <message>
         <source>End Day of Month</source>
         <translation>Hari Akhir Bulan</translation>
     </message>
-    <!-- OS:RunPeriod, OS:Schedule:Rule, OS:SizingPeriod:WeatherFileDays -->
+    
     <message>
         <source>End Month</source>
         <translation>Bulan Akhir</translation>
     </message>
-    <!-- OS:EnergyManagementSystem:MeteredOutputVariable, OS:PythonPlugin:OutputVariable -->
+    
     <message>
         <source>End-Use Category</source>
         <translation>Kategori Penggunaan Akhir</translation>
     </message>
-    <!-- OS:UtilityCost:Tariff -->
+    
     <message>
         <source>Energy Conversion Factor</source>
         <translation>Faktor Konversi Energi</translation>
     </message>
-    <!-- OS:ZoneHVAC:Dehumidifier:DX -->
+    
     <message>
         <source>Energy Factor Curve Name</source>
         <translation>Nama Kurva Faktor Energi</translation>
     </message>
-    <!-- OS:Coil:Cooling:DX:VariableSpeed:SpeedData, OS:Coil:Cooling:WaterToAirHeatPump:VariableSpeedEquationFit:SpeedData, OS:Coil:Heating:DX:VariableSpeed:SpeedData, OS:Coil:Heating:WaterToAirHeatPump:VariableSpeedEquationFit:SpeedData -->
+    
     <message>
         <source>Energy Input Ratio Function of Air Flow Fraction Curve Name</source>
         <translation>Nama Kurva Fungsi Rasio Input Energi terhadap Fraksi Aliran Udara</translation>
     </message>
-    <!-- OS:Coil:Cooling:DX:MultiSpeed:StageData, OS:CoilPerformance:DX:Cooling -->
+    
     <message>
         <source>Energy Input Ratio Function of Flow Fraction Curve</source>
         <translation>Kurva Fungsi Rasio Input Energi terhadap Fraksi Aliran</translation>
     </message>
-    <!-- OS:Coil:Cooling:DX:MultiSpeed:StageData, OS:CoilPerformance:DX:Cooling -->
+    
     <message>
         <source>Energy Input Ratio Function of Temperature Curve</source>
         <translation>Kurva Fungsi Rasio Masukan Energi terhadap Suhu</translation>
     </message>
-    <!-- OS:Coil:Cooling:WaterToAirHeatPump:VariableSpeedEquationFit:SpeedData, OS:Coil:Heating:WaterToAirHeatPump:VariableSpeedEquationFit:SpeedData -->
+    
     <message>
         <source>Energy Input Ratio Function of Water Flow Fraction Curve Name</source>
         <translation>Nama Kurva Fungsi Rasio Input Energi terhadap Fraksi Aliran Air</translation>
     </message>
-    <!-- OS:Coil:Cooling:DX:CurveFit:Speed -->
+    
     <message>
         <source>Energy Input Ratio Modifier Function of Air Flow Fraction Curve</source>
         <translation>Fungsi Pengubah Rasio Input Energi terhadap Kurva Fraksi Aliran Udara</translation>
     </message>
-    <!-- OS:Coil:Cooling:DX:CurveFit:Speed -->
+    
     <message>
         <source>Energy Input Ratio Modifier Function of Temperature Curve</source>
         <translation>Fungsi Kurva Pengubah Rasio Input Energi terhadap Suhu</translation>
     </message>
-    <!-- OS:Coil:Cooling:DX:VariableSpeed, OS:Coil:Cooling:WaterToAirHeatPump:VariableSpeedEquationFit, OS:Coil:Heating:DX:VariableSpeed, OS:Coil:Heating:WaterToAirHeatPump:VariableSpeedEquationFit -->
+    
     <message>
         <source>Energy Part Load Fraction Curve Name</source>
         <translation>Nama Kurva Fraksi Beban Parsial Energi</translation>
     </message>
-    <!-- OS:EnergyManagementSystem:ProgramCallingManager -->
+    
     <message>
         <source>EnergyPlus Model Calling Point</source>
         <translation>Titik Pemanggilan Model EnergyPlus</translation>
     </message>
-    <!-- OS:MaterialProperty:PhaseChange -->
+    
     <message>
         <source>Enthalpy</source>
         <translation>Entalpi</translation>
     </message>
-    <!-- OS:SizingPeriod:DesignDay -->
+    
     <message>
         <source>Enthalpy at Maximum Dry-Bulb</source>
         <translation>Entalpi pada Dry-Bulb Maksimum</translation>
     </message>
-    <!-- OS:ZoneHVAC:EnergyRecoveryVentilator:Controller -->
+    
     <message>
         <source>Enthalpy High Limit</source>
         <translation>Batas Entalpi Tinggi</translation>
     </message>
-    <!-- OS:Pipe:Indoor -->
+    
     <message>
         <source>Environment Type</source>
         <translation>Tipe Lingkungan</translation>
     </message>
-    <!-- OS:ElectricEquipment:ITE:AirCooled:Definition -->
+    
     <message>
         <source>Environmental Class</source>
         <translation>Kelas Lingkungan</translation>
     </message>
-    <!-- OS:AirConditioner:VariableRefrigerantFlow:FluidTemperatureControl, OS:AirConditioner:VariableRefrigerantFlow:FluidTemperatureControl:HR -->
+    
     <message>
         <source>Equivalent Length of Main Pipe Connecting Outdoor Unit to the First Branch Joint</source>
         <translation>Panjang Setara Pipa Utama yang Menghubungkan Unit Luar ke Sambungan Cabang Pertama</translation>
     </message>
-    <!-- OS:AirConditioner:VariableRefrigerantFlow -->
+    
     <message>
         <source>Equivalent Piping Length used for Piping Correction Factor in Cooling Mode</source>
         <translation>Panjang Pipa Setara yang digunakan untuk Faktor Koreksi Pipa dalam Mode Pendinginan</translation>
     </message>
-    <!-- OS:AirConditioner:VariableRefrigerantFlow -->
+    
     <message>
         <source>Equivalent Piping Length used for Piping Correction Factor in Heating Mode</source>
         <translation>Panjang Piping Setara yang Digunakan untuk Faktor Koreksi Piping dalam Mode Pemanasan</translation>
     </message>
-    <!-- OS:AirflowNetworkSurface -->
+    
     <message>
         <source>Equivalent Rectangle Aspect Ratio</source>
         <translation>Rasio Aspek Persegi Panjang Setara</translation>
     </message>
-    <!-- OS:AirflowNetworkSurface -->
+    
     <message>
         <source>Equivalent Rectangle Method</source>
         <translation>Metode Persegi Panjang Setara</translation>
     </message>
-    <!-- OS:LifeCycleCost:UsePriceEscalation -->
+    
     <message>
         <source>Escalation Start Month</source>
         <translation>Bulan Mulai Eskalasi</translation>
     </message>
-    <!-- OS:LifeCycleCost:UsePriceEscalation -->
+    
     <message>
         <source>Escalation Start Year</source>
         <translation>Tahun Awal Eskalasi</translation>
     </message>
-    <!-- OS:Fan:ComponentModel -->
+    
     <message>
         <source>Euler Number at Maximum Fan Static Efficiency</source>
         <translation>Bilangan Euler pada Efisiensi Statis Kipas Maksimum</translation>
     </message>
-    <!-- OS:AirConditioner:VariableRefrigerantFlow:FluidTemperatureControl:LoadingIndex -->
+    
     <message>
         <source>Evaporative Capacity Multiplier Function of Temperature Curve Name</source>
         <translation>Nama Kurva Fungsi Pengali Kapasitas Penguapan terhadap Suhu</translation>
     </message>
-    <!-- OS:Refrigeration:CompressorRack, OS:Refrigeration:Condenser:EvaporativeCooled -->
+    
     <message>
         <source>Evaporative Condenser Availability Schedule Name</source>
         <translation>Nama Jadwal Ketersediaan Kondenser Evaporatif</translation>
     </message>
-    <!-- OS:Coil:Cooling:DX:CurveFit:Performance -->
+    
     <message>
         <source>Evaporative Condenser Basin Heater Capacity</source>
         <translation>Kapasitas Pemanas Bak Kondensor Penguap</translation>
     </message>
-    <!-- OS:Coil:Cooling:DX:CurveFit:Performance -->
+    
     <message>
         <source>Evaporative Condenser Basin Heater Operating Schedule</source>
         <translation>Jadwal Operasional Pemanas Bak Kondensor Evaporatif</translation>
     </message>
-    <!-- OS:Coil:Cooling:DX:CurveFit:Performance -->
+    
     <message>
         <source>Evaporative Condenser Basin Heater Setpoint Temperature</source>
         <translation>Suhu Setpoint Pemanas Bak Kondensor Evaporatif</translation>
     </message>
-    <!-- OS:Coil:Cooling:DX:CurveFit:Speed -->
+    
     <message>
         <source>Evaporative Condenser Pump Power Fraction</source>
         <translation>Fraksi Daya Pompa Kondensor Evaporatif</translation>
     </message>
-    <!-- OS:Coil:Cooling:DX -->
+    
     <message>
         <source>Evaporative Condenser Supply Water Storage Tank Name</source>
         <translation>Nama Tangki Penyimpanan Air Pasokan Kondenser Evaporatif</translation>
     </message>
-    <!-- OS:EvaporativeCooler:Direct:ResearchSpecial -->
+    
     <message>
         <source>Evaporative Operation Maximum Limit Drybulb Temperature</source>
         <translation>Batas Maksimum Suhu Bola Kering Operasi Evaporatif</translation>
     </message>
-    <!-- OS:EvaporativeCooler:Direct:ResearchSpecial -->
+    
     <message>
         <source>Evaporative Operation Maximum Limit Wetbulb Temperature</source>
         <translation>Temperatur Bola Basah Batas Operasi Maksimum Evaporatif</translation>
     </message>
-    <!-- OS:EvaporativeCooler:Direct:ResearchSpecial -->
+    
     <message>
         <source>Evaporative Operation Minimum Drybulb Temperature</source>
         <translation>Temperatur Bola Kering Minimum Operasi Evaporatif</translation>
     </message>
-    <!-- OS:Refrigeration:CompressorRack, OS:Refrigeration:Condenser:EvaporativeCooled -->
+    
     <message>
         <source>Evaporative Water Supply Tank Name</source>
         <translation>Nama Tangki Pasokan Air Evaporatif</translation>
     </message>
-    <!-- OS:WaterHeater:HeatPump, OS:WaterHeater:HeatPump:WrappedCondenser -->
+    
     <message>
         <source>Evaporator Air Flow Rate</source>
         <translation>Laju Aliran Udara Evaporator</translation>
     </message>
-    <!-- OS:Coil:Cooling:DX:CurveFit:Speed -->
+    
     <message>
         <source>Evaporator Air Flow Rate Fraction</source>
         <translation>Fraksi Laju Aliran Udara Evaporator</translation>
     </message>
-    <!-- OS:Coil:Cooling:DX:SingleSpeed:ThermalStorage -->
+    
     <message>
         <source>Evaporator Air Inlet Node</source>
         <translation>Node Inlet Udara Penguap</translation>
     </message>
-    <!-- OS:Coil:WaterHeating:AirToWaterHeatPump, OS:Coil:WaterHeating:AirToWaterHeatPump:VariableSpeed, OS:Coil:WaterHeating:AirToWaterHeatPump:Wrapped -->
+    
     <message>
         <source>Evaporator Air Inlet Node Name</source>
         <translation>Nama Node Inlet Udara Evaporator</translation>
     </message>
-    <!-- OS:Coil:Cooling:DX:SingleSpeed:ThermalStorage -->
+    
     <message>
         <source>Evaporator Air Outlet Node</source>
         <translation>Simpul Outlet Udara Evaporator</translation>
     </message>
-    <!-- OS:Coil:WaterHeating:AirToWaterHeatPump, OS:Coil:WaterHeating:AirToWaterHeatPump:VariableSpeed, OS:Coil:WaterHeating:AirToWaterHeatPump:Wrapped -->
+    
     <message>
         <source>Evaporator Air Outlet Node Name</source>
         <translation>Nama Node Outlet Udara Evaporator</translation>
     </message>
-    <!-- OS:Coil:WaterHeating:AirToWaterHeatPump, OS:Coil:WaterHeating:AirToWaterHeatPump:VariableSpeed, OS:Coil:WaterHeating:AirToWaterHeatPump:Wrapped -->
+    
     <message>
         <source>Evaporator Air Temperature Type for Curve Objects</source>
         <translation>Jenis Suhu Udara Evaporator untuk Objek Kurva</translation>
     </message>
-    <!-- OS:Refrigeration:SecondarySystem -->
+    
     <message>
         <source>Evaporator Approach Temperature Difference</source>
         <translation>Perbedaan Temperatur Pendekatan Evaporator</translation>
     </message>
-    <!-- OS:Refrigeration:SecondarySystem -->
+    
     <message>
         <source>Evaporator Capacity</source>
         <translation>Kapasitas Evaporator</translation>
     </message>
-    <!-- OS:Refrigeration:SecondarySystem -->
+    
     <message>
         <source>Evaporator Evaporating Temperature</source>
         <translation>Temperatur Penguapan Evaporator</translation>
     </message>
-    <!-- OS:Coil:WaterHeating:AirToWaterHeatPump, OS:Coil:WaterHeating:AirToWaterHeatPump:VariableSpeed, OS:Coil:WaterHeating:AirToWaterHeatPump:Wrapped -->
+    
     <message>
         <source>Evaporator Fan Power Included in Rated COP</source>
         <translation>Daya Kipas Evaporator Termasuk dalam COP Nominal</translation>
     </message>
-    <!-- OS:Refrigeration:SecondarySystem -->
+    
     <message>
         <source>Evaporator Flow Rate for Secondary Fluid</source>
         <translation>Laju Aliran Evaporator untuk Fluida Sekunder</translation>
     </message>
-    <!-- OS:Coil:Cooling:DX -->
+    
     <message>
         <source>Evaporator Inlet Node</source>
         <translation>Node Masuk Evaporator</translation>
     </message>
-    <!-- OS:Coil:Cooling:DX -->
+    
     <message>
         <source>Evaporator Outlet Node</source>
         <translation>Simpul Keluar Evaporator</translation>
     </message>
-    <!-- OS:Refrigeration:SecondarySystem -->
+    
     <message>
         <source>Evaporator Range Temperature Difference</source>
         <translation>Perbedaan Rentang Suhu Evaporator</translation>
     </message>
-    <!-- OS:Refrigeration:SecondarySystem -->
+    
     <message>
         <source>Evaporator Refrigerant Inventory</source>
         <translation>Inventaris Refrigeran Evaporator</translation>
     </message>
-    <!-- OS:GroundHeatExchanger:HorizontalTrench -->
+    
     <message>
         <source>Evapotranspiration Ground Cover Parameter</source>
         <translation>Parameter Penutup Tanah Evapotranspirasi</translation>
     </message>
-    <!-- OS:Generator:FuelCell:AuxiliaryHeater -->
+    
     <message>
         <source>Excess Air Ratio</source>
         <translation>Rasio Udara Berlebih</translation>
     </message>
-    <!-- OS:ZoneHVAC:EnergyRecoveryVentilator:Controller -->
+    
     <message>
         <source>Exhaust Air Enthalpy Limit</source>
         <translation>Batas Entalpi Udara Buang</translation>
     </message>
-    <!-- OS:ZoneHVAC:EnergyRecoveryVentilator -->
+    
     <message>
         <source>Exhaust Air Fan Name</source>
         <translation>Nama Kipas Udara Exhaust</translation>
     </message>
-    <!-- OS:ZoneHVAC:EnergyRecoveryVentilator -->
+    
     <message>
         <source>Exhaust Air Flow Rate</source>
         <translation>Laju Aliran Udara Buang</translation>
     </message>
-    <!-- OS:Generator:MicroTurbine -->
+    
     <message>
         <source>Exhaust Air Flow Rate Function of Part Load Ratio Curve Name</source>
         <translation>Nama Kurva Fungsi Laju Aliran Udara Buang terhadap Rasio Beban Parsial</translation>
     </message>
-    <!-- OS:Generator:MicroTurbine -->
+    
     <message>
         <source>Exhaust Air Flow Rate Function of Temperature Curve Name</source>
         <translation>Nama Kurva Fungsi Laju Aliran Udara Buang terhadap Suhu</translation>
     </message>
-    <!-- OS:HeatExchanger:AirToAir:SensibleAndLatent -->
+    
     <message>
         <source>Exhaust Air Inlet Node</source>
         <translation>Node Inlet Udara Buang</translation>
     </message>
-    <!-- OS:HeatExchanger:AirToAir:SensibleAndLatent -->
+    
     <message>
         <source>Exhaust Air Outlet Node</source>
         <translation>Simpul Outlet Udara Buang</translation>
     </message>
-    <!-- OS:Generator:MicroTurbine -->
+    
     <message>
         <source>Exhaust Air Temperature Function of Part Load Ratio Curve Name</source>
         <translation>Nama Kurva Fungsi Temperatur Udara Exhaust terhadap Rasio Beban Parsial</translation>
     </message>
-    <!-- OS:Generator:MicroTurbine -->
+    
     <message>
         <source>Exhaust Air Temperature Function of Temperature Curve Name</source>
         <translation>Nama Kurva Fungsi Suhu Udara Buang terhadap Suhu</translation>
     </message>
-    <!-- OS:ZoneHVAC:EnergyRecoveryVentilator:Controller -->
+    
     <message>
         <source>Exhaust Air Temperature Limit</source>
         <translation>Batas Suhu Udara Buang</translation>
     </message>
-    <!-- OS:Generator:FuelCell:ExhaustGasToWaterHeatExchanger -->
+    
     <message>
         <source>Exhaust Outlet Air Node Name</source>
         <translation>Nama Node Udara Outlet Exhaust</translation>
     </message>
-    <!-- OS:FuelFactors -->
+    
     <message>
         <source>Existing Fuel Resource Name</source>
         <translation>Nama Sumber Bahan Bakar yang Ada</translation>
     </message>
-    <!-- OS:EnergyManagementSystem:GlobalVariable, OS:EnergyManagementSystem:OutputVariable, OS:ExternalInterface:Actuator, OS:ExternalInterface:Schedule, OS:ExternalInterface:Variable, OS:Output:Variable -->
+    
     <message>
         <source>Export To BCVTB</source>
         <translation>Ekspor Ke BCVTB</translation>
     </message>
-    <!-- OS:SurfaceProperty:ExposedFoundationPerimeter -->
+    
     <message>
         <source>Exposed Perimeter Calculation Method</source>
         <translation>Metode Perhitungan Perimeter Terbuka</translation>
     </message>
-    <!-- OS:SurfaceProperty:ExposedFoundationPerimeter -->
+    
     <message>
         <source>Exposed Perimeter Fraction</source>
         <translation>Fraksi Keliling Terbuka</translation>
     </message>
-    <!-- OS:Exterior:FuelEquipment -->
+    
     <message>
         <source>Exterior Fuel Equipment Definition Name</source>
         <translation>Nama Definisi Peralatan Bahan Bakar Exterior</translation>
     </message>
-    <!-- OS:Foundation:Kiva -->
+    
     <message>
         <source>Exterior Horizontal Insulation Depth</source>
         <translation>Kedalaman Insulasi Horizontal Eksterior</translation>
     </message>
-    <!-- OS:Foundation:Kiva -->
+    
     <message>
         <source>Exterior Horizontal Insulation Material Name</source>
         <translation>Nama Material Insulasi Horizontal Eksterior</translation>
     </message>
-    <!-- OS:Foundation:Kiva -->
+    
     <message>
         <source>Exterior Horizontal Insulation Width</source>
         <translation>Lebar Insulasi Horizontal Eksterior</translation>
     </message>
-    <!-- OS:Exterior:Lights -->
+    
     <message>
         <source>Exterior Lights Definition Name</source>
         <translation>Nama Definisi Lampu Eksterior</translation>
     </message>
-    <!-- OS:SurfaceProperty:LocalEnvironment -->
+    
     <message>
         <source>Exterior Surface Name</source>
         <translation>Nama Permukaan Eksternal</translation>
     </message>
-    <!-- OS:Foundation:Kiva -->
+    
     <message>
         <source>Exterior Vertical Insulation Depth</source>
         <translation>Kedalaman Insulasi Vertikal Eksterior</translation>
     </message>
-    <!-- OS:Foundation:Kiva -->
+    
     <message>
         <source>Exterior Vertical Insulation Material Name</source>
         <translation>Nama Material Insulasi Vertikal Eksterior</translation>
     </message>
-    <!-- OS:Exterior:WaterEquipment -->
+    
     <message>
         <source>Exterior Water Equipment Definition Name</source>
         <translation>Nama Definisi Peralatan Air Eksternal</translation>
     </message>
-    <!-- OS:DaylightingDevice:LightWell -->
+    
     <message>
         <source>Exterior Window Name</source>
         <translation>Nama Jendela Eksterior</translation>
     </message>
-    <!-- OS:SurfaceProperty:OtherSideCoefficients -->
+    
     <message>
         <source>External Dry-Bulb Temperature Coefficient</source>
         <translation>Koefisien Suhu Bola Kering Eksternal</translation>
     </message>
-    <!-- OS:Table:IndependentVariable, OS:Table:Lookup -->
+    
     <message>
         <source>External File Column Number</source>
         <translation>Nomor Kolom File Eksternal</translation>
     </message>
-    <!-- OS:PythonPlugin:Instance, OS:Schedule:File, OS:Table:IndependentVariable, OS:Table:Lookup, OS:Table:MultiVariableLookup -->
+    
     <message>
         <source>External File Name</source>
         <translation>Nama File Eksternal</translation>
     </message>
-    <!-- OS:Table:IndependentVariable, OS:Table:Lookup -->
+    
     <message>
         <source>External File Starting Row Number</source>
         <translation>Nomor Baris Awal File Eksternal</translation>
     </message>
-    <!-- OS:AirflowNetworkExternalNode -->
+    
     <message>
         <source>External Node Height</source>
         <translation>Ketinggian Node Eksternal</translation>
     </message>
-    <!-- OS:AirflowNetworkSurface -->
+    
     <message>
         <source>External Node Name</source>
         <translation>Nama Node Eksternal</translation>
     </message>
-    <!-- OS:SurfaceProperty:LocalEnvironment -->
+    
     <message>
         <source>External Shading Fraction Schedule Name</source>
         <translation>Nama Jadwal Fraksi Bayangan Eksternal</translation>
     </message>
-    <!-- OS:SolarCollectorPerformance:IntegralCollectorStorage -->
+    
     <message>
         <source>Extinction Coefficient Times Thickness of Outer Cover</source>
         <translation>Koefisien Ekstinksi Dikali Ketebalan Penutup Luar</translation>
     </message>
-    <!-- OS:SolarCollectorPerformance:IntegralCollectorStorage -->
+    
     <message>
         <source>Extinction Coefficient Times Thickness of the inner Cover</source>
         <translation>Koefisien Ekstinsi Kali Ketebalan Penutup Dalam</translation>
     </message>
-    <!-- OS:AirflowNetworkDetailedOpening -->
+    
     <message>
         <source>Extra Crack Length or Height of Pivoting Axis</source>
         <translation>Panjang Celah Tambahan atau Tinggi Sumbu Putar</translation>
     </message>
-    <!-- OS:Table:IndependentVariable -->
+    
     <message>
         <source>Extrapolation Method</source>
         <translation>Metode Ekstrapolasi</translation>
     </message>
 
-    <!-- F -->
-    <!-- OS:Construction:FfactorGroundFloor -->
+    
+    
     <message>
         <source>F-Factor</source>
         <translation>F-Factor</translation>
     </message>
-    <!-- OS:AirflowNetworkZone -->
+    
     <message>
         <source>Facade Width</source>
         <translation>Lebar Fasad</translation>
     </message>
-    <!-- OS:WaterHeater:HeatPump -->
+    
     <message>
         <source>Fan</source>
         <translation>Kipas</translation>
     </message>
-    <!-- OS:AirTerminal:SingleDuct:ParallelPIU:Reheat, OS:AirTerminal:SingleDuct:SeriesPIU:Reheat, OS:ZoneHVAC:UnitHeater -->
+    
     <message>
         <source>Fan Control Type</source>
         <translation>Tipe Kontrol Kipas</translation>
     </message>
-    <!-- OS:Coil:Cooling:DX:VariableSpeed, OS:Coil:Cooling:WaterToAirHeatPump:EquationFit, OS:Coil:Cooling:WaterToAirHeatPump:VariableSpeedEquationFit -->
+    
     <message>
         <source>Fan Delay Time</source>
         <translation>Waktu Tunda Kipas</translation>
     </message>
-    <!-- OS:Fan:OnOff -->
+    
     <message>
         <source>Fan Efficiency Ratio Function of Speed Ratio Curve Name</source>
         <translation>Nama Kurva Fungsi Rasio Efisiensi Fan terhadap Rasio Kecepatan</translation>
     </message>
-    <!-- OS:ElectricEquipment:ITE:AirCooled -->
+    
     <message>
         <source>Fan End-Use Subcategory</source>
         <translation>Subkategori Penggunaan Akhir Kipas</translation>
     </message>
-    <!-- OS:SetpointManager:MixedAir -->
+    
     <message>
         <source>Fan Inlet Node Name</source>
         <translation>Nama Node Masuk Fan</translation>
     </message>
-    <!-- OS:AirTerminal:SingleDuct:ParallelPIU:Reheat, OS:AirTerminal:SingleDuct:SeriesPIU:Reheat, OS:AirflowNetworkFan, OS:WaterHeater:HeatPump:WrappedCondenser -->
+    
     <message>
         <source>Fan Name</source>
         <translation>Nama Kipas</translation>
     </message>
-    <!-- OS:AirTerminal:SingleDuct:ParallelPIU:Reheat -->
+    
     <message>
         <source>Fan On Flow Fraction</source>
         <translation>Fraksi Aliran Kipas Aktif</translation>
     </message>
-    <!-- OS:Fan:ComponentModel -->
+    
     <message>
         <source>Fan Outlet Area</source>
         <translation>Luas Outlet Kipas</translation>
     </message>
-    <!-- OS:SetpointManager:MixedAir -->
+    
     <message>
         <source>Fan Outlet Node Name</source>
         <translation>Nama Node Outlet Fan</translation>
     </message>
-    <!-- OS:AirLoopHVAC:UnitaryHeatPump:AirToAir, OS:AirLoopHVAC:UnitarySystem, OS:WaterHeater:HeatPump, OS:WaterHeater:HeatPump:WrappedCondenser, OS:ZoneHVAC:EvaporativeCoolerUnit, OS:ZoneHVAC:PackagedTerminalAirConditioner, OS:ZoneHVAC:PackagedTerminalHeatPump, OS:ZoneHVAC:WaterToAirHeatPump -->
+    
     <message>
         <source>Fan Placement</source>
         <translation>Penempatan Kipas</translation>
     </message>
-    <!-- OS:ElectricEquipment:ITE:AirCooled:Definition -->
+    
     <message>
         <source>Fan Power Input Function of Flow Curve Name</source>
         <translation>Nama Kurva Fungsi Input Daya Kipas terhadap Aliran</translation>
     </message>
-    <!-- OS:CoolingTower:VariableSpeed -->
+    
     <message>
         <source>Fan Power Ratio Function of Air Flow Rate Ratio Curve</source>
         <translation>Kurva Rasio Daya Kipas Fungsi Rasio Laju Aliran Udara</translation>
     </message>
-    <!-- OS:Fan:OnOff -->
+    
     <message>
         <source>Fan Power Ratio Function of Speed Ratio Curve Name</source>
         <translation>Nama Kurva Fungsi Rasio Daya Kipas terhadap Rasio Kecepatan</translation>
     </message>
-    <!-- OS:ZoneVentilation:DesignFlowRate -->
+    
     <message>
         <source>Fan Pressure Rise</source>
         <translation>Peningkatan Tekanan Kipas</translation>
     </message>
-    <!-- OS:Fan:ComponentModel -->
+    
     <message>
         <source>Fan Pressure Rise Curve Name</source>
         <translation>Nama Kurva Kenaikan Tekanan Kipas</translation>
     </message>
-    <!-- OS:AvailabilityManager:NightCycle, OS:AvailabilityManager:NightVentilation, OS:AvailabilityManager:OptimumStart -->
+    
     <message>
         <source>Fan Schedule</source>
         <translation>Jadwal Kipas</translation>
     </message>
-    <!-- OS:Fan:ComponentModel -->
+    
     <message>
         <source>Fan Sizing Factor</source>
         <translation>Faktor Penentuan Ukuran Kipas</translation>
     </message>
-    <!-- OS:Refrigeration:AirChiller, OS:Refrigeration:Condenser:EvaporativeCooled -->
+    
     <message>
         <source>Fan Speed Control Type</source>
         <translation>Jenis Kontrol Kecepatan Kipas</translation>
     </message>
-    <!-- OS:Fan:ComponentModel -->
+    
     <message>
         <source>Fan Wheel Diameter</source>
         <translation>Diameter Roda Kipas</translation>
     </message>
-    <!-- OS:Foundation:Kiva:Settings -->
+    
     <message>
         <source>Far-Field Width</source>
         <translation>Lebar Far-Field</translation>
     </message>
-    <!-- OS:AdditionalProperties -->
+    
     <message>
         <source>Feature Data Type</source>
         <translation>Tipe Data Fitur</translation>
     </message>
-    <!-- OS:AdditionalProperties -->
+    
     <message>
         <source>Feature Name</source>
         <translation>Nama Fitur</translation>
     </message>
-    <!-- OS:AdditionalProperties -->
+    
     <message>
         <source>Feature Value</source>
         <translation>Nilai Fitur</translation>
     </message>
-    <!-- OS:Site:GroundTemperature:Deep -->
+    
     <message>
         <source>February Deep Ground Temperature</source>
         <translation>Suhu Tanah Dalam Februari</translation>
     </message>
-    <!-- OS:Site:GroundReflectance -->
+    
     <message>
         <source>February Ground Reflectance</source>
         <translation>Reflektansi Tanah Februari</translation>
     </message>
-    <!-- OS:Site:GroundTemperature:BuildingSurface, OS:Site:GroundTemperature:FCfactorMethod -->
+    
     <message>
         <source>February Ground Temperature</source>
         <translation>Suhu Tanah Februari</translation>
     </message>
-    <!-- OS:Site:GroundTemperature:Shallow -->
+    
     <message>
         <source>February Surface Ground Temperature</source>
         <translation>Temperatur Permukaan Tanah Februari</translation>
     </message>
-    <!-- OS:UtilityCost:Variable -->
+    
     <message>
         <source>February Value</source>
         <translation>Nilai Februari</translation>
     </message>
-    <!-- OS:StandardsInformation:Construction -->
+    
     <message>
         <source>Fenestration Assembly Context</source>
         <translation>Konteks Perakitan Fenestration</translation>
     </message>
-    <!-- OS:StandardsInformation:Construction -->
+    
     <message>
         <source>Fenestration Divider Type</source>
         <translation>Jenis Pembagi Jendela</translation>
     </message>
-    <!-- OS:StandardsInformation:Construction -->
+    
     <message>
         <source>Fenestration Frame Type</source>
         <translation>Jenis Bingkai Jendela</translation>
     </message>
-    <!-- OS:StandardsInformation:Construction -->
+    
     <message>
         <source>Fenestration Gas Fill</source>
         <translation>Pengisian Gas Jendela</translation>
     </message>
-    <!-- OS:StandardsInformation:Construction -->
+    
     <message>
         <source>Fenestration Low Emissivity Coating</source>
         <translation>Lapisan Emitivitas Rendah Fenestration</translation>
     </message>
-    <!-- OS:StandardsInformation:Construction -->
+    
     <message>
         <source>Fenestration Number of Panes</source>
         <translation>Fenestration Jumlah Panel</translation>
     </message>
-    <!-- OS:StandardsInformation:Construction -->
+    
     <message>
         <source>Fenestration Tint</source>
         <translation>Tint Jendela</translation>
     </message>
-    <!-- OS:StandardsInformation:Construction -->
+    
     <message>
         <source>Fenestration Type</source>
         <translation>Tipe Fenestra</translation>
     </message>
-    <!-- OS:Schedule:Compact -->
+    
     <message>
         <source>Field</source>
         <translation>Lapangan</translation>
     </message>
-    <!-- OS:External:File -->
+    
     <message>
         <source>File Name</source>
         <translation>Nama File</translation>
     </message>
-    <!-- OS:Output:Table:Annual -->
+    
     <message>
         <source>Filter</source>
         <translation>Saring</translation>
     </message>
-    <!-- OS:ZoneHVAC:EvaporativeCoolerUnit -->
+    
     <message>
         <source>First Evaporative Cooler</source>
         <translation>Pendingin Evaporatif Pertama</translation>
     </message>
-    <!-- OS:Curve:Functional:PressureDrop -->
+    
     <message>
         <source>Fixed Friction Factor</source>
         <translation>Faktor Gesekan Tetap</translation>
     </message>
-    <!-- OS:DefaultSubSurfaceConstructions -->
+    
     <message>
         <source>Fixed Window Construction Name</source>
         <translation>Nama Konstruksi Jendela Tetap</translation>
     </message>
-    <!-- OS:CoilSystem:IntegratedHeatPump:AirSource -->
+    
     <message>
         <source>Flag to Indicate Load Control In SCWH Mode</source>
         <translation>Flag untuk Menunjukkan Kontrol Beban dalam Mode SCWH</translation>
     </message>
-    <!-- OS:DefaultSurfaceConstructions -->
+    
     <message>
         <source>Floor Construction Name</source>
         <translation>Nama Konstruksi Lantai</translation>
     </message>
-    <!-- OS:SpaceInfiltration:FlowCoefficient -->
+    
     <message>
         <source>Flow Coefficient</source>
         <translation>Koefisien Aliran</translation>
     </message>
-    <!-- OS:Fan:ZoneExhaust -->
+    
     <message>
         <source>Flow Fraction Schedule Name</source>
         <translation>Nama Jadwal Fraksi Aliran</translation>
     </message>
-    <!-- OS:HeatPump:AirToWater:FuelFired:Cooling, OS:HeatPump:AirToWater:FuelFired:Heating, OS:HeatPump:PlantLoop:EIR:Cooling, OS:HeatPump:PlantLoop:EIR:Heating -->
+    
     <message>
         <source>Flow Mode</source>
         <translation>Mode Aliran</translation>
     </message>
-    <!-- OS:ZoneMixing -->
+    
     <message>
         <source>Flow Rate per Floor Area</source>
         <translation>Laju Alir per Luas Lantai</translation>
     </message>
-    <!-- OS:ZoneMixing, OS:ZoneVentilation:DesignFlowRate -->
+    
     <message>
         <source>Flow Rate per Person</source>
         <translation>Laju Aliran per Orang</translation>
     </message>
-    <!-- OS:ZoneVentilation:DesignFlowRate -->
+    
     <message>
         <source>Flow Rate per Zone Floor Area</source>
         <translation>Laju Aliran per Luas Lantai Zona</translation>
     </message>
-    <!-- OS:HeaderedPumps:ConstantSpeed, OS:HeaderedPumps:VariableSpeed -->
+    
     <message>
         <source>Flow Sequencing Control Scheme</source>
         <translation>Skema Kontrol Urutan Aliran</translation>
     </message>
-    <!-- OS:Pipe:Indoor, OS:Pipe:Outdoor -->
+    
     <message>
         <source>Fluid Inlet Node</source>
         <translation>Node Inlet Fluida</translation>
     </message>
-    <!-- OS:Pipe:Indoor, OS:Pipe:Outdoor -->
+    
     <message>
         <source>Fluid Outlet Node</source>
         <translation>Node Keluar Fluida</translation>
     </message>
-    <!-- OS:Coil:Cooling:DX:SingleSpeed:ThermalStorage -->
+    
     <message>
         <source>Fluid Storage Tank Rating Temperature</source>
         <translation>Temperatur Penilaian Tangki Penyimpanan Fluida</translation>
     </message>
-    <!-- OS:Coil:Cooling:DX:SingleSpeed:ThermalStorage -->
+    
     <message>
         <source>Fluid Storage Volume</source>
         <translation>Volume Penyimpanan Fluida</translation>
     </message>
-    <!-- OS:ZoneHVAC:LowTemperatureRadiant:ConstantFlow, OS:ZoneHVAC:LowTemperatureRadiant:VariableFlow -->
+    
     <message>
         <source>Fluid to Radiant Surface Heat Transfer Model</source>
         <translation>Model Transfer Panas Fluida ke Permukaan Radiant</translation>
     </message>
-    <!-- OS:PlantLoop -->
+    
     <message>
         <source>Fluid Type</source>
         <translation>Jenis Fluida</translation>
     </message>
-    <!-- OS:ExternalInterface:FunctionalMockupUnitImport, OS:ExternalInterface:FunctionalMockupUnitImport:From:Variable, OS:ExternalInterface:FunctionalMockupUnitImport:To:Actuator, OS:ExternalInterface:FunctionalMockupUnitImport:To:Schedule, OS:ExternalInterface:FunctionalMockupUnitImport:To:Variable -->
+    
     <message>
         <source>FMU File Name</source>
         <translation>Nama File FMU</translation>
     </message>
-    <!-- OS:ExternalInterface:FunctionalMockupUnitImport:From:Variable, OS:ExternalInterface:FunctionalMockupUnitImport:To:Actuator, OS:ExternalInterface:FunctionalMockupUnitImport:To:Schedule, OS:ExternalInterface:FunctionalMockupUnitImport:To:Variable -->
+    
     <message>
         <source>FMU Instance Name</source>
         <translation>Nama Instance FMU</translation>
     </message>
-    <!-- OS:ExternalInterface:FunctionalMockupUnitImport -->
+    
     <message>
         <source>FMU LoggingOn</source>
         <translation>FMU LoggingOn</translation>
     </message>
-    <!-- OS:ExternalInterface:FunctionalMockupUnitImport -->
+    
     <message>
         <source>FMU Timeout</source>
         <translation>Batas Waktu FMU</translation>
     </message>
-    <!-- OS:ExternalInterface:FunctionalMockupUnitExport:From:Variable, OS:ExternalInterface:FunctionalMockupUnitExport:To:Actuator, OS:ExternalInterface:FunctionalMockupUnitExport:To:Schedule, OS:ExternalInterface:FunctionalMockupUnitExport:To:Variable, OS:ExternalInterface:FunctionalMockupUnitImport:From:Variable, OS:ExternalInterface:FunctionalMockupUnitImport:To:Actuator, OS:ExternalInterface:FunctionalMockupUnitImport:To:Schedule, OS:ExternalInterface:FunctionalMockupUnitImport:To:Variable -->
+    
     <message>
         <source>FMU Variable Name</source>
         <translation>Nama Variabel FMU</translation>
     </message>
-    <!-- OS:Foundation:Kiva -->
+    
     <message>
         <source>Footing Depth</source>
         <translation>Kedalaman Pondasi</translation>
     </message>
-    <!-- OS:Foundation:Kiva -->
+    
     <message>
         <source>Footing Material Name</source>
         <translation>Nama Material Dasar Pondasi</translation>
     </message>
-    <!-- OS:Foundation:Kiva -->
+    
     <message>
         <source>Footing Wall Construction Name</source>
         <translation>Nama Konstruksi Dinding Pondasi</translation>
     </message>
-    <!-- OS:ElectricEquipment:Definition, OS:GasEquipment:Definition, OS:HotWaterEquipment:Definition, OS:OtherEquipment:Definition, OS:SteamEquipment:Definition -->
+    
     <message>
         <source>Fraction Latent</source>
         <translation>Fraksi Laten</translation>
     </message>
-    <!-- OS:ElectricEquipment:Definition, OS:GasEquipment:Definition, OS:HotWaterEquipment:Definition, OS:OtherEquipment:Definition, OS:SteamEquipment:Definition -->
+    
     <message>
         <source>Fraction Lost</source>
         <translation>Fraksi Hilang</translation>
     </message>
-    <!-- OS:CoilPerformance:DX:Cooling -->
+    
     <message>
         <source>Fraction of Air Flow Bypassed Around Coil</source>
         <translation>Fraksi Aliran Udara yang Melewati Koil</translation>
     </message>
-    <!-- OS:Refrigeration:Case -->
+    
     <message>
         <source>Fraction of Anti-Sweat Heater Energy to Case</source>
         <translation>Fraksi Energi Pemanas Anti-Keringat ke Lemari</translation>
     </message>
-    <!-- OS:Coil:Cooling:LowTemperatureRadiant:VariableFlow, OS:Coil:Cooling:Water:Panel:Radiant, OS:Sizing:System -->
+    
     <message>
         <source>Fraction of Autosized Cooling Design Capacity</source>
         <translation>Fraksi Kapasitas Desain Pendinginan Autosized</translation>
     </message>
-    <!-- OS:AirLoopHVAC:UnitarySystem -->
+    
     <message>
         <source>Fraction of Autosized Design Cooling Supply Air Flow Rate</source>
         <translation>Fraksi Laju Aliran Udara Pasokan Pendingin Desain yang Diukuran Otomatis</translation>
     </message>
-    <!-- OS:AirLoopHVAC:UnitarySystem -->
+    
     <message>
         <source>Fraction of Autosized Design Cooling Supply Air Flow Rate When No Cooling or Heating is Required</source>
         <translation>Fraksi Laju Aliran Udara Pasokan Pendinginan Desain Otomatis Saat Tidak Ada Pendinginan atau Pemanasan yang Diperlukan</translation>
     </message>
-    <!-- OS:AirLoopHVAC:UnitarySystem -->
+    
     <message>
         <source>Fraction of Autosized Design Heating Supply Air Flow Rate</source>
         <translation>Fraksi Laju Aliran Udara Pasokan Desain Pemanas Otomatis</translation>
     </message>
-    <!-- OS:AirLoopHVAC:UnitarySystem -->
+    
     <message>
         <source>Fraction of Autosized Design Heating Supply Air Flow Rate When No Cooling or Heating is Required</source>
         <translation>Fraksi Laju Aliran Udara Pasokan Pemanas Berukuran Otomatis Saat Tidak Ada Pendinginan atau Pemanas yang Diperlukan</translation>
     </message>
-    <!-- OS:Coil:Heating:LowTemperatureRadiant:VariableFlow, OS:Coil:Heating:Water:Baseboard, OS:Coil:Heating:Water:Baseboard:Radiant, OS:Sizing:System, OS:ZoneHVAC:Baseboard:RadiantConvective:Electric -->
+    
     <message>
         <source>Fraction of Autosized Heating Design Capacity</source>
         <translation>Fraksi Kapasitas Desain Pemanas Autosized</translation>
     </message>
-    <!-- OS:ElectricLoadCenter:Storage:LiIonNMCBattery -->
+    
     <message>
         <source>Fraction of Cell Capacity Removed at the End of Exponential Zone</source>
         <translation>Fraksi Kapasitas Sel yang Dihilangkan di Akhir Zona Eksponensial</translation>
     </message>
-    <!-- OS:ElectricLoadCenter:Storage:LiIonNMCBattery -->
+    
     <message>
         <source>Fraction of Cell Capacity Removed at the End of Nominal Zone</source>
         <translation>Fraksi Kapasitas Sel yang Dilepas di Akhir Zona Nominal</translation>
     </message>
-    <!-- OS:SolarCollectorPerformance:PhotovoltaicThermal:BIPVT -->
+    
     <message>
         <source>Fraction of Collector Gross Area Covered by PV Module</source>
         <translation>Fraksi Area Kotor Kolektor yang Tertutup Modul PV</translation>
     </message>
-    <!-- OS:Coil:WaterHeating:AirToWaterHeatPump, OS:Coil:WaterHeating:AirToWaterHeatPump:VariableSpeed -->
+    
     <message>
         <source>Fraction of Condenser Pump Heat to Water</source>
         <translation>Fraksi Panas Pompa Kondensor ke Air</translation>
     </message>
-    <!-- OS:ElectricLoadCenter:Transformer -->
+    
     <message>
         <source>Fraction of Eddy Current Losses</source>
         <translation>Fraksi Kehilangan Arus Eddy</translation>
     </message>
-    <!-- OS:ElectricEquipment:ITE:AirCooled:Definition -->
+    
     <message>
         <source>Fraction of Electric Power Supply Losses to Zone</source>
         <translation>Fraksi Kehilangan Daya Listrik ke Zona</translation>
     </message>
-    <!-- OS:ZoneHVAC:HighTemperatureRadiant -->
+    
     <message>
         <source>Fraction of Input Converted to Latent Energy</source>
         <translation>Fraksi Input yang Dikonversi menjadi Energi Laten</translation>
     </message>
-    <!-- OS:ZoneHVAC:HighTemperatureRadiant -->
+    
     <message>
         <source>Fraction of Input Converted to Radiant Energy</source>
         <translation>Fraksi Input yang Dikonversi ke Energi Radiasi</translation>
     </message>
-    <!-- OS:ZoneHVAC:HighTemperatureRadiant -->
+    
     <message>
         <source>Fraction of Input that Is Lost</source>
         <translation>Fraksi Masukan yang Hilang</translation>
     </message>
-    <!-- OS:Refrigeration:Case -->
+    
     <message>
         <source>Fraction of Lighting Energy to Case</source>
         <translation>Fraksi Energi Pencahayaan ke Case</translation>
     </message>
-    <!-- OS:Coil:WaterHeating:Desuperheater -->
+    
     <message>
         <source>Fraction of Pump Heat to Water</source>
         <translation>Fraksi Panas Pompa ke Air</translation>
     </message>
-    <!-- OS:SolarCollectorPerformance:PhotovoltaicThermal:BIPVT -->
+    
     <message>
         <source>Fraction of PV Cell Area to PV Module Area</source>
         <translation>Fraksi Luas Sel PV terhadap Luas Modul PV</translation>
     </message>
-    <!-- OS:ZoneHVAC:Baseboard:RadiantConvective:Electric, OS:ZoneHVAC:Baseboard:RadiantConvective:Water, OS:ZoneHVAC:CoolingPanel:RadiantConvective:Water, OS:ZoneHVAC:HighTemperatureRadiant -->
+    
     <message>
         <source>Fraction of Radiant Energy Incident on People</source>
         <translation>Fraksi Energi Radiasi Insiden pada Orang</translation>
     </message>
-    <!-- OS:PhotovoltaicPerformance:Simple -->
+    
     <message>
         <source>Fraction of Surface Area with Active Solar Cells</source>
         <translation>Fraksi Luas Permukaan dengan Sel Surya Aktif</translation>
     </message>
-    <!-- OS:SolarCollectorPerformance:PhotovoltaicThermal:Simple -->
+    
     <message>
         <source>Fraction of Surface Area with Active Thermal Collector</source>
         <translation>Fraksi Luas Permukaan dengan Kolektor Termal Aktif</translation>
     </message>
-    <!-- OS:CoolingTower:VariableSpeed -->
+    
     <message>
         <source>Fraction of Tower Capacity in Free Convection Regime</source>
         <translation>Fraksi Kapasitas Menara dalam Rezim Konveksi Bebas</translation>
     </message>
-    <!-- OS:ThermalZone -->
+    
     <message>
         <source>Fraction of Zone Controlled by Primary Daylighting Control</source>
         <translation>Fraksi Zona yang Dikendalikan oleh Kontrol Pencahayaan Alami Utama</translation>
     </message>
-    <!-- OS:ThermalZone -->
+    
     <message>
         <source>Fraction of Zone Controlled by Secondary Daylighting Control</source>
         <translation>Fraksi Zona yang Dikendalikan oleh Kontrol Pencahayaan Sekunder</translation>
     </message>
-    <!-- OS:Lights, OS:Luminaire -->
+    
     <message>
         <source>Fraction Replaceable</source>
         <translation>Fraksi yang Dapat Diganti</translation>
     </message>
-    <!-- OS:Generator:WindTurbine -->
+    
     <message>
         <source>Fraction system Efficiency</source>
         <translation>Efisiensi Sistem Fraksi</translation>
     </message>
-    <!-- OS:Lights:Definition, OS:Luminaire:Definition -->
+    
     <message>
         <source>Fraction Visible</source>
         <translation>Fraksi Terlihat</translation>
     </message>
-    <!-- OS:SubSurface -->
+    
     <message>
         <source>Frame and Divider Name</source>
         <translation>Nama Frame dan Divider</translation>
     </message>
-    <!-- OS:WindowProperty:FrameAndDivider -->
+    
     <message>
         <source>Frame Conductance</source>
         <translation>Konduktansi Rangka</translation>
     </message>
-    <!-- OS:WindowProperty:FrameAndDivider -->
+    
     <message>
         <source>Frame Inside Projection</source>
         <translation>Proyeksi Dalam Frame</translation>
     </message>
-    <!-- OS:WindowProperty:FrameAndDivider -->
+    
     <message>
         <source>Frame Outside Projection</source>
         <translation>Proyeksi Luar Frame</translation>
     </message>
-    <!-- OS:WindowProperty:FrameAndDivider -->
+    
     <message>
         <source>Frame Solar Absorptance</source>
         <translation>Frame Solar Absorptance</translation>
     </message>
-    <!-- OS:WindowProperty:FrameAndDivider -->
+    
     <message>
         <source>Frame Thermal Hemispherical Emissivity</source>
         <translation>Emisivitas Hemisferikal Termal Bingkai</translation>
     </message>
-    <!-- OS:WindowProperty:FrameAndDivider -->
+    
     <message>
         <source>Frame Visible Absorptance</source>
         <translation>Frame Visible Absorptance</translation>
     </message>
-    <!-- OS:WindowProperty:FrameAndDivider -->
+    
     <message>
         <source>Frame Width</source>
         <translation>Lebar Frame</translation>
     </message>
-    <!-- OS:CoolingTower:SingleSpeed -->
+    
     <message>
         <source>Free Convection Air Flow Rate Sizing Factor</source>
         <translation>Faktor Ukuran Laju Aliran Udara Konveksi Bebas</translation>
     </message>
-    <!-- OS:CoolingTower:TwoSpeed -->
+    
     <message>
         <source>Free Convection Nominal Capacity</source>
         <translation>Kapasitas Nominal Konveksi Alami</translation>
     </message>
-    <!-- OS:CoolingTower:SingleSpeed, OS:CoolingTower:TwoSpeed -->
+    
     <message>
         <source>Free Convection Nominal Capacity Sizing Factor</source>
         <translation>Faktor Penentuan Kapasitas Nominal Konveksi Bebas</translation>
     </message>
-    <!-- OS:CoolingTower:TwoSpeed -->
+    
     <message>
         <source>Free Convection Regime Air Flow Rate</source>
         <translation>Laju Aliran Udara Rezim Konveksi Bebas</translation>
     </message>
-    <!-- OS:CoolingTower:TwoSpeed -->
+    
     <message>
         <source>Free Convection Regime Air Flow Rate Sizing Factor</source>
         <translation>Faktor Pengukuran Laju Aliran Udara Rezim Konveksi Bebas</translation>
     </message>
-    <!-- OS:CoolingTower:TwoSpeed -->
+    
     <message>
         <source>Free Convection Regime U-Factor Times Area Value</source>
         <translation>Nilai U-Factor Dikali Area Rezim Konveksi Bebas</translation>
     </message>
-    <!-- OS:CoolingTower:SingleSpeed, OS:CoolingTower:TwoSpeed -->
+    
     <message>
         <source>Free Convection U-Factor Times Area Value Sizing Factor</source>
         <translation>Faktor Pengganda Nilai U-Factor Kali Area Konveksi Bebas</translation>
     </message>
-    <!-- OS:ThermalStorage:Ice:Detailed -->
+    
     <message>
         <source>Freezing Temperature of Storage Medium</source>
         <translation>Suhu Pembekuan Medium Penyimpanan</translation>
     </message>
-    <!-- OS:Schedule:Week -->
+    
     <message>
         <source>Friday Schedule:Day Name</source>
         <translation>Jadwal Jumat:Nama Hari</translation>
     </message>
-    <!-- OS:ZoneProperty:UserViewFactors:BySurfaceName -->
+    
     <message>
         <source>From Surface Name</source>
         <translation>Dari Nama Permukaan</translation>
     </message>
-    <!-- OS:MaterialProperty:GlazingSpectralData -->
+    
     <message>
         <source>Front Reflectance</source>
         <translation>Reflektansi Depan</translation>
     </message>
-    <!-- OS:WindowMaterial:Glazing -->
+    
     <message>
         <source>Front Side Infrared Hemispherical Emissivity</source>
         <translation>Emissivitas Hemispherical Inframerah Sisi Depan</translation>
     </message>
-    <!-- OS:WindowMaterial:Blind -->
+    
     <message>
         <source>Front Side Slat Beam Solar Reflectance</source>
         <translation>Front Side Slat Beam Solar Reflectance</translation>
     </message>
-    <!-- OS:WindowMaterial:Blind -->
+    
     <message>
         <source>Front Side Slat Beam Visible Reflectance</source>
         <translation>Reflektansi Berkas Terlihat Slat Sisi Depan</translation>
     </message>
-    <!-- OS:WindowMaterial:Blind -->
+    
     <message>
         <source>Front Side Slat Diffuse Solar Reflectance</source>
         <translation>Reflektansi Surya Difus Sisi Depan Latis</translation>
     </message>
-    <!-- OS:WindowMaterial:Blind -->
+    
     <message>
         <source>Front Side Slat Diffuse Visible Reflectance</source>
         <translation>Front Side Slat Diffuse Visible Reflectance</translation>
     </message>
-    <!-- OS:WindowMaterial:Blind -->
+    
     <message>
         <source>Front Side Slat Infrared Hemispherical Emissivity</source>
         <translation>Emisivitas Hemisferikal Inframerah Sisi Depan Slat</translation>
     </message>
-    <!-- OS:WindowMaterial:Glazing -->
+    
     <message>
         <source>Front Side Solar Reflectance at Normal Incidence</source>
         <translation>Reflektansi Surya Sisi Depan pada Insiden Normal</translation>
     </message>
-    <!-- OS:WindowMaterial:Glazing -->
+    
     <message>
         <source>Front Side Visible Reflectance at Normal Incidence</source>
         <translation>Reflektansi Tampak Sisi Depan pada Insiden Normal</translation>
     </message>
-    <!-- OS:SolarCollectorPerformance:PhotovoltaicThermal:Simple -->
+    
     <message>
         <source>Front Surface Emittance</source>
         <translation>Emitansi Permukaan Depan</translation>
     </message>
-    <!-- OS:HeatExchanger:AirToAir:SensibleAndLatent -->
+    
     <message>
         <source>Frost Control Type</source>
         <translation>Jenis Kontrol Frost</translation>
     </message>
-    <!-- OS:Generator:FuelCell:StackCooler -->
+    
     <message>
         <source>Fs-cogen Adjustment Factor</source>
         <translation>Faktor Penyesuaian Fs-cogen</translation>
     </message>
-    <!-- OS:HeatPump:AirToWater:FuelFired:Heating -->
+    
     <message>
         <source>Fuel Energy Input Ratio Defrost Adjustment Curve Name</source>
         <translation>Nama Kurva Penyesuaian Defrost Rasio Input Energi Bahan Bakar</translation>
     </message>
-    <!-- OS:HeatPump:AirToWater:FuelFired:Cooling, OS:HeatPump:AirToWater:FuelFired:Heating -->
+    
     <message>
         <source>Fuel Energy Input Ratio Function of PLR Curve Name</source>
         <translation>Nama Kurva Fungsi Rasio Input Energi Bahan Bakar terhadap PLR</translation>
     </message>
-    <!-- OS:HeatPump:AirToWater:FuelFired:Cooling, OS:HeatPump:AirToWater:FuelFired:Heating -->
+    
     <message>
         <source>Fuel Energy Input Ratio Function of Temperature Curve Name</source>
         <translation>Nama Kurva Rasio Input Energi Bahan Bakar sebagai Fungsi Suhu</translation>
     </message>
-    <!-- OS:Generator:MicroTurbine -->
+    
     <message>
         <source>Fuel Higher Heating Value</source>
         <translation>Nilai Pemanasan Lebih Tinggi Bahan Bakar</translation>
     </message>
-    <!-- OS:Generator:MicroTurbine -->
+    
     <message>
         <source>Fuel Lower Heating Value</source>
         <translation>Nilai Kalor Bawah Bahan Bakar</translation>
     </message>
-    <!-- OS:Generator:FuelCell -->
+    
     <message>
         <source>Fuel Supply Name</source>
         <translation>Nama Pasokan Bahan Bakar</translation>
     </message>
-    <!-- OS:Generator:FuelSupply -->
+    
     <message>
         <source>Fuel Temperature Modeling Mode</source>
         <translation>Mode Pemodelan Temperatur Bahan Bakar</translation>
     </message>
-    <!-- OS:Generator:FuelSupply -->
+    
     <message>
         <source>Fuel Temperature Reference Node Name</source>
         <translation>Nama Node Referensi Suhu Bahan Bakar</translation>
     </message>
-    <!-- OS:Generator:FuelSupply -->
+    
     <message>
         <source>Fuel Temperature Schedule Name</source>
         <translation>Nama Jadwal Suhu Bahan Bakar</translation>
     </message>
-    <!-- OS:Exterior:FuelEquipment -->
+    
     <message>
         <source>Fuel Use Type</source>
         <translation>Jenis Penggunaan Bahan Bakar</translation>
     </message>
-    <!-- OS:LifeCycleCost:Parameters -->
+    
     <message>
         <source>FuelOil1 Inflation</source>
         <translation>Inflasi Bahan Bakar Minyak 1</translation>
     </message>
-    <!-- OS:LifeCycleCost:Parameters -->
+    
     <message>
         <source>FuelOil2 Inflation</source>
         <translation>Inflasi Bahan Bakar Minyak No. 2</translation>
     </message>
-    <!-- OS:ElectricLoadCenter:Transformer -->
+    
     <message>
         <source>Full Load Temperature Rise</source>
         <translation>Kenaikan Suhu Beban Penuh</translation>
     </message>
-    <!-- OS:ElectricLoadCenter:Storage:LiIonNMCBattery -->
+    
     <message>
         <source>Fully Charged Cell Capacity</source>
         <translation>Kapasitas Sel Terisi Penuh</translation>
     </message>
-    <!-- OS:ElectricLoadCenter:Storage:LiIonNMCBattery -->
+    
     <message>
         <source>Fully Charged Cell Voltage</source>
         <translation>Tegangan Sel Terisi Penuh</translation>
     </message>
 
-    <!-- G -->
-    <!-- OS:GroundHeatExchanger:Vertical -->
+    
+    
     <message>
         <source>G-Function G Value</source>
         <translation>Nilai G-Fungsi G</translation>
     </message>
-    <!-- OS:GroundHeatExchanger:Vertical -->
+    
     <message>
         <source>G-Function Ln(T/Ts) Value</source>
         <translation>Nilai G-Function Ln(T/Ts)</translation>
     </message>
-    <!-- OS:GroundHeatExchanger:Vertical -->
+    
     <message>
         <source>G-Function Reference Ratio</source>
         <translation>Rasio Referensi G-Function</translation>
     </message>
-    <!-- OS:WindowMaterial:GasMixture -->
+    
     <message>
         <source>Gas 1 Fraction</source>
         <translation>Fraksi Gas 1</translation>
     </message>
-    <!-- OS:WindowMaterial:GasMixture -->
+    
     <message>
         <source>Gas 1 Type</source>
         <translation>Jenis Gas 1</translation>
     </message>
-    <!-- OS:WindowMaterial:GasMixture -->
+    
     <message>
         <source>Gas 2 Fraction</source>
         <translation>Fraksi Gas 2</translation>
     </message>
-    <!-- OS:WindowMaterial:GasMixture -->
+    
     <message>
         <source>Gas 2 Type</source>
         <translation>Jenis Gas 2</translation>
     </message>
-    <!-- OS:WindowMaterial:GasMixture -->
+    
     <message>
         <source>Gas 3 Fraction</source>
         <translation>Fraksi Gas 3</translation>
     </message>
-    <!-- OS:WindowMaterial:GasMixture -->
+    
     <message>
         <source>Gas 3 Type</source>
         <translation>Jenis Gas 3</translation>
     </message>
-    <!-- OS:WindowMaterial:GasMixture -->
+    
     <message>
         <source>Gas 4 Fraction</source>
         <translation>Fraksi Gas 4</translation>
     </message>
-    <!-- OS:WindowMaterial:GasMixture -->
+    
     <message>
         <source>Gas 4 Type</source>
         <translation>Jenis Gas 4</translation>
     </message>
-    <!-- OS:Refrigeration:GasCooler:AirCooled -->
+    
     <message>
         <source>Gas Cooler Fan Speed Control Type</source>
         <translation>Jenis Kontrol Kecepatan Kipas Pendingin Gas</translation>
     </message>
-    <!-- OS:Refrigeration:GasCooler:AirCooled -->
+    
     <message>
         <source>Gas Cooler Outlet Piping Refrigerant Inventory</source>
         <translation>Inventaris Refrigeran Pipa Outlet Gas Cooler</translation>
     </message>
-    <!-- OS:Refrigeration:GasCooler:AirCooled -->
+    
     <message>
         <source>Gas Cooler Receiver Refrigerant Inventory</source>
         <translation>Inventaris Refrigeran Penerima Pendingin Gas</translation>
     </message>
-    <!-- OS:Refrigeration:GasCooler:AirCooled -->
+    
     <message>
         <source>Gas Cooler Refrigerant Operating Charge Inventory</source>
         <translation>Inventaris Muatan Operasi Refrigeran Pendingin Gas</translation>
     </message>
-    <!-- OS:GasEquipment -->
+    
     <message>
         <source>Gas Equipment Definition Name</source>
         <translation>Nama Definisi Peralatan Gas</translation>
     </message>
-    <!-- OS:WindowMaterial:Gas -->
+    
     <message>
         <source>Gas Type</source>
         <translation>Jenis Gas</translation>
     </message>
-    <!-- OS:LifeCycleCost:Parameters -->
+    
     <message>
         <source>Gasoline Inflation</source>
         <translation>Inflasi Bensin</translation>
     </message>
-    <!-- OS:Chiller:Absorption:Indirect -->
+    
     <message>
         <source>Generator Heat Input Correction Function of Chilled Water Temperature Curve</source>
         <translation>Kurva Fungsi Koreksi Input Panas Generator terhadap Temperatur Air Chilled</translation>
     </message>
-    <!-- OS:Chiller:Absorption:Indirect -->
+    
     <message>
         <source>Generator Heat Input Correction Function of Condenser Temperature Curve</source>
         <translation>Kurva Fungsi Koreksi Input Panas Generator terhadap Temperatur Kondenser</translation>
     </message>
-    <!-- OS:Chiller:Absorption:Indirect -->
+    
     <message>
         <source>Generator Heat Input Function of Part Load Ratio Curve</source>
         <translation>Kurva Fungsi Input Panas Generator terhadap Rasio Beban Parsial</translation>
     </message>
-    <!-- OS:Chiller:Absorption, OS:Chiller:Absorption:Indirect -->
+    
     <message>
         <source>Generator Heat Source Type</source>
         <translation>Jenis Sumber Panas Generator</translation>
     </message>
-    <!-- OS:Chiller:Absorption:Indirect -->
+    
     <message>
         <source>Generator Inlet Node</source>
         <translation>Generator Inlet Node</translation>
     </message>
-    <!-- OS:Chiller:Absorption -->
+    
     <message>
         <source>Generator Inlet Node Name</source>
         <translation>Nama Node Inlet Generator</translation>
     </message>
-    <!-- OS:ElectricLoadCenter:Distribution -->
+    
     <message>
         <source>Generator List Name</source>
         <translation>Nama Daftar Generator</translation>
     </message>
-    <!-- OS:Generator:MicroTurbine -->
+    
     <message>
         <source>Generator MicroTurbine Heat Recovery Name</source>
         <translation>Generator MicroTurbine Heat Recovery Name</translation>
     </message>
-    <!-- OS:ElectricLoadCenter:Distribution -->
+    
     <message>
         <source>Generator Operation Scheme Type</source>
         <translation>Jenis Skema Operasi Generator</translation>
     </message>
-    <!-- OS:Chiller:Absorption:Indirect -->
+    
     <message>
         <source>Generator Outlet Node</source>
         <translation>Node Outlet Generator</translation>
     </message>
-    <!-- OS:Chiller:Absorption -->
+    
     <message>
         <source>Generator Outlet Node Name</source>
         <translation>Nama Node Outlet Generator</translation>
     </message>
-    <!-- OS:ZoneControl:ContaminantController -->
+    
     <message>
         <source>Generic Contaminant Control Availability Schedule Name</source>
         <translation>Nama Jadwal Ketersediaan Kontrol Kontaminan Generik</translation>
     </message>
-    <!-- OS:ZoneControl:ContaminantController -->
+    
     <message>
         <source>Generic Contaminant Setpoint Schedule Name</source>
         <translation>Nama Jadwal Setpoint Kontaminan Generik</translation>
     </message>
-    <!-- OS:ShadingControl -->
+    
     <message>
         <source>Glare Control Is Active</source>
         <translation>Kontrol Silau Aktif</translation>
     </message>
-    <!-- OS:DefaultSubSurfaceConstructions -->
+    
     <message>
         <source>Glass Door Construction Name</source>
         <translation>Nama Konstruksi Pintu Kaca</translation>
     </message>
-    <!-- OS:SolarCollectorPerformance:PhotovoltaicThermal:BIPVT -->
+    
     <message>
         <source>Glass Extinction Coefficient</source>
         <translation>Koefisien Ekstinsi Kaca</translation>
     </message>
-    <!-- OS:Refrigeration:WalkIn:ZoneBoundary -->
+    
     <message>
         <source>Glass Reach In Door Opening Schedule Name Facing Zone</source>
         <translation>Nama Jadwal Pembukaan Pintu Reach In Kaca Menghadap Zona</translation>
     </message>
-    <!-- OS:Refrigeration:WalkIn:ZoneBoundary -->
+    
     <message>
         <source>Glass Reach In Door U Value Facing Zone</source>
         <translation>Nilai U Pintu Kaca Jangkauan Masuk Menghadap Zona</translation>
     </message>
-    <!-- OS:SolarCollectorPerformance:PhotovoltaicThermal:BIPVT -->
+    
     <message>
         <source>Glass Refraction Index</source>
         <translation>Indeks Refraksi Kaca</translation>
     </message>
-    <!-- OS:SolarCollectorPerformance:PhotovoltaicThermal:BIPVT -->
+    
     <message>
         <source>Glass Thickness</source>
         <translation>Ketebalan Kaca</translation>
     </message>
-    <!-- OS:Coil:Cooling:DX:SingleSpeed:ThermalStorage, OS:PlantLoop, OS:Refrigeration:SecondarySystem -->
+    
     <message>
         <source>Glycol Concentration</source>
         <translation>Konsentrasi Glikol</translation>
     </message>
-    <!-- OS:SolarCollectorPerformance:FlatPlate, OS:SolarCollectorPerformance:IntegralCollectorStorage -->
+    
     <message>
         <source>Gross Area</source>
         <translation>Luas Bruto</translation>
     </message>
-    <!-- OS:Coil:Cooling:DX:CurveFit:Speed -->
+    
     <message>
         <source>Gross Cooling COP</source>
         <translation>Gross Cooling COP</translation>
     </message>
-    <!-- OS:AirConditioner:VariableRefrigerantFlow, OS:Coil:Cooling:DX:MultiSpeed:StageData, OS:CoilPerformance:DX:Cooling -->
+    
     <message>
         <source>Gross Rated Cooling COP</source>
         <translation>Gross Rated Cooling COP</translation>
     </message>
-    <!-- OS:AirConditioner:VariableRefrigerantFlow, OS:Coil:Heating:DX:MultiSpeed:StageData -->
+    
     <message>
         <source>Gross Rated Heating Capacity</source>
         <translation>Kapasitas Pemanasan Rated Bruto</translation>
     </message>
-    <!-- OS:Coil:Heating:DX:MultiSpeed:StageData -->
+    
     <message>
         <source>Gross Rated Heating COP</source>
         <translation>Gross Rated Heating COP</translation>
     </message>
-    <!-- OS:Coil:Cooling:DX:MultiSpeed:StageData, OS:CoilPerformance:DX:Cooling -->
+    
     <message>
         <source>Gross Rated Sensible Heat Ratio</source>
         <translation>Rasio Panas Sensibel Rated Bruto</translation>
     </message>
-    <!-- OS:AirConditioner:VariableRefrigerantFlow, OS:Coil:Cooling:DX:MultiSpeed:StageData, OS:CoilPerformance:DX:Cooling -->
+    
     <message>
         <source>Gross Rated Total Cooling Capacity</source>
         <translation>Kapasitas Pendinginan Total Terpasang Kotor</translation>
     </message>
-    <!-- OS:Coil:Cooling:DX:VariableSpeed, OS:Coil:Cooling:WaterToAirHeatPump:VariableSpeedEquationFit -->
+    
     <message>
         <source>Gross Rated Total Cooling Capacity At Selected Nominal Speed Level</source>
         <translation>Kapasitas Pendinginan Total Terpilai Kotor pada Tingkat Kecepatan Nominal Terpilih</translation>
     </message>
-    <!-- OS:Coil:Cooling:DX:CurveFit:Speed -->
+    
     <message>
         <source>Gross Sensible Heat Ratio</source>
         <translation>Rasio Panas Sensibel Kotor</translation>
     </message>
-    <!-- OS:Coil:Cooling:DX:CurveFit:Speed -->
+    
     <message>
         <source>Gross Total Cooling Capacity Fraction</source>
         <translation>Fraksi Kapasitas Pendinginan Total Kotor</translation>
     </message>
-    <!-- OS:Generator:PVWatts -->
+    
     <message>
         <source>Ground Coverage Ratio</source>
         <translation>Rasio Cakupan Tanah</translation>
     </message>
-    <!-- OS:Foundation:Kiva:Settings -->
+    
     <message>
         <source>Ground Solar Absorptivity</source>
         <translation>Absorptivitas Solar Tanah</translation>
     </message>
-    <!-- OS:SurfaceProperty:GroundSurfaces -->
+    
     <message>
         <source>Ground Surface Name</source>
         <translation>Nama Permukaan Tanah</translation>
     </message>
-    <!-- OS:SurfaceProperty:GroundSurfaces -->
+    
     <message>
         <source>Ground Surface Reflectance Schedule Name</source>
         <translation>Nama Jadwal Reflektansi Permukaan Tanah</translation>
     </message>
-    <!-- OS:Foundation:Kiva:Settings -->
+    
     <message>
         <source>Ground Surface Roughness</source>
         <translation>Kekasaran Permukaan Tanah</translation>
     </message>
-    <!-- OS:SurfaceProperty:GroundSurfaces -->
+    
     <message>
         <source>Ground Surface Temperature Schedule Name</source>
         <translation>Nama Jadwal Temperatur Permukaan Tanah</translation>
     </message>
-    <!-- OS:SurfaceProperty:GroundSurfaces -->
+    
     <message>
         <source>Ground Surface View Factor</source>
         <translation>Faktor Pandang Permukaan Tanah</translation>
     </message>
-    <!-- OS:SurfaceProperty:LocalEnvironment -->
+    
     <message>
         <source>Ground Surfaces Object Name</source>
         <translation>Nama Objek Permukaan Tanah</translation>
     </message>
-    <!-- OS:GroundHeatExchanger:Vertical -->
+    
     <message>
         <source>Ground Temperature</source>
         <translation>Suhu Tanah</translation>
     </message>
-    <!-- OS:SurfaceProperty:OtherSideCoefficients -->
+    
     <message>
         <source>Ground Temperature Coefficient</source>
         <translation>Koefisien Suhu Tanah</translation>
     </message>
-    <!-- OS:SurfaceProperty:SurroundingSurfaces -->
+    
     <message>
         <source>Ground Temperature Schedule Name</source>
         <translation>Nama Jadwal Suhu Tanah</translation>
     </message>
-    <!-- OS:Foundation:Kiva:Settings -->
+    
     <message>
         <source>Ground Thermal Absorptivity</source>
         <translation>Absorptivitas Termal Tanah</translation>
     </message>
-    <!-- OS:GroundHeatExchanger:Vertical -->
+    
     <message>
         <source>Ground Thermal Conductivity</source>
         <translation>Konduktivitas Termal Tanah</translation>
     </message>
-    <!-- OS:GroundHeatExchanger:Vertical -->
+    
     <message>
         <source>Ground Thermal Heat Capacity</source>
         <translation>Kapasitas Panas Termal Tanah</translation>
     </message>
-    <!-- OS:SurfaceProperty:SurroundingSurfaces -->
+    
     <message>
         <source>Ground View Factor</source>
         <translation>Faktor Pandangan Tanah</translation>
     </message>
-    <!-- OS:UtilityCost:Tariff -->
+    
     <message>
         <source>Group Name</source>
         <translation>Nama Grup</translation>
     </message>
-    <!-- OS:BuildingStory, OS:LightingSimulationZone, OS:SpaceType, OS:ThermalZone -->
+    
     <message>
         <source>Group Rendering Name</source>
         <translation>Nama Rendering Kelompok</translation>
     </message>
-    <!-- OS:EnergyManagementSystem:MeteredOutputVariable, OS:PythonPlugin:OutputVariable -->
+    
     <message>
         <source>Group Type</source>
         <translation>Tipe Grup</translation>
     </message>
-    <!-- OS:GroundHeatExchanger:Vertical -->
+    
     <message>
         <source>Grout Thermal Conductivity</source>
         <translation>Konduktivitas Termal Grout</translation>
     </message>
 
-    <!-- H -->
-    <!-- OS:HeatExchanger:FluidToFluid -->
+    
+    
     <message>
         <source>Heat Exchange Model Type</source>
         <translation>Tipe Model Pertukaran Panas</translation>
     </message>
-    <!-- OS:CoilSystem:Cooling:DX:HeatExchangerAssisted, OS:CoilSystem:Cooling:Water:HeatExchangerAssisted -->
+    
     <message>
         <source>Heat Exchanger</source>
         <translation>Penukar Panas</translation>
     </message>
-    <!-- OS:Generator:FuelCell:ExhaustGasToWaterHeatExchanger -->
+    
     <message>
         <source>Heat Exchanger Calculation Method</source>
         <translation>Metode Perhitungan Heat Exchanger</translation>
     </message>
-    <!-- OS:Generator:FuelCell, OS:ZoneHVAC:EnergyRecoveryVentilator -->
+    
     <message>
         <source>Heat Exchanger Name</source>
         <translation>Nama Penukar Panas</translation>
     </message>
-    <!-- OS:HeatExchanger:Desiccant:BalancedFlow -->
+    
     <message>
         <source>Heat Exchanger Performance</source>
         <translation>Kinerja Penukar Panas</translation>
     </message>
-    <!-- OS:HeatExchanger:FluidToFluid -->
+    
     <message>
         <source>Heat Exchanger Setpoint Node Name</source>
         <translation>Nama Node Setpoint Heat Exchanger</translation>
     </message>
-    <!-- OS:HeatExchanger:AirToAir:SensibleAndLatent -->
+    
     <message>
         <source>Heat Exchanger Type</source>
         <translation>Tipe Penukar Panas</translation>
     </message>
-    <!-- OS:HeatExchanger:FluidToFluid -->
+    
     <message>
         <source>Heat Exchanger U-Factor Times Area Value</source>
         <translation>Nilai Faktor-U Kali Luas Heat Exchanger</translation>
     </message>
-    <!-- OS:OutputControl:ResilienceSummaries -->
+    
     <message>
         <source>Heat Index Algorithm</source>
         <translation>Algoritma Indeks Panas</translation>
     </message>
-    <!-- OS:ZoneHVAC:WaterToAirHeatPump -->
+    
     <message>
         <source>Heat Pump Coil Water Flow Mode</source>
         <translation>Modus Aliran Air Kumparan Pompa Panas</translation>
     </message>
-    <!-- OS:HeatPump:AirToWater, OS:HeatPump:PlantLoop:EIR:Heating -->
+    
     <message>
         <source>Heat Pump Defrost Control</source>
         <translation>Kontrol Defrost Pompa Panas</translation>
     </message>
-    <!-- OS:HeatPump:AirToWater, OS:HeatPump:PlantLoop:EIR:Heating -->
+    
     <message>
         <source>Heat Pump Defrost Time Period Fraction</source>
         <translation>Heat Pump Defrost Time Period Fraction</translation>
     </message>
-    <!-- OS:HeatPump:AirToWater -->
+    
     <message>
         <source>Heat Pump Multiplier</source>
         <translation>Pengali Pompa Panas</translation>
     </message>
-    <!-- OS:HeatPump:PlantLoop:EIR:Heating -->
+    
     <message>
         <source>Heat Pump Sizing Method</source>
         <translation>Metode Penentuan Ukuran Heat Pump</translation>
     </message>
-    <!-- OS:Coil:WaterHeating:Desuperheater -->
+    
     <message>
         <source>Heat Reclaim Efficiency Function of Temperature Curve Name</source>
         <translation>Nama Kurva Fungsi Efisiensi Pemulihan Panas terhadap Suhu</translation>
     </message>
-    <!-- OS:Coil:Heating:Desuperheater -->
+    
     <message>
         <source>Heat Reclaim Recovery Efficiency</source>
         <translation>Efisiensi Pemulihan Panas Limbah</translation>
     </message>
-    <!-- OS:HeatPump:PlantLoop:EIR:Cooling, OS:HeatPump:PlantLoop:EIR:Heating -->
+    
     <message>
         <source>Heat Recovery Capacity Modifier Function of Temperature Curve Name</source>
         <translation>Nama Kurva Fungsi Modifier Kapasitas Pemulihan Panas terhadap Suhu</translation>
     </message>
-    <!-- OS:AirConditioner:VariableRefrigerantFlow -->
+    
     <message>
         <source>Heat Recovery Cooling Capacity Modifier Curve Name</source>
         <translation>Nama Kurva Pengubah Kapasitas Pendinginan Pemulihan Panas</translation>
     </message>
-    <!-- OS:AirConditioner:VariableRefrigerantFlow, OS:AirConditioner:VariableRefrigerantFlow:FluidTemperatureControl:HR -->
+    
     <message>
         <source>Heat Recovery Cooling Capacity Time Constant</source>
         <translation>Konstanta Waktu Kapasitas Pendinginan Pemulihan Panas</translation>
     </message>
-    <!-- OS:AirConditioner:VariableRefrigerantFlow -->
+    
     <message>
         <source>Heat Recovery Cooling Energy Modifier Curve Name</source>
         <translation>Nama Kurva Pengubah Energi Pendinginan Pemulihan Panas</translation>
     </message>
-    <!-- OS:AirConditioner:VariableRefrigerantFlow, OS:AirConditioner:VariableRefrigerantFlow:FluidTemperatureControl:HR -->
+    
     <message>
         <source>Heat Recovery Cooling Energy Time Constant</source>
         <translation>Konstanta Waktu Energi Pendinginan Pemulihan Panas</translation>
     </message>
-    <!-- OS:HeatPump:PlantLoop:EIR:Cooling, OS:HeatPump:PlantLoop:EIR:Heating -->
+    
     <message>
         <source>Heat Recovery Electric Input to Output Ratio Modifier Function of Temperature Curve Name</source>
         <translation>Nama Kurva Modifer Rasio Input Listrik terhadap Output Pemulihan Panas sebagai Fungsi Temperatur</translation>
     </message>
-    <!-- OS:AirConditioner:VariableRefrigerantFlow -->
+    
     <message>
         <source>Heat Recovery Heating Capacity Modifier Curve Name</source>
         <translation>Nama Kurva Pengubah Kapasitas Pemanas Pemulihan Panas</translation>
     </message>
-    <!-- OS:AirConditioner:VariableRefrigerantFlow, OS:AirConditioner:VariableRefrigerantFlow:FluidTemperatureControl:HR -->
+    
     <message>
         <source>Heat Recovery Heating Capacity Time Constant</source>
         <translation>Konstanta Waktu Kapasitas Pemanas Pemulihan Panas</translation>
     </message>
-    <!-- OS:AirConditioner:VariableRefrigerantFlow -->
+    
     <message>
         <source>Heat Recovery Heating Energy Modifier Curve Name</source>
         <translation>Nama Kurva Pengubah Energi Pemanas Pemulihan Panas</translation>
     </message>
-    <!-- OS:AirConditioner:VariableRefrigerantFlow, OS:AirConditioner:VariableRefrigerantFlow:FluidTemperatureControl:HR -->
+    
     <message>
         <source>Heat Recovery Heating Energy Time Constant</source>
         <translation>Konstanta Waktu Energi Pemanasan Pemulihan Panas</translation>
     </message>
-    <!-- OS:Chiller:Electric:EIR, OS:Chiller:Electric:ReformulatedEIR -->
+    
     <message>
         <source>Heat Recovery Inlet High Temperature Limit Schedule Name</source>
         <translation>Nama Jadwal Batas Suhu Tinggi Inlet Pemulihan Panas</translation>
     </message>
-    <!-- OS:Chiller:Electric:ASHRAE205, OS:Chiller:Electric:EIR, OS:Chiller:Electric:ReformulatedEIR, OS:HeatPump:PlantLoop:EIR:Cooling, OS:HeatPump:PlantLoop:EIR:Heating -->
+    
     <message>
         <source>Heat Recovery Inlet Node Name</source>
         <translation>Nama Node Masuk Pemulihan Panas</translation>
     </message>
-    <!-- OS:Chiller:Electric:EIR, OS:Chiller:Electric:ReformulatedEIR -->
+    
     <message>
         <source>Heat Recovery Leaving Temperature Setpoint Node Name</source>
         <translation>Nama Node Setpoint Temperatur Meninggalkan Heat Recovery</translation>
     </message>
-    <!-- OS:Chiller:Electric:ASHRAE205, OS:Chiller:Electric:EIR, OS:Chiller:Electric:ReformulatedEIR, OS:HeatPump:PlantLoop:EIR:Cooling, OS:HeatPump:PlantLoop:EIR:Heating -->
+    
     <message>
         <source>Heat Recovery Outlet Node Name</source>
         <translation>Nama Node Outlet Pemulihan Panas</translation>
     </message>
-    <!-- OS:Generator:MicroTurbine:HeatRecovery -->
+    
     <message>
         <source>Heat Recovery Rate Function of Inlet Water Temperature Curve Name</source>
         <translation>Nama Kurva Fungsi Laju Pemulihan Panas terhadap Suhu Air Masuk</translation>
     </message>
-    <!-- OS:Generator:MicroTurbine:HeatRecovery -->
+    
     <message>
         <source>Heat Recovery Rate Function of Part Load Ratio Curve Name</source>
         <translation>Nama Kurva Fungsi Tingkat Pemulihan Panas terhadap Rasio Beban Parsial</translation>
     </message>
-    <!-- OS:Generator:MicroTurbine:HeatRecovery -->
+    
     <message>
         <source>Heat Recovery Rate Function of Water Flow Rate Curve Name</source>
         <translation>Nama Kurva Fungsi Tingkat Pemulihan Panas terhadap Laju Aliran Air</translation>
     </message>
-    <!-- OS:HeatPump:PlantLoop:EIR:Cooling, OS:HeatPump:PlantLoop:EIR:Heating -->
+    
     <message>
         <source>Heat Recovery Reference Flow Rate</source>
         <translation>Laju Aliran Referensi Pemulihan Panas</translation>
     </message>
-    <!-- OS:ZoneHVAC:IdealLoadsAirSystem -->
+    
     <message>
         <source>Heat Recovery Type</source>
         <translation>Tipe Pemulihan Panas</translation>
     </message>
-    <!-- OS:Generator:MicroTurbine:HeatRecovery -->
+    
     <message>
         <source>Heat Recovery Water Flow Operating Mode</source>
         <translation>Modus Operasi Aliran Air Pemulihan Panas</translation>
     </message>
-    <!-- OS:Generator:MicroTurbine:HeatRecovery -->
+    
     <message>
         <source>Heat Recovery Water Flow Rate Function of Temperature and Power Curve Name</source>
         <translation>Nama Kurva Fungsi Laju Aliran Air Pemulihan Panas terhadap Suhu dan Daya</translation>
     </message>
-    <!-- OS:AirLoopHVAC:UnitaryHeatPump:AirToAir:MultiSpeed -->
+    
     <message>
         <source>Heat Recovery Water Inlet Node</source>
         <translation>Node Inlet Air Pemulihan Panas</translation>
     </message>
-    <!-- OS:AirLoopHVAC:UnitarySystem, OS:Generator:FuelCell:ExhaustGasToWaterHeatExchanger, OS:Generator:FuelCell:StackCooler, OS:Generator:MicroTurbine:HeatRecovery -->
+    
     <message>
         <source>Heat Recovery Water Inlet Node Name</source>
         <translation>Nama Node Inlet Air Pemulih Panas</translation>
     </message>
-    <!-- OS:Generator:FuelCell:ExhaustGasToWaterHeatExchanger -->
+    
     <message>
         <source>Heat Recovery Water Maximum Flow Rate</source>
         <translation>Laju Aliran Air Pemulihan Panas Maksimum</translation>
     </message>
-    <!-- OS:AirLoopHVAC:UnitaryHeatPump:AirToAir:MultiSpeed -->
+    
     <message>
         <source>Heat Recovery Water Outlet Node</source>
         <translation>Heat Recovery Water Outlet Node</translation>
     </message>
-    <!-- OS:AirLoopHVAC:UnitarySystem, OS:Generator:FuelCell:ExhaustGasToWaterHeatExchanger, OS:Generator:FuelCell:StackCooler, OS:Generator:MicroTurbine:HeatRecovery -->
+    
     <message>
         <source>Heat Recovery Water Outlet Node Name</source>
         <translation>Nama Node Outlet Air Pemulihan Panas</translation>
     </message>
-    <!-- OS:CoolingTower:SingleSpeed, OS:CoolingTower:TwoSpeed, OS:EvaporativeFluidCooler:SingleSpeed, OS:EvaporativeFluidCooler:TwoSpeed -->
+    
     <message>
         <source>Heat Rejection Capacity and Nominal Capacity Sizing Ratio</source>
         <translation>Rasio Penentuan Ukuran Kapasitas Penolakan Panas dan Kapasitas Nominal</translation>
     </message>
-    <!-- OS:Refrigeration:CompressorRack -->
+    
     <message>
         <source>Heat Rejection Location</source>
         <translation>Lokasi Penolakan Panas</translation>
     </message>
-    <!-- OS:Refrigeration:CompressorRack -->
+    
     <message>
         <source>Heat Rejection Zone Name</source>
         <translation>Nama Zona Penolakan Panas</translation>
     </message>
-    <!-- OS:ElectricLoadCenter:Storage:LiIonNMCBattery -->
+    
     <message>
         <source>Heat Transfer Coefficient Between Battery and Ambient</source>
         <translation>Koefisien Perpindahan Panas antara Baterai dan Sekitar</translation>
     </message>
-    <!-- OS:Generator:Photovoltaic -->
+    
     <message>
         <source>Heat Transfer Integration Mode</source>
         <translation>Mode Integrasi Perpindahan Panas</translation>
     </message>
-    <!-- OS:HeatExchanger:FluidToFluid -->
+    
     <message>
         <source>Heat Transfer Metering End Use Type</source>
         <translation>Jenis Penggunaan Akhir Meteran Transfer Panas</translation>
     </message>
-    <!-- OS:AirflowNetworkDuct -->
+    
     <message>
         <source>Heat Transmittance Coefficient (U-Factor) for Duct Wall Construction</source>
         <translation>Koefisien Transmitansi Panas (U-Factor) untuk Konstruksi Dinding Saluran</translation>
     </message>
-    <!-- OS:WaterHeater:Mixed -->
+    
     <message>
         <source>Heater Ignition Delay</source>
         <translation>Penundaan Penyalaan Pemanas</translation>
     </message>
-    <!-- OS:WaterHeater:Mixed -->
+    
     <message>
         <source>Heater Ignition Minimum Flow Rate</source>
         <translation>Laju Aliran Minimum Penyalaan Pemanas</translation>
     </message>
-    <!-- OS:AirTerminal:SingleDuct:ConstantVolume:FourPipeBeam, OS:ZoneHVAC:IdealLoadsAirSystem -->
+    
     <message>
         <source>Heating Availability Schedule Name</source>
         <translation>Nama Jadwal Ketersediaan Pemanas</translation>
     </message>
-    <!-- OS:Coil:Heating:WaterToAirHeatPump:EquationFit, OS:HeatPump:WaterToWater:EquationFit:Heating -->
+    
     <message>
         <source>Heating Capacity Curve Name</source>
         <translation>Nama Kurva Kapasitas Pemanas</translation>
     </message>
-    <!-- OS:Coil:WaterHeating:AirToWaterHeatPump -->
+    
     <message>
         <source>Heating Capacity Function of Air Flow Fraction Curve</source>
         <translation>Kurva Fungsi Kapasitas Pemanasan dari Fraksi Aliran Udara</translation>
     </message>
-    <!-- OS:Coil:WaterHeating:AirToWaterHeatPump:Wrapped -->
+    
     <message>
         <source>Heating Capacity Function of Air Flow Fraction Curve Name</source>
         <translation>Nama Kurva Fungsi Kapasitas Pemanas terhadap Fraksi Aliran Udara</translation>
     </message>
-    <!-- OS:Coil:Heating:DX:MultiSpeed:StageData -->
+    
     <message>
         <source>Heating Capacity Function of Flow Fraction Curve Name</source>
         <translation>Nama Kurva Fungsi Kapasitas Pemanasan terhadap Fraksi Aliran</translation>
     </message>
-    <!-- OS:Coil:WaterHeating:AirToWaterHeatPump -->
+    
     <message>
         <source>Heating Capacity Function of Temperature Curve</source>
         <translation>Kurva Fungsi Kapasitas Pemanas Terhadap Suhu</translation>
     </message>
-    <!-- OS:Coil:Heating:DX:MultiSpeed:StageData, OS:Coil:Heating:DX:VariableSpeed:SpeedData, OS:Coil:Heating:WaterToAirHeatPump:VariableSpeedEquationFit:SpeedData, OS:Coil:WaterHeating:AirToWaterHeatPump:Wrapped -->
+    
     <message>
         <source>Heating Capacity Function of Temperature Curve Name</source>
         <translation>Nama Kurva Fungsi Kapasitas Pemanas terhadap Suhu</translation>
     </message>
-    <!-- OS:Coil:WaterHeating:AirToWaterHeatPump -->
+    
     <message>
         <source>Heating Capacity Function of Water Flow Fraction Curve</source>
         <translation>Kurva Fungsi Kapasitas Pemanas terhadap Fraksi Aliran Air</translation>
     </message>
-    <!-- OS:Coil:Heating:WaterToAirHeatPump:VariableSpeedEquationFit:SpeedData -->
+    
     <message>
         <source>Heating Capacity Function of Water Flow Fraction Curve Name</source>
         <translation>Nama Kurva Fungsi Kapasitas Pemanas dari Fraksi Aliran Air</translation>
     </message>
-    <!-- OS:Coil:Heating:DX:VariableRefrigerantFlow -->
+    
     <message>
         <source>Heating Capacity Modifier Function of Flow Fraction Curve</source>
         <translation>Kurva Fungsi Modifikasi Kapasitas Pemanas terhadap Fraksi Aliran</translation>
     </message>
-    <!-- OS:AirConditioner:VariableRefrigerantFlow -->
+    
     <message>
         <source>Heating Capacity Ratio Boundary Curve Name</source>
         <translation>Nama Kurva Batas Rasio Kapasitas Pemanasan</translation>
     </message>
-    <!-- OS:AirConditioner:VariableRefrigerantFlow -->
+    
     <message>
         <source>Heating Capacity Ratio Modifier Function of High Temperature Curve Name</source>
         <translation>Nama Fungsi Kurva Modifier Rasio Kapasitas Pemanas Suhu Tinggi</translation>
     </message>
-    <!-- OS:AirConditioner:VariableRefrigerantFlow -->
+    
     <message>
         <source>Heating Capacity Ratio Modifier Function of Low Temperature Curve Name</source>
         <translation>Nama Kurva Fungsi Pengubah Rasio Kapasitas Pemanasan Temperatur Rendah</translation>
     </message>
-    <!-- OS:Coil:Heating:DX:VariableRefrigerantFlow -->
+    
     <message>
         <source>Heating Capacity Ratio Modifier Function of Temperature Curve</source>
         <translation>Fungsi Kurva Pengubah Rasio Kapasitas Pemanas berdasarkan Suhu</translation>
     </message>
-    <!-- OS:Generator:FuelCell:AuxiliaryHeater -->
+    
     <message>
         <source>Heating Capacity Units</source>
         <translation>Satuan Kapasitas Pemanas</translation>
     </message>
-    <!-- OS:AirLoopHVAC:UnitaryHeatCool:VAVChangeoverBypass, OS:AirLoopHVAC:UnitaryHeatPump:AirToAir:MultiSpeed, OS:ZoneHVAC:TerminalUnit:VariableRefrigerantFlow -->
+    
     <message>
         <source>Heating Coil</source>
         <translation>Kumparan Pemanas</translation>
     </message>
-    <!-- OS:AirLoopHVAC:UnitaryHeatPump:AirToAir, OS:AirLoopHVAC:UnitarySystem, OS:AirTerminal:SingleDuct:ConstantVolume:FourPipeBeam, OS:AirTerminal:SingleDuct:ConstantVolume:FourPipeInduction, OS:ZoneHVAC:Baseboard:Convective:Water, OS:ZoneHVAC:Baseboard:RadiantConvective:Water, OS:ZoneHVAC:FourPipeFanCoil, OS:ZoneHVAC:PackagedTerminalAirConditioner, OS:ZoneHVAC:PackagedTerminalHeatPump, OS:ZoneHVAC:UnitHeater, OS:ZoneHVAC:UnitVentilator, OS:ZoneHVAC:WaterToAirHeatPump -->
+    
     <message>
         <source>Heating Coil Name</source>
         <translation>Nama Kumparan Pemanas</translation>
     </message>
-    <!-- OS:AirConditioner:VariableRefrigerantFlow -->
+    
     <message>
         <source>Heating Combination Ratio Correction Factor Curve Name</source>
         <translation>Nama Kurva Faktor Koreksi Rasio Kombinasi Pemanasan</translation>
     </message>
-    <!-- OS:HeatPump:WaterToWater:EquationFit:Heating -->
+    
     <message>
         <source>Heating Compressor Power Curve Name</source>
         <translation>Nama Kurva Daya Kompresor Pemanas</translation>
     </message>
-    <!-- OS:Coil:Heating:LowTemperatureRadiant:VariableFlow -->
+    
     <message>
         <source>Heating Control Temperature Schedule Name</source>
         <translation>Nama Jadwal Temperatur Kontrol Pemanasan</translation>
     </message>
-    <!-- OS:Coil:Heating:LowTemperatureRadiant:VariableFlow -->
+    
     <message>
         <source>Heating Control Throttling Range</source>
         <translation>Rentang Pembatasan Kontrol Pemanasan</translation>
     </message>
-    <!-- OS:AirTerminal:SingleDuct:ParallelPIU:Reheat, OS:AirTerminal:SingleDuct:SeriesPIU:Reheat -->
+    
     <message>
         <source>Heating Control Type</source>
         <translation>Tipe Kontrol Pemanasan</translation>
     </message>
-    <!-- OS:AvailabilityManager:NightCycle -->
+    
     <message>
         <source>Heating Control Zone or Zone List Name</source>
         <translation>Nama Zona Kontrol Pemanasan atau Daftar Zona</translation>
     </message>
-    <!-- OS:AirTerminal:SingleDuct:ConstantVolume:FourPipeInduction, OS:ZoneHVAC:FourPipeFanCoil, OS:ZoneHVAC:PackagedTerminalHeatPump, OS:ZoneHVAC:UnitHeater, OS:ZoneHVAC:UnitVentilator -->
+    
     <message>
         <source>Heating Convergence Tolerance</source>
         <translation>Toleransi Konvergensi Pemanasan</translation>
     </message>
-    <!-- OS:Coil:WaterHeating:AirToWaterHeatPump -->
+    
     <message>
         <source>Heating COP Function of Air Flow Fraction Curve</source>
         <translation>Kurva Fungsi COP Pemanasan terhadap Fraksi Aliran Udara</translation>
     </message>
-    <!-- OS:Coil:WaterHeating:AirToWaterHeatPump:Wrapped -->
+    
     <message>
         <source>Heating COP Function of Air Flow Fraction Curve Name</source>
         <translation>Nama Kurva Fungsi COP Pemanasan terhadap Fraksi Aliran Udara</translation>
     </message>
-    <!-- OS:Coil:WaterHeating:AirToWaterHeatPump -->
+    
     <message>
         <source>Heating COP Function of Temperature Curve</source>
         <translation>Kurva Fungsi COP Pemanas terhadap Suhu</translation>
     </message>
-    <!-- OS:Coil:WaterHeating:AirToWaterHeatPump:Wrapped -->
+    
     <message>
         <source>Heating COP Function of Temperature Curve Name</source>
         <translation>Nama Kurva Fungsi COP Pemanas terhadap Suhu</translation>
     </message>
-    <!-- OS:Coil:WaterHeating:AirToWaterHeatPump -->
+    
     <message>
         <source>Heating COP Function of Water Flow Fraction Curve</source>
         <translation>Kurva Fungsi COP Pemanas terhadap Fraksi Aliran Air</translation>
     </message>
-    <!-- OS:Coil:Heating:LowTemperatureRadiant:VariableFlow, OS:Coil:Heating:Water:Baseboard, OS:Coil:Heating:Water:Baseboard:Radiant, OS:Sizing:System, OS:ZoneHVAC:Baseboard:RadiantConvective:Electric -->
+    
     <message>
         <source>Heating Design Capacity</source>
         <translation>Kapasitas Desain Pemanas</translation>
     </message>
-    <!-- OS:Coil:Heating:LowTemperatureRadiant:VariableFlow, OS:Coil:Heating:Water:Baseboard, OS:Coil:Heating:Water:Baseboard:Radiant, OS:Sizing:System, OS:ZoneHVAC:Baseboard:RadiantConvective:Electric -->
+    
     <message>
         <source>Heating Design Capacity Method</source>
         <translation>Metode Kapasitas Desain Pemanas</translation>
     </message>
-    <!-- OS:Coil:Heating:LowTemperatureRadiant:VariableFlow, OS:Coil:Heating:Water:Baseboard, OS:Coil:Heating:Water:Baseboard:Radiant, OS:Sizing:System, OS:ZoneHVAC:Baseboard:RadiantConvective:Electric -->
+    
     <message>
         <source>Heating Design Capacity Per Floor Area</source>
         <translation>Kapasitas Desain Pemanasan Per Luas Lantai</translation>
     </message>
-    <!-- OS:AirConditioner:VariableRefrigerantFlow -->
+    
     <message>
         <source>Heating Energy Input Ratio Boundary Curve Name</source>
         <translation>Nama Kurva Batas Rasio Input Energi Pemanasan</translation>
     </message>
-    <!-- OS:HeatPump:AirToWater:Heating:SpeedData -->
+    
     <message>
         <source>Heating Energy Input Ratio Function of PLR Curve Name</source>
         <translation>Nama Kurva Fungsi Rasio Input Energi Pemanasan terhadap PLR</translation>
     </message>
-    <!-- OS:HeatPump:AirToWater:Heating:SpeedData -->
+    
     <message>
         <source>Heating Energy Input Ratio Function of Temperature Curve Name</source>
         <translation>Nama Kurva Fungsi Rasio Input Energi Pemanas terhadap Suhu</translation>
     </message>
-    <!-- OS:AirConditioner:VariableRefrigerantFlow -->
+    
     <message>
         <source>Heating Energy Input Ratio Modifier Function of High Part-Load Ratio Curve Name</source>
         <translation>Nama Kurva Fungsi Pengubah Rasio Input Energi Pemanas untuk Rasio Beban Parsial Tinggi</translation>
     </message>
-    <!-- OS:AirConditioner:VariableRefrigerantFlow -->
+    
     <message>
         <source>Heating Energy Input Ratio Modifier Function of High Temperature Curve Name</source>
         <translation>Nama Kurva Fungsi Pengubah Rasio Masukan Energi Pemanas Suhu Tinggi</translation>
     </message>
-    <!-- OS:AirConditioner:VariableRefrigerantFlow -->
+    
     <message>
         <source>Heating Energy Input Ratio Modifier Function of Low Part-Load Ratio Curve Name</source>
         <translation>Nama Kurva Fungsi Modifier Rasio Input Energi Pemanas dari Kurva Rasio Part-Load Rendah</translation>
     </message>
-    <!-- OS:AirConditioner:VariableRefrigerantFlow -->
+    
     <message>
         <source>Heating Energy Input Ratio Modifier Function of Low Temperature Curve Name</source>
         <translation>Nama Fungsi Kurva Modifier Rasio Input Energi Pemanas untuk Suhu Rendah</translation>
     </message>
-    <!-- OS:Sizing:System -->
+    
     <message>
         <source>Heating Fraction of Autosized Cooling Supply Air Flow Rate</source>
         <translation>Fraksi Pemanasan dari Laju Aliran Udara Pasokan Pendinginan yang Diatur Otomatis</translation>
     </message>
-    <!-- OS:Sizing:System -->
+    
     <message>
         <source>Heating Fraction of Autosized Heating Supply Air Flow Rate</source>
         <translation>Fraksi Pemanasan dari Laju Aliran Udara Pasokan Pemanasan yang Diubah Ukurannya Otomatis</translation>
     </message>
-    <!-- OS:ZoneHVAC:IdealLoadsAirSystem -->
+    
     <message>
         <source>Heating Fuel Efficiency Schedule Name</source>
         <translation>Nama Jadwal Efisiensi Bahan Bakar Pemanas</translation>
     </message>
-    <!-- OS:ZoneHVAC:IdealLoadsAirSystem -->
+    
     <message>
         <source>Heating Fuel Type</source>
         <translation>Jenis Bahan Bakar Pemanas</translation>
     </message>
-    <!-- OS:Coil:Heating:LowTemperatureRadiant:ConstantFlow -->
+    
     <message>
         <source>Heating High Control Temperature Schedule Name</source>
         <translation>Nama Jadwal Kontrol Suhu Pemanas Tinggi</translation>
     </message>
-    <!-- OS:Coil:Heating:LowTemperatureRadiant:ConstantFlow -->
+    
     <message>
         <source>Heating High Water Temperature Schedule Name</source>
         <translation>Nama Jadwal Suhu Air Tinggi Pemanas</translation>
     </message>
-    <!-- OS:ZoneHVAC:IdealLoadsAirSystem -->
+    
     <message>
         <source>Heating Limit</source>
         <translation>Batas Pemanasan</translation>
     </message>
-    <!-- OS:CentralHeatPumpSystem -->
+    
     <message>
         <source>Heating Loop Inlet Node Name</source>
         <translation>Nama Node Inlet Loop Pemanas</translation>
     </message>
-    <!-- OS:CentralHeatPumpSystem -->
+    
     <message>
         <source>Heating Loop Outlet Node Name</source>
         <translation>Nama Node Outlet Loop Pemanas</translation>
     </message>
-    <!-- OS:Coil:Heating:LowTemperatureRadiant:ConstantFlow -->
+    
     <message>
         <source>Heating Low Control Temperature Schedule Name</source>
         <translation>Nama Jadwal Suhu Kontrol Rendah Pemanas</translation>
     </message>
-    <!-- OS:Coil:Heating:LowTemperatureRadiant:ConstantFlow -->
+    
     <message>
         <source>Heating Low Water Temperature Schedule Name</source>
         <translation>Nama Jadwal Suhu Air Pemanas Rendah</translation>
     </message>
-    <!-- OS:ChillerHeaterPerformance:Electric:EIR -->
+    
     <message>
         <source>Heating Mode Cooling Capacity Function of Temperature Curve Name</source>
         <translation>Nama Kurva Fungsi Kapasitas Pendinginan Mode Pemanas</translation>
     </message>
-    <!-- OS:ChillerHeaterPerformance:Electric:EIR -->
+    
     <message>
         <source>Heating Mode Cooling Capacity Optimum Part Load Ratio</source>
         <translation>Rasio Beban Parsial Optimal Kapasitas Pendinginan Mode Pemanasan</translation>
     </message>
-    <!-- OS:ChillerHeaterPerformance:Electric:EIR -->
+    
     <message>
         <source>Heating Mode Electric Input to Cooling Output Ratio Function of Part Load Ratio Curve Name</source>
         <translation>Nama Kurva Fungsi Rasio Input Elektrik terhadap Output Pendinginan Mode Pemanasan Berdasarkan Rasio Beban Parsial</translation>
     </message>
-    <!-- OS:ChillerHeaterPerformance:Electric:EIR -->
+    
     <message>
         <source>Heating Mode Electric Input to Cooling Output Ratio Function of Temperature Curve Name</source>
         <translation>Nama Kurva Fungsi Rasio Input Listrik ke Output Pendinginan Mode Pemanas</translation>
     </message>
-    <!-- OS:ChillerHeaterPerformance:Electric:EIR -->
+    
     <message>
         <source>Heating Mode Entering Chilled Water Temperature Low Limit</source>
         <translation>Batas Bawah Suhu Air Pendingin Saat Memasuki Mode Pemanasan</translation>
     </message>
-    <!-- OS:ChillerHeaterPerformance:Electric:EIR -->
+    
     <message>
         <source>Heating Mode Temperature Curve Condenser Water Independent Variable</source>
         <translation>Kurva Suhu Mode Pemanasan Variabel Independen Air Kondenser</translation>
     </message>
-    <!-- OS:HeatPump:AirToWater -->
+    
     <message>
         <source>Heating Operation Mode</source>
         <translation>Mode Operasi Pemanas</translation>
     </message>
-    <!-- OS:AirConditioner:VariableRefrigerantFlow -->
+    
     <message>
         <source>Heating Part-Load Fraction Correlation Curve Name</source>
         <translation>Nama Kurva Korelasi Fraksi Beban Parsial Pemanasan</translation>
     </message>
-    <!-- OS:AirConditioner:VariableRefrigerantFlow -->
+    
     <message>
         <source>Heating Performance Curve Outdoor Temperature Type</source>
         <translation>Jenis Temperatur Luar Kurva Performa Pemanas</translation>
     </message>
-    <!-- OS:Coil:Heating:WaterToAirHeatPump:EquationFit -->
+    
     <message>
         <source>Heating Power Consumption Curve Name</source>
         <translation>Nama Kurva Konsumsi Daya Pemanasan</translation>
     </message>
-    <!-- OS:Refrigeration:AirChiller, OS:Refrigeration:WalkIn -->
+    
     <message>
         <source>Heating Power Schedule Name</source>
         <translation>Nama Jadwal Daya Pemanas</translation>
     </message>
-    <!-- OS:ThermostatSetpoint:DualSetpoint, OS:ZoneHVAC:HighTemperatureRadiant, OS:ZoneHVAC:LowTemperatureRadiant:Electric -->
+    
     <message>
         <source>Heating Setpoint Temperature Schedule Name</source>
         <translation>Nama Jadwal Suhu Setpoint Pemanasan</translation>
     </message>
-    <!-- OS:Sizing:Parameters -->
+    
     <message>
         <source>Heating Sizing Factor</source>
         <translation>Faktor Penentuan Ukuran Pemanasan</translation>
     </message>
-    <!-- OS:Coil:Heating:Desuperheater, OS:Coil:WaterHeating:Desuperheater -->
+    
     <message>
         <source>Heating Source Name</source>
         <translation>Nama Sumber Pemanas</translation>
     </message>
-    <!-- OS:UnitarySystemPerformance:Multispeed -->
+    
     <message>
         <source>Heating Speed Supply Air Flow Ratio</source>
         <translation>Rasio Aliran Udara Pasokan Kecepatan Pemanasan</translation>
     </message>
-    <!-- OS:SetpointManager:SingleZone:OneStageHeating -->
+    
     <message>
         <source>Heating Stage Off Supply Air Setpoint Temperature</source>
         <translation>Suhu Titik Setel Udara Pasokan Tahap Pemanas Mati</translation>
     </message>
-    <!-- OS:SetpointManager:SingleZone:OneStageHeating -->
+    
     <message>
         <source>Heating Stage On Supply Air Setpoint Temperature</source>
         <translation>Suhu Setpoint Udara Pasokan Saat Tahap Pemanas Aktif</translation>
     </message>
-    <!-- OS:Sizing:System -->
+    
     <message>
         <source>Heating Supply Air Flow Rate Per Floor Area</source>
         <translation>Laju Aliran Udara Pasokan Pemanas Per Luas Lantai</translation>
     </message>
-    <!-- OS:Sizing:System -->
+    
     <message>
         <source>Heating Supply Air Flow Rate Per Unit Heating Capacity</source>
         <translation>Laju Aliran Udara Pasokan Pemanas Per Unit Kapasitas Pemanas</translation>
     </message>
-    <!-- OS:ZoneControl:Thermostat:StagedDualSetpoint -->
+    
     <message>
         <source>Heating Temperature Setpoint Schedule</source>
         <translation>Jadwal Titik Setel Suhu Pemanasan</translation>
     </message>
-    <!-- OS:ZoneHVAC:HighTemperatureRadiant, OS:ZoneHVAC:LowTemperatureRadiant:Electric -->
+    
     <message>
         <source>Heating Throttling Range</source>
         <translation>Rentang Throttling Pemanasan</translation>
     </message>
-    <!-- OS:ZoneControl:Thermostat:StagedDualSetpoint -->
+    
     <message>
         <source>Heating Throttling Temperature Range</source>
         <translation>Rentang Temperatur Throttling Pemanas</translation>
     </message>
-    <!-- OS:HeatPump:PlantLoop:EIR:Heating -->
+    
     <message>
         <source>Heating To Cooling Capacity Sizing Ratio</source>
         <translation>Rasio Ukuran Kapasitas Pemanas ke Pendingin</translation>
     </message>
-    <!-- OS:Coil:Heating:LowTemperatureRadiant:ConstantFlow, OS:Coil:Heating:LowTemperatureRadiant:VariableFlow -->
+    
     <message>
         <source>Heating Water Inlet Node Name</source>
         <translation>Nama Node Inlet Air Pemanas</translation>
     </message>
-    <!-- OS:Coil:Heating:LowTemperatureRadiant:ConstantFlow, OS:Coil:Heating:LowTemperatureRadiant:VariableFlow -->
+    
     <message>
         <source>Heating Water Outlet Node Name</source>
         <translation>Nama Node Outlet Air Pemanas</translation>
     </message>
-    <!-- OS:AvailabilityManager:NightCycle -->
+    
     <message>
         <source>Heating Zone Fans Only Zone or Zone List Name</source>
         <translation>Nama Zona atau Daftar Zona untuk Kipas Zona Pemanas Saja</translation>
     </message>
-    <!-- OS:Construction:CfactorUndergroundWall -->
+    
     <message>
         <source>Height</source>
         <translation>Tinggi</translation>
     </message>
-    <!-- OS:WaterHeater:Sizing -->
+    
     <message>
         <source>Height Aspect Ratio</source>
         <translation>Rasio Aspek Tinggi</translation>
     </message>
-    <!-- OS:AirflowNetworkSimulationControl -->
+    
     <message>
         <source>Height Dependence of External Node Temperature</source>
         <translation>Ketergantungan Tinggi Suhu Node Eksternal</translation>
     </message>
-    <!-- OS:ZoneVentilation:WindandStackOpenArea -->
+    
     <message>
         <source>Height Difference</source>
         <translation>Perbedaan Ketinggian</translation>
     </message>
-    <!-- OS:AirConditioner:VariableRefrigerantFlow:FluidTemperatureControl, OS:AirConditioner:VariableRefrigerantFlow:FluidTemperatureControl:HR -->
+    
     <message>
         <source>Height Difference Between Outdoor Unit and Indoor Units</source>
         <translation>Perbedaan Ketinggian Antara Unit Luar dan Unit Dalam</translation>
     </message>
-    <!-- OS:AirflowNetworkDetailedOpening -->
+    
     <message>
         <source>Height Factor for Opening Factor</source>
         <translation>Faktor Ketinggian untuk Faktor Pembukaan</translation>
     </message>
-    <!-- OS:Generator:WindTurbine -->
+    
     <message>
         <source>Height for Local Average Wind Speed</source>
         <translation>Ketinggian untuk Kecepatan Angin Rata-Rata Lokal</translation>
     </message>
-    <!-- OS:Refrigeration:WalkIn:ZoneBoundary -->
+    
     <message>
         <source>Height of Glass Reach In Doors Facing Zone</source>
         <translation>Tinggi Pintu Reach In Berkaca Menghadap Zona</translation>
     </message>
-    <!-- OS:Material:RoofVegetation -->
+    
     <message>
         <source>Height of Plants</source>
         <translation>Tinggi Tanaman</translation>
     </message>
-    <!-- OS:Refrigeration:WalkIn:ZoneBoundary -->
+    
     <message>
         <source>Height of Stocking Doors Facing Zone</source>
         <translation>Tinggi Pintu Penyimpanan Menghadap Zona</translation>
     </message>
-    <!-- OS:DaylightingDevice:LightWell -->
+    
     <message>
         <source>Height of Well</source>
         <translation>Tinggi Sumur</translation>
     </message>
-    <!-- OS:AirflowNetworkSimulationControl -->
+    
     <message>
         <source>Height Selection for Local Wind Pressure Calculation</source>
         <translation>Pemilihan Ketinggian untuk Perhitungan Tekanan Angin Lokal</translation>
     </message>
-    <!-- OS:FuelFactors -->
+    
     <message>
         <source>Hg Emission Factor</source>
         <translation>Faktor Emisi Hg</translation>
     </message>
-    <!-- OS:FuelFactors -->
+    
     <message>
         <source>Hg Emission Factor Schedule Name</source>
         <translation>Nama Jadwal Faktor Emisi Hg</translation>
     </message>
-    <!-- OS:CoolingTower:TwoSpeed, OS:EvaporativeFluidCooler:TwoSpeed, OS:FluidCooler:TwoSpeed -->
+    
     <message>
         <source>High Fan Speed Air Flow Rate</source>
         <translation>Laju Aliran Udara pada Kecepatan Kipas Tinggi</translation>
     </message>
-    <!-- OS:CoolingTower:TwoSpeed, OS:EvaporativeFluidCooler:TwoSpeed, OS:FluidCooler:TwoSpeed -->
+    
     <message>
         <source>High Fan Speed Fan Power</source>
         <translation>Daya Kipas Kecepatan Kipas Tinggi</translation>
     </message>
-    <!-- OS:CoolingTower:TwoSpeed -->
+    
     <message>
         <source>High Fan Speed U-Factor Times Area Value</source>
         <translation>Nilai Faktor-U Kali Luas Kecepatan Kipas Tinggi</translation>
     </message>
-    <!-- OS:EvaporativeFluidCooler:TwoSpeed, OS:FluidCooler:TwoSpeed -->
+    
     <message>
         <source>High Fan Speed U-factor Times Area Value</source>
         <translation>Nilai Faktor-U Kali Luas pada Kecepatan Kipas Tinggi</translation>
     </message>
-    <!-- OS:Controller:OutdoorAir -->
+    
     <message>
         <source>High Humidity Control</source>
         <translation>Kontrol Kelembaban Tinggi</translation>
     </message>
-    <!-- OS:ZoneHVAC:EnergyRecoveryVentilator:Controller -->
+    
     <message>
         <source>High Humidity Control Flag</source>
         <translation>Bendera Kontrol Kelembaban Tinggi</translation>
     </message>
-    <!-- OS:Controller:OutdoorAir, OS:ZoneHVAC:EnergyRecoveryVentilator:Controller -->
+    
     <message>
         <source>High Humidity Outdoor Air Flow Ratio</source>
         <translation>Rasio Aliran Udara Luar pada Kelembaban Tinggi</translation>
     </message>
-    <!-- OS:AirTerminal:SingleDuct:ParallelPIU:Reheat, OS:AirTerminal:SingleDuct:SeriesPIU:Reheat -->
+    
     <message>
         <source>High Limit Heating Discharge Air Temperature</source>
         <translation>Batas Atas Suhu Udara Keluar Pemanas</translation>
     </message>
-    <!-- OS:Refrigeration:TranscriticalSystem -->
+    
     <message>
         <source>High Pressure CompressorList Name</source>
         <translation>Nama Daftar Kompresor Tekanan Tinggi</translation>
     </message>
-    <!-- OS:SetpointManager:SystemNodeReset:Humidity -->
+    
     <message>
         <source>High Reference Humidity Ratio</source>
         <translation>Rasio Kelembaban Referensi Tinggi</translation>
     </message>
-    <!-- OS:SetpointManager:SystemNodeReset:Temperature -->
+    
     <message>
         <source>High Reference Temperature</source>
         <translation>Suhu Referensi Tinggi</translation>
     </message>
-    <!-- OS:SetpointManager:Scheduled:DualSetpoint -->
+    
     <message>
         <source>High Setpoint Schedule Name</source>
         <translation>Nama Jadwal Titik Setel Tinggi</translation>
     </message>
-    <!-- OS:Coil:Cooling:DX:TwoSpeed -->
+    
     <message>
         <source>High Speed Evaporative Condenser Air Flow Rate</source>
         <translation>Laju Aliran Udara Kondenser Evaporatif Kecepatan Tinggi</translation>
     </message>
-    <!-- OS:Coil:Cooling:DX:TwoSpeed -->
+    
     <message>
         <source>High Speed Evaporative Condenser Effectiveness</source>
         <translation>Efektivitas Kondenser Evaporatif Kecepatan Tinggi</translation>
     </message>
-    <!-- OS:Coil:Cooling:DX:TwoSpeed -->
+    
     <message>
         <source>High Speed Evaporative Condenser Pump Rated Power Consumption</source>
         <translation>Konsumsi Daya Terpasang Pompa Kondenser Evaporatif Kecepatan Tinggi</translation>
     </message>
-    <!-- OS:CoolingTower:TwoSpeed, OS:FluidCooler:TwoSpeed -->
+    
     <message>
         <source>High Speed Nominal Capacity</source>
         <translation>Kapasitas Nominal Kecepatan Tinggi</translation>
     </message>
-    <!-- OS:EvaporativeFluidCooler:TwoSpeed -->
+    
     <message>
         <source>High Speed Sizing Factor</source>
         <translation>Faktor Pengubahan Ukuran Kecepatan Tinggi</translation>
     </message>
-    <!-- OS:EvaporativeFluidCooler:TwoSpeed -->
+    
     <message>
         <source>High Speed Standard Design Capacity</source>
         <translation>Kapasitas Desain Standar Kecepatan Tinggi</translation>
     </message>
-    <!-- OS:EvaporativeFluidCooler:TwoSpeed -->
+    
     <message>
         <source>High Speed User Specified Design Capacity</source>
         <translation>Kapasitas Desain Spesifikasi Pengguna Kecepatan Tinggi</translation>
     </message>
-    <!-- OS:MaterialProperty:PhaseChangeHysteresis -->
+    
     <message>
         <source>High Temperature Difference of Freezing Curve</source>
         <translation>Perbedaan Temperatur Tinggi Kurva Pembekuan</translation>
     </message>
-    <!-- OS:MaterialProperty:PhaseChangeHysteresis -->
+    
     <message>
         <source>High Temperature Difference of Melting Curve</source>
         <translation>Perbedaan Temperatur Tinggi Kurva Peleburan</translation>
     </message>
-    <!-- OS:Refrigeration:System -->
+    
     <message>
         <source>High-Stage CompressorList Name</source>
         <translation>Nama Daftar Kompresor Tahap Tinggi</translation>
     </message>
-    <!-- OS:Schedule:Week -->
+    
     <message>
         <source>Holiday Schedule:Day Name</source>
         <translation>Jadwal Liburan:Nama Hari</translation>
     </message>
-    <!-- OS:GroundHeatExchanger:HorizontalTrench -->
+    
     <message>
         <source>Horizontal Spacing Between Pipes</source>
         <translation>Jarak Horizontal Antar Pipa</translation>
     </message>
-    <!-- OS:AirTerminal:DualDuct:ConstantVolume, OS:AirTerminal:DualDuct:VAV -->
+    
     <message>
         <source>Hot Air Inlet Node</source>
         <translation>Node Inlet Udara Panas</translation>
     </message>
-    <!-- OS:AvailabilityManager:DifferentialThermostat -->
+    
     <message>
         <source>Hot Node</source>
         <translation>Node Panas</translation>
     </message>
-    <!-- OS:HotWaterEquipment -->
+    
     <message>
         <source>Hot Water Equipment Definition Name</source>
         <translation>Nama Definisi Peralatan Air Panas</translation>
     </message>
-    <!-- OS:Coil:Heating:FourPipeBeam, OS:DistrictHeating:Water, OS:HeatPump:AirToWater:Heating -->
+    
     <message>
         <source>Hot Water Inlet Node Name</source>
         <translation>Nama Node Inlet Air Panas</translation>
     </message>
-    <!-- OS:Coil:Heating:FourPipeBeam, OS:DistrictHeating:Water, OS:HeatPump:AirToWater:Heating -->
+    
     <message>
         <source>Hot Water Outlet Node Name</source>
         <translation>Nama Node Outlet Air Panas</translation>
     </message>
-    <!-- OS:LightingDesignDay -->
+    
     <message>
         <source>Hour to Simulate</source>
         <translation>Jam untuk Disimulasikan</translation>
     </message>
-    <!-- OS:ZoneHVAC:IdealLoadsAirSystem -->
+    
     <message>
         <source>Humidification Control Type</source>
         <translation>Tipe Kontrol Pelembaban</translation>
     </message>
-    <!-- OS:ZoneControl:Humidistat -->
+    
     <message>
         <source>Humidifying Relative Humidity Setpoint Schedule Name</source>
         <translation>Nama Jadwal Setpoint Kelembaban Relatif Pelembab</translation>
     </message>
-    <!-- OS:Controller:OutdoorAir -->
+    
     <message>
         <source>Humidistat Control Zone Name</source>
         <translation>Nama Zona Kontrol Humidistat</translation>
     </message>
-    <!-- OS:ThermalZone -->
+    
     <message>
         <source>Humidistat Name</source>
         <translation>Nama Humidistat</translation>
     </message>
-    <!-- OS:Refrigeration:Case -->
+    
     <message>
         <source>Humidity at Zero Anti-Sweat Heater Energy</source>
         <translation>Kelembaban pada Zero Anti-Sweat Heater Energy</translation>
     </message>
-    <!-- OS:ZoneCapacitanceMultiplier:ResearchSpecial -->
+    
     <message>
         <source>Humidity Capacity Multiplier</source>
         <translation>Pengali Kapasitas Kelembaban</translation>
     </message>
-    <!-- OS:SizingPeriod:DesignDay -->
+    
     <message>
         <source>Humidity Condition Day Schedule Name</source>
         <translation>Nama Jadwal Hari Kondisi Kelembaban</translation>
     </message>
-    <!-- OS:SizingPeriod:DesignDay -->
+    
     <message>
         <source>Humidity Condition Type</source>
         <translation>Jenis Kondisi Kelembaban</translation>
     </message>
-    <!-- OS:SizingPeriod:DesignDay -->
+    
     <message>
         <source>Humidity Ratio at Maximum Dry-Bulb</source>
         <translation>Rasio Kelembaban pada Suhu Bola Kering Maksimum</translation>
     </message>
-    <!-- OS:HeatExchanger:Desiccant:BalancedFlow:PerformanceDataType1 -->
+    
     <message>
         <source>Humidity Ratio Equation Coefficient 1</source>
         <translation>Koefisien Persamaan Rasio Kelembaban 1</translation>
     </message>
-    <!-- OS:HeatExchanger:Desiccant:BalancedFlow:PerformanceDataType1 -->
+    
     <message>
         <source>Humidity Ratio Equation Coefficient 2</source>
         <translation>Koefisien Persamaan Rasio Kelembaban 2</translation>
     </message>
-    <!-- OS:HeatExchanger:Desiccant:BalancedFlow:PerformanceDataType1 -->
+    
     <message>
         <source>Humidity Ratio Equation Coefficient 3</source>
         <translation>Koefisien Persamaan Rasio Kelembaban 3</translation>
     </message>
-    <!-- OS:HeatExchanger:Desiccant:BalancedFlow:PerformanceDataType1 -->
+    
     <message>
         <source>Humidity Ratio Equation Coefficient 4</source>
         <translation>Koefisien Persamaan Rasio Kelembaban 4</translation>
     </message>
-    <!-- OS:HeatExchanger:Desiccant:BalancedFlow:PerformanceDataType1 -->
+    
     <message>
         <source>Humidity Ratio Equation Coefficient 5</source>
         <translation>Koefisien Persamaan Rasio Kelembaban 5</translation>
     </message>
-    <!-- OS:HeatExchanger:Desiccant:BalancedFlow:PerformanceDataType1 -->
+    
     <message>
         <source>Humidity Ratio Equation Coefficient 6</source>
         <translation>Koefisien Persamaan Rasio Kelembaban 6</translation>
     </message>
-    <!-- OS:HeatExchanger:Desiccant:BalancedFlow:PerformanceDataType1 -->
+    
     <message>
         <source>Humidity Ratio Equation Coefficient 7</source>
         <translation>Koefisien Persamaan Rasio Kelembaban 7</translation>
     </message>
-    <!-- OS:HeatExchanger:Desiccant:BalancedFlow:PerformanceDataType1 -->
+    
     <message>
         <source>Humidity Ratio Equation Coefficient 8</source>
         <translation>Koefisien Persamaan Rasio Kelembaban 8</translation>
     </message>
-    <!-- OS:PortList -->
+    
     <message>
         <source>HVAC Component</source>
         <translation>Komponen HVAC</translation>
     </message>
-    <!-- OS:HVACComponentList -->
+    
     <message>
         <source>HVACComponent</source>
         <translation>Komponen HVAC</translation>
     </message>
-    <!-- OS:AirflowNetworkDuct -->
+    
     <message>
         <source>Hydraulic Diameter</source>
         <translation>Diameter Hidraulik</translation>
     </message>
-    <!-- OS:ZoneHVAC:LowTemperatureRadiant:ConstantFlow, OS:ZoneHVAC:LowTemperatureRadiant:VariableFlow -->
+    
     <message>
         <source>Hydronic Tubing Conductivity</source>
         <translation>Konduktivitas Pipa Hidronik</translation>
     </message>
-    <!-- OS:ZoneHVAC:LowTemperatureRadiant:ConstantFlow, OS:ZoneHVAC:LowTemperatureRadiant:VariableFlow -->
+    
     <message>
         <source>Hydronic Tubing Inside Diameter</source>
         <translation>Diameter Dalam Tubing Hidronik</translation>
     </message>
-    <!-- OS:ZoneHVAC:LowTemperatureRadiant:ConstantFlow, OS:ZoneHVAC:LowTemperatureRadiant:VariableFlow -->
+    
     <message>
         <source>Hydronic Tubing Length</source>
         <translation>Panjang Tubing Hidronik</translation>
     </message>
-    <!-- OS:ZoneHVAC:LowTemperatureRadiant:ConstantFlow, OS:ZoneHVAC:LowTemperatureRadiant:VariableFlow -->
+    
     <message>
         <source>Hydronic Tubing Outside Diameter</source>
         <translation>Diameter Luar Pipa Hidronik</translation>
     </message>
 
-    <!-- I -->
-    <!-- OS:Coil:Cooling:DX:SingleSpeed:ThermalStorage -->
+    
+    
     <message>
         <source>Ice Storage Capacity</source>
         <translation>Kapasitas Penyimpanan Es</translation>
     </message>
-    <!-- OS:SolarCollectorPerformance:IntegralCollectorStorage -->
+    
     <message>
         <source>ICS Collector Type</source>
         <translation>Jenis Kolektor ICS</translation>
     </message>
-    <!-- OS:Luminaire:Definition -->
+    
     <message>
         <source>IES File Path</source>
         <translation>Jalur File IES</translation>
     </message>
-    <!-- OS:ThermalZone -->
+    
     <message>
         <source>Illuminance Map Name</source>
         <translation>Nama Peta Iluminansi</translation>
     </message>
-    <!-- OS:Daylighting:Control -->
+    
     <message>
         <source>Illuminance Setpoint</source>
         <translation>Setpoint Iluminansi</translation>
     </message>
-    <!-- OS:Pump:ConstantSpeed, OS:Pump:VariableSpeed -->
+    
     <message>
         <source>Impeller Diameter</source>
         <translation>Diameter Impeler</translation>
     </message>
-    <!-- OS:SurfaceProperty:IncidentSolarMultiplier -->
+    
     <message>
         <source>Incident Solar Multiplier</source>
         <translation>Pengali Radiasi Surya Insiden</translation>
     </message>
-    <!-- OS:SurfaceProperty:IncidentSolarMultiplier -->
+    
     <message>
         <source>Incident Solar Multiplier Schedule Name</source>
         <translation>Nama Jadwal Pengali Radiasi Matahari Insiden</translation>
     </message>
-    <!-- OS:Table:Lookup -->
+    
     <message>
         <source>Independent Variable List Name</source>
         <translation>Nama Daftar Variabel Independen</translation>
     </message>
-    <!-- OS:WaterHeater:Mixed, OS:WaterHeater:Stratified -->
+    
     <message>
         <source>Indirect Alternate Setpoint Temperature Schedule Name</source>
         <translation>Nama Jadwal Suhu Titik Set Alternatif Tidak Langsung</translation>
     </message>
-    <!-- OS:Coil:Cooling:DX:VariableSpeed, OS:Coil:Cooling:WaterToAirHeatPump:VariableSpeedEquationFit, OS:Coil:Heating:DX:VariableSpeed, OS:Coil:Heating:WaterToAirHeatPump:VariableSpeedEquationFit -->
+    
     <message>
         <source>Indoor Air Inlet Node Name</source>
         <translation>Nama Node Inlet Udara Dalam Ruangan</translation>
     </message>
-    <!-- OS:Coil:Cooling:DX:VariableSpeed, OS:Coil:Cooling:WaterToAirHeatPump:VariableSpeedEquationFit, OS:Coil:Heating:DX:VariableSpeed, OS:Coil:Heating:WaterToAirHeatPump:VariableSpeedEquationFit -->
+    
     <message>
         <source>Indoor Air Outlet Node Name</source>
         <translation>Nama Node Outlet Udara dalam Ruangan</translation>
     </message>
-    <!-- OS:AirflowNetworkSurface, OS:AirflowNetworkZone -->
+    
     <message>
         <source>Indoor and Outdoor Enthalpy Difference Lower Limit For Maximum Venting Open Factor</source>
         <translation>Batas Bawah Perbedaan Entalpi Dalam dan Luar untuk Faktor Bukaan Ventilasi Maksimum</translation>
     </message>
-    <!-- OS:AirflowNetworkSurface, OS:AirflowNetworkZone -->
+    
     <message>
         <source>Indoor and Outdoor Enthalpy Difference Upper Limit for Minimum Venting Open Factor</source>
         <translation>Batas Atas Perbedaan Entalpi Dalam dan Luar untuk Faktor Pembukaan Ventilasi Minimum</translation>
     </message>
-    <!-- OS:AirflowNetworkSurface, OS:AirflowNetworkZone -->
+    
     <message>
         <source>Indoor and Outdoor Temperature Difference Lower Limit For Maximum Venting Open Factor</source>
         <translation>Batas Bawah Perbedaan Suhu Dalam dan Luar Ruangan untuk Faktor Pembukaan Ventilasi Maksimum</translation>
     </message>
-    <!-- OS:AirflowNetworkSurface, OS:AirflowNetworkZone -->
+    
     <message>
         <source>Indoor and Outdoor Temperature Difference Upper Limit for Minimum Venting Open Factor</source>
         <translation>Batas Atas Perbedaan Suhu Dalam Ruang dan Luar untuk Faktor Pembukaan Venting Minimum</translation>
     </message>
-    <!-- OS:CoilSystem:IntegratedHeatPump:AirSource -->
+    
     <message>
         <source>Indoor Temperature Above Which WH Has Higher Priority</source>
         <translation>Suhu Dalam Ruangan di Atas Mana WH Memiliki Prioritas Lebih Tinggi</translation>
     </message>
-    <!-- OS:CoilSystem:IntegratedHeatPump:AirSource -->
+    
     <message>
         <source>Indoor Temperature Limit For SCWH Mode</source>
         <translation>Batas Suhu Dalam Ruangan Untuk Mode SCWH</translation>
     </message>
-    <!-- OS:Coil:Heating:DX:VariableRefrigerantFlow:FluidTemperatureControl -->
+    
     <message>
         <source>Indoor Unit Condensing Temperature Function of Subcooling Curve</source>
         <translation>Kurva Fungsi Suhu Kondensasi Unit Indoor dari Subpendinginan</translation>
     </message>
-    <!-- OS:Coil:Cooling:DX:VariableRefrigerantFlow:FluidTemperatureControl -->
+    
     <message>
         <source>Indoor Unit Evaporating Temperature Function of Superheating Curve</source>
         <translation>Kurva Fungsi Suhu Penguapan Unit Dalam Ruangan Terhadap Superheating</translation>
     </message>
-    <!-- OS:Coil:Heating:DX:VariableRefrigerantFlow:FluidTemperatureControl -->
+    
     <message>
         <source>Indoor Unit Reference Subcooling</source>
         <translation>Pendinginan Lanjutan Referensi Unit Dalam Ruangan</translation>
     </message>
-    <!-- OS:Coil:Cooling:DX:VariableRefrigerantFlow:FluidTemperatureControl -->
+    
     <message>
         <source>Indoor Unit Reference Superheating</source>
         <translation>Pengdingin Berlebih Satuan Dalam Ruangan Referensi</translation>
     </message>
-    <!-- OS:AirTerminal:SingleDuct:ConstantVolume:FourPipeInduction -->
+    
     <message>
         <source>Induced Air Inlet Node Name</source>
         <translation>Nama Node Inlet Udara Induksi</translation>
     </message>
-    <!-- OS:AirLoopHVAC:ReturnPlenum -->
+    
     <message>
         <source>Induced Air Outlet Port List</source>
         <translation>Daftar Port Outlet Udara Induksi</translation>
     </message>
-    <!-- OS:AirTerminal:SingleDuct:ConstantVolume:FourPipeInduction -->
+    
     <message>
         <source>Induction Ratio</source>
         <translation>Rasio Induksi</translation>
     </message>
-    <!-- OS:ZoneAirMassFlowConservation -->
+    
     <message>
         <source>Infiltration Balancing Method</source>
         <translation>Metode Penyeimbangan Infiltrasi</translation>
     </message>
-    <!-- OS:ZoneAirMassFlowConservation -->
+    
     <message>
         <source>Infiltration Balancing Zones</source>
         <translation>Zona Penyeimbang Infiltrasi</translation>
     </message>
-    <!-- OS:LifeCycleCost:Parameters -->
+    
     <message>
         <source>Inflation</source>
         <translation>Inflasi</translation>
     </message>
-    <!-- OS:LifeCycleCost:Parameters -->
+    
     <message>
         <source>Inflation Approach</source>
         <translation>Pendekatan Inflasi</translation>
     </message>
-    <!-- OS:WindowMaterial:Glazing:RefractionExtinctionMethod -->
+    
     <message>
         <source>Infrared Hemispherical Emissivity</source>
         <translation>Emissivitas Hemisferikal Inframerah</translation>
     </message>
-    <!-- OS:WindowMaterial:Glazing, OS:WindowMaterial:Glazing:RefractionExtinctionMethod -->
+    
     <message>
         <source>Infrared Transmittance at Normal Incidence</source>
         <translation>Transmitans Inframerah pada Insiden Normal</translation>
     </message>
-    <!-- OS:Generator:FuelCell:ElectricalStorage -->
+    
     <message>
         <source>Initial Charge State</source>
         <translation>Status Muatan Awal</translation>
     </message>
-    <!-- OS:HeatExchanger:AirToAir:SensibleAndLatent -->
+    
     <message>
         <source>Initial Defrost Time Fraction</source>
         <translation>Fraksi Waktu Defrost Awal</translation>
     </message>
-    <!-- OS:ElectricLoadCenter:Storage:LiIonNMCBattery -->
+    
     <message>
         <source>Initial Fractional State of Charge</source>
         <translation>Fraksi Kondisi Muatan Awal</translation>
     </message>
-    <!-- OS:AirConditioner:VariableRefrigerantFlow, OS:AirConditioner:VariableRefrigerantFlow:FluidTemperatureControl:HR -->
+    
     <message>
         <source>Initial Heat Recovery Cooling Capacity Fraction</source>
         <translation>Fraksi Kapasitas Pendingin Pemulihan Panas Awal</translation>
     </message>
-    <!-- OS:AirConditioner:VariableRefrigerantFlow, OS:AirConditioner:VariableRefrigerantFlow:FluidTemperatureControl:HR -->
+    
     <message>
         <source>Initial Heat Recovery Cooling Energy Fraction</source>
         <translation>Fraksi Energi Pendinginan Pemulihan Panas Awal</translation>
     </message>
-    <!-- OS:AirConditioner:VariableRefrigerantFlow, OS:AirConditioner:VariableRefrigerantFlow:FluidTemperatureControl:HR -->
+    
     <message>
         <source>Initial Heat Recovery Heating Capacity Fraction</source>
         <translation>Fraksi Kapasitas Pemanas Pemulihan Panas Awal</translation>
     </message>
-    <!-- OS:AirConditioner:VariableRefrigerantFlow, OS:AirConditioner:VariableRefrigerantFlow:FluidTemperatureControl:HR -->
+    
     <message>
         <source>Initial Heat Recovery Heating Energy Fraction</source>
         <translation>Fraksi Energi Pemanasan Pemulihan Panas Awal</translation>
     </message>
-    <!-- OS:Foundation:Kiva -->
+    
     <message>
         <source>Initial Indoor Air Temperature</source>
         <translation>Suhu Udara Dalam Ruangan Awal</translation>
     </message>
-    <!-- OS:Coil:Cooling:DX:VariableSpeed, OS:Coil:Cooling:WaterToAirHeatPump:VariableSpeedEquationFit -->
+    
     <message>
         <source>Initial Moisture Evaporation Rate Divided by Steady-State AC Latent Capacity</source>
         <translation>Laju Penguapan Kelembaban Awal Dibagi dengan Kapasitas Laten AC Kondisi Tunak</translation>
     </message>
-    <!-- OS:ElectricLoadCenter:Storage:Simple -->
+    
     <message>
         <source>Initial State of Charge</source>
         <translation>Keadaan Muatan Awal</translation>
     </message>
-    <!-- OS:AvailabilityManager:OptimumStart -->
+    
     <message>
         <source>Initial Temperature Gradient during Cooling</source>
         <translation>Gradien Temperatur Awal selama Pendinginan</translation>
     </message>
-    <!-- OS:AvailabilityManager:OptimumStart -->
+    
     <message>
         <source>Initial Temperature Gradient during Heating</source>
         <translation>Gradien Suhu Awal selama Pemanasan</translation>
     </message>
-    <!-- OS:ExternalInterface:FunctionalMockupUnitExport:To:Actuator, OS:ExternalInterface:FunctionalMockupUnitExport:To:Schedule, OS:ExternalInterface:FunctionalMockupUnitExport:To:Variable, OS:ExternalInterface:FunctionalMockupUnitImport:To:Actuator, OS:ExternalInterface:FunctionalMockupUnitImport:To:Schedule, OS:ExternalInterface:FunctionalMockupUnitImport:To:Variable, OS:ExternalInterface:Schedule, OS:ExternalInterface:Variable -->
+    
     <message>
         <source>Initial Value</source>
         <translation>Nilai Awal</translation>
     </message>
-    <!-- OS:Material:RoofVegetation -->
+    
     <message>
         <source>Initial Volumetric Moisture Content of the Soil Layer</source>
         <translation>Kadar Kelembaban Volumetrik Awal Lapisan Tanah</translation>
     </message>
-    <!-- OS:Coil:UserDefined -->
+    
     <message>
         <source>Initialization Simulation Program Name</source>
         <translation>Nama Program Simulasi Inisialisasi</translation>
     </message>
-    <!-- OS:AirflowNetworkSimulationControl -->
+    
     <message>
         <source>Initialization Type</source>
         <translation>Tipe Inisialisasi</translation>
     </message>
-    <!-- OS:WaterHeater:HeatPump, OS:WaterHeater:HeatPump:WrappedCondenser -->
+    
     <message>
         <source>Inlet Air Configuration</source>
         <translation>Konfigurasi Udara Masuk</translation>
     </message>
-    <!-- OS:WaterHeater:HeatPump -->
+    
     <message>
         <source>Inlet Air Humidity Schedule</source>
         <translation>Jadwal Kelembaban Udara Inlet</translation>
     </message>
-    <!-- OS:WaterHeater:HeatPump:WrappedCondenser -->
+    
     <message>
         <source>Inlet Air Humidity Schedule Name</source>
         <translation>Nama Jadwal Kelembaban Udara Masuk</translation>
     </message>
-    <!-- OS:WaterHeater:HeatPump -->
+    
     <message>
         <source>Inlet Air Mixer Schedule</source>
         <translation>Jadwal Pengaduk Udara Inlet</translation>
     </message>
-    <!-- OS:WaterHeater:HeatPump:WrappedCondenser -->
+    
     <message>
         <source>Inlet Air Mixer Schedule Name</source>
         <translation>Nama Jadwal Pencampur Udara Inlet</translation>
     </message>
-    <!-- OS:WaterHeater:HeatPump -->
+    
     <message>
         <source>Inlet Air Temperature Schedule</source>
         <translation>Jadwal Suhu Udara Inlet</translation>
     </message>
-    <!-- OS:WaterHeater:HeatPump:WrappedCondenser -->
+    
     <message>
         <source>Inlet Air Temperature Schedule Name</source>
         <translation>Nama Jadwal Suhu Udara Masuk</translation>
     </message>
-    <!-- OS:Connector:Mixer, OS:Connector:Splitter -->
+    
     <message>
         <source>Inlet Branch Name</source>
         <translation>Nama Cabang Inlet</translation>
     </message>
-    <!-- OS:ThermalStorage:ChilledWater:Stratified, OS:WaterHeater:Stratified -->
+    
     <message>
         <source>Inlet Mode</source>
         <translation>Mode Inlet</translation>
     </message>
-    <!-- OS:AirLoopHVAC:ReturnPlenum, OS:AirLoopHVAC:SupplyPlenum, OS:Duct, OS:PlantComponent:TemperatureSource -->
+    
     <message>
         <source>Inlet Node</source>
         <translation>Node Masukan</translation>
     </message>
-    <!-- OS:AirLoopHVAC:ZoneMixer, OS:AirLoopHVAC:ZoneSplitter, OS:Coil:Heating:Water:Baseboard:Radiant, OS:GroundHeatExchanger:HorizontalTrench, OS:GroundHeatExchanger:Vertical, OS:HeaderedPumps:ConstantSpeed, OS:HeaderedPumps:VariableSpeed, OS:LoadProfile:Plant, OS:Pipe:Adiabatic, OS:Pump:ConstantSpeed, OS:Pump:VariableSpeed, OS:SolarCollector:FlatPlate:PhotovoltaicThermal, OS:SolarCollector:FlatPlate:Water, OS:SolarCollector:IntegralCollectorStorage, OS:Splitter, OS:TemperingValve, OS:ThermalStorage:Ice:Detailed, OS:WaterUse:Connections -->
+    
     <message>
         <source>Inlet Node Name</source>
         <translation>Nama Node Inlet</translation>
     </message>
-    <!-- OS:Connection, OS:Node -->
+    
     <message>
         <source>Inlet Port</source>
         <translation>Port Masuk</translation>
     </message>
-    <!-- OS:Humidifier:Steam:Gas -->
+    
     <message>
         <source>Inlet Water Temperature Option</source>
         <translation>Opsi Temperatur Air Masuk</translation>
     </message>
-    <!-- OS:Curve:QuintLinear -->
+    
     <message>
         <source>Input Unit Type for v</source>
         <translation>Tipe Unit Masukan untuk v</translation>
     </message>
-    <!-- OS:Curve:QuadLinear, OS:Curve:QuintLinear -->
+    
     <message>
         <source>Input Unit Type for w</source>
         <translation>Tipe Unit Masukan untuk w</translation>
     </message>
-    <!-- OS:Curve:Bicubic, OS:Curve:Biquadratic, OS:Curve:Cubic, OS:Curve:Exponent, OS:Curve:Linear, OS:Curve:Quadratic, OS:Curve:QuadraticLinear, OS:Curve:Quartic, OS:Curve:Triquadratic -->
+    
     <message>
         <source>Input Unit Type for X</source>
         <translation>Jenis Unit Input untuk X</translation>
     </message>
-    <!-- OS:Curve:DoubleExponentialDecay, OS:Curve:ExponentialDecay, OS:Curve:ExponentialSkewNormal, OS:Curve:QuadLinear, OS:Curve:QuintLinear, OS:Curve:RectangularHyperbola1, OS:Curve:RectangularHyperbola2, OS:Curve:Sigmoid -->
+    
     <message>
         <source>Input Unit Type for x</source>
         <translation>Jenis Unit Input untuk x</translation>
     </message>
-    <!-- OS:Table:MultiVariableLookup -->
+    
     <message>
         <source>Input Unit Type for X1</source>
         <translation>Jenis Unit Input untuk X1</translation>
     </message>
-    <!-- OS:Table:MultiVariableLookup -->
+    
     <message>
         <source>Input Unit Type for X2</source>
         <translation>Jenis Unit Masukan untuk X2</translation>
     </message>
-    <!-- OS:Table:MultiVariableLookup -->
+    
     <message>
         <source>Input Unit Type for X3</source>
         <translation>Tipe Unit Input untuk X3</translation>
     </message>
-    <!-- OS:Table:MultiVariableLookup -->
+    
     <message>
         <source>Input Unit Type for X4</source>
         <translation>Tipe Satuan Input untuk X4</translation>
     </message>
-    <!-- OS:Table:MultiVariableLookup -->
+    
     <message>
         <source>Input Unit Type for X5</source>
         <translation>Tipe Unit Input untuk X5</translation>
     </message>
-    <!-- OS:Curve:Bicubic, OS:Curve:Biquadratic, OS:Curve:QuadraticLinear, OS:Curve:Triquadratic -->
+    
     <message>
         <source>Input Unit Type for Y</source>
         <translation>Tipe Unit Input untuk Y</translation>
     </message>
-    <!-- OS:Curve:QuadLinear, OS:Curve:QuintLinear -->
+    
     <message>
         <source>Input Unit Type for y</source>
         <translation>Tipe Unit Input untuk y</translation>
     </message>
-    <!-- OS:Curve:QuadLinear, OS:Curve:QuintLinear -->
+    
     <message>
         <source>Input Unit Type for z</source>
         <translation>Tipe Unit Input untuk z</translation>
     </message>
-    <!-- OS:Curve:Triquadratic -->
+    
     <message>
         <source>Input Unit Type for Z</source>
         <translation>Jenis Satuan Input untuk Z</translation>
     </message>
-    <!-- OS:AirflowNetworkDuct -->
+    
     <message>
         <source>Inside Convection Coefficient</source>
         <translation>Koefisien Konveksi Dalam Ruangan</translation>
     </message>
-    <!-- OS:WindowProperty:FrameAndDivider -->
+    
     <message>
         <source>Inside Reveal Depth</source>
         <translation>Kedalaman Reveal Dalam</translation>
     </message>
-    <!-- OS:WindowProperty:FrameAndDivider -->
+    
     <message>
         <source>Inside Reveal Solar Absorptance</source>
         <translation>Absorptansi Solar Reveal Dalam</translation>
     </message>
-    <!-- OS:DaylightingDevice:Shelf -->
+    
     <message>
         <source>Inside Shelf Name</source>
         <translation>Nama Rak dalam</translation>
     </message>
-    <!-- OS:WindowProperty:FrameAndDivider -->
+    
     <message>
         <source>Inside Sill Depth</source>
         <translation>Kedalaman Ambang Dalam</translation>
     </message>
-    <!-- OS:WindowProperty:FrameAndDivider -->
+    
     <message>
         <source>Inside Sill Solar Absorptance</source>
         <translation>Absorbans Solar Sill Dalam</translation>
     </message>
-    <!-- OS:Refrigeration:Case -->
+    
     <message>
         <source>Installed Case Lighting Power per Door</source>
         <translation>Daya Pencahayaan Lemari Terpasang per Pintu</translation>
     </message>
-    <!-- OS:Refrigeration:Case -->
+    
     <message>
         <source>Installed Case Lighting Power per Unit Length</source>
         <translation>Daya Pencahayaan Terpasang per Satuan Panjang</translation>
     </message>
-    <!-- OS:Refrigeration:WalkIn -->
+    
     <message>
         <source>Insulated Floor Surface Area</source>
         <translation>Luas Permukaan Lantai Terisolasi</translation>
     </message>
-    <!-- OS:Refrigeration:WalkIn -->
+    
     <message>
         <source>Insulated Floor U-Value</source>
         <translation>Nilai-U Lantai Terisolasi</translation>
     </message>
-    <!-- OS:Refrigeration:WalkIn:ZoneBoundary -->
+    
     <message>
         <source>Insulated Surface U-Value Facing Zone</source>
         <translation>Nilai U Permukaan Terisolasi yang Menghadap Zona</translation>
     </message>
-    <!-- OS:SurfaceControl:MovableInsulation -->
+    
     <message>
         <source>Insulation Type</source>
         <translation>Jenis Insulasi</translation>
     </message>
-    <!-- OS:SolarCollector:IntegralCollectorStorage -->
+    
     <message>
         <source>IntegralCollectorStorageParameters Name</source>
         <translation>Parameter Nama Kolektor Penyimpanan Integral</translation>
     </message>
-    <!-- OS:StandardsInformation:Construction -->
+    
     <message>
         <source>Intended Surface Type</source>
         <translation>Jenis Permukaan yang Dituju</translation>
     </message>
-    <!-- OS:Refrigeration:System -->
+    
     <message>
         <source>Intercooler Type</source>
         <translation>Tipe Intercooler</translation>
     </message>
-    <!-- OS:Foundation:Kiva -->
+    
     <message>
         <source>Interior Horizontal Insulation Depth</source>
         <translation>Kedalaman Insulasi Horizontal Interior</translation>
     </message>
-    <!-- OS:Foundation:Kiva -->
+    
     <message>
         <source>Interior Horizontal Insulation Material Name</source>
         <translation>Nama Material Insulasi Horizontal Interior</translation>
     </message>
-    <!-- OS:Foundation:Kiva -->
+    
     <message>
         <source>Interior Horizontal Insulation Width</source>
         <translation>Lebar Insulasi Horizontal Interior</translation>
     </message>
-    <!-- OS:DefaultConstructionSet -->
+    
     <message>
         <source>Interior Partition Construction Name</source>
         <translation>Nama Konstruksi Partisi Interior</translation>
     </message>
-    <!-- OS:InteriorPartitionSurface -->
+    
     <message>
         <source>Interior Partition Surface Group Name</source>
         <translation>Nama Kelompok Permukaan Partisi Interior</translation>
     </message>
-    <!-- OS:Foundation:Kiva -->
+    
     <message>
         <source>Interior Vertical Insulation Depth</source>
         <translation>Kedalaman Insulasi Vertikal Interior</translation>
     </message>
-    <!-- OS:Foundation:Kiva -->
+    
     <message>
         <source>Interior Vertical Insulation Material Name</source>
         <translation>Nama Material Insulasi Vertikal Interior</translation>
     </message>
-    <!-- OS:EnergyManagementSystem:InternalVariable -->
+    
     <message>
         <source>Internal Data Index Key Name</source>
         <translation>Nama Kunci Indeks Data Internal</translation>
     </message>
-    <!-- OS:EnergyManagementSystem:InternalVariable -->
+    
     <message>
         <source>Internal Data Type</source>
         <translation>Tipe Data Internal</translation>
     </message>
-    <!-- OS:InternalMass -->
+    
     <message>
         <source>Internal Mass Definition Name</source>
         <translation>Nama Definisi Massa Internal</translation>
     </message>
-    <!-- OS:Output:EnergyManagementSystem -->
+    
     <message>
         <source>Internal Variable Availability Dictionary Reporting</source>
         <translation>Pelaporan Kamus Ketersediaan Variabel Internal</translation>
     </message>
-    <!-- OS:Table:IndependentVariable, OS:Table:MultiVariableLookup -->
+    
     <message>
         <source>Interpolation Method</source>
         <translation>Metode Interpolasi</translation>
     </message>
-    <!-- OS:Schedule:FixedInterval -->
+    
     <message>
         <source>Interval Length</source>
         <translation>Panjang Interval</translation>
     </message>
-    <!-- OS:ElectricLoadCenter:Inverter:PVWatts, OS:ElectricLoadCenter:Inverter:Simple, OS:Generator:FuelCell:Inverter -->
+    
     <message>
         <source>Inverter Efficiency</source>
         <translation>Efisiensi Inverter</translation>
     </message>
-    <!-- OS:Generator:FuelCell:Inverter -->
+    
     <message>
         <source>Inverter Efficiency Calculation Mode</source>
         <translation>Mode Perhitungan Efisiensi Inverter</translation>
     </message>
-    <!-- OS:ElectricLoadCenter:Distribution, OS:Generator:FuelCell -->
+    
     <message>
         <source>Inverter Name</source>
         <translation>Nama Inverter</translation>
     </message>
-    <!-- OS:YearDescription -->
+    
     <message>
         <source>Is Leap Year</source>
         <translation>Adalah Tahun Kabisat</translation>
     </message>
-    <!-- OS:OutputControl:Timestamp -->
+    
     <message>
         <source>ISO 8601 Format</source>
         <translation>Format ISO 8601</translation>
     </message>
-    <!-- OS:LifeCycleCost -->
+    
     <message>
         <source>Item Name</source>
         <translation>Nama Item</translation>
     </message>
-    <!-- OS:LifeCycleCost -->
+    
     <message>
         <source>Item Type</source>
         <translation>Jenis Item</translation>
     </message>
 
-    <!-- J -->
-    <!-- OS:Site:GroundTemperature:Deep -->
+    
+    
     <message>
         <source>January Deep Ground Temperature</source>
         <translation>Suhu Tanah Dalam Januari</translation>
     </message>
-    <!-- OS:Site:GroundReflectance -->
+    
     <message>
         <source>January Ground Reflectance</source>
         <translation>Reflektansi Tanah Januari</translation>
     </message>
-    <!-- OS:Site:GroundTemperature:BuildingSurface, OS:Site:GroundTemperature:FCfactorMethod -->
+    
     <message>
         <source>January Ground Temperature</source>
         <translation>Januari Suhu Tanah</translation>
     </message>
-    <!-- OS:Site:GroundTemperature:Shallow -->
+    
     <message>
         <source>January Surface Ground Temperature</source>
         <translation>Suhu Permukaan Tanah Januari</translation>
     </message>
-    <!-- OS:UtilityCost:Variable -->
+    
     <message>
         <source>January Value</source>
         <translation>Nilai Januari</translation>
     </message>
-    <!-- OS:Site:GroundTemperature:Deep -->
+    
     <message>
         <source>July Deep Ground Temperature</source>
         <translation>Suhu Tanah Dalam Juli</translation>
     </message>
-    <!-- OS:Site:GroundReflectance -->
+    
     <message>
         <source>July Ground Reflectance</source>
         <translation>Reflektansi Tanah Juli</translation>
     </message>
-    <!-- OS:Site:GroundTemperature:BuildingSurface, OS:Site:GroundTemperature:FCfactorMethod -->
+    
     <message>
         <source>July Ground Temperature</source>
         <translation>Temperatur Tanah Juli</translation>
     </message>
-    <!-- OS:Site:GroundTemperature:Shallow -->
+    
     <message>
         <source>July Surface Ground Temperature</source>
         <translation>Temperatur Permukaan Tanah Juli</translation>
     </message>
-    <!-- OS:UtilityCost:Variable -->
+    
     <message>
         <source>July Value</source>
         <translation>Nilai Juli</translation>
     </message>
-    <!-- OS:Site:GroundTemperature:Deep -->
+    
     <message>
         <source>June Deep Ground Temperature</source>
         <translation>Temperatur Tanah Dalam Juni</translation>
     </message>
-    <!-- OS:Site:GroundReflectance -->
+    
     <message>
         <source>June Ground Reflectance</source>
         <translation>Juni Reflektansi Tanah</translation>
     </message>
-    <!-- OS:Site:GroundTemperature:BuildingSurface, OS:Site:GroundTemperature:FCfactorMethod -->
+    
     <message>
         <source>June Ground Temperature</source>
         <translation>Temperatur Tanah Juni</translation>
     </message>
-    <!-- OS:Site:GroundTemperature:Shallow -->
+    
     <message>
         <source>June Surface Ground Temperature</source>
         <translation>Suhu Permukaan Tanah Juni</translation>
     </message>
-    <!-- OS:UtilityCost:Variable -->
+    
     <message>
         <source>June Value</source>
         <translation>Nilai Juni</translation>
     </message>
 
-    <!-- K -->
-    <!-- OS:Site -->
+    
+    
     <message>
         <source>Keep Site Location Information</source>
         <translation>Pertahankan Informasi Lokasi Situs</translation>
     </message>
-    <!-- OS:Output:Diagnostics -->
+    
     <message>
         <source>Key</source>
         <translation>Kunci</translation>
     </message>
-    <!-- OS:Output:Schedules -->
+    
     <message>
         <source>Key Field</source>
         <translation>Bidang Kunci</translation>
     </message>
-    <!-- OS:Meter:Custom, OS:Meter:CustomDecrement -->
+    
     <message>
         <source>Key Name</source>
         <translation>Nama Kunci</translation>
     </message>
-    <!-- OS:Output:Variable -->
+    
     <message>
         <source>Key Value</source>
         <translation>Nilai Kunci</translation>
     </message>
-    <!-- OS:RadianceParameters -->
+    
     <message>
         <source>Klems Sampling Density</source>
         <translation>Kepadatan Sampling Klems</translation>
     </message>
 
-    <!-- L -->
-    <!-- OS:Refrigeration:Case -->
+    
+    
     <message>
         <source>Latent Case Credit Curve Name</source>
         <translation>Nama Kurva Kredit Kasus Laten</translation>
     </message>
-    <!-- OS:Refrigeration:Case -->
+    
     <message>
         <source>Latent Case Credit Curve Type</source>
         <translation>Jenis Kurva Kredit Kasus Laten</translation>
     </message>
-    <!-- OS:HeatExchanger:AirToAir:SensibleAndLatent -->
+    
     <message>
         <source>Latent Effectiveness at 100% Cooling Air Flow</source>
         <translation>Efektivitas Laten pada 100% Aliran Udara Pendinginan</translation>
     </message>
-    <!-- OS:HeatExchanger:AirToAir:SensibleAndLatent -->
+    
     <message>
         <source>Latent Effectiveness at 100% Heating Air Flow</source>
         <translation>Efektivitas Laten pada 100% Aliran Udara Pemanas</translation>
     </message>
-    <!-- OS:HeatExchanger:AirToAir:SensibleAndLatent -->
+    
     <message>
         <source>Latent Effectiveness of Cooling Air Flow Curve Name</source>
         <translation>Nama Kurva Efektivitas Laten Aliran Udara Pendingin</translation>
     </message>
-    <!-- OS:HeatExchanger:AirToAir:SensibleAndLatent -->
+    
     <message>
         <source>Latent Effectiveness of Heating Air Flow Curve Name</source>
         <translation>Nama Kurva Efektivitas Laten Aliran Udara Pemanas</translation>
     </message>
-    <!-- OS:MaterialProperty:PhaseChangeHysteresis -->
+    
     <message>
         <source>Latent Heat during the Entire Phase Change Process</source>
         <translation>Panas Laten selama Seluruh Proses Perubahan Fase</translation>
     </message>
-    <!-- OS:ZoneHVAC:IdealLoadsAirSystem -->
+    
     <message>
         <source>Latent Heat Recovery Effectiveness</source>
         <translation>Efektivitas Pemulihan Panas Laten</translation>
     </message>
-    <!-- OS:AirLoopHVAC:UnitarySystem -->
+    
     <message>
         <source>Latent Load Control</source>
         <translation>Kontrol Beban Laten</translation>
     </message>
-    <!-- OS:Site, OS:WeatherFile -->
+    
     <message>
         <source>Latitude</source>
         <translation>Garis Lintang</translation>
     </message>
-    <!-- OS:Construction, OS:Construction:InternalSource -->
+    
     <message>
         <source>Layer</source>
         <translation>Lapisan</translation>
     </message>
-    <!-- OS:Material:RoofVegetation -->
+    
     <message>
         <source>Leaf Area Index</source>
         <translation>Indeks Luas Daun</translation>
     </message>
-    <!-- OS:Material:RoofVegetation -->
+    
     <message>
         <source>Leaf Emissivity</source>
         <translation>Emissivitas Daun</translation>
     </message>
-    <!-- OS:Material:RoofVegetation -->
+    
     <message>
         <source>Leaf Reflectivity</source>
         <translation>Reflektivitas Daun</translation>
     </message>
-    <!-- OS:AirflowNetworkSurface -->
+    
     <message>
         <source>Leakage Component Name</source>
         <translation>Nama Komponen Kebocoran</translation>
     </message>
-    <!-- OS:Coil:Cooling:CooledBeam -->
+    
     <message>
         <source>Leaving Pipe Inside Diameter</source>
         <translation>Diameter Dalam Pipa Keluar</translation>
     </message>
-    <!-- OS:WindowMaterial:Screen -->
+    
     <message>
         <source>Left Side Opening Multiplier</source>
         <translation>Pengali Bukaan Sisi Kiri</translation>
     </message>
-    <!-- OS:WindowMaterial:Shade -->
+    
     <message>
         <source>Left-Side Opening Multiplier</source>
         <translation>Pengali Bukaan Sisi Kiri</translation>
     </message>
-    <!-- OS:Curve:Functional:PressureDrop -->
+    
     <message>
         <source>Length</source>
         <translation>Panjang</translation>
     </message>
-    <!-- OS:AirConditioner:VariableRefrigerantFlow:FluidTemperatureControl, OS:AirConditioner:VariableRefrigerantFlow:FluidTemperatureControl:HR -->
+    
     <message>
         <source>Length of Main Pipe Connecting Outdoor Unit to the First Branch Joint</source>
         <translation>Panjang Pipa Utama Menghubungkan Unit Luar ke Sambungan Cabang Pertama</translation>
     </message>
-    <!-- OS:LifeCycleCost:Parameters -->
+    
     <message>
         <source>Length of Study Period in Years</source>
         <translation>Panjang Periode Studi dalam Tahun</translation>
     </message>
-    <!-- OS:ElectricLoadCenter:Storage:LiIonNMCBattery -->
+    
     <message>
         <source>Lifetime Model</source>
         <translation>Model Masa Pakai</translation>
     </message>
-    <!-- OS:Daylighting:Control -->
+    
     <message>
         <source>Lighting Control Type</source>
         <translation>Tipe Kontrol Pencahayaan</translation>
     </message>
-    <!-- OS:Lights:Definition -->
+    
     <message>
         <source>Lighting Level</source>
         <translation>Tingkat Pencahayaan</translation>
     </message>
-    <!-- OS:Luminaire:Definition -->
+    
     <message>
         <source>Lighting Power</source>
         <translation>Daya Pencahayaan</translation>
     </message>
-    <!-- OS:Lights -->
+    
     <message>
         <source>Lights Definition Name</source>
         <translation>Nama Definisi Lampu</translation>
     </message>
-    <!-- OS:RadianceParameters -->
+    
     <message>
         <source>Limit Weight DMX</source>
         <translation>Batas Berat DMX</translation>
     </message>
-    <!-- OS:RadianceParameters -->
+    
     <message>
         <source>Limit Weight VMX</source>
         <translation>Batas Berat VMX</translation>
     </message>
-    <!-- OS:AirflowNetworkDuctViewFactors -->
+    
     <message>
         <source>Linkage Name</source>
         <translation>Nama Tautan</translation>
     </message>
-    <!-- OS:Generator:FuelSupply -->
+    
     <message>
         <source>Liquid Generic Fuel CO2 Emission Factor</source>
         <translation>Faktor Emisi CO2 Bahan Bakar Cair Generik</translation>
     </message>
-    <!-- OS:Generator:FuelSupply -->
+    
     <message>
         <source>Liquid Generic Fuel Higher Heating Value</source>
         <translation>Nilai Pemanasan Lebih Tinggi Bahan Bakar Cair Generik</translation>
     </message>
-    <!-- OS:Generator:FuelSupply -->
+    
     <message>
         <source>Liquid Generic Fuel Lower Heating Value</source>
         <translation>Nilai Pemanas Bawah Bahan Bakar Cair Generik</translation>
     </message>
-    <!-- OS:Generator:FuelSupply -->
+    
     <message>
         <source>Liquid Generic Fuel Molecular Weight</source>
         <translation>Berat Molekul Bahan Bakar Generik Cair</translation>
     </message>
-    <!-- OS:MaterialProperty:PhaseChangeHysteresis -->
+    
     <message>
         <source>Liquid State Density</source>
         <translation>Kepadatan Fase Cair</translation>
     </message>
-    <!-- OS:MaterialProperty:PhaseChangeHysteresis -->
+    
     <message>
         <source>Liquid State Specific Heat</source>
         <translation>Panas Jenis Keadaan Cair</translation>
     </message>
-    <!-- OS:MaterialProperty:PhaseChangeHysteresis -->
+    
     <message>
         <source>Liquid State Thermal Conductivity</source>
         <translation>Konduktivitas Termal Fase Cair</translation>
     </message>
-    <!-- OS:Refrigeration:Subcooler:LiquidSuction -->
+    
     <message>
         <source>Liquid Suction Design Subcooling Temperature Difference</source>
         <translation>Perbedaan Suhu Subpendinginan Desain Hisap Cairan</translation>
     </message>
-    <!-- OS:Refrigeration:System -->
+    
     <message>
         <source>Liquid Suction Heat Exchanger Subcooler Name</source>
         <translation>Nama Liquid Suction Heat Exchanger Subcooler</translation>
     </message>
-    <!-- OS:PlantEquipmentOperation:CoolingLoad, OS:PlantEquipmentOperation:HeatingLoad -->
+    
     <message>
         <source>Load Range Lower Limit</source>
         <translation>Batas Bawah Rentang Beban</translation>
     </message>
-    <!-- OS:PlantEquipmentOperation:CoolingLoad, OS:PlantEquipmentOperation:HeatingLoad -->
+    
     <message>
         <source>Load Range Upper Limit</source>
         <translation>Batas Atas Rentang Beban</translation>
     </message>
-    <!-- OS:LoadProfile:Plant -->
+    
     <message>
         <source>Load Schedule Name</source>
         <translation>Nama Jadwal Beban</translation>
     </message>
-    <!-- OS:HeatPump:PlantLoop:EIR:Cooling, OS:HeatPump:PlantLoop:EIR:Heating, OS:HeatPump:WaterToWater:EquationFit:Cooling, OS:HeatPump:WaterToWater:EquationFit:Heating -->
+    
     <message>
         <source>Load Side Inlet Node Name</source>
         <translation>Nama Node Inlet Sisi Beban</translation>
     </message>
-    <!-- OS:HeatPump:PlantLoop:EIR:Cooling, OS:HeatPump:PlantLoop:EIR:Heating, OS:HeatPump:WaterToWater:EquationFit:Cooling, OS:HeatPump:WaterToWater:EquationFit:Heating -->
+    
     <message>
         <source>Load Side Outlet Node Name</source>
         <translation>Nama Node Outlet Sisi Beban</translation>
     </message>
-    <!-- OS:HeatPump:PlantLoop:EIR:Cooling, OS:HeatPump:PlantLoop:EIR:Heating -->
+    
     <message>
         <source>Load Side Reference Flow Rate</source>
         <translation>Laju Aliran Referensi Sisi Beban</translation>
     </message>
-    <!-- OS:AirConditioner:VariableRefrigerantFlow:FluidTemperatureControl, OS:AirConditioner:VariableRefrigerantFlow:FluidTemperatureControl:HR -->
+    
     <message>
         <source>Loading Index List</source>
         <translation>Memuat Daftar Indeks</translation>
     </message>
-    <!-- OS:SimulationControl -->
+    
     <message>
         <source>Loads Convergence Tolerance Value</source>
         <translation>Nilai Toleransi Konvergensi Beban</translation>
     </message>
-    <!-- OS:Site, OS:WeatherFile -->
+    
     <message>
         <source>Longitude</source>
         <translation>Bujur</translation>
     </message>
-    <!-- OS:HeatExchanger:FluidToFluid -->
+    
     <message>
         <source>Loop Demand Side Design Flow Rate</source>
         <translation>Laju Aliran Desain Sisi Permintaan Loop</translation>
     </message>
-    <!-- OS:HeatExchanger:FluidToFluid -->
+    
     <message>
         <source>Loop Demand Side Inlet Node</source>
         <translation>Simpul Inlet Sisi Permintaan Loop</translation>
     </message>
-    <!-- OS:HeatExchanger:FluidToFluid -->
+    
     <message>
         <source>Loop Demand Side Outlet Node</source>
         <translation>Loop Demand Side Outlet Node</translation>
     </message>
-    <!-- OS:HeatExchanger:FluidToFluid -->
+    
     <message>
         <source>Loop Supply Side Design Flow Rate</source>
         <translation>Laju Aliran Desain Sisi Pasokan Loop</translation>
     </message>
-    <!-- OS:HeatExchanger:FluidToFluid -->
+    
     <message>
         <source>Loop Supply Side Inlet Node</source>
         <translation>Loop Supply Side Inlet Node</translation>
     </message>
-    <!-- OS:HeatExchanger:FluidToFluid -->
+    
     <message>
         <source>Loop Supply Side Outlet Node</source>
         <translation>Simpul Keluaran Sisi Pasokan Loop</translation>
     </message>
-    <!-- OS:PlantLoop -->
+    
     <message>
         <source>Loop Temperature Setpoint Node Name</source>
         <translation>Nama Node Setpoint Temperatur Loop</translation>
     </message>
-    <!-- OS:CoolingTower:TwoSpeed, OS:EvaporativeFluidCooler:TwoSpeed, OS:FluidCooler:TwoSpeed -->
+    
     <message>
         <source>Low Fan Speed Air Flow Rate</source>
         <translation>Laju Aliran Udara Kecepatan Kipas Rendah</translation>
     </message>
-    <!-- OS:CoolingTower:TwoSpeed, OS:EvaporativeFluidCooler:TwoSpeed, OS:FluidCooler:TwoSpeed -->
+    
     <message>
         <source>Low Fan Speed Air Flow Rate Sizing Factor</source>
         <translation>Faktor Penentuan Ukuran Laju Aliran Udara Kecepatan Kipas Rendah</translation>
     </message>
-    <!-- OS:CoolingTower:TwoSpeed, OS:EvaporativeFluidCooler:TwoSpeed, OS:FluidCooler:TwoSpeed -->
+    
     <message>
         <source>Low Fan Speed Fan Power</source>
         <translation>Daya Fan pada Kecepatan Fan Rendah</translation>
     </message>
-    <!-- OS:CoolingTower:TwoSpeed, OS:EvaporativeFluidCooler:TwoSpeed, OS:FluidCooler:TwoSpeed -->
+    
     <message>
         <source>Low Fan Speed Fan Power Sizing Factor</source>
         <translation>Faktor Ukuran Daya Kipas Kecepatan Rendah</translation>
     </message>
-    <!-- OS:CoolingTower:TwoSpeed, OS:EvaporativeFluidCooler:TwoSpeed, OS:FluidCooler:TwoSpeed -->
+    
     <message>
         <source>Low Fan Speed U-Factor Times Area Sizing Factor</source>
         <translation>Faktor Pengukuran U-Factor Times Area pada Kecepatan Kipas Rendah</translation>
     </message>
-    <!-- OS:CoolingTower:TwoSpeed -->
+    
     <message>
         <source>Low Fan Speed U-Factor Times Area Value</source>
         <translation>Nilai Faktor-U Kali Luas Kecepatan Fan Rendah</translation>
     </message>
-    <!-- OS:EvaporativeFluidCooler:TwoSpeed, OS:FluidCooler:TwoSpeed -->
+    
     <message>
         <source>Low Fan Speed U-factor Times Area Value</source>
         <translation>Nilai U-faktor Kali Luas Kecepatan Kipas Rendah</translation>
     </message>
-    <!-- OS:Refrigeration:TranscriticalSystem -->
+    
     <message>
         <source>Low Pressure CompressorList Name</source>
         <translation>Nama Daftar Kompressor Tekanan Rendah</translation>
     </message>
-    <!-- OS:SetpointManager:SystemNodeReset:Humidity -->
+    
     <message>
         <source>Low Reference Humidity Ratio</source>
         <translation>Rasio Kelembaban Referensi Rendah</translation>
     </message>
-    <!-- OS:SetpointManager:SystemNodeReset:Temperature -->
+    
     <message>
         <source>Low Reference Temperature</source>
         <translation>Suhu Referensi Rendah</translation>
     </message>
-    <!-- OS:SetpointManager:Scheduled:DualSetpoint -->
+    
     <message>
         <source>Low Setpoint Schedule Name</source>
         <translation>Nama Jadwal Setpoint Rendah</translation>
     </message>
-    <!-- OS:Coil:Cooling:DX:TwoSpeed -->
+    
     <message>
         <source>Low Speed Energy Input Ratio Function of Temperature Curve Name</source>
         <translation>Nama Kurva Fungsi Rasio Input Energi Kecepatan Rendah terhadap Suhu</translation>
     </message>
-    <!-- OS:Coil:Cooling:DX:TwoSpeed -->
+    
     <message>
         <source>Low Speed Evaporative Condenser Air Flow Rate</source>
         <translation>Laju Aliran Udara Kondensor Evaporatif Kecepatan Rendah</translation>
     </message>
-    <!-- OS:Coil:Cooling:DX:TwoSpeed -->
+    
     <message>
         <source>Low Speed Evaporative Condenser Effectiveness</source>
         <translation>Efektivitas Kondenser Evaporatif Kecepatan Rendah</translation>
     </message>
-    <!-- OS:Coil:Cooling:DX:TwoSpeed -->
+    
     <message>
         <source>Low Speed Evaporative Condenser Pump Rated Power Consumption</source>
         <translation>Konsumsi Daya Rated Pompa Kondenser Evaporatif Kecepatan Rendah</translation>
     </message>
-    <!-- OS:CoolingTower:TwoSpeed, OS:FluidCooler:TwoSpeed -->
+    
     <message>
         <source>Low Speed Nominal Capacity</source>
         <translation>Kapasitas Nominal Kecepatan Rendah</translation>
     </message>
-    <!-- OS:CoolingTower:TwoSpeed, OS:FluidCooler:TwoSpeed -->
+    
     <message>
         <source>Low Speed Nominal Capacity Sizing Factor</source>
         <translation>Faktor Sizing Kapasitas Nominal Kecepatan Rendah</translation>
     </message>
-    <!-- OS:EvaporativeFluidCooler:TwoSpeed -->
+    
     <message>
         <source>Low Speed Standard Capacity Sizing Factor</source>
         <translation>Faktor Penentuan Ukuran Kapasitas Kecepatan Rendah</translation>
     </message>
-    <!-- OS:EvaporativeFluidCooler:TwoSpeed -->
+    
     <message>
         <source>Low Speed Standard Design Capacity</source>
         <translation>Kapasitas Desain Standar Kecepatan Rendah</translation>
     </message>
-    <!-- OS:ZoneHVAC:FourPipeFanCoil -->
+    
     <message>
         <source>Low Speed Supply Air Flow Ratio</source>
         <translation>Rasio Aliran Udara Pasokan Kecepatan Rendah</translation>
     </message>
-    <!-- OS:Coil:Cooling:DX:TwoSpeed -->
+    
     <message>
         <source>Low Speed Total Cooling Capacity Function of Temperature Curve Name</source>
         <translation>Nama Kurva Fungsi Kapasitas Pendinginan Total Kecepatan Rendah terhadap Suhu</translation>
     </message>
-    <!-- OS:EvaporativeFluidCooler:TwoSpeed -->
+    
     <message>
         <source>Low Speed User Specified Design Capacity</source>
         <translation>Kapasitas Desain yang Ditentukan Pengguna Kecepatan Rendah</translation>
     </message>
-    <!-- OS:EvaporativeFluidCooler:TwoSpeed -->
+    
     <message>
         <source>Low Speed User Specified Design Capacity Sizing Factor</source>
         <translation>Faktor Penentuan Ukuran Kapasitas Desain Kecepatan Rendah yang Ditentukan Pengguna</translation>
     </message>
-    <!-- OS:ZoneHVAC:LowTemperatureRadiant:ConstantFlow -->
+    
     <message>
         <source>Low Temp Radiant Constant Flow Cooling Coil Name</source>
         <translation>Nama Kumparan Pendingin Aliran Konstant Radiant Suhu Rendah</translation>
     </message>
-    <!-- OS:ZoneHVAC:LowTemperatureRadiant:ConstantFlow -->
+    
     <message>
         <source>Low Temp Radiant Constant Flow Heating Coil Name</source>
         <translation>Nama Kumparan Pemanas Aliran Konstan Radiant Suhu Rendah</translation>
     </message>
-    <!-- OS:ZoneHVAC:LowTemperatureRadiant:VariableFlow -->
+    
     <message>
         <source>Low Temp Radiant Variable Flow Cooling Coil Name</source>
         <translation>Nama Kumparan Pendingin Aliran Variabel Radiant Suhu Rendah</translation>
     </message>
-    <!-- OS:ZoneHVAC:LowTemperatureRadiant:VariableFlow -->
+    
     <message>
         <source>Low Temp Radiant Variable Flow Heating Coil Name</source>
         <translation>Nama Kumparan Pemanas Radiant Aliran Variabel Suhu Rendah</translation>
     </message>
-    <!-- OS:MaterialProperty:PhaseChangeHysteresis -->
+    
     <message>
         <source>Low Temperature Difference of Freezing Curve</source>
         <translation>Perbedaan Suhu Rendah dari Kurva Pembekuan</translation>
     </message>
-    <!-- OS:MaterialProperty:PhaseChangeHysteresis -->
+    
     <message>
         <source>Low Temperature Difference of Melting Curve</source>
         <translation>Perbedaan Suhu Rendah Kurva Peleburan</translation>
     </message>
-    <!-- OS:Refrigeration:TranscriticalSystem -->
+    
     <message>
         <source>Low Temperature Refrigerated CaseAndWalkInList Name</source>
         <translation>Nama Daftar Kasus Refrigerasi Suhu Rendah dan Walk-In</translation>
     </message>
-    <!-- OS:Refrigeration:TranscriticalSystem -->
+    
     <message>
         <source>Low Temperature Suction Piping Zone Name</source>
         <translation>Nama Zona Pipa Hisap Suhu Rendah</translation>
     </message>
-    <!-- OS:ScheduleTypeLimits -->
+    
     <message>
         <source>Lower Limit Value</source>
         <translation>Nilai Batas Bawah</translation>
     </message>
-    <!-- OS:Luminaire -->
+    
     <message>
         <source>Luminaire Definition Name</source>
         <translation>Nama Definisi Luminaire</translation>
     </message>
 
-    <!-- M -->
-    <!-- OS:PlantComponent:UserDefined -->
+    
+    
     <message>
         <source>Main Model Program Calling Manager Name</source>
         <translation>Nama Manajer Pemanggil Program Model Utama</translation>
     </message>
-    <!-- OS:PlantComponent:UserDefined -->
+    
     <message>
         <source>Main Model Program Name</source>
         <translation>Nama Program Model Utama</translation>
     </message>
-    <!-- OS:AirConditioner:VariableRefrigerantFlow:FluidTemperatureControl, OS:AirConditioner:VariableRefrigerantFlow:FluidTemperatureControl:HR -->
+    
     <message>
         <source>Main Pipe Insulation Thermal Conductivity</source>
         <translation>Konduktivitas Termal Insulasi Pipa Utama</translation>
     </message>
-    <!-- OS:AirConditioner:VariableRefrigerantFlow:FluidTemperatureControl, OS:AirConditioner:VariableRefrigerantFlow:FluidTemperatureControl:HR -->
+    
     <message>
         <source>Main Pipe Insulation Thickness</source>
         <translation>Ketebalan Insulasi Pipa Utama</translation>
     </message>
-    <!-- OS:SwimmingPool:Indoor -->
+    
     <message>
         <source>Make-up Water Supply Schedule Name</source>
         <translation>Nama Jadwal Pasokan Air Pengganti</translation>
     </message>
-    <!-- OS:Site:GroundTemperature:Deep -->
+    
     <message>
         <source>March Deep Ground Temperature</source>
         <translation>Temperatur Tanah Dalam Maret</translation>
     </message>
-    <!-- OS:Site:GroundReflectance -->
+    
     <message>
         <source>March Ground Reflectance</source>
         <translation>Reflektansi Tanah Maret</translation>
     </message>
-    <!-- OS:Site:GroundTemperature:BuildingSurface, OS:Site:GroundTemperature:FCfactorMethod -->
+    
     <message>
         <source>March Ground Temperature</source>
         <translation>Suhu Tanah Maret</translation>
     </message>
-    <!-- OS:Site:GroundTemperature:Shallow -->
+    
     <message>
         <source>March Surface Ground Temperature</source>
         <translation>Temperatur Permukaan Tanah Maret</translation>
     </message>
-    <!-- OS:UtilityCost:Variable -->
+    
     <message>
         <source>March Value</source>
         <translation>Nilai Maret</translation>
     </message>
-    <!-- OS:PlantComponent:UserDefined -->
+    
     <message>
         <source>Mass Flow Rate Actuator</source>
         <translation>Aktuator Laju Aliran Massa</translation>
     </message>
-    <!-- OS:MaterialProperty:MoisturePenetrationDepth:Settings, OS:MaterialProperty:PhaseChange, OS:MaterialProperty:PhaseChangeHysteresis, OS:StandardsInformation:Material, OS:SurfaceControl:MovableInsulation -->
+    
     <message>
         <source>Material Name</source>
         <translation>Nama Material</translation>
     </message>
-    <!-- OS:StandardsInformation:Material -->
+    
     <message>
         <source>Material Standard</source>
         <translation>Material Standar</translation>
     </message>
-    <!-- OS:StandardsInformation:Material -->
+    
     <message>
         <source>Material Standard Source</source>
         <translation>Sumber Standar Material</translation>
     </message>
-    <!-- OS:PerformancePrecisionTradeoffs -->
+    
     <message>
         <source>MaxAllowedDelTemp</source>
         <translation>MaxAllowedDelTemp</translation>
     </message>
-    <!-- OS:Controller:WaterCoil -->
+    
     <message>
         <source>Maximum Actuated Flow</source>
         <translation>Aliran Teraktuasi Maksimum</translation>
     </message>
-    <!-- OS:Glare:Sensor -->
+    
     <message>
         <source>Maximum Allowable Daylight Glare Probability</source>
         <translation>Probabilitas Silau Cahaya Siang Maksimum yang Diizinkan</translation>
     </message>
-    <!-- OS:Daylighting:Control -->
+    
     <message>
         <source>Maximum Allowable Discomfort Glare Index</source>
         <translation>Indeks Pantulan Cahaya Ketidaknyamanan Maksimal yang Diizinkan</translation>
     </message>
-    <!-- OS:Coil:WaterHeating:AirToWaterHeatPump, OS:Coil:WaterHeating:AirToWaterHeatPump:VariableSpeed, OS:Coil:WaterHeating:AirToWaterHeatPump:Wrapped, OS:HeatPump:AirToWater -->
+    
     <message>
         <source>Maximum Ambient Temperature for Crankcase Heater Operation</source>
         <translation>Suhu Ambient Maksimum untuk Operasi Pemanas Karterus</translation>
     </message>
-    <!-- OS:CoolingTowerPerformance:CoolTools, OS:CoolingTowerPerformance:YorkCalc -->
+    
     <message>
         <source>Maximum Approach Temperature</source>
         <translation>Suhu Pendekatan Maksimum</translation>
     </message>
-    <!-- OS:Fan:ComponentModel -->
+    
     <message>
         <source>Maximum Belt Efficiency Curve Name</source>
         <translation>Nama Kurva Efisiensi Sabuk Maksimum</translation>
     </message>
-    <!-- OS:Refrigeration:Condenser:EvaporativeCooled -->
+    
     <message>
         <source>Maximum Capacity Factor</source>
         <translation>Faktor Kapasitas Maksimum</translation>
     </message>
-    <!-- OS:Foundation:Kiva:Settings -->
+    
     <message>
         <source>Maximum Cell Growth Coefficient</source>
         <translation>Koefisien Pertumbuhan Sel Maksimum</translation>
     </message>
-    <!-- OS:Coil:Cooling:Water:Panel:Radiant -->
+    
     <message>
         <source>Maximum Chilled Water Flow Rate</source>
         <translation>Laju Aliran Air Pendingin Maksimum</translation>
     </message>
-    <!-- OS:Coil:Cooling:LowTemperatureRadiant:VariableFlow -->
+    
     <message>
         <source>Maximum Cold Water Flow</source>
         <translation>Aliran Air Dingin Maksimum</translation>
     </message>
-    <!-- OS:AirTerminal:SingleDuct:ConstantVolume:FourPipeInduction, OS:ZoneHVAC:FourPipeFanCoil -->
+    
     <message>
         <source>Maximum Cold Water Flow Rate</source>
         <translation>Laju Aliran Air Dingin Maksimum</translation>
     </message>
-    <!-- OS:ZoneHVAC:IdealLoadsAirSystem -->
+    
     <message>
         <source>Maximum Cooling Air Flow Rate</source>
         <translation>Laju Aliran Udara Pendingin Maksimum</translation>
     </message>
-    <!-- OS:Curve:Bicubic, OS:Curve:Biquadratic, OS:Curve:Cubic, OS:Curve:DoubleExponentialDecay, OS:Curve:Exponent, OS:Curve:ExponentialDecay, OS:Curve:ExponentialSkewNormal, OS:Curve:FanPressureRise, OS:Curve:Linear, OS:Curve:QuadLinear, OS:Curve:Quadratic, OS:Curve:QuadraticLinear, OS:Curve:Quartic, OS:Curve:QuintLinear, OS:Curve:RectangularHyperbola1, OS:Curve:RectangularHyperbola2, OS:Curve:Sigmoid, OS:Curve:Triquadratic -->
+    
     <message>
         <source>Maximum Curve Output</source>
         <translation>Keluaran Kurva Maksimum</translation>
     </message>
-    <!-- OS:AirTerminal:DualDuct:VAV -->
+    
     <message>
         <source>Maximum Damper Air Flow Rate</source>
         <translation>Laju Aliran Udara Peredam Maksimum</translation>
     </message>
-    <!-- OS:Site:WaterMainsTemperature -->
+    
     <message>
         <source>Maximum Difference In Monthly Average Outdoor Air Temperatures</source>
         <translation>Perbedaan Maksimum dalam Suhu Udara Luar Rata-rata Bulanan</translation>
     </message>
-    <!-- OS:Fan:ComponentModel -->
+    
     <message>
         <source>Maximum Dimensionless Fan Airflow</source>
         <translation>Aliran Udara Kipas Tanpa Dimensi Maksimum</translation>
     </message>
-    <!-- OS:SizingPeriod:DesignDay -->
+    
     <message>
         <source>Maximum Dry-Bulb Temperature</source>
         <translation>Temperatur Bola Kering Maksimum</translation>
     </message>
-    <!-- OS:ZoneHVAC:Dehumidifier:DX -->
+    
     <message>
         <source>Maximum Dry-Bulb Temperature for Dehumidifier Operation</source>
         <translation>Suhu Bola Kering Maksimum untuk Operasi Dehumidifier</translation>
     </message>
-    <!-- OS:ZoneHVAC:LowTemperatureRadiant:Electric -->
+    
     <message>
         <source>Maximum Electrical Power to Panel</source>
         <translation>Daya Listrik Maksimum ke Panel</translation>
     </message>
-    <!-- OS:Fan:ComponentModel -->
+    
     <message>
         <source>Maximum Fan Static Efficiency</source>
         <translation>Efisiensi Statis Kipas Maksimum</translation>
     </message>
-    <!-- OS:ShadowCalculation -->
+    
     <message>
         <source>Maximum Figures in Shadow Overlap Calculations</source>
         <translation>Figur Maksimum dalam Perhitungan Tumpang Tindih Bayangan</translation>
     </message>
-    <!-- OS:Generator:MicroTurbine -->
+    
     <message>
         <source>Maximum Full Load Electrical Power Output</source>
         <translation>Daya Keluaran Listrik Beban Penuh Maksimum</translation>
     </message>
-    <!-- OS:HeatPump:PlantLoop:EIR:Cooling -->
+    
     <message>
         <source>Maximum Heat Recovery Outlet Temperature</source>
         <translation>Temperatur Outlet Pemulihan Panas Maksimum</translation>
     </message>
-    <!-- OS:Generator:MicroTurbine:HeatRecovery -->
+    
     <message>
         <source>Maximum Heat Recovery Water Flow Rate</source>
         <translation>Laju Aliran Air Pemulihan Panas Maksimum</translation>
     </message>
-    <!-- OS:Generator:MicroTurbine:HeatRecovery -->
+    
     <message>
         <source>Maximum Heat Recovery Water Temperature</source>
         <translation>Temperatur Air Pemulihan Panas Maksimum</translation>
     </message>
-    <!-- OS:ZoneHVAC:IdealLoadsAirSystem -->
+    
     <message>
         <source>Maximum Heating Air Flow Rate</source>
         <translation>Laju Aliran Udara Pemanasan Maksimum</translation>
     </message>
-    <!-- OS:Generator:FuelCell:AuxiliaryHeater -->
+    
     <message>
         <source>Maximum Heating Capacity in Kmol per Second</source>
         <translation>Kapasitas Pemanasan Maksimum dalam Kmol per Detik</translation>
     </message>
-    <!-- OS:Generator:FuelCell:AuxiliaryHeater -->
+    
     <message>
         <source>Maximum Heating Capacity in Watts</source>
         <translation>Kapasitas Pemanas Maksimum dalam Watt</translation>
     </message>
-    <!-- OS:Sizing:System -->
+    
     <message>
         <source>Maximum Heating Capacity To Cooling Capacity Sizing Ratio</source>
         <translation>Rasio Ukuran Kapasitas Pemanasan Maksimum ke Kapasitas Pendinginan</translation>
     </message>
-    <!-- OS:ZoneHVAC:IdealLoadsAirSystem -->
+    
     <message>
         <source>Maximum Heating Supply Air Humidity Ratio</source>
         <translation>Rasio Kelembaban Udara Pasokan Pemanas Maksimum</translation>
     </message>
-    <!-- OS:ZoneHVAC:IdealLoadsAirSystem -->
+    
     <message>
         <source>Maximum Heating Supply Air Temperature</source>
         <translation>Temperatur Udara Pasokan Pemanas Maksimum</translation>
     </message>
-    <!-- OS:Coil:Heating:LowTemperatureRadiant:VariableFlow -->
+    
     <message>
         <source>Maximum Hot Water Flow</source>
         <translation>Aliran Air Panas Maksimum</translation>
     </message>
-    <!-- OS:AirTerminal:SingleDuct:ConstantVolume:FourPipeInduction, OS:ZoneHVAC:FourPipeFanCoil, OS:ZoneHVAC:UnitHeater -->
+    
     <message>
         <source>Maximum Hot Water Flow Rate</source>
         <translation>Laju Aliran Air Panas Maksimum</translation>
     </message>
-    <!-- OS:ConvergenceLimits -->
+    
     <message>
         <source>Maximum HVAC Iterations</source>
         <translation>Iterasi HVAC Maksimum</translation>
     </message>
-    <!-- OS:ZoneVentilation:DesignFlowRate, OS:ZoneVentilation:WindandStackOpenArea -->
+    
     <message>
         <source>Maximum Indoor Temperature</source>
         <translation>Suhu Dalam Ruangan Maksimum</translation>
     </message>
-    <!-- OS:ZoneVentilation:DesignFlowRate, OS:ZoneVentilation:WindandStackOpenArea -->
+    
     <message>
         <source>Maximum Indoor Temperature Schedule Name</source>
         <translation>Nama Jadwal Suhu Dalam Ruang Maksimum</translation>
     </message>
-    <!-- OS:WaterHeater:HeatPump, OS:WaterHeater:HeatPump:WrappedCondenser -->
+    
     <message>
         <source>Maximum Inlet Air Temperature for Compressor Operation</source>
         <translation>Temperatur Inlet Udara Maksimum untuk Operasi Kompresor</translation>
     </message>
-    <!-- OS:CoolingTowerPerformance:CoolTools, OS:CoolingTowerPerformance:YorkCalc -->
+    
     <message>
         <source>Maximum Inlet Air Wet-Bulb Temperature</source>
         <translation>Suhu Bola Basah Udara Inlet Maksimum</translation>
     </message>
-    <!-- OS:Coil:WaterHeating:Desuperheater -->
+    
     <message>
         <source>Maximum Inlet Water Temperature for Heat Reclaim</source>
         <translation>Suhu Air Masuk Maksimum untuk Pemulihan Panas</translation>
     </message>
-    <!-- OS:HeatPump:AirToWater:Cooling, OS:HeatPump:AirToWater:Heating -->
+    
     <message>
         <source>Maximum Leaving Water Temperature Curve Name</source>
         <translation>Nama Kurva Temperatur Air Keluar Maksimum</translation>
     </message>
-    <!-- OS:GroundHeatExchanger:Vertical -->
+    
     <message>
         <source>Maximum Length of Simulation</source>
         <translation>Panjang Maksimum Simulasi</translation>
     </message>
-    <!-- OS:SetpointManager:FollowSystemNodeTemperature -->
+    
     <message>
         <source>Maximum Limit Setpoint Temperature</source>
         <translation>Suhu Titik Atur Batas Maksimum</translation>
     </message>
-    <!-- OS:CoolingTowerPerformance:YorkCalc -->
+    
     <message>
         <source>Maximum Liquid to Gas Ratio</source>
         <translation>Rasio Cairan ke Gas Maksimum</translation>
     </message>
-    <!-- OS:PlantComponent:UserDefined -->
+    
     <message>
         <source>Maximum Loading Capacity Actuator</source>
         <translation>Aktuator Kapasitas Pembebanan Maksimum</translation>
     </message>
-    <!-- OS:PlantComponent:UserDefined -->
+    
     <message>
         <source>Maximum Mass Flow Rate Actuator</source>
         <translation>Aktuator Laju Aliran Massa Maksimum</translation>
     </message>
-    <!-- OS:Fan:ComponentModel -->
+    
     <message>
         <source>Maximum Motor Efficiency Curve Name</source>
         <translation>Nama Kurva Efisiensi Motor Maksimum</translation>
     </message>
-    <!-- OS:Fan:ComponentModel -->
+    
     <message>
         <source>Maximum Motor Output Power</source>
         <translation>Daya Keluaran Motor Maksimum</translation>
     </message>
-    <!-- OS:SimulationControl -->
+    
     <message>
         <source>Maximum Number of HVAC Sizing Simulation Passes</source>
         <translation>Jumlah Maksimum Lintasan Simulasi Penentuan Ukuran HVAC</translation>
     </message>
-    <!-- OS:AirflowNetworkSimulationControl -->
+    
     <message>
         <source>Maximum Number of Iterations</source>
         <translation>Jumlah Iterasi Maksimum</translation>
     </message>
-    <!-- OS:SwimmingPool:Indoor -->
+    
     <message>
         <source>Maximum Number of People</source>
         <translation>Jumlah Maksimum Orang</translation>
     </message>
-    <!-- OS:SimulationControl -->
+    
     <message>
         <source>Maximum Number of Warmup Days</source>
         <translation>Jumlah Maksimum Hari Pemanasan Awal</translation>
     </message>
-    <!-- OS:SizingPeriod:DesignDay -->
+    
     <message>
         <source>Maximum Number Warmup Days</source>
         <translation>Jumlah Hari Pemanasan Maksimum</translation>
     </message>
-    <!-- OS:Generator:FuelCell:PowerModule -->
+    
     <message>
         <source>Maximum Operating Point</source>
         <translation>Titik Operasi Maksimum</translation>
     </message>
-    <!-- OS:Boiler:Steam -->
+    
     <message>
         <source>Maximum Operating Pressure</source>
         <translation>Tekanan Operasi Maksimum</translation>
     </message>
-    <!-- OS:SurfaceProperty:OtherSideCoefficients -->
+    
     <message>
         <source>Maximum Other Side Temperature Limit</source>
         <translation>Batas Suhu Sisi Lain Maksimum</translation>
     </message>
-    <!-- OS:ZoneHVAC:UnitVentilator -->
+    
     <message>
         <source>Maximum Outdoor Air Fraction or Temperature Schedule Name</source>
         <translation>Nama Jadwal Fraksi Udara Luar Maksimum atau Suhu</translation>
     </message>
-    <!-- OS:HeatPump:AirToWater:Cooling, OS:HeatPump:AirToWater:Heating -->
+    
     <message>
         <source>Maximum Outdoor Air Temperature</source>
         <translation>Suhu Udara Luar Maksimum</translation>
     </message>
-    <!-- OS:AirConditioner:VariableRefrigerantFlow:FluidTemperatureControl -->
+    
     <message>
         <source>Maximum Outdoor Air Temperature in Cooling Mode</source>
         <translation>Suhu Udara Luar Maksimum dalam Mode Pendinginan</translation>
     </message>
-    <!-- OS:AirConditioner:VariableRefrigerantFlow:FluidTemperatureControl:HR -->
+    
     <message>
         <source>Maximum Outdoor Air Temperature in Cooling Only Mode</source>
         <translation>Suhu Udara Luar Maksimum dalam Mode Pendinginan Saja</translation>
     </message>
-    <!-- OS:AirConditioner:VariableRefrigerantFlow:FluidTemperatureControl -->
+    
     <message>
         <source>Maximum Outdoor Air Temperature in Heating Mode</source>
         <translation>Suhu Udara Luar Maksimum dalam Mode Pemanasan</translation>
     </message>
-    <!-- OS:AirConditioner:VariableRefrigerantFlow:FluidTemperatureControl:HR -->
+    
     <message>
         <source>Maximum Outdoor Air Temperature in Heating Only Mode</source>
         <translation>Suhu Outdoor Maksimum dalam Mode Pemanas Saja</translation>
     </message>
-    <!-- OS:AvailabilityManager:HybridVentilation -->
+    
     <message>
         <source>Maximum Outdoor Dewpoint</source>
         <translation>Titik Embun Luar Ruang Maksimum</translation>
     </message>
-    <!-- OS:HeatPump:AirToWater, OS:HeatPump:PlantLoop:EIR:Heating -->
+    
     <message>
         <source>Maximum Outdoor Dry Bulb Temperature For Defrost Operation</source>
         <translation>Temperatur Bola Kering Luar Ruangan Maksimum Untuk Operasi Defrost</translation>
     </message>
-    <!-- OS:AirConditioner:VariableRefrigerantFlow -->
+    
     <message>
         <source>Maximum Outdoor Dry-bulb Temperature for Crankcase Heater</source>
         <translation>Temperatur Dry-bulb Luar Maksimum untuk Pemanas Crankcase</translation>
     </message>
-    <!-- OS:AirConditioner:VariableRefrigerantFlow:FluidTemperatureControl, OS:AirConditioner:VariableRefrigerantFlow:FluidTemperatureControl:HR -->
+    
     <message>
         <source>Maximum Outdoor Dry-Bulb Temperature for Crankcase Heater</source>
         <translation>Temperatur Bola Kering Luar Ruang Maksimum untuk Pemanas Ruang Engkol</translation>
     </message>
-    <!-- OS:AirConditioner:VariableRefrigerantFlow, OS:AirConditioner:VariableRefrigerantFlow:FluidTemperatureControl, OS:AirConditioner:VariableRefrigerantFlow:FluidTemperatureControl:HR, OS:HeatPump:AirToWater:FuelFired:Heating -->
+    
     <message>
         <source>Maximum Outdoor Dry-bulb Temperature for Defrost Operation</source>
         <translation>Suhu Udara Luar Maksimum untuk Operasi Defrost</translation>
     </message>
-    <!-- OS:AirLoopHVAC:UnitaryHeatPump:AirToAir, OS:AirLoopHVAC:UnitaryHeatPump:AirToAir:MultiSpeed, OS:AirLoopHVAC:UnitarySystem, OS:ZoneHVAC:PackagedTerminalHeatPump, OS:ZoneHVAC:TerminalUnit:VariableRefrigerantFlow, OS:ZoneHVAC:WaterToAirHeatPump -->
+    
     <message>
         <source>Maximum Outdoor Dry-Bulb Temperature for Supplemental Heater Operation</source>
         <translation>Temperatur Dry-Bulb Luar Ruang Maksimum untuk Operasi Pemanas Tambahan</translation>
     </message>
-    <!-- OS:AvailabilityManager:HybridVentilation -->
+    
     <message>
         <source>Maximum Outdoor Enthalpy</source>
         <translation>Entalpı Luar Maksimum</translation>
     </message>
-    <!-- OS:AvailabilityManager:HybridVentilation, OS:ZoneVentilation:DesignFlowRate, OS:ZoneVentilation:WindandStackOpenArea -->
+    
     <message>
         <source>Maximum Outdoor Temperature</source>
         <translation>Temperatur Luar Ruangan Maksimum</translation>
     </message>
-    <!-- OS:AirConditioner:VariableRefrigerantFlow, OS:AirConditioner:VariableRefrigerantFlow:FluidTemperatureControl:HR -->
+    
     <message>
         <source>Maximum Outdoor Temperature in Heat Recovery Mode</source>
         <translation>Suhu Luar Maksimum dalam Mode Pemulihan Panas</translation>
     </message>
-    <!-- OS:ZoneMixing, OS:ZoneVentilation:DesignFlowRate, OS:ZoneVentilation:WindandStackOpenArea -->
+    
     <message>
         <source>Maximum Outdoor Temperature Schedule Name</source>
         <translation>Nama Jadwal Temperatur Luar Maksimum</translation>
     </message>
-    <!-- OS:AirLoopHVAC:UnitaryHeatCool:VAVChangeoverBypass -->
+    
     <message>
         <source>Maximum Outlet Air Temperature During Heating Operation</source>
         <translation>Suhu Udara Outlet Maksimum Selama Operasi Pemanasan</translation>
     </message>
-    <!-- OS:Table:Lookup -->
+    
     <message>
         <source>Maximum Output</source>
         <translation>Keluaran Maksimum</translation>
     </message>
-    <!-- OS:ConvergenceLimits -->
+    
     <message>
         <source>Maximum Plant Iterations</source>
         <translation>Iterasi Tanaman Maksimum</translation>
     </message>
-    <!-- OS:Generator:WindTurbine -->
+    
     <message>
         <source>Maximum Power Coefficient</source>
         <translation>Koefisien Daya Maksimum</translation>
     </message>
-    <!-- OS:ElectricLoadCenter:Storage:Simple -->
+    
     <message>
         <source>Maximum Power for Charging</source>
         <translation>Daya Maksimum untuk Pengisian</translation>
     </message>
-    <!-- OS:ElectricLoadCenter:Storage:Simple -->
+    
     <message>
         <source>Maximum Power for Discharging</source>
         <translation>Daya Maksimum untuk Pengosongan</translation>
     </message>
-    <!-- OS:ZoneHVAC:HighTemperatureRadiant -->
+    
     <message>
         <source>Maximum Power Input</source>
         <translation>Masukan Daya Maksimum</translation>
     </message>
-    <!-- OS:AirflowNetworkOccupantVentilationControl -->
+    
     <message>
         <source>Maximum Predicted Percentage of Dissatisfied Threshold</source>
         <translation>Ambang Batas Persentase Prediksi Ketidakpuasan Maksimum</translation>
     </message>
-    <!-- OS:Pump:VariableSpeed -->
+    
     <message>
         <source>Maximum Pressure Schedule</source>
         <translation>Jadwal Tekanan Maksimum</translation>
     </message>
-    <!-- OS:AirTerminal:SingleDuct:ParallelPIU:Reheat, OS:AirTerminal:SingleDuct:SeriesPIU:Reheat -->
+    
     <message>
         <source>Maximum Primary Air Flow Rate</source>
         <translation>Laju Aliran Udara Primer Maksimum</translation>
     </message>
-    <!-- OS:HeatExchanger:Desiccant:BalancedFlow:PerformanceDataType1 -->
+    
     <message>
         <source>Maximum Process Inlet Air Humidity Ratio for Humidity Ratio Equation</source>
         <translation>Rasio Kelembaban Udara Inlet Proses Maksimum untuk Persamaan Rasio Kelembaban</translation>
     </message>
-    <!-- OS:HeatExchanger:Desiccant:BalancedFlow:PerformanceDataType1 -->
+    
     <message>
         <source>Maximum Process Inlet Air Humidity Ratio for Temperature Equation</source>
         <translation>Rasio Kelembaban Udara Inlet Proses Maksimum untuk Persamaan Temperatur</translation>
     </message>
-    <!-- OS:HeatExchanger:Desiccant:BalancedFlow:PerformanceDataType1 -->
+    
     <message>
         <source>Maximum Process Inlet Air Relative Humidity for Humidity Ratio Equation</source>
         <translation>Kelembaban Relatif Udara Masuk Proses Maksimum untuk Persamaan Rasio Kelembaban</translation>
     </message>
-    <!-- OS:HeatExchanger:Desiccant:BalancedFlow:PerformanceDataType1 -->
+    
     <message>
         <source>Maximum Process Inlet Air Relative Humidity for Temperature Equation</source>
         <translation>Kelembaban Relatif Udara Inlet Proses Maksimum untuk Persamaan Suhu</translation>
     </message>
-    <!-- OS:HeatExchanger:Desiccant:BalancedFlow:PerformanceDataType1 -->
+    
     <message>
         <source>Maximum Process Inlet Air Temperature for Humidity Ratio Equation</source>
         <translation>Temperatur Inlet Udara Proses Maksimum untuk Persamaan Rasio Kelembaban</translation>
     </message>
-    <!-- OS:HeatExchanger:Desiccant:BalancedFlow:PerformanceDataType1 -->
+    
     <message>
         <source>Maximum Process Inlet Air Temperature for Temperature Equation</source>
         <translation>Suhu Udara Inlet Proses Maksimum untuk Persamaan Suhu</translation>
     </message>
-    <!-- OS:CoolingTowerPerformance:CoolTools, OS:CoolingTowerPerformance:YorkCalc -->
+    
     <message>
         <source>Maximum Range Temperature</source>
         <translation>Suhu Rentang Maksimum</translation>
     </message>
-    <!-- OS:ZoneMixing -->
+    
     <message>
         <source>Maximum Receiving Temperature Schedule Name</source>
         <translation>Nama Jadwal Suhu Penerimaan Maksimum</translation>
     </message>
-    <!-- OS:HeatExchanger:Desiccant:BalancedFlow:PerformanceDataType1 -->
+    
     <message>
         <source>Maximum Regeneration Air Velocity for Humidity Ratio Equation</source>
         <translation>Kecepatan Udara Regenerasi Maksimum untuk Persamaan Rasio Kelembaban</translation>
     </message>
-    <!-- OS:HeatExchanger:Desiccant:BalancedFlow:PerformanceDataType1 -->
+    
     <message>
         <source>Maximum Regeneration Air Velocity for Temperature Equation</source>
         <translation>Kecepatan Udara Regenerasi Maksimum untuk Persamaan Temperatur</translation>
     </message>
-    <!-- OS:HeatExchanger:Desiccant:BalancedFlow:PerformanceDataType1 -->
+    
     <message>
         <source>Maximum Regeneration Inlet Air Humidity Ratio for Humidity Ratio Equation</source>
         <translation>Rasio Kelembaban Udara Inlet Regenerasi Maksimum untuk Persamaan Rasio Kelembaban</translation>
     </message>
-    <!-- OS:HeatExchanger:Desiccant:BalancedFlow:PerformanceDataType1 -->
+    
     <message>
         <source>Maximum Regeneration Inlet Air Humidity Ratio for Temperature Equation</source>
         <translation>Rasio Kelembaban Udara Inlet Regenerasi Maksimum untuk Persamaan Temperatur</translation>
     </message>
-    <!-- OS:HeatExchanger:Desiccant:BalancedFlow:PerformanceDataType1 -->
+    
     <message>
         <source>Maximum Regeneration Inlet Air Relative Humidity for Humidity Ratio Equation</source>
         <translation>Kelembaban Relatif Udara Inlet Regenerasi Maksimum untuk Persamaan Rasio Kelembaban</translation>
     </message>
-    <!-- OS:HeatExchanger:Desiccant:BalancedFlow:PerformanceDataType1 -->
+    
     <message>
         <source>Maximum Regeneration Inlet Air Relative Humidity for Temperature Equation</source>
         <translation>Kelembaban Relatif Udara Inlet Regenerasi Maksimum untuk Persamaan Suhu</translation>
     </message>
-    <!-- OS:HeatExchanger:Desiccant:BalancedFlow:PerformanceDataType1 -->
+    
     <message>
         <source>Maximum Regeneration Inlet Air Temperature for Humidity Ratio Equation</source>
         <translation>Suhu Inlet Regenerasi Maksimum untuk Persamaan Rasio Kelembaban</translation>
     </message>
-    <!-- OS:HeatExchanger:Desiccant:BalancedFlow:PerformanceDataType1 -->
+    
     <message>
         <source>Maximum Regeneration Inlet Air Temperature for Temperature Equation</source>
         <translation>Temperatur Inlet Regenerasi Maksimum untuk Persamaan Temperatur</translation>
     </message>
-    <!-- OS:HeatExchanger:Desiccant:BalancedFlow:PerformanceDataType1 -->
+    
     <message>
         <source>Maximum Regeneration Outlet Air Humidity Ratio for Humidity Ratio Equation</source>
         <translation>Rasio Kelembaban Udara Keluar Regenerasi Maksimum untuk Persamaan Rasio Kelembaban</translation>
     </message>
-    <!-- OS:HeatExchanger:Desiccant:BalancedFlow:PerformanceDataType1 -->
+    
     <message>
         <source>Maximum Regeneration Outlet Air Temperature for Temperature Equation</source>
         <translation>Suhu Udara Keluaran Regenerasi Maksimum untuk Persamaan Suhu</translation>
     </message>
-    <!-- OS:Pump:VariableSpeed -->
+    
     <message>
         <source>Maximum RPM Schedule</source>
         <translation>Jadwal RPM Maksimal</translation>
     </message>
-    <!-- OS:CoilSystem:IntegratedHeatPump:AirSource -->
+    
     <message>
         <source>Maximum Running Time Before Allowing Electric Resistance Heat Use During SHDWH Mode</source>
         <translation>Waktu Berjalan Maksimum Sebelum Memungkinkan Penggunaan Pemanas Resistansi Listrik Selama Mode SHDWH</translation>
     </message>
-    <!-- OS:AirTerminal:SingleDuct:ParallelPIU:Reheat -->
+    
     <message>
         <source>Maximum Secondary Air Flow Rate</source>
         <translation>Laju Aliran Udara Sekunder Maksimum</translation>
     </message>
-    <!-- OS:ZoneHVAC:IdealLoadsAirSystem -->
+    
     <message>
         <source>Maximum Sensible Heating Capacity</source>
         <translation>Kapasitas Pemanasan Sensibel Maksimum</translation>
     </message>
-    <!-- OS:SetpointManager:MultiZone:Humidity:Maximum, OS:SetpointManager:MultiZone:Humidity:Minimum, OS:SetpointManager:MultiZone:MaximumHumidity:Average, OS:SetpointManager:MultiZone:MinimumHumidity:Average, OS:SetpointManager:OutdoorAirPretreat -->
+    
     <message>
         <source>Maximum Setpoint Humidity Ratio</source>
         <translation>Rasio Kelembaban Setpoint Maksimum</translation>
     </message>
-    <!-- OS:WindowMaterial:Blind -->
+    
     <message>
         <source>Maximum Slat Angle</source>
         <translation>Sudut Slat Maksimum</translation>
     </message>
-    <!-- OS:HeatPump:PlantLoop:EIR:Cooling, OS:HeatPump:PlantLoop:EIR:Heating -->
+    
     <message>
         <source>Maximum Source Inlet Temperature</source>
         <translation>Temperatur Inlet Sumber Maksimum</translation>
     </message>
-    <!-- OS:ZoneMixing -->
+    
     <message>
         <source>Maximum Source Temperature Schedule Name</source>
         <translation>Nama Jadwal Suhu Sumber Maksimum</translation>
     </message>
-    <!-- OS:ElectricLoadCenter:Storage:Simple -->
+    
     <message>
         <source>Maximum Storage Capacity</source>
         <translation>Kapasitas Penyimpanan Maksimum</translation>
     </message>
-    <!-- OS:ElectricLoadCenter:Distribution -->
+    
     <message>
         <source>Maximum Storage State of Charge Fraction</source>
         <translation>Fraksi Muatan Status Penyimpanan Maksimum</translation>
     </message>
-    <!-- OS:ZoneHVAC:FourPipeFanCoil, OS:ZoneHVAC:UnitHeater, OS:ZoneHVAC:UnitVentilator -->
+    
     <message>
         <source>Maximum Supply Air Flow Rate</source>
         <translation>Laju Aliran Udara Pasokan Maksimum</translation>
     </message>
-    <!-- OS:AirLoopHVAC:UnitaryHeatPump:AirToAir, OS:AirLoopHVAC:UnitaryHeatPump:AirToAir:MultiSpeed, OS:ZoneHVAC:PackagedTerminalHeatPump, OS:ZoneHVAC:TerminalUnit:VariableRefrigerantFlow, OS:ZoneHVAC:WaterToAirHeatPump -->
+    
     <message>
         <source>Maximum Supply Air Temperature from Supplemental Heater</source>
         <translation>Suhu Udara Pasokan Maksimum dari Pemanas Tambahan</translation>
     </message>
-    <!-- OS:ZoneHVAC:FourPipeFanCoil -->
+    
     <message>
         <source>Maximum Supply Air Temperature in Heating Mode</source>
         <translation>Temperatur Udara Pasokan Maksimum dalam Mode Pemanasan</translation>
     </message>
-    <!-- OS:HeatPump:PlantLoop:EIR:Cooling, OS:HeatPump:PlantLoop:EIR:Heating -->
+    
     <message>
         <source>Maximum Supply Water Temperature Curve Name</source>
         <translation>Nama Kurva Suhu Air Pasokan Maksimum</translation>
     </message>
-    <!-- OS:HeatBalanceAlgorithm -->
+    
     <message>
         <source>Maximum Surface Convection Heat Transfer Coefficient Value</source>
         <translation>Nilai Koefisien Transfer Panas Konveksi Permukaan Maksimum</translation>
     </message>
-    <!-- OS:Table:MultiVariableLookup -->
+    
     <message>
         <source>Maximum Table Output</source>
         <translation>Keluaran Tabel Maksimum</translation>
     </message>
-    <!-- OS:Refrigeration:AirChiller -->
+    
     <message>
         <source>Maximum Temperature Difference Between Inlet Air and Evaporating Temperature</source>
         <translation>Perbedaan Temperatur Maksimum Antara Udara Masuk dan Temperatur Evaporasi</translation>
     </message>
-    <!-- OS:AirLoopHVAC:UnitaryHeatPump:AirToAir:MultiSpeed, OS:AirLoopHVAC:UnitarySystem -->
+    
     <message>
         <source>Maximum Temperature for Heat Recovery</source>
         <translation>Suhu Maksimum untuk Pemulihan Panas</translation>
     </message>
-    <!-- OS:AirTerminal:DualDuct:VAV:OutdoorAir -->
+    
     <message>
         <source>Maximum Terminal Air Flow Rate</source>
         <translation>Laju Aliran Udara Terminal Maksimum</translation>
     </message>
-    <!-- OS:Generator:WindTurbine -->
+    
     <message>
         <source>Maximum Tip Speed Ratio</source>
         <translation>Rasio Kecepatan Ujung Maksimum</translation>
     </message>
-    <!-- OS:AirTerminal:SingleDuct:ConstantVolume:FourPipeInduction -->
+    
     <message>
         <source>Maximum Total Air Flow Rate</source>
         <translation>Laju Aliran Udara Total Maksimum</translation>
     </message>
-    <!-- OS:AirTerminal:SingleDuct:ConstantVolume:CooledBeam -->
+    
     <message>
         <source>Maximum Total Chilled Water Volumetric Flow Rate</source>
         <translation>Laju Aliran Volumetrik Air Berpendingin Total Maksimum</translation>
     </message>
-    <!-- OS:ZoneHVAC:IdealLoadsAirSystem -->
+    
     <message>
         <source>Maximum Total Cooling Capacity</source>
         <translation>Kapasitas Pendinginan Total Maksimum</translation>
     </message>
-    <!-- OS:Table:IndependentVariable -->
+    
     <message>
         <source>Maximum Value</source>
         <translation>Nilai Maksimal</translation>
     </message>
-    <!-- OS:AvailabilityManager:OptimumStart -->
+    
     <message>
         <source>Maximum Value for Optimum Start Time</source>
         <translation>Nilai Maksimum untuk Waktu Awal Optimal</translation>
     </message>
-    <!-- OS:Curve:FanPressureRise -->
+    
     <message>
         <source>Maximum Value of Psm</source>
         <translation>Nilai Maksimum Psm</translation>
     </message>
-    <!-- OS:Curve:FanPressureRise -->
+    
     <message>
         <source>Maximum Value of Qfan</source>
         <translation>Nilai Maksimum Qfan</translation>
     </message>
-    <!-- OS:Curve:QuintLinear -->
+    
     <message>
         <source>Maximum Value of v</source>
         <translation>Nilai Maksimum v</translation>
     </message>
-    <!-- OS:Curve:QuadLinear, OS:Curve:QuintLinear -->
+    
     <message>
         <source>Maximum Value of w</source>
         <translation>Nilai Maksimum w</translation>
     </message>
-    <!-- OS:Curve:Bicubic, OS:Curve:Biquadratic, OS:Curve:Cubic, OS:Curve:DoubleExponentialDecay, OS:Curve:Exponent, OS:Curve:ExponentialDecay, OS:Curve:ExponentialSkewNormal, OS:Curve:Linear, OS:Curve:QuadLinear, OS:Curve:Quadratic, OS:Curve:QuadraticLinear, OS:Curve:Quartic, OS:Curve:QuintLinear, OS:Curve:RectangularHyperbola1, OS:Curve:RectangularHyperbola2, OS:Curve:Sigmoid, OS:Curve:Triquadratic -->
+    
     <message>
         <source>Maximum Value of x</source>
         <translation>Nilai Maksimum x</translation>
     </message>
-    <!-- OS:Table:MultiVariableLookup -->
+    
     <message>
         <source>Maximum Value of X1</source>
         <translation>Nilai Maksimum X1</translation>
     </message>
-    <!-- OS:Table:MultiVariableLookup -->
+    
     <message>
         <source>Maximum Value of X2</source>
         <translation>Nilai Maksimum X2</translation>
     </message>
-    <!-- OS:Table:MultiVariableLookup -->
+    
     <message>
         <source>Maximum Value of X3</source>
         <translation>Nilai Maksimum X3</translation>
     </message>
-    <!-- OS:Table:MultiVariableLookup -->
+    
     <message>
         <source>Maximum Value of X4</source>
         <translation>Nilai Maksimum X4</translation>
     </message>
-    <!-- OS:Table:MultiVariableLookup -->
+    
     <message>
         <source>Maximum Value of X5</source>
         <translation>Nilai Maksimum X5</translation>
     </message>
-    <!-- OS:Curve:Bicubic, OS:Curve:Biquadratic, OS:Curve:QuadLinear, OS:Curve:QuadraticLinear, OS:Curve:QuintLinear, OS:Curve:Triquadratic -->
+    
     <message>
         <source>Maximum Value of y</source>
         <translation>Nilai Maksimum y</translation>
     </message>
-    <!-- OS:Curve:QuadLinear, OS:Curve:QuintLinear, OS:Curve:Triquadratic -->
+    
     <message>
         <source>Maximum Value of z</source>
         <translation>Nilai Maksimum z</translation>
     </message>
-    <!-- OS:Fan:ComponentModel -->
+    
     <message>
         <source>Maximum VFD Output Power</source>
         <translation>Daya Output VFD Maksimum</translation>
     </message>
-    <!-- OS:CoolingTowerPerformance:CoolTools, OS:CoolingTowerPerformance:YorkCalc -->
+    
     <message>
         <source>Maximum Water Flow Rate Ratio</source>
         <translation>Rasio Laju Aliran Air Maksimum</translation>
     </message>
-    <!-- OS:CoilSystem:IntegratedHeatPump:AirSource -->
+    
     <message>
         <source>Maximum Water Flow Volume Before Switching From SCDWH To SCWH Mode</source>
         <translation>Volume Aliran Air Maksimum Sebelum Beralih Dari Mode SCDWH Ke Mode SCWH</translation>
     </message>
-    <!-- OS:AvailabilityManager:HybridVentilation, OS:ZoneVentilation:DesignFlowRate, OS:ZoneVentilation:WindandStackOpenArea -->
+    
     <message>
         <source>Maximum Wind Speed</source>
         <translation>Kecepatan Angin Maksimum</translation>
     </message>
-    <!-- OS:PerformancePrecisionTradeoffs -->
+    
     <message>
         <source>MaxZoneTempDiff</source>
         <translation>MaxZoneTempDiff</translation>
     </message>
-    <!-- OS:Site:GroundTemperature:Deep -->
+    
     <message>
         <source>May Deep Ground Temperature</source>
         <translation>Temperatur Tanah Dalam Mei</translation>
     </message>
-    <!-- OS:Site:GroundReflectance -->
+    
     <message>
         <source>May Ground Reflectance</source>
         <translation>Reflektansi Tanah Mei</translation>
     </message>
-    <!-- OS:Site:GroundTemperature:BuildingSurface, OS:Site:GroundTemperature:FCfactorMethod -->
+    
     <message>
         <source>May Ground Temperature</source>
         <translation>Temperatur Tanah Mei</translation>
     </message>
-    <!-- OS:Site:GroundTemperature:Shallow -->
+    
     <message>
         <source>May Surface Ground Temperature</source>
         <translation>Mei Suhu Tanah Permukaan</translation>
     </message>
-    <!-- OS:UtilityCost:Variable -->
+    
     <message>
         <source>May Value</source>
         <translation>Nilai Mei</translation>
     </message>
-    <!-- OS:Refrigeration:System -->
+    
     <message>
         <source>Mechanical Subcooler Name</source>
         <translation>Nama Subcooler Mekanis</translation>
     </message>
-    <!-- OS:ZoneHVAC:FourPipeFanCoil -->
+    
     <message>
         <source>Medium Speed Supply Air Flow Ratio</source>
         <translation>Rasio Aliran Udara Pasokan Kecepatan Menengah</translation>
     </message>
-    <!-- OS:Refrigeration:TranscriticalSystem -->
+    
     <message>
         <source>Medium Temperature Refrigerated CaseAndWalkInList Name</source>
         <translation>Nama Daftar Lemari dan Walk-In Berpendingin Suhu Sedang</translation>
     </message>
-    <!-- OS:Refrigeration:TranscriticalSystem -->
+    
     <message>
         <source>Medium Temperature Suction Piping Zone Name</source>
         <translation>Nama Zona Pipa Hisap Suhu Sedang</translation>
     </message>
-    <!-- OS:UtilityBill -->
+    
     <message>
         <source>Meter End Use Category</source>
         <translation>Kategori Penggunaan Akhir Meter</translation>
     </message>
-    <!-- OS:Output:Meter -->
+    
     <message>
         <source>Meter File Only</source>
         <translation>File Meter Saja</translation>
     </message>
-    <!-- OS:UtilityBill -->
+    
     <message>
         <source>Meter Install Location</source>
         <translation>Lokasi Instalasi Meter</translation>
     </message>
-    <!-- OS:ElectricLoadCenter:Transformer -->
+    
     <message>
         <source>Meter Name</source>
         <translation>Nama Meter</translation>
     </message>
-    <!-- OS:UtilityBill -->
+    
     <message>
         <source>Meter Specific End Use</source>
         <translation>Penggunaan Akhir Spesifik Meter</translation>
     </message>
-    <!-- OS:UtilityBill -->
+    
     <message>
         <source>Meter Specific Install Location</source>
         <translation>Lokasi Instalasi Spesifik Meteran</translation>
     </message>
-    <!-- OS:Generator:FuelCell:ExhaustGasToWaterHeatExchanger -->
+    
     <message>
         <source>Method 1 Heat Exchanger Effectiveness</source>
         <translation>Efektivitas Heat Exchanger Metode 1</translation>
     </message>
-    <!-- OS:Generator:FuelCell:ExhaustGasToWaterHeatExchanger -->
+    
     <message>
         <source>Method 2 Parameter hxs0</source>
         <translation>Method 2 Parameter hxs0</translation>
     </message>
-    <!-- OS:Generator:FuelCell:ExhaustGasToWaterHeatExchanger -->
+    
     <message>
         <source>Method 2 Parameter hxs1</source>
         <translation>Method 2 Parameter hxs1</translation>
     </message>
-    <!-- OS:Generator:FuelCell:ExhaustGasToWaterHeatExchanger -->
+    
     <message>
         <source>Method 2 Parameter hxs2</source>
         <translation>Method 2 Parameter hxs2</translation>
     </message>
-    <!-- OS:Generator:FuelCell:ExhaustGasToWaterHeatExchanger -->
+    
     <message>
         <source>Method 2 Parameter hxs3</source>
         <translation>Metode 2 Parameter hxs3</translation>
     </message>
-    <!-- OS:Generator:FuelCell:ExhaustGasToWaterHeatExchanger -->
+    
     <message>
         <source>Method 2 Parameter hxs4</source>
         <translation>Metode 2 Parameter hxs4</translation>
     </message>
-    <!-- OS:Generator:FuelCell:ExhaustGasToWaterHeatExchanger -->
+    
     <message>
         <source>Method 3 F Adjustment Factor</source>
         <translation>Faktor Penyesuaian Metode 3 F</translation>
     </message>
-    <!-- OS:Generator:FuelCell:ExhaustGasToWaterHeatExchanger -->
+    
     <message>
         <source>Method 3 Gas Area</source>
         <translation>Method 3 Gas Area</translation>
     </message>
-    <!-- OS:Generator:FuelCell:ExhaustGasToWaterHeatExchanger -->
+    
     <message>
         <source>Method 3 h0 Water Coefficient</source>
         <translation>Koefisien Air Metode 3 h0</translation>
     </message>
-    <!-- OS:Generator:FuelCell:ExhaustGasToWaterHeatExchanger -->
+    
     <message>
         <source>Method 3 h0Gas Coefficient</source>
         <translation>Koefisien h0Gas Metode 3</translation>
     </message>
-    <!-- OS:Generator:FuelCell:ExhaustGasToWaterHeatExchanger -->
+    
     <message>
         <source>Method 3 m Coefficient</source>
         <translation>Koefisien Metode 3 m</translation>
     </message>
-    <!-- OS:Generator:FuelCell:ExhaustGasToWaterHeatExchanger -->
+    
     <message>
         <source>Method 3 n Coefficient</source>
         <translation>Koefisien Metode 3 n</translation>
     </message>
-    <!-- OS:Generator:FuelCell:ExhaustGasToWaterHeatExchanger -->
+    
     <message>
         <source>Method 3 N dot Water ref Coefficient</source>
         <translation>Koefisien Referensi N dot Air Metode 3</translation>
     </message>
-    <!-- OS:Generator:FuelCell:ExhaustGasToWaterHeatExchanger -->
+    
     <message>
         <source>Method 3 NdotGasRef Coefficient</source>
         <translation>Koefisien NdotGasRef Metode 3</translation>
     </message>
-    <!-- OS:Generator:FuelCell:ExhaustGasToWaterHeatExchanger -->
+    
     <message>
         <source>Method 3 Water Area</source>
         <translation>Luas Air Metode 3</translation>
     </message>
-    <!-- OS:Generator:FuelCell:ExhaustGasToWaterHeatExchanger -->
+    
     <message>
         <source>Method 4 Condensation Threshold</source>
         <translation>Ambang Batas Kondensasi Metode 4</translation>
     </message>
-    <!-- OS:Generator:FuelCell:ExhaustGasToWaterHeatExchanger -->
+    
     <message>
         <source>Method 4 hxl1 Coefficient</source>
         <translation>Koefisien Method 4 hxl1</translation>
     </message>
-    <!-- OS:Generator:FuelCell:ExhaustGasToWaterHeatExchanger -->
+    
     <message>
         <source>Method 4 hxl2 Coefficient</source>
         <translation>Method 4 hxl2 Coefficient</translation>
     </message>
-    <!-- OS:Controller:WaterCoil -->
+    
     <message>
         <source>Minimum Actuated Flow</source>
         <translation>Aliran Teraktuasi Minimum</translation>
     </message>
-    <!-- OS:CoolingTower:VariableSpeed -->
+    
     <message>
         <source>Minimum Air Flow Rate Ratio</source>
         <translation>Rasio Laju Aliran Udara Minimum</translation>
     </message>
-    <!-- OS:AirTerminal:DualDuct:VAV, OS:AirTerminal:SingleDuct:VAV:HeatAndCool:NoReheat, OS:AirTerminal:SingleDuct:VAV:HeatAndCool:Reheat, OS:AirTerminal:SingleDuct:VAV:NoReheat, OS:AirTerminal:SingleDuct:VAV:Reheat -->
+    
     <message>
         <source>Minimum Air Flow Turndown Schedule Name</source>
         <translation>Nama Jadwal Turndown Aliran Udara Minimum</translation>
     </message>
-    <!-- OS:CoilSystem:Cooling:Water -->
+    
     <message>
         <source>Minimum Air To Water Temperature Offset</source>
         <translation>Offset Suhu Udara Ke Air Minimum</translation>
     </message>
-    <!-- OS:Refrigeration:Case -->
+    
     <message>
         <source>Minimum Anti-Sweat Heater Power per Door</source>
         <translation>Daya Pemanas Anti-Keringat Minimum per Pintu</translation>
     </message>
-    <!-- OS:Refrigeration:Case -->
+    
     <message>
         <source>Minimum Anti-Sweat Heater Power per Unit Length</source>
         <translation>Daya Pemanas Anti-Keringat Minimum per Satuan Panjang</translation>
     </message>
-    <!-- OS:CoolingTowerPerformance:CoolTools, OS:CoolingTowerPerformance:YorkCalc -->
+    
     <message>
         <source>Minimum Approach Temperature</source>
         <translation>Temperatur Pendekatan Minimum</translation>
     </message>
-    <!-- OS:Refrigeration:Condenser:EvaporativeCooled -->
+    
     <message>
         <source>Minimum Capacity Factor</source>
         <translation>Faktor Kapasitas Minimum</translation>
     </message>
-    <!-- OS:ZoneControl:ContaminantController -->
+    
     <message>
         <source>Minimum Carbon Dioxide Concentration Schedule Name</source>
         <translation>Nama Jadwal Konsentrasi Dioxida Karbon Minimum</translation>
     </message>
-    <!-- OS:Foundation:Kiva:Settings -->
+    
     <message>
         <source>Minimum Cell Dimension</source>
         <translation>Dimensi Sel Minimum</translation>
     </message>
-    <!-- OS:AirflowNetworkOccupantVentilationControl -->
+    
     <message>
         <source>Minimum Closing Time</source>
         <translation>Waktu Penutupan Minimum</translation>
     </message>
-    <!-- OS:AirTerminal:SingleDuct:ConstantVolume:FourPipeInduction, OS:ZoneHVAC:FourPipeFanCoil -->
+    
     <message>
         <source>Minimum Cold Water Flow Rate</source>
         <translation>Laju Aliran Air Dingin Minimum</translation>
     </message>
-    <!-- OS:Refrigeration:GasCooler:AirCooled, OS:Refrigeration:System -->
+    
     <message>
         <source>Minimum Condensing Temperature</source>
         <translation>Suhu Kondensasi Minimum</translation>
     </message>
-    <!-- OS:ZoneHVAC:IdealLoadsAirSystem -->
+    
     <message>
         <source>Minimum Cooling Supply Air Humidity Ratio</source>
         <translation>Rasio Kelembaban Udara Pasokan Pendinginan Minimum</translation>
     </message>
-    <!-- OS:ZoneHVAC:IdealLoadsAirSystem -->
+    
     <message>
         <source>Minimum Cooling Supply Air Temperature</source>
         <translation>Temperatur Udara Pasokan Pendinginan Minimum</translation>
     </message>
-    <!-- OS:Curve:Bicubic, OS:Curve:Biquadratic, OS:Curve:Cubic, OS:Curve:DoubleExponentialDecay, OS:Curve:Exponent, OS:Curve:ExponentialDecay, OS:Curve:ExponentialSkewNormal, OS:Curve:FanPressureRise, OS:Curve:Linear, OS:Curve:QuadLinear, OS:Curve:Quadratic, OS:Curve:QuadraticLinear, OS:Curve:Quartic, OS:Curve:QuintLinear, OS:Curve:RectangularHyperbola1, OS:Curve:RectangularHyperbola2, OS:Curve:Sigmoid, OS:Curve:Triquadratic -->
+    
     <message>
         <source>Minimum Curve Output</source>
         <translation>Keluaran Kurva Minimum</translation>
     </message>
-    <!-- OS:AirflowNetworkSimpleOpening -->
+    
     <message>
         <source>Minimum Density Difference for Two-Way Flow</source>
         <translation>Perbedaan Kepadatan Minimum untuk Aliran Dua Arah</translation>
     </message>
-    <!-- OS:ZoneHVAC:Dehumidifier:DX -->
+    
     <message>
         <source>Minimum Dry-Bulb Temperature for Dehumidifier Operation</source>
         <translation>Suhu Bola Kering Minimum untuk Operasi Dehumidifier</translation>
     </message>
-    <!-- OS:Refrigeration:AirChiller, OS:Refrigeration:Condenser:AirCooled, OS:Refrigeration:Condenser:EvaporativeCooled, OS:Refrigeration:GasCooler:AirCooled -->
+    
     <message>
         <source>Minimum Fan Air Flow Ratio</source>
         <translation>Rasio Aliran Udara Kipas Minimum</translation>
     </message>
-    <!-- OS:AirTerminal:SingleDuct:ParallelPIU:Reheat, OS:AirTerminal:SingleDuct:SeriesPIU:Reheat -->
+    
     <message>
         <source>Minimum Fan Turn Down Ratio</source>
         <translation>Rasio Penurunan Fan Minimum</translation>
     </message>
-    <!-- OS:HeaderedPumps:VariableSpeed -->
+    
     <message>
         <source>Minimum Flow Rate Fraction</source>
         <translation>Fraksi Laju Aliran Minimum</translation>
     </message>
-    <!-- OS:Generator:MicroTurbine -->
+    
     <message>
         <source>Minimum Full Load Electrical Power Output</source>
         <translation>Keluaran Daya Listrik Beban Penuh Minimum</translation>
     </message>
-    <!-- OS:HeatPump:PlantLoop:EIR:Heating -->
+    
     <message>
         <source>Minimum Heat Recovery Outlet Temperature</source>
         <translation>Suhu Keluaran Pemulihan Panas Minimum</translation>
     </message>
-    <!-- OS:Generator:MicroTurbine:HeatRecovery -->
+    
     <message>
         <source>Minimum Heat Recovery Water Flow Rate</source>
         <translation>Laju Aliran Air Pemulihan Panas Minimum</translation>
     </message>
-    <!-- OS:Generator:FuelCell:AuxiliaryHeater -->
+    
     <message>
         <source>Minimum Heating Capacity in Kmol per Second</source>
         <translation>Kapasitas Pemanasan Minimum dalam Kmol per Detik</translation>
     </message>
-    <!-- OS:Generator:FuelCell:AuxiliaryHeater -->
+    
     <message>
         <source>Minimum Heating Capacity in Watts</source>
         <translation>Kapasitas Pemanasan Minimum dalam Watt</translation>
     </message>
-    <!-- OS:AirTerminal:SingleDuct:ConstantVolume:FourPipeInduction, OS:ZoneHVAC:FourPipeFanCoil, OS:ZoneHVAC:UnitHeater -->
+    
     <message>
         <source>Minimum Hot Water Flow Rate</source>
         <translation>Laju Aliran Air Panas Minimum</translation>
     </message>
-    <!-- OS:AvailabilityManager:HybridVentilation -->
+    
     <message>
         <source>Minimum HVAC Operation Time</source>
         <translation>Waktu Operasi HVAC Minimum</translation>
     </message>
-    <!-- OS:ZoneVentilation:DesignFlowRate, OS:ZoneVentilation:WindandStackOpenArea -->
+    
     <message>
         <source>Minimum Indoor Temperature</source>
         <translation>Suhu Dalam Ruangan Minimum</translation>
     </message>
-    <!-- OS:ZoneVentilation:DesignFlowRate, OS:ZoneVentilation:WindandStackOpenArea -->
+    
     <message>
         <source>Minimum Indoor Temperature Schedule Name</source>
         <translation>Nama Jadwal Suhu Dalam Ruangan Minimum</translation>
     </message>
-    <!-- OS:WaterHeater:HeatPump, OS:WaterHeater:HeatPump:WrappedCondenser -->
+    
     <message>
         <source>Minimum Inlet Air Temperature for Compressor Operation</source>
         <translation>Temperatur Inlet Udara Minimum untuk Operasi Kompresor</translation>
     </message>
-    <!-- OS:CoolingTowerPerformance:CoolTools, OS:CoolingTowerPerformance:YorkCalc -->
+    
     <message>
         <source>Minimum Inlet Air Wet-Bulb Temperature</source>
         <translation>Suhu Bola Basah Udara Masuk Minimum</translation>
     </message>
-    <!-- OS:Daylighting:Control -->
+    
     <message>
         <source>Minimum Input Power Fraction for Continuous Dimming Control</source>
         <translation>Fraksi Daya Input Minimum untuk Kontrol Dimming Berkelanjutan</translation>
     </message>
-    <!-- OS:HeatPump:AirToWater:Cooling, OS:HeatPump:AirToWater:Heating -->
+    
     <message>
         <source>Minimum Leaving Water Temperature Curve Name</source>
         <translation>Nama Kurva Temperatur Air Keluar Minimum</translation>
     </message>
-    <!-- OS:Daylighting:Control -->
+    
     <message>
         <source>Minimum Light Output Fraction for Continuous Dimming Control</source>
         <translation>Fraksi Output Cahaya Minimum untuk Kontrol Dimming Kontinyu</translation>
     </message>
-    <!-- OS:SetpointManager:FollowSystemNodeTemperature -->
+    
     <message>
         <source>Minimum Limit Setpoint Temperature</source>
         <translation>Temperatur Setpoint Batas Minimum</translation>
     </message>
-    <!-- OS:PlantComponent:UserDefined -->
+    
     <message>
         <source>Minimum Loading Capacity Actuator</source>
         <translation>Aktuator Kapasitas Pembebanan Minimum</translation>
     </message>
-    <!-- OS:PlantComponent:UserDefined -->
+    
     <message>
         <source>Minimum Mass Flow Rate Actuator</source>
         <translation>Aktuator Laju Aliran Massa Minimum</translation>
     </message>
-    <!-- OS:UtilityCost:Tariff -->
+    
     <message>
         <source>Minimum Monthly Charge or Variable Name</source>
         <translation>Biaya Bulanan Minimum atau Nama Variabel</translation>
     </message>
-    <!-- OS:SimulationControl -->
+    
     <message>
         <source>Minimum Number of Warmup Days</source>
         <translation>Jumlah Hari Pemanasan Minimum</translation>
     </message>
-    <!-- OS:AirflowNetworkOccupantVentilationControl -->
+    
     <message>
         <source>Minimum Opening Time</source>
         <translation>Waktu Pembukaan Minimum</translation>
     </message>
-    <!-- OS:Generator:FuelCell:PowerModule -->
+    
     <message>
         <source>Minimum Operating Point</source>
         <translation>Titik Operasi Minimum</translation>
     </message>
-    <!-- OS:SurfaceProperty:OtherSideCoefficients -->
+    
     <message>
         <source>Minimum Other Side Temperature Limit</source>
         <translation>Batas Temperatur Sisi Lain Minimum</translation>
     </message>
-    <!-- OS:HeatPump:AirToWater:Cooling, OS:HeatPump:AirToWater:Heating -->
+    
     <message>
         <source>Minimum Outdoor Air Temperature</source>
         <translation>Suhu Udara Luar Minimum</translation>
     </message>
-    <!-- OS:AirConditioner:VariableRefrigerantFlow:FluidTemperatureControl -->
+    
     <message>
         <source>Minimum Outdoor Air Temperature in Cooling Mode</source>
         <translation>Suhu Udara Luar Minimum dalam Mode Pendinginan</translation>
     </message>
-    <!-- OS:AirConditioner:VariableRefrigerantFlow:FluidTemperatureControl:HR -->
+    
     <message>
         <source>Minimum Outdoor Air Temperature in Cooling Only Mode</source>
         <translation>Suhu Udara Luar Minimum dalam Mode Pendinginan Saja</translation>
     </message>
-    <!-- OS:AirConditioner:VariableRefrigerantFlow:FluidTemperatureControl -->
+    
     <message>
         <source>Minimum Outdoor Air Temperature in Heating Mode</source>
         <translation>Suhu Udara Luar Minimum dalam Mode Pemanasan</translation>
     </message>
-    <!-- OS:AirConditioner:VariableRefrigerantFlow:FluidTemperatureControl:HR -->
+    
     <message>
         <source>Minimum Outdoor Air Temperature in Heating Only Mode</source>
         <translation>Suhu Udara Luar Minimum dalam Mode Pemanasan Saja</translation>
     </message>
-    <!-- OS:AvailabilityManager:HybridVentilation -->
+    
     <message>
         <source>Minimum Outdoor Dewpoint</source>
         <translation>Titik Embun Luar Minimum</translation>
     </message>
-    <!-- OS:AvailabilityManager:HybridVentilation -->
+    
     <message>
         <source>Minimum Outdoor Enthalpy</source>
         <translation>Entalpi Luar Minimum</translation>
     </message>
-    <!-- OS:AvailabilityManager:HybridVentilation, OS:ZoneVentilation:DesignFlowRate, OS:ZoneVentilation:WindandStackOpenArea -->
+    
     <message>
         <source>Minimum Outdoor Temperature</source>
         <translation>Temperatur Luar Minimum</translation>
     </message>
-    <!-- OS:AirConditioner:VariableRefrigerantFlow, OS:AirConditioner:VariableRefrigerantFlow:FluidTemperatureControl:HR -->
+    
     <message>
         <source>Minimum Outdoor Temperature in Heat Recovery Mode</source>
         <translation>Temperatur Luar Ruangan Minimum dalam Mode Heat Recovery</translation>
     </message>
-    <!-- OS:ZoneMixing, OS:ZoneVentilation:DesignFlowRate, OS:ZoneVentilation:WindandStackOpenArea -->
+    
     <message>
         <source>Minimum Outdoor Temperature Schedule Name</source>
         <translation>Nama Jadwal Suhu Luar Minimum</translation>
     </message>
-    <!-- OS:AvailabilityManager:HybridVentilation -->
+    
     <message>
         <source>Minimum Outdoor Ventilation Air Schedule</source>
         <translation>Jadwal Ventilasi Udara Luar Minimum</translation>
     </message>
-    <!-- OS:AirLoopHVAC:UnitaryHeatCool:VAVChangeoverBypass -->
+    
     <message>
         <source>Minimum Outlet Air Temperature During Cooling Operation</source>
         <translation>Suhu Udara Keluar Minimum Selama Operasi Pendinginan</translation>
     </message>
-    <!-- OS:Table:Lookup -->
+    
     <message>
         <source>Minimum Output</source>
         <translation>Keluaran Minimum</translation>
     </message>
-    <!-- OS:ConvergenceLimits -->
+    
     <message>
         <source>Minimum Plant Iterations</source>
         <translation>Iterasi Tanaman Minimum</translation>
     </message>
-    <!-- OS:Pump:VariableSpeed -->
+    
     <message>
         <source>Minimum Pressure Schedule</source>
         <translation>Jadwal Tekanan Minimum</translation>
     </message>
-    <!-- OS:AirTerminal:SingleDuct:ParallelPIU:Reheat, OS:AirTerminal:SingleDuct:SeriesPIU:Reheat -->
+    
     <message>
         <source>Minimum Primary Air Flow Fraction</source>
         <translation>Fraksi Aliran Udara Primer Minimum</translation>
     </message>
-    <!-- OS:HeatExchanger:Desiccant:BalancedFlow:PerformanceDataType1 -->
+    
     <message>
         <source>Minimum Process Inlet Air Humidity Ratio for Humidity Ratio Equation</source>
         <translation>Rasio Kelembaban Udara Inlet Proses Minimum untuk Persamaan Rasio Kelembaban</translation>
     </message>
-    <!-- OS:HeatExchanger:Desiccant:BalancedFlow:PerformanceDataType1 -->
+    
     <message>
         <source>Minimum Process Inlet Air Humidity Ratio for Temperature Equation</source>
         <translation>Rasio Kelembaban Udara Inlet Proses Minimum untuk Persamaan Suhu</translation>
     </message>
-    <!-- OS:HeatExchanger:Desiccant:BalancedFlow:PerformanceDataType1 -->
+    
     <message>
         <source>Minimum Process Inlet Air Relative Humidity for Humidity Ratio Equation</source>
         <translation>Kelembaban Relatif Udara Inlet Proses Minimum untuk Persamaan Rasio Kelembaban</translation>
     </message>
-    <!-- OS:HeatExchanger:Desiccant:BalancedFlow:PerformanceDataType1 -->
+    
     <message>
         <source>Minimum Process Inlet Air Relative Humidity for Temperature Equation</source>
         <translation>Kelembaban Relatif Udara Masuk Proses Minimum untuk Persamaan Suhu</translation>
     </message>
-    <!-- OS:HeatExchanger:Desiccant:BalancedFlow:PerformanceDataType1 -->
+    
     <message>
         <source>Minimum Process Inlet Air Temperature for Humidity Ratio Equation</source>
         <translation>Temperatur Inlet Udara Proses Minimum untuk Persamaan Rasio Kelembaban</translation>
     </message>
-    <!-- OS:HeatExchanger:Desiccant:BalancedFlow:PerformanceDataType1 -->
+    
     <message>
         <source>Minimum Process Inlet Air Temperature for Temperature Equation</source>
         <translation>Suhu Inlet Udara Proses Minimum untuk Persamaan Suhu</translation>
     </message>
-    <!-- OS:CoolingTowerPerformance:CoolTools, OS:CoolingTowerPerformance:YorkCalc -->
+    
     <message>
         <source>Minimum Range Temperature</source>
         <translation>Temperatur Rentang Minimum</translation>
     </message>
-    <!-- OS:ZoneMixing -->
+    
     <message>
         <source>Minimum Receiving Temperature Schedule Name</source>
         <translation>Nama Jadwal Suhu Penerima Minimum</translation>
     </message>
-    <!-- OS:HeatExchanger:Desiccant:BalancedFlow:PerformanceDataType1 -->
+    
     <message>
         <source>Minimum Regeneration Air Velocity for Humidity Ratio Equation</source>
         <translation>Kecepatan Udara Regenerasi Minimum untuk Persamaan Rasio Kelembaban</translation>
     </message>
-    <!-- OS:HeatExchanger:Desiccant:BalancedFlow:PerformanceDataType1 -->
+    
     <message>
         <source>Minimum Regeneration Air Velocity for Temperature Equation</source>
         <translation>Kecepatan Udara Regenerasi Minimum untuk Persamaan Suhu</translation>
     </message>
-    <!-- OS:HeatExchanger:Desiccant:BalancedFlow:PerformanceDataType1 -->
+    
     <message>
         <source>Minimum Regeneration Inlet Air Humidity Ratio for Humidity Ratio Equation</source>
         <translation>Rasio Kelembaban Udara Inlet Regenerasi Minimum untuk Persamaan Rasio Kelembaban</translation>
     </message>
-    <!-- OS:HeatExchanger:Desiccant:BalancedFlow:PerformanceDataType1 -->
+    
     <message>
         <source>Minimum Regeneration Inlet Air Humidity Ratio for Temperature Equation</source>
         <translation>Rasio Kelembaban Udara Inlet Regenerasi Minimum untuk Persamaan Temperatur</translation>
     </message>
-    <!-- OS:HeatExchanger:Desiccant:BalancedFlow:PerformanceDataType1 -->
+    
     <message>
         <source>Minimum Regeneration Inlet Air Relative Humidity for Humidity Ratio Equation</source>
         <translation>Kelembaban Relatif Udara Inlet Regenerasi Minimum untuk Persamaan Rasio Kelembaban</translation>
     </message>
-    <!-- OS:HeatExchanger:Desiccant:BalancedFlow:PerformanceDataType1 -->
+    
     <message>
         <source>Minimum Regeneration Inlet Air Relative Humidity for Temperature Equation</source>
         <translation>Kelembaban Relatif Udara Inlet Regenerasi Minimum untuk Persamaan Temperatur</translation>
     </message>
-    <!-- OS:HeatExchanger:Desiccant:BalancedFlow:PerformanceDataType1 -->
+    
     <message>
         <source>Minimum Regeneration Inlet Air Temperature for Humidity Ratio Equation</source>
         <translation>Suhu Inlet Udara Regenerasi Minimum untuk Persamaan Rasio Kelembaban</translation>
     </message>
-    <!-- OS:HeatExchanger:Desiccant:BalancedFlow:PerformanceDataType1 -->
+    
     <message>
         <source>Minimum Regeneration Inlet Air Temperature for Temperature Equation</source>
         <translation>Suhu Inlet Regenerasi Minimum untuk Persamaan Suhu</translation>
     </message>
-    <!-- OS:HeatExchanger:Desiccant:BalancedFlow:PerformanceDataType1 -->
+    
     <message>
         <source>Minimum Regeneration Outlet Air Humidity Ratio for Humidity Ratio Equation</source>
         <translation>Rasio Kelembaban Udara Outlet Regenerasi Minimum untuk Persamaan Rasio Kelembaban</translation>
     </message>
-    <!-- OS:HeatExchanger:Desiccant:BalancedFlow:PerformanceDataType1 -->
+    
     <message>
         <source>Minimum Regeneration Outlet Air Temperature for Temperature Equation</source>
         <translation>Suhu Outlet Udara Regenerasi Minimum untuk Persamaan Suhu</translation>
     </message>
-    <!-- OS:Pump:VariableSpeed -->
+    
     <message>
         <source>Minimum RPM Schedule</source>
         <translation>Jadwal RPM Minimum</translation>
     </message>
-    <!-- OS:AirLoopHVAC:UnitaryHeatCool:VAVChangeoverBypass -->
+    
     <message>
         <source>Minimum Runtime Before Operating Mode Change</source>
         <translation>Waktu Operasi Minimum Sebelum Perubahan Mode Operasi</translation>
     </message>
-    <!-- OS:SetpointManager:MultiZone:Humidity:Maximum, OS:SetpointManager:MultiZone:Humidity:Minimum, OS:SetpointManager:MultiZone:MaximumHumidity:Average, OS:SetpointManager:MultiZone:MinimumHumidity:Average, OS:SetpointManager:OutdoorAirPretreat -->
+    
     <message>
         <source>Minimum Setpoint Humidity Ratio</source>
         <translation>Rasio Kelembaban Setpoint Minimum</translation>
     </message>
-    <!-- OS:WindowMaterial:Blind -->
+    
     <message>
         <source>Minimum Slat Angle</source>
         <translation>Sudut Slat Minimum</translation>
     </message>
-    <!-- OS:HeatPump:PlantLoop:EIR:Cooling, OS:HeatPump:PlantLoop:EIR:Heating -->
+    
     <message>
         <source>Minimum Source Inlet Temperature</source>
         <translation>Temperatur Inlet Sumber Minimum</translation>
     </message>
-    <!-- OS:ZoneMixing -->
+    
     <message>
         <source>Minimum Source Temperature Schedule Name</source>
         <translation>Nama Jadwal Temperatur Sumber Minimum</translation>
     </message>
-    <!-- OS:CoilSystem:IntegratedHeatPump:AirSource -->
+    
     <message>
         <source>Minimum Speed Level For SCDWH Mode</source>
         <translation>Tingkat Kecepatan Minimum untuk Mode SCDWH</translation>
     </message>
-    <!-- OS:CoilSystem:IntegratedHeatPump:AirSource -->
+    
     <message>
         <source>Minimum Speed Level For SCWH Mode</source>
         <translation>Tingkat Kecepatan Minimum untuk Mode SCWH</translation>
     </message>
-    <!-- OS:CoilSystem:IntegratedHeatPump:AirSource -->
+    
     <message>
         <source>Minimum Speed Level For SHDWH Mode</source>
         <translation>Tingkat Kecepatan Minimum untuk Mode SHDWH</translation>
     </message>
-    <!-- OS:Material:RoofVegetation -->
+    
     <message>
         <source>Minimum Stomatal Resistance</source>
         <translation>Resistansi Stomata Minimum</translation>
     </message>
-    <!-- OS:ElectricLoadCenter:Distribution -->
+    
     <message>
         <source>Minimum Storage State of Charge Fraction</source>
         <translation>Fraksi Muatan Penyimpanan Minimum</translation>
     </message>
-    <!-- OS:ZoneHVAC:FourPipeFanCoil -->
+    
     <message>
         <source>Minimum Supply Air Temperature in Cooling Mode</source>
         <translation>Suhu Udara Pasokan Minimum dalam Mode Pendinginan</translation>
     </message>
-    <!-- OS:HeatPump:PlantLoop:EIR:Cooling, OS:HeatPump:PlantLoop:EIR:Heating -->
+    
     <message>
         <source>Minimum Supply Water Temperature Curve Name</source>
         <translation>Nama Kurva Suhu Air Pasokan Minimum</translation>
     </message>
-    <!-- OS:HeatBalanceAlgorithm -->
+    
     <message>
         <source>Minimum Surface Convection Heat Transfer Coefficient Value</source>
         <translation>Nilai Koefisien Perpindahan Panas Konveksi Permukaan Minimum</translation>
     </message>
-    <!-- OS:ConvergenceLimits -->
+    
     <message>
         <source>Minimum System Timestep</source>
         <translation>Timestep Sistem Minimum</translation>
     </message>
-    <!-- OS:Table:MultiVariableLookup -->
+    
     <message>
         <source>Minimum Table Output</source>
         <translation>Keluaran Tabel Minimum</translation>
     </message>
-    <!-- OS:HeatExchanger:FluidToFluid -->
+    
     <message>
         <source>Minimum Temperature Difference to Activate Heat Exchanger</source>
         <translation>Perbedaan Suhu Minimum untuk Mengaktifkan Penukar Panas</translation>
     </message>
-    <!-- OS:ThermalStorage:ChilledWater:Stratified -->
+    
     <message>
         <source>Minimum Temperature Limit</source>
         <translation>Batas Suhu Minimum</translation>
     </message>
-    <!-- OS:SetpointManager:WarmestTemperatureFlow -->
+    
     <message>
         <source>Minimum Turndown Ratio</source>
         <translation>Rasio Turndown Minimum</translation>
     </message>
-    <!-- OS:Table:IndependentVariable -->
+    
     <message>
         <source>Minimum Value</source>
         <translation>Nilai Minimum</translation>
     </message>
-    <!-- OS:Curve:FanPressureRise -->
+    
     <message>
         <source>Minimum Value of Psm</source>
         <translation>Nilai Minimum Psm</translation>
     </message>
-    <!-- OS:Curve:FanPressureRise -->
+    
     <message>
         <source>Minimum Value of Qfan</source>
         <translation>Nilai Minimum Qfan</translation>
     </message>
-    <!-- OS:Curve:QuintLinear -->
+    
     <message>
         <source>Minimum Value of v</source>
         <translation>Nilai Minimum v</translation>
     </message>
-    <!-- OS:Curve:QuadLinear, OS:Curve:QuintLinear -->
+    
     <message>
         <source>Minimum Value of w</source>
         <translation>Nilai Minimum w</translation>
     </message>
-    <!-- OS:Curve:Bicubic, OS:Curve:Biquadratic, OS:Curve:Cubic, OS:Curve:DoubleExponentialDecay, OS:Curve:Exponent, OS:Curve:ExponentialDecay, OS:Curve:ExponentialSkewNormal, OS:Curve:Linear, OS:Curve:QuadLinear, OS:Curve:Quadratic, OS:Curve:QuadraticLinear, OS:Curve:Quartic, OS:Curve:QuintLinear, OS:Curve:RectangularHyperbola1, OS:Curve:RectangularHyperbola2, OS:Curve:Sigmoid, OS:Curve:Triquadratic -->
+    
     <message>
         <source>Minimum Value of x</source>
         <translation>Nilai Minimum x</translation>
     </message>
-    <!-- OS:Table:MultiVariableLookup -->
+    
     <message>
         <source>Minimum Value of X1</source>
         <translation>Nilai Minimum X1</translation>
     </message>
-    <!-- OS:Table:MultiVariableLookup -->
+    
     <message>
         <source>Minimum Value of X2</source>
         <translation>Nilai Minimum X2</translation>
     </message>
-    <!-- OS:Table:MultiVariableLookup -->
+    
     <message>
         <source>Minimum Value of X3</source>
         <translation>Nilai Minimum X3</translation>
     </message>
-    <!-- OS:Table:MultiVariableLookup -->
+    
     <message>
         <source>Minimum Value of X4</source>
         <translation>Nilai Minimum X4</translation>
     </message>
-    <!-- OS:Table:MultiVariableLookup -->
+    
     <message>
         <source>Minimum Value of X5</source>
         <translation>Nilai Minimum X5</translation>
     </message>
-    <!-- OS:Curve:Bicubic, OS:Curve:Biquadratic, OS:Curve:QuadLinear, OS:Curve:QuadraticLinear, OS:Curve:QuintLinear, OS:Curve:Triquadratic -->
+    
     <message>
         <source>Minimum Value of y</source>
         <translation>Nilai Minimum y</translation>
     </message>
-    <!-- OS:Curve:QuadLinear, OS:Curve:QuintLinear, OS:Curve:Triquadratic -->
+    
     <message>
         <source>Minimum Value of z</source>
         <translation>Nilai Minimum z</translation>
     </message>
-    <!-- OS:AvailabilityManager:HybridVentilation -->
+    
     <message>
         <source>Minimum Ventilation Time</source>
         <translation>Waktu Ventilasi Minimum</translation>
     </message>
-    <!-- OS:AirflowNetworkSurface, OS:AirflowNetworkZone -->
+    
     <message>
         <source>Minimum Venting Open Factor</source>
         <translation>Faktor Bukaan Ventilasi Minimum</translation>
     </message>
-    <!-- OS:CoolingTowerPerformance:CoolTools, OS:CoolingTowerPerformance:YorkCalc -->
+    
     <message>
         <source>Minimum Water Flow Rate Ratio</source>
         <translation>Rasio Laju Aliran Air Minimum</translation>
     </message>
-    <!-- OS:CoilSystem:Cooling:Water -->
+    
     <message>
         <source>Minimum Water Loop Temperature For Heat Recovery</source>
         <translation>Suhu Minimum Loop Air untuk Pemulihan Panas</translation>
     </message>
-    <!-- OS:Fan:ZoneExhaust -->
+    
     <message>
         <source>Minimum Zone Temperature Limit Schedule Name</source>
         <translation>Nama Jadwal Batas Suhu Zona Minimum</translation>
     </message>
-    <!-- OS:Curve:Functional:PressureDrop -->
+    
     <message>
         <source>Minor Loss Coefficient</source>
         <translation>Koefisien Kehilangan Minor</translation>
     </message>
-    <!-- OS:LightingDesignDay -->
+    
     <message>
         <source>Minute to Simulate</source>
         <translation>Menit untuk Disimulasikan</translation>
     </message>
-    <!-- OS:Schedule:File -->
+    
     <message>
         <source>Minutes per Item</source>
         <translation>Menit per Item</translation>
     </message>
-    <!-- OS:ComponentCost:Adjustments -->
+    
     <message>
         <source>Miscellaneous Cost per Conditioned Area</source>
         <translation>Biaya Miscellaneous per Area Terkondisi</translation>
     </message>
-    <!-- OS:AirLoopHVAC:OutdoorAirSystem, OS:Controller:OutdoorAir -->
+    
     <message>
         <source>Mixed Air Node Name</source>
         <translation>Nama Node Udara Campuran</translation>
     </message>
-    <!-- OS:SetpointManager:OutdoorAirPretreat -->
+    
     <message>
         <source>Mixed Air Stream Node Name</source>
         <translation>Nama Node Aliran Udara Campur</translation>
     </message>
-    <!-- OS:Refrigeration:Compressor -->
+    
     <message>
         <source>Mode of Operation</source>
         <translation>Mode Operasi</translation>
     </message>
-    <!-- OS:CoolingTower:VariableSpeed -->
+    
     <message>
         <source>Model Coefficient</source>
         <translation>Koefisien Model</translation>
     </message>
-    <!-- OS:ModelObjectList -->
+    
     <message>
         <source>Model Object</source>
         <translation>Objek Model</translation>
     </message>
-    <!-- OS:Coil:Cooling:CooledBeam -->
+    
     <message>
         <source>Model Parameter a</source>
         <translation>Parameter Model a</translation>
     </message>
-    <!-- OS:Coil:Cooling:CooledBeam -->
+    
     <message>
         <source>Model Parameter a0</source>
         <translation>Parameter Model a0</translation>
     </message>
-    <!-- OS:Coil:Cooling:CooledBeam -->
+    
     <message>
         <source>Model Parameter K1</source>
         <translation>Kapasitas Model K1</translation>
     </message>
-    <!-- OS:Coil:Cooling:CooledBeam -->
+    
     <message>
         <source>Model Parameter n</source>
         <translation>Parameter Model n</translation>
     </message>
-    <!-- OS:Coil:Cooling:CooledBeam -->
+    
     <message>
         <source>Model Parameter n1</source>
         <translation>Parameter Model n1</translation>
     </message>
-    <!-- OS:Coil:Cooling:CooledBeam -->
+    
     <message>
         <source>Model Parameter n2</source>
         <translation>Parameter Model n2</translation>
     </message>
-    <!-- OS:Coil:Cooling:CooledBeam -->
+    
     <message>
         <source>Model Parameter n3</source>
         <translation>Parameter Model n3</translation>
     </message>
-    <!-- OS:Coil:UserDefined -->
+    
     <message>
         <source>Model Setup and Sizing Program Calling Manager Name</source>
         <translation>Model Setup and Sizing Program Calling Manager Name</translation>
     </message>
-    <!-- OS:CoolingTower:VariableSpeed -->
+    
     <message>
         <source>Model Type</source>
         <translation>Tipe Model</translation>
     </message>
-    <!-- OS:PhotovoltaicPerformance:EquivalentOneDiode -->
+    
     <message>
         <source>Module Current at Maximum Power</source>
         <translation>Arus Modul pada Daya Maksimum</translation>
     </message>
-    <!-- OS:PhotovoltaicPerformance:EquivalentOneDiode -->
+    
     <message>
         <source>Module Heat Loss Coefficient</source>
         <translation>Koefisien Kehilangan Panas Modul</translation>
     </message>
-    <!-- OS:Generator:Photovoltaic -->
+    
     <message>
         <source>Module Performance Name</source>
         <translation>Nama Kinerja Modul</translation>
     </message>
-    <!-- OS:Generator:PVWatts -->
+    
     <message>
         <source>Module Type</source>
         <translation>Jenis Modul</translation>
     </message>
-    <!-- OS:PhotovoltaicPerformance:EquivalentOneDiode -->
+    
     <message>
         <source>Module Voltage at Maximum Power</source>
         <translation>Tegangan Modul pada Daya Maksimum</translation>
     </message>
-    <!-- OS:Material:RoofVegetation -->
+    
     <message>
         <source>Moisture Diffusion Calculation Method</source>
         <translation>Metode Perhitungan Difusi Kelembaban</translation>
     </message>
-    <!-- OS:MaterialProperty:MoisturePenetrationDepth:Settings -->
+    
     <message>
         <source>Moisture Equation Coefficient a</source>
         <translation>Koefisien Persamaan Kelembaban a</translation>
     </message>
-    <!-- OS:MaterialProperty:MoisturePenetrationDepth:Settings -->
+    
     <message>
         <source>Moisture Equation Coefficient b</source>
         <translation>Koefisien Persamaan Kelembaban b</translation>
     </message>
-    <!-- OS:MaterialProperty:MoisturePenetrationDepth:Settings -->
+    
     <message>
         <source>Moisture Equation Coefficient c</source>
         <translation>Koefisien Persamaan Kelembaban c</translation>
     </message>
-    <!-- OS:MaterialProperty:MoisturePenetrationDepth:Settings -->
+    
     <message>
         <source>Moisture Equation Coefficient d</source>
         <translation>Koefisien Persamaan Kelembaban d</translation>
     </message>
-    <!-- OS:Generator:FuelCell:AirSupply -->
+    
     <message>
         <source>Molar Fraction</source>
         <translation>Fraksi Molar</translation>
     </message>
-    <!-- OS:WindowMaterial:Gas -->
+    
     <message>
         <source>Molecular Weight</source>
         <translation>Berat Molekul</translation>
     </message>
-    <!-- OS:Schedule:Week -->
+    
     <message>
         <source>Monday Schedule:Day Name</source>
         <translation>Jadwal Senin:Nama Hari</translation>
     </message>
-    <!-- OS:CurrencyType -->
+    
     <message>
         <source>Monetary Unit</source>
         <translation>Unit Moneter</translation>
     </message>
-    <!-- OS:LightingDesignDay, OS:Schedule:VariableInterval, OS:Schedule:Year, OS:SizingPeriod:DesignDay -->
+    
     <message>
         <source>Month</source>
         <translation>Bulan</translation>
     </message>
-    <!-- OS:UtilityCost:Tariff -->
+    
     <message>
         <source>Month Schedule Name</source>
         <translation>Nama Jadwal Bulan</translation>
     </message>
-    <!-- OS:UtilityCost:Tariff -->
+    
     <message>
         <source>Monthly Charge or Variable Name</source>
         <translation>Biaya Bulanan atau Nama Variabel</translation>
     </message>
-    <!-- OS:LifeCycleCost -->
+    
     <message>
         <source>Months from Start</source>
         <translation>Bulan dari Awal</translation>
     </message>
-    <!-- OS:Fan:ComponentModel -->
+    
     <message>
         <source>Motor Fan Pulley Ratio</source>
         <translation>Rasio Pulley Motor Kipas</translation>
     </message>
-    <!-- OS:Fan:SystemModel -->
+    
     <message>
         <source>Motor In Air Stream Fraction</source>
         <translation>Fraksi Motor dalam Aliran Udara</translation>
     </message>
-    <!-- OS:Fan:SystemModel -->
+    
     <message>
         <source>Motor Loss Radiative Fraction</source>
         <translation>Fraksi Radiatif Kehilangan Motor</translation>
     </message>
-    <!-- OS:Fan:SystemModel -->
+    
     <message>
         <source>Motor Loss Zone Name</source>
         <translation>Nama Zona Kehilangan Motor</translation>
     </message>
-    <!-- OS:Fan:ComponentModel -->
+    
     <message>
         <source>Motor Maximum Speed</source>
         <translation>Kecepatan Maksimum Motor</translation>
     </message>
-    <!-- OS:Fan:ComponentModel -->
+    
     <message>
         <source>Motor Sizing Factor</source>
         <translation>Faktor Ukuran Motor</translation>
     </message>
-    <!-- OS:ShadingControl -->
+    
     <message>
         <source>Multiple Surface Control Type</source>
         <translation>Jenis Kontrol Permukaan Ganda</translation>
     </message>
-    <!-- OS:UtilityCost:Ratchet -->
+    
     <message>
         <source>Multiplier Value or Variable Name</source>
         <translation>Nilai Multiplier atau Nama Variabel</translation>
     </message>
 
-    <!-- N -->
-    <!-- OS:FuelFactors -->
+    
+    
     <message>
         <source>N2O Emission Factor</source>
         <translation>Faktor Emisi N2O</translation>
     </message>
-    <!-- OS:FuelFactors -->
+    
     <message>
         <source>N2O Emission Factor Schedule Name</source>
         <translation>Nama Jadwal Faktor Emisi N2O</translation>
     </message>
-    <!-- OS:PythonPlugin:TrendVariable -->
+    
     <message>
         <source>Name of a Python Plugin Variable</source>
         <translation>Nama Variabel Plugin Python</translation>
     </message>
-    <!-- OS:ExternalInterface -->
+    
     <message>
         <source>Name of External Interface</source>
         <translation>Nama Antarmuka Eksternal</translation>
     </message>
-    <!-- OS:ComponentData -->
+    
     <message>
         <source>Name of Object</source>
         <translation>Nama Objek</translation>
     </message>
-    <!-- OS:ElectricLoadCenter:Transformer -->
+    
     <message>
         <source>Nameplate Efficiency</source>
         <translation>Efisiensi Nameplate</translation>
     </message>
-    <!-- OS:LifeCycleCost:Parameters -->
+    
     <message>
         <source>NaturalGas Inflation</source>
         <translation>Inflasi Gas Alam</translation>
     </message>
-    <!-- OS:WindowProperty:FrameAndDivider -->
+    
     <message>
         <source>NFRC Product Type for Assembly Calculations</source>
         <translation>Jenis Produk NFRC untuk Perhitungan Perakitan</translation>
     </message>
-    <!-- OS:FuelFactors -->
+    
     <message>
         <source>NH3 Emission Factor</source>
         <translation>Faktor Emisi NH3</translation>
     </message>
-    <!-- OS:FuelFactors -->
+    
     <message>
         <source>NH3 Emission Factor Schedule Name</source>
         <translation>Nama Jadwal Faktor Emisi NH3</translation>
     </message>
-    <!-- OS:ElectricLoadCenter:Inverter:LookUpTable -->
+    
     <message>
         <source>Night Tare Loss Power</source>
         <translation>Daya Kehilangan Tare Malam</translation>
     </message>
-    <!-- OS:Fan:SystemModel -->
+    
     <message>
         <source>Night Ventilation Mode Flow Fraction</source>
         <translation>Fraksi Aliran Mode Ventilasi Malam Hari</translation>
     </message>
-    <!-- OS:Fan:SystemModel -->
+    
     <message>
         <source>Night Ventilation Mode Pressure Rise</source>
         <translation>Tekanan Naik Mode Ventilasi Malam</translation>
     </message>
-    <!-- OS:AvailabilityManager:NightVentilation -->
+    
     <message>
         <source>Night Venting Flow Fraction</source>
         <translation>Fraksi Aliran Ventilasi Malam</translation>
     </message>
-    <!-- OS:LifeCycleCost:Parameters -->
+    
     <message>
         <source>NIST Region</source>
         <translation>Wilayah NIST</translation>
     </message>
-    <!-- OS:LifeCycleCost:Parameters -->
+    
     <message>
         <source>NIST Sector</source>
         <translation>Sektor NIST</translation>
     </message>
-    <!-- OS:FuelFactors -->
+    
     <message>
         <source>NMVOC Emission Factor</source>
         <translation>Faktor Emisi NMVOC</translation>
     </message>
-    <!-- OS:FuelFactors -->
+    
     <message>
         <source>NMVOC Emission Factor Schedule Name</source>
         <translation>Nama Jadwal Faktor Emisi NMVOC</translation>
     </message>
-    <!-- OS:AirLoopHVAC:UnitarySystem, OS:ZoneHVAC:PackagedTerminalAirConditioner, OS:ZoneHVAC:PackagedTerminalHeatPump, OS:ZoneHVAC:WaterToAirHeatPump -->
+    
     <message>
         <source>No Load Supply Air Flow Rate Control Set To Low Speed</source>
         <translation>Kontrol Laju Aliran Udara Pasokan Tanpa Beban Diatur ke Kecepatan Rendah</translation>
     </message>
-    <!-- OS:UnitarySystemPerformance:Multispeed -->
+    
     <message>
         <source>No Load Supply Air Flow Rate Ratio</source>
         <translation>Rasio Laju Aliran Udara Pasokan Tanpa Beban</translation>
     </message>
-    <!-- OS:ThermalStorage:ChilledWater:Stratified, OS:WaterHeater:Stratified -->
+    
     <message>
         <source>Node 1 Additional Loss Coefficient</source>
         <translation>Koefisien Kehilangan Tambahan Node 1</translation>
     </message>
-    <!-- OS:AirflowNetworkDistributionLinkage -->
+    
     <message>
         <source>Node 1 Name</source>
         <translation>Nama Node 1</translation>
     </message>
-    <!-- OS:ThermalStorage:ChilledWater:Stratified, OS:WaterHeater:Stratified -->
+    
     <message>
         <source>Node 10 Additional Loss Coefficient</source>
         <translation>Koefisien Kehilangan Tambahan Node 10</translation>
     </message>
-    <!-- OS:WaterHeater:Stratified -->
+    
     <message>
         <source>Node 11 Additional Loss Coefficient</source>
         <translation>Koefisien Kehilangan Tambahan Node 11</translation>
     </message>
-    <!-- OS:WaterHeater:Stratified -->
+    
     <message>
         <source>Node 12 Additional Loss Coefficient</source>
         <translation>Koefisien Kehilangan Tambahan Node 12</translation>
     </message>
-    <!-- OS:ThermalStorage:ChilledWater:Stratified, OS:WaterHeater:Stratified -->
+    
     <message>
         <source>Node 2 Additional Loss Coefficient</source>
         <translation>Koefisien Kehilangan Tambahan Node 2</translation>
     </message>
-    <!-- OS:AirflowNetworkDistributionLinkage -->
+    
     <message>
         <source>Node 2 Name</source>
         <translation>Nama Node 2</translation>
     </message>
-    <!-- OS:ThermalStorage:ChilledWater:Stratified, OS:WaterHeater:Stratified -->
+    
     <message>
         <source>Node 3 Additional Loss Coefficient</source>
         <translation>Koefisien Kehilangan Tambahan Node 3</translation>
     </message>
-    <!-- OS:ThermalStorage:ChilledWater:Stratified, OS:WaterHeater:Stratified -->
+    
     <message>
         <source>Node 4 Additional Loss Coefficient</source>
         <translation>Koefisien Kerugian Tambahan Node 4</translation>
     </message>
-    <!-- OS:ThermalStorage:ChilledWater:Stratified, OS:WaterHeater:Stratified -->
+    
     <message>
         <source>Node 5 Additional Loss Coefficient</source>
         <translation>Koefisien Kerugian Tambahan Node 5</translation>
     </message>
-    <!-- OS:ThermalStorage:ChilledWater:Stratified, OS:WaterHeater:Stratified -->
+    
     <message>
         <source>Node 6 Additional Loss Coefficient</source>
         <translation>Koefisien Kehilangan Tambahan Node 6</translation>
     </message>
-    <!-- OS:ThermalStorage:ChilledWater:Stratified, OS:WaterHeater:Stratified -->
+    
     <message>
         <source>Node 7 Additional Loss Coefficient</source>
         <translation>Koefisien Kehilangan Tambahan Node 7</translation>
     </message>
-    <!-- OS:ThermalStorage:ChilledWater:Stratified, OS:WaterHeater:Stratified -->
+    
     <message>
         <source>Node 8 Additional Loss Coefficient</source>
         <translation>Koefisien Kehilangan Tambahan Node 8</translation>
     </message>
-    <!-- OS:ThermalStorage:ChilledWater:Stratified, OS:WaterHeater:Stratified -->
+    
     <message>
         <source>Node 9 Additional Loss Coefficient</source>
         <translation>Koefisien Rugi-Rugi Tambahan Node 9</translation>
     </message>
-    <!-- OS:AirflowNetworkDistributionNode -->
+    
     <message>
         <source>Node Height</source>
         <translation>Tinggi Node</translation>
     </message>
-    <!-- OS:HeatExchanger:Desiccant:BalancedFlow:PerformanceDataType1 -->
+    
     <message>
         <source>Nominal Air Face Velocity</source>
         <translation>Kecepatan Muka Udara Nominal</translation>
     </message>
-    <!-- OS:HeatExchanger:Desiccant:BalancedFlow:PerformanceDataType1 -->
+    
     <message>
         <source>Nominal Air Flow Rate</source>
         <translation>Laju Aliran Udara Nominal</translation>
     </message>
-    <!-- OS:HeatPump:AirToWater:FuelFired:Cooling, OS:HeatPump:AirToWater:FuelFired:Heating -->
+    
     <message>
         <source>Nominal Auxiliary Electric Power</source>
         <translation>Daya Listrik Bantu Nominal</translation>
     </message>
-    <!-- OS:Generator:FuelCell:ElectricalStorage -->
+    
     <message>
         <source>Nominal Charging Energetic Efficiency</source>
         <translation>Efisiensi Energetik Pengisian Nominal</translation>
     </message>
-    <!-- OS:HeatPump:AirToWater:FuelFired:Cooling, OS:ThermalStorage:ChilledWater:Stratified -->
+    
     <message>
         <source>Nominal Cooling Capacity</source>
         <translation>Kapasitas Pendinginan Nominal</translation>
     </message>
-    <!-- OS:HeatPump:AirToWater:FuelFired:Cooling, OS:HeatPump:AirToWater:FuelFired:Heating -->
+    
     <message>
         <source>Nominal COP</source>
         <translation>COP Nominal</translation>
     </message>
-    <!-- OS:ElectricLoadCenter:Storage:Simple, OS:Generator:FuelCell:ElectricalStorage -->
+    
     <message>
         <source>Nominal Discharging Energetic Efficiency</source>
         <translation>Efisiensi Energi Pemulihan Nominal</translation>
     </message>
-    <!-- OS:LifeCycleCost:Parameters -->
+    
     <message>
         <source>Nominal Discount Rate</source>
         <translation>Tingkat Diskon Nominal</translation>
     </message>
-    <!-- OS:Generator:FuelCell:PowerModule -->
+    
     <message>
         <source>Nominal Efficiency</source>
         <translation>Efisiensi Nominal</translation>
     </message>
-    <!-- OS:HeatExchanger:AirToAir:SensibleAndLatent, OS:HeatExchanger:Desiccant:BalancedFlow:PerformanceDataType1 -->
+    
     <message>
         <source>Nominal Electric Power</source>
         <translation>Daya Listrik Nominal</translation>
     </message>
-    <!-- OS:Generator:FuelCell:PowerModule -->
+    
     <message>
         <source>Nominal Electrical Power</source>
         <translation>Daya Listrik Nominal</translation>
     </message>
-    <!-- OS:ElectricLoadCenter:Storage:Simple -->
+    
     <message>
         <source>Nominal Energetic Efficiency for Charging</source>
         <translation>Efisiensi Energetik Nominal untuk Pengisian</translation>
     </message>
-    <!-- OS:Coil:Cooling:DX:CurveFit:OperatingMode -->
+    
     <message>
         <source>Nominal Evaporative Condenser Pump Power</source>
         <translation>Daya Pompa Kondenser Evaporatif Nominal</translation>
     </message>
-    <!-- OS:Generator:MicroTurbine -->
+    
     <message>
         <source>Nominal Exhaust Air Outlet Temperature</source>
         <translation>Temperatur Outlet Udara Exhaust Nominal</translation>
     </message>
-    <!-- OS:Building, OS:BuildingStory -->
+    
     <message>
         <source>Nominal Floor to Ceiling Height</source>
         <translation>Tinggi Nominal Lantai ke Plafon</translation>
     </message>
-    <!-- OS:Building, OS:BuildingStory -->
+    
     <message>
         <source>Nominal Floor to Floor Height</source>
         <translation>Tinggi Nominal Lantai ke Lantai</translation>
     </message>
-    <!-- OS:HeatPump:AirToWater:FuelFired:Heating -->
+    
     <message>
         <source>Nominal Heating Capacity</source>
         <translation>Kapasitas Pemanasan Nominal</translation>
     </message>
-    <!-- OS:PhotovoltaicPerformance:EquivalentOneDiode -->
+    
     <message>
         <source>Nominal Operating Cell Temperature Test Ambient Temperature</source>
         <translation>Suhu Ambient Uji Temperatur Operasi Sel Nominal</translation>
     </message>
-    <!-- OS:PhotovoltaicPerformance:EquivalentOneDiode -->
+    
     <message>
         <source>Nominal Operating Cell Temperature Test Cell Temperature</source>
         <translation>Temperatur Sel Operasi Nominal Temperatur Sel Uji</translation>
     </message>
-    <!-- OS:PhotovoltaicPerformance:EquivalentOneDiode -->
+    
     <message>
         <source>Nominal Operating Cell Temperature Test Insolation</source>
         <translation>Insolasi Tes Temperatur Sel Operasi Nominal</translation>
     </message>
-    <!-- OS:Chiller:Absorption, OS:Chiller:Absorption:Indirect -->
+    
     <message>
         <source>Nominal Pumping Power</source>
         <translation>Daya Pompa Nominal</translation>
     </message>
-    <!-- OS:Coil:Cooling:DX:VariableSpeed, OS:Coil:Cooling:WaterToAirHeatPump:VariableSpeedEquationFit, OS:Coil:Heating:DX:VariableSpeed, OS:Coil:Heating:WaterToAirHeatPump:VariableSpeedEquationFit, OS:Coil:WaterHeating:AirToWaterHeatPump:VariableSpeed -->
+    
     <message>
         <source>Nominal Speed Level</source>
         <translation>Tingkat Kecepatan Nominal</translation>
     </message>
-    <!-- OS:Coil:Cooling:DX:CurveFit:OperatingMode -->
+    
     <message>
         <source>Nominal Speed Number</source>
         <translation>Nomor Kecepatan Nominal</translation>
     </message>
-    <!-- OS:Generator:FuelCell:StackCooler -->
+    
     <message>
         <source>Nominal Stack Temperature</source>
         <translation>Suhu Tumpukan Nominal</translation>
     </message>
-    <!-- OS:HeatExchanger:AirToAir:SensibleAndLatent -->
+    
     <message>
         <source>Nominal Supply Air Flow Rate</source>
         <translation>Laju Aliran Udara Pasokan Nominal</translation>
     </message>
-    <!-- OS:WaterHeater:Sizing -->
+    
     <message>
         <source>Nominal Tank Volume for Autosizing Plant Connections</source>
         <translation>Volume Tangki Nominal untuk Koneksi Tumbuhan Autosizing</translation>
     </message>
-    <!-- OS:Coil:Cooling:DX:VariableSpeed, OS:Coil:Cooling:WaterToAirHeatPump:VariableSpeedEquationFit -->
+    
     <message>
         <source>Nominal Time for Condensate to Begin Leaving the Coil</source>
         <translation>Waktu Nominal untuk Kondensasi Mulai Meninggalkan Coil</translation>
     </message>
-    <!-- OS:ElectricLoadCenter:Inverter:LookUpTable -->
+    
     <message>
         <source>Nominal Voltage Input</source>
         <translation>Masukan Tegangan Nominal</translation>
     </message>
-    <!-- OS:BuildingStory -->
+    
     <message>
         <source>Nominal Z Coordinate</source>
         <translation>Koordinat Z Nominal</translation>
     </message>
-    <!-- OS:Coil:Cooling:DX:TwoStageWithHumidityControlMode -->
+    
     <message>
         <source>Normal Mode Stage 1 Coil Performance</source>
         <translation>Performa Kumparan Mode Normal Tahap 1</translation>
     </message>
-    <!-- OS:Coil:Cooling:DX:TwoStageWithHumidityControlMode -->
+    
     <message>
         <source>Normal Mode Stage 1 Plus 2 Coil Performance</source>
         <translation>Kinerja Koil Mode Normal Tahap 1 Plus 2</translation>
     </message>
-    <!-- OS:Table:Lookup -->
+    
     <message>
         <source>Normalization Divisor</source>
         <translation>Pembagi Normalisasi</translation>
     </message>
-    <!-- OS:Table:Lookup -->
+    
     <message>
         <source>Normalization Method</source>
         <translation>Metode Normalisasi</translation>
     </message>
-    <!-- OS:Table:MultiVariableLookup -->
+    
     <message>
         <source>Normalization Reference</source>
         <translation>Referensi Normalisasi</translation>
     </message>
-    <!-- OS:Table:IndependentVariable -->
+    
     <message>
         <source>Normalization Reference Value</source>
         <translation>Nilai Acuan Normalisasi</translation>
     </message>
-    <!-- OS:Fan:ComponentModel -->
+    
     <message>
         <source>Normalized Belt Efficiency Curve Name - Region 1</source>
         <translation>Nama Kurva Efisiensi Sabuk Ternormalisasi - Region 1</translation>
     </message>
-    <!-- OS:Fan:ComponentModel -->
+    
     <message>
         <source>Normalized Belt Efficiency Curve Name - Region 2</source>
         <translation>Nama Kurva Efisiensi Sabuk Ternormalisasi - Region 2</translation>
     </message>
-    <!-- OS:Fan:ComponentModel -->
+    
     <message>
         <source>Normalized Belt Efficiency Curve Name - Region 3</source>
         <translation>Nama Kurva Efisiensi Sabuk Ternormalisasi - Region 3</translation>
     </message>
-    <!-- OS:HeatPump:AirToWater:FuelFired:Cooling, OS:HeatPump:AirToWater:FuelFired:Heating -->
+    
     <message>
         <source>Normalized Capacity Function of Temperature Curve Name</source>
         <translation>Nama Kurva Fungsi Kapasitas Ternormalisasi terhadap Suhu</translation>
     </message>
-    <!-- OS:HeatPump:AirToWater:Cooling:SpeedData -->
+    
     <message>
         <source>Normalized Cooling Capacity Function of Temperature Curve Name</source>
         <translation>Nama Kurva Fungsi Kapasitas Pendinginan Ternormalisasi terhadap Suhu</translation>
     </message>
-    <!-- OS:Fan:ComponentModel -->
+    
     <message>
         <source>Normalized Dimensionless Airflow Curve Name-Non-Stall Region</source>
         <translation>Nama Kurva Aliran Udara Berdimensi Ternormalisasi-Daerah Non-Stall</translation>
     </message>
-    <!-- OS:Fan:ComponentModel -->
+    
     <message>
         <source>Normalized Dimensionless Airflow Curve Name-Stall Region</source>
         <translation>Nama Kurva Aliran Udara Tanpa Dimensi Ternormalisasi - Wilayah Stall</translation>
     </message>
-    <!-- OS:Fan:ComponentModel -->
+    
     <message>
         <source>Normalized Fan Static Efficiency Curve Name-Non-Stall Region</source>
         <translation>Nama Kurva Efisiensi Statis Kipas Ternormalisasi - Wilayah Non-Stall</translation>
     </message>
-    <!-- OS:Fan:ComponentModel -->
+    
     <message>
         <source>Normalized Fan Static Efficiency Curve Name-Stall Region</source>
         <translation>Nama Kurva Efisiensi Statik Kipas Ternormalisasi-Daerah Stall</translation>
     </message>
-    <!-- OS:HeatPump:AirToWater:Heating:SpeedData -->
+    
     <message>
         <source>Normalized Heating Capacity Function of Temperature Curve Name</source>
         <translation>Nama Kurva Fungsi Kapasitas Pemanasan Ternormalisasi terhadap Suhu</translation>
     </message>
-    <!-- OS:Fan:ComponentModel -->
+    
     <message>
         <source>Normalized Motor Efficiency Curve Name</source>
         <translation>Nama Kurva Efisiensi Motor Ternormalisasi</translation>
     </message>
-    <!-- OS:Building -->
+    
     <message>
         <source>North Axis</source>
         <translation>Sumbu Utara</translation>
     </message>
-    <!-- OS:Site:GroundTemperature:Deep -->
+    
     <message>
         <source>November Deep Ground Temperature</source>
         <translation>Suhu Tanah Dalam November</translation>
     </message>
-    <!-- OS:Site:GroundReflectance -->
+    
     <message>
         <source>November Ground Reflectance</source>
         <translation>November Ground Reflectance</translation>
     </message>
-    <!-- OS:Site:GroundTemperature:BuildingSurface, OS:Site:GroundTemperature:FCfactorMethod -->
+    
     <message>
         <source>November Ground Temperature</source>
         <translation>Suhu Tanah November</translation>
     </message>
-    <!-- OS:Site:GroundTemperature:Shallow -->
+    
     <message>
         <source>November Surface Ground Temperature</source>
         <translation>Suhu Permukaan Tanah November</translation>
     </message>
-    <!-- OS:UtilityCost:Variable -->
+    
     <message>
         <source>November Value</source>
         <translation>Nilai November</translation>
     </message>
-    <!-- OS:FuelFactors -->
+    
     <message>
         <source>NOx Emission Factor</source>
         <translation>Faktor Emisi NOx</translation>
     </message>
-    <!-- OS:FuelFactors -->
+    
     <message>
         <source>NOx Emission Factor Schedule Name</source>
         <translation>Nama Jadwal Faktor Emisi NOx</translation>
     </message>
-    <!-- OS:FuelFactors -->
+    
     <message>
         <source>Nuclear High Level Emission Factor</source>
         <translation>Faktor Emisi Tingkat Tinggi Nuklir</translation>
     </message>
-    <!-- OS:FuelFactors -->
+    
     <message>
         <source>Nuclear High Level Emission Factor Schedule Name</source>
         <translation>Nama Jadwal Faktor Emisi Tingkat Tinggi Nuklir</translation>
     </message>
-    <!-- OS:FuelFactors -->
+    
     <message>
         <source>Nuclear Low Level Emission Factor</source>
         <translation>Faktor Emisi Tingkat Rendah Nuklir</translation>
     </message>
-    <!-- OS:FuelFactors -->
+    
     <message>
         <source>Nuclear Low Level Emission Factor Schedule Name</source>
         <translation>Nama Jadwal Faktor Emisi Tingkat Rendah Nuklir</translation>
     </message>
-    <!-- OS:WaterHeater:Sizing -->
+    
     <message>
         <source>Number of Bathrooms</source>
         <translation>Jumlah Kamar Mandi</translation>
     </message>
-    <!-- OS:AirTerminal:SingleDuct:ConstantVolume:CooledBeam -->
+    
     <message>
         <source>Number of Beams</source>
         <translation>Jumlah Balok</translation>
     </message>
-    <!-- OS:WaterHeater:Sizing -->
+    
     <message>
         <source>Number of Bedrooms</source>
         <translation>Jumlah Kamar Tidur</translation>
     </message>
-    <!-- OS:Generator:WindTurbine -->
+    
     <message>
         <source>Number of Blades</source>
         <translation>Jumlah Bilah</translation>
     </message>
-    <!-- OS:GroundHeatExchanger:Vertical -->
+    
     <message>
         <source>Number of Bore Holes</source>
         <translation>Jumlah Lubang Bore</translation>
     </message>
-    <!-- OS:Coil:Cooling:DX:TwoStageWithHumidityControlMode -->
+    
     <message>
         <source>Number of Capacity Stages</source>
         <translation>Jumlah Tahap Kapasitas</translation>
     </message>
-    <!-- OS:CoolingTower:SingleSpeed, OS:CoolingTower:TwoSpeed, OS:CoolingTower:VariableSpeed -->
+    
     <message>
         <source>Number of Cells</source>
         <translation>Jumlah Sel</translation>
     </message>
-    <!-- OS:PhotovoltaicPerformance:Sandia -->
+    
     <message>
         <source>Number of Cells in Parallel</source>
         <translation>Jumlah Sel Paralel</translation>
     </message>
-    <!-- OS:ElectricLoadCenter:Storage:LiIonNMCBattery, OS:PhotovoltaicPerformance:EquivalentOneDiode, OS:PhotovoltaicPerformance:Sandia -->
+    
     <message>
         <source>Number of Cells in Series</source>
         <translation>Jumlah Sel dalam Seri</translation>
     </message>
-    <!-- OS:CentralHeatPumpSystem:Module -->
+    
     <message>
         <source>Number of Chiller Heater Modules</source>
         <translation>Jumlah Modul Chiller Heater</translation>
     </message>
-    <!-- OS:ZoneHVAC:LowTemperatureRadiant:ConstantFlow, OS:ZoneHVAC:LowTemperatureRadiant:VariableFlow -->
+    
     <message>
         <source>Number of Circuits</source>
         <translation>Jumlah Sirkuit</translation>
     </message>
-    <!-- OS:Generator:FuelSupply -->
+    
     <message>
         <source>Number of Constituents in Gaseous Constituent Fuel Supply</source>
         <translation>Jumlah Konstituen dalam Pasokan Bahan Bakar Konstituen Gas</translation>
     </message>
-    <!-- OS:ZoneControl:Thermostat:StagedDualSetpoint -->
+    
     <message>
         <source>Number of Cooling Stages</source>
         <translation>Jumlah Tahap Pendinginan</translation>
     </message>
-    <!-- OS:SolarCollectorPerformance:IntegralCollectorStorage -->
+    
     <message>
         <source>Number of Covers</source>
         <translation>Jumlah Penutup</translation>
     </message>
-    <!-- OS:Daylighting:Control -->
+    
     <message>
         <source>Number of Daylighting Views</source>
         <translation>Jumlah Pandangan Pencahayaan Alami</translation>
     </message>
-    <!-- OS:UtilityBill -->
+    
     <message>
         <source>Number of Days in Billing Period</source>
         <translation>Jumlah Hari dalam Periode Penagihan</translation>
     </message>
-    <!-- OS:Refrigeration:Case -->
+    
     <message>
         <source>Number Of Doors</source>
         <translation>Jumlah Pintu</translation>
     </message>
-    <!-- OS:Coil:Cooling:DX:TwoStageWithHumidityControlMode -->
+    
     <message>
         <source>Number of Enhanced Dehumidification Modes</source>
         <translation>Jumlah Mode Dehumidifikasi Ditingkatkan</translation>
     </message>
-    <!-- OS:WindowMaterial:GasMixture -->
+    
     <message>
         <source>Number of Gases in Mixture</source>
         <translation>Jumlah Gas dalam Campuran</translation>
     </message>
-    <!-- OS:Glare:Sensor -->
+    
     <message>
         <source>Number of Glare View Vectors</source>
         <translation>Jumlah Vektor Pandangan Kilauan</translation>
     </message>
-    <!-- OS:ZoneControl:Thermostat:StagedDualSetpoint -->
+    
     <message>
         <source>Number of Heating Stages</source>
         <translation>Jumlah Tahap Pemanasan</translation>
     </message>
-    <!-- OS:WindowProperty:FrameAndDivider -->
+    
     <message>
         <source>Number of Horizontal Dividers</source>
         <translation>Jumlah Pembagi Horizontal</translation>
     </message>
-    <!-- OS:Schedule:File -->
+    
     <message>
         <source>Number of Hours of Data</source>
         <translation>Jumlah Jam Data</translation>
     </message>
-    <!-- OS:Table:MultiVariableLookup -->
+    
     <message>
         <source>Number of Independent Variables</source>
         <translation>Jumlah Variabel Independen</translation>
     </message>
-    <!-- OS:Table:MultiVariableLookup -->
+    
     <message>
         <source>Number of Interpolation Points</source>
         <translation>Jumlah Titik Interpolasi</translation>
     </message>
-    <!-- OS:Generator:Photovoltaic -->
+    
     <message>
         <source>Number of Modules in Parallel</source>
         <translation>Jumlah Modul Secara Paralel</translation>
     </message>
-    <!-- OS:Generator:Photovoltaic -->
+    
     <message>
         <source>Number of Modules in Series</source>
         <translation>Jumlah Modul dalam Seri</translation>
     </message>
-    <!-- OS:UtilityCost:Qualify -->
+    
     <message>
         <source>Number of Months</source>
         <translation>Jumlah Bulan</translation>
     </message>
-    <!-- OS:AvailabilityManager:OptimumStart -->
+    
     <message>
         <source>Number of Previous Days</source>
         <translation>Jumlah Hari Sebelumnya</translation>
     </message>
-    <!-- OS:HeaderedPumps:ConstantSpeed, OS:HeaderedPumps:VariableSpeed -->
+    
     <message>
         <source>Number of Pumps in Bank</source>
         <translation>Jumlah Pompa dalam Grup</translation>
     </message>
-    <!-- OS:Refrigeration:SecondarySystem -->
+    
     <message>
         <source>Number of Pumps in Loop</source>
         <translation>Jumlah Pompa dalam Loop</translation>
     </message>
-    <!-- OS:Generator:FuelCell:PowerModule -->
+    
     <message>
         <source>Number of Run Hours at Beginning of Simulation</source>
         <translation>Jumlah Jam Operasi di Awal Simulasi</translation>
     </message>
-    <!-- OS:AirLoopHVAC:UnitaryHeatPump:AirToAir:MultiSpeed -->
+    
     <message>
         <source>Number of Speeds for Cooling</source>
         <translation>Jumlah Kecepatan untuk Pendinginan</translation>
     </message>
-    <!-- OS:AirLoopHVAC:UnitaryHeatPump:AirToAir:MultiSpeed -->
+    
     <message>
         <source>Number of Speeds for Heating</source>
         <translation>Jumlah Kecepatan untuk Pemanasan</translation>
     </message>
-    <!-- OS:Daylighting:Control -->
+    
     <message>
         <source>Number of Stepped Control Steps</source>
         <translation>Jumlah Langkah Kontrol Bertingkat</translation>
     </message>
-    <!-- OS:Generator:FuelCell:PowerModule -->
+    
     <message>
         <source>Number of Stops at Start of Simulation</source>
         <translation>Jumlah Pemberhentian pada Awal Simulasi</translation>
     </message>
-    <!-- OS:ElectricLoadCenter:Storage:LiIonNMCBattery -->
+    
     <message>
         <source>Number of Strings in Parallel</source>
         <translation>Jumlah String Paralel</translation>
     </message>
-    <!-- OS:ProgramControl -->
+    
     <message>
         <source>Number of Threads Allowed</source>
         <translation>Jumlah Thread yang Diizinkan</translation>
     </message>
-    <!-- OS:RunPeriod -->
+    
     <message>
         <source>Number of Times Runperiod to be Repeated</source>
         <translation>Jumlah Pengulangan Periode Simulasi</translation>
     </message>
-    <!-- OS:Timestep -->
+    
     <message>
         <source>Number of Timesteps per Hour</source>
         <translation>Jumlah Timestep per Jam</translation>
     </message>
-    <!-- OS:EnergyManagementSystem:TrendVariable, OS:PythonPlugin:TrendVariable -->
+    
     <message>
         <source>Number of Timesteps to be Logged</source>
         <translation>Jumlah Langkah Waktu yang Akan Dicatat</translation>
     </message>
-    <!-- OS:GroundHeatExchanger:HorizontalTrench -->
+    
     <message>
         <source>Number of Trenches</source>
         <translation>Jumlah Parit</translation>
     </message>
-    <!-- OS:WaterHeater:Sizing -->
+    
     <message>
         <source>Number of Units</source>
         <translation>Jumlah Unit</translation>
     </message>
-    <!-- OS:Generator:FuelCell:AirSupply -->
+    
     <message>
         <source>Number of UserDefined Constituents</source>
         <translation>Jumlah Konstituensi yang Didefinisikan Pengguna</translation>
     </message>
-    <!-- OS:WindowProperty:FrameAndDivider -->
+    
     <message>
         <source>Number of Vertical Dividers</source>
         <translation>Jumlah Pembagi Vertikal</translation>
     </message>
-    <!-- OS:InteriorPartitionSurface, OS:ShadingSurface, OS:SubSurface, OS:Surface -->
+    
     <message>
         <source>Number of Vertices</source>
         <translation>Jumlah Titik Sudut</translation>
     </message>
-    <!-- OS:IlluminanceMap -->
+    
     <message>
         <source>Number of X Grid Points</source>
         <translation>Jumlah Titik Grid X</translation>
     </message>
-    <!-- OS:IlluminanceMap -->
+    
     <message>
         <source>Number of Y Grid Points</source>
         <translation>Jumlah Titik Grid Y</translation>
     </message>
-    <!-- OS:ScheduleTypeLimits -->
+    
     <message>
         <source>Numeric Type</source>
         <translation>Tipe Numerik</translation>
     </message>
 
-    <!-- O -->
-    <!-- OS:AdditionalProperties -->
+    
+    
     <message>
         <source>Object Name</source>
         <translation>Nama Objek</translation>
     </message>
-    <!-- OS:AirflowNetworkOccupantVentilationControl -->
+    
     <message>
         <source>Occupancy Check</source>
         <translation>Pemeriksaan Penghuni</translation>
     </message>
-    <!-- OS:Sizing:System -->
+    
     <message>
         <source>Occupant Diversity</source>
         <translation>Keberagaman Penghuni</translation>
     </message>
-    <!-- OS:AirflowNetworkSurface, OS:AirflowNetworkZone -->
+    
     <message>
         <source>Occupant Ventilation Control Name</source>
         <translation>Nama Kontrol Ventilasi Penghuni</translation>
     </message>
-    <!-- OS:Site:GroundTemperature:Deep -->
+    
     <message>
         <source>October Deep Ground Temperature</source>
         <translation>Suhu Tanah Dalam Oktober</translation>
     </message>
-    <!-- OS:Site:GroundReflectance -->
+    
     <message>
         <source>October Ground Reflectance</source>
         <translation>Reflektansi Tanah Oktober</translation>
     </message>
-    <!-- OS:Site:GroundTemperature:BuildingSurface, OS:Site:GroundTemperature:FCfactorMethod -->
+    
     <message>
         <source>October Ground Temperature</source>
         <translation>Temperatur Tanah Oktober</translation>
     </message>
-    <!-- OS:Site:GroundTemperature:Shallow -->
+    
     <message>
         <source>October Surface Ground Temperature</source>
         <translation>Suhu Permukaan Tanah Oktober</translation>
     </message>
-    <!-- OS:UtilityCost:Variable -->
+    
     <message>
         <source>October Value</source>
         <translation>Nilai Oktober</translation>
     </message>
-    <!-- OS:WaterHeater:Stratified -->
+    
     <message>
         <source>Off Cycle Flue Loss Coefficient to Ambient Temperature</source>
         <translation>Koefisien Kehilangan Flue Off Cycle ke Suhu Ambient</translation>
     </message>
-    <!-- OS:WaterHeater:Stratified -->
+    
     <message>
         <source>Off Cycle Flue Loss Fraction to Zone</source>
         <translation>Fraksi Kehilangan Flue Saat Siklus Mati ke Zona</translation>
     </message>
-    <!-- OS:WaterHeater:Mixed -->
+    
     <message>
         <source>Off Cycle Loss Fraction to Thermal Zone</source>
         <translation>Fraksi Kehilangan Siklus Mati ke Zona Termal</translation>
     </message>
-    <!-- OS:WaterHeater:HeatPump, OS:WaterHeater:HeatPump:WrappedCondenser -->
+    
     <message>
         <source>Off Cycle Parasitic Electric Load</source>
         <translation>Beban Listrik Parasitik Siklus Mati</translation>
     </message>
-    <!-- OS:WaterHeater:Stratified -->
+    
     <message>
         <source>Off Cycle Parasitic Height</source>
         <translation>Tinggi Parasit Siklus Mati</translation>
     </message>
-    <!-- OS:Coil:WaterHeating:Desuperheater, OS:ZoneHVAC:Dehumidifier:DX -->
+    
     <message>
         <source>Off-Cycle Parasitic Electric Load</source>
         <translation>Beban Listrik Parasitik Saat Tidak Beroperasi</translation>
     </message>
-    <!-- OS:UtilityCost:Ratchet -->
+    
     <message>
         <source>Offset Value or Variable Name</source>
         <translation>Nilai Offset atau Nama Variabel</translation>
     </message>
-    <!-- OS:Chiller:Electric:ASHRAE205 -->
+    
     <message>
         <source>Oil Cooler Design Flow Rate</source>
         <translation>Laju Aliran Desain Pendingin Minyak</translation>
     </message>
-    <!-- OS:Chiller:Electric:ASHRAE205 -->
+    
     <message>
         <source>Oil Cooler Inlet Node Name</source>
         <translation>Nama Node Masuk Pendingin Minyak</translation>
     </message>
-    <!-- OS:Chiller:Electric:ASHRAE205 -->
+    
     <message>
         <source>Oil Cooler Outlet Node Name</source>
         <translation>Nama Node Outlet Pendingin Minyak</translation>
     </message>
-    <!-- OS:WaterHeater:Mixed -->
+    
     <message>
         <source>On Cycle Loss Fraction to Thermal Zone</source>
         <translation>Fraksi Kerugian Siklus Hidup ke Zona Termal</translation>
     </message>
-    <!-- OS:WaterHeater:Stratified -->
+    
     <message>
         <source>On Cycle Parasitic Height</source>
         <translation>Ketinggian Parasitik Saat Siklus Aktif</translation>
     </message>
-    <!-- OS:Coil:WaterHeating:Desuperheater -->
+    
     <message>
         <source>On-Cycle Parasitic Electric Load</source>
         <translation>Beban Listrik Parasit Saat Operasi</translation>
     </message>
-    <!-- OS:PhotovoltaicPerformance:EquivalentOneDiode, OS:PhotovoltaicPerformance:Sandia -->
+    
     <message>
         <source>Open Circuit Voltage</source>
         <translation>Tegangan Rangkaian Terbuka</translation>
     </message>
-    <!-- OS:ZoneVentilation:WindandStackOpenArea -->
+    
     <message>
         <source>Opening Area</source>
         <translation>Luas Bukaan</translation>
     </message>
-    <!-- OS:ZoneVentilation:WindandStackOpenArea -->
+    
     <message>
         <source>Opening Area Fraction Schedule Name</source>
         <translation>Nama Jadwal Fraksi Luas Bukaan</translation>
     </message>
-    <!-- OS:ZoneVentilation:WindandStackOpenArea -->
+    
     <message>
         <source>Opening Effectiveness</source>
         <translation>Efektivitas Pembukaan</translation>
     </message>
-    <!-- OS:AirflowNetworkDetailedOpening -->
+    
     <message>
         <source>Opening Factor</source>
         <translation>Faktor Pembukaan</translation>
     </message>
-    <!-- OS:AvailabilityManager:HybridVentilation -->
+    
     <message>
         <source>Opening Factor Function of Wind Speed Curve</source>
         <translation>Kurva Fungsi Faktor Pembukaan terhadap Kecepatan Angin</translation>
     </message>
-    <!-- OS:AirflowNetworkOccupantVentilationControl -->
+    
     <message>
         <source>Opening Probability Schedule Name</source>
         <translation>Nama Jadwal Probabilitas Pembukaan</translation>
     </message>
-    <!-- OS:DefaultSubSurfaceConstructions -->
+    
     <message>
         <source>Operable Window Construction Name</source>
         <translation>Nama Konstruksi Jendela Dapat Dibuka</translation>
     </message>
-    <!-- OS:Refrigeration:Case -->
+    
     <message>
         <source>Operating Case Fan Power per Door</source>
         <translation>Daya Fan Pintu per Operasi</translation>
     </message>
-    <!-- OS:Refrigeration:Case -->
+    
     <message>
         <source>Operating Case Fan Power per Unit Length</source>
         <translation>Daya Kipas Operasi per Satuan Panjang</translation>
     </message>
-    <!-- OS:Coil:Cooling:DX:SingleSpeed:ThermalStorage, OS:HeatPump:AirToWater -->
+    
     <message>
         <source>Operating Mode Control Method</source>
         <translation>Metode Kontrol Mode Operasi</translation>
     </message>
-    <!-- OS:HeatPump:AirToWater -->
+    
     <message>
         <source>Operating Mode Control Option for Multiple Unit</source>
         <translation>Opsi Kontrol Mode Operasi untuk Unit Ganda</translation>
     </message>
-    <!-- OS:HeatPump:AirToWater -->
+    
     <message>
         <source>Operating Mode Control Schedule Name</source>
         <translation>Nama Jadwal Kontrol Mode Operasi</translation>
     </message>
-    <!-- OS:Refrigeration:WalkIn -->
+    
     <message>
         <source>Operating Temperature</source>
         <translation>Suhu Operasional</translation>
     </message>
-    <!-- OS:HeatExchanger:FluidToFluid -->
+    
     <message>
         <source>Operation Maximum Temperature Limit</source>
         <translation>Batas Suhu Maksimum Operasi</translation>
     </message>
-    <!-- OS:HeatExchanger:FluidToFluid -->
+    
     <message>
         <source>Operation Minimum Temperature Limit</source>
         <translation>Batas Suhu Operasi Minimum</translation>
     </message>
-    <!-- OS:Coil:Cooling:DX:SingleSpeed:ThermalStorage -->
+    
     <message>
         <source>Operation Mode Control Schedule</source>
         <translation>Jadwal Kontrol Mode Operasi</translation>
     </message>
-    <!-- OS:WindowMaterial:GlazingGroup:Thermochromic -->
+    
     <message>
         <source>Optical Data Temperature</source>
         <translation>Suhu Data Optik</translation>
     </message>
-    <!-- OS:WindowMaterial:Glazing -->
+    
     <message>
         <source>Optical Data Type</source>
         <translation>Jenis Data Optik</translation>
     </message>
-    <!-- OS:PlantComponent:UserDefined -->
+    
     <message>
         <source>Optimal Loading Capacity Actuator</source>
         <translation>Aktuator Kapasitas Pembebanan Optimal</translation>
     </message>
-    <!-- OS:Output:JSON, OS:Output:SQLite -->
+    
     <message>
         <source>Option Type</source>
         <translation>Tipe Opsi</translation>
     </message>
-    <!-- OS:ExternalInterface:Actuator -->
+    
     <message>
         <source>Optional Initial Value</source>
         <translation>Nilai Awal Opsional</translation>
     </message>
-    <!-- OS:IlluminanceMap -->
+    
     <message>
         <source>Origin X-Coordinate</source>
         <translation>Koordinat X Asal</translation>
     </message>
-    <!-- OS:IlluminanceMap -->
+    
     <message>
         <source>Origin Y-Coordinate</source>
         <translation>Koordinat Y Asal</translation>
     </message>
-    <!-- OS:IlluminanceMap -->
+    
     <message>
         <source>Origin Z-Coordinate</source>
         <translation>Koordinat Z Asal</translation>
     </message>
-    <!-- OS:OtherEquipment -->
+    
     <message>
         <source>Other Equipment Definition Name</source>
         <translation>Nama Definisi Peralatan Lainnya</translation>
     </message>
-    <!-- OS:StandardsInformation:Construction -->
+    
     <message>
         <source>Other Perturbable Layer Type</source>
         <translation>Jenis Lapisan Perturbable Lainnya</translation>
     </message>
-    <!-- OS:LifeCycleCost:Parameters -->
+    
     <message>
         <source>OtherFuel1 Inflation</source>
         <translation>Inflasi OtherFuel1</translation>
     </message>
-    <!-- OS:LifeCycleCost:Parameters -->
+    
     <message>
         <source>OtherFuel2 Inflation</source>
         <translation>Inflasi Bahan Bakar Lainnya 2</translation>
     </message>
-    <!-- OS:Schedule:FixedInterval, OS:Schedule:VariableInterval -->
+    
     <message>
         <source>Out Of Range Value</source>
         <translation>Nilai Di Luar Jangkauan</translation>
     </message>
-    <!-- OS:ZoneHVAC:UnitVentilator -->
+    
     <message>
         <source>Outdoor Air Control Type</source>
         <translation>Jenis Kontrol Udara Luar</translation>
     </message>
-    <!-- OS:ZoneHVAC:IdealLoadsAirSystem -->
+    
     <message>
         <source>Outdoor Air Economizer Type</source>
         <translation>Jenis Economizer Udara Luar</translation>
     </message>
-    <!-- OS:AirLoopHVAC:OutdoorAirSystem -->
+    
     <message>
         <source>Outdoor Air Equipment List Name</source>
         <translation>Nama Daftar Peralatan Udara Luar</translation>
     </message>
-    <!-- OS:AirLoopHVAC:UnitaryHeatCool:VAVChangeoverBypass -->
+    
     <message>
         <source>Outdoor Air Flow Rate Multiplier Schedule</source>
         <translation>Jadwal Pengganda Laju Aliran Udara Luar</translation>
     </message>
-    <!-- OS:AirTerminal:DualDuct:VAV:OutdoorAir, OS:CoolingTower:VariableSpeed, OS:FluidCooler:SingleSpeed, OS:FluidCooler:TwoSpeed -->
+    
     <message>
         <source>Outdoor Air Inlet Node</source>
         <translation>Node Inlet Udara Luar</translation>
     </message>
-    <!-- OS:CoolingTower:SingleSpeed, OS:CoolingTower:TwoSpeed, OS:EvaporativeFluidCooler:SingleSpeed, OS:EvaporativeFluidCooler:TwoSpeed, OS:ZoneHVAC:EvaporativeCoolerUnit -->
+    
     <message>
         <source>Outdoor Air Inlet Node Name</source>
         <translation>Nama Node Inlet Udara Luar</translation>
     </message>
-    <!-- OS:AirLoopHVAC:UnitaryHeatCool:VAVChangeoverBypass -->
+    
     <message>
         <source>Outdoor Air Mixer</source>
         <translation>Pencampur Udara Luar</translation>
     </message>
-    <!-- OS:ZoneHVAC:FourPipeFanCoil, OS:ZoneHVAC:PackagedTerminalAirConditioner, OS:ZoneHVAC:PackagedTerminalHeatPump, OS:ZoneHVAC:WaterToAirHeatPump -->
+    
     <message>
         <source>Outdoor Air Mixer Name</source>
         <translation>Nama Pencampur Udara Luar</translation>
     </message>
-    <!-- OS:ZoneHVAC:FourPipeFanCoil, OS:ZoneHVAC:PackagedTerminalAirConditioner, OS:ZoneHVAC:PackagedTerminalHeatPump -->
+    
     <message>
         <source>Outdoor Air Mixer Object Type</source>
         <translation>Jenis Objek Pencampur Udara Luar</translation>
     </message>
-    <!-- OS:WaterHeater:HeatPump -->
+    
     <message>
         <source>Outdoor Air Node</source>
         <translation>Node Udara Luar</translation>
     </message>
-    <!-- OS:SurfaceProperty:LocalEnvironment, OS:WaterHeater:HeatPump:WrappedCondenser -->
+    
     <message>
         <source>Outdoor Air Node Name</source>
         <translation>Nama Node Udara Luar</translation>
     </message>
-    <!-- OS:ZoneHVAC:FourPipeFanCoil -->
+    
     <message>
         <source>Outdoor Air Schedule Name</source>
         <translation>Nama Jadwal Udara Luar</translation>
     </message>
-    <!-- OS:AirLoopHVAC:OutdoorAirSystem, OS:SetpointManager:OutdoorAirPretreat -->
+    
     <message>
         <source>Outdoor Air Stream Node Name</source>
         <translation>Nama Node Aliran Udara Luar</translation>
     </message>
-    <!-- OS:AirLoopHVAC:DedicatedOutdoorAirSystem -->
+    
     <message>
         <source>Outdoor Air System</source>
         <translation>Sistem Udara Luar</translation>
     </message>
-    <!-- OS:HeatPump:AirToWater:FuelFired:Cooling, OS:HeatPump:AirToWater:FuelFired:Heating -->
+    
     <message>
         <source>Outdoor Air Temperature Curve Input Variable</source>
         <translation>Variabel Input Kurva Suhu Udara Luar</translation>
     </message>
-    <!-- OS:ZoneAirContaminantBalance -->
+    
     <message>
         <source>Outdoor Carbon Dioxide Schedule Name</source>
         <translation>Nama Jadwal Karbon Dioksida Luar Ruangan</translation>
     </message>
-    <!-- OS:AirLoopHVAC:UnitarySystem, OS:ZoneHVAC:WaterToAirHeatPump -->
+    
     <message>
         <source>Outdoor Dry-Bulb Temperature Sensor Node Name</source>
         <translation>Nama Node Sensor Suhu Bola Kering Luar</translation>
     </message>
-    <!-- OS:Coil:Heating:DX:MultiSpeed, OS:Coil:Heating:DX:VariableSpeed -->
+    
     <message>
         <source>Outdoor Dry-Bulb Temperature to Turn On Compressor</source>
         <translation>Suhu Bola Kering Luar untuk Menghidupkan Kompressor</translation>
     </message>
-    <!-- OS:SetpointManager:OutdoorAirReset -->
+    
     <message>
         <source>Outdoor High Temperature</source>
         <translation>Suhu Tinggi Luar Ruang</translation>
     </message>
-    <!-- OS:SetpointManager:OutdoorAirReset -->
+    
     <message>
         <source>Outdoor High Temperature 2</source>
         <translation>Suhu Tinggi Luar 2</translation>
     </message>
-    <!-- OS:SetpointManager:OutdoorAirReset -->
+    
     <message>
         <source>Outdoor Low Temperature</source>
         <translation>Suhu Rendah Luar</translation>
     </message>
-    <!-- OS:SetpointManager:OutdoorAirReset -->
+    
     <message>
         <source>Outdoor Low Temperature 2</source>
         <translation>Suhu Luar Rendah 2</translation>
     </message>
-    <!-- OS:AirConditioner:VariableRefrigerantFlow:FluidTemperatureControl:HR -->
+    
     <message>
         <source>Outdoor Unit Condenser Rated Bypass Factor</source>
         <translation>Faktor Bypass Rated Kondensor Unit Outdoor</translation>
     </message>
-    <!-- OS:AirConditioner:VariableRefrigerantFlow:FluidTemperatureControl:HR -->
+    
     <message>
         <source>Outdoor Unit Condenser Reference Subcooling</source>
         <translation>Pendinginan Lanjut Acuan Unit Kondenser Luar</translation>
     </message>
-    <!-- OS:AirConditioner:VariableRefrigerantFlow:FluidTemperatureControl, OS:AirConditioner:VariableRefrigerantFlow:FluidTemperatureControl:HR -->
+    
     <message>
         <source>Outdoor Unit Condensing Temperature Function of Subcooling Curve Name</source>
         <translation>Nama Kurva Fungsi Suhu Kondensasi Unit Outdoor terhadap Subcooling</translation>
     </message>
-    <!-- OS:AirConditioner:VariableRefrigerantFlow:FluidTemperatureControl, OS:AirConditioner:VariableRefrigerantFlow:FluidTemperatureControl:HR -->
+    
     <message>
         <source>Outdoor Unit Evaporating Temperature Function of Superheating Curve Name</source>
         <translation>Nama Kurva Fungsi Suhu Evaporasi Unit Luar terhadap Superheating</translation>
     </message>
-    <!-- OS:AirConditioner:VariableRefrigerantFlow:FluidTemperatureControl:HR -->
+    
     <message>
         <source>Outdoor Unit Evaporator Rated Bypass Factor</source>
         <translation>Faktor Bypass Rated Evaporator Unit Luar</translation>
     </message>
-    <!-- OS:AirConditioner:VariableRefrigerantFlow:FluidTemperatureControl:HR -->
+    
     <message>
         <source>Outdoor Unit Evaporator Reference Superheating</source>
         <translation>Pemanasan Berlebih Referensi Evaporator Unit Luar</translation>
     </message>
-    <!-- OS:AirConditioner:VariableRefrigerantFlow:FluidTemperatureControl, OS:AirConditioner:VariableRefrigerantFlow:FluidTemperatureControl:HR -->
+    
     <message>
         <source>Outdoor Unit Fan Flow Rate Per Unit of Rated Evaporative Capacity</source>
         <translation>Laju Aliran Kipas Unit Luar Per Satuan Kapasitas Evaporasi Nominal</translation>
     </message>
-    <!-- OS:AirConditioner:VariableRefrigerantFlow:FluidTemperatureControl, OS:AirConditioner:VariableRefrigerantFlow:FluidTemperatureControl:HR -->
+    
     <message>
         <source>Outdoor Unit Fan Power Per Unit of Rated Evaporative Capacity</source>
         <translation>Daya Kipas Unit Luar Per Unit Kapasitas Evaporatif Terpilih</translation>
     </message>
-    <!-- OS:AirConditioner:VariableRefrigerantFlow:FluidTemperatureControl:HR -->
+    
     <message>
         <source>Outdoor Unit Heat Exchanger Capacity Ratio</source>
         <translation>Rasio Kapasitas Penukar Panas Unit Luar</translation>
     </message>
-    <!-- OS:Connector:Mixer, OS:Connector:Splitter -->
+    
     <message>
         <source>Outlet Branch Name</source>
         <translation>Nama Cabang Outlet</translation>
     </message>
-    <!-- OS:Refrigeration:Subcooler:Mechanical -->
+    
     <message>
         <source>Outlet Control Temperature</source>
         <translation>Suhu Kontrol Outlet</translation>
     </message>
-    <!-- OS:AirLoopHVAC:ReturnPlenum, OS:AirLoopHVAC:SupplyPlenum, OS:AirTerminal:SingleDuct:SeriesPIU:Reheat, OS:Duct, OS:PlantComponent:TemperatureSource -->
+    
     <message>
         <source>Outlet Node</source>
         <translation>Node Keluar</translation>
     </message>
-    <!-- OS:AirLoopHVAC:ZoneMixer, OS:AirLoopHVAC:ZoneSplitter, OS:AirTerminal:SingleDuct:ParallelPIU:Reheat, OS:Coil:Heating:Water:Baseboard:Radiant, OS:GroundHeatExchanger:HorizontalTrench, OS:GroundHeatExchanger:Vertical, OS:HeaderedPumps:ConstantSpeed, OS:HeaderedPumps:VariableSpeed, OS:LoadProfile:Plant, OS:Pipe:Adiabatic, OS:Pump:ConstantSpeed, OS:Pump:VariableSpeed, OS:SolarCollector:FlatPlate:PhotovoltaicThermal, OS:SolarCollector:FlatPlate:Water, OS:SolarCollector:IntegralCollectorStorage, OS:Splitter, OS:TemperingValve, OS:ThermalStorage:Ice:Detailed, OS:WaterUse:Connections -->
+    
     <message>
         <source>Outlet Node Name</source>
         <translation>Nama Node Outlet</translation>
     </message>
-    <!-- OS:Connection, OS:Node -->
+    
     <message>
         <source>Outlet Port</source>
         <translation>Port Keluar</translation>
     </message>
-    <!-- OS:PlantComponent:UserDefined -->
+    
     <message>
         <source>Outlet Temperature Actuator</source>
         <translation>Aktuator Suhu Keluaran</translation>
     </message>
-    <!-- OS:OutputControl:Files -->
+    
     <message>
         <source>Output AUDIT</source>
         <translation>Output AUDIT</translation>
     </message>
-    <!-- OS:OutputControl:Files -->
+    
     <message>
         <source>Output BND</source>
         <translation>Output BND</translation>
     </message>
-    <!-- OS:Output:JSON -->
+    
     <message>
         <source>Output CBOR</source>
         <translation>Output CBOR</translation>
     </message>
-    <!-- OS:OutputControl:Files -->
+    
     <message>
         <source>Output CSV</source>
         <translation>Output CSV</translation>
     </message>
-    <!-- OS:OutputControl:Files -->
+    
     <message>
         <source>Output DBG</source>
         <translation>Output DBG</translation>
     </message>
-    <!-- OS:OutputControl:Files -->
+    
     <message>
         <source>Output DelightDFdmp</source>
         <translation>Output DelightDFdmp</translation>
     </message>
-    <!-- OS:OutputControl:Files -->
+    
     <message>
         <source>Output DelightELdmp</source>
         <translation>Output DelightELdmp</translation>
     </message>
-    <!-- OS:OutputControl:Files -->
+    
     <message>
         <source>Output DelightIn</source>
         <translation>Output DelightIn</translation>
     </message>
-    <!-- OS:OutputControl:Files -->
+    
     <message>
         <source>Output DFS</source>
         <translation>Output DFS</translation>
     </message>
-    <!-- OS:OutputControl:Files -->
+    
     <message>
         <source>Output DXF</source>
         <translation>Output DXF</translation>
     </message>
-    <!-- OS:OutputControl:Files -->
+    
     <message>
         <source>Output EDD</source>
         <translation>Output EDD</translation>
     </message>
-    <!-- OS:OutputControl:Files -->
+    
     <message>
         <source>Output EIO</source>
         <translation>Output EIO</translation>
     </message>
-    <!-- OS:OutputControl:Files -->
+    
     <message>
         <source>Output ESO</source>
         <translation>Output ESO</translation>
     </message>
-    <!-- OS:ShadowCalculation -->
+    
     <message>
         <source>Output External Shading Calculation Results</source>
         <translation>Hasil Perhitungan Shading Eksternal Output</translation>
     </message>
-    <!-- OS:OutputControl:Files -->
+    
     <message>
         <source>Output ExtShd</source>
         <translation>Output ExtShd</translation>
     </message>
-    <!-- OS:OutputControl:Files -->
+    
     <message>
         <source>Output GLHE</source>
         <translation>Output GLHE</translation>
     </message>
-    <!-- OS:Output:JSON, OS:OutputControl:Files -->
+    
     <message>
         <source>Output JSON</source>
         <translation>Keluaran JSON</translation>
     </message>
-    <!-- OS:OutputControl:Files -->
+    
     <message>
         <source>Output MDD</source>
         <translation>Output MDD</translation>
     </message>
-    <!-- OS:Output:JSON -->
+    
     <message>
         <source>Output MessagePack</source>
         <translation>Output MessagePack</translation>
     </message>
-    <!-- OS:UtilityCost:Tariff -->
+    
     <message>
         <source>Output Meter Name</source>
         <translation>Nama Meter Output</translation>
     </message>
-    <!-- OS:OutputControl:Files -->
+    
     <message>
         <source>Output MTD</source>
         <translation>Output MTD</translation>
     </message>
-    <!-- OS:OutputControl:Files -->
+    
     <message>
         <source>Output MTR</source>
         <translation>Output MTR</translation>
     </message>
-    <!-- OS:OutputControl:Files -->
+    
     <message>
         <source>Output PerfLog</source>
         <translation>Output PerfLog</translation>
     </message>
-    <!-- OS:OutputControl:Files -->
+    
     <message>
         <source>Output Plant Component Sizing</source>
         <translation>Ukuran Komponen Tanaman Keluaran</translation>
     </message>
-    <!-- OS:OutputControl:Files -->
+    
     <message>
         <source>Output RDD</source>
         <translation>Output RDD</translation>
     </message>
-    <!-- OS:OutputControl:Files -->
+    
     <message>
         <source>Output SCI</source>
         <translation>Output SCI</translation>
     </message>
-    <!-- OS:OutputControl:Files -->
+    
     <message>
         <source>Output Screen</source>
         <translation>Layar Output</translation>
     </message>
-    <!-- OS:OutputControl:Files -->
+    
     <message>
         <source>Output SHD</source>
         <translation>Output SHD</translation>
     </message>
-    <!-- OS:OutputControl:Files -->
+    
     <message>
         <source>Output SLN</source>
         <translation>Output SLN</translation>
     </message>
-    <!-- OS:OutputControl:Files -->
+    
     <message>
         <source>Output Space Sizing</source>
         <translation>Ukuran Output Ruang</translation>
     </message>
-    <!-- OS:OutputControl:Files -->
+    
     <message>
         <source>Output SQLite</source>
         <translation>Output SQLite</translation>
     </message>
-    <!-- OS:OutputControl:Files -->
+    
     <message>
         <source>Output System Sizing</source>
         <translation>Penentuan Ukuran Sistem Output</translation>
     </message>
-    <!-- OS:OutputControl:Files -->
+    
     <message>
         <source>Output Tabular</source>
         <translation>Output Tabular</translation>
     </message>
-    <!-- OS:OutputControl:Files -->
+    
     <message>
         <source>Output Tarcog</source>
         <translation>Output Tarcog</translation>
     </message>
-    <!-- OS:Curve:Bicubic, OS:Curve:Biquadratic, OS:Curve:Cubic, OS:Curve:DoubleExponentialDecay, OS:Curve:Exponent, OS:Curve:ExponentialDecay, OS:Curve:ExponentialSkewNormal, OS:Curve:Linear, OS:Curve:Quadratic, OS:Curve:QuadraticLinear, OS:Curve:Quartic, OS:Curve:RectangularHyperbola1, OS:Curve:RectangularHyperbola2, OS:Curve:Sigmoid, OS:Curve:Triquadratic, OS:Table:Lookup, OS:Table:MultiVariableLookup -->
+    
     <message>
         <source>Output Unit Type</source>
         <translation>Jenis Unit Keluaran</translation>
     </message>
-    <!-- OS:Table:Lookup -->
+    
     <message>
         <source>Output Value</source>
         <translation>Nilai Keluaran</translation>
     </message>
-    <!-- OS:Meter:Custom, OS:Meter:CustomDecrement -->
+    
     <message>
         <source>Output Variable or Meter Name</source>
         <translation>Nama Variabel Output atau Meter</translation>
     </message>
-    <!-- OS:EnergyManagementSystem:Sensor -->
+    
     <message>
         <source>Output Variable or Output Meter Index Key Name</source>
         <translation>Nama Kunci Indeks Variabel Output atau Meter Output</translation>
     </message>
-    <!-- OS:EnergyManagementSystem:Sensor -->
+    
     <message>
         <source>Output Variable or Output Meter Name</source>
         <translation>Nama Variabel Output atau Meter Output</translation>
     </message>
-    <!-- OS:OutputControl:Files -->
+    
     <message>
         <source>Output WRL</source>
         <translation>Output WRL</translation>
     </message>
-    <!-- OS:OutputControl:Files -->
+    
     <message>
         <source>Output Zone Sizing</source>
         <translation>Penentu Ukuran Zona Keluaran</translation>
     </message>
-    <!-- OS:ExternalInterface:FunctionalMockupUnitExport:From:Variable, OS:ExternalInterface:FunctionalMockupUnitImport:From:Variable -->
+    
     <message>
         <source>Output:Variable Index Key Name</source>
         <translation>Output:Variable Index Key Name</translation>
     </message>
-    <!-- OS:ExternalInterface:FunctionalMockupUnitExport:From:Variable, OS:ExternalInterface:FunctionalMockupUnitImport:From:Variable -->
+    
     <message>
         <source>Output:Variable Name</source>
         <translation>Output:Nama Variabel</translation>
     </message>
-    <!-- OS:ZoneHVAC:TerminalUnit:VariableRefrigerantFlow -->
+    
     <message>
         <source>Outside Air Mixer</source>
         <translation>Mixer Udara Luar</translation>
     </message>
-    <!-- OS:Surface -->
+    
     <message>
         <source>Outside Boundary Condition</source>
         <translation>Kondisi Batas Luar</translation>
     </message>
-    <!-- OS:SubSurface, OS:Surface -->
+    
     <message>
         <source>Outside Boundary Condition Object</source>
         <translation>Outside Boundary Condition Object</translation>
     </message>
-    <!-- OS:AirflowNetworkDuct -->
+    
     <message>
         <source>Outside Convection Coefficient</source>
         <translation>Koefisien Konveksi Luar</translation>
     </message>
-    <!-- OS:WindowProperty:FrameAndDivider -->
+    
     <message>
         <source>Outside Reveal Depth</source>
         <translation>Kedalaman Reveal Luar</translation>
     </message>
-    <!-- OS:WindowProperty:FrameAndDivider -->
+    
     <message>
         <source>Outside Reveal Solar Absorptance</source>
         <translation>Absorptansi Solar Bagian Luar Reveal</translation>
     </message>
-    <!-- OS:DaylightingDevice:Shelf -->
+    
     <message>
         <source>Outside Shelf Name</source>
         <translation>Nama Rak Luar</translation>
     </message>
-    <!-- OS:Generator:WindTurbine -->
+    
     <message>
         <source>Overall Height</source>
         <translation>Tinggi Total</translation>
     </message>
-    <!-- OS:Coil:UserDefined -->
+    
     <message>
         <source>Overall Model Simulation Program Calling Manager Name</source>
         <translation>Nama Pengelola Pemanggilan Program Simulasi Model Keseluruhan</translation>
     </message>
-    <!-- OS:AirflowNetworkDuct -->
+    
     <message>
         <source>Overall Moisture Transmittance Coefficient from Air to Air</source>
         <translation>Koefisien Transmitansi Kelembaban Keseluruhan dari Udara ke Udara</translation>
     </message>
-    <!-- OS:Coil:UserDefined -->
+    
     <message>
         <source>Overall Simulation Program Name</source>
         <translation>Nama Program Simulasi Keseluruhan</translation>
     </message>
-    <!-- OS:DefaultSubSurfaceConstructions -->
+    
     <message>
         <source>Overhead Door Construction Name</source>
         <translation>Nama Konstruksi Pintu Overhead</translation>
     </message>
-    <!-- OS:PerformancePrecisionTradeoffs -->
+    
     <message>
         <source>Override Mode</source>
         <translation>Mode Penggantian</translation>
     </message>
 
-    <!-- P -->
-    <!-- OS:ThermalStorage:Ice:Detailed -->
+    
+    
     <message>
         <source>Parasitic Electric Load During Charging</source>
         <translation>Beban Listrik Parasitik Selama Pengisian</translation>
     </message>
-    <!-- OS:ThermalStorage:Ice:Detailed -->
+    
     <message>
         <source>Parasitic Electric Load During Discharging</source>
         <translation>Beban Listrik Parasitik Saat Pengosongan</translation>
     </message>
-    <!-- OS:WaterHeater:HeatPump, OS:WaterHeater:HeatPump:WrappedCondenser -->
+    
     <message>
         <source>Parasitic Heat Rejection Location</source>
         <translation>Lokasi Penolakan Panas Parasitik</translation>
     </message>
-    <!-- OS:WaterHeater:Mixed -->
+    
     <message>
         <source>Part Load Factor Curve Name</source>
         <translation>Nama Kurva Faktor Beban Parsial</translation>
     </message>
-    <!-- OS:Coil:Cooling:DX:CurveFit:Speed, OS:Coil:Cooling:DX:MultiSpeed:StageData, OS:Coil:Heating:Gas:MultiStage, OS:Coil:WaterHeating:AirToWaterHeatPump, OS:CoilPerformance:DX:Cooling -->
+    
     <message>
         <source>Part Load Fraction Correlation Curve</source>
         <translation>Kurva Korelasi Fraksi Beban Parsial</translation>
     </message>
-    <!-- OS:Space -->
+    
     <message>
         <source>Part of Total Floor Area</source>
         <translation>Bagian dari Total Luas Lantai</translation>
     </message>
-    <!-- OS:FuelFactors -->
+    
     <message>
         <source>Pb Emission Factor</source>
         <translation>Faktor Emisi Pb</translation>
     </message>
-    <!-- OS:FuelFactors -->
+    
     <message>
         <source>Pb Emission Factor Schedule Name</source>
         <translation>Nama Jadwal Faktor Emisi Pb</translation>
     </message>
-    <!-- OS:UtilityBill -->
+    
     <message>
         <source>Peak Demand Unit</source>
         <translation>Satuan Permintaan Puncak</translation>
     </message>
-    <!-- OS:MaterialProperty:PhaseChangeHysteresis -->
+    
     <message>
         <source>Peak Freezing Temperature</source>
         <translation>Suhu Pembekuan Puncak</translation>
     </message>
-    <!-- OS:MaterialProperty:PhaseChangeHysteresis -->
+    
     <message>
         <source>Peak Melting Temperature</source>
         <translation>Temperatur Leleh Puncak</translation>
     </message>
-    <!-- OS:WaterHeater:Mixed, OS:WaterHeater:Stratified -->
+    
     <message>
         <source>Peak Use Flow Rate</source>
         <translation>Laju Aliran Puncak</translation>
     </message>
-    <!-- OS:SwimmingPool:Indoor -->
+    
     <message>
         <source>People Heat Gain Schedule</source>
         <translation>Jadwal Penambahan Panas dari Penghuni</translation>
     </message>
-    <!-- OS:SwimmingPool:Indoor -->
+    
     <message>
         <source>People Schedule</source>
         <translation>Jadwal Penghuni</translation>
     </message>
-    <!-- OS:AirTerminal:DualDuct:VAV:OutdoorAir, OS:AirTerminal:SingleDuct:InletSideMixer -->
+    
     <message>
         <source>Per Person Ventilation Rate Mode</source>
         <translation>Mode Laju Ventilasi Per Orang</translation>
     </message>
-    <!-- OS:ElectricLoadCenter:Transformer -->
+    
     <message>
         <source>Per Unit Load for Maximum Efficiency</source>
         <translation>Beban Per Unit untuk Efisiensi Maksimal</translation>
     </message>
-    <!-- OS:ElectricLoadCenter:Transformer -->
+    
     <message>
         <source>Per Unit Load for Nameplate Efficiency</source>
         <translation>Beban Per Unit untuk Efisiensi Nameplate</translation>
     </message>
-    <!-- OS:Chiller:Electric:ASHRAE205 -->
+    
     <message>
         <source>Performance Interpolation Method</source>
         <translation>Metode Interpolasi Performa</translation>
     </message>
-    <!-- OS:Coil:Cooling:DX -->
+    
     <message>
         <source>Performance Object</source>
         <translation>Objek Kinerja</translation>
     </message>
-    <!-- OS:DaylightingDevice:LightWell -->
+    
     <message>
         <source>Perimeter of Bottom of Well</source>
         <translation>Keliling Dasar Sumur</translation>
     </message>
-    <!-- OS:Construction:FfactorGroundFloor -->
+    
     <message>
         <source>PerimeterExposed</source>
         <translation>PerimeterExposed</translation>
     </message>
-    <!-- OS:SurfaceProperty:OtherSideCoefficients -->
+    
     <message>
         <source>Period of Sinusoidal Variation</source>
         <translation>Periode Variasi Sinusoidal</translation>
     </message>
-    <!-- OS:SizingPeriod:WeatherFileConditionType -->
+    
     <message>
         <source>Period Selection</source>
         <translation>Pemilihan Periode</translation>
     </message>
-    <!-- OS:ComponentCost:Adjustments -->
+    
     <message>
         <source>Permits Bonding and Insurance</source>
         <translation>Izin Jaminan dan Asuransi</translation>
     </message>
-    <!-- OS:StandardsInformation:Construction -->
+    
     <message>
         <source>Perturbable Layer</source>
         <translation>Lapisan yang Dapat Diganggu</translation>
     </message>
-    <!-- OS:StandardsInformation:Construction -->
+    
     <message>
         <source>Perturbable Layer Type</source>
         <translation>Jenis Lapisan yang Dapat Diubah</translation>
     </message>
-    <!-- OS:ElectricLoadCenter:Transformer -->
+    
     <message>
         <source>Phase</source>
         <translation>Fase</translation>
     </message>
-    <!-- OS:Site:GroundTemperature:Undisturbed:KusudaAchenbach -->
+    
     <message>
         <source>Phase Shift of Minimum Surface Temperature</source>
         <translation>Pergeseran Fasa Suhu Permukaan Minimum</translation>
     </message>
-    <!-- OS:Site:GroundTemperature:Undisturbed:Xing -->
+    
     <message>
         <source>Phase Shift of Temperature Amplitude 1</source>
         <translation>Pergeseran Fasa Amplitudo Suhu 1</translation>
     </message>
-    <!-- OS:Site:GroundTemperature:Undisturbed:Xing -->
+    
     <message>
         <source>Phase Shift of Temperature Amplitude 2</source>
         <translation>Pergeseran Fasa Amplitudo Suhu 2</translation>
     </message>
-    <!-- OS:Refrigeration:SecondarySystem -->
+    
     <message>
         <source>PhaseChange Circulating Rate</source>
         <translation>Laju Sirkulasi Perubahan Fase</translation>
     </message>
-    <!-- OS:Daylighting:Control, OS:Glare:Sensor, OS:IlluminanceMap -->
+    
     <message>
         <source>Phi Rotation Around Z-Axis</source>
         <translation>Rotasi Phi Mengelilingi Sumbu Z</translation>
     </message>
-    <!-- OS:Luminaire -->
+    
     <message>
         <source>Phi Rotation Around Z-axis</source>
         <translation>Rotasi Phi Mengelilingi Sumbu Z</translation>
     </message>
-    <!-- OS:SolarCollector:FlatPlate:PhotovoltaicThermal -->
+    
     <message>
         <source>Photovoltaic Name</source>
         <translation>Nama Fotovoltaik</translation>
     </message>
-    <!-- OS:SolarCollector:FlatPlate:PhotovoltaicThermal -->
+    
     <message>
         <source>Photovoltaic-Thermal Model Performance Name</source>
         <translation>Nama Kinerja Model Photovoltaic-Thermal</translation>
     </message>
-    <!-- OS:GroundHeatExchanger:HorizontalTrench -->
+    
     <message>
         <source>Pipe Density</source>
         <translation>Kepadatan Pipa</translation>
     </message>
-    <!-- OS:GroundHeatExchanger:HorizontalTrench -->
+    
     <message>
         <source>Pipe Inner Diameter</source>
         <translation>Diameter Dalam Pipa</translation>
     </message>
-    <!-- OS:Pipe:Indoor, OS:Pipe:Outdoor -->
+    
     <message>
         <source>Pipe Inside Diameter</source>
         <translation>Diameter Dalam Pipa</translation>
     </message>
-    <!-- OS:Pipe:Indoor, OS:Pipe:Outdoor -->
+    
     <message>
         <source>Pipe Length</source>
         <translation>Panjang Pipa</translation>
     </message>
-    <!-- OS:GroundHeatExchanger:Vertical -->
+    
     <message>
         <source>Pipe Out Diameter</source>
         <translation>Diameter Pipa Keluar</translation>
     </message>
-    <!-- OS:GroundHeatExchanger:HorizontalTrench -->
+    
     <message>
         <source>Pipe Outer Diameter</source>
         <translation>Diameter Luar Pipa</translation>
     </message>
-    <!-- OS:GroundHeatExchanger:HorizontalTrench -->
+    
     <message>
         <source>Pipe Specific Heat</source>
         <translation>Panas Spesifik Pipa</translation>
     </message>
-    <!-- OS:GroundHeatExchanger:HorizontalTrench, OS:GroundHeatExchanger:Vertical -->
+    
     <message>
         <source>Pipe Thermal Conductivity</source>
         <translation>Konduktivitas Termal Pipa</translation>
     </message>
-    <!-- OS:GroundHeatExchanger:Vertical -->
+    
     <message>
         <source>Pipe Thickness</source>
         <translation>Ketebalan Pipa</translation>
     </message>
-    <!-- OS:AirConditioner:VariableRefrigerantFlow -->
+    
     <message>
         <source>Piping Correction Factor for Height in Cooling Mode Coefficient</source>
         <translation>Koefisien Faktor Koreksi Pipa untuk Tinggi dalam Mode Pendinginan</translation>
     </message>
-    <!-- OS:AirConditioner:VariableRefrigerantFlow -->
+    
     <message>
         <source>Piping Correction Factor for Height in Heating Mode Coefficient</source>
         <translation>Koefisien Faktor Koreksi Pipa untuk Ketinggian dalam Mode Pemanasan</translation>
     </message>
-    <!-- OS:AirConditioner:VariableRefrigerantFlow -->
+    
     <message>
         <source>Piping Correction Factor for Length in Cooling Mode Curve Name</source>
         <translation>Nama Kurva Faktor Koreksi Perpipaan untuk Panjang dalam Mode Pendinginan</translation>
     </message>
-    <!-- OS:AirConditioner:VariableRefrigerantFlow -->
+    
     <message>
         <source>Piping Correction Factor for Length in Heating Mode Curve Name</source>
         <translation>Nama Kurva Faktor Koreksi Pipa untuk Panjang dalam Mode Pemanasan</translation>
     </message>
-    <!-- OS:ShadowCalculation -->
+    
     <message>
         <source>Pixel Counting Resolution</source>
         <translation>Resolusi Penghitungan Piksel</translation>
     </message>
-    <!-- OS:LightingSimulationZone -->
+    
     <message>
         <source>Planar Surface Group Name</source>
         <translation>Nama Grup Permukaan Planar</translation>
     </message>
-    <!-- OS:Coil:UserDefined -->
+    
     <message>
         <source>Plant Connection Inlet Node Name</source>
         <translation>Nama Node Inlet Koneksi Plant</translation>
     </message>
-    <!-- OS:Coil:UserDefined -->
+    
     <message>
         <source>Plant Connection Outlet Node Name</source>
         <translation>Nama Node Outlet Koneksi Plant</translation>
     </message>
-    <!-- OS:Coil:UserDefined -->
+    
     <message>
         <source>Plant Design Volume Flow Rate Actuator</source>
         <translation>Aktuator Laju Aliran Volume Desain Sistem</translation>
     </message>
-    <!-- OS:PlantLoop -->
+    
     <message>
         <source>Plant Equipment Operation Cooling Load</source>
         <translation>Beban Pendinginan Operasi Peralatan Plant</translation>
     </message>
-    <!-- OS:PlantLoop -->
+    
     <message>
         <source>Plant Equipment Operation Cooling Load Schedule</source>
         <translation>Jadwal Beban Pendinginan Operasi Peralatan Pabrik</translation>
     </message>
-    <!-- OS:PlantLoop -->
+    
     <message>
         <source>Plant Equipment Operation Heating Load</source>
         <translation>Operasi Peralatan Plant Beban Pemanas</translation>
     </message>
-    <!-- OS:PlantLoop -->
+    
     <message>
         <source>Plant Equipment Operation Heating Load Schedule</source>
         <translation>Jadwal Beban Pemanas Operasi Peralatan Tanaman</translation>
     </message>
-    <!-- OS:PlantComponent:UserDefined -->
+    
     <message>
         <source>Plant Initialization Program Calling Manager Name</source>
         <translation>Nama Pengelola Pemanggilan Program Inisialisasi Tanaman</translation>
     </message>
-    <!-- OS:PlantComponent:UserDefined -->
+    
     <message>
         <source>Plant Initialization Program Name</source>
         <translation>Nama Program Inisialisasi Sistem</translation>
     </message>
-    <!-- OS:PlantComponent:UserDefined -->
+    
     <message>
         <source>Plant Inlet Node Name</source>
         <translation>Nama Node Inlet Plant</translation>
     </message>
-    <!-- OS:PlantComponent:UserDefined -->
+    
     <message>
         <source>Plant Loading Mode</source>
         <translation>Mode Pembebanan Tanaman</translation>
     </message>
-    <!-- OS:PlantLoop -->
+    
     <message>
         <source>Plant Loop Demand Calculation Scheme</source>
         <translation>Skema Perhitungan Permintaan Plant Loop</translation>
     </message>
-    <!-- OS:PlantComponent:UserDefined -->
+    
     <message>
         <source>Plant Loop Flow Request Mode</source>
         <translation>Mode Permintaan Aliran Loop Tanaman</translation>
     </message>
-    <!-- OS:LoadProfile:Plant -->
+    
     <message>
         <source>Plant Loop Fluid Type</source>
         <translation>Jenis Fluida Plant Loop</translation>
     </message>
-    <!-- OS:Coil:UserDefined -->
+    
     <message>
         <source>Plant Mass Flow Rate Actuator</source>
         <translation>Aktuator Laju Aliran Massa Sistem</translation>
     </message>
-    <!-- OS:Coil:UserDefined -->
+    
     <message>
         <source>Plant Maximum Mass Flow Rate Actuator</source>
         <translation>Aktuator Laju Aliran Massa Maksimum Sistem Perpipaan</translation>
     </message>
-    <!-- OS:Coil:UserDefined -->
+    
     <message>
         <source>Plant Minimum Mass Flow Rate Actuator</source>
         <translation>Aktuator Laju Alir Massa Minimum Sistem</translation>
     </message>
-    <!-- OS:Sizing:Plant -->
+    
     <message>
         <source>Plant or Condenser Loop Name</source>
         <translation>Nama Loop Pabrik atau Kondenser</translation>
     </message>
-    <!-- OS:PlantComponent:UserDefined -->
+    
     <message>
         <source>Plant Outlet Node Name</source>
         <translation>Nama Node Outlet Pabrik</translation>
     </message>
-    <!-- OS:Coil:UserDefined -->
+    
     <message>
         <source>Plant Outlet Temperature Actuator</source>
         <translation>Aktuator Suhu Outlet Pabrik</translation>
     </message>
-    <!-- OS:PlantLoop -->
+    
     <message>
         <source>Plant Side Branch List Name</source>
         <translation>Nama Daftar Cabang Sisi Pabrik</translation>
     </message>
-    <!-- OS:PlantLoop -->
+    
     <message>
         <source>Plant Side Inlet Node Name</source>
         <translation>Nama Node Inlet Sisi Plant</translation>
     </message>
-    <!-- OS:PlantLoop -->
+    
     <message>
         <source>Plant Side Outlet Node Name</source>
         <translation>Nama Node Outlet Sisi Plant</translation>
     </message>
-    <!-- OS:PlantComponent:UserDefined -->
+    
     <message>
         <source>Plant Simulation Program Calling Manager Name</source>
         <translation>Nama Pengelola Pemanggilan Program Simulasi Tanaman</translation>
     </message>
-    <!-- OS:PlantComponent:UserDefined -->
+    
     <message>
         <source>Plant Simulation Program Name</source>
         <translation>Nama Program Simulasi Pabrik</translation>
     </message>
-    <!-- OS:AirLoopHVAC:UnitaryHeatCool:VAVChangeoverBypass -->
+    
     <message>
         <source>Plenum or Mixer Inlet Node Name</source>
         <translation>Nama Node Inlet Plenum atau Mixer</translation>
     </message>
-    <!-- OS:PythonPlugin:Instance -->
+    
     <message>
         <source>Plugin Class Name</source>
         <translation>Nama Kelas Plugin</translation>
     </message>
-    <!-- OS:FuelFactors -->
+    
     <message>
         <source>PM Emission Factor</source>
         <translation>Faktor Emisi PM</translation>
     </message>
-    <!-- OS:FuelFactors -->
+    
     <message>
         <source>PM Emission Factor Schedule Name</source>
         <translation>Nama Jadwal Faktor Emisi PM</translation>
     </message>
-    <!-- OS:FuelFactors -->
+    
     <message>
         <source>PM10 Emission Factor</source>
         <translation>Faktor Emisi PM10</translation>
     </message>
-    <!-- OS:FuelFactors -->
+    
     <message>
         <source>PM10 Emission Factor Schedule Name</source>
         <translation>Nama Jadwal Faktor Emisi PM10</translation>
     </message>
-    <!-- OS:FuelFactors -->
+    
     <message>
         <source>PM2.5 Emission Factor</source>
         <translation>Faktor Emisi PM2,5</translation>
     </message>
-    <!-- OS:FuelFactors -->
+    
     <message>
         <source>PM2.5 Emission Factor Schedule Name</source>
         <translation>Nama Jadwal Faktor Emisi PM2.5</translation>
     </message>
-    <!-- OS:ShadowCalculation -->
+    
     <message>
         <source>Polygon Clipping Algorithm</source>
         <translation>Algoritma Pemotongan Poligon</translation>
     </message>
-    <!-- OS:SwimmingPool:Indoor -->
+    
     <message>
         <source>Pool Heating System Maximum Water Flow Rate</source>
         <translation>Laju Aliran Air Maksimum Sistem Pemanasan Kolam</translation>
     </message>
-    <!-- OS:SwimmingPool:Indoor -->
+    
     <message>
         <source>Pool Miscellaneous Equipment Power</source>
         <translation>Daya Peralatan Kolam Renang Lainnya</translation>
     </message>
-    <!-- OS:SwimmingPool:Indoor -->
+    
     <message>
         <source>Pool Water Inlet Node</source>
         <translation>Simpul Inlet Air Kolam Renang</translation>
     </message>
-    <!-- OS:SwimmingPool:Indoor -->
+    
     <message>
         <source>Pool Water Outlet Node</source>
         <translation>Node Outlet Air Kolam</translation>
     </message>
-    <!-- OS:PortList -->
+    
     <message>
         <source>Port</source>
         <translation>Port</translation>
     </message>
-    <!-- OS:Daylighting:Control, OS:Glare:Sensor -->
+    
     <message>
         <source>Position X-Coordinate</source>
         <translation>Koordinat X-Posisi</translation>
     </message>
-    <!-- OS:Luminaire -->
+    
     <message>
         <source>Position X-coordinate</source>
         <translation>Koordinat X Posisi</translation>
     </message>
-    <!-- OS:Daylighting:Control, OS:Glare:Sensor -->
+    
     <message>
         <source>Position Y-Coordinate</source>
         <translation>Koordinat Y Posisi</translation>
     </message>
-    <!-- OS:Luminaire -->
+    
     <message>
         <source>Position Y-coordinate</source>
         <translation>Koordinat Y-Posisi</translation>
     </message>
-    <!-- OS:Daylighting:Control, OS:Glare:Sensor -->
+    
     <message>
         <source>Position Z-Coordinate</source>
         <translation>Koordinat Z Posisi</translation>
     </message>
-    <!-- OS:Luminaire -->
+    
     <message>
         <source>Position Z-coordinate</source>
         <translation>Koordinat Z Posisi</translation>
     </message>
-    <!-- OS:Generator:WindTurbine -->
+    
     <message>
         <source>Power Coefficient C1</source>
         <translation>Koefisien Daya C1</translation>
     </message>
-    <!-- OS:Generator:WindTurbine -->
+    
     <message>
         <source>Power Coefficient C2</source>
         <translation>Koefisien Daya C2</translation>
     </message>
-    <!-- OS:Generator:WindTurbine -->
+    
     <message>
         <source>Power Coefficient C3</source>
         <translation>Koefisien Daya C3</translation>
     </message>
-    <!-- OS:Generator:WindTurbine -->
+    
     <message>
         <source>Power Coefficient C4</source>
         <translation>Koefisien Daya C4</translation>
     </message>
-    <!-- OS:Generator:WindTurbine -->
+    
     <message>
         <source>Power Coefficient C5</source>
         <translation>Koefisien Daya C5</translation>
     </message>
-    <!-- OS:Generator:WindTurbine -->
+    
     <message>
         <source>Power Coefficient C6</source>
         <translation>Koefisien Daya C6</translation>
     </message>
-    <!-- OS:Generator:WindTurbine -->
+    
     <message>
         <source>Power Control</source>
         <translation>Kontrol Daya</translation>
     </message>
-    <!-- OS:ElectricLoadCenter:Storage:Converter -->
+    
     <message>
         <source>Power Conversion Efficiency Method</source>
         <translation>Metode Efisiensi Konversi Daya</translation>
     </message>
-    <!-- OS:Generator:FuelCell:PowerModule -->
+    
     <message>
         <source>Power Down Transient Limit</source>
         <translation>Batas Transien Daya Turun</translation>
     </message>
-    <!-- OS:Generator:FuelCell -->
+    
     <message>
         <source>Power Module Name</source>
         <translation>Nama Modul Daya</translation>
     </message>
-    <!-- OS:Generator:FuelCell:PowerModule -->
+    
     <message>
         <source>Power Up Transient Limit</source>
         <translation>Batas Transien Daya Naik</translation>
     </message>
-    <!-- OS:Version -->
+    
     <message>
         <source>Prerelease Identifier</source>
         <translation>Pengenal Pra-rilis</translation>
     </message>
-    <!-- OS:AirflowNetworkPressureController -->
+    
     <message>
         <source>Pressure Control Availability Schedule Name</source>
         <translation>Nama Jadwal Ketersediaan Kontrol Tekanan</translation>
     </message>
-    <!-- OS:AirflowNetworkConstantPressureDrop -->
+    
     <message>
         <source>Pressure Difference Across the Component</source>
         <translation>Perbedaan Tekanan Di Seluruh Komponen</translation>
     </message>
-    <!-- OS:SpaceInfiltration:FlowCoefficient -->
+    
     <message>
         <source>Pressure Exponent</source>
         <translation>Eksponen Tekanan</translation>
     </message>
-    <!-- OS:AirflowNetworkPressureController -->
+    
     <message>
         <source>Pressure Setpoint Schedule Name</source>
         <translation>Nama Jadwal Setpoint Tekanan</translation>
     </message>
-    <!-- OS:SurfaceProperty:OtherSideCoefficients -->
+    
     <message>
         <source>Previous Other Side Temperature Coefficient</source>
         <translation>Koefisien Temperatur Sisi Lain Sebelumnya</translation>
     </message>
-    <!-- OS:AirTerminal:SingleDuct:ConstantVolume:FourPipeBeam -->
+    
     <message>
         <source>Primary Air Availability Schedule Name</source>
         <translation>Nama Jadwal Ketersediaan Udara Primer</translation>
     </message>
-    <!-- OS:EvaporativeCooler:Direct:ResearchSpecial -->
+    
     <message>
         <source>Primary Air Design Flow Rate</source>
         <translation>Laju Aliran Desain Udara Primer</translation>
     </message>
-    <!-- OS:EvaporativeCooler:Indirect:ResearchSpecial -->
+    
     <message>
         <source>Primary Air Inlet Node</source>
         <translation>Node Masukan Udara Primer</translation>
     </message>
-    <!-- OS:AirTerminal:SingleDuct:ConstantVolume:FourPipeBeam -->
+    
     <message>
         <source>Primary Air Inlet Node Name</source>
         <translation>Nama Node Inlet Udara Primer</translation>
     </message>
-    <!-- OS:EvaporativeCooler:Indirect:ResearchSpecial -->
+    
     <message>
         <source>Primary Air Outlet Node</source>
         <translation>Simpul Outlet Udara Primer</translation>
     </message>
-    <!-- OS:AirTerminal:SingleDuct:ConstantVolume:FourPipeBeam -->
+    
     <message>
         <source>Primary Air Outlet Node Name</source>
         <translation>Nama Node Outlet Udara Primer</translation>
     </message>
-    <!-- OS:ThermalZone -->
+    
     <message>
         <source>Primary Daylighting Control Name</source>
         <translation>Nama Kontrol Pencahayaan Alami Utama</translation>
     </message>
-    <!-- OS:EvaporativeCooler:Indirect:ResearchSpecial -->
+    
     <message>
         <source>Primary Design Air Flow Rate</source>
         <translation>Laju Aliran Udara Desain Primer</translation>
     </message>
-    <!-- OS:PlantLoop -->
+    
     <message>
         <source>Primary Plant Equipment Operation Scheme</source>
         <translation>Skema Operasi Peralatan Pembangkit Utama</translation>
     </message>
-    <!-- OS:PlantLoop -->
+    
     <message>
         <source>Primary Plant Equipment Operation Scheme Schedule</source>
         <translation>Jadwal Skema Operasi Peralatan Tanaman Primer</translation>
     </message>
-    <!-- OS:AirLoopHVAC:UnitaryHeatCool:VAVChangeoverBypass -->
+    
     <message>
         <source>Priority Control Mode</source>
         <translation>Mode Kontrol Prioritas</translation>
     </message>
-    <!-- OS:Daylighting:Control -->
+    
     <message>
         <source>Probability Lighting will be Reset When Needed in Manual Stepped Control</source>
         <translation>Probabilitas Pencahayaan akan Disetel Ulang Saat Diperlukan dalam Kontrol Langkah Manual</translation>
     </message>
-    <!-- OS:HeatExchanger:Desiccant:BalancedFlow -->
+    
     <message>
         <source>Process Air Inlet Node</source>
         <translation>Simpul Inlet Udara Proses</translation>
     </message>
-    <!-- OS:HeatExchanger:Desiccant:BalancedFlow -->
+    
     <message>
         <source>Process Air Outlet Node</source>
         <translation>Simpul Outlet Udara Proses</translation>
     </message>
-    <!-- OS:EnergyManagementSystem:Program, OS:EnergyManagementSystem:Subroutine -->
+    
     <message>
         <source>Program Line</source>
         <translation>Baris Program</translation>
     </message>
-    <!-- OS:EnergyManagementSystem:ProgramCallingManager -->
+    
     <message>
         <source>Program Name</source>
         <translation>Nama Program</translation>
     </message>
-    <!-- OS:LifeCycleCost:Parameters -->
+    
     <message>
         <source>Propane Inflation</source>
         <translation>Inflasi Propana</translation>
     </message>
-    <!-- OS:Daylighting:Control, OS:Glare:Sensor, OS:IlluminanceMap -->
+    
     <message>
         <source>Psi Rotation Around X-Axis</source>
         <translation>Rotasi Psi Mengelilingi Sumbu X</translation>
     </message>
-    <!-- OS:Luminaire -->
+    
     <message>
         <source>Psi Rotation Around X-axis</source>
         <translation>Psi Rotasi Mengelilingi Sumbu-X</translation>
     </message>
-    <!-- OS:Pump:ConstantSpeed -->
+    
     <message>
         <source>Pump Curve</source>
         <translation>Kurva Pompa</translation>
     </message>
-    <!-- OS:Pump:VariableSpeed -->
+    
     <message>
         <source>Pump Curve Name</source>
         <translation>Nama Kurva Pompa</translation>
     </message>
-    <!-- OS:Refrigeration:SecondarySystem -->
+    
     <message>
         <source>Pump Drive Type</source>
         <translation>Tipe Penggerak Pompa</translation>
     </message>
-    <!-- OS:Chiller:Absorption:Indirect -->
+    
     <message>
         <source>Pump Electric Input Function of Part Load Ratio Curve</source>
         <translation>Kurva Fungsi Input Listrik Pompa terhadap Rasio Beban Parsial</translation>
     </message>
-    <!-- OS:HeaderedPumps:ConstantSpeed, OS:HeaderedPumps:VariableSpeed, OS:Pump:ConstantSpeed -->
+    
     <message>
         <source>Pump Flow Rate Schedule</source>
         <translation>Jadwal Laju Aliran Pompa</translation>
     </message>
-    <!-- OS:Generator:FuelCell:WaterSupply -->
+    
     <message>
         <source>Pump Heat Loss Factor</source>
         <translation>Faktor Kehilangan Panas Pompa</translation>
     </message>
-    <!-- OS:Refrigeration:SecondarySystem -->
+    
     <message>
         <source>Pump Motor Heat to Fluid</source>
         <translation>Panas Motor Pompa ke Fluida</translation>
     </message>
-    <!-- OS:TemperingValve -->
+    
     <message>
         <source>Pump Outlet Node</source>
         <translation>Simpul Outlet Pompa</translation>
     </message>
-    <!-- OS:Pump:VariableSpeed -->
+    
     <message>
         <source>Pump RPM Schedule Name</source>
         <translation>Nama Jadwal RPM Pompa</translation>
     </message>
-    <!-- OS:SolarCollectorPerformance:PhotovoltaicThermal:BIPVT -->
+    
     <message>
         <source>PV Cell Normal Transmittance-Absorptance Product</source>
         <translation>Produk Transmitansi-Absorptansi Normal Sel PV</translation>
     </message>
-    <!-- OS:SolarCollectorPerformance:PhotovoltaicThermal:BIPVT -->
+    
     <message>
         <source>PV Module Back Longwave Emissivity</source>
         <translation>Emisivitas Gelombang Panjang Belakang Modul PV</translation>
     </message>
-    <!-- OS:SolarCollectorPerformance:PhotovoltaicThermal:BIPVT -->
+    
     <message>
         <source>PV Module Bottom Thermal Resistance</source>
         <translation>Ketahanan Termal Bagian Bawah Modul PV</translation>
     </message>
-    <!-- OS:SolarCollectorPerformance:PhotovoltaicThermal:BIPVT -->
+    
     <message>
         <source>PV Module Front Longwave Emissivity</source>
         <translation>Emissivitas Gelombang Panjang Depan Modul PV</translation>
     </message>
-    <!-- OS:SolarCollectorPerformance:PhotovoltaicThermal:BIPVT -->
+    
     <message>
         <source>PV Module Top Thermal Resistance</source>
         <translation>Resistansi Termal Atas Modul PV</translation>
     </message>
-    <!-- OS:Generator:PVWatts -->
+    
     <message>
         <source>PVWatts Version</source>
         <translation>Versi PVWatts</translation>
     </message>
-    <!-- OS:PythonPlugin:OutputVariable -->
+    
     <message>
         <source>Python Plugin Variable Name</source>
         <translation>Nama Variabel Plugin Python</translation>
     </message>
 
-    <!-- Q -->
-    <!-- OS:UtilityCost:Qualify -->
+    
+    
     <message>
         <source>Qualify Type</source>
         <translation>Jenis Kualifikasi</translation>
     </message>
 
-    <!-- R -->
-    <!-- OS:ZoneHVAC:HighTemperatureRadiant, OS:ZoneHVAC:LowTemperatureRadiant:ConstantFlow, OS:ZoneHVAC:LowTemperatureRadiant:Electric, OS:ZoneHVAC:LowTemperatureRadiant:VariableFlow -->
+    
+    
     <message>
         <source>Radiant Surface Type</source>
         <translation>Jenis Permukaan Radiasi</translation>
     </message>
-    <!-- OS:ElectricLoadCenter:Inverter:LookUpTable, OS:ElectricLoadCenter:Inverter:Simple, OS:ElectricLoadCenter:Storage:Converter, OS:ElectricLoadCenter:Storage:LiIonNMCBattery, OS:ElectricLoadCenter:Transformer -->
+    
     <message>
         <source>Radiative Fraction</source>
         <translation>Fraksi Radiasi</translation>
     </message>
-    <!-- OS:ElectricLoadCenter:Storage:Simple -->
+    
     <message>
         <source>Radiative Fraction for Zone Heat Gains</source>
         <translation>Fraksi Radiatif untuk Penambahan Panas Zona</translation>
     </message>
-    <!-- OS:SizingPeriod:DesignDay -->
+    
     <message>
         <source>Rain Indicator</source>
         <translation>Indikator Hujan</translation>
     </message>
-    <!-- OS:PlantEquipmentOperation:CoolingLoad, OS:PlantEquipmentOperation:HeatingLoad, OS:PlantEquipmentOperation:OutdoorDewpoint, OS:PlantEquipmentOperation:OutdoorDewpointDifference, OS:PlantEquipmentOperation:OutdoorDryBulb, OS:PlantEquipmentOperation:OutdoorDryBulbDifference, OS:PlantEquipmentOperation:OutdoorRelativeHumidity, OS:PlantEquipmentOperation:OutdoorWetBulb, OS:PlantEquipmentOperation:OutdoorWetBulbDifference -->
+    
     <message>
         <source>Range Equipment List Name</source>
         <translation>Nama Daftar Peralatan Kompor</translation>
     </message>
-    <!-- OS:HeatExchanger:AirToAir:SensibleAndLatent -->
+    
     <message>
         <source>Rate of Defrost Time Fraction Increase</source>
         <translation>Tingkat Peningkatan Fraksi Waktu Defrost</translation>
     </message>
-    <!-- OS:Refrigeration:AirChiller -->
+    
     <message>
         <source>Rated Air Flow</source>
         <translation>Aliran Udara Rated</translation>
     </message>
-    <!-- OS:Coil:Cooling:DX:VariableSpeed, OS:Coil:Cooling:WaterToAirHeatPump:VariableSpeedEquationFit, OS:Coil:Heating:DX:VariableSpeed, OS:Coil:Heating:WaterToAirHeatPump:VariableSpeedEquationFit -->
+    
     <message>
         <source>Rated Air Flow Rate At Selected Nominal Speed Level</source>
         <translation>Laju Aliran Udara Nominal pada Tingkat Kecepatan Nominal yang Dipilih</translation>
     </message>
-    <!-- OS:Refrigeration:Case -->
+    
     <message>
         <source>Rated Ambient Relative Humidity</source>
         <translation>Kelembaban Relatif Ambient Terpilih</translation>
     </message>
-    <!-- OS:Refrigeration:Case -->
+    
     <message>
         <source>Rated Ambient Temperature</source>
         <translation>Temperatur Ambien Terukur</translation>
     </message>
-    <!-- OS:Refrigeration:Condenser:Cascade -->
+    
     <message>
         <source>Rated Approach Temperature Difference</source>
         <translation>Perbedaan Suhu Pendekatan Nominal</translation>
     </message>
-    <!-- OS:Coil:Heating:Water:Baseboard:Radiant -->
+    
     <message>
         <source>Rated Average Water Temperature</source>
         <translation>Temperatur Air Rata-rata Nominal</translation>
     </message>
-    <!-- OS:Refrigeration:WalkIn -->
+    
     <message>
         <source>Rated Circulation Fan Power</source>
         <translation>Daya Kipas Sirkulasi Terukur</translation>
     </message>
-    <!-- OS:Refrigeration:WalkIn -->
+    
     <message>
         <source>Rated Coil Cooling Capacity</source>
         <translation>Kapasitas Pendinginan Kumparan Rated</translation>
     </message>
-    <!-- OS:AirConditioner:VariableRefrigerantFlow:FluidTemperatureControl, OS:AirConditioner:VariableRefrigerantFlow:FluidTemperatureControl:HR -->
+    
     <message>
         <source>Rated Compressor Power Per Unit of Rated Evaporative Capacity</source>
         <translation>Daya Kompresor Terukur Per Unit Kapasitas Evaporatif Terukur</translation>
     </message>
-    <!-- OS:Coil:Cooling:DX:CurveFit:OperatingMode -->
+    
     <message>
         <source>Rated Condenser Air Flow Rate</source>
         <translation>Laju Aliran Udara Kondenser Terukur</translation>
     </message>
-    <!-- OS:Coil:WaterHeating:AirToWaterHeatPump, OS:Coil:WaterHeating:AirToWaterHeatPump:VariableSpeed -->
+    
     <message>
         <source>Rated Condenser Inlet Water Temperature</source>
         <translation>Suhu Air Masuk Condenser Terkondisi</translation>
     </message>
-    <!-- OS:Coil:WaterHeating:AirToWaterHeatPump, OS:Coil:WaterHeating:AirToWaterHeatPump:VariableSpeed -->
+    
     <message>
         <source>Rated Condenser Water Flow Rate</source>
         <translation>Laju Aliran Air Kondenser Nominal</translation>
     </message>
-    <!-- OS:Coil:WaterHeating:AirToWaterHeatPump:Wrapped -->
+    
     <message>
         <source>Rated Condenser Water Temperature</source>
         <translation>Temperatur Air Kondenser Rated</translation>
     </message>
-    <!-- OS:Refrigeration:Condenser:Cascade, OS:Refrigeration:Condenser:WaterCooled -->
+    
     <message>
         <source>Rated Condensing Temperature</source>
         <translation>Suhu Kondensasi Nominal</translation>
     </message>
-    <!-- OS:HeatPump:AirToWater:Cooling:SpeedData -->
+    
     <message>
         <source>Rated Cooling Capacity</source>
         <translation>Kapasitas Pendinginan Terukur</translation>
     </message>
-    <!-- OS:Coil:Cooling:WaterToAirHeatPump:EquationFit -->
+    
     <message>
         <source>Rated Cooling Coefficient of Performance</source>
         <translation>Koefisien Performa Pendinginan Terukur</translation>
     </message>
-    <!-- OS:Refrigeration:WalkIn -->
+    
     <message>
         <source>Rated Cooling Coil Fan Power</source>
         <translation>Daya Penggemar Koil Pendingin Terpilih</translation>
     </message>
-    <!-- OS:Refrigeration:AirChiller, OS:Refrigeration:WalkIn -->
+    
     <message>
         <source>Rated Cooling Source Temperature</source>
         <translation>Suhu Sumber Pendinginan Terpilih</translation>
     </message>
-    <!-- OS:HeatPump:AirToWater:Cooling:SpeedData -->
+    
     <message>
         <source>Rated COP for Cooling</source>
         <translation>COP Pendinginan Terpilih</translation>
     </message>
-    <!-- OS:HeatPump:AirToWater:Heating:SpeedData -->
+    
     <message>
         <source>Rated COP for Heating</source>
         <translation>COP Pendingin Nominal</translation>
     </message>
-    <!-- OS:Refrigeration:Condenser:Cascade, OS:Refrigeration:Condenser:EvaporativeCooled, OS:Refrigeration:Condenser:WaterCooled -->
+    
     <message>
         <source>Rated Effective Total Heat Rejection Rate</source>
         <translation>Rated Effective Total Heat Rejection Rate</translation>
     </message>
-    <!-- OS:Refrigeration:Condenser:AirCooled -->
+    
     <message>
         <source>Rated Effective Total Heat Rejection Rate Curve Name</source>
         <translation>Nama Kurva Laju Penolakan Panas Total Efektif Terukur</translation>
     </message>
-    <!-- OS:Generator:Photovoltaic -->
+    
     <message>
         <source>Rated Electric Power Output</source>
         <translation>Keluaran Daya Listrik Terukur</translation>
     </message>
-    <!-- OS:ZoneHVAC:Dehumidifier:DX -->
+    
     <message>
         <source>Rated Energy Factor</source>
         <translation>Faktor Energi Terpilih</translation>
     </message>
-    <!-- OS:Coil:Cooling:WaterToAirHeatPump:EquationFit, OS:Coil:Heating:WaterToAirHeatPump:EquationFit -->
+    
     <message>
         <source>Rated Entering Air Dry-Bulb Temperature</source>
         <translation>Suhu Bola Kering Udara Masuk Terpilih</translation>
     </message>
-    <!-- OS:Coil:Cooling:WaterToAirHeatPump:EquationFit -->
+    
     <message>
         <source>Rated Entering Air Wet-Bulb Temperature</source>
         <translation>Suhu Bola Basah Udara Masuk Terpilih</translation>
     </message>
-    <!-- OS:Coil:Cooling:WaterToAirHeatPump:EquationFit, OS:Coil:Heating:WaterToAirHeatPump:EquationFit -->
+    
     <message>
         <source>Rated Entering Water Temperature</source>
         <translation>Suhu Air Masuk Terpilih</translation>
     </message>
-    <!-- OS:AirConditioner:VariableRefrigerantFlow:FluidTemperatureControl, OS:AirConditioner:VariableRefrigerantFlow:FluidTemperatureControl:HR -->
+    
     <message>
         <source>Rated Evaporative Capacity</source>
         <translation>Kapasitas Evaporatif Rated</translation>
     </message>
-    <!-- OS:Coil:Cooling:DX:MultiSpeed:StageData -->
+    
     <message>
         <source>Rated Evaporative Condenser Pump Power Consumption</source>
         <translation>Konsumsi Daya Pompa Kondenser Evaporatif Bernominal</translation>
     </message>
-    <!-- OS:Coil:Cooling:DX:CurveFit:OperatingMode, OS:Coil:Cooling:DX:SingleSpeed:ThermalStorage, OS:Coil:WaterHeating:AirToWaterHeatPump, OS:Coil:WaterHeating:AirToWaterHeatPump:VariableSpeed, OS:Coil:WaterHeating:AirToWaterHeatPump:Wrapped -->
+    
     <message>
         <source>Rated Evaporator Air Flow Rate</source>
         <translation>Laju Aliran Udara Evaporator Terpilih</translation>
     </message>
-    <!-- OS:Coil:WaterHeating:AirToWaterHeatPump, OS:Coil:WaterHeating:AirToWaterHeatPump:VariableSpeed, OS:Coil:WaterHeating:AirToWaterHeatPump:Wrapped -->
+    
     <message>
         <source>Rated Evaporator Inlet Air Dry-Bulb Temperature</source>
         <translation>Suhu Bola Kering Udara Inlet Evaporator Nominal</translation>
     </message>
-    <!-- OS:Coil:WaterHeating:AirToWaterHeatPump, OS:Coil:WaterHeating:AirToWaterHeatPump:VariableSpeed, OS:Coil:WaterHeating:AirToWaterHeatPump:Wrapped -->
+    
     <message>
         <source>Rated Evaporator Inlet Air Wet-Bulb Temperature</source>
         <translation>Suhu Wet-Bulb Udara Inlet Evaporator Terpilih</translation>
     </message>
-    <!-- OS:Humidifier:Steam:Electric, OS:Humidifier:Steam:Gas, OS:Refrigeration:AirChiller, OS:Refrigeration:Condenser:AirCooled, OS:Refrigeration:Condenser:EvaporativeCooled, OS:Refrigeration:GasCooler:AirCooled -->
+    
     <message>
         <source>Rated Fan Power</source>
         <translation>Daya Kipas Nominal</translation>
     </message>
-    <!-- OS:Humidifier:Steam:Gas -->
+    
     <message>
         <source>Rated Gas Use Rate</source>
         <translation>Laju Penggunaan Gas Terukur</translation>
     </message>
-    <!-- OS:Coil:Cooling:DX:CurveFit:OperatingMode -->
+    
     <message>
         <source>Rated Gross Total Cooling Capacity</source>
         <translation>Kapasitas Pendingin Total Kotor Terukur</translation>
     </message>
-    <!-- OS:Coil:WaterHeating:Desuperheater -->
+    
     <message>
         <source>Rated Heat Reclaim Recovery Efficiency</source>
         <translation>Efisiensi Pemulihan Panas Pendingin Berkinerja Nominal</translation>
     </message>
-    <!-- OS:Coil:Heating:WaterToAirHeatPump:EquationFit, OS:Coil:WaterHeating:AirToWaterHeatPump, OS:Coil:WaterHeating:AirToWaterHeatPump:Wrapped, OS:HeatPump:AirToWater:Heating:SpeedData -->
+    
     <message>
         <source>Rated Heating Capacity</source>
         <translation>Kapasitas Pemanasan Terukur</translation>
     </message>
-    <!-- OS:Coil:Heating:DX:VariableSpeed, OS:Coil:Heating:WaterToAirHeatPump:VariableSpeedEquationFit -->
+    
     <message>
         <source>Rated Heating Capacity At Selected Nominal Speed Level</source>
         <translation>Kapasitas Pemanasan Nominal pada Tingkat Kecepatan Nominal Terpilih</translation>
     </message>
-    <!-- OS:AirConditioner:VariableRefrigerantFlow -->
+    
     <message>
         <source>Rated Heating Capacity Sizing Ratio</source>
         <translation>Rasio Ukuran Kapasitas Pemanasan Terukur</translation>
     </message>
-    <!-- OS:Coil:Heating:WaterToAirHeatPump:EquationFit -->
+    
     <message>
         <source>Rated Heating Coefficient of Performance</source>
         <translation>Koefisien Performa Pemanasan Rated</translation>
     </message>
-    <!-- OS:AirConditioner:VariableRefrigerantFlow -->
+    
     <message>
         <source>Rated Heating COP</source>
         <translation>Rated Heating COP</translation>
     </message>
-    <!-- OS:Coil:Cooling:DX:TwoSpeed -->
+    
     <message>
         <source>Rated High Speed Air Flow Rate</source>
         <translation>Laju Aliran Udara Kecepatan Tinggi Terukur</translation>
     </message>
-    <!-- OS:Coil:Cooling:DX:TwoSpeed -->
+    
     <message>
         <source>Rated High Speed COP</source>
         <translation>COP Kecepatan Tinggi Rated</translation>
     </message>
-    <!-- OS:Coil:Cooling:DX:TwoSpeed -->
+    
     <message>
         <source>Rated High Speed Evaporator Fan Power Per Volume Flow Rate 2017</source>
         <translation>Daya Kipas Evaporator Kecepatan Tinggi Terpilih Per Laju Aliran Volume 2017</translation>
     </message>
-    <!-- OS:Coil:Cooling:DX:TwoSpeed -->
+    
     <message>
         <source>Rated High Speed Evaporator Fan Power Per Volume Flow Rate 2023</source>
         <translation>Rated High Speed Evaporator Fan Power Per Volume Flow Rate 2023</translation>
     </message>
-    <!-- OS:Coil:Cooling:DX:TwoSpeed -->
+    
     <message>
         <source>Rated High Speed Sensible Heat Ratio</source>
         <translation>Rasio Panas Sensibel Kecepatan Tinggi Nominal</translation>
     </message>
-    <!-- OS:Coil:Cooling:DX:TwoSpeed -->
+    
     <message>
         <source>Rated High Speed Total Cooling Capacity</source>
         <translation>Kapasitas Pendinginan Total Kecepatan Tinggi Terpilih</translation>
     </message>
-    <!-- OS:Coil:Cooling:Water:Panel:Radiant -->
+    
     <message>
         <source>Rated Inlet Space Temperature</source>
         <translation>Suhu Ruang Inlet Terukur</translation>
     </message>
-    <!-- OS:Refrigeration:Case -->
+    
     <message>
         <source>Rated Latent Heat Ratio</source>
         <translation>Rated Latent Heat Ratio</translation>
     </message>
-    <!-- OS:HeatPump:AirToWater:Cooling, OS:HeatPump:AirToWater:Heating -->
+    
     <message>
         <source>Rated Leaving Water Temperature</source>
         <translation>Temperatur Air Keluar Tersertifikasi</translation>
     </message>
-    <!-- OS:Refrigeration:Compressor -->
+    
     <message>
         <source>Rated Liquid Temperature</source>
         <translation>Suhu Cairan Nominal</translation>
     </message>
-    <!-- OS:ElectricLoadCenter:Transformer -->
+    
     <message>
         <source>Rated Load Loss</source>
         <translation>Rugi Beban Terhitung</translation>
     </message>
-    <!-- OS:Coil:Cooling:DX:TwoSpeed -->
+    
     <message>
         <source>Rated Low Speed Air Flow Rate</source>
         <translation>Laju Aliran Udara Kecepatan Rendah Nominal</translation>
     </message>
-    <!-- OS:Coil:Cooling:DX:TwoSpeed -->
+    
     <message>
         <source>Rated Low Speed COP</source>
         <translation>COP Kecepatan Rendah Nominal</translation>
     </message>
-    <!-- OS:Coil:Cooling:DX:TwoSpeed -->
+    
     <message>
         <source>Rated Low Speed Evaporator Fan Power Per Volume Flow Rate 2017</source>
         <translation>Daya Kipas Evaporator Kecepatan Rendah Terpilih Per Laju Aliran Volume 2017</translation>
     </message>
-    <!-- OS:Coil:Cooling:DX:TwoSpeed -->
+    
     <message>
         <source>Rated Low Speed Evaporator Fan Power Per Volume Flow Rate 2023</source>
         <translation>Daya Kipas Evaporator Kecepatan Rendah Terpilih Per Laju Aliran Volume 2023</translation>
     </message>
-    <!-- OS:Coil:Cooling:DX:TwoSpeed -->
+    
     <message>
         <source>Rated Low Speed Sensible Heat Ratio</source>
         <translation>Rasio Panas Sensibel Kecepatan Rendah Nominal</translation>
     </message>
-    <!-- OS:Coil:Cooling:DX:TwoSpeed -->
+    
     <message>
         <source>Rated Low Speed Total Cooling Capacity</source>
         <translation>Kapasitas Pendinginan Total Kecepatan Rendah Terpilih</translation>
     </message>
-    <!-- OS:ElectricLoadCenter:Inverter:LookUpTable -->
+    
     <message>
         <source>Rated Maximum Continuous Output Power</source>
         <translation>Daya Output Kontinu Maksimum Terpilih</translation>
     </message>
-    <!-- OS:ElectricLoadCenter:Transformer -->
+    
     <message>
         <source>Rated No Load Loss</source>
         <translation>Rugi Tanpa Beban Terpilih</translation>
     </message>
-    <!-- OS:Coil:WaterHeating:Desuperheater -->
+    
     <message>
         <source>Rated Outdoor Air Temperature</source>
         <translation>Temperatur Udara Luar Terukur</translation>
     </message>
-    <!-- OS:Generator:WindTurbine, OS:Humidifier:Steam:Electric -->
+    
     <message>
         <source>Rated Power</source>
         <translation>Daya Nominal</translation>
     </message>
-    <!-- OS:AirTerminal:SingleDuct:ConstantVolume:FourPipeBeam -->
+    
     <message>
         <source>Rated Primary Air Flow Rate per Beam Length</source>
         <translation>Laju Aliran Udara Primer Terukur per Panjang Beam</translation>
     </message>
-    <!-- OS:Refrigeration:AirChiller -->
+    
     <message>
         <source>Rated Relative Humidity</source>
         <translation>Kelembaban Relatif Nominal</translation>
     </message>
-    <!-- OS:Refrigeration:Compressor -->
+    
     <message>
         <source>Rated Return Gas Temperature</source>
         <translation>Temperatur Gas Kembali Terpilih</translation>
     </message>
-    <!-- OS:Generator:WindTurbine -->
+    
     <message>
         <source>Rated Rotor Speed</source>
         <translation>Kecepatan Rotor Nominal</translation>
     </message>
-    <!-- OS:Refrigeration:Case -->
+    
     <message>
         <source>Rated Runtime Fraction</source>
         <translation>Fraksi Waktu Operasi Terukur</translation>
     </message>
-    <!-- OS:Coil:Cooling:WaterToAirHeatPump:EquationFit -->
+    
     <message>
         <source>Rated Sensible Cooling Capacity</source>
         <translation>Kapasitas Pendinginan Sensibel Terpercaya</translation>
     </message>
-    <!-- OS:Refrigeration:Compressor -->
+    
     <message>
         <source>Rated Subcooling</source>
         <translation>Pendinginan Lanjutan Tersertifikasi</translation>
     </message>
-    <!-- OS:Refrigeration:Condenser:AirCooled, OS:Refrigeration:Condenser:EvaporativeCooled, OS:Refrigeration:Condenser:WaterCooled -->
+    
     <message>
         <source>Rated Subcooling Temperature Difference</source>
         <translation>Perbedaan Suhu Subpendinginan Terpilih</translation>
     </message>
-    <!-- OS:Refrigeration:Compressor -->
+    
     <message>
         <source>Rated Superheat</source>
         <translation>Superheat Rated</translation>
     </message>
-    <!-- OS:Coil:Heating:DX:MultiSpeed:StageData, OS:Coil:Heating:DX:VariableSpeed:SpeedData -->
+    
     <message>
         <source>Rated Supply Air Fan Power Per Volume Flow Rate 2017</source>
         <translation>Daya Kipas Udara Pasokan Terpilih Per Laju Aliran Volume 2017</translation>
     </message>
-    <!-- OS:Coil:Heating:DX:MultiSpeed:StageData, OS:Coil:Heating:DX:VariableSpeed:SpeedData -->
+    
     <message>
         <source>Rated Supply Air Fan Power Per Volume Flow Rate 2023</source>
         <translation>Daya Kipas Udara Pasokan Terpilih Per Laju Aliran Volume 2023</translation>
     </message>
-    <!-- OS:Coil:Heating:DX:SingleSpeed -->
+    
     <message>
         <source>Rated Supply Fan Power Per Volume Flow Rate 2017</source>
         <translation>Daya Kipas Pasokan Nominal Per Laju Aliran Volume 2017</translation>
     </message>
-    <!-- OS:Coil:Heating:DX:SingleSpeed -->
+    
     <message>
         <source>Rated Supply Fan Power Per Volume Flow Rate 2023</source>
         <translation>Daya Kipas Pasokan Terukur Per Laju Aliran Volume 2023</translation>
     </message>
-    <!-- OS:Refrigeration:AirChiller -->
+    
     <message>
         <source>Rated Temperature Difference DT1</source>
         <translation>Perbedaan Suhu Pengenal DT1</translation>
     </message>
-    <!-- OS:Generator:MicroTurbine:HeatRecovery -->
+    
     <message>
         <source>Rated Thermal to Electrical Power Ratio</source>
         <translation>Rasio Daya Termal ke Listrik Nominal</translation>
     </message>
-    <!-- OS:Refrigeration:Case -->
+    
     <message>
         <source>Rated Total Cooling Capacity per Door</source>
         <translation>Kapasitas Pendinginan Total Terpilih per Pintu</translation>
     </message>
-    <!-- OS:Refrigeration:Case -->
+    
     <message>
         <source>Rated Total Cooling Capacity per Unit Length</source>
         <translation>Kapasitas Pendinginan Total Terpasang per Satuan Panjang</translation>
     </message>
-    <!-- OS:Refrigeration:GasCooler:AirCooled -->
+    
     <message>
         <source>Rated Total Heat Rejection Rate Curve Name</source>
         <translation>Nama Kurva Laju Penolakan Panas Total Terperhitungan</translation>
     </message>
-    <!-- OS:Coil:Heating:DX:SingleSpeed, OS:Coil:Heating:DX:VariableRefrigerantFlow, OS:Coil:Heating:DX:VariableRefrigerantFlow:FluidTemperatureControl -->
+    
     <message>
         <source>Rated Total Heating Capacity</source>
         <translation>Kapasitas Pemanasan Total Terukur</translation>
     </message>
-    <!-- OS:Refrigeration:AirChiller, OS:Refrigeration:WalkIn -->
+    
     <message>
         <source>Rated Total Heating Power</source>
         <translation>Daya Pemanas Total Nominal</translation>
     </message>
-    <!-- OS:Refrigeration:WalkIn -->
+    
     <message>
         <source>Rated Total Lighting Power</source>
         <translation>Daya Pencahayaan Total Terukur</translation>
     </message>
-    <!-- OS:Refrigeration:AirChiller -->
+    
     <message>
         <source>Rated Unit Load Factor</source>
         <translation>Faktor Beban Unit Terpilih</translation>
     </message>
-    <!-- OS:Coil:Cooling:DX:CurveFit:Speed, OS:Coil:Cooling:DX:MultiSpeed:StageData, OS:Coil:Heating:DX:MultiSpeed:StageData -->
+    
     <message>
         <source>Rated Waste Heat Fraction of Power Input</source>
         <translation>Fraksi Pembuangan Panas Terpilih dari Masukan Daya</translation>
     </message>
-    <!-- OS:Coil:Cooling:WaterToAirHeatPump:EquationFit, OS:Coil:Heating:WaterToAirHeatPump:EquationFit, OS:HeatPump:AirToWater:Cooling, OS:HeatPump:AirToWater:Heating -->
+    
     <message>
         <source>Rated Water Flow Rate</source>
         <translation>Laju Aliran Air Rated</translation>
     </message>
-    <!-- OS:Coil:Cooling:WaterToAirHeatPump:VariableSpeedEquationFit, OS:Coil:Heating:WaterToAirHeatPump:VariableSpeedEquationFit -->
+    
     <message>
         <source>Rated Water Flow Rate At Selected Nominal Speed Level</source>
         <translation>Laju Aliran Air Terpilih pada Tingkat Kecepatan Nominal yang Dipilih</translation>
     </message>
-    <!-- OS:Coil:WaterHeating:AirToWaterHeatPump:VariableSpeed, OS:Coil:WaterHeating:AirToWaterHeatPump:VariableSpeed:SpeedData -->
+    
     <message>
         <source>Rated Water Heating Capacity</source>
         <translation>Kapasitas Pemanas Air Rated</translation>
     </message>
-    <!-- OS:Coil:WaterHeating:AirToWaterHeatPump:VariableSpeed:SpeedData -->
+    
     <message>
         <source>Rated Water Heating COP</source>
         <translation>Rated Water Heating COP</translation>
     </message>
-    <!-- OS:Refrigeration:Condenser:WaterCooled -->
+    
     <message>
         <source>Rated Water Inlet Temperature</source>
         <translation>Suhu Inlet Air Dinilai</translation>
     </message>
-    <!-- OS:Coil:Cooling:Water:Panel:Radiant, OS:Coil:Heating:Water:Baseboard:Radiant -->
+    
     <message>
         <source>Rated Water Mass Flow Rate</source>
         <translation>Laju Aliran Massa Air Terpilih</translation>
     </message>
-    <!-- OS:Refrigeration:Condenser:EvaporativeCooled -->
+    
     <message>
         <source>Rated Water Pump Power</source>
         <translation>Daya Pompa Air Nominal</translation>
     </message>
-    <!-- OS:ZoneHVAC:Dehumidifier:DX -->
+    
     <message>
         <source>Rated Water Removal</source>
         <translation>Penghapusan Air Penilaian</translation>
     </message>
-    <!-- OS:Generator:WindTurbine -->
+    
     <message>
         <source>Rated Wind Speed</source>
         <translation>Kecepatan Angin Rated</translation>
     </message>
-    <!-- OS:AirflowNetworkSimulationControl -->
+    
     <message>
         <source>Ratio of Building Width Along Short Axis to Width Along Long Axis</source>
         <translation>Rasio Lebar Bangunan Sepanjang Sumbu Pendek terhadap Lebar Sepanjang Sumbu Panjang</translation>
     </message>
-    <!-- OS:WindowProperty:FrameAndDivider -->
+    
     <message>
         <source>Ratio of Divider-Edge Glass Conductance to Center-Of-Glass Conductance</source>
         <translation>Rasio Konduktansi Kaca Pinggiran-Pembagi terhadap Konduktansi Kaca Pusat</translation>
     </message>
-    <!-- OS:WindowProperty:FrameAndDivider -->
+    
     <message>
         <source>Ratio of Frame-Edge Glass Conductance to Center-Of-Glass Conductance</source>
         <translation>Rasio Konduktansi Frame-Edge Glass terhadap Konduktansi Center-Of-Glass</translation>
     </message>
-    <!-- OS:Coil:Heating:WaterToAirHeatPump:EquationFit -->
+    
     <message>
         <source>Ratio of Rated Heating Capacity to Rated Cooling Capacity</source>
         <translation>Rasio Kapasitas Pemanasan Nominal terhadap Kapasitas Pendinginan Nominal</translation>
     </message>
-    <!-- OS:LifeCycleCost:Parameters -->
+    
     <message>
         <source>Real Discount Rate</source>
         <translation>Tingkat Diskon Riil</translation>
     </message>
-    <!-- OS:UtilityCost:Tariff -->
+    
     <message>
         <source>Real Time Pricing Charge Schedule Name</source>
         <translation>Nama Jadwal Biaya Harga Real Time</translation>
     </message>
-    <!-- OS:Refrigeration:TranscriticalSystem -->
+    
     <message>
         <source>Receiver Pressure</source>
         <translation>Tekanan Penerima</translation>
     </message>
-    <!-- OS:Refrigeration:SecondarySystem -->
+    
     <message>
         <source>Receiver/Separator Zone Name</source>
         <translation>Nama Zona Penerima/Pemisah</translation>
     </message>
-    <!-- OS:AirTerminal:DualDuct:VAV:OutdoorAir -->
+    
     <message>
         <source>Recirculated Air Inlet Node</source>
         <translation>Node Inlet Udara Resirkulasi</translation>
     </message>
-    <!-- OS:EvaporativeCooler:Direct:ResearchSpecial, OS:EvaporativeCooler:Indirect:ResearchSpecial -->
+    
     <message>
         <source>Recirculating Water Pump Power Consumption</source>
         <translation>Konsumsi Daya Pompa Air Resirkulasi</translation>
     </message>
-    <!-- OS:ElectricEquipment:ITE:AirCooled:Definition -->
+    
     <message>
         <source>Recirculation Function of Loading and Supply Temperature Curve Name</source>
         <translation>Nama Kurva Fungsi Resirkulasi Suhu Pemuatan dan Pasokan</translation>
     </message>
-    <!-- OS:WaterUse:Connections -->
+    
     <message>
         <source>Reclamation Water Storage Tank Name</source>
         <translation>Nama Tangki Penyimpanan Air Reklamasi</translation>
     </message>
-    <!-- OS:WaterHeater:Sizing -->
+    
     <message>
         <source>Recovery Capacity per Floor Area</source>
         <translation>Kapasitas Pemulihan per Luas Lantai</translation>
     </message>
-    <!-- OS:WaterHeater:Sizing -->
+    
     <message>
         <source>Recovery Capacity per Person</source>
         <translation>Kapasitas Pemulihan per Orang</translation>
     </message>
-    <!-- OS:WaterHeater:Sizing -->
+    
     <message>
         <source>Recovery Capacity PerUnit</source>
         <translation>Kapasitas Pemulihan Per Unit</translation>
     </message>
-    <!-- OS:AirflowNetworkReferenceCrackConditions -->
+    
     <message>
         <source>Reference Barometric Pressure</source>
         <translation>Tekanan Barometrik Referensi</translation>
     </message>
-    <!-- OS:HeatPump:PlantLoop:EIR:Cooling, OS:HeatPump:PlantLoop:EIR:Heating, OS:HeatPump:WaterToWater:EquationFit:Cooling, OS:HeatPump:WaterToWater:EquationFit:Heating -->
+    
     <message>
         <source>Reference Coefficient of Performance</source>
         <translation>Koefisien Performa Referensi</translation>
     </message>
-    <!-- OS:Generator:MicroTurbine -->
+    
     <message>
         <source>Reference Combustion Air Inlet Humidity Ratio</source>
         <translation>Rasio Kelembaban Udara Masuk Pembakuan Referensi</translation>
     </message>
-    <!-- OS:Generator:MicroTurbine -->
+    
     <message>
         <source>Reference Combustion Air Inlet Temperature</source>
         <translation>Suhu Masuk Udara Pembakaran Referensi</translation>
     </message>
-    <!-- OS:Chiller:Electric:EIR -->
+    
     <message>
         <source>Reference Condenser Fluid Flow Rate</source>
         <translation>Laju Aliran Fluida Kondenser Referensi</translation>
     </message>
-    <!-- OS:AirConditioner:VariableRefrigerantFlow:FluidTemperatureControl, OS:AirConditioner:VariableRefrigerantFlow:FluidTemperatureControl:HR -->
+    
     <message>
         <source>Reference Condensing Temperature for Indoor Unit</source>
         <translation>Suhu Kondensasi Referensi untuk Unit Dalam Ruangan</translation>
     </message>
-    <!-- OS:HeatPump:WaterToWater:EquationFit:Cooling -->
+    
     <message>
         <source>Reference Cooling Capacity</source>
         <translation>Kapasitas Pendinginan Acuan</translation>
     </message>
-    <!-- OS:ChillerHeaterPerformance:Electric:EIR -->
+    
     <message>
         <source>Reference Cooling Mode COP</source>
         <translation>COP Mode Pendinginan Referensi</translation>
     </message>
-    <!-- OS:ChillerHeaterPerformance:Electric:EIR -->
+    
     <message>
         <source>Reference Cooling Mode Entering Condenser Fluid Temperature</source>
         <translation>Suhu Fluida Kondenser Masuk Mode Pendinginan Referensi</translation>
     </message>
-    <!-- OS:ChillerHeaterPerformance:Electric:EIR -->
+    
     <message>
         <source>Reference Cooling Mode Evaporator Capacity</source>
         <translation>Kapasitas Evaporator Mode Pendingin Referensi</translation>
     </message>
-    <!-- OS:ChillerHeaterPerformance:Electric:EIR -->
+    
     <message>
         <source>Reference Cooling Mode Leaving Chilled Water Temperature</source>
         <translation>Suhu Air Pendingin Keluar Mode Pendinginan Referensi</translation>
     </message>
-    <!-- OS:ChillerHeaterPerformance:Electric:EIR -->
+    
     <message>
         <source>Reference Cooling Mode Leaving Condenser Water Temperature</source>
         <translation>Suhu Air Pendingin Keluar Kondenser Mode Pendinginan Referensi</translation>
     </message>
-    <!-- OS:HeatPump:WaterToWater:EquationFit:Cooling -->
+    
     <message>
         <source>Reference Cooling Power Consumption</source>
         <translation>Konsumsi Daya Pendinginan Referensi</translation>
     </message>
-    <!-- OS:AirflowNetworkCrack, OS:AirflowNetworkReliefAirFlow -->
+    
     <message>
         <source>Reference Crack Conditions</source>
         <translation>Kondisi Retak Referensi</translation>
     </message>
-    <!-- OS:Generator:MicroTurbine -->
+    
     <message>
         <source>Reference Electrical Efficiency Using Lower Heating Value</source>
         <translation>Efisiensi Referensi Listrik Menggunakan Nilai Pemanasan Lebih Rendah</translation>
     </message>
-    <!-- OS:Generator:MicroTurbine -->
+    
     <message>
         <source>Reference Electrical Power Output</source>
         <translation>Daya Keluaran Listrik Referensi</translation>
     </message>
-    <!-- OS:Generator:MicroTurbine -->
+    
     <message>
         <source>Reference Elevation</source>
         <translation>Elevasi Referensi</translation>
     </message>
-    <!-- OS:AirConditioner:VariableRefrigerantFlow:FluidTemperatureControl, OS:AirConditioner:VariableRefrigerantFlow:FluidTemperatureControl:HR -->
+    
     <message>
         <source>Reference Evaporating Temperature for Indoor Unit</source>
         <translation>Suhu Penguapan Referensi untuk Unit Dalam Ruangan</translation>
     </message>
-    <!-- OS:Generator:MicroTurbine -->
+    
     <message>
         <source>Reference Exhaust Air Mass Flow Rate</source>
         <translation>Laju Alir Massa Udara Buang Referensi</translation>
     </message>
-    <!-- OS:SetpointManager:FollowGroundTemperature -->
+    
     <message>
         <source>Reference Ground Temperature Object Type</source>
         <translation>Jenis Objek Suhu Tanah Referensi</translation>
     </message>
-    <!-- OS:Generator:MicroTurbine:HeatRecovery -->
+    
     <message>
         <source>Reference Heat Recovery Water Flow Rate</source>
         <translation>Laju Aliran Air Pemulihan Panas Referensi</translation>
     </message>
-    <!-- OS:HeatPump:WaterToWater:EquationFit:Heating -->
+    
     <message>
         <source>Reference Heating Capacity</source>
         <translation>Kapasitas Pemanasan Referensi</translation>
     </message>
-    <!-- OS:ChillerHeaterPerformance:Electric:EIR -->
+    
     <message>
         <source>Reference Heating Mode Cooling Capacity Ratio</source>
         <translation>Rasio Kapasitas Pendinginan Mode Pemanasan Referensi</translation>
     </message>
-    <!-- OS:ChillerHeaterPerformance:Electric:EIR -->
+    
     <message>
         <source>Reference Heating Mode Cooling Power Input Ratio</source>
         <translation>Reference Heating Mode Cooling Power Input Ratio</translation>
     </message>
-    <!-- OS:ChillerHeaterPerformance:Electric:EIR -->
+    
     <message>
         <source>Reference Heating Mode Entering Condenser Fluid Temperature</source>
         <translation>Suhu Fluida Kondenser Masuk Mode Pemanasan Referensi</translation>
     </message>
-    <!-- OS:ChillerHeaterPerformance:Electric:EIR -->
+    
     <message>
         <source>Reference Heating Mode Leaving Chilled Water Temperature</source>
         <translation>Suhu Air Chilled Meninggalkan Mode Pemanasan Referensi</translation>
     </message>
-    <!-- OS:ChillerHeaterPerformance:Electric:EIR -->
+    
     <message>
         <source>Reference Heating Mode Leaving Condenser Water Temperature</source>
         <translation>Temperatur Air Kondensor Keluar Mode Pemanasan Referensi</translation>
     </message>
-    <!-- OS:HeatPump:WaterToWater:EquationFit:Heating -->
+    
     <message>
         <source>Reference Heating Power Consumption</source>
         <translation>Konsumsi Daya Pemanasan Referensi</translation>
     </message>
-    <!-- OS:AirflowNetworkReferenceCrackConditions -->
+    
     <message>
         <source>Reference Humidity Ratio</source>
         <translation>Rasio Kelembaban Referensi</translation>
     </message>
-    <!-- OS:Generator:MicroTurbine:HeatRecovery -->
+    
     <message>
         <source>Reference Inlet Water Temperature</source>
         <translation>Suhu Air Masuk Referensi</translation>
     </message>
-    <!-- OS:PhotovoltaicPerformance:EquivalentOneDiode -->
+    
     <message>
         <source>Reference Insolation</source>
         <translation>Insolasi Referensi</translation>
     </message>
-    <!-- OS:Chiller:Electric:ReformulatedEIR -->
+    
     <message>
         <source>Reference Leaving Condenser Water Temperature</source>
         <translation>Temperatur Air Pendingin Keluar Referensi</translation>
     </message>
-    <!-- OS:HeatPump:WaterToWater:EquationFit:Cooling, OS:HeatPump:WaterToWater:EquationFit:Heating -->
+    
     <message>
         <source>Reference Load Side Flow Rate</source>
         <translation>Laju Aliran Sisi Beban Referensi</translation>
     </message>
-    <!-- OS:SetpointManager:FollowSystemNodeTemperature, OS:SetpointManager:SystemNodeReset:Humidity, OS:SetpointManager:SystemNodeReset:Temperature -->
+    
     <message>
         <source>Reference Node Name</source>
         <translation>Nama Node Referensi</translation>
     </message>
-    <!-- OS:AirConditioner:VariableRefrigerantFlow:FluidTemperatureControl -->
+    
     <message>
         <source>Reference Outdoor Unit Subcooling</source>
         <translation>Subpendinginan Unit Luar Referensi</translation>
     </message>
-    <!-- OS:AirConditioner:VariableRefrigerantFlow:FluidTemperatureControl -->
+    
     <message>
         <source>Reference Outdoor Unit Superheating</source>
         <translation>Superheating Unit Luar Referensi</translation>
     </message>
-    <!-- OS:AirflowNetworkEffectiveLeakageArea, OS:AirflowNetworkLeakageRatio -->
+    
     <message>
         <source>Reference Pressure Difference</source>
         <translation>Perbedaan Tekanan Referensi</translation>
     </message>
-    <!-- OS:SetpointManager:MixedAir, OS:SetpointManager:OutdoorAirPretreat -->
+    
     <message>
         <source>Reference Setpoint Node Name</source>
         <translation>Nama Node Titik Acuan</translation>
     </message>
-    <!-- OS:HeatPump:WaterToWater:EquationFit:Cooling, OS:HeatPump:WaterToWater:EquationFit:Heating -->
+    
     <message>
         <source>Reference Source Side Flow Rate</source>
         <translation>Laju Aliran Sisi Sumber Referensi</translation>
     </message>
-    <!-- OS:AirflowNetworkReferenceCrackConditions, OS:PhotovoltaicPerformance:EquivalentOneDiode -->
+    
     <message>
         <source>Reference Temperature</source>
         <translation>Suhu Referensi</translation>
     </message>
-    <!-- OS:ElectricLoadCenter:Transformer -->
+    
     <message>
         <source>Reference Temperature for Nameplate Efficiency</source>
         <translation>Suhu Referensi untuk Efisiensi Nameplate</translation>
     </message>
-    <!-- OS:PlantEquipmentOperation:OutdoorDewpointDifference, OS:PlantEquipmentOperation:OutdoorDryBulbDifference, OS:PlantEquipmentOperation:OutdoorWetBulbDifference -->
+    
     <message>
         <source>Reference Temperature Node Name</source>
         <translation>Nama Node Suhu Referensi</translation>
     </message>
-    <!-- OS:Generator:MicroTurbine:HeatRecovery -->
+    
     <message>
         <source>Reference Thermal Efficiency Using Lower Heat Value</source>
         <translation>Efisiensi Termal Referensi Menggunakan Nilai Panas Lebih Rendah</translation>
     </message>
-    <!-- OS:Coil:Cooling:DX:VariableSpeed:SpeedData, OS:Coil:Cooling:WaterToAirHeatPump:VariableSpeedEquationFit:SpeedData -->
+    
     <message>
         <source>Reference Unit Gross Rated Cooling COP</source>
         <translation>Reference Unit Gross Rated Cooling COP</translation>
     </message>
-    <!-- OS:Coil:Heating:DX:VariableSpeed:SpeedData, OS:Coil:Heating:WaterToAirHeatPump:VariableSpeedEquationFit:SpeedData -->
+    
     <message>
         <source>Reference Unit Gross Rated Heating Capacity</source>
         <translation>Kapasitas Pemanasan Kotor Terhitung Satuan Referensi</translation>
     </message>
-    <!-- OS:Coil:Heating:DX:VariableSpeed:SpeedData, OS:Coil:Heating:WaterToAirHeatPump:VariableSpeedEquationFit:SpeedData -->
+    
     <message>
         <source>Reference Unit Gross Rated Heating COP</source>
         <translation>Referensi Unit Gross Rated Heating COP</translation>
     </message>
-    <!-- OS:Coil:Cooling:DX:VariableSpeed:SpeedData, OS:Coil:Cooling:WaterToAirHeatPump:VariableSpeedEquationFit:SpeedData -->
+    
     <message>
         <source>Reference Unit Gross Rated Sensible Heat Ratio</source>
         <translation>Rasio Panas Sensibel Rated Kotor Unit Referensi</translation>
     </message>
-    <!-- OS:Coil:Cooling:DX:VariableSpeed:SpeedData, OS:Coil:Cooling:WaterToAirHeatPump:VariableSpeedEquationFit:SpeedData -->
+    
     <message>
         <source>Reference Unit Gross Rated Total Cooling Capacity</source>
         <translation>Kapasitas Pendinginan Total Rated Kotor Unit Referensi</translation>
     </message>
-    <!-- OS:Coil:Heating:WaterToAirHeatPump:VariableSpeedEquationFit:SpeedData -->
+    
     <message>
         <source>Reference Unit Rated Air Flow</source>
         <translation>Aliran Udara Rated Unit Referensi</translation>
     </message>
-    <!-- OS:Coil:Cooling:DX:VariableSpeed:SpeedData, OS:Coil:Cooling:WaterToAirHeatPump:VariableSpeedEquationFit:SpeedData, OS:Coil:Heating:DX:VariableSpeed:SpeedData, OS:Coil:WaterHeating:AirToWaterHeatPump:VariableSpeed:SpeedData -->
+    
     <message>
         <source>Reference Unit Rated Air Flow Rate</source>
         <translation>Laju Aliran Udara Rated Unit Referensi</translation>
     </message>
-    <!-- OS:Coil:Cooling:DX:VariableSpeed:SpeedData -->
+    
     <message>
         <source>Reference Unit Rated Condenser Air Flow Rate</source>
         <translation>Laju Aliran Udara Kondensor Terpasang Unit Referensi</translation>
     </message>
-    <!-- OS:Coil:Cooling:DX:VariableSpeed:SpeedData -->
+    
     <message>
         <source>Reference Unit Rated Pad Effectiveness of Evap Precooling</source>
         <translation>Efektivitas Pad Pendinginan Evaporatif Unit Referensi Rated</translation>
     </message>
-    <!-- OS:Coil:Cooling:WaterToAirHeatPump:VariableSpeedEquationFit:SpeedData, OS:Coil:Heating:WaterToAirHeatPump:VariableSpeedEquationFit:SpeedData, OS:Coil:WaterHeating:AirToWaterHeatPump:VariableSpeed:SpeedData -->
+    
     <message>
         <source>Reference Unit Rated Water Flow Rate</source>
         <translation>Laju Aliran Air Rated Unit Referensi</translation>
     </message>
-    <!-- OS:Coil:Cooling:WaterToAirHeatPump:VariableSpeedEquationFit:SpeedData, OS:Coil:Heating:WaterToAirHeatPump:VariableSpeedEquationFit:SpeedData -->
+    
     <message>
         <source>Reference Unit Waste Heat Fraction of Input Power At Rated Conditions</source>
         <translation>Fraksi Pembuangan Panas Unit Referensi dari Daya Masukan pada Kondisi Rated</translation>
     </message>
-    <!-- OS:Coil:WaterHeating:AirToWaterHeatPump:VariableSpeed:SpeedData -->
+    
     <message>
         <source>Reference Unit Water Pump Input Power At Rated Conditions</source>
         <translation>Daya Masukan Pompa Air Unit Referensi pada Kondisi Rated</translation>
     </message>
-    <!-- OS:WindowMaterial:Screen -->
+    
     <message>
         <source>Reflected Beam Transmittance Accounting Method</source>
         <translation>Metode Perhitungan Transmitansi Berkas Reflektif</translation>
     </message>
-    <!-- OS:Generator:FuelCell:WaterSupply -->
+    
     <message>
         <source>Reformer Water Flow Rate Function of Fuel Rate Curve Name</source>
         <translation>Nama Kurva Fungsi Laju Aliran Air Reformer terhadap Laju Bahan Bakar</translation>
     </message>
-    <!-- OS:Generator:FuelCell:WaterSupply -->
+    
     <message>
         <source>Reformer Water Pump Power Function of Fuel Rate Curve Name</source>
         <translation>Nama Kurva Fungsi Daya Pompa Air Reformer terhadap Laju Bahan Bakar</translation>
     </message>
-    <!-- OS:SolarCollectorPerformance:IntegralCollectorStorage -->
+    
     <message>
         <source>Refractive Index of Inner Cover</source>
         <translation>Indeks Refraktif Penutup Dalam</translation>
     </message>
-    <!-- OS:SolarCollectorPerformance:IntegralCollectorStorage -->
+    
     <message>
         <source>Refractive Index of Outer Cover</source>
         <translation>Indeks Bias Lapisan Luar</translation>
     </message>
-    <!-- OS:Refrigeration:AirChiller -->
+    
     <message>
         <source>Refrigerant Correction Factor</source>
         <translation>Faktor Koreksi Refrigeran</translation>
     </message>
-    <!-- OS:AirConditioner:VariableRefrigerantFlow:FluidTemperatureControl, OS:AirConditioner:VariableRefrigerantFlow:FluidTemperatureControl:HR -->
+    
     <message>
         <source>Refrigerant Temperature Control Algorithm for Indoor Unit</source>
         <translation>Algoritma Kontrol Suhu Refrigeran untuk Unit Dalam Ruangan</translation>
     </message>
-    <!-- OS:AirConditioner:VariableRefrigerantFlow:FluidTemperatureControl, OS:AirConditioner:VariableRefrigerantFlow:FluidTemperatureControl:HR -->
+    
     <message>
         <source>Refrigerant Type</source>
         <translation>Jenis Refrigeran</translation>
     </message>
-    <!-- OS:Refrigeration:Case -->
+    
     <message>
         <source>Refrigerated Case Restocking Schedule Name</source>
         <translation>Nama Jadwal Pengisian Ulang Kasus Berpendingin</translation>
     </message>
-    <!-- OS:Refrigeration:CompressorRack, OS:Refrigeration:SecondarySystem, OS:Refrigeration:System -->
+    
     <message>
         <source>Refrigerated CaseAndWalkInList Name</source>
         <translation>Nama Daftar Lemari Pendingin dan Walk-In</translation>
     </message>
-    <!-- OS:Refrigeration:Compressor -->
+    
     <message>
         <source>Refrigeration Compressor Capacity Curve Name</source>
         <translation>Nama Kurva Kapasitas Kompresor Pendingin</translation>
     </message>
-    <!-- OS:Refrigeration:Compressor -->
+    
     <message>
         <source>Refrigeration Compressor Power Curve Name</source>
         <translation>Nama Kurva Daya Kompresor Refrigerasi</translation>
     </message>
-    <!-- OS:Refrigeration:System -->
+    
     <message>
         <source>Refrigeration Condenser Name</source>
         <translation>Nama Kondensor Refrigerasi</translation>
     </message>
-    <!-- OS:Refrigeration:TranscriticalSystem -->
+    
     <message>
         <source>Refrigeration Gas Cooler Name</source>
         <translation>Nama Pendingin Gas Refrigerasi</translation>
     </message>
-    <!-- OS:Refrigeration:System, OS:Refrigeration:TranscriticalSystem -->
+    
     <message>
         <source>Refrigeration System Working Fluid Type</source>
         <translation>Jenis Fluida Kerja Sistem Pendingin</translation>
     </message>
-    <!-- OS:Refrigeration:System -->
+    
     <message>
         <source>Refrigeration TransferLoad List Name</source>
         <translation>Nama Daftar Beban Transfer Pendinginan</translation>
     </message>
-    <!-- OS:HeatExchanger:Desiccant:BalancedFlow -->
+    
     <message>
         <source>Regeneration Air Inlet Node</source>
         <translation>Node Inlet Udara Regenerasi</translation>
     </message>
-    <!-- OS:HeatExchanger:Desiccant:BalancedFlow -->
+    
     <message>
         <source>Regeneration Air Outlet Node</source>
         <translation>Node Outlet Udara Regenerasi</translation>
     </message>
-    <!-- OS:Coil:Heating:DX:MultiSpeed -->
+    
     <message>
         <source>Region number for Calculating HSPF</source>
         <translation>Nomor region untuk menghitung HSPF</translation>
     </message>
-    <!-- OS:ComponentCost:Adjustments -->
+    
     <message>
         <source>Regional Adjustment Factor</source>
         <translation>Faktor Penyesuaian Regional</translation>
     </message>
-    <!-- OS:AirTerminal:SingleDuct:VAV:HeatAndCool:Reheat -->
+    
     <message>
         <source>Reheat Coil</source>
         <translation>Kumparan Pemanasan Ulang</translation>
     </message>
-    <!-- OS:AirTerminal:SingleDuct:SeriesPIU:Reheat -->
+    
     <message>
         <source>Reheat Coil Air Inlet Node</source>
         <translation>Node Inlet Udara Coil Reheat</translation>
     </message>
-    <!-- OS:AirTerminal:SingleDuct:ParallelPIU:Reheat -->
+    
     <message>
         <source>Reheat Coil Air Inlet Node Name</source>
         <translation>Nama Node Inlet Udara Kumparan Reheat</translation>
     </message>
-    <!-- OS:AirTerminal:SingleDuct:ConstantVolume:Reheat, OS:AirTerminal:SingleDuct:ParallelPIU:Reheat, OS:AirTerminal:SingleDuct:SeriesPIU:Reheat, OS:AirTerminal:SingleDuct:VAV:Reheat -->
+    
     <message>
         <source>Reheat Coil Name</source>
         <translation>Nama Kumparan Pemanasan Ulang</translation>
     </message>
-    <!-- OS:AirflowNetworkSimulationControl -->
+    
     <message>
         <source>Relative Airflow Convergence Tolerance</source>
         <translation>Toleransi Konvergensi Aliran Udara Relatif</translation>
     </message>
-    <!-- OS:PlantEquipmentOperation:OutdoorRelativeHumidity -->
+    
     <message>
         <source>Relative Humidity Range Lower Limit</source>
         <translation>Batas Bawah Rentang Kelembaban Relatif</translation>
     </message>
-    <!-- OS:PlantEquipmentOperation:OutdoorRelativeHumidity -->
+    
     <message>
         <source>Relative Humidity Range Upper Limit</source>
         <translation>Batas Atas Rentang Kelembaban Relatif</translation>
     </message>
-    <!-- OS:EvaporativeCooler:Indirect:ResearchSpecial -->
+    
     <message>
         <source>Relief Air Inlet Node</source>
         <translation>Simpul Inlet Udara Pelepasan</translation>
     </message>
-    <!-- OS:Controller:OutdoorAir -->
+    
     <message>
         <source>Relief Air Outlet Node Name</source>
         <translation>Nama Node Outlet Udara Lega</translation>
     </message>
-    <!-- OS:AirLoopHVAC:OutdoorAirSystem -->
+    
     <message>
         <source>Relief Air Stream Node Name</source>
         <translation>Nama Node Aliran Udara Pengurangan</translation>
     </message>
-    <!-- OS:Building -->
+    
     <message>
         <source>Relocatable</source>
         <translation>Dapat Dipindahkan</translation>
     </message>
-    <!-- OS:UtilityCost:Charge:Block -->
+    
     <message>
         <source>Remaining Into Variable</source>
         <translation>Sisa ke Variabel</translation>
     </message>
-    <!-- OS:Rendering:Color -->
+    
     <message>
         <source>Rendering Alpha Value</source>
         <translation>Nilai Alpha Rendering</translation>
     </message>
-    <!-- OS:Rendering:Color -->
+    
     <message>
         <source>Rendering Blue Value</source>
         <translation>Nilai Biru Rendering</translation>
     </message>
-    <!-- OS:BuildingUnit -->
+    
     <message>
         <source>Rendering Color</source>
         <translation>Warna Rendering</translation>
     </message>
-    <!-- OS:Rendering:Color -->
+    
     <message>
         <source>Rendering Green Value</source>
         <translation>Nilai Hijau Render</translation>
     </message>
-    <!-- OS:Rendering:Color -->
+    
     <message>
         <source>Rendering Red Value</source>
         <translation>Nilai Merah Rendering</translation>
     </message>
-    <!-- OS:LifeCycleCost -->
+    
     <message>
         <source>Repeat Period Months</source>
         <translation>Bulan Periode Pengulangan</translation>
     </message>
-    <!-- OS:LifeCycleCost -->
+    
     <message>
         <source>Repeat Period Years</source>
         <translation>Tahun Periode Pengulangan</translation>
     </message>
-    <!-- OS:Output:Constructions -->
+    
     <message>
         <source>Report Constructions</source>
         <translation>Laporan Konstruksi</translation>
     </message>
-    <!-- OS:Output:DebuggingData -->
+    
     <message>
         <source>Report Debugging Data</source>
         <translation>Laporkan Data Debugging</translation>
     </message>
-    <!-- OS:Output:DebuggingData -->
+    
     <message>
         <source>Report During Warmup</source>
         <translation>Laporan Selama Pemanasan</translation>
     </message>
-    <!-- OS:Output:Constructions -->
+    
     <message>
         <source>Report Materials</source>
         <translation>Laporan Material</translation>
     </message>
-    <!-- OS:Output:Table:SummaryReports -->
+    
     <message>
         <source>Report Name</source>
         <translation>Nama Laporan</translation>
     </message>
-    <!-- OS:Output:EnvironmentalImpactFactors, OS:Output:Meter, OS:Output:Variable -->
+    
     <message>
         <source>Reporting Frequency</source>
         <translation>Frekuensi Pelaporan</translation>
     </message>
-    <!-- OS:Chiller:Electric:ASHRAE205 -->
+    
     <message>
         <source>Representation File Name</source>
         <translation>Nama File Representasi</translation>
     </message>
-    <!-- OS:Material:RoofVegetation -->
+    
     <message>
         <source>Residual Volumetric Moisture Content of the Soil Layer</source>
         <translation>Kadar Kelembaban Volumetrik Residual dari Lapisan Tanah</translation>
     </message>
-    <!-- OS:LifeCycleCost:UsePriceEscalation -->
+    
     <message>
         <source>Resource</source>
         <translation>Sumber Daya</translation>
     </message>
-    <!-- OS:EnergyManagementSystem:MeteredOutputVariable, OS:PythonPlugin:OutputVariable -->
+    
     <message>
         <source>Resource Type</source>
         <translation>Jenis Sumber Daya</translation>
     </message>
-    <!-- OS:Refrigeration:WalkIn -->
+    
     <message>
         <source>Restocking Schedule Name</source>
         <translation>Nama Jadwal Pengisian Kembali</translation>
     </message>
-    <!-- OS:AirLoopHVAC -->
+    
     <message>
         <source>Return Air Bypass Flow Temperature Setpoint Schedule Name</source>
         <translation>Nama Jadwal Setpoint Suhu Aliran Bypass Udara Kembali</translation>
     </message>
-    <!-- OS:Lights:Definition, OS:Luminaire:Definition -->
+    
     <message>
         <source>Return Air Fraction</source>
         <translation>Fraksi Udara Kembali</translation>
     </message>
-    <!-- OS:Lights:Definition, OS:Luminaire:Definition -->
+    
     <message>
         <source>Return Air Fraction Calculated from Plenum Temperature</source>
         <translation>Fraksi Udara Kembali Dihitung dari Suhu Plenum</translation>
     </message>
-    <!-- OS:Lights:Definition, OS:Luminaire:Definition -->
+    
     <message>
         <source>Return Air Fraction Function of Plenum Temperature Coefficient 1</source>
         <translation>Koefisien 1 Fungsi Fraksi Udara Kembali terhadap Suhu Plenum</translation>
     </message>
-    <!-- OS:Lights:Definition, OS:Luminaire:Definition -->
+    
     <message>
         <source>Return Air Fraction Function of Plenum Temperature Coefficient 2</source>
         <translation>Koefisien Fungsi Fraksi Udara Kembali terhadap Suhu Plenum 2</translation>
     </message>
-    <!-- OS:Controller:OutdoorAir -->
+    
     <message>
         <source>Return Air Node Name</source>
         <translation>Nama Node Udara Kembali</translation>
     </message>
-    <!-- OS:AirLoopHVAC:OutdoorAirSystem, OS:SetpointManager:OutdoorAirPretreat -->
+    
     <message>
         <source>Return Air Stream Node Name</source>
         <translation>Nama Node Aliran Udara Kembali</translation>
     </message>
-    <!-- OS:ElectricEquipment:ITE:AirCooled:Definition -->
+    
     <message>
         <source>Return Temperature Difference</source>
         <translation>Perbedaan Suhu Kembali</translation>
     </message>
-    <!-- OS:ElectricEquipment:ITE:AirCooled:Definition -->
+    
     <message>
         <source>Return Temperature Difference Schedule</source>
         <translation>Jadwal Perbedaan Suhu Kembali</translation>
     </message>
-    <!-- OS:WindowMaterial:Screen -->
+    
     <message>
         <source>Right Side Opening Multiplier</source>
         <translation>Pengali Pembukaan Sisi Kanan</translation>
     </message>
-    <!-- OS:WindowMaterial:Shade -->
+    
     <message>
         <source>Right-Side Opening Multiplier</source>
         <translation>Pengali Pembukaan Sisi Kanan</translation>
     </message>
-    <!-- OS:DefaultSurfaceConstructions -->
+    
     <message>
         <source>Roof Ceiling Construction Name</source>
         <translation>Nama Konstruksi Atap Langit-langit</translation>
     </message>
-    <!-- OS:Pump:ConstantSpeed -->
+    
     <message>
         <source>Rotational Speed</source>
         <translation>Kecepatan Rotasi</translation>
     </message>
-    <!-- OS:Generator:WindTurbine -->
+    
     <message>
         <source>Rotor Diameter</source>
         <translation>Diameter Rotor</translation>
     </message>
-    <!-- OS:Generator:WindTurbine -->
+    
     <message>
         <source>Rotor Type</source>
         <translation>Jenis Rotor</translation>
     </message>
-    <!-- OS:Curve:Functional:PressureDrop, OS:Material, OS:Material:NoMass, OS:Material:RoofVegetation -->
+    
     <message>
         <source>Roughness</source>
         <translation>Kekasaran</translation>
     </message>
-    <!-- OS:Schedule:File -->
+    
     <message>
         <source>Rows to Skip at Top</source>
         <translation>Baris yang Dilewati di Bagian Atas</translation>
     </message>
-    <!-- OS:Schedule:Rule -->
+    
     <message>
         <source>Rule Order</source>
         <translation>Urutan Aturan</translation>
     </message>
-    <!-- OS:PythonPlugin:Instance -->
+    
     <message>
         <source>Run During Warmup Days</source>
         <translation>Jalankan Selama Hari Pemanasan</translation>
     </message>
-    <!-- OS:AirLoopHVAC:UnitaryCoolOnly, OS:CoilSystem:Cooling:Water -->
+    
     <message>
         <source>Run on Latent Load</source>
         <translation>Jalankan pada Beban Laten</translation>
     </message>
-    <!-- OS:AirLoopHVAC:UnitaryCoolOnly, OS:CoilSystem:Cooling:Water -->
+    
     <message>
         <source>Run on Sensible Load</source>
         <translation>Jalankan pada Beban Sensibel</translation>
     </message>
-    <!-- OS:LightingSimulationControl -->
+    
     <message>
         <source>Run Simulation for Design Days</source>
         <translation>Jalankan Simulasi untuk Hari Desain</translation>
     </message>
-    <!-- OS:SimulationControl -->
+    
     <message>
         <source>Run Simulation for Sizing Periods</source>
         <translation>Jalankan Simulasi untuk Periode Penentuan Ukuran</translation>
     </message>
-    <!-- OS:LightingSimulationControl, OS:SimulationControl -->
+    
     <message>
         <source>Run Simulation for Weather File Run Periods</source>
         <translation>Jalankan Simulasi untuk Periode Operasi File Cuaca</translation>
     </message>
-    <!-- OS:Generator:FuelCell:PowerModule -->
+    
     <message>
         <source>Run Time Degradation Initiation Time Threshold</source>
         <translation>Ambang Waktu Inisiasi Degradasi Waktu Operasi</translation>
     </message>
-    <!-- OS:ZoneHVAC:LowTemperatureRadiant:ConstantFlow -->
+    
     <message>
         <source>Running Mean Outdoor Dry-Bulb Temperature Weighting Factor</source>
         <translation>Faktor Pembobotan Suhu Bola Kering Luar Rerata Berjalan</translation>
     </message>
 
-    <!-- S -->
-    <!-- OS:PhotovoltaicPerformance:Sandia -->
+    
+    
     <message>
         <source>Sandia Database Parameter a</source>
         <translation>Parameter a Database Sandia</translation>
     </message>
-    <!-- OS:PhotovoltaicPerformance:Sandia -->
+    
     <message>
         <source>Sandia Database Parameter a0</source>
         <translation>Parameter Sandia Database a0</translation>
     </message>
-    <!-- OS:PhotovoltaicPerformance:Sandia -->
+    
     <message>
         <source>Sandia Database Parameter a1</source>
         <translation>Parameter Sandia Database a1</translation>
     </message>
-    <!-- OS:PhotovoltaicPerformance:Sandia -->
+    
     <message>
         <source>Sandia Database Parameter a2</source>
         <translation>Parameter Sandia Database a2</translation>
     </message>
-    <!-- OS:PhotovoltaicPerformance:Sandia -->
+    
     <message>
         <source>Sandia Database Parameter a3</source>
         <translation>Parameter Sandia Database a3</translation>
     </message>
-    <!-- OS:PhotovoltaicPerformance:Sandia -->
+    
     <message>
         <source>Sandia Database Parameter a4</source>
         <translation>Parameter Sandia Database a4</translation>
     </message>
-    <!-- OS:PhotovoltaicPerformance:Sandia -->
+    
     <message>
         <source>Sandia Database Parameter aImp</source>
         <translation>Parameter aImp Database Sandia</translation>
     </message>
-    <!-- OS:PhotovoltaicPerformance:Sandia -->
+    
     <message>
         <source>Sandia Database Parameter aIsc</source>
         <translation>Parameter aIsc Database Sandia</translation>
     </message>
-    <!-- OS:PhotovoltaicPerformance:Sandia -->
+    
     <message>
         <source>Sandia Database Parameter b</source>
         <translation>Parameter Sandia b</translation>
     </message>
-    <!-- OS:PhotovoltaicPerformance:Sandia -->
+    
     <message>
         <source>Sandia Database Parameter b0</source>
         <translation>Parameter Sandia Database b0</translation>
     </message>
-    <!-- OS:PhotovoltaicPerformance:Sandia -->
+    
     <message>
         <source>Sandia Database Parameter b1</source>
         <translation>Sandia Database Parameter b1</translation>
     </message>
-    <!-- OS:PhotovoltaicPerformance:Sandia -->
+    
     <message>
         <source>Sandia Database Parameter b2</source>
         <translation>Parameter b2 Database Sandia</translation>
     </message>
-    <!-- OS:PhotovoltaicPerformance:Sandia -->
+    
     <message>
         <source>Sandia Database Parameter b3</source>
         <translation>Parameter Sandia Database b3</translation>
     </message>
-    <!-- OS:PhotovoltaicPerformance:Sandia -->
+    
     <message>
         <source>Sandia Database Parameter b4</source>
         <translation>Parameter Sandia Database b4</translation>
     </message>
-    <!-- OS:PhotovoltaicPerformance:Sandia -->
+    
     <message>
         <source>Sandia Database Parameter b5</source>
         <translation>Parameter Sandia Database b5</translation>
     </message>
-    <!-- OS:PhotovoltaicPerformance:Sandia -->
+    
     <message>
         <source>Sandia Database Parameter BVmp0</source>
         <translation>Parameter Database Sandia BVmp0</translation>
     </message>
-    <!-- OS:PhotovoltaicPerformance:Sandia -->
+    
     <message>
         <source>Sandia Database Parameter BVoc0</source>
         <translation>Sandia Database Parameter BVoc0</translation>
     </message>
-    <!-- OS:PhotovoltaicPerformance:Sandia -->
+    
     <message>
         <source>Sandia Database Parameter c0</source>
         <translation>Parameter Basis Data Sandia c0</translation>
     </message>
-    <!-- OS:PhotovoltaicPerformance:Sandia -->
+    
     <message>
         <source>Sandia Database Parameter c1</source>
         <translation>Parameter Sandia Basis Data c1</translation>
     </message>
-    <!-- OS:PhotovoltaicPerformance:Sandia -->
+    
     <message>
         <source>Sandia Database Parameter c2</source>
         <translation>Parameter Database Sandia c2</translation>
     </message>
-    <!-- OS:PhotovoltaicPerformance:Sandia -->
+    
     <message>
         <source>Sandia Database Parameter c3</source>
         <translation>Parameter Sandia Database c3</translation>
     </message>
-    <!-- OS:PhotovoltaicPerformance:Sandia -->
+    
     <message>
         <source>Sandia Database Parameter c4</source>
         <translation>Parameter Sandia Database c4</translation>
     </message>
-    <!-- OS:PhotovoltaicPerformance:Sandia -->
+    
     <message>
         <source>Sandia Database Parameter c5</source>
         <translation>Parameter c5 Database Sandia</translation>
     </message>
-    <!-- OS:PhotovoltaicPerformance:Sandia -->
+    
     <message>
         <source>Sandia Database Parameter c6</source>
         <translation>Parameter Basis Data Sandia c6</translation>
     </message>
-    <!-- OS:PhotovoltaicPerformance:Sandia -->
+    
     <message>
         <source>Sandia Database Parameter c7</source>
         <translation>Parameter Database Sandia c7</translation>
     </message>
-    <!-- OS:PhotovoltaicPerformance:Sandia -->
+    
     <message>
         <source>Sandia Database Parameter Delta(Tc)</source>
         <translation>Parameter Delta(Tc) Basis Data Sandia</translation>
     </message>
-    <!-- OS:PhotovoltaicPerformance:Sandia -->
+    
     <message>
         <source>Sandia Database Parameter fd</source>
         <translation>Parameter Sandia Database fd</translation>
     </message>
-    <!-- OS:PhotovoltaicPerformance:Sandia -->
+    
     <message>
         <source>Sandia Database Parameter Ix0</source>
         <translation>Parameter Ix0 Database Sandia</translation>
     </message>
-    <!-- OS:PhotovoltaicPerformance:Sandia -->
+    
     <message>
         <source>Sandia Database Parameter Ixx0</source>
         <translation>Sandia Database Parameter Ixx0</translation>
     </message>
-    <!-- OS:PhotovoltaicPerformance:Sandia -->
+    
     <message>
         <source>Sandia Database Parameter mBVmp</source>
         <translation>Sandia Database Parameter mBVmp</translation>
     </message>
-    <!-- OS:PhotovoltaicPerformance:Sandia -->
+    
     <message>
         <source>Sandia Database Parameter mBVoc</source>
         <translation>Sandia Database Parameter mBVoc</translation>
     </message>
-    <!-- OS:Material:RoofVegetation -->
+    
     <message>
         <source>Saturation Volumetric Moisture Content of the Soil Layer</source>
         <translation>Kadar Kelembaban Volumetrik Jenuh dari Lapisan Tanah</translation>
     </message>
-    <!-- OS:Schedule:Week -->
+    
     <message>
         <source>Saturday Schedule:Day Name</source>
         <translation>Jadwal Sabtu:Nama Hari</translation>
     </message>
-    <!-- OS:CoilSystem:IntegratedHeatPump:AirSource -->
+    
     <message>
         <source>SCDWH Cooling Coil</source>
         <translation>Kumparan Pendingin SCDWH</translation>
     </message>
-    <!-- OS:CoilSystem:IntegratedHeatPump:AirSource -->
+    
     <message>
         <source>SCDWH Water Heating Coil</source>
         <translation>Kumparan Pemanas Air SCDWH</translation>
     </message>
-    <!-- OS:Schedule:Week -->
+    
     <message>
         <source>Schedule Rendering Name</source>
         <translation>Nama Rendering Jadwal</translation>
     </message>
-    <!-- OS:Schedule:Rule -->
+    
     <message>
         <source>Schedule Ruleset Name</source>
         <translation>Nama Kumpulan Aturan Jadwal</translation>
     </message>
-    <!-- OS:WindowMaterial:Screen -->
+    
     <message>
         <source>Screen Material Diameter</source>
         <translation>Diameter Material Layar</translation>
     </message>
-    <!-- OS:WindowMaterial:Screen -->
+    
     <message>
         <source>Screen Material Spacing</source>
         <translation>Jarak Material Layar</translation>
     </message>
-    <!-- OS:WindowMaterial:Screen -->
+    
     <message>
         <source>Screen to Glass Distance</source>
         <translation>Jarak Layar ke Kaca</translation>
     </message>
-    <!-- OS:CoilSystem:IntegratedHeatPump:AirSource -->
+    
     <message>
         <source>SCWH Coil</source>
         <translation>SCWH Coil</translation>
     </message>
-    <!-- OS:PythonPlugin:SearchPaths -->
+    
     <message>
         <source>Search Path</source>
         <translation>Jalur Pencarian</translation>
     </message>
-    <!-- OS:UtilityCost:Charge:Block, OS:UtilityCost:Charge:Simple, OS:UtilityCost:Qualify -->
+    
     <message>
         <source>Season</source>
         <translation>Musim</translation>
     </message>
-    <!-- OS:UtilityCost:Ratchet -->
+    
     <message>
         <source>Season From</source>
         <translation>Musim Dari</translation>
     </message>
-    <!-- OS:UtilityCost:Tariff -->
+    
     <message>
         <source>Season Schedule Name</source>
         <translation>Nama Jadwal Musiman</translation>
     </message>
-    <!-- OS:UtilityCost:Ratchet -->
+    
     <message>
         <source>Season To</source>
         <translation>Musim Sampai</translation>
     </message>
-    <!-- OS:ZoneHVAC:EvaporativeCoolerUnit -->
+    
     <message>
         <source>Second Evaporative Cooler</source>
         <translation>Pendingin Evaporatif Kedua</translation>
     </message>
-    <!-- OS:EvaporativeCooler:Indirect:ResearchSpecial -->
+    
     <message>
         <source>Secondary Air Fan Design Power</source>
         <translation>Daya Desain Kipas Udara Sekunder</translation>
     </message>
-    <!-- OS:EvaporativeCooler:Indirect:ResearchSpecial -->
+    
     <message>
         <source>Secondary Air Fan Power Modifier Curve Name</source>
         <translation>Nama Kurva Pengubah Daya Fan Udara Sekunder</translation>
     </message>
-    <!-- OS:EvaporativeCooler:Indirect:ResearchSpecial -->
+    
     <message>
         <source>Secondary Air Flow Scaling Factor</source>
         <translation>Faktor Penskalaan Aliran Udara Sekunder</translation>
     </message>
-    <!-- OS:AirTerminal:SingleDuct:SeriesPIU:Reheat, OS:EvaporativeCooler:Indirect:ResearchSpecial -->
+    
     <message>
         <source>Secondary Air Inlet Node</source>
         <translation>Node Inlet Udara Sekunder</translation>
     </message>
-    <!-- OS:AirTerminal:SingleDuct:ParallelPIU:Reheat -->
+    
     <message>
         <source>Secondary Air Inlet Node Name</source>
         <translation>Nama Node Inlet Udara Sekunder</translation>
     </message>
-    <!-- OS:ThermalZone -->
+    
     <message>
         <source>Secondary Daylighting Control Name</source>
         <translation>Nama Kontrol Daylighting Sekunder</translation>
     </message>
-    <!-- OS:EvaporativeCooler:Indirect:ResearchSpecial -->
+    
     <message>
         <source>Secondary Fan Delta Pressure</source>
         <translation>Tekanan Diferensial Fan Sekunder</translation>
     </message>
-    <!-- OS:EvaporativeCooler:Indirect:ResearchSpecial -->
+    
     <message>
         <source>Secondary Fan Flow Rate</source>
         <translation>Laju Aliran Kipas Sekunder</translation>
     </message>
-    <!-- OS:EvaporativeCooler:Indirect:ResearchSpecial -->
+    
     <message>
         <source>Secondary Fan Total Efficiency</source>
         <translation>Efisiensi Total Fan Sekunder</translation>
     </message>
-    <!-- OS:PhotovoltaicPerformance:EquivalentOneDiode -->
+    
     <message>
         <source>Semiconductor Bandgap</source>
         <translation>Celah Pita Semikonduktor</translation>
     </message>
-    <!-- OS:Coil:Cooling:WaterToAirHeatPump:EquationFit -->
+    
     <message>
         <source>Sensible Cooling Capacity Curve Name</source>
         <translation>Nama Kurva Kapasitas Pendinginan Sensibel</translation>
     </message>
-    <!-- OS:HeatExchanger:AirToAir:SensibleAndLatent -->
+    
     <message>
         <source>Sensible Effectiveness at 100% Cooling Air Flow</source>
         <translation>Efektivitas Sensibel pada 100% Aliran Udara Pendinginan</translation>
     </message>
-    <!-- OS:HeatExchanger:AirToAir:SensibleAndLatent -->
+    
     <message>
         <source>Sensible Effectiveness at 100% Heating Air Flow</source>
         <translation>Efektivitas Sensibel pada Aliran Udara Pemanasan 100%</translation>
     </message>
-    <!-- OS:HeatExchanger:AirToAir:SensibleAndLatent -->
+    
     <message>
         <source>Sensible Effectiveness of Cooling Air Flow Curve Name</source>
         <translation>Nama Kurva Efektivitas Sensibel Aliran Udara Pendingin</translation>
     </message>
-    <!-- OS:HeatExchanger:AirToAir:SensibleAndLatent -->
+    
     <message>
         <source>Sensible Effectiveness of Heating Air Flow Curve Name</source>
         <translation>Nama Kurva Efektivitas Sensibel Aliran Udara Pemanas</translation>
     </message>
-    <!-- OS:CoilPerformance:DX:Cooling -->
+    
     <message>
         <source>Sensible Heat Ratio Function of Flow Fraction Curve</source>
         <translation>Kurva Fungsi Rasio Panas Sensibel terhadap Fraksi Aliran</translation>
     </message>
-    <!-- OS:CoilPerformance:DX:Cooling -->
+    
     <message>
         <source>Sensible Heat Ratio Function of Temperature Curve</source>
         <translation>Kurva Fungsi Rasio Panas Indrawi terhadap Temperatur</translation>
     </message>
-    <!-- OS:Coil:Cooling:DX:CurveFit:Speed -->
+    
     <message>
         <source>Sensible Heat Ratio Modifier Function of Flow Fraction Curve</source>
         <translation>Kurva Modifikasi Rasio Panas Sensibel Berdasarkan Fraksi Aliran</translation>
     </message>
-    <!-- OS:Coil:Cooling:DX:CurveFit:Speed -->
+    
     <message>
         <source>Sensible Heat Ratio Modifier Function of Temperature Curve</source>
         <translation>Fungsi Modifikasi Rasio Panas Sensibel terhadap Kurva Suhu</translation>
     </message>
-    <!-- OS:ZoneHVAC:IdealLoadsAirSystem -->
+    
     <message>
         <source>Sensible Heat Recovery Effectiveness</source>
         <translation>Efektivitas Pemulihan Panas Sensibel</translation>
     </message>
-    <!-- OS:AvailabilityManager:HighTemperatureTurnOff, OS:AvailabilityManager:HighTemperatureTurnOn, OS:AvailabilityManager:LowTemperatureTurnOff, OS:AvailabilityManager:LowTemperatureTurnOn, OS:Controller:WaterCoil, OS:EvaporativeCooler:Direct:ResearchSpecial, OS:EvaporativeCooler:Indirect:ResearchSpecial -->
+    
     <message>
         <source>Sensor Node Name</source>
         <translation>Nama Node Sensor</translation>
     </message>
-    <!-- OS:Site:GroundTemperature:Deep -->
+    
     <message>
         <source>September Deep Ground Temperature</source>
         <translation>Temperatur Tanah Dalam September</translation>
     </message>
-    <!-- OS:Site:GroundReflectance -->
+    
     <message>
         <source>September Ground Reflectance</source>
         <translation>Reflektansi Tanah September</translation>
     </message>
-    <!-- OS:Site:GroundTemperature:BuildingSurface, OS:Site:GroundTemperature:FCfactorMethod -->
+    
     <message>
         <source>September Ground Temperature</source>
         <translation>Temperatur Tanah September</translation>
     </message>
-    <!-- OS:Site:GroundTemperature:Shallow -->
+    
     <message>
         <source>September Surface Ground Temperature</source>
         <translation>Suhu Permukaan Tanah September</translation>
     </message>
-    <!-- OS:UtilityCost:Variable -->
+    
     <message>
         <source>September Value</source>
         <translation>Nilai September</translation>
     </message>
-    <!-- OS:LifeCycleCost:Parameters -->
+    
     <message>
         <source>Service Date Month</source>
         <translation>Bulan Tanggal Layanan</translation>
     </message>
-    <!-- OS:LifeCycleCost:Parameters -->
+    
     <message>
         <source>Service Date Year</source>
         <translation>Tahun Tanggal Layanan</translation>
     </message>
-    <!-- OS:ShadingControl -->
+    
     <message>
         <source>Setpoint</source>
         <translation>Titik Atur</translation>
     </message>
-    <!-- OS:ShadingControl -->
+    
     <message>
         <source>Setpoint 2</source>
         <translation>Titik Atur 2</translation>
     </message>
-    <!-- OS:SetpointManager:SystemNodeReset:Humidity -->
+    
     <message>
         <source>Setpoint at High Reference Humidity Ratio</source>
         <translation>Titik Set pada Rasio Kelembaban Referensi Tinggi</translation>
     </message>
-    <!-- OS:SetpointManager:SystemNodeReset:Temperature -->
+    
     <message>
         <source>Setpoint at High Reference Temperature</source>
         <translation>Titik Atur pada Suhu Referensi Tinggi</translation>
     </message>
-    <!-- OS:SetpointManager:SystemNodeReset:Humidity -->
+    
     <message>
         <source>Setpoint at Low Reference Humidity Ratio</source>
         <translation>Titik Tetap pada Rasio Kelembaban Acuan Rendah</translation>
     </message>
-    <!-- OS:SetpointManager:SystemNodeReset:Temperature -->
+    
     <message>
         <source>Setpoint at Low Reference Temperature</source>
         <translation>Titik Atur pada Suhu Referensi Rendah</translation>
     </message>
-    <!-- OS:SetpointManager:OutdoorAirReset -->
+    
     <message>
         <source>Setpoint at Outdoor High Temperature</source>
         <translation>Titik Set pada Suhu Luar Tinggi</translation>
     </message>
-    <!-- OS:SetpointManager:OutdoorAirReset -->
+    
     <message>
         <source>Setpoint at Outdoor High Temperature 2</source>
         <translation>Titik Set pada Suhu Luar Tinggi 2</translation>
     </message>
-    <!-- OS:SetpointManager:OutdoorAirReset -->
+    
     <message>
         <source>Setpoint at Outdoor Low Temperature</source>
         <translation>Setpoint pada Temperatur Luar Rendah</translation>
     </message>
-    <!-- OS:SetpointManager:OutdoorAirReset -->
+    
     <message>
         <source>Setpoint at Outdoor Low Temperature 2</source>
         <translation>Setpoint pada Suhu Luar Rendah 2</translation>
     </message>
-    <!-- OS:ZoneHVAC:LowTemperatureRadiant:Electric, OS:ZoneHVAC:LowTemperatureRadiant:VariableFlow -->
+    
     <message>
         <source>Setpoint Control Type</source>
         <translation>Tipe Kontrol Setpoint</translation>
     </message>
-    <!-- OS:SetpointManager:Coldest, OS:SetpointManager:FollowGroundTemperature, OS:SetpointManager:FollowOutdoorAirTemperature, OS:SetpointManager:FollowSystemNodeTemperature, OS:SetpointManager:MixedAir, OS:SetpointManager:MultiZone:Cooling:Average, OS:SetpointManager:MultiZone:Heating:Average, OS:SetpointManager:MultiZone:Humidity:Maximum, OS:SetpointManager:MultiZone:Humidity:Minimum, OS:SetpointManager:MultiZone:MaximumHumidity:Average, OS:SetpointManager:MultiZone:MinimumHumidity:Average, OS:SetpointManager:OutdoorAirPretreat, OS:SetpointManager:OutdoorAirReset, OS:SetpointManager:Scheduled, OS:SetpointManager:Scheduled:DualSetpoint, OS:SetpointManager:SingleZone:Cooling, OS:SetpointManager:SingleZone:Heating, OS:SetpointManager:SingleZone:Humidity:Maximum, OS:SetpointManager:SingleZone:Humidity:Minimum, OS:SetpointManager:SingleZone:OneStageCooling, OS:SetpointManager:SingleZone:OneStageHeating, OS:SetpointManager:SingleZone:Reheat, OS:SetpointManager:SystemNodeReset:Humidity, OS:SetpointManager:SystemNodeReset:Temperature, OS:SetpointManager:Warmest, OS:SetpointManager:WarmestTemperatureFlow -->
+    
     <message>
         <source>Setpoint Node or NodeList Name</source>
         <translation>Nama Node atau Daftar Node Setpoint</translation>
     </message>
-    <!-- OS:SwimmingPool:Indoor -->
+    
     <message>
         <source>Setpoint Temperature Schedule</source>
         <translation>Jadwal Suhu Titik Set</translation>
     </message>
-    <!-- OS:WindowMaterial:Shade -->
+    
     <message>
         <source>Shade to Glass Distance</source>
         <translation>Jarak Shade ke Kaca</translation>
     </message>
-    <!-- OS:ShadingSurfaceGroup -->
+    
     <message>
         <source>Shaded Object Name</source>
         <translation>Nama Objek Terteduh</translation>
     </message>
-    <!-- OS:ShadowCalculation -->
+    
     <message>
         <source>Shading Calculation Method</source>
         <translation>Metode Perhitungan Bayangan</translation>
     </message>
-    <!-- OS:ShadowCalculation -->
+    
     <message>
         <source>Shading Calculation Update Frequency</source>
         <translation>Frekuensi Pembaruan Perhitungan Shading</translation>
     </message>
-    <!-- OS:ShadowCalculation -->
+    
     <message>
         <source>Shading Calculation Update Frequency Method</source>
         <translation>Metode Frekuensi Pembaruan Perhitungan Bayangan</translation>
     </message>
-    <!-- OS:ShadingControl -->
+    
     <message>
         <source>Shading Control Is Scheduled</source>
         <translation>Kontrol Shading Dijadwalkan</translation>
     </message>
-    <!-- OS:ShadingControl -->
+    
     <message>
         <source>Shading Control Type</source>
         <translation>Tipe Kontrol Peneduhan</translation>
     </message>
-    <!-- OS:ShadingControl -->
+    
     <message>
         <source>Shading Device Material Name</source>
         <translation>Nama Material Perangkat Shading</translation>
     </message>
-    <!-- OS:ShadingSurface -->
+    
     <message>
         <source>Shading Surface Group Name</source>
         <translation>Nama Grup Permukaan Bayangan</translation>
     </message>
-    <!-- OS:ShadingSurfaceGroup -->
+    
     <message>
         <source>Shading Surface Type</source>
         <translation>Jenis Permukaan Pembayangan</translation>
     </message>
-    <!-- OS:ShadingControl -->
+    
     <message>
         <source>Shading Type</source>
         <translation>Jenis Shading</translation>
     </message>
-    <!-- OS:ShadowCalculation -->
+    
     <message>
         <source>Shading Zone Group</source>
         <translation>Kelompok Zona Peneduh</translation>
     </message>
-    <!-- OS:CoilSystem:IntegratedHeatPump:AirSource -->
+    
     <message>
         <source>SHDWH Heating Coil</source>
         <translation>Kumparan Pemanas SHDWH</translation>
     </message>
-    <!-- OS:CoilSystem:IntegratedHeatPump:AirSource -->
+    
     <message>
         <source>SHDWH Water Heating Coil</source>
         <translation>SHDWH Water Heating Coil</translation>
     </message>
-    <!-- OS:Refrigeration:System -->
+    
     <message>
         <source>Shell-and-Coil Intercooler Effectiveness</source>
         <translation>Efektivitas Intercooler Shell-and-Coil</translation>
     </message>
-    <!-- OS:SpaceInfiltration:FlowCoefficient -->
+    
     <message>
         <source>Shelter Factor</source>
         <translation>Faktor Perlindungan</translation>
     </message>
-    <!-- OS:PhotovoltaicPerformance:EquivalentOneDiode, OS:PhotovoltaicPerformance:Sandia -->
+    
     <message>
         <source>Short Circuit Current</source>
         <translation>Arus Hubung Singkat</translation>
     </message>
-    <!-- OS:Refrigeration:AirChiller -->
+    
     <message>
         <source>SHR60 Correction Factor</source>
         <translation>Faktor Koreksi SHR60</translation>
     </message>
-    <!-- OS:PhotovoltaicPerformance:EquivalentOneDiode -->
+    
     <message>
         <source>Shunt Resistance</source>
         <translation>Hambatan Shunt</translation>
     </message>
-    <!-- OS:Generator:FuelCell:PowerModule -->
+    
     <message>
         <source>Shut Down Electricity Consumption</source>
         <translation>Konsumsi Listrik Saat Shutdown</translation>
     </message>
-    <!-- OS:Generator:FuelCell:PowerModule -->
+    
     <message>
         <source>Shut Down Fuel</source>
         <translation>Bahan Bakar Matikan</translation>
     </message>
-    <!-- OS:Generator:FuelCell:PowerModule -->
+    
     <message>
         <source>Shut Down Time</source>
         <translation>Waktu Matikan</translation>
     </message>
-    <!-- OS:ZoneHVAC:EvaporativeCoolerUnit -->
+    
     <message>
         <source>Shut Off Relative Humidity</source>
         <translation>Kelembaban Relatif Mati</translation>
     </message>
-    <!-- OS:SolarCollectorPerformance:IntegralCollectorStorage -->
+    
     <message>
         <source>Side Heat Loss Conductance</source>
         <translation>Konduktansi Kehilangan Panas Samping</translation>
     </message>
-    <!-- OS:AvailabilityManager:HybridVentilation -->
+    
     <message>
         <source>Simple Airflow Control Type Schedule</source>
         <translation>Jadwal Tipe Kontrol Aliran Udara Sederhana</translation>
     </message>
-    <!-- OS:ElectricLoadCenter:Storage:Converter -->
+    
     <message>
         <source>Simple Fixed Efficiency</source>
         <translation>Efisiensi Tetap Sederhana</translation>
     </message>
-    <!-- OS:Generator:FuelCell:ElectricalStorage -->
+    
     <message>
         <source>Simple Maximum Capacity</source>
         <translation>Kapasitas Maksimum Sederhana</translation>
     </message>
-    <!-- OS:Generator:FuelCell:ElectricalStorage -->
+    
     <message>
         <source>Simple Maximum Power Draw</source>
         <translation>Penarikan Daya Maksimum Sederhana</translation>
     </message>
-    <!-- OS:Generator:FuelCell:ElectricalStorage -->
+    
     <message>
         <source>Simple Maximum Power Store</source>
         <translation>Penyimpanan Daya Maksimum Sederhana</translation>
     </message>
-    <!-- OS:Construction:AirBoundary -->
+    
     <message>
         <source>Simple Mixing Air Changes per Hour</source>
         <translation>Perubahan Udara per Jam Pencampuran Sederhana</translation>
     </message>
-    <!-- OS:Construction:AirBoundary -->
+    
     <message>
         <source>Simple Mixing Schedule Name</source>
         <translation>Nama Jadwal Pencampuran Sederhana</translation>
     </message>
-    <!-- OS:Foundation:Kiva:Settings -->
+    
     <message>
         <source>Simulation Timestep</source>
         <translation>Timestep Simulasi</translation>
     </message>
-    <!-- OS:UnitarySystemPerformance:Multispeed -->
+    
     <message>
         <source>Single Mode Operation</source>
         <translation>Operasi Mode Tunggal</translation>
     </message>
-    <!-- OS:AirflowNetworkZone -->
+    
     <message>
         <source>Single Sided Wind Pressure Coefficient Algorithm</source>
         <translation>Algoritma Koefisien Tekanan Angin Satu Sisi</translation>
     </message>
-    <!-- OS:SurfaceProperty:OtherSideCoefficients -->
+    
     <message>
         <source>Sinusoidal Variation of Constant Temperature Coefficient</source>
         <translation>Variasi Sinusoidal dari Koefisien Suhu Konstan</translation>
     </message>
-    <!-- OS:DefaultConstructionSet -->
+    
     <message>
         <source>Site Shading Construction Name</source>
         <translation>Nama Konstruksi Shading Site</translation>
     </message>
-    <!-- OS:Generator:FuelCell:PowerModule -->
+    
     <message>
         <source>Skin Loss Calculation Mode</source>
         <translation>Modus Perhitungan Kehilangan Kulit</translation>
     </message>
-    <!-- OS:Generator:FuelCell:AuxiliaryHeater -->
+    
     <message>
         <source>Skin Loss Destination</source>
         <translation>Tujuan Kehilangan Kulit</translation>
     </message>
-    <!-- OS:WaterHeater:Stratified -->
+    
     <message>
         <source>Skin Loss Fraction to Zone</source>
         <translation>Fraksi Kehilangan Kulit ke Zona</translation>
     </message>
-    <!-- OS:Generator:FuelCell:PowerModule -->
+    
     <message>
         <source>Skin Loss Quadratic Curve Name</source>
         <translation>Nama Kurva Kuadrat Kehilangan Kulit</translation>
     </message>
-    <!-- OS:Generator:FuelCell:PowerModule -->
+    
     <message>
         <source>Skin Loss U-Factor Times Area Term</source>
         <translation>Faktor-U Kehilangan Selubung Dikalikan Luas</translation>
     </message>
-    <!-- OS:Generator:FuelCell:AuxiliaryHeater -->
+    
     <message>
         <source>Skin Loss U-Factor Times Area Value</source>
         <translation>Nilai U-Factor Kali Luas Kehilangan Kulit</translation>
     </message>
-    <!-- OS:SizingPeriod:DesignDay -->
+    
     <message>
         <source>Sky Clearness</source>
         <translation>Kejelasan Langit</translation>
     </message>
-    <!-- OS:ShadowCalculation -->
+    
     <message>
         <source>Sky Diffuse Modeling Algorithm</source>
         <translation>Algoritma Pemodelan Difus Langit</translation>
     </message>
-    <!-- OS:RadianceParameters -->
+    
     <message>
         <source>Sky Discretization Resolution</source>
         <translation>Resolusi Diskritisasi Langit</translation>
     </message>
-    <!-- OS:SurfaceProperty:SurroundingSurfaces -->
+    
     <message>
         <source>Sky Temperature Schedule Name</source>
         <translation>Nama Jadwal Temperatur Langit</translation>
     </message>
-    <!-- OS:SurfaceProperty:SurroundingSurfaces -->
+    
     <message>
         <source>Sky View Factor</source>
         <translation>Faktor Pandangan Langit</translation>
     </message>
-    <!-- OS:DefaultSubSurfaceConstructions -->
+    
     <message>
         <source>Skylight Construction Name</source>
         <translation>Nama Konstruksi Skylight</translation>
     </message>
-    <!-- OS:WindowMaterial:Blind -->
+    
     <message>
         <source>Slat Angle</source>
         <translation>Sudut Bilah</translation>
     </message>
-    <!-- OS:ShadingControl -->
+    
     <message>
         <source>Slat Angle Schedule Name</source>
         <translation>Nama Jadwal Sudut Bilah</translation>
     </message>
-    <!-- OS:WindowMaterial:Blind -->
+    
     <message>
         <source>Slat Beam Solar Transmittance</source>
         <translation>Transmitansi Solar Balok Slat</translation>
     </message>
-    <!-- OS:WindowMaterial:Blind -->
+    
     <message>
         <source>Slat Beam Visible Transmittance</source>
         <translation>Transmitansi Tampak Bilah Beam</translation>
     </message>
-    <!-- OS:WindowMaterial:Blind -->
+    
     <message>
         <source>Slat Conductivity</source>
         <translation>Konduktivitas Slat</translation>
     </message>
-    <!-- OS:WindowMaterial:Blind -->
+    
     <message>
         <source>Slat Diffuse Solar Transmittance</source>
         <translation>Transmitansi Difus Solar Slat</translation>
     </message>
-    <!-- OS:WindowMaterial:Blind -->
+    
     <message>
         <source>Slat Diffuse Visible Transmittance</source>
         <translation>Transmitansi Tampak Difus Bilah</translation>
     </message>
-    <!-- OS:WindowMaterial:Blind -->
+    
     <message>
         <source>Slat Infrared Hemispherical Transmittance</source>
         <translation>Transmitansi Hemispheris Inframerah Slat</translation>
     </message>
-    <!-- OS:WindowMaterial:Blind -->
+    
     <message>
         <source>Slat Orientation</source>
         <translation>Orientasi Bilah</translation>
     </message>
-    <!-- OS:WindowMaterial:Blind -->
+    
     <message>
         <source>Slat Separation</source>
         <translation>Pemisahan Slat</translation>
     </message>
-    <!-- OS:WindowMaterial:Blind -->
+    
     <message>
         <source>Slat Thickness</source>
         <translation>Ketebalan Bilah</translation>
     </message>
-    <!-- OS:WindowMaterial:Blind -->
+    
     <message>
         <source>Slat Width</source>
         <translation>Lebar Bilah</translation>
     </message>
-    <!-- OS:AirflowNetworkHorizontalOpening -->
+    
     <message>
         <source>Sloping Plane Angle</source>
         <translation>Sudut Bidang Miring</translation>
     </message>
-    <!-- OS:LightingDesignDay, OS:SizingPeriod:DesignDay -->
+    
     <message>
         <source>Snow Indicator</source>
         <translation>Indikator Salju</translation>
     </message>
-    <!-- OS:FuelFactors -->
+    
     <message>
         <source>SO2 Emission Factor</source>
         <translation>Faktor Emisi SO2</translation>
     </message>
-    <!-- OS:FuelFactors -->
+    
     <message>
         <source>SO2 Emission Factor Schedule Name</source>
         <translation>Nama Jadwal Faktor Emisi SO2</translation>
     </message>
-    <!-- OS:Foundation:Kiva:Settings -->
+    
     <message>
         <source>Soil Conductivity</source>
         <translation>Konduktivitas Tanah</translation>
     </message>
-    <!-- OS:Foundation:Kiva:Settings, OS:GroundHeatExchanger:HorizontalTrench, OS:Site:GroundTemperature:Undisturbed:KusudaAchenbach, OS:Site:GroundTemperature:Undisturbed:Xing -->
+    
     <message>
         <source>Soil Density</source>
         <translation>Kepadatan Tanah</translation>
     </message>
-    <!-- OS:Material:RoofVegetation -->
+    
     <message>
         <source>Soil Layer Name</source>
         <translation>Nama Lapisan Tanah</translation>
     </message>
-    <!-- OS:GroundHeatExchanger:HorizontalTrench -->
+    
     <message>
         <source>Soil Moisture Content Percent</source>
         <translation>Persen Kadar Kelembaban Tanah</translation>
     </message>
-    <!-- OS:GroundHeatExchanger:HorizontalTrench -->
+    
     <message>
         <source>Soil Moisture Content Percent at Saturation</source>
         <translation>Persentase Kadar Air Tanah pada Kejenuhan</translation>
     </message>
-    <!-- OS:Foundation:Kiva:Settings, OS:GroundHeatExchanger:HorizontalTrench, OS:Site:GroundTemperature:Undisturbed:KusudaAchenbach, OS:Site:GroundTemperature:Undisturbed:Xing -->
+    
     <message>
         <source>Soil Specific Heat</source>
         <translation>Kapasitas Panas Spesifik Tanah</translation>
     </message>
-    <!-- OS:Site:GroundTemperature:Undisturbed:Xing -->
+    
     <message>
         <source>Soil Surface Temperature Amplitude 1</source>
         <translation>Amplitudo Temperatur Permukaan Tanah 1</translation>
     </message>
-    <!-- OS:Site:GroundTemperature:Undisturbed:Xing -->
+    
     <message>
         <source>Soil Surface Temperature Amplitude 2</source>
         <translation>Amplitudo Suhu Permukaan Tanah 2</translation>
     </message>
-    <!-- OS:GroundHeatExchanger:HorizontalTrench, OS:Site:GroundTemperature:Undisturbed:KusudaAchenbach, OS:Site:GroundTemperature:Undisturbed:Xing -->
+    
     <message>
         <source>Soil Thermal Conductivity</source>
         <translation>Konduktivitas Termal Tanah</translation>
     </message>
-    <!-- OS:Material, OS:Material:NoMass, OS:Material:RoofVegetation -->
+    
     <message>
         <source>Solar Absorptance</source>
         <translation>Absorbasi Surya</translation>
     </message>
-    <!-- OS:WindowMaterial:Glazing, OS:WindowMaterial:Glazing:RefractionExtinctionMethod -->
+    
     <message>
         <source>Solar Diffusing</source>
         <translation>Difusi Matahari</translation>
     </message>
-    <!-- OS:SimulationControl -->
+    
     <message>
         <source>Solar Distribution</source>
         <translation>Distribusi Surya</translation>
     </message>
-    <!-- OS:WindowMaterial:Glazing:RefractionExtinctionMethod -->
+    
     <message>
         <source>Solar Extinction Coefficient</source>
         <translation>Koefisien Ekstinsi Matahari</translation>
     </message>
-    <!-- OS:WindowMaterial:SimpleGlazingSystem -->
+    
     <message>
         <source>Solar Heat Gain Coefficient</source>
         <translation>Koefisien Perolehan Panas Matahari</translation>
     </message>
-    <!-- OS:WindowMaterial:Glazing:RefractionExtinctionMethod -->
+    
     <message>
         <source>Solar Index of Refraction</source>
         <translation>Indeks Bias Matahari</translation>
     </message>
-    <!-- OS:SizingPeriod:DesignDay -->
+    
     <message>
         <source>Solar Model Indicator</source>
         <translation>Indikator Model Surya</translation>
     </message>
-    <!-- OS:WindowMaterial:Shade -->
+    
     <message>
         <source>Solar Reflectance</source>
         <translation>Reflektansi Surya</translation>
     </message>
-    <!-- OS:WindowMaterial:Shade -->
+    
     <message>
         <source>Solar Transmittance</source>
         <translation>Transmitansi Surya</translation>
     </message>
-    <!-- OS:WindowMaterial:Glazing -->
+    
     <message>
         <source>Solar Transmittance at Normal Incidence</source>
         <translation>Transmitansi Surya pada Sudut Datang Normal</translation>
     </message>
-    <!-- OS:SolarCollector:FlatPlate:Water -->
+    
     <message>
         <source>SolarCollectorPerformance Name</source>
         <translation>SolarCollectorPerformance Name</translation>
     </message>
-    <!-- OS:MaterialProperty:PhaseChangeHysteresis -->
+    
     <message>
         <source>Solid State Density</source>
         <translation>Kepadatan Bahan Padat</translation>
     </message>
-    <!-- OS:MaterialProperty:PhaseChangeHysteresis -->
+    
     <message>
         <source>Solid State Specific Heat</source>
         <translation>Panas Jenis Benda Padat</translation>
     </message>
-    <!-- OS:MaterialProperty:PhaseChangeHysteresis -->
+    
     <message>
         <source>Solid State Thermal Conductivity</source>
         <translation>Konduktivitas Termal Bahan Padat</translation>
     </message>
-    <!-- OS:AirflowNetworkSimulationControl -->
+    
     <message>
         <source>Solver</source>
         <translation>Pemecah</translation>
     </message>
-    <!-- OS:FuelFactors -->
+    
     <message>
         <source>Source Energy Factor</source>
         <translation>Faktor Energi Sumber</translation>
     </message>
-    <!-- OS:FuelFactors -->
+    
     <message>
         <source>Source Energy Schedule Name</source>
         <translation>Nama Jadwal Energi Sumber</translation>
     </message>
-    <!-- OS:CentralHeatPumpSystem -->
+    
     <message>
         <source>Source Loop Inlet Node Name</source>
         <translation>Nama Node Inlet Loop Sumber</translation>
     </message>
-    <!-- OS:CentralHeatPumpSystem -->
+    
     <message>
         <source>Source Loop Outlet Node Name</source>
         <translation>Nama Node Outlet Loop Sumber</translation>
     </message>
-    <!-- OS:Meter:CustomDecrement -->
+    
     <message>
         <source>Source Meter Name</source>
         <translation>Nama Meter Sumber</translation>
     </message>
-    <!-- OS:Connection -->
+    
     <message>
         <source>Source Object</source>
         <translation>Objek Sumber</translation>
     </message>
-    <!-- OS:Construction:InternalSource -->
+    
     <message>
         <source>Source Present After Layer Number</source>
         <translation>Sumber Hadir Setelah Nomor Lapisan</translation>
     </message>
-    <!-- OS:ThermalStorage:ChilledWater:Stratified -->
+    
     <message>
         <source>Source Side Availability Schedule Name</source>
         <translation>Nama Jadwal Ketersediaan Sisi Sumber</translation>
     </message>
-    <!-- OS:WaterHeater:Mixed, OS:WaterHeater:Stratified -->
+    
     <message>
         <source>Source Side Flow Control Mode</source>
         <translation>Mode Kontrol Aliran Sisi Sumber</translation>
     </message>
-    <!-- OS:ThermalStorage:ChilledWater:Stratified -->
+    
     <message>
         <source>Source Side Heat Transfer Effectiveness</source>
         <translation>Efektivitas Perpindahan Panas Sisi Sumber</translation>
     </message>
-    <!-- OS:HeatPump:PlantLoop:EIR:Cooling, OS:HeatPump:PlantLoop:EIR:Heating, OS:HeatPump:WaterToWater:EquationFit:Cooling, OS:HeatPump:WaterToWater:EquationFit:Heating, OS:ThermalStorage:ChilledWater:Stratified, OS:WaterHeater:Mixed, OS:WaterHeater:Stratified -->
+    
     <message>
         <source>Source Side Inlet Node Name</source>
         <translation>Nama Node Inlet Sisi Sumber</translation>
     </message>
-    <!-- OS:HeatPump:PlantLoop:EIR:Cooling, OS:HeatPump:PlantLoop:EIR:Heating, OS:HeatPump:WaterToWater:EquationFit:Cooling, OS:HeatPump:WaterToWater:EquationFit:Heating, OS:ThermalStorage:ChilledWater:Stratified, OS:WaterHeater:Mixed, OS:WaterHeater:Stratified -->
+    
     <message>
         <source>Source Side Outlet Node Name</source>
         <translation>Nama Node Outlet Sisi Sumber</translation>
     </message>
-    <!-- OS:HeatPump:PlantLoop:EIR:Cooling, OS:HeatPump:PlantLoop:EIR:Heating -->
+    
     <message>
         <source>Source Side Reference Flow Rate</source>
         <translation>Laju Aliran Referensi Sisi Sumber</translation>
     </message>
-    <!-- OS:PlantComponent:TemperatureSource -->
+    
     <message>
         <source>Source Temperature</source>
         <translation>Temperatur Sumber</translation>
     </message>
-    <!-- OS:PlantComponent:TemperatureSource -->
+    
     <message>
         <source>Source Temperature Schedule Name</source>
         <translation>Nama Jadwal Suhu Sumber</translation>
     </message>
-    <!-- OS:UtilityCost:Charge:Block, OS:UtilityCost:Charge:Simple -->
+    
     <message>
         <source>Source Variable</source>
         <translation>Variabel Sumber</translation>
     </message>
-    <!-- OS:ZoneMixing -->
+    
     <message>
         <source>Source Zone or Space Name</source>
         <translation>Nama Zona atau Ruang Sumber</translation>
     </message>
-    <!-- OS:CoilSystem:IntegratedHeatPump:AirSource -->
+    
     <message>
         <source>Space Cooling Coil</source>
         <translation>Kumparan Pendingin Ruang</translation>
     </message>
-    <!-- OS:CoilSystem:IntegratedHeatPump:AirSource -->
+    
     <message>
         <source>Space Heating Coil</source>
         <translation>Kumparan Pemanas Ruang</translation>
     </message>
-    <!-- OS:Daylighting:Control, OS:Glare:Sensor, OS:IlluminanceMap, OS:InteriorPartitionSurfaceGroup, OS:ShadingSurfaceGroup, OS:Surface, OS:WaterUse:Equipment -->
+    
     <message>
         <source>Space Name</source>
         <translation>Nama Ruang</translation>
     </message>
-    <!-- OS:DefaultConstructionSet -->
+    
     <message>
         <source>Space Shading Construction Name</source>
         <translation>Nama Konstruksi Shading Ruang</translation>
     </message>
-    <!-- OS:Building, OS:Space -->
+    
     <message>
         <source>Space Type Name</source>
         <translation>Nama Jenis Ruang</translation>
     </message>
-    <!-- OS:RunPeriodControl:SpecialDays -->
+    
     <message>
         <source>Special Day Type</source>
         <translation>Jenis Hari Khusus</translation>
     </message>
-    <!-- OS:Schedule:Rule -->
+    
     <message>
         <source>Specific Day</source>
         <translation>Hari Spesifik</translation>
     </message>
-    <!-- OS:Material -->
+    
     <message>
         <source>Specific Heat</source>
         <translation>Panas Jenis</translation>
     </message>
-    <!-- OS:WindowMaterial:Gas -->
+    
     <message>
         <source>Specific Heat Coefficient A</source>
         <translation>Koefisien Panas Spesifik A</translation>
     </message>
-    <!-- OS:WindowMaterial:Gas -->
+    
     <message>
         <source>Specific Heat Coefficient B</source>
         <translation>Koefisien Panas Spesifik B</translation>
     </message>
-    <!-- OS:WindowMaterial:Gas -->
+    
     <message>
         <source>Specific Heat Coefficient C</source>
         <translation>Koefisien Panas Spesifik C</translation>
     </message>
-    <!-- OS:Material:RoofVegetation -->
+    
     <message>
         <source>Specific Heat of Dry Soil</source>
         <translation>Panas Jenis Tanah Kering</translation>
     </message>
-    <!-- OS:WindowMaterial:Gas -->
+    
     <message>
         <source>Specific Heat Ratio</source>
         <translation>Rasio Panas Spesifik</translation>
     </message>
-    <!-- OS:Schedule:Rule -->
+    
     <message>
         <source>Specific Month</source>
         <translation>Bulan Spesifik</translation>
     </message>
-    <!-- OS:Coil:Cooling:DX:CurveFit:OperatingMode -->
+    
     <message>
         <source>Speed</source>
         <translation>Kecepatan</translation>
     </message>
-    <!-- OS:AirLoopHVAC:UnitaryHeatPump:AirToAir:MultiSpeed -->
+    
     <message>
         <source>Speed 1 Supply Air Flow Rate During Cooling Operation</source>
         <translation>Laju Aliran Udara Pasokan Kecepatan 1 Selama Operasi Pendinginan</translation>
     </message>
-    <!-- OS:AirLoopHVAC:UnitaryHeatPump:AirToAir:MultiSpeed -->
+    
     <message>
         <source>Speed 1 Supply Air Flow Rate During Heating Operation</source>
         <translation>Laju Aliran Udara Pasokan Kecepatan 1 Selama Operasi Pemanasan</translation>
     </message>
-    <!-- OS:AirLoopHVAC:UnitaryHeatPump:AirToAir:MultiSpeed -->
+    
     <message>
         <source>Speed 2 Supply Air Flow Rate During Cooling Operation</source>
         <translation>Kecepatan 2 Laju Aliran Udara Pasokan Selama Operasi Pendinginan</translation>
     </message>
-    <!-- OS:AirLoopHVAC:UnitaryHeatPump:AirToAir:MultiSpeed -->
+    
     <message>
         <source>Speed 2 Supply Air Flow Rate During Heating Operation</source>
         <translation>Laju Aliran Udara Pasokan Kecepatan 2 Selama Operasi Pemanasan</translation>
     </message>
-    <!-- OS:AirLoopHVAC:UnitaryHeatPump:AirToAir:MultiSpeed -->
+    
     <message>
         <source>Speed 3 Supply Air Flow Rate During Cooling Operation</source>
         <translation>Kecepatan 3 Laju Aliran Udara Pasokan Selama Operasi Pendinginan</translation>
     </message>
-    <!-- OS:AirLoopHVAC:UnitaryHeatPump:AirToAir:MultiSpeed -->
+    
     <message>
         <source>Speed 3 Supply Air Flow Rate During Heating Operation</source>
         <translation>Laju Aliran Udara Pasokan Kecepatan 3 Selama Operasi Pemanasan</translation>
     </message>
-    <!-- OS:AirLoopHVAC:UnitaryHeatPump:AirToAir:MultiSpeed -->
+    
     <message>
         <source>Speed 4 Supply Air Flow Rate During Cooling Operation</source>
         <translation>Kecepatan 4 Laju Aliran Udara Pasokan Selama Operasi Pendinginan</translation>
     </message>
-    <!-- OS:AirLoopHVAC:UnitaryHeatPump:AirToAir:MultiSpeed -->
+    
     <message>
         <source>Speed 4 Supply Air Flow Rate During Heating Operation</source>
         <translation>Kecepatan 4 Laju Aliran Udara Suplai Selama Operasi Pemanasan</translation>
     </message>
-    <!-- OS:Fan:SystemModel -->
+    
     <message>
         <source>Speed Control Method</source>
         <translation>Metode Kontrol Kecepatan</translation>
     </message>
-    <!-- OS:Coil:Cooling:DX:VariableSpeed, OS:Coil:Cooling:WaterToAirHeatPump:VariableSpeedEquationFit, OS:Coil:Heating:DX:VariableSpeed, OS:Coil:Heating:WaterToAirHeatPump:VariableSpeedEquationFit, OS:Coil:WaterHeating:AirToWaterHeatPump:VariableSpeed, OS:HeatPump:AirToWater:Cooling, OS:HeatPump:AirToWater:Heating -->
+    
     <message>
         <source>Speed Data List</source>
         <translation>Daftar Data Kecepatan</translation>
     </message>
-    <!-- OS:Fan:SystemModel -->
+    
     <message>
         <source>Speed Electric Power Fraction</source>
         <translation>Fraksi Daya Listrik Kecepatan</translation>
     </message>
-    <!-- OS:Fan:SystemModel -->
+    
     <message>
         <source>Speed Flow Fraction</source>
         <translation>Fraksi Aliran Kecepatan</translation>
     </message>
-    <!-- OS:Generator:FuelCell:StackCooler -->
+    
     <message>
         <source>Stack Air Cooler Fan Coefficient f0</source>
         <translation>Koefisien Kipas Pendingin Udara Tumpukan f0</translation>
     </message>
-    <!-- OS:Generator:FuelCell:StackCooler -->
+    
     <message>
         <source>Stack Air Cooler Fan Coefficient f1</source>
         <translation>Koefisien f1 Fan Pendingin Udara Tumpukan</translation>
     </message>
-    <!-- OS:Generator:FuelCell:StackCooler -->
+    
     <message>
         <source>Stack Air Cooler Fan Coefficient f2</source>
         <translation>Koefisien f2 Kipas Pendingin Udara Tumpukan</translation>
     </message>
-    <!-- OS:Generator:FuelCell:StackCooler -->
+    
     <message>
         <source>Stack Cogeneration Exchanger Area</source>
         <translation>Luas Penukar Kogenerasi Tumpukan</translation>
     </message>
-    <!-- OS:Generator:FuelCell:StackCooler -->
+    
     <message>
         <source>Stack Cogeneration Exchanger Nominal Flow Rate</source>
         <translation>Laju Aliran Nominal Penukar Kogenerasi Tumpukan</translation>
     </message>
-    <!-- OS:Generator:FuelCell:StackCooler -->
+    
     <message>
         <source>Stack Cogeneration Exchanger Nominal Heat Transfer Coefficient</source>
         <translation>Koefisien Transfer Panas Nominal Penukar Kogenerasi Tumpukan</translation>
     </message>
-    <!-- OS:Generator:FuelCell:StackCooler -->
+    
     <message>
         <source>Stack Cogeneration Exchanger Nominal Heat Transfer Coefficient Exponent</source>
         <translation>Eksponen Koefisien Transfer Panas Nominal Penukar Kogenerasi Tumpukan</translation>
     </message>
-    <!-- OS:Generator:FuelCell:StackCooler -->
+    
     <message>
         <source>Stack Coolant Flow Rate</source>
         <translation>Laju Aliran Pendingin Tumpukan</translation>
     </message>
-    <!-- OS:Generator:FuelCell -->
+    
     <message>
         <source>Stack Cooler Name</source>
         <translation>Nama Stack Cooler</translation>
     </message>
-    <!-- OS:Generator:FuelCell:StackCooler -->
+    
     <message>
         <source>Stack Cooler Pump Heat Loss Fraction</source>
         <translation>Fraksi Kehilangan Panas Pompa Pendingin Tumpukan</translation>
     </message>
-    <!-- OS:Generator:FuelCell:StackCooler -->
+    
     <message>
         <source>Stack Cooler Pump Power</source>
         <translation>Daya Pompa Pendingin Tumpukan</translation>
     </message>
-    <!-- OS:Generator:FuelCell:StackCooler -->
+    
     <message>
         <source>Stack Cooler U-Factor Times Area Value</source>
         <translation>Stack Cooler U-Factor Times Area Value</translation>
     </message>
-    <!-- OS:Generator:FuelCell:PowerModule -->
+    
     <message>
         <source>Stack Heat loss to Dilution Air</source>
         <translation>Kehilangan Panas Tumpukan ke Udara Pengenceran</translation>
     </message>
-    <!-- OS:Coil:Cooling:DX:MultiSpeed, OS:Coil:Heating:DX:MultiSpeed, OS:Coil:Heating:Electric:MultiStage, OS:Coil:Heating:Gas:MultiStage -->
+    
     <message>
         <source>Stage</source>
         <translation>Tahap</translation>
     </message>
-    <!-- OS:ZoneControl:Thermostat:StagedDualSetpoint -->
+    
     <message>
         <source>Stage 1 Cooling Temperature Offset</source>
         <translation>Offset Suhu Pendinginan Tahap 1</translation>
     </message>
-    <!-- OS:ZoneControl:Thermostat:StagedDualSetpoint -->
+    
     <message>
         <source>Stage 1 Heating Temperature Offset</source>
         <translation>Offset Suhu Pemanas Tahap 1</translation>
     </message>
-    <!-- OS:ZoneControl:Thermostat:StagedDualSetpoint -->
+    
     <message>
         <source>Stage 2 Cooling Temperature Offset</source>
         <translation>Offset Suhu Pendinginan Tahap 2</translation>
     </message>
-    <!-- OS:ZoneControl:Thermostat:StagedDualSetpoint -->
+    
     <message>
         <source>Stage 2 Heating Temperature Offset</source>
         <translation>Offset Suhu Pemanasan Tahap 2</translation>
     </message>
-    <!-- OS:ZoneControl:Thermostat:StagedDualSetpoint -->
+    
     <message>
         <source>Stage 3 Cooling Temperature Offset</source>
         <translation>Offset Suhu Pendinginan Tahap 3</translation>
     </message>
-    <!-- OS:ZoneControl:Thermostat:StagedDualSetpoint -->
+    
     <message>
         <source>Stage 3 Heating Temperature Offset</source>
         <translation>Offset Suhu Pemanas Tahap 3</translation>
     </message>
-    <!-- OS:ZoneControl:Thermostat:StagedDualSetpoint -->
+    
     <message>
         <source>Stage 4 Cooling Temperature Offset</source>
         <translation>Offset Suhu Pendinginan Tahap 4</translation>
     </message>
-    <!-- OS:ZoneControl:Thermostat:StagedDualSetpoint -->
+    
     <message>
         <source>Stage 4 Heating Temperature Offset</source>
         <translation>Offset Suhu Pemanasan Tahap 4</translation>
     </message>
-    <!-- OS:Refrigeration:Case -->
+    
     <message>
         <source>Standard Case Fan Power per Door</source>
         <translation>Daya Kipas Pintu Standar Per Pintu</translation>
     </message>
-    <!-- OS:Refrigeration:Case -->
+    
     <message>
         <source>Standard Case Fan Power per Unit Length</source>
         <translation>Daya Kipas Standar per Satuan Panjang</translation>
     </message>
-    <!-- OS:Refrigeration:Case -->
+    
     <message>
         <source>Standard Case Lighting Power per Door</source>
         <translation>Daya Pencahayaan Kasus Standar per Pintu</translation>
     </message>
-    <!-- OS:Refrigeration:Case -->
+    
     <message>
         <source>Standard Case Lighting Power per Unit Length</source>
         <translation>Daya Pencahayaan Standar per Satuan Panjang Kasing</translation>
     </message>
-    <!-- OS:EvaporativeFluidCooler:SingleSpeed -->
+    
     <message>
         <source>Standard Design Capacity</source>
         <translation>Kapasitas Desain Standar</translation>
     </message>
-    <!-- OS:Building, OS:SpaceType -->
+    
     <message>
         <source>Standards Building Type</source>
         <translation>Jenis Bangunan Standar</translation>
     </message>
-    <!-- OS:StandardsInformation:Material -->
+    
     <message>
         <source>Standards Category</source>
         <translation>Kategori Standar</translation>
     </message>
-    <!-- OS:StandardsInformation:Construction -->
+    
     <message>
         <source>Standards Construction Type</source>
         <translation>Tipe Konstruksi Standar</translation>
     </message>
-    <!-- OS:StandardsInformation:Material -->
+    
     <message>
         <source>Standards Identifier</source>
         <translation>Pengenal Standar</translation>
     </message>
-    <!-- OS:Building -->
+    
     <message>
         <source>Standards Number of Above Ground Stories</source>
         <translation>Jumlah Lantai Standar di Atas Tanah</translation>
     </message>
-    <!-- OS:Building -->
+    
     <message>
         <source>Standards Number of Living Units</source>
         <translation>Nomor Standar Unit Hunian</translation>
     </message>
-    <!-- OS:Building -->
+    
     <message>
         <source>Standards Number of Stories</source>
         <translation>Jumlah Lantai Standar</translation>
     </message>
-    <!-- OS:SpaceType -->
+    
     <message>
         <source>Standards Space Type</source>
         <translation>Tipe Ruang Standar</translation>
     </message>
-    <!-- OS:Building, OS:SpaceType -->
+    
     <message>
         <source>Standards Template</source>
         <translation>Templat Standar</translation>
     </message>
-    <!-- OS:HeatPump:AirToWater:FuelFired:Cooling, OS:HeatPump:AirToWater:FuelFired:Heating -->
+    
     <message>
         <source>Standby Electric Power</source>
         <translation>Daya Listrik Siaga</translation>
     </message>
-    <!-- OS:Generator:MicroTurbine, OS:Humidifier:Steam:Electric -->
+    
     <message>
         <source>Standby Power</source>
         <translation>Daya Standby</translation>
     </message>
-    <!-- OS:RunPeriodControl:DaylightSavingTime, OS:RunPeriodControl:SpecialDays -->
+    
     <message>
         <source>Start Date</source>
         <translation>Tanggal Mulai</translation>
     </message>
-    <!-- OS:WeatherFile -->
+    
     <message>
         <source>Start Date Actual Year</source>
         <translation>Tahun Awal Tanggal Sebenarnya</translation>
     </message>
-    <!-- OS:Schedule:FixedInterval, OS:Schedule:Rule, OS:Schedule:VariableInterval -->
+    
     <message>
         <source>Start Day</source>
         <translation>Hari Mulai</translation>
     </message>
-    <!-- OS:WeatherFile -->
+    
     <message>
         <source>Start Day of Week</source>
         <translation>Hari Awal Minggu</translation>
     </message>
-    <!-- OS:AirflowNetworkDetailedOpening -->
+    
     <message>
         <source>Start Height Factor for Opening Factor</source>
         <translation>Faktor Ketinggian Awal untuk Faktor Pembukaan</translation>
     </message>
-    <!-- OS:Schedule:FixedInterval, OS:Schedule:Rule, OS:Schedule:VariableInterval -->
+    
     <message>
         <source>Start Month</source>
         <translation>Bulan Mulai</translation>
     </message>
-    <!-- OS:LifeCycleCost -->
+    
     <message>
         <source>Start of Costs</source>
         <translation>Awal Biaya</translation>
     </message>
-    <!-- OS:Generator:FuelCell:PowerModule -->
+    
     <message>
         <source>Start Up Electricity Consumption</source>
         <translation>Konsumsi Listrik Awal</translation>
     </message>
-    <!-- OS:Generator:FuelCell:PowerModule -->
+    
     <message>
         <source>Start Up Electricity Produced</source>
         <translation>Listrik yang Dihasilkan pada Awal Operasi</translation>
     </message>
-    <!-- OS:Generator:FuelCell:PowerModule -->
+    
     <message>
         <source>Start Up Fuel</source>
         <translation>Bahan Bakar Awal</translation>
     </message>
-    <!-- OS:Generator:FuelCell:PowerModule -->
+    
     <message>
         <source>Start Up Time</source>
         <translation>Waktu Awal Operasi</translation>
     </message>
-    <!-- OS:WeatherFile -->
+    
     <message>
         <source>State Province Region</source>
         <translation>Provinsi Negara Bagian Wilayah</translation>
     </message>
-    <!-- OS:SteamEquipment -->
+    
     <message>
         <source>Steam Equipment Definition Name</source>
         <translation>Nama Definisi Peralatan Uap</translation>
     </message>
-    <!-- OS:LifeCycleCost:Parameters -->
+    
     <message>
         <source>Steam Inflation</source>
         <translation>Inflasi Uap</translation>
     </message>
-    <!-- OS:DistrictHeating:Steam -->
+    
     <message>
         <source>Steam Inlet Node Name</source>
         <translation>Nama Node Inlet Uap</translation>
     </message>
-    <!-- OS:Boiler:Steam, OS:DistrictHeating:Steam -->
+    
     <message>
         <source>Steam Outlet Node Name</source>
         <translation>Nama Node Outlet Uap</translation>
     </message>
-    <!-- OS:Refrigeration:WalkIn:ZoneBoundary -->
+    
     <message>
         <source>Stocking Door Opening Protection Type Facing Zone</source>
         <translation>Jenis Perlindungan Pembukaan Pintu Stok yang Menghadap Zona</translation>
     </message>
-    <!-- OS:Refrigeration:WalkIn:ZoneBoundary -->
+    
     <message>
         <source>Stocking Door Opening Schedule Name Facing Zone</source>
         <translation>Nama Jadwal Pembukaan Pintu Stocking Zona Menghadap</translation>
     </message>
-    <!-- OS:Refrigeration:WalkIn:ZoneBoundary -->
+    
     <message>
         <source>Stocking Door U Value Facing Zone</source>
         <translation>Nilai U Pintu Stocking Menghadap Zona</translation>
     </message>
-    <!-- OS:Generator:FuelCell:AirSupply -->
+    
     <message>
         <source>Stoichiometric Ratio</source>
         <translation>Rasio Stoikiometri</translation>
     </message>
-    <!-- OS:WaterHeater:Sizing -->
+    
     <message>
         <source>Storage Capacity per Collector Area</source>
         <translation>Kapasitas Penyimpanan per Luas Kolektor</translation>
     </message>
-    <!-- OS:WaterHeater:Sizing -->
+    
     <message>
         <source>Storage Capacity per Floor Area</source>
         <translation>Kapasitas Penyimpanan per Luas Lantai</translation>
     </message>
-    <!-- OS:WaterHeater:Sizing -->
+    
     <message>
         <source>Storage Capacity per Person</source>
         <translation>Kapasitas Penyimpanan per Orang</translation>
     </message>
-    <!-- OS:WaterHeater:Sizing -->
+    
     <message>
         <source>Storage Capacity per Unit</source>
         <translation>Kapasitas Penyimpanan per Unit</translation>
     </message>
-    <!-- OS:Coil:Cooling:DX:SingleSpeed:ThermalStorage -->
+    
     <message>
         <source>Storage Capacity Sizing Factor</source>
         <translation>Faktor Penentuan Ukuran Kapasitas Penyimpanan</translation>
     </message>
-    <!-- OS:ElectricLoadCenter:Distribution -->
+    
     <message>
         <source>Storage Charge Power Fraction Schedule Name</source>
         <translation>Nama Jadwal Fraksi Daya Pengisian Penyimpanan</translation>
     </message>
-    <!-- OS:ElectricLoadCenter:Distribution -->
+    
     <message>
         <source>Storage Control Track Meter Name</source>
         <translation>Nama Meter Pelacakan Kontrol Penyimpanan</translation>
     </message>
-    <!-- OS:ElectricLoadCenter:Distribution -->
+    
     <message>
         <source>Storage Control Utility Demand Target</source>
         <translation>Target Permintaan Listrik Kontrol Penyimpanan</translation>
     </message>
-    <!-- OS:ElectricLoadCenter:Distribution -->
+    
     <message>
         <source>Storage Control Utility Demand Target Fraction Schedule Name</source>
         <translation>Nama Jadwal Target Fraksi Permintaan Utilitas Kontrol Penyimpanan</translation>
     </message>
-    <!-- OS:ElectricLoadCenter:Distribution -->
+    
     <message>
         <source>Storage Converter Object Name</source>
         <translation>Nama Objek Konverter Penyimpanan</translation>
     </message>
-    <!-- OS:ElectricLoadCenter:Distribution -->
+    
     <message>
         <source>Storage Discharge Power Fraction Schedule Name</source>
         <translation>Nama Jadwal Fraksi Daya Pemakaian Penyimpanan</translation>
     </message>
-    <!-- OS:ElectricLoadCenter:Distribution -->
+    
     <message>
         <source>Storage Operation Scheme</source>
         <translation>Skema Operasi Penyimpanan</translation>
     </message>
-    <!-- OS:Coil:Cooling:DX:SingleSpeed:ThermalStorage -->
+    
     <message>
         <source>Storage Tank Ambient Temperature Node</source>
         <translation>Simpul Suhu Ambient Tangki Penyimpanan</translation>
     </message>
-    <!-- OS:Coil:Cooling:DX:SingleSpeed:ThermalStorage -->
+    
     <message>
         <source>Storage Tank Maximum Operating Limit Fluid Temperature</source>
         <translation>Suhu Fluida Batas Operasi Maksimum Tangki Penyimpanan</translation>
     </message>
-    <!-- OS:Coil:Cooling:DX:SingleSpeed:ThermalStorage -->
+    
     <message>
         <source>Storage Tank Minimum Operating Limit Fluid Temperature</source>
         <translation>Suhu Fluida Batas Operasi Minimum Tangki Penyimpanan</translation>
     </message>
-    <!-- OS:Coil:Cooling:DX:SingleSpeed:ThermalStorage -->
+    
     <message>
         <source>Storage Tank Plant Connection Design Flow Rate</source>
         <translation>Laju Aliran Desain Koneksi Tanaman Tangki Penyimpanan</translation>
     </message>
-    <!-- OS:Coil:Cooling:DX:SingleSpeed:ThermalStorage -->
+    
     <message>
         <source>Storage Tank Plant Connection Heat Transfer Effectiveness</source>
         <translation>Efektivitas Transfer Panas Koneksi Tanki Penyimpanan ke Tanaman</translation>
     </message>
-    <!-- OS:Coil:Cooling:DX:SingleSpeed:ThermalStorage -->
+    
     <message>
         <source>Storage Tank Plant Connection Inlet Node</source>
         <translation>Simpul Inlet Koneksi Tanaman Tangki Penyimpanan</translation>
     </message>
-    <!-- OS:Coil:Cooling:DX:SingleSpeed:ThermalStorage -->
+    
     <message>
         <source>Storage Tank Plant Connection Outlet Node</source>
         <translation>Simpul Saluran Keluar Koneksi Tangki Penyimpanan Pembangkit</translation>
     </message>
-    <!-- OS:Coil:Cooling:DX:SingleSpeed:ThermalStorage -->
+    
     <message>
         <source>Storage Tank to Ambient U-value Times Area Heat Transfer Coefficient</source>
         <translation>Koefisien Perpindahan Panas (U-value Times Area) Tangki Penyimpanan ke Ambient</translation>
     </message>
-    <!-- OS:Coil:Cooling:DX:SingleSpeed:ThermalStorage -->
+    
     <message>
         <source>Storage Type</source>
         <translation>Jenis Penyimpanan</translation>
     </message>
-    <!-- OS:SetpointManager:Coldest, OS:SetpointManager:Warmest, OS:SetpointManager:WarmestTemperatureFlow -->
+    
     <message>
         <source>Strategy</source>
         <translation>Strategi</translation>
     </message>
-    <!-- OS:TemperingValve -->
+    
     <message>
         <source>Stream 2 Source Node</source>
         <translation>Stream 2 Source Node</translation>
     </message>
-    <!-- OS:ShadingControl -->
+    
     <message>
         <source>Sub Surface Name</source>
         <translation>Nama Sub Permukaan</translation>
     </message>
-    <!-- OS:SubSurface -->
+    
     <message>
         <source>Sub Surface Type</source>
         <translation>Tipe Permukaan Sub</translation>
     </message>
-    <!-- OS:Refrigeration:TranscriticalSystem -->
+    
     <message>
         <source>Subcooler Effectiveness</source>
         <translation>Efektivitas Subcooler</translation>
     </message>
-    <!-- OS:Refrigeration:GasCooler:AirCooled -->
+    
     <message>
         <source>Subcritical Temperature Difference</source>
         <translation>Perbedaan Suhu Subkritis</translation>
     </message>
-    <!-- OS:Refrigeration:System -->
+    
     <message>
         <source>Suction Piping Zone Name</source>
         <translation>Nama Zona Pipa Isap</translation>
     </message>
-    <!-- OS:Refrigeration:System -->
+    
     <message>
         <source>Suction Temperature Control Type</source>
         <translation>Tipe Kontrol Suhu Hisap</translation>
     </message>
-    <!-- OS:Refrigeration:SecondarySystem -->
+    
     <message>
         <source>Sum UA Distribution Piping</source>
         <translation>Jumlah UA Perpipaan Distribusi</translation>
     </message>
-    <!-- OS:Refrigeration:SecondarySystem -->
+    
     <message>
         <source>Sum UA Receiver/Separator Shell</source>
         <translation>Sum UA Receiver/Separator Shell</translation>
     </message>
-    <!-- OS:Refrigeration:System -->
+    
     <message>
         <source>Sum UA Suction Piping</source>
         <translation>Jumlah UA Pipa Hisap</translation>
     </message>
-    <!-- OS:Refrigeration:TranscriticalSystem -->
+    
     <message>
         <source>Sum UA Suction Piping for Low Temperature Loads</source>
         <translation>Jumlah UA Pipa Hisap untuk Beban Suhu Rendah</translation>
     </message>
-    <!-- OS:Refrigeration:TranscriticalSystem -->
+    
     <message>
         <source>Sum UA Suction Piping for Medium Temperature Loads</source>
         <translation>Jumlah UA Pipa Hisap untuk Beban Suhu Menengah</translation>
     </message>
-    <!-- OS:Schedule:Week -->
+    
     <message>
         <source>SummerDesignDay Schedule:Day Name</source>
         <translation>SummerDesignDay Schedule:Nama Hari</translation>
     </message>
-    <!-- OS:Surface -->
+    
     <message>
         <source>Sun Exposure</source>
         <translation>Paparan Matahari</translation>
     </message>
-    <!-- OS:Schedule:Week -->
+    
     <message>
         <source>Sunday Schedule:Day Name</source>
         <translation>Jadwal Minggu:Nama Hari</translation>
     </message>
-    <!-- OS:AirLoopHVAC:UnitaryHeatPump:AirToAir:MultiSpeed -->
+    
     <message>
         <source>Supplemental Heating Coil</source>
         <translation>Kumparan Pemanas Tambahan</translation>
     </message>
-    <!-- OS:AirLoopHVAC:UnitaryHeatPump:AirToAir, OS:AirLoopHVAC:UnitarySystem, OS:ZoneHVAC:PackagedTerminalHeatPump, OS:ZoneHVAC:TerminalUnit:VariableRefrigerantFlow, OS:ZoneHVAC:WaterToAirHeatPump -->
+    
     <message>
         <source>Supplemental Heating Coil Name</source>
         <translation>Nama Koil Pemanas Tambahan</translation>
     </message>
-    <!-- OS:AirLoopHVAC:UnitaryHeatCool:VAVChangeoverBypass, OS:AirLoopHVAC:UnitaryHeatPump:AirToAir:MultiSpeed, OS:ZoneHVAC:TerminalUnit:VariableRefrigerantFlow -->
+    
     <message>
         <source>Supply Air Fan</source>
         <translation>Kipas Udara Pasokan</translation>
     </message>
-    <!-- OS:AirLoopHVAC:UnitaryHeatPump:AirToAir, OS:ZoneHVAC:EnergyRecoveryVentilator, OS:ZoneHVAC:EvaporativeCoolerUnit, OS:ZoneHVAC:FourPipeFanCoil, OS:ZoneHVAC:PackagedTerminalAirConditioner, OS:ZoneHVAC:PackagedTerminalHeatPump, OS:ZoneHVAC:UnitHeater, OS:ZoneHVAC:UnitVentilator, OS:ZoneHVAC:WaterToAirHeatPump -->
+    
     <message>
         <source>Supply Air Fan Name</source>
         <translation>Nama Fan Udara Pasokan</translation>
     </message>
-    <!-- OS:AirLoopHVAC:UnitaryHeatCool:VAVChangeoverBypass, OS:AirLoopHVAC:UnitaryHeatPump:AirToAir:MultiSpeed, OS:ZoneHVAC:TerminalUnit:VariableRefrigerantFlow -->
+    
     <message>
         <source>Supply Air Fan Operating Mode Schedule</source>
         <translation>Jadwal Mode Operasi Kipas Udara Suplai</translation>
     </message>
-    <!-- OS:AirLoopHVAC:UnitaryHeatPump:AirToAir, OS:AirLoopHVAC:UnitarySystem, OS:ZoneHVAC:FourPipeFanCoil, OS:ZoneHVAC:PackagedTerminalAirConditioner, OS:ZoneHVAC:PackagedTerminalHeatPump, OS:ZoneHVAC:UnitVentilator, OS:ZoneHVAC:WaterToAirHeatPump -->
+    
     <message>
         <source>Supply Air Fan Operating Mode Schedule Name</source>
         <translation>Nama Jadwal Mode Operasi Kipas Udara Pasokan</translation>
     </message>
-    <!-- OS:ZoneHVAC:EnergyRecoveryVentilator -->
+    
     <message>
         <source>Supply Air Flow Rate</source>
         <translation>Laju Aliran Udara Pasokan</translation>
     </message>
-    <!-- OS:AirLoopHVAC:UnitarySystem -->
+    
     <message>
         <source>Supply Air Flow Rate Method During Cooling Operation</source>
         <translation>Metode Laju Aliran Udara Pasokan Selama Operasi Pendinginan</translation>
     </message>
-    <!-- OS:AirLoopHVAC:UnitarySystem -->
+    
     <message>
         <source>Supply Air Flow Rate Method During Heating Operation</source>
         <translation>Metode Laju Aliran Udara Suplai Saat Operasi Pemanasan</translation>
     </message>
-    <!-- OS:AirLoopHVAC:UnitarySystem -->
+    
     <message>
         <source>Supply Air Flow Rate Method When No Cooling or Heating is Required</source>
         <translation>Metode Laju Aliran Udara Pasokan Ketika Tidak Ada Pendinginan atau Pemanasan yang Diperlukan</translation>
     </message>
-    <!-- OS:AirLoopHVAC:UnitarySystem -->
+    
     <message>
         <source>Supply Air Flow Rate Per Floor Area During Cooling Operation</source>
         <translation>Laju Aliran Udara Suplai Per Luas Lantai Selama Operasi Pendinginan</translation>
     </message>
-    <!-- OS:AirLoopHVAC:UnitarySystem -->
+    
     <message>
         <source>Supply Air Flow Rate Per Floor Area during Heating Operation</source>
         <translation>Laju Aliran Udara Pasokan per Luas Lantai selama Operasi Pemanasan</translation>
     </message>
-    <!-- OS:AirLoopHVAC:UnitarySystem -->
+    
     <message>
         <source>Supply Air Flow Rate Per Floor Area When No Cooling or Heating is Required</source>
         <translation>Laju Aliran Udara Pasokan Per Luas Lantai Ketika Tidak Ada Pendinginan atau Pemanasan yang Diperlukan</translation>
     </message>
-    <!-- OS:AirLoopHVAC:UnitaryHeatPump:AirToAir, OS:AirLoopHVAC:UnitaryHeatPump:AirToAir:MultiSpeed, OS:ZoneHVAC:PackagedTerminalAirConditioner, OS:ZoneHVAC:PackagedTerminalHeatPump, OS:ZoneHVAC:WaterToAirHeatPump -->
+    
     <message>
         <source>Supply Air Flow Rate When No Cooling or Heating is Needed</source>
         <translation>Laju Aliran Udara Pasokan Saat Tidak Ada Pendinginan atau Pemanasan yang Diperlukan</translation>
     </message>
-    <!-- OS:AirLoopHVAC:UnitarySystem -->
+    
     <message>
         <source>Supply Air Flow Rate When No Cooling or Heating is Required</source>
         <translation>Laju Aliran Udara Pasokan Ketika Tidak Ada Pendinginan atau Pemanasan yang Diperlukan</translation>
     </message>
-    <!-- OS:AirTerminal:SingleDuct:SeriesPIU:Reheat, OS:HeatExchanger:AirToAir:SensibleAndLatent -->
+    
     <message>
         <source>Supply Air Inlet Node</source>
         <translation>Simpul Inlet Udara Pasokan</translation>
     </message>
-    <!-- OS:AirTerminal:SingleDuct:ConstantVolume:CooledBeam, OS:AirTerminal:SingleDuct:ConstantVolume:FourPipeInduction, OS:AirTerminal:SingleDuct:ParallelPIU:Reheat -->
+    
     <message>
         <source>Supply Air Inlet Node Name</source>
         <translation>Nama Node Inlet Udara Suplai</translation>
     </message>
-    <!-- OS:HeatExchanger:AirToAir:SensibleAndLatent -->
+    
     <message>
         <source>Supply Air Outlet Node</source>
         <translation>Simpul Outlet Udara Pasokan</translation>
     </message>
-    <!-- OS:AirTerminal:SingleDuct:ConstantVolume:CooledBeam -->
+    
     <message>
         <source>Supply Air Outlet Node Name</source>
         <translation>Nama Node Outlet Udara Suplai</translation>
     </message>
-    <!-- OS:HeatExchanger:AirToAir:SensibleAndLatent -->
+    
     <message>
         <source>Supply Air Outlet Temperature Control</source>
         <translation>Kontrol Suhu Outlet Udara Masuk</translation>
     </message>
-    <!-- OS:AirTerminal:SingleDuct:ConstantVolume:CooledBeam -->
+    
     <message>
         <source>Supply Air Volumetric Flow Rate</source>
         <translation>Laju Aliran Volumetrik Udara Pasokan</translation>
     </message>
-    <!-- OS:AirLoopHVAC:UnitarySystem -->
+    
     <message>
         <source>Supply Fan Name</source>
         <translation>Nama Fan Pasokan</translation>
     </message>
-    <!-- OS:CoilSystem:IntegratedHeatPump:AirSource -->
+    
     <message>
         <source>Supply Hot Water Flow Sensor Node Name</source>
         <translation>Nama Node Sensor Aliran Air Panas Pasokan</translation>
     </message>
-    <!-- OS:PlantLoop -->
+    
     <message>
         <source>Supply Mixer Name</source>
         <translation>Nama Pemisah Pasokan</translation>
     </message>
-    <!-- OS:AirLoopHVAC -->
+    
     <message>
         <source>Supply Side Inlet Node Name</source>
         <translation>Nama Node Inlet Sisi Pasokan</translation>
     </message>
-    <!-- OS:AirLoopHVAC -->
+    
     <message>
         <source>Supply Side Outlet Node A</source>
         <translation>Supply Side Outlet Node A</translation>
     </message>
-    <!-- OS:AirLoopHVAC -->
+    
     <message>
         <source>Supply Side Outlet Node B</source>
         <translation>Simpul Keluar Sisi Pasokan B</translation>
     </message>
-    <!-- OS:AirLoopHVAC, OS:PlantLoop -->
+    
     <message>
         <source>Supply Splitter Name</source>
         <translation>Nama Pembagi Pasokan</translation>
     </message>
-    <!-- OS:ElectricEquipment:ITE:AirCooled:Definition -->
+    
     <message>
         <source>Supply Temperature Difference</source>
         <translation>Perbedaan Suhu Pasokan</translation>
     </message>
-    <!-- OS:ElectricEquipment:ITE:AirCooled:Definition -->
+    
     <message>
         <source>Supply Temperature Difference Schedule</source>
         <translation>Jadwal Perbedaan Suhu Pasokan</translation>
     </message>
-    <!-- OS:AirConditioner:VariableRefrigerantFlow, OS:Coil:Cooling:DX:MultiSpeed, OS:Coil:Cooling:DX:SingleSpeed:ThermalStorage, OS:Coil:Cooling:DX:TwoStageWithHumidityControlMode, OS:CoolingTower:VariableSpeed -->
+    
     <message>
         <source>Supply Water Storage Tank</source>
         <translation>Tangki Penyimpanan Air Pasokan</translation>
     </message>
-    <!-- OS:Coil:Cooling:DX:SingleSpeed, OS:Coil:Cooling:DX:TwoSpeed, OS:Coil:Cooling:DX:VariableSpeed, OS:CoolingTower:TwoSpeed, OS:EvaporativeFluidCooler:SingleSpeed, OS:EvaporativeFluidCooler:TwoSpeed, OS:WaterUse:Connections -->
+    
     <message>
         <source>Supply Water Storage Tank Name</source>
         <translation>Nama Tangki Penyimpanan Air Pasokan</translation>
     </message>
-    <!-- OS:InteriorPartitionSurface, OS:InternalMass:Definition -->
+    
     <message>
         <source>Surface Area</source>
         <translation>Luas Permukaan</translation>
     </message>
-    <!-- OS:InternalMass:Definition -->
+    
     <message>
         <source>Surface Area per Person</source>
         <translation>Luas Permukaan per Orang</translation>
     </message>
-    <!-- OS:InternalMass:Definition -->
+    
     <message>
         <source>Surface Area per Space Floor Area</source>
         <translation>Luas Permukaan per Luas Lantai Ruang</translation>
     </message>
-    <!-- OS:MaterialProperty:MoisturePenetrationDepth:Settings -->
+    
     <message>
         <source>Surface Layer Penetration Depth</source>
         <translation>Kedalaman Penetrasi Lapisan Permukaan</translation>
     </message>
-    <!-- OS:AirflowNetworkDuctViewFactors, OS:AirflowNetworkSurface, OS:Generator:PVWatts, OS:Generator:Photovoltaic, OS:SolarCollector:FlatPlate:PhotovoltaicThermal, OS:SolarCollector:FlatPlate:Water, OS:SolarCollector:IntegralCollectorStorage, OS:SubSurface, OS:SurfaceControl:MovableInsulation, OS:SurfaceProperty:ConvectionCoefficients, OS:SurfaceProperty:ExposedFoundationPerimeter, OS:SurfaceProperty:IncidentSolarMultiplier, OS:SwimmingPool:Indoor -->
+    
     <message>
         <source>Surface Name</source>
         <translation>Nama Permukaan</translation>
     </message>
-    <!-- OS:Construction, OS:Construction:AirBoundary, OS:Construction:CfactorUndergroundWall, OS:Construction:FfactorGroundFloor, OS:Construction:InternalSource, OS:Construction:WindowDataFile -->
+    
     <message>
         <source>Surface Rendering Name</source>
         <translation>Nama Rendering Permukaan</translation>
     </message>
-    <!-- OS:AirflowNetworkDuct -->
+    
     <message>
         <source>Surface Roughness</source>
         <translation>Kekasaran Permukaan</translation>
     </message>
-    <!-- OS:SurfaceProperty:ExposedFoundationPerimeter -->
+    
     <message>
         <source>Surface Segment Exposed</source>
         <translation>Segmen Permukaan Terpapar</translation>
     </message>
-    <!-- OS:HeatBalanceAlgorithm -->
+    
     <message>
         <source>Surface Temperature Upper Limit</source>
         <translation>Batas Atas Temperatur Permukaan</translation>
     </message>
-    <!-- OS:Surface, OS:SurfaceProperty:ConvectionCoefficients:MultipleSurface -->
+    
     <message>
         <source>Surface Type</source>
         <translation>Tipe Permukaan</translation>
     </message>
-    <!-- OS:AirflowNetworkDuctViewFactors -->
+    
     <message>
         <source>Surface View Factor</source>
         <translation>Faktor Pandang Permukaan</translation>
     </message>
-    <!-- OS:SurfaceProperty:SurroundingSurfaces -->
+    
     <message>
         <source>Surrounding Surface Name</source>
         <translation>Nama Permukaan Sekitarnya</translation>
     </message>
-    <!-- OS:SurfaceProperty:SurroundingSurfaces -->
+    
     <message>
         <source>Surrounding Surface Temperature Schedule Name</source>
         <translation>Nama Jadwal Suhu Permukaan Sekitarnya</translation>
     </message>
-    <!-- OS:SurfaceProperty:SurroundingSurfaces -->
+    
     <message>
         <source>Surrounding Surface View Factor</source>
         <translation>Faktor View Permukaan Sekitar</translation>
     </message>
-    <!-- OS:SurfaceProperty:LocalEnvironment -->
+    
     <message>
         <source>Surrounding Surfaces Object Name</source>
         <translation>Nama Objek Permukaan Sekitar</translation>
     </message>
-    <!-- OS:AirflowNetworkExternalNode -->
+    
     <message>
         <source>Symmetric Wind Pressure Coefficient Curve</source>
         <translation>Kurva Koefisien Tekanan Angin Simetris</translation>
     </message>
-    <!-- OS:AirLoopHVAC:UnitaryHeatCool:VAVChangeoverBypass -->
+    
     <message>
         <source>System Air Flow Rate During Cooling Operation</source>
         <translation>Laju Aliran Udara Sistem Selama Operasi Pendinginan</translation>
     </message>
-    <!-- OS:AirLoopHVAC:UnitaryHeatCool:VAVChangeoverBypass -->
+    
     <message>
         <source>System Air Flow Rate During Heating Operation</source>
         <translation>Laju Aliran Udara Sistem Selama Operasi Pemanasan</translation>
     </message>
-    <!-- OS:AirLoopHVAC:UnitaryHeatCool:VAVChangeoverBypass -->
+    
     <message>
         <source>System Air Flow Rate When No Cooling or Heating is Needed</source>
         <translation>Laju Aliran Udara Sistem Ketika Tidak Ada Pendinginan atau Pemanasan yang Diperlukan</translation>
     </message>
-    <!-- OS:Fan:ZoneExhaust -->
+    
     <message>
         <source>System Availability Manager Coupling Mode</source>
         <translation>Mode Penyambungan Manajer Ketersediaan Sistem</translation>
     </message>
-    <!-- OS:Generator:PVWatts -->
+    
     <message>
         <source>System Losses</source>
         <translation>Kehilangan Sistem</translation>
     </message>
 
-    <!-- T -->
-    <!-- OS:Table:MultiVariableLookup -->
+    
+    
     <message>
         <source>Table Data Format</source>
         <translation>Format Data Tabel</translation>
     </message>
-    <!-- OS:WaterHeater:HeatPump -->
+    
     <message>
         <source>Tank</source>
         <translation>Tangki</translation>
     </message>
-    <!-- OS:WaterHeater:HeatPump, OS:WaterHeater:HeatPump:WrappedCondenser -->
+    
     <message>
         <source>Tank Element Control Logic</source>
         <translation>Logika Kontrol Elemen Tangki</translation>
     </message>
-    <!-- OS:ThermalStorage:Ice:Detailed -->
+    
     <message>
         <source>Tank Loss Coefficient</source>
         <translation>Koefisien Kehilangan Tangki</translation>
     </message>
-    <!-- OS:WaterHeater:HeatPump:WrappedCondenser -->
+    
     <message>
         <source>Tank Name</source>
         <translation>Nama Tangki</translation>
     </message>
-    <!-- OS:ThermalStorage:ChilledWater:Stratified -->
+    
     <message>
         <source>Tank Recovery Time</source>
         <translation>Waktu Pemulihan Tangki</translation>
     </message>
-    <!-- OS:Connection -->
+    
     <message>
         <source>Target Object</source>
         <translation>Objek Target</translation>
     </message>
-    <!-- OS:UtilityCost:Charge:Block, OS:UtilityCost:Charge:Simple, OS:UtilityCost:Computation, OS:UtilityCost:Qualify, OS:UtilityCost:Ratchet, OS:UtilityCost:Variable -->
+    
     <message>
         <source>Tariff Name</source>
         <translation>Nama Tarif</translation>
     </message>
-    <!-- OS:LifeCycleCost:Parameters -->
+    
     <message>
         <source>Tax Rate</source>
         <translation>Tarif Pajak</translation>
     </message>
-    <!-- OS:AvailabilityManager:HighTemperatureTurnOff, OS:AvailabilityManager:HighTemperatureTurnOn, OS:AvailabilityManager:LowTemperatureTurnOff, OS:AvailabilityManager:LowTemperatureTurnOn, OS:MaterialProperty:PhaseChange -->
+    
     <message>
         <source>Temperature</source>
         <translation>Suhu</translation>
     </message>
-    <!-- OS:Construction:InternalSource -->
+    
     <message>
         <source>Temperature Calculation Requested After Layer Number</source>
         <translation>Perhitungan Suhu Diminta Setelah Nomor Lapisan</translation>
     </message>
-    <!-- OS:ZoneCapacitanceMultiplier:ResearchSpecial -->
+    
     <message>
         <source>Temperature Capacity Multiplier</source>
         <translation>Pengali Kapasitas Temperatur</translation>
     </message>
-    <!-- OS:MaterialProperty:PhaseChange -->
+    
     <message>
         <source>Temperature Coefficient for Thermal Conductivity</source>
         <translation>Koefisien Temperatur untuk Konduktivitas Termal</translation>
     </message>
-    <!-- OS:PhotovoltaicPerformance:EquivalentOneDiode -->
+    
     <message>
         <source>Temperature Coefficient of Open Circuit Voltage</source>
         <translation>Koefisien Suhu Tegangan Sirkuit Terbuka</translation>
     </message>
-    <!-- OS:PhotovoltaicPerformance:EquivalentOneDiode -->
+    
     <message>
         <source>Temperature Coefficient of Short Circuit Current</source>
         <translation>Koefisien Suhu Arus Sirkuit Pendek</translation>
     </message>
-    <!-- OS:ZoneHVAC:HighTemperatureRadiant, OS:ZoneHVAC:LowTemperatureRadiant:ConstantFlow, OS:ZoneHVAC:LowTemperatureRadiant:Electric, OS:ZoneHVAC:LowTemperatureRadiant:VariableFlow -->
+    
     <message>
         <source>Temperature Control Type</source>
         <translation>Tipe Kontrol Temperatur</translation>
     </message>
-    <!-- OS:SimulationControl -->
+    
     <message>
         <source>Temperature Convergence Tolerance Value</source>
         <translation>Nilai Toleransi Konvergensi Suhu</translation>
     </message>
-    <!-- OS:Chiller:Electric:EIR, OS:Chiller:Electric:ReformulatedEIR -->
+    
     <message>
         <source>Temperature Difference Across Condenser Schedule Name</source>
         <translation>Nama Jadwal Perbedaan Suhu di Kondenser</translation>
     </message>
-    <!-- OS:ThermostatSetpoint:DualSetpoint -->
+    
     <message>
         <source>Temperature Difference Between Cutout And Setpoint</source>
         <translation>Perbedaan Suhu Antara Cutout Dan Setpoint</translation>
     </message>
-    <!-- OS:AvailabilityManager:DifferentialThermostat -->
+    
     <message>
         <source>Temperature Difference Off Limit</source>
         <translation>Batas Selisih Suhu Mati</translation>
     </message>
-    <!-- OS:AvailabilityManager:DifferentialThermostat -->
+    
     <message>
         <source>Temperature Difference On Limit</source>
         <translation>Perbedaan Suhu pada Batas</translation>
     </message>
-    <!-- OS:HeatExchanger:Desiccant:BalancedFlow:PerformanceDataType1 -->
+    
     <message>
         <source>Temperature Equation Coefficient 1</source>
         <translation>Koefisien Persamaan Temperatur 1</translation>
     </message>
-    <!-- OS:HeatExchanger:Desiccant:BalancedFlow:PerformanceDataType1 -->
+    
     <message>
         <source>Temperature Equation Coefficient 2</source>
         <translation>Koefisien Persamaan Temperatur 2</translation>
     </message>
-    <!-- OS:HeatExchanger:Desiccant:BalancedFlow:PerformanceDataType1 -->
+    
     <message>
         <source>Temperature Equation Coefficient 3</source>
         <translation>Koefisien Persamaan Suhu 3</translation>
     </message>
-    <!-- OS:HeatExchanger:Desiccant:BalancedFlow:PerformanceDataType1 -->
+    
     <message>
         <source>Temperature Equation Coefficient 4</source>
         <translation>Koefisien Persamaan Temperatur 4</translation>
     </message>
-    <!-- OS:HeatExchanger:Desiccant:BalancedFlow:PerformanceDataType1 -->
+    
     <message>
         <source>Temperature Equation Coefficient 5</source>
         <translation>Koefisien Persamaan Suhu 5</translation>
     </message>
-    <!-- OS:HeatExchanger:Desiccant:BalancedFlow:PerformanceDataType1 -->
+    
     <message>
         <source>Temperature Equation Coefficient 6</source>
         <translation>Koefisien Persamaan Temperatur 6</translation>
     </message>
-    <!-- OS:HeatExchanger:Desiccant:BalancedFlow:PerformanceDataType1 -->
+    
     <message>
         <source>Temperature Equation Coefficient 7</source>
         <translation>Koefisien Persamaan Temperatur 7</translation>
     </message>
-    <!-- OS:HeatExchanger:Desiccant:BalancedFlow:PerformanceDataType1 -->
+    
     <message>
         <source>Temperature Equation Coefficient 8</source>
         <translation>Koefisien Persamaan Temperatur 8</translation>
     </message>
-    <!-- OS:ZoneHVAC:EnergyRecoveryVentilator:Controller -->
+    
     <message>
         <source>Temperature High Limit</source>
         <translation>Batas Suhu Tinggi</translation>
     </message>
-    <!-- OS:ZoneHVAC:EnergyRecoveryVentilator:Controller -->
+    
     <message>
         <source>Temperature Low Limit</source>
         <translation>Batas Suhu Rendah</translation>
     </message>
-    <!-- OS:Chiller:Absorption:Indirect -->
+    
     <message>
         <source>Temperature Lower Limit Generator Inlet</source>
         <translation>Batas Bawah Suhu Inlet Generator</translation>
     </message>
-    <!-- OS:Site:WaterMainsTemperature -->
+    
     <message>
         <source>Temperature Multiplier</source>
         <translation>Pengali Suhu</translation>
     </message>
-    <!-- OS:Site:WaterMainsTemperature -->
+    
     <message>
         <source>Temperature Offset</source>
         <translation>Offset Suhu</translation>
     </message>
-    <!-- OS:Site:WaterMainsTemperature -->
+    
     <message>
         <source>Temperature Schedule Name</source>
         <translation>Nama Jadwal Suhu</translation>
     </message>
-    <!-- OS:ThermalStorage:ChilledWater:Stratified -->
+    
     <message>
         <source>Temperature Sensor Height</source>
         <translation>Ketinggian Sensor Suhu</translation>
     </message>
-    <!-- OS:TemperingValve -->
+    
     <message>
         <source>Temperature Setpoint Node</source>
         <translation>Simpul Setpoint Suhu</translation>
     </message>
-    <!-- OS:Coil:Heating:Electric, OS:Coil:Heating:Gas -->
+    
     <message>
         <source>Temperature Setpoint Node Name</source>
         <translation>Nama Node Setpoint Suhu</translation>
     </message>
-    <!-- OS:PlantComponent:TemperatureSource -->
+    
     <message>
         <source>Temperature Specification Type</source>
         <translation>Tipe Spesifikasi Temperatur</translation>
     </message>
-    <!-- OS:Refrigeration:AirChiller, OS:Refrigeration:WalkIn -->
+    
     <message>
         <source>Temperature Termination Defrost Fraction to Ice</source>
         <translation>Fraksi Defrost Terminasi Suhu ke Es</translation>
     </message>
-    <!-- OS:ZoneHVAC:TerminalUnit:VariableRefrigerantFlow -->
+    
     <message>
         <source>Terminal Unit Air Inlet Node</source>
         <translation>Simpul Inlet Udara Unit Terminal</translation>
     </message>
-    <!-- OS:ZoneHVAC:TerminalUnit:VariableRefrigerantFlow -->
+    
     <message>
         <source>Terminal Unit Air Outlet Node</source>
         <translation>Terminal Unit Air Outlet Node</translation>
     </message>
-    <!-- OS:ZoneHVAC:TerminalUnit:VariableRefrigerantFlow -->
+    
     <message>
         <source>Terminal Unit Availability schedule</source>
         <translation>Jadwal Ketersediaan Unit Terminal</translation>
     </message>
-    <!-- OS:AirTerminal:SingleDuct:InletSideMixer -->
+    
     <message>
         <source>Terminal Unit Outlet</source>
         <translation>Terminal Unit Outlet</translation>
     </message>
-    <!-- OS:AirTerminal:SingleDuct:InletSideMixer -->
+    
     <message>
         <source>Terminal Unit Primary Air Inlet</source>
         <translation>Inlet Udara Primer Unit Terminal</translation>
     </message>
-    <!-- OS:AirTerminal:SingleDuct:InletSideMixer -->
+    
     <message>
         <source>Terminal Unit Secondary Air Inlet</source>
         <translation>Terminal Unit Secondary Air Inlet</translation>
     </message>
-    <!-- OS:Site -->
+    
     <message>
         <source>Terrain</source>
         <translation>Medan</translation>
     </message>
-    <!-- OS:SolarCollectorPerformance:FlatPlate -->
+    
     <message>
         <source>Test Correlation Type</source>
         <translation>Jenis Korelasi Uji</translation>
     </message>
-    <!-- OS:SolarCollectorPerformance:FlatPlate -->
+    
     <message>
         <source>Test Flow Rate</source>
         <translation>Laju Aliran Uji</translation>
     </message>
-    <!-- OS:SolarCollectorPerformance:FlatPlate -->
+    
     <message>
         <source>Test Fluid</source>
         <translation>Fluida Uji</translation>
     </message>
-    <!-- OS:ThermalStorage:Ice:Detailed -->
+    
     <message>
         <source>Thaw Process Indicator</source>
         <translation>Indikator Proses Pencairan</translation>
     </message>
-    <!-- OS:Boiler:Steam -->
+    
     <message>
         <source>Theoretical Efficiency</source>
         <translation>Efisiensi Teoritis</translation>
     </message>
-    <!-- OS:Material, OS:Material:NoMass, OS:Material:RoofVegetation -->
+    
     <message>
         <source>Thermal Absorptance</source>
         <translation>Absorptansi Termal</translation>
     </message>
-    <!-- OS:AirflowNetworkOccupantVentilationControl -->
+    
     <message>
         <source>Thermal Comfort High Temperature Curve Name</source>
         <translation>Nama Kurva Suhu Tinggi Kenyamanan Termal</translation>
     </message>
-    <!-- OS:AirflowNetworkOccupantVentilationControl -->
+    
     <message>
         <source>Thermal Comfort Low Temperature Curve Name</source>
         <translation>Nama Kurva Suhu Rendah Kenyamanan Termal</translation>
     </message>
-    <!-- OS:AirflowNetworkOccupantVentilationControl -->
+    
     <message>
         <source>Thermal Comfort Temperature Boundary Point</source>
         <translation>Titik Batas Suhu Kenyamanan Termal</translation>
     </message>
-    <!-- OS:SolarCollectorPerformance:PhotovoltaicThermal:Simple -->
+    
     <message>
         <source>Thermal Conversion Efficiency Input Mode Type</source>
         <translation>Tipe Mode Input Efisiensi Konversi Termal</translation>
     </message>
-    <!-- OS:SolarCollectorPerformance:PhotovoltaicThermal:Simple -->
+    
     <message>
         <source>Thermal Conversion Efficiency Schedule Name</source>
         <translation>Nama Jadwal Efisiensi Konversi Termal</translation>
     </message>
-    <!-- OS:Humidifier:Steam:Gas -->
+    
     <message>
         <source>Thermal Efficiency</source>
         <translation>Efisiensi Termal</translation>
     </message>
-    <!-- OS:Generator:MicroTurbine:HeatRecovery -->
+    
     <message>
         <source>Thermal Efficiency Function of Temperature and Elevation Curve Name</source>
         <translation>Nama Kurva Fungsi Efisiensi Termal Berdasarkan Suhu dan Elevasi</translation>
     </message>
-    <!-- OS:Humidifier:Steam:Gas -->
+    
     <message>
         <source>Thermal Efficiency Modifier Curve Name</source>
         <translation>Nama Kurva Pengubah Efisiensi Termal</translation>
     </message>
-    <!-- OS:WindowMaterial:Screen, OS:WindowMaterial:Shade -->
+    
     <message>
         <source>Thermal Hemispherical Emissivity</source>
         <translation>Emissivitas Hemisferis Termal</translation>
     </message>
-    <!-- OS:SolarCollectorPerformance:IntegralCollectorStorage -->
+    
     <message>
         <source>Thermal Mass of Absorber Plate</source>
         <translation>Massa Termal Pelat Penyerap</translation>
     </message>
-    <!-- OS:Material:AirGap, OS:Material:NoMass -->
+    
     <message>
         <source>Thermal Resistance</source>
         <translation>Resistansi Termal</translation>
     </message>
-    <!-- OS:WindowMaterial:Shade -->
+    
     <message>
         <source>Thermal Transmittance</source>
         <translation>Transmitansi Termal</translation>
     </message>
-    <!-- OS:AirLoopHVAC:SupplyPlenum, OS:Controller:MechanicalVentilation, OS:HeaderedPumps:ConstantSpeed, OS:HeaderedPumps:VariableSpeed, OS:ZoneHVAC:EquipmentList -->
+    
     <message>
         <source>Thermal Zone</source>
         <translation>Zona Termal</translation>
     </message>
-    <!-- OS:AirflowNetworkDistributionLinkage, OS:AirflowNetworkZone, OS:Space, OS:ZoneProperty:UserViewFactors:BySurfaceName -->
+    
     <message>
         <source>Thermal Zone Name</source>
         <translation>Nama Zona Termal</translation>
     </message>
-    <!-- OS:AirLoopHVAC:ReturnPlenum -->
+    
     <message>
         <source>ThermalZone</source>
         <translation>Zona Termal</translation>
     </message>
-    <!-- OS:Chiller:Electric:EIR, OS:Chiller:Electric:ReformulatedEIR, OS:HeatPump:PlantLoop:EIR:Cooling -->
+    
     <message>
         <source>Thermosiphon Capacity Fraction Curve Name</source>
         <translation>Nama Kurva Fraksi Kapasitas Termosifon</translation>
     </message>
-    <!-- OS:Chiller:Electric:EIR, OS:Chiller:Electric:ReformulatedEIR, OS:HeatPump:PlantLoop:EIR:Cooling -->
+    
     <message>
         <source>Thermosiphon Minimum Temperature Difference</source>
         <translation>Perbedaan Suhu Minimum Termosifon</translation>
     </message>
-    <!-- OS:ThermalZone -->
+    
     <message>
         <source>Thermostat Name</source>
         <translation>Nama Termostat</translation>
     </message>
-    <!-- OS:AirConditioner:VariableRefrigerantFlow -->
+    
     <message>
         <source>Thermostat Priority Schedule</source>
         <translation>Jadwal Prioritas Termostat</translation>
     </message>
-    <!-- OS:AvailabilityManager:NightCycle -->
+    
     <message>
         <source>Thermostat Tolerance</source>
         <translation>Toleransi Termostat</translation>
     </message>
-    <!-- OS:Daylighting:Control, OS:Glare:Sensor, OS:IlluminanceMap -->
+    
     <message>
         <source>Theta Rotation Around Y-Axis</source>
         <translation>Rotasi Theta Mengelilingi Sumbu Y</translation>
     </message>
-    <!-- OS:Luminaire -->
+    
     <message>
         <source>Theta Rotation Around Y-axis</source>
         <translation>Rotasi Theta Mengelilingi Sumbu Y</translation>
     </message>
-    <!-- OS:Material, OS:Material:RoofVegetation, OS:WindowMaterial:Gas, OS:WindowMaterial:GasMixture, OS:WindowMaterial:Glazing, OS:WindowMaterial:Glazing:RefractionExtinctionMethod, OS:WindowMaterial:Shade -->
+    
     <message>
         <source>Thickness</source>
         <translation>Ketebalan</translation>
     </message>
-    <!-- OS:HeatExchanger:AirToAir:SensibleAndLatent -->
+    
     <message>
         <source>Threshold Temperature</source>
         <translation>Suhu Ambang Batas</translation>
     </message>
-    <!-- OS:UtilityCost:Qualify -->
+    
     <message>
         <source>Threshold Test</source>
         <translation>Uji Ambang Batas</translation>
     </message>
-    <!-- OS:UtilityCost:Qualify -->
+    
     <message>
         <source>Threshold Value or Variable Name</source>
         <translation>Nilai Ambang Batas atau Nama Variabel</translation>
     </message>
-    <!-- OS:ZoneHVAC:EvaporativeCoolerUnit -->
+    
     <message>
         <source>Throttling Range Temperature Difference</source>
         <translation>Perbedaan Suhu Rentang Throttling</translation>
     </message>
-    <!-- OS:Schedule:Week -->
+    
     <message>
         <source>Thursday Schedule:Day Name</source>
         <translation>Jadwal Kamis:Nama Hari</translation>
     </message>
-    <!-- OS:Generator:PVWatts -->
+    
     <message>
         <source>Tilt Angle</source>
         <translation>Sudut Kemiringan</translation>
     </message>
-    <!-- OS:WaterHeater:Sizing -->
+    
     <message>
         <source>Time for Tank Recovery</source>
         <translation>Waktu Pemulihan Tangki</translation>
     </message>
-    <!-- OS:ZoneHVAC:EnergyRecoveryVentilator:Controller -->
+    
     <message>
         <source>Time of Day Economizer Flow Control Schedule Name</source>
         <translation>Nama Jadwal Kontrol Aliran Economizer Berdasarkan Waktu Dalam Sehari</translation>
     </message>
-    <!-- OS:UtilityCost:Tariff -->
+    
     <message>
         <source>Time of Use Period Schedule Name</source>
         <translation>Nama Jadwal Periode Waktu Pemakaian</translation>
     </message>
-    <!-- OS:WaterHeater:Sizing -->
+    
     <message>
         <source>Time Storage Can Meet Peak Draw</source>
         <translation>Penyimpanan Waktu Dapat Memenuhi Puncak Penarikan</translation>
     </message>
-    <!-- OS:Site, OS:WeatherFile -->
+    
     <message>
         <source>Time Zone</source>
         <translation>Zona Waktu</translation>
     </message>
-    <!-- OS:HeatPump:PlantLoop:EIR:Heating -->
+    
     <message>
         <source>Timed Empirical Defrost Frequency Curve Name</source>
         <translation>Nama Kurva Frekuensi Defrost Empiris Terjadwal</translation>
     </message>
-    <!-- OS:HeatPump:PlantLoop:EIR:Heating -->
+    
     <message>
         <source>Timed Empirical Defrost Heat Input Energy Fraction Curve Name</source>
         <translation>Nama Kurva Fraksi Energi Input Panas Defrost Empiris Terjadwal</translation>
     </message>
-    <!-- OS:HeatPump:PlantLoop:EIR:Heating -->
+    
     <message>
         <source>Timed Empirical Defrost Heat Load Penalty Curve Name</source>
         <translation>Nama Kurva Penalti Beban Panas Defrost Empiris Terjadwal</translation>
     </message>
-    <!-- OS:OutputControl:Timestamp -->
+    
     <message>
         <source>Timestamp at Beginning of Interval</source>
         <translation>Stempel Waktu pada Awal Interval</translation>
     </message>
-    <!-- OS:ThermalStorage:Ice:Detailed -->
+    
     <message>
         <source>Timestep of the Curve Data</source>
         <translation>Timestep Data Kurva</translation>
     </message>
-    <!-- OS:Sizing:Parameters -->
+    
     <message>
         <source>Timesteps in Averaging Window</source>
         <translation>Langkah Waktu dalam Jendela Perata-rataan</translation>
     </message>
-    <!-- OS:UtilityBill -->
+    
     <message>
         <source>Timesteps in Peak Demand Window</source>
         <translation>Langkah Waktu dalam Jendela Permintaan Puncak</translation>
     </message>
-    <!-- OS:ZoneProperty:UserViewFactors:BySurfaceName -->
+    
     <message>
         <source>To Surface Name</source>
         <translation>Ke Nama Permukaan</translation>
     </message>
-    <!-- OS:OutputControl:ReportingTolerances -->
+    
     <message>
         <source>Tolerance for Time Cooling Setpoint Not Met</source>
         <translation>Toleransi untuk Setpoint Pendinginan Waktu Tidak Terpenuhi</translation>
     </message>
-    <!-- OS:OutputControl:ReportingTolerances -->
+    
     <message>
         <source>Tolerance for Time Heating Setpoint Not Met</source>
         <translation>Toleransi untuk Waktu Setpoint Pemanasan Tidak Terpenuhi</translation>
     </message>
-    <!-- OS:WindowMaterial:Screen, OS:WindowMaterial:Shade -->
+    
     <message>
         <source>Top Opening Multiplier</source>
         <translation>Pengali Bukaan Atas</translation>
     </message>
-    <!-- OS:Coil:Heating:DX:VariableSpeed:SpeedData -->
+    
     <message>
         <source>Total  Heating Capacity Function of Air Flow Fraction Curve Name</source>
         <translation>Nama Kurva Fungsi Kapasitas Pemanasan Total terhadap Fraksi Aliran Udara</translation>
     </message>
-    <!-- OS:EnvironmentalImpactFactors -->
+    
     <message>
         <source>Total Carbon Equivalent Emission Factor From CH4</source>
         <translation>Faktor Emisi Setara Karbon Total Dari CH4</translation>
     </message>
-    <!-- OS:EnvironmentalImpactFactors -->
+    
     <message>
         <source>Total Carbon Equivalent Emission Factor From CO2</source>
         <translation>Faktor Emisi Ekuivalen Karbon Total Dari CO2</translation>
     </message>
-    <!-- OS:EnvironmentalImpactFactors -->
+    
     <message>
         <source>Total Carbon Equivalent Emission Factor From N2O</source>
         <translation>Faktor Emisi Setara Karbon Total Dari N2O</translation>
     </message>
-    <!-- OS:Coil:Cooling:WaterToAirHeatPump:EquationFit -->
+    
     <message>
         <source>Total Cooling Capacity Curve Name</source>
         <translation>Nama Kurva Kapasitas Pendinginan Total</translation>
     </message>
-    <!-- OS:Coil:Cooling:DX:VariableSpeed:SpeedData, OS:Coil:Cooling:WaterToAirHeatPump:VariableSpeedEquationFit:SpeedData -->
+    
     <message>
         <source>Total Cooling Capacity Function of Air Flow Fraction Curve Name</source>
         <translation>Nama Kurva Fungsi Kapasitas Pendinginan Total terhadap Fraksi Aliran Udara</translation>
     </message>
-    <!-- OS:Coil:Cooling:DX:MultiSpeed:StageData, OS:CoilPerformance:DX:Cooling -->
+    
     <message>
         <source>Total Cooling Capacity Function of Flow Fraction Curve</source>
         <translation>Kurva Fungsi Kapasitas Pendinginan Total terhadap Fraksi Aliran</translation>
     </message>
-    <!-- OS:Coil:Cooling:DX:MultiSpeed:StageData, OS:CoilPerformance:DX:Cooling -->
+    
     <message>
         <source>Total Cooling Capacity Function of Temperature Curve</source>
         <translation>Kurva Fungsi Kapasitas Pendinginan Total terhadap Temperatur</translation>
     </message>
-    <!-- OS:Coil:Cooling:WaterToAirHeatPump:VariableSpeedEquationFit:SpeedData -->
+    
     <message>
         <source>Total Cooling Capacity Function of Water Flow Fraction Curve Name</source>
         <translation>Nama Kurva Fungsi Fraksi Aliran Air Kapasitas Pendinginan Total</translation>
     </message>
-    <!-- OS:Coil:Cooling:DX:CurveFit:Speed -->
+    
     <message>
         <source>Total Cooling Capacity Modifier Function of Air Flow Fraction Curve</source>
         <translation>Kurva Fungsi Modifier Kapasitas Pendinginan Total dari Fraksi Aliran Udara</translation>
     </message>
-    <!-- OS:Coil:Cooling:DX:CurveFit:Speed -->
+    
     <message>
         <source>Total Cooling Capacity Modifier Function of Temperature Curve</source>
         <translation>Fungsi Pengubah Kapasitas Pendinginan Total terhadap Kurva Suhu</translation>
     </message>
-    <!-- OS:SurfaceProperty:ExposedFoundationPerimeter -->
+    
     <message>
         <source>Total Exposed Perimeter</source>
         <translation>Keliling Terbuka Total</translation>
     </message>
-    <!-- OS:PhotovoltaicPerformance:EquivalentOneDiode -->
+    
     <message>
         <source>Total Heat Capacity</source>
         <translation>Kapasitas Panas Total</translation>
     </message>
-    <!-- OS:Coil:Heating:WaterToAirHeatPump:VariableSpeedEquationFit:SpeedData -->
+    
     <message>
         <source>Total Heating Capacity Function of Air Flow Fraction Curve Name</source>
         <translation>Nama Kurva Fungsi Kapasitas Pemanasan Total terhadap Fraksi Aliran Udara</translation>
     </message>
-    <!-- OS:Coil:Heating:DX:SingleSpeed -->
+    
     <message>
         <source>Total Heating Capacity Function of Flow Fraction Curve Name</source>
         <translation>Nama Kurva Fungsi Kapasitas Pemanasan Total terhadap Fraksi Aliran</translation>
     </message>
-    <!-- OS:Coil:Heating:DX:SingleSpeed -->
+    
     <message>
         <source>Total Heating Capacity Function of Temperature Curve Name</source>
         <translation>Nama Kurva Fungsi Kapasitas Pemanasan Total terhadap Suhu</translation>
     </message>
-    <!-- OS:Refrigeration:WalkIn:ZoneBoundary -->
+    
     <message>
         <source>Total Insulated Surface Area Facing Zone</source>
         <translation>Luas Permukaan Terisolasi Total yang Menghadap Zona</translation>
     </message>
-    <!-- OS:DaylightingDevice:Tubular -->
+    
     <message>
         <source>Total Length</source>
         <translation>Panjang Total</translation>
     </message>
-    <!-- OS:Refrigeration:SecondarySystem -->
+    
     <message>
         <source>Total Pump Flow Rate</source>
         <translation>Laju Aliran Pompa Total</translation>
     </message>
-    <!-- OS:Refrigeration:SecondarySystem -->
+    
     <message>
         <source>Total Pump Head</source>
         <translation>Kepala Pompa Total</translation>
     </message>
-    <!-- OS:Refrigeration:SecondarySystem -->
+    
     <message>
         <source>Total Pump Power</source>
         <translation>Daya Pompa Total</translation>
     </message>
-    <!-- OS:HeaderedPumps:ConstantSpeed, OS:HeaderedPumps:VariableSpeed -->
+    
     <message>
         <source>Total Rated Flow Rate</source>
         <translation>Laju Aliran Terukur Total</translation>
     </message>
-    <!-- OS:Coil:WaterHeating:AirToWaterHeatPump:VariableSpeed:SpeedData -->
+    
     <message>
         <source>Total Water Heating Capacity Function of Air Flow Fraction Curve Name</source>
         <translation>Nama Kurva Fungsi Kapasitas Pemanasan Air Total terhadap Fraksi Aliran Udara</translation>
     </message>
-    <!-- OS:Coil:WaterHeating:AirToWaterHeatPump:VariableSpeed:SpeedData -->
+    
     <message>
         <source>Total Water Heating Capacity Function of Temperature Curve Name</source>
         <translation>Nama Kurva Fungsi Kapasitas Pemanasan Air Total terhadap Suhu</translation>
     </message>
-    <!-- OS:Coil:WaterHeating:AirToWaterHeatPump:VariableSpeed:SpeedData -->
+    
     <message>
         <source>Total Water Heating Capacity Function of Water Flow Fraction Curve Name</source>
         <translation>Nama Kurva Fungsi Kapasitas Pemanasan Air Total terhadap Fraksi Aliran Air</translation>
     </message>
-    <!-- OS:ElectricLoadCenter:Distribution -->
+    
     <message>
         <source>Track Meter Scheme Meter Name</source>
         <translation>Nama Meter Skema Meter Pelacakan</translation>
     </message>
-    <!-- OS:ElectricLoadCenter:Distribution -->
+    
     <message>
         <source>Track Schedule Name Scheme Schedule Name</source>
         <translation>Nama Skema Jadwal Nama Jadwal Pelacakan</translation>
     </message>
-    <!-- OS:Refrigeration:GasCooler:AirCooled -->
+    
     <message>
         <source>Transcritical Approach Temperature</source>
         <translation>Temperatur Pendekatan Transkritis</translation>
     </message>
-    <!-- OS:Refrigeration:Compressor -->
+    
     <message>
         <source>Transcritical Compressor Capacity Curve Name</source>
         <translation>Nama Kurva Kapasitas Kompressor Transkritis</translation>
     </message>
-    <!-- OS:Refrigeration:Compressor -->
+    
     <message>
         <source>Transcritical Compressor Power Curve Name</source>
         <translation>Nama Kurva Daya Kompressor Transkritis</translation>
     </message>
-    <!-- OS:ElectricLoadCenter:Distribution -->
+    
     <message>
         <source>Transformer Object Name</source>
         <translation>Nama Objek Transformer</translation>
     </message>
-    <!-- OS:ElectricLoadCenter:Transformer -->
+    
     <message>
         <source>Transformer Usage</source>
         <translation>Penggunaan Transformer</translation>
     </message>
-    <!-- OS:Refrigeration:GasCooler:AirCooled -->
+    
     <message>
         <source>Transition Temperature</source>
         <translation>Suhu Transisi</translation>
     </message>
-    <!-- OS:DaylightingDevice:Tubular -->
+    
     <message>
         <source>Transition Zone Length</source>
         <translation>Panjang Zona Transisi</translation>
     </message>
-    <!-- OS:DaylightingDevice:Tubular -->
+    
     <message>
         <source>Transition Zone Name</source>
         <translation>Nama Zona Transisi</translation>
     </message>
-    <!-- OS:Schedule:File -->
+    
     <message>
         <source>Translate File With Relative Path</source>
         <translation>Terjemahkan File Dengan Jalur Relatif</translation>
     </message>
-    <!-- OS:Schedule:FixedInterval -->
+    
     <message>
         <source>Translate to Schedule File</source>
         <translation>Terjemahkan ke File Jadwal</translation>
     </message>
-    <!-- OS:MaterialProperty:GlazingSpectralData -->
+    
     <message>
         <source>Transmittance</source>
         <translation>Transmitans</translation>
     </message>
-    <!-- OS:PhotovoltaicPerformance:EquivalentOneDiode -->
+    
     <message>
         <source>Transmittance Absorptance Product</source>
         <translation>Produk Transmitansi Absorptansi</translation>
     </message>
-    <!-- OS:ShadingSurface -->
+    
     <message>
         <source>Transmittance Schedule Name</source>
         <translation>Nama Jadwal Transmitansi</translation>
     </message>
-    <!-- OS:GroundHeatExchanger:HorizontalTrench -->
+    
     <message>
         <source>Trench Length in Pipe Axial Direction</source>
         <translation>Panjang Parit dalam Arah Aksial Pipa</translation>
     </message>
-    <!-- OS:Construction:InternalSource -->
+    
     <message>
         <source>Tube Spacing</source>
         <translation>Jarak Tabung</translation>
     </message>
-    <!-- OS:DefaultSubSurfaceConstructions -->
+    
     <message>
         <source>Tubular Daylight Diffuser Construction Name</source>
         <translation>Nama Konstruksi Penyebar Cahaya Siang Tabung</translation>
     </message>
-    <!-- OS:DefaultSubSurfaceConstructions -->
+    
     <message>
         <source>Tubular Daylight Dome Construction Name</source>
         <translation>Nama Konstruksi Kubah Cahaya Tubular</translation>
     </message>
-    <!-- OS:Schedule:Week -->
+    
     <message>
         <source>Tuesday Schedule:Day Name</source>
         <translation>Jadwal Selasa: Nama Hari</translation>
     </message>
-    <!-- OS:Construction:InternalSource -->
+    
     <message>
         <source>Two-Dimensional Temperature Calculation Position</source>
         <translation>Posisi Perhitungan Suhu Dua Dimensi</translation>
     </message>
-    <!-- OS:EnergyManagementSystem:OutputVariable, OS:PythonPlugin:OutputVariable -->
+    
     <message>
         <source>Type of Data in Variable</source>
         <translation>Jenis Data dalam Variabel</translation>
     </message>
-    <!-- OS:SurfaceProperty:OtherSideConditionsModel -->
+    
     <message>
         <source>Type of Modeling</source>
         <translation>Jenis Pemodelan</translation>
     </message>
-    <!-- OS:AirflowNetworkDetailedOpening -->
+    
     <message>
         <source>Type of Rectangular Large Vertical Opening</source>
         <translation>Jenis Bukaan Vertikal Besar Persegi Panjang</translation>
     </message>
-    <!-- OS:ShadingControl -->
+    
     <message>
         <source>Type of Slat Angle Control for Blinds</source>
         <translation>Jenis Kontrol Sudut Bilah untuk Tirai Buta</translation>
     </message>
 
-    <!-- U -->
-    <!-- OS:WindowMaterial:SimpleGlazingSystem -->
+    
+    
     <message>
         <source>U-Factor</source>
         <translation>Faktor-U</translation>
     </message>
-    <!-- OS:EvaporativeFluidCooler:SingleSpeed -->
+    
     <message>
         <source>U-factor Times Area Value at Design Air Flow Rate</source>
         <translation>Nilai U-factor Dikali Area pada Laju Aliran Udara Desain</translation>
     </message>
-    <!-- OS:GroundHeatExchanger:Vertical -->
+    
     <message>
         <source>U-Tube Distance</source>
         <translation>Jarak U-Tube</translation>
     </message>
-    <!-- OS:Refrigeration:Case -->
+    
     <message>
         <source>Under Case HVAC Return Air Fraction</source>
         <translation>Fraksi Udara Kembali HVAC di Bawah Case</translation>
     </message>
-    <!-- OS:GroundHeatExchanger:HorizontalTrench, OS:GroundHeatExchanger:Vertical -->
+    
     <message>
         <source>Undisturbed Ground Temperature Model</source>
         <translation>Model Suhu Tanah Tidak Terganggu</translation>
     </message>
-    <!-- OS:OutputControl:Table:Style -->
+    
     <message>
         <source>Unit Conversion</source>
         <translation>Konversi Satuan</translation>
     </message>
-    <!-- OS:Output:SQLite -->
+    
     <message>
         <source>Unit Conversion for Tabular Data</source>
         <translation>Konversi Satuan untuk Data Tabel</translation>
     </message>
-    <!-- OS:Coil:Cooling:DX:CurveFit:Performance, OS:Coil:Cooling:DX:TwoSpeed -->
+    
     <message>
         <source>Unit Internal Static Air Pressure</source>
         <translation>Tekanan Udara Statis Internal Unit</translation>
     </message>
-    <!-- OS:Refrigeration:Case, OS:ScheduleTypeLimits, OS:Table:IndependentVariable -->
+    
     <message>
         <source>Unit Type</source>
         <translation>Jenis Unit</translation>
     </message>
-    <!-- OS:EnergyManagementSystem:MeteredOutputVariable, OS:EnergyManagementSystem:OutputVariable, OS:PythonPlugin:OutputVariable -->
+    
     <message>
         <source>Units</source>
         <translation>Satuan</translation>
     </message>
-    <!-- OS:EnergyManagementSystem:MeteredOutputVariable, OS:EnergyManagementSystem:OutputVariable, OS:PythonPlugin:OutputVariable -->
+    
     <message>
         <source>Update Frequency</source>
         <translation>Frekuensi Pembaruan</translation>
     </message>
-    <!-- OS:ScheduleTypeLimits -->
+    
     <message>
         <source>Upper Limit Value</source>
         <translation>Nilai Batas Atas</translation>
     </message>
-    <!-- OS:Construction:WindowDataFile, OS:WeatherFile -->
+    
     <message>
         <source>Url</source>
         <translation>URL</translation>
     </message>
-    <!-- OS:PerformancePrecisionTradeoffs -->
+    
     <message>
         <source>Use Coil Direct Solutions</source>
         <translation>Gunakan Solusi Coil Langsung</translation>
     </message>
-    <!-- OS:AirLoopHVAC:UnitarySystem -->
+    
     <message>
         <source>Use DOAS DX Cooling Coil</source>
         <translation>Gunakan Kumparan Pendingin DX DOAS</translation>
     </message>
-    <!-- OS:WaterHeater:Mixed, OS:WaterHeater:Stratified -->
+    
     <message>
         <source>Use Flow Rate Fraction Schedule Name</source>
         <translation>Gunakan Nama Jadwal Fraksi Laju Aliran</translation>
     </message>
-    <!-- OS:Coil:Cooling:WaterToAirHeatPump:VariableSpeedEquationFit -->
+    
     <message>
         <source>Use Hot Gas Reheat</source>
         <translation>Gunakan Pemanasan Ulang Gas Panas</translation>
     </message>
-    <!-- OS:ThermalZone -->
+    
     <message>
         <source>Use Ideal Air Loads</source>
         <translation>Gunakan Ideal Air Loads</translation>
     </message>
-    <!-- OS:LifeCycleCost:Parameters -->
+    
     <message>
         <source>Use NIST Fuel Escalation Rates</source>
         <translation>Gunakan Tingkat Eskalasi Bahan Bakar NIST</translation>
     </message>
-    <!-- OS:PerformancePrecisionTradeoffs -->
+    
     <message>
         <source>Use Representative Surfaces for Calculations</source>
         <translation>Gunakan Permukaan Representatif untuk Perhitungan</translation>
     </message>
-    <!-- OS:ThermalStorage:ChilledWater:Stratified -->
+    
     <message>
         <source>Use Side Availability Schedule Name</source>
         <translation>Nama Jadwal Ketersediaan Sisi</translation>
     </message>
-    <!-- OS:ThermalStorage:ChilledWater:Stratified -->
+    
     <message>
         <source>Use Side Heat Transfer Effectiveness</source>
         <translation>Gunakan Efektivitas Transfer Panas Samping</translation>
     </message>
-    <!-- OS:ThermalStorage:ChilledWater:Stratified, OS:WaterHeater:Mixed, OS:WaterHeater:Stratified -->
+    
     <message>
         <source>Use Side Inlet Node Name</source>
         <translation>Gunakan Nama Node Inlet Samping</translation>
     </message>
-    <!-- OS:ThermalStorage:ChilledWater:Stratified, OS:WaterHeater:Mixed, OS:WaterHeater:Stratified -->
+    
     <message>
         <source>Use Side Outlet Node Name</source>
         <translation>Gunakan Nama Node Outlet Samping</translation>
     </message>
-    <!-- OS:RunPeriod, OS:SizingPeriod:WeatherFileConditionType, OS:SizingPeriod:WeatherFileDays -->
+    
     <message>
         <source>Use Weather File Daylight Saving Period</source>
         <translation>Gunakan Periode Daylight Saving dari File Cuaca</translation>
     </message>
-    <!-- OS:RunPeriod -->
+    
     <message>
         <source>Use Weather File Holidays and Special Days</source>
         <translation>Gunakan Hari Libur dan Hari Khusus dari File Cuaca</translation>
     </message>
-    <!-- OS:WeatherProperty:SkyTemperature -->
+    
     <message>
         <source>Use Weather File Horizontal IR</source>
         <translation>Gunakan IR Horizontal File Cuaca</translation>
     </message>
-    <!-- OS:SizingPeriod:WeatherFileConditionType, OS:SizingPeriod:WeatherFileDays -->
+    
     <message>
         <source>Use Weather File Rain and Snow Indicators</source>
         <translation>Gunakan Indikator Hujan dan Salju dari File Cuaca</translation>
     </message>
-    <!-- OS:AvailabilityManager:HybridVentilation, OS:RunPeriod -->
+    
     <message>
         <source>Use Weather File Rain Indicators</source>
         <translation>Gunakan Indikator Hujan File Cuaca</translation>
     </message>
-    <!-- OS:RunPeriod -->
+    
     <message>
         <source>Use Weather File Snow Indicators</source>
         <translation>Gunakan Indikator Salju File Cuaca</translation>
     </message>
-    <!-- OS:PlantLoop -->
+    
     <message>
         <source>User Defined Fluid Type</source>
         <translation>Tipe Cairan yang Ditentukan Pengguna</translation>
     </message>
-    <!-- OS:EvaporativeFluidCooler:SingleSpeed -->
+    
     <message>
         <source>User Specified Design Capacity</source>
         <translation>Kapasitas Desain yang Ditentukan Pengguna</translation>
     </message>
-    <!-- OS:ComponentData -->
+    
     <message>
         <source>UUID</source>
         <translation>UUID</translation>
     </message>
 
-    <!-- V -->
-    <!-- OS:Schedule:Constant, OS:Schedule:FixedInterval, OS:Table:IndependentVariable -->
+    
+    
     <message>
         <source>Value</source>
         <translation>Nilai</translation>
     </message>
-    <!-- OS:PhotovoltaicPerformance:Simple -->
+    
     <message>
         <source>Value for Cell Efficiency if Fixed</source>
         <translation>Nilai untuk Efisiensi Sel jika Tetap</translation>
     </message>
-    <!-- OS:SolarCollectorPerformance:PhotovoltaicThermal:Simple -->
+    
     <message>
         <source>Value for Thermal Conversion Efficiency if Fixed</source>
         <translation>Nilai Efisiensi Konversi Termal jika Tetap</translation>
     </message>
-    <!-- OS:AirConditioner:VariableRefrigerantFlow:FluidTemperatureControl, OS:AirConditioner:VariableRefrigerantFlow:FluidTemperatureControl:HR -->
+    
     <message>
         <source>Variable Condensing Temperature Maximum for Indoor Unit</source>
         <translation>Suhu Kondensasi Variabel Maksimum untuk Unit Indoor</translation>
     </message>
-    <!-- OS:AirConditioner:VariableRefrigerantFlow:FluidTemperatureControl, OS:AirConditioner:VariableRefrigerantFlow:FluidTemperatureControl:HR -->
+    
     <message>
         <source>Variable Condensing Temperature Minimum for Indoor Unit</source>
         <translation>Suhu Kondensasi Variabel Minimum untuk Unit Indoor</translation>
     </message>
-    <!-- OS:AirConditioner:VariableRefrigerantFlow:FluidTemperatureControl, OS:AirConditioner:VariableRefrigerantFlow:FluidTemperatureControl:HR -->
+    
     <message>
         <source>Variable Evaporating Temperature Maximum for Indoor Unit</source>
         <translation>Suhu Penguapan Variabel Maksimum untuk Unit Dalam Ruangan</translation>
     </message>
-    <!-- OS:AirConditioner:VariableRefrigerantFlow:FluidTemperatureControl, OS:AirConditioner:VariableRefrigerantFlow:FluidTemperatureControl:HR -->
+    
     <message>
         <source>Variable Evaporating Temperature Minimum for Indoor Unit</source>
         <translation>Suhu Penguapan Minimum Variabel untuk Unit Dalam Ruangan</translation>
     </message>
-    <!-- OS:Output:Variable, OS:UtilityCost:Qualify -->
+    
     <message>
         <source>Variable Name</source>
         <translation>Nama Variabel</translation>
     </message>
-    <!-- OS:Output:Table:Monthly -->
+    
     <message>
         <source>Variable or Meter Name</source>
         <translation>Nama Variabel atau Meter</translation>
     </message>
-    <!-- OS:Output:Table:Annual -->
+    
     <message>
         <source>Variable or Meter or EMS Variable or Field Name</source>
         <translation>Nama Variabel atau Meter atau Variabel EMS atau Field</translation>
     </message>
-    <!-- OS:Refrigeration:SecondarySystem -->
+    
     <message>
         <source>Variable Speed Pump Cubic Curve Name</source>
         <translation>Nama Kurva Kubik Pompa Kecepatan Variabel</translation>
     </message>
-    <!-- OS:UtilityCost:Variable -->
+    
     <message>
         <source>Variable Type</source>
         <translation>Tipe Variabel</translation>
     </message>
-    <!-- OS:AirflowNetworkSurface, OS:AirflowNetworkZone -->
+    
     <message>
         <source>Ventilation Control Mode</source>
         <translation>Mode Kontrol Ventilasi</translation>
     </message>
-    <!-- OS:AvailabilityManager:HybridVentilation -->
+    
     <message>
         <source>Ventilation Control Mode Schedule</source>
         <translation>Jadwal Mode Kontrol Ventilasi</translation>
     </message>
-    <!-- OS:AirflowNetworkSurface, OS:AirflowNetworkZone -->
+    
     <message>
         <source>Ventilation Control Zone Temperature Setpoint Schedule Name</source>
         <translation>Nama Jadwal Titik Atur Suhu Zona Kontrol Ventilasi</translation>
     </message>
-    <!-- OS:ZoneHVAC:EnergyRecoveryVentilator -->
+    
     <message>
         <source>Ventilation Rate per Occupant</source>
         <translation>Laju Ventilasi per Penghuni</translation>
     </message>
-    <!-- OS:ZoneHVAC:EnergyRecoveryVentilator -->
+    
     <message>
         <source>Ventilation Rate per Unit Floor Area</source>
         <translation>Laju Ventilasi per Luas Lantai Satuan</translation>
     </message>
-    <!-- OS:AvailabilityManager:NightVentilation -->
+    
     <message>
         <source>Ventilation Temperature Difference</source>
         <translation>Perbedaan Suhu Ventilasi</translation>
     </message>
-    <!-- OS:AvailabilityManager:NightVentilation -->
+    
     <message>
         <source>Ventilation Temperature Low Limit</source>
         <translation>Batas Suhu Rendah Ventilasi</translation>
     </message>
-    <!-- OS:AvailabilityManager:NightVentilation -->
+    
     <message>
         <source>Ventilation Temperature Schedule</source>
         <translation>Jadwal Temperatur Ventilasi</translation>
     </message>
-    <!-- OS:ZoneVentilation:DesignFlowRate -->
+    
     <message>
         <source>Ventilation Type</source>
         <translation>Jenis Ventilasi</translation>
     </message>
-    <!-- OS:AirflowNetworkSurface, OS:AirflowNetworkZone -->
+    
     <message>
         <source>Venting Availability Schedule Name</source>
         <translation>Nama Jadwal Ketersediaan Ventilasi</translation>
     </message>
-    <!-- OS:Version -->
+    
     <message>
         <source>Version Identifier</source>
         <translation>Identifikasi Versi</translation>
     </message>
-    <!-- OS:ComponentData -->
+    
     <message>
         <source>Version Timestamp</source>
         <translation>Stempel Waktu Versi</translation>
     </message>
-    <!-- OS:ComponentData -->
+    
     <message>
         <source>Version UUID</source>
         <translation>Version UUID</translation>
     </message>
-    <!-- OS:InteriorPartitionSurface, OS:ShadingSurface, OS:SubSurface, OS:Surface -->
+    
     <message>
         <source>Vertex X-coordinate</source>
         <translation>Koordinat X Simpul</translation>
     </message>
-    <!-- OS:InteriorPartitionSurface, OS:ShadingSurface, OS:SubSurface, OS:Surface -->
+    
     <message>
         <source>Vertex Y-coordinate</source>
         <translation>Koordinat Y Vertex</translation>
     </message>
-    <!-- OS:InteriorPartitionSurface, OS:ShadingSurface, OS:SubSurface, OS:Surface -->
+    
     <message>
         <source>Vertex Z-coordinate</source>
         <translation>Koordinat Z Simpul</translation>
     </message>
-    <!-- OS:AirConditioner:VariableRefrigerantFlow -->
+    
     <message>
         <source>Vertical Height used for Piping Correction Factor</source>
         <translation>Ketinggian Vertikal yang Digunakan untuk Faktor Koreksi Perpipaan</translation>
     </message>
-    <!-- OS:Refrigeration:AirChiller -->
+    
     <message>
         <source>Vertical Location</source>
         <translation>Lokasi Vertikal</translation>
     </message>
-    <!-- OS:Fan:ComponentModel -->
+    
     <message>
         <source>VFD Efficiency Curve Name</source>
         <translation>Nama Kurva Efisiensi VFD</translation>
     </message>
-    <!-- OS:Fan:ComponentModel -->
+    
     <message>
         <source>VFD Efficiency Type</source>
         <translation>Jenis Efisiensi VFD</translation>
     </message>
-    <!-- OS:Fan:ComponentModel -->
+    
     <message>
         <source>VFD Sizing Factor</source>
         <translation>Faktor Penentuan Ukuran VFD</translation>
     </message>
-    <!-- OS:ZoneProperty:UserViewFactors:BySurfaceName -->
+    
     <message>
         <source>View Factor</source>
         <translation>Faktor Pandang</translation>
     </message>
-    <!-- OS:SubSurface, OS:Surface -->
+    
     <message>
         <source>View Factor to Ground</source>
         <translation>Faktor Pandang ke Tanah</translation>
     </message>
-    <!-- OS:DaylightingDevice:Shelf -->
+    
     <message>
         <source>View Factor to Outside Shelf</source>
         <translation>Faktor Pandang ke Rak Luar</translation>
     </message>
-    <!-- OS:WindowMaterial:Gas -->
+    
     <message>
         <source>Viscosity Coefficient A</source>
         <translation>Koefisien Viskositas A</translation>
     </message>
-    <!-- OS:WindowMaterial:Gas -->
+    
     <message>
         <source>Viscosity Coefficient B</source>
         <translation>Koefisien Viskositas B</translation>
     </message>
-    <!-- OS:WindowMaterial:Gas -->
+    
     <message>
         <source>Viscosity Coefficient C</source>
         <translation>Koefisien Viskositas C</translation>
     </message>
-    <!-- OS:Material, OS:Material:NoMass, OS:Material:RoofVegetation -->
+    
     <message>
         <source>Visible Absorptance</source>
         <translation>Absorptansi Terlihat</translation>
     </message>
-    <!-- OS:WindowMaterial:Glazing:RefractionExtinctionMethod -->
+    
     <message>
         <source>Visible Extinction Coefficient</source>
         <translation>Koefisien Kepunahan Cahaya Tampak</translation>
     </message>
-    <!-- OS:WindowMaterial:Glazing:RefractionExtinctionMethod -->
+    
     <message>
         <source>Visible Index of Refraction</source>
         <translation>Indeks Bias Cahaya Tampak</translation>
     </message>
-    <!-- OS:WindowMaterial:Shade -->
+    
     <message>
         <source>Visible Reflectance</source>
         <translation>Reflektansi Tampak</translation>
     </message>
-    <!-- OS:DaylightingDevice:LightWell -->
+    
     <message>
         <source>Visible Reflectance of Well Walls</source>
         <translation>Reflektansi Tampak Dinding Sumur</translation>
     </message>
-    <!-- OS:WindowMaterial:Shade, OS:WindowMaterial:SimpleGlazingSystem -->
+    
     <message>
         <source>Visible Transmittance</source>
         <translation>Transmitansi Terlihat</translation>
     </message>
-    <!-- OS:WindowMaterial:Glazing -->
+    
     <message>
         <source>Visible Transmittance at Normal Incidence</source>
         <translation>Transmitansi Terlihat pada Kejadian Normal</translation>
     </message>
-    <!-- OS:PhotovoltaicPerformance:Sandia -->
+    
     <message>
         <source>Voltage at Maximum Power Point</source>
         <translation>Tegangan pada Titik Daya Maksimum</translation>
     </message>
-    <!-- OS:Space, OS:ThermalZone -->
+    
     <message>
         <source>Volume</source>
         <translation>Volume</translation>
     </message>
 
-    <!-- W -->
-    <!-- OS:Refrigeration:WalkIn -->
+    
+    
     <message>
         <source>WalkIn Defrost Cycle Parameters Name</source>
         <translation>Parameter Siklus Defrost WalkIn Nama</translation>
     </message>
-    <!-- OS:Refrigeration:WalkIn -->
+    
     <message>
         <source>WalkIn Zone Boundary</source>
         <translation>WalkIn Zone Boundary</translation>
     </message>
-    <!-- OS:DefaultSurfaceConstructions -->
+    
     <message>
         <source>Wall Construction Name</source>
         <translation>Nama Konstruksi Dinding</translation>
     </message>
-    <!-- OS:Foundation:Kiva -->
+    
     <message>
         <source>Wall Depth Below Slab</source>
         <translation>Kedalaman Dinding di Bawah Pelat</translation>
     </message>
-    <!-- OS:Foundation:Kiva -->
+    
     <message>
         <source>Wall Height Above Grade</source>
         <translation>Tinggi Dinding di Atas Tanah</translation>
     </message>
-    <!-- OS:Coil:Cooling:DX:MultiSpeed:StageData -->
+    
     <message>
         <source>Waste Heat Function of Temperature Curve</source>
         <translation>Kurva Fungsi Pembuangan Panas terhadap Suhu</translation>
     </message>
-    <!-- OS:Coil:Cooling:WaterToAirHeatPump:VariableSpeedEquationFit:SpeedData, OS:Coil:Heating:DX:MultiSpeed:StageData, OS:Coil:Heating:WaterToAirHeatPump:VariableSpeedEquationFit:SpeedData -->
+    
     <message>
         <source>Waste Heat Function of Temperature Curve Name</source>
         <translation>Nama Kurva Fungsi Panas Limbah terhadap Suhu</translation>
     </message>
-    <!-- OS:Coil:Cooling:DX:CurveFit:Speed -->
+    
     <message>
         <source>Waste Heat Modifier Function of Temperature Curve</source>
         <translation>Fungsi Kurva Modifikasi Panas Limbah Terhadap Suhu</translation>
     </message>
-    <!-- OS:Controller:WaterCoil -->
+    
     <message>
         <source>Water Coil Name</source>
         <translation>Nama Kumparan Air</translation>
     </message>
-    <!-- OS:AirConditioner:VariableRefrigerantFlow -->
+    
     <message>
         <source>Water Condenser Volume Flow Rate</source>
         <translation>Laju Aliran Volume Kondenser Air</translation>
     </message>
-    <!-- OS:Refrigeration:Condenser:WaterCooled -->
+    
     <message>
         <source>Water Design Flow Rate</source>
         <translation>Laju Aliran Desain Air</translation>
     </message>
-    <!-- OS:FuelFactors -->
+    
     <message>
         <source>Water Emission Factor</source>
         <translation>Faktor Emisi Air</translation>
     </message>
-    <!-- OS:FuelFactors -->
+    
     <message>
         <source>Water Emission Factor Schedule Name</source>
         <translation>Nama Jadwal Faktor Emisi Air</translation>
     </message>
-    <!-- OS:Coil:WaterHeating:Desuperheater -->
+    
     <message>
         <source>Water Flow Rate</source>
         <translation>Laju Aliran Air</translation>
     </message>
-    <!-- OS:LifeCycleCost:Parameters -->
+    
     <message>
         <source>Water Inflation</source>
         <translation>Inflasi Air</translation>
     </message>
-    <!-- OS:CoolingTower:VariableSpeed, OS:FluidCooler:SingleSpeed, OS:FluidCooler:TwoSpeed -->
+    
     <message>
         <source>Water Inlet Node</source>
         <translation>Node Inlet Air Masuk</translation>
     </message>
-    <!-- OS:Boiler:Steam, OS:Coil:Cooling:Water, OS:Coil:Cooling:Water:Panel:Radiant, OS:Coil:Cooling:WaterToAirHeatPump:EquationFit, OS:Coil:Heating:Water, OS:Coil:Heating:Water:Baseboard, OS:Coil:Heating:WaterToAirHeatPump:EquationFit, OS:Coil:WaterHeating:Desuperheater, OS:CoolingTower:SingleSpeed, OS:CoolingTower:TwoSpeed, OS:EvaporativeFluidCooler:SingleSpeed, OS:EvaporativeFluidCooler:TwoSpeed, OS:HeatPump:AirToWater:FuelFired:Cooling, OS:HeatPump:AirToWater:FuelFired:Heating, OS:Refrigeration:Condenser:WaterCooled -->
+    
     <message>
         <source>Water Inlet Node Name</source>
         <translation>Nama Node Inlet Air</translation>
     </message>
-    <!-- OS:Refrigeration:Condenser:WaterCooled -->
+    
     <message>
         <source>Water Maximum Flow Rate</source>
         <translation>Laju Aliran Air Maksimum</translation>
     </message>
-    <!-- OS:Refrigeration:Condenser:WaterCooled -->
+    
     <message>
         <source>Water Maximum Water Outlet Temperature</source>
         <translation>Suhu Outlet Air Maksimum</translation>
     </message>
-    <!-- OS:Refrigeration:Condenser:WaterCooled -->
+    
     <message>
         <source>Water Minimum Water Inlet Temperature</source>
         <translation>Suhu Inlet Air Minimum Air</translation>
     </message>
-    <!-- OS:CoolingTower:VariableSpeed, OS:FluidCooler:SingleSpeed, OS:FluidCooler:TwoSpeed -->
+    
     <message>
         <source>Water Outlet Node</source>
         <translation>Simpul Keluaran Air</translation>
     </message>
-    <!-- OS:Coil:Cooling:Water, OS:Coil:Cooling:Water:Panel:Radiant, OS:Coil:Cooling:WaterToAirHeatPump:EquationFit, OS:Coil:Heating:Water, OS:Coil:Heating:Water:Baseboard, OS:Coil:Heating:WaterToAirHeatPump:EquationFit, OS:Coil:WaterHeating:Desuperheater, OS:CoolingTower:SingleSpeed, OS:CoolingTower:TwoSpeed, OS:EvaporativeFluidCooler:SingleSpeed, OS:EvaporativeFluidCooler:TwoSpeed, OS:HeatPump:AirToWater:FuelFired:Cooling, OS:HeatPump:AirToWater:FuelFired:Heating, OS:Refrigeration:Condenser:WaterCooled -->
+    
     <message>
         <source>Water Outlet Node Name</source>
         <translation>Nama Node Outlet Air</translation>
     </message>
-    <!-- OS:Refrigeration:Condenser:WaterCooled -->
+    
     <message>
         <source>Water Outlet Temperature Schedule Name</source>
         <translation>Nama Jadwal Suhu Air Keluar</translation>
     </message>
-    <!-- OS:Coil:WaterHeating:Desuperheater -->
+    
     <message>
         <source>Water Pump Power</source>
         <translation>Daya Pompa Air</translation>
     </message>
-    <!-- OS:EvaporativeCooler:Direct:ResearchSpecial, OS:EvaporativeCooler:Indirect:ResearchSpecial -->
+    
     <message>
         <source>Water Pump Power Modifier Curve Name</source>
         <translation>Nama Kurva Pengubah Daya Pompa Air</translation>
     </message>
-    <!-- OS:EvaporativeCooler:Direct:ResearchSpecial, OS:EvaporativeCooler:Indirect:ResearchSpecial -->
+    
     <message>
         <source>Water Pump Power Sizing Factor</source>
         <translation>Faktor Pengukuran Daya Pompa Air</translation>
     </message>
-    <!-- OS:ZoneHVAC:Dehumidifier:DX -->
+    
     <message>
         <source>Water Removal Curve Name</source>
         <translation>Nama Kurva Penghilangan Air</translation>
     </message>
-    <!-- OS:Humidifier:Steam:Electric, OS:Humidifier:Steam:Gas -->
+    
     <message>
         <source>Water Storage Tank Name</source>
         <translation>Nama Tangki Penyimpanan Air</translation>
     </message>
-    <!-- OS:Generator:FuelCell -->
+    
     <message>
         <source>Water Supply Name</source>
         <translation>Nama Pasokan Air</translation>
     </message>
-    <!-- OS:EvaporativeCooler:Indirect:ResearchSpecial -->
+    
     <message>
         <source>Water Supply Storage Tank Name</source>
         <translation>Nama Tangki Penyimpanan Pasokan Air</translation>
     </message>
-    <!-- OS:HeatPump:AirToWater:FuelFired:Cooling, OS:HeatPump:AirToWater:FuelFired:Heating -->
+    
     <message>
         <source>Water Temperature Curve Input Variable</source>
         <translation>Variabel Input Kurva Suhu Air</translation>
     </message>
-    <!-- OS:Generator:FuelCell:WaterSupply -->
+    
     <message>
         <source>Water Temperature Modeling Mode</source>
         <translation>Mode Pemodelan Suhu Air</translation>
     </message>
-    <!-- OS:Generator:FuelCell:WaterSupply -->
+    
     <message>
         <source>Water Temperature Reference Node Name</source>
         <translation>Nama Node Referensi Suhu Air</translation>
     </message>
-    <!-- OS:Generator:FuelCell:WaterSupply -->
+    
     <message>
         <source>Water Temperature Schedule Name</source>
         <translation>Nama Jadwal Suhu Air</translation>
     </message>
-    <!-- OS:WaterUse:Equipment -->
+    
     <message>
         <source>Water Use Equipment Definition Name</source>
         <translation>Nama Definisi Peralatan Penggunaan Air</translation>
     </message>
-    <!-- OS:WaterUse:Connections -->
+    
     <message>
         <source>Water Use Equipment Name</source>
         <translation>Nama Peralatan Penggunaan Air</translation>
     </message>
-    <!-- OS:MaterialProperty:MoisturePenetrationDepth:Settings -->
+    
     <message>
         <source>Water Vapor Diffusion Resistance Factor</source>
         <translation>Faktor Resistansi Difusi Uap Air</translation>
     </message>
-    <!-- OS:Refrigeration:CompressorRack -->
+    
     <message>
         <source>Water-Cooled Condenser Design Flow Rate</source>
         <translation>Laju Aliran Desain Kondenser Berpendingin Air</translation>
     </message>
-    <!-- OS:Refrigeration:CompressorRack -->
+    
     <message>
         <source>Water-Cooled Condenser Inlet Node Name</source>
         <translation>Nama Node Inlet Kondenser Berpendingin Air</translation>
     </message>
-    <!-- OS:Refrigeration:CompressorRack -->
+    
     <message>
         <source>Water-Cooled Condenser Maximum Flow Rate</source>
         <translation>Laju Aliran Maksimum Kondenser Berpendingin Air</translation>
     </message>
-    <!-- OS:Refrigeration:CompressorRack -->
+    
     <message>
         <source>Water-Cooled Condenser Maximum Water Outlet Temperature</source>
         <translation>Suhu Keluaran Air Maksimum Kondenser Berpendingin Air</translation>
     </message>
-    <!-- OS:Refrigeration:CompressorRack -->
+    
     <message>
         <source>Water-Cooled Condenser Minimum Water Inlet Temperature</source>
         <translation>Suhu Inlet Air Kondenser Berpendingin Air Minimum</translation>
     </message>
-    <!-- OS:Refrigeration:CompressorRack -->
+    
     <message>
         <source>Water-Cooled Condenser Outlet Node Name</source>
         <translation>Nama Node Outlet Kondenser Berpendingin Air</translation>
     </message>
-    <!-- OS:Refrigeration:CompressorRack -->
+    
     <message>
         <source>Water-Cooled Condenser Outlet Temperature Schedule Name</source>
         <translation>Nama Jadwal Suhu Outlet Kondenser Pendingin Air</translation>
     </message>
-    <!-- OS:Refrigeration:CompressorRack, OS:Refrigeration:Condenser:WaterCooled -->
+    
     <message>
         <source>Water-Cooled Loop Flow Type</source>
         <translation>Tipe Aliran Loop Berpendingin Air</translation>
     </message>
-    <!-- OS:Coil:Cooling:WaterToAirHeatPump:VariableSpeedEquationFit, OS:Coil:Heating:WaterToAirHeatPump:VariableSpeedEquationFit -->
+    
     <message>
         <source>Water-to-Refrigerant HX Water Inlet Node Name</source>
         <translation>Water-to-Refrigerant HX Water Inlet Node Name</translation>
     </message>
-    <!-- OS:Coil:Cooling:WaterToAirHeatPump:VariableSpeedEquationFit, OS:Coil:Heating:WaterToAirHeatPump:VariableSpeedEquationFit -->
+    
     <message>
         <source>Water-to-Refrigerant HX Water Outlet Node Name</source>
         <translation>Water-to-Refrigerant HX Water Outlet Node Name</translation>
     </message>
-    <!-- OS:WaterHeater:Sizing -->
+    
     <message>
         <source>WaterHeater Name</source>
         <translation>Nama Pemanas Air</translation>
     </message>
-    <!-- OS:ElectricEquipment:Definition, OS:GasEquipment:Definition, OS:HotWaterEquipment:Definition, OS:Lights:Definition, OS:OtherEquipment:Definition, OS:SteamEquipment:Definition -->
+    
     <message>
         <source>Watts per Person</source>
         <translation>Watt per Orang</translation>
     </message>
-    <!-- OS:ElectricEquipment:Definition, OS:ElectricEquipment:ITE:AirCooled:Definition, OS:GasEquipment:Definition, OS:HotWaterEquipment:Definition, OS:Lights:Definition, OS:OtherEquipment:Definition, OS:SteamEquipment:Definition -->
+    
     <message>
         <source>Watts per Space Floor Area</source>
         <translation>Watt per Luas Lantai Ruang</translation>
     </message>
-    <!-- OS:ElectricEquipment:ITE:AirCooled:Definition -->
+    
     <message>
         <source>Watts per Unit</source>
         <translation>Watt per Unit</translation>
     </message>
-    <!-- OS:MaterialProperty:GlazingSpectralData -->
+    
     <message>
         <source>Wavelength</source>
         <translation>Panjang Gelombang</translation>
     </message>
-    <!-- OS:Schedule:Week -->
+    
     <message>
         <source>Wednesday Schedule:Day Name</source>
         <translation>Jadwal Rabu:Nama Hari</translation>
     </message>
-    <!-- OS:Schedule:Year -->
+    
     <message>
         <source>Week Schedule Until Date</source>
         <translation>Tanggal Hingga Jadwal Mingguan</translation>
     </message>
-    <!-- OS:PlantEquipmentOperation:OutdoorWetBulb -->
+    
     <message>
         <source>Wet-Bulb Temperature Range Lower Limit</source>
         <translation>Batas Bawah Rentang Suhu Bola Basah</translation>
     </message>
-    <!-- OS:PlantEquipmentOperation:OutdoorWetBulb -->
+    
     <message>
         <source>Wet-Bulb Temperature Range Upper Limit</source>
         <translation>Batas Atas Rentang Suhu Bola Basah</translation>
     </message>
-    <!-- OS:EvaporativeCooler:Indirect:ResearchSpecial -->
+    
     <message>
         <source>Wetbulb Effectiveness Flow Ratio Modifier Curve Name</source>
         <translation>Nama Kurva Pengubah Rasio Aliran Efektivitas Wetbulb</translation>
     </message>
-    <!-- OS:SizingPeriod:DesignDay -->
+    
     <message>
         <source>Wetbulb or DewPoint at Maximum Dry-Bulb</source>
         <translation>Wetbulb atau DewPoint pada Dry-Bulb Maksimum</translation>
     </message>
-    <!-- OS:AirflowNetworkDetailedOpening -->
+    
     <message>
         <source>Width Factor for Opening Factor</source>
         <translation>Faktor Lebar untuk Faktor Pembukaan</translation>
     </message>
-    <!-- OS:AirflowNetworkExternalNode -->
+    
     <message>
         <source>Wind Angle Type</source>
         <translation>Tipe Sudut Angin</translation>
     </message>
-    <!-- OS:SizingPeriod:DesignDay -->
+    
     <message>
         <source>Wind Direction</source>
         <translation>Arah Angin</translation>
     </message>
-    <!-- OS:Surface -->
+    
     <message>
         <source>Wind Exposure</source>
         <translation>Paparan Angin</translation>
     </message>
-    <!-- OS:AirflowNetworkExternalNode -->
+    
     <message>
         <source>Wind Pressure Coefficient Curve Name</source>
         <translation>Nama Kurva Koefisien Tekanan Angin</translation>
     </message>
-    <!-- OS:AirflowNetworkSimulationControl -->
+    
     <message>
         <source>Wind Pressure Coefficient Type</source>
         <translation>Tipe Koefisien Tekanan Angin</translation>
     </message>
-    <!-- OS:SizingPeriod:DesignDay -->
+    
     <message>
         <source>Wind Speed</source>
         <translation>Kecepatan Angin</translation>
     </message>
-    <!-- OS:SurfaceProperty:OtherSideCoefficients -->
+    
     <message>
         <source>Wind Speed Coefficient</source>
         <translation>Koefisien Kecepatan Angin</translation>
     </message>
-    <!-- OS:WindowMaterial:Glazing -->
+    
     <message>
         <source>Window Glass Spectral Data Set Name</source>
         <translation>Nama Set Data Spektral Kaca Jendela</translation>
     </message>
-    <!-- OS:WindowMaterial:GlazingGroup:Thermochromic -->
+    
     <message>
         <source>Window Material Glazing Name</source>
         <translation>Nama Kaca Material Jendela</translation>
     </message>
-    <!-- OS:DaylightingDevice:Shelf -->
+    
     <message>
         <source>Window Name</source>
         <translation>Nama Jendela</translation>
     </message>
-    <!-- OS:AirflowNetworkSurface -->
+    
     <message>
         <source>Window/Door Opening Factor or Crack Factor</source>
         <translation>Faktor Pembukaan Jendela/Pintu atau Faktor Celah</translation>
     </message>
-    <!-- OS:Schedule:Week -->
+    
     <message>
         <source>WinterDesignDay Schedule:Day Name</source>
         <translation>Jadwal Hari Desain Musim Dingin:Nama Hari</translation>
     </message>
-    <!-- OS:WeatherFile -->
+    
     <message>
         <source>WMO Number</source>
         <translation>Nomor WMO</translation>
     </message>
 
-    <!-- X -->
-    <!-- OS:IlluminanceMap -->
+    
+    
     <message>
         <source>X Length</source>
         <translation>Panjang X</translation>
     </message>
-    <!-- OS:InteriorPartitionSurfaceGroup, OS:ShadingSurfaceGroup, OS:Space -->
+    
     <message>
         <source>X Origin</source>
         <translation>X Origin</translation>
     </message>
-    <!-- OS:Table:MultiVariableLookup -->
+    
     <message>
         <source>X1 Sort Order</source>
         <translation>Urutan Sortir X1</translation>
     </message>
-    <!-- OS:Table:MultiVariableLookup -->
+    
     <message>
         <source>X2 Sort Order</source>
         <translation>Urutan Sortir X2</translation>
     </message>
 
-    <!-- Y -->
-    <!-- OS:IlluminanceMap -->
+    
+    
     <message>
         <source>Y Length</source>
         <translation>Panjang Y</translation>
     </message>
-    <!-- OS:InteriorPartitionSurfaceGroup, OS:ShadingSurfaceGroup, OS:Space -->
+    
     <message>
         <source>Y Origin</source>
         <translation>Asal Y</translation>
     </message>
-    <!-- OS:LifeCycleCost:UsePriceEscalation -->
+    
     <message>
         <source>Year Escalation</source>
         <translation>Eskalasi Tahunan</translation>
     </message>
-    <!-- OS:LifeCycleCost -->
+    
     <message>
         <source>Years from Start</source>
         <translation>Tahun dari Awal</translation>
     </message>
 
-    <!-- Z -->
-    <!-- OS:InteriorPartitionSurfaceGroup, OS:ShadingSurfaceGroup, OS:Space -->
+    
+    
     <message>
         <source>Z Origin</source>
         <translation>Z Origin</translation>
     </message>
-    <!-- OS:Pump:ConstantSpeed -->
+    
     <message>
         <source>Zone</source>
         <translation>Zona</translation>
     </message>
-    <!-- OS:DesignSpecification:ZoneAirDistribution -->
+    
     <message>
         <source>Zone Air Distribution Effectiveness in Cooling Mode</source>
         <translation>Efektivitas Distribusi Udara Zona dalam Mode Pendinginan</translation>
     </message>
-    <!-- OS:DesignSpecification:ZoneAirDistribution -->
+    
     <message>
         <source>Zone Air Distribution Effectiveness in Heating Mode</source>
         <translation>Efektivitas Distribusi Udara Zona dalam Mode Pemanasan</translation>
     </message>
-    <!-- OS:DesignSpecification:ZoneAirDistribution -->
+    
     <message>
         <source>Zone Air Distribution Effectiveness Schedule</source>
         <translation>Jadwal Efektivitas Distribusi Udara Zona</translation>
     </message>
-    <!-- OS:ThermalZone -->
+    
     <message>
         <source>Zone Air Exhaust Port List</source>
         <translation>Daftar Port Udara Buang Zona</translation>
     </message>
-    <!-- OS:ThermalZone -->
+    
     <message>
         <source>Zone Air Inlet Port List</source>
         <translation>Daftar Port Inlet Udara Zona</translation>
     </message>
-    <!-- OS:ThermalZone -->
+    
     <message>
         <source>Zone Air Node Name</source>
         <translation>Nama Node Udara Zona</translation>
     </message>
-    <!-- OS:SurfaceProperty:OtherSideCoefficients -->
+    
     <message>
         <source>Zone Air Temperature Coefficient</source>
         <translation>Koefisien Temperatur Udara Zona</translation>
     </message>
-    <!-- OS:ThermalZone -->
+    
     <message>
         <source>Zone Conditioning Equipment List Name</source>
         <translation>Nama Daftar Peralatan Pengkondisian Zona</translation>
     </message>
-    <!-- OS:ZoneHVAC:EquipmentList -->
+    
     <message>
         <source>Zone Equipment</source>
         <translation>Peralatan Zona</translation>
     </message>
-    <!-- OS:ZoneHVAC:EquipmentList -->
+    
     <message>
         <source>Zone Equipment Cooling Sequence</source>
         <translation>Urutan Pendinginan Peralatan Zona</translation>
     </message>
-    <!-- OS:ZoneHVAC:EquipmentList -->
+    
     <message>
         <source>Zone Equipment Heating or No-Load Sequence</source>
         <translation>Urutan Pemanas Peralatan Zona atau Tanpa Beban</translation>
     </message>
-    <!-- OS:ZoneHVAC:IdealLoadsAirSystem -->
+    
     <message>
         <source>Zone Exhaust Air Node Name</source>
         <translation>Nama Node Udara Buang Zona</translation>
     </message>
-    <!-- OS:AvailabilityManager:OptimumStart -->
+    
     <message>
         <source>Zone List</source>
         <translation>Daftar Zona</translation>
     </message>
-    <!-- OS:AirTerminal:DualDuct:VAV, OS:AirTerminal:SingleDuct:VAV:HeatAndCool:NoReheat, OS:AirTerminal:SingleDuct:VAV:HeatAndCool:Reheat -->
+    
     <message>
         <source>Zone Minimum Air Flow Fraction</source>
         <translation>Fraksi Aliran Udara Minimum Zona</translation>
     </message>
-    <!-- OS:AirTerminal:SingleDuct:ConstantVolume:FourPipeInduction, OS:AirTerminal:SingleDuct:ParallelPIU:Reheat, OS:AirTerminal:SingleDuct:SeriesPIU:Reheat -->
+    
     <message>
         <source>Zone Mixer Name</source>
         <translation>Nama Pencampur Zona</translation>
     </message>
-    <!-- OS:AirConditioner:VariableRefrigerantFlow -->
+    
     <message>
         <source>Zone Name for Master Thermostat Location</source>
         <translation>Nama Zona untuk Lokasi Master Termostat</translation>
     </message>
-    <!-- OS:Generator:FuelCell:AuxiliaryHeater -->
+    
     <message>
         <source>Zone Name to Receive Skin Losses</source>
         <translation>Nama Zona untuk Menerima Kehilangan Kulit</translation>
     </message>
-    <!-- OS:EnergyManagementSystem:Actuator, OS:ZoneMixing -->
+    
     <message>
         <source>Zone or Space Name</source>
         <translation>Nama Zona atau Ruang</translation>
     </message>
-    <!-- OS:Sizing:Zone -->
+    
     <message>
         <source>Zone or ZoneList Name</source>
         <translation>Nama Zona atau Daftar Zona</translation>
     </message>
-    <!-- OS:PerformancePrecisionTradeoffs -->
+    
     <message>
         <source>Zone Radiant Exchange Algorithm</source>
         <translation>Algoritma Pertukaran Radiasi Zona</translation>
     </message>
-    <!-- OS:ZoneHVAC:EvaporativeCoolerUnit -->
+    
     <message>
         <source>Zone Relief Air Node Name</source>
         <translation>Nama Node Udara Pelepasan Zona</translation>
     </message>
-    <!-- OS:ThermalZone -->
+    
     <message>
         <source>Zone Return Air Port List</source>
         <translation>Daftar Port Udara Kembali Zona</translation>
     </message>
-    <!-- OS:DesignSpecification:ZoneAirDistribution -->
+    
     <message>
         <source>Zone Secondary Recirculation Fraction</source>
         <translation>Fraksi Resirkulasi Sekunder Zona</translation>
     </message>
-    <!-- OS:ZoneHVAC:IdealLoadsAirSystem -->
+    
     <message>
         <source>Zone Supply Air Node Name</source>
         <translation>Nama Node Pasokan Udara Zona</translation>
     </message>
-    <!-- OS:AirConditioner:VariableRefrigerantFlow, OS:AirConditioner:VariableRefrigerantFlow:FluidTemperatureControl, OS:AirConditioner:VariableRefrigerantFlow:FluidTemperatureControl:HR -->
+    
     <message>
         <source>Zone Terminal Unit List</source>
         <translation>Daftar Unit Terminal Zona</translation>
     </message>
-    <!-- OS:Sizing:Plant -->
+    
     <message>
         <source>Zone Timesteps in Averaging Window</source>
         <translation>Langkah Waktu Zona dalam Jendela Perata-rataan</translation>
     </message>
-    <!-- OS:AirTerminal:SingleDuct:ConstantVolume:FourPipeBeam -->
+    
     <message>
         <source>Zone Total Beam Length</source>
         <translation>Panjang Berkas Total Zona</translation>
     </message>
-    <!-- OS:AvailabilityManager:HybridVentilation -->
+    
     <message>
         <source>ZoneVentilation Object</source>
         <translation>Objek ZoneVentilation</translation>
@@ -28182,7 +28181,7 @@ Restocking</translation>
     </message>
     <message>
         <source>Water Heater Final Temperature Node 4</source>
-        <translation type="unfinished"></translation>
+        <translation>Water Heater Final Temperature Node 4</translation>
     </message>
     <message>
         <source>Water Heater Final Temperature Node 5</source>
@@ -29985,7 +29984,7 @@ Restocking</translation>
         <translation>Laju Radiasi Surya Tertransmisi Total Jendela Zona</translation>
     </message>
 
-    <!-- === Non-Zone bare output variable names (auto-derived from Zone entries) === -->
+    
     <message>
         <source>Air CO2 Concentration</source>
         <translation>Konsentrasi CO2 Udara</translation>
@@ -30656,7 +30655,7 @@ Restocking</translation>
     </message>
     <message>
         <source>Infiltration Mass</source>
-        <translation type="unfinished"></translation>
+        <translation>Massa Infiltrasi</translation>
     </message>
     <message>
         <source>Infiltration Mass Flow Rate</source>
@@ -31252,7 +31251,7 @@ Restocking</translation>
     </message>
     <message>
         <source>VRF Air Terminal Total Cooling Energy</source>
-        <translation type="unfinished"></translation>
+        <translation>VRF Air Terminal Total Cooling Energy</translation>
     </message>
     <message>
         <source>VRF Air Terminal Total Cooling Rate</source>
@@ -31260,7 +31259,7 @@ Restocking</translation>
     </message>
     <message>
         <source>VRF Air Terminal Total Heating Energy</source>
-        <translation type="unfinished"></translation>
+        <translation>VRF Air Terminal Total Heating Energy</translation>
     </message>
     <message>
         <source>VRF Air Terminal Total Heating Rate</source>
@@ -31423,7 +31422,7 @@ Restocking</translation>
         <translation>Laju Radiasi Matahari Total yang Ditransmisikan Melalui Jendela</translation>
     </message>
 
-    <!-- === Site / Surface / other non-Zone variables without Zone counterpart === -->
+    
     <message>
         <source>Site Diffuse Solar Radiation Rate per Area</source>
         <translation>Laju Radiasi Matahari Difus Lokasi per Area</translation>
@@ -31489,7 +31488,7 @@ Restocking</translation>
         <translation>Luminansi Pandangan Titik Referensi Jendela Pencahayaan Alami 2</translation>
     </message>
 
-    <!-- === Additional missing output variables === -->
+    
     <message>
         <source>Cooling Coil Dehumidification Mode</source>
         <translation>Mode Dehumidifikasi Kumparan Pendingin</translation>

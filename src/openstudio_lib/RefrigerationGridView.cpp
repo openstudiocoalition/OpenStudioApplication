@@ -266,10 +266,10 @@ void RefrigerationCaseGridController::addColumns(const QString& /*category*/, st
                             NullAdapter(&model::RefrigerationCase::setRatedAmbientTemperature));
     } else if (field == tr("All")) {
       auto checkbox = QSharedPointer<OSSelectAllCheckBox>(new OSSelectAllCheckBox());
-      checkbox->setToolTip("Check to select all rows");
+      checkbox->setToolTip(tr("Check to select all rows"));
       connect(checkbox.data(), &OSSelectAllCheckBox::checkStateChanged, this, &RefrigerationCaseGridController::onSelectAllStateChanged);
       connect(this, &RefrigerationCaseGridController::gridRowSelectionChanged, checkbox.data(), &OSSelectAllCheckBox::onGridRowSelectionChanged);
-      addSelectColumn(Heading(tr("All"), false, false, checkbox), "Check to select this row");
+      addSelectColumn(Heading(tr("All"), false, false, checkbox), tr("Check to select this row").toStdString());
     } else if (field == RATEDAMBIENTRELATIVEHUMIDITY) {
       addValueEditColumn(Heading(QString(RATEDAMBIENTRELATIVEHUMIDITY)), NullAdapter(&model::RefrigerationCase::ratedAmbientRelativeHumidity),
                          NullAdapter(&model::RefrigerationCase::setRatedAmbientRelativeHumidity));
@@ -633,10 +633,10 @@ void RefrigerationWalkInGridController::addColumns(const QString& /*category*/, 
         boost::optional<std::function<void(model::RefrigerationWalkIn*)>>(), boost::optional<DataSource>());
     } else if (field == tr("All")) {
       auto checkbox = QSharedPointer<OSSelectAllCheckBox>(new OSSelectAllCheckBox());
-      checkbox->setToolTip("Check to select all rows");
+      checkbox->setToolTip(tr("Check to select all rows"));
       connect(checkbox.data(), &OSSelectAllCheckBox::checkStateChanged, this, &RefrigerationWalkInGridController::onSelectAllStateChanged);
       connect(this, &RefrigerationWalkInGridController::gridRowSelectionChanged, checkbox.data(), &OSSelectAllCheckBox::onGridRowSelectionChanged);
-      addSelectColumn(Heading(tr("All"), false, false, checkbox), "Check to select this row");
+      addSelectColumn(Heading(tr("All"), false, false, checkbox), tr("Check to select this row").toStdString());
     } else if (field == DEFROSTCONTROLTYPE) {
       addComboBoxColumn<std::string, model::RefrigerationWalkIn>(
         Heading(QString(DEFROSTCONTROLTYPE)), static_cast<std::string (*)(const std::string&)>(&openstudio::toString),

@@ -170,11 +170,12 @@ void SpacesInteriorPartitionsGridController::addColumns(const QString& category,
 
       if (field == tr("All")) {
         auto checkbox = QSharedPointer<OSSelectAllCheckBox>(new OSSelectAllCheckBox());
-        checkbox->setToolTip("Check to select all rows");
+        checkbox->setToolTip(tr("Check to select all rows"));
         connect(checkbox.data(), &OSSelectAllCheckBox::checkStateChanged, this, &SpacesInteriorPartitionsGridController::onSelectAllStateChanged);
         connect(this, &SpacesInteriorPartitionsGridController::gridRowSelectionChanged, checkbox.data(),
                 &OSSelectAllCheckBox::onGridRowSelectionChanged);
-        addSelectColumn(Heading(tr("All"), false, false, checkbox), "Check to select this row", DataSource(allInteriorPartitionSurfaces, true));
+        addSelectColumn(Heading(tr("All"), false, false, checkbox), tr("Check to select this row").toStdString(),
+                        DataSource(allInteriorPartitionSurfaces, true));
       } else if (field == tr("Interior Partition Group Name")) {
         addNameLineEditColumn(Heading(tr("Interior Partition Group Name"), true, false), false, false,
                               CastNullAdapter<model::InteriorPartitionSurfaceGroup>(&model::InteriorPartitionSurfaceGroup::name),
@@ -202,7 +203,7 @@ void SpacesInteriorPartitionsGridController::addColumns(const QString& category,
           DataSource(allInteriorPartitionSurfaces, true));
       } else if (field == tr("Convert to Internal Mass")) {
         // We add the "Apply Selected" button to this column by passing 3rd arg, t_showColumnButton=true
-        addCheckBoxColumn(Heading(tr("Convert to Internal Mass"), true, true), std::string("Check to enable convert to InternalMass."),
+        addCheckBoxColumn(Heading(tr("Convert to Internal Mass"), true, true), tr("Check to enable convert to InternalMass.").toStdString(),
                           NullAdapter(&model::InteriorPartitionSurface::converttoInternalMass),
                           NullAdapter(&model::InteriorPartitionSurface::setConverttoInternalMass), DataSource(allInteriorPartitionSurfaces, true));
       } else if (field == tr("Surface Area")) {

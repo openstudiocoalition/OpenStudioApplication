@@ -142,10 +142,10 @@ void SpacesSurfacesGridController::addColumns(const QString& category, std::vect
 
       if (field == tr("All")) {
         auto checkbox = QSharedPointer<OSSelectAllCheckBox>(new OSSelectAllCheckBox());
-        checkbox->setToolTip("Check to select all rows");
+        checkbox->setToolTip(tr("Check to select all rows"));
         connect(checkbox.data(), &OSSelectAllCheckBox::checkStateChanged, this, &SpacesSurfacesGridController::onSelectAllStateChanged);
         connect(this, &SpacesSurfacesGridController::gridRowSelectionChanged, checkbox.data(), &OSSelectAllCheckBox::onGridRowSelectionChanged);
-        addSelectColumn(Heading(tr("All"), false, false, checkbox), "Check to select this row", DataSource(allSurfaces, true));
+        addSelectColumn(Heading(tr("All"), false, false, checkbox), tr("Check to select this row").toStdString(), DataSource(allSurfaces, true));
       } else if (field == tr("Surface Name")) {
         addNameLineEditColumn(
           Heading(tr("Space Name"), true, false), false, false, CastNullAdapter<model::Surface>(&model::Surface::name),

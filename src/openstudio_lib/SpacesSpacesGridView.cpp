@@ -146,10 +146,10 @@ void SpacesSpacesGridController::addColumns(const QString& category, std::vector
       );
     } else if (field == tr("All")) {
       auto checkbox = QSharedPointer<OSSelectAllCheckBox>(new OSSelectAllCheckBox());
-      checkbox->setToolTip("Check to select all rows");
+      checkbox->setToolTip(tr("Check to select all rows"));
       connect(checkbox.data(), &OSSelectAllCheckBox::checkStateChanged, this, &SpacesSpacesGridController::onSelectAllStateChanged);
       connect(this, &SpacesSpacesGridController::gridRowSelectionChanged, checkbox.data(), &OSSelectAllCheckBox::onGridRowSelectionChanged);
-      addSelectColumn(Heading(tr("All"), false, false, checkbox), "Check to select this row");
+      addSelectColumn(Heading(tr("All"), false, false, checkbox), tr("Check to select this row").toStdString());
     } else if (field == tr("Story")) {
       addDropZoneColumn(Heading(tr("Story")), CastNullAdapter<model::Space>(&model::Space::buildingStory),
                         CastNullAdapter<model::Space>(&model::Space::setBuildingStory),
@@ -179,7 +179,7 @@ void SpacesSpacesGridController::addColumns(const QString& category, std::vector
                         boost::optional<std::function<void(model::Space*)>>(CastNullAdapter<model::Space>(&model::Space::resetDefaultScheduleSet)));
     } else if (field == tr("Part of Total Floor Area")) {
       // We add the "Apply Selected" button to this column by passing 3rd arg, t_showColumnButton=true
-      addCheckBoxColumn(Heading(tr("Part of Total Floor Area"), true, true), std::string("Check to enable part of total floor area."),
+      addCheckBoxColumn(Heading(tr("Part of Total Floor Area"), true, true), tr("Check to enable part of total floor area.").toStdString(),
                         NullAdapter(&model::Space::partofTotalFloorArea), NullAdapter(&model::Space::setPartofTotalFloorArea));
     } else if (field == tr("Space Infiltration Design Flow Rates")) {
       std::function<boost::optional<model::SpaceInfiltrationDesignFlowRate>(model::Space*)> getter;

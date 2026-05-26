@@ -358,7 +358,8 @@ void OSDocument::createTabButtons() {
                                      ":/images/disabled_constructions_tab.png");
 
   // Loads
-  m_mainWindow->addVerticalTabButton(LOADS, tr("Loads"), ":/images/on_loads_tab.png", ":/images/off_loads_tab.png", ":/images/disabled_loads_tab.png");
+  m_mainWindow->addVerticalTabButton(LOADS, tr("Loads"), ":/images/on_loads_tab.png", ":/images/off_loads_tab.png",
+                                     ":/images/disabled_loads_tab.png");
 
   // Space Types
   m_mainWindow->addVerticalTabButton(SPACE_TYPES, tr("Space Types"), ":/images/on_space_types_tab.png", ":/images/off_space_types_tab.png",
