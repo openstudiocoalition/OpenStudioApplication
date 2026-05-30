@@ -32316,6 +32316,14 @@ in Preferences</source>
         <translation>EnergyPlus Sonuçları</translation>
     </message>
     <message>
+    <message>
+        <source>Units Conversion</source>
+        <translation>Birim Dönüşümü</translation>
+    </message>
+    <message>
+        <source>Would you like to display your Energy+ data in IP units?</source>
+        <translation>Energy+ verilerinizi IP birimlerinde görüntülemek ister misiniz?</translation>
+    </message>
         <source>Custom Report </source>
         <translation>Özel Rapor</translation>
     </message>

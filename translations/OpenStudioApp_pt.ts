@@ -32287,6 +32287,14 @@ em Preferências</translation>
         <translation>Resultados do EnergyPlus</translation>
     </message>
     <message>
+    <message>
+        <source>Units Conversion</source>
+        <translation>Conversão de unidades</translation>
+    </message>
+    <message>
+        <source>Would you like to display your Energy+ data in IP units?</source>
+        <translation>Deseja exibir seus dados Energy+ em unidades IP?</translation>
+    </message>
         <source>Custom Report </source>
         <translation>Relatório Personalizado</translation>
     </message>

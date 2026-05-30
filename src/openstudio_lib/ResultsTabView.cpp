@@ -122,18 +122,19 @@ void ResultsView::refreshClicked() {
 void ResultsView::openDViewClicked() {
   LOG(Debug, "openDViewClicked");
 
-  //#ifdef Q_OS_DARWIN
-  //openstudio::path dview
-  //= openstudio::toPath(QCoreApplication::applicationDirPath()) / openstudio::toPath("../../../DView.app/Contents/MacOS/DView");
-  //#else
-  //openstudio::path dview
-  //= openstudio::toPath(QCoreApplication::applicationDirPath()) / openstudio::toPath("DView");
-  //#endif
-
   QStringList args;
 
   if (!m_sqlFilePath.empty()) {
     args.push_back(openstudio::toQString(m_sqlFilePath));
+
+    // TODO: uncomment once DView is updated to support --ip / --si flags
+    // (see Ski90Moo/wex feat/ip-units-cli-flag). The translated dialog replaces
+    // DView's own English prompt and forwards the answer via CLI arg.
+    //
+    // auto reply = QMessageBox::question(this, tr("Units Conversion"),
+    //                                    tr("Would you like to display your Energy+ data in IP units?"),
+    //                                    QMessageBox::Yes | QMessageBox::No, QMessageBox::No);
+    // args.push_back(reply == QMessageBox::Yes ? QStringLiteral("--ip") : QStringLiteral("--si"));
   }
 
   if (!m_radianceResultsPath.empty()) {

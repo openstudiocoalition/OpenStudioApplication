@@ -32426,6 +32426,14 @@ in Preferences</source>
         <translation>EnergyPlus 결과</translation>
     </message>
     <message>
+    <message>
+        <source>Units Conversion</source>
+        <translation>단위 변환</translation>
+    </message>
+    <message>
+        <source>Would you like to display your Energy+ data in IP units?</source>
+        <translation>Energy+ 데이터를 IP 단위로 표시하시겠습니까?</translation>
+    </message>
         <source>Custom Report </source>
         <translation>사용자 정의 보고서</translation>
     </message>

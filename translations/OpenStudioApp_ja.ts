@@ -1,9 +1,10 @@
-<?xml version='1.0' encoding='utf-8'?>
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE TS>
 <TS version="2.1" language="ja">
 <context>
     <name>CalendarSegmentItem</name>
     <message>
-        <location filename="../src/openstudio_lib/ScheduleDayView.cpp" line="774" />
+        <location filename="../src/openstudio_lib/ScheduleDayView.cpp" line="774"/>
         <source>Double click to cut segment</source>
         <translation>ダブルクリックしてセグメントを切断</translation>
     </message>
@@ -15384,28 +15385,28 @@ DC/AC サイズ比</translation>
 <context>
     <name>InspectorDialog</name>
     <message>
-        <location filename="../src/model_editor/InspectorDialog.cpp" line="493" />
-        <location filename="../src/model_editor/InspectorDialog.cpp" line="494" />
+        <location filename="../src/model_editor/InspectorDialog.cpp" line="493"/>
+        <location filename="../src/model_editor/InspectorDialog.cpp" line="494"/>
         <source>OpenStudio Inspector</source>
         <translation>OpenStudio インスペクター</translation>
     </message>
     <message>
-        <location filename="../src/model_editor/InspectorDialog.cpp" line="573" />
+        <location filename="../src/model_editor/InspectorDialog.cpp" line="573"/>
         <source>Add new object</source>
         <translation>新しいオブジェクトの追加</translation>
     </message>
     <message>
-        <location filename="../src/model_editor/InspectorDialog.cpp" line="577" />
+        <location filename="../src/model_editor/InspectorDialog.cpp" line="577"/>
         <source>Copy selected object</source>
         <translation>選択されたオブジェクトをコピー</translation>
     </message>
     <message>
-        <location filename="../src/model_editor/InspectorDialog.cpp" line="581" />
+        <location filename="../src/model_editor/InspectorDialog.cpp" line="581"/>
         <source>Remove selected objects</source>
         <translation>選択されたオブジェクトを削除</translation>
     </message>
     <message>
-        <location filename="../src/model_editor/InspectorDialog.cpp" line="585" />
+        <location filename="../src/model_editor/InspectorDialog.cpp" line="585"/>
         <source>Purge unused objects</source>
         <translatorcomment>La palabra purgar no tiene el mismo contexto en Español.</translatorcomment>
         <translation>Borrar todos los objetos sin usar</translation>
@@ -15414,23 +15415,23 @@ DC/AC サイズ比</translation>
 <context>
     <name>InspectorGadget</name>
     <message>
-        <location filename="../src/model_editor/InspectorGadget.cpp" line="658" />
-        <location filename="../src/model_editor/InspectorGadget.cpp" line="703" />
+        <location filename="../src/model_editor/InspectorGadget.cpp" line="658"/>
+        <location filename="../src/model_editor/InspectorGadget.cpp" line="703"/>
         <source>Hard Sized</source>
         <translation>固定数値</translation>
     </message>
     <message>
-        <location filename="../src/model_editor/InspectorGadget.cpp" line="659" />
+        <location filename="../src/model_editor/InspectorGadget.cpp" line="659"/>
         <source>Autosized</source>
         <translation>自動計算</translation>
     </message>
     <message>
-        <location filename="../src/model_editor/InspectorGadget.cpp" line="704" />
+        <location filename="../src/model_editor/InspectorGadget.cpp" line="704"/>
         <source>Autocalculate</source>
         <translation>自動計算</translation>
     </message>
     <message>
-        <location filename="../src/model_editor/InspectorGadget.cpp" line="885" />
+        <location filename="../src/model_editor/InspectorGadget.cpp" line="885"/>
         <source>Add/Remove Extensible Groups</source>
         <translation>項目の追加/削除</translation>
     </message>
@@ -15438,7 +15439,7 @@ DC/AC サイズ比</translation>
 <context>
     <name>LocationView</name>
     <message>
-        <location filename="../src/openstudio_lib/LocationTabView.cpp" line="839" />
+        <location filename="../src/openstudio_lib/LocationTabView.cpp" line="839"/>
         <source>Import Design Days</source>
         <translation>デザイン・デーのインポート</translation>
     </message>
@@ -15446,20 +15447,20 @@ DC/AC サイズ比</translation>
 <context>
     <name>ModelObjectSelectorDialog</name>
     <message>
-        <location filename="../src/model_editor/ModalDialogs.cpp" line="147" />
-        <location filename="../src/model_editor/ModalDialogs.cpp" line="148" />
+        <location filename="../src/model_editor/ModalDialogs.cpp" line="147"/>
+        <location filename="../src/model_editor/ModalDialogs.cpp" line="148"/>
         <source>Select Model Object</source>
         <translation>モデルの選択</translation>
     </message>
     <message>
-        <location filename="../src/model_editor/ModalDialogs.cpp" line="173" />
-        <location filename="../src/model_editor/ModalDialogs.cpp" line="174" />
+        <location filename="../src/model_editor/ModalDialogs.cpp" line="173"/>
+        <location filename="../src/model_editor/ModalDialogs.cpp" line="174"/>
         <source>OK</source>
         <translation>OK</translation>
     </message>
     <message>
-        <location filename="../src/model_editor/ModalDialogs.cpp" line="178" />
-        <location filename="../src/model_editor/ModalDialogs.cpp" line="179" />
+        <location filename="../src/model_editor/ModalDialogs.cpp" line="178"/>
+        <location filename="../src/model_editor/ModalDialogs.cpp" line="179"/>
         <source>Cancel</source>
         <translation>キャンセル</translation>
     </message>
@@ -19602,7 +19603,7 @@ DC/AC サイズ比</translation>
         <source>Zone Ventilator Latent Heating Energy</source>
         <translation>ゾーン換気顕熱加熱エネルギー
 
-Wait, let me correct that - "latent" means 潜熱 (sensible would be 顕熱):
+Wait, let me correct that - &quot;latent&quot; means 潜熱 (sensible would be 顕熱):
 
 ゾーン換気潜熱加熱エネルギー</translation>
     </message>
@@ -21209,7 +21210,7 @@ or more concisely:
 <context>
     <name>ScheduleTypeLimitItem</name>
     <message>
-        <location filename="../src/openstudio_lib/ScheduleDayView.cpp" line="1150" />
+        <location filename="../src/openstudio_lib/ScheduleDayView.cpp" line="1150"/>
         <source>Schedule Type Limit</source>
         <translation>スケジュール種類制限</translation>
     </message>
@@ -21406,62 +21407,62 @@ or more concisely:
 <context>
     <name>UtilityBillsView</name>
     <message>
-        <location filename="../src/openstudio_lib/UtilityBillsView.cpp" line="63" />
+        <location filename="../src/openstudio_lib/UtilityBillsView.cpp" line="63"/>
         <source>Electric Utility Bill</source>
         <translation>電気料金請求書</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/UtilityBillsView.cpp" line="65" />
+        <location filename="../src/openstudio_lib/UtilityBillsView.cpp" line="65"/>
         <source>Gas Utility Bill</source>
         <translation>ガス光熱費</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/UtilityBillsView.cpp" line="67" />
+        <location filename="../src/openstudio_lib/UtilityBillsView.cpp" line="67"/>
         <source>District Heating Utility Bill</source>
         <translation>地域暖房ユーティリティ請求書</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/UtilityBillsView.cpp" line="69" />
+        <location filename="../src/openstudio_lib/UtilityBillsView.cpp" line="69"/>
         <source>District Cooling Utility Bill</source>
         <translation>ディストリクト冷却ユーティリティビル</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/UtilityBillsView.cpp" line="71" />
+        <location filename="../src/openstudio_lib/UtilityBillsView.cpp" line="71"/>
         <source>Gasoline Utility Bill</source>
         <translation>ガソリン公共料金請求書</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/UtilityBillsView.cpp" line="73" />
+        <location filename="../src/openstudio_lib/UtilityBillsView.cpp" line="73"/>
         <source>Diesel Utility Bill</source>
         <translation>ディーゼル燃料ユーティリティ請求書</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/UtilityBillsView.cpp" line="75" />
+        <location filename="../src/openstudio_lib/UtilityBillsView.cpp" line="75"/>
         <source>Fuel Oil #1 Utility Bill</source>
         <translation>燃料油#1ユーティリティビル</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/UtilityBillsView.cpp" line="77" />
+        <location filename="../src/openstudio_lib/UtilityBillsView.cpp" line="77"/>
         <source>Fuel Oil #2 Utility Bill</source>
         <translation>燃料油#2公共料金</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/UtilityBillsView.cpp" line="79" />
+        <location filename="../src/openstudio_lib/UtilityBillsView.cpp" line="79"/>
         <source>Propane Utility Bill</source>
         <translation>プロパンユーティリティ請求書</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/UtilityBillsView.cpp" line="81" />
+        <location filename="../src/openstudio_lib/UtilityBillsView.cpp" line="81"/>
         <source>Water Utility Bill</source>
         <translation>水道料金</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/UtilityBillsView.cpp" line="83" />
+        <location filename="../src/openstudio_lib/UtilityBillsView.cpp" line="83"/>
         <source>Steam Utility Bill</source>
         <translation>スチームユーティリティ請求書</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/UtilityBillsView.cpp" line="85" />
+        <location filename="../src/openstudio_lib/UtilityBillsView.cpp" line="85"/>
         <source>Energy Transfer Utility Bill</source>
         <translation>エネルギー転送ユーティリティ請求書</translation>
     </message>
@@ -21469,7 +21470,7 @@ or more concisely:
 <context>
     <name>VCalendarSegmentItem</name>
     <message>
-        <location filename="../src/openstudio_lib/ScheduleDayView.cpp" line="976" />
+        <location filename="../src/openstudio_lib/ScheduleDayView.cpp" line="976"/>
         <source>Double click to delete segment</source>
         <translation>ダブルクリックしてセグメントを削除</translation>
     </message>
@@ -21477,12 +21478,12 @@ or more concisely:
 <context>
     <name>openstudio::AirLoopHVACUnitaryHeatPumpAirToAirControlView</name>
     <message>
-        <location filename="../src/openstudio_lib/HVACSystemsView.cpp" line="924" />
-        <source>Supply air temperature is managed by the "AirLoopHVACUnitaryHeatPumpAirToAir" component.</source>
+        <location filename="../src/openstudio_lib/HVACSystemsView.cpp" line="924"/>
+        <source>Supply air temperature is managed by the &quot;AirLoopHVACUnitaryHeatPumpAirToAir&quot; component.</source>
         <translation>給気温度は「AirLoopHVACUnitaryHeatPumpAirToAir」コンポーネントで管理されています。</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/HVACSystemsView.cpp" line="931" />
+        <location filename="../src/openstudio_lib/HVACSystemsView.cpp" line="931"/>
         <source>Control Zone</source>
         <translation>制御ゾーン</translation>
     </message>
@@ -21490,41 +21491,41 @@ or more concisely:
 <context>
     <name>openstudio::ApplyMeasureNowDialog</name>
     <message>
-        <location filename="../src/openstudio_lib/ApplyMeasureNowDialog.cpp" line="75" />
+        <location filename="../src/openstudio_lib/ApplyMeasureNowDialog.cpp" line="75"/>
         <source>Apply Measure Now</source>
         <translation>今すぐメジャーを適用</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/ApplyMeasureNowDialog.cpp" line="84" />
-        <location filename="../src/openstudio_lib/ApplyMeasureNowDialog.cpp" line="229" />
-        <location filename="../src/openstudio_lib/ApplyMeasureNowDialog.cpp" line="806" />
+        <location filename="../src/openstudio_lib/ApplyMeasureNowDialog.cpp" line="84"/>
+        <location filename="../src/openstudio_lib/ApplyMeasureNowDialog.cpp" line="229"/>
+        <location filename="../src/openstudio_lib/ApplyMeasureNowDialog.cpp" line="806"/>
         <source>Advanced Output</source>
         <translation>詳細出力</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/ApplyMeasureNowDialog.cpp" line="191" />
+        <location filename="../src/openstudio_lib/ApplyMeasureNowDialog.cpp" line="191"/>
         <source>Running Measure</source>
         <translation>メジャーを実行中</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/ApplyMeasureNowDialog.cpp" line="211" />
+        <location filename="../src/openstudio_lib/ApplyMeasureNowDialog.cpp" line="211"/>
         <source>Measure Output</source>
         <translation>メジャー出力</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/ApplyMeasureNowDialog.cpp" line="256" />
-        <location filename="../src/openstudio_lib/ApplyMeasureNowDialog.cpp" line="282" />
-        <location filename="../src/openstudio_lib/ApplyMeasureNowDialog.cpp" line="753" />
+        <location filename="../src/openstudio_lib/ApplyMeasureNowDialog.cpp" line="256"/>
+        <location filename="../src/openstudio_lib/ApplyMeasureNowDialog.cpp" line="282"/>
+        <location filename="../src/openstudio_lib/ApplyMeasureNowDialog.cpp" line="753"/>
         <source>Apply Measure</source>
         <translation>メジャーを適用</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/ApplyMeasureNowDialog.cpp" line="405" />
+        <location filename="../src/openstudio_lib/ApplyMeasureNowDialog.cpp" line="405"/>
         <source>Accept Changes</source>
         <translation>変更を受け入れる</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/ApplyMeasureNowDialog.cpp" line="806" />
+        <location filename="../src/openstudio_lib/ApplyMeasureNowDialog.cpp" line="806"/>
         <source>No advanced output.</source>
         <translation>詳細出力はありません。</translation>
     </message>
@@ -21532,27 +21533,27 @@ or more concisely:
 <context>
     <name>openstudio::BuildingComponentDialog</name>
     <message>
-        <location filename="../src/shared_gui_components/BuildingComponentDialog.cpp" line="53" />
+        <location filename="../src/shared_gui_components/BuildingComponentDialog.cpp" line="53"/>
         <source>Online BCL</source>
         <translation>オンラインBCL</translation>
     </message>
     <message>
-        <location filename="../src/shared_gui_components/BuildingComponentDialog.cpp" line="55" />
+        <location filename="../src/shared_gui_components/BuildingComponentDialog.cpp" line="55"/>
         <source>Local Library</source>
         <translation>ローカルライブラリ</translation>
     </message>
     <message>
-        <location filename="../src/shared_gui_components/BuildingComponentDialog.cpp" line="76" />
+        <location filename="../src/shared_gui_components/BuildingComponentDialog.cpp" line="76"/>
         <source>Click to add a search term to the selected category</source>
         <translation>選択したカテゴリに検索語を追加するにはクリックしてください</translation>
     </message>
     <message>
-        <location filename="../src/shared_gui_components/BuildingComponentDialog.cpp" line="87" />
+        <location filename="../src/shared_gui_components/BuildingComponentDialog.cpp" line="87"/>
         <source>Categories</source>
         <translation>カテゴリ</translation>
     </message>
     <message>
-        <location filename="../src/shared_gui_components/BuildingComponentDialog.cpp" line="176" />
+        <location filename="../src/shared_gui_components/BuildingComponentDialog.cpp" line="176"/>
         <source>Searching BCL...</source>
         <translation>BCLを検索中...</translation>
     </message>
@@ -21560,17 +21561,17 @@ or more concisely:
 <context>
     <name>openstudio::BuildingComponentDialogCentralWidget</name>
     <message>
-        <location filename="../src/shared_gui_components/BuildingComponentDialogCentralWidget.cpp" line="88" />
+        <location filename="../src/shared_gui_components/BuildingComponentDialogCentralWidget.cpp" line="88"/>
         <source>Sort by:</source>
         <translation>並び替え:</translation>
     </message>
     <message>
-        <location filename="../src/shared_gui_components/BuildingComponentDialogCentralWidget.cpp" line="97" />
+        <location filename="../src/shared_gui_components/BuildingComponentDialogCentralWidget.cpp" line="97"/>
         <source>Check All</source>
         <translation>すべて選択</translation>
     </message>
     <message>
-        <location filename="../src/shared_gui_components/BuildingComponentDialogCentralWidget.cpp" line="144" />
+        <location filename="../src/shared_gui_components/BuildingComponentDialogCentralWidget.cpp" line="144"/>
         <source>Download</source>
         <translation>ダウンロード</translation>
     </message>
@@ -21578,82 +21579,82 @@ or more concisely:
 <context>
     <name>openstudio::BuildingInspectorView</name>
     <message>
-        <location filename="../src/openstudio_lib/BuildingInspectorView.cpp" line="223" />
+        <location filename="../src/openstudio_lib/BuildingInspectorView.cpp" line="223"/>
         <source>Name: </source>
         <translation>ファイル名：</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/BuildingInspectorView.cpp" line="235" />
+        <location filename="../src/openstudio_lib/BuildingInspectorView.cpp" line="235"/>
         <source>Display Name: </source>
         <translation>表示名:</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/BuildingInspectorView.cpp" line="246" />
+        <location filename="../src/openstudio_lib/BuildingInspectorView.cpp" line="246"/>
         <source>CAD Object Id: </source>
         <translation>CADオブジェクトID:</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/BuildingInspectorView.cpp" line="269" />
+        <location filename="../src/openstudio_lib/BuildingInspectorView.cpp" line="269"/>
         <source>Measure Tags (Optional):</source>
         <translation>メジャータブ（任意）：</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/BuildingInspectorView.cpp" line="279" />
+        <location filename="../src/openstudio_lib/BuildingInspectorView.cpp" line="279"/>
         <source>Standards Template: </source>
         <translation>規格テンプレート:</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/BuildingInspectorView.cpp" line="298" />
+        <location filename="../src/openstudio_lib/BuildingInspectorView.cpp" line="298"/>
         <source>Standards Building Type: </source>
         <translation>基準建物タイプ：</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/BuildingInspectorView.cpp" line="319" />
+        <location filename="../src/openstudio_lib/BuildingInspectorView.cpp" line="319"/>
         <source>Nominal Floor to Ceiling Height: </source>
         <translation>床から天井までの標準高さ:</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/BuildingInspectorView.cpp" line="337" />
+        <location filename="../src/openstudio_lib/BuildingInspectorView.cpp" line="337"/>
         <source>Nominal Floor to Floor Height: </source>
         <translation>床から床までの公称高さ:</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/BuildingInspectorView.cpp" line="360" />
+        <location filename="../src/openstudio_lib/BuildingInspectorView.cpp" line="360"/>
         <source>Standards Number of Stories: </source>
         <translation>標準階数：</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/BuildingInspectorView.cpp" line="377" />
+        <location filename="../src/openstudio_lib/BuildingInspectorView.cpp" line="377"/>
         <source>Standards Number of Above Ground Stories: </source>
         <translation>標準的な地上階数:</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/BuildingInspectorView.cpp" line="396" />
+        <location filename="../src/openstudio_lib/BuildingInspectorView.cpp" line="396"/>
         <source>Standards Number of Living Units: </source>
         <translation>基準生活ユニット数:</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/BuildingInspectorView.cpp" line="413" />
+        <location filename="../src/openstudio_lib/BuildingInspectorView.cpp" line="413"/>
         <source>Relocatable: </source>
         <translation>移動可能:</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/BuildingInspectorView.cpp" line="440" />
+        <location filename="../src/openstudio_lib/BuildingInspectorView.cpp" line="440"/>
         <source>North Axis: </source>
         <translation>北軸:</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/BuildingInspectorView.cpp" line="457" />
+        <location filename="../src/openstudio_lib/BuildingInspectorView.cpp" line="457"/>
         <source>Space Type: </source>
         <translation>スペースタイプ:</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/BuildingInspectorView.cpp" line="479" />
+        <location filename="../src/openstudio_lib/BuildingInspectorView.cpp" line="479"/>
         <source>Default Construction Set: </source>
         <translation>デフォルトコンストラクションセット:</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/BuildingInspectorView.cpp" line="498" />
+        <location filename="../src/openstudio_lib/BuildingInspectorView.cpp" line="498"/>
         <source>Default Schedule Set: </source>
         <translation>デフォルトスケジュールセット:</translation>
     </message>
@@ -21661,114 +21662,114 @@ or more concisely:
 <context>
     <name>openstudio::Component</name>
     <message>
-        <location filename="../src/shared_gui_components/Component.cpp" line="57" />
-        <location filename="../src/shared_gui_components/Component.cpp" line="134" />
+        <location filename="../src/shared_gui_components/Component.cpp" line="57"/>
+        <location filename="../src/shared_gui_components/Component.cpp" line="134"/>
         <source>This measure is not compatible with the current version of OpenStudio</source>
         <translation>このメジャーは現在のバージョンのOpenStudioと互換性がありません</translation>
     </message>
     <message>
-        <location filename="../src/shared_gui_components/Component.cpp" line="68" />
+        <location filename="../src/shared_gui_components/Component.cpp" line="68"/>
         <source>This measure cannot be updated because it has an error</source>
         <translation>このメジャーはエラーがあるため更新できません</translation>
     </message>
     <message>
-        <location filename="../src/shared_gui_components/Component.cpp" line="78" />
-        <location filename="../src/shared_gui_components/Component.cpp" line="153" />
+        <location filename="../src/shared_gui_components/Component.cpp" line="78"/>
+        <location filename="../src/shared_gui_components/Component.cpp" line="153"/>
         <source>An update is available for this measure</source>
         <translation>このメジャーの更新が利用可能です</translation>
     </message>
     <message>
-        <location filename="../src/shared_gui_components/Component.cpp" line="114" />
+        <location filename="../src/shared_gui_components/Component.cpp" line="114"/>
         <source>An update is available for this component</source>
         <translation>このコンポーネントの更新が利用可能です</translation>
     </message>
     <message>
-        <location filename="../src/shared_gui_components/Component.cpp" line="486" />
+        <location filename="../src/shared_gui_components/Component.cpp" line="486"/>
         <source>Errors</source>
         <translation>エラー</translation>
     </message>
     <message>
-        <location filename="../src/shared_gui_components/Component.cpp" line="501" />
+        <location filename="../src/shared_gui_components/Component.cpp" line="501"/>
         <source>Description</source>
         <translation>説明</translation>
     </message>
     <message>
-        <location filename="../src/shared_gui_components/Component.cpp" line="515" />
+        <location filename="../src/shared_gui_components/Component.cpp" line="515"/>
         <source>Modeler Description</source>
         <translation>モデラー説明</translation>
     </message>
     <message>
-        <location filename="../src/shared_gui_components/Component.cpp" line="569" />
+        <location filename="../src/shared_gui_components/Component.cpp" line="569"/>
         <source>Attributes</source>
         <translation>属性</translation>
     </message>
     <message>
-        <location filename="../src/shared_gui_components/Component.cpp" line="616" />
+        <location filename="../src/shared_gui_components/Component.cpp" line="616"/>
         <source>Arguments</source>
         <translation>引数</translation>
     </message>
     <message>
-        <location filename="../src/shared_gui_components/Component.cpp" line="646" />
+        <location filename="../src/shared_gui_components/Component.cpp" line="646"/>
         <source>Files</source>
         <translation>ファイル</translation>
     </message>
     <message>
-        <location filename="../src/shared_gui_components/Component.cpp" line="683" />
+        <location filename="../src/shared_gui_components/Component.cpp" line="683"/>
         <source>Sources</source>
         <translation>ソース</translation>
     </message>
     <message>
-        <location filename="../src/shared_gui_components/Component.cpp" line="693" />
+        <location filename="../src/shared_gui_components/Component.cpp" line="693"/>
         <source>Organization</source>
         <translation>組織</translation>
     </message>
     <message>
-        <location filename="../src/shared_gui_components/Component.cpp" line="696" />
+        <location filename="../src/shared_gui_components/Component.cpp" line="696"/>
         <source>Repository</source>
         <translation>リポジトリ</translation>
     </message>
     <message>
-        <location filename="../src/shared_gui_components/Component.cpp" line="699" />
+        <location filename="../src/shared_gui_components/Component.cpp" line="699"/>
         <source>Release Tag</source>
         <translation>リリースタグ</translation>
     </message>
     <message>
-        <location filename="../src/shared_gui_components/Component.cpp" line="704" />
+        <location filename="../src/shared_gui_components/Component.cpp" line="704"/>
         <source>Author</source>
         <translation>著者</translation>
     </message>
     <message>
-        <location filename="../src/shared_gui_components/Component.cpp" line="707" />
+        <location filename="../src/shared_gui_components/Component.cpp" line="707"/>
         <source>Comment</source>
         <translation>コメント</translation>
     </message>
     <message>
-        <location filename="../src/shared_gui_components/Component.cpp" line="710" />
+        <location filename="../src/shared_gui_components/Component.cpp" line="710"/>
         <source>Date &amp; time</source>
         <translation>日付と時刻</translation>
     </message>
     <message>
-        <location filename="../src/shared_gui_components/Component.cpp" line="738" />
+        <location filename="../src/shared_gui_components/Component.cpp" line="738"/>
         <source>Tags</source>
         <translation>タグ</translation>
     </message>
     <message>
-        <location filename="../src/shared_gui_components/Component.cpp" line="751" />
+        <location filename="../src/shared_gui_components/Component.cpp" line="751"/>
         <source>Version</source>
         <translation>バージョン</translation>
     </message>
     <message>
-        <location filename="../src/shared_gui_components/Component.cpp" line="756" />
+        <location filename="../src/shared_gui_components/Component.cpp" line="756"/>
         <source>UID</source>
         <translation>UID</translation>
     </message>
     <message>
-        <location filename="../src/shared_gui_components/Component.cpp" line="757" />
+        <location filename="../src/shared_gui_components/Component.cpp" line="757"/>
         <source>Version ID</source>
         <translation>バージョンID</translation>
     </message>
     <message>
-        <location filename="../src/shared_gui_components/Component.cpp" line="759" />
+        <location filename="../src/shared_gui_components/Component.cpp" line="759"/>
         <source>Version Modified</source>
         <translation>バージョン変更日</translation>
     </message>
@@ -21776,17 +21777,17 @@ or more concisely:
 <context>
     <name>openstudio::ConstructionAirBoundaryInspectorView</name>
     <message>
-        <location filename="../src/openstudio_lib/ConstructionAirBoundaryInspectorView.cpp" line="56" />
+        <location filename="../src/openstudio_lib/ConstructionAirBoundaryInspectorView.cpp" line="56"/>
         <source>Name: </source>
         <translation>ファイル名：</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/ConstructionAirBoundaryInspectorView.cpp" line="77" />
+        <location filename="../src/openstudio_lib/ConstructionAirBoundaryInspectorView.cpp" line="77"/>
         <source>Air Exchange Method: </source>
         <translation>空気交換方法:</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/ConstructionAirBoundaryInspectorView.cpp" line="90" />
+        <location filename="../src/openstudio_lib/ConstructionAirBoundaryInspectorView.cpp" line="90"/>
         <source>Simple Mixing Air Changes per Hour: </source>
         <translation>シンプルミキシング空気変化率（時間あたり）:</translation>
     </message>
@@ -21794,17 +21795,17 @@ or more concisely:
 <context>
     <name>openstudio::ConstructionCfactorUndergroundWallInspectorView</name>
     <message>
-        <location filename="../src/openstudio_lib/ConstructionCfactorUndergroundWallInspectorView.cpp" line="56" />
+        <location filename="../src/openstudio_lib/ConstructionCfactorUndergroundWallInspectorView.cpp" line="56"/>
         <source>Name: </source>
         <translation>ファイル名：</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/ConstructionCfactorUndergroundWallInspectorView.cpp" line="77" />
+        <location filename="../src/openstudio_lib/ConstructionCfactorUndergroundWallInspectorView.cpp" line="77"/>
         <source>C-Factor: </source>
         <translation>C-Factor:</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/ConstructionCfactorUndergroundWallInspectorView.cpp" line="91" />
+        <location filename="../src/openstudio_lib/ConstructionCfactorUndergroundWallInspectorView.cpp" line="91"/>
         <source>Height: </source>
         <translation>高さ:</translation>
     </message>
@@ -21812,22 +21813,22 @@ or more concisely:
 <context>
     <name>openstudio::ConstructionFfactorGroundFloorInspectorView</name>
     <message>
-        <location filename="../src/openstudio_lib/ConstructionFfactorGroundFloorInspectorView.cpp" line="56" />
+        <location filename="../src/openstudio_lib/ConstructionFfactorGroundFloorInspectorView.cpp" line="56"/>
         <source>Name: </source>
         <translation>ファイル名：</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/ConstructionFfactorGroundFloorInspectorView.cpp" line="77" />
+        <location filename="../src/openstudio_lib/ConstructionFfactorGroundFloorInspectorView.cpp" line="77"/>
         <source>F-Factor: </source>
         <translation>F-Factor:</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/ConstructionFfactorGroundFloorInspectorView.cpp" line="91" />
+        <location filename="../src/openstudio_lib/ConstructionFfactorGroundFloorInspectorView.cpp" line="91"/>
         <source>Area: </source>
         <translation>面積:</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/ConstructionFfactorGroundFloorInspectorView.cpp" line="105" />
+        <location filename="../src/openstudio_lib/ConstructionFfactorGroundFloorInspectorView.cpp" line="105"/>
         <source>Perimeter Exposed: </source>
         <translation>周囲が露出：</translation>
     </message>
@@ -21835,27 +21836,27 @@ or more concisely:
 <context>
     <name>openstudio::ConstructionInspectorView</name>
     <message>
-        <location filename="../src/openstudio_lib/ConstructionInspectorView.cpp" line="65" />
+        <location filename="../src/openstudio_lib/ConstructionInspectorView.cpp" line="65"/>
         <source>Name: </source>
         <translation>ファイル名：</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/ConstructionInspectorView.cpp" line="86" />
+        <location filename="../src/openstudio_lib/ConstructionInspectorView.cpp" line="86"/>
         <source>Layer: </source>
         <translation>レイヤー:</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/ConstructionInspectorView.cpp" line="92" />
+        <location filename="../src/openstudio_lib/ConstructionInspectorView.cpp" line="92"/>
         <source>Outside</source>
         <translation>外側</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/ConstructionInspectorView.cpp" line="99" />
+        <location filename="../src/openstudio_lib/ConstructionInspectorView.cpp" line="99"/>
         <source>Drag From Library</source>
         <translation>ライブラリからドラッグ</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/ConstructionInspectorView.cpp" line="112" />
+        <location filename="../src/openstudio_lib/ConstructionInspectorView.cpp" line="112"/>
         <source>Inside</source>
         <translation>内部</translation>
     </message>
@@ -21863,47 +21864,47 @@ or more concisely:
 <context>
     <name>openstudio::ConstructionInternalSourceInspectorView</name>
     <message>
-        <location filename="../src/openstudio_lib/ConstructionInternalSourceInspectorView.cpp" line="67" />
+        <location filename="../src/openstudio_lib/ConstructionInternalSourceInspectorView.cpp" line="67"/>
         <source>Name: </source>
         <translation>ファイル名：</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/ConstructionInternalSourceInspectorView.cpp" line="88" />
+        <location filename="../src/openstudio_lib/ConstructionInternalSourceInspectorView.cpp" line="88"/>
         <source>Layer: </source>
         <translation>レイヤー:</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/ConstructionInternalSourceInspectorView.cpp" line="94" />
+        <location filename="../src/openstudio_lib/ConstructionInternalSourceInspectorView.cpp" line="94"/>
         <source>Outside</source>
         <translation>外部</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/ConstructionInternalSourceInspectorView.cpp" line="101" />
+        <location filename="../src/openstudio_lib/ConstructionInternalSourceInspectorView.cpp" line="101"/>
         <source>Drag From Library</source>
         <translation>ライブラリからドラッグ</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/ConstructionInternalSourceInspectorView.cpp" line="110" />
+        <location filename="../src/openstudio_lib/ConstructionInternalSourceInspectorView.cpp" line="110"/>
         <source>Inside</source>
         <translation>内側</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/ConstructionInternalSourceInspectorView.cpp" line="118" />
+        <location filename="../src/openstudio_lib/ConstructionInternalSourceInspectorView.cpp" line="118"/>
         <source>Source Present After Layer: </source>
         <translation>ソース レイヤー後に表示:</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/ConstructionInternalSourceInspectorView.cpp" line="131" />
+        <location filename="../src/openstudio_lib/ConstructionInternalSourceInspectorView.cpp" line="131"/>
         <source>Temperature Calculation Requested After Layer Number: </source>
         <translation>レイヤー番号後の温度計算がリクエストされました:</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/ConstructionInternalSourceInspectorView.cpp" line="144" />
+        <location filename="../src/openstudio_lib/ConstructionInternalSourceInspectorView.cpp" line="144"/>
         <source>Dimensions for the CTF Calculation: </source>
         <translation>CTF計算の寸法:</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/ConstructionInternalSourceInspectorView.cpp" line="157" />
+        <location filename="../src/openstudio_lib/ConstructionInternalSourceInspectorView.cpp" line="157"/>
         <source>Tube Spacing: </source>
         <translation>チューブ間隔:</translation>
     </message>
@@ -21911,18 +21912,18 @@ or more concisely:
 <context>
     <name>openstudio::ConstructionsTabController</name>
     <message>
-        <location filename="../src/openstudio_lib/ConstructionsTabController.cpp" line="21" />
-        <location filename="../src/openstudio_lib/ConstructionsTabController.cpp" line="23" />
+        <location filename="../src/openstudio_lib/ConstructionsTabController.cpp" line="21"/>
+        <location filename="../src/openstudio_lib/ConstructionsTabController.cpp" line="23"/>
         <source>Constructions</source>
         <translation>構成（こうせい）</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/ConstructionsTabController.cpp" line="22" />
+        <location filename="../src/openstudio_lib/ConstructionsTabController.cpp" line="22"/>
         <source>Construction Sets</source>
         <translation>構成セット</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/ConstructionsTabController.cpp" line="24" />
+        <location filename="../src/openstudio_lib/ConstructionsTabController.cpp" line="24"/>
         <source>Materials</source>
         <translation>材料</translation>
     </message>
@@ -21930,27 +21931,27 @@ or more concisely:
 <context>
     <name>openstudio::ConstructionsView</name>
     <message>
-        <location filename="../src/openstudio_lib/ConstructionsView.cpp" line="33" />
+        <location filename="../src/openstudio_lib/ConstructionsView.cpp" line="33"/>
         <source>Constructions</source>
         <translation>構成（構法）</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/ConstructionsView.cpp" line="34" />
+        <location filename="../src/openstudio_lib/ConstructionsView.cpp" line="34"/>
         <source>Air Boundary Constructions</source>
         <translation>空気境界構成</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/ConstructionsView.cpp" line="35" />
+        <location filename="../src/openstudio_lib/ConstructionsView.cpp" line="35"/>
         <source>Internal Source Constructions</source>
         <translation>内部熱源構成</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/ConstructionsView.cpp" line="37" />
+        <location filename="../src/openstudio_lib/ConstructionsView.cpp" line="37"/>
         <source>C-factor Underground Wall Constructions</source>
         <translation>C-factor 地中壁構成</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/ConstructionsView.cpp" line="39" />
+        <location filename="../src/openstudio_lib/ConstructionsView.cpp" line="39"/>
         <source>F-factor Ground Floor Constructions</source>
         <translation>F-factor Ground Floor Constructions</translation>
     </message>
@@ -21958,32 +21959,32 @@ or more concisely:
 <context>
     <name>openstudio::DataPointJobHeaderView</name>
     <message>
-        <location filename="../src/openstudio_lib/ApplyMeasureNowDialog.cpp" line="521" />
+        <location filename="../src/openstudio_lib/ApplyMeasureNowDialog.cpp" line="521"/>
         <source>Not Started</source>
         <translation>未開始</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/ApplyMeasureNowDialog.cpp" line="529" />
+        <location filename="../src/openstudio_lib/ApplyMeasureNowDialog.cpp" line="529"/>
         <source>Canceled</source>
         <translation>キャンセル済み</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/ApplyMeasureNowDialog.cpp" line="549" />
+        <location filename="../src/openstudio_lib/ApplyMeasureNowDialog.cpp" line="549"/>
         <source>%1 Warning</source>
         <translation>%1 件の警告</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/ApplyMeasureNowDialog.cpp" line="549" />
+        <location filename="../src/openstudio_lib/ApplyMeasureNowDialog.cpp" line="549"/>
         <source>%1 Warnings</source>
         <translation>%1 件の警告</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/ApplyMeasureNowDialog.cpp" line="558" />
+        <location filename="../src/openstudio_lib/ApplyMeasureNowDialog.cpp" line="558"/>
         <source>%1 Error</source>
         <translation>%1 件のエラー</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/ApplyMeasureNowDialog.cpp" line="558" />
+        <location filename="../src/openstudio_lib/ApplyMeasureNowDialog.cpp" line="558"/>
         <source>%1 Errors</source>
         <translation>%1 件のエラー</translation>
     </message>
@@ -21991,12 +21992,12 @@ or more concisely:
 <context>
     <name>openstudio::DaySchedulePlotArea</name>
     <message>
-        <location filename="../src/openstudio_lib/ScheduleDayView.cpp" line="1395" />
+        <location filename="../src/openstudio_lib/ScheduleDayView.cpp" line="1395"/>
         <source>Drag vertical line to adjust</source>
         <translation>垂直線をドラッグして調整します</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/ScheduleDayView.cpp" line="1399" />
+        <location filename="../src/openstudio_lib/ScheduleDayView.cpp" line="1399"/>
         <source>Mouse over horizontal line to set value</source>
         <translation>マウスを水平線の上に置いて値を設定</translation>
     </message>
@@ -22004,130 +22005,130 @@ or more concisely:
 <context>
     <name>openstudio::DefaultConstructionSetInspectorView</name>
     <message>
-        <location filename="../src/openstudio_lib/DefaultConstructionSetInspectorView.cpp" line="978" />
+        <location filename="../src/openstudio_lib/DefaultConstructionSetInspectorView.cpp" line="978"/>
         <source>Name</source>
         <translation>名前</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/DefaultConstructionSetInspectorView.cpp" line="1004" />
+        <location filename="../src/openstudio_lib/DefaultConstructionSetInspectorView.cpp" line="1004"/>
         <source>Exterior Surface Constructions</source>
         <translation>外部表面構成</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/DefaultConstructionSetInspectorView.cpp" line="1053" />
+        <location filename="../src/openstudio_lib/DefaultConstructionSetInspectorView.cpp" line="1053"/>
         <source>Interior Surface Constructions</source>
         <translation>内部表面構成</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/DefaultConstructionSetInspectorView.cpp" line="1102" />
+        <location filename="../src/openstudio_lib/DefaultConstructionSetInspectorView.cpp" line="1102"/>
         <source>Ground Contact Surface Constructions</source>
         <translation>接地表面構成</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/DefaultConstructionSetInspectorView.cpp" line="1157" />
+        <location filename="../src/openstudio_lib/DefaultConstructionSetInspectorView.cpp" line="1157"/>
         <source>Exterior Sub Surface Constructions</source>
         <translation>外部サブサーフェス構成</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/DefaultConstructionSetInspectorView.cpp" line="1264" />
+        <location filename="../src/openstudio_lib/DefaultConstructionSetInspectorView.cpp" line="1264"/>
         <source>Interior Sub Surface Constructions</source>
         <translation>内部副表面構成</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/DefaultConstructionSetInspectorView.cpp" line="1312" />
+        <location filename="../src/openstudio_lib/DefaultConstructionSetInspectorView.cpp" line="1312"/>
         <source>Other Constructions</source>
         <translation>その他の構成</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/DefaultConstructionSetInspectorView.cpp" line="1011" />
-        <location filename="../src/openstudio_lib/DefaultConstructionSetInspectorView.cpp" line="1060" />
-        <location filename="../src/openstudio_lib/DefaultConstructionSetInspectorView.cpp" line="1109" />
+        <location filename="../src/openstudio_lib/DefaultConstructionSetInspectorView.cpp" line="1011"/>
+        <location filename="../src/openstudio_lib/DefaultConstructionSetInspectorView.cpp" line="1060"/>
+        <location filename="../src/openstudio_lib/DefaultConstructionSetInspectorView.cpp" line="1109"/>
         <source>Walls</source>
         <translation>壁</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/DefaultConstructionSetInspectorView.cpp" line="1022" />
-        <location filename="../src/openstudio_lib/DefaultConstructionSetInspectorView.cpp" line="1071" />
-        <location filename="../src/openstudio_lib/DefaultConstructionSetInspectorView.cpp" line="1120" />
+        <location filename="../src/openstudio_lib/DefaultConstructionSetInspectorView.cpp" line="1022"/>
+        <location filename="../src/openstudio_lib/DefaultConstructionSetInspectorView.cpp" line="1071"/>
+        <location filename="../src/openstudio_lib/DefaultConstructionSetInspectorView.cpp" line="1120"/>
         <source>Floors</source>
         <translation>階床</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/DefaultConstructionSetInspectorView.cpp" line="1033" />
+        <location filename="../src/openstudio_lib/DefaultConstructionSetInspectorView.cpp" line="1033"/>
         <source>Roofs</source>
         <translation>屋根</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/DefaultConstructionSetInspectorView.cpp" line="1082" />
-        <location filename="../src/openstudio_lib/DefaultConstructionSetInspectorView.cpp" line="1131" />
+        <location filename="../src/openstudio_lib/DefaultConstructionSetInspectorView.cpp" line="1082"/>
+        <location filename="../src/openstudio_lib/DefaultConstructionSetInspectorView.cpp" line="1131"/>
         <source>Ceilings</source>
         <translation>天井</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/DefaultConstructionSetInspectorView.cpp" line="1164" />
-        <location filename="../src/openstudio_lib/DefaultConstructionSetInspectorView.cpp" line="1271" />
+        <location filename="../src/openstudio_lib/DefaultConstructionSetInspectorView.cpp" line="1164"/>
+        <location filename="../src/openstudio_lib/DefaultConstructionSetInspectorView.cpp" line="1271"/>
         <source>Fixed Windows</source>
         <translation>固定窓</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/DefaultConstructionSetInspectorView.cpp" line="1175" />
-        <location filename="../src/openstudio_lib/DefaultConstructionSetInspectorView.cpp" line="1282" />
+        <location filename="../src/openstudio_lib/DefaultConstructionSetInspectorView.cpp" line="1175"/>
+        <location filename="../src/openstudio_lib/DefaultConstructionSetInspectorView.cpp" line="1282"/>
         <source>Operable Windows</source>
         <translation>開閉可能な窓</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/DefaultConstructionSetInspectorView.cpp" line="1186" />
-        <location filename="../src/openstudio_lib/DefaultConstructionSetInspectorView.cpp" line="1293" />
+        <location filename="../src/openstudio_lib/DefaultConstructionSetInspectorView.cpp" line="1186"/>
+        <location filename="../src/openstudio_lib/DefaultConstructionSetInspectorView.cpp" line="1293"/>
         <source>Doors</source>
         <translation>ドア</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/DefaultConstructionSetInspectorView.cpp" line="1199" />
+        <location filename="../src/openstudio_lib/DefaultConstructionSetInspectorView.cpp" line="1199"/>
         <source>Glass Doors</source>
         <translation>ガラスドア</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/DefaultConstructionSetInspectorView.cpp" line="1210" />
+        <location filename="../src/openstudio_lib/DefaultConstructionSetInspectorView.cpp" line="1210"/>
         <source>Overhead Doors</source>
         <translation>オーバーヘッドドア</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/DefaultConstructionSetInspectorView.cpp" line="1221" />
+        <location filename="../src/openstudio_lib/DefaultConstructionSetInspectorView.cpp" line="1221"/>
         <source>Skylights</source>
         <translation>スカイライト</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/DefaultConstructionSetInspectorView.cpp" line="1234" />
+        <location filename="../src/openstudio_lib/DefaultConstructionSetInspectorView.cpp" line="1234"/>
         <source>Tubular Daylight Domes</source>
         <translation>チューブラー採光ドーム</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/DefaultConstructionSetInspectorView.cpp" line="1245" />
+        <location filename="../src/openstudio_lib/DefaultConstructionSetInspectorView.cpp" line="1245"/>
         <source>Tubular Daylight Diffusers</source>
         <translation>チューブラー昼光ディフューザー</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/DefaultConstructionSetInspectorView.cpp" line="1319" />
+        <location filename="../src/openstudio_lib/DefaultConstructionSetInspectorView.cpp" line="1319"/>
         <source>Space Shading</source>
         <translation>空間シェーディング</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/DefaultConstructionSetInspectorView.cpp" line="1330" />
+        <location filename="../src/openstudio_lib/DefaultConstructionSetInspectorView.cpp" line="1330"/>
         <source>Building Shading</source>
         <translation>建物シェーディング</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/DefaultConstructionSetInspectorView.cpp" line="1341" />
+        <location filename="../src/openstudio_lib/DefaultConstructionSetInspectorView.cpp" line="1341"/>
         <source>Site Shading</source>
         <translation>サイト シェーディング</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/DefaultConstructionSetInspectorView.cpp" line="1354" />
+        <location filename="../src/openstudio_lib/DefaultConstructionSetInspectorView.cpp" line="1354"/>
         <source>Interior Partitions</source>
         <translation>インテリアパーティション</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/DefaultConstructionSetInspectorView.cpp" line="1365" />
+        <location filename="../src/openstudio_lib/DefaultConstructionSetInspectorView.cpp" line="1365"/>
         <source>Adiabatic Surfaces</source>
         <translation>断熱表面</translation>
     </message>
@@ -22135,7 +22136,7 @@ or more concisely:
 <context>
     <name>openstudio::DefaultScheduleDayView</name>
     <message>
-        <location filename="../src/openstudio_lib/SchedulesView.cpp" line="1363" />
+        <location filename="../src/openstudio_lib/SchedulesView.cpp" line="1363"/>
         <source>Default day profile.</source>
         <translation>デフォルトの日プロフィール。</translation>
     </message>
@@ -22143,22 +22144,22 @@ or more concisely:
 <context>
     <name>openstudio::DesignDayGridController</name>
     <message>
-        <location filename="../src/openstudio_lib/DesignDayGridView.cpp" line="172" />
+        <location filename="../src/openstudio_lib/DesignDayGridView.cpp" line="172"/>
         <source>Date</source>
         <translation>日付</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/DesignDayGridView.cpp" line="184" />
+        <location filename="../src/openstudio_lib/DesignDayGridView.cpp" line="184"/>
         <source>Temperature</source>
         <translation>温度</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/DesignDayGridView.cpp" line="194" />
+        <location filename="../src/openstudio_lib/DesignDayGridView.cpp" line="194"/>
         <source>Humidity</source>
         <translation>湿度</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/DesignDayGridView.cpp" line="202" />
+        <location filename="../src/openstudio_lib/DesignDayGridView.cpp" line="202"/>
         <source>Pressure
 Wind
 Precipitation</source>
@@ -22167,32 +22168,32 @@ Precipitation</source>
 降水</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/DesignDayGridView.cpp" line="210" />
+        <location filename="../src/openstudio_lib/DesignDayGridView.cpp" line="210"/>
         <source>Solar</source>
         <translation>日射</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/DesignDayGridView.cpp" line="227" />
+        <location filename="../src/openstudio_lib/DesignDayGridView.cpp" line="227"/>
         <source>Check to enable daylight saving time indicator.</source>
         <translation>夏時間インジケーターを有効にするかチェックします。</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/DesignDayGridView.cpp" line="231" />
+        <location filename="../src/openstudio_lib/DesignDayGridView.cpp" line="231"/>
         <source>Check to enable rain indicator.</source>
         <translation>雨指標を有効にするにはチェックします。</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/DesignDayGridView.cpp" line="235" />
+        <location filename="../src/openstudio_lib/DesignDayGridView.cpp" line="235"/>
         <source>Check to enable snow indicator.</source>
         <translation>雪指標を有効にするにはチェックしてください。</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/DesignDayGridView.cpp" line="239" />
+        <location filename="../src/openstudio_lib/DesignDayGridView.cpp" line="239"/>
         <source>Check to select all rows</source>
         <translation>全ての行を選択</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/DesignDayGridView.cpp" line="242" />
+        <location filename="../src/openstudio_lib/DesignDayGridView.cpp" line="242"/>
         <source>Check to select this row</source>
         <translation>このロウを選択するにはチェックします</translation>
     </message>
@@ -22200,138 +22201,138 @@ Precipitation</source>
 <context>
     <name>openstudio::DesignDayGridView</name>
     <message>
-        <location filename="../src/openstudio_lib/DesignDayGridView.cpp" line="36" />
+        <location filename="../src/openstudio_lib/DesignDayGridView.cpp" line="36"/>
         <source>Design Day Name</source>
         <translation>気象条件名</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/DesignDayGridView.cpp" line="37" />
+        <location filename="../src/openstudio_lib/DesignDayGridView.cpp" line="37"/>
         <source>All</source>
         <translation>全て</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/DesignDayGridView.cpp" line="40" />
+        <location filename="../src/openstudio_lib/DesignDayGridView.cpp" line="40"/>
         <source>Day Of Month</source>
         <translation>日</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/DesignDayGridView.cpp" line="41" />
+        <location filename="../src/openstudio_lib/DesignDayGridView.cpp" line="41"/>
         <source>Month</source>
         <translation>月</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/DesignDayGridView.cpp" line="42" />
+        <location filename="../src/openstudio_lib/DesignDayGridView.cpp" line="42"/>
         <source>Day Type</source>
         <translation>条件の種類</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/DesignDayGridView.cpp" line="43" />
+        <location filename="../src/openstudio_lib/DesignDayGridView.cpp" line="43"/>
         <source>Daylight Saving Time Indicator</source>
         <translation>夏時間</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/DesignDayGridView.cpp" line="46" />
+        <location filename="../src/openstudio_lib/DesignDayGridView.cpp" line="46"/>
         <source>Maximum Dry Bulb Temperature</source>
         <translation>最高乾球温度</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/DesignDayGridView.cpp" line="47" />
+        <location filename="../src/openstudio_lib/DesignDayGridView.cpp" line="47"/>
         <source>Daily Dry Bulb Temperature Range</source>
         <translation>一日の乾球温度範囲</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/DesignDayGridView.cpp" line="48" />
+        <location filename="../src/openstudio_lib/DesignDayGridView.cpp" line="48"/>
         <source>Daily Wet Bulb Temperature Range</source>
         <translation>一日の湿球温度範囲</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/DesignDayGridView.cpp" line="49" />
+        <location filename="../src/openstudio_lib/DesignDayGridView.cpp" line="49"/>
         <source>Dry Bulb Temperature Range Modifier Type</source>
         <translation>乾球温度範囲の修正タイプ</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/DesignDayGridView.cpp" line="50" />
+        <location filename="../src/openstudio_lib/DesignDayGridView.cpp" line="50"/>
         <source>Dry Bulb Temperature Range Modifier Schedule</source>
         <translation>乾球温度範囲の修正スケジュール</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/DesignDayGridView.cpp" line="53" />
+        <location filename="../src/openstudio_lib/DesignDayGridView.cpp" line="53"/>
         <source>Humidity Indicating Conditions At Maximum Dry Bulb</source>
         <translation>湿度（最高乾球温度時）</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/DesignDayGridView.cpp" line="54" />
+        <location filename="../src/openstudio_lib/DesignDayGridView.cpp" line="54"/>
         <source>Humidity Indicating Type</source>
         <translation>湿度指標</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/DesignDayGridView.cpp" line="55" />
+        <location filename="../src/openstudio_lib/DesignDayGridView.cpp" line="55"/>
         <source>Humidity Indicating Day Schedule</source>
         <translation>湿度スケジュール</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/DesignDayGridView.cpp" line="58" />
+        <location filename="../src/openstudio_lib/DesignDayGridView.cpp" line="58"/>
         <source>Barometric Pressure</source>
         <translation>大気圧</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/DesignDayGridView.cpp" line="59" />
+        <location filename="../src/openstudio_lib/DesignDayGridView.cpp" line="59"/>
         <source>Wind Speed</source>
         <translation>風速</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/DesignDayGridView.cpp" line="60" />
+        <location filename="../src/openstudio_lib/DesignDayGridView.cpp" line="60"/>
         <source>Wind Direction</source>
         <translation>風向き</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/DesignDayGridView.cpp" line="61" />
+        <location filename="../src/openstudio_lib/DesignDayGridView.cpp" line="61"/>
         <source>Rain Indicator</source>
         <translation>降雨判定</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/DesignDayGridView.cpp" line="62" />
+        <location filename="../src/openstudio_lib/DesignDayGridView.cpp" line="62"/>
         <source>Snow Indicator</source>
         <translation>降雪判定</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/DesignDayGridView.cpp" line="65" />
+        <location filename="../src/openstudio_lib/DesignDayGridView.cpp" line="65"/>
         <source>Solar Model Indicator</source>
         <translation>日射解析モデル</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/DesignDayGridView.cpp" line="66" />
+        <location filename="../src/openstudio_lib/DesignDayGridView.cpp" line="66"/>
         <source>Beam Solar Day Schedule</source>
         <translation>直達日射スケジュール</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/DesignDayGridView.cpp" line="67" />
+        <location filename="../src/openstudio_lib/DesignDayGridView.cpp" line="67"/>
         <source>Diffuse Solar Day Schedule</source>
         <translation>散乱日射スケジュール</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/DesignDayGridView.cpp" line="68" />
+        <location filename="../src/openstudio_lib/DesignDayGridView.cpp" line="68"/>
         <source>ASHRAE Taub</source>
         <translation>ASHRAE Taub</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/DesignDayGridView.cpp" line="69" />
+        <location filename="../src/openstudio_lib/DesignDayGridView.cpp" line="69"/>
         <source>ASHRAE Taud</source>
         <translation>ASHRAE Taud</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/DesignDayGridView.cpp" line="70" />
+        <location filename="../src/openstudio_lib/DesignDayGridView.cpp" line="70"/>
         <source>Sky Clearness</source>
         <translation>大気圏の透過率</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/DesignDayGridView.cpp" line="83" />
-        <location filename="../src/openstudio_lib/DesignDayGridView.cpp" line="84" />
+        <location filename="../src/openstudio_lib/DesignDayGridView.cpp" line="83"/>
+        <location filename="../src/openstudio_lib/DesignDayGridView.cpp" line="84"/>
         <source>Design Days</source>
         <translation>気象条件</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/DesignDayGridView.cpp" line="84" />
+        <location filename="../src/openstudio_lib/DesignDayGridView.cpp" line="84"/>
         <source>Drop
 Zone</source>
         <translation>ドロップ
@@ -22341,7 +22342,7 @@ Zone</source>
 <context>
     <name>openstudio::EditController</name>
     <message>
-        <location filename="../src/shared_gui_components/EditController.cpp" line="27" />
+        <location filename="../src/shared_gui_components/EditController.cpp" line="27"/>
         <source>Select a Measure to Apply</source>
         <translation>適用するメジャーを選択してください</translation>
     </message>
@@ -22349,22 +22350,22 @@ Zone</source>
 <context>
     <name>openstudio::EditRubyMeasureView</name>
     <message>
-        <location filename="../src/shared_gui_components/EditView.cpp" line="48" />
+        <location filename="../src/shared_gui_components/EditView.cpp" line="48"/>
         <source>Name</source>
         <translation>名前</translation>
     </message>
     <message>
-        <location filename="../src/shared_gui_components/EditView.cpp" line="59" />
+        <location filename="../src/shared_gui_components/EditView.cpp" line="59"/>
         <source>Description</source>
         <translation>説明</translation>
     </message>
     <message>
-        <location filename="../src/shared_gui_components/EditView.cpp" line="70" />
+        <location filename="../src/shared_gui_components/EditView.cpp" line="70"/>
         <source>Modeler Description</source>
         <translation>モデラー説明</translation>
     </message>
     <message>
-        <location filename="../src/shared_gui_components/EditView.cpp" line="88" />
+        <location filename="../src/shared_gui_components/EditView.cpp" line="88"/>
         <source>Inputs</source>
         <translation>入力</translation>
     </message>
@@ -22372,129 +22373,129 @@ Zone</source>
 <context>
     <name>openstudio::EditorWebView</name>
     <message>
-        <location filename="../src/openstudio_lib/GeometryEditorView.cpp" line="1116" />
+        <location filename="../src/openstudio_lib/GeometryEditorView.cpp" line="1116"/>
         <source>Geometry Type</source>
         <translation>ジオメトリタイプ</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/GeometryEditorView.cpp" line="1119" />
-        <location filename="../src/openstudio_lib/GeometryEditorView.cpp" line="1188" />
-        <location filename="../src/openstudio_lib/GeometryEditorView.cpp" line="1279" />
-        <location filename="../src/openstudio_lib/GeometryEditorView.cpp" line="1290" />
+        <location filename="../src/openstudio_lib/GeometryEditorView.cpp" line="1119"/>
+        <location filename="../src/openstudio_lib/GeometryEditorView.cpp" line="1188"/>
+        <location filename="../src/openstudio_lib/GeometryEditorView.cpp" line="1279"/>
+        <location filename="../src/openstudio_lib/GeometryEditorView.cpp" line="1290"/>
         <source>FloorspaceJS</source>
         <translation>FloorspaceJS</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/GeometryEditorView.cpp" line="1120" />
-        <location filename="../src/openstudio_lib/GeometryEditorView.cpp" line="1201" />
-        <location filename="../src/openstudio_lib/GeometryEditorView.cpp" line="1281" />
-        <location filename="../src/openstudio_lib/GeometryEditorView.cpp" line="1302" />
+        <location filename="../src/openstudio_lib/GeometryEditorView.cpp" line="1120"/>
+        <location filename="../src/openstudio_lib/GeometryEditorView.cpp" line="1201"/>
+        <location filename="../src/openstudio_lib/GeometryEditorView.cpp" line="1281"/>
+        <location filename="../src/openstudio_lib/GeometryEditorView.cpp" line="1302"/>
         <source>gbXML</source>
         <translation>ｇbXML</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/GeometryEditorView.cpp" line="1121" />
-        <location filename="../src/openstudio_lib/GeometryEditorView.cpp" line="1214" />
-        <location filename="../src/openstudio_lib/GeometryEditorView.cpp" line="1281" />
-        <location filename="../src/openstudio_lib/GeometryEditorView.cpp" line="1328" />
+        <location filename="../src/openstudio_lib/GeometryEditorView.cpp" line="1121"/>
+        <location filename="../src/openstudio_lib/GeometryEditorView.cpp" line="1214"/>
+        <location filename="../src/openstudio_lib/GeometryEditorView.cpp" line="1281"/>
+        <location filename="../src/openstudio_lib/GeometryEditorView.cpp" line="1328"/>
         <source>IDF</source>
         <translation>IDF</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/GeometryEditorView.cpp" line="1122" />
-        <location filename="../src/openstudio_lib/GeometryEditorView.cpp" line="1227" />
-        <location filename="../src/openstudio_lib/GeometryEditorView.cpp" line="1281" />
-        <location filename="../src/openstudio_lib/GeometryEditorView.cpp" line="1354" />
+        <location filename="../src/openstudio_lib/GeometryEditorView.cpp" line="1122"/>
+        <location filename="../src/openstudio_lib/GeometryEditorView.cpp" line="1227"/>
+        <location filename="../src/openstudio_lib/GeometryEditorView.cpp" line="1281"/>
+        <location filename="../src/openstudio_lib/GeometryEditorView.cpp" line="1354"/>
         <source>OSM</source>
         <translation>OSM</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/GeometryEditorView.cpp" line="1087" />
-        <location filename="../src/openstudio_lib/GeometryEditorView.cpp" line="1280" />
+        <location filename="../src/openstudio_lib/GeometryEditorView.cpp" line="1087"/>
+        <location filename="../src/openstudio_lib/GeometryEditorView.cpp" line="1280"/>
         <source>New</source>
         <translation>新規</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/GeometryEditorView.cpp" line="1282" />
+        <location filename="../src/openstudio_lib/GeometryEditorView.cpp" line="1282"/>
         <source>Import</source>
         <translation>インポート</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/GeometryEditorView.cpp" line="1089" />
+        <location filename="../src/openstudio_lib/GeometryEditorView.cpp" line="1089"/>
         <source>Refresh</source>
         <translation>更新</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/GeometryEditorView.cpp" line="1090" />
+        <location filename="../src/openstudio_lib/GeometryEditorView.cpp" line="1090"/>
         <source>Preview OSM</source>
         <translation>OSMをプレビュー</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/GeometryEditorView.cpp" line="1091" />
+        <location filename="../src/openstudio_lib/GeometryEditorView.cpp" line="1091"/>
         <source>Merge with Current OSM</source>
         <translation>現在のOSMとマージ</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/GeometryEditorView.cpp" line="1092" />
+        <location filename="../src/openstudio_lib/GeometryEditorView.cpp" line="1092"/>
         <source>Debug</source>
         <translation>デバッグ</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/GeometryEditorView.cpp" line="1452" />
+        <location filename="../src/openstudio_lib/GeometryEditorView.cpp" line="1452"/>
         <source>Geometry Preview</source>
         <translation>ジオメトリプレビュー</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/GeometryEditorView.cpp" line="1258" />
+        <location filename="../src/openstudio_lib/GeometryEditorView.cpp" line="1258"/>
         <source>Unmerged Changes</source>
         <translation>マージされていない変更</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/GeometryEditorView.cpp" line="1259" />
+        <location filename="../src/openstudio_lib/GeometryEditorView.cpp" line="1259"/>
         <source>Your geometry may include unmerged changes.  Merge with Current OSM now?  Choose Ignore to skip this message in the future.</source>
         <translation>ジオメトリに統合されていない変更が含まれている可能性があります。今すぐCurrent OSMとマージしますか？今後このメッセージをスキップするには「無視」を選択してください。</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/GeometryEditorView.cpp" line="1514" />
+        <location filename="../src/openstudio_lib/GeometryEditorView.cpp" line="1514"/>
         <source>Units Change</source>
         <translation>ユニット変更</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/GeometryEditorView.cpp" line="1515" />
+        <location filename="../src/openstudio_lib/GeometryEditorView.cpp" line="1515"/>
         <source>Changing unit system for existing floorplan is not currently supported.  Reload tab to change units.</source>
         <translation>既存のフロアプランの単位系変更は現在サポートされていません。タブをリロードして単位を変更してください。</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/GeometryEditorView.cpp" line="1435" />
-        <location filename="../src/openstudio_lib/GeometryEditorView.cpp" line="1487" />
-        <location filename="../src/openstudio_lib/GeometryEditorView.cpp" line="1490" />
+        <location filename="../src/openstudio_lib/GeometryEditorView.cpp" line="1435"/>
+        <location filename="../src/openstudio_lib/GeometryEditorView.cpp" line="1487"/>
+        <location filename="../src/openstudio_lib/GeometryEditorView.cpp" line="1490"/>
         <source>Merging Models</source>
         <translation>モデルのマージ</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/GeometryEditorView.cpp" line="1490" />
+        <location filename="../src/openstudio_lib/GeometryEditorView.cpp" line="1490"/>
         <source>Models Merged</source>
         <translation>モデルがマージされました</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/GeometryEditorView.cpp" line="1304" />
-        <location filename="../src/openstudio_lib/GeometryEditorView.cpp" line="1330" />
-        <location filename="../src/openstudio_lib/GeometryEditorView.cpp" line="1356" />
+        <location filename="../src/openstudio_lib/GeometryEditorView.cpp" line="1304"/>
+        <location filename="../src/openstudio_lib/GeometryEditorView.cpp" line="1330"/>
+        <location filename="../src/openstudio_lib/GeometryEditorView.cpp" line="1356"/>
         <source>Open File</source>
         <translation>開く</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/GeometryEditorView.cpp" line="1304" />
+        <location filename="../src/openstudio_lib/GeometryEditorView.cpp" line="1304"/>
         <source>gbXML (*.xml *.gbxml)</source>
         <translation>gbXML (*.xml *.gbxml)</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/GeometryEditorView.cpp" line="1330" />
+        <location filename="../src/openstudio_lib/GeometryEditorView.cpp" line="1330"/>
         <source>IDF (*.idf)</source>
         <translation>IDF (*.idf)</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/GeometryEditorView.cpp" line="1356" />
+        <location filename="../src/openstudio_lib/GeometryEditorView.cpp" line="1356"/>
         <source>OSM (*.osm)</source>
         <translation>OSM (*.osm)</translation>
     </message>
@@ -22502,37 +22503,37 @@ Zone</source>
 <context>
     <name>openstudio::ElectricEquipmentDefinitionInspectorView</name>
     <message>
-        <location filename="../src/openstudio_lib/ElectricEquipmentInspectorView.cpp" line="36" />
+        <location filename="../src/openstudio_lib/ElectricEquipmentInspectorView.cpp" line="36"/>
         <source>Name: </source>
         <translation>ファイル名：</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/ElectricEquipmentInspectorView.cpp" line="45" />
+        <location filename="../src/openstudio_lib/ElectricEquipmentInspectorView.cpp" line="45"/>
         <source>Design Level: </source>
         <translation>デザインレベル:</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/ElectricEquipmentInspectorView.cpp" line="55" />
+        <location filename="../src/openstudio_lib/ElectricEquipmentInspectorView.cpp" line="55"/>
         <source>Watts Per Space Floor Area: </source>
         <translation>スペース床面積あたりのワット数:</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/ElectricEquipmentInspectorView.cpp" line="65" />
+        <location filename="../src/openstudio_lib/ElectricEquipmentInspectorView.cpp" line="65"/>
         <source>Watts Per Person: </source>
         <translation>ワット/人:</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/ElectricEquipmentInspectorView.cpp" line="75" />
+        <location filename="../src/openstudio_lib/ElectricEquipmentInspectorView.cpp" line="75"/>
         <source>Fraction Latent: </source>
         <translation>潜熱フラクション:</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/ElectricEquipmentInspectorView.cpp" line="85" />
+        <location filename="../src/openstudio_lib/ElectricEquipmentInspectorView.cpp" line="85"/>
         <source>Fraction Radiant: </source>
         <translation>放射率分率:</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/ElectricEquipmentInspectorView.cpp" line="95" />
+        <location filename="../src/openstudio_lib/ElectricEquipmentInspectorView.cpp" line="95"/>
         <source>Fraction Lost: </source>
         <translation>損失分率：</translation>
     </message>
@@ -22540,22 +22541,22 @@ Zone</source>
 <context>
     <name>openstudio::ExternalToolsDialog</name>
     <message>
-        <location filename="../src/openstudio_app/ExternalToolsDialog.cpp" line="31" />
+        <location filename="../src/openstudio_app/ExternalToolsDialog.cpp" line="31"/>
         <source>Change External Tools</source>
         <translation>外部ツールを変更</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_app/ExternalToolsDialog.cpp" line="37" />
+        <location filename="../src/openstudio_app/ExternalToolsDialog.cpp" line="37"/>
         <source>Path to DView</source>
         <translation>DViewへのパス</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_app/ExternalToolsDialog.cpp" line="42" />
+        <location filename="../src/openstudio_app/ExternalToolsDialog.cpp" line="42"/>
         <source>Change</source>
         <translation>変更</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_app/ExternalToolsDialog.cpp" line="78" />
+        <location filename="../src/openstudio_app/ExternalToolsDialog.cpp" line="78"/>
         <source>Select Path to </source>
         <translation>パスの選択</translation>
     </message>
@@ -22563,129 +22564,129 @@ Zone</source>
 <context>
     <name>openstudio::FacilityExteriorEquipmentGridController</name>
     <message>
-        <location filename="../src/openstudio_lib/FacilityExteriorEquipmentGridView.cpp" line="178" />
-        <location filename="../src/openstudio_lib/FacilityExteriorEquipmentGridView.cpp" line="184" />
-        <location filename="../src/openstudio_lib/FacilityExteriorEquipmentGridView.cpp" line="186" />
+        <location filename="../src/openstudio_lib/FacilityExteriorEquipmentGridView.cpp" line="178"/>
+        <location filename="../src/openstudio_lib/FacilityExteriorEquipmentGridView.cpp" line="184"/>
+        <location filename="../src/openstudio_lib/FacilityExteriorEquipmentGridView.cpp" line="186"/>
         <source>Name</source>
         <translation>名前</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/FacilityExteriorEquipmentGridView.cpp" line="178" />
-        <location filename="../src/openstudio_lib/FacilityExteriorEquipmentGridView.cpp" line="202" />
-        <location filename="../src/openstudio_lib/FacilityExteriorEquipmentGridView.cpp" line="209" />
+        <location filename="../src/openstudio_lib/FacilityExteriorEquipmentGridView.cpp" line="178"/>
+        <location filename="../src/openstudio_lib/FacilityExteriorEquipmentGridView.cpp" line="202"/>
+        <location filename="../src/openstudio_lib/FacilityExteriorEquipmentGridView.cpp" line="209"/>
         <source>All</source>
         <translation>全て</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/FacilityExteriorEquipmentGridView.cpp" line="175" />
-        <location filename="../src/openstudio_lib/FacilityExteriorEquipmentGridView.cpp" line="188" />
-        <location filename="../src/openstudio_lib/FacilityExteriorEquipmentGridView.cpp" line="189" />
+        <location filename="../src/openstudio_lib/FacilityExteriorEquipmentGridView.cpp" line="175"/>
+        <location filename="../src/openstudio_lib/FacilityExteriorEquipmentGridView.cpp" line="188"/>
+        <location filename="../src/openstudio_lib/FacilityExteriorEquipmentGridView.cpp" line="189"/>
         <source>Display Name</source>
         <translation>表示名</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/FacilityExteriorEquipmentGridView.cpp" line="175" />
-        <location filename="../src/openstudio_lib/FacilityExteriorEquipmentGridView.cpp" line="195" />
-        <location filename="../src/openstudio_lib/FacilityExteriorEquipmentGridView.cpp" line="196" />
+        <location filename="../src/openstudio_lib/FacilityExteriorEquipmentGridView.cpp" line="175"/>
+        <location filename="../src/openstudio_lib/FacilityExteriorEquipmentGridView.cpp" line="195"/>
+        <location filename="../src/openstudio_lib/FacilityExteriorEquipmentGridView.cpp" line="196"/>
         <source>CAD Object ID</source>
         <translation>CADオブジェクトID</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/FacilityExteriorEquipmentGridView.cpp" line="129" />
-        <location filename="../src/openstudio_lib/FacilityExteriorEquipmentGridView.cpp" line="214" />
-        <location filename="../src/openstudio_lib/FacilityExteriorEquipmentGridView.cpp" line="224" />
+        <location filename="../src/openstudio_lib/FacilityExteriorEquipmentGridView.cpp" line="129"/>
+        <location filename="../src/openstudio_lib/FacilityExteriorEquipmentGridView.cpp" line="214"/>
+        <location filename="../src/openstudio_lib/FacilityExteriorEquipmentGridView.cpp" line="224"/>
         <source>Exterior Lights Definition</source>
         <translation>外部照明の定義</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/FacilityExteriorEquipmentGridView.cpp" line="129" />
-        <location filename="../src/openstudio_lib/FacilityExteriorEquipmentGridView.cpp" line="137" />
-        <location filename="../src/openstudio_lib/FacilityExteriorEquipmentGridView.cpp" line="146" />
-        <location filename="../src/openstudio_lib/FacilityExteriorEquipmentGridView.cpp" line="228" />
-        <location filename="../src/openstudio_lib/FacilityExteriorEquipmentGridView.cpp" line="235" />
-        <location filename="../src/openstudio_lib/FacilityExteriorEquipmentGridView.cpp" line="295" />
-        <location filename="../src/openstudio_lib/FacilityExteriorEquipmentGridView.cpp" line="306" />
-        <location filename="../src/openstudio_lib/FacilityExteriorEquipmentGridView.cpp" line="362" />
-        <location filename="../src/openstudio_lib/FacilityExteriorEquipmentGridView.cpp" line="373" />
+        <location filename="../src/openstudio_lib/FacilityExteriorEquipmentGridView.cpp" line="129"/>
+        <location filename="../src/openstudio_lib/FacilityExteriorEquipmentGridView.cpp" line="137"/>
+        <location filename="../src/openstudio_lib/FacilityExteriorEquipmentGridView.cpp" line="146"/>
+        <location filename="../src/openstudio_lib/FacilityExteriorEquipmentGridView.cpp" line="228"/>
+        <location filename="../src/openstudio_lib/FacilityExteriorEquipmentGridView.cpp" line="235"/>
+        <location filename="../src/openstudio_lib/FacilityExteriorEquipmentGridView.cpp" line="295"/>
+        <location filename="../src/openstudio_lib/FacilityExteriorEquipmentGridView.cpp" line="306"/>
+        <location filename="../src/openstudio_lib/FacilityExteriorEquipmentGridView.cpp" line="362"/>
+        <location filename="../src/openstudio_lib/FacilityExteriorEquipmentGridView.cpp" line="373"/>
         <source>Schedule</source>
         <translation>スケジュール</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/FacilityExteriorEquipmentGridView.cpp" line="129" />
-        <location filename="../src/openstudio_lib/FacilityExteriorEquipmentGridView.cpp" line="239" />
-        <location filename="../src/openstudio_lib/FacilityExteriorEquipmentGridView.cpp" line="242" />
+        <location filename="../src/openstudio_lib/FacilityExteriorEquipmentGridView.cpp" line="129"/>
+        <location filename="../src/openstudio_lib/FacilityExteriorEquipmentGridView.cpp" line="239"/>
+        <location filename="../src/openstudio_lib/FacilityExteriorEquipmentGridView.cpp" line="242"/>
         <source>Control Option</source>
         <translation>制御オプション</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/FacilityExteriorEquipmentGridView.cpp" line="129" />
-        <location filename="../src/openstudio_lib/FacilityExteriorEquipmentGridView.cpp" line="137" />
-        <location filename="../src/openstudio_lib/FacilityExteriorEquipmentGridView.cpp" line="147" />
-        <location filename="../src/openstudio_lib/FacilityExteriorEquipmentGridView.cpp" line="252" />
-        <location filename="../src/openstudio_lib/FacilityExteriorEquipmentGridView.cpp" line="254" />
-        <location filename="../src/openstudio_lib/FacilityExteriorEquipmentGridView.cpp" line="318" />
-        <location filename="../src/openstudio_lib/FacilityExteriorEquipmentGridView.cpp" line="320" />
-        <location filename="../src/openstudio_lib/FacilityExteriorEquipmentGridView.cpp" line="375" />
-        <location filename="../src/openstudio_lib/FacilityExteriorEquipmentGridView.cpp" line="377" />
+        <location filename="../src/openstudio_lib/FacilityExteriorEquipmentGridView.cpp" line="129"/>
+        <location filename="../src/openstudio_lib/FacilityExteriorEquipmentGridView.cpp" line="137"/>
+        <location filename="../src/openstudio_lib/FacilityExteriorEquipmentGridView.cpp" line="147"/>
+        <location filename="../src/openstudio_lib/FacilityExteriorEquipmentGridView.cpp" line="252"/>
+        <location filename="../src/openstudio_lib/FacilityExteriorEquipmentGridView.cpp" line="254"/>
+        <location filename="../src/openstudio_lib/FacilityExteriorEquipmentGridView.cpp" line="318"/>
+        <location filename="../src/openstudio_lib/FacilityExteriorEquipmentGridView.cpp" line="320"/>
+        <location filename="../src/openstudio_lib/FacilityExteriorEquipmentGridView.cpp" line="375"/>
+        <location filename="../src/openstudio_lib/FacilityExteriorEquipmentGridView.cpp" line="377"/>
         <source>Multiplier</source>
         <translation>倍数</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/FacilityExteriorEquipmentGridView.cpp" line="129" />
-        <location filename="../src/openstudio_lib/FacilityExteriorEquipmentGridView.cpp" line="137" />
-        <location filename="../src/openstudio_lib/FacilityExteriorEquipmentGridView.cpp" line="148" />
-        <location filename="../src/openstudio_lib/FacilityExteriorEquipmentGridView.cpp" line="262" />
-        <location filename="../src/openstudio_lib/FacilityExteriorEquipmentGridView.cpp" line="264" />
-        <location filename="../src/openstudio_lib/FacilityExteriorEquipmentGridView.cpp" line="328" />
-        <location filename="../src/openstudio_lib/FacilityExteriorEquipmentGridView.cpp" line="330" />
-        <location filename="../src/openstudio_lib/FacilityExteriorEquipmentGridView.cpp" line="385" />
-        <location filename="../src/openstudio_lib/FacilityExteriorEquipmentGridView.cpp" line="387" />
+        <location filename="../src/openstudio_lib/FacilityExteriorEquipmentGridView.cpp" line="129"/>
+        <location filename="../src/openstudio_lib/FacilityExteriorEquipmentGridView.cpp" line="137"/>
+        <location filename="../src/openstudio_lib/FacilityExteriorEquipmentGridView.cpp" line="148"/>
+        <location filename="../src/openstudio_lib/FacilityExteriorEquipmentGridView.cpp" line="262"/>
+        <location filename="../src/openstudio_lib/FacilityExteriorEquipmentGridView.cpp" line="264"/>
+        <location filename="../src/openstudio_lib/FacilityExteriorEquipmentGridView.cpp" line="328"/>
+        <location filename="../src/openstudio_lib/FacilityExteriorEquipmentGridView.cpp" line="330"/>
+        <location filename="../src/openstudio_lib/FacilityExteriorEquipmentGridView.cpp" line="385"/>
+        <location filename="../src/openstudio_lib/FacilityExteriorEquipmentGridView.cpp" line="387"/>
         <source>End Use Subcategory</source>
         <translation>エンドユース副分類</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/FacilityExteriorEquipmentGridView.cpp" line="137" />
-        <location filename="../src/openstudio_lib/FacilityExteriorEquipmentGridView.cpp" line="280" />
-        <location filename="../src/openstudio_lib/FacilityExteriorEquipmentGridView.cpp" line="291" />
+        <location filename="../src/openstudio_lib/FacilityExteriorEquipmentGridView.cpp" line="137"/>
+        <location filename="../src/openstudio_lib/FacilityExteriorEquipmentGridView.cpp" line="280"/>
+        <location filename="../src/openstudio_lib/FacilityExteriorEquipmentGridView.cpp" line="291"/>
         <source>Exterior Fuel Equipment Definition</source>
         <translation>外部燃料機器定義</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/FacilityExteriorEquipmentGridView.cpp" line="137" />
-        <location filename="../src/openstudio_lib/FacilityExteriorEquipmentGridView.cpp" line="308" />
-        <location filename="../src/openstudio_lib/FacilityExteriorEquipmentGridView.cpp" line="311" />
+        <location filename="../src/openstudio_lib/FacilityExteriorEquipmentGridView.cpp" line="137"/>
+        <location filename="../src/openstudio_lib/FacilityExteriorEquipmentGridView.cpp" line="308"/>
+        <location filename="../src/openstudio_lib/FacilityExteriorEquipmentGridView.cpp" line="311"/>
         <source>Fuel Type</source>
         <translation>燃料タイプ</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/FacilityExteriorEquipmentGridView.cpp" line="145" />
-        <location filename="../src/openstudio_lib/FacilityExteriorEquipmentGridView.cpp" line="347" />
-        <location filename="../src/openstudio_lib/FacilityExteriorEquipmentGridView.cpp" line="358" />
+        <location filename="../src/openstudio_lib/FacilityExteriorEquipmentGridView.cpp" line="145"/>
+        <location filename="../src/openstudio_lib/FacilityExteriorEquipmentGridView.cpp" line="347"/>
+        <location filename="../src/openstudio_lib/FacilityExteriorEquipmentGridView.cpp" line="358"/>
         <source>Exterior Water Equipment Definition</source>
         <translation>外部給水設備の定義</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/FacilityExteriorEquipmentGridView.cpp" line="205" />
+        <location filename="../src/openstudio_lib/FacilityExteriorEquipmentGridView.cpp" line="205"/>
         <source>Check to select all rows</source>
         <translation>全ての行を選択</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/FacilityExteriorEquipmentGridView.cpp" line="209" />
+        <location filename="../src/openstudio_lib/FacilityExteriorEquipmentGridView.cpp" line="209"/>
         <source>Check to select this row</source>
         <translation>このロウを選択するにはチェックします</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/FacilityExteriorEquipmentGridView.cpp" line="131" />
+        <location filename="../src/openstudio_lib/FacilityExteriorEquipmentGridView.cpp" line="131"/>
         <source>Exterior Lights</source>
         <translation>外部照明</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/FacilityExteriorEquipmentGridView.cpp" line="139" />
+        <location filename="../src/openstudio_lib/FacilityExteriorEquipmentGridView.cpp" line="139"/>
         <source>Exterior Fuel Equipment</source>
         <translation>外部燃料機器</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/FacilityExteriorEquipmentGridView.cpp" line="150" />
+        <location filename="../src/openstudio_lib/FacilityExteriorEquipmentGridView.cpp" line="150"/>
         <source>Exterior Water Equipment</source>
         <translation>屋外給水設備</translation>
     </message>
@@ -22693,13 +22694,13 @@ Zone</source>
 <context>
     <name>openstudio::FacilityExteriorEquipmentGridView</name>
     <message>
-        <location filename="../src/openstudio_lib/FacilityExteriorEquipmentGridView.cpp" line="53" />
-        <location filename="../src/openstudio_lib/FacilityExteriorEquipmentGridView.cpp" line="55" />
+        <location filename="../src/openstudio_lib/FacilityExteriorEquipmentGridView.cpp" line="53"/>
+        <location filename="../src/openstudio_lib/FacilityExteriorEquipmentGridView.cpp" line="55"/>
         <source>Exterior Equipment</source>
         <translation>外部機器</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/FacilityExteriorEquipmentGridView.cpp" line="55" />
+        <location filename="../src/openstudio_lib/FacilityExteriorEquipmentGridView.cpp" line="55"/>
         <source>Drop
 Exterior Equipment</source>
         <translation>ドロップ
@@ -22709,68 +22710,68 @@ Exterior Equipment</source>
 <context>
     <name>openstudio::FacilityShadingGridController</name>
     <message>
-        <location filename="../src/openstudio_lib/FacilityShadingGridView.cpp" line="413" />
-        <location filename="../src/openstudio_lib/FacilityShadingGridView.cpp" line="419" />
-        <location filename="../src/openstudio_lib/FacilityShadingGridView.cpp" line="420" />
+        <location filename="../src/openstudio_lib/FacilityShadingGridView.cpp" line="413"/>
+        <location filename="../src/openstudio_lib/FacilityShadingGridView.cpp" line="419"/>
+        <location filename="../src/openstudio_lib/FacilityShadingGridView.cpp" line="420"/>
         <source>Shading Surface Group Name</source>
         <translation>日除けサーフェスグループ名</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/FacilityShadingGridView.cpp" line="413" />
-        <location filename="../src/openstudio_lib/FacilityShadingGridView.cpp" line="453" />
-        <location filename="../src/openstudio_lib/FacilityShadingGridView.cpp" line="458" />
+        <location filename="../src/openstudio_lib/FacilityShadingGridView.cpp" line="413"/>
+        <location filename="../src/openstudio_lib/FacilityShadingGridView.cpp" line="453"/>
+        <location filename="../src/openstudio_lib/FacilityShadingGridView.cpp" line="458"/>
         <source>All</source>
         <translation>全て</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/FacilityShadingGridView.cpp" line="409" />
-        <location filename="../src/openstudio_lib/FacilityShadingGridView.cpp" line="466" />
-        <location filename="../src/openstudio_lib/FacilityShadingGridView.cpp" line="467" />
+        <location filename="../src/openstudio_lib/FacilityShadingGridView.cpp" line="409"/>
+        <location filename="../src/openstudio_lib/FacilityShadingGridView.cpp" line="466"/>
+        <location filename="../src/openstudio_lib/FacilityShadingGridView.cpp" line="467"/>
         <source>Display Name</source>
         <translation>表示名</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/FacilityShadingGridView.cpp" line="409" />
-        <location filename="../src/openstudio_lib/FacilityShadingGridView.cpp" line="476" />
-        <location filename="../src/openstudio_lib/FacilityShadingGridView.cpp" line="477" />
+        <location filename="../src/openstudio_lib/FacilityShadingGridView.cpp" line="409"/>
+        <location filename="../src/openstudio_lib/FacilityShadingGridView.cpp" line="476"/>
+        <location filename="../src/openstudio_lib/FacilityShadingGridView.cpp" line="477"/>
         <source>CAD Object ID</source>
         <translation>CAD Object ID</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/FacilityShadingGridView.cpp" line="413" />
-        <location filename="../src/openstudio_lib/FacilityShadingGridView.cpp" line="426" />
-        <location filename="../src/openstudio_lib/FacilityShadingGridView.cpp" line="436" />
+        <location filename="../src/openstudio_lib/FacilityShadingGridView.cpp" line="413"/>
+        <location filename="../src/openstudio_lib/FacilityShadingGridView.cpp" line="426"/>
+        <location filename="../src/openstudio_lib/FacilityShadingGridView.cpp" line="436"/>
         <source>Type</source>
         <translation>タイプ</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/FacilityShadingGridView.cpp" line="455" />
+        <location filename="../src/openstudio_lib/FacilityShadingGridView.cpp" line="455"/>
         <source>Check to select all rows</source>
         <translation>全ての行を選択</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/FacilityShadingGridView.cpp" line="458" />
+        <location filename="../src/openstudio_lib/FacilityShadingGridView.cpp" line="458"/>
         <source>Check to select this row</source>
         <translation>このロウを選択するにはチェックします</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/FacilityShadingGridView.cpp" line="390" />
-        <location filename="../src/openstudio_lib/FacilityShadingGridView.cpp" line="460" />
-        <location filename="../src/openstudio_lib/FacilityShadingGridView.cpp" line="461" />
+        <location filename="../src/openstudio_lib/FacilityShadingGridView.cpp" line="390"/>
+        <location filename="../src/openstudio_lib/FacilityShadingGridView.cpp" line="460"/>
+        <location filename="../src/openstudio_lib/FacilityShadingGridView.cpp" line="461"/>
         <source>Shading Surface Name</source>
         <translation>シェーディングサーフェス名</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/FacilityShadingGridView.cpp" line="392" />
-        <location filename="../src/openstudio_lib/FacilityShadingGridView.cpp" line="486" />
-        <location filename="../src/openstudio_lib/FacilityShadingGridView.cpp" line="487" />
+        <location filename="../src/openstudio_lib/FacilityShadingGridView.cpp" line="392"/>
+        <location filename="../src/openstudio_lib/FacilityShadingGridView.cpp" line="486"/>
+        <location filename="../src/openstudio_lib/FacilityShadingGridView.cpp" line="487"/>
         <source>Construction Name</source>
         <translation>構成名</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/FacilityShadingGridView.cpp" line="391" />
-        <location filename="../src/openstudio_lib/FacilityShadingGridView.cpp" line="493" />
-        <location filename="../src/openstudio_lib/FacilityShadingGridView.cpp" line="500" />
+        <location filename="../src/openstudio_lib/FacilityShadingGridView.cpp" line="391"/>
+        <location filename="../src/openstudio_lib/FacilityShadingGridView.cpp" line="493"/>
+        <location filename="../src/openstudio_lib/FacilityShadingGridView.cpp" line="500"/>
         <source>Transmittance Schedule Name</source>
         <translation>透過率スケジュール名</translation>
     </message>
@@ -22795,7 +22796,7 @@ Exterior Equipment</source>
         <translation>度数方向 &lt;</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/FacilityShadingGridView.cpp" line="394" />
+        <location filename="../src/openstudio_lib/FacilityShadingGridView.cpp" line="394"/>
         <source>General</source>
         <translation>一般</translation>
     </message>
@@ -22803,65 +22804,65 @@ Exterior Equipment</source>
 <context>
     <name>openstudio::FacilityShadingGridView</name>
     <message>
-        <location filename="../src/openstudio_lib/FacilityShadingGridView.cpp" line="60" />
-        <location filename="../src/openstudio_lib/FacilityShadingGridView.cpp" line="62" />
+        <location filename="../src/openstudio_lib/FacilityShadingGridView.cpp" line="60"/>
+        <location filename="../src/openstudio_lib/FacilityShadingGridView.cpp" line="62"/>
         <source>Shading Surface Group</source>
         <translation>日除けサーフェスグループ</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/FacilityShadingGridView.cpp" line="62" />
+        <location filename="../src/openstudio_lib/FacilityShadingGridView.cpp" line="62"/>
         <source>Drop Shading
 Surface Group</source>
         <translation>ドロップシェーディング
 サーフェスグループ</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/FacilityShadingGridView.cpp" line="78" />
+        <location filename="../src/openstudio_lib/FacilityShadingGridView.cpp" line="78"/>
         <source>Filters:</source>
         <translation>フィルター:</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/FacilityShadingGridView.cpp" line="87" />
+        <location filename="../src/openstudio_lib/FacilityShadingGridView.cpp" line="87"/>
         <source>Shading Surface Name</source>
         <translation>日除けサーフェス名</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/FacilityShadingGridView.cpp" line="109" />
+        <location filename="../src/openstudio_lib/FacilityShadingGridView.cpp" line="109"/>
         <source>Shading Surface Type</source>
         <translation>日除けサーフェスタイプ</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/FacilityShadingGridView.cpp" line="114" />
+        <location filename="../src/openstudio_lib/FacilityShadingGridView.cpp" line="114"/>
         <source>All</source>
         <translation>全て</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/FacilityShadingGridView.cpp" line="115" />
+        <location filename="../src/openstudio_lib/FacilityShadingGridView.cpp" line="115"/>
         <source>Site</source>
         <translation>敷地</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/FacilityShadingGridView.cpp" line="116" />
+        <location filename="../src/openstudio_lib/FacilityShadingGridView.cpp" line="116"/>
         <source>Building</source>
         <translation>建物</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/FacilityShadingGridView.cpp" line="131" />
+        <location filename="../src/openstudio_lib/FacilityShadingGridView.cpp" line="131"/>
         <source>Degrees Tilt &gt;</source>
         <translation>傾き角度 &gt;</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/FacilityShadingGridView.cpp" line="152" />
+        <location filename="../src/openstudio_lib/FacilityShadingGridView.cpp" line="152"/>
         <source>Degrees Tilt &lt;</source>
         <translation>傾斜角度 &lt;</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/FacilityShadingGridView.cpp" line="173" />
+        <location filename="../src/openstudio_lib/FacilityShadingGridView.cpp" line="173"/>
         <source>Degrees Orientation &gt;</source>
         <translation>度数方向 &gt;</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/FacilityShadingGridView.cpp" line="193" />
+        <location filename="../src/openstudio_lib/FacilityShadingGridView.cpp" line="193"/>
         <source>Degrees Orientation &lt;</source>
         <translation>度数方向 &lt;</translation>
     </message>
@@ -22869,82 +22870,82 @@ Surface Group</source>
 <context>
     <name>openstudio::FacilityStoriesGridController</name>
     <message>
-        <location filename="../src/openstudio_lib/FacilityStoriesGridView.cpp" line="235" />
-        <location filename="../src/openstudio_lib/FacilityStoriesGridView.cpp" line="241" />
-        <location filename="../src/openstudio_lib/FacilityStoriesGridView.cpp" line="242" />
+        <location filename="../src/openstudio_lib/FacilityStoriesGridView.cpp" line="235"/>
+        <location filename="../src/openstudio_lib/FacilityStoriesGridView.cpp" line="241"/>
+        <location filename="../src/openstudio_lib/FacilityStoriesGridView.cpp" line="242"/>
         <source>Story Name</source>
         <translation>ストーリー名</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/FacilityStoriesGridView.cpp" line="235" />
-        <location filename="../src/openstudio_lib/FacilityStoriesGridView.cpp" line="258" />
-        <location filename="../src/openstudio_lib/FacilityStoriesGridView.cpp" line="263" />
+        <location filename="../src/openstudio_lib/FacilityStoriesGridView.cpp" line="235"/>
+        <location filename="../src/openstudio_lib/FacilityStoriesGridView.cpp" line="258"/>
+        <location filename="../src/openstudio_lib/FacilityStoriesGridView.cpp" line="263"/>
         <source>All</source>
         <translation>全て</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/FacilityStoriesGridView.cpp" line="232" />
-        <location filename="../src/openstudio_lib/FacilityStoriesGridView.cpp" line="244" />
-        <location filename="../src/openstudio_lib/FacilityStoriesGridView.cpp" line="245" />
+        <location filename="../src/openstudio_lib/FacilityStoriesGridView.cpp" line="232"/>
+        <location filename="../src/openstudio_lib/FacilityStoriesGridView.cpp" line="244"/>
+        <location filename="../src/openstudio_lib/FacilityStoriesGridView.cpp" line="245"/>
         <source>Display Name</source>
         <translation>表示名</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/FacilityStoriesGridView.cpp" line="232" />
-        <location filename="../src/openstudio_lib/FacilityStoriesGridView.cpp" line="251" />
-        <location filename="../src/openstudio_lib/FacilityStoriesGridView.cpp" line="252" />
+        <location filename="../src/openstudio_lib/FacilityStoriesGridView.cpp" line="232"/>
+        <location filename="../src/openstudio_lib/FacilityStoriesGridView.cpp" line="251"/>
+        <location filename="../src/openstudio_lib/FacilityStoriesGridView.cpp" line="252"/>
         <source>CAD Object ID</source>
         <translation>CADオブジェクトID</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/FacilityStoriesGridView.cpp" line="214" />
-        <location filename="../src/openstudio_lib/FacilityStoriesGridView.cpp" line="264" />
+        <location filename="../src/openstudio_lib/FacilityStoriesGridView.cpp" line="214"/>
+        <location filename="../src/openstudio_lib/FacilityStoriesGridView.cpp" line="264"/>
         <source>Nominal Z Coordinate</source>
         <translation>名目Z座標</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/FacilityStoriesGridView.cpp" line="215" />
-        <location filename="../src/openstudio_lib/FacilityStoriesGridView.cpp" line="265" />
-        <location filename="../src/openstudio_lib/FacilityStoriesGridView.cpp" line="267" />
-        <location filename="../src/openstudio_lib/FacilityStoriesGridView.cpp" line="268" />
+        <location filename="../src/openstudio_lib/FacilityStoriesGridView.cpp" line="215"/>
+        <location filename="../src/openstudio_lib/FacilityStoriesGridView.cpp" line="265"/>
+        <location filename="../src/openstudio_lib/FacilityStoriesGridView.cpp" line="267"/>
+        <location filename="../src/openstudio_lib/FacilityStoriesGridView.cpp" line="268"/>
         <source>Nominal Floor to Floor Height</source>
         <translation>床から床までの公称高さ</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/FacilityStoriesGridView.cpp" line="216" />
-        <location filename="../src/openstudio_lib/FacilityStoriesGridView.cpp" line="271" />
-        <location filename="../src/openstudio_lib/FacilityStoriesGridView.cpp" line="272" />
+        <location filename="../src/openstudio_lib/FacilityStoriesGridView.cpp" line="216"/>
+        <location filename="../src/openstudio_lib/FacilityStoriesGridView.cpp" line="271"/>
+        <location filename="../src/openstudio_lib/FacilityStoriesGridView.cpp" line="272"/>
         <source>Default Construction Set Name</source>
         <translation>デフォルト構成セット名</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/FacilityStoriesGridView.cpp" line="216" />
-        <location filename="../src/openstudio_lib/FacilityStoriesGridView.cpp" line="277" />
-        <location filename="../src/openstudio_lib/FacilityStoriesGridView.cpp" line="278" />
+        <location filename="../src/openstudio_lib/FacilityStoriesGridView.cpp" line="216"/>
+        <location filename="../src/openstudio_lib/FacilityStoriesGridView.cpp" line="277"/>
+        <location filename="../src/openstudio_lib/FacilityStoriesGridView.cpp" line="278"/>
         <source>Default Schedule Set Name</source>
         <translation>デフォルトスケジュールセット名</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/FacilityStoriesGridView.cpp" line="260" />
+        <location filename="../src/openstudio_lib/FacilityStoriesGridView.cpp" line="260"/>
         <source>Check to select all rows</source>
         <translation>全ての行を選択</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/FacilityStoriesGridView.cpp" line="263" />
+        <location filename="../src/openstudio_lib/FacilityStoriesGridView.cpp" line="263"/>
         <source>Check to select this row</source>
         <translation>このロウを選択するにはチェックします</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/FacilityStoriesGridView.cpp" line="214" />
-        <location filename="../src/openstudio_lib/FacilityStoriesGridView.cpp" line="282" />
-        <location filename="../src/openstudio_lib/FacilityStoriesGridView.cpp" line="283" />
+        <location filename="../src/openstudio_lib/FacilityStoriesGridView.cpp" line="214"/>
+        <location filename="../src/openstudio_lib/FacilityStoriesGridView.cpp" line="282"/>
+        <location filename="../src/openstudio_lib/FacilityStoriesGridView.cpp" line="283"/>
         <source>Group Rendering Name</source>
         <translation>グループレンダリング名</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/FacilityStoriesGridView.cpp" line="215" />
-        <location filename="../src/openstudio_lib/FacilityStoriesGridView.cpp" line="286" />
-        <location filename="../src/openstudio_lib/FacilityStoriesGridView.cpp" line="287" />
+        <location filename="../src/openstudio_lib/FacilityStoriesGridView.cpp" line="215"/>
+        <location filename="../src/openstudio_lib/FacilityStoriesGridView.cpp" line="286"/>
+        <location filename="../src/openstudio_lib/FacilityStoriesGridView.cpp" line="287"/>
         <source>Nominal Floor to Ceiling Height</source>
         <translation>床から天井までの標準高さ</translation>
     </message>
@@ -22957,7 +22958,7 @@ Surface Group</source>
         <translation>公称Z座標 &lt;</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/FacilityStoriesGridView.cpp" line="218" />
+        <location filename="../src/openstudio_lib/FacilityStoriesGridView.cpp" line="218"/>
         <source>General</source>
         <translation>一般</translation>
     </message>
@@ -22965,30 +22966,30 @@ Surface Group</source>
 <context>
     <name>openstudio::FacilityStoriesGridView</name>
     <message>
-        <location filename="../src/openstudio_lib/FacilityStoriesGridView.cpp" line="54" />
-        <location filename="../src/openstudio_lib/FacilityStoriesGridView.cpp" line="55" />
+        <location filename="../src/openstudio_lib/FacilityStoriesGridView.cpp" line="54"/>
+        <location filename="../src/openstudio_lib/FacilityStoriesGridView.cpp" line="55"/>
         <source>Building Stories</source>
         <translation>建物階数</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/FacilityStoriesGridView.cpp" line="55" />
+        <location filename="../src/openstudio_lib/FacilityStoriesGridView.cpp" line="55"/>
         <source>Drop
 Story</source>
         <translation>ドロップ
 ストーリー</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/FacilityStoriesGridView.cpp" line="71" />
+        <location filename="../src/openstudio_lib/FacilityStoriesGridView.cpp" line="71"/>
         <source>Filters:</source>
         <translation>フィルター:</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/FacilityStoriesGridView.cpp" line="80" />
+        <location filename="../src/openstudio_lib/FacilityStoriesGridView.cpp" line="80"/>
         <source>Nominal Z Coordinate &gt;</source>
         <translation>Nominal Z Coordinate &gt;</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/FacilityStoriesGridView.cpp" line="101" />
+        <location filename="../src/openstudio_lib/FacilityStoriesGridView.cpp" line="101"/>
         <source>Nominal Z Coordinate &lt;</source>
         <translation>公称Z座標 &lt;</translation>
     </message>
@@ -22996,22 +22997,22 @@ Story</source>
 <context>
     <name>openstudio::FacilityTabController</name>
     <message>
-        <location filename="../src/openstudio_lib/FacilityTabController.cpp" line="18" />
+        <location filename="../src/openstudio_lib/FacilityTabController.cpp" line="18"/>
         <source>Building</source>
         <translation>建物</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/FacilityTabController.cpp" line="19" />
+        <location filename="../src/openstudio_lib/FacilityTabController.cpp" line="19"/>
         <source>Stories</source>
         <translation>ストーリー</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/FacilityTabController.cpp" line="20" />
+        <location filename="../src/openstudio_lib/FacilityTabController.cpp" line="20"/>
         <source>Shading</source>
         <translation>シェーディング</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/FacilityTabController.cpp" line="21" />
+        <location filename="../src/openstudio_lib/FacilityTabController.cpp" line="21"/>
         <source>Exterior Equipment</source>
         <translation>外部機器</translation>
     </message>
@@ -23019,7 +23020,7 @@ Story</source>
 <context>
     <name>openstudio::FacilityTabView</name>
     <message>
-        <location filename="../src/openstudio_lib/FacilityTabView.cpp" line="10" />
+        <location filename="../src/openstudio_lib/FacilityTabView.cpp" line="10"/>
         <source>Facility</source>
         <translation>建物</translation>
     </message>
@@ -23027,42 +23028,42 @@ Story</source>
 <context>
     <name>openstudio::GasEquipmentDefinitionInspectorView</name>
     <message>
-        <location filename="../src/openstudio_lib/GasEquipmentInspectorView.cpp" line="36" />
+        <location filename="../src/openstudio_lib/GasEquipmentInspectorView.cpp" line="36"/>
         <source>Name: </source>
         <translation>ファイル名：</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/GasEquipmentInspectorView.cpp" line="45" />
+        <location filename="../src/openstudio_lib/GasEquipmentInspectorView.cpp" line="45"/>
         <source>Design Level: </source>
         <translation>設計レベル:</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/GasEquipmentInspectorView.cpp" line="55" />
+        <location filename="../src/openstudio_lib/GasEquipmentInspectorView.cpp" line="55"/>
         <source>Power Per Space Floor Area: </source>
         <translation>スペース床面積あたりの電力:</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/GasEquipmentInspectorView.cpp" line="65" />
+        <location filename="../src/openstudio_lib/GasEquipmentInspectorView.cpp" line="65"/>
         <source>Power Per Person: </source>
         <translation>人あたりの電力:</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/GasEquipmentInspectorView.cpp" line="75" />
+        <location filename="../src/openstudio_lib/GasEquipmentInspectorView.cpp" line="75"/>
         <source>Fraction Latent: </source>
         <translation>潜熱分率:</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/GasEquipmentInspectorView.cpp" line="85" />
+        <location filename="../src/openstudio_lib/GasEquipmentInspectorView.cpp" line="85"/>
         <source>Fraction Radiant: </source>
         <translation>放射率:</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/GasEquipmentInspectorView.cpp" line="95" />
+        <location filename="../src/openstudio_lib/GasEquipmentInspectorView.cpp" line="95"/>
         <source>Fraction Lost: </source>
         <translation>損失分率：</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/GasEquipmentInspectorView.cpp" line="105" />
+        <location filename="../src/openstudio_lib/GasEquipmentInspectorView.cpp" line="105"/>
         <source>Carbon Dioxide Generation Rate: </source>
         <translation>二酸化炭素発生率:</translation>
     </message>
@@ -23070,17 +23071,17 @@ Story</source>
 <context>
     <name>openstudio::GeometryTabController</name>
     <message>
-        <location filename="../src/openstudio_lib/GeometryTabController.cpp" line="24" />
+        <location filename="../src/openstudio_lib/GeometryTabController.cpp" line="24"/>
         <source>Geometry</source>
         <translation>ジオメトリ</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/GeometryTabController.cpp" line="25" />
+        <location filename="../src/openstudio_lib/GeometryTabController.cpp" line="25"/>
         <source>3D View</source>
         <translation>3Dビュー</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/GeometryTabController.cpp" line="29" />
+        <location filename="../src/openstudio_lib/GeometryTabController.cpp" line="29"/>
         <source>Editor</source>
         <translation>エディタ</translation>
     </message>
@@ -23111,27 +23112,27 @@ Story</source>
 <context>
     <name>openstudio::GroundTemperatureListView</name>
     <message>
-        <location filename="../src/openstudio_lib/GroundTemperatureView.cpp" line="93" />
+        <location filename="../src/openstudio_lib/GroundTemperatureView.cpp" line="93"/>
         <source>Building Surface Ground Temperatures</source>
         <translation>建物表面地面温度</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/GroundTemperatureView.cpp" line="94" />
+        <location filename="../src/openstudio_lib/GroundTemperatureView.cpp" line="94"/>
         <source>Shallow Ground Temperatures</source>
         <translation>浅層地盤温度</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/GroundTemperatureView.cpp" line="95" />
+        <location filename="../src/openstudio_lib/GroundTemperatureView.cpp" line="95"/>
         <source>Deep Ground Temperatures</source>
         <translation>深い地盤温度</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/GroundTemperatureView.cpp" line="96" />
+        <location filename="../src/openstudio_lib/GroundTemperatureView.cpp" line="96"/>
         <source>FCfactorMethod Ground Temperatures</source>
         <translation>FCfactorMethod 地盤温度</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/GroundTemperatureView.cpp" line="97" />
+        <location filename="../src/openstudio_lib/GroundTemperatureView.cpp" line="97"/>
         <source>Water Mains Temperature</source>
         <translation>水道本管温度</translation>
     </message>
@@ -23139,105 +23140,105 @@ Story</source>
 <context>
     <name>openstudio::GroundTemperatureNotPresentView</name>
     <message>
-        <location filename="../src/openstudio_lib/GroundTemperatureView.cpp" line="177" />
+        <location filename="../src/openstudio_lib/GroundTemperatureView.cpp" line="177"/>
         <source>Add</source>
         <translation>追加</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/GroundTemperatureView.cpp" line="188" />
+        <location filename="../src/openstudio_lib/GroundTemperatureView.cpp" line="188"/>
         <source>Import from EPW</source>
         <translation>EPWからインポート</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/GroundTemperatureView.cpp" line="225" />
+        <location filename="../src/openstudio_lib/GroundTemperatureView.cpp" line="225"/>
         <source>&lt;p&gt;The &lt;b&gt;%1&lt;/b&gt; Unique ModelObject is not present in this model.&lt;/p&gt;&lt;p&gt;Click Add to instantiate it.&lt;/p&gt;</source>
         <translation>この%1ユニークなモデルオブジェクトはこのモデルに存在しません。「追加」をクリックしてインスタンス化してください。</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/GroundTemperatureView.cpp" line="239" />
+        <location filename="../src/openstudio_lib/GroundTemperatureView.cpp" line="239"/>
         <source>No weather file is associated with the model, so the object will be added with default values.</source>
         <translation>モデルに関連付けられた気象ファイルがないため、オブジェクトはデフォルト値で追加されます。</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/GroundTemperatureView.cpp" line="255" />
+        <location filename="../src/openstudio_lib/GroundTemperatureView.cpp" line="255"/>
         <source>While a weather file is associated with the model, could not locate the underlying EpwFile, so the object will be added with default values.</source>
         <translation>モデルに関連付けられた気象ファイルがありますが、基になるEpwFileを見つけることができなかったため、オブジェクトはデフォルト値で追加されます。</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/GroundTemperatureView.cpp" line="263" />
+        <location filename="../src/openstudio_lib/GroundTemperatureView.cpp" line="263"/>
         <source>The weather file does not contain any ground temperature data, so the object will be added with default values.</source>
         <translation>気象ファイルに地盤温度データが含まれていないため、オブジェクトはデフォルト値で追加されます。</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/GroundTemperatureView.cpp" line="275" />
+        <location filename="../src/openstudio_lib/GroundTemperatureView.cpp" line="275"/>
         <source>The weather file does not contain ground temperature data at the expected depth of %1 m, so the object will be added with default values.</source>
         <translation>気象ファイルは予想される深さ %1 m での地盤温度データを含んでいないため、オブジェクトはデフォルト値で追加されます。</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/GroundTemperatureView.cpp" line="286" />
-        <source>The weather file contains ground temperature data at a depth of &lt;b&gt;&lt;span style="color: #1C7BBF;"&gt;%1 m&lt;/span&gt;&lt;/b&gt;, so you can choose to import those values or add the object with default values.</source>
-        <translation>気象ファイルには&lt;b&gt;&lt;span style="color: #1C7BBF;"&gt;%1 m&lt;/span&gt;&lt;/b&gt;の深さにおける地中温度データが含まれているため、それらの値をインポートするか、デフォルト値でオブジェクトを追加するかを選択できます。</translation>
+        <location filename="../src/openstudio_lib/GroundTemperatureView.cpp" line="286"/>
+        <source>The weather file contains ground temperature data at a depth of &lt;b&gt;&lt;span style=&quot;color: #1C7BBF;&quot;&gt;%1 m&lt;/span&gt;&lt;/b&gt;, so you can choose to import those values or add the object with default values.</source>
+        <translation>気象ファイルには&lt;b&gt;&lt;span style=&quot;color: #1C7BBF;&quot;&gt;%1 m&lt;/span&gt;&lt;/b&gt;の深さにおける地中温度データが含まれているため、それらの値をインポートするか、デフォルト値でオブジェクトを追加するかを選択できます。</translation>
     </message>
 </context>
 <context>
     <name>openstudio::HVACAirLoopControlsView</name>
     <message>
-        <location filename="../src/openstudio_lib/HVACSystemsView.cpp" line="341" />
+        <location filename="../src/openstudio_lib/HVACSystemsView.cpp" line="341"/>
         <source>Cooling Type: </source>
         <translation>冷却タイプ:</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/HVACSystemsView.cpp" line="349" />
+        <location filename="../src/openstudio_lib/HVACSystemsView.cpp" line="349"/>
         <source>Heating Type: </source>
         <translation>暖房タイプ:</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/HVACSystemsView.cpp" line="362" />
+        <location filename="../src/openstudio_lib/HVACSystemsView.cpp" line="362"/>
         <source>Time of Operation</source>
         <translation>運転時間</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/HVACSystemsView.cpp" line="366" />
+        <location filename="../src/openstudio_lib/HVACSystemsView.cpp" line="366"/>
         <source>HVAC Operation Schedule</source>
         <translation>HVAC運転スケジュール</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/HVACSystemsView.cpp" line="374" />
+        <location filename="../src/openstudio_lib/HVACSystemsView.cpp" line="374"/>
         <source>Use Night Cycle</source>
         <translation>夜間サイクルを使用</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/HVACSystemsView.cpp" line="382" />
+        <location filename="../src/openstudio_lib/HVACSystemsView.cpp" line="382"/>
         <source>Follow the HVAC Operation Schedule</source>
         <translation>HVAC運転スケジュールに従う</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/HVACSystemsView.cpp" line="383" />
+        <location filename="../src/openstudio_lib/HVACSystemsView.cpp" line="383"/>
         <source>Cycle on Full System if Heating or Cooling Required</source>
         <translation>暖房または冷房が必要な場合、フルシステムでサイクルを実行</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/HVACSystemsView.cpp" line="384" />
+        <location filename="../src/openstudio_lib/HVACSystemsView.cpp" line="384"/>
         <source>Cycle on Zone Terminal Units if Heating or Cooling Required</source>
         <translation>ゾーン末端ユニットが暖房または冷房が必要な場合はサイクルをオン</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/HVACSystemsView.cpp" line="396" />
+        <location filename="../src/openstudio_lib/HVACSystemsView.cpp" line="396"/>
         <source>Supply Air Temperature</source>
         <translation>給気温度</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/HVACSystemsView.cpp" line="409" />
+        <location filename="../src/openstudio_lib/HVACSystemsView.cpp" line="409"/>
         <source>Mechanical Ventilation</source>
         <translation>機械換気</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/HVACSystemsView.cpp" line="424" />
+        <location filename="../src/openstudio_lib/HVACSystemsView.cpp" line="424"/>
         <source>Availability Managers</source>
         <translation>アベイラビリティ マネージャー</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/HVACSystemsView.cpp" line="428" />
+        <location filename="../src/openstudio_lib/HVACSystemsView.cpp" line="428"/>
         <source>Availability Managers from highest precedence to lowest</source>
         <translation>最も高い優先度から最も低い優先度への可用性マネージャー</translation>
     </message>
@@ -23245,70 +23246,70 @@ Story</source>
 <context>
     <name>openstudio::HVACControlsController</name>
     <message>
-        <location filename="../src/openstudio_lib/HVACSystemsController.cpp" line="1017" />
+        <location filename="../src/openstudio_lib/HVACSystemsController.cpp" line="1017"/>
         <source>Unclassified Cooling Type</source>
         <translation>未分類冷却タイプ</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/HVACSystemsController.cpp" line="1021" />
-        <location filename="../src/openstudio_lib/HVACSystemsController.cpp" line="1026" />
-        <location filename="../src/openstudio_lib/HVACSystemsController.cpp" line="1036" />
+        <location filename="../src/openstudio_lib/HVACSystemsController.cpp" line="1021"/>
+        <location filename="../src/openstudio_lib/HVACSystemsController.cpp" line="1026"/>
+        <location filename="../src/openstudio_lib/HVACSystemsController.cpp" line="1036"/>
         <source>DX Cooling</source>
         <translation>DXクーリング</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/HVACSystemsController.cpp" line="1031" />
+        <location filename="../src/openstudio_lib/HVACSystemsController.cpp" line="1031"/>
         <source>Chilled Water</source>
         <translation>冷水</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/HVACSystemsController.cpp" line="1041" />
+        <location filename="../src/openstudio_lib/HVACSystemsController.cpp" line="1041"/>
         <source>Unclassified Heating Type</source>
         <translation>未分類暖房タイプ</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/HVACSystemsController.cpp" line="1045" />
+        <location filename="../src/openstudio_lib/HVACSystemsController.cpp" line="1045"/>
         <source>Gas Heating</source>
         <translation>ガスヒーティング</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/HVACSystemsController.cpp" line="1050" />
+        <location filename="../src/openstudio_lib/HVACSystemsController.cpp" line="1050"/>
         <source>Electric Heating</source>
         <translation>電気加熱</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/HVACSystemsController.cpp" line="1055" />
+        <location filename="../src/openstudio_lib/HVACSystemsController.cpp" line="1055"/>
         <source>Hot Water</source>
         <translation>ホットウォーター</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/HVACSystemsController.cpp" line="1060" />
+        <location filename="../src/openstudio_lib/HVACSystemsController.cpp" line="1060"/>
         <source>Air Source Heat Pump</source>
         <translation>空気源ヒートポンプ</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/HVACSystemsController.cpp" line="1354" />
-        <location filename="../src/openstudio_lib/HVACSystemsController.cpp" line="1511" />
+        <location filename="../src/openstudio_lib/HVACSystemsController.cpp" line="1354"/>
+        <location filename="../src/openstudio_lib/HVACSystemsController.cpp" line="1511"/>
         <source>Drag From Library</source>
         <translation>ライブラリからドラッグ</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/HVACSystemsController.cpp" line="1388" />
+        <location filename="../src/openstudio_lib/HVACSystemsController.cpp" line="1388"/>
         <source>Both</source>
         <translation>両方</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/HVACSystemsController.cpp" line="1391" />
+        <location filename="../src/openstudio_lib/HVACSystemsController.cpp" line="1391"/>
         <source>Heating</source>
         <translation>暖房</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/HVACSystemsController.cpp" line="1394" />
+        <location filename="../src/openstudio_lib/HVACSystemsController.cpp" line="1394"/>
         <source>Cooling</source>
         <translation>冷房</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/HVACSystemsController.cpp" line="1397" />
+        <location filename="../src/openstudio_lib/HVACSystemsController.cpp" line="1397"/>
         <source>None</source>
         <translation>なし</translation>
     </message>
@@ -23316,52 +23317,52 @@ Story</source>
 <context>
     <name>openstudio::HVACPlantLoopControlsView</name>
     <message>
-        <location filename="../src/openstudio_lib/HVACSystemsView.cpp" line="452" />
+        <location filename="../src/openstudio_lib/HVACSystemsView.cpp" line="452"/>
         <source>HVAC System</source>
         <translation>HVACシステム</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/HVACSystemsView.cpp" line="462" />
+        <location filename="../src/openstudio_lib/HVACSystemsView.cpp" line="462"/>
         <source>Plant Loop Type: </source>
         <translation>プラントループタイプ:</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/HVACSystemsView.cpp" line="480" />
+        <location filename="../src/openstudio_lib/HVACSystemsView.cpp" line="480"/>
         <source>Plant Equipment Operation Schemes</source>
         <translation>プラント機器運転スキーム</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/HVACSystemsView.cpp" line="494" />
+        <location filename="../src/openstudio_lib/HVACSystemsView.cpp" line="494"/>
         <source>Heating Components:</source>
         <translation>暖房コンポーネント:</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/HVACSystemsView.cpp" line="506" />
+        <location filename="../src/openstudio_lib/HVACSystemsView.cpp" line="506"/>
         <source>Cooling Components:</source>
         <translation>冷房コンポーネント:</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/HVACSystemsView.cpp" line="518" />
+        <location filename="../src/openstudio_lib/HVACSystemsView.cpp" line="518"/>
         <source>Setpoint Components:</source>
         <translation>セットポイント成分:</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/HVACSystemsView.cpp" line="530" />
+        <location filename="../src/openstudio_lib/HVACSystemsView.cpp" line="530"/>
         <source>Uncontrolled Components:</source>
         <translation>制御されていないコンポーネント:</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/HVACSystemsView.cpp" line="544" />
+        <location filename="../src/openstudio_lib/HVACSystemsView.cpp" line="544"/>
         <source>Supply Water Temperature</source>
         <translation>給水温度</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/HVACSystemsView.cpp" line="559" />
+        <location filename="../src/openstudio_lib/HVACSystemsView.cpp" line="559"/>
         <source>Availability Managers</source>
         <translation>可用性マネージャー</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/HVACSystemsView.cpp" line="563" />
+        <location filename="../src/openstudio_lib/HVACSystemsView.cpp" line="563"/>
         <source>Availability Managers from highest precedence to lowest</source>
         <translation>優先度が最も高いものから最も低いものへのアベイラビリティマネージャー</translation>
     </message>
@@ -23369,17 +23370,17 @@ Story</source>
 <context>
     <name>openstudio::HVACSystemsController</name>
     <message>
-        <location filename="../src/openstudio_lib/HVACSystemsController.cpp" line="252" />
+        <location filename="../src/openstudio_lib/HVACSystemsController.cpp" line="252"/>
         <source>Service Hot Water</source>
         <translation>給湯</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/HVACSystemsController.cpp" line="253" />
+        <location filename="../src/openstudio_lib/HVACSystemsController.cpp" line="253"/>
         <source>Refrigeration</source>
         <translation>冷凍・冷蔵</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/HVACSystemsController.cpp" line="254" />
+        <location filename="../src/openstudio_lib/HVACSystemsController.cpp" line="254"/>
         <source>VRF</source>
         <translation>VRF</translation>
     </message>
@@ -23419,7 +23420,7 @@ Story</source>
 <context>
     <name>openstudio::HVACSystemsTabView</name>
     <message>
-        <location filename="../src/openstudio_lib/HVACSystemsTabView.cpp" line="10" />
+        <location filename="../src/openstudio_lib/HVACSystemsTabView.cpp" line="10"/>
         <source>HVAC Systems</source>
         <translation>HVAC システム</translation>
     </message>
@@ -23427,17 +23428,17 @@ Story</source>
 <context>
     <name>openstudio::HVACToolbarView</name>
     <message>
-        <location filename="../src/openstudio_lib/HVACSystemsView.cpp" line="117" />
+        <location filename="../src/openstudio_lib/HVACSystemsView.cpp" line="117"/>
         <source>Layout</source>
         <translation>レイアウト</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/HVACSystemsView.cpp" line="123" />
+        <location filename="../src/openstudio_lib/HVACSystemsView.cpp" line="123"/>
         <source>Control</source>
         <translation>コントロール</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/HVACSystemsView.cpp" line="129" />
+        <location filename="../src/openstudio_lib/HVACSystemsView.cpp" line="129"/>
         <source>Grid</source>
         <translation>グリッド</translation>
     </message>
@@ -23445,8 +23446,8 @@ Story</source>
 <context>
     <name>openstudio::HorizontalBranchItem</name>
     <message>
-        <location filename="../src/openstudio_lib/GridItem.cpp" line="647" />
-        <location filename="../src/openstudio_lib/GridItem.cpp" line="704" />
+        <location filename="../src/openstudio_lib/GridItem.cpp" line="647"/>
+        <location filename="../src/openstudio_lib/GridItem.cpp" line="704"/>
         <source>Drag From Library</source>
         <translation>ライブラリからドラッグ</translation>
     </message>
@@ -23454,12 +23455,12 @@ Story</source>
 <context>
     <name>openstudio::HorizontalHeaderWidget</name>
     <message>
-        <location filename="../src/shared_gui_components/OSGridController.cpp" line="876" />
-        <source>Check to add this column to "Custom"</source>
+        <location filename="../src/shared_gui_components/OSGridController.cpp" line="876"/>
+        <source>Check to add this column to &quot;Custom&quot;</source>
         <translation>このカラムを「カスタム」に追加するにはチェックしてください</translation>
     </message>
     <message>
-        <location filename="../src/shared_gui_components/OSGridController.cpp" line="899" />
+        <location filename="../src/shared_gui_components/OSGridController.cpp" line="899"/>
         <source>Apply to Selected</source>
         <translation>選択したものに適用</translation>
     </message>
@@ -23467,37 +23468,37 @@ Story</source>
 <context>
     <name>openstudio::HotWaterEquipmentDefinitionInspectorView</name>
     <message>
-        <location filename="../src/openstudio_lib/HotWaterEquipmentInspectorView.cpp" line="35" />
+        <location filename="../src/openstudio_lib/HotWaterEquipmentInspectorView.cpp" line="35"/>
         <source>Name: </source>
         <translation>ファイル名：</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/HotWaterEquipmentInspectorView.cpp" line="43" />
+        <location filename="../src/openstudio_lib/HotWaterEquipmentInspectorView.cpp" line="43"/>
         <source>Design Level: </source>
         <translation>設計レベル:</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/HotWaterEquipmentInspectorView.cpp" line="53" />
+        <location filename="../src/openstudio_lib/HotWaterEquipmentInspectorView.cpp" line="53"/>
         <source>Watts Per Space Floor Area: </source>
         <translation>スペース床面積当たりのワット数：</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/HotWaterEquipmentInspectorView.cpp" line="63" />
+        <location filename="../src/openstudio_lib/HotWaterEquipmentInspectorView.cpp" line="63"/>
         <source>Watts Per Person: </source>
         <translation>人当たりワット:</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/HotWaterEquipmentInspectorView.cpp" line="73" />
+        <location filename="../src/openstudio_lib/HotWaterEquipmentInspectorView.cpp" line="73"/>
         <source>Fraction Latent: </source>
         <translation>潜熱分率:</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/HotWaterEquipmentInspectorView.cpp" line="83" />
+        <location filename="../src/openstudio_lib/HotWaterEquipmentInspectorView.cpp" line="83"/>
         <source>Fraction Radiant: </source>
         <translation>放射分率：</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/HotWaterEquipmentInspectorView.cpp" line="93" />
+        <location filename="../src/openstudio_lib/HotWaterEquipmentInspectorView.cpp" line="93"/>
         <source>Fraction Lost: </source>
         <translation>損失率:</translation>
     </message>
@@ -23505,7 +23506,7 @@ Story</source>
 <context>
     <name>openstudio::HotWaterSupplyItem</name>
     <message>
-        <location filename="../src/openstudio_lib/ServiceWaterGridItems.cpp" line="555" />
+        <location filename="../src/openstudio_lib/ServiceWaterGridItems.cpp" line="555"/>
         <source>Go back to hot water supply system</source>
         <translation>温水供給システムに戻る</translation>
     </message>
@@ -23513,27 +23514,27 @@ Story</source>
 <context>
     <name>openstudio::InternalMassDefinitionInspectorView</name>
     <message>
-        <location filename="../src/openstudio_lib/InternalMassInspectorView.cpp" line="43" />
+        <location filename="../src/openstudio_lib/InternalMassInspectorView.cpp" line="43"/>
         <source>Name: </source>
         <translation>ファイル名：</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/InternalMassInspectorView.cpp" line="52" />
+        <location filename="../src/openstudio_lib/InternalMassInspectorView.cpp" line="52"/>
         <source>Surface Area: </source>
         <translation>表面積:</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/InternalMassInspectorView.cpp" line="62" />
+        <location filename="../src/openstudio_lib/InternalMassInspectorView.cpp" line="62"/>
         <source>Surface Area Per Space Floor Area: </source>
         <translation>Surface Area Per Space Floor Area:</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/InternalMassInspectorView.cpp" line="72" />
+        <location filename="../src/openstudio_lib/InternalMassInspectorView.cpp" line="72"/>
         <source>Surface Area Per Person: </source>
         <translation>人あたりの表面積:</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/InternalMassInspectorView.cpp" line="82" />
+        <location filename="../src/openstudio_lib/InternalMassInspectorView.cpp" line="82"/>
         <source>Construction: </source>
         <translation>構成:</translation>
     </message>
@@ -23541,32 +23542,32 @@ Story</source>
 <context>
     <name>openstudio::LibraryDialog</name>
     <message>
-        <location filename="../src/openstudio_app/LibraryDialog.cpp" line="28" />
+        <location filename="../src/openstudio_app/LibraryDialog.cpp" line="28"/>
         <source>Change Default Libraries</source>
         <translation>デフォルトライブラリの変更</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_app/LibraryDialog.cpp" line="42" />
+        <location filename="../src/openstudio_app/LibraryDialog.cpp" line="42"/>
         <source>Add</source>
         <translation>追加</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_app/LibraryDialog.cpp" line="46" />
+        <location filename="../src/openstudio_app/LibraryDialog.cpp" line="46"/>
         <source>Remove</source>
         <translation>削除</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_app/LibraryDialog.cpp" line="52" />
+        <location filename="../src/openstudio_app/LibraryDialog.cpp" line="52"/>
         <source>Restore Defaults</source>
         <translation>デフォルトに戻す</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_app/LibraryDialog.cpp" line="68" />
+        <location filename="../src/openstudio_app/LibraryDialog.cpp" line="68"/>
         <source>Select OpenStudio Library</source>
         <translation>OpenStudioライブラリーを選択</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_app/LibraryDialog.cpp" line="68" />
+        <location filename="../src/openstudio_app/LibraryDialog.cpp" line="68"/>
         <source>OpenStudio Files (*.osm)</source>
         <translation>OpenStudioファイル (*.osm)</translation>
     </message>
@@ -23574,9 +23575,9 @@ Story</source>
 <context>
     <name>openstudio::LibraryItemDelegate</name>
     <message>
-        <location filename="../src/shared_gui_components/LocalLibraryController.cpp" line="507" />
+        <location filename="../src/shared_gui_components/LocalLibraryController.cpp" line="507"/>
         <source>Python Measures are not supported in the Classic CLI.
-You can change CLI version using 'Preferences-&gt;Use Classic CLI'.</source>
+You can change CLI version using &apos;Preferences-&gt;Use Classic CLI&apos;.</source>
         <translation>Pythonメジャーはクラシックでは使用できません。
 CLIのバージョンは「設定-&gt;クラシックCLIを使用」で変更できます。</translation>
     </message>
@@ -23584,7 +23585,7 @@ CLIのバージョンは「設定-&gt;クラシックCLIを使用」で変更で
 <context>
     <name>openstudio::LibraryItemView</name>
     <message>
-        <location filename="../src/shared_gui_components/LocalLibraryView.cpp" line="140" />
+        <location filename="../src/shared_gui_components/LocalLibraryView.cpp" line="140"/>
         <source>Measure</source>
         <translation>メジャー</translation>
     </message>
@@ -23592,117 +23593,117 @@ CLIのバージョンは「設定-&gt;クラシックCLIを使用」で変更で
 <context>
     <name>openstudio::LifeCycleCostsView</name>
     <message>
-        <location filename="../src/openstudio_lib/LifeCycleCostsTabView.cpp" line="61" />
+        <location filename="../src/openstudio_lib/LifeCycleCostsTabView.cpp" line="61"/>
         <source>Life Cycle Cost Parameters</source>
         <translation>ライフサイクルコスト パラメータ</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/LifeCycleCostsTabView.cpp" line="66" />
+        <location filename="../src/openstudio_lib/LifeCycleCostsTabView.cpp" line="66"/>
         <source>Performed using constant dollar methodology.  The base date and service date are assumed to be January 1, 2012.</source>
         <translation>定額ドル法を使用して実施されます。基準日およびサービス開始日は2012年1月1日と仮定されます。</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/LifeCycleCostsTabView.cpp" line="83" />
+        <location filename="../src/openstudio_lib/LifeCycleCostsTabView.cpp" line="83"/>
         <source>Analysis Type</source>
         <translation>解析タイプ</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/LifeCycleCostsTabView.cpp" line="91" />
+        <location filename="../src/openstudio_lib/LifeCycleCostsTabView.cpp" line="91"/>
         <source>Federal Energy Management Program (FEMP)</source>
         <translation>Federal Energy Management Program (FEMP)</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/LifeCycleCostsTabView.cpp" line="95" />
+        <location filename="../src/openstudio_lib/LifeCycleCostsTabView.cpp" line="95"/>
         <source>Custom</source>
         <translation>カスタム</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/LifeCycleCostsTabView.cpp" line="111" />
+        <location filename="../src/openstudio_lib/LifeCycleCostsTabView.cpp" line="111"/>
         <source>Analysis Length (Years)</source>
         <translation>分析期間（年数）</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/LifeCycleCostsTabView.cpp" line="125" />
+        <location filename="../src/openstudio_lib/LifeCycleCostsTabView.cpp" line="125"/>
         <source>Real Discount Rate (fraction)</source>
         <translation>実質割引率 (小数)</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/LifeCycleCostsTabView.cpp" line="145" />
+        <location filename="../src/openstudio_lib/LifeCycleCostsTabView.cpp" line="145"/>
         <source>Use National Institute of Standards and Technology (NIST) Fuel Escalation Rates</source>
         <translation>米国国立標準技術研究所（NIST）燃料エスカレーション率を使用</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/LifeCycleCostsTabView.cpp" line="153" />
+        <location filename="../src/openstudio_lib/LifeCycleCostsTabView.cpp" line="153"/>
         <source>Yes</source>
         <translation>はい</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/LifeCycleCostsTabView.cpp" line="157" />
+        <location filename="../src/openstudio_lib/LifeCycleCostsTabView.cpp" line="157"/>
         <source>No</source>
         <translation>いいえ</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/LifeCycleCostsTabView.cpp" line="190" />
+        <location filename="../src/openstudio_lib/LifeCycleCostsTabView.cpp" line="190"/>
         <source>Inflation Rates (Relative to general inflation)</source>
         <translation>インフレーション率（一般的なインフレーションに対する相対値）</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/LifeCycleCostsTabView.cpp" line="205" />
+        <location filename="../src/openstudio_lib/LifeCycleCostsTabView.cpp" line="205"/>
         <source>Electricity (fraction)</source>
         <translation>電気（分率）</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/LifeCycleCostsTabView.cpp" line="220" />
+        <location filename="../src/openstudio_lib/LifeCycleCostsTabView.cpp" line="220"/>
         <source>Natural Gas (fraction)</source>
         <translation>天然ガス（分率）</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/LifeCycleCostsTabView.cpp" line="233" />
+        <location filename="../src/openstudio_lib/LifeCycleCostsTabView.cpp" line="233"/>
         <source>Steam (fraction)</source>
         <translation>蒸気（分率）</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/LifeCycleCostsTabView.cpp" line="246" />
+        <location filename="../src/openstudio_lib/LifeCycleCostsTabView.cpp" line="246"/>
         <source>Gasoline (fraction)</source>
         <translation>ガソリン(分率)</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/LifeCycleCostsTabView.cpp" line="262" />
+        <location filename="../src/openstudio_lib/LifeCycleCostsTabView.cpp" line="262"/>
         <source>Diesel (fraction)</source>
         <translation>ディーゼル（分率）</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/LifeCycleCostsTabView.cpp" line="275" />
+        <location filename="../src/openstudio_lib/LifeCycleCostsTabView.cpp" line="275"/>
         <source>Propane (fraction)</source>
         <translation>プロパン（分率）</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/LifeCycleCostsTabView.cpp" line="288" />
+        <location filename="../src/openstudio_lib/LifeCycleCostsTabView.cpp" line="288"/>
         <source>Coal (fraction)</source>
         <translation>石炭（割合）</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/LifeCycleCostsTabView.cpp" line="301" />
+        <location filename="../src/openstudio_lib/LifeCycleCostsTabView.cpp" line="301"/>
         <source>Fuel Oil #1 (fraction)</source>
         <translation>燃料油#1（分率）</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/LifeCycleCostsTabView.cpp" line="317" />
+        <location filename="../src/openstudio_lib/LifeCycleCostsTabView.cpp" line="317"/>
         <source>Fuel Oil #2 (fraction)</source>
         <translation>燃料油 #2 (分率)</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/LifeCycleCostsTabView.cpp" line="330" />
+        <location filename="../src/openstudio_lib/LifeCycleCostsTabView.cpp" line="330"/>
         <source>Water (fraction)</source>
         <translation>水（分率）</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/LifeCycleCostsTabView.cpp" line="360" />
+        <location filename="../src/openstudio_lib/LifeCycleCostsTabView.cpp" line="360"/>
         <source>NIST Region</source>
         <translation>NIST地域</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/LifeCycleCostsTabView.cpp" line="373" />
+        <location filename="../src/openstudio_lib/LifeCycleCostsTabView.cpp" line="373"/>
         <source>NIST Sector</source>
         <translation>NIST セクター</translation>
     </message>
@@ -23710,37 +23711,37 @@ CLIのバージョンは「設定-&gt;クラシックCLIを使用」で変更で
 <context>
     <name>openstudio::LightsDefinitionInspectorView</name>
     <message>
-        <location filename="../src/openstudio_lib/LightsInspectorView.cpp" line="36" />
+        <location filename="../src/openstudio_lib/LightsInspectorView.cpp" line="36"/>
         <source>Name: </source>
         <translation>ファイル名：</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/LightsInspectorView.cpp" line="45" />
+        <location filename="../src/openstudio_lib/LightsInspectorView.cpp" line="45"/>
         <source>Lighting Power: </source>
         <translation>照明電力:</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/LightsInspectorView.cpp" line="55" />
+        <location filename="../src/openstudio_lib/LightsInspectorView.cpp" line="55"/>
         <source>Watts Per Space Floor Area: </source>
         <translation>スペース床面積当たりワット数：</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/LightsInspectorView.cpp" line="65" />
+        <location filename="../src/openstudio_lib/LightsInspectorView.cpp" line="65"/>
         <source>Watts Per Person: </source>
         <translation>人当たりワット:</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/LightsInspectorView.cpp" line="75" />
+        <location filename="../src/openstudio_lib/LightsInspectorView.cpp" line="75"/>
         <source>Fraction Radiant: </source>
         <translation>放射率分率:</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/LightsInspectorView.cpp" line="85" />
+        <location filename="../src/openstudio_lib/LightsInspectorView.cpp" line="85"/>
         <source>Fraction Visible: </source>
         <translation>可視率:</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/LightsInspectorView.cpp" line="95" />
+        <location filename="../src/openstudio_lib/LightsInspectorView.cpp" line="95"/>
         <source>Return Air Fraction: </source>
         <translation>戻り空気割合:</translation>
     </message>
@@ -23748,52 +23749,52 @@ CLIのバージョンは「設定-&gt;クラシックCLIを使用」で変更で
 <context>
     <name>openstudio::LoadsView</name>
     <message>
-        <location filename="../src/openstudio_lib/LoadsView.cpp" line="45" />
+        <location filename="../src/openstudio_lib/LoadsView.cpp" line="45"/>
         <source>People Definitions</source>
         <translation>人員定義</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/LoadsView.cpp" line="46" />
+        <location filename="../src/openstudio_lib/LoadsView.cpp" line="46"/>
         <source>Lights Definitions</source>
         <translation>照明定義</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/LoadsView.cpp" line="47" />
+        <location filename="../src/openstudio_lib/LoadsView.cpp" line="47"/>
         <source>Luminaire Definitions</source>
         <translation>照明器具の定義</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/LoadsView.cpp" line="48" />
+        <location filename="../src/openstudio_lib/LoadsView.cpp" line="48"/>
         <source>Electric Equipment Definitions</source>
         <translation>電気機器定義</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/LoadsView.cpp" line="49" />
+        <location filename="../src/openstudio_lib/LoadsView.cpp" line="49"/>
         <source>Gas Equipment Definitions</source>
         <translation>ガス機器定義</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/LoadsView.cpp" line="50" />
+        <location filename="../src/openstudio_lib/LoadsView.cpp" line="50"/>
         <source>Steam Equipment Definitions</source>
         <translation>スチーム機器定義</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/LoadsView.cpp" line="51" />
+        <location filename="../src/openstudio_lib/LoadsView.cpp" line="51"/>
         <source>Other Equipment Definitions</source>
         <translation>その他機器定義</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/LoadsView.cpp" line="52" />
+        <location filename="../src/openstudio_lib/LoadsView.cpp" line="52"/>
         <source>Internal Mass Definitions</source>
         <translation>内部熱容量定義</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/LoadsView.cpp" line="53" />
+        <location filename="../src/openstudio_lib/LoadsView.cpp" line="53"/>
         <source>Water Use Equipment Definitions</source>
         <translation>給湯機器定義</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/LoadsView.cpp" line="54" />
+        <location filename="../src/openstudio_lib/LoadsView.cpp" line="54"/>
         <source>Hot Water Equipment Definitions</source>
         <translation>ホットウォーター機器定義</translation>
     </message>
@@ -23801,32 +23802,32 @@ CLIのバージョンは「設定-&gt;クラシックCLIを使用」で変更で
 <context>
     <name>openstudio::LocalLibraryView</name>
     <message>
-        <location filename="../src/shared_gui_components/LocalLibraryView.cpp" line="62" />
+        <location filename="../src/shared_gui_components/LocalLibraryView.cpp" line="62"/>
         <source>Copy Selected Measure and Add to My Measures</source>
         <translation>選択したメジャーをコピーして自分のメジャーに追加</translation>
     </message>
     <message>
-        <location filename="../src/shared_gui_components/LocalLibraryView.cpp" line="67" />
+        <location filename="../src/shared_gui_components/LocalLibraryView.cpp" line="67"/>
         <source>Create a Measure from Template and add to My Measures</source>
         <translation>テンプレートからメジャーを作成して「My Measures」に追加</translation>
     </message>
     <message>
-        <location filename="../src/shared_gui_components/LocalLibraryView.cpp" line="71" />
+        <location filename="../src/shared_gui_components/LocalLibraryView.cpp" line="71"/>
         <source>Look for BCL measure updates online</source>
         <translation>BCL対策のオンライン更新を確認</translation>
     </message>
     <message>
-        <location filename="../src/shared_gui_components/LocalLibraryView.cpp" line="78" />
+        <location filename="../src/shared_gui_components/LocalLibraryView.cpp" line="78"/>
         <source>Open the My Measures Directory</source>
         <translation>My Measuresディレクトリを開く</translation>
     </message>
     <message>
-        <location filename="../src/shared_gui_components/LocalLibraryView.cpp" line="87" />
+        <location filename="../src/shared_gui_components/LocalLibraryView.cpp" line="87"/>
         <source>Find Measures on BCL</source>
         <translation>BCL でメジャーを検索</translation>
     </message>
     <message>
-        <location filename="../src/shared_gui_components/LocalLibraryView.cpp" line="88" />
+        <location filename="../src/shared_gui_components/LocalLibraryView.cpp" line="88"/>
         <source>Connect to Online BCL to Download New Measures and Update Existing Measures to Library</source>
         <translation>オンラインBCLに接続して新しいメジャーをダウンロードし、既存のメジャーをライブラリに更新</translation>
     </message>
@@ -23834,22 +23835,22 @@ CLIのバージョンは「設定-&gt;クラシックCLIを使用」で変更で
 <context>
     <name>openstudio::LocationTabController</name>
     <message>
-        <location filename="../src/openstudio_lib/LocationTabController.cpp" line="30" />
+        <location filename="../src/openstudio_lib/LocationTabController.cpp" line="30"/>
         <source>Weather File &amp;&amp; Design Days</source>
         <translation>気象データと条件設定</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/LocationTabController.cpp" line="31" />
+        <location filename="../src/openstudio_lib/LocationTabController.cpp" line="31"/>
         <source>Life Cycle Costs</source>
         <translation>ライフサイクルコスト</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/LocationTabController.cpp" line="32" />
+        <location filename="../src/openstudio_lib/LocationTabController.cpp" line="32"/>
         <source>Utility Bills</source>
         <translation>光熱費</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/LocationTabController.cpp" line="33" />
+        <location filename="../src/openstudio_lib/LocationTabController.cpp" line="33"/>
         <source>Ground Temperatures</source>
         <translation>地盤温度</translation>
     </message>
@@ -23857,7 +23858,7 @@ CLIのバージョンは「設定-&gt;クラシックCLIを使用」で変更で
 <context>
     <name>openstudio::LocationTabView</name>
     <message>
-        <location filename="../src/openstudio_lib/LocationTabView.cpp" line="126" />
+        <location filename="../src/openstudio_lib/LocationTabView.cpp" line="126"/>
         <source>Site</source>
         <translation>敷地</translation>
     </message>
@@ -23865,12 +23866,12 @@ CLIのバージョンは「設定-&gt;クラシックCLIを使用」で変更で
 <context>
     <name>openstudio::LocationView</name>
     <message>
-        <location filename="../src/openstudio_lib/LocationTabView.cpp" line="212" />
+        <location filename="../src/openstudio_lib/LocationTabView.cpp" line="212"/>
         <source>Weather File</source>
         <translation>気象データ</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/LocationTabView.cpp" line="233" />
+        <location filename="../src/openstudio_lib/LocationTabView.cpp" line="233"/>
         <source>Name: </source>
         <translation>ファイル名：</translation>
     </message>
@@ -23891,145 +23892,145 @@ CLIのバージョンは「設定-&gt;クラシックCLIを使用」で変更で
         <translation>タイムゾーン：</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/LocationTabView.cpp" line="258" />
-        <source>Download weather files at &lt;a href="http://www.energyplus.net/weather"&gt;www.energyplus.net/weather&lt;/a&gt;</source>
-        <translation>気象データをダウンロード： &lt;a href="http://www.energyplus.net/weather"&gt;www.energyplus.net/weather&lt;/a&gt;</translation>
+        <location filename="../src/openstudio_lib/LocationTabView.cpp" line="258"/>
+        <source>Download weather files at &lt;a href=&quot;http://www.energyplus.net/weather&quot;&gt;www.energyplus.net/weather&lt;/a&gt;</source>
+        <translation>気象データをダウンロード： &lt;a href=&quot;http://www.energyplus.net/weather&quot;&gt;www.energyplus.net/weather&lt;/a&gt;</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/LocationTabView.cpp" line="269" />
+        <location filename="../src/openstudio_lib/LocationTabView.cpp" line="269"/>
         <source>Site Information:</source>
         <translation>サイト情報:</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/LocationTabView.cpp" line="276" />
+        <location filename="../src/openstudio_lib/LocationTabView.cpp" line="276"/>
         <source>Keep Site Location Information</source>
         <translation>サイト位置情報を保持</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/LocationTabView.cpp" line="277" />
+        <location filename="../src/openstudio_lib/LocationTabView.cpp" line="277"/>
         <source>If enabled, this will write the Site:Location object that will keep the Elevation change for example.</source>
         <translation>有効にすると、高さの変化などを保持するSite:Locationオブジェクトが書き込まれます。</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/LocationTabView.cpp" line="316" />
-        <source>Elevation affects the wind speed at the site, and is defaulted to the Weather File's elevation</source>
+        <location filename="../src/openstudio_lib/LocationTabView.cpp" line="316"/>
+        <source>Elevation affects the wind speed at the site, and is defaulted to the Weather File&apos;s elevation</source>
         <translation>標高はサイトの風速に影響し、デフォルトは気象ファイルの標高に設定されています</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/LocationTabView.cpp" line="330" />
+        <location filename="../src/openstudio_lib/LocationTabView.cpp" line="330"/>
         <source>Terrain</source>
         <translation>地形</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/LocationTabView.cpp" line="331" />
+        <location filename="../src/openstudio_lib/LocationTabView.cpp" line="331"/>
         <source>Terrain affects the wind speed at the site.</source>
         <translation>地形は敷地の風速に影響を与えます。</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/LocationTabView.cpp" line="353" />
+        <location filename="../src/openstudio_lib/LocationTabView.cpp" line="353"/>
         <source>Measure Tags (Optional):</source>
         <translation>メジャータブ（任意）：</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/LocationTabView.cpp" line="357" />
+        <location filename="../src/openstudio_lib/LocationTabView.cpp" line="357"/>
         <source>ASHRAE Climate Zone</source>
         <translation>ASHRAE気候帯</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/LocationTabView.cpp" line="390" />
+        <location filename="../src/openstudio_lib/LocationTabView.cpp" line="390"/>
         <source>CEC Climate Zone</source>
         <translation>CEC気候帯</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/LocationTabView.cpp" line="459" />
-        <location filename="../src/openstudio_lib/LocationTabView.cpp" line="894" />
-        <location filename="../src/openstudio_lib/LocationTabView.cpp" line="903" />
+        <location filename="../src/openstudio_lib/LocationTabView.cpp" line="459"/>
+        <location filename="../src/openstudio_lib/LocationTabView.cpp" line="894"/>
+        <location filename="../src/openstudio_lib/LocationTabView.cpp" line="903"/>
         <source>Design Days</source>
         <translation>気象条件</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/LocationTabView.cpp" line="462" />
+        <location filename="../src/openstudio_lib/LocationTabView.cpp" line="462"/>
         <source>Import From DDY</source>
         <translation>DDYからインポート</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/LocationTabView.cpp" line="615" />
+        <location filename="../src/openstudio_lib/LocationTabView.cpp" line="615"/>
         <source>Change Weather File</source>
         <translation>気象データの変更</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/LocationTabView.cpp" line="619" />
-        <location filename="../src/openstudio_lib/LocationTabView.cpp" line="623" />
+        <location filename="../src/openstudio_lib/LocationTabView.cpp" line="619"/>
+        <location filename="../src/openstudio_lib/LocationTabView.cpp" line="623"/>
         <source>Set Weather File</source>
         <translation>気象データの選択</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/LocationTabView.cpp" line="667" />
+        <location filename="../src/openstudio_lib/LocationTabView.cpp" line="667"/>
         <source>EPW Files (*.epw);; All Files (*.*)</source>
         <translation>EPW (*.epw);; すべてのファイル形式(*.*)</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/LocationTabView.cpp" line="678" />
+        <location filename="../src/openstudio_lib/LocationTabView.cpp" line="678"/>
         <source>Open Weather File</source>
         <translation>気象データを開く</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/LocationTabView.cpp" line="769" />
+        <location filename="../src/openstudio_lib/LocationTabView.cpp" line="769"/>
         <source>Failed To Set Weather File</source>
         <translation>気象データの選択に失敗しました</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/LocationTabView.cpp" line="769" />
+        <location filename="../src/openstudio_lib/LocationTabView.cpp" line="769"/>
         <source>Failed To Set Weather File To </source>
         <translation>気象データの選択に失敗しました</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/LocationTabView.cpp" line="852" />
-        <source>There are &lt;span style="font-weight:bold;"&gt;%1&lt;/span&gt; Design Days available for import</source>
-        <translation>インポート可能な&lt;span style="font-weight:bold;"&gt;%1&lt;/span&gt;個のDesign Daysがあります</translation>
+        <location filename="../src/openstudio_lib/LocationTabView.cpp" line="852"/>
+        <source>There are &lt;span style=&quot;font-weight:bold;&quot;&gt;%1&lt;/span&gt; Design Days available for import</source>
+        <translation>インポート可能な&lt;span style=&quot;font-weight:bold;&quot;&gt;%1&lt;/span&gt;個のDesign Daysがあります</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/LocationTabView.cpp" line="854" />
+        <location filename="../src/openstudio_lib/LocationTabView.cpp" line="854"/>
         <source>, %1 of which are unknown type</source>
         <translation>, %1 個は不明な型です</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/LocationTabView.cpp" line="876" />
+        <location filename="../src/openstudio_lib/LocationTabView.cpp" line="876"/>
         <source>Heating</source>
         <translation>暖房</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/LocationTabView.cpp" line="879" />
+        <location filename="../src/openstudio_lib/LocationTabView.cpp" line="879"/>
         <source>Cooling</source>
         <translation>冷房</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/LocationTabView.cpp" line="916" />
+        <location filename="../src/openstudio_lib/LocationTabView.cpp" line="916"/>
         <source>OK</source>
         <translation>OK</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/LocationTabView.cpp" line="932" />
+        <location filename="../src/openstudio_lib/LocationTabView.cpp" line="932"/>
         <source>Cancel</source>
         <translation>キャンセル</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/LocationTabView.cpp" line="936" />
+        <location filename="../src/openstudio_lib/LocationTabView.cpp" line="936"/>
         <source>Import all</source>
         <translation>すべてインポート</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/LocationTabView.cpp" line="966" />
+        <location filename="../src/openstudio_lib/LocationTabView.cpp" line="966"/>
         <source>Open DDY File</source>
         <translation>DDYファイルを開く</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/LocationTabView.cpp" line="1016" />
+        <location filename="../src/openstudio_lib/LocationTabView.cpp" line="1016"/>
         <source>No Design Days in DDY File</source>
         <translation>DDYファイルに気象条件がありません</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/LocationTabView.cpp" line="1017" />
+        <location filename="../src/openstudio_lib/LocationTabView.cpp" line="1017"/>
         <source>This DDY file does not contain any valid design days.  Check the DDY file itself for errors or omissions.</source>
         <translation>DDYファイルに有効な気象条件がありません。ファイルにエラーや欠損がないか確認してください。</translation>
     </message>
@@ -24037,7 +24038,7 @@ CLIのバージョンは「設定-&gt;クラシックCLIを使用」で変更で
 <context>
     <name>openstudio::LoopItemView</name>
     <message>
-        <location filename="../src/openstudio_lib/LoopLibraryDialog.cpp" line="141" />
+        <location filename="../src/openstudio_lib/LoopLibraryDialog.cpp" line="141"/>
         <source>Add to Model</source>
         <translation>モデルに追加</translation>
     </message>
@@ -24045,60 +24046,60 @@ CLIのバージョンは「設定-&gt;クラシックCLIを使用」で変更で
 <context>
     <name>openstudio::LoopLibraryDialog</name>
     <message>
-        <location filename="../src/openstudio_lib/LoopLibraryDialog.cpp" line="22" />
+        <location filename="../src/openstudio_lib/LoopLibraryDialog.cpp" line="22"/>
         <source>Add HVAC System</source>
         <translation>HVACシステムを追加</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/LoopLibraryDialog.cpp" line="30" />
+        <location filename="../src/openstudio_lib/LoopLibraryDialog.cpp" line="30"/>
         <source>HVAC Systems</source>
         <translation>HVAC システム</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/LoopLibraryDialog.cpp" line="70" />
+        <location filename="../src/openstudio_lib/LoopLibraryDialog.cpp" line="70"/>
         <source>Packaged Rooftop Unit</source>
         <translation>パッケージ型屋上ユニット</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/LoopLibraryDialog.cpp" line="72" />
+        <location filename="../src/openstudio_lib/LoopLibraryDialog.cpp" line="72"/>
         <source>Packaged Rooftop Heat Pump</source>
         <translation>パッケージ型屋上ヒートポンプ</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/LoopLibraryDialog.cpp" line="74" />
+        <location filename="../src/openstudio_lib/LoopLibraryDialog.cpp" line="74"/>
         <source>Packaged DX Rooftop VAV 
 with Reheat</source>
         <translation>パッケージDXルーフトップVAV 再加熱付き</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/LoopLibraryDialog.cpp" line="76" />
+        <location filename="../src/openstudio_lib/LoopLibraryDialog.cpp" line="76"/>
         <source>Packaged Rooftop 
 VAV with Parallel Fan 
 Power Boxes and reheat</source>
         <translation>パッケージ化ルーフトップ VAV（並列ファンパワーボックス付き）とリヒート</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/LoopLibraryDialog.cpp" line="78" />
+        <location filename="../src/openstudio_lib/LoopLibraryDialog.cpp" line="78"/>
         <source>Packaged Rooftop 
 VAV with Reheat</source>
         <translation>パッケージ屋上
 リハート付きVAV</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/LoopLibraryDialog.cpp" line="80" />
+        <location filename="../src/openstudio_lib/LoopLibraryDialog.cpp" line="80"/>
         <source>VAV with Parallel Fan-Powered 
 Boxes and Reheat</source>
         <translation>VAV (可変風量)パラレルファンパワードボックス付きリヒート</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/LoopLibraryDialog.cpp" line="82" />
+        <location filename="../src/openstudio_lib/LoopLibraryDialog.cpp" line="82"/>
         <source>Warm Air Furnace 
 Gas Fired</source>
         <translation>温風ファーネス
 ガス焚き</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/LoopLibraryDialog.cpp" line="84" />
+        <location filename="../src/openstudio_lib/LoopLibraryDialog.cpp" line="84"/>
         <source>Warm Air Furnace 
 Electric</source>
         <translation>温風炉
@@ -24141,22 +24142,22 @@ Electric</source>
 電気</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/LoopLibraryDialog.cpp" line="86" />
+        <location filename="../src/openstudio_lib/LoopLibraryDialog.cpp" line="86"/>
         <source>Empty Air Loop</source>
         <translation>空のエアループ</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/LoopLibraryDialog.cpp" line="88" />
+        <location filename="../src/openstudio_lib/LoopLibraryDialog.cpp" line="88"/>
         <source>Dual Duct Air Loop</source>
         <translation>デュアルダクト空気ループ</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/LoopLibraryDialog.cpp" line="90" />
+        <location filename="../src/openstudio_lib/LoopLibraryDialog.cpp" line="90"/>
         <source>Empty Plant Loop</source>
         <translation>空のプラントループ</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/LoopLibraryDialog.cpp" line="92" />
+        <location filename="../src/openstudio_lib/LoopLibraryDialog.cpp" line="92"/>
         <source>Service Hot Water Plant Loop</source>
         <translation>サービス給湯プラントループ</translation>
     </message>
@@ -24216,7 +24217,7 @@ Electric</source>
         <translation>あとで再試行。</translation>
     </message>
     <message>
-        <source>Verify your computer's internet connection then click "Lost Cloud Connection" to recover the lost cloud session.</source>
+        <source>Verify your computer&apos;s internet connection then click &quot;Lost Cloud Connection&quot; to recover the lost cloud session.</source>
         <translation>インターネットに接続していることを再確認し、「クラウド接続が失われました」をクリックしてクラウドセッションを回復してください。</translation>
     </message>
     <message>
@@ -24243,27 +24244,27 @@ Electric</source>
 <context>
     <name>openstudio::LuminaireDefinitionInspectorView</name>
     <message>
-        <location filename="../src/openstudio_lib/LuminaireInspectorView.cpp" line="36" />
+        <location filename="../src/openstudio_lib/LuminaireInspectorView.cpp" line="36"/>
         <source>Name: </source>
         <translation>ファイル名：</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/LuminaireInspectorView.cpp" line="45" />
+        <location filename="../src/openstudio_lib/LuminaireInspectorView.cpp" line="45"/>
         <source>Lighting Power: </source>
         <translation>照明電力:</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/LuminaireInspectorView.cpp" line="55" />
+        <location filename="../src/openstudio_lib/LuminaireInspectorView.cpp" line="55"/>
         <source>Fraction Radiant: </source>
         <translation>放射分率：</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/LuminaireInspectorView.cpp" line="65" />
+        <location filename="../src/openstudio_lib/LuminaireInspectorView.cpp" line="65"/>
         <source>Fraction Visible: </source>
         <translation>可視比率：</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/LuminaireInspectorView.cpp" line="75" />
+        <location filename="../src/openstudio_lib/LuminaireInspectorView.cpp" line="75"/>
         <source>Return Air Fraction: </source>
         <translation>還気比率：</translation>
     </message>
@@ -24271,316 +24272,316 @@ Electric</source>
 <context>
     <name>openstudio::MainMenu</name>
     <message>
-        <location filename="../src/openstudio_lib/MainMenu.cpp" line="34" />
+        <location filename="../src/openstudio_lib/MainMenu.cpp" line="34"/>
         <source>&amp;File</source>
         <translation>ファイル(&amp;F)</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/MainMenu.cpp" line="38" />
+        <location filename="../src/openstudio_lib/MainMenu.cpp" line="38"/>
         <source>&amp;New</source>
         <translation>新規作成(&amp;N)</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/MainMenu.cpp" line="44" />
+        <location filename="../src/openstudio_lib/MainMenu.cpp" line="44"/>
         <source>&amp;Open</source>
         <translation>開く(&amp;O)</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/MainMenu.cpp" line="51" />
-        <location filename="../src/openstudio_lib/MainMenu.cpp" line="960" />
+        <location filename="../src/openstudio_lib/MainMenu.cpp" line="51"/>
+        <location filename="../src/openstudio_lib/MainMenu.cpp" line="960"/>
         <source>&amp;Revert to Saved</source>
         <translation>最後に保存した状態に戻る(&amp;R)</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/MainMenu.cpp" line="52" />
+        <location filename="../src/openstudio_lib/MainMenu.cpp" line="52"/>
         <source>Ctrl+R</source>
         <translation>Ctrl+R</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/MainMenu.cpp" line="58" />
+        <location filename="../src/openstudio_lib/MainMenu.cpp" line="58"/>
         <source>&amp;Save</source>
         <translation>上書き保存(&amp;S)</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/MainMenu.cpp" line="63" />
+        <location filename="../src/openstudio_lib/MainMenu.cpp" line="63"/>
         <source>Save &amp;As</source>
         <translation>名前を付けて保存(&amp;A)</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/MainMenu.cpp" line="71" />
+        <location filename="../src/openstudio_lib/MainMenu.cpp" line="71"/>
         <source>&amp;Import</source>
         <translation>インポート(&amp;I)</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/MainMenu.cpp" line="73" />
-        <location filename="../src/openstudio_lib/MainMenu.cpp" line="95" />
+        <location filename="../src/openstudio_lib/MainMenu.cpp" line="73"/>
+        <location filename="../src/openstudio_lib/MainMenu.cpp" line="95"/>
         <source>&amp;IDF</source>
         <translation>&amp;IDF</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/MainMenu.cpp" line="78" />
-        <location filename="../src/openstudio_lib/MainMenu.cpp" line="99" />
+        <location filename="../src/openstudio_lib/MainMenu.cpp" line="78"/>
+        <location filename="../src/openstudio_lib/MainMenu.cpp" line="99"/>
         <source>&amp;gbXML</source>
         <translation>&amp;gbXML</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/MainMenu.cpp" line="83" />
-        <location filename="../src/openstudio_lib/MainMenu.cpp" line="103" />
+        <location filename="../src/openstudio_lib/MainMenu.cpp" line="83"/>
+        <location filename="../src/openstudio_lib/MainMenu.cpp" line="103"/>
         <source>&amp;SDD</source>
         <translation>&amp;SDD</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/MainMenu.cpp" line="88" />
+        <location filename="../src/openstudio_lib/MainMenu.cpp" line="88"/>
         <source>I&amp;FC</source>
         <translation>I&amp;FC</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/MainMenu.cpp" line="93" />
+        <location filename="../src/openstudio_lib/MainMenu.cpp" line="93"/>
         <source>&amp;Export</source>
         <translation>エキスポート(&amp;E)</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/MainMenu.cpp" line="107" />
+        <location filename="../src/openstudio_lib/MainMenu.cpp" line="107"/>
         <source>&amp;Load Library</source>
         <translation>ライブラリーを開く(&amp;L)</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/MainMenu.cpp" line="113" />
+        <location filename="../src/openstudio_lib/MainMenu.cpp" line="113"/>
         <source>E&amp;xamples</source>
         <translation>例&amp;示</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/MainMenu.cpp" line="115" />
+        <location filename="../src/openstudio_lib/MainMenu.cpp" line="115"/>
         <source>&amp;Example Model</source>
         <translation>&amp;サンプルモデル</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/MainMenu.cpp" line="119" />
+        <location filename="../src/openstudio_lib/MainMenu.cpp" line="119"/>
         <source>Shoebox Model</source>
         <translation>Shoebox Model</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/MainMenu.cpp" line="132" />
+        <location filename="../src/openstudio_lib/MainMenu.cpp" line="132"/>
         <source>E&amp;xit</source>
         <translation>終了(&amp;X)</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/MainMenu.cpp" line="139" />
+        <location filename="../src/openstudio_lib/MainMenu.cpp" line="139"/>
         <source>&amp;Preferences</source>
         <translation>プレファレンス(&amp;P)</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/MainMenu.cpp" line="142" />
+        <location filename="../src/openstudio_lib/MainMenu.cpp" line="142"/>
         <source>&amp;Units</source>
         <translation>単位系(&amp;U)</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/MainMenu.cpp" line="144" />
+        <location filename="../src/openstudio_lib/MainMenu.cpp" line="144"/>
         <source>Metric (&amp;SI)</source>
         <translation>&amp;SI単位</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/MainMenu.cpp" line="150" />
+        <location filename="../src/openstudio_lib/MainMenu.cpp" line="150"/>
         <source>English (&amp;I-P)</source>
         <translation>&amp;IP単位</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/MainMenu.cpp" line="156" />
+        <location filename="../src/openstudio_lib/MainMenu.cpp" line="156"/>
         <source>&amp;Change My Measures Directory</source>
         <translation>メジャーディレクトリの変更(&amp;C)</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/MainMenu.cpp" line="161" />
+        <location filename="../src/openstudio_lib/MainMenu.cpp" line="161"/>
         <source>&amp;Change Default Libraries</source>
         <translation>デフォルトライブラリーの変更(&amp;C)</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/MainMenu.cpp" line="166" />
+        <location filename="../src/openstudio_lib/MainMenu.cpp" line="166"/>
         <source>&amp;Configure External Tools</source>
         <translation>外部ツールの変更(&amp;C)</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/MainMenu.cpp" line="171" />
+        <location filename="../src/openstudio_lib/MainMenu.cpp" line="171"/>
         <source>&amp;Language</source>
         <translation>言語選択(&amp;L)</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/MainMenu.cpp" line="173" />
+        <location filename="../src/openstudio_lib/MainMenu.cpp" line="173"/>
         <source>English</source>
         <translation>英語（米国）</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/MainMenu.cpp" line="179" />
+        <location filename="../src/openstudio_lib/MainMenu.cpp" line="179"/>
         <source>French</source>
         <translation>フランス語</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/MainMenu.cpp" line="251" />
+        <location filename="../src/openstudio_lib/MainMenu.cpp" line="251"/>
         <source>Arabic</source>
         <translation>アラビア語</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/MainMenu.cpp" line="185" />
+        <location filename="../src/openstudio_lib/MainMenu.cpp" line="185"/>
         <source>Spanish</source>
         <translation>スペイン語</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/MainMenu.cpp" line="191" />
+        <location filename="../src/openstudio_lib/MainMenu.cpp" line="191"/>
         <source>Farsi</source>
         <translation>ペルシア語</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/MainMenu.cpp" line="257" />
+        <location filename="../src/openstudio_lib/MainMenu.cpp" line="257"/>
         <source>Hebrew</source>
         <translation>ヘブライ語</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/MainMenu.cpp" line="263" />
+        <location filename="../src/openstudio_lib/MainMenu.cpp" line="263"/>
         <source>Portuguese</source>
         <translation>ポルトガル語</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/MainMenu.cpp" line="269" />
+        <location filename="../src/openstudio_lib/MainMenu.cpp" line="269"/>
         <source>Korean</source>
         <translation>韓国語</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/MainMenu.cpp" line="275" />
+        <location filename="../src/openstudio_lib/MainMenu.cpp" line="275"/>
         <source>Turkish</source>
         <translation>トルコ語</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/MainMenu.cpp" line="281" />
+        <location filename="../src/openstudio_lib/MainMenu.cpp" line="281"/>
         <source>Indonesian</source>
         <translation>インドネシア語</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/MainMenu.cpp" line="197" />
+        <location filename="../src/openstudio_lib/MainMenu.cpp" line="197"/>
         <source>Italian</source>
         <translation>イタリア語</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/MainMenu.cpp" line="203" />
+        <location filename="../src/openstudio_lib/MainMenu.cpp" line="203"/>
         <source>Chinese</source>
         <translation>中国語</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/MainMenu.cpp" line="209" />
+        <location filename="../src/openstudio_lib/MainMenu.cpp" line="209"/>
         <source>Greek</source>
         <translation>ギリシャ語</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/MainMenu.cpp" line="215" />
+        <location filename="../src/openstudio_lib/MainMenu.cpp" line="215"/>
         <source>Polish</source>
         <translation>ポーランド語</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/MainMenu.cpp" line="221" />
+        <location filename="../src/openstudio_lib/MainMenu.cpp" line="221"/>
         <source>Catalan</source>
         <translation>カタロニア語</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/MainMenu.cpp" line="227" />
+        <location filename="../src/openstudio_lib/MainMenu.cpp" line="227"/>
         <source>Hindi</source>
         <translation>ヒンディー語</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/MainMenu.cpp" line="233" />
+        <location filename="../src/openstudio_lib/MainMenu.cpp" line="233"/>
         <source>Vietnamese</source>
         <translation>ベトナム語</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/MainMenu.cpp" line="239" />
+        <location filename="../src/openstudio_lib/MainMenu.cpp" line="239"/>
         <source>Japanese</source>
         <translation>日本語</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/MainMenu.cpp" line="245" />
+        <location filename="../src/openstudio_lib/MainMenu.cpp" line="245"/>
         <source>German</source>
         <translation>ドイツ語</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/MainMenu.cpp" line="287" />
+        <location filename="../src/openstudio_lib/MainMenu.cpp" line="287"/>
         <source>Add a new language</source>
         <translation>新しい言語の追加</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/MainMenu.cpp" line="304" />
+        <location filename="../src/openstudio_lib/MainMenu.cpp" line="304"/>
         <source>&amp;Configure Internet Proxy</source>
         <translation>インターネットプロキシの設定(&amp;C)</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/MainMenu.cpp" line="309" />
+        <location filename="../src/openstudio_lib/MainMenu.cpp" line="309"/>
         <source>&amp;Use Classic CLI</source>
         <translation>&amp;クラシック CLI を使用</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/MainMenu.cpp" line="315" />
+        <location filename="../src/openstudio_lib/MainMenu.cpp" line="315"/>
         <source>&amp;Display Additional Proprerties</source>
         <translation>&amp;追加プロパティを表示</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/MainMenu.cpp" line="398" />
+        <location filename="../src/openstudio_lib/MainMenu.cpp" line="398"/>
         <source>&amp;Components &amp;&amp; Measures</source>
         <translation>コンポーネントとメジャー(&amp;C)</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/MainMenu.cpp" line="401" />
+        <location filename="../src/openstudio_lib/MainMenu.cpp" line="401"/>
         <source>&amp;Apply Measure Now</source>
         <translation>メジャーを適用する(&amp;A)</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/MainMenu.cpp" line="403" />
+        <location filename="../src/openstudio_lib/MainMenu.cpp" line="403"/>
         <source>Ctrl+M</source>
         <translation>Ctrl+M</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/MainMenu.cpp" line="407" />
+        <location filename="../src/openstudio_lib/MainMenu.cpp" line="407"/>
         <source>Find &amp;Measures</source>
         <translation>メジャーを探す(&amp;M)</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/MainMenu.cpp" line="412" />
+        <location filename="../src/openstudio_lib/MainMenu.cpp" line="412"/>
         <source>Find &amp;Components</source>
         <translation>コンポーネントを探す(&amp;C)</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/MainMenu.cpp" line="418" />
+        <location filename="../src/openstudio_lib/MainMenu.cpp" line="418"/>
         <source>&amp;Help</source>
         <translation>ヘルプ(&amp;H)</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/MainMenu.cpp" line="421" />
+        <location filename="../src/openstudio_lib/MainMenu.cpp" line="421"/>
         <source>OpenStudio &amp;Help</source>
         <translation>OpenStudioヘルプ(&amp;H)</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/MainMenu.cpp" line="425" />
+        <location filename="../src/openstudio_lib/MainMenu.cpp" line="425"/>
         <source>Check For &amp;Update</source>
         <translation>更新を確認(&amp;U)</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/MainMenu.cpp" line="429" />
+        <location filename="../src/openstudio_lib/MainMenu.cpp" line="429"/>
         <source>Allow Analytics</source>
         <translation>分析を許可</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/MainMenu.cpp" line="436" />
+        <location filename="../src/openstudio_lib/MainMenu.cpp" line="436"/>
         <source>Debug Webgl</source>
         <translation>Debug WebGL</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/MainMenu.cpp" line="440" />
+        <location filename="../src/openstudio_lib/MainMenu.cpp" line="440"/>
         <source>&amp;About</source>
         <translation>OpenStudioについて(&amp;A)</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/MainMenu.cpp" line="920" />
+        <location filename="../src/openstudio_lib/MainMenu.cpp" line="920"/>
         <source>Adding a new language</source>
         <translation>新しい言語の追加</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/MainMenu.cpp" line="921" />
+        <location filename="../src/openstudio_lib/MainMenu.cpp" line="921"/>
         <source>Adding a new language requires almost no coding skill, but it does require language skills: the only thing to do is to translate each sentence/word with the help of a dedicated software.
 If you would like to see the OpenStudioApplication translated in your language of choice, we would welcome your help. Send an email to osc@openstudiocoalition.org specifying which language you want to add, and we will be in touch to help you get started.</source>
         <translation>新しい言語の追加にはプログラミングスキルは必要ありませんが、その言語を知っているだけで大丈夫です：専用ソフトを使い、それぞれの単語や文章を翻訳するだけです。
@@ -24590,1651 +24591,1651 @@ If you would like to see the OpenStudioApplication translated in your language o
 <context>
     <name>openstudio::MainRightColumnController</name>
     <message>
-        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="232" />
-        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="249" />
-        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="286" />
-        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="303" />
-        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="576" />
-        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="612" />
-        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="640" />
-        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="676" />
-        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="730" />
-        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="779" />
-        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="845" />
-        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="897" />
-        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="950" />
-        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="1069" />
+        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="232"/>
+        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="249"/>
+        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="286"/>
+        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="303"/>
+        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="576"/>
+        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="612"/>
+        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="640"/>
+        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="676"/>
+        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="730"/>
+        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="779"/>
+        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="845"/>
+        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="897"/>
+        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="950"/>
+        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="1069"/>
         <source>Schedule File</source>
         <translation>スケジュールファイル</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="233" />
-        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="250" />
-        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="287" />
-        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="304" />
-        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="577" />
-        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="613" />
-        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="641" />
-        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="677" />
-        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="731" />
-        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="780" />
-        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="846" />
-        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="898" />
-        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="951" />
-        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="1070" />
+        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="233"/>
+        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="250"/>
+        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="287"/>
+        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="304"/>
+        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="577"/>
+        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="613"/>
+        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="641"/>
+        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="677"/>
+        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="731"/>
+        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="780"/>
+        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="846"/>
+        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="898"/>
+        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="951"/>
+        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="1070"/>
         <source>Variable Interval Schedules</source>
         <translation>可変間隔スケジュール</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="234" />
-        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="251" />
-        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="288" />
-        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="305" />
-        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="578" />
-        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="614" />
-        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="642" />
-        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="678" />
-        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="732" />
-        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="781" />
-        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="847" />
-        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="899" />
-        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="952" />
-        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="1071" />
+        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="234"/>
+        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="251"/>
+        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="288"/>
+        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="305"/>
+        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="578"/>
+        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="614"/>
+        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="642"/>
+        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="678"/>
+        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="732"/>
+        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="781"/>
+        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="847"/>
+        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="899"/>
+        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="952"/>
+        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="1071"/>
         <source>Fixed Interval Schedules</source>
         <translation>固定間隔スケジュール</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="235" />
-        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="252" />
-        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="289" />
-        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="306" />
-        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="579" />
-        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="615" />
-        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="643" />
-        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="679" />
-        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="733" />
-        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="782" />
-        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="848" />
-        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="900" />
-        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="953" />
-        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="1072" />
+        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="235"/>
+        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="252"/>
+        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="289"/>
+        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="306"/>
+        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="579"/>
+        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="615"/>
+        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="643"/>
+        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="679"/>
+        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="733"/>
+        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="782"/>
+        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="848"/>
+        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="900"/>
+        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="953"/>
+        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="1072"/>
         <source>Year Schedules</source>
         <translation>年間スケジュール</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="236" />
-        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="253" />
-        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="290" />
-        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="307" />
-        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="347" />
-        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="580" />
-        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="616" />
-        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="644" />
-        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="680" />
-        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="734" />
-        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="783" />
-        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="849" />
-        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="901" />
-        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="954" />
-        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="1073" />
+        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="236"/>
+        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="253"/>
+        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="290"/>
+        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="307"/>
+        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="347"/>
+        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="580"/>
+        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="616"/>
+        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="644"/>
+        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="680"/>
+        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="734"/>
+        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="783"/>
+        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="849"/>
+        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="901"/>
+        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="954"/>
+        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="1073"/>
         <source>Constant Schedules</source>
         <translation>定数スケジュール</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="237" />
-        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="254" />
-        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="291" />
-        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="308" />
-        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="581" />
-        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="617" />
-        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="645" />
-        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="681" />
-        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="735" />
-        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="784" />
-        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="850" />
-        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="902" />
-        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="955" />
-        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="997" />
-        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="1074" />
+        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="237"/>
+        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="254"/>
+        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="291"/>
+        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="308"/>
+        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="581"/>
+        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="617"/>
+        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="645"/>
+        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="681"/>
+        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="735"/>
+        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="784"/>
+        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="850"/>
+        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="902"/>
+        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="955"/>
+        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="997"/>
+        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="1074"/>
         <source>Compact Schedules</source>
         <translation>コンパクトスケジュール</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="238" />
-        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="255" />
-        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="292" />
-        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="309" />
-        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="582" />
-        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="618" />
-        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="646" />
-        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="682" />
-        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="736" />
-        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="785" />
-        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="851" />
-        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="903" />
-        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="956" />
-        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="1075" />
+        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="238"/>
+        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="255"/>
+        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="292"/>
+        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="309"/>
+        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="582"/>
+        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="618"/>
+        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="646"/>
+        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="682"/>
+        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="736"/>
+        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="785"/>
+        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="851"/>
+        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="903"/>
+        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="956"/>
+        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="1075"/>
         <source>Ruleset Schedules</source>
         <translation>ルールセット スケジュール</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="239" />
-        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="256" />
-        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="293" />
-        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="310" />
-        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="330" />
-        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="349" />
-        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="583" />
-        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="619" />
-        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="647" />
-        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="683" />
-        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="737" />
-        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="786" />
-        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="852" />
-        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="904" />
-        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="957" />
-        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="999" />
-        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="1076" />
+        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="239"/>
+        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="256"/>
+        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="293"/>
+        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="310"/>
+        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="330"/>
+        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="349"/>
+        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="583"/>
+        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="619"/>
+        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="647"/>
+        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="683"/>
+        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="737"/>
+        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="786"/>
+        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="852"/>
+        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="904"/>
+        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="957"/>
+        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="999"/>
+        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="1076"/>
         <source>Schedules</source>
         <translation>スケジュール</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="311" />
-        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="312" />
-        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="662" />
-        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="700" />
-        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="754" />
-        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="807" />
-        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="868" />
-        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="921" />
+        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="311"/>
+        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="312"/>
+        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="662"/>
+        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="700"/>
+        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="754"/>
+        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="807"/>
+        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="868"/>
+        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="921"/>
         <source>Schedule Sets</source>
         <translation>スケジュールセット</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="329" />
-        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="998" />
+        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="329"/>
+        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="998"/>
         <source>Schedule Rulesets</source>
         <translation>スケジュールルールセット</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="60" />
+        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="60"/>
         <source>My Model</source>
         <translation>マイモデル</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="66" />
+        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="66"/>
         <source>Library</source>
         <translation>ライブラリ</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="71" />
+        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="71"/>
         <source>Edit</source>
         <translation>編集</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="384" />
-        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="385" />
-        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="400" />
-        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="401" />
-        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="476" />
-        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="477" />
-        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="574" />
-        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="575" />
-        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="599" />
-        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="600" />
-        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="728" />
-        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="729" />
-        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="777" />
-        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="778" />
-        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="843" />
-        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="844" />
-        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="895" />
-        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="896" />
+        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="384"/>
+        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="385"/>
+        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="400"/>
+        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="401"/>
+        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="476"/>
+        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="477"/>
+        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="574"/>
+        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="575"/>
+        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="599"/>
+        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="600"/>
+        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="728"/>
+        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="729"/>
+        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="777"/>
+        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="778"/>
+        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="843"/>
+        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="844"/>
+        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="895"/>
+        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="896"/>
         <source>Constructions</source>
         <translation>構成</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="402" />
-        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="403" />
-        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="663" />
-        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="701" />
-        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="755" />
-        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="808" />
-        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="869" />
-        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="922" />
+        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="402"/>
+        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="403"/>
+        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="663"/>
+        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="701"/>
+        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="755"/>
+        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="808"/>
+        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="869"/>
+        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="922"/>
         <source>Construction Sets</source>
         <translation>構成セット</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="383" />
-        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="399" />
-        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="475" />
-        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="573" />
-        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="598" />
-        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="727" />
-        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="776" />
-        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="842" />
-        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="894" />
+        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="383"/>
+        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="399"/>
+        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="475"/>
+        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="573"/>
+        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="598"/>
+        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="727"/>
+        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="776"/>
+        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="842"/>
+        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="894"/>
         <source>Air Boundary Constructions</source>
         <translation>空気境界構造</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="382" />
-        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="398" />
-        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="474" />
-        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="572" />
-        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="597" />
-        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="726" />
-        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="775" />
-        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="841" />
-        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="893" />
+        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="382"/>
+        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="398"/>
+        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="474"/>
+        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="572"/>
+        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="597"/>
+        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="726"/>
+        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="775"/>
+        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="841"/>
+        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="893"/>
         <source>Internal Source Constructions</source>
         <translation>内部熱源構成</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="381" />
-        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="397" />
-        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="473" />
-        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="571" />
-        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="596" />
-        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="725" />
-        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="774" />
-        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="840" />
-        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="892" />
+        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="381"/>
+        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="397"/>
+        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="473"/>
+        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="571"/>
+        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="596"/>
+        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="725"/>
+        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="774"/>
+        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="840"/>
+        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="892"/>
         <source>C-factor Underground Wall Constructions</source>
         <translation>C-factor地下壁構成</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="380" />
-        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="396" />
-        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="472" />
-        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="570" />
-        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="595" />
-        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="724" />
-        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="773" />
-        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="839" />
-        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="891" />
+        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="380"/>
+        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="396"/>
+        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="472"/>
+        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="570"/>
+        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="595"/>
+        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="724"/>
+        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="773"/>
+        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="839"/>
+        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="891"/>
         <source>F-factor Ground Floor Constructions</source>
         <translation>F-factor 地盤階床構成</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="379" />
-        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="395" />
-        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="471" />
-        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="569" />
-        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="594" />
-        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="723" />
-        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="772" />
-        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="838" />
-        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="890" />
+        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="379"/>
+        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="395"/>
+        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="471"/>
+        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="569"/>
+        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="594"/>
+        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="723"/>
+        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="772"/>
+        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="838"/>
+        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="890"/>
         <source>Window Data File Constructions</source>
         <translation>ウィンドウ データ ファイル コンストラクション</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="438" />
-        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="439" />
-        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="468" />
-        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="469" />
-        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="521" />
-        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="522" />
+        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="438"/>
+        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="439"/>
+        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="468"/>
+        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="469"/>
+        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="521"/>
+        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="522"/>
         <source>Materials</source>
         <translation>材料</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="437" />
-        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="467" />
-        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="520" />
+        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="437"/>
+        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="467"/>
+        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="520"/>
         <source>No Mass Materials</source>
         <translation>ノーマスマテリアル</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="436" />
-        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="466" />
-        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="519" />
+        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="436"/>
+        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="466"/>
+        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="519"/>
         <source>Air Gap Materials</source>
         <translation>空気層材料</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="435" />
-        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="465" />
-        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="518" />
+        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="435"/>
+        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="465"/>
+        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="518"/>
         <source>Infrared Transparent Materials</source>
         <translation>赤外線透過材料</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="434" />
-        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="464" />
-        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="517" />
+        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="434"/>
+        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="464"/>
+        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="517"/>
         <source>Roof Vegetation Materials</source>
         <translation>屋根植生材料</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="432" />
-        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="462" />
-        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="515" />
+        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="432"/>
+        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="462"/>
+        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="515"/>
         <source>Window Materials</source>
         <translation>窓材料</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="431" />
-        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="461" />
-        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="514" />
+        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="431"/>
+        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="461"/>
+        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="514"/>
         <source>Simple Glazing System Window Materials</source>
         <translation>シンプルグレージングシステムウィンドウマテリアル</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="430" />
-        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="460" />
-        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="513" />
+        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="430"/>
+        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="460"/>
+        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="513"/>
         <source>Glazing Window Materials</source>
         <translation>グレージング窓材料</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="429" />
-        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="459" />
-        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="512" />
+        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="429"/>
+        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="459"/>
+        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="512"/>
         <source>Gas Window Materials</source>
         <translation>ガスウィンドウ材料</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="428" />
-        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="458" />
-        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="511" />
+        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="428"/>
+        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="458"/>
+        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="511"/>
         <source>Gas Mixture Window Materials</source>
         <translation>ガス混合ウィンドウ材料</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="427" />
-        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="457" />
-        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="510" />
+        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="427"/>
+        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="457"/>
+        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="510"/>
         <source>Daylight Redirection Device Window Materials</source>
         <translation>昼光リダイレクションデバイスウィンドウマテリアル</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="426" />
-        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="455" />
-        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="508" />
+        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="426"/>
+        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="455"/>
+        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="508"/>
         <source>Blind Window Materials</source>
         <translation>ブラインド窓材料</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="425" />
-        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="454" />
-        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="507" />
+        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="425"/>
+        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="454"/>
+        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="507"/>
         <source>Screen Window Materials</source>
         <translation>スクリーンウィンドウ材料</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="424" />
-        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="453" />
-        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="506" />
+        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="424"/>
+        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="453"/>
+        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="506"/>
         <source>Shade Window Materials</source>
         <translation>シェードウィンドウ材料</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="423" />
-        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="452" />
-        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="505" />
+        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="423"/>
+        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="452"/>
+        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="505"/>
         <source>Refraction Extinction Method Glazing Window Materials</source>
         <translation>屈折消光法ガラージング窓材料</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="611" />
-        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="661" />
-        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="698" />
-        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="753" />
-        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="806" />
-        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="867" />
+        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="611"/>
+        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="661"/>
+        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="698"/>
+        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="753"/>
+        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="806"/>
+        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="867"/>
         <source>Definitions</source>
         <translation>定義</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="610" />
-        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="658" />
-        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="694" />
-        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="747" />
-        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="796" />
-        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="864" />
-        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="916" />
+        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="610"/>
+        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="658"/>
+        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="694"/>
+        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="747"/>
+        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="796"/>
+        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="864"/>
+        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="916"/>
         <source>People Definitions</source>
         <translation>人員定義</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="609" />
-        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="657" />
-        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="693" />
-        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="746" />
-        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="795" />
-        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="863" />
-        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="915" />
+        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="609"/>
+        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="657"/>
+        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="693"/>
+        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="746"/>
+        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="795"/>
+        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="863"/>
+        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="915"/>
         <source>Lights Definitions</source>
         <translation>照明定義</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="608" />
-        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="656" />
-        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="692" />
-        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="745" />
-        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="794" />
-        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="862" />
-        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="914" />
+        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="608"/>
+        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="656"/>
+        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="692"/>
+        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="745"/>
+        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="794"/>
+        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="862"/>
+        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="914"/>
         <source>Luminaire Definitions</source>
         <translation>ルミナイア定義</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="607" />
-        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="655" />
-        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="691" />
-        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="744" />
-        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="793" />
-        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="861" />
-        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="913" />
+        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="607"/>
+        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="655"/>
+        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="691"/>
+        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="744"/>
+        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="793"/>
+        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="861"/>
+        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="913"/>
         <source>Electric Equipment Definitions</source>
         <translation>電気機器の定義</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="606" />
-        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="654" />
-        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="690" />
-        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="743" />
-        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="792" />
-        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="860" />
-        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="912" />
+        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="606"/>
+        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="654"/>
+        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="690"/>
+        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="743"/>
+        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="792"/>
+        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="860"/>
+        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="912"/>
         <source>Gas Equipment Definitions</source>
         <translation>ガス機器の定義</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="603" />
-        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="651" />
-        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="687" />
-        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="740" />
-        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="789" />
-        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="855" />
-        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="907" />
+        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="603"/>
+        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="651"/>
+        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="687"/>
+        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="740"/>
+        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="789"/>
+        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="855"/>
+        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="907"/>
         <source>Steam Equipment Definitions</source>
         <translation>スチーム機器の定義</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="602" />
-        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="650" />
-        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="686" />
-        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="739" />
-        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="788" />
-        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="854" />
-        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="906" />
+        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="602"/>
+        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="650"/>
+        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="686"/>
+        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="739"/>
+        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="788"/>
+        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="854"/>
+        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="906"/>
         <source>Other Equipment Definitions</source>
         <translation>その他機器定義</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="601" />
-        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="649" />
-        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="685" />
-        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="738" />
-        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="787" />
-        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="853" />
-        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="905" />
+        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="601"/>
+        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="649"/>
+        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="685"/>
+        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="738"/>
+        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="787"/>
+        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="853"/>
+        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="905"/>
         <source>Internal Mass Definitions</source>
         <translation>内部熱容量定義</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="605" />
-        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="653" />
-        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="689" />
-        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="742" />
-        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="791" />
-        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="859" />
-        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="909" />
+        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="605"/>
+        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="653"/>
+        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="689"/>
+        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="742"/>
+        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="791"/>
+        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="859"/>
+        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="909"/>
         <source>Water Use Equipment Definitions</source>
         <translation>給湯設備定義</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="604" />
-        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="652" />
-        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="688" />
-        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="741" />
-        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="790" />
-        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="856" />
-        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="908" />
+        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="604"/>
+        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="652"/>
+        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="688"/>
+        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="741"/>
+        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="790"/>
+        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="856"/>
+        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="908"/>
         <source>Hot Water Equipment Definitions</source>
         <translation>給湯機器の定義</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="664" />
-        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="703" />
-        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="757" />
-        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="810" />
-        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="871" />
-        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="924" />
+        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="664"/>
+        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="703"/>
+        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="757"/>
+        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="810"/>
+        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="871"/>
+        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="924"/>
         <source>Defaults</source>
         <translation>デフォルト</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="660" />
-        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="697" />
-        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="752" />
-        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="805" />
-        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="866" />
-        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="919" />
+        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="660"/>
+        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="697"/>
+        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="752"/>
+        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="805"/>
+        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="866"/>
+        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="919"/>
         <source>Design Specification Outdoor Air</source>
         <translation>設計仕様外気</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="695" />
-        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="803" />
-        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="917" />
+        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="695"/>
+        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="803"/>
+        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="917"/>
         <source>Space Infiltration Design Flow Rates</source>
         <translation>スペース浸透設計流量</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="696" />
-        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="804" />
-        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="918" />
+        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="696"/>
+        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="804"/>
+        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="918"/>
         <source>Space Infiltration Effective Leakage Areas</source>
         <translation>スペース浸透実効漏洩面積</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="702" />
-        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="756" />
-        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="809" />
-        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="870" />
-        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="923" />
+        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="702"/>
+        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="756"/>
+        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="809"/>
+        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="870"/>
+        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="923"/>
         <source>Space Types</source>
         <translation>スペースタイプ</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="748" />
-        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="797" />
+        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="748"/>
+        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="797"/>
         <source>Exterior Water Equipment Definitions</source>
         <translation>外部給湯機器定義</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="749" />
-        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="798" />
+        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="749"/>
+        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="798"/>
         <source>Exterior Fuel Equipment Definitions</source>
         <translation>屋外燃料機器定義</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="750" />
-        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="799" />
+        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="750"/>
+        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="799"/>
         <source>Exterior Lights Definitions</source>
         <translation>外部照明の定義</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="800" />
+        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="800"/>
         <source>Exterior Water Equipment</source>
         <translation>外部給水設備</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="801" />
+        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="801"/>
         <source>Exterior Fuel Equipment</source>
         <translation>外部燃料機器</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="802" />
+        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="802"/>
         <source>Exterior Lights</source>
         <translation>外部ライト</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="758" />
-        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="872" />
+        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="758"/>
+        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="872"/>
         <source>Thermal Zones</source>
         <translation>熱ゾーン</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="759" />
-        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="873" />
+        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="759"/>
+        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="873"/>
         <source>Building Stories</source>
         <translation>ビルディング ストーリーズ</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="760" />
-        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="874" />
+        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="760"/>
+        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="874"/>
         <source>Building</source>
         <translation>建物</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="829" />
-        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="886" />
+        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="829"/>
+        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="886"/>
         <source>ShadingControl</source>
         <translation>シェーディングコントロール</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="830" />
-        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="887" />
+        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="830"/>
+        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="887"/>
         <source>Frame And Divider Window Property</source>
         <translation>フレームおよびディバイダーウィンドウプロパティ</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="831" />
-        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="888" />
+        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="831"/>
+        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="888"/>
         <source>DaylightingDevice Shelf</source>
         <translation>デイライティングデバイス棚</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="832" />
-        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="889" />
+        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="832"/>
+        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="889"/>
         <source>Daylighting</source>
         <translation>昼光利用</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="833" />
+        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="833"/>
         <source>Interior Partition Surface</source>
         <translation>内部仕切り面</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="857" />
-        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="910" />
-        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="947" />
-        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="969" />
-        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="1098" />
+        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="857"/>
+        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="910"/>
+        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="947"/>
+        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="969"/>
+        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="1098"/>
         <source>Water Heater - Heat Pump</source>
         <translation>ヒートポンプ給湯機</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="858" />
-        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="911" />
-        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="948" />
-        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="970" />
-        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="1099" />
+        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="858"/>
+        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="911"/>
+        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="948"/>
+        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="970"/>
+        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="1099"/>
         <source>Water Heater - Heat Pump - Wrapped Condenser</source>
         <translation>ウォーターヒーター - ヒートポンプ - ラップコンデンサー</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="949" />
-        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="971" />
-        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="1028" />
-        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="1102" />
+        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="949"/>
+        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="971"/>
+        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="1028"/>
+        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="1102"/>
         <source>Water Heaters</source>
         <translation>給湯器</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="720" />
-        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="835" />
+        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="720"/>
+        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="835"/>
         <source>Sub Surfaces</source>
         <translation>サブサーフェス</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="721" />
-        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="722" />
-        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="836" />
-        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="837" />
+        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="721"/>
+        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="722"/>
+        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="836"/>
+        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="837"/>
         <source>Surfaces</source>
         <translation>サーフェス</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="834" />
+        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="834"/>
         <source>Shading Surface</source>
         <translation>日射遮蔽面</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="1065" />
+        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="1065"/>
         <source>Thermal Zone</source>
         <translation>熱ゾーン</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="1066" />
+        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="1066"/>
         <source>Zones</source>
         <translation>ゾーン</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="993" />
-        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="1047" />
-        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="1192" />
+        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="993"/>
+        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="1047"/>
+        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="1192"/>
         <source>Zone HVAC</source>
         <translation>ゾーンHVAC</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="1056" />
-        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="1229" />
+        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="1056"/>
+        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="1229"/>
         <source>Coils</source>
         <translation>コイル</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="1058" />
-        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="1172" />
+        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="1058"/>
+        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="1172"/>
         <source>Heat Pumps</source>
         <translation>ヒートポンプ</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="1053" />
-        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="1175" />
+        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="1053"/>
+        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="1175"/>
         <source>Heat Exchangers</source>
         <translation>熱交換器</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="1062" />
-        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="1218" />
+        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="1062"/>
+        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="1218"/>
         <source>Chillers</source>
         <translation>チラー</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="1025" />
-        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="1097" />
+        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="1025"/>
+        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="1097"/>
         <source>Water Uses</source>
         <translation>水の用途</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="1030" />
-        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="1105" />
+        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="1030"/>
+        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="1105"/>
         <source>VRFs</source>
         <translation>VRF
 
-(Variable Refrigerant Flow systems are typically referred to as VRF in both English and Japanese technical contexts. No translation needed as it's an acronym.)</translation>
+(Variable Refrigerant Flow systems are typically referred to as VRF in both English and Japanese technical contexts. No translation needed as it&apos;s an acronym.)</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="1032" />
-        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="1108" />
+        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="1032"/>
+        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="1108"/>
         <source>Thermal Storage</source>
         <translation>熱蓄熱</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="1037" />
-        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="1152" />
+        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="1037"/>
+        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="1152"/>
         <source>Refrigeration</source>
         <translation>冷凍機</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="1141" />
+        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="1141"/>
         <source>Setpoint Managers</source>
         <translation>セットポイントマネージャー</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="1090" />
+        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="1090"/>
         <source>Swimming Pools</source>
         <translation>スイミングプール</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="1094" />
+        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="1094"/>
         <source>Solar Collectors</source>
         <translation>ソーラーコレクタ</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="1157" />
+        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="1157"/>
         <source>Pumps</source>
         <translation>ポンプ</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="1160" />
+        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="1160"/>
         <source>Plant Components</source>
         <translation>プラント部品</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="1164" />
+        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="1164"/>
         <source>Pipes</source>
         <translation>パイプ</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="1166" />
+        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="1166"/>
         <source>Load Profiles</source>
         <translation>負荷プロファイル</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="1169" />
+        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="1169"/>
         <source>Humidifiers</source>
         <translation>加湿器</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="1179" />
+        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="1179"/>
         <source>Generators</source>
         <translation>ジェネレータ</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="1182" />
+        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="1182"/>
         <source>Ground Heat Exchangers</source>
         <translation>地中熱交換器</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="1185" />
+        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="1185"/>
         <source>Fluid Coolers</source>
         <translation>流体冷却器</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="1197" />
+        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="1197"/>
         <source>Fans</source>
         <translation>ファン</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="1202" />
+        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="1202"/>
         <source>Evaporative Coolers</source>
         <translation>蒸発冷却装置</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="1204" />
+        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="1204"/>
         <source>Ducts</source>
         <translation>ダクト</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="1205" />
-        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="1206" />
+        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="1205"/>
+        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="1206"/>
         <source>District Cooling</source>
         <translation>地域冷房</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="1208" />
+        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="1208"/>
         <source>District Heating</source>
         <translation>地域冷暖房</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="1212" />
+        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="1212"/>
         <source>Cooling Towers</source>
         <translation>冷却塔</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="1214" />
+        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="1214"/>
         <source>Central Heat Pump Systems</source>
         <translation>中央ヒートポンプシステム</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="1231" />
+        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="1231"/>
         <source>Boilers</source>
         <translation>ボイラー</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="1250" />
+        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="1250"/>
         <source>Air Terminals</source>
         <translation>エアターミナル</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="1257" />
+        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="1257"/>
         <source>Air Loop HVAC</source>
         <translation>エアループ HVAC</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="1275" />
+        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="1275"/>
         <source>Availability Managers</source>
         <translation>利用可能性マネージャー</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="1023" />
+        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="1023"/>
         <source>Water Use Equipment Definition</source>
         <translation>給水器具定義</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="1024" />
-        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="1096" />
+        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="1024"/>
+        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="1096"/>
         <source>Water Use Connections</source>
         <translation>給水接続</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="1026" />
-        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="1100" />
+        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="1026"/>
+        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="1100"/>
         <source>Water Heater Mixed</source>
         <translation>給湯器 ミックス</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="1027" />
-        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="1101" />
+        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="1027"/>
+        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="1101"/>
         <source>Water Heater Stratified</source>
         <translation>温水器層状型</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="1029" />
-        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="1103" />
+        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="1029"/>
+        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="1103"/>
         <source>VRF System</source>
         <translation>VRFシステム</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="1031" />
-        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="1107" />
+        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="1031"/>
+        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="1107"/>
         <source>Thermal Storage - Chilled Water</source>
         <translation>熱蓄熱 - 冷水</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="1106" />
+        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="1106"/>
         <source>Thermal Storage - Ice Storage</source>
         <translation>熱蓄熱 - 氷蓄熱</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="1035" />
-        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="1143" />
+        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="1035"/>
+        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="1143"/>
         <source>Refrigeration System</source>
         <translation>冷凍システム</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="1036" />
-        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="1148" />
+        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="1036"/>
+        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="1148"/>
         <source>Refrigeration Condenser Water Cooled</source>
         <translation>冷凍用凝縮器 水冷式</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="1149" />
+        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="1149"/>
         <source>Refrigeration Condenser Evaporative Cooled</source>
         <translation>冷凍用コンデンサ 蒸発冷却式</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="1150" />
+        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="1150"/>
         <source>Refrigeration Condenser Air Cooled</source>
         <translation>冷凍機コンデンサー空気冷却</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="1147" />
+        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="1147"/>
         <source>Refrigeration Condenser Cascade</source>
         <translation>冷凍用凝縮器カスケード</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="1144" />
+        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="1144"/>
         <source>Refrigeration Subcooler Mechanical</source>
         <translation>冷凍サブクーラー機械式</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="1145" />
+        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="1145"/>
         <source>Refrigeration Subcooler Liquid Suction</source>
         <translation>冷凍サブクーラー液体吸入</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="1146" />
+        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="1146"/>
         <source>Refrigeration Compressor</source>
         <translation>冷凍圧縮機</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="1151" />
+        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="1151"/>
         <source>Refrigeration Case</source>
         <translation>冷蔵ケース</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="1142" />
+        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="1142"/>
         <source>Refrigeration Walkin</source>
         <translation>冷凍ウォークイン</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="985" />
-        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="1040" />
-        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="1188" />
+        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="985"/>
+        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="1040"/>
+        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="1188"/>
         <source>Water To Air HP</source>
         <translation>水-空気HP</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="1041" />
-        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="1104" />
+        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="1041"/>
+        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="1104"/>
         <source>VRF Terminal</source>
         <translation>VRFターミナル</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="992" />
-        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="1042" />
-        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="1191" />
+        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="992"/>
+        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="1042"/>
+        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="1191"/>
         <source>Unit Ventilator</source>
         <translation>ユニット換気装置</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="991" />
-        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="1043" />
-        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="1190" />
+        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="991"/>
+        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="1043"/>
+        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="1190"/>
         <source>Unit Heater</source>
         <translation>ユニットヒーター</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="984" />
-        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="1044" />
-        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="1187" />
+        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="984"/>
+        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="1044"/>
+        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="1187"/>
         <source>PTHP</source>
         <translation>PTHP</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="986" />
-        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="1045" />
-        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="1189" />
+        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="986"/>
+        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="1045"/>
+        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="1189"/>
         <source>PTAC</source>
         <translation>PTAC</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="982" />
-        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="1046" />
-        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="1186" />
+        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="982"/>
+        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="1046"/>
+        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="1186"/>
         <source>Four Pipe Fan Coil</source>
         <translation>フォーパイプファンコイル</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="1050" />
-        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="1170" />
+        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="1050"/>
+        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="1170"/>
         <source>Heat Pump - Water to Water - Heating</source>
         <translation>ヒートポンプ - 水-水 - 暖房</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="1051" />
-        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="1171" />
+        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="1051"/>
+        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="1171"/>
         <source>Heat Pump - Water to Water - Cooling</source>
         <translation>ヒートポンプ - 水-水 - 冷房</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="1052" />
-        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="1173" />
+        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="1052"/>
+        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="1173"/>
         <source>Heat Exchanger Fluid To Fluid</source>
         <translation>熱交換器 流体間</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="1174" />
+        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="1174"/>
         <source>Heat Exchanger Air To Air Sensible and Latent</source>
         <translation>熱交換器 空気対空気 顕熱・潜熱</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="1054" />
-        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="1222" />
+        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="1054"/>
+        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="1222"/>
         <source>Coil Heating Water</source>
         <translation>コイル加熱水</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="1055" />
-        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="1223" />
+        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="1055"/>
+        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="1223"/>
         <source>Coil Cooling Water</source>
         <translation>コイル冷却水</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="1219" />
+        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="1219"/>
         <source>Coil Heating Gas</source>
         <translation>ガスヒーティングコイル</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="1221" />
+        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="1221"/>
         <source>Coil Heating Electric</source>
         <translation>電気加熱コイル</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="1220" />
+        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="1220"/>
         <source>Coil Heating DX SingleSpeed</source>
         <translation>コイル加熱 DX シングルスピード</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="1228" />
+        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="1228"/>
         <source>Coil Cooling DX SingleSpeed</source>
         <translation>コイル冷却DXシングルスピード</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="1227" />
+        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="1227"/>
         <source>Coil Cooling DX TwoSpeed</source>
         <translation>コイル冷房DXツースピード</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="1224" />
+        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="1224"/>
         <source>Coil Cooling DX VariableSpeed</source>
         <translation>コイル冷房DX可変速度</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="1226" />
+        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="1226"/>
         <source>Coil Cooling DX TwoStage - Humidity Control</source>
         <translation>コイル冷却DXツーステージ - 湿度制御</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="1057" />
-        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="1213" />
+        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="1057"/>
+        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="1213"/>
         <source>Central Heat Pump System</source>
         <translation>中央ヒートポンプシステム</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="1059" />
-        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="1215" />
+        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="1059"/>
+        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="1215"/>
         <source>Chiller - Electric EIR</source>
         <translation>チラー - 電気EIR</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="1060" />
-        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="1217" />
+        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="1060"/>
+        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="1217"/>
         <source>Chiller - Absorption</source>
         <translation>チラー - 吸収式</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="1061" />
-        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="1216" />
+        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="1061"/>
+        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="1216"/>
         <source>Chiller - Indirect Absorption</source>
         <translation>チラー - 間接吸収式</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="1089" />
+        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="1089"/>
         <source>Swimming Pool Indoor</source>
         <translation>屋内プール</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="1091" />
+        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="1091"/>
         <source>Solar Collector Integral Collector Storage</source>
         <translation>ソーラーコレクター一体型コレクター蓄熱</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="1092" />
+        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="1092"/>
         <source>Solar Collector Flat Plate Water</source>
         <translation>ソーラーコレクター フラットプレート水式</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="1095" />
+        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="1095"/>
         <source>Water Use Equipment</source>
         <translation>給湯機器</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="1109" />
+        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="1109"/>
         <source>Tempering Valve</source>
         <translation>調温弁</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="1110" />
+        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="1110"/>
         <source>Setpoint Manager System Node Reset Humidity</source>
         <translation>セットポイントマネージャシステムノードリセット湿度</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="1112" />
+        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="1112"/>
         <source>Setpoint Manager System Node Reset Temperature</source>
         <translation>セットポイント マネージャー システム ノード リセット温度</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="1113" />
+        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="1113"/>
         <source>Setpoint Manager Coldest</source>
         <translation>セットポイント マネージャ コールデスト</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="1114" />
+        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="1114"/>
         <source>Setpoint Manager Follow Ground Temperature</source>
         <translation>セットポイントマネージャー フォロー地盤温度</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="1116" />
+        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="1116"/>
         <source>Setpoint Manager Follow Outdoor Air Temperature</source>
         <translation>セットポイントマネージャ 外気温度追従</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="1118" />
+        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="1118"/>
         <source>Setpoint Manager Follow System Node Temperature</source>
         <translation>セットポイント マネージャ システムノード温度追従</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="1119" />
+        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="1119"/>
         <source>Setpoint Manager Mixed Air</source>
         <translation>セットポイントマネージャ混合空気</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="1120" />
+        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="1120"/>
         <source>Setpoint Manager MultiZone Cooling Average</source>
         <translation>セットポイントマネージャー マルチゾーン冷房平均</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="1121" />
+        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="1121"/>
         <source>Setpoint Manager MultiZone Heating Average</source>
         <translation>Setpoint Manager MultiZone Heating Average</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="1122" />
+        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="1122"/>
         <source>Setpoint Manager MultiZone Humidity Maximum</source>
         <translation>セットポイントマネージャー マルチゾーン湿度最大値</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="1123" />
+        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="1123"/>
         <source>Setpoint Manager MultiZone Humidity Minimum</source>
         <translation>セットポイントマネージャー マルチゾーン湿度最小値</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="1125" />
+        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="1125"/>
         <source>Setpoint Manager MultiZone MaximumHumidity Average</source>
         <translation>セットポイントマネージャー マルチゾーン最大湿度平均</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="1127" />
+        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="1127"/>
         <source>Setpoint Manager MultiZone MinimumHumidity Average</source>
         <translation>セットポイントマネージャ マルチゾーン最小湿度平均</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="1128" />
+        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="1128"/>
         <source>Setpoint Manager Outdoor Air Pretreat</source>
         <translation>セットポイントマネージャ 屋外空気プリトリート</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="1129" />
+        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="1129"/>
         <source>Setpoint Manager Outdoor Air Reset</source>
         <translation>セットポイント管理 屋外空気リセット</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="1131" />
+        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="1131"/>
         <source>Setpoint Manager Scheduled Dual Setpoint</source>
         <translation>セットポイントマネージャー スケジュール指定二重セットポイント</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="1130" />
+        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="1130"/>
         <source>Setpoint Manager Scheduled</source>
         <translation>セットポイントマネージャ スケジュール式</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="1132" />
+        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="1132"/>
         <source>Setpoint Manager Single Zone Cooling</source>
         <translation>セットポイントマネージャー単一ゾーン冷房</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="1133" />
+        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="1133"/>
         <source>Setpoint Manager Single Zone Heating</source>
         <translation>セットポイントマネージャー単一ゾーン加熱</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="1134" />
+        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="1134"/>
         <source>Setpoint Manager Humidity Maximum</source>
         <translation>セットポイント マネージャー 湿度 最大</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="1135" />
+        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="1135"/>
         <source>Setpoint Manager Humidity Minimum</source>
         <translation>セットポイントマネージャー湿度最小値</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="1136" />
+        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="1136"/>
         <source>Setpoint Manager One Stage Cooling</source>
         <translation>セットポイントマネージャー1段階冷房</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="1137" />
+        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="1137"/>
         <source>Setpoint Manager One Stage Heating</source>
         <translation>セットポイント マネージャー 1段階暖房</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="1138" />
+        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="1138"/>
         <source>Setpoint Manager Single Zone Reheat</source>
         <translation>セットポイントマネージャー シングルゾーン リヒート</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="1140" />
+        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="1140"/>
         <source>Setpoint Manager Warmest Temp and Flow</source>
         <translation>セットポイントマネージャー最高温度と流量</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="1139" />
+        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="1139"/>
         <source>Setpoint Manager Warmest</source>
         <translation>セットポイント マネージャー 最高温度</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="1154" />
+        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="1154"/>
         <source>Pump Constant Speed Headered</source>
         <translation>ポンプ定速ヘッダー式</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="1153" />
+        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="1153"/>
         <source>Pump Constant Speed</source>
         <translation>ポンプ定速</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="1156" />
+        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="1156"/>
         <source>Pump Variable Speed Headered</source>
         <translation>ポンプ可変速度ヘッダー式</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="1155" />
+        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="1155"/>
         <source>Pump Variable Speed</source>
         <translation>ポンプ可変速度</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="1158" />
+        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="1158"/>
         <source>Plant Component - Temp Source</source>
         <translation>プラント部品 - 温度ソース</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="1159" />
+        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="1159"/>
         <source>Plant Component - User Defined</source>
         <translation>プラント コンポーネント - ユーザー定義</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="1161" />
+        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="1161"/>
         <source>Pipe - Outdoor</source>
         <translation>パイプ - 屋外</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="1162" />
+        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="1162"/>
         <source>Pipe - Indoor</source>
         <translation>パイプ - 室内</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="1163" />
+        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="1163"/>
         <source>Pipe - Adiabatic</source>
         <translation>管 - 断熱</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="1165" />
+        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="1165"/>
         <source>Load Profile - Plant</source>
         <translation>負荷プロファイル - プラント</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="1167" />
+        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="1167"/>
         <source>Humidifier Steam Electric</source>
         <translation>加湿器 スチーム電気式</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="1168" />
+        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="1168"/>
         <source>Humidifier Steam Gas</source>
         <translation>加湿器スチームガス</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="1177" />
+        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="1177"/>
         <source>Generator FuelCell - Exhaust Gas To Water Heat Exchanger</source>
         <translation>ジェネレータ燃料電池 - 排気ガス対水熱交換器</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="1178" />
+        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="1178"/>
         <source>Generator MicroTurbine - Heat Recovery</source>
         <translation>ジェネレータマイクロタービン - 排熱回収</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="1180" />
+        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="1180"/>
         <source>Ground Heat Exchanger - Vertical </source>
         <translation>地中熱交換器 - 垂直</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="1181" />
+        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="1181"/>
         <source>Ground Heat Exchanger - Horizontal</source>
         <translation>地中熱交換器 - 水平型</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="1183" />
+        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="1183"/>
         <source>Fluid Cooler Two Speed</source>
         <translation>流体冷却器 二段速</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="1184" />
+        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="1184"/>
         <source>Fluid Cooler Single Speed</source>
         <translation>流体冷却機 単一速度</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="1193" />
+        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="1193"/>
         <source>Fan Component Model</source>
         <translation>ファンコンポーネントモデル</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="1194" />
+        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="1194"/>
         <source>Fan System Model</source>
         <translation>ファンシステムモデル</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="1195" />
+        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="1195"/>
         <source>Fan Variable Volume</source>
         <translation>ファン変風量</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="1196" />
+        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="1196"/>
         <source>Fan Constant Volume</source>
         <translation>ファン定容量</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="1198" />
+        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="1198"/>
         <source>Evaporative Cooler Direct Research Special</source>
         <translation>蒸発冷却器 直接冷却 研究用特別型</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="1199" />
+        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="1199"/>
         <source>Evaporative Cooler Indirect Research Special</source>
         <translation>蒸発冷却器 間接研究特別</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="1200" />
+        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="1200"/>
         <source>Evaporative Fluid Cooler Two Speed</source>
         <translation>蒸発冷却液冷却器 二速</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="1201" />
+        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="1201"/>
         <source>Evaporative Fluid Cooler Single Speed</source>
         <translation>蒸発液体冷却器 シングルスピード</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="1203" />
+        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="1203"/>
         <source>Duct</source>
         <translation>ダクト</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="1207" />
+        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="1207"/>
         <source>District Heating Water</source>
         <translation>地域暖房用水</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="1209" />
+        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="1209"/>
         <source>Cooling Tower Two Speed</source>
         <translation>冷却塔 二速度</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="1210" />
+        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="1210"/>
         <source>Cooling Tower Single Speed</source>
         <translation>冷却塔 単一速度</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="1211" />
+        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="1211"/>
         <source>Cooling Tower Variable Speed</source>
         <translation>冷却塔可変速度</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="1230" />
+        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="1230"/>
         <source>Boiler Hot Water</source>
         <translation>ボイラー温水</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="1233" />
+        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="1233"/>
         <source>Air Terminal Four Pipe Induction</source>
         <translation>四管誘導式エアターミナル</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="1234" />
+        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="1234"/>
         <source>Air Terminal Chilled Beam</source>
         <translation>エアターミナル チルドビーム</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="1235" />
+        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="1235"/>
         <source>Air Terminal Four Pipe Beam</source>
         <translation>エアターミナル 4管ビーム</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="1237" />
+        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="1237"/>
         <source>AirTerminal Single Duct Constant Volume Reheat</source>
         <translation>エアターミナル シングルダクト 定風量 再加熱</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="1238" />
+        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="1238"/>
         <source>AirTerminal Single Duct VAV Reheat</source>
         <translation>AirTerminal Single Duct VAV Reheat</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="1239" />
+        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="1239"/>
         <source>AirTerminal Single Duct Parallel PIU Reheat</source>
         <translation>AirTerminal Single Duct Parallel PIU Reheat</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="1240" />
+        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="1240"/>
         <source>AirTerminal Single Duct Series PIU Reheat</source>
         <translation>AirTerminal Single Duct Series PIU Reheat</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="1241" />
+        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="1241"/>
         <source>AirTerminal Inlet Side Mixer</source>
         <translation>エアターミナル入口側ミキサー</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="1242" />
+        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="1242"/>
         <source>AirTerminal Heat and Cool Reheat</source>
         <translation>AirTerminal Heat and Cool Reheat</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="1243" />
+        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="1243"/>
         <source>AirTerminal Heat and Cool No Reheat</source>
         <translation>AirTerminal Heat and Cool No Reheat</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="1244" />
+        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="1244"/>
         <source>AirTerminal Single Duct VAV NoReheat</source>
         <translation>AirTerminal Single Duct VAV NoReheat</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="1246" />
+        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="1246"/>
         <source>AirTerminal Single Duct Constant Volume No Reheat</source>
         <translation>エアターミナル シングルダクト 定風量 再加熱なし</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="1247" />
+        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="1247"/>
         <source>Air Terminal Dual Duct Constant Volume</source>
         <translation>エアターミナル ダクトダクト 定風量</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="1249" />
+        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="1249"/>
         <source>Air Terminal Dual Duct VAV Outdoor Air</source>
         <translation>Air Terminal Dual Duct VAV Outdoor Air</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="1248" />
+        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="1248"/>
         <source>Air Terminal Dual Duct VAV</source>
         <translation>Air Terminal Dual Duct VAV</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="1251" />
+        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="1251"/>
         <source>AirLoopHVAC Outdoor Air System</source>
         <translation>AirLoopHVAC 外気システム</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="1253" />
+        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="1253"/>
         <source>AirLoopHVAC Unitary Heat Pump AirToAir MultiSpeed</source>
         <translation>AirLoopHVAC ユニタリーヒートポンプ エアツーエア マルチスピード</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="1256" />
+        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="1256"/>
         <source>AirLoopHVAC Unitary VAV Changeover Bypass</source>
         <translation>AirLoopHVAC ユニタリ VAV チェンジオーバーバイパス</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="1254" />
+        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="1254"/>
         <source>AirLoopHVAC Unitary System</source>
         <translation>AirLoopHVAC ユニタリーシステム</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="1259" />
+        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="1259"/>
         <source>Availability Manager Scheduled On</source>
         <translation>利用可能性マネージャースケジュール時間</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="1260" />
+        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="1260"/>
         <source>Availability Manager Scheduled Off</source>
         <translation>可用性マネージャスケジュール停止</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="1258" />
+        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="1258"/>
         <source>Availability Manager Scheduled</source>
         <translation>アベイラビリティマネージャー スケジュール</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="1262" />
+        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="1262"/>
         <source>Availability Manager Low Temperature Turn On</source>
         <translation>可用性マネージャー低温運転開始</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="1263" />
+        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="1263"/>
         <source>Availability Manager Low Temperature Turn Off</source>
         <translation>Availability Manager Low Temperature Turn Off</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="1265" />
+        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="1265"/>
         <source>Availability Manager High Temperature Turn On</source>
         <translation>可用性マネージャ高温オン</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="1267" />
+        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="1267"/>
         <source>Availability Manager High Temperature Turn Off</source>
         <translation>可用性マネージャー高温カットオフ</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="1269" />
+        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="1269"/>
         <source>Availability Manager Differential Thermostat</source>
         <translation>アベイラビリティマネージャー差分温度計</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="1270" />
+        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="1270"/>
         <source>Availability Manager Optimum Start</source>
         <translation>空調最適開始マネージャー</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="1272" />
+        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="1272"/>
         <source>Availability Manager Night Cycle</source>
         <translation>可用性マネージャー ナイトサイクル</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="1273" />
+        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="1273"/>
         <source>Availability Manager Night Ventilation</source>
         <translation>可用性マネージャー夜間通風</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="1274" />
+        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="1274"/>
         <source>Availability Manager Hybrid Ventilation</source>
         <translation>Availability Manager Hybrid Ventilation</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="972" />
+        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="972"/>
         <source>Unitary System</source>
         <translation>ユニタリーシステム</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="973" />
+        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="973"/>
         <source>Unitary Systems</source>
         <translation>ユニタリーシステム</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="974" />
+        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="974"/>
         <source>Evaporative Cooler Unit</source>
         <translation>蒸発式冷却ユニット</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="975" />
+        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="975"/>
         <source>Cooling Panel Radiant Convective Water</source>
         <translation>冷却パネル放射対流水</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="976" />
+        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="976"/>
         <source>Baseboard Convective Electric</source>
         <translation>ベースボード対流電気</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="977" />
+        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="977"/>
         <source>Baseboard Convective Water</source>
         <translation>ベースボード対流水</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="978" />
+        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="978"/>
         <source>Baseboard Radiant Convective Electric</source>
         <translation>ベースボード放射対流型電気</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="979" />
+        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="979"/>
         <source>Baseboard Radiant Convective Water</source>
         <translation>ベースボード放射対流水</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="980" />
+        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="980"/>
         <source>Dehumidifier - DX</source>
         <translation>デハミディファイアー - DX</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="981" />
+        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="981"/>
         <source>ERV</source>
         <translation>ERV</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="983" />
+        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="983"/>
         <source>Fan Zone Exhaust</source>
         <translation>ファンゾーン排気</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="987" />
+        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="987"/>
         <source>Low Temp Radiant Constant Flow</source>
         <translation>Low Temp Radiant Constant Flow（低温放射定流量）</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="988" />
+        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="988"/>
         <source>Low Temp Radiant Variable Flow</source>
         <translation>低温放射・変流量</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="989" />
+        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="989"/>
         <source>Low Temp Radiant Electric</source>
         <translation>低温放射電気</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="990" />
+        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="990"/>
         <source>High Temp Radiant</source>
         <translation>高温放射</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="994" />
+        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="994"/>
         <source>Zone Ventilation Design Flow Rate</source>
         <translation>ゾーン換気設計流量</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="995" />
+        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="995"/>
         <source>Zone Ventilation Wind and Stack Open Area</source>
         <translation>ゾーン換気 風と温度成層開放面積</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="996" />
+        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="996"/>
         <source>Ventilation</source>
         <translation>換気</translation>
     </message>
@@ -26246,25 +26247,25 @@ If you would like to see the OpenStudioApplication translated in your language o
         <translation>再起動してください</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/MainWindow.cpp" line="406" />
+        <location filename="../src/openstudio_lib/MainWindow.cpp" line="406"/>
         <source>Allow Analytics</source>
         <translation>分析を許可</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/MainWindow.cpp" line="407" />
-        <source>Allow OpenStudio Coalition to collect anonymous usage statistics to help improve the OpenStudio Application? See the &lt;a href="https://openstudiocoalition.org/about/privacy_policy/"&gt;privacy policy&lt;/a&gt; for more information.</source>
-        <translation>OpenStudio Coalitionが、OpenStudioアプリケーションの改善を支援するため、匿名の使用統計を収集することを許可しますか？詳細については、&lt;a href="https://openstudiocoalition.org/about/privacy_policy/"&gt;プライバシーポリシー&lt;/a&gt;をご覧ください。</translation>
+        <location filename="../src/openstudio_lib/MainWindow.cpp" line="407"/>
+        <source>Allow OpenStudio Coalition to collect anonymous usage statistics to help improve the OpenStudio Application? See the &lt;a href=&quot;https://openstudiocoalition.org/about/privacy_policy/&quot;&gt;privacy policy&lt;/a&gt; for more information.</source>
+        <translation>OpenStudio Coalitionが、OpenStudioアプリケーションの改善を支援するため、匿名の使用統計を収集することを許可しますか？詳細については、&lt;a href=&quot;https://openstudiocoalition.org/about/privacy_policy/&quot;&gt;プライバシーポリシー&lt;/a&gt;をご覧ください。</translation>
     </message>
 </context>
 <context>
     <name>openstudio::MakeupWaterItem</name>
     <message>
-        <location filename="../src/openstudio_lib/ServiceWaterGridItems.cpp" line="772" />
+        <location filename="../src/openstudio_lib/ServiceWaterGridItems.cpp" line="772"/>
         <source>Go back to water mains editor</source>
         <translation>給水本管エディタに戻る</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/ServiceWaterGridItems.cpp" line="782" />
+        <location filename="../src/openstudio_lib/ServiceWaterGridItems.cpp" line="782"/>
         <source>Go back to hot water supply system</source>
         <translation>給湯システムに戻る</translation>
     </message>
@@ -26272,12 +26273,12 @@ If you would like to see the OpenStudioApplication translated in your language o
 <context>
     <name>openstudio::MaterialAirGapInspectorView</name>
     <message>
-        <location filename="../src/openstudio_lib/MaterialAirGapInspectorView.cpp" line="49" />
+        <location filename="../src/openstudio_lib/MaterialAirGapInspectorView.cpp" line="49"/>
         <source>Name: </source>
         <translation>ファイル名：</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/MaterialAirGapInspectorView.cpp" line="68" />
+        <location filename="../src/openstudio_lib/MaterialAirGapInspectorView.cpp" line="68"/>
         <source>Thermal Resistance: </source>
         <translation>熱抵抗:</translation>
     </message>
@@ -26285,47 +26286,47 @@ If you would like to see the OpenStudioApplication translated in your language o
 <context>
     <name>openstudio::MaterialInspectorView</name>
     <message>
-        <location filename="../src/openstudio_lib/MaterialInspectorView.cpp" line="53" />
+        <location filename="../src/openstudio_lib/MaterialInspectorView.cpp" line="53"/>
         <source>Name: </source>
         <translation>ファイル名：</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/MaterialInspectorView.cpp" line="76" />
+        <location filename="../src/openstudio_lib/MaterialInspectorView.cpp" line="76"/>
         <source>Roughness: </source>
         <translation>粗さ:</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/MaterialInspectorView.cpp" line="94" />
+        <location filename="../src/openstudio_lib/MaterialInspectorView.cpp" line="94"/>
         <source>Thickness: </source>
         <translation>厚さ:</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/MaterialInspectorView.cpp" line="107" />
+        <location filename="../src/openstudio_lib/MaterialInspectorView.cpp" line="107"/>
         <source>Conductivity: </source>
         <translation>熱伝導率:</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/MaterialInspectorView.cpp" line="120" />
+        <location filename="../src/openstudio_lib/MaterialInspectorView.cpp" line="120"/>
         <source>Density: </source>
         <translation>密度:</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/MaterialInspectorView.cpp" line="133" />
+        <location filename="../src/openstudio_lib/MaterialInspectorView.cpp" line="133"/>
         <source>Specific Heat: </source>
         <translation>比熱:</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/MaterialInspectorView.cpp" line="146" />
+        <location filename="../src/openstudio_lib/MaterialInspectorView.cpp" line="146"/>
         <source>Thermal Absorptance: </source>
         <translation>熱吸収率:</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/MaterialInspectorView.cpp" line="159" />
+        <location filename="../src/openstudio_lib/MaterialInspectorView.cpp" line="159"/>
         <source>Solar Absorptance: </source>
         <translation>太陽吸収率:</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/MaterialInspectorView.cpp" line="172" />
+        <location filename="../src/openstudio_lib/MaterialInspectorView.cpp" line="172"/>
         <source>Visible Absorptance: </source>
         <translation>可視吸収率:</translation>
     </message>
@@ -26333,32 +26334,32 @@ If you would like to see the OpenStudioApplication translated in your language o
 <context>
     <name>openstudio::MaterialNoMassInspectorView</name>
     <message>
-        <location filename="../src/openstudio_lib/MaterialNoMassInspectorView.cpp" line="50" />
+        <location filename="../src/openstudio_lib/MaterialNoMassInspectorView.cpp" line="50"/>
         <source>Name: </source>
         <translation>ファイル名：</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/MaterialNoMassInspectorView.cpp" line="70" />
+        <location filename="../src/openstudio_lib/MaterialNoMassInspectorView.cpp" line="70"/>
         <source>Roughness: </source>
         <translation>粗さ:</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/MaterialNoMassInspectorView.cpp" line="85" />
+        <location filename="../src/openstudio_lib/MaterialNoMassInspectorView.cpp" line="85"/>
         <source>Thermal Resistance: </source>
         <translation>熱抵抗:</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/MaterialNoMassInspectorView.cpp" line="95" />
+        <location filename="../src/openstudio_lib/MaterialNoMassInspectorView.cpp" line="95"/>
         <source>Thermal Absorptance: </source>
         <translation>熱吸収率:</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/MaterialNoMassInspectorView.cpp" line="105" />
+        <location filename="../src/openstudio_lib/MaterialNoMassInspectorView.cpp" line="105"/>
         <source>Solar Absorptance: </source>
         <translation>太陽吸収率:</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/MaterialNoMassInspectorView.cpp" line="115" />
+        <location filename="../src/openstudio_lib/MaterialNoMassInspectorView.cpp" line="115"/>
         <source>Visible Absorptance: </source>
         <translation>可視吸収率:</translation>
     </message>
@@ -26366,97 +26367,97 @@ If you would like to see the OpenStudioApplication translated in your language o
 <context>
     <name>openstudio::MaterialRoofVegetationInspectorView</name>
     <message>
-        <location filename="../src/openstudio_lib/MaterialRoofVegetationInspectorView.cpp" line="50" />
+        <location filename="../src/openstudio_lib/MaterialRoofVegetationInspectorView.cpp" line="50"/>
         <source>Name: </source>
         <translation>ファイル名：</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/MaterialRoofVegetationInspectorView.cpp" line="69" />
+        <location filename="../src/openstudio_lib/MaterialRoofVegetationInspectorView.cpp" line="69"/>
         <source>Height Of Plants: </source>
         <translation>植物の高さ:</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/MaterialRoofVegetationInspectorView.cpp" line="79" />
+        <location filename="../src/openstudio_lib/MaterialRoofVegetationInspectorView.cpp" line="79"/>
         <source>Leaf Area Index: </source>
         <translation>葉面積指数:</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/MaterialRoofVegetationInspectorView.cpp" line="89" />
+        <location filename="../src/openstudio_lib/MaterialRoofVegetationInspectorView.cpp" line="89"/>
         <source>Leaf Reflectivity: </source>
         <translation>葉の反射率:</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/MaterialRoofVegetationInspectorView.cpp" line="99" />
+        <location filename="../src/openstudio_lib/MaterialRoofVegetationInspectorView.cpp" line="99"/>
         <source>Leaf Emissivity: </source>
         <translation>リーフエミッシビティ:</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/MaterialRoofVegetationInspectorView.cpp" line="109" />
+        <location filename="../src/openstudio_lib/MaterialRoofVegetationInspectorView.cpp" line="109"/>
         <source>Minimum Stomatal Resistance: </source>
         <translation>気孔最小抵抗：</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/MaterialRoofVegetationInspectorView.cpp" line="119" />
+        <location filename="../src/openstudio_lib/MaterialRoofVegetationInspectorView.cpp" line="119"/>
         <source>Soil Layer Name: </source>
         <translation>土壌層の名前:</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/MaterialRoofVegetationInspectorView.cpp" line="128" />
+        <location filename="../src/openstudio_lib/MaterialRoofVegetationInspectorView.cpp" line="128"/>
         <source>Roughness: </source>
         <translation>粗さ：</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/MaterialRoofVegetationInspectorView.cpp" line="143" />
+        <location filename="../src/openstudio_lib/MaterialRoofVegetationInspectorView.cpp" line="143"/>
         <source>Thickness: </source>
         <translation>厚さ:</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/MaterialRoofVegetationInspectorView.cpp" line="153" />
+        <location filename="../src/openstudio_lib/MaterialRoofVegetationInspectorView.cpp" line="153"/>
         <source>Conductivity Of Dry Soil: </source>
         <translation>乾燥土壌の熱伝導率:</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/MaterialRoofVegetationInspectorView.cpp" line="163" />
+        <location filename="../src/openstudio_lib/MaterialRoofVegetationInspectorView.cpp" line="163"/>
         <source>Density Of Dry Soil: </source>
         <translation>乾燥土壌の密度:</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/MaterialRoofVegetationInspectorView.cpp" line="173" />
+        <location filename="../src/openstudio_lib/MaterialRoofVegetationInspectorView.cpp" line="173"/>
         <source>Specific Heat Of Dry Soil: </source>
         <translation>乾燥土壌の比熱:</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/MaterialRoofVegetationInspectorView.cpp" line="183" />
+        <location filename="../src/openstudio_lib/MaterialRoofVegetationInspectorView.cpp" line="183"/>
         <source>Thermal Absorptance: </source>
         <translation>熱吸収率:</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/MaterialRoofVegetationInspectorView.cpp" line="193" />
+        <location filename="../src/openstudio_lib/MaterialRoofVegetationInspectorView.cpp" line="193"/>
         <source>Solar Absorptance: </source>
         <translation>日射吸収率:</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/MaterialRoofVegetationInspectorView.cpp" line="203" />
+        <location filename="../src/openstudio_lib/MaterialRoofVegetationInspectorView.cpp" line="203"/>
         <source>Visible Absorptance: </source>
         <translation>可視吸収率:</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/MaterialRoofVegetationInspectorView.cpp" line="213" />
+        <location filename="../src/openstudio_lib/MaterialRoofVegetationInspectorView.cpp" line="213"/>
         <source>Saturation Volumetric Moisture Content Of The Soil Layer: </source>
         <translation>土壌層の飽和体積含水量:</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/MaterialRoofVegetationInspectorView.cpp" line="224" />
+        <location filename="../src/openstudio_lib/MaterialRoofVegetationInspectorView.cpp" line="224"/>
         <source>Residual Volumetric Moisture Content Of The Soil Layer: </source>
         <translation>土壌層の残留体積含水量:</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/MaterialRoofVegetationInspectorView.cpp" line="235" />
+        <location filename="../src/openstudio_lib/MaterialRoofVegetationInspectorView.cpp" line="235"/>
         <source>Initial Volumetric Moisture Content Of The Soil Layer: </source>
         <translation>土壌層の初期体積含水量:</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/MaterialRoofVegetationInspectorView.cpp" line="246" />
+        <location filename="../src/openstudio_lib/MaterialRoofVegetationInspectorView.cpp" line="246"/>
         <source>Moisture Diffusion Calculation Method: </source>
         <translation>湿気拡散計算方法:</translation>
     </message>
@@ -26464,72 +26465,72 @@ If you would like to see the OpenStudioApplication translated in your language o
 <context>
     <name>openstudio::MaterialsView</name>
     <message>
-        <location filename="../src/openstudio_lib/MaterialsView.cpp" line="45" />
+        <location filename="../src/openstudio_lib/MaterialsView.cpp" line="45"/>
         <source>Materials</source>
         <translation>材料</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/MaterialsView.cpp" line="46" />
+        <location filename="../src/openstudio_lib/MaterialsView.cpp" line="46"/>
         <source>No Mass Materials</source>
         <translation>ノーマス材料</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/MaterialsView.cpp" line="47" />
+        <location filename="../src/openstudio_lib/MaterialsView.cpp" line="47"/>
         <source>Air Gap Materials</source>
         <translation>空気層材料</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/MaterialsView.cpp" line="50" />
+        <location filename="../src/openstudio_lib/MaterialsView.cpp" line="50"/>
         <source>Simple Glazing System Window Materials</source>
         <translation>シンプルグレージングシステムウィンドウマテリアル</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/MaterialsView.cpp" line="51" />
+        <location filename="../src/openstudio_lib/MaterialsView.cpp" line="51"/>
         <source>Glazing Window Materials</source>
         <translation>ガラス窓材料</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/MaterialsView.cpp" line="52" />
+        <location filename="../src/openstudio_lib/MaterialsView.cpp" line="52"/>
         <source>Gas Window Materials</source>
         <translation>ガスウィンドウ材料</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/MaterialsView.cpp" line="53" />
+        <location filename="../src/openstudio_lib/MaterialsView.cpp" line="53"/>
         <source>Gas Mixture Window Materials</source>
         <translation>ガス混合窓材料</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/MaterialsView.cpp" line="54" />
+        <location filename="../src/openstudio_lib/MaterialsView.cpp" line="54"/>
         <source>Blind Window Materials</source>
         <translation>ブラインドウィンドウマテリアル</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/MaterialsView.cpp" line="56" />
+        <location filename="../src/openstudio_lib/MaterialsView.cpp" line="56"/>
         <source>Daylight Redirection Device Window Materials</source>
         <translation>昼光リダイレクションデバイスの窓材料</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/MaterialsView.cpp" line="57" />
+        <location filename="../src/openstudio_lib/MaterialsView.cpp" line="57"/>
         <source>Screen Window Materials</source>
         <translation>スクリーンウィンドウマテリアル</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/MaterialsView.cpp" line="58" />
+        <location filename="../src/openstudio_lib/MaterialsView.cpp" line="58"/>
         <source>Shade Window Materials</source>
         <translation>シェードウィンドウマテリアル</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/MaterialsView.cpp" line="61" />
+        <location filename="../src/openstudio_lib/MaterialsView.cpp" line="61"/>
         <source>Infrared Transparent Materials</source>
         <translation>赤外線透過材料</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/MaterialsView.cpp" line="62" />
+        <location filename="../src/openstudio_lib/MaterialsView.cpp" line="62"/>
         <source>Roof Vegetation Materials</source>
         <translation>屋根植生材料</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/MaterialsView.cpp" line="64" />
+        <location filename="../src/openstudio_lib/MaterialsView.cpp" line="64"/>
         <source>Refraction Extinction Method Glazing Window Materials</source>
         <translation>屈折消滅法ガラージング窓材料</translation>
     </message>
@@ -26537,24 +26538,24 @@ If you would like to see the OpenStudioApplication translated in your language o
 <context>
     <name>openstudio::MeasureManager</name>
     <message>
-        <location filename="../src/shared_gui_components/MeasureManager.cpp" line="976" />
-        <location filename="../src/shared_gui_components/MeasureManager.cpp" line="992" />
+        <location filename="../src/shared_gui_components/MeasureManager.cpp" line="976"/>
+        <location filename="../src/shared_gui_components/MeasureManager.cpp" line="992"/>
         <source>Measures Updated</source>
         <translation>メジャーが更新されました</translation>
     </message>
     <message>
-        <location filename="../src/shared_gui_components/MeasureManager.cpp" line="976" />
+        <location filename="../src/shared_gui_components/MeasureManager.cpp" line="976"/>
         <source>All measures are up-to-date.</source>
         <translation>すべてのメジャーが最新の状態です。</translation>
     </message>
     <message>
-        <location filename="../src/shared_gui_components/MeasureManager.cpp" line="979" />
+        <location filename="../src/shared_gui_components/MeasureManager.cpp" line="979"/>
         <source> measures have been updated on BCL compared to your local BCL directory.
 </source>
         <translation>メジャーはBCLでローカルBCLディレクトリと比較して更新されています。</translation>
     </message>
     <message>
-        <location filename="../src/shared_gui_components/MeasureManager.cpp" line="980" />
+        <location filename="../src/shared_gui_components/MeasureManager.cpp" line="980"/>
         <source>Would you like update them?</source>
         <translation>それらを更新しますか?</translation>
     </message>
@@ -26562,52 +26563,52 @@ If you would like to see the OpenStudioApplication translated in your language o
 <context>
     <name>openstudio::MechanicalVentilationView</name>
     <message>
-        <location filename="../src/openstudio_lib/HVACSystemsView.cpp" line="583" />
+        <location filename="../src/openstudio_lib/HVACSystemsView.cpp" line="583"/>
         <source>Economizer</source>
         <translation>エコノマイザー</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/HVACSystemsView.cpp" line="589" />
+        <location filename="../src/openstudio_lib/HVACSystemsView.cpp" line="589"/>
         <source>Fixed Dry Bulb</source>
         <translation>固定乾球温度</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/HVACSystemsView.cpp" line="590" />
+        <location filename="../src/openstudio_lib/HVACSystemsView.cpp" line="590"/>
         <source>Fixed Enthalpy</source>
         <translation>固定エンタルピー</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/HVACSystemsView.cpp" line="591" />
+        <location filename="../src/openstudio_lib/HVACSystemsView.cpp" line="591"/>
         <source>Differential Dry Bulb</source>
         <translation>乾球温度差</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/HVACSystemsView.cpp" line="592" />
+        <location filename="../src/openstudio_lib/HVACSystemsView.cpp" line="592"/>
         <source>Differential Enthalpy</source>
         <translation>差分エンタルピー</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/HVACSystemsView.cpp" line="593" />
+        <location filename="../src/openstudio_lib/HVACSystemsView.cpp" line="593"/>
         <source>Fixed Dewpoint and Dry Bulb</source>
         <translation>固定露点及び乾球温度</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/HVACSystemsView.cpp" line="594" />
+        <location filename="../src/openstudio_lib/HVACSystemsView.cpp" line="594"/>
         <source>Electronic Enthalpy</source>
         <translation>電子エンタルピー</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/HVACSystemsView.cpp" line="595" />
+        <location filename="../src/openstudio_lib/HVACSystemsView.cpp" line="595"/>
         <source>Differential Dry Bulb and Enthalpy</source>
         <translation>乾球温度とエンタルピーの差分</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/HVACSystemsView.cpp" line="596" />
+        <location filename="../src/openstudio_lib/HVACSystemsView.cpp" line="596"/>
         <source>No Economizer</source>
         <translation>エコノマイザーなし</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/HVACSystemsView.cpp" line="632" />
+        <location filename="../src/openstudio_lib/HVACSystemsView.cpp" line="632"/>
         <source>Demand Controlled Ventilation</source>
         <translation>需要制御換気</translation>
     </message>
@@ -26619,63 +26620,63 @@ If you would like to see the OpenStudioApplication translated in your language o
 <context>
     <name>openstudio::MonthView</name>
     <message>
-        <location filename="../src/openstudio_lib/SchedulesView.cpp" line="1986" />
-        <location filename="../src/openstudio_lib/SchedulesView.cpp" line="2017" />
+        <location filename="../src/openstudio_lib/SchedulesView.cpp" line="1986"/>
+        <location filename="../src/openstudio_lib/SchedulesView.cpp" line="2017"/>
         <source>January</source>
         <translation>１月</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/SchedulesView.cpp" line="2017" />
+        <location filename="../src/openstudio_lib/SchedulesView.cpp" line="2017"/>
         <source>February</source>
         <translation>２月</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/SchedulesView.cpp" line="2017" />
+        <location filename="../src/openstudio_lib/SchedulesView.cpp" line="2017"/>
         <source>March</source>
         <translation>３月</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/SchedulesView.cpp" line="2017" />
+        <location filename="../src/openstudio_lib/SchedulesView.cpp" line="2017"/>
         <source>April</source>
         <translation>４月</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/SchedulesView.cpp" line="2017" />
+        <location filename="../src/openstudio_lib/SchedulesView.cpp" line="2017"/>
         <source>May</source>
         <translation>５月</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/SchedulesView.cpp" line="2017" />
+        <location filename="../src/openstudio_lib/SchedulesView.cpp" line="2017"/>
         <source>June</source>
         <translation>６月</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/SchedulesView.cpp" line="2018" />
+        <location filename="../src/openstudio_lib/SchedulesView.cpp" line="2018"/>
         <source>July</source>
         <translation>７月</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/SchedulesView.cpp" line="2018" />
+        <location filename="../src/openstudio_lib/SchedulesView.cpp" line="2018"/>
         <source>August</source>
         <translation>８月</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/SchedulesView.cpp" line="2018" />
+        <location filename="../src/openstudio_lib/SchedulesView.cpp" line="2018"/>
         <source>September</source>
         <translation>９月</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/SchedulesView.cpp" line="2018" />
+        <location filename="../src/openstudio_lib/SchedulesView.cpp" line="2018"/>
         <source>October</source>
         <translation>１０月</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/SchedulesView.cpp" line="2018" />
+        <location filename="../src/openstudio_lib/SchedulesView.cpp" line="2018"/>
         <source>November</source>
         <translation>１１月</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/SchedulesView.cpp" line="2018" />
+        <location filename="../src/openstudio_lib/SchedulesView.cpp" line="2018"/>
         <source>December</source>
         <translation>１２月</translation>
     </message>
@@ -26683,64 +26684,64 @@ If you would like to see the OpenStudioApplication translated in your language o
 <context>
     <name>openstudio::NewProfileView</name>
     <message>
-        <location filename="../src/openstudio_lib/SchedulesView.cpp" line="1246" />
+        <location filename="../src/openstudio_lib/SchedulesView.cpp" line="1246"/>
         <source>Create a new profile.</source>
         <translation>新しいプロフィールを作成します。</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/SchedulesView.cpp" line="1253" />
+        <location filename="../src/openstudio_lib/SchedulesView.cpp" line="1253"/>
         <source>Make a New Profile Based on:</source>
         <translation>新しいプロファイルを作成:</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/SchedulesView.cpp" line="1261" />
+        <location filename="../src/openstudio_lib/SchedulesView.cpp" line="1261"/>
         <source>Add</source>
         <translation>追加</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/SchedulesView.cpp" line="1300" />
+        <location filename="../src/openstudio_lib/SchedulesView.cpp" line="1300"/>
         <source>&lt;New Profile&gt;</source>
         <translation>&lt;新しいプロファイル&gt;</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/SchedulesView.cpp" line="1302" />
+        <location filename="../src/openstudio_lib/SchedulesView.cpp" line="1302"/>
         <source>Default Day Schedule</source>
         <translation>デフォルト日スケジュール</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/SchedulesView.cpp" line="1305" />
+        <location filename="../src/openstudio_lib/SchedulesView.cpp" line="1305"/>
         <source>Summer Design Day Schedule</source>
         <translation>夏季設計日スケジュール</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/SchedulesView.cpp" line="1309" />
+        <location filename="../src/openstudio_lib/SchedulesView.cpp" line="1309"/>
         <source>Winter Design Day Schedule</source>
         <translation>冬季設計日スケジュール</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/SchedulesView.cpp" line="1313" />
+        <location filename="../src/openstudio_lib/SchedulesView.cpp" line="1313"/>
         <source>Holiday Design Day Schedule</source>
         <translation>祝日デザインデースケジュール</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/SchedulesView.cpp" line="1203" />
+        <location filename="../src/openstudio_lib/SchedulesView.cpp" line="1203"/>
         <source>The summer design day profile is not set, therefore the default run period profile will be used.</source>
         <translation>夏季設計日プロファイルが設定されていないため、デフォルトの実行期間プロファイルが使用されます。</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/SchedulesView.cpp" line="1212" />
+        <location filename="../src/openstudio_lib/SchedulesView.cpp" line="1212"/>
         <source>The winter design day profile is not set, therefore the default run period profile will be used.</source>
         <translation>冬季設計日プロファイルが設定されていないため、デフォルト実行期間プロファイルが使用されます。</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/SchedulesView.cpp" line="1221" />
+        <location filename="../src/openstudio_lib/SchedulesView.cpp" line="1221"/>
         <source>The holiday profile is not set, therefore the default run period profile will be used.</source>
         <translation>ホリデープロファイルが設定されていないため、デフォルトの実行期間プロファイルが使用されます。</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/SchedulesView.cpp" line="1204" />
-        <location filename="../src/openstudio_lib/SchedulesView.cpp" line="1213" />
-        <location filename="../src/openstudio_lib/SchedulesView.cpp" line="1222" />
+        <location filename="../src/openstudio_lib/SchedulesView.cpp" line="1204"/>
+        <location filename="../src/openstudio_lib/SchedulesView.cpp" line="1213"/>
+        <location filename="../src/openstudio_lib/SchedulesView.cpp" line="1222"/>
         <source>  Create a new profile to override the default run period profile.</source>
         <translation>デフォルトの実行期間プロファイルをオーバーライドするための新しいプロファイルを作成します。</translation>
     </message>
@@ -26748,7 +26749,7 @@ If you would like to see the OpenStudioApplication translated in your language o
 <context>
     <name>openstudio::NoMechanicalVentilationView</name>
     <message>
-        <location filename="../src/openstudio_lib/HVACSystemsView.cpp" line="648" />
+        <location filename="../src/openstudio_lib/HVACSystemsView.cpp" line="648"/>
         <source>This system configuration does not provide mechanical ventilation</source>
         <translation>このシステム構成は機械換気を提供していません</translation>
     </message>
@@ -26756,15 +26757,15 @@ If you would like to see the OpenStudioApplication translated in your language o
 <context>
     <name>openstudio::NoSupplyAirTempControlView</name>
     <message>
-        <location filename="../src/openstudio_lib/HVACSystemsView.cpp" line="949" />
-        <source>&lt;strong style="color:red"&gt;Missing supply temperature control&lt;/strong&gt;. Try adding a setpoint manager to the supply outlet node of your system.</source>
-        <translation>&lt;strong style="color:red"&gt;供給温度制御がありません&lt;/strong&gt;。システムの供給出口ノードにセットポイントマネージャーを追加してください。</translation>
+        <location filename="../src/openstudio_lib/HVACSystemsView.cpp" line="949"/>
+        <source>&lt;strong style=&quot;color:red&quot;&gt;Missing supply temperature control&lt;/strong&gt;. Try adding a setpoint manager to the supply outlet node of your system.</source>
+        <translation>&lt;strong style=&quot;color:red&quot;&gt;供給温度制御がありません&lt;/strong&gt;。システムの供給出口ノードにセットポイントマネージャーを追加してください。</translation>
     </message>
 </context>
 <context>
     <name>openstudio::OAResetSPMView</name>
     <message>
-        <location filename="../src/openstudio_lib/HVACSystemsView.cpp" line="686" />
+        <location filename="../src/openstudio_lib/HVACSystemsView.cpp" line="686"/>
         <source>Supply temperature is controlled by an outdoor air reset setpoint manager.</source>
         <translation>給湯温度は外気リセットセットポイントマネージャーによって制御されます。</translation>
     </message>
@@ -26772,17 +26773,17 @@ If you would like to see the OpenStudioApplication translated in your language o
 <context>
     <name>openstudio::OSDialog</name>
     <message>
-        <location filename="../src/shared_gui_components/OSDialog.cpp" line="55" />
+        <location filename="../src/shared_gui_components/OSDialog.cpp" line="55"/>
         <source>Back</source>
         <translation>戻る</translation>
     </message>
     <message>
-        <location filename="../src/shared_gui_components/OSDialog.cpp" line="61" />
+        <location filename="../src/shared_gui_components/OSDialog.cpp" line="61"/>
         <source>OK</source>
         <translation>OK</translation>
     </message>
     <message>
-        <location filename="../src/shared_gui_components/OSDialog.cpp" line="67" />
+        <location filename="../src/shared_gui_components/OSDialog.cpp" line="67"/>
         <source>Cancel</source>
         <translation>キャンセル</translation>
     </message>
@@ -26790,45 +26791,45 @@ If you would like to see the OpenStudioApplication translated in your language o
 <context>
     <name>openstudio::OSDocument</name>
     <message>
-        <location filename="../src/openstudio_lib/OSDocument.cpp" line="1218" />
+        <location filename="../src/openstudio_lib/OSDocument.cpp" line="1218"/>
         <source>Export Idf</source>
         <translation>IDFをエキスポート</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/OSDocument.cpp" line="1218" />
+        <location filename="../src/openstudio_lib/OSDocument.cpp" line="1218"/>
         <source>(*.idf)</source>
         <translation>(*.idf)</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/OSDocument.cpp" line="1253" />
+        <location filename="../src/openstudio_lib/OSDocument.cpp" line="1253"/>
         <source>(*.xml)</source>
         <translation>(*.xml)</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/OSDocument.cpp" line="1468" />
-        <location filename="../src/openstudio_lib/OSDocument.cpp" line="1544" />
+        <location filename="../src/openstudio_lib/OSDocument.cpp" line="1468"/>
+        <location filename="../src/openstudio_lib/OSDocument.cpp" line="1544"/>
         <source>Failed to save model</source>
         <translation>モデルの保存に失敗しました</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/OSDocument.cpp" line="1469" />
-        <location filename="../src/openstudio_lib/OSDocument.cpp" line="1545" />
+        <location filename="../src/openstudio_lib/OSDocument.cpp" line="1469"/>
+        <location filename="../src/openstudio_lib/OSDocument.cpp" line="1545"/>
         <source>Failed to save model, make sure that you do not have the location open and that you have correct write access.</source>
         <translation>モデルの保存に失敗しました。ファイルが開いてないこととアクセス許可があることを確認してください。</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/OSDocument.cpp" line="1512" />
+        <location filename="../src/openstudio_lib/OSDocument.cpp" line="1512"/>
         <source>Save</source>
         <translation>保存</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/OSDocument.cpp" line="1512" />
+        <location filename="../src/openstudio_lib/OSDocument.cpp" line="1512"/>
         <source>(*.osm)</source>
         <translation>(*.osm)</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/OSDocument.cpp" line="1707" />
-        <location filename="../src/openstudio_lib/OSDocument.cpp" line="1709" />
+        <location filename="../src/openstudio_lib/OSDocument.cpp" line="1707"/>
+        <location filename="../src/openstudio_lib/OSDocument.cpp" line="1709"/>
         <source>Select My Measures Directory</source>
         <translation>メジャーディレクトリを選択</translation>
     </message>
@@ -26837,77 +26838,77 @@ If you would like to see the OpenStudioApplication translated in your language o
         <translation>オンラインBCL</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/OSDocument.cpp" line="349" />
+        <location filename="../src/openstudio_lib/OSDocument.cpp" line="349"/>
         <source>Site</source>
         <translation>敷地</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/OSDocument.cpp" line="353" />
+        <location filename="../src/openstudio_lib/OSDocument.cpp" line="353"/>
         <source>Schedules</source>
         <translation>スケジュール</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/OSDocument.cpp" line="357" />
+        <location filename="../src/openstudio_lib/OSDocument.cpp" line="357"/>
         <source>Constructions</source>
         <translation>構成部材</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/OSDocument.cpp" line="361" />
+        <location filename="../src/openstudio_lib/OSDocument.cpp" line="361"/>
         <source>Loads</source>
         <translation>負荷</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/OSDocument.cpp" line="365" />
+        <location filename="../src/openstudio_lib/OSDocument.cpp" line="365"/>
         <source>Space Types</source>
         <translation>スペースタイプ</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/OSDocument.cpp" line="369" />
+        <location filename="../src/openstudio_lib/OSDocument.cpp" line="369"/>
         <source>Geometry</source>
         <translation>ジオメトリ</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/OSDocument.cpp" line="373" />
+        <location filename="../src/openstudio_lib/OSDocument.cpp" line="373"/>
         <source>Facility</source>
         <translation>施設</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/OSDocument.cpp" line="377" />
+        <location filename="../src/openstudio_lib/OSDocument.cpp" line="377"/>
         <source>Spaces</source>
         <translation>スペース</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/OSDocument.cpp" line="381" />
+        <location filename="../src/openstudio_lib/OSDocument.cpp" line="381"/>
         <source>Thermal Zones</source>
         <translation>熱ゾーン</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/OSDocument.cpp" line="385" />
+        <location filename="../src/openstudio_lib/OSDocument.cpp" line="385"/>
         <source>HVAC Systems</source>
         <translation>HVAC システム</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/OSDocument.cpp" line="400" />
+        <location filename="../src/openstudio_lib/OSDocument.cpp" line="400"/>
         <source>Output Variables</source>
         <translation>出力変数</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/OSDocument.cpp" line="404" />
+        <location filename="../src/openstudio_lib/OSDocument.cpp" line="404"/>
         <source>Simulation Settings</source>
         <translation>シミュレーション設定</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/OSDocument.cpp" line="408" />
+        <location filename="../src/openstudio_lib/OSDocument.cpp" line="408"/>
         <source>Measures</source>
         <translation>対策</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/OSDocument.cpp" line="412" />
+        <location filename="../src/openstudio_lib/OSDocument.cpp" line="412"/>
         <source>Run Simulation</source>
         <translation>シミュレーション実行</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/OSDocument.cpp" line="416" />
+        <location filename="../src/openstudio_lib/OSDocument.cpp" line="416"/>
         <source>Results Summary</source>
         <translation>結果サマリ</translation>
     </message>
@@ -26915,7 +26916,7 @@ If you would like to see the OpenStudioApplication translated in your language o
 <context>
     <name>openstudio::OSDropZone</name>
     <message>
-        <location filename="../src/openstudio_lib/OSDropZone.cpp" line="59" />
+        <location filename="../src/openstudio_lib/OSDropZone.cpp" line="59"/>
         <source>Drag From Library</source>
         <translation>ライブラリからドラッグ</translation>
     </message>
@@ -26923,15 +26924,15 @@ If you would like to see the OpenStudioApplication translated in your language o
 <context>
     <name>openstudio::OSGridController</name>
     <message>
-        <location filename="../src/shared_gui_components/OSGridController.cpp" line="161" />
-        <location filename="../src/shared_gui_components/OSGridController.cpp" line="467" />
-        <location filename="../src/shared_gui_components/OSGridController.cpp" line="473" />
+        <location filename="../src/shared_gui_components/OSGridController.cpp" line="161"/>
+        <location filename="../src/shared_gui_components/OSGridController.cpp" line="467"/>
+        <location filename="../src/shared_gui_components/OSGridController.cpp" line="473"/>
         <source>Custom</source>
         <translation>カスタム</translation>
     </message>
     <message>
-        <location filename="../src/shared_gui_components/OSGridController.cpp" line="775" />
-        <location filename="../src/shared_gui_components/OSGridController.cpp" line="778" />
+        <location filename="../src/shared_gui_components/OSGridController.cpp" line="775"/>
+        <location filename="../src/shared_gui_components/OSGridController.cpp" line="778"/>
         <source>Apply to Selected</source>
         <translation>選択項目に適用</translation>
     </message>
@@ -26939,22 +26940,22 @@ If you would like to see the OpenStudioApplication translated in your language o
 <context>
     <name>openstudio::OSItemSelectorButtons</name>
     <message>
-        <location filename="../src/openstudio_lib/OSItemSelectorButtons.cpp" line="76" />
+        <location filename="../src/openstudio_lib/OSItemSelectorButtons.cpp" line="76"/>
         <source>Add new object</source>
         <translation>新しいオブジェクトの追加</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/OSItemSelectorButtons.cpp" line="86" />
+        <location filename="../src/openstudio_lib/OSItemSelectorButtons.cpp" line="86"/>
         <source>Copy selected object</source>
         <translation>選択されたオブジェクトをコピー</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/OSItemSelectorButtons.cpp" line="96" />
+        <location filename="../src/openstudio_lib/OSItemSelectorButtons.cpp" line="96"/>
         <source>Remove selected objects</source>
         <translation>選択されたオブジェクトを削除</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/OSItemSelectorButtons.cpp" line="107" />
+        <location filename="../src/openstudio_lib/OSItemSelectorButtons.cpp" line="107"/>
         <source>Purge unused objects</source>
         <translation>未使用オブジェクトをすべて削除</translation>
     </message>
@@ -26962,7 +26963,7 @@ If you would like to see the OpenStudioApplication translated in your language o
 <context>
     <name>openstudio::OpenStudioApp</name>
     <message>
-        <location filename="../src/openstudio_app/OpenStudioApp.cpp" line="243" />
+        <location filename="../src/openstudio_app/OpenStudioApp.cpp" line="243"/>
         <source>Timeout</source>
         <translation>タイムアウト</translation>
     </message>
@@ -26971,235 +26972,235 @@ If you would like to see the OpenStudioApplication translated in your language o
         <translation>メジャーマネージャーの開始に失敗しました。もう一度試みますか？</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_app/OpenStudioApp.cpp" line="245" />
+        <location filename="../src/openstudio_app/OpenStudioApp.cpp" line="245"/>
         <source>Failed to start the Measure Manager. Would you like to keep waiting?</source>
         <translation>メジャー マネージャーの起動に失敗しました。待機を続けますか?</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_app/OpenStudioApp.cpp" line="381" />
+        <location filename="../src/openstudio_app/OpenStudioApp.cpp" line="381"/>
         <source>Loading Library Files</source>
         <translation>ライブラリーファイルをロード中</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_app/OpenStudioApp.cpp" line="382" />
+        <location filename="../src/openstudio_app/OpenStudioApp.cpp" line="382"/>
         <source>(Manage library files in Preferences-&gt;Change default libraries)</source>
         <translation>（ライブラリーファイルの管理はプレファレンス→デフォルトライブラリーの変更から行います）</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_app/OpenStudioApp.cpp" line="399" />
+        <location filename="../src/openstudio_app/OpenStudioApp.cpp" line="399"/>
         <source>Translation From version </source>
         <translation>バージョン変更</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_app/OpenStudioApp.cpp" line="399" />
-        <location filename="../src/openstudio_app/OpenStudioApp.cpp" line="1125" />
+        <location filename="../src/openstudio_app/OpenStudioApp.cpp" line="399"/>
+        <location filename="../src/openstudio_app/OpenStudioApp.cpp" line="1125"/>
         <source> to </source>
         <translation>から</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_app/OpenStudioApp.cpp" line="402" />
+        <location filename="../src/openstudio_app/OpenStudioApp.cpp" line="402"/>
         <source>Unknown starting version</source>
         <translation>元のバージョンが不明です</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_app/OpenStudioApp.cpp" line="476" />
+        <location filename="../src/openstudio_app/OpenStudioApp.cpp" line="476"/>
         <source>Import Idf</source>
         <translation>IDFをインポート</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_app/OpenStudioApp.cpp" line="476" />
+        <location filename="../src/openstudio_app/OpenStudioApp.cpp" line="476"/>
         <source>(*.idf)</source>
         <translation>(*.idf)</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_app/OpenStudioApp.cpp" line="507" />
-        <source>' while OpenStudio uses a &lt;strong&gt;newer&lt;/strong&gt; EnergyPlus '</source>
-        <translation>' OpenStudioがより新しいEnergyPlusを使用している一方で '</translation>
+        <location filename="../src/openstudio_app/OpenStudioApp.cpp" line="507"/>
+        <source>&apos; while OpenStudio uses a &lt;strong&gt;newer&lt;/strong&gt; EnergyPlus &apos;</source>
+        <translation>&apos; OpenStudioがより新しいEnergyPlusを使用している一方で &apos;</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_app/OpenStudioApp.cpp" line="508" />
-        <source>'. Consider using the EnergyPlus Auxiliary program IDFVersionUpdater to update your IDF file.</source>
-        <translation>'.EnergyPlus補助プログラムのIDFVersionUpdaterを使いIDFファイルをアップデートしてください。</translation>
+        <location filename="../src/openstudio_app/OpenStudioApp.cpp" line="508"/>
+        <source>&apos;. Consider using the EnergyPlus Auxiliary program IDFVersionUpdater to update your IDF file.</source>
+        <translation>&apos;.EnergyPlus補助プログラムのIDFVersionUpdaterを使いIDFファイルをアップデートしてください。</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_app/OpenStudioApp.cpp" line="510" />
-        <source>' while OpenStudio uses an &lt;strong&gt;older&lt;/strong&gt; EnergyPlus '</source>
-        <translation>'OpenStudioではより古いEnergyPlusを使用しています'</translation>
+        <location filename="../src/openstudio_app/OpenStudioApp.cpp" line="510"/>
+        <source>&apos; while OpenStudio uses an &lt;strong&gt;older&lt;/strong&gt; EnergyPlus &apos;</source>
+        <translation>&apos;OpenStudioではより古いEnergyPlusを使用しています&apos;</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_app/OpenStudioApp.cpp" line="510" />
-        <source>'.</source>
-        <translation>'.</translation>
+        <location filename="../src/openstudio_app/OpenStudioApp.cpp" line="510"/>
+        <source>&apos;.</source>
+        <translation>&apos;.</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_app/OpenStudioApp.cpp" line="512" />
-        <source>' which is the &lt;strong&gt;same&lt;/strong&gt; version of EnergyPlus that OpenStudio uses (</source>
-        <translation>\'OpenStudioが使用しているEnergyPlusの同じバージョンです(</translation>
+        <location filename="../src/openstudio_app/OpenStudioApp.cpp" line="512"/>
+        <source>&apos; which is the &lt;strong&gt;same&lt;/strong&gt; version of EnergyPlus that OpenStudio uses (</source>
+        <translation>\&apos;OpenStudioが使用しているEnergyPlusの同じバージョンです(</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_app/OpenStudioApp.cpp" line="516" />
+        <location filename="../src/openstudio_app/OpenStudioApp.cpp" line="516"/>
         <source>&lt;strong&gt;The IDF does not have a VersionObject&lt;/strong&gt;. Check that it is of correct version (</source>
         <translation>&lt;strong&gt;IDFファイルにVersionObjectがありません。&lt;/strong&gt; 正しいバージョン(</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_app/OpenStudioApp.cpp" line="517" />
+        <location filename="../src/openstudio_app/OpenStudioApp.cpp" line="517"/>
         <source>) and that all fields are valid against Energy+.idd. </source>
         <translation>)であることを確認し、すべてのフィールドがEnergyPlusの.iddファイルに対して正しく入力されていることをご確認ください。</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_app/OpenStudioApp.cpp" line="520" />
+        <location filename="../src/openstudio_app/OpenStudioApp.cpp" line="520"/>
         <source>&lt;br/&gt;&lt;br/&gt;The ValidityReport follows.</source>
         <translation>&lt;br/&gt;&lt;br/&gt;ValidityReport.</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_app/OpenStudioApp.cpp" line="522" />
+        <location filename="../src/openstudio_app/OpenStudioApp.cpp" line="522"/>
         <source>&lt;strong&gt;File is not valid to draft strictness&lt;/strong&gt;. Check that all fields are valid against Energy+.idd.</source>
         <translation>&lt;strong&gt;ファイルはドラフトの厳密さに対して無効です&lt;/strong&gt;。 すべてのフィールドがEnergyPlusの.iddファイルに対して正しく入力されていることをご確認ください。</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_app/OpenStudioApp.cpp" line="528" />
+        <location filename="../src/openstudio_app/OpenStudioApp.cpp" line="528"/>
         <source> IDF Import Failed</source>
         <translation>IDFファイルのインポートに失敗</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_app/OpenStudioApp.cpp" line="603" />
+        <location filename="../src/openstudio_app/OpenStudioApp.cpp" line="603"/>
         <source>=============== Errors ===============
 
 </source>
         <translation>=============== エラー ===============</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_app/OpenStudioApp.cpp" line="611" />
+        <location filename="../src/openstudio_app/OpenStudioApp.cpp" line="611"/>
         <source>============== Warnings ==============
 
 </source>
         <translation>=============== 警告 ===============</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_app/OpenStudioApp.cpp" line="619" />
+        <location filename="../src/openstudio_app/OpenStudioApp.cpp" line="619"/>
         <source>==== The following idf objects were not imported ====
 
 </source>
         <translation>==== 次のIDFオブジェクトはインポートされませんでした ====</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_app/OpenStudioApp.cpp" line="624" />
+        <location filename="../src/openstudio_app/OpenStudioApp.cpp" line="624"/>
         <source> named </source>
         <translation>named</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_app/OpenStudioApp.cpp" line="626" />
+        <location filename="../src/openstudio_app/OpenStudioApp.cpp" line="626"/>
         <source>Unnamed </source>
         <translation>Unamed</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_app/OpenStudioApp.cpp" line="632" />
+        <location filename="../src/openstudio_app/OpenStudioApp.cpp" line="632"/>
         <source>&lt;strong&gt;Some portions of the IDF file were not imported.&lt;/strong&gt;</source>
         <translation>&lt;strong&gt;IDFファイルの一部がインポートされませんでした。&lt;/strong&gt;</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_app/OpenStudioApp.cpp" line="638" />
+        <location filename="../src/openstudio_app/OpenStudioApp.cpp" line="638"/>
         <source>IDF Import</source>
         <translation>IDFをインポート</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_app/OpenStudioApp.cpp" line="641" />
+        <location filename="../src/openstudio_app/OpenStudioApp.cpp" line="641"/>
         <source>Only geometry, constructions, loads, thermal zones, and schedules are supported by the OpenStudio IDF import feature.</source>
         <translation>OpenStudioのIDFインポート機能は形状、材質、負荷、ゾーン、スケジュールのみをインポートできます。</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_app/OpenStudioApp.cpp" line="704" />
+        <location filename="../src/openstudio_app/OpenStudioApp.cpp" line="704"/>
         <source>Import </source>
         <translation>インポート</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_app/OpenStudioApp.cpp" line="711" />
+        <location filename="../src/openstudio_app/OpenStudioApp.cpp" line="711"/>
         <source>(*.xml)</source>
         <translation>(*.xml)</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_app/OpenStudioApp.cpp" line="776" />
+        <location filename="../src/openstudio_app/OpenStudioApp.cpp" line="776"/>
         <source>Errors or warnings occurred on import of </source>
         <translation>インポート時に起こったエラーや警告</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_app/OpenStudioApp.cpp" line="786" />
+        <location filename="../src/openstudio_app/OpenStudioApp.cpp" line="786"/>
         <source>Could not import SDD file.</source>
         <translation>SDDファイルをインポート出来ません。</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_app/OpenStudioApp.cpp" line="788" />
+        <location filename="../src/openstudio_app/OpenStudioApp.cpp" line="788"/>
         <source>Could not import </source>
         <translation>ファイル種</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_app/OpenStudioApp.cpp" line="788" />
+        <location filename="../src/openstudio_app/OpenStudioApp.cpp" line="788"/>
         <source> file at </source>
         <translation>のインポートにしっぱいしました。 ファイル名</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_app/OpenStudioApp.cpp" line="817" />
+        <location filename="../src/openstudio_app/OpenStudioApp.cpp" line="817"/>
         <source>Save Changes?</source>
         <translation>変更を保存しますか？</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_app/OpenStudioApp.cpp" line="818" />
+        <location filename="../src/openstudio_app/OpenStudioApp.cpp" line="818"/>
         <source>The document has been modified.</source>
         <translation>このドキュメントは変更されています。</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_app/OpenStudioApp.cpp" line="819" />
+        <location filename="../src/openstudio_app/OpenStudioApp.cpp" line="819"/>
         <source>Do you want to save your changes?</source>
         <translation>変更を保存しますか？</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_app/OpenStudioApp.cpp" line="886" />
+        <location filename="../src/openstudio_app/OpenStudioApp.cpp" line="886"/>
         <source>Open</source>
         <translation>開く</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_app/OpenStudioApp.cpp" line="886" />
-        <location filename="../src/openstudio_app/OpenStudioApp.cpp" line="1497" />
+        <location filename="../src/openstudio_app/OpenStudioApp.cpp" line="886"/>
+        <location filename="../src/openstudio_app/OpenStudioApp.cpp" line="1497"/>
         <source>(*.osm)</source>
         <translation>(*.osm)</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_app/OpenStudioApp.cpp" line="945" />
-        <source>A new version is available at &lt;a href="</source>
-        <translation>新しいバージョンをご利用いただけます &lt;a href="</translation>
+        <location filename="../src/openstudio_app/OpenStudioApp.cpp" line="945"/>
+        <source>A new version is available at &lt;a href=&quot;</source>
+        <translation>新しいバージョンをご利用いただけます &lt;a href=&quot;</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_app/OpenStudioApp.cpp" line="950" />
+        <location filename="../src/openstudio_app/OpenStudioApp.cpp" line="950"/>
         <source>Currently using the most recent version</source>
         <translation>最新版を利用しています</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_app/OpenStudioApp.cpp" line="958" />
+        <location filename="../src/openstudio_app/OpenStudioApp.cpp" line="958"/>
         <source>Check for Updates</source>
         <translation>更新を確認</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_app/OpenStudioApp.cpp" line="980" />
+        <location filename="../src/openstudio_app/OpenStudioApp.cpp" line="980"/>
         <source>Measure Manager Server: </source>
         <translation>メジャーマネージャーサーバー:</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_app/OpenStudioApp.cpp" line="981" />
+        <location filename="../src/openstudio_app/OpenStudioApp.cpp" line="981"/>
         <source>Chrome Debugger: http://localhost:</source>
         <translation>Chrome Debugger: http://localhost:</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_app/OpenStudioApp.cpp" line="982" />
+        <location filename="../src/openstudio_app/OpenStudioApp.cpp" line="982"/>
         <source>Temp Directory: </source>
         <translation>Temp Directory:</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_app/OpenStudioApp.cpp" line="1266" />
+        <location filename="../src/openstudio_app/OpenStudioApp.cpp" line="1266"/>
         <source>Measure Manager has crashed. Do you want to retry?</source>
         <translation>Measure Manager がクラッシュしました。再試行しますか?</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_app/OpenStudioApp.cpp" line="1271" />
+        <location filename="../src/openstudio_app/OpenStudioApp.cpp" line="1271"/>
         <source>Measure Manager Crashed</source>
         <translation>メジャー マネージャー がクラッシュ しました</translation>
     </message>
@@ -27208,70 +27209,70 @@ If you would like to see the OpenStudioApplication translated in your language o
         <translation>About</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_app/OpenStudioApp.cpp" line="1020" />
+        <location filename="../src/openstudio_app/OpenStudioApp.cpp" line="1020"/>
         <source>Failed to load model</source>
         <translation>モデルをロード出来ませんでした</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_app/OpenStudioApp.cpp" line="1123" />
+        <location filename="../src/openstudio_app/OpenStudioApp.cpp" line="1123"/>
         <source>Opening future version </source>
         <translation>バージョン</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_app/OpenStudioApp.cpp" line="1123" />
+        <location filename="../src/openstudio_app/OpenStudioApp.cpp" line="1123"/>
         <source> using </source>
         <translation>を次のバージョンでひらきます</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_app/OpenStudioApp.cpp" line="1125" />
+        <location filename="../src/openstudio_app/OpenStudioApp.cpp" line="1125"/>
         <source>Model updated from </source>
         <translation>モデルが更新されました</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_app/OpenStudioApp.cpp" line="1134" />
+        <location filename="../src/openstudio_app/OpenStudioApp.cpp" line="1134"/>
         <source>Existing Ruby scripts have been removed.
 Ruby scripts are no longer supported and have been replaced by measures.</source>
         <translation>既存のRubyスクリプトが削除されました。
 Rubyスクリプトはサポートされなくなり、メジャーに置き換わりました。</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_app/OpenStudioApp.cpp" line="1141" />
+        <location filename="../src/openstudio_app/OpenStudioApp.cpp" line="1141"/>
         <source>Failed to open file at </source>
         <translation>次のファイルが開けません</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_app/OpenStudioApp.cpp" line="1164" />
-        <location filename="../src/openstudio_app/OpenStudioApp.cpp" line="1348" />
+        <location filename="../src/openstudio_app/OpenStudioApp.cpp" line="1164"/>
+        <location filename="../src/openstudio_app/OpenStudioApp.cpp" line="1348"/>
         <source>Settings file not writable</source>
         <translation>設定ファイルは書き込み不可</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_app/OpenStudioApp.cpp" line="1165" />
-        <location filename="../src/openstudio_app/OpenStudioApp.cpp" line="1349" />
-        <source>Your settings file '</source>
+        <location filename="../src/openstudio_app/OpenStudioApp.cpp" line="1165"/>
+        <location filename="../src/openstudio_app/OpenStudioApp.cpp" line="1349"/>
+        <source>Your settings file &apos;</source>
         <translation>設定ファイル</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_app/OpenStudioApp.cpp" line="1165" />
-        <location filename="../src/openstudio_app/OpenStudioApp.cpp" line="1349" />
-        <source>' is not writable. Adjust the file permissions</source>
+        <location filename="../src/openstudio_app/OpenStudioApp.cpp" line="1165"/>
+        <location filename="../src/openstudio_app/OpenStudioApp.cpp" line="1349"/>
+        <source>&apos; is not writable. Adjust the file permissions</source>
         <translation>は書き込み出来ません。ファイルのアクセス許可を調整してください</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_app/OpenStudioApp.cpp" line="1186" />
-        <location filename="../src/openstudio_app/OpenStudioApp.cpp" line="1198" />
+        <location filename="../src/openstudio_app/OpenStudioApp.cpp" line="1186"/>
+        <location filename="../src/openstudio_app/OpenStudioApp.cpp" line="1198"/>
         <source>Revert to Saved</source>
         <translation>最後に保存した状態に戻る</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_app/OpenStudioApp.cpp" line="1186" />
+        <location filename="../src/openstudio_app/OpenStudioApp.cpp" line="1186"/>
         <source>This model has never been saved.
 Do you want to create a new model?</source>
         <translation>このモデルは保存されていません。
 新しいモデルを作成しますか？</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_app/OpenStudioApp.cpp" line="1198" />
+        <location filename="../src/openstudio_app/OpenStudioApp.cpp" line="1198"/>
         <source>Are you sure you want to revert to the last saved version?</source>
         <translation>本当に最後に保存した状態に戻ってもよろしいですか？</translation>
     </message>
@@ -27286,31 +27287,31 @@ Do you want to create a new model?</source>
         <translation>メジャーマネージャーがクラッシュしました</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_app/OpenStudioApp.cpp" line="1421" />
+        <location filename="../src/openstudio_app/OpenStudioApp.cpp" line="1421"/>
         <source>Restart required</source>
         <translation>再起動してください</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_app/OpenStudioApp.cpp" line="1422" />
+        <location filename="../src/openstudio_app/OpenStudioApp.cpp" line="1422"/>
         <source>A restart of the OpenStudio Application is required for language changes to be fully functionnal.
 Would you like to restart now?</source>
         <translation>言語の変更を適用するためにはOpenStudioの再起動が必要です。
 今すぐ再起動しますか？</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_app/OpenStudioApp.cpp" line="1497" />
+        <location filename="../src/openstudio_app/OpenStudioApp.cpp" line="1497"/>
         <source>Select Library</source>
         <translation>ライブラリーを選択</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_app/OpenStudioApp.cpp" line="1611" />
+        <location filename="../src/openstudio_app/OpenStudioApp.cpp" line="1611"/>
         <source>Failed to load the following libraries...
 
 </source>
         <translation>以下のライブラリーのロードに失敗…</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_app/OpenStudioApp.cpp" line="1619" />
+        <location filename="../src/openstudio_app/OpenStudioApp.cpp" line="1619"/>
         <source>
 
 Would you like to Restore library paths to default values or Open the library settings to change them manually?</source>
@@ -27320,39 +27321,39 @@ Would you like to Restore library paths to default values or Open the library se
 <context>
     <name>openstudio::OtherEquipmentDefinitionInspectorView</name>
     <message>
-        <location filename="../src/openstudio_lib/OtherEquipmentInspectorView.cpp" line="36" />
+        <location filename="../src/openstudio_lib/OtherEquipmentInspectorView.cpp" line="36"/>
         <source>Name: </source>
         <translation>ファイル名：</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/OtherEquipmentInspectorView.cpp" line="45" />
+        <location filename="../src/openstudio_lib/OtherEquipmentInspectorView.cpp" line="45"/>
         <source>Design Level: </source>
         <translation>設計レベル：</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/OtherEquipmentInspectorView.cpp" line="55" />
+        <location filename="../src/openstudio_lib/OtherEquipmentInspectorView.cpp" line="55"/>
         <source>Power Per Space Floor Area: </source>
         <translation>スペース床面積あたりの電力：</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/OtherEquipmentInspectorView.cpp" line="65" />
+        <location filename="../src/openstudio_lib/OtherEquipmentInspectorView.cpp" line="65"/>
         <source>Power Per Person: </source>
         <translation>Power Per Person:
 
 人あたりの電力:</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/OtherEquipmentInspectorView.cpp" line="75" />
+        <location filename="../src/openstudio_lib/OtherEquipmentInspectorView.cpp" line="75"/>
         <source>Fraction Latent: </source>
         <translation>潜熱分率：</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/OtherEquipmentInspectorView.cpp" line="85" />
+        <location filename="../src/openstudio_lib/OtherEquipmentInspectorView.cpp" line="85"/>
         <source>Fraction Radiant: </source>
         <translation>放射率分率：</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/OtherEquipmentInspectorView.cpp" line="95" />
+        <location filename="../src/openstudio_lib/OtherEquipmentInspectorView.cpp" line="95"/>
         <source>Fraction Lost: </source>
         <translation>損失率:</translation>
     </message>
@@ -27360,17 +27361,17 @@ Would you like to Restore library paths to default values or Open the library se
 <context>
     <name>openstudio::PathInputView</name>
     <message>
-        <location filename="../src/shared_gui_components/EditView.cpp" line="466" />
+        <location filename="../src/shared_gui_components/EditView.cpp" line="466"/>
         <source>Open Directory</source>
         <translation>ディレクトリを開く</translation>
     </message>
     <message>
-        <location filename="../src/shared_gui_components/EditView.cpp" line="469" />
+        <location filename="../src/shared_gui_components/EditView.cpp" line="469"/>
         <source>Open Read File</source>
         <translation>ファイルを開く</translation>
     </message>
     <message>
-        <location filename="../src/shared_gui_components/EditView.cpp" line="471" />
+        <location filename="../src/shared_gui_components/EditView.cpp" line="471"/>
         <source>Select Save File</source>
         <translation>ファイルを保存を選択</translation>
     </message>
@@ -27378,57 +27379,57 @@ Would you like to Restore library paths to default values or Open the library se
 <context>
     <name>openstudio::PeopleDefinitionInspectorView</name>
     <message>
-        <location filename="../src/openstudio_lib/PeopleInspectorView.cpp" line="177" />
+        <location filename="../src/openstudio_lib/PeopleInspectorView.cpp" line="177"/>
         <source>Add/Remove Extensible Groups</source>
         <translation>項目の追加/削除</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/PeopleInspectorView.cpp" line="56" />
+        <location filename="../src/openstudio_lib/PeopleInspectorView.cpp" line="56"/>
         <source>Name: </source>
         <translation>ファイル名：</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/PeopleInspectorView.cpp" line="70" />
+        <location filename="../src/openstudio_lib/PeopleInspectorView.cpp" line="70"/>
         <source>Number of People: </source>
         <translation>人数：</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/PeopleInspectorView.cpp" line="81" />
+        <location filename="../src/openstudio_lib/PeopleInspectorView.cpp" line="81"/>
         <source>People per Space Floor Area: </source>
         <translation>床面積当たりの人数:</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/PeopleInspectorView.cpp" line="93" />
+        <location filename="../src/openstudio_lib/PeopleInspectorView.cpp" line="93"/>
         <source>Space Floor Area per Person: </source>
         <translation>スペース床面積/人：</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/PeopleInspectorView.cpp" line="107" />
+        <location filename="../src/openstudio_lib/PeopleInspectorView.cpp" line="107"/>
         <source>Fraction Radiant: </source>
         <translation>放射率分率:</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/PeopleInspectorView.cpp" line="118" />
+        <location filename="../src/openstudio_lib/PeopleInspectorView.cpp" line="118"/>
         <source>Sensible Heat Fraction: </source>
         <translation>顕熱比:</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/PeopleInspectorView.cpp" line="129" />
+        <location filename="../src/openstudio_lib/PeopleInspectorView.cpp" line="129"/>
         <source>Carbon Dioxide Generation Rate: </source>
         <translation>二酸化炭素発生率:</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/PeopleInspectorView.cpp" line="152" />
+        <location filename="../src/openstudio_lib/PeopleInspectorView.cpp" line="152"/>
         <source>Enable ASHRAE 55 Comfort Warnings:</source>
         <translation>ASHRAE 55 快適性警告を有効にする：</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/PeopleInspectorView.cpp" line="160" />
+        <location filename="../src/openstudio_lib/PeopleInspectorView.cpp" line="160"/>
         <source>Mean Radiant Temperature Calculation Type:</source>
         <translation>平均放射温度計算タイプ:</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/PeopleInspectorView.cpp" line="335" />
+        <location filename="../src/openstudio_lib/PeopleInspectorView.cpp" line="335"/>
         <source>Thermal Comfort Model Type</source>
         <translation>熱的快適性モデルタイプ</translation>
     </message>
@@ -27436,17 +27437,17 @@ Would you like to Restore library paths to default values or Open the library se
 <context>
     <name>openstudio::PreviewWebView</name>
     <message>
-        <location filename="../src/openstudio_lib/GeometryPreviewView.cpp" line="174" />
+        <location filename="../src/openstudio_lib/GeometryPreviewView.cpp" line="174"/>
         <source>Refresh</source>
         <translation>更新</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/GeometryPreviewView.cpp" line="230" />
+        <location filename="../src/openstudio_lib/GeometryPreviewView.cpp" line="230"/>
         <source>Geometry Diagnostics</source>
         <translation>ジオメトリ診断</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/GeometryPreviewView.cpp" line="233" />
+        <location filename="../src/openstudio_lib/GeometryPreviewView.cpp" line="233"/>
         <source>Enables adjacency issues. Enables checks for Surface/Space Convexity, due to this the ThreeJS export is slightly slower</source>
         <translation>隣接性の問題を有効にします。Surface/Space Convexityのチェックを有効にし、このためThreeJSエクスポートは若干遅くなります</translation>
     </message>
@@ -27454,69 +27455,69 @@ Would you like to Restore library paths to default values or Open the library se
 <context>
     <name>openstudio::RefrigerationCaseGridController</name>
     <message>
-        <location filename="../src/openstudio_lib/RefrigerationGridView.cpp" line="258" />
-        <location filename="../src/openstudio_lib/RefrigerationGridView.cpp" line="267" />
-        <location filename="../src/openstudio_lib/RefrigerationGridView.cpp" line="272" />
+        <location filename="../src/openstudio_lib/RefrigerationGridView.cpp" line="258"/>
+        <location filename="../src/openstudio_lib/RefrigerationGridView.cpp" line="267"/>
+        <location filename="../src/openstudio_lib/RefrigerationGridView.cpp" line="272"/>
         <source>All</source>
         <translation>全て</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/RefrigerationGridView.cpp" line="258" />
-        <location filename="../src/openstudio_lib/RefrigerationGridView.cpp" line="442" />
-        <location filename="../src/openstudio_lib/RefrigerationGridView.cpp" line="443" />
+        <location filename="../src/openstudio_lib/RefrigerationGridView.cpp" line="258"/>
+        <location filename="../src/openstudio_lib/RefrigerationGridView.cpp" line="442"/>
+        <location filename="../src/openstudio_lib/RefrigerationGridView.cpp" line="443"/>
         <source>Name</source>
         <translation>名前</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/RefrigerationGridView.cpp" line="186" />
-        <location filename="../src/openstudio_lib/RefrigerationGridView.cpp" line="423" />
-        <location filename="../src/openstudio_lib/RefrigerationGridView.cpp" line="425" />
+        <location filename="../src/openstudio_lib/RefrigerationGridView.cpp" line="186"/>
+        <location filename="../src/openstudio_lib/RefrigerationGridView.cpp" line="423"/>
+        <location filename="../src/openstudio_lib/RefrigerationGridView.cpp" line="425"/>
         <source>Thermal Zone</source>
         <translation>熱ゾーン</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/RefrigerationGridView.cpp" line="185" />
-        <location filename="../src/openstudio_lib/RefrigerationGridView.cpp" line="432" />
-        <location filename="../src/openstudio_lib/RefrigerationGridView.cpp" line="434" />
-        <location filename="../src/openstudio_lib/RefrigerationGridView.cpp" line="512" />
+        <location filename="../src/openstudio_lib/RefrigerationGridView.cpp" line="185"/>
+        <location filename="../src/openstudio_lib/RefrigerationGridView.cpp" line="432"/>
+        <location filename="../src/openstudio_lib/RefrigerationGridView.cpp" line="434"/>
+        <location filename="../src/openstudio_lib/RefrigerationGridView.cpp" line="512"/>
         <source>Rack</source>
         <translation>ラック</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/RefrigerationGridView.cpp" line="187" />
-        <location filename="../src/openstudio_lib/RefrigerationGridView.cpp" line="286" />
-        <location filename="../src/openstudio_lib/RefrigerationGridView.cpp" line="287" />
+        <location filename="../src/openstudio_lib/RefrigerationGridView.cpp" line="187"/>
+        <location filename="../src/openstudio_lib/RefrigerationGridView.cpp" line="286"/>
+        <location filename="../src/openstudio_lib/RefrigerationGridView.cpp" line="287"/>
         <source>Case Length</source>
         <translation>ケース長</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/RefrigerationGridView.cpp" line="189" />
+        <location filename="../src/openstudio_lib/RefrigerationGridView.cpp" line="189"/>
         <source>General</source>
         <translation>一般</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/RefrigerationGridView.cpp" line="200" />
+        <location filename="../src/openstudio_lib/RefrigerationGridView.cpp" line="200"/>
         <source>Operation</source>
         <translation>運転</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/RefrigerationGridView.cpp" line="210" />
+        <location filename="../src/openstudio_lib/RefrigerationGridView.cpp" line="210"/>
         <source>Cooling
 Capacity</source>
         <translation>冷房能力</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/RefrigerationGridView.cpp" line="219" />
+        <location filename="../src/openstudio_lib/RefrigerationGridView.cpp" line="219"/>
         <source>Fan</source>
         <translation>ファン</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/RefrigerationGridView.cpp" line="230" />
+        <location filename="../src/openstudio_lib/RefrigerationGridView.cpp" line="230"/>
         <source>Lighting</source>
         <translation>照明</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/RefrigerationGridView.cpp" line="240" />
+        <location filename="../src/openstudio_lib/RefrigerationGridView.cpp" line="240"/>
         <source>Case
 Anti-Sweat
 Heaters</source>
@@ -27525,7 +27526,7 @@ Heaters</source>
 ヒーター</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/RefrigerationGridView.cpp" line="249" />
+        <location filename="../src/openstudio_lib/RefrigerationGridView.cpp" line="249"/>
         <source>Defrost
 And
 Restocking</source>
@@ -27534,12 +27535,12 @@ Restocking</source>
 補充</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/RefrigerationGridView.cpp" line="269" />
+        <location filename="../src/openstudio_lib/RefrigerationGridView.cpp" line="269"/>
         <source>Check to select all rows</source>
         <translation>全ての行を選択</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/RefrigerationGridView.cpp" line="272" />
+        <location filename="../src/openstudio_lib/RefrigerationGridView.cpp" line="272"/>
         <source>Check to select this row</source>
         <translation>このロウを選択するにはチェックします</translation>
     </message>
@@ -27547,7 +27548,7 @@ Restocking</source>
 <context>
     <name>openstudio::RefrigerationCasesDropZoneView</name>
     <message>
-        <location filename="../src/openstudio_lib/RefrigerationGraphicsItems.cpp" line="970" />
+        <location filename="../src/openstudio_lib/RefrigerationGraphicsItems.cpp" line="970"/>
         <source>Drag and Drop
 Cases</source>
         <translation>ドラッグ＆ドロップ
@@ -27557,14 +27558,14 @@ Cases</source>
 <context>
     <name>openstudio::RefrigerationCasesView</name>
     <message>
-        <location filename="../src/openstudio_lib/RefrigerationGraphicsItems.cpp" line="476" />
+        <location filename="../src/openstudio_lib/RefrigerationGraphicsItems.cpp" line="476"/>
         <source>%1
 Display Cases</source>
         <translation>%1
 ショーケース</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/RefrigerationGraphicsItems.cpp" line="486" />
+        <location filename="../src/openstudio_lib/RefrigerationGraphicsItems.cpp" line="486"/>
         <source>%1
 Walkin Cases</source>
         <translation>%1
@@ -27574,7 +27575,7 @@ Walkin Cases</source>
 <context>
     <name>openstudio::RefrigerationCompressorDropZoneView</name>
     <message>
-        <location filename="../src/openstudio_lib/RefrigerationGraphicsItems.cpp" line="883" />
+        <location filename="../src/openstudio_lib/RefrigerationGraphicsItems.cpp" line="883"/>
         <source>Drag and Drop
 Compressor</source>
         <translation>ドラッグ＆ドロップ
@@ -27584,7 +27585,7 @@ Compressor</source>
 <context>
     <name>openstudio::RefrigerationCondenserView</name>
     <message>
-        <location filename="../src/openstudio_lib/RefrigerationGraphicsItems.cpp" line="769" />
+        <location filename="../src/openstudio_lib/RefrigerationGraphicsItems.cpp" line="769"/>
         <source>Drop Condenser</source>
         <translation>コンデンサを配置</translation>
     </message>
@@ -27592,25 +27593,25 @@ Compressor</source>
 <context>
     <name>openstudio::RefrigerationGridView</name>
     <message>
-        <location filename="../src/openstudio_lib/RefrigerationGridView.cpp" line="142" />
-        <location filename="../src/openstudio_lib/RefrigerationGridView.cpp" line="143" />
+        <location filename="../src/openstudio_lib/RefrigerationGridView.cpp" line="142"/>
+        <location filename="../src/openstudio_lib/RefrigerationGridView.cpp" line="143"/>
         <source>Display Cases</source>
         <translation>ディスプレイケース</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/RefrigerationGridView.cpp" line="143" />
+        <location filename="../src/openstudio_lib/RefrigerationGridView.cpp" line="143"/>
         <source>Drop
 Case</source>
         <translation>ドロップケース</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/RefrigerationGridView.cpp" line="153" />
-        <location filename="../src/openstudio_lib/RefrigerationGridView.cpp" line="154" />
+        <location filename="../src/openstudio_lib/RefrigerationGridView.cpp" line="153"/>
+        <location filename="../src/openstudio_lib/RefrigerationGridView.cpp" line="154"/>
         <source>Walk Ins</source>
         <translation>ウォークイン</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/RefrigerationGridView.cpp" line="154" />
+        <location filename="../src/openstudio_lib/RefrigerationGridView.cpp" line="154"/>
         <source>Drop
 Walk In</source>
         <translation>ドロップ
@@ -27620,7 +27621,7 @@ Walk In</source>
 <context>
     <name>openstudio::RefrigerationSHXView</name>
     <message>
-        <location filename="../src/openstudio_lib/RefrigerationGraphicsItems.cpp" line="1096" />
+        <location filename="../src/openstudio_lib/RefrigerationGraphicsItems.cpp" line="1096"/>
         <source>Drop Liquid Suction HX</source>
         <translation>液体サクションHXを配置</translation>
     </message>
@@ -27628,7 +27629,7 @@ Walk In</source>
 <context>
     <name>openstudio::RefrigerationSubCoolerView</name>
     <message>
-        <location filename="../src/openstudio_lib/RefrigerationGraphicsItems.cpp" line="1001" />
+        <location filename="../src/openstudio_lib/RefrigerationGraphicsItems.cpp" line="1001"/>
         <source>Drop Mechanical Sub Cooler</source>
         <translation>機械式サブクーラーを配置</translation>
     </message>
@@ -27636,7 +27637,7 @@ Walk In</source>
 <context>
     <name>openstudio::RefrigerationSystemDropZoneView</name>
     <message>
-        <location filename="../src/openstudio_lib/RefrigerationGraphicsItems.cpp" line="1327" />
+        <location filename="../src/openstudio_lib/RefrigerationGraphicsItems.cpp" line="1327"/>
         <source>Drop Refrigeration System</source>
         <translation>冷凍システムを削除</translation>
     </message>
@@ -27644,86 +27645,86 @@ Walk In</source>
 <context>
     <name>openstudio::RefrigerationWalkInGridController</name>
     <message>
-        <location filename="../src/openstudio_lib/RefrigerationGridView.cpp" line="622" />
-        <location filename="../src/openstudio_lib/RefrigerationGridView.cpp" line="750" />
-        <location filename="../src/openstudio_lib/RefrigerationGridView.cpp" line="751" />
+        <location filename="../src/openstudio_lib/RefrigerationGridView.cpp" line="622"/>
+        <location filename="../src/openstudio_lib/RefrigerationGridView.cpp" line="750"/>
+        <location filename="../src/openstudio_lib/RefrigerationGridView.cpp" line="751"/>
         <source>Name</source>
         <translation>名前</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/RefrigerationGridView.cpp" line="533" />
-        <location filename="../src/openstudio_lib/RefrigerationGridView.cpp" line="764" />
-        <location filename="../src/openstudio_lib/RefrigerationGridView.cpp" line="766" />
+        <location filename="../src/openstudio_lib/RefrigerationGridView.cpp" line="533"/>
+        <location filename="../src/openstudio_lib/RefrigerationGridView.cpp" line="764"/>
+        <location filename="../src/openstudio_lib/RefrigerationGridView.cpp" line="766"/>
         <source>Thermal Zone</source>
         <translation>熱ゾーン</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/RefrigerationGridView.cpp" line="532" />
-        <location filename="../src/openstudio_lib/RefrigerationGridView.cpp" line="754" />
-        <location filename="../src/openstudio_lib/RefrigerationGridView.cpp" line="756" />
-        <location filename="../src/openstudio_lib/RefrigerationGridView.cpp" line="880" />
+        <location filename="../src/openstudio_lib/RefrigerationGridView.cpp" line="532"/>
+        <location filename="../src/openstudio_lib/RefrigerationGridView.cpp" line="754"/>
+        <location filename="../src/openstudio_lib/RefrigerationGridView.cpp" line="756"/>
+        <location filename="../src/openstudio_lib/RefrigerationGridView.cpp" line="880"/>
         <source>Rack</source>
         <translation>ラック</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/RefrigerationGridView.cpp" line="535" />
+        <location filename="../src/openstudio_lib/RefrigerationGridView.cpp" line="535"/>
         <source>General</source>
         <translation>一般</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/RefrigerationGridView.cpp" line="544" />
+        <location filename="../src/openstudio_lib/RefrigerationGridView.cpp" line="544"/>
         <source>Dimensions</source>
         <translation>寸法</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/RefrigerationGridView.cpp" line="555" />
+        <location filename="../src/openstudio_lib/RefrigerationGridView.cpp" line="555"/>
         <source>Construction</source>
         <translation>構造</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/RefrigerationGridView.cpp" line="566" />
+        <location filename="../src/openstudio_lib/RefrigerationGridView.cpp" line="566"/>
         <source>Operation</source>
         <translation>運用</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/RefrigerationGridView.cpp" line="575" />
+        <location filename="../src/openstudio_lib/RefrigerationGridView.cpp" line="575"/>
         <source>Fans</source>
         <translation>ファン</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/RefrigerationGridView.cpp" line="584" />
+        <location filename="../src/openstudio_lib/RefrigerationGridView.cpp" line="584"/>
         <source>Lighting</source>
         <translation>照明</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/RefrigerationGridView.cpp" line="593" />
+        <location filename="../src/openstudio_lib/RefrigerationGridView.cpp" line="593"/>
         <source>Heating</source>
         <translation>暖房</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/RefrigerationGridView.cpp" line="604" />
+        <location filename="../src/openstudio_lib/RefrigerationGridView.cpp" line="604"/>
         <source>Defrost</source>
         <translation>デフロスト</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/RefrigerationGridView.cpp" line="613" />
+        <location filename="../src/openstudio_lib/RefrigerationGridView.cpp" line="613"/>
         <source>Restocking</source>
         <translation>再補給</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/RefrigerationGridView.cpp" line="622" />
-        <location filename="../src/openstudio_lib/RefrigerationGridView.cpp" line="634" />
-        <location filename="../src/openstudio_lib/RefrigerationGridView.cpp" line="639" />
+        <location filename="../src/openstudio_lib/RefrigerationGridView.cpp" line="622"/>
+        <location filename="../src/openstudio_lib/RefrigerationGridView.cpp" line="634"/>
+        <location filename="../src/openstudio_lib/RefrigerationGridView.cpp" line="639"/>
         <source>All</source>
         <translation>全て</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/RefrigerationGridView.cpp" line="636" />
+        <location filename="../src/openstudio_lib/RefrigerationGridView.cpp" line="636"/>
         <source>Check to select all rows</source>
         <translation>全ての行を選択</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/RefrigerationGridView.cpp" line="639" />
+        <location filename="../src/openstudio_lib/RefrigerationGridView.cpp" line="639"/>
         <source>Check to select this row</source>
         <translation>このロウを選択するにはチェックします</translation>
     </message>
@@ -27731,7 +27732,7 @@ Walk In</source>
 <context>
     <name>openstudio::ResultsTabController</name>
     <message>
-        <location filename="../src/openstudio_lib/ResultsTabController.cpp" line="13" />
+        <location filename="../src/openstudio_lib/ResultsTabController.cpp" line="13"/>
         <source>Results Summary</source>
         <translation>結果サマリー</translation>
     </message>
@@ -27739,47 +27740,57 @@ Walk In</source>
 <context>
     <name>openstudio::ResultsView</name>
     <message>
-        <location filename="../src/openstudio_lib/ResultsTabView.cpp" line="51" />
+        <location filename="../src/openstudio_lib/ResultsTabView.cpp" line="51"/>
         <source>Refresh</source>
         <translation>更新</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/ResultsTabView.cpp" line="52" />
+        <location filename="../src/openstudio_lib/ResultsTabView.cpp" line="52"/>
         <source>Open DView for
 Detailed Reports</source>
         <translation>DViewを開く
 詳細レポート用</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/ResultsTabView.cpp" line="63" />
+        <location filename="../src/openstudio_lib/ResultsTabView.cpp" line="63"/>
         <source>Reports: </source>
         <translation>レポート:</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/ResultsTabView.cpp" line="84" />
+        <location filename="../src/openstudio_lib/ResultsTabView.cpp" line="84"/>
         <source>Set Path to DView
 in Preferences</source>
         <translation>DViewへのパスを設定
 環境設定で</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/ResultsTabView.cpp" line="144" />
+        <location filename="../src/openstudio_lib/ResultsTabView.cpp" line="131"/>
+        <source>Units Conversion</source>
+        <translation>単位換算</translation>
+    </message>
+    <message>
+        <location filename="../src/openstudio_lib/ResultsTabView.cpp" line="132"/>
+        <source>Would you like to display your Energy+ data in IP units?</source>
+        <translation>Energy+のデータをIP単位で表示しますか?</translation>
+    </message>
+    <message>
+        <location filename="../src/openstudio_lib/ResultsTabView.cpp" line="142"/>
         <source>Unable to launch DView</source>
         <translation>DViewを起動できません</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/ResultsTabView.cpp" line="145" />
+        <location filename="../src/openstudio_lib/ResultsTabView.cpp" line="143"/>
         <source>DView was not found in the expected location:
 </source>
         <translation>DViewが予想された場所に見つかりません:</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/ResultsTabView.cpp" line="305" />
+        <location filename="../src/openstudio_lib/ResultsTabView.cpp" line="303"/>
         <source>EnergyPlus Results</source>
         <translation>EnergyPlus 結果</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/ResultsTabView.cpp" line="319" />
+        <location filename="../src/openstudio_lib/ResultsTabView.cpp" line="317"/>
         <source>Custom Report %1</source>
         <translation>カスタムレポート %1</translation>
     </message>
@@ -27791,7 +27802,7 @@ in Preferences</source>
 <context>
     <name>openstudio::RunTabView</name>
     <message>
-        <location filename="../src/openstudio_lib/RunTabView.cpp" line="76" />
+        <location filename="../src/openstudio_lib/RunTabView.cpp" line="76"/>
         <source>Run Simulation</source>
         <translation>シミュレーション実行</translation>
     </message>
@@ -27799,112 +27810,112 @@ in Preferences</source>
 <context>
     <name>openstudio::RunView</name>
     <message>
-        <location filename="../src/openstudio_lib/RunTabView.cpp" line="179" />
+        <location filename="../src/openstudio_lib/RunTabView.cpp" line="179"/>
         <source>onRunProcessErrored: Simulation failed to run, QProcess::ProcessError: </source>
         <translation>onRunProcessErrored: シミュレーション実行に失敗しました。QProcess::ProcessError:</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/RunTabView.cpp" line="192" />
+        <location filename="../src/openstudio_lib/RunTabView.cpp" line="192"/>
         <source>Simulation failed to run, with exit code </source>
         <translation>シミュレーション実行に失敗しました。終了コード:</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/RunTabView.cpp" line="87" />
+        <location filename="../src/openstudio_lib/RunTabView.cpp" line="87"/>
         <source>Run</source>
         <translation>実行</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/RunTabView.cpp" line="114" />
+        <location filename="../src/openstudio_lib/RunTabView.cpp" line="114"/>
         <source>Verbose</source>
         <translation>詳細</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/RunTabView.cpp" line="121" />
+        <location filename="../src/openstudio_lib/RunTabView.cpp" line="121"/>
         <source>Classic CLI</source>
         <translation>Classic CLI</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/RunTabView.cpp" line="127" />
+        <location filename="../src/openstudio_lib/RunTabView.cpp" line="127"/>
         <source>Show Simulation</source>
         <translation>シミュレーション表示</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/RunTabView.cpp" line="172" />
+        <location filename="../src/openstudio_lib/RunTabView.cpp" line="172"/>
         <source>Unable to open simulation</source>
         <translation>シミュレーションを開くことができません</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/RunTabView.cpp" line="172" />
+        <location filename="../src/openstudio_lib/RunTabView.cpp" line="172"/>
         <source>Please save the OpenStudio Model to view the simulation.</source>
         <translation>OpenStudio モデルを保存してシミュレーション結果を表示してください。</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/RunTabView.cpp" line="321" />
+        <location filename="../src/openstudio_lib/RunTabView.cpp" line="321"/>
         <source>Could not open socket connection to OpenStudio Classic CLI.</source>
         <translation>OpenStudio Classic CLIへのソケット接続を開くことができませんでした。</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/RunTabView.cpp" line="323" />
+        <location filename="../src/openstudio_lib/RunTabView.cpp" line="323"/>
         <source>Falling back to stdout/stderr parsing, live updates might be slower.</source>
         <translation>stdout/stderrへのフォールバック、ライブアップデートが遅くなる可能性があります。</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/RunTabView.cpp" line="333" />
+        <location filename="../src/openstudio_lib/RunTabView.cpp" line="333"/>
         <source>Aborted</source>
         <translation>中止しました</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/RunTabView.cpp" line="457" />
+        <location filename="../src/openstudio_lib/RunTabView.cpp" line="457"/>
         <source>Initializing workflow.</source>
         <translation>ワークフローを初期化しています。</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/RunTabView.cpp" line="468" />
+        <location filename="../src/openstudio_lib/RunTabView.cpp" line="468"/>
         <source>The classic command is deprecated and will be removed in a future release.</source>
         <translation>クラシックコマンドは廃止予定であり、将来のリリースで削除されます。</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/RunTabView.cpp" line="485" />
+        <location filename="../src/openstudio_lib/RunTabView.cpp" line="485"/>
         <source>Processing OpenStudio Measures.</source>
         <translation>OpenStudioメジャーを処理中です。</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/RunTabView.cpp" line="498" />
+        <location filename="../src/openstudio_lib/RunTabView.cpp" line="498"/>
         <source>Translating the OpenStudio Model to EnergyPlus.</source>
         <translation>OpenStudioモデルをEnergyPlusに変換しています。</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/RunTabView.cpp" line="510" />
+        <location filename="../src/openstudio_lib/RunTabView.cpp" line="510"/>
         <source>Processing EnergyPlus Measures.</source>
         <translation>EnergyPlusメジャーを処理中。</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/RunTabView.cpp" line="523" />
+        <location filename="../src/openstudio_lib/RunTabView.cpp" line="523"/>
         <source>Adding Simulation Output Requests.</source>
         <translation>シミュレーション出力要求を追加しています。</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/RunTabView.cpp" line="535" />
+        <location filename="../src/openstudio_lib/RunTabView.cpp" line="535"/>
         <source>Starting EnergyPlus Simulation.</source>
         <translation>EnergyPlusシミュレーションを開始しています。</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/RunTabView.cpp" line="548" />
+        <location filename="../src/openstudio_lib/RunTabView.cpp" line="548"/>
         <source>Processing Reporting Measures.</source>
         <translation>レポート対策を処理中。</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/RunTabView.cpp" line="560" />
+        <location filename="../src/openstudio_lib/RunTabView.cpp" line="560"/>
         <source>Gathering Reports.</source>
         <translation>レポートを集約中。</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/RunTabView.cpp" line="606" />
+        <location filename="../src/openstudio_lib/RunTabView.cpp" line="606"/>
         <source>Failed.</source>
         <translation>失敗しました。</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/RunTabView.cpp" line="609" />
+        <location filename="../src/openstudio_lib/RunTabView.cpp" line="609"/>
         <source>Completed.</source>
         <translation>完了しました。</translation>
     </message>
@@ -27912,12 +27923,12 @@ in Preferences</source>
 <context>
     <name>openstudio::ScheduleCompactInspectorView</name>
     <message>
-        <location filename="../src/openstudio_lib/ScheduleCompactInspectorView.cpp" line="51" />
+        <location filename="../src/openstudio_lib/ScheduleCompactInspectorView.cpp" line="51"/>
         <source>Name: </source>
         <translation>ファイル名：</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/ScheduleCompactInspectorView.cpp" line="64" />
+        <location filename="../src/openstudio_lib/ScheduleCompactInspectorView.cpp" line="64"/>
         <source>Content: </source>
         <translation>コンテンツ</translation>
     </message>
@@ -27925,12 +27936,12 @@ in Preferences</source>
 <context>
     <name>openstudio::ScheduleConstantInspectorView</name>
     <message>
-        <location filename="../src/openstudio_lib/ScheduleConstantInspectorView.cpp" line="47" />
+        <location filename="../src/openstudio_lib/ScheduleConstantInspectorView.cpp" line="47"/>
         <source>Name: </source>
         <translation>ファイル名：</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/ScheduleConstantInspectorView.cpp" line="60" />
+        <location filename="../src/openstudio_lib/ScheduleConstantInspectorView.cpp" line="60"/>
         <source>Value: </source>
         <translation>値:</translation>
     </message>
@@ -27942,22 +27953,22 @@ in Preferences</source>
 <context>
     <name>openstudio::ScheduleDayView</name>
     <message>
-        <location filename="../src/openstudio_lib/ScheduleDayView.cpp" line="114" />
+        <location filename="../src/openstudio_lib/ScheduleDayView.cpp" line="114"/>
         <source>Schedule Day Name:</source>
         <translation>スケジュール日名:</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/ScheduleDayView.cpp" line="158" />
+        <location filename="../src/openstudio_lib/ScheduleDayView.cpp" line="158"/>
         <source>Hourly</source>
         <translation>時間単位</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/ScheduleDayView.cpp" line="171" />
+        <location filename="../src/openstudio_lib/ScheduleDayView.cpp" line="171"/>
         <source>15 Minutes</source>
         <translation>15 分</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/ScheduleDayView.cpp" line="184" />
+        <location filename="../src/openstudio_lib/ScheduleDayView.cpp" line="184"/>
         <source>1 Minute</source>
         <translation>1分</translation>
     </message>
@@ -27965,44 +27976,44 @@ in Preferences</source>
 <context>
     <name>openstudio::ScheduleDialog</name>
     <message>
-        <location filename="../src/openstudio_lib/ScheduleDialog.cpp" line="94" />
+        <location filename="../src/openstudio_lib/ScheduleDialog.cpp" line="94"/>
         <source>Apply</source>
         <translation>適用</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/ScheduleDialog.cpp" line="121" />
+        <location filename="../src/openstudio_lib/ScheduleDialog.cpp" line="121"/>
         <source>Define New Schedule</source>
         <translation>新しいスケジュールを定義</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/ScheduleDialog.cpp" line="139" />
+        <location filename="../src/openstudio_lib/ScheduleDialog.cpp" line="139"/>
         <source>Schedule Type</source>
         <translation>スケジュール・タイプ</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/ScheduleDialog.cpp" line="171" />
+        <location filename="../src/openstudio_lib/ScheduleDialog.cpp" line="171"/>
         <source>Numeric Type: </source>
         <translation>数値型:</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/ScheduleDialog.cpp" line="189" />
+        <location filename="../src/openstudio_lib/ScheduleDialog.cpp" line="189"/>
         <source>Lower Limit: </source>
         <translation>下限:</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/ScheduleDialog.cpp" line="207" />
+        <location filename="../src/openstudio_lib/ScheduleDialog.cpp" line="207"/>
         <source>Upper Limit: </source>
         <translation>上限:</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/ScheduleDialog.cpp" line="251" />
+        <location filename="../src/openstudio_lib/ScheduleDialog.cpp" line="251"/>
         <source>unitless</source>
         <translation>無次元</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/ScheduleDialog.cpp" line="267" />
-        <location filename="../src/openstudio_lib/ScheduleDialog.cpp" line="291" />
-        <location filename="../src/openstudio_lib/ScheduleDialog.cpp" line="313" />
+        <location filename="../src/openstudio_lib/ScheduleDialog.cpp" line="267"/>
+        <location filename="../src/openstudio_lib/ScheduleDialog.cpp" line="291"/>
+        <location filename="../src/openstudio_lib/ScheduleDialog.cpp" line="313"/>
         <source>None</source>
         <translation>なし</translation>
     </message>
@@ -28010,87 +28021,87 @@ in Preferences</source>
 <context>
     <name>openstudio::ScheduleFileInspectorView</name>
     <message>
-        <location filename="../src/openstudio_lib/ScheduleFileInspectorView.cpp" line="59" />
+        <location filename="../src/openstudio_lib/ScheduleFileInspectorView.cpp" line="59"/>
         <source>Name: </source>
         <translation>ファイル名：</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/ScheduleFileInspectorView.cpp" line="71" />
+        <location filename="../src/openstudio_lib/ScheduleFileInspectorView.cpp" line="71"/>
         <source>FilePath: </source>
         <translation>ファイルパス:</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/ScheduleFileInspectorView.cpp" line="88" />
+        <location filename="../src/openstudio_lib/ScheduleFileInspectorView.cpp" line="88"/>
         <source>Column Number: </source>
         <translation>列番号:</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/ScheduleFileInspectorView.cpp" line="100" />
+        <location filename="../src/openstudio_lib/ScheduleFileInspectorView.cpp" line="100"/>
         <source>Rows to Skip at Top: </source>
         <translation>スキップする行数（上部）:</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/ScheduleFileInspectorView.cpp" line="117" />
+        <location filename="../src/openstudio_lib/ScheduleFileInspectorView.cpp" line="117"/>
         <source>Number of Hours of Data: </source>
         <translation>データの時間数:</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/ScheduleFileInspectorView.cpp" line="129" />
+        <location filename="../src/openstudio_lib/ScheduleFileInspectorView.cpp" line="129"/>
         <source>Column Separator: </source>
         <translation>カラム区切り文字:</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/ScheduleFileInspectorView.cpp" line="134" />
+        <location filename="../src/openstudio_lib/ScheduleFileInspectorView.cpp" line="134"/>
         <source>Comma</source>
         <translation>カンマ</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/ScheduleFileInspectorView.cpp" line="135" />
+        <location filename="../src/openstudio_lib/ScheduleFileInspectorView.cpp" line="135"/>
         <source>Tab</source>
         <translation>タブ</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/ScheduleFileInspectorView.cpp" line="136" />
+        <location filename="../src/openstudio_lib/ScheduleFileInspectorView.cpp" line="136"/>
         <source>Space</source>
         <translation>スペース</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/ScheduleFileInspectorView.cpp" line="137" />
+        <location filename="../src/openstudio_lib/ScheduleFileInspectorView.cpp" line="137"/>
         <source>Semicolon</source>
         <translation>セミコロン</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/ScheduleFileInspectorView.cpp" line="148" />
+        <location filename="../src/openstudio_lib/ScheduleFileInspectorView.cpp" line="148"/>
         <source>Interpolate to Timestep: </source>
         <translation>タイムステップに補間:</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/ScheduleFileInspectorView.cpp" line="160" />
+        <location filename="../src/openstudio_lib/ScheduleFileInspectorView.cpp" line="160"/>
         <source>Minutes per Item: </source>
         <translation>アイテムあたりの分数：</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/ScheduleFileInspectorView.cpp" line="175" />
+        <location filename="../src/openstudio_lib/ScheduleFileInspectorView.cpp" line="175"/>
         <source>Adjust Schedule for Daylight Savings: </source>
         <translation>夏時間のスケジュールを調整:</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/ScheduleFileInspectorView.cpp" line="187" />
+        <location filename="../src/openstudio_lib/ScheduleFileInspectorView.cpp" line="187"/>
         <source>Translate File With Relative Path: </source>
         <translation>相対パスでファイルを翻訳:</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/ScheduleFileInspectorView.cpp" line="204" />
+        <location filename="../src/openstudio_lib/ScheduleFileInspectorView.cpp" line="204"/>
         <source>Content: </source>
         <translation>コンテンツ</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/ScheduleFileInspectorView.cpp" line="210" />
+        <location filename="../src/openstudio_lib/ScheduleFileInspectorView.cpp" line="210"/>
         <source>Number of Lines in file: </source>
         <translation>ファイルの行数：</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/ScheduleFileInspectorView.cpp" line="225" />
+        <location filename="../src/openstudio_lib/ScheduleFileInspectorView.cpp" line="225"/>
         <source>Display All File Content: </source>
         <translation>すべてのファイル内容を表示:</translation>
     </message>
@@ -28098,12 +28109,12 @@ in Preferences</source>
 <context>
     <name>openstudio::ScheduleLimitsView</name>
     <message>
-        <location filename="../src/openstudio_lib/ScheduleDayView.cpp" line="422" />
+        <location filename="../src/openstudio_lib/ScheduleDayView.cpp" line="422"/>
         <source>Lower Limit: </source>
         <translation>下限:</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/ScheduleDayView.cpp" line="435" />
+        <location filename="../src/openstudio_lib/ScheduleDayView.cpp" line="435"/>
         <source>Upper Limit: </source>
         <translation>上限:</translation>
     </message>
@@ -28111,22 +28122,22 @@ in Preferences</source>
 <context>
     <name>openstudio::ScheduleOthersController</name>
     <message>
-        <location filename="../src/openstudio_lib/ScheduleOthersController.cpp" line="40" />
+        <location filename="../src/openstudio_lib/ScheduleOthersController.cpp" line="40"/>
         <source>CSV Files(*.csv)</source>
         <translation>CSVファイル(*.csv)</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/ScheduleOthersController.cpp" line="41" />
+        <location filename="../src/openstudio_lib/ScheduleOthersController.cpp" line="41"/>
         <source>Select External File</source>
         <translation>外部ファイルを選択</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/ScheduleOthersController.cpp" line="42" />
+        <location filename="../src/openstudio_lib/ScheduleOthersController.cpp" line="42"/>
         <source>All files (*.*);;CSV Files(*.csv);;TSV Files(*.tsv)</source>
         <translation>すべてのファイル (*.*);;CSV ファイル(*.csv);;TSV ファイル(*.tsv)</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/ScheduleOthersController.cpp" line="35" />
+        <location filename="../src/openstudio_lib/ScheduleOthersController.cpp" line="35"/>
         <source>Creation of Schedule:Compact is not supported, you should use a ScheduleRuleset instead</source>
         <translation>Schedule:Compactの作成はサポートされていません。代わりにScheduleRulesetを使用してください</translation>
     </message>
@@ -28134,17 +28145,17 @@ in Preferences</source>
 <context>
     <name>openstudio::ScheduleOthersView</name>
     <message>
-        <location filename="../src/openstudio_lib/ScheduleOthersView.cpp" line="29" />
+        <location filename="../src/openstudio_lib/ScheduleOthersView.cpp" line="29"/>
         <source>Schedule Constant</source>
         <translation>スケジュール定数</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/ScheduleOthersView.cpp" line="30" />
+        <location filename="../src/openstudio_lib/ScheduleOthersView.cpp" line="30"/>
         <source>Schedule Compact</source>
         <translation>スケジュール コンパクト</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/ScheduleOthersView.cpp" line="31" />
+        <location filename="../src/openstudio_lib/ScheduleOthersView.cpp" line="31"/>
         <source>Schedule File</source>
         <translation>スケジュールファイル</translation>
     </message>
@@ -28152,58 +28163,58 @@ in Preferences</source>
 <context>
     <name>openstudio::ScheduleRuleView</name>
     <message>
-        <location filename="../src/openstudio_lib/SchedulesView.cpp" line="1552" />
+        <location filename="../src/openstudio_lib/SchedulesView.cpp" line="1552"/>
         <source>Schedule Rule Name:</source>
         <translation>スケジュールルール名:</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/SchedulesView.cpp" line="1567" />
+        <location filename="../src/openstudio_lib/SchedulesView.cpp" line="1567"/>
         <source>Date Range:</source>
         <translation>日付範囲:</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/SchedulesView.cpp" line="1585" />
+        <location filename="../src/openstudio_lib/SchedulesView.cpp" line="1585"/>
         <source>Apply to:</source>
         <translation>適用対象:</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/SchedulesView.cpp" line="1591" />
+        <location filename="../src/openstudio_lib/SchedulesView.cpp" line="1591"/>
         <source>S</source>
         <comment>Sunday abbreviation</comment>
         <translation>S</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/SchedulesView.cpp" line="1599" />
+        <location filename="../src/openstudio_lib/SchedulesView.cpp" line="1599"/>
         <source>M</source>
         <comment>Monday abbreviation</comment>
         <translation>L</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/SchedulesView.cpp" line="1607" />
+        <location filename="../src/openstudio_lib/SchedulesView.cpp" line="1607"/>
         <source>T</source>
         <comment>Tuesday abbreviation</comment>
         <translation>J</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/SchedulesView.cpp" line="1615" />
+        <location filename="../src/openstudio_lib/SchedulesView.cpp" line="1615"/>
         <source>W</source>
         <comment>Wednesday abbreviation</comment>
         <translation>X</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/SchedulesView.cpp" line="1624" />
+        <location filename="../src/openstudio_lib/SchedulesView.cpp" line="1624"/>
         <source>T</source>
         <comment>Thursday abbreviation</comment>
         <translation>J</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/SchedulesView.cpp" line="1633" />
+        <location filename="../src/openstudio_lib/SchedulesView.cpp" line="1633"/>
         <source>F</source>
         <comment>Friday abbreviation</comment>
         <translation>V</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/SchedulesView.cpp" line="1641" />
+        <location filename="../src/openstudio_lib/SchedulesView.cpp" line="1641"/>
         <source>S</source>
         <comment>Saturday abbreviation</comment>
         <translation>S</translation>
@@ -28227,12 +28238,12 @@ in Preferences</source>
 <context>
     <name>openstudio::ScheduleRulesetInspectorView</name>
     <message>
-        <location filename="../src/openstudio_lib/InspectorView.cpp" line="2575" />
+        <location filename="../src/openstudio_lib/InspectorView.cpp" line="2575"/>
         <source>Name</source>
         <translation>名前</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/InspectorView.cpp" line="2598" />
+        <location filename="../src/openstudio_lib/InspectorView.cpp" line="2598"/>
         <source>Please use the Schedules tab to inspect this object.</source>
         <translation>スケジュールタブを使用してこのオブジェクトを検査してください。</translation>
     </message>
@@ -28240,12 +28251,12 @@ in Preferences</source>
 <context>
     <name>openstudio::ScheduleRulesetNameWidget</name>
     <message>
-        <location filename="../src/openstudio_lib/SchedulesView.cpp" line="1768" />
+        <location filename="../src/openstudio_lib/SchedulesView.cpp" line="1768"/>
         <source>Schedule Name:</source>
         <translation>スケジュール名:</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/SchedulesView.cpp" line="1782" />
+        <location filename="../src/openstudio_lib/SchedulesView.cpp" line="1782"/>
         <source>Schedule Type:</source>
         <translation>スケジュールタイプ:</translation>
     </message>
@@ -28253,62 +28264,62 @@ in Preferences</source>
 <context>
     <name>openstudio::ScheduleSetInspectorView</name>
     <message>
-        <location filename="../src/openstudio_lib/ScheduleSetInspectorView.cpp" line="535" />
+        <location filename="../src/openstudio_lib/ScheduleSetInspectorView.cpp" line="535"/>
         <source>Name</source>
         <translation>名前</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/ScheduleSetInspectorView.cpp" line="564" />
+        <location filename="../src/openstudio_lib/ScheduleSetInspectorView.cpp" line="564"/>
         <source>Default Schedules</source>
         <translation>デフォルトスケジュール</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/ScheduleSetInspectorView.cpp" line="572" />
+        <location filename="../src/openstudio_lib/ScheduleSetInspectorView.cpp" line="572"/>
         <source>Hours of Operation</source>
         <translation>運転時間</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/ScheduleSetInspectorView.cpp" line="582" />
+        <location filename="../src/openstudio_lib/ScheduleSetInspectorView.cpp" line="582"/>
         <source>Number of People</source>
         <translation>人数</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/ScheduleSetInspectorView.cpp" line="594" />
+        <location filename="../src/openstudio_lib/ScheduleSetInspectorView.cpp" line="594"/>
         <source>People Activity</source>
         <translation>人物活動</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/ScheduleSetInspectorView.cpp" line="604" />
+        <location filename="../src/openstudio_lib/ScheduleSetInspectorView.cpp" line="604"/>
         <source>Lighting</source>
         <translation>照明</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/ScheduleSetInspectorView.cpp" line="616" />
+        <location filename="../src/openstudio_lib/ScheduleSetInspectorView.cpp" line="616"/>
         <source>Electric Equipment</source>
         <translation>電気機器</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/ScheduleSetInspectorView.cpp" line="626" />
+        <location filename="../src/openstudio_lib/ScheduleSetInspectorView.cpp" line="626"/>
         <source>Gas Equipment</source>
         <translation>ガス機器</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/ScheduleSetInspectorView.cpp" line="638" />
+        <location filename="../src/openstudio_lib/ScheduleSetInspectorView.cpp" line="638"/>
         <source>Hot Water Equipment</source>
         <translation>給湯機器</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/ScheduleSetInspectorView.cpp" line="648" />
+        <location filename="../src/openstudio_lib/ScheduleSetInspectorView.cpp" line="648"/>
         <source>Steam Equipment</source>
         <translation>スチーム機器</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/ScheduleSetInspectorView.cpp" line="660" />
+        <location filename="../src/openstudio_lib/ScheduleSetInspectorView.cpp" line="660"/>
         <source>Other Equipment</source>
         <translation>その他機器</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/ScheduleSetInspectorView.cpp" line="670" />
+        <location filename="../src/openstudio_lib/ScheduleSetInspectorView.cpp" line="670"/>
         <source>Infiltration</source>
         <translation>浸入</translation>
     </message>
@@ -28316,7 +28327,7 @@ in Preferences</source>
 <context>
     <name>openstudio::ScheduleSetsView</name>
     <message>
-        <location filename="../src/openstudio_lib/ScheduleSetsView.cpp" line="33" />
+        <location filename="../src/openstudio_lib/ScheduleSetsView.cpp" line="33"/>
         <source>Schedule Sets</source>
         <translation>スケジュールセット</translation>
     </message>
@@ -28324,17 +28335,17 @@ in Preferences</source>
 <context>
     <name>openstudio::ScheduleTabContent</name>
     <message>
-        <location filename="../src/openstudio_lib/SchedulesView.cpp" line="837" />
+        <location filename="../src/openstudio_lib/SchedulesView.cpp" line="837"/>
         <source>Special Day Profiles</source>
         <translation>特別日プロファイル</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/SchedulesView.cpp" line="865" />
+        <location filename="../src/openstudio_lib/SchedulesView.cpp" line="865"/>
         <source>Run Period Profiles</source>
         <translation>実行期間プロファイル</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/SchedulesView.cpp" line="875" />
+        <location filename="../src/openstudio_lib/SchedulesView.cpp" line="875"/>
         <source>Click to add new run period profile</source>
         <translation>クリックして新しい実行期間プロファイルを追加</translation>
     </message>
@@ -28342,42 +28353,42 @@ in Preferences</source>
 <context>
     <name>openstudio::ScheduleTabDefault</name>
     <message>
-        <location filename="../src/openstudio_lib/SchedulesView.cpp" line="1086" />
+        <location filename="../src/openstudio_lib/SchedulesView.cpp" line="1086"/>
         <source>Summer Design Day</source>
         <translation>夏季設計日</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/SchedulesView.cpp" line="1087" />
+        <location filename="../src/openstudio_lib/SchedulesView.cpp" line="1087"/>
         <source>Click to edit summer design day profile</source>
         <translation>夏季設計日プロファイルをクリックして編集</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/SchedulesView.cpp" line="1090" />
+        <location filename="../src/openstudio_lib/SchedulesView.cpp" line="1090"/>
         <source>Winter Design Day</source>
         <translation>冬季設計日</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/SchedulesView.cpp" line="1091" />
+        <location filename="../src/openstudio_lib/SchedulesView.cpp" line="1091"/>
         <source>Click to edit winter design day profile</source>
         <translation>冬季設計日プロファイルを編集するにはクリックしてください</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/SchedulesView.cpp" line="1094" />
+        <location filename="../src/openstudio_lib/SchedulesView.cpp" line="1094"/>
         <source>Holiday</source>
         <translation>祝日</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/SchedulesView.cpp" line="1095" />
+        <location filename="../src/openstudio_lib/SchedulesView.cpp" line="1095"/>
         <source>Click to edit holiday profile</source>
         <translation>休日プロファイルを編集するにはクリック</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/SchedulesView.cpp" line="1098" />
+        <location filename="../src/openstudio_lib/SchedulesView.cpp" line="1098"/>
         <source>Default</source>
         <translation>デフォルト</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/SchedulesView.cpp" line="1099" />
+        <location filename="../src/openstudio_lib/SchedulesView.cpp" line="1099"/>
         <source>Click to edit default profile</source>
         <translation>デフォルトプロファイルを編集するにはクリックしてください</translation>
     </message>
@@ -28385,12 +28396,12 @@ in Preferences</source>
 <context>
     <name>openstudio::ScheduledSPMView</name>
     <message>
-        <location filename="../src/openstudio_lib/HVACSystemsView.cpp" line="775" />
+        <location filename="../src/openstudio_lib/HVACSystemsView.cpp" line="775"/>
         <source>Supply temperature is controlled by a scheduled setpoint manager.</source>
         <translation>供給温度はスケジュール設定値マネージャーによって制御されます。</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/HVACSystemsView.cpp" line="778" />
+        <location filename="../src/openstudio_lib/HVACSystemsView.cpp" line="778"/>
         <source>Supply Temperature Schedule</source>
         <translation>給湯温度スケジュール</translation>
     </message>
@@ -28398,17 +28409,17 @@ in Preferences</source>
 <context>
     <name>openstudio::SchedulesTabController</name>
     <message>
-        <location filename="../src/openstudio_lib/SchedulesTabController.cpp" line="50" />
+        <location filename="../src/openstudio_lib/SchedulesTabController.cpp" line="50"/>
         <source>Schedule Sets</source>
         <translation>スケジュールセット</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/SchedulesTabController.cpp" line="51" />
+        <location filename="../src/openstudio_lib/SchedulesTabController.cpp" line="51"/>
         <source>Schedules</source>
         <translation>スケジュール</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/SchedulesTabController.cpp" line="52" />
+        <location filename="../src/openstudio_lib/SchedulesTabController.cpp" line="52"/>
         <source>Other Schedules</source>
         <translation>その他のスケジュール</translation>
     </message>
@@ -28416,7 +28427,7 @@ in Preferences</source>
 <context>
     <name>openstudio::SchedulesTabView</name>
     <message>
-        <location filename="../src/openstudio_lib/SchedulesTabView.cpp" line="10" />
+        <location filename="../src/openstudio_lib/SchedulesTabView.cpp" line="10"/>
         <source>Schedules</source>
         <translation>スケジュール</translation>
     </message>
@@ -28424,17 +28435,17 @@ in Preferences</source>
 <context>
     <name>openstudio::ScriptsTabView</name>
     <message>
-        <location filename="../src/openstudio_lib/ScriptsTabView.cpp" line="25" />
+        <location filename="../src/openstudio_lib/ScriptsTabView.cpp" line="25"/>
         <source>Measures</source>
         <translation>メジャー</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/ScriptsTabView.cpp" line="61" />
+        <location filename="../src/openstudio_lib/ScriptsTabView.cpp" line="61"/>
         <source>Sync Project Measures with Library</source>
         <translation>プロジェクト対策をライブラリと同期</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/ScriptsTabView.cpp" line="62" />
+        <location filename="../src/openstudio_lib/ScriptsTabView.cpp" line="62"/>
         <source>Check the Library for Newer Versions of the Measures in Your Project and Provides Sync Option</source>
         <translation>ライブラリでプロジェクト内のメジャーの新しいバージョンを確認し、同期オプションを提供します</translation>
     </message>
@@ -28442,7 +28453,7 @@ in Preferences</source>
 <context>
     <name>openstudio::SecondaryDropZoneView</name>
     <message>
-        <location filename="../src/openstudio_lib/RefrigerationGraphicsItems.cpp" line="1192" />
+        <location filename="../src/openstudio_lib/RefrigerationGraphicsItems.cpp" line="1192"/>
         <source>Add Cascade or Secondary System</source>
         <translation>カスケードまたはセカンダリシステムを追加</translation>
     </message>
@@ -28450,7 +28461,7 @@ in Preferences</source>
 <context>
     <name>openstudio::SimSettingsTabController</name>
     <message>
-        <location filename="../src/openstudio_lib/SimSettingsTabController.cpp" line="18" />
+        <location filename="../src/openstudio_lib/SimSettingsTabController.cpp" line="18"/>
         <source>Simulation Settings</source>
         <translation>シミュレーション設定</translation>
     </message>
@@ -28458,461 +28469,461 @@ in Preferences</source>
 <context>
     <name>openstudio::SimSettingsView</name>
     <message>
-        <location filename="../src/openstudio_lib/SimSettingsView.cpp" line="327" />
+        <location filename="../src/openstudio_lib/SimSettingsView.cpp" line="327"/>
         <source>Run Period</source>
         <translation>実行期間</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/SimSettingsView.cpp" line="395" />
+        <location filename="../src/openstudio_lib/SimSettingsView.cpp" line="395"/>
         <source>Date Range</source>
         <translation>日付範囲</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/SimSettingsView.cpp" line="242" />
+        <location filename="../src/openstudio_lib/SimSettingsView.cpp" line="242"/>
         <source>Advanced RunPeriod Parameters</source>
         <translation>高度な実行期間パラメータ</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/SimSettingsView.cpp" line="439" />
+        <location filename="../src/openstudio_lib/SimSettingsView.cpp" line="439"/>
         <source>Use Weather File Holidays and Special Days</source>
         <translation>気象ファイルの休日と特別な日を使用</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/SimSettingsView.cpp" line="443" />
+        <location filename="../src/openstudio_lib/SimSettingsView.cpp" line="443"/>
         <source>Use Weather File Daylight Savings Period</source>
         <translation>天候ファイル夏時間期間を使用</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/SimSettingsView.cpp" line="450" />
+        <location filename="../src/openstudio_lib/SimSettingsView.cpp" line="450"/>
         <source>Use Weather File Rain Indicators</source>
         <translation>気象ファイルの降雨インジケータを使用する</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/SimSettingsView.cpp" line="452" />
+        <location filename="../src/openstudio_lib/SimSettingsView.cpp" line="452"/>
         <source>Use Weather File Snow Indicators</source>
         <translation>天候ファイルの雪インジケータを使用</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/SimSettingsView.cpp" line="459" />
+        <location filename="../src/openstudio_lib/SimSettingsView.cpp" line="459"/>
         <source>Apply Weekend Holiday Rule</source>
         <translation>週末休日ルールを適用</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/SimSettingsView.cpp" line="246" />
+        <location filename="../src/openstudio_lib/SimSettingsView.cpp" line="246"/>
         <source>Radiance Parameters</source>
         <translation>Radianceパラメータ</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/SimSettingsView.cpp" line="923" />
+        <location filename="../src/openstudio_lib/SimSettingsView.cpp" line="923"/>
         <source>Coarse (Fast, less accurate)</source>
         <translation>粗い (高速、精度が低い)</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/SimSettingsView.cpp" line="927" />
+        <location filename="../src/openstudio_lib/SimSettingsView.cpp" line="927"/>
         <source>Fine (Slow, more accurate)</source>
         <translation>細密（遅い、より正確）</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/SimSettingsView.cpp" line="931" />
+        <location filename="../src/openstudio_lib/SimSettingsView.cpp" line="931"/>
         <source>Custom</source>
         <translation>カスタム</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/SimSettingsView.cpp" line="943" />
+        <location filename="../src/openstudio_lib/SimSettingsView.cpp" line="943"/>
         <source>Accumulated Rays per Record: </source>
         <translation>累積光線数 (記録あたり):</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/SimSettingsView.cpp" line="947" />
+        <location filename="../src/openstudio_lib/SimSettingsView.cpp" line="947"/>
         <source>Direct Threshold: </source>
         <translation>直接閾値:</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/SimSettingsView.cpp" line="954" />
+        <location filename="../src/openstudio_lib/SimSettingsView.cpp" line="954"/>
         <source>Direct Certainty: </source>
         <translation>直接確実性:</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/SimSettingsView.cpp" line="956" />
+        <location filename="../src/openstudio_lib/SimSettingsView.cpp" line="956"/>
         <source>Direct Jitter: </source>
         <translation>ダイレクトジッター:</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/SimSettingsView.cpp" line="963" />
+        <location filename="../src/openstudio_lib/SimSettingsView.cpp" line="963"/>
         <source>Direct Pretest: </source>
         <translation>ダイレクトプレテスト:</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/SimSettingsView.cpp" line="965" />
+        <location filename="../src/openstudio_lib/SimSettingsView.cpp" line="965"/>
         <source>Ambient Bounces VMX: </source>
         <translation>アンビエント バウンス VMX:</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/SimSettingsView.cpp" line="972" />
+        <location filename="../src/openstudio_lib/SimSettingsView.cpp" line="972"/>
         <source>Ambient Bounces DMX: </source>
         <translation>アンビエント バウンス DMX:</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/SimSettingsView.cpp" line="974" />
+        <location filename="../src/openstudio_lib/SimSettingsView.cpp" line="974"/>
         <source>Ambient Divisions VMX: </source>
         <translation>周囲分割 VMX:</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/SimSettingsView.cpp" line="981" />
+        <location filename="../src/openstudio_lib/SimSettingsView.cpp" line="981"/>
         <source>Ambient Divisions DMX: </source>
         <translation>アンビエント分割DMX:</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/SimSettingsView.cpp" line="983" />
+        <location filename="../src/openstudio_lib/SimSettingsView.cpp" line="983"/>
         <source>Ambient Supersamples: </source>
         <translation>アンビエント スーパーサンプル:</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/SimSettingsView.cpp" line="990" />
+        <location filename="../src/openstudio_lib/SimSettingsView.cpp" line="990"/>
         <source>Limit Weight VMX: </source>
         <translation>リミット重量 VMX:</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/SimSettingsView.cpp" line="992" />
+        <location filename="../src/openstudio_lib/SimSettingsView.cpp" line="992"/>
         <source>Limit Weight DMX: </source>
         <translation>リミットウェイト DMX:</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/SimSettingsView.cpp" line="999" />
+        <location filename="../src/openstudio_lib/SimSettingsView.cpp" line="999"/>
         <source>Klems Sampling Density: </source>
         <translation>Klemsサンプリング密度:</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/SimSettingsView.cpp" line="1001" />
+        <location filename="../src/openstudio_lib/SimSettingsView.cpp" line="1001"/>
         <source>Sky Discretization Resolution: </source>
         <translation>スカイ分割解像度：</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/SimSettingsView.cpp" line="604" />
+        <location filename="../src/openstudio_lib/SimSettingsView.cpp" line="604"/>
         <source>Sizing Parameters</source>
         <translation>サイジングパラメータ</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/SimSettingsView.cpp" line="617" />
+        <location filename="../src/openstudio_lib/SimSettingsView.cpp" line="617"/>
         <source>Heating Sizing Factor</source>
         <translation>暖房サイジング係数</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/SimSettingsView.cpp" line="619" />
+        <location filename="../src/openstudio_lib/SimSettingsView.cpp" line="619"/>
         <source>Cooling Sizing Factor</source>
         <translation>冷房ゾーニング係数</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/SimSettingsView.cpp" line="621" />
+        <location filename="../src/openstudio_lib/SimSettingsView.cpp" line="621"/>
         <source>Timesteps In Averaging Window</source>
         <translation>時間ステップ数（移動平均ウィンドウ）</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/SimSettingsView.cpp" line="654" />
+        <location filename="../src/openstudio_lib/SimSettingsView.cpp" line="654"/>
         <source>Timestep</source>
         <translation>タイムステップ</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/SimSettingsView.cpp" line="667" />
+        <location filename="../src/openstudio_lib/SimSettingsView.cpp" line="667"/>
         <source>Number Of Timesteps Per Hour</source>
         <translation>1時間当たりのタイムステップ数</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/SimSettingsView.cpp" line="250" />
+        <location filename="../src/openstudio_lib/SimSettingsView.cpp" line="250"/>
         <source>Simulation Control</source>
         <translation>シミュレーション制御</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/SimSettingsView.cpp" line="531" />
+        <location filename="../src/openstudio_lib/SimSettingsView.cpp" line="531"/>
         <source>Do Zone Sizing Calculation</source>
         <translation>ゾーンサイジング計算を実行</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/SimSettingsView.cpp" line="535" />
+        <location filename="../src/openstudio_lib/SimSettingsView.cpp" line="535"/>
         <source>Do System Sizing Calculation</source>
         <translation>システムサイジング計算を実行</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/SimSettingsView.cpp" line="542" />
+        <location filename="../src/openstudio_lib/SimSettingsView.cpp" line="542"/>
         <source>Do Plant Sizing Calculation</source>
         <translation>プラント・サイジング計算を実行</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/SimSettingsView.cpp" line="544" />
+        <location filename="../src/openstudio_lib/SimSettingsView.cpp" line="544"/>
         <source>Run Simulation For Sizing Periods</source>
         <translation>サイジング期間のシミュレーションを実行</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/SimSettingsView.cpp" line="551" />
+        <location filename="../src/openstudio_lib/SimSettingsView.cpp" line="551"/>
         <source>Run Simulation For Weather File Run Periods</source>
         <translation>気象ファイルの実行期間についてシミュレーションを実行</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/SimSettingsView.cpp" line="553" />
+        <location filename="../src/openstudio_lib/SimSettingsView.cpp" line="553"/>
         <source>Maximum Number Of Warmup Days</source>
         <translation>最大ウォームアップ日数</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/SimSettingsView.cpp" line="560" />
+        <location filename="../src/openstudio_lib/SimSettingsView.cpp" line="560"/>
         <source>Minimum Number Of Warmup Days</source>
         <translation>ウォームアップ日数の最小値</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/SimSettingsView.cpp" line="562" />
+        <location filename="../src/openstudio_lib/SimSettingsView.cpp" line="562"/>
         <source>Loads Convergence Tolerance Value</source>
         <translation>負荷収束許容値</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/SimSettingsView.cpp" line="569" />
+        <location filename="../src/openstudio_lib/SimSettingsView.cpp" line="569"/>
         <source>Temperature Convergence Tolerance Value</source>
         <translation>温度収束許容値</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/SimSettingsView.cpp" line="571" />
+        <location filename="../src/openstudio_lib/SimSettingsView.cpp" line="571"/>
         <source>Solar Distribution</source>
         <translation>太陽光分布</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/SimSettingsView.cpp" line="578" />
+        <location filename="../src/openstudio_lib/SimSettingsView.cpp" line="578"/>
         <source>Do HVAC Sizing Simulation for Sizing Periods</source>
         <translation>HVAC のサイジング期間に対するサイジングシミュレーションを実行</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/SimSettingsView.cpp" line="580" />
+        <location filename="../src/openstudio_lib/SimSettingsView.cpp" line="580"/>
         <source>Maximum Number of HVAC Sizing Simulation Passes</source>
         <translation>HVAC規模決定シミュレーション最大パス数</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/SimSettingsView.cpp" line="254" />
+        <location filename="../src/openstudio_lib/SimSettingsView.cpp" line="254"/>
         <source>Program Control</source>
         <translation>プログラムコントロール</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/SimSettingsView.cpp" line="638" />
+        <location filename="../src/openstudio_lib/SimSettingsView.cpp" line="638"/>
         <source>Number Of Threads Allowed</source>
         <translation>スレッド数の上限</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/SimSettingsView.cpp" line="258" />
+        <location filename="../src/openstudio_lib/SimSettingsView.cpp" line="258"/>
         <source>Output Control Reporting Tolerances</source>
         <translation>出力制御レポート許容値</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/SimSettingsView.cpp" line="685" />
+        <location filename="../src/openstudio_lib/SimSettingsView.cpp" line="685"/>
         <source>Tolerance For Time Heating Setpoint Not Met</source>
         <translation>暖房設定温度が満たされない場合の許容値</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/SimSettingsView.cpp" line="689" />
+        <location filename="../src/openstudio_lib/SimSettingsView.cpp" line="689"/>
         <source>Tolerance For Time Cooling Setpoint Not Met</source>
         <translation>冷房設定値が満たされない時間許容値</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/SimSettingsView.cpp" line="262" />
+        <location filename="../src/openstudio_lib/SimSettingsView.cpp" line="262"/>
         <source>Convergence Limits</source>
         <translation>収束限界</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/SimSettingsView.cpp" line="707" />
+        <location filename="../src/openstudio_lib/SimSettingsView.cpp" line="707"/>
         <source>Maximum HVAC Iterations</source>
         <translation>最大HVAC反復回数</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/SimSettingsView.cpp" line="711" />
+        <location filename="../src/openstudio_lib/SimSettingsView.cpp" line="711"/>
         <source>Minimum Plant Iterations</source>
         <translation>最小プラント反復回数</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/SimSettingsView.cpp" line="718" />
+        <location filename="../src/openstudio_lib/SimSettingsView.cpp" line="718"/>
         <source>Maximum Plant Iterations</source>
         <translation>最大プラント反復数</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/SimSettingsView.cpp" line="720" />
+        <location filename="../src/openstudio_lib/SimSettingsView.cpp" line="720"/>
         <source>Minimum System Timestep</source>
         <translation>最小システムタイムステップ</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/SimSettingsView.cpp" line="266" />
+        <location filename="../src/openstudio_lib/SimSettingsView.cpp" line="266"/>
         <source>Shadow Calculation</source>
         <translation>影の計算</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/SimSettingsView.cpp" line="742" />
+        <location filename="../src/openstudio_lib/SimSettingsView.cpp" line="742"/>
         <source>Shading Calculation Update Frequency</source>
         <translation>シェーディング計算更新頻度</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/SimSettingsView.cpp" line="746" />
+        <location filename="../src/openstudio_lib/SimSettingsView.cpp" line="746"/>
         <source>Maximum Figures In Shadow Overlap Calculations</source>
         <translation>シャドウオーバーラップ計算における最大図形数</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/SimSettingsView.cpp" line="753" />
+        <location filename="../src/openstudio_lib/SimSettingsView.cpp" line="753"/>
         <source>Polygon Clipping Algorithm</source>
         <translation>ポリゴンクリッピングアルゴリズム</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/SimSettingsView.cpp" line="755" />
+        <location filename="../src/openstudio_lib/SimSettingsView.cpp" line="755"/>
         <source>Sky Diffuse Modeling Algorithm</source>
         <translation>空のビームモデリングアルゴリズム</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/SimSettingsView.cpp" line="270" />
+        <location filename="../src/openstudio_lib/SimSettingsView.cpp" line="270"/>
         <source>Inside Surface Convection Algorithm</source>
         <translation>室内表面対流アルゴリズム</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/SimSettingsView.cpp" line="274" />
+        <location filename="../src/openstudio_lib/SimSettingsView.cpp" line="274"/>
         <source>Outside Surface Convection Algorithm</source>
         <translation>外部表面対流アルゴリズム</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/SimSettingsView.cpp" line="278" />
+        <location filename="../src/openstudio_lib/SimSettingsView.cpp" line="278"/>
         <source>Heat Balance Algorithm</source>
         <translation>熱バランスアルゴリズム</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/SimSettingsView.cpp" line="776" />
-        <location filename="../src/openstudio_lib/SimSettingsView.cpp" line="794" />
-        <location filename="../src/openstudio_lib/SimSettingsView.cpp" line="827" />
-        <location filename="../src/openstudio_lib/SimSettingsView.cpp" line="848" />
+        <location filename="../src/openstudio_lib/SimSettingsView.cpp" line="776"/>
+        <location filename="../src/openstudio_lib/SimSettingsView.cpp" line="794"/>
+        <location filename="../src/openstudio_lib/SimSettingsView.cpp" line="827"/>
+        <location filename="../src/openstudio_lib/SimSettingsView.cpp" line="848"/>
         <source>Algorithm</source>
         <translation>アルゴリズム</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/SimSettingsView.cpp" line="812" />
+        <location filename="../src/openstudio_lib/SimSettingsView.cpp" line="812"/>
         <source>Surface Temperature Upper Limit</source>
         <translation>表面温度上限</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/SimSettingsView.cpp" line="816" />
+        <location filename="../src/openstudio_lib/SimSettingsView.cpp" line="816"/>
         <source>Minimum Surface Convection Heat Transfer Coefficient Value</source>
         <translation>最小表面対流熱伝達係数値</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/SimSettingsView.cpp" line="824" />
+        <location filename="../src/openstudio_lib/SimSettingsView.cpp" line="824"/>
         <source>Maximum Surface Convection Heat Transfer Coefficient Value</source>
         <translation>最大表面対流熱伝達係数値</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/SimSettingsView.cpp" line="282" />
+        <location filename="../src/openstudio_lib/SimSettingsView.cpp" line="282"/>
         <source>Zone Air Heat Balance Algorithm</source>
         <translation>ゾーン空気熱バランスアルゴリズム</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/SimSettingsView.cpp" line="286" />
+        <location filename="../src/openstudio_lib/SimSettingsView.cpp" line="286"/>
         <source>Zone Air Contaminant Balance</source>
         <translation>ゾーン室内空気汚染物質バランス</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/SimSettingsView.cpp" line="866" />
+        <location filename="../src/openstudio_lib/SimSettingsView.cpp" line="866"/>
         <source>Carbon Dioxide Concentration</source>
         <translation>二酸化炭素濃度</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/SimSettingsView.cpp" line="870" />
+        <location filename="../src/openstudio_lib/SimSettingsView.cpp" line="870"/>
         <source>Outdoor Carbon Dioxide Schedule Name</source>
         <translation>屋外二酸化炭素スケジュール名</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/SimSettingsView.cpp" line="290" />
+        <location filename="../src/openstudio_lib/SimSettingsView.cpp" line="290"/>
         <source>Zone Capacitance Multiple Research Special</source>
         <translation>ゾーン容量倍数研究特別</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/SimSettingsView.cpp" line="892" />
+        <location filename="../src/openstudio_lib/SimSettingsView.cpp" line="892"/>
         <source>Temperature Capacity Multiplier</source>
         <translation>温度容量乗数</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/SimSettingsView.cpp" line="896" />
+        <location filename="../src/openstudio_lib/SimSettingsView.cpp" line="896"/>
         <source>Humidity Capacity Multiplier</source>
         <translation>湿度容量乗数</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/SimSettingsView.cpp" line="903" />
+        <location filename="../src/openstudio_lib/SimSettingsView.cpp" line="903"/>
         <source>Carbon Dioxide Capacity Multiplier</source>
         <translation>二酸化炭素容量乗数</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/SimSettingsView.cpp" line="294" />
-        <location filename="../src/openstudio_lib/SimSettingsView.cpp" line="1085" />
+        <location filename="../src/openstudio_lib/SimSettingsView.cpp" line="294"/>
+        <location filename="../src/openstudio_lib/SimSettingsView.cpp" line="1085"/>
         <source>Output JSON</source>
         <translation>出力JSON</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/SimSettingsView.cpp" line="1076" />
+        <location filename="../src/openstudio_lib/SimSettingsView.cpp" line="1076"/>
         <source>Option Type</source>
         <translation>オプションタイプ</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/SimSettingsView.cpp" line="1092" />
+        <location filename="../src/openstudio_lib/SimSettingsView.cpp" line="1092"/>
         <source>Output CBOR</source>
         <translation>CBOR出力</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/SimSettingsView.cpp" line="1094" />
+        <location filename="../src/openstudio_lib/SimSettingsView.cpp" line="1094"/>
         <source>Output MessagePack</source>
         <translation>出力 MessagePack</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/SimSettingsView.cpp" line="298" />
+        <location filename="../src/openstudio_lib/SimSettingsView.cpp" line="298"/>
         <source>Output Table Summary Reports</source>
         <translation>出力テーブルサマリーレポート</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/SimSettingsView.cpp" line="1116" />
+        <location filename="../src/openstudio_lib/SimSettingsView.cpp" line="1116"/>
         <source>Enable AllSummary Report</source>
         <translation>AllSummaryレポートを有効にする</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/SimSettingsView.cpp" line="302" />
+        <location filename="../src/openstudio_lib/SimSettingsView.cpp" line="302"/>
         <source>Output Diagnostics</source>
         <translation>出力診断</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/SimSettingsView.cpp" line="1135" />
+        <location filename="../src/openstudio_lib/SimSettingsView.cpp" line="1135"/>
         <source>Enable DisplayExtraWarnings</source>
         <translation>Enable DisplayExtraWarnings</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/SimSettingsView.cpp" line="306" />
+        <location filename="../src/openstudio_lib/SimSettingsView.cpp" line="306"/>
         <source>Output Control Resilience Summaries</source>
         <translation>出力制御レジリエンスサマリー</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/SimSettingsView.cpp" line="1154" />
+        <location filename="../src/openstudio_lib/SimSettingsView.cpp" line="1154"/>
         <source>Heat Index Algorithm</source>
         <translation>熱指数アルゴリズム</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/SimSettingsView.cpp" line="481" />
+        <location filename="../src/openstudio_lib/SimSettingsView.cpp" line="481"/>
         <source>Run Control</source>
         <translation>実行制御</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/SimSettingsView.cpp" line="490" />
+        <location filename="../src/openstudio_lib/SimSettingsView.cpp" line="490"/>
         <source>Run Simulation for Weather File</source>
         <translation>気象ファイルのシミュレーション実行</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/SimSettingsView.cpp" line="495" />
+        <location filename="../src/openstudio_lib/SimSettingsView.cpp" line="495"/>
         <source>Run Simulation for Design Days</source>
         <translation>デザインデイのシミュレーション実行</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/SimSettingsView.cpp" line="500" />
+        <location filename="../src/openstudio_lib/SimSettingsView.cpp" line="500"/>
         <source>Perform Zone Sizing</source>
         <translation>ゾーンサイジングの実行</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/SimSettingsView.cpp" line="505" />
+        <location filename="../src/openstudio_lib/SimSettingsView.cpp" line="505"/>
         <source>Perform System Sizing</source>
         <translation>システムサイジングの実行</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/SimSettingsView.cpp" line="510" />
+        <location filename="../src/openstudio_lib/SimSettingsView.cpp" line="510"/>
         <source>Perform Plant Sizing</source>
         <translation>プラント規模計算を実行</translation>
     </message>
@@ -28920,12 +28931,12 @@ in Preferences</source>
 <context>
     <name>openstudio::SingleZoneSPMView</name>
     <message>
-        <location filename="../src/openstudio_lib/HVACSystemsView.cpp" line="659" />
+        <location filename="../src/openstudio_lib/HVACSystemsView.cpp" line="659"/>
         <source>Supply temperature is controlled by a &lt;strong&gt;%1&lt;/strong&gt; setpoint manager.</source>
         <translation>供給温度は%1セットポイントマネージャーによって制御されます。</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/HVACSystemsView.cpp" line="666" />
+        <location filename="../src/openstudio_lib/HVACSystemsView.cpp" line="666"/>
         <source>Control Zone</source>
         <translation>制御ゾーン</translation>
     </message>
@@ -28933,116 +28944,116 @@ in Preferences</source>
 <context>
     <name>openstudio::SiteGroundTemperatureMonthlyWidget</name>
     <message>
-        <location filename="../src/openstudio_lib/GroundTemperatureMonthlyInspectorView.cpp" line="74" />
+        <location filename="../src/openstudio_lib/GroundTemperatureMonthlyInspectorView.cpp" line="74"/>
         <source>Month</source>
         <translation>月</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/GroundTemperatureMonthlyInspectorView.cpp" line="78" />
+        <location filename="../src/openstudio_lib/GroundTemperatureMonthlyInspectorView.cpp" line="78"/>
         <source>Temperature</source>
         <translation>温度</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/GroundTemperatureMonthlyInspectorView.cpp" line="101" />
+        <location filename="../src/openstudio_lib/GroundTemperatureMonthlyInspectorView.cpp" line="101"/>
         <source>Set all months to:</source>
         <translation>すべての月を以下に設定:</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/GroundTemperatureMonthlyInspectorView.cpp" line="108" />
-        <location filename="../src/openstudio_lib/GroundTemperatureMonthlyInspectorView.cpp" line="127" />
+        <location filename="../src/openstudio_lib/GroundTemperatureMonthlyInspectorView.cpp" line="108"/>
+        <location filename="../src/openstudio_lib/GroundTemperatureMonthlyInspectorView.cpp" line="127"/>
         <source> °F</source>
         <translation>°F</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/GroundTemperatureMonthlyInspectorView.cpp" line="111" />
-        <location filename="../src/openstudio_lib/GroundTemperatureMonthlyInspectorView.cpp" line="131" />
+        <location filename="../src/openstudio_lib/GroundTemperatureMonthlyInspectorView.cpp" line="111"/>
+        <location filename="../src/openstudio_lib/GroundTemperatureMonthlyInspectorView.cpp" line="131"/>
         <source> °C</source>
         <translation>°C</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/GroundTemperatureMonthlyInspectorView.cpp" line="115" />
+        <location filename="../src/openstudio_lib/GroundTemperatureMonthlyInspectorView.cpp" line="115"/>
         <source>Apply</source>
         <translation>適用</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/GroundTemperatureMonthlyInspectorView.cpp" line="153" />
+        <location filename="../src/openstudio_lib/GroundTemperatureMonthlyInspectorView.cpp" line="153"/>
         <source>Jan</source>
         <translation>1月</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/GroundTemperatureMonthlyInspectorView.cpp" line="153" />
+        <location filename="../src/openstudio_lib/GroundTemperatureMonthlyInspectorView.cpp" line="153"/>
         <source>Feb</source>
         <translation>2月</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/GroundTemperatureMonthlyInspectorView.cpp" line="153" />
+        <location filename="../src/openstudio_lib/GroundTemperatureMonthlyInspectorView.cpp" line="153"/>
         <source>Mar</source>
         <translation>3月</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/GroundTemperatureMonthlyInspectorView.cpp" line="153" />
+        <location filename="../src/openstudio_lib/GroundTemperatureMonthlyInspectorView.cpp" line="153"/>
         <source>Apr</source>
         <translation>4月</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/GroundTemperatureMonthlyInspectorView.cpp" line="153" />
+        <location filename="../src/openstudio_lib/GroundTemperatureMonthlyInspectorView.cpp" line="153"/>
         <source>May</source>
         <translation>５月</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/GroundTemperatureMonthlyInspectorView.cpp" line="153" />
+        <location filename="../src/openstudio_lib/GroundTemperatureMonthlyInspectorView.cpp" line="153"/>
         <source>Jun</source>
         <translation>6月</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/GroundTemperatureMonthlyInspectorView.cpp" line="154" />
+        <location filename="../src/openstudio_lib/GroundTemperatureMonthlyInspectorView.cpp" line="154"/>
         <source>Jul</source>
         <translation>7月</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/GroundTemperatureMonthlyInspectorView.cpp" line="154" />
+        <location filename="../src/openstudio_lib/GroundTemperatureMonthlyInspectorView.cpp" line="154"/>
         <source>Aug</source>
         <translation>8月</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/GroundTemperatureMonthlyInspectorView.cpp" line="154" />
+        <location filename="../src/openstudio_lib/GroundTemperatureMonthlyInspectorView.cpp" line="154"/>
         <source>Sep</source>
         <translation>9月</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/GroundTemperatureMonthlyInspectorView.cpp" line="154" />
+        <location filename="../src/openstudio_lib/GroundTemperatureMonthlyInspectorView.cpp" line="154"/>
         <source>Oct</source>
         <translation>10月</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/GroundTemperatureMonthlyInspectorView.cpp" line="154" />
+        <location filename="../src/openstudio_lib/GroundTemperatureMonthlyInspectorView.cpp" line="154"/>
         <source>Nov</source>
         <translation>11月</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/GroundTemperatureMonthlyInspectorView.cpp" line="154" />
+        <location filename="../src/openstudio_lib/GroundTemperatureMonthlyInspectorView.cpp" line="154"/>
         <source>Dec</source>
         <translation>12月</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/GroundTemperatureMonthlyInspectorView.cpp" line="160" />
-        <location filename="../src/openstudio_lib/GroundTemperatureMonthlyInspectorView.cpp" line="265" />
+        <location filename="../src/openstudio_lib/GroundTemperatureMonthlyInspectorView.cpp" line="160"/>
+        <location filename="../src/openstudio_lib/GroundTemperatureMonthlyInspectorView.cpp" line="265"/>
         <source>Temperature [°F]</source>
         <translation>温度 [°F]</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/GroundTemperatureMonthlyInspectorView.cpp" line="160" />
-        <location filename="../src/openstudio_lib/GroundTemperatureMonthlyInspectorView.cpp" line="265" />
+        <location filename="../src/openstudio_lib/GroundTemperatureMonthlyInspectorView.cpp" line="160"/>
+        <location filename="../src/openstudio_lib/GroundTemperatureMonthlyInspectorView.cpp" line="265"/>
         <source>Temperature [°C]</source>
         <translation>温度 [°C]</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/GroundTemperatureMonthlyInspectorView.cpp" line="194" />
+        <location filename="../src/openstudio_lib/GroundTemperatureMonthlyInspectorView.cpp" line="194"/>
         <source>°F</source>
         <translation>°F</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/GroundTemperatureMonthlyInspectorView.cpp" line="194" />
+        <location filename="../src/openstudio_lib/GroundTemperatureMonthlyInspectorView.cpp" line="194"/>
         <source>°C</source>
         <translation>°C</translation>
     </message>
@@ -29050,33 +29061,33 @@ in Preferences</source>
 <context>
     <name>openstudio::SiteWaterMainsTemperatureWidget</name>
     <message>
-        <location filename="../src/openstudio_lib/SiteWaterMainsTemperatureWidget.cpp" line="95" />
+        <location filename="../src/openstudio_lib/SiteWaterMainsTemperatureWidget.cpp" line="95"/>
         <source>Calculation Method</source>
         <translation>計算方法</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/SiteWaterMainsTemperatureWidget.cpp" line="103" />
+        <location filename="../src/openstudio_lib/SiteWaterMainsTemperatureWidget.cpp" line="103"/>
         <source>Temperature Schedule</source>
         <translation>温度スケジュール</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/SiteWaterMainsTemperatureWidget.cpp" line="115" />
+        <location filename="../src/openstudio_lib/SiteWaterMainsTemperatureWidget.cpp" line="115"/>
         <source>Annual Average Outdoor Air Temperature</source>
         <translation>年間平均外気温度</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/SiteWaterMainsTemperatureWidget.cpp" line="119" />
+        <location filename="../src/openstudio_lib/SiteWaterMainsTemperatureWidget.cpp" line="119"/>
         <source>Maximum Difference In Monthly Average
 Outdoor Air Temperatures</source>
         <translation>月平均外気温の最大差</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/SiteWaterMainsTemperatureWidget.cpp" line="132" />
+        <location filename="../src/openstudio_lib/SiteWaterMainsTemperatureWidget.cpp" line="132"/>
         <source>Temperature Multiplier</source>
         <translation>温度乗数</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/SiteWaterMainsTemperatureWidget.cpp" line="136" />
+        <location filename="../src/openstudio_lib/SiteWaterMainsTemperatureWidget.cpp" line="136"/>
         <source>Temperature Offset</source>
         <translation>温度オフセット</translation>
     </message>
@@ -29084,220 +29095,220 @@ Outdoor Air Temperatures</source>
 <context>
     <name>openstudio::SpaceTypesGridController</name>
     <message>
-        <location filename="../src/openstudio_lib/SpaceTypesGridView.cpp" line="401" />
-        <location filename="../src/openstudio_lib/SpaceTypesGridView.cpp" line="407" />
-        <location filename="../src/openstudio_lib/SpaceTypesGridView.cpp" line="411" />
+        <location filename="../src/openstudio_lib/SpaceTypesGridView.cpp" line="401"/>
+        <location filename="../src/openstudio_lib/SpaceTypesGridView.cpp" line="407"/>
+        <location filename="../src/openstudio_lib/SpaceTypesGridView.cpp" line="411"/>
         <source>Space Type Name</source>
         <translation>スペースタイプ名</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/SpaceTypesGridView.cpp" line="401" />
-        <location filename="../src/openstudio_lib/SpaceTypesGridView.cpp" line="413" />
-        <location filename="../src/openstudio_lib/SpaceTypesGridView.cpp" line="419" />
-        <location filename="../src/openstudio_lib/SpaceTypesGridView.cpp" line="421" />
-        <location filename="../src/openstudio_lib/SpaceTypesGridView.cpp" line="1018" />
-        <location filename="../src/openstudio_lib/SpaceTypesGridView.cpp" line="1023" />
+        <location filename="../src/openstudio_lib/SpaceTypesGridView.cpp" line="401"/>
+        <location filename="../src/openstudio_lib/SpaceTypesGridView.cpp" line="413"/>
+        <location filename="../src/openstudio_lib/SpaceTypesGridView.cpp" line="419"/>
+        <location filename="../src/openstudio_lib/SpaceTypesGridView.cpp" line="421"/>
+        <location filename="../src/openstudio_lib/SpaceTypesGridView.cpp" line="1018"/>
+        <location filename="../src/openstudio_lib/SpaceTypesGridView.cpp" line="1023"/>
         <source>All</source>
         <translation>全て</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/SpaceTypesGridView.cpp" line="261" />
-        <location filename="../src/openstudio_lib/SpaceTypesGridView.cpp" line="1147" />
-        <location filename="../src/openstudio_lib/SpaceTypesGridView.cpp" line="1148" />
+        <location filename="../src/openstudio_lib/SpaceTypesGridView.cpp" line="261"/>
+        <location filename="../src/openstudio_lib/SpaceTypesGridView.cpp" line="1147"/>
+        <location filename="../src/openstudio_lib/SpaceTypesGridView.cpp" line="1148"/>
         <source>Rendering Color</source>
         <translation>レンダリング色</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/SpaceTypesGridView.cpp" line="262" />
-        <location filename="../src/openstudio_lib/SpaceTypesGridView.cpp" line="1126" />
-        <location filename="../src/openstudio_lib/SpaceTypesGridView.cpp" line="1128" />
+        <location filename="../src/openstudio_lib/SpaceTypesGridView.cpp" line="262"/>
+        <location filename="../src/openstudio_lib/SpaceTypesGridView.cpp" line="1126"/>
+        <location filename="../src/openstudio_lib/SpaceTypesGridView.cpp" line="1128"/>
         <source>Default Construction Set</source>
         <translation>デフォルト構成セット</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/SpaceTypesGridView.cpp" line="263" />
-        <location filename="../src/openstudio_lib/SpaceTypesGridView.cpp" line="1132" />
-        <location filename="../src/openstudio_lib/SpaceTypesGridView.cpp" line="1134" />
+        <location filename="../src/openstudio_lib/SpaceTypesGridView.cpp" line="263"/>
+        <location filename="../src/openstudio_lib/SpaceTypesGridView.cpp" line="1132"/>
+        <location filename="../src/openstudio_lib/SpaceTypesGridView.cpp" line="1134"/>
         <source>Default Schedule Set</source>
         <translation>デフォルトスケジュールセット</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/SpaceTypesGridView.cpp" line="264" />
-        <location filename="../src/openstudio_lib/SpaceTypesGridView.cpp" line="1138" />
-        <location filename="../src/openstudio_lib/SpaceTypesGridView.cpp" line="1139" />
+        <location filename="../src/openstudio_lib/SpaceTypesGridView.cpp" line="264"/>
+        <location filename="../src/openstudio_lib/SpaceTypesGridView.cpp" line="1138"/>
+        <location filename="../src/openstudio_lib/SpaceTypesGridView.cpp" line="1139"/>
         <source>Design Specification Outdoor Air</source>
         <translation>設計仕様屋外空気</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/SpaceTypesGridView.cpp" line="265" />
-        <location filename="../src/openstudio_lib/SpaceTypesGridView.cpp" line="1151" />
-        <location filename="../src/openstudio_lib/SpaceTypesGridView.cpp" line="1175" />
-        <location filename="../src/openstudio_lib/SpaceTypesGridView.cpp" line="1183" />
+        <location filename="../src/openstudio_lib/SpaceTypesGridView.cpp" line="265"/>
+        <location filename="../src/openstudio_lib/SpaceTypesGridView.cpp" line="1151"/>
+        <location filename="../src/openstudio_lib/SpaceTypesGridView.cpp" line="1175"/>
+        <location filename="../src/openstudio_lib/SpaceTypesGridView.cpp" line="1183"/>
         <source>Space Infiltration Design Flow Rates</source>
         <translation>スペース浸入設計流量</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/SpaceTypesGridView.cpp" line="266" />
-        <location filename="../src/openstudio_lib/SpaceTypesGridView.cpp" line="1185" />
-        <location filename="../src/openstudio_lib/SpaceTypesGridView.cpp" line="1209" />
-        <location filename="../src/openstudio_lib/SpaceTypesGridView.cpp" line="1218" />
+        <location filename="../src/openstudio_lib/SpaceTypesGridView.cpp" line="266"/>
+        <location filename="../src/openstudio_lib/SpaceTypesGridView.cpp" line="1185"/>
+        <location filename="../src/openstudio_lib/SpaceTypesGridView.cpp" line="1209"/>
+        <location filename="../src/openstudio_lib/SpaceTypesGridView.cpp" line="1218"/>
         <source>Space Infiltration Effective Leakage Areas</source>
         <translation>スペース浸透有効漏気面積</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/SpaceTypesGridView.cpp" line="274" />
-        <location filename="../src/openstudio_lib/SpaceTypesGridView.cpp" line="386" />
-        <location filename="../src/openstudio_lib/SpaceTypesGridView.cpp" line="420" />
-        <location filename="../src/openstudio_lib/SpaceTypesGridView.cpp" line="998" />
-        <location filename="../src/openstudio_lib/SpaceTypesGridView.cpp" line="1012" />
+        <location filename="../src/openstudio_lib/SpaceTypesGridView.cpp" line="274"/>
+        <location filename="../src/openstudio_lib/SpaceTypesGridView.cpp" line="386"/>
+        <location filename="../src/openstudio_lib/SpaceTypesGridView.cpp" line="420"/>
+        <location filename="../src/openstudio_lib/SpaceTypesGridView.cpp" line="998"/>
+        <location filename="../src/openstudio_lib/SpaceTypesGridView.cpp" line="1012"/>
         <source>Load Name</source>
         <translation>負荷名</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/SpaceTypesGridView.cpp" line="274" />
-        <location filename="../src/openstudio_lib/SpaceTypesGridView.cpp" line="420" />
-        <location filename="../src/openstudio_lib/SpaceTypesGridView.cpp" line="1024" />
-        <location filename="../src/openstudio_lib/SpaceTypesGridView.cpp" line="1027" />
+        <location filename="../src/openstudio_lib/SpaceTypesGridView.cpp" line="274"/>
+        <location filename="../src/openstudio_lib/SpaceTypesGridView.cpp" line="420"/>
+        <location filename="../src/openstudio_lib/SpaceTypesGridView.cpp" line="1024"/>
+        <location filename="../src/openstudio_lib/SpaceTypesGridView.cpp" line="1027"/>
         <source>Multiplier</source>
         <translation>倍数</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/SpaceTypesGridView.cpp" line="274" />
-        <location filename="../src/openstudio_lib/SpaceTypesGridView.cpp" line="420" />
-        <location filename="../src/openstudio_lib/SpaceTypesGridView.cpp" line="1032" />
-        <location filename="../src/openstudio_lib/SpaceTypesGridView.cpp" line="1108" />
-        <location filename="../src/openstudio_lib/SpaceTypesGridView.cpp" line="1113" />
+        <location filename="../src/openstudio_lib/SpaceTypesGridView.cpp" line="274"/>
+        <location filename="../src/openstudio_lib/SpaceTypesGridView.cpp" line="420"/>
+        <location filename="../src/openstudio_lib/SpaceTypesGridView.cpp" line="1032"/>
+        <location filename="../src/openstudio_lib/SpaceTypesGridView.cpp" line="1108"/>
+        <location filename="../src/openstudio_lib/SpaceTypesGridView.cpp" line="1113"/>
         <source>Definition</source>
         <translation>定義</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/SpaceTypesGridView.cpp" line="274" />
-        <location filename="../src/openstudio_lib/SpaceTypesGridView.cpp" line="420" />
-        <location filename="../src/openstudio_lib/SpaceTypesGridView.cpp" line="1115" />
-        <location filename="../src/openstudio_lib/SpaceTypesGridView.cpp" line="1117" />
-        <location filename="../src/openstudio_lib/SpaceTypesGridView.cpp" line="1122" />
+        <location filename="../src/openstudio_lib/SpaceTypesGridView.cpp" line="274"/>
+        <location filename="../src/openstudio_lib/SpaceTypesGridView.cpp" line="420"/>
+        <location filename="../src/openstudio_lib/SpaceTypesGridView.cpp" line="1115"/>
+        <location filename="../src/openstudio_lib/SpaceTypesGridView.cpp" line="1117"/>
+        <location filename="../src/openstudio_lib/SpaceTypesGridView.cpp" line="1122"/>
         <source>Schedule</source>
         <translation>スケジュール</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/SpaceTypesGridView.cpp" line="274" />
-        <location filename="../src/openstudio_lib/SpaceTypesGridView.cpp" line="421" />
-        <location filename="../src/openstudio_lib/SpaceTypesGridView.cpp" line="1120" />
+        <location filename="../src/openstudio_lib/SpaceTypesGridView.cpp" line="274"/>
+        <location filename="../src/openstudio_lib/SpaceTypesGridView.cpp" line="421"/>
+        <location filename="../src/openstudio_lib/SpaceTypesGridView.cpp" line="1120"/>
         <source>Activity Schedule
 (People Only)</source>
         <translation>アクティビティスケジュール
 (人数のみ)</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/SpaceTypesGridView.cpp" line="282" />
-        <location filename="../src/openstudio_lib/SpaceTypesGridView.cpp" line="1220" />
-        <location filename="../src/openstudio_lib/SpaceTypesGridView.cpp" line="1298" />
+        <location filename="../src/openstudio_lib/SpaceTypesGridView.cpp" line="282"/>
+        <location filename="../src/openstudio_lib/SpaceTypesGridView.cpp" line="1220"/>
+        <location filename="../src/openstudio_lib/SpaceTypesGridView.cpp" line="1298"/>
         <source>Standards Template (Optional)</source>
         <translation>Standards Template (Optional)</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/SpaceTypesGridView.cpp" line="283" />
-        <location filename="../src/openstudio_lib/SpaceTypesGridView.cpp" line="1302" />
-        <location filename="../src/openstudio_lib/SpaceTypesGridView.cpp" line="1365" />
+        <location filename="../src/openstudio_lib/SpaceTypesGridView.cpp" line="283"/>
+        <location filename="../src/openstudio_lib/SpaceTypesGridView.cpp" line="1302"/>
+        <location filename="../src/openstudio_lib/SpaceTypesGridView.cpp" line="1365"/>
         <source>Standards Building Type
 (Optional)</source>
         <translation>基準建物タイプ
 （オプション）</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/SpaceTypesGridView.cpp" line="284" />
-        <location filename="../src/openstudio_lib/SpaceTypesGridView.cpp" line="1369" />
-        <location filename="../src/openstudio_lib/SpaceTypesGridView.cpp" line="1393" />
+        <location filename="../src/openstudio_lib/SpaceTypesGridView.cpp" line="284"/>
+        <location filename="../src/openstudio_lib/SpaceTypesGridView.cpp" line="1369"/>
+        <location filename="../src/openstudio_lib/SpaceTypesGridView.cpp" line="1393"/>
         <source>Standards Space Type
 (Optional)</source>
         <translation>標準スペースタイプ
 (オプション)</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/SpaceTypesGridView.cpp" line="296" />
+        <location filename="../src/openstudio_lib/SpaceTypesGridView.cpp" line="296"/>
         <source>Show all loads</source>
         <translation>すべての負荷を表示</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/SpaceTypesGridView.cpp" line="302" />
+        <location filename="../src/openstudio_lib/SpaceTypesGridView.cpp" line="302"/>
         <source>Internal Mass</source>
         <translation>内部質量</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/SpaceTypesGridView.cpp" line="306" />
+        <location filename="../src/openstudio_lib/SpaceTypesGridView.cpp" line="306"/>
         <source>People</source>
         <translation>人</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/SpaceTypesGridView.cpp" line="310" />
+        <location filename="../src/openstudio_lib/SpaceTypesGridView.cpp" line="310"/>
         <source>Lights</source>
         <translation>照明</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/SpaceTypesGridView.cpp" line="314" />
+        <location filename="../src/openstudio_lib/SpaceTypesGridView.cpp" line="314"/>
         <source>Luminaire</source>
         <translation>照明器具</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/SpaceTypesGridView.cpp" line="318" />
+        <location filename="../src/openstudio_lib/SpaceTypesGridView.cpp" line="318"/>
         <source>Electric Equipment</source>
         <translation>電気機器</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/SpaceTypesGridView.cpp" line="322" />
+        <location filename="../src/openstudio_lib/SpaceTypesGridView.cpp" line="322"/>
         <source>Gas Equipment</source>
         <translation>ガス機器</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/SpaceTypesGridView.cpp" line="326" />
+        <location filename="../src/openstudio_lib/SpaceTypesGridView.cpp" line="326"/>
         <source>Hot Water Equipment</source>
         <translation>給湯機器</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/SpaceTypesGridView.cpp" line="330" />
+        <location filename="../src/openstudio_lib/SpaceTypesGridView.cpp" line="330"/>
         <source>Steam Equipment</source>
         <translation>スチーム機器</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/SpaceTypesGridView.cpp" line="334" />
+        <location filename="../src/openstudio_lib/SpaceTypesGridView.cpp" line="334"/>
         <source>Other Equipment</source>
         <translation>その他の機器</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/SpaceTypesGridView.cpp" line="338" />
+        <location filename="../src/openstudio_lib/SpaceTypesGridView.cpp" line="338"/>
         <source>Space Infiltration Design Flow Rate</source>
         <translation>空間浸透設計流量率</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/SpaceTypesGridView.cpp" line="342" />
+        <location filename="../src/openstudio_lib/SpaceTypesGridView.cpp" line="342"/>
         <source>Space Infiltration Effective Leakage Area</source>
         <translation>空間浸透実効漏洩面積</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/SpaceTypesGridView.cpp" line="415" />
-        <location filename="../src/openstudio_lib/SpaceTypesGridView.cpp" line="1020" />
+        <location filename="../src/openstudio_lib/SpaceTypesGridView.cpp" line="415"/>
+        <location filename="../src/openstudio_lib/SpaceTypesGridView.cpp" line="1020"/>
         <source>Check to select all rows</source>
         <translation>全ての行を選択</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/SpaceTypesGridView.cpp" line="419" />
-        <location filename="../src/openstudio_lib/SpaceTypesGridView.cpp" line="1023" />
+        <location filename="../src/openstudio_lib/SpaceTypesGridView.cpp" line="419"/>
+        <location filename="../src/openstudio_lib/SpaceTypesGridView.cpp" line="1023"/>
         <source>Check to select this row</source>
         <translation>このロウを選択するにはチェックします</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/SpaceTypesGridView.cpp" line="268" />
+        <location filename="../src/openstudio_lib/SpaceTypesGridView.cpp" line="268"/>
         <source>General</source>
         <translation>一般</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/SpaceTypesGridView.cpp" line="276" />
-        <location filename="../src/openstudio_lib/SpaceTypesGridView.cpp" line="413" />
+        <location filename="../src/openstudio_lib/SpaceTypesGridView.cpp" line="276"/>
+        <location filename="../src/openstudio_lib/SpaceTypesGridView.cpp" line="413"/>
         <source>Loads</source>
         <translation>負荷</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/SpaceTypesGridView.cpp" line="286" />
+        <location filename="../src/openstudio_lib/SpaceTypesGridView.cpp" line="286"/>
         <source>Measure
 Tags</source>
         <translation>メジャー
@@ -29307,84 +29318,84 @@ Tags</source>
 <context>
     <name>openstudio::SpaceTypesGridView</name>
     <message>
-        <location filename="../src/openstudio_lib/SpaceTypesGridView.cpp" line="107" />
-        <location filename="../src/openstudio_lib/SpaceTypesGridView.cpp" line="108" />
+        <location filename="../src/openstudio_lib/SpaceTypesGridView.cpp" line="107"/>
+        <location filename="../src/openstudio_lib/SpaceTypesGridView.cpp" line="108"/>
         <source>Space Types</source>
         <translation>スペースタイプ</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/SpaceTypesGridView.cpp" line="108" />
+        <location filename="../src/openstudio_lib/SpaceTypesGridView.cpp" line="108"/>
         <source>Drop
 Space Type</source>
         <translation>スペースタイプをドロップ</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/SpaceTypesGridView.cpp" line="121" />
+        <location filename="../src/openstudio_lib/SpaceTypesGridView.cpp" line="121"/>
         <source>Filter:</source>
         <translation>フィルター:</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/SpaceTypesGridView.cpp" line="128" />
+        <location filename="../src/openstudio_lib/SpaceTypesGridView.cpp" line="128"/>
         <source>Load Type</source>
         <translation>負荷タイプ</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/SpaceTypesGridView.cpp" line="135" />
+        <location filename="../src/openstudio_lib/SpaceTypesGridView.cpp" line="135"/>
         <source>Show all loads</source>
         <translation>すべての負荷を表示</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/SpaceTypesGridView.cpp" line="140" />
+        <location filename="../src/openstudio_lib/SpaceTypesGridView.cpp" line="140"/>
         <source>Internal Mass</source>
         <translation>内部熱容量</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/SpaceTypesGridView.cpp" line="146" />
+        <location filename="../src/openstudio_lib/SpaceTypesGridView.cpp" line="146"/>
         <source>People</source>
         <translation>人</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/SpaceTypesGridView.cpp" line="152" />
+        <location filename="../src/openstudio_lib/SpaceTypesGridView.cpp" line="152"/>
         <source>Lights</source>
         <translation>照明</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/SpaceTypesGridView.cpp" line="158" />
+        <location filename="../src/openstudio_lib/SpaceTypesGridView.cpp" line="158"/>
         <source>Luminaire</source>
         <translation>照明器具</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/SpaceTypesGridView.cpp" line="164" />
+        <location filename="../src/openstudio_lib/SpaceTypesGridView.cpp" line="164"/>
         <source>Electric Equipment</source>
         <translation>電気機器</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/SpaceTypesGridView.cpp" line="170" />
+        <location filename="../src/openstudio_lib/SpaceTypesGridView.cpp" line="170"/>
         <source>Gas Equipment</source>
         <translation>ガス機器</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/SpaceTypesGridView.cpp" line="176" />
+        <location filename="../src/openstudio_lib/SpaceTypesGridView.cpp" line="176"/>
         <source>Hot Water Equipment</source>
         <translation>給湯設備</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/SpaceTypesGridView.cpp" line="182" />
+        <location filename="../src/openstudio_lib/SpaceTypesGridView.cpp" line="182"/>
         <source>Steam Equipment</source>
         <translation>スチーム機器</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/SpaceTypesGridView.cpp" line="188" />
+        <location filename="../src/openstudio_lib/SpaceTypesGridView.cpp" line="188"/>
         <source>Other Equipment</source>
         <translation>その他機器</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/SpaceTypesGridView.cpp" line="194" />
+        <location filename="../src/openstudio_lib/SpaceTypesGridView.cpp" line="194"/>
         <source>Space Infiltration Design Flow Rate</source>
         <translation>スペース浸入設計流量</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/SpaceTypesGridView.cpp" line="200" />
+        <location filename="../src/openstudio_lib/SpaceTypesGridView.cpp" line="200"/>
         <source>Space Infiltration Effective Leakage Area</source>
         <translation>スペース侵入有効漏洩面積</translation>
     </message>
@@ -29392,7 +29403,7 @@ Space Type</source>
 <context>
     <name>openstudio::SpaceTypesTabView</name>
     <message>
-        <location filename="../src/openstudio_lib/SpaceTypesTabView.cpp" line="10" />
+        <location filename="../src/openstudio_lib/SpaceTypesTabView.cpp" line="10"/>
         <source>Space Types</source>
         <translation>スペースタイプ</translation>
     </message>
@@ -29400,12 +29411,12 @@ Space Type</source>
 <context>
     <name>openstudio::SpacesDaylightingGridController</name>
     <message>
-        <location filename="../src/openstudio_lib/SpacesDaylightingGridView.cpp" line="209" />
+        <location filename="../src/openstudio_lib/SpacesDaylightingGridView.cpp" line="209"/>
         <source>Check to select all rows</source>
         <translation>全ての行を選択</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/SpacesDaylightingGridView.cpp" line="212" />
+        <location filename="../src/openstudio_lib/SpacesDaylightingGridView.cpp" line="212"/>
         <source>Check to select this row</source>
         <translation>このロウを選択するにはチェックします</translation>
     </message>
@@ -29413,89 +29424,89 @@ Space Type</source>
 <context>
     <name>openstudio::SpacesInteriorPartitionsGridController</name>
     <message>
-        <location filename="../src/openstudio_lib/SpacesInteriorPartitionsGridView.cpp" line="110" />
-        <location filename="../src/openstudio_lib/SpacesInteriorPartitionsGridView.cpp" line="116" />
-        <location filename="../src/openstudio_lib/SpacesInteriorPartitionsGridView.cpp" line="117" />
+        <location filename="../src/openstudio_lib/SpacesInteriorPartitionsGridView.cpp" line="110"/>
+        <location filename="../src/openstudio_lib/SpacesInteriorPartitionsGridView.cpp" line="116"/>
+        <location filename="../src/openstudio_lib/SpacesInteriorPartitionsGridView.cpp" line="117"/>
         <source>Space Name</source>
         <translation>スペース名</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/SpacesInteriorPartitionsGridView.cpp" line="110" />
-        <location filename="../src/openstudio_lib/SpacesInteriorPartitionsGridView.cpp" line="171" />
-        <location filename="../src/openstudio_lib/SpacesInteriorPartitionsGridView.cpp" line="177" />
+        <location filename="../src/openstudio_lib/SpacesInteriorPartitionsGridView.cpp" line="110"/>
+        <location filename="../src/openstudio_lib/SpacesInteriorPartitionsGridView.cpp" line="171"/>
+        <location filename="../src/openstudio_lib/SpacesInteriorPartitionsGridView.cpp" line="177"/>
         <source>All</source>
         <translation>全て</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/SpacesInteriorPartitionsGridView.cpp" line="107" />
-        <location filename="../src/openstudio_lib/SpacesInteriorPartitionsGridView.cpp" line="119" />
-        <location filename="../src/openstudio_lib/SpacesInteriorPartitionsGridView.cpp" line="120" />
+        <location filename="../src/openstudio_lib/SpacesInteriorPartitionsGridView.cpp" line="107"/>
+        <location filename="../src/openstudio_lib/SpacesInteriorPartitionsGridView.cpp" line="119"/>
+        <location filename="../src/openstudio_lib/SpacesInteriorPartitionsGridView.cpp" line="120"/>
         <source>Display Name</source>
         <translation>表示名</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/SpacesInteriorPartitionsGridView.cpp" line="107" />
-        <location filename="../src/openstudio_lib/SpacesInteriorPartitionsGridView.cpp" line="126" />
-        <location filename="../src/openstudio_lib/SpacesInteriorPartitionsGridView.cpp" line="127" />
+        <location filename="../src/openstudio_lib/SpacesInteriorPartitionsGridView.cpp" line="107"/>
+        <location filename="../src/openstudio_lib/SpacesInteriorPartitionsGridView.cpp" line="126"/>
+        <location filename="../src/openstudio_lib/SpacesInteriorPartitionsGridView.cpp" line="127"/>
         <source>CAD Object ID</source>
         <translation>CADオブジェクトID</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/SpacesInteriorPartitionsGridView.cpp" line="89" />
-        <location filename="../src/openstudio_lib/SpacesInteriorPartitionsGridView.cpp" line="179" />
-        <location filename="../src/openstudio_lib/SpacesInteriorPartitionsGridView.cpp" line="180" />
+        <location filename="../src/openstudio_lib/SpacesInteriorPartitionsGridView.cpp" line="89"/>
+        <location filename="../src/openstudio_lib/SpacesInteriorPartitionsGridView.cpp" line="179"/>
+        <location filename="../src/openstudio_lib/SpacesInteriorPartitionsGridView.cpp" line="180"/>
         <source>Interior Partition Group Name</source>
         <translation>インテリアパーティショングループ名</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/SpacesInteriorPartitionsGridView.cpp" line="89" />
-        <location filename="../src/openstudio_lib/SpacesInteriorPartitionsGridView.cpp" line="186" />
-        <location filename="../src/openstudio_lib/SpacesInteriorPartitionsGridView.cpp" line="187" />
+        <location filename="../src/openstudio_lib/SpacesInteriorPartitionsGridView.cpp" line="89"/>
+        <location filename="../src/openstudio_lib/SpacesInteriorPartitionsGridView.cpp" line="186"/>
+        <location filename="../src/openstudio_lib/SpacesInteriorPartitionsGridView.cpp" line="187"/>
         <source>Interior Partition Name</source>
         <translation>内部パーティション名</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/SpacesInteriorPartitionsGridView.cpp" line="89" />
-        <location filename="../src/openstudio_lib/SpacesInteriorPartitionsGridView.cpp" line="193" />
-        <location filename="../src/openstudio_lib/SpacesInteriorPartitionsGridView.cpp" line="196" />
+        <location filename="../src/openstudio_lib/SpacesInteriorPartitionsGridView.cpp" line="89"/>
+        <location filename="../src/openstudio_lib/SpacesInteriorPartitionsGridView.cpp" line="193"/>
+        <location filename="../src/openstudio_lib/SpacesInteriorPartitionsGridView.cpp" line="196"/>
         <source>Construction Name</source>
         <translation>構成名</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/SpacesInteriorPartitionsGridView.cpp" line="89" />
-        <location filename="../src/openstudio_lib/SpacesInteriorPartitionsGridView.cpp" line="204" />
-        <location filename="../src/openstudio_lib/SpacesInteriorPartitionsGridView.cpp" line="206" />
+        <location filename="../src/openstudio_lib/SpacesInteriorPartitionsGridView.cpp" line="89"/>
+        <location filename="../src/openstudio_lib/SpacesInteriorPartitionsGridView.cpp" line="204"/>
+        <location filename="../src/openstudio_lib/SpacesInteriorPartitionsGridView.cpp" line="206"/>
         <source>Convert to Internal Mass</source>
         <translation>内部熱容量に変換</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/SpacesInteriorPartitionsGridView.cpp" line="173" />
+        <location filename="../src/openstudio_lib/SpacesInteriorPartitionsGridView.cpp" line="173"/>
         <source>Check to select all rows</source>
         <translation>全ての行を選択</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/SpacesInteriorPartitionsGridView.cpp" line="177" />
+        <location filename="../src/openstudio_lib/SpacesInteriorPartitionsGridView.cpp" line="177"/>
         <source>Check to select this row</source>
         <translation>このロウを選択するにはチェックします</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/SpacesInteriorPartitionsGridView.cpp" line="206" />
+        <location filename="../src/openstudio_lib/SpacesInteriorPartitionsGridView.cpp" line="206"/>
         <source>Check to enable convert to InternalMass.</source>
         <translation>InternalMassへの変換を有効にするにはチェックしてください。</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/SpacesInteriorPartitionsGridView.cpp" line="209" />
-        <location filename="../src/openstudio_lib/SpacesInteriorPartitionsGridView.cpp" line="215" />
+        <location filename="../src/openstudio_lib/SpacesInteriorPartitionsGridView.cpp" line="209"/>
+        <location filename="../src/openstudio_lib/SpacesInteriorPartitionsGridView.cpp" line="215"/>
         <source>Surface Area</source>
         <translation>表面積</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/SpacesInteriorPartitionsGridView.cpp" line="230" />
+        <location filename="../src/openstudio_lib/SpacesInteriorPartitionsGridView.cpp" line="230"/>
         <source>Daylighting Shelf Name</source>
         <translation>Daylighting Shelf Name</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/SpacesInteriorPartitionsGridView.cpp" line="93" />
+        <location filename="../src/openstudio_lib/SpacesInteriorPartitionsGridView.cpp" line="93"/>
         <source>General</source>
         <translation>一般</translation>
     </message>
@@ -29503,13 +29514,13 @@ Space Type</source>
 <context>
     <name>openstudio::SpacesInteriorPartitionsGridView</name>
     <message>
-        <location filename="../src/openstudio_lib/SpacesInteriorPartitionsGridView.cpp" line="48" />
-        <location filename="../src/openstudio_lib/SpacesInteriorPartitionsGridView.cpp" line="49" />
+        <location filename="../src/openstudio_lib/SpacesInteriorPartitionsGridView.cpp" line="48"/>
+        <location filename="../src/openstudio_lib/SpacesInteriorPartitionsGridView.cpp" line="49"/>
         <source>Space</source>
         <translation>スペース</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/SpacesInteriorPartitionsGridView.cpp" line="49" />
+        <location filename="../src/openstudio_lib/SpacesInteriorPartitionsGridView.cpp" line="49"/>
         <source>Drop
 Space</source>
         <translation>ドロップ
@@ -29519,88 +29530,88 @@ Space</source>
 <context>
     <name>openstudio::SpacesLoadsGridController</name>
     <message>
-        <location filename="../src/openstudio_lib/SpacesLoadsGridView.cpp" line="805" />
+        <location filename="../src/openstudio_lib/SpacesLoadsGridView.cpp" line="805"/>
         <source>Drop Space Infiltration</source>
         <translation>スペース浸透をドロップ</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/SpacesLoadsGridView.cpp" line="162" />
-        <location filename="../src/openstudio_lib/SpacesLoadsGridView.cpp" line="168" />
-        <location filename="../src/openstudio_lib/SpacesLoadsGridView.cpp" line="170" />
+        <location filename="../src/openstudio_lib/SpacesLoadsGridView.cpp" line="162"/>
+        <location filename="../src/openstudio_lib/SpacesLoadsGridView.cpp" line="168"/>
+        <location filename="../src/openstudio_lib/SpacesLoadsGridView.cpp" line="170"/>
         <source>Space Name</source>
         <translation>スペース名</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/SpacesLoadsGridView.cpp" line="162" />
-        <location filename="../src/openstudio_lib/SpacesLoadsGridView.cpp" line="809" />
-        <location filename="../src/openstudio_lib/SpacesLoadsGridView.cpp" line="814" />
+        <location filename="../src/openstudio_lib/SpacesLoadsGridView.cpp" line="162"/>
+        <location filename="../src/openstudio_lib/SpacesLoadsGridView.cpp" line="809"/>
+        <location filename="../src/openstudio_lib/SpacesLoadsGridView.cpp" line="814"/>
         <source>All</source>
         <translation>全て</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/SpacesLoadsGridView.cpp" line="159" />
-        <location filename="../src/openstudio_lib/SpacesLoadsGridView.cpp" line="172" />
-        <location filename="../src/openstudio_lib/SpacesLoadsGridView.cpp" line="173" />
+        <location filename="../src/openstudio_lib/SpacesLoadsGridView.cpp" line="159"/>
+        <location filename="../src/openstudio_lib/SpacesLoadsGridView.cpp" line="172"/>
+        <location filename="../src/openstudio_lib/SpacesLoadsGridView.cpp" line="173"/>
         <source>Display Name</source>
         <translation>表示名</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/SpacesLoadsGridView.cpp" line="159" />
-        <location filename="../src/openstudio_lib/SpacesLoadsGridView.cpp" line="179" />
-        <location filename="../src/openstudio_lib/SpacesLoadsGridView.cpp" line="180" />
+        <location filename="../src/openstudio_lib/SpacesLoadsGridView.cpp" line="159"/>
+        <location filename="../src/openstudio_lib/SpacesLoadsGridView.cpp" line="179"/>
+        <location filename="../src/openstudio_lib/SpacesLoadsGridView.cpp" line="180"/>
         <source>CAD Object ID</source>
         <translation>CADオブジェクトID</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/SpacesLoadsGridView.cpp" line="143" />
-        <location filename="../src/openstudio_lib/SpacesLoadsGridView.cpp" line="761" />
-        <location filename="../src/openstudio_lib/SpacesLoadsGridView.cpp" line="796" />
+        <location filename="../src/openstudio_lib/SpacesLoadsGridView.cpp" line="143"/>
+        <location filename="../src/openstudio_lib/SpacesLoadsGridView.cpp" line="761"/>
+        <location filename="../src/openstudio_lib/SpacesLoadsGridView.cpp" line="796"/>
         <source>Load Name</source>
         <translation>負荷名</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/SpacesLoadsGridView.cpp" line="143" />
-        <location filename="../src/openstudio_lib/SpacesLoadsGridView.cpp" line="815" />
-        <location filename="../src/openstudio_lib/SpacesLoadsGridView.cpp" line="818" />
+        <location filename="../src/openstudio_lib/SpacesLoadsGridView.cpp" line="143"/>
+        <location filename="../src/openstudio_lib/SpacesLoadsGridView.cpp" line="815"/>
+        <location filename="../src/openstudio_lib/SpacesLoadsGridView.cpp" line="818"/>
         <source>Multiplier</source>
         <translation>乗数</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/SpacesLoadsGridView.cpp" line="143" />
-        <location filename="../src/openstudio_lib/SpacesLoadsGridView.cpp" line="821" />
-        <location filename="../src/openstudio_lib/SpacesLoadsGridView.cpp" line="888" />
-        <location filename="../src/openstudio_lib/SpacesLoadsGridView.cpp" line="893" />
+        <location filename="../src/openstudio_lib/SpacesLoadsGridView.cpp" line="143"/>
+        <location filename="../src/openstudio_lib/SpacesLoadsGridView.cpp" line="821"/>
+        <location filename="../src/openstudio_lib/SpacesLoadsGridView.cpp" line="888"/>
+        <location filename="../src/openstudio_lib/SpacesLoadsGridView.cpp" line="893"/>
         <source>Definition</source>
         <translation>定義</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/SpacesLoadsGridView.cpp" line="143" />
-        <location filename="../src/openstudio_lib/SpacesLoadsGridView.cpp" line="894" />
-        <location filename="../src/openstudio_lib/SpacesLoadsGridView.cpp" line="896" />
-        <location filename="../src/openstudio_lib/SpacesLoadsGridView.cpp" line="900" />
+        <location filename="../src/openstudio_lib/SpacesLoadsGridView.cpp" line="143"/>
+        <location filename="../src/openstudio_lib/SpacesLoadsGridView.cpp" line="894"/>
+        <location filename="../src/openstudio_lib/SpacesLoadsGridView.cpp" line="896"/>
+        <location filename="../src/openstudio_lib/SpacesLoadsGridView.cpp" line="900"/>
         <source>Schedule</source>
         <translation>スケジュール</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/SpacesLoadsGridView.cpp" line="143" />
-        <location filename="../src/openstudio_lib/SpacesLoadsGridView.cpp" line="899" />
+        <location filename="../src/openstudio_lib/SpacesLoadsGridView.cpp" line="143"/>
+        <location filename="../src/openstudio_lib/SpacesLoadsGridView.cpp" line="899"/>
         <source>Activity Schedule
 (People Only)</source>
         <translation>アクティビティスケジュール
 （人員のみ）</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/SpacesLoadsGridView.cpp" line="145" />
+        <location filename="../src/openstudio_lib/SpacesLoadsGridView.cpp" line="145"/>
         <source>General</source>
         <translation>一般</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/SpacesLoadsGridView.cpp" line="811" />
+        <location filename="../src/openstudio_lib/SpacesLoadsGridView.cpp" line="811"/>
         <source>Check to select all rows</source>
         <translation>全ての行を選択</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/SpacesLoadsGridView.cpp" line="814" />
+        <location filename="../src/openstudio_lib/SpacesLoadsGridView.cpp" line="814"/>
         <source>Check to select this row</source>
         <translation>このロウを選択するにはチェックします</translation>
     </message>
@@ -29608,13 +29619,13 @@ Space</source>
 <context>
     <name>openstudio::SpacesLoadsGridView</name>
     <message>
-        <location filename="../src/openstudio_lib/SpacesLoadsGridView.cpp" line="93" />
-        <location filename="../src/openstudio_lib/SpacesLoadsGridView.cpp" line="94" />
+        <location filename="../src/openstudio_lib/SpacesLoadsGridView.cpp" line="93"/>
+        <location filename="../src/openstudio_lib/SpacesLoadsGridView.cpp" line="94"/>
         <source>Space</source>
         <translation>スペース</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/SpacesLoadsGridView.cpp" line="94" />
+        <location filename="../src/openstudio_lib/SpacesLoadsGridView.cpp" line="94"/>
         <source>Drop
 Space</source>
         <translation>ドロップ
@@ -29624,79 +29635,79 @@ Space</source>
 <context>
     <name>openstudio::SpacesShadingGridController</name>
     <message>
-        <location filename="../src/openstudio_lib/SpacesShadingGridView.cpp" line="110" />
-        <location filename="../src/openstudio_lib/SpacesShadingGridView.cpp" line="116" />
-        <location filename="../src/openstudio_lib/SpacesShadingGridView.cpp" line="117" />
+        <location filename="../src/openstudio_lib/SpacesShadingGridView.cpp" line="110"/>
+        <location filename="../src/openstudio_lib/SpacesShadingGridView.cpp" line="116"/>
+        <location filename="../src/openstudio_lib/SpacesShadingGridView.cpp" line="117"/>
         <source>Space Name</source>
         <translation>スペース名</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/SpacesShadingGridView.cpp" line="110" />
-        <location filename="../src/openstudio_lib/SpacesShadingGridView.cpp" line="168" />
-        <location filename="../src/openstudio_lib/SpacesShadingGridView.cpp" line="173" />
+        <location filename="../src/openstudio_lib/SpacesShadingGridView.cpp" line="110"/>
+        <location filename="../src/openstudio_lib/SpacesShadingGridView.cpp" line="168"/>
+        <location filename="../src/openstudio_lib/SpacesShadingGridView.cpp" line="173"/>
         <source>All</source>
         <translation>全て</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/SpacesShadingGridView.cpp" line="107" />
-        <location filename="../src/openstudio_lib/SpacesShadingGridView.cpp" line="119" />
-        <location filename="../src/openstudio_lib/SpacesShadingGridView.cpp" line="120" />
+        <location filename="../src/openstudio_lib/SpacesShadingGridView.cpp" line="107"/>
+        <location filename="../src/openstudio_lib/SpacesShadingGridView.cpp" line="119"/>
+        <location filename="../src/openstudio_lib/SpacesShadingGridView.cpp" line="120"/>
         <source>Display Name</source>
         <translation>表示名</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/SpacesShadingGridView.cpp" line="107" />
-        <location filename="../src/openstudio_lib/SpacesShadingGridView.cpp" line="126" />
-        <location filename="../src/openstudio_lib/SpacesShadingGridView.cpp" line="127" />
+        <location filename="../src/openstudio_lib/SpacesShadingGridView.cpp" line="107"/>
+        <location filename="../src/openstudio_lib/SpacesShadingGridView.cpp" line="126"/>
+        <location filename="../src/openstudio_lib/SpacesShadingGridView.cpp" line="127"/>
         <source>CAD Object ID</source>
         <translation>CAD オブジェクト ID</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/SpacesShadingGridView.cpp" line="90" />
-        <location filename="../src/openstudio_lib/SpacesShadingGridView.cpp" line="180" />
-        <location filename="../src/openstudio_lib/SpacesShadingGridView.cpp" line="181" />
+        <location filename="../src/openstudio_lib/SpacesShadingGridView.cpp" line="90"/>
+        <location filename="../src/openstudio_lib/SpacesShadingGridView.cpp" line="180"/>
+        <location filename="../src/openstudio_lib/SpacesShadingGridView.cpp" line="181"/>
         <source>Shading Surface Group</source>
         <translation>日除けサーフェスグループ</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/SpacesShadingGridView.cpp" line="90" />
-        <location filename="../src/openstudio_lib/SpacesShadingGridView.cpp" line="187" />
-        <location filename="../src/openstudio_lib/SpacesShadingGridView.cpp" line="189" />
+        <location filename="../src/openstudio_lib/SpacesShadingGridView.cpp" line="90"/>
+        <location filename="../src/openstudio_lib/SpacesShadingGridView.cpp" line="187"/>
+        <location filename="../src/openstudio_lib/SpacesShadingGridView.cpp" line="189"/>
         <source>Construction</source>
         <translation>構成</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/SpacesShadingGridView.cpp" line="90" />
-        <location filename="../src/openstudio_lib/SpacesShadingGridView.cpp" line="195" />
-        <location filename="../src/openstudio_lib/SpacesShadingGridView.cpp" line="203" />
+        <location filename="../src/openstudio_lib/SpacesShadingGridView.cpp" line="90"/>
+        <location filename="../src/openstudio_lib/SpacesShadingGridView.cpp" line="195"/>
+        <location filename="../src/openstudio_lib/SpacesShadingGridView.cpp" line="203"/>
         <source>Transmittance Schedule</source>
         <translation>透光率スケジュール</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/SpacesShadingGridView.cpp" line="90" />
-        <location filename="../src/openstudio_lib/SpacesShadingGridView.cpp" line="175" />
-        <location filename="../src/openstudio_lib/SpacesShadingGridView.cpp" line="177" />
-        <location filename="../src/openstudio_lib/SpacesShadingGridView.cpp" line="207" />
+        <location filename="../src/openstudio_lib/SpacesShadingGridView.cpp" line="90"/>
+        <location filename="../src/openstudio_lib/SpacesShadingGridView.cpp" line="175"/>
+        <location filename="../src/openstudio_lib/SpacesShadingGridView.cpp" line="177"/>
+        <location filename="../src/openstudio_lib/SpacesShadingGridView.cpp" line="207"/>
         <source>Shading Surface Name</source>
         <translation>日除け表面名</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/SpacesShadingGridView.cpp" line="170" />
+        <location filename="../src/openstudio_lib/SpacesShadingGridView.cpp" line="170"/>
         <source>Check to select all rows</source>
         <translation>全ての行を選択</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/SpacesShadingGridView.cpp" line="173" />
+        <location filename="../src/openstudio_lib/SpacesShadingGridView.cpp" line="173"/>
         <source>Check to select this row</source>
         <translation>このロウを選択するにはチェックします</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/SpacesShadingGridView.cpp" line="212" />
+        <location filename="../src/openstudio_lib/SpacesShadingGridView.cpp" line="212"/>
         <source>Daylighting Shelf Name</source>
         <translation>デイライティングシェルフ名</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/SpacesShadingGridView.cpp" line="93" />
+        <location filename="../src/openstudio_lib/SpacesShadingGridView.cpp" line="93"/>
         <source>General</source>
         <translation>一般</translation>
     </message>
@@ -29704,13 +29715,13 @@ Space</source>
 <context>
     <name>openstudio::SpacesShadingGridView</name>
     <message>
-        <location filename="../src/openstudio_lib/SpacesShadingGridView.cpp" line="49" />
-        <location filename="../src/openstudio_lib/SpacesShadingGridView.cpp" line="50" />
+        <location filename="../src/openstudio_lib/SpacesShadingGridView.cpp" line="49"/>
+        <location filename="../src/openstudio_lib/SpacesShadingGridView.cpp" line="50"/>
         <source>Space</source>
         <translation>スペース</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/SpacesShadingGridView.cpp" line="50" />
+        <location filename="../src/openstudio_lib/SpacesShadingGridView.cpp" line="50"/>
         <source>Drop
 Space</source>
         <translation>ドロップ
@@ -29720,120 +29731,120 @@ Space</source>
 <context>
     <name>openstudio::SpacesSpacesGridController</name>
     <message>
-        <location filename="../src/openstudio_lib/SpacesSpacesGridView.cpp" line="124" />
-        <location filename="../src/openstudio_lib/SpacesSpacesGridView.cpp" line="130" />
-        <location filename="../src/openstudio_lib/SpacesSpacesGridView.cpp" line="131" />
+        <location filename="../src/openstudio_lib/SpacesSpacesGridView.cpp" line="124"/>
+        <location filename="../src/openstudio_lib/SpacesSpacesGridView.cpp" line="130"/>
+        <location filename="../src/openstudio_lib/SpacesSpacesGridView.cpp" line="131"/>
         <source>Space Name</source>
         <translation>スペース名</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/SpacesSpacesGridView.cpp" line="121" />
-        <location filename="../src/openstudio_lib/SpacesSpacesGridView.cpp" line="133" />
-        <location filename="../src/openstudio_lib/SpacesSpacesGridView.cpp" line="134" />
+        <location filename="../src/openstudio_lib/SpacesSpacesGridView.cpp" line="121"/>
+        <location filename="../src/openstudio_lib/SpacesSpacesGridView.cpp" line="133"/>
+        <location filename="../src/openstudio_lib/SpacesSpacesGridView.cpp" line="134"/>
         <source>Display Name</source>
         <translation>表示名</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/SpacesSpacesGridView.cpp" line="121" />
-        <location filename="../src/openstudio_lib/SpacesSpacesGridView.cpp" line="140" />
-        <location filename="../src/openstudio_lib/SpacesSpacesGridView.cpp" line="141" />
+        <location filename="../src/openstudio_lib/SpacesSpacesGridView.cpp" line="121"/>
+        <location filename="../src/openstudio_lib/SpacesSpacesGridView.cpp" line="140"/>
+        <location filename="../src/openstudio_lib/SpacesSpacesGridView.cpp" line="141"/>
         <source>CAD Object ID</source>
         <translation>CADオブジェクトID</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/SpacesSpacesGridView.cpp" line="124" />
-        <location filename="../src/openstudio_lib/SpacesSpacesGridView.cpp" line="147" />
-        <location filename="../src/openstudio_lib/SpacesSpacesGridView.cpp" line="152" />
+        <location filename="../src/openstudio_lib/SpacesSpacesGridView.cpp" line="124"/>
+        <location filename="../src/openstudio_lib/SpacesSpacesGridView.cpp" line="147"/>
+        <location filename="../src/openstudio_lib/SpacesSpacesGridView.cpp" line="152"/>
         <source>All</source>
         <translation>全て</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/SpacesSpacesGridView.cpp" line="95" />
-        <location filename="../src/openstudio_lib/SpacesSpacesGridView.cpp" line="153" />
-        <location filename="../src/openstudio_lib/SpacesSpacesGridView.cpp" line="154" />
+        <location filename="../src/openstudio_lib/SpacesSpacesGridView.cpp" line="95"/>
+        <location filename="../src/openstudio_lib/SpacesSpacesGridView.cpp" line="153"/>
+        <location filename="../src/openstudio_lib/SpacesSpacesGridView.cpp" line="154"/>
         <source>Story</source>
         <translation>ストーリー</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/SpacesSpacesGridView.cpp" line="95" />
-        <location filename="../src/openstudio_lib/SpacesSpacesGridView.cpp" line="157" />
-        <location filename="../src/openstudio_lib/SpacesSpacesGridView.cpp" line="163" />
+        <location filename="../src/openstudio_lib/SpacesSpacesGridView.cpp" line="95"/>
+        <location filename="../src/openstudio_lib/SpacesSpacesGridView.cpp" line="157"/>
+        <location filename="../src/openstudio_lib/SpacesSpacesGridView.cpp" line="163"/>
         <source>Thermal Zone</source>
         <translation>サーマルゾーン</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/SpacesSpacesGridView.cpp" line="95" />
-        <location filename="../src/openstudio_lib/SpacesSpacesGridView.cpp" line="165" />
-        <location filename="../src/openstudio_lib/SpacesSpacesGridView.cpp" line="166" />
+        <location filename="../src/openstudio_lib/SpacesSpacesGridView.cpp" line="95"/>
+        <location filename="../src/openstudio_lib/SpacesSpacesGridView.cpp" line="165"/>
+        <location filename="../src/openstudio_lib/SpacesSpacesGridView.cpp" line="166"/>
         <source>Space Type</source>
         <translation>スペースタイプ</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/SpacesSpacesGridView.cpp" line="95" />
-        <location filename="../src/openstudio_lib/SpacesSpacesGridView.cpp" line="171" />
-        <location filename="../src/openstudio_lib/SpacesSpacesGridView.cpp" line="173" />
+        <location filename="../src/openstudio_lib/SpacesSpacesGridView.cpp" line="95"/>
+        <location filename="../src/openstudio_lib/SpacesSpacesGridView.cpp" line="171"/>
+        <location filename="../src/openstudio_lib/SpacesSpacesGridView.cpp" line="173"/>
         <source>Default Construction Set</source>
         <translation>デフォルト構成セット</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/SpacesSpacesGridView.cpp" line="95" />
-        <location filename="../src/openstudio_lib/SpacesSpacesGridView.cpp" line="176" />
-        <location filename="../src/openstudio_lib/SpacesSpacesGridView.cpp" line="177" />
+        <location filename="../src/openstudio_lib/SpacesSpacesGridView.cpp" line="95"/>
+        <location filename="../src/openstudio_lib/SpacesSpacesGridView.cpp" line="176"/>
+        <location filename="../src/openstudio_lib/SpacesSpacesGridView.cpp" line="177"/>
         <source>Default Schedule Set</source>
         <translation>デフォルトスケジュールセット</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/SpacesSpacesGridView.cpp" line="95" />
-        <location filename="../src/openstudio_lib/SpacesSpacesGridView.cpp" line="180" />
-        <location filename="../src/openstudio_lib/SpacesSpacesGridView.cpp" line="182" />
+        <location filename="../src/openstudio_lib/SpacesSpacesGridView.cpp" line="95"/>
+        <location filename="../src/openstudio_lib/SpacesSpacesGridView.cpp" line="180"/>
+        <location filename="../src/openstudio_lib/SpacesSpacesGridView.cpp" line="182"/>
         <source>Part of Total Floor Area</source>
         <translation>延床面積の一部</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/SpacesSpacesGridView.cpp" line="104" />
-        <location filename="../src/openstudio_lib/SpacesSpacesGridView.cpp" line="184" />
-        <location filename="../src/openstudio_lib/SpacesSpacesGridView.cpp" line="208" />
-        <location filename="../src/openstudio_lib/SpacesSpacesGridView.cpp" line="217" />
+        <location filename="../src/openstudio_lib/SpacesSpacesGridView.cpp" line="104"/>
+        <location filename="../src/openstudio_lib/SpacesSpacesGridView.cpp" line="184"/>
+        <location filename="../src/openstudio_lib/SpacesSpacesGridView.cpp" line="208"/>
+        <location filename="../src/openstudio_lib/SpacesSpacesGridView.cpp" line="217"/>
         <source>Space Infiltration Design Flow Rates</source>
         <translation>スペース浸透設計流量</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/SpacesSpacesGridView.cpp" line="105" />
-        <location filename="../src/openstudio_lib/SpacesSpacesGridView.cpp" line="218" />
-        <location filename="../src/openstudio_lib/SpacesSpacesGridView.cpp" line="242" />
-        <location filename="../src/openstudio_lib/SpacesSpacesGridView.cpp" line="253" />
+        <location filename="../src/openstudio_lib/SpacesSpacesGridView.cpp" line="105"/>
+        <location filename="../src/openstudio_lib/SpacesSpacesGridView.cpp" line="218"/>
+        <location filename="../src/openstudio_lib/SpacesSpacesGridView.cpp" line="242"/>
+        <location filename="../src/openstudio_lib/SpacesSpacesGridView.cpp" line="253"/>
         <source>Space Infiltration Effective Leakage Areas</source>
         <translation>スペース浸透有効漏洩面積</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/SpacesSpacesGridView.cpp" line="149" />
+        <location filename="../src/openstudio_lib/SpacesSpacesGridView.cpp" line="149"/>
         <source>Check to select all rows</source>
         <translation>全ての行を選択</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/SpacesSpacesGridView.cpp" line="152" />
+        <location filename="../src/openstudio_lib/SpacesSpacesGridView.cpp" line="152"/>
         <source>Check to select this row</source>
         <translation>このロウを選択するにはチェックします</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/SpacesSpacesGridView.cpp" line="182" />
+        <location filename="../src/openstudio_lib/SpacesSpacesGridView.cpp" line="182"/>
         <source>Check to enable part of total floor area.</source>
         <translation>延床面積の一部を有効にするためにチェックします。</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/SpacesSpacesGridView.cpp" line="103" />
-        <location filename="../src/openstudio_lib/SpacesSpacesGridView.cpp" line="254" />
-        <location filename="../src/openstudio_lib/SpacesSpacesGridView.cpp" line="256" />
+        <location filename="../src/openstudio_lib/SpacesSpacesGridView.cpp" line="103"/>
+        <location filename="../src/openstudio_lib/SpacesSpacesGridView.cpp" line="254"/>
+        <location filename="../src/openstudio_lib/SpacesSpacesGridView.cpp" line="256"/>
         <source>Design Specification Outdoor Air Object Name</source>
         <translation>設計仕様屋外空気オブジェクト名</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/SpacesSpacesGridView.cpp" line="97" />
+        <location filename="../src/openstudio_lib/SpacesSpacesGridView.cpp" line="97"/>
         <source>General</source>
         <translation>一般</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/SpacesSpacesGridView.cpp" line="107" />
+        <location filename="../src/openstudio_lib/SpacesSpacesGridView.cpp" line="107"/>
         <source>Airflow</source>
         <translation>気流</translation>
     </message>
@@ -29841,13 +29852,13 @@ Space</source>
 <context>
     <name>openstudio::SpacesSpacesGridView</name>
     <message>
-        <location filename="../src/openstudio_lib/SpacesSpacesGridView.cpp" line="55" />
-        <location filename="../src/openstudio_lib/SpacesSpacesGridView.cpp" line="56" />
+        <location filename="../src/openstudio_lib/SpacesSpacesGridView.cpp" line="55"/>
+        <location filename="../src/openstudio_lib/SpacesSpacesGridView.cpp" line="56"/>
         <source>Space</source>
         <translation>スペース</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/SpacesSpacesGridView.cpp" line="56" />
+        <location filename="../src/openstudio_lib/SpacesSpacesGridView.cpp" line="56"/>
         <source>Drop
 Space</source>
         <translation>ドロップ
@@ -29857,121 +29868,121 @@ Space</source>
 <context>
     <name>openstudio::SpacesSubsurfacesGridController</name>
     <message>
-        <location filename="../src/openstudio_lib/SpacesSubsurfacesGridView.cpp" line="202" />
-        <location filename="../src/openstudio_lib/SpacesSubsurfacesGridView.cpp" line="208" />
-        <location filename="../src/openstudio_lib/SpacesSubsurfacesGridView.cpp" line="209" />
+        <location filename="../src/openstudio_lib/SpacesSubsurfacesGridView.cpp" line="202"/>
+        <location filename="../src/openstudio_lib/SpacesSubsurfacesGridView.cpp" line="208"/>
+        <location filename="../src/openstudio_lib/SpacesSubsurfacesGridView.cpp" line="209"/>
         <source>Space Name</source>
         <translation>スペース名</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/SpacesSubsurfacesGridView.cpp" line="202" />
-        <location filename="../src/openstudio_lib/SpacesSubsurfacesGridView.cpp" line="325" />
-        <location filename="../src/openstudio_lib/SpacesSubsurfacesGridView.cpp" line="330" />
+        <location filename="../src/openstudio_lib/SpacesSubsurfacesGridView.cpp" line="202"/>
+        <location filename="../src/openstudio_lib/SpacesSubsurfacesGridView.cpp" line="325"/>
+        <location filename="../src/openstudio_lib/SpacesSubsurfacesGridView.cpp" line="330"/>
         <source>All</source>
         <translation>全て</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/SpacesSubsurfacesGridView.cpp" line="199" />
-        <location filename="../src/openstudio_lib/SpacesSubsurfacesGridView.cpp" line="211" />
-        <location filename="../src/openstudio_lib/SpacesSubsurfacesGridView.cpp" line="212" />
+        <location filename="../src/openstudio_lib/SpacesSubsurfacesGridView.cpp" line="199"/>
+        <location filename="../src/openstudio_lib/SpacesSubsurfacesGridView.cpp" line="211"/>
+        <location filename="../src/openstudio_lib/SpacesSubsurfacesGridView.cpp" line="212"/>
         <source>Display Name</source>
         <translation>表示名</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/SpacesSubsurfacesGridView.cpp" line="199" />
-        <location filename="../src/openstudio_lib/SpacesSubsurfacesGridView.cpp" line="218" />
-        <location filename="../src/openstudio_lib/SpacesSubsurfacesGridView.cpp" line="219" />
+        <location filename="../src/openstudio_lib/SpacesSubsurfacesGridView.cpp" line="199"/>
+        <location filename="../src/openstudio_lib/SpacesSubsurfacesGridView.cpp" line="218"/>
+        <location filename="../src/openstudio_lib/SpacesSubsurfacesGridView.cpp" line="219"/>
         <source>CAD Object ID</source>
         <translation>CADオブジェクトID</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/SpacesSubsurfacesGridView.cpp" line="115" />
-        <location filename="../src/openstudio_lib/SpacesSubsurfacesGridView.cpp" line="125" />
-        <location filename="../src/openstudio_lib/SpacesSubsurfacesGridView.cpp" line="143" />
-        <location filename="../src/openstudio_lib/SpacesSubsurfacesGridView.cpp" line="178" />
-        <location filename="../src/openstudio_lib/SpacesSubsurfacesGridView.cpp" line="333" />
-        <location filename="../src/openstudio_lib/SpacesSubsurfacesGridView.cpp" line="335" />
+        <location filename="../src/openstudio_lib/SpacesSubsurfacesGridView.cpp" line="115"/>
+        <location filename="../src/openstudio_lib/SpacesSubsurfacesGridView.cpp" line="125"/>
+        <location filename="../src/openstudio_lib/SpacesSubsurfacesGridView.cpp" line="143"/>
+        <location filename="../src/openstudio_lib/SpacesSubsurfacesGridView.cpp" line="178"/>
+        <location filename="../src/openstudio_lib/SpacesSubsurfacesGridView.cpp" line="333"/>
+        <location filename="../src/openstudio_lib/SpacesSubsurfacesGridView.cpp" line="335"/>
         <source>Parent Surface Name</source>
         <translation>親サーフェス名</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/SpacesSubsurfacesGridView.cpp" line="115" />
-        <location filename="../src/openstudio_lib/SpacesSubsurfacesGridView.cpp" line="125" />
-        <location filename="../src/openstudio_lib/SpacesSubsurfacesGridView.cpp" line="142" />
-        <location filename="../src/openstudio_lib/SpacesSubsurfacesGridView.cpp" line="177" />
-        <location filename="../src/openstudio_lib/SpacesSubsurfacesGridView.cpp" line="340" />
-        <location filename="../src/openstudio_lib/SpacesSubsurfacesGridView.cpp" line="341" />
+        <location filename="../src/openstudio_lib/SpacesSubsurfacesGridView.cpp" line="115"/>
+        <location filename="../src/openstudio_lib/SpacesSubsurfacesGridView.cpp" line="125"/>
+        <location filename="../src/openstudio_lib/SpacesSubsurfacesGridView.cpp" line="142"/>
+        <location filename="../src/openstudio_lib/SpacesSubsurfacesGridView.cpp" line="177"/>
+        <location filename="../src/openstudio_lib/SpacesSubsurfacesGridView.cpp" line="340"/>
+        <location filename="../src/openstudio_lib/SpacesSubsurfacesGridView.cpp" line="341"/>
         <source>Subsurface Name</source>
         <translation>サブサーフェス名</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/SpacesSubsurfacesGridView.cpp" line="115" />
-        <location filename="../src/openstudio_lib/SpacesSubsurfacesGridView.cpp" line="346" />
-        <location filename="../src/openstudio_lib/SpacesSubsurfacesGridView.cpp" line="348" />
+        <location filename="../src/openstudio_lib/SpacesSubsurfacesGridView.cpp" line="115"/>
+        <location filename="../src/openstudio_lib/SpacesSubsurfacesGridView.cpp" line="346"/>
+        <location filename="../src/openstudio_lib/SpacesSubsurfacesGridView.cpp" line="348"/>
         <source>Subsurface Type</source>
         <translation>副表面タイプ</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/SpacesSubsurfacesGridView.cpp" line="116" />
-        <location filename="../src/openstudio_lib/SpacesSubsurfacesGridView.cpp" line="358" />
-        <location filename="../src/openstudio_lib/SpacesSubsurfacesGridView.cpp" line="359" />
+        <location filename="../src/openstudio_lib/SpacesSubsurfacesGridView.cpp" line="116"/>
+        <location filename="../src/openstudio_lib/SpacesSubsurfacesGridView.cpp" line="358"/>
+        <location filename="../src/openstudio_lib/SpacesSubsurfacesGridView.cpp" line="359"/>
         <source>Multiplier</source>
         <translation>倍数</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/SpacesSubsurfacesGridView.cpp" line="116" />
-        <location filename="../src/openstudio_lib/SpacesSubsurfacesGridView.cpp" line="363" />
-        <location filename="../src/openstudio_lib/SpacesSubsurfacesGridView.cpp" line="365" />
+        <location filename="../src/openstudio_lib/SpacesSubsurfacesGridView.cpp" line="116"/>
+        <location filename="../src/openstudio_lib/SpacesSubsurfacesGridView.cpp" line="363"/>
+        <location filename="../src/openstudio_lib/SpacesSubsurfacesGridView.cpp" line="365"/>
         <source>Construction</source>
         <translation>構成</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/SpacesSubsurfacesGridView.cpp" line="116" />
-        <location filename="../src/openstudio_lib/SpacesSubsurfacesGridView.cpp" line="371" />
-        <location filename="../src/openstudio_lib/SpacesSubsurfacesGridView.cpp" line="378" />
+        <location filename="../src/openstudio_lib/SpacesSubsurfacesGridView.cpp" line="116"/>
+        <location filename="../src/openstudio_lib/SpacesSubsurfacesGridView.cpp" line="371"/>
+        <location filename="../src/openstudio_lib/SpacesSubsurfacesGridView.cpp" line="378"/>
         <source>Outside Boundary Condition Object</source>
         <translation>外部境界条件オブジェクト</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/SpacesSubsurfacesGridView.cpp" line="382" />
+        <location filename="../src/openstudio_lib/SpacesSubsurfacesGridView.cpp" line="382"/>
         <source>Shading Surface Name</source>
         <translation>シェーディングサーフェス名</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/SpacesSubsurfacesGridView.cpp" line="125" />
-        <location filename="../src/openstudio_lib/SpacesSubsurfacesGridView.cpp" line="384" />
-        <location filename="../src/openstudio_lib/SpacesSubsurfacesGridView.cpp" line="399" />
+        <location filename="../src/openstudio_lib/SpacesSubsurfacesGridView.cpp" line="125"/>
+        <location filename="../src/openstudio_lib/SpacesSubsurfacesGridView.cpp" line="384"/>
+        <location filename="../src/openstudio_lib/SpacesSubsurfacesGridView.cpp" line="399"/>
         <source>Shading Control</source>
         <translation>日除け制御</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/SpacesSubsurfacesGridView.cpp" line="125" />
-        <location filename="../src/openstudio_lib/SpacesSubsurfacesGridView.cpp" line="409" />
-        <location filename="../src/openstudio_lib/SpacesSubsurfacesGridView.cpp" line="411" />
+        <location filename="../src/openstudio_lib/SpacesSubsurfacesGridView.cpp" line="125"/>
+        <location filename="../src/openstudio_lib/SpacesSubsurfacesGridView.cpp" line="409"/>
+        <location filename="../src/openstudio_lib/SpacesSubsurfacesGridView.cpp" line="411"/>
         <source>Shading Type</source>
         <translation>日除けタイプ</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/SpacesSubsurfacesGridView.cpp" line="416" />
+        <location filename="../src/openstudio_lib/SpacesSubsurfacesGridView.cpp" line="416"/>
         <source>Construction with Shading Name</source>
         <translation>シェーディングを含む構成の名前</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/SpacesSubsurfacesGridView.cpp" line="419" />
+        <location filename="../src/openstudio_lib/SpacesSubsurfacesGridView.cpp" line="419"/>
         <source>Shading Device Material Name</source>
         <translation>シェーディングデバイス材料名</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/SpacesSubsurfacesGridView.cpp" line="128" />
-        <location filename="../src/openstudio_lib/SpacesSubsurfacesGridView.cpp" line="422" />
-        <location filename="../src/openstudio_lib/SpacesSubsurfacesGridView.cpp" line="424" />
+        <location filename="../src/openstudio_lib/SpacesSubsurfacesGridView.cpp" line="128"/>
+        <location filename="../src/openstudio_lib/SpacesSubsurfacesGridView.cpp" line="422"/>
+        <location filename="../src/openstudio_lib/SpacesSubsurfacesGridView.cpp" line="424"/>
         <source>Shading Control Type</source>
         <translation>シェーディング制御タイプ</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/SpacesSubsurfacesGridView.cpp" line="128" />
-        <location filename="../src/openstudio_lib/SpacesSubsurfacesGridView.cpp" line="431" />
-        <location filename="../src/openstudio_lib/SpacesSubsurfacesGridView.cpp" line="439" />
+        <location filename="../src/openstudio_lib/SpacesSubsurfacesGridView.cpp" line="128"/>
+        <location filename="../src/openstudio_lib/SpacesSubsurfacesGridView.cpp" line="431"/>
+        <location filename="../src/openstudio_lib/SpacesSubsurfacesGridView.cpp" line="439"/>
         <source>Schedule Name</source>
         <translation>スケジュール名</translation>
     </message>
@@ -29984,243 +29995,243 @@ Space</source>
         <translation>セットポイント 2</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/SpacesSubsurfacesGridView.cpp" line="144" />
-        <location filename="../src/openstudio_lib/SpacesSubsurfacesGridView.cpp" line="171" />
-        <location filename="../src/openstudio_lib/SpacesSubsurfacesGridView.cpp" line="443" />
-        <location filename="../src/openstudio_lib/SpacesSubsurfacesGridView.cpp" line="445" />
+        <location filename="../src/openstudio_lib/SpacesSubsurfacesGridView.cpp" line="144"/>
+        <location filename="../src/openstudio_lib/SpacesSubsurfacesGridView.cpp" line="171"/>
+        <location filename="../src/openstudio_lib/SpacesSubsurfacesGridView.cpp" line="443"/>
+        <location filename="../src/openstudio_lib/SpacesSubsurfacesGridView.cpp" line="445"/>
         <source>Frame and Divider</source>
         <translation>フレームとディバイダー</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/SpacesSubsurfacesGridView.cpp" line="145" />
-        <location filename="../src/openstudio_lib/SpacesSubsurfacesGridView.cpp" line="450" />
-        <location filename="../src/openstudio_lib/SpacesSubsurfacesGridView.cpp" line="451" />
+        <location filename="../src/openstudio_lib/SpacesSubsurfacesGridView.cpp" line="145"/>
+        <location filename="../src/openstudio_lib/SpacesSubsurfacesGridView.cpp" line="450"/>
+        <location filename="../src/openstudio_lib/SpacesSubsurfacesGridView.cpp" line="451"/>
         <source>Frame Width</source>
         <translation>フレーム幅</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/SpacesSubsurfacesGridView.cpp" line="146" />
-        <location filename="../src/openstudio_lib/SpacesSubsurfacesGridView.cpp" line="458" />
-        <location filename="../src/openstudio_lib/SpacesSubsurfacesGridView.cpp" line="460" />
+        <location filename="../src/openstudio_lib/SpacesSubsurfacesGridView.cpp" line="146"/>
+        <location filename="../src/openstudio_lib/SpacesSubsurfacesGridView.cpp" line="458"/>
+        <location filename="../src/openstudio_lib/SpacesSubsurfacesGridView.cpp" line="460"/>
         <source>Frame Outside Projection</source>
         <translation>フレーム外部プロジェクション</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/SpacesSubsurfacesGridView.cpp" line="147" />
-        <location filename="../src/openstudio_lib/SpacesSubsurfacesGridView.cpp" line="467" />
-        <location filename="../src/openstudio_lib/SpacesSubsurfacesGridView.cpp" line="469" />
+        <location filename="../src/openstudio_lib/SpacesSubsurfacesGridView.cpp" line="147"/>
+        <location filename="../src/openstudio_lib/SpacesSubsurfacesGridView.cpp" line="467"/>
+        <location filename="../src/openstudio_lib/SpacesSubsurfacesGridView.cpp" line="469"/>
         <source>Frame Inside Projection</source>
         <translation>フレーム内部投影</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/SpacesSubsurfacesGridView.cpp" line="148" />
-        <location filename="../src/openstudio_lib/SpacesSubsurfacesGridView.cpp" line="476" />
-        <location filename="../src/openstudio_lib/SpacesSubsurfacesGridView.cpp" line="478" />
+        <location filename="../src/openstudio_lib/SpacesSubsurfacesGridView.cpp" line="148"/>
+        <location filename="../src/openstudio_lib/SpacesSubsurfacesGridView.cpp" line="476"/>
+        <location filename="../src/openstudio_lib/SpacesSubsurfacesGridView.cpp" line="478"/>
         <source>Frame Conductance</source>
         <translation>フレーム伝導率</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/SpacesSubsurfacesGridView.cpp" line="149" />
-        <location filename="../src/openstudio_lib/SpacesSubsurfacesGridView.cpp" line="485" />
-        <location filename="../src/openstudio_lib/SpacesSubsurfacesGridView.cpp" line="487" />
+        <location filename="../src/openstudio_lib/SpacesSubsurfacesGridView.cpp" line="149"/>
+        <location filename="../src/openstudio_lib/SpacesSubsurfacesGridView.cpp" line="485"/>
+        <location filename="../src/openstudio_lib/SpacesSubsurfacesGridView.cpp" line="487"/>
         <source>Frame - Edge Glass Conductance to Center - Of - Glass Conductance</source>
         <translation>フレーム - エッジグラス熱貫流率からセンターオブグラス熱貫流率</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/SpacesSubsurfacesGridView.cpp" line="150" />
-        <location filename="../src/openstudio_lib/SpacesSubsurfacesGridView.cpp" line="495" />
-        <location filename="../src/openstudio_lib/SpacesSubsurfacesGridView.cpp" line="497" />
+        <location filename="../src/openstudio_lib/SpacesSubsurfacesGridView.cpp" line="150"/>
+        <location filename="../src/openstudio_lib/SpacesSubsurfacesGridView.cpp" line="495"/>
+        <location filename="../src/openstudio_lib/SpacesSubsurfacesGridView.cpp" line="497"/>
         <source>Frame Solar Absorptance</source>
         <translation>フレーム太陽吸収率</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/SpacesSubsurfacesGridView.cpp" line="151" />
-        <location filename="../src/openstudio_lib/SpacesSubsurfacesGridView.cpp" line="504" />
-        <location filename="../src/openstudio_lib/SpacesSubsurfacesGridView.cpp" line="506" />
+        <location filename="../src/openstudio_lib/SpacesSubsurfacesGridView.cpp" line="151"/>
+        <location filename="../src/openstudio_lib/SpacesSubsurfacesGridView.cpp" line="504"/>
+        <location filename="../src/openstudio_lib/SpacesSubsurfacesGridView.cpp" line="506"/>
         <source>Frame Visible Absorptance</source>
         <translation>フレーム可視吸収率</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/SpacesSubsurfacesGridView.cpp" line="152" />
-        <location filename="../src/openstudio_lib/SpacesSubsurfacesGridView.cpp" line="513" />
-        <location filename="../src/openstudio_lib/SpacesSubsurfacesGridView.cpp" line="515" />
+        <location filename="../src/openstudio_lib/SpacesSubsurfacesGridView.cpp" line="152"/>
+        <location filename="../src/openstudio_lib/SpacesSubsurfacesGridView.cpp" line="513"/>
+        <location filename="../src/openstudio_lib/SpacesSubsurfacesGridView.cpp" line="515"/>
         <source>Frame Thermal Hemispherical Emissivity</source>
         <translation>フレーム熱半球放射率</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/SpacesSubsurfacesGridView.cpp" line="153" />
-        <location filename="../src/openstudio_lib/SpacesSubsurfacesGridView.cpp" line="523" />
-        <location filename="../src/openstudio_lib/SpacesSubsurfacesGridView.cpp" line="525" />
+        <location filename="../src/openstudio_lib/SpacesSubsurfacesGridView.cpp" line="153"/>
+        <location filename="../src/openstudio_lib/SpacesSubsurfacesGridView.cpp" line="523"/>
+        <location filename="../src/openstudio_lib/SpacesSubsurfacesGridView.cpp" line="525"/>
         <source>Divider Type</source>
         <translation>仕切りタイプ</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/SpacesSubsurfacesGridView.cpp" line="154" />
-        <location filename="../src/openstudio_lib/SpacesSubsurfacesGridView.cpp" line="534" />
-        <location filename="../src/openstudio_lib/SpacesSubsurfacesGridView.cpp" line="535" />
+        <location filename="../src/openstudio_lib/SpacesSubsurfacesGridView.cpp" line="154"/>
+        <location filename="../src/openstudio_lib/SpacesSubsurfacesGridView.cpp" line="534"/>
+        <location filename="../src/openstudio_lib/SpacesSubsurfacesGridView.cpp" line="535"/>
         <source>Divider Width</source>
         <translation>ディバイダー幅</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/SpacesSubsurfacesGridView.cpp" line="155" />
-        <location filename="../src/openstudio_lib/SpacesSubsurfacesGridView.cpp" line="542" />
-        <location filename="../src/openstudio_lib/SpacesSubsurfacesGridView.cpp" line="544" />
+        <location filename="../src/openstudio_lib/SpacesSubsurfacesGridView.cpp" line="155"/>
+        <location filename="../src/openstudio_lib/SpacesSubsurfacesGridView.cpp" line="542"/>
+        <location filename="../src/openstudio_lib/SpacesSubsurfacesGridView.cpp" line="544"/>
         <source>Number of Horizontal Dividers</source>
         <translation>水平仕切りの数</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/SpacesSubsurfacesGridView.cpp" line="156" />
-        <location filename="../src/openstudio_lib/SpacesSubsurfacesGridView.cpp" line="551" />
-        <location filename="../src/openstudio_lib/SpacesSubsurfacesGridView.cpp" line="553" />
+        <location filename="../src/openstudio_lib/SpacesSubsurfacesGridView.cpp" line="156"/>
+        <location filename="../src/openstudio_lib/SpacesSubsurfacesGridView.cpp" line="551"/>
+        <location filename="../src/openstudio_lib/SpacesSubsurfacesGridView.cpp" line="553"/>
         <source>Number of Vertical Dividers</source>
         <translation>垂直仕切りの数</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/SpacesSubsurfacesGridView.cpp" line="157" />
-        <location filename="../src/openstudio_lib/SpacesSubsurfacesGridView.cpp" line="560" />
-        <location filename="../src/openstudio_lib/SpacesSubsurfacesGridView.cpp" line="562" />
+        <location filename="../src/openstudio_lib/SpacesSubsurfacesGridView.cpp" line="157"/>
+        <location filename="../src/openstudio_lib/SpacesSubsurfacesGridView.cpp" line="560"/>
+        <location filename="../src/openstudio_lib/SpacesSubsurfacesGridView.cpp" line="562"/>
         <source>Divider Outside Projection</source>
         <translation>分割線外部投影</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/SpacesSubsurfacesGridView.cpp" line="158" />
-        <location filename="../src/openstudio_lib/SpacesSubsurfacesGridView.cpp" line="569" />
-        <location filename="../src/openstudio_lib/SpacesSubsurfacesGridView.cpp" line="571" />
+        <location filename="../src/openstudio_lib/SpacesSubsurfacesGridView.cpp" line="158"/>
+        <location filename="../src/openstudio_lib/SpacesSubsurfacesGridView.cpp" line="569"/>
+        <location filename="../src/openstudio_lib/SpacesSubsurfacesGridView.cpp" line="571"/>
         <source>Divider Inside Projection</source>
         <translation>隔壁内部突出部</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/SpacesSubsurfacesGridView.cpp" line="159" />
-        <location filename="../src/openstudio_lib/SpacesSubsurfacesGridView.cpp" line="578" />
-        <location filename="../src/openstudio_lib/SpacesSubsurfacesGridView.cpp" line="580" />
+        <location filename="../src/openstudio_lib/SpacesSubsurfacesGridView.cpp" line="159"/>
+        <location filename="../src/openstudio_lib/SpacesSubsurfacesGridView.cpp" line="578"/>
+        <location filename="../src/openstudio_lib/SpacesSubsurfacesGridView.cpp" line="580"/>
         <source>Divider Conductance</source>
         <translation>仕切り壁熱伝導率</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/SpacesSubsurfacesGridView.cpp" line="160" />
-        <location filename="../src/openstudio_lib/SpacesSubsurfacesGridView.cpp" line="587" />
-        <location filename="../src/openstudio_lib/SpacesSubsurfacesGridView.cpp" line="589" />
+        <location filename="../src/openstudio_lib/SpacesSubsurfacesGridView.cpp" line="160"/>
+        <location filename="../src/openstudio_lib/SpacesSubsurfacesGridView.cpp" line="587"/>
+        <location filename="../src/openstudio_lib/SpacesSubsurfacesGridView.cpp" line="589"/>
         <source>Ratio of Divider - Edge Glass Conductance to Center - Of - Glass Conductance</source>
         <translation>ディバイダー - エッジガラス熱伝導率とセンター - オブ - ガラス熱伝導率の比率</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/SpacesSubsurfacesGridView.cpp" line="161" />
-        <location filename="../src/openstudio_lib/SpacesSubsurfacesGridView.cpp" line="597" />
-        <location filename="../src/openstudio_lib/SpacesSubsurfacesGridView.cpp" line="599" />
+        <location filename="../src/openstudio_lib/SpacesSubsurfacesGridView.cpp" line="161"/>
+        <location filename="../src/openstudio_lib/SpacesSubsurfacesGridView.cpp" line="597"/>
+        <location filename="../src/openstudio_lib/SpacesSubsurfacesGridView.cpp" line="599"/>
         <source>Divider Solar Absorptance</source>
         <translation>ディバイダー太陽吸収率</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/SpacesSubsurfacesGridView.cpp" line="162" />
-        <location filename="../src/openstudio_lib/SpacesSubsurfacesGridView.cpp" line="606" />
-        <location filename="../src/openstudio_lib/SpacesSubsurfacesGridView.cpp" line="608" />
+        <location filename="../src/openstudio_lib/SpacesSubsurfacesGridView.cpp" line="162"/>
+        <location filename="../src/openstudio_lib/SpacesSubsurfacesGridView.cpp" line="606"/>
+        <location filename="../src/openstudio_lib/SpacesSubsurfacesGridView.cpp" line="608"/>
         <source>Divider Visible Absorptance</source>
         <translation>ディバイダー可視吸収率</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/SpacesSubsurfacesGridView.cpp" line="163" />
-        <location filename="../src/openstudio_lib/SpacesSubsurfacesGridView.cpp" line="615" />
-        <location filename="../src/openstudio_lib/SpacesSubsurfacesGridView.cpp" line="617" />
+        <location filename="../src/openstudio_lib/SpacesSubsurfacesGridView.cpp" line="163"/>
+        <location filename="../src/openstudio_lib/SpacesSubsurfacesGridView.cpp" line="615"/>
+        <location filename="../src/openstudio_lib/SpacesSubsurfacesGridView.cpp" line="617"/>
         <source>Divider Thermal Hemispherical Emissivity</source>
         <translation>ディバイダー熱半球放射率</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/SpacesSubsurfacesGridView.cpp" line="164" />
-        <location filename="../src/openstudio_lib/SpacesSubsurfacesGridView.cpp" line="625" />
-        <location filename="../src/openstudio_lib/SpacesSubsurfacesGridView.cpp" line="627" />
+        <location filename="../src/openstudio_lib/SpacesSubsurfacesGridView.cpp" line="164"/>
+        <location filename="../src/openstudio_lib/SpacesSubsurfacesGridView.cpp" line="625"/>
+        <location filename="../src/openstudio_lib/SpacesSubsurfacesGridView.cpp" line="627"/>
         <source>Outside Reveal Depth</source>
         <translation>外部奥行き深さ</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/SpacesSubsurfacesGridView.cpp" line="165" />
-        <location filename="../src/openstudio_lib/SpacesSubsurfacesGridView.cpp" line="634" />
-        <location filename="../src/openstudio_lib/SpacesSubsurfacesGridView.cpp" line="636" />
+        <location filename="../src/openstudio_lib/SpacesSubsurfacesGridView.cpp" line="165"/>
+        <location filename="../src/openstudio_lib/SpacesSubsurfacesGridView.cpp" line="634"/>
+        <location filename="../src/openstudio_lib/SpacesSubsurfacesGridView.cpp" line="636"/>
         <source>Outside Reveal Solar Absorptance</source>
         <translation>外部奥行き日射吸収率</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/SpacesSubsurfacesGridView.cpp" line="166" />
-        <location filename="../src/openstudio_lib/SpacesSubsurfacesGridView.cpp" line="644" />
-        <location filename="../src/openstudio_lib/SpacesSubsurfacesGridView.cpp" line="646" />
+        <location filename="../src/openstudio_lib/SpacesSubsurfacesGridView.cpp" line="166"/>
+        <location filename="../src/openstudio_lib/SpacesSubsurfacesGridView.cpp" line="644"/>
+        <location filename="../src/openstudio_lib/SpacesSubsurfacesGridView.cpp" line="646"/>
         <source>Inside Sill Depth</source>
         <translation>内側窓枠深さ</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/SpacesSubsurfacesGridView.cpp" line="167" />
-        <location filename="../src/openstudio_lib/SpacesSubsurfacesGridView.cpp" line="653" />
-        <location filename="../src/openstudio_lib/SpacesSubsurfacesGridView.cpp" line="655" />
+        <location filename="../src/openstudio_lib/SpacesSubsurfacesGridView.cpp" line="167"/>
+        <location filename="../src/openstudio_lib/SpacesSubsurfacesGridView.cpp" line="653"/>
+        <location filename="../src/openstudio_lib/SpacesSubsurfacesGridView.cpp" line="655"/>
         <source>Inside Sill Solar Absorptance</source>
         <translation>内部窓台太陽吸収率</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/SpacesSubsurfacesGridView.cpp" line="168" />
-        <location filename="../src/openstudio_lib/SpacesSubsurfacesGridView.cpp" line="662" />
-        <location filename="../src/openstudio_lib/SpacesSubsurfacesGridView.cpp" line="664" />
+        <location filename="../src/openstudio_lib/SpacesSubsurfacesGridView.cpp" line="168"/>
+        <location filename="../src/openstudio_lib/SpacesSubsurfacesGridView.cpp" line="662"/>
+        <location filename="../src/openstudio_lib/SpacesSubsurfacesGridView.cpp" line="664"/>
         <source>Inside Reveal Depth</source>
         <translation>インサイド リビール デプス</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/SpacesSubsurfacesGridView.cpp" line="169" />
-        <location filename="../src/openstudio_lib/SpacesSubsurfacesGridView.cpp" line="671" />
-        <location filename="../src/openstudio_lib/SpacesSubsurfacesGridView.cpp" line="673" />
+        <location filename="../src/openstudio_lib/SpacesSubsurfacesGridView.cpp" line="169"/>
+        <location filename="../src/openstudio_lib/SpacesSubsurfacesGridView.cpp" line="671"/>
+        <location filename="../src/openstudio_lib/SpacesSubsurfacesGridView.cpp" line="673"/>
         <source>Inside Reveal Solar Absorptance</source>
         <translation>インサイド・リビール・ソーラー・アブソーバンス</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/SpacesSubsurfacesGridView.cpp" line="179" />
-        <location filename="../src/openstudio_lib/SpacesSubsurfacesGridView.cpp" line="682" />
-        <location filename="../src/openstudio_lib/SpacesSubsurfacesGridView.cpp" line="683" />
+        <location filename="../src/openstudio_lib/SpacesSubsurfacesGridView.cpp" line="179"/>
+        <location filename="../src/openstudio_lib/SpacesSubsurfacesGridView.cpp" line="682"/>
+        <location filename="../src/openstudio_lib/SpacesSubsurfacesGridView.cpp" line="683"/>
         <source>Daylighting Shelf Name</source>
         <translation>昼光棚名</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/SpacesSubsurfacesGridView.cpp" line="327" />
+        <location filename="../src/openstudio_lib/SpacesSubsurfacesGridView.cpp" line="327"/>
         <source>Check to select all rows</source>
         <translation>全ての行を選択</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/SpacesSubsurfacesGridView.cpp" line="330" />
+        <location filename="../src/openstudio_lib/SpacesSubsurfacesGridView.cpp" line="330"/>
         <source>Check to select this row</source>
         <translation>このロウを選択するにはチェックします</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/SpacesSubsurfacesGridView.cpp" line="681" />
+        <location filename="../src/openstudio_lib/SpacesSubsurfacesGridView.cpp" line="681"/>
         <source>Window Name</source>
         <translation>ウィンドウ名</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/SpacesSubsurfacesGridView.cpp" line="181" />
-        <location filename="../src/openstudio_lib/SpacesSubsurfacesGridView.cpp" line="688" />
-        <location filename="../src/openstudio_lib/SpacesSubsurfacesGridView.cpp" line="693" />
+        <location filename="../src/openstudio_lib/SpacesSubsurfacesGridView.cpp" line="181"/>
+        <location filename="../src/openstudio_lib/SpacesSubsurfacesGridView.cpp" line="688"/>
+        <location filename="../src/openstudio_lib/SpacesSubsurfacesGridView.cpp" line="693"/>
         <source>Inside Shelf Name</source>
         <translation>インサイドシェルフ名</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/SpacesSubsurfacesGridView.cpp" line="182" />
-        <location filename="../src/openstudio_lib/SpacesSubsurfacesGridView.cpp" line="699" />
-        <location filename="../src/openstudio_lib/SpacesSubsurfacesGridView.cpp" line="704" />
+        <location filename="../src/openstudio_lib/SpacesSubsurfacesGridView.cpp" line="182"/>
+        <location filename="../src/openstudio_lib/SpacesSubsurfacesGridView.cpp" line="699"/>
+        <location filename="../src/openstudio_lib/SpacesSubsurfacesGridView.cpp" line="704"/>
         <source>Outside Shelf Name</source>
         <translation>外部シェルフ名</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/SpacesSubsurfacesGridView.cpp" line="183" />
-        <location filename="../src/openstudio_lib/SpacesSubsurfacesGridView.cpp" line="710" />
-        <location filename="../src/openstudio_lib/SpacesSubsurfacesGridView.cpp" line="712" />
+        <location filename="../src/openstudio_lib/SpacesSubsurfacesGridView.cpp" line="183"/>
+        <location filename="../src/openstudio_lib/SpacesSubsurfacesGridView.cpp" line="710"/>
+        <location filename="../src/openstudio_lib/SpacesSubsurfacesGridView.cpp" line="712"/>
         <source>View Factor to Outside Shelf</source>
         <translation>外部シェルフへのビューファクター</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/SpacesSubsurfacesGridView.cpp" line="119" />
+        <location filename="../src/openstudio_lib/SpacesSubsurfacesGridView.cpp" line="119"/>
         <source>General</source>
         <translation>一般</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/SpacesSubsurfacesGridView.cpp" line="136" />
+        <location filename="../src/openstudio_lib/SpacesSubsurfacesGridView.cpp" line="136"/>
         <source>Shading Controls</source>
         <translation>シェーディング制御</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/SpacesSubsurfacesGridView.cpp" line="185" />
+        <location filename="../src/openstudio_lib/SpacesSubsurfacesGridView.cpp" line="185"/>
         <source>Daylighting Shelves</source>
         <translation>デイライティングシェルフ</translation>
     </message>
@@ -30228,13 +30239,13 @@ Space</source>
 <context>
     <name>openstudio::SpacesSubsurfacesGridView</name>
     <message>
-        <location filename="../src/openstudio_lib/SpacesSubsurfacesGridView.cpp" line="63" />
-        <location filename="../src/openstudio_lib/SpacesSubsurfacesGridView.cpp" line="64" />
+        <location filename="../src/openstudio_lib/SpacesSubsurfacesGridView.cpp" line="63"/>
+        <location filename="../src/openstudio_lib/SpacesSubsurfacesGridView.cpp" line="64"/>
         <source>Space</source>
         <translation>スペース</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/SpacesSubsurfacesGridView.cpp" line="64" />
+        <location filename="../src/openstudio_lib/SpacesSubsurfacesGridView.cpp" line="64"/>
         <source>Drop
 Space</source>
         <translation>ドロップ
@@ -30244,17 +30255,17 @@ Space</source>
 <context>
     <name>openstudio::SpacesSubtabGridView</name>
     <message>
-        <location filename="../src/openstudio_lib/SpacesSubtabGridView.cpp" line="85" />
+        <location filename="../src/openstudio_lib/SpacesSubtabGridView.cpp" line="85"/>
         <source>Filters:</source>
         <translation>フィルター:</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/SpacesSubtabGridView.cpp" line="94" />
+        <location filename="../src/openstudio_lib/SpacesSubtabGridView.cpp" line="94"/>
         <source>Story</source>
         <translation>階</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/SpacesSubtabGridView.cpp" line="112" />
+        <location filename="../src/openstudio_lib/SpacesSubtabGridView.cpp" line="112"/>
         <source>Thermal Zone</source>
         <translation>サーマルゾーン</translation>
     </message>
@@ -30263,142 +30274,142 @@ Space</source>
         <translation>熱ゾーン名</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/SpacesSubtabGridView.cpp" line="130" />
+        <location filename="../src/openstudio_lib/SpacesSubtabGridView.cpp" line="130"/>
         <source>Space Type</source>
         <translation>スペースタイプ</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/SpacesSubtabGridView.cpp" line="148" />
+        <location filename="../src/openstudio_lib/SpacesSubtabGridView.cpp" line="148"/>
         <source>SubSurface Type</source>
         <translation>サブサーフェスタイプ</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/SpacesSubtabGridView.cpp" line="166" />
+        <location filename="../src/openstudio_lib/SpacesSubtabGridView.cpp" line="166"/>
         <source>Space Name</source>
         <translation>スペース名</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/SpacesSubtabGridView.cpp" line="277" />
+        <location filename="../src/openstudio_lib/SpacesSubtabGridView.cpp" line="277"/>
         <source>Load Type</source>
         <translation>負荷タイプ</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/SpacesSubtabGridView.cpp" line="185" />
+        <location filename="../src/openstudio_lib/SpacesSubtabGridView.cpp" line="185"/>
         <source>Wind Exposure</source>
         <translation>風の露出</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/SpacesSubtabGridView.cpp" line="203" />
+        <location filename="../src/openstudio_lib/SpacesSubtabGridView.cpp" line="203"/>
         <source>Sun Exposure</source>
         <translation>日射露出</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/SpacesSubtabGridView.cpp" line="221" />
+        <location filename="../src/openstudio_lib/SpacesSubtabGridView.cpp" line="221"/>
         <source>Outside Boundary Condition</source>
         <translation>外部境界条件</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/SpacesSubtabGridView.cpp" line="240" />
+        <location filename="../src/openstudio_lib/SpacesSubtabGridView.cpp" line="240"/>
         <source>Surface Type</source>
         <translation>表面タイプ</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/SpacesSubtabGridView.cpp" line="258" />
+        <location filename="../src/openstudio_lib/SpacesSubtabGridView.cpp" line="258"/>
         <source>Interior Partition Group</source>
         <translation>インテリア パーティション グループ</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/SpacesSubtabGridView.cpp" line="293" />
-        <location filename="../src/openstudio_lib/SpacesSubtabGridView.cpp" line="308" />
-        <location filename="../src/openstudio_lib/SpacesSubtabGridView.cpp" line="323" />
-        <location filename="../src/openstudio_lib/SpacesSubtabGridView.cpp" line="338" />
-        <location filename="../src/openstudio_lib/SpacesSubtabGridView.cpp" line="348" />
-        <location filename="../src/openstudio_lib/SpacesSubtabGridView.cpp" line="418" />
-        <location filename="../src/openstudio_lib/SpacesSubtabGridView.cpp" line="426" />
-        <location filename="../src/openstudio_lib/SpacesSubtabGridView.cpp" line="434" />
-        <location filename="../src/openstudio_lib/SpacesSubtabGridView.cpp" line="442" />
-        <location filename="../src/openstudio_lib/SpacesSubtabGridView.cpp" line="451" />
-        <location filename="../src/openstudio_lib/SpacesSubtabGridView.cpp" line="466" />
-        <location filename="../src/openstudio_lib/SpacesSubtabGridView.cpp" line="490" />
-        <location filename="../src/openstudio_lib/SpacesSubtabGridView.cpp" line="514" />
-        <location filename="../src/openstudio_lib/SpacesSubtabGridView.cpp" line="601" />
-        <location filename="../src/openstudio_lib/SpacesSubtabGridView.cpp" line="766" />
+        <location filename="../src/openstudio_lib/SpacesSubtabGridView.cpp" line="293"/>
+        <location filename="../src/openstudio_lib/SpacesSubtabGridView.cpp" line="308"/>
+        <location filename="../src/openstudio_lib/SpacesSubtabGridView.cpp" line="323"/>
+        <location filename="../src/openstudio_lib/SpacesSubtabGridView.cpp" line="338"/>
+        <location filename="../src/openstudio_lib/SpacesSubtabGridView.cpp" line="348"/>
+        <location filename="../src/openstudio_lib/SpacesSubtabGridView.cpp" line="418"/>
+        <location filename="../src/openstudio_lib/SpacesSubtabGridView.cpp" line="426"/>
+        <location filename="../src/openstudio_lib/SpacesSubtabGridView.cpp" line="434"/>
+        <location filename="../src/openstudio_lib/SpacesSubtabGridView.cpp" line="442"/>
+        <location filename="../src/openstudio_lib/SpacesSubtabGridView.cpp" line="451"/>
+        <location filename="../src/openstudio_lib/SpacesSubtabGridView.cpp" line="466"/>
+        <location filename="../src/openstudio_lib/SpacesSubtabGridView.cpp" line="490"/>
+        <location filename="../src/openstudio_lib/SpacesSubtabGridView.cpp" line="514"/>
+        <location filename="../src/openstudio_lib/SpacesSubtabGridView.cpp" line="601"/>
+        <location filename="../src/openstudio_lib/SpacesSubtabGridView.cpp" line="766"/>
         <source>All</source>
         <translation>全て</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/SpacesSubtabGridView.cpp" line="294" />
-        <location filename="../src/openstudio_lib/SpacesSubtabGridView.cpp" line="309" />
-        <location filename="../src/openstudio_lib/SpacesSubtabGridView.cpp" line="324" />
-        <location filename="../src/openstudio_lib/SpacesSubtabGridView.cpp" line="468" />
-        <location filename="../src/openstudio_lib/SpacesSubtabGridView.cpp" line="492" />
-        <location filename="../src/openstudio_lib/SpacesSubtabGridView.cpp" line="516" />
+        <location filename="../src/openstudio_lib/SpacesSubtabGridView.cpp" line="294"/>
+        <location filename="../src/openstudio_lib/SpacesSubtabGridView.cpp" line="309"/>
+        <location filename="../src/openstudio_lib/SpacesSubtabGridView.cpp" line="324"/>
+        <location filename="../src/openstudio_lib/SpacesSubtabGridView.cpp" line="468"/>
+        <location filename="../src/openstudio_lib/SpacesSubtabGridView.cpp" line="492"/>
+        <location filename="../src/openstudio_lib/SpacesSubtabGridView.cpp" line="516"/>
         <source>Unassigned</source>
         <translation>未割り当て</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/SpacesSubtabGridView.cpp" line="353" />
-        <location filename="../src/openstudio_lib/SpacesSubtabGridView.cpp" line="607" />
+        <location filename="../src/openstudio_lib/SpacesSubtabGridView.cpp" line="353"/>
+        <location filename="../src/openstudio_lib/SpacesSubtabGridView.cpp" line="607"/>
         <source>Internal Mass</source>
         <translation>内部熱容量</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/SpacesSubtabGridView.cpp" line="359" />
-        <location filename="../src/openstudio_lib/SpacesSubtabGridView.cpp" line="611" />
+        <location filename="../src/openstudio_lib/SpacesSubtabGridView.cpp" line="359"/>
+        <location filename="../src/openstudio_lib/SpacesSubtabGridView.cpp" line="611"/>
         <source>People</source>
         <translation>人</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/SpacesSubtabGridView.cpp" line="365" />
-        <location filename="../src/openstudio_lib/SpacesSubtabGridView.cpp" line="615" />
+        <location filename="../src/openstudio_lib/SpacesSubtabGridView.cpp" line="365"/>
+        <location filename="../src/openstudio_lib/SpacesSubtabGridView.cpp" line="615"/>
         <source>Lights</source>
         <translation>照明</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/SpacesSubtabGridView.cpp" line="371" />
-        <location filename="../src/openstudio_lib/SpacesSubtabGridView.cpp" line="619" />
+        <location filename="../src/openstudio_lib/SpacesSubtabGridView.cpp" line="371"/>
+        <location filename="../src/openstudio_lib/SpacesSubtabGridView.cpp" line="619"/>
         <source>Luminaire</source>
         <translation>照明器具</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/SpacesSubtabGridView.cpp" line="377" />
-        <location filename="../src/openstudio_lib/SpacesSubtabGridView.cpp" line="623" />
+        <location filename="../src/openstudio_lib/SpacesSubtabGridView.cpp" line="377"/>
+        <location filename="../src/openstudio_lib/SpacesSubtabGridView.cpp" line="623"/>
         <source>Electric Equipment</source>
         <translation>電気機器</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/SpacesSubtabGridView.cpp" line="383" />
-        <location filename="../src/openstudio_lib/SpacesSubtabGridView.cpp" line="627" />
+        <location filename="../src/openstudio_lib/SpacesSubtabGridView.cpp" line="383"/>
+        <location filename="../src/openstudio_lib/SpacesSubtabGridView.cpp" line="627"/>
         <source>Gas Equipment</source>
         <translation>ガス機器</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/SpacesSubtabGridView.cpp" line="389" />
-        <location filename="../src/openstudio_lib/SpacesSubtabGridView.cpp" line="631" />
+        <location filename="../src/openstudio_lib/SpacesSubtabGridView.cpp" line="389"/>
+        <location filename="../src/openstudio_lib/SpacesSubtabGridView.cpp" line="631"/>
         <source>Hot Water Equipment</source>
         <translation>給湯設備</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/SpacesSubtabGridView.cpp" line="395" />
-        <location filename="../src/openstudio_lib/SpacesSubtabGridView.cpp" line="635" />
+        <location filename="../src/openstudio_lib/SpacesSubtabGridView.cpp" line="395"/>
+        <location filename="../src/openstudio_lib/SpacesSubtabGridView.cpp" line="635"/>
         <source>Steam Equipment</source>
         <translation>スチーム機器</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/SpacesSubtabGridView.cpp" line="401" />
-        <location filename="../src/openstudio_lib/SpacesSubtabGridView.cpp" line="639" />
+        <location filename="../src/openstudio_lib/SpacesSubtabGridView.cpp" line="401"/>
+        <location filename="../src/openstudio_lib/SpacesSubtabGridView.cpp" line="639"/>
         <source>Other Equipment</source>
         <translation>その他機器</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/SpacesSubtabGridView.cpp" line="407" />
-        <location filename="../src/openstudio_lib/SpacesSubtabGridView.cpp" line="643" />
+        <location filename="../src/openstudio_lib/SpacesSubtabGridView.cpp" line="407"/>
+        <location filename="../src/openstudio_lib/SpacesSubtabGridView.cpp" line="643"/>
         <source>Space Infiltration Design Flow Rate</source>
         <translation>スペース浸入設計流量</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/SpacesSubtabGridView.cpp" line="413" />
-        <location filename="../src/openstudio_lib/SpacesSubtabGridView.cpp" line="647" />
+        <location filename="../src/openstudio_lib/SpacesSubtabGridView.cpp" line="413"/>
+        <location filename="../src/openstudio_lib/SpacesSubtabGridView.cpp" line="647"/>
         <source>Space Infiltration Effective Leakage Area</source>
         <translation>スペース侵入有効漏洩面積</translation>
     </message>
@@ -30522,89 +30533,89 @@ Space</source>
 <context>
     <name>openstudio::SpacesSurfacesGridController</name>
     <message>
-        <location filename="../src/openstudio_lib/SpacesSurfacesGridView.cpp" line="111" />
-        <location filename="../src/openstudio_lib/SpacesSurfacesGridView.cpp" line="117" />
-        <location filename="../src/openstudio_lib/SpacesSurfacesGridView.cpp" line="118" />
-        <location filename="../src/openstudio_lib/SpacesSurfacesGridView.cpp" line="151" />
+        <location filename="../src/openstudio_lib/SpacesSurfacesGridView.cpp" line="111"/>
+        <location filename="../src/openstudio_lib/SpacesSurfacesGridView.cpp" line="117"/>
+        <location filename="../src/openstudio_lib/SpacesSurfacesGridView.cpp" line="118"/>
+        <location filename="../src/openstudio_lib/SpacesSurfacesGridView.cpp" line="151"/>
         <source>Space Name</source>
         <translation>スペース名</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/SpacesSurfacesGridView.cpp" line="111" />
-        <location filename="../src/openstudio_lib/SpacesSurfacesGridView.cpp" line="143" />
-        <location filename="../src/openstudio_lib/SpacesSurfacesGridView.cpp" line="148" />
+        <location filename="../src/openstudio_lib/SpacesSurfacesGridView.cpp" line="111"/>
+        <location filename="../src/openstudio_lib/SpacesSurfacesGridView.cpp" line="143"/>
+        <location filename="../src/openstudio_lib/SpacesSurfacesGridView.cpp" line="148"/>
         <source>All</source>
         <translation>全て</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/SpacesSurfacesGridView.cpp" line="108" />
-        <location filename="../src/openstudio_lib/SpacesSurfacesGridView.cpp" line="120" />
-        <location filename="../src/openstudio_lib/SpacesSurfacesGridView.cpp" line="121" />
+        <location filename="../src/openstudio_lib/SpacesSurfacesGridView.cpp" line="108"/>
+        <location filename="../src/openstudio_lib/SpacesSurfacesGridView.cpp" line="120"/>
+        <location filename="../src/openstudio_lib/SpacesSurfacesGridView.cpp" line="121"/>
         <source>Display Name</source>
         <translation>表示名</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/SpacesSurfacesGridView.cpp" line="108" />
-        <location filename="../src/openstudio_lib/SpacesSurfacesGridView.cpp" line="127" />
-        <location filename="../src/openstudio_lib/SpacesSurfacesGridView.cpp" line="128" />
+        <location filename="../src/openstudio_lib/SpacesSurfacesGridView.cpp" line="108"/>
+        <location filename="../src/openstudio_lib/SpacesSurfacesGridView.cpp" line="127"/>
+        <location filename="../src/openstudio_lib/SpacesSurfacesGridView.cpp" line="128"/>
         <source>CAD Object ID</source>
         <translation>CADオブジェクトID</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/SpacesSurfacesGridView.cpp" line="90" />
-        <location filename="../src/openstudio_lib/SpacesSurfacesGridView.cpp" line="149" />
+        <location filename="../src/openstudio_lib/SpacesSurfacesGridView.cpp" line="90"/>
+        <location filename="../src/openstudio_lib/SpacesSurfacesGridView.cpp" line="149"/>
         <source>Surface Name</source>
         <translation>サーフェス名</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/SpacesSurfacesGridView.cpp" line="90" />
-        <location filename="../src/openstudio_lib/SpacesSurfacesGridView.cpp" line="155" />
-        <location filename="../src/openstudio_lib/SpacesSurfacesGridView.cpp" line="158" />
+        <location filename="../src/openstudio_lib/SpacesSurfacesGridView.cpp" line="90"/>
+        <location filename="../src/openstudio_lib/SpacesSurfacesGridView.cpp" line="155"/>
+        <location filename="../src/openstudio_lib/SpacesSurfacesGridView.cpp" line="158"/>
         <source>Surface Type</source>
         <translation>表面タイプ</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/SpacesSurfacesGridView.cpp" line="90" />
-        <location filename="../src/openstudio_lib/SpacesSurfacesGridView.cpp" line="168" />
-        <location filename="../src/openstudio_lib/SpacesSurfacesGridView.cpp" line="170" />
+        <location filename="../src/openstudio_lib/SpacesSurfacesGridView.cpp" line="90"/>
+        <location filename="../src/openstudio_lib/SpacesSurfacesGridView.cpp" line="168"/>
+        <location filename="../src/openstudio_lib/SpacesSurfacesGridView.cpp" line="170"/>
         <source>Construction</source>
         <translation>構成</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/SpacesSurfacesGridView.cpp" line="90" />
-        <location filename="../src/openstudio_lib/SpacesSurfacesGridView.cpp" line="175" />
-        <location filename="../src/openstudio_lib/SpacesSurfacesGridView.cpp" line="178" />
+        <location filename="../src/openstudio_lib/SpacesSurfacesGridView.cpp" line="90"/>
+        <location filename="../src/openstudio_lib/SpacesSurfacesGridView.cpp" line="175"/>
+        <location filename="../src/openstudio_lib/SpacesSurfacesGridView.cpp" line="178"/>
         <source>Outside Boundary Condition</source>
         <translation>外部境界条件</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/SpacesSurfacesGridView.cpp" line="90" />
-        <location filename="../src/openstudio_lib/SpacesSurfacesGridView.cpp" line="188" />
-        <location filename="../src/openstudio_lib/SpacesSurfacesGridView.cpp" line="194" />
+        <location filename="../src/openstudio_lib/SpacesSurfacesGridView.cpp" line="90"/>
+        <location filename="../src/openstudio_lib/SpacesSurfacesGridView.cpp" line="188"/>
+        <location filename="../src/openstudio_lib/SpacesSurfacesGridView.cpp" line="194"/>
         <source>Outside Boundary Condition Object</source>
         <translation>外側境界条件オブジェクト</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/SpacesSurfacesGridView.cpp" line="91" />
-        <location filename="../src/openstudio_lib/SpacesSurfacesGridView.cpp" line="199" />
-        <location filename="../src/openstudio_lib/SpacesSurfacesGridView.cpp" line="202" />
+        <location filename="../src/openstudio_lib/SpacesSurfacesGridView.cpp" line="91"/>
+        <location filename="../src/openstudio_lib/SpacesSurfacesGridView.cpp" line="199"/>
+        <location filename="../src/openstudio_lib/SpacesSurfacesGridView.cpp" line="202"/>
         <source>Sun Exposure</source>
         <translation>日射露出</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/SpacesSurfacesGridView.cpp" line="91" />
-        <location filename="../src/openstudio_lib/SpacesSurfacesGridView.cpp" line="212" />
-        <location filename="../src/openstudio_lib/SpacesSurfacesGridView.cpp" line="215" />
+        <location filename="../src/openstudio_lib/SpacesSurfacesGridView.cpp" line="91"/>
+        <location filename="../src/openstudio_lib/SpacesSurfacesGridView.cpp" line="212"/>
+        <location filename="../src/openstudio_lib/SpacesSurfacesGridView.cpp" line="215"/>
         <source>Wind Exposure</source>
         <translation>風の露出</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/SpacesSurfacesGridView.cpp" line="145" />
+        <location filename="../src/openstudio_lib/SpacesSurfacesGridView.cpp" line="145"/>
         <source>Check to select all rows</source>
         <translation>全ての行を選択</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/SpacesSurfacesGridView.cpp" line="148" />
+        <location filename="../src/openstudio_lib/SpacesSurfacesGridView.cpp" line="148"/>
         <source>Check to select this row</source>
         <translation>このロウを選択するにはチェックします</translation>
     </message>
@@ -30613,7 +30624,7 @@ Space</source>
         <translation>日除けサーフェス名</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/SpacesSurfacesGridView.cpp" line="94" />
+        <location filename="../src/openstudio_lib/SpacesSurfacesGridView.cpp" line="94"/>
         <source>General</source>
         <translation>一般</translation>
     </message>
@@ -30621,13 +30632,13 @@ Space</source>
 <context>
     <name>openstudio::SpacesSurfacesGridView</name>
     <message>
-        <location filename="../src/openstudio_lib/SpacesSurfacesGridView.cpp" line="49" />
-        <location filename="../src/openstudio_lib/SpacesSurfacesGridView.cpp" line="50" />
+        <location filename="../src/openstudio_lib/SpacesSurfacesGridView.cpp" line="49"/>
+        <location filename="../src/openstudio_lib/SpacesSurfacesGridView.cpp" line="50"/>
         <source>Space</source>
         <translation>スペース</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/SpacesSurfacesGridView.cpp" line="50" />
+        <location filename="../src/openstudio_lib/SpacesSurfacesGridView.cpp" line="50"/>
         <source>Drop
 Space</source>
         <translation>ドロップ
@@ -30637,32 +30648,32 @@ Space</source>
 <context>
     <name>openstudio::SpacesTabController</name>
     <message>
-        <location filename="../src/openstudio_lib/SpacesTabController.cpp" line="21" />
+        <location filename="../src/openstudio_lib/SpacesTabController.cpp" line="21"/>
         <source>Properties</source>
         <translation>プロパティ</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/SpacesTabController.cpp" line="22" />
+        <location filename="../src/openstudio_lib/SpacesTabController.cpp" line="22"/>
         <source>Loads</source>
         <translation>負荷</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/SpacesTabController.cpp" line="23" />
+        <location filename="../src/openstudio_lib/SpacesTabController.cpp" line="23"/>
         <source>Surfaces</source>
         <translation>表面</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/SpacesTabController.cpp" line="24" />
+        <location filename="../src/openstudio_lib/SpacesTabController.cpp" line="24"/>
         <source>Subsurfaces</source>
         <translation>サブサーフェス</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/SpacesTabController.cpp" line="25" />
+        <location filename="../src/openstudio_lib/SpacesTabController.cpp" line="25"/>
         <source>Interior Partitions</source>
         <translation>内部仕切壁</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/SpacesTabController.cpp" line="26" />
+        <location filename="../src/openstudio_lib/SpacesTabController.cpp" line="26"/>
         <source>Shading</source>
         <translation>シェーディング</translation>
     </message>
@@ -30670,17 +30681,17 @@ Space</source>
 <context>
     <name>openstudio::SpecialScheduleDayView</name>
     <message>
-        <location filename="../src/openstudio_lib/SchedulesView.cpp" line="1419" />
+        <location filename="../src/openstudio_lib/SchedulesView.cpp" line="1419"/>
         <source>Summer design day profile.</source>
         <translation>夏季設計日プロファイル。</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/SchedulesView.cpp" line="1437" />
+        <location filename="../src/openstudio_lib/SchedulesView.cpp" line="1437"/>
         <source>Winter design day profile.</source>
         <translation>冬季設計日プロファイル。</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/SchedulesView.cpp" line="1455" />
+        <location filename="../src/openstudio_lib/SchedulesView.cpp" line="1455"/>
         <source>Holiday profile.</source>
         <translation>ホリデープロファイル。</translation>
     </message>
@@ -30688,67 +30699,67 @@ Space</source>
 <context>
     <name>openstudio::StandardsInformationConstructionWidget</name>
     <message>
-        <location filename="../src/openstudio_lib/StandardsInformationConstructionWidget.cpp" line="46" />
+        <location filename="../src/openstudio_lib/StandardsInformationConstructionWidget.cpp" line="46"/>
         <source>Measure Tags (Optional):</source>
         <translation>メジャータブ（任意）：</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/StandardsInformationConstructionWidget.cpp" line="56" />
+        <location filename="../src/openstudio_lib/StandardsInformationConstructionWidget.cpp" line="56"/>
         <source>Standard: </source>
         <translation>標準:</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/StandardsInformationConstructionWidget.cpp" line="77" />
+        <location filename="../src/openstudio_lib/StandardsInformationConstructionWidget.cpp" line="77"/>
         <source>Standard Source: </source>
         <translation>標準ソース:</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/StandardsInformationConstructionWidget.cpp" line="100" />
+        <location filename="../src/openstudio_lib/StandardsInformationConstructionWidget.cpp" line="100"/>
         <source>Intended Surface Type: </source>
         <translation>想定される表面タイプ：</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/StandardsInformationConstructionWidget.cpp" line="118" />
+        <location filename="../src/openstudio_lib/StandardsInformationConstructionWidget.cpp" line="118"/>
         <source>Standards Construction Type: </source>
         <translation>標準構成タイプ:</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/StandardsInformationConstructionWidget.cpp" line="142" />
+        <location filename="../src/openstudio_lib/StandardsInformationConstructionWidget.cpp" line="142"/>
         <source>Fenestration Type: </source>
         <translation>窓タイプ：</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/StandardsInformationConstructionWidget.cpp" line="156" />
+        <location filename="../src/openstudio_lib/StandardsInformationConstructionWidget.cpp" line="156"/>
         <source>Fenestration Assembly Context: </source>
         <translation>窓サッシ組立コンテキスト：</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/StandardsInformationConstructionWidget.cpp" line="172" />
+        <location filename="../src/openstudio_lib/StandardsInformationConstructionWidget.cpp" line="172"/>
         <source>Fenestration Number of Panes: </source>
         <translation>窓のペイン数:</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/StandardsInformationConstructionWidget.cpp" line="186" />
+        <location filename="../src/openstudio_lib/StandardsInformationConstructionWidget.cpp" line="186"/>
         <source>Fenestration Frame Type: </source>
         <translation>ウィンドウフレームタイプ:</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/StandardsInformationConstructionWidget.cpp" line="202" />
+        <location filename="../src/openstudio_lib/StandardsInformationConstructionWidget.cpp" line="202"/>
         <source>Fenestration Divider Type: </source>
         <translation>窓枠分割タイプ:</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/StandardsInformationConstructionWidget.cpp" line="216" />
+        <location filename="../src/openstudio_lib/StandardsInformationConstructionWidget.cpp" line="216"/>
         <source>Fenestration Tint: </source>
         <translation>窓ティント:</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/StandardsInformationConstructionWidget.cpp" line="232" />
+        <location filename="../src/openstudio_lib/StandardsInformationConstructionWidget.cpp" line="232"/>
         <source>Fenestration Gas Fill: </source>
         <translation>フェネストレーションガス充填：</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/StandardsInformationConstructionWidget.cpp" line="246" />
+        <location filename="../src/openstudio_lib/StandardsInformationConstructionWidget.cpp" line="246"/>
         <source>Fenestration Low Emissivity Coating: </source>
         <translation>フェネストレーション低放射率コーティング:</translation>
     </message>
@@ -30756,52 +30767,52 @@ Space</source>
 <context>
     <name>openstudio::StandardsInformationMaterialWidget</name>
     <message>
-        <location filename="../src/openstudio_lib/StandardsInformationMaterialWidget.cpp" line="45" />
+        <location filename="../src/openstudio_lib/StandardsInformationMaterialWidget.cpp" line="45"/>
         <source>Measure Tags (Optional):</source>
         <translation>メジャータブ（任意）：</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/StandardsInformationMaterialWidget.cpp" line="53" />
+        <location filename="../src/openstudio_lib/StandardsInformationMaterialWidget.cpp" line="53"/>
         <source>Standard: </source>
         <translation>標準:</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/StandardsInformationMaterialWidget.cpp" line="72" />
+        <location filename="../src/openstudio_lib/StandardsInformationMaterialWidget.cpp" line="72"/>
         <source>Standard Source: </source>
         <translation>標準ソース:</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/StandardsInformationMaterialWidget.cpp" line="92" />
+        <location filename="../src/openstudio_lib/StandardsInformationMaterialWidget.cpp" line="92"/>
         <source>Standards Category: </source>
         <translation>基準カテゴリ:</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/StandardsInformationMaterialWidget.cpp" line="112" />
+        <location filename="../src/openstudio_lib/StandardsInformationMaterialWidget.cpp" line="112"/>
         <source>Standards Identifier: </source>
         <translation>規格識別子：</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/StandardsInformationMaterialWidget.cpp" line="132" />
+        <location filename="../src/openstudio_lib/StandardsInformationMaterialWidget.cpp" line="132"/>
         <source>Composite Framing Material: </source>
         <translation>複合フレーミング材料:</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/StandardsInformationMaterialWidget.cpp" line="152" />
+        <location filename="../src/openstudio_lib/StandardsInformationMaterialWidget.cpp" line="152"/>
         <source>Composite Framing Configuration: </source>
         <translation>複合フレーミング構成:</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/StandardsInformationMaterialWidget.cpp" line="172" />
+        <location filename="../src/openstudio_lib/StandardsInformationMaterialWidget.cpp" line="172"/>
         <source>Composite Framing Depth: </source>
         <translation>複合フレーミング深さ:</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/StandardsInformationMaterialWidget.cpp" line="192" />
+        <location filename="../src/openstudio_lib/StandardsInformationMaterialWidget.cpp" line="192"/>
         <source>Composite Framing Size: </source>
         <translation>複合フレーミングサイズ:</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/StandardsInformationMaterialWidget.cpp" line="212" />
+        <location filename="../src/openstudio_lib/StandardsInformationMaterialWidget.cpp" line="212"/>
         <source>Composite Cavity Insulation: </source>
         <translation>複合キャビティ断熱：</translation>
     </message>
@@ -30809,72 +30820,72 @@ Space</source>
 <context>
     <name>openstudio::StartupMenu</name>
     <message>
-        <location filename="../src/openstudio_app/StartupMenu.cpp" line="15" />
+        <location filename="../src/openstudio_app/StartupMenu.cpp" line="15"/>
         <source>&amp;File</source>
         <translation>ファイル(&amp;F)</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_app/StartupMenu.cpp" line="16" />
+        <location filename="../src/openstudio_app/StartupMenu.cpp" line="16"/>
         <source>&amp;New</source>
         <translation>新規作成(&amp;N)</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_app/StartupMenu.cpp" line="18" />
+        <location filename="../src/openstudio_app/StartupMenu.cpp" line="18"/>
         <source>&amp;Open</source>
         <translation>開く(&amp;O)</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_app/StartupMenu.cpp" line="20" />
+        <location filename="../src/openstudio_app/StartupMenu.cpp" line="20"/>
         <source>E&amp;xit</source>
         <translation>終了(&amp;X)</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_app/StartupMenu.cpp" line="23" />
+        <location filename="../src/openstudio_app/StartupMenu.cpp" line="23"/>
         <source>Import</source>
         <translation>インポート</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_app/StartupMenu.cpp" line="24" />
+        <location filename="../src/openstudio_app/StartupMenu.cpp" line="24"/>
         <source>IDF</source>
         <translation>IDF</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_app/StartupMenu.cpp" line="27" />
+        <location filename="../src/openstudio_app/StartupMenu.cpp" line="27"/>
         <source>gbXML</source>
         <translation>ｇbXML</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_app/StartupMenu.cpp" line="30" />
+        <location filename="../src/openstudio_app/StartupMenu.cpp" line="30"/>
         <source>SDD</source>
         <translation>SDD</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_app/StartupMenu.cpp" line="33" />
+        <location filename="../src/openstudio_app/StartupMenu.cpp" line="33"/>
         <source>IFC</source>
         <translation>IFC</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_app/StartupMenu.cpp" line="50" />
+        <location filename="../src/openstudio_app/StartupMenu.cpp" line="50"/>
         <source>&amp;Help</source>
         <translation>ヘルプ(&amp;H)</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_app/StartupMenu.cpp" line="54" />
+        <location filename="../src/openstudio_app/StartupMenu.cpp" line="54"/>
         <source>OpenStudio &amp;Help</source>
         <translation>OpenStudioヘルプ(&amp;H)</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_app/StartupMenu.cpp" line="59" />
+        <location filename="../src/openstudio_app/StartupMenu.cpp" line="59"/>
         <source>Check For &amp;Update</source>
         <translation>更新を確認(&amp;U)</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_app/StartupMenu.cpp" line="63" />
+        <location filename="../src/openstudio_app/StartupMenu.cpp" line="63"/>
         <source>Debug Webgl</source>
         <translation>Debug WebGL</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_app/StartupMenu.cpp" line="67" />
+        <location filename="../src/openstudio_app/StartupMenu.cpp" line="67"/>
         <source>&amp;About</source>
         <translation>OpenStudioについて(&amp;A)</translation>
     </message>
@@ -30882,37 +30893,37 @@ Space</source>
 <context>
     <name>openstudio::SteamEquipmentDefinitionInspectorView</name>
     <message>
-        <location filename="../src/openstudio_lib/SteamEquipmentInspectorView.cpp" line="36" />
+        <location filename="../src/openstudio_lib/SteamEquipmentInspectorView.cpp" line="36"/>
         <source>Name: </source>
         <translation>ファイル名：</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/SteamEquipmentInspectorView.cpp" line="45" />
+        <location filename="../src/openstudio_lib/SteamEquipmentInspectorView.cpp" line="45"/>
         <source>Design Level: </source>
         <translation>デザインレベル:</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/SteamEquipmentInspectorView.cpp" line="55" />
+        <location filename="../src/openstudio_lib/SteamEquipmentInspectorView.cpp" line="55"/>
         <source>Power Per Space Floor Area: </source>
         <translation>スペース床面積あたりの電力:</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/SteamEquipmentInspectorView.cpp" line="65" />
+        <location filename="../src/openstudio_lib/SteamEquipmentInspectorView.cpp" line="65"/>
         <source>Power Per Person: </source>
         <translation>1人あたりの電力:</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/SteamEquipmentInspectorView.cpp" line="75" />
+        <location filename="../src/openstudio_lib/SteamEquipmentInspectorView.cpp" line="75"/>
         <source>Fraction Latent: </source>
         <translation>潜熱分率：</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/SteamEquipmentInspectorView.cpp" line="85" />
+        <location filename="../src/openstudio_lib/SteamEquipmentInspectorView.cpp" line="85"/>
         <source>Fraction Radiant: </source>
         <translation>放射分率:</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/SteamEquipmentInspectorView.cpp" line="95" />
+        <location filename="../src/openstudio_lib/SteamEquipmentInspectorView.cpp" line="95"/>
         <source>Fraction Lost: </source>
         <translation>損失割合:</translation>
     </message>
@@ -30920,7 +30931,7 @@ Space</source>
 <context>
     <name>openstudio::SyncMeasuresDialog</name>
     <message>
-        <location filename="../src/shared_gui_components/SyncMeasuresDialog.cpp" line="37" />
+        <location filename="../src/shared_gui_components/SyncMeasuresDialog.cpp" line="37"/>
         <source>Updates Available in Library</source>
         <translation>ライブラリに利用可能な更新があります</translation>
     </message>
@@ -30928,17 +30939,17 @@ Space</source>
 <context>
     <name>openstudio::SyncMeasuresDialogCentralWidget</name>
     <message>
-        <location filename="../src/shared_gui_components/SyncMeasuresDialogCentralWidget.cpp" line="42" />
+        <location filename="../src/shared_gui_components/SyncMeasuresDialogCentralWidget.cpp" line="42"/>
         <source>Check All</source>
         <translation>すべて選択</translation>
     </message>
     <message>
-        <location filename="../src/shared_gui_components/SyncMeasuresDialogCentralWidget.cpp" line="62" />
+        <location filename="../src/shared_gui_components/SyncMeasuresDialogCentralWidget.cpp" line="62"/>
         <source>Updates</source>
         <translation>更新</translation>
     </message>
     <message>
-        <location filename="../src/shared_gui_components/SyncMeasuresDialogCentralWidget.cpp" line="76" />
+        <location filename="../src/shared_gui_components/SyncMeasuresDialogCentralWidget.cpp" line="76"/>
         <source>Update</source>
         <translation>更新する</translation>
     </message>
@@ -30946,12 +30957,12 @@ Space</source>
 <context>
     <name>openstudio::SystemCenterItem</name>
     <message>
-        <location filename="../src/openstudio_lib/GridItem.cpp" line="1434" />
+        <location filename="../src/openstudio_lib/GridItem.cpp" line="1434"/>
         <source>Supply Equipment</source>
         <translation>供給機器</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/GridItem.cpp" line="1435" />
+        <location filename="../src/openstudio_lib/GridItem.cpp" line="1435"/>
         <source>Demand Equipment</source>
         <translation>需要機器</translation>
     </message>
@@ -30959,44 +30970,44 @@ Space</source>
 <context>
     <name>openstudio::ThermalZonesGridController</name>
     <message>
-        <location filename="../src/openstudio_lib/ThermalZonesGridView.cpp" line="165" />
-        <location filename="../src/openstudio_lib/ThermalZonesGridView.cpp" line="543" />
-        <location filename="../src/openstudio_lib/ThermalZonesGridView.cpp" line="544" />
+        <location filename="../src/openstudio_lib/ThermalZonesGridView.cpp" line="165"/>
+        <location filename="../src/openstudio_lib/ThermalZonesGridView.cpp" line="543"/>
+        <location filename="../src/openstudio_lib/ThermalZonesGridView.cpp" line="544"/>
         <source>Name</source>
         <translation>名前</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/ThermalZonesGridView.cpp" line="165" />
-        <location filename="../src/openstudio_lib/ThermalZonesGridView.cpp" line="193" />
-        <location filename="../src/openstudio_lib/ThermalZonesGridView.cpp" line="198" />
+        <location filename="../src/openstudio_lib/ThermalZonesGridView.cpp" line="165"/>
+        <location filename="../src/openstudio_lib/ThermalZonesGridView.cpp" line="193"/>
+        <location filename="../src/openstudio_lib/ThermalZonesGridView.cpp" line="198"/>
         <source>All</source>
         <translation>全て</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/ThermalZonesGridView.cpp" line="161" />
-        <location filename="../src/openstudio_lib/ThermalZonesGridView.cpp" line="547" />
-        <location filename="../src/openstudio_lib/ThermalZonesGridView.cpp" line="548" />
+        <location filename="../src/openstudio_lib/ThermalZonesGridView.cpp" line="161"/>
+        <location filename="../src/openstudio_lib/ThermalZonesGridView.cpp" line="547"/>
+        <location filename="../src/openstudio_lib/ThermalZonesGridView.cpp" line="548"/>
         <source>Display Name</source>
         <translation>表示名</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/ThermalZonesGridView.cpp" line="161" />
-        <location filename="../src/openstudio_lib/ThermalZonesGridView.cpp" line="554" />
-        <location filename="../src/openstudio_lib/ThermalZonesGridView.cpp" line="555" />
+        <location filename="../src/openstudio_lib/ThermalZonesGridView.cpp" line="161"/>
+        <location filename="../src/openstudio_lib/ThermalZonesGridView.cpp" line="554"/>
+        <location filename="../src/openstudio_lib/ThermalZonesGridView.cpp" line="555"/>
         <source>CAD Object ID</source>
         <translation>CAD オブジェクト ID</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/ThermalZonesGridView.cpp" line="109" />
-        <location filename="../src/openstudio_lib/ThermalZonesGridView.cpp" line="199" />
-        <location filename="../src/openstudio_lib/ThermalZonesGridView.cpp" line="200" />
+        <location filename="../src/openstudio_lib/ThermalZonesGridView.cpp" line="109"/>
+        <location filename="../src/openstudio_lib/ThermalZonesGridView.cpp" line="199"/>
+        <location filename="../src/openstudio_lib/ThermalZonesGridView.cpp" line="200"/>
         <source>Rendering Color</source>
         <translation>レンダリング色</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/ThermalZonesGridView.cpp" line="110" />
-        <location filename="../src/openstudio_lib/ThermalZonesGridView.cpp" line="189" />
-        <location filename="../src/openstudio_lib/ThermalZonesGridView.cpp" line="191" />
+        <location filename="../src/openstudio_lib/ThermalZonesGridView.cpp" line="110"/>
+        <location filename="../src/openstudio_lib/ThermalZonesGridView.cpp" line="189"/>
+        <location filename="../src/openstudio_lib/ThermalZonesGridView.cpp" line="191"/>
         <source>Turn On
 Ideal
 Air Loads</source>
@@ -31005,66 +31016,66 @@ Air Loads</source>
 空気負荷</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/ThermalZonesGridView.cpp" line="111" />
-        <location filename="../src/openstudio_lib/ThermalZonesGridView.cpp" line="561" />
-        <location filename="../src/openstudio_lib/ThermalZonesGridView.cpp" line="570" />
+        <location filename="../src/openstudio_lib/ThermalZonesGridView.cpp" line="111"/>
+        <location filename="../src/openstudio_lib/ThermalZonesGridView.cpp" line="561"/>
+        <location filename="../src/openstudio_lib/ThermalZonesGridView.cpp" line="570"/>
         <source>Air Loop Name</source>
         <translation>エアループ名</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/ThermalZonesGridView.cpp" line="112" />
-        <location filename="../src/openstudio_lib/ThermalZonesGridView.cpp" line="508" />
-        <location filename="../src/openstudio_lib/ThermalZonesGridView.cpp" line="534" />
-        <location filename="../src/openstudio_lib/ThermalZonesGridView.cpp" line="541" />
+        <location filename="../src/openstudio_lib/ThermalZonesGridView.cpp" line="112"/>
+        <location filename="../src/openstudio_lib/ThermalZonesGridView.cpp" line="508"/>
+        <location filename="../src/openstudio_lib/ThermalZonesGridView.cpp" line="534"/>
+        <location filename="../src/openstudio_lib/ThermalZonesGridView.cpp" line="541"/>
         <source>Zone Equipment</source>
         <translation>ゾーン機器</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/ThermalZonesGridView.cpp" line="113" />
-        <location filename="../src/openstudio_lib/ThermalZonesGridView.cpp" line="330" />
-        <location filename="../src/openstudio_lib/ThermalZonesGridView.cpp" line="371" />
+        <location filename="../src/openstudio_lib/ThermalZonesGridView.cpp" line="113"/>
+        <location filename="../src/openstudio_lib/ThermalZonesGridView.cpp" line="330"/>
+        <location filename="../src/openstudio_lib/ThermalZonesGridView.cpp" line="371"/>
         <source>Cooling Thermostat
 Schedule</source>
         <translation>冷房サーモスタット
 スケジュール</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/ThermalZonesGridView.cpp" line="114" />
-        <location filename="../src/openstudio_lib/ThermalZonesGridView.cpp" line="374" />
-        <location filename="../src/openstudio_lib/ThermalZonesGridView.cpp" line="415" />
+        <location filename="../src/openstudio_lib/ThermalZonesGridView.cpp" line="114"/>
+        <location filename="../src/openstudio_lib/ThermalZonesGridView.cpp" line="374"/>
+        <location filename="../src/openstudio_lib/ThermalZonesGridView.cpp" line="415"/>
         <source>Heating Thermostat
 Schedule</source>
         <translation>暖房サーモスタット
 スケジュール</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/ThermalZonesGridView.cpp" line="115" />
-        <location filename="../src/openstudio_lib/ThermalZonesGridView.cpp" line="418" />
-        <location filename="../src/openstudio_lib/ThermalZonesGridView.cpp" line="460" />
+        <location filename="../src/openstudio_lib/ThermalZonesGridView.cpp" line="115"/>
+        <location filename="../src/openstudio_lib/ThermalZonesGridView.cpp" line="418"/>
+        <location filename="../src/openstudio_lib/ThermalZonesGridView.cpp" line="460"/>
         <source>Humidifying Setpoint
 Schedule</source>
         <translation>加湿設定値スケジュール</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/ThermalZonesGridView.cpp" line="116" />
-        <location filename="../src/openstudio_lib/ThermalZonesGridView.cpp" line="463" />
-        <location filename="../src/openstudio_lib/ThermalZonesGridView.cpp" line="505" />
+        <location filename="../src/openstudio_lib/ThermalZonesGridView.cpp" line="116"/>
+        <location filename="../src/openstudio_lib/ThermalZonesGridView.cpp" line="463"/>
+        <location filename="../src/openstudio_lib/ThermalZonesGridView.cpp" line="505"/>
         <source>Dehumidifying Setpoint
 Schedule</source>
         <translation>除湿設定値
 スケジュール</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/ThermalZonesGridView.cpp" line="117" />
-        <location filename="../src/openstudio_lib/ThermalZonesGridView.cpp" line="576" />
-        <location filename="../src/openstudio_lib/ThermalZonesGridView.cpp" line="577" />
+        <location filename="../src/openstudio_lib/ThermalZonesGridView.cpp" line="117"/>
+        <location filename="../src/openstudio_lib/ThermalZonesGridView.cpp" line="576"/>
+        <location filename="../src/openstudio_lib/ThermalZonesGridView.cpp" line="577"/>
         <source>Multiplier</source>
         <translation>乗数</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/ThermalZonesGridView.cpp" line="125" />
-        <location filename="../src/openstudio_lib/ThermalZonesGridView.cpp" line="203" />
-        <location filename="../src/openstudio_lib/ThermalZonesGridView.cpp" line="205" />
+        <location filename="../src/openstudio_lib/ThermalZonesGridView.cpp" line="125"/>
+        <location filename="../src/openstudio_lib/ThermalZonesGridView.cpp" line="203"/>
+        <location filename="../src/openstudio_lib/ThermalZonesGridView.cpp" line="205"/>
         <source>Zone Cooling
 Design Supply
 Air Temperature</source>
@@ -31073,9 +31084,9 @@ Air Temperature</source>
 空気温度</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/ThermalZonesGridView.cpp" line="126" />
-        <location filename="../src/openstudio_lib/ThermalZonesGridView.cpp" line="213" />
-        <location filename="../src/openstudio_lib/ThermalZonesGridView.cpp" line="214" />
+        <location filename="../src/openstudio_lib/ThermalZonesGridView.cpp" line="126"/>
+        <location filename="../src/openstudio_lib/ThermalZonesGridView.cpp" line="213"/>
+        <location filename="../src/openstudio_lib/ThermalZonesGridView.cpp" line="214"/>
         <source>Zone Cooling
 Design Supply
 Air Humidity Ratio</source>
@@ -31084,26 +31095,26 @@ Air Humidity Ratio</source>
 空気湿度比</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/ThermalZonesGridView.cpp" line="127" />
-        <location filename="../src/openstudio_lib/ThermalZonesGridView.cpp" line="225" />
+        <location filename="../src/openstudio_lib/ThermalZonesGridView.cpp" line="127"/>
+        <location filename="../src/openstudio_lib/ThermalZonesGridView.cpp" line="225"/>
         <source>Zone Cooling
 Sizing Factor</source>
         <translation>ゾーン冷房
 サイジング係数</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/ThermalZonesGridView.cpp" line="128" />
-        <location filename="../src/openstudio_lib/ThermalZonesGridView.cpp" line="269" />
-        <location filename="../src/openstudio_lib/ThermalZonesGridView.cpp" line="270" />
+        <location filename="../src/openstudio_lib/ThermalZonesGridView.cpp" line="128"/>
+        <location filename="../src/openstudio_lib/ThermalZonesGridView.cpp" line="269"/>
+        <location filename="../src/openstudio_lib/ThermalZonesGridView.cpp" line="270"/>
         <source>Cooling Minimum Air
 Flow per Zone
 Floor Area</source>
         <translation>冷房最小室内送風量/床面積</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/ThermalZonesGridView.cpp" line="129" />
-        <location filename="../src/openstudio_lib/ThermalZonesGridView.cpp" line="291" />
-        <location filename="../src/openstudio_lib/ThermalZonesGridView.cpp" line="292" />
+        <location filename="../src/openstudio_lib/ThermalZonesGridView.cpp" line="129"/>
+        <location filename="../src/openstudio_lib/ThermalZonesGridView.cpp" line="291"/>
+        <location filename="../src/openstudio_lib/ThermalZonesGridView.cpp" line="292"/>
         <source>Design Zone Air
 Distribution Effectiveness
 in Cooling Mode</source>
@@ -31111,45 +31122,45 @@ in Cooling Mode</source>
 分配効率</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/ThermalZonesGridView.cpp" line="130" />
-        <location filename="../src/openstudio_lib/ThermalZonesGridView.cpp" line="278" />
-        <location filename="../src/openstudio_lib/ThermalZonesGridView.cpp" line="279" />
+        <location filename="../src/openstudio_lib/ThermalZonesGridView.cpp" line="130"/>
+        <location filename="../src/openstudio_lib/ThermalZonesGridView.cpp" line="278"/>
+        <location filename="../src/openstudio_lib/ThermalZonesGridView.cpp" line="279"/>
         <source>Cooling Minimum
 Air Flow Fraction</source>
         <translation>冷房最小
 空気流量フラクション</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/ThermalZonesGridView.cpp" line="131" />
-        <location filename="../src/openstudio_lib/ThermalZonesGridView.cpp" line="302" />
-        <location filename="../src/openstudio_lib/ThermalZonesGridView.cpp" line="304" />
+        <location filename="../src/openstudio_lib/ThermalZonesGridView.cpp" line="131"/>
+        <location filename="../src/openstudio_lib/ThermalZonesGridView.cpp" line="302"/>
+        <location filename="../src/openstudio_lib/ThermalZonesGridView.cpp" line="304"/>
         <source>Cooling Design
 Air Flow Method</source>
         <translation>冷房設計
 気流方式</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/ThermalZonesGridView.cpp" line="132" />
-        <location filename="../src/openstudio_lib/ThermalZonesGridView.cpp" line="265" />
-        <location filename="../src/openstudio_lib/ThermalZonesGridView.cpp" line="266" />
+        <location filename="../src/openstudio_lib/ThermalZonesGridView.cpp" line="132"/>
+        <location filename="../src/openstudio_lib/ThermalZonesGridView.cpp" line="265"/>
+        <location filename="../src/openstudio_lib/ThermalZonesGridView.cpp" line="266"/>
         <source>Cooling Design
 Air Flow Rate</source>
         <translation>冷房設計
 気流率</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/ThermalZonesGridView.cpp" line="133" />
-        <location filename="../src/openstudio_lib/ThermalZonesGridView.cpp" line="274" />
-        <location filename="../src/openstudio_lib/ThermalZonesGridView.cpp" line="275" />
+        <location filename="../src/openstudio_lib/ThermalZonesGridView.cpp" line="133"/>
+        <location filename="../src/openstudio_lib/ThermalZonesGridView.cpp" line="274"/>
+        <location filename="../src/openstudio_lib/ThermalZonesGridView.cpp" line="275"/>
         <source>Cooling Minimum
 Air Flow</source>
         <translation>冷房最小
 空気流量</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/ThermalZonesGridView.cpp" line="141" />
-        <location filename="../src/openstudio_lib/ThermalZonesGridView.cpp" line="209" />
-        <location filename="../src/openstudio_lib/ThermalZonesGridView.cpp" line="210" />
+        <location filename="../src/openstudio_lib/ThermalZonesGridView.cpp" line="141"/>
+        <location filename="../src/openstudio_lib/ThermalZonesGridView.cpp" line="209"/>
+        <location filename="../src/openstudio_lib/ThermalZonesGridView.cpp" line="210"/>
         <source>Zone Heating
 Design Supply
 Air Temperature</source>
@@ -31158,9 +31169,9 @@ Air Temperature</source>
 空気温度</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/ThermalZonesGridView.cpp" line="142" />
-        <location filename="../src/openstudio_lib/ThermalZonesGridView.cpp" line="217" />
-        <location filename="../src/openstudio_lib/ThermalZonesGridView.cpp" line="218" />
+        <location filename="../src/openstudio_lib/ThermalZonesGridView.cpp" line="142"/>
+        <location filename="../src/openstudio_lib/ThermalZonesGridView.cpp" line="217"/>
+        <location filename="../src/openstudio_lib/ThermalZonesGridView.cpp" line="218"/>
         <source>Zone Heating
 Design Supply
 Air Humidity Ratio</source>
@@ -31169,18 +31180,18 @@ Air Humidity Ratio</source>
 空気湿度比</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/ThermalZonesGridView.cpp" line="143" />
-        <location filename="../src/openstudio_lib/ThermalZonesGridView.cpp" line="221" />
-        <location filename="../src/openstudio_lib/ThermalZonesGridView.cpp" line="222" />
+        <location filename="../src/openstudio_lib/ThermalZonesGridView.cpp" line="143"/>
+        <location filename="../src/openstudio_lib/ThermalZonesGridView.cpp" line="221"/>
+        <location filename="../src/openstudio_lib/ThermalZonesGridView.cpp" line="222"/>
         <source>Zone Heating
 Sizing Factor</source>
         <translation>ゾーン暖房
 サイジング係数</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/ThermalZonesGridView.cpp" line="144" />
-        <location filename="../src/openstudio_lib/ThermalZonesGridView.cpp" line="282" />
-        <location filename="../src/openstudio_lib/ThermalZonesGridView.cpp" line="283" />
+        <location filename="../src/openstudio_lib/ThermalZonesGridView.cpp" line="144"/>
+        <location filename="../src/openstudio_lib/ThermalZonesGridView.cpp" line="282"/>
+        <location filename="../src/openstudio_lib/ThermalZonesGridView.cpp" line="283"/>
         <source>Heating Maximum Air
 Flow per Zone
 Floor Area</source>
@@ -31188,74 +31199,74 @@ Floor Area</source>
 ゾーン床面積当たり</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/ThermalZonesGridView.cpp" line="145" />
-        <location filename="../src/openstudio_lib/ThermalZonesGridView.cpp" line="296" />
-        <location filename="../src/openstudio_lib/ThermalZonesGridView.cpp" line="297" />
+        <location filename="../src/openstudio_lib/ThermalZonesGridView.cpp" line="145"/>
+        <location filename="../src/openstudio_lib/ThermalZonesGridView.cpp" line="296"/>
+        <location filename="../src/openstudio_lib/ThermalZonesGridView.cpp" line="297"/>
         <source>Design Zone Air
 Distribution Effectiveness
 in Heating Mode</source>
         <translation>暖房モードでの設計ゾーン空気分布効果</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/ThermalZonesGridView.cpp" line="146" />
-        <location filename="../src/openstudio_lib/ThermalZonesGridView.cpp" line="287" />
-        <location filename="../src/openstudio_lib/ThermalZonesGridView.cpp" line="288" />
+        <location filename="../src/openstudio_lib/ThermalZonesGridView.cpp" line="146"/>
+        <location filename="../src/openstudio_lib/ThermalZonesGridView.cpp" line="287"/>
+        <location filename="../src/openstudio_lib/ThermalZonesGridView.cpp" line="288"/>
         <source>Heating Maximum
 Air Flow Fraction</source>
         <translation>暖房最大
 空気流量割合</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/ThermalZonesGridView.cpp" line="147" />
-        <location filename="../src/openstudio_lib/ThermalZonesGridView.cpp" line="237" />
-        <location filename="../src/openstudio_lib/ThermalZonesGridView.cpp" line="239" />
+        <location filename="../src/openstudio_lib/ThermalZonesGridView.cpp" line="147"/>
+        <location filename="../src/openstudio_lib/ThermalZonesGridView.cpp" line="237"/>
+        <location filename="../src/openstudio_lib/ThermalZonesGridView.cpp" line="239"/>
         <source>Heating Design
 Air Flow Method</source>
         <translation>暖房設計
 気流方法</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/ThermalZonesGridView.cpp" line="148" />
-        <location filename="../src/openstudio_lib/ThermalZonesGridView.cpp" line="229" />
-        <location filename="../src/openstudio_lib/ThermalZonesGridView.cpp" line="230" />
+        <location filename="../src/openstudio_lib/ThermalZonesGridView.cpp" line="148"/>
+        <location filename="../src/openstudio_lib/ThermalZonesGridView.cpp" line="229"/>
+        <location filename="../src/openstudio_lib/ThermalZonesGridView.cpp" line="230"/>
         <source>Heating Design
 Air Flow Rate</source>
         <translation>暖房設計
 空気流量</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/ThermalZonesGridView.cpp" line="149" />
-        <location filename="../src/openstudio_lib/ThermalZonesGridView.cpp" line="233" />
-        <location filename="../src/openstudio_lib/ThermalZonesGridView.cpp" line="234" />
+        <location filename="../src/openstudio_lib/ThermalZonesGridView.cpp" line="149"/>
+        <location filename="../src/openstudio_lib/ThermalZonesGridView.cpp" line="233"/>
+        <location filename="../src/openstudio_lib/ThermalZonesGridView.cpp" line="234"/>
         <source>Heating Maximum
 Air Flow</source>
         <translation>暖房最大
 気流</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/ThermalZonesGridView.cpp" line="191" />
+        <location filename="../src/openstudio_lib/ThermalZonesGridView.cpp" line="191"/>
         <source>Check to enable ideal air loads.</source>
         <translation>理想的な空気負荷を有効にするにはチェックします。</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/ThermalZonesGridView.cpp" line="195" />
+        <location filename="../src/openstudio_lib/ThermalZonesGridView.cpp" line="195"/>
         <source>Check to select all rows</source>
         <translation>全ての行を選択</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/ThermalZonesGridView.cpp" line="198" />
+        <location filename="../src/openstudio_lib/ThermalZonesGridView.cpp" line="198"/>
         <source>Check to select this row</source>
         <translation>このロウを選択するにはチェックします</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/ThermalZonesGridView.cpp" line="119" />
+        <location filename="../src/openstudio_lib/ThermalZonesGridView.cpp" line="119"/>
         <source>HVAC
 Systems</source>
         <translation>HVAC
 システム</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/ThermalZonesGridView.cpp" line="135" />
+        <location filename="../src/openstudio_lib/ThermalZonesGridView.cpp" line="135"/>
         <source>Cooling
 Sizing
 Parameters</source>
@@ -31264,7 +31275,7 @@ Parameters</source>
 パラメータ</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/ThermalZonesGridView.cpp" line="151" />
+        <location filename="../src/openstudio_lib/ThermalZonesGridView.cpp" line="151"/>
         <source>Heating
 Sizing
 Parameters</source>
@@ -31276,13 +31287,13 @@ Parameters</source>
 <context>
     <name>openstudio::ThermalZonesGridView</name>
     <message>
-        <location filename="../src/openstudio_lib/ThermalZonesGridView.cpp" line="68" />
-        <location filename="../src/openstudio_lib/ThermalZonesGridView.cpp" line="70" />
+        <location filename="../src/openstudio_lib/ThermalZonesGridView.cpp" line="68"/>
+        <location filename="../src/openstudio_lib/ThermalZonesGridView.cpp" line="70"/>
         <source>Thermal Zones</source>
         <translation>熱ゾーン</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/ThermalZonesGridView.cpp" line="70" />
+        <location filename="../src/openstudio_lib/ThermalZonesGridView.cpp" line="70"/>
         <source>Drop
 Zone</source>
         <translation>ドロップ
@@ -31292,7 +31303,7 @@ Zone</source>
 <context>
     <name>openstudio::ThermalZonesTabView</name>
     <message>
-        <location filename="../src/openstudio_lib/ThermalZonesTabView.cpp" line="10" />
+        <location filename="../src/openstudio_lib/ThermalZonesTabView.cpp" line="10"/>
         <source>Thermal Zones</source>
         <translation>熱ゾーン</translation>
     </message>
@@ -31300,105 +31311,105 @@ Zone</source>
 <context>
     <name>openstudio::UtilityBillsInspectorView</name>
     <message>
-        <location filename="../src/openstudio_lib/UtilityBillsView.cpp" line="144" />
+        <location filename="../src/openstudio_lib/UtilityBillsView.cpp" line="144"/>
         <source>Start Date </source>
         <translation>開始日</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/UtilityBillsView.cpp" line="150" />
+        <location filename="../src/openstudio_lib/UtilityBillsView.cpp" line="150"/>
         <source>   End Date </source>
         <translation>終了日</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/UtilityBillsView.cpp" line="207" />
+        <location filename="../src/openstudio_lib/UtilityBillsView.cpp" line="207"/>
         <source>Name</source>
         <translation>名前</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/UtilityBillsView.cpp" line="229" />
+        <location filename="../src/openstudio_lib/UtilityBillsView.cpp" line="229"/>
         <source>Consumption Units</source>
         <translation>消費単位</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/UtilityBillsView.cpp" line="246" />
+        <location filename="../src/openstudio_lib/UtilityBillsView.cpp" line="246"/>
         <source>Peak Demand Units</source>
         <translation>ピーク需要単位</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/UtilityBillsView.cpp" line="263" />
+        <location filename="../src/openstudio_lib/UtilityBillsView.cpp" line="263"/>
         <source>Peak Demand Window Timesteps</source>
         <translation>ピークデマンドウィンドウタイムステップ</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/UtilityBillsView.cpp" line="284" />
+        <location filename="../src/openstudio_lib/UtilityBillsView.cpp" line="284"/>
         <source>Run Period</source>
         <translation>実行期間</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/UtilityBillsView.cpp" line="301" />
+        <location filename="../src/openstudio_lib/UtilityBillsView.cpp" line="301"/>
         <source>Billing Period</source>
         <translation>計算期間</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/UtilityBillsView.cpp" line="306" />
+        <location filename="../src/openstudio_lib/UtilityBillsView.cpp" line="306"/>
         <source>Select the best match for you utility bill</source>
         <translation>ユーティリティ料金に最適な一致を選択してください</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/UtilityBillsView.cpp" line="316" />
+        <location filename="../src/openstudio_lib/UtilityBillsView.cpp" line="316"/>
         <source>Start Date and End Date</source>
         <translation>開始日付と終了日付</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/UtilityBillsView.cpp" line="320" />
+        <location filename="../src/openstudio_lib/UtilityBillsView.cpp" line="320"/>
         <source>Start Date and Number of Days in Billing Period</source>
         <translation>料金計算期間の開始日と日数</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/UtilityBillsView.cpp" line="324" />
+        <location filename="../src/openstudio_lib/UtilityBillsView.cpp" line="324"/>
         <source>End Date and Number of Days in Billing Period</source>
         <translation>請求期間の終了日と日数</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/UtilityBillsView.cpp" line="352" />
+        <location filename="../src/openstudio_lib/UtilityBillsView.cpp" line="352"/>
         <source>Add new object</source>
         <translation>新しいオブジェクトの追加</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/UtilityBillsView.cpp" line="360" />
+        <location filename="../src/openstudio_lib/UtilityBillsView.cpp" line="360"/>
         <source>Add New Billing Period</source>
         <translation>新しい課金期間を追加</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/UtilityBillsView.cpp" line="485" />
-        <location filename="../src/openstudio_lib/UtilityBillsView.cpp" line="497" />
+        <location filename="../src/openstudio_lib/UtilityBillsView.cpp" line="485"/>
+        <location filename="../src/openstudio_lib/UtilityBillsView.cpp" line="497"/>
         <source>Start Date</source>
         <translation>開始日</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/UtilityBillsView.cpp" line="491" />
-        <location filename="../src/openstudio_lib/UtilityBillsView.cpp" line="509" />
+        <location filename="../src/openstudio_lib/UtilityBillsView.cpp" line="491"/>
+        <location filename="../src/openstudio_lib/UtilityBillsView.cpp" line="509"/>
         <source>End Date</source>
         <translation>終了日</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/UtilityBillsView.cpp" line="503" />
-        <location filename="../src/openstudio_lib/UtilityBillsView.cpp" line="515" />
+        <location filename="../src/openstudio_lib/UtilityBillsView.cpp" line="503"/>
+        <location filename="../src/openstudio_lib/UtilityBillsView.cpp" line="515"/>
         <source>Billing Period Days</source>
         <translation>請求期間日数</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/UtilityBillsView.cpp" line="540" />
+        <location filename="../src/openstudio_lib/UtilityBillsView.cpp" line="540"/>
         <source>Cost</source>
         <translation>コスト</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/UtilityBillsView.cpp" line="605" />
+        <location filename="../src/openstudio_lib/UtilityBillsView.cpp" line="605"/>
         <source>Energy Use (</source>
         <translation>エネルギー使用量 (</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/UtilityBillsView.cpp" line="612" />
+        <location filename="../src/openstudio_lib/UtilityBillsView.cpp" line="612"/>
         <source>Peak (</source>
         <translation>ピーク (</translation>
     </message>
@@ -31406,7 +31417,7 @@ Zone</source>
 <context>
     <name>openstudio::VRFSystemDropZoneView</name>
     <message>
-        <location filename="../src/openstudio_lib/VRFGraphicsItems.cpp" line="470" />
+        <location filename="../src/openstudio_lib/VRFGraphicsItems.cpp" line="470"/>
         <source>Drop VRF System</source>
         <translation>VRFシステムを削除</translation>
     </message>
@@ -31422,12 +31433,12 @@ Zone</source>
 <context>
     <name>openstudio::VRFSystemMiniView</name>
     <message>
-        <location filename="../src/openstudio_lib/VRFGraphicsItems.cpp" line="436" />
+        <location filename="../src/openstudio_lib/VRFGraphicsItems.cpp" line="436"/>
         <source>Terminals</source>
         <translation>ターミナル</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/VRFGraphicsItems.cpp" line="450" />
+        <location filename="../src/openstudio_lib/VRFGraphicsItems.cpp" line="450"/>
         <source>Zones</source>
         <translation>ゾーン</translation>
     </message>
@@ -31435,12 +31446,12 @@ Zone</source>
 <context>
     <name>openstudio::VRFSystemView</name>
     <message>
-        <location filename="../src/openstudio_lib/VRFGraphicsItems.cpp" line="118" />
+        <location filename="../src/openstudio_lib/VRFGraphicsItems.cpp" line="118"/>
         <source>Drop VRF Terminal</source>
         <translation>VRF ターミナルを削除</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/VRFGraphicsItems.cpp" line="122" />
+        <location filename="../src/openstudio_lib/VRFGraphicsItems.cpp" line="122"/>
         <source>Drop Thermal Zone</source>
         <translation>サーマルゾーンを削除</translation>
     </message>
@@ -31448,7 +31459,7 @@ Zone</source>
 <context>
     <name>openstudio::VRFThermalZoneDropZoneView</name>
     <message>
-        <location filename="../src/openstudio_lib/VRFGraphicsItems.cpp" line="304" />
+        <location filename="../src/openstudio_lib/VRFGraphicsItems.cpp" line="304"/>
         <source>Drop Thermal Zone</source>
         <translation>サーマルゾーンを削除</translation>
     </message>
@@ -31456,87 +31467,87 @@ Zone</source>
 <context>
     <name>openstudio::VariablesList</name>
     <message>
-        <location filename="../src/openstudio_lib/VariablesTabView.cpp" line="176" />
+        <location filename="../src/openstudio_lib/VariablesTabView.cpp" line="176"/>
         <source>Select Output Variables</source>
         <translation>出力変数を選択</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/VariablesTabView.cpp" line="179" />
+        <location filename="../src/openstudio_lib/VariablesTabView.cpp" line="179"/>
         <source>All</source>
         <translation>全て</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/VariablesTabView.cpp" line="185" />
+        <location filename="../src/openstudio_lib/VariablesTabView.cpp" line="185"/>
         <source>Enabled</source>
         <translation>有効</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/VariablesTabView.cpp" line="191" />
+        <location filename="../src/openstudio_lib/VariablesTabView.cpp" line="191"/>
         <source>Disabled</source>
         <translation>無効</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/VariablesTabView.cpp" line="225" />
+        <location filename="../src/openstudio_lib/VariablesTabView.cpp" line="225"/>
         <source>Filter Variables</source>
         <translation>フィルター変数</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/VariablesTabView.cpp" line="232" />
+        <location filename="../src/openstudio_lib/VariablesTabView.cpp" line="232"/>
         <source>Use Regex</source>
         <translation>正規表現を使用</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/VariablesTabView.cpp" line="239" />
+        <location filename="../src/openstudio_lib/VariablesTabView.cpp" line="239"/>
         <source>Update Visible Variables</source>
         <translation>表示変数を更新</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/VariablesTabView.cpp" line="242" />
+        <location filename="../src/openstudio_lib/VariablesTabView.cpp" line="242"/>
         <source>All On</source>
         <translation>すべてオン</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/VariablesTabView.cpp" line="248" />
+        <location filename="../src/openstudio_lib/VariablesTabView.cpp" line="248"/>
         <source>All Off</source>
         <translation>すべてオフ</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/VariablesTabView.cpp" line="254" />
+        <location filename="../src/openstudio_lib/VariablesTabView.cpp" line="254"/>
         <source>Apply Frequency</source>
         <translation>頻度を適用</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/VariablesTabView.cpp" line="261" />
+        <location filename="../src/openstudio_lib/VariablesTabView.cpp" line="261"/>
         <source>Detailed</source>
         <translation>詳細</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/VariablesTabView.cpp" line="262" />
+        <location filename="../src/openstudio_lib/VariablesTabView.cpp" line="262"/>
         <source>Timestep</source>
         <translation>タイムステップ</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/VariablesTabView.cpp" line="263" />
+        <location filename="../src/openstudio_lib/VariablesTabView.cpp" line="263"/>
         <source>Hourly</source>
         <translation>時間ごと</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/VariablesTabView.cpp" line="264" />
+        <location filename="../src/openstudio_lib/VariablesTabView.cpp" line="264"/>
         <source>Daily</source>
         <translation>日次</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/VariablesTabView.cpp" line="265" />
+        <location filename="../src/openstudio_lib/VariablesTabView.cpp" line="265"/>
         <source>Monthly</source>
         <translation>月別</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/VariablesTabView.cpp" line="266" />
+        <location filename="../src/openstudio_lib/VariablesTabView.cpp" line="266"/>
         <source>RunPeriod</source>
         <translation>実行期間</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/VariablesTabView.cpp" line="267" />
+        <location filename="../src/openstudio_lib/VariablesTabView.cpp" line="267"/>
         <source>Annual</source>
         <translation>年間</translation>
     </message>
@@ -31544,7 +31555,7 @@ Zone</source>
 <context>
     <name>openstudio::VariablesTabView</name>
     <message>
-        <location filename="../src/openstudio_lib/VariablesTabView.cpp" line="484" />
+        <location filename="../src/openstudio_lib/VariablesTabView.cpp" line="484"/>
         <source>Output Variables</source>
         <translation>出力変数</translation>
     </message>
@@ -31552,8 +31563,8 @@ Zone</source>
 <context>
     <name>openstudio::WaterUseConnectionsDetailItem</name>
     <message>
-        <location filename="../src/openstudio_lib/ServiceWaterGridItems.cpp" line="49" />
-        <location filename="../src/openstudio_lib/ServiceWaterGridItems.cpp" line="188" />
+        <location filename="../src/openstudio_lib/ServiceWaterGridItems.cpp" line="49"/>
+        <location filename="../src/openstudio_lib/ServiceWaterGridItems.cpp" line="188"/>
         <source>Go back to water mains editor</source>
         <translation>給水本管エディタに戻る</translation>
     </message>
@@ -31561,7 +31572,7 @@ Zone</source>
 <context>
     <name>openstudio::WaterUseConnectionsDropZoneItem</name>
     <message>
-        <location filename="../src/openstudio_lib/ServiceWaterGridItems.cpp" line="510" />
+        <location filename="../src/openstudio_lib/ServiceWaterGridItems.cpp" line="510"/>
         <source>Drag Water Use Connections from Library</source>
         <translation>ライブラリから給水使用接続をドラッグ</translation>
     </message>
@@ -31569,32 +31580,32 @@ Zone</source>
 <context>
     <name>openstudio::WaterUseEquipmentDefinitionInspectorView</name>
     <message>
-        <location filename="../src/openstudio_lib/WaterUseEquipmentInspectorView.cpp" line="208" />
+        <location filename="../src/openstudio_lib/WaterUseEquipmentInspectorView.cpp" line="208"/>
         <source>Name: </source>
         <translation>ファイル名：</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/WaterUseEquipmentInspectorView.cpp" line="216" />
+        <location filename="../src/openstudio_lib/WaterUseEquipmentInspectorView.cpp" line="216"/>
         <source>End Use Subcategory: </source>
         <translation>エンドユース副分類:</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/WaterUseEquipmentInspectorView.cpp" line="224" />
+        <location filename="../src/openstudio_lib/WaterUseEquipmentInspectorView.cpp" line="224"/>
         <source>Peak Flow Rate: </source>
         <translation>ピークフロー率:</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/WaterUseEquipmentInspectorView.cpp" line="234" />
+        <location filename="../src/openstudio_lib/WaterUseEquipmentInspectorView.cpp" line="234"/>
         <source>Target Temperature Schedule: </source>
         <translation>目標温度スケジュール：</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/WaterUseEquipmentInspectorView.cpp" line="246" />
+        <location filename="../src/openstudio_lib/WaterUseEquipmentInspectorView.cpp" line="246"/>
         <source>Sensible Fraction Schedule: </source>
         <translation>顕熱分率スケジュール:</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/WaterUseEquipmentInspectorView.cpp" line="258" />
+        <location filename="../src/openstudio_lib/WaterUseEquipmentInspectorView.cpp" line="258"/>
         <source>Latent Fraction Schedule: </source>
         <translation>潜熱分率スケジュール:</translation>
     </message>
@@ -31602,7 +31613,7 @@ Zone</source>
 <context>
     <name>openstudio::WaterUseEquipmentDropZoneItem</name>
     <message>
-        <location filename="../src/openstudio_lib/ServiceWaterGridItems.cpp" line="501" />
+        <location filename="../src/openstudio_lib/ServiceWaterGridItems.cpp" line="501"/>
         <source>Drag Water Use Equipment from Library</source>
         <translation>ライブラリから給湯機器をドラッグ</translation>
     </message>
@@ -31610,147 +31621,147 @@ Zone</source>
 <context>
     <name>openstudio::WindowMaterialBlindInspectorView</name>
     <message>
-        <location filename="../src/openstudio_lib/WindowMaterialBlindInspectorView.cpp" line="50" />
+        <location filename="../src/openstudio_lib/WindowMaterialBlindInspectorView.cpp" line="50"/>
         <source>Name: </source>
         <translation>ファイル名：</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/WindowMaterialBlindInspectorView.cpp" line="69" />
+        <location filename="../src/openstudio_lib/WindowMaterialBlindInspectorView.cpp" line="69"/>
         <source>Slat Orientation: </source>
         <translation>スラット方向:</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/WindowMaterialBlindInspectorView.cpp" line="80" />
+        <location filename="../src/openstudio_lib/WindowMaterialBlindInspectorView.cpp" line="80"/>
         <source>Slat Width: </source>
         <translation>スラット幅:</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/WindowMaterialBlindInspectorView.cpp" line="90" />
+        <location filename="../src/openstudio_lib/WindowMaterialBlindInspectorView.cpp" line="90"/>
         <source>Slat Separation: </source>
         <translation>スラット間隔：</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/WindowMaterialBlindInspectorView.cpp" line="100" />
+        <location filename="../src/openstudio_lib/WindowMaterialBlindInspectorView.cpp" line="100"/>
         <source>Slat Thickness: </source>
         <translation>スラット厚さ:</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/WindowMaterialBlindInspectorView.cpp" line="110" />
+        <location filename="../src/openstudio_lib/WindowMaterialBlindInspectorView.cpp" line="110"/>
         <source>Slat Angle: </source>
         <translation>スラット角度：</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/WindowMaterialBlindInspectorView.cpp" line="120" />
+        <location filename="../src/openstudio_lib/WindowMaterialBlindInspectorView.cpp" line="120"/>
         <source>Slat Conductivity: </source>
         <translation>スラット熱伝導率:</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/WindowMaterialBlindInspectorView.cpp" line="130" />
+        <location filename="../src/openstudio_lib/WindowMaterialBlindInspectorView.cpp" line="130"/>
         <source>Slat Beam Solar Transmittance: </source>
         <translation>スラットビーム太陽透過率:</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/WindowMaterialBlindInspectorView.cpp" line="140" />
+        <location filename="../src/openstudio_lib/WindowMaterialBlindInspectorView.cpp" line="140"/>
         <source>Front Side Slat Beam Solar Reflectance: </source>
         <translation>フロント側スラット梁太陽反射率:</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/WindowMaterialBlindInspectorView.cpp" line="150" />
+        <location filename="../src/openstudio_lib/WindowMaterialBlindInspectorView.cpp" line="150"/>
         <source>Back Side Slat Beam Solar Reflectance: </source>
         <translation>Back Side Slat Beam Solar Reflectance:</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/WindowMaterialBlindInspectorView.cpp" line="160" />
+        <location filename="../src/openstudio_lib/WindowMaterialBlindInspectorView.cpp" line="160"/>
         <source>Slat Diffuse Solar Transmittance: </source>
         <translation>スラット拡散日射透過率:</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/WindowMaterialBlindInspectorView.cpp" line="170" />
+        <location filename="../src/openstudio_lib/WindowMaterialBlindInspectorView.cpp" line="170"/>
         <source>Front Side Slat Diffuse Solar Reflectance: </source>
         <translation>フロントサイド スラット拡散日射反射率:</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/WindowMaterialBlindInspectorView.cpp" line="180" />
+        <location filename="../src/openstudio_lib/WindowMaterialBlindInspectorView.cpp" line="180"/>
         <source>Back Side Slat Diffuse Solar Reflectance: </source>
         <translation>裏側スラット拡散日射反射率:</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/WindowMaterialBlindInspectorView.cpp" line="190" />
+        <location filename="../src/openstudio_lib/WindowMaterialBlindInspectorView.cpp" line="190"/>
         <source>Slat Beam Visible Transmittance: </source>
         <translation>スラットビーム可視透過率:</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/WindowMaterialBlindInspectorView.cpp" line="200" />
+        <location filename="../src/openstudio_lib/WindowMaterialBlindInspectorView.cpp" line="200"/>
         <source>Front Side Slat Beam Visible Reflectance: </source>
         <translation>フロント側スラット梁可視反射率：</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/WindowMaterialBlindInspectorView.cpp" line="210" />
+        <location filename="../src/openstudio_lib/WindowMaterialBlindInspectorView.cpp" line="210"/>
         <source>Back Side Slat Beam Visible Reflectance: </source>
         <translation>バック サイド スラット ビーム可視反射率:</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/WindowMaterialBlindInspectorView.cpp" line="220" />
+        <location filename="../src/openstudio_lib/WindowMaterialBlindInspectorView.cpp" line="220"/>
         <source>Slat Diffuse Visible Transmittance: </source>
         <translation>スラット拡散可視透過率:</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/WindowMaterialBlindInspectorView.cpp" line="230" />
+        <location filename="../src/openstudio_lib/WindowMaterialBlindInspectorView.cpp" line="230"/>
         <source>Front Side Slat Diffuse Visible Reflectance: </source>
         <translation>フロント側スラット拡散可視反射率:</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/WindowMaterialBlindInspectorView.cpp" line="241" />
+        <location filename="../src/openstudio_lib/WindowMaterialBlindInspectorView.cpp" line="241"/>
         <source>Back Side Slat Diffuse Visible Reflectance: </source>
         <translation>バックサイド スラット 拡散可視反射率:</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/WindowMaterialBlindInspectorView.cpp" line="251" />
+        <location filename="../src/openstudio_lib/WindowMaterialBlindInspectorView.cpp" line="251"/>
         <source>Slat Infrared Hemispherical Transmittance: </source>
         <translation>スラット赤外半球透過率:</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/WindowMaterialBlindInspectorView.cpp" line="262" />
+        <location filename="../src/openstudio_lib/WindowMaterialBlindInspectorView.cpp" line="262"/>
         <source>Front Side Slat Infrared Hemispherical Emissivity: </source>
         <translation>フロント側スラット赤外半球放射率:</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/WindowMaterialBlindInspectorView.cpp" line="273" />
+        <location filename="../src/openstudio_lib/WindowMaterialBlindInspectorView.cpp" line="273"/>
         <source>Back Side Slat Infrared Hemispherical Emissivity: </source>
         <translation>バックサイド(裏面)スラット赤外線半球放射率:</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/WindowMaterialBlindInspectorView.cpp" line="284" />
+        <location filename="../src/openstudio_lib/WindowMaterialBlindInspectorView.cpp" line="284"/>
         <source>Blind To Glass Distance: </source>
         <translation>ブラインドからガラスまでの距離:</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/WindowMaterialBlindInspectorView.cpp" line="294" />
+        <location filename="../src/openstudio_lib/WindowMaterialBlindInspectorView.cpp" line="294"/>
         <source>Blind Top Opening Multiplier: </source>
         <translation>ブラインド上部開口乗数:</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/WindowMaterialBlindInspectorView.cpp" line="304" />
+        <location filename="../src/openstudio_lib/WindowMaterialBlindInspectorView.cpp" line="304"/>
         <source>Blind Bottom Opening Multiplier: </source>
         <translation>ブラインド下部開口乗数：</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/WindowMaterialBlindInspectorView.cpp" line="314" />
+        <location filename="../src/openstudio_lib/WindowMaterialBlindInspectorView.cpp" line="314"/>
         <source>Blind Left Side Opening Multiplier: </source>
         <translation>ブラインド左側開口乗数:</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/WindowMaterialBlindInspectorView.cpp" line="324" />
+        <location filename="../src/openstudio_lib/WindowMaterialBlindInspectorView.cpp" line="324"/>
         <source>Blind Right Side Opening Multiplier: </source>
         <translation>ブラインド右側開口乗数:</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/WindowMaterialBlindInspectorView.cpp" line="334" />
+        <location filename="../src/openstudio_lib/WindowMaterialBlindInspectorView.cpp" line="334"/>
         <source>Minimum Slat Angle: </source>
         <translation>最小スラット角度:</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/WindowMaterialBlindInspectorView.cpp" line="344" />
+        <location filename="../src/openstudio_lib/WindowMaterialBlindInspectorView.cpp" line="344"/>
         <source>Maximum Slat Angle: </source>
         <translation>最大スラット角度:</translation>
     </message>
@@ -31758,12 +31769,12 @@ Zone</source>
 <context>
     <name>openstudio::WindowMaterialDaylightRedirectionDeviceInspectorView</name>
     <message>
-        <location filename="../src/openstudio_lib/WindowMaterialDaylightRedirectionDeviceInspectorView.cpp" line="52" />
+        <location filename="../src/openstudio_lib/WindowMaterialDaylightRedirectionDeviceInspectorView.cpp" line="52"/>
         <source>Name: </source>
         <translation>ファイル名：</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/WindowMaterialDaylightRedirectionDeviceInspectorView.cpp" line="71" />
+        <location filename="../src/openstudio_lib/WindowMaterialDaylightRedirectionDeviceInspectorView.cpp" line="71"/>
         <source>Daylight Redirection Device Type: </source>
         <translation>昼光リダイレクションデバイスタイプ:</translation>
     </message>
@@ -31771,52 +31782,52 @@ Zone</source>
 <context>
     <name>openstudio::WindowMaterialGasInspectorView</name>
     <message>
-        <location filename="../src/openstudio_lib/WindowMaterialGasInspectorView.cpp" line="50" />
+        <location filename="../src/openstudio_lib/WindowMaterialGasInspectorView.cpp" line="50"/>
         <source>Name: </source>
         <translation>ファイル名：</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/WindowMaterialGasInspectorView.cpp" line="69" />
+        <location filename="../src/openstudio_lib/WindowMaterialGasInspectorView.cpp" line="69"/>
         <source>Gas Type: </source>
         <translation>ガスタイプ:</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/WindowMaterialGasInspectorView.cpp" line="83" />
+        <location filename="../src/openstudio_lib/WindowMaterialGasInspectorView.cpp" line="83"/>
         <source>Thickness: </source>
         <translation>厚さ:</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/WindowMaterialGasInspectorView.cpp" line="93" />
+        <location filename="../src/openstudio_lib/WindowMaterialGasInspectorView.cpp" line="93"/>
         <source>Conductivity Coefficient A: </source>
         <translation>熱伝導率係数 A:</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/WindowMaterialGasInspectorView.cpp" line="103" />
+        <location filename="../src/openstudio_lib/WindowMaterialGasInspectorView.cpp" line="103"/>
         <source>Conductivity Coefficient B: </source>
         <translation>熱伝導率係数 B:</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/WindowMaterialGasInspectorView.cpp" line="113" />
+        <location filename="../src/openstudio_lib/WindowMaterialGasInspectorView.cpp" line="113"/>
         <source>Viscosity Coefficient A: </source>
         <translation>粘度係数 A:</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/WindowMaterialGasInspectorView.cpp" line="123" />
+        <location filename="../src/openstudio_lib/WindowMaterialGasInspectorView.cpp" line="123"/>
         <source>Viscosity Coefficient B: </source>
         <translation>粘度係数 B:</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/WindowMaterialGasInspectorView.cpp" line="133" />
+        <location filename="../src/openstudio_lib/WindowMaterialGasInspectorView.cpp" line="133"/>
         <source>Specific Heat Coefficient A: </source>
         <translation>比熱係数 A:</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/WindowMaterialGasInspectorView.cpp" line="143" />
+        <location filename="../src/openstudio_lib/WindowMaterialGasInspectorView.cpp" line="143"/>
         <source>Specific Heat Coefficient B: </source>
         <translation>比熱係数 B:</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/WindowMaterialGasInspectorView.cpp" line="152" />
+        <location filename="../src/openstudio_lib/WindowMaterialGasInspectorView.cpp" line="152"/>
         <source>Molecular Weight: </source>
         <translation>分子量：</translation>
     </message>
@@ -31824,57 +31835,57 @@ Zone</source>
 <context>
     <name>openstudio::WindowMaterialGasMixtureInspectorView</name>
     <message>
-        <location filename="../src/openstudio_lib/WindowMaterialGasMixtureInspectorView.cpp" line="51" />
+        <location filename="../src/openstudio_lib/WindowMaterialGasMixtureInspectorView.cpp" line="51"/>
         <source>Name: </source>
         <translation>ファイル名：</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/WindowMaterialGasMixtureInspectorView.cpp" line="70" />
+        <location filename="../src/openstudio_lib/WindowMaterialGasMixtureInspectorView.cpp" line="70"/>
         <source>Thickness: </source>
         <translation>厚さ:</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/WindowMaterialGasMixtureInspectorView.cpp" line="80" />
+        <location filename="../src/openstudio_lib/WindowMaterialGasMixtureInspectorView.cpp" line="80"/>
         <source>Number Of Gases In Mixture: </source>
         <translation>混合物中のガス数:</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/WindowMaterialGasMixtureInspectorView.cpp" line="91" />
+        <location filename="../src/openstudio_lib/WindowMaterialGasMixtureInspectorView.cpp" line="91"/>
         <source>Gas 1 Fraction: </source>
         <translation>ガス1分率:</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/WindowMaterialGasMixtureInspectorView.cpp" line="101" />
+        <location filename="../src/openstudio_lib/WindowMaterialGasMixtureInspectorView.cpp" line="101"/>
         <source>Gas 1 Type: </source>
         <translation>ガス1種類:</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/WindowMaterialGasMixtureInspectorView.cpp" line="116" />
+        <location filename="../src/openstudio_lib/WindowMaterialGasMixtureInspectorView.cpp" line="116"/>
         <source>Gas 2 Fraction: </source>
         <translation>ガス2分率:</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/WindowMaterialGasMixtureInspectorView.cpp" line="126" />
+        <location filename="../src/openstudio_lib/WindowMaterialGasMixtureInspectorView.cpp" line="126"/>
         <source>Gas 2 Type: </source>
         <translation>ガス2タイプ:</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/WindowMaterialGasMixtureInspectorView.cpp" line="141" />
+        <location filename="../src/openstudio_lib/WindowMaterialGasMixtureInspectorView.cpp" line="141"/>
         <source>Gas 3 Fraction: </source>
         <translation>ガス3の割合:</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/WindowMaterialGasMixtureInspectorView.cpp" line="151" />
+        <location filename="../src/openstudio_lib/WindowMaterialGasMixtureInspectorView.cpp" line="151"/>
         <source>Gas 3 Type: </source>
         <translation>ガス3タイプ:</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/WindowMaterialGasMixtureInspectorView.cpp" line="166" />
+        <location filename="../src/openstudio_lib/WindowMaterialGasMixtureInspectorView.cpp" line="166"/>
         <source>Gas 4 Fraction: </source>
         <translation>ガス 4 分率:</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/WindowMaterialGasMixtureInspectorView.cpp" line="176" />
+        <location filename="../src/openstudio_lib/WindowMaterialGasMixtureInspectorView.cpp" line="176"/>
         <source>Gas 4 Type: </source>
         <translation>ガス4タイプ:</translation>
     </message>
@@ -31882,82 +31893,82 @@ Zone</source>
 <context>
     <name>openstudio::WindowMaterialGlazingInspectorView</name>
     <message>
-        <location filename="../src/openstudio_lib/WindowMaterialGlazingInspectorView.cpp" line="53" />
+        <location filename="../src/openstudio_lib/WindowMaterialGlazingInspectorView.cpp" line="53"/>
         <source>Name: </source>
         <translation>ファイル名：</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/WindowMaterialGlazingInspectorView.cpp" line="72" />
+        <location filename="../src/openstudio_lib/WindowMaterialGlazingInspectorView.cpp" line="72"/>
         <source>Optical Data Type: </source>
         <translation>光学データタイプ:</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/WindowMaterialGlazingInspectorView.cpp" line="83" />
+        <location filename="../src/openstudio_lib/WindowMaterialGlazingInspectorView.cpp" line="83"/>
         <source>Window Glass Spectral Data Set Name: </source>
         <translation>ウィンドウガラススペクトルデータセット名:</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/WindowMaterialGlazingInspectorView.cpp" line="92" />
+        <location filename="../src/openstudio_lib/WindowMaterialGlazingInspectorView.cpp" line="92"/>
         <source>Thickness: </source>
         <translation>厚さ:</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/WindowMaterialGlazingInspectorView.cpp" line="102" />
+        <location filename="../src/openstudio_lib/WindowMaterialGlazingInspectorView.cpp" line="102"/>
         <source>Solar Transmittance At Normal Incidence: </source>
         <translation>法線入射時の太陽透過率:</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/WindowMaterialGlazingInspectorView.cpp" line="112" />
+        <location filename="../src/openstudio_lib/WindowMaterialGlazingInspectorView.cpp" line="112"/>
         <source>Front Side Solar Reflectance At Normal Incidence: </source>
         <translation>法線入射時の表面太陽反射率:</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/WindowMaterialGlazingInspectorView.cpp" line="123" />
+        <location filename="../src/openstudio_lib/WindowMaterialGlazingInspectorView.cpp" line="123"/>
         <source>Back Side Solar Reflectance At Normal Incidence: </source>
         <translation>背面の法線入射時太陽反射率:</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/WindowMaterialGlazingInspectorView.cpp" line="134" />
+        <location filename="../src/openstudio_lib/WindowMaterialGlazingInspectorView.cpp" line="134"/>
         <source>Visible Transmittance At Normal Incidence: </source>
         <translation>法線入射時の可視透過率：</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/WindowMaterialGlazingInspectorView.cpp" line="145" />
+        <location filename="../src/openstudio_lib/WindowMaterialGlazingInspectorView.cpp" line="145"/>
         <source>Front Side Visible Reflectance At Normal Incidence: </source>
         <translation>法線入射時の表面可視反射率:</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/WindowMaterialGlazingInspectorView.cpp" line="156" />
+        <location filename="../src/openstudio_lib/WindowMaterialGlazingInspectorView.cpp" line="156"/>
         <source>Back Side Visible Reflectance At Normal Incidence: </source>
         <translation>背面法線入射可視反射率:</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/WindowMaterialGlazingInspectorView.cpp" line="167" />
+        <location filename="../src/openstudio_lib/WindowMaterialGlazingInspectorView.cpp" line="167"/>
         <source>Infrared Transmittance at Normal Incidence: </source>
         <translation>法線入射時の赤外線透過率：</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/WindowMaterialGlazingInspectorView.cpp" line="178" />
+        <location filename="../src/openstudio_lib/WindowMaterialGlazingInspectorView.cpp" line="178"/>
         <source>Front Side Infrared Hemispherical Emissivity: </source>
         <translation>前面赤外半球放射率：</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/WindowMaterialGlazingInspectorView.cpp" line="189" />
+        <location filename="../src/openstudio_lib/WindowMaterialGlazingInspectorView.cpp" line="189"/>
         <source>Back Side Infrared Hemispherical Emissivity: </source>
         <translation>背面赤外線半球放射率：</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/WindowMaterialGlazingInspectorView.cpp" line="200" />
+        <location filename="../src/openstudio_lib/WindowMaterialGlazingInspectorView.cpp" line="200"/>
         <source>Conductivity: </source>
         <translation>熱伝導率:</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/WindowMaterialGlazingInspectorView.cpp" line="210" />
+        <location filename="../src/openstudio_lib/WindowMaterialGlazingInspectorView.cpp" line="210"/>
         <source>Dirt Correction Factor For Solar And Visible Transmittance: </source>
         <translation>太陽光および可視光透過率のための汚れ補正係数:</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/WindowMaterialGlazingInspectorView.cpp" line="221" />
+        <location filename="../src/openstudio_lib/WindowMaterialGlazingInspectorView.cpp" line="221"/>
         <source>Solar Diffusing: </source>
         <translation>太陽光拡散:</translation>
     </message>
@@ -31965,57 +31976,57 @@ Zone</source>
 <context>
     <name>openstudio::WindowMaterialGlazingRefractionExtinctionMethodInspectorView</name>
     <message>
-        <location filename="../src/openstudio_lib/WindowMaterialGlazingRefractionExtinctionMethodInspectorView.cpp" line="51" />
+        <location filename="../src/openstudio_lib/WindowMaterialGlazingRefractionExtinctionMethodInspectorView.cpp" line="51"/>
         <source>Name: </source>
         <translation>ファイル名：</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/WindowMaterialGlazingRefractionExtinctionMethodInspectorView.cpp" line="70" />
+        <location filename="../src/openstudio_lib/WindowMaterialGlazingRefractionExtinctionMethodInspectorView.cpp" line="70"/>
         <source>Thickness: </source>
         <translation>厚さ:</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/WindowMaterialGlazingRefractionExtinctionMethodInspectorView.cpp" line="80" />
+        <location filename="../src/openstudio_lib/WindowMaterialGlazingRefractionExtinctionMethodInspectorView.cpp" line="80"/>
         <source>Solar Index Of Refraction: </source>
         <translation>太陽屈折率指数：</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/WindowMaterialGlazingRefractionExtinctionMethodInspectorView.cpp" line="91" />
+        <location filename="../src/openstudio_lib/WindowMaterialGlazingRefractionExtinctionMethodInspectorView.cpp" line="91"/>
         <source>Solar Extinction Coefficient: </source>
         <translation>太陽消光係数:</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/WindowMaterialGlazingRefractionExtinctionMethodInspectorView.cpp" line="102" />
+        <location filename="../src/openstudio_lib/WindowMaterialGlazingRefractionExtinctionMethodInspectorView.cpp" line="102"/>
         <source>Visible Index of Refraction: </source>
         <translation>可視光屈折率:</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/WindowMaterialGlazingRefractionExtinctionMethodInspectorView.cpp" line="113" />
+        <location filename="../src/openstudio_lib/WindowMaterialGlazingRefractionExtinctionMethodInspectorView.cpp" line="113"/>
         <source>Visible Extinction Coefficient: </source>
         <translation>可視光消滅係数:</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/WindowMaterialGlazingRefractionExtinctionMethodInspectorView.cpp" line="124" />
+        <location filename="../src/openstudio_lib/WindowMaterialGlazingRefractionExtinctionMethodInspectorView.cpp" line="124"/>
         <source>Infrared Transmittance At Normal Incidence: </source>
         <translation>赤外線透過率（正入射時）:</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/WindowMaterialGlazingRefractionExtinctionMethodInspectorView.cpp" line="135" />
+        <location filename="../src/openstudio_lib/WindowMaterialGlazingRefractionExtinctionMethodInspectorView.cpp" line="135"/>
         <source>Infrared Hemispherical Emissivity: </source>
         <translation>赤外線半球放射率:</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/WindowMaterialGlazingRefractionExtinctionMethodInspectorView.cpp" line="146" />
+        <location filename="../src/openstudio_lib/WindowMaterialGlazingRefractionExtinctionMethodInspectorView.cpp" line="146"/>
         <source>Conductivity: </source>
         <translation>熱伝導率:</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/WindowMaterialGlazingRefractionExtinctionMethodInspectorView.cpp" line="157" />
+        <location filename="../src/openstudio_lib/WindowMaterialGlazingRefractionExtinctionMethodInspectorView.cpp" line="157"/>
         <source>Dirt Correction Factor For Solar And Visible Transmittance: </source>
         <translation>太陽光および可視光透過率のための汚れ補正係数:</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/WindowMaterialGlazingRefractionExtinctionMethodInspectorView.cpp" line="168" />
+        <location filename="../src/openstudio_lib/WindowMaterialGlazingRefractionExtinctionMethodInspectorView.cpp" line="168"/>
         <source>Solar Diffusing: </source>
         <translation>太陽拡散:</translation>
     </message>
@@ -32023,72 +32034,72 @@ Zone</source>
 <context>
     <name>openstudio::WindowMaterialScreenInspectorView</name>
     <message>
-        <location filename="../src/openstudio_lib/WindowMaterialScreenInspectorView.cpp" line="50" />
+        <location filename="../src/openstudio_lib/WindowMaterialScreenInspectorView.cpp" line="50"/>
         <source>Name: </source>
         <translation>ファイル名：</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/WindowMaterialScreenInspectorView.cpp" line="69" />
+        <location filename="../src/openstudio_lib/WindowMaterialScreenInspectorView.cpp" line="69"/>
         <source>Reflected Beam Transmittance Accounting Method: </source>
         <translation>反射ビーム透過率計算方法：</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/WindowMaterialScreenInspectorView.cpp" line="81" />
+        <location filename="../src/openstudio_lib/WindowMaterialScreenInspectorView.cpp" line="81"/>
         <source>Diffuse Solar Reflectance: </source>
         <translation>拡散日射反射率:</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/WindowMaterialScreenInspectorView.cpp" line="91" />
+        <location filename="../src/openstudio_lib/WindowMaterialScreenInspectorView.cpp" line="91"/>
         <source>Diffuse Visible Reflectance: </source>
         <translation>拡散可視反射率:</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/WindowMaterialScreenInspectorView.cpp" line="101" />
+        <location filename="../src/openstudio_lib/WindowMaterialScreenInspectorView.cpp" line="101"/>
         <source>Thermal Hemispherical Emissivity: </source>
         <translation>熱半球放射率:</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/WindowMaterialScreenInspectorView.cpp" line="111" />
+        <location filename="../src/openstudio_lib/WindowMaterialScreenInspectorView.cpp" line="111"/>
         <source>Conductivity: </source>
         <translation>熱伝導率:</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/WindowMaterialScreenInspectorView.cpp" line="121" />
+        <location filename="../src/openstudio_lib/WindowMaterialScreenInspectorView.cpp" line="121"/>
         <source>Screen Material Spacing: </source>
         <translation>スクリーン材料間隔:</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/WindowMaterialScreenInspectorView.cpp" line="131" />
+        <location filename="../src/openstudio_lib/WindowMaterialScreenInspectorView.cpp" line="131"/>
         <source>Screen Material Diameter: </source>
         <translation>スクリーン材料直径:</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/WindowMaterialScreenInspectorView.cpp" line="141" />
+        <location filename="../src/openstudio_lib/WindowMaterialScreenInspectorView.cpp" line="141"/>
         <source>Screen To Glass Distance: </source>
         <translation>スクリーン・ガラス間距離:</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/WindowMaterialScreenInspectorView.cpp" line="151" />
+        <location filename="../src/openstudio_lib/WindowMaterialScreenInspectorView.cpp" line="151"/>
         <source>Top Opening Multiplier: </source>
         <translation>上部開口乗数:</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/WindowMaterialScreenInspectorView.cpp" line="161" />
+        <location filename="../src/openstudio_lib/WindowMaterialScreenInspectorView.cpp" line="161"/>
         <source>Bottom Opening Multiplier: </source>
         <translation>下部開口乗数:</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/WindowMaterialScreenInspectorView.cpp" line="171" />
+        <location filename="../src/openstudio_lib/WindowMaterialScreenInspectorView.cpp" line="171"/>
         <source>Left Side Opening Multiplier: </source>
         <translation>左側開口倍数:</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/WindowMaterialScreenInspectorView.cpp" line="181" />
+        <location filename="../src/openstudio_lib/WindowMaterialScreenInspectorView.cpp" line="181"/>
         <source>Right Side Opening Multiplier: </source>
         <translation>右側開口乗数:</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/WindowMaterialScreenInspectorView.cpp" line="191" />
+        <location filename="../src/openstudio_lib/WindowMaterialScreenInspectorView.cpp" line="191"/>
         <source>Angle Of Resolution For Screen Transmittance Output Map: </source>
         <translation>スクリーン透過率出力マップの解析角度:</translation>
     </message>
@@ -32096,77 +32107,77 @@ Zone</source>
 <context>
     <name>openstudio::WindowMaterialShadeInspectorView</name>
     <message>
-        <location filename="../src/openstudio_lib/WindowMaterialShadeInspectorView.cpp" line="49" />
+        <location filename="../src/openstudio_lib/WindowMaterialShadeInspectorView.cpp" line="49"/>
         <source>Name: </source>
         <translation>ファイル名：</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/WindowMaterialShadeInspectorView.cpp" line="68" />
+        <location filename="../src/openstudio_lib/WindowMaterialShadeInspectorView.cpp" line="68"/>
         <source>Solar Transmittance: </source>
         <translation>日射透過率:</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/WindowMaterialShadeInspectorView.cpp" line="78" />
+        <location filename="../src/openstudio_lib/WindowMaterialShadeInspectorView.cpp" line="78"/>
         <source>Solar Reflectance: </source>
         <translation>太陽反射率:</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/WindowMaterialShadeInspectorView.cpp" line="88" />
+        <location filename="../src/openstudio_lib/WindowMaterialShadeInspectorView.cpp" line="88"/>
         <source>Visible Transmittance: </source>
         <translation>可視光透過率:</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/WindowMaterialShadeInspectorView.cpp" line="98" />
+        <location filename="../src/openstudio_lib/WindowMaterialShadeInspectorView.cpp" line="98"/>
         <source>Visible Reflectance: </source>
         <translation>可視反射率：</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/WindowMaterialShadeInspectorView.cpp" line="108" />
+        <location filename="../src/openstudio_lib/WindowMaterialShadeInspectorView.cpp" line="108"/>
         <source>Thermal Hemispherical Emissivity: </source>
         <translation>熱半球放射率：</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/WindowMaterialShadeInspectorView.cpp" line="118" />
+        <location filename="../src/openstudio_lib/WindowMaterialShadeInspectorView.cpp" line="118"/>
         <source>Thermal Transmittance: </source>
         <translation>熱貫流率:</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/WindowMaterialShadeInspectorView.cpp" line="128" />
+        <location filename="../src/openstudio_lib/WindowMaterialShadeInspectorView.cpp" line="128"/>
         <source>Thickness: </source>
         <translation>厚さ:</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/WindowMaterialShadeInspectorView.cpp" line="138" />
+        <location filename="../src/openstudio_lib/WindowMaterialShadeInspectorView.cpp" line="138"/>
         <source>Conductivity: </source>
         <translation>熱伝導率：</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/WindowMaterialShadeInspectorView.cpp" line="148" />
+        <location filename="../src/openstudio_lib/WindowMaterialShadeInspectorView.cpp" line="148"/>
         <source>Shade To Glass Distance: </source>
         <translation>シェード・ツー・ガラス距離:</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/WindowMaterialShadeInspectorView.cpp" line="158" />
+        <location filename="../src/openstudio_lib/WindowMaterialShadeInspectorView.cpp" line="158"/>
         <source>Top Opening Multiplier: </source>
         <translation>トップオープニング乗数:</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/WindowMaterialShadeInspectorView.cpp" line="168" />
+        <location filename="../src/openstudio_lib/WindowMaterialShadeInspectorView.cpp" line="168"/>
         <source>Bottom Opening Multiplier: </source>
         <translation>下部開口乗数：</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/WindowMaterialShadeInspectorView.cpp" line="178" />
+        <location filename="../src/openstudio_lib/WindowMaterialShadeInspectorView.cpp" line="178"/>
         <source>Left-Side Opening Multiplier: </source>
         <translation>左側開口倍数:</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/WindowMaterialShadeInspectorView.cpp" line="188" />
+        <location filename="../src/openstudio_lib/WindowMaterialShadeInspectorView.cpp" line="188"/>
         <source>Right-Side Opening Multiplier: </source>
         <translation>右側開口乗数:</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/WindowMaterialShadeInspectorView.cpp" line="198" />
+        <location filename="../src/openstudio_lib/WindowMaterialShadeInspectorView.cpp" line="198"/>
         <source>Airflow Permeability: </source>
         <translation>通気性:</translation>
     </message>
@@ -32174,22 +32185,22 @@ Zone</source>
 <context>
     <name>openstudio::WindowMaterialSimpleGlazingSystemInspectorView</name>
     <message>
-        <location filename="../src/openstudio_lib/WindowMaterialSimpleGlazingSystemInspectorView.cpp" line="50" />
+        <location filename="../src/openstudio_lib/WindowMaterialSimpleGlazingSystemInspectorView.cpp" line="50"/>
         <source>Name: </source>
         <translation>ファイル名：</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/WindowMaterialSimpleGlazingSystemInspectorView.cpp" line="69" />
+        <location filename="../src/openstudio_lib/WindowMaterialSimpleGlazingSystemInspectorView.cpp" line="69"/>
         <source>U-Factor: </source>
         <translation>U値:</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/WindowMaterialSimpleGlazingSystemInspectorView.cpp" line="79" />
+        <location filename="../src/openstudio_lib/WindowMaterialSimpleGlazingSystemInspectorView.cpp" line="79"/>
         <source>Solar Heat Gain Coefficient: </source>
         <translation>日射熱取得係数:</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/WindowMaterialSimpleGlazingSystemInspectorView.cpp" line="90" />
+        <location filename="../src/openstudio_lib/WindowMaterialSimpleGlazingSystemInspectorView.cpp" line="90"/>
         <source>Visible Transmittance: </source>
         <translation>可視光線透過率:</translation>
     </message>
@@ -32197,176 +32208,176 @@ Zone</source>
 <context>
     <name>openstudio::YearSettingsWidget</name>
     <message>
-        <location filename="../src/openstudio_lib/YearSettingsWidget.cpp" line="57" />
+        <location filename="../src/openstudio_lib/YearSettingsWidget.cpp" line="57"/>
         <source>Select Year by:</source>
         <translation>年を選択：</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/YearSettingsWidget.cpp" line="69" />
+        <location filename="../src/openstudio_lib/YearSettingsWidget.cpp" line="69"/>
         <source>Calendar Year</source>
         <translation>暦年</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/YearSettingsWidget.cpp" line="82" />
+        <location filename="../src/openstudio_lib/YearSettingsWidget.cpp" line="82"/>
         <source>First Day of Year</source>
         <translation>最初の曜日</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/YearSettingsWidget.cpp" line="105" />
+        <location filename="../src/openstudio_lib/YearSettingsWidget.cpp" line="105"/>
         <source>Daylight Savings Time:</source>
         <translation>夏時間：</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/YearSettingsWidget.cpp" line="123" />
+        <location filename="../src/openstudio_lib/YearSettingsWidget.cpp" line="123"/>
         <source>Starts</source>
         <translation>開始</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/YearSettingsWidget.cpp" line="129" />
-        <location filename="../src/openstudio_lib/YearSettingsWidget.cpp" line="158" />
+        <location filename="../src/openstudio_lib/YearSettingsWidget.cpp" line="129"/>
+        <location filename="../src/openstudio_lib/YearSettingsWidget.cpp" line="158"/>
         <source>Define by Day of The Week And Month</source>
         <translation>曜日と月で決める</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/YearSettingsWidget.cpp" line="142" />
-        <location filename="../src/openstudio_lib/YearSettingsWidget.cpp" line="171" />
+        <location filename="../src/openstudio_lib/YearSettingsWidget.cpp" line="142"/>
+        <location filename="../src/openstudio_lib/YearSettingsWidget.cpp" line="171"/>
         <source>Define by Date</source>
         <translation>日付で決める</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/YearSettingsWidget.cpp" line="152" />
+        <location filename="../src/openstudio_lib/YearSettingsWidget.cpp" line="152"/>
         <source>Ends</source>
         <translation>終了</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/YearSettingsWidget.cpp" line="478" />
+        <location filename="../src/openstudio_lib/YearSettingsWidget.cpp" line="478"/>
         <source>First</source>
         <translation>第1</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/YearSettingsWidget.cpp" line="478" />
+        <location filename="../src/openstudio_lib/YearSettingsWidget.cpp" line="478"/>
         <source>Second</source>
         <translation>第2</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/YearSettingsWidget.cpp" line="478" />
+        <location filename="../src/openstudio_lib/YearSettingsWidget.cpp" line="478"/>
         <source>Third</source>
         <translation>第3</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/YearSettingsWidget.cpp" line="478" />
+        <location filename="../src/openstudio_lib/YearSettingsWidget.cpp" line="478"/>
         <source>Fourth</source>
         <translation>第４</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/YearSettingsWidget.cpp" line="478" />
+        <location filename="../src/openstudio_lib/YearSettingsWidget.cpp" line="478"/>
         <source>Last</source>
         <translation>最終</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/YearSettingsWidget.cpp" line="485" />
-        <location filename="../src/openstudio_lib/YearSettingsWidget.cpp" line="491" />
+        <location filename="../src/openstudio_lib/YearSettingsWidget.cpp" line="485"/>
+        <location filename="../src/openstudio_lib/YearSettingsWidget.cpp" line="491"/>
         <source>Sunday</source>
         <translation>日曜日</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/YearSettingsWidget.cpp" line="485" />
-        <location filename="../src/openstudio_lib/YearSettingsWidget.cpp" line="491" />
+        <location filename="../src/openstudio_lib/YearSettingsWidget.cpp" line="485"/>
+        <location filename="../src/openstudio_lib/YearSettingsWidget.cpp" line="491"/>
         <source>Monday</source>
         <translation>月曜日</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/YearSettingsWidget.cpp" line="485" />
-        <location filename="../src/openstudio_lib/YearSettingsWidget.cpp" line="491" />
+        <location filename="../src/openstudio_lib/YearSettingsWidget.cpp" line="485"/>
+        <location filename="../src/openstudio_lib/YearSettingsWidget.cpp" line="491"/>
         <source>Tuesday</source>
         <translation>火曜日</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/YearSettingsWidget.cpp" line="485" />
-        <location filename="../src/openstudio_lib/YearSettingsWidget.cpp" line="491" />
+        <location filename="../src/openstudio_lib/YearSettingsWidget.cpp" line="485"/>
+        <location filename="../src/openstudio_lib/YearSettingsWidget.cpp" line="491"/>
         <source>Wednesday</source>
         <translation>水曜日</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/YearSettingsWidget.cpp" line="486" />
-        <location filename="../src/openstudio_lib/YearSettingsWidget.cpp" line="491" />
+        <location filename="../src/openstudio_lib/YearSettingsWidget.cpp" line="486"/>
+        <location filename="../src/openstudio_lib/YearSettingsWidget.cpp" line="491"/>
         <source>Thursday</source>
         <translation>木曜日</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/YearSettingsWidget.cpp" line="486" />
-        <location filename="../src/openstudio_lib/YearSettingsWidget.cpp" line="491" />
+        <location filename="../src/openstudio_lib/YearSettingsWidget.cpp" line="486"/>
+        <location filename="../src/openstudio_lib/YearSettingsWidget.cpp" line="491"/>
         <source>Friday</source>
         <translation>金曜日</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/YearSettingsWidget.cpp" line="486" />
-        <location filename="../src/openstudio_lib/YearSettingsWidget.cpp" line="491" />
+        <location filename="../src/openstudio_lib/YearSettingsWidget.cpp" line="486"/>
+        <location filename="../src/openstudio_lib/YearSettingsWidget.cpp" line="491"/>
         <source>Saturday</source>
         <translation>土曜日</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/YearSettingsWidget.cpp" line="486" />
+        <location filename="../src/openstudio_lib/YearSettingsWidget.cpp" line="486"/>
         <source>UseWeatherFile</source>
         <translation>気象データから参照</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/YearSettingsWidget.cpp" line="497" />
+        <location filename="../src/openstudio_lib/YearSettingsWidget.cpp" line="497"/>
         <source>January</source>
         <translation>１月</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/YearSettingsWidget.cpp" line="497" />
+        <location filename="../src/openstudio_lib/YearSettingsWidget.cpp" line="497"/>
         <source>February</source>
         <translation>２月</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/YearSettingsWidget.cpp" line="497" />
+        <location filename="../src/openstudio_lib/YearSettingsWidget.cpp" line="497"/>
         <source>March</source>
         <translation>３月</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/YearSettingsWidget.cpp" line="497" />
+        <location filename="../src/openstudio_lib/YearSettingsWidget.cpp" line="497"/>
         <source>April</source>
         <translation>４月</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/YearSettingsWidget.cpp" line="497" />
+        <location filename="../src/openstudio_lib/YearSettingsWidget.cpp" line="497"/>
         <source>May</source>
         <translation>５月</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/YearSettingsWidget.cpp" line="497" />
+        <location filename="../src/openstudio_lib/YearSettingsWidget.cpp" line="497"/>
         <source>June</source>
         <translation>６月</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/YearSettingsWidget.cpp" line="498" />
+        <location filename="../src/openstudio_lib/YearSettingsWidget.cpp" line="498"/>
         <source>July</source>
         <translation>７月</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/YearSettingsWidget.cpp" line="498" />
+        <location filename="../src/openstudio_lib/YearSettingsWidget.cpp" line="498"/>
         <source>August</source>
         <translation>８月</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/YearSettingsWidget.cpp" line="498" />
+        <location filename="../src/openstudio_lib/YearSettingsWidget.cpp" line="498"/>
         <source>September</source>
         <translation>９月</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/YearSettingsWidget.cpp" line="498" />
+        <location filename="../src/openstudio_lib/YearSettingsWidget.cpp" line="498"/>
         <source>October</source>
         <translation>１０月</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/YearSettingsWidget.cpp" line="498" />
+        <location filename="../src/openstudio_lib/YearSettingsWidget.cpp" line="498"/>
         <source>November</source>
         <translation>１１月</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/YearSettingsWidget.cpp" line="498" />
+        <location filename="../src/openstudio_lib/YearSettingsWidget.cpp" line="498"/>
         <source>December</source>
         <translation>１２月</translation>
     </message>
@@ -32374,166 +32385,166 @@ Zone</source>
 <context>
     <name>openstudio::bimserver::ProjectImporter</name>
     <message>
-        <location filename="../src/bimserver/ProjectImporter.cpp" line="37" />
+        <location filename="../src/bimserver/ProjectImporter.cpp" line="37"/>
         <source>Download OSM File</source>
         <translation>OSMファイルをダウンロード</translation>
     </message>
     <message>
-        <location filename="../src/bimserver/ProjectImporter.cpp" line="39" />
-        <location filename="../src/bimserver/ProjectImporter.cpp" line="197" />
+        <location filename="../src/bimserver/ProjectImporter.cpp" line="39"/>
+        <location filename="../src/bimserver/ProjectImporter.cpp" line="197"/>
         <source>New Project</source>
         <translation>新規プロジェクト</translation>
     </message>
     <message>
-        <location filename="../src/bimserver/ProjectImporter.cpp" line="40" />
+        <location filename="../src/bimserver/ProjectImporter.cpp" line="40"/>
         <source>Check in IFC File</source>
         <translation>IFCファイルを確認</translation>
     </message>
     <message>
-        <location filename="../src/bimserver/ProjectImporter.cpp" line="42" />
+        <location filename="../src/bimserver/ProjectImporter.cpp" line="42"/>
         <source> &gt; </source>
         <translation>&gt;</translation>
     </message>
     <message>
-        <location filename="../src/bimserver/ProjectImporter.cpp" line="44" />
-        <location filename="../src/bimserver/ProjectImporter.cpp" line="204" />
-        <location filename="../src/bimserver/ProjectImporter.cpp" line="270" />
+        <location filename="../src/bimserver/ProjectImporter.cpp" line="44"/>
+        <location filename="../src/bimserver/ProjectImporter.cpp" line="204"/>
+        <location filename="../src/bimserver/ProjectImporter.cpp" line="270"/>
         <source>Cancel</source>
         <translation>キャンセル</translation>
     </message>
     <message>
-        <location filename="../src/bimserver/ProjectImporter.cpp" line="45" />
+        <location filename="../src/bimserver/ProjectImporter.cpp" line="45"/>
         <source>Setting</source>
         <translation>設定</translation>
     </message>
     <message>
-        <location filename="../src/bimserver/ProjectImporter.cpp" line="140" />
+        <location filename="../src/bimserver/ProjectImporter.cpp" line="140"/>
         <source>Project created, showing updated project list.</source>
         <translation>プロジェクトが作成されました。更新されたプロジェクトリストを表示します。</translation>
     </message>
     <message>
-        <location filename="../src/bimserver/ProjectImporter.cpp" line="144" />
+        <location filename="../src/bimserver/ProjectImporter.cpp" line="144"/>
         <source>IFC file loaded, showing updated IFC file list.</source>
         <translation>IFCファイルがロードされました。更新されたIFCファイルリストを表示します。</translation>
     </message>
     <message>
-        <location filename="../src/bimserver/ProjectImporter.cpp" line="149" />
+        <location filename="../src/bimserver/ProjectImporter.cpp" line="149"/>
         <source>Login success!</source>
         <translation>ログイン成功！</translation>
     </message>
     <message>
-        <location filename="../src/bimserver/ProjectImporter.cpp" line="163" />
+        <location filename="../src/bimserver/ProjectImporter.cpp" line="163"/>
         <source>BIMserver disconnected</source>
         <translation>BIMサーバーが切断されました</translation>
     </message>
     <message>
-        <location filename="../src/bimserver/ProjectImporter.cpp" line="165" />
+        <location filename="../src/bimserver/ProjectImporter.cpp" line="165"/>
         <source>BIMserver is not connected correctly. Please check if BIMserver is running and make sure your username and password are valid.
 </source>
         <translation>BIMサーバーが正しく接続されていません。BIMサーバーが実行されているか確認し、ユーザ名とパスワードが有効であることを確認してください。</translation>
     </message>
     <message>
-        <location filename="../src/bimserver/ProjectImporter.cpp" line="178" />
+        <location filename="../src/bimserver/ProjectImporter.cpp" line="178"/>
         <source>Please select a IFC version before proceeding.</source>
         <translation>実行する前にIFCのバージョンを選択さてください。</translation>
     </message>
     <message>
-        <location filename="../src/bimserver/ProjectImporter.cpp" line="185" />
+        <location filename="../src/bimserver/ProjectImporter.cpp" line="185"/>
         <source>Project selected, showing all versions of IFC files under it.</source>
         <translation>プロジェクトが選択されました。使用されているすべてのIFCファイルバージョンを表示します。</translation>
     </message>
     <message>
-        <location filename="../src/bimserver/ProjectImporter.cpp" line="189" />
+        <location filename="../src/bimserver/ProjectImporter.cpp" line="189"/>
         <source>Please select a project to see all the IFC versions under it.</source>
         <translation>プロジェクトを選択し、使用されているすべてのIFCファイルバージョンを表示します。</translation>
     </message>
     <message>
-        <location filename="../src/bimserver/ProjectImporter.cpp" line="194" />
+        <location filename="../src/bimserver/ProjectImporter.cpp" line="194"/>
         <source>Create a new project and upload it to the server.</source>
         <translation>プロジェクトを作成しサーバーにアップロード。</translation>
     </message>
     <message>
-        <location filename="../src/bimserver/ProjectImporter.cpp" line="200" />
+        <location filename="../src/bimserver/ProjectImporter.cpp" line="200"/>
         <source>Please enter the project name: </source>
         <translation>プロジェクト名を入力してください：</translation>
     </message>
     <message>
-        <location filename="../src/bimserver/ProjectImporter.cpp" line="201" />
+        <location filename="../src/bimserver/ProjectImporter.cpp" line="201"/>
         <source>Project Name:</source>
         <translation>プロジェクト名：</translation>
     </message>
     <message>
-        <location filename="../src/bimserver/ProjectImporter.cpp" line="203" />
+        <location filename="../src/bimserver/ProjectImporter.cpp" line="203"/>
         <source>Create Project</source>
         <translation>プロジェクトの作成</translation>
     </message>
     <message>
-        <location filename="../src/bimserver/ProjectImporter.cpp" line="226" />
+        <location filename="../src/bimserver/ProjectImporter.cpp" line="226"/>
         <source>Check in a new version IFC file for the selected project.</source>
         <translation>選択されたプロジェクトのための新しいIFCファイルのバージョンをチェックインする。</translation>
     </message>
     <message>
-        <location filename="../src/bimserver/ProjectImporter.cpp" line="232" />
+        <location filename="../src/bimserver/ProjectImporter.cpp" line="232"/>
         <source>Open IFC File</source>
         <translation>IFCファイルを開く</translation>
     </message>
     <message>
-        <location filename="../src/bimserver/ProjectImporter.cpp" line="232" />
+        <location filename="../src/bimserver/ProjectImporter.cpp" line="232"/>
         <source>IFC files (*.ifc)</source>
         <translation>IFC files (*.ifc)</translation>
     </message>
     <message>
-        <location filename="../src/bimserver/ProjectImporter.cpp" line="239" />
+        <location filename="../src/bimserver/ProjectImporter.cpp" line="239"/>
         <source>Please select a project to check in a new IFC version.</source>
         <translation>新しいIFCファイルのバージョンをチェックインするためプロジェクトを選択してください。</translation>
     </message>
     <message>
-        <location filename="../src/bimserver/ProjectImporter.cpp" line="250" />
+        <location filename="../src/bimserver/ProjectImporter.cpp" line="250"/>
         <source>Please specify the bimserver address/port and user credentials.</source>
         <translation>BIMサーバーアドレス/ポートとユーザー情報を指定してください。</translation>
     </message>
     <message>
-        <location filename="../src/bimserver/ProjectImporter.cpp" line="253" />
+        <location filename="../src/bimserver/ProjectImporter.cpp" line="253"/>
         <source>BIMserver Settings</source>
         <translation>BIMサーバーの設定</translation>
     </message>
     <message>
-        <location filename="../src/bimserver/ProjectImporter.cpp" line="255" />
+        <location filename="../src/bimserver/ProjectImporter.cpp" line="255"/>
         <source>Please enter the BIMserver information: </source>
         <translation>BIMサーバーの情報を入力してください：</translation>
     </message>
     <message>
-        <location filename="../src/bimserver/ProjectImporter.cpp" line="256" />
+        <location filename="../src/bimserver/ProjectImporter.cpp" line="256"/>
         <source>BIMserver Address: http://</source>
         <translation>BIMサーバーアドレス： http://</translation>
     </message>
     <message>
-        <location filename="../src/bimserver/ProjectImporter.cpp" line="259" />
+        <location filename="../src/bimserver/ProjectImporter.cpp" line="259"/>
         <source>BIMserver Port:</source>
         <translation>BIMサーバーポート：</translation>
     </message>
     <message>
-        <location filename="../src/bimserver/ProjectImporter.cpp" line="262" />
+        <location filename="../src/bimserver/ProjectImporter.cpp" line="262"/>
         <source>Username</source>
         <translation>ユーザー名</translation>
     </message>
     <message>
-        <location filename="../src/bimserver/ProjectImporter.cpp" line="265" />
+        <location filename="../src/bimserver/ProjectImporter.cpp" line="265"/>
         <source>Password</source>
         <translation>パスワード</translation>
     </message>
     <message>
-        <location filename="../src/bimserver/ProjectImporter.cpp" line="269" />
+        <location filename="../src/bimserver/ProjectImporter.cpp" line="269"/>
         <source>Okay</source>
         <translation>OK</translation>
     </message>
     <message>
-        <location filename="../src/bimserver/ProjectImporter.cpp" line="344" />
+        <location filename="../src/bimserver/ProjectImporter.cpp" line="344"/>
         <source>BIMserver not set up</source>
         <translation>BIMサーバーがセットアップされていません</translation>
     </message>
     <message>
-        <location filename="../src/bimserver/ProjectImporter.cpp" line="346" />
+        <location filename="../src/bimserver/ProjectImporter.cpp" line="346"/>
         <source>Please provide valid BIMserver address, port, your username and password. You may ask your BIMserver manager for such information.
 </source>
         <translation>BIMサーバーアドレス、ポート、ユーザー名、またはパスワードが間違っています。BIMサーバーマネージャーにご確認ください。</translation>
@@ -32542,9 +32553,9 @@ Zone</source>
 <context>
     <name>openstudio::measuretab::MeasureStepItemDelegate</name>
     <message>
-        <location filename="../src/shared_gui_components/WorkflowController.cpp" line="581" />
+        <location filename="../src/shared_gui_components/WorkflowController.cpp" line="581"/>
         <source>Python Measures are not supported in the Classic CLI.
-You can change CLI version using 'Preferences-&gt;Use Classic CLI'.</source>
+You can change CLI version using &apos;Preferences-&gt;Use Classic CLI&apos;.</source>
         <translation>Pythonメジャーはクラシックでは使用できません。
 CLIのバージョンは「設定-&gt;クラシックCLIを使用」で変更できます。</translation>
     </message>
@@ -32552,7 +32563,7 @@ CLIのバージョンは「設定-&gt;クラシックCLIを使用」で変更で
 <context>
     <name>openstudio::measuretab::NewMeasureDropZone</name>
     <message>
-        <location filename="../src/shared_gui_components/WorkflowView.cpp" line="66" />
+        <location filename="../src/shared_gui_components/WorkflowView.cpp" line="66"/>
         <source>Drop Measure From Library to Create a New Always Run Measure</source>
         <translation>ライブラリからメジャーをドラッグしてドロップして新しいAlways Runメジャーを作成</translation>
     </message>
@@ -32560,17 +32571,17 @@ CLIのバージョンは「設定-&gt;クラシックCLIを使用」で変更で
 <context>
     <name>openstudio::measuretab::WorkflowController</name>
     <message>
-        <location filename="../src/shared_gui_components/WorkflowController.cpp" line="47" />
+        <location filename="../src/shared_gui_components/WorkflowController.cpp" line="47"/>
         <source>OpenStudio Measures</source>
         <translation>OpenStudio Measures</translation>
     </message>
     <message>
-        <location filename="../src/shared_gui_components/WorkflowController.cpp" line="51" />
+        <location filename="../src/shared_gui_components/WorkflowController.cpp" line="51"/>
         <source>EnergyPlus Measures</source>
         <translation>EnergyPlus Measures</translation>
     </message>
     <message>
-        <location filename="../src/shared_gui_components/WorkflowController.cpp" line="55" />
+        <location filename="../src/shared_gui_components/WorkflowController.cpp" line="55"/>
         <source>Reporting Measures</source>
         <translation>レポーティングメジャー</translation>
     </message>

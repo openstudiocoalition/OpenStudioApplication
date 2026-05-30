@@ -32280,6 +32280,14 @@ di Preferensi</translation>
         <translation>Hasil EnergyPlus</translation>
     </message>
     <message>
+    <message>
+        <source>Units Conversion</source>
+        <translation>Konversi Satuan</translation>
+    </message>
+    <message>
+        <source>Would you like to display your Energy+ data in IP units?</source>
+        <translation>Apakah Anda ingin menampilkan data Energy+ dalam satuan IP?</translation>
+    </message>
         <source>Custom Report </source>
         <translation>Laporan Khusus</translation>
     </message>
