@@ -1,9 +1,10 @@
-<?xml version='1.0' encoding='utf-8'?>
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE TS>
 <TS version="2.1" language="hi">
 <context>
     <name>CalendarSegmentItem</name>
     <message>
-        <location filename="../src/openstudio_lib/ScheduleDayView.cpp" line="774" />
+        <location filename="../src/openstudio_lib/ScheduleDayView.cpp" line="774"/>
         <source>Double click to cut segment</source>
         <translation>डबल क्लिक करें सेगमेंट काटने के लिए</translation>
     </message>
@@ -3300,7 +3301,7 @@
         <source>Composite Framing Material</source>
         <translation>Composite Framing Material
 
-(Note: "Composite Framing Material" is a technical term in building energy modeling that is typically kept in English even in Hindi documents, as it refers to a specific material classification in EnergyPlus/OpenStudio. However, if a translation is strictly required, it would be: **मिश्रित फ्रेमिंग सामग्री**)</translation>
+(Note: &quot;Composite Framing Material&quot; is a technical term in building energy modeling that is typically kept in English even in Hindi documents, as it refers to a specific material classification in EnergyPlus/OpenStudio. However, if a translation is strictly required, it would be: **मिश्रित फ्रेमिंग सामग्री**)</translation>
     </message>
     <message>
         <source>Composite Framing Size</source>
@@ -12508,7 +12509,7 @@ I apologize - let me provide the correct Hindi translation:
         <source>Screen Material Spacing</source>
         <translation>स्क्रीन सामग्री间रिक्ति
 
-Note: This should be "स्क्रीन सामग्री间रिक्ति" - however, the correct Hindi translation is:
+Note: This should be &quot;स्क्रीन सामग्री间रिक्ति&quot; - however, the correct Hindi translation is:
 
 **स्क्रीन सामग्री अंतराल**
 
@@ -15149,28 +15150,28 @@ or
 <context>
     <name>InspectorDialog</name>
     <message>
-        <location filename="../src/model_editor/InspectorDialog.cpp" line="493" />
-        <location filename="../src/model_editor/InspectorDialog.cpp" line="494" />
+        <location filename="../src/model_editor/InspectorDialog.cpp" line="493"/>
+        <location filename="../src/model_editor/InspectorDialog.cpp" line="494"/>
         <source>OpenStudio Inspector</source>
         <translation>ओपेनस्टूडियो निरीक्षक</translation>
     </message>
     <message>
-        <location filename="../src/model_editor/InspectorDialog.cpp" line="573" />
+        <location filename="../src/model_editor/InspectorDialog.cpp" line="573"/>
         <source>Add new object</source>
         <translation>नया ऑब्जेक्ट जोड़ें</translation>
     </message>
     <message>
-        <location filename="../src/model_editor/InspectorDialog.cpp" line="577" />
+        <location filename="../src/model_editor/InspectorDialog.cpp" line="577"/>
         <source>Copy selected object</source>
         <translation>चयनित ऑब्जेक्ट की प्रतिलिपि बनाएँ</translation>
     </message>
     <message>
-        <location filename="../src/model_editor/InspectorDialog.cpp" line="581" />
+        <location filename="../src/model_editor/InspectorDialog.cpp" line="581"/>
         <source>Remove selected objects</source>
         <translation>चयनित ऑब्जेक्ट हटाएं</translation>
     </message>
     <message>
-        <location filename="../src/model_editor/InspectorDialog.cpp" line="585" />
+        <location filename="../src/model_editor/InspectorDialog.cpp" line="585"/>
         <source>Purge unused objects</source>
         <translatorcomment>La palabra purgar no tiene el mismo contexto en Español.</translatorcomment>
         <translation>Borrar todos los objetos sin usar</translation>
@@ -15179,23 +15180,23 @@ or
 <context>
     <name>InspectorGadget</name>
     <message>
-        <location filename="../src/model_editor/InspectorGadget.cpp" line="658" />
-        <location filename="../src/model_editor/InspectorGadget.cpp" line="703" />
+        <location filename="../src/model_editor/InspectorGadget.cpp" line="658"/>
+        <location filename="../src/model_editor/InspectorGadget.cpp" line="703"/>
         <source>Hard Sized</source>
         <translation>हार्ड साइज्ड</translation>
     </message>
     <message>
-        <location filename="../src/model_editor/InspectorGadget.cpp" line="659" />
+        <location filename="../src/model_editor/InspectorGadget.cpp" line="659"/>
         <source>Autosized</source>
         <translation>ऑटोसाइज्ड</translation>
     </message>
     <message>
-        <location filename="../src/model_editor/InspectorGadget.cpp" line="704" />
+        <location filename="../src/model_editor/InspectorGadget.cpp" line="704"/>
         <source>Autocalculate</source>
         <translation>स्व-गणना</translation>
     </message>
     <message>
-        <location filename="../src/model_editor/InspectorGadget.cpp" line="885" />
+        <location filename="../src/model_editor/InspectorGadget.cpp" line="885"/>
         <source>Add/Remove Extensible Groups</source>
         <translation>एक्स्टेंसिबल समूह जोड़ें/निकालें</translation>
     </message>
@@ -15203,7 +15204,7 @@ or
 <context>
     <name>LocationView</name>
     <message>
-        <location filename="../src/openstudio_lib/LocationTabView.cpp" line="839" />
+        <location filename="../src/openstudio_lib/LocationTabView.cpp" line="839"/>
         <source>Import Design Days</source>
         <translation>डिज़ाइन दिन आयात करें</translation>
     </message>
@@ -15211,20 +15212,20 @@ or
 <context>
     <name>ModelObjectSelectorDialog</name>
     <message>
-        <location filename="../src/model_editor/ModalDialogs.cpp" line="147" />
-        <location filename="../src/model_editor/ModalDialogs.cpp" line="148" />
+        <location filename="../src/model_editor/ModalDialogs.cpp" line="147"/>
+        <location filename="../src/model_editor/ModalDialogs.cpp" line="148"/>
         <source>Select Model Object</source>
         <translation>मॉडल ऑब्जेक्ट का चयन करें</translation>
     </message>
     <message>
-        <location filename="../src/model_editor/ModalDialogs.cpp" line="173" />
-        <location filename="../src/model_editor/ModalDialogs.cpp" line="174" />
+        <location filename="../src/model_editor/ModalDialogs.cpp" line="173"/>
+        <location filename="../src/model_editor/ModalDialogs.cpp" line="174"/>
         <source>OK</source>
         <translation>ठीक है</translation>
     </message>
     <message>
-        <location filename="../src/model_editor/ModalDialogs.cpp" line="178" />
-        <location filename="../src/model_editor/ModalDialogs.cpp" line="179" />
+        <location filename="../src/model_editor/ModalDialogs.cpp" line="178"/>
+        <location filename="../src/model_editor/ModalDialogs.cpp" line="179"/>
         <source>Cancel</source>
         <translation>रद्द करें</translation>
     </message>
@@ -16537,7 +16538,7 @@ or
 
 या
 
-**Ice Thermal Storage Bypass Quality Mass Flow Rate** यदि "Quality" शब्द संदर्भ में हो तो:
+**Ice Thermal Storage Bypass Quality Mass Flow Rate** यदि &quot;Quality&quot; शब्द संदर्भ में हो तो:
 
 **Ice Thermal Storage Bypass गुणवत्ता द्रव्यमान प्रवाह दर**</translation>
     </message>
@@ -17977,7 +17978,7 @@ or
         <source>Zone Electric Equipment Electricity Rate</source>
         <translation>Zone Electric Equipment Electricity Rate
 
-(Technical field name - keep as is, as it's a standard EnergyPlus/OpenStudio IDD field identifier)
+(Technical field name - keep as is, as it&apos;s a standard EnergyPlus/OpenStudio IDD field identifier)
 
 ---
 
@@ -19120,7 +19121,7 @@ Zone VRF Air Terminal अव्यक्त ताप दर</translation>
         <source>Zone Windows Total Heat Loss Rate</source>
         <translation>Zone Windows Total Heat Loss Rate
 
-(Technical IDD field names for energy modeling are typically kept in English. However, if a Hindi translation is preferred for UI purposes, it would be: "जोन विंडोज कुल ताप हानि दर")
+(Technical IDD field names for energy modeling are typically kept in English. However, if a Hindi translation is preferred for UI purposes, it would be: &quot;जोन विंडोज कुल ताप हानि दर&quot;)
 
 If you need the Hindi version:
 **जोन विंडोज कुल ताप हानि दर**</translation>
@@ -20560,7 +20561,7 @@ Ideal Loads आउटडोर एयर लेटेंट हीटिंग �
 <context>
     <name>ScheduleTypeLimitItem</name>
     <message>
-        <location filename="../src/openstudio_lib/ScheduleDayView.cpp" line="1150" />
+        <location filename="../src/openstudio_lib/ScheduleDayView.cpp" line="1150"/>
         <source>Schedule Type Limit</source>
         <translation>शेड्यूल प्रकार सीमा</translation>
     </message>
@@ -20755,17 +20756,17 @@ Ideal Loads आउटडोर एयर लेटेंट हीटिंग �
 <context>
     <name>UtilityBillsView</name>
     <message>
-        <location filename="../src/openstudio_lib/UtilityBillsView.cpp" line="63" />
+        <location filename="../src/openstudio_lib/UtilityBillsView.cpp" line="63"/>
         <source>Electric Utility Bill</source>
         <translation>विद्युत उपयोगिता बिल</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/UtilityBillsView.cpp" line="65" />
+        <location filename="../src/openstudio_lib/UtilityBillsView.cpp" line="65"/>
         <source>Gas Utility Bill</source>
         <translation>गैस उपयोगिता बिल</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/UtilityBillsView.cpp" line="67" />
+        <location filename="../src/openstudio_lib/UtilityBillsView.cpp" line="67"/>
         <source>District Heating Utility Bill</source>
         <translation>District Heating Utility Bill का हिंदी अनुवाद:
 
@@ -20774,47 +20775,47 @@ Ideal Loads आउटडोर एयर लेटेंट हीटिंग �
 (या अधिक संक्षिप्त रूप में: **क्षेत्र तापन उपयोगिता बिल**)</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/UtilityBillsView.cpp" line="69" />
+        <location filename="../src/openstudio_lib/UtilityBillsView.cpp" line="69"/>
         <source>District Cooling Utility Bill</source>
         <translation>जिला शीतलन उपयोगिता बिल</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/UtilityBillsView.cpp" line="71" />
+        <location filename="../src/openstudio_lib/UtilityBillsView.cpp" line="71"/>
         <source>Gasoline Utility Bill</source>
         <translation>गैसोलीन उपयोगिता बिल</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/UtilityBillsView.cpp" line="73" />
+        <location filename="../src/openstudio_lib/UtilityBillsView.cpp" line="73"/>
         <source>Diesel Utility Bill</source>
         <translation>डीजल उपयोगिता बिल</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/UtilityBillsView.cpp" line="75" />
+        <location filename="../src/openstudio_lib/UtilityBillsView.cpp" line="75"/>
         <source>Fuel Oil #1 Utility Bill</source>
         <translation>Fuel Oil #1 उपयोगिता बिल</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/UtilityBillsView.cpp" line="77" />
+        <location filename="../src/openstudio_lib/UtilityBillsView.cpp" line="77"/>
         <source>Fuel Oil #2 Utility Bill</source>
         <translation>Fuel Oil #2 उपयोगिता बिल</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/UtilityBillsView.cpp" line="79" />
+        <location filename="../src/openstudio_lib/UtilityBillsView.cpp" line="79"/>
         <source>Propane Utility Bill</source>
         <translation>प्रोपेन यूटिलिटी बिल</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/UtilityBillsView.cpp" line="81" />
+        <location filename="../src/openstudio_lib/UtilityBillsView.cpp" line="81"/>
         <source>Water Utility Bill</source>
         <translation>जल उपयोगिता बिल</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/UtilityBillsView.cpp" line="83" />
+        <location filename="../src/openstudio_lib/UtilityBillsView.cpp" line="83"/>
         <source>Steam Utility Bill</source>
         <translation>भाप उपयोगिता बिल</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/UtilityBillsView.cpp" line="85" />
+        <location filename="../src/openstudio_lib/UtilityBillsView.cpp" line="85"/>
         <source>Energy Transfer Utility Bill</source>
         <translation>ऊर्जा हस्तांतरण उपयोगिता बिल</translation>
     </message>
@@ -20822,7 +20823,7 @@ Ideal Loads आउटडोर एयर लेटेंट हीटिंग �
 <context>
     <name>VCalendarSegmentItem</name>
     <message>
-        <location filename="../src/openstudio_lib/ScheduleDayView.cpp" line="976" />
+        <location filename="../src/openstudio_lib/ScheduleDayView.cpp" line="976"/>
         <source>Double click to delete segment</source>
         <translation>डबल क्लिक करके सेगमेंट को हटाएं</translation>
     </message>
@@ -20830,12 +20831,12 @@ Ideal Loads आउटडोर एयर लेटेंट हीटिंग �
 <context>
     <name>openstudio::AirLoopHVACUnitaryHeatPumpAirToAirControlView</name>
     <message>
-        <location filename="../src/openstudio_lib/HVACSystemsView.cpp" line="924" />
-        <source>Supply air temperature is managed by the "AirLoopHVACUnitaryHeatPumpAirToAir" component.</source>
-        <translation>आपूर्ति वायु तापमान "AirLoopHVACUnitaryHeatPumpAirToAir" घटक द्वारा प्रबंधित किया जाता है।</translation>
+        <location filename="../src/openstudio_lib/HVACSystemsView.cpp" line="924"/>
+        <source>Supply air temperature is managed by the &quot;AirLoopHVACUnitaryHeatPumpAirToAir&quot; component.</source>
+        <translation>आपूर्ति वायु तापमान &quot;AirLoopHVACUnitaryHeatPumpAirToAir&quot; घटक द्वारा प्रबंधित किया जाता है।</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/HVACSystemsView.cpp" line="931" />
+        <location filename="../src/openstudio_lib/HVACSystemsView.cpp" line="931"/>
         <source>Control Zone</source>
         <translation>नियंत्रण क्षेत्र</translation>
     </message>
@@ -20843,41 +20844,41 @@ Ideal Loads आउटडोर एयर लेटेंट हीटिंग �
 <context>
     <name>openstudio::ApplyMeasureNowDialog</name>
     <message>
-        <location filename="../src/openstudio_lib/ApplyMeasureNowDialog.cpp" line="75" />
+        <location filename="../src/openstudio_lib/ApplyMeasureNowDialog.cpp" line="75"/>
         <source>Apply Measure Now</source>
         <translation>उपाय अभी लागू करें</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/ApplyMeasureNowDialog.cpp" line="84" />
-        <location filename="../src/openstudio_lib/ApplyMeasureNowDialog.cpp" line="229" />
-        <location filename="../src/openstudio_lib/ApplyMeasureNowDialog.cpp" line="806" />
+        <location filename="../src/openstudio_lib/ApplyMeasureNowDialog.cpp" line="84"/>
+        <location filename="../src/openstudio_lib/ApplyMeasureNowDialog.cpp" line="229"/>
+        <location filename="../src/openstudio_lib/ApplyMeasureNowDialog.cpp" line="806"/>
         <source>Advanced Output</source>
         <translation>उन्नत आउटपुट</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/ApplyMeasureNowDialog.cpp" line="191" />
+        <location filename="../src/openstudio_lib/ApplyMeasureNowDialog.cpp" line="191"/>
         <source>Running Measure</source>
         <translation>उपाय चल रहा है</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/ApplyMeasureNowDialog.cpp" line="211" />
+        <location filename="../src/openstudio_lib/ApplyMeasureNowDialog.cpp" line="211"/>
         <source>Measure Output</source>
         <translation>उपाय परिणाम</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/ApplyMeasureNowDialog.cpp" line="256" />
-        <location filename="../src/openstudio_lib/ApplyMeasureNowDialog.cpp" line="282" />
-        <location filename="../src/openstudio_lib/ApplyMeasureNowDialog.cpp" line="753" />
+        <location filename="../src/openstudio_lib/ApplyMeasureNowDialog.cpp" line="256"/>
+        <location filename="../src/openstudio_lib/ApplyMeasureNowDialog.cpp" line="282"/>
+        <location filename="../src/openstudio_lib/ApplyMeasureNowDialog.cpp" line="753"/>
         <source>Apply Measure</source>
         <translation>उपाय लागू करें</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/ApplyMeasureNowDialog.cpp" line="405" />
+        <location filename="../src/openstudio_lib/ApplyMeasureNowDialog.cpp" line="405"/>
         <source>Accept Changes</source>
         <translation>परिवर्तन स्वीकार करें</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/ApplyMeasureNowDialog.cpp" line="806" />
+        <location filename="../src/openstudio_lib/ApplyMeasureNowDialog.cpp" line="806"/>
         <source>No advanced output.</source>
         <translation>कोई उन्नत आउटपुट नहीं।</translation>
     </message>
@@ -20885,27 +20886,27 @@ Ideal Loads आउटडोर एयर लेटेंट हीटिंग �
 <context>
     <name>openstudio::BuildingComponentDialog</name>
     <message>
-        <location filename="../src/shared_gui_components/BuildingComponentDialog.cpp" line="53" />
+        <location filename="../src/shared_gui_components/BuildingComponentDialog.cpp" line="53"/>
         <source>Online BCL</source>
         <translation>ऑनलाइन बीसीएल</translation>
     </message>
     <message>
-        <location filename="../src/shared_gui_components/BuildingComponentDialog.cpp" line="55" />
+        <location filename="../src/shared_gui_components/BuildingComponentDialog.cpp" line="55"/>
         <source>Local Library</source>
         <translation>स्थानीय लाइब्रेरी</translation>
     </message>
     <message>
-        <location filename="../src/shared_gui_components/BuildingComponentDialog.cpp" line="76" />
+        <location filename="../src/shared_gui_components/BuildingComponentDialog.cpp" line="76"/>
         <source>Click to add a search term to the selected category</source>
         <translation>चुनी गई श्रेणी में खोज शब्द जोड़ने के लिए क्लिक करें</translation>
     </message>
     <message>
-        <location filename="../src/shared_gui_components/BuildingComponentDialog.cpp" line="87" />
+        <location filename="../src/shared_gui_components/BuildingComponentDialog.cpp" line="87"/>
         <source>Categories</source>
         <translation>श्रेणियाँ</translation>
     </message>
     <message>
-        <location filename="../src/shared_gui_components/BuildingComponentDialog.cpp" line="176" />
+        <location filename="../src/shared_gui_components/BuildingComponentDialog.cpp" line="176"/>
         <source>Searching BCL...</source>
         <translation>BCL खोज रहे हैं...</translation>
     </message>
@@ -20913,17 +20914,17 @@ Ideal Loads आउटडोर एयर लेटेंट हीटिंग �
 <context>
     <name>openstudio::BuildingComponentDialogCentralWidget</name>
     <message>
-        <location filename="../src/shared_gui_components/BuildingComponentDialogCentralWidget.cpp" line="88" />
+        <location filename="../src/shared_gui_components/BuildingComponentDialogCentralWidget.cpp" line="88"/>
         <source>Sort by:</source>
         <translation>इसके अनुसार क्रमबद्ध करें:</translation>
     </message>
     <message>
-        <location filename="../src/shared_gui_components/BuildingComponentDialogCentralWidget.cpp" line="97" />
+        <location filename="../src/shared_gui_components/BuildingComponentDialogCentralWidget.cpp" line="97"/>
         <source>Check All</source>
         <translation>सभी चुनें</translation>
     </message>
     <message>
-        <location filename="../src/shared_gui_components/BuildingComponentDialogCentralWidget.cpp" line="144" />
+        <location filename="../src/shared_gui_components/BuildingComponentDialogCentralWidget.cpp" line="144"/>
         <source>Download</source>
         <translation>डाउनलोड</translation>
     </message>
@@ -20931,82 +20932,82 @@ Ideal Loads आउटडोर एयर लेटेंट हीटिंग �
 <context>
     <name>openstudio::BuildingInspectorView</name>
     <message>
-        <location filename="../src/openstudio_lib/BuildingInspectorView.cpp" line="223" />
+        <location filename="../src/openstudio_lib/BuildingInspectorView.cpp" line="223"/>
         <source>Name: </source>
         <translation>नाम:</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/BuildingInspectorView.cpp" line="235" />
+        <location filename="../src/openstudio_lib/BuildingInspectorView.cpp" line="235"/>
         <source>Display Name: </source>
         <translation>प्रदर्शन नाम:</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/BuildingInspectorView.cpp" line="246" />
+        <location filename="../src/openstudio_lib/BuildingInspectorView.cpp" line="246"/>
         <source>CAD Object Id: </source>
         <translation>CAD Object Id:</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/BuildingInspectorView.cpp" line="269" />
+        <location filename="../src/openstudio_lib/BuildingInspectorView.cpp" line="269"/>
         <source>Measure Tags (Optional):</source>
         <translation>उपाय टैग(ऐच्छिक):</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/BuildingInspectorView.cpp" line="279" />
+        <location filename="../src/openstudio_lib/BuildingInspectorView.cpp" line="279"/>
         <source>Standards Template: </source>
         <translation>मानक टेम्पलेट:</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/BuildingInspectorView.cpp" line="298" />
+        <location filename="../src/openstudio_lib/BuildingInspectorView.cpp" line="298"/>
         <source>Standards Building Type: </source>
         <translation>मानदंड भवन प्रकार:</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/BuildingInspectorView.cpp" line="319" />
+        <location filename="../src/openstudio_lib/BuildingInspectorView.cpp" line="319"/>
         <source>Nominal Floor to Ceiling Height: </source>
         <translation>मानक फर्श से छत की ऊंचाई:</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/BuildingInspectorView.cpp" line="337" />
+        <location filename="../src/openstudio_lib/BuildingInspectorView.cpp" line="337"/>
         <source>Nominal Floor to Floor Height: </source>
         <translation>नाममात्र फर्श से फर्श की ऊंचाई:</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/BuildingInspectorView.cpp" line="360" />
+        <location filename="../src/openstudio_lib/BuildingInspectorView.cpp" line="360"/>
         <source>Standards Number of Stories: </source>
         <translation>Standards Number of Stories: मानकों में मंजिलों की संख्या:</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/BuildingInspectorView.cpp" line="377" />
+        <location filename="../src/openstudio_lib/BuildingInspectorView.cpp" line="377"/>
         <source>Standards Number of Above Ground Stories: </source>
         <translation>Standards Number of Above Ground Stories में किया जाता है।</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/BuildingInspectorView.cpp" line="396" />
+        <location filename="../src/openstudio_lib/BuildingInspectorView.cpp" line="396"/>
         <source>Standards Number of Living Units: </source>
         <translation>Standards Number of Living Units के लिए मानक संख्या:</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/BuildingInspectorView.cpp" line="413" />
+        <location filename="../src/openstudio_lib/BuildingInspectorView.cpp" line="413"/>
         <source>Relocatable: </source>
         <translation>स्थानांतरणीय:</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/BuildingInspectorView.cpp" line="440" />
+        <location filename="../src/openstudio_lib/BuildingInspectorView.cpp" line="440"/>
         <source>North Axis: </source>
         <translation>North Axis (उत्तर अक्ष):</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/BuildingInspectorView.cpp" line="457" />
+        <location filename="../src/openstudio_lib/BuildingInspectorView.cpp" line="457"/>
         <source>Space Type: </source>
         <translation>Space Type: स्पेस प्रकार:</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/BuildingInspectorView.cpp" line="479" />
+        <location filename="../src/openstudio_lib/BuildingInspectorView.cpp" line="479"/>
         <source>Default Construction Set: </source>
         <translation>डिफ़ॉल्ट निर्माण सेट:</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/BuildingInspectorView.cpp" line="498" />
+        <location filename="../src/openstudio_lib/BuildingInspectorView.cpp" line="498"/>
         <source>Default Schedule Set: </source>
         <translation>डिफ़ॉल्ट शेड्यूल सेट:</translation>
     </message>
@@ -21014,114 +21015,114 @@ Ideal Loads आउटडोर एयर लेटेंट हीटिंग �
 <context>
     <name>openstudio::Component</name>
     <message>
-        <location filename="../src/shared_gui_components/Component.cpp" line="57" />
-        <location filename="../src/shared_gui_components/Component.cpp" line="134" />
+        <location filename="../src/shared_gui_components/Component.cpp" line="57"/>
+        <location filename="../src/shared_gui_components/Component.cpp" line="134"/>
         <source>This measure is not compatible with the current version of OpenStudio</source>
         <translation>यह उपाय OpenStudio के वर्तमान संस्करण के साथ संगत नहीं है</translation>
     </message>
     <message>
-        <location filename="../src/shared_gui_components/Component.cpp" line="68" />
+        <location filename="../src/shared_gui_components/Component.cpp" line="68"/>
         <source>This measure cannot be updated because it has an error</source>
         <translation>इस उपाय को अपडेट नहीं किया जा सकता क्योंकि इसमें त्रुटि है</translation>
     </message>
     <message>
-        <location filename="../src/shared_gui_components/Component.cpp" line="78" />
-        <location filename="../src/shared_gui_components/Component.cpp" line="153" />
+        <location filename="../src/shared_gui_components/Component.cpp" line="78"/>
+        <location filename="../src/shared_gui_components/Component.cpp" line="153"/>
         <source>An update is available for this measure</source>
         <translation>इस उपाय के लिए एक अपडेट उपलब्ध है</translation>
     </message>
     <message>
-        <location filename="../src/shared_gui_components/Component.cpp" line="114" />
+        <location filename="../src/shared_gui_components/Component.cpp" line="114"/>
         <source>An update is available for this component</source>
         <translation>इस घटक के लिए एक अपडेट उपलब्ध है</translation>
     </message>
     <message>
-        <location filename="../src/shared_gui_components/Component.cpp" line="486" />
+        <location filename="../src/shared_gui_components/Component.cpp" line="486"/>
         <source>Errors</source>
         <translation>त्रुटियाँ</translation>
     </message>
     <message>
-        <location filename="../src/shared_gui_components/Component.cpp" line="501" />
+        <location filename="../src/shared_gui_components/Component.cpp" line="501"/>
         <source>Description</source>
         <translation>विवरण</translation>
     </message>
     <message>
-        <location filename="../src/shared_gui_components/Component.cpp" line="515" />
+        <location filename="../src/shared_gui_components/Component.cpp" line="515"/>
         <source>Modeler Description</source>
         <translation>मॉडलर विवरण</translation>
     </message>
     <message>
-        <location filename="../src/shared_gui_components/Component.cpp" line="569" />
+        <location filename="../src/shared_gui_components/Component.cpp" line="569"/>
         <source>Attributes</source>
         <translation>विशेषताएँ</translation>
     </message>
     <message>
-        <location filename="../src/shared_gui_components/Component.cpp" line="616" />
+        <location filename="../src/shared_gui_components/Component.cpp" line="616"/>
         <source>Arguments</source>
         <translation>तर्क</translation>
     </message>
     <message>
-        <location filename="../src/shared_gui_components/Component.cpp" line="646" />
+        <location filename="../src/shared_gui_components/Component.cpp" line="646"/>
         <source>Files</source>
         <translation>फ़ाइलें</translation>
     </message>
     <message>
-        <location filename="../src/shared_gui_components/Component.cpp" line="683" />
+        <location filename="../src/shared_gui_components/Component.cpp" line="683"/>
         <source>Sources</source>
         <translation>स्रोत</translation>
     </message>
     <message>
-        <location filename="../src/shared_gui_components/Component.cpp" line="693" />
+        <location filename="../src/shared_gui_components/Component.cpp" line="693"/>
         <source>Organization</source>
         <translation>संगठन</translation>
     </message>
     <message>
-        <location filename="../src/shared_gui_components/Component.cpp" line="696" />
+        <location filename="../src/shared_gui_components/Component.cpp" line="696"/>
         <source>Repository</source>
         <translation>भंडार</translation>
     </message>
     <message>
-        <location filename="../src/shared_gui_components/Component.cpp" line="699" />
+        <location filename="../src/shared_gui_components/Component.cpp" line="699"/>
         <source>Release Tag</source>
         <translation>रिलीज़ टैग</translation>
     </message>
     <message>
-        <location filename="../src/shared_gui_components/Component.cpp" line="704" />
+        <location filename="../src/shared_gui_components/Component.cpp" line="704"/>
         <source>Author</source>
         <translation>लेखक</translation>
     </message>
     <message>
-        <location filename="../src/shared_gui_components/Component.cpp" line="707" />
+        <location filename="../src/shared_gui_components/Component.cpp" line="707"/>
         <source>Comment</source>
         <translation>टिप्पणी</translation>
     </message>
     <message>
-        <location filename="../src/shared_gui_components/Component.cpp" line="710" />
+        <location filename="../src/shared_gui_components/Component.cpp" line="710"/>
         <source>Date &amp; time</source>
         <translation>दिनांक और समय</translation>
     </message>
     <message>
-        <location filename="../src/shared_gui_components/Component.cpp" line="738" />
+        <location filename="../src/shared_gui_components/Component.cpp" line="738"/>
         <source>Tags</source>
         <translation>टैग</translation>
     </message>
     <message>
-        <location filename="../src/shared_gui_components/Component.cpp" line="751" />
+        <location filename="../src/shared_gui_components/Component.cpp" line="751"/>
         <source>Version</source>
         <translation>संस्करण</translation>
     </message>
     <message>
-        <location filename="../src/shared_gui_components/Component.cpp" line="756" />
+        <location filename="../src/shared_gui_components/Component.cpp" line="756"/>
         <source>UID</source>
         <translation>UID</translation>
     </message>
     <message>
-        <location filename="../src/shared_gui_components/Component.cpp" line="757" />
+        <location filename="../src/shared_gui_components/Component.cpp" line="757"/>
         <source>Version ID</source>
         <translation>संस्करण ID</translation>
     </message>
     <message>
-        <location filename="../src/shared_gui_components/Component.cpp" line="759" />
+        <location filename="../src/shared_gui_components/Component.cpp" line="759"/>
         <source>Version Modified</source>
         <translation>संस्करण संशोधित</translation>
     </message>
@@ -21129,17 +21130,17 @@ Ideal Loads आउटडोर एयर लेटेंट हीटिंग �
 <context>
     <name>openstudio::ConstructionAirBoundaryInspectorView</name>
     <message>
-        <location filename="../src/openstudio_lib/ConstructionAirBoundaryInspectorView.cpp" line="56" />
+        <location filename="../src/openstudio_lib/ConstructionAirBoundaryInspectorView.cpp" line="56"/>
         <source>Name: </source>
         <translation>नाम:</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/ConstructionAirBoundaryInspectorView.cpp" line="77" />
+        <location filename="../src/openstudio_lib/ConstructionAirBoundaryInspectorView.cpp" line="77"/>
         <source>Air Exchange Method: </source>
         <translation>वायु विनिमय विधि:</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/ConstructionAirBoundaryInspectorView.cpp" line="90" />
+        <location filename="../src/openstudio_lib/ConstructionAirBoundaryInspectorView.cpp" line="90"/>
         <source>Simple Mixing Air Changes per Hour: </source>
         <translation>सरल मिश्रण वायु परिवर्तन प्रति घंटा:</translation>
     </message>
@@ -21147,17 +21148,17 @@ Ideal Loads आउटडोर एयर लेटेंट हीटिंग �
 <context>
     <name>openstudio::ConstructionCfactorUndergroundWallInspectorView</name>
     <message>
-        <location filename="../src/openstudio_lib/ConstructionCfactorUndergroundWallInspectorView.cpp" line="56" />
+        <location filename="../src/openstudio_lib/ConstructionCfactorUndergroundWallInspectorView.cpp" line="56"/>
         <source>Name: </source>
         <translation>नाम:</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/ConstructionCfactorUndergroundWallInspectorView.cpp" line="77" />
+        <location filename="../src/openstudio_lib/ConstructionCfactorUndergroundWallInspectorView.cpp" line="77"/>
         <source>C-Factor: </source>
         <translation>C-फैक्टर:</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/ConstructionCfactorUndergroundWallInspectorView.cpp" line="91" />
+        <location filename="../src/openstudio_lib/ConstructionCfactorUndergroundWallInspectorView.cpp" line="91"/>
         <source>Height: </source>
         <translation>ऊंचाई:</translation>
     </message>
@@ -21165,22 +21166,22 @@ Ideal Loads आउटडोर एयर लेटेंट हीटिंग �
 <context>
     <name>openstudio::ConstructionFfactorGroundFloorInspectorView</name>
     <message>
-        <location filename="../src/openstudio_lib/ConstructionFfactorGroundFloorInspectorView.cpp" line="56" />
+        <location filename="../src/openstudio_lib/ConstructionFfactorGroundFloorInspectorView.cpp" line="56"/>
         <source>Name: </source>
         <translation>नाम:</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/ConstructionFfactorGroundFloorInspectorView.cpp" line="77" />
+        <location filename="../src/openstudio_lib/ConstructionFfactorGroundFloorInspectorView.cpp" line="77"/>
         <source>F-Factor: </source>
         <translation>F-Factor:</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/ConstructionFfactorGroundFloorInspectorView.cpp" line="91" />
+        <location filename="../src/openstudio_lib/ConstructionFfactorGroundFloorInspectorView.cpp" line="91"/>
         <source>Area: </source>
         <translation>क्षेत्र:</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/ConstructionFfactorGroundFloorInspectorView.cpp" line="105" />
+        <location filename="../src/openstudio_lib/ConstructionFfactorGroundFloorInspectorView.cpp" line="105"/>
         <source>Perimeter Exposed: </source>
         <translation>परिधि उजागर:</translation>
     </message>
@@ -21188,27 +21189,27 @@ Ideal Loads आउटडोर एयर लेटेंट हीटिंग �
 <context>
     <name>openstudio::ConstructionInspectorView</name>
     <message>
-        <location filename="../src/openstudio_lib/ConstructionInspectorView.cpp" line="65" />
+        <location filename="../src/openstudio_lib/ConstructionInspectorView.cpp" line="65"/>
         <source>Name: </source>
         <translation>नाम:</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/ConstructionInspectorView.cpp" line="86" />
+        <location filename="../src/openstudio_lib/ConstructionInspectorView.cpp" line="86"/>
         <source>Layer: </source>
         <translation>परत:</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/ConstructionInspectorView.cpp" line="92" />
+        <location filename="../src/openstudio_lib/ConstructionInspectorView.cpp" line="92"/>
         <source>Outside</source>
         <translation>बाहर</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/ConstructionInspectorView.cpp" line="99" />
+        <location filename="../src/openstudio_lib/ConstructionInspectorView.cpp" line="99"/>
         <source>Drag From Library</source>
         <translation>लाइब्रेरी से खींचें</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/ConstructionInspectorView.cpp" line="112" />
+        <location filename="../src/openstudio_lib/ConstructionInspectorView.cpp" line="112"/>
         <source>Inside</source>
         <translation>अंदर</translation>
     </message>
@@ -21216,47 +21217,47 @@ Ideal Loads आउटडोर एयर लेटेंट हीटिंग �
 <context>
     <name>openstudio::ConstructionInternalSourceInspectorView</name>
     <message>
-        <location filename="../src/openstudio_lib/ConstructionInternalSourceInspectorView.cpp" line="67" />
+        <location filename="../src/openstudio_lib/ConstructionInternalSourceInspectorView.cpp" line="67"/>
         <source>Name: </source>
         <translation>नाम:</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/ConstructionInternalSourceInspectorView.cpp" line="88" />
+        <location filename="../src/openstudio_lib/ConstructionInternalSourceInspectorView.cpp" line="88"/>
         <source>Layer: </source>
         <translation>परत:</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/ConstructionInternalSourceInspectorView.cpp" line="94" />
+        <location filename="../src/openstudio_lib/ConstructionInternalSourceInspectorView.cpp" line="94"/>
         <source>Outside</source>
         <translation>बाहर</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/ConstructionInternalSourceInspectorView.cpp" line="101" />
+        <location filename="../src/openstudio_lib/ConstructionInternalSourceInspectorView.cpp" line="101"/>
         <source>Drag From Library</source>
         <translation>लाइब्रेरी से खींचें</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/ConstructionInternalSourceInspectorView.cpp" line="110" />
+        <location filename="../src/openstudio_lib/ConstructionInternalSourceInspectorView.cpp" line="110"/>
         <source>Inside</source>
         <translation>अंदर</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/ConstructionInternalSourceInspectorView.cpp" line="118" />
+        <location filename="../src/openstudio_lib/ConstructionInternalSourceInspectorView.cpp" line="118"/>
         <source>Source Present After Layer: </source>
         <translation>स्रोत परत के बाद मौजूद:</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/ConstructionInternalSourceInspectorView.cpp" line="131" />
+        <location filename="../src/openstudio_lib/ConstructionInternalSourceInspectorView.cpp" line="131"/>
         <source>Temperature Calculation Requested After Layer Number: </source>
         <translation>परत संख्या के बाद तापमान गणना अनुरोधित:</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/ConstructionInternalSourceInspectorView.cpp" line="144" />
+        <location filename="../src/openstudio_lib/ConstructionInternalSourceInspectorView.cpp" line="144"/>
         <source>Dimensions for the CTF Calculation: </source>
         <translation>CTF गणना के लिए आयाम:</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/ConstructionInternalSourceInspectorView.cpp" line="157" />
+        <location filename="../src/openstudio_lib/ConstructionInternalSourceInspectorView.cpp" line="157"/>
         <source>Tube Spacing: </source>
         <translation>नली रिक्ति:</translation>
     </message>
@@ -21264,18 +21265,18 @@ Ideal Loads आउटडोर एयर लेटेंट हीटिंग �
 <context>
     <name>openstudio::ConstructionsTabController</name>
     <message>
-        <location filename="../src/openstudio_lib/ConstructionsTabController.cpp" line="21" />
-        <location filename="../src/openstudio_lib/ConstructionsTabController.cpp" line="23" />
+        <location filename="../src/openstudio_lib/ConstructionsTabController.cpp" line="21"/>
+        <location filename="../src/openstudio_lib/ConstructionsTabController.cpp" line="23"/>
         <source>Constructions</source>
         <translation>निर्माण</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/ConstructionsTabController.cpp" line="22" />
+        <location filename="../src/openstudio_lib/ConstructionsTabController.cpp" line="22"/>
         <source>Construction Sets</source>
         <translation>निर्माण सेट</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/ConstructionsTabController.cpp" line="24" />
+        <location filename="../src/openstudio_lib/ConstructionsTabController.cpp" line="24"/>
         <source>Materials</source>
         <translation>सामग्री</translation>
     </message>
@@ -21283,32 +21284,32 @@ Ideal Loads आउटडोर एयर लेटेंट हीटिंग �
 <context>
     <name>openstudio::ConstructionsView</name>
     <message>
-        <location filename="../src/openstudio_lib/ConstructionsView.cpp" line="33" />
+        <location filename="../src/openstudio_lib/ConstructionsView.cpp" line="33"/>
         <source>Constructions</source>
         <translation>निर्माण</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/ConstructionsView.cpp" line="34" />
+        <location filename="../src/openstudio_lib/ConstructionsView.cpp" line="34"/>
         <source>Air Boundary Constructions</source>
         <translation>Air Boundary Constructions
 
-(Note: This remains unchanged as "Air Boundary Constructions" is a technical term in OpenStudio that should be preserved as-is in the Hindi interface, similar to other software-specific terminology.)
+(Note: This remains unchanged as &quot;Air Boundary Constructions&quot; is a technical term in OpenStudio that should be preserved as-is in the Hindi interface, similar to other software-specific terminology.)
 
 However, if you need a Hindi translation:
 वायु सीमा निर्माण (Vayu Seema Nirmaan)</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/ConstructionsView.cpp" line="35" />
+        <location filename="../src/openstudio_lib/ConstructionsView.cpp" line="35"/>
         <source>Internal Source Constructions</source>
         <translation>आंतरिक स्रोत निर्माण</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/ConstructionsView.cpp" line="37" />
+        <location filename="../src/openstudio_lib/ConstructionsView.cpp" line="37"/>
         <source>C-factor Underground Wall Constructions</source>
         <translation>C-factor भूमिगत दीवार निर्माण</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/ConstructionsView.cpp" line="39" />
+        <location filename="../src/openstudio_lib/ConstructionsView.cpp" line="39"/>
         <source>F-factor Ground Floor Constructions</source>
         <translation>F-factor ग्राउंड फ्लोर निर्माण</translation>
     </message>
@@ -21316,32 +21317,32 @@ However, if you need a Hindi translation:
 <context>
     <name>openstudio::DataPointJobHeaderView</name>
     <message>
-        <location filename="../src/openstudio_lib/ApplyMeasureNowDialog.cpp" line="521" />
+        <location filename="../src/openstudio_lib/ApplyMeasureNowDialog.cpp" line="521"/>
         <source>Not Started</source>
         <translation>शुरू नहीं हुआ</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/ApplyMeasureNowDialog.cpp" line="529" />
+        <location filename="../src/openstudio_lib/ApplyMeasureNowDialog.cpp" line="529"/>
         <source>Canceled</source>
         <translation>रद्द</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/ApplyMeasureNowDialog.cpp" line="549" />
+        <location filename="../src/openstudio_lib/ApplyMeasureNowDialog.cpp" line="549"/>
         <source>%1 Warning</source>
         <translation>%1 चेतावनी</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/ApplyMeasureNowDialog.cpp" line="549" />
+        <location filename="../src/openstudio_lib/ApplyMeasureNowDialog.cpp" line="549"/>
         <source>%1 Warnings</source>
         <translation>%1 चेतावनियाँ</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/ApplyMeasureNowDialog.cpp" line="558" />
+        <location filename="../src/openstudio_lib/ApplyMeasureNowDialog.cpp" line="558"/>
         <source>%1 Error</source>
         <translation>%1 त्रुटि</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/ApplyMeasureNowDialog.cpp" line="558" />
+        <location filename="../src/openstudio_lib/ApplyMeasureNowDialog.cpp" line="558"/>
         <source>%1 Errors</source>
         <translation>%1 त्रुटियाँ</translation>
     </message>
@@ -21349,12 +21350,12 @@ However, if you need a Hindi translation:
 <context>
     <name>openstudio::DaySchedulePlotArea</name>
     <message>
-        <location filename="../src/openstudio_lib/ScheduleDayView.cpp" line="1395" />
+        <location filename="../src/openstudio_lib/ScheduleDayView.cpp" line="1395"/>
         <source>Drag vertical line to adjust</source>
         <translation>खींचें ऊर्ध्वाधर रेखा को समायोजित करने के लिए</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/ScheduleDayView.cpp" line="1399" />
+        <location filename="../src/openstudio_lib/ScheduleDayView.cpp" line="1399"/>
         <source>Mouse over horizontal line to set value</source>
         <translation>मान सेट करने के लिए क्षैतिज लाइन पर माउस ले जाएँ</translation>
     </message>
@@ -21362,130 +21363,130 @@ However, if you need a Hindi translation:
 <context>
     <name>openstudio::DefaultConstructionSetInspectorView</name>
     <message>
-        <location filename="../src/openstudio_lib/DefaultConstructionSetInspectorView.cpp" line="978" />
+        <location filename="../src/openstudio_lib/DefaultConstructionSetInspectorView.cpp" line="978"/>
         <source>Name</source>
         <translation>नाम</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/DefaultConstructionSetInspectorView.cpp" line="1004" />
+        <location filename="../src/openstudio_lib/DefaultConstructionSetInspectorView.cpp" line="1004"/>
         <source>Exterior Surface Constructions</source>
         <translation>बाहरी सतह निर्माण</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/DefaultConstructionSetInspectorView.cpp" line="1053" />
+        <location filename="../src/openstudio_lib/DefaultConstructionSetInspectorView.cpp" line="1053"/>
         <source>Interior Surface Constructions</source>
         <translation>आंतरिक सतह निर्माण</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/DefaultConstructionSetInspectorView.cpp" line="1102" />
+        <location filename="../src/openstudio_lib/DefaultConstructionSetInspectorView.cpp" line="1102"/>
         <source>Ground Contact Surface Constructions</source>
         <translation>भूमि संपर्क सतह निर्माण</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/DefaultConstructionSetInspectorView.cpp" line="1157" />
+        <location filename="../src/openstudio_lib/DefaultConstructionSetInspectorView.cpp" line="1157"/>
         <source>Exterior Sub Surface Constructions</source>
         <translation>बाहरी उप सतह निर्माण</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/DefaultConstructionSetInspectorView.cpp" line="1264" />
+        <location filename="../src/openstudio_lib/DefaultConstructionSetInspectorView.cpp" line="1264"/>
         <source>Interior Sub Surface Constructions</source>
         <translation>आंतरिक उप सतह निर्माण</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/DefaultConstructionSetInspectorView.cpp" line="1312" />
+        <location filename="../src/openstudio_lib/DefaultConstructionSetInspectorView.cpp" line="1312"/>
         <source>Other Constructions</source>
         <translation>अन्य निर्माण</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/DefaultConstructionSetInspectorView.cpp" line="1011" />
-        <location filename="../src/openstudio_lib/DefaultConstructionSetInspectorView.cpp" line="1060" />
-        <location filename="../src/openstudio_lib/DefaultConstructionSetInspectorView.cpp" line="1109" />
+        <location filename="../src/openstudio_lib/DefaultConstructionSetInspectorView.cpp" line="1011"/>
+        <location filename="../src/openstudio_lib/DefaultConstructionSetInspectorView.cpp" line="1060"/>
+        <location filename="../src/openstudio_lib/DefaultConstructionSetInspectorView.cpp" line="1109"/>
         <source>Walls</source>
         <translation>दीवारें</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/DefaultConstructionSetInspectorView.cpp" line="1022" />
-        <location filename="../src/openstudio_lib/DefaultConstructionSetInspectorView.cpp" line="1071" />
-        <location filename="../src/openstudio_lib/DefaultConstructionSetInspectorView.cpp" line="1120" />
+        <location filename="../src/openstudio_lib/DefaultConstructionSetInspectorView.cpp" line="1022"/>
+        <location filename="../src/openstudio_lib/DefaultConstructionSetInspectorView.cpp" line="1071"/>
+        <location filename="../src/openstudio_lib/DefaultConstructionSetInspectorView.cpp" line="1120"/>
         <source>Floors</source>
         <translation>फर्श</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/DefaultConstructionSetInspectorView.cpp" line="1033" />
+        <location filename="../src/openstudio_lib/DefaultConstructionSetInspectorView.cpp" line="1033"/>
         <source>Roofs</source>
         <translation>छतें</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/DefaultConstructionSetInspectorView.cpp" line="1082" />
-        <location filename="../src/openstudio_lib/DefaultConstructionSetInspectorView.cpp" line="1131" />
+        <location filename="../src/openstudio_lib/DefaultConstructionSetInspectorView.cpp" line="1082"/>
+        <location filename="../src/openstudio_lib/DefaultConstructionSetInspectorView.cpp" line="1131"/>
         <source>Ceilings</source>
         <translation>छतें</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/DefaultConstructionSetInspectorView.cpp" line="1164" />
-        <location filename="../src/openstudio_lib/DefaultConstructionSetInspectorView.cpp" line="1271" />
+        <location filename="../src/openstudio_lib/DefaultConstructionSetInspectorView.cpp" line="1164"/>
+        <location filename="../src/openstudio_lib/DefaultConstructionSetInspectorView.cpp" line="1271"/>
         <source>Fixed Windows</source>
         <translation>स्थिर खिड़कियाँ</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/DefaultConstructionSetInspectorView.cpp" line="1175" />
-        <location filename="../src/openstudio_lib/DefaultConstructionSetInspectorView.cpp" line="1282" />
+        <location filename="../src/openstudio_lib/DefaultConstructionSetInspectorView.cpp" line="1175"/>
+        <location filename="../src/openstudio_lib/DefaultConstructionSetInspectorView.cpp" line="1282"/>
         <source>Operable Windows</source>
         <translation>संचालन योग्य खिड़कियां</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/DefaultConstructionSetInspectorView.cpp" line="1186" />
-        <location filename="../src/openstudio_lib/DefaultConstructionSetInspectorView.cpp" line="1293" />
+        <location filename="../src/openstudio_lib/DefaultConstructionSetInspectorView.cpp" line="1186"/>
+        <location filename="../src/openstudio_lib/DefaultConstructionSetInspectorView.cpp" line="1293"/>
         <source>Doors</source>
         <translation>दरवाजे</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/DefaultConstructionSetInspectorView.cpp" line="1199" />
+        <location filename="../src/openstudio_lib/DefaultConstructionSetInspectorView.cpp" line="1199"/>
         <source>Glass Doors</source>
         <translation>कांच के दरवाजे</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/DefaultConstructionSetInspectorView.cpp" line="1210" />
+        <location filename="../src/openstudio_lib/DefaultConstructionSetInspectorView.cpp" line="1210"/>
         <source>Overhead Doors</source>
         <translation>ओवरहेड दरवाजे</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/DefaultConstructionSetInspectorView.cpp" line="1221" />
+        <location filename="../src/openstudio_lib/DefaultConstructionSetInspectorView.cpp" line="1221"/>
         <source>Skylights</source>
         <translation>छतरी रोशनी</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/DefaultConstructionSetInspectorView.cpp" line="1234" />
+        <location filename="../src/openstudio_lib/DefaultConstructionSetInspectorView.cpp" line="1234"/>
         <source>Tubular Daylight Domes</source>
         <translation>Tubular Daylight Domes</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/DefaultConstructionSetInspectorView.cpp" line="1245" />
+        <location filename="../src/openstudio_lib/DefaultConstructionSetInspectorView.cpp" line="1245"/>
         <source>Tubular Daylight Diffusers</source>
         <translation>Tubular Daylight Diffusers</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/DefaultConstructionSetInspectorView.cpp" line="1319" />
+        <location filename="../src/openstudio_lib/DefaultConstructionSetInspectorView.cpp" line="1319"/>
         <source>Space Shading</source>
         <translation>Space Shading</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/DefaultConstructionSetInspectorView.cpp" line="1330" />
+        <location filename="../src/openstudio_lib/DefaultConstructionSetInspectorView.cpp" line="1330"/>
         <source>Building Shading</source>
         <translation>भवन छायाकरण</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/DefaultConstructionSetInspectorView.cpp" line="1341" />
+        <location filename="../src/openstudio_lib/DefaultConstructionSetInspectorView.cpp" line="1341"/>
         <source>Site Shading</source>
         <translation>साइट शेडिंग</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/DefaultConstructionSetInspectorView.cpp" line="1354" />
+        <location filename="../src/openstudio_lib/DefaultConstructionSetInspectorView.cpp" line="1354"/>
         <source>Interior Partitions</source>
         <translation>आंतरिक विभाजन</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/DefaultConstructionSetInspectorView.cpp" line="1365" />
+        <location filename="../src/openstudio_lib/DefaultConstructionSetInspectorView.cpp" line="1365"/>
         <source>Adiabatic Surfaces</source>
         <translation>रुद्धोष्म सतहें</translation>
     </message>
@@ -21493,7 +21494,7 @@ However, if you need a Hindi translation:
 <context>
     <name>openstudio::DefaultScheduleDayView</name>
     <message>
-        <location filename="../src/openstudio_lib/SchedulesView.cpp" line="1363" />
+        <location filename="../src/openstudio_lib/SchedulesView.cpp" line="1363"/>
         <source>Default day profile.</source>
         <translation>डिफ़ॉल्ट दिन प्रोफाइल।</translation>
     </message>
@@ -21501,54 +21502,54 @@ However, if you need a Hindi translation:
 <context>
     <name>openstudio::DesignDayGridController</name>
     <message>
-        <location filename="../src/openstudio_lib/DesignDayGridView.cpp" line="172" />
+        <location filename="../src/openstudio_lib/DesignDayGridView.cpp" line="172"/>
         <source>Date</source>
         <translation>दिनांक</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/DesignDayGridView.cpp" line="184" />
+        <location filename="../src/openstudio_lib/DesignDayGridView.cpp" line="184"/>
         <source>Temperature</source>
         <translation>तापमान</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/DesignDayGridView.cpp" line="194" />
+        <location filename="../src/openstudio_lib/DesignDayGridView.cpp" line="194"/>
         <source>Humidity</source>
         <translation>नमी</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/DesignDayGridView.cpp" line="202" />
+        <location filename="../src/openstudio_lib/DesignDayGridView.cpp" line="202"/>
         <source>Pressure
 Wind
 Precipitation</source>
         <translation>दबाव हवा वर्षा</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/DesignDayGridView.cpp" line="210" />
+        <location filename="../src/openstudio_lib/DesignDayGridView.cpp" line="210"/>
         <source>Solar</source>
         <translation>सूर्य-संबंधी</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/DesignDayGridView.cpp" line="227" />
+        <location filename="../src/openstudio_lib/DesignDayGridView.cpp" line="227"/>
         <source>Check to enable daylight saving time indicator.</source>
         <translation>दिनभर की बचत समय सूचक सक्षम करने के लिए जांचें।</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/DesignDayGridView.cpp" line="231" />
+        <location filename="../src/openstudio_lib/DesignDayGridView.cpp" line="231"/>
         <source>Check to enable rain indicator.</source>
         <translation>वर्षा संकेतक सक्षम करने के लिए जांचें।</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/DesignDayGridView.cpp" line="235" />
+        <location filename="../src/openstudio_lib/DesignDayGridView.cpp" line="235"/>
         <source>Check to enable snow indicator.</source>
         <translation>बर्फ संकेतक सक्षम करने के लिए जांचें।</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/DesignDayGridView.cpp" line="239" />
+        <location filename="../src/openstudio_lib/DesignDayGridView.cpp" line="239"/>
         <source>Check to select all rows</source>
         <translation>सभी का चयन करे</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/DesignDayGridView.cpp" line="242" />
+        <location filename="../src/openstudio_lib/DesignDayGridView.cpp" line="242"/>
         <source>Check to select this row</source>
         <translation>इस पंक्ति को चुनने के लिए जांचें</translation>
     </message>
@@ -21556,138 +21557,138 @@ Precipitation</source>
 <context>
     <name>openstudio::DesignDayGridView</name>
     <message>
-        <location filename="../src/openstudio_lib/DesignDayGridView.cpp" line="36" />
+        <location filename="../src/openstudio_lib/DesignDayGridView.cpp" line="36"/>
         <source>Design Day Name</source>
         <translation>डिजाइन दिवस का नाम</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/DesignDayGridView.cpp" line="37" />
+        <location filename="../src/openstudio_lib/DesignDayGridView.cpp" line="37"/>
         <source>All</source>
         <translation>सब</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/DesignDayGridView.cpp" line="40" />
+        <location filename="../src/openstudio_lib/DesignDayGridView.cpp" line="40"/>
         <source>Day Of Month</source>
         <translation>महीने का दिन</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/DesignDayGridView.cpp" line="41" />
+        <location filename="../src/openstudio_lib/DesignDayGridView.cpp" line="41"/>
         <source>Month</source>
         <translation>महीना</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/DesignDayGridView.cpp" line="42" />
+        <location filename="../src/openstudio_lib/DesignDayGridView.cpp" line="42"/>
         <source>Day Type</source>
         <translation>दिन का प्रकार</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/DesignDayGridView.cpp" line="43" />
+        <location filename="../src/openstudio_lib/DesignDayGridView.cpp" line="43"/>
         <source>Daylight Saving Time Indicator</source>
         <translation>डेलाइट सेविंग टाइम इंडिकेटर</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/DesignDayGridView.cpp" line="46" />
+        <location filename="../src/openstudio_lib/DesignDayGridView.cpp" line="46"/>
         <source>Maximum Dry Bulb Temperature</source>
         <translation>अधिकतम शुष्क बल्ब तापमान</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/DesignDayGridView.cpp" line="47" />
+        <location filename="../src/openstudio_lib/DesignDayGridView.cpp" line="47"/>
         <source>Daily Dry Bulb Temperature Range</source>
         <translation>दैनिक शुष्क बल्ब तापमान रेंज</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/DesignDayGridView.cpp" line="48" />
+        <location filename="../src/openstudio_lib/DesignDayGridView.cpp" line="48"/>
         <source>Daily Wet Bulb Temperature Range</source>
         <translation>दैनिक आर्द्र बल्ब तापमान रेंज</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/DesignDayGridView.cpp" line="49" />
+        <location filename="../src/openstudio_lib/DesignDayGridView.cpp" line="49"/>
         <source>Dry Bulb Temperature Range Modifier Type</source>
         <translation>शुष्क बल्ब तापमान सीमा संशोधक प्रकार</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/DesignDayGridView.cpp" line="50" />
+        <location filename="../src/openstudio_lib/DesignDayGridView.cpp" line="50"/>
         <source>Dry Bulb Temperature Range Modifier Schedule</source>
         <translation>शुष्क बल्ब तापमान सीमा संशोधक अनुसूची</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/DesignDayGridView.cpp" line="53" />
+        <location filename="../src/openstudio_lib/DesignDayGridView.cpp" line="53"/>
         <source>Humidity Indicating Conditions At Maximum Dry Bulb</source>
         <translation>अधिकतम शुष्क बल्ब पर आर्द्रता संकेतक स्थितियां</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/DesignDayGridView.cpp" line="54" />
+        <location filename="../src/openstudio_lib/DesignDayGridView.cpp" line="54"/>
         <source>Humidity Indicating Type</source>
         <translation>आर्द्रता संकेतक प्रकार</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/DesignDayGridView.cpp" line="55" />
+        <location filename="../src/openstudio_lib/DesignDayGridView.cpp" line="55"/>
         <source>Humidity Indicating Day Schedule</source>
         <translation>आर्द्रता संकेत दिन अनुसूची</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/DesignDayGridView.cpp" line="58" />
+        <location filename="../src/openstudio_lib/DesignDayGridView.cpp" line="58"/>
         <source>Barometric Pressure</source>
         <translation>बैरोमीटर का दबाव</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/DesignDayGridView.cpp" line="59" />
+        <location filename="../src/openstudio_lib/DesignDayGridView.cpp" line="59"/>
         <source>Wind Speed</source>
         <translation>हवा की गति</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/DesignDayGridView.cpp" line="60" />
+        <location filename="../src/openstudio_lib/DesignDayGridView.cpp" line="60"/>
         <source>Wind Direction</source>
         <translation>हवा की दिशा</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/DesignDayGridView.cpp" line="61" />
+        <location filename="../src/openstudio_lib/DesignDayGridView.cpp" line="61"/>
         <source>Rain Indicator</source>
         <translation>वर्षा सूचक</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/DesignDayGridView.cpp" line="62" />
+        <location filename="../src/openstudio_lib/DesignDayGridView.cpp" line="62"/>
         <source>Snow Indicator</source>
         <translation>हिमपात सूचक</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/DesignDayGridView.cpp" line="65" />
+        <location filename="../src/openstudio_lib/DesignDayGridView.cpp" line="65"/>
         <source>Solar Model Indicator</source>
         <translation>सौर मॉडल सूचक</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/DesignDayGridView.cpp" line="66" />
+        <location filename="../src/openstudio_lib/DesignDayGridView.cpp" line="66"/>
         <source>Beam Solar Day Schedule</source>
         <translation>बीम सौर दिवस अनुसूची</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/DesignDayGridView.cpp" line="67" />
+        <location filename="../src/openstudio_lib/DesignDayGridView.cpp" line="67"/>
         <source>Diffuse Solar Day Schedule</source>
         <translation>डिफ्यूज सौर दिवस अनुसूची</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/DesignDayGridView.cpp" line="68" />
+        <location filename="../src/openstudio_lib/DesignDayGridView.cpp" line="68"/>
         <source>ASHRAE Taub</source>
         <translation>अशरे ताउब</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/DesignDayGridView.cpp" line="69" />
+        <location filename="../src/openstudio_lib/DesignDayGridView.cpp" line="69"/>
         <source>ASHRAE Taud</source>
         <translation>अशरे तौद</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/DesignDayGridView.cpp" line="70" />
+        <location filename="../src/openstudio_lib/DesignDayGridView.cpp" line="70"/>
         <source>Sky Clearness</source>
         <translation>आसमान की स्पष्टता</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/DesignDayGridView.cpp" line="83" />
-        <location filename="../src/openstudio_lib/DesignDayGridView.cpp" line="84" />
+        <location filename="../src/openstudio_lib/DesignDayGridView.cpp" line="83"/>
+        <location filename="../src/openstudio_lib/DesignDayGridView.cpp" line="84"/>
         <source>Design Days</source>
         <translation>डिजाइन के दिन</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/DesignDayGridView.cpp" line="84" />
+        <location filename="../src/openstudio_lib/DesignDayGridView.cpp" line="84"/>
         <source>Drop
 Zone</source>
         <translation>ड्रॉप क्षेत्र</translation>
@@ -21696,7 +21697,7 @@ Zone</source>
 <context>
     <name>openstudio::EditController</name>
     <message>
-        <location filename="../src/shared_gui_components/EditController.cpp" line="27" />
+        <location filename="../src/shared_gui_components/EditController.cpp" line="27"/>
         <source>Select a Measure to Apply</source>
         <translation>लागू करने के लिए उपाय चुनें</translation>
     </message>
@@ -21704,22 +21705,22 @@ Zone</source>
 <context>
     <name>openstudio::EditRubyMeasureView</name>
     <message>
-        <location filename="../src/shared_gui_components/EditView.cpp" line="48" />
+        <location filename="../src/shared_gui_components/EditView.cpp" line="48"/>
         <source>Name</source>
         <translation>नाम</translation>
     </message>
     <message>
-        <location filename="../src/shared_gui_components/EditView.cpp" line="59" />
+        <location filename="../src/shared_gui_components/EditView.cpp" line="59"/>
         <source>Description</source>
         <translation>विवरण</translation>
     </message>
     <message>
-        <location filename="../src/shared_gui_components/EditView.cpp" line="70" />
+        <location filename="../src/shared_gui_components/EditView.cpp" line="70"/>
         <source>Modeler Description</source>
         <translation>मॉडलर विवरण</translation>
     </message>
     <message>
-        <location filename="../src/shared_gui_components/EditView.cpp" line="88" />
+        <location filename="../src/shared_gui_components/EditView.cpp" line="88"/>
         <source>Inputs</source>
         <translation>इनपुट</translation>
     </message>
@@ -21727,129 +21728,129 @@ Zone</source>
 <context>
     <name>openstudio::EditorWebView</name>
     <message>
-        <location filename="../src/openstudio_lib/GeometryEditorView.cpp" line="1116" />
+        <location filename="../src/openstudio_lib/GeometryEditorView.cpp" line="1116"/>
         <source>Geometry Type</source>
         <translation>ज्यामिति प्रकार</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/GeometryEditorView.cpp" line="1119" />
-        <location filename="../src/openstudio_lib/GeometryEditorView.cpp" line="1188" />
-        <location filename="../src/openstudio_lib/GeometryEditorView.cpp" line="1279" />
-        <location filename="../src/openstudio_lib/GeometryEditorView.cpp" line="1290" />
+        <location filename="../src/openstudio_lib/GeometryEditorView.cpp" line="1119"/>
+        <location filename="../src/openstudio_lib/GeometryEditorView.cpp" line="1188"/>
+        <location filename="../src/openstudio_lib/GeometryEditorView.cpp" line="1279"/>
+        <location filename="../src/openstudio_lib/GeometryEditorView.cpp" line="1290"/>
         <source>FloorspaceJS</source>
         <translation>FloorspaceJS</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/GeometryEditorView.cpp" line="1120" />
-        <location filename="../src/openstudio_lib/GeometryEditorView.cpp" line="1201" />
-        <location filename="../src/openstudio_lib/GeometryEditorView.cpp" line="1281" />
-        <location filename="../src/openstudio_lib/GeometryEditorView.cpp" line="1302" />
+        <location filename="../src/openstudio_lib/GeometryEditorView.cpp" line="1120"/>
+        <location filename="../src/openstudio_lib/GeometryEditorView.cpp" line="1201"/>
+        <location filename="../src/openstudio_lib/GeometryEditorView.cpp" line="1281"/>
+        <location filename="../src/openstudio_lib/GeometryEditorView.cpp" line="1302"/>
         <source>gbXML</source>
         <translation>जीबीएक्सएमएल</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/GeometryEditorView.cpp" line="1121" />
-        <location filename="../src/openstudio_lib/GeometryEditorView.cpp" line="1214" />
-        <location filename="../src/openstudio_lib/GeometryEditorView.cpp" line="1281" />
-        <location filename="../src/openstudio_lib/GeometryEditorView.cpp" line="1328" />
+        <location filename="../src/openstudio_lib/GeometryEditorView.cpp" line="1121"/>
+        <location filename="../src/openstudio_lib/GeometryEditorView.cpp" line="1214"/>
+        <location filename="../src/openstudio_lib/GeometryEditorView.cpp" line="1281"/>
+        <location filename="../src/openstudio_lib/GeometryEditorView.cpp" line="1328"/>
         <source>IDF</source>
         <translation>ईडफ</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/GeometryEditorView.cpp" line="1122" />
-        <location filename="../src/openstudio_lib/GeometryEditorView.cpp" line="1227" />
-        <location filename="../src/openstudio_lib/GeometryEditorView.cpp" line="1281" />
-        <location filename="../src/openstudio_lib/GeometryEditorView.cpp" line="1354" />
+        <location filename="../src/openstudio_lib/GeometryEditorView.cpp" line="1122"/>
+        <location filename="../src/openstudio_lib/GeometryEditorView.cpp" line="1227"/>
+        <location filename="../src/openstudio_lib/GeometryEditorView.cpp" line="1281"/>
+        <location filename="../src/openstudio_lib/GeometryEditorView.cpp" line="1354"/>
         <source>OSM</source>
         <translation>OSM</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/GeometryEditorView.cpp" line="1087" />
-        <location filename="../src/openstudio_lib/GeometryEditorView.cpp" line="1280" />
+        <location filename="../src/openstudio_lib/GeometryEditorView.cpp" line="1087"/>
+        <location filename="../src/openstudio_lib/GeometryEditorView.cpp" line="1280"/>
         <source>New</source>
         <translation>नया</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/GeometryEditorView.cpp" line="1282" />
+        <location filename="../src/openstudio_lib/GeometryEditorView.cpp" line="1282"/>
         <source>Import</source>
         <translation>निर्यात करें</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/GeometryEditorView.cpp" line="1089" />
+        <location filename="../src/openstudio_lib/GeometryEditorView.cpp" line="1089"/>
         <source>Refresh</source>
         <translation>ताज़ा करें</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/GeometryEditorView.cpp" line="1090" />
+        <location filename="../src/openstudio_lib/GeometryEditorView.cpp" line="1090"/>
         <source>Preview OSM</source>
         <translation>Preview OSM</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/GeometryEditorView.cpp" line="1091" />
+        <location filename="../src/openstudio_lib/GeometryEditorView.cpp" line="1091"/>
         <source>Merge with Current OSM</source>
         <translation>वर्तमान OSM के साथ मर्ज करें</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/GeometryEditorView.cpp" line="1092" />
+        <location filename="../src/openstudio_lib/GeometryEditorView.cpp" line="1092"/>
         <source>Debug</source>
         <translation>डीबग</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/GeometryEditorView.cpp" line="1452" />
+        <location filename="../src/openstudio_lib/GeometryEditorView.cpp" line="1452"/>
         <source>Geometry Preview</source>
         <translation>ज्यामिति पूर्वावलोकन</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/GeometryEditorView.cpp" line="1258" />
+        <location filename="../src/openstudio_lib/GeometryEditorView.cpp" line="1258"/>
         <source>Unmerged Changes</source>
         <translation>असमर्जित परिवर्तन</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/GeometryEditorView.cpp" line="1259" />
+        <location filename="../src/openstudio_lib/GeometryEditorView.cpp" line="1259"/>
         <source>Your geometry may include unmerged changes.  Merge with Current OSM now?  Choose Ignore to skip this message in the future.</source>
         <translation>आपकी geometry में अमर्ज किए गए परिवर्तन हो सकते हैं। अभी Current OSM के साथ Merge करें? भविष्य में इस संदेश को छोड़ने के लिए Ignore चुनें।</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/GeometryEditorView.cpp" line="1514" />
+        <location filename="../src/openstudio_lib/GeometryEditorView.cpp" line="1514"/>
         <source>Units Change</source>
         <translation>इकाइयाँ परिवर्तन</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/GeometryEditorView.cpp" line="1515" />
+        <location filename="../src/openstudio_lib/GeometryEditorView.cpp" line="1515"/>
         <source>Changing unit system for existing floorplan is not currently supported.  Reload tab to change units.</source>
         <translation>मौजूदा फ्लोरप्लान के लिए इकाई प्रणाली बदलना वर्तमान में समर्थित नहीं है। इकाइयों को बदलने के लिए टैब को रीलोड करें।</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/GeometryEditorView.cpp" line="1435" />
-        <location filename="../src/openstudio_lib/GeometryEditorView.cpp" line="1487" />
-        <location filename="../src/openstudio_lib/GeometryEditorView.cpp" line="1490" />
+        <location filename="../src/openstudio_lib/GeometryEditorView.cpp" line="1435"/>
+        <location filename="../src/openstudio_lib/GeometryEditorView.cpp" line="1487"/>
+        <location filename="../src/openstudio_lib/GeometryEditorView.cpp" line="1490"/>
         <source>Merging Models</source>
         <translation>मॉडल्स को मर्ज करना</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/GeometryEditorView.cpp" line="1490" />
+        <location filename="../src/openstudio_lib/GeometryEditorView.cpp" line="1490"/>
         <source>Models Merged</source>
         <translation>मॉडल्स मर्ज किए गए</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/GeometryEditorView.cpp" line="1304" />
-        <location filename="../src/openstudio_lib/GeometryEditorView.cpp" line="1330" />
-        <location filename="../src/openstudio_lib/GeometryEditorView.cpp" line="1356" />
+        <location filename="../src/openstudio_lib/GeometryEditorView.cpp" line="1304"/>
+        <location filename="../src/openstudio_lib/GeometryEditorView.cpp" line="1330"/>
+        <location filename="../src/openstudio_lib/GeometryEditorView.cpp" line="1356"/>
         <source>Open File</source>
         <translation>फ़ाइल खोलें</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/GeometryEditorView.cpp" line="1304" />
+        <location filename="../src/openstudio_lib/GeometryEditorView.cpp" line="1304"/>
         <source>gbXML (*.xml *.gbxml)</source>
         <translation>जीबीएक्सएमएल (*.xml *.gbxml)</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/GeometryEditorView.cpp" line="1330" />
+        <location filename="../src/openstudio_lib/GeometryEditorView.cpp" line="1330"/>
         <source>IDF (*.idf)</source>
         <translation>ईडफ (*..idf)</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/GeometryEditorView.cpp" line="1356" />
+        <location filename="../src/openstudio_lib/GeometryEditorView.cpp" line="1356"/>
         <source>OSM (*.osm)</source>
         <translation>ओएसएम (*.osm)</translation>
     </message>
@@ -21857,37 +21858,37 @@ Zone</source>
 <context>
     <name>openstudio::ElectricEquipmentDefinitionInspectorView</name>
     <message>
-        <location filename="../src/openstudio_lib/ElectricEquipmentInspectorView.cpp" line="36" />
+        <location filename="../src/openstudio_lib/ElectricEquipmentInspectorView.cpp" line="36"/>
         <source>Name: </source>
         <translation>नाम:</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/ElectricEquipmentInspectorView.cpp" line="45" />
+        <location filename="../src/openstudio_lib/ElectricEquipmentInspectorView.cpp" line="45"/>
         <source>Design Level: </source>
         <translation>डिज़ाइन स्तर:</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/ElectricEquipmentInspectorView.cpp" line="55" />
+        <location filename="../src/openstudio_lib/ElectricEquipmentInspectorView.cpp" line="55"/>
         <source>Watts Per Space Floor Area: </source>
         <translation>प्रति स्पेस फ्लोर एरिया वाट्स:</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/ElectricEquipmentInspectorView.cpp" line="65" />
+        <location filename="../src/openstudio_lib/ElectricEquipmentInspectorView.cpp" line="65"/>
         <source>Watts Per Person: </source>
         <translation>प्रति व्यक्ति वाट:</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/ElectricEquipmentInspectorView.cpp" line="75" />
+        <location filename="../src/openstudio_lib/ElectricEquipmentInspectorView.cpp" line="75"/>
         <source>Fraction Latent: </source>
         <translation>अंश सुप्त:</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/ElectricEquipmentInspectorView.cpp" line="85" />
+        <location filename="../src/openstudio_lib/ElectricEquipmentInspectorView.cpp" line="85"/>
         <source>Fraction Radiant: </source>
         <translation>विकिरण अंश:</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/ElectricEquipmentInspectorView.cpp" line="95" />
+        <location filename="../src/openstudio_lib/ElectricEquipmentInspectorView.cpp" line="95"/>
         <source>Fraction Lost: </source>
         <translation>खोया हुआ अंश:</translation>
     </message>
@@ -21895,22 +21896,22 @@ Zone</source>
 <context>
     <name>openstudio::ExternalToolsDialog</name>
     <message>
-        <location filename="../src/openstudio_app/ExternalToolsDialog.cpp" line="31" />
+        <location filename="../src/openstudio_app/ExternalToolsDialog.cpp" line="31"/>
         <source>Change External Tools</source>
         <translation>बाहरी उपकरण बदलें</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_app/ExternalToolsDialog.cpp" line="37" />
+        <location filename="../src/openstudio_app/ExternalToolsDialog.cpp" line="37"/>
         <source>Path to DView</source>
         <translation>DView का पथ</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_app/ExternalToolsDialog.cpp" line="42" />
+        <location filename="../src/openstudio_app/ExternalToolsDialog.cpp" line="42"/>
         <source>Change</source>
         <translation>बदलें</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_app/ExternalToolsDialog.cpp" line="78" />
+        <location filename="../src/openstudio_app/ExternalToolsDialog.cpp" line="78"/>
         <source>Select Path to </source>
         <translation>पथ चुनें</translation>
     </message>
@@ -21918,129 +21919,129 @@ Zone</source>
 <context>
     <name>openstudio::FacilityExteriorEquipmentGridController</name>
     <message>
-        <location filename="../src/openstudio_lib/FacilityExteriorEquipmentGridView.cpp" line="178" />
-        <location filename="../src/openstudio_lib/FacilityExteriorEquipmentGridView.cpp" line="184" />
-        <location filename="../src/openstudio_lib/FacilityExteriorEquipmentGridView.cpp" line="186" />
+        <location filename="../src/openstudio_lib/FacilityExteriorEquipmentGridView.cpp" line="178"/>
+        <location filename="../src/openstudio_lib/FacilityExteriorEquipmentGridView.cpp" line="184"/>
+        <location filename="../src/openstudio_lib/FacilityExteriorEquipmentGridView.cpp" line="186"/>
         <source>Name</source>
         <translation>नाम</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/FacilityExteriorEquipmentGridView.cpp" line="178" />
-        <location filename="../src/openstudio_lib/FacilityExteriorEquipmentGridView.cpp" line="202" />
-        <location filename="../src/openstudio_lib/FacilityExteriorEquipmentGridView.cpp" line="209" />
+        <location filename="../src/openstudio_lib/FacilityExteriorEquipmentGridView.cpp" line="178"/>
+        <location filename="../src/openstudio_lib/FacilityExteriorEquipmentGridView.cpp" line="202"/>
+        <location filename="../src/openstudio_lib/FacilityExteriorEquipmentGridView.cpp" line="209"/>
         <source>All</source>
         <translation>सब</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/FacilityExteriorEquipmentGridView.cpp" line="175" />
-        <location filename="../src/openstudio_lib/FacilityExteriorEquipmentGridView.cpp" line="188" />
-        <location filename="../src/openstudio_lib/FacilityExteriorEquipmentGridView.cpp" line="189" />
+        <location filename="../src/openstudio_lib/FacilityExteriorEquipmentGridView.cpp" line="175"/>
+        <location filename="../src/openstudio_lib/FacilityExteriorEquipmentGridView.cpp" line="188"/>
+        <location filename="../src/openstudio_lib/FacilityExteriorEquipmentGridView.cpp" line="189"/>
         <source>Display Name</source>
         <translation>प्रदर्शन नाम</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/FacilityExteriorEquipmentGridView.cpp" line="175" />
-        <location filename="../src/openstudio_lib/FacilityExteriorEquipmentGridView.cpp" line="195" />
-        <location filename="../src/openstudio_lib/FacilityExteriorEquipmentGridView.cpp" line="196" />
+        <location filename="../src/openstudio_lib/FacilityExteriorEquipmentGridView.cpp" line="175"/>
+        <location filename="../src/openstudio_lib/FacilityExteriorEquipmentGridView.cpp" line="195"/>
+        <location filename="../src/openstudio_lib/FacilityExteriorEquipmentGridView.cpp" line="196"/>
         <source>CAD Object ID</source>
         <translation>CAD Object ID</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/FacilityExteriorEquipmentGridView.cpp" line="129" />
-        <location filename="../src/openstudio_lib/FacilityExteriorEquipmentGridView.cpp" line="214" />
-        <location filename="../src/openstudio_lib/FacilityExteriorEquipmentGridView.cpp" line="224" />
+        <location filename="../src/openstudio_lib/FacilityExteriorEquipmentGridView.cpp" line="129"/>
+        <location filename="../src/openstudio_lib/FacilityExteriorEquipmentGridView.cpp" line="214"/>
+        <location filename="../src/openstudio_lib/FacilityExteriorEquipmentGridView.cpp" line="224"/>
         <source>Exterior Lights Definition</source>
         <translation>बाहरी प्रकाश परिभाषा</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/FacilityExteriorEquipmentGridView.cpp" line="129" />
-        <location filename="../src/openstudio_lib/FacilityExteriorEquipmentGridView.cpp" line="137" />
-        <location filename="../src/openstudio_lib/FacilityExteriorEquipmentGridView.cpp" line="146" />
-        <location filename="../src/openstudio_lib/FacilityExteriorEquipmentGridView.cpp" line="228" />
-        <location filename="../src/openstudio_lib/FacilityExteriorEquipmentGridView.cpp" line="235" />
-        <location filename="../src/openstudio_lib/FacilityExteriorEquipmentGridView.cpp" line="295" />
-        <location filename="../src/openstudio_lib/FacilityExteriorEquipmentGridView.cpp" line="306" />
-        <location filename="../src/openstudio_lib/FacilityExteriorEquipmentGridView.cpp" line="362" />
-        <location filename="../src/openstudio_lib/FacilityExteriorEquipmentGridView.cpp" line="373" />
+        <location filename="../src/openstudio_lib/FacilityExteriorEquipmentGridView.cpp" line="129"/>
+        <location filename="../src/openstudio_lib/FacilityExteriorEquipmentGridView.cpp" line="137"/>
+        <location filename="../src/openstudio_lib/FacilityExteriorEquipmentGridView.cpp" line="146"/>
+        <location filename="../src/openstudio_lib/FacilityExteriorEquipmentGridView.cpp" line="228"/>
+        <location filename="../src/openstudio_lib/FacilityExteriorEquipmentGridView.cpp" line="235"/>
+        <location filename="../src/openstudio_lib/FacilityExteriorEquipmentGridView.cpp" line="295"/>
+        <location filename="../src/openstudio_lib/FacilityExteriorEquipmentGridView.cpp" line="306"/>
+        <location filename="../src/openstudio_lib/FacilityExteriorEquipmentGridView.cpp" line="362"/>
+        <location filename="../src/openstudio_lib/FacilityExteriorEquipmentGridView.cpp" line="373"/>
         <source>Schedule</source>
         <translation>अनुसूची</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/FacilityExteriorEquipmentGridView.cpp" line="129" />
-        <location filename="../src/openstudio_lib/FacilityExteriorEquipmentGridView.cpp" line="239" />
-        <location filename="../src/openstudio_lib/FacilityExteriorEquipmentGridView.cpp" line="242" />
+        <location filename="../src/openstudio_lib/FacilityExteriorEquipmentGridView.cpp" line="129"/>
+        <location filename="../src/openstudio_lib/FacilityExteriorEquipmentGridView.cpp" line="239"/>
+        <location filename="../src/openstudio_lib/FacilityExteriorEquipmentGridView.cpp" line="242"/>
         <source>Control Option</source>
         <translation>नियंत्रण विकल्प</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/FacilityExteriorEquipmentGridView.cpp" line="129" />
-        <location filename="../src/openstudio_lib/FacilityExteriorEquipmentGridView.cpp" line="137" />
-        <location filename="../src/openstudio_lib/FacilityExteriorEquipmentGridView.cpp" line="147" />
-        <location filename="../src/openstudio_lib/FacilityExteriorEquipmentGridView.cpp" line="252" />
-        <location filename="../src/openstudio_lib/FacilityExteriorEquipmentGridView.cpp" line="254" />
-        <location filename="../src/openstudio_lib/FacilityExteriorEquipmentGridView.cpp" line="318" />
-        <location filename="../src/openstudio_lib/FacilityExteriorEquipmentGridView.cpp" line="320" />
-        <location filename="../src/openstudio_lib/FacilityExteriorEquipmentGridView.cpp" line="375" />
-        <location filename="../src/openstudio_lib/FacilityExteriorEquipmentGridView.cpp" line="377" />
+        <location filename="../src/openstudio_lib/FacilityExteriorEquipmentGridView.cpp" line="129"/>
+        <location filename="../src/openstudio_lib/FacilityExteriorEquipmentGridView.cpp" line="137"/>
+        <location filename="../src/openstudio_lib/FacilityExteriorEquipmentGridView.cpp" line="147"/>
+        <location filename="../src/openstudio_lib/FacilityExteriorEquipmentGridView.cpp" line="252"/>
+        <location filename="../src/openstudio_lib/FacilityExteriorEquipmentGridView.cpp" line="254"/>
+        <location filename="../src/openstudio_lib/FacilityExteriorEquipmentGridView.cpp" line="318"/>
+        <location filename="../src/openstudio_lib/FacilityExteriorEquipmentGridView.cpp" line="320"/>
+        <location filename="../src/openstudio_lib/FacilityExteriorEquipmentGridView.cpp" line="375"/>
+        <location filename="../src/openstudio_lib/FacilityExteriorEquipmentGridView.cpp" line="377"/>
         <source>Multiplier</source>
         <translation>गुणक</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/FacilityExteriorEquipmentGridView.cpp" line="129" />
-        <location filename="../src/openstudio_lib/FacilityExteriorEquipmentGridView.cpp" line="137" />
-        <location filename="../src/openstudio_lib/FacilityExteriorEquipmentGridView.cpp" line="148" />
-        <location filename="../src/openstudio_lib/FacilityExteriorEquipmentGridView.cpp" line="262" />
-        <location filename="../src/openstudio_lib/FacilityExteriorEquipmentGridView.cpp" line="264" />
-        <location filename="../src/openstudio_lib/FacilityExteriorEquipmentGridView.cpp" line="328" />
-        <location filename="../src/openstudio_lib/FacilityExteriorEquipmentGridView.cpp" line="330" />
-        <location filename="../src/openstudio_lib/FacilityExteriorEquipmentGridView.cpp" line="385" />
-        <location filename="../src/openstudio_lib/FacilityExteriorEquipmentGridView.cpp" line="387" />
+        <location filename="../src/openstudio_lib/FacilityExteriorEquipmentGridView.cpp" line="129"/>
+        <location filename="../src/openstudio_lib/FacilityExteriorEquipmentGridView.cpp" line="137"/>
+        <location filename="../src/openstudio_lib/FacilityExteriorEquipmentGridView.cpp" line="148"/>
+        <location filename="../src/openstudio_lib/FacilityExteriorEquipmentGridView.cpp" line="262"/>
+        <location filename="../src/openstudio_lib/FacilityExteriorEquipmentGridView.cpp" line="264"/>
+        <location filename="../src/openstudio_lib/FacilityExteriorEquipmentGridView.cpp" line="328"/>
+        <location filename="../src/openstudio_lib/FacilityExteriorEquipmentGridView.cpp" line="330"/>
+        <location filename="../src/openstudio_lib/FacilityExteriorEquipmentGridView.cpp" line="385"/>
+        <location filename="../src/openstudio_lib/FacilityExteriorEquipmentGridView.cpp" line="387"/>
         <source>End Use Subcategory</source>
         <translation>अंतिम उपयोग उपश्रेणी</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/FacilityExteriorEquipmentGridView.cpp" line="137" />
-        <location filename="../src/openstudio_lib/FacilityExteriorEquipmentGridView.cpp" line="280" />
-        <location filename="../src/openstudio_lib/FacilityExteriorEquipmentGridView.cpp" line="291" />
+        <location filename="../src/openstudio_lib/FacilityExteriorEquipmentGridView.cpp" line="137"/>
+        <location filename="../src/openstudio_lib/FacilityExteriorEquipmentGridView.cpp" line="280"/>
+        <location filename="../src/openstudio_lib/FacilityExteriorEquipmentGridView.cpp" line="291"/>
         <source>Exterior Fuel Equipment Definition</source>
         <translation>बाहरी ईंधन उपकरण परिभाषा</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/FacilityExteriorEquipmentGridView.cpp" line="137" />
-        <location filename="../src/openstudio_lib/FacilityExteriorEquipmentGridView.cpp" line="308" />
-        <location filename="../src/openstudio_lib/FacilityExteriorEquipmentGridView.cpp" line="311" />
+        <location filename="../src/openstudio_lib/FacilityExteriorEquipmentGridView.cpp" line="137"/>
+        <location filename="../src/openstudio_lib/FacilityExteriorEquipmentGridView.cpp" line="308"/>
+        <location filename="../src/openstudio_lib/FacilityExteriorEquipmentGridView.cpp" line="311"/>
         <source>Fuel Type</source>
         <translation>ईंधन प्रकार</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/FacilityExteriorEquipmentGridView.cpp" line="145" />
-        <location filename="../src/openstudio_lib/FacilityExteriorEquipmentGridView.cpp" line="347" />
-        <location filename="../src/openstudio_lib/FacilityExteriorEquipmentGridView.cpp" line="358" />
+        <location filename="../src/openstudio_lib/FacilityExteriorEquipmentGridView.cpp" line="145"/>
+        <location filename="../src/openstudio_lib/FacilityExteriorEquipmentGridView.cpp" line="347"/>
+        <location filename="../src/openstudio_lib/FacilityExteriorEquipmentGridView.cpp" line="358"/>
         <source>Exterior Water Equipment Definition</source>
         <translation>बाहरी जल उपकरण परिभाषा</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/FacilityExteriorEquipmentGridView.cpp" line="205" />
+        <location filename="../src/openstudio_lib/FacilityExteriorEquipmentGridView.cpp" line="205"/>
         <source>Check to select all rows</source>
         <translation>सभी का चयन करे</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/FacilityExteriorEquipmentGridView.cpp" line="209" />
+        <location filename="../src/openstudio_lib/FacilityExteriorEquipmentGridView.cpp" line="209"/>
         <source>Check to select this row</source>
         <translation>इस पंक्ति को चुनने के लिए जांचें</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/FacilityExteriorEquipmentGridView.cpp" line="131" />
+        <location filename="../src/openstudio_lib/FacilityExteriorEquipmentGridView.cpp" line="131"/>
         <source>Exterior Lights</source>
         <translation>बाहरी रोशनी</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/FacilityExteriorEquipmentGridView.cpp" line="139" />
+        <location filename="../src/openstudio_lib/FacilityExteriorEquipmentGridView.cpp" line="139"/>
         <source>Exterior Fuel Equipment</source>
         <translation>बाहरी ईंधन उपकरण</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/FacilityExteriorEquipmentGridView.cpp" line="150" />
+        <location filename="../src/openstudio_lib/FacilityExteriorEquipmentGridView.cpp" line="150"/>
         <source>Exterior Water Equipment</source>
         <translation>बाहरी जल उपकरण</translation>
     </message>
@@ -22048,13 +22049,13 @@ Zone</source>
 <context>
     <name>openstudio::FacilityExteriorEquipmentGridView</name>
     <message>
-        <location filename="../src/openstudio_lib/FacilityExteriorEquipmentGridView.cpp" line="53" />
-        <location filename="../src/openstudio_lib/FacilityExteriorEquipmentGridView.cpp" line="55" />
+        <location filename="../src/openstudio_lib/FacilityExteriorEquipmentGridView.cpp" line="53"/>
+        <location filename="../src/openstudio_lib/FacilityExteriorEquipmentGridView.cpp" line="55"/>
         <source>Exterior Equipment</source>
         <translation>बाहरी उपकरण</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/FacilityExteriorEquipmentGridView.cpp" line="55" />
+        <location filename="../src/openstudio_lib/FacilityExteriorEquipmentGridView.cpp" line="55"/>
         <source>Drop
 Exterior Equipment</source>
         <translation>बाहरी उपकरण छोड़ें</translation>
@@ -22063,68 +22064,68 @@ Exterior Equipment</source>
 <context>
     <name>openstudio::FacilityShadingGridController</name>
     <message>
-        <location filename="../src/openstudio_lib/FacilityShadingGridView.cpp" line="413" />
-        <location filename="../src/openstudio_lib/FacilityShadingGridView.cpp" line="419" />
-        <location filename="../src/openstudio_lib/FacilityShadingGridView.cpp" line="420" />
+        <location filename="../src/openstudio_lib/FacilityShadingGridView.cpp" line="413"/>
+        <location filename="../src/openstudio_lib/FacilityShadingGridView.cpp" line="419"/>
+        <location filename="../src/openstudio_lib/FacilityShadingGridView.cpp" line="420"/>
         <source>Shading Surface Group Name</source>
         <translation>छायांकन सतह समूह नाम</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/FacilityShadingGridView.cpp" line="413" />
-        <location filename="../src/openstudio_lib/FacilityShadingGridView.cpp" line="453" />
-        <location filename="../src/openstudio_lib/FacilityShadingGridView.cpp" line="458" />
+        <location filename="../src/openstudio_lib/FacilityShadingGridView.cpp" line="413"/>
+        <location filename="../src/openstudio_lib/FacilityShadingGridView.cpp" line="453"/>
+        <location filename="../src/openstudio_lib/FacilityShadingGridView.cpp" line="458"/>
         <source>All</source>
         <translation>सब</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/FacilityShadingGridView.cpp" line="409" />
-        <location filename="../src/openstudio_lib/FacilityShadingGridView.cpp" line="466" />
-        <location filename="../src/openstudio_lib/FacilityShadingGridView.cpp" line="467" />
+        <location filename="../src/openstudio_lib/FacilityShadingGridView.cpp" line="409"/>
+        <location filename="../src/openstudio_lib/FacilityShadingGridView.cpp" line="466"/>
+        <location filename="../src/openstudio_lib/FacilityShadingGridView.cpp" line="467"/>
         <source>Display Name</source>
         <translation>प्रदर्शन नाम</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/FacilityShadingGridView.cpp" line="409" />
-        <location filename="../src/openstudio_lib/FacilityShadingGridView.cpp" line="476" />
-        <location filename="../src/openstudio_lib/FacilityShadingGridView.cpp" line="477" />
+        <location filename="../src/openstudio_lib/FacilityShadingGridView.cpp" line="409"/>
+        <location filename="../src/openstudio_lib/FacilityShadingGridView.cpp" line="476"/>
+        <location filename="../src/openstudio_lib/FacilityShadingGridView.cpp" line="477"/>
         <source>CAD Object ID</source>
         <translation>CAD Object ID</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/FacilityShadingGridView.cpp" line="413" />
-        <location filename="../src/openstudio_lib/FacilityShadingGridView.cpp" line="426" />
-        <location filename="../src/openstudio_lib/FacilityShadingGridView.cpp" line="436" />
+        <location filename="../src/openstudio_lib/FacilityShadingGridView.cpp" line="413"/>
+        <location filename="../src/openstudio_lib/FacilityShadingGridView.cpp" line="426"/>
+        <location filename="../src/openstudio_lib/FacilityShadingGridView.cpp" line="436"/>
         <source>Type</source>
         <translation>प्रकार</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/FacilityShadingGridView.cpp" line="455" />
+        <location filename="../src/openstudio_lib/FacilityShadingGridView.cpp" line="455"/>
         <source>Check to select all rows</source>
         <translation>सभी का चयन करे</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/FacilityShadingGridView.cpp" line="458" />
+        <location filename="../src/openstudio_lib/FacilityShadingGridView.cpp" line="458"/>
         <source>Check to select this row</source>
         <translation>इस पंक्ति को चुनने के लिए जांचें</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/FacilityShadingGridView.cpp" line="390" />
-        <location filename="../src/openstudio_lib/FacilityShadingGridView.cpp" line="460" />
-        <location filename="../src/openstudio_lib/FacilityShadingGridView.cpp" line="461" />
+        <location filename="../src/openstudio_lib/FacilityShadingGridView.cpp" line="390"/>
+        <location filename="../src/openstudio_lib/FacilityShadingGridView.cpp" line="460"/>
+        <location filename="../src/openstudio_lib/FacilityShadingGridView.cpp" line="461"/>
         <source>Shading Surface Name</source>
         <translation>छाया सतह नाम</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/FacilityShadingGridView.cpp" line="392" />
-        <location filename="../src/openstudio_lib/FacilityShadingGridView.cpp" line="486" />
-        <location filename="../src/openstudio_lib/FacilityShadingGridView.cpp" line="487" />
+        <location filename="../src/openstudio_lib/FacilityShadingGridView.cpp" line="392"/>
+        <location filename="../src/openstudio_lib/FacilityShadingGridView.cpp" line="486"/>
+        <location filename="../src/openstudio_lib/FacilityShadingGridView.cpp" line="487"/>
         <source>Construction Name</source>
         <translation>निर्माण नाम</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/FacilityShadingGridView.cpp" line="391" />
-        <location filename="../src/openstudio_lib/FacilityShadingGridView.cpp" line="493" />
-        <location filename="../src/openstudio_lib/FacilityShadingGridView.cpp" line="500" />
+        <location filename="../src/openstudio_lib/FacilityShadingGridView.cpp" line="391"/>
+        <location filename="../src/openstudio_lib/FacilityShadingGridView.cpp" line="493"/>
+        <location filename="../src/openstudio_lib/FacilityShadingGridView.cpp" line="500"/>
         <source>Transmittance Schedule Name</source>
         <translation>प्रसारण अनुसूची नाम</translation>
     </message>
@@ -22149,7 +22150,7 @@ Exterior Equipment</source>
         <translation>डिग्री अभिविन्यास &lt;</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/FacilityShadingGridView.cpp" line="394" />
+        <location filename="../src/openstudio_lib/FacilityShadingGridView.cpp" line="394"/>
         <source>General</source>
         <translation>सामान्य</translation>
     </message>
@@ -22157,65 +22158,65 @@ Exterior Equipment</source>
 <context>
     <name>openstudio::FacilityShadingGridView</name>
     <message>
-        <location filename="../src/openstudio_lib/FacilityShadingGridView.cpp" line="60" />
-        <location filename="../src/openstudio_lib/FacilityShadingGridView.cpp" line="62" />
+        <location filename="../src/openstudio_lib/FacilityShadingGridView.cpp" line="60"/>
+        <location filename="../src/openstudio_lib/FacilityShadingGridView.cpp" line="62"/>
         <source>Shading Surface Group</source>
         <translation>छायांकन सतह समूह</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/FacilityShadingGridView.cpp" line="62" />
+        <location filename="../src/openstudio_lib/FacilityShadingGridView.cpp" line="62"/>
         <source>Drop Shading
 Surface Group</source>
         <translation>ड्रॉप शेडिंग
 सर्फेस ग्रुप</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/FacilityShadingGridView.cpp" line="78" />
+        <location filename="../src/openstudio_lib/FacilityShadingGridView.cpp" line="78"/>
         <source>Filters:</source>
         <translation>फिल्टर:</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/FacilityShadingGridView.cpp" line="87" />
+        <location filename="../src/openstudio_lib/FacilityShadingGridView.cpp" line="87"/>
         <source>Shading Surface Name</source>
         <translation>छायांकन सतह नाम</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/FacilityShadingGridView.cpp" line="109" />
+        <location filename="../src/openstudio_lib/FacilityShadingGridView.cpp" line="109"/>
         <source>Shading Surface Type</source>
         <translation>छायांकन सतह प्रकार</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/FacilityShadingGridView.cpp" line="114" />
+        <location filename="../src/openstudio_lib/FacilityShadingGridView.cpp" line="114"/>
         <source>All</source>
         <translation>सब</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/FacilityShadingGridView.cpp" line="115" />
+        <location filename="../src/openstudio_lib/FacilityShadingGridView.cpp" line="115"/>
         <source>Site</source>
         <translation>स्थल</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/FacilityShadingGridView.cpp" line="116" />
+        <location filename="../src/openstudio_lib/FacilityShadingGridView.cpp" line="116"/>
         <source>Building</source>
         <translation>भवन</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/FacilityShadingGridView.cpp" line="131" />
+        <location filename="../src/openstudio_lib/FacilityShadingGridView.cpp" line="131"/>
         <source>Degrees Tilt &gt;</source>
         <translation>डिग्री झुकाव &gt;</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/FacilityShadingGridView.cpp" line="152" />
+        <location filename="../src/openstudio_lib/FacilityShadingGridView.cpp" line="152"/>
         <source>Degrees Tilt &lt;</source>
         <translation>डिग्री टिल्ट &lt;</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/FacilityShadingGridView.cpp" line="173" />
+        <location filename="../src/openstudio_lib/FacilityShadingGridView.cpp" line="173"/>
         <source>Degrees Orientation &gt;</source>
         <translation>डिग्री अभिविन्यास &gt;</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/FacilityShadingGridView.cpp" line="193" />
+        <location filename="../src/openstudio_lib/FacilityShadingGridView.cpp" line="193"/>
         <source>Degrees Orientation &lt;</source>
         <translation>डिग्री अभिविन्यास &lt;</translation>
     </message>
@@ -22223,82 +22224,82 @@ Surface Group</source>
 <context>
     <name>openstudio::FacilityStoriesGridController</name>
     <message>
-        <location filename="../src/openstudio_lib/FacilityStoriesGridView.cpp" line="235" />
-        <location filename="../src/openstudio_lib/FacilityStoriesGridView.cpp" line="241" />
-        <location filename="../src/openstudio_lib/FacilityStoriesGridView.cpp" line="242" />
+        <location filename="../src/openstudio_lib/FacilityStoriesGridView.cpp" line="235"/>
+        <location filename="../src/openstudio_lib/FacilityStoriesGridView.cpp" line="241"/>
+        <location filename="../src/openstudio_lib/FacilityStoriesGridView.cpp" line="242"/>
         <source>Story Name</source>
         <translation>कहानी का नाम</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/FacilityStoriesGridView.cpp" line="235" />
-        <location filename="../src/openstudio_lib/FacilityStoriesGridView.cpp" line="258" />
-        <location filename="../src/openstudio_lib/FacilityStoriesGridView.cpp" line="263" />
+        <location filename="../src/openstudio_lib/FacilityStoriesGridView.cpp" line="235"/>
+        <location filename="../src/openstudio_lib/FacilityStoriesGridView.cpp" line="258"/>
+        <location filename="../src/openstudio_lib/FacilityStoriesGridView.cpp" line="263"/>
         <source>All</source>
         <translation>सब</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/FacilityStoriesGridView.cpp" line="232" />
-        <location filename="../src/openstudio_lib/FacilityStoriesGridView.cpp" line="244" />
-        <location filename="../src/openstudio_lib/FacilityStoriesGridView.cpp" line="245" />
+        <location filename="../src/openstudio_lib/FacilityStoriesGridView.cpp" line="232"/>
+        <location filename="../src/openstudio_lib/FacilityStoriesGridView.cpp" line="244"/>
+        <location filename="../src/openstudio_lib/FacilityStoriesGridView.cpp" line="245"/>
         <source>Display Name</source>
         <translation>प्रदर्शन नाम</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/FacilityStoriesGridView.cpp" line="232" />
-        <location filename="../src/openstudio_lib/FacilityStoriesGridView.cpp" line="251" />
-        <location filename="../src/openstudio_lib/FacilityStoriesGridView.cpp" line="252" />
+        <location filename="../src/openstudio_lib/FacilityStoriesGridView.cpp" line="232"/>
+        <location filename="../src/openstudio_lib/FacilityStoriesGridView.cpp" line="251"/>
+        <location filename="../src/openstudio_lib/FacilityStoriesGridView.cpp" line="252"/>
         <source>CAD Object ID</source>
         <translation>CAD Object ID</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/FacilityStoriesGridView.cpp" line="214" />
-        <location filename="../src/openstudio_lib/FacilityStoriesGridView.cpp" line="264" />
+        <location filename="../src/openstudio_lib/FacilityStoriesGridView.cpp" line="214"/>
+        <location filename="../src/openstudio_lib/FacilityStoriesGridView.cpp" line="264"/>
         <source>Nominal Z Coordinate</source>
         <translation>नाममात्र Z निर्देशांक</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/FacilityStoriesGridView.cpp" line="215" />
-        <location filename="../src/openstudio_lib/FacilityStoriesGridView.cpp" line="265" />
-        <location filename="../src/openstudio_lib/FacilityStoriesGridView.cpp" line="267" />
-        <location filename="../src/openstudio_lib/FacilityStoriesGridView.cpp" line="268" />
+        <location filename="../src/openstudio_lib/FacilityStoriesGridView.cpp" line="215"/>
+        <location filename="../src/openstudio_lib/FacilityStoriesGridView.cpp" line="265"/>
+        <location filename="../src/openstudio_lib/FacilityStoriesGridView.cpp" line="267"/>
+        <location filename="../src/openstudio_lib/FacilityStoriesGridView.cpp" line="268"/>
         <source>Nominal Floor to Floor Height</source>
         <translation>नाममात्र फर्श से फर्श तक की ऊंचाई</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/FacilityStoriesGridView.cpp" line="216" />
-        <location filename="../src/openstudio_lib/FacilityStoriesGridView.cpp" line="271" />
-        <location filename="../src/openstudio_lib/FacilityStoriesGridView.cpp" line="272" />
+        <location filename="../src/openstudio_lib/FacilityStoriesGridView.cpp" line="216"/>
+        <location filename="../src/openstudio_lib/FacilityStoriesGridView.cpp" line="271"/>
+        <location filename="../src/openstudio_lib/FacilityStoriesGridView.cpp" line="272"/>
         <source>Default Construction Set Name</source>
         <translation>डिफ़ॉल्ट निर्माण सेट नाम</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/FacilityStoriesGridView.cpp" line="216" />
-        <location filename="../src/openstudio_lib/FacilityStoriesGridView.cpp" line="277" />
-        <location filename="../src/openstudio_lib/FacilityStoriesGridView.cpp" line="278" />
+        <location filename="../src/openstudio_lib/FacilityStoriesGridView.cpp" line="216"/>
+        <location filename="../src/openstudio_lib/FacilityStoriesGridView.cpp" line="277"/>
+        <location filename="../src/openstudio_lib/FacilityStoriesGridView.cpp" line="278"/>
         <source>Default Schedule Set Name</source>
         <translation>डिफ़ॉल्ट शेड्यूल सेट नाम</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/FacilityStoriesGridView.cpp" line="260" />
+        <location filename="../src/openstudio_lib/FacilityStoriesGridView.cpp" line="260"/>
         <source>Check to select all rows</source>
         <translation>सभी का चयन करे</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/FacilityStoriesGridView.cpp" line="263" />
+        <location filename="../src/openstudio_lib/FacilityStoriesGridView.cpp" line="263"/>
         <source>Check to select this row</source>
         <translation>इस पंक्ति को चुनने के लिए जांचें</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/FacilityStoriesGridView.cpp" line="214" />
-        <location filename="../src/openstudio_lib/FacilityStoriesGridView.cpp" line="282" />
-        <location filename="../src/openstudio_lib/FacilityStoriesGridView.cpp" line="283" />
+        <location filename="../src/openstudio_lib/FacilityStoriesGridView.cpp" line="214"/>
+        <location filename="../src/openstudio_lib/FacilityStoriesGridView.cpp" line="282"/>
+        <location filename="../src/openstudio_lib/FacilityStoriesGridView.cpp" line="283"/>
         <source>Group Rendering Name</source>
         <translation>समूह रेंडरिंग नाम</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/FacilityStoriesGridView.cpp" line="215" />
-        <location filename="../src/openstudio_lib/FacilityStoriesGridView.cpp" line="286" />
-        <location filename="../src/openstudio_lib/FacilityStoriesGridView.cpp" line="287" />
+        <location filename="../src/openstudio_lib/FacilityStoriesGridView.cpp" line="215"/>
+        <location filename="../src/openstudio_lib/FacilityStoriesGridView.cpp" line="286"/>
+        <location filename="../src/openstudio_lib/FacilityStoriesGridView.cpp" line="287"/>
         <source>Nominal Floor to Ceiling Height</source>
         <translation>नाममात्र फर्श से छत की ऊंचाई</translation>
     </message>
@@ -22311,7 +22312,7 @@ Surface Group</source>
         <translation>नाममात्र Z निर्देशांक &lt;</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/FacilityStoriesGridView.cpp" line="218" />
+        <location filename="../src/openstudio_lib/FacilityStoriesGridView.cpp" line="218"/>
         <source>General</source>
         <translation>सामान्य</translation>
     </message>
@@ -22319,30 +22320,30 @@ Surface Group</source>
 <context>
     <name>openstudio::FacilityStoriesGridView</name>
     <message>
-        <location filename="../src/openstudio_lib/FacilityStoriesGridView.cpp" line="54" />
-        <location filename="../src/openstudio_lib/FacilityStoriesGridView.cpp" line="55" />
+        <location filename="../src/openstudio_lib/FacilityStoriesGridView.cpp" line="54"/>
+        <location filename="../src/openstudio_lib/FacilityStoriesGridView.cpp" line="55"/>
         <source>Building Stories</source>
         <translation>भवन मंजिलें</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/FacilityStoriesGridView.cpp" line="55" />
+        <location filename="../src/openstudio_lib/FacilityStoriesGridView.cpp" line="55"/>
         <source>Drop
 Story</source>
         <translation>ड्रॉप
 स्टोरी</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/FacilityStoriesGridView.cpp" line="71" />
+        <location filename="../src/openstudio_lib/FacilityStoriesGridView.cpp" line="71"/>
         <source>Filters:</source>
         <translation>फ़िल्टर:</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/FacilityStoriesGridView.cpp" line="80" />
+        <location filename="../src/openstudio_lib/FacilityStoriesGridView.cpp" line="80"/>
         <source>Nominal Z Coordinate &gt;</source>
         <translation>Nominal Z Coordinate &gt;</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/FacilityStoriesGridView.cpp" line="101" />
+        <location filename="../src/openstudio_lib/FacilityStoriesGridView.cpp" line="101"/>
         <source>Nominal Z Coordinate &lt;</source>
         <translation>नाममात्र Z निर्देशांक &lt;</translation>
     </message>
@@ -22350,22 +22351,22 @@ Story</source>
 <context>
     <name>openstudio::FacilityTabController</name>
     <message>
-        <location filename="../src/openstudio_lib/FacilityTabController.cpp" line="18" />
+        <location filename="../src/openstudio_lib/FacilityTabController.cpp" line="18"/>
         <source>Building</source>
         <translation>भवन</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/FacilityTabController.cpp" line="19" />
+        <location filename="../src/openstudio_lib/FacilityTabController.cpp" line="19"/>
         <source>Stories</source>
         <translation>कहानियाँ</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/FacilityTabController.cpp" line="20" />
+        <location filename="../src/openstudio_lib/FacilityTabController.cpp" line="20"/>
         <source>Shading</source>
         <translation>छायाकरण</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/FacilityTabController.cpp" line="21" />
+        <location filename="../src/openstudio_lib/FacilityTabController.cpp" line="21"/>
         <source>Exterior Equipment</source>
         <translation>बाहरी उपकरण</translation>
     </message>
@@ -22373,7 +22374,7 @@ Story</source>
 <context>
     <name>openstudio::FacilityTabView</name>
     <message>
-        <location filename="../src/openstudio_lib/FacilityTabView.cpp" line="10" />
+        <location filename="../src/openstudio_lib/FacilityTabView.cpp" line="10"/>
         <source>Facility</source>
         <translation>सुविधा</translation>
     </message>
@@ -22381,42 +22382,42 @@ Story</source>
 <context>
     <name>openstudio::GasEquipmentDefinitionInspectorView</name>
     <message>
-        <location filename="../src/openstudio_lib/GasEquipmentInspectorView.cpp" line="36" />
+        <location filename="../src/openstudio_lib/GasEquipmentInspectorView.cpp" line="36"/>
         <source>Name: </source>
         <translation>नाम:</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/GasEquipmentInspectorView.cpp" line="45" />
+        <location filename="../src/openstudio_lib/GasEquipmentInspectorView.cpp" line="45"/>
         <source>Design Level: </source>
         <translation>डिज़ाइन स्तर:</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/GasEquipmentInspectorView.cpp" line="55" />
+        <location filename="../src/openstudio_lib/GasEquipmentInspectorView.cpp" line="55"/>
         <source>Power Per Space Floor Area: </source>
         <translation>बिजली प्रति स्पेस फर्श क्षेत्र:</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/GasEquipmentInspectorView.cpp" line="65" />
+        <location filename="../src/openstudio_lib/GasEquipmentInspectorView.cpp" line="65"/>
         <source>Power Per Person: </source>
         <translation>प्रति व्यक्ति शक्ति:</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/GasEquipmentInspectorView.cpp" line="75" />
+        <location filename="../src/openstudio_lib/GasEquipmentInspectorView.cpp" line="75"/>
         <source>Fraction Latent: </source>
         <translation>अंश सुप्त:</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/GasEquipmentInspectorView.cpp" line="85" />
+        <location filename="../src/openstudio_lib/GasEquipmentInspectorView.cpp" line="85"/>
         <source>Fraction Radiant: </source>
         <translation>अंश विकिरण:</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/GasEquipmentInspectorView.cpp" line="95" />
+        <location filename="../src/openstudio_lib/GasEquipmentInspectorView.cpp" line="95"/>
         <source>Fraction Lost: </source>
         <translation>खोया हुआ अंश:</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/GasEquipmentInspectorView.cpp" line="105" />
+        <location filename="../src/openstudio_lib/GasEquipmentInspectorView.cpp" line="105"/>
         <source>Carbon Dioxide Generation Rate: </source>
         <translation>कार्बन डाइऑक्साइड जनरेशन दर:</translation>
     </message>
@@ -22424,17 +22425,17 @@ Story</source>
 <context>
     <name>openstudio::GeometryTabController</name>
     <message>
-        <location filename="../src/openstudio_lib/GeometryTabController.cpp" line="24" />
+        <location filename="../src/openstudio_lib/GeometryTabController.cpp" line="24"/>
         <source>Geometry</source>
         <translation>ज्यामिति</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/GeometryTabController.cpp" line="25" />
+        <location filename="../src/openstudio_lib/GeometryTabController.cpp" line="25"/>
         <source>3D View</source>
         <translation>3D दृश्य</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/GeometryTabController.cpp" line="29" />
+        <location filename="../src/openstudio_lib/GeometryTabController.cpp" line="29"/>
         <source>Editor</source>
         <translation>संपादक</translation>
     </message>
@@ -22465,27 +22466,27 @@ Story</source>
 <context>
     <name>openstudio::GroundTemperatureListView</name>
     <message>
-        <location filename="../src/openstudio_lib/GroundTemperatureView.cpp" line="93" />
+        <location filename="../src/openstudio_lib/GroundTemperatureView.cpp" line="93"/>
         <source>Building Surface Ground Temperatures</source>
         <translation>भवन सतह जमीन तापमान</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/GroundTemperatureView.cpp" line="94" />
+        <location filename="../src/openstudio_lib/GroundTemperatureView.cpp" line="94"/>
         <source>Shallow Ground Temperatures</source>
         <translation>उथले जमीन के तापमान</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/GroundTemperatureView.cpp" line="95" />
+        <location filename="../src/openstudio_lib/GroundTemperatureView.cpp" line="95"/>
         <source>Deep Ground Temperatures</source>
         <translation>गहरे भूमि तापमान</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/GroundTemperatureView.cpp" line="96" />
+        <location filename="../src/openstudio_lib/GroundTemperatureView.cpp" line="96"/>
         <source>FCfactorMethod Ground Temperatures</source>
         <translation>FCfactorMethod ग्राउंड तापमान</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/GroundTemperatureView.cpp" line="97" />
+        <location filename="../src/openstudio_lib/GroundTemperatureView.cpp" line="97"/>
         <source>Water Mains Temperature</source>
         <translation>जल मुख्य तापमान</translation>
     </message>
@@ -22493,105 +22494,105 @@ Story</source>
 <context>
     <name>openstudio::GroundTemperatureNotPresentView</name>
     <message>
-        <location filename="../src/openstudio_lib/GroundTemperatureView.cpp" line="177" />
+        <location filename="../src/openstudio_lib/GroundTemperatureView.cpp" line="177"/>
         <source>Add</source>
         <translation>जोड़ें</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/GroundTemperatureView.cpp" line="188" />
+        <location filename="../src/openstudio_lib/GroundTemperatureView.cpp" line="188"/>
         <source>Import from EPW</source>
         <translation>EPW से आयात करें</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/GroundTemperatureView.cpp" line="225" />
+        <location filename="../src/openstudio_lib/GroundTemperatureView.cpp" line="225"/>
         <source>&lt;p&gt;The &lt;b&gt;%1&lt;/b&gt; Unique ModelObject is not present in this model.&lt;/p&gt;&lt;p&gt;Click Add to instantiate it.&lt;/p&gt;</source>
         <translation>यह &lt;b&gt;%1&lt;/b&gt; Unique ModelObject इस मॉडल में मौजूद नहीं है।&lt;/p&gt;&lt;p&gt;इसे तुरंत बनाने के लिए जोड़ें पर क्लिक करें।&lt;/p&gt;</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/GroundTemperatureView.cpp" line="239" />
+        <location filename="../src/openstudio_lib/GroundTemperatureView.cpp" line="239"/>
         <source>No weather file is associated with the model, so the object will be added with default values.</source>
         <translation>मॉडल के साथ कोई weather file जुड़ी नहीं है, इसलिए object को default values के साथ जोड़ा जाएगा।</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/GroundTemperatureView.cpp" line="255" />
+        <location filename="../src/openstudio_lib/GroundTemperatureView.cpp" line="255"/>
         <source>While a weather file is associated with the model, could not locate the underlying EpwFile, so the object will be added with default values.</source>
         <translation>जबकि एक मौसम फ़ाइल मॉडल के साथ जुड़ी हुई है, अंतर्निहित EpwFile का पता नहीं लगाया जा सका, इसलिए ऑब्जेक्ट डिफ़ॉल्ट मानों के साथ जोड़ा जाएगा।</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/GroundTemperatureView.cpp" line="263" />
+        <location filename="../src/openstudio_lib/GroundTemperatureView.cpp" line="263"/>
         <source>The weather file does not contain any ground temperature data, so the object will be added with default values.</source>
         <translation>मौसम फ़ाइल में कोई जमीन के तापमान डेटा नहीं है, इसलिए ऑब्जेक्ट को डिफ़ॉल्ट मानों के साथ जोड़ा जाएगा।</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/GroundTemperatureView.cpp" line="275" />
+        <location filename="../src/openstudio_lib/GroundTemperatureView.cpp" line="275"/>
         <source>The weather file does not contain ground temperature data at the expected depth of %1 m, so the object will be added with default values.</source>
         <translation>मौसम फाइल में %1 मीटर की अपेक्षित गहराई पर जमीन का तापमान डेटा नहीं है, इसलिए ऑब्जेक्ट को डिफॉल्ट मानों के साथ जोड़ा जाएगा।</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/GroundTemperatureView.cpp" line="286" />
-        <source>The weather file contains ground temperature data at a depth of &lt;b&gt;&lt;span style="color: #1C7BBF;"&gt;%1 m&lt;/span&gt;&lt;/b&gt;, so you can choose to import those values or add the object with default values.</source>
-        <translation>मौसम फाइल में &lt;b&gt;&lt;span style="color: #1C7BBF;"&gt;%1 m&lt;/span&gt;&lt;/b&gt; की गहराई पर जमीन के तापमान डेटा हैं, इसलिए आप उन मानों को आयात करना चुन सकते हैं या डिफ़ॉल्ट मानों के साथ ऑब्जेक्ट जोड़ सकते हैं।</translation>
+        <location filename="../src/openstudio_lib/GroundTemperatureView.cpp" line="286"/>
+        <source>The weather file contains ground temperature data at a depth of &lt;b&gt;&lt;span style=&quot;color: #1C7BBF;&quot;&gt;%1 m&lt;/span&gt;&lt;/b&gt;, so you can choose to import those values or add the object with default values.</source>
+        <translation>मौसम फाइल में &lt;b&gt;&lt;span style=&quot;color: #1C7BBF;&quot;&gt;%1 m&lt;/span&gt;&lt;/b&gt; की गहराई पर जमीन के तापमान डेटा हैं, इसलिए आप उन मानों को आयात करना चुन सकते हैं या डिफ़ॉल्ट मानों के साथ ऑब्जेक्ट जोड़ सकते हैं।</translation>
     </message>
 </context>
 <context>
     <name>openstudio::HVACAirLoopControlsView</name>
     <message>
-        <location filename="../src/openstudio_lib/HVACSystemsView.cpp" line="341" />
+        <location filename="../src/openstudio_lib/HVACSystemsView.cpp" line="341"/>
         <source>Cooling Type: </source>
         <translation>शीतलन प्रकार:</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/HVACSystemsView.cpp" line="349" />
+        <location filename="../src/openstudio_lib/HVACSystemsView.cpp" line="349"/>
         <source>Heating Type: </source>
         <translation>ताप प्रकार:</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/HVACSystemsView.cpp" line="362" />
+        <location filename="../src/openstudio_lib/HVACSystemsView.cpp" line="362"/>
         <source>Time of Operation</source>
         <translation>संचालन का समय</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/HVACSystemsView.cpp" line="366" />
+        <location filename="../src/openstudio_lib/HVACSystemsView.cpp" line="366"/>
         <source>HVAC Operation Schedule</source>
         <translation>HVAC संचालन अनुसूची</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/HVACSystemsView.cpp" line="374" />
+        <location filename="../src/openstudio_lib/HVACSystemsView.cpp" line="374"/>
         <source>Use Night Cycle</source>
         <translation>रात्रि चक्र का उपयोग करें</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/HVACSystemsView.cpp" line="382" />
+        <location filename="../src/openstudio_lib/HVACSystemsView.cpp" line="382"/>
         <source>Follow the HVAC Operation Schedule</source>
         <translation>HVAC संचालन समय सारणी का पालन करें</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/HVACSystemsView.cpp" line="383" />
+        <location filename="../src/openstudio_lib/HVACSystemsView.cpp" line="383"/>
         <source>Cycle on Full System if Heating or Cooling Required</source>
         <translation>यदि हीटिंग या कूलिंग की आवश्यकता हो तो पूर्ण प्रणाली पर चक्र चलाएं</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/HVACSystemsView.cpp" line="384" />
+        <location filename="../src/openstudio_lib/HVACSystemsView.cpp" line="384"/>
         <source>Cycle on Zone Terminal Units if Heating or Cooling Required</source>
         <translation>जोन टर्मिनल यूनिट्स को हीटिंग या कूलिंग की आवश्यकता होने पर चलाएं</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/HVACSystemsView.cpp" line="396" />
+        <location filename="../src/openstudio_lib/HVACSystemsView.cpp" line="396"/>
         <source>Supply Air Temperature</source>
         <translation>आपूर्ति वायु तापमान</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/HVACSystemsView.cpp" line="409" />
+        <location filename="../src/openstudio_lib/HVACSystemsView.cpp" line="409"/>
         <source>Mechanical Ventilation</source>
         <translation>यांत्रिक वेंटिलेशन</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/HVACSystemsView.cpp" line="424" />
+        <location filename="../src/openstudio_lib/HVACSystemsView.cpp" line="424"/>
         <source>Availability Managers</source>
         <translation>उपलब्धता प्रबंधक</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/HVACSystemsView.cpp" line="428" />
+        <location filename="../src/openstudio_lib/HVACSystemsView.cpp" line="428"/>
         <source>Availability Managers from highest precedence to lowest</source>
         <translation>उपलब्धता प्रबंधक उच्चतम प्राथमिकता से न्यूनतम तक</translation>
     </message>
@@ -22599,70 +22600,70 @@ Story</source>
 <context>
     <name>openstudio::HVACControlsController</name>
     <message>
-        <location filename="../src/openstudio_lib/HVACSystemsController.cpp" line="1017" />
+        <location filename="../src/openstudio_lib/HVACSystemsController.cpp" line="1017"/>
         <source>Unclassified Cooling Type</source>
         <translation>अवर्गीकृत शीतलन प्रकार</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/HVACSystemsController.cpp" line="1021" />
-        <location filename="../src/openstudio_lib/HVACSystemsController.cpp" line="1026" />
-        <location filename="../src/openstudio_lib/HVACSystemsController.cpp" line="1036" />
+        <location filename="../src/openstudio_lib/HVACSystemsController.cpp" line="1021"/>
+        <location filename="../src/openstudio_lib/HVACSystemsController.cpp" line="1026"/>
+        <location filename="../src/openstudio_lib/HVACSystemsController.cpp" line="1036"/>
         <source>DX Cooling</source>
         <translation>DX शीतलन</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/HVACSystemsController.cpp" line="1031" />
+        <location filename="../src/openstudio_lib/HVACSystemsController.cpp" line="1031"/>
         <source>Chilled Water</source>
         <translation>शीतल जल</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/HVACSystemsController.cpp" line="1041" />
+        <location filename="../src/openstudio_lib/HVACSystemsController.cpp" line="1041"/>
         <source>Unclassified Heating Type</source>
         <translation>अवर्गीकृत हीटिंग प्रकार</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/HVACSystemsController.cpp" line="1045" />
+        <location filename="../src/openstudio_lib/HVACSystemsController.cpp" line="1045"/>
         <source>Gas Heating</source>
         <translation>गैस हीटिंग</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/HVACSystemsController.cpp" line="1050" />
+        <location filename="../src/openstudio_lib/HVACSystemsController.cpp" line="1050"/>
         <source>Electric Heating</source>
         <translation>विद्युत हीटिंग</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/HVACSystemsController.cpp" line="1055" />
+        <location filename="../src/openstudio_lib/HVACSystemsController.cpp" line="1055"/>
         <source>Hot Water</source>
         <translation>गर्म जल</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/HVACSystemsController.cpp" line="1060" />
+        <location filename="../src/openstudio_lib/HVACSystemsController.cpp" line="1060"/>
         <source>Air Source Heat Pump</source>
         <translation>वायु स्रोत ताप पंप</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/HVACSystemsController.cpp" line="1354" />
-        <location filename="../src/openstudio_lib/HVACSystemsController.cpp" line="1511" />
+        <location filename="../src/openstudio_lib/HVACSystemsController.cpp" line="1354"/>
+        <location filename="../src/openstudio_lib/HVACSystemsController.cpp" line="1511"/>
         <source>Drag From Library</source>
         <translation>लाइब्रेरी से ड्रैग करें</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/HVACSystemsController.cpp" line="1388" />
+        <location filename="../src/openstudio_lib/HVACSystemsController.cpp" line="1388"/>
         <source>Both</source>
         <translation>दोनों</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/HVACSystemsController.cpp" line="1391" />
+        <location filename="../src/openstudio_lib/HVACSystemsController.cpp" line="1391"/>
         <source>Heating</source>
         <translation>हीटिंग</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/HVACSystemsController.cpp" line="1394" />
+        <location filename="../src/openstudio_lib/HVACSystemsController.cpp" line="1394"/>
         <source>Cooling</source>
         <translation>शीतलन</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/HVACSystemsController.cpp" line="1397" />
+        <location filename="../src/openstudio_lib/HVACSystemsController.cpp" line="1397"/>
         <source>None</source>
         <translation>कोई नहीं</translation>
     </message>
@@ -22670,52 +22671,52 @@ Story</source>
 <context>
     <name>openstudio::HVACPlantLoopControlsView</name>
     <message>
-        <location filename="../src/openstudio_lib/HVACSystemsView.cpp" line="452" />
+        <location filename="../src/openstudio_lib/HVACSystemsView.cpp" line="452"/>
         <source>HVAC System</source>
         <translation>HVAC सिस्टम</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/HVACSystemsView.cpp" line="462" />
+        <location filename="../src/openstudio_lib/HVACSystemsView.cpp" line="462"/>
         <source>Plant Loop Type: </source>
         <translation>संयंत्र लूप प्रकार:</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/HVACSystemsView.cpp" line="480" />
+        <location filename="../src/openstudio_lib/HVACSystemsView.cpp" line="480"/>
         <source>Plant Equipment Operation Schemes</source>
         <translation>संयंत्र उपकरण संचालन योजनाएं</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/HVACSystemsView.cpp" line="494" />
+        <location filename="../src/openstudio_lib/HVACSystemsView.cpp" line="494"/>
         <source>Heating Components:</source>
         <translation>हीटिंग घटक:</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/HVACSystemsView.cpp" line="506" />
+        <location filename="../src/openstudio_lib/HVACSystemsView.cpp" line="506"/>
         <source>Cooling Components:</source>
         <translation>शीतलन घटक:</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/HVACSystemsView.cpp" line="518" />
+        <location filename="../src/openstudio_lib/HVACSystemsView.cpp" line="518"/>
         <source>Setpoint Components:</source>
         <translation>सेटपॉइंट घटक:</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/HVACSystemsView.cpp" line="530" />
+        <location filename="../src/openstudio_lib/HVACSystemsView.cpp" line="530"/>
         <source>Uncontrolled Components:</source>
         <translation>अनियंत्रित घटक:</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/HVACSystemsView.cpp" line="544" />
+        <location filename="../src/openstudio_lib/HVACSystemsView.cpp" line="544"/>
         <source>Supply Water Temperature</source>
         <translation>आपूर्ति जल तापमान</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/HVACSystemsView.cpp" line="559" />
+        <location filename="../src/openstudio_lib/HVACSystemsView.cpp" line="559"/>
         <source>Availability Managers</source>
         <translation>उपलब्धता प्रबंधक</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/HVACSystemsView.cpp" line="563" />
+        <location filename="../src/openstudio_lib/HVACSystemsView.cpp" line="563"/>
         <source>Availability Managers from highest precedence to lowest</source>
         <translation>उपलब्धता प्रबंधकों को सर्वोच्च प्राथमिकता से निम्नतम प्राथमिकता तक</translation>
     </message>
@@ -22723,17 +22724,17 @@ Story</source>
 <context>
     <name>openstudio::HVACSystemsController</name>
     <message>
-        <location filename="../src/openstudio_lib/HVACSystemsController.cpp" line="252" />
+        <location filename="../src/openstudio_lib/HVACSystemsController.cpp" line="252"/>
         <source>Service Hot Water</source>
         <translation>सेवा गर्म जल</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/HVACSystemsController.cpp" line="253" />
+        <location filename="../src/openstudio_lib/HVACSystemsController.cpp" line="253"/>
         <source>Refrigeration</source>
         <translation>प्रशीतन</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/HVACSystemsController.cpp" line="254" />
+        <location filename="../src/openstudio_lib/HVACSystemsController.cpp" line="254"/>
         <source>VRF</source>
         <translation>VRF</translation>
     </message>
@@ -22773,7 +22774,7 @@ Story</source>
 <context>
     <name>openstudio::HVACSystemsTabView</name>
     <message>
-        <location filename="../src/openstudio_lib/HVACSystemsTabView.cpp" line="10" />
+        <location filename="../src/openstudio_lib/HVACSystemsTabView.cpp" line="10"/>
         <source>HVAC Systems</source>
         <translation>HVAC प्रणालियाँ</translation>
     </message>
@@ -22781,17 +22782,17 @@ Story</source>
 <context>
     <name>openstudio::HVACToolbarView</name>
     <message>
-        <location filename="../src/openstudio_lib/HVACSystemsView.cpp" line="117" />
+        <location filename="../src/openstudio_lib/HVACSystemsView.cpp" line="117"/>
         <source>Layout</source>
         <translation>लेआउट</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/HVACSystemsView.cpp" line="123" />
+        <location filename="../src/openstudio_lib/HVACSystemsView.cpp" line="123"/>
         <source>Control</source>
         <translation>नियंत्रण</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/HVACSystemsView.cpp" line="129" />
+        <location filename="../src/openstudio_lib/HVACSystemsView.cpp" line="129"/>
         <source>Grid</source>
         <translation>ग्रिड</translation>
     </message>
@@ -22799,8 +22800,8 @@ Story</source>
 <context>
     <name>openstudio::HorizontalBranchItem</name>
     <message>
-        <location filename="../src/openstudio_lib/GridItem.cpp" line="647" />
-        <location filename="../src/openstudio_lib/GridItem.cpp" line="704" />
+        <location filename="../src/openstudio_lib/GridItem.cpp" line="647"/>
+        <location filename="../src/openstudio_lib/GridItem.cpp" line="704"/>
         <source>Drag From Library</source>
         <translation>लाइब्रेरी से खींचें</translation>
     </message>
@@ -22808,12 +22809,12 @@ Story</source>
 <context>
     <name>openstudio::HorizontalHeaderWidget</name>
     <message>
-        <location filename="../src/shared_gui_components/OSGridController.cpp" line="876" />
-        <source>Check to add this column to "Custom"</source>
-        <translation>इस कॉलम को "Custom" में जोड़ने के लिए चेक करें</translation>
+        <location filename="../src/shared_gui_components/OSGridController.cpp" line="876"/>
+        <source>Check to add this column to &quot;Custom&quot;</source>
+        <translation>इस कॉलम को &quot;Custom&quot; में जोड़ने के लिए चेक करें</translation>
     </message>
     <message>
-        <location filename="../src/shared_gui_components/OSGridController.cpp" line="899" />
+        <location filename="../src/shared_gui_components/OSGridController.cpp" line="899"/>
         <source>Apply to Selected</source>
         <translation>चयनित पर लागू करें</translation>
     </message>
@@ -22821,37 +22822,37 @@ Story</source>
 <context>
     <name>openstudio::HotWaterEquipmentDefinitionInspectorView</name>
     <message>
-        <location filename="../src/openstudio_lib/HotWaterEquipmentInspectorView.cpp" line="35" />
+        <location filename="../src/openstudio_lib/HotWaterEquipmentInspectorView.cpp" line="35"/>
         <source>Name: </source>
         <translation>नाम:</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/HotWaterEquipmentInspectorView.cpp" line="43" />
+        <location filename="../src/openstudio_lib/HotWaterEquipmentInspectorView.cpp" line="43"/>
         <source>Design Level: </source>
         <translation>डिज़ाइन स्तर:</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/HotWaterEquipmentInspectorView.cpp" line="53" />
+        <location filename="../src/openstudio_lib/HotWaterEquipmentInspectorView.cpp" line="53"/>
         <source>Watts Per Space Floor Area: </source>
         <translation>प्रति स्पेस फ़्लोर एरिया वाट्स:</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/HotWaterEquipmentInspectorView.cpp" line="63" />
+        <location filename="../src/openstudio_lib/HotWaterEquipmentInspectorView.cpp" line="63"/>
         <source>Watts Per Person: </source>
         <translation>वाट्स प्रति व्यक्ति:</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/HotWaterEquipmentInspectorView.cpp" line="73" />
+        <location filename="../src/openstudio_lib/HotWaterEquipmentInspectorView.cpp" line="73"/>
         <source>Fraction Latent: </source>
         <translation>अंश सुप्त:</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/HotWaterEquipmentInspectorView.cpp" line="83" />
+        <location filename="../src/openstudio_lib/HotWaterEquipmentInspectorView.cpp" line="83"/>
         <source>Fraction Radiant: </source>
         <translation>अंश विकिरण:</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/HotWaterEquipmentInspectorView.cpp" line="93" />
+        <location filename="../src/openstudio_lib/HotWaterEquipmentInspectorView.cpp" line="93"/>
         <source>Fraction Lost: </source>
         <translation>खोया हुआ अंश:</translation>
     </message>
@@ -22859,7 +22860,7 @@ Story</source>
 <context>
     <name>openstudio::HotWaterSupplyItem</name>
     <message>
-        <location filename="../src/openstudio_lib/ServiceWaterGridItems.cpp" line="555" />
+        <location filename="../src/openstudio_lib/ServiceWaterGridItems.cpp" line="555"/>
         <source>Go back to hot water supply system</source>
         <translation>गर्म जल आपूर्ति प्रणाली पर वापस जाएँ</translation>
     </message>
@@ -22867,27 +22868,27 @@ Story</source>
 <context>
     <name>openstudio::InternalMassDefinitionInspectorView</name>
     <message>
-        <location filename="../src/openstudio_lib/InternalMassInspectorView.cpp" line="43" />
+        <location filename="../src/openstudio_lib/InternalMassInspectorView.cpp" line="43"/>
         <source>Name: </source>
         <translation>नाम:</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/InternalMassInspectorView.cpp" line="52" />
+        <location filename="../src/openstudio_lib/InternalMassInspectorView.cpp" line="52"/>
         <source>Surface Area: </source>
         <translation>सतह क्षेत्र:</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/InternalMassInspectorView.cpp" line="62" />
+        <location filename="../src/openstudio_lib/InternalMassInspectorView.cpp" line="62"/>
         <source>Surface Area Per Space Floor Area: </source>
         <translation>Surface Area Per Space Floor Area:</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/InternalMassInspectorView.cpp" line="72" />
+        <location filename="../src/openstudio_lib/InternalMassInspectorView.cpp" line="72"/>
         <source>Surface Area Per Person: </source>
         <translation>Surface Area Per Person: प्रति व्यक्ति सतह क्षेत्र:</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/InternalMassInspectorView.cpp" line="82" />
+        <location filename="../src/openstudio_lib/InternalMassInspectorView.cpp" line="82"/>
         <source>Construction: </source>
         <translation>निर्माण:</translation>
     </message>
@@ -22895,32 +22896,32 @@ Story</source>
 <context>
     <name>openstudio::LibraryDialog</name>
     <message>
-        <location filename="../src/openstudio_app/LibraryDialog.cpp" line="28" />
+        <location filename="../src/openstudio_app/LibraryDialog.cpp" line="28"/>
         <source>Change Default Libraries</source>
         <translation>डिफ़ॉल्ट लाइब्रेरी बदलें</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_app/LibraryDialog.cpp" line="42" />
+        <location filename="../src/openstudio_app/LibraryDialog.cpp" line="42"/>
         <source>Add</source>
         <translation>जोड़ें</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_app/LibraryDialog.cpp" line="46" />
+        <location filename="../src/openstudio_app/LibraryDialog.cpp" line="46"/>
         <source>Remove</source>
         <translation>हटाएं</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_app/LibraryDialog.cpp" line="52" />
+        <location filename="../src/openstudio_app/LibraryDialog.cpp" line="52"/>
         <source>Restore Defaults</source>
         <translation>डिफ़ॉल्ट पुनर्स्थापित करें</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_app/LibraryDialog.cpp" line="68" />
+        <location filename="../src/openstudio_app/LibraryDialog.cpp" line="68"/>
         <source>Select OpenStudio Library</source>
         <translation>ओपेनस्टूडियो लाइब्रेरी चुनें</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_app/LibraryDialog.cpp" line="68" />
+        <location filename="../src/openstudio_app/LibraryDialog.cpp" line="68"/>
         <source>OpenStudio Files (*.osm)</source>
         <translation>ओपेनस्टूडियो फ़ाइल (*.osm)</translation>
     </message>
@@ -22928,17 +22929,17 @@ Story</source>
 <context>
     <name>openstudio::LibraryItemDelegate</name>
     <message>
-        <location filename="../src/shared_gui_components/LocalLibraryController.cpp" line="507" />
+        <location filename="../src/shared_gui_components/LocalLibraryController.cpp" line="507"/>
         <source>Python Measures are not supported in the Classic CLI.
-You can change CLI version using 'Preferences-&gt;Use Classic CLI'.</source>
+You can change CLI version using &apos;Preferences-&gt;Use Classic CLI&apos;.</source>
         <translation>Python Measures क्लासिक CLI में समर्थित नहीं हैं।
-आप CLI संस्करण 'Preferences-&gt;Use Classic CLI' से बदल सकते हैं।</translation>
+आप CLI संस्करण &apos;Preferences-&gt;Use Classic CLI&apos; से बदल सकते हैं।</translation>
     </message>
 </context>
 <context>
     <name>openstudio::LibraryItemView</name>
     <message>
-        <location filename="../src/shared_gui_components/LocalLibraryView.cpp" line="140" />
+        <location filename="../src/shared_gui_components/LocalLibraryView.cpp" line="140"/>
         <source>Measure</source>
         <translation>उपाय</translation>
     </message>
@@ -22946,117 +22947,117 @@ You can change CLI version using 'Preferences-&gt;Use Classic CLI'.</source>
 <context>
     <name>openstudio::LifeCycleCostsView</name>
     <message>
-        <location filename="../src/openstudio_lib/LifeCycleCostsTabView.cpp" line="61" />
+        <location filename="../src/openstudio_lib/LifeCycleCostsTabView.cpp" line="61"/>
         <source>Life Cycle Cost Parameters</source>
         <translation>जीवन चक्र लागत पैरामीटर</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/LifeCycleCostsTabView.cpp" line="66" />
+        <location filename="../src/openstudio_lib/LifeCycleCostsTabView.cpp" line="66"/>
         <source>Performed using constant dollar methodology.  The base date and service date are assumed to be January 1, 2012.</source>
         <translation>निरंतर डॉलर पद्धति का उपयोग करके किया गया। आधार तारीख और सेवा तारीख को 1 जनवरी 2012 माना जाता है।</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/LifeCycleCostsTabView.cpp" line="83" />
+        <location filename="../src/openstudio_lib/LifeCycleCostsTabView.cpp" line="83"/>
         <source>Analysis Type</source>
         <translation>विश्लेषण प्रकार</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/LifeCycleCostsTabView.cpp" line="91" />
+        <location filename="../src/openstudio_lib/LifeCycleCostsTabView.cpp" line="91"/>
         <source>Federal Energy Management Program (FEMP)</source>
         <translation>Federal Energy Management Program (FEMP)</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/LifeCycleCostsTabView.cpp" line="95" />
+        <location filename="../src/openstudio_lib/LifeCycleCostsTabView.cpp" line="95"/>
         <source>Custom</source>
         <translation>कस्टम</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/LifeCycleCostsTabView.cpp" line="111" />
+        <location filename="../src/openstudio_lib/LifeCycleCostsTabView.cpp" line="111"/>
         <source>Analysis Length (Years)</source>
         <translation>विश्लेषण अवधि (वर्षों में)</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/LifeCycleCostsTabView.cpp" line="125" />
+        <location filename="../src/openstudio_lib/LifeCycleCostsTabView.cpp" line="125"/>
         <source>Real Discount Rate (fraction)</source>
         <translation>वास्तविक छूट दर (अंश)</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/LifeCycleCostsTabView.cpp" line="145" />
+        <location filename="../src/openstudio_lib/LifeCycleCostsTabView.cpp" line="145"/>
         <source>Use National Institute of Standards and Technology (NIST) Fuel Escalation Rates</source>
         <translation>National Institute of Standards and Technology (NIST) Fuel Escalation Rates का उपयोग करें</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/LifeCycleCostsTabView.cpp" line="153" />
+        <location filename="../src/openstudio_lib/LifeCycleCostsTabView.cpp" line="153"/>
         <source>Yes</source>
         <translation>हाँ</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/LifeCycleCostsTabView.cpp" line="157" />
+        <location filename="../src/openstudio_lib/LifeCycleCostsTabView.cpp" line="157"/>
         <source>No</source>
         <translation>नहीं</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/LifeCycleCostsTabView.cpp" line="190" />
+        <location filename="../src/openstudio_lib/LifeCycleCostsTabView.cpp" line="190"/>
         <source>Inflation Rates (Relative to general inflation)</source>
         <translation>मुद्रास्फीति दरें (सामान्य मुद्रास्फीति के सापेक्ष)</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/LifeCycleCostsTabView.cpp" line="205" />
+        <location filename="../src/openstudio_lib/LifeCycleCostsTabView.cpp" line="205"/>
         <source>Electricity (fraction)</source>
         <translation>विद्युत (अंश)</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/LifeCycleCostsTabView.cpp" line="220" />
+        <location filename="../src/openstudio_lib/LifeCycleCostsTabView.cpp" line="220"/>
         <source>Natural Gas (fraction)</source>
         <translation>प्राकृतिक गैस (अंश)</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/LifeCycleCostsTabView.cpp" line="233" />
+        <location filename="../src/openstudio_lib/LifeCycleCostsTabView.cpp" line="233"/>
         <source>Steam (fraction)</source>
         <translation>स्टीम (अंश)</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/LifeCycleCostsTabView.cpp" line="246" />
+        <location filename="../src/openstudio_lib/LifeCycleCostsTabView.cpp" line="246"/>
         <source>Gasoline (fraction)</source>
         <translation>गैसोलीन (अंश)</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/LifeCycleCostsTabView.cpp" line="262" />
+        <location filename="../src/openstudio_lib/LifeCycleCostsTabView.cpp" line="262"/>
         <source>Diesel (fraction)</source>
         <translation>डीजल (अंश)</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/LifeCycleCostsTabView.cpp" line="275" />
+        <location filename="../src/openstudio_lib/LifeCycleCostsTabView.cpp" line="275"/>
         <source>Propane (fraction)</source>
         <translation>प्रोपेन (अंश)</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/LifeCycleCostsTabView.cpp" line="288" />
+        <location filename="../src/openstudio_lib/LifeCycleCostsTabView.cpp" line="288"/>
         <source>Coal (fraction)</source>
         <translation>कोयला (अंश)</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/LifeCycleCostsTabView.cpp" line="301" />
+        <location filename="../src/openstudio_lib/LifeCycleCostsTabView.cpp" line="301"/>
         <source>Fuel Oil #1 (fraction)</source>
         <translation>ईंधन तेल #1 (अंश)</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/LifeCycleCostsTabView.cpp" line="317" />
+        <location filename="../src/openstudio_lib/LifeCycleCostsTabView.cpp" line="317"/>
         <source>Fuel Oil #2 (fraction)</source>
         <translation>ईंधन तेल #2 (अंश)</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/LifeCycleCostsTabView.cpp" line="330" />
+        <location filename="../src/openstudio_lib/LifeCycleCostsTabView.cpp" line="330"/>
         <source>Water (fraction)</source>
         <translation>जल (अंश)</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/LifeCycleCostsTabView.cpp" line="360" />
+        <location filename="../src/openstudio_lib/LifeCycleCostsTabView.cpp" line="360"/>
         <source>NIST Region</source>
         <translation>NIST क्षेत्र</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/LifeCycleCostsTabView.cpp" line="373" />
+        <location filename="../src/openstudio_lib/LifeCycleCostsTabView.cpp" line="373"/>
         <source>NIST Sector</source>
         <translation>NIST सेक्टर</translation>
     </message>
@@ -23064,37 +23065,37 @@ You can change CLI version using 'Preferences-&gt;Use Classic CLI'.</source>
 <context>
     <name>openstudio::LightsDefinitionInspectorView</name>
     <message>
-        <location filename="../src/openstudio_lib/LightsInspectorView.cpp" line="36" />
+        <location filename="../src/openstudio_lib/LightsInspectorView.cpp" line="36"/>
         <source>Name: </source>
         <translation>नाम:</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/LightsInspectorView.cpp" line="45" />
+        <location filename="../src/openstudio_lib/LightsInspectorView.cpp" line="45"/>
         <source>Lighting Power: </source>
         <translation>प्रकाश शक्ति:</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/LightsInspectorView.cpp" line="55" />
+        <location filename="../src/openstudio_lib/LightsInspectorView.cpp" line="55"/>
         <source>Watts Per Space Floor Area: </source>
         <translation>प्रति स्पेस फर्श क्षेत्र वाट:</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/LightsInspectorView.cpp" line="65" />
+        <location filename="../src/openstudio_lib/LightsInspectorView.cpp" line="65"/>
         <source>Watts Per Person: </source>
         <translation>प्रति व्यक्ति वाट:</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/LightsInspectorView.cpp" line="75" />
+        <location filename="../src/openstudio_lib/LightsInspectorView.cpp" line="75"/>
         <source>Fraction Radiant: </source>
         <translation>विकिरण अंश:</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/LightsInspectorView.cpp" line="85" />
+        <location filename="../src/openstudio_lib/LightsInspectorView.cpp" line="85"/>
         <source>Fraction Visible: </source>
         <translation>दृश्यमान अंश:</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/LightsInspectorView.cpp" line="95" />
+        <location filename="../src/openstudio_lib/LightsInspectorView.cpp" line="95"/>
         <source>Return Air Fraction: </source>
         <translation>रिटर्न एयर फ्रैक्शन:</translation>
     </message>
@@ -23102,52 +23103,52 @@ You can change CLI version using 'Preferences-&gt;Use Classic CLI'.</source>
 <context>
     <name>openstudio::LoadsView</name>
     <message>
-        <location filename="../src/openstudio_lib/LoadsView.cpp" line="45" />
+        <location filename="../src/openstudio_lib/LoadsView.cpp" line="45"/>
         <source>People Definitions</source>
         <translation>लोग परिभाषाएं</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/LoadsView.cpp" line="46" />
+        <location filename="../src/openstudio_lib/LoadsView.cpp" line="46"/>
         <source>Lights Definitions</source>
         <translation>रोशनी परिभाषाएं</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/LoadsView.cpp" line="47" />
+        <location filename="../src/openstudio_lib/LoadsView.cpp" line="47"/>
         <source>Luminaire Definitions</source>
         <translation>लुमिनेयर परिभाषाएं</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/LoadsView.cpp" line="48" />
+        <location filename="../src/openstudio_lib/LoadsView.cpp" line="48"/>
         <source>Electric Equipment Definitions</source>
         <translation>विद्युत उपकरण परिभाषाएं</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/LoadsView.cpp" line="49" />
+        <location filename="../src/openstudio_lib/LoadsView.cpp" line="49"/>
         <source>Gas Equipment Definitions</source>
         <translation>गैस उपकरण परिभाषाएँ</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/LoadsView.cpp" line="50" />
+        <location filename="../src/openstudio_lib/LoadsView.cpp" line="50"/>
         <source>Steam Equipment Definitions</source>
         <translation>स्टीम उपकरण परिभाषाएं</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/LoadsView.cpp" line="51" />
+        <location filename="../src/openstudio_lib/LoadsView.cpp" line="51"/>
         <source>Other Equipment Definitions</source>
         <translation>अन्य उपकरण परिभाषाएं</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/LoadsView.cpp" line="52" />
+        <location filename="../src/openstudio_lib/LoadsView.cpp" line="52"/>
         <source>Internal Mass Definitions</source>
         <translation>आंतरिक द्रव्यमान परिभाषाएं</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/LoadsView.cpp" line="53" />
+        <location filename="../src/openstudio_lib/LoadsView.cpp" line="53"/>
         <source>Water Use Equipment Definitions</source>
         <translation>जल उपयोग उपकरण परिभाषाएं</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/LoadsView.cpp" line="54" />
+        <location filename="../src/openstudio_lib/LoadsView.cpp" line="54"/>
         <source>Hot Water Equipment Definitions</source>
         <translation>गर्म जल उपकरण परिभाषाएं</translation>
     </message>
@@ -23155,32 +23156,32 @@ You can change CLI version using 'Preferences-&gt;Use Classic CLI'.</source>
 <context>
     <name>openstudio::LocalLibraryView</name>
     <message>
-        <location filename="../src/shared_gui_components/LocalLibraryView.cpp" line="62" />
+        <location filename="../src/shared_gui_components/LocalLibraryView.cpp" line="62"/>
         <source>Copy Selected Measure and Add to My Measures</source>
         <translation>चयनित Measureको प्रतिलिपि गरी मेरो Measureमा थप्नुहोस्</translation>
     </message>
     <message>
-        <location filename="../src/shared_gui_components/LocalLibraryView.cpp" line="67" />
+        <location filename="../src/shared_gui_components/LocalLibraryView.cpp" line="67"/>
         <source>Create a Measure from Template and add to My Measures</source>
         <translation>टेम्पलेट से Measure बनाएँ और My Measures में जोड़ें</translation>
     </message>
     <message>
-        <location filename="../src/shared_gui_components/LocalLibraryView.cpp" line="71" />
+        <location filename="../src/shared_gui_components/LocalLibraryView.cpp" line="71"/>
         <source>Look for BCL measure updates online</source>
         <translation>BCL माप अपडेट के लिए ऑनलाइन खोजें</translation>
     </message>
     <message>
-        <location filename="../src/shared_gui_components/LocalLibraryView.cpp" line="78" />
+        <location filename="../src/shared_gui_components/LocalLibraryView.cpp" line="78"/>
         <source>Open the My Measures Directory</source>
         <translation>मेरे Measures निर्देशिका खोलें</translation>
     </message>
     <message>
-        <location filename="../src/shared_gui_components/LocalLibraryView.cpp" line="87" />
+        <location filename="../src/shared_gui_components/LocalLibraryView.cpp" line="87"/>
         <source>Find Measures on BCL</source>
         <translation>BCL पर उपाय खोजें</translation>
     </message>
     <message>
-        <location filename="../src/shared_gui_components/LocalLibraryView.cpp" line="88" />
+        <location filename="../src/shared_gui_components/LocalLibraryView.cpp" line="88"/>
         <source>Connect to Online BCL to Download New Measures and Update Existing Measures to Library</source>
         <translation>ऑनलाइन BCL से नई Measures डाउनलोड करने और लाइब्रेरी में मौजूदा Measures को अपडेट करने के लिए कनेक्ट करें</translation>
     </message>
@@ -23188,22 +23189,22 @@ You can change CLI version using 'Preferences-&gt;Use Classic CLI'.</source>
 <context>
     <name>openstudio::LocationTabController</name>
     <message>
-        <location filename="../src/openstudio_lib/LocationTabController.cpp" line="30" />
+        <location filename="../src/openstudio_lib/LocationTabController.cpp" line="30"/>
         <source>Weather File &amp;&amp; Design Days</source>
         <translation>मौसम फ़ाइल &amp;&amp;  डिजाइन के दिन</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/LocationTabController.cpp" line="31" />
+        <location filename="../src/openstudio_lib/LocationTabController.cpp" line="31"/>
         <source>Life Cycle Costs</source>
         <translation>जीवन काल लागत</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/LocationTabController.cpp" line="32" />
+        <location filename="../src/openstudio_lib/LocationTabController.cpp" line="32"/>
         <source>Utility Bills</source>
         <translation>उपयोगिता बिल</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/LocationTabController.cpp" line="33" />
+        <location filename="../src/openstudio_lib/LocationTabController.cpp" line="33"/>
         <source>Ground Temperatures</source>
         <translation>भूमि तापमान</translation>
     </message>
@@ -23211,7 +23212,7 @@ You can change CLI version using 'Preferences-&gt;Use Classic CLI'.</source>
 <context>
     <name>openstudio::LocationTabView</name>
     <message>
-        <location filename="../src/openstudio_lib/LocationTabView.cpp" line="126" />
+        <location filename="../src/openstudio_lib/LocationTabView.cpp" line="126"/>
         <source>Site</source>
         <translation>स्थल</translation>
     </message>
@@ -23219,12 +23220,12 @@ You can change CLI version using 'Preferences-&gt;Use Classic CLI'.</source>
 <context>
     <name>openstudio::LocationView</name>
     <message>
-        <location filename="../src/openstudio_lib/LocationTabView.cpp" line="212" />
+        <location filename="../src/openstudio_lib/LocationTabView.cpp" line="212"/>
         <source>Weather File</source>
         <translation>मौसम फ़ाइल</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/LocationTabView.cpp" line="233" />
+        <location filename="../src/openstudio_lib/LocationTabView.cpp" line="233"/>
         <source>Name: </source>
         <translation>नाम:</translation>
     </message>
@@ -23245,145 +23246,145 @@ You can change CLI version using 'Preferences-&gt;Use Classic CLI'.</source>
         <translation>समय क्षेत्र:</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/LocationTabView.cpp" line="258" />
-        <source>Download weather files at &lt;a href="http://www.energyplus.net/weather"&gt;www.energyplus.net/weather&lt;/a&gt;</source>
-        <translation>मौसम फ़ाइल डाउनलोड करें &lt;a href="http://www.energyplus.net/weather"&gt;www.energyplus.net</translation>
+        <location filename="../src/openstudio_lib/LocationTabView.cpp" line="258"/>
+        <source>Download weather files at &lt;a href=&quot;http://www.energyplus.net/weather&quot;&gt;www.energyplus.net/weather&lt;/a&gt;</source>
+        <translation>मौसम फ़ाइल डाउनलोड करें &lt;a href=&quot;http://www.energyplus.net/weather&quot;&gt;www.energyplus.net</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/LocationTabView.cpp" line="269" />
+        <location filename="../src/openstudio_lib/LocationTabView.cpp" line="269"/>
         <source>Site Information:</source>
         <translation>साइट जानकारी:</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/LocationTabView.cpp" line="276" />
+        <location filename="../src/openstudio_lib/LocationTabView.cpp" line="276"/>
         <source>Keep Site Location Information</source>
         <translation>साइट स्थान जानकारी रखें</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/LocationTabView.cpp" line="277" />
+        <location filename="../src/openstudio_lib/LocationTabView.cpp" line="277"/>
         <source>If enabled, this will write the Site:Location object that will keep the Elevation change for example.</source>
         <translation>यदि सक्षम किया जाता है, तो यह Site:Location object को लिखेगा जो उदाहरण के लिए Elevation परिवर्तन को बनाए रखेगा।</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/LocationTabView.cpp" line="316" />
-        <source>Elevation affects the wind speed at the site, and is defaulted to the Weather File's elevation</source>
+        <location filename="../src/openstudio_lib/LocationTabView.cpp" line="316"/>
+        <source>Elevation affects the wind speed at the site, and is defaulted to the Weather File&apos;s elevation</source>
         <translation>ऊंचाई साइट पर हवा की गति को प्रभावित करती है, और यह मौसम फ़ाइल की ऊंचाई के लिए डिफ़ॉल्ट है</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/LocationTabView.cpp" line="330" />
+        <location filename="../src/openstudio_lib/LocationTabView.cpp" line="330"/>
         <source>Terrain</source>
         <translation>भूभाग</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/LocationTabView.cpp" line="331" />
+        <location filename="../src/openstudio_lib/LocationTabView.cpp" line="331"/>
         <source>Terrain affects the wind speed at the site.</source>
         <translation>भूभाग साइट पर हवा की गति को प्रभावित करता है।</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/LocationTabView.cpp" line="353" />
+        <location filename="../src/openstudio_lib/LocationTabView.cpp" line="353"/>
         <source>Measure Tags (Optional):</source>
         <translation>उपाय टैग(ऐच्छिक):</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/LocationTabView.cpp" line="357" />
+        <location filename="../src/openstudio_lib/LocationTabView.cpp" line="357"/>
         <source>ASHRAE Climate Zone</source>
         <translation>ASHRAE जलवायु क्षेत्र</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/LocationTabView.cpp" line="390" />
+        <location filename="../src/openstudio_lib/LocationTabView.cpp" line="390"/>
         <source>CEC Climate Zone</source>
         <translation>CEC जलवायु क्षेत्र</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/LocationTabView.cpp" line="459" />
-        <location filename="../src/openstudio_lib/LocationTabView.cpp" line="894" />
-        <location filename="../src/openstudio_lib/LocationTabView.cpp" line="903" />
+        <location filename="../src/openstudio_lib/LocationTabView.cpp" line="459"/>
+        <location filename="../src/openstudio_lib/LocationTabView.cpp" line="894"/>
+        <location filename="../src/openstudio_lib/LocationTabView.cpp" line="903"/>
         <source>Design Days</source>
         <translation>डिजाइन के दिन</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/LocationTabView.cpp" line="462" />
+        <location filename="../src/openstudio_lib/LocationTabView.cpp" line="462"/>
         <source>Import From DDY</source>
         <translation>डीडीवाई से आयात करें</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/LocationTabView.cpp" line="615" />
+        <location filename="../src/openstudio_lib/LocationTabView.cpp" line="615"/>
         <source>Change Weather File</source>
         <translation>मौसम फ़ाइल बदलें</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/LocationTabView.cpp" line="619" />
-        <location filename="../src/openstudio_lib/LocationTabView.cpp" line="623" />
+        <location filename="../src/openstudio_lib/LocationTabView.cpp" line="619"/>
+        <location filename="../src/openstudio_lib/LocationTabView.cpp" line="623"/>
         <source>Set Weather File</source>
         <translation>मौसम फ़ाइल सेट करें</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/LocationTabView.cpp" line="667" />
+        <location filename="../src/openstudio_lib/LocationTabView.cpp" line="667"/>
         <source>EPW Files (*.epw);; All Files (*.*)</source>
         <translation>ईपीडब्ल्यू फाइलें (*.epw);; सब फाइलें (*.*)</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/LocationTabView.cpp" line="678" />
+        <location filename="../src/openstudio_lib/LocationTabView.cpp" line="678"/>
         <source>Open Weather File</source>
         <translation>मौसम फ़ाइल खोले</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/LocationTabView.cpp" line="769" />
+        <location filename="../src/openstudio_lib/LocationTabView.cpp" line="769"/>
         <source>Failed To Set Weather File</source>
         <translation>मौसम फ़ाइल सेट करने में विफल</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/LocationTabView.cpp" line="769" />
+        <location filename="../src/openstudio_lib/LocationTabView.cpp" line="769"/>
         <source>Failed To Set Weather File To </source>
         <translation>निम्लिखित मौसम फ़ाइल सेट करने में विफल</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/LocationTabView.cpp" line="852" />
-        <source>There are &lt;span style="font-weight:bold;"&gt;%1&lt;/span&gt; Design Days available for import</source>
-        <translation>आयात के लिए &lt;span style="font-weight:bold;"&gt;%1&lt;/span&gt; Design Days उपलब्ध हैं</translation>
+        <location filename="../src/openstudio_lib/LocationTabView.cpp" line="852"/>
+        <source>There are &lt;span style=&quot;font-weight:bold;&quot;&gt;%1&lt;/span&gt; Design Days available for import</source>
+        <translation>आयात के लिए &lt;span style=&quot;font-weight:bold;&quot;&gt;%1&lt;/span&gt; Design Days उपलब्ध हैं</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/LocationTabView.cpp" line="854" />
+        <location filename="../src/openstudio_lib/LocationTabView.cpp" line="854"/>
         <source>, %1 of which are unknown type</source>
         <translation>, जिनमें से %1 अज्ञात प्रकार के हैं</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/LocationTabView.cpp" line="876" />
+        <location filename="../src/openstudio_lib/LocationTabView.cpp" line="876"/>
         <source>Heating</source>
         <translation>ताप (Tap) या हीटिंग (Heating)</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/LocationTabView.cpp" line="879" />
+        <location filename="../src/openstudio_lib/LocationTabView.cpp" line="879"/>
         <source>Cooling</source>
         <translation>शीतलन</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/LocationTabView.cpp" line="916" />
+        <location filename="../src/openstudio_lib/LocationTabView.cpp" line="916"/>
         <source>OK</source>
         <translation>ठीक है</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/LocationTabView.cpp" line="932" />
+        <location filename="../src/openstudio_lib/LocationTabView.cpp" line="932"/>
         <source>Cancel</source>
         <translation>रद्द करें</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/LocationTabView.cpp" line="936" />
+        <location filename="../src/openstudio_lib/LocationTabView.cpp" line="936"/>
         <source>Import all</source>
         <translation>सभी आयात करें</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/LocationTabView.cpp" line="966" />
+        <location filename="../src/openstudio_lib/LocationTabView.cpp" line="966"/>
         <source>Open DDY File</source>
         <translation>डीडीवाई फ़ाइल खोलें</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/LocationTabView.cpp" line="1016" />
+        <location filename="../src/openstudio_lib/LocationTabView.cpp" line="1016"/>
         <source>No Design Days in DDY File</source>
         <translation>डीडीवाई फ़ाइल में कोई डिज़ाइन दिवस नहीं</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/LocationTabView.cpp" line="1017" />
+        <location filename="../src/openstudio_lib/LocationTabView.cpp" line="1017"/>
         <source>This DDY file does not contain any valid design days.  Check the DDY file itself for errors or omissions.</source>
         <translation>इस डीडीवाई फ़ाइल में कोई मान्य डिज़ाइन दिवस नहीं है। त्रुटियों या चूक के लिए स्वयं डीडीवाई फ़ाइल की जाँच करें.</translation>
     </message>
@@ -23391,7 +23392,7 @@ You can change CLI version using 'Preferences-&gt;Use Classic CLI'.</source>
 <context>
     <name>openstudio::LoopItemView</name>
     <message>
-        <location filename="../src/openstudio_lib/LoopLibraryDialog.cpp" line="141" />
+        <location filename="../src/openstudio_lib/LoopLibraryDialog.cpp" line="141"/>
         <source>Add to Model</source>
         <translation>मॉडल में जोड़ें</translation>
     </message>
@@ -23399,59 +23400,59 @@ You can change CLI version using 'Preferences-&gt;Use Classic CLI'.</source>
 <context>
     <name>openstudio::LoopLibraryDialog</name>
     <message>
-        <location filename="../src/openstudio_lib/LoopLibraryDialog.cpp" line="22" />
+        <location filename="../src/openstudio_lib/LoopLibraryDialog.cpp" line="22"/>
         <source>Add HVAC System</source>
         <translation>HVAC सिस्टम जोड़ें</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/LoopLibraryDialog.cpp" line="30" />
+        <location filename="../src/openstudio_lib/LoopLibraryDialog.cpp" line="30"/>
         <source>HVAC Systems</source>
         <translation>HVAC सिस्टम</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/LoopLibraryDialog.cpp" line="70" />
+        <location filename="../src/openstudio_lib/LoopLibraryDialog.cpp" line="70"/>
         <source>Packaged Rooftop Unit</source>
         <translation>पैकेज्ड रूफटॉप यूनिट</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/LoopLibraryDialog.cpp" line="72" />
+        <location filename="../src/openstudio_lib/LoopLibraryDialog.cpp" line="72"/>
         <source>Packaged Rooftop Heat Pump</source>
         <translation>पैकेज्ड रूफटॉप हीट पंप</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/LoopLibraryDialog.cpp" line="74" />
+        <location filename="../src/openstudio_lib/LoopLibraryDialog.cpp" line="74"/>
         <source>Packaged DX Rooftop VAV 
 with Reheat</source>
         <translation>पैकेज्ड DX रूफटॉप VAV रीहीट के साथ</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/LoopLibraryDialog.cpp" line="76" />
+        <location filename="../src/openstudio_lib/LoopLibraryDialog.cpp" line="76"/>
         <source>Packaged Rooftop 
 VAV with Parallel Fan 
 Power Boxes and reheat</source>
         <translation>पैकेज्ड रूफटॉप VAV समानांतर फैन पावर बॉक्स और रीहीट के साथ</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/LoopLibraryDialog.cpp" line="78" />
+        <location filename="../src/openstudio_lib/LoopLibraryDialog.cpp" line="78"/>
         <source>Packaged Rooftop 
 VAV with Reheat</source>
         <translation>Packaged Rooftop VAV with Reheat</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/LoopLibraryDialog.cpp" line="80" />
+        <location filename="../src/openstudio_lib/LoopLibraryDialog.cpp" line="80"/>
         <source>VAV with Parallel Fan-Powered 
 Boxes and Reheat</source>
         <translation>VAV समांतर पंखा-संचालित बॉक्स और पुनः ताप के साथ</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/LoopLibraryDialog.cpp" line="82" />
+        <location filename="../src/openstudio_lib/LoopLibraryDialog.cpp" line="82"/>
         <source>Warm Air Furnace 
 Gas Fired</source>
         <translation>गर्म हवा फर्नेस
 गैस संचालित</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/LoopLibraryDialog.cpp" line="84" />
+        <location filename="../src/openstudio_lib/LoopLibraryDialog.cpp" line="84"/>
         <source>Warm Air Furnace 
 Electric</source>
         <translation>गर्म हवा फर्नेस
@@ -23492,22 +23493,22 @@ Electric</source>
 विद्युत</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/LoopLibraryDialog.cpp" line="86" />
+        <location filename="../src/openstudio_lib/LoopLibraryDialog.cpp" line="86"/>
         <source>Empty Air Loop</source>
         <translation>खाली वायु लूप</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/LoopLibraryDialog.cpp" line="88" />
+        <location filename="../src/openstudio_lib/LoopLibraryDialog.cpp" line="88"/>
         <source>Dual Duct Air Loop</source>
         <translation>Dual Duct Air Loop</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/LoopLibraryDialog.cpp" line="90" />
+        <location filename="../src/openstudio_lib/LoopLibraryDialog.cpp" line="90"/>
         <source>Empty Plant Loop</source>
         <translation>खाली संयंत्र लूप</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/LoopLibraryDialog.cpp" line="92" />
+        <location filename="../src/openstudio_lib/LoopLibraryDialog.cpp" line="92"/>
         <source>Service Hot Water Plant Loop</source>
         <translation>Service Hot Water Plant Loop</translation>
     </message>
@@ -23567,8 +23568,8 @@ Electric</source>
         <translation>बाद में पुन: प्रयास करें.</translation>
     </message>
     <message>
-        <source>Verify your computer's internet connection then click "Lost Cloud Connection" to recover the lost cloud session.</source>
-        <translation>अपने कंप्यूटर के इंटरनेट कनेक्शन को सत्यापित करें फिर खोए हुए क्लाउड सत्र को पुनर्प्राप्त करने के लिए "लॉस्ट क्लाउड कनेक्शन" पर क्लिक करें.</translation>
+        <source>Verify your computer&apos;s internet connection then click &quot;Lost Cloud Connection&quot; to recover the lost cloud session.</source>
+        <translation>अपने कंप्यूटर के इंटरनेट कनेक्शन को सत्यापित करें फिर खोए हुए क्लाउड सत्र को पुनर्प्राप्त करने के लिए &quot;लॉस्ट क्लाउड कनेक्शन&quot; पर क्लिक करें.</translation>
     </message>
     <message>
         <source>Or</source>
@@ -23594,27 +23595,27 @@ Electric</source>
 <context>
     <name>openstudio::LuminaireDefinitionInspectorView</name>
     <message>
-        <location filename="../src/openstudio_lib/LuminaireInspectorView.cpp" line="36" />
+        <location filename="../src/openstudio_lib/LuminaireInspectorView.cpp" line="36"/>
         <source>Name: </source>
         <translation>नाम:</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/LuminaireInspectorView.cpp" line="45" />
+        <location filename="../src/openstudio_lib/LuminaireInspectorView.cpp" line="45"/>
         <source>Lighting Power: </source>
         <translation>प्रकाश शक्ति:</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/LuminaireInspectorView.cpp" line="55" />
+        <location filename="../src/openstudio_lib/LuminaireInspectorView.cpp" line="55"/>
         <source>Fraction Radiant: </source>
         <translation>अंश विकिरण:</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/LuminaireInspectorView.cpp" line="65" />
+        <location filename="../src/openstudio_lib/LuminaireInspectorView.cpp" line="65"/>
         <source>Fraction Visible: </source>
         <translation>दृश्यमान अंश:</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/LuminaireInspectorView.cpp" line="75" />
+        <location filename="../src/openstudio_lib/LuminaireInspectorView.cpp" line="75"/>
         <source>Return Air Fraction: </source>
         <translation>रिटर्न एयर फ्रैक्शन:</translation>
     </message>
@@ -23622,318 +23623,318 @@ Electric</source>
 <context>
     <name>openstudio::MainMenu</name>
     <message>
-        <location filename="../src/openstudio_lib/MainMenu.cpp" line="34" />
+        <location filename="../src/openstudio_lib/MainMenu.cpp" line="34"/>
         <source>&amp;File</source>
         <translation>&amp;फ़ाइल</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/MainMenu.cpp" line="38" />
+        <location filename="../src/openstudio_lib/MainMenu.cpp" line="38"/>
         <source>&amp;New</source>
         <translation>&amp;नया</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/MainMenu.cpp" line="44" />
+        <location filename="../src/openstudio_lib/MainMenu.cpp" line="44"/>
         <source>&amp;Open</source>
         <translation>&amp;खोलें</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/MainMenu.cpp" line="51" />
-        <location filename="../src/openstudio_lib/MainMenu.cpp" line="960" />
+        <location filename="../src/openstudio_lib/MainMenu.cpp" line="51"/>
+        <location filename="../src/openstudio_lib/MainMenu.cpp" line="960"/>
         <source>&amp;Revert to Saved</source>
         <translation>सहेजे गए पर &amp;वापस जाएं</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/MainMenu.cpp" line="52" />
+        <location filename="../src/openstudio_lib/MainMenu.cpp" line="52"/>
         <source>Ctrl+R</source>
         <translation>Ctrl+र</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/MainMenu.cpp" line="58" />
+        <location filename="../src/openstudio_lib/MainMenu.cpp" line="58"/>
         <source>&amp;Save</source>
         <translation>&amp;सहेजें</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/MainMenu.cpp" line="63" />
+        <location filename="../src/openstudio_lib/MainMenu.cpp" line="63"/>
         <source>Save &amp;As</source>
         <translation>&amp;इस रूप में सहेजें</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/MainMenu.cpp" line="71" />
+        <location filename="../src/openstudio_lib/MainMenu.cpp" line="71"/>
         <source>&amp;Import</source>
         <translation>&amp;आयात</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/MainMenu.cpp" line="73" />
-        <location filename="../src/openstudio_lib/MainMenu.cpp" line="95" />
+        <location filename="../src/openstudio_lib/MainMenu.cpp" line="73"/>
+        <location filename="../src/openstudio_lib/MainMenu.cpp" line="95"/>
         <source>&amp;IDF</source>
         <translation>&amp;ईडफ</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/MainMenu.cpp" line="78" />
-        <location filename="../src/openstudio_lib/MainMenu.cpp" line="99" />
+        <location filename="../src/openstudio_lib/MainMenu.cpp" line="78"/>
+        <location filename="../src/openstudio_lib/MainMenu.cpp" line="99"/>
         <source>&amp;gbXML</source>
         <translation>&amp;जीबीएक्सएमएल</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/MainMenu.cpp" line="83" />
-        <location filename="../src/openstudio_lib/MainMenu.cpp" line="103" />
+        <location filename="../src/openstudio_lib/MainMenu.cpp" line="83"/>
+        <location filename="../src/openstudio_lib/MainMenu.cpp" line="103"/>
         <source>&amp;SDD</source>
         <translation>&amp;एसडीडी</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/MainMenu.cpp" line="88" />
+        <location filename="../src/openstudio_lib/MainMenu.cpp" line="88"/>
         <source>I&amp;FC</source>
         <translation>आई&amp;एफसी</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/MainMenu.cpp" line="93" />
+        <location filename="../src/openstudio_lib/MainMenu.cpp" line="93"/>
         <source>&amp;Export</source>
         <translation>&amp;निर्यात</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/MainMenu.cpp" line="107" />
+        <location filename="../src/openstudio_lib/MainMenu.cpp" line="107"/>
         <source>&amp;Load Library</source>
         <translation>&amp;लोड लाइब्रेरी</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/MainMenu.cpp" line="113" />
+        <location filename="../src/openstudio_lib/MainMenu.cpp" line="113"/>
         <source>E&amp;xamples</source>
         <translation>उदाहरण</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/MainMenu.cpp" line="115" />
+        <location filename="../src/openstudio_lib/MainMenu.cpp" line="115"/>
         <source>&amp;Example Model</source>
         <translation>&amp;उदाहरण मॉडल</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/MainMenu.cpp" line="119" />
+        <location filename="../src/openstudio_lib/MainMenu.cpp" line="119"/>
         <source>Shoebox Model</source>
         <translation>शोबॉक्स मॉडल</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/MainMenu.cpp" line="132" />
+        <location filename="../src/openstudio_lib/MainMenu.cpp" line="132"/>
         <source>E&amp;xit</source>
         <translation>&amp;बंद करें</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/MainMenu.cpp" line="139" />
+        <location filename="../src/openstudio_lib/MainMenu.cpp" line="139"/>
         <source>&amp;Preferences</source>
         <translation>&amp;तरजीह</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/MainMenu.cpp" line="142" />
+        <location filename="../src/openstudio_lib/MainMenu.cpp" line="142"/>
         <source>&amp;Units</source>
         <translation>&amp;इकाई</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/MainMenu.cpp" line="144" />
+        <location filename="../src/openstudio_lib/MainMenu.cpp" line="144"/>
         <source>Metric (&amp;SI)</source>
         <translation>मीट्रिक (&amp;SI)</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/MainMenu.cpp" line="150" />
+        <location filename="../src/openstudio_lib/MainMenu.cpp" line="150"/>
         <source>English (&amp;I-P)</source>
         <translation>आईपी ​​(&amp;IP)</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/MainMenu.cpp" line="156" />
+        <location filename="../src/openstudio_lib/MainMenu.cpp" line="156"/>
         <source>&amp;Change My Measures Directory</source>
         <translation>मेरी उपाय निर्देशिका &amp;बदलें</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/MainMenu.cpp" line="161" />
+        <location filename="../src/openstudio_lib/MainMenu.cpp" line="161"/>
         <source>&amp;Change Default Libraries</source>
         <translation>Hindi
 metric
 &amp;मेरी उपाय निर्देशिका बदलें</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/MainMenu.cpp" line="166" />
+        <location filename="../src/openstudio_lib/MainMenu.cpp" line="166"/>
         <source>&amp;Configure External Tools</source>
         <translation>&amp;बाहरी उपकरण कॉन्फ़िगर करें</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/MainMenu.cpp" line="171" />
+        <location filename="../src/openstudio_lib/MainMenu.cpp" line="171"/>
         <source>&amp;Language</source>
         <translation>&amp;भाषा</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/MainMenu.cpp" line="173" />
+        <location filename="../src/openstudio_lib/MainMenu.cpp" line="173"/>
         <source>English</source>
         <translation>अंग्रेज़ी</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/MainMenu.cpp" line="179" />
+        <location filename="../src/openstudio_lib/MainMenu.cpp" line="179"/>
         <source>French</source>
         <translation>फ्रेंच</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/MainMenu.cpp" line="251" />
+        <location filename="../src/openstudio_lib/MainMenu.cpp" line="251"/>
         <source>Arabic</source>
         <translation>अरबी</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/MainMenu.cpp" line="185" />
+        <location filename="../src/openstudio_lib/MainMenu.cpp" line="185"/>
         <source>Spanish</source>
         <translation>स्पेनिश</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/MainMenu.cpp" line="191" />
+        <location filename="../src/openstudio_lib/MainMenu.cpp" line="191"/>
         <source>Farsi</source>
         <translation>फारसी</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/MainMenu.cpp" line="257" />
+        <location filename="../src/openstudio_lib/MainMenu.cpp" line="257"/>
         <source>Hebrew</source>
         <translation>यहूदी</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/MainMenu.cpp" line="263" />
+        <location filename="../src/openstudio_lib/MainMenu.cpp" line="263"/>
         <source>Portuguese</source>
         <translation>पुर्तगाली</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/MainMenu.cpp" line="269" />
+        <location filename="../src/openstudio_lib/MainMenu.cpp" line="269"/>
         <source>Korean</source>
         <translation>कोरियाई</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/MainMenu.cpp" line="275" />
+        <location filename="../src/openstudio_lib/MainMenu.cpp" line="275"/>
         <source>Turkish</source>
         <translation>तुर्की</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/MainMenu.cpp" line="281" />
+        <location filename="../src/openstudio_lib/MainMenu.cpp" line="281"/>
         <source>Indonesian</source>
         <translation>इंडोनेशियाई</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/MainMenu.cpp" line="197" />
+        <location filename="../src/openstudio_lib/MainMenu.cpp" line="197"/>
         <source>Italian</source>
         <translation>इतालवी</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/MainMenu.cpp" line="203" />
+        <location filename="../src/openstudio_lib/MainMenu.cpp" line="203"/>
         <source>Chinese</source>
         <translation>चीनी</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/MainMenu.cpp" line="209" />
+        <location filename="../src/openstudio_lib/MainMenu.cpp" line="209"/>
         <source>Greek</source>
         <translation>यूनानी</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/MainMenu.cpp" line="215" />
+        <location filename="../src/openstudio_lib/MainMenu.cpp" line="215"/>
         <source>Polish</source>
         <translation>पोलिश</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/MainMenu.cpp" line="221" />
+        <location filename="../src/openstudio_lib/MainMenu.cpp" line="221"/>
         <source>Catalan</source>
         <translation>कातालान</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/MainMenu.cpp" line="227" />
+        <location filename="../src/openstudio_lib/MainMenu.cpp" line="227"/>
         <source>Hindi</source>
         <translation>हिंदी</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/MainMenu.cpp" line="233" />
+        <location filename="../src/openstudio_lib/MainMenu.cpp" line="233"/>
         <source>Vietnamese</source>
         <translation>वियतनामी</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/MainMenu.cpp" line="239" />
+        <location filename="../src/openstudio_lib/MainMenu.cpp" line="239"/>
         <source>Japanese</source>
         <translation>जापानी</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/MainMenu.cpp" line="245" />
+        <location filename="../src/openstudio_lib/MainMenu.cpp" line="245"/>
         <source>German</source>
         <translation>जर्मन</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/MainMenu.cpp" line="287" />
+        <location filename="../src/openstudio_lib/MainMenu.cpp" line="287"/>
         <source>Add a new language</source>
         <translation>एक नई भाषा जोड़ें</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/MainMenu.cpp" line="304" />
+        <location filename="../src/openstudio_lib/MainMenu.cpp" line="304"/>
         <source>&amp;Configure Internet Proxy</source>
         <translation>&amp;इंटरनेट प्रॉक्सी कॉन्फ़िगर करें</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/MainMenu.cpp" line="309" />
+        <location filename="../src/openstudio_lib/MainMenu.cpp" line="309"/>
         <source>&amp;Use Classic CLI</source>
         <translation>&amp;क्लासिक CLI का उपयोग करें</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/MainMenu.cpp" line="315" />
+        <location filename="../src/openstudio_lib/MainMenu.cpp" line="315"/>
         <source>&amp;Display Additional Proprerties</source>
         <translation>&amp;अतिरिक्त गुण प्रदर्शित करें</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/MainMenu.cpp" line="398" />
+        <location filename="../src/openstudio_lib/MainMenu.cpp" line="398"/>
         <source>&amp;Components &amp;&amp; Measures</source>
         <translation>&amp;अवयव और उपाय</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/MainMenu.cpp" line="401" />
+        <location filename="../src/openstudio_lib/MainMenu.cpp" line="401"/>
         <source>&amp;Apply Measure Now</source>
         <translation>&amp;उपाय लागू करें</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/MainMenu.cpp" line="403" />
+        <location filename="../src/openstudio_lib/MainMenu.cpp" line="403"/>
         <source>Ctrl+M</source>
         <translation>Ctrl+म</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/MainMenu.cpp" line="407" />
+        <location filename="../src/openstudio_lib/MainMenu.cpp" line="407"/>
         <source>Find &amp;Measures</source>
         <translation>&amp;उपाय खोजें</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/MainMenu.cpp" line="412" />
+        <location filename="../src/openstudio_lib/MainMenu.cpp" line="412"/>
         <source>Find &amp;Components</source>
         <translation>अ&amp;वयव खोजें</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/MainMenu.cpp" line="418" />
+        <location filename="../src/openstudio_lib/MainMenu.cpp" line="418"/>
         <source>&amp;Help</source>
         <translation>&amp;मदद</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/MainMenu.cpp" line="421" />
+        <location filename="../src/openstudio_lib/MainMenu.cpp" line="421"/>
         <source>OpenStudio &amp;Help</source>
         <translation>ओपेनस्टूडियो &amp;मदद</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/MainMenu.cpp" line="425" />
+        <location filename="../src/openstudio_lib/MainMenu.cpp" line="425"/>
         <source>Check For &amp;Update</source>
         <translation>&amp;नया क्या है</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/MainMenu.cpp" line="429" />
+        <location filename="../src/openstudio_lib/MainMenu.cpp" line="429"/>
         <source>Allow Analytics</source>
         <translation>विश्लेषण की अनुमति दें</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/MainMenu.cpp" line="436" />
+        <location filename="../src/openstudio_lib/MainMenu.cpp" line="436"/>
         <source>Debug Webgl</source>
         <translation>Debug Webgl</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/MainMenu.cpp" line="440" />
+        <location filename="../src/openstudio_lib/MainMenu.cpp" line="440"/>
         <source>&amp;About</source>
         <translation>बा&amp;रे में</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/MainMenu.cpp" line="920" />
+        <location filename="../src/openstudio_lib/MainMenu.cpp" line="920"/>
         <source>Adding a new language</source>
         <translation>एक नई भाषा जोड़ना</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/MainMenu.cpp" line="921" />
+        <location filename="../src/openstudio_lib/MainMenu.cpp" line="921"/>
         <source>Adding a new language requires almost no coding skill, but it does require language skills: the only thing to do is to translate each sentence/word with the help of a dedicated software.
 If you would like to see the OpenStudioApplication translated in your language of choice, we would welcome your help. Send an email to osc@openstudiocoalition.org specifying which language you want to add, and we will be in touch to help you get started.</source>
         <translation>क नई भाषा जोड़ने के लिए लगभग कोई कोडिंग कौशल की आवश्यकता नहीं होती है, लेकिन इसके लिए भाषा कौशल की आवश्यकता होती है: केवल एक ही काम करना है कि प्रत्येक वाक्य/शब्द का अनुवाद एक समर्पित सॉफ़्टवेयर की सहायता से करना है।
@@ -23943,1653 +23944,1653 @@ If you would like to see the OpenStudioApplication translated in your language o
 <context>
     <name>openstudio::MainRightColumnController</name>
     <message>
-        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="232" />
-        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="249" />
-        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="286" />
-        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="303" />
-        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="576" />
-        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="612" />
-        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="640" />
-        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="676" />
-        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="730" />
-        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="779" />
-        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="845" />
-        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="897" />
-        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="950" />
-        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="1069" />
+        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="232"/>
+        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="249"/>
+        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="286"/>
+        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="303"/>
+        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="576"/>
+        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="612"/>
+        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="640"/>
+        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="676"/>
+        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="730"/>
+        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="779"/>
+        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="845"/>
+        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="897"/>
+        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="950"/>
+        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="1069"/>
         <source>Schedule File</source>
         <translation>शेड्यूल फ़ाइल</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="233" />
-        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="250" />
-        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="287" />
-        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="304" />
-        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="577" />
-        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="613" />
-        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="641" />
-        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="677" />
-        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="731" />
-        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="780" />
-        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="846" />
-        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="898" />
-        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="951" />
-        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="1070" />
+        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="233"/>
+        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="250"/>
+        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="287"/>
+        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="304"/>
+        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="577"/>
+        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="613"/>
+        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="641"/>
+        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="677"/>
+        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="731"/>
+        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="780"/>
+        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="846"/>
+        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="898"/>
+        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="951"/>
+        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="1070"/>
         <source>Variable Interval Schedules</source>
         <translation>चर अंतराल अनुसूची</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="234" />
-        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="251" />
-        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="288" />
-        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="305" />
-        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="578" />
-        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="614" />
-        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="642" />
-        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="678" />
-        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="732" />
-        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="781" />
-        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="847" />
-        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="899" />
-        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="952" />
-        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="1071" />
+        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="234"/>
+        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="251"/>
+        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="288"/>
+        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="305"/>
+        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="578"/>
+        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="614"/>
+        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="642"/>
+        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="678"/>
+        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="732"/>
+        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="781"/>
+        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="847"/>
+        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="899"/>
+        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="952"/>
+        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="1071"/>
         <source>Fixed Interval Schedules</source>
         <translation>निश्चित अंतराल अनुसूचियाँ</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="235" />
-        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="252" />
-        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="289" />
-        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="306" />
-        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="579" />
-        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="615" />
-        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="643" />
-        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="679" />
-        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="733" />
-        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="782" />
-        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="848" />
-        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="900" />
-        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="953" />
-        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="1072" />
+        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="235"/>
+        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="252"/>
+        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="289"/>
+        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="306"/>
+        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="579"/>
+        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="615"/>
+        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="643"/>
+        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="679"/>
+        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="733"/>
+        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="782"/>
+        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="848"/>
+        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="900"/>
+        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="953"/>
+        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="1072"/>
         <source>Year Schedules</source>
         <translation>वर्ष अनुसूचियां</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="236" />
-        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="253" />
-        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="290" />
-        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="307" />
-        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="347" />
-        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="580" />
-        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="616" />
-        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="644" />
-        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="680" />
-        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="734" />
-        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="783" />
-        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="849" />
-        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="901" />
-        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="954" />
-        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="1073" />
+        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="236"/>
+        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="253"/>
+        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="290"/>
+        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="307"/>
+        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="347"/>
+        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="580"/>
+        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="616"/>
+        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="644"/>
+        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="680"/>
+        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="734"/>
+        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="783"/>
+        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="849"/>
+        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="901"/>
+        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="954"/>
+        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="1073"/>
         <source>Constant Schedules</source>
         <translation>स्थिर समय सारणी</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="237" />
-        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="254" />
-        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="291" />
-        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="308" />
-        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="581" />
-        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="617" />
-        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="645" />
-        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="681" />
-        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="735" />
-        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="784" />
-        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="850" />
-        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="902" />
-        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="955" />
-        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="997" />
-        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="1074" />
+        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="237"/>
+        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="254"/>
+        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="291"/>
+        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="308"/>
+        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="581"/>
+        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="617"/>
+        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="645"/>
+        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="681"/>
+        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="735"/>
+        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="784"/>
+        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="850"/>
+        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="902"/>
+        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="955"/>
+        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="997"/>
+        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="1074"/>
         <source>Compact Schedules</source>
         <translation>कॉम्पैक्ट शेड्यूल्स</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="238" />
-        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="255" />
-        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="292" />
-        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="309" />
-        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="582" />
-        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="618" />
-        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="646" />
-        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="682" />
-        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="736" />
-        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="785" />
-        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="851" />
-        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="903" />
-        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="956" />
-        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="1075" />
+        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="238"/>
+        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="255"/>
+        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="292"/>
+        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="309"/>
+        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="582"/>
+        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="618"/>
+        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="646"/>
+        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="682"/>
+        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="736"/>
+        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="785"/>
+        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="851"/>
+        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="903"/>
+        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="956"/>
+        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="1075"/>
         <source>Ruleset Schedules</source>
         <translation>Ruleset Schedules</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="239" />
-        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="256" />
-        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="293" />
-        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="310" />
-        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="330" />
-        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="349" />
-        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="583" />
-        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="619" />
-        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="647" />
-        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="683" />
-        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="737" />
-        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="786" />
-        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="852" />
-        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="904" />
-        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="957" />
-        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="999" />
-        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="1076" />
+        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="239"/>
+        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="256"/>
+        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="293"/>
+        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="310"/>
+        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="330"/>
+        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="349"/>
+        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="583"/>
+        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="619"/>
+        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="647"/>
+        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="683"/>
+        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="737"/>
+        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="786"/>
+        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="852"/>
+        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="904"/>
+        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="957"/>
+        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="999"/>
+        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="1076"/>
         <source>Schedules</source>
         <translation>अनुसूचियाँ</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="311" />
-        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="312" />
-        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="662" />
-        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="700" />
-        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="754" />
-        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="807" />
-        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="868" />
-        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="921" />
+        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="311"/>
+        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="312"/>
+        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="662"/>
+        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="700"/>
+        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="754"/>
+        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="807"/>
+        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="868"/>
+        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="921"/>
         <source>Schedule Sets</source>
         <translation>शेड्यूल सेट</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="329" />
-        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="998" />
+        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="329"/>
+        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="998"/>
         <source>Schedule Rulesets</source>
         <translation>शेड्यूल रूलसेट्स</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="60" />
+        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="60"/>
         <source>My Model</source>
         <translation>मेरा मॉडल</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="66" />
+        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="66"/>
         <source>Library</source>
         <translation>पुस्तकालय</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="71" />
+        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="71"/>
         <source>Edit</source>
         <translation>संपादित करें</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="384" />
-        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="385" />
-        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="400" />
-        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="401" />
-        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="476" />
-        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="477" />
-        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="574" />
-        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="575" />
-        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="599" />
-        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="600" />
-        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="728" />
-        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="729" />
-        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="777" />
-        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="778" />
-        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="843" />
-        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="844" />
-        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="895" />
-        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="896" />
+        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="384"/>
+        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="385"/>
+        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="400"/>
+        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="401"/>
+        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="476"/>
+        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="477"/>
+        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="574"/>
+        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="575"/>
+        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="599"/>
+        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="600"/>
+        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="728"/>
+        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="729"/>
+        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="777"/>
+        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="778"/>
+        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="843"/>
+        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="844"/>
+        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="895"/>
+        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="896"/>
         <source>Constructions</source>
         <translation>निर्माण</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="402" />
-        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="403" />
-        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="663" />
-        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="701" />
-        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="755" />
-        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="808" />
-        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="869" />
-        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="922" />
+        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="402"/>
+        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="403"/>
+        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="663"/>
+        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="701"/>
+        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="755"/>
+        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="808"/>
+        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="869"/>
+        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="922"/>
         <source>Construction Sets</source>
         <translation>निर्माण सेट</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="383" />
-        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="399" />
-        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="475" />
-        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="573" />
-        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="598" />
-        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="727" />
-        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="776" />
-        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="842" />
-        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="894" />
+        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="383"/>
+        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="399"/>
+        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="475"/>
+        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="573"/>
+        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="598"/>
+        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="727"/>
+        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="776"/>
+        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="842"/>
+        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="894"/>
         <source>Air Boundary Constructions</source>
         <translation>वायु सीमा निर्माण</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="382" />
-        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="398" />
-        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="474" />
-        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="572" />
-        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="597" />
-        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="726" />
-        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="775" />
-        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="841" />
-        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="893" />
+        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="382"/>
+        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="398"/>
+        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="474"/>
+        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="572"/>
+        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="597"/>
+        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="726"/>
+        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="775"/>
+        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="841"/>
+        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="893"/>
         <source>Internal Source Constructions</source>
         <translation>आंतरिक स्रोत निर्माण</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="381" />
-        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="397" />
-        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="473" />
-        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="571" />
-        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="596" />
-        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="725" />
-        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="774" />
-        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="840" />
-        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="892" />
+        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="381"/>
+        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="397"/>
+        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="473"/>
+        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="571"/>
+        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="596"/>
+        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="725"/>
+        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="774"/>
+        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="840"/>
+        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="892"/>
         <source>C-factor Underground Wall Constructions</source>
         <translation>C-factor भूमिगत दीवार निर्माण</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="380" />
-        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="396" />
-        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="472" />
-        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="570" />
-        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="595" />
-        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="724" />
-        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="773" />
-        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="839" />
-        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="891" />
+        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="380"/>
+        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="396"/>
+        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="472"/>
+        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="570"/>
+        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="595"/>
+        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="724"/>
+        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="773"/>
+        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="839"/>
+        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="891"/>
         <source>F-factor Ground Floor Constructions</source>
         <translation>F-factor ग्राउंड फ्लोर कंस्ट्रक्शन</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="379" />
-        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="395" />
-        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="471" />
-        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="569" />
-        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="594" />
-        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="723" />
-        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="772" />
-        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="838" />
-        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="890" />
+        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="379"/>
+        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="395"/>
+        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="471"/>
+        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="569"/>
+        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="594"/>
+        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="723"/>
+        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="772"/>
+        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="838"/>
+        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="890"/>
         <source>Window Data File Constructions</source>
         <translation>विंडो डेटा फाइल निर्माण</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="438" />
-        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="439" />
-        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="468" />
-        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="469" />
-        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="521" />
-        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="522" />
+        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="438"/>
+        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="439"/>
+        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="468"/>
+        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="469"/>
+        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="521"/>
+        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="522"/>
         <source>Materials</source>
         <translation>सामग्री</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="437" />
-        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="467" />
-        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="520" />
+        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="437"/>
+        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="467"/>
+        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="520"/>
         <source>No Mass Materials</source>
         <translation>No Mass Materials</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="436" />
-        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="466" />
-        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="519" />
+        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="436"/>
+        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="466"/>
+        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="519"/>
         <source>Air Gap Materials</source>
         <translation>वायु अंतराल सामग्री</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="435" />
-        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="465" />
-        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="518" />
+        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="435"/>
+        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="465"/>
+        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="518"/>
         <source>Infrared Transparent Materials</source>
         <translation>अवरक्त पारदर्शी सामग्री</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="434" />
-        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="464" />
-        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="517" />
+        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="434"/>
+        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="464"/>
+        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="517"/>
         <source>Roof Vegetation Materials</source>
         <translation>छत वनस्पति सामग्री</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="432" />
-        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="462" />
-        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="515" />
+        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="432"/>
+        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="462"/>
+        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="515"/>
         <source>Window Materials</source>
         <translation>खिड़की सामग्री</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="431" />
-        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="461" />
-        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="514" />
+        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="431"/>
+        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="461"/>
+        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="514"/>
         <source>Simple Glazing System Window Materials</source>
         <translation>सरल ग्लेज़िंग सिस्टम विंडो सामग्री</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="430" />
-        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="460" />
-        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="513" />
+        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="430"/>
+        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="460"/>
+        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="513"/>
         <source>Glazing Window Materials</source>
         <translation>ग्लेज़िंग विंडो सामग्री</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="429" />
-        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="459" />
-        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="512" />
+        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="429"/>
+        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="459"/>
+        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="512"/>
         <source>Gas Window Materials</source>
         <translation>गैस विंडो सामग्री</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="428" />
-        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="458" />
-        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="511" />
+        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="428"/>
+        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="458"/>
+        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="511"/>
         <source>Gas Mixture Window Materials</source>
         <translation>गैस मिश्रण विंडो सामग्री</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="427" />
-        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="457" />
-        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="510" />
+        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="427"/>
+        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="457"/>
+        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="510"/>
         <source>Daylight Redirection Device Window Materials</source>
         <translation>दिन का प्रकाश पुनर्निर्देशन डिवाइस विंडो सामग्री</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="426" />
-        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="455" />
-        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="508" />
+        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="426"/>
+        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="455"/>
+        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="508"/>
         <source>Blind Window Materials</source>
         <translation>ब्लाइंड विंडो मटीरियल्स</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="425" />
-        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="454" />
-        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="507" />
+        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="425"/>
+        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="454"/>
+        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="507"/>
         <source>Screen Window Materials</source>
         <translation>स्क्रीन विंडो सामग्री</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="424" />
-        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="453" />
-        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="506" />
+        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="424"/>
+        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="453"/>
+        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="506"/>
         <source>Shade Window Materials</source>
         <translation>Shade Window Materials
 
-(Note: This appears to be a technical interface label in OpenStudio. Since "Shade Window Materials" is a specific UI component name referring to material properties for window shading in the software, it's typically kept in English in Hindi-language interfaces. However, if you need a full Hindi translation: **छाया खिड़की सामग्री** - but the English term is standard in professional software contexts.)</translation>
+(Note: This appears to be a technical interface label in OpenStudio. Since &quot;Shade Window Materials&quot; is a specific UI component name referring to material properties for window shading in the software, it&apos;s typically kept in English in Hindi-language interfaces. However, if you need a full Hindi translation: **छाया खिड़की सामग्री** - but the English term is standard in professional software contexts.)</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="423" />
-        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="452" />
-        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="505" />
+        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="423"/>
+        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="452"/>
+        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="505"/>
         <source>Refraction Extinction Method Glazing Window Materials</source>
         <translation>Refraction Extinction Method Glazing Window Materials</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="611" />
-        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="661" />
-        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="698" />
-        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="753" />
-        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="806" />
-        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="867" />
+        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="611"/>
+        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="661"/>
+        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="698"/>
+        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="753"/>
+        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="806"/>
+        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="867"/>
         <source>Definitions</source>
         <translation>परिभाषाएं</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="610" />
-        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="658" />
-        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="694" />
-        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="747" />
-        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="796" />
-        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="864" />
-        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="916" />
+        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="610"/>
+        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="658"/>
+        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="694"/>
+        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="747"/>
+        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="796"/>
+        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="864"/>
+        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="916"/>
         <source>People Definitions</source>
         <translation>लोग परिभाषाएं</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="609" />
-        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="657" />
-        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="693" />
-        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="746" />
-        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="795" />
-        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="863" />
-        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="915" />
+        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="609"/>
+        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="657"/>
+        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="693"/>
+        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="746"/>
+        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="795"/>
+        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="863"/>
+        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="915"/>
         <source>Lights Definitions</source>
         <translation>प्रकाश परिभाषाएं</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="608" />
-        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="656" />
-        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="692" />
-        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="745" />
-        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="794" />
-        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="862" />
-        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="914" />
+        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="608"/>
+        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="656"/>
+        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="692"/>
+        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="745"/>
+        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="794"/>
+        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="862"/>
+        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="914"/>
         <source>Luminaire Definitions</source>
         <translation>Luminaire परिभाषाएं</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="607" />
-        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="655" />
-        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="691" />
-        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="744" />
-        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="793" />
-        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="861" />
-        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="913" />
+        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="607"/>
+        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="655"/>
+        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="691"/>
+        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="744"/>
+        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="793"/>
+        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="861"/>
+        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="913"/>
         <source>Electric Equipment Definitions</source>
         <translation>विद्युत उपकरण परिभाषाएं</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="606" />
-        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="654" />
-        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="690" />
-        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="743" />
-        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="792" />
-        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="860" />
-        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="912" />
+        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="606"/>
+        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="654"/>
+        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="690"/>
+        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="743"/>
+        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="792"/>
+        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="860"/>
+        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="912"/>
         <source>Gas Equipment Definitions</source>
         <translation>गैस उपकरण परिभाषाएं</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="603" />
-        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="651" />
-        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="687" />
-        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="740" />
-        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="789" />
-        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="855" />
-        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="907" />
+        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="603"/>
+        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="651"/>
+        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="687"/>
+        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="740"/>
+        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="789"/>
+        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="855"/>
+        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="907"/>
         <source>Steam Equipment Definitions</source>
         <translation>स्टीम उपकरण परिभाषाएं</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="602" />
-        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="650" />
-        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="686" />
-        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="739" />
-        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="788" />
-        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="854" />
-        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="906" />
+        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="602"/>
+        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="650"/>
+        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="686"/>
+        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="739"/>
+        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="788"/>
+        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="854"/>
+        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="906"/>
         <source>Other Equipment Definitions</source>
         <translation>अन्य उपकरण परिभाषाएँ</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="601" />
-        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="649" />
-        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="685" />
-        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="738" />
-        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="787" />
-        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="853" />
-        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="905" />
+        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="601"/>
+        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="649"/>
+        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="685"/>
+        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="738"/>
+        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="787"/>
+        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="853"/>
+        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="905"/>
         <source>Internal Mass Definitions</source>
         <translation>Internal Mass Definitions</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="605" />
-        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="653" />
-        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="689" />
-        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="742" />
-        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="791" />
-        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="859" />
-        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="909" />
+        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="605"/>
+        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="653"/>
+        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="689"/>
+        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="742"/>
+        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="791"/>
+        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="859"/>
+        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="909"/>
         <source>Water Use Equipment Definitions</source>
         <translation>जल उपयोग उपकरण परिभाषाएं</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="604" />
-        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="652" />
-        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="688" />
-        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="741" />
-        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="790" />
-        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="856" />
-        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="908" />
+        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="604"/>
+        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="652"/>
+        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="688"/>
+        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="741"/>
+        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="790"/>
+        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="856"/>
+        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="908"/>
         <source>Hot Water Equipment Definitions</source>
         <translation>गर्म जल उपकरण परिभाषाएं</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="664" />
-        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="703" />
-        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="757" />
-        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="810" />
-        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="871" />
-        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="924" />
+        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="664"/>
+        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="703"/>
+        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="757"/>
+        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="810"/>
+        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="871"/>
+        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="924"/>
         <source>Defaults</source>
         <translation>डिफ़ॉल्ट्स</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="660" />
-        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="697" />
-        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="752" />
-        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="805" />
-        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="866" />
-        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="919" />
+        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="660"/>
+        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="697"/>
+        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="752"/>
+        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="805"/>
+        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="866"/>
+        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="919"/>
         <source>Design Specification Outdoor Air</source>
         <translation>डिज़ाइन विशिष्टता बाहरी वायु</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="695" />
-        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="803" />
-        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="917" />
+        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="695"/>
+        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="803"/>
+        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="917"/>
         <source>Space Infiltration Design Flow Rates</source>
         <translation>Space Infiltration Design Flow Rates</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="696" />
-        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="804" />
-        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="918" />
+        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="696"/>
+        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="804"/>
+        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="918"/>
         <source>Space Infiltration Effective Leakage Areas</source>
         <translation>Space Infiltration Effective Leakage Areas</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="702" />
-        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="756" />
-        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="809" />
-        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="870" />
-        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="923" />
+        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="702"/>
+        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="756"/>
+        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="809"/>
+        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="870"/>
+        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="923"/>
         <source>Space Types</source>
         <translation>अंतरिक्ष प्रकार</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="748" />
-        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="797" />
+        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="748"/>
+        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="797"/>
         <source>Exterior Water Equipment Definitions</source>
         <translation>बाहरी जल उपकरण परिभाषाएं</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="749" />
-        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="798" />
+        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="749"/>
+        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="798"/>
         <source>Exterior Fuel Equipment Definitions</source>
         <translation>बाहरी ईंधन उपकरण परिभाषाएं</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="750" />
-        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="799" />
+        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="750"/>
+        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="799"/>
         <source>Exterior Lights Definitions</source>
         <translation>बाहरी प्रकाश परिभाषाएं</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="800" />
+        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="800"/>
         <source>Exterior Water Equipment</source>
         <translation>बाहरी जल उपकरण</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="801" />
+        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="801"/>
         <source>Exterior Fuel Equipment</source>
         <translation>बाहरी ईंधन उपकरण</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="802" />
+        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="802"/>
         <source>Exterior Lights</source>
         <translation>बाहरी रोशनी</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="758" />
-        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="872" />
+        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="758"/>
+        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="872"/>
         <source>Thermal Zones</source>
         <translation>थर्मल जोन्स</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="759" />
-        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="873" />
+        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="759"/>
+        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="873"/>
         <source>Building Stories</source>
         <translation>भवन की मंजिलें</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="760" />
-        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="874" />
+        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="760"/>
+        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="874"/>
         <source>Building</source>
         <translation>भवन</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="829" />
-        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="886" />
+        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="829"/>
+        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="886"/>
         <source>ShadingControl</source>
         <translation>शेडिंग कंट्रोल</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="830" />
-        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="887" />
+        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="830"/>
+        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="887"/>
         <source>Frame And Divider Window Property</source>
         <translation>फ्रेम और डिवाइडर विंडो प्रॉपर्टी</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="831" />
-        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="888" />
+        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="831"/>
+        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="888"/>
         <source>DaylightingDevice Shelf</source>
         <translation>डेलाइटिंग डिवाइस शेल्फ</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="832" />
-        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="889" />
+        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="832"/>
+        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="889"/>
         <source>Daylighting</source>
         <translation>दिवालोक</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="833" />
+        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="833"/>
         <source>Interior Partition Surface</source>
         <translation>आंतरिक विभाजन सतह</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="857" />
-        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="910" />
-        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="947" />
-        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="969" />
-        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="1098" />
+        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="857"/>
+        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="910"/>
+        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="947"/>
+        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="969"/>
+        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="1098"/>
         <source>Water Heater - Heat Pump</source>
         <translation>हीट पंप - वाटर हीटर</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="858" />
-        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="911" />
-        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="948" />
-        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="970" />
-        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="1099" />
+        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="858"/>
+        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="911"/>
+        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="948"/>
+        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="970"/>
+        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="1099"/>
         <source>Water Heater - Heat Pump - Wrapped Condenser</source>
         <translation>वाटर हीटर - हीट पंप - रैप्ड कंडेंसर</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="949" />
-        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="971" />
-        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="1028" />
-        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="1102" />
+        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="949"/>
+        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="971"/>
+        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="1028"/>
+        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="1102"/>
         <source>Water Heaters</source>
         <translation>जल ताप के साधन</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="720" />
-        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="835" />
+        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="720"/>
+        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="835"/>
         <source>Sub Surfaces</source>
         <translation>उप सतहें</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="721" />
-        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="722" />
-        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="836" />
-        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="837" />
+        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="721"/>
+        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="722"/>
+        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="836"/>
+        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="837"/>
         <source>Surfaces</source>
         <translation>सतहें</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="834" />
+        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="834"/>
         <source>Shading Surface</source>
         <translation>छायांकन सतह</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="1065" />
+        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="1065"/>
         <source>Thermal Zone</source>
         <translation>ऊष्मीय क्षेत्र</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="1066" />
+        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="1066"/>
         <source>Zones</source>
         <translation>जोन्स</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="993" />
-        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="1047" />
-        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="1192" />
+        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="993"/>
+        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="1047"/>
+        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="1192"/>
         <source>Zone HVAC</source>
         <translation>Zone HVAC</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="1056" />
-        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="1229" />
+        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="1056"/>
+        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="1229"/>
         <source>Coils</source>
         <translation>कुंडलियाँ</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="1058" />
-        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="1172" />
+        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="1058"/>
+        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="1172"/>
         <source>Heat Pumps</source>
         <translation>ताप पम्प</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="1053" />
-        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="1175" />
+        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="1053"/>
+        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="1175"/>
         <source>Heat Exchangers</source>
         <translation>ऊष्मा विनिमायक</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="1062" />
-        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="1218" />
+        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="1062"/>
+        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="1218"/>
         <source>Chillers</source>
         <translation>चिलर्स</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="1025" />
-        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="1097" />
+        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="1025"/>
+        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="1097"/>
         <source>Water Uses</source>
         <translation>जल उपयोग</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="1030" />
-        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="1105" />
+        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="1030"/>
+        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="1105"/>
         <source>VRFs</source>
         <translation>VRFs</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="1032" />
-        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="1108" />
+        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="1032"/>
+        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="1108"/>
         <source>Thermal Storage</source>
         <translation>तापीय भंडारण</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="1037" />
-        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="1152" />
+        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="1037"/>
+        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="1152"/>
         <source>Refrigeration</source>
         <translation>रेफ्रिजरेशन</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="1141" />
+        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="1141"/>
         <source>Setpoint Managers</source>
         <translation>Setpoint Managers</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="1090" />
+        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="1090"/>
         <source>Swimming Pools</source>
         <translation>तैराकी पूल</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="1094" />
+        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="1094"/>
         <source>Solar Collectors</source>
         <translation>सौर संग्राहक</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="1157" />
+        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="1157"/>
         <source>Pumps</source>
         <translation>पंप</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="1160" />
+        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="1160"/>
         <source>Plant Components</source>
         <translation>संयंत्र घटक</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="1164" />
+        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="1164"/>
         <source>Pipes</source>
         <translation>पाइप्स</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="1166" />
+        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="1166"/>
         <source>Load Profiles</source>
         <translation>भार प्रोफाइल</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="1169" />
+        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="1169"/>
         <source>Humidifiers</source>
         <translation>आर्द्रताकारी (Humidifiers)</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="1179" />
+        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="1179"/>
         <source>Generators</source>
         <translation>जनरेटर</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="1182" />
+        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="1182"/>
         <source>Ground Heat Exchangers</source>
         <translation>भूमि ताप विनिमायक</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="1185" />
+        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="1185"/>
         <source>Fluid Coolers</source>
         <translation>तरल कूलर</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="1197" />
+        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="1197"/>
         <source>Fans</source>
         <translation>पंखे</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="1202" />
+        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="1202"/>
         <source>Evaporative Coolers</source>
         <translation>वाष्पीकरणीय शीतलक</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="1204" />
+        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="1204"/>
         <source>Ducts</source>
         <translation>नलिकाएं</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="1205" />
-        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="1206" />
+        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="1205"/>
+        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="1206"/>
         <source>District Cooling</source>
         <translation>जिला शीतलन</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="1208" />
+        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="1208"/>
         <source>District Heating</source>
         <translation>जिला ताप आपूर्ति</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="1212" />
+        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="1212"/>
         <source>Cooling Towers</source>
         <translation>शीतलन मीनार</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="1214" />
+        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="1214"/>
         <source>Central Heat Pump Systems</source>
         <translation>केंद्रीय ताप पंप प्रणाली</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="1231" />
+        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="1231"/>
         <source>Boilers</source>
         <translation>बॉयलर</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="1250" />
+        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="1250"/>
         <source>Air Terminals</source>
         <translation>वायु टर्मिनल</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="1257" />
+        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="1257"/>
         <source>Air Loop HVAC</source>
         <translation>वायु पाश HVAC</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="1275" />
+        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="1275"/>
         <source>Availability Managers</source>
         <translation>Availability Managers</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="1023" />
+        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="1023"/>
         <source>Water Use Equipment Definition</source>
         <translation>जल उपयोग उपकरण परिभाषा</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="1024" />
-        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="1096" />
+        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="1024"/>
+        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="1096"/>
         <source>Water Use Connections</source>
         <translation>जल उपयोग कनेक्शन</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="1026" />
-        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="1100" />
+        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="1026"/>
+        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="1100"/>
         <source>Water Heater Mixed</source>
         <translation>वॉटर हीटर मिश्रित</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="1027" />
-        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="1101" />
+        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="1027"/>
+        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="1101"/>
         <source>Water Heater Stratified</source>
         <translation>Water Heater Stratified</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="1029" />
-        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="1103" />
+        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="1029"/>
+        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="1103"/>
         <source>VRF System</source>
         <translation>VRF सिस्टम</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="1031" />
-        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="1107" />
+        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="1031"/>
+        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="1107"/>
         <source>Thermal Storage - Chilled Water</source>
         <translation>थर्मल स्टोरेज - शीतल जल</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="1106" />
+        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="1106"/>
         <source>Thermal Storage - Ice Storage</source>
         <translation>Thermal Storage - Ice Storage</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="1035" />
-        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="1143" />
+        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="1035"/>
+        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="1143"/>
         <source>Refrigeration System</source>
         <translation>रेफ्रिजरेशन सिस्टम</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="1036" />
-        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="1148" />
+        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="1036"/>
+        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="1148"/>
         <source>Refrigeration Condenser Water Cooled</source>
         <translation>रेफ्रिजरेशन कंडेंसर वाटर कूल्ड</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="1149" />
+        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="1149"/>
         <source>Refrigeration Condenser Evaporative Cooled</source>
         <translation>रेफ्रिजरेशन कंडेंसर वाष्पीय शीतल</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="1150" />
+        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="1150"/>
         <source>Refrigeration Condenser Air Cooled</source>
         <translation>रेफ्रिजरेशन कंडेंसर एयर कूल्ड</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="1147" />
+        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="1147"/>
         <source>Refrigeration Condenser Cascade</source>
         <translation>Refrigeration Condenser Cascade</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="1144" />
+        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="1144"/>
         <source>Refrigeration Subcooler Mechanical</source>
         <translation>रेफ्रिजरेशन सबकूलर मैकेनिकल</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="1145" />
+        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="1145"/>
         <source>Refrigeration Subcooler Liquid Suction</source>
         <translation>रेफ्रिजरेशन सबकूलर लिक्विड सक्शन</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="1146" />
+        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="1146"/>
         <source>Refrigeration Compressor</source>
         <translation>रेफ्रिजरेशन कंप्रेसर</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="1151" />
+        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="1151"/>
         <source>Refrigeration Case</source>
         <translation>Refrigeration Case</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="1142" />
+        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="1142"/>
         <source>Refrigeration Walkin</source>
         <translation>Refrigeration Walkin</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="985" />
-        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="1040" />
-        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="1188" />
+        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="985"/>
+        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="1040"/>
+        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="1188"/>
         <source>Water To Air HP</source>
         <translation>जल से वायु HP</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="1041" />
-        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="1104" />
+        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="1041"/>
+        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="1104"/>
         <source>VRF Terminal</source>
         <translation>VRF टर्मिनल</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="992" />
-        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="1042" />
-        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="1191" />
+        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="992"/>
+        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="1042"/>
+        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="1191"/>
         <source>Unit Ventilator</source>
         <translation>यूनिट वेंटिलेटर</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="991" />
-        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="1043" />
-        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="1190" />
+        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="991"/>
+        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="1043"/>
+        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="1190"/>
         <source>Unit Heater</source>
         <translation>यूनिट हीटर</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="984" />
-        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="1044" />
-        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="1187" />
+        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="984"/>
+        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="1044"/>
+        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="1187"/>
         <source>PTHP</source>
         <translation>PTHP</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="986" />
-        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="1045" />
-        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="1189" />
+        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="986"/>
+        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="1045"/>
+        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="1189"/>
         <source>PTAC</source>
         <translation>PTAC</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="982" />
-        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="1046" />
-        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="1186" />
+        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="982"/>
+        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="1046"/>
+        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="1186"/>
         <source>Four Pipe Fan Coil</source>
         <translation>चार पाइप फैन कॉइल</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="1050" />
-        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="1170" />
+        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="1050"/>
+        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="1170"/>
         <source>Heat Pump - Water to Water - Heating</source>
         <translation>ताप पम्प - जल से जल - ताप आपूर्ति</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="1051" />
-        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="1171" />
+        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="1051"/>
+        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="1171"/>
         <source>Heat Pump - Water to Water - Cooling</source>
         <translation>हीट पंप - वाटर टू वाटर - कूलिंग</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="1052" />
-        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="1173" />
+        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="1052"/>
+        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="1173"/>
         <source>Heat Exchanger Fluid To Fluid</source>
         <translation>हीट एक्सचेंजर तरल से तरल</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="1174" />
+        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="1174"/>
         <source>Heat Exchanger Air To Air Sensible and Latent</source>
         <translation>Heat Exchanger Air To Air Sensible and Latent</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="1054" />
-        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="1222" />
+        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="1054"/>
+        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="1222"/>
         <source>Coil Heating Water</source>
         <translation>कॉइल हीटिंग वाटर</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="1055" />
-        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="1223" />
+        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="1055"/>
+        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="1223"/>
         <source>Coil Cooling Water</source>
         <translation>कॉइल कूलिंग जल</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="1219" />
+        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="1219"/>
         <source>Coil Heating Gas</source>
         <translation>कॉइल हीटिंग गैस</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="1221" />
+        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="1221"/>
         <source>Coil Heating Electric</source>
         <translation>कॉइल हीटिंग इलेक्ट्रिक</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="1220" />
+        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="1220"/>
         <source>Coil Heating DX SingleSpeed</source>
         <translation>कॉइल हीटिंग DX SingleSpeed</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="1228" />
+        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="1228"/>
         <source>Coil Cooling DX SingleSpeed</source>
         <translation>Coil Cooling DX SingleSpeed</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="1227" />
+        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="1227"/>
         <source>Coil Cooling DX TwoSpeed</source>
         <translation>Coil Cooling DX TwoSpeed</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="1224" />
+        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="1224"/>
         <source>Coil Cooling DX VariableSpeed</source>
         <translation>Coil Cooling DX VariableSpeed</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="1226" />
+        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="1226"/>
         <source>Coil Cooling DX TwoStage - Humidity Control</source>
         <translation>कॉइल कूलिंग DX ट्वोस्टेज - ह्यूमिडिटी कंट्रोल</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="1057" />
-        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="1213" />
+        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="1057"/>
+        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="1213"/>
         <source>Central Heat Pump System</source>
         <translation>Central Heat Pump System का अनुवाद:
 
 **केंद्रीय ताप पंप प्रणाली**</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="1059" />
-        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="1215" />
+        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="1059"/>
+        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="1215"/>
         <source>Chiller - Electric EIR</source>
         <translation>चिलर - इलेक्ट्रिक EIR</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="1060" />
-        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="1217" />
+        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="1060"/>
+        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="1217"/>
         <source>Chiller - Absorption</source>
         <translation>चिलर - अवशोषण</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="1061" />
-        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="1216" />
+        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="1061"/>
+        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="1216"/>
         <source>Chiller - Indirect Absorption</source>
         <translation>चिलर - अप्रत्यक्ष अवशोषण</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="1089" />
+        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="1089"/>
         <source>Swimming Pool Indoor</source>
         <translation>इनडोर स्विमिंग पूल</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="1091" />
+        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="1091"/>
         <source>Solar Collector Integral Collector Storage</source>
         <translation>सौर संग्राहक अभिन्न संग्राहक भंडारण</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="1092" />
+        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="1092"/>
         <source>Solar Collector Flat Plate Water</source>
         <translation>सोलर कलेक्टर फ्लैट प्लेट वाटर</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="1095" />
+        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="1095"/>
         <source>Water Use Equipment</source>
         <translation>जल उपयोग उपकरण</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="1109" />
+        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="1109"/>
         <source>Tempering Valve</source>
         <translation>तापमान नियंत्रण वाल्व</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="1110" />
+        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="1110"/>
         <source>Setpoint Manager System Node Reset Humidity</source>
         <translation>सेटपॉइंट मैनेजर सिस्टम नोड रीसेट ह्यूमिडिटी</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="1112" />
+        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="1112"/>
         <source>Setpoint Manager System Node Reset Temperature</source>
         <translation>Setpoint Manager System Node Reset Temperature</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="1113" />
+        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="1113"/>
         <source>Setpoint Manager Coldest</source>
         <translation>Setpoint Manager Coldest</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="1114" />
+        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="1114"/>
         <source>Setpoint Manager Follow Ground Temperature</source>
         <translation>Setpoint Manager Follow Ground Temperature</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="1116" />
+        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="1116"/>
         <source>Setpoint Manager Follow Outdoor Air Temperature</source>
         <translation>Setpoint Manager Follow Outdoor Air Temperature</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="1118" />
+        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="1118"/>
         <source>Setpoint Manager Follow System Node Temperature</source>
         <translation>Setpoint Manager Follow System Node Temperature</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="1119" />
+        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="1119"/>
         <source>Setpoint Manager Mixed Air</source>
         <translation>Setpoint Manager Mixed Air</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="1120" />
+        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="1120"/>
         <source>Setpoint Manager MultiZone Cooling Average</source>
         <translation>Setpoint Manager MultiZone Cooling Average</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="1121" />
+        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="1121"/>
         <source>Setpoint Manager MultiZone Heating Average</source>
         <translation>सेटपॉइंट मैनेजर मल्टीजोन हीटिंग एवरेज</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="1122" />
+        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="1122"/>
         <source>Setpoint Manager MultiZone Humidity Maximum</source>
         <translation>Setpoint Manager MultiZone Humidity Maximum</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="1123" />
+        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="1123"/>
         <source>Setpoint Manager MultiZone Humidity Minimum</source>
         <translation>सेटपॉइंट मैनेजर मल्टीजोन आर्द्रता न्यूनतम</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="1125" />
+        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="1125"/>
         <source>Setpoint Manager MultiZone MaximumHumidity Average</source>
         <translation>Setpoint Manager MultiZone MaximumHumidity Average</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="1127" />
+        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="1127"/>
         <source>Setpoint Manager MultiZone MinimumHumidity Average</source>
         <translation>Setpoint Manager MultiZone न्यूनतम आर्द्रता औसत</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="1128" />
+        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="1128"/>
         <source>Setpoint Manager Outdoor Air Pretreat</source>
         <translation>Setpoint Manager Outdoor Air Pretreat</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="1129" />
+        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="1129"/>
         <source>Setpoint Manager Outdoor Air Reset</source>
         <translation>Setpoint Manager आउटडोर एयर रीसेट</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="1131" />
+        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="1131"/>
         <source>Setpoint Manager Scheduled Dual Setpoint</source>
         <translation>Setpoint Manager Scheduled Dual Setpoint</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="1130" />
+        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="1130"/>
         <source>Setpoint Manager Scheduled</source>
         <translation>सेटपॉइंट मैनेजर शेड्यूल्ड</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="1132" />
+        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="1132"/>
         <source>Setpoint Manager Single Zone Cooling</source>
         <translation>Setpoint Manager Single Zone Cooling</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="1133" />
+        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="1133"/>
         <source>Setpoint Manager Single Zone Heating</source>
         <translation>सेटपॉइंट मैनेजर सिंगल जोन हीटिंग</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="1134" />
+        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="1134"/>
         <source>Setpoint Manager Humidity Maximum</source>
         <translation>Setpoint Manager आर्द्रता अधिकतम</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="1135" />
+        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="1135"/>
         <source>Setpoint Manager Humidity Minimum</source>
         <translation>Setpoint Manager आर्द्रता न्यूनतम</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="1136" />
+        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="1136"/>
         <source>Setpoint Manager One Stage Cooling</source>
         <translation>सेटपॉइंट मैनेजर वन स्टेज कूलिंग</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="1137" />
+        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="1137"/>
         <source>Setpoint Manager One Stage Heating</source>
         <translation>सेटप्वाइंट मैनेजर वन स्टेज हीटिंग</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="1138" />
+        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="1138"/>
         <source>Setpoint Manager Single Zone Reheat</source>
         <translation>सेटपॉइंट मैनेजर सिंगल जोन रीहीट</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="1140" />
+        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="1140"/>
         <source>Setpoint Manager Warmest Temp and Flow</source>
         <translation>Setpoint Manager सबसे गर्म तापमान और प्रवाह</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="1139" />
+        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="1139"/>
         <source>Setpoint Manager Warmest</source>
         <translation>सेटपॉइंट मैनेजर वार्मेस्ट</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="1154" />
+        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="1154"/>
         <source>Pump Constant Speed Headered</source>
         <translation>पंप स्थिर गति शीर्षलेखित</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="1153" />
+        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="1153"/>
         <source>Pump Constant Speed</source>
         <translation>पंप स्थिर गति</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="1156" />
+        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="1156"/>
         <source>Pump Variable Speed Headered</source>
         <translation>पंप वेरिएबल स्पीड हेडर्ड</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="1155" />
+        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="1155"/>
         <source>Pump Variable Speed</source>
         <translation>पंप परिवर्तनशील गति</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="1158" />
+        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="1158"/>
         <source>Plant Component - Temp Source</source>
         <translation>Plant Component - Temp Source</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="1159" />
+        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="1159"/>
         <source>Plant Component - User Defined</source>
         <translation>Plant Component - User Defined</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="1161" />
+        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="1161"/>
         <source>Pipe - Outdoor</source>
         <translation>पाइप - बाहरी</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="1162" />
+        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="1162"/>
         <source>Pipe - Indoor</source>
         <translation>पाइप - इनडोर</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="1163" />
+        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="1163"/>
         <source>Pipe - Adiabatic</source>
         <translation>पाइप - एडिएबैटिक</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="1165" />
+        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="1165"/>
         <source>Load Profile - Plant</source>
         <translation>भार प्रोफ़ाइल - संयंत्र</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="1167" />
+        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="1167"/>
         <source>Humidifier Steam Electric</source>
         <translation>ह्यूमिडिफायर स्टीम इलेक्ट्रिक</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="1168" />
+        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="1168"/>
         <source>Humidifier Steam Gas</source>
         <translation>आर्द्रता नियंत्रक (ह्यूमिडिफायर) स्टीम गैस</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="1177" />
+        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="1177"/>
         <source>Generator FuelCell - Exhaust Gas To Water Heat Exchanger</source>
         <translation>Generator FuelCell - Exhaust Gas To Water Heat Exchanger</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="1178" />
+        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="1178"/>
         <source>Generator MicroTurbine - Heat Recovery</source>
         <translation>जनरेटर माइक्रोटर्बाइन - हीट रिकवरी</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="1180" />
+        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="1180"/>
         <source>Ground Heat Exchanger - Vertical </source>
         <translation>भूमि ताप विनिमयक - ऊर्ध्वाधर</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="1181" />
+        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="1181"/>
         <source>Ground Heat Exchanger - Horizontal</source>
         <translation>भू ऊष्मा विनिमयक - क्षैतिज</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="1183" />
+        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="1183"/>
         <source>Fluid Cooler Two Speed</source>
         <translation>द्रव शीतलक दो गति</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="1184" />
+        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="1184"/>
         <source>Fluid Cooler Single Speed</source>
         <translation>द्रव शीतलक एकल गति</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="1193" />
+        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="1193"/>
         <source>Fan Component Model</source>
         <translation>Fan Component Model</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="1194" />
+        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="1194"/>
         <source>Fan System Model</source>
         <translation>पंखा प्रणाली मॉडल</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="1195" />
+        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="1195"/>
         <source>Fan Variable Volume</source>
         <translation>पंखा चर आयतन</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="1196" />
+        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="1196"/>
         <source>Fan Constant Volume</source>
         <translation>पंखा स्थिर आयतन</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="1198" />
+        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="1198"/>
         <source>Evaporative Cooler Direct Research Special</source>
         <translation>Evaporative Cooler Direct Research Special</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="1199" />
+        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="1199"/>
         <source>Evaporative Cooler Indirect Research Special</source>
         <translation>Evaporative Cooler Indirect Research Special</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="1200" />
+        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="1200"/>
         <source>Evaporative Fluid Cooler Two Speed</source>
         <translation>Evaporative Fluid Cooler Two Speed</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="1201" />
+        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="1201"/>
         <source>Evaporative Fluid Cooler Single Speed</source>
         <translation>वाष्पीकरणीय द्रव शीतलक एकल गति</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="1203" />
+        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="1203"/>
         <source>Duct</source>
         <translation>नली</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="1207" />
+        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="1207"/>
         <source>District Heating Water</source>
         <translation>District Heating Water</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="1209" />
+        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="1209"/>
         <source>Cooling Tower Two Speed</source>
         <translation>कूलिंग टावर दो गति</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="1210" />
+        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="1210"/>
         <source>Cooling Tower Single Speed</source>
         <translation>शीतलन टावर सिंगल गति</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="1211" />
+        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="1211"/>
         <source>Cooling Tower Variable Speed</source>
         <translation>कूलिंग टावर परिवर्तनशील गति</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="1230" />
+        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="1230"/>
         <source>Boiler Hot Water</source>
         <translation>बॉयलर गरम जल</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="1233" />
+        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="1233"/>
         <source>Air Terminal Four Pipe Induction</source>
         <translation>Air Terminal Four Pipe Induction</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="1234" />
+        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="1234"/>
         <source>Air Terminal Chilled Beam</source>
         <translation>वायु टर्मिनल चिल्ड बीम</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="1235" />
+        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="1235"/>
         <source>Air Terminal Four Pipe Beam</source>
         <translation>एयर टर्मिनल फोर पाइप बीम</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="1237" />
+        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="1237"/>
         <source>AirTerminal Single Duct Constant Volume Reheat</source>
         <translation>एयर टर्मिनल सिंगल डक्ट कॉन्स्टेंट वॉल्यूम रिहीट</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="1238" />
+        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="1238"/>
         <source>AirTerminal Single Duct VAV Reheat</source>
         <translation>AirTerminal Single Duct VAV Reheat</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="1239" />
+        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="1239"/>
         <source>AirTerminal Single Duct Parallel PIU Reheat</source>
         <translation>AirTerminal Single Duct Parallel PIU Reheat</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="1240" />
+        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="1240"/>
         <source>AirTerminal Single Duct Series PIU Reheat</source>
         <translation>AirTerminal Single Duct Series PIU Reheat</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="1241" />
+        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="1241"/>
         <source>AirTerminal Inlet Side Mixer</source>
         <translation>AirTerminal इनलेट साइड मिक्सर</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="1242" />
+        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="1242"/>
         <source>AirTerminal Heat and Cool Reheat</source>
         <translation>एयर टर्मिनल हीट और कूल रीहीट</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="1243" />
+        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="1243"/>
         <source>AirTerminal Heat and Cool No Reheat</source>
         <translation>AirTerminal हीट और कूल नो रीहीट</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="1244" />
+        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="1244"/>
         <source>AirTerminal Single Duct VAV NoReheat</source>
         <translation>AirTerminal Single Duct VAV NoReheat</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="1246" />
+        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="1246"/>
         <source>AirTerminal Single Duct Constant Volume No Reheat</source>
         <translation>AirTerminal Single Duct Constant Volume No Reheat</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="1247" />
+        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="1247"/>
         <source>Air Terminal Dual Duct Constant Volume</source>
         <translation>Air Terminal Dual Duct Constant Volume</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="1249" />
+        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="1249"/>
         <source>Air Terminal Dual Duct VAV Outdoor Air</source>
         <translation>Air Terminal Dual Duct VAV Outdoor Air</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="1248" />
+        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="1248"/>
         <source>Air Terminal Dual Duct VAV</source>
         <translation>Air Terminal Dual Duct VAV</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="1251" />
+        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="1251"/>
         <source>AirLoopHVAC Outdoor Air System</source>
         <translation>AirLoopHVAC बाहरी हवा प्रणाली</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="1253" />
+        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="1253"/>
         <source>AirLoopHVAC Unitary Heat Pump AirToAir MultiSpeed</source>
         <translation>AirLoopHVAC यूनिटरी हीट पंप एयर टू एयर मल्टीस्पीड</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="1256" />
+        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="1256"/>
         <source>AirLoopHVAC Unitary VAV Changeover Bypass</source>
         <translation>AirLoopHVAC Unitary VAV Changeover Bypass</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="1254" />
+        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="1254"/>
         <source>AirLoopHVAC Unitary System</source>
         <translation>AirLoopHVAC Unitary System</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="1259" />
+        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="1259"/>
         <source>Availability Manager Scheduled On</source>
         <translation>उपलब्धता प्रबंधक अनुसूचित चालू</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="1260" />
+        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="1260"/>
         <source>Availability Manager Scheduled Off</source>
         <translation>Availability Manager Scheduled Off</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="1258" />
+        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="1258"/>
         <source>Availability Manager Scheduled</source>
         <translation>Availability Manager Scheduled</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="1262" />
+        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="1262"/>
         <source>Availability Manager Low Temperature Turn On</source>
         <translation>उपलब्धता प्रबंधक कम तापमान चालू करें</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="1263" />
+        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="1263"/>
         <source>Availability Manager Low Temperature Turn Off</source>
         <translation>Availability Manager Low Temperature Turn Off</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="1265" />
+        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="1265"/>
         <source>Availability Manager High Temperature Turn On</source>
         <translation>उपलब्धता प्रबंधक उच्च तापमान सक्षम करें</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="1267" />
+        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="1267"/>
         <source>Availability Manager High Temperature Turn Off</source>
         <translation>Availability Manager High Temperature Turn Off</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="1269" />
+        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="1269"/>
         <source>Availability Manager Differential Thermostat</source>
         <translation>Availability Manager Differential Thermostat</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="1270" />
+        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="1270"/>
         <source>Availability Manager Optimum Start</source>
         <translation>Availability Manager Optimum Start</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="1272" />
+        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="1272"/>
         <source>Availability Manager Night Cycle</source>
         <translation>Availability Manager Night Cycle</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="1273" />
+        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="1273"/>
         <source>Availability Manager Night Ventilation</source>
         <translation>Availability Manager Night Ventilation</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="1274" />
+        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="1274"/>
         <source>Availability Manager Hybrid Ventilation</source>
         <translation>उपलब्धता प्रबंधक हाइब्रिड वेंटिलेशन</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="972" />
+        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="972"/>
         <source>Unitary System</source>
         <translation>Unitary System</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="973" />
+        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="973"/>
         <source>Unitary Systems</source>
         <translation>एकीकृत प्रणालियाँ</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="974" />
+        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="974"/>
         <source>Evaporative Cooler Unit</source>
         <translation>वाष्पीकरणीय शीतलक इकाई</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="975" />
+        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="975"/>
         <source>Cooling Panel Radiant Convective Water</source>
         <translation>शीतलन पैनल विकिरणकारी संवहनी जल</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="976" />
+        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="976"/>
         <source>Baseboard Convective Electric</source>
         <translation>बेसबोर्ड संवहनीय विद्युत</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="977" />
+        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="977"/>
         <source>Baseboard Convective Water</source>
         <translation>Baseboard Convective Water</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="978" />
+        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="978"/>
         <source>Baseboard Radiant Convective Electric</source>
         <translation>बेसबोर्ड रेडिएंट कन्वेक्टिव इलेक्ट्रिक</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="979" />
+        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="979"/>
         <source>Baseboard Radiant Convective Water</source>
         <translation>Baseboard Radiant Convective Water</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="980" />
+        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="980"/>
         <source>Dehumidifier - DX</source>
         <translation>Dehumidifier - DX</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="981" />
+        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="981"/>
         <source>ERV</source>
         <translation>ERV</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="983" />
+        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="983"/>
         <source>Fan Zone Exhaust</source>
         <translation>प्रशंखा क्षेत्र निकास</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="987" />
+        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="987"/>
         <source>Low Temp Radiant Constant Flow</source>
         <translation>निम्न तापमान रेडिएंट निरंतर प्रवाह</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="988" />
+        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="988"/>
         <source>Low Temp Radiant Variable Flow</source>
         <translation>कम तापमान विकीर्ण परिवर्तनशील प्रवाह</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="989" />
+        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="989"/>
         <source>Low Temp Radiant Electric</source>
         <translation>Low Temp Radiant Electric</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="990" />
+        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="990"/>
         <source>High Temp Radiant</source>
         <translation>उच्च तापमान विकिरण</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="994" />
+        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="994"/>
         <source>Zone Ventilation Design Flow Rate</source>
         <translation>Zone Ventilation Design Flow Rate</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="995" />
+        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="995"/>
         <source>Zone Ventilation Wind and Stack Open Area</source>
         <translation>Zone Ventilation Wind and Stack Open Area</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="996" />
+        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="996"/>
         <source>Ventilation</source>
         <translation>वेंटिलेशन</translation>
     </message>
@@ -25601,25 +25602,25 @@ If you would like to see the OpenStudioApplication translated in your language o
         <translation>पुनरारंभ करना आवश्यक है</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/MainWindow.cpp" line="406" />
+        <location filename="../src/openstudio_lib/MainWindow.cpp" line="406"/>
         <source>Allow Analytics</source>
         <translation>विश्लेषण की अनुमति दें</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/MainWindow.cpp" line="407" />
-        <source>Allow OpenStudio Coalition to collect anonymous usage statistics to help improve the OpenStudio Application? See the &lt;a href="https://openstudiocoalition.org/about/privacy_policy/"&gt;privacy policy&lt;/a&gt; for more information.</source>
-        <translation>OpenStudio Coalition को OpenStudio Application को बेहतर बनाने में मदद के लिए अनाम उपयोग सांख्यिकी एकत्र करने की अनुमति दें? अधिक जानकारी के लिए &lt;a href="https://openstudiocoalition.org/about/privacy_policy/"&gt;गोपनीयता नीति&lt;/a&gt; देखें।</translation>
+        <location filename="../src/openstudio_lib/MainWindow.cpp" line="407"/>
+        <source>Allow OpenStudio Coalition to collect anonymous usage statistics to help improve the OpenStudio Application? See the &lt;a href=&quot;https://openstudiocoalition.org/about/privacy_policy/&quot;&gt;privacy policy&lt;/a&gt; for more information.</source>
+        <translation>OpenStudio Coalition को OpenStudio Application को बेहतर बनाने में मदद के लिए अनाम उपयोग सांख्यिकी एकत्र करने की अनुमति दें? अधिक जानकारी के लिए &lt;a href=&quot;https://openstudiocoalition.org/about/privacy_policy/&quot;&gt;गोपनीयता नीति&lt;/a&gt; देखें।</translation>
     </message>
 </context>
 <context>
     <name>openstudio::MakeupWaterItem</name>
     <message>
-        <location filename="../src/openstudio_lib/ServiceWaterGridItems.cpp" line="772" />
+        <location filename="../src/openstudio_lib/ServiceWaterGridItems.cpp" line="772"/>
         <source>Go back to water mains editor</source>
         <translation>जल मुख्य संपादक पर वापस जाएं</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/ServiceWaterGridItems.cpp" line="782" />
+        <location filename="../src/openstudio_lib/ServiceWaterGridItems.cpp" line="782"/>
         <source>Go back to hot water supply system</source>
         <translation>गर्म जल आपूर्ति प्रणाली पर वापस जाएं</translation>
     </message>
@@ -25627,12 +25628,12 @@ If you would like to see the OpenStudioApplication translated in your language o
 <context>
     <name>openstudio::MaterialAirGapInspectorView</name>
     <message>
-        <location filename="../src/openstudio_lib/MaterialAirGapInspectorView.cpp" line="49" />
+        <location filename="../src/openstudio_lib/MaterialAirGapInspectorView.cpp" line="49"/>
         <source>Name: </source>
         <translation>नाम:</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/MaterialAirGapInspectorView.cpp" line="68" />
+        <location filename="../src/openstudio_lib/MaterialAirGapInspectorView.cpp" line="68"/>
         <source>Thermal Resistance: </source>
         <translation>थर्मल प्रतिरोध:</translation>
     </message>
@@ -25640,47 +25641,47 @@ If you would like to see the OpenStudioApplication translated in your language o
 <context>
     <name>openstudio::MaterialInspectorView</name>
     <message>
-        <location filename="../src/openstudio_lib/MaterialInspectorView.cpp" line="53" />
+        <location filename="../src/openstudio_lib/MaterialInspectorView.cpp" line="53"/>
         <source>Name: </source>
         <translation>नाम:</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/MaterialInspectorView.cpp" line="76" />
+        <location filename="../src/openstudio_lib/MaterialInspectorView.cpp" line="76"/>
         <source>Roughness: </source>
         <translation>खुरदरापन:</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/MaterialInspectorView.cpp" line="94" />
+        <location filename="../src/openstudio_lib/MaterialInspectorView.cpp" line="94"/>
         <source>Thickness: </source>
         <translation>मोटाई:</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/MaterialInspectorView.cpp" line="107" />
+        <location filename="../src/openstudio_lib/MaterialInspectorView.cpp" line="107"/>
         <source>Conductivity: </source>
         <translation>चालकता:</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/MaterialInspectorView.cpp" line="120" />
+        <location filename="../src/openstudio_lib/MaterialInspectorView.cpp" line="120"/>
         <source>Density: </source>
         <translation>घनत्व:</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/MaterialInspectorView.cpp" line="133" />
+        <location filename="../src/openstudio_lib/MaterialInspectorView.cpp" line="133"/>
         <source>Specific Heat: </source>
         <translation>विशिष्ट ऊष्मा:</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/MaterialInspectorView.cpp" line="146" />
+        <location filename="../src/openstudio_lib/MaterialInspectorView.cpp" line="146"/>
         <source>Thermal Absorptance: </source>
         <translation>थर्मल अब्जॉर्पटेंस:</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/MaterialInspectorView.cpp" line="159" />
+        <location filename="../src/openstudio_lib/MaterialInspectorView.cpp" line="159"/>
         <source>Solar Absorptance: </source>
         <translation>सौर अवशोषकता:</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/MaterialInspectorView.cpp" line="172" />
+        <location filename="../src/openstudio_lib/MaterialInspectorView.cpp" line="172"/>
         <source>Visible Absorptance: </source>
         <translation>दृश्यमान अवशोषकता:</translation>
     </message>
@@ -25688,32 +25689,32 @@ If you would like to see the OpenStudioApplication translated in your language o
 <context>
     <name>openstudio::MaterialNoMassInspectorView</name>
     <message>
-        <location filename="../src/openstudio_lib/MaterialNoMassInspectorView.cpp" line="50" />
+        <location filename="../src/openstudio_lib/MaterialNoMassInspectorView.cpp" line="50"/>
         <source>Name: </source>
         <translation>नाम:</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/MaterialNoMassInspectorView.cpp" line="70" />
+        <location filename="../src/openstudio_lib/MaterialNoMassInspectorView.cpp" line="70"/>
         <source>Roughness: </source>
         <translation>खुरदरापन:</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/MaterialNoMassInspectorView.cpp" line="85" />
+        <location filename="../src/openstudio_lib/MaterialNoMassInspectorView.cpp" line="85"/>
         <source>Thermal Resistance: </source>
         <translation>तापीय प्रतिरोध:</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/MaterialNoMassInspectorView.cpp" line="95" />
+        <location filename="../src/openstudio_lib/MaterialNoMassInspectorView.cpp" line="95"/>
         <source>Thermal Absorptance: </source>
         <translation>थर्मल अवशोषकता:</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/MaterialNoMassInspectorView.cpp" line="105" />
+        <location filename="../src/openstudio_lib/MaterialNoMassInspectorView.cpp" line="105"/>
         <source>Solar Absorptance: </source>
         <translation>सौर अवशोषणीयता:</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/MaterialNoMassInspectorView.cpp" line="115" />
+        <location filename="../src/openstudio_lib/MaterialNoMassInspectorView.cpp" line="115"/>
         <source>Visible Absorptance: </source>
         <translation>दृश्य अवशोषणीयता:</translation>
     </message>
@@ -25721,97 +25722,97 @@ If you would like to see the OpenStudioApplication translated in your language o
 <context>
     <name>openstudio::MaterialRoofVegetationInspectorView</name>
     <message>
-        <location filename="../src/openstudio_lib/MaterialRoofVegetationInspectorView.cpp" line="50" />
+        <location filename="../src/openstudio_lib/MaterialRoofVegetationInspectorView.cpp" line="50"/>
         <source>Name: </source>
         <translation>नाम:</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/MaterialRoofVegetationInspectorView.cpp" line="69" />
+        <location filename="../src/openstudio_lib/MaterialRoofVegetationInspectorView.cpp" line="69"/>
         <source>Height Of Plants: </source>
         <translation>पौधों की ऊंचाई:</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/MaterialRoofVegetationInspectorView.cpp" line="79" />
+        <location filename="../src/openstudio_lib/MaterialRoofVegetationInspectorView.cpp" line="79"/>
         <source>Leaf Area Index: </source>
         <translation>Leaf Area Index:</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/MaterialRoofVegetationInspectorView.cpp" line="89" />
+        <location filename="../src/openstudio_lib/MaterialRoofVegetationInspectorView.cpp" line="89"/>
         <source>Leaf Reflectivity: </source>
         <translation>पत्ती परावर्तनशीलता:</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/MaterialRoofVegetationInspectorView.cpp" line="99" />
+        <location filename="../src/openstudio_lib/MaterialRoofVegetationInspectorView.cpp" line="99"/>
         <source>Leaf Emissivity: </source>
         <translation>पत्ती उत्सर्जकता:</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/MaterialRoofVegetationInspectorView.cpp" line="109" />
+        <location filename="../src/openstudio_lib/MaterialRoofVegetationInspectorView.cpp" line="109"/>
         <source>Minimum Stomatal Resistance: </source>
         <translation>न्यूनतम स्टोमेटल प्रतिरोध:</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/MaterialRoofVegetationInspectorView.cpp" line="119" />
+        <location filename="../src/openstudio_lib/MaterialRoofVegetationInspectorView.cpp" line="119"/>
         <source>Soil Layer Name: </source>
         <translation>मिट्टी की परत का नाम:</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/MaterialRoofVegetationInspectorView.cpp" line="128" />
+        <location filename="../src/openstudio_lib/MaterialRoofVegetationInspectorView.cpp" line="128"/>
         <source>Roughness: </source>
         <translation>खुरदरापन:</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/MaterialRoofVegetationInspectorView.cpp" line="143" />
+        <location filename="../src/openstudio_lib/MaterialRoofVegetationInspectorView.cpp" line="143"/>
         <source>Thickness: </source>
         <translation>मोटाई:</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/MaterialRoofVegetationInspectorView.cpp" line="153" />
+        <location filename="../src/openstudio_lib/MaterialRoofVegetationInspectorView.cpp" line="153"/>
         <source>Conductivity Of Dry Soil: </source>
         <translation>शुष्क मिट्टी की चालकता:</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/MaterialRoofVegetationInspectorView.cpp" line="163" />
+        <location filename="../src/openstudio_lib/MaterialRoofVegetationInspectorView.cpp" line="163"/>
         <source>Density Of Dry Soil: </source>
         <translation>मिट्टी का सूखा घनत्व:</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/MaterialRoofVegetationInspectorView.cpp" line="173" />
+        <location filename="../src/openstudio_lib/MaterialRoofVegetationInspectorView.cpp" line="173"/>
         <source>Specific Heat Of Dry Soil: </source>
         <translation>शुष्क मिट्टी की विशिष्ट ऊष्मा:</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/MaterialRoofVegetationInspectorView.cpp" line="183" />
+        <location filename="../src/openstudio_lib/MaterialRoofVegetationInspectorView.cpp" line="183"/>
         <source>Thermal Absorptance: </source>
         <translation>थर्मल अवशोषितता:</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/MaterialRoofVegetationInspectorView.cpp" line="193" />
+        <location filename="../src/openstudio_lib/MaterialRoofVegetationInspectorView.cpp" line="193"/>
         <source>Solar Absorptance: </source>
         <translation>सौर अवशोषकता:</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/MaterialRoofVegetationInspectorView.cpp" line="203" />
+        <location filename="../src/openstudio_lib/MaterialRoofVegetationInspectorView.cpp" line="203"/>
         <source>Visible Absorptance: </source>
         <translation>दृश्यमान अवशोषण:</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/MaterialRoofVegetationInspectorView.cpp" line="213" />
+        <location filename="../src/openstudio_lib/MaterialRoofVegetationInspectorView.cpp" line="213"/>
         <source>Saturation Volumetric Moisture Content Of The Soil Layer: </source>
         <translation>मिट्टी की परत की संतृप्ति वॉल्यूमेट्रिक नमी सामग्री:</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/MaterialRoofVegetationInspectorView.cpp" line="224" />
+        <location filename="../src/openstudio_lib/MaterialRoofVegetationInspectorView.cpp" line="224"/>
         <source>Residual Volumetric Moisture Content Of The Soil Layer: </source>
         <translation>मिट्टी की परत की अवशिष्ट वॉल्यूमेट्रिक नमी सामग्री:</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/MaterialRoofVegetationInspectorView.cpp" line="235" />
+        <location filename="../src/openstudio_lib/MaterialRoofVegetationInspectorView.cpp" line="235"/>
         <source>Initial Volumetric Moisture Content Of The Soil Layer: </source>
         <translation>मिट्टी की परत की प्रारंभिक आयतनिक नमी सामग्री:</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/MaterialRoofVegetationInspectorView.cpp" line="246" />
+        <location filename="../src/openstudio_lib/MaterialRoofVegetationInspectorView.cpp" line="246"/>
         <source>Moisture Diffusion Calculation Method: </source>
         <translation>नमी विसरण गणना विधि:</translation>
     </message>
@@ -25819,72 +25820,72 @@ If you would like to see the OpenStudioApplication translated in your language o
 <context>
     <name>openstudio::MaterialsView</name>
     <message>
-        <location filename="../src/openstudio_lib/MaterialsView.cpp" line="45" />
+        <location filename="../src/openstudio_lib/MaterialsView.cpp" line="45"/>
         <source>Materials</source>
         <translation>सामग्री</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/MaterialsView.cpp" line="46" />
+        <location filename="../src/openstudio_lib/MaterialsView.cpp" line="46"/>
         <source>No Mass Materials</source>
         <translation>No Mass Materials</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/MaterialsView.cpp" line="47" />
+        <location filename="../src/openstudio_lib/MaterialsView.cpp" line="47"/>
         <source>Air Gap Materials</source>
         <translation>वायु अंतराल सामग्री</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/MaterialsView.cpp" line="50" />
+        <location filename="../src/openstudio_lib/MaterialsView.cpp" line="50"/>
         <source>Simple Glazing System Window Materials</source>
         <translation>सरल ग्लेज़िंग सिस्टम विंडो सामग्री</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/MaterialsView.cpp" line="51" />
+        <location filename="../src/openstudio_lib/MaterialsView.cpp" line="51"/>
         <source>Glazing Window Materials</source>
         <translation>ग्लेज़िंग विंडो सामग्री</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/MaterialsView.cpp" line="52" />
+        <location filename="../src/openstudio_lib/MaterialsView.cpp" line="52"/>
         <source>Gas Window Materials</source>
         <translation>गैस विंडो सामग्री</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/MaterialsView.cpp" line="53" />
+        <location filename="../src/openstudio_lib/MaterialsView.cpp" line="53"/>
         <source>Gas Mixture Window Materials</source>
         <translation>गैस मिश्रण खिड़की सामग्री</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/MaterialsView.cpp" line="54" />
+        <location filename="../src/openstudio_lib/MaterialsView.cpp" line="54"/>
         <source>Blind Window Materials</source>
         <translation>ब्लाइंड विंडो मटेरियल्स</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/MaterialsView.cpp" line="56" />
+        <location filename="../src/openstudio_lib/MaterialsView.cpp" line="56"/>
         <source>Daylight Redirection Device Window Materials</source>
         <translation>दिनप्रकाश पुनः निर्देशन उपकरण खिड़की सामग्री</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/MaterialsView.cpp" line="57" />
+        <location filename="../src/openstudio_lib/MaterialsView.cpp" line="57"/>
         <source>Screen Window Materials</source>
         <translation>स्क्रीन विंडो सामग्री</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/MaterialsView.cpp" line="58" />
+        <location filename="../src/openstudio_lib/MaterialsView.cpp" line="58"/>
         <source>Shade Window Materials</source>
         <translation>शेड विंडो मटेरियल्स</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/MaterialsView.cpp" line="61" />
+        <location filename="../src/openstudio_lib/MaterialsView.cpp" line="61"/>
         <source>Infrared Transparent Materials</source>
         <translation>अवरक्त पारदर्शी सामग्री</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/MaterialsView.cpp" line="62" />
+        <location filename="../src/openstudio_lib/MaterialsView.cpp" line="62"/>
         <source>Roof Vegetation Materials</source>
         <translation>छत वनस्पति सामग्री</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/MaterialsView.cpp" line="64" />
+        <location filename="../src/openstudio_lib/MaterialsView.cpp" line="64"/>
         <source>Refraction Extinction Method Glazing Window Materials</source>
         <translation>Refraction Extinction Method Glazing Window Materials</translation>
     </message>
@@ -25892,24 +25893,24 @@ If you would like to see the OpenStudioApplication translated in your language o
 <context>
     <name>openstudio::MeasureManager</name>
     <message>
-        <location filename="../src/shared_gui_components/MeasureManager.cpp" line="976" />
-        <location filename="../src/shared_gui_components/MeasureManager.cpp" line="992" />
+        <location filename="../src/shared_gui_components/MeasureManager.cpp" line="976"/>
+        <location filename="../src/shared_gui_components/MeasureManager.cpp" line="992"/>
         <source>Measures Updated</source>
         <translation>उपाय अपडेट किए गए</translation>
     </message>
     <message>
-        <location filename="../src/shared_gui_components/MeasureManager.cpp" line="976" />
+        <location filename="../src/shared_gui_components/MeasureManager.cpp" line="976"/>
         <source>All measures are up-to-date.</source>
         <translation>सभी उपाय अद्यतन हैं।</translation>
     </message>
     <message>
-        <location filename="../src/shared_gui_components/MeasureManager.cpp" line="979" />
+        <location filename="../src/shared_gui_components/MeasureManager.cpp" line="979"/>
         <source> measures have been updated on BCL compared to your local BCL directory.
 </source>
         <translation>BCL पर measures को आपकी स्थानीय BCL directory की तुलना में अपडेट किया गया है।</translation>
     </message>
     <message>
-        <location filename="../src/shared_gui_components/MeasureManager.cpp" line="980" />
+        <location filename="../src/shared_gui_components/MeasureManager.cpp" line="980"/>
         <source>Would you like update them?</source>
         <translation>क्या आप उन्हें अपडेट करना चाहेंगे?</translation>
     </message>
@@ -25917,52 +25918,52 @@ If you would like to see the OpenStudioApplication translated in your language o
 <context>
     <name>openstudio::MechanicalVentilationView</name>
     <message>
-        <location filename="../src/openstudio_lib/HVACSystemsView.cpp" line="583" />
+        <location filename="../src/openstudio_lib/HVACSystemsView.cpp" line="583"/>
         <source>Economizer</source>
         <translation>Economizer</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/HVACSystemsView.cpp" line="589" />
+        <location filename="../src/openstudio_lib/HVACSystemsView.cpp" line="589"/>
         <source>Fixed Dry Bulb</source>
         <translation>निश्चित शुष्क बल्ब</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/HVACSystemsView.cpp" line="590" />
+        <location filename="../src/openstudio_lib/HVACSystemsView.cpp" line="590"/>
         <source>Fixed Enthalpy</source>
         <translation>निश्चित एन्थैल्पी</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/HVACSystemsView.cpp" line="591" />
+        <location filename="../src/openstudio_lib/HVACSystemsView.cpp" line="591"/>
         <source>Differential Dry Bulb</source>
         <translation>विभेदक ड्राई बल्ब</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/HVACSystemsView.cpp" line="592" />
+        <location filename="../src/openstudio_lib/HVACSystemsView.cpp" line="592"/>
         <source>Differential Enthalpy</source>
         <translation>अवकल एन्थैल्पी</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/HVACSystemsView.cpp" line="593" />
+        <location filename="../src/openstudio_lib/HVACSystemsView.cpp" line="593"/>
         <source>Fixed Dewpoint and Dry Bulb</source>
         <translation>निर्धारित ओस बिंदु और शुष्क बल्ब</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/HVACSystemsView.cpp" line="594" />
+        <location filename="../src/openstudio_lib/HVACSystemsView.cpp" line="594"/>
         <source>Electronic Enthalpy</source>
         <translation>इलेक्ट्रॉनिक एंथैल्पी</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/HVACSystemsView.cpp" line="595" />
+        <location filename="../src/openstudio_lib/HVACSystemsView.cpp" line="595"/>
         <source>Differential Dry Bulb and Enthalpy</source>
         <translation>विभेदक ड्राई बल्ब और एन्थैल्पी</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/HVACSystemsView.cpp" line="596" />
+        <location filename="../src/openstudio_lib/HVACSystemsView.cpp" line="596"/>
         <source>No Economizer</source>
         <translation>कोई इकॉनोमाइजर नहीं</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/HVACSystemsView.cpp" line="632" />
+        <location filename="../src/openstudio_lib/HVACSystemsView.cpp" line="632"/>
         <source>Demand Controlled Ventilation</source>
         <translation>मांग नियंत्रित वेंटिलेशन</translation>
     </message>
@@ -25974,63 +25975,63 @@ If you would like to see the OpenStudioApplication translated in your language o
 <context>
     <name>openstudio::MonthView</name>
     <message>
-        <location filename="../src/openstudio_lib/SchedulesView.cpp" line="1986" />
-        <location filename="../src/openstudio_lib/SchedulesView.cpp" line="2017" />
+        <location filename="../src/openstudio_lib/SchedulesView.cpp" line="1986"/>
+        <location filename="../src/openstudio_lib/SchedulesView.cpp" line="2017"/>
         <source>January</source>
         <translation>जनवरी</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/SchedulesView.cpp" line="2017" />
+        <location filename="../src/openstudio_lib/SchedulesView.cpp" line="2017"/>
         <source>February</source>
         <translation>फ़रवरी</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/SchedulesView.cpp" line="2017" />
+        <location filename="../src/openstudio_lib/SchedulesView.cpp" line="2017"/>
         <source>March</source>
         <translation>मार्च</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/SchedulesView.cpp" line="2017" />
+        <location filename="../src/openstudio_lib/SchedulesView.cpp" line="2017"/>
         <source>April</source>
         <translation>अप्रैल</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/SchedulesView.cpp" line="2017" />
+        <location filename="../src/openstudio_lib/SchedulesView.cpp" line="2017"/>
         <source>May</source>
         <translation>मई</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/SchedulesView.cpp" line="2017" />
+        <location filename="../src/openstudio_lib/SchedulesView.cpp" line="2017"/>
         <source>June</source>
         <translation>जून</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/SchedulesView.cpp" line="2018" />
+        <location filename="../src/openstudio_lib/SchedulesView.cpp" line="2018"/>
         <source>July</source>
         <translation>जुलाई</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/SchedulesView.cpp" line="2018" />
+        <location filename="../src/openstudio_lib/SchedulesView.cpp" line="2018"/>
         <source>August</source>
         <translation>अगस्त</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/SchedulesView.cpp" line="2018" />
+        <location filename="../src/openstudio_lib/SchedulesView.cpp" line="2018"/>
         <source>September</source>
         <translation>सितंबर</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/SchedulesView.cpp" line="2018" />
+        <location filename="../src/openstudio_lib/SchedulesView.cpp" line="2018"/>
         <source>October</source>
         <translation>अक्टूबर</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/SchedulesView.cpp" line="2018" />
+        <location filename="../src/openstudio_lib/SchedulesView.cpp" line="2018"/>
         <source>November</source>
         <translation>नवंबर</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/SchedulesView.cpp" line="2018" />
+        <location filename="../src/openstudio_lib/SchedulesView.cpp" line="2018"/>
         <source>December</source>
         <translation>दिसंबर</translation>
     </message>
@@ -26038,64 +26039,64 @@ If you would like to see the OpenStudioApplication translated in your language o
 <context>
     <name>openstudio::NewProfileView</name>
     <message>
-        <location filename="../src/openstudio_lib/SchedulesView.cpp" line="1246" />
+        <location filename="../src/openstudio_lib/SchedulesView.cpp" line="1246"/>
         <source>Create a new profile.</source>
         <translation>एक नई प्रोफ़ाइल बनाएँ।</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/SchedulesView.cpp" line="1253" />
+        <location filename="../src/openstudio_lib/SchedulesView.cpp" line="1253"/>
         <source>Make a New Profile Based on:</source>
         <translation>इस पर आधारित एक नई प्रोफाइल बनाएं:</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/SchedulesView.cpp" line="1261" />
+        <location filename="../src/openstudio_lib/SchedulesView.cpp" line="1261"/>
         <source>Add</source>
         <translation>जोड़ें</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/SchedulesView.cpp" line="1300" />
+        <location filename="../src/openstudio_lib/SchedulesView.cpp" line="1300"/>
         <source>&lt;New Profile&gt;</source>
         <translation>&lt;नई प्रोफाइल&gt;</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/SchedulesView.cpp" line="1302" />
+        <location filename="../src/openstudio_lib/SchedulesView.cpp" line="1302"/>
         <source>Default Day Schedule</source>
         <translation>डिफ़ॉल्ट दिन का शेड्यूल</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/SchedulesView.cpp" line="1305" />
+        <location filename="../src/openstudio_lib/SchedulesView.cpp" line="1305"/>
         <source>Summer Design Day Schedule</source>
         <translation>गर्मी डिज़ाइन दिन अनुसूची</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/SchedulesView.cpp" line="1309" />
+        <location filename="../src/openstudio_lib/SchedulesView.cpp" line="1309"/>
         <source>Winter Design Day Schedule</source>
         <translation>शीतकालीन डिजाइन दिवस शेड्यूल</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/SchedulesView.cpp" line="1313" />
+        <location filename="../src/openstudio_lib/SchedulesView.cpp" line="1313"/>
         <source>Holiday Design Day Schedule</source>
         <translation>छुट्टी डिज़ाइन दिन अनुसूची</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/SchedulesView.cpp" line="1203" />
+        <location filename="../src/openstudio_lib/SchedulesView.cpp" line="1203"/>
         <source>The summer design day profile is not set, therefore the default run period profile will be used.</source>
         <translation>ग्रीष्मकालीन डिज़ाइन दिवस प्रोफाइल सेट नहीं है, इसलिए डिफ़ॉल्ट रन पीरियड प्रोफाइल का उपयोग किया जाएगा।</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/SchedulesView.cpp" line="1212" />
+        <location filename="../src/openstudio_lib/SchedulesView.cpp" line="1212"/>
         <source>The winter design day profile is not set, therefore the default run period profile will be used.</source>
         <translation>सर्दियों के डिजाइन दिन की प्रोफाइल सेट नहीं है, इसलिए डिफ़ॉल्ट रन पीरियड प्रोफाइल का उपयोग किया जाएगा।</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/SchedulesView.cpp" line="1221" />
+        <location filename="../src/openstudio_lib/SchedulesView.cpp" line="1221"/>
         <source>The holiday profile is not set, therefore the default run period profile will be used.</source>
         <translation>छुट्टी प्रोफ़ाइल सेट नहीं है, इसलिए डिफ़ॉल्ट रन अवधि प्रोफ़ाइल का उपयोग किया जाएगा।</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/SchedulesView.cpp" line="1204" />
-        <location filename="../src/openstudio_lib/SchedulesView.cpp" line="1213" />
-        <location filename="../src/openstudio_lib/SchedulesView.cpp" line="1222" />
+        <location filename="../src/openstudio_lib/SchedulesView.cpp" line="1204"/>
+        <location filename="../src/openstudio_lib/SchedulesView.cpp" line="1213"/>
+        <location filename="../src/openstudio_lib/SchedulesView.cpp" line="1222"/>
         <source>  Create a new profile to override the default run period profile.</source>
         <translation>डिफ़ॉल्ट रन पीरियड प्रोफ़ाइल को ओवरराइड करने के लिए एक नई प्रोफ़ाइल बनाएं।</translation>
     </message>
@@ -26103,7 +26104,7 @@ If you would like to see the OpenStudioApplication translated in your language o
 <context>
     <name>openstudio::NoMechanicalVentilationView</name>
     <message>
-        <location filename="../src/openstudio_lib/HVACSystemsView.cpp" line="648" />
+        <location filename="../src/openstudio_lib/HVACSystemsView.cpp" line="648"/>
         <source>This system configuration does not provide mechanical ventilation</source>
         <translation>यह सिस्टम कॉन्फ़िगरेशन यांत्रिक वेंटिलेशन प्रदान नहीं करता है</translation>
     </message>
@@ -26111,15 +26112,15 @@ If you would like to see the OpenStudioApplication translated in your language o
 <context>
     <name>openstudio::NoSupplyAirTempControlView</name>
     <message>
-        <location filename="../src/openstudio_lib/HVACSystemsView.cpp" line="949" />
-        <source>&lt;strong style="color:red"&gt;Missing supply temperature control&lt;/strong&gt;. Try adding a setpoint manager to the supply outlet node of your system.</source>
-        <translation>&lt;strong style="color:red"&gt;आपूर्ति तापमान नियंत्रण अनुपलब्ध&lt;/strong&gt;. अपने सिस्टम के आपूर्ति आउटलेट नोड में सेटपॉइंट मैनेजर जोड़ने का प्रयास करें।</translation>
+        <location filename="../src/openstudio_lib/HVACSystemsView.cpp" line="949"/>
+        <source>&lt;strong style=&quot;color:red&quot;&gt;Missing supply temperature control&lt;/strong&gt;. Try adding a setpoint manager to the supply outlet node of your system.</source>
+        <translation>&lt;strong style=&quot;color:red&quot;&gt;आपूर्ति तापमान नियंत्रण अनुपलब्ध&lt;/strong&gt;. अपने सिस्टम के आपूर्ति आउटलेट नोड में सेटपॉइंट मैनेजर जोड़ने का प्रयास करें।</translation>
     </message>
 </context>
 <context>
     <name>openstudio::OAResetSPMView</name>
     <message>
-        <location filename="../src/openstudio_lib/HVACSystemsView.cpp" line="686" />
+        <location filename="../src/openstudio_lib/HVACSystemsView.cpp" line="686"/>
         <source>Supply temperature is controlled by an outdoor air reset setpoint manager.</source>
         <translation>Supply temperature को एक outdoor air reset setpoint manager द्वारा नियंत्रित किया जाता है।</translation>
     </message>
@@ -26127,17 +26128,17 @@ If you would like to see the OpenStudioApplication translated in your language o
 <context>
     <name>openstudio::OSDialog</name>
     <message>
-        <location filename="../src/shared_gui_components/OSDialog.cpp" line="55" />
+        <location filename="../src/shared_gui_components/OSDialog.cpp" line="55"/>
         <source>Back</source>
         <translation>वापस</translation>
     </message>
     <message>
-        <location filename="../src/shared_gui_components/OSDialog.cpp" line="61" />
+        <location filename="../src/shared_gui_components/OSDialog.cpp" line="61"/>
         <source>OK</source>
         <translation>ठीक है</translation>
     </message>
     <message>
-        <location filename="../src/shared_gui_components/OSDialog.cpp" line="67" />
+        <location filename="../src/shared_gui_components/OSDialog.cpp" line="67"/>
         <source>Cancel</source>
         <translation>रद्द करें</translation>
     </message>
@@ -26145,45 +26146,45 @@ If you would like to see the OpenStudioApplication translated in your language o
 <context>
     <name>openstudio::OSDocument</name>
     <message>
-        <location filename="../src/openstudio_lib/OSDocument.cpp" line="1218" />
+        <location filename="../src/openstudio_lib/OSDocument.cpp" line="1218"/>
         <source>Export Idf</source>
         <translation>निर्यात ईडफ</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/OSDocument.cpp" line="1218" />
+        <location filename="../src/openstudio_lib/OSDocument.cpp" line="1218"/>
         <source>(*.idf)</source>
         <translation>(*.ईडफ)</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/OSDocument.cpp" line="1253" />
+        <location filename="../src/openstudio_lib/OSDocument.cpp" line="1253"/>
         <source>(*.xml)</source>
         <translation>(*.एक्सएमएल)</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/OSDocument.cpp" line="1468" />
-        <location filename="../src/openstudio_lib/OSDocument.cpp" line="1544" />
+        <location filename="../src/openstudio_lib/OSDocument.cpp" line="1468"/>
+        <location filename="../src/openstudio_lib/OSDocument.cpp" line="1544"/>
         <source>Failed to save model</source>
         <translation>मॉडल सहेजने में विफल</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/OSDocument.cpp" line="1469" />
-        <location filename="../src/openstudio_lib/OSDocument.cpp" line="1545" />
+        <location filename="../src/openstudio_lib/OSDocument.cpp" line="1469"/>
+        <location filename="../src/openstudio_lib/OSDocument.cpp" line="1545"/>
         <source>Failed to save model, make sure that you do not have the location open and that you have correct write access.</source>
         <translation>मॉडल को सहेजने में विफल, सुनिश्चित करें कि आपके पास स्थान खुला नहीं है और आपके पास सही लेखन पहुंच है.</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/OSDocument.cpp" line="1512" />
+        <location filename="../src/openstudio_lib/OSDocument.cpp" line="1512"/>
         <source>Save</source>
         <translation>सहेजें</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/OSDocument.cpp" line="1512" />
+        <location filename="../src/openstudio_lib/OSDocument.cpp" line="1512"/>
         <source>(*.osm)</source>
         <translation>(*.ओएसएम)</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/OSDocument.cpp" line="1707" />
-        <location filename="../src/openstudio_lib/OSDocument.cpp" line="1709" />
+        <location filename="../src/openstudio_lib/OSDocument.cpp" line="1707"/>
+        <location filename="../src/openstudio_lib/OSDocument.cpp" line="1709"/>
         <source>Select My Measures Directory</source>
         <translation>मेरी उपाय निर्देशिका का चयन करें</translation>
     </message>
@@ -26192,83 +26193,83 @@ If you would like to see the OpenStudioApplication translated in your language o
         <translation>ऑनलाइन बीसीएल</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/OSDocument.cpp" line="349" />
+        <location filename="../src/openstudio_lib/OSDocument.cpp" line="349"/>
         <source>Site</source>
         <translation>स्थल</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/OSDocument.cpp" line="353" />
+        <location filename="../src/openstudio_lib/OSDocument.cpp" line="353"/>
         <source>Schedules</source>
         <translation>अनुसूचियां</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/OSDocument.cpp" line="357" />
+        <location filename="../src/openstudio_lib/OSDocument.cpp" line="357"/>
         <source>Constructions</source>
         <translation>निर्माण</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/OSDocument.cpp" line="361" />
+        <location filename="../src/openstudio_lib/OSDocument.cpp" line="361"/>
         <source>Loads</source>
         <translation>भार</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/OSDocument.cpp" line="365" />
+        <location filename="../src/openstudio_lib/OSDocument.cpp" line="365"/>
         <source>Space Types</source>
         <translation>Space Types
 
-(Note: "Space Types" is a technical term in OpenStudio that refers to predefined building space categories. It is typically kept as-is in Hindi translations of software interfaces, similar to how menu items and technical terminology are often preserved. However, if a Hindi translation is strictly required, it would be: "स्पेस प्रकार" or "अंतराल प्रकार")</translation>
+(Note: &quot;Space Types&quot; is a technical term in OpenStudio that refers to predefined building space categories. It is typically kept as-is in Hindi translations of software interfaces, similar to how menu items and technical terminology are often preserved. However, if a Hindi translation is strictly required, it would be: &quot;स्पेस प्रकार&quot; or &quot;अंतराल प्रकार&quot;)</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/OSDocument.cpp" line="369" />
+        <location filename="../src/openstudio_lib/OSDocument.cpp" line="369"/>
         <source>Geometry</source>
         <translation>ज्यामिति</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/OSDocument.cpp" line="373" />
+        <location filename="../src/openstudio_lib/OSDocument.cpp" line="373"/>
         <source>Facility</source>
         <translation>सुविधा</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/OSDocument.cpp" line="377" />
+        <location filename="../src/openstudio_lib/OSDocument.cpp" line="377"/>
         <source>Spaces</source>
         <translation>Spaces
 
-(Note: "Spaces" in OpenStudio building energy modeling context typically refers to thermal zones or room spaces and is often kept as "Spaces" in Hindi technical documentation as well, or can be translated as "स्पेस" (Spaces) depending on the specific context. However, as a technical term in OpenStudio, it's commonly retained as "Spaces".)
+(Note: &quot;Spaces&quot; in OpenStudio building energy modeling context typically refers to thermal zones or room spaces and is often kept as &quot;Spaces&quot; in Hindi technical documentation as well, or can be translated as &quot;स्पेस&quot; (Spaces) depending on the specific context. However, as a technical term in OpenStudio, it&apos;s commonly retained as &quot;Spaces&quot;.)
 
 If a more localized translation is needed: **स्पेस** or **खाली स्थान**</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/OSDocument.cpp" line="381" />
+        <location filename="../src/openstudio_lib/OSDocument.cpp" line="381"/>
         <source>Thermal Zones</source>
         <translation>तापीय क्षेत्र</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/OSDocument.cpp" line="385" />
+        <location filename="../src/openstudio_lib/OSDocument.cpp" line="385"/>
         <source>HVAC Systems</source>
         <translation>HVAC Systems</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/OSDocument.cpp" line="400" />
+        <location filename="../src/openstudio_lib/OSDocument.cpp" line="400"/>
         <source>Output Variables</source>
         <translation>आउटपुट वेरिएबल्स</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/OSDocument.cpp" line="404" />
+        <location filename="../src/openstudio_lib/OSDocument.cpp" line="404"/>
         <source>Simulation Settings</source>
         <translation>सिमुलेशन सेटिंग्स</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/OSDocument.cpp" line="408" />
+        <location filename="../src/openstudio_lib/OSDocument.cpp" line="408"/>
         <source>Measures</source>
         <translation>उपाय</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/OSDocument.cpp" line="412" />
+        <location filename="../src/openstudio_lib/OSDocument.cpp" line="412"/>
         <source>Run Simulation</source>
         <translation>सिमुलेशन चलाएं</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/OSDocument.cpp" line="416" />
+        <location filename="../src/openstudio_lib/OSDocument.cpp" line="416"/>
         <source>Results Summary</source>
         <translation>परिणाम सारांश</translation>
     </message>
@@ -26276,7 +26277,7 @@ If a more localized translation is needed: **स्पेस** or **खाली
 <context>
     <name>openstudio::OSDropZone</name>
     <message>
-        <location filename="../src/openstudio_lib/OSDropZone.cpp" line="59" />
+        <location filename="../src/openstudio_lib/OSDropZone.cpp" line="59"/>
         <source>Drag From Library</source>
         <translation>लाइब्रेरी से खींचें</translation>
     </message>
@@ -26284,15 +26285,15 @@ If a more localized translation is needed: **स्पेस** or **खाली
 <context>
     <name>openstudio::OSGridController</name>
     <message>
-        <location filename="../src/shared_gui_components/OSGridController.cpp" line="161" />
-        <location filename="../src/shared_gui_components/OSGridController.cpp" line="467" />
-        <location filename="../src/shared_gui_components/OSGridController.cpp" line="473" />
+        <location filename="../src/shared_gui_components/OSGridController.cpp" line="161"/>
+        <location filename="../src/shared_gui_components/OSGridController.cpp" line="467"/>
+        <location filename="../src/shared_gui_components/OSGridController.cpp" line="473"/>
         <source>Custom</source>
         <translation>कस्टम</translation>
     </message>
     <message>
-        <location filename="../src/shared_gui_components/OSGridController.cpp" line="775" />
-        <location filename="../src/shared_gui_components/OSGridController.cpp" line="778" />
+        <location filename="../src/shared_gui_components/OSGridController.cpp" line="775"/>
+        <location filename="../src/shared_gui_components/OSGridController.cpp" line="778"/>
         <source>Apply to Selected</source>
         <translation>चयनित पर लागू करें</translation>
     </message>
@@ -26300,22 +26301,22 @@ If a more localized translation is needed: **स्पेस** or **खाली
 <context>
     <name>openstudio::OSItemSelectorButtons</name>
     <message>
-        <location filename="../src/openstudio_lib/OSItemSelectorButtons.cpp" line="76" />
+        <location filename="../src/openstudio_lib/OSItemSelectorButtons.cpp" line="76"/>
         <source>Add new object</source>
         <translation>नया ऑब्जेक्ट जोड़ें</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/OSItemSelectorButtons.cpp" line="86" />
+        <location filename="../src/openstudio_lib/OSItemSelectorButtons.cpp" line="86"/>
         <source>Copy selected object</source>
         <translation>चयनित ऑब्जेक्ट की प्रतिलिपि बनाएँ</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/OSItemSelectorButtons.cpp" line="96" />
+        <location filename="../src/openstudio_lib/OSItemSelectorButtons.cpp" line="96"/>
         <source>Remove selected objects</source>
         <translation>चयनित ऑब्जेक्ट हटाएं</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/OSItemSelectorButtons.cpp" line="107" />
+        <location filename="../src/openstudio_lib/OSItemSelectorButtons.cpp" line="107"/>
         <source>Purge unused objects</source>
         <translation>अप्रयुक्त ऑब्जेक्ट को शुद्ध करें</translation>
     </message>
@@ -26323,7 +26324,7 @@ If a more localized translation is needed: **स्पेस** or **खाली
 <context>
     <name>openstudio::OpenStudioApp</name>
     <message>
-        <location filename="../src/openstudio_app/OpenStudioApp.cpp" line="243" />
+        <location filename="../src/openstudio_app/OpenStudioApp.cpp" line="243"/>
         <source>Timeout</source>
         <translation>टाइम-आउट</translation>
     </message>
@@ -26332,235 +26333,235 @@ If a more localized translation is needed: **स्पेस** or **खाली
         <translation>उपाय प्रबंधक प्रारंभ करने में विफल। क्या आप पुनः प्रयास करना चाहेंगे?</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_app/OpenStudioApp.cpp" line="245" />
+        <location filename="../src/openstudio_app/OpenStudioApp.cpp" line="245"/>
         <source>Failed to start the Measure Manager. Would you like to keep waiting?</source>
         <translation>Measure Manager को शुरू करने में विफल। क्या आप प्रतीक्षा करना जारी रखना चाहते हैं?</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_app/OpenStudioApp.cpp" line="381" />
+        <location filename="../src/openstudio_app/OpenStudioApp.cpp" line="381"/>
         <source>Loading Library Files</source>
         <translation>लाइब्रेरी फ़ाइलें लोड हो रही हैं</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_app/OpenStudioApp.cpp" line="382" />
+        <location filename="../src/openstudio_app/OpenStudioApp.cpp" line="382"/>
         <source>(Manage library files in Preferences-&gt;Change default libraries)</source>
         <translation>(वरीयताओं में लाइब्रेरी फ़ाइलों को प्रबंधित करें-&gt; डिफ़ॉल्ट लाइब्रेरी बदलें)</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_app/OpenStudioApp.cpp" line="399" />
+        <location filename="../src/openstudio_app/OpenStudioApp.cpp" line="399"/>
         <source>Translation From version </source>
         <translation>संस्करण</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_app/OpenStudioApp.cpp" line="399" />
-        <location filename="../src/openstudio_app/OpenStudioApp.cpp" line="1125" />
+        <location filename="../src/openstudio_app/OpenStudioApp.cpp" line="399"/>
+        <location filename="../src/openstudio_app/OpenStudioApp.cpp" line="1125"/>
         <source> to </source>
         <translation>से</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_app/OpenStudioApp.cpp" line="402" />
+        <location filename="../src/openstudio_app/OpenStudioApp.cpp" line="402"/>
         <source>Unknown starting version</source>
         <translation>अज्ञात संस्करण में अनुवाद</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_app/OpenStudioApp.cpp" line="476" />
+        <location filename="../src/openstudio_app/OpenStudioApp.cpp" line="476"/>
         <source>Import Idf</source>
         <translation>आयात ईडफ</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_app/OpenStudioApp.cpp" line="476" />
+        <location filename="../src/openstudio_app/OpenStudioApp.cpp" line="476"/>
         <source>(*.idf)</source>
         <translation>(*.ईडफ)</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_app/OpenStudioApp.cpp" line="507" />
-        <source>' while OpenStudio uses a &lt;strong&gt;newer&lt;/strong&gt; EnergyPlus '</source>
-        <translation>' जबकि ओपेनस्टूडियो एक &lt;strong&gt;नए&lt;/strong&gt; एनर्जीप्लस ' का उपयोग करता है</translation>
+        <location filename="../src/openstudio_app/OpenStudioApp.cpp" line="507"/>
+        <source>&apos; while OpenStudio uses a &lt;strong&gt;newer&lt;/strong&gt; EnergyPlus &apos;</source>
+        <translation>&apos; जबकि ओपेनस्टूडियो एक &lt;strong&gt;नए&lt;/strong&gt; एनर्जीप्लस &apos; का उपयोग करता है</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_app/OpenStudioApp.cpp" line="508" />
-        <source>'. Consider using the EnergyPlus Auxiliary program IDFVersionUpdater to update your IDF file.</source>
+        <location filename="../src/openstudio_app/OpenStudioApp.cpp" line="508"/>
+        <source>&apos;. Consider using the EnergyPlus Auxiliary program IDFVersionUpdater to update your IDF file.</source>
         <translation>अपनी ईडफ फ़ाइल को अद्यतन करने के लिए एनर्जीप्लस सहायक प्रोग्राम ईडफसंस्करणअपडेटर का उपयोग करने पर विचार करें.</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_app/OpenStudioApp.cpp" line="510" />
-        <source>' while OpenStudio uses an &lt;strong&gt;older&lt;/strong&gt; EnergyPlus '</source>
-        <translation>' जबकि ओपेनस्टूडियो एक &lt;strong&gt;पुराने&lt;/strong&gt; एनर्जीप्लस ' का उपयोग करता है'</translation>
+        <location filename="../src/openstudio_app/OpenStudioApp.cpp" line="510"/>
+        <source>&apos; while OpenStudio uses an &lt;strong&gt;older&lt;/strong&gt; EnergyPlus &apos;</source>
+        <translation>&apos; जबकि ओपेनस्टूडियो एक &lt;strong&gt;पुराने&lt;/strong&gt; एनर्जीप्लस &apos; का उपयोग करता है&apos;</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_app/OpenStudioApp.cpp" line="510" />
-        <source>'.</source>
-        <translation>'.</translation>
+        <location filename="../src/openstudio_app/OpenStudioApp.cpp" line="510"/>
+        <source>&apos;.</source>
+        <translation>&apos;.</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_app/OpenStudioApp.cpp" line="512" />
-        <source>' which is the &lt;strong&gt;same&lt;/strong&gt; version of EnergyPlus that OpenStudio uses (</source>
+        <location filename="../src/openstudio_app/OpenStudioApp.cpp" line="512"/>
+        <source>&apos; which is the &lt;strong&gt;same&lt;/strong&gt; version of EnergyPlus that OpenStudio uses (</source>
         <translation>जो ओपेनस्टूडियो द्वारा उपयोग किए जाने वाले एनर्जीप्लस का &lt;strong&gt;समान&lt;/strong&gt; संस्करण है (</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_app/OpenStudioApp.cpp" line="516" />
+        <location filename="../src/openstudio_app/OpenStudioApp.cpp" line="516"/>
         <source>&lt;strong&gt;The IDF does not have a VersionObject&lt;/strong&gt;. Check that it is of correct version (</source>
         <translation>&lt;strong&gt;आईडीएफ में वर्जनऑब्जेक्ट नहीं है&lt;/strong&gt;। जांचें कि यह सही संस्करण का है (</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_app/OpenStudioApp.cpp" line="517" />
+        <location filename="../src/openstudio_app/OpenStudioApp.cpp" line="517"/>
         <source>) and that all fields are valid against Energy+.idd. </source>
         <translation>) और यह कि सभी फ़ील्ड एनर्जी+.idd के अनुरूप मान्य हैं.</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_app/OpenStudioApp.cpp" line="520" />
+        <location filename="../src/openstudio_app/OpenStudioApp.cpp" line="520"/>
         <source>&lt;br/&gt;&lt;br/&gt;The ValidityReport follows.</source>
         <translation>&lt;br/&gt;&lt;br/&gt;वैधता रिपोर्ट इस प्रकार है.</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_app/OpenStudioApp.cpp" line="522" />
+        <location filename="../src/openstudio_app/OpenStudioApp.cpp" line="522"/>
         <source>&lt;strong&gt;File is not valid to draft strictness&lt;/strong&gt;. Check that all fields are valid against Energy+.idd.</source>
         <translation>&lt;strong&gt;ड्राफ़्ट स्ट्रिक्टनेस के लिए फ़ाइल मान्य नहीं है&lt;/strong&gt;. जांचें कि सभी फ़ील्ड एनर्जी+.idd के विरुद्ध मान्य हैं.</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_app/OpenStudioApp.cpp" line="528" />
+        <location filename="../src/openstudio_app/OpenStudioApp.cpp" line="528"/>
         <source> IDF Import Failed</source>
         <translation>आईडीएफ आयात विफल</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_app/OpenStudioApp.cpp" line="603" />
+        <location filename="../src/openstudio_app/OpenStudioApp.cpp" line="603"/>
         <source>=============== Errors ===============
 
 </source>
         <translation>=============== त्रुटियाँ ===============</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_app/OpenStudioApp.cpp" line="611" />
+        <location filename="../src/openstudio_app/OpenStudioApp.cpp" line="611"/>
         <source>============== Warnings ==============
 
 </source>
         <translation>============= चेतावनियाँ  =============</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_app/OpenStudioApp.cpp" line="619" />
+        <location filename="../src/openstudio_app/OpenStudioApp.cpp" line="619"/>
         <source>==== The following idf objects were not imported ====
 
 </source>
         <translation>==== निम्नलिखित आईडीएफ ऑब्जेक्ट आयात नहीं किए गए थे ====</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_app/OpenStudioApp.cpp" line="624" />
+        <location filename="../src/openstudio_app/OpenStudioApp.cpp" line="624"/>
         <source> named </source>
         <translation>नामांकित</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_app/OpenStudioApp.cpp" line="626" />
+        <location filename="../src/openstudio_app/OpenStudioApp.cpp" line="626"/>
         <source>Unnamed </source>
         <translation>अज्ञात</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_app/OpenStudioApp.cpp" line="632" />
+        <location filename="../src/openstudio_app/OpenStudioApp.cpp" line="632"/>
         <source>&lt;strong&gt;Some portions of the IDF file were not imported.&lt;/strong&gt;</source>
         <translation>&lt;strong&gt;IDF फ़ाइल के कुछ भाग आयात नहीं किए गए थे।&lt;/strong&gt;</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_app/OpenStudioApp.cpp" line="638" />
+        <location filename="../src/openstudio_app/OpenStudioApp.cpp" line="638"/>
         <source>IDF Import</source>
         <translation>आईडीएफ आयात</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_app/OpenStudioApp.cpp" line="641" />
+        <location filename="../src/openstudio_app/OpenStudioApp.cpp" line="641"/>
         <source>Only geometry, constructions, loads, thermal zones, and schedules are supported by the OpenStudio IDF import feature.</source>
         <translation>ओपेनस्टूडियो आईडीएफ आयात सुविधा द्वारा केवल भवन, कंस्ट्रक्शन, भार, थर्मल ज़ोन और शेड्यूल समर्थित हैं.</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_app/OpenStudioApp.cpp" line="704" />
+        <location filename="../src/openstudio_app/OpenStudioApp.cpp" line="704"/>
         <source>Import </source>
         <translation>निर्यात करें</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_app/OpenStudioApp.cpp" line="711" />
+        <location filename="../src/openstudio_app/OpenStudioApp.cpp" line="711"/>
         <source>(*.xml)</source>
         <translation>(*.एक्सएमएल)</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_app/OpenStudioApp.cpp" line="776" />
+        <location filename="../src/openstudio_app/OpenStudioApp.cpp" line="776"/>
         <source>Errors or warnings occurred on import of </source>
         <translation>निम्न फ़ाइल के आयात पर त्रुटियाँ या चेतावनियाँ हुईं-</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_app/OpenStudioApp.cpp" line="786" />
+        <location filename="../src/openstudio_app/OpenStudioApp.cpp" line="786"/>
         <source>Could not import SDD file.</source>
         <translation>एसडीडी फ़ाइल आयात नहीं कर पाए.</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_app/OpenStudioApp.cpp" line="788" />
+        <location filename="../src/openstudio_app/OpenStudioApp.cpp" line="788"/>
         <source>Could not import </source>
         <translation>आयात नहीं कर पाए</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_app/OpenStudioApp.cpp" line="788" />
+        <location filename="../src/openstudio_app/OpenStudioApp.cpp" line="788"/>
         <source> file at </source>
         <translation>इस जगह पर</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_app/OpenStudioApp.cpp" line="817" />
+        <location filename="../src/openstudio_app/OpenStudioApp.cpp" line="817"/>
         <source>Save Changes?</source>
         <translation>परिवर्तनों को सहेजें?</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_app/OpenStudioApp.cpp" line="818" />
+        <location filename="../src/openstudio_app/OpenStudioApp.cpp" line="818"/>
         <source>The document has been modified.</source>
         <translation>दस्तावेज़ को संशोधित किया गया है.</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_app/OpenStudioApp.cpp" line="819" />
+        <location filename="../src/openstudio_app/OpenStudioApp.cpp" line="819"/>
         <source>Do you want to save your changes?</source>
         <translation>क्या आप अपने परिवर्तनों को सहेजना चाहते हैं?</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_app/OpenStudioApp.cpp" line="886" />
+        <location filename="../src/openstudio_app/OpenStudioApp.cpp" line="886"/>
         <source>Open</source>
         <translation>खोलें</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_app/OpenStudioApp.cpp" line="886" />
-        <location filename="../src/openstudio_app/OpenStudioApp.cpp" line="1497" />
+        <location filename="../src/openstudio_app/OpenStudioApp.cpp" line="886"/>
+        <location filename="../src/openstudio_app/OpenStudioApp.cpp" line="1497"/>
         <source>(*.osm)</source>
         <translation>(*.ओएसएम)</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_app/OpenStudioApp.cpp" line="945" />
-        <source>A new version is available at &lt;a href="</source>
-        <translation>एक नया संस्करण &lt;a href=" पर उपलब्ध है</translation>
+        <location filename="../src/openstudio_app/OpenStudioApp.cpp" line="945"/>
+        <source>A new version is available at &lt;a href=&quot;</source>
+        <translation>एक नया संस्करण &lt;a href=&quot; पर उपलब्ध है</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_app/OpenStudioApp.cpp" line="950" />
+        <location filename="../src/openstudio_app/OpenStudioApp.cpp" line="950"/>
         <source>Currently using the most recent version</source>
         <translation>वर्तमान में नवीनतम संस्करण का उपयोग कर रहे हैं</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_app/OpenStudioApp.cpp" line="958" />
+        <location filename="../src/openstudio_app/OpenStudioApp.cpp" line="958"/>
         <source>Check for Updates</source>
         <translation>अद्यतन के लिए जांचें</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_app/OpenStudioApp.cpp" line="980" />
+        <location filename="../src/openstudio_app/OpenStudioApp.cpp" line="980"/>
         <source>Measure Manager Server: </source>
         <translation>उपाय प्रबंधक सर्वर:</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_app/OpenStudioApp.cpp" line="981" />
+        <location filename="../src/openstudio_app/OpenStudioApp.cpp" line="981"/>
         <source>Chrome Debugger: http://localhost:</source>
         <translation>क्रोम डीबगर: http://localhost:</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_app/OpenStudioApp.cpp" line="982" />
+        <location filename="../src/openstudio_app/OpenStudioApp.cpp" line="982"/>
         <source>Temp Directory: </source>
         <translation>अस्थायी डायरेक्टरी:</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_app/OpenStudioApp.cpp" line="1266" />
+        <location filename="../src/openstudio_app/OpenStudioApp.cpp" line="1266"/>
         <source>Measure Manager has crashed. Do you want to retry?</source>
         <translation>Measure Manager क्रैश हो गया है। क्या आप पुनः प्रयास करना चाहते हैं?</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_app/OpenStudioApp.cpp" line="1271" />
+        <location filename="../src/openstudio_app/OpenStudioApp.cpp" line="1271"/>
         <source>Measure Manager Crashed</source>
         <translation>मेजर मैनेजर क्रैश हो गया</translation>
     </message>
@@ -26569,70 +26570,70 @@ If a more localized translation is needed: **स्पेस** or **खाली
         <translation>बारे में</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_app/OpenStudioApp.cpp" line="1020" />
+        <location filename="../src/openstudio_app/OpenStudioApp.cpp" line="1020"/>
         <source>Failed to load model</source>
         <translation>मॉडल लोड करने में विफल</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_app/OpenStudioApp.cpp" line="1123" />
+        <location filename="../src/openstudio_app/OpenStudioApp.cpp" line="1123"/>
         <source>Opening future version </source>
         <translation>भविष्य का संस्करण खोलना</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_app/OpenStudioApp.cpp" line="1123" />
+        <location filename="../src/openstudio_app/OpenStudioApp.cpp" line="1123"/>
         <source> using </source>
         <translation>का उपयोग करते हुए</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_app/OpenStudioApp.cpp" line="1125" />
+        <location filename="../src/openstudio_app/OpenStudioApp.cpp" line="1125"/>
         <source>Model updated from </source>
         <translation>मॉडल से अपडेट किया गया</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_app/OpenStudioApp.cpp" line="1134" />
+        <location filename="../src/openstudio_app/OpenStudioApp.cpp" line="1134"/>
         <source>Existing Ruby scripts have been removed.
 Ruby scripts are no longer supported and have been replaced by measures.</source>
         <translation>मौजूदा रूबी स्क्रिप्ट को हटा दिया गया है।
 रूबी स्क्रिप्ट अब समर्थित नहीं हैं और उन्हें उपायों द्वारा बदल दिया गया है.</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_app/OpenStudioApp.cpp" line="1141" />
+        <location filename="../src/openstudio_app/OpenStudioApp.cpp" line="1141"/>
         <source>Failed to open file at </source>
         <translation>इस जगह पर फ़ाइल खोलने में विफल</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_app/OpenStudioApp.cpp" line="1164" />
-        <location filename="../src/openstudio_app/OpenStudioApp.cpp" line="1348" />
+        <location filename="../src/openstudio_app/OpenStudioApp.cpp" line="1164"/>
+        <location filename="../src/openstudio_app/OpenStudioApp.cpp" line="1348"/>
         <source>Settings file not writable</source>
         <translation>सेटिंग फ़ाइल लिखने योग्य नहीं है</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_app/OpenStudioApp.cpp" line="1165" />
-        <location filename="../src/openstudio_app/OpenStudioApp.cpp" line="1349" />
-        <source>Your settings file '</source>
-        <translation>आपकी सेटिंग फ़ाइल '</translation>
+        <location filename="../src/openstudio_app/OpenStudioApp.cpp" line="1165"/>
+        <location filename="../src/openstudio_app/OpenStudioApp.cpp" line="1349"/>
+        <source>Your settings file &apos;</source>
+        <translation>आपकी सेटिंग फ़ाइल &apos;</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_app/OpenStudioApp.cpp" line="1165" />
-        <location filename="../src/openstudio_app/OpenStudioApp.cpp" line="1349" />
-        <source>' is not writable. Adjust the file permissions</source>
-        <translation>'लिखने योग्य नहीं है। फ़ाइल अनुमतियों को समायोजित करें</translation>
+        <location filename="../src/openstudio_app/OpenStudioApp.cpp" line="1165"/>
+        <location filename="../src/openstudio_app/OpenStudioApp.cpp" line="1349"/>
+        <source>&apos; is not writable. Adjust the file permissions</source>
+        <translation>&apos;लिखने योग्य नहीं है। फ़ाइल अनुमतियों को समायोजित करें</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_app/OpenStudioApp.cpp" line="1186" />
-        <location filename="../src/openstudio_app/OpenStudioApp.cpp" line="1198" />
+        <location filename="../src/openstudio_app/OpenStudioApp.cpp" line="1186"/>
+        <location filename="../src/openstudio_app/OpenStudioApp.cpp" line="1198"/>
         <source>Revert to Saved</source>
         <translation>सहेजे गए पर वापस जाएं</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_app/OpenStudioApp.cpp" line="1186" />
+        <location filename="../src/openstudio_app/OpenStudioApp.cpp" line="1186"/>
         <source>This model has never been saved.
 Do you want to create a new model?</source>
         <translation>यह मॉडल कभी सहेजा नहीं गया है।
 क्या आप एक नया मॉडल बनाना चाहते हैं?</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_app/OpenStudioApp.cpp" line="1198" />
+        <location filename="../src/openstudio_app/OpenStudioApp.cpp" line="1198"/>
         <source>Are you sure you want to revert to the last saved version?</source>
         <translation>क्या आप वाकई अंतिम सहेजे गए संस्करण पर वापस जाना चाहते हैं?</translation>
     </message>
@@ -26647,31 +26648,31 @@ Do you want to create a new model?</source>
         <translation>उपाय प्रबंधक क्रैश हो गया है</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_app/OpenStudioApp.cpp" line="1421" />
+        <location filename="../src/openstudio_app/OpenStudioApp.cpp" line="1421"/>
         <source>Restart required</source>
         <translation>पुनरारंभ करना आवश्यक है</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_app/OpenStudioApp.cpp" line="1422" />
+        <location filename="../src/openstudio_app/OpenStudioApp.cpp" line="1422"/>
         <source>A restart of the OpenStudio Application is required for language changes to be fully functionnal.
 Would you like to restart now?</source>
         <translation>भाषा परिवर्तन पूरी तरह कार्यात्मक होने के लिए ओपेनस्टूडियो एप्लिकेशन के पुनरारंभ की आवश्यकता है।
 क्या आप अभी पुनः आरंभ करना चाहेंगे?</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_app/OpenStudioApp.cpp" line="1497" />
+        <location filename="../src/openstudio_app/OpenStudioApp.cpp" line="1497"/>
         <source>Select Library</source>
         <translation>लाइब्रेरी का चयन करें</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_app/OpenStudioApp.cpp" line="1611" />
+        <location filename="../src/openstudio_app/OpenStudioApp.cpp" line="1611"/>
         <source>Failed to load the following libraries...
 
 </source>
         <translation>निम्नलिखित लाइब्रेरी को लोड करने में विफल...</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_app/OpenStudioApp.cpp" line="1619" />
+        <location filename="../src/openstudio_app/OpenStudioApp.cpp" line="1619"/>
         <source>
 
 Would you like to Restore library paths to default values or Open the library settings to change them manually?</source>
@@ -26681,37 +26682,37 @@ Would you like to Restore library paths to default values or Open the library se
 <context>
     <name>openstudio::OtherEquipmentDefinitionInspectorView</name>
     <message>
-        <location filename="../src/openstudio_lib/OtherEquipmentInspectorView.cpp" line="36" />
+        <location filename="../src/openstudio_lib/OtherEquipmentInspectorView.cpp" line="36"/>
         <source>Name: </source>
         <translation>नाम:</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/OtherEquipmentInspectorView.cpp" line="45" />
+        <location filename="../src/openstudio_lib/OtherEquipmentInspectorView.cpp" line="45"/>
         <source>Design Level: </source>
         <translation>डिज़ाइन स्तर:</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/OtherEquipmentInspectorView.cpp" line="55" />
+        <location filename="../src/openstudio_lib/OtherEquipmentInspectorView.cpp" line="55"/>
         <source>Power Per Space Floor Area: </source>
         <translation>प्रति अंतरिक्ष तल क्षेत्र शक्ति:</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/OtherEquipmentInspectorView.cpp" line="65" />
+        <location filename="../src/openstudio_lib/OtherEquipmentInspectorView.cpp" line="65"/>
         <source>Power Per Person: </source>
         <translation>प्रति व्यक्ति शक्ति:</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/OtherEquipmentInspectorView.cpp" line="75" />
+        <location filename="../src/openstudio_lib/OtherEquipmentInspectorView.cpp" line="75"/>
         <source>Fraction Latent: </source>
         <translation>भिन्न अव्यक्त:</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/OtherEquipmentInspectorView.cpp" line="85" />
+        <location filename="../src/openstudio_lib/OtherEquipmentInspectorView.cpp" line="85"/>
         <source>Fraction Radiant: </source>
         <translation>अंश विकिरण:</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/OtherEquipmentInspectorView.cpp" line="95" />
+        <location filename="../src/openstudio_lib/OtherEquipmentInspectorView.cpp" line="95"/>
         <source>Fraction Lost: </source>
         <translation>खोई हुई भिन्न:</translation>
     </message>
@@ -26719,17 +26720,17 @@ Would you like to Restore library paths to default values or Open the library se
 <context>
     <name>openstudio::PathInputView</name>
     <message>
-        <location filename="../src/shared_gui_components/EditView.cpp" line="466" />
+        <location filename="../src/shared_gui_components/EditView.cpp" line="466"/>
         <source>Open Directory</source>
         <translation>निर्देशिका खोलें</translation>
     </message>
     <message>
-        <location filename="../src/shared_gui_components/EditView.cpp" line="469" />
+        <location filename="../src/shared_gui_components/EditView.cpp" line="469"/>
         <source>Open Read File</source>
         <translation>फ़ाइल खोलें और पढ़ें</translation>
     </message>
     <message>
-        <location filename="../src/shared_gui_components/EditView.cpp" line="471" />
+        <location filename="../src/shared_gui_components/EditView.cpp" line="471"/>
         <source>Select Save File</source>
         <translation>फ़ाइल सहेजें चुनें</translation>
     </message>
@@ -26737,57 +26738,57 @@ Would you like to Restore library paths to default values or Open the library se
 <context>
     <name>openstudio::PeopleDefinitionInspectorView</name>
     <message>
-        <location filename="../src/openstudio_lib/PeopleInspectorView.cpp" line="177" />
+        <location filename="../src/openstudio_lib/PeopleInspectorView.cpp" line="177"/>
         <source>Add/Remove Extensible Groups</source>
         <translation>एक्स्टेंसिबल समूह जोड़ें/निकालें</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/PeopleInspectorView.cpp" line="56" />
+        <location filename="../src/openstudio_lib/PeopleInspectorView.cpp" line="56"/>
         <source>Name: </source>
         <translation>नाम:</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/PeopleInspectorView.cpp" line="70" />
+        <location filename="../src/openstudio_lib/PeopleInspectorView.cpp" line="70"/>
         <source>Number of People: </source>
         <translation>लोगों की संख्या:</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/PeopleInspectorView.cpp" line="81" />
+        <location filename="../src/openstudio_lib/PeopleInspectorView.cpp" line="81"/>
         <source>People per Space Floor Area: </source>
         <translation>अंतरिक्ष फर्श क्षेत्र प्रति लोग:</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/PeopleInspectorView.cpp" line="93" />
+        <location filename="../src/openstudio_lib/PeopleInspectorView.cpp" line="93"/>
         <source>Space Floor Area per Person: </source>
         <translation>प्रति व्यक्ति स्पेस फर्श क्षेत्र:</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/PeopleInspectorView.cpp" line="107" />
+        <location filename="../src/openstudio_lib/PeopleInspectorView.cpp" line="107"/>
         <source>Fraction Radiant: </source>
         <translation>अंश विकिरण:</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/PeopleInspectorView.cpp" line="118" />
+        <location filename="../src/openstudio_lib/PeopleInspectorView.cpp" line="118"/>
         <source>Sensible Heat Fraction: </source>
         <translation>संवेदनशील ऊष्मा अंश:</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/PeopleInspectorView.cpp" line="129" />
+        <location filename="../src/openstudio_lib/PeopleInspectorView.cpp" line="129"/>
         <source>Carbon Dioxide Generation Rate: </source>
         <translation>कार्बन डाइऑक्साइड उत्पन्न दर:</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/PeopleInspectorView.cpp" line="152" />
+        <location filename="../src/openstudio_lib/PeopleInspectorView.cpp" line="152"/>
         <source>Enable ASHRAE 55 Comfort Warnings:</source>
         <translation>ASHRAE 55 आराम चेतावनियाँ सक्षम करें:</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/PeopleInspectorView.cpp" line="160" />
+        <location filename="../src/openstudio_lib/PeopleInspectorView.cpp" line="160"/>
         <source>Mean Radiant Temperature Calculation Type:</source>
         <translation>माध्य विकिरण तापमान गणना प्रकार:</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/PeopleInspectorView.cpp" line="335" />
+        <location filename="../src/openstudio_lib/PeopleInspectorView.cpp" line="335"/>
         <source>Thermal Comfort Model Type</source>
         <translation>तापीय आराम मॉडल प्रकार</translation>
     </message>
@@ -26795,17 +26796,17 @@ Would you like to Restore library paths to default values or Open the library se
 <context>
     <name>openstudio::PreviewWebView</name>
     <message>
-        <location filename="../src/openstudio_lib/GeometryPreviewView.cpp" line="174" />
+        <location filename="../src/openstudio_lib/GeometryPreviewView.cpp" line="174"/>
         <source>Refresh</source>
         <translation>ताज़ा करें</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/GeometryPreviewView.cpp" line="230" />
+        <location filename="../src/openstudio_lib/GeometryPreviewView.cpp" line="230"/>
         <source>Geometry Diagnostics</source>
         <translation>ज्यामिति निदान</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/GeometryPreviewView.cpp" line="233" />
+        <location filename="../src/openstudio_lib/GeometryPreviewView.cpp" line="233"/>
         <source>Enables adjacency issues. Enables checks for Surface/Space Convexity, due to this the ThreeJS export is slightly slower</source>
         <translation>आसन्नता समस्याओं को सक्षम करता है। Surface/Space Convexity के लिए जाँच को सक्षम करता है, इसके कारण ThreeJS export थोड़ा धीमा है</translation>
     </message>
@@ -26813,69 +26814,69 @@ Would you like to Restore library paths to default values or Open the library se
 <context>
     <name>openstudio::RefrigerationCaseGridController</name>
     <message>
-        <location filename="../src/openstudio_lib/RefrigerationGridView.cpp" line="258" />
-        <location filename="../src/openstudio_lib/RefrigerationGridView.cpp" line="267" />
-        <location filename="../src/openstudio_lib/RefrigerationGridView.cpp" line="272" />
+        <location filename="../src/openstudio_lib/RefrigerationGridView.cpp" line="258"/>
+        <location filename="../src/openstudio_lib/RefrigerationGridView.cpp" line="267"/>
+        <location filename="../src/openstudio_lib/RefrigerationGridView.cpp" line="272"/>
         <source>All</source>
         <translation>सब</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/RefrigerationGridView.cpp" line="258" />
-        <location filename="../src/openstudio_lib/RefrigerationGridView.cpp" line="442" />
-        <location filename="../src/openstudio_lib/RefrigerationGridView.cpp" line="443" />
+        <location filename="../src/openstudio_lib/RefrigerationGridView.cpp" line="258"/>
+        <location filename="../src/openstudio_lib/RefrigerationGridView.cpp" line="442"/>
+        <location filename="../src/openstudio_lib/RefrigerationGridView.cpp" line="443"/>
         <source>Name</source>
         <translation>नाम</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/RefrigerationGridView.cpp" line="186" />
-        <location filename="../src/openstudio_lib/RefrigerationGridView.cpp" line="423" />
-        <location filename="../src/openstudio_lib/RefrigerationGridView.cpp" line="425" />
+        <location filename="../src/openstudio_lib/RefrigerationGridView.cpp" line="186"/>
+        <location filename="../src/openstudio_lib/RefrigerationGridView.cpp" line="423"/>
+        <location filename="../src/openstudio_lib/RefrigerationGridView.cpp" line="425"/>
         <source>Thermal Zone</source>
         <translation>थर्मल जोन</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/RefrigerationGridView.cpp" line="185" />
-        <location filename="../src/openstudio_lib/RefrigerationGridView.cpp" line="432" />
-        <location filename="../src/openstudio_lib/RefrigerationGridView.cpp" line="434" />
-        <location filename="../src/openstudio_lib/RefrigerationGridView.cpp" line="512" />
+        <location filename="../src/openstudio_lib/RefrigerationGridView.cpp" line="185"/>
+        <location filename="../src/openstudio_lib/RefrigerationGridView.cpp" line="432"/>
+        <location filename="../src/openstudio_lib/RefrigerationGridView.cpp" line="434"/>
+        <location filename="../src/openstudio_lib/RefrigerationGridView.cpp" line="512"/>
         <source>Rack</source>
         <translation>रैक</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/RefrigerationGridView.cpp" line="187" />
-        <location filename="../src/openstudio_lib/RefrigerationGridView.cpp" line="286" />
-        <location filename="../src/openstudio_lib/RefrigerationGridView.cpp" line="287" />
+        <location filename="../src/openstudio_lib/RefrigerationGridView.cpp" line="187"/>
+        <location filename="../src/openstudio_lib/RefrigerationGridView.cpp" line="286"/>
+        <location filename="../src/openstudio_lib/RefrigerationGridView.cpp" line="287"/>
         <source>Case Length</source>
         <translation>केस लंबाई</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/RefrigerationGridView.cpp" line="189" />
+        <location filename="../src/openstudio_lib/RefrigerationGridView.cpp" line="189"/>
         <source>General</source>
         <translation>सामान्य</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/RefrigerationGridView.cpp" line="200" />
+        <location filename="../src/openstudio_lib/RefrigerationGridView.cpp" line="200"/>
         <source>Operation</source>
         <translation>संचालन</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/RefrigerationGridView.cpp" line="210" />
+        <location filename="../src/openstudio_lib/RefrigerationGridView.cpp" line="210"/>
         <source>Cooling
 Capacity</source>
         <translation>शीतलन क्षमता</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/RefrigerationGridView.cpp" line="219" />
+        <location filename="../src/openstudio_lib/RefrigerationGridView.cpp" line="219"/>
         <source>Fan</source>
         <translation>पंखा</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/RefrigerationGridView.cpp" line="230" />
+        <location filename="../src/openstudio_lib/RefrigerationGridView.cpp" line="230"/>
         <source>Lighting</source>
         <translation>प्रकाश</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/RefrigerationGridView.cpp" line="240" />
+        <location filename="../src/openstudio_lib/RefrigerationGridView.cpp" line="240"/>
         <source>Case
 Anti-Sweat
 Heaters</source>
@@ -26884,7 +26885,7 @@ Heaters</source>
 हीटर्स</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/RefrigerationGridView.cpp" line="249" />
+        <location filename="../src/openstudio_lib/RefrigerationGridView.cpp" line="249"/>
         <source>Defrost
 And
 Restocking</source>
@@ -26893,12 +26894,12 @@ Restocking</source>
 रिस्टॉकिंग</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/RefrigerationGridView.cpp" line="269" />
+        <location filename="../src/openstudio_lib/RefrigerationGridView.cpp" line="269"/>
         <source>Check to select all rows</source>
         <translation>सभी का चयन करे</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/RefrigerationGridView.cpp" line="272" />
+        <location filename="../src/openstudio_lib/RefrigerationGridView.cpp" line="272"/>
         <source>Check to select this row</source>
         <translation>इस पंक्ति को चुनने के लिए जांचें</translation>
     </message>
@@ -26906,7 +26907,7 @@ Restocking</source>
 <context>
     <name>openstudio::RefrigerationCasesDropZoneView</name>
     <message>
-        <location filename="../src/openstudio_lib/RefrigerationGraphicsItems.cpp" line="970" />
+        <location filename="../src/openstudio_lib/RefrigerationGraphicsItems.cpp" line="970"/>
         <source>Drag and Drop
 Cases</source>
         <translation>खींचें और छोड़ें
@@ -26916,14 +26917,14 @@ Cases</source>
 <context>
     <name>openstudio::RefrigerationCasesView</name>
     <message>
-        <location filename="../src/openstudio_lib/RefrigerationGraphicsItems.cpp" line="476" />
+        <location filename="../src/openstudio_lib/RefrigerationGraphicsItems.cpp" line="476"/>
         <source>%1
 Display Cases</source>
         <translation>%1
 डिस्प्ले केस</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/RefrigerationGraphicsItems.cpp" line="486" />
+        <location filename="../src/openstudio_lib/RefrigerationGraphicsItems.cpp" line="486"/>
         <source>%1
 Walkin Cases</source>
         <translation>%1
@@ -26933,7 +26934,7 @@ Walkin Cases</source>
 <context>
     <name>openstudio::RefrigerationCompressorDropZoneView</name>
     <message>
-        <location filename="../src/openstudio_lib/RefrigerationGraphicsItems.cpp" line="883" />
+        <location filename="../src/openstudio_lib/RefrigerationGraphicsItems.cpp" line="883"/>
         <source>Drag and Drop
 Compressor</source>
         <translation>खींचें और छोड़ें
@@ -26943,7 +26944,7 @@ Compressor</source>
 <context>
     <name>openstudio::RefrigerationCondenserView</name>
     <message>
-        <location filename="../src/openstudio_lib/RefrigerationGraphicsItems.cpp" line="769" />
+        <location filename="../src/openstudio_lib/RefrigerationGraphicsItems.cpp" line="769"/>
         <source>Drop Condenser</source>
         <translation>कंडेंसर छोड़ें</translation>
     </message>
@@ -26951,25 +26952,25 @@ Compressor</source>
 <context>
     <name>openstudio::RefrigerationGridView</name>
     <message>
-        <location filename="../src/openstudio_lib/RefrigerationGridView.cpp" line="142" />
-        <location filename="../src/openstudio_lib/RefrigerationGridView.cpp" line="143" />
+        <location filename="../src/openstudio_lib/RefrigerationGridView.cpp" line="142"/>
+        <location filename="../src/openstudio_lib/RefrigerationGridView.cpp" line="143"/>
         <source>Display Cases</source>
         <translation>डिस्प्ले केस</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/RefrigerationGridView.cpp" line="143" />
+        <location filename="../src/openstudio_lib/RefrigerationGridView.cpp" line="143"/>
         <source>Drop
 Case</source>
         <translation>ड्रॉप केस</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/RefrigerationGridView.cpp" line="153" />
-        <location filename="../src/openstudio_lib/RefrigerationGridView.cpp" line="154" />
+        <location filename="../src/openstudio_lib/RefrigerationGridView.cpp" line="153"/>
+        <location filename="../src/openstudio_lib/RefrigerationGridView.cpp" line="154"/>
         <source>Walk Ins</source>
         <translation>वॉक इन्स</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/RefrigerationGridView.cpp" line="154" />
+        <location filename="../src/openstudio_lib/RefrigerationGridView.cpp" line="154"/>
         <source>Drop
 Walk In</source>
         <translation>ड्रॉप
@@ -26979,7 +26980,7 @@ Walk In</source>
 <context>
     <name>openstudio::RefrigerationSHXView</name>
     <message>
-        <location filename="../src/openstudio_lib/RefrigerationGraphicsItems.cpp" line="1096" />
+        <location filename="../src/openstudio_lib/RefrigerationGraphicsItems.cpp" line="1096"/>
         <source>Drop Liquid Suction HX</source>
         <translation>लिक्विड सक्शन HX छोड़ें</translation>
     </message>
@@ -26987,7 +26988,7 @@ Walk In</source>
 <context>
     <name>openstudio::RefrigerationSubCoolerView</name>
     <message>
-        <location filename="../src/openstudio_lib/RefrigerationGraphicsItems.cpp" line="1001" />
+        <location filename="../src/openstudio_lib/RefrigerationGraphicsItems.cpp" line="1001"/>
         <source>Drop Mechanical Sub Cooler</source>
         <translation>मैकेनिकल सब कूलर छोड़ें</translation>
     </message>
@@ -26995,7 +26996,7 @@ Walk In</source>
 <context>
     <name>openstudio::RefrigerationSystemDropZoneView</name>
     <message>
-        <location filename="../src/openstudio_lib/RefrigerationGraphicsItems.cpp" line="1327" />
+        <location filename="../src/openstudio_lib/RefrigerationGraphicsItems.cpp" line="1327"/>
         <source>Drop Refrigeration System</source>
         <translation>ड्रॉप रेफ्रिजरेशन सिस्टम</translation>
     </message>
@@ -27003,88 +27004,88 @@ Walk In</source>
 <context>
     <name>openstudio::RefrigerationWalkInGridController</name>
     <message>
-        <location filename="../src/openstudio_lib/RefrigerationGridView.cpp" line="622" />
-        <location filename="../src/openstudio_lib/RefrigerationGridView.cpp" line="750" />
-        <location filename="../src/openstudio_lib/RefrigerationGridView.cpp" line="751" />
+        <location filename="../src/openstudio_lib/RefrigerationGridView.cpp" line="622"/>
+        <location filename="../src/openstudio_lib/RefrigerationGridView.cpp" line="750"/>
+        <location filename="../src/openstudio_lib/RefrigerationGridView.cpp" line="751"/>
         <source>Name</source>
         <translation>नाम</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/RefrigerationGridView.cpp" line="533" />
-        <location filename="../src/openstudio_lib/RefrigerationGridView.cpp" line="764" />
-        <location filename="../src/openstudio_lib/RefrigerationGridView.cpp" line="766" />
+        <location filename="../src/openstudio_lib/RefrigerationGridView.cpp" line="533"/>
+        <location filename="../src/openstudio_lib/RefrigerationGridView.cpp" line="764"/>
+        <location filename="../src/openstudio_lib/RefrigerationGridView.cpp" line="766"/>
         <source>Thermal Zone</source>
         <translation>Thermal Zone
 
-(This is a standard technical term in building energy modeling that is typically kept as "Thermal Zone" even in Hindi contexts, similar to how it appears in EnergyPlus/OpenStudio documentation. If a full Hindi translation is required, it would be: थर्मल जोन)</translation>
+(This is a standard technical term in building energy modeling that is typically kept as &quot;Thermal Zone&quot; even in Hindi contexts, similar to how it appears in EnergyPlus/OpenStudio documentation. If a full Hindi translation is required, it would be: थर्मल जोन)</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/RefrigerationGridView.cpp" line="532" />
-        <location filename="../src/openstudio_lib/RefrigerationGridView.cpp" line="754" />
-        <location filename="../src/openstudio_lib/RefrigerationGridView.cpp" line="756" />
-        <location filename="../src/openstudio_lib/RefrigerationGridView.cpp" line="880" />
+        <location filename="../src/openstudio_lib/RefrigerationGridView.cpp" line="532"/>
+        <location filename="../src/openstudio_lib/RefrigerationGridView.cpp" line="754"/>
+        <location filename="../src/openstudio_lib/RefrigerationGridView.cpp" line="756"/>
+        <location filename="../src/openstudio_lib/RefrigerationGridView.cpp" line="880"/>
         <source>Rack</source>
         <translation>रैक</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/RefrigerationGridView.cpp" line="535" />
+        <location filename="../src/openstudio_lib/RefrigerationGridView.cpp" line="535"/>
         <source>General</source>
         <translation>सामान्य</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/RefrigerationGridView.cpp" line="544" />
+        <location filename="../src/openstudio_lib/RefrigerationGridView.cpp" line="544"/>
         <source>Dimensions</source>
         <translation>आयाम</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/RefrigerationGridView.cpp" line="555" />
+        <location filename="../src/openstudio_lib/RefrigerationGridView.cpp" line="555"/>
         <source>Construction</source>
         <translation>निर्माण</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/RefrigerationGridView.cpp" line="566" />
+        <location filename="../src/openstudio_lib/RefrigerationGridView.cpp" line="566"/>
         <source>Operation</source>
         <translation>संचालन</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/RefrigerationGridView.cpp" line="575" />
+        <location filename="../src/openstudio_lib/RefrigerationGridView.cpp" line="575"/>
         <source>Fans</source>
         <translation>पंखे</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/RefrigerationGridView.cpp" line="584" />
+        <location filename="../src/openstudio_lib/RefrigerationGridView.cpp" line="584"/>
         <source>Lighting</source>
         <translation>प्रकाश</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/RefrigerationGridView.cpp" line="593" />
+        <location filename="../src/openstudio_lib/RefrigerationGridView.cpp" line="593"/>
         <source>Heating</source>
         <translation>हीटिंग</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/RefrigerationGridView.cpp" line="604" />
+        <location filename="../src/openstudio_lib/RefrigerationGridView.cpp" line="604"/>
         <source>Defrost</source>
         <translation>डीफ्रॉस्ट</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/RefrigerationGridView.cpp" line="613" />
+        <location filename="../src/openstudio_lib/RefrigerationGridView.cpp" line="613"/>
         <source>Restocking</source>
         <translation>पुनः स्टॉकिंग</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/RefrigerationGridView.cpp" line="622" />
-        <location filename="../src/openstudio_lib/RefrigerationGridView.cpp" line="634" />
-        <location filename="../src/openstudio_lib/RefrigerationGridView.cpp" line="639" />
+        <location filename="../src/openstudio_lib/RefrigerationGridView.cpp" line="622"/>
+        <location filename="../src/openstudio_lib/RefrigerationGridView.cpp" line="634"/>
+        <location filename="../src/openstudio_lib/RefrigerationGridView.cpp" line="639"/>
         <source>All</source>
         <translation>सब</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/RefrigerationGridView.cpp" line="636" />
+        <location filename="../src/openstudio_lib/RefrigerationGridView.cpp" line="636"/>
         <source>Check to select all rows</source>
         <translation>सभी का चयन करे</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/RefrigerationGridView.cpp" line="639" />
+        <location filename="../src/openstudio_lib/RefrigerationGridView.cpp" line="639"/>
         <source>Check to select this row</source>
         <translation>इस पंक्ति को चुनने के लिए जांचें</translation>
     </message>
@@ -27092,7 +27093,7 @@ Walk In</source>
 <context>
     <name>openstudio::ResultsTabController</name>
     <message>
-        <location filename="../src/openstudio_lib/ResultsTabController.cpp" line="13" />
+        <location filename="../src/openstudio_lib/ResultsTabController.cpp" line="13"/>
         <source>Results Summary</source>
         <translation>परिणाम सारांश</translation>
     </message>
@@ -27100,45 +27101,55 @@ Walk In</source>
 <context>
     <name>openstudio::ResultsView</name>
     <message>
-        <location filename="../src/openstudio_lib/ResultsTabView.cpp" line="51" />
+        <location filename="../src/openstudio_lib/ResultsTabView.cpp" line="51"/>
         <source>Refresh</source>
         <translation>ताज़ा करें</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/ResultsTabView.cpp" line="52" />
+        <location filename="../src/openstudio_lib/ResultsTabView.cpp" line="52"/>
         <source>Open DView for
 Detailed Reports</source>
         <translation>विस्तृत रिपोर्ट के लिए DView खोलें</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/ResultsTabView.cpp" line="63" />
+        <location filename="../src/openstudio_lib/ResultsTabView.cpp" line="63"/>
         <source>Reports: </source>
         <translation>रिपोर्ट्स:</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/ResultsTabView.cpp" line="84" />
+        <location filename="../src/openstudio_lib/ResultsTabView.cpp" line="84"/>
         <source>Set Path to DView
 in Preferences</source>
         <translation>DView के पथ को Preferences में सेट करें</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/ResultsTabView.cpp" line="144" />
+        <location filename="../src/openstudio_lib/ResultsTabView.cpp" line="131"/>
+        <source>Units Conversion</source>
+        <translation>इकाई रूपांतरण</translation>
+    </message>
+    <message>
+        <location filename="../src/openstudio_lib/ResultsTabView.cpp" line="132"/>
+        <source>Would you like to display your Energy+ data in IP units?</source>
+        <translation>क्या आप अपना Energy+ डेटा IP इकाइयों में प्रदर्शित करना चाहते हैं?</translation>
+    </message>
+    <message>
+        <location filename="../src/openstudio_lib/ResultsTabView.cpp" line="142"/>
         <source>Unable to launch DView</source>
         <translation>DView लॉन्च करने में असमर्थ</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/ResultsTabView.cpp" line="145" />
+        <location filename="../src/openstudio_lib/ResultsTabView.cpp" line="143"/>
         <source>DView was not found in the expected location:
 </source>
         <translation>DView अपेक्षित स्थान पर नहीं मिला:</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/ResultsTabView.cpp" line="305" />
+        <location filename="../src/openstudio_lib/ResultsTabView.cpp" line="303"/>
         <source>EnergyPlus Results</source>
         <translation>EnergyPlus परिणाम</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/ResultsTabView.cpp" line="319" />
+        <location filename="../src/openstudio_lib/ResultsTabView.cpp" line="317"/>
         <source>Custom Report %1</source>
         <translation>कस्टम रिपोर्ट %1</translation>
     </message>
@@ -27150,7 +27161,7 @@ in Preferences</source>
 <context>
     <name>openstudio::RunTabView</name>
     <message>
-        <location filename="../src/openstudio_lib/RunTabView.cpp" line="76" />
+        <location filename="../src/openstudio_lib/RunTabView.cpp" line="76"/>
         <source>Run Simulation</source>
         <translation>सिमुलेशन चलाएँ</translation>
     </message>
@@ -27158,112 +27169,112 @@ in Preferences</source>
 <context>
     <name>openstudio::RunView</name>
     <message>
-        <location filename="../src/openstudio_lib/RunTabView.cpp" line="179" />
+        <location filename="../src/openstudio_lib/RunTabView.cpp" line="179"/>
         <source>onRunProcessErrored: Simulation failed to run, QProcess::ProcessError: </source>
         <translation>onRunProcessErrored: सिमुलेशन चलाने में विफल रहा, QProcess::ProcessError:</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/RunTabView.cpp" line="192" />
+        <location filename="../src/openstudio_lib/RunTabView.cpp" line="192"/>
         <source>Simulation failed to run, with exit code </source>
         <translation>सिमुलेशन चलाने में विफल, एक्जिट कोड के साथ</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/RunTabView.cpp" line="87" />
+        <location filename="../src/openstudio_lib/RunTabView.cpp" line="87"/>
         <source>Run</source>
         <translation>चलाएं</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/RunTabView.cpp" line="114" />
+        <location filename="../src/openstudio_lib/RunTabView.cpp" line="114"/>
         <source>Verbose</source>
         <translation>विस्तृत</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/RunTabView.cpp" line="121" />
+        <location filename="../src/openstudio_lib/RunTabView.cpp" line="121"/>
         <source>Classic CLI</source>
         <translation>Classic CLI</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/RunTabView.cpp" line="127" />
+        <location filename="../src/openstudio_lib/RunTabView.cpp" line="127"/>
         <source>Show Simulation</source>
         <translation>सिमुलेशन दिखाएं</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/RunTabView.cpp" line="172" />
+        <location filename="../src/openstudio_lib/RunTabView.cpp" line="172"/>
         <source>Unable to open simulation</source>
         <translation>सिमुलेशन खोलने में असमर्थ</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/RunTabView.cpp" line="172" />
+        <location filename="../src/openstudio_lib/RunTabView.cpp" line="172"/>
         <source>Please save the OpenStudio Model to view the simulation.</source>
         <translation>कृपया सिमुलेशन देखने के लिए OpenStudio Model को सेव करें।</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/RunTabView.cpp" line="321" />
+        <location filename="../src/openstudio_lib/RunTabView.cpp" line="321"/>
         <source>Could not open socket connection to OpenStudio Classic CLI.</source>
         <translation>OpenStudio Classic CLI के लिए सॉकेट कनेक्शन नहीं खोला जा सका।</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/RunTabView.cpp" line="323" />
+        <location filename="../src/openstudio_lib/RunTabView.cpp" line="323"/>
         <source>Falling back to stdout/stderr parsing, live updates might be slower.</source>
         <translation>stdout/stderr पार्सिंग पर वापस जा रहे हैं, लाइव अपडेट धीमे हो सकते हैं।</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/RunTabView.cpp" line="333" />
+        <location filename="../src/openstudio_lib/RunTabView.cpp" line="333"/>
         <source>Aborted</source>
         <translation>रद्द किया गया</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/RunTabView.cpp" line="457" />
+        <location filename="../src/openstudio_lib/RunTabView.cpp" line="457"/>
         <source>Initializing workflow.</source>
         <translation>कार्यप्रवाह को आरंभ किया जा रहा है।</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/RunTabView.cpp" line="468" />
+        <location filename="../src/openstudio_lib/RunTabView.cpp" line="468"/>
         <source>The classic command is deprecated and will be removed in a future release.</source>
         <translation>यह क्लासिक कमांड deprecated है और भविष्य के रिलीज़ में हटा दिया जाएगा।</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/RunTabView.cpp" line="485" />
+        <location filename="../src/openstudio_lib/RunTabView.cpp" line="485"/>
         <source>Processing OpenStudio Measures.</source>
         <translation>OpenStudio उपायों को संसाधित किया जा रहा है।</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/RunTabView.cpp" line="498" />
+        <location filename="../src/openstudio_lib/RunTabView.cpp" line="498"/>
         <source>Translating the OpenStudio Model to EnergyPlus.</source>
         <translation>OpenStudio Model को EnergyPlus में अनुवाद कर रहे हैं।</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/RunTabView.cpp" line="510" />
+        <location filename="../src/openstudio_lib/RunTabView.cpp" line="510"/>
         <source>Processing EnergyPlus Measures.</source>
         <translation>EnergyPlus Measures को प्रोसेस किया जा रहा है।</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/RunTabView.cpp" line="523" />
+        <location filename="../src/openstudio_lib/RunTabView.cpp" line="523"/>
         <source>Adding Simulation Output Requests.</source>
         <translation>सिमुलेशन आउटपुट अनुरोध जोड़ना।</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/RunTabView.cpp" line="535" />
+        <location filename="../src/openstudio_lib/RunTabView.cpp" line="535"/>
         <source>Starting EnergyPlus Simulation.</source>
         <translation>EnergyPlus सिमुलेशन शुरू किया जा रहा है।</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/RunTabView.cpp" line="548" />
+        <location filename="../src/openstudio_lib/RunTabView.cpp" line="548"/>
         <source>Processing Reporting Measures.</source>
         <translation>रिपोर्टिंग उपायों को संसाधित कर रहे हैं।</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/RunTabView.cpp" line="560" />
+        <location filename="../src/openstudio_lib/RunTabView.cpp" line="560"/>
         <source>Gathering Reports.</source>
         <translation>रिपोर्ट संकलित की जा रही हैं।</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/RunTabView.cpp" line="606" />
+        <location filename="../src/openstudio_lib/RunTabView.cpp" line="606"/>
         <source>Failed.</source>
         <translation>विफल।</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/RunTabView.cpp" line="609" />
+        <location filename="../src/openstudio_lib/RunTabView.cpp" line="609"/>
         <source>Completed.</source>
         <translation>पूर्ण हुआ।</translation>
     </message>
@@ -27271,12 +27282,12 @@ in Preferences</source>
 <context>
     <name>openstudio::ScheduleCompactInspectorView</name>
     <message>
-        <location filename="../src/openstudio_lib/ScheduleCompactInspectorView.cpp" line="51" />
+        <location filename="../src/openstudio_lib/ScheduleCompactInspectorView.cpp" line="51"/>
         <source>Name: </source>
         <translation>नाम:</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/ScheduleCompactInspectorView.cpp" line="64" />
+        <location filename="../src/openstudio_lib/ScheduleCompactInspectorView.cpp" line="64"/>
         <source>Content: </source>
         <translation>सामग्री:</translation>
     </message>
@@ -27284,12 +27295,12 @@ in Preferences</source>
 <context>
     <name>openstudio::ScheduleConstantInspectorView</name>
     <message>
-        <location filename="../src/openstudio_lib/ScheduleConstantInspectorView.cpp" line="47" />
+        <location filename="../src/openstudio_lib/ScheduleConstantInspectorView.cpp" line="47"/>
         <source>Name: </source>
         <translation>नाम:</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/ScheduleConstantInspectorView.cpp" line="60" />
+        <location filename="../src/openstudio_lib/ScheduleConstantInspectorView.cpp" line="60"/>
         <source>Value: </source>
         <translation>मान:</translation>
     </message>
@@ -27301,22 +27312,22 @@ in Preferences</source>
 <context>
     <name>openstudio::ScheduleDayView</name>
     <message>
-        <location filename="../src/openstudio_lib/ScheduleDayView.cpp" line="114" />
+        <location filename="../src/openstudio_lib/ScheduleDayView.cpp" line="114"/>
         <source>Schedule Day Name:</source>
         <translation>शेड्यूल दिन नाम:</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/ScheduleDayView.cpp" line="158" />
+        <location filename="../src/openstudio_lib/ScheduleDayView.cpp" line="158"/>
         <source>Hourly</source>
         <translation>घंटेवार</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/ScheduleDayView.cpp" line="171" />
+        <location filename="../src/openstudio_lib/ScheduleDayView.cpp" line="171"/>
         <source>15 Minutes</source>
         <translation>15 मिनट</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/ScheduleDayView.cpp" line="184" />
+        <location filename="../src/openstudio_lib/ScheduleDayView.cpp" line="184"/>
         <source>1 Minute</source>
         <translation>1 मिनट</translation>
     </message>
@@ -27324,44 +27335,44 @@ in Preferences</source>
 <context>
     <name>openstudio::ScheduleDialog</name>
     <message>
-        <location filename="../src/openstudio_lib/ScheduleDialog.cpp" line="94" />
+        <location filename="../src/openstudio_lib/ScheduleDialog.cpp" line="94"/>
         <source>Apply</source>
         <translation>लागू करें</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/ScheduleDialog.cpp" line="121" />
+        <location filename="../src/openstudio_lib/ScheduleDialog.cpp" line="121"/>
         <source>Define New Schedule</source>
         <translation>नया शेड्यूल परिभाषित करें</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/ScheduleDialog.cpp" line="139" />
+        <location filename="../src/openstudio_lib/ScheduleDialog.cpp" line="139"/>
         <source>Schedule Type</source>
         <translation>अनुसूची प्रकार</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/ScheduleDialog.cpp" line="171" />
+        <location filename="../src/openstudio_lib/ScheduleDialog.cpp" line="171"/>
         <source>Numeric Type: </source>
         <translation>संख्यात्मक प्रकार:</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/ScheduleDialog.cpp" line="189" />
+        <location filename="../src/openstudio_lib/ScheduleDialog.cpp" line="189"/>
         <source>Lower Limit: </source>
         <translation>निचली सीमा:</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/ScheduleDialog.cpp" line="207" />
+        <location filename="../src/openstudio_lib/ScheduleDialog.cpp" line="207"/>
         <source>Upper Limit: </source>
         <translation>ऊपरी सीमा:</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/ScheduleDialog.cpp" line="251" />
+        <location filename="../src/openstudio_lib/ScheduleDialog.cpp" line="251"/>
         <source>unitless</source>
         <translation>बिना इकाई के</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/ScheduleDialog.cpp" line="267" />
-        <location filename="../src/openstudio_lib/ScheduleDialog.cpp" line="291" />
-        <location filename="../src/openstudio_lib/ScheduleDialog.cpp" line="313" />
+        <location filename="../src/openstudio_lib/ScheduleDialog.cpp" line="267"/>
+        <location filename="../src/openstudio_lib/ScheduleDialog.cpp" line="291"/>
+        <location filename="../src/openstudio_lib/ScheduleDialog.cpp" line="313"/>
         <source>None</source>
         <translation>कोई नहीं</translation>
     </message>
@@ -27369,87 +27380,87 @@ in Preferences</source>
 <context>
     <name>openstudio::ScheduleFileInspectorView</name>
     <message>
-        <location filename="../src/openstudio_lib/ScheduleFileInspectorView.cpp" line="59" />
+        <location filename="../src/openstudio_lib/ScheduleFileInspectorView.cpp" line="59"/>
         <source>Name: </source>
         <translation>नाम:</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/ScheduleFileInspectorView.cpp" line="71" />
+        <location filename="../src/openstudio_lib/ScheduleFileInspectorView.cpp" line="71"/>
         <source>FilePath: </source>
         <translation>फाइल पाथ:</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/ScheduleFileInspectorView.cpp" line="88" />
+        <location filename="../src/openstudio_lib/ScheduleFileInspectorView.cpp" line="88"/>
         <source>Column Number: </source>
         <translation>कॉलम संख्या:</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/ScheduleFileInspectorView.cpp" line="100" />
+        <location filename="../src/openstudio_lib/ScheduleFileInspectorView.cpp" line="100"/>
         <source>Rows to Skip at Top: </source>
         <translation>शीर्ष पर छोड़ने के लिए पंक्तियाँ:</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/ScheduleFileInspectorView.cpp" line="117" />
+        <location filename="../src/openstudio_lib/ScheduleFileInspectorView.cpp" line="117"/>
         <source>Number of Hours of Data: </source>
         <translation>डेटा के घंटों की संख्या:</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/ScheduleFileInspectorView.cpp" line="129" />
+        <location filename="../src/openstudio_lib/ScheduleFileInspectorView.cpp" line="129"/>
         <source>Column Separator: </source>
         <translation>कॉलम विभाजक:</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/ScheduleFileInspectorView.cpp" line="134" />
+        <location filename="../src/openstudio_lib/ScheduleFileInspectorView.cpp" line="134"/>
         <source>Comma</source>
         <translation>अल्पविराम</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/ScheduleFileInspectorView.cpp" line="135" />
+        <location filename="../src/openstudio_lib/ScheduleFileInspectorView.cpp" line="135"/>
         <source>Tab</source>
         <translation>टैब</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/ScheduleFileInspectorView.cpp" line="136" />
+        <location filename="../src/openstudio_lib/ScheduleFileInspectorView.cpp" line="136"/>
         <source>Space</source>
         <translation>अंतरिक्ष</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/ScheduleFileInspectorView.cpp" line="137" />
+        <location filename="../src/openstudio_lib/ScheduleFileInspectorView.cpp" line="137"/>
         <source>Semicolon</source>
         <translation>अर्धविराम</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/ScheduleFileInspectorView.cpp" line="148" />
+        <location filename="../src/openstudio_lib/ScheduleFileInspectorView.cpp" line="148"/>
         <source>Interpolate to Timestep: </source>
         <translation>समयावधि के लिए अंतर्वेशन करें:</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/ScheduleFileInspectorView.cpp" line="160" />
+        <location filename="../src/openstudio_lib/ScheduleFileInspectorView.cpp" line="160"/>
         <source>Minutes per Item: </source>
         <translation>मिनट प्रति आइटम:</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/ScheduleFileInspectorView.cpp" line="175" />
+        <location filename="../src/openstudio_lib/ScheduleFileInspectorView.cpp" line="175"/>
         <source>Adjust Schedule for Daylight Savings: </source>
         <translation>डेलाइट सेविंग्स के लिए शेड्यूल समायोजित करें:</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/ScheduleFileInspectorView.cpp" line="187" />
+        <location filename="../src/openstudio_lib/ScheduleFileInspectorView.cpp" line="187"/>
         <source>Translate File With Relative Path: </source>
         <translation>सापेक्ष पथ के साथ फ़ाइल का अनुवाद करें:</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/ScheduleFileInspectorView.cpp" line="204" />
+        <location filename="../src/openstudio_lib/ScheduleFileInspectorView.cpp" line="204"/>
         <source>Content: </source>
         <translation>सामग्री:</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/ScheduleFileInspectorView.cpp" line="210" />
+        <location filename="../src/openstudio_lib/ScheduleFileInspectorView.cpp" line="210"/>
         <source>Number of Lines in file: </source>
         <translation>फ़ाइल में पंक्तियों की संख्या:</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/ScheduleFileInspectorView.cpp" line="225" />
+        <location filename="../src/openstudio_lib/ScheduleFileInspectorView.cpp" line="225"/>
         <source>Display All File Content: </source>
         <translation>सभी फाइल सामग्री प्रदर्शित करें:</translation>
     </message>
@@ -27457,12 +27468,12 @@ in Preferences</source>
 <context>
     <name>openstudio::ScheduleLimitsView</name>
     <message>
-        <location filename="../src/openstudio_lib/ScheduleDayView.cpp" line="422" />
+        <location filename="../src/openstudio_lib/ScheduleDayView.cpp" line="422"/>
         <source>Lower Limit: </source>
         <translation>निचली सीमा:</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/ScheduleDayView.cpp" line="435" />
+        <location filename="../src/openstudio_lib/ScheduleDayView.cpp" line="435"/>
         <source>Upper Limit: </source>
         <translation>ऊपरी सीमा:</translation>
     </message>
@@ -27470,22 +27481,22 @@ in Preferences</source>
 <context>
     <name>openstudio::ScheduleOthersController</name>
     <message>
-        <location filename="../src/openstudio_lib/ScheduleOthersController.cpp" line="40" />
+        <location filename="../src/openstudio_lib/ScheduleOthersController.cpp" line="40"/>
         <source>CSV Files(*.csv)</source>
         <translation>CSV फाइलें(*.csv)</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/ScheduleOthersController.cpp" line="41" />
+        <location filename="../src/openstudio_lib/ScheduleOthersController.cpp" line="41"/>
         <source>Select External File</source>
         <translation>बाहरी फ़ाइल चुनें</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/ScheduleOthersController.cpp" line="42" />
+        <location filename="../src/openstudio_lib/ScheduleOthersController.cpp" line="42"/>
         <source>All files (*.*);;CSV Files(*.csv);;TSV Files(*.tsv)</source>
         <translation>सभी फ़ाइलें (*.*);;CSV फ़ाइलें(*.csv);;TSV फ़ाइलें(*.tsv)</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/ScheduleOthersController.cpp" line="35" />
+        <location filename="../src/openstudio_lib/ScheduleOthersController.cpp" line="35"/>
         <source>Creation of Schedule:Compact is not supported, you should use a ScheduleRuleset instead</source>
         <translation>Schedule:Compact की रचना समर्थित नहीं है, आप इसके बजाय एक ScheduleRuleset का उपयोग करें</translation>
     </message>
@@ -27493,17 +27504,17 @@ in Preferences</source>
 <context>
     <name>openstudio::ScheduleOthersView</name>
     <message>
-        <location filename="../src/openstudio_lib/ScheduleOthersView.cpp" line="29" />
+        <location filename="../src/openstudio_lib/ScheduleOthersView.cpp" line="29"/>
         <source>Schedule Constant</source>
         <translation>शेड्यूल स्थिरांक</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/ScheduleOthersView.cpp" line="30" />
+        <location filename="../src/openstudio_lib/ScheduleOthersView.cpp" line="30"/>
         <source>Schedule Compact</source>
         <translation>शेड्यूल कॉम्पैक्ट</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/ScheduleOthersView.cpp" line="31" />
+        <location filename="../src/openstudio_lib/ScheduleOthersView.cpp" line="31"/>
         <source>Schedule File</source>
         <translation>शेड्यूल फ़ाइल</translation>
     </message>
@@ -27511,58 +27522,58 @@ in Preferences</source>
 <context>
     <name>openstudio::ScheduleRuleView</name>
     <message>
-        <location filename="../src/openstudio_lib/SchedulesView.cpp" line="1552" />
+        <location filename="../src/openstudio_lib/SchedulesView.cpp" line="1552"/>
         <source>Schedule Rule Name:</source>
         <translation>शेड्यूल नियम नाम:</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/SchedulesView.cpp" line="1567" />
+        <location filename="../src/openstudio_lib/SchedulesView.cpp" line="1567"/>
         <source>Date Range:</source>
         <translation>तारीख की सीमा:</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/SchedulesView.cpp" line="1585" />
+        <location filename="../src/openstudio_lib/SchedulesView.cpp" line="1585"/>
         <source>Apply to:</source>
         <translation>लागू करें:</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/SchedulesView.cpp" line="1591" />
+        <location filename="../src/openstudio_lib/SchedulesView.cpp" line="1591"/>
         <source>S</source>
         <comment>Sunday abbreviation</comment>
         <translation>S</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/SchedulesView.cpp" line="1599" />
+        <location filename="../src/openstudio_lib/SchedulesView.cpp" line="1599"/>
         <source>M</source>
         <comment>Monday abbreviation</comment>
         <translation>L</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/SchedulesView.cpp" line="1607" />
+        <location filename="../src/openstudio_lib/SchedulesView.cpp" line="1607"/>
         <source>T</source>
         <comment>Tuesday abbreviation</comment>
         <translation>J</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/SchedulesView.cpp" line="1615" />
+        <location filename="../src/openstudio_lib/SchedulesView.cpp" line="1615"/>
         <source>W</source>
         <comment>Wednesday abbreviation</comment>
         <translation>X</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/SchedulesView.cpp" line="1624" />
+        <location filename="../src/openstudio_lib/SchedulesView.cpp" line="1624"/>
         <source>T</source>
         <comment>Thursday abbreviation</comment>
         <translation>J</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/SchedulesView.cpp" line="1633" />
+        <location filename="../src/openstudio_lib/SchedulesView.cpp" line="1633"/>
         <source>F</source>
         <comment>Friday abbreviation</comment>
         <translation>V</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/SchedulesView.cpp" line="1641" />
+        <location filename="../src/openstudio_lib/SchedulesView.cpp" line="1641"/>
         <source>S</source>
         <comment>Saturday abbreviation</comment>
         <translation>S</translation>
@@ -27586,12 +27597,12 @@ in Preferences</source>
 <context>
     <name>openstudio::ScheduleRulesetInspectorView</name>
     <message>
-        <location filename="../src/openstudio_lib/InspectorView.cpp" line="2575" />
+        <location filename="../src/openstudio_lib/InspectorView.cpp" line="2575"/>
         <source>Name</source>
         <translation>नाम</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/InspectorView.cpp" line="2598" />
+        <location filename="../src/openstudio_lib/InspectorView.cpp" line="2598"/>
         <source>Please use the Schedules tab to inspect this object.</source>
         <translation>कृपया इस ऑब्जेक्ट का निरीक्षण करने के लिए Schedules टैब का उपयोग करें।</translation>
     </message>
@@ -27599,12 +27610,12 @@ in Preferences</source>
 <context>
     <name>openstudio::ScheduleRulesetNameWidget</name>
     <message>
-        <location filename="../src/openstudio_lib/SchedulesView.cpp" line="1768" />
+        <location filename="../src/openstudio_lib/SchedulesView.cpp" line="1768"/>
         <source>Schedule Name:</source>
         <translation>अनुसूची नाम:</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/SchedulesView.cpp" line="1782" />
+        <location filename="../src/openstudio_lib/SchedulesView.cpp" line="1782"/>
         <source>Schedule Type:</source>
         <translation>शेड्यूल प्रकार:</translation>
     </message>
@@ -27612,62 +27623,62 @@ in Preferences</source>
 <context>
     <name>openstudio::ScheduleSetInspectorView</name>
     <message>
-        <location filename="../src/openstudio_lib/ScheduleSetInspectorView.cpp" line="535" />
+        <location filename="../src/openstudio_lib/ScheduleSetInspectorView.cpp" line="535"/>
         <source>Name</source>
         <translation>नाम</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/ScheduleSetInspectorView.cpp" line="564" />
+        <location filename="../src/openstudio_lib/ScheduleSetInspectorView.cpp" line="564"/>
         <source>Default Schedules</source>
         <translation>डिफ़ॉल्ट शेड्यूल</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/ScheduleSetInspectorView.cpp" line="572" />
+        <location filename="../src/openstudio_lib/ScheduleSetInspectorView.cpp" line="572"/>
         <source>Hours of Operation</source>
         <translation>संचालन के घंटे</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/ScheduleSetInspectorView.cpp" line="582" />
+        <location filename="../src/openstudio_lib/ScheduleSetInspectorView.cpp" line="582"/>
         <source>Number of People</source>
         <translation>लोगों की संख्या</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/ScheduleSetInspectorView.cpp" line="594" />
+        <location filename="../src/openstudio_lib/ScheduleSetInspectorView.cpp" line="594"/>
         <source>People Activity</source>
         <translation>लोगों की गतिविधि</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/ScheduleSetInspectorView.cpp" line="604" />
+        <location filename="../src/openstudio_lib/ScheduleSetInspectorView.cpp" line="604"/>
         <source>Lighting</source>
         <translation>प्रकाश</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/ScheduleSetInspectorView.cpp" line="616" />
+        <location filename="../src/openstudio_lib/ScheduleSetInspectorView.cpp" line="616"/>
         <source>Electric Equipment</source>
         <translation>विद्युत उपकरण</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/ScheduleSetInspectorView.cpp" line="626" />
+        <location filename="../src/openstudio_lib/ScheduleSetInspectorView.cpp" line="626"/>
         <source>Gas Equipment</source>
         <translation>गैस उपकरण</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/ScheduleSetInspectorView.cpp" line="638" />
+        <location filename="../src/openstudio_lib/ScheduleSetInspectorView.cpp" line="638"/>
         <source>Hot Water Equipment</source>
         <translation>गर्म जल उपकरण</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/ScheduleSetInspectorView.cpp" line="648" />
+        <location filename="../src/openstudio_lib/ScheduleSetInspectorView.cpp" line="648"/>
         <source>Steam Equipment</source>
         <translation>स्टीम उपकरण</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/ScheduleSetInspectorView.cpp" line="660" />
+        <location filename="../src/openstudio_lib/ScheduleSetInspectorView.cpp" line="660"/>
         <source>Other Equipment</source>
         <translation>अन्य उपकरण</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/ScheduleSetInspectorView.cpp" line="670" />
+        <location filename="../src/openstudio_lib/ScheduleSetInspectorView.cpp" line="670"/>
         <source>Infiltration</source>
         <translation>घुसपैठ</translation>
     </message>
@@ -27675,7 +27686,7 @@ in Preferences</source>
 <context>
     <name>openstudio::ScheduleSetsView</name>
     <message>
-        <location filename="../src/openstudio_lib/ScheduleSetsView.cpp" line="33" />
+        <location filename="../src/openstudio_lib/ScheduleSetsView.cpp" line="33"/>
         <source>Schedule Sets</source>
         <translation>अनुसूची समुच्चय</translation>
     </message>
@@ -27683,17 +27694,17 @@ in Preferences</source>
 <context>
     <name>openstudio::ScheduleTabContent</name>
     <message>
-        <location filename="../src/openstudio_lib/SchedulesView.cpp" line="837" />
+        <location filename="../src/openstudio_lib/SchedulesView.cpp" line="837"/>
         <source>Special Day Profiles</source>
         <translation>विशेष दिन प्रोफाइल</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/SchedulesView.cpp" line="865" />
+        <location filename="../src/openstudio_lib/SchedulesView.cpp" line="865"/>
         <source>Run Period Profiles</source>
         <translation>Run Period Profiles</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/SchedulesView.cpp" line="875" />
+        <location filename="../src/openstudio_lib/SchedulesView.cpp" line="875"/>
         <source>Click to add new run period profile</source>
         <translation>नया रन पीरियड प्रोफाइल जोड़ने के लिए क्लिक करें</translation>
     </message>
@@ -27701,42 +27712,42 @@ in Preferences</source>
 <context>
     <name>openstudio::ScheduleTabDefault</name>
     <message>
-        <location filename="../src/openstudio_lib/SchedulesView.cpp" line="1086" />
+        <location filename="../src/openstudio_lib/SchedulesView.cpp" line="1086"/>
         <source>Summer Design Day</source>
         <translation>गर्मी डिजाइन दिवस</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/SchedulesView.cpp" line="1087" />
+        <location filename="../src/openstudio_lib/SchedulesView.cpp" line="1087"/>
         <source>Click to edit summer design day profile</source>
         <translation>गर्मी डिज़ाइन दिन प्रोफाइल संपादित करने के लिए क्लिक करें</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/SchedulesView.cpp" line="1090" />
+        <location filename="../src/openstudio_lib/SchedulesView.cpp" line="1090"/>
         <source>Winter Design Day</source>
         <translation>शीतकालीन डिज़ाइन दिवस</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/SchedulesView.cpp" line="1091" />
+        <location filename="../src/openstudio_lib/SchedulesView.cpp" line="1091"/>
         <source>Click to edit winter design day profile</source>
         <translation>सर्दी डिजाइन दिन प्रोफाइल संपादित करने के लिए क्लिक करें</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/SchedulesView.cpp" line="1094" />
+        <location filename="../src/openstudio_lib/SchedulesView.cpp" line="1094"/>
         <source>Holiday</source>
         <translation>छुट्टी</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/SchedulesView.cpp" line="1095" />
+        <location filename="../src/openstudio_lib/SchedulesView.cpp" line="1095"/>
         <source>Click to edit holiday profile</source>
         <translation>छुट्टी प्रोफाइल संपादित करने के लिए क्लिक करें</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/SchedulesView.cpp" line="1098" />
+        <location filename="../src/openstudio_lib/SchedulesView.cpp" line="1098"/>
         <source>Default</source>
         <translation>डिफ़ॉल्ट</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/SchedulesView.cpp" line="1099" />
+        <location filename="../src/openstudio_lib/SchedulesView.cpp" line="1099"/>
         <source>Click to edit default profile</source>
         <translation>डिफ़ॉल्ट प्रोफ़ाइल संपादित करने के लिए क्लिक करें</translation>
     </message>
@@ -27744,12 +27755,12 @@ in Preferences</source>
 <context>
     <name>openstudio::ScheduledSPMView</name>
     <message>
-        <location filename="../src/openstudio_lib/HVACSystemsView.cpp" line="775" />
+        <location filename="../src/openstudio_lib/HVACSystemsView.cpp" line="775"/>
         <source>Supply temperature is controlled by a scheduled setpoint manager.</source>
         <translation>आपूर्ति तापमान एक अनुसूचित सेटपॉइंट प्रबंधक द्वारा नियंत्रित है।</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/HVACSystemsView.cpp" line="778" />
+        <location filename="../src/openstudio_lib/HVACSystemsView.cpp" line="778"/>
         <source>Supply Temperature Schedule</source>
         <translation>आपूर्ति तापमान अनुसूची</translation>
     </message>
@@ -27757,17 +27768,17 @@ in Preferences</source>
 <context>
     <name>openstudio::SchedulesTabController</name>
     <message>
-        <location filename="../src/openstudio_lib/SchedulesTabController.cpp" line="50" />
+        <location filename="../src/openstudio_lib/SchedulesTabController.cpp" line="50"/>
         <source>Schedule Sets</source>
         <translation>अनुसूची समुच्चय</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/SchedulesTabController.cpp" line="51" />
+        <location filename="../src/openstudio_lib/SchedulesTabController.cpp" line="51"/>
         <source>Schedules</source>
         <translation>शेड्यूल</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/SchedulesTabController.cpp" line="52" />
+        <location filename="../src/openstudio_lib/SchedulesTabController.cpp" line="52"/>
         <source>Other Schedules</source>
         <translation>अन्य शेड्यूल</translation>
     </message>
@@ -27775,7 +27786,7 @@ in Preferences</source>
 <context>
     <name>openstudio::SchedulesTabView</name>
     <message>
-        <location filename="../src/openstudio_lib/SchedulesTabView.cpp" line="10" />
+        <location filename="../src/openstudio_lib/SchedulesTabView.cpp" line="10"/>
         <source>Schedules</source>
         <translation>समय सारणी</translation>
     </message>
@@ -27783,17 +27794,17 @@ in Preferences</source>
 <context>
     <name>openstudio::ScriptsTabView</name>
     <message>
-        <location filename="../src/openstudio_lib/ScriptsTabView.cpp" line="25" />
+        <location filename="../src/openstudio_lib/ScriptsTabView.cpp" line="25"/>
         <source>Measures</source>
         <translation>उपाय</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/ScriptsTabView.cpp" line="61" />
+        <location filename="../src/openstudio_lib/ScriptsTabView.cpp" line="61"/>
         <source>Sync Project Measures with Library</source>
         <translation>पुस्तकालय के साथ प्रोजेक्ट उपायों को सिंक करें</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/ScriptsTabView.cpp" line="62" />
+        <location filename="../src/openstudio_lib/ScriptsTabView.cpp" line="62"/>
         <source>Check the Library for Newer Versions of the Measures in Your Project and Provides Sync Option</source>
         <translation>आपकी परियोजना में Measures के नए संस्करणों के लिए Library की जांच करें और Sync विकल्प प्रदान करें</translation>
     </message>
@@ -27801,7 +27812,7 @@ in Preferences</source>
 <context>
     <name>openstudio::SecondaryDropZoneView</name>
     <message>
-        <location filename="../src/openstudio_lib/RefrigerationGraphicsItems.cpp" line="1192" />
+        <location filename="../src/openstudio_lib/RefrigerationGraphicsItems.cpp" line="1192"/>
         <source>Add Cascade or Secondary System</source>
         <translation>कैस्केड या सेकेंडरी सिस्टम जोड़ें</translation>
     </message>
@@ -27809,7 +27820,7 @@ in Preferences</source>
 <context>
     <name>openstudio::SimSettingsTabController</name>
     <message>
-        <location filename="../src/openstudio_lib/SimSettingsTabController.cpp" line="18" />
+        <location filename="../src/openstudio_lib/SimSettingsTabController.cpp" line="18"/>
         <source>Simulation Settings</source>
         <translation>सिमुलेशन सेटिंग्स</translation>
     </message>
@@ -27817,463 +27828,463 @@ in Preferences</source>
 <context>
     <name>openstudio::SimSettingsView</name>
     <message>
-        <location filename="../src/openstudio_lib/SimSettingsView.cpp" line="327" />
+        <location filename="../src/openstudio_lib/SimSettingsView.cpp" line="327"/>
         <source>Run Period</source>
         <translation>रन अवधि</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/SimSettingsView.cpp" line="395" />
+        <location filename="../src/openstudio_lib/SimSettingsView.cpp" line="395"/>
         <source>Date Range</source>
         <translation>तारीख सीमा</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/SimSettingsView.cpp" line="242" />
+        <location filename="../src/openstudio_lib/SimSettingsView.cpp" line="242"/>
         <source>Advanced RunPeriod Parameters</source>
         <translation>Advanced RunPeriod Parameters</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/SimSettingsView.cpp" line="439" />
+        <location filename="../src/openstudio_lib/SimSettingsView.cpp" line="439"/>
         <source>Use Weather File Holidays and Special Days</source>
         <translation>मौसम फ़ाइल की छुट्टियों और विशेष दिनों का उपयोग करें</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/SimSettingsView.cpp" line="443" />
+        <location filename="../src/openstudio_lib/SimSettingsView.cpp" line="443"/>
         <source>Use Weather File Daylight Savings Period</source>
         <translation>मौसम फ़ाइल दिवस प्रकाश बचत अवधि का उपयोग करें</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/SimSettingsView.cpp" line="450" />
+        <location filename="../src/openstudio_lib/SimSettingsView.cpp" line="450"/>
         <source>Use Weather File Rain Indicators</source>
         <translation>मौसम फ़ाइल वर्षा संकेतकों का उपयोग करें</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/SimSettingsView.cpp" line="452" />
+        <location filename="../src/openstudio_lib/SimSettingsView.cpp" line="452"/>
         <source>Use Weather File Snow Indicators</source>
         <translation>मौसम फ़ाइल बर्फ संकेतकों का उपयोग करें</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/SimSettingsView.cpp" line="459" />
+        <location filename="../src/openstudio_lib/SimSettingsView.cpp" line="459"/>
         <source>Apply Weekend Holiday Rule</source>
         <translation>सप्ताहांत अवकाश नियम लागू करें</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/SimSettingsView.cpp" line="246" />
+        <location filename="../src/openstudio_lib/SimSettingsView.cpp" line="246"/>
         <source>Radiance Parameters</source>
         <translation>Radiance पैरामीटर</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/SimSettingsView.cpp" line="923" />
+        <location filename="../src/openstudio_lib/SimSettingsView.cpp" line="923"/>
         <source>Coarse (Fast, less accurate)</source>
         <translation>मोटा (तेज़, कम सटीक)</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/SimSettingsView.cpp" line="927" />
+        <location filename="../src/openstudio_lib/SimSettingsView.cpp" line="927"/>
         <source>Fine (Slow, more accurate)</source>
         <translation>बढ़िया (धीमा, अधिक सटीक)</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/SimSettingsView.cpp" line="931" />
+        <location filename="../src/openstudio_lib/SimSettingsView.cpp" line="931"/>
         <source>Custom</source>
         <translation>कस्टम</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/SimSettingsView.cpp" line="943" />
+        <location filename="../src/openstudio_lib/SimSettingsView.cpp" line="943"/>
         <source>Accumulated Rays per Record: </source>
         <translation>Accumulated Rays per Record:</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/SimSettingsView.cpp" line="947" />
+        <location filename="../src/openstudio_lib/SimSettingsView.cpp" line="947"/>
         <source>Direct Threshold: </source>
         <translation>डायरेक्ट थ्रेसहोल्ड:</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/SimSettingsView.cpp" line="954" />
+        <location filename="../src/openstudio_lib/SimSettingsView.cpp" line="954"/>
         <source>Direct Certainty: </source>
         <translation>प्रत्यक्ष निश्चितता:</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/SimSettingsView.cpp" line="956" />
+        <location filename="../src/openstudio_lib/SimSettingsView.cpp" line="956"/>
         <source>Direct Jitter: </source>
         <translation>प्रत्यक्ष जिटर:</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/SimSettingsView.cpp" line="963" />
+        <location filename="../src/openstudio_lib/SimSettingsView.cpp" line="963"/>
         <source>Direct Pretest: </source>
         <translation>Direct Pretest:</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/SimSettingsView.cpp" line="965" />
+        <location filename="../src/openstudio_lib/SimSettingsView.cpp" line="965"/>
         <source>Ambient Bounces VMX: </source>
         <translation>परिवेश बाउंस VMX:</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/SimSettingsView.cpp" line="972" />
+        <location filename="../src/openstudio_lib/SimSettingsView.cpp" line="972"/>
         <source>Ambient Bounces DMX: </source>
         <translation>Ambient Bounces DMX:</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/SimSettingsView.cpp" line="974" />
+        <location filename="../src/openstudio_lib/SimSettingsView.cpp" line="974"/>
         <source>Ambient Divisions VMX: </source>
         <translation>परिवेश विभाजन VMX:</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/SimSettingsView.cpp" line="981" />
+        <location filename="../src/openstudio_lib/SimSettingsView.cpp" line="981"/>
         <source>Ambient Divisions DMX: </source>
         <translation>Ambient Divisions DMX:</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/SimSettingsView.cpp" line="983" />
+        <location filename="../src/openstudio_lib/SimSettingsView.cpp" line="983"/>
         <source>Ambient Supersamples: </source>
         <translation>परिवेश सुपरसैंपल्स:</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/SimSettingsView.cpp" line="990" />
+        <location filename="../src/openstudio_lib/SimSettingsView.cpp" line="990"/>
         <source>Limit Weight VMX: </source>
         <translation>सीमा वजन VMX:</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/SimSettingsView.cpp" line="992" />
+        <location filename="../src/openstudio_lib/SimSettingsView.cpp" line="992"/>
         <source>Limit Weight DMX: </source>
         <translation>सीमा भार DMX:</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/SimSettingsView.cpp" line="999" />
+        <location filename="../src/openstudio_lib/SimSettingsView.cpp" line="999"/>
         <source>Klems Sampling Density: </source>
         <translation>Klems नमूनाकरण घनत्व:</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/SimSettingsView.cpp" line="1001" />
+        <location filename="../src/openstudio_lib/SimSettingsView.cpp" line="1001"/>
         <source>Sky Discretization Resolution: </source>
         <translation>Sky Discretization Resolution:</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/SimSettingsView.cpp" line="604" />
+        <location filename="../src/openstudio_lib/SimSettingsView.cpp" line="604"/>
         <source>Sizing Parameters</source>
         <translation>आकार निर्धारण पैरामीटर</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/SimSettingsView.cpp" line="617" />
+        <location filename="../src/openstudio_lib/SimSettingsView.cpp" line="617"/>
         <source>Heating Sizing Factor</source>
         <translation>हीटिंग साइजिंग फैक्टर</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/SimSettingsView.cpp" line="619" />
+        <location filename="../src/openstudio_lib/SimSettingsView.cpp" line="619"/>
         <source>Cooling Sizing Factor</source>
         <translation>शीतलन आकार निर्धारण कारक</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/SimSettingsView.cpp" line="621" />
+        <location filename="../src/openstudio_lib/SimSettingsView.cpp" line="621"/>
         <source>Timesteps In Averaging Window</source>
         <translation>औसत खिड़की में समय कदम</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/SimSettingsView.cpp" line="654" />
+        <location filename="../src/openstudio_lib/SimSettingsView.cpp" line="654"/>
         <source>Timestep</source>
         <translation>समयचरण</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/SimSettingsView.cpp" line="667" />
+        <location filename="../src/openstudio_lib/SimSettingsView.cpp" line="667"/>
         <source>Number Of Timesteps Per Hour</source>
         <translation>प्रति घंटा टाइमस्टेप्स की संख्या</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/SimSettingsView.cpp" line="250" />
+        <location filename="../src/openstudio_lib/SimSettingsView.cpp" line="250"/>
         <source>Simulation Control</source>
         <translation>सिमुलेशन नियंत्रण</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/SimSettingsView.cpp" line="531" />
+        <location filename="../src/openstudio_lib/SimSettingsView.cpp" line="531"/>
         <source>Do Zone Sizing Calculation</source>
         <translation>जोन साइजिंग गणना करें</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/SimSettingsView.cpp" line="535" />
+        <location filename="../src/openstudio_lib/SimSettingsView.cpp" line="535"/>
         <source>Do System Sizing Calculation</source>
         <translation>सिस्टम साइजिंग गणना करें</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/SimSettingsView.cpp" line="542" />
+        <location filename="../src/openstudio_lib/SimSettingsView.cpp" line="542"/>
         <source>Do Plant Sizing Calculation</source>
         <translation>पौध आकार निर्धारण गणना करें</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/SimSettingsView.cpp" line="544" />
+        <location filename="../src/openstudio_lib/SimSettingsView.cpp" line="544"/>
         <source>Run Simulation For Sizing Periods</source>
         <translation>आकार निर्धारण अवधि के लिए सिमुलेशन चलाएँ</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/SimSettingsView.cpp" line="551" />
+        <location filename="../src/openstudio_lib/SimSettingsView.cpp" line="551"/>
         <source>Run Simulation For Weather File Run Periods</source>
         <translation>मौसम फ़ाइल रन अवधियों के लिए सिमुलेशन चलाएं</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/SimSettingsView.cpp" line="553" />
+        <location filename="../src/openstudio_lib/SimSettingsView.cpp" line="553"/>
         <source>Maximum Number Of Warmup Days</source>
         <translation>अधिकतम वार्मअप दिनों की संख्या</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/SimSettingsView.cpp" line="560" />
+        <location filename="../src/openstudio_lib/SimSettingsView.cpp" line="560"/>
         <source>Minimum Number Of Warmup Days</source>
         <translation>न्यूनतम वार्मअप दिनों की संख्या</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/SimSettingsView.cpp" line="562" />
+        <location filename="../src/openstudio_lib/SimSettingsView.cpp" line="562"/>
         <source>Loads Convergence Tolerance Value</source>
         <translation>भार अभिसरण सहनशीलता मान</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/SimSettingsView.cpp" line="569" />
+        <location filename="../src/openstudio_lib/SimSettingsView.cpp" line="569"/>
         <source>Temperature Convergence Tolerance Value</source>
         <translation>तापमान अभिसरण सहिष्णुता मान</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/SimSettingsView.cpp" line="571" />
+        <location filename="../src/openstudio_lib/SimSettingsView.cpp" line="571"/>
         <source>Solar Distribution</source>
         <translation>सौर वितरण</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/SimSettingsView.cpp" line="578" />
+        <location filename="../src/openstudio_lib/SimSettingsView.cpp" line="578"/>
         <source>Do HVAC Sizing Simulation for Sizing Periods</source>
         <translation>HVAC आकार निर्धारण सिमुलेशन आकार निर्धारण अवधियों के लिए करें</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/SimSettingsView.cpp" line="580" />
+        <location filename="../src/openstudio_lib/SimSettingsView.cpp" line="580"/>
         <source>Maximum Number of HVAC Sizing Simulation Passes</source>
         <translation>HVAC आकार निर्धारण सिमुलेशन पास की अधिकतम संख्या</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/SimSettingsView.cpp" line="254" />
+        <location filename="../src/openstudio_lib/SimSettingsView.cpp" line="254"/>
         <source>Program Control</source>
         <translation>प्रोग्राम नियंत्रण</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/SimSettingsView.cpp" line="638" />
+        <location filename="../src/openstudio_lib/SimSettingsView.cpp" line="638"/>
         <source>Number Of Threads Allowed</source>
         <translation>अनुमति प्राप्त थ्रेड्स की संख्या</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/SimSettingsView.cpp" line="258" />
+        <location filename="../src/openstudio_lib/SimSettingsView.cpp" line="258"/>
         <source>Output Control Reporting Tolerances</source>
         <translation>आउटपुट नियंत्रण रिपोर्टिंग सहनशीलता</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/SimSettingsView.cpp" line="685" />
+        <location filename="../src/openstudio_lib/SimSettingsView.cpp" line="685"/>
         <source>Tolerance For Time Heating Setpoint Not Met</source>
         <translation>समय हीटिंग सेटपॉइंट पूरा न होने के लिए सहिष्णुता</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/SimSettingsView.cpp" line="689" />
+        <location filename="../src/openstudio_lib/SimSettingsView.cpp" line="689"/>
         <source>Tolerance For Time Cooling Setpoint Not Met</source>
         <translation>समय शीतलन सेटपॉइंट पूरा न होने के लिए सहनशीलता</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/SimSettingsView.cpp" line="262" />
+        <location filename="../src/openstudio_lib/SimSettingsView.cpp" line="262"/>
         <source>Convergence Limits</source>
         <translation>अभिसरण सीमाएं</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/SimSettingsView.cpp" line="707" />
+        <location filename="../src/openstudio_lib/SimSettingsView.cpp" line="707"/>
         <source>Maximum HVAC Iterations</source>
         <translation>अधिकतम HVAC पुनरावृत्तियाँ</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/SimSettingsView.cpp" line="711" />
+        <location filename="../src/openstudio_lib/SimSettingsView.cpp" line="711"/>
         <source>Minimum Plant Iterations</source>
         <translation>न्यूनतम संयंत्र पुनरावृत्तियाँ</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/SimSettingsView.cpp" line="718" />
+        <location filename="../src/openstudio_lib/SimSettingsView.cpp" line="718"/>
         <source>Maximum Plant Iterations</source>
         <translation>अधिकतम संयंत्र पुनरावृत्तियाँ</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/SimSettingsView.cpp" line="720" />
+        <location filename="../src/openstudio_lib/SimSettingsView.cpp" line="720"/>
         <source>Minimum System Timestep</source>
         <translation>न्यूनतम सिस्टम टाइमस्टेप</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/SimSettingsView.cpp" line="266" />
+        <location filename="../src/openstudio_lib/SimSettingsView.cpp" line="266"/>
         <source>Shadow Calculation</source>
         <translation>छाया गणना</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/SimSettingsView.cpp" line="742" />
+        <location filename="../src/openstudio_lib/SimSettingsView.cpp" line="742"/>
         <source>Shading Calculation Update Frequency</source>
         <translation>Shading Calculation Update Frequency</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/SimSettingsView.cpp" line="746" />
+        <location filename="../src/openstudio_lib/SimSettingsView.cpp" line="746"/>
         <source>Maximum Figures In Shadow Overlap Calculations</source>
         <translation>Maximum Figures In Shadow Overlap Calculations</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/SimSettingsView.cpp" line="753" />
+        <location filename="../src/openstudio_lib/SimSettingsView.cpp" line="753"/>
         <source>Polygon Clipping Algorithm</source>
         <translation>Polygon Clipping Algorithm</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/SimSettingsView.cpp" line="755" />
+        <location filename="../src/openstudio_lib/SimSettingsView.cpp" line="755"/>
         <source>Sky Diffuse Modeling Algorithm</source>
         <translation>आकाश विसरित मॉडलिंग एल्गोरिदम</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/SimSettingsView.cpp" line="270" />
+        <location filename="../src/openstudio_lib/SimSettingsView.cpp" line="270"/>
         <source>Inside Surface Convection Algorithm</source>
         <translation>अंदरूनी सतह संवहन एल्गोरिदम</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/SimSettingsView.cpp" line="274" />
+        <location filename="../src/openstudio_lib/SimSettingsView.cpp" line="274"/>
         <source>Outside Surface Convection Algorithm</source>
         <translation>बाहरी सतह संवहन एल्गोरिदम</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/SimSettingsView.cpp" line="278" />
+        <location filename="../src/openstudio_lib/SimSettingsView.cpp" line="278"/>
         <source>Heat Balance Algorithm</source>
         <translation>Heat Balance Algorithm</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/SimSettingsView.cpp" line="776" />
-        <location filename="../src/openstudio_lib/SimSettingsView.cpp" line="794" />
-        <location filename="../src/openstudio_lib/SimSettingsView.cpp" line="827" />
-        <location filename="../src/openstudio_lib/SimSettingsView.cpp" line="848" />
+        <location filename="../src/openstudio_lib/SimSettingsView.cpp" line="776"/>
+        <location filename="../src/openstudio_lib/SimSettingsView.cpp" line="794"/>
+        <location filename="../src/openstudio_lib/SimSettingsView.cpp" line="827"/>
+        <location filename="../src/openstudio_lib/SimSettingsView.cpp" line="848"/>
         <source>Algorithm</source>
         <translation>एल्गोरिदम</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/SimSettingsView.cpp" line="812" />
+        <location filename="../src/openstudio_lib/SimSettingsView.cpp" line="812"/>
         <source>Surface Temperature Upper Limit</source>
         <translation>Surface Temperature Upper Limit
 
 सतह तापमान ऊपरी सीमा</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/SimSettingsView.cpp" line="816" />
+        <location filename="../src/openstudio_lib/SimSettingsView.cpp" line="816"/>
         <source>Minimum Surface Convection Heat Transfer Coefficient Value</source>
         <translation>न्यूनतम सतह संवहन ऊष्मा स्थानांतरण गुणांक मान</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/SimSettingsView.cpp" line="824" />
+        <location filename="../src/openstudio_lib/SimSettingsView.cpp" line="824"/>
         <source>Maximum Surface Convection Heat Transfer Coefficient Value</source>
         <translation>अधिकतम सतह संवहन ऊष्मा स्थानांतरण गुणांक मान</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/SimSettingsView.cpp" line="282" />
+        <location filename="../src/openstudio_lib/SimSettingsView.cpp" line="282"/>
         <source>Zone Air Heat Balance Algorithm</source>
         <translation>Zone Air Heat Balance Algorithm</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/SimSettingsView.cpp" line="286" />
+        <location filename="../src/openstudio_lib/SimSettingsView.cpp" line="286"/>
         <source>Zone Air Contaminant Balance</source>
         <translation>Zone Air Contaminant Balance</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/SimSettingsView.cpp" line="866" />
+        <location filename="../src/openstudio_lib/SimSettingsView.cpp" line="866"/>
         <source>Carbon Dioxide Concentration</source>
         <translation>कार्बन डाइऑक्साइड सांद्रता</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/SimSettingsView.cpp" line="870" />
+        <location filename="../src/openstudio_lib/SimSettingsView.cpp" line="870"/>
         <source>Outdoor Carbon Dioxide Schedule Name</source>
         <translation>बाहरी कार्बन डाइऑक्साइड शेड्यूल नाम</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/SimSettingsView.cpp" line="290" />
+        <location filename="../src/openstudio_lib/SimSettingsView.cpp" line="290"/>
         <source>Zone Capacitance Multiple Research Special</source>
         <translation>Zone Capacitance Multiple Research Special</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/SimSettingsView.cpp" line="892" />
+        <location filename="../src/openstudio_lib/SimSettingsView.cpp" line="892"/>
         <source>Temperature Capacity Multiplier</source>
         <translation>तापमान क्षमता गुणक</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/SimSettingsView.cpp" line="896" />
+        <location filename="../src/openstudio_lib/SimSettingsView.cpp" line="896"/>
         <source>Humidity Capacity Multiplier</source>
         <translation>आर्द्रता क्षमता गुणक</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/SimSettingsView.cpp" line="903" />
+        <location filename="../src/openstudio_lib/SimSettingsView.cpp" line="903"/>
         <source>Carbon Dioxide Capacity Multiplier</source>
         <translation>Carbon Dioxide Capacity Multiplier</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/SimSettingsView.cpp" line="294" />
-        <location filename="../src/openstudio_lib/SimSettingsView.cpp" line="1085" />
+        <location filename="../src/openstudio_lib/SimSettingsView.cpp" line="294"/>
+        <location filename="../src/openstudio_lib/SimSettingsView.cpp" line="1085"/>
         <source>Output JSON</source>
         <translation>आउटपुट JSON</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/SimSettingsView.cpp" line="1076" />
+        <location filename="../src/openstudio_lib/SimSettingsView.cpp" line="1076"/>
         <source>Option Type</source>
         <translation>विकल्प प्रकार</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/SimSettingsView.cpp" line="1092" />
+        <location filename="../src/openstudio_lib/SimSettingsView.cpp" line="1092"/>
         <source>Output CBOR</source>
         <translation>आउटपुट CBOR</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/SimSettingsView.cpp" line="1094" />
+        <location filename="../src/openstudio_lib/SimSettingsView.cpp" line="1094"/>
         <source>Output MessagePack</source>
         <translation>आउटपुट MessagePack</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/SimSettingsView.cpp" line="298" />
+        <location filename="../src/openstudio_lib/SimSettingsView.cpp" line="298"/>
         <source>Output Table Summary Reports</source>
         <translation>आउटपुट टेबल सारांश रिपोर्ट</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/SimSettingsView.cpp" line="1116" />
+        <location filename="../src/openstudio_lib/SimSettingsView.cpp" line="1116"/>
         <source>Enable AllSummary Report</source>
         <translation>AllSummary रिपोर्ट सक्षम करें</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/SimSettingsView.cpp" line="302" />
+        <location filename="../src/openstudio_lib/SimSettingsView.cpp" line="302"/>
         <source>Output Diagnostics</source>
         <translation>आउटपुट डायग्नोस्टिक्स</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/SimSettingsView.cpp" line="1135" />
+        <location filename="../src/openstudio_lib/SimSettingsView.cpp" line="1135"/>
         <source>Enable DisplayExtraWarnings</source>
         <translation>DisplayExtraWarnings सक्षम करें</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/SimSettingsView.cpp" line="306" />
+        <location filename="../src/openstudio_lib/SimSettingsView.cpp" line="306"/>
         <source>Output Control Resilience Summaries</source>
         <translation>Output Control लचीलापन सारांश</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/SimSettingsView.cpp" line="1154" />
+        <location filename="../src/openstudio_lib/SimSettingsView.cpp" line="1154"/>
         <source>Heat Index Algorithm</source>
         <translation>ताप सूचकांक एल्गोरिथ्म</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/SimSettingsView.cpp" line="481" />
+        <location filename="../src/openstudio_lib/SimSettingsView.cpp" line="481"/>
         <source>Run Control</source>
         <translation>चलाएं नियंत्रण</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/SimSettingsView.cpp" line="490" />
+        <location filename="../src/openstudio_lib/SimSettingsView.cpp" line="490"/>
         <source>Run Simulation for Weather File</source>
         <translation>मौसम फ़ाइल के लिए सिमुलेशन चलाएं</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/SimSettingsView.cpp" line="495" />
+        <location filename="../src/openstudio_lib/SimSettingsView.cpp" line="495"/>
         <source>Run Simulation for Design Days</source>
         <translation>डिज़ाइन दिनों के लिए सिमुलेशन चलाएँ</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/SimSettingsView.cpp" line="500" />
+        <location filename="../src/openstudio_lib/SimSettingsView.cpp" line="500"/>
         <source>Perform Zone Sizing</source>
         <translation>Zone Sizing करें</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/SimSettingsView.cpp" line="505" />
+        <location filename="../src/openstudio_lib/SimSettingsView.cpp" line="505"/>
         <source>Perform System Sizing</source>
         <translation>सिस्टम साइजिंग करें</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/SimSettingsView.cpp" line="510" />
+        <location filename="../src/openstudio_lib/SimSettingsView.cpp" line="510"/>
         <source>Perform Plant Sizing</source>
         <translation>संयंत्र आकार निर्धारण निष्पादित करें</translation>
     </message>
@@ -28281,12 +28292,12 @@ in Preferences</source>
 <context>
     <name>openstudio::SingleZoneSPMView</name>
     <message>
-        <location filename="../src/openstudio_lib/HVACSystemsView.cpp" line="659" />
+        <location filename="../src/openstudio_lib/HVACSystemsView.cpp" line="659"/>
         <source>Supply temperature is controlled by a &lt;strong&gt;%1&lt;/strong&gt; setpoint manager.</source>
         <translation>आपूर्ति तापमान एक &lt;strong&gt;%1&lt;/strong&gt; सेटपॉइंट प्रबंधक द्वारा नियंत्रित किया जाता है।</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/HVACSystemsView.cpp" line="666" />
+        <location filename="../src/openstudio_lib/HVACSystemsView.cpp" line="666"/>
         <source>Control Zone</source>
         <translation>नियंत्रण क्षेत्र</translation>
     </message>
@@ -28294,116 +28305,116 @@ in Preferences</source>
 <context>
     <name>openstudio::SiteGroundTemperatureMonthlyWidget</name>
     <message>
-        <location filename="../src/openstudio_lib/GroundTemperatureMonthlyInspectorView.cpp" line="74" />
+        <location filename="../src/openstudio_lib/GroundTemperatureMonthlyInspectorView.cpp" line="74"/>
         <source>Month</source>
         <translation>महीना</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/GroundTemperatureMonthlyInspectorView.cpp" line="78" />
+        <location filename="../src/openstudio_lib/GroundTemperatureMonthlyInspectorView.cpp" line="78"/>
         <source>Temperature</source>
         <translation>तापमान</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/GroundTemperatureMonthlyInspectorView.cpp" line="101" />
+        <location filename="../src/openstudio_lib/GroundTemperatureMonthlyInspectorView.cpp" line="101"/>
         <source>Set all months to:</source>
         <translation>सभी महीनों को निम्नलिखित पर सेट करें:</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/GroundTemperatureMonthlyInspectorView.cpp" line="108" />
-        <location filename="../src/openstudio_lib/GroundTemperatureMonthlyInspectorView.cpp" line="127" />
+        <location filename="../src/openstudio_lib/GroundTemperatureMonthlyInspectorView.cpp" line="108"/>
+        <location filename="../src/openstudio_lib/GroundTemperatureMonthlyInspectorView.cpp" line="127"/>
         <source> °F</source>
         <translation>°F</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/GroundTemperatureMonthlyInspectorView.cpp" line="111" />
-        <location filename="../src/openstudio_lib/GroundTemperatureMonthlyInspectorView.cpp" line="131" />
+        <location filename="../src/openstudio_lib/GroundTemperatureMonthlyInspectorView.cpp" line="111"/>
+        <location filename="../src/openstudio_lib/GroundTemperatureMonthlyInspectorView.cpp" line="131"/>
         <source> °C</source>
         <translation>°C</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/GroundTemperatureMonthlyInspectorView.cpp" line="115" />
+        <location filename="../src/openstudio_lib/GroundTemperatureMonthlyInspectorView.cpp" line="115"/>
         <source>Apply</source>
         <translation>लागू करें</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/GroundTemperatureMonthlyInspectorView.cpp" line="153" />
+        <location filename="../src/openstudio_lib/GroundTemperatureMonthlyInspectorView.cpp" line="153"/>
         <source>Jan</source>
         <translation>जनवरी</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/GroundTemperatureMonthlyInspectorView.cpp" line="153" />
+        <location filename="../src/openstudio_lib/GroundTemperatureMonthlyInspectorView.cpp" line="153"/>
         <source>Feb</source>
         <translation>फरवरी</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/GroundTemperatureMonthlyInspectorView.cpp" line="153" />
+        <location filename="../src/openstudio_lib/GroundTemperatureMonthlyInspectorView.cpp" line="153"/>
         <source>Mar</source>
         <translation>मार्च</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/GroundTemperatureMonthlyInspectorView.cpp" line="153" />
+        <location filename="../src/openstudio_lib/GroundTemperatureMonthlyInspectorView.cpp" line="153"/>
         <source>Apr</source>
         <translation>अप्रैल</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/GroundTemperatureMonthlyInspectorView.cpp" line="153" />
+        <location filename="../src/openstudio_lib/GroundTemperatureMonthlyInspectorView.cpp" line="153"/>
         <source>May</source>
         <translation>मई</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/GroundTemperatureMonthlyInspectorView.cpp" line="153" />
+        <location filename="../src/openstudio_lib/GroundTemperatureMonthlyInspectorView.cpp" line="153"/>
         <source>Jun</source>
         <translation>जून</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/GroundTemperatureMonthlyInspectorView.cpp" line="154" />
+        <location filename="../src/openstudio_lib/GroundTemperatureMonthlyInspectorView.cpp" line="154"/>
         <source>Jul</source>
         <translation>जुलाई</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/GroundTemperatureMonthlyInspectorView.cpp" line="154" />
+        <location filename="../src/openstudio_lib/GroundTemperatureMonthlyInspectorView.cpp" line="154"/>
         <source>Aug</source>
         <translation>अग्रणी (अग्रणी)</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/GroundTemperatureMonthlyInspectorView.cpp" line="154" />
+        <location filename="../src/openstudio_lib/GroundTemperatureMonthlyInspectorView.cpp" line="154"/>
         <source>Sep</source>
         <translation>सितंबर</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/GroundTemperatureMonthlyInspectorView.cpp" line="154" />
+        <location filename="../src/openstudio_lib/GroundTemperatureMonthlyInspectorView.cpp" line="154"/>
         <source>Oct</source>
         <translation>अक्टूबर</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/GroundTemperatureMonthlyInspectorView.cpp" line="154" />
+        <location filename="../src/openstudio_lib/GroundTemperatureMonthlyInspectorView.cpp" line="154"/>
         <source>Nov</source>
         <translation>नवंबर</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/GroundTemperatureMonthlyInspectorView.cpp" line="154" />
+        <location filename="../src/openstudio_lib/GroundTemperatureMonthlyInspectorView.cpp" line="154"/>
         <source>Dec</source>
         <translation>दिसंबर</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/GroundTemperatureMonthlyInspectorView.cpp" line="160" />
-        <location filename="../src/openstudio_lib/GroundTemperatureMonthlyInspectorView.cpp" line="265" />
+        <location filename="../src/openstudio_lib/GroundTemperatureMonthlyInspectorView.cpp" line="160"/>
+        <location filename="../src/openstudio_lib/GroundTemperatureMonthlyInspectorView.cpp" line="265"/>
         <source>Temperature [°F]</source>
         <translation>तापमान [°F]</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/GroundTemperatureMonthlyInspectorView.cpp" line="160" />
-        <location filename="../src/openstudio_lib/GroundTemperatureMonthlyInspectorView.cpp" line="265" />
+        <location filename="../src/openstudio_lib/GroundTemperatureMonthlyInspectorView.cpp" line="160"/>
+        <location filename="../src/openstudio_lib/GroundTemperatureMonthlyInspectorView.cpp" line="265"/>
         <source>Temperature [°C]</source>
         <translation>तापमान [°C]</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/GroundTemperatureMonthlyInspectorView.cpp" line="194" />
+        <location filename="../src/openstudio_lib/GroundTemperatureMonthlyInspectorView.cpp" line="194"/>
         <source>°F</source>
         <translation>°F</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/GroundTemperatureMonthlyInspectorView.cpp" line="194" />
+        <location filename="../src/openstudio_lib/GroundTemperatureMonthlyInspectorView.cpp" line="194"/>
         <source>°C</source>
         <translation>°C</translation>
     </message>
@@ -28411,33 +28422,33 @@ in Preferences</source>
 <context>
     <name>openstudio::SiteWaterMainsTemperatureWidget</name>
     <message>
-        <location filename="../src/openstudio_lib/SiteWaterMainsTemperatureWidget.cpp" line="95" />
+        <location filename="../src/openstudio_lib/SiteWaterMainsTemperatureWidget.cpp" line="95"/>
         <source>Calculation Method</source>
         <translation>गणना विधि</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/SiteWaterMainsTemperatureWidget.cpp" line="103" />
+        <location filename="../src/openstudio_lib/SiteWaterMainsTemperatureWidget.cpp" line="103"/>
         <source>Temperature Schedule</source>
         <translation>तापमान अनुसूची</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/SiteWaterMainsTemperatureWidget.cpp" line="115" />
+        <location filename="../src/openstudio_lib/SiteWaterMainsTemperatureWidget.cpp" line="115"/>
         <source>Annual Average Outdoor Air Temperature</source>
         <translation>वार्षिक औसत बाहरी वायु तापमान</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/SiteWaterMainsTemperatureWidget.cpp" line="119" />
+        <location filename="../src/openstudio_lib/SiteWaterMainsTemperatureWidget.cpp" line="119"/>
         <source>Maximum Difference In Monthly Average
 Outdoor Air Temperatures</source>
         <translation>मासिक औसत बाहरी वायु तापमान में अधिकतम अंतर</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/SiteWaterMainsTemperatureWidget.cpp" line="132" />
+        <location filename="../src/openstudio_lib/SiteWaterMainsTemperatureWidget.cpp" line="132"/>
         <source>Temperature Multiplier</source>
         <translation>तापमान गुणक</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/SiteWaterMainsTemperatureWidget.cpp" line="136" />
+        <location filename="../src/openstudio_lib/SiteWaterMainsTemperatureWidget.cpp" line="136"/>
         <source>Temperature Offset</source>
         <translation>तापमान ऑफसेट</translation>
     </message>
@@ -28445,220 +28456,220 @@ Outdoor Air Temperatures</source>
 <context>
     <name>openstudio::SpaceTypesGridController</name>
     <message>
-        <location filename="../src/openstudio_lib/SpaceTypesGridView.cpp" line="401" />
-        <location filename="../src/openstudio_lib/SpaceTypesGridView.cpp" line="407" />
-        <location filename="../src/openstudio_lib/SpaceTypesGridView.cpp" line="411" />
+        <location filename="../src/openstudio_lib/SpaceTypesGridView.cpp" line="401"/>
+        <location filename="../src/openstudio_lib/SpaceTypesGridView.cpp" line="407"/>
+        <location filename="../src/openstudio_lib/SpaceTypesGridView.cpp" line="411"/>
         <source>Space Type Name</source>
         <translation>स्पेस टाइप नाम</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/SpaceTypesGridView.cpp" line="401" />
-        <location filename="../src/openstudio_lib/SpaceTypesGridView.cpp" line="413" />
-        <location filename="../src/openstudio_lib/SpaceTypesGridView.cpp" line="419" />
-        <location filename="../src/openstudio_lib/SpaceTypesGridView.cpp" line="421" />
-        <location filename="../src/openstudio_lib/SpaceTypesGridView.cpp" line="1018" />
-        <location filename="../src/openstudio_lib/SpaceTypesGridView.cpp" line="1023" />
+        <location filename="../src/openstudio_lib/SpaceTypesGridView.cpp" line="401"/>
+        <location filename="../src/openstudio_lib/SpaceTypesGridView.cpp" line="413"/>
+        <location filename="../src/openstudio_lib/SpaceTypesGridView.cpp" line="419"/>
+        <location filename="../src/openstudio_lib/SpaceTypesGridView.cpp" line="421"/>
+        <location filename="../src/openstudio_lib/SpaceTypesGridView.cpp" line="1018"/>
+        <location filename="../src/openstudio_lib/SpaceTypesGridView.cpp" line="1023"/>
         <source>All</source>
         <translation>सब</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/SpaceTypesGridView.cpp" line="261" />
-        <location filename="../src/openstudio_lib/SpaceTypesGridView.cpp" line="1147" />
-        <location filename="../src/openstudio_lib/SpaceTypesGridView.cpp" line="1148" />
+        <location filename="../src/openstudio_lib/SpaceTypesGridView.cpp" line="261"/>
+        <location filename="../src/openstudio_lib/SpaceTypesGridView.cpp" line="1147"/>
+        <location filename="../src/openstudio_lib/SpaceTypesGridView.cpp" line="1148"/>
         <source>Rendering Color</source>
         <translation>प्रस्तुतीकरण रंग</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/SpaceTypesGridView.cpp" line="262" />
-        <location filename="../src/openstudio_lib/SpaceTypesGridView.cpp" line="1126" />
-        <location filename="../src/openstudio_lib/SpaceTypesGridView.cpp" line="1128" />
+        <location filename="../src/openstudio_lib/SpaceTypesGridView.cpp" line="262"/>
+        <location filename="../src/openstudio_lib/SpaceTypesGridView.cpp" line="1126"/>
+        <location filename="../src/openstudio_lib/SpaceTypesGridView.cpp" line="1128"/>
         <source>Default Construction Set</source>
         <translation>डिफ़ॉल्ट निर्माण सेट</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/SpaceTypesGridView.cpp" line="263" />
-        <location filename="../src/openstudio_lib/SpaceTypesGridView.cpp" line="1132" />
-        <location filename="../src/openstudio_lib/SpaceTypesGridView.cpp" line="1134" />
+        <location filename="../src/openstudio_lib/SpaceTypesGridView.cpp" line="263"/>
+        <location filename="../src/openstudio_lib/SpaceTypesGridView.cpp" line="1132"/>
+        <location filename="../src/openstudio_lib/SpaceTypesGridView.cpp" line="1134"/>
         <source>Default Schedule Set</source>
         <translation>डिफ़ॉल्ट शेड्यूल सेट</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/SpaceTypesGridView.cpp" line="264" />
-        <location filename="../src/openstudio_lib/SpaceTypesGridView.cpp" line="1138" />
-        <location filename="../src/openstudio_lib/SpaceTypesGridView.cpp" line="1139" />
+        <location filename="../src/openstudio_lib/SpaceTypesGridView.cpp" line="264"/>
+        <location filename="../src/openstudio_lib/SpaceTypesGridView.cpp" line="1138"/>
+        <location filename="../src/openstudio_lib/SpaceTypesGridView.cpp" line="1139"/>
         <source>Design Specification Outdoor Air</source>
         <translation>डिजाइन विनिर्देश बाहरी हवा</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/SpaceTypesGridView.cpp" line="265" />
-        <location filename="../src/openstudio_lib/SpaceTypesGridView.cpp" line="1151" />
-        <location filename="../src/openstudio_lib/SpaceTypesGridView.cpp" line="1175" />
-        <location filename="../src/openstudio_lib/SpaceTypesGridView.cpp" line="1183" />
+        <location filename="../src/openstudio_lib/SpaceTypesGridView.cpp" line="265"/>
+        <location filename="../src/openstudio_lib/SpaceTypesGridView.cpp" line="1151"/>
+        <location filename="../src/openstudio_lib/SpaceTypesGridView.cpp" line="1175"/>
+        <location filename="../src/openstudio_lib/SpaceTypesGridView.cpp" line="1183"/>
         <source>Space Infiltration Design Flow Rates</source>
         <translation>Space Infiltration Design Flow Rates</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/SpaceTypesGridView.cpp" line="266" />
-        <location filename="../src/openstudio_lib/SpaceTypesGridView.cpp" line="1185" />
-        <location filename="../src/openstudio_lib/SpaceTypesGridView.cpp" line="1209" />
-        <location filename="../src/openstudio_lib/SpaceTypesGridView.cpp" line="1218" />
+        <location filename="../src/openstudio_lib/SpaceTypesGridView.cpp" line="266"/>
+        <location filename="../src/openstudio_lib/SpaceTypesGridView.cpp" line="1185"/>
+        <location filename="../src/openstudio_lib/SpaceTypesGridView.cpp" line="1209"/>
+        <location filename="../src/openstudio_lib/SpaceTypesGridView.cpp" line="1218"/>
         <source>Space Infiltration Effective Leakage Areas</source>
         <translation>Space Infiltration Effective Leakage Areas</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/SpaceTypesGridView.cpp" line="274" />
-        <location filename="../src/openstudio_lib/SpaceTypesGridView.cpp" line="386" />
-        <location filename="../src/openstudio_lib/SpaceTypesGridView.cpp" line="420" />
-        <location filename="../src/openstudio_lib/SpaceTypesGridView.cpp" line="998" />
-        <location filename="../src/openstudio_lib/SpaceTypesGridView.cpp" line="1012" />
+        <location filename="../src/openstudio_lib/SpaceTypesGridView.cpp" line="274"/>
+        <location filename="../src/openstudio_lib/SpaceTypesGridView.cpp" line="386"/>
+        <location filename="../src/openstudio_lib/SpaceTypesGridView.cpp" line="420"/>
+        <location filename="../src/openstudio_lib/SpaceTypesGridView.cpp" line="998"/>
+        <location filename="../src/openstudio_lib/SpaceTypesGridView.cpp" line="1012"/>
         <source>Load Name</source>
         <translation>भार का नाम</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/SpaceTypesGridView.cpp" line="274" />
-        <location filename="../src/openstudio_lib/SpaceTypesGridView.cpp" line="420" />
-        <location filename="../src/openstudio_lib/SpaceTypesGridView.cpp" line="1024" />
-        <location filename="../src/openstudio_lib/SpaceTypesGridView.cpp" line="1027" />
+        <location filename="../src/openstudio_lib/SpaceTypesGridView.cpp" line="274"/>
+        <location filename="../src/openstudio_lib/SpaceTypesGridView.cpp" line="420"/>
+        <location filename="../src/openstudio_lib/SpaceTypesGridView.cpp" line="1024"/>
+        <location filename="../src/openstudio_lib/SpaceTypesGridView.cpp" line="1027"/>
         <source>Multiplier</source>
         <translation>गुणक</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/SpaceTypesGridView.cpp" line="274" />
-        <location filename="../src/openstudio_lib/SpaceTypesGridView.cpp" line="420" />
-        <location filename="../src/openstudio_lib/SpaceTypesGridView.cpp" line="1032" />
-        <location filename="../src/openstudio_lib/SpaceTypesGridView.cpp" line="1108" />
-        <location filename="../src/openstudio_lib/SpaceTypesGridView.cpp" line="1113" />
+        <location filename="../src/openstudio_lib/SpaceTypesGridView.cpp" line="274"/>
+        <location filename="../src/openstudio_lib/SpaceTypesGridView.cpp" line="420"/>
+        <location filename="../src/openstudio_lib/SpaceTypesGridView.cpp" line="1032"/>
+        <location filename="../src/openstudio_lib/SpaceTypesGridView.cpp" line="1108"/>
+        <location filename="../src/openstudio_lib/SpaceTypesGridView.cpp" line="1113"/>
         <source>Definition</source>
         <translation>परिभाषा</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/SpaceTypesGridView.cpp" line="274" />
-        <location filename="../src/openstudio_lib/SpaceTypesGridView.cpp" line="420" />
-        <location filename="../src/openstudio_lib/SpaceTypesGridView.cpp" line="1115" />
-        <location filename="../src/openstudio_lib/SpaceTypesGridView.cpp" line="1117" />
-        <location filename="../src/openstudio_lib/SpaceTypesGridView.cpp" line="1122" />
+        <location filename="../src/openstudio_lib/SpaceTypesGridView.cpp" line="274"/>
+        <location filename="../src/openstudio_lib/SpaceTypesGridView.cpp" line="420"/>
+        <location filename="../src/openstudio_lib/SpaceTypesGridView.cpp" line="1115"/>
+        <location filename="../src/openstudio_lib/SpaceTypesGridView.cpp" line="1117"/>
+        <location filename="../src/openstudio_lib/SpaceTypesGridView.cpp" line="1122"/>
         <source>Schedule</source>
         <translation>शेड्यूल</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/SpaceTypesGridView.cpp" line="274" />
-        <location filename="../src/openstudio_lib/SpaceTypesGridView.cpp" line="421" />
-        <location filename="../src/openstudio_lib/SpaceTypesGridView.cpp" line="1120" />
+        <location filename="../src/openstudio_lib/SpaceTypesGridView.cpp" line="274"/>
+        <location filename="../src/openstudio_lib/SpaceTypesGridView.cpp" line="421"/>
+        <location filename="../src/openstudio_lib/SpaceTypesGridView.cpp" line="1120"/>
         <source>Activity Schedule
 (People Only)</source>
         <translation>गतिविधि अनुसूची
 (केवल लोग)</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/SpaceTypesGridView.cpp" line="282" />
-        <location filename="../src/openstudio_lib/SpaceTypesGridView.cpp" line="1220" />
-        <location filename="../src/openstudio_lib/SpaceTypesGridView.cpp" line="1298" />
+        <location filename="../src/openstudio_lib/SpaceTypesGridView.cpp" line="282"/>
+        <location filename="../src/openstudio_lib/SpaceTypesGridView.cpp" line="1220"/>
+        <location filename="../src/openstudio_lib/SpaceTypesGridView.cpp" line="1298"/>
         <source>Standards Template (Optional)</source>
         <translation>मानक टेम्पलेट (वैकल्पिक)</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/SpaceTypesGridView.cpp" line="283" />
-        <location filename="../src/openstudio_lib/SpaceTypesGridView.cpp" line="1302" />
-        <location filename="../src/openstudio_lib/SpaceTypesGridView.cpp" line="1365" />
+        <location filename="../src/openstudio_lib/SpaceTypesGridView.cpp" line="283"/>
+        <location filename="../src/openstudio_lib/SpaceTypesGridView.cpp" line="1302"/>
+        <location filename="../src/openstudio_lib/SpaceTypesGridView.cpp" line="1365"/>
         <source>Standards Building Type
 (Optional)</source>
         <translation>मानक भवन प्रकार
 (वैकल्पिक)</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/SpaceTypesGridView.cpp" line="284" />
-        <location filename="../src/openstudio_lib/SpaceTypesGridView.cpp" line="1369" />
-        <location filename="../src/openstudio_lib/SpaceTypesGridView.cpp" line="1393" />
+        <location filename="../src/openstudio_lib/SpaceTypesGridView.cpp" line="284"/>
+        <location filename="../src/openstudio_lib/SpaceTypesGridView.cpp" line="1369"/>
+        <location filename="../src/openstudio_lib/SpaceTypesGridView.cpp" line="1393"/>
         <source>Standards Space Type
 (Optional)</source>
         <translation>मानक स्पेस टाइप
 (वैकल्पिक)</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/SpaceTypesGridView.cpp" line="296" />
+        <location filename="../src/openstudio_lib/SpaceTypesGridView.cpp" line="296"/>
         <source>Show all loads</source>
         <translation>सभी लोड दिखाएँ</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/SpaceTypesGridView.cpp" line="302" />
+        <location filename="../src/openstudio_lib/SpaceTypesGridView.cpp" line="302"/>
         <source>Internal Mass</source>
         <translation>आंतरिक द्रव्यमान</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/SpaceTypesGridView.cpp" line="306" />
+        <location filename="../src/openstudio_lib/SpaceTypesGridView.cpp" line="306"/>
         <source>People</source>
         <translation>लोग</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/SpaceTypesGridView.cpp" line="310" />
+        <location filename="../src/openstudio_lib/SpaceTypesGridView.cpp" line="310"/>
         <source>Lights</source>
         <translation>रोशनी</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/SpaceTypesGridView.cpp" line="314" />
+        <location filename="../src/openstudio_lib/SpaceTypesGridView.cpp" line="314"/>
         <source>Luminaire</source>
         <translation>प्रकाश पत्र</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/SpaceTypesGridView.cpp" line="318" />
+        <location filename="../src/openstudio_lib/SpaceTypesGridView.cpp" line="318"/>
         <source>Electric Equipment</source>
         <translation>विद्युत उपकरण</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/SpaceTypesGridView.cpp" line="322" />
+        <location filename="../src/openstudio_lib/SpaceTypesGridView.cpp" line="322"/>
         <source>Gas Equipment</source>
         <translation>गैस उपकरण</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/SpaceTypesGridView.cpp" line="326" />
+        <location filename="../src/openstudio_lib/SpaceTypesGridView.cpp" line="326"/>
         <source>Hot Water Equipment</source>
         <translation>गर्म जल उपकरण</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/SpaceTypesGridView.cpp" line="330" />
+        <location filename="../src/openstudio_lib/SpaceTypesGridView.cpp" line="330"/>
         <source>Steam Equipment</source>
         <translation>Steam Equipment</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/SpaceTypesGridView.cpp" line="334" />
+        <location filename="../src/openstudio_lib/SpaceTypesGridView.cpp" line="334"/>
         <source>Other Equipment</source>
         <translation>अन्य उपकरण</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/SpaceTypesGridView.cpp" line="338" />
+        <location filename="../src/openstudio_lib/SpaceTypesGridView.cpp" line="338"/>
         <source>Space Infiltration Design Flow Rate</source>
         <translation>Space Infiltration Design Flow Rate</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/SpaceTypesGridView.cpp" line="342" />
+        <location filename="../src/openstudio_lib/SpaceTypesGridView.cpp" line="342"/>
         <source>Space Infiltration Effective Leakage Area</source>
         <translation>Space Infiltration Effective Leakage Area</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/SpaceTypesGridView.cpp" line="415" />
-        <location filename="../src/openstudio_lib/SpaceTypesGridView.cpp" line="1020" />
+        <location filename="../src/openstudio_lib/SpaceTypesGridView.cpp" line="415"/>
+        <location filename="../src/openstudio_lib/SpaceTypesGridView.cpp" line="1020"/>
         <source>Check to select all rows</source>
         <translation>सभी का चयन करे</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/SpaceTypesGridView.cpp" line="419" />
-        <location filename="../src/openstudio_lib/SpaceTypesGridView.cpp" line="1023" />
+        <location filename="../src/openstudio_lib/SpaceTypesGridView.cpp" line="419"/>
+        <location filename="../src/openstudio_lib/SpaceTypesGridView.cpp" line="1023"/>
         <source>Check to select this row</source>
         <translation>इस पंक्ति को चुनने के लिए जांचें</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/SpaceTypesGridView.cpp" line="268" />
+        <location filename="../src/openstudio_lib/SpaceTypesGridView.cpp" line="268"/>
         <source>General</source>
         <translation>सामान्य</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/SpaceTypesGridView.cpp" line="276" />
-        <location filename="../src/openstudio_lib/SpaceTypesGridView.cpp" line="413" />
+        <location filename="../src/openstudio_lib/SpaceTypesGridView.cpp" line="276"/>
+        <location filename="../src/openstudio_lib/SpaceTypesGridView.cpp" line="413"/>
         <source>Loads</source>
         <translation>भार</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/SpaceTypesGridView.cpp" line="286" />
+        <location filename="../src/openstudio_lib/SpaceTypesGridView.cpp" line="286"/>
         <source>Measure
 Tags</source>
         <translation>उपाय
@@ -28668,8 +28679,8 @@ Tags</source>
 <context>
     <name>openstudio::SpaceTypesGridView</name>
     <message>
-        <location filename="../src/openstudio_lib/SpaceTypesGridView.cpp" line="107" />
-        <location filename="../src/openstudio_lib/SpaceTypesGridView.cpp" line="108" />
+        <location filename="../src/openstudio_lib/SpaceTypesGridView.cpp" line="107"/>
+        <location filename="../src/openstudio_lib/SpaceTypesGridView.cpp" line="108"/>
         <source>Space Types</source>
         <translation>Space Types को स्थान प्रकार या अंतरिक्ष प्रकार में अनुवाद करते हैं, लेकिन निर्माण ऊर्जा मॉडलिंग सॉफ्टवेयर के संदर्भ में, यह आमतौर पर एक तकनीकी शब्द है।
 
@@ -28680,79 +28691,79 @@ Tags</source>
 **स्पेस टाइप्स** (यदि मूल शब्द को ही रखना हो)</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/SpaceTypesGridView.cpp" line="108" />
+        <location filename="../src/openstudio_lib/SpaceTypesGridView.cpp" line="108"/>
         <source>Drop
 Space Type</source>
         <translation>ड्रॉप
 स्पेस टाइप</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/SpaceTypesGridView.cpp" line="121" />
+        <location filename="../src/openstudio_lib/SpaceTypesGridView.cpp" line="121"/>
         <source>Filter:</source>
         <translation>फ़िल्टर:</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/SpaceTypesGridView.cpp" line="128" />
+        <location filename="../src/openstudio_lib/SpaceTypesGridView.cpp" line="128"/>
         <source>Load Type</source>
         <translation>भार प्रकार</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/SpaceTypesGridView.cpp" line="135" />
+        <location filename="../src/openstudio_lib/SpaceTypesGridView.cpp" line="135"/>
         <source>Show all loads</source>
         <translation>सभी लोड दिखाएँ</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/SpaceTypesGridView.cpp" line="140" />
+        <location filename="../src/openstudio_lib/SpaceTypesGridView.cpp" line="140"/>
         <source>Internal Mass</source>
         <translation>आंतरिक द्रव्यमान</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/SpaceTypesGridView.cpp" line="146" />
+        <location filename="../src/openstudio_lib/SpaceTypesGridView.cpp" line="146"/>
         <source>People</source>
         <translation>लोग</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/SpaceTypesGridView.cpp" line="152" />
+        <location filename="../src/openstudio_lib/SpaceTypesGridView.cpp" line="152"/>
         <source>Lights</source>
         <translation>रोशनियाँ</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/SpaceTypesGridView.cpp" line="158" />
+        <location filename="../src/openstudio_lib/SpaceTypesGridView.cpp" line="158"/>
         <source>Luminaire</source>
         <translation>प्रकाश उपकरण</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/SpaceTypesGridView.cpp" line="164" />
+        <location filename="../src/openstudio_lib/SpaceTypesGridView.cpp" line="164"/>
         <source>Electric Equipment</source>
         <translation>विद्युत उपकरण</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/SpaceTypesGridView.cpp" line="170" />
+        <location filename="../src/openstudio_lib/SpaceTypesGridView.cpp" line="170"/>
         <source>Gas Equipment</source>
         <translation>गैस उपकरण</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/SpaceTypesGridView.cpp" line="176" />
+        <location filename="../src/openstudio_lib/SpaceTypesGridView.cpp" line="176"/>
         <source>Hot Water Equipment</source>
         <translation>गर्म जल उपकरण</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/SpaceTypesGridView.cpp" line="182" />
+        <location filename="../src/openstudio_lib/SpaceTypesGridView.cpp" line="182"/>
         <source>Steam Equipment</source>
         <translation>स्टीम उपकरण</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/SpaceTypesGridView.cpp" line="188" />
+        <location filename="../src/openstudio_lib/SpaceTypesGridView.cpp" line="188"/>
         <source>Other Equipment</source>
         <translation>अन्य उपकरण</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/SpaceTypesGridView.cpp" line="194" />
+        <location filename="../src/openstudio_lib/SpaceTypesGridView.cpp" line="194"/>
         <source>Space Infiltration Design Flow Rate</source>
         <translation>Space Infiltration Design Flow Rate</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/SpaceTypesGridView.cpp" line="200" />
+        <location filename="../src/openstudio_lib/SpaceTypesGridView.cpp" line="200"/>
         <source>Space Infiltration Effective Leakage Area</source>
         <translation>Space Infiltration Effective Leakage Area</translation>
     </message>
@@ -28760,7 +28771,7 @@ Space Type</source>
 <context>
     <name>openstudio::SpaceTypesTabView</name>
     <message>
-        <location filename="../src/openstudio_lib/SpaceTypesTabView.cpp" line="10" />
+        <location filename="../src/openstudio_lib/SpaceTypesTabView.cpp" line="10"/>
         <source>Space Types</source>
         <translation>Space Types
 
@@ -28768,18 +28779,18 @@ Space Types एक विशेष शब्द है जो OpenStudio मे�
 
 **अंतरिक्ष प्रकार** या **स्पेस टाइप्स**
 
-लेकिन OpenStudio software में इसे आमतौर पर "Space Types" के रूप में ही रखा जाता है।</translation>
+लेकिन OpenStudio software में इसे आमतौर पर &quot;Space Types&quot; के रूप में ही रखा जाता है।</translation>
     </message>
 </context>
 <context>
     <name>openstudio::SpacesDaylightingGridController</name>
     <message>
-        <location filename="../src/openstudio_lib/SpacesDaylightingGridView.cpp" line="209" />
+        <location filename="../src/openstudio_lib/SpacesDaylightingGridView.cpp" line="209"/>
         <source>Check to select all rows</source>
         <translation>सभी का चयन करे</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/SpacesDaylightingGridView.cpp" line="212" />
+        <location filename="../src/openstudio_lib/SpacesDaylightingGridView.cpp" line="212"/>
         <source>Check to select this row</source>
         <translation>इस पंक्ति को चुनने के लिए जांचें</translation>
     </message>
@@ -28787,89 +28798,89 @@ Space Types एक विशेष शब्द है जो OpenStudio मे�
 <context>
     <name>openstudio::SpacesInteriorPartitionsGridController</name>
     <message>
-        <location filename="../src/openstudio_lib/SpacesInteriorPartitionsGridView.cpp" line="110" />
-        <location filename="../src/openstudio_lib/SpacesInteriorPartitionsGridView.cpp" line="116" />
-        <location filename="../src/openstudio_lib/SpacesInteriorPartitionsGridView.cpp" line="117" />
+        <location filename="../src/openstudio_lib/SpacesInteriorPartitionsGridView.cpp" line="110"/>
+        <location filename="../src/openstudio_lib/SpacesInteriorPartitionsGridView.cpp" line="116"/>
+        <location filename="../src/openstudio_lib/SpacesInteriorPartitionsGridView.cpp" line="117"/>
         <source>Space Name</source>
         <translation>स्पेस का नाम</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/SpacesInteriorPartitionsGridView.cpp" line="110" />
-        <location filename="../src/openstudio_lib/SpacesInteriorPartitionsGridView.cpp" line="171" />
-        <location filename="../src/openstudio_lib/SpacesInteriorPartitionsGridView.cpp" line="177" />
+        <location filename="../src/openstudio_lib/SpacesInteriorPartitionsGridView.cpp" line="110"/>
+        <location filename="../src/openstudio_lib/SpacesInteriorPartitionsGridView.cpp" line="171"/>
+        <location filename="../src/openstudio_lib/SpacesInteriorPartitionsGridView.cpp" line="177"/>
         <source>All</source>
         <translation>सब</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/SpacesInteriorPartitionsGridView.cpp" line="107" />
-        <location filename="../src/openstudio_lib/SpacesInteriorPartitionsGridView.cpp" line="119" />
-        <location filename="../src/openstudio_lib/SpacesInteriorPartitionsGridView.cpp" line="120" />
+        <location filename="../src/openstudio_lib/SpacesInteriorPartitionsGridView.cpp" line="107"/>
+        <location filename="../src/openstudio_lib/SpacesInteriorPartitionsGridView.cpp" line="119"/>
+        <location filename="../src/openstudio_lib/SpacesInteriorPartitionsGridView.cpp" line="120"/>
         <source>Display Name</source>
         <translation>प्रदर्शन नाम</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/SpacesInteriorPartitionsGridView.cpp" line="107" />
-        <location filename="../src/openstudio_lib/SpacesInteriorPartitionsGridView.cpp" line="126" />
-        <location filename="../src/openstudio_lib/SpacesInteriorPartitionsGridView.cpp" line="127" />
+        <location filename="../src/openstudio_lib/SpacesInteriorPartitionsGridView.cpp" line="107"/>
+        <location filename="../src/openstudio_lib/SpacesInteriorPartitionsGridView.cpp" line="126"/>
+        <location filename="../src/openstudio_lib/SpacesInteriorPartitionsGridView.cpp" line="127"/>
         <source>CAD Object ID</source>
         <translation>CAD Object ID</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/SpacesInteriorPartitionsGridView.cpp" line="89" />
-        <location filename="../src/openstudio_lib/SpacesInteriorPartitionsGridView.cpp" line="179" />
-        <location filename="../src/openstudio_lib/SpacesInteriorPartitionsGridView.cpp" line="180" />
+        <location filename="../src/openstudio_lib/SpacesInteriorPartitionsGridView.cpp" line="89"/>
+        <location filename="../src/openstudio_lib/SpacesInteriorPartitionsGridView.cpp" line="179"/>
+        <location filename="../src/openstudio_lib/SpacesInteriorPartitionsGridView.cpp" line="180"/>
         <source>Interior Partition Group Name</source>
         <translation>इंटीरियर पार्टीशन समूह नाम</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/SpacesInteriorPartitionsGridView.cpp" line="89" />
-        <location filename="../src/openstudio_lib/SpacesInteriorPartitionsGridView.cpp" line="186" />
-        <location filename="../src/openstudio_lib/SpacesInteriorPartitionsGridView.cpp" line="187" />
+        <location filename="../src/openstudio_lib/SpacesInteriorPartitionsGridView.cpp" line="89"/>
+        <location filename="../src/openstudio_lib/SpacesInteriorPartitionsGridView.cpp" line="186"/>
+        <location filename="../src/openstudio_lib/SpacesInteriorPartitionsGridView.cpp" line="187"/>
         <source>Interior Partition Name</source>
         <translation>आंतरिक विभाजन नाम</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/SpacesInteriorPartitionsGridView.cpp" line="89" />
-        <location filename="../src/openstudio_lib/SpacesInteriorPartitionsGridView.cpp" line="193" />
-        <location filename="../src/openstudio_lib/SpacesInteriorPartitionsGridView.cpp" line="196" />
+        <location filename="../src/openstudio_lib/SpacesInteriorPartitionsGridView.cpp" line="89"/>
+        <location filename="../src/openstudio_lib/SpacesInteriorPartitionsGridView.cpp" line="193"/>
+        <location filename="../src/openstudio_lib/SpacesInteriorPartitionsGridView.cpp" line="196"/>
         <source>Construction Name</source>
         <translation>निर्माण नाम</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/SpacesInteriorPartitionsGridView.cpp" line="89" />
-        <location filename="../src/openstudio_lib/SpacesInteriorPartitionsGridView.cpp" line="204" />
-        <location filename="../src/openstudio_lib/SpacesInteriorPartitionsGridView.cpp" line="206" />
+        <location filename="../src/openstudio_lib/SpacesInteriorPartitionsGridView.cpp" line="89"/>
+        <location filename="../src/openstudio_lib/SpacesInteriorPartitionsGridView.cpp" line="204"/>
+        <location filename="../src/openstudio_lib/SpacesInteriorPartitionsGridView.cpp" line="206"/>
         <source>Convert to Internal Mass</source>
         <translation>आंतरिक द्रव्यमान में परिवर्तित करें</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/SpacesInteriorPartitionsGridView.cpp" line="173" />
+        <location filename="../src/openstudio_lib/SpacesInteriorPartitionsGridView.cpp" line="173"/>
         <source>Check to select all rows</source>
         <translation>सभी का चयन करे</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/SpacesInteriorPartitionsGridView.cpp" line="177" />
+        <location filename="../src/openstudio_lib/SpacesInteriorPartitionsGridView.cpp" line="177"/>
         <source>Check to select this row</source>
         <translation>इस पंक्ति को चुनने के लिए जांचें</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/SpacesInteriorPartitionsGridView.cpp" line="206" />
+        <location filename="../src/openstudio_lib/SpacesInteriorPartitionsGridView.cpp" line="206"/>
         <source>Check to enable convert to InternalMass.</source>
         <translation>आंतरिक द्रव्यमान में परिवर्तित करने के लिए सक्षम करने के लिए जांचें।</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/SpacesInteriorPartitionsGridView.cpp" line="209" />
-        <location filename="../src/openstudio_lib/SpacesInteriorPartitionsGridView.cpp" line="215" />
+        <location filename="../src/openstudio_lib/SpacesInteriorPartitionsGridView.cpp" line="209"/>
+        <location filename="../src/openstudio_lib/SpacesInteriorPartitionsGridView.cpp" line="215"/>
         <source>Surface Area</source>
         <translation>पृष्ठ क्षेत्र</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/SpacesInteriorPartitionsGridView.cpp" line="230" />
+        <location filename="../src/openstudio_lib/SpacesInteriorPartitionsGridView.cpp" line="230"/>
         <source>Daylighting Shelf Name</source>
         <translation>डेलाइटिंग शेल्फ नाम</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/SpacesInteriorPartitionsGridView.cpp" line="93" />
+        <location filename="../src/openstudio_lib/SpacesInteriorPartitionsGridView.cpp" line="93"/>
         <source>General</source>
         <translation>सामान्य</translation>
     </message>
@@ -28877,13 +28888,13 @@ Space Types एक विशेष शब्द है जो OpenStudio मे�
 <context>
     <name>openstudio::SpacesInteriorPartitionsGridView</name>
     <message>
-        <location filename="../src/openstudio_lib/SpacesInteriorPartitionsGridView.cpp" line="48" />
-        <location filename="../src/openstudio_lib/SpacesInteriorPartitionsGridView.cpp" line="49" />
+        <location filename="../src/openstudio_lib/SpacesInteriorPartitionsGridView.cpp" line="48"/>
+        <location filename="../src/openstudio_lib/SpacesInteriorPartitionsGridView.cpp" line="49"/>
         <source>Space</source>
         <translation>स्पेस</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/SpacesInteriorPartitionsGridView.cpp" line="49" />
+        <location filename="../src/openstudio_lib/SpacesInteriorPartitionsGridView.cpp" line="49"/>
         <source>Drop
 Space</source>
         <translation>ड्रॉप
@@ -28893,88 +28904,88 @@ Space</source>
 <context>
     <name>openstudio::SpacesLoadsGridController</name>
     <message>
-        <location filename="../src/openstudio_lib/SpacesLoadsGridView.cpp" line="805" />
+        <location filename="../src/openstudio_lib/SpacesLoadsGridView.cpp" line="805"/>
         <source>Drop Space Infiltration</source>
         <translation>स्पेस इनफिल्ट्रेशन हटाएं</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/SpacesLoadsGridView.cpp" line="162" />
-        <location filename="../src/openstudio_lib/SpacesLoadsGridView.cpp" line="168" />
-        <location filename="../src/openstudio_lib/SpacesLoadsGridView.cpp" line="170" />
+        <location filename="../src/openstudio_lib/SpacesLoadsGridView.cpp" line="162"/>
+        <location filename="../src/openstudio_lib/SpacesLoadsGridView.cpp" line="168"/>
+        <location filename="../src/openstudio_lib/SpacesLoadsGridView.cpp" line="170"/>
         <source>Space Name</source>
         <translation>स्पेस नाम</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/SpacesLoadsGridView.cpp" line="162" />
-        <location filename="../src/openstudio_lib/SpacesLoadsGridView.cpp" line="809" />
-        <location filename="../src/openstudio_lib/SpacesLoadsGridView.cpp" line="814" />
+        <location filename="../src/openstudio_lib/SpacesLoadsGridView.cpp" line="162"/>
+        <location filename="../src/openstudio_lib/SpacesLoadsGridView.cpp" line="809"/>
+        <location filename="../src/openstudio_lib/SpacesLoadsGridView.cpp" line="814"/>
         <source>All</source>
         <translation>सब</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/SpacesLoadsGridView.cpp" line="159" />
-        <location filename="../src/openstudio_lib/SpacesLoadsGridView.cpp" line="172" />
-        <location filename="../src/openstudio_lib/SpacesLoadsGridView.cpp" line="173" />
+        <location filename="../src/openstudio_lib/SpacesLoadsGridView.cpp" line="159"/>
+        <location filename="../src/openstudio_lib/SpacesLoadsGridView.cpp" line="172"/>
+        <location filename="../src/openstudio_lib/SpacesLoadsGridView.cpp" line="173"/>
         <source>Display Name</source>
         <translation>प्रदर्शन नाम</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/SpacesLoadsGridView.cpp" line="159" />
-        <location filename="../src/openstudio_lib/SpacesLoadsGridView.cpp" line="179" />
-        <location filename="../src/openstudio_lib/SpacesLoadsGridView.cpp" line="180" />
+        <location filename="../src/openstudio_lib/SpacesLoadsGridView.cpp" line="159"/>
+        <location filename="../src/openstudio_lib/SpacesLoadsGridView.cpp" line="179"/>
+        <location filename="../src/openstudio_lib/SpacesLoadsGridView.cpp" line="180"/>
         <source>CAD Object ID</source>
         <translation>CAD Object ID</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/SpacesLoadsGridView.cpp" line="143" />
-        <location filename="../src/openstudio_lib/SpacesLoadsGridView.cpp" line="761" />
-        <location filename="../src/openstudio_lib/SpacesLoadsGridView.cpp" line="796" />
+        <location filename="../src/openstudio_lib/SpacesLoadsGridView.cpp" line="143"/>
+        <location filename="../src/openstudio_lib/SpacesLoadsGridView.cpp" line="761"/>
+        <location filename="../src/openstudio_lib/SpacesLoadsGridView.cpp" line="796"/>
         <source>Load Name</source>
         <translation>भार नाम</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/SpacesLoadsGridView.cpp" line="143" />
-        <location filename="../src/openstudio_lib/SpacesLoadsGridView.cpp" line="815" />
-        <location filename="../src/openstudio_lib/SpacesLoadsGridView.cpp" line="818" />
+        <location filename="../src/openstudio_lib/SpacesLoadsGridView.cpp" line="143"/>
+        <location filename="../src/openstudio_lib/SpacesLoadsGridView.cpp" line="815"/>
+        <location filename="../src/openstudio_lib/SpacesLoadsGridView.cpp" line="818"/>
         <source>Multiplier</source>
         <translation>गुणक</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/SpacesLoadsGridView.cpp" line="143" />
-        <location filename="../src/openstudio_lib/SpacesLoadsGridView.cpp" line="821" />
-        <location filename="../src/openstudio_lib/SpacesLoadsGridView.cpp" line="888" />
-        <location filename="../src/openstudio_lib/SpacesLoadsGridView.cpp" line="893" />
+        <location filename="../src/openstudio_lib/SpacesLoadsGridView.cpp" line="143"/>
+        <location filename="../src/openstudio_lib/SpacesLoadsGridView.cpp" line="821"/>
+        <location filename="../src/openstudio_lib/SpacesLoadsGridView.cpp" line="888"/>
+        <location filename="../src/openstudio_lib/SpacesLoadsGridView.cpp" line="893"/>
         <source>Definition</source>
         <translation>परिभाषा</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/SpacesLoadsGridView.cpp" line="143" />
-        <location filename="../src/openstudio_lib/SpacesLoadsGridView.cpp" line="894" />
-        <location filename="../src/openstudio_lib/SpacesLoadsGridView.cpp" line="896" />
-        <location filename="../src/openstudio_lib/SpacesLoadsGridView.cpp" line="900" />
+        <location filename="../src/openstudio_lib/SpacesLoadsGridView.cpp" line="143"/>
+        <location filename="../src/openstudio_lib/SpacesLoadsGridView.cpp" line="894"/>
+        <location filename="../src/openstudio_lib/SpacesLoadsGridView.cpp" line="896"/>
+        <location filename="../src/openstudio_lib/SpacesLoadsGridView.cpp" line="900"/>
         <source>Schedule</source>
         <translation>अनुसूची</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/SpacesLoadsGridView.cpp" line="143" />
-        <location filename="../src/openstudio_lib/SpacesLoadsGridView.cpp" line="899" />
+        <location filename="../src/openstudio_lib/SpacesLoadsGridView.cpp" line="143"/>
+        <location filename="../src/openstudio_lib/SpacesLoadsGridView.cpp" line="899"/>
         <source>Activity Schedule
 (People Only)</source>
         <translation>गतिविधि अनुसूची
 (केवल लोग)</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/SpacesLoadsGridView.cpp" line="145" />
+        <location filename="../src/openstudio_lib/SpacesLoadsGridView.cpp" line="145"/>
         <source>General</source>
         <translation>सामान्य</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/SpacesLoadsGridView.cpp" line="811" />
+        <location filename="../src/openstudio_lib/SpacesLoadsGridView.cpp" line="811"/>
         <source>Check to select all rows</source>
         <translation>सभी का चयन करे</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/SpacesLoadsGridView.cpp" line="814" />
+        <location filename="../src/openstudio_lib/SpacesLoadsGridView.cpp" line="814"/>
         <source>Check to select this row</source>
         <translation>इस पंक्ति को चुनने के लिए जांचें</translation>
     </message>
@@ -28982,13 +28993,13 @@ Space</source>
 <context>
     <name>openstudio::SpacesLoadsGridView</name>
     <message>
-        <location filename="../src/openstudio_lib/SpacesLoadsGridView.cpp" line="93" />
-        <location filename="../src/openstudio_lib/SpacesLoadsGridView.cpp" line="94" />
+        <location filename="../src/openstudio_lib/SpacesLoadsGridView.cpp" line="93"/>
+        <location filename="../src/openstudio_lib/SpacesLoadsGridView.cpp" line="94"/>
         <source>Space</source>
         <translation>अंतरिक्ष</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/SpacesLoadsGridView.cpp" line="94" />
+        <location filename="../src/openstudio_lib/SpacesLoadsGridView.cpp" line="94"/>
         <source>Drop
 Space</source>
         <translation>ड्रॉप
@@ -28998,79 +29009,79 @@ Space</source>
 <context>
     <name>openstudio::SpacesShadingGridController</name>
     <message>
-        <location filename="../src/openstudio_lib/SpacesShadingGridView.cpp" line="110" />
-        <location filename="../src/openstudio_lib/SpacesShadingGridView.cpp" line="116" />
-        <location filename="../src/openstudio_lib/SpacesShadingGridView.cpp" line="117" />
+        <location filename="../src/openstudio_lib/SpacesShadingGridView.cpp" line="110"/>
+        <location filename="../src/openstudio_lib/SpacesShadingGridView.cpp" line="116"/>
+        <location filename="../src/openstudio_lib/SpacesShadingGridView.cpp" line="117"/>
         <source>Space Name</source>
         <translation>स्पेस नाम</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/SpacesShadingGridView.cpp" line="110" />
-        <location filename="../src/openstudio_lib/SpacesShadingGridView.cpp" line="168" />
-        <location filename="../src/openstudio_lib/SpacesShadingGridView.cpp" line="173" />
+        <location filename="../src/openstudio_lib/SpacesShadingGridView.cpp" line="110"/>
+        <location filename="../src/openstudio_lib/SpacesShadingGridView.cpp" line="168"/>
+        <location filename="../src/openstudio_lib/SpacesShadingGridView.cpp" line="173"/>
         <source>All</source>
         <translation>सब</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/SpacesShadingGridView.cpp" line="107" />
-        <location filename="../src/openstudio_lib/SpacesShadingGridView.cpp" line="119" />
-        <location filename="../src/openstudio_lib/SpacesShadingGridView.cpp" line="120" />
+        <location filename="../src/openstudio_lib/SpacesShadingGridView.cpp" line="107"/>
+        <location filename="../src/openstudio_lib/SpacesShadingGridView.cpp" line="119"/>
+        <location filename="../src/openstudio_lib/SpacesShadingGridView.cpp" line="120"/>
         <source>Display Name</source>
         <translation>प्रदर्शन नाम</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/SpacesShadingGridView.cpp" line="107" />
-        <location filename="../src/openstudio_lib/SpacesShadingGridView.cpp" line="126" />
-        <location filename="../src/openstudio_lib/SpacesShadingGridView.cpp" line="127" />
+        <location filename="../src/openstudio_lib/SpacesShadingGridView.cpp" line="107"/>
+        <location filename="../src/openstudio_lib/SpacesShadingGridView.cpp" line="126"/>
+        <location filename="../src/openstudio_lib/SpacesShadingGridView.cpp" line="127"/>
         <source>CAD Object ID</source>
         <translation>CAD Object ID</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/SpacesShadingGridView.cpp" line="90" />
-        <location filename="../src/openstudio_lib/SpacesShadingGridView.cpp" line="180" />
-        <location filename="../src/openstudio_lib/SpacesShadingGridView.cpp" line="181" />
+        <location filename="../src/openstudio_lib/SpacesShadingGridView.cpp" line="90"/>
+        <location filename="../src/openstudio_lib/SpacesShadingGridView.cpp" line="180"/>
+        <location filename="../src/openstudio_lib/SpacesShadingGridView.cpp" line="181"/>
         <source>Shading Surface Group</source>
         <translation>छाया सतह समूह</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/SpacesShadingGridView.cpp" line="90" />
-        <location filename="../src/openstudio_lib/SpacesShadingGridView.cpp" line="187" />
-        <location filename="../src/openstudio_lib/SpacesShadingGridView.cpp" line="189" />
+        <location filename="../src/openstudio_lib/SpacesShadingGridView.cpp" line="90"/>
+        <location filename="../src/openstudio_lib/SpacesShadingGridView.cpp" line="187"/>
+        <location filename="../src/openstudio_lib/SpacesShadingGridView.cpp" line="189"/>
         <source>Construction</source>
         <translation>निर्माण</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/SpacesShadingGridView.cpp" line="90" />
-        <location filename="../src/openstudio_lib/SpacesShadingGridView.cpp" line="195" />
-        <location filename="../src/openstudio_lib/SpacesShadingGridView.cpp" line="203" />
+        <location filename="../src/openstudio_lib/SpacesShadingGridView.cpp" line="90"/>
+        <location filename="../src/openstudio_lib/SpacesShadingGridView.cpp" line="195"/>
+        <location filename="../src/openstudio_lib/SpacesShadingGridView.cpp" line="203"/>
         <source>Transmittance Schedule</source>
         <translation>Transmittance Schedule</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/SpacesShadingGridView.cpp" line="90" />
-        <location filename="../src/openstudio_lib/SpacesShadingGridView.cpp" line="175" />
-        <location filename="../src/openstudio_lib/SpacesShadingGridView.cpp" line="177" />
-        <location filename="../src/openstudio_lib/SpacesShadingGridView.cpp" line="207" />
+        <location filename="../src/openstudio_lib/SpacesShadingGridView.cpp" line="90"/>
+        <location filename="../src/openstudio_lib/SpacesShadingGridView.cpp" line="175"/>
+        <location filename="../src/openstudio_lib/SpacesShadingGridView.cpp" line="177"/>
+        <location filename="../src/openstudio_lib/SpacesShadingGridView.cpp" line="207"/>
         <source>Shading Surface Name</source>
         <translation>छायाकरण सतह का नाम</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/SpacesShadingGridView.cpp" line="170" />
+        <location filename="../src/openstudio_lib/SpacesShadingGridView.cpp" line="170"/>
         <source>Check to select all rows</source>
         <translation>सभी का चयन करे</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/SpacesShadingGridView.cpp" line="173" />
+        <location filename="../src/openstudio_lib/SpacesShadingGridView.cpp" line="173"/>
         <source>Check to select this row</source>
         <translation>इस पंक्ति को चुनने के लिए जांचें</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/SpacesShadingGridView.cpp" line="212" />
+        <location filename="../src/openstudio_lib/SpacesShadingGridView.cpp" line="212"/>
         <source>Daylighting Shelf Name</source>
         <translation>Daylighting Shelf का नाम</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/SpacesShadingGridView.cpp" line="93" />
+        <location filename="../src/openstudio_lib/SpacesShadingGridView.cpp" line="93"/>
         <source>General</source>
         <translation>सामान्य</translation>
     </message>
@@ -29078,13 +29089,13 @@ Space</source>
 <context>
     <name>openstudio::SpacesShadingGridView</name>
     <message>
-        <location filename="../src/openstudio_lib/SpacesShadingGridView.cpp" line="49" />
-        <location filename="../src/openstudio_lib/SpacesShadingGridView.cpp" line="50" />
+        <location filename="../src/openstudio_lib/SpacesShadingGridView.cpp" line="49"/>
+        <location filename="../src/openstudio_lib/SpacesShadingGridView.cpp" line="50"/>
         <source>Space</source>
         <translation>स्पेस</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/SpacesShadingGridView.cpp" line="50" />
+        <location filename="../src/openstudio_lib/SpacesShadingGridView.cpp" line="50"/>
         <source>Drop
 Space</source>
         <translation>ड्रॉप स्पेस</translation>
@@ -29093,120 +29104,120 @@ Space</source>
 <context>
     <name>openstudio::SpacesSpacesGridController</name>
     <message>
-        <location filename="../src/openstudio_lib/SpacesSpacesGridView.cpp" line="124" />
-        <location filename="../src/openstudio_lib/SpacesSpacesGridView.cpp" line="130" />
-        <location filename="../src/openstudio_lib/SpacesSpacesGridView.cpp" line="131" />
+        <location filename="../src/openstudio_lib/SpacesSpacesGridView.cpp" line="124"/>
+        <location filename="../src/openstudio_lib/SpacesSpacesGridView.cpp" line="130"/>
+        <location filename="../src/openstudio_lib/SpacesSpacesGridView.cpp" line="131"/>
         <source>Space Name</source>
         <translation>स्पेस का नाम</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/SpacesSpacesGridView.cpp" line="121" />
-        <location filename="../src/openstudio_lib/SpacesSpacesGridView.cpp" line="133" />
-        <location filename="../src/openstudio_lib/SpacesSpacesGridView.cpp" line="134" />
+        <location filename="../src/openstudio_lib/SpacesSpacesGridView.cpp" line="121"/>
+        <location filename="../src/openstudio_lib/SpacesSpacesGridView.cpp" line="133"/>
+        <location filename="../src/openstudio_lib/SpacesSpacesGridView.cpp" line="134"/>
         <source>Display Name</source>
         <translation>प्रदर्शन नाम</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/SpacesSpacesGridView.cpp" line="121" />
-        <location filename="../src/openstudio_lib/SpacesSpacesGridView.cpp" line="140" />
-        <location filename="../src/openstudio_lib/SpacesSpacesGridView.cpp" line="141" />
+        <location filename="../src/openstudio_lib/SpacesSpacesGridView.cpp" line="121"/>
+        <location filename="../src/openstudio_lib/SpacesSpacesGridView.cpp" line="140"/>
+        <location filename="../src/openstudio_lib/SpacesSpacesGridView.cpp" line="141"/>
         <source>CAD Object ID</source>
         <translation>CAD Object ID</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/SpacesSpacesGridView.cpp" line="124" />
-        <location filename="../src/openstudio_lib/SpacesSpacesGridView.cpp" line="147" />
-        <location filename="../src/openstudio_lib/SpacesSpacesGridView.cpp" line="152" />
+        <location filename="../src/openstudio_lib/SpacesSpacesGridView.cpp" line="124"/>
+        <location filename="../src/openstudio_lib/SpacesSpacesGridView.cpp" line="147"/>
+        <location filename="../src/openstudio_lib/SpacesSpacesGridView.cpp" line="152"/>
         <source>All</source>
         <translation>सब</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/SpacesSpacesGridView.cpp" line="95" />
-        <location filename="../src/openstudio_lib/SpacesSpacesGridView.cpp" line="153" />
-        <location filename="../src/openstudio_lib/SpacesSpacesGridView.cpp" line="154" />
+        <location filename="../src/openstudio_lib/SpacesSpacesGridView.cpp" line="95"/>
+        <location filename="../src/openstudio_lib/SpacesSpacesGridView.cpp" line="153"/>
+        <location filename="../src/openstudio_lib/SpacesSpacesGridView.cpp" line="154"/>
         <source>Story</source>
         <translation>मंजिल</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/SpacesSpacesGridView.cpp" line="95" />
-        <location filename="../src/openstudio_lib/SpacesSpacesGridView.cpp" line="157" />
-        <location filename="../src/openstudio_lib/SpacesSpacesGridView.cpp" line="163" />
+        <location filename="../src/openstudio_lib/SpacesSpacesGridView.cpp" line="95"/>
+        <location filename="../src/openstudio_lib/SpacesSpacesGridView.cpp" line="157"/>
+        <location filename="../src/openstudio_lib/SpacesSpacesGridView.cpp" line="163"/>
         <source>Thermal Zone</source>
         <translation>तापीय क्षेत्र</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/SpacesSpacesGridView.cpp" line="95" />
-        <location filename="../src/openstudio_lib/SpacesSpacesGridView.cpp" line="165" />
-        <location filename="../src/openstudio_lib/SpacesSpacesGridView.cpp" line="166" />
+        <location filename="../src/openstudio_lib/SpacesSpacesGridView.cpp" line="95"/>
+        <location filename="../src/openstudio_lib/SpacesSpacesGridView.cpp" line="165"/>
+        <location filename="../src/openstudio_lib/SpacesSpacesGridView.cpp" line="166"/>
         <source>Space Type</source>
         <translation>स्पेस टाइप</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/SpacesSpacesGridView.cpp" line="95" />
-        <location filename="../src/openstudio_lib/SpacesSpacesGridView.cpp" line="171" />
-        <location filename="../src/openstudio_lib/SpacesSpacesGridView.cpp" line="173" />
+        <location filename="../src/openstudio_lib/SpacesSpacesGridView.cpp" line="95"/>
+        <location filename="../src/openstudio_lib/SpacesSpacesGridView.cpp" line="171"/>
+        <location filename="../src/openstudio_lib/SpacesSpacesGridView.cpp" line="173"/>
         <source>Default Construction Set</source>
         <translation>डिफ़ॉल्ट निर्माण सेट</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/SpacesSpacesGridView.cpp" line="95" />
-        <location filename="../src/openstudio_lib/SpacesSpacesGridView.cpp" line="176" />
-        <location filename="../src/openstudio_lib/SpacesSpacesGridView.cpp" line="177" />
+        <location filename="../src/openstudio_lib/SpacesSpacesGridView.cpp" line="95"/>
+        <location filename="../src/openstudio_lib/SpacesSpacesGridView.cpp" line="176"/>
+        <location filename="../src/openstudio_lib/SpacesSpacesGridView.cpp" line="177"/>
         <source>Default Schedule Set</source>
         <translation>डिफ़ॉल्ट शेड्यूल सेट</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/SpacesSpacesGridView.cpp" line="95" />
-        <location filename="../src/openstudio_lib/SpacesSpacesGridView.cpp" line="180" />
-        <location filename="../src/openstudio_lib/SpacesSpacesGridView.cpp" line="182" />
+        <location filename="../src/openstudio_lib/SpacesSpacesGridView.cpp" line="95"/>
+        <location filename="../src/openstudio_lib/SpacesSpacesGridView.cpp" line="180"/>
+        <location filename="../src/openstudio_lib/SpacesSpacesGridView.cpp" line="182"/>
         <source>Part of Total Floor Area</source>
         <translation>कुल फर्श क्षेत्र का भाग</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/SpacesSpacesGridView.cpp" line="104" />
-        <location filename="../src/openstudio_lib/SpacesSpacesGridView.cpp" line="184" />
-        <location filename="../src/openstudio_lib/SpacesSpacesGridView.cpp" line="208" />
-        <location filename="../src/openstudio_lib/SpacesSpacesGridView.cpp" line="217" />
+        <location filename="../src/openstudio_lib/SpacesSpacesGridView.cpp" line="104"/>
+        <location filename="../src/openstudio_lib/SpacesSpacesGridView.cpp" line="184"/>
+        <location filename="../src/openstudio_lib/SpacesSpacesGridView.cpp" line="208"/>
+        <location filename="../src/openstudio_lib/SpacesSpacesGridView.cpp" line="217"/>
         <source>Space Infiltration Design Flow Rates</source>
         <translation>Space Infiltration Design Flow Rates</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/SpacesSpacesGridView.cpp" line="105" />
-        <location filename="../src/openstudio_lib/SpacesSpacesGridView.cpp" line="218" />
-        <location filename="../src/openstudio_lib/SpacesSpacesGridView.cpp" line="242" />
-        <location filename="../src/openstudio_lib/SpacesSpacesGridView.cpp" line="253" />
+        <location filename="../src/openstudio_lib/SpacesSpacesGridView.cpp" line="105"/>
+        <location filename="../src/openstudio_lib/SpacesSpacesGridView.cpp" line="218"/>
+        <location filename="../src/openstudio_lib/SpacesSpacesGridView.cpp" line="242"/>
+        <location filename="../src/openstudio_lib/SpacesSpacesGridView.cpp" line="253"/>
         <source>Space Infiltration Effective Leakage Areas</source>
         <translation>Space Infiltration Effective Leakage Areas</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/SpacesSpacesGridView.cpp" line="149" />
+        <location filename="../src/openstudio_lib/SpacesSpacesGridView.cpp" line="149"/>
         <source>Check to select all rows</source>
         <translation>सभी का चयन करे</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/SpacesSpacesGridView.cpp" line="152" />
+        <location filename="../src/openstudio_lib/SpacesSpacesGridView.cpp" line="152"/>
         <source>Check to select this row</source>
         <translation>इस पंक्ति को चुनने के लिए जांचें</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/SpacesSpacesGridView.cpp" line="182" />
+        <location filename="../src/openstudio_lib/SpacesSpacesGridView.cpp" line="182"/>
         <source>Check to enable part of total floor area.</source>
         <translation>कुल फ्लोर क्षेत्र के भाग को सक्षम करने के लिए जांचें।</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/SpacesSpacesGridView.cpp" line="103" />
-        <location filename="../src/openstudio_lib/SpacesSpacesGridView.cpp" line="254" />
-        <location filename="../src/openstudio_lib/SpacesSpacesGridView.cpp" line="256" />
+        <location filename="../src/openstudio_lib/SpacesSpacesGridView.cpp" line="103"/>
+        <location filename="../src/openstudio_lib/SpacesSpacesGridView.cpp" line="254"/>
+        <location filename="../src/openstudio_lib/SpacesSpacesGridView.cpp" line="256"/>
         <source>Design Specification Outdoor Air Object Name</source>
         <translation>डिज़ाइन विनिर्देश बाहरी हवा ऑब्जेक्ट नाम</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/SpacesSpacesGridView.cpp" line="97" />
+        <location filename="../src/openstudio_lib/SpacesSpacesGridView.cpp" line="97"/>
         <source>General</source>
         <translation>सामान्य</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/SpacesSpacesGridView.cpp" line="107" />
+        <location filename="../src/openstudio_lib/SpacesSpacesGridView.cpp" line="107"/>
         <source>Airflow</source>
         <translation>वायु प्रवाह</translation>
     </message>
@@ -29214,13 +29225,13 @@ Space</source>
 <context>
     <name>openstudio::SpacesSpacesGridView</name>
     <message>
-        <location filename="../src/openstudio_lib/SpacesSpacesGridView.cpp" line="55" />
-        <location filename="../src/openstudio_lib/SpacesSpacesGridView.cpp" line="56" />
+        <location filename="../src/openstudio_lib/SpacesSpacesGridView.cpp" line="55"/>
+        <location filename="../src/openstudio_lib/SpacesSpacesGridView.cpp" line="56"/>
         <source>Space</source>
         <translation>स्पेस</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/SpacesSpacesGridView.cpp" line="56" />
+        <location filename="../src/openstudio_lib/SpacesSpacesGridView.cpp" line="56"/>
         <source>Drop
 Space</source>
         <translation>ड्रॉप
@@ -29230,123 +29241,123 @@ Space</source>
 <context>
     <name>openstudio::SpacesSubsurfacesGridController</name>
     <message>
-        <location filename="../src/openstudio_lib/SpacesSubsurfacesGridView.cpp" line="202" />
-        <location filename="../src/openstudio_lib/SpacesSubsurfacesGridView.cpp" line="208" />
-        <location filename="../src/openstudio_lib/SpacesSubsurfacesGridView.cpp" line="209" />
+        <location filename="../src/openstudio_lib/SpacesSubsurfacesGridView.cpp" line="202"/>
+        <location filename="../src/openstudio_lib/SpacesSubsurfacesGridView.cpp" line="208"/>
+        <location filename="../src/openstudio_lib/SpacesSubsurfacesGridView.cpp" line="209"/>
         <source>Space Name</source>
         <translation>Space Name का अनुवाद:
 
 **स्थान का नाम**</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/SpacesSubsurfacesGridView.cpp" line="202" />
-        <location filename="../src/openstudio_lib/SpacesSubsurfacesGridView.cpp" line="325" />
-        <location filename="../src/openstudio_lib/SpacesSubsurfacesGridView.cpp" line="330" />
+        <location filename="../src/openstudio_lib/SpacesSubsurfacesGridView.cpp" line="202"/>
+        <location filename="../src/openstudio_lib/SpacesSubsurfacesGridView.cpp" line="325"/>
+        <location filename="../src/openstudio_lib/SpacesSubsurfacesGridView.cpp" line="330"/>
         <source>All</source>
         <translation>सब</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/SpacesSubsurfacesGridView.cpp" line="199" />
-        <location filename="../src/openstudio_lib/SpacesSubsurfacesGridView.cpp" line="211" />
-        <location filename="../src/openstudio_lib/SpacesSubsurfacesGridView.cpp" line="212" />
+        <location filename="../src/openstudio_lib/SpacesSubsurfacesGridView.cpp" line="199"/>
+        <location filename="../src/openstudio_lib/SpacesSubsurfacesGridView.cpp" line="211"/>
+        <location filename="../src/openstudio_lib/SpacesSubsurfacesGridView.cpp" line="212"/>
         <source>Display Name</source>
         <translation>प्रदर्शन नाम</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/SpacesSubsurfacesGridView.cpp" line="199" />
-        <location filename="../src/openstudio_lib/SpacesSubsurfacesGridView.cpp" line="218" />
-        <location filename="../src/openstudio_lib/SpacesSubsurfacesGridView.cpp" line="219" />
+        <location filename="../src/openstudio_lib/SpacesSubsurfacesGridView.cpp" line="199"/>
+        <location filename="../src/openstudio_lib/SpacesSubsurfacesGridView.cpp" line="218"/>
+        <location filename="../src/openstudio_lib/SpacesSubsurfacesGridView.cpp" line="219"/>
         <source>CAD Object ID</source>
         <translation>CAD Object ID</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/SpacesSubsurfacesGridView.cpp" line="115" />
-        <location filename="../src/openstudio_lib/SpacesSubsurfacesGridView.cpp" line="125" />
-        <location filename="../src/openstudio_lib/SpacesSubsurfacesGridView.cpp" line="143" />
-        <location filename="../src/openstudio_lib/SpacesSubsurfacesGridView.cpp" line="178" />
-        <location filename="../src/openstudio_lib/SpacesSubsurfacesGridView.cpp" line="333" />
-        <location filename="../src/openstudio_lib/SpacesSubsurfacesGridView.cpp" line="335" />
+        <location filename="../src/openstudio_lib/SpacesSubsurfacesGridView.cpp" line="115"/>
+        <location filename="../src/openstudio_lib/SpacesSubsurfacesGridView.cpp" line="125"/>
+        <location filename="../src/openstudio_lib/SpacesSubsurfacesGridView.cpp" line="143"/>
+        <location filename="../src/openstudio_lib/SpacesSubsurfacesGridView.cpp" line="178"/>
+        <location filename="../src/openstudio_lib/SpacesSubsurfacesGridView.cpp" line="333"/>
+        <location filename="../src/openstudio_lib/SpacesSubsurfacesGridView.cpp" line="335"/>
         <source>Parent Surface Name</source>
         <translation>Parent Surface Name</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/SpacesSubsurfacesGridView.cpp" line="115" />
-        <location filename="../src/openstudio_lib/SpacesSubsurfacesGridView.cpp" line="125" />
-        <location filename="../src/openstudio_lib/SpacesSubsurfacesGridView.cpp" line="142" />
-        <location filename="../src/openstudio_lib/SpacesSubsurfacesGridView.cpp" line="177" />
-        <location filename="../src/openstudio_lib/SpacesSubsurfacesGridView.cpp" line="340" />
-        <location filename="../src/openstudio_lib/SpacesSubsurfacesGridView.cpp" line="341" />
+        <location filename="../src/openstudio_lib/SpacesSubsurfacesGridView.cpp" line="115"/>
+        <location filename="../src/openstudio_lib/SpacesSubsurfacesGridView.cpp" line="125"/>
+        <location filename="../src/openstudio_lib/SpacesSubsurfacesGridView.cpp" line="142"/>
+        <location filename="../src/openstudio_lib/SpacesSubsurfacesGridView.cpp" line="177"/>
+        <location filename="../src/openstudio_lib/SpacesSubsurfacesGridView.cpp" line="340"/>
+        <location filename="../src/openstudio_lib/SpacesSubsurfacesGridView.cpp" line="341"/>
         <source>Subsurface Name</source>
         <translation>सबसर्फेस नाम</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/SpacesSubsurfacesGridView.cpp" line="115" />
-        <location filename="../src/openstudio_lib/SpacesSubsurfacesGridView.cpp" line="346" />
-        <location filename="../src/openstudio_lib/SpacesSubsurfacesGridView.cpp" line="348" />
+        <location filename="../src/openstudio_lib/SpacesSubsurfacesGridView.cpp" line="115"/>
+        <location filename="../src/openstudio_lib/SpacesSubsurfacesGridView.cpp" line="346"/>
+        <location filename="../src/openstudio_lib/SpacesSubsurfacesGridView.cpp" line="348"/>
         <source>Subsurface Type</source>
         <translation>सबसर्फेस प्रकार</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/SpacesSubsurfacesGridView.cpp" line="116" />
-        <location filename="../src/openstudio_lib/SpacesSubsurfacesGridView.cpp" line="358" />
-        <location filename="../src/openstudio_lib/SpacesSubsurfacesGridView.cpp" line="359" />
+        <location filename="../src/openstudio_lib/SpacesSubsurfacesGridView.cpp" line="116"/>
+        <location filename="../src/openstudio_lib/SpacesSubsurfacesGridView.cpp" line="358"/>
+        <location filename="../src/openstudio_lib/SpacesSubsurfacesGridView.cpp" line="359"/>
         <source>Multiplier</source>
         <translation>गुणक</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/SpacesSubsurfacesGridView.cpp" line="116" />
-        <location filename="../src/openstudio_lib/SpacesSubsurfacesGridView.cpp" line="363" />
-        <location filename="../src/openstudio_lib/SpacesSubsurfacesGridView.cpp" line="365" />
+        <location filename="../src/openstudio_lib/SpacesSubsurfacesGridView.cpp" line="116"/>
+        <location filename="../src/openstudio_lib/SpacesSubsurfacesGridView.cpp" line="363"/>
+        <location filename="../src/openstudio_lib/SpacesSubsurfacesGridView.cpp" line="365"/>
         <source>Construction</source>
         <translation>निर्माण</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/SpacesSubsurfacesGridView.cpp" line="116" />
-        <location filename="../src/openstudio_lib/SpacesSubsurfacesGridView.cpp" line="371" />
-        <location filename="../src/openstudio_lib/SpacesSubsurfacesGridView.cpp" line="378" />
+        <location filename="../src/openstudio_lib/SpacesSubsurfacesGridView.cpp" line="116"/>
+        <location filename="../src/openstudio_lib/SpacesSubsurfacesGridView.cpp" line="371"/>
+        <location filename="../src/openstudio_lib/SpacesSubsurfacesGridView.cpp" line="378"/>
         <source>Outside Boundary Condition Object</source>
         <translation>बाहरी सीमा स्थिति वस्तु</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/SpacesSubsurfacesGridView.cpp" line="382" />
+        <location filename="../src/openstudio_lib/SpacesSubsurfacesGridView.cpp" line="382"/>
         <source>Shading Surface Name</source>
         <translation>छाया सतह नाम</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/SpacesSubsurfacesGridView.cpp" line="125" />
-        <location filename="../src/openstudio_lib/SpacesSubsurfacesGridView.cpp" line="384" />
-        <location filename="../src/openstudio_lib/SpacesSubsurfacesGridView.cpp" line="399" />
+        <location filename="../src/openstudio_lib/SpacesSubsurfacesGridView.cpp" line="125"/>
+        <location filename="../src/openstudio_lib/SpacesSubsurfacesGridView.cpp" line="384"/>
+        <location filename="../src/openstudio_lib/SpacesSubsurfacesGridView.cpp" line="399"/>
         <source>Shading Control</source>
         <translation>छाया नियंत्रण</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/SpacesSubsurfacesGridView.cpp" line="125" />
-        <location filename="../src/openstudio_lib/SpacesSubsurfacesGridView.cpp" line="409" />
-        <location filename="../src/openstudio_lib/SpacesSubsurfacesGridView.cpp" line="411" />
+        <location filename="../src/openstudio_lib/SpacesSubsurfacesGridView.cpp" line="125"/>
+        <location filename="../src/openstudio_lib/SpacesSubsurfacesGridView.cpp" line="409"/>
+        <location filename="../src/openstudio_lib/SpacesSubsurfacesGridView.cpp" line="411"/>
         <source>Shading Type</source>
         <translation>छायांकन प्रकार</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/SpacesSubsurfacesGridView.cpp" line="416" />
+        <location filename="../src/openstudio_lib/SpacesSubsurfacesGridView.cpp" line="416"/>
         <source>Construction with Shading Name</source>
         <translation>निर्माण शेडिंग नाम के साथ</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/SpacesSubsurfacesGridView.cpp" line="419" />
+        <location filename="../src/openstudio_lib/SpacesSubsurfacesGridView.cpp" line="419"/>
         <source>Shading Device Material Name</source>
         <translation>शेडिंग डिवाइस मटेरियल का नाम</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/SpacesSubsurfacesGridView.cpp" line="128" />
-        <location filename="../src/openstudio_lib/SpacesSubsurfacesGridView.cpp" line="422" />
-        <location filename="../src/openstudio_lib/SpacesSubsurfacesGridView.cpp" line="424" />
+        <location filename="../src/openstudio_lib/SpacesSubsurfacesGridView.cpp" line="128"/>
+        <location filename="../src/openstudio_lib/SpacesSubsurfacesGridView.cpp" line="422"/>
+        <location filename="../src/openstudio_lib/SpacesSubsurfacesGridView.cpp" line="424"/>
         <source>Shading Control Type</source>
         <translation>छाया नियंत्रण प्रकार</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/SpacesSubsurfacesGridView.cpp" line="128" />
-        <location filename="../src/openstudio_lib/SpacesSubsurfacesGridView.cpp" line="431" />
-        <location filename="../src/openstudio_lib/SpacesSubsurfacesGridView.cpp" line="439" />
+        <location filename="../src/openstudio_lib/SpacesSubsurfacesGridView.cpp" line="128"/>
+        <location filename="../src/openstudio_lib/SpacesSubsurfacesGridView.cpp" line="431"/>
+        <location filename="../src/openstudio_lib/SpacesSubsurfacesGridView.cpp" line="439"/>
         <source>Schedule Name</source>
         <translation>Schedule Name का अनुवाद है:
 
@@ -29361,245 +29372,245 @@ Space</source>
         <translation>सेटपॉइंट 2</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/SpacesSubsurfacesGridView.cpp" line="144" />
-        <location filename="../src/openstudio_lib/SpacesSubsurfacesGridView.cpp" line="171" />
-        <location filename="../src/openstudio_lib/SpacesSubsurfacesGridView.cpp" line="443" />
-        <location filename="../src/openstudio_lib/SpacesSubsurfacesGridView.cpp" line="445" />
+        <location filename="../src/openstudio_lib/SpacesSubsurfacesGridView.cpp" line="144"/>
+        <location filename="../src/openstudio_lib/SpacesSubsurfacesGridView.cpp" line="171"/>
+        <location filename="../src/openstudio_lib/SpacesSubsurfacesGridView.cpp" line="443"/>
+        <location filename="../src/openstudio_lib/SpacesSubsurfacesGridView.cpp" line="445"/>
         <source>Frame and Divider</source>
         <translation>फ्रेम और डिवाइडर</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/SpacesSubsurfacesGridView.cpp" line="145" />
-        <location filename="../src/openstudio_lib/SpacesSubsurfacesGridView.cpp" line="450" />
-        <location filename="../src/openstudio_lib/SpacesSubsurfacesGridView.cpp" line="451" />
+        <location filename="../src/openstudio_lib/SpacesSubsurfacesGridView.cpp" line="145"/>
+        <location filename="../src/openstudio_lib/SpacesSubsurfacesGridView.cpp" line="450"/>
+        <location filename="../src/openstudio_lib/SpacesSubsurfacesGridView.cpp" line="451"/>
         <source>Frame Width</source>
         <translation>फ्रेम चौड़ाई</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/SpacesSubsurfacesGridView.cpp" line="146" />
-        <location filename="../src/openstudio_lib/SpacesSubsurfacesGridView.cpp" line="458" />
-        <location filename="../src/openstudio_lib/SpacesSubsurfacesGridView.cpp" line="460" />
+        <location filename="../src/openstudio_lib/SpacesSubsurfacesGridView.cpp" line="146"/>
+        <location filename="../src/openstudio_lib/SpacesSubsurfacesGridView.cpp" line="458"/>
+        <location filename="../src/openstudio_lib/SpacesSubsurfacesGridView.cpp" line="460"/>
         <source>Frame Outside Projection</source>
         <translation>फ्रेम बाहरी प्रक्षेपण</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/SpacesSubsurfacesGridView.cpp" line="147" />
-        <location filename="../src/openstudio_lib/SpacesSubsurfacesGridView.cpp" line="467" />
-        <location filename="../src/openstudio_lib/SpacesSubsurfacesGridView.cpp" line="469" />
+        <location filename="../src/openstudio_lib/SpacesSubsurfacesGridView.cpp" line="147"/>
+        <location filename="../src/openstudio_lib/SpacesSubsurfacesGridView.cpp" line="467"/>
+        <location filename="../src/openstudio_lib/SpacesSubsurfacesGridView.cpp" line="469"/>
         <source>Frame Inside Projection</source>
         <translation>फ्रेम अंदर प्रक्षेपण</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/SpacesSubsurfacesGridView.cpp" line="148" />
-        <location filename="../src/openstudio_lib/SpacesSubsurfacesGridView.cpp" line="476" />
-        <location filename="../src/openstudio_lib/SpacesSubsurfacesGridView.cpp" line="478" />
+        <location filename="../src/openstudio_lib/SpacesSubsurfacesGridView.cpp" line="148"/>
+        <location filename="../src/openstudio_lib/SpacesSubsurfacesGridView.cpp" line="476"/>
+        <location filename="../src/openstudio_lib/SpacesSubsurfacesGridView.cpp" line="478"/>
         <source>Frame Conductance</source>
         <translation>Frame Conductance
 
-(Note: "Frame Conductance" is a technical term in building energy modeling that is typically kept in English even in Hindi translations, as it refers to a specific ASHRAE/ISO standard property. However, if a Hindi translation is absolutely required, it would be: "फ्रेम चालकता" - but the English term is standard in the field.)</translation>
+(Note: &quot;Frame Conductance&quot; is a technical term in building energy modeling that is typically kept in English even in Hindi translations, as it refers to a specific ASHRAE/ISO standard property. However, if a Hindi translation is absolutely required, it would be: &quot;फ्रेम चालकता&quot; - but the English term is standard in the field.)</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/SpacesSubsurfacesGridView.cpp" line="149" />
-        <location filename="../src/openstudio_lib/SpacesSubsurfacesGridView.cpp" line="485" />
-        <location filename="../src/openstudio_lib/SpacesSubsurfacesGridView.cpp" line="487" />
+        <location filename="../src/openstudio_lib/SpacesSubsurfacesGridView.cpp" line="149"/>
+        <location filename="../src/openstudio_lib/SpacesSubsurfacesGridView.cpp" line="485"/>
+        <location filename="../src/openstudio_lib/SpacesSubsurfacesGridView.cpp" line="487"/>
         <source>Frame - Edge Glass Conductance to Center - Of - Glass Conductance</source>
         <translation>Frame - Edge Glass Conductance to Center - Of - Glass Conductance</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/SpacesSubsurfacesGridView.cpp" line="150" />
-        <location filename="../src/openstudio_lib/SpacesSubsurfacesGridView.cpp" line="495" />
-        <location filename="../src/openstudio_lib/SpacesSubsurfacesGridView.cpp" line="497" />
+        <location filename="../src/openstudio_lib/SpacesSubsurfacesGridView.cpp" line="150"/>
+        <location filename="../src/openstudio_lib/SpacesSubsurfacesGridView.cpp" line="495"/>
+        <location filename="../src/openstudio_lib/SpacesSubsurfacesGridView.cpp" line="497"/>
         <source>Frame Solar Absorptance</source>
         <translation>फ्रेम सोलर अवशोषकता</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/SpacesSubsurfacesGridView.cpp" line="151" />
-        <location filename="../src/openstudio_lib/SpacesSubsurfacesGridView.cpp" line="504" />
-        <location filename="../src/openstudio_lib/SpacesSubsurfacesGridView.cpp" line="506" />
+        <location filename="../src/openstudio_lib/SpacesSubsurfacesGridView.cpp" line="151"/>
+        <location filename="../src/openstudio_lib/SpacesSubsurfacesGridView.cpp" line="504"/>
+        <location filename="../src/openstudio_lib/SpacesSubsurfacesGridView.cpp" line="506"/>
         <source>Frame Visible Absorptance</source>
         <translation>Frame Visible Absorptance</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/SpacesSubsurfacesGridView.cpp" line="152" />
-        <location filename="../src/openstudio_lib/SpacesSubsurfacesGridView.cpp" line="513" />
-        <location filename="../src/openstudio_lib/SpacesSubsurfacesGridView.cpp" line="515" />
+        <location filename="../src/openstudio_lib/SpacesSubsurfacesGridView.cpp" line="152"/>
+        <location filename="../src/openstudio_lib/SpacesSubsurfacesGridView.cpp" line="513"/>
+        <location filename="../src/openstudio_lib/SpacesSubsurfacesGridView.cpp" line="515"/>
         <source>Frame Thermal Hemispherical Emissivity</source>
         <translation>फ्रेम थर्मल गोलार्द्ध उत्सर्जनशीलता</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/SpacesSubsurfacesGridView.cpp" line="153" />
-        <location filename="../src/openstudio_lib/SpacesSubsurfacesGridView.cpp" line="523" />
-        <location filename="../src/openstudio_lib/SpacesSubsurfacesGridView.cpp" line="525" />
+        <location filename="../src/openstudio_lib/SpacesSubsurfacesGridView.cpp" line="153"/>
+        <location filename="../src/openstudio_lib/SpacesSubsurfacesGridView.cpp" line="523"/>
+        <location filename="../src/openstudio_lib/SpacesSubsurfacesGridView.cpp" line="525"/>
         <source>Divider Type</source>
         <translation>विभाजक प्रकार</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/SpacesSubsurfacesGridView.cpp" line="154" />
-        <location filename="../src/openstudio_lib/SpacesSubsurfacesGridView.cpp" line="534" />
-        <location filename="../src/openstudio_lib/SpacesSubsurfacesGridView.cpp" line="535" />
+        <location filename="../src/openstudio_lib/SpacesSubsurfacesGridView.cpp" line="154"/>
+        <location filename="../src/openstudio_lib/SpacesSubsurfacesGridView.cpp" line="534"/>
+        <location filename="../src/openstudio_lib/SpacesSubsurfacesGridView.cpp" line="535"/>
         <source>Divider Width</source>
         <translation>विभाजक चौड़ाई</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/SpacesSubsurfacesGridView.cpp" line="155" />
-        <location filename="../src/openstudio_lib/SpacesSubsurfacesGridView.cpp" line="542" />
-        <location filename="../src/openstudio_lib/SpacesSubsurfacesGridView.cpp" line="544" />
+        <location filename="../src/openstudio_lib/SpacesSubsurfacesGridView.cpp" line="155"/>
+        <location filename="../src/openstudio_lib/SpacesSubsurfacesGridView.cpp" line="542"/>
+        <location filename="../src/openstudio_lib/SpacesSubsurfacesGridView.cpp" line="544"/>
         <source>Number of Horizontal Dividers</source>
         <translation>क्षैतिज विभाजकों की संख्या</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/SpacesSubsurfacesGridView.cpp" line="156" />
-        <location filename="../src/openstudio_lib/SpacesSubsurfacesGridView.cpp" line="551" />
-        <location filename="../src/openstudio_lib/SpacesSubsurfacesGridView.cpp" line="553" />
+        <location filename="../src/openstudio_lib/SpacesSubsurfacesGridView.cpp" line="156"/>
+        <location filename="../src/openstudio_lib/SpacesSubsurfacesGridView.cpp" line="551"/>
+        <location filename="../src/openstudio_lib/SpacesSubsurfacesGridView.cpp" line="553"/>
         <source>Number of Vertical Dividers</source>
         <translation>ऊर्ध्वाधर विभाजकों की संख्या</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/SpacesSubsurfacesGridView.cpp" line="157" />
-        <location filename="../src/openstudio_lib/SpacesSubsurfacesGridView.cpp" line="560" />
-        <location filename="../src/openstudio_lib/SpacesSubsurfacesGridView.cpp" line="562" />
+        <location filename="../src/openstudio_lib/SpacesSubsurfacesGridView.cpp" line="157"/>
+        <location filename="../src/openstudio_lib/SpacesSubsurfacesGridView.cpp" line="560"/>
+        <location filename="../src/openstudio_lib/SpacesSubsurfacesGridView.cpp" line="562"/>
         <source>Divider Outside Projection</source>
         <translation>विभाजक बाहरी प्रक्षेपण</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/SpacesSubsurfacesGridView.cpp" line="158" />
-        <location filename="../src/openstudio_lib/SpacesSubsurfacesGridView.cpp" line="569" />
-        <location filename="../src/openstudio_lib/SpacesSubsurfacesGridView.cpp" line="571" />
+        <location filename="../src/openstudio_lib/SpacesSubsurfacesGridView.cpp" line="158"/>
+        <location filename="../src/openstudio_lib/SpacesSubsurfacesGridView.cpp" line="569"/>
+        <location filename="../src/openstudio_lib/SpacesSubsurfacesGridView.cpp" line="571"/>
         <source>Divider Inside Projection</source>
         <translation>विभाजक अंदरूनी प्रक्षेपण</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/SpacesSubsurfacesGridView.cpp" line="159" />
-        <location filename="../src/openstudio_lib/SpacesSubsurfacesGridView.cpp" line="578" />
-        <location filename="../src/openstudio_lib/SpacesSubsurfacesGridView.cpp" line="580" />
+        <location filename="../src/openstudio_lib/SpacesSubsurfacesGridView.cpp" line="159"/>
+        <location filename="../src/openstudio_lib/SpacesSubsurfacesGridView.cpp" line="578"/>
+        <location filename="../src/openstudio_lib/SpacesSubsurfacesGridView.cpp" line="580"/>
         <source>Divider Conductance</source>
         <translation>विभाजक चालकता</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/SpacesSubsurfacesGridView.cpp" line="160" />
-        <location filename="../src/openstudio_lib/SpacesSubsurfacesGridView.cpp" line="587" />
-        <location filename="../src/openstudio_lib/SpacesSubsurfacesGridView.cpp" line="589" />
+        <location filename="../src/openstudio_lib/SpacesSubsurfacesGridView.cpp" line="160"/>
+        <location filename="../src/openstudio_lib/SpacesSubsurfacesGridView.cpp" line="587"/>
+        <location filename="../src/openstudio_lib/SpacesSubsurfacesGridView.cpp" line="589"/>
         <source>Ratio of Divider - Edge Glass Conductance to Center - Of - Glass Conductance</source>
         <translation>विभाजक - किनारे की ग्लास चालकता का केंद्र - ग्लास चालकता से अनुपात</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/SpacesSubsurfacesGridView.cpp" line="161" />
-        <location filename="../src/openstudio_lib/SpacesSubsurfacesGridView.cpp" line="597" />
-        <location filename="../src/openstudio_lib/SpacesSubsurfacesGridView.cpp" line="599" />
+        <location filename="../src/openstudio_lib/SpacesSubsurfacesGridView.cpp" line="161"/>
+        <location filename="../src/openstudio_lib/SpacesSubsurfacesGridView.cpp" line="597"/>
+        <location filename="../src/openstudio_lib/SpacesSubsurfacesGridView.cpp" line="599"/>
         <source>Divider Solar Absorptance</source>
         <translation>विभाजक सौर अवशोषण क्षमता</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/SpacesSubsurfacesGridView.cpp" line="162" />
-        <location filename="../src/openstudio_lib/SpacesSubsurfacesGridView.cpp" line="606" />
-        <location filename="../src/openstudio_lib/SpacesSubsurfacesGridView.cpp" line="608" />
+        <location filename="../src/openstudio_lib/SpacesSubsurfacesGridView.cpp" line="162"/>
+        <location filename="../src/openstudio_lib/SpacesSubsurfacesGridView.cpp" line="606"/>
+        <location filename="../src/openstudio_lib/SpacesSubsurfacesGridView.cpp" line="608"/>
         <source>Divider Visible Absorptance</source>
         <translation>विभाजक दृश्यमान अवशोषकता</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/SpacesSubsurfacesGridView.cpp" line="163" />
-        <location filename="../src/openstudio_lib/SpacesSubsurfacesGridView.cpp" line="615" />
-        <location filename="../src/openstudio_lib/SpacesSubsurfacesGridView.cpp" line="617" />
+        <location filename="../src/openstudio_lib/SpacesSubsurfacesGridView.cpp" line="163"/>
+        <location filename="../src/openstudio_lib/SpacesSubsurfacesGridView.cpp" line="615"/>
+        <location filename="../src/openstudio_lib/SpacesSubsurfacesGridView.cpp" line="617"/>
         <source>Divider Thermal Hemispherical Emissivity</source>
         <translation>विभाजक तापीय गोलार्द्ध उत्सर्जकता</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/SpacesSubsurfacesGridView.cpp" line="164" />
-        <location filename="../src/openstudio_lib/SpacesSubsurfacesGridView.cpp" line="625" />
-        <location filename="../src/openstudio_lib/SpacesSubsurfacesGridView.cpp" line="627" />
+        <location filename="../src/openstudio_lib/SpacesSubsurfacesGridView.cpp" line="164"/>
+        <location filename="../src/openstudio_lib/SpacesSubsurfacesGridView.cpp" line="625"/>
+        <location filename="../src/openstudio_lib/SpacesSubsurfacesGridView.cpp" line="627"/>
         <source>Outside Reveal Depth</source>
         <translation>बाहरी प्रकट गहराई</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/SpacesSubsurfacesGridView.cpp" line="165" />
-        <location filename="../src/openstudio_lib/SpacesSubsurfacesGridView.cpp" line="634" />
-        <location filename="../src/openstudio_lib/SpacesSubsurfacesGridView.cpp" line="636" />
+        <location filename="../src/openstudio_lib/SpacesSubsurfacesGridView.cpp" line="165"/>
+        <location filename="../src/openstudio_lib/SpacesSubsurfacesGridView.cpp" line="634"/>
+        <location filename="../src/openstudio_lib/SpacesSubsurfacesGridView.cpp" line="636"/>
         <source>Outside Reveal Solar Absorptance</source>
         <translation>बाहरी प्रकट सौर अवशोषण</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/SpacesSubsurfacesGridView.cpp" line="166" />
-        <location filename="../src/openstudio_lib/SpacesSubsurfacesGridView.cpp" line="644" />
-        <location filename="../src/openstudio_lib/SpacesSubsurfacesGridView.cpp" line="646" />
+        <location filename="../src/openstudio_lib/SpacesSubsurfacesGridView.cpp" line="166"/>
+        <location filename="../src/openstudio_lib/SpacesSubsurfacesGridView.cpp" line="644"/>
+        <location filename="../src/openstudio_lib/SpacesSubsurfacesGridView.cpp" line="646"/>
         <source>Inside Sill Depth</source>
         <translation>अंदरूनी सिल गहराई</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/SpacesSubsurfacesGridView.cpp" line="167" />
-        <location filename="../src/openstudio_lib/SpacesSubsurfacesGridView.cpp" line="653" />
-        <location filename="../src/openstudio_lib/SpacesSubsurfacesGridView.cpp" line="655" />
+        <location filename="../src/openstudio_lib/SpacesSubsurfacesGridView.cpp" line="167"/>
+        <location filename="../src/openstudio_lib/SpacesSubsurfacesGridView.cpp" line="653"/>
+        <location filename="../src/openstudio_lib/SpacesSubsurfacesGridView.cpp" line="655"/>
         <source>Inside Sill Solar Absorptance</source>
         <translation>अंदरूनी सिल सौर अवशोषण</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/SpacesSubsurfacesGridView.cpp" line="168" />
-        <location filename="../src/openstudio_lib/SpacesSubsurfacesGridView.cpp" line="662" />
-        <location filename="../src/openstudio_lib/SpacesSubsurfacesGridView.cpp" line="664" />
+        <location filename="../src/openstudio_lib/SpacesSubsurfacesGridView.cpp" line="168"/>
+        <location filename="../src/openstudio_lib/SpacesSubsurfacesGridView.cpp" line="662"/>
+        <location filename="../src/openstudio_lib/SpacesSubsurfacesGridView.cpp" line="664"/>
         <source>Inside Reveal Depth</source>
         <translation>अंदर प्रकट गहराई</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/SpacesSubsurfacesGridView.cpp" line="169" />
-        <location filename="../src/openstudio_lib/SpacesSubsurfacesGridView.cpp" line="671" />
-        <location filename="../src/openstudio_lib/SpacesSubsurfacesGridView.cpp" line="673" />
+        <location filename="../src/openstudio_lib/SpacesSubsurfacesGridView.cpp" line="169"/>
+        <location filename="../src/openstudio_lib/SpacesSubsurfacesGridView.cpp" line="671"/>
+        <location filename="../src/openstudio_lib/SpacesSubsurfacesGridView.cpp" line="673"/>
         <source>Inside Reveal Solar Absorptance</source>
         <translation>अंदरूनी प्रकट सौर अवशोषणीयता</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/SpacesSubsurfacesGridView.cpp" line="179" />
-        <location filename="../src/openstudio_lib/SpacesSubsurfacesGridView.cpp" line="682" />
-        <location filename="../src/openstudio_lib/SpacesSubsurfacesGridView.cpp" line="683" />
+        <location filename="../src/openstudio_lib/SpacesSubsurfacesGridView.cpp" line="179"/>
+        <location filename="../src/openstudio_lib/SpacesSubsurfacesGridView.cpp" line="682"/>
+        <location filename="../src/openstudio_lib/SpacesSubsurfacesGridView.cpp" line="683"/>
         <source>Daylighting Shelf Name</source>
         <translation>डेलाइटिंग शेल्फ नाम</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/SpacesSubsurfacesGridView.cpp" line="327" />
+        <location filename="../src/openstudio_lib/SpacesSubsurfacesGridView.cpp" line="327"/>
         <source>Check to select all rows</source>
         <translation>सभी का चयन करे</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/SpacesSubsurfacesGridView.cpp" line="330" />
+        <location filename="../src/openstudio_lib/SpacesSubsurfacesGridView.cpp" line="330"/>
         <source>Check to select this row</source>
         <translation>इस पंक्ति को चुनने के लिए जांचें</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/SpacesSubsurfacesGridView.cpp" line="681" />
+        <location filename="../src/openstudio_lib/SpacesSubsurfacesGridView.cpp" line="681"/>
         <source>Window Name</source>
         <translation>खिड़की का नाम</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/SpacesSubsurfacesGridView.cpp" line="181" />
-        <location filename="../src/openstudio_lib/SpacesSubsurfacesGridView.cpp" line="688" />
-        <location filename="../src/openstudio_lib/SpacesSubsurfacesGridView.cpp" line="693" />
+        <location filename="../src/openstudio_lib/SpacesSubsurfacesGridView.cpp" line="181"/>
+        <location filename="../src/openstudio_lib/SpacesSubsurfacesGridView.cpp" line="688"/>
+        <location filename="../src/openstudio_lib/SpacesSubsurfacesGridView.cpp" line="693"/>
         <source>Inside Shelf Name</source>
         <translation>आंतरिक शेल्फ नाम</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/SpacesSubsurfacesGridView.cpp" line="182" />
-        <location filename="../src/openstudio_lib/SpacesSubsurfacesGridView.cpp" line="699" />
-        <location filename="../src/openstudio_lib/SpacesSubsurfacesGridView.cpp" line="704" />
+        <location filename="../src/openstudio_lib/SpacesSubsurfacesGridView.cpp" line="182"/>
+        <location filename="../src/openstudio_lib/SpacesSubsurfacesGridView.cpp" line="699"/>
+        <location filename="../src/openstudio_lib/SpacesSubsurfacesGridView.cpp" line="704"/>
         <source>Outside Shelf Name</source>
         <translation>बाहरी शेल्फ नाम</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/SpacesSubsurfacesGridView.cpp" line="183" />
-        <location filename="../src/openstudio_lib/SpacesSubsurfacesGridView.cpp" line="710" />
-        <location filename="../src/openstudio_lib/SpacesSubsurfacesGridView.cpp" line="712" />
+        <location filename="../src/openstudio_lib/SpacesSubsurfacesGridView.cpp" line="183"/>
+        <location filename="../src/openstudio_lib/SpacesSubsurfacesGridView.cpp" line="710"/>
+        <location filename="../src/openstudio_lib/SpacesSubsurfacesGridView.cpp" line="712"/>
         <source>View Factor to Outside Shelf</source>
         <translation>बाहरी शेल्फ के लिए व्यू फैक्टर</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/SpacesSubsurfacesGridView.cpp" line="119" />
+        <location filename="../src/openstudio_lib/SpacesSubsurfacesGridView.cpp" line="119"/>
         <source>General</source>
         <translation>सामान्य</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/SpacesSubsurfacesGridView.cpp" line="136" />
+        <location filename="../src/openstudio_lib/SpacesSubsurfacesGridView.cpp" line="136"/>
         <source>Shading Controls</source>
         <translation>छायाकरण नियंत्रण</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/SpacesSubsurfacesGridView.cpp" line="185" />
+        <location filename="../src/openstudio_lib/SpacesSubsurfacesGridView.cpp" line="185"/>
         <source>Daylighting Shelves</source>
         <translation>दिवालोक अलमारियाँ</translation>
     </message>
@@ -29607,13 +29618,13 @@ Space</source>
 <context>
     <name>openstudio::SpacesSubsurfacesGridView</name>
     <message>
-        <location filename="../src/openstudio_lib/SpacesSubsurfacesGridView.cpp" line="63" />
-        <location filename="../src/openstudio_lib/SpacesSubsurfacesGridView.cpp" line="64" />
+        <location filename="../src/openstudio_lib/SpacesSubsurfacesGridView.cpp" line="63"/>
+        <location filename="../src/openstudio_lib/SpacesSubsurfacesGridView.cpp" line="64"/>
         <source>Space</source>
         <translation>स्पेस</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/SpacesSubsurfacesGridView.cpp" line="64" />
+        <location filename="../src/openstudio_lib/SpacesSubsurfacesGridView.cpp" line="64"/>
         <source>Drop
 Space</source>
         <translation>ड्रॉप
@@ -29623,17 +29634,17 @@ Space</source>
 <context>
     <name>openstudio::SpacesSubtabGridView</name>
     <message>
-        <location filename="../src/openstudio_lib/SpacesSubtabGridView.cpp" line="85" />
+        <location filename="../src/openstudio_lib/SpacesSubtabGridView.cpp" line="85"/>
         <source>Filters:</source>
         <translation>फ़िल्टर्स:</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/SpacesSubtabGridView.cpp" line="94" />
+        <location filename="../src/openstudio_lib/SpacesSubtabGridView.cpp" line="94"/>
         <source>Story</source>
         <translation>मंजिल</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/SpacesSubtabGridView.cpp" line="112" />
+        <location filename="../src/openstudio_lib/SpacesSubtabGridView.cpp" line="112"/>
         <source>Thermal Zone</source>
         <translation>ऊष्मीय क्षेत्र</translation>
     </message>
@@ -29642,142 +29653,142 @@ Space</source>
         <translation>थर्मल जोन नाम</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/SpacesSubtabGridView.cpp" line="130" />
+        <location filename="../src/openstudio_lib/SpacesSubtabGridView.cpp" line="130"/>
         <source>Space Type</source>
         <translation>अंतरिक्ष प्रकार</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/SpacesSubtabGridView.cpp" line="148" />
+        <location filename="../src/openstudio_lib/SpacesSubtabGridView.cpp" line="148"/>
         <source>SubSurface Type</source>
         <translation>SubSurface Type का प्रकार</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/SpacesSubtabGridView.cpp" line="166" />
+        <location filename="../src/openstudio_lib/SpacesSubtabGridView.cpp" line="166"/>
         <source>Space Name</source>
         <translation>स्पेस नाम</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/SpacesSubtabGridView.cpp" line="277" />
+        <location filename="../src/openstudio_lib/SpacesSubtabGridView.cpp" line="277"/>
         <source>Load Type</source>
         <translation>भार प्रकार</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/SpacesSubtabGridView.cpp" line="185" />
+        <location filename="../src/openstudio_lib/SpacesSubtabGridView.cpp" line="185"/>
         <source>Wind Exposure</source>
         <translation>हवा का जोखिम</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/SpacesSubtabGridView.cpp" line="203" />
+        <location filename="../src/openstudio_lib/SpacesSubtabGridView.cpp" line="203"/>
         <source>Sun Exposure</source>
         <translation>सूर्य एक्सपोजर</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/SpacesSubtabGridView.cpp" line="221" />
+        <location filename="../src/openstudio_lib/SpacesSubtabGridView.cpp" line="221"/>
         <source>Outside Boundary Condition</source>
         <translation>बाहरी सीमा स्थिति</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/SpacesSubtabGridView.cpp" line="240" />
+        <location filename="../src/openstudio_lib/SpacesSubtabGridView.cpp" line="240"/>
         <source>Surface Type</source>
         <translation>सतह प्रकार</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/SpacesSubtabGridView.cpp" line="258" />
+        <location filename="../src/openstudio_lib/SpacesSubtabGridView.cpp" line="258"/>
         <source>Interior Partition Group</source>
         <translation>आंतरिक विभाजन समूह</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/SpacesSubtabGridView.cpp" line="293" />
-        <location filename="../src/openstudio_lib/SpacesSubtabGridView.cpp" line="308" />
-        <location filename="../src/openstudio_lib/SpacesSubtabGridView.cpp" line="323" />
-        <location filename="../src/openstudio_lib/SpacesSubtabGridView.cpp" line="338" />
-        <location filename="../src/openstudio_lib/SpacesSubtabGridView.cpp" line="348" />
-        <location filename="../src/openstudio_lib/SpacesSubtabGridView.cpp" line="418" />
-        <location filename="../src/openstudio_lib/SpacesSubtabGridView.cpp" line="426" />
-        <location filename="../src/openstudio_lib/SpacesSubtabGridView.cpp" line="434" />
-        <location filename="../src/openstudio_lib/SpacesSubtabGridView.cpp" line="442" />
-        <location filename="../src/openstudio_lib/SpacesSubtabGridView.cpp" line="451" />
-        <location filename="../src/openstudio_lib/SpacesSubtabGridView.cpp" line="466" />
-        <location filename="../src/openstudio_lib/SpacesSubtabGridView.cpp" line="490" />
-        <location filename="../src/openstudio_lib/SpacesSubtabGridView.cpp" line="514" />
-        <location filename="../src/openstudio_lib/SpacesSubtabGridView.cpp" line="601" />
-        <location filename="../src/openstudio_lib/SpacesSubtabGridView.cpp" line="766" />
+        <location filename="../src/openstudio_lib/SpacesSubtabGridView.cpp" line="293"/>
+        <location filename="../src/openstudio_lib/SpacesSubtabGridView.cpp" line="308"/>
+        <location filename="../src/openstudio_lib/SpacesSubtabGridView.cpp" line="323"/>
+        <location filename="../src/openstudio_lib/SpacesSubtabGridView.cpp" line="338"/>
+        <location filename="../src/openstudio_lib/SpacesSubtabGridView.cpp" line="348"/>
+        <location filename="../src/openstudio_lib/SpacesSubtabGridView.cpp" line="418"/>
+        <location filename="../src/openstudio_lib/SpacesSubtabGridView.cpp" line="426"/>
+        <location filename="../src/openstudio_lib/SpacesSubtabGridView.cpp" line="434"/>
+        <location filename="../src/openstudio_lib/SpacesSubtabGridView.cpp" line="442"/>
+        <location filename="../src/openstudio_lib/SpacesSubtabGridView.cpp" line="451"/>
+        <location filename="../src/openstudio_lib/SpacesSubtabGridView.cpp" line="466"/>
+        <location filename="../src/openstudio_lib/SpacesSubtabGridView.cpp" line="490"/>
+        <location filename="../src/openstudio_lib/SpacesSubtabGridView.cpp" line="514"/>
+        <location filename="../src/openstudio_lib/SpacesSubtabGridView.cpp" line="601"/>
+        <location filename="../src/openstudio_lib/SpacesSubtabGridView.cpp" line="766"/>
         <source>All</source>
         <translation>सब</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/SpacesSubtabGridView.cpp" line="294" />
-        <location filename="../src/openstudio_lib/SpacesSubtabGridView.cpp" line="309" />
-        <location filename="../src/openstudio_lib/SpacesSubtabGridView.cpp" line="324" />
-        <location filename="../src/openstudio_lib/SpacesSubtabGridView.cpp" line="468" />
-        <location filename="../src/openstudio_lib/SpacesSubtabGridView.cpp" line="492" />
-        <location filename="../src/openstudio_lib/SpacesSubtabGridView.cpp" line="516" />
+        <location filename="../src/openstudio_lib/SpacesSubtabGridView.cpp" line="294"/>
+        <location filename="../src/openstudio_lib/SpacesSubtabGridView.cpp" line="309"/>
+        <location filename="../src/openstudio_lib/SpacesSubtabGridView.cpp" line="324"/>
+        <location filename="../src/openstudio_lib/SpacesSubtabGridView.cpp" line="468"/>
+        <location filename="../src/openstudio_lib/SpacesSubtabGridView.cpp" line="492"/>
+        <location filename="../src/openstudio_lib/SpacesSubtabGridView.cpp" line="516"/>
         <source>Unassigned</source>
         <translation>असाइन न किया गया</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/SpacesSubtabGridView.cpp" line="353" />
-        <location filename="../src/openstudio_lib/SpacesSubtabGridView.cpp" line="607" />
+        <location filename="../src/openstudio_lib/SpacesSubtabGridView.cpp" line="353"/>
+        <location filename="../src/openstudio_lib/SpacesSubtabGridView.cpp" line="607"/>
         <source>Internal Mass</source>
         <translation>आंतरिक द्रव्यमान</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/SpacesSubtabGridView.cpp" line="359" />
-        <location filename="../src/openstudio_lib/SpacesSubtabGridView.cpp" line="611" />
+        <location filename="../src/openstudio_lib/SpacesSubtabGridView.cpp" line="359"/>
+        <location filename="../src/openstudio_lib/SpacesSubtabGridView.cpp" line="611"/>
         <source>People</source>
         <translation>लोग</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/SpacesSubtabGridView.cpp" line="365" />
-        <location filename="../src/openstudio_lib/SpacesSubtabGridView.cpp" line="615" />
+        <location filename="../src/openstudio_lib/SpacesSubtabGridView.cpp" line="365"/>
+        <location filename="../src/openstudio_lib/SpacesSubtabGridView.cpp" line="615"/>
         <source>Lights</source>
         <translation>रोशनियाँ</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/SpacesSubtabGridView.cpp" line="371" />
-        <location filename="../src/openstudio_lib/SpacesSubtabGridView.cpp" line="619" />
+        <location filename="../src/openstudio_lib/SpacesSubtabGridView.cpp" line="371"/>
+        <location filename="../src/openstudio_lib/SpacesSubtabGridView.cpp" line="619"/>
         <source>Luminaire</source>
         <translation>प्रकाश उपकरण</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/SpacesSubtabGridView.cpp" line="377" />
-        <location filename="../src/openstudio_lib/SpacesSubtabGridView.cpp" line="623" />
+        <location filename="../src/openstudio_lib/SpacesSubtabGridView.cpp" line="377"/>
+        <location filename="../src/openstudio_lib/SpacesSubtabGridView.cpp" line="623"/>
         <source>Electric Equipment</source>
         <translation>विद्युत उपकरण</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/SpacesSubtabGridView.cpp" line="383" />
-        <location filename="../src/openstudio_lib/SpacesSubtabGridView.cpp" line="627" />
+        <location filename="../src/openstudio_lib/SpacesSubtabGridView.cpp" line="383"/>
+        <location filename="../src/openstudio_lib/SpacesSubtabGridView.cpp" line="627"/>
         <source>Gas Equipment</source>
         <translation>गैस उपकरण</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/SpacesSubtabGridView.cpp" line="389" />
-        <location filename="../src/openstudio_lib/SpacesSubtabGridView.cpp" line="631" />
+        <location filename="../src/openstudio_lib/SpacesSubtabGridView.cpp" line="389"/>
+        <location filename="../src/openstudio_lib/SpacesSubtabGridView.cpp" line="631"/>
         <source>Hot Water Equipment</source>
         <translation>गर्म जल उपकरण</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/SpacesSubtabGridView.cpp" line="395" />
-        <location filename="../src/openstudio_lib/SpacesSubtabGridView.cpp" line="635" />
+        <location filename="../src/openstudio_lib/SpacesSubtabGridView.cpp" line="395"/>
+        <location filename="../src/openstudio_lib/SpacesSubtabGridView.cpp" line="635"/>
         <source>Steam Equipment</source>
         <translation>स्टीम उपकरण</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/SpacesSubtabGridView.cpp" line="401" />
-        <location filename="../src/openstudio_lib/SpacesSubtabGridView.cpp" line="639" />
+        <location filename="../src/openstudio_lib/SpacesSubtabGridView.cpp" line="401"/>
+        <location filename="../src/openstudio_lib/SpacesSubtabGridView.cpp" line="639"/>
         <source>Other Equipment</source>
         <translation>अन्य उपकरण</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/SpacesSubtabGridView.cpp" line="407" />
-        <location filename="../src/openstudio_lib/SpacesSubtabGridView.cpp" line="643" />
+        <location filename="../src/openstudio_lib/SpacesSubtabGridView.cpp" line="407"/>
+        <location filename="../src/openstudio_lib/SpacesSubtabGridView.cpp" line="643"/>
         <source>Space Infiltration Design Flow Rate</source>
         <translation>Space Infiltration Design Flow Rate</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/SpacesSubtabGridView.cpp" line="413" />
-        <location filename="../src/openstudio_lib/SpacesSubtabGridView.cpp" line="647" />
+        <location filename="../src/openstudio_lib/SpacesSubtabGridView.cpp" line="413"/>
+        <location filename="../src/openstudio_lib/SpacesSubtabGridView.cpp" line="647"/>
         <source>Space Infiltration Effective Leakage Area</source>
         <translation>Space Infiltration Effective Leakage Area</translation>
     </message>
@@ -29901,89 +29912,89 @@ Space</source>
 <context>
     <name>openstudio::SpacesSurfacesGridController</name>
     <message>
-        <location filename="../src/openstudio_lib/SpacesSurfacesGridView.cpp" line="111" />
-        <location filename="../src/openstudio_lib/SpacesSurfacesGridView.cpp" line="117" />
-        <location filename="../src/openstudio_lib/SpacesSurfacesGridView.cpp" line="118" />
-        <location filename="../src/openstudio_lib/SpacesSurfacesGridView.cpp" line="151" />
+        <location filename="../src/openstudio_lib/SpacesSurfacesGridView.cpp" line="111"/>
+        <location filename="../src/openstudio_lib/SpacesSurfacesGridView.cpp" line="117"/>
+        <location filename="../src/openstudio_lib/SpacesSurfacesGridView.cpp" line="118"/>
+        <location filename="../src/openstudio_lib/SpacesSurfacesGridView.cpp" line="151"/>
         <source>Space Name</source>
         <translation>स्पेस नाम</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/SpacesSurfacesGridView.cpp" line="111" />
-        <location filename="../src/openstudio_lib/SpacesSurfacesGridView.cpp" line="143" />
-        <location filename="../src/openstudio_lib/SpacesSurfacesGridView.cpp" line="148" />
+        <location filename="../src/openstudio_lib/SpacesSurfacesGridView.cpp" line="111"/>
+        <location filename="../src/openstudio_lib/SpacesSurfacesGridView.cpp" line="143"/>
+        <location filename="../src/openstudio_lib/SpacesSurfacesGridView.cpp" line="148"/>
         <source>All</source>
         <translation>सब</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/SpacesSurfacesGridView.cpp" line="108" />
-        <location filename="../src/openstudio_lib/SpacesSurfacesGridView.cpp" line="120" />
-        <location filename="../src/openstudio_lib/SpacesSurfacesGridView.cpp" line="121" />
+        <location filename="../src/openstudio_lib/SpacesSurfacesGridView.cpp" line="108"/>
+        <location filename="../src/openstudio_lib/SpacesSurfacesGridView.cpp" line="120"/>
+        <location filename="../src/openstudio_lib/SpacesSurfacesGridView.cpp" line="121"/>
         <source>Display Name</source>
         <translation>प्रदर्शन नाम</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/SpacesSurfacesGridView.cpp" line="108" />
-        <location filename="../src/openstudio_lib/SpacesSurfacesGridView.cpp" line="127" />
-        <location filename="../src/openstudio_lib/SpacesSurfacesGridView.cpp" line="128" />
+        <location filename="../src/openstudio_lib/SpacesSurfacesGridView.cpp" line="108"/>
+        <location filename="../src/openstudio_lib/SpacesSurfacesGridView.cpp" line="127"/>
+        <location filename="../src/openstudio_lib/SpacesSurfacesGridView.cpp" line="128"/>
         <source>CAD Object ID</source>
         <translation>CAD Object ID</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/SpacesSurfacesGridView.cpp" line="90" />
-        <location filename="../src/openstudio_lib/SpacesSurfacesGridView.cpp" line="149" />
+        <location filename="../src/openstudio_lib/SpacesSurfacesGridView.cpp" line="90"/>
+        <location filename="../src/openstudio_lib/SpacesSurfacesGridView.cpp" line="149"/>
         <source>Surface Name</source>
         <translation>सतह का नाम</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/SpacesSurfacesGridView.cpp" line="90" />
-        <location filename="../src/openstudio_lib/SpacesSurfacesGridView.cpp" line="155" />
-        <location filename="../src/openstudio_lib/SpacesSurfacesGridView.cpp" line="158" />
+        <location filename="../src/openstudio_lib/SpacesSurfacesGridView.cpp" line="90"/>
+        <location filename="../src/openstudio_lib/SpacesSurfacesGridView.cpp" line="155"/>
+        <location filename="../src/openstudio_lib/SpacesSurfacesGridView.cpp" line="158"/>
         <source>Surface Type</source>
         <translation>सतह प्रकार</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/SpacesSurfacesGridView.cpp" line="90" />
-        <location filename="../src/openstudio_lib/SpacesSurfacesGridView.cpp" line="168" />
-        <location filename="../src/openstudio_lib/SpacesSurfacesGridView.cpp" line="170" />
+        <location filename="../src/openstudio_lib/SpacesSurfacesGridView.cpp" line="90"/>
+        <location filename="../src/openstudio_lib/SpacesSurfacesGridView.cpp" line="168"/>
+        <location filename="../src/openstudio_lib/SpacesSurfacesGridView.cpp" line="170"/>
         <source>Construction</source>
         <translation>निर्माण</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/SpacesSurfacesGridView.cpp" line="90" />
-        <location filename="../src/openstudio_lib/SpacesSurfacesGridView.cpp" line="175" />
-        <location filename="../src/openstudio_lib/SpacesSurfacesGridView.cpp" line="178" />
+        <location filename="../src/openstudio_lib/SpacesSurfacesGridView.cpp" line="90"/>
+        <location filename="../src/openstudio_lib/SpacesSurfacesGridView.cpp" line="175"/>
+        <location filename="../src/openstudio_lib/SpacesSurfacesGridView.cpp" line="178"/>
         <source>Outside Boundary Condition</source>
         <translation>बाहरी सीमा शर्त</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/SpacesSurfacesGridView.cpp" line="90" />
-        <location filename="../src/openstudio_lib/SpacesSurfacesGridView.cpp" line="188" />
-        <location filename="../src/openstudio_lib/SpacesSurfacesGridView.cpp" line="194" />
+        <location filename="../src/openstudio_lib/SpacesSurfacesGridView.cpp" line="90"/>
+        <location filename="../src/openstudio_lib/SpacesSurfacesGridView.cpp" line="188"/>
+        <location filename="../src/openstudio_lib/SpacesSurfacesGridView.cpp" line="194"/>
         <source>Outside Boundary Condition Object</source>
         <translation>बाहरी सीमा स्थिति वस्तु</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/SpacesSurfacesGridView.cpp" line="91" />
-        <location filename="../src/openstudio_lib/SpacesSurfacesGridView.cpp" line="199" />
-        <location filename="../src/openstudio_lib/SpacesSurfacesGridView.cpp" line="202" />
+        <location filename="../src/openstudio_lib/SpacesSurfacesGridView.cpp" line="91"/>
+        <location filename="../src/openstudio_lib/SpacesSurfacesGridView.cpp" line="199"/>
+        <location filename="../src/openstudio_lib/SpacesSurfacesGridView.cpp" line="202"/>
         <source>Sun Exposure</source>
         <translation>सूर्य जोखिम</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/SpacesSurfacesGridView.cpp" line="91" />
-        <location filename="../src/openstudio_lib/SpacesSurfacesGridView.cpp" line="212" />
-        <location filename="../src/openstudio_lib/SpacesSurfacesGridView.cpp" line="215" />
+        <location filename="../src/openstudio_lib/SpacesSurfacesGridView.cpp" line="91"/>
+        <location filename="../src/openstudio_lib/SpacesSurfacesGridView.cpp" line="212"/>
+        <location filename="../src/openstudio_lib/SpacesSurfacesGridView.cpp" line="215"/>
         <source>Wind Exposure</source>
         <translation>वायु संपर्क</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/SpacesSurfacesGridView.cpp" line="145" />
+        <location filename="../src/openstudio_lib/SpacesSurfacesGridView.cpp" line="145"/>
         <source>Check to select all rows</source>
         <translation>सभी का चयन करे</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/SpacesSurfacesGridView.cpp" line="148" />
+        <location filename="../src/openstudio_lib/SpacesSurfacesGridView.cpp" line="148"/>
         <source>Check to select this row</source>
         <translation>इस पंक्ति को चुनने के लिए जांचें</translation>
     </message>
@@ -29992,7 +30003,7 @@ Space</source>
         <translation>छायांकन सतह नाम</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/SpacesSurfacesGridView.cpp" line="94" />
+        <location filename="../src/openstudio_lib/SpacesSurfacesGridView.cpp" line="94"/>
         <source>General</source>
         <translation>सामान्य</translation>
     </message>
@@ -30000,13 +30011,13 @@ Space</source>
 <context>
     <name>openstudio::SpacesSurfacesGridView</name>
     <message>
-        <location filename="../src/openstudio_lib/SpacesSurfacesGridView.cpp" line="49" />
-        <location filename="../src/openstudio_lib/SpacesSurfacesGridView.cpp" line="50" />
+        <location filename="../src/openstudio_lib/SpacesSurfacesGridView.cpp" line="49"/>
+        <location filename="../src/openstudio_lib/SpacesSurfacesGridView.cpp" line="50"/>
         <source>Space</source>
         <translation>स्थान</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/SpacesSurfacesGridView.cpp" line="50" />
+        <location filename="../src/openstudio_lib/SpacesSurfacesGridView.cpp" line="50"/>
         <source>Drop
 Space</source>
         <translation>ड्रॉप स्पेस</translation>
@@ -30015,32 +30026,32 @@ Space</source>
 <context>
     <name>openstudio::SpacesTabController</name>
     <message>
-        <location filename="../src/openstudio_lib/SpacesTabController.cpp" line="21" />
+        <location filename="../src/openstudio_lib/SpacesTabController.cpp" line="21"/>
         <source>Properties</source>
         <translation>गुण</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/SpacesTabController.cpp" line="22" />
+        <location filename="../src/openstudio_lib/SpacesTabController.cpp" line="22"/>
         <source>Loads</source>
         <translation>भार</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/SpacesTabController.cpp" line="23" />
+        <location filename="../src/openstudio_lib/SpacesTabController.cpp" line="23"/>
         <source>Surfaces</source>
         <translation>सतहें</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/SpacesTabController.cpp" line="24" />
+        <location filename="../src/openstudio_lib/SpacesTabController.cpp" line="24"/>
         <source>Subsurfaces</source>
         <translation>उप-सतहें</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/SpacesTabController.cpp" line="25" />
+        <location filename="../src/openstudio_lib/SpacesTabController.cpp" line="25"/>
         <source>Interior Partitions</source>
         <translation>आंतरिक विभाजन</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/SpacesTabController.cpp" line="26" />
+        <location filename="../src/openstudio_lib/SpacesTabController.cpp" line="26"/>
         <source>Shading</source>
         <translation>छायाकरण</translation>
     </message>
@@ -30048,17 +30059,17 @@ Space</source>
 <context>
     <name>openstudio::SpecialScheduleDayView</name>
     <message>
-        <location filename="../src/openstudio_lib/SchedulesView.cpp" line="1419" />
+        <location filename="../src/openstudio_lib/SchedulesView.cpp" line="1419"/>
         <source>Summer design day profile.</source>
         <translation>ग्रीष्मकालीन डिजाइन दिवस प्रोफ़ाइल।</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/SchedulesView.cpp" line="1437" />
+        <location filename="../src/openstudio_lib/SchedulesView.cpp" line="1437"/>
         <source>Winter design day profile.</source>
         <translation>शीतकालीन डिजाइन दिन प्रोफाइल।</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/SchedulesView.cpp" line="1455" />
+        <location filename="../src/openstudio_lib/SchedulesView.cpp" line="1455"/>
         <source>Holiday profile.</source>
         <translation>छुट्टी प्रोफाइल।</translation>
     </message>
@@ -30066,67 +30077,67 @@ Space</source>
 <context>
     <name>openstudio::StandardsInformationConstructionWidget</name>
     <message>
-        <location filename="../src/openstudio_lib/StandardsInformationConstructionWidget.cpp" line="46" />
+        <location filename="../src/openstudio_lib/StandardsInformationConstructionWidget.cpp" line="46"/>
         <source>Measure Tags (Optional):</source>
         <translation>उपाय टैग(ऐच्छिक):</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/StandardsInformationConstructionWidget.cpp" line="56" />
+        <location filename="../src/openstudio_lib/StandardsInformationConstructionWidget.cpp" line="56"/>
         <source>Standard: </source>
         <translation>मानक:</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/StandardsInformationConstructionWidget.cpp" line="77" />
+        <location filename="../src/openstudio_lib/StandardsInformationConstructionWidget.cpp" line="77"/>
         <source>Standard Source: </source>
         <translation>मानक स्रोत:</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/StandardsInformationConstructionWidget.cpp" line="100" />
+        <location filename="../src/openstudio_lib/StandardsInformationConstructionWidget.cpp" line="100"/>
         <source>Intended Surface Type: </source>
         <translation>उद्देश्यपूर्ण सतह प्रकार:</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/StandardsInformationConstructionWidget.cpp" line="118" />
+        <location filename="../src/openstudio_lib/StandardsInformationConstructionWidget.cpp" line="118"/>
         <source>Standards Construction Type: </source>
         <translation>Standards Construction Type: मानक निर्माण प्रकार:</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/StandardsInformationConstructionWidget.cpp" line="142" />
+        <location filename="../src/openstudio_lib/StandardsInformationConstructionWidget.cpp" line="142"/>
         <source>Fenestration Type: </source>
         <translation>खिड़की का प्रकार:</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/StandardsInformationConstructionWidget.cpp" line="156" />
+        <location filename="../src/openstudio_lib/StandardsInformationConstructionWidget.cpp" line="156"/>
         <source>Fenestration Assembly Context: </source>
         <translation>खिड़की असेंबली संदर्भ:</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/StandardsInformationConstructionWidget.cpp" line="172" />
+        <location filename="../src/openstudio_lib/StandardsInformationConstructionWidget.cpp" line="172"/>
         <source>Fenestration Number of Panes: </source>
         <translation>खिड़की में पैनल की संख्या:</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/StandardsInformationConstructionWidget.cpp" line="186" />
+        <location filename="../src/openstudio_lib/StandardsInformationConstructionWidget.cpp" line="186"/>
         <source>Fenestration Frame Type: </source>
         <translation>फेनेस्ट्रेशन फ्रेम प्रकार:</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/StandardsInformationConstructionWidget.cpp" line="202" />
+        <location filename="../src/openstudio_lib/StandardsInformationConstructionWidget.cpp" line="202"/>
         <source>Fenestration Divider Type: </source>
         <translation>Fenestration Divider Type: खिड़की विभाजक प्रकार:</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/StandardsInformationConstructionWidget.cpp" line="216" />
+        <location filename="../src/openstudio_lib/StandardsInformationConstructionWidget.cpp" line="216"/>
         <source>Fenestration Tint: </source>
         <translation>फेनेस्ट्रेशन टिंट:</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/StandardsInformationConstructionWidget.cpp" line="232" />
+        <location filename="../src/openstudio_lib/StandardsInformationConstructionWidget.cpp" line="232"/>
         <source>Fenestration Gas Fill: </source>
         <translation>खिड़की गैस भरण:</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/StandardsInformationConstructionWidget.cpp" line="246" />
+        <location filename="../src/openstudio_lib/StandardsInformationConstructionWidget.cpp" line="246"/>
         <source>Fenestration Low Emissivity Coating: </source>
         <translation>Fenestration Low Emissivity Coating: खिड़की कम उत्सर्जकता कोटिंग:</translation>
     </message>
@@ -30134,54 +30145,54 @@ Space</source>
 <context>
     <name>openstudio::StandardsInformationMaterialWidget</name>
     <message>
-        <location filename="../src/openstudio_lib/StandardsInformationMaterialWidget.cpp" line="45" />
+        <location filename="../src/openstudio_lib/StandardsInformationMaterialWidget.cpp" line="45"/>
         <source>Measure Tags (Optional):</source>
         <translation>उपाय टैग(ऐच्छिक):</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/StandardsInformationMaterialWidget.cpp" line="53" />
+        <location filename="../src/openstudio_lib/StandardsInformationMaterialWidget.cpp" line="53"/>
         <source>Standard: </source>
         <translation>मानक:</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/StandardsInformationMaterialWidget.cpp" line="72" />
+        <location filename="../src/openstudio_lib/StandardsInformationMaterialWidget.cpp" line="72"/>
         <source>Standard Source: </source>
         <translation>मानक स्रोत:</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/StandardsInformationMaterialWidget.cpp" line="92" />
+        <location filename="../src/openstudio_lib/StandardsInformationMaterialWidget.cpp" line="92"/>
         <source>Standards Category: </source>
         <translation>मानक श्रेणी:</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/StandardsInformationMaterialWidget.cpp" line="112" />
+        <location filename="../src/openstudio_lib/StandardsInformationMaterialWidget.cpp" line="112"/>
         <source>Standards Identifier: </source>
         <translation>मानक पहचानकर्ता:</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/StandardsInformationMaterialWidget.cpp" line="132" />
+        <location filename="../src/openstudio_lib/StandardsInformationMaterialWidget.cpp" line="132"/>
         <source>Composite Framing Material: </source>
         <translation>समग्र फ्रेमिंग सामग्री:</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/StandardsInformationMaterialWidget.cpp" line="152" />
+        <location filename="../src/openstudio_lib/StandardsInformationMaterialWidget.cpp" line="152"/>
         <source>Composite Framing Configuration: </source>
         <translation>कम्पोजिट फ्रेमिंग कॉन्फ़िगरेशन:</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/StandardsInformationMaterialWidget.cpp" line="172" />
+        <location filename="../src/openstudio_lib/StandardsInformationMaterialWidget.cpp" line="172"/>
         <source>Composite Framing Depth: </source>
         <translation>Composite Framing Depth:
 
 कम्पोजिट फ्रेमिंग गहराई:</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/StandardsInformationMaterialWidget.cpp" line="192" />
+        <location filename="../src/openstudio_lib/StandardsInformationMaterialWidget.cpp" line="192"/>
         <source>Composite Framing Size: </source>
         <translation>कम्पोजिट फ्रेमिंग आकार:</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/StandardsInformationMaterialWidget.cpp" line="212" />
+        <location filename="../src/openstudio_lib/StandardsInformationMaterialWidget.cpp" line="212"/>
         <source>Composite Cavity Insulation: </source>
         <translation>समग्र गुहा इंसुलेशन:</translation>
     </message>
@@ -30189,72 +30200,72 @@ Space</source>
 <context>
     <name>openstudio::StartupMenu</name>
     <message>
-        <location filename="../src/openstudio_app/StartupMenu.cpp" line="15" />
+        <location filename="../src/openstudio_app/StartupMenu.cpp" line="15"/>
         <source>&amp;File</source>
         <translation>&amp;फ़ाइल</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_app/StartupMenu.cpp" line="16" />
+        <location filename="../src/openstudio_app/StartupMenu.cpp" line="16"/>
         <source>&amp;New</source>
         <translation>&amp;नया</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_app/StartupMenu.cpp" line="18" />
+        <location filename="../src/openstudio_app/StartupMenu.cpp" line="18"/>
         <source>&amp;Open</source>
         <translation>&amp;खोलें</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_app/StartupMenu.cpp" line="20" />
+        <location filename="../src/openstudio_app/StartupMenu.cpp" line="20"/>
         <source>E&amp;xit</source>
         <translation>&amp;बंद करें</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_app/StartupMenu.cpp" line="23" />
+        <location filename="../src/openstudio_app/StartupMenu.cpp" line="23"/>
         <source>Import</source>
         <translation>निर्यात करें</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_app/StartupMenu.cpp" line="24" />
+        <location filename="../src/openstudio_app/StartupMenu.cpp" line="24"/>
         <source>IDF</source>
         <translation>ईडफ</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_app/StartupMenu.cpp" line="27" />
+        <location filename="../src/openstudio_app/StartupMenu.cpp" line="27"/>
         <source>gbXML</source>
         <translation>जीबीएक्सएमएल</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_app/StartupMenu.cpp" line="30" />
+        <location filename="../src/openstudio_app/StartupMenu.cpp" line="30"/>
         <source>SDD</source>
         <translation>एसडीडी</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_app/StartupMenu.cpp" line="33" />
+        <location filename="../src/openstudio_app/StartupMenu.cpp" line="33"/>
         <source>IFC</source>
         <translation>आईएफसी</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_app/StartupMenu.cpp" line="50" />
+        <location filename="../src/openstudio_app/StartupMenu.cpp" line="50"/>
         <source>&amp;Help</source>
         <translation>&amp;मदद</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_app/StartupMenu.cpp" line="54" />
+        <location filename="../src/openstudio_app/StartupMenu.cpp" line="54"/>
         <source>OpenStudio &amp;Help</source>
         <translation>ओपेनस्टूडियो &amp;मदद</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_app/StartupMenu.cpp" line="59" />
+        <location filename="../src/openstudio_app/StartupMenu.cpp" line="59"/>
         <source>Check For &amp;Update</source>
         <translation>&amp;नया क्या है</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_app/StartupMenu.cpp" line="63" />
+        <location filename="../src/openstudio_app/StartupMenu.cpp" line="63"/>
         <source>Debug Webgl</source>
         <translation>डिबग वेबजीएल</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_app/StartupMenu.cpp" line="67" />
+        <location filename="../src/openstudio_app/StartupMenu.cpp" line="67"/>
         <source>&amp;About</source>
         <translation>बा&amp;रे में</translation>
     </message>
@@ -30262,37 +30273,37 @@ Space</source>
 <context>
     <name>openstudio::SteamEquipmentDefinitionInspectorView</name>
     <message>
-        <location filename="../src/openstudio_lib/SteamEquipmentInspectorView.cpp" line="36" />
+        <location filename="../src/openstudio_lib/SteamEquipmentInspectorView.cpp" line="36"/>
         <source>Name: </source>
         <translation>नाम:</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/SteamEquipmentInspectorView.cpp" line="45" />
+        <location filename="../src/openstudio_lib/SteamEquipmentInspectorView.cpp" line="45"/>
         <source>Design Level: </source>
         <translation>डिज़ाइन स्तर:</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/SteamEquipmentInspectorView.cpp" line="55" />
+        <location filename="../src/openstudio_lib/SteamEquipmentInspectorView.cpp" line="55"/>
         <source>Power Per Space Floor Area: </source>
         <translation>प्रति स्पेस फ्लोर क्षेत्र शक्ति:</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/SteamEquipmentInspectorView.cpp" line="65" />
+        <location filename="../src/openstudio_lib/SteamEquipmentInspectorView.cpp" line="65"/>
         <source>Power Per Person: </source>
         <translation>प्रति व्यक्ति शक्ति:</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/SteamEquipmentInspectorView.cpp" line="75" />
+        <location filename="../src/openstudio_lib/SteamEquipmentInspectorView.cpp" line="75"/>
         <source>Fraction Latent: </source>
         <translation>अंश सुप्त:</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/SteamEquipmentInspectorView.cpp" line="85" />
+        <location filename="../src/openstudio_lib/SteamEquipmentInspectorView.cpp" line="85"/>
         <source>Fraction Radiant: </source>
         <translation>विकिरण अंश:</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/SteamEquipmentInspectorView.cpp" line="95" />
+        <location filename="../src/openstudio_lib/SteamEquipmentInspectorView.cpp" line="95"/>
         <source>Fraction Lost: </source>
         <translation>Fraction Lost:
 
@@ -30302,7 +30313,7 @@ Space</source>
 <context>
     <name>openstudio::SyncMeasuresDialog</name>
     <message>
-        <location filename="../src/shared_gui_components/SyncMeasuresDialog.cpp" line="37" />
+        <location filename="../src/shared_gui_components/SyncMeasuresDialog.cpp" line="37"/>
         <source>Updates Available in Library</source>
         <translation>लाइब्रेरी में उपलब्ध अपडेट</translation>
     </message>
@@ -30310,17 +30321,17 @@ Space</source>
 <context>
     <name>openstudio::SyncMeasuresDialogCentralWidget</name>
     <message>
-        <location filename="../src/shared_gui_components/SyncMeasuresDialogCentralWidget.cpp" line="42" />
+        <location filename="../src/shared_gui_components/SyncMeasuresDialogCentralWidget.cpp" line="42"/>
         <source>Check All</source>
         <translation>सभी चुनें</translation>
     </message>
     <message>
-        <location filename="../src/shared_gui_components/SyncMeasuresDialogCentralWidget.cpp" line="62" />
+        <location filename="../src/shared_gui_components/SyncMeasuresDialogCentralWidget.cpp" line="62"/>
         <source>Updates</source>
         <translation>अपडेट</translation>
     </message>
     <message>
-        <location filename="../src/shared_gui_components/SyncMeasuresDialogCentralWidget.cpp" line="76" />
+        <location filename="../src/shared_gui_components/SyncMeasuresDialogCentralWidget.cpp" line="76"/>
         <source>Update</source>
         <translation>अपडेट करें</translation>
     </message>
@@ -30328,12 +30339,12 @@ Space</source>
 <context>
     <name>openstudio::SystemCenterItem</name>
     <message>
-        <location filename="../src/openstudio_lib/GridItem.cpp" line="1434" />
+        <location filename="../src/openstudio_lib/GridItem.cpp" line="1434"/>
         <source>Supply Equipment</source>
         <translation>आपूर्ति उपकरण</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/GridItem.cpp" line="1435" />
+        <location filename="../src/openstudio_lib/GridItem.cpp" line="1435"/>
         <source>Demand Equipment</source>
         <translation>मांग उपकरण</translation>
     </message>
@@ -30341,44 +30352,44 @@ Space</source>
 <context>
     <name>openstudio::ThermalZonesGridController</name>
     <message>
-        <location filename="../src/openstudio_lib/ThermalZonesGridView.cpp" line="165" />
-        <location filename="../src/openstudio_lib/ThermalZonesGridView.cpp" line="543" />
-        <location filename="../src/openstudio_lib/ThermalZonesGridView.cpp" line="544" />
+        <location filename="../src/openstudio_lib/ThermalZonesGridView.cpp" line="165"/>
+        <location filename="../src/openstudio_lib/ThermalZonesGridView.cpp" line="543"/>
+        <location filename="../src/openstudio_lib/ThermalZonesGridView.cpp" line="544"/>
         <source>Name</source>
         <translation>नाम</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/ThermalZonesGridView.cpp" line="165" />
-        <location filename="../src/openstudio_lib/ThermalZonesGridView.cpp" line="193" />
-        <location filename="../src/openstudio_lib/ThermalZonesGridView.cpp" line="198" />
+        <location filename="../src/openstudio_lib/ThermalZonesGridView.cpp" line="165"/>
+        <location filename="../src/openstudio_lib/ThermalZonesGridView.cpp" line="193"/>
+        <location filename="../src/openstudio_lib/ThermalZonesGridView.cpp" line="198"/>
         <source>All</source>
         <translation>सब</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/ThermalZonesGridView.cpp" line="161" />
-        <location filename="../src/openstudio_lib/ThermalZonesGridView.cpp" line="547" />
-        <location filename="../src/openstudio_lib/ThermalZonesGridView.cpp" line="548" />
+        <location filename="../src/openstudio_lib/ThermalZonesGridView.cpp" line="161"/>
+        <location filename="../src/openstudio_lib/ThermalZonesGridView.cpp" line="547"/>
+        <location filename="../src/openstudio_lib/ThermalZonesGridView.cpp" line="548"/>
         <source>Display Name</source>
         <translation>प्रदर्शन नाम</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/ThermalZonesGridView.cpp" line="161" />
-        <location filename="../src/openstudio_lib/ThermalZonesGridView.cpp" line="554" />
-        <location filename="../src/openstudio_lib/ThermalZonesGridView.cpp" line="555" />
+        <location filename="../src/openstudio_lib/ThermalZonesGridView.cpp" line="161"/>
+        <location filename="../src/openstudio_lib/ThermalZonesGridView.cpp" line="554"/>
+        <location filename="../src/openstudio_lib/ThermalZonesGridView.cpp" line="555"/>
         <source>CAD Object ID</source>
         <translation>CAD Object ID</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/ThermalZonesGridView.cpp" line="109" />
-        <location filename="../src/openstudio_lib/ThermalZonesGridView.cpp" line="199" />
-        <location filename="../src/openstudio_lib/ThermalZonesGridView.cpp" line="200" />
+        <location filename="../src/openstudio_lib/ThermalZonesGridView.cpp" line="109"/>
+        <location filename="../src/openstudio_lib/ThermalZonesGridView.cpp" line="199"/>
+        <location filename="../src/openstudio_lib/ThermalZonesGridView.cpp" line="200"/>
         <source>Rendering Color</source>
         <translation>Rendering Color</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/ThermalZonesGridView.cpp" line="110" />
-        <location filename="../src/openstudio_lib/ThermalZonesGridView.cpp" line="189" />
-        <location filename="../src/openstudio_lib/ThermalZonesGridView.cpp" line="191" />
+        <location filename="../src/openstudio_lib/ThermalZonesGridView.cpp" line="110"/>
+        <location filename="../src/openstudio_lib/ThermalZonesGridView.cpp" line="189"/>
+        <location filename="../src/openstudio_lib/ThermalZonesGridView.cpp" line="191"/>
         <source>Turn On
 Ideal
 Air Loads</source>
@@ -30387,67 +30398,67 @@ Air Loads</source>
 वायु भार</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/ThermalZonesGridView.cpp" line="111" />
-        <location filename="../src/openstudio_lib/ThermalZonesGridView.cpp" line="561" />
-        <location filename="../src/openstudio_lib/ThermalZonesGridView.cpp" line="570" />
+        <location filename="../src/openstudio_lib/ThermalZonesGridView.cpp" line="111"/>
+        <location filename="../src/openstudio_lib/ThermalZonesGridView.cpp" line="561"/>
+        <location filename="../src/openstudio_lib/ThermalZonesGridView.cpp" line="570"/>
         <source>Air Loop Name</source>
         <translation>वायु लूप नाम</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/ThermalZonesGridView.cpp" line="112" />
-        <location filename="../src/openstudio_lib/ThermalZonesGridView.cpp" line="508" />
-        <location filename="../src/openstudio_lib/ThermalZonesGridView.cpp" line="534" />
-        <location filename="../src/openstudio_lib/ThermalZonesGridView.cpp" line="541" />
+        <location filename="../src/openstudio_lib/ThermalZonesGridView.cpp" line="112"/>
+        <location filename="../src/openstudio_lib/ThermalZonesGridView.cpp" line="508"/>
+        <location filename="../src/openstudio_lib/ThermalZonesGridView.cpp" line="534"/>
+        <location filename="../src/openstudio_lib/ThermalZonesGridView.cpp" line="541"/>
         <source>Zone Equipment</source>
         <translation>Zone Equipment</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/ThermalZonesGridView.cpp" line="113" />
-        <location filename="../src/openstudio_lib/ThermalZonesGridView.cpp" line="330" />
-        <location filename="../src/openstudio_lib/ThermalZonesGridView.cpp" line="371" />
+        <location filename="../src/openstudio_lib/ThermalZonesGridView.cpp" line="113"/>
+        <location filename="../src/openstudio_lib/ThermalZonesGridView.cpp" line="330"/>
+        <location filename="../src/openstudio_lib/ThermalZonesGridView.cpp" line="371"/>
         <source>Cooling Thermostat
 Schedule</source>
         <translation>शीतलन थर्मोस्टेट
 शेड्यूल</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/ThermalZonesGridView.cpp" line="114" />
-        <location filename="../src/openstudio_lib/ThermalZonesGridView.cpp" line="374" />
-        <location filename="../src/openstudio_lib/ThermalZonesGridView.cpp" line="415" />
+        <location filename="../src/openstudio_lib/ThermalZonesGridView.cpp" line="114"/>
+        <location filename="../src/openstudio_lib/ThermalZonesGridView.cpp" line="374"/>
+        <location filename="../src/openstudio_lib/ThermalZonesGridView.cpp" line="415"/>
         <source>Heating Thermostat
 Schedule</source>
         <translation>हीटिंग थर्मोस्टेट
 शेड्यूल</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/ThermalZonesGridView.cpp" line="115" />
-        <location filename="../src/openstudio_lib/ThermalZonesGridView.cpp" line="418" />
-        <location filename="../src/openstudio_lib/ThermalZonesGridView.cpp" line="460" />
+        <location filename="../src/openstudio_lib/ThermalZonesGridView.cpp" line="115"/>
+        <location filename="../src/openstudio_lib/ThermalZonesGridView.cpp" line="418"/>
+        <location filename="../src/openstudio_lib/ThermalZonesGridView.cpp" line="460"/>
         <source>Humidifying Setpoint
 Schedule</source>
         <translation>आर्द्रता निर्धारण बिंदु
 अनुसूची</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/ThermalZonesGridView.cpp" line="116" />
-        <location filename="../src/openstudio_lib/ThermalZonesGridView.cpp" line="463" />
-        <location filename="../src/openstudio_lib/ThermalZonesGridView.cpp" line="505" />
+        <location filename="../src/openstudio_lib/ThermalZonesGridView.cpp" line="116"/>
+        <location filename="../src/openstudio_lib/ThermalZonesGridView.cpp" line="463"/>
+        <location filename="../src/openstudio_lib/ThermalZonesGridView.cpp" line="505"/>
         <source>Dehumidifying Setpoint
 Schedule</source>
         <translation>Dehumidifying Setpoint
 Schedule</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/ThermalZonesGridView.cpp" line="117" />
-        <location filename="../src/openstudio_lib/ThermalZonesGridView.cpp" line="576" />
-        <location filename="../src/openstudio_lib/ThermalZonesGridView.cpp" line="577" />
+        <location filename="../src/openstudio_lib/ThermalZonesGridView.cpp" line="117"/>
+        <location filename="../src/openstudio_lib/ThermalZonesGridView.cpp" line="576"/>
+        <location filename="../src/openstudio_lib/ThermalZonesGridView.cpp" line="577"/>
         <source>Multiplier</source>
         <translation>गुणक</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/ThermalZonesGridView.cpp" line="125" />
-        <location filename="../src/openstudio_lib/ThermalZonesGridView.cpp" line="203" />
-        <location filename="../src/openstudio_lib/ThermalZonesGridView.cpp" line="205" />
+        <location filename="../src/openstudio_lib/ThermalZonesGridView.cpp" line="125"/>
+        <location filename="../src/openstudio_lib/ThermalZonesGridView.cpp" line="203"/>
+        <location filename="../src/openstudio_lib/ThermalZonesGridView.cpp" line="205"/>
         <source>Zone Cooling
 Design Supply
 Air Temperature</source>
@@ -30456,34 +30467,34 @@ Air Temperature</source>
 एयर तापमान</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/ThermalZonesGridView.cpp" line="126" />
-        <location filename="../src/openstudio_lib/ThermalZonesGridView.cpp" line="213" />
-        <location filename="../src/openstudio_lib/ThermalZonesGridView.cpp" line="214" />
+        <location filename="../src/openstudio_lib/ThermalZonesGridView.cpp" line="126"/>
+        <location filename="../src/openstudio_lib/ThermalZonesGridView.cpp" line="213"/>
+        <location filename="../src/openstudio_lib/ThermalZonesGridView.cpp" line="214"/>
         <source>Zone Cooling
 Design Supply
 Air Humidity Ratio</source>
         <translation>जोन कूलिंग डिज़ाइन सप्लाई एयर आर्द्रता अनुपात</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/ThermalZonesGridView.cpp" line="127" />
-        <location filename="../src/openstudio_lib/ThermalZonesGridView.cpp" line="225" />
+        <location filename="../src/openstudio_lib/ThermalZonesGridView.cpp" line="127"/>
+        <location filename="../src/openstudio_lib/ThermalZonesGridView.cpp" line="225"/>
         <source>Zone Cooling
 Sizing Factor</source>
         <translation>Zone Cooling Sizing Factor</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/ThermalZonesGridView.cpp" line="128" />
-        <location filename="../src/openstudio_lib/ThermalZonesGridView.cpp" line="269" />
-        <location filename="../src/openstudio_lib/ThermalZonesGridView.cpp" line="270" />
+        <location filename="../src/openstudio_lib/ThermalZonesGridView.cpp" line="128"/>
+        <location filename="../src/openstudio_lib/ThermalZonesGridView.cpp" line="269"/>
+        <location filename="../src/openstudio_lib/ThermalZonesGridView.cpp" line="270"/>
         <source>Cooling Minimum Air
 Flow per Zone
 Floor Area</source>
         <translation>शीतलन न्यूनतम वायु प्रवाह प्रति क्षेत्र तल क्षेत्र</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/ThermalZonesGridView.cpp" line="129" />
-        <location filename="../src/openstudio_lib/ThermalZonesGridView.cpp" line="291" />
-        <location filename="../src/openstudio_lib/ThermalZonesGridView.cpp" line="292" />
+        <location filename="../src/openstudio_lib/ThermalZonesGridView.cpp" line="129"/>
+        <location filename="../src/openstudio_lib/ThermalZonesGridView.cpp" line="291"/>
+        <location filename="../src/openstudio_lib/ThermalZonesGridView.cpp" line="292"/>
         <source>Design Zone Air
 Distribution Effectiveness
 in Cooling Mode</source>
@@ -30492,45 +30503,45 @@ in Cooling Mode</source>
 शीतलन मोड में</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/ThermalZonesGridView.cpp" line="130" />
-        <location filename="../src/openstudio_lib/ThermalZonesGridView.cpp" line="278" />
-        <location filename="../src/openstudio_lib/ThermalZonesGridView.cpp" line="279" />
+        <location filename="../src/openstudio_lib/ThermalZonesGridView.cpp" line="130"/>
+        <location filename="../src/openstudio_lib/ThermalZonesGridView.cpp" line="278"/>
+        <location filename="../src/openstudio_lib/ThermalZonesGridView.cpp" line="279"/>
         <source>Cooling Minimum
 Air Flow Fraction</source>
         <translation>शीतलन न्यूनतम
 वायु प्रवाह अंश</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/ThermalZonesGridView.cpp" line="131" />
-        <location filename="../src/openstudio_lib/ThermalZonesGridView.cpp" line="302" />
-        <location filename="../src/openstudio_lib/ThermalZonesGridView.cpp" line="304" />
+        <location filename="../src/openstudio_lib/ThermalZonesGridView.cpp" line="131"/>
+        <location filename="../src/openstudio_lib/ThermalZonesGridView.cpp" line="302"/>
+        <location filename="../src/openstudio_lib/ThermalZonesGridView.cpp" line="304"/>
         <source>Cooling Design
 Air Flow Method</source>
         <translation>शीतलन डिजाइन
 वायु प्रवाह विधि</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/ThermalZonesGridView.cpp" line="132" />
-        <location filename="../src/openstudio_lib/ThermalZonesGridView.cpp" line="265" />
-        <location filename="../src/openstudio_lib/ThermalZonesGridView.cpp" line="266" />
+        <location filename="../src/openstudio_lib/ThermalZonesGridView.cpp" line="132"/>
+        <location filename="../src/openstudio_lib/ThermalZonesGridView.cpp" line="265"/>
+        <location filename="../src/openstudio_lib/ThermalZonesGridView.cpp" line="266"/>
         <source>Cooling Design
 Air Flow Rate</source>
         <translation>शीतलन डिज़ाइन
 वायु प्रवाह दर</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/ThermalZonesGridView.cpp" line="133" />
-        <location filename="../src/openstudio_lib/ThermalZonesGridView.cpp" line="274" />
-        <location filename="../src/openstudio_lib/ThermalZonesGridView.cpp" line="275" />
+        <location filename="../src/openstudio_lib/ThermalZonesGridView.cpp" line="133"/>
+        <location filename="../src/openstudio_lib/ThermalZonesGridView.cpp" line="274"/>
+        <location filename="../src/openstudio_lib/ThermalZonesGridView.cpp" line="275"/>
         <source>Cooling Minimum
 Air Flow</source>
         <translation>शीतलन न्यूनतम
 वायु प्रवाह</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/ThermalZonesGridView.cpp" line="141" />
-        <location filename="../src/openstudio_lib/ThermalZonesGridView.cpp" line="209" />
-        <location filename="../src/openstudio_lib/ThermalZonesGridView.cpp" line="210" />
+        <location filename="../src/openstudio_lib/ThermalZonesGridView.cpp" line="141"/>
+        <location filename="../src/openstudio_lib/ThermalZonesGridView.cpp" line="209"/>
+        <location filename="../src/openstudio_lib/ThermalZonesGridView.cpp" line="210"/>
         <source>Zone Heating
 Design Supply
 Air Temperature</source>
@@ -30539,9 +30550,9 @@ Air Temperature</source>
 वायु तापमान</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/ThermalZonesGridView.cpp" line="142" />
-        <location filename="../src/openstudio_lib/ThermalZonesGridView.cpp" line="217" />
-        <location filename="../src/openstudio_lib/ThermalZonesGridView.cpp" line="218" />
+        <location filename="../src/openstudio_lib/ThermalZonesGridView.cpp" line="142"/>
+        <location filename="../src/openstudio_lib/ThermalZonesGridView.cpp" line="217"/>
+        <location filename="../src/openstudio_lib/ThermalZonesGridView.cpp" line="218"/>
         <source>Zone Heating
 Design Supply
 Air Humidity Ratio</source>
@@ -30550,92 +30561,92 @@ Design Supply
 Air Humidity Ratio</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/ThermalZonesGridView.cpp" line="143" />
-        <location filename="../src/openstudio_lib/ThermalZonesGridView.cpp" line="221" />
-        <location filename="../src/openstudio_lib/ThermalZonesGridView.cpp" line="222" />
+        <location filename="../src/openstudio_lib/ThermalZonesGridView.cpp" line="143"/>
+        <location filename="../src/openstudio_lib/ThermalZonesGridView.cpp" line="221"/>
+        <location filename="../src/openstudio_lib/ThermalZonesGridView.cpp" line="222"/>
         <source>Zone Heating
 Sizing Factor</source>
         <translation>Zone Heating
 आकार निर्धारण कारक</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/ThermalZonesGridView.cpp" line="144" />
-        <location filename="../src/openstudio_lib/ThermalZonesGridView.cpp" line="282" />
-        <location filename="../src/openstudio_lib/ThermalZonesGridView.cpp" line="283" />
+        <location filename="../src/openstudio_lib/ThermalZonesGridView.cpp" line="144"/>
+        <location filename="../src/openstudio_lib/ThermalZonesGridView.cpp" line="282"/>
+        <location filename="../src/openstudio_lib/ThermalZonesGridView.cpp" line="283"/>
         <source>Heating Maximum Air
 Flow per Zone
 Floor Area</source>
         <translation>हीटिंग अधिकतम वायु प्रवाह प्रति जोन फर्श क्षेत्र</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/ThermalZonesGridView.cpp" line="145" />
-        <location filename="../src/openstudio_lib/ThermalZonesGridView.cpp" line="296" />
-        <location filename="../src/openstudio_lib/ThermalZonesGridView.cpp" line="297" />
+        <location filename="../src/openstudio_lib/ThermalZonesGridView.cpp" line="145"/>
+        <location filename="../src/openstudio_lib/ThermalZonesGridView.cpp" line="296"/>
+        <location filename="../src/openstudio_lib/ThermalZonesGridView.cpp" line="297"/>
         <source>Design Zone Air
 Distribution Effectiveness
 in Heating Mode</source>
         <translation>डिज़ाइन ज़ोन वायु वितरण प्रभावशीलता हीटिंग मोड में</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/ThermalZonesGridView.cpp" line="146" />
-        <location filename="../src/openstudio_lib/ThermalZonesGridView.cpp" line="287" />
-        <location filename="../src/openstudio_lib/ThermalZonesGridView.cpp" line="288" />
+        <location filename="../src/openstudio_lib/ThermalZonesGridView.cpp" line="146"/>
+        <location filename="../src/openstudio_lib/ThermalZonesGridView.cpp" line="287"/>
+        <location filename="../src/openstudio_lib/ThermalZonesGridView.cpp" line="288"/>
         <source>Heating Maximum
 Air Flow Fraction</source>
         <translation>हीटिंग अधिकतम
 वायु प्रवाह अंश</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/ThermalZonesGridView.cpp" line="147" />
-        <location filename="../src/openstudio_lib/ThermalZonesGridView.cpp" line="237" />
-        <location filename="../src/openstudio_lib/ThermalZonesGridView.cpp" line="239" />
+        <location filename="../src/openstudio_lib/ThermalZonesGridView.cpp" line="147"/>
+        <location filename="../src/openstudio_lib/ThermalZonesGridView.cpp" line="237"/>
+        <location filename="../src/openstudio_lib/ThermalZonesGridView.cpp" line="239"/>
         <source>Heating Design
 Air Flow Method</source>
         <translation>हीटिंग डिज़ाइन
 वायु प्रवाह विधि</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/ThermalZonesGridView.cpp" line="148" />
-        <location filename="../src/openstudio_lib/ThermalZonesGridView.cpp" line="229" />
-        <location filename="../src/openstudio_lib/ThermalZonesGridView.cpp" line="230" />
+        <location filename="../src/openstudio_lib/ThermalZonesGridView.cpp" line="148"/>
+        <location filename="../src/openstudio_lib/ThermalZonesGridView.cpp" line="229"/>
+        <location filename="../src/openstudio_lib/ThermalZonesGridView.cpp" line="230"/>
         <source>Heating Design
 Air Flow Rate</source>
         <translation>हीटिंग डिज़ाइन
 वायु प्रवाह दर</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/ThermalZonesGridView.cpp" line="149" />
-        <location filename="../src/openstudio_lib/ThermalZonesGridView.cpp" line="233" />
-        <location filename="../src/openstudio_lib/ThermalZonesGridView.cpp" line="234" />
+        <location filename="../src/openstudio_lib/ThermalZonesGridView.cpp" line="149"/>
+        <location filename="../src/openstudio_lib/ThermalZonesGridView.cpp" line="233"/>
+        <location filename="../src/openstudio_lib/ThermalZonesGridView.cpp" line="234"/>
         <source>Heating Maximum
 Air Flow</source>
         <translation>हीटिंग अधिकतम
 वायु प्रवाह</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/ThermalZonesGridView.cpp" line="191" />
+        <location filename="../src/openstudio_lib/ThermalZonesGridView.cpp" line="191"/>
         <source>Check to enable ideal air loads.</source>
         <translation>आदर्श वायु भार सक्षम करने के लिए जांचें।</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/ThermalZonesGridView.cpp" line="195" />
+        <location filename="../src/openstudio_lib/ThermalZonesGridView.cpp" line="195"/>
         <source>Check to select all rows</source>
         <translation>सभी का चयन करे</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/ThermalZonesGridView.cpp" line="198" />
+        <location filename="../src/openstudio_lib/ThermalZonesGridView.cpp" line="198"/>
         <source>Check to select this row</source>
         <translation>इस पंक्ति को चुनने के लिए जांचें</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/ThermalZonesGridView.cpp" line="119" />
+        <location filename="../src/openstudio_lib/ThermalZonesGridView.cpp" line="119"/>
         <source>HVAC
 Systems</source>
         <translation>HVAC
 प्रणालियाँ</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/ThermalZonesGridView.cpp" line="135" />
+        <location filename="../src/openstudio_lib/ThermalZonesGridView.cpp" line="135"/>
         <source>Cooling
 Sizing
 Parameters</source>
@@ -30644,7 +30655,7 @@ Parameters</source>
 पैरामीटर</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/ThermalZonesGridView.cpp" line="151" />
+        <location filename="../src/openstudio_lib/ThermalZonesGridView.cpp" line="151"/>
         <source>Heating
 Sizing
 Parameters</source>
@@ -30656,13 +30667,13 @@ Parameters</source>
 <context>
     <name>openstudio::ThermalZonesGridView</name>
     <message>
-        <location filename="../src/openstudio_lib/ThermalZonesGridView.cpp" line="68" />
-        <location filename="../src/openstudio_lib/ThermalZonesGridView.cpp" line="70" />
+        <location filename="../src/openstudio_lib/ThermalZonesGridView.cpp" line="68"/>
+        <location filename="../src/openstudio_lib/ThermalZonesGridView.cpp" line="70"/>
         <source>Thermal Zones</source>
         <translation>तापीय क्षेत्र</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/ThermalZonesGridView.cpp" line="70" />
+        <location filename="../src/openstudio_lib/ThermalZonesGridView.cpp" line="70"/>
         <source>Drop
 Zone</source>
         <translation>ड्रॉप क्षेत्र</translation>
@@ -30671,7 +30682,7 @@ Zone</source>
 <context>
     <name>openstudio::ThermalZonesTabView</name>
     <message>
-        <location filename="../src/openstudio_lib/ThermalZonesTabView.cpp" line="10" />
+        <location filename="../src/openstudio_lib/ThermalZonesTabView.cpp" line="10"/>
         <source>Thermal Zones</source>
         <translation>थर्मल जोन्स</translation>
     </message>
@@ -30679,105 +30690,105 @@ Zone</source>
 <context>
     <name>openstudio::UtilityBillsInspectorView</name>
     <message>
-        <location filename="../src/openstudio_lib/UtilityBillsView.cpp" line="144" />
+        <location filename="../src/openstudio_lib/UtilityBillsView.cpp" line="144"/>
         <source>Start Date </source>
         <translation>शुरुआत तिथि</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/UtilityBillsView.cpp" line="150" />
+        <location filename="../src/openstudio_lib/UtilityBillsView.cpp" line="150"/>
         <source>   End Date </source>
         <translation>समाप्ति तिथि</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/UtilityBillsView.cpp" line="207" />
+        <location filename="../src/openstudio_lib/UtilityBillsView.cpp" line="207"/>
         <source>Name</source>
         <translation>नाम</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/UtilityBillsView.cpp" line="229" />
+        <location filename="../src/openstudio_lib/UtilityBillsView.cpp" line="229"/>
         <source>Consumption Units</source>
         <translation>खपत इकाइयाँ</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/UtilityBillsView.cpp" line="246" />
+        <location filename="../src/openstudio_lib/UtilityBillsView.cpp" line="246"/>
         <source>Peak Demand Units</source>
         <translation>पीक डिमांड यूनिट्स</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/UtilityBillsView.cpp" line="263" />
+        <location filename="../src/openstudio_lib/UtilityBillsView.cpp" line="263"/>
         <source>Peak Demand Window Timesteps</source>
         <translation>Peak Demand Window Timesteps</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/UtilityBillsView.cpp" line="284" />
+        <location filename="../src/openstudio_lib/UtilityBillsView.cpp" line="284"/>
         <source>Run Period</source>
         <translation>रन अवधि</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/UtilityBillsView.cpp" line="301" />
+        <location filename="../src/openstudio_lib/UtilityBillsView.cpp" line="301"/>
         <source>Billing Period</source>
         <translation>बिलिंग अवधि</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/UtilityBillsView.cpp" line="306" />
+        <location filename="../src/openstudio_lib/UtilityBillsView.cpp" line="306"/>
         <source>Select the best match for you utility bill</source>
         <translation>अपने यूटिलिटी बिल के लिए सर्वोत्तम मिलान चुनें</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/UtilityBillsView.cpp" line="316" />
+        <location filename="../src/openstudio_lib/UtilityBillsView.cpp" line="316"/>
         <source>Start Date and End Date</source>
         <translation>शुरुआत की तारीख और समाप्ति की तारीख</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/UtilityBillsView.cpp" line="320" />
+        <location filename="../src/openstudio_lib/UtilityBillsView.cpp" line="320"/>
         <source>Start Date and Number of Days in Billing Period</source>
         <translation>बिलिंग अवधि में प्रारंभ तिथि और दिनों की संख्या</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/UtilityBillsView.cpp" line="324" />
+        <location filename="../src/openstudio_lib/UtilityBillsView.cpp" line="324"/>
         <source>End Date and Number of Days in Billing Period</source>
         <translation>बिलिंग अवधि में समाप्ति तारीख और दिनों की संख्या</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/UtilityBillsView.cpp" line="352" />
+        <location filename="../src/openstudio_lib/UtilityBillsView.cpp" line="352"/>
         <source>Add new object</source>
         <translation>नया ऑब्जेक्ट जोड़ें</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/UtilityBillsView.cpp" line="360" />
+        <location filename="../src/openstudio_lib/UtilityBillsView.cpp" line="360"/>
         <source>Add New Billing Period</source>
         <translation>नई बिलिंग अवधि जोड़ें</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/UtilityBillsView.cpp" line="485" />
-        <location filename="../src/openstudio_lib/UtilityBillsView.cpp" line="497" />
+        <location filename="../src/openstudio_lib/UtilityBillsView.cpp" line="485"/>
+        <location filename="../src/openstudio_lib/UtilityBillsView.cpp" line="497"/>
         <source>Start Date</source>
         <translation>शुरुआत तिथि</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/UtilityBillsView.cpp" line="491" />
-        <location filename="../src/openstudio_lib/UtilityBillsView.cpp" line="509" />
+        <location filename="../src/openstudio_lib/UtilityBillsView.cpp" line="491"/>
+        <location filename="../src/openstudio_lib/UtilityBillsView.cpp" line="509"/>
         <source>End Date</source>
         <translation>समाप्ति तिथि</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/UtilityBillsView.cpp" line="503" />
-        <location filename="../src/openstudio_lib/UtilityBillsView.cpp" line="515" />
+        <location filename="../src/openstudio_lib/UtilityBillsView.cpp" line="503"/>
+        <location filename="../src/openstudio_lib/UtilityBillsView.cpp" line="515"/>
         <source>Billing Period Days</source>
         <translation>बिलिंग अवधि दिन</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/UtilityBillsView.cpp" line="540" />
+        <location filename="../src/openstudio_lib/UtilityBillsView.cpp" line="540"/>
         <source>Cost</source>
         <translation>लागत</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/UtilityBillsView.cpp" line="605" />
+        <location filename="../src/openstudio_lib/UtilityBillsView.cpp" line="605"/>
         <source>Energy Use (</source>
         <translation>ऊर्जा उपयोग (</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/UtilityBillsView.cpp" line="612" />
+        <location filename="../src/openstudio_lib/UtilityBillsView.cpp" line="612"/>
         <source>Peak (</source>
         <translation>पीक (</translation>
     </message>
@@ -30785,7 +30796,7 @@ Zone</source>
 <context>
     <name>openstudio::VRFSystemDropZoneView</name>
     <message>
-        <location filename="../src/openstudio_lib/VRFGraphicsItems.cpp" line="470" />
+        <location filename="../src/openstudio_lib/VRFGraphicsItems.cpp" line="470"/>
         <source>Drop VRF System</source>
         <translation>VRF सिस्टम को हटाएँ</translation>
     </message>
@@ -30801,12 +30812,12 @@ Zone</source>
 <context>
     <name>openstudio::VRFSystemMiniView</name>
     <message>
-        <location filename="../src/openstudio_lib/VRFGraphicsItems.cpp" line="436" />
+        <location filename="../src/openstudio_lib/VRFGraphicsItems.cpp" line="436"/>
         <source>Terminals</source>
         <translation>टर्मिनल</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/VRFGraphicsItems.cpp" line="450" />
+        <location filename="../src/openstudio_lib/VRFGraphicsItems.cpp" line="450"/>
         <source>Zones</source>
         <translation>जोन्स</translation>
     </message>
@@ -30814,12 +30825,12 @@ Zone</source>
 <context>
     <name>openstudio::VRFSystemView</name>
     <message>
-        <location filename="../src/openstudio_lib/VRFGraphicsItems.cpp" line="118" />
+        <location filename="../src/openstudio_lib/VRFGraphicsItems.cpp" line="118"/>
         <source>Drop VRF Terminal</source>
         <translation>VRF टर्मिनल हटाएं</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/VRFGraphicsItems.cpp" line="122" />
+        <location filename="../src/openstudio_lib/VRFGraphicsItems.cpp" line="122"/>
         <source>Drop Thermal Zone</source>
         <translation>थर्मल ज़ोन छोड़ें</translation>
     </message>
@@ -30827,7 +30838,7 @@ Zone</source>
 <context>
     <name>openstudio::VRFThermalZoneDropZoneView</name>
     <message>
-        <location filename="../src/openstudio_lib/VRFGraphicsItems.cpp" line="304" />
+        <location filename="../src/openstudio_lib/VRFGraphicsItems.cpp" line="304"/>
         <source>Drop Thermal Zone</source>
         <translation>थर्मल ज़ोन छोड़ें</translation>
     </message>
@@ -30835,87 +30846,87 @@ Zone</source>
 <context>
     <name>openstudio::VariablesList</name>
     <message>
-        <location filename="../src/openstudio_lib/VariablesTabView.cpp" line="176" />
+        <location filename="../src/openstudio_lib/VariablesTabView.cpp" line="176"/>
         <source>Select Output Variables</source>
         <translation>आउटपुट वेरिएबल्स का चयन करें</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/VariablesTabView.cpp" line="179" />
+        <location filename="../src/openstudio_lib/VariablesTabView.cpp" line="179"/>
         <source>All</source>
         <translation>सब</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/VariablesTabView.cpp" line="185" />
+        <location filename="../src/openstudio_lib/VariablesTabView.cpp" line="185"/>
         <source>Enabled</source>
         <translation>सक्षम</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/VariablesTabView.cpp" line="191" />
+        <location filename="../src/openstudio_lib/VariablesTabView.cpp" line="191"/>
         <source>Disabled</source>
         <translation>अक्षम</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/VariablesTabView.cpp" line="225" />
+        <location filename="../src/openstudio_lib/VariablesTabView.cpp" line="225"/>
         <source>Filter Variables</source>
         <translation>फ़िल्टर चर</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/VariablesTabView.cpp" line="232" />
+        <location filename="../src/openstudio_lib/VariablesTabView.cpp" line="232"/>
         <source>Use Regex</source>
         <translation>नियमित व्यंजक का उपयोग करें</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/VariablesTabView.cpp" line="239" />
+        <location filename="../src/openstudio_lib/VariablesTabView.cpp" line="239"/>
         <source>Update Visible Variables</source>
         <translation>दृश्यमान चर अपडेट करें</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/VariablesTabView.cpp" line="242" />
+        <location filename="../src/openstudio_lib/VariablesTabView.cpp" line="242"/>
         <source>All On</source>
         <translation>सभी चालू करें</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/VariablesTabView.cpp" line="248" />
+        <location filename="../src/openstudio_lib/VariablesTabView.cpp" line="248"/>
         <source>All Off</source>
         <translation>सभी बंद</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/VariablesTabView.cpp" line="254" />
+        <location filename="../src/openstudio_lib/VariablesTabView.cpp" line="254"/>
         <source>Apply Frequency</source>
         <translation>आवृत्ति लागू करें</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/VariablesTabView.cpp" line="261" />
+        <location filename="../src/openstudio_lib/VariablesTabView.cpp" line="261"/>
         <source>Detailed</source>
         <translation>विस्तृत</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/VariablesTabView.cpp" line="262" />
+        <location filename="../src/openstudio_lib/VariablesTabView.cpp" line="262"/>
         <source>Timestep</source>
         <translation>समय चरण</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/VariablesTabView.cpp" line="263" />
+        <location filename="../src/openstudio_lib/VariablesTabView.cpp" line="263"/>
         <source>Hourly</source>
         <translation>प्रति घंटा</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/VariablesTabView.cpp" line="264" />
+        <location filename="../src/openstudio_lib/VariablesTabView.cpp" line="264"/>
         <source>Daily</source>
         <translation>दैनिक</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/VariablesTabView.cpp" line="265" />
+        <location filename="../src/openstudio_lib/VariablesTabView.cpp" line="265"/>
         <source>Monthly</source>
         <translation>मासिक</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/VariablesTabView.cpp" line="266" />
+        <location filename="../src/openstudio_lib/VariablesTabView.cpp" line="266"/>
         <source>RunPeriod</source>
         <translation>रन अवधि</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/VariablesTabView.cpp" line="267" />
+        <location filename="../src/openstudio_lib/VariablesTabView.cpp" line="267"/>
         <source>Annual</source>
         <translation>वार्षिक</translation>
     </message>
@@ -30923,7 +30934,7 @@ Zone</source>
 <context>
     <name>openstudio::VariablesTabView</name>
     <message>
-        <location filename="../src/openstudio_lib/VariablesTabView.cpp" line="484" />
+        <location filename="../src/openstudio_lib/VariablesTabView.cpp" line="484"/>
         <source>Output Variables</source>
         <translation>आउटपुट वेरिएबल</translation>
     </message>
@@ -30931,8 +30942,8 @@ Zone</source>
 <context>
     <name>openstudio::WaterUseConnectionsDetailItem</name>
     <message>
-        <location filename="../src/openstudio_lib/ServiceWaterGridItems.cpp" line="49" />
-        <location filename="../src/openstudio_lib/ServiceWaterGridItems.cpp" line="188" />
+        <location filename="../src/openstudio_lib/ServiceWaterGridItems.cpp" line="49"/>
+        <location filename="../src/openstudio_lib/ServiceWaterGridItems.cpp" line="188"/>
         <source>Go back to water mains editor</source>
         <translation>जल मेन संपादक पर वापस जाएं</translation>
     </message>
@@ -30940,7 +30951,7 @@ Zone</source>
 <context>
     <name>openstudio::WaterUseConnectionsDropZoneItem</name>
     <message>
-        <location filename="../src/openstudio_lib/ServiceWaterGridItems.cpp" line="510" />
+        <location filename="../src/openstudio_lib/ServiceWaterGridItems.cpp" line="510"/>
         <source>Drag Water Use Connections from Library</source>
         <translation>लाइब्रेरी से जल उपयोग कनेक्शन को ड्रैग करें</translation>
     </message>
@@ -30948,32 +30959,32 @@ Zone</source>
 <context>
     <name>openstudio::WaterUseEquipmentDefinitionInspectorView</name>
     <message>
-        <location filename="../src/openstudio_lib/WaterUseEquipmentInspectorView.cpp" line="208" />
+        <location filename="../src/openstudio_lib/WaterUseEquipmentInspectorView.cpp" line="208"/>
         <source>Name: </source>
         <translation>नाम:</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/WaterUseEquipmentInspectorView.cpp" line="216" />
+        <location filename="../src/openstudio_lib/WaterUseEquipmentInspectorView.cpp" line="216"/>
         <source>End Use Subcategory: </source>
         <translation>अंतिम उपयोग उप-श्रेणी:</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/WaterUseEquipmentInspectorView.cpp" line="224" />
+        <location filename="../src/openstudio_lib/WaterUseEquipmentInspectorView.cpp" line="224"/>
         <source>Peak Flow Rate: </source>
         <translation>पीक फ्लो दर:</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/WaterUseEquipmentInspectorView.cpp" line="234" />
+        <location filename="../src/openstudio_lib/WaterUseEquipmentInspectorView.cpp" line="234"/>
         <source>Target Temperature Schedule: </source>
         <translation>लक्ष्य तापमान अनुसूची:</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/WaterUseEquipmentInspectorView.cpp" line="246" />
+        <location filename="../src/openstudio_lib/WaterUseEquipmentInspectorView.cpp" line="246"/>
         <source>Sensible Fraction Schedule: </source>
         <translation>संवेदनशील अंश अनुसूची:</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/WaterUseEquipmentInspectorView.cpp" line="258" />
+        <location filename="../src/openstudio_lib/WaterUseEquipmentInspectorView.cpp" line="258"/>
         <source>Latent Fraction Schedule: </source>
         <translation>Latent Fraction Schedule:</translation>
     </message>
@@ -30981,7 +30992,7 @@ Zone</source>
 <context>
     <name>openstudio::WaterUseEquipmentDropZoneItem</name>
     <message>
-        <location filename="../src/openstudio_lib/ServiceWaterGridItems.cpp" line="501" />
+        <location filename="../src/openstudio_lib/ServiceWaterGridItems.cpp" line="501"/>
         <source>Drag Water Use Equipment from Library</source>
         <translation>लाइब्रेरी से ड्रैग वॉटर यूज़ इक्विपमेंट करें</translation>
     </message>
@@ -30989,147 +31000,147 @@ Zone</source>
 <context>
     <name>openstudio::WindowMaterialBlindInspectorView</name>
     <message>
-        <location filename="../src/openstudio_lib/WindowMaterialBlindInspectorView.cpp" line="50" />
+        <location filename="../src/openstudio_lib/WindowMaterialBlindInspectorView.cpp" line="50"/>
         <source>Name: </source>
         <translation>नाम:</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/WindowMaterialBlindInspectorView.cpp" line="69" />
+        <location filename="../src/openstudio_lib/WindowMaterialBlindInspectorView.cpp" line="69"/>
         <source>Slat Orientation: </source>
         <translation>स्लैट ओरिएंटेशन:</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/WindowMaterialBlindInspectorView.cpp" line="80" />
+        <location filename="../src/openstudio_lib/WindowMaterialBlindInspectorView.cpp" line="80"/>
         <source>Slat Width: </source>
         <translation>स्लैट चौड़ाई:</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/WindowMaterialBlindInspectorView.cpp" line="90" />
+        <location filename="../src/openstudio_lib/WindowMaterialBlindInspectorView.cpp" line="90"/>
         <source>Slat Separation: </source>
         <translation>स्लैट अलगाव:</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/WindowMaterialBlindInspectorView.cpp" line="100" />
+        <location filename="../src/openstudio_lib/WindowMaterialBlindInspectorView.cpp" line="100"/>
         <source>Slat Thickness: </source>
         <translation>स्लेट की मोटाई:</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/WindowMaterialBlindInspectorView.cpp" line="110" />
+        <location filename="../src/openstudio_lib/WindowMaterialBlindInspectorView.cpp" line="110"/>
         <source>Slat Angle: </source>
         <translation>स्लैट कोण:</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/WindowMaterialBlindInspectorView.cpp" line="120" />
+        <location filename="../src/openstudio_lib/WindowMaterialBlindInspectorView.cpp" line="120"/>
         <source>Slat Conductivity: </source>
         <translation>स्लैट चालकता:</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/WindowMaterialBlindInspectorView.cpp" line="130" />
+        <location filename="../src/openstudio_lib/WindowMaterialBlindInspectorView.cpp" line="130"/>
         <source>Slat Beam Solar Transmittance: </source>
         <translation>स्लैट बीम सोलर ट्रांसमिटेंस:</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/WindowMaterialBlindInspectorView.cpp" line="140" />
+        <location filename="../src/openstudio_lib/WindowMaterialBlindInspectorView.cpp" line="140"/>
         <source>Front Side Slat Beam Solar Reflectance: </source>
         <translation>सामने की ओर की स्लेट बीम सौर परावर्तकता:</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/WindowMaterialBlindInspectorView.cpp" line="150" />
+        <location filename="../src/openstudio_lib/WindowMaterialBlindInspectorView.cpp" line="150"/>
         <source>Back Side Slat Beam Solar Reflectance: </source>
         <translation>पिछली ओर स्लैट बीम सौर परावर्तकता:</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/WindowMaterialBlindInspectorView.cpp" line="160" />
+        <location filename="../src/openstudio_lib/WindowMaterialBlindInspectorView.cpp" line="160"/>
         <source>Slat Diffuse Solar Transmittance: </source>
         <translation>Slat विसरित सौर संप्रेषण:</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/WindowMaterialBlindInspectorView.cpp" line="170" />
+        <location filename="../src/openstudio_lib/WindowMaterialBlindInspectorView.cpp" line="170"/>
         <source>Front Side Slat Diffuse Solar Reflectance: </source>
         <translation>सामने की ओर की स्लैट विसरित सौर प्रतिबिंबितता:</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/WindowMaterialBlindInspectorView.cpp" line="180" />
+        <location filename="../src/openstudio_lib/WindowMaterialBlindInspectorView.cpp" line="180"/>
         <source>Back Side Slat Diffuse Solar Reflectance: </source>
         <translation>पिछला पक्ष स्लेट विसरित सौर परावर्तनशीलता:</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/WindowMaterialBlindInspectorView.cpp" line="190" />
+        <location filename="../src/openstudio_lib/WindowMaterialBlindInspectorView.cpp" line="190"/>
         <source>Slat Beam Visible Transmittance: </source>
         <translation>स्लैट बीम दृश्य संचरणीयता:</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/WindowMaterialBlindInspectorView.cpp" line="200" />
+        <location filename="../src/openstudio_lib/WindowMaterialBlindInspectorView.cpp" line="200"/>
         <source>Front Side Slat Beam Visible Reflectance: </source>
         <translation>सामने की ओर स्लेट बीम दृश्यमान परावर्तनशीलता:</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/WindowMaterialBlindInspectorView.cpp" line="210" />
+        <location filename="../src/openstudio_lib/WindowMaterialBlindInspectorView.cpp" line="210"/>
         <source>Back Side Slat Beam Visible Reflectance: </source>
         <translation>पिछला पक्ष स्लैट बीम दृश्य परावर्तकता:</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/WindowMaterialBlindInspectorView.cpp" line="220" />
+        <location filename="../src/openstudio_lib/WindowMaterialBlindInspectorView.cpp" line="220"/>
         <source>Slat Diffuse Visible Transmittance: </source>
         <translation>स्लैट विसरित दृश्य संचारण:</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/WindowMaterialBlindInspectorView.cpp" line="230" />
+        <location filename="../src/openstudio_lib/WindowMaterialBlindInspectorView.cpp" line="230"/>
         <source>Front Side Slat Diffuse Visible Reflectance: </source>
         <translation>सामने की ओर स्लेट विसरित दृश्य परावर्तनशीलता:</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/WindowMaterialBlindInspectorView.cpp" line="241" />
+        <location filename="../src/openstudio_lib/WindowMaterialBlindInspectorView.cpp" line="241"/>
         <source>Back Side Slat Diffuse Visible Reflectance: </source>
         <translation>पिछला पक्ष स्लेट विसरित दृश्यमान परावर्तकता:</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/WindowMaterialBlindInspectorView.cpp" line="251" />
+        <location filename="../src/openstudio_lib/WindowMaterialBlindInspectorView.cpp" line="251"/>
         <source>Slat Infrared Hemispherical Transmittance: </source>
         <translation>Slat अवरक्त गोलार्ध संचारण:</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/WindowMaterialBlindInspectorView.cpp" line="262" />
+        <location filename="../src/openstudio_lib/WindowMaterialBlindInspectorView.cpp" line="262"/>
         <source>Front Side Slat Infrared Hemispherical Emissivity: </source>
         <translation>अग्र पक्ष स्लैट अवरक्त अर्धगोलीय उत्सर्जनशीलता:</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/WindowMaterialBlindInspectorView.cpp" line="273" />
+        <location filename="../src/openstudio_lib/WindowMaterialBlindInspectorView.cpp" line="273"/>
         <source>Back Side Slat Infrared Hemispherical Emissivity: </source>
         <translation>पिछली ओर की स्लैट अवरक्त गोलार्ध उत्सर्जकता:</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/WindowMaterialBlindInspectorView.cpp" line="284" />
+        <location filename="../src/openstudio_lib/WindowMaterialBlindInspectorView.cpp" line="284"/>
         <source>Blind To Glass Distance: </source>
         <translation>ब्लाइंड से ग्लास की दूरी:</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/WindowMaterialBlindInspectorView.cpp" line="294" />
+        <location filename="../src/openstudio_lib/WindowMaterialBlindInspectorView.cpp" line="294"/>
         <source>Blind Top Opening Multiplier: </source>
         <translation>ब्लाइंड शीर्ष खुलने वाला गुणक:</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/WindowMaterialBlindInspectorView.cpp" line="304" />
+        <location filename="../src/openstudio_lib/WindowMaterialBlindInspectorView.cpp" line="304"/>
         <source>Blind Bottom Opening Multiplier: </source>
         <translation>ब्लाइंड बॉटम ओपनिंग मल्टीप्लायर:</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/WindowMaterialBlindInspectorView.cpp" line="314" />
+        <location filename="../src/openstudio_lib/WindowMaterialBlindInspectorView.cpp" line="314"/>
         <source>Blind Left Side Opening Multiplier: </source>
         <translation>ब्लाइंड बायीं ओर खुलने वाला गुणक:</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/WindowMaterialBlindInspectorView.cpp" line="324" />
+        <location filename="../src/openstudio_lib/WindowMaterialBlindInspectorView.cpp" line="324"/>
         <source>Blind Right Side Opening Multiplier: </source>
         <translation>ब्लाइंड राइट साइड ओपनिंग मल्टीप्लायर:</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/WindowMaterialBlindInspectorView.cpp" line="334" />
+        <location filename="../src/openstudio_lib/WindowMaterialBlindInspectorView.cpp" line="334"/>
         <source>Minimum Slat Angle: </source>
         <translation>न्यूनतम स्लैट कोण:</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/WindowMaterialBlindInspectorView.cpp" line="344" />
+        <location filename="../src/openstudio_lib/WindowMaterialBlindInspectorView.cpp" line="344"/>
         <source>Maximum Slat Angle: </source>
         <translation>अधिकतम स्लैट कोण:</translation>
     </message>
@@ -31137,12 +31148,12 @@ Zone</source>
 <context>
     <name>openstudio::WindowMaterialDaylightRedirectionDeviceInspectorView</name>
     <message>
-        <location filename="../src/openstudio_lib/WindowMaterialDaylightRedirectionDeviceInspectorView.cpp" line="52" />
+        <location filename="../src/openstudio_lib/WindowMaterialDaylightRedirectionDeviceInspectorView.cpp" line="52"/>
         <source>Name: </source>
         <translation>नाम:</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/WindowMaterialDaylightRedirectionDeviceInspectorView.cpp" line="71" />
+        <location filename="../src/openstudio_lib/WindowMaterialDaylightRedirectionDeviceInspectorView.cpp" line="71"/>
         <source>Daylight Redirection Device Type: </source>
         <translation>दिन के प्रकाश पुनर्निर्देशन डिवाइस प्रकार:</translation>
     </message>
@@ -31150,52 +31161,52 @@ Zone</source>
 <context>
     <name>openstudio::WindowMaterialGasInspectorView</name>
     <message>
-        <location filename="../src/openstudio_lib/WindowMaterialGasInspectorView.cpp" line="50" />
+        <location filename="../src/openstudio_lib/WindowMaterialGasInspectorView.cpp" line="50"/>
         <source>Name: </source>
         <translation>नाम:</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/WindowMaterialGasInspectorView.cpp" line="69" />
+        <location filename="../src/openstudio_lib/WindowMaterialGasInspectorView.cpp" line="69"/>
         <source>Gas Type: </source>
         <translation>गैस प्रकार:</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/WindowMaterialGasInspectorView.cpp" line="83" />
+        <location filename="../src/openstudio_lib/WindowMaterialGasInspectorView.cpp" line="83"/>
         <source>Thickness: </source>
         <translation>मोटाई:</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/WindowMaterialGasInspectorView.cpp" line="93" />
+        <location filename="../src/openstudio_lib/WindowMaterialGasInspectorView.cpp" line="93"/>
         <source>Conductivity Coefficient A: </source>
         <translation>चालकता गुणांक A:</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/WindowMaterialGasInspectorView.cpp" line="103" />
+        <location filename="../src/openstudio_lib/WindowMaterialGasInspectorView.cpp" line="103"/>
         <source>Conductivity Coefficient B: </source>
         <translation>चालकता गुणांक B:</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/WindowMaterialGasInspectorView.cpp" line="113" />
+        <location filename="../src/openstudio_lib/WindowMaterialGasInspectorView.cpp" line="113"/>
         <source>Viscosity Coefficient A: </source>
         <translation>Viscosity Coefficient A:</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/WindowMaterialGasInspectorView.cpp" line="123" />
+        <location filename="../src/openstudio_lib/WindowMaterialGasInspectorView.cpp" line="123"/>
         <source>Viscosity Coefficient B: </source>
         <translation>चिपचिपापन गुणांक B:</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/WindowMaterialGasInspectorView.cpp" line="133" />
+        <location filename="../src/openstudio_lib/WindowMaterialGasInspectorView.cpp" line="133"/>
         <source>Specific Heat Coefficient A: </source>
         <translation>विशिष्ट ऊष्मा गुणांक A:</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/WindowMaterialGasInspectorView.cpp" line="143" />
+        <location filename="../src/openstudio_lib/WindowMaterialGasInspectorView.cpp" line="143"/>
         <source>Specific Heat Coefficient B: </source>
         <translation>विशिष्ट ऊष्मा गुणांक B:</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/WindowMaterialGasInspectorView.cpp" line="152" />
+        <location filename="../src/openstudio_lib/WindowMaterialGasInspectorView.cpp" line="152"/>
         <source>Molecular Weight: </source>
         <translation>आणविक भार:</translation>
     </message>
@@ -31203,57 +31214,57 @@ Zone</source>
 <context>
     <name>openstudio::WindowMaterialGasMixtureInspectorView</name>
     <message>
-        <location filename="../src/openstudio_lib/WindowMaterialGasMixtureInspectorView.cpp" line="51" />
+        <location filename="../src/openstudio_lib/WindowMaterialGasMixtureInspectorView.cpp" line="51"/>
         <source>Name: </source>
         <translation>नाम:</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/WindowMaterialGasMixtureInspectorView.cpp" line="70" />
+        <location filename="../src/openstudio_lib/WindowMaterialGasMixtureInspectorView.cpp" line="70"/>
         <source>Thickness: </source>
         <translation>मोटाई:</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/WindowMaterialGasMixtureInspectorView.cpp" line="80" />
+        <location filename="../src/openstudio_lib/WindowMaterialGasMixtureInspectorView.cpp" line="80"/>
         <source>Number Of Gases In Mixture: </source>
         <translation>मिश्रण में गैसों की संख्या:</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/WindowMaterialGasMixtureInspectorView.cpp" line="91" />
+        <location filename="../src/openstudio_lib/WindowMaterialGasMixtureInspectorView.cpp" line="91"/>
         <source>Gas 1 Fraction: </source>
         <translation>गैस 1 अंश:</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/WindowMaterialGasMixtureInspectorView.cpp" line="101" />
+        <location filename="../src/openstudio_lib/WindowMaterialGasMixtureInspectorView.cpp" line="101"/>
         <source>Gas 1 Type: </source>
         <translation>गैस 1 प्रकार:</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/WindowMaterialGasMixtureInspectorView.cpp" line="116" />
+        <location filename="../src/openstudio_lib/WindowMaterialGasMixtureInspectorView.cpp" line="116"/>
         <source>Gas 2 Fraction: </source>
         <translation>गैस 2 अंश:</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/WindowMaterialGasMixtureInspectorView.cpp" line="126" />
+        <location filename="../src/openstudio_lib/WindowMaterialGasMixtureInspectorView.cpp" line="126"/>
         <source>Gas 2 Type: </source>
         <translation>गैस 2 प्रकार:</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/WindowMaterialGasMixtureInspectorView.cpp" line="141" />
+        <location filename="../src/openstudio_lib/WindowMaterialGasMixtureInspectorView.cpp" line="141"/>
         <source>Gas 3 Fraction: </source>
         <translation>गैस 3 अंश:</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/WindowMaterialGasMixtureInspectorView.cpp" line="151" />
+        <location filename="../src/openstudio_lib/WindowMaterialGasMixtureInspectorView.cpp" line="151"/>
         <source>Gas 3 Type: </source>
         <translation>गैस 3 प्रकार:</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/WindowMaterialGasMixtureInspectorView.cpp" line="166" />
+        <location filename="../src/openstudio_lib/WindowMaterialGasMixtureInspectorView.cpp" line="166"/>
         <source>Gas 4 Fraction: </source>
         <translation>गैस 4 अंश:</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/WindowMaterialGasMixtureInspectorView.cpp" line="176" />
+        <location filename="../src/openstudio_lib/WindowMaterialGasMixtureInspectorView.cpp" line="176"/>
         <source>Gas 4 Type: </source>
         <translation>गैस 4 प्रकार:</translation>
     </message>
@@ -31261,86 +31272,86 @@ Zone</source>
 <context>
     <name>openstudio::WindowMaterialGlazingInspectorView</name>
     <message>
-        <location filename="../src/openstudio_lib/WindowMaterialGlazingInspectorView.cpp" line="53" />
+        <location filename="../src/openstudio_lib/WindowMaterialGlazingInspectorView.cpp" line="53"/>
         <source>Name: </source>
         <translation>नाम:</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/WindowMaterialGlazingInspectorView.cpp" line="72" />
+        <location filename="../src/openstudio_lib/WindowMaterialGlazingInspectorView.cpp" line="72"/>
         <source>Optical Data Type: </source>
         <translation>ऑप्टिकल डेटा प्रकार:</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/WindowMaterialGlazingInspectorView.cpp" line="83" />
+        <location filename="../src/openstudio_lib/WindowMaterialGlazingInspectorView.cpp" line="83"/>
         <source>Window Glass Spectral Data Set Name: </source>
         <translation>Window Glass Spectral Data Set Name:
 
 विंडो ग्लास स्पेक्ट्रल डेटा सेट नाम:</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/WindowMaterialGlazingInspectorView.cpp" line="92" />
+        <location filename="../src/openstudio_lib/WindowMaterialGlazingInspectorView.cpp" line="92"/>
         <source>Thickness: </source>
         <translation>मोटाई:</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/WindowMaterialGlazingInspectorView.cpp" line="102" />
+        <location filename="../src/openstudio_lib/WindowMaterialGlazingInspectorView.cpp" line="102"/>
         <source>Solar Transmittance At Normal Incidence: </source>
         <translation>सामान्य आपतन पर सौर संचरणीयता:</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/WindowMaterialGlazingInspectorView.cpp" line="112" />
+        <location filename="../src/openstudio_lib/WindowMaterialGlazingInspectorView.cpp" line="112"/>
         <source>Front Side Solar Reflectance At Normal Incidence: </source>
         <translation>सामने की ओर सौर परावर्तनशीलता सामान्य आपतन पर:</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/WindowMaterialGlazingInspectorView.cpp" line="123" />
+        <location filename="../src/openstudio_lib/WindowMaterialGlazingInspectorView.cpp" line="123"/>
         <source>Back Side Solar Reflectance At Normal Incidence: </source>
         <translation>Back Side Solar Reflectance At Normal Incidence: सामान्य आपतन पर पिछली ओर सौर परावर्तनशीलता:</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/WindowMaterialGlazingInspectorView.cpp" line="134" />
+        <location filename="../src/openstudio_lib/WindowMaterialGlazingInspectorView.cpp" line="134"/>
         <source>Visible Transmittance At Normal Incidence: </source>
         <translation>सामान्य आपतन पर दृश्य संप्रेषण:</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/WindowMaterialGlazingInspectorView.cpp" line="145" />
+        <location filename="../src/openstudio_lib/WindowMaterialGlazingInspectorView.cpp" line="145"/>
         <source>Front Side Visible Reflectance At Normal Incidence: </source>
         <translation>सामने की ओर दृश्यमान परावर्तकता सामान्य आपतन पर:</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/WindowMaterialGlazingInspectorView.cpp" line="156" />
+        <location filename="../src/openstudio_lib/WindowMaterialGlazingInspectorView.cpp" line="156"/>
         <source>Back Side Visible Reflectance At Normal Incidence: </source>
         <translation>पिछला पक्ष दृश्यमान परावर्तनशीलता सामान्य आपतन पर:</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/WindowMaterialGlazingInspectorView.cpp" line="167" />
+        <location filename="../src/openstudio_lib/WindowMaterialGlazingInspectorView.cpp" line="167"/>
         <source>Infrared Transmittance at Normal Incidence: </source>
         <translation>सामान्य आपतन पर अवरक्त संप्रेषणीयता:</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/WindowMaterialGlazingInspectorView.cpp" line="178" />
+        <location filename="../src/openstudio_lib/WindowMaterialGlazingInspectorView.cpp" line="178"/>
         <source>Front Side Infrared Hemispherical Emissivity: </source>
         <translation>सामने की ओर अवरक्त गोलार्ध उत्सर्जकता:</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/WindowMaterialGlazingInspectorView.cpp" line="189" />
+        <location filename="../src/openstudio_lib/WindowMaterialGlazingInspectorView.cpp" line="189"/>
         <source>Back Side Infrared Hemispherical Emissivity: </source>
         <translation>Back Side Infrared Hemispherical Emissivity:
 
 पिछली ओर इन्फ्रारेड अर्धगोलीय उत्सर्जकता:</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/WindowMaterialGlazingInspectorView.cpp" line="200" />
+        <location filename="../src/openstudio_lib/WindowMaterialGlazingInspectorView.cpp" line="200"/>
         <source>Conductivity: </source>
         <translation>चालकता:</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/WindowMaterialGlazingInspectorView.cpp" line="210" />
+        <location filename="../src/openstudio_lib/WindowMaterialGlazingInspectorView.cpp" line="210"/>
         <source>Dirt Correction Factor For Solar And Visible Transmittance: </source>
         <translation>सौर और दृश्यमान संचरण के लिए गंदगी सुधार कारक:</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/WindowMaterialGlazingInspectorView.cpp" line="221" />
+        <location filename="../src/openstudio_lib/WindowMaterialGlazingInspectorView.cpp" line="221"/>
         <source>Solar Diffusing: </source>
         <translation>सौर विसरण:</translation>
     </message>
@@ -31348,57 +31359,57 @@ Zone</source>
 <context>
     <name>openstudio::WindowMaterialGlazingRefractionExtinctionMethodInspectorView</name>
     <message>
-        <location filename="../src/openstudio_lib/WindowMaterialGlazingRefractionExtinctionMethodInspectorView.cpp" line="51" />
+        <location filename="../src/openstudio_lib/WindowMaterialGlazingRefractionExtinctionMethodInspectorView.cpp" line="51"/>
         <source>Name: </source>
         <translation>नाम:</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/WindowMaterialGlazingRefractionExtinctionMethodInspectorView.cpp" line="70" />
+        <location filename="../src/openstudio_lib/WindowMaterialGlazingRefractionExtinctionMethodInspectorView.cpp" line="70"/>
         <source>Thickness: </source>
         <translation>मोटाई:</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/WindowMaterialGlazingRefractionExtinctionMethodInspectorView.cpp" line="80" />
+        <location filename="../src/openstudio_lib/WindowMaterialGlazingRefractionExtinctionMethodInspectorView.cpp" line="80"/>
         <source>Solar Index Of Refraction: </source>
         <translation>सौर अपवर्तनांक:</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/WindowMaterialGlazingRefractionExtinctionMethodInspectorView.cpp" line="91" />
+        <location filename="../src/openstudio_lib/WindowMaterialGlazingRefractionExtinctionMethodInspectorView.cpp" line="91"/>
         <source>Solar Extinction Coefficient: </source>
         <translation>सौर विलोपन गुणांक:</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/WindowMaterialGlazingRefractionExtinctionMethodInspectorView.cpp" line="102" />
+        <location filename="../src/openstudio_lib/WindowMaterialGlazingRefractionExtinctionMethodInspectorView.cpp" line="102"/>
         <source>Visible Index of Refraction: </source>
         <translation>दृश्यमान अपवर्तनांक सूचकांक:</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/WindowMaterialGlazingRefractionExtinctionMethodInspectorView.cpp" line="113" />
+        <location filename="../src/openstudio_lib/WindowMaterialGlazingRefractionExtinctionMethodInspectorView.cpp" line="113"/>
         <source>Visible Extinction Coefficient: </source>
         <translation>दृश्य विलुप्ति गुणांक:</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/WindowMaterialGlazingRefractionExtinctionMethodInspectorView.cpp" line="124" />
+        <location filename="../src/openstudio_lib/WindowMaterialGlazingRefractionExtinctionMethodInspectorView.cpp" line="124"/>
         <source>Infrared Transmittance At Normal Incidence: </source>
         <translation>अवरक्त संचरणीयता सामान्य आपतन पर:</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/WindowMaterialGlazingRefractionExtinctionMethodInspectorView.cpp" line="135" />
+        <location filename="../src/openstudio_lib/WindowMaterialGlazingRefractionExtinctionMethodInspectorView.cpp" line="135"/>
         <source>Infrared Hemispherical Emissivity: </source>
         <translation>अवरक्त अर्धगोलीय उत्सर्जकता:</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/WindowMaterialGlazingRefractionExtinctionMethodInspectorView.cpp" line="146" />
+        <location filename="../src/openstudio_lib/WindowMaterialGlazingRefractionExtinctionMethodInspectorView.cpp" line="146"/>
         <source>Conductivity: </source>
         <translation>चालकता:</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/WindowMaterialGlazingRefractionExtinctionMethodInspectorView.cpp" line="157" />
+        <location filename="../src/openstudio_lib/WindowMaterialGlazingRefractionExtinctionMethodInspectorView.cpp" line="157"/>
         <source>Dirt Correction Factor For Solar And Visible Transmittance: </source>
         <translation>सौर और दृश्य संचरण के लिए गंदगी सुधार कारक:</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/WindowMaterialGlazingRefractionExtinctionMethodInspectorView.cpp" line="168" />
+        <location filename="../src/openstudio_lib/WindowMaterialGlazingRefractionExtinctionMethodInspectorView.cpp" line="168"/>
         <source>Solar Diffusing: </source>
         <translation>सौर विसरण:</translation>
     </message>
@@ -31406,72 +31417,72 @@ Zone</source>
 <context>
     <name>openstudio::WindowMaterialScreenInspectorView</name>
     <message>
-        <location filename="../src/openstudio_lib/WindowMaterialScreenInspectorView.cpp" line="50" />
+        <location filename="../src/openstudio_lib/WindowMaterialScreenInspectorView.cpp" line="50"/>
         <source>Name: </source>
         <translation>नाम:</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/WindowMaterialScreenInspectorView.cpp" line="69" />
+        <location filename="../src/openstudio_lib/WindowMaterialScreenInspectorView.cpp" line="69"/>
         <source>Reflected Beam Transmittance Accounting Method: </source>
         <translation>प्रतिबिंबित बीम ट्रांसमिटेंस लेखांकन विधि:</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/WindowMaterialScreenInspectorView.cpp" line="81" />
+        <location filename="../src/openstudio_lib/WindowMaterialScreenInspectorView.cpp" line="81"/>
         <source>Diffuse Solar Reflectance: </source>
         <translation>विसरित सौर परावर्तनशीलता:</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/WindowMaterialScreenInspectorView.cpp" line="91" />
+        <location filename="../src/openstudio_lib/WindowMaterialScreenInspectorView.cpp" line="91"/>
         <source>Diffuse Visible Reflectance: </source>
         <translation>विसरित दृश्यमान परावर्तकता:</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/WindowMaterialScreenInspectorView.cpp" line="101" />
+        <location filename="../src/openstudio_lib/WindowMaterialScreenInspectorView.cpp" line="101"/>
         <source>Thermal Hemispherical Emissivity: </source>
         <translation>थर्मल गोलार्ध उत्सर्जकता:</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/WindowMaterialScreenInspectorView.cpp" line="111" />
+        <location filename="../src/openstudio_lib/WindowMaterialScreenInspectorView.cpp" line="111"/>
         <source>Conductivity: </source>
         <translation>चालकता:</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/WindowMaterialScreenInspectorView.cpp" line="121" />
+        <location filename="../src/openstudio_lib/WindowMaterialScreenInspectorView.cpp" line="121"/>
         <source>Screen Material Spacing: </source>
         <translation>स्क्रीन सामग्री दूरी:</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/WindowMaterialScreenInspectorView.cpp" line="131" />
+        <location filename="../src/openstudio_lib/WindowMaterialScreenInspectorView.cpp" line="131"/>
         <source>Screen Material Diameter: </source>
         <translation>स्क्रीन सामग्री व्यास:</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/WindowMaterialScreenInspectorView.cpp" line="141" />
+        <location filename="../src/openstudio_lib/WindowMaterialScreenInspectorView.cpp" line="141"/>
         <source>Screen To Glass Distance: </source>
         <translation>स्क्रीन से ग्लास दूरी:</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/WindowMaterialScreenInspectorView.cpp" line="151" />
+        <location filename="../src/openstudio_lib/WindowMaterialScreenInspectorView.cpp" line="151"/>
         <source>Top Opening Multiplier: </source>
         <translation>शीर्ष खुलने वाला गुणक:</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/WindowMaterialScreenInspectorView.cpp" line="161" />
+        <location filename="../src/openstudio_lib/WindowMaterialScreenInspectorView.cpp" line="161"/>
         <source>Bottom Opening Multiplier: </source>
         <translation>नीचे की खुली हुई गुणक:</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/WindowMaterialScreenInspectorView.cpp" line="171" />
+        <location filename="../src/openstudio_lib/WindowMaterialScreenInspectorView.cpp" line="171"/>
         <source>Left Side Opening Multiplier: </source>
         <translation>बाईं ओर खुलने वाला गुणक:</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/WindowMaterialScreenInspectorView.cpp" line="181" />
+        <location filename="../src/openstudio_lib/WindowMaterialScreenInspectorView.cpp" line="181"/>
         <source>Right Side Opening Multiplier: </source>
         <translation>दाहिनी ओर खुलने वाला गुणक:</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/WindowMaterialScreenInspectorView.cpp" line="191" />
+        <location filename="../src/openstudio_lib/WindowMaterialScreenInspectorView.cpp" line="191"/>
         <source>Angle Of Resolution For Screen Transmittance Output Map: </source>
         <translation>स्क्रीन संचरणीयता आउटपुट मानचित्र के लिए संकल्प का कोण:</translation>
     </message>
@@ -31479,77 +31490,77 @@ Zone</source>
 <context>
     <name>openstudio::WindowMaterialShadeInspectorView</name>
     <message>
-        <location filename="../src/openstudio_lib/WindowMaterialShadeInspectorView.cpp" line="49" />
+        <location filename="../src/openstudio_lib/WindowMaterialShadeInspectorView.cpp" line="49"/>
         <source>Name: </source>
         <translation>नाम:</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/WindowMaterialShadeInspectorView.cpp" line="68" />
+        <location filename="../src/openstudio_lib/WindowMaterialShadeInspectorView.cpp" line="68"/>
         <source>Solar Transmittance: </source>
         <translation>सौर संचरण:</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/WindowMaterialShadeInspectorView.cpp" line="78" />
+        <location filename="../src/openstudio_lib/WindowMaterialShadeInspectorView.cpp" line="78"/>
         <source>Solar Reflectance: </source>
         <translation>सौर परावर्तनीयता:</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/WindowMaterialShadeInspectorView.cpp" line="88" />
+        <location filename="../src/openstudio_lib/WindowMaterialShadeInspectorView.cpp" line="88"/>
         <source>Visible Transmittance: </source>
         <translation>दृश्य संप्रेषण:</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/WindowMaterialShadeInspectorView.cpp" line="98" />
+        <location filename="../src/openstudio_lib/WindowMaterialShadeInspectorView.cpp" line="98"/>
         <source>Visible Reflectance: </source>
         <translation>दृश्यमान परावर्तनशीलता:</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/WindowMaterialShadeInspectorView.cpp" line="108" />
+        <location filename="../src/openstudio_lib/WindowMaterialShadeInspectorView.cpp" line="108"/>
         <source>Thermal Hemispherical Emissivity: </source>
         <translation>तापीय अर्धगोलीय उत्सर्जकता:</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/WindowMaterialShadeInspectorView.cpp" line="118" />
+        <location filename="../src/openstudio_lib/WindowMaterialShadeInspectorView.cpp" line="118"/>
         <source>Thermal Transmittance: </source>
         <translation>Thermal Transmittance: ऊष्मीय संचारण:</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/WindowMaterialShadeInspectorView.cpp" line="128" />
+        <location filename="../src/openstudio_lib/WindowMaterialShadeInspectorView.cpp" line="128"/>
         <source>Thickness: </source>
         <translation>मोटाई:</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/WindowMaterialShadeInspectorView.cpp" line="138" />
+        <location filename="../src/openstudio_lib/WindowMaterialShadeInspectorView.cpp" line="138"/>
         <source>Conductivity: </source>
         <translation>चालकता:</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/WindowMaterialShadeInspectorView.cpp" line="148" />
+        <location filename="../src/openstudio_lib/WindowMaterialShadeInspectorView.cpp" line="148"/>
         <source>Shade To Glass Distance: </source>
         <translation>छाया से कांच की दूरी:</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/WindowMaterialShadeInspectorView.cpp" line="158" />
+        <location filename="../src/openstudio_lib/WindowMaterialShadeInspectorView.cpp" line="158"/>
         <source>Top Opening Multiplier: </source>
         <translation>शीर्ष खोलने गुणक:</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/WindowMaterialShadeInspectorView.cpp" line="168" />
+        <location filename="../src/openstudio_lib/WindowMaterialShadeInspectorView.cpp" line="168"/>
         <source>Bottom Opening Multiplier: </source>
         <translation>तले की खुली हुई गुणक:</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/WindowMaterialShadeInspectorView.cpp" line="178" />
+        <location filename="../src/openstudio_lib/WindowMaterialShadeInspectorView.cpp" line="178"/>
         <source>Left-Side Opening Multiplier: </source>
         <translation>बाईं ओर की खुली हुई गुणक:</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/WindowMaterialShadeInspectorView.cpp" line="188" />
+        <location filename="../src/openstudio_lib/WindowMaterialShadeInspectorView.cpp" line="188"/>
         <source>Right-Side Opening Multiplier: </source>
         <translation>दाहिने-ओर से खुलने वाला गुणक:</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/WindowMaterialShadeInspectorView.cpp" line="198" />
+        <location filename="../src/openstudio_lib/WindowMaterialShadeInspectorView.cpp" line="198"/>
         <source>Airflow Permeability: </source>
         <translation>वायु प्रवाह पारगम्यता:</translation>
     </message>
@@ -31557,22 +31568,22 @@ Zone</source>
 <context>
     <name>openstudio::WindowMaterialSimpleGlazingSystemInspectorView</name>
     <message>
-        <location filename="../src/openstudio_lib/WindowMaterialSimpleGlazingSystemInspectorView.cpp" line="50" />
+        <location filename="../src/openstudio_lib/WindowMaterialSimpleGlazingSystemInspectorView.cpp" line="50"/>
         <source>Name: </source>
         <translation>नाम:</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/WindowMaterialSimpleGlazingSystemInspectorView.cpp" line="69" />
+        <location filename="../src/openstudio_lib/WindowMaterialSimpleGlazingSystemInspectorView.cpp" line="69"/>
         <source>U-Factor: </source>
         <translation>U-Factor:</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/WindowMaterialSimpleGlazingSystemInspectorView.cpp" line="79" />
+        <location filename="../src/openstudio_lib/WindowMaterialSimpleGlazingSystemInspectorView.cpp" line="79"/>
         <source>Solar Heat Gain Coefficient: </source>
         <translation>सौर ऊष्मा लाभ गुणांक:</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/WindowMaterialSimpleGlazingSystemInspectorView.cpp" line="90" />
+        <location filename="../src/openstudio_lib/WindowMaterialSimpleGlazingSystemInspectorView.cpp" line="90"/>
         <source>Visible Transmittance: </source>
         <translation>दृश्य संचरणीयता:</translation>
     </message>
@@ -31580,176 +31591,176 @@ Zone</source>
 <context>
     <name>openstudio::YearSettingsWidget</name>
     <message>
-        <location filename="../src/openstudio_lib/YearSettingsWidget.cpp" line="57" />
+        <location filename="../src/openstudio_lib/YearSettingsWidget.cpp" line="57"/>
         <source>Select Year by:</source>
         <translation>वर्ष का चयन करें:</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/YearSettingsWidget.cpp" line="69" />
+        <location filename="../src/openstudio_lib/YearSettingsWidget.cpp" line="69"/>
         <source>Calendar Year</source>
         <translation>कलेंडर वर्ष</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/YearSettingsWidget.cpp" line="82" />
+        <location filename="../src/openstudio_lib/YearSettingsWidget.cpp" line="82"/>
         <source>First Day of Year</source>
         <translation>साल का पहला दिन</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/YearSettingsWidget.cpp" line="105" />
+        <location filename="../src/openstudio_lib/YearSettingsWidget.cpp" line="105"/>
         <source>Daylight Savings Time:</source>
         <translation>डेलाइट सेविंग समय:</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/YearSettingsWidget.cpp" line="123" />
+        <location filename="../src/openstudio_lib/YearSettingsWidget.cpp" line="123"/>
         <source>Starts</source>
         <translation>प्रारंभ तिथि</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/YearSettingsWidget.cpp" line="129" />
-        <location filename="../src/openstudio_lib/YearSettingsWidget.cpp" line="158" />
+        <location filename="../src/openstudio_lib/YearSettingsWidget.cpp" line="129"/>
+        <location filename="../src/openstudio_lib/YearSettingsWidget.cpp" line="158"/>
         <source>Define by Day of The Week And Month</source>
         <translation>सप्ताह और महीने के दिन के अनुसार परिभाषित करें</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/YearSettingsWidget.cpp" line="142" />
-        <location filename="../src/openstudio_lib/YearSettingsWidget.cpp" line="171" />
+        <location filename="../src/openstudio_lib/YearSettingsWidget.cpp" line="142"/>
+        <location filename="../src/openstudio_lib/YearSettingsWidget.cpp" line="171"/>
         <source>Define by Date</source>
         <translation>तिथि के अनुसार परिभाषित करें</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/YearSettingsWidget.cpp" line="152" />
+        <location filename="../src/openstudio_lib/YearSettingsWidget.cpp" line="152"/>
         <source>Ends</source>
         <translation>अंत तिथि</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/YearSettingsWidget.cpp" line="478" />
+        <location filename="../src/openstudio_lib/YearSettingsWidget.cpp" line="478"/>
         <source>First</source>
         <translation>प्रथम</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/YearSettingsWidget.cpp" line="478" />
+        <location filename="../src/openstudio_lib/YearSettingsWidget.cpp" line="478"/>
         <source>Second</source>
         <translation>दूसरा</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/YearSettingsWidget.cpp" line="478" />
+        <location filename="../src/openstudio_lib/YearSettingsWidget.cpp" line="478"/>
         <source>Third</source>
         <translation>तीसरा</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/YearSettingsWidget.cpp" line="478" />
+        <location filename="../src/openstudio_lib/YearSettingsWidget.cpp" line="478"/>
         <source>Fourth</source>
         <translation>चौथा</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/YearSettingsWidget.cpp" line="478" />
+        <location filename="../src/openstudio_lib/YearSettingsWidget.cpp" line="478"/>
         <source>Last</source>
         <translation>आखिरी</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/YearSettingsWidget.cpp" line="485" />
-        <location filename="../src/openstudio_lib/YearSettingsWidget.cpp" line="491" />
+        <location filename="../src/openstudio_lib/YearSettingsWidget.cpp" line="485"/>
+        <location filename="../src/openstudio_lib/YearSettingsWidget.cpp" line="491"/>
         <source>Sunday</source>
         <translation>रविवार</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/YearSettingsWidget.cpp" line="485" />
-        <location filename="../src/openstudio_lib/YearSettingsWidget.cpp" line="491" />
+        <location filename="../src/openstudio_lib/YearSettingsWidget.cpp" line="485"/>
+        <location filename="../src/openstudio_lib/YearSettingsWidget.cpp" line="491"/>
         <source>Monday</source>
         <translation>सोमवार</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/YearSettingsWidget.cpp" line="485" />
-        <location filename="../src/openstudio_lib/YearSettingsWidget.cpp" line="491" />
+        <location filename="../src/openstudio_lib/YearSettingsWidget.cpp" line="485"/>
+        <location filename="../src/openstudio_lib/YearSettingsWidget.cpp" line="491"/>
         <source>Tuesday</source>
         <translation>मंगलवार</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/YearSettingsWidget.cpp" line="485" />
-        <location filename="../src/openstudio_lib/YearSettingsWidget.cpp" line="491" />
+        <location filename="../src/openstudio_lib/YearSettingsWidget.cpp" line="485"/>
+        <location filename="../src/openstudio_lib/YearSettingsWidget.cpp" line="491"/>
         <source>Wednesday</source>
         <translation>बुधवार</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/YearSettingsWidget.cpp" line="486" />
-        <location filename="../src/openstudio_lib/YearSettingsWidget.cpp" line="491" />
+        <location filename="../src/openstudio_lib/YearSettingsWidget.cpp" line="486"/>
+        <location filename="../src/openstudio_lib/YearSettingsWidget.cpp" line="491"/>
         <source>Thursday</source>
         <translation>गुरूवार</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/YearSettingsWidget.cpp" line="486" />
-        <location filename="../src/openstudio_lib/YearSettingsWidget.cpp" line="491" />
+        <location filename="../src/openstudio_lib/YearSettingsWidget.cpp" line="486"/>
+        <location filename="../src/openstudio_lib/YearSettingsWidget.cpp" line="491"/>
         <source>Friday</source>
         <translation>शुक्रवार</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/YearSettingsWidget.cpp" line="486" />
-        <location filename="../src/openstudio_lib/YearSettingsWidget.cpp" line="491" />
+        <location filename="../src/openstudio_lib/YearSettingsWidget.cpp" line="486"/>
+        <location filename="../src/openstudio_lib/YearSettingsWidget.cpp" line="491"/>
         <source>Saturday</source>
         <translation>शनिवार</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/YearSettingsWidget.cpp" line="486" />
+        <location filename="../src/openstudio_lib/YearSettingsWidget.cpp" line="486"/>
         <source>UseWeatherFile</source>
         <translation>मौसम फ़ाइल का उपयोग करें</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/YearSettingsWidget.cpp" line="497" />
+        <location filename="../src/openstudio_lib/YearSettingsWidget.cpp" line="497"/>
         <source>January</source>
         <translation>जनवरी</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/YearSettingsWidget.cpp" line="497" />
+        <location filename="../src/openstudio_lib/YearSettingsWidget.cpp" line="497"/>
         <source>February</source>
         <translation>फ़रवरी</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/YearSettingsWidget.cpp" line="497" />
+        <location filename="../src/openstudio_lib/YearSettingsWidget.cpp" line="497"/>
         <source>March</source>
         <translation>मार्च</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/YearSettingsWidget.cpp" line="497" />
+        <location filename="../src/openstudio_lib/YearSettingsWidget.cpp" line="497"/>
         <source>April</source>
         <translation>अप्रैल</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/YearSettingsWidget.cpp" line="497" />
+        <location filename="../src/openstudio_lib/YearSettingsWidget.cpp" line="497"/>
         <source>May</source>
         <translation>मई</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/YearSettingsWidget.cpp" line="497" />
+        <location filename="../src/openstudio_lib/YearSettingsWidget.cpp" line="497"/>
         <source>June</source>
         <translation>जून</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/YearSettingsWidget.cpp" line="498" />
+        <location filename="../src/openstudio_lib/YearSettingsWidget.cpp" line="498"/>
         <source>July</source>
         <translation>जुलाई</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/YearSettingsWidget.cpp" line="498" />
+        <location filename="../src/openstudio_lib/YearSettingsWidget.cpp" line="498"/>
         <source>August</source>
         <translation>अगस्त</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/YearSettingsWidget.cpp" line="498" />
+        <location filename="../src/openstudio_lib/YearSettingsWidget.cpp" line="498"/>
         <source>September</source>
         <translation>सितंबर</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/YearSettingsWidget.cpp" line="498" />
+        <location filename="../src/openstudio_lib/YearSettingsWidget.cpp" line="498"/>
         <source>October</source>
         <translation>अक्टूबर</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/YearSettingsWidget.cpp" line="498" />
+        <location filename="../src/openstudio_lib/YearSettingsWidget.cpp" line="498"/>
         <source>November</source>
         <translation>नवंबर</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/YearSettingsWidget.cpp" line="498" />
+        <location filename="../src/openstudio_lib/YearSettingsWidget.cpp" line="498"/>
         <source>December</source>
         <translation>दिसंबर</translation>
     </message>
@@ -31757,166 +31768,166 @@ Zone</source>
 <context>
     <name>openstudio::bimserver::ProjectImporter</name>
     <message>
-        <location filename="../src/bimserver/ProjectImporter.cpp" line="37" />
+        <location filename="../src/bimserver/ProjectImporter.cpp" line="37"/>
         <source>Download OSM File</source>
         <translation>ओपेनस्टूडियो फ़ाइल डाउनलोड करें</translation>
     </message>
     <message>
-        <location filename="../src/bimserver/ProjectImporter.cpp" line="39" />
-        <location filename="../src/bimserver/ProjectImporter.cpp" line="197" />
+        <location filename="../src/bimserver/ProjectImporter.cpp" line="39"/>
+        <location filename="../src/bimserver/ProjectImporter.cpp" line="197"/>
         <source>New Project</source>
         <translation>नया काम</translation>
     </message>
     <message>
-        <location filename="../src/bimserver/ProjectImporter.cpp" line="40" />
+        <location filename="../src/bimserver/ProjectImporter.cpp" line="40"/>
         <source>Check in IFC File</source>
         <translation>आईएफसी फाइल में चेक करें</translation>
     </message>
     <message>
-        <location filename="../src/bimserver/ProjectImporter.cpp" line="42" />
+        <location filename="../src/bimserver/ProjectImporter.cpp" line="42"/>
         <source> &gt; </source>
         <translation>&gt;</translation>
     </message>
     <message>
-        <location filename="../src/bimserver/ProjectImporter.cpp" line="44" />
-        <location filename="../src/bimserver/ProjectImporter.cpp" line="204" />
-        <location filename="../src/bimserver/ProjectImporter.cpp" line="270" />
+        <location filename="../src/bimserver/ProjectImporter.cpp" line="44"/>
+        <location filename="../src/bimserver/ProjectImporter.cpp" line="204"/>
+        <location filename="../src/bimserver/ProjectImporter.cpp" line="270"/>
         <source>Cancel</source>
         <translation>रद्द करें</translation>
     </message>
     <message>
-        <location filename="../src/bimserver/ProjectImporter.cpp" line="45" />
+        <location filename="../src/bimserver/ProjectImporter.cpp" line="45"/>
         <source>Setting</source>
         <translation>व्यवस्था</translation>
     </message>
     <message>
-        <location filename="../src/bimserver/ProjectImporter.cpp" line="140" />
+        <location filename="../src/bimserver/ProjectImporter.cpp" line="140"/>
         <source>Project created, showing updated project list.</source>
         <translation>प्रोजेक्ट बनाया गया, अद्यतन प्रोजेक्ट सूची दिखा रहा है.</translation>
     </message>
     <message>
-        <location filename="../src/bimserver/ProjectImporter.cpp" line="144" />
+        <location filename="../src/bimserver/ProjectImporter.cpp" line="144"/>
         <source>IFC file loaded, showing updated IFC file list.</source>
         <translation>आईएफसी फ़ाइल लोड की गई, अद्यतन आईएफसी फ़ाइल सूची दिखा रही है.</translation>
     </message>
     <message>
-        <location filename="../src/bimserver/ProjectImporter.cpp" line="149" />
+        <location filename="../src/bimserver/ProjectImporter.cpp" line="149"/>
         <source>Login success!</source>
         <translation>लॉगिन सफल रहा!</translation>
     </message>
     <message>
-        <location filename="../src/bimserver/ProjectImporter.cpp" line="163" />
+        <location filename="../src/bimserver/ProjectImporter.cpp" line="163"/>
         <source>BIMserver disconnected</source>
         <translation>बीआईएमसर्वर डिस्कनेक्ट हो गया</translation>
     </message>
     <message>
-        <location filename="../src/bimserver/ProjectImporter.cpp" line="165" />
+        <location filename="../src/bimserver/ProjectImporter.cpp" line="165"/>
         <source>BIMserver is not connected correctly. Please check if BIMserver is running and make sure your username and password are valid.
 </source>
         <translation>बीआईएमसर्वर ठीक से कनेक्ट नहीं है। कृपया जांचें कि क्या बीआईएमसर्वर चल रहा है और सुनिश्चित करें कि आपका उपयोगकर्ता नाम और पासवर्ड मान्य है.</translation>
     </message>
     <message>
-        <location filename="../src/bimserver/ProjectImporter.cpp" line="178" />
+        <location filename="../src/bimserver/ProjectImporter.cpp" line="178"/>
         <source>Please select a IFC version before proceeding.</source>
         <translation>आगे बढ़ने से पहले कृपया आईएफसी संस्करण चुनें.</translation>
     </message>
     <message>
-        <location filename="../src/bimserver/ProjectImporter.cpp" line="185" />
+        <location filename="../src/bimserver/ProjectImporter.cpp" line="185"/>
         <source>Project selected, showing all versions of IFC files under it.</source>
         <translation>प्रोजेक्ट चयनित, इसके अंतर्गत आईएफसी फ़ाइलों के सभी संस्करण दिखा रहा है.</translation>
     </message>
     <message>
-        <location filename="../src/bimserver/ProjectImporter.cpp" line="189" />
+        <location filename="../src/bimserver/ProjectImporter.cpp" line="189"/>
         <source>Please select a project to see all the IFC versions under it.</source>
         <translation>प्रोजेक्ट के अंतर्गत सभी IFC संस्करण देखने के लिए कृपया चयन करें.</translation>
     </message>
     <message>
-        <location filename="../src/bimserver/ProjectImporter.cpp" line="194" />
+        <location filename="../src/bimserver/ProjectImporter.cpp" line="194"/>
         <source>Create a new project and upload it to the server.</source>
         <translation>एक नया प्रोजेक्ट बनाएं और इसे सर्वर पर अपलोड करें.</translation>
     </message>
     <message>
-        <location filename="../src/bimserver/ProjectImporter.cpp" line="200" />
+        <location filename="../src/bimserver/ProjectImporter.cpp" line="200"/>
         <source>Please enter the project name: </source>
         <translation>कृपया प्रोजेक्ट का नाम दर्ज करें:</translation>
     </message>
     <message>
-        <location filename="../src/bimserver/ProjectImporter.cpp" line="201" />
+        <location filename="../src/bimserver/ProjectImporter.cpp" line="201"/>
         <source>Project Name:</source>
         <translation>प्रोजेक्ट का नाम:</translation>
     </message>
     <message>
-        <location filename="../src/bimserver/ProjectImporter.cpp" line="203" />
+        <location filename="../src/bimserver/ProjectImporter.cpp" line="203"/>
         <source>Create Project</source>
         <translation>प्रोजेक्ट बनाएं</translation>
     </message>
     <message>
-        <location filename="../src/bimserver/ProjectImporter.cpp" line="226" />
+        <location filename="../src/bimserver/ProjectImporter.cpp" line="226"/>
         <source>Check in a new version IFC file for the selected project.</source>
         <translation>चयनित प्रोजेक्ट को आईएफसी के नए संस्करण में जांचें.</translation>
     </message>
     <message>
-        <location filename="../src/bimserver/ProjectImporter.cpp" line="232" />
+        <location filename="../src/bimserver/ProjectImporter.cpp" line="232"/>
         <source>Open IFC File</source>
         <translation>आईएफसी फ़ाइल खोलें</translation>
     </message>
     <message>
-        <location filename="../src/bimserver/ProjectImporter.cpp" line="232" />
+        <location filename="../src/bimserver/ProjectImporter.cpp" line="232"/>
         <source>IFC files (*.ifc)</source>
         <translation>आईएफसी फ़ाइल (*.आईएफसी)</translation>
     </message>
     <message>
-        <location filename="../src/bimserver/ProjectImporter.cpp" line="239" />
+        <location filename="../src/bimserver/ProjectImporter.cpp" line="239"/>
         <source>Please select a project to check in a new IFC version.</source>
         <translation>नए आईएफसी संस्करण में जाँच करने के लिए कृपया किसी प्रोजेक्ट का चयन करें.</translation>
     </message>
     <message>
-        <location filename="../src/bimserver/ProjectImporter.cpp" line="250" />
+        <location filename="../src/bimserver/ProjectImporter.cpp" line="250"/>
         <source>Please specify the bimserver address/port and user credentials.</source>
         <translation>कृपया बिमसर्वर पता/पोर्ट और उपयोगकर्ता क्रेडेंशियल निर्दिष्ट करें.</translation>
     </message>
     <message>
-        <location filename="../src/bimserver/ProjectImporter.cpp" line="253" />
+        <location filename="../src/bimserver/ProjectImporter.cpp" line="253"/>
         <source>BIMserver Settings</source>
         <translation>बीआईएमसर्वर सेटिंग्स</translation>
     </message>
     <message>
-        <location filename="../src/bimserver/ProjectImporter.cpp" line="255" />
+        <location filename="../src/bimserver/ProjectImporter.cpp" line="255"/>
         <source>Please enter the BIMserver information: </source>
         <translation>कृपया बीआईएमसर्वर जानकारी दर्ज करें:</translation>
     </message>
     <message>
-        <location filename="../src/bimserver/ProjectImporter.cpp" line="256" />
+        <location filename="../src/bimserver/ProjectImporter.cpp" line="256"/>
         <source>BIMserver Address: http://</source>
         <translation>बीआईएमसर्वर पता: http://</translation>
     </message>
     <message>
-        <location filename="../src/bimserver/ProjectImporter.cpp" line="259" />
+        <location filename="../src/bimserver/ProjectImporter.cpp" line="259"/>
         <source>BIMserver Port:</source>
         <translation>बीआईएमसर्वर पोर्ट:</translation>
     </message>
     <message>
-        <location filename="../src/bimserver/ProjectImporter.cpp" line="262" />
+        <location filename="../src/bimserver/ProjectImporter.cpp" line="262"/>
         <source>Username</source>
         <translation>उपयोगकर्ता नाम</translation>
     </message>
     <message>
-        <location filename="../src/bimserver/ProjectImporter.cpp" line="265" />
+        <location filename="../src/bimserver/ProjectImporter.cpp" line="265"/>
         <source>Password</source>
         <translation>पासवर्ड</translation>
     </message>
     <message>
-        <location filename="../src/bimserver/ProjectImporter.cpp" line="269" />
+        <location filename="../src/bimserver/ProjectImporter.cpp" line="269"/>
         <source>Okay</source>
         <translation>ठीक है</translation>
     </message>
     <message>
-        <location filename="../src/bimserver/ProjectImporter.cpp" line="344" />
+        <location filename="../src/bimserver/ProjectImporter.cpp" line="344"/>
         <source>BIMserver not set up</source>
         <translation>BIMसर्वर सेट नहीं हुआ</translation>
     </message>
     <message>
-        <location filename="../src/bimserver/ProjectImporter.cpp" line="346" />
+        <location filename="../src/bimserver/ProjectImporter.cpp" line="346"/>
         <source>Please provide valid BIMserver address, port, your username and password. You may ask your BIMserver manager for such information.
 </source>
         <translation>कृपया मान्य बीआईएमसर्वर पता, पोर्ट, अपना उपयोगकर्ता नाम और पासवर्ड प्रदान करें। आप ऐसी जानकारी के लिए अपने बीआईएमसर्वर प्रबंधक से पूछ सकते हैं.</translation>
@@ -31925,17 +31936,17 @@ Zone</source>
 <context>
     <name>openstudio::measuretab::MeasureStepItemDelegate</name>
     <message>
-        <location filename="../src/shared_gui_components/WorkflowController.cpp" line="581" />
+        <location filename="../src/shared_gui_components/WorkflowController.cpp" line="581"/>
         <source>Python Measures are not supported in the Classic CLI.
-You can change CLI version using 'Preferences-&gt;Use Classic CLI'.</source>
+You can change CLI version using &apos;Preferences-&gt;Use Classic CLI&apos;.</source>
         <translation>Python Measures क्लासिक CLI में समर्थित नहीं हैं।
-आप CLI संस्करण 'Preferences-&gt;Use Classic CLI' से बदल सकते हैं।</translation>
+आप CLI संस्करण &apos;Preferences-&gt;Use Classic CLI&apos; से बदल सकते हैं।</translation>
     </message>
 </context>
 <context>
     <name>openstudio::measuretab::NewMeasureDropZone</name>
     <message>
-        <location filename="../src/shared_gui_components/WorkflowView.cpp" line="66" />
+        <location filename="../src/shared_gui_components/WorkflowView.cpp" line="66"/>
         <source>Drop Measure From Library to Create a New Always Run Measure</source>
         <translation>पुस्तकालय से उपाय को छोड़ें एक नया हमेशा चलने वाला उपाय बनाने के लिए</translation>
     </message>
@@ -31943,17 +31954,17 @@ You can change CLI version using 'Preferences-&gt;Use Classic CLI'.</source>
 <context>
     <name>openstudio::measuretab::WorkflowController</name>
     <message>
-        <location filename="../src/shared_gui_components/WorkflowController.cpp" line="47" />
+        <location filename="../src/shared_gui_components/WorkflowController.cpp" line="47"/>
         <source>OpenStudio Measures</source>
         <translation>OpenStudio Measures</translation>
     </message>
     <message>
-        <location filename="../src/shared_gui_components/WorkflowController.cpp" line="51" />
+        <location filename="../src/shared_gui_components/WorkflowController.cpp" line="51"/>
         <source>EnergyPlus Measures</source>
         <translation>EnergyPlus उपाय</translation>
     </message>
     <message>
-        <location filename="../src/shared_gui_components/WorkflowController.cpp" line="55" />
+        <location filename="../src/shared_gui_components/WorkflowController.cpp" line="55"/>
         <source>Reporting Measures</source>
         <translation>रिपोर्टिंग उपाय</translation>
     </message>

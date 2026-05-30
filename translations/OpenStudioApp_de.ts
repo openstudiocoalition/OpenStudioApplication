@@ -1,9 +1,10 @@
-<?xml version='1.0' encoding='utf-8'?>
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE TS>
 <TS version="2.1" language="de">
 <context>
     <name>CalendarSegmentItem</name>
     <message>
-        <location filename="../src/openstudio_lib/ScheduleDayView.cpp" line="774" />
+        <location filename="../src/openstudio_lib/ScheduleDayView.cpp" line="774"/>
         <source>Double click to cut segment</source>
         <translation>Doppelklick zum Abschnitt schneiden</translation>
     </message>
@@ -15378,28 +15379,28 @@ Name der Anlagenseite-Zweigliste</translation>
 <context>
     <name>InspectorDialog</name>
     <message>
-        <location filename="../src/model_editor/InspectorDialog.cpp" line="493" />
-        <location filename="../src/model_editor/InspectorDialog.cpp" line="494" />
+        <location filename="../src/model_editor/InspectorDialog.cpp" line="493"/>
+        <location filename="../src/model_editor/InspectorDialog.cpp" line="494"/>
         <source>OpenStudio Inspector</source>
         <translation>OpenStudio Inspektor</translation>
     </message>
     <message>
-        <location filename="../src/model_editor/InspectorDialog.cpp" line="573" />
+        <location filename="../src/model_editor/InspectorDialog.cpp" line="573"/>
         <source>Add new object</source>
         <translation>Neues Objekt hinzufügen</translation>
     </message>
     <message>
-        <location filename="../src/model_editor/InspectorDialog.cpp" line="577" />
+        <location filename="../src/model_editor/InspectorDialog.cpp" line="577"/>
         <source>Copy selected object</source>
         <translation>Ausgewähltes Objekt kopieren</translation>
     </message>
     <message>
-        <location filename="../src/model_editor/InspectorDialog.cpp" line="581" />
+        <location filename="../src/model_editor/InspectorDialog.cpp" line="581"/>
         <source>Remove selected objects</source>
         <translation>Ausgewählte Objekte entfernen</translation>
     </message>
     <message>
-        <location filename="../src/model_editor/InspectorDialog.cpp" line="585" />
+        <location filename="../src/model_editor/InspectorDialog.cpp" line="585"/>
         <source>Purge unused objects</source>
         <translatorcomment>La palabra purgar no tiene el mismo contexto en Español.</translatorcomment>
         <translation>Borrar todos los objetos sin usar</translation>
@@ -15408,23 +15409,23 @@ Name der Anlagenseite-Zweigliste</translation>
 <context>
     <name>InspectorGadget</name>
     <message>
-        <location filename="../src/model_editor/InspectorGadget.cpp" line="658" />
-        <location filename="../src/model_editor/InspectorGadget.cpp" line="703" />
+        <location filename="../src/model_editor/InspectorGadget.cpp" line="658"/>
+        <location filename="../src/model_editor/InspectorGadget.cpp" line="703"/>
         <source>Hard Sized</source>
         <translation>Manuell dimensioniert</translation>
     </message>
     <message>
-        <location filename="../src/model_editor/InspectorGadget.cpp" line="659" />
+        <location filename="../src/model_editor/InspectorGadget.cpp" line="659"/>
         <source>Autosized</source>
         <translation>Automatisch dimensioniert</translation>
     </message>
     <message>
-        <location filename="../src/model_editor/InspectorGadget.cpp" line="704" />
+        <location filename="../src/model_editor/InspectorGadget.cpp" line="704"/>
         <source>Autocalculate</source>
         <translation>Automatisch berechnet</translation>
     </message>
     <message>
-        <location filename="../src/model_editor/InspectorGadget.cpp" line="885" />
+        <location filename="../src/model_editor/InspectorGadget.cpp" line="885"/>
         <source>Add/Remove Extensible Groups</source>
         <translation>Untergruppen Hinzufügen/Entfernen</translation>
     </message>
@@ -15432,7 +15433,7 @@ Name der Anlagenseite-Zweigliste</translation>
 <context>
     <name>LocationView</name>
     <message>
-        <location filename="../src/openstudio_lib/LocationTabView.cpp" line="839" />
+        <location filename="../src/openstudio_lib/LocationTabView.cpp" line="839"/>
         <source>Import Design Days</source>
         <translation>Designtage importieren</translation>
     </message>
@@ -15440,20 +15441,20 @@ Name der Anlagenseite-Zweigliste</translation>
 <context>
     <name>ModelObjectSelectorDialog</name>
     <message>
-        <location filename="../src/model_editor/ModalDialogs.cpp" line="147" />
-        <location filename="../src/model_editor/ModalDialogs.cpp" line="148" />
+        <location filename="../src/model_editor/ModalDialogs.cpp" line="147"/>
+        <location filename="../src/model_editor/ModalDialogs.cpp" line="148"/>
         <source>Select Model Object</source>
         <translation>Modellobjekt auswählen</translation>
     </message>
     <message>
-        <location filename="../src/model_editor/ModalDialogs.cpp" line="173" />
-        <location filename="../src/model_editor/ModalDialogs.cpp" line="174" />
+        <location filename="../src/model_editor/ModalDialogs.cpp" line="173"/>
+        <location filename="../src/model_editor/ModalDialogs.cpp" line="174"/>
         <source>OK</source>
         <translation>OK</translation>
     </message>
     <message>
-        <location filename="../src/model_editor/ModalDialogs.cpp" line="178" />
-        <location filename="../src/model_editor/ModalDialogs.cpp" line="179" />
+        <location filename="../src/model_editor/ModalDialogs.cpp" line="178"/>
+        <location filename="../src/model_editor/ModalDialogs.cpp" line="179"/>
         <source>Cancel</source>
         <translation>Abbrechen</translation>
     </message>
@@ -16332,7 +16333,7 @@ Name der Anlagenseite-Zweigliste</translation>
         <source>Evaporative Cooler Operating Mode Satus</source>
         <translation>Evaporative Cooler Operating Mode Status
 
-(Note: "Satus" appears to be a typo for "Status" in your source text. I've corrected it to "Status" in the translation. If you need it with the typo preserved, please let me know.)</translation>
+(Note: &quot;Satus&quot; appears to be a typo for &quot;Status&quot; in your source text. I&apos;ve corrected it to &quot;Status&quot; in the translation. If you need it with the typo preserved, please let me know.)</translation>
     </message>
     <message>
         <source>Evaporative Cooler Part Load Ratio</source>
@@ -21201,7 +21202,7 @@ Zone Dehumidifier Fühlbare Heizleistung</translation>
 <context>
     <name>ScheduleTypeLimitItem</name>
     <message>
-        <location filename="../src/openstudio_lib/ScheduleDayView.cpp" line="1150" />
+        <location filename="../src/openstudio_lib/ScheduleDayView.cpp" line="1150"/>
         <source>Schedule Type Limit</source>
         <translation>Plantyp-Grenzwert</translation>
     </message>
@@ -21396,62 +21397,62 @@ Zone Dehumidifier Fühlbare Heizleistung</translation>
 <context>
     <name>UtilityBillsView</name>
     <message>
-        <location filename="../src/openstudio_lib/UtilityBillsView.cpp" line="63" />
+        <location filename="../src/openstudio_lib/UtilityBillsView.cpp" line="63"/>
         <source>Electric Utility Bill</source>
         <translation>Stromrechnung</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/UtilityBillsView.cpp" line="65" />
+        <location filename="../src/openstudio_lib/UtilityBillsView.cpp" line="65"/>
         <source>Gas Utility Bill</source>
         <translation>Gasversorgungsrechnung</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/UtilityBillsView.cpp" line="67" />
+        <location filename="../src/openstudio_lib/UtilityBillsView.cpp" line="67"/>
         <source>District Heating Utility Bill</source>
         <translation>Fernwärme-Energierechnung</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/UtilityBillsView.cpp" line="69" />
+        <location filename="../src/openstudio_lib/UtilityBillsView.cpp" line="69"/>
         <source>District Cooling Utility Bill</source>
         <translation>Fernwärmeversorgung Kühlanlage Nebenkosten</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/UtilityBillsView.cpp" line="71" />
+        <location filename="../src/openstudio_lib/UtilityBillsView.cpp" line="71"/>
         <source>Gasoline Utility Bill</source>
         <translation>Benzin-Nebenkosten-Rechnung</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/UtilityBillsView.cpp" line="73" />
+        <location filename="../src/openstudio_lib/UtilityBillsView.cpp" line="73"/>
         <source>Diesel Utility Bill</source>
         <translation>Diesel-Stromrechnung</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/UtilityBillsView.cpp" line="75" />
+        <location filename="../src/openstudio_lib/UtilityBillsView.cpp" line="75"/>
         <source>Fuel Oil #1 Utility Bill</source>
         <translation>Heizöl #1 Rechnung</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/UtilityBillsView.cpp" line="77" />
+        <location filename="../src/openstudio_lib/UtilityBillsView.cpp" line="77"/>
         <source>Fuel Oil #2 Utility Bill</source>
         <translation>Heizöl EL Utility Bill</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/UtilityBillsView.cpp" line="79" />
+        <location filename="../src/openstudio_lib/UtilityBillsView.cpp" line="79"/>
         <source>Propane Utility Bill</source>
         <translation>Propan-Nebenkosten</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/UtilityBillsView.cpp" line="81" />
+        <location filename="../src/openstudio_lib/UtilityBillsView.cpp" line="81"/>
         <source>Water Utility Bill</source>
         <translation>Wassergebühr</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/UtilityBillsView.cpp" line="83" />
+        <location filename="../src/openstudio_lib/UtilityBillsView.cpp" line="83"/>
         <source>Steam Utility Bill</source>
         <translation>Dampf-Energierechnung</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/UtilityBillsView.cpp" line="85" />
+        <location filename="../src/openstudio_lib/UtilityBillsView.cpp" line="85"/>
         <source>Energy Transfer Utility Bill</source>
         <translation>Energieübertragung Nebenkosten</translation>
     </message>
@@ -21459,7 +21460,7 @@ Zone Dehumidifier Fühlbare Heizleistung</translation>
 <context>
     <name>VCalendarSegmentItem</name>
     <message>
-        <location filename="../src/openstudio_lib/ScheduleDayView.cpp" line="976" />
+        <location filename="../src/openstudio_lib/ScheduleDayView.cpp" line="976"/>
         <source>Double click to delete segment</source>
         <translation>Doppelklick zum Löschen des Segments</translation>
     </message>
@@ -21467,12 +21468,12 @@ Zone Dehumidifier Fühlbare Heizleistung</translation>
 <context>
     <name>openstudio::AirLoopHVACUnitaryHeatPumpAirToAirControlView</name>
     <message>
-        <location filename="../src/openstudio_lib/HVACSystemsView.cpp" line="924" />
-        <source>Supply air temperature is managed by the "AirLoopHVACUnitaryHeatPumpAirToAir" component.</source>
-        <translation>Die Zulufttemperatur wird durch die Komponente „AirLoopHVACUnitaryHeatPumpAirToAir" gesteuert.</translation>
+        <location filename="../src/openstudio_lib/HVACSystemsView.cpp" line="924"/>
+        <source>Supply air temperature is managed by the &quot;AirLoopHVACUnitaryHeatPumpAirToAir&quot; component.</source>
+        <translation>Die Zulufttemperatur wird durch die Komponente „AirLoopHVACUnitaryHeatPumpAirToAir&quot; gesteuert.</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/HVACSystemsView.cpp" line="931" />
+        <location filename="../src/openstudio_lib/HVACSystemsView.cpp" line="931"/>
         <source>Control Zone</source>
         <translation>Regelzone</translation>
     </message>
@@ -21480,41 +21481,41 @@ Zone Dehumidifier Fühlbare Heizleistung</translation>
 <context>
     <name>openstudio::ApplyMeasureNowDialog</name>
     <message>
-        <location filename="../src/openstudio_lib/ApplyMeasureNowDialog.cpp" line="75" />
+        <location filename="../src/openstudio_lib/ApplyMeasureNowDialog.cpp" line="75"/>
         <source>Apply Measure Now</source>
         <translation>Maßnahme jetzt anwenden</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/ApplyMeasureNowDialog.cpp" line="84" />
-        <location filename="../src/openstudio_lib/ApplyMeasureNowDialog.cpp" line="229" />
-        <location filename="../src/openstudio_lib/ApplyMeasureNowDialog.cpp" line="806" />
+        <location filename="../src/openstudio_lib/ApplyMeasureNowDialog.cpp" line="84"/>
+        <location filename="../src/openstudio_lib/ApplyMeasureNowDialog.cpp" line="229"/>
+        <location filename="../src/openstudio_lib/ApplyMeasureNowDialog.cpp" line="806"/>
         <source>Advanced Output</source>
         <translation>Erweiterte Ausgabe</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/ApplyMeasureNowDialog.cpp" line="191" />
+        <location filename="../src/openstudio_lib/ApplyMeasureNowDialog.cpp" line="191"/>
         <source>Running Measure</source>
         <translation>Maßnahme wird ausgeführt</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/ApplyMeasureNowDialog.cpp" line="211" />
+        <location filename="../src/openstudio_lib/ApplyMeasureNowDialog.cpp" line="211"/>
         <source>Measure Output</source>
         <translation>Maßnahmenergebnis</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/ApplyMeasureNowDialog.cpp" line="256" />
-        <location filename="../src/openstudio_lib/ApplyMeasureNowDialog.cpp" line="282" />
-        <location filename="../src/openstudio_lib/ApplyMeasureNowDialog.cpp" line="753" />
+        <location filename="../src/openstudio_lib/ApplyMeasureNowDialog.cpp" line="256"/>
+        <location filename="../src/openstudio_lib/ApplyMeasureNowDialog.cpp" line="282"/>
+        <location filename="../src/openstudio_lib/ApplyMeasureNowDialog.cpp" line="753"/>
         <source>Apply Measure</source>
         <translation>Maßnahme anwenden</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/ApplyMeasureNowDialog.cpp" line="405" />
+        <location filename="../src/openstudio_lib/ApplyMeasureNowDialog.cpp" line="405"/>
         <source>Accept Changes</source>
         <translation>Änderungen übernehmen</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/ApplyMeasureNowDialog.cpp" line="806" />
+        <location filename="../src/openstudio_lib/ApplyMeasureNowDialog.cpp" line="806"/>
         <source>No advanced output.</source>
         <translation>Keine erweiterte Ausgabe.</translation>
     </message>
@@ -21522,27 +21523,27 @@ Zone Dehumidifier Fühlbare Heizleistung</translation>
 <context>
     <name>openstudio::BuildingComponentDialog</name>
     <message>
-        <location filename="../src/shared_gui_components/BuildingComponentDialog.cpp" line="53" />
+        <location filename="../src/shared_gui_components/BuildingComponentDialog.cpp" line="53"/>
         <source>Online BCL</source>
         <translation>Online BCL</translation>
     </message>
     <message>
-        <location filename="../src/shared_gui_components/BuildingComponentDialog.cpp" line="55" />
+        <location filename="../src/shared_gui_components/BuildingComponentDialog.cpp" line="55"/>
         <source>Local Library</source>
         <translation>Lokale Bibliothek</translation>
     </message>
     <message>
-        <location filename="../src/shared_gui_components/BuildingComponentDialog.cpp" line="76" />
+        <location filename="../src/shared_gui_components/BuildingComponentDialog.cpp" line="76"/>
         <source>Click to add a search term to the selected category</source>
         <translation>Klicken Sie, um einen Suchbegriff zur ausgewählten Kategorie hinzuzufügen</translation>
     </message>
     <message>
-        <location filename="../src/shared_gui_components/BuildingComponentDialog.cpp" line="87" />
+        <location filename="../src/shared_gui_components/BuildingComponentDialog.cpp" line="87"/>
         <source>Categories</source>
         <translation>Kategorien</translation>
     </message>
     <message>
-        <location filename="../src/shared_gui_components/BuildingComponentDialog.cpp" line="176" />
+        <location filename="../src/shared_gui_components/BuildingComponentDialog.cpp" line="176"/>
         <source>Searching BCL...</source>
         <translation>BCL wird durchsucht...</translation>
     </message>
@@ -21550,17 +21551,17 @@ Zone Dehumidifier Fühlbare Heizleistung</translation>
 <context>
     <name>openstudio::BuildingComponentDialogCentralWidget</name>
     <message>
-        <location filename="../src/shared_gui_components/BuildingComponentDialogCentralWidget.cpp" line="88" />
+        <location filename="../src/shared_gui_components/BuildingComponentDialogCentralWidget.cpp" line="88"/>
         <source>Sort by:</source>
         <translation>Sortieren nach:</translation>
     </message>
     <message>
-        <location filename="../src/shared_gui_components/BuildingComponentDialogCentralWidget.cpp" line="97" />
+        <location filename="../src/shared_gui_components/BuildingComponentDialogCentralWidget.cpp" line="97"/>
         <source>Check All</source>
         <translation>Alle auswählen</translation>
     </message>
     <message>
-        <location filename="../src/shared_gui_components/BuildingComponentDialogCentralWidget.cpp" line="144" />
+        <location filename="../src/shared_gui_components/BuildingComponentDialogCentralWidget.cpp" line="144"/>
         <source>Download</source>
         <translation>Herunterladen</translation>
     </message>
@@ -21568,84 +21569,84 @@ Zone Dehumidifier Fühlbare Heizleistung</translation>
 <context>
     <name>openstudio::BuildingInspectorView</name>
     <message>
-        <location filename="../src/openstudio_lib/BuildingInspectorView.cpp" line="223" />
+        <location filename="../src/openstudio_lib/BuildingInspectorView.cpp" line="223"/>
         <source>Name: </source>
         <translation>Name:</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/BuildingInspectorView.cpp" line="235" />
+        <location filename="../src/openstudio_lib/BuildingInspectorView.cpp" line="235"/>
         <source>Display Name: </source>
         <translation>Anzeigename:</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/BuildingInspectorView.cpp" line="246" />
+        <location filename="../src/openstudio_lib/BuildingInspectorView.cpp" line="246"/>
         <source>CAD Object Id: </source>
         <translation>CAD-Objekt-ID:</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/BuildingInspectorView.cpp" line="269" />
+        <location filename="../src/openstudio_lib/BuildingInspectorView.cpp" line="269"/>
         <source>Measure Tags (Optional):</source>
         <translation>Kennzeichnung (optional):</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/BuildingInspectorView.cpp" line="279" />
+        <location filename="../src/openstudio_lib/BuildingInspectorView.cpp" line="279"/>
         <source>Standards Template: </source>
         <translation>Standards-Vorlage:</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/BuildingInspectorView.cpp" line="298" />
+        <location filename="../src/openstudio_lib/BuildingInspectorView.cpp" line="298"/>
         <source>Standards Building Type: </source>
         <translation>Gebäudetyp nach Standard:</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/BuildingInspectorView.cpp" line="319" />
+        <location filename="../src/openstudio_lib/BuildingInspectorView.cpp" line="319"/>
         <source>Nominal Floor to Ceiling Height: </source>
         <translation>Nominale Fußboden- bis Deckenhöhe:</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/BuildingInspectorView.cpp" line="337" />
+        <location filename="../src/openstudio_lib/BuildingInspectorView.cpp" line="337"/>
         <source>Nominal Floor to Floor Height: </source>
         <translation>Nominale Geschosshöhe:</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/BuildingInspectorView.cpp" line="360" />
+        <location filename="../src/openstudio_lib/BuildingInspectorView.cpp" line="360"/>
         <source>Standards Number of Stories: </source>
         <translation>Standardanzahl der Geschosse:</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/BuildingInspectorView.cpp" line="377" />
+        <location filename="../src/openstudio_lib/BuildingInspectorView.cpp" line="377"/>
         <source>Standards Number of Above Ground Stories: </source>
         <translation>Standards Number of Above Ground Stories:
 
 **Standardanzahl der oberirdischen Geschosse:**</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/BuildingInspectorView.cpp" line="396" />
+        <location filename="../src/openstudio_lib/BuildingInspectorView.cpp" line="396"/>
         <source>Standards Number of Living Units: </source>
         <translation>Standards Anzahl der Wohneinheiten:</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/BuildingInspectorView.cpp" line="413" />
+        <location filename="../src/openstudio_lib/BuildingInspectorView.cpp" line="413"/>
         <source>Relocatable: </source>
         <translation>Verschiebbar:</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/BuildingInspectorView.cpp" line="440" />
+        <location filename="../src/openstudio_lib/BuildingInspectorView.cpp" line="440"/>
         <source>North Axis: </source>
         <translation>Nordachse:</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/BuildingInspectorView.cpp" line="457" />
+        <location filename="../src/openstudio_lib/BuildingInspectorView.cpp" line="457"/>
         <source>Space Type: </source>
         <translation>Raumtyp:</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/BuildingInspectorView.cpp" line="479" />
+        <location filename="../src/openstudio_lib/BuildingInspectorView.cpp" line="479"/>
         <source>Default Construction Set: </source>
         <translation>Standard-Konstruktionssatz:</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/BuildingInspectorView.cpp" line="498" />
+        <location filename="../src/openstudio_lib/BuildingInspectorView.cpp" line="498"/>
         <source>Default Schedule Set: </source>
         <translation>Standardmäßiger Zeitplansatz:</translation>
     </message>
@@ -21653,114 +21654,114 @@ Zone Dehumidifier Fühlbare Heizleistung</translation>
 <context>
     <name>openstudio::Component</name>
     <message>
-        <location filename="../src/shared_gui_components/Component.cpp" line="57" />
-        <location filename="../src/shared_gui_components/Component.cpp" line="134" />
+        <location filename="../src/shared_gui_components/Component.cpp" line="57"/>
+        <location filename="../src/shared_gui_components/Component.cpp" line="134"/>
         <source>This measure is not compatible with the current version of OpenStudio</source>
         <translation>Diese Maßnahme ist nicht mit der aktuellen Version von OpenStudio kompatibel</translation>
     </message>
     <message>
-        <location filename="../src/shared_gui_components/Component.cpp" line="68" />
+        <location filename="../src/shared_gui_components/Component.cpp" line="68"/>
         <source>This measure cannot be updated because it has an error</source>
         <translation>Diese Maßnahme kann nicht aktualisiert werden, da sie einen Fehler enthält</translation>
     </message>
     <message>
-        <location filename="../src/shared_gui_components/Component.cpp" line="78" />
-        <location filename="../src/shared_gui_components/Component.cpp" line="153" />
+        <location filename="../src/shared_gui_components/Component.cpp" line="78"/>
+        <location filename="../src/shared_gui_components/Component.cpp" line="153"/>
         <source>An update is available for this measure</source>
         <translation>Ein Update ist für diese Maßnahme verfügbar</translation>
     </message>
     <message>
-        <location filename="../src/shared_gui_components/Component.cpp" line="114" />
+        <location filename="../src/shared_gui_components/Component.cpp" line="114"/>
         <source>An update is available for this component</source>
         <translation>Ein Update ist für diese Komponente verfügbar</translation>
     </message>
     <message>
-        <location filename="../src/shared_gui_components/Component.cpp" line="486" />
+        <location filename="../src/shared_gui_components/Component.cpp" line="486"/>
         <source>Errors</source>
         <translation>Fehler</translation>
     </message>
     <message>
-        <location filename="../src/shared_gui_components/Component.cpp" line="501" />
+        <location filename="../src/shared_gui_components/Component.cpp" line="501"/>
         <source>Description</source>
         <translation>Beschreibung</translation>
     </message>
     <message>
-        <location filename="../src/shared_gui_components/Component.cpp" line="515" />
+        <location filename="../src/shared_gui_components/Component.cpp" line="515"/>
         <source>Modeler Description</source>
         <translation>Modellierer-Beschreibung</translation>
     </message>
     <message>
-        <location filename="../src/shared_gui_components/Component.cpp" line="569" />
+        <location filename="../src/shared_gui_components/Component.cpp" line="569"/>
         <source>Attributes</source>
         <translation>Attribute</translation>
     </message>
     <message>
-        <location filename="../src/shared_gui_components/Component.cpp" line="616" />
+        <location filename="../src/shared_gui_components/Component.cpp" line="616"/>
         <source>Arguments</source>
         <translation>Argumente</translation>
     </message>
     <message>
-        <location filename="../src/shared_gui_components/Component.cpp" line="646" />
+        <location filename="../src/shared_gui_components/Component.cpp" line="646"/>
         <source>Files</source>
         <translation>Dateien</translation>
     </message>
     <message>
-        <location filename="../src/shared_gui_components/Component.cpp" line="683" />
+        <location filename="../src/shared_gui_components/Component.cpp" line="683"/>
         <source>Sources</source>
         <translation>Quellen</translation>
     </message>
     <message>
-        <location filename="../src/shared_gui_components/Component.cpp" line="693" />
+        <location filename="../src/shared_gui_components/Component.cpp" line="693"/>
         <source>Organization</source>
         <translation>Organisation</translation>
     </message>
     <message>
-        <location filename="../src/shared_gui_components/Component.cpp" line="696" />
+        <location filename="../src/shared_gui_components/Component.cpp" line="696"/>
         <source>Repository</source>
         <translation>Repository</translation>
     </message>
     <message>
-        <location filename="../src/shared_gui_components/Component.cpp" line="699" />
+        <location filename="../src/shared_gui_components/Component.cpp" line="699"/>
         <source>Release Tag</source>
         <translation>Release-Tag</translation>
     </message>
     <message>
-        <location filename="../src/shared_gui_components/Component.cpp" line="704" />
+        <location filename="../src/shared_gui_components/Component.cpp" line="704"/>
         <source>Author</source>
         <translation>Autor</translation>
     </message>
     <message>
-        <location filename="../src/shared_gui_components/Component.cpp" line="707" />
+        <location filename="../src/shared_gui_components/Component.cpp" line="707"/>
         <source>Comment</source>
         <translation>Kommentar</translation>
     </message>
     <message>
-        <location filename="../src/shared_gui_components/Component.cpp" line="710" />
+        <location filename="../src/shared_gui_components/Component.cpp" line="710"/>
         <source>Date &amp; time</source>
         <translation>Datum &amp; Uhrzeit</translation>
     </message>
     <message>
-        <location filename="../src/shared_gui_components/Component.cpp" line="738" />
+        <location filename="../src/shared_gui_components/Component.cpp" line="738"/>
         <source>Tags</source>
         <translation>Tags</translation>
     </message>
     <message>
-        <location filename="../src/shared_gui_components/Component.cpp" line="751" />
+        <location filename="../src/shared_gui_components/Component.cpp" line="751"/>
         <source>Version</source>
         <translation>Version</translation>
     </message>
     <message>
-        <location filename="../src/shared_gui_components/Component.cpp" line="756" />
+        <location filename="../src/shared_gui_components/Component.cpp" line="756"/>
         <source>UID</source>
         <translation>UID</translation>
     </message>
     <message>
-        <location filename="../src/shared_gui_components/Component.cpp" line="757" />
+        <location filename="../src/shared_gui_components/Component.cpp" line="757"/>
         <source>Version ID</source>
         <translation>Versions-ID</translation>
     </message>
     <message>
-        <location filename="../src/shared_gui_components/Component.cpp" line="759" />
+        <location filename="../src/shared_gui_components/Component.cpp" line="759"/>
         <source>Version Modified</source>
         <translation>Version geändert</translation>
     </message>
@@ -21768,17 +21769,17 @@ Zone Dehumidifier Fühlbare Heizleistung</translation>
 <context>
     <name>openstudio::ConstructionAirBoundaryInspectorView</name>
     <message>
-        <location filename="../src/openstudio_lib/ConstructionAirBoundaryInspectorView.cpp" line="56" />
+        <location filename="../src/openstudio_lib/ConstructionAirBoundaryInspectorView.cpp" line="56"/>
         <source>Name: </source>
         <translation>Name:</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/ConstructionAirBoundaryInspectorView.cpp" line="77" />
+        <location filename="../src/openstudio_lib/ConstructionAirBoundaryInspectorView.cpp" line="77"/>
         <source>Air Exchange Method: </source>
         <translation>Luftwechselmethode:</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/ConstructionAirBoundaryInspectorView.cpp" line="90" />
+        <location filename="../src/openstudio_lib/ConstructionAirBoundaryInspectorView.cpp" line="90"/>
         <source>Simple Mixing Air Changes per Hour: </source>
         <translation>Einfache Mischungsluftwechsel pro Stunde:</translation>
     </message>
@@ -21786,17 +21787,17 @@ Zone Dehumidifier Fühlbare Heizleistung</translation>
 <context>
     <name>openstudio::ConstructionCfactorUndergroundWallInspectorView</name>
     <message>
-        <location filename="../src/openstudio_lib/ConstructionCfactorUndergroundWallInspectorView.cpp" line="56" />
+        <location filename="../src/openstudio_lib/ConstructionCfactorUndergroundWallInspectorView.cpp" line="56"/>
         <source>Name: </source>
         <translation>Name:</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/ConstructionCfactorUndergroundWallInspectorView.cpp" line="77" />
+        <location filename="../src/openstudio_lib/ConstructionCfactorUndergroundWallInspectorView.cpp" line="77"/>
         <source>C-Factor: </source>
         <translation>C-Faktor:</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/ConstructionCfactorUndergroundWallInspectorView.cpp" line="91" />
+        <location filename="../src/openstudio_lib/ConstructionCfactorUndergroundWallInspectorView.cpp" line="91"/>
         <source>Height: </source>
         <translation>Höhe:</translation>
     </message>
@@ -21804,22 +21805,22 @@ Zone Dehumidifier Fühlbare Heizleistung</translation>
 <context>
     <name>openstudio::ConstructionFfactorGroundFloorInspectorView</name>
     <message>
-        <location filename="../src/openstudio_lib/ConstructionFfactorGroundFloorInspectorView.cpp" line="56" />
+        <location filename="../src/openstudio_lib/ConstructionFfactorGroundFloorInspectorView.cpp" line="56"/>
         <source>Name: </source>
         <translation>Name:</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/ConstructionFfactorGroundFloorInspectorView.cpp" line="77" />
+        <location filename="../src/openstudio_lib/ConstructionFfactorGroundFloorInspectorView.cpp" line="77"/>
         <source>F-Factor: </source>
         <translation>F-Faktor:</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/ConstructionFfactorGroundFloorInspectorView.cpp" line="91" />
+        <location filename="../src/openstudio_lib/ConstructionFfactorGroundFloorInspectorView.cpp" line="91"/>
         <source>Area: </source>
         <translation>Fläche:</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/ConstructionFfactorGroundFloorInspectorView.cpp" line="105" />
+        <location filename="../src/openstudio_lib/ConstructionFfactorGroundFloorInspectorView.cpp" line="105"/>
         <source>Perimeter Exposed: </source>
         <translation>Umfang exponiert:</translation>
     </message>
@@ -21827,27 +21828,27 @@ Zone Dehumidifier Fühlbare Heizleistung</translation>
 <context>
     <name>openstudio::ConstructionInspectorView</name>
     <message>
-        <location filename="../src/openstudio_lib/ConstructionInspectorView.cpp" line="65" />
+        <location filename="../src/openstudio_lib/ConstructionInspectorView.cpp" line="65"/>
         <source>Name: </source>
         <translation>Name:</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/ConstructionInspectorView.cpp" line="86" />
+        <location filename="../src/openstudio_lib/ConstructionInspectorView.cpp" line="86"/>
         <source>Layer: </source>
         <translation>Schicht:</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/ConstructionInspectorView.cpp" line="92" />
+        <location filename="../src/openstudio_lib/ConstructionInspectorView.cpp" line="92"/>
         <source>Outside</source>
         <translation>Außen</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/ConstructionInspectorView.cpp" line="99" />
+        <location filename="../src/openstudio_lib/ConstructionInspectorView.cpp" line="99"/>
         <source>Drag From Library</source>
         <translation>Aus Bibliothek ziehen</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/ConstructionInspectorView.cpp" line="112" />
+        <location filename="../src/openstudio_lib/ConstructionInspectorView.cpp" line="112"/>
         <source>Inside</source>
         <translation>Innen</translation>
     </message>
@@ -21855,47 +21856,47 @@ Zone Dehumidifier Fühlbare Heizleistung</translation>
 <context>
     <name>openstudio::ConstructionInternalSourceInspectorView</name>
     <message>
-        <location filename="../src/openstudio_lib/ConstructionInternalSourceInspectorView.cpp" line="67" />
+        <location filename="../src/openstudio_lib/ConstructionInternalSourceInspectorView.cpp" line="67"/>
         <source>Name: </source>
         <translation>Name:</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/ConstructionInternalSourceInspectorView.cpp" line="88" />
+        <location filename="../src/openstudio_lib/ConstructionInternalSourceInspectorView.cpp" line="88"/>
         <source>Layer: </source>
         <translation>Schicht:</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/ConstructionInternalSourceInspectorView.cpp" line="94" />
+        <location filename="../src/openstudio_lib/ConstructionInternalSourceInspectorView.cpp" line="94"/>
         <source>Outside</source>
         <translation>Außen</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/ConstructionInternalSourceInspectorView.cpp" line="101" />
+        <location filename="../src/openstudio_lib/ConstructionInternalSourceInspectorView.cpp" line="101"/>
         <source>Drag From Library</source>
         <translation>Aus Bibliothek ziehen</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/ConstructionInternalSourceInspectorView.cpp" line="110" />
+        <location filename="../src/openstudio_lib/ConstructionInternalSourceInspectorView.cpp" line="110"/>
         <source>Inside</source>
         <translation>Innen</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/ConstructionInternalSourceInspectorView.cpp" line="118" />
+        <location filename="../src/openstudio_lib/ConstructionInternalSourceInspectorView.cpp" line="118"/>
         <source>Source Present After Layer: </source>
         <translation>Quelle vorhanden nach Schicht:</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/ConstructionInternalSourceInspectorView.cpp" line="131" />
+        <location filename="../src/openstudio_lib/ConstructionInternalSourceInspectorView.cpp" line="131"/>
         <source>Temperature Calculation Requested After Layer Number: </source>
         <translation>Temperaturberechnung angefordert nach Schichtnummer:</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/ConstructionInternalSourceInspectorView.cpp" line="144" />
+        <location filename="../src/openstudio_lib/ConstructionInternalSourceInspectorView.cpp" line="144"/>
         <source>Dimensions for the CTF Calculation: </source>
         <translation>Dimensionen für die CTF-Berechnung:</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/ConstructionInternalSourceInspectorView.cpp" line="157" />
+        <location filename="../src/openstudio_lib/ConstructionInternalSourceInspectorView.cpp" line="157"/>
         <source>Tube Spacing: </source>
         <translation>Rohrabstand:</translation>
     </message>
@@ -21903,18 +21904,18 @@ Zone Dehumidifier Fühlbare Heizleistung</translation>
 <context>
     <name>openstudio::ConstructionsTabController</name>
     <message>
-        <location filename="../src/openstudio_lib/ConstructionsTabController.cpp" line="21" />
-        <location filename="../src/openstudio_lib/ConstructionsTabController.cpp" line="23" />
+        <location filename="../src/openstudio_lib/ConstructionsTabController.cpp" line="21"/>
+        <location filename="../src/openstudio_lib/ConstructionsTabController.cpp" line="23"/>
         <source>Constructions</source>
         <translation>Konstruktionen</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/ConstructionsTabController.cpp" line="22" />
+        <location filename="../src/openstudio_lib/ConstructionsTabController.cpp" line="22"/>
         <source>Construction Sets</source>
         <translation>Konstruktionssätze</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/ConstructionsTabController.cpp" line="24" />
+        <location filename="../src/openstudio_lib/ConstructionsTabController.cpp" line="24"/>
         <source>Materials</source>
         <translation>Materialien</translation>
     </message>
@@ -21922,27 +21923,27 @@ Zone Dehumidifier Fühlbare Heizleistung</translation>
 <context>
     <name>openstudio::ConstructionsView</name>
     <message>
-        <location filename="../src/openstudio_lib/ConstructionsView.cpp" line="33" />
+        <location filename="../src/openstudio_lib/ConstructionsView.cpp" line="33"/>
         <source>Constructions</source>
         <translation>Konstruktionen</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/ConstructionsView.cpp" line="34" />
+        <location filename="../src/openstudio_lib/ConstructionsView.cpp" line="34"/>
         <source>Air Boundary Constructions</source>
         <translation>Luftgrenzflächenkonstruktionen</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/ConstructionsView.cpp" line="35" />
+        <location filename="../src/openstudio_lib/ConstructionsView.cpp" line="35"/>
         <source>Internal Source Constructions</source>
         <translation>Interne Quellenkonstruktionen</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/ConstructionsView.cpp" line="37" />
+        <location filename="../src/openstudio_lib/ConstructionsView.cpp" line="37"/>
         <source>C-factor Underground Wall Constructions</source>
         <translation>C-Faktor Unterirdische Wandkonstruktionen</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/ConstructionsView.cpp" line="39" />
+        <location filename="../src/openstudio_lib/ConstructionsView.cpp" line="39"/>
         <source>F-factor Ground Floor Constructions</source>
         <translation>F-factor Erdgeschoss-Konstruktionen</translation>
     </message>
@@ -21950,32 +21951,32 @@ Zone Dehumidifier Fühlbare Heizleistung</translation>
 <context>
     <name>openstudio::DataPointJobHeaderView</name>
     <message>
-        <location filename="../src/openstudio_lib/ApplyMeasureNowDialog.cpp" line="521" />
+        <location filename="../src/openstudio_lib/ApplyMeasureNowDialog.cpp" line="521"/>
         <source>Not Started</source>
         <translation>Nicht gestartet</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/ApplyMeasureNowDialog.cpp" line="529" />
+        <location filename="../src/openstudio_lib/ApplyMeasureNowDialog.cpp" line="529"/>
         <source>Canceled</source>
         <translation>Abgebrochen</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/ApplyMeasureNowDialog.cpp" line="549" />
+        <location filename="../src/openstudio_lib/ApplyMeasureNowDialog.cpp" line="549"/>
         <source>%1 Warning</source>
         <translation>%1 Warnung</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/ApplyMeasureNowDialog.cpp" line="549" />
+        <location filename="../src/openstudio_lib/ApplyMeasureNowDialog.cpp" line="549"/>
         <source>%1 Warnings</source>
         <translation>%1 Warnungen</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/ApplyMeasureNowDialog.cpp" line="558" />
+        <location filename="../src/openstudio_lib/ApplyMeasureNowDialog.cpp" line="558"/>
         <source>%1 Error</source>
         <translation>%1 Fehler</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/ApplyMeasureNowDialog.cpp" line="558" />
+        <location filename="../src/openstudio_lib/ApplyMeasureNowDialog.cpp" line="558"/>
         <source>%1 Errors</source>
         <translation>%1 Fehler</translation>
     </message>
@@ -21983,12 +21984,12 @@ Zone Dehumidifier Fühlbare Heizleistung</translation>
 <context>
     <name>openstudio::DaySchedulePlotArea</name>
     <message>
-        <location filename="../src/openstudio_lib/ScheduleDayView.cpp" line="1395" />
+        <location filename="../src/openstudio_lib/ScheduleDayView.cpp" line="1395"/>
         <source>Drag vertical line to adjust</source>
         <translation>Vertikale Linie ziehen zum Anpassen</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/ScheduleDayView.cpp" line="1399" />
+        <location filename="../src/openstudio_lib/ScheduleDayView.cpp" line="1399"/>
         <source>Mouse over horizontal line to set value</source>
         <translation>Fahren Sie mit der Maus über die horizontale Linie, um einen Wert festzulegen</translation>
     </message>
@@ -21996,130 +21997,130 @@ Zone Dehumidifier Fühlbare Heizleistung</translation>
 <context>
     <name>openstudio::DefaultConstructionSetInspectorView</name>
     <message>
-        <location filename="../src/openstudio_lib/DefaultConstructionSetInspectorView.cpp" line="978" />
+        <location filename="../src/openstudio_lib/DefaultConstructionSetInspectorView.cpp" line="978"/>
         <source>Name</source>
         <translation>Name</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/DefaultConstructionSetInspectorView.cpp" line="1004" />
+        <location filename="../src/openstudio_lib/DefaultConstructionSetInspectorView.cpp" line="1004"/>
         <source>Exterior Surface Constructions</source>
         <translation>Außenoberflächenkonstruktionen</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/DefaultConstructionSetInspectorView.cpp" line="1053" />
+        <location filename="../src/openstudio_lib/DefaultConstructionSetInspectorView.cpp" line="1053"/>
         <source>Interior Surface Constructions</source>
         <translation>Innere Oberflächenkonstruktionen</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/DefaultConstructionSetInspectorView.cpp" line="1102" />
+        <location filename="../src/openstudio_lib/DefaultConstructionSetInspectorView.cpp" line="1102"/>
         <source>Ground Contact Surface Constructions</source>
         <translation>Konstruktionen mit Bodenkontaktflächen</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/DefaultConstructionSetInspectorView.cpp" line="1157" />
+        <location filename="../src/openstudio_lib/DefaultConstructionSetInspectorView.cpp" line="1157"/>
         <source>Exterior Sub Surface Constructions</source>
         <translation>Außenflächenkonstruktionen für Teilflächen</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/DefaultConstructionSetInspectorView.cpp" line="1264" />
+        <location filename="../src/openstudio_lib/DefaultConstructionSetInspectorView.cpp" line="1264"/>
         <source>Interior Sub Surface Constructions</source>
         <translation>Innere Unterflächen-Konstruktionen</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/DefaultConstructionSetInspectorView.cpp" line="1312" />
+        <location filename="../src/openstudio_lib/DefaultConstructionSetInspectorView.cpp" line="1312"/>
         <source>Other Constructions</source>
         <translation>Andere Konstruktionen</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/DefaultConstructionSetInspectorView.cpp" line="1011" />
-        <location filename="../src/openstudio_lib/DefaultConstructionSetInspectorView.cpp" line="1060" />
-        <location filename="../src/openstudio_lib/DefaultConstructionSetInspectorView.cpp" line="1109" />
+        <location filename="../src/openstudio_lib/DefaultConstructionSetInspectorView.cpp" line="1011"/>
+        <location filename="../src/openstudio_lib/DefaultConstructionSetInspectorView.cpp" line="1060"/>
+        <location filename="../src/openstudio_lib/DefaultConstructionSetInspectorView.cpp" line="1109"/>
         <source>Walls</source>
         <translation>Wände</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/DefaultConstructionSetInspectorView.cpp" line="1022" />
-        <location filename="../src/openstudio_lib/DefaultConstructionSetInspectorView.cpp" line="1071" />
-        <location filename="../src/openstudio_lib/DefaultConstructionSetInspectorView.cpp" line="1120" />
+        <location filename="../src/openstudio_lib/DefaultConstructionSetInspectorView.cpp" line="1022"/>
+        <location filename="../src/openstudio_lib/DefaultConstructionSetInspectorView.cpp" line="1071"/>
+        <location filename="../src/openstudio_lib/DefaultConstructionSetInspectorView.cpp" line="1120"/>
         <source>Floors</source>
         <translation>Geschosse</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/DefaultConstructionSetInspectorView.cpp" line="1033" />
+        <location filename="../src/openstudio_lib/DefaultConstructionSetInspectorView.cpp" line="1033"/>
         <source>Roofs</source>
         <translation>Dächer</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/DefaultConstructionSetInspectorView.cpp" line="1082" />
-        <location filename="../src/openstudio_lib/DefaultConstructionSetInspectorView.cpp" line="1131" />
+        <location filename="../src/openstudio_lib/DefaultConstructionSetInspectorView.cpp" line="1082"/>
+        <location filename="../src/openstudio_lib/DefaultConstructionSetInspectorView.cpp" line="1131"/>
         <source>Ceilings</source>
         <translation>Decken</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/DefaultConstructionSetInspectorView.cpp" line="1164" />
-        <location filename="../src/openstudio_lib/DefaultConstructionSetInspectorView.cpp" line="1271" />
+        <location filename="../src/openstudio_lib/DefaultConstructionSetInspectorView.cpp" line="1164"/>
+        <location filename="../src/openstudio_lib/DefaultConstructionSetInspectorView.cpp" line="1271"/>
         <source>Fixed Windows</source>
         <translation>Fest verglaste Fenster</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/DefaultConstructionSetInspectorView.cpp" line="1175" />
-        <location filename="../src/openstudio_lib/DefaultConstructionSetInspectorView.cpp" line="1282" />
+        <location filename="../src/openstudio_lib/DefaultConstructionSetInspectorView.cpp" line="1175"/>
+        <location filename="../src/openstudio_lib/DefaultConstructionSetInspectorView.cpp" line="1282"/>
         <source>Operable Windows</source>
         <translation>Öffenbare Fenster</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/DefaultConstructionSetInspectorView.cpp" line="1186" />
-        <location filename="../src/openstudio_lib/DefaultConstructionSetInspectorView.cpp" line="1293" />
+        <location filename="../src/openstudio_lib/DefaultConstructionSetInspectorView.cpp" line="1186"/>
+        <location filename="../src/openstudio_lib/DefaultConstructionSetInspectorView.cpp" line="1293"/>
         <source>Doors</source>
         <translation>Türen</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/DefaultConstructionSetInspectorView.cpp" line="1199" />
+        <location filename="../src/openstudio_lib/DefaultConstructionSetInspectorView.cpp" line="1199"/>
         <source>Glass Doors</source>
         <translation>Glastüren</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/DefaultConstructionSetInspectorView.cpp" line="1210" />
+        <location filename="../src/openstudio_lib/DefaultConstructionSetInspectorView.cpp" line="1210"/>
         <source>Overhead Doors</source>
         <translation>Oberlichttüren</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/DefaultConstructionSetInspectorView.cpp" line="1221" />
+        <location filename="../src/openstudio_lib/DefaultConstructionSetInspectorView.cpp" line="1221"/>
         <source>Skylights</source>
         <translation>Dachfenster</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/DefaultConstructionSetInspectorView.cpp" line="1234" />
+        <location filename="../src/openstudio_lib/DefaultConstructionSetInspectorView.cpp" line="1234"/>
         <source>Tubular Daylight Domes</source>
         <translation>Röhrenförmige Tageslicht-Kuppeln</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/DefaultConstructionSetInspectorView.cpp" line="1245" />
+        <location filename="../src/openstudio_lib/DefaultConstructionSetInspectorView.cpp" line="1245"/>
         <source>Tubular Daylight Diffusers</source>
         <translation>Röhrenförmige Tageslichtverteiler</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/DefaultConstructionSetInspectorView.cpp" line="1319" />
+        <location filename="../src/openstudio_lib/DefaultConstructionSetInspectorView.cpp" line="1319"/>
         <source>Space Shading</source>
         <translation>Raumverschattung</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/DefaultConstructionSetInspectorView.cpp" line="1330" />
+        <location filename="../src/openstudio_lib/DefaultConstructionSetInspectorView.cpp" line="1330"/>
         <source>Building Shading</source>
         <translation>Gebäudebeschattung</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/DefaultConstructionSetInspectorView.cpp" line="1341" />
+        <location filename="../src/openstudio_lib/DefaultConstructionSetInspectorView.cpp" line="1341"/>
         <source>Site Shading</source>
         <translation>Standort-Verschattung</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/DefaultConstructionSetInspectorView.cpp" line="1354" />
+        <location filename="../src/openstudio_lib/DefaultConstructionSetInspectorView.cpp" line="1354"/>
         <source>Interior Partitions</source>
         <translation>Innenwände</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/DefaultConstructionSetInspectorView.cpp" line="1365" />
+        <location filename="../src/openstudio_lib/DefaultConstructionSetInspectorView.cpp" line="1365"/>
         <source>Adiabatic Surfaces</source>
         <translation>Adiabatische Oberflächen</translation>
     </message>
@@ -22127,7 +22128,7 @@ Zone Dehumidifier Fühlbare Heizleistung</translation>
 <context>
     <name>openstudio::DefaultScheduleDayView</name>
     <message>
-        <location filename="../src/openstudio_lib/SchedulesView.cpp" line="1363" />
+        <location filename="../src/openstudio_lib/SchedulesView.cpp" line="1363"/>
         <source>Default day profile.</source>
         <translation>Standard-Tagesprofil.</translation>
     </message>
@@ -22135,22 +22136,22 @@ Zone Dehumidifier Fühlbare Heizleistung</translation>
 <context>
     <name>openstudio::DesignDayGridController</name>
     <message>
-        <location filename="../src/openstudio_lib/DesignDayGridView.cpp" line="172" />
+        <location filename="../src/openstudio_lib/DesignDayGridView.cpp" line="172"/>
         <source>Date</source>
         <translation>Datum</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/DesignDayGridView.cpp" line="184" />
+        <location filename="../src/openstudio_lib/DesignDayGridView.cpp" line="184"/>
         <source>Temperature</source>
         <translation>Temperatur</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/DesignDayGridView.cpp" line="194" />
+        <location filename="../src/openstudio_lib/DesignDayGridView.cpp" line="194"/>
         <source>Humidity</source>
         <translation>Feuchte</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/DesignDayGridView.cpp" line="202" />
+        <location filename="../src/openstudio_lib/DesignDayGridView.cpp" line="202"/>
         <source>Pressure
 Wind
 Precipitation</source>
@@ -22159,32 +22160,32 @@ Wind
 Niederschlag</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/DesignDayGridView.cpp" line="210" />
+        <location filename="../src/openstudio_lib/DesignDayGridView.cpp" line="210"/>
         <source>Solar</source>
         <translation>Einstrahlung</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/DesignDayGridView.cpp" line="227" />
+        <location filename="../src/openstudio_lib/DesignDayGridView.cpp" line="227"/>
         <source>Check to enable daylight saving time indicator.</source>
         <translation>Aktivieren Sie diese Option, um die Sommerzeit-Anzeige zu aktivieren.</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/DesignDayGridView.cpp" line="231" />
+        <location filename="../src/openstudio_lib/DesignDayGridView.cpp" line="231"/>
         <source>Check to enable rain indicator.</source>
         <translation>Aktivieren Sie diese Option, um den Regnanzeiger zu aktivieren.</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/DesignDayGridView.cpp" line="235" />
+        <location filename="../src/openstudio_lib/DesignDayGridView.cpp" line="235"/>
         <source>Check to enable snow indicator.</source>
         <translation>Aktivieren Sie diese Option, um die Schnee-Anzeige zu aktivieren.</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/DesignDayGridView.cpp" line="239" />
+        <location filename="../src/openstudio_lib/DesignDayGridView.cpp" line="239"/>
         <source>Check to select all rows</source>
         <translation>Ankreuzen um alle Zeilen auszuwählen</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/DesignDayGridView.cpp" line="242" />
+        <location filename="../src/openstudio_lib/DesignDayGridView.cpp" line="242"/>
         <source>Check to select this row</source>
         <translation>Aktivieren Sie dieses Kontrollkästchen, um diese Zeile auszuwählen</translation>
     </message>
@@ -22192,138 +22193,138 @@ Niederschlag</translation>
 <context>
     <name>openstudio::DesignDayGridView</name>
     <message>
-        <location filename="../src/openstudio_lib/DesignDayGridView.cpp" line="36" />
+        <location filename="../src/openstudio_lib/DesignDayGridView.cpp" line="36"/>
         <source>Design Day Name</source>
         <translation>Bezeichnung Auslegungstag</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/DesignDayGridView.cpp" line="37" />
+        <location filename="../src/openstudio_lib/DesignDayGridView.cpp" line="37"/>
         <source>All</source>
         <translation>Alle</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/DesignDayGridView.cpp" line="40" />
+        <location filename="../src/openstudio_lib/DesignDayGridView.cpp" line="40"/>
         <source>Day Of Month</source>
         <translation>Tag im Monat</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/DesignDayGridView.cpp" line="41" />
+        <location filename="../src/openstudio_lib/DesignDayGridView.cpp" line="41"/>
         <source>Month</source>
         <translation>Monat</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/DesignDayGridView.cpp" line="42" />
+        <location filename="../src/openstudio_lib/DesignDayGridView.cpp" line="42"/>
         <source>Day Type</source>
         <translation>Typ Auslegungstag</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/DesignDayGridView.cpp" line="43" />
+        <location filename="../src/openstudio_lib/DesignDayGridView.cpp" line="43"/>
         <source>Daylight Saving Time Indicator</source>
         <translation>Berücksichtigung Zeitumstellung</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/DesignDayGridView.cpp" line="46" />
+        <location filename="../src/openstudio_lib/DesignDayGridView.cpp" line="46"/>
         <source>Maximum Dry Bulb Temperature</source>
         <translation>Maximale Trockenkugeltemperatur</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/DesignDayGridView.cpp" line="47" />
+        <location filename="../src/openstudio_lib/DesignDayGridView.cpp" line="47"/>
         <source>Daily Dry Bulb Temperature Range</source>
         <translation>Tägliche Trockenkugeltemperaturschwankung</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/DesignDayGridView.cpp" line="48" />
+        <location filename="../src/openstudio_lib/DesignDayGridView.cpp" line="48"/>
         <source>Daily Wet Bulb Temperature Range</source>
         <translation>Tägliche Feuchtkugeltemperaturschwankung</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/DesignDayGridView.cpp" line="49" />
+        <location filename="../src/openstudio_lib/DesignDayGridView.cpp" line="49"/>
         <source>Dry Bulb Temperature Range Modifier Type</source>
         <translation>Dry Bulb Temperature Range Modifier Type</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/DesignDayGridView.cpp" line="50" />
+        <location filename="../src/openstudio_lib/DesignDayGridView.cpp" line="50"/>
         <source>Dry Bulb Temperature Range Modifier Schedule</source>
         <translation>Dry-Bulb-Temperaturbereich-Modifizierer-Zeitplan</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/DesignDayGridView.cpp" line="53" />
+        <location filename="../src/openstudio_lib/DesignDayGridView.cpp" line="53"/>
         <source>Humidity Indicating Conditions At Maximum Dry Bulb</source>
         <translation>Feuchtigkeitsanzeigebedingungen bei maximaler Trockenkugel</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/DesignDayGridView.cpp" line="54" />
+        <location filename="../src/openstudio_lib/DesignDayGridView.cpp" line="54"/>
         <source>Humidity Indicating Type</source>
         <translation>Feuchtigkeitsbezugsgrösse</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/DesignDayGridView.cpp" line="55" />
+        <location filename="../src/openstudio_lib/DesignDayGridView.cpp" line="55"/>
         <source>Humidity Indicating Day Schedule</source>
         <translation>Tagesfahrplan Feuchte</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/DesignDayGridView.cpp" line="58" />
+        <location filename="../src/openstudio_lib/DesignDayGridView.cpp" line="58"/>
         <source>Barometric Pressure</source>
         <translation>Luftdruck</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/DesignDayGridView.cpp" line="59" />
+        <location filename="../src/openstudio_lib/DesignDayGridView.cpp" line="59"/>
         <source>Wind Speed</source>
         <translation>Windgeschwindigkeit</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/DesignDayGridView.cpp" line="60" />
+        <location filename="../src/openstudio_lib/DesignDayGridView.cpp" line="60"/>
         <source>Wind Direction</source>
         <translation>Windrichtung</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/DesignDayGridView.cpp" line="61" />
+        <location filename="../src/openstudio_lib/DesignDayGridView.cpp" line="61"/>
         <source>Rain Indicator</source>
         <translation>Berücksichtigung Niederschlag</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/DesignDayGridView.cpp" line="62" />
+        <location filename="../src/openstudio_lib/DesignDayGridView.cpp" line="62"/>
         <source>Snow Indicator</source>
         <translation>Berücksichtigung Schneefall</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/DesignDayGridView.cpp" line="65" />
+        <location filename="../src/openstudio_lib/DesignDayGridView.cpp" line="65"/>
         <source>Solar Model Indicator</source>
         <translation>Einstrahlungsmodell</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/DesignDayGridView.cpp" line="66" />
+        <location filename="../src/openstudio_lib/DesignDayGridView.cpp" line="66"/>
         <source>Beam Solar Day Schedule</source>
         <translation>Tagesfahrplan Direktstrahlung</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/DesignDayGridView.cpp" line="67" />
+        <location filename="../src/openstudio_lib/DesignDayGridView.cpp" line="67"/>
         <source>Diffuse Solar Day Schedule</source>
         <translation>Tagesfahrplan Diffusstrahlung</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/DesignDayGridView.cpp" line="68" />
+        <location filename="../src/openstudio_lib/DesignDayGridView.cpp" line="68"/>
         <source>ASHRAE Taub</source>
         <translation>ASHRAE Taub</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/DesignDayGridView.cpp" line="69" />
+        <location filename="../src/openstudio_lib/DesignDayGridView.cpp" line="69"/>
         <source>ASHRAE Taud</source>
         <translation>ASHRAE Taud</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/DesignDayGridView.cpp" line="70" />
+        <location filename="../src/openstudio_lib/DesignDayGridView.cpp" line="70"/>
         <source>Sky Clearness</source>
         <translation>Bewölkung</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/DesignDayGridView.cpp" line="83" />
-        <location filename="../src/openstudio_lib/DesignDayGridView.cpp" line="84" />
+        <location filename="../src/openstudio_lib/DesignDayGridView.cpp" line="83"/>
+        <location filename="../src/openstudio_lib/DesignDayGridView.cpp" line="84"/>
         <source>Design Days</source>
         <translation>Auslegungstage</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/DesignDayGridView.cpp" line="84" />
+        <location filename="../src/openstudio_lib/DesignDayGridView.cpp" line="84"/>
         <source>Drop
 Zone</source>
         <translation>Ablage­bereich</translation>
@@ -22332,7 +22333,7 @@ Zone</source>
 <context>
     <name>openstudio::EditController</name>
     <message>
-        <location filename="../src/shared_gui_components/EditController.cpp" line="27" />
+        <location filename="../src/shared_gui_components/EditController.cpp" line="27"/>
         <source>Select a Measure to Apply</source>
         <translation>Maßnahme zum Anwenden auswählen</translation>
     </message>
@@ -22340,22 +22341,22 @@ Zone</source>
 <context>
     <name>openstudio::EditRubyMeasureView</name>
     <message>
-        <location filename="../src/shared_gui_components/EditView.cpp" line="48" />
+        <location filename="../src/shared_gui_components/EditView.cpp" line="48"/>
         <source>Name</source>
         <translation>Name</translation>
     </message>
     <message>
-        <location filename="../src/shared_gui_components/EditView.cpp" line="59" />
+        <location filename="../src/shared_gui_components/EditView.cpp" line="59"/>
         <source>Description</source>
         <translation>Beschreibung</translation>
     </message>
     <message>
-        <location filename="../src/shared_gui_components/EditView.cpp" line="70" />
+        <location filename="../src/shared_gui_components/EditView.cpp" line="70"/>
         <source>Modeler Description</source>
         <translation>Modellierer-Beschreibung</translation>
     </message>
     <message>
-        <location filename="../src/shared_gui_components/EditView.cpp" line="88" />
+        <location filename="../src/shared_gui_components/EditView.cpp" line="88"/>
         <source>Inputs</source>
         <translation>Eingaben</translation>
     </message>
@@ -22363,129 +22364,129 @@ Zone</source>
 <context>
     <name>openstudio::EditorWebView</name>
     <message>
-        <location filename="../src/openstudio_lib/GeometryEditorView.cpp" line="1116" />
+        <location filename="../src/openstudio_lib/GeometryEditorView.cpp" line="1116"/>
         <source>Geometry Type</source>
         <translation>Geometrietyp</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/GeometryEditorView.cpp" line="1119" />
-        <location filename="../src/openstudio_lib/GeometryEditorView.cpp" line="1188" />
-        <location filename="../src/openstudio_lib/GeometryEditorView.cpp" line="1279" />
-        <location filename="../src/openstudio_lib/GeometryEditorView.cpp" line="1290" />
+        <location filename="../src/openstudio_lib/GeometryEditorView.cpp" line="1119"/>
+        <location filename="../src/openstudio_lib/GeometryEditorView.cpp" line="1188"/>
+        <location filename="../src/openstudio_lib/GeometryEditorView.cpp" line="1279"/>
+        <location filename="../src/openstudio_lib/GeometryEditorView.cpp" line="1290"/>
         <source>FloorspaceJS</source>
         <translation>FloorspaceJS</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/GeometryEditorView.cpp" line="1120" />
-        <location filename="../src/openstudio_lib/GeometryEditorView.cpp" line="1201" />
-        <location filename="../src/openstudio_lib/GeometryEditorView.cpp" line="1281" />
-        <location filename="../src/openstudio_lib/GeometryEditorView.cpp" line="1302" />
+        <location filename="../src/openstudio_lib/GeometryEditorView.cpp" line="1120"/>
+        <location filename="../src/openstudio_lib/GeometryEditorView.cpp" line="1201"/>
+        <location filename="../src/openstudio_lib/GeometryEditorView.cpp" line="1281"/>
+        <location filename="../src/openstudio_lib/GeometryEditorView.cpp" line="1302"/>
         <source>gbXML</source>
         <translation>gbXML</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/GeometryEditorView.cpp" line="1121" />
-        <location filename="../src/openstudio_lib/GeometryEditorView.cpp" line="1214" />
-        <location filename="../src/openstudio_lib/GeometryEditorView.cpp" line="1281" />
-        <location filename="../src/openstudio_lib/GeometryEditorView.cpp" line="1328" />
+        <location filename="../src/openstudio_lib/GeometryEditorView.cpp" line="1121"/>
+        <location filename="../src/openstudio_lib/GeometryEditorView.cpp" line="1214"/>
+        <location filename="../src/openstudio_lib/GeometryEditorView.cpp" line="1281"/>
+        <location filename="../src/openstudio_lib/GeometryEditorView.cpp" line="1328"/>
         <source>IDF</source>
         <translation>IDF</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/GeometryEditorView.cpp" line="1122" />
-        <location filename="../src/openstudio_lib/GeometryEditorView.cpp" line="1227" />
-        <location filename="../src/openstudio_lib/GeometryEditorView.cpp" line="1281" />
-        <location filename="../src/openstudio_lib/GeometryEditorView.cpp" line="1354" />
+        <location filename="../src/openstudio_lib/GeometryEditorView.cpp" line="1122"/>
+        <location filename="../src/openstudio_lib/GeometryEditorView.cpp" line="1227"/>
+        <location filename="../src/openstudio_lib/GeometryEditorView.cpp" line="1281"/>
+        <location filename="../src/openstudio_lib/GeometryEditorView.cpp" line="1354"/>
         <source>OSM</source>
         <translation>OSM</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/GeometryEditorView.cpp" line="1087" />
-        <location filename="../src/openstudio_lib/GeometryEditorView.cpp" line="1280" />
+        <location filename="../src/openstudio_lib/GeometryEditorView.cpp" line="1087"/>
+        <location filename="../src/openstudio_lib/GeometryEditorView.cpp" line="1280"/>
         <source>New</source>
         <translation>Neu</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/GeometryEditorView.cpp" line="1282" />
+        <location filename="../src/openstudio_lib/GeometryEditorView.cpp" line="1282"/>
         <source>Import</source>
         <translation>Importieren</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/GeometryEditorView.cpp" line="1089" />
+        <location filename="../src/openstudio_lib/GeometryEditorView.cpp" line="1089"/>
         <source>Refresh</source>
         <translation>Aktualisieren</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/GeometryEditorView.cpp" line="1090" />
+        <location filename="../src/openstudio_lib/GeometryEditorView.cpp" line="1090"/>
         <source>Preview OSM</source>
         <translation>Preview OSM</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/GeometryEditorView.cpp" line="1091" />
+        <location filename="../src/openstudio_lib/GeometryEditorView.cpp" line="1091"/>
         <source>Merge with Current OSM</source>
         <translation>Mit aktuellem OSM zusammenführen</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/GeometryEditorView.cpp" line="1092" />
+        <location filename="../src/openstudio_lib/GeometryEditorView.cpp" line="1092"/>
         <source>Debug</source>
         <translation>Debuggen</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/GeometryEditorView.cpp" line="1452" />
+        <location filename="../src/openstudio_lib/GeometryEditorView.cpp" line="1452"/>
         <source>Geometry Preview</source>
         <translation>Geometrie-Vorschau</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/GeometryEditorView.cpp" line="1258" />
+        <location filename="../src/openstudio_lib/GeometryEditorView.cpp" line="1258"/>
         <source>Unmerged Changes</source>
         <translation>Nicht zusammengeführte Änderungen</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/GeometryEditorView.cpp" line="1259" />
+        <location filename="../src/openstudio_lib/GeometryEditorView.cpp" line="1259"/>
         <source>Your geometry may include unmerged changes.  Merge with Current OSM now?  Choose Ignore to skip this message in the future.</source>
-        <translation>Ihre Geometrie kann unvermischte Änderungen enthalten. Jetzt mit aktuellem OSM zusammenführen? Wählen Sie "Ignorieren", um diese Meldung in Zukunft zu überspringen.</translation>
+        <translation>Ihre Geometrie kann unvermischte Änderungen enthalten. Jetzt mit aktuellem OSM zusammenführen? Wählen Sie &quot;Ignorieren&quot;, um diese Meldung in Zukunft zu überspringen.</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/GeometryEditorView.cpp" line="1514" />
+        <location filename="../src/openstudio_lib/GeometryEditorView.cpp" line="1514"/>
         <source>Units Change</source>
         <translation>Einheitenänderung</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/GeometryEditorView.cpp" line="1515" />
+        <location filename="../src/openstudio_lib/GeometryEditorView.cpp" line="1515"/>
         <source>Changing unit system for existing floorplan is not currently supported.  Reload tab to change units.</source>
         <translation>Das Ändern des Einheitensystems für einen vorhandenen Grundriss wird derzeit nicht unterstützt. Laden Sie die Registerkarte neu, um die Einheiten zu ändern.</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/GeometryEditorView.cpp" line="1435" />
-        <location filename="../src/openstudio_lib/GeometryEditorView.cpp" line="1487" />
-        <location filename="../src/openstudio_lib/GeometryEditorView.cpp" line="1490" />
+        <location filename="../src/openstudio_lib/GeometryEditorView.cpp" line="1435"/>
+        <location filename="../src/openstudio_lib/GeometryEditorView.cpp" line="1487"/>
+        <location filename="../src/openstudio_lib/GeometryEditorView.cpp" line="1490"/>
         <source>Merging Models</source>
         <translation>Modelle zusammenführen</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/GeometryEditorView.cpp" line="1490" />
+        <location filename="../src/openstudio_lib/GeometryEditorView.cpp" line="1490"/>
         <source>Models Merged</source>
         <translation>Modelle zusammengeführt</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/GeometryEditorView.cpp" line="1304" />
-        <location filename="../src/openstudio_lib/GeometryEditorView.cpp" line="1330" />
-        <location filename="../src/openstudio_lib/GeometryEditorView.cpp" line="1356" />
+        <location filename="../src/openstudio_lib/GeometryEditorView.cpp" line="1304"/>
+        <location filename="../src/openstudio_lib/GeometryEditorView.cpp" line="1330"/>
+        <location filename="../src/openstudio_lib/GeometryEditorView.cpp" line="1356"/>
         <source>Open File</source>
         <translation>Datei öffnen</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/GeometryEditorView.cpp" line="1304" />
+        <location filename="../src/openstudio_lib/GeometryEditorView.cpp" line="1304"/>
         <source>gbXML (*.xml *.gbxml)</source>
         <translation>gbXML</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/GeometryEditorView.cpp" line="1330" />
+        <location filename="../src/openstudio_lib/GeometryEditorView.cpp" line="1330"/>
         <source>IDF (*.idf)</source>
         <translation>IDF</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/GeometryEditorView.cpp" line="1356" />
+        <location filename="../src/openstudio_lib/GeometryEditorView.cpp" line="1356"/>
         <source>OSM (*.osm)</source>
         <translation>OSM</translation>
     </message>
@@ -22493,37 +22494,37 @@ Zone</source>
 <context>
     <name>openstudio::ElectricEquipmentDefinitionInspectorView</name>
     <message>
-        <location filename="../src/openstudio_lib/ElectricEquipmentInspectorView.cpp" line="36" />
+        <location filename="../src/openstudio_lib/ElectricEquipmentInspectorView.cpp" line="36"/>
         <source>Name: </source>
         <translation>Name:</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/ElectricEquipmentInspectorView.cpp" line="45" />
+        <location filename="../src/openstudio_lib/ElectricEquipmentInspectorView.cpp" line="45"/>
         <source>Design Level: </source>
         <translation>Auslegungsstufe:</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/ElectricEquipmentInspectorView.cpp" line="55" />
+        <location filename="../src/openstudio_lib/ElectricEquipmentInspectorView.cpp" line="55"/>
         <source>Watts Per Space Floor Area: </source>
         <translation>Watt pro Geschossfläche:</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/ElectricEquipmentInspectorView.cpp" line="65" />
+        <location filename="../src/openstudio_lib/ElectricEquipmentInspectorView.cpp" line="65"/>
         <source>Watts Per Person: </source>
         <translation>Watt pro Person:</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/ElectricEquipmentInspectorView.cpp" line="75" />
+        <location filename="../src/openstudio_lib/ElectricEquipmentInspectorView.cpp" line="75"/>
         <source>Fraction Latent: </source>
         <translation>Latenter Anteil:</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/ElectricEquipmentInspectorView.cpp" line="85" />
+        <location filename="../src/openstudio_lib/ElectricEquipmentInspectorView.cpp" line="85"/>
         <source>Fraction Radiant: </source>
         <translation>Strahlungsanteil:</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/ElectricEquipmentInspectorView.cpp" line="95" />
+        <location filename="../src/openstudio_lib/ElectricEquipmentInspectorView.cpp" line="95"/>
         <source>Fraction Lost: </source>
         <translation>Verlorener Anteil:</translation>
     </message>
@@ -22531,22 +22532,22 @@ Zone</source>
 <context>
     <name>openstudio::ExternalToolsDialog</name>
     <message>
-        <location filename="../src/openstudio_app/ExternalToolsDialog.cpp" line="31" />
+        <location filename="../src/openstudio_app/ExternalToolsDialog.cpp" line="31"/>
         <source>Change External Tools</source>
         <translation>Externe Tools ändern</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_app/ExternalToolsDialog.cpp" line="37" />
+        <location filename="../src/openstudio_app/ExternalToolsDialog.cpp" line="37"/>
         <source>Path to DView</source>
         <translation>Pfad zu DView</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_app/ExternalToolsDialog.cpp" line="42" />
+        <location filename="../src/openstudio_app/ExternalToolsDialog.cpp" line="42"/>
         <source>Change</source>
         <translation>Ändern</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_app/ExternalToolsDialog.cpp" line="78" />
+        <location filename="../src/openstudio_app/ExternalToolsDialog.cpp" line="78"/>
         <source>Select Path to </source>
         <translation>Pfad auswählen</translation>
     </message>
@@ -22554,129 +22555,129 @@ Zone</source>
 <context>
     <name>openstudio::FacilityExteriorEquipmentGridController</name>
     <message>
-        <location filename="../src/openstudio_lib/FacilityExteriorEquipmentGridView.cpp" line="178" />
-        <location filename="../src/openstudio_lib/FacilityExteriorEquipmentGridView.cpp" line="184" />
-        <location filename="../src/openstudio_lib/FacilityExteriorEquipmentGridView.cpp" line="186" />
+        <location filename="../src/openstudio_lib/FacilityExteriorEquipmentGridView.cpp" line="178"/>
+        <location filename="../src/openstudio_lib/FacilityExteriorEquipmentGridView.cpp" line="184"/>
+        <location filename="../src/openstudio_lib/FacilityExteriorEquipmentGridView.cpp" line="186"/>
         <source>Name</source>
         <translation>Name</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/FacilityExteriorEquipmentGridView.cpp" line="178" />
-        <location filename="../src/openstudio_lib/FacilityExteriorEquipmentGridView.cpp" line="202" />
-        <location filename="../src/openstudio_lib/FacilityExteriorEquipmentGridView.cpp" line="209" />
+        <location filename="../src/openstudio_lib/FacilityExteriorEquipmentGridView.cpp" line="178"/>
+        <location filename="../src/openstudio_lib/FacilityExteriorEquipmentGridView.cpp" line="202"/>
+        <location filename="../src/openstudio_lib/FacilityExteriorEquipmentGridView.cpp" line="209"/>
         <source>All</source>
         <translation>Alle</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/FacilityExteriorEquipmentGridView.cpp" line="175" />
-        <location filename="../src/openstudio_lib/FacilityExteriorEquipmentGridView.cpp" line="188" />
-        <location filename="../src/openstudio_lib/FacilityExteriorEquipmentGridView.cpp" line="189" />
+        <location filename="../src/openstudio_lib/FacilityExteriorEquipmentGridView.cpp" line="175"/>
+        <location filename="../src/openstudio_lib/FacilityExteriorEquipmentGridView.cpp" line="188"/>
+        <location filename="../src/openstudio_lib/FacilityExteriorEquipmentGridView.cpp" line="189"/>
         <source>Display Name</source>
         <translation>Anzeigename</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/FacilityExteriorEquipmentGridView.cpp" line="175" />
-        <location filename="../src/openstudio_lib/FacilityExteriorEquipmentGridView.cpp" line="195" />
-        <location filename="../src/openstudio_lib/FacilityExteriorEquipmentGridView.cpp" line="196" />
+        <location filename="../src/openstudio_lib/FacilityExteriorEquipmentGridView.cpp" line="175"/>
+        <location filename="../src/openstudio_lib/FacilityExteriorEquipmentGridView.cpp" line="195"/>
+        <location filename="../src/openstudio_lib/FacilityExteriorEquipmentGridView.cpp" line="196"/>
         <source>CAD Object ID</source>
         <translation>CAD-Objekt-ID</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/FacilityExteriorEquipmentGridView.cpp" line="129" />
-        <location filename="../src/openstudio_lib/FacilityExteriorEquipmentGridView.cpp" line="214" />
-        <location filename="../src/openstudio_lib/FacilityExteriorEquipmentGridView.cpp" line="224" />
+        <location filename="../src/openstudio_lib/FacilityExteriorEquipmentGridView.cpp" line="129"/>
+        <location filename="../src/openstudio_lib/FacilityExteriorEquipmentGridView.cpp" line="214"/>
+        <location filename="../src/openstudio_lib/FacilityExteriorEquipmentGridView.cpp" line="224"/>
         <source>Exterior Lights Definition</source>
         <translation>Externe Beleuchtung – Definition</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/FacilityExteriorEquipmentGridView.cpp" line="129" />
-        <location filename="../src/openstudio_lib/FacilityExteriorEquipmentGridView.cpp" line="137" />
-        <location filename="../src/openstudio_lib/FacilityExteriorEquipmentGridView.cpp" line="146" />
-        <location filename="../src/openstudio_lib/FacilityExteriorEquipmentGridView.cpp" line="228" />
-        <location filename="../src/openstudio_lib/FacilityExteriorEquipmentGridView.cpp" line="235" />
-        <location filename="../src/openstudio_lib/FacilityExteriorEquipmentGridView.cpp" line="295" />
-        <location filename="../src/openstudio_lib/FacilityExteriorEquipmentGridView.cpp" line="306" />
-        <location filename="../src/openstudio_lib/FacilityExteriorEquipmentGridView.cpp" line="362" />
-        <location filename="../src/openstudio_lib/FacilityExteriorEquipmentGridView.cpp" line="373" />
+        <location filename="../src/openstudio_lib/FacilityExteriorEquipmentGridView.cpp" line="129"/>
+        <location filename="../src/openstudio_lib/FacilityExteriorEquipmentGridView.cpp" line="137"/>
+        <location filename="../src/openstudio_lib/FacilityExteriorEquipmentGridView.cpp" line="146"/>
+        <location filename="../src/openstudio_lib/FacilityExteriorEquipmentGridView.cpp" line="228"/>
+        <location filename="../src/openstudio_lib/FacilityExteriorEquipmentGridView.cpp" line="235"/>
+        <location filename="../src/openstudio_lib/FacilityExteriorEquipmentGridView.cpp" line="295"/>
+        <location filename="../src/openstudio_lib/FacilityExteriorEquipmentGridView.cpp" line="306"/>
+        <location filename="../src/openstudio_lib/FacilityExteriorEquipmentGridView.cpp" line="362"/>
+        <location filename="../src/openstudio_lib/FacilityExteriorEquipmentGridView.cpp" line="373"/>
         <source>Schedule</source>
         <translation>Zeitplan</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/FacilityExteriorEquipmentGridView.cpp" line="129" />
-        <location filename="../src/openstudio_lib/FacilityExteriorEquipmentGridView.cpp" line="239" />
-        <location filename="../src/openstudio_lib/FacilityExteriorEquipmentGridView.cpp" line="242" />
+        <location filename="../src/openstudio_lib/FacilityExteriorEquipmentGridView.cpp" line="129"/>
+        <location filename="../src/openstudio_lib/FacilityExteriorEquipmentGridView.cpp" line="239"/>
+        <location filename="../src/openstudio_lib/FacilityExteriorEquipmentGridView.cpp" line="242"/>
         <source>Control Option</source>
         <translation>Steuerungsoption</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/FacilityExteriorEquipmentGridView.cpp" line="129" />
-        <location filename="../src/openstudio_lib/FacilityExteriorEquipmentGridView.cpp" line="137" />
-        <location filename="../src/openstudio_lib/FacilityExteriorEquipmentGridView.cpp" line="147" />
-        <location filename="../src/openstudio_lib/FacilityExteriorEquipmentGridView.cpp" line="252" />
-        <location filename="../src/openstudio_lib/FacilityExteriorEquipmentGridView.cpp" line="254" />
-        <location filename="../src/openstudio_lib/FacilityExteriorEquipmentGridView.cpp" line="318" />
-        <location filename="../src/openstudio_lib/FacilityExteriorEquipmentGridView.cpp" line="320" />
-        <location filename="../src/openstudio_lib/FacilityExteriorEquipmentGridView.cpp" line="375" />
-        <location filename="../src/openstudio_lib/FacilityExteriorEquipmentGridView.cpp" line="377" />
+        <location filename="../src/openstudio_lib/FacilityExteriorEquipmentGridView.cpp" line="129"/>
+        <location filename="../src/openstudio_lib/FacilityExteriorEquipmentGridView.cpp" line="137"/>
+        <location filename="../src/openstudio_lib/FacilityExteriorEquipmentGridView.cpp" line="147"/>
+        <location filename="../src/openstudio_lib/FacilityExteriorEquipmentGridView.cpp" line="252"/>
+        <location filename="../src/openstudio_lib/FacilityExteriorEquipmentGridView.cpp" line="254"/>
+        <location filename="../src/openstudio_lib/FacilityExteriorEquipmentGridView.cpp" line="318"/>
+        <location filename="../src/openstudio_lib/FacilityExteriorEquipmentGridView.cpp" line="320"/>
+        <location filename="../src/openstudio_lib/FacilityExteriorEquipmentGridView.cpp" line="375"/>
+        <location filename="../src/openstudio_lib/FacilityExteriorEquipmentGridView.cpp" line="377"/>
         <source>Multiplier</source>
         <translation>Multiplikator</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/FacilityExteriorEquipmentGridView.cpp" line="129" />
-        <location filename="../src/openstudio_lib/FacilityExteriorEquipmentGridView.cpp" line="137" />
-        <location filename="../src/openstudio_lib/FacilityExteriorEquipmentGridView.cpp" line="148" />
-        <location filename="../src/openstudio_lib/FacilityExteriorEquipmentGridView.cpp" line="262" />
-        <location filename="../src/openstudio_lib/FacilityExteriorEquipmentGridView.cpp" line="264" />
-        <location filename="../src/openstudio_lib/FacilityExteriorEquipmentGridView.cpp" line="328" />
-        <location filename="../src/openstudio_lib/FacilityExteriorEquipmentGridView.cpp" line="330" />
-        <location filename="../src/openstudio_lib/FacilityExteriorEquipmentGridView.cpp" line="385" />
-        <location filename="../src/openstudio_lib/FacilityExteriorEquipmentGridView.cpp" line="387" />
+        <location filename="../src/openstudio_lib/FacilityExteriorEquipmentGridView.cpp" line="129"/>
+        <location filename="../src/openstudio_lib/FacilityExteriorEquipmentGridView.cpp" line="137"/>
+        <location filename="../src/openstudio_lib/FacilityExteriorEquipmentGridView.cpp" line="148"/>
+        <location filename="../src/openstudio_lib/FacilityExteriorEquipmentGridView.cpp" line="262"/>
+        <location filename="../src/openstudio_lib/FacilityExteriorEquipmentGridView.cpp" line="264"/>
+        <location filename="../src/openstudio_lib/FacilityExteriorEquipmentGridView.cpp" line="328"/>
+        <location filename="../src/openstudio_lib/FacilityExteriorEquipmentGridView.cpp" line="330"/>
+        <location filename="../src/openstudio_lib/FacilityExteriorEquipmentGridView.cpp" line="385"/>
+        <location filename="../src/openstudio_lib/FacilityExteriorEquipmentGridView.cpp" line="387"/>
         <source>End Use Subcategory</source>
         <translation>End-Use-Unterkategorie</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/FacilityExteriorEquipmentGridView.cpp" line="137" />
-        <location filename="../src/openstudio_lib/FacilityExteriorEquipmentGridView.cpp" line="280" />
-        <location filename="../src/openstudio_lib/FacilityExteriorEquipmentGridView.cpp" line="291" />
+        <location filename="../src/openstudio_lib/FacilityExteriorEquipmentGridView.cpp" line="137"/>
+        <location filename="../src/openstudio_lib/FacilityExteriorEquipmentGridView.cpp" line="280"/>
+        <location filename="../src/openstudio_lib/FacilityExteriorEquipmentGridView.cpp" line="291"/>
         <source>Exterior Fuel Equipment Definition</source>
         <translation>Externe Brennstoffausrüstungsdefinition</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/FacilityExteriorEquipmentGridView.cpp" line="137" />
-        <location filename="../src/openstudio_lib/FacilityExteriorEquipmentGridView.cpp" line="308" />
-        <location filename="../src/openstudio_lib/FacilityExteriorEquipmentGridView.cpp" line="311" />
+        <location filename="../src/openstudio_lib/FacilityExteriorEquipmentGridView.cpp" line="137"/>
+        <location filename="../src/openstudio_lib/FacilityExteriorEquipmentGridView.cpp" line="308"/>
+        <location filename="../src/openstudio_lib/FacilityExteriorEquipmentGridView.cpp" line="311"/>
         <source>Fuel Type</source>
         <translation>Brennstofftyp</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/FacilityExteriorEquipmentGridView.cpp" line="145" />
-        <location filename="../src/openstudio_lib/FacilityExteriorEquipmentGridView.cpp" line="347" />
-        <location filename="../src/openstudio_lib/FacilityExteriorEquipmentGridView.cpp" line="358" />
+        <location filename="../src/openstudio_lib/FacilityExteriorEquipmentGridView.cpp" line="145"/>
+        <location filename="../src/openstudio_lib/FacilityExteriorEquipmentGridView.cpp" line="347"/>
+        <location filename="../src/openstudio_lib/FacilityExteriorEquipmentGridView.cpp" line="358"/>
         <source>Exterior Water Equipment Definition</source>
         <translation>Außenwasserapparate - Definition</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/FacilityExteriorEquipmentGridView.cpp" line="205" />
+        <location filename="../src/openstudio_lib/FacilityExteriorEquipmentGridView.cpp" line="205"/>
         <source>Check to select all rows</source>
         <translation>Ankreuzen um alle Zeilen auszuwählen</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/FacilityExteriorEquipmentGridView.cpp" line="209" />
+        <location filename="../src/openstudio_lib/FacilityExteriorEquipmentGridView.cpp" line="209"/>
         <source>Check to select this row</source>
         <translation>Aktivieren Sie dieses Kontrollkästchen, um diese Zeile auszuwählen</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/FacilityExteriorEquipmentGridView.cpp" line="131" />
+        <location filename="../src/openstudio_lib/FacilityExteriorEquipmentGridView.cpp" line="131"/>
         <source>Exterior Lights</source>
         <translation>Außenleuchten</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/FacilityExteriorEquipmentGridView.cpp" line="139" />
+        <location filename="../src/openstudio_lib/FacilityExteriorEquipmentGridView.cpp" line="139"/>
         <source>Exterior Fuel Equipment</source>
         <translation>Externe Brennstoffanlage</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/FacilityExteriorEquipmentGridView.cpp" line="150" />
+        <location filename="../src/openstudio_lib/FacilityExteriorEquipmentGridView.cpp" line="150"/>
         <source>Exterior Water Equipment</source>
         <translation>Externe Wassergeräte</translation>
     </message>
@@ -22684,13 +22685,13 @@ Zone</source>
 <context>
     <name>openstudio::FacilityExteriorEquipmentGridView</name>
     <message>
-        <location filename="../src/openstudio_lib/FacilityExteriorEquipmentGridView.cpp" line="53" />
-        <location filename="../src/openstudio_lib/FacilityExteriorEquipmentGridView.cpp" line="55" />
+        <location filename="../src/openstudio_lib/FacilityExteriorEquipmentGridView.cpp" line="53"/>
+        <location filename="../src/openstudio_lib/FacilityExteriorEquipmentGridView.cpp" line="55"/>
         <source>Exterior Equipment</source>
         <translation>Außenausrüstung</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/FacilityExteriorEquipmentGridView.cpp" line="55" />
+        <location filename="../src/openstudio_lib/FacilityExteriorEquipmentGridView.cpp" line="55"/>
         <source>Drop
 Exterior Equipment</source>
         <translation>Äußere Ausrüstung ablegen</translation>
@@ -22699,68 +22700,68 @@ Exterior Equipment</source>
 <context>
     <name>openstudio::FacilityShadingGridController</name>
     <message>
-        <location filename="../src/openstudio_lib/FacilityShadingGridView.cpp" line="413" />
-        <location filename="../src/openstudio_lib/FacilityShadingGridView.cpp" line="419" />
-        <location filename="../src/openstudio_lib/FacilityShadingGridView.cpp" line="420" />
+        <location filename="../src/openstudio_lib/FacilityShadingGridView.cpp" line="413"/>
+        <location filename="../src/openstudio_lib/FacilityShadingGridView.cpp" line="419"/>
+        <location filename="../src/openstudio_lib/FacilityShadingGridView.cpp" line="420"/>
         <source>Shading Surface Group Name</source>
         <translation>Shading Surface Group Name</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/FacilityShadingGridView.cpp" line="413" />
-        <location filename="../src/openstudio_lib/FacilityShadingGridView.cpp" line="453" />
-        <location filename="../src/openstudio_lib/FacilityShadingGridView.cpp" line="458" />
+        <location filename="../src/openstudio_lib/FacilityShadingGridView.cpp" line="413"/>
+        <location filename="../src/openstudio_lib/FacilityShadingGridView.cpp" line="453"/>
+        <location filename="../src/openstudio_lib/FacilityShadingGridView.cpp" line="458"/>
         <source>All</source>
         <translation>Alle</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/FacilityShadingGridView.cpp" line="409" />
-        <location filename="../src/openstudio_lib/FacilityShadingGridView.cpp" line="466" />
-        <location filename="../src/openstudio_lib/FacilityShadingGridView.cpp" line="467" />
+        <location filename="../src/openstudio_lib/FacilityShadingGridView.cpp" line="409"/>
+        <location filename="../src/openstudio_lib/FacilityShadingGridView.cpp" line="466"/>
+        <location filename="../src/openstudio_lib/FacilityShadingGridView.cpp" line="467"/>
         <source>Display Name</source>
         <translation>Anzeigename</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/FacilityShadingGridView.cpp" line="409" />
-        <location filename="../src/openstudio_lib/FacilityShadingGridView.cpp" line="476" />
-        <location filename="../src/openstudio_lib/FacilityShadingGridView.cpp" line="477" />
+        <location filename="../src/openstudio_lib/FacilityShadingGridView.cpp" line="409"/>
+        <location filename="../src/openstudio_lib/FacilityShadingGridView.cpp" line="476"/>
+        <location filename="../src/openstudio_lib/FacilityShadingGridView.cpp" line="477"/>
         <source>CAD Object ID</source>
         <translation>CAD-Objekt-ID</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/FacilityShadingGridView.cpp" line="413" />
-        <location filename="../src/openstudio_lib/FacilityShadingGridView.cpp" line="426" />
-        <location filename="../src/openstudio_lib/FacilityShadingGridView.cpp" line="436" />
+        <location filename="../src/openstudio_lib/FacilityShadingGridView.cpp" line="413"/>
+        <location filename="../src/openstudio_lib/FacilityShadingGridView.cpp" line="426"/>
+        <location filename="../src/openstudio_lib/FacilityShadingGridView.cpp" line="436"/>
         <source>Type</source>
         <translation>Typ</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/FacilityShadingGridView.cpp" line="455" />
+        <location filename="../src/openstudio_lib/FacilityShadingGridView.cpp" line="455"/>
         <source>Check to select all rows</source>
         <translation>Ankreuzen um alle Zeilen auszuwählen</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/FacilityShadingGridView.cpp" line="458" />
+        <location filename="../src/openstudio_lib/FacilityShadingGridView.cpp" line="458"/>
         <source>Check to select this row</source>
         <translation>Aktivieren Sie dieses Kontrollkästchen, um diese Zeile auszuwählen</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/FacilityShadingGridView.cpp" line="390" />
-        <location filename="../src/openstudio_lib/FacilityShadingGridView.cpp" line="460" />
-        <location filename="../src/openstudio_lib/FacilityShadingGridView.cpp" line="461" />
+        <location filename="../src/openstudio_lib/FacilityShadingGridView.cpp" line="390"/>
+        <location filename="../src/openstudio_lib/FacilityShadingGridView.cpp" line="460"/>
+        <location filename="../src/openstudio_lib/FacilityShadingGridView.cpp" line="461"/>
         <source>Shading Surface Name</source>
         <translation>Verschattungsfläche Name</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/FacilityShadingGridView.cpp" line="392" />
-        <location filename="../src/openstudio_lib/FacilityShadingGridView.cpp" line="486" />
-        <location filename="../src/openstudio_lib/FacilityShadingGridView.cpp" line="487" />
+        <location filename="../src/openstudio_lib/FacilityShadingGridView.cpp" line="392"/>
+        <location filename="../src/openstudio_lib/FacilityShadingGridView.cpp" line="486"/>
+        <location filename="../src/openstudio_lib/FacilityShadingGridView.cpp" line="487"/>
         <source>Construction Name</source>
         <translation>Konstruktionsname</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/FacilityShadingGridView.cpp" line="391" />
-        <location filename="../src/openstudio_lib/FacilityShadingGridView.cpp" line="493" />
-        <location filename="../src/openstudio_lib/FacilityShadingGridView.cpp" line="500" />
+        <location filename="../src/openstudio_lib/FacilityShadingGridView.cpp" line="391"/>
+        <location filename="../src/openstudio_lib/FacilityShadingGridView.cpp" line="493"/>
+        <location filename="../src/openstudio_lib/FacilityShadingGridView.cpp" line="500"/>
         <source>Transmittance Schedule Name</source>
         <translation>Transmittanz-Zeitplanname</translation>
     </message>
@@ -22785,7 +22786,7 @@ Exterior Equipment</source>
         <translation>Grad Ausrichtung &lt;</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/FacilityShadingGridView.cpp" line="394" />
+        <location filename="../src/openstudio_lib/FacilityShadingGridView.cpp" line="394"/>
         <source>General</source>
         <translation>Allgemein</translation>
     </message>
@@ -22793,65 +22794,65 @@ Exterior Equipment</source>
 <context>
     <name>openstudio::FacilityShadingGridView</name>
     <message>
-        <location filename="../src/openstudio_lib/FacilityShadingGridView.cpp" line="60" />
-        <location filename="../src/openstudio_lib/FacilityShadingGridView.cpp" line="62" />
+        <location filename="../src/openstudio_lib/FacilityShadingGridView.cpp" line="60"/>
+        <location filename="../src/openstudio_lib/FacilityShadingGridView.cpp" line="62"/>
         <source>Shading Surface Group</source>
         <translation>Verschattungsflächen-Gruppe</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/FacilityShadingGridView.cpp" line="62" />
+        <location filename="../src/openstudio_lib/FacilityShadingGridView.cpp" line="62"/>
         <source>Drop Shading
 Surface Group</source>
         <translation>Drop-Verschattung
 Oberflächengruppe</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/FacilityShadingGridView.cpp" line="78" />
+        <location filename="../src/openstudio_lib/FacilityShadingGridView.cpp" line="78"/>
         <source>Filters:</source>
         <translation>Filter:</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/FacilityShadingGridView.cpp" line="87" />
+        <location filename="../src/openstudio_lib/FacilityShadingGridView.cpp" line="87"/>
         <source>Shading Surface Name</source>
         <translation>Verschattungsfläche Name</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/FacilityShadingGridView.cpp" line="109" />
+        <location filename="../src/openstudio_lib/FacilityShadingGridView.cpp" line="109"/>
         <source>Shading Surface Type</source>
         <translation>Verschattungsflächen-Typ</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/FacilityShadingGridView.cpp" line="114" />
+        <location filename="../src/openstudio_lib/FacilityShadingGridView.cpp" line="114"/>
         <source>All</source>
         <translation>Alle</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/FacilityShadingGridView.cpp" line="115" />
+        <location filename="../src/openstudio_lib/FacilityShadingGridView.cpp" line="115"/>
         <source>Site</source>
         <translation>Standort</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/FacilityShadingGridView.cpp" line="116" />
+        <location filename="../src/openstudio_lib/FacilityShadingGridView.cpp" line="116"/>
         <source>Building</source>
         <translation>Gebäude</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/FacilityShadingGridView.cpp" line="131" />
+        <location filename="../src/openstudio_lib/FacilityShadingGridView.cpp" line="131"/>
         <source>Degrees Tilt &gt;</source>
         <translation>Neigungsgrad &gt;</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/FacilityShadingGridView.cpp" line="152" />
+        <location filename="../src/openstudio_lib/FacilityShadingGridView.cpp" line="152"/>
         <source>Degrees Tilt &lt;</source>
         <translation>Neigungswinkel &lt;</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/FacilityShadingGridView.cpp" line="173" />
+        <location filename="../src/openstudio_lib/FacilityShadingGridView.cpp" line="173"/>
         <source>Degrees Orientation &gt;</source>
         <translation>Gradausrichtung &gt;</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/FacilityShadingGridView.cpp" line="193" />
+        <location filename="../src/openstudio_lib/FacilityShadingGridView.cpp" line="193"/>
         <source>Degrees Orientation &lt;</source>
         <translation>Grad Ausrichtung &lt;</translation>
     </message>
@@ -22859,82 +22860,82 @@ Oberflächengruppe</translation>
 <context>
     <name>openstudio::FacilityStoriesGridController</name>
     <message>
-        <location filename="../src/openstudio_lib/FacilityStoriesGridView.cpp" line="235" />
-        <location filename="../src/openstudio_lib/FacilityStoriesGridView.cpp" line="241" />
-        <location filename="../src/openstudio_lib/FacilityStoriesGridView.cpp" line="242" />
+        <location filename="../src/openstudio_lib/FacilityStoriesGridView.cpp" line="235"/>
+        <location filename="../src/openstudio_lib/FacilityStoriesGridView.cpp" line="241"/>
+        <location filename="../src/openstudio_lib/FacilityStoriesGridView.cpp" line="242"/>
         <source>Story Name</source>
         <translation>Geschossname</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/FacilityStoriesGridView.cpp" line="235" />
-        <location filename="../src/openstudio_lib/FacilityStoriesGridView.cpp" line="258" />
-        <location filename="../src/openstudio_lib/FacilityStoriesGridView.cpp" line="263" />
+        <location filename="../src/openstudio_lib/FacilityStoriesGridView.cpp" line="235"/>
+        <location filename="../src/openstudio_lib/FacilityStoriesGridView.cpp" line="258"/>
+        <location filename="../src/openstudio_lib/FacilityStoriesGridView.cpp" line="263"/>
         <source>All</source>
         <translation>Alle</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/FacilityStoriesGridView.cpp" line="232" />
-        <location filename="../src/openstudio_lib/FacilityStoriesGridView.cpp" line="244" />
-        <location filename="../src/openstudio_lib/FacilityStoriesGridView.cpp" line="245" />
+        <location filename="../src/openstudio_lib/FacilityStoriesGridView.cpp" line="232"/>
+        <location filename="../src/openstudio_lib/FacilityStoriesGridView.cpp" line="244"/>
+        <location filename="../src/openstudio_lib/FacilityStoriesGridView.cpp" line="245"/>
         <source>Display Name</source>
         <translation>Anzeigename</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/FacilityStoriesGridView.cpp" line="232" />
-        <location filename="../src/openstudio_lib/FacilityStoriesGridView.cpp" line="251" />
-        <location filename="../src/openstudio_lib/FacilityStoriesGridView.cpp" line="252" />
+        <location filename="../src/openstudio_lib/FacilityStoriesGridView.cpp" line="232"/>
+        <location filename="../src/openstudio_lib/FacilityStoriesGridView.cpp" line="251"/>
+        <location filename="../src/openstudio_lib/FacilityStoriesGridView.cpp" line="252"/>
         <source>CAD Object ID</source>
         <translation>CAD-Objekt-ID</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/FacilityStoriesGridView.cpp" line="214" />
-        <location filename="../src/openstudio_lib/FacilityStoriesGridView.cpp" line="264" />
+        <location filename="../src/openstudio_lib/FacilityStoriesGridView.cpp" line="214"/>
+        <location filename="../src/openstudio_lib/FacilityStoriesGridView.cpp" line="264"/>
         <source>Nominal Z Coordinate</source>
         <translation>Nominale Z-Koordinate</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/FacilityStoriesGridView.cpp" line="215" />
-        <location filename="../src/openstudio_lib/FacilityStoriesGridView.cpp" line="265" />
-        <location filename="../src/openstudio_lib/FacilityStoriesGridView.cpp" line="267" />
-        <location filename="../src/openstudio_lib/FacilityStoriesGridView.cpp" line="268" />
+        <location filename="../src/openstudio_lib/FacilityStoriesGridView.cpp" line="215"/>
+        <location filename="../src/openstudio_lib/FacilityStoriesGridView.cpp" line="265"/>
+        <location filename="../src/openstudio_lib/FacilityStoriesGridView.cpp" line="267"/>
+        <location filename="../src/openstudio_lib/FacilityStoriesGridView.cpp" line="268"/>
         <source>Nominal Floor to Floor Height</source>
         <translation>Nominale Geschosshöhe</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/FacilityStoriesGridView.cpp" line="216" />
-        <location filename="../src/openstudio_lib/FacilityStoriesGridView.cpp" line="271" />
-        <location filename="../src/openstudio_lib/FacilityStoriesGridView.cpp" line="272" />
+        <location filename="../src/openstudio_lib/FacilityStoriesGridView.cpp" line="216"/>
+        <location filename="../src/openstudio_lib/FacilityStoriesGridView.cpp" line="271"/>
+        <location filename="../src/openstudio_lib/FacilityStoriesGridView.cpp" line="272"/>
         <source>Default Construction Set Name</source>
         <translation>Standardname für Konstruktionssatz</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/FacilityStoriesGridView.cpp" line="216" />
-        <location filename="../src/openstudio_lib/FacilityStoriesGridView.cpp" line="277" />
-        <location filename="../src/openstudio_lib/FacilityStoriesGridView.cpp" line="278" />
+        <location filename="../src/openstudio_lib/FacilityStoriesGridView.cpp" line="216"/>
+        <location filename="../src/openstudio_lib/FacilityStoriesGridView.cpp" line="277"/>
+        <location filename="../src/openstudio_lib/FacilityStoriesGridView.cpp" line="278"/>
         <source>Default Schedule Set Name</source>
         <translation>Standard-Zeitprogrammsatz-Name</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/FacilityStoriesGridView.cpp" line="260" />
+        <location filename="../src/openstudio_lib/FacilityStoriesGridView.cpp" line="260"/>
         <source>Check to select all rows</source>
         <translation>Ankreuzen um alle Zeilen auszuwählen</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/FacilityStoriesGridView.cpp" line="263" />
+        <location filename="../src/openstudio_lib/FacilityStoriesGridView.cpp" line="263"/>
         <source>Check to select this row</source>
         <translation>Aktivieren Sie dieses Kontrollkästchen, um diese Zeile auszuwählen</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/FacilityStoriesGridView.cpp" line="214" />
-        <location filename="../src/openstudio_lib/FacilityStoriesGridView.cpp" line="282" />
-        <location filename="../src/openstudio_lib/FacilityStoriesGridView.cpp" line="283" />
+        <location filename="../src/openstudio_lib/FacilityStoriesGridView.cpp" line="214"/>
+        <location filename="../src/openstudio_lib/FacilityStoriesGridView.cpp" line="282"/>
+        <location filename="../src/openstudio_lib/FacilityStoriesGridView.cpp" line="283"/>
         <source>Group Rendering Name</source>
         <translation>Gruppendarstellungsname</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/FacilityStoriesGridView.cpp" line="215" />
-        <location filename="../src/openstudio_lib/FacilityStoriesGridView.cpp" line="286" />
-        <location filename="../src/openstudio_lib/FacilityStoriesGridView.cpp" line="287" />
+        <location filename="../src/openstudio_lib/FacilityStoriesGridView.cpp" line="215"/>
+        <location filename="../src/openstudio_lib/FacilityStoriesGridView.cpp" line="286"/>
+        <location filename="../src/openstudio_lib/FacilityStoriesGridView.cpp" line="287"/>
         <source>Nominal Floor to Ceiling Height</source>
         <translation>Nominale Raumhöhe</translation>
     </message>
@@ -22947,7 +22948,7 @@ Oberflächengruppe</translation>
         <translation>Nominale Z-Koordinate &lt;</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/FacilityStoriesGridView.cpp" line="218" />
+        <location filename="../src/openstudio_lib/FacilityStoriesGridView.cpp" line="218"/>
         <source>General</source>
         <translation>Allgemein</translation>
     </message>
@@ -22955,30 +22956,30 @@ Oberflächengruppe</translation>
 <context>
     <name>openstudio::FacilityStoriesGridView</name>
     <message>
-        <location filename="../src/openstudio_lib/FacilityStoriesGridView.cpp" line="54" />
-        <location filename="../src/openstudio_lib/FacilityStoriesGridView.cpp" line="55" />
+        <location filename="../src/openstudio_lib/FacilityStoriesGridView.cpp" line="54"/>
+        <location filename="../src/openstudio_lib/FacilityStoriesGridView.cpp" line="55"/>
         <source>Building Stories</source>
         <translation>Gebäudegeschosse</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/FacilityStoriesGridView.cpp" line="55" />
+        <location filename="../src/openstudio_lib/FacilityStoriesGridView.cpp" line="55"/>
         <source>Drop
 Story</source>
         <translation>Drop
 Story</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/FacilityStoriesGridView.cpp" line="71" />
+        <location filename="../src/openstudio_lib/FacilityStoriesGridView.cpp" line="71"/>
         <source>Filters:</source>
         <translation>Filter:</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/FacilityStoriesGridView.cpp" line="80" />
+        <location filename="../src/openstudio_lib/FacilityStoriesGridView.cpp" line="80"/>
         <source>Nominal Z Coordinate &gt;</source>
         <translation>Nominale Z-Koordinate &gt;</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/FacilityStoriesGridView.cpp" line="101" />
+        <location filename="../src/openstudio_lib/FacilityStoriesGridView.cpp" line="101"/>
         <source>Nominal Z Coordinate &lt;</source>
         <translation>Nominale Z-Koordinate &lt;</translation>
     </message>
@@ -22986,22 +22987,22 @@ Story</translation>
 <context>
     <name>openstudio::FacilityTabController</name>
     <message>
-        <location filename="../src/openstudio_lib/FacilityTabController.cpp" line="18" />
+        <location filename="../src/openstudio_lib/FacilityTabController.cpp" line="18"/>
         <source>Building</source>
         <translation>Gebäude</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/FacilityTabController.cpp" line="19" />
+        <location filename="../src/openstudio_lib/FacilityTabController.cpp" line="19"/>
         <source>Stories</source>
         <translation>Geschosse</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/FacilityTabController.cpp" line="20" />
+        <location filename="../src/openstudio_lib/FacilityTabController.cpp" line="20"/>
         <source>Shading</source>
         <translation>Verschattung</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/FacilityTabController.cpp" line="21" />
+        <location filename="../src/openstudio_lib/FacilityTabController.cpp" line="21"/>
         <source>Exterior Equipment</source>
         <translation>Externe Ausrüstung</translation>
     </message>
@@ -23009,7 +23010,7 @@ Story</translation>
 <context>
     <name>openstudio::FacilityTabView</name>
     <message>
-        <location filename="../src/openstudio_lib/FacilityTabView.cpp" line="10" />
+        <location filename="../src/openstudio_lib/FacilityTabView.cpp" line="10"/>
         <source>Facility</source>
         <translation>Liegenschaft</translation>
     </message>
@@ -23017,42 +23018,42 @@ Story</translation>
 <context>
     <name>openstudio::GasEquipmentDefinitionInspectorView</name>
     <message>
-        <location filename="../src/openstudio_lib/GasEquipmentInspectorView.cpp" line="36" />
+        <location filename="../src/openstudio_lib/GasEquipmentInspectorView.cpp" line="36"/>
         <source>Name: </source>
         <translation>Name:</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/GasEquipmentInspectorView.cpp" line="45" />
+        <location filename="../src/openstudio_lib/GasEquipmentInspectorView.cpp" line="45"/>
         <source>Design Level: </source>
         <translation>Auslegungsstufe:</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/GasEquipmentInspectorView.cpp" line="55" />
+        <location filename="../src/openstudio_lib/GasEquipmentInspectorView.cpp" line="55"/>
         <source>Power Per Space Floor Area: </source>
         <translation>Leistung pro Nutzfläche:</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/GasEquipmentInspectorView.cpp" line="65" />
+        <location filename="../src/openstudio_lib/GasEquipmentInspectorView.cpp" line="65"/>
         <source>Power Per Person: </source>
         <translation>Leistung pro Person:</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/GasEquipmentInspectorView.cpp" line="75" />
+        <location filename="../src/openstudio_lib/GasEquipmentInspectorView.cpp" line="75"/>
         <source>Fraction Latent: </source>
         <translation>Latenter Anteil:</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/GasEquipmentInspectorView.cpp" line="85" />
+        <location filename="../src/openstudio_lib/GasEquipmentInspectorView.cpp" line="85"/>
         <source>Fraction Radiant: </source>
         <translation>Strahlungsanteil:</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/GasEquipmentInspectorView.cpp" line="95" />
+        <location filename="../src/openstudio_lib/GasEquipmentInspectorView.cpp" line="95"/>
         <source>Fraction Lost: </source>
         <translation>Verlorener Anteil:</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/GasEquipmentInspectorView.cpp" line="105" />
+        <location filename="../src/openstudio_lib/GasEquipmentInspectorView.cpp" line="105"/>
         <source>Carbon Dioxide Generation Rate: </source>
         <translation>Kohlendioxid-Generierungsrate:</translation>
     </message>
@@ -23060,17 +23061,17 @@ Story</translation>
 <context>
     <name>openstudio::GeometryTabController</name>
     <message>
-        <location filename="../src/openstudio_lib/GeometryTabController.cpp" line="24" />
+        <location filename="../src/openstudio_lib/GeometryTabController.cpp" line="24"/>
         <source>Geometry</source>
         <translation>Geometrie</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/GeometryTabController.cpp" line="25" />
+        <location filename="../src/openstudio_lib/GeometryTabController.cpp" line="25"/>
         <source>3D View</source>
         <translation>3D-Ansicht</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/GeometryTabController.cpp" line="29" />
+        <location filename="../src/openstudio_lib/GeometryTabController.cpp" line="29"/>
         <source>Editor</source>
         <translation>Editor</translation>
     </message>
@@ -23101,27 +23102,27 @@ Story</translation>
 <context>
     <name>openstudio::GroundTemperatureListView</name>
     <message>
-        <location filename="../src/openstudio_lib/GroundTemperatureView.cpp" line="93" />
+        <location filename="../src/openstudio_lib/GroundTemperatureView.cpp" line="93"/>
         <source>Building Surface Ground Temperatures</source>
         <translation>Bodentemperaturen der Gebäudeoberfläche</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/GroundTemperatureView.cpp" line="94" />
+        <location filename="../src/openstudio_lib/GroundTemperatureView.cpp" line="94"/>
         <source>Shallow Ground Temperatures</source>
         <translation>Oberflächennahe Bodentemperaturen</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/GroundTemperatureView.cpp" line="95" />
+        <location filename="../src/openstudio_lib/GroundTemperatureView.cpp" line="95"/>
         <source>Deep Ground Temperatures</source>
         <translation>Tiefe Grundwassertemperaturen</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/GroundTemperatureView.cpp" line="96" />
+        <location filename="../src/openstudio_lib/GroundTemperatureView.cpp" line="96"/>
         <source>FCfactorMethod Ground Temperatures</source>
         <translation>FCfactorMethod Bodentemperaturen</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/GroundTemperatureView.cpp" line="97" />
+        <location filename="../src/openstudio_lib/GroundTemperatureView.cpp" line="97"/>
         <source>Water Mains Temperature</source>
         <translation>Wasserversorgungstemperatur</translation>
     </message>
@@ -23129,105 +23130,105 @@ Story</translation>
 <context>
     <name>openstudio::GroundTemperatureNotPresentView</name>
     <message>
-        <location filename="../src/openstudio_lib/GroundTemperatureView.cpp" line="177" />
+        <location filename="../src/openstudio_lib/GroundTemperatureView.cpp" line="177"/>
         <source>Add</source>
         <translation>Hinzufügen</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/GroundTemperatureView.cpp" line="188" />
+        <location filename="../src/openstudio_lib/GroundTemperatureView.cpp" line="188"/>
         <source>Import from EPW</source>
         <translation>Aus EPW importieren</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/GroundTemperatureView.cpp" line="225" />
+        <location filename="../src/openstudio_lib/GroundTemperatureView.cpp" line="225"/>
         <source>&lt;p&gt;The &lt;b&gt;%1&lt;/b&gt; Unique ModelObject is not present in this model.&lt;/p&gt;&lt;p&gt;Click Add to instantiate it.&lt;/p&gt;</source>
         <translation>Das eindeutige ModelObject &lt;b&gt;%1&lt;/b&gt; ist in diesem Modell nicht vorhanden.&lt;/p&gt;&lt;p&gt;Klicken Sie auf Hinzufügen, um es zu erstellen.&lt;/p&gt;</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/GroundTemperatureView.cpp" line="239" />
+        <location filename="../src/openstudio_lib/GroundTemperatureView.cpp" line="239"/>
         <source>No weather file is associated with the model, so the object will be added with default values.</source>
         <translation>Dem Modell ist keine Wetterdatei zugeordnet, daher wird das Objekt mit Standardwerten hinzugefügt.</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/GroundTemperatureView.cpp" line="255" />
+        <location filename="../src/openstudio_lib/GroundTemperatureView.cpp" line="255"/>
         <source>While a weather file is associated with the model, could not locate the underlying EpwFile, so the object will be added with default values.</source>
         <translation>Obwohl eine Wetterdatei mit dem Modell verknüpft ist, konnte die zugrunde liegende EpwFile nicht gefunden werden. Das Objekt wird mit Standardwerten hinzugefügt.</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/GroundTemperatureView.cpp" line="263" />
+        <location filename="../src/openstudio_lib/GroundTemperatureView.cpp" line="263"/>
         <source>The weather file does not contain any ground temperature data, so the object will be added with default values.</source>
         <translation>Die Wetterdatei enthält keine Bodentemperaturdaten, daher wird das Objekt mit Standardwerten hinzugefügt.</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/GroundTemperatureView.cpp" line="275" />
+        <location filename="../src/openstudio_lib/GroundTemperatureView.cpp" line="275"/>
         <source>The weather file does not contain ground temperature data at the expected depth of %1 m, so the object will be added with default values.</source>
         <translation>Die Wetterdatei enthält keine Bodentemperaturdaten in der erwarteten Tiefe von %1 m, daher wird das Objekt mit Standardwerten hinzugefügt.</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/GroundTemperatureView.cpp" line="286" />
-        <source>The weather file contains ground temperature data at a depth of &lt;b&gt;&lt;span style="color: #1C7BBF;"&gt;%1 m&lt;/span&gt;&lt;/b&gt;, so you can choose to import those values or add the object with default values.</source>
-        <translation>Die Wetterdatei enthält Bodentemperaturdaten in einer Tiefe von &lt;b&gt;&lt;span style="color: #1C7BBF;"&gt;%1 m&lt;/span&gt;&lt;/b&gt;, sodass Sie diese Werte importieren oder das Objekt mit Standardwerten hinzufügen können.</translation>
+        <location filename="../src/openstudio_lib/GroundTemperatureView.cpp" line="286"/>
+        <source>The weather file contains ground temperature data at a depth of &lt;b&gt;&lt;span style=&quot;color: #1C7BBF;&quot;&gt;%1 m&lt;/span&gt;&lt;/b&gt;, so you can choose to import those values or add the object with default values.</source>
+        <translation>Die Wetterdatei enthält Bodentemperaturdaten in einer Tiefe von &lt;b&gt;&lt;span style=&quot;color: #1C7BBF;&quot;&gt;%1 m&lt;/span&gt;&lt;/b&gt;, sodass Sie diese Werte importieren oder das Objekt mit Standardwerten hinzufügen können.</translation>
     </message>
 </context>
 <context>
     <name>openstudio::HVACAirLoopControlsView</name>
     <message>
-        <location filename="../src/openstudio_lib/HVACSystemsView.cpp" line="341" />
+        <location filename="../src/openstudio_lib/HVACSystemsView.cpp" line="341"/>
         <source>Cooling Type: </source>
         <translation>Kühlungstyp:</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/HVACSystemsView.cpp" line="349" />
+        <location filename="../src/openstudio_lib/HVACSystemsView.cpp" line="349"/>
         <source>Heating Type: </source>
         <translation>Heizungstyp:</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/HVACSystemsView.cpp" line="362" />
+        <location filename="../src/openstudio_lib/HVACSystemsView.cpp" line="362"/>
         <source>Time of Operation</source>
         <translation>Betriebszeit</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/HVACSystemsView.cpp" line="366" />
+        <location filename="../src/openstudio_lib/HVACSystemsView.cpp" line="366"/>
         <source>HVAC Operation Schedule</source>
         <translation>HVAC-Betriebsplan</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/HVACSystemsView.cpp" line="374" />
+        <location filename="../src/openstudio_lib/HVACSystemsView.cpp" line="374"/>
         <source>Use Night Cycle</source>
         <translation>Nachtbetrieb verwenden</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/HVACSystemsView.cpp" line="382" />
+        <location filename="../src/openstudio_lib/HVACSystemsView.cpp" line="382"/>
         <source>Follow the HVAC Operation Schedule</source>
         <translation>Folge dem HVAC-Betriebszeitplan</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/HVACSystemsView.cpp" line="383" />
+        <location filename="../src/openstudio_lib/HVACSystemsView.cpp" line="383"/>
         <source>Cycle on Full System if Heating or Cooling Required</source>
         <translation>Zyklus mit vollem System bei Heiz- oder Kühlbedarf erforderlich</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/HVACSystemsView.cpp" line="384" />
+        <location filename="../src/openstudio_lib/HVACSystemsView.cpp" line="384"/>
         <source>Cycle on Zone Terminal Units if Heating or Cooling Required</source>
         <translation>Zonenendstufen bei Heiz- oder Kühlbedarf zykleln</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/HVACSystemsView.cpp" line="396" />
+        <location filename="../src/openstudio_lib/HVACSystemsView.cpp" line="396"/>
         <source>Supply Air Temperature</source>
         <translation>Zulufttemperatur</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/HVACSystemsView.cpp" line="409" />
+        <location filename="../src/openstudio_lib/HVACSystemsView.cpp" line="409"/>
         <source>Mechanical Ventilation</source>
         <translation>Mechanische Lüftung</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/HVACSystemsView.cpp" line="424" />
+        <location filename="../src/openstudio_lib/HVACSystemsView.cpp" line="424"/>
         <source>Availability Managers</source>
         <translation>Verfügbarkeitsmanager</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/HVACSystemsView.cpp" line="428" />
+        <location filename="../src/openstudio_lib/HVACSystemsView.cpp" line="428"/>
         <source>Availability Managers from highest precedence to lowest</source>
         <translation>Verfügbarkeitsmanager von höchster zu niedrigster Priorität</translation>
     </message>
@@ -23235,70 +23236,70 @@ Story</translation>
 <context>
     <name>openstudio::HVACControlsController</name>
     <message>
-        <location filename="../src/openstudio_lib/HVACSystemsController.cpp" line="1017" />
+        <location filename="../src/openstudio_lib/HVACSystemsController.cpp" line="1017"/>
         <source>Unclassified Cooling Type</source>
         <translation>Unklassifizierter Kühlungstyp</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/HVACSystemsController.cpp" line="1021" />
-        <location filename="../src/openstudio_lib/HVACSystemsController.cpp" line="1026" />
-        <location filename="../src/openstudio_lib/HVACSystemsController.cpp" line="1036" />
+        <location filename="../src/openstudio_lib/HVACSystemsController.cpp" line="1021"/>
+        <location filename="../src/openstudio_lib/HVACSystemsController.cpp" line="1026"/>
+        <location filename="../src/openstudio_lib/HVACSystemsController.cpp" line="1036"/>
         <source>DX Cooling</source>
         <translation>DX-Kühlung</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/HVACSystemsController.cpp" line="1031" />
+        <location filename="../src/openstudio_lib/HVACSystemsController.cpp" line="1031"/>
         <source>Chilled Water</source>
         <translation>Kühlwasser</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/HVACSystemsController.cpp" line="1041" />
+        <location filename="../src/openstudio_lib/HVACSystemsController.cpp" line="1041"/>
         <source>Unclassified Heating Type</source>
         <translation>Nicht klassifizierter Heizungstyp</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/HVACSystemsController.cpp" line="1045" />
+        <location filename="../src/openstudio_lib/HVACSystemsController.cpp" line="1045"/>
         <source>Gas Heating</source>
         <translation>Gasheizung</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/HVACSystemsController.cpp" line="1050" />
+        <location filename="../src/openstudio_lib/HVACSystemsController.cpp" line="1050"/>
         <source>Electric Heating</source>
         <translation>Elektrische Heizung</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/HVACSystemsController.cpp" line="1055" />
+        <location filename="../src/openstudio_lib/HVACSystemsController.cpp" line="1055"/>
         <source>Hot Water</source>
         <translation>Warmwasser</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/HVACSystemsController.cpp" line="1060" />
+        <location filename="../src/openstudio_lib/HVACSystemsController.cpp" line="1060"/>
         <source>Air Source Heat Pump</source>
         <translation>Luftwärmepumpe</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/HVACSystemsController.cpp" line="1354" />
-        <location filename="../src/openstudio_lib/HVACSystemsController.cpp" line="1511" />
+        <location filename="../src/openstudio_lib/HVACSystemsController.cpp" line="1354"/>
+        <location filename="../src/openstudio_lib/HVACSystemsController.cpp" line="1511"/>
         <source>Drag From Library</source>
         <translation>Aus Bibliothek ziehen</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/HVACSystemsController.cpp" line="1388" />
+        <location filename="../src/openstudio_lib/HVACSystemsController.cpp" line="1388"/>
         <source>Both</source>
         <translation>Beide</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/HVACSystemsController.cpp" line="1391" />
+        <location filename="../src/openstudio_lib/HVACSystemsController.cpp" line="1391"/>
         <source>Heating</source>
         <translation>Heizung</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/HVACSystemsController.cpp" line="1394" />
+        <location filename="../src/openstudio_lib/HVACSystemsController.cpp" line="1394"/>
         <source>Cooling</source>
         <translation>Kühlung</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/HVACSystemsController.cpp" line="1397" />
+        <location filename="../src/openstudio_lib/HVACSystemsController.cpp" line="1397"/>
         <source>None</source>
         <translation>Keine</translation>
     </message>
@@ -23306,52 +23307,52 @@ Story</translation>
 <context>
     <name>openstudio::HVACPlantLoopControlsView</name>
     <message>
-        <location filename="../src/openstudio_lib/HVACSystemsView.cpp" line="452" />
+        <location filename="../src/openstudio_lib/HVACSystemsView.cpp" line="452"/>
         <source>HVAC System</source>
         <translation>HVAC-System</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/HVACSystemsView.cpp" line="462" />
+        <location filename="../src/openstudio_lib/HVACSystemsView.cpp" line="462"/>
         <source>Plant Loop Type: </source>
         <translation>Primärkreislauf-Typ:</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/HVACSystemsView.cpp" line="480" />
+        <location filename="../src/openstudio_lib/HVACSystemsView.cpp" line="480"/>
         <source>Plant Equipment Operation Schemes</source>
         <translation>Betriebspläne für Anlagenkomponenten</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/HVACSystemsView.cpp" line="494" />
+        <location filename="../src/openstudio_lib/HVACSystemsView.cpp" line="494"/>
         <source>Heating Components:</source>
         <translation>Heizkomponenten:</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/HVACSystemsView.cpp" line="506" />
+        <location filename="../src/openstudio_lib/HVACSystemsView.cpp" line="506"/>
         <source>Cooling Components:</source>
         <translation>Kühlkomponenten:</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/HVACSystemsView.cpp" line="518" />
+        <location filename="../src/openstudio_lib/HVACSystemsView.cpp" line="518"/>
         <source>Setpoint Components:</source>
         <translation>Sollwert-Komponenten:</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/HVACSystemsView.cpp" line="530" />
+        <location filename="../src/openstudio_lib/HVACSystemsView.cpp" line="530"/>
         <source>Uncontrolled Components:</source>
         <translation>Unkontrollierte Komponenten:</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/HVACSystemsView.cpp" line="544" />
+        <location filename="../src/openstudio_lib/HVACSystemsView.cpp" line="544"/>
         <source>Supply Water Temperature</source>
         <translation>Zuflusstemperatur</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/HVACSystemsView.cpp" line="559" />
+        <location filename="../src/openstudio_lib/HVACSystemsView.cpp" line="559"/>
         <source>Availability Managers</source>
         <translation>Verfügbarkeitsmanager</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/HVACSystemsView.cpp" line="563" />
+        <location filename="../src/openstudio_lib/HVACSystemsView.cpp" line="563"/>
         <source>Availability Managers from highest precedence to lowest</source>
         <translation>Verfügbarkeitsmanager von höchster zu niedrigster Priorität</translation>
     </message>
@@ -23359,17 +23360,17 @@ Story</translation>
 <context>
     <name>openstudio::HVACSystemsController</name>
     <message>
-        <location filename="../src/openstudio_lib/HVACSystemsController.cpp" line="252" />
+        <location filename="../src/openstudio_lib/HVACSystemsController.cpp" line="252"/>
         <source>Service Hot Water</source>
         <translation>Warmwasser</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/HVACSystemsController.cpp" line="253" />
+        <location filename="../src/openstudio_lib/HVACSystemsController.cpp" line="253"/>
         <source>Refrigeration</source>
         <translation>Kälteerzeugung</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/HVACSystemsController.cpp" line="254" />
+        <location filename="../src/openstudio_lib/HVACSystemsController.cpp" line="254"/>
         <source>VRF</source>
         <translation>VRF</translation>
     </message>
@@ -23409,7 +23410,7 @@ Story</translation>
 <context>
     <name>openstudio::HVACSystemsTabView</name>
     <message>
-        <location filename="../src/openstudio_lib/HVACSystemsTabView.cpp" line="10" />
+        <location filename="../src/openstudio_lib/HVACSystemsTabView.cpp" line="10"/>
         <source>HVAC Systems</source>
         <translation>HVAC-Systeme</translation>
     </message>
@@ -23417,17 +23418,17 @@ Story</translation>
 <context>
     <name>openstudio::HVACToolbarView</name>
     <message>
-        <location filename="../src/openstudio_lib/HVACSystemsView.cpp" line="117" />
+        <location filename="../src/openstudio_lib/HVACSystemsView.cpp" line="117"/>
         <source>Layout</source>
         <translation>Layout</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/HVACSystemsView.cpp" line="123" />
+        <location filename="../src/openstudio_lib/HVACSystemsView.cpp" line="123"/>
         <source>Control</source>
         <translation>Steuerung</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/HVACSystemsView.cpp" line="129" />
+        <location filename="../src/openstudio_lib/HVACSystemsView.cpp" line="129"/>
         <source>Grid</source>
         <translation>Gitter</translation>
     </message>
@@ -23435,8 +23436,8 @@ Story</translation>
 <context>
     <name>openstudio::HorizontalBranchItem</name>
     <message>
-        <location filename="../src/openstudio_lib/GridItem.cpp" line="647" />
-        <location filename="../src/openstudio_lib/GridItem.cpp" line="704" />
+        <location filename="../src/openstudio_lib/GridItem.cpp" line="647"/>
+        <location filename="../src/openstudio_lib/GridItem.cpp" line="704"/>
         <source>Drag From Library</source>
         <translation>Aus Bibliothek ziehen</translation>
     </message>
@@ -23444,12 +23445,12 @@ Story</translation>
 <context>
     <name>openstudio::HorizontalHeaderWidget</name>
     <message>
-        <location filename="../src/shared_gui_components/OSGridController.cpp" line="876" />
-        <source>Check to add this column to "Custom"</source>
-        <translation>Aktivieren Sie, um diese Spalte zu "Benutzerdefiniert" hinzuzufügen</translation>
+        <location filename="../src/shared_gui_components/OSGridController.cpp" line="876"/>
+        <source>Check to add this column to &quot;Custom&quot;</source>
+        <translation>Aktivieren Sie, um diese Spalte zu &quot;Benutzerdefiniert&quot; hinzuzufügen</translation>
     </message>
     <message>
-        <location filename="../src/shared_gui_components/OSGridController.cpp" line="899" />
+        <location filename="../src/shared_gui_components/OSGridController.cpp" line="899"/>
         <source>Apply to Selected</source>
         <translation>Auf Auswahl anwenden</translation>
     </message>
@@ -23457,37 +23458,37 @@ Story</translation>
 <context>
     <name>openstudio::HotWaterEquipmentDefinitionInspectorView</name>
     <message>
-        <location filename="../src/openstudio_lib/HotWaterEquipmentInspectorView.cpp" line="35" />
+        <location filename="../src/openstudio_lib/HotWaterEquipmentInspectorView.cpp" line="35"/>
         <source>Name: </source>
         <translation>Name:</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/HotWaterEquipmentInspectorView.cpp" line="43" />
+        <location filename="../src/openstudio_lib/HotWaterEquipmentInspectorView.cpp" line="43"/>
         <source>Design Level: </source>
         <translation>Designlevel:</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/HotWaterEquipmentInspectorView.cpp" line="53" />
+        <location filename="../src/openstudio_lib/HotWaterEquipmentInspectorView.cpp" line="53"/>
         <source>Watts Per Space Floor Area: </source>
         <translation>Watt pro Raumfläche:</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/HotWaterEquipmentInspectorView.cpp" line="63" />
+        <location filename="../src/openstudio_lib/HotWaterEquipmentInspectorView.cpp" line="63"/>
         <source>Watts Per Person: </source>
         <translation>Watt pro Person:</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/HotWaterEquipmentInspectorView.cpp" line="73" />
+        <location filename="../src/openstudio_lib/HotWaterEquipmentInspectorView.cpp" line="73"/>
         <source>Fraction Latent: </source>
         <translation>Latenter Anteil:</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/HotWaterEquipmentInspectorView.cpp" line="83" />
+        <location filename="../src/openstudio_lib/HotWaterEquipmentInspectorView.cpp" line="83"/>
         <source>Fraction Radiant: </source>
         <translation>Strahlungsanteil:</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/HotWaterEquipmentInspectorView.cpp" line="93" />
+        <location filename="../src/openstudio_lib/HotWaterEquipmentInspectorView.cpp" line="93"/>
         <source>Fraction Lost: </source>
         <translation>Verlorener Anteil:</translation>
     </message>
@@ -23495,7 +23496,7 @@ Story</translation>
 <context>
     <name>openstudio::HotWaterSupplyItem</name>
     <message>
-        <location filename="../src/openstudio_lib/ServiceWaterGridItems.cpp" line="555" />
+        <location filename="../src/openstudio_lib/ServiceWaterGridItems.cpp" line="555"/>
         <source>Go back to hot water supply system</source>
         <translation>Zurück zum Warmwassersystem</translation>
     </message>
@@ -23503,27 +23504,27 @@ Story</translation>
 <context>
     <name>openstudio::InternalMassDefinitionInspectorView</name>
     <message>
-        <location filename="../src/openstudio_lib/InternalMassInspectorView.cpp" line="43" />
+        <location filename="../src/openstudio_lib/InternalMassInspectorView.cpp" line="43"/>
         <source>Name: </source>
         <translation>Name:</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/InternalMassInspectorView.cpp" line="52" />
+        <location filename="../src/openstudio_lib/InternalMassInspectorView.cpp" line="52"/>
         <source>Surface Area: </source>
         <translation>Oberfläche:</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/InternalMassInspectorView.cpp" line="62" />
+        <location filename="../src/openstudio_lib/InternalMassInspectorView.cpp" line="62"/>
         <source>Surface Area Per Space Floor Area: </source>
         <translation>Oberfläche pro Raumgrundfläche:</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/InternalMassInspectorView.cpp" line="72" />
+        <location filename="../src/openstudio_lib/InternalMassInspectorView.cpp" line="72"/>
         <source>Surface Area Per Person: </source>
         <translation>Oberfläche pro Person:</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/InternalMassInspectorView.cpp" line="82" />
+        <location filename="../src/openstudio_lib/InternalMassInspectorView.cpp" line="82"/>
         <source>Construction: </source>
         <translation>Konstruktion:</translation>
     </message>
@@ -23531,32 +23532,32 @@ Story</translation>
 <context>
     <name>openstudio::LibraryDialog</name>
     <message>
-        <location filename="../src/openstudio_app/LibraryDialog.cpp" line="28" />
+        <location filename="../src/openstudio_app/LibraryDialog.cpp" line="28"/>
         <source>Change Default Libraries</source>
         <translation>Standardbibliotheken ändern</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_app/LibraryDialog.cpp" line="42" />
+        <location filename="../src/openstudio_app/LibraryDialog.cpp" line="42"/>
         <source>Add</source>
         <translation>Hinzufügen</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_app/LibraryDialog.cpp" line="46" />
+        <location filename="../src/openstudio_app/LibraryDialog.cpp" line="46"/>
         <source>Remove</source>
         <translation>Entfernen</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_app/LibraryDialog.cpp" line="52" />
+        <location filename="../src/openstudio_app/LibraryDialog.cpp" line="52"/>
         <source>Restore Defaults</source>
         <translation>Standards wiederherstellen</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_app/LibraryDialog.cpp" line="68" />
+        <location filename="../src/openstudio_app/LibraryDialog.cpp" line="68"/>
         <source>Select OpenStudio Library</source>
         <translation>OpenStudio Bibliothek auswählen</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_app/LibraryDialog.cpp" line="68" />
+        <location filename="../src/openstudio_app/LibraryDialog.cpp" line="68"/>
         <source>OpenStudio Files (*.osm)</source>
         <translation>OpenStudio Dateien</translation>
     </message>
@@ -23564,17 +23565,17 @@ Story</translation>
 <context>
     <name>openstudio::LibraryItemDelegate</name>
     <message>
-        <location filename="../src/shared_gui_components/LocalLibraryController.cpp" line="507" />
+        <location filename="../src/shared_gui_components/LocalLibraryController.cpp" line="507"/>
         <source>Python Measures are not supported in the Classic CLI.
-You can change CLI version using 'Preferences-&gt;Use Classic CLI'.</source>
+You can change CLI version using &apos;Preferences-&gt;Use Classic CLI&apos;.</source>
         <translation>Python-Measures werden in der klassischen CLI nicht unterstützt.
-Sie können die CLI-Version über 'Einstellungen-&gt;Klassische CLI verwenden' ändern.</translation>
+Sie können die CLI-Version über &apos;Einstellungen-&gt;Klassische CLI verwenden&apos; ändern.</translation>
     </message>
 </context>
 <context>
     <name>openstudio::LibraryItemView</name>
     <message>
-        <location filename="../src/shared_gui_components/LocalLibraryView.cpp" line="140" />
+        <location filename="../src/shared_gui_components/LocalLibraryView.cpp" line="140"/>
         <source>Measure</source>
         <translation>Measure</translation>
     </message>
@@ -23582,117 +23583,117 @@ Sie können die CLI-Version über 'Einstellungen-&gt;Klassische CLI verwenden' �
 <context>
     <name>openstudio::LifeCycleCostsView</name>
     <message>
-        <location filename="../src/openstudio_lib/LifeCycleCostsTabView.cpp" line="61" />
+        <location filename="../src/openstudio_lib/LifeCycleCostsTabView.cpp" line="61"/>
         <source>Life Cycle Cost Parameters</source>
         <translation>Lebenszykluskosten-Parameter</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/LifeCycleCostsTabView.cpp" line="66" />
+        <location filename="../src/openstudio_lib/LifeCycleCostsTabView.cpp" line="66"/>
         <source>Performed using constant dollar methodology.  The base date and service date are assumed to be January 1, 2012.</source>
         <translation>Durchgeführt mit konstanter Dollarmethodik. Das Basisdatum und das Servicedatum werden auf den 1. Januar 2012 angenommen.</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/LifeCycleCostsTabView.cpp" line="83" />
+        <location filename="../src/openstudio_lib/LifeCycleCostsTabView.cpp" line="83"/>
         <source>Analysis Type</source>
         <translation>Analysistyp</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/LifeCycleCostsTabView.cpp" line="91" />
+        <location filename="../src/openstudio_lib/LifeCycleCostsTabView.cpp" line="91"/>
         <source>Federal Energy Management Program (FEMP)</source>
         <translation>Federal Energy Management Program (FEMP)</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/LifeCycleCostsTabView.cpp" line="95" />
+        <location filename="../src/openstudio_lib/LifeCycleCostsTabView.cpp" line="95"/>
         <source>Custom</source>
         <translation>Benutzerdefiniert</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/LifeCycleCostsTabView.cpp" line="111" />
+        <location filename="../src/openstudio_lib/LifeCycleCostsTabView.cpp" line="111"/>
         <source>Analysis Length (Years)</source>
         <translation>Analysedauer (Jahre)</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/LifeCycleCostsTabView.cpp" line="125" />
+        <location filename="../src/openstudio_lib/LifeCycleCostsTabView.cpp" line="125"/>
         <source>Real Discount Rate (fraction)</source>
         <translation>Realer Diskontsatz (Bruchzahl)</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/LifeCycleCostsTabView.cpp" line="145" />
+        <location filename="../src/openstudio_lib/LifeCycleCostsTabView.cpp" line="145"/>
         <source>Use National Institute of Standards and Technology (NIST) Fuel Escalation Rates</source>
         <translation>Brennstoff-Eskalationsraten des National Institute of Standards and Technology (NIST) verwenden</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/LifeCycleCostsTabView.cpp" line="153" />
+        <location filename="../src/openstudio_lib/LifeCycleCostsTabView.cpp" line="153"/>
         <source>Yes</source>
         <translation>Ja</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/LifeCycleCostsTabView.cpp" line="157" />
+        <location filename="../src/openstudio_lib/LifeCycleCostsTabView.cpp" line="157"/>
         <source>No</source>
         <translation>Nein</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/LifeCycleCostsTabView.cpp" line="190" />
+        <location filename="../src/openstudio_lib/LifeCycleCostsTabView.cpp" line="190"/>
         <source>Inflation Rates (Relative to general inflation)</source>
         <translation>Inflationsraten (Relativ zur allgemeinen Inflation)</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/LifeCycleCostsTabView.cpp" line="205" />
+        <location filename="../src/openstudio_lib/LifeCycleCostsTabView.cpp" line="205"/>
         <source>Electricity (fraction)</source>
         <translation>Elektrizität (Anteil)</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/LifeCycleCostsTabView.cpp" line="220" />
+        <location filename="../src/openstudio_lib/LifeCycleCostsTabView.cpp" line="220"/>
         <source>Natural Gas (fraction)</source>
         <translation>Erdgas (Anteil)</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/LifeCycleCostsTabView.cpp" line="233" />
+        <location filename="../src/openstudio_lib/LifeCycleCostsTabView.cpp" line="233"/>
         <source>Steam (fraction)</source>
         <translation>Dampf (Anteil)</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/LifeCycleCostsTabView.cpp" line="246" />
+        <location filename="../src/openstudio_lib/LifeCycleCostsTabView.cpp" line="246"/>
         <source>Gasoline (fraction)</source>
         <translation>Benzin (Anteil)</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/LifeCycleCostsTabView.cpp" line="262" />
+        <location filename="../src/openstudio_lib/LifeCycleCostsTabView.cpp" line="262"/>
         <source>Diesel (fraction)</source>
         <translation>Diesel (Anteil)</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/LifeCycleCostsTabView.cpp" line="275" />
+        <location filename="../src/openstudio_lib/LifeCycleCostsTabView.cpp" line="275"/>
         <source>Propane (fraction)</source>
         <translation>Propan (Anteil)</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/LifeCycleCostsTabView.cpp" line="288" />
+        <location filename="../src/openstudio_lib/LifeCycleCostsTabView.cpp" line="288"/>
         <source>Coal (fraction)</source>
         <translation>Kohle (Anteil)</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/LifeCycleCostsTabView.cpp" line="301" />
+        <location filename="../src/openstudio_lib/LifeCycleCostsTabView.cpp" line="301"/>
         <source>Fuel Oil #1 (fraction)</source>
         <translation>Heizöl #1 (Anteil)</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/LifeCycleCostsTabView.cpp" line="317" />
+        <location filename="../src/openstudio_lib/LifeCycleCostsTabView.cpp" line="317"/>
         <source>Fuel Oil #2 (fraction)</source>
         <translation>Heizöl EL (Anteil)</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/LifeCycleCostsTabView.cpp" line="330" />
+        <location filename="../src/openstudio_lib/LifeCycleCostsTabView.cpp" line="330"/>
         <source>Water (fraction)</source>
         <translation>Wasser (Anteil)</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/LifeCycleCostsTabView.cpp" line="360" />
+        <location filename="../src/openstudio_lib/LifeCycleCostsTabView.cpp" line="360"/>
         <source>NIST Region</source>
         <translation>NIST-Region</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/LifeCycleCostsTabView.cpp" line="373" />
+        <location filename="../src/openstudio_lib/LifeCycleCostsTabView.cpp" line="373"/>
         <source>NIST Sector</source>
         <translation>NIST Sektor</translation>
     </message>
@@ -23700,37 +23701,37 @@ Sie können die CLI-Version über 'Einstellungen-&gt;Klassische CLI verwenden' �
 <context>
     <name>openstudio::LightsDefinitionInspectorView</name>
     <message>
-        <location filename="../src/openstudio_lib/LightsInspectorView.cpp" line="36" />
+        <location filename="../src/openstudio_lib/LightsInspectorView.cpp" line="36"/>
         <source>Name: </source>
         <translation>Name:</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/LightsInspectorView.cpp" line="45" />
+        <location filename="../src/openstudio_lib/LightsInspectorView.cpp" line="45"/>
         <source>Lighting Power: </source>
         <translation>Beleuchtungsleistung:</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/LightsInspectorView.cpp" line="55" />
+        <location filename="../src/openstudio_lib/LightsInspectorView.cpp" line="55"/>
         <source>Watts Per Space Floor Area: </source>
         <translation>Watt pro Raumgrundfläche:</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/LightsInspectorView.cpp" line="65" />
+        <location filename="../src/openstudio_lib/LightsInspectorView.cpp" line="65"/>
         <source>Watts Per Person: </source>
         <translation>Watt pro Person:</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/LightsInspectorView.cpp" line="75" />
+        <location filename="../src/openstudio_lib/LightsInspectorView.cpp" line="75"/>
         <source>Fraction Radiant: </source>
         <translation>Strahlungsanteil:</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/LightsInspectorView.cpp" line="85" />
+        <location filename="../src/openstudio_lib/LightsInspectorView.cpp" line="85"/>
         <source>Fraction Visible: </source>
         <translation>Sichtbarer Anteil:</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/LightsInspectorView.cpp" line="95" />
+        <location filename="../src/openstudio_lib/LightsInspectorView.cpp" line="95"/>
         <source>Return Air Fraction: </source>
         <translation>Rückluftstromanteil:</translation>
     </message>
@@ -23738,52 +23739,52 @@ Sie können die CLI-Version über 'Einstellungen-&gt;Klassische CLI verwenden' �
 <context>
     <name>openstudio::LoadsView</name>
     <message>
-        <location filename="../src/openstudio_lib/LoadsView.cpp" line="45" />
+        <location filename="../src/openstudio_lib/LoadsView.cpp" line="45"/>
         <source>People Definitions</source>
         <translation>Personendefinitionen</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/LoadsView.cpp" line="46" />
+        <location filename="../src/openstudio_lib/LoadsView.cpp" line="46"/>
         <source>Lights Definitions</source>
         <translation>Lichter Definitionen</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/LoadsView.cpp" line="47" />
+        <location filename="../src/openstudio_lib/LoadsView.cpp" line="47"/>
         <source>Luminaire Definitions</source>
         <translation>Leuchten Definitionen</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/LoadsView.cpp" line="48" />
+        <location filename="../src/openstudio_lib/LoadsView.cpp" line="48"/>
         <source>Electric Equipment Definitions</source>
         <translation>Definitionen für elektrische Ausrüstung</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/LoadsView.cpp" line="49" />
+        <location filename="../src/openstudio_lib/LoadsView.cpp" line="49"/>
         <source>Gas Equipment Definitions</source>
         <translation>Gasstoffanlagendefinitionen</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/LoadsView.cpp" line="50" />
+        <location filename="../src/openstudio_lib/LoadsView.cpp" line="50"/>
         <source>Steam Equipment Definitions</source>
         <translation>Dampfausrüstungsdefinitionen</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/LoadsView.cpp" line="51" />
+        <location filename="../src/openstudio_lib/LoadsView.cpp" line="51"/>
         <source>Other Equipment Definitions</source>
         <translation>Definitionen für sonstige Ausrüstung</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/LoadsView.cpp" line="52" />
+        <location filename="../src/openstudio_lib/LoadsView.cpp" line="52"/>
         <source>Internal Mass Definitions</source>
         <translation>Definitionen für innere Massen</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/LoadsView.cpp" line="53" />
+        <location filename="../src/openstudio_lib/LoadsView.cpp" line="53"/>
         <source>Water Use Equipment Definitions</source>
         <translation>Definitionen für Wassernutzungsgeräte</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/LoadsView.cpp" line="54" />
+        <location filename="../src/openstudio_lib/LoadsView.cpp" line="54"/>
         <source>Hot Water Equipment Definitions</source>
         <translation>Definitionen für Warmwassergeräte</translation>
     </message>
@@ -23791,32 +23792,32 @@ Sie können die CLI-Version über 'Einstellungen-&gt;Klassische CLI verwenden' �
 <context>
     <name>openstudio::LocalLibraryView</name>
     <message>
-        <location filename="../src/shared_gui_components/LocalLibraryView.cpp" line="62" />
+        <location filename="../src/shared_gui_components/LocalLibraryView.cpp" line="62"/>
         <source>Copy Selected Measure and Add to My Measures</source>
         <translation>Ausgewählte Maßnahme kopieren und zu Meinen Maßnahmen hinzufügen</translation>
     </message>
     <message>
-        <location filename="../src/shared_gui_components/LocalLibraryView.cpp" line="67" />
+        <location filename="../src/shared_gui_components/LocalLibraryView.cpp" line="67"/>
         <source>Create a Measure from Template and add to My Measures</source>
         <translation>Maßnahme aus Vorlage erstellen und zu Meine Maßnahmen hinzufügen</translation>
     </message>
     <message>
-        <location filename="../src/shared_gui_components/LocalLibraryView.cpp" line="71" />
+        <location filename="../src/shared_gui_components/LocalLibraryView.cpp" line="71"/>
         <source>Look for BCL measure updates online</source>
         <translation>Nach BCL-Maßnahmen-Updates online suchen</translation>
     </message>
     <message>
-        <location filename="../src/shared_gui_components/LocalLibraryView.cpp" line="78" />
+        <location filename="../src/shared_gui_components/LocalLibraryView.cpp" line="78"/>
         <source>Open the My Measures Directory</source>
-        <translation>Öffnen Sie das Verzeichnis "Meine Maßnahmen"</translation>
+        <translation>Öffnen Sie das Verzeichnis &quot;Meine Maßnahmen&quot;</translation>
     </message>
     <message>
-        <location filename="../src/shared_gui_components/LocalLibraryView.cpp" line="87" />
+        <location filename="../src/shared_gui_components/LocalLibraryView.cpp" line="87"/>
         <source>Find Measures on BCL</source>
         <translation>Maßnahmen im BCL suchen</translation>
     </message>
     <message>
-        <location filename="../src/shared_gui_components/LocalLibraryView.cpp" line="88" />
+        <location filename="../src/shared_gui_components/LocalLibraryView.cpp" line="88"/>
         <source>Connect to Online BCL to Download New Measures and Update Existing Measures to Library</source>
         <translation>Mit Online-BCL verbinden, um neue Measures herunterzuladen und vorhandene Measures in der Bibliothek zu aktualisieren</translation>
     </message>
@@ -23824,22 +23825,22 @@ Sie können die CLI-Version über 'Einstellungen-&gt;Klassische CLI verwenden' �
 <context>
     <name>openstudio::LocationTabController</name>
     <message>
-        <location filename="../src/openstudio_lib/LocationTabController.cpp" line="30" />
+        <location filename="../src/openstudio_lib/LocationTabController.cpp" line="30"/>
         <source>Weather File &amp;&amp; Design Days</source>
         <translation>Wetterdaten &amp;&amp; Auslegungstage</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/LocationTabController.cpp" line="31" />
+        <location filename="../src/openstudio_lib/LocationTabController.cpp" line="31"/>
         <source>Life Cycle Costs</source>
         <translation>Lebenszykluskosten</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/LocationTabController.cpp" line="32" />
+        <location filename="../src/openstudio_lib/LocationTabController.cpp" line="32"/>
         <source>Utility Bills</source>
         <translation>Energiekosten</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/LocationTabController.cpp" line="33" />
+        <location filename="../src/openstudio_lib/LocationTabController.cpp" line="33"/>
         <source>Ground Temperatures</source>
         <translation>Bodentemperaturen</translation>
     </message>
@@ -23847,7 +23848,7 @@ Sie können die CLI-Version über 'Einstellungen-&gt;Klassische CLI verwenden' �
 <context>
     <name>openstudio::LocationTabView</name>
     <message>
-        <location filename="../src/openstudio_lib/LocationTabView.cpp" line="126" />
+        <location filename="../src/openstudio_lib/LocationTabView.cpp" line="126"/>
         <source>Site</source>
         <translation>Standort</translation>
     </message>
@@ -23855,12 +23856,12 @@ Sie können die CLI-Version über 'Einstellungen-&gt;Klassische CLI verwenden' �
 <context>
     <name>openstudio::LocationView</name>
     <message>
-        <location filename="../src/openstudio_lib/LocationTabView.cpp" line="212" />
+        <location filename="../src/openstudio_lib/LocationTabView.cpp" line="212"/>
         <source>Weather File</source>
         <translation>Wetterdatei</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/LocationTabView.cpp" line="233" />
+        <location filename="../src/openstudio_lib/LocationTabView.cpp" line="233"/>
         <source>Name: </source>
         <translation>Name:</translation>
     </message>
@@ -23881,145 +23882,145 @@ Sie können die CLI-Version über 'Einstellungen-&gt;Klassische CLI verwenden' �
         <translation>Zeitzone:</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/LocationTabView.cpp" line="258" />
-        <source>Download weather files at &lt;a href="http://www.energyplus.net/weather"&gt;www.energyplus.net/weather&lt;/a&gt;</source>
+        <location filename="../src/openstudio_lib/LocationTabView.cpp" line="258"/>
+        <source>Download weather files at &lt;a href=&quot;http://www.energyplus.net/weather&quot;&gt;www.energyplus.net/weather&lt;/a&gt;</source>
         <translation>Hier Wetterdaten herunterladen</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/LocationTabView.cpp" line="269" />
+        <location filename="../src/openstudio_lib/LocationTabView.cpp" line="269"/>
         <source>Site Information:</source>
         <translation>Standortinformationen:</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/LocationTabView.cpp" line="276" />
+        <location filename="../src/openstudio_lib/LocationTabView.cpp" line="276"/>
         <source>Keep Site Location Information</source>
         <translation>Standortinformationen beibehalten</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/LocationTabView.cpp" line="277" />
+        <location filename="../src/openstudio_lib/LocationTabView.cpp" line="277"/>
         <source>If enabled, this will write the Site:Location object that will keep the Elevation change for example.</source>
         <translation>Wenn aktiviert, wird das Site:Location-Objekt geschrieben, das beispielsweise die Höhenänderung beibehält.</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/LocationTabView.cpp" line="316" />
-        <source>Elevation affects the wind speed at the site, and is defaulted to the Weather File's elevation</source>
+        <location filename="../src/openstudio_lib/LocationTabView.cpp" line="316"/>
+        <source>Elevation affects the wind speed at the site, and is defaulted to the Weather File&apos;s elevation</source>
         <translation>Höhe beeinflusst die Windgeschwindigkeit am Standort und ist standardmäßig auf die Höhe der Wetterdatei eingestellt</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/LocationTabView.cpp" line="330" />
+        <location filename="../src/openstudio_lib/LocationTabView.cpp" line="330"/>
         <source>Terrain</source>
         <translation>Gelände</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/LocationTabView.cpp" line="331" />
+        <location filename="../src/openstudio_lib/LocationTabView.cpp" line="331"/>
         <source>Terrain affects the wind speed at the site.</source>
         <translation>Das Gelände beeinflusst die Windgeschwindigkeit am Standort.</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/LocationTabView.cpp" line="353" />
+        <location filename="../src/openstudio_lib/LocationTabView.cpp" line="353"/>
         <source>Measure Tags (Optional):</source>
         <translation>Kennzeichnung (optional):</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/LocationTabView.cpp" line="357" />
+        <location filename="../src/openstudio_lib/LocationTabView.cpp" line="357"/>
         <source>ASHRAE Climate Zone</source>
         <translation>ASHRAE Klimazone</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/LocationTabView.cpp" line="390" />
+        <location filename="../src/openstudio_lib/LocationTabView.cpp" line="390"/>
         <source>CEC Climate Zone</source>
         <translation>CEC Klimazone</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/LocationTabView.cpp" line="459" />
-        <location filename="../src/openstudio_lib/LocationTabView.cpp" line="894" />
-        <location filename="../src/openstudio_lib/LocationTabView.cpp" line="903" />
+        <location filename="../src/openstudio_lib/LocationTabView.cpp" line="459"/>
+        <location filename="../src/openstudio_lib/LocationTabView.cpp" line="894"/>
+        <location filename="../src/openstudio_lib/LocationTabView.cpp" line="903"/>
         <source>Design Days</source>
         <translation>Auslegungstage</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/LocationTabView.cpp" line="462" />
+        <location filename="../src/openstudio_lib/LocationTabView.cpp" line="462"/>
         <source>Import From DDY</source>
         <translation>Von DDY importieren</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/LocationTabView.cpp" line="615" />
+        <location filename="../src/openstudio_lib/LocationTabView.cpp" line="615"/>
         <source>Change Weather File</source>
         <translation>Wetterdatei ändern</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/LocationTabView.cpp" line="619" />
-        <location filename="../src/openstudio_lib/LocationTabView.cpp" line="623" />
+        <location filename="../src/openstudio_lib/LocationTabView.cpp" line="619"/>
+        <location filename="../src/openstudio_lib/LocationTabView.cpp" line="623"/>
         <source>Set Weather File</source>
         <translation>Ausgewählte Wetterdatei</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/LocationTabView.cpp" line="667" />
+        <location filename="../src/openstudio_lib/LocationTabView.cpp" line="667"/>
         <source>EPW Files (*.epw);; All Files (*.*)</source>
         <translation>EPW Datei (*.epw);; Alle Dateien (*.*)</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/LocationTabView.cpp" line="678" />
+        <location filename="../src/openstudio_lib/LocationTabView.cpp" line="678"/>
         <source>Open Weather File</source>
         <translation>Wetterdatei öffnen</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/LocationTabView.cpp" line="769" />
+        <location filename="../src/openstudio_lib/LocationTabView.cpp" line="769"/>
         <source>Failed To Set Weather File</source>
         <translation>Wetterdatei konnte nicht geladen werden</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/LocationTabView.cpp" line="769" />
+        <location filename="../src/openstudio_lib/LocationTabView.cpp" line="769"/>
         <source>Failed To Set Weather File To </source>
         <translation>Wetterdatei konnte nicht geladen werden als</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/LocationTabView.cpp" line="852" />
-        <source>There are &lt;span style="font-weight:bold;"&gt;%1&lt;/span&gt; Design Days available for import</source>
-        <translation>Es sind &lt;span style="font-weight:bold;"&gt;%1&lt;/span&gt; Designtage zum Importieren verfügbar</translation>
+        <location filename="../src/openstudio_lib/LocationTabView.cpp" line="852"/>
+        <source>There are &lt;span style=&quot;font-weight:bold;&quot;&gt;%1&lt;/span&gt; Design Days available for import</source>
+        <translation>Es sind &lt;span style=&quot;font-weight:bold;&quot;&gt;%1&lt;/span&gt; Designtage zum Importieren verfügbar</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/LocationTabView.cpp" line="854" />
+        <location filename="../src/openstudio_lib/LocationTabView.cpp" line="854"/>
         <source>, %1 of which are unknown type</source>
         <translation>, %1 davon sind unbekannter Typ</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/LocationTabView.cpp" line="876" />
+        <location filename="../src/openstudio_lib/LocationTabView.cpp" line="876"/>
         <source>Heating</source>
         <translation>Heizung</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/LocationTabView.cpp" line="879" />
+        <location filename="../src/openstudio_lib/LocationTabView.cpp" line="879"/>
         <source>Cooling</source>
         <translation>Kühlung</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/LocationTabView.cpp" line="916" />
+        <location filename="../src/openstudio_lib/LocationTabView.cpp" line="916"/>
         <source>OK</source>
         <translation>OK</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/LocationTabView.cpp" line="932" />
+        <location filename="../src/openstudio_lib/LocationTabView.cpp" line="932"/>
         <source>Cancel</source>
         <translation>Abbrechen</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/LocationTabView.cpp" line="936" />
+        <location filename="../src/openstudio_lib/LocationTabView.cpp" line="936"/>
         <source>Import all</source>
         <translation>Alle importieren</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/LocationTabView.cpp" line="966" />
+        <location filename="../src/openstudio_lib/LocationTabView.cpp" line="966"/>
         <source>Open DDY File</source>
         <translation>DDY Datei öffnen</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/LocationTabView.cpp" line="1016" />
+        <location filename="../src/openstudio_lib/LocationTabView.cpp" line="1016"/>
         <source>No Design Days in DDY File</source>
         <translation>Keine Auslegungstage in DDY Datei vorhanden</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/LocationTabView.cpp" line="1017" />
+        <location filename="../src/openstudio_lib/LocationTabView.cpp" line="1017"/>
         <source>This DDY file does not contain any valid design days.  Check the DDY file itself for errors or omissions.</source>
         <translation>Die DDY Datei beinhaltet keine gültigen Auslegungstage. Überprüfen Sie die DDY Datei auf Fehler.</translation>
     </message>
@@ -24027,7 +24028,7 @@ Sie können die CLI-Version über 'Einstellungen-&gt;Klassische CLI verwenden' �
 <context>
     <name>openstudio::LoopItemView</name>
     <message>
-        <location filename="../src/openstudio_lib/LoopLibraryDialog.cpp" line="141" />
+        <location filename="../src/openstudio_lib/LoopLibraryDialog.cpp" line="141"/>
         <source>Add to Model</source>
         <translation>Zum Modell hinzufügen</translation>
     </message>
@@ -24035,33 +24036,33 @@ Sie können die CLI-Version über 'Einstellungen-&gt;Klassische CLI verwenden' �
 <context>
     <name>openstudio::LoopLibraryDialog</name>
     <message>
-        <location filename="../src/openstudio_lib/LoopLibraryDialog.cpp" line="22" />
+        <location filename="../src/openstudio_lib/LoopLibraryDialog.cpp" line="22"/>
         <source>Add HVAC System</source>
         <translation>HVAC-System hinzufügen</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/LoopLibraryDialog.cpp" line="30" />
+        <location filename="../src/openstudio_lib/LoopLibraryDialog.cpp" line="30"/>
         <source>HVAC Systems</source>
         <translation>HVAC-Systeme</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/LoopLibraryDialog.cpp" line="70" />
+        <location filename="../src/openstudio_lib/LoopLibraryDialog.cpp" line="70"/>
         <source>Packaged Rooftop Unit</source>
         <translation>Dachgerät (Paket-Dachgerät)</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/LoopLibraryDialog.cpp" line="72" />
+        <location filename="../src/openstudio_lib/LoopLibraryDialog.cpp" line="72"/>
         <source>Packaged Rooftop Heat Pump</source>
         <translation>Dachflächengebundene Wärmepumpenanlage</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/LoopLibraryDialog.cpp" line="74" />
+        <location filename="../src/openstudio_lib/LoopLibraryDialog.cpp" line="74"/>
         <source>Packaged DX Rooftop VAV 
 with Reheat</source>
         <translation>Paketierte DX-Dachgeräte mit VAV und Nacherwärmung</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/LoopLibraryDialog.cpp" line="76" />
+        <location filename="../src/openstudio_lib/LoopLibraryDialog.cpp" line="76"/>
         <source>Packaged Rooftop 
 VAV with Parallel Fan 
 Power Boxes and reheat</source>
@@ -24070,27 +24071,27 @@ VAV mit parallelen Ventilator-
 Leistungsboxen und Nachheizung</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/LoopLibraryDialog.cpp" line="78" />
+        <location filename="../src/openstudio_lib/LoopLibraryDialog.cpp" line="78"/>
         <source>Packaged Rooftop 
 VAV with Reheat</source>
         <translation>Kompaktes Dachgerät
 VAV mit Nachheizung</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/LoopLibraryDialog.cpp" line="80" />
+        <location filename="../src/openstudio_lib/LoopLibraryDialog.cpp" line="80"/>
         <source>VAV with Parallel Fan-Powered 
 Boxes and Reheat</source>
         <translation>VAV mit parallelen Gebläseboxen und Wiederaufheizung</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/LoopLibraryDialog.cpp" line="82" />
+        <location filename="../src/openstudio_lib/LoopLibraryDialog.cpp" line="82"/>
         <source>Warm Air Furnace 
 Gas Fired</source>
         <translation>Warmluft-Heizanlage
 Gasbefeuert</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/LoopLibraryDialog.cpp" line="84" />
+        <location filename="../src/openstudio_lib/LoopLibraryDialog.cpp" line="84"/>
         <source>Warm Air Furnace 
 Electric</source>
         <translation>Warmluft-Ofen
@@ -24133,22 +24134,22 @@ Electric</source>
 Elektrisch</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/LoopLibraryDialog.cpp" line="86" />
+        <location filename="../src/openstudio_lib/LoopLibraryDialog.cpp" line="86"/>
         <source>Empty Air Loop</source>
         <translation>Leere Luftschleife</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/LoopLibraryDialog.cpp" line="88" />
+        <location filename="../src/openstudio_lib/LoopLibraryDialog.cpp" line="88"/>
         <source>Dual Duct Air Loop</source>
         <translation>Doppelkanal-Luftschleife</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/LoopLibraryDialog.cpp" line="90" />
+        <location filename="../src/openstudio_lib/LoopLibraryDialog.cpp" line="90"/>
         <source>Empty Plant Loop</source>
         <translation>Leere Anlagenschleife</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/LoopLibraryDialog.cpp" line="92" />
+        <location filename="../src/openstudio_lib/LoopLibraryDialog.cpp" line="92"/>
         <source>Service Hot Water Plant Loop</source>
         <translation>Service-Warmwasseranlage</translation>
     </message>
@@ -24208,8 +24209,8 @@ Elektrisch</translation>
         <translation>Versuchen Sie es später nochmals.</translation>
     </message>
     <message>
-        <source>Verify your computer's internet connection then click "Lost Cloud Connection" to recover the lost cloud session.</source>
-        <translation>Überprüfen Sie die Internetverbindung Ihres Computers und klicken Sie dann auf "Verlorene Cloud-Verbindung", um die verlorene Cloud-Sitzung wiederherzustellen.</translation>
+        <source>Verify your computer&apos;s internet connection then click &quot;Lost Cloud Connection&quot; to recover the lost cloud session.</source>
+        <translation>Überprüfen Sie die Internetverbindung Ihres Computers und klicken Sie dann auf &quot;Verlorene Cloud-Verbindung&quot;, um die verlorene Cloud-Sitzung wiederherzustellen.</translation>
     </message>
     <message>
         <source>Or</source>
@@ -24235,27 +24236,27 @@ Elektrisch</translation>
 <context>
     <name>openstudio::LuminaireDefinitionInspectorView</name>
     <message>
-        <location filename="../src/openstudio_lib/LuminaireInspectorView.cpp" line="36" />
+        <location filename="../src/openstudio_lib/LuminaireInspectorView.cpp" line="36"/>
         <source>Name: </source>
         <translation>Name:</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/LuminaireInspectorView.cpp" line="45" />
+        <location filename="../src/openstudio_lib/LuminaireInspectorView.cpp" line="45"/>
         <source>Lighting Power: </source>
         <translation>Beleuchtungsleistung:</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/LuminaireInspectorView.cpp" line="55" />
+        <location filename="../src/openstudio_lib/LuminaireInspectorView.cpp" line="55"/>
         <source>Fraction Radiant: </source>
         <translation>Strahlungsanteil:</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/LuminaireInspectorView.cpp" line="65" />
+        <location filename="../src/openstudio_lib/LuminaireInspectorView.cpp" line="65"/>
         <source>Fraction Visible: </source>
         <translation>Sichtbarer Anteil:</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/LuminaireInspectorView.cpp" line="75" />
+        <location filename="../src/openstudio_lib/LuminaireInspectorView.cpp" line="75"/>
         <source>Return Air Fraction: </source>
         <translation>Rückluftanteil:</translation>
     </message>
@@ -24263,316 +24264,316 @@ Elektrisch</translation>
 <context>
     <name>openstudio::MainMenu</name>
     <message>
-        <location filename="../src/openstudio_lib/MainMenu.cpp" line="34" />
+        <location filename="../src/openstudio_lib/MainMenu.cpp" line="34"/>
         <source>&amp;File</source>
         <translation>&amp;Datei</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/MainMenu.cpp" line="38" />
+        <location filename="../src/openstudio_lib/MainMenu.cpp" line="38"/>
         <source>&amp;New</source>
         <translation>&amp;Neu</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/MainMenu.cpp" line="44" />
+        <location filename="../src/openstudio_lib/MainMenu.cpp" line="44"/>
         <source>&amp;Open</source>
         <translation>&amp;Öffnen</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/MainMenu.cpp" line="51" />
-        <location filename="../src/openstudio_lib/MainMenu.cpp" line="960" />
+        <location filename="../src/openstudio_lib/MainMenu.cpp" line="51"/>
+        <location filename="../src/openstudio_lib/MainMenu.cpp" line="960"/>
         <source>&amp;Revert to Saved</source>
         <translation>&amp;Auf gespeicherte Version zurücksetzen</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/MainMenu.cpp" line="52" />
+        <location filename="../src/openstudio_lib/MainMenu.cpp" line="52"/>
         <source>Ctrl+R</source>
         <translation>Strg+R</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/MainMenu.cpp" line="58" />
+        <location filename="../src/openstudio_lib/MainMenu.cpp" line="58"/>
         <source>&amp;Save</source>
         <translation>&amp;Speichern</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/MainMenu.cpp" line="63" />
+        <location filename="../src/openstudio_lib/MainMenu.cpp" line="63"/>
         <source>Save &amp;As</source>
         <translation>Speichern &amp;unter</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/MainMenu.cpp" line="71" />
+        <location filename="../src/openstudio_lib/MainMenu.cpp" line="71"/>
         <source>&amp;Import</source>
         <translation>&amp;Importieren</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/MainMenu.cpp" line="73" />
-        <location filename="../src/openstudio_lib/MainMenu.cpp" line="95" />
+        <location filename="../src/openstudio_lib/MainMenu.cpp" line="73"/>
+        <location filename="../src/openstudio_lib/MainMenu.cpp" line="95"/>
         <source>&amp;IDF</source>
         <translation>&amp;IDF</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/MainMenu.cpp" line="78" />
-        <location filename="../src/openstudio_lib/MainMenu.cpp" line="99" />
+        <location filename="../src/openstudio_lib/MainMenu.cpp" line="78"/>
+        <location filename="../src/openstudio_lib/MainMenu.cpp" line="99"/>
         <source>&amp;gbXML</source>
         <translation>&amp;gbXML</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/MainMenu.cpp" line="83" />
-        <location filename="../src/openstudio_lib/MainMenu.cpp" line="103" />
+        <location filename="../src/openstudio_lib/MainMenu.cpp" line="83"/>
+        <location filename="../src/openstudio_lib/MainMenu.cpp" line="103"/>
         <source>&amp;SDD</source>
         <translation>&amp;SDD</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/MainMenu.cpp" line="88" />
+        <location filename="../src/openstudio_lib/MainMenu.cpp" line="88"/>
         <source>I&amp;FC</source>
         <translation>I&amp;FC</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/MainMenu.cpp" line="93" />
+        <location filename="../src/openstudio_lib/MainMenu.cpp" line="93"/>
         <source>&amp;Export</source>
         <translation>&amp;Exportieren</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/MainMenu.cpp" line="107" />
+        <location filename="../src/openstudio_lib/MainMenu.cpp" line="107"/>
         <source>&amp;Load Library</source>
         <translation>&amp;Bibliothek laden</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/MainMenu.cpp" line="113" />
+        <location filename="../src/openstudio_lib/MainMenu.cpp" line="113"/>
         <source>E&amp;xamples</source>
         <translation>E&amp;xemple</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/MainMenu.cpp" line="115" />
+        <location filename="../src/openstudio_lib/MainMenu.cpp" line="115"/>
         <source>&amp;Example Model</source>
         <translation>&amp;Beispielmodell</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/MainMenu.cpp" line="119" />
+        <location filename="../src/openstudio_lib/MainMenu.cpp" line="119"/>
         <source>Shoebox Model</source>
         <translation>Schuhkarton-Modell</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/MainMenu.cpp" line="132" />
+        <location filename="../src/openstudio_lib/MainMenu.cpp" line="132"/>
         <source>E&amp;xit</source>
         <translation>&amp;Schliessen</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/MainMenu.cpp" line="139" />
+        <location filename="../src/openstudio_lib/MainMenu.cpp" line="139"/>
         <source>&amp;Preferences</source>
         <translation>&amp;Einstellungen</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/MainMenu.cpp" line="142" />
+        <location filename="../src/openstudio_lib/MainMenu.cpp" line="142"/>
         <source>&amp;Units</source>
         <translation>&amp;Einheiten</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/MainMenu.cpp" line="144" />
+        <location filename="../src/openstudio_lib/MainMenu.cpp" line="144"/>
         <source>Metric (&amp;SI)</source>
         <translation>Metrisches System (&amp;SI)</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/MainMenu.cpp" line="150" />
+        <location filename="../src/openstudio_lib/MainMenu.cpp" line="150"/>
         <source>English (&amp;I-P)</source>
         <translation>Imperiales Einheitensystem (&amp;IP)</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/MainMenu.cpp" line="156" />
+        <location filename="../src/openstudio_lib/MainMenu.cpp" line="156"/>
         <source>&amp;Change My Measures Directory</source>
         <translation>&amp;Mein Maßnahmenverzeichnis ändern</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/MainMenu.cpp" line="161" />
+        <location filename="../src/openstudio_lib/MainMenu.cpp" line="161"/>
         <source>&amp;Change Default Libraries</source>
         <translation>&amp;Verzeichnis für Standardbibliotheken ändern</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/MainMenu.cpp" line="166" />
+        <location filename="../src/openstudio_lib/MainMenu.cpp" line="166"/>
         <source>&amp;Configure External Tools</source>
         <translation>&amp;Externe Software konfigurieren</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/MainMenu.cpp" line="171" />
+        <location filename="../src/openstudio_lib/MainMenu.cpp" line="171"/>
         <source>&amp;Language</source>
         <translation>&amp;Sprache</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/MainMenu.cpp" line="173" />
+        <location filename="../src/openstudio_lib/MainMenu.cpp" line="173"/>
         <source>English</source>
         <translation>Englisch</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/MainMenu.cpp" line="179" />
+        <location filename="../src/openstudio_lib/MainMenu.cpp" line="179"/>
         <source>French</source>
         <translation>Französisch</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/MainMenu.cpp" line="251" />
+        <location filename="../src/openstudio_lib/MainMenu.cpp" line="251"/>
         <source>Arabic</source>
         <translation>Arabisch</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/MainMenu.cpp" line="185" />
+        <location filename="../src/openstudio_lib/MainMenu.cpp" line="185"/>
         <source>Spanish</source>
         <translation>Spanisch</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/MainMenu.cpp" line="191" />
+        <location filename="../src/openstudio_lib/MainMenu.cpp" line="191"/>
         <source>Farsi</source>
         <translation>Persisch</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/MainMenu.cpp" line="257" />
+        <location filename="../src/openstudio_lib/MainMenu.cpp" line="257"/>
         <source>Hebrew</source>
         <translation>Hebräisch</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/MainMenu.cpp" line="263" />
+        <location filename="../src/openstudio_lib/MainMenu.cpp" line="263"/>
         <source>Portuguese</source>
         <translation>Portugiesisch</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/MainMenu.cpp" line="269" />
+        <location filename="../src/openstudio_lib/MainMenu.cpp" line="269"/>
         <source>Korean</source>
         <translation>Koreanisch</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/MainMenu.cpp" line="275" />
+        <location filename="../src/openstudio_lib/MainMenu.cpp" line="275"/>
         <source>Turkish</source>
         <translation>Türkisch</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/MainMenu.cpp" line="281" />
+        <location filename="../src/openstudio_lib/MainMenu.cpp" line="281"/>
         <source>Indonesian</source>
         <translation>Indonesisch</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/MainMenu.cpp" line="197" />
+        <location filename="../src/openstudio_lib/MainMenu.cpp" line="197"/>
         <source>Italian</source>
         <translation>Italienisch</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/MainMenu.cpp" line="203" />
+        <location filename="../src/openstudio_lib/MainMenu.cpp" line="203"/>
         <source>Chinese</source>
         <translation>Chinesisch</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/MainMenu.cpp" line="209" />
+        <location filename="../src/openstudio_lib/MainMenu.cpp" line="209"/>
         <source>Greek</source>
         <translation>Griechisch</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/MainMenu.cpp" line="215" />
+        <location filename="../src/openstudio_lib/MainMenu.cpp" line="215"/>
         <source>Polish</source>
         <translation>Polnisch</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/MainMenu.cpp" line="221" />
+        <location filename="../src/openstudio_lib/MainMenu.cpp" line="221"/>
         <source>Catalan</source>
         <translation>Katalanisch</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/MainMenu.cpp" line="227" />
+        <location filename="../src/openstudio_lib/MainMenu.cpp" line="227"/>
         <source>Hindi</source>
         <translation>Hindi</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/MainMenu.cpp" line="233" />
+        <location filename="../src/openstudio_lib/MainMenu.cpp" line="233"/>
         <source>Vietnamese</source>
         <translation>Vietnamesisch</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/MainMenu.cpp" line="239" />
+        <location filename="../src/openstudio_lib/MainMenu.cpp" line="239"/>
         <source>Japanese</source>
         <translation>Japanisch</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/MainMenu.cpp" line="245" />
+        <location filename="../src/openstudio_lib/MainMenu.cpp" line="245"/>
         <source>German</source>
         <translation>Deutsch</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/MainMenu.cpp" line="287" />
+        <location filename="../src/openstudio_lib/MainMenu.cpp" line="287"/>
         <source>Add a new language</source>
         <translation>Neue Sprache hinzufügen</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/MainMenu.cpp" line="304" />
+        <location filename="../src/openstudio_lib/MainMenu.cpp" line="304"/>
         <source>&amp;Configure Internet Proxy</source>
         <translation>&amp;Internet-Proxy konfigurieren</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/MainMenu.cpp" line="309" />
+        <location filename="../src/openstudio_lib/MainMenu.cpp" line="309"/>
         <source>&amp;Use Classic CLI</source>
         <translation>&amp;Verwenden Sie Classic CLI</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/MainMenu.cpp" line="315" />
+        <location filename="../src/openstudio_lib/MainMenu.cpp" line="315"/>
         <source>&amp;Display Additional Proprerties</source>
         <translation>&amp;Zusätzliche Eigenschaften anzeigen</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/MainMenu.cpp" line="398" />
+        <location filename="../src/openstudio_lib/MainMenu.cpp" line="398"/>
         <source>&amp;Components &amp;&amp; Measures</source>
         <translation>&amp;Komponenten &amp;&amp; Maßnahmen</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/MainMenu.cpp" line="401" />
+        <location filename="../src/openstudio_lib/MainMenu.cpp" line="401"/>
         <source>&amp;Apply Measure Now</source>
         <translation>&amp;Measure jetzt ausführen</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/MainMenu.cpp" line="403" />
+        <location filename="../src/openstudio_lib/MainMenu.cpp" line="403"/>
         <source>Ctrl+M</source>
         <translation>Strg+M</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/MainMenu.cpp" line="407" />
+        <location filename="../src/openstudio_lib/MainMenu.cpp" line="407"/>
         <source>Find &amp;Measures</source>
         <translation>&amp;Measures finden</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/MainMenu.cpp" line="412" />
+        <location filename="../src/openstudio_lib/MainMenu.cpp" line="412"/>
         <source>Find &amp;Components</source>
         <translation>&amp;Komponenten finden</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/MainMenu.cpp" line="418" />
+        <location filename="../src/openstudio_lib/MainMenu.cpp" line="418"/>
         <source>&amp;Help</source>
         <translation>&amp;Hilfe</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/MainMenu.cpp" line="421" />
+        <location filename="../src/openstudio_lib/MainMenu.cpp" line="421"/>
         <source>OpenStudio &amp;Help</source>
         <translation>OpenStudio &amp;Hilfe</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/MainMenu.cpp" line="425" />
+        <location filename="../src/openstudio_lib/MainMenu.cpp" line="425"/>
         <source>Check For &amp;Update</source>
         <translation>Auf &amp;Aktualisierung prüfen</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/MainMenu.cpp" line="429" />
+        <location filename="../src/openstudio_lib/MainMenu.cpp" line="429"/>
         <source>Allow Analytics</source>
         <translation>Analyse zulassen</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/MainMenu.cpp" line="436" />
+        <location filename="../src/openstudio_lib/MainMenu.cpp" line="436"/>
         <source>Debug Webgl</source>
         <translation>Debug WebGL</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/MainMenu.cpp" line="440" />
+        <location filename="../src/openstudio_lib/MainMenu.cpp" line="440"/>
         <source>&amp;About</source>
         <translation>&amp;Über</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/MainMenu.cpp" line="920" />
+        <location filename="../src/openstudio_lib/MainMenu.cpp" line="920"/>
         <source>Adding a new language</source>
         <translation>Neue Sprache hinzufügen</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/MainMenu.cpp" line="921" />
+        <location filename="../src/openstudio_lib/MainMenu.cpp" line="921"/>
         <source>Adding a new language requires almost no coding skill, but it does require language skills: the only thing to do is to translate each sentence/word with the help of a dedicated software.
 If you would like to see the OpenStudioApplication translated in your language of choice, we would welcome your help. Send an email to osc@openstudiocoalition.org specifying which language you want to add, and we will be in touch to help you get started.</source>
         <translation>Das Hinzufügen einer neuen Sprache erfordert fast keine Programmierkenntnisse, aber es erfordert Sprachkenntnisse. Das einzige was Sie tun müssen, ist jeden Satz/Wort mit Hilfe einer speziellen Software zu übersetzen.
@@ -24582,1649 +24583,1649 @@ Wenn Sie möchten, dass die OpenStudio-Applikation in die Sprache Ihrer Wahl üb
 <context>
     <name>openstudio::MainRightColumnController</name>
     <message>
-        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="232" />
-        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="249" />
-        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="286" />
-        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="303" />
-        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="576" />
-        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="612" />
-        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="640" />
-        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="676" />
-        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="730" />
-        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="779" />
-        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="845" />
-        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="897" />
-        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="950" />
-        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="1069" />
+        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="232"/>
+        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="249"/>
+        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="286"/>
+        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="303"/>
+        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="576"/>
+        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="612"/>
+        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="640"/>
+        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="676"/>
+        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="730"/>
+        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="779"/>
+        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="845"/>
+        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="897"/>
+        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="950"/>
+        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="1069"/>
         <source>Schedule File</source>
         <translation>Zeitplandatei</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="233" />
-        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="250" />
-        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="287" />
-        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="304" />
-        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="577" />
-        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="613" />
-        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="641" />
-        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="677" />
-        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="731" />
-        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="780" />
-        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="846" />
-        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="898" />
-        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="951" />
-        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="1070" />
+        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="233"/>
+        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="250"/>
+        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="287"/>
+        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="304"/>
+        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="577"/>
+        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="613"/>
+        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="641"/>
+        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="677"/>
+        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="731"/>
+        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="780"/>
+        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="846"/>
+        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="898"/>
+        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="951"/>
+        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="1070"/>
         <source>Variable Interval Schedules</source>
         <translation>Variable Interval Schedules</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="234" />
-        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="251" />
-        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="288" />
-        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="305" />
-        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="578" />
-        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="614" />
-        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="642" />
-        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="678" />
-        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="732" />
-        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="781" />
-        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="847" />
-        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="899" />
-        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="952" />
-        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="1071" />
+        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="234"/>
+        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="251"/>
+        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="288"/>
+        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="305"/>
+        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="578"/>
+        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="614"/>
+        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="642"/>
+        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="678"/>
+        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="732"/>
+        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="781"/>
+        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="847"/>
+        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="899"/>
+        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="952"/>
+        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="1071"/>
         <source>Fixed Interval Schedules</source>
         <translation>Zeitpläne mit festen Intervallen</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="235" />
-        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="252" />
-        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="289" />
-        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="306" />
-        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="579" />
-        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="615" />
-        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="643" />
-        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="679" />
-        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="733" />
-        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="782" />
-        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="848" />
-        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="900" />
-        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="953" />
-        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="1072" />
+        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="235"/>
+        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="252"/>
+        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="289"/>
+        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="306"/>
+        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="579"/>
+        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="615"/>
+        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="643"/>
+        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="679"/>
+        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="733"/>
+        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="782"/>
+        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="848"/>
+        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="900"/>
+        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="953"/>
+        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="1072"/>
         <source>Year Schedules</source>
         <translation>Jahrespläne</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="236" />
-        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="253" />
-        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="290" />
-        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="307" />
-        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="347" />
-        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="580" />
-        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="616" />
-        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="644" />
-        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="680" />
-        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="734" />
-        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="783" />
-        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="849" />
-        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="901" />
-        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="954" />
-        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="1073" />
+        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="236"/>
+        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="253"/>
+        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="290"/>
+        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="307"/>
+        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="347"/>
+        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="580"/>
+        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="616"/>
+        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="644"/>
+        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="680"/>
+        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="734"/>
+        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="783"/>
+        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="849"/>
+        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="901"/>
+        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="954"/>
+        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="1073"/>
         <source>Constant Schedules</source>
         <translation>Konstante Zeitpläne</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="237" />
-        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="254" />
-        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="291" />
-        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="308" />
-        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="581" />
-        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="617" />
-        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="645" />
-        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="681" />
-        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="735" />
-        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="784" />
-        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="850" />
-        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="902" />
-        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="955" />
-        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="997" />
-        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="1074" />
+        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="237"/>
+        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="254"/>
+        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="291"/>
+        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="308"/>
+        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="581"/>
+        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="617"/>
+        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="645"/>
+        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="681"/>
+        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="735"/>
+        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="784"/>
+        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="850"/>
+        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="902"/>
+        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="955"/>
+        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="997"/>
+        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="1074"/>
         <source>Compact Schedules</source>
         <translation>Kompakte Zeitpläne</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="238" />
-        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="255" />
-        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="292" />
-        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="309" />
-        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="582" />
-        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="618" />
-        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="646" />
-        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="682" />
-        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="736" />
-        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="785" />
-        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="851" />
-        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="903" />
-        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="956" />
-        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="1075" />
+        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="238"/>
+        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="255"/>
+        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="292"/>
+        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="309"/>
+        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="582"/>
+        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="618"/>
+        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="646"/>
+        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="682"/>
+        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="736"/>
+        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="785"/>
+        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="851"/>
+        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="903"/>
+        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="956"/>
+        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="1075"/>
         <source>Ruleset Schedules</source>
         <translation>Regelsatz-Zeitpläne</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="239" />
-        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="256" />
-        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="293" />
-        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="310" />
-        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="330" />
-        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="349" />
-        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="583" />
-        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="619" />
-        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="647" />
-        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="683" />
-        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="737" />
-        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="786" />
-        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="852" />
-        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="904" />
-        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="957" />
-        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="999" />
-        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="1076" />
+        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="239"/>
+        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="256"/>
+        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="293"/>
+        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="310"/>
+        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="330"/>
+        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="349"/>
+        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="583"/>
+        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="619"/>
+        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="647"/>
+        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="683"/>
+        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="737"/>
+        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="786"/>
+        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="852"/>
+        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="904"/>
+        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="957"/>
+        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="999"/>
+        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="1076"/>
         <source>Schedules</source>
         <translation>Zeitpläne</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="311" />
-        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="312" />
-        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="662" />
-        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="700" />
-        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="754" />
-        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="807" />
-        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="868" />
-        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="921" />
+        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="311"/>
+        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="312"/>
+        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="662"/>
+        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="700"/>
+        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="754"/>
+        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="807"/>
+        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="868"/>
+        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="921"/>
         <source>Schedule Sets</source>
         <translation>Zeitplangruppen</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="329" />
-        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="998" />
+        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="329"/>
+        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="998"/>
         <source>Schedule Rulesets</source>
         <translation>Zeitplan-Regelwerk</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="60" />
+        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="60"/>
         <source>My Model</source>
         <translation>Mein Modell</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="66" />
+        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="66"/>
         <source>Library</source>
         <translation>Bibliothek</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="71" />
+        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="71"/>
         <source>Edit</source>
         <translation>Bearbeiten</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="384" />
-        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="385" />
-        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="400" />
-        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="401" />
-        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="476" />
-        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="477" />
-        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="574" />
-        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="575" />
-        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="599" />
-        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="600" />
-        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="728" />
-        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="729" />
-        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="777" />
-        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="778" />
-        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="843" />
-        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="844" />
-        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="895" />
-        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="896" />
+        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="384"/>
+        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="385"/>
+        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="400"/>
+        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="401"/>
+        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="476"/>
+        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="477"/>
+        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="574"/>
+        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="575"/>
+        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="599"/>
+        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="600"/>
+        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="728"/>
+        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="729"/>
+        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="777"/>
+        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="778"/>
+        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="843"/>
+        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="844"/>
+        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="895"/>
+        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="896"/>
         <source>Constructions</source>
         <translation>Konstruktionen</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="402" />
-        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="403" />
-        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="663" />
-        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="701" />
-        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="755" />
-        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="808" />
-        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="869" />
-        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="922" />
+        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="402"/>
+        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="403"/>
+        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="663"/>
+        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="701"/>
+        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="755"/>
+        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="808"/>
+        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="869"/>
+        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="922"/>
         <source>Construction Sets</source>
         <translation>Konstruktionssätze</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="383" />
-        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="399" />
-        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="475" />
-        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="573" />
-        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="598" />
-        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="727" />
-        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="776" />
-        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="842" />
-        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="894" />
+        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="383"/>
+        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="399"/>
+        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="475"/>
+        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="573"/>
+        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="598"/>
+        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="727"/>
+        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="776"/>
+        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="842"/>
+        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="894"/>
         <source>Air Boundary Constructions</source>
         <translation>Luftgrenzflächenkonstruktionen</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="382" />
-        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="398" />
-        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="474" />
-        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="572" />
-        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="597" />
-        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="726" />
-        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="775" />
-        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="841" />
-        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="893" />
+        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="382"/>
+        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="398"/>
+        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="474"/>
+        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="572"/>
+        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="597"/>
+        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="726"/>
+        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="775"/>
+        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="841"/>
+        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="893"/>
         <source>Internal Source Constructions</source>
         <translation>Interne Quellenkonstruktionen</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="381" />
-        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="397" />
-        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="473" />
-        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="571" />
-        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="596" />
-        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="725" />
-        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="774" />
-        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="840" />
-        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="892" />
+        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="381"/>
+        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="397"/>
+        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="473"/>
+        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="571"/>
+        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="596"/>
+        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="725"/>
+        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="774"/>
+        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="840"/>
+        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="892"/>
         <source>C-factor Underground Wall Constructions</source>
         <translation>C-Faktor Unterirdische Wandkonstruktionen</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="380" />
-        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="396" />
-        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="472" />
-        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="570" />
-        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="595" />
-        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="724" />
-        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="773" />
-        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="839" />
-        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="891" />
+        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="380"/>
+        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="396"/>
+        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="472"/>
+        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="570"/>
+        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="595"/>
+        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="724"/>
+        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="773"/>
+        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="839"/>
+        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="891"/>
         <source>F-factor Ground Floor Constructions</source>
         <translation>F-Faktor Bodengeschoss-Konstruktionen</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="379" />
-        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="395" />
-        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="471" />
-        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="569" />
-        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="594" />
-        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="723" />
-        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="772" />
-        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="838" />
-        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="890" />
+        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="379"/>
+        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="395"/>
+        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="471"/>
+        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="569"/>
+        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="594"/>
+        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="723"/>
+        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="772"/>
+        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="838"/>
+        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="890"/>
         <source>Window Data File Constructions</source>
         <translation>Fensterdatei-Konstruktionen</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="438" />
-        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="439" />
-        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="468" />
-        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="469" />
-        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="521" />
-        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="522" />
+        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="438"/>
+        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="439"/>
+        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="468"/>
+        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="469"/>
+        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="521"/>
+        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="522"/>
         <source>Materials</source>
         <translation>Materialien</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="437" />
-        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="467" />
-        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="520" />
+        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="437"/>
+        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="467"/>
+        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="520"/>
         <source>No Mass Materials</source>
         <translation>Materialien ohne Masse</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="436" />
-        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="466" />
-        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="519" />
+        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="436"/>
+        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="466"/>
+        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="519"/>
         <source>Air Gap Materials</source>
         <translation>Luftspaltmaterialien</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="435" />
-        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="465" />
-        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="518" />
+        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="435"/>
+        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="465"/>
+        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="518"/>
         <source>Infrared Transparent Materials</source>
         <translation>Infrarot-durchsichtige Materialien</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="434" />
-        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="464" />
-        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="517" />
+        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="434"/>
+        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="464"/>
+        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="517"/>
         <source>Roof Vegetation Materials</source>
         <translation>Dachbegrünungsmaterialien</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="432" />
-        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="462" />
-        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="515" />
+        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="432"/>
+        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="462"/>
+        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="515"/>
         <source>Window Materials</source>
         <translation>Fenstermaterialien</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="431" />
-        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="461" />
-        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="514" />
+        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="431"/>
+        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="461"/>
+        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="514"/>
         <source>Simple Glazing System Window Materials</source>
         <translation>Simple Glazing System Fenstermaterialien</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="430" />
-        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="460" />
-        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="513" />
+        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="430"/>
+        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="460"/>
+        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="513"/>
         <source>Glazing Window Materials</source>
         <translation>Verglasung Fenstermaterialien</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="429" />
-        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="459" />
-        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="512" />
+        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="429"/>
+        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="459"/>
+        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="512"/>
         <source>Gas Window Materials</source>
         <translation>Gasfenster-Materialien</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="428" />
-        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="458" />
-        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="511" />
+        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="428"/>
+        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="458"/>
+        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="511"/>
         <source>Gas Mixture Window Materials</source>
         <translation>Gasmischungs-Fenstermaterialien</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="427" />
-        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="457" />
-        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="510" />
+        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="427"/>
+        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="457"/>
+        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="510"/>
         <source>Daylight Redirection Device Window Materials</source>
         <translation>Tageslicht-Umlenkungs-Fenster-Materialien</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="426" />
-        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="455" />
-        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="508" />
+        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="426"/>
+        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="455"/>
+        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="508"/>
         <source>Blind Window Materials</source>
         <translation>Blind-Fenstermaterialien</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="425" />
-        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="454" />
-        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="507" />
+        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="425"/>
+        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="454"/>
+        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="507"/>
         <source>Screen Window Materials</source>
         <translation>Bildschirm-Fenstermaterialien</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="424" />
-        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="453" />
-        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="506" />
+        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="424"/>
+        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="453"/>
+        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="506"/>
         <source>Shade Window Materials</source>
         <translation>Verschattungsmaterial für Fenster</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="423" />
-        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="452" />
-        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="505" />
+        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="423"/>
+        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="452"/>
+        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="505"/>
         <source>Refraction Extinction Method Glazing Window Materials</source>
         <translation>Refraction Extinction Method Glazing Window Materials</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="611" />
-        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="661" />
-        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="698" />
-        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="753" />
-        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="806" />
-        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="867" />
+        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="611"/>
+        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="661"/>
+        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="698"/>
+        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="753"/>
+        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="806"/>
+        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="867"/>
         <source>Definitions</source>
         <translation>Definitionen</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="610" />
-        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="658" />
-        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="694" />
-        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="747" />
-        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="796" />
-        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="864" />
-        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="916" />
+        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="610"/>
+        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="658"/>
+        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="694"/>
+        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="747"/>
+        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="796"/>
+        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="864"/>
+        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="916"/>
         <source>People Definitions</source>
         <translation>Personendefinitionen</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="609" />
-        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="657" />
-        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="693" />
-        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="746" />
-        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="795" />
-        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="863" />
-        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="915" />
+        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="609"/>
+        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="657"/>
+        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="693"/>
+        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="746"/>
+        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="795"/>
+        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="863"/>
+        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="915"/>
         <source>Lights Definitions</source>
         <translation>Lichter-Definitionen</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="608" />
-        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="656" />
-        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="692" />
-        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="745" />
-        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="794" />
-        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="862" />
-        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="914" />
+        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="608"/>
+        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="656"/>
+        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="692"/>
+        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="745"/>
+        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="794"/>
+        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="862"/>
+        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="914"/>
         <source>Luminaire Definitions</source>
         <translation>Leuchtendefintionen</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="607" />
-        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="655" />
-        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="691" />
-        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="744" />
-        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="793" />
-        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="861" />
-        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="913" />
+        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="607"/>
+        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="655"/>
+        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="691"/>
+        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="744"/>
+        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="793"/>
+        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="861"/>
+        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="913"/>
         <source>Electric Equipment Definitions</source>
         <translation>Definitionen für elektrische Geräte</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="606" />
-        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="654" />
-        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="690" />
-        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="743" />
-        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="792" />
-        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="860" />
-        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="912" />
+        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="606"/>
+        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="654"/>
+        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="690"/>
+        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="743"/>
+        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="792"/>
+        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="860"/>
+        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="912"/>
         <source>Gas Equipment Definitions</source>
         <translation>Gas Equipment Definitionen</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="603" />
-        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="651" />
-        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="687" />
-        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="740" />
-        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="789" />
-        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="855" />
-        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="907" />
+        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="603"/>
+        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="651"/>
+        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="687"/>
+        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="740"/>
+        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="789"/>
+        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="855"/>
+        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="907"/>
         <source>Steam Equipment Definitions</source>
         <translation>Definitionen für Dampfausrüstung</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="602" />
-        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="650" />
-        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="686" />
-        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="739" />
-        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="788" />
-        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="854" />
-        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="906" />
+        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="602"/>
+        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="650"/>
+        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="686"/>
+        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="739"/>
+        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="788"/>
+        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="854"/>
+        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="906"/>
         <source>Other Equipment Definitions</source>
         <translation>Andere Ausrüstungsdefinitionen</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="601" />
-        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="649" />
-        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="685" />
-        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="738" />
-        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="787" />
-        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="853" />
-        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="905" />
+        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="601"/>
+        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="649"/>
+        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="685"/>
+        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="738"/>
+        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="787"/>
+        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="853"/>
+        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="905"/>
         <source>Internal Mass Definitions</source>
         <translation>Definitionen für interne Massen</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="605" />
-        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="653" />
-        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="689" />
-        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="742" />
-        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="791" />
-        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="859" />
-        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="909" />
+        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="605"/>
+        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="653"/>
+        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="689"/>
+        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="742"/>
+        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="791"/>
+        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="859"/>
+        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="909"/>
         <source>Water Use Equipment Definitions</source>
         <translation>Definitionen für Wassernutzungsgeräte</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="604" />
-        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="652" />
-        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="688" />
-        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="741" />
-        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="790" />
-        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="856" />
-        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="908" />
+        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="604"/>
+        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="652"/>
+        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="688"/>
+        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="741"/>
+        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="790"/>
+        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="856"/>
+        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="908"/>
         <source>Hot Water Equipment Definitions</source>
         <translation>Warmwassergeräte-Definitionen</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="664" />
-        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="703" />
-        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="757" />
-        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="810" />
-        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="871" />
-        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="924" />
+        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="664"/>
+        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="703"/>
+        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="757"/>
+        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="810"/>
+        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="871"/>
+        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="924"/>
         <source>Defaults</source>
         <translation>Standardwerte</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="660" />
-        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="697" />
-        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="752" />
-        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="805" />
-        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="866" />
-        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="919" />
+        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="660"/>
+        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="697"/>
+        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="752"/>
+        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="805"/>
+        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="866"/>
+        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="919"/>
         <source>Design Specification Outdoor Air</source>
         <translation>Design Specification Außenluft</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="695" />
-        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="803" />
-        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="917" />
+        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="695"/>
+        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="803"/>
+        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="917"/>
         <source>Space Infiltration Design Flow Rates</source>
         <translation>Rauminfiltration-Designdurchflussraten</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="696" />
-        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="804" />
-        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="918" />
+        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="696"/>
+        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="804"/>
+        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="918"/>
         <source>Space Infiltration Effective Leakage Areas</source>
         <translation>Rauminfiltration wirksame Leckage-Flächen</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="702" />
-        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="756" />
-        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="809" />
-        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="870" />
-        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="923" />
+        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="702"/>
+        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="756"/>
+        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="809"/>
+        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="870"/>
+        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="923"/>
         <source>Space Types</source>
         <translation>Raumtypen</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="748" />
-        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="797" />
+        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="748"/>
+        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="797"/>
         <source>Exterior Water Equipment Definitions</source>
         <translation>Externe Wasserleitungs-Definitionen</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="749" />
-        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="798" />
+        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="749"/>
+        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="798"/>
         <source>Exterior Fuel Equipment Definitions</source>
         <translation>Definitionen für externe Brennstoffgeräte</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="750" />
-        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="799" />
+        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="750"/>
+        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="799"/>
         <source>Exterior Lights Definitions</source>
         <translation>Außenleuchten-Definitionen</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="800" />
+        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="800"/>
         <source>Exterior Water Equipment</source>
         <translation>Externe Wasserausrüstung</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="801" />
+        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="801"/>
         <source>Exterior Fuel Equipment</source>
         <translation>Externe Brennstoffausrüstung</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="802" />
+        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="802"/>
         <source>Exterior Lights</source>
         <translation>Außenleuchten</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="758" />
-        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="872" />
+        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="758"/>
+        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="872"/>
         <source>Thermal Zones</source>
         <translation>Thermische Zonen</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="759" />
-        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="873" />
+        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="759"/>
+        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="873"/>
         <source>Building Stories</source>
         <translation>Geschosse des Gebäudes</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="760" />
-        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="874" />
+        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="760"/>
+        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="874"/>
         <source>Building</source>
         <translation>Gebäude</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="829" />
-        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="886" />
+        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="829"/>
+        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="886"/>
         <source>ShadingControl</source>
         <translation>ShadingControl</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="830" />
-        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="887" />
+        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="830"/>
+        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="887"/>
         <source>Frame And Divider Window Property</source>
         <translation>Frame And Divider Window Property</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="831" />
-        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="888" />
+        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="831"/>
+        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="888"/>
         <source>DaylightingDevice Shelf</source>
         <translation>DaylightingDevice Shelf</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="832" />
-        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="889" />
+        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="832"/>
+        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="889"/>
         <source>Daylighting</source>
         <translation>Tageslichtnutzung</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="833" />
+        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="833"/>
         <source>Interior Partition Surface</source>
         <translation>Innere Trennflächenoberfläche</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="857" />
-        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="910" />
-        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="947" />
-        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="969" />
-        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="1098" />
+        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="857"/>
+        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="910"/>
+        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="947"/>
+        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="969"/>
+        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="1098"/>
         <source>Water Heater - Heat Pump</source>
         <translation>Warmwasserbereiter - Wärmepumpe</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="858" />
-        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="911" />
-        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="948" />
-        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="970" />
-        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="1099" />
+        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="858"/>
+        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="911"/>
+        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="948"/>
+        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="970"/>
+        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="1099"/>
         <source>Water Heater - Heat Pump - Wrapped Condenser</source>
         <translation>Warmwasserbereiter - Wärmepumpe - Kondensator mit Isolierung</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="949" />
-        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="971" />
-        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="1028" />
-        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="1102" />
+        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="949"/>
+        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="971"/>
+        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="1028"/>
+        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="1102"/>
         <source>Water Heaters</source>
         <translation>Warmwasserbereiter</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="720" />
-        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="835" />
+        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="720"/>
+        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="835"/>
         <source>Sub Surfaces</source>
         <translation>Unterflächen</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="721" />
-        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="722" />
-        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="836" />
-        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="837" />
+        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="721"/>
+        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="722"/>
+        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="836"/>
+        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="837"/>
         <source>Surfaces</source>
         <translation>Flächen</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="834" />
+        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="834"/>
         <source>Shading Surface</source>
         <translation>Verschattungsfläche</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="1065" />
+        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="1065"/>
         <source>Thermal Zone</source>
         <translation>Thermische Zone</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="1066" />
+        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="1066"/>
         <source>Zones</source>
         <translation>Zonen</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="993" />
-        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="1047" />
-        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="1192" />
+        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="993"/>
+        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="1047"/>
+        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="1192"/>
         <source>Zone HVAC</source>
         <translation>Zone HVAC</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="1056" />
-        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="1229" />
+        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="1056"/>
+        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="1229"/>
         <source>Coils</source>
         <translation>Spulen</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="1058" />
-        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="1172" />
+        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="1058"/>
+        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="1172"/>
         <source>Heat Pumps</source>
         <translation>Wärmepumpen</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="1053" />
-        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="1175" />
+        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="1053"/>
+        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="1175"/>
         <source>Heat Exchangers</source>
         <translation>Wärmewechsler</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="1062" />
-        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="1218" />
+        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="1062"/>
+        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="1218"/>
         <source>Chillers</source>
         <translation>Kältemaschinen</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="1025" />
-        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="1097" />
+        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="1025"/>
+        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="1097"/>
         <source>Water Uses</source>
         <translation>Wassernutzung</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="1030" />
-        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="1105" />
+        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="1030"/>
+        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="1105"/>
         <source>VRFs</source>
         <translation>VRFs</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="1032" />
-        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="1108" />
+        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="1032"/>
+        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="1108"/>
         <source>Thermal Storage</source>
         <translation>Thermische Speicherung</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="1037" />
-        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="1152" />
+        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="1037"/>
+        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="1152"/>
         <source>Refrigeration</source>
         <translation>Kältetechnik</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="1141" />
+        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="1141"/>
         <source>Setpoint Managers</source>
         <translation>Sollwert-Manager</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="1090" />
+        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="1090"/>
         <source>Swimming Pools</source>
         <translation>Schwimmbecken</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="1094" />
+        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="1094"/>
         <source>Solar Collectors</source>
         <translation>Solarkollektoren</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="1157" />
+        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="1157"/>
         <source>Pumps</source>
         <translation>Pumpen</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="1160" />
+        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="1160"/>
         <source>Plant Components</source>
         <translation>Anlagenkomponenten</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="1164" />
+        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="1164"/>
         <source>Pipes</source>
         <translation>Rohre</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="1166" />
+        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="1166"/>
         <source>Load Profiles</source>
         <translation>Lastprofile</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="1169" />
+        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="1169"/>
         <source>Humidifiers</source>
         <translation>Befeuchter</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="1179" />
+        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="1179"/>
         <source>Generators</source>
         <translation>Generatoren</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="1182" />
+        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="1182"/>
         <source>Ground Heat Exchangers</source>
         <translation>Erdwärmewärmetauscher</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="1185" />
+        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="1185"/>
         <source>Fluid Coolers</source>
         <translation>Fluidkühler</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="1197" />
+        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="1197"/>
         <source>Fans</source>
         <translation>Ventilatoren</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="1202" />
+        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="1202"/>
         <source>Evaporative Coolers</source>
         <translation>Verdunstungskühler</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="1204" />
+        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="1204"/>
         <source>Ducts</source>
         <translation>Kanäle</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="1205" />
-        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="1206" />
+        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="1205"/>
+        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="1206"/>
         <source>District Cooling</source>
         <translation>Fernkälte</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="1208" />
+        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="1208"/>
         <source>District Heating</source>
         <translation>Fernwärme</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="1212" />
+        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="1212"/>
         <source>Cooling Towers</source>
         <translation>Kühlende Türme</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="1214" />
+        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="1214"/>
         <source>Central Heat Pump Systems</source>
         <translation>Zentrale Wärmepumpensysteme</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="1231" />
+        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="1231"/>
         <source>Boilers</source>
         <translation>Kessel</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="1250" />
+        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="1250"/>
         <source>Air Terminals</source>
         <translation>Luftauslässe</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="1257" />
+        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="1257"/>
         <source>Air Loop HVAC</source>
         <translation>Luftschleife HVAC</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="1275" />
+        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="1275"/>
         <source>Availability Managers</source>
         <translation>Verfügbarkeitsmanager</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="1023" />
+        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="1023"/>
         <source>Water Use Equipment Definition</source>
         <translation>Wasserbenutzungsgeräte-Definition</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="1024" />
-        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="1096" />
+        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="1024"/>
+        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="1096"/>
         <source>Water Use Connections</source>
         <translation>Wasserverbrauchsverbindungen</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="1026" />
-        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="1100" />
+        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="1026"/>
+        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="1100"/>
         <source>Water Heater Mixed</source>
         <translation>Speicherwarmwasserbereiter gemischt</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="1027" />
-        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="1101" />
+        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="1027"/>
+        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="1101"/>
         <source>Water Heater Stratified</source>
         <translation>Water Heater Stratified</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="1029" />
-        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="1103" />
+        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="1029"/>
+        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="1103"/>
         <source>VRF System</source>
         <translation>VRF-System</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="1031" />
-        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="1107" />
+        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="1031"/>
+        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="1107"/>
         <source>Thermal Storage - Chilled Water</source>
         <translation>Thermische Speicherung - Kaltwasser</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="1106" />
+        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="1106"/>
         <source>Thermal Storage - Ice Storage</source>
         <translation>Thermischer Speicher – Eisspeicher</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="1035" />
-        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="1143" />
+        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="1035"/>
+        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="1143"/>
         <source>Refrigeration System</source>
         <translation>Refrigerationsystem</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="1036" />
-        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="1148" />
+        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="1036"/>
+        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="1148"/>
         <source>Refrigeration Condenser Water Cooled</source>
         <translation>Refrigerations-Kondensator wassergekühlt</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="1149" />
+        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="1149"/>
         <source>Refrigeration Condenser Evaporative Cooled</source>
         <translation>Verdampfungsgekühlter Kühlkondensator</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="1150" />
+        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="1150"/>
         <source>Refrigeration Condenser Air Cooled</source>
         <translation>Kühlungskondensator luftgekühlt</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="1147" />
+        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="1147"/>
         <source>Refrigeration Condenser Cascade</source>
         <translation>Kaskaden-Kühlmittelkondensator</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="1144" />
+        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="1144"/>
         <source>Refrigeration Subcooler Mechanical</source>
         <translation>Kälteanlagenunterkühler Mechanisch</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="1145" />
+        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="1145"/>
         <source>Refrigeration Subcooler Liquid Suction</source>
         <translation>Kälteanlage Unterkühler Flüssig-Saugleitung</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="1146" />
+        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="1146"/>
         <source>Refrigeration Compressor</source>
         <translation>Kältemittelkompressor</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="1151" />
+        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="1151"/>
         <source>Refrigeration Case</source>
         <translation>Kühlvitrine</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="1142" />
+        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="1142"/>
         <source>Refrigeration Walkin</source>
         <translation>Kühlraum</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="985" />
-        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="1040" />
-        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="1188" />
+        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="985"/>
+        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="1040"/>
+        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="1188"/>
         <source>Water To Air HP</source>
         <translation>Wasser-Luft-Wärmepumpe</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="1041" />
-        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="1104" />
+        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="1041"/>
+        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="1104"/>
         <source>VRF Terminal</source>
         <translation>VRF-Terminal</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="992" />
-        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="1042" />
-        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="1191" />
+        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="992"/>
+        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="1042"/>
+        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="1191"/>
         <source>Unit Ventilator</source>
         <translation>Einheitenlüfter</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="991" />
-        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="1043" />
-        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="1190" />
+        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="991"/>
+        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="1043"/>
+        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="1190"/>
         <source>Unit Heater</source>
         <translation>Gebäudeheizer</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="984" />
-        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="1044" />
-        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="1187" />
+        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="984"/>
+        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="1044"/>
+        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="1187"/>
         <source>PTHP</source>
         <translation>PTHP</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="986" />
-        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="1045" />
-        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="1189" />
+        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="986"/>
+        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="1045"/>
+        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="1189"/>
         <source>PTAC</source>
         <translation>PTAC</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="982" />
-        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="1046" />
-        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="1186" />
+        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="982"/>
+        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="1046"/>
+        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="1186"/>
         <source>Four Pipe Fan Coil</source>
         <translation>Vier-Rohr-Ventilatorkonvektor</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="1050" />
-        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="1170" />
+        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="1050"/>
+        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="1170"/>
         <source>Heat Pump - Water to Water - Heating</source>
         <translation>Wärmepumpe - Wasser zu Wasser - Heizung</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="1051" />
-        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="1171" />
+        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="1051"/>
+        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="1171"/>
         <source>Heat Pump - Water to Water - Cooling</source>
         <translation>Wärmepumpe – Wasser zu Wasser – Kühlung</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="1052" />
-        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="1173" />
+        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="1052"/>
+        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="1173"/>
         <source>Heat Exchanger Fluid To Fluid</source>
         <translation>Wärmeaustauscher Fluid zu Fluid</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="1174" />
+        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="1174"/>
         <source>Heat Exchanger Air To Air Sensible and Latent</source>
         <translation>Wärmetauscher Luft zu Luft Sensibel und Latent</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="1054" />
-        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="1222" />
+        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="1054"/>
+        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="1222"/>
         <source>Coil Heating Water</source>
         <translation>Wärmerohr Wasser</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="1055" />
-        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="1223" />
+        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="1055"/>
+        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="1223"/>
         <source>Coil Cooling Water</source>
         <translation>Kühlregister Wasser</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="1219" />
+        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="1219"/>
         <source>Coil Heating Gas</source>
         <translation>Heizregister Gas</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="1221" />
+        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="1221"/>
         <source>Coil Heating Electric</source>
         <translation>Heizregisters elektrisch</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="1220" />
+        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="1220"/>
         <source>Coil Heating DX SingleSpeed</source>
         <translation>Heizspule DX Einfachgeschwindigkeit</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="1228" />
+        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="1228"/>
         <source>Coil Cooling DX SingleSpeed</source>
         <translation>Kühlsystem DX Einfachgeschwindigkeit</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="1227" />
+        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="1227"/>
         <source>Coil Cooling DX TwoSpeed</source>
         <translation>Zweistufen-DX-Kühlregister</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="1224" />
+        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="1224"/>
         <source>Coil Cooling DX VariableSpeed</source>
         <translation>Kühlspule DX Drehzahlvariabel</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="1226" />
+        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="1226"/>
         <source>Coil Cooling DX TwoStage - Humidity Control</source>
         <translation>Kühlspule DX zweistufig – Feuchtigkeitsregelung</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="1057" />
-        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="1213" />
+        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="1057"/>
+        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="1213"/>
         <source>Central Heat Pump System</source>
         <translation>Zentrales Wärmepumpensystem</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="1059" />
-        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="1215" />
+        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="1059"/>
+        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="1215"/>
         <source>Chiller - Electric EIR</source>
         <translation>Kältemaschine - Elektrisch EIR</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="1060" />
-        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="1217" />
+        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="1060"/>
+        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="1217"/>
         <source>Chiller - Absorption</source>
         <translation>Kältemaschine - Absorption</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="1061" />
-        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="1216" />
+        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="1061"/>
+        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="1216"/>
         <source>Chiller - Indirect Absorption</source>
         <translation>Chiller – Indirekte Absorption</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="1089" />
+        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="1089"/>
         <source>Swimming Pool Indoor</source>
         <translation>Hallenbad</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="1091" />
+        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="1091"/>
         <source>Solar Collector Integral Collector Storage</source>
         <translation>Solarkollector mit integriertem Speicher</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="1092" />
+        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="1092"/>
         <source>Solar Collector Flat Plate Water</source>
         <translation>Flachkollektor-Solarkollektor Wasser</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="1095" />
+        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="1095"/>
         <source>Water Use Equipment</source>
         <translation>Wasserverbrauchsanlage</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="1109" />
+        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="1109"/>
         <source>Tempering Valve</source>
         <translation>Mischventil</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="1110" />
+        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="1110"/>
         <source>Setpoint Manager System Node Reset Humidity</source>
         <translation>Sollwertmanager Systemknoten Rücksetzen Luftfeuchte</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="1112" />
+        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="1112"/>
         <source>Setpoint Manager System Node Reset Temperature</source>
         <translation>Sollwertmanager Systemknoten Rücksetztemperatur</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="1113" />
+        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="1113"/>
         <source>Setpoint Manager Coldest</source>
         <translation>Sollwertmanager Kälteste</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="1114" />
+        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="1114"/>
         <source>Setpoint Manager Follow Ground Temperature</source>
         <translation>Sollwertmanager Folge Bodentemperatur</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="1116" />
+        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="1116"/>
         <source>Setpoint Manager Follow Outdoor Air Temperature</source>
         <translation>Sollwertmanager Außenlufttemperatur folgen</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="1118" />
+        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="1118"/>
         <source>Setpoint Manager Follow System Node Temperature</source>
         <translation>Setpoint Manager Folge Systemknotentemperatur</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="1119" />
+        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="1119"/>
         <source>Setpoint Manager Mixed Air</source>
         <translation>Setpoint Manager Mischluft</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="1120" />
+        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="1120"/>
         <source>Setpoint Manager MultiZone Cooling Average</source>
         <translation>Sollwertvorgabe-Manager Mehrzonenkühlung Durchschnitt</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="1121" />
+        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="1121"/>
         <source>Setpoint Manager MultiZone Heating Average</source>
         <translation>Sollwertmanager MultiZone Heizung Durchschnitt</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="1122" />
+        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="1122"/>
         <source>Setpoint Manager MultiZone Humidity Maximum</source>
         <translation>Setpoint Manager MultiZone Humidity Maximum</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="1123" />
+        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="1123"/>
         <source>Setpoint Manager MultiZone Humidity Minimum</source>
         <translation>Sollwertregler Mehrzonenfeuchte-Minimum</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="1125" />
+        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="1125"/>
         <source>Setpoint Manager MultiZone MaximumHumidity Average</source>
         <translation>Setpoint Manager MultiZone MaximumHumidity Average</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="1127" />
+        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="1127"/>
         <source>Setpoint Manager MultiZone MinimumHumidity Average</source>
         <translation>Setpoint Manager MultiZone MinimumHumidity Average</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="1128" />
+        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="1128"/>
         <source>Setpoint Manager Outdoor Air Pretreat</source>
         <translation>Setpoint Manager Außenluft-Vorbehandlung</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="1129" />
+        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="1129"/>
         <source>Setpoint Manager Outdoor Air Reset</source>
         <translation>Sollwertmanager Außenluft-Rücksetzung</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="1131" />
+        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="1131"/>
         <source>Setpoint Manager Scheduled Dual Setpoint</source>
         <translation>Sollwertmanager mit geplanten doppelten Sollwerten</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="1130" />
+        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="1130"/>
         <source>Setpoint Manager Scheduled</source>
         <translation>Setpoint Manager Zeitplan</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="1132" />
+        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="1132"/>
         <source>Setpoint Manager Single Zone Cooling</source>
         <translation>Sollwertregler Einzelzone Kühlung</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="1133" />
+        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="1133"/>
         <source>Setpoint Manager Single Zone Heating</source>
         <translation>Sollwertmanager Einzelzone Heizung</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="1134" />
+        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="1134"/>
         <source>Setpoint Manager Humidity Maximum</source>
         <translation>Sollwertmanager Luftfeuchte Maximum</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="1135" />
+        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="1135"/>
         <source>Setpoint Manager Humidity Minimum</source>
         <translation>Sollwertmanager Luftfeuchte Minimum</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="1136" />
+        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="1136"/>
         <source>Setpoint Manager One Stage Cooling</source>
         <translation>Sollwertmanager einstufige Kühlung</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="1137" />
+        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="1137"/>
         <source>Setpoint Manager One Stage Heating</source>
         <translation>Sollwert-Manager Einstufiges Heizen</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="1138" />
+        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="1138"/>
         <source>Setpoint Manager Single Zone Reheat</source>
         <translation>Sollwertmanager Einzone Wiederaufwärmung</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="1140" />
+        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="1140"/>
         <source>Setpoint Manager Warmest Temp and Flow</source>
         <translation>Setpoint Manager Wärmste Temperatur und Durchfluss</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="1139" />
+        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="1139"/>
         <source>Setpoint Manager Warmest</source>
         <translation>Setpoint Manager Wärmster</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="1154" />
+        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="1154"/>
         <source>Pump Constant Speed Headered</source>
         <translation>Pumpe mit konstanter Geschwindigkeit im Kopfstrangausführung</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="1153" />
+        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="1153"/>
         <source>Pump Constant Speed</source>
         <translation>Pumpe konstante Geschwindigkeit</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="1156" />
+        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="1156"/>
         <source>Pump Variable Speed Headered</source>
         <translation>Pumpe Variable Drehzahl mit Verteiler</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="1155" />
+        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="1155"/>
         <source>Pump Variable Speed</source>
         <translation>Pumpe mit variabler Drehzahl</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="1158" />
+        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="1158"/>
         <source>Plant Component - Temp Source</source>
         <translation>Anlagenkomponente - Temperaturquelle</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="1159" />
+        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="1159"/>
         <source>Plant Component - User Defined</source>
         <translation>Plant Component - Benutzerdefiniert</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="1161" />
+        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="1161"/>
         <source>Pipe - Outdoor</source>
         <translation>Rohr - Außen</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="1162" />
+        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="1162"/>
         <source>Pipe - Indoor</source>
         <translation>Rohr - Innenbereich</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="1163" />
+        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="1163"/>
         <source>Pipe - Adiabatic</source>
         <translation>Rohr - Adiabat</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="1165" />
+        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="1165"/>
         <source>Load Profile - Plant</source>
         <translation>Lastprofil - Anlage</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="1167" />
+        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="1167"/>
         <source>Humidifier Steam Electric</source>
         <translation>Befeuchter Dampf Elektro</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="1168" />
+        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="1168"/>
         <source>Humidifier Steam Gas</source>
         <translation>Befeuchter Dampf Gas</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="1177" />
+        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="1177"/>
         <source>Generator FuelCell - Exhaust Gas To Water Heat Exchanger</source>
         <translation>Generator Brennstoffzelle - Abgaswärmeübertrager zu Wasser</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="1178" />
+        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="1178"/>
         <source>Generator MicroTurbine - Heat Recovery</source>
         <translation>Generator Mikroturbine - Wärmeverwertung</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="1180" />
+        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="1180"/>
         <source>Ground Heat Exchanger - Vertical </source>
         <translation>Bodenfeuchteanlage - Vertikal</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="1181" />
+        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="1181"/>
         <source>Ground Heat Exchanger - Horizontal</source>
         <translation>Erdwärmewechsler - Horizontal</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="1183" />
+        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="1183"/>
         <source>Fluid Cooler Two Speed</source>
         <translation>Flüssigkeitskühler Zweistufig</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="1184" />
+        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="1184"/>
         <source>Fluid Cooler Single Speed</source>
         <translation>Fluid-Cooler Einfachgeschwindigkeit</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="1193" />
+        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="1193"/>
         <source>Fan Component Model</source>
         <translation>Lüfter-Komponentenmodell</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="1194" />
+        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="1194"/>
         <source>Fan System Model</source>
         <translation>Lüftersystemmodell</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="1195" />
+        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="1195"/>
         <source>Fan Variable Volume</source>
         <translation>Lüfter Variable Volumenstrom</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="1196" />
+        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="1196"/>
         <source>Fan Constant Volume</source>
         <translation>Ventilator konstante Drehzahl</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="1198" />
+        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="1198"/>
         <source>Evaporative Cooler Direct Research Special</source>
         <translation>Evaporative Cooler Direct Research Special</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="1199" />
+        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="1199"/>
         <source>Evaporative Cooler Indirect Research Special</source>
         <translation>Verdunstungskühler Indirekt Forschungsspezial</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="1200" />
+        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="1200"/>
         <source>Evaporative Fluid Cooler Two Speed</source>
         <translation>Verdampfungs-Flüssigkeitskühler zweistufig</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="1201" />
+        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="1201"/>
         <source>Evaporative Fluid Cooler Single Speed</source>
         <translation>Verdunstungs-Flüssigkeitskühler mit konstanter Drehzahl</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="1203" />
+        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="1203"/>
         <source>Duct</source>
         <translation>Kanal</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="1207" />
+        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="1207"/>
         <source>District Heating Water</source>
         <translation>Fernwärmewasser</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="1209" />
+        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="1209"/>
         <source>Cooling Tower Two Speed</source>
         <translation>Kühlturm Zweistufig</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="1210" />
+        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="1210"/>
         <source>Cooling Tower Single Speed</source>
         <translation>Kühlturm Einfachgeschwindigkeit</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="1211" />
+        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="1211"/>
         <source>Cooling Tower Variable Speed</source>
         <translation>Kühlturm mit variabler Drehzahl</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="1230" />
+        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="1230"/>
         <source>Boiler Hot Water</source>
         <translation>Boiler Heißwasser</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="1233" />
+        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="1233"/>
         <source>Air Terminal Four Pipe Induction</source>
         <translation>Luftanschluss Vier-Rohr-Induktion</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="1234" />
+        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="1234"/>
         <source>Air Terminal Chilled Beam</source>
         <translation>Luftterminal Kühlbalken</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="1235" />
+        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="1235"/>
         <source>Air Terminal Four Pipe Beam</source>
         <translation>Vier-Rohr-Strahlregler</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="1237" />
+        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="1237"/>
         <source>AirTerminal Single Duct Constant Volume Reheat</source>
         <translation>AirTerminal Single Duct Constant Volume Reheat</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="1238" />
+        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="1238"/>
         <source>AirTerminal Single Duct VAV Reheat</source>
         <translation>AirTerminal Single Duct VAV Reheat</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="1239" />
+        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="1239"/>
         <source>AirTerminal Single Duct Parallel PIU Reheat</source>
         <translation>AirTerminal Single Duct Parallel PIU Reheat</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="1240" />
+        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="1240"/>
         <source>AirTerminal Single Duct Series PIU Reheat</source>
         <translation>AirTerminal Einzelkanal Series PIU Reheat</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="1241" />
+        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="1241"/>
         <source>AirTerminal Inlet Side Mixer</source>
         <translation>AirTerminal Einlassseiten-Mischer</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="1242" />
+        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="1242"/>
         <source>AirTerminal Heat and Cool Reheat</source>
         <translation>AirTerminal Wärme und Kühlung mit Nacherwärmung</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="1243" />
+        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="1243"/>
         <source>AirTerminal Heat and Cool No Reheat</source>
         <translation>AirTerminal Heizen und Kühlen ohne Nacherwärmung</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="1244" />
+        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="1244"/>
         <source>AirTerminal Single Duct VAV NoReheat</source>
         <translation>AirTerminal Single Duct VAV NoReheat</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="1246" />
+        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="1246"/>
         <source>AirTerminal Single Duct Constant Volume No Reheat</source>
         <translation>AirTerminal Einzelkanal Konstantes Volumen Ohne Nacherwärmung</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="1247" />
+        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="1247"/>
         <source>Air Terminal Dual Duct Constant Volume</source>
         <translation>Luftauslass Dualkanal konstante Volumenstrom</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="1249" />
+        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="1249"/>
         <source>Air Terminal Dual Duct VAV Outdoor Air</source>
         <translation>Luftanschluss Dualkanal VAV Außenluft</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="1248" />
+        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="1248"/>
         <source>Air Terminal Dual Duct VAV</source>
         <translation>Luftanschluss Dualkanal VAV</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="1251" />
+        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="1251"/>
         <source>AirLoopHVAC Outdoor Air System</source>
         <translation>AirLoopHVAC Außenluftsystem</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="1253" />
+        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="1253"/>
         <source>AirLoopHVAC Unitary Heat Pump AirToAir MultiSpeed</source>
         <translation>AirLoopHVAC Unitary Heat Pump AirToAir MultiSpeed</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="1256" />
+        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="1256"/>
         <source>AirLoopHVAC Unitary VAV Changeover Bypass</source>
         <translation>AirLoopHVAC Unitary VAV Changeover Bypass</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="1254" />
+        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="1254"/>
         <source>AirLoopHVAC Unitary System</source>
         <translation>AirLoopHVAC Unitärsystem</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="1259" />
+        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="1259"/>
         <source>Availability Manager Scheduled On</source>
         <translation>Verfügbarkeitsmanager Geplant Aktiviert</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="1260" />
+        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="1260"/>
         <source>Availability Manager Scheduled Off</source>
         <translation>Verfügbarkeitsmanager geplant abgeschaltet</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="1258" />
+        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="1258"/>
         <source>Availability Manager Scheduled</source>
         <translation>Verfügbarkeitsmanager Geplant</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="1262" />
+        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="1262"/>
         <source>Availability Manager Low Temperature Turn On</source>
         <translation>Verfügbarkeitsmanager Niedrige Temperatur Einschalten</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="1263" />
+        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="1263"/>
         <source>Availability Manager Low Temperature Turn Off</source>
         <translation>Verfügbarkeitsmanager Niedrige Temperatur Abschaltung</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="1265" />
+        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="1265"/>
         <source>Availability Manager High Temperature Turn On</source>
         <translation>Verfügbarkeitsmanager Hohe Temperatur Einschalten</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="1267" />
+        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="1267"/>
         <source>Availability Manager High Temperature Turn Off</source>
         <translation>Verfügbarkeits-Manager Hohe Temperatur Ausschaltung</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="1269" />
+        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="1269"/>
         <source>Availability Manager Differential Thermostat</source>
         <translation>Verfügbarkeits-Manager Differenzialthermostat</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="1270" />
+        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="1270"/>
         <source>Availability Manager Optimum Start</source>
         <translation>Availability Manager Optimum Start</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="1272" />
+        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="1272"/>
         <source>Availability Manager Night Cycle</source>
         <translation>Verfügbarkeitsmanager Nachtzyklus</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="1273" />
+        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="1273"/>
         <source>Availability Manager Night Ventilation</source>
         <translation>Verfügbarkeitsmanager Nachtlüftung</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="1274" />
+        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="1274"/>
         <source>Availability Manager Hybrid Ventilation</source>
         <translation>Verfügbarkeitsmanager Hybrid-Lüftung</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="972" />
+        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="972"/>
         <source>Unitary System</source>
         <translation>Unitäres System</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="973" />
+        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="973"/>
         <source>Unitary Systems</source>
         <translation>Unitäre Systeme</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="974" />
+        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="974"/>
         <source>Evaporative Cooler Unit</source>
         <translation>Verdunstungskühlgerät</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="975" />
+        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="975"/>
         <source>Cooling Panel Radiant Convective Water</source>
         <translation>Kühlpanel-Strahlungs-Konvektiv-Wasser</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="976" />
+        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="976"/>
         <source>Baseboard Convective Electric</source>
         <translation>Baseboard-Elektroheizung mit Konvektion</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="977" />
+        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="977"/>
         <source>Baseboard Convective Water</source>
         <translation>Baseboard-Konvektor Wasser</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="978" />
+        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="978"/>
         <source>Baseboard Radiant Convective Electric</source>
         <translation>Sockelleiste Radiant Konvektiv Elektrisch</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="979" />
+        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="979"/>
         <source>Baseboard Radiant Convective Water</source>
         <translation>Sockelleisten-Radiant-Konvektiv-Wasser</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="980" />
+        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="980"/>
         <source>Dehumidifier - DX</source>
         <translation>Entfeuchter - DX</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="981" />
+        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="981"/>
         <source>ERV</source>
         <translation>ERV</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="983" />
+        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="983"/>
         <source>Fan Zone Exhaust</source>
         <translation>Ventilator Zonenabluft</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="987" />
+        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="987"/>
         <source>Low Temp Radiant Constant Flow</source>
         <translation>Niedertemperatur-Strahlungsheizung konstanter Durchsatz</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="988" />
+        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="988"/>
         <source>Low Temp Radiant Variable Flow</source>
         <translation>Niedertemperatur-Strahlungsheizung mit variabler Durchflussrate</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="989" />
+        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="989"/>
         <source>Low Temp Radiant Electric</source>
         <translation>Niedertemperatur-Strahlungsheizung elektrisch</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="990" />
+        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="990"/>
         <source>High Temp Radiant</source>
         <translation>Hochtemperatur-Strahlung</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="994" />
+        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="994"/>
         <source>Zone Ventilation Design Flow Rate</source>
         <translation>Zone Ventilation Design Flow Rate</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="995" />
+        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="995"/>
         <source>Zone Ventilation Wind and Stack Open Area</source>
         <translation>Zone Ventilation Wind and Stack Open Area</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="996" />
+        <location filename="../src/openstudio_lib/MainRightColumnController.cpp" line="996"/>
         <source>Ventilation</source>
         <translation>Lüftung</translation>
     </message>
@@ -26236,25 +26237,25 @@ Wenn Sie möchten, dass die OpenStudio-Applikation in die Sprache Ihrer Wahl üb
         <translation>Neustart erforderlich</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/MainWindow.cpp" line="406" />
+        <location filename="../src/openstudio_lib/MainWindow.cpp" line="406"/>
         <source>Allow Analytics</source>
         <translation>Analytik erlauben</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/MainWindow.cpp" line="407" />
-        <source>Allow OpenStudio Coalition to collect anonymous usage statistics to help improve the OpenStudio Application? See the &lt;a href="https://openstudiocoalition.org/about/privacy_policy/"&gt;privacy policy&lt;/a&gt; for more information.</source>
-        <translation>Erlauben Sie der OpenStudio Coalition, anonyme Nutzungsstatistiken zu sammeln, um die OpenStudio-Anwendung zu verbessern? Weitere Informationen finden Sie in der &lt;a href="https://openstudiocoalition.org/about/privacy_policy/"&gt;Datenschutzrichtlinie&lt;/a&gt;.</translation>
+        <location filename="../src/openstudio_lib/MainWindow.cpp" line="407"/>
+        <source>Allow OpenStudio Coalition to collect anonymous usage statistics to help improve the OpenStudio Application? See the &lt;a href=&quot;https://openstudiocoalition.org/about/privacy_policy/&quot;&gt;privacy policy&lt;/a&gt; for more information.</source>
+        <translation>Erlauben Sie der OpenStudio Coalition, anonyme Nutzungsstatistiken zu sammeln, um die OpenStudio-Anwendung zu verbessern? Weitere Informationen finden Sie in der &lt;a href=&quot;https://openstudiocoalition.org/about/privacy_policy/&quot;&gt;Datenschutzrichtlinie&lt;/a&gt;.</translation>
     </message>
 </context>
 <context>
     <name>openstudio::MakeupWaterItem</name>
     <message>
-        <location filename="../src/openstudio_lib/ServiceWaterGridItems.cpp" line="772" />
+        <location filename="../src/openstudio_lib/ServiceWaterGridItems.cpp" line="772"/>
         <source>Go back to water mains editor</source>
         <translation>Zurück zum Editor für Wasserleitungen</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/ServiceWaterGridItems.cpp" line="782" />
+        <location filename="../src/openstudio_lib/ServiceWaterGridItems.cpp" line="782"/>
         <source>Go back to hot water supply system</source>
         <translation>Zurück zum Warmwasserversorgungssystem</translation>
     </message>
@@ -26262,12 +26263,12 @@ Wenn Sie möchten, dass die OpenStudio-Applikation in die Sprache Ihrer Wahl üb
 <context>
     <name>openstudio::MaterialAirGapInspectorView</name>
     <message>
-        <location filename="../src/openstudio_lib/MaterialAirGapInspectorView.cpp" line="49" />
+        <location filename="../src/openstudio_lib/MaterialAirGapInspectorView.cpp" line="49"/>
         <source>Name: </source>
         <translation>Name:</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/MaterialAirGapInspectorView.cpp" line="68" />
+        <location filename="../src/openstudio_lib/MaterialAirGapInspectorView.cpp" line="68"/>
         <source>Thermal Resistance: </source>
         <translation>Wärmewiderstand:</translation>
     </message>
@@ -26275,47 +26276,47 @@ Wenn Sie möchten, dass die OpenStudio-Applikation in die Sprache Ihrer Wahl üb
 <context>
     <name>openstudio::MaterialInspectorView</name>
     <message>
-        <location filename="../src/openstudio_lib/MaterialInspectorView.cpp" line="53" />
+        <location filename="../src/openstudio_lib/MaterialInspectorView.cpp" line="53"/>
         <source>Name: </source>
         <translation>Name:</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/MaterialInspectorView.cpp" line="76" />
+        <location filename="../src/openstudio_lib/MaterialInspectorView.cpp" line="76"/>
         <source>Roughness: </source>
         <translation>Rauheit:</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/MaterialInspectorView.cpp" line="94" />
+        <location filename="../src/openstudio_lib/MaterialInspectorView.cpp" line="94"/>
         <source>Thickness: </source>
         <translation>Dicke:</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/MaterialInspectorView.cpp" line="107" />
+        <location filename="../src/openstudio_lib/MaterialInspectorView.cpp" line="107"/>
         <source>Conductivity: </source>
         <translation>Wärmeleitung:</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/MaterialInspectorView.cpp" line="120" />
+        <location filename="../src/openstudio_lib/MaterialInspectorView.cpp" line="120"/>
         <source>Density: </source>
         <translation>Dichte:</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/MaterialInspectorView.cpp" line="133" />
+        <location filename="../src/openstudio_lib/MaterialInspectorView.cpp" line="133"/>
         <source>Specific Heat: </source>
         <translation>Spezifische Wärmekapazität:</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/MaterialInspectorView.cpp" line="146" />
+        <location filename="../src/openstudio_lib/MaterialInspectorView.cpp" line="146"/>
         <source>Thermal Absorptance: </source>
         <translation>Thermische Absorptanz:</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/MaterialInspectorView.cpp" line="159" />
+        <location filename="../src/openstudio_lib/MaterialInspectorView.cpp" line="159"/>
         <source>Solar Absorptance: </source>
         <translation>Solarabsorptanz:</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/MaterialInspectorView.cpp" line="172" />
+        <location filename="../src/openstudio_lib/MaterialInspectorView.cpp" line="172"/>
         <source>Visible Absorptance: </source>
         <translation>Sichtbarer Absorptionsgrad:</translation>
     </message>
@@ -26323,32 +26324,32 @@ Wenn Sie möchten, dass die OpenStudio-Applikation in die Sprache Ihrer Wahl üb
 <context>
     <name>openstudio::MaterialNoMassInspectorView</name>
     <message>
-        <location filename="../src/openstudio_lib/MaterialNoMassInspectorView.cpp" line="50" />
+        <location filename="../src/openstudio_lib/MaterialNoMassInspectorView.cpp" line="50"/>
         <source>Name: </source>
         <translation>Name:</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/MaterialNoMassInspectorView.cpp" line="70" />
+        <location filename="../src/openstudio_lib/MaterialNoMassInspectorView.cpp" line="70"/>
         <source>Roughness: </source>
         <translation>Rauhheit:</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/MaterialNoMassInspectorView.cpp" line="85" />
+        <location filename="../src/openstudio_lib/MaterialNoMassInspectorView.cpp" line="85"/>
         <source>Thermal Resistance: </source>
         <translation>Wärmewiderstand:</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/MaterialNoMassInspectorView.cpp" line="95" />
+        <location filename="../src/openstudio_lib/MaterialNoMassInspectorView.cpp" line="95"/>
         <source>Thermal Absorptance: </source>
         <translation>Thermische Absorptanz:</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/MaterialNoMassInspectorView.cpp" line="105" />
+        <location filename="../src/openstudio_lib/MaterialNoMassInspectorView.cpp" line="105"/>
         <source>Solar Absorptance: </source>
         <translation>Solarabsorptanz:</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/MaterialNoMassInspectorView.cpp" line="115" />
+        <location filename="../src/openstudio_lib/MaterialNoMassInspectorView.cpp" line="115"/>
         <source>Visible Absorptance: </source>
         <translation>Sichtbare Absorptanz:</translation>
     </message>
@@ -26356,97 +26357,97 @@ Wenn Sie möchten, dass die OpenStudio-Applikation in die Sprache Ihrer Wahl üb
 <context>
     <name>openstudio::MaterialRoofVegetationInspectorView</name>
     <message>
-        <location filename="../src/openstudio_lib/MaterialRoofVegetationInspectorView.cpp" line="50" />
+        <location filename="../src/openstudio_lib/MaterialRoofVegetationInspectorView.cpp" line="50"/>
         <source>Name: </source>
         <translation>Name:</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/MaterialRoofVegetationInspectorView.cpp" line="69" />
+        <location filename="../src/openstudio_lib/MaterialRoofVegetationInspectorView.cpp" line="69"/>
         <source>Height Of Plants: </source>
         <translation>Höhe der Pflanzen:</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/MaterialRoofVegetationInspectorView.cpp" line="79" />
+        <location filename="../src/openstudio_lib/MaterialRoofVegetationInspectorView.cpp" line="79"/>
         <source>Leaf Area Index: </source>
         <translation>Blattflächenindex:</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/MaterialRoofVegetationInspectorView.cpp" line="89" />
+        <location filename="../src/openstudio_lib/MaterialRoofVegetationInspectorView.cpp" line="89"/>
         <source>Leaf Reflectivity: </source>
         <translation>Blattreflektivität:</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/MaterialRoofVegetationInspectorView.cpp" line="99" />
+        <location filename="../src/openstudio_lib/MaterialRoofVegetationInspectorView.cpp" line="99"/>
         <source>Leaf Emissivity: </source>
         <translation>Blattemmisivität:</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/MaterialRoofVegetationInspectorView.cpp" line="109" />
+        <location filename="../src/openstudio_lib/MaterialRoofVegetationInspectorView.cpp" line="109"/>
         <source>Minimum Stomatal Resistance: </source>
         <translation>Minimaler stomatärer Widerstand:</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/MaterialRoofVegetationInspectorView.cpp" line="119" />
+        <location filename="../src/openstudio_lib/MaterialRoofVegetationInspectorView.cpp" line="119"/>
         <source>Soil Layer Name: </source>
         <translation>Bodenschicht-Name:</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/MaterialRoofVegetationInspectorView.cpp" line="128" />
+        <location filename="../src/openstudio_lib/MaterialRoofVegetationInspectorView.cpp" line="128"/>
         <source>Roughness: </source>
         <translation>Rauheit:</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/MaterialRoofVegetationInspectorView.cpp" line="143" />
+        <location filename="../src/openstudio_lib/MaterialRoofVegetationInspectorView.cpp" line="143"/>
         <source>Thickness: </source>
         <translation>Dicke:</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/MaterialRoofVegetationInspectorView.cpp" line="153" />
+        <location filename="../src/openstudio_lib/MaterialRoofVegetationInspectorView.cpp" line="153"/>
         <source>Conductivity Of Dry Soil: </source>
         <translation>Wärmeleitfähigkeit des trockenen Bodens:</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/MaterialRoofVegetationInspectorView.cpp" line="163" />
+        <location filename="../src/openstudio_lib/MaterialRoofVegetationInspectorView.cpp" line="163"/>
         <source>Density Of Dry Soil: </source>
         <translation>Dichte des trockenen Bodens:</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/MaterialRoofVegetationInspectorView.cpp" line="173" />
+        <location filename="../src/openstudio_lib/MaterialRoofVegetationInspectorView.cpp" line="173"/>
         <source>Specific Heat Of Dry Soil: </source>
         <translation>Spezifische Wärmekap​azität trockenen Bodens:</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/MaterialRoofVegetationInspectorView.cpp" line="183" />
+        <location filename="../src/openstudio_lib/MaterialRoofVegetationInspectorView.cpp" line="183"/>
         <source>Thermal Absorptance: </source>
         <translation>Thermische Absorptanz:</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/MaterialRoofVegetationInspectorView.cpp" line="193" />
+        <location filename="../src/openstudio_lib/MaterialRoofVegetationInspectorView.cpp" line="193"/>
         <source>Solar Absorptance: </source>
         <translation>Solarabsorptanz:</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/MaterialRoofVegetationInspectorView.cpp" line="203" />
+        <location filename="../src/openstudio_lib/MaterialRoofVegetationInspectorView.cpp" line="203"/>
         <source>Visible Absorptance: </source>
         <translation>Sichtbare Absorptanz:</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/MaterialRoofVegetationInspectorView.cpp" line="213" />
+        <location filename="../src/openstudio_lib/MaterialRoofVegetationInspectorView.cpp" line="213"/>
         <source>Saturation Volumetric Moisture Content Of The Soil Layer: </source>
         <translation>Gesättigter volumetrischer Feuchtegehalt der Bodenschicht:</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/MaterialRoofVegetationInspectorView.cpp" line="224" />
+        <location filename="../src/openstudio_lib/MaterialRoofVegetationInspectorView.cpp" line="224"/>
         <source>Residual Volumetric Moisture Content Of The Soil Layer: </source>
         <translation>Restvolumenfeuchte der Bodenschicht:</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/MaterialRoofVegetationInspectorView.cpp" line="235" />
+        <location filename="../src/openstudio_lib/MaterialRoofVegetationInspectorView.cpp" line="235"/>
         <source>Initial Volumetric Moisture Content Of The Soil Layer: </source>
         <translation>Anfänglicher Volumetrischer Feuchtegehalt der Bodenschicht:</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/MaterialRoofVegetationInspectorView.cpp" line="246" />
+        <location filename="../src/openstudio_lib/MaterialRoofVegetationInspectorView.cpp" line="246"/>
         <source>Moisture Diffusion Calculation Method: </source>
         <translation>Feuchtigkeitsdiffusions-Berechnungsmethode:</translation>
     </message>
@@ -26454,72 +26455,72 @@ Wenn Sie möchten, dass die OpenStudio-Applikation in die Sprache Ihrer Wahl üb
 <context>
     <name>openstudio::MaterialsView</name>
     <message>
-        <location filename="../src/openstudio_lib/MaterialsView.cpp" line="45" />
+        <location filename="../src/openstudio_lib/MaterialsView.cpp" line="45"/>
         <source>Materials</source>
         <translation>Materialien</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/MaterialsView.cpp" line="46" />
+        <location filename="../src/openstudio_lib/MaterialsView.cpp" line="46"/>
         <source>No Mass Materials</source>
         <translation>Materialien ohne Masse</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/MaterialsView.cpp" line="47" />
+        <location filename="../src/openstudio_lib/MaterialsView.cpp" line="47"/>
         <source>Air Gap Materials</source>
         <translation>Luftspaltmaterialien</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/MaterialsView.cpp" line="50" />
+        <location filename="../src/openstudio_lib/MaterialsView.cpp" line="50"/>
         <source>Simple Glazing System Window Materials</source>
         <translation>Simple Glazing System Fenstermaterialien</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/MaterialsView.cpp" line="51" />
+        <location filename="../src/openstudio_lib/MaterialsView.cpp" line="51"/>
         <source>Glazing Window Materials</source>
         <translation>Verglasung Fenstermaterialien</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/MaterialsView.cpp" line="52" />
+        <location filename="../src/openstudio_lib/MaterialsView.cpp" line="52"/>
         <source>Gas Window Materials</source>
         <translation>Gasfenster-Materialien</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/MaterialsView.cpp" line="53" />
+        <location filename="../src/openstudio_lib/MaterialsView.cpp" line="53"/>
         <source>Gas Mixture Window Materials</source>
         <translation>Gas Mixture Window Materials</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/MaterialsView.cpp" line="54" />
+        <location filename="../src/openstudio_lib/MaterialsView.cpp" line="54"/>
         <source>Blind Window Materials</source>
         <translation>Materialien für Fensterblenden</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/MaterialsView.cpp" line="56" />
+        <location filename="../src/openstudio_lib/MaterialsView.cpp" line="56"/>
         <source>Daylight Redirection Device Window Materials</source>
         <translation>Fensterwerkstoffe für Tageslicht-Umleitungsvorrichtungen</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/MaterialsView.cpp" line="57" />
+        <location filename="../src/openstudio_lib/MaterialsView.cpp" line="57"/>
         <source>Screen Window Materials</source>
         <translation>Materialien für Fensternetze</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/MaterialsView.cpp" line="58" />
+        <location filename="../src/openstudio_lib/MaterialsView.cpp" line="58"/>
         <source>Shade Window Materials</source>
         <translation>Schattenwindower-Materialien</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/MaterialsView.cpp" line="61" />
+        <location filename="../src/openstudio_lib/MaterialsView.cpp" line="61"/>
         <source>Infrared Transparent Materials</source>
         <translation>Infrarot-transparente Materialien</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/MaterialsView.cpp" line="62" />
+        <location filename="../src/openstudio_lib/MaterialsView.cpp" line="62"/>
         <source>Roof Vegetation Materials</source>
         <translation>Dachbegrünungsmaterialien</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/MaterialsView.cpp" line="64" />
+        <location filename="../src/openstudio_lib/MaterialsView.cpp" line="64"/>
         <source>Refraction Extinction Method Glazing Window Materials</source>
         <translation>Refraktions-Extinktions-Methode Verglasung Fenstermaterialien</translation>
     </message>
@@ -26527,24 +26528,24 @@ Wenn Sie möchten, dass die OpenStudio-Applikation in die Sprache Ihrer Wahl üb
 <context>
     <name>openstudio::MeasureManager</name>
     <message>
-        <location filename="../src/shared_gui_components/MeasureManager.cpp" line="976" />
-        <location filename="../src/shared_gui_components/MeasureManager.cpp" line="992" />
+        <location filename="../src/shared_gui_components/MeasureManager.cpp" line="976"/>
+        <location filename="../src/shared_gui_components/MeasureManager.cpp" line="992"/>
         <source>Measures Updated</source>
         <translation>Maßnahmen aktualisiert</translation>
     </message>
     <message>
-        <location filename="../src/shared_gui_components/MeasureManager.cpp" line="976" />
+        <location filename="../src/shared_gui_components/MeasureManager.cpp" line="976"/>
         <source>All measures are up-to-date.</source>
         <translation>Alle Maßnahmen sind aktuell.</translation>
     </message>
     <message>
-        <location filename="../src/shared_gui_components/MeasureManager.cpp" line="979" />
+        <location filename="../src/shared_gui_components/MeasureManager.cpp" line="979"/>
         <source> measures have been updated on BCL compared to your local BCL directory.
 </source>
         <translation>Maßnahmen wurden in BCL im Vergleich zu Ihrem lokalen BCL-Verzeichnis aktualisiert.</translation>
     </message>
     <message>
-        <location filename="../src/shared_gui_components/MeasureManager.cpp" line="980" />
+        <location filename="../src/shared_gui_components/MeasureManager.cpp" line="980"/>
         <source>Would you like update them?</source>
         <translation>Möchten Sie diese aktualisieren?</translation>
     </message>
@@ -26552,52 +26553,52 @@ Wenn Sie möchten, dass die OpenStudio-Applikation in die Sprache Ihrer Wahl üb
 <context>
     <name>openstudio::MechanicalVentilationView</name>
     <message>
-        <location filename="../src/openstudio_lib/HVACSystemsView.cpp" line="583" />
+        <location filename="../src/openstudio_lib/HVACSystemsView.cpp" line="583"/>
         <source>Economizer</source>
         <translation>Economizer</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/HVACSystemsView.cpp" line="589" />
+        <location filename="../src/openstudio_lib/HVACSystemsView.cpp" line="589"/>
         <source>Fixed Dry Bulb</source>
         <translation>Feste Trockenkugeltemperatur</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/HVACSystemsView.cpp" line="590" />
+        <location filename="../src/openstudio_lib/HVACSystemsView.cpp" line="590"/>
         <source>Fixed Enthalpy</source>
         <translation>Feste Enthalpie</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/HVACSystemsView.cpp" line="591" />
+        <location filename="../src/openstudio_lib/HVACSystemsView.cpp" line="591"/>
         <source>Differential Dry Bulb</source>
         <translation>Differenzielle Trockentemperatur</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/HVACSystemsView.cpp" line="592" />
+        <location filename="../src/openstudio_lib/HVACSystemsView.cpp" line="592"/>
         <source>Differential Enthalpy</source>
         <translation>Differentielle Enthalpie</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/HVACSystemsView.cpp" line="593" />
+        <location filename="../src/openstudio_lib/HVACSystemsView.cpp" line="593"/>
         <source>Fixed Dewpoint and Dry Bulb</source>
         <translation>Fixer Taupunkt und Trockentemperatur</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/HVACSystemsView.cpp" line="594" />
+        <location filename="../src/openstudio_lib/HVACSystemsView.cpp" line="594"/>
         <source>Electronic Enthalpy</source>
         <translation>Elektronische Enthalpie</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/HVACSystemsView.cpp" line="595" />
+        <location filename="../src/openstudio_lib/HVACSystemsView.cpp" line="595"/>
         <source>Differential Dry Bulb and Enthalpy</source>
         <translation>Differenzielle Trockentemperatur und Enthalpie</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/HVACSystemsView.cpp" line="596" />
+        <location filename="../src/openstudio_lib/HVACSystemsView.cpp" line="596"/>
         <source>No Economizer</source>
         <translation>Keine Economizer</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/HVACSystemsView.cpp" line="632" />
+        <location filename="../src/openstudio_lib/HVACSystemsView.cpp" line="632"/>
         <source>Demand Controlled Ventilation</source>
         <translation>Bedarfsgerechte Belüftung</translation>
     </message>
@@ -26609,63 +26610,63 @@ Wenn Sie möchten, dass die OpenStudio-Applikation in die Sprache Ihrer Wahl üb
 <context>
     <name>openstudio::MonthView</name>
     <message>
-        <location filename="../src/openstudio_lib/SchedulesView.cpp" line="1986" />
-        <location filename="../src/openstudio_lib/SchedulesView.cpp" line="2017" />
+        <location filename="../src/openstudio_lib/SchedulesView.cpp" line="1986"/>
+        <location filename="../src/openstudio_lib/SchedulesView.cpp" line="2017"/>
         <source>January</source>
         <translation>Januar</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/SchedulesView.cpp" line="2017" />
+        <location filename="../src/openstudio_lib/SchedulesView.cpp" line="2017"/>
         <source>February</source>
         <translation>Februar</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/SchedulesView.cpp" line="2017" />
+        <location filename="../src/openstudio_lib/SchedulesView.cpp" line="2017"/>
         <source>March</source>
         <translation>März</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/SchedulesView.cpp" line="2017" />
+        <location filename="../src/openstudio_lib/SchedulesView.cpp" line="2017"/>
         <source>April</source>
         <translation>April</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/SchedulesView.cpp" line="2017" />
+        <location filename="../src/openstudio_lib/SchedulesView.cpp" line="2017"/>
         <source>May</source>
         <translation>Mai</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/SchedulesView.cpp" line="2017" />
+        <location filename="../src/openstudio_lib/SchedulesView.cpp" line="2017"/>
         <source>June</source>
         <translation>Juni</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/SchedulesView.cpp" line="2018" />
+        <location filename="../src/openstudio_lib/SchedulesView.cpp" line="2018"/>
         <source>July</source>
         <translation>Juli</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/SchedulesView.cpp" line="2018" />
+        <location filename="../src/openstudio_lib/SchedulesView.cpp" line="2018"/>
         <source>August</source>
         <translation>August</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/SchedulesView.cpp" line="2018" />
+        <location filename="../src/openstudio_lib/SchedulesView.cpp" line="2018"/>
         <source>September</source>
         <translation>September</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/SchedulesView.cpp" line="2018" />
+        <location filename="../src/openstudio_lib/SchedulesView.cpp" line="2018"/>
         <source>October</source>
         <translation>Oktober</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/SchedulesView.cpp" line="2018" />
+        <location filename="../src/openstudio_lib/SchedulesView.cpp" line="2018"/>
         <source>November</source>
         <translation>November</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/SchedulesView.cpp" line="2018" />
+        <location filename="../src/openstudio_lib/SchedulesView.cpp" line="2018"/>
         <source>December</source>
         <translation>Dezember</translation>
     </message>
@@ -26673,64 +26674,64 @@ Wenn Sie möchten, dass die OpenStudio-Applikation in die Sprache Ihrer Wahl üb
 <context>
     <name>openstudio::NewProfileView</name>
     <message>
-        <location filename="../src/openstudio_lib/SchedulesView.cpp" line="1246" />
+        <location filename="../src/openstudio_lib/SchedulesView.cpp" line="1246"/>
         <source>Create a new profile.</source>
         <translation>Erstellen Sie ein neues Profil.</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/SchedulesView.cpp" line="1253" />
+        <location filename="../src/openstudio_lib/SchedulesView.cpp" line="1253"/>
         <source>Make a New Profile Based on:</source>
         <translation>Neues Profil erstellen basierend auf:</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/SchedulesView.cpp" line="1261" />
+        <location filename="../src/openstudio_lib/SchedulesView.cpp" line="1261"/>
         <source>Add</source>
         <translation>Hinzufügen</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/SchedulesView.cpp" line="1300" />
+        <location filename="../src/openstudio_lib/SchedulesView.cpp" line="1300"/>
         <source>&lt;New Profile&gt;</source>
         <translation>&lt;Neues Profil&gt;</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/SchedulesView.cpp" line="1302" />
+        <location filename="../src/openstudio_lib/SchedulesView.cpp" line="1302"/>
         <source>Default Day Schedule</source>
         <translation>Standardplan für den Tag</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/SchedulesView.cpp" line="1305" />
+        <location filename="../src/openstudio_lib/SchedulesView.cpp" line="1305"/>
         <source>Summer Design Day Schedule</source>
         <translation>Sommerauslegungstag-Zeitplan</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/SchedulesView.cpp" line="1309" />
+        <location filename="../src/openstudio_lib/SchedulesView.cpp" line="1309"/>
         <source>Winter Design Day Schedule</source>
         <translation>Winter Design Day Schedule</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/SchedulesView.cpp" line="1313" />
+        <location filename="../src/openstudio_lib/SchedulesView.cpp" line="1313"/>
         <source>Holiday Design Day Schedule</source>
         <translation>Feriengestaltungstag-Zeitplan</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/SchedulesView.cpp" line="1203" />
+        <location filename="../src/openstudio_lib/SchedulesView.cpp" line="1203"/>
         <source>The summer design day profile is not set, therefore the default run period profile will be used.</source>
         <translation>Das Sommerkenntagprofil ist nicht eingestellt, daher wird das Standardlaufzeitprofil verwendet.</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/SchedulesView.cpp" line="1212" />
+        <location filename="../src/openstudio_lib/SchedulesView.cpp" line="1212"/>
         <source>The winter design day profile is not set, therefore the default run period profile will be used.</source>
         <translation>Das Winterdesign-Tag-Profil ist nicht gesetzt. Daher wird das Standard-Laufzeitprofil verwendet.</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/SchedulesView.cpp" line="1221" />
+        <location filename="../src/openstudio_lib/SchedulesView.cpp" line="1221"/>
         <source>The holiday profile is not set, therefore the default run period profile will be used.</source>
         <translation>Das Feiertagsprofil ist nicht gesetzt, daher wird das Standard-Laufzeitprofil verwendet.</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/SchedulesView.cpp" line="1204" />
-        <location filename="../src/openstudio_lib/SchedulesView.cpp" line="1213" />
-        <location filename="../src/openstudio_lib/SchedulesView.cpp" line="1222" />
+        <location filename="../src/openstudio_lib/SchedulesView.cpp" line="1204"/>
+        <location filename="../src/openstudio_lib/SchedulesView.cpp" line="1213"/>
+        <location filename="../src/openstudio_lib/SchedulesView.cpp" line="1222"/>
         <source>  Create a new profile to override the default run period profile.</source>
         <translation>Erstellen Sie ein neues Profil, um das Standard-Laufzeitprofil zu überschreiben.</translation>
     </message>
@@ -26738,7 +26739,7 @@ Wenn Sie möchten, dass die OpenStudio-Applikation in die Sprache Ihrer Wahl üb
 <context>
     <name>openstudio::NoMechanicalVentilationView</name>
     <message>
-        <location filename="../src/openstudio_lib/HVACSystemsView.cpp" line="648" />
+        <location filename="../src/openstudio_lib/HVACSystemsView.cpp" line="648"/>
         <source>This system configuration does not provide mechanical ventilation</source>
         <translation>Diese Systemkonfiguration bietet keine mechanische Belüftung</translation>
     </message>
@@ -26746,15 +26747,15 @@ Wenn Sie möchten, dass die OpenStudio-Applikation in die Sprache Ihrer Wahl üb
 <context>
     <name>openstudio::NoSupplyAirTempControlView</name>
     <message>
-        <location filename="../src/openstudio_lib/HVACSystemsView.cpp" line="949" />
-        <source>&lt;strong style="color:red"&gt;Missing supply temperature control&lt;/strong&gt;. Try adding a setpoint manager to the supply outlet node of your system.</source>
-        <translation>&lt;strong style="color:red"&gt;Fehlende Vorlauftemperaturregelung&lt;/strong&gt;. Versuchen Sie, einen Sollwertmanager zum Versorgungsauslassknoten Ihres Systems hinzuzufügen.</translation>
+        <location filename="../src/openstudio_lib/HVACSystemsView.cpp" line="949"/>
+        <source>&lt;strong style=&quot;color:red&quot;&gt;Missing supply temperature control&lt;/strong&gt;. Try adding a setpoint manager to the supply outlet node of your system.</source>
+        <translation>&lt;strong style=&quot;color:red&quot;&gt;Fehlende Vorlauftemperaturregelung&lt;/strong&gt;. Versuchen Sie, einen Sollwertmanager zum Versorgungsauslassknoten Ihres Systems hinzuzufügen.</translation>
     </message>
 </context>
 <context>
     <name>openstudio::OAResetSPMView</name>
     <message>
-        <location filename="../src/openstudio_lib/HVACSystemsView.cpp" line="686" />
+        <location filename="../src/openstudio_lib/HVACSystemsView.cpp" line="686"/>
         <source>Supply temperature is controlled by an outdoor air reset setpoint manager.</source>
         <translation>Die Vorlauftemperatur wird durch einen Außenluft-Rücksetz-Sollwertmanager gesteuert.</translation>
     </message>
@@ -26762,17 +26763,17 @@ Wenn Sie möchten, dass die OpenStudio-Applikation in die Sprache Ihrer Wahl üb
 <context>
     <name>openstudio::OSDialog</name>
     <message>
-        <location filename="../src/shared_gui_components/OSDialog.cpp" line="55" />
+        <location filename="../src/shared_gui_components/OSDialog.cpp" line="55"/>
         <source>Back</source>
         <translation>Zurück</translation>
     </message>
     <message>
-        <location filename="../src/shared_gui_components/OSDialog.cpp" line="61" />
+        <location filename="../src/shared_gui_components/OSDialog.cpp" line="61"/>
         <source>OK</source>
         <translation>OK</translation>
     </message>
     <message>
-        <location filename="../src/shared_gui_components/OSDialog.cpp" line="67" />
+        <location filename="../src/shared_gui_components/OSDialog.cpp" line="67"/>
         <source>Cancel</source>
         <translation>Abbrechen</translation>
     </message>
@@ -26780,45 +26781,45 @@ Wenn Sie möchten, dass die OpenStudio-Applikation in die Sprache Ihrer Wahl üb
 <context>
     <name>openstudio::OSDocument</name>
     <message>
-        <location filename="../src/openstudio_lib/OSDocument.cpp" line="1218" />
+        <location filename="../src/openstudio_lib/OSDocument.cpp" line="1218"/>
         <source>Export Idf</source>
         <translation>IDF exportieren</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/OSDocument.cpp" line="1218" />
+        <location filename="../src/openstudio_lib/OSDocument.cpp" line="1218"/>
         <source>(*.idf)</source>
         <translation>(*.idf)</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/OSDocument.cpp" line="1253" />
+        <location filename="../src/openstudio_lib/OSDocument.cpp" line="1253"/>
         <source>(*.xml)</source>
         <translation>(*.xml)</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/OSDocument.cpp" line="1468" />
-        <location filename="../src/openstudio_lib/OSDocument.cpp" line="1544" />
+        <location filename="../src/openstudio_lib/OSDocument.cpp" line="1468"/>
+        <location filename="../src/openstudio_lib/OSDocument.cpp" line="1544"/>
         <source>Failed to save model</source>
         <translation>Modell konnte nicht gespeichert werden</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/OSDocument.cpp" line="1469" />
-        <location filename="../src/openstudio_lib/OSDocument.cpp" line="1545" />
+        <location filename="../src/openstudio_lib/OSDocument.cpp" line="1469"/>
+        <location filename="../src/openstudio_lib/OSDocument.cpp" line="1545"/>
         <source>Failed to save model, make sure that you do not have the location open and that you have correct write access.</source>
         <translation>Modell konnte nicht gespeichert werden. Vergewissern Sie sich, dass der Speicherort nicht geöffnet ist und dass Sie korrekte Schreibrechte haben.</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/OSDocument.cpp" line="1512" />
+        <location filename="../src/openstudio_lib/OSDocument.cpp" line="1512"/>
         <source>Save</source>
         <translation>Speichern</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/OSDocument.cpp" line="1512" />
+        <location filename="../src/openstudio_lib/OSDocument.cpp" line="1512"/>
         <source>(*.osm)</source>
         <translation>(*.osm)</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/OSDocument.cpp" line="1707" />
-        <location filename="../src/openstudio_lib/OSDocument.cpp" line="1709" />
+        <location filename="../src/openstudio_lib/OSDocument.cpp" line="1707"/>
+        <location filename="../src/openstudio_lib/OSDocument.cpp" line="1709"/>
         <source>Select My Measures Directory</source>
         <translation>Verzeichnis für Meine Measures auswählen</translation>
     </message>
@@ -26827,77 +26828,77 @@ Wenn Sie möchten, dass die OpenStudio-Applikation in die Sprache Ihrer Wahl üb
         <translation>Online BCL</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/OSDocument.cpp" line="349" />
+        <location filename="../src/openstudio_lib/OSDocument.cpp" line="349"/>
         <source>Site</source>
         <translation>Standort</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/OSDocument.cpp" line="353" />
+        <location filename="../src/openstudio_lib/OSDocument.cpp" line="353"/>
         <source>Schedules</source>
         <translation>Zeitpläne</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/OSDocument.cpp" line="357" />
+        <location filename="../src/openstudio_lib/OSDocument.cpp" line="357"/>
         <source>Constructions</source>
         <translation>Konstruktionen</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/OSDocument.cpp" line="361" />
+        <location filename="../src/openstudio_lib/OSDocument.cpp" line="361"/>
         <source>Loads</source>
         <translation>Lasten</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/OSDocument.cpp" line="365" />
+        <location filename="../src/openstudio_lib/OSDocument.cpp" line="365"/>
         <source>Space Types</source>
         <translation>Raumtypen</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/OSDocument.cpp" line="369" />
+        <location filename="../src/openstudio_lib/OSDocument.cpp" line="369"/>
         <source>Geometry</source>
         <translation>Geometrie</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/OSDocument.cpp" line="373" />
+        <location filename="../src/openstudio_lib/OSDocument.cpp" line="373"/>
         <source>Facility</source>
         <translation>Gebäude</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/OSDocument.cpp" line="377" />
+        <location filename="../src/openstudio_lib/OSDocument.cpp" line="377"/>
         <source>Spaces</source>
         <translation>Räume</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/OSDocument.cpp" line="381" />
+        <location filename="../src/openstudio_lib/OSDocument.cpp" line="381"/>
         <source>Thermal Zones</source>
         <translation>Thermische Zonen</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/OSDocument.cpp" line="385" />
+        <location filename="../src/openstudio_lib/OSDocument.cpp" line="385"/>
         <source>HVAC Systems</source>
         <translation>HVAC-Systeme</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/OSDocument.cpp" line="400" />
+        <location filename="../src/openstudio_lib/OSDocument.cpp" line="400"/>
         <source>Output Variables</source>
         <translation>Ausgabevariablen</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/OSDocument.cpp" line="404" />
+        <location filename="../src/openstudio_lib/OSDocument.cpp" line="404"/>
         <source>Simulation Settings</source>
         <translation>Simulationseinstellungen</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/OSDocument.cpp" line="408" />
+        <location filename="../src/openstudio_lib/OSDocument.cpp" line="408"/>
         <source>Measures</source>
         <translation>Maßnahmen</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/OSDocument.cpp" line="412" />
+        <location filename="../src/openstudio_lib/OSDocument.cpp" line="412"/>
         <source>Run Simulation</source>
         <translation>Simulation ausführen</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/OSDocument.cpp" line="416" />
+        <location filename="../src/openstudio_lib/OSDocument.cpp" line="416"/>
         <source>Results Summary</source>
         <translation>Zusammenfassung der Ergebnisse</translation>
     </message>
@@ -26905,7 +26906,7 @@ Wenn Sie möchten, dass die OpenStudio-Applikation in die Sprache Ihrer Wahl üb
 <context>
     <name>openstudio::OSDropZone</name>
     <message>
-        <location filename="../src/openstudio_lib/OSDropZone.cpp" line="59" />
+        <location filename="../src/openstudio_lib/OSDropZone.cpp" line="59"/>
         <source>Drag From Library</source>
         <translation>Aus Bibliothek ziehen</translation>
     </message>
@@ -26913,15 +26914,15 @@ Wenn Sie möchten, dass die OpenStudio-Applikation in die Sprache Ihrer Wahl üb
 <context>
     <name>openstudio::OSGridController</name>
     <message>
-        <location filename="../src/shared_gui_components/OSGridController.cpp" line="161" />
-        <location filename="../src/shared_gui_components/OSGridController.cpp" line="467" />
-        <location filename="../src/shared_gui_components/OSGridController.cpp" line="473" />
+        <location filename="../src/shared_gui_components/OSGridController.cpp" line="161"/>
+        <location filename="../src/shared_gui_components/OSGridController.cpp" line="467"/>
+        <location filename="../src/shared_gui_components/OSGridController.cpp" line="473"/>
         <source>Custom</source>
         <translation>Benutzerdefiniert</translation>
     </message>
     <message>
-        <location filename="../src/shared_gui_components/OSGridController.cpp" line="775" />
-        <location filename="../src/shared_gui_components/OSGridController.cpp" line="778" />
+        <location filename="../src/shared_gui_components/OSGridController.cpp" line="775"/>
+        <location filename="../src/shared_gui_components/OSGridController.cpp" line="778"/>
         <source>Apply to Selected</source>
         <translation>Auf Ausgewählte anwenden</translation>
     </message>
@@ -26929,22 +26930,22 @@ Wenn Sie möchten, dass die OpenStudio-Applikation in die Sprache Ihrer Wahl üb
 <context>
     <name>openstudio::OSItemSelectorButtons</name>
     <message>
-        <location filename="../src/openstudio_lib/OSItemSelectorButtons.cpp" line="76" />
+        <location filename="../src/openstudio_lib/OSItemSelectorButtons.cpp" line="76"/>
         <source>Add new object</source>
         <translation>Neues Objekt hinzufügen</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/OSItemSelectorButtons.cpp" line="86" />
+        <location filename="../src/openstudio_lib/OSItemSelectorButtons.cpp" line="86"/>
         <source>Copy selected object</source>
         <translation>Ausgewähltes Objekt kopieren</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/OSItemSelectorButtons.cpp" line="96" />
+        <location filename="../src/openstudio_lib/OSItemSelectorButtons.cpp" line="96"/>
         <source>Remove selected objects</source>
         <translation>Ausgewählte Objekte entfernen</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/OSItemSelectorButtons.cpp" line="107" />
+        <location filename="../src/openstudio_lib/OSItemSelectorButtons.cpp" line="107"/>
         <source>Purge unused objects</source>
         <translation>Ungenutzte Objekte löschen</translation>
     </message>
@@ -26952,7 +26953,7 @@ Wenn Sie möchten, dass die OpenStudio-Applikation in die Sprache Ihrer Wahl üb
 <context>
     <name>openstudio::OpenStudioApp</name>
     <message>
-        <location filename="../src/openstudio_app/OpenStudioApp.cpp" line="243" />
+        <location filename="../src/openstudio_app/OpenStudioApp.cpp" line="243"/>
         <source>Timeout</source>
         <translation>Zeitüberschreitung</translation>
     </message>
@@ -26961,235 +26962,235 @@ Wenn Sie möchten, dass die OpenStudio-Applikation in die Sprache Ihrer Wahl üb
         <translation>Der Measure Manager konnte nicht gestartet werden. Möchten Sie es erneut versuchen?</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_app/OpenStudioApp.cpp" line="245" />
+        <location filename="../src/openstudio_app/OpenStudioApp.cpp" line="245"/>
         <source>Failed to start the Measure Manager. Would you like to keep waiting?</source>
         <translation>Fehler beim Starten des Measure Manager. Möchten Sie weiter warten?</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_app/OpenStudioApp.cpp" line="381" />
+        <location filename="../src/openstudio_app/OpenStudioApp.cpp" line="381"/>
         <source>Loading Library Files</source>
         <translation>Bibliothekdatei wird geladen</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_app/OpenStudioApp.cpp" line="382" />
+        <location filename="../src/openstudio_app/OpenStudioApp.cpp" line="382"/>
         <source>(Manage library files in Preferences-&gt;Change default libraries)</source>
         <translation>(Verwalten von Bibliotheksdateien in Einstellungen-&gt;Standardbibliotheken ändern)</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_app/OpenStudioApp.cpp" line="399" />
+        <location filename="../src/openstudio_app/OpenStudioApp.cpp" line="399"/>
         <source>Translation From version </source>
         <translation>Übersetzung von Version</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_app/OpenStudioApp.cpp" line="399" />
-        <location filename="../src/openstudio_app/OpenStudioApp.cpp" line="1125" />
+        <location filename="../src/openstudio_app/OpenStudioApp.cpp" line="399"/>
+        <location filename="../src/openstudio_app/OpenStudioApp.cpp" line="1125"/>
         <source> to </source>
         <translation>zu</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_app/OpenStudioApp.cpp" line="402" />
+        <location filename="../src/openstudio_app/OpenStudioApp.cpp" line="402"/>
         <source>Unknown starting version</source>
         <translation>Unbekannte Startversion</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_app/OpenStudioApp.cpp" line="476" />
+        <location filename="../src/openstudio_app/OpenStudioApp.cpp" line="476"/>
         <source>Import Idf</source>
         <translation>IDF importieren</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_app/OpenStudioApp.cpp" line="476" />
+        <location filename="../src/openstudio_app/OpenStudioApp.cpp" line="476"/>
         <source>(*.idf)</source>
         <translation>(*.idf)</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_app/OpenStudioApp.cpp" line="507" />
-        <source>' while OpenStudio uses a &lt;strong&gt;newer&lt;/strong&gt; EnergyPlus '</source>
-        <translation>' während OpenStudio ein &lt;strong&gt;neueres&lt;/strong&gt; EnergyPlus nutzt '</translation>
+        <location filename="../src/openstudio_app/OpenStudioApp.cpp" line="507"/>
+        <source>&apos; while OpenStudio uses a &lt;strong&gt;newer&lt;/strong&gt; EnergyPlus &apos;</source>
+        <translation>&apos; während OpenStudio ein &lt;strong&gt;neueres&lt;/strong&gt; EnergyPlus nutzt &apos;</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_app/OpenStudioApp.cpp" line="508" />
-        <source>'. Consider using the EnergyPlus Auxiliary program IDFVersionUpdater to update your IDF file.</source>
-        <translation>'. Erwägen Sie die Verwendung des EnergyPlus Hilfsprogramms IDFVersionUpdater, um Ihre IDF-Datei zu aktualisieren.</translation>
+        <location filename="../src/openstudio_app/OpenStudioApp.cpp" line="508"/>
+        <source>&apos;. Consider using the EnergyPlus Auxiliary program IDFVersionUpdater to update your IDF file.</source>
+        <translation>&apos;. Erwägen Sie die Verwendung des EnergyPlus Hilfsprogramms IDFVersionUpdater, um Ihre IDF-Datei zu aktualisieren.</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_app/OpenStudioApp.cpp" line="510" />
-        <source>' while OpenStudio uses an &lt;strong&gt;older&lt;/strong&gt; EnergyPlus '</source>
-        <translation>', während OpenStudio ein &lt;strong&gt;älteres&lt;/strong&gt; EnergyPlus ' verwendet</translation>
+        <location filename="../src/openstudio_app/OpenStudioApp.cpp" line="510"/>
+        <source>&apos; while OpenStudio uses an &lt;strong&gt;older&lt;/strong&gt; EnergyPlus &apos;</source>
+        <translation>&apos;, während OpenStudio ein &lt;strong&gt;älteres&lt;/strong&gt; EnergyPlus &apos; verwendet</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_app/OpenStudioApp.cpp" line="510" />
-        <source>'.</source>
-        <translation>'.</translation>
+        <location filename="../src/openstudio_app/OpenStudioApp.cpp" line="510"/>
+        <source>&apos;.</source>
+        <translation>&apos;.</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_app/OpenStudioApp.cpp" line="512" />
-        <source>' which is the &lt;strong&gt;same&lt;/strong&gt; version of EnergyPlus that OpenStudio uses (</source>
-        <translation>', welches die &lt;strong&gt;gleiche&lt;/strong&gt; Version von EnergyPlus ist, die OpenStudio verwendet (</translation>
+        <location filename="../src/openstudio_app/OpenStudioApp.cpp" line="512"/>
+        <source>&apos; which is the &lt;strong&gt;same&lt;/strong&gt; version of EnergyPlus that OpenStudio uses (</source>
+        <translation>&apos;, welches die &lt;strong&gt;gleiche&lt;/strong&gt; Version von EnergyPlus ist, die OpenStudio verwendet (</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_app/OpenStudioApp.cpp" line="516" />
+        <location filename="../src/openstudio_app/OpenStudioApp.cpp" line="516"/>
         <source>&lt;strong&gt;The IDF does not have a VersionObject&lt;/strong&gt;. Check that it is of correct version (</source>
         <translation>&lt;strong&gt;Die IDF-Datei hat kein Versionierung&lt;/strong&gt;. Prüfen Sie, ob es sich um die richtige Version handelt (</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_app/OpenStudioApp.cpp" line="517" />
+        <location filename="../src/openstudio_app/OpenStudioApp.cpp" line="517"/>
         <source>) and that all fields are valid against Energy+.idd. </source>
         <translation>) und dass alle Felder mit Energy+.idd kompatibel sind.</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_app/OpenStudioApp.cpp" line="520" />
+        <location filename="../src/openstudio_app/OpenStudioApp.cpp" line="520"/>
         <source>&lt;br/&gt;&lt;br/&gt;The ValidityReport follows.</source>
         <translation>&lt;br/&gt;&lt;br/&gt;Der Validierungsbericht folgt.</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_app/OpenStudioApp.cpp" line="522" />
+        <location filename="../src/openstudio_app/OpenStudioApp.cpp" line="522"/>
         <source>&lt;strong&gt;File is not valid to draft strictness&lt;/strong&gt;. Check that all fields are valid against Energy+.idd.</source>
         <translation>&lt;strong&gt;Die Datei entspricht nicht den Vorgaben&lt;/strong&gt;. Prüfen Sie, ob alle Felder zu Energy+.idd kompatibel sind.</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_app/OpenStudioApp.cpp" line="528" />
+        <location filename="../src/openstudio_app/OpenStudioApp.cpp" line="528"/>
         <source> IDF Import Failed</source>
         <translation>IDF-Import fehlgeschlagen</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_app/OpenStudioApp.cpp" line="603" />
+        <location filename="../src/openstudio_app/OpenStudioApp.cpp" line="603"/>
         <source>=============== Errors ===============
 
 </source>
         <translation>=============== Fehler ===============</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_app/OpenStudioApp.cpp" line="611" />
+        <location filename="../src/openstudio_app/OpenStudioApp.cpp" line="611"/>
         <source>============== Warnings ==============
 
 </source>
         <translation>============== Warnungen ==============</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_app/OpenStudioApp.cpp" line="619" />
+        <location filename="../src/openstudio_app/OpenStudioApp.cpp" line="619"/>
         <source>==== The following idf objects were not imported ====
 
 </source>
         <translation>==== Die folgenden IDF-Objekte wurden nicht importiert ====</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_app/OpenStudioApp.cpp" line="624" />
+        <location filename="../src/openstudio_app/OpenStudioApp.cpp" line="624"/>
         <source> named </source>
         <translation>Benannt</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_app/OpenStudioApp.cpp" line="626" />
+        <location filename="../src/openstudio_app/OpenStudioApp.cpp" line="626"/>
         <source>Unnamed </source>
         <translation>Unbenannt</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_app/OpenStudioApp.cpp" line="632" />
+        <location filename="../src/openstudio_app/OpenStudioApp.cpp" line="632"/>
         <source>&lt;strong&gt;Some portions of the IDF file were not imported.&lt;/strong&gt;</source>
         <translation>&lt;strong&gt;Einige Teile der IDF-Datei wurden nicht importiert.&lt;/strong&gt;</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_app/OpenStudioApp.cpp" line="638" />
+        <location filename="../src/openstudio_app/OpenStudioApp.cpp" line="638"/>
         <source>IDF Import</source>
         <translation>IDF-Import</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_app/OpenStudioApp.cpp" line="641" />
+        <location filename="../src/openstudio_app/OpenStudioApp.cpp" line="641"/>
         <source>Only geometry, constructions, loads, thermal zones, and schedules are supported by the OpenStudio IDF import feature.</source>
         <translation>Nur Geometrie, Konstruktionen, interne Lasten, thermische Zonen und Zeitpläne werden von der OpenStudio-IDF-Importfunktion unterstützt.</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_app/OpenStudioApp.cpp" line="704" />
+        <location filename="../src/openstudio_app/OpenStudioApp.cpp" line="704"/>
         <source>Import </source>
         <translation>Importieren</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_app/OpenStudioApp.cpp" line="711" />
+        <location filename="../src/openstudio_app/OpenStudioApp.cpp" line="711"/>
         <source>(*.xml)</source>
         <translation>(*.xml)</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_app/OpenStudioApp.cpp" line="776" />
+        <location filename="../src/openstudio_app/OpenStudioApp.cpp" line="776"/>
         <source>Errors or warnings occurred on import of </source>
         <translation>Während des Imports sind Fehler aufgetreten</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_app/OpenStudioApp.cpp" line="786" />
+        <location filename="../src/openstudio_app/OpenStudioApp.cpp" line="786"/>
         <source>Could not import SDD file.</source>
         <translation>SDD-Datei konnte nicht importiert werden.</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_app/OpenStudioApp.cpp" line="788" />
+        <location filename="../src/openstudio_app/OpenStudioApp.cpp" line="788"/>
         <source>Could not import </source>
         <translation>Konnte nicht importiert werden</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_app/OpenStudioApp.cpp" line="788" />
+        <location filename="../src/openstudio_app/OpenStudioApp.cpp" line="788"/>
         <source> file at </source>
         <translation>Datei unter</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_app/OpenStudioApp.cpp" line="817" />
+        <location filename="../src/openstudio_app/OpenStudioApp.cpp" line="817"/>
         <source>Save Changes?</source>
         <translation>Änderungen speichern?</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_app/OpenStudioApp.cpp" line="818" />
+        <location filename="../src/openstudio_app/OpenStudioApp.cpp" line="818"/>
         <source>The document has been modified.</source>
         <translation>Das Dokument wurde verändert.</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_app/OpenStudioApp.cpp" line="819" />
+        <location filename="../src/openstudio_app/OpenStudioApp.cpp" line="819"/>
         <source>Do you want to save your changes?</source>
         <translation>Möchten Sie Ihre Änderungen speichern?</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_app/OpenStudioApp.cpp" line="886" />
+        <location filename="../src/openstudio_app/OpenStudioApp.cpp" line="886"/>
         <source>Open</source>
         <translation>Öffnen</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_app/OpenStudioApp.cpp" line="886" />
-        <location filename="../src/openstudio_app/OpenStudioApp.cpp" line="1497" />
+        <location filename="../src/openstudio_app/OpenStudioApp.cpp" line="886"/>
+        <location filename="../src/openstudio_app/OpenStudioApp.cpp" line="1497"/>
         <source>(*.osm)</source>
         <translation>(*.osm)</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_app/OpenStudioApp.cpp" line="945" />
-        <source>A new version is available at &lt;a href="</source>
-        <translation>Eine neue Version ist verfügbar unter &lt;a href="</translation>
+        <location filename="../src/openstudio_app/OpenStudioApp.cpp" line="945"/>
+        <source>A new version is available at &lt;a href=&quot;</source>
+        <translation>Eine neue Version ist verfügbar unter &lt;a href=&quot;</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_app/OpenStudioApp.cpp" line="950" />
+        <location filename="../src/openstudio_app/OpenStudioApp.cpp" line="950"/>
         <source>Currently using the most recent version</source>
         <translation>Derzeit wird die aktuellste Version verwendet</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_app/OpenStudioApp.cpp" line="958" />
+        <location filename="../src/openstudio_app/OpenStudioApp.cpp" line="958"/>
         <source>Check for Updates</source>
         <translation>Auf Aktualisierungen prüfen</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_app/OpenStudioApp.cpp" line="980" />
+        <location filename="../src/openstudio_app/OpenStudioApp.cpp" line="980"/>
         <source>Measure Manager Server: </source>
         <translation>Measure Manager Server:</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_app/OpenStudioApp.cpp" line="981" />
+        <location filename="../src/openstudio_app/OpenStudioApp.cpp" line="981"/>
         <source>Chrome Debugger: http://localhost:</source>
         <translation>Chrome Debugger: http://localhost:</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_app/OpenStudioApp.cpp" line="982" />
+        <location filename="../src/openstudio_app/OpenStudioApp.cpp" line="982"/>
         <source>Temp Directory: </source>
         <translation>Temp-Verzeichnis:</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_app/OpenStudioApp.cpp" line="1266" />
+        <location filename="../src/openstudio_app/OpenStudioApp.cpp" line="1266"/>
         <source>Measure Manager has crashed. Do you want to retry?</source>
         <translation>Measure Manager ist abgestürzt. Möchten Sie erneut versuchen?</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_app/OpenStudioApp.cpp" line="1271" />
+        <location filename="../src/openstudio_app/OpenStudioApp.cpp" line="1271"/>
         <source>Measure Manager Crashed</source>
         <translation>Measure Manager abgestürzt</translation>
     </message>
@@ -27198,70 +27199,70 @@ Wenn Sie möchten, dass die OpenStudio-Applikation in die Sprache Ihrer Wahl üb
         <translation>Über</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_app/OpenStudioApp.cpp" line="1020" />
+        <location filename="../src/openstudio_app/OpenStudioApp.cpp" line="1020"/>
         <source>Failed to load model</source>
         <translation>Modell konnte nicht geladen werden</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_app/OpenStudioApp.cpp" line="1123" />
+        <location filename="../src/openstudio_app/OpenStudioApp.cpp" line="1123"/>
         <source>Opening future version </source>
         <translation>Öffnen der zukünftigen Version</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_app/OpenStudioApp.cpp" line="1123" />
+        <location filename="../src/openstudio_app/OpenStudioApp.cpp" line="1123"/>
         <source> using </source>
         <translation>using</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_app/OpenStudioApp.cpp" line="1125" />
+        <location filename="../src/openstudio_app/OpenStudioApp.cpp" line="1125"/>
         <source>Model updated from </source>
         <translation>Modell aktualisiert von</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_app/OpenStudioApp.cpp" line="1134" />
+        <location filename="../src/openstudio_app/OpenStudioApp.cpp" line="1134"/>
         <source>Existing Ruby scripts have been removed.
 Ruby scripts are no longer supported and have been replaced by measures.</source>
         <translation>Vorhandene Ruby-Skripte wurden entfernt.
 Ruby-Skripte werden nicht mehr unterstützt und wurden durch Measures ersetzt.</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_app/OpenStudioApp.cpp" line="1141" />
+        <location filename="../src/openstudio_app/OpenStudioApp.cpp" line="1141"/>
         <source>Failed to open file at </source>
         <translation>Datei konnte nicht geöffnet werden bei</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_app/OpenStudioApp.cpp" line="1164" />
-        <location filename="../src/openstudio_app/OpenStudioApp.cpp" line="1348" />
+        <location filename="../src/openstudio_app/OpenStudioApp.cpp" line="1164"/>
+        <location filename="../src/openstudio_app/OpenStudioApp.cpp" line="1348"/>
         <source>Settings file not writable</source>
         <translation>Dateieinstellungen nicht schreibberechtigt</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_app/OpenStudioApp.cpp" line="1165" />
-        <location filename="../src/openstudio_app/OpenStudioApp.cpp" line="1349" />
-        <source>Your settings file '</source>
-        <translation>Ihre Dateieinstellungen '</translation>
+        <location filename="../src/openstudio_app/OpenStudioApp.cpp" line="1165"/>
+        <location filename="../src/openstudio_app/OpenStudioApp.cpp" line="1349"/>
+        <source>Your settings file &apos;</source>
+        <translation>Ihre Dateieinstellungen &apos;</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_app/OpenStudioApp.cpp" line="1165" />
-        <location filename="../src/openstudio_app/OpenStudioApp.cpp" line="1349" />
-        <source>' is not writable. Adjust the file permissions</source>
-        <translation>' ist nicht schreibberechtigt. Passen Sie die Dateiberechtigungen an</translation>
+        <location filename="../src/openstudio_app/OpenStudioApp.cpp" line="1165"/>
+        <location filename="../src/openstudio_app/OpenStudioApp.cpp" line="1349"/>
+        <source>&apos; is not writable. Adjust the file permissions</source>
+        <translation>&apos; ist nicht schreibberechtigt. Passen Sie die Dateiberechtigungen an</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_app/OpenStudioApp.cpp" line="1186" />
-        <location filename="../src/openstudio_app/OpenStudioApp.cpp" line="1198" />
+        <location filename="../src/openstudio_app/OpenStudioApp.cpp" line="1186"/>
+        <location filename="../src/openstudio_app/OpenStudioApp.cpp" line="1198"/>
         <source>Revert to Saved</source>
         <translation>Zur gespeicherten Version zurückkehren</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_app/OpenStudioApp.cpp" line="1186" />
+        <location filename="../src/openstudio_app/OpenStudioApp.cpp" line="1186"/>
         <source>This model has never been saved.
 Do you want to create a new model?</source>
         <translation>Dieses Modell wurde nicht gespeichert.
 Möchten Sie ein neues Modell erstellen?</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_app/OpenStudioApp.cpp" line="1198" />
+        <location filename="../src/openstudio_app/OpenStudioApp.cpp" line="1198"/>
         <source>Are you sure you want to revert to the last saved version?</source>
         <translation>Sind Sie sicher, dass Sie zur letzten gespeicherten Version zurückkehren möchten?</translation>
     </message>
@@ -27276,30 +27277,30 @@ Möchten Sie ein neues Modell erstellen?</translation>
         <translation>Der Measure Manager ist abgestürzt</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_app/OpenStudioApp.cpp" line="1421" />
+        <location filename="../src/openstudio_app/OpenStudioApp.cpp" line="1421"/>
         <source>Restart required</source>
         <translation>Neustart erforderlich</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_app/OpenStudioApp.cpp" line="1422" />
+        <location filename="../src/openstudio_app/OpenStudioApp.cpp" line="1422"/>
         <source>A restart of the OpenStudio Application is required for language changes to be fully functionnal.
 Would you like to restart now?</source>
         <translation>Um die Sprachänderung zu übernehmen ist ein Neustart erforderlich. Möchten Sie jetzt neu starten?</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_app/OpenStudioApp.cpp" line="1497" />
+        <location filename="../src/openstudio_app/OpenStudioApp.cpp" line="1497"/>
         <source>Select Library</source>
         <translation>Bibliothek auswählen</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_app/OpenStudioApp.cpp" line="1611" />
+        <location filename="../src/openstudio_app/OpenStudioApp.cpp" line="1611"/>
         <source>Failed to load the following libraries...
 
 </source>
         <translation>Das Laden der folgenden Bibliotheken ist fehlgeschlagen...</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_app/OpenStudioApp.cpp" line="1619" />
+        <location filename="../src/openstudio_app/OpenStudioApp.cpp" line="1619"/>
         <source>
 
 Would you like to Restore library paths to default values or Open the library settings to change them manually?</source>
@@ -27309,37 +27310,37 @@ Would you like to Restore library paths to default values or Open the library se
 <context>
     <name>openstudio::OtherEquipmentDefinitionInspectorView</name>
     <message>
-        <location filename="../src/openstudio_lib/OtherEquipmentInspectorView.cpp" line="36" />
+        <location filename="../src/openstudio_lib/OtherEquipmentInspectorView.cpp" line="36"/>
         <source>Name: </source>
         <translation>Name:</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/OtherEquipmentInspectorView.cpp" line="45" />
+        <location filename="../src/openstudio_lib/OtherEquipmentInspectorView.cpp" line="45"/>
         <source>Design Level: </source>
         <translation>Auslegungswert:</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/OtherEquipmentInspectorView.cpp" line="55" />
+        <location filename="../src/openstudio_lib/OtherEquipmentInspectorView.cpp" line="55"/>
         <source>Power Per Space Floor Area: </source>
         <translation>Leistung pro Grundfläche:</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/OtherEquipmentInspectorView.cpp" line="65" />
+        <location filename="../src/openstudio_lib/OtherEquipmentInspectorView.cpp" line="65"/>
         <source>Power Per Person: </source>
         <translation>Leistung Pro Person:</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/OtherEquipmentInspectorView.cpp" line="75" />
+        <location filename="../src/openstudio_lib/OtherEquipmentInspectorView.cpp" line="75"/>
         <source>Fraction Latent: </source>
         <translation>Bruchteile latent:</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/OtherEquipmentInspectorView.cpp" line="85" />
+        <location filename="../src/openstudio_lib/OtherEquipmentInspectorView.cpp" line="85"/>
         <source>Fraction Radiant: </source>
         <translation>Strahlungsanteil:</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/OtherEquipmentInspectorView.cpp" line="95" />
+        <location filename="../src/openstudio_lib/OtherEquipmentInspectorView.cpp" line="95"/>
         <source>Fraction Lost: </source>
         <translation>Verlorener Anteil:</translation>
     </message>
@@ -27347,17 +27348,17 @@ Would you like to Restore library paths to default values or Open the library se
 <context>
     <name>openstudio::PathInputView</name>
     <message>
-        <location filename="../src/shared_gui_components/EditView.cpp" line="466" />
+        <location filename="../src/shared_gui_components/EditView.cpp" line="466"/>
         <source>Open Directory</source>
         <translation>Verzeichnis öffnen</translation>
     </message>
     <message>
-        <location filename="../src/shared_gui_components/EditView.cpp" line="469" />
+        <location filename="../src/shared_gui_components/EditView.cpp" line="469"/>
         <source>Open Read File</source>
         <translation>Datei zum Lesen öffnen</translation>
     </message>
     <message>
-        <location filename="../src/shared_gui_components/EditView.cpp" line="471" />
+        <location filename="../src/shared_gui_components/EditView.cpp" line="471"/>
         <source>Select Save File</source>
         <translation>Datei speichern auswählen</translation>
     </message>
@@ -27365,57 +27366,57 @@ Would you like to Restore library paths to default values or Open the library se
 <context>
     <name>openstudio::PeopleDefinitionInspectorView</name>
     <message>
-        <location filename="../src/openstudio_lib/PeopleInspectorView.cpp" line="177" />
+        <location filename="../src/openstudio_lib/PeopleInspectorView.cpp" line="177"/>
         <source>Add/Remove Extensible Groups</source>
         <translation>Untergruppen Hinzufügen/Entfernen</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/PeopleInspectorView.cpp" line="56" />
+        <location filename="../src/openstudio_lib/PeopleInspectorView.cpp" line="56"/>
         <source>Name: </source>
         <translation>Name:</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/PeopleInspectorView.cpp" line="70" />
+        <location filename="../src/openstudio_lib/PeopleInspectorView.cpp" line="70"/>
         <source>Number of People: </source>
         <translation>Anzahl der Personen:</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/PeopleInspectorView.cpp" line="81" />
+        <location filename="../src/openstudio_lib/PeopleInspectorView.cpp" line="81"/>
         <source>People per Space Floor Area: </source>
         <translation>Personen pro Nutzfläche:</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/PeopleInspectorView.cpp" line="93" />
+        <location filename="../src/openstudio_lib/PeopleInspectorView.cpp" line="93"/>
         <source>Space Floor Area per Person: </source>
         <translation>Nutzfläche pro Person:</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/PeopleInspectorView.cpp" line="107" />
+        <location filename="../src/openstudio_lib/PeopleInspectorView.cpp" line="107"/>
         <source>Fraction Radiant: </source>
         <translation>Strahlungsanteil:</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/PeopleInspectorView.cpp" line="118" />
+        <location filename="../src/openstudio_lib/PeopleInspectorView.cpp" line="118"/>
         <source>Sensible Heat Fraction: </source>
         <translation>Sensible Heat Fraction:</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/PeopleInspectorView.cpp" line="129" />
+        <location filename="../src/openstudio_lib/PeopleInspectorView.cpp" line="129"/>
         <source>Carbon Dioxide Generation Rate: </source>
         <translation>Kohlendioxid-Erzeugungsrate:</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/PeopleInspectorView.cpp" line="152" />
+        <location filename="../src/openstudio_lib/PeopleInspectorView.cpp" line="152"/>
         <source>Enable ASHRAE 55 Comfort Warnings:</source>
         <translation>ASHRAE 55-Komfortwarnungen aktivieren:</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/PeopleInspectorView.cpp" line="160" />
+        <location filename="../src/openstudio_lib/PeopleInspectorView.cpp" line="160"/>
         <source>Mean Radiant Temperature Calculation Type:</source>
         <translation>Berechnungstyp für mittlere Strahlungstemperatur:</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/PeopleInspectorView.cpp" line="335" />
+        <location filename="../src/openstudio_lib/PeopleInspectorView.cpp" line="335"/>
         <source>Thermal Comfort Model Type</source>
         <translation>Typ des Wärmekomfortmodells</translation>
     </message>
@@ -27423,17 +27424,17 @@ Would you like to Restore library paths to default values or Open the library se
 <context>
     <name>openstudio::PreviewWebView</name>
     <message>
-        <location filename="../src/openstudio_lib/GeometryPreviewView.cpp" line="174" />
+        <location filename="../src/openstudio_lib/GeometryPreviewView.cpp" line="174"/>
         <source>Refresh</source>
         <translation>Aktualisieren</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/GeometryPreviewView.cpp" line="230" />
+        <location filename="../src/openstudio_lib/GeometryPreviewView.cpp" line="230"/>
         <source>Geometry Diagnostics</source>
         <translation>Geometrie-Diagnose</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/GeometryPreviewView.cpp" line="233" />
+        <location filename="../src/openstudio_lib/GeometryPreviewView.cpp" line="233"/>
         <source>Enables adjacency issues. Enables checks for Surface/Space Convexity, due to this the ThreeJS export is slightly slower</source>
         <translation>Aktiviert Nachbarschaftsprobleme. Aktiviert Überprüfungen für Surface/Space-Konvexität, wodurch der ThreeJS-Export geringfügig langsamer ist</translation>
     </message>
@@ -27441,76 +27442,76 @@ Would you like to Restore library paths to default values or Open the library se
 <context>
     <name>openstudio::RefrigerationCaseGridController</name>
     <message>
-        <location filename="../src/openstudio_lib/RefrigerationGridView.cpp" line="258" />
-        <location filename="../src/openstudio_lib/RefrigerationGridView.cpp" line="267" />
-        <location filename="../src/openstudio_lib/RefrigerationGridView.cpp" line="272" />
+        <location filename="../src/openstudio_lib/RefrigerationGridView.cpp" line="258"/>
+        <location filename="../src/openstudio_lib/RefrigerationGridView.cpp" line="267"/>
+        <location filename="../src/openstudio_lib/RefrigerationGridView.cpp" line="272"/>
         <source>All</source>
         <translation>Alle</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/RefrigerationGridView.cpp" line="258" />
-        <location filename="../src/openstudio_lib/RefrigerationGridView.cpp" line="442" />
-        <location filename="../src/openstudio_lib/RefrigerationGridView.cpp" line="443" />
+        <location filename="../src/openstudio_lib/RefrigerationGridView.cpp" line="258"/>
+        <location filename="../src/openstudio_lib/RefrigerationGridView.cpp" line="442"/>
+        <location filename="../src/openstudio_lib/RefrigerationGridView.cpp" line="443"/>
         <source>Name</source>
         <translation>Name</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/RefrigerationGridView.cpp" line="186" />
-        <location filename="../src/openstudio_lib/RefrigerationGridView.cpp" line="423" />
-        <location filename="../src/openstudio_lib/RefrigerationGridView.cpp" line="425" />
+        <location filename="../src/openstudio_lib/RefrigerationGridView.cpp" line="186"/>
+        <location filename="../src/openstudio_lib/RefrigerationGridView.cpp" line="423"/>
+        <location filename="../src/openstudio_lib/RefrigerationGridView.cpp" line="425"/>
         <source>Thermal Zone</source>
         <translation>Thermische Zone</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/RefrigerationGridView.cpp" line="185" />
-        <location filename="../src/openstudio_lib/RefrigerationGridView.cpp" line="432" />
-        <location filename="../src/openstudio_lib/RefrigerationGridView.cpp" line="434" />
-        <location filename="../src/openstudio_lib/RefrigerationGridView.cpp" line="512" />
+        <location filename="../src/openstudio_lib/RefrigerationGridView.cpp" line="185"/>
+        <location filename="../src/openstudio_lib/RefrigerationGridView.cpp" line="432"/>
+        <location filename="../src/openstudio_lib/RefrigerationGridView.cpp" line="434"/>
+        <location filename="../src/openstudio_lib/RefrigerationGridView.cpp" line="512"/>
         <source>Rack</source>
         <translation>Rack</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/RefrigerationGridView.cpp" line="187" />
-        <location filename="../src/openstudio_lib/RefrigerationGridView.cpp" line="286" />
-        <location filename="../src/openstudio_lib/RefrigerationGridView.cpp" line="287" />
+        <location filename="../src/openstudio_lib/RefrigerationGridView.cpp" line="187"/>
+        <location filename="../src/openstudio_lib/RefrigerationGridView.cpp" line="286"/>
+        <location filename="../src/openstudio_lib/RefrigerationGridView.cpp" line="287"/>
         <source>Case Length</source>
         <translation>Gehäuselänge</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/RefrigerationGridView.cpp" line="189" />
+        <location filename="../src/openstudio_lib/RefrigerationGridView.cpp" line="189"/>
         <source>General</source>
         <translation>Allgemein</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/RefrigerationGridView.cpp" line="200" />
+        <location filename="../src/openstudio_lib/RefrigerationGridView.cpp" line="200"/>
         <source>Operation</source>
         <translation>Betrieb</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/RefrigerationGridView.cpp" line="210" />
+        <location filename="../src/openstudio_lib/RefrigerationGridView.cpp" line="210"/>
         <source>Cooling
 Capacity</source>
         <translation>Kühlleistung</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/RefrigerationGridView.cpp" line="219" />
+        <location filename="../src/openstudio_lib/RefrigerationGridView.cpp" line="219"/>
         <source>Fan</source>
         <translation>Ventilator</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/RefrigerationGridView.cpp" line="230" />
+        <location filename="../src/openstudio_lib/RefrigerationGridView.cpp" line="230"/>
         <source>Lighting</source>
         <translation>Beleuchtung</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/RefrigerationGridView.cpp" line="240" />
+        <location filename="../src/openstudio_lib/RefrigerationGridView.cpp" line="240"/>
         <source>Case
 Anti-Sweat
 Heaters</source>
         <translation>Gehäuse-Antikondenswärmer</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/RefrigerationGridView.cpp" line="249" />
+        <location filename="../src/openstudio_lib/RefrigerationGridView.cpp" line="249"/>
         <source>Defrost
 And
 Restocking</source>
@@ -27519,12 +27520,12 @@ und
 Nachbevorratung</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/RefrigerationGridView.cpp" line="269" />
+        <location filename="../src/openstudio_lib/RefrigerationGridView.cpp" line="269"/>
         <source>Check to select all rows</source>
         <translation>Ankreuzen um alle Zeilen auszuwählen</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/RefrigerationGridView.cpp" line="272" />
+        <location filename="../src/openstudio_lib/RefrigerationGridView.cpp" line="272"/>
         <source>Check to select this row</source>
         <translation>Aktivieren Sie dieses Kontrollkästchen, um diese Zeile auszuwählen</translation>
     </message>
@@ -27532,7 +27533,7 @@ Nachbevorratung</translation>
 <context>
     <name>openstudio::RefrigerationCasesDropZoneView</name>
     <message>
-        <location filename="../src/openstudio_lib/RefrigerationGraphicsItems.cpp" line="970" />
+        <location filename="../src/openstudio_lib/RefrigerationGraphicsItems.cpp" line="970"/>
         <source>Drag and Drop
 Cases</source>
         <translation>Ziehen und ablegen
@@ -27542,14 +27543,14 @@ Kühlmöbel</translation>
 <context>
     <name>openstudio::RefrigerationCasesView</name>
     <message>
-        <location filename="../src/openstudio_lib/RefrigerationGraphicsItems.cpp" line="476" />
+        <location filename="../src/openstudio_lib/RefrigerationGraphicsItems.cpp" line="476"/>
         <source>%1
 Display Cases</source>
         <translation>%1
 Kühlregale</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/RefrigerationGraphicsItems.cpp" line="486" />
+        <location filename="../src/openstudio_lib/RefrigerationGraphicsItems.cpp" line="486"/>
         <source>%1
 Walkin Cases</source>
         <translation>%1
@@ -27559,7 +27560,7 @@ Kühlräume</translation>
 <context>
     <name>openstudio::RefrigerationCompressorDropZoneView</name>
     <message>
-        <location filename="../src/openstudio_lib/RefrigerationGraphicsItems.cpp" line="883" />
+        <location filename="../src/openstudio_lib/RefrigerationGraphicsItems.cpp" line="883"/>
         <source>Drag and Drop
 Compressor</source>
         <translation>Ziehen und ablegen
@@ -27569,7 +27570,7 @@ Kompressor</translation>
 <context>
     <name>openstudio::RefrigerationCondenserView</name>
     <message>
-        <location filename="../src/openstudio_lib/RefrigerationGraphicsItems.cpp" line="769" />
+        <location filename="../src/openstudio_lib/RefrigerationGraphicsItems.cpp" line="769"/>
         <source>Drop Condenser</source>
         <translation>Kondensator ablegen</translation>
     </message>
@@ -27577,25 +27578,25 @@ Kompressor</translation>
 <context>
     <name>openstudio::RefrigerationGridView</name>
     <message>
-        <location filename="../src/openstudio_lib/RefrigerationGridView.cpp" line="142" />
-        <location filename="../src/openstudio_lib/RefrigerationGridView.cpp" line="143" />
+        <location filename="../src/openstudio_lib/RefrigerationGridView.cpp" line="142"/>
+        <location filename="../src/openstudio_lib/RefrigerationGridView.cpp" line="143"/>
         <source>Display Cases</source>
         <translation>Vitrinen</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/RefrigerationGridView.cpp" line="143" />
+        <location filename="../src/openstudio_lib/RefrigerationGridView.cpp" line="143"/>
         <source>Drop
 Case</source>
         <translation>Groß-/Kleinschreibung entfernen</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/RefrigerationGridView.cpp" line="153" />
-        <location filename="../src/openstudio_lib/RefrigerationGridView.cpp" line="154" />
+        <location filename="../src/openstudio_lib/RefrigerationGridView.cpp" line="153"/>
+        <location filename="../src/openstudio_lib/RefrigerationGridView.cpp" line="154"/>
         <source>Walk Ins</source>
         <translation>Begehbare Kühlräume</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/RefrigerationGridView.cpp" line="154" />
+        <location filename="../src/openstudio_lib/RefrigerationGridView.cpp" line="154"/>
         <source>Drop
 Walk In</source>
         <translation>Drop
@@ -27605,7 +27606,7 @@ Begehbar</translation>
 <context>
     <name>openstudio::RefrigerationSHXView</name>
     <message>
-        <location filename="../src/openstudio_lib/RefrigerationGraphicsItems.cpp" line="1096" />
+        <location filename="../src/openstudio_lib/RefrigerationGraphicsItems.cpp" line="1096"/>
         <source>Drop Liquid Suction HX</source>
         <translation>Flüssig-Saug-Wärmetauscher ablegen</translation>
     </message>
@@ -27613,7 +27614,7 @@ Begehbar</translation>
 <context>
     <name>openstudio::RefrigerationSubCoolerView</name>
     <message>
-        <location filename="../src/openstudio_lib/RefrigerationGraphicsItems.cpp" line="1001" />
+        <location filename="../src/openstudio_lib/RefrigerationGraphicsItems.cpp" line="1001"/>
         <source>Drop Mechanical Sub Cooler</source>
         <translation>Mechanischen Nachkühler ablegen</translation>
     </message>
@@ -27621,7 +27622,7 @@ Begehbar</translation>
 <context>
     <name>openstudio::RefrigerationSystemDropZoneView</name>
     <message>
-        <location filename="../src/openstudio_lib/RefrigerationGraphicsItems.cpp" line="1327" />
+        <location filename="../src/openstudio_lib/RefrigerationGraphicsItems.cpp" line="1327"/>
         <source>Drop Refrigeration System</source>
         <translation>Kälteanlage entfernen</translation>
     </message>
@@ -27629,86 +27630,86 @@ Begehbar</translation>
 <context>
     <name>openstudio::RefrigerationWalkInGridController</name>
     <message>
-        <location filename="../src/openstudio_lib/RefrigerationGridView.cpp" line="622" />
-        <location filename="../src/openstudio_lib/RefrigerationGridView.cpp" line="750" />
-        <location filename="../src/openstudio_lib/RefrigerationGridView.cpp" line="751" />
+        <location filename="../src/openstudio_lib/RefrigerationGridView.cpp" line="622"/>
+        <location filename="../src/openstudio_lib/RefrigerationGridView.cpp" line="750"/>
+        <location filename="../src/openstudio_lib/RefrigerationGridView.cpp" line="751"/>
         <source>Name</source>
         <translation>Name</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/RefrigerationGridView.cpp" line="533" />
-        <location filename="../src/openstudio_lib/RefrigerationGridView.cpp" line="764" />
-        <location filename="../src/openstudio_lib/RefrigerationGridView.cpp" line="766" />
+        <location filename="../src/openstudio_lib/RefrigerationGridView.cpp" line="533"/>
+        <location filename="../src/openstudio_lib/RefrigerationGridView.cpp" line="764"/>
+        <location filename="../src/openstudio_lib/RefrigerationGridView.cpp" line="766"/>
         <source>Thermal Zone</source>
         <translation>Thermische Zone</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/RefrigerationGridView.cpp" line="532" />
-        <location filename="../src/openstudio_lib/RefrigerationGridView.cpp" line="754" />
-        <location filename="../src/openstudio_lib/RefrigerationGridView.cpp" line="756" />
-        <location filename="../src/openstudio_lib/RefrigerationGridView.cpp" line="880" />
+        <location filename="../src/openstudio_lib/RefrigerationGridView.cpp" line="532"/>
+        <location filename="../src/openstudio_lib/RefrigerationGridView.cpp" line="754"/>
+        <location filename="../src/openstudio_lib/RefrigerationGridView.cpp" line="756"/>
+        <location filename="../src/openstudio_lib/RefrigerationGridView.cpp" line="880"/>
         <source>Rack</source>
         <translation>Rack</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/RefrigerationGridView.cpp" line="535" />
+        <location filename="../src/openstudio_lib/RefrigerationGridView.cpp" line="535"/>
         <source>General</source>
         <translation>Allgemein</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/RefrigerationGridView.cpp" line="544" />
+        <location filename="../src/openstudio_lib/RefrigerationGridView.cpp" line="544"/>
         <source>Dimensions</source>
         <translation>Abmessungen</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/RefrigerationGridView.cpp" line="555" />
+        <location filename="../src/openstudio_lib/RefrigerationGridView.cpp" line="555"/>
         <source>Construction</source>
         <translation>Konstruktion</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/RefrigerationGridView.cpp" line="566" />
+        <location filename="../src/openstudio_lib/RefrigerationGridView.cpp" line="566"/>
         <source>Operation</source>
         <translation>Betrieb</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/RefrigerationGridView.cpp" line="575" />
+        <location filename="../src/openstudio_lib/RefrigerationGridView.cpp" line="575"/>
         <source>Fans</source>
         <translation>Ventilatoren</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/RefrigerationGridView.cpp" line="584" />
+        <location filename="../src/openstudio_lib/RefrigerationGridView.cpp" line="584"/>
         <source>Lighting</source>
         <translation>Beleuchtung</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/RefrigerationGridView.cpp" line="593" />
+        <location filename="../src/openstudio_lib/RefrigerationGridView.cpp" line="593"/>
         <source>Heating</source>
         <translation>Heizung</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/RefrigerationGridView.cpp" line="604" />
+        <location filename="../src/openstudio_lib/RefrigerationGridView.cpp" line="604"/>
         <source>Defrost</source>
         <translation>Abtauen</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/RefrigerationGridView.cpp" line="613" />
+        <location filename="../src/openstudio_lib/RefrigerationGridView.cpp" line="613"/>
         <source>Restocking</source>
         <translation>Wiederauffüllung</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/RefrigerationGridView.cpp" line="622" />
-        <location filename="../src/openstudio_lib/RefrigerationGridView.cpp" line="634" />
-        <location filename="../src/openstudio_lib/RefrigerationGridView.cpp" line="639" />
+        <location filename="../src/openstudio_lib/RefrigerationGridView.cpp" line="622"/>
+        <location filename="../src/openstudio_lib/RefrigerationGridView.cpp" line="634"/>
+        <location filename="../src/openstudio_lib/RefrigerationGridView.cpp" line="639"/>
         <source>All</source>
         <translation>Alle</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/RefrigerationGridView.cpp" line="636" />
+        <location filename="../src/openstudio_lib/RefrigerationGridView.cpp" line="636"/>
         <source>Check to select all rows</source>
         <translation>Ankreuzen um alle Zeilen auszuwählen</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/RefrigerationGridView.cpp" line="639" />
+        <location filename="../src/openstudio_lib/RefrigerationGridView.cpp" line="639"/>
         <source>Check to select this row</source>
         <translation>Aktivieren Sie dieses Kontrollkästchen, um diese Zeile auszuwählen</translation>
     </message>
@@ -27716,7 +27717,7 @@ Begehbar</translation>
 <context>
     <name>openstudio::ResultsTabController</name>
     <message>
-        <location filename="../src/openstudio_lib/ResultsTabController.cpp" line="13" />
+        <location filename="../src/openstudio_lib/ResultsTabController.cpp" line="13"/>
         <source>Results Summary</source>
         <translation>Zusammenfassung der Ergebnisse</translation>
     </message>
@@ -27724,46 +27725,56 @@ Begehbar</translation>
 <context>
     <name>openstudio::ResultsView</name>
     <message>
-        <location filename="../src/openstudio_lib/ResultsTabView.cpp" line="51" />
+        <location filename="../src/openstudio_lib/ResultsTabView.cpp" line="51"/>
         <source>Refresh</source>
         <translation>Aktualisieren</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/ResultsTabView.cpp" line="52" />
+        <location filename="../src/openstudio_lib/ResultsTabView.cpp" line="52"/>
         <source>Open DView for
 Detailed Reports</source>
         <translation>DView öffnen für
 Detaillierte Berichte</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/ResultsTabView.cpp" line="63" />
+        <location filename="../src/openstudio_lib/ResultsTabView.cpp" line="63"/>
         <source>Reports: </source>
         <translation>Berichte:</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/ResultsTabView.cpp" line="84" />
+        <location filename="../src/openstudio_lib/ResultsTabView.cpp" line="84"/>
         <source>Set Path to DView
 in Preferences</source>
         <translation>Pfad zu DView in den Einstellungen festlegen</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/ResultsTabView.cpp" line="144" />
+        <location filename="../src/openstudio_lib/ResultsTabView.cpp" line="131"/>
+        <source>Units Conversion</source>
+        <translation>Einheitenkonvertierung</translation>
+    </message>
+    <message>
+        <location filename="../src/openstudio_lib/ResultsTabView.cpp" line="132"/>
+        <source>Would you like to display your Energy+ data in IP units?</source>
+        <translation>Möchten Sie Ihre Energy+-Daten in IP-Einheiten anzeigen?</translation>
+    </message>
+    <message>
+        <location filename="../src/openstudio_lib/ResultsTabView.cpp" line="142"/>
         <source>Unable to launch DView</source>
         <translation>Fehler beim Starten von DView</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/ResultsTabView.cpp" line="145" />
+        <location filename="../src/openstudio_lib/ResultsTabView.cpp" line="143"/>
         <source>DView was not found in the expected location:
 </source>
         <translation>DView wurde nicht am erwarteten Ort gefunden:</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/ResultsTabView.cpp" line="305" />
+        <location filename="../src/openstudio_lib/ResultsTabView.cpp" line="303"/>
         <source>EnergyPlus Results</source>
         <translation>EnergyPlus Ergebnisse</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/ResultsTabView.cpp" line="319" />
+        <location filename="../src/openstudio_lib/ResultsTabView.cpp" line="317"/>
         <source>Custom Report %1</source>
         <translation>Benutzerdefinierter Bericht %1</translation>
     </message>
@@ -27775,7 +27786,7 @@ in Preferences</source>
 <context>
     <name>openstudio::RunTabView</name>
     <message>
-        <location filename="../src/openstudio_lib/RunTabView.cpp" line="76" />
+        <location filename="../src/openstudio_lib/RunTabView.cpp" line="76"/>
         <source>Run Simulation</source>
         <translation>Simulation ausführen</translation>
     </message>
@@ -27783,112 +27794,112 @@ in Preferences</source>
 <context>
     <name>openstudio::RunView</name>
     <message>
-        <location filename="../src/openstudio_lib/RunTabView.cpp" line="179" />
+        <location filename="../src/openstudio_lib/RunTabView.cpp" line="179"/>
         <source>onRunProcessErrored: Simulation failed to run, QProcess::ProcessError: </source>
         <translation>onRunProcessErrored: Simulation konnte nicht ausgeführt werden, QProcess::ProcessError:</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/RunTabView.cpp" line="192" />
+        <location filename="../src/openstudio_lib/RunTabView.cpp" line="192"/>
         <source>Simulation failed to run, with exit code </source>
         <translation>Simulation konnte nicht ausgeführt werden, Exitcode</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/RunTabView.cpp" line="87" />
+        <location filename="../src/openstudio_lib/RunTabView.cpp" line="87"/>
         <source>Run</source>
         <translation>Ausführen</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/RunTabView.cpp" line="114" />
+        <location filename="../src/openstudio_lib/RunTabView.cpp" line="114"/>
         <source>Verbose</source>
         <translation>Ausführlich</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/RunTabView.cpp" line="121" />
+        <location filename="../src/openstudio_lib/RunTabView.cpp" line="121"/>
         <source>Classic CLI</source>
         <translation>Klassische CLI</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/RunTabView.cpp" line="127" />
+        <location filename="../src/openstudio_lib/RunTabView.cpp" line="127"/>
         <source>Show Simulation</source>
         <translation>Simulation anzeigen</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/RunTabView.cpp" line="172" />
+        <location filename="../src/openstudio_lib/RunTabView.cpp" line="172"/>
         <source>Unable to open simulation</source>
         <translation>Simulation konnte nicht geöffnet werden</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/RunTabView.cpp" line="172" />
+        <location filename="../src/openstudio_lib/RunTabView.cpp" line="172"/>
         <source>Please save the OpenStudio Model to view the simulation.</source>
         <translation>Bitte speichern Sie das OpenStudio-Modell, um die Simulation anzuzeigen.</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/RunTabView.cpp" line="321" />
+        <location filename="../src/openstudio_lib/RunTabView.cpp" line="321"/>
         <source>Could not open socket connection to OpenStudio Classic CLI.</source>
         <translation>Socketverbindung zu OpenStudio Classic CLI konnte nicht geöffnet werden.</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/RunTabView.cpp" line="323" />
+        <location filename="../src/openstudio_lib/RunTabView.cpp" line="323"/>
         <source>Falling back to stdout/stderr parsing, live updates might be slower.</source>
         <translation>Fallback auf stdout/stderr-Parsing, Live-Updates könnten langsamer sein.</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/RunTabView.cpp" line="333" />
+        <location filename="../src/openstudio_lib/RunTabView.cpp" line="333"/>
         <source>Aborted</source>
         <translation>Abgebrochen</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/RunTabView.cpp" line="457" />
+        <location filename="../src/openstudio_lib/RunTabView.cpp" line="457"/>
         <source>Initializing workflow.</source>
         <translation>Workflow wird initialisiert.</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/RunTabView.cpp" line="468" />
+        <location filename="../src/openstudio_lib/RunTabView.cpp" line="468"/>
         <source>The classic command is deprecated and will be removed in a future release.</source>
         <translation>Der klassische Befehl ist veraltet und wird in einer zukünftigen Version entfernt.</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/RunTabView.cpp" line="485" />
+        <location filename="../src/openstudio_lib/RunTabView.cpp" line="485"/>
         <source>Processing OpenStudio Measures.</source>
         <translation>OpenStudio-Maßnahmen werden verarbeitet.</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/RunTabView.cpp" line="498" />
+        <location filename="../src/openstudio_lib/RunTabView.cpp" line="498"/>
         <source>Translating the OpenStudio Model to EnergyPlus.</source>
         <translation>OpenStudio-Modell wird zu EnergyPlus übersetzt.</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/RunTabView.cpp" line="510" />
+        <location filename="../src/openstudio_lib/RunTabView.cpp" line="510"/>
         <source>Processing EnergyPlus Measures.</source>
         <translation>EnergyPlus-Measures werden verarbeitet.</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/RunTabView.cpp" line="523" />
+        <location filename="../src/openstudio_lib/RunTabView.cpp" line="523"/>
         <source>Adding Simulation Output Requests.</source>
         <translation>Simulationsausgabeanforderungen hinzufügen.</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/RunTabView.cpp" line="535" />
+        <location filename="../src/openstudio_lib/RunTabView.cpp" line="535"/>
         <source>Starting EnergyPlus Simulation.</source>
         <translation>Starte EnergyPlus-Simulation.</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/RunTabView.cpp" line="548" />
+        <location filename="../src/openstudio_lib/RunTabView.cpp" line="548"/>
         <source>Processing Reporting Measures.</source>
         <translation>Bearbeitung der Berichtsmassnahmen.</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/RunTabView.cpp" line="560" />
+        <location filename="../src/openstudio_lib/RunTabView.cpp" line="560"/>
         <source>Gathering Reports.</source>
         <translation>Berichte werden zusammengefasst.</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/RunTabView.cpp" line="606" />
+        <location filename="../src/openstudio_lib/RunTabView.cpp" line="606"/>
         <source>Failed.</source>
         <translation>Fehlgeschlagen.</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/RunTabView.cpp" line="609" />
+        <location filename="../src/openstudio_lib/RunTabView.cpp" line="609"/>
         <source>Completed.</source>
         <translation>Abgeschlossen.</translation>
     </message>
@@ -27896,12 +27907,12 @@ in Preferences</source>
 <context>
     <name>openstudio::ScheduleCompactInspectorView</name>
     <message>
-        <location filename="../src/openstudio_lib/ScheduleCompactInspectorView.cpp" line="51" />
+        <location filename="../src/openstudio_lib/ScheduleCompactInspectorView.cpp" line="51"/>
         <source>Name: </source>
         <translation>Name:</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/ScheduleCompactInspectorView.cpp" line="64" />
+        <location filename="../src/openstudio_lib/ScheduleCompactInspectorView.cpp" line="64"/>
         <source>Content: </source>
         <translation>Inhalt</translation>
     </message>
@@ -27909,12 +27920,12 @@ in Preferences</source>
 <context>
     <name>openstudio::ScheduleConstantInspectorView</name>
     <message>
-        <location filename="../src/openstudio_lib/ScheduleConstantInspectorView.cpp" line="47" />
+        <location filename="../src/openstudio_lib/ScheduleConstantInspectorView.cpp" line="47"/>
         <source>Name: </source>
         <translation>Name:</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/ScheduleConstantInspectorView.cpp" line="60" />
+        <location filename="../src/openstudio_lib/ScheduleConstantInspectorView.cpp" line="60"/>
         <source>Value: </source>
         <translation>Wert:</translation>
     </message>
@@ -27926,22 +27937,22 @@ in Preferences</source>
 <context>
     <name>openstudio::ScheduleDayView</name>
     <message>
-        <location filename="../src/openstudio_lib/ScheduleDayView.cpp" line="114" />
+        <location filename="../src/openstudio_lib/ScheduleDayView.cpp" line="114"/>
         <source>Schedule Day Name:</source>
         <translation>Zeitplantagname:</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/ScheduleDayView.cpp" line="158" />
+        <location filename="../src/openstudio_lib/ScheduleDayView.cpp" line="158"/>
         <source>Hourly</source>
         <translation>Stündlich</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/ScheduleDayView.cpp" line="171" />
+        <location filename="../src/openstudio_lib/ScheduleDayView.cpp" line="171"/>
         <source>15 Minutes</source>
         <translation>15 Minuten</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/ScheduleDayView.cpp" line="184" />
+        <location filename="../src/openstudio_lib/ScheduleDayView.cpp" line="184"/>
         <source>1 Minute</source>
         <translation>1 Minute</translation>
     </message>
@@ -27949,44 +27960,44 @@ in Preferences</source>
 <context>
     <name>openstudio::ScheduleDialog</name>
     <message>
-        <location filename="../src/openstudio_lib/ScheduleDialog.cpp" line="94" />
+        <location filename="../src/openstudio_lib/ScheduleDialog.cpp" line="94"/>
         <source>Apply</source>
         <translation>Anwenden</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/ScheduleDialog.cpp" line="121" />
+        <location filename="../src/openstudio_lib/ScheduleDialog.cpp" line="121"/>
         <source>Define New Schedule</source>
         <translation>Neuen Zeitplan definieren</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/ScheduleDialog.cpp" line="139" />
+        <location filename="../src/openstudio_lib/ScheduleDialog.cpp" line="139"/>
         <source>Schedule Type</source>
         <translation>Zeitplantyp</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/ScheduleDialog.cpp" line="171" />
+        <location filename="../src/openstudio_lib/ScheduleDialog.cpp" line="171"/>
         <source>Numeric Type: </source>
         <translation>Numerischer Typ:</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/ScheduleDialog.cpp" line="189" />
+        <location filename="../src/openstudio_lib/ScheduleDialog.cpp" line="189"/>
         <source>Lower Limit: </source>
         <translation>Untere Grenze:</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/ScheduleDialog.cpp" line="207" />
+        <location filename="../src/openstudio_lib/ScheduleDialog.cpp" line="207"/>
         <source>Upper Limit: </source>
         <translation>Obergrenze:</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/ScheduleDialog.cpp" line="251" />
+        <location filename="../src/openstudio_lib/ScheduleDialog.cpp" line="251"/>
         <source>unitless</source>
         <translation>einheitslos</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/ScheduleDialog.cpp" line="267" />
-        <location filename="../src/openstudio_lib/ScheduleDialog.cpp" line="291" />
-        <location filename="../src/openstudio_lib/ScheduleDialog.cpp" line="313" />
+        <location filename="../src/openstudio_lib/ScheduleDialog.cpp" line="267"/>
+        <location filename="../src/openstudio_lib/ScheduleDialog.cpp" line="291"/>
+        <location filename="../src/openstudio_lib/ScheduleDialog.cpp" line="313"/>
         <source>None</source>
         <translation>Keine</translation>
     </message>
@@ -27994,87 +28005,87 @@ in Preferences</source>
 <context>
     <name>openstudio::ScheduleFileInspectorView</name>
     <message>
-        <location filename="../src/openstudio_lib/ScheduleFileInspectorView.cpp" line="59" />
+        <location filename="../src/openstudio_lib/ScheduleFileInspectorView.cpp" line="59"/>
         <source>Name: </source>
         <translation>Name:</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/ScheduleFileInspectorView.cpp" line="71" />
+        <location filename="../src/openstudio_lib/ScheduleFileInspectorView.cpp" line="71"/>
         <source>FilePath: </source>
         <translation>Dateipfad:</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/ScheduleFileInspectorView.cpp" line="88" />
+        <location filename="../src/openstudio_lib/ScheduleFileInspectorView.cpp" line="88"/>
         <source>Column Number: </source>
         <translation>Spaltennummer:</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/ScheduleFileInspectorView.cpp" line="100" />
+        <location filename="../src/openstudio_lib/ScheduleFileInspectorView.cpp" line="100"/>
         <source>Rows to Skip at Top: </source>
         <translation>Zeilen am Anfang überspringen:</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/ScheduleFileInspectorView.cpp" line="117" />
+        <location filename="../src/openstudio_lib/ScheduleFileInspectorView.cpp" line="117"/>
         <source>Number of Hours of Data: </source>
         <translation>Anzahl der Datenstunden:</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/ScheduleFileInspectorView.cpp" line="129" />
+        <location filename="../src/openstudio_lib/ScheduleFileInspectorView.cpp" line="129"/>
         <source>Column Separator: </source>
         <translation>Spaltentrenner:</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/ScheduleFileInspectorView.cpp" line="134" />
+        <location filename="../src/openstudio_lib/ScheduleFileInspectorView.cpp" line="134"/>
         <source>Comma</source>
         <translation>Komma</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/ScheduleFileInspectorView.cpp" line="135" />
+        <location filename="../src/openstudio_lib/ScheduleFileInspectorView.cpp" line="135"/>
         <source>Tab</source>
         <translation>Reiter</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/ScheduleFileInspectorView.cpp" line="136" />
+        <location filename="../src/openstudio_lib/ScheduleFileInspectorView.cpp" line="136"/>
         <source>Space</source>
         <translation>Raum</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/ScheduleFileInspectorView.cpp" line="137" />
+        <location filename="../src/openstudio_lib/ScheduleFileInspectorView.cpp" line="137"/>
         <source>Semicolon</source>
         <translation>Semikolon</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/ScheduleFileInspectorView.cpp" line="148" />
+        <location filename="../src/openstudio_lib/ScheduleFileInspectorView.cpp" line="148"/>
         <source>Interpolate to Timestep: </source>
         <translation>Auf Zeitschritt interpolieren:</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/ScheduleFileInspectorView.cpp" line="160" />
+        <location filename="../src/openstudio_lib/ScheduleFileInspectorView.cpp" line="160"/>
         <source>Minutes per Item: </source>
         <translation>Minuten pro Element:</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/ScheduleFileInspectorView.cpp" line="175" />
+        <location filename="../src/openstudio_lib/ScheduleFileInspectorView.cpp" line="175"/>
         <source>Adjust Schedule for Daylight Savings: </source>
         <translation>Zeitplan für Sommerzeit anpassen:</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/ScheduleFileInspectorView.cpp" line="187" />
+        <location filename="../src/openstudio_lib/ScheduleFileInspectorView.cpp" line="187"/>
         <source>Translate File With Relative Path: </source>
         <translation>Datei mit relativem Pfad übersetzen:</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/ScheduleFileInspectorView.cpp" line="204" />
+        <location filename="../src/openstudio_lib/ScheduleFileInspectorView.cpp" line="204"/>
         <source>Content: </source>
         <translation>Inhalt</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/ScheduleFileInspectorView.cpp" line="210" />
+        <location filename="../src/openstudio_lib/ScheduleFileInspectorView.cpp" line="210"/>
         <source>Number of Lines in file: </source>
         <translation>Anzahl der Zeilen in der Datei:</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/ScheduleFileInspectorView.cpp" line="225" />
+        <location filename="../src/openstudio_lib/ScheduleFileInspectorView.cpp" line="225"/>
         <source>Display All File Content: </source>
         <translation>Alle Dateiinhalte anzeigen:</translation>
     </message>
@@ -28082,12 +28093,12 @@ in Preferences</source>
 <context>
     <name>openstudio::ScheduleLimitsView</name>
     <message>
-        <location filename="../src/openstudio_lib/ScheduleDayView.cpp" line="422" />
+        <location filename="../src/openstudio_lib/ScheduleDayView.cpp" line="422"/>
         <source>Lower Limit: </source>
         <translation>Untere Grenze:</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/ScheduleDayView.cpp" line="435" />
+        <location filename="../src/openstudio_lib/ScheduleDayView.cpp" line="435"/>
         <source>Upper Limit: </source>
         <translation>Obergrenze:</translation>
     </message>
@@ -28095,22 +28106,22 @@ in Preferences</source>
 <context>
     <name>openstudio::ScheduleOthersController</name>
     <message>
-        <location filename="../src/openstudio_lib/ScheduleOthersController.cpp" line="40" />
+        <location filename="../src/openstudio_lib/ScheduleOthersController.cpp" line="40"/>
         <source>CSV Files(*.csv)</source>
         <translation>CSV-Dateien(*.csv)</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/ScheduleOthersController.cpp" line="41" />
+        <location filename="../src/openstudio_lib/ScheduleOthersController.cpp" line="41"/>
         <source>Select External File</source>
         <translation>Externe Datei auswählen</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/ScheduleOthersController.cpp" line="42" />
+        <location filename="../src/openstudio_lib/ScheduleOthersController.cpp" line="42"/>
         <source>All files (*.*);;CSV Files(*.csv);;TSV Files(*.tsv)</source>
         <translation>Alle Dateien (*.*);;CSV-Dateien(*.csv);;TSV-Dateien(*.tsv)</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/ScheduleOthersController.cpp" line="35" />
+        <location filename="../src/openstudio_lib/ScheduleOthersController.cpp" line="35"/>
         <source>Creation of Schedule:Compact is not supported, you should use a ScheduleRuleset instead</source>
         <translation>Die Erstellung von Schedule:Compact wird nicht unterstützt. Verwenden Sie stattdessen ein ScheduleRuleset.</translation>
     </message>
@@ -28118,17 +28129,17 @@ in Preferences</source>
 <context>
     <name>openstudio::ScheduleOthersView</name>
     <message>
-        <location filename="../src/openstudio_lib/ScheduleOthersView.cpp" line="29" />
+        <location filename="../src/openstudio_lib/ScheduleOthersView.cpp" line="29"/>
         <source>Schedule Constant</source>
         <translation>Zeitplan Konstante</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/ScheduleOthersView.cpp" line="30" />
+        <location filename="../src/openstudio_lib/ScheduleOthersView.cpp" line="30"/>
         <source>Schedule Compact</source>
         <translation>Schedule Compact</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/ScheduleOthersView.cpp" line="31" />
+        <location filename="../src/openstudio_lib/ScheduleOthersView.cpp" line="31"/>
         <source>Schedule File</source>
         <translation>Zeitplandatei</translation>
     </message>
@@ -28136,58 +28147,58 @@ in Preferences</source>
 <context>
     <name>openstudio::ScheduleRuleView</name>
     <message>
-        <location filename="../src/openstudio_lib/SchedulesView.cpp" line="1552" />
+        <location filename="../src/openstudio_lib/SchedulesView.cpp" line="1552"/>
         <source>Schedule Rule Name:</source>
         <translation>Planungsregelname:</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/SchedulesView.cpp" line="1567" />
+        <location filename="../src/openstudio_lib/SchedulesView.cpp" line="1567"/>
         <source>Date Range:</source>
         <translation>Datumsbereich:</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/SchedulesView.cpp" line="1585" />
+        <location filename="../src/openstudio_lib/SchedulesView.cpp" line="1585"/>
         <source>Apply to:</source>
         <translation>Anwenden auf:</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/SchedulesView.cpp" line="1591" />
+        <location filename="../src/openstudio_lib/SchedulesView.cpp" line="1591"/>
         <source>S</source>
         <comment>Sunday abbreviation</comment>
         <translation>S</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/SchedulesView.cpp" line="1599" />
+        <location filename="../src/openstudio_lib/SchedulesView.cpp" line="1599"/>
         <source>M</source>
         <comment>Monday abbreviation</comment>
         <translation>L</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/SchedulesView.cpp" line="1607" />
+        <location filename="../src/openstudio_lib/SchedulesView.cpp" line="1607"/>
         <source>T</source>
         <comment>Tuesday abbreviation</comment>
         <translation>J</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/SchedulesView.cpp" line="1615" />
+        <location filename="../src/openstudio_lib/SchedulesView.cpp" line="1615"/>
         <source>W</source>
         <comment>Wednesday abbreviation</comment>
         <translation>X</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/SchedulesView.cpp" line="1624" />
+        <location filename="../src/openstudio_lib/SchedulesView.cpp" line="1624"/>
         <source>T</source>
         <comment>Thursday abbreviation</comment>
         <translation>J</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/SchedulesView.cpp" line="1633" />
+        <location filename="../src/openstudio_lib/SchedulesView.cpp" line="1633"/>
         <source>F</source>
         <comment>Friday abbreviation</comment>
         <translation>V</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/SchedulesView.cpp" line="1641" />
+        <location filename="../src/openstudio_lib/SchedulesView.cpp" line="1641"/>
         <source>S</source>
         <comment>Saturday abbreviation</comment>
         <translation>S</translation>
@@ -28211,25 +28222,25 @@ in Preferences</source>
 <context>
     <name>openstudio::ScheduleRulesetInspectorView</name>
     <message>
-        <location filename="../src/openstudio_lib/InspectorView.cpp" line="2575" />
+        <location filename="../src/openstudio_lib/InspectorView.cpp" line="2575"/>
         <source>Name</source>
         <translation>Name</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/InspectorView.cpp" line="2598" />
+        <location filename="../src/openstudio_lib/InspectorView.cpp" line="2598"/>
         <source>Please use the Schedules tab to inspect this object.</source>
-        <translation>Bitte verwenden Sie die Registerkarte „Zeitpläne", um dieses Objekt zu überprüfen.</translation>
+        <translation>Bitte verwenden Sie die Registerkarte „Zeitpläne&quot;, um dieses Objekt zu überprüfen.</translation>
     </message>
 </context>
 <context>
     <name>openstudio::ScheduleRulesetNameWidget</name>
     <message>
-        <location filename="../src/openstudio_lib/SchedulesView.cpp" line="1768" />
+        <location filename="../src/openstudio_lib/SchedulesView.cpp" line="1768"/>
         <source>Schedule Name:</source>
         <translation>Zeitplanname:</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/SchedulesView.cpp" line="1782" />
+        <location filename="../src/openstudio_lib/SchedulesView.cpp" line="1782"/>
         <source>Schedule Type:</source>
         <translation>Zeitplanatyp:</translation>
     </message>
@@ -28237,62 +28248,62 @@ in Preferences</source>
 <context>
     <name>openstudio::ScheduleSetInspectorView</name>
     <message>
-        <location filename="../src/openstudio_lib/ScheduleSetInspectorView.cpp" line="535" />
+        <location filename="../src/openstudio_lib/ScheduleSetInspectorView.cpp" line="535"/>
         <source>Name</source>
         <translation>Name</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/ScheduleSetInspectorView.cpp" line="564" />
+        <location filename="../src/openstudio_lib/ScheduleSetInspectorView.cpp" line="564"/>
         <source>Default Schedules</source>
         <translation>Standardzeitpläne</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/ScheduleSetInspectorView.cpp" line="572" />
+        <location filename="../src/openstudio_lib/ScheduleSetInspectorView.cpp" line="572"/>
         <source>Hours of Operation</source>
         <translation>Betriebsstunden</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/ScheduleSetInspectorView.cpp" line="582" />
+        <location filename="../src/openstudio_lib/ScheduleSetInspectorView.cpp" line="582"/>
         <source>Number of People</source>
         <translation>Anzahl der Personen</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/ScheduleSetInspectorView.cpp" line="594" />
+        <location filename="../src/openstudio_lib/ScheduleSetInspectorView.cpp" line="594"/>
         <source>People Activity</source>
         <translation>Personenaktivität</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/ScheduleSetInspectorView.cpp" line="604" />
+        <location filename="../src/openstudio_lib/ScheduleSetInspectorView.cpp" line="604"/>
         <source>Lighting</source>
         <translation>Beleuchtung</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/ScheduleSetInspectorView.cpp" line="616" />
+        <location filename="../src/openstudio_lib/ScheduleSetInspectorView.cpp" line="616"/>
         <source>Electric Equipment</source>
         <translation>Elektrische Ausrüstung</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/ScheduleSetInspectorView.cpp" line="626" />
+        <location filename="../src/openstudio_lib/ScheduleSetInspectorView.cpp" line="626"/>
         <source>Gas Equipment</source>
         <translation>Gasausrüstung</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/ScheduleSetInspectorView.cpp" line="638" />
+        <location filename="../src/openstudio_lib/ScheduleSetInspectorView.cpp" line="638"/>
         <source>Hot Water Equipment</source>
         <translation>Warmwasserausrüstung</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/ScheduleSetInspectorView.cpp" line="648" />
+        <location filename="../src/openstudio_lib/ScheduleSetInspectorView.cpp" line="648"/>
         <source>Steam Equipment</source>
         <translation>Dampfausrüstung</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/ScheduleSetInspectorView.cpp" line="660" />
+        <location filename="../src/openstudio_lib/ScheduleSetInspectorView.cpp" line="660"/>
         <source>Other Equipment</source>
         <translation>Sonstige Geräte</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/ScheduleSetInspectorView.cpp" line="670" />
+        <location filename="../src/openstudio_lib/ScheduleSetInspectorView.cpp" line="670"/>
         <source>Infiltration</source>
         <translation>Infiltration</translation>
     </message>
@@ -28300,7 +28311,7 @@ in Preferences</source>
 <context>
     <name>openstudio::ScheduleSetsView</name>
     <message>
-        <location filename="../src/openstudio_lib/ScheduleSetsView.cpp" line="33" />
+        <location filename="../src/openstudio_lib/ScheduleSetsView.cpp" line="33"/>
         <source>Schedule Sets</source>
         <translation>Schedule Sets</translation>
     </message>
@@ -28308,17 +28319,17 @@ in Preferences</source>
 <context>
     <name>openstudio::ScheduleTabContent</name>
     <message>
-        <location filename="../src/openstudio_lib/SchedulesView.cpp" line="837" />
+        <location filename="../src/openstudio_lib/SchedulesView.cpp" line="837"/>
         <source>Special Day Profiles</source>
         <translation>Spezielle Tagesprofile</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/SchedulesView.cpp" line="865" />
+        <location filename="../src/openstudio_lib/SchedulesView.cpp" line="865"/>
         <source>Run Period Profiles</source>
         <translation>Laufzeitprofile</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/SchedulesView.cpp" line="875" />
+        <location filename="../src/openstudio_lib/SchedulesView.cpp" line="875"/>
         <source>Click to add new run period profile</source>
         <translation>Klicken zum Hinzufügen eines neuen Laufzeitprofile</translation>
     </message>
@@ -28326,42 +28337,42 @@ in Preferences</source>
 <context>
     <name>openstudio::ScheduleTabDefault</name>
     <message>
-        <location filename="../src/openstudio_lib/SchedulesView.cpp" line="1086" />
+        <location filename="../src/openstudio_lib/SchedulesView.cpp" line="1086"/>
         <source>Summer Design Day</source>
         <translation>Sommerkühllasttag</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/SchedulesView.cpp" line="1087" />
+        <location filename="../src/openstudio_lib/SchedulesView.cpp" line="1087"/>
         <source>Click to edit summer design day profile</source>
         <translation>Klicken Sie, um das Sommerauslegungstag-Profil zu bearbeiten</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/SchedulesView.cpp" line="1090" />
+        <location filename="../src/openstudio_lib/SchedulesView.cpp" line="1090"/>
         <source>Winter Design Day</source>
         <translation>Wintertag für die Auslegung</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/SchedulesView.cpp" line="1091" />
+        <location filename="../src/openstudio_lib/SchedulesView.cpp" line="1091"/>
         <source>Click to edit winter design day profile</source>
         <translation>Klicken Sie, um das Winterdesign-Tag-Profil zu bearbeiten</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/SchedulesView.cpp" line="1094" />
+        <location filename="../src/openstudio_lib/SchedulesView.cpp" line="1094"/>
         <source>Holiday</source>
         <translation>Feiertag</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/SchedulesView.cpp" line="1095" />
+        <location filename="../src/openstudio_lib/SchedulesView.cpp" line="1095"/>
         <source>Click to edit holiday profile</source>
         <translation>Klicken Sie zum Bearbeiten des Feiertagsprofils</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/SchedulesView.cpp" line="1098" />
+        <location filename="../src/openstudio_lib/SchedulesView.cpp" line="1098"/>
         <source>Default</source>
         <translation>Standard</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/SchedulesView.cpp" line="1099" />
+        <location filename="../src/openstudio_lib/SchedulesView.cpp" line="1099"/>
         <source>Click to edit default profile</source>
         <translation>Klicken Sie, um das Standardprofil zu bearbeiten</translation>
     </message>
@@ -28369,12 +28380,12 @@ in Preferences</source>
 <context>
     <name>openstudio::ScheduledSPMView</name>
     <message>
-        <location filename="../src/openstudio_lib/HVACSystemsView.cpp" line="775" />
+        <location filename="../src/openstudio_lib/HVACSystemsView.cpp" line="775"/>
         <source>Supply temperature is controlled by a scheduled setpoint manager.</source>
         <translation>Die Zulufttemperatur wird durch einen Setpoint-Manager mit Zeitplan gesteuert.</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/HVACSystemsView.cpp" line="778" />
+        <location filename="../src/openstudio_lib/HVACSystemsView.cpp" line="778"/>
         <source>Supply Temperature Schedule</source>
         <translation>Versorgungstemperatur-Zeitplan</translation>
     </message>
@@ -28382,17 +28393,17 @@ in Preferences</source>
 <context>
     <name>openstudio::SchedulesTabController</name>
     <message>
-        <location filename="../src/openstudio_lib/SchedulesTabController.cpp" line="50" />
+        <location filename="../src/openstudio_lib/SchedulesTabController.cpp" line="50"/>
         <source>Schedule Sets</source>
         <translation>Schedule Sets</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/SchedulesTabController.cpp" line="51" />
+        <location filename="../src/openstudio_lib/SchedulesTabController.cpp" line="51"/>
         <source>Schedules</source>
         <translation>Zeitpläne</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/SchedulesTabController.cpp" line="52" />
+        <location filename="../src/openstudio_lib/SchedulesTabController.cpp" line="52"/>
         <source>Other Schedules</source>
         <translation>Andere Zeitpläne</translation>
     </message>
@@ -28400,7 +28411,7 @@ in Preferences</source>
 <context>
     <name>openstudio::SchedulesTabView</name>
     <message>
-        <location filename="../src/openstudio_lib/SchedulesTabView.cpp" line="10" />
+        <location filename="../src/openstudio_lib/SchedulesTabView.cpp" line="10"/>
         <source>Schedules</source>
         <translation>Zeitpläne</translation>
     </message>
@@ -28408,17 +28419,17 @@ in Preferences</source>
 <context>
     <name>openstudio::ScriptsTabView</name>
     <message>
-        <location filename="../src/openstudio_lib/ScriptsTabView.cpp" line="25" />
+        <location filename="../src/openstudio_lib/ScriptsTabView.cpp" line="25"/>
         <source>Measures</source>
         <translation>Maßnahmen</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/ScriptsTabView.cpp" line="61" />
+        <location filename="../src/openstudio_lib/ScriptsTabView.cpp" line="61"/>
         <source>Sync Project Measures with Library</source>
         <translation>Projektmaßnahmen mit Bibliothek synchronisieren</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/ScriptsTabView.cpp" line="62" />
+        <location filename="../src/openstudio_lib/ScriptsTabView.cpp" line="62"/>
         <source>Check the Library for Newer Versions of the Measures in Your Project and Provides Sync Option</source>
         <translation>Überprüfen Sie die Bibliothek auf neuere Versionen der Maßnahmen in Ihrem Projekt und bieten Sie Synchronisierungsoptionen</translation>
     </message>
@@ -28426,7 +28437,7 @@ in Preferences</source>
 <context>
     <name>openstudio::SecondaryDropZoneView</name>
     <message>
-        <location filename="../src/openstudio_lib/RefrigerationGraphicsItems.cpp" line="1192" />
+        <location filename="../src/openstudio_lib/RefrigerationGraphicsItems.cpp" line="1192"/>
         <source>Add Cascade or Secondary System</source>
         <translation>Kaskaden- oder Sekundärsystem hinzufügen</translation>
     </message>
@@ -28434,7 +28445,7 @@ in Preferences</source>
 <context>
     <name>openstudio::SimSettingsTabController</name>
     <message>
-        <location filename="../src/openstudio_lib/SimSettingsTabController.cpp" line="18" />
+        <location filename="../src/openstudio_lib/SimSettingsTabController.cpp" line="18"/>
         <source>Simulation Settings</source>
         <translation>Simulationseinstellungen</translation>
     </message>
@@ -28442,461 +28453,461 @@ in Preferences</source>
 <context>
     <name>openstudio::SimSettingsView</name>
     <message>
-        <location filename="../src/openstudio_lib/SimSettingsView.cpp" line="327" />
+        <location filename="../src/openstudio_lib/SimSettingsView.cpp" line="327"/>
         <source>Run Period</source>
         <translation>Simulationszeitraum</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/SimSettingsView.cpp" line="395" />
+        <location filename="../src/openstudio_lib/SimSettingsView.cpp" line="395"/>
         <source>Date Range</source>
         <translation>Zeitraum</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/SimSettingsView.cpp" line="242" />
+        <location filename="../src/openstudio_lib/SimSettingsView.cpp" line="242"/>
         <source>Advanced RunPeriod Parameters</source>
         <translation>Erweiterte RunPeriod-Parameter</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/SimSettingsView.cpp" line="439" />
+        <location filename="../src/openstudio_lib/SimSettingsView.cpp" line="439"/>
         <source>Use Weather File Holidays and Special Days</source>
         <translation>Wetterdatei-Feiertage und Speziale Tage verwenden</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/SimSettingsView.cpp" line="443" />
+        <location filename="../src/openstudio_lib/SimSettingsView.cpp" line="443"/>
         <source>Use Weather File Daylight Savings Period</source>
         <translation>Tageslichtsparzeit-Periode aus Wetterdatei verwenden</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/SimSettingsView.cpp" line="450" />
+        <location filename="../src/openstudio_lib/SimSettingsView.cpp" line="450"/>
         <source>Use Weather File Rain Indicators</source>
         <translation>Wetterdatei-Regenindikatoren verwenden</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/SimSettingsView.cpp" line="452" />
+        <location filename="../src/openstudio_lib/SimSettingsView.cpp" line="452"/>
         <source>Use Weather File Snow Indicators</source>
         <translation>Wetterdatei-Schnee-Indikatoren verwenden</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/SimSettingsView.cpp" line="459" />
+        <location filename="../src/openstudio_lib/SimSettingsView.cpp" line="459"/>
         <source>Apply Weekend Holiday Rule</source>
         <translation>Wochenend-Feiertagsregel anwenden</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/SimSettingsView.cpp" line="246" />
+        <location filename="../src/openstudio_lib/SimSettingsView.cpp" line="246"/>
         <source>Radiance Parameters</source>
         <translation>Radiance-Parameter</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/SimSettingsView.cpp" line="923" />
+        <location filename="../src/openstudio_lib/SimSettingsView.cpp" line="923"/>
         <source>Coarse (Fast, less accurate)</source>
         <translation>Grob (Schnell, weniger genau)</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/SimSettingsView.cpp" line="927" />
+        <location filename="../src/openstudio_lib/SimSettingsView.cpp" line="927"/>
         <source>Fine (Slow, more accurate)</source>
         <translation>Fein (Langsam, genauer)</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/SimSettingsView.cpp" line="931" />
+        <location filename="../src/openstudio_lib/SimSettingsView.cpp" line="931"/>
         <source>Custom</source>
         <translation>Benutzerdefiniert</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/SimSettingsView.cpp" line="943" />
+        <location filename="../src/openstudio_lib/SimSettingsView.cpp" line="943"/>
         <source>Accumulated Rays per Record: </source>
         <translation>Akkumulierte Strahlen pro Datensatz:</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/SimSettingsView.cpp" line="947" />
+        <location filename="../src/openstudio_lib/SimSettingsView.cpp" line="947"/>
         <source>Direct Threshold: </source>
         <translation>Direkter Schwellenwert:</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/SimSettingsView.cpp" line="954" />
+        <location filename="../src/openstudio_lib/SimSettingsView.cpp" line="954"/>
         <source>Direct Certainty: </source>
         <translation>Direkte Gewissheit:</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/SimSettingsView.cpp" line="956" />
+        <location filename="../src/openstudio_lib/SimSettingsView.cpp" line="956"/>
         <source>Direct Jitter: </source>
         <translation>Direktes Jitter:</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/SimSettingsView.cpp" line="963" />
+        <location filename="../src/openstudio_lib/SimSettingsView.cpp" line="963"/>
         <source>Direct Pretest: </source>
         <translation>Direkter Vortest:</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/SimSettingsView.cpp" line="965" />
+        <location filename="../src/openstudio_lib/SimSettingsView.cpp" line="965"/>
         <source>Ambient Bounces VMX: </source>
         <translation>Ambient Bounces VMX:</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/SimSettingsView.cpp" line="972" />
+        <location filename="../src/openstudio_lib/SimSettingsView.cpp" line="972"/>
         <source>Ambient Bounces DMX: </source>
         <translation>Ambient Bounces DMX:</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/SimSettingsView.cpp" line="974" />
+        <location filename="../src/openstudio_lib/SimSettingsView.cpp" line="974"/>
         <source>Ambient Divisions VMX: </source>
         <translation>Ambient Divisions VMX:</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/SimSettingsView.cpp" line="981" />
+        <location filename="../src/openstudio_lib/SimSettingsView.cpp" line="981"/>
         <source>Ambient Divisions DMX: </source>
         <translation>Ambient Divisions DMX:</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/SimSettingsView.cpp" line="983" />
+        <location filename="../src/openstudio_lib/SimSettingsView.cpp" line="983"/>
         <source>Ambient Supersamples: </source>
         <translation>Ambient Übersamples:</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/SimSettingsView.cpp" line="990" />
+        <location filename="../src/openstudio_lib/SimSettingsView.cpp" line="990"/>
         <source>Limit Weight VMX: </source>
         <translation>Gewichtslimit VMX:</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/SimSettingsView.cpp" line="992" />
+        <location filename="../src/openstudio_lib/SimSettingsView.cpp" line="992"/>
         <source>Limit Weight DMX: </source>
         <translation>Limitgewicht DMX:</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/SimSettingsView.cpp" line="999" />
+        <location filename="../src/openstudio_lib/SimSettingsView.cpp" line="999"/>
         <source>Klems Sampling Density: </source>
         <translation>Klems Sampling Density:</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/SimSettingsView.cpp" line="1001" />
+        <location filename="../src/openstudio_lib/SimSettingsView.cpp" line="1001"/>
         <source>Sky Discretization Resolution: </source>
         <translation>Sky Discretization Resolution:</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/SimSettingsView.cpp" line="604" />
+        <location filename="../src/openstudio_lib/SimSettingsView.cpp" line="604"/>
         <source>Sizing Parameters</source>
         <translation>Dimensionierungsparameter</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/SimSettingsView.cpp" line="617" />
+        <location filename="../src/openstudio_lib/SimSettingsView.cpp" line="617"/>
         <source>Heating Sizing Factor</source>
         <translation>Heizauslegungsfaktor</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/SimSettingsView.cpp" line="619" />
+        <location filename="../src/openstudio_lib/SimSettingsView.cpp" line="619"/>
         <source>Cooling Sizing Factor</source>
         <translation>Kühlauslegungsfaktor</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/SimSettingsView.cpp" line="621" />
+        <location filename="../src/openstudio_lib/SimSettingsView.cpp" line="621"/>
         <source>Timesteps In Averaging Window</source>
         <translation>Zeitschritte im Mittelungsfenster</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/SimSettingsView.cpp" line="654" />
+        <location filename="../src/openstudio_lib/SimSettingsView.cpp" line="654"/>
         <source>Timestep</source>
         <translation>Zeitschritt</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/SimSettingsView.cpp" line="667" />
+        <location filename="../src/openstudio_lib/SimSettingsView.cpp" line="667"/>
         <source>Number Of Timesteps Per Hour</source>
         <translation>Anzahl der Zeitschritte pro Stunde</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/SimSettingsView.cpp" line="250" />
+        <location filename="../src/openstudio_lib/SimSettingsView.cpp" line="250"/>
         <source>Simulation Control</source>
         <translation>Simulationssteuerung</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/SimSettingsView.cpp" line="531" />
+        <location filename="../src/openstudio_lib/SimSettingsView.cpp" line="531"/>
         <source>Do Zone Sizing Calculation</source>
         <translation>Zonengrößenberechnung durchführen</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/SimSettingsView.cpp" line="535" />
+        <location filename="../src/openstudio_lib/SimSettingsView.cpp" line="535"/>
         <source>Do System Sizing Calculation</source>
         <translation>Systemauslegungsberechnung durchführen</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/SimSettingsView.cpp" line="542" />
+        <location filename="../src/openstudio_lib/SimSettingsView.cpp" line="542"/>
         <source>Do Plant Sizing Calculation</source>
         <translation>Anlagendimensionierung durchführen</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/SimSettingsView.cpp" line="544" />
+        <location filename="../src/openstudio_lib/SimSettingsView.cpp" line="544"/>
         <source>Run Simulation For Sizing Periods</source>
         <translation>Simulation für Auslegungsperioden ausführen</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/SimSettingsView.cpp" line="551" />
+        <location filename="../src/openstudio_lib/SimSettingsView.cpp" line="551"/>
         <source>Run Simulation For Weather File Run Periods</source>
         <translation>Simulation für Wetterdatei-Laufzeiträume ausführen</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/SimSettingsView.cpp" line="553" />
+        <location filename="../src/openstudio_lib/SimSettingsView.cpp" line="553"/>
         <source>Maximum Number Of Warmup Days</source>
         <translation>Maximale Anzahl von Aufwärmtagen</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/SimSettingsView.cpp" line="560" />
+        <location filename="../src/openstudio_lib/SimSettingsView.cpp" line="560"/>
         <source>Minimum Number Of Warmup Days</source>
         <translation>Minimale Anzahl der Aufwärmtage</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/SimSettingsView.cpp" line="562" />
+        <location filename="../src/openstudio_lib/SimSettingsView.cpp" line="562"/>
         <source>Loads Convergence Tolerance Value</source>
         <translation>Lasten Konvergenztoleranzwert</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/SimSettingsView.cpp" line="569" />
+        <location filename="../src/openstudio_lib/SimSettingsView.cpp" line="569"/>
         <source>Temperature Convergence Tolerance Value</source>
         <translation>Temperatur-Konvergenztoleranzwert</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/SimSettingsView.cpp" line="571" />
+        <location filename="../src/openstudio_lib/SimSettingsView.cpp" line="571"/>
         <source>Solar Distribution</source>
         <translation>Solarverteilung</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/SimSettingsView.cpp" line="578" />
+        <location filename="../src/openstudio_lib/SimSettingsView.cpp" line="578"/>
         <source>Do HVAC Sizing Simulation for Sizing Periods</source>
         <translation>HVAC-Dimensionierungssimulation für Auslegungszeiträume durchführen</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/SimSettingsView.cpp" line="580" />
+        <location filename="../src/openstudio_lib/SimSettingsView.cpp" line="580"/>
         <source>Maximum Number of HVAC Sizing Simulation Passes</source>
         <translation>Maximale Anzahl der HVAC-Auslegungssimulationsdurchläufe</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/SimSettingsView.cpp" line="254" />
+        <location filename="../src/openstudio_lib/SimSettingsView.cpp" line="254"/>
         <source>Program Control</source>
         <translation>Programmsteuerung</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/SimSettingsView.cpp" line="638" />
+        <location filename="../src/openstudio_lib/SimSettingsView.cpp" line="638"/>
         <source>Number Of Threads Allowed</source>
         <translation>Anzahl der zulässigen Threads</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/SimSettingsView.cpp" line="258" />
+        <location filename="../src/openstudio_lib/SimSettingsView.cpp" line="258"/>
         <source>Output Control Reporting Tolerances</source>
         <translation>Ausgabekontroll-Berichtsabweichungen</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/SimSettingsView.cpp" line="685" />
+        <location filename="../src/openstudio_lib/SimSettingsView.cpp" line="685"/>
         <source>Tolerance For Time Heating Setpoint Not Met</source>
         <translation>Toleranz für nicht erfüllten Heiz-Sollwert</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/SimSettingsView.cpp" line="689" />
+        <location filename="../src/openstudio_lib/SimSettingsView.cpp" line="689"/>
         <source>Tolerance For Time Cooling Setpoint Not Met</source>
         <translation>Toleranz für nicht erfüllten Kühlzieltemperatur-Zeitpunkt</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/SimSettingsView.cpp" line="262" />
+        <location filename="../src/openstudio_lib/SimSettingsView.cpp" line="262"/>
         <source>Convergence Limits</source>
         <translation>Konvergenzgrenzen</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/SimSettingsView.cpp" line="707" />
+        <location filename="../src/openstudio_lib/SimSettingsView.cpp" line="707"/>
         <source>Maximum HVAC Iterations</source>
         <translation>Maximale HVAC-Iterationen</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/SimSettingsView.cpp" line="711" />
+        <location filename="../src/openstudio_lib/SimSettingsView.cpp" line="711"/>
         <source>Minimum Plant Iterations</source>
         <translation>Minimale Anlageniterationen</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/SimSettingsView.cpp" line="718" />
+        <location filename="../src/openstudio_lib/SimSettingsView.cpp" line="718"/>
         <source>Maximum Plant Iterations</source>
         <translation>Maximale Anlagenschleifen</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/SimSettingsView.cpp" line="720" />
+        <location filename="../src/openstudio_lib/SimSettingsView.cpp" line="720"/>
         <source>Minimum System Timestep</source>
         <translation>Minimaler System-Zeitschritt</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/SimSettingsView.cpp" line="266" />
+        <location filename="../src/openstudio_lib/SimSettingsView.cpp" line="266"/>
         <source>Shadow Calculation</source>
         <translation>Schattenberechnung</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/SimSettingsView.cpp" line="742" />
+        <location filename="../src/openstudio_lib/SimSettingsView.cpp" line="742"/>
         <source>Shading Calculation Update Frequency</source>
         <translation>Häufigkeit der Verschattungsberechnungsaktualisierung</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/SimSettingsView.cpp" line="746" />
+        <location filename="../src/openstudio_lib/SimSettingsView.cpp" line="746"/>
         <source>Maximum Figures In Shadow Overlap Calculations</source>
         <translation>Maximale Figuren in Schattenüberlapprechnungen</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/SimSettingsView.cpp" line="753" />
+        <location filename="../src/openstudio_lib/SimSettingsView.cpp" line="753"/>
         <source>Polygon Clipping Algorithm</source>
         <translation>Polygon-Schneidealgorithmus</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/SimSettingsView.cpp" line="755" />
+        <location filename="../src/openstudio_lib/SimSettingsView.cpp" line="755"/>
         <source>Sky Diffuse Modeling Algorithm</source>
         <translation>Sky Diffuse Modeling Algorithm</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/SimSettingsView.cpp" line="270" />
+        <location filename="../src/openstudio_lib/SimSettingsView.cpp" line="270"/>
         <source>Inside Surface Convection Algorithm</source>
         <translation>Algorithmus für innere Oberflächenkonvektion</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/SimSettingsView.cpp" line="274" />
+        <location filename="../src/openstudio_lib/SimSettingsView.cpp" line="274"/>
         <source>Outside Surface Convection Algorithm</source>
         <translation>Außenoberflächen-Konvektionsalgorithmus</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/SimSettingsView.cpp" line="278" />
+        <location filename="../src/openstudio_lib/SimSettingsView.cpp" line="278"/>
         <source>Heat Balance Algorithm</source>
         <translation>Wärmebilanzalgorithmus</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/SimSettingsView.cpp" line="776" />
-        <location filename="../src/openstudio_lib/SimSettingsView.cpp" line="794" />
-        <location filename="../src/openstudio_lib/SimSettingsView.cpp" line="827" />
-        <location filename="../src/openstudio_lib/SimSettingsView.cpp" line="848" />
+        <location filename="../src/openstudio_lib/SimSettingsView.cpp" line="776"/>
+        <location filename="../src/openstudio_lib/SimSettingsView.cpp" line="794"/>
+        <location filename="../src/openstudio_lib/SimSettingsView.cpp" line="827"/>
+        <location filename="../src/openstudio_lib/SimSettingsView.cpp" line="848"/>
         <source>Algorithm</source>
         <translation>Algorithmus</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/SimSettingsView.cpp" line="812" />
+        <location filename="../src/openstudio_lib/SimSettingsView.cpp" line="812"/>
         <source>Surface Temperature Upper Limit</source>
         <translation>Oberflächentemperatur Obergrenze</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/SimSettingsView.cpp" line="816" />
+        <location filename="../src/openstudio_lib/SimSettingsView.cpp" line="816"/>
         <source>Minimum Surface Convection Heat Transfer Coefficient Value</source>
         <translation>Minimale Oberflächenkonvektions-Wärmeübergangszahl</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/SimSettingsView.cpp" line="824" />
+        <location filename="../src/openstudio_lib/SimSettingsView.cpp" line="824"/>
         <source>Maximum Surface Convection Heat Transfer Coefficient Value</source>
         <translation>Maximaler Oberflächenkonvektions-Wärmeübergangkoeffizient-Wert</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/SimSettingsView.cpp" line="282" />
+        <location filename="../src/openstudio_lib/SimSettingsView.cpp" line="282"/>
         <source>Zone Air Heat Balance Algorithm</source>
         <translation>Zone Air Heat Balance Algorithm</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/SimSettingsView.cpp" line="286" />
+        <location filename="../src/openstudio_lib/SimSettingsView.cpp" line="286"/>
         <source>Zone Air Contaminant Balance</source>
         <translation>Zone Air Contaminant Balance</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/SimSettingsView.cpp" line="866" />
+        <location filename="../src/openstudio_lib/SimSettingsView.cpp" line="866"/>
         <source>Carbon Dioxide Concentration</source>
         <translation>Kohlendioxidkonzentration</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/SimSettingsView.cpp" line="870" />
+        <location filename="../src/openstudio_lib/SimSettingsView.cpp" line="870"/>
         <source>Outdoor Carbon Dioxide Schedule Name</source>
         <translation>Außenluft-Kohlendioxid-Zeitplan Name</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/SimSettingsView.cpp" line="290" />
+        <location filename="../src/openstudio_lib/SimSettingsView.cpp" line="290"/>
         <source>Zone Capacitance Multiple Research Special</source>
         <translation>Zone Capacitance Multiple Research Special</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/SimSettingsView.cpp" line="892" />
+        <location filename="../src/openstudio_lib/SimSettingsView.cpp" line="892"/>
         <source>Temperature Capacity Multiplier</source>
         <translation>Temperatur-Kapazitätsmultiplikator</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/SimSettingsView.cpp" line="896" />
+        <location filename="../src/openstudio_lib/SimSettingsView.cpp" line="896"/>
         <source>Humidity Capacity Multiplier</source>
         <translation>Feuchtekapazitätsmultiplikator</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/SimSettingsView.cpp" line="903" />
+        <location filename="../src/openstudio_lib/SimSettingsView.cpp" line="903"/>
         <source>Carbon Dioxide Capacity Multiplier</source>
         <translation>Multiplikator für die Kohlendioxid-Kapazität</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/SimSettingsView.cpp" line="294" />
-        <location filename="../src/openstudio_lib/SimSettingsView.cpp" line="1085" />
+        <location filename="../src/openstudio_lib/SimSettingsView.cpp" line="294"/>
+        <location filename="../src/openstudio_lib/SimSettingsView.cpp" line="1085"/>
         <source>Output JSON</source>
         <translation>JSON-Ausgabe</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/SimSettingsView.cpp" line="1076" />
+        <location filename="../src/openstudio_lib/SimSettingsView.cpp" line="1076"/>
         <source>Option Type</source>
         <translation>Optionstyp</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/SimSettingsView.cpp" line="1092" />
+        <location filename="../src/openstudio_lib/SimSettingsView.cpp" line="1092"/>
         <source>Output CBOR</source>
         <translation>Ausgabe CBOR</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/SimSettingsView.cpp" line="1094" />
+        <location filename="../src/openstudio_lib/SimSettingsView.cpp" line="1094"/>
         <source>Output MessagePack</source>
         <translation>Ausgabe MessagePack</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/SimSettingsView.cpp" line="298" />
+        <location filename="../src/openstudio_lib/SimSettingsView.cpp" line="298"/>
         <source>Output Table Summary Reports</source>
         <translation>Ausgabetabellen-Zusammenfassungsberichte</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/SimSettingsView.cpp" line="1116" />
+        <location filename="../src/openstudio_lib/SimSettingsView.cpp" line="1116"/>
         <source>Enable AllSummary Report</source>
         <translation>AllSummary-Bericht aktivieren</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/SimSettingsView.cpp" line="302" />
+        <location filename="../src/openstudio_lib/SimSettingsView.cpp" line="302"/>
         <source>Output Diagnostics</source>
         <translation>Ausgabediagnose</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/SimSettingsView.cpp" line="1135" />
+        <location filename="../src/openstudio_lib/SimSettingsView.cpp" line="1135"/>
         <source>Enable DisplayExtraWarnings</source>
         <translation>Enable DisplayExtraWarnings</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/SimSettingsView.cpp" line="306" />
+        <location filename="../src/openstudio_lib/SimSettingsView.cpp" line="306"/>
         <source>Output Control Resilience Summaries</source>
         <translation>Ausgabesteuerung Resilienz-Zusammenfassungen</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/SimSettingsView.cpp" line="1154" />
+        <location filename="../src/openstudio_lib/SimSettingsView.cpp" line="1154"/>
         <source>Heat Index Algorithm</source>
         <translation>Wämeindex-Algorithmus</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/SimSettingsView.cpp" line="481" />
+        <location filename="../src/openstudio_lib/SimSettingsView.cpp" line="481"/>
         <source>Run Control</source>
         <translation>Simulation steuern</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/SimSettingsView.cpp" line="490" />
+        <location filename="../src/openstudio_lib/SimSettingsView.cpp" line="490"/>
         <source>Run Simulation for Weather File</source>
         <translation>Simulation für Wetterdatei ausführen</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/SimSettingsView.cpp" line="495" />
+        <location filename="../src/openstudio_lib/SimSettingsView.cpp" line="495"/>
         <source>Run Simulation for Design Days</source>
         <translation>Simulation für Auslegungstage ausführen</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/SimSettingsView.cpp" line="500" />
+        <location filename="../src/openstudio_lib/SimSettingsView.cpp" line="500"/>
         <source>Perform Zone Sizing</source>
         <translation>Zonengröße berechnen</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/SimSettingsView.cpp" line="505" />
+        <location filename="../src/openstudio_lib/SimSettingsView.cpp" line="505"/>
         <source>Perform System Sizing</source>
         <translation>Systemauslegung durchführen</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/SimSettingsView.cpp" line="510" />
+        <location filename="../src/openstudio_lib/SimSettingsView.cpp" line="510"/>
         <source>Perform Plant Sizing</source>
         <translation>Anlagenkalibrierung durchführen</translation>
     </message>
@@ -28904,12 +28915,12 @@ in Preferences</source>
 <context>
     <name>openstudio::SingleZoneSPMView</name>
     <message>
-        <location filename="../src/openstudio_lib/HVACSystemsView.cpp" line="659" />
+        <location filename="../src/openstudio_lib/HVACSystemsView.cpp" line="659"/>
         <source>Supply temperature is controlled by a &lt;strong&gt;%1&lt;/strong&gt; setpoint manager.</source>
         <translation>Liefertemperatur wird durch einen &lt;strong&gt;%1&lt;/strong&gt; Sollwertmanager gesteuert.</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/HVACSystemsView.cpp" line="666" />
+        <location filename="../src/openstudio_lib/HVACSystemsView.cpp" line="666"/>
         <source>Control Zone</source>
         <translation>Steuerzone</translation>
     </message>
@@ -28917,116 +28928,116 @@ in Preferences</source>
 <context>
     <name>openstudio::SiteGroundTemperatureMonthlyWidget</name>
     <message>
-        <location filename="../src/openstudio_lib/GroundTemperatureMonthlyInspectorView.cpp" line="74" />
+        <location filename="../src/openstudio_lib/GroundTemperatureMonthlyInspectorView.cpp" line="74"/>
         <source>Month</source>
         <translation>Monat</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/GroundTemperatureMonthlyInspectorView.cpp" line="78" />
+        <location filename="../src/openstudio_lib/GroundTemperatureMonthlyInspectorView.cpp" line="78"/>
         <source>Temperature</source>
         <translation>Temperatur</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/GroundTemperatureMonthlyInspectorView.cpp" line="101" />
+        <location filename="../src/openstudio_lib/GroundTemperatureMonthlyInspectorView.cpp" line="101"/>
         <source>Set all months to:</source>
         <translation>Alle Monate einstellen auf:</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/GroundTemperatureMonthlyInspectorView.cpp" line="108" />
-        <location filename="../src/openstudio_lib/GroundTemperatureMonthlyInspectorView.cpp" line="127" />
+        <location filename="../src/openstudio_lib/GroundTemperatureMonthlyInspectorView.cpp" line="108"/>
+        <location filename="../src/openstudio_lib/GroundTemperatureMonthlyInspectorView.cpp" line="127"/>
         <source> °F</source>
         <translation>°F</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/GroundTemperatureMonthlyInspectorView.cpp" line="111" />
-        <location filename="../src/openstudio_lib/GroundTemperatureMonthlyInspectorView.cpp" line="131" />
+        <location filename="../src/openstudio_lib/GroundTemperatureMonthlyInspectorView.cpp" line="111"/>
+        <location filename="../src/openstudio_lib/GroundTemperatureMonthlyInspectorView.cpp" line="131"/>
         <source> °C</source>
         <translation>°C</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/GroundTemperatureMonthlyInspectorView.cpp" line="115" />
+        <location filename="../src/openstudio_lib/GroundTemperatureMonthlyInspectorView.cpp" line="115"/>
         <source>Apply</source>
         <translation>Anwenden</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/GroundTemperatureMonthlyInspectorView.cpp" line="153" />
+        <location filename="../src/openstudio_lib/GroundTemperatureMonthlyInspectorView.cpp" line="153"/>
         <source>Jan</source>
         <translation>Januar</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/GroundTemperatureMonthlyInspectorView.cpp" line="153" />
+        <location filename="../src/openstudio_lib/GroundTemperatureMonthlyInspectorView.cpp" line="153"/>
         <source>Feb</source>
         <translation>Feb</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/GroundTemperatureMonthlyInspectorView.cpp" line="153" />
+        <location filename="../src/openstudio_lib/GroundTemperatureMonthlyInspectorView.cpp" line="153"/>
         <source>Mar</source>
         <translation>März</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/GroundTemperatureMonthlyInspectorView.cpp" line="153" />
+        <location filename="../src/openstudio_lib/GroundTemperatureMonthlyInspectorView.cpp" line="153"/>
         <source>Apr</source>
         <translation>Apr</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/GroundTemperatureMonthlyInspectorView.cpp" line="153" />
+        <location filename="../src/openstudio_lib/GroundTemperatureMonthlyInspectorView.cpp" line="153"/>
         <source>May</source>
         <translation>Mai</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/GroundTemperatureMonthlyInspectorView.cpp" line="153" />
+        <location filename="../src/openstudio_lib/GroundTemperatureMonthlyInspectorView.cpp" line="153"/>
         <source>Jun</source>
         <translation>Jun</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/GroundTemperatureMonthlyInspectorView.cpp" line="154" />
+        <location filename="../src/openstudio_lib/GroundTemperatureMonthlyInspectorView.cpp" line="154"/>
         <source>Jul</source>
         <translation>Juli</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/GroundTemperatureMonthlyInspectorView.cpp" line="154" />
+        <location filename="../src/openstudio_lib/GroundTemperatureMonthlyInspectorView.cpp" line="154"/>
         <source>Aug</source>
         <translation>Aug</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/GroundTemperatureMonthlyInspectorView.cpp" line="154" />
+        <location filename="../src/openstudio_lib/GroundTemperatureMonthlyInspectorView.cpp" line="154"/>
         <source>Sep</source>
         <translation>Sep</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/GroundTemperatureMonthlyInspectorView.cpp" line="154" />
+        <location filename="../src/openstudio_lib/GroundTemperatureMonthlyInspectorView.cpp" line="154"/>
         <source>Oct</source>
         <translation>Okt</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/GroundTemperatureMonthlyInspectorView.cpp" line="154" />
+        <location filename="../src/openstudio_lib/GroundTemperatureMonthlyInspectorView.cpp" line="154"/>
         <source>Nov</source>
         <translation>Nov</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/GroundTemperatureMonthlyInspectorView.cpp" line="154" />
+        <location filename="../src/openstudio_lib/GroundTemperatureMonthlyInspectorView.cpp" line="154"/>
         <source>Dec</source>
         <translation>Dez</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/GroundTemperatureMonthlyInspectorView.cpp" line="160" />
-        <location filename="../src/openstudio_lib/GroundTemperatureMonthlyInspectorView.cpp" line="265" />
+        <location filename="../src/openstudio_lib/GroundTemperatureMonthlyInspectorView.cpp" line="160"/>
+        <location filename="../src/openstudio_lib/GroundTemperatureMonthlyInspectorView.cpp" line="265"/>
         <source>Temperature [°F]</source>
         <translation>Temperatur [°F]</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/GroundTemperatureMonthlyInspectorView.cpp" line="160" />
-        <location filename="../src/openstudio_lib/GroundTemperatureMonthlyInspectorView.cpp" line="265" />
+        <location filename="../src/openstudio_lib/GroundTemperatureMonthlyInspectorView.cpp" line="160"/>
+        <location filename="../src/openstudio_lib/GroundTemperatureMonthlyInspectorView.cpp" line="265"/>
         <source>Temperature [°C]</source>
         <translation>Temperatur [°C]</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/GroundTemperatureMonthlyInspectorView.cpp" line="194" />
+        <location filename="../src/openstudio_lib/GroundTemperatureMonthlyInspectorView.cpp" line="194"/>
         <source>°F</source>
         <translation>°F</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/GroundTemperatureMonthlyInspectorView.cpp" line="194" />
+        <location filename="../src/openstudio_lib/GroundTemperatureMonthlyInspectorView.cpp" line="194"/>
         <source>°C</source>
         <translation>°C</translation>
     </message>
@@ -29034,33 +29045,33 @@ in Preferences</source>
 <context>
     <name>openstudio::SiteWaterMainsTemperatureWidget</name>
     <message>
-        <location filename="../src/openstudio_lib/SiteWaterMainsTemperatureWidget.cpp" line="95" />
+        <location filename="../src/openstudio_lib/SiteWaterMainsTemperatureWidget.cpp" line="95"/>
         <source>Calculation Method</source>
         <translation>Berechnungsmethode</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/SiteWaterMainsTemperatureWidget.cpp" line="103" />
+        <location filename="../src/openstudio_lib/SiteWaterMainsTemperatureWidget.cpp" line="103"/>
         <source>Temperature Schedule</source>
         <translation>Temperaturplan</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/SiteWaterMainsTemperatureWidget.cpp" line="115" />
+        <location filename="../src/openstudio_lib/SiteWaterMainsTemperatureWidget.cpp" line="115"/>
         <source>Annual Average Outdoor Air Temperature</source>
         <translation>Durchschnittliche jährliche Außenlufttemperatur</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/SiteWaterMainsTemperatureWidget.cpp" line="119" />
+        <location filename="../src/openstudio_lib/SiteWaterMainsTemperatureWidget.cpp" line="119"/>
         <source>Maximum Difference In Monthly Average
 Outdoor Air Temperatures</source>
         <translation>Maximale Differenz in monatlichen durchschnittlichen Außenlufttemperaturen</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/SiteWaterMainsTemperatureWidget.cpp" line="132" />
+        <location filename="../src/openstudio_lib/SiteWaterMainsTemperatureWidget.cpp" line="132"/>
         <source>Temperature Multiplier</source>
         <translation>Temperaturmultiplikator</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/SiteWaterMainsTemperatureWidget.cpp" line="136" />
+        <location filename="../src/openstudio_lib/SiteWaterMainsTemperatureWidget.cpp" line="136"/>
         <source>Temperature Offset</source>
         <translation>Temperaturabweichung</translation>
     </message>
@@ -29068,220 +29079,220 @@ Outdoor Air Temperatures</source>
 <context>
     <name>openstudio::SpaceTypesGridController</name>
     <message>
-        <location filename="../src/openstudio_lib/SpaceTypesGridView.cpp" line="401" />
-        <location filename="../src/openstudio_lib/SpaceTypesGridView.cpp" line="407" />
-        <location filename="../src/openstudio_lib/SpaceTypesGridView.cpp" line="411" />
+        <location filename="../src/openstudio_lib/SpaceTypesGridView.cpp" line="401"/>
+        <location filename="../src/openstudio_lib/SpaceTypesGridView.cpp" line="407"/>
+        <location filename="../src/openstudio_lib/SpaceTypesGridView.cpp" line="411"/>
         <source>Space Type Name</source>
         <translation>Raumtyp-Name</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/SpaceTypesGridView.cpp" line="401" />
-        <location filename="../src/openstudio_lib/SpaceTypesGridView.cpp" line="413" />
-        <location filename="../src/openstudio_lib/SpaceTypesGridView.cpp" line="419" />
-        <location filename="../src/openstudio_lib/SpaceTypesGridView.cpp" line="421" />
-        <location filename="../src/openstudio_lib/SpaceTypesGridView.cpp" line="1018" />
-        <location filename="../src/openstudio_lib/SpaceTypesGridView.cpp" line="1023" />
+        <location filename="../src/openstudio_lib/SpaceTypesGridView.cpp" line="401"/>
+        <location filename="../src/openstudio_lib/SpaceTypesGridView.cpp" line="413"/>
+        <location filename="../src/openstudio_lib/SpaceTypesGridView.cpp" line="419"/>
+        <location filename="../src/openstudio_lib/SpaceTypesGridView.cpp" line="421"/>
+        <location filename="../src/openstudio_lib/SpaceTypesGridView.cpp" line="1018"/>
+        <location filename="../src/openstudio_lib/SpaceTypesGridView.cpp" line="1023"/>
         <source>All</source>
         <translation>Alle</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/SpaceTypesGridView.cpp" line="261" />
-        <location filename="../src/openstudio_lib/SpaceTypesGridView.cpp" line="1147" />
-        <location filename="../src/openstudio_lib/SpaceTypesGridView.cpp" line="1148" />
+        <location filename="../src/openstudio_lib/SpaceTypesGridView.cpp" line="261"/>
+        <location filename="../src/openstudio_lib/SpaceTypesGridView.cpp" line="1147"/>
+        <location filename="../src/openstudio_lib/SpaceTypesGridView.cpp" line="1148"/>
         <source>Rendering Color</source>
         <translation>Rendering-Farbe</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/SpaceTypesGridView.cpp" line="262" />
-        <location filename="../src/openstudio_lib/SpaceTypesGridView.cpp" line="1126" />
-        <location filename="../src/openstudio_lib/SpaceTypesGridView.cpp" line="1128" />
+        <location filename="../src/openstudio_lib/SpaceTypesGridView.cpp" line="262"/>
+        <location filename="../src/openstudio_lib/SpaceTypesGridView.cpp" line="1126"/>
+        <location filename="../src/openstudio_lib/SpaceTypesGridView.cpp" line="1128"/>
         <source>Default Construction Set</source>
         <translation>Standardkonstruktionssatz</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/SpaceTypesGridView.cpp" line="263" />
-        <location filename="../src/openstudio_lib/SpaceTypesGridView.cpp" line="1132" />
-        <location filename="../src/openstudio_lib/SpaceTypesGridView.cpp" line="1134" />
+        <location filename="../src/openstudio_lib/SpaceTypesGridView.cpp" line="263"/>
+        <location filename="../src/openstudio_lib/SpaceTypesGridView.cpp" line="1132"/>
+        <location filename="../src/openstudio_lib/SpaceTypesGridView.cpp" line="1134"/>
         <source>Default Schedule Set</source>
         <translation>Standardzeitplansatz</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/SpaceTypesGridView.cpp" line="264" />
-        <location filename="../src/openstudio_lib/SpaceTypesGridView.cpp" line="1138" />
-        <location filename="../src/openstudio_lib/SpaceTypesGridView.cpp" line="1139" />
+        <location filename="../src/openstudio_lib/SpaceTypesGridView.cpp" line="264"/>
+        <location filename="../src/openstudio_lib/SpaceTypesGridView.cpp" line="1138"/>
+        <location filename="../src/openstudio_lib/SpaceTypesGridView.cpp" line="1139"/>
         <source>Design Specification Outdoor Air</source>
         <translation>Designvorgaben Außenluft</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/SpaceTypesGridView.cpp" line="265" />
-        <location filename="../src/openstudio_lib/SpaceTypesGridView.cpp" line="1151" />
-        <location filename="../src/openstudio_lib/SpaceTypesGridView.cpp" line="1175" />
-        <location filename="../src/openstudio_lib/SpaceTypesGridView.cpp" line="1183" />
+        <location filename="../src/openstudio_lib/SpaceTypesGridView.cpp" line="265"/>
+        <location filename="../src/openstudio_lib/SpaceTypesGridView.cpp" line="1151"/>
+        <location filename="../src/openstudio_lib/SpaceTypesGridView.cpp" line="1175"/>
+        <location filename="../src/openstudio_lib/SpaceTypesGridView.cpp" line="1183"/>
         <source>Space Infiltration Design Flow Rates</source>
         <translation>Infiltrationsvolumenströme im Entwurf für Räume</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/SpaceTypesGridView.cpp" line="266" />
-        <location filename="../src/openstudio_lib/SpaceTypesGridView.cpp" line="1185" />
-        <location filename="../src/openstudio_lib/SpaceTypesGridView.cpp" line="1209" />
-        <location filename="../src/openstudio_lib/SpaceTypesGridView.cpp" line="1218" />
+        <location filename="../src/openstudio_lib/SpaceTypesGridView.cpp" line="266"/>
+        <location filename="../src/openstudio_lib/SpaceTypesGridView.cpp" line="1185"/>
+        <location filename="../src/openstudio_lib/SpaceTypesGridView.cpp" line="1209"/>
+        <location filename="../src/openstudio_lib/SpaceTypesGridView.cpp" line="1218"/>
         <source>Space Infiltration Effective Leakage Areas</source>
         <translation>Rauminfiltration effektive Leckageflächen</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/SpaceTypesGridView.cpp" line="274" />
-        <location filename="../src/openstudio_lib/SpaceTypesGridView.cpp" line="386" />
-        <location filename="../src/openstudio_lib/SpaceTypesGridView.cpp" line="420" />
-        <location filename="../src/openstudio_lib/SpaceTypesGridView.cpp" line="998" />
-        <location filename="../src/openstudio_lib/SpaceTypesGridView.cpp" line="1012" />
+        <location filename="../src/openstudio_lib/SpaceTypesGridView.cpp" line="274"/>
+        <location filename="../src/openstudio_lib/SpaceTypesGridView.cpp" line="386"/>
+        <location filename="../src/openstudio_lib/SpaceTypesGridView.cpp" line="420"/>
+        <location filename="../src/openstudio_lib/SpaceTypesGridView.cpp" line="998"/>
+        <location filename="../src/openstudio_lib/SpaceTypesGridView.cpp" line="1012"/>
         <source>Load Name</source>
         <translation>Lastname</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/SpaceTypesGridView.cpp" line="274" />
-        <location filename="../src/openstudio_lib/SpaceTypesGridView.cpp" line="420" />
-        <location filename="../src/openstudio_lib/SpaceTypesGridView.cpp" line="1024" />
-        <location filename="../src/openstudio_lib/SpaceTypesGridView.cpp" line="1027" />
+        <location filename="../src/openstudio_lib/SpaceTypesGridView.cpp" line="274"/>
+        <location filename="../src/openstudio_lib/SpaceTypesGridView.cpp" line="420"/>
+        <location filename="../src/openstudio_lib/SpaceTypesGridView.cpp" line="1024"/>
+        <location filename="../src/openstudio_lib/SpaceTypesGridView.cpp" line="1027"/>
         <source>Multiplier</source>
         <translation>Multiplikator</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/SpaceTypesGridView.cpp" line="274" />
-        <location filename="../src/openstudio_lib/SpaceTypesGridView.cpp" line="420" />
-        <location filename="../src/openstudio_lib/SpaceTypesGridView.cpp" line="1032" />
-        <location filename="../src/openstudio_lib/SpaceTypesGridView.cpp" line="1108" />
-        <location filename="../src/openstudio_lib/SpaceTypesGridView.cpp" line="1113" />
+        <location filename="../src/openstudio_lib/SpaceTypesGridView.cpp" line="274"/>
+        <location filename="../src/openstudio_lib/SpaceTypesGridView.cpp" line="420"/>
+        <location filename="../src/openstudio_lib/SpaceTypesGridView.cpp" line="1032"/>
+        <location filename="../src/openstudio_lib/SpaceTypesGridView.cpp" line="1108"/>
+        <location filename="../src/openstudio_lib/SpaceTypesGridView.cpp" line="1113"/>
         <source>Definition</source>
         <translation>Definition</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/SpaceTypesGridView.cpp" line="274" />
-        <location filename="../src/openstudio_lib/SpaceTypesGridView.cpp" line="420" />
-        <location filename="../src/openstudio_lib/SpaceTypesGridView.cpp" line="1115" />
-        <location filename="../src/openstudio_lib/SpaceTypesGridView.cpp" line="1117" />
-        <location filename="../src/openstudio_lib/SpaceTypesGridView.cpp" line="1122" />
+        <location filename="../src/openstudio_lib/SpaceTypesGridView.cpp" line="274"/>
+        <location filename="../src/openstudio_lib/SpaceTypesGridView.cpp" line="420"/>
+        <location filename="../src/openstudio_lib/SpaceTypesGridView.cpp" line="1115"/>
+        <location filename="../src/openstudio_lib/SpaceTypesGridView.cpp" line="1117"/>
+        <location filename="../src/openstudio_lib/SpaceTypesGridView.cpp" line="1122"/>
         <source>Schedule</source>
         <translation>Zeitplan</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/SpaceTypesGridView.cpp" line="274" />
-        <location filename="../src/openstudio_lib/SpaceTypesGridView.cpp" line="421" />
-        <location filename="../src/openstudio_lib/SpaceTypesGridView.cpp" line="1120" />
+        <location filename="../src/openstudio_lib/SpaceTypesGridView.cpp" line="274"/>
+        <location filename="../src/openstudio_lib/SpaceTypesGridView.cpp" line="421"/>
+        <location filename="../src/openstudio_lib/SpaceTypesGridView.cpp" line="1120"/>
         <source>Activity Schedule
 (People Only)</source>
         <translation>Aktivitätsplan
 (Nur Personen)</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/SpaceTypesGridView.cpp" line="282" />
-        <location filename="../src/openstudio_lib/SpaceTypesGridView.cpp" line="1220" />
-        <location filename="../src/openstudio_lib/SpaceTypesGridView.cpp" line="1298" />
+        <location filename="../src/openstudio_lib/SpaceTypesGridView.cpp" line="282"/>
+        <location filename="../src/openstudio_lib/SpaceTypesGridView.cpp" line="1220"/>
+        <location filename="../src/openstudio_lib/SpaceTypesGridView.cpp" line="1298"/>
         <source>Standards Template (Optional)</source>
         <translation>Standards-Vorlage (Optional)</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/SpaceTypesGridView.cpp" line="283" />
-        <location filename="../src/openstudio_lib/SpaceTypesGridView.cpp" line="1302" />
-        <location filename="../src/openstudio_lib/SpaceTypesGridView.cpp" line="1365" />
+        <location filename="../src/openstudio_lib/SpaceTypesGridView.cpp" line="283"/>
+        <location filename="../src/openstudio_lib/SpaceTypesGridView.cpp" line="1302"/>
+        <location filename="../src/openstudio_lib/SpaceTypesGridView.cpp" line="1365"/>
         <source>Standards Building Type
 (Optional)</source>
         <translation>Standards Building Type
 (Optional)</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/SpaceTypesGridView.cpp" line="284" />
-        <location filename="../src/openstudio_lib/SpaceTypesGridView.cpp" line="1369" />
-        <location filename="../src/openstudio_lib/SpaceTypesGridView.cpp" line="1393" />
+        <location filename="../src/openstudio_lib/SpaceTypesGridView.cpp" line="284"/>
+        <location filename="../src/openstudio_lib/SpaceTypesGridView.cpp" line="1369"/>
+        <location filename="../src/openstudio_lib/SpaceTypesGridView.cpp" line="1393"/>
         <source>Standards Space Type
 (Optional)</source>
         <translation>Standards Space Type
 (Optional)</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/SpaceTypesGridView.cpp" line="296" />
+        <location filename="../src/openstudio_lib/SpaceTypesGridView.cpp" line="296"/>
         <source>Show all loads</source>
         <translation>Alle Lasten anzeigen</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/SpaceTypesGridView.cpp" line="302" />
+        <location filename="../src/openstudio_lib/SpaceTypesGridView.cpp" line="302"/>
         <source>Internal Mass</source>
         <translation>Interne Masse</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/SpaceTypesGridView.cpp" line="306" />
+        <location filename="../src/openstudio_lib/SpaceTypesGridView.cpp" line="306"/>
         <source>People</source>
         <translation>Personen</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/SpaceTypesGridView.cpp" line="310" />
+        <location filename="../src/openstudio_lib/SpaceTypesGridView.cpp" line="310"/>
         <source>Lights</source>
         <translation>Lichter</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/SpaceTypesGridView.cpp" line="314" />
+        <location filename="../src/openstudio_lib/SpaceTypesGridView.cpp" line="314"/>
         <source>Luminaire</source>
         <translation>Leuchte</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/SpaceTypesGridView.cpp" line="318" />
+        <location filename="../src/openstudio_lib/SpaceTypesGridView.cpp" line="318"/>
         <source>Electric Equipment</source>
         <translation>Elektrische Ausrüstung</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/SpaceTypesGridView.cpp" line="322" />
+        <location filename="../src/openstudio_lib/SpaceTypesGridView.cpp" line="322"/>
         <source>Gas Equipment</source>
         <translation>Gasausrüstung</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/SpaceTypesGridView.cpp" line="326" />
+        <location filename="../src/openstudio_lib/SpaceTypesGridView.cpp" line="326"/>
         <source>Hot Water Equipment</source>
         <translation>Warmwasserausrüstung</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/SpaceTypesGridView.cpp" line="330" />
+        <location filename="../src/openstudio_lib/SpaceTypesGridView.cpp" line="330"/>
         <source>Steam Equipment</source>
         <translation>Dampfausrüstung</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/SpaceTypesGridView.cpp" line="334" />
+        <location filename="../src/openstudio_lib/SpaceTypesGridView.cpp" line="334"/>
         <source>Other Equipment</source>
         <translation>Sonstige Ausrüstung</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/SpaceTypesGridView.cpp" line="338" />
+        <location filename="../src/openstudio_lib/SpaceTypesGridView.cpp" line="338"/>
         <source>Space Infiltration Design Flow Rate</source>
         <translation>Rauminfiltration-Auslegungsvolumenstrom</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/SpaceTypesGridView.cpp" line="342" />
+        <location filename="../src/openstudio_lib/SpaceTypesGridView.cpp" line="342"/>
         <source>Space Infiltration Effective Leakage Area</source>
         <translation>Raumluftdurchlässigkeit - effektive Leckagiefläche</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/SpaceTypesGridView.cpp" line="415" />
-        <location filename="../src/openstudio_lib/SpaceTypesGridView.cpp" line="1020" />
+        <location filename="../src/openstudio_lib/SpaceTypesGridView.cpp" line="415"/>
+        <location filename="../src/openstudio_lib/SpaceTypesGridView.cpp" line="1020"/>
         <source>Check to select all rows</source>
         <translation>Ankreuzen um alle Zeilen auszuwählen</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/SpaceTypesGridView.cpp" line="419" />
-        <location filename="../src/openstudio_lib/SpaceTypesGridView.cpp" line="1023" />
+        <location filename="../src/openstudio_lib/SpaceTypesGridView.cpp" line="419"/>
+        <location filename="../src/openstudio_lib/SpaceTypesGridView.cpp" line="1023"/>
         <source>Check to select this row</source>
         <translation>Aktivieren Sie dieses Kontrollkästchen, um diese Zeile auszuwählen</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/SpaceTypesGridView.cpp" line="268" />
+        <location filename="../src/openstudio_lib/SpaceTypesGridView.cpp" line="268"/>
         <source>General</source>
         <translation>Allgemein</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/SpaceTypesGridView.cpp" line="276" />
-        <location filename="../src/openstudio_lib/SpaceTypesGridView.cpp" line="413" />
+        <location filename="../src/openstudio_lib/SpaceTypesGridView.cpp" line="276"/>
+        <location filename="../src/openstudio_lib/SpaceTypesGridView.cpp" line="413"/>
         <source>Loads</source>
         <translation>Lasten</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/SpaceTypesGridView.cpp" line="286" />
+        <location filename="../src/openstudio_lib/SpaceTypesGridView.cpp" line="286"/>
         <source>Measure
 Tags</source>
         <translation>Maßnahmen-Tags</translation>
@@ -29290,84 +29301,84 @@ Tags</source>
 <context>
     <name>openstudio::SpaceTypesGridView</name>
     <message>
-        <location filename="../src/openstudio_lib/SpaceTypesGridView.cpp" line="107" />
-        <location filename="../src/openstudio_lib/SpaceTypesGridView.cpp" line="108" />
+        <location filename="../src/openstudio_lib/SpaceTypesGridView.cpp" line="107"/>
+        <location filename="../src/openstudio_lib/SpaceTypesGridView.cpp" line="108"/>
         <source>Space Types</source>
         <translation>Raumtypen</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/SpaceTypesGridView.cpp" line="108" />
+        <location filename="../src/openstudio_lib/SpaceTypesGridView.cpp" line="108"/>
         <source>Drop
 Space Type</source>
         <translation>Raumtyp ablegen</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/SpaceTypesGridView.cpp" line="121" />
+        <location filename="../src/openstudio_lib/SpaceTypesGridView.cpp" line="121"/>
         <source>Filter:</source>
         <translation>Filter:</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/SpaceTypesGridView.cpp" line="128" />
+        <location filename="../src/openstudio_lib/SpaceTypesGridView.cpp" line="128"/>
         <source>Load Type</source>
         <translation>Lasttyp</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/SpaceTypesGridView.cpp" line="135" />
+        <location filename="../src/openstudio_lib/SpaceTypesGridView.cpp" line="135"/>
         <source>Show all loads</source>
         <translation>Alle Lasten anzeigen</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/SpaceTypesGridView.cpp" line="140" />
+        <location filename="../src/openstudio_lib/SpaceTypesGridView.cpp" line="140"/>
         <source>Internal Mass</source>
         <translation>Innere Masse</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/SpaceTypesGridView.cpp" line="146" />
+        <location filename="../src/openstudio_lib/SpaceTypesGridView.cpp" line="146"/>
         <source>People</source>
         <translation>Personen</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/SpaceTypesGridView.cpp" line="152" />
+        <location filename="../src/openstudio_lib/SpaceTypesGridView.cpp" line="152"/>
         <source>Lights</source>
         <translation>Beleuchtung</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/SpaceTypesGridView.cpp" line="158" />
+        <location filename="../src/openstudio_lib/SpaceTypesGridView.cpp" line="158"/>
         <source>Luminaire</source>
         <translation>Leuchte</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/SpaceTypesGridView.cpp" line="164" />
+        <location filename="../src/openstudio_lib/SpaceTypesGridView.cpp" line="164"/>
         <source>Electric Equipment</source>
         <translation>Elektrische Ausrüstung</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/SpaceTypesGridView.cpp" line="170" />
+        <location filename="../src/openstudio_lib/SpaceTypesGridView.cpp" line="170"/>
         <source>Gas Equipment</source>
         <translation>Gasgeräte</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/SpaceTypesGridView.cpp" line="176" />
+        <location filename="../src/openstudio_lib/SpaceTypesGridView.cpp" line="176"/>
         <source>Hot Water Equipment</source>
         <translation>Warmwasserausrüstung</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/SpaceTypesGridView.cpp" line="182" />
+        <location filename="../src/openstudio_lib/SpaceTypesGridView.cpp" line="182"/>
         <source>Steam Equipment</source>
         <translation>Dampfausrüstung</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/SpaceTypesGridView.cpp" line="188" />
+        <location filename="../src/openstudio_lib/SpaceTypesGridView.cpp" line="188"/>
         <source>Other Equipment</source>
         <translation>Sonstige Ausrüstung</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/SpaceTypesGridView.cpp" line="194" />
+        <location filename="../src/openstudio_lib/SpaceTypesGridView.cpp" line="194"/>
         <source>Space Infiltration Design Flow Rate</source>
         <translation>Rauminfiltrations-Auslegungsvolumenstrom</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/SpaceTypesGridView.cpp" line="200" />
+        <location filename="../src/openstudio_lib/SpaceTypesGridView.cpp" line="200"/>
         <source>Space Infiltration Effective Leakage Area</source>
         <translation>Effektive Leckagefläche der Rauminfiltration</translation>
     </message>
@@ -29375,7 +29386,7 @@ Space Type</source>
 <context>
     <name>openstudio::SpaceTypesTabView</name>
     <message>
-        <location filename="../src/openstudio_lib/SpaceTypesTabView.cpp" line="10" />
+        <location filename="../src/openstudio_lib/SpaceTypesTabView.cpp" line="10"/>
         <source>Space Types</source>
         <translation>Raumtypen</translation>
     </message>
@@ -29383,12 +29394,12 @@ Space Type</source>
 <context>
     <name>openstudio::SpacesDaylightingGridController</name>
     <message>
-        <location filename="../src/openstudio_lib/SpacesDaylightingGridView.cpp" line="209" />
+        <location filename="../src/openstudio_lib/SpacesDaylightingGridView.cpp" line="209"/>
         <source>Check to select all rows</source>
         <translation>Ankreuzen um alle Zeilen auszuwählen</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/SpacesDaylightingGridView.cpp" line="212" />
+        <location filename="../src/openstudio_lib/SpacesDaylightingGridView.cpp" line="212"/>
         <source>Check to select this row</source>
         <translation>Aktivieren Sie dieses Kontrollkästchen, um diese Zeile auszuwählen</translation>
     </message>
@@ -29396,89 +29407,89 @@ Space Type</source>
 <context>
     <name>openstudio::SpacesInteriorPartitionsGridController</name>
     <message>
-        <location filename="../src/openstudio_lib/SpacesInteriorPartitionsGridView.cpp" line="110" />
-        <location filename="../src/openstudio_lib/SpacesInteriorPartitionsGridView.cpp" line="116" />
-        <location filename="../src/openstudio_lib/SpacesInteriorPartitionsGridView.cpp" line="117" />
+        <location filename="../src/openstudio_lib/SpacesInteriorPartitionsGridView.cpp" line="110"/>
+        <location filename="../src/openstudio_lib/SpacesInteriorPartitionsGridView.cpp" line="116"/>
+        <location filename="../src/openstudio_lib/SpacesInteriorPartitionsGridView.cpp" line="117"/>
         <source>Space Name</source>
         <translation>Raumname</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/SpacesInteriorPartitionsGridView.cpp" line="110" />
-        <location filename="../src/openstudio_lib/SpacesInteriorPartitionsGridView.cpp" line="171" />
-        <location filename="../src/openstudio_lib/SpacesInteriorPartitionsGridView.cpp" line="177" />
+        <location filename="../src/openstudio_lib/SpacesInteriorPartitionsGridView.cpp" line="110"/>
+        <location filename="../src/openstudio_lib/SpacesInteriorPartitionsGridView.cpp" line="171"/>
+        <location filename="../src/openstudio_lib/SpacesInteriorPartitionsGridView.cpp" line="177"/>
         <source>All</source>
         <translation>Alle</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/SpacesInteriorPartitionsGridView.cpp" line="107" />
-        <location filename="../src/openstudio_lib/SpacesInteriorPartitionsGridView.cpp" line="119" />
-        <location filename="../src/openstudio_lib/SpacesInteriorPartitionsGridView.cpp" line="120" />
+        <location filename="../src/openstudio_lib/SpacesInteriorPartitionsGridView.cpp" line="107"/>
+        <location filename="../src/openstudio_lib/SpacesInteriorPartitionsGridView.cpp" line="119"/>
+        <location filename="../src/openstudio_lib/SpacesInteriorPartitionsGridView.cpp" line="120"/>
         <source>Display Name</source>
         <translation>Anzeigename</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/SpacesInteriorPartitionsGridView.cpp" line="107" />
-        <location filename="../src/openstudio_lib/SpacesInteriorPartitionsGridView.cpp" line="126" />
-        <location filename="../src/openstudio_lib/SpacesInteriorPartitionsGridView.cpp" line="127" />
+        <location filename="../src/openstudio_lib/SpacesInteriorPartitionsGridView.cpp" line="107"/>
+        <location filename="../src/openstudio_lib/SpacesInteriorPartitionsGridView.cpp" line="126"/>
+        <location filename="../src/openstudio_lib/SpacesInteriorPartitionsGridView.cpp" line="127"/>
         <source>CAD Object ID</source>
         <translation>CAD-Objekt-ID</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/SpacesInteriorPartitionsGridView.cpp" line="89" />
-        <location filename="../src/openstudio_lib/SpacesInteriorPartitionsGridView.cpp" line="179" />
-        <location filename="../src/openstudio_lib/SpacesInteriorPartitionsGridView.cpp" line="180" />
+        <location filename="../src/openstudio_lib/SpacesInteriorPartitionsGridView.cpp" line="89"/>
+        <location filename="../src/openstudio_lib/SpacesInteriorPartitionsGridView.cpp" line="179"/>
+        <location filename="../src/openstudio_lib/SpacesInteriorPartitionsGridView.cpp" line="180"/>
         <source>Interior Partition Group Name</source>
         <translation>Innere Trennwandgruppe Name</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/SpacesInteriorPartitionsGridView.cpp" line="89" />
-        <location filename="../src/openstudio_lib/SpacesInteriorPartitionsGridView.cpp" line="186" />
-        <location filename="../src/openstudio_lib/SpacesInteriorPartitionsGridView.cpp" line="187" />
+        <location filename="../src/openstudio_lib/SpacesInteriorPartitionsGridView.cpp" line="89"/>
+        <location filename="../src/openstudio_lib/SpacesInteriorPartitionsGridView.cpp" line="186"/>
+        <location filename="../src/openstudio_lib/SpacesInteriorPartitionsGridView.cpp" line="187"/>
         <source>Interior Partition Name</source>
         <translation>Innentrennwand-Name</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/SpacesInteriorPartitionsGridView.cpp" line="89" />
-        <location filename="../src/openstudio_lib/SpacesInteriorPartitionsGridView.cpp" line="193" />
-        <location filename="../src/openstudio_lib/SpacesInteriorPartitionsGridView.cpp" line="196" />
+        <location filename="../src/openstudio_lib/SpacesInteriorPartitionsGridView.cpp" line="89"/>
+        <location filename="../src/openstudio_lib/SpacesInteriorPartitionsGridView.cpp" line="193"/>
+        <location filename="../src/openstudio_lib/SpacesInteriorPartitionsGridView.cpp" line="196"/>
         <source>Construction Name</source>
         <translation>Konstruktionsname</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/SpacesInteriorPartitionsGridView.cpp" line="89" />
-        <location filename="../src/openstudio_lib/SpacesInteriorPartitionsGridView.cpp" line="204" />
-        <location filename="../src/openstudio_lib/SpacesInteriorPartitionsGridView.cpp" line="206" />
+        <location filename="../src/openstudio_lib/SpacesInteriorPartitionsGridView.cpp" line="89"/>
+        <location filename="../src/openstudio_lib/SpacesInteriorPartitionsGridView.cpp" line="204"/>
+        <location filename="../src/openstudio_lib/SpacesInteriorPartitionsGridView.cpp" line="206"/>
         <source>Convert to Internal Mass</source>
         <translation>In interne Masse umwandeln</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/SpacesInteriorPartitionsGridView.cpp" line="173" />
+        <location filename="../src/openstudio_lib/SpacesInteriorPartitionsGridView.cpp" line="173"/>
         <source>Check to select all rows</source>
         <translation>Ankreuzen um alle Zeilen auszuwählen</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/SpacesInteriorPartitionsGridView.cpp" line="177" />
+        <location filename="../src/openstudio_lib/SpacesInteriorPartitionsGridView.cpp" line="177"/>
         <source>Check to select this row</source>
         <translation>Aktivieren Sie dieses Kontrollkästchen, um diese Zeile auszuwählen</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/SpacesInteriorPartitionsGridView.cpp" line="206" />
+        <location filename="../src/openstudio_lib/SpacesInteriorPartitionsGridView.cpp" line="206"/>
         <source>Check to enable convert to InternalMass.</source>
         <translation>Aktivieren Sie diese Option, um in InternalMass zu konvertieren.</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/SpacesInteriorPartitionsGridView.cpp" line="209" />
-        <location filename="../src/openstudio_lib/SpacesInteriorPartitionsGridView.cpp" line="215" />
+        <location filename="../src/openstudio_lib/SpacesInteriorPartitionsGridView.cpp" line="209"/>
+        <location filename="../src/openstudio_lib/SpacesInteriorPartitionsGridView.cpp" line="215"/>
         <source>Surface Area</source>
         <translation>Oberfläche</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/SpacesInteriorPartitionsGridView.cpp" line="230" />
+        <location filename="../src/openstudio_lib/SpacesInteriorPartitionsGridView.cpp" line="230"/>
         <source>Daylighting Shelf Name</source>
         <translation>Daylighting Shelf Name</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/SpacesInteriorPartitionsGridView.cpp" line="93" />
+        <location filename="../src/openstudio_lib/SpacesInteriorPartitionsGridView.cpp" line="93"/>
         <source>General</source>
         <translation>Allgemein</translation>
     </message>
@@ -29486,13 +29497,13 @@ Space Type</source>
 <context>
     <name>openstudio::SpacesInteriorPartitionsGridView</name>
     <message>
-        <location filename="../src/openstudio_lib/SpacesInteriorPartitionsGridView.cpp" line="48" />
-        <location filename="../src/openstudio_lib/SpacesInteriorPartitionsGridView.cpp" line="49" />
+        <location filename="../src/openstudio_lib/SpacesInteriorPartitionsGridView.cpp" line="48"/>
+        <location filename="../src/openstudio_lib/SpacesInteriorPartitionsGridView.cpp" line="49"/>
         <source>Space</source>
         <translation>Raum</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/SpacesInteriorPartitionsGridView.cpp" line="49" />
+        <location filename="../src/openstudio_lib/SpacesInteriorPartitionsGridView.cpp" line="49"/>
         <source>Drop
 Space</source>
         <translation>Bereich
@@ -29502,88 +29513,88 @@ fallen lassen</translation>
 <context>
     <name>openstudio::SpacesLoadsGridController</name>
     <message>
-        <location filename="../src/openstudio_lib/SpacesLoadsGridView.cpp" line="805" />
+        <location filename="../src/openstudio_lib/SpacesLoadsGridView.cpp" line="805"/>
         <source>Drop Space Infiltration</source>
         <translation>Rauminfiltration entfernen</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/SpacesLoadsGridView.cpp" line="162" />
-        <location filename="../src/openstudio_lib/SpacesLoadsGridView.cpp" line="168" />
-        <location filename="../src/openstudio_lib/SpacesLoadsGridView.cpp" line="170" />
+        <location filename="../src/openstudio_lib/SpacesLoadsGridView.cpp" line="162"/>
+        <location filename="../src/openstudio_lib/SpacesLoadsGridView.cpp" line="168"/>
+        <location filename="../src/openstudio_lib/SpacesLoadsGridView.cpp" line="170"/>
         <source>Space Name</source>
         <translation>Raumname</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/SpacesLoadsGridView.cpp" line="162" />
-        <location filename="../src/openstudio_lib/SpacesLoadsGridView.cpp" line="809" />
-        <location filename="../src/openstudio_lib/SpacesLoadsGridView.cpp" line="814" />
+        <location filename="../src/openstudio_lib/SpacesLoadsGridView.cpp" line="162"/>
+        <location filename="../src/openstudio_lib/SpacesLoadsGridView.cpp" line="809"/>
+        <location filename="../src/openstudio_lib/SpacesLoadsGridView.cpp" line="814"/>
         <source>All</source>
         <translation>Alle</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/SpacesLoadsGridView.cpp" line="159" />
-        <location filename="../src/openstudio_lib/SpacesLoadsGridView.cpp" line="172" />
-        <location filename="../src/openstudio_lib/SpacesLoadsGridView.cpp" line="173" />
+        <location filename="../src/openstudio_lib/SpacesLoadsGridView.cpp" line="159"/>
+        <location filename="../src/openstudio_lib/SpacesLoadsGridView.cpp" line="172"/>
+        <location filename="../src/openstudio_lib/SpacesLoadsGridView.cpp" line="173"/>
         <source>Display Name</source>
         <translation>Anzeigename</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/SpacesLoadsGridView.cpp" line="159" />
-        <location filename="../src/openstudio_lib/SpacesLoadsGridView.cpp" line="179" />
-        <location filename="../src/openstudio_lib/SpacesLoadsGridView.cpp" line="180" />
+        <location filename="../src/openstudio_lib/SpacesLoadsGridView.cpp" line="159"/>
+        <location filename="../src/openstudio_lib/SpacesLoadsGridView.cpp" line="179"/>
+        <location filename="../src/openstudio_lib/SpacesLoadsGridView.cpp" line="180"/>
         <source>CAD Object ID</source>
         <translation>CAD Object ID</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/SpacesLoadsGridView.cpp" line="143" />
-        <location filename="../src/openstudio_lib/SpacesLoadsGridView.cpp" line="761" />
-        <location filename="../src/openstudio_lib/SpacesLoadsGridView.cpp" line="796" />
+        <location filename="../src/openstudio_lib/SpacesLoadsGridView.cpp" line="143"/>
+        <location filename="../src/openstudio_lib/SpacesLoadsGridView.cpp" line="761"/>
+        <location filename="../src/openstudio_lib/SpacesLoadsGridView.cpp" line="796"/>
         <source>Load Name</source>
         <translation>Lastname</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/SpacesLoadsGridView.cpp" line="143" />
-        <location filename="../src/openstudio_lib/SpacesLoadsGridView.cpp" line="815" />
-        <location filename="../src/openstudio_lib/SpacesLoadsGridView.cpp" line="818" />
+        <location filename="../src/openstudio_lib/SpacesLoadsGridView.cpp" line="143"/>
+        <location filename="../src/openstudio_lib/SpacesLoadsGridView.cpp" line="815"/>
+        <location filename="../src/openstudio_lib/SpacesLoadsGridView.cpp" line="818"/>
         <source>Multiplier</source>
         <translation>Multiplikator</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/SpacesLoadsGridView.cpp" line="143" />
-        <location filename="../src/openstudio_lib/SpacesLoadsGridView.cpp" line="821" />
-        <location filename="../src/openstudio_lib/SpacesLoadsGridView.cpp" line="888" />
-        <location filename="../src/openstudio_lib/SpacesLoadsGridView.cpp" line="893" />
+        <location filename="../src/openstudio_lib/SpacesLoadsGridView.cpp" line="143"/>
+        <location filename="../src/openstudio_lib/SpacesLoadsGridView.cpp" line="821"/>
+        <location filename="../src/openstudio_lib/SpacesLoadsGridView.cpp" line="888"/>
+        <location filename="../src/openstudio_lib/SpacesLoadsGridView.cpp" line="893"/>
         <source>Definition</source>
         <translation>Definition</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/SpacesLoadsGridView.cpp" line="143" />
-        <location filename="../src/openstudio_lib/SpacesLoadsGridView.cpp" line="894" />
-        <location filename="../src/openstudio_lib/SpacesLoadsGridView.cpp" line="896" />
-        <location filename="../src/openstudio_lib/SpacesLoadsGridView.cpp" line="900" />
+        <location filename="../src/openstudio_lib/SpacesLoadsGridView.cpp" line="143"/>
+        <location filename="../src/openstudio_lib/SpacesLoadsGridView.cpp" line="894"/>
+        <location filename="../src/openstudio_lib/SpacesLoadsGridView.cpp" line="896"/>
+        <location filename="../src/openstudio_lib/SpacesLoadsGridView.cpp" line="900"/>
         <source>Schedule</source>
         <translation>Zeitplan</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/SpacesLoadsGridView.cpp" line="143" />
-        <location filename="../src/openstudio_lib/SpacesLoadsGridView.cpp" line="899" />
+        <location filename="../src/openstudio_lib/SpacesLoadsGridView.cpp" line="143"/>
+        <location filename="../src/openstudio_lib/SpacesLoadsGridView.cpp" line="899"/>
         <source>Activity Schedule
 (People Only)</source>
         <translation>Aktivitätsplan
 (Nur Personen)</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/SpacesLoadsGridView.cpp" line="145" />
+        <location filename="../src/openstudio_lib/SpacesLoadsGridView.cpp" line="145"/>
         <source>General</source>
         <translation>Allgemein</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/SpacesLoadsGridView.cpp" line="811" />
+        <location filename="../src/openstudio_lib/SpacesLoadsGridView.cpp" line="811"/>
         <source>Check to select all rows</source>
         <translation>Ankreuzen um alle Zeilen auszuwählen</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/SpacesLoadsGridView.cpp" line="814" />
+        <location filename="../src/openstudio_lib/SpacesLoadsGridView.cpp" line="814"/>
         <source>Check to select this row</source>
         <translation>Aktivieren Sie dieses Kontrollkästchen, um diese Zeile auszuwählen</translation>
     </message>
@@ -29591,13 +29602,13 @@ fallen lassen</translation>
 <context>
     <name>openstudio::SpacesLoadsGridView</name>
     <message>
-        <location filename="../src/openstudio_lib/SpacesLoadsGridView.cpp" line="93" />
-        <location filename="../src/openstudio_lib/SpacesLoadsGridView.cpp" line="94" />
+        <location filename="../src/openstudio_lib/SpacesLoadsGridView.cpp" line="93"/>
+        <location filename="../src/openstudio_lib/SpacesLoadsGridView.cpp" line="94"/>
         <source>Space</source>
         <translation>Raum</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/SpacesLoadsGridView.cpp" line="94" />
+        <location filename="../src/openstudio_lib/SpacesLoadsGridView.cpp" line="94"/>
         <source>Drop
 Space</source>
         <translation>Bereich ablegen</translation>
@@ -29606,79 +29617,79 @@ Space</source>
 <context>
     <name>openstudio::SpacesShadingGridController</name>
     <message>
-        <location filename="../src/openstudio_lib/SpacesShadingGridView.cpp" line="110" />
-        <location filename="../src/openstudio_lib/SpacesShadingGridView.cpp" line="116" />
-        <location filename="../src/openstudio_lib/SpacesShadingGridView.cpp" line="117" />
+        <location filename="../src/openstudio_lib/SpacesShadingGridView.cpp" line="110"/>
+        <location filename="../src/openstudio_lib/SpacesShadingGridView.cpp" line="116"/>
+        <location filename="../src/openstudio_lib/SpacesShadingGridView.cpp" line="117"/>
         <source>Space Name</source>
         <translation>Raumname</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/SpacesShadingGridView.cpp" line="110" />
-        <location filename="../src/openstudio_lib/SpacesShadingGridView.cpp" line="168" />
-        <location filename="../src/openstudio_lib/SpacesShadingGridView.cpp" line="173" />
+        <location filename="../src/openstudio_lib/SpacesShadingGridView.cpp" line="110"/>
+        <location filename="../src/openstudio_lib/SpacesShadingGridView.cpp" line="168"/>
+        <location filename="../src/openstudio_lib/SpacesShadingGridView.cpp" line="173"/>
         <source>All</source>
         <translation>Alle</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/SpacesShadingGridView.cpp" line="107" />
-        <location filename="../src/openstudio_lib/SpacesShadingGridView.cpp" line="119" />
-        <location filename="../src/openstudio_lib/SpacesShadingGridView.cpp" line="120" />
+        <location filename="../src/openstudio_lib/SpacesShadingGridView.cpp" line="107"/>
+        <location filename="../src/openstudio_lib/SpacesShadingGridView.cpp" line="119"/>
+        <location filename="../src/openstudio_lib/SpacesShadingGridView.cpp" line="120"/>
         <source>Display Name</source>
         <translation>Anzeigename</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/SpacesShadingGridView.cpp" line="107" />
-        <location filename="../src/openstudio_lib/SpacesShadingGridView.cpp" line="126" />
-        <location filename="../src/openstudio_lib/SpacesShadingGridView.cpp" line="127" />
+        <location filename="../src/openstudio_lib/SpacesShadingGridView.cpp" line="107"/>
+        <location filename="../src/openstudio_lib/SpacesShadingGridView.cpp" line="126"/>
+        <location filename="../src/openstudio_lib/SpacesShadingGridView.cpp" line="127"/>
         <source>CAD Object ID</source>
         <translation>CAD-Objekt-ID</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/SpacesShadingGridView.cpp" line="90" />
-        <location filename="../src/openstudio_lib/SpacesShadingGridView.cpp" line="180" />
-        <location filename="../src/openstudio_lib/SpacesShadingGridView.cpp" line="181" />
+        <location filename="../src/openstudio_lib/SpacesShadingGridView.cpp" line="90"/>
+        <location filename="../src/openstudio_lib/SpacesShadingGridView.cpp" line="180"/>
+        <location filename="../src/openstudio_lib/SpacesShadingGridView.cpp" line="181"/>
         <source>Shading Surface Group</source>
         <translation>Verschattungsoberflächengruppe</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/SpacesShadingGridView.cpp" line="90" />
-        <location filename="../src/openstudio_lib/SpacesShadingGridView.cpp" line="187" />
-        <location filename="../src/openstudio_lib/SpacesShadingGridView.cpp" line="189" />
+        <location filename="../src/openstudio_lib/SpacesShadingGridView.cpp" line="90"/>
+        <location filename="../src/openstudio_lib/SpacesShadingGridView.cpp" line="187"/>
+        <location filename="../src/openstudio_lib/SpacesShadingGridView.cpp" line="189"/>
         <source>Construction</source>
         <translation>Konstruktion</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/SpacesShadingGridView.cpp" line="90" />
-        <location filename="../src/openstudio_lib/SpacesShadingGridView.cpp" line="195" />
-        <location filename="../src/openstudio_lib/SpacesShadingGridView.cpp" line="203" />
+        <location filename="../src/openstudio_lib/SpacesShadingGridView.cpp" line="90"/>
+        <location filename="../src/openstudio_lib/SpacesShadingGridView.cpp" line="195"/>
+        <location filename="../src/openstudio_lib/SpacesShadingGridView.cpp" line="203"/>
         <source>Transmittance Schedule</source>
         <translation>Transmittanz-Zeitplan</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/SpacesShadingGridView.cpp" line="90" />
-        <location filename="../src/openstudio_lib/SpacesShadingGridView.cpp" line="175" />
-        <location filename="../src/openstudio_lib/SpacesShadingGridView.cpp" line="177" />
-        <location filename="../src/openstudio_lib/SpacesShadingGridView.cpp" line="207" />
+        <location filename="../src/openstudio_lib/SpacesShadingGridView.cpp" line="90"/>
+        <location filename="../src/openstudio_lib/SpacesShadingGridView.cpp" line="175"/>
+        <location filename="../src/openstudio_lib/SpacesShadingGridView.cpp" line="177"/>
+        <location filename="../src/openstudio_lib/SpacesShadingGridView.cpp" line="207"/>
         <source>Shading Surface Name</source>
         <translation>Schattenflächenname</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/SpacesShadingGridView.cpp" line="170" />
+        <location filename="../src/openstudio_lib/SpacesShadingGridView.cpp" line="170"/>
         <source>Check to select all rows</source>
         <translation>Ankreuzen um alle Zeilen auszuwählen</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/SpacesShadingGridView.cpp" line="173" />
+        <location filename="../src/openstudio_lib/SpacesShadingGridView.cpp" line="173"/>
         <source>Check to select this row</source>
         <translation>Aktivieren Sie dieses Kontrollkästchen, um diese Zeile auszuwählen</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/SpacesShadingGridView.cpp" line="212" />
+        <location filename="../src/openstudio_lib/SpacesShadingGridView.cpp" line="212"/>
         <source>Daylighting Shelf Name</source>
         <translation>Daylighting Shelf Name</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/SpacesShadingGridView.cpp" line="93" />
+        <location filename="../src/openstudio_lib/SpacesShadingGridView.cpp" line="93"/>
         <source>General</source>
         <translation>Allgemein</translation>
     </message>
@@ -29686,13 +29697,13 @@ Space</source>
 <context>
     <name>openstudio::SpacesShadingGridView</name>
     <message>
-        <location filename="../src/openstudio_lib/SpacesShadingGridView.cpp" line="49" />
-        <location filename="../src/openstudio_lib/SpacesShadingGridView.cpp" line="50" />
+        <location filename="../src/openstudio_lib/SpacesShadingGridView.cpp" line="49"/>
+        <location filename="../src/openstudio_lib/SpacesShadingGridView.cpp" line="50"/>
         <source>Space</source>
         <translation>Raum</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/SpacesShadingGridView.cpp" line="50" />
+        <location filename="../src/openstudio_lib/SpacesShadingGridView.cpp" line="50"/>
         <source>Drop
 Space</source>
         <translation>Leerzeichen ablegen</translation>
@@ -29701,120 +29712,120 @@ Space</source>
 <context>
     <name>openstudio::SpacesSpacesGridController</name>
     <message>
-        <location filename="../src/openstudio_lib/SpacesSpacesGridView.cpp" line="124" />
-        <location filename="../src/openstudio_lib/SpacesSpacesGridView.cpp" line="130" />
-        <location filename="../src/openstudio_lib/SpacesSpacesGridView.cpp" line="131" />
+        <location filename="../src/openstudio_lib/SpacesSpacesGridView.cpp" line="124"/>
+        <location filename="../src/openstudio_lib/SpacesSpacesGridView.cpp" line="130"/>
+        <location filename="../src/openstudio_lib/SpacesSpacesGridView.cpp" line="131"/>
         <source>Space Name</source>
         <translation>Raumname</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/SpacesSpacesGridView.cpp" line="121" />
-        <location filename="../src/openstudio_lib/SpacesSpacesGridView.cpp" line="133" />
-        <location filename="../src/openstudio_lib/SpacesSpacesGridView.cpp" line="134" />
+        <location filename="../src/openstudio_lib/SpacesSpacesGridView.cpp" line="121"/>
+        <location filename="../src/openstudio_lib/SpacesSpacesGridView.cpp" line="133"/>
+        <location filename="../src/openstudio_lib/SpacesSpacesGridView.cpp" line="134"/>
         <source>Display Name</source>
         <translation>Anzeigename</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/SpacesSpacesGridView.cpp" line="121" />
-        <location filename="../src/openstudio_lib/SpacesSpacesGridView.cpp" line="140" />
-        <location filename="../src/openstudio_lib/SpacesSpacesGridView.cpp" line="141" />
+        <location filename="../src/openstudio_lib/SpacesSpacesGridView.cpp" line="121"/>
+        <location filename="../src/openstudio_lib/SpacesSpacesGridView.cpp" line="140"/>
+        <location filename="../src/openstudio_lib/SpacesSpacesGridView.cpp" line="141"/>
         <source>CAD Object ID</source>
         <translation>CAD-Objekt-ID</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/SpacesSpacesGridView.cpp" line="124" />
-        <location filename="../src/openstudio_lib/SpacesSpacesGridView.cpp" line="147" />
-        <location filename="../src/openstudio_lib/SpacesSpacesGridView.cpp" line="152" />
+        <location filename="../src/openstudio_lib/SpacesSpacesGridView.cpp" line="124"/>
+        <location filename="../src/openstudio_lib/SpacesSpacesGridView.cpp" line="147"/>
+        <location filename="../src/openstudio_lib/SpacesSpacesGridView.cpp" line="152"/>
         <source>All</source>
         <translation>Alle</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/SpacesSpacesGridView.cpp" line="95" />
-        <location filename="../src/openstudio_lib/SpacesSpacesGridView.cpp" line="153" />
-        <location filename="../src/openstudio_lib/SpacesSpacesGridView.cpp" line="154" />
+        <location filename="../src/openstudio_lib/SpacesSpacesGridView.cpp" line="95"/>
+        <location filename="../src/openstudio_lib/SpacesSpacesGridView.cpp" line="153"/>
+        <location filename="../src/openstudio_lib/SpacesSpacesGridView.cpp" line="154"/>
         <source>Story</source>
         <translation>Geschoss</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/SpacesSpacesGridView.cpp" line="95" />
-        <location filename="../src/openstudio_lib/SpacesSpacesGridView.cpp" line="157" />
-        <location filename="../src/openstudio_lib/SpacesSpacesGridView.cpp" line="163" />
+        <location filename="../src/openstudio_lib/SpacesSpacesGridView.cpp" line="95"/>
+        <location filename="../src/openstudio_lib/SpacesSpacesGridView.cpp" line="157"/>
+        <location filename="../src/openstudio_lib/SpacesSpacesGridView.cpp" line="163"/>
         <source>Thermal Zone</source>
         <translation>Thermische Zone</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/SpacesSpacesGridView.cpp" line="95" />
-        <location filename="../src/openstudio_lib/SpacesSpacesGridView.cpp" line="165" />
-        <location filename="../src/openstudio_lib/SpacesSpacesGridView.cpp" line="166" />
+        <location filename="../src/openstudio_lib/SpacesSpacesGridView.cpp" line="95"/>
+        <location filename="../src/openstudio_lib/SpacesSpacesGridView.cpp" line="165"/>
+        <location filename="../src/openstudio_lib/SpacesSpacesGridView.cpp" line="166"/>
         <source>Space Type</source>
         <translation>Raumtyp</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/SpacesSpacesGridView.cpp" line="95" />
-        <location filename="../src/openstudio_lib/SpacesSpacesGridView.cpp" line="171" />
-        <location filename="../src/openstudio_lib/SpacesSpacesGridView.cpp" line="173" />
+        <location filename="../src/openstudio_lib/SpacesSpacesGridView.cpp" line="95"/>
+        <location filename="../src/openstudio_lib/SpacesSpacesGridView.cpp" line="171"/>
+        <location filename="../src/openstudio_lib/SpacesSpacesGridView.cpp" line="173"/>
         <source>Default Construction Set</source>
         <translation>Standardkonstruktionssatz</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/SpacesSpacesGridView.cpp" line="95" />
-        <location filename="../src/openstudio_lib/SpacesSpacesGridView.cpp" line="176" />
-        <location filename="../src/openstudio_lib/SpacesSpacesGridView.cpp" line="177" />
+        <location filename="../src/openstudio_lib/SpacesSpacesGridView.cpp" line="95"/>
+        <location filename="../src/openstudio_lib/SpacesSpacesGridView.cpp" line="176"/>
+        <location filename="../src/openstudio_lib/SpacesSpacesGridView.cpp" line="177"/>
         <source>Default Schedule Set</source>
         <translation>Standard-Zeitplangruppe</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/SpacesSpacesGridView.cpp" line="95" />
-        <location filename="../src/openstudio_lib/SpacesSpacesGridView.cpp" line="180" />
-        <location filename="../src/openstudio_lib/SpacesSpacesGridView.cpp" line="182" />
+        <location filename="../src/openstudio_lib/SpacesSpacesGridView.cpp" line="95"/>
+        <location filename="../src/openstudio_lib/SpacesSpacesGridView.cpp" line="180"/>
+        <location filename="../src/openstudio_lib/SpacesSpacesGridView.cpp" line="182"/>
         <source>Part of Total Floor Area</source>
         <translation>Teil der Gesamtgeschossfläche</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/SpacesSpacesGridView.cpp" line="104" />
-        <location filename="../src/openstudio_lib/SpacesSpacesGridView.cpp" line="184" />
-        <location filename="../src/openstudio_lib/SpacesSpacesGridView.cpp" line="208" />
-        <location filename="../src/openstudio_lib/SpacesSpacesGridView.cpp" line="217" />
+        <location filename="../src/openstudio_lib/SpacesSpacesGridView.cpp" line="104"/>
+        <location filename="../src/openstudio_lib/SpacesSpacesGridView.cpp" line="184"/>
+        <location filename="../src/openstudio_lib/SpacesSpacesGridView.cpp" line="208"/>
+        <location filename="../src/openstudio_lib/SpacesSpacesGridView.cpp" line="217"/>
         <source>Space Infiltration Design Flow Rates</source>
         <translation>Rauminfiltrations-Auslegungsvolumenströme</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/SpacesSpacesGridView.cpp" line="105" />
-        <location filename="../src/openstudio_lib/SpacesSpacesGridView.cpp" line="218" />
-        <location filename="../src/openstudio_lib/SpacesSpacesGridView.cpp" line="242" />
-        <location filename="../src/openstudio_lib/SpacesSpacesGridView.cpp" line="253" />
+        <location filename="../src/openstudio_lib/SpacesSpacesGridView.cpp" line="105"/>
+        <location filename="../src/openstudio_lib/SpacesSpacesGridView.cpp" line="218"/>
+        <location filename="../src/openstudio_lib/SpacesSpacesGridView.cpp" line="242"/>
+        <location filename="../src/openstudio_lib/SpacesSpacesGridView.cpp" line="253"/>
         <source>Space Infiltration Effective Leakage Areas</source>
         <translation>Effektive Leckageflächen der Rauminfiltration</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/SpacesSpacesGridView.cpp" line="149" />
+        <location filename="../src/openstudio_lib/SpacesSpacesGridView.cpp" line="149"/>
         <source>Check to select all rows</source>
         <translation>Ankreuzen um alle Zeilen auszuwählen</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/SpacesSpacesGridView.cpp" line="152" />
+        <location filename="../src/openstudio_lib/SpacesSpacesGridView.cpp" line="152"/>
         <source>Check to select this row</source>
         <translation>Aktivieren Sie dieses Kontrollkästchen, um diese Zeile auszuwählen</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/SpacesSpacesGridView.cpp" line="182" />
+        <location filename="../src/openstudio_lib/SpacesSpacesGridView.cpp" line="182"/>
         <source>Check to enable part of total floor area.</source>
         <translation>Aktivieren, um einen Teil der Gesamtgeschossfläche einzubeziehen.</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/SpacesSpacesGridView.cpp" line="103" />
-        <location filename="../src/openstudio_lib/SpacesSpacesGridView.cpp" line="254" />
-        <location filename="../src/openstudio_lib/SpacesSpacesGridView.cpp" line="256" />
+        <location filename="../src/openstudio_lib/SpacesSpacesGridView.cpp" line="103"/>
+        <location filename="../src/openstudio_lib/SpacesSpacesGridView.cpp" line="254"/>
+        <location filename="../src/openstudio_lib/SpacesSpacesGridView.cpp" line="256"/>
         <source>Design Specification Outdoor Air Object Name</source>
         <translation>Design Specification Outdoor Air Objektname</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/SpacesSpacesGridView.cpp" line="97" />
+        <location filename="../src/openstudio_lib/SpacesSpacesGridView.cpp" line="97"/>
         <source>General</source>
         <translation>Allgemein</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/SpacesSpacesGridView.cpp" line="107" />
+        <location filename="../src/openstudio_lib/SpacesSpacesGridView.cpp" line="107"/>
         <source>Airflow</source>
         <translation>Luftstrom</translation>
     </message>
@@ -29822,13 +29833,13 @@ Space</source>
 <context>
     <name>openstudio::SpacesSpacesGridView</name>
     <message>
-        <location filename="../src/openstudio_lib/SpacesSpacesGridView.cpp" line="55" />
-        <location filename="../src/openstudio_lib/SpacesSpacesGridView.cpp" line="56" />
+        <location filename="../src/openstudio_lib/SpacesSpacesGridView.cpp" line="55"/>
+        <location filename="../src/openstudio_lib/SpacesSpacesGridView.cpp" line="56"/>
         <source>Space</source>
         <translation>Raum</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/SpacesSpacesGridView.cpp" line="56" />
+        <location filename="../src/openstudio_lib/SpacesSpacesGridView.cpp" line="56"/>
         <source>Drop
 Space</source>
         <translation>Bereich ablegen</translation>
@@ -29837,121 +29848,121 @@ Space</source>
 <context>
     <name>openstudio::SpacesSubsurfacesGridController</name>
     <message>
-        <location filename="../src/openstudio_lib/SpacesSubsurfacesGridView.cpp" line="202" />
-        <location filename="../src/openstudio_lib/SpacesSubsurfacesGridView.cpp" line="208" />
-        <location filename="../src/openstudio_lib/SpacesSubsurfacesGridView.cpp" line="209" />
+        <location filename="../src/openstudio_lib/SpacesSubsurfacesGridView.cpp" line="202"/>
+        <location filename="../src/openstudio_lib/SpacesSubsurfacesGridView.cpp" line="208"/>
+        <location filename="../src/openstudio_lib/SpacesSubsurfacesGridView.cpp" line="209"/>
         <source>Space Name</source>
         <translation>Raumname</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/SpacesSubsurfacesGridView.cpp" line="202" />
-        <location filename="../src/openstudio_lib/SpacesSubsurfacesGridView.cpp" line="325" />
-        <location filename="../src/openstudio_lib/SpacesSubsurfacesGridView.cpp" line="330" />
+        <location filename="../src/openstudio_lib/SpacesSubsurfacesGridView.cpp" line="202"/>
+        <location filename="../src/openstudio_lib/SpacesSubsurfacesGridView.cpp" line="325"/>
+        <location filename="../src/openstudio_lib/SpacesSubsurfacesGridView.cpp" line="330"/>
         <source>All</source>
         <translation>Alle</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/SpacesSubsurfacesGridView.cpp" line="199" />
-        <location filename="../src/openstudio_lib/SpacesSubsurfacesGridView.cpp" line="211" />
-        <location filename="../src/openstudio_lib/SpacesSubsurfacesGridView.cpp" line="212" />
+        <location filename="../src/openstudio_lib/SpacesSubsurfacesGridView.cpp" line="199"/>
+        <location filename="../src/openstudio_lib/SpacesSubsurfacesGridView.cpp" line="211"/>
+        <location filename="../src/openstudio_lib/SpacesSubsurfacesGridView.cpp" line="212"/>
         <source>Display Name</source>
         <translation>Anzeigename</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/SpacesSubsurfacesGridView.cpp" line="199" />
-        <location filename="../src/openstudio_lib/SpacesSubsurfacesGridView.cpp" line="218" />
-        <location filename="../src/openstudio_lib/SpacesSubsurfacesGridView.cpp" line="219" />
+        <location filename="../src/openstudio_lib/SpacesSubsurfacesGridView.cpp" line="199"/>
+        <location filename="../src/openstudio_lib/SpacesSubsurfacesGridView.cpp" line="218"/>
+        <location filename="../src/openstudio_lib/SpacesSubsurfacesGridView.cpp" line="219"/>
         <source>CAD Object ID</source>
         <translation>CAD Object ID</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/SpacesSubsurfacesGridView.cpp" line="115" />
-        <location filename="../src/openstudio_lib/SpacesSubsurfacesGridView.cpp" line="125" />
-        <location filename="../src/openstudio_lib/SpacesSubsurfacesGridView.cpp" line="143" />
-        <location filename="../src/openstudio_lib/SpacesSubsurfacesGridView.cpp" line="178" />
-        <location filename="../src/openstudio_lib/SpacesSubsurfacesGridView.cpp" line="333" />
-        <location filename="../src/openstudio_lib/SpacesSubsurfacesGridView.cpp" line="335" />
+        <location filename="../src/openstudio_lib/SpacesSubsurfacesGridView.cpp" line="115"/>
+        <location filename="../src/openstudio_lib/SpacesSubsurfacesGridView.cpp" line="125"/>
+        <location filename="../src/openstudio_lib/SpacesSubsurfacesGridView.cpp" line="143"/>
+        <location filename="../src/openstudio_lib/SpacesSubsurfacesGridView.cpp" line="178"/>
+        <location filename="../src/openstudio_lib/SpacesSubsurfacesGridView.cpp" line="333"/>
+        <location filename="../src/openstudio_lib/SpacesSubsurfacesGridView.cpp" line="335"/>
         <source>Parent Surface Name</source>
         <translation>Oberflächenname übergeordnet</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/SpacesSubsurfacesGridView.cpp" line="115" />
-        <location filename="../src/openstudio_lib/SpacesSubsurfacesGridView.cpp" line="125" />
-        <location filename="../src/openstudio_lib/SpacesSubsurfacesGridView.cpp" line="142" />
-        <location filename="../src/openstudio_lib/SpacesSubsurfacesGridView.cpp" line="177" />
-        <location filename="../src/openstudio_lib/SpacesSubsurfacesGridView.cpp" line="340" />
-        <location filename="../src/openstudio_lib/SpacesSubsurfacesGridView.cpp" line="341" />
+        <location filename="../src/openstudio_lib/SpacesSubsurfacesGridView.cpp" line="115"/>
+        <location filename="../src/openstudio_lib/SpacesSubsurfacesGridView.cpp" line="125"/>
+        <location filename="../src/openstudio_lib/SpacesSubsurfacesGridView.cpp" line="142"/>
+        <location filename="../src/openstudio_lib/SpacesSubsurfacesGridView.cpp" line="177"/>
+        <location filename="../src/openstudio_lib/SpacesSubsurfacesGridView.cpp" line="340"/>
+        <location filename="../src/openstudio_lib/SpacesSubsurfacesGridView.cpp" line="341"/>
         <source>Subsurface Name</source>
         <translation>Unterflächen-Name</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/SpacesSubsurfacesGridView.cpp" line="115" />
-        <location filename="../src/openstudio_lib/SpacesSubsurfacesGridView.cpp" line="346" />
-        <location filename="../src/openstudio_lib/SpacesSubsurfacesGridView.cpp" line="348" />
+        <location filename="../src/openstudio_lib/SpacesSubsurfacesGridView.cpp" line="115"/>
+        <location filename="../src/openstudio_lib/SpacesSubsurfacesGridView.cpp" line="346"/>
+        <location filename="../src/openstudio_lib/SpacesSubsurfacesGridView.cpp" line="348"/>
         <source>Subsurface Type</source>
         <translation>Unterflächentyp</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/SpacesSubsurfacesGridView.cpp" line="116" />
-        <location filename="../src/openstudio_lib/SpacesSubsurfacesGridView.cpp" line="358" />
-        <location filename="../src/openstudio_lib/SpacesSubsurfacesGridView.cpp" line="359" />
+        <location filename="../src/openstudio_lib/SpacesSubsurfacesGridView.cpp" line="116"/>
+        <location filename="../src/openstudio_lib/SpacesSubsurfacesGridView.cpp" line="358"/>
+        <location filename="../src/openstudio_lib/SpacesSubsurfacesGridView.cpp" line="359"/>
         <source>Multiplier</source>
         <translation>Multiplikator</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/SpacesSubsurfacesGridView.cpp" line="116" />
-        <location filename="../src/openstudio_lib/SpacesSubsurfacesGridView.cpp" line="363" />
-        <location filename="../src/openstudio_lib/SpacesSubsurfacesGridView.cpp" line="365" />
+        <location filename="../src/openstudio_lib/SpacesSubsurfacesGridView.cpp" line="116"/>
+        <location filename="../src/openstudio_lib/SpacesSubsurfacesGridView.cpp" line="363"/>
+        <location filename="../src/openstudio_lib/SpacesSubsurfacesGridView.cpp" line="365"/>
         <source>Construction</source>
         <translation>Konstruktion</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/SpacesSubsurfacesGridView.cpp" line="116" />
-        <location filename="../src/openstudio_lib/SpacesSubsurfacesGridView.cpp" line="371" />
-        <location filename="../src/openstudio_lib/SpacesSubsurfacesGridView.cpp" line="378" />
+        <location filename="../src/openstudio_lib/SpacesSubsurfacesGridView.cpp" line="116"/>
+        <location filename="../src/openstudio_lib/SpacesSubsurfacesGridView.cpp" line="371"/>
+        <location filename="../src/openstudio_lib/SpacesSubsurfacesGridView.cpp" line="378"/>
         <source>Outside Boundary Condition Object</source>
         <translation>Außenrandbedingung-Objekt</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/SpacesSubsurfacesGridView.cpp" line="382" />
+        <location filename="../src/openstudio_lib/SpacesSubsurfacesGridView.cpp" line="382"/>
         <source>Shading Surface Name</source>
         <translation>Verschattungsflächen-Name</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/SpacesSubsurfacesGridView.cpp" line="125" />
-        <location filename="../src/openstudio_lib/SpacesSubsurfacesGridView.cpp" line="384" />
-        <location filename="../src/openstudio_lib/SpacesSubsurfacesGridView.cpp" line="399" />
+        <location filename="../src/openstudio_lib/SpacesSubsurfacesGridView.cpp" line="125"/>
+        <location filename="../src/openstudio_lib/SpacesSubsurfacesGridView.cpp" line="384"/>
+        <location filename="../src/openstudio_lib/SpacesSubsurfacesGridView.cpp" line="399"/>
         <source>Shading Control</source>
         <translation>Verschattungsregelung</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/SpacesSubsurfacesGridView.cpp" line="125" />
-        <location filename="../src/openstudio_lib/SpacesSubsurfacesGridView.cpp" line="409" />
-        <location filename="../src/openstudio_lib/SpacesSubsurfacesGridView.cpp" line="411" />
+        <location filename="../src/openstudio_lib/SpacesSubsurfacesGridView.cpp" line="125"/>
+        <location filename="../src/openstudio_lib/SpacesSubsurfacesGridView.cpp" line="409"/>
+        <location filename="../src/openstudio_lib/SpacesSubsurfacesGridView.cpp" line="411"/>
         <source>Shading Type</source>
         <translation>Verschattungstyp</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/SpacesSubsurfacesGridView.cpp" line="416" />
+        <location filename="../src/openstudio_lib/SpacesSubsurfacesGridView.cpp" line="416"/>
         <source>Construction with Shading Name</source>
         <translation>Konstruktion mit Verschattungname</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/SpacesSubsurfacesGridView.cpp" line="419" />
+        <location filename="../src/openstudio_lib/SpacesSubsurfacesGridView.cpp" line="419"/>
         <source>Shading Device Material Name</source>
         <translation>Materialname des Beschattungsgeräts</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/SpacesSubsurfacesGridView.cpp" line="128" />
-        <location filename="../src/openstudio_lib/SpacesSubsurfacesGridView.cpp" line="422" />
-        <location filename="../src/openstudio_lib/SpacesSubsurfacesGridView.cpp" line="424" />
+        <location filename="../src/openstudio_lib/SpacesSubsurfacesGridView.cpp" line="128"/>
+        <location filename="../src/openstudio_lib/SpacesSubsurfacesGridView.cpp" line="422"/>
+        <location filename="../src/openstudio_lib/SpacesSubsurfacesGridView.cpp" line="424"/>
         <source>Shading Control Type</source>
         <translation>Verschattungsregelungstyp</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/SpacesSubsurfacesGridView.cpp" line="128" />
-        <location filename="../src/openstudio_lib/SpacesSubsurfacesGridView.cpp" line="431" />
-        <location filename="../src/openstudio_lib/SpacesSubsurfacesGridView.cpp" line="439" />
+        <location filename="../src/openstudio_lib/SpacesSubsurfacesGridView.cpp" line="128"/>
+        <location filename="../src/openstudio_lib/SpacesSubsurfacesGridView.cpp" line="431"/>
+        <location filename="../src/openstudio_lib/SpacesSubsurfacesGridView.cpp" line="439"/>
         <source>Schedule Name</source>
         <translation>Zeitplanname</translation>
     </message>
@@ -29964,243 +29975,243 @@ Space</source>
         <translation>Sollwert 2</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/SpacesSubsurfacesGridView.cpp" line="144" />
-        <location filename="../src/openstudio_lib/SpacesSubsurfacesGridView.cpp" line="171" />
-        <location filename="../src/openstudio_lib/SpacesSubsurfacesGridView.cpp" line="443" />
-        <location filename="../src/openstudio_lib/SpacesSubsurfacesGridView.cpp" line="445" />
+        <location filename="../src/openstudio_lib/SpacesSubsurfacesGridView.cpp" line="144"/>
+        <location filename="../src/openstudio_lib/SpacesSubsurfacesGridView.cpp" line="171"/>
+        <location filename="../src/openstudio_lib/SpacesSubsurfacesGridView.cpp" line="443"/>
+        <location filename="../src/openstudio_lib/SpacesSubsurfacesGridView.cpp" line="445"/>
         <source>Frame and Divider</source>
         <translation>Rahmen und Teiler</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/SpacesSubsurfacesGridView.cpp" line="145" />
-        <location filename="../src/openstudio_lib/SpacesSubsurfacesGridView.cpp" line="450" />
-        <location filename="../src/openstudio_lib/SpacesSubsurfacesGridView.cpp" line="451" />
+        <location filename="../src/openstudio_lib/SpacesSubsurfacesGridView.cpp" line="145"/>
+        <location filename="../src/openstudio_lib/SpacesSubsurfacesGridView.cpp" line="450"/>
+        <location filename="../src/openstudio_lib/SpacesSubsurfacesGridView.cpp" line="451"/>
         <source>Frame Width</source>
         <translation>Rahmenbreite</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/SpacesSubsurfacesGridView.cpp" line="146" />
-        <location filename="../src/openstudio_lib/SpacesSubsurfacesGridView.cpp" line="458" />
-        <location filename="../src/openstudio_lib/SpacesSubsurfacesGridView.cpp" line="460" />
+        <location filename="../src/openstudio_lib/SpacesSubsurfacesGridView.cpp" line="146"/>
+        <location filename="../src/openstudio_lib/SpacesSubsurfacesGridView.cpp" line="458"/>
+        <location filename="../src/openstudio_lib/SpacesSubsurfacesGridView.cpp" line="460"/>
         <source>Frame Outside Projection</source>
         <translation>Rahmenaußenprojektion</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/SpacesSubsurfacesGridView.cpp" line="147" />
-        <location filename="../src/openstudio_lib/SpacesSubsurfacesGridView.cpp" line="467" />
-        <location filename="../src/openstudio_lib/SpacesSubsurfacesGridView.cpp" line="469" />
+        <location filename="../src/openstudio_lib/SpacesSubsurfacesGridView.cpp" line="147"/>
+        <location filename="../src/openstudio_lib/SpacesSubsurfacesGridView.cpp" line="467"/>
+        <location filename="../src/openstudio_lib/SpacesSubsurfacesGridView.cpp" line="469"/>
         <source>Frame Inside Projection</source>
         <translation>Rahmen innen Projektion</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/SpacesSubsurfacesGridView.cpp" line="148" />
-        <location filename="../src/openstudio_lib/SpacesSubsurfacesGridView.cpp" line="476" />
-        <location filename="../src/openstudio_lib/SpacesSubsurfacesGridView.cpp" line="478" />
+        <location filename="../src/openstudio_lib/SpacesSubsurfacesGridView.cpp" line="148"/>
+        <location filename="../src/openstudio_lib/SpacesSubsurfacesGridView.cpp" line="476"/>
+        <location filename="../src/openstudio_lib/SpacesSubsurfacesGridView.cpp" line="478"/>
         <source>Frame Conductance</source>
         <translation>Rahmenleitwert</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/SpacesSubsurfacesGridView.cpp" line="149" />
-        <location filename="../src/openstudio_lib/SpacesSubsurfacesGridView.cpp" line="485" />
-        <location filename="../src/openstudio_lib/SpacesSubsurfacesGridView.cpp" line="487" />
+        <location filename="../src/openstudio_lib/SpacesSubsurfacesGridView.cpp" line="149"/>
+        <location filename="../src/openstudio_lib/SpacesSubsurfacesGridView.cpp" line="485"/>
+        <location filename="../src/openstudio_lib/SpacesSubsurfacesGridView.cpp" line="487"/>
         <source>Frame - Edge Glass Conductance to Center - Of - Glass Conductance</source>
         <translation>Frame - Edge Glass Conductance to Center - Of - Glass Conductance</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/SpacesSubsurfacesGridView.cpp" line="150" />
-        <location filename="../src/openstudio_lib/SpacesSubsurfacesGridView.cpp" line="495" />
-        <location filename="../src/openstudio_lib/SpacesSubsurfacesGridView.cpp" line="497" />
+        <location filename="../src/openstudio_lib/SpacesSubsurfacesGridView.cpp" line="150"/>
+        <location filename="../src/openstudio_lib/SpacesSubsurfacesGridView.cpp" line="495"/>
+        <location filename="../src/openstudio_lib/SpacesSubsurfacesGridView.cpp" line="497"/>
         <source>Frame Solar Absorptance</source>
         <translation>Frame Solar Absorptance</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/SpacesSubsurfacesGridView.cpp" line="151" />
-        <location filename="../src/openstudio_lib/SpacesSubsurfacesGridView.cpp" line="504" />
-        <location filename="../src/openstudio_lib/SpacesSubsurfacesGridView.cpp" line="506" />
+        <location filename="../src/openstudio_lib/SpacesSubsurfacesGridView.cpp" line="151"/>
+        <location filename="../src/openstudio_lib/SpacesSubsurfacesGridView.cpp" line="504"/>
+        <location filename="../src/openstudio_lib/SpacesSubsurfacesGridView.cpp" line="506"/>
         <source>Frame Visible Absorptance</source>
         <translation>Frame Visible Absorptance</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/SpacesSubsurfacesGridView.cpp" line="152" />
-        <location filename="../src/openstudio_lib/SpacesSubsurfacesGridView.cpp" line="513" />
-        <location filename="../src/openstudio_lib/SpacesSubsurfacesGridView.cpp" line="515" />
+        <location filename="../src/openstudio_lib/SpacesSubsurfacesGridView.cpp" line="152"/>
+        <location filename="../src/openstudio_lib/SpacesSubsurfacesGridView.cpp" line="513"/>
+        <location filename="../src/openstudio_lib/SpacesSubsurfacesGridView.cpp" line="515"/>
         <source>Frame Thermal Hemispherical Emissivity</source>
         <translation>Frame Thermische Hemisphärische Emissivität</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/SpacesSubsurfacesGridView.cpp" line="153" />
-        <location filename="../src/openstudio_lib/SpacesSubsurfacesGridView.cpp" line="523" />
-        <location filename="../src/openstudio_lib/SpacesSubsurfacesGridView.cpp" line="525" />
+        <location filename="../src/openstudio_lib/SpacesSubsurfacesGridView.cpp" line="153"/>
+        <location filename="../src/openstudio_lib/SpacesSubsurfacesGridView.cpp" line="523"/>
+        <location filename="../src/openstudio_lib/SpacesSubsurfacesGridView.cpp" line="525"/>
         <source>Divider Type</source>
         <translation>Trennwand-Typ</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/SpacesSubsurfacesGridView.cpp" line="154" />
-        <location filename="../src/openstudio_lib/SpacesSubsurfacesGridView.cpp" line="534" />
-        <location filename="../src/openstudio_lib/SpacesSubsurfacesGridView.cpp" line="535" />
+        <location filename="../src/openstudio_lib/SpacesSubsurfacesGridView.cpp" line="154"/>
+        <location filename="../src/openstudio_lib/SpacesSubsurfacesGridView.cpp" line="534"/>
+        <location filename="../src/openstudio_lib/SpacesSubsurfacesGridView.cpp" line="535"/>
         <source>Divider Width</source>
         <translation>Trennlinie-Breite</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/SpacesSubsurfacesGridView.cpp" line="155" />
-        <location filename="../src/openstudio_lib/SpacesSubsurfacesGridView.cpp" line="542" />
-        <location filename="../src/openstudio_lib/SpacesSubsurfacesGridView.cpp" line="544" />
+        <location filename="../src/openstudio_lib/SpacesSubsurfacesGridView.cpp" line="155"/>
+        <location filename="../src/openstudio_lib/SpacesSubsurfacesGridView.cpp" line="542"/>
+        <location filename="../src/openstudio_lib/SpacesSubsurfacesGridView.cpp" line="544"/>
         <source>Number of Horizontal Dividers</source>
         <translation>Anzahl der horizontalen Trennwände</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/SpacesSubsurfacesGridView.cpp" line="156" />
-        <location filename="../src/openstudio_lib/SpacesSubsurfacesGridView.cpp" line="551" />
-        <location filename="../src/openstudio_lib/SpacesSubsurfacesGridView.cpp" line="553" />
+        <location filename="../src/openstudio_lib/SpacesSubsurfacesGridView.cpp" line="156"/>
+        <location filename="../src/openstudio_lib/SpacesSubsurfacesGridView.cpp" line="551"/>
+        <location filename="../src/openstudio_lib/SpacesSubsurfacesGridView.cpp" line="553"/>
         <source>Number of Vertical Dividers</source>
         <translation>Anzahl der vertikalen Trennwände</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/SpacesSubsurfacesGridView.cpp" line="157" />
-        <location filename="../src/openstudio_lib/SpacesSubsurfacesGridView.cpp" line="560" />
-        <location filename="../src/openstudio_lib/SpacesSubsurfacesGridView.cpp" line="562" />
+        <location filename="../src/openstudio_lib/SpacesSubsurfacesGridView.cpp" line="157"/>
+        <location filename="../src/openstudio_lib/SpacesSubsurfacesGridView.cpp" line="560"/>
+        <location filename="../src/openstudio_lib/SpacesSubsurfacesGridView.cpp" line="562"/>
         <source>Divider Outside Projection</source>
         <translation>Außenprojektion des Teilers</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/SpacesSubsurfacesGridView.cpp" line="158" />
-        <location filename="../src/openstudio_lib/SpacesSubsurfacesGridView.cpp" line="569" />
-        <location filename="../src/openstudio_lib/SpacesSubsurfacesGridView.cpp" line="571" />
+        <location filename="../src/openstudio_lib/SpacesSubsurfacesGridView.cpp" line="158"/>
+        <location filename="../src/openstudio_lib/SpacesSubsurfacesGridView.cpp" line="569"/>
+        <location filename="../src/openstudio_lib/SpacesSubsurfacesGridView.cpp" line="571"/>
         <source>Divider Inside Projection</source>
         <translation>Teiler innen Projektion</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/SpacesSubsurfacesGridView.cpp" line="159" />
-        <location filename="../src/openstudio_lib/SpacesSubsurfacesGridView.cpp" line="578" />
-        <location filename="../src/openstudio_lib/SpacesSubsurfacesGridView.cpp" line="580" />
+        <location filename="../src/openstudio_lib/SpacesSubsurfacesGridView.cpp" line="159"/>
+        <location filename="../src/openstudio_lib/SpacesSubsurfacesGridView.cpp" line="578"/>
+        <location filename="../src/openstudio_lib/SpacesSubsurfacesGridView.cpp" line="580"/>
         <source>Divider Conductance</source>
         <translation>Wärmeleitfähigkeit der Trennwand</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/SpacesSubsurfacesGridView.cpp" line="160" />
-        <location filename="../src/openstudio_lib/SpacesSubsurfacesGridView.cpp" line="587" />
-        <location filename="../src/openstudio_lib/SpacesSubsurfacesGridView.cpp" line="589" />
+        <location filename="../src/openstudio_lib/SpacesSubsurfacesGridView.cpp" line="160"/>
+        <location filename="../src/openstudio_lib/SpacesSubsurfacesGridView.cpp" line="587"/>
+        <location filename="../src/openstudio_lib/SpacesSubsurfacesGridView.cpp" line="589"/>
         <source>Ratio of Divider - Edge Glass Conductance to Center - Of - Glass Conductance</source>
         <translation>Verhältnis der Wärmeleitzahl des Rahmens - Randbereich zum Verhältnis der Wärmeleitzahl der Mittelpane</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/SpacesSubsurfacesGridView.cpp" line="161" />
-        <location filename="../src/openstudio_lib/SpacesSubsurfacesGridView.cpp" line="597" />
-        <location filename="../src/openstudio_lib/SpacesSubsurfacesGridView.cpp" line="599" />
+        <location filename="../src/openstudio_lib/SpacesSubsurfacesGridView.cpp" line="161"/>
+        <location filename="../src/openstudio_lib/SpacesSubsurfacesGridView.cpp" line="597"/>
+        <location filename="../src/openstudio_lib/SpacesSubsurfacesGridView.cpp" line="599"/>
         <source>Divider Solar Absorptance</source>
         <translation>Absorptionsgrad des Teilers für Solarstrahlung</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/SpacesSubsurfacesGridView.cpp" line="162" />
-        <location filename="../src/openstudio_lib/SpacesSubsurfacesGridView.cpp" line="606" />
-        <location filename="../src/openstudio_lib/SpacesSubsurfacesGridView.cpp" line="608" />
+        <location filename="../src/openstudio_lib/SpacesSubsurfacesGridView.cpp" line="162"/>
+        <location filename="../src/openstudio_lib/SpacesSubsurfacesGridView.cpp" line="606"/>
+        <location filename="../src/openstudio_lib/SpacesSubsurfacesGridView.cpp" line="608"/>
         <source>Divider Visible Absorptance</source>
         <translation>Absorptionsgrad des sichtbaren Teilers</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/SpacesSubsurfacesGridView.cpp" line="163" />
-        <location filename="../src/openstudio_lib/SpacesSubsurfacesGridView.cpp" line="615" />
-        <location filename="../src/openstudio_lib/SpacesSubsurfacesGridView.cpp" line="617" />
+        <location filename="../src/openstudio_lib/SpacesSubsurfacesGridView.cpp" line="163"/>
+        <location filename="../src/openstudio_lib/SpacesSubsurfacesGridView.cpp" line="615"/>
+        <location filename="../src/openstudio_lib/SpacesSubsurfacesGridView.cpp" line="617"/>
         <source>Divider Thermal Hemispherical Emissivity</source>
         <translation>Teiler thermische hemisphärische Emissivität</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/SpacesSubsurfacesGridView.cpp" line="164" />
-        <location filename="../src/openstudio_lib/SpacesSubsurfacesGridView.cpp" line="625" />
-        <location filename="../src/openstudio_lib/SpacesSubsurfacesGridView.cpp" line="627" />
+        <location filename="../src/openstudio_lib/SpacesSubsurfacesGridView.cpp" line="164"/>
+        <location filename="../src/openstudio_lib/SpacesSubsurfacesGridView.cpp" line="625"/>
+        <location filename="../src/openstudio_lib/SpacesSubsurfacesGridView.cpp" line="627"/>
         <source>Outside Reveal Depth</source>
         <translation>Außenleibungstiefe</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/SpacesSubsurfacesGridView.cpp" line="165" />
-        <location filename="../src/openstudio_lib/SpacesSubsurfacesGridView.cpp" line="634" />
-        <location filename="../src/openstudio_lib/SpacesSubsurfacesGridView.cpp" line="636" />
+        <location filename="../src/openstudio_lib/SpacesSubsurfacesGridView.cpp" line="165"/>
+        <location filename="../src/openstudio_lib/SpacesSubsurfacesGridView.cpp" line="634"/>
+        <location filename="../src/openstudio_lib/SpacesSubsurfacesGridView.cpp" line="636"/>
         <source>Outside Reveal Solar Absorptance</source>
         <translation>Außen-Laibung Solarabsorptanz</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/SpacesSubsurfacesGridView.cpp" line="166" />
-        <location filename="../src/openstudio_lib/SpacesSubsurfacesGridView.cpp" line="644" />
-        <location filename="../src/openstudio_lib/SpacesSubsurfacesGridView.cpp" line="646" />
+        <location filename="../src/openstudio_lib/SpacesSubsurfacesGridView.cpp" line="166"/>
+        <location filename="../src/openstudio_lib/SpacesSubsurfacesGridView.cpp" line="644"/>
+        <location filename="../src/openstudio_lib/SpacesSubsurfacesGridView.cpp" line="646"/>
         <source>Inside Sill Depth</source>
         <translation>Innere Fensterbank-Tiefe</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/SpacesSubsurfacesGridView.cpp" line="167" />
-        <location filename="../src/openstudio_lib/SpacesSubsurfacesGridView.cpp" line="653" />
-        <location filename="../src/openstudio_lib/SpacesSubsurfacesGridView.cpp" line="655" />
+        <location filename="../src/openstudio_lib/SpacesSubsurfacesGridView.cpp" line="167"/>
+        <location filename="../src/openstudio_lib/SpacesSubsurfacesGridView.cpp" line="653"/>
+        <location filename="../src/openstudio_lib/SpacesSubsurfacesGridView.cpp" line="655"/>
         <source>Inside Sill Solar Absorptance</source>
         <translation>Solarabsorptionsgrad der inneren Fensterbank</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/SpacesSubsurfacesGridView.cpp" line="168" />
-        <location filename="../src/openstudio_lib/SpacesSubsurfacesGridView.cpp" line="662" />
-        <location filename="../src/openstudio_lib/SpacesSubsurfacesGridView.cpp" line="664" />
+        <location filename="../src/openstudio_lib/SpacesSubsurfacesGridView.cpp" line="168"/>
+        <location filename="../src/openstudio_lib/SpacesSubsurfacesGridView.cpp" line="662"/>
+        <location filename="../src/openstudio_lib/SpacesSubsurfacesGridView.cpp" line="664"/>
         <source>Inside Reveal Depth</source>
         <translation>Innentiefe der Laibung</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/SpacesSubsurfacesGridView.cpp" line="169" />
-        <location filename="../src/openstudio_lib/SpacesSubsurfacesGridView.cpp" line="671" />
-        <location filename="../src/openstudio_lib/SpacesSubsurfacesGridView.cpp" line="673" />
+        <location filename="../src/openstudio_lib/SpacesSubsurfacesGridView.cpp" line="169"/>
+        <location filename="../src/openstudio_lib/SpacesSubsurfacesGridView.cpp" line="671"/>
+        <location filename="../src/openstudio_lib/SpacesSubsurfacesGridView.cpp" line="673"/>
         <source>Inside Reveal Solar Absorptance</source>
         <translation>Innere Oberflächenabsorptanz für Solarstrahlung</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/SpacesSubsurfacesGridView.cpp" line="179" />
-        <location filename="../src/openstudio_lib/SpacesSubsurfacesGridView.cpp" line="682" />
-        <location filename="../src/openstudio_lib/SpacesSubsurfacesGridView.cpp" line="683" />
+        <location filename="../src/openstudio_lib/SpacesSubsurfacesGridView.cpp" line="179"/>
+        <location filename="../src/openstudio_lib/SpacesSubsurfacesGridView.cpp" line="682"/>
+        <location filename="../src/openstudio_lib/SpacesSubsurfacesGridView.cpp" line="683"/>
         <source>Daylighting Shelf Name</source>
         <translation>Daylighting-Regalbrett-Name</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/SpacesSubsurfacesGridView.cpp" line="327" />
+        <location filename="../src/openstudio_lib/SpacesSubsurfacesGridView.cpp" line="327"/>
         <source>Check to select all rows</source>
         <translation>Ankreuzen um alle Zeilen auszuwählen</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/SpacesSubsurfacesGridView.cpp" line="330" />
+        <location filename="../src/openstudio_lib/SpacesSubsurfacesGridView.cpp" line="330"/>
         <source>Check to select this row</source>
         <translation>Aktivieren Sie dieses Kontrollkästchen, um diese Zeile auszuwählen</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/SpacesSubsurfacesGridView.cpp" line="681" />
+        <location filename="../src/openstudio_lib/SpacesSubsurfacesGridView.cpp" line="681"/>
         <source>Window Name</source>
         <translation>Fenster Name</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/SpacesSubsurfacesGridView.cpp" line="181" />
-        <location filename="../src/openstudio_lib/SpacesSubsurfacesGridView.cpp" line="688" />
-        <location filename="../src/openstudio_lib/SpacesSubsurfacesGridView.cpp" line="693" />
+        <location filename="../src/openstudio_lib/SpacesSubsurfacesGridView.cpp" line="181"/>
+        <location filename="../src/openstudio_lib/SpacesSubsurfacesGridView.cpp" line="688"/>
+        <location filename="../src/openstudio_lib/SpacesSubsurfacesGridView.cpp" line="693"/>
         <source>Inside Shelf Name</source>
         <translation>Innerer Regalboden-Name</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/SpacesSubsurfacesGridView.cpp" line="182" />
-        <location filename="../src/openstudio_lib/SpacesSubsurfacesGridView.cpp" line="699" />
-        <location filename="../src/openstudio_lib/SpacesSubsurfacesGridView.cpp" line="704" />
+        <location filename="../src/openstudio_lib/SpacesSubsurfacesGridView.cpp" line="182"/>
+        <location filename="../src/openstudio_lib/SpacesSubsurfacesGridView.cpp" line="699"/>
+        <location filename="../src/openstudio_lib/SpacesSubsurfacesGridView.cpp" line="704"/>
         <source>Outside Shelf Name</source>
         <translation>Außenregalname</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/SpacesSubsurfacesGridView.cpp" line="183" />
-        <location filename="../src/openstudio_lib/SpacesSubsurfacesGridView.cpp" line="710" />
-        <location filename="../src/openstudio_lib/SpacesSubsurfacesGridView.cpp" line="712" />
+        <location filename="../src/openstudio_lib/SpacesSubsurfacesGridView.cpp" line="183"/>
+        <location filename="../src/openstudio_lib/SpacesSubsurfacesGridView.cpp" line="710"/>
+        <location filename="../src/openstudio_lib/SpacesSubsurfacesGridView.cpp" line="712"/>
         <source>View Factor to Outside Shelf</source>
         <translation>Sichtfaktor zur außenliegenden Oberfläche</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/SpacesSubsurfacesGridView.cpp" line="119" />
+        <location filename="../src/openstudio_lib/SpacesSubsurfacesGridView.cpp" line="119"/>
         <source>General</source>
         <translation>Allgemein</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/SpacesSubsurfacesGridView.cpp" line="136" />
+        <location filename="../src/openstudio_lib/SpacesSubsurfacesGridView.cpp" line="136"/>
         <source>Shading Controls</source>
         <translation>Verschattungsregelung</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/SpacesSubsurfacesGridView.cpp" line="185" />
+        <location filename="../src/openstudio_lib/SpacesSubsurfacesGridView.cpp" line="185"/>
         <source>Daylighting Shelves</source>
         <translation>Tageslicht-Regale</translation>
     </message>
@@ -30208,13 +30219,13 @@ Space</source>
 <context>
     <name>openstudio::SpacesSubsurfacesGridView</name>
     <message>
-        <location filename="../src/openstudio_lib/SpacesSubsurfacesGridView.cpp" line="63" />
-        <location filename="../src/openstudio_lib/SpacesSubsurfacesGridView.cpp" line="64" />
+        <location filename="../src/openstudio_lib/SpacesSubsurfacesGridView.cpp" line="63"/>
+        <location filename="../src/openstudio_lib/SpacesSubsurfacesGridView.cpp" line="64"/>
         <source>Space</source>
         <translation>Raum</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/SpacesSubsurfacesGridView.cpp" line="64" />
+        <location filename="../src/openstudio_lib/SpacesSubsurfacesGridView.cpp" line="64"/>
         <source>Drop
 Space</source>
         <translation>Bereich ablegen</translation>
@@ -30223,17 +30234,17 @@ Space</source>
 <context>
     <name>openstudio::SpacesSubtabGridView</name>
     <message>
-        <location filename="../src/openstudio_lib/SpacesSubtabGridView.cpp" line="85" />
+        <location filename="../src/openstudio_lib/SpacesSubtabGridView.cpp" line="85"/>
         <source>Filters:</source>
         <translation>Filter:</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/SpacesSubtabGridView.cpp" line="94" />
+        <location filename="../src/openstudio_lib/SpacesSubtabGridView.cpp" line="94"/>
         <source>Story</source>
         <translation>Geschoss</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/SpacesSubtabGridView.cpp" line="112" />
+        <location filename="../src/openstudio_lib/SpacesSubtabGridView.cpp" line="112"/>
         <source>Thermal Zone</source>
         <translation>Thermische Zone</translation>
     </message>
@@ -30242,142 +30253,142 @@ Space</source>
         <translation>Thermische Zone - Name</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/SpacesSubtabGridView.cpp" line="130" />
+        <location filename="../src/openstudio_lib/SpacesSubtabGridView.cpp" line="130"/>
         <source>Space Type</source>
         <translation>Raumtyp</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/SpacesSubtabGridView.cpp" line="148" />
+        <location filename="../src/openstudio_lib/SpacesSubtabGridView.cpp" line="148"/>
         <source>SubSurface Type</source>
         <translation>Unterflächentyp</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/SpacesSubtabGridView.cpp" line="166" />
+        <location filename="../src/openstudio_lib/SpacesSubtabGridView.cpp" line="166"/>
         <source>Space Name</source>
         <translation>Raumname</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/SpacesSubtabGridView.cpp" line="277" />
+        <location filename="../src/openstudio_lib/SpacesSubtabGridView.cpp" line="277"/>
         <source>Load Type</source>
         <translation>Lasttyp</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/SpacesSubtabGridView.cpp" line="185" />
+        <location filename="../src/openstudio_lib/SpacesSubtabGridView.cpp" line="185"/>
         <source>Wind Exposure</source>
         <translation>Windexposition</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/SpacesSubtabGridView.cpp" line="203" />
+        <location filename="../src/openstudio_lib/SpacesSubtabGridView.cpp" line="203"/>
         <source>Sun Exposure</source>
         <translation>Sonnenexposition</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/SpacesSubtabGridView.cpp" line="221" />
+        <location filename="../src/openstudio_lib/SpacesSubtabGridView.cpp" line="221"/>
         <source>Outside Boundary Condition</source>
         <translation>Außen-Randbedingung</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/SpacesSubtabGridView.cpp" line="240" />
+        <location filename="../src/openstudio_lib/SpacesSubtabGridView.cpp" line="240"/>
         <source>Surface Type</source>
         <translation>Oberflächentyp</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/SpacesSubtabGridView.cpp" line="258" />
+        <location filename="../src/openstudio_lib/SpacesSubtabGridView.cpp" line="258"/>
         <source>Interior Partition Group</source>
         <translation>Innentrennwand-Gruppe</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/SpacesSubtabGridView.cpp" line="293" />
-        <location filename="../src/openstudio_lib/SpacesSubtabGridView.cpp" line="308" />
-        <location filename="../src/openstudio_lib/SpacesSubtabGridView.cpp" line="323" />
-        <location filename="../src/openstudio_lib/SpacesSubtabGridView.cpp" line="338" />
-        <location filename="../src/openstudio_lib/SpacesSubtabGridView.cpp" line="348" />
-        <location filename="../src/openstudio_lib/SpacesSubtabGridView.cpp" line="418" />
-        <location filename="../src/openstudio_lib/SpacesSubtabGridView.cpp" line="426" />
-        <location filename="../src/openstudio_lib/SpacesSubtabGridView.cpp" line="434" />
-        <location filename="../src/openstudio_lib/SpacesSubtabGridView.cpp" line="442" />
-        <location filename="../src/openstudio_lib/SpacesSubtabGridView.cpp" line="451" />
-        <location filename="../src/openstudio_lib/SpacesSubtabGridView.cpp" line="466" />
-        <location filename="../src/openstudio_lib/SpacesSubtabGridView.cpp" line="490" />
-        <location filename="../src/openstudio_lib/SpacesSubtabGridView.cpp" line="514" />
-        <location filename="../src/openstudio_lib/SpacesSubtabGridView.cpp" line="601" />
-        <location filename="../src/openstudio_lib/SpacesSubtabGridView.cpp" line="766" />
+        <location filename="../src/openstudio_lib/SpacesSubtabGridView.cpp" line="293"/>
+        <location filename="../src/openstudio_lib/SpacesSubtabGridView.cpp" line="308"/>
+        <location filename="../src/openstudio_lib/SpacesSubtabGridView.cpp" line="323"/>
+        <location filename="../src/openstudio_lib/SpacesSubtabGridView.cpp" line="338"/>
+        <location filename="../src/openstudio_lib/SpacesSubtabGridView.cpp" line="348"/>
+        <location filename="../src/openstudio_lib/SpacesSubtabGridView.cpp" line="418"/>
+        <location filename="../src/openstudio_lib/SpacesSubtabGridView.cpp" line="426"/>
+        <location filename="../src/openstudio_lib/SpacesSubtabGridView.cpp" line="434"/>
+        <location filename="../src/openstudio_lib/SpacesSubtabGridView.cpp" line="442"/>
+        <location filename="../src/openstudio_lib/SpacesSubtabGridView.cpp" line="451"/>
+        <location filename="../src/openstudio_lib/SpacesSubtabGridView.cpp" line="466"/>
+        <location filename="../src/openstudio_lib/SpacesSubtabGridView.cpp" line="490"/>
+        <location filename="../src/openstudio_lib/SpacesSubtabGridView.cpp" line="514"/>
+        <location filename="../src/openstudio_lib/SpacesSubtabGridView.cpp" line="601"/>
+        <location filename="../src/openstudio_lib/SpacesSubtabGridView.cpp" line="766"/>
         <source>All</source>
         <translation>Alle</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/SpacesSubtabGridView.cpp" line="294" />
-        <location filename="../src/openstudio_lib/SpacesSubtabGridView.cpp" line="309" />
-        <location filename="../src/openstudio_lib/SpacesSubtabGridView.cpp" line="324" />
-        <location filename="../src/openstudio_lib/SpacesSubtabGridView.cpp" line="468" />
-        <location filename="../src/openstudio_lib/SpacesSubtabGridView.cpp" line="492" />
-        <location filename="../src/openstudio_lib/SpacesSubtabGridView.cpp" line="516" />
+        <location filename="../src/openstudio_lib/SpacesSubtabGridView.cpp" line="294"/>
+        <location filename="../src/openstudio_lib/SpacesSubtabGridView.cpp" line="309"/>
+        <location filename="../src/openstudio_lib/SpacesSubtabGridView.cpp" line="324"/>
+        <location filename="../src/openstudio_lib/SpacesSubtabGridView.cpp" line="468"/>
+        <location filename="../src/openstudio_lib/SpacesSubtabGridView.cpp" line="492"/>
+        <location filename="../src/openstudio_lib/SpacesSubtabGridView.cpp" line="516"/>
         <source>Unassigned</source>
         <translation>Nicht zugewiesen</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/SpacesSubtabGridView.cpp" line="353" />
-        <location filename="../src/openstudio_lib/SpacesSubtabGridView.cpp" line="607" />
+        <location filename="../src/openstudio_lib/SpacesSubtabGridView.cpp" line="353"/>
+        <location filename="../src/openstudio_lib/SpacesSubtabGridView.cpp" line="607"/>
         <source>Internal Mass</source>
         <translation>Innere Masse</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/SpacesSubtabGridView.cpp" line="359" />
-        <location filename="../src/openstudio_lib/SpacesSubtabGridView.cpp" line="611" />
+        <location filename="../src/openstudio_lib/SpacesSubtabGridView.cpp" line="359"/>
+        <location filename="../src/openstudio_lib/SpacesSubtabGridView.cpp" line="611"/>
         <source>People</source>
         <translation>Personen</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/SpacesSubtabGridView.cpp" line="365" />
-        <location filename="../src/openstudio_lib/SpacesSubtabGridView.cpp" line="615" />
+        <location filename="../src/openstudio_lib/SpacesSubtabGridView.cpp" line="365"/>
+        <location filename="../src/openstudio_lib/SpacesSubtabGridView.cpp" line="615"/>
         <source>Lights</source>
         <translation>Beleuchtung</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/SpacesSubtabGridView.cpp" line="371" />
-        <location filename="../src/openstudio_lib/SpacesSubtabGridView.cpp" line="619" />
+        <location filename="../src/openstudio_lib/SpacesSubtabGridView.cpp" line="371"/>
+        <location filename="../src/openstudio_lib/SpacesSubtabGridView.cpp" line="619"/>
         <source>Luminaire</source>
         <translation>Leuchte</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/SpacesSubtabGridView.cpp" line="377" />
-        <location filename="../src/openstudio_lib/SpacesSubtabGridView.cpp" line="623" />
+        <location filename="../src/openstudio_lib/SpacesSubtabGridView.cpp" line="377"/>
+        <location filename="../src/openstudio_lib/SpacesSubtabGridView.cpp" line="623"/>
         <source>Electric Equipment</source>
         <translation>Elektrische Ausrüstung</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/SpacesSubtabGridView.cpp" line="383" />
-        <location filename="../src/openstudio_lib/SpacesSubtabGridView.cpp" line="627" />
+        <location filename="../src/openstudio_lib/SpacesSubtabGridView.cpp" line="383"/>
+        <location filename="../src/openstudio_lib/SpacesSubtabGridView.cpp" line="627"/>
         <source>Gas Equipment</source>
         <translation>Gasgeräte</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/SpacesSubtabGridView.cpp" line="389" />
-        <location filename="../src/openstudio_lib/SpacesSubtabGridView.cpp" line="631" />
+        <location filename="../src/openstudio_lib/SpacesSubtabGridView.cpp" line="389"/>
+        <location filename="../src/openstudio_lib/SpacesSubtabGridView.cpp" line="631"/>
         <source>Hot Water Equipment</source>
         <translation>Warmwasserausrüstung</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/SpacesSubtabGridView.cpp" line="395" />
-        <location filename="../src/openstudio_lib/SpacesSubtabGridView.cpp" line="635" />
+        <location filename="../src/openstudio_lib/SpacesSubtabGridView.cpp" line="395"/>
+        <location filename="../src/openstudio_lib/SpacesSubtabGridView.cpp" line="635"/>
         <source>Steam Equipment</source>
         <translation>Dampfausrüstung</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/SpacesSubtabGridView.cpp" line="401" />
-        <location filename="../src/openstudio_lib/SpacesSubtabGridView.cpp" line="639" />
+        <location filename="../src/openstudio_lib/SpacesSubtabGridView.cpp" line="401"/>
+        <location filename="../src/openstudio_lib/SpacesSubtabGridView.cpp" line="639"/>
         <source>Other Equipment</source>
         <translation>Sonstige Ausrüstung</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/SpacesSubtabGridView.cpp" line="407" />
-        <location filename="../src/openstudio_lib/SpacesSubtabGridView.cpp" line="643" />
+        <location filename="../src/openstudio_lib/SpacesSubtabGridView.cpp" line="407"/>
+        <location filename="../src/openstudio_lib/SpacesSubtabGridView.cpp" line="643"/>
         <source>Space Infiltration Design Flow Rate</source>
         <translation>Rauminfiltrations-Auslegungsvolumenstrom</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/SpacesSubtabGridView.cpp" line="413" />
-        <location filename="../src/openstudio_lib/SpacesSubtabGridView.cpp" line="647" />
+        <location filename="../src/openstudio_lib/SpacesSubtabGridView.cpp" line="413"/>
+        <location filename="../src/openstudio_lib/SpacesSubtabGridView.cpp" line="647"/>
         <source>Space Infiltration Effective Leakage Area</source>
         <translation>Effektive Leckagefläche der Rauminfiltration</translation>
     </message>
@@ -30501,89 +30512,89 @@ Space</source>
 <context>
     <name>openstudio::SpacesSurfacesGridController</name>
     <message>
-        <location filename="../src/openstudio_lib/SpacesSurfacesGridView.cpp" line="111" />
-        <location filename="../src/openstudio_lib/SpacesSurfacesGridView.cpp" line="117" />
-        <location filename="../src/openstudio_lib/SpacesSurfacesGridView.cpp" line="118" />
-        <location filename="../src/openstudio_lib/SpacesSurfacesGridView.cpp" line="151" />
+        <location filename="../src/openstudio_lib/SpacesSurfacesGridView.cpp" line="111"/>
+        <location filename="../src/openstudio_lib/SpacesSurfacesGridView.cpp" line="117"/>
+        <location filename="../src/openstudio_lib/SpacesSurfacesGridView.cpp" line="118"/>
+        <location filename="../src/openstudio_lib/SpacesSurfacesGridView.cpp" line="151"/>
         <source>Space Name</source>
         <translation>Raumname</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/SpacesSurfacesGridView.cpp" line="111" />
-        <location filename="../src/openstudio_lib/SpacesSurfacesGridView.cpp" line="143" />
-        <location filename="../src/openstudio_lib/SpacesSurfacesGridView.cpp" line="148" />
+        <location filename="../src/openstudio_lib/SpacesSurfacesGridView.cpp" line="111"/>
+        <location filename="../src/openstudio_lib/SpacesSurfacesGridView.cpp" line="143"/>
+        <location filename="../src/openstudio_lib/SpacesSurfacesGridView.cpp" line="148"/>
         <source>All</source>
         <translation>Alle</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/SpacesSurfacesGridView.cpp" line="108" />
-        <location filename="../src/openstudio_lib/SpacesSurfacesGridView.cpp" line="120" />
-        <location filename="../src/openstudio_lib/SpacesSurfacesGridView.cpp" line="121" />
+        <location filename="../src/openstudio_lib/SpacesSurfacesGridView.cpp" line="108"/>
+        <location filename="../src/openstudio_lib/SpacesSurfacesGridView.cpp" line="120"/>
+        <location filename="../src/openstudio_lib/SpacesSurfacesGridView.cpp" line="121"/>
         <source>Display Name</source>
         <translation>Anzeigename</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/SpacesSurfacesGridView.cpp" line="108" />
-        <location filename="../src/openstudio_lib/SpacesSurfacesGridView.cpp" line="127" />
-        <location filename="../src/openstudio_lib/SpacesSurfacesGridView.cpp" line="128" />
+        <location filename="../src/openstudio_lib/SpacesSurfacesGridView.cpp" line="108"/>
+        <location filename="../src/openstudio_lib/SpacesSurfacesGridView.cpp" line="127"/>
+        <location filename="../src/openstudio_lib/SpacesSurfacesGridView.cpp" line="128"/>
         <source>CAD Object ID</source>
         <translation>CAD-Objekt-ID</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/SpacesSurfacesGridView.cpp" line="90" />
-        <location filename="../src/openstudio_lib/SpacesSurfacesGridView.cpp" line="149" />
+        <location filename="../src/openstudio_lib/SpacesSurfacesGridView.cpp" line="90"/>
+        <location filename="../src/openstudio_lib/SpacesSurfacesGridView.cpp" line="149"/>
         <source>Surface Name</source>
         <translation>Oberflächenname</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/SpacesSurfacesGridView.cpp" line="90" />
-        <location filename="../src/openstudio_lib/SpacesSurfacesGridView.cpp" line="155" />
-        <location filename="../src/openstudio_lib/SpacesSurfacesGridView.cpp" line="158" />
+        <location filename="../src/openstudio_lib/SpacesSurfacesGridView.cpp" line="90"/>
+        <location filename="../src/openstudio_lib/SpacesSurfacesGridView.cpp" line="155"/>
+        <location filename="../src/openstudio_lib/SpacesSurfacesGridView.cpp" line="158"/>
         <source>Surface Type</source>
         <translation>Oberflächentyp</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/SpacesSurfacesGridView.cpp" line="90" />
-        <location filename="../src/openstudio_lib/SpacesSurfacesGridView.cpp" line="168" />
-        <location filename="../src/openstudio_lib/SpacesSurfacesGridView.cpp" line="170" />
+        <location filename="../src/openstudio_lib/SpacesSurfacesGridView.cpp" line="90"/>
+        <location filename="../src/openstudio_lib/SpacesSurfacesGridView.cpp" line="168"/>
+        <location filename="../src/openstudio_lib/SpacesSurfacesGridView.cpp" line="170"/>
         <source>Construction</source>
         <translation>Konstruktion</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/SpacesSurfacesGridView.cpp" line="90" />
-        <location filename="../src/openstudio_lib/SpacesSurfacesGridView.cpp" line="175" />
-        <location filename="../src/openstudio_lib/SpacesSurfacesGridView.cpp" line="178" />
+        <location filename="../src/openstudio_lib/SpacesSurfacesGridView.cpp" line="90"/>
+        <location filename="../src/openstudio_lib/SpacesSurfacesGridView.cpp" line="175"/>
+        <location filename="../src/openstudio_lib/SpacesSurfacesGridView.cpp" line="178"/>
         <source>Outside Boundary Condition</source>
         <translation>Außenrandbedingung</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/SpacesSurfacesGridView.cpp" line="90" />
-        <location filename="../src/openstudio_lib/SpacesSurfacesGridView.cpp" line="188" />
-        <location filename="../src/openstudio_lib/SpacesSurfacesGridView.cpp" line="194" />
+        <location filename="../src/openstudio_lib/SpacesSurfacesGridView.cpp" line="90"/>
+        <location filename="../src/openstudio_lib/SpacesSurfacesGridView.cpp" line="188"/>
+        <location filename="../src/openstudio_lib/SpacesSurfacesGridView.cpp" line="194"/>
         <source>Outside Boundary Condition Object</source>
         <translation>Außengrenzflächenobjekt</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/SpacesSurfacesGridView.cpp" line="91" />
-        <location filename="../src/openstudio_lib/SpacesSurfacesGridView.cpp" line="199" />
-        <location filename="../src/openstudio_lib/SpacesSurfacesGridView.cpp" line="202" />
+        <location filename="../src/openstudio_lib/SpacesSurfacesGridView.cpp" line="91"/>
+        <location filename="../src/openstudio_lib/SpacesSurfacesGridView.cpp" line="199"/>
+        <location filename="../src/openstudio_lib/SpacesSurfacesGridView.cpp" line="202"/>
         <source>Sun Exposure</source>
         <translation>Sonnenexposition</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/SpacesSurfacesGridView.cpp" line="91" />
-        <location filename="../src/openstudio_lib/SpacesSurfacesGridView.cpp" line="212" />
-        <location filename="../src/openstudio_lib/SpacesSurfacesGridView.cpp" line="215" />
+        <location filename="../src/openstudio_lib/SpacesSurfacesGridView.cpp" line="91"/>
+        <location filename="../src/openstudio_lib/SpacesSurfacesGridView.cpp" line="212"/>
+        <location filename="../src/openstudio_lib/SpacesSurfacesGridView.cpp" line="215"/>
         <source>Wind Exposure</source>
         <translation>Windexposition</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/SpacesSurfacesGridView.cpp" line="145" />
+        <location filename="../src/openstudio_lib/SpacesSurfacesGridView.cpp" line="145"/>
         <source>Check to select all rows</source>
         <translation>Ankreuzen um alle Zeilen auszuwählen</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/SpacesSurfacesGridView.cpp" line="148" />
+        <location filename="../src/openstudio_lib/SpacesSurfacesGridView.cpp" line="148"/>
         <source>Check to select this row</source>
         <translation>Aktivieren Sie dieses Kontrollkästchen, um diese Zeile auszuwählen</translation>
     </message>
@@ -30592,7 +30603,7 @@ Space</source>
         <translation>Verschattungsfläche Name</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/SpacesSurfacesGridView.cpp" line="94" />
+        <location filename="../src/openstudio_lib/SpacesSurfacesGridView.cpp" line="94"/>
         <source>General</source>
         <translation>Allgemein</translation>
     </message>
@@ -30600,13 +30611,13 @@ Space</source>
 <context>
     <name>openstudio::SpacesSurfacesGridView</name>
     <message>
-        <location filename="../src/openstudio_lib/SpacesSurfacesGridView.cpp" line="49" />
-        <location filename="../src/openstudio_lib/SpacesSurfacesGridView.cpp" line="50" />
+        <location filename="../src/openstudio_lib/SpacesSurfacesGridView.cpp" line="49"/>
+        <location filename="../src/openstudio_lib/SpacesSurfacesGridView.cpp" line="50"/>
         <source>Space</source>
         <translation>Raum</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/SpacesSurfacesGridView.cpp" line="50" />
+        <location filename="../src/openstudio_lib/SpacesSurfacesGridView.cpp" line="50"/>
         <source>Drop
 Space</source>
         <translation>Bereich ablegen</translation>
@@ -30615,32 +30626,32 @@ Space</source>
 <context>
     <name>openstudio::SpacesTabController</name>
     <message>
-        <location filename="../src/openstudio_lib/SpacesTabController.cpp" line="21" />
+        <location filename="../src/openstudio_lib/SpacesTabController.cpp" line="21"/>
         <source>Properties</source>
         <translation>Eigenschaften</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/SpacesTabController.cpp" line="22" />
+        <location filename="../src/openstudio_lib/SpacesTabController.cpp" line="22"/>
         <source>Loads</source>
         <translation>Lasten</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/SpacesTabController.cpp" line="23" />
+        <location filename="../src/openstudio_lib/SpacesTabController.cpp" line="23"/>
         <source>Surfaces</source>
         <translation>Oberflächen</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/SpacesTabController.cpp" line="24" />
+        <location filename="../src/openstudio_lib/SpacesTabController.cpp" line="24"/>
         <source>Subsurfaces</source>
         <translation>Teilflächen</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/SpacesTabController.cpp" line="25" />
+        <location filename="../src/openstudio_lib/SpacesTabController.cpp" line="25"/>
         <source>Interior Partitions</source>
         <translation>Innenwände</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/SpacesTabController.cpp" line="26" />
+        <location filename="../src/openstudio_lib/SpacesTabController.cpp" line="26"/>
         <source>Shading</source>
         <translation>Verschattung</translation>
     </message>
@@ -30648,17 +30659,17 @@ Space</source>
 <context>
     <name>openstudio::SpecialScheduleDayView</name>
     <message>
-        <location filename="../src/openstudio_lib/SchedulesView.cpp" line="1419" />
+        <location filename="../src/openstudio_lib/SchedulesView.cpp" line="1419"/>
         <source>Summer design day profile.</source>
         <translation>Sommerauslegungstag-Profil.</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/SchedulesView.cpp" line="1437" />
+        <location filename="../src/openstudio_lib/SchedulesView.cpp" line="1437"/>
         <source>Winter design day profile.</source>
         <translation>Winterauslegungstag-Profil.</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/SchedulesView.cpp" line="1455" />
+        <location filename="../src/openstudio_lib/SchedulesView.cpp" line="1455"/>
         <source>Holiday profile.</source>
         <translation>Feiertagsprofil.</translation>
     </message>
@@ -30666,67 +30677,67 @@ Space</source>
 <context>
     <name>openstudio::StandardsInformationConstructionWidget</name>
     <message>
-        <location filename="../src/openstudio_lib/StandardsInformationConstructionWidget.cpp" line="46" />
+        <location filename="../src/openstudio_lib/StandardsInformationConstructionWidget.cpp" line="46"/>
         <source>Measure Tags (Optional):</source>
         <translation>Kennzeichnung (optional):</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/StandardsInformationConstructionWidget.cpp" line="56" />
+        <location filename="../src/openstudio_lib/StandardsInformationConstructionWidget.cpp" line="56"/>
         <source>Standard: </source>
         <translation>Standard:</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/StandardsInformationConstructionWidget.cpp" line="77" />
+        <location filename="../src/openstudio_lib/StandardsInformationConstructionWidget.cpp" line="77"/>
         <source>Standard Source: </source>
         <translation>Standardquelle:</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/StandardsInformationConstructionWidget.cpp" line="100" />
+        <location filename="../src/openstudio_lib/StandardsInformationConstructionWidget.cpp" line="100"/>
         <source>Intended Surface Type: </source>
         <translation>Beabsichtigter Oberflächentyp:</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/StandardsInformationConstructionWidget.cpp" line="118" />
+        <location filename="../src/openstudio_lib/StandardsInformationConstructionWidget.cpp" line="118"/>
         <source>Standards Construction Type: </source>
         <translation>Standards Construction Type:</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/StandardsInformationConstructionWidget.cpp" line="142" />
+        <location filename="../src/openstudio_lib/StandardsInformationConstructionWidget.cpp" line="142"/>
         <source>Fenestration Type: </source>
         <translation>Fenstertyp:</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/StandardsInformationConstructionWidget.cpp" line="156" />
+        <location filename="../src/openstudio_lib/StandardsInformationConstructionWidget.cpp" line="156"/>
         <source>Fenestration Assembly Context: </source>
         <translation>Fenestration-Baugruppen-Kontext:</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/StandardsInformationConstructionWidget.cpp" line="172" />
+        <location filename="../src/openstudio_lib/StandardsInformationConstructionWidget.cpp" line="172"/>
         <source>Fenestration Number of Panes: </source>
         <translation>Fenestration Anzahl der Scheiben:</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/StandardsInformationConstructionWidget.cpp" line="186" />
+        <location filename="../src/openstudio_lib/StandardsInformationConstructionWidget.cpp" line="186"/>
         <source>Fenestration Frame Type: </source>
         <translation>Fensterrahmen-Typ:</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/StandardsInformationConstructionWidget.cpp" line="202" />
+        <location filename="../src/openstudio_lib/StandardsInformationConstructionWidget.cpp" line="202"/>
         <source>Fenestration Divider Type: </source>
         <translation>Fenestration Divider Typ:</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/StandardsInformationConstructionWidget.cpp" line="216" />
+        <location filename="../src/openstudio_lib/StandardsInformationConstructionWidget.cpp" line="216"/>
         <source>Fenestration Tint: </source>
         <translation>Fenesterfärbung:</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/StandardsInformationConstructionWidget.cpp" line="232" />
+        <location filename="../src/openstudio_lib/StandardsInformationConstructionWidget.cpp" line="232"/>
         <source>Fenestration Gas Fill: </source>
         <translation>Fenestrationsgasfüllung:</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/StandardsInformationConstructionWidget.cpp" line="246" />
+        <location filename="../src/openstudio_lib/StandardsInformationConstructionWidget.cpp" line="246"/>
         <source>Fenestration Low Emissivity Coating: </source>
         <translation>Fenestration Niedrigemissions-Beschichtung:</translation>
     </message>
@@ -30734,52 +30745,52 @@ Space</source>
 <context>
     <name>openstudio::StandardsInformationMaterialWidget</name>
     <message>
-        <location filename="../src/openstudio_lib/StandardsInformationMaterialWidget.cpp" line="45" />
+        <location filename="../src/openstudio_lib/StandardsInformationMaterialWidget.cpp" line="45"/>
         <source>Measure Tags (Optional):</source>
         <translation>Kennzeichnung (optional):</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/StandardsInformationMaterialWidget.cpp" line="53" />
+        <location filename="../src/openstudio_lib/StandardsInformationMaterialWidget.cpp" line="53"/>
         <source>Standard: </source>
         <translation>Standard:</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/StandardsInformationMaterialWidget.cpp" line="72" />
+        <location filename="../src/openstudio_lib/StandardsInformationMaterialWidget.cpp" line="72"/>
         <source>Standard Source: </source>
         <translation>Standardquelle:</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/StandardsInformationMaterialWidget.cpp" line="92" />
+        <location filename="../src/openstudio_lib/StandardsInformationMaterialWidget.cpp" line="92"/>
         <source>Standards Category: </source>
         <translation>Standards-Kategorie:</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/StandardsInformationMaterialWidget.cpp" line="112" />
+        <location filename="../src/openstudio_lib/StandardsInformationMaterialWidget.cpp" line="112"/>
         <source>Standards Identifier: </source>
         <translation>Standards-Bezeichner:</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/StandardsInformationMaterialWidget.cpp" line="132" />
+        <location filename="../src/openstudio_lib/StandardsInformationMaterialWidget.cpp" line="132"/>
         <source>Composite Framing Material: </source>
         <translation>Composite Framing Material:</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/StandardsInformationMaterialWidget.cpp" line="152" />
+        <location filename="../src/openstudio_lib/StandardsInformationMaterialWidget.cpp" line="152"/>
         <source>Composite Framing Configuration: </source>
         <translation>Konfiguration der Verbundrahmen:</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/StandardsInformationMaterialWidget.cpp" line="172" />
+        <location filename="../src/openstudio_lib/StandardsInformationMaterialWidget.cpp" line="172"/>
         <source>Composite Framing Depth: </source>
         <translation>Verbundkonstruktionstiefe:</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/StandardsInformationMaterialWidget.cpp" line="192" />
+        <location filename="../src/openstudio_lib/StandardsInformationMaterialWidget.cpp" line="192"/>
         <source>Composite Framing Size: </source>
         <translation>Composite Framing Size:</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/StandardsInformationMaterialWidget.cpp" line="212" />
+        <location filename="../src/openstudio_lib/StandardsInformationMaterialWidget.cpp" line="212"/>
         <source>Composite Cavity Insulation: </source>
         <translation>Verbundwärmedämmung für Hohlräume:</translation>
     </message>
@@ -30787,72 +30798,72 @@ Space</source>
 <context>
     <name>openstudio::StartupMenu</name>
     <message>
-        <location filename="../src/openstudio_app/StartupMenu.cpp" line="15" />
+        <location filename="../src/openstudio_app/StartupMenu.cpp" line="15"/>
         <source>&amp;File</source>
         <translation>&amp;Datei</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_app/StartupMenu.cpp" line="16" />
+        <location filename="../src/openstudio_app/StartupMenu.cpp" line="16"/>
         <source>&amp;New</source>
         <translation>&amp;Neu</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_app/StartupMenu.cpp" line="18" />
+        <location filename="../src/openstudio_app/StartupMenu.cpp" line="18"/>
         <source>&amp;Open</source>
         <translation>&amp;Öffnen</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_app/StartupMenu.cpp" line="20" />
+        <location filename="../src/openstudio_app/StartupMenu.cpp" line="20"/>
         <source>E&amp;xit</source>
         <translation>&amp;Schliessen</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_app/StartupMenu.cpp" line="23" />
+        <location filename="../src/openstudio_app/StartupMenu.cpp" line="23"/>
         <source>Import</source>
         <translation>Importieren</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_app/StartupMenu.cpp" line="24" />
+        <location filename="../src/openstudio_app/StartupMenu.cpp" line="24"/>
         <source>IDF</source>
         <translation>IDF</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_app/StartupMenu.cpp" line="27" />
+        <location filename="../src/openstudio_app/StartupMenu.cpp" line="27"/>
         <source>gbXML</source>
         <translation>gbXML</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_app/StartupMenu.cpp" line="30" />
+        <location filename="../src/openstudio_app/StartupMenu.cpp" line="30"/>
         <source>SDD</source>
         <translation>SDD</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_app/StartupMenu.cpp" line="33" />
+        <location filename="../src/openstudio_app/StartupMenu.cpp" line="33"/>
         <source>IFC</source>
         <translation>IFC</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_app/StartupMenu.cpp" line="50" />
+        <location filename="../src/openstudio_app/StartupMenu.cpp" line="50"/>
         <source>&amp;Help</source>
         <translation>&amp;Hilfe</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_app/StartupMenu.cpp" line="54" />
+        <location filename="../src/openstudio_app/StartupMenu.cpp" line="54"/>
         <source>OpenStudio &amp;Help</source>
         <translation>OpenStudio &amp;Hilfe</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_app/StartupMenu.cpp" line="59" />
+        <location filename="../src/openstudio_app/StartupMenu.cpp" line="59"/>
         <source>Check For &amp;Update</source>
         <translation>Auf &amp;Aktualisierung prüfen</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_app/StartupMenu.cpp" line="63" />
+        <location filename="../src/openstudio_app/StartupMenu.cpp" line="63"/>
         <source>Debug Webgl</source>
         <translation>Debug Webgl</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_app/StartupMenu.cpp" line="67" />
+        <location filename="../src/openstudio_app/StartupMenu.cpp" line="67"/>
         <source>&amp;About</source>
         <translation>&amp;Über</translation>
     </message>
@@ -30860,37 +30871,37 @@ Space</source>
 <context>
     <name>openstudio::SteamEquipmentDefinitionInspectorView</name>
     <message>
-        <location filename="../src/openstudio_lib/SteamEquipmentInspectorView.cpp" line="36" />
+        <location filename="../src/openstudio_lib/SteamEquipmentInspectorView.cpp" line="36"/>
         <source>Name: </source>
         <translation>Name:</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/SteamEquipmentInspectorView.cpp" line="45" />
+        <location filename="../src/openstudio_lib/SteamEquipmentInspectorView.cpp" line="45"/>
         <source>Design Level: </source>
         <translation>Auslegungsstufe:</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/SteamEquipmentInspectorView.cpp" line="55" />
+        <location filename="../src/openstudio_lib/SteamEquipmentInspectorView.cpp" line="55"/>
         <source>Power Per Space Floor Area: </source>
         <translation>Leistung Pro Bodenflächeneinheit:</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/SteamEquipmentInspectorView.cpp" line="65" />
+        <location filename="../src/openstudio_lib/SteamEquipmentInspectorView.cpp" line="65"/>
         <source>Power Per Person: </source>
         <translation>Leistung pro Person:</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/SteamEquipmentInspectorView.cpp" line="75" />
+        <location filename="../src/openstudio_lib/SteamEquipmentInspectorView.cpp" line="75"/>
         <source>Fraction Latent: </source>
         <translation>Latentanteil:</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/SteamEquipmentInspectorView.cpp" line="85" />
+        <location filename="../src/openstudio_lib/SteamEquipmentInspectorView.cpp" line="85"/>
         <source>Fraction Radiant: </source>
         <translation>Strahlungsanteil:</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/SteamEquipmentInspectorView.cpp" line="95" />
+        <location filename="../src/openstudio_lib/SteamEquipmentInspectorView.cpp" line="95"/>
         <source>Fraction Lost: </source>
         <translation>Verlorener Anteil:</translation>
     </message>
@@ -30898,7 +30909,7 @@ Space</source>
 <context>
     <name>openstudio::SyncMeasuresDialog</name>
     <message>
-        <location filename="../src/shared_gui_components/SyncMeasuresDialog.cpp" line="37" />
+        <location filename="../src/shared_gui_components/SyncMeasuresDialog.cpp" line="37"/>
         <source>Updates Available in Library</source>
         <translation>Updates in der Bibliothek verfügbar</translation>
     </message>
@@ -30906,17 +30917,17 @@ Space</source>
 <context>
     <name>openstudio::SyncMeasuresDialogCentralWidget</name>
     <message>
-        <location filename="../src/shared_gui_components/SyncMeasuresDialogCentralWidget.cpp" line="42" />
+        <location filename="../src/shared_gui_components/SyncMeasuresDialogCentralWidget.cpp" line="42"/>
         <source>Check All</source>
         <translation>Alle auswählen</translation>
     </message>
     <message>
-        <location filename="../src/shared_gui_components/SyncMeasuresDialogCentralWidget.cpp" line="62" />
+        <location filename="../src/shared_gui_components/SyncMeasuresDialogCentralWidget.cpp" line="62"/>
         <source>Updates</source>
         <translation>Updates</translation>
     </message>
     <message>
-        <location filename="../src/shared_gui_components/SyncMeasuresDialogCentralWidget.cpp" line="76" />
+        <location filename="../src/shared_gui_components/SyncMeasuresDialogCentralWidget.cpp" line="76"/>
         <source>Update</source>
         <translation>Aktualisieren</translation>
     </message>
@@ -30924,12 +30935,12 @@ Space</source>
 <context>
     <name>openstudio::SystemCenterItem</name>
     <message>
-        <location filename="../src/openstudio_lib/GridItem.cpp" line="1434" />
+        <location filename="../src/openstudio_lib/GridItem.cpp" line="1434"/>
         <source>Supply Equipment</source>
         <translation>Versorgungsgeräte</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/GridItem.cpp" line="1435" />
+        <location filename="../src/openstudio_lib/GridItem.cpp" line="1435"/>
         <source>Demand Equipment</source>
         <translation>Bedarfsgeräte</translation>
     </message>
@@ -30937,44 +30948,44 @@ Space</source>
 <context>
     <name>openstudio::ThermalZonesGridController</name>
     <message>
-        <location filename="../src/openstudio_lib/ThermalZonesGridView.cpp" line="165" />
-        <location filename="../src/openstudio_lib/ThermalZonesGridView.cpp" line="543" />
-        <location filename="../src/openstudio_lib/ThermalZonesGridView.cpp" line="544" />
+        <location filename="../src/openstudio_lib/ThermalZonesGridView.cpp" line="165"/>
+        <location filename="../src/openstudio_lib/ThermalZonesGridView.cpp" line="543"/>
+        <location filename="../src/openstudio_lib/ThermalZonesGridView.cpp" line="544"/>
         <source>Name</source>
         <translation>Name</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/ThermalZonesGridView.cpp" line="165" />
-        <location filename="../src/openstudio_lib/ThermalZonesGridView.cpp" line="193" />
-        <location filename="../src/openstudio_lib/ThermalZonesGridView.cpp" line="198" />
+        <location filename="../src/openstudio_lib/ThermalZonesGridView.cpp" line="165"/>
+        <location filename="../src/openstudio_lib/ThermalZonesGridView.cpp" line="193"/>
+        <location filename="../src/openstudio_lib/ThermalZonesGridView.cpp" line="198"/>
         <source>All</source>
         <translation>Alle</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/ThermalZonesGridView.cpp" line="161" />
-        <location filename="../src/openstudio_lib/ThermalZonesGridView.cpp" line="547" />
-        <location filename="../src/openstudio_lib/ThermalZonesGridView.cpp" line="548" />
+        <location filename="../src/openstudio_lib/ThermalZonesGridView.cpp" line="161"/>
+        <location filename="../src/openstudio_lib/ThermalZonesGridView.cpp" line="547"/>
+        <location filename="../src/openstudio_lib/ThermalZonesGridView.cpp" line="548"/>
         <source>Display Name</source>
         <translation>Anzeigename</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/ThermalZonesGridView.cpp" line="161" />
-        <location filename="../src/openstudio_lib/ThermalZonesGridView.cpp" line="554" />
-        <location filename="../src/openstudio_lib/ThermalZonesGridView.cpp" line="555" />
+        <location filename="../src/openstudio_lib/ThermalZonesGridView.cpp" line="161"/>
+        <location filename="../src/openstudio_lib/ThermalZonesGridView.cpp" line="554"/>
+        <location filename="../src/openstudio_lib/ThermalZonesGridView.cpp" line="555"/>
         <source>CAD Object ID</source>
         <translation>CAD-Objekt-ID</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/ThermalZonesGridView.cpp" line="109" />
-        <location filename="../src/openstudio_lib/ThermalZonesGridView.cpp" line="199" />
-        <location filename="../src/openstudio_lib/ThermalZonesGridView.cpp" line="200" />
+        <location filename="../src/openstudio_lib/ThermalZonesGridView.cpp" line="109"/>
+        <location filename="../src/openstudio_lib/ThermalZonesGridView.cpp" line="199"/>
+        <location filename="../src/openstudio_lib/ThermalZonesGridView.cpp" line="200"/>
         <source>Rendering Color</source>
         <translation>Render-Farbe</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/ThermalZonesGridView.cpp" line="110" />
-        <location filename="../src/openstudio_lib/ThermalZonesGridView.cpp" line="189" />
-        <location filename="../src/openstudio_lib/ThermalZonesGridView.cpp" line="191" />
+        <location filename="../src/openstudio_lib/ThermalZonesGridView.cpp" line="110"/>
+        <location filename="../src/openstudio_lib/ThermalZonesGridView.cpp" line="189"/>
+        <location filename="../src/openstudio_lib/ThermalZonesGridView.cpp" line="191"/>
         <source>Turn On
 Ideal
 Air Loads</source>
@@ -30983,67 +30994,67 @@ Ideal
 Luftlasten</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/ThermalZonesGridView.cpp" line="111" />
-        <location filename="../src/openstudio_lib/ThermalZonesGridView.cpp" line="561" />
-        <location filename="../src/openstudio_lib/ThermalZonesGridView.cpp" line="570" />
+        <location filename="../src/openstudio_lib/ThermalZonesGridView.cpp" line="111"/>
+        <location filename="../src/openstudio_lib/ThermalZonesGridView.cpp" line="561"/>
+        <location filename="../src/openstudio_lib/ThermalZonesGridView.cpp" line="570"/>
         <source>Air Loop Name</source>
         <translation>Luftschleife - Name</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/ThermalZonesGridView.cpp" line="112" />
-        <location filename="../src/openstudio_lib/ThermalZonesGridView.cpp" line="508" />
-        <location filename="../src/openstudio_lib/ThermalZonesGridView.cpp" line="534" />
-        <location filename="../src/openstudio_lib/ThermalZonesGridView.cpp" line="541" />
+        <location filename="../src/openstudio_lib/ThermalZonesGridView.cpp" line="112"/>
+        <location filename="../src/openstudio_lib/ThermalZonesGridView.cpp" line="508"/>
+        <location filename="../src/openstudio_lib/ThermalZonesGridView.cpp" line="534"/>
+        <location filename="../src/openstudio_lib/ThermalZonesGridView.cpp" line="541"/>
         <source>Zone Equipment</source>
         <translation>Zonengeräte</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/ThermalZonesGridView.cpp" line="113" />
-        <location filename="../src/openstudio_lib/ThermalZonesGridView.cpp" line="330" />
-        <location filename="../src/openstudio_lib/ThermalZonesGridView.cpp" line="371" />
+        <location filename="../src/openstudio_lib/ThermalZonesGridView.cpp" line="113"/>
+        <location filename="../src/openstudio_lib/ThermalZonesGridView.cpp" line="330"/>
+        <location filename="../src/openstudio_lib/ThermalZonesGridView.cpp" line="371"/>
         <source>Cooling Thermostat
 Schedule</source>
         <translation>Kühlungs-Thermostat
 Zeitplan</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/ThermalZonesGridView.cpp" line="114" />
-        <location filename="../src/openstudio_lib/ThermalZonesGridView.cpp" line="374" />
-        <location filename="../src/openstudio_lib/ThermalZonesGridView.cpp" line="415" />
+        <location filename="../src/openstudio_lib/ThermalZonesGridView.cpp" line="114"/>
+        <location filename="../src/openstudio_lib/ThermalZonesGridView.cpp" line="374"/>
+        <location filename="../src/openstudio_lib/ThermalZonesGridView.cpp" line="415"/>
         <source>Heating Thermostat
 Schedule</source>
         <translation>Heizungs-Thermostat
 Zeitplan</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/ThermalZonesGridView.cpp" line="115" />
-        <location filename="../src/openstudio_lib/ThermalZonesGridView.cpp" line="418" />
-        <location filename="../src/openstudio_lib/ThermalZonesGridView.cpp" line="460" />
+        <location filename="../src/openstudio_lib/ThermalZonesGridView.cpp" line="115"/>
+        <location filename="../src/openstudio_lib/ThermalZonesGridView.cpp" line="418"/>
+        <location filename="../src/openstudio_lib/ThermalZonesGridView.cpp" line="460"/>
         <source>Humidifying Setpoint
 Schedule</source>
         <translation>Befeuchtungs-Sollwert
 Zeitplan</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/ThermalZonesGridView.cpp" line="116" />
-        <location filename="../src/openstudio_lib/ThermalZonesGridView.cpp" line="463" />
-        <location filename="../src/openstudio_lib/ThermalZonesGridView.cpp" line="505" />
+        <location filename="../src/openstudio_lib/ThermalZonesGridView.cpp" line="116"/>
+        <location filename="../src/openstudio_lib/ThermalZonesGridView.cpp" line="463"/>
+        <location filename="../src/openstudio_lib/ThermalZonesGridView.cpp" line="505"/>
         <source>Dehumidifying Setpoint
 Schedule</source>
         <translation>Entfeuchtungs-Sollwert
 Zeitplan</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/ThermalZonesGridView.cpp" line="117" />
-        <location filename="../src/openstudio_lib/ThermalZonesGridView.cpp" line="576" />
-        <location filename="../src/openstudio_lib/ThermalZonesGridView.cpp" line="577" />
+        <location filename="../src/openstudio_lib/ThermalZonesGridView.cpp" line="117"/>
+        <location filename="../src/openstudio_lib/ThermalZonesGridView.cpp" line="576"/>
+        <location filename="../src/openstudio_lib/ThermalZonesGridView.cpp" line="577"/>
         <source>Multiplier</source>
         <translation>Multiplikator</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/ThermalZonesGridView.cpp" line="125" />
-        <location filename="../src/openstudio_lib/ThermalZonesGridView.cpp" line="203" />
-        <location filename="../src/openstudio_lib/ThermalZonesGridView.cpp" line="205" />
+        <location filename="../src/openstudio_lib/ThermalZonesGridView.cpp" line="125"/>
+        <location filename="../src/openstudio_lib/ThermalZonesGridView.cpp" line="203"/>
+        <location filename="../src/openstudio_lib/ThermalZonesGridView.cpp" line="205"/>
         <source>Zone Cooling
 Design Supply
 Air Temperature</source>
@@ -31052,9 +31063,9 @@ Auslegungstemperatur
 Zuluft</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/ThermalZonesGridView.cpp" line="126" />
-        <location filename="../src/openstudio_lib/ThermalZonesGridView.cpp" line="213" />
-        <location filename="../src/openstudio_lib/ThermalZonesGridView.cpp" line="214" />
+        <location filename="../src/openstudio_lib/ThermalZonesGridView.cpp" line="126"/>
+        <location filename="../src/openstudio_lib/ThermalZonesGridView.cpp" line="213"/>
+        <location filename="../src/openstudio_lib/ThermalZonesGridView.cpp" line="214"/>
         <source>Zone Cooling
 Design Supply
 Air Humidity Ratio</source>
@@ -31063,26 +31074,26 @@ Auslegungsluft-
 Feuchtigkeitsverhältnis</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/ThermalZonesGridView.cpp" line="127" />
-        <location filename="../src/openstudio_lib/ThermalZonesGridView.cpp" line="225" />
+        <location filename="../src/openstudio_lib/ThermalZonesGridView.cpp" line="127"/>
+        <location filename="../src/openstudio_lib/ThermalZonesGridView.cpp" line="225"/>
         <source>Zone Cooling
 Sizing Factor</source>
         <translation>Zone Cooling
 Sizing Factor</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/ThermalZonesGridView.cpp" line="128" />
-        <location filename="../src/openstudio_lib/ThermalZonesGridView.cpp" line="269" />
-        <location filename="../src/openstudio_lib/ThermalZonesGridView.cpp" line="270" />
+        <location filename="../src/openstudio_lib/ThermalZonesGridView.cpp" line="128"/>
+        <location filename="../src/openstudio_lib/ThermalZonesGridView.cpp" line="269"/>
+        <location filename="../src/openstudio_lib/ThermalZonesGridView.cpp" line="270"/>
         <source>Cooling Minimum Air
 Flow per Zone
 Floor Area</source>
         <translation>Kühlungsmindestluftdurchsatz pro Zonengeschossfläche</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/ThermalZonesGridView.cpp" line="129" />
-        <location filename="../src/openstudio_lib/ThermalZonesGridView.cpp" line="291" />
-        <location filename="../src/openstudio_lib/ThermalZonesGridView.cpp" line="292" />
+        <location filename="../src/openstudio_lib/ThermalZonesGridView.cpp" line="129"/>
+        <location filename="../src/openstudio_lib/ThermalZonesGridView.cpp" line="291"/>
+        <location filename="../src/openstudio_lib/ThermalZonesGridView.cpp" line="292"/>
         <source>Design Zone Air
 Distribution Effectiveness
 in Cooling Mode</source>
@@ -31091,45 +31102,45 @@ in der Kühlzone
 im Kühlbetrieb</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/ThermalZonesGridView.cpp" line="130" />
-        <location filename="../src/openstudio_lib/ThermalZonesGridView.cpp" line="278" />
-        <location filename="../src/openstudio_lib/ThermalZonesGridView.cpp" line="279" />
+        <location filename="../src/openstudio_lib/ThermalZonesGridView.cpp" line="130"/>
+        <location filename="../src/openstudio_lib/ThermalZonesGridView.cpp" line="278"/>
+        <location filename="../src/openstudio_lib/ThermalZonesGridView.cpp" line="279"/>
         <source>Cooling Minimum
 Air Flow Fraction</source>
         <translation>Kühlung Minimales
 Luftstromanteil</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/ThermalZonesGridView.cpp" line="131" />
-        <location filename="../src/openstudio_lib/ThermalZonesGridView.cpp" line="302" />
-        <location filename="../src/openstudio_lib/ThermalZonesGridView.cpp" line="304" />
+        <location filename="../src/openstudio_lib/ThermalZonesGridView.cpp" line="131"/>
+        <location filename="../src/openstudio_lib/ThermalZonesGridView.cpp" line="302"/>
+        <location filename="../src/openstudio_lib/ThermalZonesGridView.cpp" line="304"/>
         <source>Cooling Design
 Air Flow Method</source>
         <translation>Kühlungsauslegung
 Luftstromverfahren</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/ThermalZonesGridView.cpp" line="132" />
-        <location filename="../src/openstudio_lib/ThermalZonesGridView.cpp" line="265" />
-        <location filename="../src/openstudio_lib/ThermalZonesGridView.cpp" line="266" />
+        <location filename="../src/openstudio_lib/ThermalZonesGridView.cpp" line="132"/>
+        <location filename="../src/openstudio_lib/ThermalZonesGridView.cpp" line="265"/>
+        <location filename="../src/openstudio_lib/ThermalZonesGridView.cpp" line="266"/>
         <source>Cooling Design
 Air Flow Rate</source>
         <translation>Kühldesign
 Luftdurchsatzrate</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/ThermalZonesGridView.cpp" line="133" />
-        <location filename="../src/openstudio_lib/ThermalZonesGridView.cpp" line="274" />
-        <location filename="../src/openstudio_lib/ThermalZonesGridView.cpp" line="275" />
+        <location filename="../src/openstudio_lib/ThermalZonesGridView.cpp" line="133"/>
+        <location filename="../src/openstudio_lib/ThermalZonesGridView.cpp" line="274"/>
+        <location filename="../src/openstudio_lib/ThermalZonesGridView.cpp" line="275"/>
         <source>Cooling Minimum
 Air Flow</source>
         <translation>Kühlung Mindest-
 Luftstrom</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/ThermalZonesGridView.cpp" line="141" />
-        <location filename="../src/openstudio_lib/ThermalZonesGridView.cpp" line="209" />
-        <location filename="../src/openstudio_lib/ThermalZonesGridView.cpp" line="210" />
+        <location filename="../src/openstudio_lib/ThermalZonesGridView.cpp" line="141"/>
+        <location filename="../src/openstudio_lib/ThermalZonesGridView.cpp" line="209"/>
+        <location filename="../src/openstudio_lib/ThermalZonesGridView.cpp" line="210"/>
         <source>Zone Heating
 Design Supply
 Air Temperature</source>
@@ -31138,9 +31149,9 @@ Auslegungs-Zuluft
 Lufttemperatur</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/ThermalZonesGridView.cpp" line="142" />
-        <location filename="../src/openstudio_lib/ThermalZonesGridView.cpp" line="217" />
-        <location filename="../src/openstudio_lib/ThermalZonesGridView.cpp" line="218" />
+        <location filename="../src/openstudio_lib/ThermalZonesGridView.cpp" line="142"/>
+        <location filename="../src/openstudio_lib/ThermalZonesGridView.cpp" line="217"/>
+        <location filename="../src/openstudio_lib/ThermalZonesGridView.cpp" line="218"/>
         <source>Zone Heating
 Design Supply
 Air Humidity Ratio</source>
@@ -31149,18 +31160,18 @@ Design Supply
 Air Humidity Ratio</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/ThermalZonesGridView.cpp" line="143" />
-        <location filename="../src/openstudio_lib/ThermalZonesGridView.cpp" line="221" />
-        <location filename="../src/openstudio_lib/ThermalZonesGridView.cpp" line="222" />
+        <location filename="../src/openstudio_lib/ThermalZonesGridView.cpp" line="143"/>
+        <location filename="../src/openstudio_lib/ThermalZonesGridView.cpp" line="221"/>
+        <location filename="../src/openstudio_lib/ThermalZonesGridView.cpp" line="222"/>
         <source>Zone Heating
 Sizing Factor</source>
         <translation>Zone Heating
 Sizing Factor</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/ThermalZonesGridView.cpp" line="144" />
-        <location filename="../src/openstudio_lib/ThermalZonesGridView.cpp" line="282" />
-        <location filename="../src/openstudio_lib/ThermalZonesGridView.cpp" line="283" />
+        <location filename="../src/openstudio_lib/ThermalZonesGridView.cpp" line="144"/>
+        <location filename="../src/openstudio_lib/ThermalZonesGridView.cpp" line="282"/>
+        <location filename="../src/openstudio_lib/ThermalZonesGridView.cpp" line="283"/>
         <source>Heating Maximum Air
 Flow per Zone
 Floor Area</source>
@@ -31168,9 +31179,9 @@ Floor Area</source>
 pro Zonengrundfläche</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/ThermalZonesGridView.cpp" line="145" />
-        <location filename="../src/openstudio_lib/ThermalZonesGridView.cpp" line="296" />
-        <location filename="../src/openstudio_lib/ThermalZonesGridView.cpp" line="297" />
+        <location filename="../src/openstudio_lib/ThermalZonesGridView.cpp" line="145"/>
+        <location filename="../src/openstudio_lib/ThermalZonesGridView.cpp" line="296"/>
+        <location filename="../src/openstudio_lib/ThermalZonesGridView.cpp" line="297"/>
         <source>Design Zone Air
 Distribution Effectiveness
 in Heating Mode</source>
@@ -31179,63 +31190,63 @@ Wirksamkeit
 im Heizmodus</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/ThermalZonesGridView.cpp" line="146" />
-        <location filename="../src/openstudio_lib/ThermalZonesGridView.cpp" line="287" />
-        <location filename="../src/openstudio_lib/ThermalZonesGridView.cpp" line="288" />
+        <location filename="../src/openstudio_lib/ThermalZonesGridView.cpp" line="146"/>
+        <location filename="../src/openstudio_lib/ThermalZonesGridView.cpp" line="287"/>
+        <location filename="../src/openstudio_lib/ThermalZonesGridView.cpp" line="288"/>
         <source>Heating Maximum
 Air Flow Fraction</source>
         <translation>Maximale Heizluftstrom-
 fraktion</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/ThermalZonesGridView.cpp" line="147" />
-        <location filename="../src/openstudio_lib/ThermalZonesGridView.cpp" line="237" />
-        <location filename="../src/openstudio_lib/ThermalZonesGridView.cpp" line="239" />
+        <location filename="../src/openstudio_lib/ThermalZonesGridView.cpp" line="147"/>
+        <location filename="../src/openstudio_lib/ThermalZonesGridView.cpp" line="237"/>
+        <location filename="../src/openstudio_lib/ThermalZonesGridView.cpp" line="239"/>
         <source>Heating Design
 Air Flow Method</source>
         <translation>Heizungsauslegung
 Luftstrommethode</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/ThermalZonesGridView.cpp" line="148" />
-        <location filename="../src/openstudio_lib/ThermalZonesGridView.cpp" line="229" />
-        <location filename="../src/openstudio_lib/ThermalZonesGridView.cpp" line="230" />
+        <location filename="../src/openstudio_lib/ThermalZonesGridView.cpp" line="148"/>
+        <location filename="../src/openstudio_lib/ThermalZonesGridView.cpp" line="229"/>
+        <location filename="../src/openstudio_lib/ThermalZonesGridView.cpp" line="230"/>
         <source>Heating Design
 Air Flow Rate</source>
         <translation>Heizauslegung
 Luftvolumenstrom</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/ThermalZonesGridView.cpp" line="149" />
-        <location filename="../src/openstudio_lib/ThermalZonesGridView.cpp" line="233" />
-        <location filename="../src/openstudio_lib/ThermalZonesGridView.cpp" line="234" />
+        <location filename="../src/openstudio_lib/ThermalZonesGridView.cpp" line="149"/>
+        <location filename="../src/openstudio_lib/ThermalZonesGridView.cpp" line="233"/>
+        <location filename="../src/openstudio_lib/ThermalZonesGridView.cpp" line="234"/>
         <source>Heating Maximum
 Air Flow</source>
         <translation>Maximaler Heizluftdurchsatz</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/ThermalZonesGridView.cpp" line="191" />
+        <location filename="../src/openstudio_lib/ThermalZonesGridView.cpp" line="191"/>
         <source>Check to enable ideal air loads.</source>
         <translation>Aktivieren Sie das Kontrollkästchen, um ideale Luftlasten zu aktivieren.</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/ThermalZonesGridView.cpp" line="195" />
+        <location filename="../src/openstudio_lib/ThermalZonesGridView.cpp" line="195"/>
         <source>Check to select all rows</source>
         <translation>Ankreuzen um alle Zeilen auszuwählen</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/ThermalZonesGridView.cpp" line="198" />
+        <location filename="../src/openstudio_lib/ThermalZonesGridView.cpp" line="198"/>
         <source>Check to select this row</source>
         <translation>Aktivieren Sie dieses Kontrollkästchen, um diese Zeile auszuwählen</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/ThermalZonesGridView.cpp" line="119" />
+        <location filename="../src/openstudio_lib/ThermalZonesGridView.cpp" line="119"/>
         <source>HVAC
 Systems</source>
         <translation>HVAC-Systeme</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/ThermalZonesGridView.cpp" line="135" />
+        <location filename="../src/openstudio_lib/ThermalZonesGridView.cpp" line="135"/>
         <source>Cooling
 Sizing
 Parameters</source>
@@ -31244,7 +31255,7 @@ Auslegung
 Parameter</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/ThermalZonesGridView.cpp" line="151" />
+        <location filename="../src/openstudio_lib/ThermalZonesGridView.cpp" line="151"/>
         <source>Heating
 Sizing
 Parameters</source>
@@ -31256,13 +31267,13 @@ Parameter</translation>
 <context>
     <name>openstudio::ThermalZonesGridView</name>
     <message>
-        <location filename="../src/openstudio_lib/ThermalZonesGridView.cpp" line="68" />
-        <location filename="../src/openstudio_lib/ThermalZonesGridView.cpp" line="70" />
+        <location filename="../src/openstudio_lib/ThermalZonesGridView.cpp" line="68"/>
+        <location filename="../src/openstudio_lib/ThermalZonesGridView.cpp" line="70"/>
         <source>Thermal Zones</source>
         <translation>Thermische Zonen</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/ThermalZonesGridView.cpp" line="70" />
+        <location filename="../src/openstudio_lib/ThermalZonesGridView.cpp" line="70"/>
         <source>Drop
 Zone</source>
         <translation>Ablage-
@@ -31272,7 +31283,7 @@ zone</translation>
 <context>
     <name>openstudio::ThermalZonesTabView</name>
     <message>
-        <location filename="../src/openstudio_lib/ThermalZonesTabView.cpp" line="10" />
+        <location filename="../src/openstudio_lib/ThermalZonesTabView.cpp" line="10"/>
         <source>Thermal Zones</source>
         <translation>Thermische Zonen</translation>
     </message>
@@ -31280,105 +31291,105 @@ zone</translation>
 <context>
     <name>openstudio::UtilityBillsInspectorView</name>
     <message>
-        <location filename="../src/openstudio_lib/UtilityBillsView.cpp" line="144" />
+        <location filename="../src/openstudio_lib/UtilityBillsView.cpp" line="144"/>
         <source>Start Date </source>
         <translation>Startdatum</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/UtilityBillsView.cpp" line="150" />
+        <location filename="../src/openstudio_lib/UtilityBillsView.cpp" line="150"/>
         <source>   End Date </source>
         <translation>Enddatum</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/UtilityBillsView.cpp" line="207" />
+        <location filename="../src/openstudio_lib/UtilityBillsView.cpp" line="207"/>
         <source>Name</source>
         <translation>Name</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/UtilityBillsView.cpp" line="229" />
+        <location filename="../src/openstudio_lib/UtilityBillsView.cpp" line="229"/>
         <source>Consumption Units</source>
         <translation>Verbrauchseinheiten</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/UtilityBillsView.cpp" line="246" />
+        <location filename="../src/openstudio_lib/UtilityBillsView.cpp" line="246"/>
         <source>Peak Demand Units</source>
         <translation>Spitzenlast-Einheiten</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/UtilityBillsView.cpp" line="263" />
+        <location filename="../src/openstudio_lib/UtilityBillsView.cpp" line="263"/>
         <source>Peak Demand Window Timesteps</source>
         <translation>Peak-Nachfrage-Fenster Zeitschritte</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/UtilityBillsView.cpp" line="284" />
+        <location filename="../src/openstudio_lib/UtilityBillsView.cpp" line="284"/>
         <source>Run Period</source>
         <translation>Simulationszeitraum</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/UtilityBillsView.cpp" line="301" />
+        <location filename="../src/openstudio_lib/UtilityBillsView.cpp" line="301"/>
         <source>Billing Period</source>
         <translation>Abrechnungszeitraum</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/UtilityBillsView.cpp" line="306" />
+        <location filename="../src/openstudio_lib/UtilityBillsView.cpp" line="306"/>
         <source>Select the best match for you utility bill</source>
         <translation>Wählen Sie die beste Übereinstimmung für Ihre Stromrechnung</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/UtilityBillsView.cpp" line="316" />
+        <location filename="../src/openstudio_lib/UtilityBillsView.cpp" line="316"/>
         <source>Start Date and End Date</source>
         <translation>Startdatum und Enddatum</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/UtilityBillsView.cpp" line="320" />
+        <location filename="../src/openstudio_lib/UtilityBillsView.cpp" line="320"/>
         <source>Start Date and Number of Days in Billing Period</source>
         <translation>Startdatum und Anzahl der Tage im Abrechnungszeitraum</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/UtilityBillsView.cpp" line="324" />
+        <location filename="../src/openstudio_lib/UtilityBillsView.cpp" line="324"/>
         <source>End Date and Number of Days in Billing Period</source>
         <translation>Enddatum und Anzahl der Tage in der Abrechnungsperiode</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/UtilityBillsView.cpp" line="352" />
+        <location filename="../src/openstudio_lib/UtilityBillsView.cpp" line="352"/>
         <source>Add new object</source>
         <translation>Neues Objekt hinzufügen</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/UtilityBillsView.cpp" line="360" />
+        <location filename="../src/openstudio_lib/UtilityBillsView.cpp" line="360"/>
         <source>Add New Billing Period</source>
         <translation>Neue Abrechnungsperiode hinzufügen</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/UtilityBillsView.cpp" line="485" />
-        <location filename="../src/openstudio_lib/UtilityBillsView.cpp" line="497" />
+        <location filename="../src/openstudio_lib/UtilityBillsView.cpp" line="485"/>
+        <location filename="../src/openstudio_lib/UtilityBillsView.cpp" line="497"/>
         <source>Start Date</source>
         <translation>Startdatum</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/UtilityBillsView.cpp" line="491" />
-        <location filename="../src/openstudio_lib/UtilityBillsView.cpp" line="509" />
+        <location filename="../src/openstudio_lib/UtilityBillsView.cpp" line="491"/>
+        <location filename="../src/openstudio_lib/UtilityBillsView.cpp" line="509"/>
         <source>End Date</source>
         <translation>Enddatum</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/UtilityBillsView.cpp" line="503" />
-        <location filename="../src/openstudio_lib/UtilityBillsView.cpp" line="515" />
+        <location filename="../src/openstudio_lib/UtilityBillsView.cpp" line="503"/>
+        <location filename="../src/openstudio_lib/UtilityBillsView.cpp" line="515"/>
         <source>Billing Period Days</source>
         <translation>Abrechnung Zeitraumspeichertage</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/UtilityBillsView.cpp" line="540" />
+        <location filename="../src/openstudio_lib/UtilityBillsView.cpp" line="540"/>
         <source>Cost</source>
         <translation>Kosten</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/UtilityBillsView.cpp" line="605" />
+        <location filename="../src/openstudio_lib/UtilityBillsView.cpp" line="605"/>
         <source>Energy Use (</source>
         <translation>Energieverbrauch (</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/UtilityBillsView.cpp" line="612" />
+        <location filename="../src/openstudio_lib/UtilityBillsView.cpp" line="612"/>
         <source>Peak (</source>
         <translation>Peak (</translation>
     </message>
@@ -31386,7 +31397,7 @@ zone</translation>
 <context>
     <name>openstudio::VRFSystemDropZoneView</name>
     <message>
-        <location filename="../src/openstudio_lib/VRFGraphicsItems.cpp" line="470" />
+        <location filename="../src/openstudio_lib/VRFGraphicsItems.cpp" line="470"/>
         <source>Drop VRF System</source>
         <translation>VRF-System ablegen</translation>
     </message>
@@ -31402,12 +31413,12 @@ zone</translation>
 <context>
     <name>openstudio::VRFSystemMiniView</name>
     <message>
-        <location filename="../src/openstudio_lib/VRFGraphicsItems.cpp" line="436" />
+        <location filename="../src/openstudio_lib/VRFGraphicsItems.cpp" line="436"/>
         <source>Terminals</source>
         <translation>Terminals</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/VRFGraphicsItems.cpp" line="450" />
+        <location filename="../src/openstudio_lib/VRFGraphicsItems.cpp" line="450"/>
         <source>Zones</source>
         <translation>Zonen</translation>
     </message>
@@ -31415,12 +31426,12 @@ zone</translation>
 <context>
     <name>openstudio::VRFSystemView</name>
     <message>
-        <location filename="../src/openstudio_lib/VRFGraphicsItems.cpp" line="118" />
+        <location filename="../src/openstudio_lib/VRFGraphicsItems.cpp" line="118"/>
         <source>Drop VRF Terminal</source>
         <translation>VRF-Terminal ablegen</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/VRFGraphicsItems.cpp" line="122" />
+        <location filename="../src/openstudio_lib/VRFGraphicsItems.cpp" line="122"/>
         <source>Drop Thermal Zone</source>
         <translation>Wärmezone ablegen</translation>
     </message>
@@ -31428,7 +31439,7 @@ zone</translation>
 <context>
     <name>openstudio::VRFThermalZoneDropZoneView</name>
     <message>
-        <location filename="../src/openstudio_lib/VRFGraphicsItems.cpp" line="304" />
+        <location filename="../src/openstudio_lib/VRFGraphicsItems.cpp" line="304"/>
         <source>Drop Thermal Zone</source>
         <translation>Wärmezone ablegen</translation>
     </message>
@@ -31436,87 +31447,87 @@ zone</translation>
 <context>
     <name>openstudio::VariablesList</name>
     <message>
-        <location filename="../src/openstudio_lib/VariablesTabView.cpp" line="176" />
+        <location filename="../src/openstudio_lib/VariablesTabView.cpp" line="176"/>
         <source>Select Output Variables</source>
         <translation>Ausgabevariablen auswählen</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/VariablesTabView.cpp" line="179" />
+        <location filename="../src/openstudio_lib/VariablesTabView.cpp" line="179"/>
         <source>All</source>
         <translation>Alle</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/VariablesTabView.cpp" line="185" />
+        <location filename="../src/openstudio_lib/VariablesTabView.cpp" line="185"/>
         <source>Enabled</source>
         <translation>Aktiviert</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/VariablesTabView.cpp" line="191" />
+        <location filename="../src/openstudio_lib/VariablesTabView.cpp" line="191"/>
         <source>Disabled</source>
         <translation>Deaktiviert</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/VariablesTabView.cpp" line="225" />
+        <location filename="../src/openstudio_lib/VariablesTabView.cpp" line="225"/>
         <source>Filter Variables</source>
         <translation>Variablen filtern</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/VariablesTabView.cpp" line="232" />
+        <location filename="../src/openstudio_lib/VariablesTabView.cpp" line="232"/>
         <source>Use Regex</source>
         <translation>Regex verwenden</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/VariablesTabView.cpp" line="239" />
+        <location filename="../src/openstudio_lib/VariablesTabView.cpp" line="239"/>
         <source>Update Visible Variables</source>
         <translation>Sichtbare Variablen aktualisieren</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/VariablesTabView.cpp" line="242" />
+        <location filename="../src/openstudio_lib/VariablesTabView.cpp" line="242"/>
         <source>All On</source>
         <translation>Alle An</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/VariablesTabView.cpp" line="248" />
+        <location filename="../src/openstudio_lib/VariablesTabView.cpp" line="248"/>
         <source>All Off</source>
         <translation>Alle Aus</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/VariablesTabView.cpp" line="254" />
+        <location filename="../src/openstudio_lib/VariablesTabView.cpp" line="254"/>
         <source>Apply Frequency</source>
         <translation>Häufigkeit anwenden</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/VariablesTabView.cpp" line="261" />
+        <location filename="../src/openstudio_lib/VariablesTabView.cpp" line="261"/>
         <source>Detailed</source>
         <translation>Detailliert</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/VariablesTabView.cpp" line="262" />
+        <location filename="../src/openstudio_lib/VariablesTabView.cpp" line="262"/>
         <source>Timestep</source>
         <translation>Zeitschritt</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/VariablesTabView.cpp" line="263" />
+        <location filename="../src/openstudio_lib/VariablesTabView.cpp" line="263"/>
         <source>Hourly</source>
         <translation>Stündlich</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/VariablesTabView.cpp" line="264" />
+        <location filename="../src/openstudio_lib/VariablesTabView.cpp" line="264"/>
         <source>Daily</source>
         <translation>Täglich</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/VariablesTabView.cpp" line="265" />
+        <location filename="../src/openstudio_lib/VariablesTabView.cpp" line="265"/>
         <source>Monthly</source>
         <translation>Monatlich</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/VariablesTabView.cpp" line="266" />
+        <location filename="../src/openstudio_lib/VariablesTabView.cpp" line="266"/>
         <source>RunPeriod</source>
         <translation>Simulationszeitraum</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/VariablesTabView.cpp" line="267" />
+        <location filename="../src/openstudio_lib/VariablesTabView.cpp" line="267"/>
         <source>Annual</source>
         <translation>Jährlich</translation>
     </message>
@@ -31524,7 +31535,7 @@ zone</translation>
 <context>
     <name>openstudio::VariablesTabView</name>
     <message>
-        <location filename="../src/openstudio_lib/VariablesTabView.cpp" line="484" />
+        <location filename="../src/openstudio_lib/VariablesTabView.cpp" line="484"/>
         <source>Output Variables</source>
         <translation>Ausgabevariablen</translation>
     </message>
@@ -31532,8 +31543,8 @@ zone</translation>
 <context>
     <name>openstudio::WaterUseConnectionsDetailItem</name>
     <message>
-        <location filename="../src/openstudio_lib/ServiceWaterGridItems.cpp" line="49" />
-        <location filename="../src/openstudio_lib/ServiceWaterGridItems.cpp" line="188" />
+        <location filename="../src/openstudio_lib/ServiceWaterGridItems.cpp" line="49"/>
+        <location filename="../src/openstudio_lib/ServiceWaterGridItems.cpp" line="188"/>
         <source>Go back to water mains editor</source>
         <translation>Zurück zum Wasserleitungs-Editor</translation>
     </message>
@@ -31541,7 +31552,7 @@ zone</translation>
 <context>
     <name>openstudio::WaterUseConnectionsDropZoneItem</name>
     <message>
-        <location filename="../src/openstudio_lib/ServiceWaterGridItems.cpp" line="510" />
+        <location filename="../src/openstudio_lib/ServiceWaterGridItems.cpp" line="510"/>
         <source>Drag Water Use Connections from Library</source>
         <translation>Wassernutzungsverbindungen aus der Bibliothek ziehen</translation>
     </message>
@@ -31549,32 +31560,32 @@ zone</translation>
 <context>
     <name>openstudio::WaterUseEquipmentDefinitionInspectorView</name>
     <message>
-        <location filename="../src/openstudio_lib/WaterUseEquipmentInspectorView.cpp" line="208" />
+        <location filename="../src/openstudio_lib/WaterUseEquipmentInspectorView.cpp" line="208"/>
         <source>Name: </source>
         <translation>Name:</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/WaterUseEquipmentInspectorView.cpp" line="216" />
+        <location filename="../src/openstudio_lib/WaterUseEquipmentInspectorView.cpp" line="216"/>
         <source>End Use Subcategory: </source>
         <translation>Endnutzung-Unterkategorie:</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/WaterUseEquipmentInspectorView.cpp" line="224" />
+        <location filename="../src/openstudio_lib/WaterUseEquipmentInspectorView.cpp" line="224"/>
         <source>Peak Flow Rate: </source>
         <translation>Spitzendurchsatz:</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/WaterUseEquipmentInspectorView.cpp" line="234" />
+        <location filename="../src/openstudio_lib/WaterUseEquipmentInspectorView.cpp" line="234"/>
         <source>Target Temperature Schedule: </source>
         <translation>Zieltemperatur-Zeitplan:</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/WaterUseEquipmentInspectorView.cpp" line="246" />
+        <location filename="../src/openstudio_lib/WaterUseEquipmentInspectorView.cpp" line="246"/>
         <source>Sensible Fraction Schedule: </source>
         <translation>Sensible Fraction Schedule:</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/WaterUseEquipmentInspectorView.cpp" line="258" />
+        <location filename="../src/openstudio_lib/WaterUseEquipmentInspectorView.cpp" line="258"/>
         <source>Latent Fraction Schedule: </source>
         <translation>Latent Fraction Schedule:</translation>
     </message>
@@ -31582,7 +31593,7 @@ zone</translation>
 <context>
     <name>openstudio::WaterUseEquipmentDropZoneItem</name>
     <message>
-        <location filename="../src/openstudio_lib/ServiceWaterGridItems.cpp" line="501" />
+        <location filename="../src/openstudio_lib/ServiceWaterGridItems.cpp" line="501"/>
         <source>Drag Water Use Equipment from Library</source>
         <translation>Drag Water Use Equipment aus Bibliothek</translation>
     </message>
@@ -31590,147 +31601,147 @@ zone</translation>
 <context>
     <name>openstudio::WindowMaterialBlindInspectorView</name>
     <message>
-        <location filename="../src/openstudio_lib/WindowMaterialBlindInspectorView.cpp" line="50" />
+        <location filename="../src/openstudio_lib/WindowMaterialBlindInspectorView.cpp" line="50"/>
         <source>Name: </source>
         <translation>Name:</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/WindowMaterialBlindInspectorView.cpp" line="69" />
+        <location filename="../src/openstudio_lib/WindowMaterialBlindInspectorView.cpp" line="69"/>
         <source>Slat Orientation: </source>
         <translation>Lamellensorientierung:</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/WindowMaterialBlindInspectorView.cpp" line="80" />
+        <location filename="../src/openstudio_lib/WindowMaterialBlindInspectorView.cpp" line="80"/>
         <source>Slat Width: </source>
         <translation>Lamellenbreite:</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/WindowMaterialBlindInspectorView.cpp" line="90" />
+        <location filename="../src/openstudio_lib/WindowMaterialBlindInspectorView.cpp" line="90"/>
         <source>Slat Separation: </source>
         <translation>Lamellenteilung:</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/WindowMaterialBlindInspectorView.cpp" line="100" />
+        <location filename="../src/openstudio_lib/WindowMaterialBlindInspectorView.cpp" line="100"/>
         <source>Slat Thickness: </source>
         <translation>Lamellenstärke:</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/WindowMaterialBlindInspectorView.cpp" line="110" />
+        <location filename="../src/openstudio_lib/WindowMaterialBlindInspectorView.cpp" line="110"/>
         <source>Slat Angle: </source>
         <translation>Lamellwinkel:</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/WindowMaterialBlindInspectorView.cpp" line="120" />
+        <location filename="../src/openstudio_lib/WindowMaterialBlindInspectorView.cpp" line="120"/>
         <source>Slat Conductivity: </source>
         <translation>Lamellen-Wärmeleitung:</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/WindowMaterialBlindInspectorView.cpp" line="130" />
+        <location filename="../src/openstudio_lib/WindowMaterialBlindInspectorView.cpp" line="130"/>
         <source>Slat Beam Solar Transmittance: </source>
         <translation>Lamellen-Balken-Solarstrahlungsdurchlässigkeit:</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/WindowMaterialBlindInspectorView.cpp" line="140" />
+        <location filename="../src/openstudio_lib/WindowMaterialBlindInspectorView.cpp" line="140"/>
         <source>Front Side Slat Beam Solar Reflectance: </source>
         <translation>Vorderseitige Lamellen-Strahlungsreflektanz:</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/WindowMaterialBlindInspectorView.cpp" line="150" />
+        <location filename="../src/openstudio_lib/WindowMaterialBlindInspectorView.cpp" line="150"/>
         <source>Back Side Slat Beam Solar Reflectance: </source>
         <translation>Rückseite Lamellenstrahl Solarreflektanz:</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/WindowMaterialBlindInspectorView.cpp" line="160" />
+        <location filename="../src/openstudio_lib/WindowMaterialBlindInspectorView.cpp" line="160"/>
         <source>Slat Diffuse Solar Transmittance: </source>
         <translation>Diffuse Sonnentransmittanz der Lamellen:</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/WindowMaterialBlindInspectorView.cpp" line="170" />
+        <location filename="../src/openstudio_lib/WindowMaterialBlindInspectorView.cpp" line="170"/>
         <source>Front Side Slat Diffuse Solar Reflectance: </source>
         <translation>Vorderseitige diffuse Sonnenreflektanz der Lamellen:</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/WindowMaterialBlindInspectorView.cpp" line="180" />
+        <location filename="../src/openstudio_lib/WindowMaterialBlindInspectorView.cpp" line="180"/>
         <source>Back Side Slat Diffuse Solar Reflectance: </source>
         <translation>Rückseitige Lamellen diffuse Solarreflektanz:</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/WindowMaterialBlindInspectorView.cpp" line="190" />
+        <location filename="../src/openstudio_lib/WindowMaterialBlindInspectorView.cpp" line="190"/>
         <source>Slat Beam Visible Transmittance: </source>
         <translation>Sichtbare Transmission des Lamellenstrahls:</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/WindowMaterialBlindInspectorView.cpp" line="200" />
+        <location filename="../src/openstudio_lib/WindowMaterialBlindInspectorView.cpp" line="200"/>
         <source>Front Side Slat Beam Visible Reflectance: </source>
         <translation>Vorderseitige Lamellensichtbare Reflexion:</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/WindowMaterialBlindInspectorView.cpp" line="210" />
+        <location filename="../src/openstudio_lib/WindowMaterialBlindInspectorView.cpp" line="210"/>
         <source>Back Side Slat Beam Visible Reflectance: </source>
         <translation>Rückseitige Lamellenstrahl-Sichtbarkeitsreflektanz:</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/WindowMaterialBlindInspectorView.cpp" line="220" />
+        <location filename="../src/openstudio_lib/WindowMaterialBlindInspectorView.cpp" line="220"/>
         <source>Slat Diffuse Visible Transmittance: </source>
         <translation>Diffuse sichtbare Durchlässigkeit von Lamellen:</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/WindowMaterialBlindInspectorView.cpp" line="230" />
+        <location filename="../src/openstudio_lib/WindowMaterialBlindInspectorView.cpp" line="230"/>
         <source>Front Side Slat Diffuse Visible Reflectance: </source>
         <translation>Diffuser Sichtbarer Reflexionsgrad der vorderen Lamelle:</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/WindowMaterialBlindInspectorView.cpp" line="241" />
+        <location filename="../src/openstudio_lib/WindowMaterialBlindInspectorView.cpp" line="241"/>
         <source>Back Side Slat Diffuse Visible Reflectance: </source>
         <translation>Diffuse Sichtbarkeitsreflektanz der Rückseite der Lamelle:</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/WindowMaterialBlindInspectorView.cpp" line="251" />
+        <location filename="../src/openstudio_lib/WindowMaterialBlindInspectorView.cpp" line="251"/>
         <source>Slat Infrared Hemispherical Transmittance: </source>
         <translation>Slat Infrarot-Hemispärische Transmittanz:</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/WindowMaterialBlindInspectorView.cpp" line="262" />
+        <location filename="../src/openstudio_lib/WindowMaterialBlindInspectorView.cpp" line="262"/>
         <source>Front Side Slat Infrared Hemispherical Emissivity: </source>
         <translation>Front Side Slat Infrared Hemispherical Emissivity:</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/WindowMaterialBlindInspectorView.cpp" line="273" />
+        <location filename="../src/openstudio_lib/WindowMaterialBlindInspectorView.cpp" line="273"/>
         <source>Back Side Slat Infrared Hemispherical Emissivity: </source>
         <translation>Infrarot-Hemispherischer Emissionsgrad der Rückseite der Lamelle:</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/WindowMaterialBlindInspectorView.cpp" line="284" />
+        <location filename="../src/openstudio_lib/WindowMaterialBlindInspectorView.cpp" line="284"/>
         <source>Blind To Glass Distance: </source>
         <translation>Abstand Jalousie zu Glas:</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/WindowMaterialBlindInspectorView.cpp" line="294" />
+        <location filename="../src/openstudio_lib/WindowMaterialBlindInspectorView.cpp" line="294"/>
         <source>Blind Top Opening Multiplier: </source>
         <translation>Multiplikator für obere Blendenöffnung:</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/WindowMaterialBlindInspectorView.cpp" line="304" />
+        <location filename="../src/openstudio_lib/WindowMaterialBlindInspectorView.cpp" line="304"/>
         <source>Blind Bottom Opening Multiplier: </source>
         <translation>Blind-Unterseitenlüftungs-Multiplikator:</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/WindowMaterialBlindInspectorView.cpp" line="314" />
+        <location filename="../src/openstudio_lib/WindowMaterialBlindInspectorView.cpp" line="314"/>
         <source>Blind Left Side Opening Multiplier: </source>
         <translation>Multiplikator für die Öffnung der linken Seite der Jalousie:</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/WindowMaterialBlindInspectorView.cpp" line="324" />
+        <location filename="../src/openstudio_lib/WindowMaterialBlindInspectorView.cpp" line="324"/>
         <source>Blind Right Side Opening Multiplier: </source>
         <translation>Blindenverschattung rechte Seite Öffnungs-Multiplikator:</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/WindowMaterialBlindInspectorView.cpp" line="334" />
+        <location filename="../src/openstudio_lib/WindowMaterialBlindInspectorView.cpp" line="334"/>
         <source>Minimum Slat Angle: </source>
         <translation>Minimaler Lattenwinkel:</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/WindowMaterialBlindInspectorView.cpp" line="344" />
+        <location filename="../src/openstudio_lib/WindowMaterialBlindInspectorView.cpp" line="344"/>
         <source>Maximum Slat Angle: </source>
         <translation>Maximaler Lamellnenwinkel:</translation>
     </message>
@@ -31738,12 +31749,12 @@ zone</translation>
 <context>
     <name>openstudio::WindowMaterialDaylightRedirectionDeviceInspectorView</name>
     <message>
-        <location filename="../src/openstudio_lib/WindowMaterialDaylightRedirectionDeviceInspectorView.cpp" line="52" />
+        <location filename="../src/openstudio_lib/WindowMaterialDaylightRedirectionDeviceInspectorView.cpp" line="52"/>
         <source>Name: </source>
         <translation>Name:</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/WindowMaterialDaylightRedirectionDeviceInspectorView.cpp" line="71" />
+        <location filename="../src/openstudio_lib/WindowMaterialDaylightRedirectionDeviceInspectorView.cpp" line="71"/>
         <source>Daylight Redirection Device Type: </source>
         <translation>Tageslichtumleitungsgerätetyp:</translation>
     </message>
@@ -31751,52 +31762,52 @@ zone</translation>
 <context>
     <name>openstudio::WindowMaterialGasInspectorView</name>
     <message>
-        <location filename="../src/openstudio_lib/WindowMaterialGasInspectorView.cpp" line="50" />
+        <location filename="../src/openstudio_lib/WindowMaterialGasInspectorView.cpp" line="50"/>
         <source>Name: </source>
         <translation>Name:</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/WindowMaterialGasInspectorView.cpp" line="69" />
+        <location filename="../src/openstudio_lib/WindowMaterialGasInspectorView.cpp" line="69"/>
         <source>Gas Type: </source>
         <translation>Gastyp:</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/WindowMaterialGasInspectorView.cpp" line="83" />
+        <location filename="../src/openstudio_lib/WindowMaterialGasInspectorView.cpp" line="83"/>
         <source>Thickness: </source>
         <translation>Dicke:</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/WindowMaterialGasInspectorView.cpp" line="93" />
+        <location filename="../src/openstudio_lib/WindowMaterialGasInspectorView.cpp" line="93"/>
         <source>Conductivity Coefficient A: </source>
         <translation>Wärmeleitfähigkeitskoeffizient A:</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/WindowMaterialGasInspectorView.cpp" line="103" />
+        <location filename="../src/openstudio_lib/WindowMaterialGasInspectorView.cpp" line="103"/>
         <source>Conductivity Coefficient B: </source>
         <translation>Leitfähigkeitskoeffizient B:</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/WindowMaterialGasInspectorView.cpp" line="113" />
+        <location filename="../src/openstudio_lib/WindowMaterialGasInspectorView.cpp" line="113"/>
         <source>Viscosity Coefficient A: </source>
         <translation>Viskositätskoeffizient A:</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/WindowMaterialGasInspectorView.cpp" line="123" />
+        <location filename="../src/openstudio_lib/WindowMaterialGasInspectorView.cpp" line="123"/>
         <source>Viscosity Coefficient B: </source>
         <translation>Viskositätskoeffizient B:</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/WindowMaterialGasInspectorView.cpp" line="133" />
+        <location filename="../src/openstudio_lib/WindowMaterialGasInspectorView.cpp" line="133"/>
         <source>Specific Heat Coefficient A: </source>
         <translation>Spezifische Wärmekapazität Koeffizient A:</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/WindowMaterialGasInspectorView.cpp" line="143" />
+        <location filename="../src/openstudio_lib/WindowMaterialGasInspectorView.cpp" line="143"/>
         <source>Specific Heat Coefficient B: </source>
         <translation>Spezifischer Wärmekoeffizient B:</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/WindowMaterialGasInspectorView.cpp" line="152" />
+        <location filename="../src/openstudio_lib/WindowMaterialGasInspectorView.cpp" line="152"/>
         <source>Molecular Weight: </source>
         <translation>Molekulargewicht:</translation>
     </message>
@@ -31804,57 +31815,57 @@ zone</translation>
 <context>
     <name>openstudio::WindowMaterialGasMixtureInspectorView</name>
     <message>
-        <location filename="../src/openstudio_lib/WindowMaterialGasMixtureInspectorView.cpp" line="51" />
+        <location filename="../src/openstudio_lib/WindowMaterialGasMixtureInspectorView.cpp" line="51"/>
         <source>Name: </source>
         <translation>Name:</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/WindowMaterialGasMixtureInspectorView.cpp" line="70" />
+        <location filename="../src/openstudio_lib/WindowMaterialGasMixtureInspectorView.cpp" line="70"/>
         <source>Thickness: </source>
         <translation>Dicke:</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/WindowMaterialGasMixtureInspectorView.cpp" line="80" />
+        <location filename="../src/openstudio_lib/WindowMaterialGasMixtureInspectorView.cpp" line="80"/>
         <source>Number Of Gases In Mixture: </source>
         <translation>Anzahl der Gase im Gemisch:</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/WindowMaterialGasMixtureInspectorView.cpp" line="91" />
+        <location filename="../src/openstudio_lib/WindowMaterialGasMixtureInspectorView.cpp" line="91"/>
         <source>Gas 1 Fraction: </source>
         <translation>Gas 1 Fraktion:</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/WindowMaterialGasMixtureInspectorView.cpp" line="101" />
+        <location filename="../src/openstudio_lib/WindowMaterialGasMixtureInspectorView.cpp" line="101"/>
         <source>Gas 1 Type: </source>
         <translation>Gas 1 Typ:</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/WindowMaterialGasMixtureInspectorView.cpp" line="116" />
+        <location filename="../src/openstudio_lib/WindowMaterialGasMixtureInspectorView.cpp" line="116"/>
         <source>Gas 2 Fraction: </source>
         <translation>Gas 2 Anteil:</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/WindowMaterialGasMixtureInspectorView.cpp" line="126" />
+        <location filename="../src/openstudio_lib/WindowMaterialGasMixtureInspectorView.cpp" line="126"/>
         <source>Gas 2 Type: </source>
         <translation>Gas 2 Typ:</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/WindowMaterialGasMixtureInspectorView.cpp" line="141" />
+        <location filename="../src/openstudio_lib/WindowMaterialGasMixtureInspectorView.cpp" line="141"/>
         <source>Gas 3 Fraction: </source>
         <translation>Gas 3 Fraktion:</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/WindowMaterialGasMixtureInspectorView.cpp" line="151" />
+        <location filename="../src/openstudio_lib/WindowMaterialGasMixtureInspectorView.cpp" line="151"/>
         <source>Gas 3 Type: </source>
         <translation>Gas 3 Typ:</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/WindowMaterialGasMixtureInspectorView.cpp" line="166" />
+        <location filename="../src/openstudio_lib/WindowMaterialGasMixtureInspectorView.cpp" line="166"/>
         <source>Gas 4 Fraction: </source>
         <translation>Gas 4 Anteil:</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/WindowMaterialGasMixtureInspectorView.cpp" line="176" />
+        <location filename="../src/openstudio_lib/WindowMaterialGasMixtureInspectorView.cpp" line="176"/>
         <source>Gas 4 Type: </source>
         <translation>Gas 4 Typ:</translation>
     </message>
@@ -31862,82 +31873,82 @@ zone</translation>
 <context>
     <name>openstudio::WindowMaterialGlazingInspectorView</name>
     <message>
-        <location filename="../src/openstudio_lib/WindowMaterialGlazingInspectorView.cpp" line="53" />
+        <location filename="../src/openstudio_lib/WindowMaterialGlazingInspectorView.cpp" line="53"/>
         <source>Name: </source>
         <translation>Name:</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/WindowMaterialGlazingInspectorView.cpp" line="72" />
+        <location filename="../src/openstudio_lib/WindowMaterialGlazingInspectorView.cpp" line="72"/>
         <source>Optical Data Type: </source>
         <translation>Optischer Datentyp:</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/WindowMaterialGlazingInspectorView.cpp" line="83" />
+        <location filename="../src/openstudio_lib/WindowMaterialGlazingInspectorView.cpp" line="83"/>
         <source>Window Glass Spectral Data Set Name: </source>
         <translation>Fenster-Glassatz-Spektraldaten Name:</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/WindowMaterialGlazingInspectorView.cpp" line="92" />
+        <location filename="../src/openstudio_lib/WindowMaterialGlazingInspectorView.cpp" line="92"/>
         <source>Thickness: </source>
         <translation>Dicke:</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/WindowMaterialGlazingInspectorView.cpp" line="102" />
+        <location filename="../src/openstudio_lib/WindowMaterialGlazingInspectorView.cpp" line="102"/>
         <source>Solar Transmittance At Normal Incidence: </source>
         <translation>Solarische Transmission bei Normaleinfall:</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/WindowMaterialGlazingInspectorView.cpp" line="112" />
+        <location filename="../src/openstudio_lib/WindowMaterialGlazingInspectorView.cpp" line="112"/>
         <source>Front Side Solar Reflectance At Normal Incidence: </source>
         <translation>Solare Reflexionsgrad der Vorderseite bei senkrechtem Einfall:</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/WindowMaterialGlazingInspectorView.cpp" line="123" />
+        <location filename="../src/openstudio_lib/WindowMaterialGlazingInspectorView.cpp" line="123"/>
         <source>Back Side Solar Reflectance At Normal Incidence: </source>
         <translation>Solarreflektanz der Rückseite bei Normaleinfall:</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/WindowMaterialGlazingInspectorView.cpp" line="134" />
+        <location filename="../src/openstudio_lib/WindowMaterialGlazingInspectorView.cpp" line="134"/>
         <source>Visible Transmittance At Normal Incidence: </source>
         <translation>Sichtbarer Transmissionsgrad bei senkrechtem Einfall:</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/WindowMaterialGlazingInspectorView.cpp" line="145" />
+        <location filename="../src/openstudio_lib/WindowMaterialGlazingInspectorView.cpp" line="145"/>
         <source>Front Side Visible Reflectance At Normal Incidence: </source>
         <translation>Sichtbare Reflektanz der Vorderseite bei senkrechtem Einfall:</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/WindowMaterialGlazingInspectorView.cpp" line="156" />
+        <location filename="../src/openstudio_lib/WindowMaterialGlazingInspectorView.cpp" line="156"/>
         <source>Back Side Visible Reflectance At Normal Incidence: </source>
         <translation>Reflektanz der Rückseite bei senkrechtem Einfall (sichtbar):</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/WindowMaterialGlazingInspectorView.cpp" line="167" />
+        <location filename="../src/openstudio_lib/WindowMaterialGlazingInspectorView.cpp" line="167"/>
         <source>Infrared Transmittance at Normal Incidence: </source>
         <translation>Infrarot-Durchlässigkeit bei normalem Einfall:</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/WindowMaterialGlazingInspectorView.cpp" line="178" />
+        <location filename="../src/openstudio_lib/WindowMaterialGlazingInspectorView.cpp" line="178"/>
         <source>Front Side Infrared Hemispherical Emissivity: </source>
         <translation>Infrarot-Halbkugel-Emissivität (Vorderseite):</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/WindowMaterialGlazingInspectorView.cpp" line="189" />
+        <location filename="../src/openstudio_lib/WindowMaterialGlazingInspectorView.cpp" line="189"/>
         <source>Back Side Infrared Hemispherical Emissivity: </source>
         <translation>Infrarot-Halbkugelemissivität der Rückseite:</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/WindowMaterialGlazingInspectorView.cpp" line="200" />
+        <location filename="../src/openstudio_lib/WindowMaterialGlazingInspectorView.cpp" line="200"/>
         <source>Conductivity: </source>
         <translation>Wärmeleitfähigkeit:</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/WindowMaterialGlazingInspectorView.cpp" line="210" />
+        <location filename="../src/openstudio_lib/WindowMaterialGlazingInspectorView.cpp" line="210"/>
         <source>Dirt Correction Factor For Solar And Visible Transmittance: </source>
         <translation>Schmutz-Korrekturfaktor für Solarstrahlung und sichtbare Transmission:</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/WindowMaterialGlazingInspectorView.cpp" line="221" />
+        <location filename="../src/openstudio_lib/WindowMaterialGlazingInspectorView.cpp" line="221"/>
         <source>Solar Diffusing: </source>
         <translation>Solare Diffusion:</translation>
     </message>
@@ -31945,57 +31956,57 @@ zone</translation>
 <context>
     <name>openstudio::WindowMaterialGlazingRefractionExtinctionMethodInspectorView</name>
     <message>
-        <location filename="../src/openstudio_lib/WindowMaterialGlazingRefractionExtinctionMethodInspectorView.cpp" line="51" />
+        <location filename="../src/openstudio_lib/WindowMaterialGlazingRefractionExtinctionMethodInspectorView.cpp" line="51"/>
         <source>Name: </source>
         <translation>Name:</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/WindowMaterialGlazingRefractionExtinctionMethodInspectorView.cpp" line="70" />
+        <location filename="../src/openstudio_lib/WindowMaterialGlazingRefractionExtinctionMethodInspectorView.cpp" line="70"/>
         <source>Thickness: </source>
         <translation>Dicke:</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/WindowMaterialGlazingRefractionExtinctionMethodInspectorView.cpp" line="80" />
+        <location filename="../src/openstudio_lib/WindowMaterialGlazingRefractionExtinctionMethodInspectorView.cpp" line="80"/>
         <source>Solar Index Of Refraction: </source>
         <translation>Sonnenrefraktionsindex:</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/WindowMaterialGlazingRefractionExtinctionMethodInspectorView.cpp" line="91" />
+        <location filename="../src/openstudio_lib/WindowMaterialGlazingRefractionExtinctionMethodInspectorView.cpp" line="91"/>
         <source>Solar Extinction Coefficient: </source>
         <translation>Solarer Extinktionskoeffizient:</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/WindowMaterialGlazingRefractionExtinctionMethodInspectorView.cpp" line="102" />
+        <location filename="../src/openstudio_lib/WindowMaterialGlazingRefractionExtinctionMethodInspectorView.cpp" line="102"/>
         <source>Visible Index of Refraction: </source>
         <translation>Sichtbarer Brechungsindex:</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/WindowMaterialGlazingRefractionExtinctionMethodInspectorView.cpp" line="113" />
+        <location filename="../src/openstudio_lib/WindowMaterialGlazingRefractionExtinctionMethodInspectorView.cpp" line="113"/>
         <source>Visible Extinction Coefficient: </source>
         <translation>Sichtbarer Extinktionskoeffizient:</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/WindowMaterialGlazingRefractionExtinctionMethodInspectorView.cpp" line="124" />
+        <location filename="../src/openstudio_lib/WindowMaterialGlazingRefractionExtinctionMethodInspectorView.cpp" line="124"/>
         <source>Infrared Transmittance At Normal Incidence: </source>
         <translation>Infrarot-Transmissionsgrad bei senkrechtem Einfall:</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/WindowMaterialGlazingRefractionExtinctionMethodInspectorView.cpp" line="135" />
+        <location filename="../src/openstudio_lib/WindowMaterialGlazingRefractionExtinctionMethodInspectorView.cpp" line="135"/>
         <source>Infrared Hemispherical Emissivity: </source>
         <translation>Infrarot-hemisphärische Emissivität:</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/WindowMaterialGlazingRefractionExtinctionMethodInspectorView.cpp" line="146" />
+        <location filename="../src/openstudio_lib/WindowMaterialGlazingRefractionExtinctionMethodInspectorView.cpp" line="146"/>
         <source>Conductivity: </source>
         <translation>Wärmeleitung:</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/WindowMaterialGlazingRefractionExtinctionMethodInspectorView.cpp" line="157" />
+        <location filename="../src/openstudio_lib/WindowMaterialGlazingRefractionExtinctionMethodInspectorView.cpp" line="157"/>
         <source>Dirt Correction Factor For Solar And Visible Transmittance: </source>
         <translation>Verschmutzungskorrektur für Solarstrahlung und sichtbare Transmission:</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/WindowMaterialGlazingRefractionExtinctionMethodInspectorView.cpp" line="168" />
+        <location filename="../src/openstudio_lib/WindowMaterialGlazingRefractionExtinctionMethodInspectorView.cpp" line="168"/>
         <source>Solar Diffusing: </source>
         <translation>Solare Diffusion:</translation>
     </message>
@@ -32003,72 +32014,72 @@ zone</translation>
 <context>
     <name>openstudio::WindowMaterialScreenInspectorView</name>
     <message>
-        <location filename="../src/openstudio_lib/WindowMaterialScreenInspectorView.cpp" line="50" />
+        <location filename="../src/openstudio_lib/WindowMaterialScreenInspectorView.cpp" line="50"/>
         <source>Name: </source>
         <translation>Name:</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/WindowMaterialScreenInspectorView.cpp" line="69" />
+        <location filename="../src/openstudio_lib/WindowMaterialScreenInspectorView.cpp" line="69"/>
         <source>Reflected Beam Transmittance Accounting Method: </source>
         <translation>Methode zur Berücksichtigung der reflektierten Strahlungsdurchlässigkeit:</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/WindowMaterialScreenInspectorView.cpp" line="81" />
+        <location filename="../src/openstudio_lib/WindowMaterialScreenInspectorView.cpp" line="81"/>
         <source>Diffuse Solar Reflectance: </source>
         <translation>Diffuse Solarreflektanz:</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/WindowMaterialScreenInspectorView.cpp" line="91" />
+        <location filename="../src/openstudio_lib/WindowMaterialScreenInspectorView.cpp" line="91"/>
         <source>Diffuse Visible Reflectance: </source>
         <translation>Diffuser sichtbarer Reflexionsgrad:</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/WindowMaterialScreenInspectorView.cpp" line="101" />
+        <location filename="../src/openstudio_lib/WindowMaterialScreenInspectorView.cpp" line="101"/>
         <source>Thermal Hemispherical Emissivity: </source>
         <translation>Thermische hemisphärische Emissivität:</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/WindowMaterialScreenInspectorView.cpp" line="111" />
+        <location filename="../src/openstudio_lib/WindowMaterialScreenInspectorView.cpp" line="111"/>
         <source>Conductivity: </source>
         <translation>Wärmeleitfähigkeit:</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/WindowMaterialScreenInspectorView.cpp" line="121" />
+        <location filename="../src/openstudio_lib/WindowMaterialScreenInspectorView.cpp" line="121"/>
         <source>Screen Material Spacing: </source>
         <translation>Bildschirmmaterial-Abstand:</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/WindowMaterialScreenInspectorView.cpp" line="131" />
+        <location filename="../src/openstudio_lib/WindowMaterialScreenInspectorView.cpp" line="131"/>
         <source>Screen Material Diameter: </source>
         <translation>Siebmaterial-Durchmesser:</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/WindowMaterialScreenInspectorView.cpp" line="141" />
+        <location filename="../src/openstudio_lib/WindowMaterialScreenInspectorView.cpp" line="141"/>
         <source>Screen To Glass Distance: </source>
         <translation>Abstand Bildschirm zu Glas:</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/WindowMaterialScreenInspectorView.cpp" line="151" />
+        <location filename="../src/openstudio_lib/WindowMaterialScreenInspectorView.cpp" line="151"/>
         <source>Top Opening Multiplier: </source>
         <translation>Multiplikator für obere Öffnung:</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/WindowMaterialScreenInspectorView.cpp" line="161" />
+        <location filename="../src/openstudio_lib/WindowMaterialScreenInspectorView.cpp" line="161"/>
         <source>Bottom Opening Multiplier: </source>
         <translation>Multiplikator der unteren Öffnung:</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/WindowMaterialScreenInspectorView.cpp" line="171" />
+        <location filename="../src/openstudio_lib/WindowMaterialScreenInspectorView.cpp" line="171"/>
         <source>Left Side Opening Multiplier: </source>
         <translation>Linke Seite Öffnungsmultiplikator:</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/WindowMaterialScreenInspectorView.cpp" line="181" />
+        <location filename="../src/openstudio_lib/WindowMaterialScreenInspectorView.cpp" line="181"/>
         <source>Right Side Opening Multiplier: </source>
         <translation>Öffnungs-Multiplikator rechte Seite:</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/WindowMaterialScreenInspectorView.cpp" line="191" />
+        <location filename="../src/openstudio_lib/WindowMaterialScreenInspectorView.cpp" line="191"/>
         <source>Angle Of Resolution For Screen Transmittance Output Map: </source>
         <translation>Auflösungswinkel für die Ausgabekarte der Bildschirmtransmittanz:</translation>
     </message>
@@ -32076,77 +32087,77 @@ zone</translation>
 <context>
     <name>openstudio::WindowMaterialShadeInspectorView</name>
     <message>
-        <location filename="../src/openstudio_lib/WindowMaterialShadeInspectorView.cpp" line="49" />
+        <location filename="../src/openstudio_lib/WindowMaterialShadeInspectorView.cpp" line="49"/>
         <source>Name: </source>
         <translation>Name:</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/WindowMaterialShadeInspectorView.cpp" line="68" />
+        <location filename="../src/openstudio_lib/WindowMaterialShadeInspectorView.cpp" line="68"/>
         <source>Solar Transmittance: </source>
         <translation>Sonnentransmittanz:</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/WindowMaterialShadeInspectorView.cpp" line="78" />
+        <location filename="../src/openstudio_lib/WindowMaterialShadeInspectorView.cpp" line="78"/>
         <source>Solar Reflectance: </source>
         <translation>Solarreflektanz:</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/WindowMaterialShadeInspectorView.cpp" line="88" />
+        <location filename="../src/openstudio_lib/WindowMaterialShadeInspectorView.cpp" line="88"/>
         <source>Visible Transmittance: </source>
         <translation>Sichtbarer Transmissionsgrad:</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/WindowMaterialShadeInspectorView.cpp" line="98" />
+        <location filename="../src/openstudio_lib/WindowMaterialShadeInspectorView.cpp" line="98"/>
         <source>Visible Reflectance: </source>
         <translation>Sichtbare Reflektanz:</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/WindowMaterialShadeInspectorView.cpp" line="108" />
+        <location filename="../src/openstudio_lib/WindowMaterialShadeInspectorView.cpp" line="108"/>
         <source>Thermal Hemispherical Emissivity: </source>
         <translation>Thermische hemisphärische Emissivität:</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/WindowMaterialShadeInspectorView.cpp" line="118" />
+        <location filename="../src/openstudio_lib/WindowMaterialShadeInspectorView.cpp" line="118"/>
         <source>Thermal Transmittance: </source>
         <translation>Wärmeschutz:</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/WindowMaterialShadeInspectorView.cpp" line="128" />
+        <location filename="../src/openstudio_lib/WindowMaterialShadeInspectorView.cpp" line="128"/>
         <source>Thickness: </source>
         <translation>Dicke:</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/WindowMaterialShadeInspectorView.cpp" line="138" />
+        <location filename="../src/openstudio_lib/WindowMaterialShadeInspectorView.cpp" line="138"/>
         <source>Conductivity: </source>
         <translation>Wärmeleitfähigkeit:</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/WindowMaterialShadeInspectorView.cpp" line="148" />
+        <location filename="../src/openstudio_lib/WindowMaterialShadeInspectorView.cpp" line="148"/>
         <source>Shade To Glass Distance: </source>
         <translation>Abstand Beschattung zu Glas:</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/WindowMaterialShadeInspectorView.cpp" line="158" />
+        <location filename="../src/openstudio_lib/WindowMaterialShadeInspectorView.cpp" line="158"/>
         <source>Top Opening Multiplier: </source>
         <translation>Obere Öffnungs-Multiplikator:</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/WindowMaterialShadeInspectorView.cpp" line="168" />
+        <location filename="../src/openstudio_lib/WindowMaterialShadeInspectorView.cpp" line="168"/>
         <source>Bottom Opening Multiplier: </source>
         <translation>Multiplikator für untere Öffnung:</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/WindowMaterialShadeInspectorView.cpp" line="178" />
+        <location filename="../src/openstudio_lib/WindowMaterialShadeInspectorView.cpp" line="178"/>
         <source>Left-Side Opening Multiplier: </source>
         <translation>Multiplikator für Öffnung auf der linken Seite:</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/WindowMaterialShadeInspectorView.cpp" line="188" />
+        <location filename="../src/openstudio_lib/WindowMaterialShadeInspectorView.cpp" line="188"/>
         <source>Right-Side Opening Multiplier: </source>
         <translation>Multiplikator für Öffnung auf der rechten Seite:</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/WindowMaterialShadeInspectorView.cpp" line="198" />
+        <location filename="../src/openstudio_lib/WindowMaterialShadeInspectorView.cpp" line="198"/>
         <source>Airflow Permeability: </source>
         <translation>Luftdurchlässigkeit:</translation>
     </message>
@@ -32154,22 +32165,22 @@ zone</translation>
 <context>
     <name>openstudio::WindowMaterialSimpleGlazingSystemInspectorView</name>
     <message>
-        <location filename="../src/openstudio_lib/WindowMaterialSimpleGlazingSystemInspectorView.cpp" line="50" />
+        <location filename="../src/openstudio_lib/WindowMaterialSimpleGlazingSystemInspectorView.cpp" line="50"/>
         <source>Name: </source>
         <translation>Name:</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/WindowMaterialSimpleGlazingSystemInspectorView.cpp" line="69" />
+        <location filename="../src/openstudio_lib/WindowMaterialSimpleGlazingSystemInspectorView.cpp" line="69"/>
         <source>U-Factor: </source>
         <translation>U-Wert:</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/WindowMaterialSimpleGlazingSystemInspectorView.cpp" line="79" />
+        <location filename="../src/openstudio_lib/WindowMaterialSimpleGlazingSystemInspectorView.cpp" line="79"/>
         <source>Solar Heat Gain Coefficient: </source>
         <translation>Solarwärmegewinn-Koeffizient:</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/WindowMaterialSimpleGlazingSystemInspectorView.cpp" line="90" />
+        <location filename="../src/openstudio_lib/WindowMaterialSimpleGlazingSystemInspectorView.cpp" line="90"/>
         <source>Visible Transmittance: </source>
         <translation>Sichtbare Transmission:</translation>
     </message>
@@ -32177,176 +32188,176 @@ zone</translation>
 <context>
     <name>openstudio::YearSettingsWidget</name>
     <message>
-        <location filename="../src/openstudio_lib/YearSettingsWidget.cpp" line="57" />
+        <location filename="../src/openstudio_lib/YearSettingsWidget.cpp" line="57"/>
         <source>Select Year by:</source>
         <translation>Jahr wählen nach:</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/YearSettingsWidget.cpp" line="69" />
+        <location filename="../src/openstudio_lib/YearSettingsWidget.cpp" line="69"/>
         <source>Calendar Year</source>
         <translation>Kalenderjahr</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/YearSettingsWidget.cpp" line="82" />
+        <location filename="../src/openstudio_lib/YearSettingsWidget.cpp" line="82"/>
         <source>First Day of Year</source>
         <translation>Erster Tag im Jahr</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/YearSettingsWidget.cpp" line="105" />
+        <location filename="../src/openstudio_lib/YearSettingsWidget.cpp" line="105"/>
         <source>Daylight Savings Time:</source>
         <translation>Zeitumstellung:</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/YearSettingsWidget.cpp" line="123" />
+        <location filename="../src/openstudio_lib/YearSettingsWidget.cpp" line="123"/>
         <source>Starts</source>
         <translation>Beginn</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/YearSettingsWidget.cpp" line="129" />
-        <location filename="../src/openstudio_lib/YearSettingsWidget.cpp" line="158" />
+        <location filename="../src/openstudio_lib/YearSettingsWidget.cpp" line="129"/>
+        <location filename="../src/openstudio_lib/YearSettingsWidget.cpp" line="158"/>
         <source>Define by Day of The Week And Month</source>
         <translation>Definieren nach Wochentag und Monat</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/YearSettingsWidget.cpp" line="142" />
-        <location filename="../src/openstudio_lib/YearSettingsWidget.cpp" line="171" />
+        <location filename="../src/openstudio_lib/YearSettingsWidget.cpp" line="142"/>
+        <location filename="../src/openstudio_lib/YearSettingsWidget.cpp" line="171"/>
         <source>Define by Date</source>
         <translation>Definieren nach Datum</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/YearSettingsWidget.cpp" line="152" />
+        <location filename="../src/openstudio_lib/YearSettingsWidget.cpp" line="152"/>
         <source>Ends</source>
         <translation>Ende</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/YearSettingsWidget.cpp" line="478" />
+        <location filename="../src/openstudio_lib/YearSettingsWidget.cpp" line="478"/>
         <source>First</source>
         <translation>Erster</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/YearSettingsWidget.cpp" line="478" />
+        <location filename="../src/openstudio_lib/YearSettingsWidget.cpp" line="478"/>
         <source>Second</source>
         <translation>Zweiter</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/YearSettingsWidget.cpp" line="478" />
+        <location filename="../src/openstudio_lib/YearSettingsWidget.cpp" line="478"/>
         <source>Third</source>
         <translation>Dritter</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/YearSettingsWidget.cpp" line="478" />
+        <location filename="../src/openstudio_lib/YearSettingsWidget.cpp" line="478"/>
         <source>Fourth</source>
         <translation>Vierter</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/YearSettingsWidget.cpp" line="478" />
+        <location filename="../src/openstudio_lib/YearSettingsWidget.cpp" line="478"/>
         <source>Last</source>
         <translation>Letzter</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/YearSettingsWidget.cpp" line="485" />
-        <location filename="../src/openstudio_lib/YearSettingsWidget.cpp" line="491" />
+        <location filename="../src/openstudio_lib/YearSettingsWidget.cpp" line="485"/>
+        <location filename="../src/openstudio_lib/YearSettingsWidget.cpp" line="491"/>
         <source>Sunday</source>
         <translation>Sonntag</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/YearSettingsWidget.cpp" line="485" />
-        <location filename="../src/openstudio_lib/YearSettingsWidget.cpp" line="491" />
+        <location filename="../src/openstudio_lib/YearSettingsWidget.cpp" line="485"/>
+        <location filename="../src/openstudio_lib/YearSettingsWidget.cpp" line="491"/>
         <source>Monday</source>
         <translation>Montag</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/YearSettingsWidget.cpp" line="485" />
-        <location filename="../src/openstudio_lib/YearSettingsWidget.cpp" line="491" />
+        <location filename="../src/openstudio_lib/YearSettingsWidget.cpp" line="485"/>
+        <location filename="../src/openstudio_lib/YearSettingsWidget.cpp" line="491"/>
         <source>Tuesday</source>
         <translation>Dienstag</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/YearSettingsWidget.cpp" line="485" />
-        <location filename="../src/openstudio_lib/YearSettingsWidget.cpp" line="491" />
+        <location filename="../src/openstudio_lib/YearSettingsWidget.cpp" line="485"/>
+        <location filename="../src/openstudio_lib/YearSettingsWidget.cpp" line="491"/>
         <source>Wednesday</source>
         <translation>Mittwoch</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/YearSettingsWidget.cpp" line="486" />
-        <location filename="../src/openstudio_lib/YearSettingsWidget.cpp" line="491" />
+        <location filename="../src/openstudio_lib/YearSettingsWidget.cpp" line="486"/>
+        <location filename="../src/openstudio_lib/YearSettingsWidget.cpp" line="491"/>
         <source>Thursday</source>
         <translation>Donnerstag</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/YearSettingsWidget.cpp" line="486" />
-        <location filename="../src/openstudio_lib/YearSettingsWidget.cpp" line="491" />
+        <location filename="../src/openstudio_lib/YearSettingsWidget.cpp" line="486"/>
+        <location filename="../src/openstudio_lib/YearSettingsWidget.cpp" line="491"/>
         <source>Friday</source>
         <translation>Freitag</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/YearSettingsWidget.cpp" line="486" />
-        <location filename="../src/openstudio_lib/YearSettingsWidget.cpp" line="491" />
+        <location filename="../src/openstudio_lib/YearSettingsWidget.cpp" line="486"/>
+        <location filename="../src/openstudio_lib/YearSettingsWidget.cpp" line="491"/>
         <source>Saturday</source>
         <translation>Samstag</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/YearSettingsWidget.cpp" line="486" />
+        <location filename="../src/openstudio_lib/YearSettingsWidget.cpp" line="486"/>
         <source>UseWeatherFile</source>
         <translation>Wetterdatei verwenden</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/YearSettingsWidget.cpp" line="497" />
+        <location filename="../src/openstudio_lib/YearSettingsWidget.cpp" line="497"/>
         <source>January</source>
         <translation>Januar</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/YearSettingsWidget.cpp" line="497" />
+        <location filename="../src/openstudio_lib/YearSettingsWidget.cpp" line="497"/>
         <source>February</source>
         <translation>Februar</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/YearSettingsWidget.cpp" line="497" />
+        <location filename="../src/openstudio_lib/YearSettingsWidget.cpp" line="497"/>
         <source>March</source>
         <translation>März</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/YearSettingsWidget.cpp" line="497" />
+        <location filename="../src/openstudio_lib/YearSettingsWidget.cpp" line="497"/>
         <source>April</source>
         <translation>April</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/YearSettingsWidget.cpp" line="497" />
+        <location filename="../src/openstudio_lib/YearSettingsWidget.cpp" line="497"/>
         <source>May</source>
         <translation>Mai</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/YearSettingsWidget.cpp" line="497" />
+        <location filename="../src/openstudio_lib/YearSettingsWidget.cpp" line="497"/>
         <source>June</source>
         <translation>Juni</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/YearSettingsWidget.cpp" line="498" />
+        <location filename="../src/openstudio_lib/YearSettingsWidget.cpp" line="498"/>
         <source>July</source>
         <translation>Juli</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/YearSettingsWidget.cpp" line="498" />
+        <location filename="../src/openstudio_lib/YearSettingsWidget.cpp" line="498"/>
         <source>August</source>
         <translation>August</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/YearSettingsWidget.cpp" line="498" />
+        <location filename="../src/openstudio_lib/YearSettingsWidget.cpp" line="498"/>
         <source>September</source>
         <translation>September</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/YearSettingsWidget.cpp" line="498" />
+        <location filename="../src/openstudio_lib/YearSettingsWidget.cpp" line="498"/>
         <source>October</source>
         <translation>Oktober</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/YearSettingsWidget.cpp" line="498" />
+        <location filename="../src/openstudio_lib/YearSettingsWidget.cpp" line="498"/>
         <source>November</source>
         <translation>November</translation>
     </message>
     <message>
-        <location filename="../src/openstudio_lib/YearSettingsWidget.cpp" line="498" />
+        <location filename="../src/openstudio_lib/YearSettingsWidget.cpp" line="498"/>
         <source>December</source>
         <translation>Dezember</translation>
     </message>
@@ -32354,166 +32365,166 @@ zone</translation>
 <context>
     <name>openstudio::bimserver::ProjectImporter</name>
     <message>
-        <location filename="../src/bimserver/ProjectImporter.cpp" line="37" />
+        <location filename="../src/bimserver/ProjectImporter.cpp" line="37"/>
         <source>Download OSM File</source>
         <translation>OSM Datei herunterladen</translation>
     </message>
     <message>
-        <location filename="../src/bimserver/ProjectImporter.cpp" line="39" />
-        <location filename="../src/bimserver/ProjectImporter.cpp" line="197" />
+        <location filename="../src/bimserver/ProjectImporter.cpp" line="39"/>
+        <location filename="../src/bimserver/ProjectImporter.cpp" line="197"/>
         <source>New Project</source>
         <translation>Neues Projekt</translation>
     </message>
     <message>
-        <location filename="../src/bimserver/ProjectImporter.cpp" line="40" />
+        <location filename="../src/bimserver/ProjectImporter.cpp" line="40"/>
         <source>Check in IFC File</source>
         <translation>IFC Datei einchecken</translation>
     </message>
     <message>
-        <location filename="../src/bimserver/ProjectImporter.cpp" line="42" />
+        <location filename="../src/bimserver/ProjectImporter.cpp" line="42"/>
         <source> &gt; </source>
         <translation>&gt;</translation>
     </message>
     <message>
-        <location filename="../src/bimserver/ProjectImporter.cpp" line="44" />
-        <location filename="../src/bimserver/ProjectImporter.cpp" line="204" />
-        <location filename="../src/bimserver/ProjectImporter.cpp" line="270" />
+        <location filename="../src/bimserver/ProjectImporter.cpp" line="44"/>
+        <location filename="../src/bimserver/ProjectImporter.cpp" line="204"/>
+        <location filename="../src/bimserver/ProjectImporter.cpp" line="270"/>
         <source>Cancel</source>
         <translation>Abbrechen</translation>
     </message>
     <message>
-        <location filename="../src/bimserver/ProjectImporter.cpp" line="45" />
+        <location filename="../src/bimserver/ProjectImporter.cpp" line="45"/>
         <source>Setting</source>
         <translation>Einstellungen</translation>
     </message>
     <message>
-        <location filename="../src/bimserver/ProjectImporter.cpp" line="140" />
+        <location filename="../src/bimserver/ProjectImporter.cpp" line="140"/>
         <source>Project created, showing updated project list.</source>
         <translation>Projekt erstellt, aktuallisierte Projektliste wird angezeigt.</translation>
     </message>
     <message>
-        <location filename="../src/bimserver/ProjectImporter.cpp" line="144" />
+        <location filename="../src/bimserver/ProjectImporter.cpp" line="144"/>
         <source>IFC file loaded, showing updated IFC file list.</source>
         <translation>IFC Datei geladen, aktuallisierte IFC-Liste wird angezeigt.</translation>
     </message>
     <message>
-        <location filename="../src/bimserver/ProjectImporter.cpp" line="149" />
+        <location filename="../src/bimserver/ProjectImporter.cpp" line="149"/>
         <source>Login success!</source>
         <translation>Anmeldung erfolgreich!</translation>
     </message>
     <message>
-        <location filename="../src/bimserver/ProjectImporter.cpp" line="163" />
+        <location filename="../src/bimserver/ProjectImporter.cpp" line="163"/>
         <source>BIMserver disconnected</source>
         <translation>BIM-Server ist nicht verbunden</translation>
     </message>
     <message>
-        <location filename="../src/bimserver/ProjectImporter.cpp" line="165" />
+        <location filename="../src/bimserver/ProjectImporter.cpp" line="165"/>
         <source>BIMserver is not connected correctly. Please check if BIMserver is running and make sure your username and password are valid.
 </source>
         <translation>Der BIM-Server ist nicht korrekt verbunden. Bitte prüfen Sie, ob der BIM-Server läuft und stellen Sie sicher, dass Ihr Benutzername und Passwort gültig sind.</translation>
     </message>
     <message>
-        <location filename="../src/bimserver/ProjectImporter.cpp" line="178" />
+        <location filename="../src/bimserver/ProjectImporter.cpp" line="178"/>
         <source>Please select a IFC version before proceeding.</source>
         <translation>Bitte wählen Sie eine IFC-Version aus, bevor Sie fortfahren.</translation>
     </message>
     <message>
-        <location filename="../src/bimserver/ProjectImporter.cpp" line="185" />
+        <location filename="../src/bimserver/ProjectImporter.cpp" line="185"/>
         <source>Project selected, showing all versions of IFC files under it.</source>
         <translation>Projekt ausgewählt. Es werden alle IFC-Versionen angezeigt.</translation>
     </message>
     <message>
-        <location filename="../src/bimserver/ProjectImporter.cpp" line="189" />
+        <location filename="../src/bimserver/ProjectImporter.cpp" line="189"/>
         <source>Please select a project to see all the IFC versions under it.</source>
         <translation>Bitte wählen Sie ein Projekt aus, um alle IFC-Versionen angzeigt zu bekommen.</translation>
     </message>
     <message>
-        <location filename="../src/bimserver/ProjectImporter.cpp" line="194" />
+        <location filename="../src/bimserver/ProjectImporter.cpp" line="194"/>
         <source>Create a new project and upload it to the server.</source>
         <translation>Erstellen Sie ein neues Projekt und laden Sie es auf den Server hoch.</translation>
     </message>
     <message>
-        <location filename="../src/bimserver/ProjectImporter.cpp" line="200" />
+        <location filename="../src/bimserver/ProjectImporter.cpp" line="200"/>
         <source>Please enter the project name: </source>
         <translation>Bitte geben Sie den Projektnamen ein:</translation>
     </message>
     <message>
-        <location filename="../src/bimserver/ProjectImporter.cpp" line="201" />
+        <location filename="../src/bimserver/ProjectImporter.cpp" line="201"/>
         <source>Project Name:</source>
         <translation>Projektname:</translation>
     </message>
     <message>
-        <location filename="../src/bimserver/ProjectImporter.cpp" line="203" />
+        <location filename="../src/bimserver/ProjectImporter.cpp" line="203"/>
         <source>Create Project</source>
         <translation>Projekt erstellen</translation>
     </message>
     <message>
-        <location filename="../src/bimserver/ProjectImporter.cpp" line="226" />
+        <location filename="../src/bimserver/ProjectImporter.cpp" line="226"/>
         <source>Check in a new version IFC file for the selected project.</source>
         <translation>Checken Sie eine neue IFC-Datei für das aktuelle Projekt ein.</translation>
     </message>
     <message>
-        <location filename="../src/bimserver/ProjectImporter.cpp" line="232" />
+        <location filename="../src/bimserver/ProjectImporter.cpp" line="232"/>
         <source>Open IFC File</source>
         <translation>IFC-Datei öffnen</translation>
     </message>
     <message>
-        <location filename="../src/bimserver/ProjectImporter.cpp" line="232" />
+        <location filename="../src/bimserver/ProjectImporter.cpp" line="232"/>
         <source>IFC files (*.ifc)</source>
         <translation>IFC-Datei (*.ifc)</translation>
     </message>
     <message>
-        <location filename="../src/bimserver/ProjectImporter.cpp" line="239" />
+        <location filename="../src/bimserver/ProjectImporter.cpp" line="239"/>
         <source>Please select a project to check in a new IFC version.</source>
         <translation>Bitte wählen Sie ein Projekt aus, um eine neue IFC-Version einzuchecken.</translation>
     </message>
     <message>
-        <location filename="../src/bimserver/ProjectImporter.cpp" line="250" />
+        <location filename="../src/bimserver/ProjectImporter.cpp" line="250"/>
         <source>Please specify the bimserver address/port and user credentials.</source>
         <translation>Bitte geben Sie die Adresse/Port des BIM-Servers und die Zugangsdaten an.</translation>
     </message>
     <message>
-        <location filename="../src/bimserver/ProjectImporter.cpp" line="253" />
+        <location filename="../src/bimserver/ProjectImporter.cpp" line="253"/>
         <source>BIMserver Settings</source>
         <translation>BIM-Server Einstellungen</translation>
     </message>
     <message>
-        <location filename="../src/bimserver/ProjectImporter.cpp" line="255" />
+        <location filename="../src/bimserver/ProjectImporter.cpp" line="255"/>
         <source>Please enter the BIMserver information: </source>
         <translation>Bitte geben Sie die BIM-Server-Informationen ein:</translation>
     </message>
     <message>
-        <location filename="../src/bimserver/ProjectImporter.cpp" line="256" />
+        <location filename="../src/bimserver/ProjectImporter.cpp" line="256"/>
         <source>BIMserver Address: http://</source>
         <translation>BIM-Server Adresse: http://</translation>
     </message>
     <message>
-        <location filename="../src/bimserver/ProjectImporter.cpp" line="259" />
+        <location filename="../src/bimserver/ProjectImporter.cpp" line="259"/>
         <source>BIMserver Port:</source>
         <translation>BIM-Server Port:</translation>
     </message>
     <message>
-        <location filename="../src/bimserver/ProjectImporter.cpp" line="262" />
+        <location filename="../src/bimserver/ProjectImporter.cpp" line="262"/>
         <source>Username</source>
         <translation>Benutzername</translation>
     </message>
     <message>
-        <location filename="../src/bimserver/ProjectImporter.cpp" line="265" />
+        <location filename="../src/bimserver/ProjectImporter.cpp" line="265"/>
         <source>Password</source>
         <translation>Passwort</translation>
     </message>
     <message>
-        <location filename="../src/bimserver/ProjectImporter.cpp" line="269" />
+        <location filename="../src/bimserver/ProjectImporter.cpp" line="269"/>
         <source>Okay</source>
         <translation>Okay</translation>
     </message>
     <message>
-        <location filename="../src/bimserver/ProjectImporter.cpp" line="344" />
+        <location filename="../src/bimserver/ProjectImporter.cpp" line="344"/>
         <source>BIMserver not set up</source>
         <translation>BIM-Server ist nicht eingerichtet</translation>
     </message>
     <message>
-        <location filename="../src/bimserver/ProjectImporter.cpp" line="346" />
+        <location filename="../src/bimserver/ProjectImporter.cpp" line="346"/>
         <source>Please provide valid BIMserver address, port, your username and password. You may ask your BIMserver manager for such information.
 </source>
         <translation>Bitte geben Sie eine gültige BIM-Server-Adresse, den Port, Ihren Benutzernamen und Ihr Passwort an. Erkundigen Sie sich bei der Verantwortlichen Person.</translation>
@@ -32522,17 +32533,17 @@ zone</translation>
 <context>
     <name>openstudio::measuretab::MeasureStepItemDelegate</name>
     <message>
-        <location filename="../src/shared_gui_components/WorkflowController.cpp" line="581" />
+        <location filename="../src/shared_gui_components/WorkflowController.cpp" line="581"/>
         <source>Python Measures are not supported in the Classic CLI.
-You can change CLI version using 'Preferences-&gt;Use Classic CLI'.</source>
+You can change CLI version using &apos;Preferences-&gt;Use Classic CLI&apos;.</source>
         <translation>Python-Measures werden in der klassischen CLI nicht unterstützt.
-Sie können die CLI-Version über 'Einstellungen-&gt;Klassische CLI verwenden' ändern.</translation>
+Sie können die CLI-Version über &apos;Einstellungen-&gt;Klassische CLI verwenden&apos; ändern.</translation>
     </message>
 </context>
 <context>
     <name>openstudio::measuretab::NewMeasureDropZone</name>
     <message>
-        <location filename="../src/shared_gui_components/WorkflowView.cpp" line="66" />
+        <location filename="../src/shared_gui_components/WorkflowView.cpp" line="66"/>
         <source>Drop Measure From Library to Create a New Always Run Measure</source>
         <translation>Maßnahme aus der Bibliothek ziehen, um eine neue Always-Run-Maßnahme zu erstellen</translation>
     </message>
@@ -32540,17 +32551,17 @@ Sie können die CLI-Version über 'Einstellungen-&gt;Klassische CLI verwenden' �
 <context>
     <name>openstudio::measuretab::WorkflowController</name>
     <message>
-        <location filename="../src/shared_gui_components/WorkflowController.cpp" line="47" />
+        <location filename="../src/shared_gui_components/WorkflowController.cpp" line="47"/>
         <source>OpenStudio Measures</source>
         <translation>OpenStudio Measures</translation>
     </message>
     <message>
-        <location filename="../src/shared_gui_components/WorkflowController.cpp" line="51" />
+        <location filename="../src/shared_gui_components/WorkflowController.cpp" line="51"/>
         <source>EnergyPlus Measures</source>
         <translation>EnergyPlus-Maßnahmen</translation>
     </message>
     <message>
-        <location filename="../src/shared_gui_components/WorkflowController.cpp" line="55" />
+        <location filename="../src/shared_gui_components/WorkflowController.cpp" line="55"/>
         <source>Reporting Measures</source>
         <translation>Berichtsmessungen</translation>
     </message>
