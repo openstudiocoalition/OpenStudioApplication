@@ -30,7 +30,8 @@ inline QString iddObjectDocUrl(const QString& iddTypeName) {
     {"OS:ZoneAirContaminantBalance",            "group-simulation-parameters.html#zoneaircontaminantbalance"},
 
     // Location and Climate
-    {"OS:Site:Location",                                    "group-location-climate-weather-file-access.html#sitelocation"},
+    {"OS:Site:Location",                                              "group-location-climate-weather-file-access.html#sitelocation"},
+    {"OS:Site:GroundTemperature:Undisturbed:KusudaAchenbach",         "group-location-climate-weather-file-access.html#sitegroundtemperatureundisturbedkusudaachenbach"},
     {"OS:Site:GroundTemperature:BuildingSurface",           "group-location-climate-weather-file-access.html#sitegroundtemperaturebuildingsurface"},
     {"OS:Site:GroundTemperature:FCfactorMethod",            "group-location-climate-weather-file-access.html#sitegroundtemperaturefcfactormethod"},
     {"OS:Site:GroundReflectance",                           "group-location-climate-weather-file-access.html#sitegroundreflectance"},
@@ -94,6 +95,7 @@ inline QString iddObjectDocUrl(const QString& iddTypeName) {
     {"OS:SteamEquipment",       "group-internal-gains-people-lights-other.html#steamequipment"},
     {"OS:OtherEquipment",       "group-internal-gains-people-lights-other.html#otherequipment"},
     {"OS:InternalMass",         "group-internal-gains-people-lights-other.html#internalmass"},
+    {"OS:SwimmingPool:Indoor",  "group-internal-gains-people-lights-other.html#swimmingpoolindoor"},
 
     // Exterior Energy Use
     {"OS:Exterior:Lights",          "group-exterior-energy-use-equipment.html#exteriorlights"},
@@ -172,7 +174,8 @@ inline QString iddObjectDocUrl(const QString& iddTypeName) {
     {"OS:AirTerminal:DualDuct:VAV",                             "group-air-distribution-equipment.html#airterminaldualductvav"},
     {"OS:AirTerminal:DualDuct:VAV:OutdoorAir",                  "group-air-distribution-equipment.html#airterminaldualductvavoutdoorair"},
     {"OS:AirTerminal:DualDuct:ConstantVolume",                  "group-air-distribution-equipment.html#airterminaldualductconstantvolume"},
-    {"OS:AirTerminal:FourPipeInduction",                        "group-air-distribution-equipment.html#airterminalfourpipeinduction"},
+    {"OS:AirTerminal:FourPipeInduction",                                   "group-air-distribution-equipment.html#airterminalfourpipeinduction"},
+    {"OS:AirTerminal:SingleDuct:ConstantVolume:FourPipeInduction",         "group-air-distribution-equipment.html#airterminalsingleductconstantvolumefourpipeinduction"},
 
     // Fans
     {"OS:Fan:ConstantVolume",   "group-fans.html#fanconstantvolume"},
@@ -180,6 +183,7 @@ inline QString iddObjectDocUrl(const QString& iddTypeName) {
     {"OS:Fan:OnOff",            "group-fans.html#fanonoff"},
     {"OS:Fan:ZoneExhaust",      "group-fans.html#fanzoneexhaust"},
     {"OS:Fan:SystemModel",      "group-fans.html#fansystemmodel"},
+    {"OS:Fan:ComponentModel",   "group-fans.html#fancomponentmodel"},
 
     // Coils - Cooling
     {"OS:Coil:Cooling:DX:SingleSpeed",                                      "group-heating-and-cooling-coils.html#coilcoolingdxsinglespeed"},
@@ -196,6 +200,9 @@ inline QString iddObjectDocUrl(const QString& iddTypeName) {
     {"OS:Coil:Cooling:DX:TwoStageWithHumidityControlMode",                 "group-heating-and-cooling-coils.html#coilcoolingdxtwostagewithhumiditycontrolmode"},
     {"OS:Coil:Cooling:DX:MultiSpeed:StageData",                            "group-heating-and-cooling-coils.html#coilcoolingdxmultispeed"},
     {"OS:Coil:Cooling:Water:Panel:Radiant",                                 "group-radiative-convective-units.html#zonehvaccoolingpanelradiantconvectivewater"},
+    {"OS:Coil:Cooling:LowTemperatureRadiant:ConstantFlow",                  "group-radiative-convective-units.html#zonehvaclowtemperatureradiantconstantflow"},
+    {"OS:Coil:Cooling:LowTemperatureRadiant:VariableFlow",                  "group-radiative-convective-units.html#zonehvaclowtemperatureradiantvariableflow"},
+    {"OS:CoilPerformance:DX:Cooling",                                        "group-heating-and-cooling-coils.html#coilperformancedxcooling"},
 
     // Coils - Heating
     {"OS:Coil:Heating:Gas",                                                 "group-heating-and-cooling-coils.html#coilheatinggas-000"},
@@ -215,6 +222,7 @@ inline QString iddObjectDocUrl(const QString& iddTypeName) {
     {"OS:Coil:Heating:Gas:MultiStage:StageData",                            "group-heating-and-cooling-coils.html#coilheatinggasmultistage"},
     {"OS:Coil:Heating:LowTemperatureRadiant:ConstantFlow",                  "group-radiative-convective-units.html#zonehvaclowtemperatureradiantconstantflow"},
     {"OS:Coil:Heating:LowTemperatureRadiant:VariableFlow",                  "group-radiative-convective-units.html#zonehvaclowtemperatureradiantvariableflowdesign"},
+    {"OS:Coil:Heating:Water:Baseboard",                                     "group-radiative-convective-units.html#zonehvacbaseboardconvectivewater"},
     {"OS:Coil:Heating:Water:Baseboard:Radiant",                             "group-radiative-convective-units.html#zonehvacbaseboardradiantconvectivewater"},
     {"OS:Coil:WaterHeating:AirToWaterHeatPump",                             "group-heating-and-cooling-coils.html#coilwaterheatingairtowaterheatpumppumped"},
     {"OS:Coil:WaterHeating:AirToWaterHeatPump:Pumped",                      "group-heating-and-cooling-coils.html#coilwaterheatingairtowaterheatpumppumped"},
@@ -272,7 +280,17 @@ inline QString iddObjectDocUrl(const QString& iddTypeName) {
     {"OS:SetpointManager:OutdoorAirPretreat",           "group-setpoint-managers.html#setpointmanageroutdoorairpretreat"},
     {"OS:SetpointManager:MultiZone:Heating:Average",    "group-setpoint-managers.html#setpointmanagermultizoneheataverage"},
     {"OS:SetpointManager:MultiZone:Cooling:Average",    "group-setpoint-managers.html#setpointmanagermultizonecoolaverage"},
-    {"OS:SetpointManager:FollowSystemNodeTemperature",  "group-setpoint-managers.html#setpointmanagerfollowsystemnodetemperature"},
+    {"OS:SetpointManager:FollowSystemNodeTemperature",              "group-setpoint-managers.html#setpointmanagerfollowsystemnodetemperature"},
+    {"OS:SetpointManager:MultiZone:Humidity:Maximum",               "group-setpoint-managers.html#setpointmanagermultizonehumiditymaximum"},
+    {"OS:SetpointManager:MultiZone:Humidity:Minimum",               "group-setpoint-managers.html#setpointmanagermultizonehumidityminimum"},
+    {"OS:SetpointManager:MultiZone:MaximumHumidity:Average",        "group-setpoint-managers.html#setpointmanagermultizonemaximumhumidityaverage"},
+    {"OS:SetpointManager:MultiZone:MinimumHumidity:Average",        "group-setpoint-managers.html#setpointmanagermultizoneminimumhumidityaverage"},
+    {"OS:SetpointManager:SingleZone:Humidity:Maximum",              "group-setpoint-managers.html#setpointmanagersinglezonehumiditymaximum"},
+    {"OS:SetpointManager:SingleZone:Humidity:Minimum",              "group-setpoint-managers.html#setpointmanagersinglezonehumidityminimum"},
+    {"OS:SetpointManager:SingleZone:OneStageCooling",               "group-setpoint-managers.html#setpointmanagersinglezoneonestagecooling"},
+    {"OS:SetpointManager:SingleZone:OneStageHeating",               "group-setpoint-managers.html#setpointmanagersinglezoneonestageheating"},
+    {"OS:SetpointManager:SystemNodeReset:Humidity",                 "group-setpoint-managers.html#setpointmanagersystemnoderesethumidity"},
+    {"OS:SetpointManager:SystemNodeReset:Temperature",              "group-setpoint-managers.html#setpointmanagersystemnoderesettemperature"},
 
     // Pumps
     {"OS:Pump:VariableSpeed",           "group-pumps.html#pumpvariablespeed"},
@@ -285,12 +303,15 @@ inline QString iddObjectDocUrl(const QString& iddTypeName) {
     {"OS:SolarCollector:IntegralCollectorStorage",       "group-solar-collectors.html#solarcollectorintegralcollectorstorage"},
     {"OS:SolarCollector:UnglazedTranspired",             "group-solar-collectors.html#solarcollectorunglazedtranspired"},
     {"OS:SolarCollector:FlatPlate:PhotovoltaicThermal",  "group-solar-collectors.html#solarcollectorflatplatephotovoltaicthermal"},
+    {"OS:SolarCollectorPerformance:FlatPlate",           "group-solar-collectors.html#solarcollectorperformanceflatplate"},
+    {"OS:SolarCollectorPerformance:IntegralCollectorStorage", "group-solar-collectors.html#solarcollectorperformanceintegralcollectorstorage"},
 
     // Plant Heating and Cooling Equipment
     {"OS:Boiler:HotWater",                          "group-plant-equipment.html#boilerhotwater"},
     {"OS:Boiler:Steam",                             "group-plant-equipment.html#boilersteam"},
     {"OS:Chiller:Electric:EIR",                     "group-plant-equipment.html#chillerelectriceir"},
     {"OS:Chiller:Electric:ReformulatedEIR",         "group-plant-equipment.html#chillerelectricreformulatedeir"},
+    {"OS:Chiller:Absorption",                       "group-plant-equipment.html#chillerabsorption"},
     {"OS:Chiller:Absorption:Indirect",              "group-plant-equipment.html#chillerabsorptionindirect"},
     {"OS:Chiller:Absorption:Direct",                "group-plant-equipment.html#chillerabsorptiondirect"},
     {"OS:ChillerHeater:Absorption:DirectFired",     "group-plant-equipment.html#chillerheaterabsorptiondirectfired"},
@@ -307,12 +328,18 @@ inline QString iddObjectDocUrl(const QString& iddTypeName) {
     {"OS:HeatPump:AirToWater:Cooling",                     "group-plant-equipment.html#plhp_air_to_water"},
     {"OS:HeatPump:AirToWater:Heating",                     "group-plant-equipment.html#plhp_air_to_water"},
     {"OS:CentralHeatPumpSystem",                           "group-plant-equipment.html#centralheatpumpsystem"},
+    {"OS:CentralHeatPumpSystem:Module",                    "group-plant-equipment.html#centralheatpumpsystem"},
     {"OS:ChillerHeaterPerformance:Electric:EIR",           "group-plant-equipment.html#chillerheaterperformancelectriceir"},
+    {"OS:PlantComponent:TemperatureSource",                "group-plant-equipment.html#plantcomponenttemperaturesource"},
+    {"OS:PlantComponent:UserDefined",                      "group-user-defined-hvac-and-plant-component.html#plantcomponentuserdefined"},
 
     // Cooling Towers and Fluid Coolers
     {"OS:CoolingTower:SingleSpeed",             "group-condenser-equipment.html#coolingtowersinglespeed"},
     {"OS:CoolingTower:TwoSpeed",                "group-condenser-equipment.html#coolingtowertwospeed"},
+    {"OS:CoolingTower:VariableSpeed",           "group-condenser-equipment.html#coolingtowervariablespeed"},
     {"OS:CoolingTower:VariableSpeed:Merkel",    "group-condenser-equipment.html#coolingtowervariablespeedmerkel"},
+    {"OS:CoolingTowerPerformance:CoolTools",    "group-condenser-equipment.html#coolingtowerperformancecooltools"},
+    {"OS:CoolingTowerPerformance:YorkCalc",     "group-condenser-equipment.html#coolingtowerperformanceyorkcalc"},
     {"OS:EvaporativeFluidCooler:SingleSpeed",   "group-condenser-equipment.html#evaporativefluidcoolersinglespeed"},
     {"OS:EvaporativeFluidCooler:TwoSpeed",      "group-condenser-equipment.html#evaporativefluidcoolertwospeed"},
     {"OS:FluidCooler:SingleSpeed",              "group-condenser-equipment.html#fluidcoolersinglespeed"},
@@ -363,6 +390,9 @@ inline QString iddObjectDocUrl(const QString& iddTypeName) {
 
     // Node / Branch Management
     {"OS:Pipe:Adiabatic", "group-node-branch-management.html#pipeadiabatic"},
+    {"OS:Pipe:Indoor",    "group-node-branch-management.html#pipeindoor"},
+    {"OS:Pipe:Outdoor",   "group-node-branch-management.html#pipeoutdoor"},
+    {"OS:Duct",           "group-node-branch-management.html#duct"},
 
     // Plant / Condenser Control
     {"OS:PlantLoop",                                        "group-plant-condenser-control.html#plantloop"},
@@ -375,6 +405,8 @@ inline QString iddObjectDocUrl(const QString& iddTypeName) {
     {"OS:PlantEquipmentOperation:OutdoorWetBulb",           "group-plant-condenser-control.html#plantequipmentoperationoutdoorwetbulb"},
     {"OS:PlantEquipmentOperation:ThermalEnergyStorage",     "group-plant-condenser-control.html#plantequipmentoperationthermalenergystorage"},
     {"OS:PlantEquipmentOperation:Uncontrolled",             "group-plant-condenser-control.html#plantequipmentoperationuncontrolled"},
+    {"OS:TemperingValve",                                   "group-plant-condenser-flow-control.html#temperingvalve"},
+    {"OS:LoadProfile:Plant",                                "group-non-zone-equipment.html#loadprofileplant"},
     {"OS:AvailabilityManagerAssignmentList",                "group-system-availability-managers.html#availabilitymanagerassignmentlist"},
     {"OS:AvailabilityManager:Scheduled",                    "group-system-availability-managers.html#availabilitymanagerscheduled"},
     {"OS:AvailabilityManager:ScheduledOn",                  "group-system-availability-managers.html#availabilitymanagerscheduledon"},
@@ -412,8 +444,13 @@ inline QString iddObjectDocUrl(const QString& iddTypeName) {
     {"OS:Curve:CubicLinear",        "group-performance-curves.html#curvecubiclinear"},
     {"OS:Curve:Triquadratic",       "group-performance-curves.html#curvetriquadratic"},
     {"OS:Curve:FanPressureRise",    "group-performance-curves.html#curvefanpressurerise"},
-    {"OS:Curve:ExponentialDecay",   "group-performance-curves.html#curveexponentialdecay"},
-    {"OS:Curve:Sigmoid",            "group-performance-curves.html#curvesigmoid"},
+    {"OS:Curve:ExponentialDecay",          "group-performance-curves.html#curveexponentialdecay"},
+    {"OS:Curve:ExponentialSkewNormal",     "group-performance-curves.html#curveexponentialskewnormal"},
+    {"OS:Curve:Sigmoid",                   "group-performance-curves.html#curvesigmoid"},
+    {"OS:Curve:QuadLinear",                "group-performance-curves.html#curvequadlinear"},
+    {"OS:Curve:QuintLinear",               "group-performance-curves.html#curvequintlinear"},
+    {"OS:Curve:RectangularHyperbola1",     "group-performance-curves.html#curverectangularhyperbola1"},
+    {"OS:Curve:RectangularHyperbola2",     "group-performance-curves.html#curverectangularhyperbola2"},
     {"OS:Table:IndependentVariable",     "group-performance-tables.html#tableindependentvariable"},
     {"OS:Table:IndependentVariableList", "group-performance-tables.html#tableindependentvariablelist"},
     {"OS:Table:Lookup",                  "group-performance-tables.html#tablelookup"},
