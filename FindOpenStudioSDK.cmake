@@ -8,6 +8,10 @@ set(OPENSTUDIO_VERSION_PRERELEASE "")
 # Enter SHA, always, eg "+79857912c4"
 set(OPENSTUDIO_VERSION_SHA "+241b8abb4d")
 
+set(ENERGYPLUS_VERSION_MAJOR 25)
+set(ENERGYPLUS_VERSION_MINOR 1)
+set(BIGLADDERSOFTWARE_DOC_BASE_URL "https://bigladdersoftware.com/epx/docs/${ENERGYPLUS_VERSION_MAJOR}-${ENERGYPLUS_VERSION_MINOR}/input-output-reference/")
+
 # Paths where the cmake-downloaded archives will be put
 set(OPENSTUDIO_ARCHIVE_DIR "${PROJECT_BINARY_DIR}/OpenStudio-${OPENSTUDIO_VERSION}")
 

@@ -9,10 +9,11 @@
 #include <QString>
 #include <QHash>
 
-// Returns the BigLadder EnergyPlus 25.1 Input/Output Reference URL for the given
-// OS IDD type name (e.g. "OS:ThermalZone"), or an empty string if none is known.
+// Returns the BigLadder EnergyPlus I/O Reference URL for the given OS IDD type name
+// (e.g. "OS:ThermalZone"), or an empty string if none is known.
+// Base URL version is controlled by ENERGYPLUS_VERSION_MAJOR/MINOR in FindOpenStudioSDK.cmake.
 inline QString iddObjectDocUrl(const QString& iddTypeName) {
-  static const QString base = QStringLiteral("https://bigladdersoftware.com/epx/docs/25-1/input-output-reference/");
+  static const QString base = QStringLiteral(BIGLADDERSOFTWARE_DOC_BASE_URL);
 
   // clang-format off
   static const QHash<QString, QString> urlMap{

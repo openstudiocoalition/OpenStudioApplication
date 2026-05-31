@@ -239,7 +239,7 @@ void SimSettingsView::createWidgets() {
   //******************* OS:Timestep *******************
   mainLayout->addWidget(createTimestepWidget());
 
-  static const QString iorf = QStringLiteral("https://bigladdersoftware.com/epx/docs/25-1/input-output-reference/");
+  static const QString iorf = QStringLiteral(BIGLADDERSOFTWARE_DOC_BASE_URL);
 
   collapsibleInspector = new CollapsibleInspector(tr("Advanced RunPeriod Parameters"), iorf + "group-location-climate-weather-file-access.html#runperiod", createRunPeriodAdvancedWidget());
   mainLayout->addWidget(collapsibleInspector);
@@ -330,7 +330,11 @@ QWidget* SimSettingsView::createRunPeriodWidget() {
   label->setObjectName("H1");
   label->setTextFormat(Qt::RichText);
   label->setOpenExternalLinks(true);
-  label->setText(QStringLiteral(R"(<a href="https://bigladdersoftware.com/epx/docs/25-1/input-output-reference/group-location-climate-weather-file-access.html#runperiod" style="color: #0055cc; font-weight: bold; font-size: 14px;">%1</a>)").arg(tr("Run Period")));
+  {
+    static const QString url = QStringLiteral(BIGLADDERSOFTWARE_DOC_BASE_URL "group-location-climate-weather-file-access.html#runperiod");
+    label->setToolTip(url);
+    label->setText(QStringLiteral(R"(<a href="%1" style="color: #0055cc; font-weight: bold; font-size: 14px;">%2</a>)").arg(url, tr("Run Period")));
+  }
   mainVLayout->addWidget(label);
 
   mainVLayout->addLayout(mainHLayout);
@@ -610,7 +614,11 @@ QWidget* SimSettingsView::createSizingParametersWidget() {
   label->setObjectName("H1");
   label->setTextFormat(Qt::RichText);
   label->setOpenExternalLinks(true);
-  label->setText(QStringLiteral(R"(<a href="https://bigladdersoftware.com/epx/docs/25-1/input-output-reference/group-design-objects.html#sizingparameters" style="color: #0055cc; font-weight: bold; font-size: 14px;">%1</a>)").arg(tr("Sizing Parameters")));
+  {
+    static const QString url = QStringLiteral(BIGLADDERSOFTWARE_DOC_BASE_URL "group-design-objects.html#sizingparameters");
+    label->setToolTip(url);
+    label->setText(QStringLiteral(R"(<a href="%1" style="color: #0055cc; font-weight: bold; font-size: 14px;">%2</a>)").arg(url, tr("Sizing Parameters")));
+  }
   mainLayout->addWidget(label);
 
   auto* gridLayout = new QGridLayout();
@@ -663,7 +671,11 @@ QWidget* SimSettingsView::createTimestepWidget() {
   label->setObjectName("H1");
   label->setTextFormat(Qt::RichText);
   label->setOpenExternalLinks(true);
-  label->setText(QStringLiteral(R"(<a href="https://bigladdersoftware.com/epx/docs/25-1/input-output-reference/group-simulation-parameters.html#timestep" style="color: #0055cc; font-weight: bold; font-size: 14px;">%1</a>)").arg(tr("Timestep")));
+  {
+    static const QString url = QStringLiteral(BIGLADDERSOFTWARE_DOC_BASE_URL "group-simulation-parameters.html#timestep");
+    label->setToolTip(url);
+    label->setText(QStringLiteral(R"(<a href="%1" style="color: #0055cc; font-weight: bold; font-size: 14px;">%2</a>)").arg(url, tr("Timestep")));
+  }
   mainLayout->addWidget(label);
 
   auto* gridLayout = new QGridLayout();
