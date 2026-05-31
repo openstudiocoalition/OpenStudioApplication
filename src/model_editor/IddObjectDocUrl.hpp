@@ -42,6 +42,7 @@ inline QString iddObjectDocUrl(const QString& iddTypeName) {
     {"OS:ScheduleTypeLimits",       "group-schedules.html#scheduletypelimits"},
     {"OS:Schedule:Compact",         "group-schedules.html#schedulecompact"},
     {"OS:Schedule:Constant",        "group-schedules.html#scheduleconstant"},
+    {"OS:Schedule:Day",             "group-schedules.html#day-schedules"},
     {"OS:Schedule:Day:Hourly",      "group-schedules.html#scheduledayhourly"},
     {"OS:Schedule:Day:Interval",    "group-schedules.html#scheduledayinterval"},
     {"OS:Schedule:Week:Daily",      "group-schedules.html#scheduleweekdaily"},
@@ -192,6 +193,9 @@ inline QString iddObjectDocUrl(const QString& iddTypeName) {
     {"OS:Coil:Cooling:WaterToAirHeatPump:EquationFit",                      "group-heating-and-cooling-coils.html#coilcoolingwatertoairheatpumpequationfit"},
     {"OS:Coil:Cooling:WaterToAirHeatPump:VariableSpeedEquationFit",         "group-heating-and-cooling-coils.html#coilcoolingwatertoairheatpumpvariablespeedequationfit"},
     {"OS:Coil:Cooling:FourPipeBeam",                                        "group-heating-and-cooling-coils.html#coilcoolingfourpipebeam"},
+    {"OS:Coil:Cooling:DX:TwoStageWithHumidityControlMode",                 "group-heating-and-cooling-coils.html#coilcoolingdxtwostagewithhumiditycontrolmode"},
+    {"OS:Coil:Cooling:DX:MultiSpeed:StageData",                            "group-heating-and-cooling-coils.html#coilcoolingdxmultispeed"},
+    {"OS:Coil:Cooling:Water:Panel:Radiant",                                 "group-radiative-convective-units.html#zonehvaccoolingpanelradiantconvectivewater"},
 
     // Coils - Heating
     {"OS:Coil:Heating:Gas",                                                 "group-heating-and-cooling-coils.html#coilheatinggas-000"},
@@ -207,6 +211,12 @@ inline QString iddObjectDocUrl(const QString& iddTypeName) {
     {"OS:Coil:Heating:WaterToAirHeatPump:VariableSpeedEquationFit",         "group-heating-and-cooling-coils.html#coilheatingwatertoairheatpumpvariablespeedequationfit"},
     {"OS:Coil:Heating:Desuperheater",                                       "group-heating-and-cooling-coils.html#coilheatingdesuperheater"},
     {"OS:Coil:Heating:FourPipeBeam",                                        "group-heating-and-cooling-coils.html#coilheatingfourpipebeam"},
+    {"OS:Coil:Heating:Gas:MultiStage",                                      "group-heating-and-cooling-coils.html#coilheatinggasmultistage"},
+    {"OS:Coil:Heating:Gas:MultiStage:StageData",                            "group-heating-and-cooling-coils.html#coilheatinggasmultistage"},
+    {"OS:Coil:Heating:LowTemperatureRadiant:ConstantFlow",                  "group-radiative-convective-units.html#zonehvaclowtemperatureradiantconstantflow"},
+    {"OS:Coil:Heating:LowTemperatureRadiant:VariableFlow",                  "group-radiative-convective-units.html#zonehvaclowtemperatureradiantvariableflowdesign"},
+    {"OS:Coil:Heating:Water:Baseboard:Radiant",                             "group-radiative-convective-units.html#zonehvacbaseboardradiantconvectivewater"},
+    {"OS:Coil:WaterHeating:AirToWaterHeatPump",                             "group-heating-and-cooling-coils.html#coilwaterheatingairtowaterheatpumppumped"},
     {"OS:Coil:WaterHeating:AirToWaterHeatPump:Pumped",                      "group-heating-and-cooling-coils.html#coilwaterheatingairtowaterheatpumppumped"},
     {"OS:Coil:WaterHeating:AirToWaterHeatPump:Wrapped",                     "group-heating-and-cooling-coils.html#coilwaterheatingairtowaterheatpumpwrapped"},
     {"OS:Coil:WaterHeating:Desuperheater",                                  "group-heating-and-cooling-coils.html#coilwaterheatingdesuperheater"},
@@ -262,6 +272,7 @@ inline QString iddObjectDocUrl(const QString& iddTypeName) {
     {"OS:SetpointManager:OutdoorAirPretreat",           "group-setpoint-managers.html#setpointmanageroutdoorairpretreat"},
     {"OS:SetpointManager:MultiZone:Heating:Average",    "group-setpoint-managers.html#setpointmanagermultizoneheataverage"},
     {"OS:SetpointManager:MultiZone:Cooling:Average",    "group-setpoint-managers.html#setpointmanagermultizonecoolaverage"},
+    {"OS:SetpointManager:FollowSystemNodeTemperature",  "group-setpoint-managers.html#setpointmanagerfollowsystemnodetemperature"},
 
     // Pumps
     {"OS:Pump:VariableSpeed",           "group-pumps.html#pumpvariablespeed"},
