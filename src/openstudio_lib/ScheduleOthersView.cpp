@@ -16,19 +16,25 @@
 #include <openstudio/utilities/idd/IddEnums.hxx>
 
 #include <QStackedWidget>
+#include <QStringLiteral>
+#include <tuple>
 
 namespace openstudio {
 
 ScheduleOthersView::ScheduleOthersView(const openstudio::model::Model& model, QWidget* parent)
   : ModelSubTabView(
-      new ModelObjectTypeListView(ScheduleOthersView::modelObjectTypesAndNames(), model, true, OSItemType::CollapsibleListHeader, false, parent),
+      new ModelObjectTypeListView(ScheduleOthersView::modelObjectTypesNamesAndUrls(), model, true, OSItemType::CollapsibleListHeader, false, parent),
       new ScheduleOthersInspectorView(model, parent), false, parent) {}
 
-std::vector<std::pair<IddObjectType, QString>> ScheduleOthersView::modelObjectTypesAndNames() {
+std::vector<std::tuple<IddObjectType, QString, QString>> ScheduleOthersView::modelObjectTypesNamesAndUrls() {
+  static const QString base = QStringLiteral(BIGLADDERSOFTWARE_DOC_BASE_URL);
+  static const QString sch = base + QStringLiteral("group-schedules.html");
+
+  using T = std::tuple<IddObjectType, QString, QString>;
   return {
-    {IddObjectType::OS_Schedule_Constant, tr("Schedule Constant")},
-    {IddObjectType::OS_Schedule_Compact, tr("Schedule Compact")},
-    {IddObjectType::OS_Schedule_File, tr("Schedule File")},
+    T{IddObjectType::OS_Schedule_Constant, tr("Schedule Constant"), sch + "#scheduleconstant"},
+    T{IddObjectType::OS_Schedule_Compact, tr("Schedule Compact"), sch + "#schedulecompact"},
+    T{IddObjectType::OS_Schedule_File, tr("Schedule File"), sch + "#schedulefile"},
   };
 }
 

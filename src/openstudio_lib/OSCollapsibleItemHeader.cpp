@@ -18,7 +18,8 @@
 
 namespace openstudio {
 
-OSCollapsibleItemHeader::OSCollapsibleItemHeader(const QString& text, const OSItemId& itemId, OSItemType type, QWidget* parent)
+OSCollapsibleItemHeader::OSCollapsibleItemHeader(const QString& text, const OSItemId& itemId, OSItemType type, const QString& url,
+                                                 QWidget* parent)
   : QWidget(parent), m_mouseDown(false) {
   setFixedHeight(50);
   setSizePolicy(QSizePolicy::Preferred, QSizePolicy::Fixed);
@@ -35,9 +36,19 @@ OSCollapsibleItemHeader::OSCollapsibleItemHeader(const QString& text, const OSIt
 
   // Label
 
-  m_textLabel = new QLabel(text);
+  m_plainText = text;
+  m_textLabel = new QLabel();
   m_textLabel->setWordWrap(true);
   m_textLabel->setObjectName("H2");
+  if (!url.isEmpty()) {
+    m_textLabel->setTextFormat(Qt::RichText);
+    m_textLabel->setOpenExternalLinks(true);
+    m_textLabel->setToolTip(url);
+    m_textLabel->setText(
+      QStringLiteral(R"(<a href="%1" style="color: #0055cc; font-weight: bold;">%2</a>)").arg(url, m_plainText.toHtmlEscaped()));
+  } else {
+    m_textLabel->setText(m_plainText);
+  }
   mainHLayout->addWidget(m_textLabel, 10);
 
   mainHLayout->addStretch();
@@ -57,7 +68,7 @@ QSize OSCollapsibleItemHeader::sizeHint() const {
 }
 
 QString OSCollapsibleItemHeader::text() const {
-  return m_textLabel->text();
+  return m_plainText;
 }
 
 bool OSCollapsibleItemHeader::expanded() const {

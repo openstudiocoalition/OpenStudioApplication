@@ -19,28 +19,33 @@
 
 #include <openstudio/utilities/idd/IddEnums.hxx>
 #include <QStackedWidget>
+#include <QStringLiteral>
+#include <tuple>
 
 namespace openstudio {
 
 ConstructionsView::ConstructionsView(bool isIP, const openstudio::model::Model& model, QWidget* parent)
-  : ModelSubTabView(new ModelObjectTypeListView(ConstructionsView::modelObjectTypesAndNames(), model, true, OSItemType::ListItem, false, parent),
-                    new ConstructionsInspectorView(isIP, model, parent), false, parent) {
+  : ModelSubTabView(
+      new ModelObjectTypeListView(ConstructionsView::modelObjectTypesNamesAndUrls(), model, true, OSItemType::ListItem, false, parent),
+      new ConstructionsInspectorView(isIP, model, parent), false, parent) {
   connect(this, &ConstructionsView::toggleUnitsClicked, modelObjectInspectorView(), &ModelObjectInspectorView::toggleUnitsClicked);
 }
 
-std::vector<std::pair<IddObjectType, QString>> ConstructionsView::modelObjectTypesAndNames() {
-  std::vector<std::pair<IddObjectType, QString>> result;
-  result.push_back(std::make_pair<IddObjectType, QString>(IddObjectType::OS_Construction, tr("Constructions")));
-  result.push_back(std::make_pair<IddObjectType, QString>(IddObjectType::OS_Construction_AirBoundary, tr("Air Boundary Constructions")));
-  result.push_back(std::make_pair<IddObjectType, QString>(IddObjectType::OS_Construction_InternalSource, tr("Internal Source Constructions")));
-  result.push_back(
-    std::make_pair<IddObjectType, QString>(IddObjectType::OS_Construction_CfactorUndergroundWall, tr("C-factor Underground Wall Constructions")));
-  result.push_back(
-    std::make_pair<IddObjectType, QString>(IddObjectType::OS_Construction_FfactorGroundFloor, tr("F-factor Ground Floor Constructions")));
-  // Not currently supported
-  //result.push_back(std::make_pair<IddObjectType, QString>(IddObjectType::OS_Construction_WindowDataFile, "Window Data File Constructions"));
+std::vector<std::tuple<IddObjectType, QString, QString>> ConstructionsView::modelObjectTypesNamesAndUrls() {
+  static const QString base = QStringLiteral(BIGLADDERSOFTWARE_DOC_BASE_URL);
+  static const QString sce = base + QStringLiteral("group-surface-construction-elements.html");
 
-  return result;
+  using T = std::tuple<IddObjectType, QString, QString>;
+  return {
+    T{IddObjectType::OS_Construction, tr("Constructions"), sce + "#construction-000"},
+    T{IddObjectType::OS_Construction_AirBoundary, tr("Air Boundary Constructions"), sce + "#constructionairboundary"},
+    T{IddObjectType::OS_Construction_InternalSource, tr("Internal Source Constructions"), sce + "#constructioninternalsource"},
+    T{IddObjectType::OS_Construction_CfactorUndergroundWall, tr("C-factor Underground Wall Constructions"),
+      sce + "#constructioncfactorundergroundwall"},
+    T{IddObjectType::OS_Construction_FfactorGroundFloor, tr("F-factor Ground Floor Constructions"), sce + "#constructionffactorgroundfloor"},
+    // Not currently supported
+    // T{IddObjectType::OS_Construction_WindowDataFile, tr("Window Data File Constructions"), {}},
+  };
 }
 
 ConstructionsInspectorView::ConstructionsInspectorView(bool isIP, const model::Model& model, QWidget* parent)

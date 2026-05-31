@@ -29,44 +29,46 @@
 #include <openstudio/utilities/idd/IddEnums.hxx>
 
 #include <QStackedWidget>
+#include <QStringLiteral>
+#include <tuple>
 
 namespace openstudio {
 
 MaterialsView::MaterialsView(bool isIP, const openstudio::model::Model& model, const QString& tabLabel, bool hasSubTabs, QWidget* parent)
   : ModelSubTabView(
-      new ModelObjectTypeListView(MaterialsView::modelObjectTypesAndNames(), model, true, OSItemType::CollapsibleListHeader, false, parent),
+      new ModelObjectTypeListView(MaterialsView::modelObjectTypesNamesAndUrls(), model, true, OSItemType::CollapsibleListHeader, false, parent),
       new MaterialsInspectorView(isIP, model, parent), false, parent) {
   // ModelObjectTypeListView will call reportItems for each IddObjectType, this results in inspector being build for each IddObjecType then thrown away
   connect(this, &MaterialsView::toggleUnitsClicked, modelObjectInspectorView(), &ModelObjectInspectorView::toggleUnitsClicked);
 }
 
-std::vector<std::pair<IddObjectType, QString>> MaterialsView::modelObjectTypesAndNames() {
-  std::vector<std::pair<IddObjectType, QString>> result;
-  result.push_back(std::make_pair<IddObjectType, QString>(IddObjectType::OS_Material, tr("Materials")));
-  result.push_back(std::make_pair<IddObjectType, QString>(IddObjectType::OS_Material_NoMass, tr("No Mass Materials")));
-  result.push_back(std::make_pair<IddObjectType, QString>(IddObjectType::OS_Material_AirGap, tr("Air Gap Materials")));
+std::vector<std::tuple<IddObjectType, QString, QString>> MaterialsView::modelObjectTypesNamesAndUrls() {
+  static const QString base = QStringLiteral(BIGLADDERSOFTWARE_DOC_BASE_URL);
+  static const QString sce = base + QStringLiteral("group-surface-construction-elements.html");
 
-  result.push_back(
-    std::make_pair<IddObjectType, QString>(IddObjectType::OS_WindowMaterial_SimpleGlazingSystem, tr("Simple Glazing System Window Materials")));
-  result.push_back(std::make_pair<IddObjectType, QString>(IddObjectType::OS_WindowMaterial_Glazing, tr("Glazing Window Materials")));
-  result.push_back(std::make_pair<IddObjectType, QString>(IddObjectType::OS_WindowMaterial_Gas, tr("Gas Window Materials")));
-  result.push_back(std::make_pair<IddObjectType, QString>(IddObjectType::OS_WindowMaterial_GasMixture, tr("Gas Mixture Window Materials")));
-  result.push_back(std::make_pair<IddObjectType, QString>(IddObjectType::OS_WindowMaterial_Blind, tr("Blind Window Materials")));
-  result.push_back(std::make_pair<IddObjectType, QString>(IddObjectType::OS_WindowMaterial_DaylightRedirectionDevice,
-                                                          tr("Daylight Redirection Device Window Materials")));
-  result.push_back(std::make_pair<IddObjectType, QString>(IddObjectType::OS_WindowMaterial_Screen, tr("Screen Window Materials")));
-  result.push_back(std::make_pair<IddObjectType, QString>(IddObjectType::OS_WindowMaterial_Shade, tr("Shade Window Materials")));
-
-  // Oddballs to be listed at the bottom of the list
-  result.push_back(std::make_pair<IddObjectType, QString>(IddObjectType::OS_Material_InfraredTransparent, tr("Infrared Transparent Materials")));
-  result.push_back(std::make_pair<IddObjectType, QString>(IddObjectType::OS_Material_RoofVegetation, tr("Roof Vegetation Materials")));
-  result.push_back(std::make_pair<IddObjectType, QString>(IddObjectType::OS_WindowMaterial_Glazing_RefractionExtinctionMethod,
-                                                          tr("Refraction Extinction Method Glazing Window Materials")));
-
-  // TODO: commented out until ThermochromicGlazing is properly wrapped
-  // result.push_back(std::make_pair<IddObjectType, QString>(IddObjectType::OS_WindowMaterial_GlazingGroup_Thermochromic, "Glazing Group Thermochromic Window Materials"));
-
-  return result;
+  using T = std::tuple<IddObjectType, QString, QString>;
+  return {
+    T{IddObjectType::OS_Material, tr("Materials"), sce + "#material"},
+    T{IddObjectType::OS_Material_NoMass, tr("No Mass Materials"), sce + "#materialnomass"},
+    T{IddObjectType::OS_Material_AirGap, tr("Air Gap Materials"), sce + "#materialairgap"},
+    T{IddObjectType::OS_WindowMaterial_SimpleGlazingSystem, tr("Simple Glazing System Window Materials"),
+      sce + "#windowmaterialsimpleglazingsystem"},
+    T{IddObjectType::OS_WindowMaterial_Glazing, tr("Glazing Window Materials"), sce + "#windowmaterialglazing"},
+    T{IddObjectType::OS_WindowMaterial_Gas, tr("Gas Window Materials"), sce + "#windowmaterialgas"},
+    T{IddObjectType::OS_WindowMaterial_GasMixture, tr("Gas Mixture Window Materials"), sce + "#windowmaterialgasmixture"},
+    T{IddObjectType::OS_WindowMaterial_Blind, tr("Blind Window Materials"), sce + "#windowmaterialblind"},
+    T{IddObjectType::OS_WindowMaterial_DaylightRedirectionDevice, tr("Daylight Redirection Device Window Materials"),
+      sce + "#windowmaterialblind"},
+    T{IddObjectType::OS_WindowMaterial_Screen, tr("Screen Window Materials"), sce + "#windowmaterialscreen"},
+    T{IddObjectType::OS_WindowMaterial_Shade, tr("Shade Window Materials"), sce + "#windowmaterialshade"},
+    // Oddballs at the bottom
+    T{IddObjectType::OS_Material_InfraredTransparent, tr("Infrared Transparent Materials"), sce + "#materialinfraredtransparent"},
+    T{IddObjectType::OS_Material_RoofVegetation, tr("Roof Vegetation Materials"), sce + "#materialroofvegetation"},
+    T{IddObjectType::OS_WindowMaterial_Glazing_RefractionExtinctionMethod, tr("Refraction Extinction Method Glazing Window Materials"),
+      sce + "#windowmaterialglazingrefractionextinctionmethod"},
+    // TODO: commented out until ThermochromicGlazing is properly wrapped
+    // T{IddObjectType::OS_WindowMaterial_GlazingGroup_Thermochromic, tr("Glazing Group Thermochromic Window Materials"), sce + "#windowmaterialglazinggroupthermochromic"},
+  };
 }
 
 MaterialsInspectorView::MaterialsInspectorView(bool isIP, const model::Model& model, QWidget* parent)

@@ -20,6 +20,7 @@
 
 #include <openstudio/utilities/core/Assert.hpp>
 
+#include <QStringLiteral>
 #include <QStyleOption>
 #include <QPainter>
 #include <QVBoxLayout>
@@ -28,32 +29,38 @@
 #include <QStackedWidget>
 #include <QScrollArea>
 #include <sstream>
+#include <tuple>
 
 #include <openstudio/utilities/idd/IddEnums.hxx>
 
 namespace openstudio {
 
 LoadsView::LoadsView(bool isIP, const openstudio::model::Model& model, QWidget* parent)
-  : ModelSubTabView(new ModelObjectTypeListView(LoadsView::modelObjectTypesAndNames(), model, true, OSItemType::CollapsibleListHeader, false, parent),
-                    new LoadsInspectorView(isIP, model, parent), false, parent) {
+  : ModelSubTabView(
+      new ModelObjectTypeListView(LoadsView::modelObjectTypesNamesAndUrls(), model, true, OSItemType::CollapsibleListHeader, false, parent),
+      new LoadsInspectorView(isIP, model, parent), false, parent) {
   connect(this, &LoadsView::toggleUnitsClicked, modelObjectInspectorView(), &ModelObjectInspectorView::toggleUnitsClicked);
 }
 
-std::vector<std::pair<IddObjectType, QString>> LoadsView::modelObjectTypesAndNames() {
-  std::vector<std::pair<IddObjectType, QString>> result;
+std::vector<std::tuple<IddObjectType, QString, QString>> LoadsView::modelObjectTypesNamesAndUrls() {
+  static const QString base = QStringLiteral(BIGLADDERSOFTWARE_DOC_BASE_URL);
+  static const QString iag = base + QStringLiteral("group-internal-gains-people-lights-other.html");
+  static const QString tzg = base + QStringLiteral("group-thermal-zone-description-geometry.html");
+  static const QString wsg = base + QStringLiteral("group-water-systems.html");
 
-  result.push_back(std::make_pair<IddObjectType, QString>(IddObjectType::OS_People_Definition, tr("People Definitions")));
-  result.push_back(std::make_pair<IddObjectType, QString>(IddObjectType::OS_Lights_Definition, tr("Lights Definitions")));
-  result.push_back(std::make_pair<IddObjectType, QString>(IddObjectType::OS_Luminaire_Definition, tr("Luminaire Definitions")));
-  result.push_back(std::make_pair<IddObjectType, QString>(IddObjectType::OS_ElectricEquipment_Definition, tr("Electric Equipment Definitions")));
-  result.push_back(std::make_pair<IddObjectType, QString>(IddObjectType::OS_GasEquipment_Definition, tr("Gas Equipment Definitions")));
-  result.push_back(std::make_pair<IddObjectType, QString>(IddObjectType::OS_SteamEquipment_Definition, tr("Steam Equipment Definitions")));
-  result.push_back(std::make_pair<IddObjectType, QString>(IddObjectType::OS_OtherEquipment_Definition, tr("Other Equipment Definitions")));
-  result.push_back(std::make_pair<IddObjectType, QString>(IddObjectType::OS_InternalMass_Definition, tr("Internal Mass Definitions")));
-  result.push_back(std::make_pair<IddObjectType, QString>(IddObjectType::OS_WaterUse_Equipment_Definition, tr("Water Use Equipment Definitions")));
-  result.push_back(std::make_pair<IddObjectType, QString>(IddObjectType::OS_HotWaterEquipment_Definition, tr("Hot Water Equipment Definitions")));
-
-  return result;
+  using T = std::tuple<IddObjectType, QString, QString>;
+  return {
+    T{IddObjectType::OS_People_Definition, tr("People Definitions"), iag + "#people"},
+    T{IddObjectType::OS_Lights_Definition, tr("Lights Definitions"), iag + "#lights-000"},
+    T{IddObjectType::OS_Luminaire_Definition, tr("Luminaire Definitions"), {}},
+    T{IddObjectType::OS_ElectricEquipment_Definition, tr("Electric Equipment Definitions"), iag + "#electricequipment"},
+    T{IddObjectType::OS_GasEquipment_Definition, tr("Gas Equipment Definitions"), iag + "#gasequipment"},
+    T{IddObjectType::OS_SteamEquipment_Definition, tr("Steam Equipment Definitions"), iag + "#steamequipment"},
+    T{IddObjectType::OS_OtherEquipment_Definition, tr("Other Equipment Definitions"), iag + "#otherequipment"},
+    T{IddObjectType::OS_InternalMass_Definition, tr("Internal Mass Definitions"), tzg + "#internalmass"},
+    T{IddObjectType::OS_WaterUse_Equipment_Definition, tr("Water Use Equipment Definitions"), wsg + "#wateruseequipment"},
+    T{IddObjectType::OS_HotWaterEquipment_Definition, tr("Hot Water Equipment Definitions"), iag + "#hotwaterequipment"},
+  };
 }
 
 void LoadsView::toggleUnits(bool displayIP) {}
