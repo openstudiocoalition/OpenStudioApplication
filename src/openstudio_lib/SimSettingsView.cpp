@@ -7,6 +7,7 @@
 
 #include "CollapsibleInspector.hpp"
 #include "ModelObjectTypeListView.hpp"
+#include "../utilities/OpenStudioApplicationPathHelpers.hpp"
 #include "OSAppBase.hpp"
 #include "../shared_gui_components/OSComboBox.hpp"
 #include "OSDocument.hpp"
@@ -239,7 +240,7 @@ void SimSettingsView::createWidgets() {
   //******************* OS:Timestep *******************
   mainLayout->addWidget(createTimestepWidget());
 
-  static const QString iorf = QStringLiteral(BIGLADDERSOFTWARE_DOC_BASE_URL);
+  static const QString iorf = QString::fromStdString(openstudio::bigladdersoftwareDocBaseUrl());
 
   collapsibleInspector = new CollapsibleInspector(tr("Advanced RunPeriod Parameters"), iorf + "group-location-climate-weather-file-access.html#runperiod", createRunPeriodAdvancedWidget());
   mainLayout->addWidget(collapsibleInspector);
@@ -331,7 +332,7 @@ QWidget* SimSettingsView::createRunPeriodWidget() {
   label->setTextFormat(Qt::RichText);
   label->setOpenExternalLinks(true);
   {
-    static const QString url = QStringLiteral(BIGLADDERSOFTWARE_DOC_BASE_URL "group-location-climate-weather-file-access.html#runperiod");
+    static const QString url = QString::fromStdString(openstudio::bigladdersoftwareDocBaseUrl()) + "group-location-climate-weather-file-access.html#runperiod";
     label->setToolTip(url);
     label->setText(QStringLiteral(R"(<a href="%1" style="color: #0055cc; font-weight: bold; font-size: 14px;">%2</a>)").arg(url, tr("Run Period")));
   }
@@ -615,7 +616,7 @@ QWidget* SimSettingsView::createSizingParametersWidget() {
   label->setTextFormat(Qt::RichText);
   label->setOpenExternalLinks(true);
   {
-    static const QString url = QStringLiteral(BIGLADDERSOFTWARE_DOC_BASE_URL "group-design-objects.html#sizingparameters");
+    static const QString url = QString::fromStdString(openstudio::bigladdersoftwareDocBaseUrl()) + "group-design-objects.html#sizingparameters";
     label->setToolTip(url);
     label->setText(QStringLiteral(R"(<a href="%1" style="color: #0055cc; font-weight: bold; font-size: 14px;">%2</a>)").arg(url, tr("Sizing Parameters")));
   }
@@ -672,7 +673,7 @@ QWidget* SimSettingsView::createTimestepWidget() {
   label->setTextFormat(Qt::RichText);
   label->setOpenExternalLinks(true);
   {
-    static const QString url = QStringLiteral(BIGLADDERSOFTWARE_DOC_BASE_URL "group-simulation-parameters.html#timestep");
+    static const QString url = QString::fromStdString(openstudio::bigladdersoftwareDocBaseUrl()) + "group-simulation-parameters.html#timestep";
     label->setToolTip(url);
     label->setText(QStringLiteral(R"(<a href="%1" style="color: #0055cc; font-weight: bold; font-size: 14px;">%2</a>)").arg(url, tr("Timestep")));
   }

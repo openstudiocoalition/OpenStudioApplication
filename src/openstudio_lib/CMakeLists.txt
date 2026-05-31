@@ -778,9 +778,6 @@ if (NINJA)
   target_compile_definitions(${target_name} PRIVATE NINJA=1)
 endif()
 
-target_compile_definitions(${target_name} PRIVATE
-  "BIGLADDERSOFTWARE_DOC_BASE_URL=\"${BIGLADDERSOFTWARE_DOC_BASE_URL}\"")
-
 set(${target_name}_depends
   openstudio_modeleditor
   openstudio::openstudiolib

@@ -12,6 +12,7 @@
 #include "ConstructionInternalSourceInspectorView.hpp"
 #include "ConstructionWindowDataFileInspectorView.hpp"
 #include "ModelObjectTypeListView.hpp"
+#include "../utilities/OpenStudioApplicationPathHelpers.hpp"
 
 #include <openstudio/model/Model_Impl.hpp>
 
@@ -32,7 +33,7 @@ ConstructionsView::ConstructionsView(bool isIP, const openstudio::model::Model& 
 }
 
 std::vector<std::tuple<IddObjectType, QString, QString>> ConstructionsView::modelObjectTypesNamesAndUrls() {
-  static const QString base = QStringLiteral(BIGLADDERSOFTWARE_DOC_BASE_URL);
+  static const QString base = QString::fromStdString(openstudio::bigladdersoftwareDocBaseUrl());
   static const QString sce = base + QStringLiteral("group-surface-construction-elements.html");
 
   using T = std::tuple<IddObjectType, QString, QString>;

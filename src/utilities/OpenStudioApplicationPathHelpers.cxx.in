@@ -205,6 +205,10 @@ bool isOpenStudioApplicationModuleRunningFromBuildDirectory() {
   return pathBeginsWith(buildDir, runDir);
 }
 
+std::string bigladdersoftwareDocBaseUrl() {
+  return "${BIGLADDERSOFTWARE_DOC_BASE_URL}";
+}
+
 openstudio::path getOpenStudioCoreCLI() {
   openstudio::path cliPath;
 

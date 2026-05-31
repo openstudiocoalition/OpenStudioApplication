@@ -9,11 +9,13 @@
 #include <QString>
 #include <QHash>
 
+#include "../utilities/OpenStudioApplicationPathHelpers.hpp"
+
 // Returns the BigLadder EnergyPlus I/O Reference URL for the given OS IDD type name
 // (e.g. "OS:ThermalZone"), or an empty string if none is known.
 // Base URL version is controlled by ENERGYPLUS_VERSION_MAJOR/MINOR in FindOpenStudioSDK.cmake.
 inline QString iddObjectDocUrl(const QString& iddTypeName) {
-  static const QString base = QStringLiteral(BIGLADDERSOFTWARE_DOC_BASE_URL);
+  static const QString base = QString::fromStdString(openstudio::bigladdersoftwareDocBaseUrl());
 
   // clang-format off
   static const QHash<QString, QString> urlMap{

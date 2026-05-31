@@ -60,6 +60,9 @@ OSAPP_UTILITIES_API bool isOpenStudioApplicationModuleRunningFromBuildDirectory(
 /// \returns The path to the OpenStudio Command Line Interface  if it exists.
 OSAPP_UTILITIES_API openstudio::path getOpenStudioCoreCLI();
 
+/// \returns The base URL for the BigLadder EnergyPlus I/O Reference (versioned, trailing slash included)
+OSAPP_UTILITIES_API std::string bigladdersoftwareDocBaseUrl();
+
 }  // namespace openstudio
 
 #endif  //OSAPP_UTILITIES_APPLICATIONPATHHELPERS_HPP

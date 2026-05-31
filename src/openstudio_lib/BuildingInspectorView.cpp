@@ -4,6 +4,7 @@
 ***********************************************************************************************************************/
 
 #include "BuildingInspectorView.hpp"
+#include "../utilities/OpenStudioApplicationPathHelpers.hpp"
 
 #include "../shared_gui_components/OSComboBox.hpp"
 #include "../shared_gui_components/OSIntegerEdit.hpp"
@@ -443,7 +444,7 @@ BuildingInspectorView::BuildingInspectorView(bool isIP, bool displayAdditionalPr
   label->setOpenExternalLinks(true);
   {
     static const QString url =
-      QStringLiteral(BIGLADDERSOFTWARE_DOC_BASE_URL "group-simulation-parameters.html#building");
+      QString::fromStdString(openstudio::bigladdersoftwareDocBaseUrl()) + "group-simulation-parameters.html#building";
     label->setToolTip(url);
     label->setText(QStringLiteral(R"(<a href="%1" style="color: #0055cc;">%2</a>)").arg(url, tr("North Axis: ")));
   }

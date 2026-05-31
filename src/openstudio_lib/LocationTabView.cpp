@@ -4,6 +4,7 @@
 ***********************************************************************************************************************/
 
 #include "LocationTabView.hpp"
+#include "../utilities/OpenStudioApplicationPathHelpers.hpp"
 
 #include "DesignDayGridView.hpp"
 #include "ModelObjectListView.hpp"
@@ -214,9 +215,8 @@ LocationView::LocationView(bool isIP, const model::Model& model, const QString& 
   label->setTextFormat(Qt::RichText);
   label->setOpenExternalLinks(true);
   {
-    static const QString url = QStringLiteral(
-      BIGLADDERSOFTWARE_DOC_BASE_URL
-      "group-location-climate-weather-file-access.html#group----location----climate----weather-file-access");
+    static const QString url = QString::fromStdString(openstudio::bigladdersoftwareDocBaseUrl())
+      + "group-location-climate-weather-file-access.html#group----location----climate----weather-file-access";
     label->setToolTip(url);
     label->setText(QStringLiteral(R"(<a href="%1" style="color: #0055cc; font-weight: bold;">%2</a>)").arg(url, tr("Weather File")));
   }
@@ -471,7 +471,7 @@ LocationView::LocationView(bool isIP, const model::Model& model, const QString& 
   label->setOpenExternalLinks(true);
   {
     static const QString url =
-      QStringLiteral(BIGLADDERSOFTWARE_DOC_BASE_URL "group-location-climate-weather-file-access.html#sizingperioddesignday");
+      QString::fromStdString(openstudio::bigladdersoftwareDocBaseUrl()) + "group-location-climate-weather-file-access.html#sizingperioddesignday";
     label->setToolTip(url);
     label->setText(QStringLiteral(R"(<a href="%1" style="color: #0055cc; font-weight: bold;">%2</a>)").arg(url, tr("Design Days")));
   }

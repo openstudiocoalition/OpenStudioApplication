@@ -4,6 +4,7 @@
 ***********************************************************************************************************************/
 
 #include "GroundTemperatureView.hpp"
+#include "../utilities/OpenStudioApplicationPathHelpers.hpp"
 
 #include "OSAppBase.hpp"
 #include "OSDocument.hpp"
@@ -101,7 +102,7 @@ GroundTemperatureListView::GroundTemperatureListView(QWidget* parent) : QWidget(
   setLayout(layout);
 
   static const QString lcwBase =
-    QStringLiteral(BIGLADDERSOFTWARE_DOC_BASE_URL "group-location-climate-weather-file-access.html");
+    QString::fromStdString(openstudio::bigladdersoftwareDocBaseUrl()) + "group-location-climate-weather-file-access.html";
   m_bsEntry = new GroundTemperatureEntry(tr("Building Surface Ground Temperatures"),
                                          lcwBase + "#sitegroundtemperaturebuildingsurface", this);
   m_shEntry = new GroundTemperatureEntry(tr("Shallow Ground Temperatures"),

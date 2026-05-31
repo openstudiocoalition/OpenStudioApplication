@@ -11,6 +11,7 @@
 #include "MaterialNoMassInspectorView.hpp"
 #include "MaterialRoofVegetationInspectorView.hpp"
 #include "ModelObjectTypeListView.hpp"
+#include "../utilities/OpenStudioApplicationPathHelpers.hpp"
 #include "WindowMaterialBlindInspectorView.hpp"
 #include "WindowMaterialDaylightRedirectionDeviceInspectorView.hpp"
 #include "WindowMaterialGasInspectorView.hpp"
@@ -43,7 +44,7 @@ MaterialsView::MaterialsView(bool isIP, const openstudio::model::Model& model, c
 }
 
 std::vector<std::tuple<IddObjectType, QString, QString>> MaterialsView::modelObjectTypesNamesAndUrls() {
-  static const QString base = QStringLiteral(BIGLADDERSOFTWARE_DOC_BASE_URL);
+  static const QString base = QString::fromStdString(openstudio::bigladdersoftwareDocBaseUrl());
   static const QString sce = base + QStringLiteral("group-surface-construction-elements.html");
 
   using T = std::tuple<IddObjectType, QString, QString>;

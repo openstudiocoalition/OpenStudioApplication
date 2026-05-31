@@ -5,6 +5,7 @@
 
 #include "LoadsView.hpp"
 #include "ModelObjectTypeListView.hpp"
+#include "../utilities/OpenStudioApplicationPathHelpers.hpp"
 #include "PeopleInspectorView.hpp"
 #include "InternalMassInspectorView.hpp"
 #include "LightsInspectorView.hpp"
@@ -43,7 +44,7 @@ LoadsView::LoadsView(bool isIP, const openstudio::model::Model& model, QWidget* 
 }
 
 std::vector<std::tuple<IddObjectType, QString, QString>> LoadsView::modelObjectTypesNamesAndUrls() {
-  static const QString base = QStringLiteral(BIGLADDERSOFTWARE_DOC_BASE_URL);
+  static const QString base = QString::fromStdString(openstudio::bigladdersoftwareDocBaseUrl());
   static const QString iag = base + QStringLiteral("group-internal-gains-people-lights-other.html");
   static const QString tzg = base + QStringLiteral("group-thermal-zone-description-geometry.html");
   static const QString wsg = base + QStringLiteral("group-water-systems.html");
