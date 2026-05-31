@@ -19,6 +19,7 @@
 #include <QLabel>
 #include <QRadioButton>
 #include <QStackedWidget>
+#include <QStringLiteral>
 #include <QVBoxLayout>
 
 #define OS_EDIT_WIDTH 150
@@ -58,8 +59,16 @@ void LifeCycleCostsView::createWidgets() {
   vLayout->setSpacing(10);
 
   label = new QLabel();
-  label->setText(tr("Life Cycle Cost Parameters"));
   label->setObjectName("H2");
+  label->setTextFormat(Qt::RichText);
+  label->setOpenExternalLinks(true);
+  {
+    static const QString url =
+      QStringLiteral(BIGLADDERSOFTWARE_DOC_BASE_URL "lifecyclecost-parameters.html#lifecyclecostparameters");
+    label->setToolTip(url);
+    label->setText(
+      QStringLiteral(R"(<a href="%1" style="color: #0055cc; font-weight: bold;">%2</a>)").arg(url, tr("Life Cycle Cost Parameters")));
+  }
   vLayout->addWidget(label);
 
   label = new QLabel();
@@ -142,8 +151,16 @@ void LifeCycleCostsView::createWidgets() {
   vLayout->setSpacing(5);
 
   label = new QLabel();
-  label->setText(tr("Use National Institute of Standards and Technology (NIST) Fuel Escalation Rates"));
   label->setObjectName("H2");
+  label->setTextFormat(Qt::RichText);
+  label->setOpenExternalLinks(true);
+  {
+    static const QString url =
+      QStringLiteral(BIGLADDERSOFTWARE_DOC_BASE_URL "lifecyclecost-usepriceescalation.html#lifecyclecostusepriceescalation");
+    label->setToolTip(url);
+    label->setText(QStringLiteral(R"(<a href="%1" style="color: #0055cc; font-weight: bold;">%2</a>)")
+                     .arg(url, tr("Use National Institute of Standards and Technology (NIST) Fuel Escalation Rates")));
+  }
   vLayout->addWidget(label);
 
   m_nistGroup = new QButtonGroup(this);
