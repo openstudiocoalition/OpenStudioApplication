@@ -216,7 +216,7 @@ LocationView::LocationView(bool isIP, const model::Model& model, const QString& 
   label->setOpenExternalLinks(true);
   {
     static const QString url = QString::fromStdString(openstudio::bigladdersoftwareDocBaseUrl())
-      + "group-location-climate-weather-file-access.html#group----location----climate----weather-file-access";
+      + "group-location-climate-weather-file-access.html";
     label->setToolTip(url);
     label->setText(QStringLiteral(R"(<a href="%1" style="color: #0055cc; font-weight: bold;">%2</a>)").arg(url, tr("Weather File")));
   }

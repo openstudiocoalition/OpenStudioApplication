@@ -6,12 +6,28 @@ Scans source files for doc URL strings, fetches each unique page once, checks th
 every anchor referenced actually exists in the page HTML, and reports failures.
 
 Usage:
-    python scripts/check_doc_urls.py [--repo-root PATH]
+    python scripts/check_doc_urls.py [--repo-root PATH] [--delay SEC]
 
 Exit codes:
     0  All URLs valid
     1  One or more broken/missing anchors found
     2  Usage / dependency error
+
+Why a Python script rather than a GTest network test
+-----------------------------------------------------
+BigLadder returns HTTP 200 for *any* URL on an existing page, regardless of whether
+the anchor exists. A plain HTTP HEAD or GET check would silently pass even when an
+anchor has been renamed or removed. Verifying anchor IDs requires fetching the full
+page HTML and scanning for id="..." attributes — straightforward in Python with
+html.parser, but awkward in C++/Qt without a full HTML parser dependency.
+
+GTest network tests were also considered but ruled out because:
+  - They are slow and flaky in CI (network dependency).
+  - QNetworkAccessManager requires a running event loop and async handling.
+  - GTest provides no natural mechanism to fetch-and-parse HTML for anchor checks.
+
+This script runs standalone (no build step), can be invoked as a pre-commit hook or
+CI job, and completes in roughly one second per unique page fetched.
 """
 
 import argparse
