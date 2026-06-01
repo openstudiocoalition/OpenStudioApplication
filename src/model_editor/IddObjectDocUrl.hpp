@@ -464,4 +464,40 @@ inline QString iddObjectDocUrl(const QString& iddTypeName) {
   return {};
 }
 
+// Returns the BigLadder EnergyPlus I/O Reference page URL for a given
+// OpenStudio IDD group name (e.g. "OpenStudio Simulation"), or an empty string
+// if the group has no known BigLadder page. Group names match \group
+// declarations in OpenStudio.idd. Groups that span multiple EnergyPlus
+// chapters (e.g. "OpenStudio HVAC") are omitted.
+inline QString iddGroupDocUrl(const QString& groupName) {
+  static const QString base = QString::fromStdString(openstudio::bigladdersoftwareDocBaseUrl());
+
+  // clang-format off
+  static const QHash<QString, QString> groupMap{
+    {"OpenStudio Core",                              "group-simulation-parameters.html"},
+    {"OpenStudio Simulation",                        "group-simulation-parameters.html"},
+    {"OpenStudio Site",                              "group-location-climate-weather-file-access.html"},
+    {"OpenStudio Materials",                         "group-surface-construction-elements.html"},
+    {"OpenStudio Constructions",                     "group-surface-construction-elements.html"},
+    {"OpenStudio Space Load Definitions",            "group-internal-gains-people-lights-other.html"},
+    {"OpenStudio Exterior Equipment Definitions",    "group-exterior-energy-use-equipment.html"},
+    {"OpenStudio Schedules",                         "group-schedules.html"},
+    {"OpenStudio Geometry",                          "group-thermal-zone-description-geometry.html"},
+    {"OpenStudio Space Loads",                       "group-internal-gains-people-lights-other.html"},
+    {"OpenStudio Exterior Equipment",                "group-exterior-energy-use-equipment.html"},
+    {"OpenStudio Lighting Simulation",               "group-daylighting.html"},
+    {"OpenStudio Refrigeration",                     "group-refrigeration.html"},
+    {"Solar Collectors",                             "group-solar-collectors.html"},
+    {"Energy Management System (EMS)",               "group-energy-management-system-ems.html"},
+    {"User Defined HVAC and Plant Component Models", "group-user-defined-hvac-and-plant-component.html"},
+  };
+  // clang-format on
+
+  auto it = groupMap.constFind(groupName);
+  if (it != groupMap.constEnd()) {
+    return base + it.value();
+  }
+  return {};
+}
+
 #endif  // MODELEDITOR_IDDOBJECTDOCURL_HPP

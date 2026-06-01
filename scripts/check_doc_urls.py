@@ -44,10 +44,11 @@ from urllib.error import URLError
 # Files to scan and the regex patterns that extract URL fragments from them
 # ---------------------------------------------------------------------------
 
-# Matches values in the IddObjectDocUrl.hpp urlMap:
+# Matches values in the IddObjectDocUrl.hpp urlMap and groupMap:
 #   {"OS:Something",  "group-foo.html#anchor"},
+#   {"OpenStudio Group Name",  "group-foo.html"},
 IDDOBJECTDOCURL_PATTERN = re.compile(
-    r'"OS:[^"]+"\s*,\s*"([^"]+\.html(?:#[^"]*)?)"'
+    r'"(?:OS:|OpenStudio |Solar |Electric |Energy |User |Python |Airflow)[^"]*"\s*,\s*"([^"]+\.html(?:#[^"]*)?)"'
 )
 
 # Matches QString URL constructions in .cpp files:
