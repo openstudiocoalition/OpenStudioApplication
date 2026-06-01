@@ -74,8 +74,7 @@ static QString iddFieldDisplayName(const std::string& englishName) {
   const QString qname = QString::fromStdString(englishName);
   if (QLocale().language() != QLocale::English) {
     const QString translated = QCoreApplication::translate("IDD", englishName.c_str());
-    if (translated != qname)
-      return translated + " (" + qname + ")";
+    if (translated != qname) return translated + " (" + qname + ")";
   }
   return qname;
 }

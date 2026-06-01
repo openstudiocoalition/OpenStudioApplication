@@ -55,7 +55,6 @@
 #define LOADING_ARG_TEXT "<FONT COLOR = BLACK>Loading Arguments..."
 #define FAILED_ARG_TEXT "<FONT COLOR = RED>Failed to Show Arguments<FONT COLOR = BLACK> <br> <br>Reason(s): <br> <br>"
 
-
 namespace openstudio {
 
 ApplyMeasureNowDialog::ApplyMeasureNowDialog(QWidget* parent)
