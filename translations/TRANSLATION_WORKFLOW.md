@@ -1,6 +1,11 @@
 # OpenStudio Application — Translation Workflow
 
-This document describes the full pipeline for adding or updating translations in
+> **Note:** This document describes the AI-assisted pipeline used to bootstrap
+> and maintain machine translations. The preferred approach is still to have a
+> bilingual contributor translate directly using Qt Linguist — see the wiki:
+> [Internationalization: Translating the OpenStudioApplication to another target language](https://github.com/openstudiocoalition/OpenStudioApplication/wiki/Internationalization:-Translating-the-OpenStudioApplication-to-another-target-language)
+
+This document describes the AI-assisted pipeline for adding or updating translations in
 `OpenStudioApp_<lang>.ts` files.
 
 ---
