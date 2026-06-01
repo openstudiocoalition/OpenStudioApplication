@@ -69,7 +69,7 @@ inline QString iddObjectDocUrl(const QString& iddTypeName) {
     {"OS:Construction",                                         "group-surface-construction-elements.html#construction-000"},
     {"OS:Construction:InternalSource",                          "group-surface-construction-elements.html#constructioninternalsource"},
     {"OS:Construction:WindowDataFile",                          "group-surface-construction-elements.html#constructionwindowdatafile"},
-    {"OS:WindowProperty:FrameAndDivider",                       "group-surface-construction-elements.html#windowpropertyframeanddivider"},
+    {"OS:WindowProperty:FrameAndDivider",                       "group-thermal-zone-description-geometry.html#windowpropertyframeanddivider"},
 
     // Thermal Zone Description and Geometry
     {"OS:ThermalZone",                      "group-thermal-zone-description-geometry.html"},
@@ -79,7 +79,6 @@ inline QString iddObjectDocUrl(const QString& iddTypeName) {
     {"OS:Surface",                          "group-thermal-zone-description-geometry.html#buildingsurfacedetailed"},
     {"OS:SubSurface",                       "group-thermal-zone-description-geometry.html#fenestrationsurfacedetailed"},
     {"OS:ShadingControl",                   "group-thermal-zone-description-geometry.html#windowpropertyshadingcontrol"},
-    {"OS:InteriorPartitionSurface",         "group-thermal-zone-description-geometry.html#interiorpartitionsurface-detailed"},
     {"OS:InteriorPartitionSurfaceGroup",    "group-thermal-zone-description-geometry.html"},
 
     // Daylighting
@@ -320,15 +319,12 @@ inline QString iddObjectDocUrl(const QString& iddTypeName) {
     {"OS:DistrictCooling",                          "group-plant-equipment.html#districtcooling"},
     {"OS:DistrictHeating",                          "group-plant-equipment.html#districtheating"},
     {"OS:DistrictHeating:Water",                    "group-plant-equipment.html#districtheating"},
-    {"OS:HeatPump:PlantLoop:EIR:Cooling",                  "group-plant-equipment.html#heatpumpplantloopeircooling"},
-    {"OS:HeatPump:PlantLoop:EIR:Heating",                  "group-plant-equipment.html#heatpumpplantloopeirheating"},
+    {"OS:HeatPump:PlantLoop:EIR:Cooling",                  "group-plant-equipment.html#plhp_eir_cooling"},
+    {"OS:HeatPump:PlantLoop:EIR:Heating",                  "group-plant-equipment.html#plhp_eir_heating"},
     {"OS:HeatPump:WaterToWater:EquationFit:Cooling",       "group-plant-equipment.html#heatpumpwatertowaterequationfitcooling"},
     {"OS:HeatPump:WaterToWater:EquationFit:Heating",       "group-plant-equipment.html#heatpumpwatertowaterequationfitheating"},
     {"OS:HeatPump:AirToWater:FuelFired:Cooling",           "group-plant-equipment.html#plhp_fuelfired"},
     {"OS:HeatPump:AirToWater:FuelFired:Heating",           "group-plant-equipment.html#plhp_fuelfired"},
-    {"OS:HeatPump:AirToWater",                             "group-plant-equipment.html#plhp_air_to_water"},
-    {"OS:HeatPump:AirToWater:Cooling",                     "group-plant-equipment.html#plhp_air_to_water"},
-    {"OS:HeatPump:AirToWater:Heating",                     "group-plant-equipment.html#plhp_air_to_water"},
     {"OS:CentralHeatPumpSystem",                           "group-plant-equipment.html#centralheatpumpsystem"},
     {"OS:CentralHeatPumpSystem:Module",                    "group-plant-equipment.html#centralheatpumpsystem"},
     {"OS:ChillerHeaterPerformance:Electric:EIR",           "group-plant-equipment.html#chillerheaterperformancelectriceir"},
