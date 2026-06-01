@@ -4,7 +4,7 @@
 ***********************************************************************************************************************/
 
 #include "BuildingInspectorView.hpp"
-#include "../utilities/OpenStudioApplicationPathHelpers.hpp"
+#include "../model_editor/IddObjectDocUrl.hpp"
 
 #include "../shared_gui_components/OSComboBox.hpp"
 #include "../shared_gui_components/OSIntegerEdit.hpp"
@@ -443,7 +443,7 @@ BuildingInspectorView::BuildingInspectorView(bool isIP, bool displayAdditionalPr
   label->setTextFormat(Qt::RichText);
   label->setOpenExternalLinks(true);
   {
-    static const QString url = QString::fromStdString(openstudio::bigladdersoftwareDocBaseUrl()) + "group-simulation-parameters.html#building";
+    static const QString url = iddObjectDocUrl(QStringLiteral("OS:Building"));
     label->setToolTip(url);
     label->setText(QStringLiteral(R"(<a href="%1" style="color: #0055cc;">%2</a>)").arg(url, tr("North Axis: ")));
   }

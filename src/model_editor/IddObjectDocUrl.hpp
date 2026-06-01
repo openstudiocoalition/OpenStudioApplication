@@ -8,6 +8,7 @@
 
 #include <QString>
 #include <QHash>
+#include <QDebug>
 
 #include "../utilities/OpenStudioApplicationPathHelpers.hpp"
 
@@ -459,7 +460,8 @@ inline QString iddObjectDocUrl(const QString& iddTypeName) {
   if (it != urlMap.constEnd()) {
     return base + it.value();
   }
-  return QString();
+  qWarning() << "Cannot find doc url for: " + iddTypeName;
+  return {};
 }
 
 #endif  // MODELEDITOR_IDDOBJECTDOCURL_HPP
