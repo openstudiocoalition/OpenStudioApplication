@@ -44,8 +44,7 @@ OSCollapsibleItemHeader::OSCollapsibleItemHeader(const QString& text, const OSIt
     m_textLabel->setTextFormat(Qt::RichText);
     m_textLabel->setOpenExternalLinks(true);
     m_textLabel->setToolTip(url);
-    m_textLabel->setText(
-      QStringLiteral(R"(<a href="%1" style="color: #0055cc; font-weight: bold;">%2</a>)").arg(url, m_plainText.toHtmlEscaped()));
+    m_textLabel->setText(QStringLiteral(R"(<a href="%1" style="color: #0055cc; font-weight: bold;">%2</a>)").arg(url, m_plainText.toHtmlEscaped()));
   } else {
     m_textLabel->setText(m_plainText);
   }

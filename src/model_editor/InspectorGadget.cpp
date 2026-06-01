@@ -500,8 +500,7 @@ void InspectorGadget::layoutHeaderText(QVBoxLayout* layout, QWidget* parent, con
     label->setTextFormat(Qt::RichText);
     label->setOpenExternalLinks(true);
     label->setToolTip(docUrl);
-    label->setText(
-      QStringLiteral(R"(<a href="%1" style="color: #ddeeff; font-weight: bold;">%2</a>)").arg(docUrl, typeName.toHtmlEscaped()));
+    label->setText(QStringLiteral(R"(<a href="%1" style="color: #ddeeff; font-weight: bold;">%2</a>)").arg(docUrl, typeName.toHtmlEscaped()));
   } else {
     label->setText(typeName);
   }

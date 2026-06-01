@@ -109,7 +109,7 @@ YearSettingsWidget::YearSettingsWidget(const model::Model& model, QWidget* paren
   dstLabel->setOpenExternalLinks(true);
   {
     static const QString url = QString::fromStdString(openstudio::bigladdersoftwareDocBaseUrl())
-      + "group-location-climate-weather-file-access.html#field-daylight-saving-time-indicator";
+                               + "group-location-climate-weather-file-access.html#field-daylight-saving-time-indicator";
     dstLabel->setToolTip(url);
     dstLabel->setText(QStringLiteral(R"(<a href="%1" style="color: #0055cc; font-weight: bold;">%2</a>)").arg(url, tr("Daylight Savings Time:")));
   }

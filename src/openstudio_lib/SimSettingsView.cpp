@@ -242,7 +242,8 @@ void SimSettingsView::createWidgets() {
 
   static const QString iorf = QString::fromStdString(openstudio::bigladdersoftwareDocBaseUrl());
 
-  collapsibleInspector = new CollapsibleInspector(tr("Advanced RunPeriod Parameters"), iorf + "group-location-climate-weather-file-access.html#runperiod", createRunPeriodAdvancedWidget());
+  collapsibleInspector = new CollapsibleInspector(
+    tr("Advanced RunPeriod Parameters"), iorf + "group-location-climate-weather-file-access.html#runperiod", createRunPeriodAdvancedWidget());
   mainLayout->addWidget(collapsibleInspector);
 
   //******************* OS:RadianceParameters *******************
@@ -250,7 +251,8 @@ void SimSettingsView::createWidgets() {
   mainLayout->addWidget(collapsibleInspector);
 
   //******************* OS:SimulationControl *******************
-  collapsibleInspector = new CollapsibleInspector(tr("Simulation Control"), iorf + "group-simulation-parameters.html#simulationcontrol", createSimulationControlWidget());
+  collapsibleInspector =
+    new CollapsibleInspector(tr("Simulation Control"), iorf + "group-simulation-parameters.html#simulationcontrol", createSimulationControlWidget());
   mainLayout->addWidget(collapsibleInspector);
 
   //******************* OS:ProgramControl *******************
@@ -258,39 +260,53 @@ void SimSettingsView::createWidgets() {
   mainLayout->addWidget(collapsibleInspector);
 
   //******************* OS:OutputControl:ReportingTolerances *******************
-  collapsibleInspector = new CollapsibleInspector(tr("Output Control Reporting Tolerances"), iorf + "input-for-output.html#outputcontrolreportingtolerances", createOutputControlReportingTolerancesWidget());
+  collapsibleInspector =
+    new CollapsibleInspector(tr("Output Control Reporting Tolerances"), iorf + "input-for-output.html#outputcontrolreportingtolerances",
+                             createOutputControlReportingTolerancesWidget());
   mainLayout->addWidget(collapsibleInspector);
 
   //******************* OS:ConvergenceLimits *******************
-  collapsibleInspector = new CollapsibleInspector(tr("Convergence Limits"), iorf + "group-simulation-parameters.html#convergencelimits", createConvergenceLimitsWidget());
+  collapsibleInspector =
+    new CollapsibleInspector(tr("Convergence Limits"), iorf + "group-simulation-parameters.html#convergencelimits", createConvergenceLimitsWidget());
   mainLayout->addWidget(collapsibleInspector);
 
   //******************* OS:ShadowCalculation *******************
-  collapsibleInspector = new CollapsibleInspector(tr("Shadow Calculation"), iorf + "group-simulation-parameters.html#shadowcalculation", createShadowCalculationWidget());
+  collapsibleInspector =
+    new CollapsibleInspector(tr("Shadow Calculation"), iorf + "group-simulation-parameters.html#shadowcalculation", createShadowCalculationWidget());
   mainLayout->addWidget(collapsibleInspector);
 
   //******************* OS:SurfaceConvectionAlgorithm:Inside *******************
-  collapsibleInspector = new CollapsibleInspector(tr("Inside Surface Convection Algorithm"), iorf + "group-simulation-parameters.html#surfaceconvectionalgorithminside", createSurfaceConvectionAlgorithmInsideWidget());
+  collapsibleInspector =
+    new CollapsibleInspector(tr("Inside Surface Convection Algorithm"), iorf + "group-simulation-parameters.html#surfaceconvectionalgorithminside",
+                             createSurfaceConvectionAlgorithmInsideWidget());
   mainLayout->addWidget(collapsibleInspector);
 
   //******************* OS:SurfaceConvectionAlgorithm:Outside *******************
-  collapsibleInspector = new CollapsibleInspector(tr("Outside Surface Convection Algorithm"), iorf + "group-simulation-parameters.html#surfaceconvectionalgorithmoutside", createSurfaceConvectionAlgorithmOutsideWidget());
+  collapsibleInspector =
+    new CollapsibleInspector(tr("Outside Surface Convection Algorithm"), iorf + "group-simulation-parameters.html#surfaceconvectionalgorithmoutside",
+                             createSurfaceConvectionAlgorithmOutsideWidget());
   mainLayout->addWidget(collapsibleInspector);
 
   //******************* OS:HeatBalanceAlgorithm *******************
-  collapsibleInspector = new CollapsibleInspector(tr("Heat Balance Algorithm"), iorf + "group-simulation-parameters.html#heatbalancealgorithm", createHeatBalanceAlgorithmWidget());
+  collapsibleInspector = new CollapsibleInspector(tr("Heat Balance Algorithm"), iorf + "group-simulation-parameters.html#heatbalancealgorithm",
+                                                  createHeatBalanceAlgorithmWidget());
   mainLayout->addWidget(collapsibleInspector);
 
   //******************* OS:ZoneAirHeatBalanceAlgorithm *******************
-  collapsibleInspector = new CollapsibleInspector(tr("Zone Air Heat Balance Algorithm"), iorf + "group-simulation-parameters.html#zoneairheatbalancealgorithm", createZoneAirHeatBalanceAlgorithmWidget());
+  collapsibleInspector =
+    new CollapsibleInspector(tr("Zone Air Heat Balance Algorithm"), iorf + "group-simulation-parameters.html#zoneairheatbalancealgorithm",
+                             createZoneAirHeatBalanceAlgorithmWidget());
   mainLayout->addWidget(collapsibleInspector);
 
   //******************* OS:ZoneAirContaminantBalance *******************
-  collapsibleInspector = new CollapsibleInspector(tr("Zone Air Contaminant Balance"), iorf + "group-simulation-parameters.html#zoneaircontaminantbalance", createZoneAirContaminantBalanceWidget());
+  collapsibleInspector = new CollapsibleInspector(
+    tr("Zone Air Contaminant Balance"), iorf + "group-simulation-parameters.html#zoneaircontaminantbalance", createZoneAirContaminantBalanceWidget());
   mainLayout->addWidget(collapsibleInspector);
 
   //******************* OS:ZoneCapacitanceMultiplier:ResearchSpecial *******************
-  collapsibleInspector = new CollapsibleInspector(tr("Zone Capacitance Multiple Research Special"), iorf + "group-simulation-parameters.html#zonecapacitancemultiplierresearchspecial", createZoneCapacitanceMultipleResearchSpecialWidget());
+  collapsibleInspector = new CollapsibleInspector(tr("Zone Capacitance Multiple Research Special"),
+                                                  iorf + "group-simulation-parameters.html#zonecapacitancemultiplierresearchspecial",
+                                                  createZoneCapacitanceMultipleResearchSpecialWidget());
   mainLayout->addWidget(collapsibleInspector);
 
   //******************* OS:Output:JSON *******************
@@ -298,15 +314,19 @@ void SimSettingsView::createWidgets() {
   mainLayout->addWidget(collapsibleInspector);
 
   //******************* OS:Output:Table:SummaryReports *******************
-  collapsibleInspector = new CollapsibleInspector(tr("Output Table Summary Reports"), iorf + "output-table-summaryreports.html#outputtablesummaryreports", createOutputTableSummaryReportsWidget());
+  collapsibleInspector = new CollapsibleInspector(
+    tr("Output Table Summary Reports"), iorf + "output-table-summaryreports.html#outputtablesummaryreports", createOutputTableSummaryReportsWidget());
   mainLayout->addWidget(collapsibleInspector);
 
   //******************* OS:Output:Diagnostics *******************
-  collapsibleInspector = new CollapsibleInspector(tr("Output Diagnostics"), iorf + "group-simulation-parameters.html#outputdiagnostics", createOutputDiagnosticsWidget());
+  collapsibleInspector =
+    new CollapsibleInspector(tr("Output Diagnostics"), iorf + "group-simulation-parameters.html#outputdiagnostics", createOutputDiagnosticsWidget());
   mainLayout->addWidget(collapsibleInspector);
 
   //******************* OS:OutputControl:ResilienceSummaries *******************
-  collapsibleInspector = new CollapsibleInspector(tr("Output Control Resilience Summaries"), iorf + "input-for-output.html#OutputControlResilienceSummaries", createOutputControlResilienceSummariesWidget());
+  collapsibleInspector =
+    new CollapsibleInspector(tr("Output Control Resilience Summaries"), iorf + "input-for-output.html#OutputControlResilienceSummaries",
+                             createOutputControlResilienceSummariesWidget());
   mainLayout->addWidget(collapsibleInspector);
 
   mainLayout->addStretch();
@@ -332,7 +352,8 @@ QWidget* SimSettingsView::createRunPeriodWidget() {
   label->setTextFormat(Qt::RichText);
   label->setOpenExternalLinks(true);
   {
-    static const QString url = QString::fromStdString(openstudio::bigladdersoftwareDocBaseUrl()) + "group-location-climate-weather-file-access.html#runperiod";
+    static const QString url =
+      QString::fromStdString(openstudio::bigladdersoftwareDocBaseUrl()) + "group-location-climate-weather-file-access.html#runperiod";
     label->setToolTip(url);
     label->setText(QStringLiteral(R"(<a href="%1" style="color: #0055cc; font-weight: bold; font-size: 14px;">%2</a>)").arg(url, tr("Run Period")));
   }
@@ -618,7 +639,8 @@ QWidget* SimSettingsView::createSizingParametersWidget() {
   {
     static const QString url = QString::fromStdString(openstudio::bigladdersoftwareDocBaseUrl()) + "group-design-objects.html#sizingparameters";
     label->setToolTip(url);
-    label->setText(QStringLiteral(R"(<a href="%1" style="color: #0055cc; font-weight: bold; font-size: 14px;">%2</a>)").arg(url, tr("Sizing Parameters")));
+    label->setText(
+      QStringLiteral(R"(<a href="%1" style="color: #0055cc; font-weight: bold; font-size: 14px;">%2</a>)").arg(url, tr("Sizing Parameters")));
   }
   mainLayout->addWidget(label);
 

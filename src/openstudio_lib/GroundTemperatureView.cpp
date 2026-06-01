@@ -57,8 +57,7 @@ GroundTemperatureEntry::GroundTemperatureEntry(const QString& label, const QStri
     m_label->setTextFormat(Qt::RichText);
     m_label->setOpenExternalLinks(true);
     m_label->setToolTip(url);
-    m_label->setText(
-      QStringLiteral(R"(<a href="%1" style="color: #0055cc; font-weight: bold;">%2</a>)").arg(url, label.toHtmlEscaped()));
+    m_label->setText(QStringLiteral(R"(<a href="%1" style="color: #0055cc; font-weight: bold;">%2</a>)").arg(url, label.toHtmlEscaped()));
   } else {
     m_label->setText(label);
   }
@@ -103,16 +102,11 @@ GroundTemperatureListView::GroundTemperatureListView(QWidget* parent) : QWidget(
 
   static const QString lcwBase =
     QString::fromStdString(openstudio::bigladdersoftwareDocBaseUrl()) + "group-location-climate-weather-file-access.html";
-  m_bsEntry = new GroundTemperatureEntry(tr("Building Surface Ground Temperatures"),
-                                         lcwBase + "#sitegroundtemperaturebuildingsurface", this);
-  m_shEntry = new GroundTemperatureEntry(tr("Shallow Ground Temperatures"),
-                                         lcwBase + "#sitegroundtemperatureshallow", this);
-  m_deepEntry = new GroundTemperatureEntry(tr("Deep Ground Temperatures"),
-                                           lcwBase + "#sitegroundtemperaturedeep", this);
-  m_fcEntry = new GroundTemperatureEntry(tr("FCfactorMethod Ground Temperatures"),
-                                         lcwBase + "#sitegroundtemperaturefcfactormethod", this);
-  m_waterMainsEntry = new GroundTemperatureEntry(tr("Water Mains Temperature"),
-                                                 lcwBase + "#sitewatermainstemperature", this);
+  m_bsEntry = new GroundTemperatureEntry(tr("Building Surface Ground Temperatures"), lcwBase + "#sitegroundtemperaturebuildingsurface", this);
+  m_shEntry = new GroundTemperatureEntry(tr("Shallow Ground Temperatures"), lcwBase + "#sitegroundtemperatureshallow", this);
+  m_deepEntry = new GroundTemperatureEntry(tr("Deep Ground Temperatures"), lcwBase + "#sitegroundtemperaturedeep", this);
+  m_fcEntry = new GroundTemperatureEntry(tr("FCfactorMethod Ground Temperatures"), lcwBase + "#sitegroundtemperaturefcfactormethod", this);
+  m_waterMainsEntry = new GroundTemperatureEntry(tr("Water Mains Temperature"), lcwBase + "#sitewatermainstemperature", this);
 
   connect(m_bsEntry, &GroundTemperatureEntry::clicked, this, &GroundTemperatureListView::onBuildingSurfaceClicked);
   connect(m_shEntry, &GroundTemperatureEntry::clicked, this, &GroundTemperatureListView::onShallowClicked);
